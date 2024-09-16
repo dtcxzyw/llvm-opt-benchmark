@@ -209,7 +209,7 @@ declare double @mcv_selectivity(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare zeroext i1 @get_attstatsslot(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @inet_hist_value_sel(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc double @inet_hist_value_sel(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i32 noundef range(i32 -2, 3) %3) unnamed_addr #0 {
   %5 = icmp slt i32 %1, 2
   br i1 %5, label %._crit_edge, label %6
 
@@ -275,7 +275,7 @@ define internal fastcc double @inet_hist_value_sel(ptr nocapture noundef readonl
 
 49:                                               ; preds = %33
   %50 = icmp eq i8 %38, %44
-  %51 = add i32 %3, 1
+  %51 = add nsw i32 %3, 1
   %52 = icmp ult i32 %51, 3
   %or.cond5.i.i = and i1 %52, %50
   br i1 %or.cond5.i.i, label %inet_inclusion_cmp.exit, label %53
@@ -301,7 +301,7 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
 
 .lr.ph:                                           ; preds = %inet_inclusion_cmp.exit
   %61 = icmp sgt i32 %3, -1
-  %62 = add i32 %3, 1
+  %62 = add nsw i32 %3, 1
   %63 = icmp ult i32 %62, 3
   %64 = icmp slt i32 %3, 1
   %65 = icmp eq i32 %3, 0
@@ -368,7 +368,7 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
   %or.cond.i.i66 = and i1 %61, %103
   %104 = icmp eq i8 %96, %100
   %or.cond5.i.i67 = and i1 %63, %104
-  %or.cond111 = or i1 %or.cond.i.i66, %or.cond5.i.i67
+  %or.cond111 = select i1 %or.cond.i.i66, i1 true, i1 %or.cond5.i.i67
   br i1 %or.cond111, label %inet_inclusion_cmp.exit70, label %105
 
 105:                                              ; preds = %91
@@ -1009,12 +1009,12 @@ networkjoinsel_inner.exit:                        ; preds = %188, %189
   br i1 %198, label %201, label %199
 
 199:                                              ; preds = %196
-  %200 = call fastcc double @networkjoinsel_semi(i32 noundef %15, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %200 = call fastcc double @networkjoinsel_semi(i32 noundef %15, ptr noundef %7, ptr noundef %8)
   br label %208
 
 201:                                              ; preds = %196
   %202 = call i32 @get_commutator(i32 noundef %15) #9
-  %203 = call fastcc double @networkjoinsel_semi(i32 noundef %202, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %203 = call fastcc double @networkjoinsel_semi(i32 noundef %202, ptr noundef %8, ptr noundef %7)
   br label %208
 
 204:                                              ; preds = %1
@@ -1070,7 +1070,7 @@ networkjoinsel_inner.exit:                        ; preds = %188, %189
 declare void @get_join_variables(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.FmgrInfo, align 8
   %5 = alloca %struct.AttStatsSlot, align 8
   %6 = alloca %struct.AttStatsSlot, align 8

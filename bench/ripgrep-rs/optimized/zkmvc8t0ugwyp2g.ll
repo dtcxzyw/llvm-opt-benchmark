@@ -299,7 +299,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.
   %12 = add i64 %.sroa.01.0.i.i, 1
   %13 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %4, i64 0, i64 %.sroa.01.0.i.i
   %14 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %8, i64 0, i64 %.sroa.01.0.i.i
-  %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !noalias !45
+  %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %13, ptr noalias noundef readonly align 8 dereferenceable(32) %14), !noalias !45
   br i1 %15, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h01da03b2db7d5e1aE.llvm.16693049746842284375.exit", label %.preheader.split
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h01da03b2db7d5e1aE.llvm.16693049746842284375.exit": ; preds = %.preheader.split, %11, %2
@@ -308,7 +308,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.
 }
 
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %3 = load i64, ptr %0, align 8, !range !22, !alias.scope !46, !noalias !49, !noundef !17
@@ -438,7 +438,7 @@ _ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loo
   %60 = add i64 %.sroa.01.0.i.i.i, 1
   %61 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %52, i64 0, i64 %.sroa.01.0.i.i.i
   %62 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %56, i64 0, i64 %.sroa.01.0.i.i.i
-  %63 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %62), !noalias !102
+  %63 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %61, ptr noalias noundef readonly align 8 dereferenceable(32) %62), !noalias !102
   br i1 %63, label %"_ZN61_$LT$globset..glob..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80930101a78a7388E.exit", label %.preheader.split
 
 "_ZN61_$LT$globset..glob..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80930101a78a7388E.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit, %.lr.ph, %59, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h4cda1ac9dfb4df38E.llvm.85219359881541658.exit.i.i", %29, %.preheader.split.i.i, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader, %39, %24, %2, %12, %13, %19
@@ -634,7 +634,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
   %12 = add i64 %.sroa.01.0.i, 1
   %13 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %4, i64 0, i64 %.sroa.01.0.i
   %14 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %8, i64 0, i64 %.sroa.01.0.i
-  %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14)
+  %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %13, ptr noalias noundef readonly align 8 dereferenceable(32) %14)
   br i1 %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd796f3b6d0c7785aE.exit", label %.preheader.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd796f3b6d0c7785aE.exit": ; preds = %.preheader.split, %11, %2
@@ -688,7 +688,7 @@ _ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loo
   %17 = add i64 %.sroa.01.0.i.i.i, 1
   %18 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %9, i64 0, i64 %.sroa.01.0.i.i.i
   %19 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %13, i64 0, i64 %.sroa.01.0.i.i.i
-  %20 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %19), !noalias !128
+  %20 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %18, ptr noalias noundef readonly align 8 dereferenceable(32) %19), !noalias !128
   br i1 %20, label %.thread, label %.preheader.split.i
 }
 
@@ -1176,7 +1176,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$globset..glob..Tokens$u20$as$u20$co
   %12 = add i64 %.sroa.01.0.i.i, 1
   %13 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %4, i64 0, i64 %.sroa.01.0.i.i
   %14 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %8, i64 0, i64 %.sroa.01.0.i.i
-  %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !noalias !217
+  %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %13, ptr noalias noundef readonly align 8 dereferenceable(32) %14), !noalias !217
   br i1 %15, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h01da03b2db7d5e1aE.llvm.16693049746842284375.exit", label %.preheader.split.i
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h01da03b2db7d5e1aE.llvm.16693049746842284375.exit": ; preds = %.preheader.split.i, %11, %2

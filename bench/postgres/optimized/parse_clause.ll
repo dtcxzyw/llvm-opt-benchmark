@@ -130,7 +130,7 @@ define dso_local void @transformFromClause(ptr noundef %0, ptr noundef readonly 
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = call fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %14 = call fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef %13, ptr noundef %3, ptr noundef %4)
   %15 = load ptr, ptr %7, align 8
   %16 = load ptr, ptr %4, align 8
   tail call void @checkNameSpaceConflicts(ptr noundef %0, ptr noundef %15, ptr noundef %16) #9
@@ -205,7 +205,7 @@ setNamespaceLateralState.exit23:                  ; preds = %.lr.ph16.i20, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca [1 x i32], align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1278,7 +1278,7 @@ transformRangeTableSample.exit:                   ; preds = %.thread.i, %574
 579:                                              ; preds = %4
   %580 = getelementptr inbounds i8, ptr %1, i64 16
   %581 = load ptr, ptr %580, align 8
-  %582 = call fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef %581, ptr noundef nonnull %9, ptr noundef nonnull %11)
+  %582 = call fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef %581, ptr noundef %9, ptr noundef %11)
   store ptr %582, ptr %580, align 8
   %583 = getelementptr inbounds i8, ptr %1, i64 4
   %584 = load i32, ptr %583, align 4
@@ -1327,7 +1327,7 @@ list_length.exit:                                 ; preds = %setNamespaceLateral
   store ptr %605, ptr %599, align 8
   %606 = getelementptr inbounds i8, ptr %1, i64 24
   %607 = load ptr, ptr %606, align 8
-  %608 = call fastcc ptr @transformFromClauseItem(ptr noundef nonnull %0, ptr noundef %607, ptr noundef nonnull %10, ptr noundef nonnull %12)
+  %608 = call fastcc ptr @transformFromClauseItem(ptr noundef nonnull %0, ptr noundef %607, ptr noundef %10, ptr noundef %12)
   store ptr %608, ptr %606, align 8
   %609 = load ptr, ptr %599, align 8
   %610 = tail call ptr @list_truncate(ptr noundef %609, i32 noundef %604) #9
@@ -2138,11 +2138,11 @@ buildMergedJoinVar.exit:                          ; preds = %976, %977, %980, %9
   %.0328 = phi i32 [ 0, %885 ], [ %.us-phi610, %.thread465.loopexit ]
   %1014 = sext i32 %.0328 to i64
   %1015 = getelementptr %struct.ParseNamespaceColumn, ptr %678, i64 %1014
-  %1016 = call fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef %615, ptr noundef %618, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %1015)
+  %1016 = call fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef %615, ptr noundef %618, ptr noundef %14, ptr noundef %13, ptr noundef %16, ptr noundef %1015)
   %1017 = add i32 %1016, %.0328
   %1018 = sext i32 %1017 to i64
   %1019 = getelementptr %struct.ParseNamespaceColumn, ptr %678, i64 %1018
-  %1020 = call fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef %621, ptr noundef %624, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %1019)
+  %1020 = call fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef %621, ptr noundef %624, ptr noundef %15, ptr noundef %13, ptr noundef %16, ptr noundef %1019)
   %1021 = add i32 %1017, %1020
   %1022 = getelementptr inbounds i8, ptr %1, i64 56
   %1023 = load ptr, ptr %1022, align 8
@@ -2527,12 +2527,12 @@ define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr n
   br label %49
 
 33:                                               ; preds = %28, %28, %28
-  %34 = call fastcc ptr @transformGroupingSet(ptr noundef nonnull %8, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
+  %34 = call fastcc ptr @transformGroupingSet(ptr noundef %8, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
   %35 = call ptr @lappend(ptr noundef %.0385366, ptr noundef %34) #9
   br label %49
 
 36:                                               ; preds = %.lr.ph68
-  %37 = call fastcc i32 @transformGroupClauseExpr(ptr noundef nonnull %8, ptr noundef %.0405267, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext true)
+  %37 = call fastcc i32 @transformGroupClauseExpr(ptr noundef %8, ptr noundef %.0405267, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext true)
   %.not48 = icmp eq i32 %37, 0
   br i1 %.not48, label %49, label %38
 
@@ -2738,7 +2738,7 @@ declare ptr @makeGroupingSet(i32 noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformGroupingSet(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc ptr @transformGroupingSet(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
@@ -3014,7 +3014,7 @@ list_length.exit.thread:                          ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @transformGroupClauseExpr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef readonly %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc i32 @transformGroupClauseExpr(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef readonly %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   br i1 %7, label %10, label %12
 
 10:                                               ; preds = %9
@@ -5389,7 +5389,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %.not = icmp eq ptr %8, null

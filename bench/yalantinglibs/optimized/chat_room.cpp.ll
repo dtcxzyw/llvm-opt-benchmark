@@ -57591,7 +57591,7 @@ if.then106.i:                                     ; preds = %if.end90.i
 
 _ZN7cinatra6detailL13parse_requestEPKcS2_PS2_PmS3_S4_PiPNS_11http_headerES4_mS5_.exit: ; preds = %if.end97.i, %if.then106.i
   %buf.addr.3.i = phi ptr [ %incdec.ptr98.i, %if.end97.i ], [ %incdec.ptr107.i, %if.then106.i ]
-  %call111.i = call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %buf.addr.3.i, ptr noundef %add.ptr, ptr noundef %headers, ptr noundef nonnull %num_headers, i64 noundef %0, ptr noundef nonnull %r)
+  %call111.i = call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef %buf.addr.3.i, ptr noundef %add.ptr, ptr noundef %headers, ptr noundef nonnull %num_headers, i64 noundef %0, ptr noundef %r)
   %cmp4 = icmp eq ptr %call111.i, null
   br i1 %cmp4, label %_ZN7cinatra6detailL13parse_requestEPKcS2_PS2_PmS3_S4_PiPNS_11http_headerES4_mS5_.exit.if.then5_crit_edge, label %if.end6
 
@@ -58023,7 +58023,7 @@ if.end42:                                         ; preds = %entry, %if.then37, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef %buf, ptr noundef %buf_end, ptr nocapture noundef writeonly %headers, ptr nocapture noundef %num_headers, i64 noundef %max_headers, ptr nocapture noundef writeonly %ret) unnamed_addr #31 {
+define internal fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %buf, ptr noundef %buf_end, ptr nocapture noundef writeonly %headers, ptr nocapture noundef %num_headers, i64 noundef %max_headers, ptr nocapture noundef nonnull writeonly %ret) unnamed_addr #31 {
 entry:
   %cmp71 = icmp eq ptr %buf, %buf_end
   br i1 %cmp71, label %if.then, label %if.end.lr.ph

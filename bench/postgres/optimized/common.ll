@@ -597,7 +597,7 @@ define dso_local range(i32 -1, 2) i32 @PSQLexecWatch(ptr noundef %0, ptr noundef
 9:                                                ; preds = %4
   %10 = trunc i8 %6 to i1
   tail call void @SetCancelConn(ptr noundef nonnull %7) #16
-  %11 = call fastcc i32 @ExecQueryAndProcessResults(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null, i1 noundef zeroext true, i32 noundef %3, ptr noundef %1, ptr noundef %2)
+  %11 = call fastcc i32 @ExecQueryAndProcessResults(ptr noundef %0, ptr noundef %5, ptr noundef null, i1 noundef zeroext true, i32 noundef %3, ptr noundef %1, ptr noundef %2)
   tail call void @ResetCancelConn() #16
   br i1 %10, label %12, label %14
 
@@ -612,7 +612,7 @@ define dso_local range(i32 -1, 2) i32 @PSQLexecWatch(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @ExecQueryAndProcessResults(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ExecQueryAndProcessResults(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca %struct.timespec, align 8
   %10 = alloca ptr, align 8
@@ -2263,12 +2263,12 @@ DescribeQuery.exit:                               ; preds = %502, %500, %496, %4
   br i1 %540, label %543, label %is_select_command.exit
 
 is_select_command.exit:                           ; preds = %538, %._crit_edge.i74, %.preheader.i, %509, %506, %503
-  %541 = call fastcc i32 @ExecQueryAndProcessResults(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %541 = call fastcc i32 @ExecQueryAndProcessResults(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, ptr noundef null)
   %542 = icmp sgt i32 %541, 0
   br label %545
 
 543:                                              ; preds = %535, %538
-  %544 = call fastcc zeroext i1 @ExecQueryUsingCursor(ptr noundef %0, ptr noundef nonnull %5)
+  %544 = call fastcc zeroext i1 @ExecQueryUsingCursor(ptr noundef %0, ptr noundef %5)
   br label %545
 
 545:                                              ; preds = %is_select_command.exit, %543, %DescribeQuery.exit
@@ -2508,7 +2508,7 @@ declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #2
 declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ExecQueryUsingCursor(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ExecQueryUsingCursor(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca [32 x i8], align 16
@@ -3656,7 +3656,7 @@ define internal fastcc zeroext i1 @PrintQueryResult(ptr noundef %0, i1 noundef z
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc zeroext i1 @ExecQueryTuples(ptr noundef nonnull %0)
+  %17 = tail call fastcc zeroext i1 @ExecQueryTuples(ptr noundef %0)
   br label %.thread
 
 18:                                               ; preds = %13
@@ -3674,7 +3674,7 @@ define internal fastcc zeroext i1 @PrintQueryResult(ptr noundef %0, i1 noundef z
   br i1 %24, label %.critedge, label %.thread31.thread
 
 .critedge:                                        ; preds = %18, %.critedge28
-  %25 = tail call fastcc zeroext i1 @PrintQueryTuples(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3)
+  %25 = tail call fastcc zeroext i1 @PrintQueryTuples(ptr noundef %0, ptr noundef %2, ptr noundef %3)
   br label %26
 
 26:                                               ; preds = %.critedge, %10
@@ -3704,7 +3704,7 @@ define internal fastcc zeroext i1 @PrintQueryResult(ptr noundef %0, i1 noundef z
   br i1 %35, label %36, label %.thread31.thread
 
 36:                                               ; preds = %33, %30, %.thread
-  tail call fastcc void @PrintQueryStatus(ptr noundef nonnull %0, ptr noundef %4)
+  tail call fastcc void @PrintQueryStatus(ptr noundef %0, ptr noundef %4)
   br label %.thread31.thread
 
 37:                                               ; preds = %6
@@ -3716,7 +3716,7 @@ define internal fastcc zeroext i1 @PrintQueryResult(ptr noundef %0, i1 noundef z
   br i1 %40, label %41, label %.thread31.thread
 
 41:                                               ; preds = %38, %37
-  tail call fastcc void @PrintQueryStatus(ptr noundef nonnull %0, ptr noundef %4)
+  tail call fastcc void @PrintQueryStatus(ptr noundef %0, ptr noundef %4)
   br label %.thread31.thread
 
 42:                                               ; preds = %6, %6, %6
@@ -3801,9 +3801,9 @@ define internal fastcc noundef zeroext i1 @StoreQueryTuple(ptr noundef %0) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ExecQueryTuples(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call i32 @PQntuples(ptr noundef %0) #16
-  %3 = tail call i32 @PQnfields(ptr noundef %0) #16
+define internal fastcc zeroext i1 @ExecQueryTuples(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call i32 @PQntuples(ptr noundef nonnull %0) #16
+  %3 = tail call i32 @PQnfields(ptr noundef nonnull %0) #16
   store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 241), align 1
   %4 = icmp sgt i32 %2, 0
   %5 = icmp sgt i32 %3, 0
@@ -3818,12 +3818,12 @@ define internal fastcc zeroext i1 @ExecQueryTuples(ptr noundef %0) unnamed_addr 
 6:                                                ; preds = %.preheader.us, %26
   %.123.us = phi i1 [ %.025.us, %.preheader.us ], [ %.3.us, %26 ]
   %.01622.us = phi i32 [ 0, %.preheader.us ], [ %27, %26 ]
-  %7 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.01724.us, i32 noundef %.01622.us) #16
+  %7 = tail call i32 @PQgetisnull(ptr noundef nonnull %0, i32 noundef %.01724.us, i32 noundef %.01622.us) #16
   %.not.us = icmp eq i32 %7, 0
   br i1 %.not.us, label %8, label %26
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.01724.us, i32 noundef %.01622.us) #16
+  %9 = tail call ptr @PQgetvalue(ptr noundef nonnull %0, i32 noundef %.01724.us, i32 noundef %.01622.us) #16
   %10 = load volatile i32, ptr @cancel_pressed, align 4
   %.not18.us = icmp eq i32 %10, 0
   br i1 %.not18.us, label %11, label %.loopexit
@@ -3873,14 +3873,14 @@ define internal fastcc zeroext i1 @ExecQueryTuples(ptr noundef %0) unnamed_addr 
 declare zeroext i1 @PrintResultInCrosstab(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @PrintQueryTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @PrintQueryTuples(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
   %5 = select i1 %.not, ptr %4, ptr %2
   %.not8 = icmp eq ptr %1, null
   %6 = select i1 %.not8, ptr getelementptr inbounds (i8, ptr @pset, i64 48), ptr %1
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
-  tail call void @printQuery(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %5, i1 noundef zeroext false, ptr noundef %7) #16
+  tail call void @printQuery(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %5, i1 noundef zeroext false, ptr noundef %7) #16
   %8 = tail call i32 @fflush(ptr noundef %5)
   %9 = tail call i32 @ferror(ptr noundef %5) #16
   %.not9 = icmp eq i32 %9, 0
@@ -3900,7 +3900,7 @@ declare ptr @PQcmdStatus(ptr noundef) local_unnamed_addr #2
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PrintQueryStatus(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @PrintQueryStatus(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %.not = icmp eq ptr %1, null
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
@@ -3916,13 +3916,13 @@ define internal fastcc void @PrintQueryStatus(ptr noundef %0, ptr noundef %1) un
 
 11:                                               ; preds = %8
   %12 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %5)
-  %13 = tail call ptr @PQcmdStatus(ptr noundef %0) #16
+  %13 = tail call ptr @PQcmdStatus(ptr noundef nonnull %0) #16
   tail call void @html_escaped_print(ptr noundef %13, ptr noundef %5) #16
   %14 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 5, i64 1, ptr %5)
   br label %18
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @PQcmdStatus(ptr noundef %0) #16
+  %16 = tail call ptr @PQcmdStatus(ptr noundef nonnull %0) #16
   %17 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %5, ptr noundef nonnull @.str.60, ptr noundef %16) #16
   br label %18
 
@@ -3936,12 +3936,12 @@ define internal fastcc void @PrintQueryStatus(ptr noundef %0, ptr noundef %1) un
   br i1 %.not11, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call ptr @PQcmdStatus(ptr noundef %0) #16
+  %23 = tail call ptr @PQcmdStatus(ptr noundef nonnull %0) #16
   %24 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.60, ptr noundef %23) #16
   br label %25
 
 25:                                               ; preds = %22, %20
-  %26 = tail call i32 @PQoidValue(ptr noundef %0) #16
+  %26 = tail call i32 @PQoidValue(ptr noundef nonnull %0) #16
   %27 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 16, ptr noundef nonnull @.str.61, i32 noundef %26) #16
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
   %29 = call zeroext i1 @SetVariable(ptr noundef %28, ptr noundef nonnull @.str.62, ptr noundef nonnull %3) #16

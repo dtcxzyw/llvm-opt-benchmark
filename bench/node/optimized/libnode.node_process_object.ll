@@ -556,7 +556,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
   %ref.tmp302.sroa.5.16.second3.i214.sroa_idx = getelementptr inbounds i8, ptr %versions_array, i64 792
   store ptr %62, ptr %ref.tmp302.sroa.5.16.second3.i214.sroa_idx, align 8
   %arrayidx309 = getelementptr inbounds i8, ptr %versions_array, i64 800
-  call fastcc void @"_ZSt16__introsort_loopIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_SF_T0_T1_"(ptr noundef nonnull %versions_array, ptr noundef nonnull %arrayidx309, i64 noundef 8)
+  call fastcc void @"_ZSt16__introsort_loopIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_SF_T0_T1_"(ptr noundef %versions_array, ptr noundef %arrayidx309, i64 noundef 8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__val.i)
   %second.i.i = getelementptr inbounds i8, ptr %__val.i, i64 16
   br label %for.body.i
@@ -2805,7 +2805,7 @@ declare void @_ZN2v812api_internal17FromJustIsNothingEv() local_unnamed_addr #0
 declare noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_SF_T0_T1_"(ptr noundef %__first, ptr noundef %__last, i64 noundef %__depth_limit) unnamed_addr #12 {
+define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_SF_T0_T1_"(ptr noundef nonnull %__first, ptr noundef nonnull %__last, i64 noundef %__depth_limit) unnamed_addr #12 {
 entry:
   %__tmp.i2.i.i.i.i9.i = alloca %"class.std::basic_string_view", align 8
   %__tmp.i.i.i.i.i10.i = alloca %"class.std::basic_string_view", align 8
@@ -2868,7 +2868,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.i, %
   %sub.ptr.lhs.cast.i.i7.i = ptrtoint ptr %incdec.ptr.i5.i to i64
   %sub.ptr.sub.i.i8.i = sub i64 %sub.ptr.lhs.cast.i.i7.i, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i9.i = ashr exact i64 %sub.ptr.sub.i.i8.i, 5
-  tail call fastcc void @"_ZSt13__adjust_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i.i9.i, ptr noundef nonnull byval(%"struct.std::pair") align 8 %agg.tmp.i.i3.i)
+  tail call fastcc void @"_ZSt13__adjust_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i.i9.i, ptr noundef nonnull byval(%"struct.std::pair") align 8 %agg.tmp.i.i3.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i3.i)
   %cmp.i10.i = icmp sgt i64 %sub.ptr.sub.i.i8.i, 32
   br i1 %cmp.i10.i, label %while.body.i.i, label %while.end, !llvm.loop !21
@@ -3161,7 +3161,7 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i12, !llvm.loop !24
 
 "_ZSt27__unguarded_partition_pivotIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEET_SF_SF_T0_.exit": ; preds = %while.end8.i.i
-  tail call fastcc void @"_ZSt16__introsort_loopIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_SF_T0_T1_"(ptr noundef nonnull %__first.addr.1.i.i, ptr noundef %__last.addr.023, i64 noundef %dec)
+  tail call fastcc void @"_ZSt16__introsort_loopIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_SF_T0_T1_"(ptr noundef %__first.addr.1.i.i, ptr noundef %__last.addr.023, i64 noundef %dec)
   %sub.ptr.lhs.cast = ptrtoint ptr %__first.addr.1.i.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 512
@@ -3172,7 +3172,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef readonly byval(%"struct.std::pair") align 8 %__value) unnamed_addr #13 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef nonnull %__first, i64 noundef range(i64 0, 144115188075855871) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr nocapture noundef readonly byval(%"struct.std::pair") align 8 %__value) unnamed_addr #13 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

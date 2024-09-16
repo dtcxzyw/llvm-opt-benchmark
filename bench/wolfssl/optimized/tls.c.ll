@@ -822,7 +822,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end47.i, %if.end
   %24 = xor i32 %shr21.i, -1
   %25 = xor i32 %and15.i, -1
   %sub97.i = add nsw i32 %switch.load56, -8
-  %cmp123176.i.not = icmp eq i8 %0, 0
+  %cmp123176.not.i = icmp eq i8 %0, 0
   %26 = zext nneg i32 %sub97.i to i64
   %wide.trip.count.i = zext nneg i32 %switch.load56 to i64
   br label %for.body.i
@@ -963,7 +963,7 @@ Hmac_HashFinalRaw.exit.i:                         ; preds = %sw.bb8.i.i, %sw.bb5
   br i1 %cmp118.not.i, label %for.cond122.preheader.i, label %Hmac_UpdateFinal_CT.exit
 
 for.cond122.preheader.i:                          ; preds = %Hmac_HashFinalRaw.exit.i
-  br i1 %cmp123176.i.not, label %for.inc141.i, label %for.body125.i
+  br i1 %cmp123176.not.i, label %for.inc141.i, label %for.body125.i
 
 for.body125.i:                                    ; preds = %for.cond122.preheader.i, %for.body125.i
   %indvars.iv183.i = phi i64 [ %indvars.iv.next184.i, %for.body125.i ], [ 0, %for.cond122.preheader.i ]
@@ -1920,7 +1920,7 @@ if.end173:                                        ; preds = %while.body161
 if.then178:                                       ; preds = %if.end173
   %add182 = add nuw nsw i32 %or.i127, 3
   %conv183 = zext i16 %listLen.0150 to i32
-  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %add182, i32 %conv183)
+  %cond.i = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 %add182, i32 %conv183)
   %23 = trunc nuw i32 %cond.i to i16
   %conv185 = sub i16 %listLen.0150, %23
   %cmp159 = icmp ugt i16 %conv185, 3
@@ -1928,7 +1928,7 @@ if.then178:                                       ; preds = %if.end173
 
 if.end186:                                        ; preds = %if.end173
   %24 = load i32, ptr %inOutSz, align 4
-  %cond.i128 = tail call noundef i32 @llvm.umin.i32(i32 %or.i127, i32 %24)
+  %cond.i128 = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 %or.i127, i32 %24)
   store i32 %cond.i128, ptr %inOutSz, align 4
   %idx.ext189 = zext i32 %add167 to i64
   %add.ptr190 = getelementptr inbounds i8, ptr %clientHello, i64 %idx.ext189
@@ -1940,7 +1940,7 @@ if.end192:                                        ; preds = %if.then178, %while.
   %offset.1 = phi i32 [ %add137, %if.end141 ], [ %add150, %while.cond157.preheader ], [ %add169, %if.then178 ]
   %add194 = add nuw nsw i32 %or.i119, 4
   %conv195 = zext i16 %len16.0153 to i32
-  %cond.i129 = tail call noundef i32 @llvm.umin.i32(i32 %add194, i32 %conv195)
+  %cond.i129 = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 %add194, i32 %conv195)
   %25 = trunc nuw i32 %cond.i129 to i16
   %conv199 = sub i16 %len16.0153, %25
   %cmp128 = icmp ugt i16 %conv199, 3
@@ -5122,7 +5122,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end4
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i ], [ 0, %if.end4 ]
   %arrayidx.i = getelementptr inbounds i16, ptr %groups.0.i, i64 %indvars.iv
   %8 = load i16, ptr %arrayidx.i, align 2
-  %cmp12.i = icmp eq i16 %8, %4
+  %cmp12.i = icmp eq i16 %4, %8
   br i1 %cmp12.i, label %return.split.loop.exit6.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -5363,7 +5363,7 @@ for.body.i26:                                     ; preds = %for.inc.i, %if.end4
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i ], [ 0, %if.end49 ]
   %arrayidx.i = getelementptr inbounds i16, ptr %groups.0.i, i64 %indvars.iv
   %18 = load i16, ptr %arrayidx.i, align 2
-  %cmp12.i = icmp eq i16 %18, %6
+  %cmp12.i = icmp eq i16 %6, %18
   br i1 %cmp12.i, label %return.split.loop.exit6.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i26
@@ -6181,7 +6181,7 @@ if.end76:                                         ; preds = %if.end76.sink.split
   br i1 %tobool77.not, label %if.end86, label %if.then78
 
 if.then78:                                        ; preds = %if.end76
-  %call81 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %6, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length)
+  %call81 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %6, ptr noundef %semaphore, i8 noundef zeroext %msgType, ptr noundef %length)
   %cmp82.not = icmp eq i32 %call81, 0
   br i1 %cmp82.not, label %if.end86, label %return
 
@@ -6197,7 +6197,7 @@ land.lhs.true:                                    ; preds = %if.end86
   br i1 %tobool91.not, label %if.end101, label %if.then92
 
 if.then92:                                        ; preds = %land.lhs.true
-  %call96 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %8, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length)
+  %call96 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %8, ptr noundef %semaphore, i8 noundef zeroext %msgType, ptr noundef %length)
   %cmp97.not = icmp eq i32 %call96, 0
   br i1 %cmp97.not, label %if.end101, label %return
 
@@ -6249,7 +6249,7 @@ return:                                           ; preds = %entry, %if.then92, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly %list, ptr nocapture noundef %semaphore, i8 noundef zeroext %msgType, ptr nocapture noundef %pLength) unnamed_addr #9 {
+define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly %list, ptr nocapture noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr nocapture noundef nonnull %pLength) unnamed_addr #9 {
 entry:
   %tobool.not6873 = icmp eq ptr %list, null
   br i1 %tobool.not6873, label %while.end, label %while.body.lr.ph.lr.ph
@@ -6655,7 +6655,7 @@ if.end79:                                         ; preds = %if.end79.sink.split
 
 if.then81:                                        ; preds = %if.end79
   %add.ptr = getelementptr inbounds i8, ptr %output, i64 2
-  %call85 = call fastcc i32 @TLSX_Write(ptr noundef nonnull %6, ptr noundef nonnull %add.ptr, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %offset)
+  %call85 = call fastcc i32 @TLSX_Write(ptr noundef nonnull %6, ptr noundef %add.ptr, ptr noundef %semaphore, i8 noundef zeroext %msgType, ptr noundef %offset)
   %cmp86.not = icmp eq i32 %call85, 0
   br i1 %cmp86.not, label %if.end90, label %return
 
@@ -6674,7 +6674,7 @@ if.then96:                                        ; preds = %land.lhs.true
   %9 = load i16, ptr %offset, align 2
   %idx.ext100 = zext i16 %9 to i64
   %add.ptr101 = getelementptr inbounds i8, ptr %output, i64 %idx.ext100
-  %call103 = call fastcc i32 @TLSX_Write(ptr noundef nonnull %8, ptr noundef %add.ptr101, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %offset)
+  %call103 = call fastcc i32 @TLSX_Write(ptr noundef nonnull %8, ptr noundef %add.ptr101, ptr noundef %semaphore, i8 noundef zeroext %msgType, ptr noundef %offset)
   %cmp104.not = icmp eq i32 %call103, 0
   br i1 %cmp104.not, label %if.end108, label %return
 
@@ -6754,7 +6754,7 @@ return:                                           ; preds = %entry, %if.then96, 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly %list, ptr noundef %output, ptr nocapture noundef %semaphore, i8 noundef zeroext %msgType, ptr nocapture noundef %pOffset) unnamed_addr #12 {
+define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly %list, ptr noundef nonnull %output, ptr nocapture noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr nocapture noundef nonnull %pOffset) unnamed_addr #12 {
 entry:
   %0 = add i8 %msgType, -3
   %or.cond.i = icmp ult i8 %0, -2
@@ -6873,7 +6873,7 @@ sw.bb.i:                                          ; preds = %while.body.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr30, i64 %idx.ext7.i
   %13 = load ptr, ptr %data.i, align 8
   %conv10.i = and i64 %call.i, 65535
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr8.i, ptr align 1 %13, i64 %conv10.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr8.i, ptr align 1 %13, i64 %conv10.i, i1 false)
   %add13.i = add i16 %add.i, %conv2.i
   br label %sw.epilog.i
 
@@ -7246,7 +7246,7 @@ while.body.us.us.i:                               ; preds = %if.end.split.us.i, 
   %63 = load ptr, ptr %pubKey29.us.i, align 8
   %64 = load i32, ptr %pubKeyLen.us.i, align 8
   %conv31.us.i = zext i32 %64 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx28.us.i, ptr align 1 %63, i64 %conv31.us.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx28.us.i, ptr align 1 %63, i64 %conv31.us.i, i1 false)
   %65 = load i32, ptr %pubKeyLen.us.i, align 8
   %66 = trunc i32 %65 to i16
   %conv37.us.i = add i16 %add25.us.i, %66
@@ -7299,7 +7299,7 @@ if.end16.split.i:                                 ; preds = %while.body.i79
   %71 = load ptr, ptr %pubKey.i.le, align 8
   %72 = load i32, ptr %pubKeyLen.i, align 8
   %conv31.i = zext i32 %72 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx28.i, ptr align 1 %71, i64 %conv31.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx28.i, ptr align 1 %71, i64 %conv31.i, i1 false)
   %73 = load i32, ptr %pubKeyLen.i, align 8
   %74 = trunc i32 %73 to i16
   %conv37.i = add i16 %add25.i, %74
@@ -7478,7 +7478,7 @@ TLSX_SupportExtensions.exit:                      ; preds = %land.rhs.i
 if.then144:                                       ; preds = %land.rhs.i, %TLSX_SupportExtensions.exit
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %7 = load ptr, ptr %extensions, align 16
-  %call146 = call fastcc i32 @TLSX_GetSize(ptr noundef %7, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length)
+  %call146 = call fastcc i32 @TLSX_GetSize(ptr noundef %7, ptr noundef %semaphore, i8 noundef zeroext %msgType, ptr noundef %length)
   %cmp147.not = icmp eq i32 %call146, 0
   br i1 %cmp147.not, label %if.then144.if.end151_crit_edge, label %return
 
@@ -7607,7 +7607,7 @@ sw.epilog:                                        ; preds = %if.then, %if.then4,
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %4 = load ptr, ptr %extensions, align 16
   %add.ptr = getelementptr inbounds i8, ptr %output, i64 2
-  %call138 = call fastcc i32 @TLSX_Write(ptr noundef %4, ptr noundef nonnull %add.ptr, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %offset)
+  %call138 = call fastcc i32 @TLSX_Write(ptr noundef %4, ptr noundef %add.ptr, ptr noundef %semaphore, i8 noundef zeroext %msgType, ptr noundef %offset)
   %cmp.not = icmp eq i32 %call138, 0
   br i1 %cmp.not, label %if.end141, label %return
 
@@ -8572,7 +8572,7 @@ sw.epilog:                                        ; preds = %land.rhs.i.i.i195, 
 while.end.loopexit.sink.split:                    ; preds = %if.else136.i, %if.then4.i, %lor.lhs.false.i
   %.sink = phi i32 [ 110, %lor.lhs.false.i ], [ 110, %if.then4.i ], [ 112, %if.else136.i ]
   %ret.1320.ph = phi i32 [ -429, %lor.lhs.false.i ], [ -429, %if.then4.i ], [ -381, %if.else136.i ]
-  %call.i.i = tail call i32 @SendAlert(ptr noundef %ssl, i32 noundef 2, i32 noundef %.sink) #16
+  %call.i.i = tail call i32 @SendAlert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %.sink) #16
   br label %while.end.loopexit
 
 while.end.loopexit:                               ; preds = %if.end6.i210, %if.end.i203, %if.end398, %if.then.i.i201, %if.end23.i, %if.end.i189, %if.end17.i, %if.end12.i, %if.end6.i, %if.end.i174, %if.end340, %if.end200, %lor.lhs.false.i159, %if.end57.i, %if.end45.i, %if.end32.i, %if.end27.i, %sw.epilog, %while.end.loopexit.sink.split
@@ -9122,7 +9122,7 @@ declare i32 @wc_ecc_import_x963_ex(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @EccSharedSecret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @TLSX_SNI_SetStatus(ptr noundef readonly %extensions, i8 noundef zeroext %type, i8 noundef zeroext %status) unnamed_addr #8 {
+define internal fastcc void @TLSX_SNI_SetStatus(ptr noundef readonly %extensions, i8 noundef zeroext %type, i8 noundef zeroext range(i8 1, 4) %status) unnamed_addr #8 {
 entry:
   %tobool.not4.i = icmp eq ptr %extensions, null
   br i1 %tobool.not4.i, label %if.end, label %land.rhs.i

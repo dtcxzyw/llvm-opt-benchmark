@@ -379,7 +379,7 @@ if.then.i15:                                      ; preds = %if.then6
   br label %return
 
 if.end10:                                         ; preds = %land.lhs.true, %ackm_ack_eliciting_bytes_in_flight.exit
-  %call12 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef nonnull %space)
+  %call12 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef %space)
   %loss_detection_deadline.i18 = getelementptr inbounds i8, ptr %ackm, i64 360
   store i64 %call12, ptr %loss_detection_deadline.i18, align 8
   %loss_detection_deadline_cb.i19 = getelementptr inbounds i8, ptr %ackm, i64 2368
@@ -406,7 +406,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %ackm, ptr nocapture noundef readonly %ack, i32 noundef %pkt_space, i64 %rx_time.coerce) local_unnamed_addr #0 {
 entry:
-  %space.i83 = alloca i32, align 4
+  %space.i81 = alloca i32, align 4
   %r.i.i = alloca %struct.uint_range_st, align 8
   %ainfo.i = alloca %struct.ossl_cc_ack_info_st, align 8
   %rtt.i = alloca %struct.ossl_rtt_info_st, align 8
@@ -671,7 +671,7 @@ if.then.i15.i:                                    ; preds = %if.then6.i
   br label %ackm_set_loss_detection_timer.exit
 
 if.end10.i:                                       ; preds = %land.lhs.true.i, %ackm_ack_eliciting_bytes_in_flight.exit.i
-  %call12.i = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef nonnull %space.i)
+  %call12.i = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef %space.i)
   %loss_detection_deadline.i18.i = getelementptr inbounds i8, ptr %ackm, i64 360
   store i64 %call12.i, ptr %loss_detection_deadline.i18.i, align 8
   %loss_detection_deadline_cb.i19.i = getelementptr inbounds i8, ptr %ackm, i64 2368
@@ -698,15 +698,15 @@ if.end25:                                         ; preds = %ackm_detect_and_rem
   br i1 %cmp29, label %for.body.i46, label %if.end56
 
 for.body.i46:                                     ; preds = %if.end25, %for.inc.i47
-  %pkt.addr.04.i = phi ptr [ %36, %for.inc.i47 ], [ %acked_pkts.i.0.acked_pkts.i.0.acked_pkts.i.0.acked_pkts.0.acked_pkts.0.acked_pkts.0..i, %if.end25 ]
-  %is_ack_eliciting.i = getelementptr inbounds i8, ptr %pkt.addr.04.i, i64 32
+  %pkt.addr.03.i = phi ptr [ %36, %for.inc.i47 ], [ %acked_pkts.i.0.acked_pkts.i.0.acked_pkts.i.0.acked_pkts.0.acked_pkts.0.acked_pkts.0..i, %if.end25 ]
+  %is_ack_eliciting.i = getelementptr inbounds i8, ptr %pkt.addr.03.i, i64 32
   %bf.load.i = load i8, ptr %is_ack_eliciting.i, align 8
   %35 = and i8 %bf.load.i, 8
   %tobool.not.i = icmp eq i8 %35, 0
   br i1 %tobool.not.i, label %for.inc.i47, label %if.then33
 
 for.inc.i47:                                      ; preds = %for.body.i46
-  %anext.i48 = getelementptr inbounds i8, ptr %pkt.addr.04.i, i64 88
+  %anext.i48 = getelementptr inbounds i8, ptr %pkt.addr.03.i, i64 88
   %36 = load ptr, ptr %anext.i48, align 8
   %cmp.not.i = icmp eq ptr %36, null
   br i1 %cmp.not.i, label %if.end56, label %for.body.i46, !llvm.loop !12
@@ -801,31 +801,31 @@ ackm_process_ecn.exit:                            ; preds = %if.then58, %if.then
 if.end59:                                         ; preds = %ackm_process_ecn.exit, %if.end56
   %call60 = call fastcc ptr @ackm_detect_and_remove_lost_pkts(ptr noundef %ackm, i32 noundef %pkt_space)
   %cmp61.not = icmp eq ptr %call60, null
-  br i1 %cmp61.not, label %for.body.lr.ph.i61, label %for.body.lr.ph.i58
+  br i1 %cmp61.not, label %if.end63, label %if.then62
 
-for.body.lr.ph.i58:                               ; preds = %if.end59
+if.then62:                                        ; preds = %if.end59
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rtt.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %loss_info.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loss_info.i, i8 0, i64 16, i1 false)
   %bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 400
   %ack_eliciting_bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 408
   %tx_size.i = getelementptr inbounds i8, ptr %loss_info.i, i64 8
-  %cc_method.i59 = getelementptr inbounds i8, ptr %ackm, i64 264
-  %cc_data.i60 = getelementptr inbounds i8, ptr %ackm, i64 272
+  %cc_method.i58 = getelementptr inbounds i8, ptr %ackm, i64 264
+  %cc_data.i59 = getelementptr inbounds i8, ptr %ackm, i64 272
   br label %for.body.us.i
 
-for.body.us.i:                                    ; preds = %if.end21.us.i, %for.body.lr.ph.i58
-  %p.024.us.i = phi ptr [ %53, %if.end21.us.i ], [ %call60, %for.body.lr.ph.i58 ]
-  %lnext.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 96
+for.body.us.i:                                    ; preds = %if.end21.us.i, %if.then62
+  %p.023.us.i = phi ptr [ %53, %if.end21.us.i ], [ %call60, %if.then62 ]
+  %lnext.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 96
   %53 = load ptr, ptr %lnext.us.i, align 8
-  %is_inflight.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 32
+  %is_inflight.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 32
   %bf.load.us.i = load i8, ptr %is_inflight.us.i, align 8
   %54 = and i8 %bf.load.us.i, 4
   %tobool.not.us.i = icmp eq i8 %54, 0
   br i1 %tobool.not.us.i, label %if.end21.us.i, label %if.then.us.i
 
 if.then.us.i:                                     ; preds = %for.body.us.i
-  %num_bytes.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 8
+  %num_bytes.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 8
   %55 = load i64, ptr %num_bytes.us.i, align 8
   %56 = load i64, ptr %bytes_in_flight.i, align 8
   %sub.us.i = sub i64 %56, %55
@@ -846,22 +846,22 @@ if.then6.us.i:                                    ; preds = %if.then.us.i
   br label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %if.then6.us.i, %if.then.us.i
-  %time.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 16
+  %time.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 16
   %60 = load i64, ptr %time.us.i, align 8
   store i64 %60, ptr %loss_info.i, align 8
   %61 = load i64, ptr %num_bytes.us.i, align 8
   store i64 %61, ptr %tx_size.i, align 8
-  %62 = load ptr, ptr %cc_method.i59, align 8
+  %62 = load ptr, ptr %cc_method.i58, align 8
   %on_data_lost.us.i = getelementptr inbounds i8, ptr %62, i64 80
   %63 = load ptr, ptr %on_data_lost.us.i, align 8
-  %64 = load ptr, ptr %cc_data.i60, align 8
+  %64 = load ptr, ptr %cc_data.i59, align 8
   %call.us.i = call i32 %63(ptr noundef %64, ptr noundef nonnull %loss_info.i) #11
   br label %if.end21.us.i
 
 if.end21.us.i:                                    ; preds = %if.end.us.i, %for.body.us.i
-  %on_lost.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 40
+  %on_lost.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 40
   %65 = load ptr, ptr %on_lost.us.i, align 8
-  %cb_arg.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 64
+  %cb_arg.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 64
   %66 = load ptr, ptr %cb_arg.us.i, align 8
   call void %65(ptr noundef %66) #11
   %cmp.not.us.i = icmp eq ptr %53, null
@@ -871,121 +871,121 @@ ackm_on_pkts_lost.exit:                           ; preds = %if.end21.us.i
   %statm.i = getelementptr inbounds i8, ptr %ackm, i64 256
   %67 = load ptr, ptr %statm.i, align 8
   call void @ossl_statm_get_rtt_info(ptr noundef %67, ptr noundef nonnull %rtt.i) #11
-  %68 = load ptr, ptr %cc_method.i59, align 8
+  %68 = load ptr, ptr %cc_method.i58, align 8
   %on_data_lost_finished.i = getelementptr inbounds i8, ptr %68, i64 88
   %69 = load ptr, ptr %on_data_lost_finished.i, align 8
-  %70 = load ptr, ptr %cc_data.i60, align 8
+  %70 = load ptr, ptr %cc_data.i59, align 8
   %call30.i = call i32 %69(ptr noundef %70, i32 noundef 0) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rtt.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %loss_info.i)
-  br label %for.body.lr.ph.i61
+  br label %if.end63
 
-for.body.lr.ph.i61:                               ; preds = %if.end59, %ackm_on_pkts_lost.exit
+if.end63:                                         ; preds = %ackm_on_pkts_lost.exit, %if.end59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ainfo.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ainfo.i, i8 0, i64 16, i1 false)
-  %bytes_in_flight.i62 = getelementptr inbounds i8, ptr %ackm, i64 400
-  %ack_eliciting_bytes_in_flight.i63 = getelementptr inbounds i8, ptr %ackm, i64 408
+  %bytes_in_flight.i60 = getelementptr inbounds i8, ptr %ackm, i64 400
+  %ack_eliciting_bytes_in_flight.i61 = getelementptr inbounds i8, ptr %ackm, i64 408
   %rx_history.i.i = getelementptr inbounds i8, ptr %ackm, i64 144
-  %end.i.i64 = getelementptr inbounds i8, ptr %r.i.i, i64 8
-  %tx_size.i65 = getelementptr inbounds i8, ptr %ainfo.i, i64 8
-  %cc_method.i66 = getelementptr inbounds i8, ptr %ackm, i64 264
-  %cc_data.i67 = getelementptr inbounds i8, ptr %ackm, i64 272
-  br label %for.body.i68
+  %end.i.i62 = getelementptr inbounds i8, ptr %r.i.i, i64 8
+  %tx_size.i63 = getelementptr inbounds i8, ptr %ainfo.i, i64 8
+  %cc_method.i64 = getelementptr inbounds i8, ptr %ackm, i64 264
+  %cc_data.i65 = getelementptr inbounds i8, ptr %ackm, i64 272
+  br label %for.body.i66
 
-for.body.i68:                                     ; preds = %for.inc.i81, %for.body.lr.ph.i61
-  %apkt.addr.022.i = phi ptr [ %acked_pkts.i.0.acked_pkts.i.0.acked_pkts.i.0.acked_pkts.0.acked_pkts.0.acked_pkts.0..i, %for.body.lr.ph.i61 ], [ %81, %for.inc.i81 ]
-  %is_inflight.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 32
-  %bf.load.i69 = load i8, ptr %is_inflight.i, align 8
-  %71 = and i8 %bf.load.i69, 4
-  %tobool.not.i70 = icmp eq i8 %71, 0
-  br i1 %tobool.not.i70, label %if.end25.i, label %if.then.i71
+for.body.i66:                                     ; preds = %for.inc.i79, %if.end63
+  %apkt.addr.021.i = phi ptr [ %acked_pkts.i.0.acked_pkts.i.0.acked_pkts.i.0.acked_pkts.0.acked_pkts.0.acked_pkts.0..i, %if.end63 ], [ %81, %for.inc.i79 ]
+  %is_inflight.i = getelementptr inbounds i8, ptr %apkt.addr.021.i, i64 32
+  %bf.load.i67 = load i8, ptr %is_inflight.i, align 8
+  %71 = and i8 %bf.load.i67, 4
+  %tobool.not.i68 = icmp eq i8 %71, 0
+  br i1 %tobool.not.i68, label %if.end25.i, label %if.then.i69
 
-if.then.i71:                                      ; preds = %for.body.i68
-  %num_bytes.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 8
+if.then.i69:                                      ; preds = %for.body.i66
+  %num_bytes.i = getelementptr inbounds i8, ptr %apkt.addr.021.i, i64 8
   %72 = load i64, ptr %num_bytes.i, align 8
-  %73 = load i64, ptr %bytes_in_flight.i62, align 8
+  %73 = load i64, ptr %bytes_in_flight.i60, align 8
   %sub.i = sub i64 %73, %72
-  store i64 %sub.i, ptr %bytes_in_flight.i62, align 8
+  store i64 %sub.i, ptr %bytes_in_flight.i60, align 8
   %bf.load1.i = load i8, ptr %is_inflight.i, align 8
   %74 = and i8 %bf.load1.i, 8
-  %tobool5.not.i72 = icmp eq i8 %74, 0
-  br i1 %tobool5.not.i72, label %if.end.i76, label %if.then6.i73
+  %tobool5.not.i70 = icmp eq i8 %74, 0
+  br i1 %tobool5.not.i70, label %if.end.i74, label %if.then6.i71
 
-if.then6.i73:                                     ; preds = %if.then.i71
+if.then6.i71:                                     ; preds = %if.then.i69
   %75 = load i64, ptr %num_bytes.i, align 8
   %bf.clear9.i = and i8 %bf.load1.i, 3
-  %idxprom.i74 = zext nneg i8 %bf.clear9.i to i64
-  %arrayidx.i75 = getelementptr inbounds [3 x i64], ptr %ack_eliciting_bytes_in_flight.i63, i64 0, i64 %idxprom.i74
-  %76 = load i64, ptr %arrayidx.i75, align 8
+  %idxprom.i72 = zext nneg i8 %bf.clear9.i to i64
+  %arrayidx.i73 = getelementptr inbounds [3 x i64], ptr %ack_eliciting_bytes_in_flight.i61, i64 0, i64 %idxprom.i72
+  %76 = load i64, ptr %arrayidx.i73, align 8
   %sub11.i = sub i64 %76, %75
-  store i64 %sub11.i, ptr %arrayidx.i75, align 8
-  br label %if.end.i76
+  store i64 %sub11.i, ptr %arrayidx.i73, align 8
+  br label %if.end.i74
 
-if.end.i76:                                       ; preds = %if.then6.i73, %if.then.i71
-  %largest_acked.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 24
+if.end.i74:                                       ; preds = %if.then6.i71, %if.then.i69
+  %largest_acked.i = getelementptr inbounds i8, ptr %apkt.addr.021.i, i64 24
   %77 = load i64, ptr %largest_acked.i, align 8
   %cmp16.not.i = icmp eq i64 %77, -1
   br i1 %cmp16.not.i, label %if.end25.i, label %if.then17.i
 
-if.then17.i:                                      ; preds = %if.end.i76
+if.then17.i:                                      ; preds = %if.end.i74
   %bf.load19.i = load i8, ptr %is_inflight.i, align 8
   %bf.clear20.i = and i8 %bf.load19.i, 3
-  %idxprom.i.i77 = zext nneg i8 %bf.clear20.i to i64
-  %arrayidx.i.i78 = getelementptr inbounds [3 x %struct.rx_pkt_history_st], ptr %rx_history.i.i, i64 0, i64 %idxprom.i.i77
+  %idxprom.i.i75 = zext nneg i8 %bf.clear20.i to i64
+  %arrayidx.i.i76 = getelementptr inbounds [3 x %struct.rx_pkt_history_st], ptr %rx_history.i.i, i64 0, i64 %idxprom.i.i75
   %add.i = add nuw i64 %77, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %r.i.i)
-  %watermark1.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i78, i64 24
+  %watermark1.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i76, i64 24
   %78 = load i64, ptr %watermark1.i.i, align 8
   %cmp.not.i.not.i = icmp ult i64 %77, %78
-  br i1 %cmp.not.i.not.i, label %rx_pkt_history_bump_watermark.exit.i, label %if.end.i.i79
+  br i1 %cmp.not.i.not.i, label %rx_pkt_history_bump_watermark.exit.i, label %if.end.i.i77
 
-if.end.i.i79:                                     ; preds = %if.then17.i
+if.end.i.i77:                                     ; preds = %if.then17.i
   store i64 0, ptr %r.i.i, align 8
-  store i64 %77, ptr %end.i.i64, align 8
-  %call.i.i = call i32 @ossl_uint_set_remove(ptr noundef nonnull %arrayidx.i.i78, ptr noundef nonnull %r.i.i) #11
+  store i64 %77, ptr %end.i.i62, align 8
+  %call.i.i = call i32 @ossl_uint_set_remove(ptr noundef nonnull %arrayidx.i.i76, ptr noundef nonnull %r.i.i) #11
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 1
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %rx_pkt_history_bump_watermark.exit.i
 
-if.end4.i.i:                                      ; preds = %if.end.i.i79
+if.end4.i.i:                                      ; preds = %if.end.i.i77
   store i64 %add.i, ptr %watermark1.i.i, align 8
   br label %rx_pkt_history_bump_watermark.exit.i
 
-rx_pkt_history_bump_watermark.exit.i:             ; preds = %if.end4.i.i, %if.end.i.i79, %if.then17.i
+rx_pkt_history_bump_watermark.exit.i:             ; preds = %if.end4.i.i, %if.end.i.i77, %if.then17.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %r.i.i)
   br label %if.end25.i
 
-if.end25.i:                                       ; preds = %rx_pkt_history_bump_watermark.exit.i, %if.end.i76, %for.body.i68
-  %time.i80 = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 16
-  %79 = load i64, ptr %time.i80, align 8
+if.end25.i:                                       ; preds = %rx_pkt_history_bump_watermark.exit.i, %if.end.i74, %for.body.i66
+  %time.i78 = getelementptr inbounds i8, ptr %apkt.addr.021.i, i64 16
+  %79 = load i64, ptr %time.i78, align 8
   store i64 %79, ptr %ainfo.i, align 8
-  %num_bytes26.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 8
+  %num_bytes26.i = getelementptr inbounds i8, ptr %apkt.addr.021.i, i64 8
   %80 = load i64, ptr %num_bytes26.i, align 8
-  store i64 %80, ptr %tx_size.i65, align 8
-  %anext27.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 88
+  store i64 %80, ptr %tx_size.i63, align 8
+  %anext27.i = getelementptr inbounds i8, ptr %apkt.addr.021.i, i64 88
   %81 = load ptr, ptr %anext27.i, align 8
-  %on_acked.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 48
+  %on_acked.i = getelementptr inbounds i8, ptr %apkt.addr.021.i, i64 48
   %82 = load ptr, ptr %on_acked.i, align 8
-  %cb_arg.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 64
+  %cb_arg.i = getelementptr inbounds i8, ptr %apkt.addr.021.i, i64 64
   %83 = load ptr, ptr %cb_arg.i, align 8
   call void %82(ptr noundef %83) #11
   %bf.load29.i = load i8, ptr %is_inflight.i, align 8
   %84 = and i8 %bf.load29.i, 4
   %tobool33.not.i = icmp eq i8 %84, 0
-  br i1 %tobool33.not.i, label %for.inc.i81, label %if.then34.i
+  br i1 %tobool33.not.i, label %for.inc.i79, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end25.i
-  %85 = load ptr, ptr %cc_method.i66, align 8
+  %85 = load ptr, ptr %cc_method.i64, align 8
   %on_data_acked.i = getelementptr inbounds i8, ptr %85, i64 72
   %86 = load ptr, ptr %on_data_acked.i, align 8
-  %87 = load ptr, ptr %cc_data.i67, align 8
+  %87 = load ptr, ptr %cc_data.i65, align 8
   %call35.i = call i32 %86(ptr noundef %87, ptr noundef nonnull %ainfo.i) #11
-  br label %for.inc.i81
+  br label %for.inc.i79
 
-for.inc.i81:                                      ; preds = %if.then34.i, %if.end25.i
-  %cmp.not.i82 = icmp eq ptr %81, null
-  br i1 %cmp.not.i82, label %ackm_on_pkts_acked.exit, label %for.body.i68, !llvm.loop !14
+for.inc.i79:                                      ; preds = %if.then34.i, %if.end25.i
+  %cmp.not.i80 = icmp eq ptr %81, null
+  br i1 %cmp.not.i80, label %ackm_on_pkts_acked.exit, label %for.body.i66, !llvm.loop !14
 
-ackm_on_pkts_acked.exit:                          ; preds = %for.inc.i81
+ackm_on_pkts_acked.exit:                          ; preds = %for.inc.i79
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ainfo.i)
   %88 = load i8, ptr %peer_completed_addr_validation, align 1
   %tobool65.not = icmp eq i8 %88, 0
@@ -997,91 +997,91 @@ if.then66:                                        ; preds = %ackm_on_pkts_acked.
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then66, %ackm_on_pkts_acked.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %space.i83)
-  %loss_time.i.i84 = getelementptr inbounds i8, ptr %ackm, i64 336
-  %retval.sroa.0.0.copyload.i.i85 = load i64, ptr %loss_time.i.i84, align 8
-  br label %for.body.i.i86
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %space.i81)
+  %loss_time.i.i82 = getelementptr inbounds i8, ptr %ackm, i64 336
+  %retval.sroa.0.0.copyload.i.i83 = load i64, ptr %loss_time.i.i82, align 8
+  br label %for.body.i.i84
 
-for.body.i.i86:                                   ; preds = %for.body.i.i86, %if.end67
-  %indvars.iv.i.i87 = phi i64 [ 1, %if.end67 ], [ %indvars.iv.next.i.i95, %for.body.i.i86 ]
-  %retval.sroa.0.011.i.i89 = phi i64 [ %retval.sroa.0.0.copyload.i.i85, %if.end67 ], [ %retval.sroa.0.1.i.i93, %for.body.i.i86 ]
-  %arrayidx9.phi.trans.insert.i.i90 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %loss_time.i.i84, i64 0, i64 %indvars.iv.i.i87
-  %retval.sroa.0.0.copyload9.pre.i.i91 = load i64, ptr %arrayidx9.phi.trans.insert.i.i90, align 8
-  %89 = freeze i64 %retval.sroa.0.0.copyload9.pre.i.i91
-  %90 = add i64 %retval.sroa.0.011.i.i89, -1
-  %or.cond.not.i.i92 = icmp ult i64 %90, %89
-  %retval.sroa.0.1.i.i93 = select i1 %or.cond.not.i.i92, i64 %retval.sroa.0.011.i.i89, i64 %89
-  %indvars.iv.next.i.i95 = add nuw nsw i64 %indvars.iv.i.i87, 1
-  %exitcond.not.i.i96 = icmp eq i64 %indvars.iv.next.i.i95, 3
-  br i1 %exitcond.not.i.i96, label %ackm_get_loss_time_and_space.exit.i97, label %for.body.i.i86, !llvm.loop !9
+for.body.i.i84:                                   ; preds = %for.body.i.i84, %if.end67
+  %indvars.iv.i.i85 = phi i64 [ 1, %if.end67 ], [ %indvars.iv.next.i.i93, %for.body.i.i84 ]
+  %retval.sroa.0.011.i.i87 = phi i64 [ %retval.sroa.0.0.copyload.i.i83, %if.end67 ], [ %retval.sroa.0.1.i.i91, %for.body.i.i84 ]
+  %arrayidx9.phi.trans.insert.i.i88 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %loss_time.i.i82, i64 0, i64 %indvars.iv.i.i85
+  %retval.sroa.0.0.copyload9.pre.i.i89 = load i64, ptr %arrayidx9.phi.trans.insert.i.i88, align 8
+  %89 = freeze i64 %retval.sroa.0.0.copyload9.pre.i.i89
+  %90 = add i64 %retval.sroa.0.011.i.i87, -1
+  %or.cond.not.i.i90 = icmp ult i64 %90, %89
+  %retval.sroa.0.1.i.i91 = select i1 %or.cond.not.i.i90, i64 %retval.sroa.0.011.i.i87, i64 %89
+  %indvars.iv.next.i.i93 = add nuw nsw i64 %indvars.iv.i.i85, 1
+  %exitcond.not.i.i94 = icmp eq i64 %indvars.iv.next.i.i93, 3
+  br i1 %exitcond.not.i.i94, label %ackm_get_loss_time_and_space.exit.i95, label %for.body.i.i84, !llvm.loop !9
 
-ackm_get_loss_time_and_space.exit.i97:            ; preds = %for.body.i.i86
-  %cmp.i.not.i98 = icmp eq i64 %retval.sroa.0.1.i.i93, 0
-  br i1 %cmp.i.not.i98, label %for.body.i8.i107, label %if.then.i99
+ackm_get_loss_time_and_space.exit.i95:            ; preds = %for.body.i.i84
+  %cmp.i.not.i96 = icmp eq i64 %retval.sroa.0.1.i.i91, 0
+  br i1 %cmp.i.not.i96, label %for.body.i8.i105, label %if.then.i97
 
-if.then.i99:                                      ; preds = %ackm_get_loss_time_and_space.exit.i97
-  %loss_detection_deadline.i.i100 = getelementptr inbounds i8, ptr %ackm, i64 360
-  store i64 %retval.sroa.0.1.i.i93, ptr %loss_detection_deadline.i.i100, align 8
-  %loss_detection_deadline_cb.i.i101 = getelementptr inbounds i8, ptr %ackm, i64 2368
-  %91 = load ptr, ptr %loss_detection_deadline_cb.i.i101, align 8
-  %cmp.not.i.i102 = icmp eq ptr %91, null
-  br i1 %cmp.not.i.i102, label %ackm_set_loss_detection_timer.exit132, label %if.then.i.i103
+if.then.i97:                                      ; preds = %ackm_get_loss_time_and_space.exit.i95
+  %loss_detection_deadline.i.i98 = getelementptr inbounds i8, ptr %ackm, i64 360
+  store i64 %retval.sroa.0.1.i.i91, ptr %loss_detection_deadline.i.i98, align 8
+  %loss_detection_deadline_cb.i.i99 = getelementptr inbounds i8, ptr %ackm, i64 2368
+  %91 = load ptr, ptr %loss_detection_deadline_cb.i.i99, align 8
+  %cmp.not.i.i100 = icmp eq ptr %91, null
+  br i1 %cmp.not.i.i100, label %ackm_set_loss_detection_timer.exit130, label %if.then.i.i101
 
-if.then.i.i103:                                   ; preds = %if.then.i99
-  %loss_detection_deadline_cb_arg.i.i104 = getelementptr inbounds i8, ptr %ackm, i64 2376
-  %92 = load ptr, ptr %loss_detection_deadline_cb_arg.i.i104, align 8
-  call void %91(i64 %retval.sroa.0.1.i.i93, ptr noundef %92) #11
-  br label %ackm_set_loss_detection_timer.exit132
+if.then.i.i101:                                   ; preds = %if.then.i97
+  %loss_detection_deadline_cb_arg.i.i102 = getelementptr inbounds i8, ptr %ackm, i64 2376
+  %92 = load ptr, ptr %loss_detection_deadline_cb_arg.i.i102, align 8
+  call void %91(i64 %retval.sroa.0.1.i.i91, ptr noundef %92) #11
+  br label %ackm_set_loss_detection_timer.exit130
 
-for.body.i8.i107:                                 ; preds = %ackm_get_loss_time_and_space.exit.i97, %for.body.i8.i107
-  %indvars.iv.i9.i108 = phi i64 [ %indvars.iv.next.i10.i112, %for.body.i8.i107 ], [ 0, %ackm_get_loss_time_and_space.exit.i97 ]
-  %total.05.i.i109 = phi i64 [ %add.i.i111, %for.body.i8.i107 ], [ 0, %ackm_get_loss_time_and_space.exit.i97 ]
-  %arrayidx.i.i110 = getelementptr inbounds [3 x i64], ptr %ack_eliciting_bytes_in_flight.i63, i64 0, i64 %indvars.iv.i9.i108
-  %93 = load i64, ptr %arrayidx.i.i110, align 8
-  %add.i.i111 = add i64 %93, %total.05.i.i109
-  %indvars.iv.next.i10.i112 = add nuw nsw i64 %indvars.iv.i9.i108, 1
-  %exitcond.not.i11.i113 = icmp eq i64 %indvars.iv.next.i10.i112, 3
-  br i1 %exitcond.not.i11.i113, label %ackm_ack_eliciting_bytes_in_flight.exit.i114, label %for.body.i8.i107, !llvm.loop !10
+for.body.i8.i105:                                 ; preds = %ackm_get_loss_time_and_space.exit.i95, %for.body.i8.i105
+  %indvars.iv.i9.i106 = phi i64 [ %indvars.iv.next.i10.i110, %for.body.i8.i105 ], [ 0, %ackm_get_loss_time_and_space.exit.i95 ]
+  %total.05.i.i107 = phi i64 [ %add.i.i109, %for.body.i8.i105 ], [ 0, %ackm_get_loss_time_and_space.exit.i95 ]
+  %arrayidx.i.i108 = getelementptr inbounds [3 x i64], ptr %ack_eliciting_bytes_in_flight.i61, i64 0, i64 %indvars.iv.i9.i106
+  %93 = load i64, ptr %arrayidx.i.i108, align 8
+  %add.i.i109 = add i64 %93, %total.05.i.i107
+  %indvars.iv.next.i10.i110 = add nuw nsw i64 %indvars.iv.i9.i106, 1
+  %exitcond.not.i11.i111 = icmp eq i64 %indvars.iv.next.i10.i110, 3
+  br i1 %exitcond.not.i11.i111, label %ackm_ack_eliciting_bytes_in_flight.exit.i112, label %for.body.i8.i105, !llvm.loop !10
 
-ackm_ack_eliciting_bytes_in_flight.exit.i114:     ; preds = %for.body.i8.i107
-  %cmp.i115 = icmp ne i64 %add.i.i111, 0
-  %brmerge = or i1 %tobool65.not, %cmp.i115
-  br i1 %brmerge, label %if.end10.i116, label %if.then6.i126
+ackm_ack_eliciting_bytes_in_flight.exit.i112:     ; preds = %for.body.i8.i105
+  %cmp.i113 = icmp ne i64 %add.i.i109, 0
+  %brmerge = or i1 %tobool65.not, %cmp.i113
+  br i1 %brmerge, label %if.end10.i114, label %if.then6.i124
 
-if.then6.i126:                                    ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i114
-  %loss_detection_deadline.i12.i127 = getelementptr inbounds i8, ptr %ackm, i64 360
-  store i64 0, ptr %loss_detection_deadline.i12.i127, align 8
-  %loss_detection_deadline_cb.i13.i128 = getelementptr inbounds i8, ptr %ackm, i64 2368
-  %94 = load ptr, ptr %loss_detection_deadline_cb.i13.i128, align 8
-  %cmp.not.i14.i129 = icmp eq ptr %94, null
-  br i1 %cmp.not.i14.i129, label %ackm_set_loss_detection_timer.exit132, label %if.then.i15.i130
+if.then6.i124:                                    ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i112
+  %loss_detection_deadline.i12.i125 = getelementptr inbounds i8, ptr %ackm, i64 360
+  store i64 0, ptr %loss_detection_deadline.i12.i125, align 8
+  %loss_detection_deadline_cb.i13.i126 = getelementptr inbounds i8, ptr %ackm, i64 2368
+  %94 = load ptr, ptr %loss_detection_deadline_cb.i13.i126, align 8
+  %cmp.not.i14.i127 = icmp eq ptr %94, null
+  br i1 %cmp.not.i14.i127, label %ackm_set_loss_detection_timer.exit130, label %if.then.i15.i128
 
-if.then.i15.i130:                                 ; preds = %if.then6.i126
-  %loss_detection_deadline_cb_arg.i16.i131 = getelementptr inbounds i8, ptr %ackm, i64 2376
-  %95 = load ptr, ptr %loss_detection_deadline_cb_arg.i16.i131, align 8
+if.then.i15.i128:                                 ; preds = %if.then6.i124
+  %loss_detection_deadline_cb_arg.i16.i129 = getelementptr inbounds i8, ptr %ackm, i64 2376
+  %95 = load ptr, ptr %loss_detection_deadline_cb_arg.i16.i129, align 8
   call void %94(i64 0, ptr noundef %95) #11
-  br label %ackm_set_loss_detection_timer.exit132
+  br label %ackm_set_loss_detection_timer.exit130
 
-if.end10.i116:                                    ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i114
-  %call12.i117 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef nonnull %space.i83)
-  %loss_detection_deadline.i18.i118 = getelementptr inbounds i8, ptr %ackm, i64 360
-  store i64 %call12.i117, ptr %loss_detection_deadline.i18.i118, align 8
-  %loss_detection_deadline_cb.i19.i119 = getelementptr inbounds i8, ptr %ackm, i64 2368
-  %96 = load ptr, ptr %loss_detection_deadline_cb.i19.i119, align 8
-  %cmp.not.i20.i120 = icmp eq ptr %96, null
-  br i1 %cmp.not.i20.i120, label %ackm_set_loss_detection_timer.exit132, label %if.then.i21.i121
+if.end10.i114:                                    ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i112
+  %call12.i115 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef %space.i81)
+  %loss_detection_deadline.i18.i116 = getelementptr inbounds i8, ptr %ackm, i64 360
+  store i64 %call12.i115, ptr %loss_detection_deadline.i18.i116, align 8
+  %loss_detection_deadline_cb.i19.i117 = getelementptr inbounds i8, ptr %ackm, i64 2368
+  %96 = load ptr, ptr %loss_detection_deadline_cb.i19.i117, align 8
+  %cmp.not.i20.i118 = icmp eq ptr %96, null
+  br i1 %cmp.not.i20.i118, label %ackm_set_loss_detection_timer.exit130, label %if.then.i21.i119
 
-if.then.i21.i121:                                 ; preds = %if.end10.i116
-  %loss_detection_deadline_cb_arg.i22.i122 = getelementptr inbounds i8, ptr %ackm, i64 2376
-  %97 = load ptr, ptr %loss_detection_deadline_cb_arg.i22.i122, align 8
-  call void %96(i64 %call12.i117, ptr noundef %97) #11
-  br label %ackm_set_loss_detection_timer.exit132
+if.then.i21.i119:                                 ; preds = %if.end10.i114
+  %loss_detection_deadline_cb_arg.i22.i120 = getelementptr inbounds i8, ptr %ackm, i64 2376
+  %97 = load ptr, ptr %loss_detection_deadline_cb_arg.i22.i120, align 8
+  call void %96(i64 %call12.i115, ptr noundef %97) #11
+  br label %ackm_set_loss_detection_timer.exit130
 
-ackm_set_loss_detection_timer.exit132:            ; preds = %if.then.i99, %if.then.i.i103, %if.then6.i126, %if.then.i15.i130, %if.end10.i116, %if.then.i21.i121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %space.i83)
+ackm_set_loss_detection_timer.exit130:            ; preds = %if.then.i97, %if.then.i.i101, %if.then6.i124, %if.then.i15.i128, %if.end10.i114, %if.then.i21.i119
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %space.i81)
   br label %return
 
-return:                                           ; preds = %if.then20, %ackm_set_loss_detection_timer.exit, %ackm_set_loss_detection_timer.exit132
+return:                                           ; preds = %if.then20, %ackm_set_loss_detection_timer.exit, %ackm_set_loss_detection_timer.exit130
   ret i32 1
 }
 
@@ -1421,7 +1421,7 @@ if.then.i15.i:                                    ; preds = %if.then6.i
   br label %ackm_set_loss_detection_timer.exit
 
 if.end10.i:                                       ; preds = %land.lhs.true.i, %ackm_ack_eliciting_bytes_in_flight.exit.i
-  %call12.i = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef nonnull %space.i)
+  %call12.i = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef %space.i)
   %loss_detection_deadline.i18.i = getelementptr inbounds i8, ptr %ackm, i64 360
   store i64 %call12.i, ptr %loss_detection_deadline.i18.i, align 8
   %loss_detection_deadline_cb.i19.i = getelementptr inbounds i8, ptr %ackm, i64 2368
@@ -1521,7 +1521,7 @@ if.then.i15.i:                                    ; preds = %if.then6.i
   br label %ackm_set_loss_detection_timer.exit
 
 if.end10.i:                                       ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i
-  %call12.i = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef nonnull %space.i)
+  %call12.i = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef %space.i)
   %loss_detection_deadline.i18.i = getelementptr inbounds i8, ptr %ackm, i64 360
   store i64 %call12.i, ptr %loss_detection_deadline.i18.i, align 8
   %loss_detection_deadline_cb.i19.i = getelementptr inbounds i8, ptr %ackm, i64 2368
@@ -1576,9 +1576,9 @@ ackm_get_loss_time_and_space.exit:                ; preds = %for.body.i
 if.then:                                          ; preds = %ackm_get_loss_time_and_space.exit
   %call3 = tail call fastcc ptr @ackm_detect_and_remove_lost_pkts(ptr noundef nonnull %ackm, i32 noundef %space.1.i)
   %cmp.not = icmp eq ptr %call3, null
-  br i1 %cmp.not, label %if.end, label %for.body.lr.ph.i
+  br i1 %cmp.not, label %if.end, label %if.then4
 
-for.body.lr.ph.i:                                 ; preds = %if.then
+if.then4:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rtt.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %loss_info.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loss_info.i, i8 0, i64 16, i1 false)
@@ -1589,18 +1589,18 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %cc_data.i = getelementptr inbounds i8, ptr %ackm, i64 272
   br label %for.body.us.i
 
-for.body.us.i:                                    ; preds = %if.end21.us.i, %for.body.lr.ph.i
-  %p.024.us.i = phi ptr [ %3, %if.end21.us.i ], [ %call3, %for.body.lr.ph.i ]
-  %lnext.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 96
+for.body.us.i:                                    ; preds = %if.end21.us.i, %if.then4
+  %p.023.us.i = phi ptr [ %3, %if.end21.us.i ], [ %call3, %if.then4 ]
+  %lnext.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 96
   %3 = load ptr, ptr %lnext.us.i, align 8
-  %is_inflight.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 32
+  %is_inflight.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 32
   %bf.load.us.i = load i8, ptr %is_inflight.us.i, align 8
   %4 = and i8 %bf.load.us.i, 4
   %tobool.not.us.i = icmp eq i8 %4, 0
   br i1 %tobool.not.us.i, label %if.end21.us.i, label %if.then.us.i
 
 if.then.us.i:                                     ; preds = %for.body.us.i
-  %num_bytes.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 8
+  %num_bytes.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 8
   %5 = load i64, ptr %num_bytes.us.i, align 8
   %6 = load i64, ptr %bytes_in_flight.i, align 8
   %sub.us.i = sub i64 %6, %5
@@ -1621,7 +1621,7 @@ if.then6.us.i:                                    ; preds = %if.then.us.i
   br label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %if.then6.us.i, %if.then.us.i
-  %time.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 16
+  %time.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 16
   %10 = load i64, ptr %time.us.i, align 8
   store i64 %10, ptr %loss_info.i, align 8
   %11 = load i64, ptr %num_bytes.us.i, align 8
@@ -1634,9 +1634,9 @@ if.end.us.i:                                      ; preds = %if.then6.us.i, %if.
   br label %if.end21.us.i
 
 if.end21.us.i:                                    ; preds = %if.end.us.i, %for.body.us.i
-  %on_lost.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 40
+  %on_lost.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 40
   %15 = load ptr, ptr %on_lost.us.i, align 8
-  %cb_arg.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 64
+  %cb_arg.us.i = getelementptr inbounds i8, ptr %p.023.us.i, i64 64
   %16 = load ptr, ptr %cb_arg.us.i, align 8
   call void %15(ptr noundef %16) #11
   %cmp.not.us.i = icmp eq ptr %3, null
@@ -1730,7 +1730,7 @@ if.then.i15.i:                                    ; preds = %if.then6.i
   br label %ackm_set_loss_detection_timer.exit
 
 if.end10.i:                                       ; preds = %land.lhs.true.i, %ackm_ack_eliciting_bytes_in_flight.exit.i
-  %call12.i = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef nonnull %space.i)
+  %call12.i = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef %space.i)
   %loss_detection_deadline.i18.i = getelementptr inbounds i8, ptr %ackm, i64 360
   store i64 %call12.i, ptr %loss_detection_deadline.i18.i, align 8
   %loss_detection_deadline_cb.i19.i = getelementptr inbounds i8, ptr %ackm, i64 2368
@@ -1787,7 +1787,7 @@ if.else:                                          ; preds = %if.then9
   br label %if.end16
 
 if.else13:                                        ; preds = %ackm_ack_eliciting_bytes_in_flight.exit
-  %call14 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef nonnull %pkt_space)
+  %call14 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef %pkt_space)
   %35 = load i32, ptr %pkt_space, align 4
   %pto.i = getelementptr inbounds i8, ptr %ackm, i64 476
   %idxprom.i = sext i32 %35 to i64
@@ -1873,7 +1873,7 @@ if.then.i15.i69:                                  ; preds = %if.then6.i65
   br label %ackm_set_loss_detection_timer.exit71
 
 if.end10.i55:                                     ; preds = %land.lhs.true.i62, %ackm_ack_eliciting_bytes_in_flight.exit.i53
-  %call12.i56 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef nonnull %space.i22)
+  %call12.i56 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %ackm, ptr noundef %space.i22)
   %loss_detection_deadline.i18.i57 = getelementptr inbounds i8, ptr %ackm, i64 360
   store i64 %call12.i56, ptr %loss_detection_deadline.i18.i57, align 8
   %loss_detection_deadline_cb.i19.i58 = getelementptr inbounds i8, ptr %ackm, i64 2368
@@ -1896,7 +1896,7 @@ return:                                           ; preds = %ackm_set_loss_detec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ackm_get_pto_time_and_space(ptr nocapture noundef readonly %ackm, ptr nocapture noundef writeonly %space) unnamed_addr #0 {
+define internal fastcc i64 @ackm_get_pto_time_and_space(ptr nocapture noundef readonly %ackm, ptr nocapture noundef nonnull writeonly %space) unnamed_addr #0 {
 entry:
   %rtt = alloca %struct.ossl_rtt_info_st, align 8
   %statm = getelementptr inbounds i8, ptr %ackm, i64 256
@@ -2313,11 +2313,11 @@ ackm_has_newly_missing.exit.i:                    ; preds = %land.lhs.true.i.i
   %cmp17.i.not.i = icmp ugt i64 %23, %add.i.i43
   br i1 %cmp17.i.not.i, label %if.then13.i, label %if.end14.i
 
-if.then13.i:                                      ; preds = %if.end.i38, %ackm_has_newly_missing.exit.i
+if.then13.i:                                      ; preds = %ackm_has_newly_missing.exit.i, %if.end.i38
   store i8 1, ptr %arrayidx.i37, align 1
   %rx_ack_flush_deadline.i.i.i = getelementptr inbounds i8, ptr %ackm, i64 2328
-  %arrayidx.i.i29.i = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_ack_flush_deadline.i.i.i, i64 0, i64 %idxprom.i36
-  store i64 -1, ptr %arrayidx.i.i29.i, align 8
+  %arrayidx.i.i27.i = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_ack_flush_deadline.i.i.i, i64 0, i64 %idxprom.i36
+  store i64 -1, ptr %arrayidx.i.i27.i, align 8
   %ack_deadline_cb.i.i.i = getelementptr inbounds i8, ptr %ackm, i64 2384
   %27 = load ptr, ptr %ack_deadline_cb.i.i.i, align 8
   %cmp.not.i.i.i44 = icmp eq ptr %27, null
@@ -2345,8 +2345,8 @@ if.then28.i:                                      ; preds = %if.end14.i
   store i64 %retval.sroa.0.0.i.i, ptr %arrayidx24.i, align 8
   %ack_deadline_cb.i.i = getelementptr inbounds i8, ptr %ackm, i64 2384
   %30 = load ptr, ptr %ack_deadline_cb.i.i, align 8
-  %cmp.not.i32.i = icmp eq ptr %30, null
-  br i1 %cmp.not.i32.i, label %if.end48, label %if.then.i.i42
+  %cmp.not.i30.i = icmp eq ptr %30, null
+  br i1 %cmp.not.i30.i, label %if.end48, label %if.then.i.i42
 
 if.then.i.i42:                                    ; preds = %if.then28.i
   %ack_deadline_cb_arg.i.i = getelementptr inbounds i8, ptr %ackm, i64 2392
@@ -2357,18 +2357,18 @@ if.then.i.i42:                                    ; preds = %if.then28.i
 if.else.i:                                        ; preds = %if.end14.i
   %a.coerce.b.coerce.i.i = call i64 @llvm.umin.i64(i64 %29, i64 %retval.sroa.0.0.i.i)
   store i64 %a.coerce.b.coerce.i.i, ptr %arrayidx24.i, align 8
-  %ack_deadline_cb.i39.i = getelementptr inbounds i8, ptr %ackm, i64 2384
-  %32 = load ptr, ptr %ack_deadline_cb.i39.i, align 8
-  %cmp.not.i40.i = icmp eq ptr %32, null
-  br i1 %cmp.not.i40.i, label %if.end48, label %if.then.i41.i
+  %ack_deadline_cb.i37.i = getelementptr inbounds i8, ptr %ackm, i64 2384
+  %32 = load ptr, ptr %ack_deadline_cb.i37.i, align 8
+  %cmp.not.i38.i = icmp eq ptr %32, null
+  br i1 %cmp.not.i38.i, label %if.end48, label %if.then.i39.i
 
-if.then.i41.i:                                    ; preds = %if.else.i
-  %ack_deadline_cb_arg.i46.i = getelementptr inbounds i8, ptr %ackm, i64 2392
-  %33 = load ptr, ptr %ack_deadline_cb_arg.i46.i, align 8
+if.then.i39.i:                                    ; preds = %if.else.i
+  %ack_deadline_cb_arg.i44.i = getelementptr inbounds i8, ptr %ackm, i64 2392
+  %33 = load ptr, ptr %ack_deadline_cb_arg.i44.i, align 8
   call void %32(i64 %a.coerce.b.coerce.i.i, i32 noundef %bf.cast47, ptr noundef %33) #11
   br label %if.end48
 
-if.end48:                                         ; preds = %if.then.i41.i, %if.else.i, %if.then.i.i42, %if.then28.i, %if.then.i.i.i, %if.then13.i, %if.then42, %if.end38
+if.end48:                                         ; preds = %if.then.i39.i, %if.else.i, %if.then.i.i42, %if.then28.i, %if.then.i.i.i, %if.then13.i, %if.then42, %if.end38
   %bf.load49 = load i8, ptr %pkt_space, align 8
   %bf.lshr50 = lshr i8 %bf.load49, 3
   %bf.clear51 = and i8 %bf.lshr50, 3
@@ -2630,7 +2630,7 @@ if.end:                                           ; preds = %entry
   %call.i.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %h.val.i, ptr noundef nonnull %key.i.i) #11
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key.i.i)
   %cmp.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i, label %for.body.lr.ph.i, label %if.end.i
+  br i1 %cmp.i, label %tx_pkt_history_remove.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %2 = load ptr, ptr %arrayidx.i, align 8
@@ -2684,29 +2684,30 @@ ossl_list_tx_history_remove.exit.i:               ; preds = %if.then21.i.i, %if.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_tx_history7.i.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %0, align 8
   %call.i.i8 = call ptr @OPENSSL_LH_delete(ptr noundef %8, ptr noundef nonnull %key.i7) #11
-  br label %for.body.lr.ph.i
+  br label %tx_pkt_history_remove.exit
 
-for.body.lr.ph.i:                                 ; preds = %ossl_list_tx_history_remove.exit.i, %if.end
+tx_pkt_history_remove.exit:                       ; preds = %if.end, %ossl_list_tx_history_remove.exit.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key.i7)
   %lnext = getelementptr inbounds i8, ptr %call.i.i, i64 96
   store ptr null, ptr %lnext, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rtt.i)
   %bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 400
   %ack_eliciting_bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 408
+  %cc_method.i = getelementptr inbounds i8, ptr %ackm, i64 264
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.end21.i, %for.body.lr.ph.i
-  %p.024.i = phi ptr [ %9, %if.end21.i ], [ %call.i.i, %for.body.lr.ph.i ]
-  %lnext.i = getelementptr inbounds i8, ptr %p.024.i, i64 96
+for.body.i:                                       ; preds = %if.end21.i, %tx_pkt_history_remove.exit
+  %p.023.i = phi ptr [ %9, %if.end21.i ], [ %call.i.i, %tx_pkt_history_remove.exit ]
+  %lnext.i = getelementptr inbounds i8, ptr %p.023.i, i64 96
   %9 = load ptr, ptr %lnext.i, align 8
-  %is_inflight.i = getelementptr inbounds i8, ptr %p.024.i, i64 32
+  %is_inflight.i = getelementptr inbounds i8, ptr %p.023.i, i64 32
   %bf.load.i = load i8, ptr %is_inflight.i, align 8
   %10 = and i8 %bf.load.i, 4
   %tobool.not.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i, label %if.end21.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %num_bytes.i = getelementptr inbounds i8, ptr %p.024.i, i64 8
+  %num_bytes.i = getelementptr inbounds i8, ptr %p.023.i, i64 8
   %11 = load i64, ptr %num_bytes.i, align 8
   %12 = load i64, ptr %bytes_in_flight.i, align 8
   %sub.i = sub i64 %12, %11
@@ -2727,24 +2728,23 @@ if.then6.i:                                       ; preds = %if.then.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then6.i, %if.then.i, %for.body.i
-  %on_lost.i = getelementptr inbounds i8, ptr %p.024.i, i64 40
+  %on_lost.i = getelementptr inbounds i8, ptr %p.023.i, i64 40
   %16 = load ptr, ptr %on_lost.i, align 8
-  %cb_arg.i = getelementptr inbounds i8, ptr %p.024.i, i64 64
+  %cb_arg.i = getelementptr inbounds i8, ptr %p.023.i, i64 64
   %17 = load ptr, ptr %cb_arg.i, align 8
   call void %16(ptr noundef %17) #11
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %ackm_on_pkts_lost.exit, label %for.body.i, !llvm.loop !13
 
 ackm_on_pkts_lost.exit:                           ; preds = %if.end21.i
+  %cc_data.i = getelementptr inbounds i8, ptr %ackm, i64 272
   %statm.i = getelementptr inbounds i8, ptr %ackm, i64 256
   %18 = load ptr, ptr %statm.i, align 8
   call void @ossl_statm_get_rtt_info(ptr noundef %18, ptr noundef nonnull %rtt.i) #11
-  %cc_method28.i = getelementptr inbounds i8, ptr %ackm, i64 264
-  %19 = load ptr, ptr %cc_method28.i, align 8
+  %19 = load ptr, ptr %cc_method.i, align 8
   %on_data_lost_finished.i = getelementptr inbounds i8, ptr %19, i64 88
   %20 = load ptr, ptr %on_data_lost_finished.i, align 8
-  %cc_data29.i = getelementptr inbounds i8, ptr %ackm, i64 272
-  %21 = load ptr, ptr %cc_data29.i, align 8
+  %21 = load ptr, ptr %cc_data.i, align 8
   %call30.i = call i32 %20(ptr noundef %21, i32 noundef 0) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rtt.i)
   br label %return

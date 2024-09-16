@@ -350,7 +350,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_trigger_action(ptr noundef %env, i64 noundef %trigger_index) unnamed_addr #0 {
+define internal fastcc void @do_trigger_action(ptr noundef %env, i64 noundef range(i64 0, 2) %trigger_index) unnamed_addr #0 {
 entry:
   %tdata11.i = getelementptr inbounds i8, ptr %env, i64 8360
   %arrayidx.i = getelementptr [2 x i64], ptr %tdata11.i, i64 0, i64 %trigger_index

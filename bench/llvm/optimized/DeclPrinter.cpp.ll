@@ -4344,7 +4344,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
   br i1 %.not, label %44, label %43
 
 43:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter19PrintObjCTypeParamsEPN5clang17ObjCTypeParamListE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %42)
+  call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter19PrintObjCTypeParamsEPN5clang17ObjCTypeParamListE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %42)
   br label %44
 
 44:                                               ; preds = %43, %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -4429,7 +4429,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52:               ; preds = %82, %84
   br i1 %.not40, label %93, label %92
 
 92:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit52
-  call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter19PrintObjCTypeParamsEPN5clang17ObjCTypeParamListE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %91)
+  call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter19PrintObjCTypeParamsEPN5clang17ObjCTypeParamListE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %91)
   br label %93
 
 93:                                               ; preds = %92, %_ZN4llvm11raw_ostreamlsEPKc.exit52
@@ -5710,7 +5710,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %34, %32, %22
   br i1 %.not17, label %40, label %39
 
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit21
-  tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter19PrintObjCTypeParamsEPN5clang17ObjCTypeParamListE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %38)
+  tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter19PrintObjCTypeParamsEPN5clang17ObjCTypeParamListE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %38)
   br label %40
 
 40:                                               ; preds = %39, %_ZN4llvm11raw_ostreamlsEPKc.exit21
@@ -15006,7 +15006,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111DeclPrinter21prettyPrintAttributesEPKN5clang4DeclENS0_16AttrPosAsWrittenE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111DeclPrinter21prettyPrintAttributesEPKN5clang4DeclENS0_16AttrPosAsWrittenE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 256
@@ -15383,7 +15383,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111DeclPrinter19PrintObjCTypeParamsEPN5clang17ObjCTypeParamListE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111DeclPrinter19PrintObjCTypeParamsEPN5clang17ObjCTypeParamListE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.clang::QualType", align 8
   %5 = load ptr, ptr %0, align 8

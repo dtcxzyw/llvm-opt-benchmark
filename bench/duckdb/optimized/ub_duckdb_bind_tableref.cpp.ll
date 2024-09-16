@@ -55661,7 +55661,7 @@ unreachable:                                      ; preds = %invoke.cont3
 declare void @_ZN6duckdb16ExpressionBinderC1ERNS_6BinderERNS_13ClientContextEb(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(752), ptr noundef nonnull align 8 dereferenceable(592), i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL10BindColumnERNS_6BinderERNS_13ClientContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %binder, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(32) %alias, ptr noundef nonnull align 8 dereferenceable(32) %column_name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL10BindColumnERNS_6BinderERNS_13ClientContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %binder, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(32) %alias, ptr noundef nonnull align 8 dereferenceable(32) %column_name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::unique_ptr.621", align 8
   %expr = alloca %"class.duckdb::unique_ptr.220", align 8
@@ -57251,7 +57251,7 @@ _ZNSt12_Vector_baseIN6duckdb17PivotValueElementESaIS1_EE13_M_deallocateEPS1_m.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL24ConstructInitialGroupingERNS_8PivotRefENS_6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS4_ELb1EEELb1EEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISF_EE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(272) %ref, ptr nocapture noundef readonly %all_columns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %handled_columns) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL24ConstructInitialGroupingERNS_8PivotRefENS_6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS4_ELb1EEELb1EEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISF_EE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(272) %ref, ptr nocapture noundef nonnull readonly %all_columns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %handled_columns) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i225 = alloca %"class.duckdb::Value", align 8
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8

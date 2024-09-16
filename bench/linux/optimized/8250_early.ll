@@ -58,7 +58,7 @@ define dso_local noundef range(i32 -19, 1) i32 @early_serial8250_setup(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 193
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %4 to i32
@@ -123,7 +123,7 @@ define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 5) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 193
   %5 = load i8, ptr %4, align 1
   %6 = zext nneg i8 %5 to i32

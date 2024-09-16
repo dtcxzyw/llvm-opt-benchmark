@@ -861,8 +861,8 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %.thread, %.thread26
 declare void @psa_reset_key_attributes(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
-  %5 = tail call i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef %1) #15
+define internal fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16385) %2, i32 noundef %3) unnamed_addr #5 {
+  %5 = tail call i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef nonnull %1) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %psa_key_policy_permits.exit
 
@@ -871,7 +871,7 @@ define internal fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 28672
   %10 = icmp eq i16 %9, 16384
-  %11 = and i32 %2, -2
+  %11 = and i32 %2, 32766
   %spec.select = select i1 %10, i32 %11, i32 %2
   %12 = getelementptr inbounds i8, ptr %7, i64 12
   %13 = load i32, ptr %12, align 4
@@ -1170,7 +1170,7 @@ define hidden i32 @psa_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %11, label %psa_fail_key_creation.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = call fastcc i32 @psa_start_key_creation(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %13 = call fastcc i32 @psa_start_key_creation(ptr noundef %0, ptr noundef %5, ptr noundef %6)
   %.not = icmp eq i32 %13, 0
   %.pr40.pre46 = load ptr, ptr %5, align 8
   br i1 %.not, label %14, label %.thread
@@ -1306,7 +1306,7 @@ psa_fail_key_creation.exit:                       ; preds = %psa_wipe_key_slot.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_start_key_creation(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc i32 @psa_start_key_creation(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = alloca i32, align 4
   store ptr null, ptr %2, align 8
   %5 = getelementptr i8, ptr %0, i64 4
@@ -1357,7 +1357,7 @@ define internal fastcc i32 @psa_start_key_creation(ptr nocapture noundef readonl
   br i1 %.not24.i, label %psa_validate_key_attributes.exit, label %psa_validate_key_attributes.exit.thread
 
 psa_validate_key_attributes.exit:                 ; preds = %22
-  %25 = call i32 @psa_get_empty_key_slot(ptr noundef nonnull %4, ptr noundef %1) #15
+  %25 = call i32 @psa_get_empty_key_slot(ptr noundef nonnull %4, ptr noundef nonnull %1) #15
   %.not16 = icmp eq i32 %25, 0
   br i1 %.not16, label %26, label %psa_validate_key_attributes.exit.thread
 
@@ -1596,7 +1596,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   store i32 %41, ptr %23, align 4
   store i32 %29, ptr %25, align 8
   store i32 %34, ptr %30, align 4
-  %42 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %42 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %6, ptr noundef %5, ptr noundef %7)
   %.not26 = icmp eq i32 %42, 0
   %.pr.pre53 = load ptr, ptr %5, align 8
   br i1 %.not26, label %43, label %.thread
@@ -2046,7 +2046,7 @@ define hidden i32 @psa_mac_sign_setup(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_mac_setup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc i32 @psa_mac_setup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.psa_key_attributes_s, align 8
   store ptr null, ptr %5, align 8
@@ -2057,7 +2057,7 @@ define internal fastcc i32 @psa_mac_setup(ptr noundef %0, i32 noundef %1, i32 no
 8:                                                ; preds = %4
   %.not21 = icmp eq i32 %3, 0
   %9 = select i1 %.not21, i32 2048, i32 1024
-  %10 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %1, ptr noundef nonnull %5, i32 noundef %9, i32 noundef %2)
+  %10 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %1, ptr noundef %5, i32 noundef %9, i32 noundef %2)
   %.not22 = icmp eq i32 %10, 0
   br i1 %.not22, label %11, label %.thread
 
@@ -2076,61 +2076,60 @@ define internal fastcc i32 @psa_mac_setup(ptr noundef %0, i32 noundef %1, i32 no
   %17 = getelementptr inbounds i8, ptr %0, i64 5
   %18 = trunc nuw nsw i32 %3 to i8
   %19 = load i8, ptr %17, align 1
-  %20 = and i8 %18, 1
-  %21 = and i8 %19, -2
-  %22 = or disjoint i8 %21, %20
-  store i8 %22, ptr %17, align 1
-  %23 = getelementptr inbounds i8, ptr %12, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 48
-  %26 = load i64, ptr %25, align 8
-  br i1 %.not21, label %29, label %27
+  %20 = and i8 %19, -2
+  %21 = or disjoint i8 %20, %18
+  store i8 %21, ptr %17, align 1
+  %22 = getelementptr inbounds i8, ptr %12, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %12, i64 48
+  %25 = load i64, ptr %24, align 8
+  br i1 %.not21, label %28, label %26
 
-27:                                               ; preds = %16
-  %28 = call i32 @psa_driver_wrapper_mac_sign_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %24, i64 noundef %26, i32 noundef %2) #15
-  br label %31
+26:                                               ; preds = %16
+  %27 = call i32 @psa_driver_wrapper_mac_sign_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %25, i32 noundef %2) #15
+  br label %30
 
-29:                                               ; preds = %16
-  %30 = call i32 @psa_driver_wrapper_mac_verify_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %24, i64 noundef %26, i32 noundef %2) #15
-  br label %31
+28:                                               ; preds = %16
+  %29 = call i32 @psa_driver_wrapper_mac_verify_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %25, i32 noundef %2) #15
+  br label %30
 
-31:                                               ; preds = %27, %29
-  %.0 = phi i32 [ %28, %27 ], [ %30, %29 ]
+30:                                               ; preds = %26, %28
+  %.0 = phi i32 [ %27, %26 ], [ %29, %28 ]
   %.not24 = icmp eq i32 %.0, 0
-  br i1 %.not24, label %40, label %.thread
+  br i1 %.not24, label %39, label %.thread
 
-.thread:                                          ; preds = %11, %8, %31
-  %.028.ph = phi i32 [ %10, %8 ], [ %15, %11 ], [ %.0, %31 ]
+.thread:                                          ; preds = %11, %8, %30
+  %.028.ph = phi i32 [ %10, %8 ], [ %15, %11 ], [ %.0, %30 ]
   %.pr = load i32, ptr %0, align 8
-  %32 = icmp eq i32 %.pr, 0
-  br i1 %32, label %psa_mac_abort.exit.thread, label %.thread.thread
+  %31 = icmp eq i32 %.pr, 0
+  br i1 %31, label %psa_mac_abort.exit.thread, label %.thread.thread
 
 .thread.thread:                                   ; preds = %4, %.thread
   %.02835 = phi i32 [ %.028.ph, %.thread ], [ -137, %4 ]
-  %33 = call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %0) #15
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
-  store i8 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 5
-  %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, -2
-  store i8 %37, ptr %35, align 1
+  %32 = call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %0) #15
+  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  store i8 0, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 5
+  %35 = load i8, ptr %34, align 1
+  %36 = and i8 %35, -2
+  store i8 %36, ptr %34, align 1
   store i32 0, ptr %0, align 8
   br label %psa_mac_abort.exit.thread
 
 psa_mac_abort.exit.thread:                        ; preds = %.thread, %.thread.thread
   %.029.ph = phi i32 [ %.02835, %.thread.thread ], [ %.028.ph, %.thread ]
-  %38 = load ptr, ptr %5, align 8
-  %39 = call i32 @psa_unlock_key_slot(ptr noundef %38) #15
-  br label %43
+  %37 = load ptr, ptr %5, align 8
+  %38 = call i32 @psa_unlock_key_slot(ptr noundef %37) #15
+  br label %42
 
-40:                                               ; preds = %31
-  %41 = load ptr, ptr %5, align 8
-  %42 = call i32 @psa_unlock_key_slot(ptr noundef %41) #15
-  br label %43
+39:                                               ; preds = %30
+  %40 = load ptr, ptr %5, align 8
+  %41 = call i32 @psa_unlock_key_slot(ptr noundef %40) #15
+  br label %42
 
-43:                                               ; preds = %psa_mac_abort.exit.thread, %40
-  %44 = phi i32 [ %42, %40 ], [ %.029.ph, %psa_mac_abort.exit.thread ]
-  ret i32 %44
+42:                                               ; preds = %psa_mac_abort.exit.thread, %39
+  %43 = phi i32 [ %41, %39 ], [ %.029.ph, %psa_mac_abort.exit.thread ]
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2314,14 +2313,14 @@ define hidden i32 @psa_mac_compute(i32 noundef %0, i32 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #5 {
+define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #5 {
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
   %11 = alloca %struct.psa_key_attributes_s, align 8
   store i8 0, ptr %10, align 1
   %.not = icmp eq i32 %7, 0
   %12 = select i1 %.not, i32 2048, i32 1024
-  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %9, i32 noundef %12, i32 noundef %1)
+  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %9, i32 noundef %12, i32 noundef %1)
   %.not25 = icmp eq i32 %13, 0
   br i1 %.not25, label %14, label %.thread
 
@@ -2487,7 +2486,7 @@ define hidden i32 @psa_sign_message(i32 noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_sign_internal(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7) unnamed_addr #5 {
+define internal fastcc i32 @psa_sign_internal(i32 noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7) unnamed_addr #5 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.psa_key_attributes_s, align 8
   store i64 0, ptr %7, align 8
@@ -2502,7 +2501,7 @@ define internal fastcc i32 @psa_sign_internal(i32 noundef %0, i32 noundef %1, i3
 14:                                               ; preds = %12
   %.not37 = icmp eq i32 %1, 0
   %15 = select i1 %.not37, i32 4096, i32 1024
-  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %9, i32 noundef %15, i32 noundef %2)
+  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %9, i32 noundef %15, i32 noundef %2)
   %.not38 = icmp eq i32 %16, 0
   br i1 %.not38, label %17, label %34
 
@@ -2680,7 +2679,7 @@ switch.early.test.i:                              ; preds = %18
   br i1 %.not37.old.i, label %psa_verify_internal.exit, label %psa_sign_verify_check_alg.exit
 
 psa_sign_verify_check_alg.exit:                   ; preds = %23, %20, %switch.early.test.i
-  %24 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %7, i32 noundef 2048, i32 noundef %1)
+  %24 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %7, i32 noundef 2048, i32 noundef %1)
   %.not27.i = icmp eq i32 %24, 0
   br i1 %.not27.i, label %25, label %psa_verify_internal.exit
 
@@ -2816,7 +2815,7 @@ switch.early.test54.i:                            ; preds = %6
   br i1 %switch.selectcmp.i, label %select.unfold, label %psa_verify_internal.exit
 
 select.unfold:                                    ; preds = %switch.early.test54.i, %6, %6, %6, %6
-  %11 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %7, i32 noundef 8192, i32 noundef %1)
+  %11 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %7, i32 noundef 8192, i32 noundef %1)
   %.not27.i = icmp eq i32 %11, 0
   br i1 %.not27.i, label %12, label %psa_verify_internal.exit
 
@@ -2855,7 +2854,7 @@ define hidden i32 @psa_asymmetric_encrypt(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %or.cond, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %10, i32 noundef 256, i32 noundef %1)
+  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %10, i32 noundef 256, i32 noundef %1)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
@@ -2917,7 +2916,7 @@ define hidden i32 @psa_asymmetric_decrypt(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %or.cond, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %10, i32 noundef 512, i32 noundef %1)
+  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %10, i32 noundef 512, i32 noundef %1)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
@@ -2972,132 +2971,132 @@ define hidden i32 @psa_cipher_encrypt_setup(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.psa_key_attributes_s, align 8
   store ptr null, ptr %5, align 8
-  %7 = icmp eq i32 %3, 1
-  %8 = select i1 %7, i32 256, i32 512
-  %9 = load i32, ptr %0, align 8
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %.thread.thread51
+  %.not = icmp eq i32 %3, 0
+  %7 = select i1 %.not, i32 512, i32 256
+  %8 = load i32, ptr %0, align 8
+  %.not41 = icmp eq i32 %8, 0
+  br i1 %.not41, label %9, label %.thread.thread52
 
-10:                                               ; preds = %4
-  %11 = and i32 %2, 2130706432
-  %12 = icmp eq i32 %11, 67108864
-  br i1 %12, label %13, label %psa_cipher_abort.exit.thread
+9:                                                ; preds = %4
+  %10 = and i32 %2, 2130706432
+  %11 = icmp eq i32 %10, 67108864
+  br i1 %11, label %12, label %psa_cipher_abort.exit.thread
 
-13:                                               ; preds = %10
-  %14 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %1, ptr noundef nonnull %5, i32 noundef %8, i32 noundef %2)
-  %.not41 = icmp eq i32 %14, 0
-  br i1 %.not41, label %15, label %.thread
+12:                                               ; preds = %9
+  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %1, ptr noundef %5, i32 noundef %7, i32 noundef %2)
+  %.not42 = icmp eq i32 %13, 0
+  br i1 %.not42, label %14, label %.thread
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
-  %17 = load i8, ptr %16, align 4
-  %18 = icmp ne i32 %2, 71320576
-  %19 = and i8 %17, -4
-  %20 = zext i1 %18 to i8
-  %storemerge = or disjoint i8 %19, %20
-  store i8 %storemerge, ptr %16, align 4
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i16, ptr %21, align 8
-  %23 = zext i16 %22 to i32
-  %24 = and i32 %23, 28672
-  %25 = icmp eq i32 %24, 8192
-  %26 = and i32 %23, 1792
-  %27 = icmp ne i32 %26, 0
-  %28 = and i1 %25, %27
-  br i1 %28, label %29, label %41
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = load i8, ptr %15, align 4
+  %17 = icmp ne i32 %2, 71320576
+  %18 = and i8 %16, -4
+  %19 = zext i1 %17 to i8
+  %storemerge = or disjoint i8 %18, %19
+  store i8 %storemerge, ptr %15, align 4
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i16, ptr %20, align 8
+  %22 = zext i16 %21 to i32
+  %23 = and i32 %22, 28672
+  %24 = icmp eq i32 %23, 8192
+  %25 = and i32 %22, 1792
+  %26 = icmp ne i32 %25, 0
+  %27 = and i1 %24, %26
+  br i1 %27, label %28, label %40
 
-29:                                               ; preds = %15
-  %30 = and i32 %2, -2063597825
-  %or.cond = icmp eq i32 %30, 79695872
-  %31 = icmp eq i32 %2, 79696384
-  %or.cond3 = or i1 %31, %or.cond
-  %32 = icmp eq i32 %2, 71368448
-  %or.cond5 = or i1 %32, %or.cond3
-  %33 = icmp eq i32 %30, 71319552
-  %or.cond9 = or i1 %33, %or.cond5
-  br i1 %or.cond9, label %34, label %41
+28:                                               ; preds = %14
+  %29 = and i32 %2, -2063597825
+  %or.cond = icmp eq i32 %29, 79695872
+  %30 = icmp eq i32 %2, 79696384
+  %or.cond3 = or i1 %30, %or.cond
+  %31 = icmp eq i32 %2, 71368448
+  %or.cond5 = or i1 %31, %or.cond3
+  %32 = icmp eq i32 %29, 71319552
+  %or.cond9 = or i1 %32, %or.cond5
+  br i1 %or.cond9, label %33, label %40
 
-34:                                               ; preds = %29
-  %35 = and i16 %22, 28672
-  %36 = icmp eq i16 %35, 8192
-  br i1 %36, label %37, label %47
+33:                                               ; preds = %28
+  %34 = and i16 %21, 28672
+  %35 = icmp eq i16 %34, 8192
+  br i1 %35, label %36, label %46
 
-37:                                               ; preds = %34
-  %38 = lshr i16 %22, 8
-  %39 = and i16 %38, 7
-  %40 = shl nuw nsw i16 1, %39
-  br label %47
+36:                                               ; preds = %33
+  %37 = lshr i16 %21, 8
+  %38 = and i16 %37, 7
+  %39 = shl nuw nsw i16 1, %38
+  br label %46
 
-41:                                               ; preds = %29, %15
-  %42 = icmp eq i16 %22, 8196
-  %43 = icmp eq i32 %2, 75497728
-  %or.cond11 = and i1 %43, %42
-  %44 = icmp eq i32 %2, 79696640
-  %45 = select i1 %44, i16 13, i16 0
-  %46 = select i1 %or.cond11, i16 12, i16 %45
-  br label %47
+40:                                               ; preds = %28, %14
+  %41 = icmp eq i16 %21, 8196
+  %42 = icmp eq i32 %2, 75497728
+  %or.cond11 = and i1 %42, %41
+  %43 = icmp eq i32 %2, 79696640
+  %44 = select i1 %43, i16 13, i16 0
+  %45 = select i1 %or.cond11, i16 12, i16 %44
+  br label %46
 
-47:                                               ; preds = %37, %34, %41
-  %48 = phi i16 [ %46, %41 ], [ %40, %37 ], [ 0, %34 ]
-  %49 = trunc nuw i16 %48 to i8
-  %50 = getelementptr inbounds i8, ptr %0, i64 5
-  store i8 %49, ptr %50, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(28) %21, i64 28, i1 false)
-  %51 = getelementptr inbounds i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
-  %52 = getelementptr inbounds i8, ptr %21, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %21, i64 48
-  %55 = load i64, ptr %54, align 8
-  br i1 %7, label %56, label %58
+46:                                               ; preds = %36, %33, %40
+  %47 = phi i16 [ %45, %40 ], [ %39, %36 ], [ 0, %33 ]
+  %48 = trunc nuw i16 %47 to i8
+  %49 = getelementptr inbounds i8, ptr %0, i64 5
+  store i8 %48, ptr %49, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(28) %20, i64 28, i1 false)
+  %50 = getelementptr inbounds i8, ptr %6, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %51 = getelementptr inbounds i8, ptr %20, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %20, i64 48
+  %54 = load i64, ptr %53, align 8
+  br i1 %.not, label %57, label %55
 
-56:                                               ; preds = %47
-  %57 = call i32 @psa_driver_wrapper_cipher_encrypt_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %53, i64 noundef %55, i32 noundef %2) #15
-  br label %60
+55:                                               ; preds = %46
+  %56 = call i32 @psa_driver_wrapper_cipher_encrypt_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %52, i64 noundef %54, i32 noundef %2) #15
+  br label %59
 
-58:                                               ; preds = %47
-  %59 = call i32 @psa_driver_wrapper_cipher_decrypt_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %53, i64 noundef %55, i32 noundef %2) #15
-  br label %60
+57:                                               ; preds = %46
+  %58 = call i32 @psa_driver_wrapper_cipher_decrypt_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %52, i64 noundef %54, i32 noundef %2) #15
+  br label %59
 
-60:                                               ; preds = %56, %58
-  %.0 = phi i32 [ %57, %56 ], [ %59, %58 ]
-  %.not42 = icmp eq i32 %.0, 0
-  br i1 %.not42, label %68, label %.thread
+59:                                               ; preds = %55, %57
+  %.0 = phi i32 [ %56, %55 ], [ %58, %57 ]
+  %.not43 = icmp eq i32 %.0, 0
+  br i1 %.not43, label %67, label %.thread
 
-.thread:                                          ; preds = %13, %60
-  %.045.ph = phi i32 [ %14, %13 ], [ %.0, %60 ]
+.thread:                                          ; preds = %12, %59
+  %.046.ph = phi i32 [ %13, %12 ], [ %.0, %59 ]
   %.pr = load i32, ptr %0, align 8
-  %61 = icmp eq i32 %.pr, 0
-  br i1 %61, label %psa_cipher_abort.exit.thread, label %.thread.thread51
+  %60 = icmp eq i32 %.pr, 0
+  br i1 %60, label %psa_cipher_abort.exit.thread, label %.thread.thread52
 
-.thread.thread51:                                 ; preds = %4, %.thread
-  %.04555 = phi i32 [ %.045.ph, %.thread ], [ -137, %4 ]
-  %62 = call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
+.thread.thread52:                                 ; preds = %4, %.thread
+  %.04656 = phi i32 [ %.046.ph, %.thread ], [ -137, %4 ]
+  %61 = call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
   store i32 0, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 4
-  %64 = load i8, ptr %63, align 4
-  %65 = and i8 %64, -4
-  store i8 %65, ptr %63, align 4
+  %62 = getelementptr inbounds i8, ptr %0, i64 4
+  %63 = load i8, ptr %62, align 4
+  %64 = and i8 %63, -4
+  store i8 %64, ptr %62, align 4
   br label %psa_cipher_abort.exit.thread
 
-psa_cipher_abort.exit.thread:                     ; preds = %.thread, %.thread.thread51, %10
-  %.046.ph = phi i32 [ %.04555, %.thread.thread51 ], [ %.045.ph, %.thread ], [ -135, %10 ]
-  %66 = load ptr, ptr %5, align 8
-  %67 = call i32 @psa_unlock_key_slot(ptr noundef %66) #15
-  br label %71
+psa_cipher_abort.exit.thread:                     ; preds = %.thread, %.thread.thread52, %9
+  %.047.ph = phi i32 [ %.04656, %.thread.thread52 ], [ %.046.ph, %.thread ], [ -135, %9 ]
+  %65 = load ptr, ptr %5, align 8
+  %66 = call i32 @psa_unlock_key_slot(ptr noundef %65) #15
+  br label %70
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %5, align 8
-  %70 = call i32 @psa_unlock_key_slot(ptr noundef %69) #15
-  br label %71
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %5, align 8
+  %69 = call i32 @psa_unlock_key_slot(ptr noundef %68) #15
+  br label %70
 
-71:                                               ; preds = %psa_cipher_abort.exit.thread, %68
-  %72 = phi i32 [ %70, %68 ], [ %.046.ph, %psa_cipher_abort.exit.thread ]
-  ret i32 %72
+70:                                               ; preds = %psa_cipher_abort.exit.thread, %67
+  %71 = phi i32 [ %69, %67 ], [ %.047.ph, %psa_cipher_abort.exit.thread ]
+  ret i32 %71
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3408,7 +3407,7 @@ define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %12, label %13, label %.thread67
 
 13:                                               ; preds = %7
-  %14 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 256, i32 noundef %1)
+  %14 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %8, i32 noundef 256, i32 noundef %1)
   %.not = icmp eq i32 %14, 0
   %.pre71 = load ptr, ptr %8, align 8
   br i1 %.not, label %15, label %.thread67
@@ -3546,7 +3545,7 @@ define hidden i32 @psa_cipher_decrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %11, label %12, label %.thread41
 
 12:                                               ; preds = %7
-  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 512, i32 noundef %1)
+  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %8, i32 noundef 512, i32 noundef %1)
   %.not = icmp eq i32 %13, 0
   %.pre43 = load ptr, ptr %8, align 8
   br i1 %.not, label %14, label %.thread41
@@ -3651,7 +3650,7 @@ define hidden i32 @psa_aead_encrypt(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %or.cond.i, label %15, label %34
 
 15:                                               ; preds = %11
-  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %12, i32 noundef 256, i32 noundef %1)
+  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %12, i32 noundef 256, i32 noundef %1)
   %.not33 = icmp eq i32 %16, 0
   br i1 %.not33, label %17, label %34
 
@@ -3720,7 +3719,7 @@ define hidden i32 @psa_aead_decrypt(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %or.cond.i, label %15, label %34
 
 15:                                               ; preds = %11
-  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %12, i32 noundef 512, i32 noundef %1)
+  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %12, i32 noundef 512, i32 noundef %1)
   %.not33 = icmp eq i32 %16, 0
   br i1 %.not33, label %17, label %34
 
@@ -3786,7 +3785,7 @@ define hidden i32 @psa_aead_encrypt_setup(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.psa_key_attributes_s, align 8
   store ptr null, ptr %5, align 8
@@ -3811,13 +3810,13 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not38, label %15, label %.thread
 
 15:                                               ; preds = %14
-  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef nonnull %5, i32 noundef 512, i32 noundef %3)
+  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef %5, i32 noundef 512, i32 noundef %3)
   %.not39 = icmp eq i32 %16, 0
   %.pre53 = load ptr, ptr %5, align 8
   br i1 %.not39, label %25, label %.thread48
 
 .thread:                                          ; preds = %14
-  %17 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef nonnull %5, i32 noundef 256, i32 noundef %3)
+  %17 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef %5, i32 noundef 256, i32 noundef %3)
   %.not3946 = icmp eq i32 %17, 0
   %.pre55 = load ptr, ptr %5, align 8
   br i1 %.not3946, label %18, label %.thread48
@@ -3874,11 +3873,11 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef %1, i32 n
   %38 = phi ptr [ %.pre55, %.thread ], [ null, %10 ], [ null, %8 ], [ %.pre54, %33 ], [ %.pre, %..thread48_crit_edge ], [ %.pre53, %15 ]
   %.028.ph = phi i32 [ %17, %.thread ], [ -137, %10 ], [ -137, %8 ], [ %34, %33 ], [ %.1, %..thread48_crit_edge ], [ %16, %15 ]
   %39 = call i32 @psa_unlock_key_slot(ptr noundef %38) #15
-  br label %53
+  br label %52
 
 40:                                               ; preds = %4
   %41 = tail call i32 @psa_unlock_key_slot(ptr noundef null) #15
-  br label %53
+  br label %52
 
 42:                                               ; preds = %.thread51
   %43 = icmp eq i32 %37, 83887360
@@ -3894,26 +3893,25 @@ psa_aead_get_base_algorithm.exit:                 ; preds = %.thread51, %42, %.f
   store i32 %45, ptr %46, align 4
   %47 = trunc nuw nsw i32 %1 to i8
   %48 = load i8, ptr %11, align 8
-  %49 = shl i8 %47, 4
-  %50 = and i8 %49, 16
-  %51 = and i8 %48, -17
-  %52 = or disjoint i8 %51, %50
-  store i8 %52, ptr %11, align 8
+  %49 = shl nuw nsw i8 %47, 4
+  %50 = and i8 %48, -17
+  %51 = or disjoint i8 %50, %49
+  store i8 %51, ptr %11, align 8
   br label %psa_aead_abort.exit
 
-53:                                               ; preds = %40, %.thread48
+52:                                               ; preds = %40, %.thread48
   %.02850 = phi i32 [ %.028.ph, %.thread48 ], [ -135, %40 ]
-  %54 = load i32, ptr %0, align 8
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %psa_aead_abort.exit, label %56
+  %53 = load i32, ptr %0, align 8
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %psa_aead_abort.exit, label %55
 
-56:                                               ; preds = %53
-  %57 = call i32 @psa_driver_wrapper_aead_abort(ptr noundef nonnull %0) #15
+55:                                               ; preds = %52
+  %56 = call i32 @psa_driver_wrapper_aead_abort(ptr noundef nonnull %0) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %0, i8 0, i64 472, i1 false)
   br label %psa_aead_abort.exit
 
-psa_aead_abort.exit:                              ; preds = %56, %53, %psa_aead_get_base_algorithm.exit
-  %.2 = phi i32 [ %36, %psa_aead_get_base_algorithm.exit ], [ %.02850, %53 ], [ %.02850, %56 ]
+psa_aead_abort.exit:                              ; preds = %55, %52, %psa_aead_get_base_algorithm.exit
+  %.2 = phi i32 [ %36, %psa_aead_get_base_algorithm.exit ], [ %.02850, %52 ], [ %.02850, %55 ]
   ret i32 %.2
 }
 
@@ -4760,12 +4758,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %56 = or disjoint i32 %28, 58720256
   %57 = icmp eq i8 %35, 0
   %.in.i = getelementptr inbounds i8, ptr %0, i64 24
-  %switch.tableidx77 = add i8 %trunc.i, -3
-  %58 = icmp ult i8 %switch.tableidx77, 16
-  %switch.maskindex80 = zext nneg i8 %switch.tableidx77 to i16
+  %switch.tableidx77 = add nsw i32 %28, -3
+  %58 = icmp ult i32 %switch.tableidx77, 16
+  %switch.maskindex80 = trunc nuw nsw i32 %switch.tableidx77 to i16
   %switch.shifted81 = lshr i16 -6169, %switch.maskindex80
   %switch.lobit82 = trunc i16 %switch.shifted81 to i1
-  %59 = zext nneg i8 %switch.tableidx77 to i64
+  %59 = zext nneg i32 %switch.tableidx77 to i64
   %switch.gep83 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %59
   br label %60
 
@@ -5017,7 +5015,7 @@ switch.lookup88:                                  ; preds = %switch.hole_check87
   %160 = getelementptr inbounds i8, ptr %0, i64 56
   %161 = getelementptr inbounds i8, ptr %0, i64 64
   %.in.i.i = getelementptr inbounds i8, ptr %0, i64 48
-  %.in125.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.in124.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %162 = getelementptr inbounds i8, ptr %4, i64 2
   %163 = getelementptr inbounds i8, ptr %4, i64 12
   %164 = getelementptr inbounds i8, ptr %0, i64 152
@@ -5032,19 +5030,19 @@ switch.lookup88:                                  ; preds = %switch.hole_check87
   %switch.lobit100 = trunc i16 %switch.shifted99 to i1
   %166 = zext nneg i8 %switch.tableidx95 to i64
   %switch.gep101 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %166
-  %switch.tableidx104 = add i8 %trunc.i34, -3
-  %167 = icmp ult i8 %switch.tableidx104, 16
-  %switch.maskindex107 = zext nneg i8 %switch.tableidx104 to i16
+  %switch.tableidx104 = add nsw i32 %138, -3
+  %167 = icmp ult i32 %switch.tableidx104, 16
+  %switch.maskindex107 = trunc nuw nsw i32 %switch.tableidx104 to i16
   %switch.shifted108 = lshr i16 -6169, %switch.maskindex107
   %switch.lobit109 = trunc i16 %switch.shifted108 to i1
-  %168 = zext nneg i8 %switch.tableidx104 to i64
+  %168 = zext nneg i32 %switch.tableidx104 to i64
   %switch.gep110 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %168
-  %switch.tableidx113 = add i8 %trunc.i34, -3
-  %169 = icmp ult i8 %switch.tableidx113, 16
-  %switch.maskindex116 = zext nneg i8 %switch.tableidx113 to i16
+  %switch.tableidx113 = add nsw i32 %138, -3
+  %169 = icmp ult i32 %switch.tableidx113, 16
+  %switch.maskindex116 = trunc nuw nsw i32 %switch.tableidx113 to i16
   %switch.shifted117 = lshr i16 -6169, %switch.maskindex116
   %switch.lobit118 = trunc i16 %switch.shifted117 to i1
-  %170 = zext nneg i8 %switch.tableidx113 to i64
+  %170 = zext nneg i32 %switch.tableidx113 to i64
   %switch.gep119 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %170
   br label %.outer.split.i.preheader
 
@@ -5130,7 +5128,7 @@ psa_key_derivation_start_hmac.exit.i.i:           ; preds = %178, %switch.lookup
 
 195:                                              ; preds = %190
   %196 = icmp eq i64 %192, 0
-  br i1 %196, label %psa_mac_update.exit.thread113.i.i, label %197
+  br i1 %196, label %psa_mac_update.exit.thread112.i.i, label %197
 
 197:                                              ; preds = %195
   %198 = call i32 @psa_driver_wrapper_mac_update(ptr noundef nonnull %6, ptr noundef %191, i64 noundef %192) #15
@@ -5147,22 +5145,22 @@ psa_key_derivation_start_hmac.exit.i.i:           ; preds = %178, %switch.lookup
   br label %psa_key_derivation_tls12_prf_generate_next_block.exit.i
 
 psa_mac_update.exit.i.i:                          ; preds = %197
-  br i1 %199, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %psa_mac_update.exit.thread113.i.i
+  br i1 %199, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %psa_mac_update.exit.thread112.i.i
 
-psa_mac_update.exit.thread113.i.i:                ; preds = %psa_mac_update.exit.i.i, %195
+psa_mac_update.exit.thread112.i.i:                ; preds = %psa_mac_update.exit.i.i, %195
   %203 = load i64, ptr %.in.i.i, align 8
   %204 = icmp eq i64 %203, 0
   br i1 %204, label %psa_mac_update.exit88.thread.i.i, label %206
 
-psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit.thread113.i.i
+psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit.thread112.i.i
   %205 = zext nneg i8 %175 to i64
-  br label %psa_mac_update.exit88.thread120.i.i
+  br label %psa_mac_update.exit88.thread119.i.i
 
-206:                                              ; preds = %psa_mac_update.exit.thread113.i.i
-  %207 = load ptr, ptr %.in125.i.i, align 8
+206:                                              ; preds = %psa_mac_update.exit.thread112.i.i
+  %207 = load ptr, ptr %.in124.i.i, align 8
   %208 = call i32 @psa_driver_wrapper_mac_update(ptr noundef nonnull %6, ptr noundef %207, i64 noundef %203) #15
   %.not.i86.i.i = icmp eq i32 %208, 0
-  %.pr119.pre126.i.i = load i32, ptr %6, align 8
+  %.pr118.pre125.i.i = load i32, ptr %6, align 8
   br i1 %.not.i86.i.i, label %.psa_mac_update.exit88.i_crit_edge.i, label %209
 
 .psa_mac_update.exit88.i_crit_edge.i:             ; preds = %206
@@ -5170,7 +5168,7 @@ psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit
   br label %psa_mac_update.exit88.i.i
 
 209:                                              ; preds = %206
-  %210 = icmp eq i32 %.pr119.pre126.i.i, 0
+  %210 = icmp eq i32 %.pr118.pre125.i.i, 0
   br i1 %210, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %211
 
 211:                                              ; preds = %209
@@ -5185,16 +5183,16 @@ psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit
 
 217:                                              ; preds = %213
   %218 = icmp eq i8 %175, 0
-  br i1 %218, label %psa_mac_update.exit88.thread120.i.i, label %219
+  br i1 %218, label %psa_mac_update.exit88.thread119.i.i, label %219
 
 219:                                              ; preds = %217
   %220 = call i32 @psa_driver_wrapper_mac_update(ptr noundef nonnull %6, ptr noundef nonnull %159, i64 noundef %214) #15
   %.not.i89.i.i = icmp eq i32 %220, 0
-  %.pr119.pre.i.i = load i32, ptr %6, align 8
+  %.pr118.pre.i.i = load i32, ptr %6, align 8
   br i1 %.not.i89.i.i, label %psa_mac_update.exit88.i.i, label %221
 
 221:                                              ; preds = %219
-  %222 = icmp eq i32 %.pr119.pre.i.i, 0
+  %222 = icmp eq i32 %.pr118.pre.i.i, 0
   br i1 %222, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %223
 
 223:                                              ; preds = %221
@@ -5203,18 +5201,18 @@ psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit
 
 psa_mac_update.exit88.i.i:                        ; preds = %219, %.psa_mac_update.exit88.i_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i40, %.psa_mac_update.exit88.i_crit_edge.i ], [ %214, %219 ]
-  %.pr119.i.i = phi i32 [ %.pr119.pre126.i.i, %.psa_mac_update.exit88.i_crit_edge.i ], [ %.pr119.pre.i.i, %219 ]
-  %225 = icmp eq i32 %.pr119.i.i, 0
-  br i1 %225, label %.thread.i.i.i, label %psa_mac_update.exit88.thread120.i.i
+  %.pr118.i.i = phi i32 [ %.pr118.pre125.i.i, %.psa_mac_update.exit88.i_crit_edge.i ], [ %.pr118.pre.i.i, %219 ]
+  %225 = icmp eq i32 %.pr118.i.i, 0
+  br i1 %225, label %.thread.i.i.i, label %psa_mac_update.exit88.thread119.i.i
 
-psa_mac_update.exit88.thread120.i.i:              ; preds = %psa_mac_update.exit88.i.i, %217, %psa_mac_update.exit88.thread.i.i
+psa_mac_update.exit88.thread119.i.i:              ; preds = %psa_mac_update.exit88.i.i, %217, %psa_mac_update.exit88.thread.i.i
   %226 = phi i64 [ %.pre-phi.i, %psa_mac_update.exit88.i.i ], [ 0, %217 ], [ %205, %psa_mac_update.exit88.thread.i.i ]
   %227 = load i8, ptr %.phi.trans.insert.i.i.i, align 1
   %228 = and i8 %227, 1
   %.not.i92.i.i = icmp eq i8 %228, 0
   br i1 %.not.i92.i.i, label %.thread.i.i.i, label %229
 
-229:                                              ; preds = %psa_mac_update.exit88.thread120.i.i
+229:                                              ; preds = %psa_mac_update.exit88.thread119.i.i
   %230 = load i8, ptr %157, align 4
   %231 = icmp eq i8 %230, 0
   br i1 %231, label %.thread.i.i.i, label %232
@@ -5234,9 +5232,9 @@ psa_mac_update.exit88.thread120.i.i:              ; preds = %psa_mac_update.exit
   %237 = zext i8 %.pre.i93.i.i to i64
   br label %239
 
-.thread.i.i.i:                                    ; preds = %235, %232, %229, %psa_mac_update.exit88.thread120.i.i, %psa_mac_update.exit88.i.i
-  %238 = phi i64 [ %226, %235 ], [ %226, %232 ], [ %226, %229 ], [ %226, %psa_mac_update.exit88.thread120.i.i ], [ %.pre-phi.i, %psa_mac_update.exit88.i.i ]
-  %.028.i.i.i = phi i32 [ %236, %235 ], [ -138, %232 ], [ -137, %229 ], [ -137, %psa_mac_update.exit88.thread120.i.i ], [ -137, %psa_mac_update.exit88.i.i ]
+.thread.i.i.i:                                    ; preds = %235, %232, %229, %psa_mac_update.exit88.thread119.i.i, %psa_mac_update.exit88.i.i
+  %238 = phi i64 [ %226, %235 ], [ %226, %232 ], [ %226, %229 ], [ %226, %psa_mac_update.exit88.thread119.i.i ], [ %.pre-phi.i, %psa_mac_update.exit88.i.i ]
+  %.028.i.i.i = phi i32 [ %236, %235 ], [ -138, %232 ], [ -137, %229 ], [ -137, %psa_mac_update.exit88.thread119.i.i ], [ -137, %psa_mac_update.exit88.i.i ]
   store i64 %238, ptr %7, align 8
   store i8 0, ptr %157, align 4
   br label %239
@@ -5296,13 +5294,13 @@ psa_mac_sign_finish.exit.i.i:                     ; preds = %249, %246
   %.not139 = xor i1 %169, true
   %switch.lobit118.not = xor i1 %switch.lobit118, true
   %brmerge140 = select i1 %.not139, i1 true, i1 %switch.lobit118.not
-  br i1 %brmerge140, label %psa_key_derivation_start_hmac.exit109.i.i, label %switch.lookup115
+  br i1 %brmerge140, label %psa_key_derivation_start_hmac.exit108.i.i, label %switch.lookup115
 
 switch.lookup115:                                 ; preds = %255
   %switch.load120 = load i8, ptr %switch.gep119, align 1
-  br label %psa_key_derivation_start_hmac.exit109.i.i
+  br label %psa_key_derivation_start_hmac.exit108.i.i
 
-psa_key_derivation_start_hmac.exit109.i.i:        ; preds = %255, %switch.lookup115
+psa_key_derivation_start_hmac.exit108.i.i:        ; preds = %255, %switch.lookup115
   %262 = phi i8 [ %switch.load120, %switch.lookup115 ], [ %151, %255 ]
   store i8 %262, ptr %157, align 4
   %263 = call i32 @psa_driver_wrapper_mac_sign_setup(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %256, i64 noundef %257, i32 noundef %158) #15
@@ -5311,7 +5309,7 @@ psa_key_derivation_start_hmac.exit109.i.i:        ; preds = %255, %switch.lookup
   %.not72.i.i = icmp eq i32 %263, 0
   br i1 %.not72.i.i, label %264, label %psa_mac_update.exit.thread.i.i
 
-264:                                              ; preds = %psa_key_derivation_start_hmac.exit109.i.i
+264:                                              ; preds = %psa_key_derivation_start_hmac.exit108.i.i
   %265 = load i32, ptr %6, align 8
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %267
@@ -5359,7 +5357,7 @@ psa_mac_update.exit60.thread63.i:                 ; preds = %psa_mac_update.exit
   br label %psa_key_derivation_tls12_prf_generate_next_block.exit.i
 
 psa_mac_update.exit.i39:                          ; preds = %277, %psa_mac_update.exit60.thread63.i
-  %285 = load ptr, ptr %.in125.i.i, align 8
+  %285 = load ptr, ptr %.in124.i.i, align 8
   %286 = load i64, ptr %.in.i.i, align 8
   %287 = call i32 @psa_mac_update(ptr noundef nonnull %6, ptr noundef %285, i64 noundef %286)
   %.not75.i.i = icmp eq i32 %287, 0
@@ -5369,10 +5367,10 @@ psa_mac_update.exit.i39:                          ; preds = %277, %psa_mac_updat
   %289 = call i32 @psa_mac_sign_finish(ptr noundef nonnull %6, ptr noundef nonnull %164, i64 noundef %240, ptr noundef nonnull %7)
   br label %psa_mac_update.exit.thread.i.i
 
-psa_mac_update.exit.thread.i.i:                   ; preds = %288, %psa_mac_update.exit.i39, %psa_key_derivation_start_hmac.exit109.i.i, %psa_mac_sign_finish.exit.i.i, %psa_key_derivation_start_hmac.exit.i.i
-  %.056.ph.ph.i.ph.ph.i = phi i32 [ %186, %psa_key_derivation_start_hmac.exit.i.i ], [ %spec.store.select.i.i, %psa_mac_sign_finish.exit.i.i ], [ %263, %psa_key_derivation_start_hmac.exit109.i.i ], [ %287, %psa_mac_update.exit.i39 ], [ %289, %288 ]
-  %.pr121.pr.i.pr.pr.i = load i32, ptr %6, align 8
-  %290 = icmp eq i32 %.pr121.pr.i.pr.pr.i, 0
+psa_mac_update.exit.thread.i.i:                   ; preds = %288, %psa_mac_update.exit.i39, %psa_key_derivation_start_hmac.exit108.i.i, %psa_mac_sign_finish.exit.i.i, %psa_key_derivation_start_hmac.exit.i.i
+  %.056.ph.ph.i.ph.ph.i = phi i32 [ %186, %psa_key_derivation_start_hmac.exit.i.i ], [ %spec.store.select.i.i, %psa_mac_sign_finish.exit.i.i ], [ %263, %psa_key_derivation_start_hmac.exit108.i.i ], [ %287, %psa_mac_update.exit.i39 ], [ %289, %288 ]
+  %.pr120.pr.i.pr.pr.i = load i32, ptr %6, align 8
+  %290 = icmp eq i32 %.pr120.pr.i.pr.pr.i, 0
   br i1 %290, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %291
 
 291:                                              ; preds = %psa_mac_update.exit.thread.i.i
@@ -5380,12 +5378,12 @@ psa_mac_update.exit.thread.i.i:                   ; preds = %288, %psa_mac_updat
   br label %psa_key_derivation_tls12_prf_generate_next_block.exit.i
 
 psa_key_derivation_tls12_prf_generate_next_block.exit.i: ; preds = %291, %psa_mac_update.exit.thread.i.i, %283, %280, %psa_mac_update.exit60.i, %273, %272, %264, %223, %221, %213, %211, %209, %psa_mac_update.exit.i.i, %201, %200, %190
-  %.056124.i.i = phi i32 [ %.056.ph.ph.i.ph.ph.i, %291 ], [ %.056.ph.ph.i.ph.ph.i, %psa_mac_update.exit.thread.i.i ], [ -137, %213 ], [ %220, %221 ], [ %220, %223 ], [ %208, %209 ], [ %208, %211 ], [ -137, %190 ], [ %198, %200 ], [ %198, %201 ], [ -137, %psa_mac_update.exit.i.i ], [ %279, %280 ], [ %279, %283 ], [ -137, %264 ], [ %270, %272 ], [ %270, %273 ], [ -137, %psa_mac_update.exit60.i ]
-  %.0.i110.i.i = phi i32 [ %292, %291 ], [ 0, %psa_mac_update.exit.thread.i.i ], [ 0, %213 ], [ 0, %221 ], [ 0, %223 ], [ 0, %209 ], [ 0, %211 ], [ 0, %190 ], [ 0, %200 ], [ 0, %201 ], [ 0, %psa_mac_update.exit.i.i ], [ 0, %280 ], [ 0, %283 ], [ 0, %264 ], [ 0, %272 ], [ 0, %273 ], [ 0, %psa_mac_update.exit60.i ]
-  %293 = icmp eq i32 %.056124.i.i, 0
-  %294 = icmp ne i32 %.0.i110.i.i, 0
+  %.056123.i.i = phi i32 [ %.056.ph.ph.i.ph.ph.i, %291 ], [ %.056.ph.ph.i.ph.ph.i, %psa_mac_update.exit.thread.i.i ], [ -137, %213 ], [ %220, %221 ], [ %220, %223 ], [ %208, %209 ], [ %208, %211 ], [ -137, %190 ], [ %198, %200 ], [ %198, %201 ], [ -137, %psa_mac_update.exit.i.i ], [ %279, %280 ], [ %279, %283 ], [ -137, %264 ], [ %270, %272 ], [ %270, %273 ], [ -137, %psa_mac_update.exit60.i ]
+  %.0.i109.i.i = phi i32 [ %292, %291 ], [ 0, %psa_mac_update.exit.thread.i.i ], [ 0, %213 ], [ 0, %221 ], [ 0, %223 ], [ 0, %209 ], [ 0, %211 ], [ 0, %190 ], [ 0, %200 ], [ 0, %201 ], [ 0, %psa_mac_update.exit.i.i ], [ 0, %280 ], [ 0, %283 ], [ 0, %264 ], [ 0, %272 ], [ 0, %273 ], [ 0, %psa_mac_update.exit60.i ]
+  %293 = icmp eq i32 %.056123.i.i, 0
+  %294 = icmp ne i32 %.0.i109.i.i, 0
   %or.cond.i.i = select i1 %293, i1 %294, i1 false
-  %spec.select.i.i = select i1 %or.cond.i.i, i32 %.0.i110.i.i, i32 %.056124.i.i
+  %spec.select.i.i = select i1 %or.cond.i.i, i32 %.0.i109.i.i, i32 %.056123.i.i
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not43.i = icmp eq i32 %spec.select.i.i, 0
@@ -5463,7 +5461,7 @@ define hidden i32 @psa_key_derivation_output_key(ptr nocapture noundef readonly 
   br i1 %.not, label %psa_finish_key_creation.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %23 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %12)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.thread
 
@@ -6091,9 +6089,8 @@ psa_key_derivation_check_input_type.exit:         ; preds = %14, %14, %13, %13, 
   store i32 5120, ptr %33, align 4
   %34 = or i8 %.pre.i.i, 1
   store i8 %34, ptr %.phi.trans.insert.i.i, align 1
-  %trunc.i.i = trunc i32 %.0.i to i8
-  %switch.tableidx = add i8 %trunc.i.i, -3
-  %35 = icmp ult i8 %switch.tableidx, 16
+  %switch.tableidx = add nsw i32 %20, -3
+  %35 = icmp ult i32 %switch.tableidx, 16
   br i1 %35, label %switch.hole_check, label %36
 
 36:                                               ; preds = %switch.hole_check, %27
@@ -6102,13 +6099,13 @@ psa_key_derivation_check_input_type.exit:         ; preds = %14, %14, %13, %13, 
   br label %psa_key_derivation_start_hmac.exit.i
 
 switch.hole_check:                                ; preds = %27
-  %switch.maskindex = zext nneg i8 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 -6169, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %36
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %39 = zext nneg i8 %switch.tableidx to i64
+  %39 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %39
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %psa_key_derivation_start_hmac.exit.i
@@ -6143,8 +6140,8 @@ psa_key_derivation_start_hmac.exit.i:             ; preds = %switch.lookup, %36
   br i1 %.not101.i, label %54, label %psa_hkdf_input.exit
 
 54:                                               ; preds = %53
-  %trunc154.i = trunc i32 %.0.i to i8
-  %switch.tableidx45 = add i8 %trunc154.i, -3
+  %trunc153.i = trunc i32 %.0.i to i8
+  %switch.tableidx45 = add i8 %trunc153.i, -3
   %55 = icmp ult i8 %switch.tableidx45, 16
   br i1 %55, label %switch.hole_check46, label %56
 
@@ -6197,29 +6194,28 @@ switch.lookup47:                                  ; preds = %switch.hole_check46
   store i32 5120, ptr %70, align 4
   %71 = or i8 %.pre.i138.i, 1
   store i8 %71, ptr %.phi.trans.insert.i137.i, align 1
-  %trunc.i139.i = trunc i32 %.0.i to i8
-  %switch.tableidx54 = add i8 %trunc.i139.i, -3
-  %72 = icmp ult i8 %switch.tableidx54, 16
+  %switch.tableidx54 = add nsw i32 %20, -3
+  %72 = icmp ult i32 %switch.tableidx54, 16
   br i1 %72, label %switch.hole_check55, label %73
 
 73:                                               ; preds = %switch.hole_check55, %68
   %74 = icmp eq i32 %20, 19
   %75 = select i1 %74, i8 64, i8 0
-  br label %psa_key_derivation_start_hmac.exit151.i
+  br label %psa_key_derivation_start_hmac.exit150.i
 
 switch.hole_check55:                              ; preds = %68
-  %switch.maskindex57 = zext nneg i8 %switch.tableidx54 to i16
+  %switch.maskindex57 = trunc nuw nsw i32 %switch.tableidx54 to i16
   %switch.shifted58 = lshr i16 -6169, %switch.maskindex57
   %switch.lobit59 = trunc i16 %switch.shifted58 to i1
   br i1 %switch.lobit59, label %switch.lookup56, label %73
 
 switch.lookup56:                                  ; preds = %switch.hole_check55
-  %76 = zext nneg i8 %switch.tableidx54 to i64
+  %76 = zext nneg i32 %switch.tableidx54 to i64
   %switch.gep60 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %76
   %switch.load61 = load i8, ptr %switch.gep60, align 1
-  br label %psa_key_derivation_start_hmac.exit151.i
+  br label %psa_key_derivation_start_hmac.exit150.i
 
-psa_key_derivation_start_hmac.exit151.i:          ; preds = %switch.lookup56, %73
+psa_key_derivation_start_hmac.exit150.i:          ; preds = %switch.lookup56, %73
   %77 = phi i8 [ %75, %73 ], [ %switch.load61, %switch.lookup56 ]
   %78 = getelementptr inbounds i8, ptr %0, i64 172
   store i8 %77, ptr %78, align 4
@@ -6230,7 +6226,7 @@ psa_key_derivation_start_hmac.exit151.i:          ; preds = %switch.lookup56, %7
   %.not97.i = icmp eq i32 %80, 0
   br i1 %.not97.i, label %81, label %psa_hkdf_input.exit
 
-81:                                               ; preds = %psa_key_derivation_start_hmac.exit151.i
+81:                                               ; preds = %psa_key_derivation_start_hmac.exit150.i
   %82 = load i8, ptr %50, align 2
   %83 = and i8 %82, -4
   %84 = or disjoint i8 %83, 1
@@ -6288,10 +6284,10 @@ psa_mac_update.exit.i:                            ; preds = %94, %92
   %111 = getelementptr inbounds i8, ptr %0, i64 33
   store i8 0, ptr %111, align 1
   %112 = icmp eq i32 %15, 134218752
-  br i1 %112, label %113, label %._crit_edge157.i
+  br i1 %112, label %113, label %._crit_edge156.i
 
-._crit_edge157.i:                                 ; preds = %107
-  %.pre158.i = trunc i32 %.0.i to i8
+._crit_edge156.i:                                 ; preds = %107
+  %.pre157.i = trunc i32 %.0.i to i8
   br label %123
 
 113:                                              ; preds = %107
@@ -6325,9 +6321,9 @@ switch.lookup65:                                  ; preds = %switch.hole_check64
   store i8 0, ptr %122, align 8
   br label %psa_hkdf_input.exit
 
-123:                                              ; preds = %._crit_edge157.i, %.thread.i
-  %trunc155.pre-phi.i = phi i8 [ %.pre158.i, %._crit_edge157.i ], [ %trunc154.i, %.thread.i ]
-  %switch.tableidx72 = add i8 %trunc155.pre-phi.i, -3
+123:                                              ; preds = %._crit_edge156.i, %.thread.i
+  %trunc154.pre-phi.i = phi i8 [ %.pre157.i, %._crit_edge156.i ], [ %trunc153.i, %.thread.i ]
+  %switch.tableidx72 = add i8 %trunc154.pre-phi.i, -3
   %124 = icmp ult i8 %switch.tableidx72, 16
   br i1 %124, label %switch.hole_check73, label %125
 
@@ -6363,7 +6359,7 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
 ._crit_edge.i:                                    ; preds = %132
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 34
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2
-  %.pre156.i = and i8 %.pre.i, 3
+  %.pre155.i = and i8 %.pre.i, 3
   br label %138
 
 133:                                              ; preds = %132
@@ -6374,7 +6370,7 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
   br i1 %137, label %psa_hkdf_input.exit, label %138
 
 138:                                              ; preds = %133, %._crit_edge.i
-  %.pre-phi.i = phi i8 [ %.pre156.i, %._crit_edge.i ], [ %136, %133 ]
+  %.pre-phi.i = phi i8 [ %.pre155.i, %._crit_edge.i ], [ %136, %133 ]
   %139 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %135, %133 ]
   %140 = getelementptr inbounds i8, ptr %0, i64 34
   %141 = icmp ne i8 %.pre-phi.i, 3
@@ -6404,8 +6400,8 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
   store i8 %150, ptr %140, align 2
   br label %psa_hkdf_input.exit
 
-psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_key_derivation_start_hmac.exit.i, %44, %53, %60, %66, %psa_key_derivation_start_hmac.exit151.i, %85, %88, %96, %99, %psa_mac_update.exit.i, %120, %129, %132, %133, %138, %145, %149
-  %.0.i30 = phi i32 [ 0, %149 ], [ 0, %44 ], [ -135, %21 ], [ -137, %23 ], [ %43, %psa_key_derivation_start_hmac.exit.i ], [ -137, %53 ], [ -135, %60 ], [ -137, %66 ], [ %80, %psa_key_derivation_start_hmac.exit151.i ], [ -137, %85 ], [ %106, %psa_mac_update.exit.i ], [ 0, %129 ], [ 0, %120 ], [ -135, %132 ], [ -137, %133 ], [ -137, %138 ], [ -141, %145 ], [ -135, %18 ], [ %95, %99 ], [ %95, %96 ], [ -137, %88 ]
+psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_key_derivation_start_hmac.exit.i, %44, %53, %60, %66, %psa_key_derivation_start_hmac.exit150.i, %85, %88, %96, %99, %psa_mac_update.exit.i, %120, %129, %132, %133, %138, %145, %149
+  %.0.i30 = phi i32 [ 0, %149 ], [ 0, %44 ], [ -135, %21 ], [ -137, %23 ], [ %43, %psa_key_derivation_start_hmac.exit.i ], [ -137, %53 ], [ -135, %60 ], [ -137, %66 ], [ %80, %psa_key_derivation_start_hmac.exit150.i ], [ -137, %85 ], [ %106, %psa_mac_update.exit.i ], [ 0, %129 ], [ 0, %120 ], [ -135, %132 ], [ -137, %133 ], [ -137, %138 ], [ -141, %145 ], [ -135, %18 ], [ %95, %99 ], [ %95, %96 ], [ -137, %88 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
@@ -6577,7 +6573,7 @@ psa_tls12_prf_psk_to_ms_input.exit.thread:        ; preds = %14, %13, %12, %5, %
 define hidden i32 @psa_key_derivation_input_key(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 8
-  %6 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef nonnull %4, i32 noundef 16384, i32 noundef %5)
+  %6 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef %4, i32 noundef 16384, i32 noundef %5)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %14
 
@@ -6638,7 +6634,7 @@ define hidden i32 @psa_key_derivation_key_agreement(ptr noundef %0, i16 noundef 
   br i1 %11, label %12, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
 12:                                               ; preds = %5
-  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef nonnull %8, i32 noundef 16384, i32 noundef %9)
+  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef %8, i32 noundef 16384, i32 noundef %9)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
@@ -6717,7 +6713,7 @@ define hidden i32 @psa_raw_key_agreement(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %10, label %11, label %.thread26
 
 11:                                               ; preds = %7
-  %12 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %1, ptr noundef nonnull %8, i32 noundef 16384, i32 noundef %0)
+  %12 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %1, ptr noundef %8, i32 noundef 16384, i32 noundef %0)
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %.thread26
 
@@ -7040,7 +7036,7 @@ define hidden i32 @psa_generate_key(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %11, label %psa_finish_key_creation.exit, label %12
 
 12:                                               ; preds = %8
-  %13 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %13 = call fastcc i32 @psa_start_key_creation(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %.thread
 
@@ -7465,7 +7461,7 @@ declare i32 @psa_initialize_key_slots() local_unnamed_addr #6
 declare i32 @psa_driver_wrapper_init() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 2) i32 @psa_key_algorithm_permits(i16 noundef zeroext %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @psa_key_algorithm_permits(i16 noundef zeroext %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 {
   %4 = icmp eq i32 %2, %1
   br i1 %4, label %psa_mac_key_can_do.exit, label %5
 
@@ -8286,7 +8282,7 @@ declare i32 @psa_driver_wrapper_mac_verify_setup(ptr noundef, ptr noundef, ptr n
 declare i32 @psa_driver_wrapper_mac_compute(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 -135, 1) i32 @psa_sign_verify_check_alg(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -135, 1) i32 @psa_sign_verify_check_alg(i32 noundef range(i32 0, 2) %0, i32 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
   %3 = and i32 %1, -256
   br i1 %.not, label %19, label %4

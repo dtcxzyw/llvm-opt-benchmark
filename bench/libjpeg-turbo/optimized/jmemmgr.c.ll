@@ -1781,7 +1781,7 @@ declare i64 @jpeg_mem_available(ptr noundef, i64 noundef, i64 noundef, i64 nound
 declare void @jpeg_open_backing_store(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0

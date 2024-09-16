@@ -2150,13 +2150,13 @@ define dso_local ptr @create_local_trace_kprobe(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @number_of_same_symbols(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc i32 @number_of_same_symbols(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = alloca %struct.sym_count_ctx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 0, ptr %2, align 8
   store ptr %0, ptr %3, align 8
-  %4 = call i32 @kallsyms_on_each_match_symbol(ptr noundef nonnull @count_symbols, ptr noundef %0, ptr noundef nonnull %2) #18
+  %4 = call i32 @kallsyms_on_each_match_symbol(ptr noundef nonnull @count_symbols, ptr noundef nonnull %0, ptr noundef nonnull %2) #18
   %5 = call i32 @module_kallsyms_on_each_symbol(ptr noundef null, ptr noundef nonnull @count_mod_symbols, ptr noundef nonnull %2) #18
   %6 = load i32, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18

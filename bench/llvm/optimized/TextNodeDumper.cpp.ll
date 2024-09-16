@@ -6230,7 +6230,7 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_p
   br i1 %.not.i.i, label %_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE.exit, label %100
 
 100:                                              ; preds = %97
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %99)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %99)
   br label %_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE.exit
 
 101:                                              ; preds = %62
@@ -7546,7 +7546,7 @@ define linkonce_odr hidden void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5V
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %12, align 8
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str.708, i64 4, i64 %.sroa.0.0.copyload.i.i, ptr nonnull %0)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str.708, i64 4, i64 %.sroa.0.0.copyload.i.i, ptr %0)
   br label %35
 
 13:                                               ; preds = %2
@@ -12499,7 +12499,7 @@ _ZL15isSimpleAPValueRKN5clang7APValueE.exit:      ; preds = %21, %24, %tailrecur
   store ptr %3, ptr %11, align 8
   call void @_ZN5clang7APValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %1) #18
   store i64 %2, ptr %13, align 8
-  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull %8)
+  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef %8)
   %30 = load i32, ptr %12, align 8
   %switch.i.i = icmp ult i32 %30, 2
   br i1 %switch.i.i, label %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit", label %31
@@ -12517,7 +12517,7 @@ _ZL15isSimpleAPValueRKN5clang7APValueE.exit:      ; preds = %21, %24, %tailrecur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %1, i64 %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"class.std::function", align 8
   %6 = alloca i8, align 1
@@ -13152,7 +13152,7 @@ _ZL15isSimpleAPValueRKN5clang7APValueE.exit145:   ; preds = %192, %195, %tailrec
   store ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_08__invokeES3_j", ptr %179, align 8
   call void @_ZN5clang7APValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %180, ptr noundef nonnull align 8 dereferenceable(72) %1) #18
   store i64 %2, ptr %181, align 8
-  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull %.sroa.0.0.copyload.i.sroa.speculated, i64 %.sroa.2.0.copyload.i.sroa.speculated, ptr noundef nonnull %19)
+  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull %.sroa.0.0.copyload.i.sroa.speculated, i64 %.sroa.2.0.copyload.i.sroa.speculated, ptr noundef %19)
   %200 = load i32, ptr %180, align 8
   %switch.i.i139 = icmp ult i32 %200, 2
   br i1 %switch.i.i139, label %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit", label %201
@@ -13497,7 +13497,7 @@ _ZL15isSimpleAPValueRKN5clang7APValueE.exit153:   ; preds = %371, %374, %tailrec
   store ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_18__invokeES3_j", ptr %358, align 8
   call void @_ZN5clang7APValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %359, ptr noundef nonnull align 8 dereferenceable(72) %1) #18
   store i64 %2, ptr %360, align 8
-  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull %.sroa.0.0.copyload.i98.sroa.speculated, i64 %.sroa.2.0.copyload.i100.sroa.speculated, ptr noundef nonnull %18)
+  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull %.sroa.0.0.copyload.i98.sroa.speculated, i64 %.sroa.2.0.copyload.i100.sroa.speculated, ptr noundef %18)
   %379 = load i32, ptr %359, align 8
   %switch.i.i146 = icmp ult i32 %379, 2
   br i1 %switch.i.i146, label %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit147", label %380
@@ -13771,7 +13771,7 @@ _ZL15isSimpleAPValueRKN5clang7APValueE.exit165:   ; preds = %483, %486, %tailrec
   store ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_38__invokeES3_j", ptr %470, align 8
   call void @_ZN5clang7APValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %471, ptr noundef nonnull align 8 dereferenceable(72) %1) #18
   store i64 %2, ptr %472, align 8
-  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull %.sroa.0.0.copyload.i108.sroa.speculated, i64 %.sroa.2.0.copyload.i110.sroa.speculated, ptr noundef nonnull %14)
+  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull %.sroa.0.0.copyload.i108.sroa.speculated, i64 %.sroa.2.0.copyload.i110.sroa.speculated, ptr noundef %14)
   %491 = load i32, ptr %471, align 8
   %switch.i.i158 = icmp ult i32 %491, 2
   br i1 %switch.i.i158, label %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit159", label %492
@@ -13868,7 +13868,7 @@ _ZL15isSimpleAPValueRKN5clang7APValueE.exit174:   ; preds = %513, %516, %tailrec
   store ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_48__invokeES3_j", ptr %499, align 8
   call void @_ZN5clang7APValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %500, ptr noundef nonnull align 8 dereferenceable(72) %1) #18
   store i64 %2, ptr %501, align 8
-  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull %.sroa.0.0.copyload.i115.sroa.speculated, i64 %.sroa.2.0.copyload.i117.sroa.speculated, ptr noundef nonnull %13)
+  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull %.sroa.0.0.copyload.i115.sroa.speculated, i64 %.sroa.2.0.copyload.i117.sroa.speculated, ptr noundef %13)
   %521 = load i32, ptr %500, align 8
   %switch.i.i167 = icmp ult i32 %521, 2
   br i1 %switch.i.i167, label %"_ZZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_EN3$_0D2Ev.exit168", label %522
@@ -14849,7 +14849,7 @@ define dso_local void @_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_1
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %2
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %1)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %1)
   br label %4
 
 4:                                                ; preds = %2, %3
@@ -17786,12 +17786,12 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, i64 %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %2, i64 %3, i64 %1, ptr nonnull %0)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %2, i64 %3, i64 %1, ptr %0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %1, i64 %2, i64 %3, ptr %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %1, i64 %2, i64 %3, ptr nonnull %4) unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca i8, align 1
@@ -18676,7 +18676,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %296, %294, %_ZN4llv
 
 300:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit36
   %301 = inttoptr i64 %299 to ptr
-  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %301)
+  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %301)
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit
 
 _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit36, %300
@@ -18719,7 +18719,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit40:               ; preds = %314, %316
 
 322:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit40
   %323 = inttoptr i64 %321 to ptr
-  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %323)
+  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %323)
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit43
 
 324:                                              ; preds = %2
@@ -19012,7 +19012,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i60:                ; preds = %"_ZNSt8functionIFvb
   call void @_ZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %463, ptr nonnull @.str.574, i64 10)
   %464 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %.sroa.0.0.copyload.i69 = load i64, ptr %464, align 8
-  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str.575, i64 11, i64 %.sroa.0.0.copyload.i69, ptr nonnull %0)
+  call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str.575, i64 11, i64 %.sroa.0.0.copyload.i69, ptr %0)
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit43
 
 465:                                              ; preds = %2
@@ -20772,7 +20772,7 @@ _ZNK5clang11DeclRefExpr12getQualifierEv.exit:     ; preds = %_ZN4llvm11raw_ostre
   br i1 %.not.i, label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit, label %20
 
 20:                                               ; preds = %_ZNK5clang11DeclRefExpr12getQualifierEv.exit
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %.sroa.0.0.copyload.i.i)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %.sroa.0.0.copyload.i.i)
   %.pre = load i32, ptr %1, align 8
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit
 
@@ -21025,7 +21025,7 @@ define dso_local void @_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExpr
   br i1 %.not.i, label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %4)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %4)
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit
 
 _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit: ; preds = %2, %5
@@ -22393,7 +22393,7 @@ _ZNK5clang10MemberExpr12getQualifierEv.exit:      ; preds = %_ZN5clang14TextNode
   br i1 %.not.i, label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit, label %62
 
 62:                                               ; preds = %_ZNK5clang10MemberExpr12getQualifierEv.exit
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %.sroa.0.0.copyload.i.i)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %.sroa.0.0.copyload.i.i)
   %.pre22 = load i32, ptr %1, align 8
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit
 
@@ -28614,7 +28614,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %42, %40, %_ZN4llvm1
 define dso_local void @_ZN5clang14TextNodeDumper38VisitDeducedTemplateSpecializationTypeEPKNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str.708, i64 4, i64 %.sroa.0.0.copyload.i, ptr nonnull %0)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str.708, i64 4, i64 %.sroa.0.0.copyload.i, ptr %0)
   ret void
 }
 
@@ -28653,7 +28653,7 @@ define dso_local void @_ZN5clang14TextNodeDumper31VisitTemplateSpecializationTyp
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %17, %2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str.708, i64 4, i64 %.sroa.0.0.copyload.i, ptr nonnull %0)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str.708, i64 4, i64 %.sroa.0.0.copyload.i, ptr %0)
   ret void
 }
 
@@ -30880,7 +30880,7 @@ _ZNK5clang14DeclaratorDecl12getQualifierEv.exit:  ; preds = %2
   br i1 %.not.i37, label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit, label %14
 
 14:                                               ; preds = %_ZNK5clang14DeclaratorDecl12getQualifierEv.exit
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %13)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %13)
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit
 
 _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit: ; preds = %2, %_ZNK5clang14DeclaratorDecl12getQualifierEv.exit, %14
@@ -33286,7 +33286,7 @@ _ZNK5clang7TagDecl12getQualifierEv.exit:          ; preds = %68
   br i1 %.not.i24, label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit, label %74
 
 74:                                               ; preds = %_ZNK5clang7TagDecl12getQualifierEv.exit
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %73)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %73)
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit
 
 _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit: ; preds = %68, %_ZNK5clang7TagDecl12getQualifierEv.exit, %74
@@ -34338,7 +34338,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %9, %11
   br i1 %.not.i6, label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit, label %24
 
 24:                                               ; preds = %19
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr nonnull %0, ptr nonnull %23)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr nonnull @.str, i64 0, ptr %0, ptr %23)
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit
 
 _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit: ; preds = %19, %24
@@ -61659,7 +61659,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %1, i64 %2, ptr %3, ptr %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %1, i64 %2, ptr nonnull %3, ptr nonnull %4) unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca i8, align 1
@@ -62235,7 +62235,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %204, %202, %189, %1
 
 210:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit10
   %211 = inttoptr i64 %209 to ptr
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %2, ptr nonnull @.str, i64 0, ptr nonnull %2, ptr nonnull %211)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %2, ptr nonnull @.str, i64 0, ptr %2, ptr %211)
   br label %_ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit
 
 _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit10, %210

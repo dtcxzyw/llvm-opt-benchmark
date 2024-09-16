@@ -2945,7 +2945,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %69, %80
 _ZN7testing15AssertionResultD2Ev.exit51:          ; preds = %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_123createQRDetectorWithDNNERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_123createQRDetectorWithDNNERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %103 unwind label %119
 
 103:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit51
@@ -3671,7 +3671,7 @@ _ZN7testing8internal10scoped_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_123createQRDetectorWithDNNERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_123createQRDetectorWithDNNERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4541,7 +4541,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %71, %82
 _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_123createQRDetectorWithDNNERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_123createQRDetectorWithDNNERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %107 unwind label %123
 
 107:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit67
@@ -6222,7 +6222,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_
 .loopexit:                                        ; preds = %72, %.preheader, %37, %51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_123createQRDetectorWithDNNERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_123createQRDetectorWithDNNERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %96 unwind label %111
 
 96:                                               ; preds = %.loopexit

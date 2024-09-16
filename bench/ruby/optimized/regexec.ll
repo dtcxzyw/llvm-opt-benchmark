@@ -24,7 +24,7 @@ count_num_cache_opcodes.exit:
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   store i64 0, ptr %2, align 8
-  %4 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %4 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %5 = load i64, ptr %2, align 8
   %6 = icmp ne i64 %5, -1
@@ -372,7 +372,7 @@ define dso_local i64 @onig_match(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %40 = getelementptr inbounds i8, ptr %0, i64 72
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %41, ptr noundef %1, ptr noundef %3, ptr noundef %2) #23
-  %43 = call fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %42, ptr noundef nonnull %7)
+  %43 = call fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %42, ptr noundef %7)
   %.pre = load ptr, ptr %7, align 8
   br label %44
 
@@ -391,7 +391,7 @@ define dso_local i64 @onig_match(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 declare ptr @onigenc_get_prev_char_head(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1786,7 +1786,7 @@ enclen_approx.exit2880:                           ; preds = %775, %777
   %792 = load ptr, ptr %115, align 8
   %793 = load i64, ptr %116, align 8
   %794 = load ptr, ptr %20, align 8
-  %795 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %792, i64 noundef %793, ptr noundef nonnull %.pn.in.in, ptr noundef %794, ptr noundef %.02223, ptr noundef nonnull %25)
+  %795 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %792, i64 noundef %793, ptr noundef nonnull %.pn.in.in, ptr noundef %794, ptr noundef %.02223, ptr noundef %25)
   %796 = icmp sgt i64 %795, -1
   br i1 %796, label %797, label %932
 
@@ -2272,7 +2272,7 @@ is_mbc_newline_ex.exit2903:                       ; preds = %1037, %1040
   %1055 = load ptr, ptr %115, align 8
   %1056 = load i64, ptr %116, align 8
   %1057 = load ptr, ptr %20, align 8
-  %1058 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %1055, i64 noundef %1056, ptr noundef nonnull %.pn.in.in, ptr noundef %1057, ptr noundef %.02223, ptr noundef nonnull %26)
+  %1058 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %1055, i64 noundef %1056, ptr noundef nonnull %.pn.in.in, ptr noundef %1057, ptr noundef %.02223, ptr noundef %26)
   %1059 = icmp sgt i64 %1058, -1
   br i1 %1059, label %1060, label %1195
 
@@ -2711,7 +2711,7 @@ enclen_approx.exit2926.thread:                    ; preds = %1266, %enclen_appro
   %1289 = load ptr, ptr %115, align 8
   %1290 = load i64, ptr %116, align 8
   %1291 = load ptr, ptr %20, align 8
-  %1292 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %1289, i64 noundef %1290, ptr noundef nonnull %.pn.in.in, ptr noundef %1291, ptr noundef %.02223, ptr noundef nonnull %27)
+  %1292 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %1289, i64 noundef %1290, ptr noundef nonnull %.pn.in.in, ptr noundef %1291, ptr noundef %.02223, ptr noundef %27)
   %1293 = icmp sgt i64 %1292, -1
   %.pre4564 = load ptr, ptr %19, align 8
   br i1 %1293, label %1294, label %1428
@@ -3222,7 +3222,7 @@ is_mbc_newline_ex.exit2955:                       ; preds = %1543, %1546
   %1564 = load ptr, ptr %115, align 8
   %1565 = load i64, ptr %116, align 8
   %1566 = load ptr, ptr %20, align 8
-  %1567 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %1564, i64 noundef %1565, ptr noundef nonnull %.pn.in.in, ptr noundef %1566, ptr noundef %.02223, ptr noundef nonnull %28)
+  %1567 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %1564, i64 noundef %1565, ptr noundef nonnull %.pn.in.in, ptr noundef %1566, ptr noundef %.02223, ptr noundef %28)
   %1568 = icmp sgt i64 %1567, -1
   %.pre4561 = load ptr, ptr %19, align 8
   br i1 %1568, label %1569, label %1703
@@ -3726,7 +3726,7 @@ rb_enc_asciicompat.exit:                          ; preds = %1827
   %narrow.i.i = icmp ult i32 %1836, 26
   %1837 = add nsw i32 %1834, -48
   %1838 = icmp ult i32 %1837, 10
-  %narrow.i = or i1 %1838, %narrow.i.i
+  %narrow.i = select i1 %narrow.i.i, i1 true, i1 %1838
   %1839 = icmp eq i8 %1833, 95
   %or.cond2838 = or i1 %1839, %narrow.i
   br i1 %or.cond2838, label %1843, label %is_mbc_newline_ex.exit.thread
@@ -3833,7 +3833,7 @@ rb_enc_asciicompat.exit2980:                      ; preds = %1886
   %narrow.i.i2981 = icmp ult i32 %1895, 26
   %1896 = add nsw i32 %1893, -48
   %1897 = icmp ult i32 %1896, 10
-  %narrow.i2982 = or i1 %1897, %narrow.i.i2981
+  %narrow.i2982 = select i1 %narrow.i.i2981, i1 true, i1 %1897
   %1898 = icmp eq i8 %1892, 95
   %or.cond2841 = or i1 %1898, %narrow.i2982
   br i1 %or.cond2841, label %is_mbc_newline_ex.exit.thread, label %1902
@@ -3948,7 +3948,7 @@ rb_enc_asciicompat.exit2984:                      ; preds = %1951
   %narrow.i.i2985 = icmp ult i32 %1960, 26
   %1961 = add nsw i32 %1958, -48
   %1962 = icmp ult i32 %1961, 10
-  %narrow.i2986 = or i1 %1962, %narrow.i.i2985
+  %narrow.i2986 = select i1 %narrow.i.i2985, i1 true, i1 %1962
   %1963 = icmp eq i8 %1957, 95
   %or.cond2843 = or i1 %1963, %narrow.i2986
   br i1 %or.cond2843, label %2021, label %is_mbc_newline_ex.exit.thread
@@ -3983,7 +3983,7 @@ rb_enc_asciicompat.exit2988:                      ; preds = %1971
   %narrow.i.i2989 = icmp ult i32 %1978, 26
   %1979 = add nsw i32 %1976, -48
   %1980 = icmp ult i32 %1979, 10
-  %narrow.i2990 = or i1 %1980, %narrow.i.i2989
+  %narrow.i2990 = select i1 %narrow.i.i2989, i1 true, i1 %1980
   %1981 = icmp eq i8 %1975, 95
   %or.cond2844 = or i1 %1981, %narrow.i2990
   br i1 %or.cond2844, label %2021, label %is_mbc_newline_ex.exit.thread
@@ -4012,7 +4012,7 @@ rb_enc_asciicompat.exit2992:                      ; preds = %1985
   %narrow.i.i2993 = icmp ult i32 %1991, 26
   %1992 = add nsw i32 %1989, -48
   %1993 = icmp ult i32 %1992, 10
-  %narrow.i2994.not.not = or i1 %1993, %narrow.i.i2993
+  %narrow.i2994.not.not = select i1 %narrow.i.i2993, i1 true, i1 %1993
   %1994 = icmp eq i8 %1988, 95
   %narrow3508 = select i1 %narrow.i2994.not.not, i1 true, i1 %1994
   %1995 = zext i1 %narrow3508 to i32
@@ -4041,7 +4041,7 @@ rb_enc_asciicompat.exit2996:                      ; preds = %.thread4596, %1996
   %narrow.i.i2997 = icmp ult i32 %2008, 26
   %2009 = add nsw i32 %2006, -48
   %2010 = icmp ult i32 %2009, 10
-  %narrow.i2998.not.not = or i1 %2010, %narrow.i.i2997
+  %narrow.i2998.not.not = select i1 %narrow.i.i2997, i1 true, i1 %2010
   %2011 = icmp eq i8 %2005, 95
   %narrow3511 = select i1 %narrow.i2998.not.not, i1 true, i1 %2011
   %2012 = zext i1 %narrow3511 to i32
@@ -4135,7 +4135,7 @@ rb_enc_asciicompat.exit3000:                      ; preds = %2054
   %narrow.i.i3001 = icmp ult i32 %2063, 26
   %2064 = add nsw i32 %2061, -48
   %2065 = icmp ult i32 %2064, 10
-  %narrow.i3002 = or i1 %2065, %narrow.i.i3001
+  %narrow.i3002 = select i1 %narrow.i.i3001, i1 true, i1 %2065
   %2066 = icmp eq i8 %2060, 95
   %or.cond2845 = or i1 %2066, %narrow.i3002
   br i1 %or.cond2845, label %is_mbc_newline_ex.exit.thread, label %2123
@@ -4170,7 +4170,7 @@ rb_enc_asciicompat.exit3004:                      ; preds = %2074
   %narrow.i.i3005 = icmp ult i32 %2081, 26
   %2082 = add nsw i32 %2079, -48
   %2083 = icmp ult i32 %2082, 10
-  %narrow.i3006 = or i1 %2083, %narrow.i.i3005
+  %narrow.i3006 = select i1 %narrow.i.i3005, i1 true, i1 %2083
   %2084 = icmp eq i8 %2078, 95
   %or.cond2846 = or i1 %2084, %narrow.i3006
   br i1 %or.cond2846, label %is_mbc_newline_ex.exit.thread, label %2123
@@ -4199,7 +4199,7 @@ rb_enc_asciicompat.exit3008:                      ; preds = %2088
   %narrow.i.i3009 = icmp ult i32 %2094, 26
   %2095 = add nsw i32 %2092, -48
   %2096 = icmp ult i32 %2095, 10
-  %narrow.i3010.not.not = or i1 %2096, %narrow.i.i3009
+  %narrow.i3010.not.not = select i1 %narrow.i.i3009, i1 true, i1 %2096
   %2097 = icmp eq i8 %2091, 95
   %narrow = select i1 %narrow.i3010.not.not, i1 true, i1 %2097
   %2098 = zext i1 %narrow to i32
@@ -4228,7 +4228,7 @@ rb_enc_asciicompat.exit3012:                      ; preds = %.thread4597, %2099
   %narrow.i.i3013 = icmp ult i32 %2111, 26
   %2112 = add nsw i32 %2109, -48
   %2113 = icmp ult i32 %2112, 10
-  %narrow.i3014.not.not = or i1 %2113, %narrow.i.i3013
+  %narrow.i3014.not.not = select i1 %narrow.i.i3013, i1 true, i1 %2113
   %2114 = icmp eq i8 %2108, 95
   %narrow3505 = select i1 %narrow.i3014.not.not, i1 true, i1 %2114
   %2115 = zext i1 %narrow3505 to i32
@@ -4305,7 +4305,7 @@ rb_enc_asciicompat.exit3016:                      ; preds = %2146
   %narrow.i.i3017 = icmp ult i32 %2155, 26
   %2156 = add nsw i32 %2153, -48
   %2157 = icmp ult i32 %2156, 10
-  %narrow.i3018 = or i1 %2157, %narrow.i.i3017
+  %narrow.i3018 = select i1 %narrow.i.i3017, i1 true, i1 %2157
   %2158 = icmp eq i8 %2152, 95
   %or.cond2847 = or i1 %2158, %narrow.i3018
   br i1 %or.cond2847, label %2162, label %is_mbc_newline_ex.exit.thread
@@ -4345,7 +4345,7 @@ rb_enc_asciicompat.exit3020:                      ; preds = %2165
   %narrow.i.i3021 = icmp ult i32 %2174, 26
   %2175 = add nsw i32 %2172, -48
   %2176 = icmp ult i32 %2175, 10
-  %narrow.i3022 = or i1 %2176, %narrow.i.i3021
+  %narrow.i3022 = select i1 %narrow.i.i3021, i1 true, i1 %2176
   %2177 = icmp eq i8 %2171, 95
   %or.cond2848 = or i1 %2177, %narrow.i3022
   br i1 %or.cond2848, label %is_mbc_newline_ex.exit.thread, label %2181
@@ -4415,7 +4415,7 @@ rb_enc_asciicompat.exit3024:                      ; preds = %2204
   %narrow.i.i3025 = icmp ult i32 %2213, 26
   %2214 = add nsw i32 %2211, -48
   %2215 = icmp ult i32 %2214, 10
-  %narrow.i3026 = or i1 %2215, %narrow.i.i3025
+  %narrow.i3026 = select i1 %narrow.i.i3025, i1 true, i1 %2215
   %2216 = icmp eq i8 %2210, 95
   %or.cond2849 = or i1 %2216, %narrow.i3026
   br i1 %or.cond2849, label %2220, label %is_mbc_newline_ex.exit.thread
@@ -4455,7 +4455,7 @@ rb_enc_asciicompat.exit3028:                      ; preds = %2223
   %narrow.i.i3029 = icmp ult i32 %2232, 26
   %2233 = add nsw i32 %2230, -48
   %2234 = icmp ult i32 %2233, 10
-  %narrow.i3030 = or i1 %2234, %narrow.i.i3029
+  %narrow.i3030 = select i1 %narrow.i.i3029, i1 true, i1 %2234
   %2235 = icmp eq i8 %2229, 95
   %or.cond2850 = or i1 %2235, %narrow.i3030
   br i1 %or.cond2850, label %is_mbc_newline_ex.exit.thread, label %2239
@@ -6205,7 +6205,7 @@ mem_is_in_memp.exit.thread.us.us.i:               ; preds = %3114, %3124, %mem_i
 
 3137:                                             ; preds = %3136
   %3138 = load ptr, ptr %37, align 8
-  %3139 = call fastcc i32 @string_cmp_ic(ptr noundef %3138, i32 noundef %40, ptr noundef %3128, ptr noundef nonnull %10, i64 noundef %3131, ptr noundef %.02174)
+  %3139 = call fastcc i32 @string_cmp_ic(ptr noundef %3138, i32 noundef %40, ptr noundef %3128, ptr noundef %10, i64 noundef %3131, ptr noundef %.02174)
   %3140 = icmp eq i32 %3139, 0
   br i1 %3140, label %backref_match_at_nested_level.exit.thread, label %._crit_edge.i3082
 
@@ -6843,7 +6843,7 @@ stack_double.exit3097:                            ; preds = %3400, %3411
   %3462 = load ptr, ptr %115, align 8
   %3463 = load i64, ptr %116, align 8
   %3464 = load ptr, ptr %20, align 8
-  %3465 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %3462, i64 noundef %3463, ptr noundef nonnull %.pn.in.in, ptr noundef %3464, ptr noundef %.02223, ptr noundef nonnull %29)
+  %3465 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %3462, i64 noundef %3463, ptr noundef nonnull %.pn.in.in, ptr noundef %3464, ptr noundef %.02223, ptr noundef %29)
   %3466 = icmp sgt i64 %3465, -1
   br i1 %3466, label %3467, label %3601
 
@@ -7246,7 +7246,7 @@ stack_double.exit3117:                            ; preds = %3621, %3632
   %3684 = load ptr, ptr %115, align 8
   %3685 = load i64, ptr %116, align 8
   %3686 = load ptr, ptr %20, align 8
-  %3687 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %3684, i64 noundef %3685, ptr noundef nonnull %.pn.in.in, ptr noundef %3686, ptr noundef %.02223, ptr noundef nonnull %30)
+  %3687 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %3684, i64 noundef %3685, ptr noundef nonnull %.pn.in.in, ptr noundef %3686, ptr noundef %.02223, ptr noundef %30)
   %3688 = icmp sgt i64 %3687, -1
   br i1 %3688, label %3689, label %3823
 
@@ -7890,7 +7890,7 @@ stack_double.exit3149:                            ; preds = %3981, %3992
 4034:                                             ; preds = %4031
   %4035 = load ptr, ptr %115, align 8
   %4036 = load i64, ptr %116, align 8
-  %4037 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %4035, i64 noundef %4036, ptr noundef nonnull %.pn.in.in, ptr noundef %4014, ptr noundef nonnull %.02223, ptr noundef nonnull %31)
+  %4037 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %4035, i64 noundef %4036, ptr noundef nonnull %.pn.in.in, ptr noundef %4014, ptr noundef nonnull %.02223, ptr noundef %31)
   %4038 = icmp sgt i64 %4037, -1
   br i1 %4038, label %4039, label %._crit_edge4543
 
@@ -8032,7 +8032,7 @@ check_extended_match_cache_point.exit3157:        ; preds = %4094, %4099
   br i1 %4114, label %4115, label %4128
 
 4115:                                             ; preds = %4108
-  %4116 = call fastcc i32 @stack_double(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %76, ptr noundef nonnull %5)
+  %4116 = call fastcc i32 @stack_double(ptr noundef %20, ptr noundef %22, ptr noundef %21, ptr noundef nonnull %76, ptr noundef %5)
   %.not2617 = icmp eq i32 %4116, 0
   br i1 %.not2617, label %._crit_edge4541, label %4117
 
@@ -8467,7 +8467,7 @@ stack_double.exit3175:                            ; preds = %4291, %4302
 4344:                                             ; preds = %4341
   %4345 = load ptr, ptr %115, align 8
   %4346 = load i64, ptr %116, align 8
-  %4347 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %4345, i64 noundef %4346, ptr noundef nonnull %.pn.in.in, ptr noundef %4324, ptr noundef nonnull %.02223, ptr noundef nonnull %32)
+  %4347 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %4345, i64 noundef %4346, ptr noundef nonnull %.pn.in.in, ptr noundef %4324, ptr noundef nonnull %.02223, ptr noundef %32)
   %4348 = icmp sgt i64 %4347, -1
   br i1 %4348, label %4349, label %._crit_edge4539
 
@@ -8609,7 +8609,7 @@ check_extended_match_cache_point.exit3183:        ; preds = %4404, %4409
   br i1 %4424, label %4425, label %4438
 
 4425:                                             ; preds = %4418
-  %4426 = call fastcc i32 @stack_double(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %76, ptr noundef nonnull %5)
+  %4426 = call fastcc i32 @stack_double(ptr noundef %20, ptr noundef %22, ptr noundef %21, ptr noundef nonnull %76, ptr noundef %5)
   %.not2606 = icmp eq i32 %4426, 0
   br i1 %.not2606, label %._crit_edge4537, label %4427
 
@@ -8842,7 +8842,7 @@ stack_double.exit3189:                            ; preds = %4472, %4483
 4548:                                             ; preds = %4545
   %4549 = load ptr, ptr %115, align 8
   %4550 = load i64, ptr %116, align 8
-  %4551 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %4549, i64 noundef %4550, ptr noundef nonnull %.pn.in.in, ptr noundef %4532, ptr noundef %.02223, ptr noundef nonnull %33)
+  %4551 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %4549, i64 noundef %4550, ptr noundef nonnull %.pn.in.in, ptr noundef %4532, ptr noundef %.02223, ptr noundef %33)
   %4552 = icmp sgt i64 %4551, -1
   br i1 %4552, label %4553, label %4662
 
@@ -8987,7 +8987,7 @@ check_extended_match_cache_point.exit3197:        ; preds = %4613, %4618
   br i1 %4634, label %4635, label %4648
 
 4635:                                             ; preds = %4628
-  %4636 = call fastcc i32 @stack_double(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %76, ptr noundef nonnull %5)
+  %4636 = call fastcc i32 @stack_double(ptr noundef %20, ptr noundef %22, ptr noundef %21, ptr noundef nonnull %76, ptr noundef %5)
   %.not2595 = icmp eq i32 %4636, 0
   br i1 %.not2595, label %._crit_edge4535, label %4637
 
@@ -9537,7 +9537,7 @@ stack_double.exit3215:                            ; preds = %4869, %4880
 4918:                                             ; preds = %4915
   %4919 = load ptr, ptr %115, align 8
   %4920 = load i64, ptr %116, align 8
-  %4921 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %4919, i64 noundef %4920, ptr noundef nonnull %.pn.in.in, ptr noundef %4903, ptr noundef %.02223, ptr noundef nonnull %34)
+  %4921 = call fastcc i64 @find_cache_point(ptr noundef nonnull %0, ptr noundef %4919, i64 noundef %4920, ptr noundef nonnull %.pn.in.in, ptr noundef %4903, ptr noundef %.02223, ptr noundef %34)
   %4922 = icmp sgt i64 %4921, -1
   br i1 %4922, label %4923, label %._crit_edge4531
 
@@ -9679,7 +9679,7 @@ check_extended_match_cache_point.exit3223:        ; preds = %4978, %4983
   br i1 %4998, label %4999, label %5012
 
 4999:                                             ; preds = %4992
-  %5000 = call fastcc i32 @stack_double(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %76, ptr noundef nonnull %5)
+  %5000 = call fastcc i32 @stack_double(ptr noundef %20, ptr noundef %22, ptr noundef %21, ptr noundef nonnull %76, ptr noundef %5)
   %.not2585 = icmp eq i32 %5000, 0
   br i1 %.not2585, label %._crit_edge4529, label %5001
 
@@ -12637,7 +12637,7 @@ memoize_extended_match_cache_point.exit3323:      ; preds = %6557, %6553, %6532,
   %6585 = load ptr, ptr %0, align 8
   store ptr %6585, ptr %9, align 8
   store i64 0, ptr %116, align 8
-  %6586 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %116)
+  %6586 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %9, ptr noundef %116)
   %6587 = icmp eq i64 %6586, 0
   br i1 %6587, label %6588, label %.thread3498.sink.split
 
@@ -12695,7 +12695,7 @@ count_num_cache_opcodes.exit.thread3493:          ; preds = %6588, %6591
   %6612 = load ptr, ptr %0, align 8
   store ptr %6612, ptr %8, align 8
   store i64 0, ptr %117, align 8
-  %6613 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %117)
+  %6613 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext -1, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %117)
   %6614 = icmp eq i64 %6613, 0
   br i1 %6614, label %6615, label %6621
 
@@ -13172,7 +13172,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %27, %21, %8
   store i64 1, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %9, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, i8 0, i64 24, i1 false)
-  %181 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef nonnull @onig_search_gpos.address_for_empty_string, ptr noundef nonnull @onig_search_gpos.address_for_empty_string, ptr noundef nonnull @onig_search_gpos.address_for_empty_string, ptr noundef null, ptr noundef nonnull %9)
+  %181 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef nonnull @onig_search_gpos.address_for_empty_string, ptr noundef nonnull @onig_search_gpos.address_for_empty_string, ptr noundef nonnull @onig_search_gpos.address_for_empty_string, ptr noundef null, ptr noundef %9)
   %.not416 = icmp eq i64 %181, -1
   br i1 %.not416, label %.loopexit482, label %182
 
@@ -13273,7 +13273,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %27, %21, %8
 226:                                              ; preds = %.preheader485, %._crit_edge526
   %.0355 = phi ptr [ %.2357.lcssa, %._crit_edge526 ], [ %.2373, %.preheader485 ]
   %.1354 = phi ptr [ %.3.lcssa, %._crit_edge526 ], [ %.0353, %.preheader485 ]
-  %227 = call fastcc i32 @forward_search_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.0355, ptr noundef %.0349580584, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %227 = call fastcc i32 @forward_search_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.0355, ptr noundef %.0349580584, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %12)
   %.not454 = icmp eq i32 %227, 0
   br i1 %.not454, label %.loopexit482, label %228
 
@@ -13290,7 +13290,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %27, %21, %8
 .lr.ph525:                                        ; preds = %228, %250
   %.3523 = phi ptr [ %.2357522, %250 ], [ %spec.select465, %228 ]
   %.2357522 = phi ptr [ %253, %250 ], [ %spec.select464, %228 ]
-  %233 = call fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.2357522, ptr noundef %.3523, ptr noundef nonnull %9)
+  %233 = call fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.2357522, ptr noundef %.3523, ptr noundef %9)
   %.not456 = icmp eq i64 %233, -1
   br i1 %.not456, label %239, label %234
 
@@ -13338,7 +13338,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %27, %21, %8
 
 .thread587:                                       ; preds = %.thread585, %221
   %.0349580590 = phi ptr [ %spec.select463, %221 ], [ %2, %.thread585 ]
-  %256 = call fastcc i32 @forward_search_range(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.2373, ptr noundef %.0349580590, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null)
+  %256 = call fastcc i32 @forward_search_range(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.2373, ptr noundef %.0349580590, ptr noundef %10, ptr noundef %11, ptr noundef null)
   %.not445 = icmp eq i32 %256, 0
   br i1 %.not445, label %.loopexit482, label %257
 
@@ -13356,7 +13356,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %27, %21, %8
 262:                                              ; preds = %.preheader479, %is_mbc_newline_ex.exit.thread
   %.3358 = phi ptr [ %.5360, %is_mbc_newline_ex.exit.thread ], [ %.2373, %.preheader479 ]
   %.4 = phi ptr [ %.6, %is_mbc_newline_ex.exit.thread ], [ %.0353, %.preheader479 ]
-  %263 = call fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.3358, ptr noundef %.4, ptr noundef nonnull %9)
+  %263 = call fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.3358, ptr noundef %.4, ptr noundef %9)
   %.not451 = icmp eq i64 %263, -1
   br i1 %.not451, label %269, label %264
 
@@ -13508,7 +13508,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %290, %314, %is_mbc_
 347:                                              ; preds = %365, %344
   %.6361 = phi ptr [ %.2373, %344 ], [ %368, %365 ]
   %.7 = phi ptr [ %.0353, %344 ], [ %.6361, %365 ]
-  %348 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.6361, ptr noundef %.7, ptr noundef nonnull %9)
+  %348 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.6361, ptr noundef %.7, ptr noundef %9)
   %.not447 = icmp eq i64 %348, -1
   br i1 %.not447, label %354, label %349
 
@@ -13552,7 +13552,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %290, %314, %is_mbc_
   br i1 %371, label %372, label %.loopexit482
 
 372:                                              ; preds = %370
-  %373 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %368, ptr noundef %.6361, ptr noundef nonnull %9)
+  %373 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %368, ptr noundef %.6361, ptr noundef %9)
   %.not449 = icmp eq i64 %373, -1
   br i1 %.not449, label %.loopexit482, label %374
 
@@ -13621,7 +13621,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %290, %314, %is_mbc_
   %404 = getelementptr i8, ptr %.7362, i64 %403
   %405 = icmp ugt ptr %404, %2
   %spec.select470 = select i1 %405, ptr %2, ptr %404
-  %406 = call fastcc i32 @backward_search_range(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %spec.select470, ptr noundef %.2370, ptr noundef %.0348, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %406 = call fastcc i32 @backward_search_range(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %spec.select470, ptr noundef %.2370, ptr noundef %.0348, ptr noundef %13, ptr noundef %14)
   %.not437.not = icmp eq i32 %406, 0
   br i1 %.not437.not, label %.loopexit482, label %407
 
@@ -13637,7 +13637,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %290, %314, %is_mbc_
   %.9520 = phi ptr [ %412, %419 ], [ %spec.select471, %407 ]
   %411 = load ptr, ptr %400, align 8
   %412 = call ptr @onigenc_get_prev_char_head(ptr noundef %411, ptr noundef %1, ptr noundef %.9520, ptr noundef %2) #23
-  %413 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.9520, ptr noundef %412, ptr noundef nonnull %9)
+  %413 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.9520, ptr noundef %412, ptr noundef %9)
   %.not440 = icmp eq i64 %413, -1
   br i1 %.not440, label %419, label %414
 
@@ -13691,7 +13691,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %290, %314, %is_mbc_
 
 434:                                              ; preds = %425, %423, %424, %428
   %.1 = phi ptr [ %2, %424 ], [ %433, %428 ], [ %.2373, %423 ], [ %2, %425 ]
-  %435 = call fastcc i32 @backward_search_range(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.1, ptr noundef %.2370, ptr noundef %.0348, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %435 = call fastcc i32 @backward_search_range(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.1, ptr noundef %.2370, ptr noundef %.0348, ptr noundef %13, ptr noundef %14)
   %.not433.not = icmp eq i32 %435, 0
   br i1 %.not433.not, label %.loopexit482, label %436
 
@@ -13704,7 +13704,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %290, %314, %is_mbc_
   %.10 = phi ptr [ %.2373, %436 ], [ %441, %448 ]
   %440 = load ptr, ptr %437, align 8
   %441 = call ptr @onigenc_get_prev_char_head(ptr noundef %440, ptr noundef %1, ptr noundef %.10, ptr noundef %2) #23
-  %442 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.10, ptr noundef %441, ptr noundef nonnull %9)
+  %442 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.10, ptr noundef %441, ptr noundef %9)
   %.not434 = icmp eq i64 %442, -1
   br i1 %.not434, label %448, label %443
 
@@ -13809,7 +13809,7 @@ declare ptr @onigenc_step_back(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca [18 x i8], align 16
   %11 = alloca ptr, align 8
@@ -14819,7 +14819,7 @@ slow_search.exit.thread:                          ; preds = %383, %310, %267, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @is_mbc_newline_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @is_mbc_newline_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = and i32 %4, 65536
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %48, label %8
@@ -14905,7 +14905,7 @@ define internal fastcc i32 @is_mbc_newline_ex(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @backward_search_range(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @backward_search_range(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca [18 x i8], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 424
@@ -15349,7 +15349,7 @@ define dso_local void @onig_copy_encoding(ptr nocapture noundef writeonly %0, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr noundef %0, i16 noundef signext %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr noundef %0, i16 noundef signext %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = load ptr, ptr %3, align 8
@@ -15667,7 +15667,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
   br label %125
 
 125:                                              ; preds = %123, %115
-  %126 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %116, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %126 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %116, i32 noundef %2, ptr noundef %6, ptr noundef %7)
   %127 = icmp slt i64 %126, 0
   %128 = load i64, ptr %7, align 8
   %129 = icmp slt i64 %128, 0
@@ -15713,7 +15713,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
   br i1 %18, label %.loopexit77.sink.split, label %149
 
 149:                                              ; preds = %148
-  %150 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %150 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef %19, ptr noundef %6, ptr noundef %7)
   %151 = icmp slt i64 %150, 0
   %152 = load i64, ptr %7, align 8
   %153 = icmp slt i64 %152, 0
@@ -15726,7 +15726,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
 155:                                              ; preds = %154
   %156 = getelementptr i8, ptr %25, i64 5
   store ptr %156, ptr %6, align 8
-  %157 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %157 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef %19, ptr noundef %6, ptr noundef %7)
   %158 = icmp slt i64 %157, 0
   %159 = load i64, ptr %7, align 8
   %160 = icmp slt i64 %159, 0
@@ -15739,7 +15739,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
 162:                                              ; preds = %161
   %163 = getelementptr i8, ptr %25, i64 9
   store ptr %163, ptr %6, align 8
-  %164 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %164 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef %19, ptr noundef %6, ptr noundef %7)
   %165 = icmp slt i64 %164, 0
   %166 = load i64, ptr %7, align 8
   %167 = icmp slt i64 %166, 0
@@ -15750,7 +15750,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
   br i1 %.not, label %169, label %.loopexit77.sink.split
 
 169:                                              ; preds = %168
-  %170 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef -1, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %170 = call fastcc i64 @count_num_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef -1, ptr noundef %6, ptr noundef %7)
   %171 = icmp slt i64 %170, 0
   %172 = load i64, ptr %7, align 8
   %173 = icmp slt i64 %172, 0
@@ -15793,7 +15793,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
 declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @find_cache_point(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #16 {
+define internal fastcc i64 @find_cache_point(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #16 {
   %8 = load i8, ptr %3, align 1
   %9 = and i8 %8, -2
   %spec.select = icmp eq i8 %9, 68
@@ -15906,7 +15906,7 @@ bsearch_cache_opcodes.exit:                       ; preds = %.lr.ph.i, %16, %7
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef readnone %3, ptr nocapture noundef %4) unnamed_addr #2 {
+define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr noundef readnone %3, ptr nocapture noundef nonnull %4) unnamed_addr #2 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = load ptr, ptr %2, align 8
@@ -15986,7 +15986,7 @@ define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr nocapture noundef
 declare i32 @onigenc_ascii_is_code_ctype(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [18 x i8], align 16
   %9 = alloca [18 x i8], align 16
@@ -16063,7 +16063,7 @@ declare void @rb_reg_raise_timeout() local_unnamed_addr #17
 declare i32 @onigenc_mbclen_approximate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr noundef %0, i16 noundef signext %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr noundef %0, i16 noundef signext %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -16457,7 +16457,7 @@ define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr nound
   %165 = phi ptr [ %29, %._crit_edge ], [ %163, %155 ]
   %166 = phi i64 [ %.pre, %._crit_edge ], [ %162, %155 ]
   store i64 0, ptr %10, align 8
-  %167 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %148, i32 noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  %167 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %148, i32 noundef %2, ptr noundef %9, ptr noundef %7, ptr noundef %10)
   %.not103 = icmp eq i64 %167, 0
   br i1 %.not103, label %168, label %.loopexit114
 
@@ -16544,7 +16544,7 @@ define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr nound
   br label %210
 
 210:                                              ; preds = %.sink.split, %28
-  %211 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %211 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef %22, ptr noundef %9, ptr noundef %7, ptr noundef %8)
   %.not101 = icmp eq i64 %211, 0
   br i1 %.not101, label %212, label %.loopexit114
 
@@ -16575,7 +16575,7 @@ define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr nound
   br label %.sink.split
 
 225:                                              ; preds = %28
-  %226 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef -1, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %226 = call fastcc i64 @init_cache_opcodes_inner(ptr noundef nonnull %0, i16 noundef signext %1, i32 noundef -1, ptr noundef %9, ptr noundef %7, ptr noundef %8)
   %.not = icmp eq i64 %226, 0
   br i1 %.not, label %227, label %.loopexit114
 

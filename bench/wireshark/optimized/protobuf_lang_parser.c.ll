@@ -348,7 +348,7 @@ pbl_reinit_state.exit:                            ; preds = %pbl_clear_state.exi
 57:                                               ; preds = %.lr.ph
   %58 = load ptr, ptr %10, align 8
   %59 = load ptr, ptr %8, align 8
-  call fastcc void @ProtobufLangParser(ptr noundef %58, i32 noundef %56, ptr noundef %59, ptr noundef nonnull %2)
+  call fastcc void @ProtobufLangParser(ptr noundef %58, i32 noundef %56, ptr noundef %59, ptr noundef %2)
   %60 = load i32, ptr %7, align 8
   %.not18 = icmp eq i32 %60, 0
   br i1 %.not18, label %.lr.ph, label %.critedge, !llvm.loop !4
@@ -361,7 +361,7 @@ pbl_reinit_state.exit:                            ; preds = %pbl_clear_state.exi
 
 63:                                               ; preds = %.critedge
   %64 = load ptr, ptr %10, align 8
-  call fastcc void @ProtobufLangParser(ptr noundef %64, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2)
+  call fastcc void @ProtobufLangParser(ptr noundef %64, i32 noundef 0, ptr noundef null, ptr noundef %2)
   %65 = load ptr, ptr %4, align 8
   %66 = call ptr @g_queue_pop_head(ptr noundef %65) #11
   %67 = load ptr, ptr %4, align 8
@@ -469,7 +469,7 @@ declare void @protobuf_lang_restart(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @protobuf_lang_lex(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProtobufLangParser(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc void @ProtobufLangParser(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %5, align 8
   %6 = icmp eq i32 %1, 0

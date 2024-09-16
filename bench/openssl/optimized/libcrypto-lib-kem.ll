@@ -25,7 +25,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @evp_kem_init(ptr noundef %ctx, i32 noundef %operation, ptr noundef %params, ptr noundef %authkey) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @evp_kem_init(ptr noundef %ctx, i32 noundef range(i32 4096, 8193) %operation, ptr noundef %params, ptr noundef %authkey) unnamed_addr #0 {
 entry:
   %tmp_keymgmt = alloca ptr, align 8
   store ptr null, ptr %tmp_keymgmt, align 8

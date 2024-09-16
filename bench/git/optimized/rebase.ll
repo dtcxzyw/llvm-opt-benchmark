@@ -1601,7 +1601,7 @@ if.then692:                                       ; preds = %if.end689
   unreachable
 
 if.end696:                                        ; preds = %if.end689
-  %call697 = call fastcc i32 @read_basic_state(ptr noundef nonnull %options)
+  %call697 = call fastcc i32 @read_basic_state(ptr noundef %options)
   %tobool698.not = icmp eq i32 %call697, 0
   br i1 %tobool698.not, label %run_rebase, label %if.then699
 
@@ -1632,7 +1632,7 @@ if.then706:                                       ; preds = %sw.bb702
 if.end708:                                        ; preds = %sw.bb702
   %52 = load ptr, ptr @the_repository, align 8
   call void @remove_branch_state(ptr noundef %52, i32 noundef 0) #19
-  %call709 = call fastcc i32 @read_basic_state(ptr noundef nonnull %options)
+  %call709 = call fastcc i32 @read_basic_state(ptr noundef %options)
   %tobool710.not = icmp eq i32 %call709, 0
   br i1 %tobool710.not, label %run_rebase, label %if.then711
 
@@ -1649,7 +1649,7 @@ sw.bb714:                                         ; preds = %if.end666
   %54 = load ptr, ptr @the_repository, align 8
   call void @rerere_clear(ptr noundef %54, ptr noundef nonnull %merge_rr715) #19
   call void @string_list_clear(ptr noundef nonnull %merge_rr715, i32 noundef 1) #19
-  %call716 = call fastcc i32 @read_basic_state(ptr noundef nonnull %options)
+  %call716 = call fastcc i32 @read_basic_state(ptr noundef %options)
   %tobool717.not = icmp eq i32 %call716, 0
   br i1 %tobool717.not, label %if.end720, label %if.then718
 
@@ -1705,7 +1705,7 @@ if.end745:                                        ; preds = %cond.end727
   call void @strbuf_release(ptr noundef nonnull %head_msg) #19
   %63 = load ptr, ptr @the_repository, align 8
   call void @remove_branch_state(ptr noundef %63, i32 noundef 0) #19
-  %call746 = call fastcc i32 @finish_rebase(ptr noundef nonnull %options)
+  %call746 = call fastcc i32 @finish_rebase(ptr noundef %options)
   br label %cleanup
 
 sw.bb747:                                         ; preds = %if.end666
@@ -3218,7 +3218,7 @@ if.then1385:                                      ; preds = %if.then1381
   br i1 %tobool1387.not, label %if.end1393, label %if.then1388
 
 if.then1388:                                      ; preds = %if.then1385
-  %call1389 = call fastcc i32 @checkout_up_to_date(ptr noundef nonnull %options)
+  %call1389 = call fastcc i32 @checkout_up_to_date(ptr noundef %options)
   %tobool1390.not = icmp eq i32 %call1389, 0
   br i1 %tobool1390.not, label %if.then1388.if.end1393_crit_edge, label %cleanup
 
@@ -3271,7 +3271,7 @@ _.exit255:                                        ; preds = %if.else1407, %if.en
   br label %if.end1411
 
 if.end1411:                                       ; preds = %_.exit249, %_.exit255, %if.end1393
-  %call1412 = call fastcc i32 @finish_rebase(ptr noundef nonnull %options)
+  %call1412 = call fastcc i32 @finish_rebase(ptr noundef %options)
   br label %cleanup
 
 if.else1413:                                      ; preds = %if.then1381
@@ -3355,7 +3355,7 @@ if.then1451:                                      ; preds = %if.end1447
   br i1 %tobool1454.not, label %if.end1474, label %if.then1455
 
 if.then1455:                                      ; preds = %if.then1451
-  %call1456 = call fastcc i32 @is_null_oid(ptr noundef nonnull %branch_base)
+  %call1456 = call fastcc i32 @is_null_oid(ptr noundef %branch_base)
   %tobool1457.not = icmp eq i32 %call1456, 0
   %253 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i275 = icmp eq i32 %253, 0
@@ -3542,8 +3542,8 @@ _.exit310:                                        ; preds = %if.then1523, %if.en
   %retval.0.i309 = phi ptr [ %call.i308, %if.end3.i307 ], [ @.str.177, %if.then1523 ]
   %277 = load ptr, ptr %onto_name, align 8
   %call1526 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i309, ptr noundef %branch_name.0, ptr noundef %277)
-  %call1527 = call fastcc i32 @move_to_original_branch(ptr noundef nonnull %options)
-  %call1528 = call fastcc i32 @finish_rebase(ptr noundef nonnull %options)
+  %call1527 = call fastcc i32 @move_to_original_branch(ptr noundef %options)
+  %call1528 = call fastcc i32 @finish_rebase(ptr noundef %options)
   br label %cleanup
 
 if.end1529:                                       ; preds = %if.end1517
@@ -3684,7 +3684,7 @@ if.end.i.i329:                                    ; preds = %sw.bb.i.i
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %replay.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %make_script_args.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_interactive_rebase.make_script_args, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %todo_list.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) @__const.edit_todo_file.new_todo, i64 56, i1 false)
-  call fastcc void @get_replay_opts(ptr noalias nonnull align 8 %replay.i.i.i, ptr noundef nonnull %options)
+  call fastcc void @get_replay_opts(ptr noalias align 8 %replay.i.i.i, ptr noundef %options)
   %297 = load ptr, ptr %upstream.i.i, align 8
   %298 = load ptr, ptr %onto.i.i, align 8
   %orig_head.i.i.i = getelementptr inbounds i8, ptr %options, i64 56
@@ -3925,7 +3925,7 @@ sw.bb23.i.i:                                      ; preds = %if.end9.i
   br label %sw.bb24.i.i
 
 sw.bb24.i.i:                                      ; preds = %sw.bb23.i.i, %if.end9.i
-  call fastcc void @get_replay_opts(ptr noalias nonnull align 8 %replay_opts.i.i, ptr noundef nonnull %options)
+  call fastcc void @get_replay_opts(ptr noalias align 8 %replay_opts.i.i, ptr noundef %options)
   %337 = load ptr, ptr @the_repository, align 8
   %call25.i.i = call i32 @sequencer_continue(ptr noundef %337, ptr noundef nonnull %replay_opts.i.i) #19
   call void @replay_opts_release(ptr noundef nonnull %replay_opts.i.i) #19
@@ -3965,7 +3965,7 @@ if.end.i.i.i325:                                  ; preds = %sw.bb26.i.i
 
 land.lhs.true.i21.i.i:                            ; preds = %if.end.i.i.i325
   %341 = load ptr, ptr @the_repository, align 8
-  %and.i.i.i = and i32 %or18.i.i, -3
+  %and.i.i.i = and i32 %or18.i.i, 509
   %call7.i.i.i = call i32 @todo_list_write_to_file(ptr noundef %341, ptr noundef nonnull %new_todo.i.i.i, ptr noundef %call.i.i.i, ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %and.i.i.i) #19
   %tobool8.not.i22.i.i = icmp eq i32 %call7.i.i.i, 0
   br i1 %tobool8.not.i22.i.i, label %if.end13.i.i.i, label %if.then9.i.i.i
@@ -4052,7 +4052,7 @@ if.end.i24.i:                                     ; preds = %if.then6.i.i, %if.t
   br i1 %tobool11.not.i.i, label %if.end13.i.i, label %run_am.exit.i
 
 if.end13.i.i:                                     ; preds = %if.end.i24.i
-  %call14.i.i = call fastcc i32 @move_to_original_branch(ptr noundef nonnull readonly %options)
+  %call14.i.i = call fastcc i32 @move_to_original_branch(ptr noundef readonly %options)
   br label %run_am.exit.i
 
 if.then18.i.i:                                    ; preds = %if.then13.i
@@ -4063,7 +4063,7 @@ if.then18.i.i:                                    ; preds = %if.then13.i
   br i1 %tobool24.not.i.i, label %if.end26.i.i, label %run_am.exit.i
 
 if.end26.i.i:                                     ; preds = %if.then18.i.i
-  %call27.i.i = call fastcc i32 @move_to_original_branch(ptr noundef nonnull readonly %options)
+  %call27.i.i = call fastcc i32 @move_to_original_branch(ptr noundef readonly %options)
   br label %run_am.exit.i
 
 if.then31.i.i:                                    ; preds = %if.then13.i
@@ -4233,7 +4233,7 @@ if.end123.i.i:                                    ; preds = %if.then119.i.i, %if
   br i1 %tobool126.not.i.i, label %if.then127.i.i, label %if.end129.i.i
 
 if.then127.i.i:                                   ; preds = %if.end123.i.i
-  %call128.i.i = call fastcc i32 @move_to_original_branch(ptr noundef nonnull readonly %options)
+  %call128.i.i = call fastcc i32 @move_to_original_branch(ptr noundef readonly %options)
   br label %run_am.exit.i
 
 if.end129.i.i:                                    ; preds = %if.end123.i.i
@@ -4244,7 +4244,7 @@ if.end129.i.i:                                    ; preds = %if.end123.i.i
   br i1 %tobool131.not.i.i, label %run_am.exit.i, label %if.then132.i.i
 
 if.then132.i.i:                                   ; preds = %if.end129.i.i
-  call fastcc void @rebase_write_basic_state(ptr noundef nonnull readonly %options)
+  call fastcc void @rebase_write_basic_state(ptr noundef readonly %options)
   br label %run_am.exit.i
 
 run_am.exit.i:                                    ; preds = %if.then132.i.i, %if.end129.i.i, %if.then127.i.i, %_.exit59.i.i, %_.exit54.i.i, %_.exit.i.i, %if.then31.i.i, %if.end26.i.i, %if.then18.i.i, %if.end13.i.i, %if.end.i24.i
@@ -4319,12 +4319,12 @@ state_dir_path.exit.i:                            ; preds = %if.then4.i.i.i, %if
   br i1 %tobool30.not.i, label %if.then31.i, label %run_specific_rebase.exit
 
 if.then31.i:                                      ; preds = %state_dir_path.exit.i
-  %call32.i = call fastcc i32 @finish_rebase(ptr noundef nonnull %options)
+  %call32.i = call fastcc i32 @finish_rebase(ptr noundef %options)
   br label %run_specific_rebase.exit
 
 if.then36.i:                                      ; preds = %if.else25.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dir.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.run_specific_rebase.dir, i64 24, i1 false)
-  %call37.i = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.64, ptr noundef nonnull %options)
+  %call37.i = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.64, ptr noundef %options)
   %call38.i = call i32 @apply_autostash(ptr noundef %call37.i) #19
   %state_dir.i312 = getelementptr inbounds i8, ptr %options, i64 16
   %373 = load ptr, ptr %state_dir.i312, align 8
@@ -4892,7 +4892,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_basic_state(ptr nocapture noundef %opts) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_basic_state(ptr nocapture noundef nonnull %opts) unnamed_addr #0 {
 entry:
   %head_name = alloca %struct.strbuf, align 8
   %buf = alloca %struct.strbuf, align 8
@@ -5193,7 +5193,7 @@ _.exit84:                                         ; preds = %if.then44, %if.end3
   br label %return
 
 if.end49:                                         ; preds = %lor.lhs.false41
-  %call50 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.8, ptr noundef nonnull %opts)
+  %call50 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.8, ptr noundef %opts)
   %call51 = call i32 @file_exists(ptr noundef %call50) #19
   %tobool52.not = icmp eq i32 %call51, 0
   %flags55 = getelementptr inbounds i8, ptr %opts, i64 124
@@ -5202,7 +5202,7 @@ if.end49:                                         ; preds = %lor.lhs.false41
   %masksel = zext i1 %tobool52.not to i32
   %or.sink = or disjoint i32 %and, %masksel
   store i32 %or.sink, ptr %flags55, align 4
-  %call57 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.10, ptr noundef nonnull %opts)
+  %call57 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.10, ptr noundef %opts)
   %call58 = call i32 @file_exists(ptr noundef %call57) #19
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %if.end63, label %if.then60
@@ -5215,7 +5215,7 @@ if.then60:                                        ; preds = %if.end49
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then60, %if.end49
-  %call64 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.14, ptr noundef nonnull %opts)
+  %call64 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.14, ptr noundef %opts)
   %call65 = call i32 @file_exists(ptr noundef %call64) #19
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %if.end70, label %if.then67
@@ -5230,7 +5230,7 @@ if.then67:                                        ; preds = %if.end63
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then67, %if.end63
-  %call71 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.217, ptr noundef nonnull %opts)
+  %call71 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.217, ptr noundef %opts)
   %call72 = call i32 @file_exists(ptr noundef %call71) #19
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %if.end95, label %if.then74
@@ -5246,7 +5246,7 @@ if.then4.i90:                                     ; preds = %if.then74
   br label %strbuf_setlen.exit92
 
 strbuf_setlen.exit92:                             ; preds = %if.then74, %if.then4.i90
-  %call75 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.217, ptr noundef nonnull %opts)
+  %call75 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.217, ptr noundef %opts)
   %call76 = call i32 @read_oneliner(ptr noundef nonnull %buf, ptr noundef %call75, i32 noundef 2) #19
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %return, label %if.end79
@@ -5289,7 +5289,7 @@ _.exit98:                                         ; preds = %if.else90, %if.end3
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then83, %_.exit98, %if.then88, %if.end70
-  %call96 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.221, ptr noundef nonnull %opts)
+  %call96 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.221, ptr noundef %opts)
   %call97 = call i32 @file_exists(ptr noundef %call96) #19
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %if.end108, label %if.then99
@@ -5305,7 +5305,7 @@ if.then4.i104:                                    ; preds = %if.then99
   br label %strbuf_setlen.exit106
 
 strbuf_setlen.exit106:                            ; preds = %if.then99, %if.then4.i104
-  %call100 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.221, ptr noundef nonnull %opts)
+  %call100 = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.221, ptr noundef %opts)
   %call101 = call i32 @read_oneliner(ptr noundef nonnull %buf, ptr noundef %call100, i32 noundef 2) #19
   %tobool102.not = icmp eq i32 %call101, 0
   br i1 %tobool102.not, label %return, label %if.end104
@@ -5341,7 +5341,7 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #3
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @finish_rebase(ptr nocapture noundef readonly %opts) unnamed_addr #0 {
+define internal fastcc i32 @finish_rebase(ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
 entry:
   %dir = alloca %struct.strbuf, align 8
   %replay = alloca %struct.replay_opts, align 8
@@ -5442,7 +5442,7 @@ if.end14:                                         ; preds = %if.end, %if.then
 declare i32 @save_autostash(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @state_dir_path(ptr noundef %filename, ptr nocapture noundef readonly %opts) unnamed_addr #0 {
+define internal fastcc ptr @state_dir_path(ptr noundef %filename, ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @state_dir_path.prefix_len, align 8
   %tobool.not = icmp eq i64 %0, 0
@@ -5625,7 +5625,7 @@ declare void @create_autostash(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @require_clean_work_tree(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @checkout_up_to_date(ptr nocapture noundef readonly %options) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @checkout_up_to_date(ptr nocapture noundef nonnull readonly %options) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %ropts = alloca %struct.reset_head_opts, align 8
@@ -5685,7 +5685,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @run_hooks_l(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_null_oid(ptr nocapture noundef readonly %oid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_null_oid(ptr nocapture noundef nonnull readonly %oid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @null_oid() #19
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
@@ -5780,7 +5780,7 @@ hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @move_to_original_branch(ptr nocapture noundef readonly %opts) unnamed_addr #0 {
+define internal fastcc i32 @move_to_original_branch(ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
 entry:
   %branch_reflog = alloca %struct.strbuf, align 8
   %head_reflog = alloca %struct.strbuf, align 8
@@ -5935,7 +5935,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @git_config_get_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_replay_opts(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %opts) unnamed_addr #0 {
+define internal fastcc void @get_replay_opts(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) @__const.get_replay_opts.replay, i64 224, i1 false)
   store i32 2, ptr %agg.result, align 8
@@ -6141,7 +6141,7 @@ declare void @strvec_split(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @strvec_pushv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rebase_write_basic_state(ptr nocapture noundef readonly %opts) unnamed_addr #0 {
+define internal fastcc void @rebase_write_basic_state(ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @state_dir_path.prefix_len, align 8
   %tobool.not.i = icmp eq i64 %0, 0

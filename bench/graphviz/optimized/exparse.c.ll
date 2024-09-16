@@ -1567,7 +1567,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br i1 %.not794, label %19, label %18
 
 18:                                               ; preds = %15
-  call fastcc void @yy_stack_print(ptr noundef %.0690, ptr noundef nonnull %.0693)
+  call fastcc void @yy_stack_print(ptr noundef %.0690, ptr noundef %.0693)
   br label %19
 
 19:                                               ; preds = %15, %18
@@ -1795,7 +1795,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br i1 %.not807, label %145, label %144
 
 144:                                              ; preds = %134
-  call fastcc void @yy_reduce_print(ptr noundef nonnull %.2695, i32 noundef %.0707)
+  call fastcc void @yy_reduce_print(ptr noundef %.2695, i32 noundef %.0707)
   br label %145
 
 145:                                              ; preds = %134, %144
@@ -5678,7 +5678,7 @@ yydestruct.exit943:                               ; preds = %2240
   br i1 %.not903, label %2259, label %2258
 
 2258:                                             ; preds = %yydestruct.exit943
-  call fastcc void @yy_stack_print(ptr noundef %.1691, ptr noundef nonnull %2256)
+  call fastcc void @yy_stack_print(ptr noundef %.1691, ptr noundef %2256)
   br label %2259
 
 2259:                                             ; preds = %yydestruct.exit943.thread, %yydestruct.exit943, %2258
@@ -5763,7 +5763,7 @@ yydestruct.exit947:                               ; preds = %2288, %.loopexit
   br i1 %.not905, label %yydestruct.exit947.thread, label %2299
 
 2299:                                             ; preds = %yydestruct.exit947
-  call fastcc void @yy_stack_print(ptr noundef %.3, ptr noundef nonnull %.5)
+  call fastcc void @yy_stack_print(ptr noundef %.3, ptr noundef %.5)
   br label %yydestruct.exit947.thread
 
 yydestruct.exit947.thread:                        ; preds = %2285, %yydestruct.exit947, %2299
@@ -5969,7 +5969,7 @@ define range(i32 0, 2) i32 @exisAssign(ptr nocapture noundef readonly %0) local_
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @yy_stack_print(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #11 {
+define internal fastcc void @yy_stack_print(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #11 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 9, i64 1, ptr %3) #24
   %.not4 = icmp ugt ptr %0, %1
@@ -5997,7 +5997,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 declare i32 @extoken_fn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @yy_symbol_print(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #13 {
+define internal fastcc void @yy_symbol_print(ptr nocapture noundef %0, i32 noundef range(i32 -128, 256) %1) unnamed_addr #13 {
   %3 = icmp slt i32 %1, 107
   %4 = select i1 %3, ptr @.str.66, ptr @.str.67
   %5 = sext i32 %1 to i64
@@ -6009,7 +6009,7 @@ define internal fastcc void @yy_symbol_print(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @yy_reduce_print(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #11 {
+define internal fastcc void @yy_reduce_print(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #11 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds [143 x i16], ptr @yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -6302,7 +6302,7 @@ define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @exnewsub(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @exnewsub(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 280, 303) %2) unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %10, label %4
 
@@ -7655,7 +7655,7 @@ define ptr @exop(i64 noundef %0) local_unnamed_addr #15 {
   %20 = icmp ult i32 %19, 26
   %21 = add nsw i32 %17, -48
   %22 = icmp ult i32 %21, 10
-  %23 = or i1 %22, %20
+  %23 = select i1 %20, i1 true, i1 %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %13, %16

@@ -6149,7 +6149,7 @@ entry:
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS9_ESaIS9_EEEZNS_L24eligibleForAlwaysOnGroupERKNS_13RoseBuildImplEjE3$_0EEbRKT_T0_"(ptr %c.0.val, i64 %c.8.val, ptr %p.coerce) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS9_ESaIS9_EEEZNS_L24eligibleForAlwaysOnGroupERKNS_13RoseBuildImplEjE3$_0EEbRKT_T0_"(ptr %c.0.val, i64 %c.8.val, ptr nonnull %p.coerce) unnamed_addr #0 {
 entry:
   %v.i.i179.i.i.i.i.i = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %ref.tmp.i.i180.i.i.i.i.i = alloca %"struct.ue2::left_id", align 8

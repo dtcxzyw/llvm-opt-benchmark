@@ -1698,8 +1698,8 @@ define internal fastcc noundef zeroext i1 @_ZL17trySequenceOfOnesmRN4llvm15Small
 
 6:                                                ; preds = %2, %_ZL10isEndChunkm.exit.thread
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZL10isEndChunkm.exit.thread ]
-  %.080101 = phi i32 [ -1, %2 ], [ %.181, %_ZL10isEndChunkm.exit.thread ]
-  %.082100 = phi i32 [ -1, %2 ], [ %.183, %_ZL10isEndChunkm.exit.thread ]
+  %.081102 = phi i32 [ -1, %2 ], [ %.182, %_ZL10isEndChunkm.exit.thread ]
+  %.083101 = phi i32 [ -1, %2 ], [ %.184, %_ZL10isEndChunkm.exit.thread ]
   %7 = shl nuw nsw i64 %indvars.iv, 4
   %8 = lshr i64 %0, %7
   %9 = shl i64 %8, 48
@@ -1710,11 +1710,13 @@ define internal fastcc noundef zeroext i1 @_ZL17trySequenceOfOnesmRN4llvm15Small
   ]
 
 _ZL12isStartChunkm.exit:                          ; preds = %6
+  %.not.i.i = icmp ne i64 %9, -281474976710656
   %11 = add nsw i64 %10, -1
   %12 = or i64 %11, %10
   %13 = icmp eq i64 %12, -1
-  %14 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %13, label %_ZL10isEndChunkm.exit.thread, label %_ZL12isStartChunkm.exit.thread
+  %14 = and i1 %.not.i.i, %13
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %14, label %_ZL10isEndChunkm.exit.thread, label %_ZL12isStartChunkm.exit.thread
 
 _ZL12isStartChunkm.exit.thread:                   ; preds = %_ZL12isStartChunkm.exit
   switch i64 %10, label %_ZL10isEndChunkm.exit [
@@ -1723,268 +1725,268 @@ _ZL12isStartChunkm.exit.thread:                   ; preds = %_ZL12isStartChunkm.
   ]
 
 _ZL10isEndChunkm.exit:                            ; preds = %_ZL12isStartChunkm.exit.thread
-  %15 = add nuw nsw i64 %10, 1
-  %16 = and i64 %15, %10
-  %17 = icmp eq i64 %16, 0
-  %spec.select = select i1 %17, i32 %14, i32 %.080101
+  %16 = add nsw i64 %10, 1
+  %17 = and i64 %16, %10
+  %18 = icmp eq i64 %17, 0
+  %spec.select = select i1 %18, i32 %15, i32 %.081102
   br label %_ZL10isEndChunkm.exit.thread
 
 _ZL10isEndChunkm.exit.thread:                     ; preds = %_ZL10isEndChunkm.exit, %6, %6, %_ZL12isStartChunkm.exit.thread, %_ZL12isStartChunkm.exit.thread, %_ZL12isStartChunkm.exit
-  %.183 = phi i32 [ %14, %_ZL12isStartChunkm.exit ], [ %.082100, %_ZL12isStartChunkm.exit.thread ], [ %.082100, %_ZL12isStartChunkm.exit.thread ], [ %.082100, %6 ], [ %.082100, %6 ], [ %.082100, %_ZL10isEndChunkm.exit ]
-  %.181 = phi i32 [ %.080101, %_ZL12isStartChunkm.exit ], [ %.080101, %_ZL12isStartChunkm.exit.thread ], [ %.080101, %_ZL12isStartChunkm.exit.thread ], [ %.080101, %6 ], [ %.080101, %6 ], [ %spec.select, %_ZL10isEndChunkm.exit ]
+  %.184 = phi i32 [ %15, %_ZL12isStartChunkm.exit ], [ %.083101, %_ZL12isStartChunkm.exit.thread ], [ %.083101, %_ZL12isStartChunkm.exit.thread ], [ %.083101, %6 ], [ %.083101, %6 ], [ %.083101, %_ZL10isEndChunkm.exit ]
+  %.182 = phi i32 [ %.081102, %_ZL12isStartChunkm.exit ], [ %.081102, %_ZL12isStartChunkm.exit.thread ], [ %.081102, %_ZL12isStartChunkm.exit.thread ], [ %.081102, %6 ], [ %.081102, %6 ], [ %spec.select, %_ZL10isEndChunkm.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %18, label %6, !llvm.loop !18
+  br i1 %exitcond.not, label %19, label %6, !llvm.loop !18
 
-18:                                               ; preds = %_ZL10isEndChunkm.exit.thread
-  %19 = icmp ne i32 %.183, -1
-  %20 = icmp ne i32 %.181, -1
-  %or.cond.not = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond.not, label %21, label %139
+19:                                               ; preds = %_ZL10isEndChunkm.exit.thread
+  %20 = icmp ne i32 %.184, -1
+  %21 = icmp ne i32 %.182, -1
+  %or.cond.not = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond.not, label %22, label %140
 
-21:                                               ; preds = %18
-  %.not93.not = icmp sgt i32 %.183, %.181
-  %22 = sext i32 %.181 to i64
-  %23 = sext i32 %.183 to i64
-  br i1 %.not93.not, label %.split.us, label %.split
+22:                                               ; preds = %19
+  %.not94.not = icmp sgt i32 %.184, %.182
+  %23 = sext i32 %.182 to i64
+  %24 = sext i32 %.184 to i64
+  br i1 %.not94.not, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %21, %43
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %43 ], [ 0, %21 ]
-  %.045105.us = phi i32 [ %.1.us, %43 ], [ -1, %21 ]
-  %.046104.us = phi i32 [ %.147.us, %43 ], [ -1, %21 ]
-  %.048103.us = phi i64 [ %.149.us, %43 ], [ %0, %21 ]
-  %24 = shl nuw nsw i64 %indvars.iv119, 4
-  %25 = lshr i64 %0, %24
-  %26 = and i64 %25, 65535
-  %27 = icmp sge i64 %indvars.iv119, %22
-  %28 = icmp sle i64 %indvars.iv119, %23
-  %or.cond.not92.us = select i1 %27, i1 %28, i1 false
-  %.not.us = icmp eq i64 %26, 65535
-  %or.cond88.us = select i1 %or.cond.not92.us, i1 true, i1 %.not.us
-  br i1 %or.cond88.us, label %34, label %29
+.split.us:                                        ; preds = %22, %44
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %44 ], [ 0, %22 ]
+  %.045106.us = phi i32 [ %.1.us, %44 ], [ -1, %22 ]
+  %.046105.us = phi i32 [ %.147.us, %44 ], [ -1, %22 ]
+  %.048104.us = phi i64 [ %.149.us, %44 ], [ %0, %22 ]
+  %25 = shl nuw nsw i64 %indvars.iv120, 4
+  %26 = lshr i64 %0, %25
+  %27 = and i64 %26, 65535
+  %28 = icmp sge i64 %indvars.iv120, %23
+  %29 = icmp sle i64 %indvars.iv120, %24
+  %or.cond.not93.us = select i1 %28, i1 %29, i1 false
+  %.not.us = icmp eq i64 %27, 65535
+  %or.cond89.us = select i1 %or.cond.not93.us, i1 true, i1 %.not.us
+  br i1 %or.cond89.us, label %35, label %30
 
-29:                                               ; preds = %.split.us
-  %30 = shl nuw i64 65535, %24
-  %31 = or i64 %30, %.048103.us
-  %32 = icmp eq i32 %.046104.us, -1
-  %33 = trunc nuw nsw i64 %indvars.iv119 to i32
-  %.044..046.us = select i1 %32, i32 %33, i32 %.046104.us
-  %.045..044.us = select i1 %32, i32 %.045105.us, i32 %33
-  br label %43
+30:                                               ; preds = %.split.us
+  %31 = shl nuw i64 65535, %25
+  %32 = or i64 %31, %.048104.us
+  %33 = icmp eq i32 %.046105.us, -1
+  %34 = trunc nuw nsw i64 %indvars.iv120 to i32
+  %.044..046.us = select i1 %33, i32 %34, i32 %.046105.us
+  %.045..044.us = select i1 %33, i32 %.045106.us, i32 %34
+  br label %44
 
-34:                                               ; preds = %.split.us
-  %35 = icmp sle i64 %indvars.iv119, %22
-  %36 = icmp sge i64 %indvars.iv119, %23
-  %or.cond57.not96.us = select i1 %35, i1 true, i1 %36
-  %.not52.us = icmp eq i64 %26, 0
-  %or.cond89.us = select i1 %or.cond57.not96.us, i1 true, i1 %.not52.us
-  br i1 %or.cond89.us, label %43, label %37
+35:                                               ; preds = %.split.us
+  %36 = icmp sle i64 %indvars.iv120, %23
+  %37 = icmp sge i64 %indvars.iv120, %24
+  %or.cond57.not97.us = select i1 %36, i1 true, i1 %37
+  %.not52.us = icmp eq i64 %27, 0
+  %or.cond90.us = select i1 %or.cond57.not97.us, i1 true, i1 %.not52.us
+  br i1 %or.cond90.us, label %44, label %38
 
-37:                                               ; preds = %34
-  %38 = shl nuw i64 65535, %24
-  %39 = xor i64 %38, -1
-  %40 = and i64 %.048103.us, %39
-  %41 = icmp eq i32 %.046104.us, -1
-  %42 = trunc nuw nsw i64 %indvars.iv119 to i32
-  %.044..04658.us = select i1 %41, i32 %42, i32 %.046104.us
-  %.045..04459.us = select i1 %41, i32 %.045105.us, i32 %42
-  br label %43
+38:                                               ; preds = %35
+  %39 = shl nuw i64 65535, %25
+  %40 = xor i64 %39, -1
+  %41 = and i64 %.048104.us, %40
+  %42 = icmp eq i32 %.046105.us, -1
+  %43 = trunc nuw nsw i64 %indvars.iv120 to i32
+  %.044..04658.us = select i1 %42, i32 %43, i32 %.046105.us
+  %.045..04459.us = select i1 %42, i32 %.045106.us, i32 %43
+  br label %44
 
-43:                                               ; preds = %29, %37, %34
-  %.149.us = phi i64 [ %.048103.us, %34 ], [ %31, %29 ], [ %40, %37 ]
-  %.147.us = phi i32 [ %.046104.us, %34 ], [ %.044..046.us, %29 ], [ %.044..04658.us, %37 ]
-  %.1.us = phi i32 [ %.045105.us, %34 ], [ %.045..044.us, %29 ], [ %.045..04459.us, %37 ]
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond122.not = icmp eq i64 %indvars.iv.next120, 4
-  br i1 %exitcond122.not, label %.split108.us, label %.split.us, !llvm.loop !19
+44:                                               ; preds = %30, %38, %35
+  %.149.us = phi i64 [ %.048104.us, %35 ], [ %32, %30 ], [ %41, %38 ]
+  %.147.us = phi i32 [ %.046105.us, %35 ], [ %.044..046.us, %30 ], [ %.044..04658.us, %38 ]
+  %.1.us = phi i32 [ %.045106.us, %35 ], [ %.045..044.us, %30 ], [ %.045..04459.us, %38 ]
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %exitcond123.not = icmp eq i64 %indvars.iv.next121, 4
+  br i1 %exitcond123.not, label %.split109.us, label %.split.us, !llvm.loop !19
 
-.split:                                           ; preds = %21, %63
-  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %63 ], [ 0, %21 ]
-  %.045105 = phi i32 [ %.1, %63 ], [ -1, %21 ]
-  %.046104 = phi i32 [ %.147, %63 ], [ -1, %21 ]
-  %.048103 = phi i64 [ %.149, %63 ], [ %0, %21 ]
-  %44 = shl nuw nsw i64 %indvars.iv115, 4
-  %45 = lshr i64 %0, %44
-  %46 = and i64 %45, 65535
-  %47 = icmp sge i64 %indvars.iv115, %23
-  %48 = icmp sle i64 %indvars.iv115, %22
-  %or.cond.not92 = select i1 %47, i1 %48, i1 false
-  %.not = icmp eq i64 %46, 0
-  %or.cond88 = select i1 %or.cond.not92, i1 true, i1 %.not
-  br i1 %or.cond88, label %55, label %49
+.split:                                           ; preds = %22, %64
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %64 ], [ 0, %22 ]
+  %.045106 = phi i32 [ %.1, %64 ], [ -1, %22 ]
+  %.046105 = phi i32 [ %.147, %64 ], [ -1, %22 ]
+  %.048104 = phi i64 [ %.149, %64 ], [ %0, %22 ]
+  %45 = shl nuw nsw i64 %indvars.iv116, 4
+  %46 = lshr i64 %0, %45
+  %47 = and i64 %46, 65535
+  %48 = icmp sge i64 %indvars.iv116, %24
+  %49 = icmp sle i64 %indvars.iv116, %23
+  %or.cond.not93 = select i1 %48, i1 %49, i1 false
+  %.not = icmp eq i64 %47, 0
+  %or.cond89 = select i1 %or.cond.not93, i1 true, i1 %.not
+  br i1 %or.cond89, label %56, label %50
 
-49:                                               ; preds = %.split
-  %50 = shl nuw i64 65535, %44
-  %51 = xor i64 %50, -1
-  %52 = and i64 %.048103, %51
-  %53 = icmp eq i32 %.046104, -1
-  %54 = trunc nuw nsw i64 %indvars.iv115 to i32
-  %.044..046 = select i1 %53, i32 %54, i32 %.046104
-  %.045..044 = select i1 %53, i32 %.045105, i32 %54
-  br label %63
+50:                                               ; preds = %.split
+  %51 = shl nuw i64 65535, %45
+  %52 = xor i64 %51, -1
+  %53 = and i64 %.048104, %52
+  %54 = icmp eq i32 %.046105, -1
+  %55 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %.044..046 = select i1 %54, i32 %55, i32 %.046105
+  %.045..044 = select i1 %54, i32 %.045106, i32 %55
+  br label %64
 
-55:                                               ; preds = %.split
-  %56 = icmp sle i64 %indvars.iv115, %23
-  %57 = icmp sge i64 %indvars.iv115, %22
-  %or.cond57.not96 = select i1 %56, i1 true, i1 %57
-  %.not52 = icmp eq i64 %46, 65535
-  %or.cond89 = select i1 %or.cond57.not96, i1 true, i1 %.not52
-  br i1 %or.cond89, label %63, label %58
+56:                                               ; preds = %.split
+  %57 = icmp sle i64 %indvars.iv116, %24
+  %58 = icmp sge i64 %indvars.iv116, %23
+  %or.cond57.not97 = select i1 %57, i1 true, i1 %58
+  %.not52 = icmp eq i64 %47, 65535
+  %or.cond90 = select i1 %or.cond57.not97, i1 true, i1 %.not52
+  br i1 %or.cond90, label %64, label %59
 
-58:                                               ; preds = %55
-  %59 = shl nuw i64 65535, %44
-  %60 = or i64 %59, %.048103
-  %61 = icmp eq i32 %.046104, -1
-  %62 = trunc nuw nsw i64 %indvars.iv115 to i32
-  %.044..04658 = select i1 %61, i32 %62, i32 %.046104
-  %.045..04459 = select i1 %61, i32 %.045105, i32 %62
-  br label %63
+59:                                               ; preds = %56
+  %60 = shl nuw i64 65535, %45
+  %61 = or i64 %60, %.048104
+  %62 = icmp eq i32 %.046105, -1
+  %63 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %.044..04658 = select i1 %62, i32 %63, i32 %.046105
+  %.045..04459 = select i1 %62, i32 %.045106, i32 %63
+  br label %64
 
-63:                                               ; preds = %58, %49, %55
-  %.149 = phi i64 [ %.048103, %55 ], [ %52, %49 ], [ %60, %58 ]
-  %.147 = phi i32 [ %.046104, %55 ], [ %.044..046, %49 ], [ %.044..04658, %58 ]
-  %.1 = phi i32 [ %.045105, %55 ], [ %.045..044, %49 ], [ %.045..04459, %58 ]
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next116, 4
-  br i1 %exitcond118.not, label %.split108.us, label %.split, !llvm.loop !19
+64:                                               ; preds = %59, %50, %56
+  %.149 = phi i64 [ %.048104, %56 ], [ %53, %50 ], [ %61, %59 ]
+  %.147 = phi i32 [ %.046105, %56 ], [ %.044..046, %50 ], [ %.044..04658, %59 ]
+  %.1 = phi i32 [ %.045106, %56 ], [ %.045..044, %50 ], [ %.045..04459, %59 ]
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next117, 4
+  br i1 %exitcond119.not, label %.split109.us, label %.split, !llvm.loop !19
 
-.split108.us:                                     ; preds = %63, %43
-  %.us-phi = phi i64 [ %.149.us, %43 ], [ %.149, %63 ]
-  %.us-phi109 = phi i32 [ %.147.us, %43 ], [ %.147, %63 ]
-  %.us-phi110 = phi i32 [ %.1.us, %43 ], [ %.1, %63 ]
-  %64 = add i64 %.us-phi, 1
-  %or.cond.i = icmp ult i64 %64, 2
+.split109.us:                                     ; preds = %64, %44
+  %.us-phi = phi i64 [ %.149.us, %44 ], [ %.149, %64 ]
+  %.us-phi110 = phi i32 [ %.147.us, %44 ], [ %.147, %64 ]
+  %.us-phi111 = phi i32 [ %.1.us, %44 ], [ %.1, %64 ]
+  %65 = add i64 %.us-phi, 1
+  %or.cond.i = icmp ult i64 %65, 2
   br i1 %or.cond.i, label %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit, label %.preheader
 
-.preheader:                                       ; preds = %.split108.us, %73
-  %.044.i = phi i32 [ %65, %73 ], [ 64, %.split108.us ]
-  %65 = lshr i32 %.044.i, 1
-  %66 = zext nneg i32 %65 to i64
-  %notmask.i = shl nsw i64 -1, %66
-  %67 = xor i64 %notmask.i, -1
-  %68 = lshr i64 %.us-phi, %66
-  %69 = xor i64 %68, %.us-phi
-  %70 = and i64 %69, %67
-  %.not52.i = icmp eq i64 %70, 0
-  br i1 %.not52.i, label %73, label %71
+.preheader:                                       ; preds = %.split109.us, %74
+  %.044.i = phi i32 [ %66, %74 ], [ 64, %.split109.us ]
+  %66 = lshr i32 %.044.i, 1
+  %67 = zext nneg i32 %66 to i64
+  %notmask.i = shl nsw i64 -1, %67
+  %68 = xor i64 %notmask.i, -1
+  %69 = lshr i64 %.us-phi, %67
+  %70 = xor i64 %69, %.us-phi
+  %71 = and i64 %70, %68
+  %.not52.i = icmp eq i64 %71, 0
+  br i1 %.not52.i, label %74, label %72
 
-71:                                               ; preds = %.preheader
-  %72 = and i32 %.044.i, 126
+72:                                               ; preds = %.preheader
+  %73 = and i32 %.044.i, 126
   br label %.loopexit.i
 
-73:                                               ; preds = %.preheader
-  %74 = icmp ugt i32 %.044.i, 5
-  br i1 %74, label %.preheader, label %.loopexit.i, !llvm.loop !8
+74:                                               ; preds = %.preheader
+  %75 = icmp ugt i32 %.044.i, 5
+  br i1 %75, label %.preheader, label %.loopexit.i, !llvm.loop !8
 
-.loopexit.i:                                      ; preds = %73, %71
-  %.1.i = phi i32 [ %72, %71 ], [ %65, %73 ]
+.loopexit.i:                                      ; preds = %74, %72
+  %.1.i = phi i32 [ %73, %72 ], [ %66, %74 ]
   %.neg59.i = add nsw i32 %.1.i, -64
-  %75 = sub nsw i32 64, %.1.i
-  %76 = zext nneg i32 %75 to i64
-  %77 = lshr i64 -1, %76
-  %78 = and i64 %77, %.us-phi
-  %.not.i.i = icmp eq i64 %78, 0
-  br i1 %.not.i.i, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i, label %_ZN4llvm16isShiftedMask_64Em.exit.i
+  %76 = sub nsw i32 64, %.1.i
+  %77 = zext nneg i32 %76 to i64
+  %78 = lshr i64 -1, %77
+  %79 = and i64 %78, %.us-phi
+  %.not.i.i63 = icmp eq i64 %79, 0
+  br i1 %.not.i.i63, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i, label %_ZN4llvm16isShiftedMask_64Em.exit.i
 
 _ZN4llvm16isShiftedMask_64Em.exit.i:              ; preds = %.loopexit.i
-  %79 = add i64 %78, -1
-  %80 = or i64 %79, %78
-  %81 = add i64 %80, 1
-  %82 = and i64 %81, %80
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i
+  %80 = add i64 %79, -1
+  %81 = or i64 %80, %79
+  %82 = add i64 %81, 1
+  %83 = and i64 %82, %81
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %85, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i
 
-84:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i
-  %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %78, i1 true)
-  %86 = trunc nuw nsw i64 %85 to i32
-  %87 = lshr i64 %78, %85
-  %88 = xor i64 %87, -1
-  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %88, i1 false)
-  %90 = trunc nuw nsw i64 %89 to i32
-  br label %105
+85:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i
+  %86 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %79, i1 true)
+  %87 = trunc nuw nsw i64 %86 to i32
+  %88 = lshr i64 %79, %86
+  %89 = xor i64 %88, -1
+  %90 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %89, i1 false)
+  %91 = trunc nuw nsw i64 %90 to i32
+  br label %106
 
 _ZN4llvm16isShiftedMask_64Em.exit.thread.i:       ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i, %.loopexit.i
   %.not55.i = xor i64 %.us-phi, -1
-  %91 = and i64 %77, %.not55.i
-  %.not.i53.i = icmp eq i64 %91, 0
+  %92 = and i64 %78, %.not55.i
+  %.not.i53.i = icmp eq i64 %92, 0
   br i1 %.not.i53.i, label %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit, label %_ZN4llvm16isShiftedMask_64Em.exit54.i
 
 _ZN4llvm16isShiftedMask_64Em.exit54.i:            ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i
-  %92 = add i64 %91, -1
-  %93 = or i64 %92, %91
-  %94 = add i64 %93, 1
-  %95 = and i64 %94, %93
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit
+  %93 = add i64 %92, -1
+  %94 = or i64 %93, %92
+  %95 = add i64 %94, 1
+  %96 = and i64 %95, %94
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %98, label %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit
 
-97:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit54.i
-  %98 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %91, i1 true)
-  %99 = trunc nuw nsw i64 %98 to i32
-  %100 = sub nuw nsw i32 64, %99
-  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %91, i1 true)
-  %102 = trunc nuw nsw i64 %101 to i32
-  %103 = add nsw i32 %.neg59.i, %102
-  %104 = add nsw i32 %103, %99
-  br label %105
+98:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit54.i
+  %99 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %92, i1 true)
+  %100 = trunc nuw nsw i64 %99 to i32
+  %101 = sub nuw nsw i32 64, %100
+  %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %92, i1 true)
+  %103 = trunc nuw nsw i64 %102 to i32
+  %104 = add nsw i32 %.neg59.i, %103
+  %105 = add nsw i32 %104, %100
+  br label %106
 
-105:                                              ; preds = %97, %84
-  %.046.i = phi i32 [ %86, %84 ], [ %100, %97 ]
-  %.045.i = phi i32 [ %90, %84 ], [ %104, %97 ]
-  %106 = sub nsw i32 %.1.i, %.046.i
-  %107 = add nuw nsw i32 %.1.i, 67108863
-  %108 = and i32 %106, %107
+106:                                              ; preds = %98, %85
+  %.046.i = phi i32 [ %87, %85 ], [ %101, %98 ]
+  %.045.i = phi i32 [ %91, %85 ], [ %105, %98 ]
+  %107 = sub nsw i32 %.1.i, %.046.i
+  %108 = add nuw nsw i32 %.1.i, 67108863
+  %109 = and i32 %107, %108
   %.neg.i = mul nsw i32 %.1.i, -2
-  %109 = add nsw i32 %.045.i, -1
-  %110 = or i32 %109, %.neg.i
-  %111 = shl i32 %110, 6
-  %112 = and i32 %111, 4096
-  %113 = xor i32 %112, 4096
-  %114 = shl i32 %108, 6
-  %115 = and i32 %110, 63
-  %116 = or disjoint i32 %115, %114
-  %117 = or i32 %113, %116
-  %118 = zext i32 %117 to i64
+  %110 = add nsw i32 %.045.i, -1
+  %111 = or i32 %110, %.neg.i
+  %112 = shl i32 %111, 6
+  %113 = and i32 %112, 4096
+  %114 = xor i32 %113, 4096
+  %115 = shl i32 %109, 6
+  %116 = and i32 %111, 63
+  %117 = or disjoint i32 %116, %115
+  %118 = or i32 %114, %117
+  %119 = zext i32 %118 to i64
   br label %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit
 
-_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit: ; preds = %.split108.us, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i, %_ZN4llvm16isShiftedMask_64Em.exit54.i, %105
-  %.0 = phi i64 [ 0, %.split108.us ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i ], [ %118, %105 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit54.i ]
+_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit: ; preds = %.split109.us, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i, %_ZN4llvm16isShiftedMask_64Em.exit54.i, %106
+  %.0 = phi i64 [ 0, %.split109.us ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i ], [ %119, %106 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit54.i ]
   store i32 4876, ptr %3, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.0, ptr %120, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 0, ptr %120, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %.0, ptr %121, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %121 = icmp eq i32 %.us-phi110, -1
+  %122 = icmp eq i32 %.us-phi111, -1
   store i32 4776, ptr %4, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %123 = shl i32 %.us-phi109, 4
-  %124 = zext nneg i32 %123 to i64
-  %125 = lshr i64 %0, %124
-  %126 = and i64 %125, 65535
-  store i64 %126, ptr %122, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %128 = and i32 %123, 48
-  %129 = zext nneg i32 %128 to i64
-  store i64 %129, ptr %127, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %124 = shl i32 %.us-phi110, 4
+  %125 = zext nneg i32 %124 to i64
+  %126 = lshr i64 %0, %125
+  %127 = and i64 %126, 65535
+  store i64 %127, ptr %123, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %129 = and i32 %124, 48
+  %130 = zext nneg i32 %129 to i64
+  store i64 %130, ptr %128, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  br i1 %121, label %139, label %130
+  br i1 %122, label %140, label %131
 
-130:                                              ; preds = %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit
+131:                                              ; preds = %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit
   store i32 4776, ptr %5, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %132 = shl i32 %.us-phi110, 4
-  %133 = zext nneg i32 %132 to i64
-  %134 = lshr i64 %0, %133
-  %135 = and i64 %134, 65535
-  store i64 %135, ptr %131, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %137 = and i32 %132, 48
-  %138 = zext nneg i32 %137 to i64
-  store i64 %138, ptr %136, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %133 = shl i32 %.us-phi111, 4
+  %134 = zext nneg i32 %133 to i64
+  %135 = lshr i64 %0, %134
+  %136 = and i64 %135, 65535
+  store i64 %136, ptr %132, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %138 = and i32 %133, 48
+  %139 = zext nneg i32 %138 to i64
+  store i64 %139, ptr %137, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  br label %139
+  br label %140
 
-139:                                              ; preds = %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit, %18, %130
+140:                                              ; preds = %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit, %19, %131
   ret i1 %or.cond.not
 }
 

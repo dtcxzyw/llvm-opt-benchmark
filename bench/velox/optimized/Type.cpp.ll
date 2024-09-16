@@ -7590,7 +7590,7 @@ entry:
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types, i8 0, i64 24, i1 false)
   %parameters_ = getelementptr inbounds i8, ptr %this, i64 72
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120createTypeParametersERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS6_EE(ptr noalias nonnull align 8 %parameters_, ptr noundef nonnull align 8 dereferenceable(24) %children_)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120createTypeParametersERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS6_EE(ptr noalias align 8 %parameters_, ptr noundef nonnull align 8 dereferenceable(24) %children_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -10248,7 +10248,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %parameters_ = getelementptr inbounds i8, ptr %this, i64 48
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120createTypeParametersERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS6_EE(ptr noalias nonnull align 8 %parameters_, ptr noundef nonnull align 8 dereferenceable(24) %children_)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120createTypeParametersERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS6_EE(ptr noalias align 8 %parameters_, ptr noundef nonnull align 8 dereferenceable(24) %children_)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit

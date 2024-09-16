@@ -8285,18 +8285,18 @@ _ZN8JfrEventI15EventThreadParkE13should_commitEv.exit.thread: ; preds = %_ZN8Jfr
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %_ZN8JfrEventI15EventThreadParkE13should_commitEv.exit.thread
-  call fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef nonnull %5, ptr noundef %53, i64 noundef -9223372036854775808, i64 noundef -9223372036854775808)
+  call fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef %5, ptr noundef %53, i64 noundef -9223372036854775808, i64 noundef -9223372036854775808)
   br label %_ZN8JfrEventI15EventThreadParkE13should_commitEv.exit.thread23
 
 56:                                               ; preds = %_ZN8JfrEventI15EventThreadParkE13should_commitEv.exit.thread
   br i1 %38, label %57, label %58
 
 57:                                               ; preds = %56
-  call fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef nonnull %5, ptr noundef %53, i64 noundef -9223372036854775808, i64 noundef %3)
+  call fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef %5, ptr noundef %53, i64 noundef -9223372036854775808, i64 noundef %3)
   br label %_ZN8JfrEventI15EventThreadParkE13should_commitEv.exit.thread23
 
 58:                                               ; preds = %56
-  call fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef nonnull %5, ptr noundef %53, i64 noundef %3, i64 noundef -9223372036854775808)
+  call fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef %5, ptr noundef %53, i64 noundef %3, i64 noundef -9223372036854775808)
   br label %_ZN8JfrEventI15EventThreadParkE13should_commitEv.exit.thread23
 
 _ZN8JfrEventI15EventThreadParkE13should_commitEv.exit.thread23: ; preds = %_ZN15EventThreadParkC2E14EventStartTime.exit, %_ZN8JfrEventI15EventThreadParkE13should_commitEv.exit, %57, %58, %55
@@ -14005,7 +14005,7 @@ declare noundef ptr @_ZN2os7reallocEPvm8MEMFLAGS(ptr noundef, i64 noundef, i8 no
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @_ZL17find_field_offsetP8_jobjectiP10JavaThread(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @_ZL17find_field_offsetP8_jobjectiP10JavaThread(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca %class.FieldInfo, align 4
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 3
@@ -16033,7 +16033,7 @@ declare void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceable(144
 declare noundef ptr @_ZN10JavaThread20current_park_blockerEv(ptr noundef nonnull align 8 dereferenceable(1800)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %5
 

@@ -312,7 +312,7 @@ lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
   br i1 %tobool19.not.i, label %if.then.i, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false17.i
-  %call21.i = call fastcc i32 @is_unsigned_integer(ptr noundef nonnull %prime)
+  %call21.i = call fastcc i32 @is_unsigned_integer(ptr noundef %prime)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.then.i, label %lor.lhs.false23.i
 
@@ -347,7 +347,7 @@ lor.lhs.false38.i:                                ; preds = %lor.lhs.false35.i
   br i1 %tobool40.not.i, label %if.then.i, label %lor.lhs.false41.i
 
 lor.lhs.false41.i:                                ; preds = %lor.lhs.false38.i
-  %call42.i = call fastcc i32 @is_unsigned_integer(ptr noundef nonnull %order)
+  %call42.i = call fastcc i32 @is_unsigned_integer(ptr noundef %order)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %if.then.i, label %if.end.i
 
@@ -1377,14 +1377,14 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_unsigned_integer(ptr noundef %cbs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_unsigned_integer(ptr noundef nonnull %cbs) unnamed_addr #0 {
 entry:
-  %call = tail call i64 @CBS_len(ptr noundef %cbs) #7
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %cbs) #7
   %cmp = icmp eq i64 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @CBS_data(ptr noundef %cbs) #7
+  %call1 = tail call ptr @CBS_data(ptr noundef nonnull %cbs) #7
   %0 = load i8, ptr %call1, align 1
   %tobool.not = icmp sgt i8 %0, -1
   br i1 %tobool.not, label %lor.lhs.false, label %return
@@ -1394,12 +1394,12 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp3, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %call5 = tail call i64 @CBS_len(ptr noundef %cbs) #7
+  %call5 = tail call i64 @CBS_len(ptr noundef nonnull %cbs) #7
   %cmp6 = icmp ugt i64 %call5, 1
   br i1 %cmp6, label %land.lhs.true8, label %if.end16
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %call9 = tail call ptr @CBS_data(ptr noundef %cbs) #7
+  %call9 = tail call ptr @CBS_data(ptr noundef nonnull %cbs) #7
   %arrayidx10 = getelementptr inbounds i8, ptr %call9, i64 1
   %1 = load i8, ptr %arrayidx10, align 1
   %cmp13 = icmp sgt i8 %1, -1

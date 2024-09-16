@@ -148,7 +148,7 @@ land.rhs.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.then32, %land.rhs.i
   %fn.07.i54 = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %5, %if.then32 ]
   %9 = load ptr, ptr %fn.07.i54, align 8
-  %call.i = call fastcc i32 @parse_credential_file(ptr noundef %9, ptr noundef nonnull %c, ptr noundef nonnull @print_entry, ptr noundef null, i32 noundef 0)
+  %call.i = call fastcc i32 @parse_credential_file(ptr noundef %9, ptr noundef %c, ptr noundef nonnull @print_entry, ptr noundef null, i32 noundef 0)
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.rhs.i, label %if.end44
 
@@ -190,7 +190,7 @@ for.body.i10:                                     ; preds = %if.then36, %for.inc
 
 if.then9.i:                                       ; preds = %for.body.i10
   %17 = load ptr, ptr %fn.012.i51, align 8
-  call fastcc void @rewrite_credential_file(ptr noundef %17, ptr noundef nonnull %c, ptr noundef null, i32 noundef 1)
+  call fastcc void @rewrite_credential_file(ptr noundef %17, ptr noundef %c, ptr noundef null, i32 noundef 1)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then9.i, %for.body.i10
@@ -380,7 +380,7 @@ strbuf_addch.exit37.i:                            ; preds = %if.then.i33.i, %str
   br label %store_credential_file.exit
 
 store_credential_file.exit:                       ; preds = %if.end.i36, %strbuf_addch.exit37.i
-  call fastcc void @rewrite_credential_file(ptr noundef %31, ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i32 noundef 0)
+  call fastcc void @rewrite_credential_file(ptr noundef %31, ptr noundef %c, ptr noundef nonnull %buf.i, i32 noundef 0)
   call void @strbuf_release(ptr noundef nonnull %buf.i) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %if.end44
@@ -423,7 +423,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %fn, ptr noundef %c, ptr noundef readonly %match_cb, ptr noundef readonly %other_cb, i32 noundef %match_password) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %fn, ptr noundef nonnull %c, ptr noundef readonly %match_cb, ptr noundef readonly %other_cb, i32 noundef range(i32 0, 2) %match_password) unnamed_addr #0 {
 entry:
   %line = alloca %struct.strbuf, align 8
   %entry1 = alloca %struct.credential, align 8
@@ -463,7 +463,7 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
   br i1 %or.cond1.us.us, label %land.lhs.true15.us.us, label %if.else.us.us
 
 land.lhs.true15.us.us:                            ; preds = %while.body.us.us
-  %call16.us.us = call i32 @credential_match(ptr noundef %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
+  %call16.us.us = call i32 @credential_match(ptr noundef nonnull %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
   %tobool17.not.us.us = icmp eq i32 %call16.us.us, 0
   br i1 %tobool17.not.us.us, label %if.else.us.us, label %if.end25.us.us
 
@@ -489,7 +489,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph.sp
   br i1 %or.cond1.us, label %land.lhs.true15.us, label %if.else.us
 
 land.lhs.true15.us:                               ; preds = %while.body.us
-  %call16.us = call i32 @credential_match(ptr noundef %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
+  %call16.us = call i32 @credential_match(ptr noundef nonnull %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
   %tobool17.not.us = icmp eq i32 %call16.us, 0
   br i1 %tobool17.not.us, label %if.else.us, label %if.then20
 
@@ -515,7 +515,7 @@ while.body.us12:                                  ; preds = %while.body.lr.ph.sp
   br i1 %or.cond1.us19, label %land.lhs.true15.us20, label %if.else.us24
 
 land.lhs.true15.us20:                             ; preds = %while.body.us12
-  %call16.us21 = call i32 @credential_match(ptr noundef %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
+  %call16.us21 = call i32 @credential_match(ptr noundef nonnull %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
   %tobool17.not.us22 = icmp eq i32 %call16.us21, 0
   br i1 %tobool17.not.us22, label %if.else.us24, label %if.end25.us25
 
@@ -554,7 +554,7 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
   br i1 %or.cond1, label %land.lhs.true15, label %if.else
 
 land.lhs.true15:                                  ; preds = %while.body
-  %call16 = call i32 @credential_match(ptr noundef %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
+  %call16 = call i32 @credential_match(ptr noundef nonnull %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.else, label %if.then20
 
@@ -620,7 +620,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rewrite_credential_file(ptr noundef %fn, ptr noundef %c, ptr noundef %extra, i32 noundef %match_password) unnamed_addr #0 {
+define internal fastcc void @rewrite_credential_file(ptr noundef %fn, ptr noundef nonnull %c, ptr noundef %extra, i32 noundef range(i32 0, 2) %match_password) unnamed_addr #0 {
 entry:
   %timeout_ms = alloca i32, align 4
   store i32 1000, ptr %timeout_ms, align 4

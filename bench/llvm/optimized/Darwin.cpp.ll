@@ -11628,7 +11628,7 @@ _ZNSt8optionalIN5clang13DarwinSDKInfoEED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_116
   br i1 %switch.i, label %_ZN12_GLOBAL__N_132getDeploymentTargetFromTargetArgERN4llvm3opt14DerivedArgListERKNS0_6TripleERKN5clang6driver6DriverERKSt8optionalINS7_13DarwinSDKInfoEE.exit.thread, label %306
 
 306:                                              ; preds = %303
-  call fastcc void @_ZN12_GLOBAL__N_112getOSVersionB5cxx11EN4llvm6Triple6OSTypeERKS1_RKN5clang6driver6DriverE(ptr dead_on_unwind noalias nonnull writable align 8 %57, i32 noundef %305, ptr noundef nonnull align 8 dereferenceable(56) %300, ptr noundef nonnull readonly align 8 dereferenceable(1192) %301), !noalias !239
+  call fastcc void @_ZN12_GLOBAL__N_112getOSVersionB5cxx11EN4llvm6Triple6OSTypeERKS1_RKN5clang6driver6DriverE(ptr dead_on_unwind noalias writable align 8 %57, i32 noundef %305, ptr noundef nonnull align 8 dereferenceable(56) %300, ptr noundef nonnull readonly align 8 dereferenceable(1192) %301), !noalias !239
   %307 = getelementptr inbounds nuw i8, ptr %58, i64 56
   store i8 0, ptr %307, align 8, !noalias !239
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56), !noalias !239
@@ -12323,7 +12323,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit222:         ; preds = %_ZN5clang17Diagnost
 
 589:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit222, %526
   %590 = load ptr, ptr %120, align 8
-  call fastcc void @_ZN12_GLOBAL__N_135getDeploymentTargetFromOSVersionArgERN4llvm3opt14DerivedArgListERKN5clang6driver6DriverE(ptr dead_on_unwind noalias nonnull writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(1192) %590)
+  call fastcc void @_ZN12_GLOBAL__N_135getDeploymentTargetFromOSVersionArgERN4llvm3opt14DerivedArgListERKN5clang6driver6DriverE(ptr dead_on_unwind noalias writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(1192) %590)
   %591 = getelementptr inbounds i8, ptr %76, i64 160
   %.val163 = load i8, ptr %591, align 8
   %592 = trunc i8 %.val163 to i1
@@ -13125,7 +13125,7 @@ _ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit277: ; preds = %_ZN12_G
   br i1 %912, label %924, label %1010
 
 924:                                              ; preds = %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit277
-  call fastcc void @_ZN12_GLOBAL__N_135getDeploymentTargetFromOSVersionArgERN4llvm3opt14DerivedArgListERKN5clang6driver6DriverE(ptr dead_on_unwind noalias nonnull writable align 8 %89, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(1192) %923)
+  call fastcc void @_ZN12_GLOBAL__N_135getDeploymentTargetFromOSVersionArgERN4llvm3opt14DerivedArgListERKN5clang6driver6DriverE(ptr dead_on_unwind noalias writable align 8 %89, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(1192) %923)
   %925 = getelementptr inbounds i8, ptr %89, i64 160
   %.val165 = load i8, ptr %925, align 8
   %926 = trunc i8 %.val165 to i1
@@ -13334,7 +13334,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit297:         ; preds = %_ZN5clang17Diagnost
   br i1 %1009, label %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit.sink.split.sink.split, label %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit.sink.split
 
 1010:                                             ; preds = %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit277
-  call fastcc void @_ZN12_GLOBAL__N_135getDeploymentTargetFromOSVersionArgERN4llvm3opt14DerivedArgListERKN5clang6driver6DriverE(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(1192) %923)
+  call fastcc void @_ZN12_GLOBAL__N_135getDeploymentTargetFromOSVersionArgERN4llvm3opt14DerivedArgListERKN5clang6driver6DriverE(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(1192) %923)
   %1011 = call fastcc noundef nonnull align 8 dereferenceable(168) ptr @_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(168) %72, ptr noundef nonnull align 8 dereferenceable(168) %93) #20
   %1012 = getelementptr inbounds nuw i8, ptr %93, i64 160
   %1013 = load i8, ptr %1012, align 8
@@ -13718,7 +13718,7 @@ _ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit320: ; preds = %_ZN12_G
   br i1 %1171, label %1172, label %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit322
 
 1172:                                             ; preds = %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit320
-  call fastcc void @_ZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEE(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(64) %272)
+  call fastcc void @_ZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEE(ptr dead_on_unwind noalias writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(64) %272)
   %1173 = getelementptr inbounds i8, ptr %95, i64 160
   %.val168 = load i8, ptr %1173, align 8
   %1174 = trunc i8 %.val168 to i1
@@ -13754,7 +13754,7 @@ _ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit322: ; preds = %_ZNSt22
   br i1 %1185, label %1237, label %1186
 
 1186:                                             ; preds = %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit322
-  call fastcc void @_ZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEE(ptr dead_on_unwind noalias nonnull writable align 8 %96, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(64) %272)
+  call fastcc void @_ZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEE(ptr dead_on_unwind noalias writable align 8 %96, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(64) %272)
   %1187 = call fastcc noundef nonnull align 8 dereferenceable(168) ptr @_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(168) %72, ptr noundef nonnull align 8 dereferenceable(168) %96) #20
   %1188 = getelementptr inbounds nuw i8, ptr %96, i64 160
   %1189 = load i8, ptr %1188, align 8
@@ -13960,7 +13960,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
 _ZN12_GLOBAL__N_114DarwinPlatform14createFromArchEN4llvm6Triple6OSTypeENS1_9StringRefE.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit47.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit39.thread.i, %_ZN4llvmneENS_9StringRefES0_.exit59.i, %_ZN4llvmneENS_9StringRefES0_.exit55.i, %_ZN4llvmeqENS_9StringRefES0_.exit51.i, %_ZN4llvmeqENS_9StringRefES0_.exit39.i, %_ZN4llvmeqENS_9StringRefES0_.exit35.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i335, %1239
   %.sink.i330 = phi i32 [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit39.thread.i ], [ 27, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread.i ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit51.i ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit39.i ], [ 9, %_ZN4llvmneENS_9StringRefES0_.exit55.i ], [ 9, %1239 ], [ 9, %_ZN4llvmneENS_9StringRefES0_.exit59.i ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i335 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit35.i ]
   %.0.i.i60.i = phi i32 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit39.thread.i ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit51.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit39.i ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit55.i ], [ 0, %1239 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit59.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i335 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit35.i ]
-  call fastcc void @_ZN12_GLOBAL__N_112getOSVersionB5cxx11EN4llvm6Triple6OSTypeERKS1_RKN5clang6driver6DriverE(ptr dead_on_unwind noalias nonnull writable align 8 %22, i32 noundef %.sink.i330, ptr noundef nonnull align 8 dereferenceable(56) %300, ptr noundef nonnull readonly align 8 dereferenceable(1192) %1240), !noalias !415
+  call fastcc void @_ZN12_GLOBAL__N_112getOSVersionB5cxx11EN4llvm6Triple6OSTypeERKS1_RKN5clang6driver6DriverE(ptr dead_on_unwind noalias writable align 8 %22, i32 noundef %.sink.i330, ptr noundef nonnull align 8 dereferenceable(56) %300, ptr noundef nonnull readonly align 8 dereferenceable(1192) %1240), !noalias !415
   %1251 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #20, !noalias !415
   %1252 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #20, !noalias !415
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20), !noalias !418
@@ -16061,7 +16061,7 @@ declare noundef ptr @_ZNK4llvm3opt14DerivedArgList15MakeSeparateArgEPKNS0_3ArgEN
 declare { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_135getDeploymentTargetFromOSVersionArgERN4llvm3opt14DerivedArgListERKN5clang6driver6DriverE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_135getDeploymentTargetFromOSVersionArgERN4llvm3opt14DerivedArgListERKN5clang6driver6DriverE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16817,7 +16817,7 @@ _ZNSt14_Optional_baseIN12_GLOBAL__N_114DarwinPlatformELb0ELb0EEaSEOS2_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) unnamed_addr #0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16951,7 +16951,7 @@ _ZNK4llvm9StringRef4findEcm.exit.i:               ; preds = %_ZNSt11char_traitsI
 _ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit: ; preds = %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %_ZNK4llvm9StringRef4findEcm.exit.i, %64
   %.sroa.04.0.i = phi ptr [ %66, %64 ], [ @.str.47, %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit ], [ @.str.47, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ @.str.47, %_ZNK4llvm9StringRef4findEcm.exit.i ]
   %.sroa.35.0.i = phi i64 [ %67, %64 ], [ 0, %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ 0, %_ZNK4llvm9StringRef4findEcm.exit.i ]
-  call fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %6, ptr %.sroa.04.0.i, i64 %.sroa.35.0.i)
+  call fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %6, ptr %.sroa.04.0.i, i64 %.sroa.35.0.i)
   br label %.critedge
 
 .critedge:                                        ; preds = %56, %_ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit, %54
@@ -25487,7 +25487,7 @@ _ZNSt22_Optional_payload_baseIN5clang13DarwinSDKInfoEE8_M_resetEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112getOSVersionB5cxx11EN4llvm6Triple6OSTypeERKS1_RKN5clang6driver6DriverE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112getOSVersionB5cxx11EN4llvm6Triple6OSTypeERKS1_RKN5clang6driver6DriverE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::VersionTuple", align 8
   %6 = alloca %"class.llvm::Triple", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -26040,7 +26040,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNK4llvm9StringRef12find_last_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -26612,7 +26612,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit38.thread: ; preds = %_ZNK4llvm9StringR
   %228 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #20
   %229 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr nonnull @.str.305, i64 9, i64 noundef 0) #20
   %230 = icmp ne i64 %229, -1
-  call fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i32 noundef 5, ptr %227, i64 %228, i1 noundef zeroext %230)
+  call fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable align 8 %32, i32 noundef 5, ptr %227, i64 %228, i1 noundef zeroext %230)
   call fastcc void @_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(160) %32) #20
   call fastcc void @_ZN12_GLOBAL__N_114DarwinPlatformD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %32) #20
   br label %235
@@ -26628,7 +26628,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit41:      ; preds = %_ZNK4llvm9StringRef
 _ZNK4llvm9StringRef11starts_withES0_.exit41.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit41
   %232 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #20
   %233 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.val) #20
-  call fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 %33, i32 noundef 4, ptr %232, i64 %233, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable align 8 %33, i32 noundef 4, ptr %232, i64 %233, i1 noundef zeroext false)
   call fastcc void @_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(160) %33) #20
   call fastcc void @_ZN12_GLOBAL__N_114DarwinPlatformD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %33) #20
   br label %235
@@ -26643,7 +26643,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit41.thread47: ; preds = %_ZNK4llvm9Strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 0, 6) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)

@@ -2163,7 +2163,7 @@ _ZL15joinAxesTrans13P9t_complexPKS_iiiiiiPKiS4_iiii.exit._crit_edge: ; preds = %
 declare void @fftwf_execute(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #14 {
+define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 3) %2, ptr nocapture noundef readonly %3) unnamed_addr #14 {
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
@@ -2181,13 +2181,13 @@ define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8
-  %17 = sext i32 %2 to i64
+  %17 = zext nneg i32 %2 to i64
   %switch.gep61 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6, i64 0, i64 %17
   %switch.load62 = load i32, ptr %switch.gep61, align 4
-  %18 = sext i32 %2 to i64
+  %18 = zext nneg i32 %2 to i64
   %switch.gep63 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7, i64 0, i64 %18
   %switch.load64 = load i32, ptr %switch.gep63, align 4
-  %19 = sext i32 %2 to i64
+  %19 = zext nneg i32 %2 to i64
   %switch.gep65 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8, i64 0, i64 %19
   %switch.load66 = load i32, ptr %switch.gep65, align 4
   store i32 %switch.load62, ptr %5, align 4
@@ -2223,10 +2223,10 @@ define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t
 
 .sink.split.i:                                    ; preds = %26, %31, %29
   %.sink = phi i32 [ %34, %31 ], [ %30, %29 ], [ %28, %26 ]
-  %.sink92.i = phi ptr [ %25, %31 ], [ %24, %29 ], [ %23, %26 ]
+  %.sink93.i = phi ptr [ %25, %31 ], [ %24, %29 ], [ %23, %26 ]
   %35 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
   store i32 %.sink, ptr %35, align 4
-  %36 = load i32, ptr %.sink92.i, align 4
+  %36 = load i32, ptr %.sink93.i, align 4
   %37 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
   store i32 %36, ptr %37, align 4
   br label %38

@@ -2488,7 +2488,7 @@ cond.true362:                                     ; preds = %if.end358
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %msg.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %msg.i, i8 0, i64 56, i1 false)
   store ptr %iovs.i, ptr %msg_iov.i, align 8
-  %call.i512 = call fastcc i32 @_transmit_pre(ptr noundef nonnull %c, ptr noundef nonnull %iovs.i, i32 noundef 0, i1 noundef zeroext false)
+  %call.i512 = call fastcc i32 @_transmit_pre(ptr noundef nonnull %c, ptr noundef %iovs.i, i32 noundef 0, i1 noundef zeroext false)
   %cmp.i513 = icmp eq i32 %call.i512, 0
   br i1 %cmp.i513, label %if.then.i542, label %if.end.i514
 
@@ -2753,7 +2753,7 @@ build_udp_header.exit.i:                          ; preds = %if.then.i34.i, %if.
   store i8 0, ptr %incdec.ptr35.i.i, align 1
   %inc38.i.i = add i16 %335, 1
   store i16 %inc38.i.i, ptr %udp_sequence.i.i, align 2
-  %call8.i = call fastcc i32 @_transmit_pre(ptr noundef nonnull %c, ptr noundef nonnull %iovs.i543, i32 noundef 1, i1 noundef zeroext true)
+  %call8.i = call fastcc i32 @_transmit_pre(ptr noundef nonnull %c, ptr noundef %iovs.i543, i32 noundef 1, i1 noundef zeroext true)
   %cmp47.i = icmp sgt i32 %call8.i, 0
   br i1 %cmp47.i, label %for.body.preheader.i, label %for.end.i
 
@@ -3397,7 +3397,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp13, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %land.lhs.true
-  tail call fastcc void @conn_free(ptr noundef nonnull %call)
+  tail call fastcc void @conn_free(ptr noundef %call)
   tail call void @STATS_LOCK() #36
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 24), align 8
   %inc16 = add i64 %5, 1
@@ -3643,7 +3643,7 @@ return:                                           ; preds = %if.end128, %if.then
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @conn_free(ptr nocapture noundef %c) unnamed_addr #13 {
+define internal fastcc void @conn_free(ptr nocapture noundef nonnull %c) unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @conns, align 8
   %sfd = getelementptr inbounds i8, ptr %c, i64 8
@@ -5304,13 +5304,13 @@ if.then.i:                                        ; preds = %if.end162, %if.end1
 if.then2.i:                                       ; preds = %if.then.i
   %40 = load i32, ptr %nbytes157, align 8
   %sub.i = add nsw i32 %40, -2
-  %call.i = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %call158, ptr noundef nonnull %call, i32 noundef %sub.i)
+  %call.i = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef %call158, ptr noundef nonnull %call, i32 noundef %sub.i)
   %cmp3.i = icmp eq i32 %call.i, -1
   br i1 %cmp3.i, label %if.end178.thread109, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %if.then2.i
   %41 = load i32, ptr %nbytes156, align 8
-  %call7.i = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %call158, ptr noundef nonnull %it, i32 noundef %41)
+  %call7.i = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef %call158, ptr noundef nonnull %it, i32 noundef %41)
   %cmp8.i = icmp eq i32 %call7.i, -1
   br i1 %cmp8.i, label %if.end178.thread109, label %if.else167
 
@@ -5325,13 +5325,13 @@ if.else87.i:                                      ; preds = %if.end162
 if.then92.i:                                      ; preds = %if.else87.i
   %43 = load i32, ptr %nbytes156, align 8
   %sub94.i = add nsw i32 %43, -2
-  %call95.i = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %call158, ptr noundef nonnull %it, i32 noundef %sub94.i)
+  %call95.i = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef %call158, ptr noundef nonnull %it, i32 noundef %sub94.i)
   %cmp96.i = icmp eq i32 %call95.i, -1
   br i1 %cmp96.i, label %if.end178.thread109, label %lor.lhs.false98.i
 
 lor.lhs.false98.i:                                ; preds = %if.then92.i
   %44 = load i32, ptr %nbytes157, align 8
-  %call100.i = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %call158, ptr noundef nonnull %call, i32 noundef %44)
+  %call100.i = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef %call158, ptr noundef nonnull %call, i32 noundef %44)
   %cmp101.i = icmp eq i32 %call100.i, -1
   br i1 %cmp101.i, label %if.end178.thread109, label %if.else167
 
@@ -6319,7 +6319,7 @@ if.end11.i:                                       ; preds = %if.then8.i, %lor.lh
   %sock_addr.0.i = phi ptr [ %request_addr.i, %lor.lhs.false.i ], [ %spec.select.i, %if.then8.i ]
   %11 = load i16, ptr %sock_addr.0.i, align 2
   %conv.i = zext i16 %11 to i32
-  call fastcc void @get_conn_text(ptr noundef nonnull %7, i32 noundef %conv.i, ptr noundef nonnull %vla34, ptr noundef nonnull %sock_addr.0.i)
+  call fastcc void @get_conn_text(ptr noundef %7, i32 noundef %conv.i, ptr noundef %vla34, ptr noundef %sock_addr.0.i)
   %12 = load i32, ptr %state, align 4
   %cmp13.not.i = icmp eq i32 %12, 0
   br i1 %cmp13.not.i, label %conn_to_str.exit, label %land.lhs.true15.i
@@ -6340,7 +6340,7 @@ if.then23.i:                                      ; preds = %land.lhs.true15.i
   %call27.i = call i32 @getsockname(i32 noundef %14, ptr nonnull %svr_sock_addr.i, ptr noundef nonnull %svr_addr_len.i) #36
   %15 = load i16, ptr %svr_sock_addr.i, align 8
   %conv28.i = zext i16 %15 to i32
-  call fastcc void @get_conn_text(ptr noundef nonnull %7, i32 noundef %conv28.i, ptr noundef nonnull %vla235, ptr noundef nonnull %svr_sock_addr.i)
+  call fastcc void @get_conn_text(ptr noundef %7, i32 noundef %conv28.i, ptr noundef %vla235, ptr noundef %svr_sock_addr.i)
   br label %conn_to_str.exit
 
 conn_to_str.exit:                                 ; preds = %if.end11.i, %land.lhs.true15.i, %if.then23.i
@@ -10238,7 +10238,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #25
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @server_sockets(i32 noundef %port, i32 noundef %transport, ptr noundef %portnumber_file) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @server_sockets(i32 noundef range(i32 1, 0) %port, i32 noundef range(i32 1, 3) %transport, ptr noundef %portnumber_file) unnamed_addr #1 {
 entry:
   %b = alloca ptr, align 8
   %conntag = alloca i64, align 8
@@ -10532,7 +10532,7 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #24
 declare i32 @htonl(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_store_item_copy_chunks(ptr noundef %d_it, ptr noundef readonly %s_it, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @_store_item_copy_chunks(ptr noundef nonnull %d_it, ptr noundef readonly %s_it, i32 noundef %len) unnamed_addr #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %d_it, i64 48
   %nkey = getelementptr inbounds i8, ptr %d_it, i64 41
@@ -10722,14 +10722,15 @@ declare ptr @do_item_alloc_chunk(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_conn_text(ptr nocapture noundef readonly %c, i32 noundef %af, ptr nocapture noundef writeonly %addr, ptr noundef %sock_addr) unnamed_addr #1 {
+define internal fastcc void @get_conn_text(ptr nocapture noundef nonnull readonly %c, i32 noundef range(i32 0, 65536) %af, ptr nocapture noundef nonnull writeonly %addr, ptr noundef nonnull %sock_addr) unnamed_addr #1 {
 entry:
   %addr_text = alloca [4096 x i8], align 16
   store i8 0, ptr %addr_text, align 16
-  switch i32 %af, label %sw.epilog [
-    i32 2, label %sw.bb
-    i32 10, label %sw.bb2
-    i32 1, label %sw.bb13
+  %trunc = trunc nuw i32 %af to i16
+  switch i16 %trunc, label %sw.epilog [
+    i16 2, label %sw.bb
+    i16 10, label %sw.bb2
+    i16 1, label %sw.bb13
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -10836,7 +10837,7 @@ declare void @complete_nread_ascii(ptr noundef) local_unnamed_addr #2
 declare void @complete_nread_binary(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_transmit_pre(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %iovs, i32 noundef %iovused, i1 noundef zeroext %one_resp) unnamed_addr #30 {
+define internal fastcc i32 @_transmit_pre(ptr nocapture noundef readonly %c, ptr nocapture noundef nonnull writeonly %iovs, i32 noundef range(i32 0, 2) %iovused, i1 noundef zeroext %one_resp) unnamed_addr #30 {
 entry:
   %resp_head = getelementptr inbounds i8, ptr %c, i64 200
   %resp.0189 = load ptr, ptr %resp_head, align 8
@@ -11034,7 +11035,7 @@ if.else119:                                       ; preds = %if.end
   %iov122 = getelementptr inbounds i8, ptr %resp.1, i64 48
   %conv125 = zext i8 %0 to i64
   %mul = shl nuw nsw i64 %conv125, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx121, ptr nonnull align 8 %iov122, i64 %mul, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %arrayidx121, ptr nonnull align 8 %iov122, i64 %mul, i1 false)
   %27 = load i8, ptr %iovcnt.le, align 4
   %conv127 = zext i8 %27 to i32
   %add128 = add nsw i32 %iovused.addr.1.ph, %conv127
@@ -11054,7 +11055,7 @@ while.end134:                                     ; preds = %if.then, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_transmit_post(ptr nocapture noundef %c, i64 noundef %res) unnamed_addr #1 {
+define internal fastcc void @_transmit_post(ptr nocapture noundef %c, i64 noundef range(i64 -8, -9223372036854775808) %res) unnamed_addr #1 {
 entry:
   %resp_head = getelementptr inbounds i8, ptr %c, i64 200
   %0 = load ptr, ptr %resp_head, align 8
@@ -11530,7 +11531,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #4
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @server_socket(ptr noundef %interface, i32 noundef %port, i32 noundef %transport, ptr noundef %portnumber_file, i64 noundef %conntag, i32 noundef %bproto) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @server_socket(ptr noundef %interface, i32 noundef %port, i32 noundef range(i32 1, 3) %transport, ptr noundef %portnumber_file, i64 noundef %conntag, i32 noundef %bproto) unnamed_addr #1 {
 entry:
   %intsize.i = alloca i32, align 4
   %avg.i = alloca i32, align 4

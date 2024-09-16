@@ -141,7 +141,7 @@ define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr 
 
 ._crit_edge67:                                    ; preds = %.lr.ph71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %22, i1 false)
-  tail call fastcc void @ddSuppInteract(ptr noundef nonnull %.05069, ptr noundef nonnull %17)
+  tail call fastcc void @ddSuppInteract(ptr noundef nonnull %.05069, ptr noundef %17)
   tail call fastcc void @ddClearLocal(ptr noundef nonnull %.05069)
   %38 = load i32, ptr %2, align 8
   %39 = icmp sgt i32 %38, 1
@@ -297,7 +297,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ddSuppInteract(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @ddSuppInteract(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %common.ret12, label %5

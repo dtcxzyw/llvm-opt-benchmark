@@ -14661,7 +14661,7 @@ call5.i.i.i.i1.i.i.i.noexc.us:                    ; preds = %for.body.i.us
   store i32 %conv4.i.i.i.i.i.i.i.us, ptr %_M_offset.i.i1.i.i.i.i.i.i, align 8
   %add.ptr.i.idx.i.i.i.us = shl nuw nsw i64 %div1.i.i.i.i.i.us, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i.i.i92.us, i8 0, i64 %add.ptr.i.idx.i.i.i.us, i1 false)
-  %call.i91.us = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %matcher, i32 noundef %i.037.i.us, ptr noundef nonnull %visited.i)
+  %call.i91.us = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %matcher, i32 noundef %i.037.i.us, ptr noundef %visited.i)
           to label %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us unwind label %eh.resume.i.split.us
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.us:               ; preds = %call5.i.i.i.i1.i.i.i.noexc.us
@@ -14728,7 +14728,7 @@ call5.i.i.i.i1.i.i.i.noexc:                       ; preds = %for.body.i
   store i32 %conv4.i.i.i.i.i.i.i, ptr %_M_offset.i.i1.i.i.i.i.i.i, align 8
   %add.ptr.i.idx.i.i.i = shl nuw nsw i64 %div1.i.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i.i.i92, i8 0, i64 %add.ptr.i.idx.i.i.i, i1 false)
-  %call.i91 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %matcher, i32 noundef %i.037.i, ptr noundef nonnull %visited.i)
+  %call.i91 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %matcher, i32 noundef %i.037.i, ptr noundef %visited.i)
           to label %_ZNSt6vectorIbSaIbEED2Ev.exit.i unwind label %eh.resume.i.split
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %call5.i.i.i.i1.i.i.i.noexc
@@ -16787,7 +16787,7 @@ invoke.cont32:                                    ; preds = %if.then31
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_120PrintShortTextFormatB5cxx11ERKNS0_7MessageE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %call35)
+  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_120PrintShortTextFormatB5cxx11ERKNS0_7MessageE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %call35)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont34
@@ -16810,7 +16810,7 @@ if.else:                                          ; preds = %invoke.cont28
           to label %if.end43 unwind label %lpad
 
 if.else39:                                        ; preds = %invoke.cont18
-  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_120PrintShortTextFormatB5cxx11ERKNS0_7MessageE(ptr noalias nonnull align 8 %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue)
+  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_120PrintShortTextFormatB5cxx11ERKNS0_7MessageE(ptr noalias align 8 %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue)
           to label %if.end43.thread unwind label %lpad
 
 if.end43:                                         ; preds = %invoke.cont36, %if.else
@@ -19516,7 +19516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %v, ptr nocapture noundef readonly %visited) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %v, ptr nocapture noundef nonnull readonly %visited) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = sext i32 %v to i64
   %0 = load ptr, ptr %visited, align 8
@@ -19607,7 +19607,7 @@ if.then22:                                        ; preds = %land.lhs.true20
   br i1 %tobool.i.not, label %land.rhs, label %for.inc34
 
 land.rhs:                                         ; preds = %if.then22
-  %call27 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %14, ptr noundef nonnull %visited)
+  %call27 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %14, ptr noundef %visited)
   br i1 %call27, label %return.sink.split, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body14, %land.lhs.true20, %if.then22, %land.rhs

@@ -3654,7 +3654,7 @@ _ZNSt12_Vector_baseIN3ue212CodePointSetESaIS1_EED2Ev.exit: ; preds = %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9findPathsRKN3ue28NGHolderER16CorpusPropertiesRSt6vectorIS5_INS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISC_EESaISE_EEmm(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(2556) %cProps, ptr noundef nonnull align 8 dereferenceable(24) %allPaths, i64 noundef %cycleLimit, i64 noundef %corpusLimit) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9findPathsRKN3ue28NGHolderER16CorpusPropertiesRSt6vectorIS5_INS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISC_EESaISE_EEmm(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(2556) %cProps, ptr noundef nonnull align 8 dereferenceable(24) %allPaths, i64 noundef range(i64 0, 4294967296) %cycleLimit, i64 noundef range(i64 0, 4294967296) %corpusLimit) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ref.tmp2 = alloca %"class.std::unique_ptr.101", align 8
@@ -5490,7 +5490,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118expandCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr, ptr noundef %out, i32 noundef %mask, i32 noundef %n) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118expandCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr, ptr noundef %out, i32 noundef range(i32 -241, 64) %mask, i32 noundef range(i32 1, 4) %n) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %joined_.i.i.i = alloca %"struct.std::_Rb_tree_const_iterator.156", align 8
   %it_.i.i.i = alloca %"struct.std::_Rb_tree_const_iterator.156", align 8

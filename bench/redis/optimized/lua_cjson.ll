@@ -1315,7 +1315,7 @@ declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_append_string(ptr noundef %l, ptr noundef %json, i32 noundef %lindex) unnamed_addr #0 {
+define internal fastcc void @json_append_string(ptr noundef %l, ptr noundef %json, i32 noundef range(i32 -2, 0) %lindex) unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len) #12
@@ -1398,7 +1398,7 @@ for.end:                                          ; preds = %for.inc, %strbuf_en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_append_number(ptr noundef %l, ptr nocapture noundef readonly %cfg, ptr noundef %json, i32 noundef %lindex) unnamed_addr #0 {
+define internal fastcc void @json_append_number(ptr noundef %l, ptr nocapture noundef readonly %cfg, ptr noundef %json, i32 noundef range(i32 -2, 0) %lindex) unnamed_addr #0 {
 entry:
   %call = tail call double @lua_tonumber(ptr noundef %l, i32 noundef %lindex) #12
   %encode_invalid_numbers = getelementptr inbounds i8, ptr %cfg, i64 1336
@@ -1565,7 +1565,7 @@ declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare ptr @strbuf_new(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_next_token(ptr nocapture noundef %json, ptr nocapture noundef writeonly %token) unnamed_addr #0 {
+define internal fastcc void @json_next_token(ptr nocapture noundef nonnull %json, ptr nocapture noundef nonnull writeonly %token) unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %digit.sroa.0.i66.i.i = alloca i32, align 16
@@ -2208,7 +2208,7 @@ cleanup:                                          ; preds = %if.end75, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_process_value(ptr noundef %l, ptr noundef %json, ptr nocapture noundef readonly %token) unnamed_addr #0 {
+define internal fastcc void @json_process_value(ptr noundef %l, ptr noundef nonnull %json, ptr nocapture noundef nonnull readonly %token) unnamed_addr #0 {
 entry:
   %token.i21 = alloca %struct.json_token_t, align 8
   %token.i = alloca %struct.json_token_t, align 8
@@ -2521,7 +2521,7 @@ cleanup32:                                        ; preds = %if.end27, %if.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_next_number_token(ptr nocapture noundef %json, ptr nocapture noundef writeonly %token) unnamed_addr #0 {
+define internal fastcc void @json_next_number_token(ptr nocapture noundef nonnull %json, ptr nocapture noundef nonnull writeonly %token) unnamed_addr #0 {
 entry:
   %endptr = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr) #12
@@ -2573,7 +2573,7 @@ declare void @lua_rawset(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lua_rawseti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef %args) unnamed_addr #0 {
+define internal fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef range(i32 1, 4) %args) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %l) #12
   %cmp.not = icmp sgt i32 %call, %args

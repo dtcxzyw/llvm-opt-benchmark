@@ -1815,7 +1815,7 @@ if.end55:                                         ; preds = %if.end50, %if.end21
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @BlockSplitterFinishBlockLiteral(ptr noundef %self, i32 noundef %is_final) unnamed_addr #6 {
+define internal fastcc void @BlockSplitterFinishBlockLiteral(ptr noundef %self, i32 noundef range(i32 0, 2) %is_final) unnamed_addr #6 {
 entry:
   %combined_entropy.sroa.0 = alloca double, align 16
   %combined_entropy.sroa.2 = alloca double, align 8
@@ -2388,7 +2388,7 @@ if.end186:                                        ; preds = %if.then182, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ContextBlockSplitterFinishBlock(ptr noundef %self, ptr noundef %m, i32 noundef %is_final) unnamed_addr #1 {
+define internal fastcc void @ContextBlockSplitterFinishBlock(ptr noundef %self, ptr noundef %m, i32 noundef range(i32 0, 2) %is_final) unnamed_addr #1 {
 entry:
   %entropy = alloca [13 x double], align 16
   %combined_entropy = alloca [26 x double], align 16
@@ -3106,7 +3106,7 @@ if.end247:                                        ; preds = %if.then242, %if.end
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @BlockSplitterFinishBlockCommand(ptr noundef %self, i32 noundef %is_final) unnamed_addr #6 {
+define internal fastcc void @BlockSplitterFinishBlockCommand(ptr noundef %self, i32 noundef range(i32 0, 2) %is_final) unnamed_addr #6 {
 entry:
   %combined_entropy.sroa.0 = alloca double, align 16
   %combined_entropy.sroa.2 = alloca double, align 8
@@ -3679,7 +3679,7 @@ if.end186:                                        ; preds = %if.then182, %if.end
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @BlockSplitterFinishBlockDistance(ptr noundef %self, i32 noundef %is_final) unnamed_addr #6 {
+define internal fastcc void @BlockSplitterFinishBlockDistance(ptr noundef %self, i32 noundef range(i32 0, 2) %is_final) unnamed_addr #6 {
 entry:
   %combined_entropy.sroa.0 = alloca double, align 16
   %combined_entropy.sroa.2 = alloca double, align 8

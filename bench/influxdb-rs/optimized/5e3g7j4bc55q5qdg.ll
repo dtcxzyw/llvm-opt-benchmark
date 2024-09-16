@@ -140,7 +140,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
   %44 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa5.i, i64 noundef 48, i64 noundef 8) #26, !noalias !5
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h59ff62405b88852cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #27
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h59ff62405b88852cE"(ptr noalias noundef align 8 dereferenceable(32) %6) #27
           to label %common.resume unwind label %45, !noalias !5
 
 45:                                               ; preds = %.body.i.i
@@ -407,7 +407,7 @@ _ZN3std4sync6poison4Flag4done17hd9bab5cd828871c1E.llvm.14431222152625912608.exit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body.i, %70
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %70 ], [ %.pn.i, %.body.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h59ff62405b88852cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #27
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h59ff62405b88852cE"(ptr noalias noundef align 8 dereferenceable(32) %7) #27
           to label %common.resume unwind label %127
 
 "_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h2f8ad7e61731d4e4E.exit": ; preds = %.noexc, %.thread.i
@@ -1008,7 +1008,7 @@ define hidden void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$all
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h59ff62405b88852cE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h59ff62405b88852cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %3

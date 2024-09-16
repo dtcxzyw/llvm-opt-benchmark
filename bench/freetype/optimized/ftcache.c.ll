@@ -241,7 +241,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %46, %5
   br i1 %.not103, label %.loopexit, label %.preheader, !llvm.loop !4
 
 .loopexit:                                        ; preds = %ftc_basic_family_compare.exit.thread, %11
-  %68 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %40, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %68 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %40, ptr noundef nonnull %6, ptr noundef %7)
   %69 = load ptr, ptr %7, align 8
   %70 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %69, ptr %70, align 8
@@ -342,7 +342,7 @@ FTC_MruNode_Up.exit118:                           ; preds = %109
 
 ._crit_edge:                                      ; preds = %ftc_gnode_compare.exit.thread, %71
   store ptr null, ptr %8, align 8
-  %120 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %39, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %120 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %39, ptr noundef %6, ptr noundef %8)
   %.pre = load ptr, ptr %8, align 8
   br label %121
 
@@ -488,7 +488,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_basic_family_compare(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @FTC_MruList_New(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @FTC_MruList_New(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -635,13 +635,13 @@ define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = call i32 %9(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0) #12
+  %10 = call i32 %9(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %0) #12
   %11 = and i32 %10, 255
   %.not2534 = icmp eq i32 %11, 64
   br i1 %.not2534, label %.lr.ph, label %FTC_Manager_FlushN.exit._crit_edge
@@ -796,7 +796,7 @@ FTC_Manager_FlushN.exit:                          ; preds = %80
 91:                                               ; preds = %87, %85
   %.1 = phi i32 [ %.035, %85 ], [ %spec.select, %87 ]
   %92 = load ptr, ptr %8, align 8
-  %93 = call i32 %92(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0) #12
+  %93 = call i32 %92(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %0) #12
   %94 = and i32 %93, 255
   %.not25 = icmp eq i32 %94, 64
   br i1 %.not25, label %16, label %FTC_Manager_FlushN.exit._crit_edge
@@ -1096,7 +1096,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %57, %61, %65, %69, 
   br i1 %.not104, label %.loopexit, label %57, !llvm.loop !8
 
 .loopexit:                                        ; preds = %ftc_basic_family_compare.exit.thread, %41
-  %94 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %50, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %94 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %50, ptr noundef nonnull %7, ptr noundef %8)
   %95 = load ptr, ptr %8, align 8
   %96 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %95, ptr %96, align 8
@@ -1197,7 +1197,7 @@ FTC_MruNode_Up.exit119:                           ; preds = %135
 
 ._crit_edge:                                      ; preds = %ftc_gnode_compare.exit.thread, %97
   store ptr null, ptr %9, align 8
-  %146 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %49, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %146 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %49, ptr noundef %7, ptr noundef %9)
   %.pre = load ptr, ptr %9, align 8
   br label %147
 
@@ -1497,7 +1497,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
   br i1 %.not105, label %.loopexit132, label %.preheader, !llvm.loop !9
 
 .loopexit132:                                     ; preds = %ftc_basic_family_compare.exit.thread, %12
-  %70 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %42, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %70 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %42, ptr noundef nonnull %6, ptr noundef %7)
   %71 = load ptr, ptr %7, align 8
   %72 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %71, ptr %72, align 8
@@ -1638,7 +1638,7 @@ FTC_MruNode_Up.exit119:                           ; preds = %128
   br label %.loopexit130
 
 .loopexit130:                                     ; preds = %.lr.ph141, %.loopexit131
-  %140 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %41, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %140 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %41, ptr noundef %6, ptr noundef %8)
   br label %141
 
 141:                                              ; preds = %128, %FTC_MruNode_Up.exit119, %.loopexit130
@@ -2084,7 +2084,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
   br i1 %.not106, label %.loopexit132, label %59, !llvm.loop !11
 
 .loopexit132:                                     ; preds = %ftc_basic_family_compare.exit.thread, %42
-  %96 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %52, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %96 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %52, ptr noundef nonnull %7, ptr noundef %8)
   %97 = load ptr, ptr %8, align 8
   %98 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %97, ptr %98, align 8
@@ -2225,7 +2225,7 @@ FTC_MruNode_Up.exit120:                           ; preds = %154
   br label %.loopexit130
 
 .loopexit130:                                     ; preds = %.lr.ph141, %.loopexit131
-  %166 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %51, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %166 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %7, ptr noundef %9)
   br label %167
 
 167:                                              ; preds = %154, %FTC_MruNode_Up.exit120, %.loopexit130
@@ -2582,7 +2582,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
 
 ._crit_edge:                                      ; preds = %ftc_cmap_node_compare.exit.thread, %9
   store ptr null, ptr %7, align 8
-  %70 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %70 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %21, ptr noundef %6, ptr noundef %7)
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %._crit_edge..thread_crit_edge, label %132
 
@@ -2656,7 +2656,7 @@ FTC_MruNode_Up.exit.i:                            ; preds = %95
   br i1 %.not32.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %102, %89
-  %104 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %90, ptr noundef %88, ptr noundef nonnull %5)
+  %104 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %90, ptr noundef %88, ptr noundef %5)
   %.not34.i = icmp eq i32 %104, 0
   br i1 %.not34.i, label %.loopexit._crit_edge.i, label %FTC_Manager_LookupFace.exit.thread
 
@@ -2805,7 +2805,7 @@ FTC_MruNode_Up.exit:                              ; preds = %12
   br i1 %.not32, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %19, %6
-  %21 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %4)
+  %21 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %4)
   %.not34 = icmp eq i32 %21, 0
   br i1 %.not34, label %.loopexit._crit_edge, label %25
 
@@ -2937,7 +2937,7 @@ define i32 @FTC_Manager_LookupSize(ptr noundef %0, ptr noundef %1, ptr noundef w
   br i1 %.not34, label %.loopexit, label %18, !llvm.loop !16
 
 .loopexit:                                        ; preds = %63, %8
-  %65 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  %65 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %4)
   %.not36 = icmp eq i32 %65, 0
   br i1 %.not36, label %.loopexit._crit_edge, label %69
 
@@ -4708,7 +4708,7 @@ FTC_MruNode_Up.exit.i:                            ; preds = %12
   br i1 %.not32.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %19, %6
-  %21 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %7, ptr noundef %5, ptr noundef nonnull %3)
+  %21 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %7, ptr noundef %5, ptr noundef %3)
   %.not34.i = icmp eq i32 %21, 0
   br i1 %.not34.i, label %.loopexit._crit_edge.i, label %FTC_Manager_LookupFace.exit.thread
 
@@ -5263,7 +5263,7 @@ FTC_MruNode_Up.exit.i.i:                          ; preds = %13
   br i1 %.not32.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !15
 
 .loopexit.i.i:                                    ; preds = %20, %7
-  %22 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %8, ptr noundef %6, ptr noundef nonnull %4)
+  %22 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %8, ptr noundef %6, ptr noundef %4)
   %.not34.i.i = icmp eq i32 %22, 0
   br i1 %.not34.i.i, label %.loopexit._crit_edge.i.i, label %FTC_Manager_LookupFace.exit.thread.i
 

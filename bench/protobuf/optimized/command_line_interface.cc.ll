@@ -5548,7 +5548,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   br i1 %cmp9.i162, label %if.end179, label %if.then176
 
 if.then176:                                       ; preds = %land.lhs.true171, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit163
-  invoke fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_116AddTrailingSlashEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %output_location)
+  invoke fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_116AddTrailingSlashEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %output_location)
           to label %if.end179 unwind label %lpad177
 
 lpad161.loopexit:                                 ; preds = %for.body346
@@ -13884,7 +13884,7 @@ if.then515:                                       ; preds = %_ZN4absl12lts_20230
   %call522 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #30
   %85 = extractvalue { i64, ptr } %call522, 0
   %86 = extractvalue { i64, ptr } %call522, 1
-  call fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_110PluginNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES6_(ptr noalias nonnull align 8 %ref.tmp517, i64 %83, ptr %84, i64 %85, ptr %86)
+  call fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_110PluginNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES6_(ptr noalias align 8 %ref.tmp517, i64 %83, ptr %84, i64 %85, ptr %86)
   %call525 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_S9_EEEixIS9_SA_TnPT_LPS9_0EEEDTclsrT0_5valueclL_ZSt9addressofISF_ESK_RSJ_EclL_ZSt7declvalIRSF_EDTcl9__declvalISJ_ELi0EEEvEEEEEOSJ_(ptr noundef nonnull align 8 dereferenceable(32) %plugin_parameters_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp517)
           to label %invoke.cont524 unwind label %lpad523
 
@@ -13992,7 +13992,7 @@ return:                                           ; preds = %if.then287, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_110PluginNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES6_(ptr noalias align 8 %agg.result, i64 %plugin_prefix.coerce0, ptr %plugin_prefix.coerce1, i64 %directive.coerce0, ptr %directive.coerce1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_110PluginNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES6_(ptr noalias nonnull align 8 %agg.result, i64 %plugin_prefix.coerce0, ptr %plugin_prefix.coerce1, i64 %directive.coerce0, ptr %directive.coerce1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp1 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -14018,7 +14018,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %entry
   store i64 %.sroa.speculated.i, ptr %ref.tmp2, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %add.ptr.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i1, align 8
-  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2)
+  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2)
   ret void
 }
 
@@ -24580,7 +24580,7 @@ for.end:                                          ; preds = %"_ZN6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef nonnull align 8 dereferenceable(96) %pool, ptr noundef nonnull align 8 dereferenceable(8) %error_collector, i64 %file_name.coerce0, ptr %file_name.coerce1, i32 noundef %target_type) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef nonnull align 8 dereferenceable(96) %pool, ptr noundef nonnull align 8 dereferenceable(8) %error_collector, i64 %file_name.coerce0, ptr %file_name.coerce1, i32 noundef range(i32 1, 10) %target_type) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %factory = alloca %"class.google::protobuf::DynamicMessageFactory", align 8
@@ -24704,7 +24704,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 declare void @_ZNK6google8protobuf11MessageLite11GetTypeNameB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_134ValidateTargetConstraintsRecursiveERKNS0_7MessageERNS0_14DescriptorPool14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef nonnull align 8 dereferenceable(8) %error_collector, i64 %file_name.coerce0, ptr %file_name.coerce1, i32 noundef %target_type) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_134ValidateTargetConstraintsRecursiveERKNS0_7MessageERNS0_14DescriptorPool14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef nonnull align 8 dereferenceable(8) %error_collector, i64 %file_name.coerce0, ptr %file_name.coerce1, i32 noundef range(i32 1, 10) %target_type) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [5 x %"class.std::basic_string_view"], align 8
   %fields = alloca %"class.std::vector.282", align 8

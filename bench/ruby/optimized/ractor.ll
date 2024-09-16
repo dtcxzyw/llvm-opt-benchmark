@@ -1069,7 +1069,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %3, %6
   %.0.i = phi ptr [ %8, %6 ], [ null, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call fastcc void @ractor_basket_prepare_contents(i64 noundef %1, i64 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @ractor_basket_prepare_contents(i64 noundef %1, i64 noundef %2, ptr noundef %4, ptr noundef %5)
   %9 = load i64, ptr %4, align 8
   %.val.i = load i64, ptr %.0.i, align 8
   %10 = load i32, ptr %5, align 4
@@ -2571,7 +2571,7 @@ ractor_take_will_lock.exit:                       ; preds = %179
   br label %.loopexit
 
 .loopexit:                                        ; preds = %171, %ractor_take_will_lock.exit.thread, %189
-  %192 = call fastcc i64 @ractor_basket_accept(ptr noundef nonnull %8)
+  %192 = call fastcc i64 @ractor_basket_accept(ptr noundef %8)
   %193 = load i64, ptr %48, align 8
   br label %194
 
@@ -4466,7 +4466,7 @@ ractor_try_take.exit.thread.i:                    ; preds = %25, %25
   unreachable
 
 ractor_try_take.exit.i:                           ; preds = %.critedge.i.i
-  %29 = call fastcc i64 @ractor_basket_accept(ptr noundef nonnull %6)
+  %29 = call fastcc i64 @ractor_basket_accept(ptr noundef %6)
   %30 = icmp eq i64 %29, 36
   br i1 %30, label %31, label %ractor_take.exit
 
@@ -5643,7 +5643,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %198, %rb_ec_ractor_
 .thread34:                                        ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %12, ptr %163, align 8
   %202 = load volatile i64, ptr %8, align 8
-  call fastcc void @ractor_basket_prepare_contents(i64 noundef %202, i64 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %10)
+  call fastcc void @ractor_basket_prepare_contents(i64 noundef %202, i64 noundef %4, ptr noundef %8, ptr noundef %10)
   %203 = load ptr, ptr %165, align 8
   store ptr %203, ptr %163, align 8
   %.pre = load i32, ptr %10, align 4
@@ -5658,7 +5658,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %198, %rb_ec_ractor_
   store ptr %206, ptr %207, align 8
   call void @rb_native_mutex_lock(ptr noundef nonnull %13) #20
   store i32 0, ptr %159, align 8
-  call fastcc void @ractor_queue_enq(ptr noundef nonnull %2, ptr noundef nonnull %9)
+  call fastcc void @ractor_queue_enq(ptr noundef nonnull %2, ptr noundef %9)
   call void @rb_native_mutex_unlock(ptr noundef nonnull %13) #20
   %208 = load ptr, ptr %163, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 64
@@ -5726,7 +5726,7 @@ declare ptr @llvm.stacksave.p0() #19
 declare i32 @llvm.eh.sjlj.setjmp(ptr) #20
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ractor_basket_prepare_contents(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @ractor_basket_prepare_contents(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.obj_traverse_replace_data, align 8
   %6 = alloca %struct.obj_traverse_replace_data, align 8
   %7 = alloca %struct.obj_traverse_data, align 8
@@ -5845,7 +5845,7 @@ ractor_copy.exit:                                 ; preds = %13, %4, %41, %30, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ractor_queue_enq(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @ractor_queue_enq(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7061,7 +7061,7 @@ ractor_queue_advance.exit.i.i:                    ; preds = %49, %43
 
 .loopexit:                                        ; preds = %31, %ractor_queue_advance.exit.i.i, %26
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %9) #20
-  %57 = call fastcc i64 @ractor_basket_accept(ptr noundef nonnull %3)
+  %57 = call fastcc i64 @ractor_basket_accept(ptr noundef %3)
   br label %58
 
 58:                                               ; preds = %.loopexit1, %.loopexit
@@ -7193,7 +7193,7 @@ ractor_queue_empty_p.exit:                        ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @ractor_basket_accept(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @ractor_basket_accept(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %4 [
     i32 1, label %ractor_basket_value.exit

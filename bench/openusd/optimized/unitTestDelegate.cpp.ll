@@ -16301,7 +16301,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSERKS0_.exit209: ; preds = %361, %
 365:                                              ; preds = %364
   %366 = load ptr, ptr %8, align 8
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 40
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ComputeFlattenedValueERKNS_7VtValueERKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(40) %367)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ComputeFlattenedValueERKNS_7VtValueERKNS_7VtArrayIiEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(40) %367)
           to label %368 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 368:                                              ; preds = %365
@@ -16572,7 +16572,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5em
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue13IsArrayValuedEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ComputeFlattenedValueERKNS_7VtValueERKNS_7VtArrayIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ComputeFlattenedValueERKNS_7VtValueERKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -20944,7 +20944,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate7AddGridER
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %15 unwind label %122
 
 15:                                               ; preds = %8
@@ -20971,7 +20971,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate7AddGridER
 
 27:                                               ; preds = %25
   %.idx.i = mul nsw i64 %23, 12
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %24, ptr readonly align 4 %16, i64 %.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %24, ptr nonnull readonly align 4 %16, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_EEPS3_i.exit
 
 28:                                               ; preds = %.noexc
@@ -21003,7 +21003,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_
 
 40:                                               ; preds = %38
   %.idx.i17 = shl nsw i64 %36, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %37, ptr readonly align 4 %30, i64 %.idx.i17, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %37, ptr nonnull readonly align 4 %30, i64 %.idx.i17, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit
 
 41:                                               ; preds = %.noexc18
@@ -21035,7 +21035,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exi
 
 53:                                               ; preds = %51
   %.idx.i22 = shl nsw i64 %49, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %50, ptr readonly align 4 %43, i64 %.idx.i22, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %50, ptr nonnull readonly align 4 %43, i64 %.idx.i22, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit26
 
 54:                                               ; preds = %.noexc23
@@ -21291,7 +21291,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EED2Ev.exit48: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = or i32 %1, %0
   %or.cond = icmp eq i32 %6, 0
   %.not20 = icmp slt i32 %1, 0
@@ -21818,7 +21818,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
           to label %21 unwind label %.thread64
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %11, ptr noundef %12, ptr noundef %13)
           to label %22 unwind label %146
 
 22:                                               ; preds = %21
@@ -21850,7 +21850,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
 
 37:                                               ; preds = %35
   %.idx.i = mul nsw i64 %33, 12
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %34, ptr readonly align 4 %26, i64 %.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %34, ptr nonnull readonly align 4 %26, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_EEPS3_i.exit
 
 38:                                               ; preds = %.noexc
@@ -21882,7 +21882,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_
 
 50:                                               ; preds = %48
   %.idx.i25 = shl nsw i64 %46, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %47, ptr readonly align 4 %40, i64 %.idx.i25, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %47, ptr nonnull readonly align 4 %40, i64 %.idx.i25, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit
 
 51:                                               ; preds = %.noexc26
@@ -21914,7 +21914,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exi
 
 63:                                               ; preds = %61
   %.idx.i30 = shl nsw i64 %59, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %60, ptr readonly align 4 %53, i64 %.idx.i30, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %60, ptr nonnull readonly align 4 %53, i64 %.idx.i30, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit34
 
 64:                                               ; preds = %.noexc31
@@ -22249,7 +22249,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate20AddGridW
           to label %21 unwind label %.thread82
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %22 unwind label %51
 
 22:                                               ; preds = %21
@@ -22352,7 +22352,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate20AddGridW
 
 64:                                               ; preds = %62
   %.idx.i = mul nsw i64 %60, 12
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %61, ptr readonly align 4 %53, i64 %.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %61, ptr nonnull readonly align 4 %53, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_EEPS3_i.exit
 
 65:                                               ; preds = %.noexc
@@ -22378,7 +22378,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_
 
 71:                                               ; preds = %69
   %.idx.i36 = shl nsw i64 %67, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %68, ptr readonly align 4 %25, i64 %.idx.i36, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %68, ptr nonnull readonly align 4 %25, i64 %.idx.i36, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit
 
 72:                                               ; preds = %.noexc37
@@ -22410,7 +22410,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exi
 
 84:                                               ; preds = %82
   %.idx.i41 = shl nsw i64 %80, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %81, ptr readonly align 4 %74, i64 %.idx.i41, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %81, ptr nonnull readonly align 4 %74, i64 %.idx.i41, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit45
 
 85:                                               ; preds = %.noexc42
@@ -22786,7 +22786,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
           to label %21 unwind label %.thread82
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %22 unwind label %51
 
 22:                                               ; preds = %21
@@ -22882,7 +22882,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
 
 57:                                               ; preds = %55
   %.idx.i = mul nsw i64 %53, 12
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %54, ptr readonly align 4 %25, i64 %.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %54, ptr nonnull readonly align 4 %25, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_EEPS3_i.exit
 
 58:                                               ; preds = %.noexc
@@ -22914,7 +22914,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_
 
 70:                                               ; preds = %68
   %.idx.i36 = shl nsw i64 %66, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %67, ptr readonly align 4 %60, i64 %.idx.i36, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %67, ptr nonnull readonly align 4 %60, i64 %.idx.i36, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit
 
 71:                                               ; preds = %.noexc37
@@ -22946,7 +22946,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exi
 
 83:                                               ; preds = %81
   %.idx.i41 = shl nsw i64 %79, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %80, ptr readonly align 4 %73, i64 %.idx.i41, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %80, ptr nonnull readonly align 4 %73, i64 %.idx.i41, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit45
 
 84:                                               ; preds = %.noexc42
@@ -23322,7 +23322,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate27AddGridW
           to label %21 unwind label %.thread82
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %22 unwind label %51
 
 22:                                               ; preds = %21
@@ -23425,7 +23425,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate27AddGridW
 
 64:                                               ; preds = %62
   %.idx.i = mul nsw i64 %60, 12
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %61, ptr readonly align 4 %53, i64 %.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %61, ptr nonnull readonly align 4 %53, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_EEPS3_i.exit
 
 65:                                               ; preds = %.noexc
@@ -23457,7 +23457,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayINS_7GfVec3fEEENS_7VtArrayIT_
 
 77:                                               ; preds = %75
   %.idx.i36 = shl nsw i64 %73, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %74, ptr readonly align 4 %67, i64 %.idx.i36, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %74, ptr nonnull readonly align 4 %67, i64 %.idx.i36, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit
 
 78:                                               ; preds = %.noexc37
@@ -23483,7 +23483,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exi
 
 84:                                               ; preds = %82
   %.idx.i41 = shl nsw i64 %80, 2
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %81, ptr readonly align 4 %25, i64 %.idx.i41, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %81, ptr nonnull readonly align 4 %25, i64 %.idx.i41, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L11_BuildArrayIiEENS_7VtArrayIT_EEPS2_i.exit45
 
 85:                                               ; preds = %.noexc42
@@ -34476,7 +34476,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEC1ERKS1_(ptr nound
 declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128), double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec3dEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec3dEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.403", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.403", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -34681,7 +34681,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_7GfVec3iEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec3iEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec3iEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.409", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.409", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -34886,7 +34886,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_7GfVec3hEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec3hEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec3hEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.415", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.415", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -35091,7 +35091,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_7GfVec4fEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec4fEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec4fEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.263", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.263", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -35296,7 +35296,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_7GfVec4dEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec4dEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec4dEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.424", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.424", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -35501,7 +35501,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_7GfVec4iEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec4iEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec4iEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.430", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.430", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -35706,7 +35706,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_7GfVec4hEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec4hEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_7GfVec4hEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.436", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.436", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -35912,7 +35912,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_10GfMatrix
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_10GfMatrix3dEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_10GfMatrix3dEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.442", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.442", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -36117,7 +36117,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_10GfMatrix
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_10GfMatrix4dEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_10GfMatrix4dEEENS_7VtValueERKS3_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.449", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.449", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -36322,7 +36322,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_7VtValueERKS8_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_7VtValueERKS8_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.455", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.455", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -36527,7 +36527,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayIdEEEEbv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedIdEENS_7VtValueERKS2_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedIdEENS_7VtValueERKS2_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.461", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.461", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -36733,7 +36733,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayIiEEEEbv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedIiEENS_7VtValueERKS2_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedIiEENS_7VtValueERKS2_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.232", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.232", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -36939,7 +36939,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayIjEEEEbv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedIjEENS_7VtValueERKS2_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedIjEENS_7VtValueERKS2_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.472", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.472", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -37145,7 +37145,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayIfEEEEbv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedIfEENS_7VtValueERKS2_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedIfEENS_7VtValueERKS2_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.233", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.233", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -37351,7 +37351,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_8pxr_half4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_8pxr_half4halfEEENS_7VtValueERKS4_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeFlattenedINS_8pxr_half4halfEEENS_7VtValueERKS4_RKNS_7VtArrayIiEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.481", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.481", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

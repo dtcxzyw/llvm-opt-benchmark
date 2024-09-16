@@ -603,7 +603,7 @@ return:                                           ; preds = %if.then167, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @strscan_oct(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %neg, i32 noundef %dig) unnamed_addr #1 {
+define internal fastcc i32 @strscan_oct(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef range(i32 3, 1) %fmt, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i32 %dig, 22
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -649,7 +649,7 @@ while.end:                                        ; preds = %if.end14, %lor.lhs.
   ]
 
 sw.bb:                                            ; preds = %while.end
-  %add17 = or i32 %neg, -2147483648
+  %add17 = or disjoint i32 %neg, -2147483648
   %conv18 = zext i32 %add17 to i64
   %cmp19.not = icmp ult i64 %x.0.lcssa, %conv18
   %spec.select = select i1 %cmp19.not, i32 3, i32 4
@@ -681,7 +681,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @strscan_hex(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_hex(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %dig, 16
   %tobool.not44 = icmp eq i32 %dig, 0
@@ -769,7 +769,7 @@ for.end34:                                        ; preds = %entry, %for.end34.l
 sw.bb:                                            ; preds = %for.end34
   %and35 = and i32 %opt, 2
   %tobool36.not = icmp eq i32 %and35, 0
-  %add37 = or i32 %neg, -2147483648
+  %add37 = or disjoint i32 %neg, -2147483648
   %conv38 = zext i32 %add37 to i64
   %cmp39 = icmp ult i64 %x.1.lcssa, %conv38
   %or.cond43 = select i1 %tobool36.not, i1 %cmp39, i1 false
@@ -894,7 +894,7 @@ return:                                           ; preds = %sw.bb76, %sw.bb61, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @strscan_bin(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_bin(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %tobool = icmp ne i32 %ex2, 0
   %cmp = icmp ugt i32 %dig, 64
@@ -937,7 +937,7 @@ for.end:                                          ; preds = %if.end5, %for.cond.
 sw.bb:                                            ; preds = %for.end
   %and9 = and i32 %opt, 2
   %tobool10.not = icmp eq i32 %and9, 0
-  %add = or i32 %neg, -2147483648
+  %add = or disjoint i32 %neg, -2147483648
   %conv11 = zext i32 %add to i64
   %cmp12 = icmp ult i64 %x.0.lcssa, %conv11
   %or.cond29 = select i1 %tobool10.not, i1 %cmp12, i1 false
@@ -1003,7 +1003,7 @@ return:                                           ; preds = %for.body, %sw.bb25,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @strscan_dec(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex10, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_dec(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex10, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %xi = alloca [512 x i8], align 16
   %tobool.not = icmp eq i32 %dig, 0
@@ -1254,7 +1254,7 @@ if.then123:                                       ; preds = %for.end113.thread, 
 sw.bb:                                            ; preds = %if.then123
   %and124 = and i32 %opt, 2
   %tobool125.not = icmp eq i32 %and124, 0
-  %add127 = or i32 %neg, -2147483648
+  %add127 = or disjoint i32 %neg, -2147483648
   %conv128 = zext i32 %add127 to i64
   %cmp129 = icmp ult i64 %x.0.lcssa288, %conv128
   %or.cond155 = select i1 %tobool125.not, i1 %cmp129, i1 false

@@ -420,7 +420,7 @@ gen_test.exit:                                    ; preds = %13, %16, %25, %41, 
 97:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %98 = call fastcc ptr @gen_entity(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5)
+  %98 = call fastcc ptr @gen_entity(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %5)
   %99 = load ptr, ptr %5, align 8
   call void @g_slist_foreach(ptr noundef %99, ptr noundef nonnull @fixup_jumps, ptr noundef nonnull %0) #9
   %100 = load ptr, ptr %5, align 8
@@ -498,7 +498,7 @@ gen_test.exit:                                    ; preds = %13, %16, %25, %41, 
 134:                                              ; preds = %2, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %135 = call fastcc ptr @gen_entity(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
+  %135 = call fastcc ptr @gen_entity(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4)
   %136 = call ptr @dfvm_insn_new(i32 noundef 48) #9
   %137 = call ptr @dfvm_value_ref(ptr noundef %135) #9
   %138 = getelementptr inbounds i8, ptr %136, i64 8
@@ -521,7 +521,7 @@ gen_test.exit:                                    ; preds = %13, %16, %25, %41, 
 146:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %147 = call fastcc ptr @gen_entity(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
+  %147 = call fastcc ptr @gen_entity(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3)
   %148 = call ptr @dfvm_insn_new(i32 noundef 36) #9
   %149 = call ptr @dfvm_value_ref(ptr noundef %147) #9
   %150 = getelementptr inbounds i8, ptr %148, i64 8
@@ -632,16 +632,16 @@ declare i32 @sttype_test_get_match(ptr noundef) local_unnamed_addr #1
 declare ptr @dfvm_value_new(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gen_relation(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @gen_relation(ptr noundef %0, i32 noundef range(i32 12, 28) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %6)
-  %8 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %6)
+  %7 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %3, ptr noundef %6)
+  %8 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %4, ptr noundef %6)
   %9 = icmp eq i32 %2, 0
   br i1 %9, label %select_opcode.exit, label %10
 
 10:                                               ; preds = %5
-  switch i32 %1, label %default.unreachable.i [
+  switch i32 %1, label %default.unreachable [
     i32 12, label %11
     i32 14, label %11
     i32 16, label %11
@@ -650,33 +650,29 @@ define internal fastcc void @gen_relation(ptr noundef %0, i32 noundef %1, i32 no
     i32 22, label %11
     i32 24, label %11
     i32 26, label %11
-    i32 28, label %11
-    i32 30, label %11
+    i32 27, label %15
+    i32 25, label %15
     i32 13, label %15
     i32 15, label %15
     i32 17, label %15
     i32 19, label %15
     i32 21, label %15
     i32 23, label %15
-    i32 25, label %15
-    i32 27, label %15
-    i32 29, label %15
-    i32 31, label %15
   ]
 
-11:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
+11:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10
   %12 = icmp ne i32 %2, 2
   %13 = zext i1 %12 to i32
   %14 = add nuw nsw i32 %1, %13
   br label %select_opcode.exit
 
-15:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
+15:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10
   %16 = icmp ne i32 %2, 1
   %17 = sext i1 %16 to i32
   %18 = add nsw i32 %1, %17
   br label %select_opcode.exit
 
-default.unreachable.i:                            ; preds = %10
+default.unreachable:                              ; preds = %10
   unreachable
 
 select_opcode.exit:                               ; preds = %5, %11, %15
@@ -707,12 +703,12 @@ select_opcode.exit:                               ; preds = %5, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef range(i32 29, 32) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %8 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %6)
+  %8 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %3, ptr noundef %6)
   %9 = call ptr @stnode_steal_data(ptr noundef %4) #9
   %.not34 = icmp eq ptr %9, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -731,11 +727,11 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32
   %17 = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not33 = icmp eq ptr %16, null
-  %19 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %7)
+  %19 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %13, ptr noundef %7)
   br i1 %.not33, label %27, label %20
 
 20:                                               ; preds = %12
-  %21 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %7)
+  %21 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %7)
   %22 = call ptr @dfvm_insn_new(i32 noundef 33) #9
   %23 = call ptr @dfvm_value_ref(ptr noundef %19) #9
   %24 = getelementptr inbounds i8, ptr %22, i64 8
@@ -774,42 +770,26 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32
   br i1 %37, label %select_opcode.exit, label %38
 
 38:                                               ; preds = %._crit_edge
-  switch i32 %1, label %default.unreachable.i [
-    i32 12, label %39
-    i32 14, label %39
-    i32 16, label %39
-    i32 18, label %39
-    i32 20, label %39
-    i32 22, label %39
-    i32 24, label %39
-    i32 26, label %39
+  switch i32 %1, label %default.unreachable [
+    i32 31, label %43
+    i32 29, label %43
     i32 28, label %39
     i32 30, label %39
-    i32 13, label %43
-    i32 15, label %43
-    i32 17, label %43
-    i32 19, label %43
-    i32 21, label %43
-    i32 23, label %43
-    i32 25, label %43
-    i32 27, label %43
-    i32 29, label %43
-    i32 31, label %43
   ]
 
-39:                                               ; preds = %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
+39:                                               ; preds = %38, %38
   %40 = icmp ne i32 %2, 2
   %41 = zext i1 %40 to i32
   %42 = add nuw nsw i32 %1, %41
   br label %select_opcode.exit
 
-43:                                               ; preds = %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
+43:                                               ; preds = %38, %38
   %44 = icmp ne i32 %2, 1
   %45 = sext i1 %44 to i32
   %46 = add nsw i32 %1, %45
   br label %select_opcode.exit
 
-default.unreachable.i:                            ; preds = %38
+default.unreachable:                              ; preds = %38
   unreachable
 
 select_opcode.exit:                               ; preds = %._crit_edge, %39, %43
@@ -843,7 +823,7 @@ select_opcode.exit:                               ; preds = %._crit_edge, %39, %
 declare ptr @stnode_op_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1248,7 +1228,7 @@ common.ret96:                                     ; preds = %148, %dfw_append_re
   %.035.i71 = phi i32 [ 0, %.lr.ph ], [ %245, %234 ]
   %.036.i6570 = phi ptr [ %231, %.lr.ph ], [ %247, %234 ]
   %235 = load ptr, ptr %.036.i6570, align 8
-  %236 = call fastcc ptr @gen_entity(ptr noundef nonnull %0, ptr noundef %235, ptr noundef nonnull %7)
+  %236 = call fastcc ptr @gen_entity(ptr noundef nonnull %0, ptr noundef %235, ptr noundef %7)
   %237 = load ptr, ptr %7, align 8
   call void @g_slist_foreach(ptr noundef %237, ptr noundef nonnull @fixup_jumps, ptr noundef nonnull %0) #9
   %238 = load ptr, ptr %7, align 8

@@ -1863,14 +1863,14 @@ check_location.exit:                              ; preds = %.preheader.i
   br label %60
 
 50:                                               ; preds = %check_location.exit
-  %51 = tail call noalias ptr @png_malloc_base(ptr noundef %0, i64 noundef %46) #12
+  %51 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %46) #12
   %52 = getelementptr inbounds i8, ptr %.056, i64 8
   store ptr %51, ptr %52, align 8
   %53 = icmp eq ptr %51, null
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %50
-  tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef 1) #12
+  tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull @.str.44, i32 noundef 1) #12
   br label %64
 
 55:                                               ; preds = %50

@@ -700,12 +700,12 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit24:   ; preds = %11, %12
   br i1 %.not, label %43, label %17
 
 17:                                               ; preds = %13
-  %18 = call fastcc i32 @key_exchange_calc_key_cont(ptr noundef %14, i32 noundef %0, i32 noundef 1, ptr noundef nonnull %2)
+  %18 = call fastcc i32 @key_exchange_calc_key_cont(ptr noundef %14, i32 noundef %0, i32 noundef 1, ptr noundef %2)
   %.not15 = icmp eq i32 %18, 0
   br i1 %.not15, label %19, label %.critedge.preheader
 
 19:                                               ; preds = %17
-  %20 = call fastcc i32 @key_exchange_calc_key_cont(ptr noundef %14, i32 noundef %0, i32 noundef 0, ptr noundef nonnull %2)
+  %20 = call fastcc i32 @key_exchange_calc_key_cont(ptr noundef %14, i32 noundef %0, i32 noundef 0, ptr noundef %2)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %43, label %.critedge.preheader
 
@@ -780,7 +780,7 @@ nwk_key_storage_add_entry.exit:                   ; preds = %43, %33, %37, %nwk_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @key_exchange_calc_key_cont(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @key_exchange_calc_key_cont(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #6 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8

@@ -34,7 +34,7 @@ define i32 @pg_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noc
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 36
   store i8 0, ptr %14, align 4
-  call fastcc void @dopr(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dopr(ptr noundef %5, ptr noundef %2, ptr noundef %3)
   %15 = load ptr, ptr %5, align 8
   store i8 0, ptr %15, align 1
   %16 = load i8, ptr %14, align 4
@@ -51,7 +51,7 @@ define i32 @pg_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dopr(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dopr(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca [1024 x i8], align 16
   %6 = alloca i32, align 4
@@ -1040,7 +1040,7 @@ dopr_outch.exit.i:                                ; preds = %423, %405
 
 428:                                              ; preds = %dopr_outch.exit.i
   %429 = sub nsw i32 0, %.0.i249
-  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %429, ptr noundef nonnull %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %429, ptr noundef %0)
   br label %fmtchar.exit
 
 430:                                              ; preds = %66
@@ -1285,7 +1285,7 @@ adjust_sign.exit.thread.i:                        ; preds = %adjust_sign.exit.i,
   %526 = sub nsw i32 0, %spec.store.select.i.i256
   %spec.select.i.i257 = select i1 %.not.i43.i, i32 %spec.store.select.i.i256, i32 %526
   store i32 %spec.select.i.i257, ptr %6, align 4
-  call fastcc void @leading_pad(i32 noundef %.0168, i32 noundef %.048.i, ptr noundef nonnull %6, ptr noundef %0)
+  call fastcc void @leading_pad(i32 noundef %.0168, i32 noundef %.048.i, ptr noundef %6, ptr noundef %0)
   %527 = icmp sgt i32 %.035.i, 0
   br i1 %527, label %528, label %537
 
@@ -1438,7 +1438,7 @@ define i32 @pg_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) loc
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 36
   store i8 0, ptr %14, align 4
-  call fastcc void @dopr(ptr noundef nonnull %4, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @dopr(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %6)
   %15 = load ptr, ptr %4, align 8
   store i8 0, ptr %15, align 1
   %16 = load i8, ptr %14, align 4
@@ -1467,7 +1467,7 @@ define i32 @pg_vsprintf(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = getelementptr inbounds i8, ptr %4, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, i8 0, i64 21, i1 false)
-  call fastcc void @dopr(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
+  call fastcc void @dopr(ptr noundef %4, ptr noundef %1, ptr noundef %2)
   %9 = load ptr, ptr %4, align 8
   store i8 0, ptr %9, align 1
   %10 = load i8, ptr %8, align 4
@@ -1496,7 +1496,7 @@ define i32 @pg_sprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #
   %7 = getelementptr inbounds i8, ptr %3, i64 32
   %8 = getelementptr inbounds i8, ptr %3, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, i8 0, i64 21, i1 false)
-  call fastcc void @dopr(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4)
+  call fastcc void @dopr(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %4)
   %9 = load ptr, ptr %3, align 8
   store i8 0, ptr %9, align 1
   %10 = load i8, ptr %8, align 4
@@ -1539,7 +1539,7 @@ define i32 @pg_vfprintf(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 36
   store i8 0, ptr %15, align 4
-  call fastcc void @dopr(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
+  call fastcc void @dopr(ptr noundef %4, ptr noundef %1, ptr noundef %2)
   %16 = load ptr, ptr %4, align 8
   %17 = load ptr, ptr %10, align 8
   %18 = load i8, ptr %15, align 4
@@ -1609,7 +1609,7 @@ define i32 @pg_fprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 36
   store i8 0, ptr %15, align 4
-  call fastcc void @dopr(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %5)
+  call fastcc void @dopr(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %5)
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %10, align 8
   %18 = load i8, ptr %15, align 4
@@ -1678,7 +1678,7 @@ define i32 @pg_vprintf(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_a
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 36
   store i8 0, ptr %15, align 4
-  call fastcc void @dopr(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
+  call fastcc void @dopr(ptr noundef %3, ptr noundef %0, ptr noundef %1)
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %10, align 8
   %18 = load i8, ptr %15, align 4
@@ -1748,7 +1748,7 @@ define i32 @pg_printf(ptr noundef %0, ...) local_unnamed_addr #0 {
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 36
   store i8 0, ptr %15, align 4
-  call fastcc void @dopr(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %4)
+  call fastcc void @dopr(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %16 = load ptr, ptr %2, align 8
   %17 = load ptr, ptr %10, align 8
   %18 = load i8, ptr %15, align 4
@@ -1881,7 +1881,7 @@ define i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2, double n
 
 39:                                               ; preds = %34, %.thread, %36, %37
   %.022 = phi i32 [ 3, %.thread ], [ %.0, %34 ], [ %.0, %36 ], [ %.0, %37 ]
-  call fastcc void @dostr(ptr noundef nonnull %7, i32 noundef %.022, ptr noundef nonnull %5)
+  call fastcc void @dostr(ptr noundef nonnull %7, i32 noundef %.022, ptr noundef %5)
   %.pre = load ptr, ptr %5, align 8
   %.pre23 = load i8, ptr %14, align 4
   %.pre24 = load ptr, ptr %8, align 8
@@ -1911,7 +1911,7 @@ declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #3
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @dostr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc void @dostr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %11, label %.preheader
 
@@ -2078,7 +2078,7 @@ declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef %8) unnamed_addr #2 {
+define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 49) %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr nocapture noundef nonnull %8) unnamed_addr #2 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca i32, align 4
   switch i8 %1, label %trailing_pad.exit [
@@ -2199,7 +2199,7 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
   %51 = sub nsw i32 0, %spec.store.select.i
   %spec.select.i = select i1 %.not.i58, i32 %spec.store.select.i, i32 %51
   store i32 %spec.select.i, ptr %11, align 4
-  call fastcc void @leading_pad(i32 noundef %5, i32 noundef %.05992, ptr noundef nonnull %11, ptr noundef %8)
+  call fastcc void @leading_pad(i32 noundef %5, i32 noundef %.05992, ptr noundef %11, ptr noundef %8)
   %.not57 = icmp slt i32 %47, 1
   br i1 %.not57, label %53, label %52
 
@@ -2235,7 +2235,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @leading_pad(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #2 {
+define internal fastcc void @leading_pad(i32 noundef range(i32 0, 49) %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp sgt i32 %5, 0
   %7 = icmp ne i32 %0, 0
@@ -2424,7 +2424,7 @@ dopr_outch.exit41:                                ; preds = %61, %83
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @dopr_outchmulti(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc void @dopr_outchmulti(i32 noundef range(i32 1, 49) %0, i32 noundef range(i32 0, -2147483647) %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %12, label %.preheader
 
@@ -2496,7 +2496,7 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
 
 41:                                               ; preds = %flushbuffer.exit.i, %12
   %42 = phi ptr [ %40, %flushbuffer.exit.i ], [ %.pre.i, %12 ]
-  %43 = trunc i32 %0 to i8
+  %43 = trunc nuw nsw i32 %0 to i8
   %44 = getelementptr i8, ptr %42, i64 1
   store ptr %44, ptr %2, align 8
   store i8 %43, ptr %42, align 1

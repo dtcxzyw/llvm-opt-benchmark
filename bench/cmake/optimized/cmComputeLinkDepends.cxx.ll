@@ -6786,7 +6786,7 @@ define dso_local noundef zeroext i1 @_ZNK20cmComputeLinkDepends25CheckCircularDe
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds %"struct.cmComputeLinkDepends::LinkEntry", ptr %53, i64 %52
-  invoke fastcc void @"_ZZNK20cmComputeLinkDepends25CheckCircularDependenciesEvENK3$_0clB5cxx11ERKNS_9LinkEntryE"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(104) %56)
+  invoke fastcc void @"_ZZNK20cmComputeLinkDepends25CheckCircularDependenciesEvENK3$_0clB5cxx11ERKNS_9LinkEntryE"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(104) %56)
           to label %57 unwind label %.loopexit.split-lp.loopexit
 
 57:                                               ; preds = %55
@@ -6823,7 +6823,7 @@ define dso_local noundef zeroext i1 @_ZNK20cmComputeLinkDepends25CheckCircularDe
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds %"struct.cmComputeLinkDepends::LinkEntry", ptr %73, i64 %67
-  invoke fastcc void @"_ZZNK20cmComputeLinkDepends25CheckCircularDependenciesEvENK3$_0clB5cxx11ERKNS_9LinkEntryE"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %76)
+  invoke fastcc void @"_ZZNK20cmComputeLinkDepends25CheckCircularDependenciesEvENK3$_0clB5cxx11ERKNS_9LinkEntryE"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %76)
           to label %77 unwind label %.loopexit
 
 77:                                               ; preds = %75
@@ -15171,7 +15171,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK20cmComputeLinkDepends25CheckCircularDependenciesEvENK3$_0clB5cxx11ERKNS_9LinkEntryE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK20cmComputeLinkDepends25CheckCircularDependenciesEvENK3$_0clB5cxx11ERKNS_9LinkEntryE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x %"struct.std::pair.847"], align 8
   %4 = alloca %class.cmAlphaNum, align 8
   %5 = alloca %class.cmAlphaNum, align 8
@@ -15254,7 +15254,7 @@ _ZN12_GLOBAL__N_119ExtractGroupFeatureERKNSt7__cxx1112basic_stringIcSt11char_tra
   store ptr @.str.62, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !alias.scope !276, !noalias !263
   %40 = getelementptr inbounds i8, ptr %6, i64 112
   store ptr null, ptr %40, align 8, !alias.scope !276, !noalias !263
-  invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %6, i64 5)
+  invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %6, i64 5)
           to label %41 unwind label %44
 
 41:                                               ; preds = %_ZN12_GLOBAL__N_119ExtractGroupFeatureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -15317,7 +15317,7 @@ _ZN12_GLOBAL__N_119ExtractGroupFeatureERKNSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %59, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !288, !noalias !279
   %61 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr null, ptr %61, align 8, !alias.scope !288, !noalias !279
-  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %3, i64 3)
+  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %3, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)

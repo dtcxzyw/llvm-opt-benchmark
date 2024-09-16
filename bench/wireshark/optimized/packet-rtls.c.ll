@@ -390,20 +390,21 @@ define internal fastcc noundef i32 @dissect_rtls_header(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  switch i32 %4, label %223 [
-    i32 0, label %8
-    i32 1, label %15
-    i32 16, label %.loopexit
-    i32 21, label %.loopexit
-    i32 17, label %22
-    i32 18, label %30
-    i32 19, label %76
-    i32 23, label %116
-    i32 24, label %159
-    i32 20, label %205
+  %trunc = trunc nuw i32 %4 to i16
+  switch i16 %trunc, label %223 [
+    i16 0, label %8
+    i16 1, label %15
+    i16 16, label %.loopexit
+    i16 21, label %.loopexit
+    i16 17, label %22
+    i16 18, label %30
+    i16 19, label %76
+    i16 23, label %116
+    i16 24, label %159
+    i16 20, label %205
   ]
 
 8:                                                ; preds = %5

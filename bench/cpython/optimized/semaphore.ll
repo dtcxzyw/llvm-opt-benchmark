@@ -630,7 +630,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr nocapture noundef %self, i32 noundef %blocking, ptr noundef %timeout_obj) unnamed_addr #0 {
+define internal fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr nocapture noundef %self, i32 noundef range(i32 0, -2147483648) %blocking, ptr noundef %timeout_obj) unnamed_addr #0 {
 entry:
   %deadline = alloca %struct.timespec, align 8
   %now = alloca %struct.timeval, align 8

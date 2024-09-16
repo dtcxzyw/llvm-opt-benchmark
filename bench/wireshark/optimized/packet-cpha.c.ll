@@ -427,7 +427,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_id_num, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #2
@@ -441,7 +441,7 @@ define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef %1, pt
   %14 = add nuw nsw i32 %1, 6
   %15 = load i32, ptr @hf_ha_time_unit, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #2
-  %17 = add nuw nsw i32 %1, 8
+  %17 = or disjoint i32 %1, 8
   %18 = zext i16 %10 to i32
   %19 = and i32 %18, 1
   %.not = icmp eq i32 %19, 0
@@ -462,7 +462,7 @@ define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef %1, pt
   %26 = load i32, ptr @hf_state_node, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %.170, i32 noundef 1, i32 noundef 0) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.207, i32 noundef %.06569) #2
-  %28 = add i32 %.170, 1
+  %28 = add nuw nsw i32 %.170, 1
   %29 = add nuw nsw i32 %.06569, 1
   %exitcond.not = icmp eq i32 %29, %22
   br i1 %exitcond.not, label %.loopexit68, label %.lr.ph, !llvm.loop !4
@@ -503,7 +503,7 @@ define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef %1, pt
   %49 = load i32, ptr @hf_cluster_last_packet, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %.372, i32 noundef 1, i32 noundef 0) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.208, i32 noundef %.16671) #2
-  %51 = add i32 %.372, 1
+  %51 = add nuw nsw i32 %.372, 1
   %52 = add nuw nsw i32 %.16671, 1
   %exitcond78.not = icmp eq i32 %52, %47
   br i1 %exitcond78.not, label %.loopexit, label %.lr.ph73, !llvm.loop !6
@@ -513,7 +513,7 @@ define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_conf_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_conf_reply(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_num_reported_ifs, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #2
   %6 = add nuw nsw i32 %1, 4
@@ -529,7 +529,7 @@ define internal fastcc void @dissect_conf_reply(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lb_conf(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_lb_conf(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_slot_num, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #2
   %6 = add nuw nsw i32 %1, 2
@@ -538,7 +538,7 @@ define internal fastcc void @dissect_lb_conf(ptr noundef %0, i32 noundef %1, ptr
   %9 = add nuw nsw i32 %1, 4
   %10 = load i32, ptr @hf_seed, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #2
-  %12 = add nuw nsw i32 %1, 8
+  %12 = or disjoint i32 %1, 8
   %13 = load i32, ptr @hf_hash_len, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #2
   ret void

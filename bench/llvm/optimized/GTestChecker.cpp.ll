@@ -807,7 +807,7 @@ _ZNK12_GLOBAL__N_112GTestChecker35getAssertionResultSuccessFieldValueEPKN5clang1
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_112GTestChecker35getAssertionResultSuccessFieldValueEPKN5clang13CXXRecordDeclENS1_4ento4SValEN4llvm18IntrusiveRefCntPtrIKNS5_12ProgramStateEEE.exit66.i.i
   store ptr null, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.sroa.015.0.i.i.i, i8 %.sroa.5.0.i.i.i, ptr %.sroa.015.0.i59.i.i, i8 %.sroa.5.0.i60.i.i, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  call fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias writable align 8 %6, ptr %.sroa.015.0.i.i.i, i8 %.sroa.5.0.i.i.i, ptr %.sroa.015.0.i59.i.i, i8 %.sroa.5.0.i60.i.i, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %127 = load ptr, ptr %6, align 8
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit72.i.i
 
@@ -815,7 +815,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70.thread
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %86) #15
   store ptr %86, ptr %7, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %86) #15
-  call fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.sroa.015.0.i.i.i, i8 %.sroa.5.0.i.i.i, ptr %.sroa.015.0.i59.i.i, i8 %.sroa.5.0.i60.i.i, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  call fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias writable align 8 %6, ptr %.sroa.015.0.i.i.i, i8 %.sroa.5.0.i.i.i, ptr %.sroa.015.0.i59.i.i, i8 %.sroa.5.0.i60.i.i, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %129 = load ptr, ptr %6, align 8
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %86) #15
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit72.i.i
@@ -921,7 +921,7 @@ _ZNK12_GLOBAL__N_112GTestChecker35modelAssertionResultCopyConstructorEPKN5clang4
   br i1 %165, label %166, label %_ZNK12_GLOBAL__N_112GTestChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 166:                                              ; preds = %160
-  call fastcc void @_ZNK12_GLOBAL__N_112GTestChecker35modelAssertionResultBoolConstructorEPKN5clang4ento18CXXConstructorCallEbRNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  call fastcc void @_ZNK12_GLOBAL__N_112GTestChecker35modelAssertionResultBoolConstructorEPKN5clang4ento18CXXConstructorCallEbRNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %_ZNK12_GLOBAL__N_112GTestChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 .critedge.i:                                      ; preds = %150
@@ -974,7 +974,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread42.i: ; preds = %_ZN
   br i1 %195, label %196, label %_ZNK12_GLOBAL__N_112GTestChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 196:                                              ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread42.i
-  call fastcc void @_ZNK12_GLOBAL__N_112GTestChecker35modelAssertionResultBoolConstructorEPKN5clang4ento18CXXConstructorCallEbRNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  call fastcc void @_ZNK12_GLOBAL__N_112GTestChecker35modelAssertionResultBoolConstructorEPKN5clang4ento18CXXConstructorCallEbRNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %_ZNK12_GLOBAL__N_112GTestChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_112GTestChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %3, %_ZNK12_GLOBAL__N_112GTestChecker18initIdentifierInfoERN5clang10ASTContextE.exit.i, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i, %_ZNK12_GLOBAL__N_112GTestChecker35modelAssertionResultCopyConstructorEPKN5clang4ento18CXXConstructorCallERNS2_14CheckerContextE.exit.i, %160, %166, %.critedge.i, %179, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread42.i, %196
@@ -984,7 +984,7 @@ _ZNK12_GLOBAL__N_112GTestChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14
 declare noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_112GTestChecker35modelAssertionResultBoolConstructorEPKN5clang4ento18CXXConstructorCallEbRNS2_14CheckerContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_112GTestChecker35modelAssertionResultBoolConstructorEPKN5clang4ento18CXXConstructorCallEbRNS2_14CheckerContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -1112,7 +1112,7 @@ _ZNK12_GLOBAL__N_112GTestChecker35getAssertionResultSuccessFieldValueEPKN5clang1
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.thread: ; preds = %_ZNK12_GLOBAL__N_112GTestChecker35getAssertionResultSuccessFieldValueEPKN5clang13CXXRecordDeclENS1_4ento4SValEN4llvm18IntrusiveRefCntPtrIKNS5_12ProgramStateEEE.exit
   store ptr null, ptr %8, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.015.0.i, i8 %.sroa.5.0.i, ptr %.sroa.064.0, i8 %.sroa.4.0, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(81) %3)
+  call fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.015.0.i, i8 %.sroa.5.0.i, ptr %.sroa.064.0, i8 %.sroa.4.0, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(81) %3)
   %64 = load ptr, ptr %7, align 8
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47
 
@@ -1120,7 +1120,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.thread
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %12) #15
   store ptr %12, ptr %8, align 8
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %12) #15
-  call fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.015.0.i, i8 %.sroa.5.0.i, ptr %.sroa.064.0, i8 %.sroa.4.0, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(81) %3)
+  call fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.015.0.i, i8 %.sroa.5.0.i, ptr %.sroa.064.0, i8 %.sroa.4.0, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(81) %3)
   %66 = load ptr, ptr %7, align 8
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %12) #15
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47
@@ -1560,7 +1560,7 @@ declare noundef zeroext i1 @_ZNK5clang18CXXConstructorDecl17isCopyConstructorERj
 declare { ptr, i8 } @_ZNK5clang4ento21AnyCXXConstructorCall13getCXXThisValEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i8 %2, ptr %3, i8 %4, ptr nocapture noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i8 %2, ptr %3, i8 %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %6) unnamed_addr #0 align 2 {
 _ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit:
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

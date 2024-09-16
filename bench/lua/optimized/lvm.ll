@@ -8048,22 +8048,22 @@ if.else.i.i2454:                                  ; preds = %if.end.i.i
   br i1 %cmp13.i.i, label %forprep.exit.thread, label %if.else22.i
 
 if.end18.i.i:                                     ; preds = %luaV_tointeger.exit.i.i, %luaV_tointeger.exit.thread29.i.i
-  %limit.0.i = phi i64 [ %709, %luaV_tointeger.exit.thread29.i.i ], [ %conv.i.i.i.i.i, %luaV_tointeger.exit.i.i ]
+  %conv.i.i.i.sink.i.i = phi i64 [ %conv.i.i.i.i.i, %luaV_tointeger.exit.i.i ], [ %709, %luaV_tointeger.exit.thread29.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i.i.i)
   %cmp19.i.i = icmp sgt i64 %698, 0
   br i1 %cmp19.i.i, label %cond.true21.i.i, label %forlimit.exit.i
 
 cond.true21.i.i:                                  ; preds = %if.end18.i.i
-  %cmp22.i.i = icmp sgt i64 %697, %limit.0.i
+  %cmp22.i.i = icmp sgt i64 %697, %conv.i.i.i.sink.i.i
   br i1 %cmp22.i.i, label %forprep.exit.thread, label %if.then17.i2446
 
 forlimit.exit.i:                                  ; preds = %if.end18.i.i
-  %cmp25.i.i = icmp slt i64 %697, %limit.0.i
+  %cmp25.i.i = icmp slt i64 %697, %conv.i.i.i.sink.i.i
   br i1 %cmp25.i.i, label %forprep.exit.thread, label %if.else22.i
 
 if.then17.i2446:                                  ; preds = %cond.true21.i.i, %if.then8.i.i
-  %limit.2131.i = phi i64 [ %limit.0.i, %cond.true21.i.i ], [ 9223372036854775807, %if.then8.i.i ]
-  %sub.i2447 = sub i64 %limit.2131.i, %697
+  %limit.1128.i = phi i64 [ %conv.i.i.i.sink.i.i, %cond.true21.i.i ], [ 9223372036854775807, %if.then8.i.i ]
+  %sub.i2447 = sub i64 %limit.1128.i, %697
   %cmp18.not.i = icmp eq i64 %698, 1
   br i1 %cmp18.not.i, label %if.end27.i2445, label %if.then20.i
 
@@ -8072,8 +8072,8 @@ if.then20.i:                                      ; preds = %if.then17.i2446
   br label %if.end27.i2445
 
 if.else22.i:                                      ; preds = %forlimit.exit.i, %if.else.i.i2454
-  %limit.2131.ph.i = phi i64 [ %limit.0.i, %forlimit.exit.i ], [ -9223372036854775808, %if.else.i.i2454 ]
-  %sub23.i = sub i64 %697, %limit.2131.ph.i
+  %limit.1128.ph.i = phi i64 [ %conv.i.i.i.sink.i.i, %forlimit.exit.i ], [ -9223372036854775808, %if.else.i.i2454 ]
+  %sub23.i = sub i64 %697, %limit.1128.ph.i
   %add25.i = sub i64 0, %698
   %div26.i = udiv i64 %sub23.i, %add25.i
   br label %if.end27.i2445

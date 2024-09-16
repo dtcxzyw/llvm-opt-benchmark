@@ -1173,7 +1173,7 @@ return:                                           ; preds = %redisContextTimeout
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @redisSetBlocking(ptr noundef %c, i32 noundef %blocking) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @redisSetBlocking(ptr noundef %c, i32 noundef range(i32 0, 2) %blocking) unnamed_addr #0 {
 entry:
   %buf.i9 = alloca [128 x i8], align 16
   %buf.i = alloca [128 x i8], align 16

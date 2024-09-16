@@ -1371,7 +1371,7 @@ Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fxch_ManDivSingleCube(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @Fxch_ManDivSingleCube(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -1641,7 +1641,7 @@ Vec_IntPush.exit69:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fxch_ManDivDoubleCube(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @Fxch_ManDivDoubleCube(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8

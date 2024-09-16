@@ -17397,7 +17397,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i9 = icmp eq ptr %3, null
   br i1 %cmp.i.i9, label %invoke.cont12, label %cond.false.i
@@ -17603,7 +17603,7 @@ lpad:                                             ; preds = %init
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %timezone) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %timezone) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.arrow::Status", align 8
   %ref.tmp3 = alloca ptr, align 8
@@ -18505,7 +18505,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i9 = icmp eq ptr %3, null
   br i1 %cmp.i.i9, label %invoke.cont10, label %cond.false.i
@@ -19087,7 +19087,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i9 = icmp eq ptr %3, null
   br i1 %cmp.i.i9, label %invoke.cont10, label %cond.false.i
@@ -19661,7 +19661,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i9 = icmp eq ptr %3, null
   br i1 %cmp.i.i9, label %invoke.cont10, label %cond.false.i
@@ -22103,7 +22103,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i9 = icmp eq ptr %3, null
   br i1 %cmp.i.i9, label %invoke.cont10, label %cond.false.i
@@ -22681,7 +22681,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i9 = icmp eq ptr %3, null
   br i1 %cmp.i.i9, label %invoke.cont10, label %cond.false.i
@@ -23271,7 +23271,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i9 = icmp eq ptr %3, null
   br i1 %cmp.i.i9, label %invoke.cont10, label %cond.false.i
@@ -23845,7 +23845,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i9 = icmp eq ptr %3, null
   br i1 %cmp.i.i9, label %invoke.cont10, label %cond.false.i
@@ -27672,7 +27672,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -28264,7 +28264,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -28868,7 +28868,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -29464,7 +29464,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -30060,7 +30060,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -30660,7 +30660,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -31272,7 +31272,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -31868,7 +31868,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -32464,7 +32464,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -33658,7 +33658,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -34864,7 +34864,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -36054,7 +36054,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -37245,7 +37245,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont11, label %cond.false.i
@@ -37437,7 +37437,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont11, label %cond.false.i
@@ -37629,7 +37629,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont11, label %cond.false.i
@@ -37821,7 +37821,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont11, label %cond.false.i
@@ -38354,7 +38354,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -38950,7 +38950,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -39558,7 +39558,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -40150,7 +40150,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -40742,7 +40742,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -41338,7 +41338,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -41946,7 +41946,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -42538,7 +42538,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -43130,7 +43130,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -44300,7 +44300,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -45482,7 +45482,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -46648,7 +46648,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont10, label %cond.false.i
@@ -47815,7 +47815,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont11, label %cond.false.i
@@ -48007,7 +48007,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont11, label %cond.false.i
@@ -48199,7 +48199,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont11, label %cond.false.i
@@ -48391,7 +48391,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
+  call fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call2)
   %3 = load ptr, ptr %ref.tmp4, align 8
   %cmp.i.i10 = icmp eq ptr %3, null
   br i1 %cmp.i.i10, label %invoke.cont11, label %cond.false.i
@@ -49235,7 +49235,7 @@ if.else60.i:                                      ; preds = %if.else.i
 
 if.then70.i:                                      ; preds = %if.else60.i, %if.else60.i
   %add.ptr73.i = getelementptr inbounds i8, ptr %arrayidx62.i, i64 1
-  %call74.i = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL9ParseHHMMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr noundef nonnull %add.ptr73.i, ptr noundef nonnull %zone_offset.i)
+  %call74.i = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL9ParseHHMMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr noundef nonnull %add.ptr73.i, ptr noundef %zone_offset.i)
   br i1 %call74.i, label %if.end80.i, label %if.then
 
 if.end80.i:                                       ; preds = %if.then70.i
@@ -49263,7 +49263,7 @@ land.lhs.true101.i:                               ; preds = %if.else91.i, %if.el
 
 if.then106.i:                                     ; preds = %land.lhs.true101.i
   %add.ptr109.i = getelementptr inbounds i8, ptr %arrayidx93.i, i64 1
-  %call110.i = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr noundef nonnull %add.ptr109.i, ptr noundef nonnull %zone_offset.i)
+  %call110.i = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr noundef nonnull %add.ptr109.i, ptr noundef %zone_offset.i)
   br i1 %call110.i, label %if.end116.i, label %if.then
 
 if.end116.i:                                      ; preds = %if.then106.i
@@ -49321,7 +49321,7 @@ _ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbP
 
 sw.bb139.i:                                       ; preds = %if.end130.i
   %add.ptr140.i = getelementptr inbounds i8, ptr %val.coerce1, i64 11
-  %call141.i = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr noundef nonnull %add.ptr140.i, ptr noundef nonnull %seconds_since_midnight.i)
+  %call141.i = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr noundef nonnull %add.ptr140.i, ptr noundef %seconds_since_midnight.i)
   br i1 %call141.i, label %sw.bb139.sw.epilog.thread_crit_edge.i, label %if.then
 
 sw.bb139.sw.epilog.thread_crit_edge.i:            ; preds = %sw.bb139.i
@@ -49447,7 +49447,7 @@ if.end171.i:                                      ; preds = %if.end163.i
   store i32 0, ptr %subseconds.i, align 4
   %add.ptr172.i = getelementptr inbounds i8, ptr %val.coerce1, i64 20
   %sub173.i = add nsw i64 %length.addr.0.i, -20
-  %call174.i = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj(ptr noundef nonnull %add.ptr172.i, i64 noundef %sub173.i, i32 noundef %3, ptr noundef nonnull %subseconds.i)
+  %call174.i = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj(ptr noundef nonnull %add.ptr172.i, i64 noundef %sub173.i, i32 noundef %3, ptr noundef %subseconds.i)
   br i1 %call174.i, label %if.end180.i, label %if.then
 
 if.end180.i:                                      ; preds = %if.end171.i
@@ -49850,7 +49850,7 @@ eh.resume:                                        ; preds = %lpad29, %lpad.i.i11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL9ParseHHMMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %out) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL9ParseHHMMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #15 {
 entry:
   %0 = load i8, ptr %s, align 1
   %sub.i.i = add i8 %0, -48
@@ -49903,7 +49903,7 @@ return:                                           ; preds = %if.end.i6, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %out) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #15 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 2
   %0 = load i8, ptr %arrayidx, align 1
@@ -49962,7 +49962,7 @@ return:                                           ; preds = %if.end.i7, %if.end8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj(ptr noundef %s, i64 noundef %length, i32 noundef %unit, ptr noundef %out) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj(ptr noundef %s, i64 noundef range(i64 0, -20) %length, i32 noundef %unit, ptr noundef nonnull %out) unnamed_addr #2 {
 entry:
   %subseconds = alloca i32, align 4
   switch i32 %unit, label %return [
@@ -49990,7 +49990,7 @@ sw.epilog:                                        ; preds = %sw.bb15, %sw.bb5, %
   br i1 %cmp25, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %sw.epilog
-  %call = tail call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef %s, i64 noundef %length, ptr noundef %out)
+  %call = tail call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef %s, i64 noundef %length, ptr noundef nonnull %out)
   br label %return
 
 if.else:                                          ; preds = %sw.epilog

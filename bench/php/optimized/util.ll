@@ -4006,7 +4006,7 @@ define hidden range(i32 -1, 1) i32 @phar_verify_signature(ptr noundef %0, i64 no
   store i64 %4, ptr %12, align 8
   %44 = getelementptr inbounds i8, ptr %34, i64 24
   %45 = load i64, ptr %36, align 8
-  %46 = call fastcc i32 @phar_call_openssl_signverify(i32 noundef 0, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %44, i64 noundef %45, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %2)
+  %46 = call fastcc i32 @phar_call_openssl_signverify(i32 noundef 0, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %44, i64 noundef %45, ptr noundef %10, ptr noundef %12, i32 noundef %2)
   %47 = icmp eq i32 %46, -1
   %48 = getelementptr inbounds i8, ptr %34, i64 4
   %49 = load i32, ptr %48, align 4
@@ -4512,7 +4512,7 @@ phar_hex_str.exit224:                             ; preds = %.lr.ph.i216
 declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @phar_call_openssl_signverify(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phar_call_openssl_signverify(i32 noundef range(i32 0, 2) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._zend_fcall_info, align 8
   %10 = alloca %struct._zend_fcall_info_cache, align 8
   %11 = alloca %struct._zval_struct, align 8
@@ -5181,7 +5181,7 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr nocapture noundef 
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 432), align 8
   %40 = zext i32 %39 to i64
   %41 = load i32, ptr %22, align 4
-  %42 = call fastcc i32 @phar_call_openssl_signverify(i32 noundef 1, ptr noundef %1, i64 noundef %37, ptr noundef %38, i64 noundef %40, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %41)
+  %42 = call fastcc i32 @phar_call_openssl_signverify(i32 noundef 1, ptr noundef %1, i64 noundef %37, ptr noundef %38, i64 noundef %40, ptr noundef %11, ptr noundef %12, i32 noundef %41)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %44, label %48
 

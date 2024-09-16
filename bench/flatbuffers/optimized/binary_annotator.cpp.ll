@@ -1466,7 +1466,7 @@ invoke.cont111:                                   ; preds = %.noexc311
   %99 = load ptr, ptr %_M_end_of_storage.i.i207, align 8
   store ptr %99, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias nonnull align 8 %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108, i32 noundef 1, ptr noundef nonnull %agg.tmp112)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108, i32 noundef 1, ptr noundef %agg.tmp112)
           to label %invoke.cont114 unwind label %lpad113
 
 invoke.cont114:                                   ; preds = %invoke.cont111
@@ -1912,7 +1912,7 @@ invoke.cont21:                                    ; preds = %invoke.cont.i
   %call8.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i192) #31
   %24 = load i64, ptr %index.i193, align 8, !noalias !29
   store i64 %24, ptr %index.i.i.i, align 8, !alias.scope !29
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp18)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp18)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont21
@@ -2147,7 +2147,7 @@ invoke.cont54:                                    ; preds = %invoke.cont.i249
   %call8.i.i274 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i262, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i250) #31
   %50 = load i64, ptr %index.i253, align 8, !noalias !35
   store i64 %50, ptr %index.i.i.i263, align 8, !alias.scope !35
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp51)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp51)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont54
@@ -4550,7 +4550,7 @@ invoke.cont443:                                   ; preds = %if.else441
           to label %invoke.cont447 unwind label %lpad363
 
 invoke.cont447:                                   ; preds = %invoke.cont443
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 %ref.tmp445, i64 noundef %add120, i64 noundef %length.0, i32 noundef %region_type316.0, i64 noundef 0, i64 noundef %offset_of_next_item.0, ptr noundef nonnull %agg.tmp446)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias align 8 %ref.tmp445, i64 noundef %add120, i64 noundef %length.0, i32 noundef %region_type316.0, i64 noundef 0, i64 noundef %offset_of_next_item.0, ptr noundef %agg.tmp446)
   invoke void @_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %regions, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp445)
           to label %invoke.cont451 unwind label %lpad450
 
@@ -5093,7 +5093,7 @@ invoke.cont549:                                   ; preds = %invoke.cont547
           to label %invoke.cont554 unwind label %lpad363
 
 invoke.cont554:                                   ; preds = %invoke.cont549
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 %ref.tmp552, i64 noundef %add533, i64 noundef %cond.i1510, i32 noundef 0, i64 noundef %cond.i1510, i64 noundef 0, ptr noundef nonnull %agg.tmp553)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias align 8 %ref.tmp552, i64 noundef %add533, i64 noundef %cond.i1510, i32 noundef 0, i64 noundef %cond.i1510, i64 noundef 0, ptr noundef %agg.tmp553)
   invoke void @_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %regions, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp552)
           to label %invoke.cont558 unwind label %lpad557
 
@@ -5156,7 +5156,7 @@ invoke.cont576:                                   ; preds = %invoke.cont574
           to label %invoke.cont582 unwind label %lpad573
 
 invoke.cont582:                                   ; preds = %invoke.cont576
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 %ref.tmp580, i64 noundef %add120, i64 noundef %length.0, i32 noundef %region_type316.0, i64 noundef 0, i64 noundef %offset_of_next_item.0, ptr noundef nonnull %agg.tmp581)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias align 8 %ref.tmp580, i64 noundef %add120, i64 noundef %length.0, i32 noundef %region_type316.0, i64 noundef 0, i64 noundef %offset_of_next_item.0, ptr noundef %agg.tmp581)
   invoke void @_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %regions, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp580)
           to label %invoke.cont586 unwind label %lpad585
 
@@ -5416,7 +5416,7 @@ invoke.cont625:                                   ; preds = %if.end620
   %429 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   store ptr %429, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias nonnull align 8 %ref.tmp621, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp622, i32 noundef %type, ptr noundef nonnull %agg.tmp626)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %ref.tmp621, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp622, i32 noundef %type, ptr noundef %agg.tmp626)
           to label %invoke.cont628 unwind label %lpad627
 
 invoke.cont628:                                   ; preds = %invoke.cont625
@@ -6120,7 +6120,7 @@ if.then:                                          ; preds = %for.body
   %add10 = add i64 %sub, %1
   %sub11 = add i64 %offset.067, -1
   %5 = load ptr, ptr %binary_, align 8
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_122GenerateMissingSectionEmmPKh(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %sub11, i64 noundef %add10, ptr noundef %5)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_122GenerateMissingSectionEmmPKh(ptr noalias align 8 %ref.tmp, i64 noundef %sub11, i64 noundef %add10, ptr noundef %5)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont:                                      ; preds = %if.then
@@ -6234,7 +6234,7 @@ if.then17:                                        ; preds = %for.end
   %sub23 = add i64 %offset.0.lcssa, -1
   %binary_24 = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %binary_24, align 8
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_122GenerateMissingSectionEmmPKh(ptr noalias nonnull align 8 %ref.tmp22, i64 noundef %sub23, i64 noundef %add21, ptr noundef %17)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_122GenerateMissingSectionEmmPKh(ptr noalias align 8 %ref.tmp22, i64 noundef %sub23, i64 noundef %add21, ptr noundef %17)
           to label %invoke.cont25 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont25:                                    ; preds = %if.then17
@@ -6413,7 +6413,7 @@ _ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE12emplace_backIJS1_EEERS1_DpOT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias align 8 %agg.result, i64 noundef %offset, i64 noundef %length, i32 noundef %type, i64 noundef %array_length, i64 noundef %points_to_offset, ptr noundef %comment) unnamed_addr #5 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 %agg.result, i64 noundef %offset, i64 noundef %length, i32 noundef range(i32 0, 19) %type, i64 noundef %array_length, i64 noundef %points_to_offset, ptr noundef nonnull %comment) unnamed_addr #5 {
 entry:
   %array_length.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %status_message.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -6659,7 +6659,7 @@ lpad:                                             ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type, ptr nocapture noundef %regions) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type, ptr nocapture noundef nonnull %regions) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #31
   %type.i = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -7128,7 +7128,7 @@ invoke.cont27:                                    ; preds = %invoke.cont.i
   %call8.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i86) #31
   %33 = load i64, ptr %index.i87, align 8, !noalias !104
   store i64 %33, ptr %index.i.i.i, align 8, !alias.scope !104
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp25)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp25)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont27
@@ -7325,7 +7325,7 @@ invoke.cont54:                                    ; preds = %invoke.cont.i122
   %call8.i.i148 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i136, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i123) #31
   %53 = load i64, ptr %index.i126, align 8, !noalias !107
   store i64 %53, ptr %index.i.i.i137, align 8, !alias.scope !107
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp52)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp52)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont54
@@ -7509,7 +7509,7 @@ invoke.cont78:                                    ; preds = %invoke.cont.i194
   %call8.i.i220 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i208, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i195) #31
   %70 = load i64, ptr %index.i198, align 8, !noalias !110
   store i64 %70, ptr %index.i.i.i209, align 8, !alias.scope !110
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp76)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp76)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %invoke.cont78
@@ -7823,7 +7823,7 @@ invoke.cont123:                                   ; preds = %invoke.cont.i330
   %call8.i.i355 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i343, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i331) #31
   %103 = load i64, ptr %index.i334, align 8, !noalias !116
   store i64 %103, ptr %index.i.i.i344, align 8, !alias.scope !116
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp120, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp121)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp120, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp121)
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %invoke.cont123
@@ -8557,7 +8557,7 @@ if.then249:                                       ; preds = %for.end247
   %188 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   store ptr %188, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias nonnull align 8 %ref.tmp250, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef nonnull %agg.tmp251)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %ref.tmp250, ptr noundef nonnull align 8 dereferenceable(32) %referring_table_name, i32 noundef 4, ptr noundef %agg.tmp251)
           to label %invoke.cont253 unwind label %lpad252
 
 invoke.cont253:                                   ; preds = %if.then249
@@ -8891,7 +8891,7 @@ return:                                           ; preds = %if.end13, %land.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(160) %region) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(160) %region) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %regions = alloca %"class.std::vector", align 8
   %agg.tmp = alloca %"class.std::vector", align 8
@@ -8911,7 +8911,7 @@ invoke.cont:                                      ; preds = %entry
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %type, ptr noundef %agg.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -10832,7 +10832,7 @@ invoke.cont106:                                   ; preds = %invoke.cont100
   %110 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %110, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias nonnull align 8 %ref.tmp88, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89, i32 noundef 6, ptr noundef nonnull %agg.tmp107)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %ref.tmp88, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89, i32 noundef 6, ptr noundef %agg.tmp107)
           to label %invoke.cont109 unwind label %lpad108
 
 invoke.cont109:                                   ; preds = %invoke.cont106
@@ -11416,7 +11416,7 @@ invoke.cont57:                                    ; preds = %invoke.cont.i
   %call8.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i257) #31
   %44 = load i64, ptr %index.i258, align 8, !noalias !150
   store i64 %44, ptr %index.i.i.i, align 8, !alias.scope !150
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp54)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp54)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont57
@@ -11730,7 +11730,7 @@ invoke.cont111:                                   ; preds = %invoke.cont.i340
   %call8.i.i365 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i353, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i341) #31
   %74 = load i64, ptr %index.i344, align 8, !noalias !153
   store i64 %74, ptr %index.i.i.i354, align 8, !alias.scope !153
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp88, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp107)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_129MakeSingleRegionBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp88, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp107)
           to label %invoke.cont115 unwind label %lpad114
 
 invoke.cont115:                                   ; preds = %invoke.cont111
@@ -13471,7 +13471,7 @@ invoke.cont388:                                   ; preds = %invoke.cont386
           to label %invoke.cont394 unwind label %lpad393
 
 invoke.cont394:                                   ; preds = %invoke.cont388
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 %ref.tmp391, i64 noundef %add, i64 noundef %cond.i1127, i32 noundef 0, i64 noundef %cond.i1127, i64 noundef 0, ptr noundef nonnull %agg.tmp392)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias align 8 %ref.tmp391, i64 noundef %add, i64 noundef %cond.i1127, i32 noundef 0, i64 noundef %cond.i1127, i64 noundef 0, ptr noundef %agg.tmp392)
   invoke void @_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %regions, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp391)
           to label %invoke.cont398 unwind label %lpad397
 
@@ -13912,7 +13912,7 @@ invoke.cont483:                                   ; preds = %invoke.cont481
           to label %invoke.cont488 unwind label %lpad417
 
 invoke.cont488:                                   ; preds = %invoke.cont483
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 %ref.tmp486, i64 noundef %offset.51993, i64 noundef 0, i32 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %agg.tmp487)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias align 8 %ref.tmp486, i64 noundef %offset.51993, i64 noundef 0, i32 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef %agg.tmp487)
   invoke void @_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %regions, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp486)
           to label %invoke.cont492 unwind label %lpad491
 
@@ -14070,7 +14070,7 @@ invoke.cont518:                                   ; preds = %invoke.cont516
           to label %invoke.cont523 unwind label %lpad515
 
 invoke.cont523:                                   ; preds = %invoke.cont518
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 %ref.tmp521, i64 noundef %offset.51993, i64 noundef 4, i32 noundef 1, i64 noundef 0, i64 noundef %add448, ptr noundef nonnull %agg.tmp522)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias align 8 %ref.tmp521, i64 noundef %offset.51993, i64 noundef 4, i32 noundef 1, i64 noundef 0, i64 noundef %add448, ptr noundef %agg.tmp522)
   invoke void @_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %regions, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp521)
           to label %invoke.cont527 unwind label %lpad526
 
@@ -14963,7 +14963,7 @@ invoke.cont665:                                   ; preds = %invoke.cont659
   %463 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   store ptr %463, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias nonnull align 8 %ref.tmp647, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp648, i32 noundef %section_type.0.ph, ptr noundef nonnull %agg.tmp666)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %ref.tmp647, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp648, i32 noundef %section_type.0.ph, ptr noundef %agg.tmp666)
           to label %invoke.cont668 unwind label %lpad667
 
 invoke.cont668:                                   ; preds = %invoke.cont665
@@ -15615,7 +15615,7 @@ invoke.cont48:                                    ; preds = %invoke.cont42
   %68 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %68, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias nonnull align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, i32 noundef 8, ptr noundef nonnull %agg.tmp49)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, i32 noundef 8, ptr noundef %agg.tmp49)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont48
@@ -16119,7 +16119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_122GenerateMissingSectionEmmPKh(ptr noalias align 8 %agg.result, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly %binary) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_122GenerateMissingSectionEmmPKh(ptr noalias nonnull align 8 %agg.result, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly %binary) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %regions = alloca %"class.std::vector", align 8
   %comment = alloca %"struct.flatbuffers::BinaryRegionComment", align 8
@@ -16397,7 +16397,7 @@ invoke.cont23:                                    ; preds = %.noexc55
   %24 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   store ptr %24, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, i32 noundef 0, ptr noundef nonnull %agg.tmp24)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, i32 noundef 0, ptr noundef %agg.tmp24)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont23
@@ -16657,7 +16657,7 @@ invoke.cont57:                                    ; preds = %.noexc146
   %52 = load ptr, ptr %_M_end_of_storage.i.i116, align 8
   store ptr %52, ptr %_M_end_of_storage.i.i.i.i151, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, i32 noundef 9, ptr noundef nonnull %agg.tmp58)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117MakeBinarySectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17BinarySectionTypeESt6vectorINS_12BinaryRegionESaISB_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, i32 noundef 9, ptr noundef %agg.tmp58)
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %invoke.cont57

@@ -133,7 +133,7 @@ safe_malloc_add_2op_.exit.i:                      ; preds = %if.then24
   br i1 %tobool.not.i, label %if.then151.sink.split, label %if.else
 
 if.else:                                          ; preds = %safe_malloc_add_2op_.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr readonly align 1 %p.0150.ph, i64 %sub.ptr.sub22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr nonnull readonly align 1 %p.0150.ph, i64 %sub.ptr.sub22, i1 false)
   %arrayidx.i69 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub22
   store i8 0, ptr %arrayidx.i69, align 1
   %call32 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i, i32 noundef 0) #11
@@ -154,7 +154,7 @@ safe_malloc_add_2op_.exit.i71:                    ; preds = %sw.bb38
   br i1 %tobool.not.i74, label %if.then151.sink.split, label %if.else46
 
 if.else46:                                        ; preds = %safe_malloc_add_2op_.exit.i71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr readonly align 1 %p.0150.ph, i64 %sub.ptr.sub41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr nonnull readonly align 1 %p.0150.ph, i64 %sub.ptr.sub41, i1 false)
   %arrayidx.i76 = getelementptr inbounds i8, ptr %call.i.i.i73, i64 %sub.ptr.sub41
   store i8 0, ptr %arrayidx.i76, align 1
   %call47 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i73, i32 noundef 0) #11
@@ -320,7 +320,7 @@ lor.lhs.false107:                                 ; preds = %lor.lhs.false
   br i1 %cmp109, label %if.then151.sink.split, label %if.end119thread-pre-split
 
 if.else115:                                       ; preds = %if.else84
-  %call116 = tail call fastcc ptr @read_file(ptr noundef %spec.addr.2116125, ptr noundef nonnull %call)
+  %call116 = tail call fastcc ptr @read_file(ptr noundef %spec.addr.2116125, ptr noundef %call)
   store ptr %call116, ptr %error_message, align 8
   br label %if.end119
 
@@ -394,7 +394,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare i32 @FLAC__metadata_object_picture_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @read_file(ptr noundef %filepath, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc ptr @read_file(ptr noundef %filepath, ptr noundef nonnull %obj) unnamed_addr #0 {
 entry:
   %call = tail call i64 @grabbag__file_get_filesize(ptr noundef %filepath) #11
   %cmp = icmp slt i64 %call, 0
@@ -437,7 +437,7 @@ if.then21:                                        ; preds = %if.end17
 
 if.end23:                                         ; preds = %if.end17
   %conv25 = trunc nuw i64 %call to i32
-  %call26 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef %obj, ptr noundef nonnull %call.i, i32 noundef %conv25, i32 noundef 0) #11
+  %call26 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %obj, ptr noundef nonnull %call.i, i32 noundef %conv25, i32 noundef 0) #11
   %tobool.not = icmp eq i32 %call26, 0
   br i1 %tobool.not, label %return, label %if.else
 
@@ -450,7 +450,7 @@ if.else:                                          ; preds = %if.end23
   br i1 %cmp29, label %land.lhs.true, label %if.else34
 
 land.lhs.true:                                    ; preds = %if.else
-  %call31 = tail call fastcc i32 @local__extract_mime_type_(ptr noundef nonnull %obj)
+  %call31 = tail call fastcc i32 @local__extract_mime_type_(ptr noundef %obj)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %return, label %if.else34
 
@@ -473,7 +473,7 @@ lor.lhs.false41:                                  ; preds = %lor.lhs.false
   br i1 %cmp43, label %land.lhs.true45, label %if.else50
 
 land.lhs.true45:                                  ; preds = %lor.lhs.false41, %lor.lhs.false, %if.else34
-  %call47 = tail call fastcc i32 @local__extract_resolution_color_info_(ptr noundef nonnull %data)
+  %call47 = tail call fastcc i32 @local__extract_resolution_color_info_(ptr noundef %data)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %return, label %if.else50
 
@@ -607,7 +607,7 @@ lor.lhs.false55:                                  ; preds = %lor.lhs.false
   br i1 %cmp58, label %if.then99.sink.split, label %if.end65thread-pre-split
 
 if.else63:                                        ; preds = %if.end36
-  %call64 = call fastcc ptr @read_file(ptr noundef %filepath, ptr noundef nonnull %call1)
+  %call64 = call fastcc ptr @read_file(ptr noundef %filepath, ptr noundef %call1)
   store ptr %call64, ptr %error_message, align 8
   br label %if.end65
 
@@ -683,7 +683,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @local__extract_mime_type_(ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc i32 @local__extract_mime_type_(ptr noundef nonnull %obj) unnamed_addr #0 {
 entry:
   %data_length = getelementptr inbounds i8, ptr %obj, i64 56
   %0 = load i32, ptr %data_length, align 8
@@ -743,7 +743,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info_(ptr nocapture noundef %picture) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info_(ptr nocapture noundef nonnull %picture) unnamed_addr #7 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %picture, i64 48
   %0 = load ptr, ptr %data1, align 8

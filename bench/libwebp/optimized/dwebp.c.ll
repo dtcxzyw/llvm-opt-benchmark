@@ -898,7 +898,7 @@ AllocateExternalBuffer.exit:                      ; preds = %285, %318
   br i1 %.b199, label %342, label %346
 
 342:                                              ; preds = %341
-  %343 = call fastcc double @StopwatchReadAndReset(ptr noundef nonnull %8)
+  %343 = call fastcc double @StopwatchReadAndReset(ptr noundef %8)
   %344 = load ptr, ptr @stderr, align 8
   %345 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.47, double noundef %343) #10
   br label %346
@@ -1083,7 +1083,7 @@ declare i32 @DecodeWebPIncremental(ptr noundef, i64 noundef, ptr noundef) local_
 declare i32 @DecodeWebP(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc double @StopwatchReadAndReset(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc double @StopwatchReadAndReset(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8

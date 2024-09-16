@@ -1045,7 +1045,7 @@ declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 nound
 declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_callback(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @do_callback(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = icmp ne i32 %5, 0
   %spec.store.select = select i1 %8, i32 2, i32 0
@@ -1498,7 +1498,7 @@ define internal void @sqlite_handle_closer(ptr nocapture noundef %0) #0 {
   br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @pdo_sqlite_cleanup_callbacks(ptr noundef nonnull %3)
+  tail call fastcc void @pdo_sqlite_cleanup_callbacks(ptr noundef %3)
   %5 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %8, label %6
@@ -1855,7 +1855,7 @@ define internal void @pdo_sqlite_request_shutdown(ptr nocapture noundef readonly
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @pdo_sqlite_cleanup_callbacks(ptr noundef nonnull %3)
+  tail call fastcc void @pdo_sqlite_cleanup_callbacks(ptr noundef %3)
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -2026,7 +2026,7 @@ define internal void @pdo_sqlite_get_gc(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pdo_sqlite_cleanup_callbacks(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @pdo_sqlite_cleanup_callbacks(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not39 = icmp eq ptr %3, null

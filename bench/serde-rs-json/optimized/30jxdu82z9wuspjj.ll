@@ -78,52 +78,52 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E(i32 noundef %0, ptr noalias noundef nonnull align 1 %1) unnamed_addr #2 {
+define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E(i32 noundef range(i32 0, 1114112) %0, ptr noalias noundef nonnull align 1 %1) unnamed_addr #2 {
   %3 = icmp ult i32 %0, 128
-  br i1 %3, label %8, label %4
+  br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
   %5 = icmp ult i32 %0, 2048
-  br i1 %5, label %13, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %4
   %7 = icmp ult i32 %0, 65536
-  br i1 %7, label %21, label %34
+  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  br i1 %7, label %22, label %34
 
-8:                                                ; preds = %2
-  %9 = trunc nuw i32 %0 to i8
-  store i8 %9, ptr %1, align 1
+9:                                                ; preds = %2
+  %10 = trunc nuw i32 %0 to i8
+  store i8 %10, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit": ; preds = %8, %13, %21, %34
-  %10 = phi i64 [ 4, %34 ], [ 3, %21 ], [ 2, %13 ], [ 1, %8 ]
-  %11 = insertvalue { ptr, i64 } poison, ptr %1, 0
-  %12 = insertvalue { ptr, i64 } %11, i64 %10, 1
-  ret { ptr, i64 } %12
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit": ; preds = %9, %14, %22, %34
+  %11 = phi i64 [ 4, %34 ], [ 3, %22 ], [ 2, %14 ], [ 1, %9 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %1, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %11, 1
+  ret { ptr, i64 } %13
 
-13:                                               ; preds = %4
-  %14 = lshr i32 %0, 6
-  %15 = trunc nuw i32 %14 to i8
-  %16 = or disjoint i8 %15, -64
-  store i8 %16, ptr %1, align 1
-  %17 = trunc i32 %0 to i8
-  %18 = and i8 %17, 63
-  %19 = getelementptr inbounds i8, ptr %1, i64 1
-  %20 = or disjoint i8 %18, -128
-  store i8 %20, ptr %19, align 1
+14:                                               ; preds = %4
+  %15 = lshr i32 %0, 6
+  %16 = trunc nuw i32 %15 to i8
+  %17 = or disjoint i8 %16, -64
+  store i8 %17, ptr %1, align 1
+  %18 = trunc i32 %0 to i8
+  %19 = and i8 %18, 63
+  %20 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = or disjoint i8 %19, -128
+  store i8 %21, ptr %20, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 
-21:                                               ; preds = %6
-  %22 = lshr i32 %0, 12
-  %23 = trunc nuw i32 %22 to i8
-  %24 = or disjoint i8 %23, -32
-  store i8 %24, ptr %1, align 1
-  %25 = lshr i32 %0, 6
-  %26 = trunc i32 %25 to i8
-  %27 = and i8 %26, 63
-  %28 = getelementptr inbounds i8, ptr %1, i64 1
-  %29 = or disjoint i8 %27, -128
-  store i8 %29, ptr %28, align 1
+22:                                               ; preds = %6
+  %23 = lshr i32 %0, 12
+  %24 = trunc nuw i32 %23 to i8
+  %25 = or disjoint i8 %24, -32
+  store i8 %25, ptr %1, align 1
+  %26 = lshr i32 %0, 6
+  %27 = trunc i32 %26 to i8
+  %28 = and i8 %27, 63
+  %29 = or disjoint i8 %28, -128
+  store i8 %29, ptr %8, align 1
   %30 = trunc i32 %0 to i8
   %31 = and i8 %30, 63
   %32 = getelementptr inbounds i8, ptr %1, i64 2
@@ -133,27 +133,25 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
 
 34:                                               ; preds = %6
   %35 = lshr i32 %0, 18
-  %36 = trunc i32 %35 to i8
-  %37 = and i8 %36, 7
-  %38 = or disjoint i8 %37, -16
-  store i8 %38, ptr %1, align 1
-  %39 = lshr i32 %0, 12
-  %40 = trunc i32 %39 to i8
-  %41 = and i8 %40, 63
-  %42 = getelementptr inbounds i8, ptr %1, i64 1
-  %43 = or disjoint i8 %41, -128
-  store i8 %43, ptr %42, align 1
-  %44 = lshr i32 %0, 6
-  %45 = trunc i32 %44 to i8
-  %46 = and i8 %45, 63
-  %47 = getelementptr inbounds i8, ptr %1, i64 2
-  %48 = or disjoint i8 %46, -128
-  store i8 %48, ptr %47, align 1
-  %49 = trunc i32 %0 to i8
-  %50 = and i8 %49, 63
-  %51 = getelementptr inbounds i8, ptr %1, i64 3
-  %52 = or disjoint i8 %50, -128
-  store i8 %52, ptr %51, align 1
+  %36 = trunc nuw nsw i32 %35 to i8
+  %37 = or disjoint i8 %36, -16
+  store i8 %37, ptr %1, align 1
+  %38 = lshr i32 %0, 12
+  %39 = trunc i32 %38 to i8
+  %40 = and i8 %39, 63
+  %41 = or disjoint i8 %40, -128
+  store i8 %41, ptr %8, align 1
+  %42 = lshr i32 %0, 6
+  %43 = trunc i32 %42 to i8
+  %44 = and i8 %43, 63
+  %45 = getelementptr inbounds i8, ptr %1, i64 2
+  %46 = or disjoint i8 %44, -128
+  store i8 %46, ptr %45, align 1
+  %47 = trunc i32 %0 to i8
+  %48 = and i8 %47, 63
+  %49 = getelementptr inbounds i8, ptr %1, i64 3
+  %50 = or disjoint i8 %48, -128
+  store i8 %50, ptr %49, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 }
 
@@ -227,7 +225,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h218a9c1fdc
 33:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   store i64 4, ptr %12, align 8
-  call fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  call fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %115
 
@@ -285,7 +283,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h218a9c1fdc
   %57 = load i64, ptr %13, align 8, !noundef !7
   %58 = add i64 %57, 1
   store i64 %58, ptr %13, align 8
-  %59 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %59 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef align 8 dereferenceable(24) %1, i1 noundef zeroext %3, ptr noalias noundef align 8 dereferenceable(24) %2)
   %60 = icmp eq ptr %59, null
   br i1 %60, label %108, label %110
 
@@ -319,7 +317,7 @@ _ZN4core3ops8function6FnOnce9call_once17h926692336ea313b3E.exit.thread: ; preds 
 _ZN4core3ops8function6FnOnce9call_once17h926692336ea313b3E.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.exit24"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !48
   store i64 15, ptr %7, align 8, !noalias !48
-  call fastcc void @_ZN10serde_json4read5error17h1f3fe09427cc595eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @_ZN10serde_json4read5error17h1f3fe09427cc595eE(ptr noalias nocapture noundef align 8 dereferenceable(16) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !48
   %.pr = load ptr, ptr %11, align 8, !alias.scope !59, !noalias !62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !48
@@ -403,7 +401,7 @@ _ZN4core3ops8function6FnOnce9call_once17h926692336ea313b3E.exit29.thread: ; pred
 _ZN4core3ops8function6FnOnce9call_once17h926692336ea313b3E.exit29: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5fe2c8355ca1cc6bE.exit27"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !78
   store i64 15, ptr %5, align 8, !noalias !78
-  call fastcc void @_ZN10serde_json4read5error17h1f3fe09427cc595eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN10serde_json4read5error17h1f3fe09427cc595eE(ptr noalias nocapture noundef align 8 dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !78
   %.pr34 = load ptr, ptr %10, align 8, !alias.scope !88, !noalias !91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !78
@@ -458,7 +456,7 @@ _ZN4core3ops8function6FnOnce9call_once17h926692336ea313b3E.exit29._crit_edge: ; 
 114:                                              ; preds = %36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 16, ptr %9, align 8
-  call fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9)
+  call fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %115
 
@@ -514,7 +512,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h588b36e201
 27:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store i64 4, ptr %6, align 8
-  call fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %85
 
@@ -572,7 +570,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h588b36e201
   %51 = load i64, ptr %7, align 8, !noundef !7
   %52 = add i64 %51, 1
   store i64 %52, ptr %7, align 8
-  %53 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %53 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef align 8 dereferenceable(24) %1, i1 noundef zeroext %3, ptr noalias noundef align 8 dereferenceable(24) %2)
   %54 = icmp eq ptr %53, null
   br i1 %54, label %78, label %80
 
@@ -655,7 +653,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h588b36e201
 84:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store i64 16, ptr %5, align 8
-  call fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %85
 
@@ -711,7 +709,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17hbce210c632
 27:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store i64 4, ptr %6, align 8
-  call fastcc void @_ZN10serde_json4read5error17hb964b459c1e82902E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN10serde_json4read5error17hb964b459c1e82902E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %85
 
@@ -769,7 +767,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17hbce210c632
   %51 = load i64, ptr %7, align 8, !noundef !7
   %52 = add i64 %51, 1
   store i64 %52, ptr %7, align 8
-  %53 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %53 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef align 8 dereferenceable(24) %1, i1 noundef zeroext %3, ptr noalias noundef align 8 dereferenceable(24) %2)
   %54 = icmp eq ptr %53, null
   br i1 %54, label %78, label %80
 
@@ -852,7 +850,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17hbce210c632
 84:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store i64 16, ptr %5, align 8
-  call fastcc void @_ZN10serde_json4read5error17hb964b459c1e82902E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN10serde_json4read5error17hb964b459c1e82902E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %85
 
@@ -922,7 +920,7 @@ define hidden void @_ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN10serde_json4read11peek_or_eof17hed51dcd1e513dc60E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define internal fastcc void @_ZN10serde_json4read11peek_or_eof17hed51dcd1e513dc60E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -986,7 +984,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10serde_json4read5error17h163b424e
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10serde_json4read5error17h1f3fe09427cc595eE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10serde_json4read5error17h1f3fe09427cc595eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !186, !noundef !7
@@ -1094,7 +1092,7 @@ define hidden void @_ZN10serde_json4read5error17h9873e76e38ceefd3E.llvm.99869871
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10serde_json4read5error17hb964b459c1e82902E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10serde_json4read5error17hb964b459c1e82902E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !195, !noundef !7
@@ -1130,7 +1128,7 @@ define internal fastcc void @_ZN10serde_json4read5error17hb964b459c1e82902E(ptr 
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !198, !noundef !7
@@ -1166,7 +1164,7 @@ define internal fastcc void @_ZN10serde_json4read5error17hc755879bd00ae68aE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca [4 x i8], align 4
@@ -1455,7 +1453,7 @@ _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.e
 
 146:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call fastcc void @_ZN10serde_json4read11peek_or_eof17hed51dcd1e513dc60E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZN10serde_json4read11peek_or_eof17hed51dcd1e513dc60E(ptr noalias nocapture noundef align 8 dereferenceable(16) %13, ptr noalias noundef align 8 dereferenceable(24) %0)
   %147 = load i8, ptr %13, align 8, !range !31, !noundef !7
   %trunc20 = trunc nuw i8 %147 to i1
   br i1 %trunc20, label %157, label %153
@@ -1494,7 +1492,7 @@ _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.e
   %162 = add i64 %161, 1
   store i64 %162, ptr %17, align 8, !alias.scope !239
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call fastcc void @_ZN10serde_json4read11peek_or_eof17hed51dcd1e513dc60E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZN10serde_json4read11peek_or_eof17hed51dcd1e513dc60E(ptr noalias nocapture noundef align 8 dereferenceable(16) %11, ptr noalias noundef align 8 dereferenceable(24) %0)
   %163 = load i8, ptr %11, align 8, !range !31, !noundef !7
   %trunc21 = trunc nuw i8 %163 to i1
   br i1 %trunc21, label %169, label %165
@@ -1580,7 +1578,7 @@ _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.e
 
 201:                                              ; preds = %176
   tail call void @_ZN10serde_json4read12parse_escape16encode_surrogate17h123157416cd4f880E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i16 noundef %136)
-  %202 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %202 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hbffd46e51405582bE(ptr noalias noundef align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noalias noundef align 8 dereferenceable(24) %2)
   br label %199
 
 203:                                              ; preds = %176

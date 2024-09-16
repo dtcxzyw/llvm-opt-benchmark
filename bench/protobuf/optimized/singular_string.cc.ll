@@ -364,7 +364,7 @@ lpad.i82:                                         ; preds = %.noexc85
   br label %ehcleanup90
 
 invoke.cont55:                                    ; preds = %.noexc85
-  invoke fastcc void @"_ZN6google8protobuf2io7Printer3SubC2IRZNKS0_8compiler4rust14SingularString9InMsgImplENS6_7ContextINS0_15FieldDescriptorEEEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_"(ptr noundef nonnull align 8 dereferenceable(184) %arrayinit.element51, ptr noundef nonnull %agg.tmp52, ptr noundef nonnull align 8 dereferenceable(8) %transform_view)
+  invoke fastcc void @"_ZN6google8protobuf2io7Printer3SubC2IRZNKS0_8compiler4rust14SingularString9InMsgImplENS6_7ContextINS0_15FieldDescriptorEEEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_"(ptr noundef nonnull align 8 dereferenceable(184) %arrayinit.element51, ptr noundef %agg.tmp52, ptr noundef nonnull align 8 dereferenceable(8) %transform_view)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont55
@@ -2639,7 +2639,7 @@ invoke.cont22.i.i.i.i:                            ; preds = %invoke.cont.i4.i.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i)
   %21 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %22 = load ptr, ptr %21, align 8
-  invoke fastcc void @"_ZN6google8protobuf2io7Printer3SubC2IRZNKS0_8compiler4rust14SingularString9InMsgImplENS6_7ContextINS0_15FieldDescriptorEEEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_"(ptr noundef nonnull align 8 dereferenceable(184) %arrayinit.element18.i.i.i.i, ptr noundef nonnull %agg.tmp19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  invoke fastcc void @"_ZN6google8protobuf2io7Printer3SubC2IRZNKS0_8compiler4rust14SingularString9InMsgImplENS6_7ContextINS0_15FieldDescriptorEEEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_"(ptr noundef nonnull align 8 dereferenceable(184) %arrayinit.element18.i.i.i.i, ptr noundef %agg.tmp19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %invoke.cont24.i.i.i.i unwind label %lpad23.i.i.i.i
 
 invoke.cont24.i.i.i.i:                            ; preds = %invoke.cont22.i.i.i.i

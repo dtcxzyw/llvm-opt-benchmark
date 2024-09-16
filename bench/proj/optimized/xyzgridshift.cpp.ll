@@ -692,7 +692,7 @@ _ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.ex
   br label %30
 
 29:                                               ; preds = %3
-  call fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK8PJ_COORDd(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %9, double noundef 1.000000e+00)
+  call fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK8PJ_COORDd(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %9, double noundef 1.000000e+00)
   br label %30
 
 30:                                               ; preds = %29, %_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit
@@ -723,7 +723,7 @@ define internal void @_ZL26pj_xyzgridshift_reverse_3d6PJ_XYZP8PJconsts(ptr dead_
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %3
-  call fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK8PJ_COORDd(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %9, double noundef -1.000000e+00)
+  call fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK8PJ_COORDd(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %9, double noundef -1.000000e+00)
   br label %30
 
 19:                                               ; preds = %3
@@ -807,7 +807,7 @@ declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK8PJ_COORDd(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK8PJ_COORDd(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, double noundef %4) unnamed_addr #0 {
   %6 = alloca %union.PJ_COORD, align 8
   %7 = alloca %struct.PJ_LPZ, align 8
   %8 = alloca %struct.PJ_XYZ, align 8
@@ -840,7 +840,7 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  call void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0)
+  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %0)
   br label %41
 
 16:                                               ; preds = %12

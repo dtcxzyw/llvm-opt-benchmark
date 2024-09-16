@@ -248,7 +248,7 @@ if.end:                                           ; preds = %cond.false
   br i1 %cmp7.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  tail call fastcc void @dtls1_clear_queues(ptr noundef nonnull %ssl)
+  tail call fastcc void @dtls1_clear_queues(ptr noundef %ssl)
   %2 = load ptr, ptr %d1, align 8
   %buffered_messages = getelementptr inbounds i8, ptr %2, i64 280
   %3 = load ptr, ptr %buffered_messages, align 8
@@ -273,7 +273,7 @@ return:                                           ; preds = %entry, %cond.false,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dtls1_clear_queues(ptr nocapture noundef readonly %s) unnamed_addr #1 {
+define internal fastcc void @dtls1_clear_queues(ptr nocapture noundef nonnull readonly %s) unnamed_addr #1 {
 entry:
   %d1.i = getelementptr inbounds i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1.i, align 8
@@ -382,7 +382,7 @@ if.then7:                                         ; preds = %if.end
   %5 = load i64, ptr %mtu15, align 8
   %link_mtu17 = getelementptr inbounds i8, ptr %1, i64 296
   %6 = load i64, ptr %link_mtu17, align 8
-  tail call fastcc void @dtls1_clear_queues(ptr noundef nonnull %ssl)
+  tail call fastcc void @dtls1_clear_queues(ptr noundef %ssl)
   %7 = load ptr, ptr %d1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %7, i8 0, i64 472, i1 false)
   %8 = load ptr, ptr %d1, align 8

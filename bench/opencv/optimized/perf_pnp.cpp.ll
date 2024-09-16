@@ -6797,7 +6797,7 @@ define internal noundef nonnull ptr @_ZNK7testing8internal26CartesianProductGene
 
 17:                                               ; preds = %11
   store ptr %16, ptr %3, align 8, !alias.scope !106
-  invoke fastcc void @_ZN7testing8internal26CartesianProductGenerator2IiN11opencv_test12_GLOBAL__N_17pnpAlgoEE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJiS4_EEEERKNS0_14ParamGeneratorIiEERKNS0_13ParamIteratorIiEERKNSD_IS4_EERKNSH_IS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN7testing8internal26CartesianProductGenerator2IiN11opencv_test12_GLOBAL__N_17pnpAlgoEE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJiS4_EEEERKNS0_14ParamGeneratorIiEERKNS0_13ParamIteratorIiEERKNSD_IS4_EERKNSH_IS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %18 unwind label %41
 
 18:                                               ; preds = %17
@@ -6907,7 +6907,7 @@ define internal noundef nonnull ptr @_ZNK7testing8internal26CartesianProductGene
 
 17:                                               ; preds = %11
   store ptr %16, ptr %3, align 8, !alias.scope !112
-  invoke fastcc void @_ZN7testing8internal26CartesianProductGenerator2IiN11opencv_test12_GLOBAL__N_17pnpAlgoEE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJiS4_EEEERKNS0_14ParamGeneratorIiEERKNS0_13ParamIteratorIiEERKNSD_IS4_EERKNSH_IS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN7testing8internal26CartesianProductGenerator2IiN11opencv_test12_GLOBAL__N_17pnpAlgoEE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJiS4_EEEERKNS0_14ParamGeneratorIiEERKNS0_13ParamIteratorIiEERKNSD_IS4_EERKNSH_IS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %18 unwind label %41
 
 18:                                               ; preds = %17
@@ -6991,7 +6991,7 @@ _ZN7testing8internal13ParamIteratorIiED2Ev.exit:  ; preds = %.noexc.i.i8, %30, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26CartesianProductGenerator2IiN11opencv_test12_GLOBAL__N_17pnpAlgoEE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJiS4_EEEERKNS0_14ParamGeneratorIiEERKNS0_13ParamIteratorIiEERKNSD_IS4_EERKNSH_IS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26CartesianProductGenerator2IiN11opencv_test12_GLOBAL__N_17pnpAlgoEE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJiS4_EEEERKNS0_14ParamGeneratorIiEERKNS0_13ParamIteratorIiEERKNSD_IS4_EERKNSH_IS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator2IiN11opencv_test12_GLOBAL__N_17pnpAlgoEE8IteratorE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
@@ -10151,7 +10151,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEdeEv.exit53 unwind label %345
 
 _ZNK7testing8internal13ParamIteratorISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEdeEv.exit53: ; preds = %298
-  invoke fastcc void @_ZN7testing13PrintToStringISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 4 dereferenceable(8) %303)
+  invoke fastcc void @_ZN7testing13PrintToStringISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 4 dereferenceable(8) %303)
           to label %304 unwind label %345
 
 304:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEdeEv.exit53
@@ -10497,7 +10497,7 @@ declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_N
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing13PrintToStringISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing13PrintToStringISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.5", align 1
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -10648,7 +10648,7 @@ _ZN7testing8internal14UniversalPrintISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnp
           to label %_ZN7testing8internal21UniversalTersePrinterISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEE5PrintERKS6_PSo.exit unwind label %52
 
 _ZN7testing8internal21UniversalTersePrinterISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEE5PrintERKS6_PSo.exit: ; preds = %_ZN7testing8internal14UniversalPrintISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEEvRKT_PSo.exit.i
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5)
           to label %51 unwind label %52
 
 51:                                               ; preds = %_ZN7testing8internal21UniversalTersePrinterISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEE5PrintERKS6_PSo.exit
@@ -11825,7 +11825,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEdeEv.exit53 unwind label %345
 
 _ZNK7testing8internal13ParamIteratorISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEdeEv.exit53: ; preds = %298
-  invoke fastcc void @_ZN7testing13PrintToStringISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 4 dereferenceable(8) %303)
+  invoke fastcc void @_ZN7testing13PrintToStringISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 4 dereferenceable(8) %303)
           to label %304 unwind label %345
 
 304:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJiN11opencv_test12_GLOBAL__N_17pnpAlgoEEEEdeEv.exit53

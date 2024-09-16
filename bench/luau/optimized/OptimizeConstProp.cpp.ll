@@ -259,19 +259,19 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN4Luau7CodeG
   br label %64
 
 64:                                               ; preds = %145, %.noexc19
-  %.050.i = phi ptr [ %.sroa.026.044, %.noexc19 ], [ %134, %145 ]
-  %.03849.i = phi i32 [ 0, %.noexc19 ], [ %117, %145 ]
+  %.049.i = phi ptr [ %.sroa.026.044, %.noexc19 ], [ %134, %145 ]
+  %.03848.i = phi i32 [ 0, %.noexc19 ], [ %117, %145 ]
   %65 = load ptr, ptr %4, align 8
-  %66 = ptrtoint ptr %.050.i to i64
+  %66 = ptrtoint ptr %.049.i to i64
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
   %69 = lshr exact i64 %68, 5
   %70 = and i64 %69, 4294967295
   %71 = getelementptr inbounds i8, ptr %29, i64 %70
   store i8 1, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %.050.i, i64 4
+  %72 = getelementptr inbounds i8, ptr %.049.i, i64 4
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %.050.i, i64 8
+  %74 = getelementptr inbounds i8, ptr %.049.i, i64 8
   %75 = load i32, ptr %74, align 4
   %.not18.i.i = icmp ugt i32 %73, %75
   br i1 %.not18.i.i, label %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit.i, label %.lr.ph.i.i
@@ -285,11 +285,11 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN4Luau7CodeG
           to label %.noexc20 unwind label %60
 
 .noexc20:                                         ; preds = %.lr.ph.i.i
-  invoke void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEj(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(616) %4, ptr noundef nonnull align 4 dereferenceable(32) %.050.i, i32 noundef %.019.i.i)
+  invoke void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEj(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(616) %4, ptr noundef nonnull align 4 dereferenceable(32) %.049.i, i32 noundef %.019.i.i)
           to label %.noexc21 unwind label %60
 
 .noexc21:                                         ; preds = %.noexc20
-  invoke fastcc void @_ZN4Luau7CodeGenL15constPropInInstERNS0_14ConstPropStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(5416) %3, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(616) %4, ptr noundef nonnull align 4 dereferenceable(32) %.050.i, ptr noundef nonnull align 4 dereferenceable(43) %78, i32 noundef %.019.i.i)
+  invoke fastcc void @_ZN4Luau7CodeGenL15constPropInInstERNS0_14ConstPropStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(5416) %3, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(616) %4, ptr noundef nonnull align 4 dereferenceable(32) %.049.i, ptr noundef nonnull align 4 dereferenceable(43) %78, i32 noundef %.019.i.i)
           to label %.noexc22 unwind label %60
 
 .noexc22:                                         ; preds = %.noexc21
@@ -408,11 +408,11 @@ _ZN4Luau7CodeGen14ConstPropState24invalidateHeapBufferDataEv.exit.i: ; preds = %
   br label %_ZN4Luau7CodeGen14ConstPropState22invalidateUserdataDataEv.exit.i
 
 _ZN4Luau7CodeGen14ConstPropState22invalidateUserdataDataEv.exit.i: ; preds = %115, %112, %_ZN4Luau7CodeGen14ConstPropState24invalidateHeapBufferDataEv.exit.i
-  %116 = getelementptr inbounds i8, ptr %.050.i, i64 12
+  %116 = getelementptr inbounds i8, ptr %.049.i, i64 12
   store i32 %63, ptr %116, align 4
-  %117 = add i32 %.03849.i, 1
-  %118 = getelementptr inbounds i8, ptr %.050.i, i64 16
-  store i32 %.03849.i, ptr %118, align 4
+  %117 = add i32 %.03848.i, 1
+  %118 = getelementptr inbounds i8, ptr %.049.i, i64 16
+  store i32 %.03848.i, ptr %118, align 4
   %119 = load i32, ptr %74, align 4
   %120 = zext i32 %119 to i64
   %121 = load ptr, ptr %30, align 8
@@ -462,7 +462,7 @@ _ZN4Luau7CodeGen14ConstPropState22invalidateUserdataDataEv.exit.i: ; preds = %11
   %148 = sub i64 %135, %147
   %149 = lshr exact i64 %148, 5
   %150 = trunc i64 %149 to i32
-  %151 = getelementptr inbounds i8, ptr %.050.i, i64 20
+  %151 = getelementptr inbounds i8, ptr %.049.i, i64 20
   store i32 %150, ptr %151, align 4
   br label %64, !llvm.loop !8
 

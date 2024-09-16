@@ -1946,7 +1946,7 @@ define hidden range(i32 -1, 1) i32 @php_json_encode_zval(ptr noundef %0, ptr nou
   %233 = load i32, ptr %137, align 4
   %234 = and i32 %233, -65
   store i32 %234, ptr %137, align 4
-  %235 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3)
+  %235 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef %5, i32 noundef %2, ptr noundef %3)
   br label %240
 
 236:                                              ; preds = %228, %226
@@ -2001,7 +2001,7 @@ php_json_encode_serializable_object.exit:         ; preds = %141, %153, %200, %2
   br label %256
 
 256:                                              ; preds = %247, %253
-  %257 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %2, ptr noundef %3)
+  %257 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef %8, i32 noundef %2, ptr noundef %3)
   %258 = getelementptr inbounds i8, ptr %8, i64 9
   %259 = load i8, ptr %258, align 1
   %.not250 = icmp eq i8 %259, 0
@@ -2133,7 +2133,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_serializable_enum(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
@@ -3846,7 +3846,7 @@ declare noalias ptr @_emalloc_40() local_unnamed_addr #1
 declare ptr @zend_std_get_properties(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_json_pretty_print_char(ptr noundef %0, i32 noundef %1, i8 noundef signext %2) unnamed_addr #0 {
+define internal fastcc void @php_json_pretty_print_char(ptr noundef %0, i32 noundef %1, i8 noundef signext range(i8 10, 33) %2) unnamed_addr #0 {
   %4 = and i32 %1, 128
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %21, label %5

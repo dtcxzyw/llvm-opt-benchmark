@@ -5467,7 +5467,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdfESaIS2_EEN32pxrInternal_v0_24__pxrReser
 2004:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdfESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEJRKS7_EEvPT_DpOT0_.exit.i.i.i.i.i
   %2005 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %1985, ptr %2005, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIfEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull %100)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIfEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef %100)
           to label %.lr.ph.i.i.i.i unwind label %9068
 
 .lr.ph.i.i.i.i:                                   ; preds = %2004, %_ZSt8_DestroyISt4pairISt6vectorIS0_IdfESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEEvPT_.exit.i.i.i.i
@@ -6236,7 +6236,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdfESaIS2_EEN32pxrInternal_v0_24__pxrReser
 2355:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdfESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEJRKS7_EEvPT_DpOT0_.exit.i.i.i.i.i6090
   %2356 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %2336, ptr %2356, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIfEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %113)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIfEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef %113)
           to label %.lr.ph.i.i.i.i2480 unwind label %9079
 
 .lr.ph.i.i.i.i2480:                               ; preds = %2355, %_ZSt8_DestroyISt4pairISt6vectorIS0_IdfESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEEvPT_.exit.i.i.i.i2486
@@ -7369,7 +7369,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReser
 2790:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEJRKS7_EEvPT_DpOT0_.exit.i.i.i.i.i
   %2791 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr %2771, ptr %2791, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull %128)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef %128)
           to label %.lr.ph.i.i.i.i2816 unwind label %9123
 
 .lr.ph.i.i.i.i2816:                               ; preds = %2790, %_ZSt8_DestroyISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEEvPT_.exit.i.i.i.i
@@ -8374,7 +8374,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReser
 3186:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEJRKS7_EEvPT_DpOT0_.exit.i.i.i.i.i6110
   %3187 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store ptr %3167, ptr %3187, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %141)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef %141)
           to label %.lr.ph.i.i.i.i3143 unwind label %9152
 
 .lr.ph.i.i.i.i3143:                               ; preds = %3186, %_ZSt8_DestroyISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEEvPT_.exit.i.i.i.i3149
@@ -9351,7 +9351,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReser
 3588:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEJRKS7_EEvPT_DpOT0_.exit.i.i.i.i.i6121
   %3589 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr %3569, ptr %3589, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull %156)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef %156)
           to label %.lr.ph.i.i.i.i3457 unwind label %9182
 
 .lr.ph.i.i.i.i3457:                               ; preds = %3588, %_ZSt8_DestroyISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEEvPT_.exit.i.i.i.i3463
@@ -10357,7 +10357,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReser
 3984:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEJRKS7_EEvPT_DpOT0_.exit.i.i.i.i.i6132
   %3985 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store ptr %3965, ptr %3985, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %169)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef %169)
           to label %.lr.ph.i.i.i.i3790 unwind label %9211
 
 .lr.ph.i.i.i.i3790:                               ; preds = %3984, %_ZSt8_DestroyISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEEvPT_.exit.i.i.i.i3796
@@ -11313,7 +11313,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdN32pxrInternal_v0_24__pxrReserved__7TfTo
 4388:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdN32pxrInternal_v0_24__pxrReserved__7TfTokenEESaIS4_EENS2_7VtValueEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i
   %4389 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr %4369, ptr %4389, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull %184)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef %184)
           to label %4390 unwind label %9270
 
 4390:                                             ; preds = %4388
@@ -13319,7 +13319,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdN32pxrInternal_v0_24__pxrReserved__7TfTo
 5270:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdN32pxrInternal_v0_24__pxrReserved__7TfTokenEESaIS4_EENS2_7VtValueEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i6152
   %5271 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store ptr %5251, ptr %5271, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %220)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef %220)
           to label %5272 unwind label %9480
 
 5272:                                             ; preds = %5270
@@ -15918,7 +15918,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdN32pxrInternal_v0_24__pxrReserved__7TfTo
 6424:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdN32pxrInternal_v0_24__pxrReserved__7TfTokenEESaIS4_EENS2_7VtValueEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i6163
   %6425 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store ptr %6405, ptr %6425, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull %278)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef %278)
           to label %6426 unwind label %9920
 
 6426:                                             ; preds = %6424
@@ -17637,7 +17637,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdN32pxrInternal_v0_24__pxrReserved__7TfTo
 7215:                                             ; preds = %_ZSt10_ConstructISt4pairISt6vectorIS0_IdN32pxrInternal_v0_24__pxrReserved__7TfTokenEESaIS4_EENS2_7VtValueEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i6174
   %7216 = getelementptr inbounds nuw i8, ptr %342, i64 8
   store ptr %7196, ptr %7216, align 8
-  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %342)
+  invoke fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef %342)
           to label %7217 unwind label %10389
 
 7217:                                             ; preds = %7215
@@ -26813,7 +26813,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetAttributeERKNS_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL21_MakeAndVerifyQueriesIfEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21_MakeAndVerifyQueriesIfEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttributeQuery", align 8
@@ -27316,7 +27316,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValu
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21_MakeAndVerifyQueriesIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS5_EES4_ISt4pairIS4_ISA_IdT_ESaISC_EENS0_7VtValueEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28334,7 +28334,7 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit:        ; preds = %_ZN32pxrInternal_v0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21_MakeAndVerifyQueriesIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeERKSt6vectorINS0_16UsdResolveTargetESaIS6_EES5_ISt4pairIS5_ISB_IdT_ESaISD_EENS0_7VtValueEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

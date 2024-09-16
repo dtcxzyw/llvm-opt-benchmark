@@ -770,7 +770,7 @@ define noundef double @_Z20get_pull_coord_valueP6pull_tiRK5t_pbcd(ptr nocapture 
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds %struct.pull_coord_work_t, ptr %7, i64 %6
-  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(384) %2, double noundef %3)
+  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(384) %2, double noundef %3)
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds %struct.pull_coord_work_t, ptr %9, i64 %6, i32 3, i32 9
   %11 = load double, ptr %10, align 8
@@ -778,7 +778,7 @@ define noundef double @_Z20get_pull_coord_valueP6pull_tiRK5t_pbcd(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(384) %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(384) %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x double], align 16
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -1018,7 +1018,7 @@ define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_
 130:                                              ; preds = %127, %.thread73.i
   %.pn.i = phi ptr [ %129, %127 ], [ %120, %.thread73.i ]
   %131 = getelementptr inbounds i8, ptr %.pn.i, i64 200
-  call fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd(ptr %119, ptr noundef nonnull align 8 dereferenceable(488) %1, ptr noundef nonnull align 4 dereferenceable(384) %2, ptr noundef nonnull %124, ptr noundef nonnull %131, i32 noundef 0, i32 noundef 1, double noundef %.075.i, ptr noundef nonnull %11)
+  call fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd(ptr %119, ptr noundef nonnull align 8 dereferenceable(488) %1, ptr noundef nonnull align 4 dereferenceable(384) %2, ptr noundef nonnull %124, ptr noundef nonnull %131, i32 noundef 0, i32 noundef 1, double noundef %.075.i, ptr noundef %11)
   %132 = getelementptr inbounds i8, ptr %1, i64 88
   %133 = load i32, ptr %132, align 8
   %134 = icmp sgt i32 %133, 3
@@ -1035,7 +1035,7 @@ define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_
   %143 = getelementptr inbounds %struct.pull_group_work_t, ptr %139, i64 %142, i32 13
   %144 = getelementptr inbounds %struct.pull_group_work_t, ptr %139, i64 %138, i32 13
   %145 = getelementptr inbounds i8, ptr %1, i64 216
-  call fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd(ptr %139, ptr noundef nonnull align 8 dereferenceable(488) %1, ptr noundef nonnull align 4 dereferenceable(384) %2, ptr noundef nonnull %143, ptr noundef nonnull %144, i32 noundef 2, i32 noundef 3, double noundef %.075.i, ptr noundef nonnull %145)
+  call fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd(ptr %139, ptr noundef nonnull align 8 dereferenceable(488) %1, ptr noundef nonnull align 4 dereferenceable(384) %2, ptr noundef nonnull %143, ptr noundef nonnull %144, i32 noundef 2, i32 noundef 3, double noundef %.075.i, ptr noundef %145)
   %.pr.i = load i32, ptr %132, align 8
   %146 = icmp sgt i32 %.pr.i, 5
   br i1 %146, label %147, label %_ZL17get_pull_coord_drRK6pull_tP17pull_coord_work_tRK5t_pbc.exit
@@ -1051,7 +1051,7 @@ define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_
   %155 = getelementptr inbounds %struct.pull_group_work_t, ptr %151, i64 %154, i32 13
   %156 = getelementptr inbounds %struct.pull_group_work_t, ptr %151, i64 %150, i32 13
   %157 = getelementptr inbounds i8, ptr %1, i64 240
-  call fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd(ptr %151, ptr noundef nonnull align 8 dereferenceable(488) %1, ptr noundef nonnull align 4 dereferenceable(384) %2, ptr noundef nonnull %155, ptr noundef nonnull %156, i32 noundef 4, i32 noundef 5, double noundef %.075.i, ptr noundef nonnull %157)
+  call fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd(ptr %151, ptr noundef nonnull align 8 dereferenceable(488) %1, ptr noundef nonnull align 4 dereferenceable(384) %2, ptr noundef nonnull %155, ptr noundef nonnull %156, i32 noundef 4, i32 noundef 5, double noundef %.075.i, ptr noundef %157)
   br label %_ZL17get_pull_coord_drRK6pull_tP17pull_coord_work_tRK5t_pbc.exit
 
 _ZL17get_pull_coord_drRK6pull_tP17pull_coord_work_tRK5t_pbc.exit: ; preds = %130, %135, %147
@@ -1397,7 +1397,7 @@ declare void @_Z8pbc_dx_dPK5t_pbcPKdS3_Pd(ptr noundef, ptr noundef, ptr noundef,
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd(ptr nocapture readonly %.104.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %0, ptr noundef nonnull align 4 dereferenceable(384) %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, double noundef %6, ptr noundef %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd(ptr nocapture readonly %.104.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %0, ptr noundef nonnull align 4 dereferenceable(384) %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 5) %4, i32 noundef range(i32 1, 6) %5, double noundef %6, ptr noundef nonnull %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca [3 x double], align 16
   %10 = alloca [3 x double], align 16
   %11 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -1486,7 +1486,7 @@ define internal fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_w
   %60 = phi double [ %57, %45 ], [ 0.000000e+00, %.loopexit ]
   %61 = phi double [ %52, %45 ], [ 0.000000e+00, %.loopexit ]
   %62 = phi double [ %47, %45 ], [ 0.000000e+00, %.loopexit ]
-  call void @_Z8pbc_dx_dPK5t_pbcPKdS3_Pd(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef %7)
+  call void @_Z8pbc_dx_dPK5t_pbcPKdS3_Pd(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %7)
   %.val = load i32, ptr %34, align 8
   %.val.fr = freeze i32 %.val
   %63 = add i32 %.val.fr, -1
@@ -1641,7 +1641,7 @@ define noundef double @_Z20get_pull_coord_valueP6pull_tiRK5t_pbc(ptr nocapture n
   %10 = sext i32 %1 to i64
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds %struct.pull_coord_work_t, ptr %11, i64 %10
-  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(384) %2, double noundef 0.000000e+00)
+  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(384) %2, double noundef 0.000000e+00)
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr inbounds %struct.pull_coord_work_t, ptr %13, i64 %10, i32 3, i32 9
   %15 = load double, ptr %14, align 8
@@ -2056,7 +2056,7 @@ _ZL37check_external_potential_registrationPK6pull_t.exit: ; preds = %43, %9, %22
   br label %_ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i
 
 _ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i: ; preds = %75, %70
-  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef nonnull %.sroa.024.044, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %5)
+  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef %.sroa.024.044, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %5)
   %89 = getelementptr inbounds i8, ptr %.sroa.024.044, i64 376
   %90 = load double, ptr %89, align 8
   %91 = load double, ptr %71, align 8
@@ -3014,7 +3014,7 @@ _ZL16add_virial_coordPA3_fRK17pull_coord_work_tRK21PullCoordVectorForces.exit: ;
   %383 = load i32, ptr %382, align 4
   %384 = sext i32 %383 to i64
   %385 = getelementptr inbounds %struct.pull_group_work_t, ptr %345, i64 %384
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %385, ptr %1, ptr %67, ptr noundef nonnull %16, i32 noundef 1, ptr noundef %346)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %385, ptr %1, ptr %67, ptr noundef %16, i32 noundef 1, ptr noundef %346)
   br label %_ZL18apply_forces_coordRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_work_tEERK21PullCoordVectorForcesNS3_IKfEEPA3_f.exit
 
 386:                                              ; preds = %_ZL16add_virial_coordPA3_fRK17pull_coord_work_tRK21PullCoordVectorForces.exit
@@ -3062,12 +3062,12 @@ _ZL23apply_forces_vec_torqueRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_wo
   %409 = load i32, ptr %408, align 4
   %410 = sext i32 %409 to i64
   %411 = getelementptr inbounds %struct.pull_group_work_t, ptr %345, i64 %410
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %411, ptr %1, ptr %67, ptr noundef nonnull %6, i32 noundef -1, ptr noundef %346)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %411, ptr %1, ptr %67, ptr noundef %6, i32 noundef -1, ptr noundef %346)
   %412 = getelementptr inbounds i8, ptr %86, i64 104
   %413 = load i32, ptr %412, align 4
   %414 = sext i32 %413 to i64
   %415 = getelementptr inbounds %struct.pull_group_work_t, ptr %345, i64 %414
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %415, ptr %1, ptr %67, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %346)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %415, ptr %1, ptr %67, ptr noundef %6, i32 noundef 1, ptr noundef %346)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %416
 
@@ -3085,7 +3085,7 @@ _ZL23apply_forces_vec_torqueRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_wo
   br i1 %426, label %._crit_edge.i, label %427
 
 427:                                              ; preds = %416
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %422, ptr %1, ptr %67, ptr noundef nonnull %21, i32 noundef -1, ptr noundef %417)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %422, ptr %1, ptr %67, ptr noundef %21, i32 noundef -1, ptr noundef %417)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %427, %416
@@ -3093,7 +3093,7 @@ _ZL23apply_forces_vec_torqueRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_wo
   %429 = load i32, ptr %428, align 4
   %430 = sext i32 %429 to i64
   %431 = getelementptr inbounds %struct.pull_group_work_t, ptr %418, i64 %430
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %431, ptr %1, ptr %67, ptr noundef nonnull %21, i32 noundef 1, ptr noundef %417)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %431, ptr %1, ptr %67, ptr noundef %21, i32 noundef 1, ptr noundef %417)
   %432 = getelementptr inbounds i8, ptr %86, i64 88
   %433 = load i32, ptr %432, align 8
   %434 = icmp sgt i32 %433, 3
@@ -3104,12 +3104,12 @@ _ZL23apply_forces_vec_torqueRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_wo
   %437 = load i32, ptr %436, align 4
   %438 = sext i32 %437 to i64
   %439 = getelementptr inbounds %struct.pull_group_work_t, ptr %418, i64 %438
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %439, ptr %1, ptr %67, ptr noundef nonnull %54, i32 noundef -1, ptr noundef %417)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %439, ptr %1, ptr %67, ptr noundef %54, i32 noundef -1, ptr noundef %417)
   %440 = getelementptr inbounds i8, ptr %86, i64 104
   %441 = load i32, ptr %440, align 4
   %442 = sext i32 %441 to i64
   %443 = getelementptr inbounds %struct.pull_group_work_t, ptr %418, i64 %442
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %443, ptr %1, ptr %67, ptr noundef nonnull %54, i32 noundef 1, ptr noundef %417)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %443, ptr %1, ptr %67, ptr noundef %54, i32 noundef 1, ptr noundef %417)
   %.pr.i28 = load i32, ptr %432, align 8
   %444 = icmp sgt i32 %.pr.i28, 5
   br i1 %444, label %445, label %_ZL18apply_forces_coordRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_work_tEERK21PullCoordVectorForcesNS3_IKfEEPA3_f.exit
@@ -3119,12 +3119,12 @@ _ZL23apply_forces_vec_torqueRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_wo
   %447 = load i32, ptr %446, align 4
   %448 = sext i32 %447 to i64
   %449 = getelementptr inbounds %struct.pull_group_work_t, ptr %418, i64 %448
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %449, ptr %1, ptr %67, ptr noundef nonnull %51, i32 noundef -1, ptr noundef %417)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %449, ptr %1, ptr %67, ptr noundef %51, i32 noundef -1, ptr noundef %417)
   %450 = getelementptr inbounds i8, ptr %86, i64 112
   %451 = load i32, ptr %450, align 4
   %452 = sext i32 %451 to i64
   %453 = getelementptr inbounds %struct.pull_group_work_t, ptr %418, i64 %452
-  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %453, ptr %1, ptr %67, ptr noundef nonnull %51, i32 noundef 1, ptr noundef %417)
+  call fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %453, ptr %1, ptr %67, ptr noundef %51, i32 noundef 1, ptr noundef %417)
   br label %_ZL18apply_forces_coordRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_work_tEERK21PullCoordVectorForcesNS3_IKfEEPA3_f.exit
 
 _ZL18apply_forces_coordRK17pull_coord_work_tN3gmx8ArrayRefIK17pull_group_work_tEERK21PullCoordVectorForcesNS3_IKfEEPA3_f.exit: ; preds = %_ZL16add_virial_coordPA3_fRK17pull_coord_work_tRK21PullCoordVectorForces.exit, %381, %._crit_edge.i, %435, %445
@@ -3180,7 +3180,7 @@ declare void @_ZN3gmx38distributeTransformationPullCoordForceEP17pull_coord_work
 declare double @cos(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr %1, ptr %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 {
+define internal fastcc void @_ZL16apply_forces_grpRK17pull_group_work_tN3gmx8ArrayRefIKfEEPKdiPA3_f(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr %1, ptr %2, ptr noundef nonnull %3, i32 noundef range(i32 -1, 2) %4, ptr noundef %5) unnamed_addr #3 {
   %7 = alloca %"class.gmx::ArrayRef.87", align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -3770,7 +3770,7 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
   br i1 %.not281.i, label %149, label %195
 
 149:                                              ; preds = %.lr.ph488.i
-  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef nonnull %147, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %6)
+  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef %147, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %6)
   %150 = getelementptr inbounds i8, ptr %147, i64 192
   %151 = load ptr, ptr @debug, align 8
   %.not282.i = icmp eq ptr %151, null

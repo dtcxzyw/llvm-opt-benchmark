@@ -87,7 +87,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef %prot) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @qemu_mprotect__osdep(ptr noundef %addr, i64 noundef %size, i32 noundef range(i32 0, 8) %prot) unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %call.i.i = tail call i32 @getpagesize() #16

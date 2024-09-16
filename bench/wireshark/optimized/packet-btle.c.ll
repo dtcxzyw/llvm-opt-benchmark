@@ -6881,7 +6881,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @control_proc_can_add_frame(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @control_proc_can_add_frame(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext range(i8 3, 39) %2, i32 noundef range(i32 1, 5) %3) unnamed_addr #7 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %control_proc_can_add_frame_even_if_complete.exit.thread, label %5
 
@@ -6942,7 +6942,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %24, %23, %8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 4) %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef range(i32 1, 5) %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = zext nneg i32 %7 to i64
@@ -7153,7 +7153,7 @@ proto_item_set_generated.exit:                    ; preds = %54, %51, %48, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @control_proc_add_frame_with_instant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @control_proc_add_frame_with_instant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef range(i32 1, 3) %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %41, label %10
 
@@ -7320,7 +7320,7 @@ control_proc_add_last_frame.exit:                 ; preds = %control_proc_add_la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @control_proc_add_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @control_proc_add_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 4) %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef range(i32 1, 5) %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = zext nneg i32 %7 to i64
@@ -7397,7 +7397,7 @@ control_proc_contains_instant.exit.thread:        ; preds = %control_proc_contai
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ctrl_pdu_without_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ctrl_pdu_without_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 7, 10) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #9
   %6 = icmp sgt i32 %5, 3
   br i1 %6, label %7, label %14
@@ -7407,7 +7407,7 @@ define internal fastcc i32 @dissect_ctrl_pdu_without_data(ptr noundef %0, ptr no
   %9 = add i32 %8, -3
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef %3, i32 noundef %9) #9
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #9
-  %12 = add i32 %3, -3
+  %12 = add nsw i32 %3, -3
   %13 = add i32 %12, %11
   br label %14
 
@@ -7417,7 +7417,7 @@ define internal fastcc i32 @dissect_ctrl_pdu_without_data(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 15, 18) i32 @dissect_feature_set(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 15, 18) i32 @dissect_feature_set(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_feature_set, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 8, i32 noundef -2147483648) #9
   %6 = load i32, ptr @ett_features, align 4
@@ -7441,7 +7441,7 @@ define internal fastcc range(i32 15, 18) i32 @dissect_feature_set(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 30, 33) i32 @dissect_conn_param_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 30, 33) i32 @dissect_conn_param_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_interval_min, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 2
@@ -7482,7 +7482,7 @@ define internal fastcc range(i32 30, 33) i32 @dissect_conn_param_req_rsp(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_length_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_length_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_max_rx_octets, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 2
@@ -7498,7 +7498,7 @@ define internal fastcc void @dissect_length_req_rsp(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_phy_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_phy_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_tx_phys, align 4
   %5 = load i32, ptr @ett_tx_phys, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @hfx_control_phys_sender, i32 noundef 0) #9
@@ -7514,7 +7514,7 @@ declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 nou
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_periodic_sync_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_periodic_sync_ind(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -7602,7 +7602,7 @@ define internal fastcc noundef i32 @dissect_periodic_sync_ind(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 42, 45) i32 @dissect_cis_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 42, 45) i32 @dissect_cis_req(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_control_cig_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #9
@@ -7642,7 +7642,7 @@ define internal fastcc range(i32 42, 45) i32 @dissect_cis_req(ptr noundef %0, pt
   %40 = add nuw nsw i32 %2, 14
   %41 = load i32, ptr @hf_control_max_pdu_m_to_s, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 2, i32 noundef -2147483648) #9
-  %43 = add nuw nsw i32 %2, 16
+  %43 = or disjoint i32 %2, 16
   %44 = load i32, ptr @hf_control_max_pdu_s_to_m, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef -2147483648) #9
   %46 = add nuw nsw i32 %2, 18
@@ -7683,7 +7683,7 @@ define internal fastcc range(i32 42, 45) i32 @dissect_cis_req(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 15, 18) i32 @dissect_cis_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 15, 18) i32 @dissect_cis_rsp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_cis_offset_min, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 3, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 3
@@ -7697,7 +7697,7 @@ define internal fastcc range(i32 15, 18) i32 @dissect_cis_rsp(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 22, 25) i32 @dissect_cis_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 22, 25) i32 @dissect_cis_ind(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_access_address, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 4
@@ -7717,7 +7717,7 @@ define internal fastcc range(i32 22, 25) i32 @dissect_cis_ind(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 10, 13) i32 @dissect_cis_terminate_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 10, 13) i32 @dissect_cis_terminate_ind(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_cig_id, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #9
   %6 = add nuw nsw i32 %2, 1
@@ -7731,7 +7731,7 @@ define internal fastcc range(i32 10, 13) i32 @dissect_cis_terminate_ind(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 10, 13) i32 @dissect_power_control_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 10, 13) i32 @dissect_power_control_req(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_pwr_phy, align 4
   %5 = load i32, ptr @ett_pwr_phy, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @hfx_control_pwr_phy, i32 noundef 0) #9
@@ -7746,7 +7746,7 @@ define internal fastcc range(i32 10, 13) i32 @dissect_power_control_req(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 11, 14) i32 @dissect_power_control_rsp(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 11, 14) i32 @dissect_power_control_rsp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_pwrflags, align 4
   %5 = load i32, ptr @ett_pwrflags, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @hfx_control_pwrflags, i32 noundef 0) #9
@@ -7764,7 +7764,7 @@ define internal fastcc range(i32 11, 14) i32 @dissect_power_control_rsp(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 11, 14) i32 @dissect_power_control_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 11, 14) i32 @dissect_power_control_ind(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_pwr_phy, align 4
   %5 = load i32, ptr @ett_pwr_phy, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @hfx_control_pwr_phy, i32 noundef 0) #9
@@ -7783,7 +7783,7 @@ define internal fastcc range(i32 11, 14) i32 @dissect_power_control_ind(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 17, 20) i32 @dissect_subrate_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 17, 20) i32 @dissect_subrate_req(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_subrate_factor_min, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 2
@@ -7803,7 +7803,7 @@ define internal fastcc range(i32 17, 20) i32 @dissect_subrate_req(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 17, 20) i32 @dissect_subrate_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 17, 20) i32 @dissect_subrate_ind(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_subrate_factor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 2
@@ -7823,7 +7823,7 @@ define internal fastcc range(i32 17, 20) i32 @dissect_subrate_ind(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 10, 13) i32 @dissect_channel_reporting_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 10, 13) i32 @dissect_channel_reporting_ind(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_channel_reporting_enable, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #9
   %6 = add nuw nsw i32 %2, 1
@@ -7837,7 +7837,7 @@ define internal fastcc range(i32 10, 13) i32 @dissect_channel_reporting_ind(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_periodic_sync_wr_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_periodic_sync_wr_ind(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call fastcc i32 @dissect_periodic_sync_ind(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
   %8 = add i32 %7, %2
   %9 = load i32, ptr @hf_control_sync_info_rsp_access_address, align 4

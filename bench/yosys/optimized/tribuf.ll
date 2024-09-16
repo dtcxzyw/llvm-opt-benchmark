@@ -2413,7 +2413,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit383:             ; preds = %_ZZN12_GLOBAL__N_11
           to label %824 unwind label %856
 
 824:                                              ; preds = %823
-  %825 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull %23)
+  %825 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef %23)
           to label %826 unwind label %858
 
 826:                                              ; preds = %824
@@ -2428,7 +2428,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit383:             ; preds = %_ZZN12_GLOBAL__N_11
           to label %830 unwind label %858
 
 830:                                              ; preds = %829
-  %831 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull %24)
+  %831 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef %24)
           to label %832 unwind label %860
 
 832:                                              ; preds = %830
@@ -2565,7 +2565,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit409:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %866 unwind label %856
 
 866:                                              ; preds = %865
-  %867 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull %25)
+  %867 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef %25)
           to label %868 unwind label %995
 
 868:                                              ; preds = %866
@@ -3044,7 +3044,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit490:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1013 unwind label %856
 
 1013:                                             ; preds = %1012
-  %1014 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull %32)
+  %1014 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef %32)
           to label %1015 unwind label %1148
 
 1015:                                             ; preds = %1013
@@ -7982,7 +7982,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef %0) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112TribufWorker8is_all_zEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull %0) unnamed_addr #4 align 2 {
   %2 = load i32, ptr %0, align 8
   %.not16 = icmp eq i32 %2, 0
   br i1 %.not16, label %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread, label %.lr.ph

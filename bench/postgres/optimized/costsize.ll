@@ -3097,7 +3097,7 @@ define dso_local void @cost_incremental_sort(ptr nocapture noundef writeonly %0,
   %40 = fsub double %5, %4
   %41 = fdiv double %.0, %.047
   %42 = fdiv double %40, %.047
-  call fastcc void @cost_tuplesort(ptr noundef nonnull %12, ptr noundef nonnull %13, double noundef %41, i32 noundef %7, double noundef %8, i32 noundef %9, double noundef %10)
+  call fastcc void @cost_tuplesort(ptr noundef %12, ptr noundef %13, double noundef %41, i32 noundef %7, double noundef %8, i32 noundef %9, double noundef %10)
   %43 = load double, ptr %12, align 8
   %44 = fadd double %4, %43
   %45 = fadd double %42, %44
@@ -3130,7 +3130,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare double @estimate_num_groups(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cost_tuplesort(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, double noundef %6) unnamed_addr #2 {
+define internal fastcc void @cost_tuplesort(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, double noundef %6) unnamed_addr #2 {
   %8 = sext i32 %3 to i64
   %9 = add nsw i64 %8, 7
   %10 = and i64 %9, -8
@@ -3219,7 +3219,7 @@ define internal fastcc void @cost_tuplesort(ptr nocapture noundef %0, ptr nocapt
 define dso_local void @cost_sort(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, double noundef %3, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7, double noundef %8) local_unnamed_addr #2 {
   %10 = alloca double, align 8
   %11 = alloca double, align 8
-  call fastcc void @cost_tuplesort(ptr noundef nonnull %10, ptr noundef nonnull %11, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7, double noundef %8)
+  call fastcc void @cost_tuplesort(ptr noundef %10, ptr noundef %11, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7, double noundef %8)
   %12 = load i8, ptr @enable_sort, align 1
   %13 = trunc i8 %12 to i1
   %.pre = load double, ptr %10, align 8
@@ -3338,7 +3338,7 @@ define dso_local void @cost_append(ptr nocapture noundef %0) local_unnamed_addr 
   %64 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call fastcc void @cost_tuplesort(ptr noundef nonnull %2, ptr noundef nonnull %3, double noundef %58, i32 noundef %62, double noundef 0.000000e+00, i32 noundef %63, double noundef %64)
+  call fastcc void @cost_tuplesort(ptr noundef %2, ptr noundef %3, double noundef %58, i32 noundef %62, double noundef 0.000000e+00, i32 noundef %63, double noundef %64)
   %65 = load i8, ptr @enable_sort, align 1
   %66 = trunc i8 %65 to i1
   %.pre.i = load double, ptr %2, align 8
@@ -5292,7 +5292,7 @@ clamp_row_est.exit154:                            ; preds = %clamp_row_est.exit,
   %168 = load i32, ptr @work_mem, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call fastcc void @cost_tuplesort(ptr noundef nonnull %12, ptr noundef nonnull %13, double noundef %.0123, i32 noundef %167, double noundef 0.000000e+00, i32 noundef %168, double noundef -1.000000e+00)
+  call fastcc void @cost_tuplesort(ptr noundef %12, ptr noundef %13, double noundef %.0123, i32 noundef %167, double noundef 0.000000e+00, i32 noundef %168, double noundef -1.000000e+00)
   %169 = load i8, ptr @enable_sort, align 1
   %170 = trunc i8 %169 to i1
   %.pre.i = load double, ptr %12, align 8
@@ -5335,7 +5335,7 @@ clamp_row_est.exit154:                            ; preds = %clamp_row_est.exit,
   %196 = load i32, ptr @work_mem, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call fastcc void @cost_tuplesort(ptr noundef nonnull %10, ptr noundef nonnull %11, double noundef %.0124, i32 noundef %195, double noundef 0.000000e+00, i32 noundef %196, double noundef -1.000000e+00)
+  call fastcc void @cost_tuplesort(ptr noundef %10, ptr noundef %11, double noundef %.0124, i32 noundef %195, double noundef 0.000000e+00, i32 noundef %196, double noundef -1.000000e+00)
   %197 = load i8, ptr @enable_sort, align 1
   %198 = trunc i8 %197 to i1
   %.pre.i155 = load double, ptr %10, align 8

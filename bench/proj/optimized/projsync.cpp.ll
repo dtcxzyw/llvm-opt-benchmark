@@ -2803,7 +2803,7 @@ _ZNK13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11ch
   br i1 %910, label %911, label %_ZNSt6vectorIdSaIdEED2Ev.exit491
 
 911:                                              ; preds = %908
-  invoke fastcc void @_ZL8get_bboxRKN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(16) %907)
+  invoke fastcc void @_ZL8get_bboxRKN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEE(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(16) %907)
           to label %912 unwind label %.loopexit.split-lp578
 
 912:                                              ; preds = %911
@@ -3005,7 +3005,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.loopexit577, %.loo
   br label %1047
 
 998:                                              ; preds = %890
-  invoke fastcc void @_ZL8get_bboxRKN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(16) %59)
+  invoke fastcc void @_ZL8get_bboxRKN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEE(ptr dead_on_unwind noalias writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(16) %59)
           to label %999 unwind label %924
 
 999:                                              ; preds = %998
@@ -5444,7 +5444,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8get_bboxRKN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL8get_bboxRKN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -5754,7 +5754,7 @@ _ZN13proj_nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx111
   br i1 %124, label %125, label %_ZNSt6vectorIdSaIdEED2Ev.exit62
 
 125:                                              ; preds = %122
-  invoke fastcc void @_ZL8get_bboxRKN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %121)
+  invoke fastcc void @_ZL8get_bboxRKN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %121)
           to label %126 unwind label %.loopexit
 
 126:                                              ; preds = %125

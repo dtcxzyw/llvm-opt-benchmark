@@ -626,7 +626,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br i1 %.not68, label %112, label %110
 
 110:                                              ; preds = %108
-  %111 = call fastcc ptr @_expand_mult(ptr noundef nonnull %104, ptr noundef nonnull @.str.36, ptr noundef nonnull %7)
+  %111 = call fastcc ptr @_expand_mult(ptr noundef %104, ptr noundef nonnull @.str.36, ptr noundef %7)
   store ptr %111, ptr %1, align 8
   br label %233
 
@@ -663,7 +663,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br i1 %.not66, label %132, label %130
 
 130:                                              ; preds = %128
-  %131 = call fastcc ptr @_expand_mult(ptr noundef nonnull %124, ptr noundef nonnull @.str.40, ptr noundef nonnull %7)
+  %131 = call fastcc ptr @_expand_mult(ptr noundef %124, ptr noundef nonnull @.str.40, ptr noundef %7)
   store ptr %131, ptr %1, align 8
   br label %233
 
@@ -714,7 +714,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br i1 %.not64, label %160, label %158
 
 158:                                              ; preds = %156
-  %159 = call fastcc ptr @_expand_mult(ptr noundef nonnull %152, ptr noundef nonnull @.str.44, ptr noundef nonnull %7)
+  %159 = call fastcc ptr @_expand_mult(ptr noundef %152, ptr noundef nonnull @.str.44, ptr noundef %7)
   store ptr %159, ptr %1, align 8
   br label %233
 
@@ -751,7 +751,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br i1 %.not62, label %180, label %178
 
 178:                                              ; preds = %176
-  %179 = call fastcc ptr @_expand_mult(ptr noundef nonnull %172, ptr noundef nonnull @.str.47, ptr noundef nonnull %7)
+  %179 = call fastcc ptr @_expand_mult(ptr noundef %172, ptr noundef nonnull @.str.47, ptr noundef %7)
   store ptr %179, ptr %1, align 8
   br label %233
 
@@ -872,7 +872,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_expand_mult(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -881,7 +881,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef %0, ptr noundef %1, ptr noc
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
   store i32 0, ptr %2, align 4
-  %8 = tail call ptr @xstrdup(ptr noundef %0) #14
+  %8 = tail call ptr @xstrdup(ptr noundef nonnull %0) #14
   store ptr %8, ptr %7, align 8
   %9 = tail call i32 @xstrncmp(ptr noundef %1, ptr noundef nonnull @.str.77, i64 noundef 4) #14
   %.not = icmp eq i32 %9, 0
@@ -1018,7 +1018,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef %0, ptr noundef %1, ptr noc
   br i1 %.not67, label %58, label %60
 
 58:                                               ; preds = %.loopexit
-  %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef %0) #14
+  %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef nonnull %0) #14
   store i32 -1, ptr %2, align 4
   %.pre = load ptr, ptr %5, align 8
   br label %60
@@ -1407,7 +1407,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br i1 %.not41, label %128, label %126
 
 126:                                              ; preds = %124
-  %127 = call fastcc ptr @_expand_mult(ptr noundef nonnull %120, ptr noundef nonnull @.str.68, ptr noundef nonnull %7)
+  %127 = call fastcc ptr @_expand_mult(ptr noundef %120, ptr noundef nonnull @.str.68, ptr noundef %7)
   store ptr %127, ptr %1, align 8
   br label %153
 
@@ -1444,7 +1444,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br i1 %.not39, label %148, label %146
 
 146:                                              ; preds = %144
-  %147 = call fastcc ptr @_expand_mult(ptr noundef nonnull %140, ptr noundef nonnull @.str.71, ptr noundef nonnull %7)
+  %147 = call fastcc ptr @_expand_mult(ptr noundef %140, ptr noundef nonnull @.str.71, ptr noundef %7)
   store ptr %147, ptr %1, align 8
   br label %153
 

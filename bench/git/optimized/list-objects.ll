@@ -408,7 +408,7 @@ if.end54.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %tobool60.not.i, label %if.end62.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %if.end54.i
-  call fastcc void @traverse_non_commits(ptr noundef nonnull %ctx, ptr noundef nonnull %csp.i)
+  call fastcc void @traverse_non_commits(ptr noundef %ctx, ptr noundef %csp.i)
   %.pre.i = load ptr, ptr %ctx, align 8
   br label %if.end62.i
 
@@ -419,7 +419,7 @@ if.end62.i:                                       ; preds = %if.then61.i, %if.en
   br i1 %cmp.not.i, label %do_traverse.exit, label %while.body.i, !llvm.loop !11
 
 do_traverse.exit:                                 ; preds = %if.end62.i, %if.end
-  call fastcc void @traverse_non_commits(ptr noundef nonnull %ctx, ptr noundef nonnull %csp.i)
+  call fastcc void @traverse_non_commits(ptr noundef %ctx, ptr noundef %csp.i)
   call void @strbuf_release(ptr noundef nonnull %csp.i) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %csp.i)
   %14 = load ptr, ptr %filter, align 8
@@ -473,7 +473,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @traverse_non_commits(ptr nocapture noundef %ctx, ptr noundef %base) unnamed_addr #0 {
+define internal fastcc void @traverse_non_commits(ptr nocapture noundef nonnull %ctx, ptr noundef nonnull %base) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %pending25 = getelementptr inbounds i8, ptr %0, i64 8
@@ -569,11 +569,11 @@ if.end10:                                         ; preds = %if.end
 
 if.then18:                                        ; preds = %if.end10
   store i32 0, ptr %depth, align 8
-  tail call fastcc void @process_tree(ptr noundef nonnull %ctx, ptr noundef nonnull %4, ptr noundef %base, ptr noundef nonnull %spec.store.select)
+  tail call fastcc void @process_tree(ptr noundef %ctx, ptr noundef nonnull %4, ptr noundef %base, ptr noundef nonnull %spec.store.select)
   br label %for.inc
 
 if.then24:                                        ; preds = %if.end10
-  tail call fastcc void @process_blob(ptr noundef nonnull %ctx, ptr noundef nonnull %4, ptr noundef %base, ptr noundef nonnull %spec.store.select)
+  tail call fastcc void @process_blob(ptr noundef %ctx, ptr noundef nonnull %4, ptr noundef %base, ptr noundef nonnull %spec.store.select)
   br label %for.inc
 
 if.end25:                                         ; preds = %if.end10
@@ -606,7 +606,7 @@ declare void @add_pending_object(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @gettext(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_tree(ptr nocapture noundef %ctx, ptr noundef %tree, ptr noundef %base, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @process_tree(ptr nocapture noundef nonnull %ctx, ptr noundef %tree, ptr noundef nonnull %base, ptr noundef %name) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %len = getelementptr inbounds i8, ptr %base, i64 8
@@ -809,7 +809,7 @@ if.else:                                          ; preds = %if.end68
   br i1 %tobool20.not, label %if.then78, label %if.end80
 
 if.then78:                                        ; preds = %if.else
-  tail call fastcc void @process_tree_contents(ptr noundef nonnull %ctx, ptr noundef nonnull %tree, ptr noundef nonnull %base)
+  tail call fastcc void @process_tree_contents(ptr noundef %ctx, ptr noundef %tree, ptr noundef %base)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.else, %if.then78, %if.then74, %do.body
@@ -897,7 +897,7 @@ return:                                           ; preds = %land.lhs.true34, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_blob(ptr nocapture noundef readonly %ctx, ptr noundef %blob, ptr noundef %path, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @process_blob(ptr nocapture noundef nonnull readonly %ctx, ptr noundef %blob, ptr noundef nonnull %path, ptr noundef %name) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %blob_objects = getelementptr inbounds i8, ptr %0, i64 280
@@ -941,7 +941,7 @@ if.end21:                                         ; preds = %land.lhs.true16, %l
   %len = getelementptr inbounds i8, ptr %path, i64 8
   %5 = load i64, ptr %len, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
-  tail call void @strbuf_add(ptr noundef %path, ptr noundef %name, i64 noundef %call.i) #7
+  tail call void @strbuf_add(ptr noundef nonnull %path, ptr noundef %name, i64 noundef %call.i) #7
   %6 = load ptr, ptr %ctx, align 8
   %repo = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %repo, align 8
@@ -1034,7 +1034,7 @@ declare i32 @is_promisor_object(ptr noundef) local_unnamed_addr #1
 declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_tree_contents(ptr nocapture noundef %ctx, ptr noundef %tree, ptr noundef %base) unnamed_addr #0 {
+define internal fastcc void @process_tree_contents(ptr nocapture noundef nonnull %ctx, ptr noundef nonnull %tree, ptr noundef nonnull %base) unnamed_addr #0 {
 entry:
   %desc = alloca %struct.tree_desc, align 8
   %entry1 = alloca %struct.name_entry, align 8
@@ -1070,7 +1070,7 @@ if.then:                                          ; preds = %while.body
   %index = getelementptr inbounds i8, ptr %5, i64 240
   %6 = load ptr, ptr %index, align 8
   %pathspec6 = getelementptr inbounds i8, ptr %4, i64 1936
-  %call7 = call i32 @tree_entry_interesting(ptr noundef %6, ptr noundef nonnull %entry1, ptr noundef %base, ptr noundef nonnull %pathspec6) #7
+  %call7 = call i32 @tree_entry_interesting(ptr noundef %6, ptr noundef nonnull %entry1, ptr noundef nonnull %base, ptr noundef nonnull %pathspec6) #7
   switch i32 %call7, label %if.end13 [
     i32 -1, label %while.end
     i32 0, label %while.cond.backedge
@@ -1110,7 +1110,7 @@ if.end24:                                         ; preds = %if.then15
   %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %depth, align 8
   %13 = load ptr, ptr %path27, align 8
-  call fastcc void @process_tree(ptr noundef nonnull %ctx, ptr noundef nonnull %call18, ptr noundef %base, ptr noundef %13)
+  call fastcc void @process_tree(ptr noundef %ctx, ptr noundef nonnull %call18, ptr noundef %base, ptr noundef %13)
   %14 = load i32, ptr %depth, align 8
   %dec = add nsw i32 %14, -1
   store i32 %dec, ptr %depth, align 8
@@ -1137,7 +1137,7 @@ if.end45:                                         ; preds = %if.else33
   %bf.set54 = or i32 %bf.load47, 536870912
   store i32 %bf.set54, ptr %call37, align 4
   %18 = load ptr, ptr %path27, align 8
-  call fastcc void @process_blob(ptr noundef nonnull %ctx, ptr noundef nonnull %call37, ptr noundef %base, ptr noundef %18)
+  call fastcc void @process_blob(ptr noundef %ctx, ptr noundef nonnull %call37, ptr noundef %base, ptr noundef %18)
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end24, %if.end45, %if.end13, %if.then

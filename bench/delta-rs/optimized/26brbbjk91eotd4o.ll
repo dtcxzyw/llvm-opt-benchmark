@@ -1128,7 +1128,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.956944259081774161.exit.i
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body.i, %37
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %37 ], [ %.pn.i, %.body.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h3ea8a2c598bf218aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #28
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h3ea8a2c598bf218aE"(ptr noalias noundef align 8 dereferenceable(32) %7) #28
           to label %92 unwind label %96
 
 "_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h31f1e97ff52fefecE.exit": ; preds = %.noexc, %.thread.i
@@ -1752,7 +1752,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$$RF$object_store..memory..St
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h553a493305df3cd5E"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h553a493305df3cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !293, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1835,7 +1835,7 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h3ea8a2c598bf218aE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h3ea8a2c598bf218aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %3
@@ -3905,7 +3905,7 @@ define void @_ZN15deltalake_azure17register_handlers17h76d0cb26eacedf3aE(ptr noa
 
 "_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$deltalake_azure..AzureFactory$GT$$GT$17hc14f0561d7ab26e3E.exit": ; preds = %113, %117, %43
   %.pn22 = phi { ptr, i32 } [ %44, %43 ], [ %.pn20, %117 ], [ %.pn20, %113 ]
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h553a493305df3cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) #28
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h553a493305df3cd5E"(ptr noalias noundef align 8 dereferenceable(88) %0) #28
           to label %742 unwind label %740
 
 43:                                               ; preds = %124, %42

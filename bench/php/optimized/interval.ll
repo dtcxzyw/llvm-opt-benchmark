@@ -45,7 +45,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %26 = tail call ptr @timelib_rel_time_ctor() #9
   %27 = getelementptr inbounds i8, ptr %26, i64 68
   store i32 0, ptr %27, align 4
-  call fastcc void @sort_old_to_new(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %26)
+  call fastcc void @sort_old_to_new(ptr noundef %3, ptr noundef %4, ptr noundef %26)
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 56
   %30 = load i32, ptr %29, align 8
@@ -276,7 +276,7 @@ timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %1
   %174 = tail call ptr @timelib_rel_time_ctor() #9
   %175 = getelementptr inbounds i8, ptr %174, i64 68
   store i32 0, ptr %175, align 4
-  call fastcc void @sort_old_to_new(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %174)
+  call fastcc void @sort_old_to_new(ptr noundef %7, ptr noundef %8, ptr noundef %174)
   %176 = load ptr, ptr %8, align 8
   %177 = load i64, ptr %176, align 8
   %178 = load ptr, ptr %7, align 8
@@ -383,7 +383,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @timelib_rel_time_ctor() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sort_old_to_new(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 {
+define internal fastcc void @sort_old_to_new(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 232
   %6 = load i32, ptr %5, align 8

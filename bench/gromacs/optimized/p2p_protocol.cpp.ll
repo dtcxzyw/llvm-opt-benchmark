@@ -464,7 +464,7 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41: ; preds
   %73 = load ptr, ptr %67, align 8
   %74 = getelementptr %struct.send_envelope_list, ptr %73, i64 %indvars.iv, i32 3
   %.val39 = load ptr, ptr %74, align 8
-  %75 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val39, ptr noundef nonnull %40)
+  %75 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val39, ptr noundef %40)
   %.not37 = icmp eq ptr %75, null
   br i1 %.not37, label %68, label %.thread55
 
@@ -475,14 +475,14 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41: ; preds
   %79 = ashr exact i64 %sext, 32
   %80 = getelementptr %struct.send_envelope_list, ptr %78, i64 %79, i32 3
   %.val = load ptr, ptr %80, align 8
-  %81 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val, ptr noundef nonnull %15)
+  %81 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val, ptr noundef %15)
   %.not38 = icmp eq ptr %81, null
   br i1 %.not38, label %.thread50, label %.thread55
 
 .thread55:                                        ; preds = %72, %76
   %.03160 = phi ptr [ %81, %76 ], [ %75, %72 ]
   %phi.call.ph4759 = phi ptr [ %15, %76 ], [ %40, %72 ]
-  tail call fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr noundef nonnull %.03160, ptr noundef nonnull %phi.call.ph4759)
+  tail call fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr noundef %.03160, ptr noundef %phi.call.ph4759)
   br label %_ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype_ii.exit
 
 .thread50:                                        ; preds = %68, %64, %76
@@ -509,7 +509,7 @@ _ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr readonly %.136.val, ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr readonly %.136.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
   %.0.in4 = getelementptr inbounds i8, ptr %.136.val, i64 136
   %.05 = load ptr, ptr %.0.in4, align 8
   %.not6 = icmp eq ptr %.05, %.136.val
@@ -667,7 +667,7 @@ _ZL29tMPI_Send_env_list_remove_oldP8envelope.exit: ; preds = %._crit_edge.i, %71
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16

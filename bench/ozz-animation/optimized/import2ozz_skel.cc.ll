@@ -228,7 +228,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %69
   store ptr %83, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %6, i64 40
   store i64 0, ptr %87, align 8
-  %88 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull %6)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef %6)
           to label %89 unwind label %94
 
 89:                                               ; preds = %82
@@ -881,7 +881,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.ozz::log::Err", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -944,7 +944,7 @@ _ZN3ozz3log6LoggerlsIA55_cEERSoRKT_.exit:         ; preds = %23
 35:                                               ; preds = %.lr.ph
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %36, i64 %.01214
-  %38 = call fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull %1)
+  %38 = call fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef %1)
   br i1 %38, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %35, %9, %2, %32

@@ -1972,7 +1972,7 @@ define hidden noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr nocapture n
 84:                                               ; preds = %81, %80
   %85 = getelementptr inbounds i8, ptr %62, i64 %64
   %86 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %62, ptr noundef %85, i64 noundef %86) #13
+  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %62, ptr noundef nonnull %85, i64 noundef %86) #13
   br label %87
 
 87:                                               ; preds = %81, %84

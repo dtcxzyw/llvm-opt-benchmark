@@ -223,7 +223,7 @@ deleteNode.exit:                                  ; preds = %25, %.sink.split.i
 declare void @debugMonitorEnter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @deleteNode(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @deleteNode(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 528
   %5 = load i32, ptr %4, align 8
@@ -730,7 +730,7 @@ isStrong.exit.thread:                             ; preds = %findNodeByID.exit, 
   %.in = getelementptr inbounds i8, ptr %.01928.i.lcssa38, i64 16
   %64 = load ptr, ptr %.in, align 8
   store ptr %64, ptr %.sink.i, align 8
-  tail call fastcc void @deleteNode(ptr noundef nonnull %0, ptr noundef nonnull %.01928.i.lcssa38)
+  tail call fastcc void @deleteNode(ptr noundef nonnull %0, ptr noundef %.01928.i.lcssa38)
   br label %deleteNodeByID.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i21.preheader, %.lr.ph.i21
@@ -852,7 +852,7 @@ define internal fastcc void @deleteNodeByID(ptr noundef %0, i64 noundef %1, i32 
 39:                                               ; preds = %37, %32
   %.sink = phi ptr [ %38, %37 ], [ %36, %32 ]
   store ptr %31, ptr %.sink, align 8
-  tail call fastcc void @deleteNode(ptr noundef %0, ptr noundef nonnull %.01928.lcssa)
+  tail call fastcc void @deleteNode(ptr noundef %0, ptr noundef %.01928.lcssa)
   br label %.loopexit
 
 .lr.ph37:                                         ; preds = %.lr.ph.preheader, %.lr.ph
@@ -921,7 +921,7 @@ define hidden range(i32 0, 206) i32 @commonRef_pin(i64 noundef %0) local_unnamed
   br i1 %.not.i, label %deleteNodeByID.exit, label %.lr.ph.i, !llvm.loop !11
 
 findNodeByID.exit:                                ; preds = %.lr.ph.i
-  %22 = tail call fastcc ptr @strengthenNode(ptr noundef %7, ptr noundef nonnull %.03.i, i8 noundef zeroext 0)
+  %22 = tail call fastcc ptr @strengthenNode(ptr noundef %7, ptr noundef %.03.i, i8 noundef zeroext 0)
   %23 = icmp eq ptr %22, null
   %.pre27 = load ptr, ptr @gdata, align 8
   br i1 %23, label %24, label %deleteNodeByID.exit
@@ -968,7 +968,7 @@ findNodeByID.exit:                                ; preds = %.lr.ph.i
   %.in = getelementptr inbounds i8, ptr %.01928.i.lcssa30, i64 16
   %45 = load ptr, ptr %.in, align 8
   store ptr %45, ptr %.sink.i, align 8
-  tail call fastcc void @deleteNode(ptr noundef %7, ptr noundef nonnull %.01928.i.lcssa30)
+  tail call fastcc void @deleteNode(ptr noundef %7, ptr noundef %.01928.i.lcssa30)
   %.pre = load ptr, ptr @gdata, align 8
   br label %deleteNodeByID.exit
 
@@ -995,7 +995,7 @@ deleteNodeByID.exit:                              ; preds = %20, %.lr.ph, %3, %4
 declare ptr @getEnv() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @strengthenNode(ptr noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @strengthenNode(ptr noundef %0, ptr nocapture noundef nonnull %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i8, ptr %4, align 4
   %.not.i = icmp eq i8 %5, 0
@@ -1122,7 +1122,7 @@ define hidden range(i32 0, 189) i32 @commonRef_unpin(i64 noundef %0) local_unnam
   br i1 %.not.i, label %findNodeByID.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
 findNodeByID.exit:                                ; preds = %.lr.ph.i
-  %20 = tail call fastcc ptr @weakenNode(ptr noundef %5, ptr noundef nonnull %.03.i, i8 noundef zeroext 0)
+  %20 = tail call fastcc ptr @weakenNode(ptr noundef %5, ptr noundef %.03.i, i8 noundef zeroext 0)
   %21 = icmp eq ptr %20, null
   %spec.select = select i1 %21, i32 188, i32 0
   %.pre = load ptr, ptr @gdata, align 8
@@ -1138,7 +1138,7 @@ findNodeByID.exit.thread:                         ; preds = %18, %1, %findNodeBy
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @weakenNode(ptr noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @weakenNode(ptr noundef %0, ptr nocapture noundef nonnull %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0

@@ -4239,7 +4239,7 @@ while.body.i.i.i:                                 ; preds = %_ZN10ref_vectorI4ex
   store ptr null, ptr %m_nodes2.i.i.i.i.i, align 8
   store i64 %2, ptr %agg.tmp.i.i.i, align 8
   store ptr %3, ptr %m_nodes.i.i10.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIP10ref_vectorI4expr11ast_managerElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt3lns11relax_coresEvE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIP10ref_vectorI4expr11ast_managerElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt3lns11relax_coresEvE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef %agg.tmp.i.i.i)
   %4 = load ptr, ptr %m_nodes.i.i10.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i.i.i.i.i, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit37.i.i.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i
@@ -4322,7 +4322,7 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   %sub.ptr.div.i18 = ashr exact i64 %sub.ptr.sub.i17, 4
   store i64 %14, ptr %agg.tmp.i, align 8
   store ptr %15, ptr %m_nodes.i.i4.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIP10ref_vectorI4expr11ast_managerElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt3lns11relax_coresEvE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i18, ptr noundef nonnull %agg.tmp.i)
+  call fastcc void @"_ZSt13__adjust_heapIP10ref_vectorI4expr11ast_managerElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt3lns11relax_coresEvE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i18, ptr noundef %agg.tmp.i)
   %16 = load ptr, ptr %m_nodes.i.i4.i, align 8
   %cmp.i.i.i.i19 = icmp eq ptr %16, null
   br i1 %cmp.i.i.i.i19, label %"_ZSt10__pop_heapIP10ref_vectorI4expr11ast_managerEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt3lns11relax_coresEvE3$_0EEEvT_SC_SC_RT0_.exit", label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i
@@ -4588,7 +4588,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIP10ref_vectorI4expr11ast_managerElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt3lns11relax_coresEvE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIP10ref_vectorI4expr11ast_managerElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt3lns11relax_coresEvE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %__first, i64 noundef range(i64 0, 288230376151711743) %__holeIndex, i64 noundef range(i64 -576460752303423488, 576460752303423488) %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %class.ref_vector, align 8
   %sub = add nsw i64 %__len, -1

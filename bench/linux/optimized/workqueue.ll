@@ -6591,7 +6591,7 @@ define dso_local noundef i32 @workqueue_online_cpu(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wq_update_pod(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
+define internal fastcc void @wq_update_pod(ptr noundef %0, i32 noundef range(i32 0, 64) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = select i1 %3, i32 -1, i32 %2
   %6 = getelementptr inbounds i8, ptr %0, i64 256
   %7 = load i32, ptr %6, align 64
@@ -9017,7 +9017,7 @@ declare dso_local i32 @cpumask_any_distribute(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @wake_up_process(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @insert_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @insert_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 0) %3) unnamed_addr #1 align 16 {
   %5 = zext i32 %3 to i64
   %6 = load volatile i64, ptr %1, align 8
   %7 = and i64 %6, 1
@@ -9994,7 +9994,7 @@ define internal fastcc ptr @alloc_unbound_pwq(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wq_calc_pod_cpumask(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @wq_calc_pod_cpumask(ptr noundef %0, i32 noundef range(i32 0, 64) %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 6
@@ -10343,7 +10343,7 @@ unbind_worker.exit:                               ; preds = %92, %95, %96, %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc i32 @jhash(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 align 16 {
+define internal fastcc i32 @jhash(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 536870920) %1, i32 noundef %2) unnamed_addr #20 align 16 {
   %4 = add nuw nsw i32 %1, -559038737
   %5 = add i32 %4, %2
   %6 = icmp ugt i32 %1, 12
@@ -10759,7 +10759,7 @@ define internal void @rcu_free_wq(ptr noundef %0) #1 align 16 {
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @install_unbound_pwq(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @install_unbound_pwq(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 64) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 120

@@ -83,7 +83,7 @@ define dso_local i32 @hugetlb_vmemmap_restore_folio(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.vmemmap_remap_walk, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
@@ -305,7 +305,7 @@ define dso_local void @hugetlb_vmemmap_optimize_folio(ptr nocapture noundef read
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 3) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.vmemmap_remap_walk, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load volatile i64, ptr %6, align 8
@@ -998,7 +998,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local void @split_page(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @pte_free_kernel(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @pte_free_kernel(ptr noundef nonnull %0) unnamed_addr #6 align 16 {
   %2 = load i64, ptr @vmemmap_base, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = ptrtoint ptr %0 to i64

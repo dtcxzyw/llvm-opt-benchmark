@@ -396,7 +396,7 @@ thread-pre-split27:                               ; preds = %107, %114, %111
   unreachable
 
 142:                                              ; preds = %.lr.ph.i
-  call fastcc void @_setup_one_job_env(ptr noundef nonnull %134, ptr noundef nonnull %135, i1 noundef zeroext %122)
+  call fastcc void @_setup_one_job_env(ptr noundef nonnull %134, ptr noundef %135, i1 noundef zeroext %122)
   %143 = call ptr @list_next(ptr noundef %132) #15
   %.not27.i = icmp eq ptr %143, null
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -411,7 +411,7 @@ thread-pre-split27:                               ; preds = %107, %114, %111
   br i1 %.not24.i, label %146, label %145
 
 145:                                              ; preds = %144
-  call fastcc void @_setup_one_job_env(ptr noundef nonnull @opt, ptr noundef nonnull %119, i1 noundef zeroext %122)
+  call fastcc void @_setup_one_job_env(ptr noundef nonnull @opt, ptr noundef %119, i1 noundef zeroext %122)
   br label %_setup_job_env.exit
 
 146:                                              ; preds = %144
@@ -1526,7 +1526,7 @@ declare i32 @launch_g_step_launch(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @launch_g_step_wait(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_setup_one_job_env(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_setup_one_job_env(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

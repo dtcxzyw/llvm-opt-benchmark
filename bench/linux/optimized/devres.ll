@@ -178,7 +178,7 @@ define dso_local ptr @devm_ioremap_resource(ptr noundef %0, ptr noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !9
 
@@ -273,7 +273,7 @@ define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef 
   br i1 %57, label %69, label %58
 
 58:                                               ; preds = %52
-  switch i32 %19, label %default.unreachable [
+  switch i32 %19, label %default.unreachable10 [
     i32 0, label %59
     i32 1, label %61
     i32 2, label %63
@@ -292,7 +292,7 @@ define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef 
   %64 = tail call ptr @ioremap_wc(i64 noundef %53, i64 noundef %24) #5
   br label %65
 
-default.unreachable:                              ; preds = %58
+default.unreachable10:                            ; preds = %58
   unreachable
 
 65:                                               ; preds = %63, %61, %59

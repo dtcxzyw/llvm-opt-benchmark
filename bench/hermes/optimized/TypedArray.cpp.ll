@@ -7829,12 +7829,12 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL15typedFindHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL15typedFindHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp)
   ret { i32, i64 } %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, i64 } @_ZN6hermes2vmL15typedFindHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, i1 noundef zeroext %reverse, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) unnamed_addr #0 {
+define internal fastcc { i32, i64 } @_ZN6hermes2vmL15typedFindHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, i1 noundef zeroext %reverse, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %args) unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -8057,7 +8057,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL15typedFindHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL15typedFindHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp)
   ret { i32, i64 } %call
 }
 

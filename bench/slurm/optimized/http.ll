@@ -242,7 +242,7 @@ _decode_seq.exit:                                 ; preds = %64, %61
   br i1 %.not37, label %86, label %75
 
 75:                                               ; preds = %73
-  %76 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef nonnull %4, i1 noundef zeroext %1)
+  %76 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef %4, i1 noundef zeroext %1)
   %77 = icmp eq i32 %76, 0
   %78 = getelementptr inbounds i8, ptr %.0325172, i64 1
   br i1 %77, label %.backedge, label %.thread47
@@ -275,7 +275,7 @@ _decode_seq.exit:                                 ; preds = %64, %61
   br i1 %.not50, label %.thread, label %89
 
 89:                                               ; preds = %.critedge
-  %90 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef nonnull %4, i1 noundef zeroext %1)
+  %90 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef %4, i1 noundef zeroext %1)
   %.not40 = icmp eq i32 %90, 0
   br i1 %.not40, label %.thread, label %.thread47
 
@@ -307,7 +307,7 @@ declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_xstrncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_add_path(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_add_path(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @xstrcasecmp(ptr noundef %4, ptr noundef nonnull @.str.17) #4
   %.not = icmp eq i32 %5, 0

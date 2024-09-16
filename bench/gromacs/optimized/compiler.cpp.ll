@@ -658,7 +658,7 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %._crit_edge, %63, %66
-  invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %13)
+  invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %13)
           to label %68 unwind label %842
 
 68:                                               ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
@@ -973,7 +973,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i: ; preds = %_ZNSt
 
 202:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i, %.lr.ph110.i
   %203 = phi ptr [ %199, %.lr.ph110.i ], [ %591, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i ]
-  invoke fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
           to label %204 unwind label %.body, !noalias !12
 
 204:                                              ; preds = %202
@@ -3988,7 +3988,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288: ; preds = %1450
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291: ; preds = %._crit_edge573, %1508, %1511
-  invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull %17)
+  invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %17)
           to label %1513 unwind label %1724
 
 1513:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291
@@ -4800,7 +4800,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368: ; preds = %1820
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371: ; preds = %._crit_edge579, %1878, %1881
-  invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull %19)
+  invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %19)
           to label %1883 unwind label %2092
 
 1883:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371
@@ -6825,7 +6825,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %._crit_edge
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
@@ -6838,7 +6838,7 @@ define internal fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3g
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %7, align 8
-  call fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr nonnull %4, ptr %.val3)
+  call fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias writable align 8 %3, ptr nonnull %4, ptr %.val3)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -21584,7 +21584,7 @@ declare void @_Z27_gmx_selelem_set_kwpos_typePN3gmx20SelectionTreeElementEPKc(pt
 declare void @_Z28_gmx_selelem_set_kwpos_flagsPN3gmx20SelectionTreeElementEi(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %.not.i.i.i = icmp eq ptr %.8.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %2
@@ -22117,7 +22117,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -22176,7 +22176,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_ed
   br i1 %.not194, label %31, label %146
 
 31:                                               ; preds = %29
-  invoke fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %2)
+  invoke fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %2)
           to label %32 unwind label %144
 
 32:                                               ; preds = %31
@@ -22437,7 +22437,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 146:                                              ; preds = %29
-  invoke fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %2)
+  invoke fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %2)
           to label %147 unwind label %144
 
 147:                                              ; preds = %146

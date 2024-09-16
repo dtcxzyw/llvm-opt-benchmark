@@ -1402,7 +1402,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE7reserveEm.exit167.i: ; preds = %_ZNSt12_Vector_ba
   %.194291.i = phi i32 [ %.295.i, %792 ], [ %.093293.i, %676 ]
   %.096290.i = phi i64 [ %793, %792 ], [ %679, %676 ]
   %686 = getelementptr inbounds %"class.cv::Mat", ptr %685, i64 %.096290.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %231, ptr noundef nonnull align 8 dereferenceable(96) %686)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %231, ptr noundef nonnull align 8 dereferenceable(96) %686)
           to label %687 unwind label %.loopexit245.i
 
 687:                                              ; preds = %.lr.ph.i
@@ -1432,7 +1432,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %690
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %638) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %639) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %231) #19
-  invoke fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %234, ptr noundef nonnull align 8 dereferenceable(96) %229)
+  invoke fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %234, ptr noundef nonnull align 8 dereferenceable(96) %229)
           to label %696 unwind label %738
 
 696:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit.i
@@ -1462,7 +1462,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit170.i:            ; preds = %697
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %234) #19
   %703 = load ptr, ptr %313, align 8
   %704 = getelementptr inbounds %"class.cv::Mat", ptr %703, i64 %.097292.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %237, ptr noundef nonnull align 8 dereferenceable(96) %704)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %237, ptr noundef nonnull align 8 dereferenceable(96) %704)
           to label %705 unwind label %743
 
 705:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit170.i
@@ -1491,7 +1491,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit173.i:            ; preds = %707
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %644) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %645) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %237) #19
-  invoke fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %240, ptr noundef nonnull align 8 dereferenceable(96) %235)
+  invoke fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %240, ptr noundef nonnull align 8 dereferenceable(96) %235)
           to label %713 unwind label %748
 
 713:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit173.i
@@ -1696,7 +1696,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit182.i: ; preds = %771, %.noex
   br label %.body183.i
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit185.i:            ; preds = %772
-  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %243, ptr noundef nonnull align 8 dereferenceable(96) %244)
+  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %243, ptr noundef nonnull align 8 dereferenceable(96) %244)
           to label %779 unwind label %801
 
 779:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit185.i
@@ -2190,7 +2190,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit50.i.i:           ; preds = %932
           to label %946 unwind label %972, !noalias !48
 
 946:                                              ; preds = %945
-  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %222, ptr noundef nonnull align 8 dereferenceable(96) %267)
+  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %222, ptr noundef nonnull align 8 dereferenceable(96) %267)
           to label %947 unwind label %974, !noalias !48
 
 947:                                              ; preds = %946
@@ -3208,7 +3208,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i125:            ; preds = %.noexc133
   %1249 = phi ptr [ %1285, %_ZN2cvpLERNS_3MatERKNS_7MatExprE.exit.i ], [ %1241, %1240 ]
   %.051210.i = phi i64 [ %1283, %_ZN2cvpLERNS_3MatERKNS_7MatExprE.exit.i ], [ %1243, %1240 ]
   %1250 = getelementptr inbounds %"class.cv::Mat", ptr %1249, i64 %.051210.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %145, ptr noundef nonnull align 8 dereferenceable(96) %1250)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %145, ptr noundef nonnull align 8 dereferenceable(96) %1250)
           to label %1251 unwind label %1291
 
 1251:                                             ; preds = %.lr.ph.i132
@@ -3240,7 +3240,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit148.i:            ; preds = %1254
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %145) #19
   %1260 = load ptr, ptr %313, align 8
   %1261 = getelementptr inbounds %"class.cv::Mat", ptr %1260, i64 %.052211.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %148, ptr noundef nonnull align 8 dereferenceable(96) %1261)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %148, ptr noundef nonnull align 8 dereferenceable(96) %1261)
           to label %1262 unwind label %1296
 
 1262:                                             ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit148.i
@@ -3757,7 +3757,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit161.i:            ; preds = %1415
   %.0215.i = phi i64 [ %1511, %1510 ], [ %1466, %1463 ]
   %.1214.i = phi i32 [ %1512, %1510 ], [ %.047219.i, %1463 ]
   %1473 = getelementptr inbounds %"class.cv::Mat", ptr %1472, i64 %.0215.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %182, ptr noundef nonnull align 8 dereferenceable(96) %1473)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %182, ptr noundef nonnull align 8 dereferenceable(96) %1473)
           to label %1474 unwind label %1540
 
 1474:                                             ; preds = %.lr.ph217.i
@@ -3789,7 +3789,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit164.i:            ; preds = %1477
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %182) #19
   %1483 = load ptr, ptr %313, align 8
   %1484 = getelementptr inbounds %"class.cv::Mat", ptr %1483, i64 %.046220.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %185, ptr noundef nonnull align 8 dereferenceable(96) %1484)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %185, ptr noundef nonnull align 8 dereferenceable(96) %1484)
           to label %1485 unwind label %1545
 
 1485:                                             ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit164.i
@@ -4466,7 +4466,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i137:            ; preds = %.noexc147
   %1690 = phi ptr [ %1820, %1817 ], [ %1682, %1681 ]
   %.077239.i = phi i64 [ %1818, %1817 ], [ %1684, %1681 ]
   %1691 = getelementptr inbounds %"class.cv::Mat", ptr %1690, i64 %.077239.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(96) %1691)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(96) %1691)
           to label %1692 unwind label %1716
 
 1692:                                             ; preds = %.lr.ph.i142
@@ -4498,7 +4498,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit159.i:            ; preds = %1695
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %85) #19
   %1701 = load ptr, ptr %313, align 8
   %1702 = getelementptr inbounds %"class.cv::Mat", ptr %1701, i64 %.078240.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %88, ptr noundef nonnull align 8 dereferenceable(96) %1702)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %88, ptr noundef nonnull align 8 dereferenceable(96) %1702)
           to label %1703 unwind label %1721
 
 1703:                                             ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit159.i
@@ -4543,7 +4543,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i143:          ; preds = %_ZNK2cv7MatExprcvNS
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit163.i unwind label %1728
 
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit163.i:          ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i143
-  invoke fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(96) %89)
+  invoke fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(96) %89)
           to label %1711 unwind label %1730
 
 1711:                                             ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit163.i
@@ -4648,7 +4648,7 @@ _ZN2cvmLERNS_3MatERKd.exit.i:                     ; preds = %1715
   store double %1748, ptr %1639, align 8
   store double %1740, ptr %1640, align 8
   store double %1735, ptr %1641, align 8
-  invoke fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(96) %91)
+  invoke fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(96) %91)
           to label %1750 unwind label %1732
 
 1750:                                             ; preds = %1734
@@ -4978,7 +4978,7 @@ _ZN2cvmlIdLi4ELi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %.body179.i
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit181.i:            ; preds = %1842
-  invoke fastcc void @_ZN2cvL8quat2rotERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %106, ptr noundef nonnull align 8 dereferenceable(96) %107)
+  invoke fastcc void @_ZN2cvL8quat2rotERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %106, ptr noundef nonnull align 8 dereferenceable(96) %107)
           to label %1849 unwind label %1980
 
 1849:                                             ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit181.i
@@ -5108,7 +5108,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit184.i:            ; preds = %1869
   %.0243.i = phi i64 [ %1965, %1964 ], [ %1920, %1917 ]
   %.1242.i = phi i32 [ %1966, %1964 ], [ %.074247.i, %1917 ]
   %1927 = getelementptr inbounds %"class.cv::Mat", ptr %1926, i64 %.0243.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef nonnull align 8 dereferenceable(96) %1927)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %116, ptr noundef nonnull align 8 dereferenceable(96) %1927)
           to label %1928 unwind label %1989
 
 1928:                                             ; preds = %.lr.ph245.i
@@ -5140,7 +5140,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit187.i:            ; preds = %1931
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %116) #19
   %1937 = load ptr, ptr %313, align 8
   %1938 = getelementptr inbounds %"class.cv::Mat", ptr %1937, i64 %.073248.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(96) %1938)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(96) %1938)
           to label %1939 unwind label %1994
 
 1939:                                             ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit187.i
@@ -5885,7 +5885,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit116.i:            ; preds = %2089
   %.0172.i = phi i64 [ %2226, %2225 ], [ %2163, %2160 ]
   %.1171.i = phi i32 [ %2227, %2225 ], [ %.031173.i, %2160 ]
   %2170 = getelementptr inbounds %"class.cv::Mat", ptr %2169, i64 %.0172.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(96) %2170)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(96) %2170)
           to label %2171 unwind label %2245
 
 2171:                                             ; preds = %.lr.ph.i156
@@ -5917,7 +5917,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit119.i:            ; preds = %2174
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #19
   %2180 = load ptr, ptr %313, align 8
   %2181 = getelementptr inbounds %"class.cv::Mat", ptr %2180, i64 %.030174.i
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(96) %2181)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(96) %2181)
           to label %2182 unwind label %2250
 
 2182:                                             ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit119.i
@@ -5978,7 +5978,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit124.i:          ; preds = %_ZNK2cv3MatclERKNS_
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit125.i unwind label %2261
 
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit125.i:          ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit124.i
-  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %26)
+  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %26)
           to label %2190 unwind label %2263
 
 2190:                                             ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit125.i
@@ -6028,7 +6028,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit128.i:            ; preds = %2191
   br label %.body129.i
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit131.i:            ; preds = %2198
-  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %37)
+  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %37)
           to label %2205 unwind label %2272
 
 2205:                                             ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit131.i
@@ -6446,7 +6446,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit141.i:          ; preds = %2309
   br label %.body142.i
 
 _ZN2cv4Mat_IdEC2ERKNS_3MatE.exit.i:               ; preds = %2315
-  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(96) %68)
+  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(96) %68)
           to label %2322 unwind label %2337
 
 2322:                                             ; preds = %_ZN2cv4Mat_IdEC2ERKNS_3MatE.exit.i
@@ -7163,7 +7163,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %4
   %.1129326 = phi i32 [ %354, %352 ], [ %.0128328, %239 ]
   %.0131325 = phi i64 [ %353, %352 ], [ %242, %239 ]
   %249 = getelementptr inbounds %"class.cv::Mat", ptr %248, i64 %.0131325
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(96) %249)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(96) %249)
           to label %250 unwind label %274
 
 250:                                              ; preds = %.lr.ph
@@ -7195,7 +7195,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit225:              ; preds = %253
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #19
   %259 = load ptr, ptr %1, align 8
   %260 = getelementptr inbounds %"class.cv::Mat", ptr %259, i64 %.0130327
-  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(96) %260)
+  invoke fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(96) %260)
           to label %261 unwind label %279
 
 261:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit225
@@ -7224,7 +7224,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit228:              ; preds = %263
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %168) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %169) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #19
-  invoke fastcc void @_ZN2cvL26homogeneous2dualQuaternionERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(96) %28)
+  invoke fastcc void @_ZN2cvL26homogeneous2dualQuaternionERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(96) %28)
           to label %269 unwind label %284
 
 269:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit228
@@ -7286,7 +7286,7 @@ _ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %273
   br label %411
 
 288:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.exit, %269
-  invoke fastcc void @_ZN2cvL26homogeneous2dualQuaternionERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(96) %31)
+  invoke fastcc void @_ZN2cvL26homogeneous2dualQuaternionERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(96) %31)
           to label %289 unwind label %286
 
 289:                                              ; preds = %288
@@ -7386,7 +7386,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit235:              ; preds = %297
   br label %.body236
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit238:              ; preds = %303
-  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(96) %47)
+  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(96) %47)
           to label %310 unwind label %372
 
 310:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit238
@@ -7435,7 +7435,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit241:              ; preds = %311
   br label %.body242
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit244:              ; preds = %317
-  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(96) %52)
+  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(96) %52)
           to label %324 unwind label %378
 
 324:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit244
@@ -7484,7 +7484,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit247:              ; preds = %325
   br label %.body248
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit250:              ; preds = %331
-  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(96) %57)
+  invoke fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(96) %57)
           to label %338 unwind label %384
 
 338:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit250
@@ -8759,7 +8759,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit283:              ; preds = %723
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i unwind label %820, !noalias !231
 
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i:             ; preds = %.noexc
-  invoke fastcc void @_ZN2cvL8quat2rotERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %7)
+  invoke fastcc void @_ZN2cvL8quat2rotERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %762 unwind label %822, !noalias !231
 
 762:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i
@@ -8788,7 +8788,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i:             ; preds = %.noexc
   %783 = load double, ptr %782, align 8, !noalias !231
   %784 = fneg double %783
   store double %784, ptr %782, align 8, !noalias !231
-  invoke fastcc void @_ZN2cvL5qmultERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %7)
+  invoke fastcc void @_ZN2cvL5qmultERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %785 unwind label %824, !noalias !231
 
 785:                                              ; preds = %762
@@ -10522,7 +10522,7 @@ _ZNSt6vectorIN2cv4Mat_IdEESaIS2_EE9push_backEOS2_.exit142: ; preds = %526, %529
   %598 = load ptr, ptr %148, align 8
   %599 = getelementptr inbounds %"class.cv::Mat_", ptr %598, i64 %.053147.i
   %600 = getelementptr inbounds %"class.cv::Mat_", ptr %597, i64 %.053147.i
-  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(96) %599, ptr noundef nonnull align 8 dereferenceable(96) %600)
+  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(96) %599, ptr noundef nonnull align 8 dereferenceable(96) %600)
           to label %601 unwind label %614
 
 601:                                              ; preds = %596
@@ -10694,7 +10694,7 @@ _ZN2cv4Mat_IdEC2Eii.exit115.i:                    ; preds = %645
   br i1 %exitcond161.not.i, label %674, label %.preheader144.i, !llvm.loop !244
 
 674:                                              ; preds = %_ZN2cv4Mat_IdEC2Eii.exit115.i
-  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %103, ptr noundef nonnull align 8 dereferenceable(96) %100)
+  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias writable align 8 %103, ptr noundef nonnull align 8 dereferenceable(96) %100)
           to label %675 unwind label %787
 
 675:                                              ; preds = %674
@@ -10704,7 +10704,7 @@ _ZN2cv4Mat_IdEC2Eii.exit115.i:                    ; preds = %645
 _ZNK2cv4Mat_IdEcvNS_4MatxIdXT_EXT0_EEEILi3ELi3EEEv.exit.i: ; preds = %675
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %180, ptr noundef nonnull align 8 dereferenceable(72) %102, i64 72, i1 false)
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %103) #19
-  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(96) %101)
+  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(96) %101)
           to label %676 unwind label %787
 
 676:                                              ; preds = %_ZNK2cv4Mat_IdEcvNS_4MatxIdXT_EXT0_EEEILi3ELi3EEEv.exit.i
@@ -10968,7 +10968,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %751
   br label %.body131.i
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit133.i:            ; preds = %769
-  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %129, ptr noundef nonnull align 8 dereferenceable(96) %130, ptr noundef nonnull align 8 dereferenceable(96) %114)
+  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %129, ptr noundef nonnull align 8 dereferenceable(96) %130, ptr noundef nonnull align 8 dereferenceable(96) %114)
           to label %776 unwind label %816
 
 776:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit133.i
@@ -11569,7 +11569,7 @@ _ZN2cv4Mat_IdE3eyeEii.exit.i147:                  ; preds = %921
   %indvars.iv.i152 = phi i64 [ 0, %.lr.ph.i150 ], [ %indvars.iv.next.i155, %1023 ]
   %966 = load ptr, ptr %150, align 8
   %967 = getelementptr inbounds %"class.cv::Mat_", ptr %966, i64 %indvars.iv.i152
-  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(96) %967, ptr noundef nonnull align 8 dereferenceable(96) %22)
+  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(96) %967, ptr noundef nonnull align 8 dereferenceable(96) %22)
           to label %968 unwind label %1034
 
 968:                                              ; preds = %965
@@ -11631,7 +11631,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i154:            ; preds = %974
   br label %.body102.i
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit104.i:            ; preds = %983
-  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 8 dereferenceable(96) %32)
+  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 8 dereferenceable(96) %32)
           to label %990 unwind label %1043
 
 990:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit104.i
@@ -11680,7 +11680,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit104.i:            ; preds = %983
   br label %.body106.i
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit108.i:            ; preds = %995
-  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %39)
+  invoke fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %39)
           to label %1002 unwind label %1050
 
 1002:                                             ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit108.i
@@ -11988,7 +11988,7 @@ _ZNK2cv4Mat_IdEclERKNS_5RangeES4_.exit116.i:      ; preds = %1078
 _ZN2cv4Mat_IdEC2EONS_3MatE.exit.i149:             ; preds = %1080
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %64) #19
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %65) #19
-  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %69, ptr noundef nonnull align 8 dereferenceable(96) %63)
+  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias writable align 8 %69, ptr noundef nonnull align 8 dereferenceable(96) %63)
           to label %1086 unwind label %1113
 
 1086:                                             ; preds = %_ZN2cv4Mat_IdEC2EONS_3MatE.exit.i149
@@ -12046,7 +12046,7 @@ _ZNK2cv4Mat_IdEclERKNS_5RangeES4_.exit120.i:      ; preds = %1092
 _ZN2cv4Mat_IdEC2EONS_3MatE.exit123.i:             ; preds = %1094
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %75) #19
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %76) #19
-  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(96) %74)
+  invoke fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(96) %74)
           to label %1100 unwind label %1122
 
 1100:                                             ; preds = %_ZN2cv4Mat_IdEC2EONS_3MatE.exit123.i
@@ -12722,7 +12722,7 @@ declare void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dere
 declare void @_ZN2cvmlERKNS_3MatES2_(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL18homogeneousInverseERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.cv::Mat", align 8
@@ -13016,7 +13016,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit37:               ; preds = %66
 declare void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, double noundef, ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::MatCommaInitializer_", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -13295,7 +13295,7 @@ _ZNK2cv20MatCommaInitializer_IdEcvNS_4Mat_IdEEEv.exit: ; preds = %_ZN2cv20MatCom
 declare noundef double @_ZN2cv4normERKNS_11_InputArrayEiS2_(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::MatCommaInitializer_", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -13794,7 +13794,7 @@ declare noundef zeroext i1 @_ZN2cv5eigenERKNS_11_InputArrayERKNS_12_OutputArrayE
 declare void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(352)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::MatCommaInitializer_", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -14104,7 +14104,7 @@ _ZNK2cv20MatCommaInitializer_IdEcvNS_4Mat_IdEEEv.exit: ; preds = %_ZN2cv20MatCom
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL8quat2rotERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL8quat2rotERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr %1, align 8
@@ -14247,7 +14247,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 declare void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL4kronERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Scalar_", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -14532,7 +14532,7 @@ declare void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind writable sret(%"class
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL17normalizeRotationERKNS_4Mat_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::_OutputArray", align 8
   %5 = alloca %"class.cv::Mat", align 8
@@ -14958,7 +14958,7 @@ declare void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(9
 declare double @llvm.copysign.f64(double, double) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL26homogeneous2dualQuaternionERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL26homogeneous2dualQuaternionERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.cv::Mat", align 8
@@ -15045,7 +15045,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %41
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit40 unwind label %91
 
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit40:             ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
-  invoke fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %5)
+  invoke fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %5)
           to label %48 unwind label %93
 
 48:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit40
@@ -15096,7 +15096,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %49
 
 64:                                               ; preds = %61
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #19
-  invoke fastcc void @_ZN2cvL5qmultERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %9)
+  invoke fastcc void @_ZN2cvL5qmultERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %65 unwind label %97
 
 65:                                               ; preds = %64
@@ -15272,7 +15272,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit44:               ; preds = %66
 declare void @_ZN2cvmlEdRKNS_7MatExprE(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, double noundef, ptr noundef nonnull align 8 dereferenceable(352)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL5qmultERKNS_3MatES2_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL5qmultERKNS_3MatES2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

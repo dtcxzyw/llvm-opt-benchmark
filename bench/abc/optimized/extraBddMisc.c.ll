@@ -51,7 +51,7 @@ define ptr @Extra_TransferPermute(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %cond.i, label %extraTransferPermute.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = call fastcc ptr @extraTransferPermuteRecur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef %3)
+  %11 = call fastcc ptr @extraTransferPermuteRecur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %9, ptr noundef %3)
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %19, label %12
 
@@ -2381,7 +2381,7 @@ define ptr @Extra_bddAndPermute(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %9, label %24, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call fastcc ptr @extraBddAndPermute(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %11 = tail call fastcc ptr @extraBddAndPermute(ptr noundef %8, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.critedge, label %12
 
@@ -2414,7 +2414,7 @@ define ptr @Extra_bddAndPermute(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extraBddAndPermute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @extraBddAndPermute(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 40
@@ -2439,7 +2439,7 @@ define internal fastcc ptr @extraBddAndPermute(ptr noundef %0, ptr noundef %1, p
   br i1 %23, label %176, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call ptr @cuddHashTableLookup2(ptr noundef %0, ptr noundef %2, ptr noundef %4) #18
+  %25 = tail call ptr @cuddHashTableLookup2(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %4) #18
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %176
 
@@ -2662,7 +2662,7 @@ Abc_Clock.exit118:                                ; preds = %46, %49
   %170 = zext i32 %169 to i64
   %171 = mul nuw nsw i64 %170, %164
   %172 = add nsw i64 %171, -1
-  %173 = call i32 @cuddHashTableInsert2(ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef nonnull %152, i64 noundef %172) #18
+  %173 = call i32 @cuddHashTableInsert2(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %4, ptr noundef nonnull %152, i64 noundef %172) #18
   %174 = load i32, ptr %159, align 4
   %175 = add i32 %174, -1
   store i32 %175, ptr %159, align 4
@@ -2791,7 +2791,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
 22:                                               ; preds = %.lr.ph.split.us.split.us
   store i32 %4, ptr %8, align 4
   store i32 %4, ptr %7, align 4
-  %23 = call fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %8, i32 noundef %4)
+  %23 = call fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %21, ptr noundef %9, ptr noundef %8, i32 noundef %4)
   %24 = icmp ne ptr %23, null
   %25 = load ptr, ptr %20, align 8
   %26 = ptrtoint ptr %25 to i64
@@ -2799,7 +2799,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
   %28 = inttoptr i64 %27 to ptr
   store ptr %28, ptr %20, align 8
   %29 = load i32, ptr %8, align 4
-  %30 = call fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %28, ptr noundef %28, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %29)
+  %30 = call fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %28, ptr noundef %28, ptr noundef %9, ptr noundef %7, i32 noundef %29)
   %31 = icmp ne ptr %30, null
   %32 = load ptr, ptr %20, align 8
   %33 = ptrtoint ptr %32 to i64
@@ -2865,7 +2865,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
   %53 = xor i64 %52, 1
   %54 = inttoptr i64 %53 to ptr
   store ptr %54, ptr %49, align 8
-  %55 = call fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %54, ptr noundef %54, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %4)
+  %55 = call fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %54, ptr noundef %54, ptr noundef %9, ptr noundef %7, i32 noundef %4)
   %.not105 = icmp eq ptr %55, null
   %56 = load ptr, ptr %49, align 8
   %57 = ptrtoint ptr %56 to i64
@@ -2901,7 +2901,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
 
 .thread.us:                                       ; preds = %.lr.ph.split.split.us
   store i32 %4, ptr %8, align 4
-  %66 = call fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef nonnull %65, ptr noundef nonnull %65, ptr noundef %9, ptr noundef nonnull %8, i32 noundef %4)
+  %66 = call fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef nonnull %65, ptr noundef nonnull %65, ptr noundef %9, ptr noundef %8, i32 noundef %4)
   %.not104 = icmp eq ptr %66, null
   br i1 %.not104, label %.thread._crit_edge, label %.thread67.us87
 
@@ -2961,7 +2961,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #3
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -3093,7 +3093,7 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
 
 84:                                               ; preds = %77
   tail call void @Cudd_Ref(ptr noundef nonnull %81) #18
-  %85 = call fastcc ptr @extraBddCountCubes(ptr noundef nonnull %0, ptr noundef nonnull %75, ptr noundef %.0253, ptr noundef %3, ptr noundef nonnull %7, i32 noundef %5)
+  %85 = call fastcc ptr @extraBddCountCubes(ptr noundef nonnull %0, ptr noundef nonnull %75, ptr noundef %.0253, ptr noundef %3, ptr noundef %7, i32 noundef %5)
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %88
 
@@ -3104,7 +3104,7 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
 
 88:                                               ; preds = %84
   tail call void @Cudd_Ref(ptr noundef nonnull %85) #18
-  %89 = call fastcc ptr @extraBddCountCubes(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef %.0255, ptr noundef %3, ptr noundef nonnull %8, i32 noundef %5)
+  %89 = call fastcc ptr @extraBddCountCubes(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef %.0255, ptr noundef %3, ptr noundef %8, i32 noundef %5)
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %92
 
@@ -3187,7 +3187,7 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   tail call void @Cudd_Ref(ptr noundef nonnull %122) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %96) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %103) #18
-  %126 = call fastcc ptr @extraBddCountCubes(ptr noundef nonnull %0, ptr noundef %118, ptr noundef nonnull %122, ptr noundef %3, ptr noundef nonnull %9, i32 noundef %5)
+  %126 = call fastcc ptr @extraBddCountCubes(ptr noundef nonnull %0, ptr noundef %118, ptr noundef nonnull %122, ptr noundef %3, ptr noundef %9, i32 noundef %5)
   %127 = icmp eq ptr %126, null
   br i1 %127, label %128, label %129
 
@@ -3483,7 +3483,7 @@ Abc_Clock.exit38:                                 ; preds = %Abc_Clock.exit36, %
   br i1 %44, label %Extra_bddAndPermute.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = call fastcc ptr @extraBddAndPermute(ptr noundef nonnull %43, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10, ptr noundef %14, ptr noundef null)
+  %46 = call fastcc ptr @extraBddAndPermute(ptr noundef %43, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10, ptr noundef %14, ptr noundef null)
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %.critedge.i, label %47
 
@@ -4415,7 +4415,7 @@ declare i32 @st__lookup_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @st__add_direct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extraTransferPermuteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @extraTransferPermuteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca ptr, align 8
@@ -4436,7 +4436,7 @@ define internal fastcc ptr @extraTransferPermuteRecur(ptr noundef %0, ptr nounde
   br label %120
 
 21:                                               ; preds = %5
-  %22 = call i32 @st__lookup(ptr noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %8) #18
+  %22 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef nonnull %8) #18
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %28, label %23
 
@@ -4593,7 +4593,7 @@ Abc_Clock.exit73:                                 ; preds = %46, %49
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %phi.call) #18
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %83) #18
   %111 = load ptr, ptr %8, align 8
-  %112 = call i32 @st__add_direct(ptr noundef %3, ptr noundef nonnull %13, ptr noundef %111) #18
+  %112 = call i32 @st__add_direct(ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef %111) #18
   %113 = icmp eq i32 %112, -10000
   %114 = load ptr, ptr %8, align 8
   br i1 %113, label %115, label %116

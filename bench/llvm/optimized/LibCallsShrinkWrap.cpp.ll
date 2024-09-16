@@ -926,7 +926,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef %4, i32 noundef %5, float noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, float noundef %3, ptr noundef %4, i32 noundef range(i32 1, 5) %5, float noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::IRBuilder", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -1019,7 +1019,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef %2, float noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, float noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::detail::IEEEFloat", align 8
   %6 = alloca %"class.llvm::APFloat", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -1490,7 +1490,7 @@ declare void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 derefere
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, float noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 2, 6) %2, float noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IRBuilder", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 128

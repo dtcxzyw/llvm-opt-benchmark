@@ -3142,7 +3142,7 @@ _ZN12_GLOBAL__N_116CGRecordLowering16accumulateVBasesEv.exit: ; preds = %_ZNSt6v
   %storemerge26.i.i.in.in.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %1203, %1199 ]
   %storemerge26.i.i.in.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i, 1
   %storemerge26.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i, 1
-  %1205 = shl nuw nsw i64 %storemerge26.i.i.i.i.i, 5
+  %1205 = shl i64 %storemerge26.i.i.i.i.i, 5
   %1206 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %1205, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %.not.i.i.i.i.i100 = icmp eq ptr %1206, null
   br i1 %.not.i.i.i.i.i100, label %select.unfold.i.i.i.i.i, label %1207
@@ -3720,7 +3720,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS
   %storemerge26.i.i.in.in.i.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i.i, %select.unfold.i.i.i.i.i.i ], [ %1431, %1427 ]
   %storemerge26.i.i.in.i.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i.i, 1
   %storemerge26.i.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i.i, 1
-  %1433 = shl nuw nsw i64 %storemerge26.i.i.i.i.i.i, 5
+  %1433 = shl i64 %storemerge26.i.i.i.i.i.i, 5
   %1434 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %1433, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %.not.i.i.i.i.i.i140 = icmp eq ptr %1434, null
   br i1 %.not.i.i.i.i.i.i140, label %select.unfold.i.i.i.i.i.i, label %1435

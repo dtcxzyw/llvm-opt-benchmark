@@ -16817,7 +16817,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %_ZN4llvm26Ma
   %58 = load ptr, ptr %30, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 920
   %60 = load ptr, ptr %59, align 8
-  %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i10.i.i.i.i, ptr noundef %.sroa.041.060, ptr noundef nonnull align 8 dereferenceable(1041) %24) #28
+  %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i10.i.i.i.i, ptr noundef nonnull %.sroa.041.060, ptr noundef nonnull align 8 dereferenceable(1041) %24) #28
   br i1 %61, label %.critedge.i, label %_ZL15isSchedBoundaryN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPNS_17MachineBasicBlockEPNS_15MachineFunctionEPKNS_15TargetInstrInfoE.exit.i
 
 _ZL15isSchedBoundaryN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPNS_17MachineBasicBlockEPNS_15MachineFunctionEPKNS_15TargetInstrInfoE.exit.i: ; preds = %57
@@ -16917,7 +16917,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i42.i: ; preds = %_ZN4llvm26
   %101 = load ptr, ptr %30, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 920
   %103 = load ptr, ptr %102, align 8
-  %104 = call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i10.i.i.i32.i, ptr noundef %.sroa.041.060, ptr noundef nonnull align 8 dereferenceable(1041) %24) #28
+  %104 = call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i10.i.i.i32.i, ptr noundef nonnull %.sroa.041.060, ptr noundef nonnull align 8 dereferenceable(1041) %24) #28
   br i1 %104, label %_ZL15isSchedBoundaryN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPNS_17MachineBasicBlockEPNS_15MachineFunctionEPKNS_15TargetInstrInfoE.exit44.thread.i, label %_ZL15isSchedBoundaryN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPNS_17MachineBasicBlockEPNS_15MachineFunctionEPKNS_15TargetInstrInfoE.exit44.i
 
 _ZL15isSchedBoundaryN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPNS_17MachineBasicBlockEPNS_15MachineFunctionEPKNS_15TargetInstrInfoE.exit44.i: ; preds = %100
@@ -22670,7 +22670,7 @@ _ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2EOS1_.exit.i.i.i: ; preds
 
 _ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2EOS1_.exit14.i.i.i: ; preds = %46, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2EOS1_.exit.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull align 8 dereferenceable(17) %32, i64 17, i1 false)
-  call fastcc void @_ZSt13__adjust_heapIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr noundef nonnull %0, i64 noundef %.012.i.i.i, i64 noundef %27, ptr noundef nonnull %9)
+  call fastcc void @_ZSt13__adjust_heapIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr noundef nonnull %0, i64 noundef %.012.i.i.i, i64 noundef %27, ptr noundef %9)
   %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #28
   %49 = load ptr, ptr %33, align 8
   %50 = icmp eq ptr %49, %34
@@ -22744,7 +22744,7 @@ _ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2EOS1_.exit.i: ; preds = %
 
 _ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2EOS1_.exit6.i: ; preds = %77, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2EOS1_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %62, ptr noundef nonnull align 8 dereferenceable(17) %59, i64 17, i1 false)
-  call fastcc void @_ZSt13__adjust_heapIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %74, ptr noundef nonnull %7)
+  call fastcc void @_ZSt13__adjust_heapIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %74, ptr noundef %7)
   %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #28
   %80 = load ptr, ptr %60, align 8
   %81 = icmp eq ptr %80, %61
@@ -22902,7 +22902,7 @@ _ZSt14__partial_sortIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoEN9__gn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 57646075230342348) %1, i64 noundef range(i64 -115292150460684697, 115292150460684698) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.(anonymous namespace)::BaseMemOpClusterMutation::MemOpInfo", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

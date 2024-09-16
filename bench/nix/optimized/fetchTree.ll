@@ -2170,7 +2170,7 @@ define internal void @_ZN3nixL13prim_fetchurlERNS_9EvalStateENS_6PosIdxEPPNS_5Va
           to label %10 unwind label %26
 
 10:                                               ; preds = %9
-  invoke fastcc void @_ZN3nixL5fetchERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSC_(ptr noundef nonnull align 8 dereferenceable(1248) %0, i32 %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN3nixL5fetchERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSC_(ptr noundef nonnull align 8 dereferenceable(1248) %0, i32 %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false, ptr noundef %7)
           to label %11 unwind label %28
 
 11:                                               ; preds = %10
@@ -2258,7 +2258,7 @@ define internal void @_ZN3nixL17prim_fetchTarballERNS_9EvalStateENS_6PosIdxEPPNS
           to label %10 unwind label %26
 
 10:                                               ; preds = %9
-  invoke fastcc void @_ZN3nixL5fetchERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSC_(ptr noundef nonnull align 8 dereferenceable(1248) %0, i32 %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN3nixL5fetchERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSC_(ptr noundef nonnull align 8 dereferenceable(1248) %0, i32 %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true, ptr noundef %7)
           to label %11 unwind label %28
 
 11:                                               ; preds = %10
@@ -23015,7 +23015,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL5fetchERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSC_(ptr noundef nonnull align 8 dereferenceable(1248) %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL5fetchERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSC_(ptr noundef nonnull align 8 dereferenceable(1248) %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::allocator.20", align 1

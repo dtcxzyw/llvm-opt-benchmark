@@ -1012,7 +1012,7 @@ declare noundef ptr @_ZN13CallGenerator23for_late_inline_virtualEP8ciMethodif(pt
 declare noundef ptr @_ZN13CallGenerator16for_virtual_callEP8ciMethodi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18trace_type_profileP7CompileP8ciMethodiiS2_P7ciKlassii(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL18trace_type_profileP7CompileP8ciMethodiiS2_P7ciKlassii(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 1, -2147483648) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %class.LogStream, align 8
   %10 = load i8, ptr @TraceTypeProfile, align 1
   %11 = trunc i8 %10 to i1

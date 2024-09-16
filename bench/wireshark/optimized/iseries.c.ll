@@ -182,7 +182,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @iseries_check_file_type(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @iseries_check_file_type(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
   %5 = alloca [270 x i8], align 16
   %6 = alloca [9 x i8], align 1
   %7 = tail call noalias dereferenceable_or_null(20) ptr @g_malloc_n(i64 noundef 1, i64 noundef 20) #15
@@ -1029,7 +1029,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = load ptr, ptr @g_ascii_table, align 8
   br label %.loopexit
 
@@ -1114,7 +1114,7 @@ define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @iseries_parse_hex_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) unnamed_addr #10 {
+define internal fastcc void @iseries_parse_hex_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #10 {
   %.not33 = icmp eq i64 %2, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 

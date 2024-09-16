@@ -1731,7 +1731,7 @@ define void @_ZN10open_spiel10algorithms14ExpectedValuesERKNS_4GameERKSt6vectorI
 14:                                               ; preds = %3
   call void @_ZN10open_spiel18ConvertToTurnBasedERKNS_4GameE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %1)
   %15 = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(280) %15, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(280) %15, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %16 unwind label %55
 
 16:                                               ; preds = %14
@@ -1854,7 +1854,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %72
 
 68:                                               ; preds = %60
-  call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   invoke void @_ZN10open_spiel10algorithms14ExpectedValuesERKNS_4GameERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS7_EE(ptr dead_on_unwind writable sret(%"class.std::vector.14") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %69 unwind label %70
 
@@ -1879,7 +1879,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_
 declare void @_ZN10open_spiel18ConvertToTurnBasedERKNS_4GameE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode", align 8
   %5 = alloca %"struct.std::__detail::_AllocNode", align 8
   %6 = alloca i32, align 4
@@ -4779,7 +4779,7 @@ define noundef double @_ZN10open_spiel10algorithms6CEDistERKNS_4GameERKSt6vector
 17:                                               ; preds = %2
   call void @_ZN10open_spiel18ConvertToTurnBasedERKNS_4GameE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %0)
   %18 = load ptr, ptr %3, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %18, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %18, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %19 unwind label %64
 
 19:                                               ; preds = %17
@@ -4937,7 +4937,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %99
 
 83:                                               ; preds = %75
-  call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   invoke void @_ZN10open_spiel10algorithms14CorrDistConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12)
           to label %84 unwind label %91
 
@@ -5054,7 +5054,7 @@ define noundef double @_ZN10open_spiel10algorithms7CCEDistERKNS_4GameERKSt6vecto
 17:                                               ; preds = %2
   call void @_ZN10open_spiel18ConvertToTurnBasedERKNS_4GameE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %0)
   %18 = load ptr, ptr %3, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %18, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %18, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %19 unwind label %64
 
 19:                                               ; preds = %17
@@ -5212,7 +5212,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %99
 
 83:                                               ; preds = %75
-  call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124ConvertCorrelationDeviceERKNS_4GameERKSt6vectorINS0_29NormalFormJointPolicyWithProbESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   invoke void @_ZN10open_spiel10algorithms14CorrDistConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12)
           to label %84 unwind label %91
 

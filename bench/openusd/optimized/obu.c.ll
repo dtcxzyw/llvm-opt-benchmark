@@ -1771,7 +1771,7 @@ declare void @av1_decode_tg_tiles_and_wrapup(ptr noundef, ptr noundef, ptr nound
 declare i32 @aom_uleb_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @alloc_read_metadata(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @alloc_read_metadata(ptr noundef %0, i32 noundef range(i32 1, 5) %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483647) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 458872
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null

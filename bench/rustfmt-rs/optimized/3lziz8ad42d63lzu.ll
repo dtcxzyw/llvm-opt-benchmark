@@ -616,7 +616,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117hf40ea9300502eef6E.llvm.16014
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$$GT$17h272084ee9ef9f19bE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$$GT$17h272084ee9ef9f19bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -671,7 +671,7 @@ define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$$LP$core..cell..Cell$LT$bool$GT$$C$bool$C$rustfmt_nightly..config..macro_names..MacroSelectors$C$bool$RP$$GT$17he6ff0abcae8cdc9fE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$$LP$core..cell..Cell$LT$bool$GT$$C$bool$C$rustfmt_nightly..config..macro_names..MacroSelectors$C$bool$RP$$GT$17he6ff0abcae8cdc9fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -718,7 +718,7 @@ define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$$LP$core..cell..Ce
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..file_lines..FileLines$C$rustfmt_nightly..config..file_lines..FileLinesError$GT$$GT$17h896d3876d2ad83f4E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..file_lines..FileLines$C$rustfmt_nightly..config..file_lines..FileLinesError$GT$$GT$17h896d3876d2ad83f4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !36, !noundef !5
   %4 = icmp eq i64 %3, 0
@@ -778,7 +778,7 @@ define internal fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..macro_names..MacroSelectors$C$rustfmt_nightly..config..macro_names..MacroSelectorsError$GT$$GT$17hf26c6764657a63daE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..macro_names..MacroSelectors$C$rustfmt_nightly..config..macro_names..MacroSelectorsError$GT$$GT$17hf26c6764657a63daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -843,7 +843,7 @@ define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$str$GT$17hbdf602c1763a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$toml..value..Value$GT$17he41ab9e282ebf33aE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$toml..value..Value$GT$17he41ab9e282ebf33aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
   %4 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
@@ -919,7 +919,7 @@ define internal void @"_ZN4core3ptr55drop_in_place$LT$$RF$core..num..error..IntE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hab9ec7cd1ae47a3aE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hab9ec7cd1ae47a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -955,7 +955,7 @@ define internal void @"_ZN4core3ptr70drop_in_place$LT$$RF$rustfmt_nightly..confi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1030,7 +1030,7 @@ define internal void @"_ZN4core3ptr78drop_in_place$LT$rustfmt_nightly..config..m
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$$LP$core..cell..Cell$LT$bool$GT$$C$bool$C$alloc..string..String$C$bool$RP$$GT$17h22e1ddcd81ef8d63E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$$LP$core..cell..Cell$LT$bool$GT$$C$bool$C$alloc..string..String$C$bool$RP$$GT$17h22e1ddcd81ef8d63E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !133
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f466af1321eaceaE.llvm.17249484671449717553"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -1053,7 +1053,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$$LP$core..cell..Cel
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$core..convert..Infallible$GT$$GT$17hc8a40015436cab5bE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$core..convert..Infallible$GT$$GT$17hc8a40015436cab5bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !142
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f466af1321eaceaE.llvm.17249484671449717553"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -1076,7 +1076,7 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h40d6eec32f7d038fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h40d6eec32f7d038fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = load i64, ptr %1, align 8, !range !36, !noundef !5
   %trunc = trunc nuw i64 %6 to i1
@@ -1114,7 +1114,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h40d6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h52bc466748d9d1a1E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h52bc466748d9d1a1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %7 = icmp eq i64 %6, -9223372036854775808
@@ -1330,7 +1330,7 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17h37b338f17cc76915E.exit.i: ; preds
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !151, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1720,7 +1720,7 @@ define void @_ZN15rustfmt_nightly6config13PartialConfig7to_toml17h2c1e43e85cde37
 
 244:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit.i", %245
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit.i" ], [ %246, %245 ]
-  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$$GT$17h272084ee9ef9f19bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #21
+  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$$GT$17h272084ee9ef9f19bE"(ptr noalias noundef align 8 dereferenceable(24) %9) #21
           to label %common.resume unwind label %285
 
 245:                                              ; preds = %225
@@ -1752,7 +1752,7 @@ define void @_ZN15rustfmt_nightly6config13PartialConfig7to_toml17h2c1e43e85cde37
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit.i": ; preds = %283, %.body.i, %255
   %.pn.i = phi { ptr, i32 } [ %256, %255 ], [ %eh.lpad-body.i, %283 ], [ %eh.lpad-body.i, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #21
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E"(ptr noalias noundef align 8 dereferenceable(24) %8) #21
           to label %244 unwind label %285
 
 255:                                              ; preds = %249
@@ -2432,7 +2432,7 @@ define void @_ZN15rustfmt_nightly6config6Config14from_toml_path17hb397612fb9f57f
 
 42:                                               ; preds = %39
   %.fca.1.extract = extractvalue { ptr, i64 } %30, 1
-  invoke fastcc void @_ZN15rustfmt_nightly6config6Config9from_toml17h4327dc23e689609cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(848) %8, ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %29, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
+  invoke fastcc void @_ZN15rustfmt_nightly6config6Config9from_toml17h4327dc23e689609cE(ptr noalias nocapture noundef align 8 dereferenceable(848) %8, ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %29, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
           to label %44 unwind label %21
 
 43:                                               ; preds = %41
@@ -2692,7 +2692,7 @@ _ZN3std4path4Path4join17h737f3c25b1a81270E.exit.i: ; preds = %51
 67:                                               ; preds = %78, %66
   %68 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !398, !nonnull !5, !noundef !5
   %69 = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !398, !noundef !5
-  invoke fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 %68, i64 noundef %69)
+  invoke fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 %68, i64 noundef %69)
           to label %70 unwind label %.thread132.loopexit.i, !noalias !402
 
 70:                                               ; preds = %67
@@ -2740,7 +2740,7 @@ _ZN3std4path4Path4join17h737f3c25b1a81270E.exit.i: ; preds = %51
   %84 = load ptr, ptr %83, align 8, !noalias !398, !nonnull !5, !noundef !5
   %85 = getelementptr inbounds i8, ptr %18, i64 16
   %86 = load i64, ptr %85, align 8, !noalias !398, !noundef !5
-  invoke fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %86)
+  invoke fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %86)
           to label %89 unwind label %87, !noalias !402
 
 87:                                               ; preds = %95, %82
@@ -2769,7 +2769,7 @@ _ZN3std4path4Path4join17h737f3c25b1a81270E.exit.i: ; preds = %51
   br i1 %.not90.i, label %95, label %96
 
 95:                                               ; preds = %94
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hab9ec7cd1ae47a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hab9ec7cd1ae47a3aE"(ptr noalias noundef align 8 dereferenceable(24) %17)
           to label %103 unwind label %87, !noalias !402
 
 96:                                               ; preds = %94, %89
@@ -2842,7 +2842,7 @@ _ZN3std4path7PathBuf4push17hc147b0f5eb56c752E.exit.i: ; preds = %110
   %114 = load ptr, ptr %113, align 8, !noalias !398, !nonnull !5, !noundef !5
   %115 = getelementptr inbounds i8, ptr %14, i64 16
   %116 = load i64, ptr %115, align 8, !noalias !398, !noundef !5
-  invoke fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %114, i64 noundef %116)
+  invoke fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %114, i64 noundef %116)
           to label %117 unwind label %111, !noalias !402
 
 117:                                              ; preds = %_ZN3std4path7PathBuf4push17hc147b0f5eb56c752E.exit.i
@@ -2865,7 +2865,7 @@ _ZN3std4path7PathBuf4push17hc147b0f5eb56c752E.exit.i: ; preds = %110
   br i1 %.not93.i, label %123, label %124
 
 123:                                              ; preds = %122
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hab9ec7cd1ae47a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hab9ec7cd1ae47a3aE"(ptr noalias noundef align 8 dereferenceable(24) %13)
           to label %131 unwind label %111, !noalias !402
 
 124:                                              ; preds = %122, %117
@@ -3059,7 +3059,7 @@ _ZN15rustfmt_nightly6config6Config23from_resolved_toml_path20resolve_project_fil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15rustfmt_nightly6config6Config9from_toml17h4327dc23e689609cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(848) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15rustfmt_nightly6config6Config9from_toml17h4327dc23e689609cE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(848) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
   %8 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
@@ -7069,7 +7069,7 @@ default.unreachable:                              ; preds = %1623
   %1631 = getelementptr inbounds i8, ptr %21, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1630, i8 -1, i64 16, i1 false), !alias.scope !994, !noalias !993
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1631, i8 0, i64 16, i1 false), !alias.scope !994, !noalias !993
-  invoke fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %21)
+  invoke fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %125, ptr noalias nocapture noundef align 8 dereferenceable(64) %21)
           to label %.noexc206.i unwind label %318, !noalias !919
 
 .noexc206.i:                                      ; preds = %1628
@@ -7093,7 +7093,7 @@ default.unreachable:                              ; preds = %1623
   store i64 %1625, ptr %1638, align 8, !alias.scope !997, !noalias !993
   %1639 = getelementptr inbounds i8, ptr %22, i64 56
   store i64 %1625, ptr %1639, align 8, !alias.scope !997, !noalias !993
-  invoke fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %22)
+  invoke fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %125, ptr noalias nocapture noundef align 8 dereferenceable(64) %22)
           to label %.noexc207.i unwind label %318, !noalias !919
 
 .noexc207.i:                                      ; preds = %1632
@@ -7106,7 +7106,7 @@ default.unreachable:                              ; preds = %1623
           to label %.noexc208.i unwind label %318, !noalias !919
 
 .noexc208.i:                                      ; preds = %1640
-  invoke fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %23)
+  invoke fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %125, ptr noalias nocapture noundef align 8 dereferenceable(64) %23)
           to label %.noexc209.i unwind label %318, !noalias !919
 
 .noexc209.i:                                      ; preds = %.noexc208.i
@@ -7835,12 +7835,12 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit108: ; preds = %"_ZN73_$LT$$u5b$A$u
 
 1889:                                             ; preds = %.thread203, %1875
   %.pn.pn206 = phi { ptr, i32 } [ %1876, %.thread203 ], [ %.pn, %1875 ]
-  invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$toml..value..Value$GT$17he41ab9e282ebf33aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %139) #21
+  invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$toml..value..Value$GT$17he41ab9e282ebf33aE"(ptr noalias noundef align 8 dereferenceable(32) %139) #21
           to label %common.resume unwind label %1803
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { { { i64, ptr }, i64 } }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -8214,7 +8214,7 @@ define void @_ZN15rustfmt_nightly6config11config_path17h5a8fcec531d33834E(ptr no
 46:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  call fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
+  call fastcc void @_ZN15rustfmt_nightly6config13get_toml_path17h50b8e9b77af587d2E(ptr noalias nocapture noundef align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
   %47 = load i64, ptr %18, align 8, !range !48, !noundef !5
   %48 = icmp eq i64 %47, -9223372036854775807
   %49 = getelementptr inbounds i8, ptr %18, i64 8
@@ -8252,7 +8252,7 @@ define void @_ZN15rustfmt_nightly6config11config_path17h5a8fcec531d33834E(ptr no
 56:                                               ; preds = %.noexc, %65, %64, %54
   %57 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hab9ec7cd1ae47a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #21
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hab9ec7cd1ae47a3aE"(ptr noalias noundef align 8 dereferenceable(24) %19) #21
           to label %83 unwind label %81
 
 58:                                               ; preds = %54
@@ -8372,7 +8372,7 @@ define void @_ZN15rustfmt_nightly6config11config_path17h5a8fcec531d33834E(ptr no
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN90_$LT$rustfmt_nightly..config..options..WidthHeuristics$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54ff14b60c81397cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @"_ZN90_$LT$rustfmt_nightly..config..options..WidthHeuristics$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54ff14b60c81397cE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !5
   %4 = load i64, ptr %1, align 8, !noundef !5
   %5 = icmp eq i64 %3, %4
@@ -8539,7 +8539,7 @@ common.resume:                                    ; preds = %28, %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN87_$LT$rustfmt_nightly..config..file_lines..FileLines$u20$as$u20$core..cmp..PartialEq$GT$2eq17h22a89df258225b3fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN87_$LT$rustfmt_nightly..config..file_lines..FileLines$u20$as$u20$core..cmp..PartialEq$GT$2eq17h22a89df258225b3fE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 {
   %3 = alloca { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }, align 8
   %4 = load ptr, ptr %0, align 8, !noundef !5
   %5 = icmp eq ptr %4, null
@@ -8657,7 +8657,7 @@ default.unreachable:                              ; preds = %2
   %13 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 -1, i64 16, i1 false), !alias.scope !1383, !noalias !1380
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !alias.scope !1383, !noalias !1380
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1380
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8678,14 +8678,14 @@ default.unreachable:                              ; preds = %2
   store i64 %1, ptr %20, align 8, !alias.scope !1386, !noalias !1380
   %21 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %1, ptr %21, align 8, !alias.scope !1386, !noalias !1380
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1380
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1380
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %1), !noalias !1380
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1380
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8760,7 +8760,7 @@ default.unreachable1.i:                           ; preds = %2
   %13 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 -1, i64 16, i1 false), !alias.scope !1392, !noalias !1389
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !alias.scope !1392, !noalias !1389
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1389
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8781,14 +8781,14 @@ default.unreachable1.i:                           ; preds = %2
   store i64 %9, ptr %20, align 8, !alias.scope !1395, !noalias !1389
   %21 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %21, align 8, !alias.scope !1395, !noalias !1389
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1389
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1389
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1389
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1389
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8836,7 +8836,7 @@ default.unreachable:                              ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 -1, i64 16, i1 false), !alias.scope !1401, !noalias !1398
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !1401, !noalias !1398
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1398
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8857,14 +8857,14 @@ default.unreachable:                              ; preds = %2
   store i64 %9, ptr %22, align 8, !alias.scope !1404, !noalias !1398
   %23 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %23, align 8, !alias.scope !1404, !noalias !1398
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1398
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1398
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1398
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1398
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8903,7 +8903,7 @@ default.unreachable:                              ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 -1, i64 16, i1 false), !alias.scope !1410, !noalias !1407
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !1410, !noalias !1407
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1407
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8924,14 +8924,14 @@ default.unreachable:                              ; preds = %2
   store i64 %9, ptr %22, align 8, !alias.scope !1413, !noalias !1407
   %23 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %23, align 8, !alias.scope !1413, !noalias !1407
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1407
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1407
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1407
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1407
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8970,7 +8970,7 @@ default.unreachable:                              ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 -1, i64 16, i1 false), !alias.scope !1419, !noalias !1416
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !1419, !noalias !1416
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1416
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -8991,14 +8991,14 @@ default.unreachable:                              ; preds = %2
   store i64 %9, ptr %22, align 8, !alias.scope !1422, !noalias !1416
   %23 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %23, align 8, !alias.scope !1422, !noalias !1416
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1416
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1416
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1416
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1416
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9037,7 +9037,7 @@ default.unreachable:                              ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 -1, i64 16, i1 false), !alias.scope !1428, !noalias !1425
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !1428, !noalias !1425
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1425
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9058,14 +9058,14 @@ default.unreachable:                              ; preds = %2
   store i64 %9, ptr %22, align 8, !alias.scope !1431, !noalias !1425
   %23 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %23, align 8, !alias.scope !1431, !noalias !1425
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1425
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1425
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1425
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1425
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9104,7 +9104,7 @@ default.unreachable:                              ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 -1, i64 16, i1 false), !alias.scope !1437, !noalias !1434
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !1437, !noalias !1434
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1434
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9125,14 +9125,14 @@ default.unreachable:                              ; preds = %2
   store i64 %9, ptr %22, align 8, !alias.scope !1440, !noalias !1434
   %23 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %23, align 8, !alias.scope !1440, !noalias !1434
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1434
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1434
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1434
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1434
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9171,7 +9171,7 @@ default.unreachable:                              ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 -1, i64 16, i1 false), !alias.scope !1446, !noalias !1443
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !1446, !noalias !1443
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1443
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9192,14 +9192,14 @@ default.unreachable:                              ; preds = %2
   store i64 %9, ptr %22, align 8, !alias.scope !1449, !noalias !1443
   %23 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %23, align 8, !alias.scope !1449, !noalias !1443
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1443
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1443
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1443
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1443
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9238,7 +9238,7 @@ default.unreachable:                              ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 -1, i64 16, i1 false), !alias.scope !1455, !noalias !1452
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !1455, !noalias !1452
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1452
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9259,14 +9259,14 @@ default.unreachable:                              ; preds = %2
   store i64 %9, ptr %22, align 8, !alias.scope !1458, !noalias !1452
   %23 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %23, align 8, !alias.scope !1458, !noalias !1452
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1452
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1452
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1452
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1452
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9305,7 +9305,7 @@ default.unreachable:                              ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 -1, i64 16, i1 false), !alias.scope !1464, !noalias !1461
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !1464, !noalias !1461
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1461
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9326,14 +9326,14 @@ default.unreachable:                              ; preds = %2
   store i64 %9, ptr %22, align 8, !alias.scope !1467, !noalias !1461
   %23 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %9, ptr %23, align 8, !alias.scope !1467, !noalias !1461
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1461
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !1461
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %5, i64 noundef %9), !noalias !1461
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %6, ptr noalias nocapture noundef align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1461
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -9583,7 +9583,7 @@ _ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit:
   %3 = getelementptr inbounds i8, ptr %2, i64 677
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
-  tail call fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E(ptr noalias noundef nonnull align 8 dereferenceable(848) %2)
+  tail call fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E(ptr noalias noundef align 8 dereferenceable(848) %2)
   ret void
 }
 
@@ -9759,7 +9759,7 @@ _ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 737
   store i8 %1, ptr %3, align 1
-  tail call fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE(ptr noalias noundef nonnull align 8 dereferenceable(848) %2)
+  tail call fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE(ptr noalias noundef align 8 dereferenceable(848) %2)
   ret void
 }
 
@@ -10015,7 +10015,7 @@ _ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit:
   %3 = getelementptr inbounds i8, ptr %2, i64 813
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
-  tail call fastcc void @_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE(ptr noalias noundef nonnull align 8 dereferenceable(848) %2)
+  tail call fastcc void @_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE(ptr noalias noundef align 8 dereferenceable(848) %2)
   ret void
 }
 
@@ -12370,7 +12370,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16is_valid_key_val1
   %160 = load i64, ptr %34, align 8, !range !4, !noundef !5
   %161 = icmp ne i64 %160, -9223372036854775808
   %162 = zext i1 %161 to i8
-  call fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..macro_names..MacroSelectors$C$rustfmt_nightly..config..macro_names..MacroSelectorsError$GT$$GT$17hf26c6764657a63daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34)
+  call fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..macro_names..MacroSelectors$C$rustfmt_nightly..config..macro_names..MacroSelectorsError$GT$$GT$17hf26c6764657a63daE"(ptr noalias noundef align 8 dereferenceable(24) %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit726.thread"
 
@@ -13212,7 +13212,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16is_valid_key_val1
   store ptr %399, ptr %.sroa.0332.sroa.4.0..sroa_idx, align 8
   %.sroa.0332.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %3, ptr %.sroa.0332.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$core..convert..Infallible$GT$$GT$17hc8a40015436cab5bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$core..convert..Infallible$GT$$GT$17hc8a40015436cab5bE"(ptr noalias noundef align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit726.thread"
 
@@ -13348,7 +13348,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16is_valid_key_val1
   %445 = load i64, ptr %8, align 8, !range !36, !noundef !5
   %446 = trunc nuw nsw i64 %445 to i8
   %447 = xor i8 %446, 1
-  call fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..file_lines..FileLines$C$rustfmt_nightly..config..file_lines..FileLinesError$GT$$GT$17h896d3876d2ad83f4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8)
+  call fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..file_lines..FileLines$C$rustfmt_nightly..config..file_lines..FileLinesError$GT$$GT$17h896d3876d2ad83f4E"(ptr noalias noundef align 8 dereferenceable(56) %8)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit726.thread"
 
@@ -14343,7 +14343,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
 
 542:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit", %543
   %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit" ], [ %544, %543 ]
-  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$$GT$17h272084ee9ef9f19bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #21
+  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$$GT$17h272084ee9ef9f19bE"(ptr noalias noundef align 8 dereferenceable(24) %9) #21
           to label %768 unwind label %766
 
 543:                                              ; preds = %536
@@ -14459,7 +14459,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit": ; preds = %.body, %641, %602
   %.pn = phi { ptr, i32 } [ %603, %602 ], [ %eh.lpad-body, %641 ], [ %eh.lpad-body, %.body ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #21
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E"(ptr noalias noundef align 8 dereferenceable(24) %8) #21
           to label %542 unwind label %766
 
 602:                                              ; preds = %596
@@ -15032,7 +15032,7 @@ define void @_ZN15rustfmt_nightly6config6Config11all_options17h58c730ef74063882E
 
 172:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit", %173
   %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit" ], [ %174, %173 ]
-  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$$GT$17h272084ee9ef9f19bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #21
+  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$$GT$17h272084ee9ef9f19bE"(ptr noalias noundef align 8 dereferenceable(24) %9) #21
           to label %336 unwind label %334
 
 173:                                              ; preds = %2
@@ -15065,7 +15065,7 @@ define void @_ZN15rustfmt_nightly6config6Config11all_options17h58c730ef74063882E
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit": ; preds = %.body, %332, %191
   %.pn = phi { ptr, i32 } [ %192, %191 ], [ %eh.lpad-body, %332 ], [ %eh.lpad-body, %.body ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #21
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E"(ptr noalias noundef align 8 dereferenceable(24) %8) #21
           to label %172 unwind label %334
 
 191:                                              ; preds = %175
@@ -16101,7 +16101,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %351, ptr %437, align 8, !alias.scope !2069, !noalias !2072
   %438 = getelementptr inbounds i8, ptr %352, i64 24
   store i64 1, ptr %438, align 8, !alias.scope !2069, !noalias !2072
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %353, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %352)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %353, ptr noalias nocapture noundef align 8 dereferenceable(48) %352)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %352)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %351)
   %439 = getelementptr inbounds i8, ptr %353, i64 8
@@ -16147,7 +16147,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %348, ptr %454, align 8, !alias.scope !2085, !noalias !2088
   %455 = getelementptr inbounds i8, ptr %349, i64 24
   store i64 1, ptr %455, align 8, !alias.scope !2085, !noalias !2088
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %350, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %349)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %350, ptr noalias nocapture noundef align 8 dereferenceable(48) %349)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %349)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %348)
   %456 = getelementptr inbounds i8, ptr %350, i64 8
@@ -16187,7 +16187,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %344, ptr %466, align 8, !alias.scope !2100, !noalias !2103
   %467 = getelementptr inbounds i8, ptr %345, i64 24
   store i64 1, ptr %467, align 8, !alias.scope !2100, !noalias !2103
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %346, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %345)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %346, ptr noalias nocapture noundef align 8 dereferenceable(48) %345)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %345)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %344)
   %468 = getelementptr inbounds i8, ptr %346, i64 8
@@ -16238,7 +16238,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %340, ptr %482, align 8, !alias.scope !2120, !noalias !2123
   %483 = getelementptr inbounds i8, ptr %341, i64 24
   store i64 1, ptr %483, align 8, !alias.scope !2120, !noalias !2123
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %342, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %341)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %342, ptr noalias nocapture noundef align 8 dereferenceable(48) %341)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %341)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %340)
   %484 = getelementptr inbounds i8, ptr %342, i64 8
@@ -16284,7 +16284,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %336, ptr %497, align 8, !alias.scope !2136, !noalias !2139
   %498 = getelementptr inbounds i8, ptr %337, i64 24
   store i64 1, ptr %498, align 8, !alias.scope !2136, !noalias !2139
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %338, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %337)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %338, ptr noalias nocapture noundef align 8 dereferenceable(48) %337)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %337)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %336)
   %499 = getelementptr inbounds i8, ptr %338, i64 8
@@ -16330,7 +16330,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %332, ptr %512, align 8, !alias.scope !2152, !noalias !2155
   %513 = getelementptr inbounds i8, ptr %333, i64 24
   store i64 1, ptr %513, align 8, !alias.scope !2152, !noalias !2155
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %334, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %333)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %334, ptr noalias nocapture noundef align 8 dereferenceable(48) %333)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %333)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %332)
   %514 = getelementptr inbounds i8, ptr %334, i64 8
@@ -16376,7 +16376,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %328, ptr %527, align 8, !alias.scope !2168, !noalias !2171
   %528 = getelementptr inbounds i8, ptr %329, i64 24
   store i64 1, ptr %528, align 8, !alias.scope !2168, !noalias !2171
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %330, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %329)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %330, ptr noalias nocapture noundef align 8 dereferenceable(48) %329)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %329)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %328)
   %529 = getelementptr inbounds i8, ptr %330, i64 8
@@ -16432,7 +16432,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %324, ptr %542, align 8, !alias.scope !2184, !noalias !2187
   %543 = getelementptr inbounds i8, ptr %325, i64 24
   store i64 1, ptr %543, align 8, !alias.scope !2184, !noalias !2187
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %326, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %325)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %326, ptr noalias nocapture noundef align 8 dereferenceable(48) %325)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %325)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %324)
   %544 = getelementptr inbounds i8, ptr %326, i64 8
@@ -16478,7 +16478,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %320, ptr %557, align 8, !alias.scope !2200, !noalias !2203
   %558 = getelementptr inbounds i8, ptr %321, i64 24
   store i64 1, ptr %558, align 8, !alias.scope !2200, !noalias !2203
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %322, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %321)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %322, ptr noalias nocapture noundef align 8 dereferenceable(48) %321)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %321)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %320)
   %559 = getelementptr inbounds i8, ptr %322, i64 8
@@ -16519,7 +16519,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %316, ptr %571, align 8, !alias.scope !2212, !noalias !2215
   %572 = getelementptr inbounds i8, ptr %317, i64 24
   store i64 1, ptr %572, align 8, !alias.scope !2212, !noalias !2215
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %318, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %317)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %318, ptr noalias nocapture noundef align 8 dereferenceable(48) %317)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %317)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %316)
   %573 = getelementptr inbounds i8, ptr %318, i64 8
@@ -16572,7 +16572,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %313, ptr %587, align 8, !alias.scope !2228, !noalias !2231
   %588 = getelementptr inbounds i8, ptr %314, i64 24
   store i64 1, ptr %588, align 8, !alias.scope !2228, !noalias !2231
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %315, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %314)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %315, ptr noalias nocapture noundef align 8 dereferenceable(48) %314)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %314)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %313)
   %589 = getelementptr inbounds i8, ptr %315, i64 8
@@ -16621,7 +16621,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %310, ptr %601, align 8, !alias.scope !2238, !noalias !2241
   %602 = getelementptr inbounds i8, ptr %311, i64 24
   store i64 1, ptr %602, align 8, !alias.scope !2238, !noalias !2241
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %312, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %311)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %312, ptr noalias nocapture noundef align 8 dereferenceable(48) %311)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %311)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %310)
   %603 = getelementptr inbounds i8, ptr %312, i64 8
@@ -16668,7 +16668,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %306, ptr %614, align 8, !alias.scope !2248, !noalias !2251
   %615 = getelementptr inbounds i8, ptr %307, i64 24
   store i64 1, ptr %615, align 8, !alias.scope !2248, !noalias !2251
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %308, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %307)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %308, ptr noalias nocapture noundef align 8 dereferenceable(48) %307)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %307)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %306)
   %616 = getelementptr inbounds i8, ptr %308, i64 8
@@ -16723,7 +16723,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %302, ptr %629, align 8, !alias.scope !2264, !noalias !2267
   %630 = getelementptr inbounds i8, ptr %303, i64 24
   store i64 1, ptr %630, align 8, !alias.scope !2264, !noalias !2267
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %304, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %303)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %304, ptr noalias nocapture noundef align 8 dereferenceable(48) %303)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %303)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %302)
   %631 = getelementptr inbounds i8, ptr %304, i64 8
@@ -16779,7 +16779,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %299, ptr %645, align 8, !alias.scope !2280, !noalias !2283
   %646 = getelementptr inbounds i8, ptr %300, i64 24
   store i64 1, ptr %646, align 8, !alias.scope !2280, !noalias !2283
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %301, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %300)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %301, ptr noalias nocapture noundef align 8 dereferenceable(48) %300)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %300)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %299)
   %647 = getelementptr inbounds i8, ptr %301, i64 8
@@ -16834,7 +16834,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %296, ptr %659, align 8, !alias.scope !2290, !noalias !2293
   %660 = getelementptr inbounds i8, ptr %297, i64 24
   store i64 1, ptr %660, align 8, !alias.scope !2290, !noalias !2293
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %298, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %297)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %298, ptr noalias nocapture noundef align 8 dereferenceable(48) %297)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %297)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %296)
   %661 = getelementptr inbounds i8, ptr %298, i64 8
@@ -16877,7 +16877,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %293, ptr %673, align 8, !alias.scope !2300, !noalias !2303
   %674 = getelementptr inbounds i8, ptr %294, i64 24
   store i64 1, ptr %674, align 8, !alias.scope !2300, !noalias !2303
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %295, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %294)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %295, ptr noalias nocapture noundef align 8 dereferenceable(48) %294)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %294)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %293)
   %675 = getelementptr inbounds i8, ptr %295, i64 8
@@ -16933,7 +16933,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %290, ptr %687, align 8, !alias.scope !2310, !noalias !2313
   %688 = getelementptr inbounds i8, ptr %291, i64 24
   store i64 1, ptr %688, align 8, !alias.scope !2310, !noalias !2313
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %292, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %291)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %292, ptr noalias nocapture noundef align 8 dereferenceable(48) %291)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %291)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %290)
   %689 = getelementptr inbounds i8, ptr %292, i64 8
@@ -16987,7 +16987,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %287, ptr %702, align 8, !alias.scope !2320, !noalias !2323
   %703 = getelementptr inbounds i8, ptr %288, i64 24
   store i64 1, ptr %703, align 8, !alias.scope !2320, !noalias !2323
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %289, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %288)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %289, ptr noalias nocapture noundef align 8 dereferenceable(48) %288)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %288)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %287)
   %704 = getelementptr inbounds i8, ptr %289, i64 8
@@ -17068,7 +17068,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %277, ptr %716, align 8, !alias.scope !2334, !noalias !2337
   %717 = getelementptr inbounds i8, ptr %278, i64 24
   store i64 1, ptr %717, align 8, !alias.scope !2334, !noalias !2337
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %279, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %278)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %279, ptr noalias nocapture noundef align 8 dereferenceable(48) %278)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %278)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277)
   %718 = getelementptr inbounds i8, ptr %279, i64 8
@@ -17118,7 +17118,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %274, ptr %734, align 8, !alias.scope !2350, !noalias !2353
   %735 = getelementptr inbounds i8, ptr %275, i64 24
   store i64 1, ptr %735, align 8, !alias.scope !2350, !noalias !2353
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %276, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %275)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %276, ptr noalias nocapture noundef align 8 dereferenceable(48) %275)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %275)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %274)
   %736 = getelementptr inbounds i8, ptr %276, i64 8
@@ -17161,7 +17161,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %271, ptr %749, align 8, !alias.scope !2360, !noalias !2363
   %750 = getelementptr inbounds i8, ptr %272, i64 24
   store i64 1, ptr %750, align 8, !alias.scope !2360, !noalias !2363
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %273, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %272)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %273, ptr noalias nocapture noundef align 8 dereferenceable(48) %272)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %272)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %271)
   %751 = getelementptr inbounds i8, ptr %273, i64 8
@@ -17207,7 +17207,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %268, ptr %763, align 8, !alias.scope !2370, !noalias !2373
   %764 = getelementptr inbounds i8, ptr %269, i64 24
   store i64 1, ptr %764, align 8, !alias.scope !2370, !noalias !2373
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %270, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %269)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %270, ptr noalias nocapture noundef align 8 dereferenceable(48) %269)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %269)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %268)
   %765 = getelementptr inbounds i8, ptr %270, i64 8
@@ -17250,7 +17250,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %265, ptr %777, align 8, !alias.scope !2380, !noalias !2383
   %778 = getelementptr inbounds i8, ptr %266, i64 24
   store i64 1, ptr %778, align 8, !alias.scope !2380, !noalias !2383
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %267, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %266)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %267, ptr noalias nocapture noundef align 8 dereferenceable(48) %266)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %266)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265)
   %779 = getelementptr inbounds i8, ptr %267, i64 8
@@ -17294,7 +17294,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %261, ptr %790, align 8, !alias.scope !2390, !noalias !2393
   %791 = getelementptr inbounds i8, ptr %262, i64 24
   store i64 1, ptr %791, align 8, !alias.scope !2390, !noalias !2393
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %263, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %262)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %263, ptr noalias nocapture noundef align 8 dereferenceable(48) %262)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %262)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %261)
   %792 = getelementptr inbounds i8, ptr %263, i64 8
@@ -17357,7 +17357,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %257, ptr %808, align 8, !alias.scope !2406, !noalias !2409
   %809 = getelementptr inbounds i8, ptr %258, i64 24
   store i64 1, ptr %809, align 8, !alias.scope !2406, !noalias !2409
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %259, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %258)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %259, ptr noalias nocapture noundef align 8 dereferenceable(48) %258)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %258)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %257)
   %810 = getelementptr inbounds i8, ptr %259, i64 8
@@ -17435,7 +17435,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %253, ptr %826, align 8, !alias.scope !2422, !noalias !2425
   %827 = getelementptr inbounds i8, ptr %254, i64 24
   store i64 1, ptr %827, align 8, !alias.scope !2422, !noalias !2425
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %255, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %254)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %255, ptr noalias nocapture noundef align 8 dereferenceable(48) %254)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %254)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %253)
   %828 = getelementptr inbounds i8, ptr %255, i64 8
@@ -17483,7 +17483,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %249, ptr %843, align 8, !alias.scope !2438, !noalias !2441
   %844 = getelementptr inbounds i8, ptr %250, i64 24
   store i64 1, ptr %844, align 8, !alias.scope !2438, !noalias !2441
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %251, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %250)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %251, ptr noalias nocapture noundef align 8 dereferenceable(48) %250)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %250)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %249)
   %845 = getelementptr inbounds i8, ptr %251, i64 8
@@ -17547,7 +17547,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %246, ptr %861, align 8, !alias.scope !2454, !noalias !2457
   %862 = getelementptr inbounds i8, ptr %247, i64 24
   store i64 1, ptr %862, align 8, !alias.scope !2454, !noalias !2457
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %248, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %247)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %248, ptr noalias nocapture noundef align 8 dereferenceable(48) %247)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %247)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %246)
   %863 = getelementptr inbounds i8, ptr %248, i64 8
@@ -17587,7 +17587,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %243, ptr %875, align 8, !alias.scope !2464, !noalias !2467
   %876 = getelementptr inbounds i8, ptr %244, i64 24
   store i64 1, ptr %876, align 8, !alias.scope !2464, !noalias !2467
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %245, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %244)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %245, ptr noalias nocapture noundef align 8 dereferenceable(48) %244)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %244)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243)
   %877 = getelementptr inbounds i8, ptr %245, i64 8
@@ -17643,7 +17643,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %240, ptr %889, align 8, !alias.scope !2474, !noalias !2477
   %890 = getelementptr inbounds i8, ptr %241, i64 24
   store i64 1, ptr %890, align 8, !alias.scope !2474, !noalias !2477
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %242, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %241)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %242, ptr noalias nocapture noundef align 8 dereferenceable(48) %241)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %241)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240)
   %891 = getelementptr inbounds i8, ptr %242, i64 8
@@ -17700,7 +17700,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %237, ptr %903, align 8, !alias.scope !2484, !noalias !2487
   %904 = getelementptr inbounds i8, ptr %238, i64 24
   store i64 1, ptr %904, align 8, !alias.scope !2484, !noalias !2487
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %239, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %238)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %239, ptr noalias nocapture noundef align 8 dereferenceable(48) %238)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %238)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %237)
   %905 = getelementptr inbounds i8, ptr %239, i64 8
@@ -17744,7 +17744,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %233, ptr %916, align 8, !alias.scope !2494, !noalias !2497
   %917 = getelementptr inbounds i8, ptr %234, i64 24
   store i64 1, ptr %917, align 8, !alias.scope !2494, !noalias !2497
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %235, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %234)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %235, ptr noalias nocapture noundef align 8 dereferenceable(48) %234)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %234)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233)
   %918 = getelementptr inbounds i8, ptr %235, i64 8
@@ -17794,7 +17794,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %230, ptr %934, align 8, !alias.scope !2510, !noalias !2513
   %935 = getelementptr inbounds i8, ptr %231, i64 24
   store i64 1, ptr %935, align 8, !alias.scope !2510, !noalias !2513
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %232, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %231)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %232, ptr noalias nocapture noundef align 8 dereferenceable(48) %231)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %231)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230)
   %936 = getelementptr inbounds i8, ptr %232, i64 8
@@ -17851,7 +17851,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %227, ptr %948, align 8, !alias.scope !2520, !noalias !2523
   %949 = getelementptr inbounds i8, ptr %228, i64 24
   store i64 1, ptr %949, align 8, !alias.scope !2520, !noalias !2523
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %229, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %228)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %229, ptr noalias nocapture noundef align 8 dereferenceable(48) %228)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %228)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227)
   %950 = getelementptr inbounds i8, ptr %229, i64 8
@@ -17894,7 +17894,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %224, ptr %962, align 8, !alias.scope !2530, !noalias !2533
   %963 = getelementptr inbounds i8, ptr %225, i64 24
   store i64 1, ptr %963, align 8, !alias.scope !2530, !noalias !2533
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %226, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %225)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %226, ptr noalias nocapture noundef align 8 dereferenceable(48) %225)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %225)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224)
   %964 = getelementptr inbounds i8, ptr %226, i64 8
@@ -17938,7 +17938,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %220, ptr %975, align 8, !alias.scope !2540, !noalias !2543
   %976 = getelementptr inbounds i8, ptr %221, i64 24
   store i64 1, ptr %976, align 8, !alias.scope !2540, !noalias !2543
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %222, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %221)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %222, ptr noalias nocapture noundef align 8 dereferenceable(48) %221)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %221)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %220)
   %977 = getelementptr inbounds i8, ptr %222, i64 8
@@ -17985,7 +17985,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %217, ptr %993, align 8, !alias.scope !2556, !noalias !2559
   %994 = getelementptr inbounds i8, ptr %218, i64 24
   store i64 1, ptr %994, align 8, !alias.scope !2556, !noalias !2559
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %219, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %218)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %219, ptr noalias nocapture noundef align 8 dereferenceable(48) %218)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %218)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217)
   %995 = getelementptr inbounds i8, ptr %219, i64 8
@@ -18031,7 +18031,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %214, ptr %1007, align 8, !alias.scope !2566, !noalias !2569
   %1008 = getelementptr inbounds i8, ptr %215, i64 24
   store i64 1, ptr %1008, align 8, !alias.scope !2566, !noalias !2569
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %216, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %215)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %216, ptr noalias nocapture noundef align 8 dereferenceable(48) %215)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %215)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %214)
   %1009 = getelementptr inbounds i8, ptr %216, i64 8
@@ -18072,7 +18072,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %210, ptr %1020, align 8, !alias.scope !2576, !noalias !2579
   %1021 = getelementptr inbounds i8, ptr %211, i64 24
   store i64 1, ptr %1021, align 8, !alias.scope !2576, !noalias !2579
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %212, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %211)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %212, ptr noalias nocapture noundef align 8 dereferenceable(48) %211)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %211)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %210)
   %1022 = getelementptr inbounds i8, ptr %212, i64 8
@@ -18121,7 +18121,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %207, ptr %1036, align 8, !alias.scope !2592, !noalias !2595
   %1037 = getelementptr inbounds i8, ptr %208, i64 24
   store i64 1, ptr %1037, align 8, !alias.scope !2592, !noalias !2595
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %209, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %208)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %209, ptr noalias nocapture noundef align 8 dereferenceable(48) %208)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %208)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207)
   %1038 = getelementptr inbounds i8, ptr %209, i64 8
@@ -18162,7 +18162,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %203, ptr %1049, align 8, !alias.scope !2602, !noalias !2605
   %1050 = getelementptr inbounds i8, ptr %204, i64 24
   store i64 1, ptr %1050, align 8, !alias.scope !2602, !noalias !2605
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %205, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %204)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %205, ptr noalias nocapture noundef align 8 dereferenceable(48) %204)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %204)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %203)
   %1051 = getelementptr inbounds i8, ptr %205, i64 8
@@ -18211,7 +18211,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %199, ptr %1064, align 8, !alias.scope !2618, !noalias !2621
   %1065 = getelementptr inbounds i8, ptr %200, i64 24
   store i64 1, ptr %1065, align 8, !alias.scope !2618, !noalias !2621
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %201, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %200)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %201, ptr noalias nocapture noundef align 8 dereferenceable(48) %200)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %200)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199)
   %1066 = getelementptr inbounds i8, ptr %201, i64 8
@@ -18259,7 +18259,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %196, ptr %1080, align 8, !alias.scope !2634, !noalias !2637
   %1081 = getelementptr inbounds i8, ptr %197, i64 24
   store i64 1, ptr %1081, align 8, !alias.scope !2634, !noalias !2637
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %198, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %197)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %198, ptr noalias nocapture noundef align 8 dereferenceable(48) %197)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %197)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196)
   %1082 = getelementptr inbounds i8, ptr %198, i64 8
@@ -18303,7 +18303,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %192, ptr %1093, align 8, !alias.scope !2644, !noalias !2647
   %1094 = getelementptr inbounds i8, ptr %193, i64 24
   store i64 1, ptr %1094, align 8, !alias.scope !2644, !noalias !2647
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %194, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %193)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %194, ptr noalias nocapture noundef align 8 dereferenceable(48) %193)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %193)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %192)
   %1095 = getelementptr inbounds i8, ptr %194, i64 8
@@ -18353,7 +18353,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %189, ptr %1111, align 8, !alias.scope !2660, !noalias !2663
   %1112 = getelementptr inbounds i8, ptr %190, i64 24
   store i64 1, ptr %1112, align 8, !alias.scope !2660, !noalias !2663
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %191, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %190)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %191, ptr noalias nocapture noundef align 8 dereferenceable(48) %190)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %190)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %189)
   %1113 = getelementptr inbounds i8, ptr %191, i64 8
@@ -18397,7 +18397,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %185, ptr %1124, align 8, !alias.scope !2670, !noalias !2673
   %1125 = getelementptr inbounds i8, ptr %186, i64 24
   store i64 1, ptr %1125, align 8, !alias.scope !2670, !noalias !2673
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %187, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %186)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %187, ptr noalias nocapture noundef align 8 dereferenceable(48) %186)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %186)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %185)
   %1126 = getelementptr inbounds i8, ptr %187, i64 8
@@ -18448,7 +18448,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %181, ptr %1141, align 8, !alias.scope !2686, !noalias !2689
   %1142 = getelementptr inbounds i8, ptr %182, i64 24
   store i64 1, ptr %1142, align 8, !alias.scope !2686, !noalias !2689
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %183, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %182)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %183, ptr noalias nocapture noundef align 8 dereferenceable(48) %182)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %182)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %181)
   %1143 = getelementptr inbounds i8, ptr %183, i64 8
@@ -18499,7 +18499,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %177, ptr %1158, align 8, !alias.scope !2702, !noalias !2705
   %1159 = getelementptr inbounds i8, ptr %178, i64 24
   store i64 1, ptr %1159, align 8, !alias.scope !2702, !noalias !2705
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %179, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %178)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %179, ptr noalias nocapture noundef align 8 dereferenceable(48) %178)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %177)
   %1160 = getelementptr inbounds i8, ptr %179, i64 8
@@ -18550,7 +18550,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %173, ptr %1175, align 8, !alias.scope !2718, !noalias !2721
   %1176 = getelementptr inbounds i8, ptr %174, i64 24
   store i64 1, ptr %1176, align 8, !alias.scope !2718, !noalias !2721
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %175, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %174)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %175, ptr noalias nocapture noundef align 8 dereferenceable(48) %174)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %174)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %173)
   %1177 = getelementptr inbounds i8, ptr %175, i64 8
@@ -18600,7 +18600,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %170, ptr %1193, align 8, !alias.scope !2734, !noalias !2737
   %1194 = getelementptr inbounds i8, ptr %171, i64 24
   store i64 1, ptr %1194, align 8, !alias.scope !2734, !noalias !2737
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %172, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %171)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %172, ptr noalias nocapture noundef align 8 dereferenceable(48) %171)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %171)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %170)
   %1195 = getelementptr inbounds i8, ptr %172, i64 8
@@ -18645,7 +18645,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %166, ptr %1206, align 8, !alias.scope !2744, !noalias !2747
   %1207 = getelementptr inbounds i8, ptr %167, i64 24
   store i64 1, ptr %1207, align 8, !alias.scope !2744, !noalias !2747
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %168, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %167)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %168, ptr noalias nocapture noundef align 8 dereferenceable(48) %167)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %167)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %166)
   %1208 = getelementptr inbounds i8, ptr %168, i64 8
@@ -18695,7 +18695,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %163, ptr %1224, align 8, !alias.scope !2760, !noalias !2763
   %1225 = getelementptr inbounds i8, ptr %164, i64 24
   store i64 1, ptr %1225, align 8, !alias.scope !2760, !noalias !2763
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %165, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %164)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %165, ptr noalias nocapture noundef align 8 dereferenceable(48) %164)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %164)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %163)
   %1226 = getelementptr inbounds i8, ptr %165, i64 8
@@ -18736,7 +18736,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %159, ptr %1237, align 8, !alias.scope !2770, !noalias !2773
   %1238 = getelementptr inbounds i8, ptr %160, i64 24
   store i64 1, ptr %1238, align 8, !alias.scope !2770, !noalias !2773
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %161, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %160)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %161, ptr noalias nocapture noundef align 8 dereferenceable(48) %160)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %160)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %159)
   %1239 = getelementptr inbounds i8, ptr %161, i64 8
@@ -18786,7 +18786,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %155, ptr %1252, align 8, !alias.scope !2786, !noalias !2789
   %1253 = getelementptr inbounds i8, ptr %156, i64 24
   store i64 1, ptr %1253, align 8, !alias.scope !2786, !noalias !2789
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %157, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %156)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %157, ptr noalias nocapture noundef align 8 dereferenceable(48) %156)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %156)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %155)
   %1254 = getelementptr inbounds i8, ptr %157, i64 8
@@ -18832,7 +18832,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %151, ptr %1267, align 8, !alias.scope !2802, !noalias !2805
   %1268 = getelementptr inbounds i8, ptr %152, i64 24
   store i64 1, ptr %1268, align 8, !alias.scope !2802, !noalias !2805
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %153, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %152)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %153, ptr noalias nocapture noundef align 8 dereferenceable(48) %152)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %152)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %151)
   %1269 = getelementptr inbounds i8, ptr %153, i64 8
@@ -18883,7 +18883,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %147, ptr %1284, align 8, !alias.scope !2818, !noalias !2821
   %1285 = getelementptr inbounds i8, ptr %148, i64 24
   store i64 1, ptr %1285, align 8, !alias.scope !2818, !noalias !2821
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %149, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %148)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %149, ptr noalias nocapture noundef align 8 dereferenceable(48) %148)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %148)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %147)
   %1286 = getelementptr inbounds i8, ptr %149, i64 8
@@ -18931,7 +18931,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %143, ptr %1301, align 8, !alias.scope !2834, !noalias !2837
   %1302 = getelementptr inbounds i8, ptr %144, i64 24
   store i64 1, ptr %1302, align 8, !alias.scope !2834, !noalias !2837
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %145, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %144)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %145, ptr noalias nocapture noundef align 8 dereferenceable(48) %144)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %144)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %143)
   %1303 = getelementptr inbounds i8, ptr %145, i64 8
@@ -18980,7 +18980,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %140, ptr %1317, align 8, !alias.scope !2850, !noalias !2853
   %1318 = getelementptr inbounds i8, ptr %141, i64 24
   store i64 1, ptr %1318, align 8, !alias.scope !2850, !noalias !2853
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %142, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %141)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %142, ptr noalias nocapture noundef align 8 dereferenceable(48) %141)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %141)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %140)
   %1319 = getelementptr inbounds i8, ptr %142, i64 8
@@ -19024,7 +19024,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %136, ptr %1330, align 8, !alias.scope !2860, !noalias !2863
   %1331 = getelementptr inbounds i8, ptr %137, i64 24
   store i64 1, ptr %1331, align 8, !alias.scope !2860, !noalias !2863
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %138, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %137)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %138, ptr noalias nocapture noundef align 8 dereferenceable(48) %137)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %137)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136)
   %1332 = getelementptr inbounds i8, ptr %138, i64 8
@@ -19072,7 +19072,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %133, ptr %1346, align 8, !alias.scope !2876, !noalias !2879
   %1347 = getelementptr inbounds i8, ptr %134, i64 24
   store i64 1, ptr %1347, align 8, !alias.scope !2876, !noalias !2879
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %135, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %134)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %135, ptr noalias nocapture noundef align 8 dereferenceable(48) %134)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %134)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %133)
   %1348 = getelementptr inbounds i8, ptr %135, i64 8
@@ -19115,7 +19115,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %130, ptr %1361, align 8, !alias.scope !2886, !noalias !2889
   %1362 = getelementptr inbounds i8, ptr %131, i64 24
   store i64 1, ptr %1362, align 8, !alias.scope !2886, !noalias !2889
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %132, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %131)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %132, ptr noalias nocapture noundef align 8 dereferenceable(48) %131)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %131)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %130)
   %1363 = getelementptr inbounds i8, ptr %132, i64 8
@@ -19158,7 +19158,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %127, ptr %1375, align 8, !alias.scope !2896, !noalias !2899
   %1376 = getelementptr inbounds i8, ptr %128, i64 24
   store i64 1, ptr %1376, align 8, !alias.scope !2896, !noalias !2899
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %129, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %128)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %129, ptr noalias nocapture noundef align 8 dereferenceable(48) %128)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %128)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %127)
   %1377 = getelementptr inbounds i8, ptr %129, i64 8
@@ -19201,7 +19201,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %124, ptr %1389, align 8, !alias.scope !2906, !noalias !2909
   %1390 = getelementptr inbounds i8, ptr %125, i64 24
   store i64 1, ptr %1390, align 8, !alias.scope !2906, !noalias !2909
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %126, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %125)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %126, ptr noalias nocapture noundef align 8 dereferenceable(48) %125)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %125)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %124)
   %1391 = getelementptr inbounds i8, ptr %126, i64 8
@@ -19245,7 +19245,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %121, ptr %1404, align 8, !alias.scope !2916, !noalias !2919
   %1405 = getelementptr inbounds i8, ptr %122, i64 24
   store i64 1, ptr %1405, align 8, !alias.scope !2916, !noalias !2919
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %123, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %122)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %123, ptr noalias nocapture noundef align 8 dereferenceable(48) %122)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %122)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121)
   %1406 = getelementptr inbounds i8, ptr %123, i64 8
@@ -19289,7 +19289,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %117, ptr %1417, align 8, !alias.scope !2926, !noalias !2929
   %1418 = getelementptr inbounds i8, ptr %118, i64 24
   store i64 1, ptr %1418, align 8, !alias.scope !2926, !noalias !2929
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %119, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %118)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %119, ptr noalias nocapture noundef align 8 dereferenceable(48) %118)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %118)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117)
   %1419 = getelementptr inbounds i8, ptr %119, i64 8
@@ -19347,7 +19347,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %108, ptr %1436, align 8, !alias.scope !2946, !noalias !2949
   %1437 = getelementptr inbounds i8, ptr %109, i64 24
   store i64 1, ptr %1437, align 8, !alias.scope !2946, !noalias !2949
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %110, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %109)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %110, ptr noalias nocapture noundef align 8 dereferenceable(48) %109)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %109)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108)
   %1438 = getelementptr inbounds i8, ptr %110, i64 8
@@ -19390,7 +19390,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %105, ptr %1450, align 8, !alias.scope !2956, !noalias !2959
   %1451 = getelementptr inbounds i8, ptr %106, i64 24
   store i64 1, ptr %1451, align 8, !alias.scope !2956, !noalias !2959
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %107, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %106)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %107, ptr noalias nocapture noundef align 8 dereferenceable(48) %106)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %106)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105)
   %1452 = getelementptr inbounds i8, ptr %107, i64 8
@@ -19433,7 +19433,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %102, ptr %1464, align 8, !alias.scope !2966, !noalias !2969
   %1465 = getelementptr inbounds i8, ptr %103, i64 24
   store i64 1, ptr %1465, align 8, !alias.scope !2966, !noalias !2969
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %104, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %103)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %104, ptr noalias nocapture noundef align 8 dereferenceable(48) %103)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %103)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102)
   %1466 = getelementptr inbounds i8, ptr %104, i64 8
@@ -19473,7 +19473,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %99, ptr %1478, align 8, !alias.scope !2976, !noalias !2979
   %1479 = getelementptr inbounds i8, ptr %100, i64 24
   store i64 1, ptr %1479, align 8, !alias.scope !2976, !noalias !2979
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %101, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %100)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %101, ptr noalias nocapture noundef align 8 dereferenceable(48) %100)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %100)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99)
   %1480 = getelementptr inbounds i8, ptr %101, i64 8
@@ -19516,7 +19516,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %96, ptr %1492, align 8, !alias.scope !2986, !noalias !2989
   %1493 = getelementptr inbounds i8, ptr %97, i64 24
   store i64 1, ptr %1493, align 8, !alias.scope !2986, !noalias !2989
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %98, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %97)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %98, ptr noalias nocapture noundef align 8 dereferenceable(48) %97)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %97)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96)
   %1494 = getelementptr inbounds i8, ptr %98, i64 8
@@ -19559,7 +19559,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %93, ptr %1506, align 8, !alias.scope !2996, !noalias !2999
   %1507 = getelementptr inbounds i8, ptr %94, i64 24
   store i64 1, ptr %1507, align 8, !alias.scope !2996, !noalias !2999
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %95, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %94)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %95, ptr noalias nocapture noundef align 8 dereferenceable(48) %94)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %94)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93)
   %1508 = getelementptr inbounds i8, ptr %95, i64 8
@@ -19603,7 +19603,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %90, ptr %1520, align 8, !alias.scope !3006, !noalias !3009
   %1521 = getelementptr inbounds i8, ptr %91, i64 24
   store i64 1, ptr %1521, align 8, !alias.scope !3006, !noalias !3009
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %92, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %91)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %92, ptr noalias nocapture noundef align 8 dereferenceable(48) %91)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %91)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90)
   %1522 = getelementptr inbounds i8, ptr %92, i64 8
@@ -19655,7 +19655,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %82, ptr %1535, align 8, !alias.scope !3020, !noalias !3023
   %1536 = getelementptr inbounds i8, ptr %83, i64 24
   store i64 1, ptr %1536, align 8, !alias.scope !3020, !noalias !3023
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %84, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %83)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %84, ptr noalias nocapture noundef align 8 dereferenceable(48) %83)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %83)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82)
   %1537 = getelementptr inbounds i8, ptr %84, i64 8
@@ -19711,7 +19711,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %72, ptr %1553, align 8, !alias.scope !3040, !noalias !3043
   %1554 = getelementptr inbounds i8, ptr %73, i64 24
   store i64 1, ptr %1554, align 8, !alias.scope !3040, !noalias !3043
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %74, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %73)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %74, ptr noalias nocapture noundef align 8 dereferenceable(48) %73)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %73)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72)
   %1555 = getelementptr inbounds i8, ptr %74, i64 8
@@ -19761,7 +19761,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %69, ptr %1571, align 8, !alias.scope !3056, !noalias !3059
   %1572 = getelementptr inbounds i8, ptr %70, i64 24
   store i64 1, ptr %1572, align 8, !alias.scope !3056, !noalias !3059
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %71, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %70)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %71, ptr noalias nocapture noundef align 8 dereferenceable(48) %70)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %70)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69)
   %1573 = getelementptr inbounds i8, ptr %71, i64 8
@@ -19814,7 +19814,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %66, ptr %1589, align 8, !alias.scope !3068, !noalias !3071
   %1590 = getelementptr inbounds i8, ptr %67, i64 24
   store i64 1, ptr %1590, align 8, !alias.scope !3068, !noalias !3071
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %68, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %67)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %68, ptr noalias nocapture noundef align 8 dereferenceable(48) %67)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66)
   %1591 = getelementptr inbounds i8, ptr %68, i64 8
@@ -19911,7 +19911,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
 1620:                                             ; preds = %1622
   %1621 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..file_lines..FileLines$C$rustfmt_nightly..config..file_lines..FileLinesError$GT$$GT$17h896d3876d2ad83f4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %80) #21
+  invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..file_lines..FileLines$C$rustfmt_nightly..config..file_lines..FileLinesError$GT$$GT$17h896d3876d2ad83f4E"(ptr noalias noundef align 8 dereferenceable(56) %80) #21
           to label %"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..options..IgnoreList$C$$RF$str$GT$$GT$17hd17f5a7018d9166eE.exit" unwind label %1606
 
 1622:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1436"
@@ -19934,7 +19934,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %76, ptr %1626, align 8, !alias.scope !3078, !noalias !3081
   %1627 = getelementptr inbounds i8, ptr %77, i64 24
   store i64 1, ptr %1627, align 8, !alias.scope !3078, !noalias !3081
-  invoke fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %78, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %77)
+  invoke fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %78, ptr noalias nocapture noundef align 8 dereferenceable(48) %77)
           to label %1628 unwind label %1620
 
 1628:                                             ; preds = %1622
@@ -19946,7 +19946,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1630 = load ptr, ptr %1629, align 8, !nonnull !5, !noundef !5
   %1631 = getelementptr inbounds i8, ptr %79, i64 16
   %1632 = load i64, ptr %1631, align 8, !noundef !5
-  invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h40d6eec32f7d038fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %81, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %80, ptr noalias noundef nonnull readonly align 1 %1630, i64 noundef %1632)
+  invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h40d6eec32f7d038fE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %81, ptr noalias nocapture noundef align 8 dereferenceable(56) %80, ptr noalias noundef nonnull readonly align 1 %1630, i64 noundef %1632)
           to label %1635 unwind label %1633
 
 1633:                                             ; preds = %1628
@@ -20023,7 +20023,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %86, ptr %1655, align 8, !alias.scope !3084, !noalias !3087
   %1656 = getelementptr inbounds i8, ptr %87, i64 24
   store i64 1, ptr %1656, align 8, !alias.scope !3084, !noalias !3087
-  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %88, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %87)
+  call fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %88, ptr noalias nocapture noundef align 8 dereferenceable(48) %87)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %87)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false)
@@ -20163,7 +20163,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
 1699:                                             ; preds = %1701
   %1700 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$core..convert..Infallible$GT$$GT$17hc8a40015436cab5bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %115) #21
+  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$core..convert..Infallible$GT$$GT$17hc8a40015436cab5bE"(ptr noalias noundef align 8 dereferenceable(24) %115) #21
           to label %"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..options..IgnoreList$C$$RF$str$GT$$GT$17hd17f5a7018d9166eE.exit" unwind label %1606
 
 1701:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1381"
@@ -20196,7 +20196,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %111, ptr %1709, align 8, !alias.scope !3099, !noalias !3102
   %1710 = getelementptr inbounds i8, ptr %112, i64 24
   store i64 1, ptr %1710, align 8, !alias.scope !3099, !noalias !3102
-  invoke fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %113, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %112)
+  invoke fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %113, ptr noalias nocapture noundef align 8 dereferenceable(48) %112)
           to label %1711 unwind label %1699
 
 1711:                                             ; preds = %1701
@@ -21041,7 +21041,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
 2003:                                             ; preds = %2005
   %2004 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..macro_names..MacroSelectors$C$rustfmt_nightly..config..macro_names..MacroSelectorsError$GT$$GT$17hf26c6764657a63daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %285) #21
+  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..macro_names..MacroSelectors$C$rustfmt_nightly..config..macro_names..MacroSelectorsError$GT$$GT$17hf26c6764657a63daE"(ptr noalias noundef align 8 dereferenceable(24) %285) #21
           to label %"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..options..IgnoreList$C$$RF$str$GT$$GT$17hd17f5a7018d9166eE.exit" unwind label %1606
 
 2005:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1100"
@@ -21064,7 +21064,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   store ptr %281, ptr %2009, align 8, !alias.scope !3109, !noalias !3112
   %2010 = getelementptr inbounds i8, ptr %282, i64 24
   store i64 1, ptr %2010, align 8, !alias.scope !3109, !noalias !3112
-  invoke fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %283, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %282)
+  invoke fastcc void @_ZN5alloc3fmt6format17h35125637d547cb53E(ptr noalias nocapture noundef align 8 dereferenceable(24) %283, ptr noalias nocapture noundef align 8 dereferenceable(48) %282)
           to label %2011 unwind label %2003
 
 2011:                                             ; preds = %2005
@@ -21076,7 +21076,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %2013 = load ptr, ptr %2012, align 8, !nonnull !5, !noundef !5
   %2014 = getelementptr inbounds i8, ptr %284, i64 16
   %2015 = load i64, ptr %2014, align 8, !noundef !5
-  invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h52bc466748d9d1a1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %286, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %285, ptr noalias noundef nonnull readonly align 1 %2013, i64 noundef %2015)
+  invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h52bc466748d9d1a1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %286, ptr noalias nocapture noundef align 8 dereferenceable(24) %285, ptr noalias noundef nonnull readonly align 1 %2013, i64 noundef %2015)
           to label %2018 unwind label %2016
 
 2016:                                             ; preds = %2011
@@ -21625,7 +21625,7 @@ default.unreachable:                              ; preds = %2205
   %2213 = getelementptr inbounds i8, ptr %7, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2212, i8 -1, i64 16, i1 false), !alias.scope !3167, !noalias !3164
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2213, i8 0, i64 16, i1 false), !alias.scope !3167, !noalias !3164
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !3164
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -21646,14 +21646,14 @@ default.unreachable:                              ; preds = %2205
   store i64 %2207, ptr %2220, align 8, !alias.scope !3170, !noalias !3164
   %2221 = getelementptr inbounds i8, ptr %8, i64 56
   store i64 %2207, ptr %2221, align 8, !alias.scope !3170, !noalias !3164
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %8)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !3164
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 2222:                                             ; preds = %2205
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !3164
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %9, i64 noundef %2207), !noalias !3164
-  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef nonnull align 8 dereferenceable(848) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias noundef align 8 dereferenceable(848) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !3164
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
@@ -21723,7 +21723,7 @@ default.unreachable:                              ; preds = %2205
   br i1 %2232, label %2235, label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 2233:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1509"
-  call fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E(ptr noalias noundef nonnull align 8 dereferenceable(848) %0)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E(ptr noalias noundef align 8 dereferenceable(848) %0)
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1517": ; preds = %.thread1979, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1509.thread"
@@ -21732,14 +21732,14 @@ default.unreachable:                              ; preds = %2205
   br i1 %2234, label %2236, label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 2235:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1513"
-  call fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE(ptr noalias noundef nonnull align 8 dereferenceable(848) %0)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE(ptr noalias noundef align 8 dereferenceable(848) %0)
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 
 _ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit: ; preds = %.thread1979, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1458", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1505", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1497", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1481", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1485", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1493", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1489", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1509.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1513", %2222, %2214, %2210, %2236, %2235, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1517", %2233
   ret void
 
 2236:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit1517"
-  call fastcc void @_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE(ptr noalias noundef nonnull align 8 dereferenceable(848) %0)
+  call fastcc void @_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE(ptr noalias noundef align 8 dereferenceable(848) %0)
   br label %_ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit
 }
 
@@ -61459,7 +61459,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit7190: ; preds = %13669
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias nocapture noundef align 8 dereferenceable(848) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuristics17h6b3bc0d81abd3c88E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(848) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca [2 x { { i64, i64 }, { i64, i64 }, i64, i32, i32, i8, [7 x i8] }], align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -62041,7 +62041,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E(ptr noalias nocapture noundef align 8 dereferenceable(848) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(848) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 676
   %4 = load i8, ptr %3, align 4, !range !172, !noalias !11410, !noundef !5
@@ -62080,7 +62080,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_impor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE(ptr noalias nocapture noundef align 8 dereferenceable(848) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(848) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 736
   %4 = load i8, ptr %3, align 8, !range !172, !noalias !11416, !noundef !5
@@ -62119,7 +62119,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_lay
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE(ptr noalias nocapture noundef align 8 dereferenceable(848) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(848) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 812
   %4 = load i8, ptr %3, align 4, !range !172, !noalias !11422, !noundef !5
@@ -63542,7 +63542,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
   %462 = getelementptr inbounds i8, ptr %0, i64 472
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr null, ptr %4, align 8, !alias.scope !11772
-  %463 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$rustfmt_nightly..config..file_lines..FileLines$u20$as$u20$core..cmp..PartialEq$GT$2eq17h22a89df258225b3fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %462, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4)
+  %463 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$rustfmt_nightly..config..file_lines..FileLines$u20$as$u20$core..cmp..PartialEq$GT$2eq17h22a89df258225b3fE"(ptr noalias noundef readonly align 8 dereferenceable(48) %462, ptr noalias noundef readonly align 8 dereferenceable(48) %4)
           to label %466 unwind label %464
 
 464:                                              ; preds = %461
@@ -64114,7 +64114,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
   %804 = getelementptr inbounds i8, ptr %0, i64 528
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5920608adc24E(ptr noalias nocapture noundef nonnull sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %8, i64 noundef 100)
-  %805 = call fastcc noundef zeroext i1 @"_ZN90_$LT$rustfmt_nightly..config..options..WidthHeuristics$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54ff14b60c81397cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %804, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8)
+  %805 = call fastcc noundef zeroext i1 @"_ZN90_$LT$rustfmt_nightly..config..options..WidthHeuristics$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54ff14b60c81397cE"(ptr noalias noundef readonly align 8 dereferenceable(64) %804, ptr noalias noundef readonly align 8 dereferenceable(64) %8)
   %806 = zext i1 %805 to i8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
@@ -64209,7 +64209,7 @@ define void @"_ZN74_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..default
 
 10:                                               ; preds = %22, %11
   %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %12, %11 ]
-  invoke fastcc void @"_ZN4core3ptr126drop_in_place$LT$$LP$core..cell..Cell$LT$bool$GT$$C$bool$C$rustfmt_nightly..config..macro_names..MacroSelectors$C$bool$RP$$GT$17he6ff0abcae8cdc9fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #21
+  invoke fastcc void @"_ZN4core3ptr126drop_in_place$LT$$LP$core..cell..Cell$LT$bool$GT$$C$bool$C$rustfmt_nightly..config..macro_names..MacroSelectors$C$bool$RP$$GT$17he6ff0abcae8cdc9fE"(ptr noalias noundef align 8 dereferenceable(32) %5) #21
           to label %86 unwind label %84
 
 11:                                               ; preds = %1
@@ -64255,7 +64255,7 @@ define void @"_ZN74_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..default
 22:                                               ; preds = %21, %13
   %23 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$$LP$core..cell..Cell$LT$bool$GT$$C$bool$C$alloc..string..String$C$bool$RP$$GT$17h22e1ddcd81ef8d63E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #21
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$$LP$core..cell..Cell$LT$bool$GT$$C$bool$C$alloc..string..String$C$bool$RP$$GT$17h22e1ddcd81ef8d63E"(ptr noalias noundef align 8 dereferenceable(32) %4) #21
           to label %10 unwind label %84
 
 24:                                               ; preds = %.noexc

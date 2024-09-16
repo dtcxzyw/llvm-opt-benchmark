@@ -2276,8 +2276,8 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16formatWithCommasB5cxx11y(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %1) unnamed_addr #3 {
-  tail call void @_ZNSt7__cxx119to_stringEy(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %1)
+define internal fastcc void @_ZL16formatWithCommasB5cxx11y(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef %1) unnamed_addr #3 {
+  tail call void @_ZNSt7__cxx119to_stringEy(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %1)
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   %4 = trunc i64 %3 to i32
   %.04 = add i32 %4, -3
@@ -2672,7 +2672,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit74:               ; preds = %175, %177
 180:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit74
   %181 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #24
   %182 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %181, ptr noundef nonnull @.str.45)
-  call fastcc void @_ZL16formatWithCommasB5cxx11y(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %.053)
+  call fastcc void @_ZL16formatWithCommasB5cxx11y(ptr dead_on_unwind noalias writable align 8 %26, i64 noundef %.053)
   %183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %182, ptr noundef nonnull align 8 dereferenceable(32) %26)
   %184 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %183, ptr noundef nonnull @.str.25)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #24
@@ -3413,7 +3413,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 61:                                               ; preds = %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread
   %62 = load ptr, ptr %11, align 8
-  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(160) %3)
+  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(160) %3)
   %63 = getelementptr inbounds i8, ptr %16, i64 8
   %.val = load i8, ptr %63, align 8
   %64 = trunc i8 %.val to i1
@@ -3527,7 +3527,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm15createFil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #3 {
+define internal fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #3 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::unique_ptr.180", align 8
   %6 = alloca %"class.std::unique_ptr.188", align 8
@@ -3622,7 +3622,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115TextFileHandlerESt14default_deleteIS1_EED2Ev.
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %51
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerEJRA2_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.75)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerEJRA2_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.75)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load i8, ptr %55, align 8
   %57 = and i8 %56, -2
@@ -3639,7 +3639,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115TextFileHandlerESt14default_deleteIS1_EED2Ev.
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %59
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(160) %2)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, -2
@@ -3656,7 +3656,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115TextFileHandlerESt14default_deleteIS1_EED2Ev.
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %67
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerEJRA2_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(2) @.str.73)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerEJRA2_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(2) @.str.73)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load i8, ptr %71, align 8
   %73 = and i8 %72, -2
@@ -3673,7 +3673,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115TextFileHandlerESt14default_deleteIS1_EED2Ev.
   br i1 %77, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit, label %81
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit: ; preds = %75
-  call fastcc void @_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  call fastcc void @_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i8, ptr %78, align 8
   %80 = and i8 %79, -2
@@ -3688,7 +3688,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit
   br i1 %83, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit24, label %87
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit24: ; preds = %81
-  call fastcc void @_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  call fastcc void @_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2)
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %85 = load i8, ptr %84, align 8
   %86 = and i8 %85, -2
@@ -3703,7 +3703,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit
   br i1 %89, label %90, label %95
 
 90:                                               ; preds = %87
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(160) %2)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load i8, ptr %91, align 8
   %93 = and i8 %92, -2
@@ -3720,7 +3720,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_deleteIS1_EED2Ev.exit
   br i1 %97, label %98, label %_ZN4llvm5ErrorD2Ev.exit
 
 98:                                               ; preds = %95
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(160) %2)
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %100 = load i8, ptr %99, align 8
   %101 = and i8 %100, -2
@@ -4228,7 +4228,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   %88 = load ptr, ptr %8, align 8
   %89 = getelementptr inbounds %"class.std::unique_ptr", ptr %88, i64 %87
   %90 = load ptr, ptr %89, align 8
-  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(160) %79)
+  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(160) %79)
   %91 = getelementptr inbounds i8, ptr %12, i64 8
   %.val = load i8, ptr %91, align 8
   %92 = trunc i8 %.val to i1
@@ -4688,7 +4688,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 89:                                               ; preds = %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread
   %90 = load ptr, ptr %14, align 8
   %91 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(160) %91)
+  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(160) %91)
   %92 = getelementptr inbounds i8, ptr %19, i64 8
   %.val = load i8, ptr %92, align 8
   %93 = trunc i8 %.val to i1
@@ -6061,7 +6061,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i29.i: ; preds = %1
 196:                                              ; preds = %184
   call void @_ZN4llvm12MemoryBuffer12getMemBufferENS_15MemoryBufferRefEb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %27, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %26, i1 noundef zeroext false) #24
   %197 = load ptr, ptr %27, align 8, !noalias !208
-  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(24) %197, ptr noundef nonnull align 8 dereferenceable(160) %114)
+  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(24) %197, ptr noundef nonnull align 8 dereferenceable(160) %114)
   %.val.i = load i8, ptr %158, align 8, !noalias !208
   %198 = trunc i8 %.val.i to i1
   br i1 %198, label %.critedge15.i, label %219
@@ -6840,7 +6840,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i124: 
 503:                                              ; preds = %483
   %504 = load ptr, ptr %54, align 8
   %505 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(24) %504, ptr noundef nonnull align 8 dereferenceable(160) %505)
+  call fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(24) %504, ptr noundef nonnull align 8 dereferenceable(160) %505)
   %.val = load i8, ptr %421, align 8
   %506 = trunc i8 %.val to i1
   br i1 %506, label %.critedge98, label %507
@@ -9225,7 +9225,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_115TextFileHandlerEEclEPS1_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerEJRA2_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #3 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerEJRA2_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #3 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   tail call fastcc void @_ZN12_GLOBAL__N_115TextFileHandlerC2EN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr nonnull %1, i64 %4)
@@ -9234,7 +9234,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 {
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN12_GLOBAL__N_117BinaryFileHandlerE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9310,7 +9310,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_117BinaryFileHandlerEEclEPS1_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #3 {
+define internal fastcc void @_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #3 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.248, align 1
@@ -11468,7 +11468,7 @@ define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler10ReadBundleERN4llvm11
   store ptr null, ptr %9, align 8, !noalias !500
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 0, ptr %50, align 8, !noalias !500
-  call fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull byval(%"class.std::optional.261") align 8 %11), !noalias !500
+  call fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull byval(%"class.std::optional.261") align 8 %11), !noalias !500
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %52 = load i8, ptr %51, align 8, !noalias !500
   %53 = trunc i8 %52 to i1
@@ -11574,7 +11574,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringR
   store i64 %49, ptr %.sroa.248.0..sroa_idx.i, align 8, !noalias !500
   %96 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 1, ptr %96, align 8, !noalias !500
-  call fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull byval(%"class.std::optional.261") align 8 %16), !noalias !500
+  call fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull byval(%"class.std::optional.261") align 8 %16), !noalias !500
   %97 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %98 = load i8, ptr %97, align 8, !noalias !500
   %99 = trunc i8 %98 to i1
@@ -12063,7 +12063,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %2
   store ptr %11, ptr %10, align 8
   store i64 1, ptr %.sroa.2137.0..sroa_idx, align 8
   store i8 1, ptr %34, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull byval(%"class.std::optional.261") align 8 %10)
+  call fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull byval(%"class.std::optional.261") align 8 %10)
   %70 = load i8, ptr %35, align 8
   %71 = trunc i8 %70 to i1
   br i1 %71, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, label %._ZN4llvmplERKNS_5TwineES2_.exit_crit_edge
@@ -12332,7 +12332,7 @@ _ZN12_GLOBAL__N_119TempFileHandlerRAIID2Ev.exit:  ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef readonly byval(%"class.std::optional.261") align 8 %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef readonly byval(%"class.std::optional.261") align 8 %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8

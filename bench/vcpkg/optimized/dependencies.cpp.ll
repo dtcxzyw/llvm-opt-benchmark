@@ -5505,7 +5505,7 @@ _ZNO5vcpkg8OptionalIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_trai
   %349 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr @.str.2, ptr %349, align 8
   %.sroa.011.0.copyload = load i64, ptr @_ZN5vcpkg39msgUnsupportedFeatureSupportsExpressionE, align 8
-  invoke fastcc void @_ZN5vcpkgL26create_unsupported_messageENS_3msg8MessageTIJNS0_14package_name_tENS0_14feature_spec_tENS0_21supports_expression_tENS0_9triplet_tEEEERKNS_11FeatureSpecERKNS_18PlatformExpression4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 %.sroa.011.0.copyload, ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.018.0.i.ph)
+  invoke fastcc void @_ZN5vcpkgL26create_unsupported_messageENS_3msg8MessageTIJNS0_14package_name_tENS0_14feature_spec_tENS0_21supports_expression_tENS0_9triplet_tEEEERKNS_11FeatureSpecERKNS_18PlatformExpression4ExprE(ptr dead_on_unwind noalias writable align 8 %39, i64 %.sroa.011.0.copyload, ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.018.0.i.ph)
           to label %350 unwind label %.loopexit.split-lp296.loopexit.split-lp
 
 350:                                              ; preds = %348
@@ -6369,7 +6369,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE9push_backERKS1_.exit128: ; preds = %.
           to label %66 unwind label %.loopexit.split-lp321
 
 66:                                               ; preds = %._crit_edge
-  invoke fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %2)
+  invoke fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %2)
           to label %67 unwind label %105
 
 67:                                               ; preds = %66
@@ -6404,7 +6404,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
           to label %74 unwind label %107
 
 74:                                               ; preds = %_ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EED2Ev.exit
-  invoke fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %2)
+  invoke fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %2)
           to label %75 unwind label %109
 
 75:                                               ; preds = %74
@@ -12292,7 +12292,7 @@ _ZN5vcpkg7Strings4joinISt6vectorINS_15LocalizedStringESaIS3_EEEENSt7__cxx1112bas
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(32) %1204) #26, !noalias !154
   %1206 = load ptr, ptr %30, align 8, !noalias !154
   %1207 = load i64, ptr %1187, align 8, !noalias !154
-  invoke fastcc void @"_ZZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph21finalize_extract_planERKNS_11PackageSpecENS_21UnsupportedPortActionEENK3$_0clERKNS1_7DepSpecENS_10StringViewE"(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0153.0199.i, ptr %1206, i64 %1207)
+  invoke fastcc void @"_ZZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph21finalize_extract_planERKNS_11PackageSpecENS_21UnsupportedPortActionEENK3$_0clERKNS1_7DepSpecENS_10StringViewE"(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0153.0199.i, ptr %1206, i64 %1207)
           to label %1208 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !154
 
 1208:                                             ; preds = %1205
@@ -12520,7 +12520,7 @@ _ZN5vcpkg7Strings6concatIJNS_11PackageSpecEA2_cNS_7VersionEEEENSt7__cxx1112basic
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %32) #26, !noalias !154
   %1275 = load ptr, ptr %35, align 8, !noalias !154
   %1276 = load i64, ptr %1198, align 8, !noalias !154
-  invoke fastcc void @"_ZZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph21finalize_extract_planERKNS_11PackageSpecENS_21UnsupportedPortActionEENK3$_0clERKNS1_7DepSpecENS_10StringViewE"(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(112) %31, ptr %1275, i64 %1276)
+  invoke fastcc void @"_ZZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph21finalize_extract_planERKNS_11PackageSpecENS_21UnsupportedPortActionEENK3$_0clERKNS1_7DepSpecENS_10StringViewE"(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(112) %31, ptr %1275, i64 %1276)
           to label %1277 unwind label %1303, !noalias !154
 
 1277:                                             ; preds = %_ZN5vcpkg7Strings6concatIJNS_11PackageSpecEA2_cNS_7VersionEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpRKT_.exit.i
@@ -18658,7 +18658,7 @@ declare noundef zeroext i1 @_ZNK5vcpkg18PlatformExpression4Expr8evaluateERKSt13u
 declare void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL26create_unsupported_messageENS_3msg8MessageTIJNS0_14package_name_tENS0_14feature_spec_tENS0_21supports_expression_tENS0_9triplet_tEEEERKNS_11FeatureSpecERKNS_18PlatformExpression4ExprE(ptr dead_on_unwind noalias writable align 8 %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL26create_unsupported_messageENS_3msg8MessageTIJNS0_14package_name_tENS0_14feature_spec_tENS0_21supports_expression_tENS0_9triplet_tEEEERKNS_11FeatureSpecERKNS_18PlatformExpression4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v10::format_arg_store.419", align 16
   %6 = alloca %"struct.vcpkg::msg::TagArg.384", align 8
   %7 = alloca %"struct.vcpkg::msg::TagArg", align 8
@@ -18808,7 +18808,7 @@ _ZNK5vcpkg3msg9triplet_taSINS_7TripletEEENS0_6TagArgIS1_NSt11conditionalIXsr3std
   store ptr %47, ptr %60, align 16, !alias.scope !269, !noalias !272
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 136
   store i32 3, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8, !alias.scope !269, !noalias !272
-  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 noundef %1, i64 4611686018427453439, ptr nonnull %54)
+  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 noundef %1, i64 4611686018427453439, ptr nonnull %54)
           to label %61 unwind label %64
 
 61:                                               ; preds = %_ZNK5vcpkg3msg9triplet_taSINS_7TripletEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleINS_10StringViewET_EE5valueES6_S7_E4typeEEERKS7_.exit
@@ -26108,7 +26108,7 @@ _ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11FeatureSpec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unordered_map.503", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %5, i64 48
@@ -33648,7 +33648,7 @@ _ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE5eraseEN9__gnu_cxx17__normal_itera
 declare void @_ZN5vcpkg15LocalizedString8from_rawIcTnNSt9enable_ifIXsr3std7is_sameIcT_EE5valueEiE4typeELi0EEES0_ONSt7__cxx1112basic_stringIS3_St11char_traitsIS3_ESaIS3_EEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph21finalize_extract_planERKNS_11PackageSpecENS_21UnsupportedPortActionEENK3$_0clERKNS1_7DepSpecENS_10StringViewE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(112) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph21finalize_extract_planERKNS_11PackageSpecENS_21UnsupportedPortActionEENK3$_0clERKNS1_7DepSpecENS_10StringViewE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(112) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.fmt::v10::format_arg_store", align 16

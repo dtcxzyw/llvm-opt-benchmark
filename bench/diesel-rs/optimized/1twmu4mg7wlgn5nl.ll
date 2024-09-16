@@ -97,7 +97,7 @@ define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hae952765beae7911E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hae952765beae7911E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !7, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -468,7 +468,7 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
 66:                                               ; preds = %.noexc22
   %67 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hae952765beae7911E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #12
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hae952765beae7911E"(ptr noalias noundef align 8 dereferenceable(24) %7) #12
           to label %.body25 unwind label %79, !noalias !53
 
 68:                                               ; preds = %.noexc

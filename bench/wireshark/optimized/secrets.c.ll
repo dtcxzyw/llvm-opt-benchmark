@@ -301,7 +301,7 @@ verify_pkcs11_token.exit:                         ; preds = %29, %30
 
 35:                                               ; preds = %33
   store ptr null, ptr %7, align 8
-  call fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
+  call fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %7)
   %.pr = load ptr, ptr %7, align 8
   br i1 %.not, label %thread-pre-split, label %36
 
@@ -344,7 +344,7 @@ declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @g_file_test(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.cert_key_id, align 1
@@ -957,7 +957,7 @@ pkcs11_load_keys_from_token.exit:                 ; preds = %._crit_edge.thread.
   br label %92
 
 91:                                               ; preds = %.lr.ph
-  call fastcc void @load_rsa_keyfile(ptr noundef %14, ptr noundef %17, i32 noundef 1, ptr noundef nonnull %8)
+  call fastcc void @load_rsa_keyfile(ptr noundef %14, ptr noundef %17, i32 noundef 1, ptr noundef %8)
   br label %92
 
 92:                                               ; preds = %91, %pkcs11_load_keys_from_token.exit

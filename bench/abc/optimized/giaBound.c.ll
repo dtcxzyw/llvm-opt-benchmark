@@ -1168,7 +1168,7 @@ Vec_IntPush.exit14:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_BitSetEntry(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Vec_BitSetEntry(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1312,35 +1312,35 @@ Vec_BitGrow.exit.i:                               ; preds = %Vec_BitGrow.exit.si
   br label %Vec_BitFillExtra.exit
 
 Vec_BitFillExtra.exit:                            ; preds = %3, %.loopexit.i
-  %83 = icmp eq i32 %2, 1
-  %84 = and i32 %1, 31
-  %85 = shl nuw i32 1, %84
-  br i1 %83, label %86, label %94
+  %.not.i4 = icmp eq i32 %2, 0
+  %83 = and i32 %1, 31
+  %84 = shl nuw i32 1, %83
+  br i1 %.not.i4, label %93, label %85
 
-86:                                               ; preds = %Vec_BitFillExtra.exit
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = ashr i32 %1, 5
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %88, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %93 = or i32 %92, %85
-  store i32 %93, ptr %91, align 4
+85:                                               ; preds = %Vec_BitFillExtra.exit
+  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = ashr i32 %1, 5
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i32, ptr %87, i64 %89
+  %91 = load i32, ptr %90, align 4
+  %92 = or i32 %91, %84
+  store i32 %92, ptr %90, align 4
   br label %Vec_BitWriteEntry.exit
 
-94:                                               ; preds = %Vec_BitFillExtra.exit
-  %95 = xor i32 %85, -1
-  %96 = getelementptr inbounds i8, ptr %0, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = ashr i32 %1, 5
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %97, i64 %99
-  %101 = load i32, ptr %100, align 4
-  %102 = and i32 %101, %95
-  store i32 %102, ptr %100, align 4
+93:                                               ; preds = %Vec_BitFillExtra.exit
+  %94 = xor i32 %84, -1
+  %95 = getelementptr inbounds i8, ptr %0, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = ashr i32 %1, 5
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i32, ptr %96, i64 %98
+  %100 = load i32, ptr %99, align 4
+  %101 = and i32 %100, %94
+  store i32 %101, ptr %99, align 4
   br label %Vec_BitWriteEntry.exit
 
-Vec_BitWriteEntry.exit:                           ; preds = %86, %94
+Vec_BitWriteEntry.exit:                           ; preds = %85, %93
   ret void
 }
 
@@ -5105,7 +5105,7 @@ Vec_IntFree.exit434:                              ; preds = %Vec_IntFree.exit, %
 declare void @Gia_ManStaticFanoutStart(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_BitPush(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Vec_BitPush(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -5168,39 +5168,39 @@ Vec_BitGrow.exit17.sink.split:                    ; preds = %Vec_BitGrow.exit, %
   br label %Vec_BitGrow.exit17
 
 Vec_BitGrow.exit17:                               ; preds = %Vec_BitGrow.exit17.sink.split, %2
-  %34 = icmp eq i32 %1, 1
-  %35 = load i32, ptr %3, align 4
-  %36 = and i32 %35, 31
-  %37 = shl nuw i32 1, %36
-  br i1 %34, label %38, label %46
+  %.not = icmp eq i32 %1, 0
+  %34 = load i32, ptr %3, align 4
+  %35 = and i32 %34, 31
+  %36 = shl nuw i32 1, %35
+  br i1 %.not, label %45, label %37
 
-38:                                               ; preds = %Vec_BitGrow.exit17
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = ashr i32 %35, 5
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %40, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = or i32 %44, %37
-  store i32 %45, ptr %43, align 4
-  br label %55
+37:                                               ; preds = %Vec_BitGrow.exit17
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = ashr i32 %34, 5
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i32, ptr %39, i64 %41
+  %43 = load i32, ptr %42, align 4
+  %44 = or i32 %43, %36
+  store i32 %44, ptr %42, align 4
+  br label %54
 
-46:                                               ; preds = %Vec_BitGrow.exit17
-  %47 = xor i32 %37, -1
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = ashr i32 %35, 5
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %49, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = and i32 %53, %47
-  store i32 %54, ptr %52, align 4
-  br label %55
+45:                                               ; preds = %Vec_BitGrow.exit17
+  %46 = xor i32 %36, -1
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = ashr i32 %34, 5
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i32, ptr %48, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = and i32 %52, %46
+  store i32 %53, ptr %51, align 4
+  br label %54
 
-55:                                               ; preds = %46, %38
-  %56 = load i32, ptr %3, align 4
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %3, align 4
+54:                                               ; preds = %45, %37
+  %55 = load i32, ptr %3, align 4
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %3, align 4
   ret void
 }
 

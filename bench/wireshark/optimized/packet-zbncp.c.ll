@@ -3536,7 +3536,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %909 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %908, ptr noundef %0, i32 noundef %907, i32 noundef 1, i32 noundef 0) #4
   %910 = add i32 %3, 14
   store i32 %910, ptr %7, align 4
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %907, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %907, ptr noundef %7)
   %911 = load i32, ptr @hf_zbncp_data_dst_endpoint, align 4
   %912 = load i32, ptr %7, align 4
   %913 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %911, ptr noundef %0, i32 noundef %912, i32 noundef 1, i32 noundef 0) #4
@@ -3565,7 +3565,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %931 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %930, ptr noundef %0, i32 noundef %929, i32 noundef 1, i32 noundef 0) #4
   %932 = add i32 %3, 14
   store i32 %932, ptr %7, align 4
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %929, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %929, ptr noundef %7)
   %933 = load i32, ptr @hf_zbncp_data_dst_endpoint, align 4
   %934 = load i32, ptr %7, align 4
   %935 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %933, ptr noundef %0, i32 noundef %934, i32 noundef 1, i32 noundef 0) #4
@@ -4033,7 +4033,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1280 = add i32 %3, 3
   store i32 %1280, ptr %7, align 4
   %1281 = add i32 %3, 18
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1281, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1281, ptr noundef %7)
   %1282 = load i32, ptr @hf_zbncp_data_profile_id, align 4
   %1283 = load i32, ptr %7, align 4
   %1284 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1282, ptr noundef %0, i32 noundef %1283, i32 noundef 2, i32 noundef -2147483648) #4
@@ -4089,7 +4089,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 
 1325:                                             ; preds = %1272
   %1326 = add i32 %3, 14
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1326, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1326, ptr noundef %7)
   %1327 = load i32, ptr @hf_zbncp_data_dst_endpoint, align 4
   %1328 = load i32, ptr %7, align 4
   %1329 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1327, ptr noundef %0, i32 noundef %1328, i32 noundef 1, i32 noundef 0) #4
@@ -4126,7 +4126,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1351 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1350, ptr noundef %0, i32 noundef %1349, i32 noundef 1, i32 noundef 0) #4
   %1352 = add i32 %3, 12
   store i32 %1352, ptr %7, align 4
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1349, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1349, ptr noundef %7)
   %1353 = load i32, ptr @hf_zbncp_data_dst_endpoint, align 4
   %1354 = load i32, ptr %7, align 4
   %1355 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1353, ptr noundef %0, i32 noundef %1354, i32 noundef 1, i32 noundef 0) #4
@@ -4169,7 +4169,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1378 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1377, ptr noundef %0, i32 noundef %1376, i32 noundef 1, i32 noundef 0) #4
   %1379 = add i32 %3, 12
   store i32 %1379, ptr %7, align 4
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1376, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1376, ptr noundef %7)
   %1380 = load i32, ptr @hf_zbncp_data_dst_endpoint, align 4
   %1381 = load i32, ptr %7, align 4
   %1382 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1380, ptr noundef %0, i32 noundef %1381, i32 noundef 1, i32 noundef 0) #4
@@ -4365,7 +4365,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1515 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1514, ptr noundef %0, i32 noundef %1513, i32 noundef 1, i32 noundef 0) #4
   %1516 = add i32 %3, 4
   store i32 %1516, ptr %7, align 4
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1513, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1513, ptr noundef %7)
   %1517 = load i32, ptr @hf_zbncp_data_dst_endpoint, align 4
   %1518 = load i32, ptr %7, align 4
   %1519 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1517, ptr noundef %0, i32 noundef %1518, i32 noundef 1, i32 noundef 0) #4
@@ -4390,7 +4390,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1535 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1534, ptr noundef %0, i32 noundef %1533, i32 noundef 1, i32 noundef 0) #4
   %1536 = add i32 %3, 4
   store i32 %1536, ptr %7, align 4
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1533, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1533, ptr noundef %7)
   %1537 = load i32, ptr @hf_zbncp_data_dst_endpoint, align 4
   %1538 = load i32, ptr %7, align 4
   %1539 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1537, ptr noundef %0, i32 noundef %1538, i32 noundef 1, i32 noundef 0) #4
@@ -4415,7 +4415,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1555 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1554, ptr noundef %0, i32 noundef %1553, i32 noundef 1, i32 noundef 0) #4
   %1556 = add i32 %3, 4
   store i32 %1556, ptr %7, align 4
-  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1553, ptr noundef nonnull %7)
+  call fastcc void @dissect_zbncp_dst_addrs(ptr noundef %13, ptr noundef %0, i32 noundef %1553, ptr noundef %7)
   %1557 = load i32, ptr @hf_zbncp_data_dst_endpoint, align 4
   %1558 = load i32, ptr %7, align 4
   %1559 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1557, ptr noundef %0, i32 noundef %1558, i32 noundef 1, i32 noundef 0) #4
@@ -6209,7 +6209,7 @@ declare void @dissect_zbee_aps_status_code(ptr noundef, ptr noundef, ptr noundef
 declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zbncp_dst_addrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zbncp_dst_addrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #4
   switch i8 %5, label %10 [
     i8 4, label %6

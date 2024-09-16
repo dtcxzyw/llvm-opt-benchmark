@@ -56,8 +56,8 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetySim(ptr noundef %0, i3
 
 16:                                               ; preds = %14, %11
   %.sink121 = phi ptr [ %15, %14 ], [ %13, %11 ]
-  %17 = tail call fastcc ptr @populateLivenessVector(ptr noundef nonnull %4, ptr noundef %.sink121)
-  %18 = tail call fastcc ptr @populateFairnessVector(ptr noundef nonnull %4, ptr noundef %.sink121)
+  %17 = tail call fastcc ptr @populateLivenessVector(ptr noundef %4, ptr noundef %.sink121)
+  %18 = tail call fastcc ptr @populateFairnessVector(ptr noundef %4, ptr noundef %.sink121)
   %19 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2) #9
   %20 = icmp eq i32 %19, 49
   %21 = getelementptr i8, ptr %.sink121, i64 108
@@ -2767,7 +2767,7 @@ declare ptr @Abc_NtkStrash(ptr noundef, i32 noundef, i32 noundef, i32 noundef) l
 declare ptr @Abc_NtkToDar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @populateLivenessVector(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @populateLivenessVector(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -2886,7 +2886,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @populateFairnessVector(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @populateFairnessVector(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4

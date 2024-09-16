@@ -6804,7 +6804,7 @@ _ZNSt10_HashtableImSt4pairIKmN5clang5RISCV7RVVTypeEESaIS5_ENSt8__detail10_Select
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS3_4sema21RISCVIntrinsicManager13IntrinsicKindE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr readonly %1, i64 %2, i8 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS3_4sema21RISCVIntrinsicManager13IntrinsicKindE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr readonly %1, i64 %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.1155", align 8
   %6 = alloca %"class.llvm::SmallVector.1155", align 8
   %7 = alloca %"class.llvm::SmallVector.1155", align 8
@@ -6831,7 +6831,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   br i1 %.not229, label %._crit_edge, label %.lr.ph231
 
 .lr.ph231:                                        ; preds = %4
-  %switch.i = icmp eq i8 %3, 0
+  %trunc.i = trunc nuw i8 %3 to i1
   %27 = getelementptr inbounds i8, ptr %6, i64 24
   %28 = getelementptr inbounds i8, ptr %7, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7040,7 +7040,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   %119 = getelementptr inbounds [1297 x %"struct.clang::RISCV::PrototypeDescriptor"], ptr @_ZL17RVVSignatureTable, i64 0, i64 %118
   %120 = getelementptr inbounds [174 x %"struct.clang::RISCV::PrototypeDescriptor"], ptr @_ZL28RVSiFiveVectorSignatureTable, i64 0, i64 %118
   %.sroa.3.0.i = zext i8 %117 to i64
-  %.sroa.0.0.i = select i1 %switch.i, ptr %119, ptr %120
+  %.sroa.0.0.i = select i1 %trunc.i, ptr %120, ptr %119
   %121 = getelementptr inbounds nuw i8, ptr %.0230, i64 18
   %122 = load i16, ptr %121, align 2
   %123 = getelementptr inbounds nuw i8, ptr %.0230, i64 23
@@ -7049,7 +7049,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   %126 = getelementptr inbounds [1297 x %"struct.clang::RISCV::PrototypeDescriptor"], ptr @_ZL17RVVSignatureTable, i64 0, i64 %125
   %127 = getelementptr inbounds [174 x %"struct.clang::RISCV::PrototypeDescriptor"], ptr @_ZL28RVSiFiveVectorSignatureTable, i64 0, i64 %125
   %.sroa.3.0.i139 = zext i8 %124 to i64
-  %.sroa.0.0.i140 = select i1 %switch.i, ptr %126, ptr %127
+  %.sroa.0.0.i140 = select i1 %trunc.i, ptr %127, ptr %126
   %128 = getelementptr inbounds nuw i8, ptr %.0230, i64 20
   %129 = load i16, ptr %128, align 4
   %130 = getelementptr inbounds nuw i8, ptr %.0230, i64 24
@@ -7058,7 +7058,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   %133 = getelementptr inbounds [1297 x %"struct.clang::RISCV::PrototypeDescriptor"], ptr @_ZL17RVVSignatureTable, i64 0, i64 %132
   %134 = getelementptr inbounds [174 x %"struct.clang::RISCV::PrototypeDescriptor"], ptr @_ZL28RVSiFiveVectorSignatureTable, i64 0, i64 %132
   %.sroa.3.0.i144 = zext i8 %131 to i64
-  %.sroa.0.0.i145 = select i1 %switch.i, ptr %133, ptr %134
+  %.sroa.0.0.i145 = select i1 %trunc.i, ptr %134, ptr %133
   %135 = getelementptr inbounds nuw i8, ptr %.0230, i64 35
   %136 = load i16, ptr %135, align 1
   %137 = lshr i16 %136, 8
@@ -8194,7 +8194,7 @@ declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(pt
 declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22CreateRVVIntrinsicDeclERN5clang12LookupResultEPNS1_14IdentifierInfoERNS1_12PreprocessorEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22CreateRVVIntrinsicDeclERN5clang12LookupResultEPNS1_14IdentifierInfoERNS1_12PreprocessorEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, i32 noundef range(i32 0, 65536) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"struct.clang::DeclarationNameInfo", align 8

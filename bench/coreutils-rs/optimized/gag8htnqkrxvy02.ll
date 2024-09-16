@@ -1853,7 +1853,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10rayon_core8registry19WORKER_THRE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h207cf26edc2f09fbE(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h207cf26edc2f09fbE(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, [11 x i64] } }, ptr, { { i64, [2 x i64] } } }, align 8
   %4 = load i32, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, align 4, !range !152, !noalias !153, !noundef !4
   %trunc.i.i.i = trunc nuw i32 %4 to i1
@@ -1926,7 +1926,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %10
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h502ca801f3b45b6aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h502ca801f3b45b6aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { { ptr, [16 x i64] } }, { { i64, [6 x i64] } } }, align 8
   %.sroa.7 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7)
@@ -2013,7 +2013,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %11
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h831a2b95a8176cfcE(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h831a2b95a8176cfcE(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, [9 x i64] } }, ptr, { { i64, [2 x i64] } } }, align 8
   %4 = load i32, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, align 4, !range !152, !noalias !191, !noundef !4
   %trunc.i.i.i = trunc nuw i32 %4 to i1
@@ -2086,7 +2086,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %10
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h8de068c01a118d17E(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h8de068c01a118d17E(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { { [88 x i8], i8, [7 x i8] } }, ptr, { { i64, [2 x i64] } } }, align 8
   %4 = load i32, ptr @_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit5__KEY17h2d1248823c79f45bE, align 4, !range !152, !noalias !206, !noundef !4
   %trunc.i.i.i = trunc nuw i32 %4 to i1
@@ -2159,7 +2159,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %10
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hdba15cdeef38657dE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(168) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hdba15cdeef38657dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { { ptr, [20 x i64] } }, { { i64, [6 x i64] } } }, align 8
   %.sroa.7 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7)
@@ -2246,7 +2246,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %11
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h0ca42251ed5affbcE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(168) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h0ca42251ed5affbcE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { { ptr, [20 x i64] } }, { { i64, [6 x i64] } }, { ptr, { { i64 } }, i64, i8, [7 x i8] } }, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 272
   %7 = getelementptr inbounds i8, ptr %2, i64 256
@@ -2329,7 +2329,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h4f1c923c8c2cad16E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h4f1c923c8c2cad16E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { { ptr, [16 x i64] } }, { { i64, [6 x i64] } }, { ptr, { { i64 } }, i64, i8, [7 x i8] } }, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 272
   %7 = getelementptr inbounds i8, ptr %2, i64 256
@@ -2412,7 +2412,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h7cf50dba74bf966fE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h7cf50dba74bf966fE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, [11 x i64] } }, { { i64, [2 x i64] } }, { ptr, { { i64 } }, i64, i8, [7 x i8] } }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 272
   %6 = getelementptr inbounds i8, ptr %1, i64 256
@@ -2485,7 +2485,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17ha86a0038dd1b736fE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17ha86a0038dd1b736fE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { [88 x i8], i8, [7 x i8] } }, { { i64, [2 x i64] } }, { ptr, { { i64 } }, i64, i8, [7 x i8] } }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 272
   %6 = getelementptr inbounds i8, ptr %1, i64 256
@@ -2558,7 +2558,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf95df9277514f47aE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf95df9277514f47aE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(80) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, [9 x i64] } }, { { i64, [2 x i64] } }, { ptr, { { i64 } }, i64, i8, [7 x i8] } }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 272
   %6 = getelementptr inbounds i8, ptr %1, i64 256
@@ -2638,7 +2638,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h3b6a617c2cd642
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hdba15cdeef38657dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %2)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hdba15cdeef38657dE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef align 8 dereferenceable(168) %2)
   br label %9
 
 5:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2656,7 +2656,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h3b6a617c2cd642
   br label %9
 
 11:                                               ; preds = %5
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h0ca42251ed5affbcE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %2)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h0ca42251ed5affbcE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef align 8 dereferenceable(168) %2)
   br label %9
 }
 
@@ -2668,7 +2668,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h566c7c52290dfa
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h831a2b95a8176cfcE(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h831a2b95a8176cfcE(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef align 8 dereferenceable(80) %1)
   br label %8
 
 4:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2686,7 +2686,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h566c7c52290dfa
   br label %8
 
 10:                                               ; preds = %4
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf95df9277514f47aE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf95df9277514f47aE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef align 8 dereferenceable(80) %1)
   br label %8
 }
 
@@ -2698,7 +2698,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h85b89538866b9a
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h8de068c01a118d17E(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h8de068c01a118d17E(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1)
   br label %8
 
 4:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2716,7 +2716,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h85b89538866b9a
   br label %8
 
 10:                                               ; preds = %4
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17ha86a0038dd1b736fE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17ha86a0038dd1b736fE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef align 8 dereferenceable(96) %1)
   br label %8
 }
 
@@ -2728,7 +2728,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8cf563a31a76da
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h502ca801f3b45b6aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %2)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h502ca801f3b45b6aE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noalias nocapture noundef align 8 dereferenceable(136) %2)
   br label %9
 
 5:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2746,7 +2746,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8cf563a31a76da
   br label %9
 
 11:                                               ; preds = %5
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h4f1c923c8c2cad16E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %2)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h4f1c923c8c2cad16E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %1, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef align 8 dereferenceable(136) %2)
   br label %9
 }
 
@@ -2758,7 +2758,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17he65ef79c6c4453
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h207cf26edc2f09fbE(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h207cf26edc2f09fbE(ptr noundef nonnull align 128 %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1)
   br label %8
 
 4:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2776,7 +2776,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17he65ef79c6c4453
   br label %8
 
 10:                                               ; preds = %4
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h7cf50dba74bf966fE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h7cf50dba74bf966fE(ptr noundef nonnull align 128 %0, ptr noundef nonnull align 128 %.0.val.i, ptr noalias nocapture noundef align 8 dereferenceable(96) %1)
   br label %8
 }
 
@@ -2796,7 +2796,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h21367659fbaf4d56E(ptr n
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h8de068c01a118d17E(ptr noundef nonnull align 128 %5, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h8de068c01a118d17E(ptr noundef nonnull align 128 %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h85b89538866b9a2fE.llvm.12150801376095413471.exit
 
 8:                                                ; preds = %2
@@ -2810,7 +2810,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h21367659fbaf4d56E(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h85b89538866b9a2fE.llvm.12150801376095413471.exit
 
 12:                                               ; preds = %8
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17ha86a0038dd1b736fE(ptr noundef nonnull align 128 %5, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17ha86a0038dd1b736fE(ptr noundef nonnull align 128 %5, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h85b89538866b9a2fE.llvm.12150801376095413471.exit
 
 13:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2837,7 +2837,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E(ptr n
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hdba15cdeef38657dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(168) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hdba15cdeef38657dE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(168) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h3b6a617c2cd6420dE.llvm.12150801376095413471.exit
 
 9:                                                ; preds = %3
@@ -2851,7 +2851,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h3b6a617c2cd6420dE.llvm.12150801376095413471.exit
 
 13:                                               ; preds = %9
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h0ca42251ed5affbcE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %6, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(168) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h0ca42251ed5affbcE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %6, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(168) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h3b6a617c2cd6420dE.llvm.12150801376095413471.exit
 
 14:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2878,7 +2878,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h769c961bf005d763E(ptr n
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h502ca801f3b45b6aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h502ca801f3b45b6aE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h8cf563a31a76dae2E.llvm.12150801376095413471.exit
 
 9:                                                ; preds = %3
@@ -2892,7 +2892,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h769c961bf005d763E(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h8cf563a31a76dae2E.llvm.12150801376095413471.exit
 
 13:                                               ; preds = %9
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h4f1c923c8c2cad16E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %6, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h4f1c923c8c2cad16E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %6, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h8cf563a31a76dae2E.llvm.12150801376095413471.exit
 
 14:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2919,7 +2919,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17hb30c8819c6b530ebE(ptr n
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h831a2b95a8176cfcE(ptr noundef nonnull align 128 %5, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(80) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h831a2b95a8176cfcE(ptr noundef nonnull align 128 %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h566c7c52290dfa8cE.llvm.12150801376095413471.exit
 
 8:                                                ; preds = %2
@@ -2933,7 +2933,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17hb30c8819c6b530ebE(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h566c7c52290dfa8cE.llvm.12150801376095413471.exit
 
 12:                                               ; preds = %8
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf95df9277514f47aE(ptr noundef nonnull align 128 %5, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(80) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf95df9277514f47aE(ptr noundef nonnull align 128 %5, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h566c7c52290dfa8cE.llvm.12150801376095413471.exit
 
 13:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -2960,7 +2960,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17he76de8458884a16bE(ptr n
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h207cf26edc2f09fbE(ptr noundef nonnull align 128 %5, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h207cf26edc2f09fbE(ptr noundef nonnull align 128 %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17he65ef79c6c445366E.llvm.12150801376095413471.exit
 
 8:                                                ; preds = %2
@@ -2974,7 +2974,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17he76de8458884a16bE(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17he65ef79c6c445366E.llvm.12150801376095413471.exit
 
 12:                                               ; preds = %8
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h7cf50dba74bf966fE(ptr noundef nonnull align 128 %5, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %0)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h7cf50dba74bf966fE(ptr noundef nonnull align 128 %5, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0)
   br label %_ZN10rayon_core8registry8Registry9in_worker17he65ef79c6c445366E.llvm.12150801376095413471.exit
 
 13:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfafba6435da67f99E.llvm.12150801376095413471.exit"
@@ -5825,7 +5825,7 @@ define hidden void @_ZN4core3ptr19swap_nonoverlapping17hdcbc1ba93f2c0665E.llvm.1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr342drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$RP$$GT$$GT$17h82d94a4f7a49e991E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr342drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$RP$$GT$$GT$17h82d94a4f7a49e991E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !19, !noundef !4
   switch i64 %2, label %3 [
     i64 0, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hc79c9485099f6a6dE.exit"
@@ -6636,7 +6636,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   %storemerge.i = phi i64 [ 2, %17 ], [ 1, %16 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.10.i.i)
   %27 = getelementptr inbounds i8, ptr %0, i64 144
-  invoke fastcc void @"_ZN4core3ptr342drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$RP$$GT$$GT$17h82d94a4f7a49e991E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27)
+  invoke fastcc void @"_ZN4core3ptr342drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$RP$$GT$$GT$17h82d94a4f7a49e991E"(ptr noalias noundef align 8 dereferenceable(56) %27)
           to label %30 unwind label %28
 
 28:                                               ; preds = %26
@@ -7589,7 +7589,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   %storemerge.i = phi i64 [ 2, %17 ], [ 1, %16 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.10.i.i)
   %26 = getelementptr inbounds i8, ptr %0, i64 136
-  invoke fastcc void @"_ZN4core3ptr342drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$RP$$GT$$GT$17h82d94a4f7a49e991E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26)
+  invoke fastcc void @"_ZN4core3ptr342drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$RP$$GT$$GT$17h82d94a4f7a49e991E"(ptr noalias noundef align 8 dereferenceable(56) %26)
           to label %29 unwind label %27
 
 27:                                               ; preds = %25

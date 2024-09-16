@@ -671,7 +671,7 @@ isoption.exit738.thread.sink.split:               ; preds = %isoption.exit646.th
 isoption.exit738.thread:                          ; preds = %isoption.exit738.thread.sink.split, %.thread19.i713, %isoption.exit738
   %239 = phi i32 [ %154, %isoption.exit738 ], [ %154, %.thread19.i713 ], [ %.ph, %isoption.exit738.thread.sink.split ]
   %.1396597498398699910021014 = phi i32 [ %.67978008051473, %isoption.exit738 ], [ %.13968.ph, %.thread19.i713 ], [ %.1396597498398699910021014.ph, %isoption.exit738.thread.sink.split ]
-  %240 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %6)
+  %240 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.24, ptr noundef %6)
   %.not577 = icmp eq i32 %240, 0
   br i1 %.not577, label %243, label %241
 
@@ -680,7 +680,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %418
 
 243:                                              ; preds = %isoption.exit738.thread
-  %244 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.25, ptr noundef nonnull %6)
+  %244 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.25, ptr noundef %6)
   %.not578 = icmp eq i32 %244, 0
   br i1 %.not578, label %247, label %245
 
@@ -689,7 +689,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %418
 
 247:                                              ; preds = %243
-  %248 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 101, ptr noundef nonnull @.str.26, ptr noundef nonnull %6)
+  %248 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 101, ptr noundef nonnull @.str.26, ptr noundef %6)
   %.not579 = icmp eq i32 %248, 0
   br i1 %.not579, label %252, label %249
 
@@ -701,17 +701,17 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
 
 252:                                              ; preds = %249, %247
   %.14 = phi i32 [ %250, %249 ], [ %.1396597498398699910021014, %247 ]
-  %253 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.27, ptr noundef nonnull %6)
+  %253 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.27, ptr noundef %6)
   %.not581 = icmp eq i32 %253, 0
   br i1 %.not581, label %254, label %418
 
 254:                                              ; preds = %252
-  %255 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.28, ptr noundef nonnull %6)
+  %255 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.28, ptr noundef %6)
   %.not582 = icmp eq i32 %255, 0
   br i1 %.not582, label %256, label %418
 
 256:                                              ; preds = %254
-  %257 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %6)
+  %257 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.29, ptr noundef %6)
   %.not583 = icmp eq i32 %257, 0
   br i1 %.not583, label %288, label %258
 
@@ -761,7 +761,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %418
 
 288:                                              ; preds = %256
-  %289 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.31, ptr noundef nonnull %6)
+  %289 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.31, ptr noundef %6)
   %.not584 = icmp eq i32 %289, 0
   br i1 %.not584, label %326, label %290
 
@@ -823,17 +823,17 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %418
 
 326:                                              ; preds = %288
-  %327 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
+  %327 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef %6)
   %.not585 = icmp eq i32 %327, 0
   br i1 %.not585, label %328, label %330
 
 328:                                              ; preds = %326
-  %329 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.35, ptr noundef nonnull %6)
+  %329 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.35, ptr noundef %6)
   %.not586 = icmp eq i32 %329, 0
   br i1 %.not586, label %374, label %330
 
 330:                                              ; preds = %328, %326
-  %331 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
+  %331 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef %6)
   %.not598 = icmp slt i32 %.05071234, %27
   br i1 %.not598, label %336, label %332
 
@@ -902,7 +902,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %418
 
 374:                                              ; preds = %328
-  %375 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %6)
+  %375 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.38, ptr noundef %6)
   %.not587 = icmp eq i32 %375, 0
   br i1 %.not587, label %378, label %376
 
@@ -911,7 +911,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %418
 
 378:                                              ; preds = %374
-  %379 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %6)
+  %379 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.39, ptr noundef %6)
   %.not588 = icmp eq i32 %379, 0
   br i1 %.not588, label %382, label %380
 
@@ -922,7 +922,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
 
 382:                                              ; preds = %380, %378
   %.2506 = phi i32 [ 3, %380 ], [ %.05041237, %378 ]
-  %383 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %6)
+  %383 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.40, ptr noundef %6)
   %.not590 = icmp eq i32 %383, 0
   br i1 %.not590, label %386, label %384
 
@@ -931,7 +931,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %418
 
 386:                                              ; preds = %382
-  %387 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 104, ptr noundef nonnull @.str.41, ptr noundef nonnull %6)
+  %387 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 104, ptr noundef nonnull @.str.41, ptr noundef %6)
   %.not591 = icmp eq i32 %387, 0
   br i1 %.not591, label %389, label %388
 
@@ -940,7 +940,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   unreachable
 
 389:                                              ; preds = %386
-  %390 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 86, ptr noundef nonnull @.str.42, ptr noundef nonnull %6)
+  %390 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 86, ptr noundef nonnull @.str.42, ptr noundef %6)
   %.not593 = icmp eq i32 %390, 0
   br i1 %.not593, label %393, label %391
 
@@ -949,7 +949,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %738
 
 393:                                              ; preds = %389
-  %394 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.44, ptr noundef nonnull %6)
+  %394 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.44, ptr noundef %6)
   %.not594 = icmp eq i32 %394, 0
   br i1 %.not594, label %396, label %395
 
@@ -958,7 +958,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %738
 
 396:                                              ; preds = %393
-  %397 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.47, ptr noundef nonnull %6)
+  %397 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.47, ptr noundef %6)
   %.not595 = icmp eq i32 %397, 0
   br i1 %.not595, label %410, label %398
 
@@ -1642,7 +1642,7 @@ declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #2
 declare { i64, ptr } @jq_realpath(i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @isoption(ptr noundef readonly %0, i8 noundef signext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @isoption(ptr noundef readonly %0, i8 noundef signext range(i8 0, 116) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #5 {
   %5 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %5, 45
   br i1 %.not, label %6, label %10
@@ -1711,7 +1711,7 @@ declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #2
 declare void @jv_free(i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @usage(i32 noundef %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc void @usage(i32 noundef range(i32 0, 3) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
   %3 = icmp eq i32 %0, 0
   %stdout.val = load ptr, ptr @stdout, align 8
   %stderr.val = load ptr, ptr @stderr, align 8
@@ -1841,7 +1841,7 @@ define internal void @stderr_cb(ptr nocapture readonly %0, i64 %1, ptr %2) #13 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #12 {
+define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef range(i32 0, 4) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #12 {
   tail call void @jq_start(ptr noundef %0, i64 %1, ptr %2, i32 noundef %3) #19
   %7 = tail call { i64, ptr } @jq_next(ptr noundef %0) #19
   %8 = extractvalue { i64, ptr } %7, 0

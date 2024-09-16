@@ -1466,7 +1466,7 @@ h1_tunnel_go_state.exit:                          ; preds = %5, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 6) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 280
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %2
@@ -1474,7 +1474,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 8:                                                ; preds = %4
   %.not83 = icmp eq ptr %3, null
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable87 [
     i32 0, label %9
     i32 1, label %30
     i32 2, label %46
@@ -1624,7 +1624,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   %83 = getelementptr inbounds i8, ptr %82, i64 12
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %86, label %.thread87
+  br i1 %85, label %86, label %.thread88
 
 86:                                               ; preds = %81
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #5
@@ -1635,13 +1635,13 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 87:                                               ; preds = %75, %86
   %.pre-phi = phi i64 [ %78, %75 ], [ %.pre86, %86 ]
   %.not79 = icmp eq i64 %.pre-phi, 0
-  br i1 %.not79, label %.thread, label %.thread87
+  br i1 %.not79, label %.thread, label %.thread88
 
-.thread87:                                        ; preds = %81, %87
+.thread88:                                        ; preds = %81, %87
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %3, ptr noundef nonnull @.str.7) #5
   br label %.thread
 
-.thread:                                          ; preds = %.thread87, %87, %74
+.thread:                                          ; preds = %.thread88, %87, %74
   %88 = getelementptr inbounds i8, ptr %3, i64 3544
   %89 = load i8, ptr %88, align 8
   %90 = and i8 %89, -4
@@ -1687,7 +1687,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   store ptr null, ptr %110, align 8
   br label %112
 
-default.unreachable:                              ; preds = %8
+default.unreachable87:                            ; preds = %8
   unreachable
 
 112:                                              ; preds = %4, %105, %73, %59, %43, %22

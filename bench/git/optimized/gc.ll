@@ -780,7 +780,7 @@ if.then168:                                       ; preds = %report_last_gc_erro
 
 if.end170:                                        ; preds = %report_last_gc_error.exit.thread, %report_last_gc_error.exit
   %33 = load i32, ptr %force, align 4
-  %call171 = call fastcc ptr @lock_repo_for_gc(i32 noundef %33, ptr noundef nonnull %pid)
+  %call171 = call fastcc ptr @lock_repo_for_gc(i32 noundef %33, ptr noundef %pid)
   %tobool172.not = icmp eq ptr %call171, null
   br i1 %tobool172.not, label %if.end174, label %return
 
@@ -882,14 +882,14 @@ for.inc.i:                                        ; preds = %if.then7.i, %if.end
   br i1 %tobool.not.i28, label %if.end192, label %for.body.i, !llvm.loop !5
 
 if.end192:                                        ; preds = %for.inc.i, %if.then189, %if.then19.i, %for.end.i, %if.then184, %if.else180, %if.else187
-  call fastcc void @add_repack_all_option(ptr noundef nonnull %keep_pack)
+  call fastcc void @add_repack_all_option(ptr noundef %keep_pack)
   call void @string_list_clear(ptr noundef nonnull %keep_pack, i32 noundef 0) #20
   br label %if.end193
 
 if.end193:                                        ; preds = %if.end160, %if.end174, %if.end192
   %daemonized.0 = phi i1 [ %tobool176.not, %if.end174 ], [ true, %if.end160 ], [ true, %if.end192 ]
   %45 = load i32, ptr %force, align 4
-  %call194 = call fastcc ptr @lock_repo_for_gc(i32 noundef %45, ptr noundef nonnull %pid)
+  %call194 = call fastcc ptr @lock_repo_for_gc(i32 noundef %45, ptr noundef %pid)
   %tobool195.not = icmp eq ptr %call194, null
   br i1 %tobool195.not, label %if.end201, label %if.then196
 
@@ -1504,7 +1504,7 @@ if.then16:                                        ; preds = %estimate_repack_mem
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then19.i27, %for.end.i25, %if.then7, %estimate_repack_memory.exit, %if.then16, %find_base_packs.exit
-  call fastcc void @add_repack_all_option(ptr noundef nonnull %keep_pack)
+  call fastcc void @add_repack_all_option(ptr noundef %keep_pack)
   call void @string_list_clear(ptr noundef nonnull %keep_pack, i32 noundef 0) #20
   br label %if.end25
 
@@ -1532,7 +1532,7 @@ return:                                           ; preds = %if.end25, %if.else1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @lock_repo_for_gc(i32 noundef %force, ptr nocapture noundef writeonly %ret_pid) unnamed_addr #0 {
+define internal fastcc noundef ptr @lock_repo_for_gc(i32 noundef %force, ptr nocapture noundef nonnull writeonly %ret_pid) unnamed_addr #0 {
 entry:
   %tv.i = alloca %struct.timeval, align 8
   %lock = alloca %struct.lock_file, align 8
@@ -1726,7 +1726,7 @@ declare void @delete_tempfile(ptr noundef) local_unnamed_addr #5
 declare i32 @daemonize() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_repack_all_option(ptr noundef %keep_pack) unnamed_addr #0 {
+define internal fastcc void @add_repack_all_option(ptr noundef nonnull %keep_pack) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @prune_expire, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1776,7 +1776,7 @@ if.then16:                                        ; preds = %if.else13
   br label %if.then22
 
 if.then22:                                        ; preds = %if.then, %if.else13, %if.then16, %if.end, %if.then10
-  %call23 = tail call i32 @for_each_string_list(ptr noundef %keep_pack, ptr noundef nonnull @keep_one_pack, ptr noundef null) #20
+  %call23 = tail call i32 @for_each_string_list(ptr noundef nonnull %keep_pack, ptr noundef nonnull @keep_one_pack, ptr noundef null) #20
   %5 = load ptr, ptr @repack_filter, align 8
   %tobool25.not = icmp eq ptr %5, null
   br i1 %tobool25.not, label %if.end30, label %land.lhs.true26
@@ -2482,7 +2482,7 @@ if.end.i:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cmd.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %is_available.i.i)
   store ptr @.str.173, ptr %cmd.i.i, align 8
-  %call.i.i = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd.i.i, ptr noundef nonnull %is_available.i.i)
+  %call.i.i = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd.i.i, ptr noundef nonnull %is_available.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -2524,7 +2524,7 @@ if.else.i:                                        ; preds = %is_systemd_timer_av
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cmd.i3.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %is_available.i4.i)
   store ptr @.str.166, ptr %cmd.i3.i, align 8
-  %call.i5.i = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd.i3.i, ptr noundef nonnull %is_available.i4.i)
+  %call.i5.i = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd.i3.i, ptr noundef nonnull %is_available.i4.i)
   %tobool.not.i6.i = icmp eq i32 %call.i5.i, 0
   br i1 %tobool.not.i6.i, label %if.end.i9.i, label %if.then.i7.i
 
@@ -2577,8 +2577,8 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 if.end3.i:                                        ; preds = %if.end, %resolve_scheduler.exit.thread
-  %retval.0.i4 = phi i32 [ %retval.0.i.ph, %resolve_scheduler.exit.thread ], [ %0, %if.end ]
-  %idxprom.i = sext i32 %retval.0.i4 to i64
+  %retval.0.i5 = phi i32 [ %retval.0.i.ph, %resolve_scheduler.exit.thread ], [ %0, %if.end ]
+  %idxprom.i = sext i32 %retval.0.i5 to i64
   %arrayidx.i = getelementptr inbounds [5 x %struct.anon.0], ptr @scheduler_fn, i64 0, i64 %idxprom.i
   %is_available.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %is_available.i, align 8
@@ -4076,7 +4076,7 @@ return:                                           ; preds = %parse_scheduler.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_background_schedule(ptr nocapture noundef readonly %opts, i32 noundef %enable) unnamed_addr #0 {
+define internal fastcc i32 @update_background_schedule(ptr nocapture noundef readonly %opts, i32 noundef range(i32 0, 2) %enable) unnamed_addr #0 {
 entry:
   %lk = alloca %struct.lock_file, align 8
   %0 = load ptr, ptr @the_repository, align 8
@@ -4190,7 +4190,7 @@ entry:
   %cmd = alloca ptr, align 8
   %is_available = alloca i32, align 4
   store ptr @.str.173, ptr %cmd, align 8
-  %call = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef nonnull %is_available)
+  %call = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef nonnull %is_available)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -4233,7 +4233,7 @@ entry:
   %cmd = alloca ptr, align 8
   %is_available = alloca i32, align 4
   store ptr @.str.166, ptr %cmd, align 8
-  %call = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef nonnull %is_available)
+  %call = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef nonnull %is_available)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -4270,7 +4270,7 @@ return:                                           ; preds = %check_crontab_proce
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_schedule_cmd(ptr nocapture noundef %cmd, ptr noundef writeonly %is_available) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_schedule_cmd(ptr nocapture noundef nonnull %cmd, ptr noundef writeonly %is_available) unnamed_addr #0 {
 entry:
   %list = alloca %struct.string_list, align 8
   %pair = alloca %struct.string_list, align 8
@@ -4387,7 +4387,7 @@ if.end.i:                                         ; preds = %entry
 
 get_random_minute.exit:                           ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %rem.i, %if.end.i ], [ 13, %entry ]
-  %call1 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef null)
+  %call1 = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef null)
   %0 = load ptr, ptr %cmd, align 8
   call void @strvec_split(ptr noundef nonnull %crontab_list, ptr noundef %0) #20
   %call3 = call ptr @strvec_push(ptr noundef nonnull %crontab_list, ptr noundef nonnull @.str.24) #20
@@ -4708,7 +4708,7 @@ entry:
   %cmd = alloca ptr, align 8
   %is_available = alloca i32, align 4
   store ptr @.str.169, ptr %cmd, align 8
-  %call = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef nonnull %is_available)
+  %call = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef nonnull %is_available)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load i32, ptr %is_available, align 4
   %retval.0 = select i1 %tobool.not, i32 0, i32 %0
@@ -4755,7 +4755,7 @@ entry:
   %cmd = alloca ptr, align 8
   %is_available = alloca i32, align 4
   store ptr @.str.170, ptr %cmd, align 8
-  %call = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef nonnull %is_available)
+  %call = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef nonnull %is_available)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load i32, ptr %is_available, align 4
   %retval.0 = select i1 %tobool.not, i32 0, i32 %0
@@ -4803,7 +4803,7 @@ if.else:                                          ; preds = %entry
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %label.i.i.i, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.109) #20
   %call.i.i.i = call ptr @strbuf_detach(ptr noundef nonnull %label.i.i.i, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %label.i.i.i)
-  %call2.i.i = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd.i.i, ptr noundef null)
+  %call2.i.i = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd.i.i, ptr noundef null)
   %0 = load ptr, ptr %cmd.i.i, align 8
   call void @strvec_split(ptr noundef nonnull %child.i.i, ptr noundef %0) #20
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %child.i.i, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.243, ptr noundef %call.i.i.i, ptr noundef nonnull @.str.244, ptr noundef null) #20
@@ -4824,7 +4824,7 @@ lor.lhs.false.i3:                                 ; preds = %if.else
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %label.i.i1.i, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.110) #20
   %call.i.i4.i = call ptr @strbuf_detach(ptr noundef nonnull %label.i.i1.i, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %label.i.i1.i)
-  %call2.i5.i = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd.i2.i, ptr noundef null)
+  %call2.i5.i = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd.i2.i, ptr noundef null)
   %1 = load ptr, ptr %cmd.i2.i, align 8
   call void @strvec_split(ptr noundef nonnull %child.i3.i, ptr noundef %1) #20
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %child.i3.i, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.243, ptr noundef %call.i.i4.i, ptr noundef nonnull @.str.244, ptr noundef null) #20
@@ -4845,7 +4845,7 @@ lor.rhs.i4:                                       ; preds = %lor.lhs.false.i3
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %label.i.i7.i, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.111) #20
   %call.i.i10.i = call ptr @strbuf_detach(ptr noundef nonnull %label.i.i7.i, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %label.i.i7.i)
-  %call2.i11.i = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd.i8.i, ptr noundef null)
+  %call2.i11.i = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd.i8.i, ptr noundef null)
   %2 = load ptr, ptr %cmd.i8.i, align 8
   call void @strvec_split(ptr noundef nonnull %child.i9.i, ptr noundef %2) #20
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %child.i9.i, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.243, ptr noundef %call.i.i10.i, ptr noundef nonnull @.str.244, ptr noundef null) #20
@@ -4944,7 +4944,7 @@ systemd_timer_delete_unit_files.exit:             ; preds = %get_random_minute.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @systemd_timer_enable_unit(i32 noundef %enable, i32 noundef %schedule, i32 noundef %minute) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @systemd_timer_enable_unit(i32 noundef range(i32 0, 2) %enable, i32 noundef range(i32 1, 4) %schedule, i32 noundef range(i32 0, 60) %minute) unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
   %child = alloca %struct.child_process, align 8
@@ -4963,11 +4963,11 @@ if.then:                                          ; preds = %entry
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  %switch.tableidx13 = add nsw i32 %schedule, -1
-  %1 = sext i32 %switch.tableidx13 to i64
-  %switch.gep14 = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %1
-  %switch.load15 = load ptr, ptr %switch.gep14, align 8
-  %call1.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.199, ptr noundef nonnull %switch.load15, ptr noundef nonnull @.str.209) #20
+  %switch.tableidx12 = add nsw i32 %schedule, -1
+  %1 = sext i32 %switch.tableidx12 to i64
+  %switch.gep13 = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %1
+  %switch.load14 = load ptr, ptr %switch.gep13, align 8
+  %call1.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.199, ptr noundef nonnull %switch.load14, ptr noundef nonnull @.str.209) #20
   %call.i.i = tail call ptr @xdg_config_home_for(ptr noundef nonnull @.str.205, ptr noundef %call1.i) #20
   %call3.i = tail call i32 @safe_create_leading_directories(ptr noundef %call.i.i) #20
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -4993,11 +4993,11 @@ if.end.i:                                         ; preds = %if.else
   br i1 %tobool8.not.i, label %return.critedge, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %switch.tableidx16 = add nsw i32 %schedule, -1
-  %3 = sext i32 %switch.tableidx16 to i64
-  %switch.gep17 = getelementptr inbounds [3 x ptr], ptr @switch.table.systemd_timer_enable_unit.8, i64 0, i64 %3
-  %switch.load18 = load ptr, ptr %switch.gep17, align 8
-  %call15.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load18, i32 noundef %minute) #20
+  %switch.tableidx15 = add nsw i32 %schedule, -1
+  %3 = sext i32 %switch.tableidx15 to i64
+  %switch.gep16 = getelementptr inbounds [3 x ptr], ptr @switch.table.systemd_timer_enable_unit.8, i64 0, i64 %3
+  %switch.load17 = load ptr, ptr %switch.gep16, align 8
+  %call15.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load17, i32 noundef %minute) #20
   %call16.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call7.i, ptr noundef nonnull @.str.217, ptr noundef %call15.i)
   %cmp.i = icmp slt i32 %call16.i, 0
   br i1 %cmp.i, label %if.then17.i, label %if.end22.i
@@ -5044,7 +5044,7 @@ systemd_timer_write_timer_file.exit:              ; preds = %if.end22.i
 
 if.end4:                                          ; preds = %systemd_timer_write_timer_file.exit, %if.then
   %cond = phi ptr [ @.str.206, %systemd_timer_write_timer_file.exit ], [ @.str.207, %if.then ]
-  %call5 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef null)
+  %call5 = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef null)
   %6 = load ptr, ptr %cmd, align 8
   call void @strvec_split(ptr noundef nonnull %child, ptr noundef %6) #20
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %child, ptr noundef nonnull @.str.177, ptr noundef nonnull %cond, ptr noundef nonnull @.str.208, ptr noundef null) #20
@@ -5063,8 +5063,8 @@ if.end3.i:                                        ; preds = %if.then12
   br label %_.exit
 
 _.exit:                                           ; preds = %if.then12, %if.end3.i
-  %retval.0.i6 = phi ptr [ %call.i, %if.end3.i ], [ @.str.210, %if.then12 ]
-  %call14 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i6) #20
+  %retval.0.i5 = phi ptr [ %call.i, %if.end3.i ], [ @.str.210, %if.then12 ]
+  %call14 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i5) #20
   br label %return
 
 if.end16:                                         ; preds = %if.end4
@@ -5075,16 +5075,16 @@ if.end16:                                         ; preds = %if.end4
 
 if.then21:                                        ; preds = %if.end16
   %8 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i8 = icmp eq i32 %8, 0
-  br i1 %tobool1.not.i8, label %_.exit12, label %if.end3.i9
+  %tobool1.not.i7 = icmp eq i32 %8, 0
+  br i1 %tobool1.not.i7, label %_.exit11, label %if.end3.i8
 
-if.end3.i9:                                       ; preds = %if.then21
-  %call.i10 = call ptr @gettext(ptr noundef nonnull @.str.211) #20
-  br label %_.exit12
+if.end3.i8:                                       ; preds = %if.then21
+  %call.i9 = call ptr @gettext(ptr noundef nonnull @.str.211) #20
+  br label %_.exit11
 
-_.exit12:                                         ; preds = %if.then21, %if.end3.i9
-  %retval.0.i11 = phi ptr [ %call.i10, %if.end3.i9 ], [ @.str.211, %if.then21 ]
-  %call23 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i11) #20
+_.exit11:                                         ; preds = %if.then21, %if.end3.i8
+  %retval.0.i10 = phi ptr [ %call.i9, %if.end3.i8 ], [ @.str.211, %if.then21 ]
+  %call23 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i10) #20
   br label %return
 
 return.critedge:                                  ; preds = %if.end.i, %_.exit25.i, %_.exit20.i, %_.exit.i
@@ -5094,8 +5094,8 @@ return.critedge:                                  ; preds = %if.end.i, %_.exit25
   tail call void @free(ptr noundef %call.i.i) #20
   br label %return
 
-return:                                           ; preds = %return.critedge, %if.end16, %_.exit12, %_.exit
-  %retval.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit12 ], [ 0, %if.end16 ], [ -1, %return.critedge ]
+return:                                           ; preds = %return.critedge, %if.end16, %_.exit11, %_.exit
+  %retval.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit11 ], [ 0, %if.end16 ], [ -1, %return.critedge ]
   ret i32 %retval.0
 }
 
@@ -5145,7 +5145,7 @@ declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #5
 declare ptr @xdg_config_home_for(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @systemd_timer_delete_timer_file(i32 noundef %priority) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @systemd_timer_delete_timer_file(i32 noundef range(i32 1, 4) %priority) unnamed_addr #0 {
 entry:
   %switch.tableidx = add nsw i32 %priority, -1
   %0 = sext i32 %switch.tableidx to i64
@@ -5187,7 +5187,7 @@ if.end:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @launchctl_schedule_plist(ptr noundef %exec_path, i32 noundef %schedule) unnamed_addr #0 {
+define internal fastcc void @launchctl_schedule_plist(ptr noundef %exec_path, i32 noundef range(i32 1, 4) %schedule) unnamed_addr #0 {
 entry:
   %child.i = alloca %struct.child_process, align 8
   %filename.i = alloca %struct.strbuf, align 8
@@ -5215,6 +5215,9 @@ entry:
   %tobool.not.i = icmp eq ptr %call.i24, null
   br i1 %tobool.not.i, label %if.then.i, label %launchctl_service_filename.exit
 
+default.unreachable39:                            ; preds = %get_random_minute.exit
+  unreachable
+
 if.then.i:                                        ; preds = %entry
   %call1.i = call fastcc ptr @_(ptr noundef nonnull @.str.229)
   %2 = load ptr, ptr %buf.i, align 8
@@ -5239,9 +5242,9 @@ if.end.i:                                         ; preds = %launchctl_service_f
 
 get_random_minute.exit:                           ; preds = %launchctl_service_filename.exit, %if.end.i
   %retval.0.i27 = phi i32 [ %rem.i, %if.end.i ], [ 13, %launchctl_service_filename.exit ]
-  %call4 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef null)
+  %call4 = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef null)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %plist, ptr noundef nonnull @.str.219, ptr noundef %call.i, ptr noundef %exec_path, ptr noundef %exec_path, ptr noundef nonnull %switch.load) #20
-  switch i32 %schedule, label %default.unreachable [
+  switch i32 %schedule, label %default.unreachable39 [
     i32 3, label %for.body
     i32 2, label %for.body8
     i32 1, label %sw.bb12
@@ -5264,9 +5267,6 @@ for.body8:                                        ; preds = %get_random_minute.e
 sw.bb12:                                          ; preds = %get_random_minute.exit
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %plist, ptr noundef nonnull @.str.222, i32 noundef %retval.0.i27) #20
   br label %sw.epilog
-
-default.unreachable:                              ; preds = %get_random_minute.exit
-  unreachable
 
 sw.epilog:                                        ; preds = %for.body8, %for.body, %sw.bb12
   call void @strbuf_add(ptr noundef nonnull %plist, ptr noundef nonnull @.str.223, i64 noundef 26) #20
@@ -5372,8 +5372,8 @@ if.then42:                                        ; preds = %lor.lhs.false, %if.
   unreachable
 
 if.end44:                                         ; preds = %lor.lhs.false
-  %call45 = call fastcc i32 @launchctl_boot_plist(i32 noundef 0, ptr noundef nonnull %call.i24)
-  %call46 = call fastcc i32 @launchctl_boot_plist(i32 noundef 1, ptr noundef nonnull %call.i24)
+  %call45 = call fastcc i32 @launchctl_boot_plist(i32 noundef 0, ptr noundef %call.i24)
+  %call46 = call fastcc i32 @launchctl_boot_plist(i32 noundef 1, ptr noundef %call.i24)
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %if.end51, label %if.then48
 
@@ -5396,7 +5396,7 @@ declare i32 @strbuf_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @launchctl_boot_plist(i32 noundef %enable, ptr noundef %filename) unnamed_addr #0 {
+define internal fastcc i32 @launchctl_boot_plist(i32 noundef range(i32 0, 2) %enable, ptr noundef nonnull %filename) unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
   %child = alloca %struct.child_process, align 8
@@ -5404,12 +5404,12 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %child, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   %call.i = tail call i32 @getuid() #20
   %call1.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.234, i32 noundef %call.i) #20
-  %call1 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef null)
+  %call1 = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef null)
   %0 = load ptr, ptr %cmd, align 8
   call void @strvec_split(ptr noundef nonnull %child, ptr noundef %0) #20
   %tobool.not = icmp eq i32 %enable, 0
   %cond = select i1 %tobool.not, ptr @.str.233, ptr @.str.232
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %child, ptr noundef nonnull %cond, ptr noundef %call1.i, ptr noundef %filename, ptr noundef null) #20
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %child, ptr noundef nonnull %cond, ptr noundef %call1.i, ptr noundef nonnull %filename, ptr noundef null) #20
   %no_stderr = getelementptr inbounds i8, ptr %child, i64 104
   %bf.load = load i16, ptr %no_stderr, align 8
   %bf.set5 = or i16 %bf.load, 6
@@ -5439,7 +5439,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @getuid() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @launchctl_remove_plist(i32 noundef %schedule) unnamed_addr #0 {
+define internal fastcc i32 @launchctl_remove_plist(i32 noundef range(i32 1, 4) %schedule) unnamed_addr #0 {
 entry:
   %filename.i = alloca %struct.strbuf, align 8
   %label.i = alloca %struct.strbuf, align 8
@@ -5470,7 +5470,7 @@ if.then.i:                                        ; preds = %entry
 launchctl_service_filename.exit:                  ; preds = %entry
   call void @strbuf_release(ptr noundef nonnull %filename.i) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %filename.i)
-  %call3 = call fastcc i32 @launchctl_boot_plist(i32 noundef 0, ptr noundef nonnull %call.i4)
+  %call3 = call fastcc i32 @launchctl_boot_plist(i32 noundef 0, ptr noundef %call.i4)
   %call4 = call i32 @unlink(ptr noundef nonnull %call.i4) #20
   call void @free(ptr noundef nonnull %call.i4) #20
   call void @free(ptr noundef %call.i) #20
@@ -5478,7 +5478,7 @@ launchctl_service_filename.exit:                  ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @schtasks_schedule_task(ptr noundef %exec_path, i32 noundef %schedule) unnamed_addr #0 {
+define internal fastcc i32 @schtasks_schedule_task(ptr noundef %exec_path, i32 noundef range(i32 1, 4) %schedule) unnamed_addr #0 {
 entry:
   %label.i = alloca %struct.strbuf, align 8
   %cmd = alloca ptr, align 8
@@ -5508,7 +5508,7 @@ if.end.i:                                         ; preds = %entry
 
 get_random_minute.exit:                           ; preds = %entry, %if.end.i
   %retval.0.i10 = phi i32 [ %rem.i, %if.end.i ], [ 13, %entry ]
-  %call3 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull %cmd, ptr noundef null)
+  %call3 = call fastcc i32 @get_schedule_cmd(ptr noundef %cmd, ptr noundef null)
   %call4 = call ptr @get_git_common_dir() #20
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %tfilename, ptr noundef nonnull @.str.235, ptr noundef %call4, ptr noundef nonnull %switch.load) #20
   %buf = getelementptr inbounds i8, ptr %tfilename, i64 16
@@ -5529,12 +5529,12 @@ if.end:                                           ; preds = %get_random_minute.e
   %fp = getelementptr inbounds i8, ptr %call.i11, i64 24
   %2 = load volatile ptr, ptr %fp, align 8
   %3 = call i64 @fwrite(ptr nonnull @.str.237, i64 135, i64 1, ptr %2)
-  %4 = load volatile ptr, ptr %fp, align 8
-  %switch.tableidx12 = add nsw i32 %schedule, -1
-  %5 = sext i32 %switch.tableidx12 to i64
-  %switch.gep13 = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task.9, i64 0, i64 %5
-  %switch.load14 = load ptr, ptr %switch.gep13, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull %switch.load14, i32 noundef %retval.0.i10)
+  %switch.tableidx13 = add nsw i32 %schedule, -1
+  %4 = sext i32 %switch.tableidx13 to i64
+  %switch.gep14 = getelementptr inbounds [3 x ptr], ptr @switch.table.schtasks_schedule_task.9, i64 0, i64 %4
+  %switch.load15 = load ptr, ptr %switch.gep14, align 8
+  %5 = load volatile ptr, ptr %fp, align 8
+  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %switch.load15, i32 noundef %retval.0.i10)
   %6 = load volatile ptr, ptr %fp, align 8
   %call18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.241, ptr noundef %exec_path, ptr noundef %exec_path, ptr noundef nonnull %switch.load)
   %7 = load ptr, ptr %cmd, align 8

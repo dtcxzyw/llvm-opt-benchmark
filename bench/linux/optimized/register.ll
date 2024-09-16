@@ -590,25 +590,25 @@ declare dso_local i32 @io_sqe_files_unregister(ptr noundef) local_unnamed_addr #
 declare dso_local i32 @io_register_files_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_eventfd_register(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @io_eventfd_register(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   %5 = getelementptr inbounds i8, ptr %0, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %38
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %3
   store i32 0, ptr %4, align 4, !annotation !31
   %9 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 4) #11
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %38
+  br i1 %10, label %11, label %37
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %13 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 40) #14
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %38, label %15
+  br i1 %14, label %37, label %15
 
 15:                                               ; preds = %11
   %16 = load i32, ptr %4, align 4
@@ -621,7 +621,7 @@ define internal fastcc i32 @io_eventfd_register(ptr noundef %0, ptr noundef %1, 
   %20 = ptrtoint ptr %17 to i64
   %21 = trunc i64 %20 to i32
   call void @kfree(ptr noundef nonnull %13) #11
-  br label %38
+  br label %37
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %0, i64 832
@@ -634,100 +634,99 @@ define internal fastcc i32 @io_eventfd_register(ptr noundef %0, ptr noundef %1, 
   %27 = getelementptr inbounds i8, ptr %13, i64 8
   %28 = trunc nuw nsw i32 %2 to i8
   %29 = load i8, ptr %27, align 8
-  %30 = and i8 %28, 1
-  %31 = and i8 %29, -2
-  %32 = or disjoint i8 %31, %30
-  store i8 %32, ptr %27, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
-  %34 = load i16, ptr %33, align 4
-  %35 = or i16 %34, 16
-  store i16 %35, ptr %33, align 4
+  %30 = and i8 %29, -2
+  %31 = or disjoint i8 %30, %28
+  store i8 %31, ptr %27, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %33 = load i16, ptr %32, align 4
+  %34 = or i16 %33, 16
+  store i16 %34, ptr %32, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !32
   store volatile ptr %13, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %13, i64 32
-  store volatile i32 1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 36
-  store volatile i32 0, ptr %37, align 4
-  br label %38
+  %35 = getelementptr inbounds i8, ptr %13, i64 32
+  store volatile i32 1, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %13, i64 36
+  store volatile i32 0, ptr %36, align 4
+  br label %37
 
-38:                                               ; preds = %22, %19, %11, %8, %3
-  %39 = phi i32 [ %21, %19 ], [ 0, %22 ], [ -16, %3 ], [ -14, %8 ], [ -12, %11 ]
+37:                                               ; preds = %22, %19, %11, %8, %3
+  %38 = phi i32 [ %21, %19 ], [ 0, %22 ], [ -16, %3 ], [ -14, %8 ], [ -12, %11 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  ret i32 %39
+  ret i32 %38
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -22, 1) i32 @io_probe(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
-  %3 = zext nneg i32 %1 to i64
-  %4 = shl nuw nsw i64 %3, 3
-  %5 = add nuw nsw i64 %4, 16
-  %6 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %5, i32 noundef 3520) #15
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %43, label %8
+define internal fastcc range(i32 -22, 1) i32 @io_probe(ptr noundef %0, i32 noundef range(i32 0, 257) %1) unnamed_addr #4 align 16 {
+  %3 = shl nuw nsw i32 %1, 3
+  %narrow = add nuw nsw i32 %3, 16
+  %4 = zext nneg i32 %narrow to i64
+  %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3520) #15
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %42, label %7
 
-8:                                                ; preds = %2
-  %9 = tail call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %5) #11
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %41
+7:                                                ; preds = %2
+  %8 = tail call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %4) #11
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %40
 
-11:                                               ; preds = %8
-  %12 = tail call ptr @memchr_inv(ptr noundef nonnull %6, i32 noundef 0, i64 noundef %5) #11
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %41
+10:                                               ; preds = %7
+  %11 = tail call ptr @memchr_inv(ptr noundef nonnull %5, i32 noundef 0, i64 noundef %4) #11
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %40
 
-14:                                               ; preds = %11
-  store i8 54, ptr %6, align 8
-  %15 = icmp eq i32 %1, 0
-  br i1 %15, label %35, label %16
+13:                                               ; preds = %10
+  store i8 54, ptr %5, align 8
+  %14 = icmp eq i32 %1, 0
+  br i1 %14, label %34, label %15
 
-16:                                               ; preds = %14
-  %17 = tail call i32 @llvm.umin.i32(i32 %1, i32 55)
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = zext nneg i32 %17 to i64
-  br label %20
+15:                                               ; preds = %13
+  %16 = tail call i32 @llvm.umin.i32(i32 %1, i32 55)
+  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = zext nneg i32 %16 to i64
+  br label %19
 
-20:                                               ; preds = %30, %16
-  %21 = phi i64 [ 0, %16 ], [ %31, %30 ]
-  %22 = trunc i64 %21 to i8
-  %23 = getelementptr [0 x %struct.io_uring_probe_op], ptr %18, i64 0, i64 %21
-  store i8 %22, ptr %23, align 8
-  %24 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %21
-  %25 = load i16, ptr %24, align 8
-  %26 = and i16 %25, 256
-  %27 = icmp eq i16 %26, 0
-  br i1 %27, label %28, label %30
+19:                                               ; preds = %29, %15
+  %20 = phi i64 [ 0, %15 ], [ %30, %29 ]
+  %21 = trunc i64 %20 to i8
+  %22 = getelementptr [0 x %struct.io_uring_probe_op], ptr %17, i64 0, i64 %20
+  store i8 %21, ptr %22, align 8
+  %23 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %20
+  %24 = load i16, ptr %23, align 8
+  %25 = and i16 %24, 256
+  %26 = icmp eq i16 %25, 0
+  br i1 %26, label %27, label %29
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 2
-  store i16 1, ptr %29, align 2
-  br label %30
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds i8, ptr %22, i64 2
+  store i16 1, ptr %28, align 2
+  br label %29
 
-30:                                               ; preds = %28, %20
-  %31 = add nuw nsw i64 %21, 1
-  %32 = icmp eq i64 %31, %19
-  br i1 %32, label %33, label %20, !llvm.loop !33
+29:                                               ; preds = %27, %19
+  %30 = add nuw nsw i64 %20, 1
+  %31 = icmp eq i64 %30, %18
+  br i1 %31, label %32, label %19, !llvm.loop !33
 
-33:                                               ; preds = %30
-  %34 = trunc nuw nsw i32 %17 to i8
-  br label %35
+32:                                               ; preds = %29
+  %33 = trunc nuw nsw i32 %16 to i8
+  br label %34
 
-35:                                               ; preds = %33, %14
-  %36 = phi i8 [ 0, %14 ], [ %34, %33 ]
-  %37 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 %36, ptr %37, align 1
-  %38 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %5) #11
-  %39 = icmp eq i64 %38, 0
-  %40 = select i1 %39, i32 0, i32 -14
-  br label %41
+34:                                               ; preds = %32, %13
+  %35 = phi i8 [ 0, %13 ], [ %33, %32 ]
+  %36 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 %35, ptr %36, align 1
+  %37 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %4) #11
+  %38 = icmp eq i64 %37, 0
+  %39 = select i1 %38, i32 0, i32 -14
+  br label %40
 
-41:                                               ; preds = %35, %11, %8
-  %42 = phi i32 [ -14, %8 ], [ -22, %11 ], [ %40, %35 ]
-  tail call void @kfree(ptr noundef nonnull %6) #11
-  br label %43
+40:                                               ; preds = %34, %10, %7
+  %41 = phi i32 [ -14, %7 ], [ -22, %10 ], [ %39, %34 ]
+  tail call void @kfree(ptr noundef nonnull %5) #11
+  br label %42
 
-43:                                               ; preds = %41, %2
-  %44 = phi i32 [ %42, %41 ], [ -12, %2 ]
-  ret i32 %44
+42:                                               ; preds = %40, %2
+  %43 = phi i32 [ %41, %40 ], [ -12, %2 ]
+  ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -997,7 +996,7 @@ declare dso_local i32 @io_register_rsrc(ptr noundef, ptr noundef, i32 noundef, i
 declare dso_local i32 @io_register_rsrc_update(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @io_register_iowq_aff(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc i32 @io_register_iowq_aff(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #4 align 16 {
   %4 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store i64 0, ptr %4, align 8

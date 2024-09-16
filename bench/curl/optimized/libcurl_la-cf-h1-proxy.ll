@@ -1472,7 +1472,7 @@ if.end:                                           ; preds = %h1_tunnel_go_state.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @h1_tunnel_go_state(ptr noundef %cf, ptr noundef %ts, i32 noundef %new_state, ptr noundef %data) unnamed_addr #0 {
+define internal fastcc void @h1_tunnel_go_state(ptr noundef %cf, ptr noundef %ts, i32 noundef range(i32 0, 6) %new_state, ptr noundef %data) unnamed_addr #0 {
 entry:
   %tunnel_state = getelementptr inbounds i8, ptr %ts, i64 280
   %0 = load i32, ptr %tunnel_state, align 8
@@ -1481,7 +1481,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq ptr %data, null
-  switch i32 %new_state, label %default.unreachable [
+  switch i32 %new_state, label %default.unreachable67 [
     i32 0, label %do.body
     i32 1, label %do.body9
     i32 2, label %do.body30
@@ -1694,7 +1694,7 @@ if.end133:                                        ; preds = %sw.bb111.thread, %i
   store ptr null, ptr %aptr, align 8
   br label %sw.epilog
 
-default.unreachable:                              ; preds = %if.end
+default.unreachable67:                            ; preds = %if.end
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %if.end133, %do.end69, %do.end48, %do.end27, %do.end

@@ -45,11 +45,11 @@ define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noun
 
 .split:                                           ; preds = %9, %.split48
   %.sink68 = phi i32 [ %1, %.split48 ], [ 0, %9 ]
-  %14 = tail call fastcc ptr @Abc_NtkTransitionRelation(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %.sink68)
+  %14 = tail call fastcc ptr @Abc_NtkTransitionRelation(ptr noundef %7, ptr noundef nonnull %0, i32 noundef %.sink68)
   tail call void @Cudd_Ref(ptr noundef %14) #8
-  %15 = tail call fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef nonnull %7, ptr noundef nonnull %0)
+  %15 = tail call fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef %7, ptr noundef nonnull %0)
   tail call void @Cudd_Ref(ptr noundef %15) #8
-  %16 = tail call fastcc ptr @Abc_NtkComputeUnreachable(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef %14, ptr noundef %15, i32 noundef %.sink68)
+  %16 = tail call fastcc ptr @Abc_NtkComputeUnreachable(ptr noundef %7, ptr noundef nonnull %0, ptr noundef %14, ptr noundef %15, i32 noundef %.sink68)
   tail call void @Cudd_Ref(ptr noundef %16) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %7, ptr noundef %14) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %7, ptr noundef %15) #8
@@ -516,7 +516,7 @@ declare i32 @Cudd_ReadKeys(ptr noundef) local_unnamed_addr #1
 declare i32 @Cudd_ReadDead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 56
   %.val53 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val53, i64 4
@@ -525,8 +525,8 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef %0, pt
   %.val55 = load i32, ptr %6, align 8
   %7 = add i32 %.val53.val, -1
   %8 = add i32 %7, %.val55
-  %9 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %8) #8
-  tail call void @Cudd_AutodynEnable(ptr noundef %0, i32 noundef 6) #8
+  %9 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %8) #8
+  tail call void @Cudd_AutodynEnable(ptr noundef nonnull %0, i32 noundef 6) #8
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void @Cudd_Ref(ptr noundef %11) #8
@@ -557,7 +557,7 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef %0, pt
   %.val54.val = load i32, ptr %23, align 4
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = add nsw i32 %.val54.val, %24
-  %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %25) #8
+  %26 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %25) #8
   %.val58 = load ptr, ptr %19, align 8
   %27 = getelementptr i8, ptr %19, i64 32
   %.val59 = load ptr, ptr %27, align 8
@@ -649,12 +649,12 @@ Vec_AttGrow.exit.i.i:                             ; preds = %52, %38, %22
 
 Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.i, %66, %69
   %75 = phi ptr [ %.pre19.i.i, %69 ], [ null, %66 ], [ %64, %Vec_AttGrow.exit.i.i ]
-  %76 = tail call ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %26, ptr noundef %75) #8
+  %76 = tail call ptr @Cudd_bddXnor(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %75) #8
   tail call void @Cudd_Ref(ptr noundef %76) #8
-  %77 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.04965, ptr noundef %76) #8
+  %77 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.04965, ptr noundef %76) #8
   tail call void @Cudd_Ref(ptr noundef %77) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.04965) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %76) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.04965) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %76) #8
   %.pre = load ptr, ptr %12, align 8
   br label %78
 
@@ -675,12 +675,12 @@ Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.
   %.val62 = load ptr, ptr %84, align 8
   %85 = getelementptr i8, ptr %.val62, i64 4
   %.val62.val = load i32, ptr %85, align 4
-  %86 = tail call ptr @Extra_bddComputeRangeCube(ptr noundef %0, i32 noundef 0, i32 noundef %.val62.val) #8
+  %86 = tail call ptr @Extra_bddComputeRangeCube(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.val62.val) #8
   tail call void @Cudd_Ref(ptr noundef %86) #8
-  %87 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %.049.lcssa, ptr noundef %86) #8
+  %87 = tail call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %.049.lcssa, ptr noundef %86) #8
   tail call void @Cudd_Ref(ptr noundef %87) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.049.lcssa) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %86) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.049.lcssa) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %86) #8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.critedge52, label %88
 
@@ -688,16 +688,16 @@ Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.
   %89 = load ptr, ptr @stdout, align 8
   %90 = tail call i32 @Cudd_DagSize(ptr noundef %87) #8
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.4, i32 noundef %90) #8
-  %92 = tail call i32 @Cudd_ReduceHeap(ptr noundef %0, i32 noundef 6, i32 noundef 100) #8
-  tail call void @Cudd_AutodynDisable(ptr noundef %0) #8
+  %92 = tail call i32 @Cudd_ReduceHeap(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 100) #8
+  tail call void @Cudd_AutodynDisable(ptr noundef nonnull %0) #8
   %93 = load ptr, ptr @stdout, align 8
   %94 = tail call i32 @Cudd_DagSize(ptr noundef %87) #8
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.5, i32 noundef %94) #8
   br label %97
 
 .critedge52:                                      ; preds = %.critedge
-  %96 = tail call i32 @Cudd_ReduceHeap(ptr noundef %0, i32 noundef 6, i32 noundef 100) #8
-  tail call void @Cudd_AutodynDisable(ptr noundef %0) #8
+  %96 = tail call i32 @Cudd_ReduceHeap(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 100) #8
+  tail call void @Cudd_AutodynDisable(ptr noundef nonnull %0) #8
   br label %97
 
 97:                                               ; preds = %.critedge52, %88
@@ -708,7 +708,7 @@ Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.
 declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -773,9 +773,9 @@ define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef %0, ptr nocapt
   %43 = zext i1 %42 to i64
   %44 = xor i64 %43, %40
   %45 = inttoptr i64 %44 to ptr
-  %46 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03852, ptr noundef %45) #8
+  %46 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.03852, ptr noundef %45) #8
   tail call void @Cudd_Ref(ptr noundef %46) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03852) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03852) #8
   %.pre = load ptr, ptr %11, align 8
   br label %47
 
@@ -793,7 +793,7 @@ define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef %0, ptr nocapt
   %.038.lcssa = phi ptr [ %10, %2 ], [ %.1, %47 ]
   %52 = getelementptr i8, ptr %1, i64 128
   %.val45 = load i32, ptr %52, align 8
-  %53 = tail call i32 @Cudd_SetVarMap(ptr noundef %0, ptr noundef %7, ptr noundef %8, i32 noundef %.val45) #8
+  %53 = tail call i32 @Cudd_SetVarMap(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %8, i32 noundef %.val45) #8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %55, label %54
 
@@ -815,7 +815,7 @@ define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @Abc_NtkComputeUnreachable(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @Abc_NtkComputeUnreachable(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   tail call void @Cudd_Ref(ptr noundef %3) #8
   tail call void @Cudd_Ref(ptr noundef %3) #8
   tail call void @Cudd_Ref(ptr noundef %2) #8
@@ -827,7 +827,7 @@ define internal fastcc noundef ptr @Abc_NtkComputeUnreachable(ptr noundef %0, pt
   %.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %9, align 4
-  %10 = tail call ptr @Extra_bddComputeRangeCube(ptr noundef %0, i32 noundef %.val58.val, i32 noundef %.val.val) #8
+  %10 = tail call ptr @Extra_bddComputeRangeCube(ptr noundef nonnull %0, i32 noundef %.val58.val, i32 noundef %.val.val) #8
   tail call void @Cudd_Ref(ptr noundef %10) #8
   br label %11
 
@@ -835,13 +835,13 @@ define internal fastcc noundef ptr @Abc_NtkComputeUnreachable(ptr noundef %0, pt
   %.054 = phi ptr [ %3, %5 ], [ %19, %15 ]
   %.053 = phi i32 [ 1, %5 ], [ %21, %15 ]
   %.0 = phi ptr [ %3, %5 ], [ %20, %15 ]
-  %12 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %2, ptr noundef %.054, ptr noundef %10) #8
+  %12 = tail call ptr @Cudd_bddAndAbstract(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %.054, ptr noundef %10) #8
   tail call void @Cudd_Ref(ptr noundef %12) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.054) #8
-  %13 = tail call ptr @Cudd_bddVarMap(ptr noundef %0, ptr noundef %12) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.054) #8
+  %13 = tail call ptr @Cudd_bddVarMap(ptr noundef nonnull %0, ptr noundef %12) #8
   tail call void @Cudd_Ref(ptr noundef %13) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %12) #8
-  %14 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %13, ptr noundef %.0) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %12) #8
+  %14 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %.0) #8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %22
 
@@ -849,26 +849,26 @@ define internal fastcc noundef ptr @Abc_NtkComputeUnreachable(ptr noundef %0, pt
   %16 = ptrtoint ptr %.0 to i64
   %17 = xor i64 %16, 1
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %13, ptr noundef %18) #8
+  %19 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %18) #8
   tail call void @Cudd_Ref(ptr noundef %19) #8
-  %20 = tail call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.0, ptr noundef %13) #8
+  %20 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef %13) #8
   tail call void @Cudd_Ref(ptr noundef %20) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %13) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %13) #8
   %21 = add nuw nsw i32 %.053, 1
   br label %11
 
 22:                                               ; preds = %11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %2) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %10) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %13) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %2) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %10) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %13) #8
   %.not55 = icmp eq i32 %4, 0
   br i1 %.not55, label %36, label %23
 
 23:                                               ; preds = %22
   %24 = getelementptr i8, ptr %1, i64 128
   %.val56 = load i32, ptr %24, align 8
-  %25 = tail call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %.0, i32 noundef %.val56) #8
+  %25 = tail call double @Cudd_CountMinterm(ptr noundef nonnull %0, ptr noundef %.0, i32 noundef %.val56) #8
   %26 = fptosi double %25 to i32
   %27 = load ptr, ptr @stdout, align 8
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.6, i32 noundef %.053) #8

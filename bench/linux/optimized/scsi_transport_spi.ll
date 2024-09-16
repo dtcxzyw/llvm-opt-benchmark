@@ -1367,7 +1367,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 noundef range(i32 4, 6) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 align 16 {
   %4 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !annotation !8
@@ -1795,7 +1795,7 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 8
@@ -1805,7 +1805,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
   %11 = getelementptr inbounds i8, ptr %9, i64 832
   %12 = getelementptr inbounds i8, ptr %9, i64 40
   %13 = getelementptr inbounds i8, ptr %9, i64 816
-  %14 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
+  %14 = tail call i32 %3(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
   %15 = and i32 %14, -3
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.thread, label %.lr.ph
@@ -1940,7 +1940,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
 91:                                               ; preds = %89, %84, %65, %60, %50, %45
   %92 = phi i32 [ %18, %50 ], [ %18, %45 ], [ %18, %65 ], [ %18, %60 ], [ %73, %89 ], [ %73, %84 ]
   %93 = phi i32 [ %17, %50 ], [ %17, %45 ], [ %17, %65 ], [ %17, %60 ], [ %73, %89 ], [ %73, %84 ]
-  %94 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
+  %94 = tail call i32 %3(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
   %95 = and i32 %94, -3
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %.thread, label %.lr.ph

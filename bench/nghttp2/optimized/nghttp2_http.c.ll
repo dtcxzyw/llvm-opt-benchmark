@@ -512,19 +512,19 @@ land.lhs.true111.i:                               ; preds = %if.end106.i
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.08.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 4
   br i1 %exitcond.not.i.i, label %if.then126.i, label %for.body.i.i, !llvm.loop !8
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %land.lhs.true111.i
-  %i.08.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %land.lhs.true111.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.6, i64 %i.08.i.i
+  %i.07.i.i = phi i64 [ 0, %land.lhs.true111.i ], [ %inc.i.i, %for.cond.i.i ]
+  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.6, i64 %i.07.i.i
   %88 = load i8, ptr %arrayidx.i.i, align 1
   %89 = add i8 %88, -65
   %or.cond.i.i.i = icmp ult i8 %89, 26
   %add.i.i.i = or disjoint i8 %88, 32
   %cond.in.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %88
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %87, i64 %i.08.i.i
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %87, i64 %i.07.i.i
   %90 = load i8, ptr %arrayidx1.i.i, align 1
   %91 = add i8 %90, -65
   %or.cond.i4.i.i = icmp ult i8 %91, 26
@@ -539,19 +539,19 @@ land.lhs.true121.i:                               ; preds = %if.end106.i
   br label %for.body.i98.i
 
 for.cond.i110.i:                                  ; preds = %for.body.i98.i
-  %inc.i111.i = add nuw nsw i64 %i.08.i99.i, 1
+  %inc.i111.i = add nuw nsw i64 %i.07.i99.i, 1
   %exitcond.not.i112.i = icmp eq i64 %inc.i111.i, 5
   br i1 %exitcond.not.i112.i, label %if.then126.i, label %for.body.i98.i, !llvm.loop !8
 
 for.body.i98.i:                                   ; preds = %for.cond.i110.i, %land.lhs.true121.i
-  %i.08.i99.i = phi i64 [ %inc.i111.i, %for.cond.i110.i ], [ 0, %land.lhs.true121.i ]
-  %arrayidx.i100.i = getelementptr inbounds i8, ptr @.str.7, i64 %i.08.i99.i
+  %i.07.i99.i = phi i64 [ 0, %land.lhs.true121.i ], [ %inc.i111.i, %for.cond.i110.i ]
+  %arrayidx.i100.i = getelementptr inbounds i8, ptr @.str.7, i64 %i.07.i99.i
   %93 = load i8, ptr %arrayidx.i100.i, align 1
   %94 = add i8 %93, -65
   %or.cond.i.i101.i = icmp ult i8 %94, 26
   %add.i.i102.i = or disjoint i8 %93, 32
   %cond.in.i.i103.i = select i1 %or.cond.i.i101.i, i8 %add.i.i102.i, i8 %93
-  %arrayidx1.i104.i = getelementptr inbounds i8, ptr %92, i64 %i.08.i99.i
+  %arrayidx1.i104.i = getelementptr inbounds i8, ptr %92, i64 %i.07.i99.i
   %95 = load i8, ptr %arrayidx1.i104.i, align 1
   %96 = add i8 %95, -65
   %or.cond.i4.i105.i = icmp ult i8 %96, 26
@@ -640,19 +640,19 @@ land.lhs.true165.i:                               ; preds = %sw.bb160.i
   br label %for.body.i136.i
 
 for.cond.i148.i:                                  ; preds = %for.body.i136.i
-  %inc.i149.i = add nuw nsw i64 %i.08.i137.i, 1
+  %inc.i149.i = add nuw nsw i64 %i.07.i137.i, 1
   %exitcond.not.i150.i = icmp eq i64 %inc.i149.i, 8
   br i1 %exitcond.not.i150.i, label %sw.epilog216.i, label %for.body.i136.i, !llvm.loop !8
 
 for.body.i136.i:                                  ; preds = %for.cond.i148.i, %land.lhs.true165.i
-  %i.08.i137.i = phi i64 [ %inc.i149.i, %for.cond.i148.i ], [ 0, %land.lhs.true165.i ]
-  %arrayidx.i138.i = getelementptr inbounds i8, ptr @.str.8, i64 %i.08.i137.i
+  %i.07.i137.i = phi i64 [ 0, %land.lhs.true165.i ], [ %inc.i149.i, %for.cond.i148.i ]
+  %arrayidx.i138.i = getelementptr inbounds i8, ptr @.str.8, i64 %i.07.i137.i
   %110 = load i8, ptr %arrayidx.i138.i, align 1
   %111 = add i8 %110, -65
   %or.cond.i.i139.i = icmp ult i8 %111, 26
   %add.i.i140.i = or disjoint i8 %110, 32
   %cond.in.i.i141.i = select i1 %or.cond.i.i139.i, i8 %add.i.i140.i, i8 %110
-  %arrayidx1.i142.i = getelementptr inbounds i8, ptr %109, i64 %i.08.i137.i
+  %arrayidx1.i142.i = getelementptr inbounds i8, ptr %109, i64 %i.07.i137.i
   %112 = load i8, ptr %arrayidx1.i142.i, align 1
   %113 = add i8 %112, -65
   %or.cond.i4.i143.i = icmp ult i8 %113, 26
@@ -922,19 +922,19 @@ land.lhs.true92.i:                                ; preds = %sw.bb87.i
   br label %for.body.i39.i
 
 for.cond.i51.i:                                   ; preds = %for.body.i39.i
-  %inc.i52.i = add nuw nsw i64 %i.08.i40.i, 1
+  %inc.i52.i = add nuw nsw i64 %i.07.i40.i, 1
   %exitcond.not.i53.i = icmp eq i64 %inc.i52.i, 8
   br i1 %exitcond.not.i53.i, label %sw.epilog.i, label %for.body.i39.i, !llvm.loop !8
 
 for.body.i39.i:                                   ; preds = %for.cond.i51.i, %land.lhs.true92.i
-  %i.08.i40.i = phi i64 [ %inc.i52.i, %for.cond.i51.i ], [ 0, %land.lhs.true92.i ]
-  %arrayidx.i41.i = getelementptr inbounds i8, ptr @.str.8, i64 %i.08.i40.i
+  %i.07.i40.i = phi i64 [ 0, %land.lhs.true92.i ], [ %inc.i52.i, %for.cond.i51.i ]
+  %arrayidx.i41.i = getelementptr inbounds i8, ptr @.str.8, i64 %i.07.i40.i
   %157 = load i8, ptr %arrayidx.i41.i, align 1
   %158 = add i8 %157, -65
   %or.cond.i.i42.i = icmp ult i8 %158, 26
   %add.i.i43.i = or disjoint i8 %157, 32
   %cond.in.i.i44.i = select i1 %or.cond.i.i42.i, i8 %add.i.i43.i, i8 %157
-  %arrayidx1.i45.i = getelementptr inbounds i8, ptr %156, i64 %i.08.i40.i
+  %arrayidx1.i45.i = getelementptr inbounds i8, ptr %156, i64 %i.07.i40.i
   %159 = load i8, ptr %arrayidx1.i45.i, align 1
   %160 = add i8 %159, -65
   %or.cond.i4.i46.i = icmp ult i8 %160, 26

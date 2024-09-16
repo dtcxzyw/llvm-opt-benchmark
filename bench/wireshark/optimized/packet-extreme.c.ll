@@ -859,7 +859,7 @@ dissect_vlan_tlv.exit:                            ; preds = %140, %155, %162, %1
   %.0114115.i = phi i32 [ %336, %.lr.ph.i ], [ %329, %273 ]
   %333 = load i32, ptr @hf_edp_esl_linklist, align 4
   %334 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %333, ptr noundef %0, i32 noundef %.0117.i, i32 noundef 2, i32 noundef 0) #4
-  %335 = add nuw i32 %.0117.i, 2
+  %335 = add nuw nsw i32 %.0117.i, 2
   %336 = add nsw i32 %.0114115.i, -2
   %337 = add i16 %.0113116.i, -1
   %338 = icmp ne i16 %337, 0
@@ -1029,7 +1029,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tlv_header(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_tlv_header(ptr noundef %0, i32 noundef range(i32 16, 65535) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #4
   %5 = add nuw nsw i32 %1, 1
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #4

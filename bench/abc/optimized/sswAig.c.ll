@@ -691,7 +691,7 @@ declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #3
 declare ptr @Aig_ObjCreateCi(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ssw_FramesConstrainNode(ptr nocapture noundef %0, ptr noundef %1, ptr readonly %.256.val, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @Ssw_FramesConstrainNode(ptr nocapture noundef %0, ptr noundef %1, ptr readonly %.256.val, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %.not.i = icmp eq ptr %.256.val, null
   br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
 

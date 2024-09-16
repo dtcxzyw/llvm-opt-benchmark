@@ -1347,7 +1347,7 @@ Ssw_SmlObjAssignConst.exit:                       ; preds = %Ssw_SmlObjAssignCon
   %52 = load i32, ptr %51, align 4
   %53 = shl nsw i32 %52, 5
   %54 = add nsw i32 %53, -1
-  %55 = tail call noundef i32 @llvm.smin.i32(i32 %.val72, i32 %54)
+  %55 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val72, i32 %54)
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph100, label %.critedge4
 
@@ -1668,7 +1668,7 @@ Ssw_SmlObjAssignConst.exit:                       ; preds = %Ssw_SmlObjAssignCon
   %49 = getelementptr inbounds i8, ptr %0, i64 16
   %50 = shl nsw i32 %47, 5
   %51 = add nsw i32 %50, -1
-  %52 = tail call noundef i32 @llvm.smin.i32(i32 %.val34, i32 %51)
+  %52 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val34, i32 %51)
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph43, label %.preheader39
 

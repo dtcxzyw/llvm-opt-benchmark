@@ -330,7 +330,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare i32 @syncrep_yylex() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_syncrep_config(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_syncrep_config(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

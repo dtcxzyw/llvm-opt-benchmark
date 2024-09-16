@@ -315,7 +315,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %50, %33, %pagetable
 
 79:                                               ; preds = %78, %pagetable_lookup.exit.thread.i
   %80 = load ptr, ptr %8, align 8
-  %81 = call fastcc ptr @pagetable_insert(ptr noundef %80, i32 noundef %22, ptr noundef nonnull %5)
+  %81 = call fastcc ptr @pagetable_insert(ptr noundef %80, i32 noundef %22, ptr noundef %5)
   %.pre.i = load i8, ptr %5, align 1
   %82 = trunc i8 %.pre.i to i1
   br i1 %82, label %tbm_get_pageentry.exit, label %83
@@ -746,7 +746,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
 pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit72, %7
   %77 = getelementptr inbounds i8, ptr %0, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = call fastcc ptr @pagetable_insert(ptr noundef %78, i32 noundef %9, ptr noundef nonnull %3)
+  %79 = call fastcc ptr @pagetable_insert(ptr noundef %78, i32 noundef %9, ptr noundef %3)
   %80 = load i8, ptr %3, align 1
   %81 = trunc i8 %80 to i1
   br i1 %81, label %106, label %82
@@ -1094,7 +1094,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
 77:                                               ; preds = %76, %pagetable_lookup.exit.thread.i
   %78 = getelementptr inbounds i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = call fastcc ptr @pagetable_insert(ptr noundef %79, i32 noundef %22, ptr noundef nonnull %3)
+  %80 = call fastcc ptr @pagetable_insert(ptr noundef %79, i32 noundef %22, ptr noundef %3)
   %.pre.i = load i8, ptr %3, align 1
   %81 = trunc i8 %.pre.i to i1
   br i1 %81, label %tbm_get_pageentry.exit, label %82
@@ -2936,7 +2936,7 @@ pagetable_create.exit:                            ; preds = %11, %13
 28:                                               ; preds = %pagetable_create.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 8
-  %31 = call fastcc ptr @pagetable_insert(ptr noundef nonnull %5, i32 noundef %30, ptr noundef nonnull %2)
+  %31 = call fastcc ptr @pagetable_insert(ptr noundef nonnull %5, i32 noundef %30, ptr noundef %2)
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i8, ptr %32, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 48, i1 false)
@@ -2949,7 +2949,7 @@ pagetable_create.exit:                            ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pagetable_insert(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @pagetable_insert(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = lshr i32 %1, 16
   %5 = xor i32 %4, %1
   %6 = mul i32 %5, -2048144789

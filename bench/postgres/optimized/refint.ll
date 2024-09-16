@@ -180,7 +180,7 @@ define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %58 = getelementptr inbounds i8, ptr %45, i64 72
   %59 = load i32, ptr %58, align 8
   %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %57, i32 noundef %59) #9
-  %61 = call fastcc ptr @find_plan(ptr noundef nonnull %3, ptr noundef nonnull @PPlans, ptr noundef nonnull @nPPlans)
+  %61 = call fastcc ptr @find_plan(ptr noundef %3, ptr noundef nonnull @PPlans, ptr noundef nonnull @nPPlans)
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp slt i32 %63, 1
@@ -372,7 +372,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_plan(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr @TopMemoryContext, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
@@ -427,7 +427,7 @@ define internal fastcc ptr @find_plan(ptr noundef %0, ptr nocapture noundef %1, 
 
 28:                                               ; preds = %26, %.thread
   %.027 = phi ptr [ %25, %.thread ], [ %27, %26 ]
-  %29 = tail call ptr @pstrdup(ptr noundef %0) #9
+  %29 = tail call ptr @pstrdup(ptr noundef nonnull %0) #9
   store ptr %29, ptr %.027, align 8
   %30 = getelementptr inbounds i8, ptr %.027, i64 8
   store i32 0, ptr %30, align 8
@@ -639,7 +639,7 @@ define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %95 = getelementptr inbounds i8, ptr %81, i64 72
   %96 = load i32, ptr %95, align 8
   %97 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %94, i32 noundef %96) #9
-  %98 = call fastcc ptr @find_plan(ptr noundef nonnull %3, ptr noundef nonnull @FPlans, ptr noundef nonnull @nFPlans)
+  %98 = call fastcc ptr @find_plan(ptr noundef %3, ptr noundef nonnull @FPlans, ptr noundef nonnull @nFPlans)
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp slt i32 %100, 1
@@ -992,7 +992,7 @@ define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %258 = load ptr, ptr %93, align 8
   %259 = load i32, ptr %95, align 8
   %260 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %258, i32 noundef %259) #9
-  %261 = call fastcc ptr @find_plan(ptr noundef nonnull %3, ptr noundef nonnull @FPlans, ptr noundef nonnull @nFPlans)
+  %261 = call fastcc ptr @find_plan(ptr noundef %3, ptr noundef nonnull @FPlans, ptr noundef nonnull @nFPlans)
   %262 = getelementptr inbounds i8, ptr %261, i64 16
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr ptr, ptr %263, i64 %indvars.iv323
@@ -1023,7 +1023,7 @@ define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %275 = load ptr, ptr %93, align 8
   %276 = load i32, ptr %95, align 8
   %277 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %275, i32 noundef %276) #9
-  %278 = call fastcc ptr @find_plan(ptr noundef nonnull %3, ptr noundef nonnull @FPlans, ptr noundef nonnull @nFPlans)
+  %278 = call fastcc ptr @find_plan(ptr noundef %3, ptr noundef nonnull @FPlans, ptr noundef nonnull @nFPlans)
   %279 = getelementptr inbounds i8, ptr %278, i64 16
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr ptr, ptr %280, i64 %indvars.iv317

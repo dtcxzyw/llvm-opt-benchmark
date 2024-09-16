@@ -882,7 +882,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.t
   %call93.i = call ptr @oid_to_hex(ptr noundef nonnull %loid.i) #17
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.56, ptr noundef %call93.i) #17
   %60 = load ptr, ptr %buf.i78.i, align 8
-  call fastcc void @add_left_or_right(ptr noundef nonnull %submodules.i, ptr noundef %57, ptr noundef %60, i32 noundef 0)
+  call fastcc void @add_left_or_right(ptr noundef %submodules.i, ptr noundef %57, ptr noundef %60, i32 noundef 0)
   store i64 0, ptr %len2.i.i, align 8
   %61 = load ptr, ptr %buf.i78.i, align 8
   %cmp3.not.i86.i = icmp eq ptr %61, @strbuf_slopbuf
@@ -936,7 +936,7 @@ if.then98.i:                                      ; preds = %oideq.exit.i
 
 if.end99.i:                                       ; preds = %if.then98.i, %oideq.exit.i
   %66 = load ptr, ptr %buf.i78.i, align 8
-  call fastcc void @add_left_or_right(ptr noundef nonnull %submodules.i, ptr noundef %dst_path.0.i, ptr noundef %66, i32 noundef 1)
+  call fastcc void @add_left_or_right(ptr noundef %submodules.i, ptr noundef %dst_path.0.i, ptr noundef %66, i32 noundef 1)
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end186.i, %if.then170.i, %is_null_oid.exit.i, %if.then149.i, %if.then144.i, %if.end127.i, %if.end99.i
@@ -949,8 +949,8 @@ if.end101.i:                                      ; preds = %lor.lhs.false88.i
   br i1 %cmp103.i, label %if.then105.i, label %if.end107.i
 
 if.then105.i:                                     ; preds = %if.end101.i
-  %call106.i = call fastcc ptr @get_symlink(ptr noundef nonnull %loid.i, ptr noundef %57)
-  call fastcc void @add_left_or_right(ptr noundef nonnull %symlinks2.i, ptr noundef %57, ptr noundef %call106.i, i32 noundef 0)
+  %call106.i = call fastcc ptr @get_symlink(ptr noundef %loid.i, ptr noundef %57)
+  call fastcc void @add_left_or_right(ptr noundef %symlinks2.i, ptr noundef %57, ptr noundef %call106.i, i32 noundef 0)
   call void @free(ptr noundef %call106.i) #17
   br label %if.end107.i
 
@@ -959,8 +959,8 @@ if.end107.i:                                      ; preds = %if.then105.i, %if.e
   br i1 %cmp109.i, label %if.then111.i, label %if.end114.i
 
 if.then111.i:                                     ; preds = %if.end107.i
-  %call113.i = call fastcc ptr @get_symlink(ptr noundef nonnull %roid.i, ptr noundef %dst_path.0.i)
-  call fastcc void @add_left_or_right(ptr noundef nonnull %symlinks2.i, ptr noundef %dst_path.0.i, ptr noundef %call113.i, i32 noundef 1)
+  %call113.i = call fastcc ptr @get_symlink(ptr noundef %roid.i, ptr noundef %dst_path.0.i)
+  call fastcc void @add_left_or_right(ptr noundef %symlinks2.i, ptr noundef %dst_path.0.i, ptr noundef %call113.i, i32 noundef 1)
   call void @free(ptr noundef %call113.i) #17
   br label %if.end114.i
 
@@ -1029,7 +1029,7 @@ if.end145.i:                                      ; preds = %st_add.exit105.i
   %call.i.i107.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i7) #19
   call void @strbuf_add(ptr noundef nonnull %buf.i106.i, ptr noundef %call.i7, i64 noundef %call.i.i107.i) #17
   %67 = load i64, ptr %len.i108.i, align 8
-  call fastcc void @add_path(ptr noundef nonnull %buf.i106.i, i64 noundef %67, ptr noundef %dst_path.0.i)
+  call fastcc void @add_path(ptr noundef %buf.i106.i, i64 noundef %67, ptr noundef %dst_path.0.i)
   %68 = load ptr, ptr %buf1.i.i, align 8
   %call.i109.i = call i32 @lstat64(ptr noundef %68, ptr noundef nonnull %st.i.i) #17
   %tobool.not.i110.i = icmp eq i32 %call.i109.i, 0
@@ -1107,7 +1107,7 @@ use_wt_file.exit.thread.i:                        ; preds = %land.lhs.true5.i.i,
   br label %if.then149.i
 
 use_wt_file.exit.i:                               ; preds = %is_null_oid.exit.i.i
-  %call12.i.i = call fastcc i32 @oideq(ptr noundef nonnull %roid.i, ptr noundef nonnull %wt_oid.i.i)
+  %call12.i.i = call fastcc i32 @oideq(ptr noundef %roid.i, ptr noundef nonnull %wt_oid.i.i)
   call void @strbuf_release(ptr noundef nonnull %buf.i106.i) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i106.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
@@ -1166,7 +1166,7 @@ is_null_oid.exit.i:                               ; preds = %if.end.i.i.i121.i, 
 if.then159.i:                                     ; preds = %is_null_oid.exit.i
   %call160.i = call ptr @make_cache_entry(ptr noundef nonnull %wtindex.i, i32 noundef %conv16.i.i, ptr noundef nonnull %roid.i, ptr noundef %dst_path.0.i, i32 noundef 0, i32 noundef 0) #17
   %call161.i = call i32 @add_index_entry(ptr noundef nonnull %wtindex.i, ptr noundef %call160.i, i32 noundef 8) #17
-  call fastcc void @add_path(ptr noundef nonnull %rdir.i, i64 noundef %38, ptr noundef %dst_path.0.i)
+  call fastcc void @add_path(ptr noundef %rdir.i, i64 noundef %38, ptr noundef %dst_path.0.i)
   %80 = load ptr, ptr %buf20.i, align 8
   %call.i124.i = call i32 @safe_create_leading_directories(ptr noundef %80) #17
   switch i32 %call.i124.i, label %sw.default.i.i [
@@ -1190,7 +1190,7 @@ if.then165.i:                                     ; preds = %if.end3.i.i.i, %sw.
   br label %finish.i
 
 if.end168.i:                                      ; preds = %if.then159.i, %if.then159.i
-  call fastcc void @add_path(ptr noundef nonnull %wtdir.i, i64 noundef %40, ptr noundef %dst_path.0.i)
+  call fastcc void @add_path(ptr noundef %wtdir.i, i64 noundef %40, ptr noundef %dst_path.0.i)
   %82 = load ptr, ptr %buf171.i, align 8
   br i1 %tobool169.not.i, label %if.else181.i, label %if.then170.i
 
@@ -1256,7 +1256,7 @@ if.end211.i:                                      ; preds = %if.end208.i
 
 for.body.i:                                       ; preds = %if.end211.i, %for.body.i
   %entry1.0378.i = phi ptr [ %call215.i, %for.body.i ], [ %call.i128.i, %if.end211.i ]
-  call fastcc void @write_standin_files(ptr noundef nonnull %entry1.0378.i, ptr noundef nonnull %ldir.i, i64 noundef %39, ptr noundef nonnull %rdir.i, i64 noundef %38)
+  call fastcc void @write_standin_files(ptr noundef %entry1.0378.i, ptr noundef %ldir.i, i64 noundef %39, ptr noundef %rdir.i, i64 noundef %38)
   %call215.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i) #17
   %tobool214.not.i = icmp eq ptr %call215.i, null
   br i1 %tobool214.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
@@ -1269,7 +1269,7 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
 
 for.body221.i:                                    ; preds = %for.end.i, %for.body221.i
   %entry1.1380.i = phi ptr [ %call223.i, %for.body221.i ], [ %call.i129.i, %for.end.i ]
-  call fastcc void @write_standin_files(ptr noundef nonnull %entry1.1380.i, ptr noundef nonnull %ldir.i, i64 noundef %39, ptr noundef nonnull %rdir.i, i64 noundef %38)
+  call fastcc void @write_standin_files(ptr noundef %entry1.1380.i, ptr noundef %ldir.i, i64 noundef %39, ptr noundef %rdir.i, i64 noundef %38)
   %call223.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i) #17
   %tobool220.not.i = icmp eq ptr %call223.i, null
   br i1 %tobool220.not.i, label %for.end225.i, label %for.body221.i, !llvm.loop !8
@@ -1372,7 +1372,7 @@ for.body249.i:                                    ; preds = %for.inc319.i, %for.
   %arrayidx250.i = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.i
   %103 = load ptr, ptr %arrayidx250.i, align 8
   %name251.i = getelementptr inbounds i8, ptr %103, i64 108
-  call fastcc void @add_path(ptr noundef nonnull %rdir.i, i64 noundef %38, ptr noundef nonnull %name251.i)
+  call fastcc void @add_path(ptr noundef %rdir.i, i64 noundef %38, ptr noundef nonnull %name251.i)
   %104 = load ptr, ptr %buf20.i, align 8
   %call255.i = call i32 @lstat64(ptr noundef %104, ptr noundef nonnull %st253.i) #17
   %tobool256.not.i = icmp eq i32 %call255.i, 0
@@ -1419,7 +1419,7 @@ if.then282.i:                                     ; preds = %lor.lhs.false279.i,
 
 if.end286.i:                                      ; preds = %lor.lhs.false279.i
   %109 = load ptr, ptr %buf.i154.i, align 8
-  call fastcc void @changed_files(ptr noundef nonnull %wt_modified.i, ptr noundef %109, ptr noundef %call.i7)
+  call fastcc void @changed_files(ptr noundef %wt_modified.i, ptr noundef %109, ptr noundef %call.i7)
   %110 = load i64, ptr %rdir.i, align 8
   %spec.select.i161.i = call i64 @llvm.usub.sat.i64(i64 %110, i64 1)
   %cmp.i162.i = icmp ugt i64 %38, %spec.select.i161.i
@@ -1444,8 +1444,8 @@ if.then4.i167.i:                                  ; preds = %if.end.i163.i
 strbuf_setlen.exit170.i:                          ; preds = %if.then4.i167.i, %if.end.i163.i
   %112 = phi ptr [ @strbuf_slopbuf, %if.end.i163.i ], [ %.pre524.i, %if.then4.i167.i ]
   %113 = load ptr, ptr %buf.i154.i, align 8
-  call fastcc void @changed_files(ptr noundef nonnull %tmp_modified.i, ptr noundef %113, ptr noundef %112)
-  call fastcc void @add_path(ptr noundef nonnull %rdir.i, i64 noundef %38, ptr noundef nonnull %name251.i)
+  call fastcc void @changed_files(ptr noundef %tmp_modified.i, ptr noundef %113, ptr noundef %112)
+  call fastcc void @add_path(ptr noundef %rdir.i, i64 noundef %38, ptr noundef nonnull %name251.i)
   br label %if.end290.i
 
 if.end290.i:                                      ; preds = %strbuf_setlen.exit170.i, %if.end271.i
@@ -1457,7 +1457,7 @@ if.end290.i:                                      ; preds = %strbuf_setlen.exit1
   br i1 %tobool293.not.i, label %for.inc319.i, label %if.then294.i
 
 if.then294.i:                                     ; preds = %if.end290.i
-  call fastcc void @add_path(ptr noundef nonnull %wtdir.i, i64 noundef %40, ptr noundef nonnull %name251.i)
+  call fastcc void @add_path(ptr noundef %wtdir.i, i64 noundef %40, ptr noundef nonnull %name251.i)
   %call295.i = call ptr @hashmap_get(ptr noundef nonnull %wt_modified.i, ptr noundef nonnull %dummy.i, ptr noundef nonnull %name251.i) #17
   %tobool296.not.i = icmp eq ptr %call295.i, null
   br i1 %tobool296.not.i, label %if.else302.i, label %if.then297.i
@@ -1795,7 +1795,7 @@ declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_left_or_right(ptr noundef %map, ptr noundef %path, ptr noundef %content, i32 noundef %is_right) unnamed_addr #0 {
+define internal fastcc void @add_left_or_right(ptr noundef nonnull %map, ptr noundef %path, ptr noundef %content, i32 noundef range(i32 0, 2) %is_right) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #19
   %cmp.i = icmp ugt i64 %call, -8209
@@ -1822,7 +1822,7 @@ st_add.exit17:                                    ; preds = %st_add.exit
   %hash1.i = getelementptr inbounds i8, ptr %call3, i64 8
   store i32 %call6, ptr %hash1.i, align 8
   store ptr null, ptr %call3, align 8
-  %call8 = tail call ptr @hashmap_get(ptr noundef %map, ptr noundef nonnull %call3, ptr noundef null) #17
+  %call8 = tail call ptr @hashmap_get(ptr noundef nonnull %map, ptr noundef nonnull %call3, ptr noundef null) #17
   %tobool.not = icmp eq ptr %call8, null
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -1835,7 +1835,7 @@ if.else:                                          ; preds = %st_add.exit17
   store i8 0, ptr %right, align 8
   %left = getelementptr inbounds i8, ptr %call3, i64 16
   store i8 0, ptr %left, align 8
-  tail call void @hashmap_add(ptr noundef %map, ptr noundef nonnull %call3) #17
+  tail call void @hashmap_add(ptr noundef nonnull %map, ptr noundef nonnull %call3) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1848,7 +1848,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef nonnull readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #10 {
 entry:
   %algo = getelementptr inbounds i8, ptr %oid1, i64 32
   %0 = load i32, ptr %algo, align 4
@@ -1889,7 +1889,7 @@ hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_symlink(ptr noundef %oid, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc ptr @get_symlink(ptr noundef nonnull %oid, ptr noundef %path) unnamed_addr #0 {
 entry:
   %link = alloca %struct.strbuf, align 8
   %type = alloca i32, align 4
@@ -1998,7 +1998,7 @@ declare ptr @make_cache_entry(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 declare i32 @add_index_entry(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_path(ptr noundef %buf, i64 noundef %base_len, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc void @add_path(ptr noundef nonnull %buf, i64 noundef %base_len, ptr noundef %path) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %buf, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
@@ -2086,7 +2086,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
 declare i32 @finish_command(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_standin_files(ptr noundef %entry1, ptr noundef %ldir, i64 noundef %ldir_len, ptr noundef %rdir, i64 noundef %rdir_len) unnamed_addr #0 {
+define internal fastcc void @write_standin_files(ptr noundef nonnull %entry1, ptr noundef nonnull %ldir, i64 noundef %ldir_len, ptr noundef nonnull %rdir, i64 noundef %rdir_len) unnamed_addr #0 {
 entry:
   %left = getelementptr inbounds i8, ptr %entry1, i64 16
   %0 = load i8, ptr %left, align 8
@@ -2190,7 +2190,7 @@ declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture nound
 declare i32 @write_locked_index(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @changed_files(ptr noundef %result, ptr noundef %index_path, ptr noundef %workdir) unnamed_addr #0 {
+define internal fastcc void @changed_files(ptr noundef nonnull %result, ptr noundef %index_path, ptr noundef %workdir) unnamed_addr #0 {
 entry:
   %update_index = alloca %struct.child_process, align 8
   %diff_files = alloca %struct.child_process, align 8
@@ -2271,7 +2271,7 @@ st_add.exit13:                                    ; preds = %st_add.exit
   %hash1.i = getelementptr inbounds i8, ptr %call49, i64 8
   store i32 %call53, ptr %hash1.i, align 8
   store ptr null, ptr %call49, align 8
-  call void @hashmap_add(ptr noundef %result, ptr noundef nonnull %call49) #17
+  call void @hashmap_add(ptr noundef nonnull %result, ptr noundef nonnull %call49) #17
   %call42 = call i32 @strbuf_getline_nul(ptr noundef nonnull %buf, ptr noundef %call41) #17
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %do.body, label %while.end, !llvm.loop !10

@@ -1418,7 +1418,7 @@ declare ptr @scsi_device_find(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_msd_cmd_submit(i32 noundef %lun, i32 noundef %tag, i32 noundef %flags, i32 noundef %len, i32 noundef %data_len) unnamed_addr #0 {
+define internal fastcc void @trace_usb_msd_cmd_submit(i32 noundef range(i32 0, 256) %lun, i32 noundef %tag, i32 noundef range(i32 0, 256) %flags, i32 noundef range(i32 0, 256) %len, i32 noundef %data_len) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)

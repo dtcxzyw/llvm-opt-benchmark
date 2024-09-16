@@ -299,14 +299,14 @@ _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.el
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
-  call fastcc void @_ZN4node7tracing12_GLOBAL__N_115DoubleToCStringB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp, double noundef %value)
+  call fastcc void @_ZN4node7tracing12_GLOBAL__N_115DoubleToCStringB5cxx11Ed(ptr noalias align 8 %ref.tmp, double noundef %value)
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node7tracing12_GLOBAL__N_115DoubleToCStringB5cxx11Ed(ptr noalias align 8 %agg.result, double noundef %v) unnamed_addr #0 {
+define internal fastcc void @_ZN4node7tracing12_GLOBAL__N_115DoubleToCStringB5cxx11Ed(ptr noalias nonnull align 8 %agg.result, double noundef %v) unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -363,7 +363,7 @@ sw.default:                                       ; preds = %fpclassify_not_nan.
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call5) #10
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.ensured) #10
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %stream, double noundef %v) #10
-  call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %stream) #10
+  call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %stream) #10
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream) #10
   br label %return
 
@@ -449,7 +449,7 @@ _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.el
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
-  call fastcc void @_ZN4node7tracing12_GLOBAL__N_112EscapeStringB5cxx11EPKc(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %value)
+  call fastcc void @_ZN4node7tracing12_GLOBAL__N_112EscapeStringB5cxx11EPKc(ptr noalias align 8 %ref.tmp, ptr noundef %value)
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   ret void
@@ -772,7 +772,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
-  call fastcc void @_ZN4node7tracing12_GLOBAL__N_115DoubleToCStringB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp, double noundef %value)
+  call fastcc void @_ZN4node7tracing12_GLOBAL__N_115DoubleToCStringB5cxx11Ed(ptr noalias align 8 %ref.tmp, double noundef %value)
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
@@ -845,7 +845,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
-  call fastcc void @_ZN4node7tracing12_GLOBAL__N_112EscapeStringB5cxx11EPKc(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %value)
+  call fastcc void @_ZN4node7tracing12_GLOBAL__N_112EscapeStringB5cxx11EPKc(ptr noalias align 8 %ref.tmp, ptr noundef %value)
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10

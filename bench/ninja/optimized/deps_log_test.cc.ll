@@ -360,7 +360,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 42, 519) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
   %3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %3, label %17, label %4
@@ -401,7 +401,7 @@ define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 42, 519) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
   %3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %3, label %17, label %4

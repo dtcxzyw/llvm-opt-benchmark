@@ -8470,7 +8470,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit1826:                                    ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc7.i.thread
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc7.i.thread ], [ %1005, %.lr.ph.i.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %326, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %84, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %85)
+  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %84, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %85)
           to label %1007 unwind label %1048
 
 1007:                                             ; preds = %.loopexit1826
@@ -12276,7 +12276,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit1843:                                    ; preds = %.lr.ph.i.i.i.i.i.i797, %.noexc7.i795.thread
   %.0.lcssa.i.i.i.i.i.i801 = phi ptr [ null, %.noexc7.i795.thread ], [ %2327, %.lr.ph.i.i.i.i.i.i797 ]
   store ptr %.0.lcssa.i.i.i.i.i.i801, ptr %267, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %112)
+  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %112)
           to label %2329 unwind label %2370
 
 2329:                                             ; preds = %.loopexit1843
@@ -14440,7 +14440,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1128:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %3070 unwind label %.loopexit1896
 
 3070:                                             ; preds = %.preheader1895
-  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %138, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %139)
+  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %138, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %139)
           to label %3071 unwind label %3112
 
 3071:                                             ; preds = %3070
@@ -14873,7 +14873,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1197:            ; preds = %_ZZN12_GLOBAL__N_11
           to label %3205 unwind label %.loopexit1904
 
 3205:                                             ; preds = %.preheader1903
-  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %142, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %142, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %143)
           to label %3206 unwind label %3246
 
 3206:                                             ; preds = %3205
@@ -15346,7 +15346,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEEC2ERK
           to label %3378 unwind label %3426
 
 3378:                                             ; preds = %3377
-  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %146, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %147)
+  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %146, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %147)
           to label %3379 unwind label %3428
 
 3379:                                             ; preds = %3378
@@ -15663,7 +15663,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEED2Ev.
           to label %3449 unwind label %.loopexit.split-lp.loopexit
 
 3449:                                             ; preds = %3448
-  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %149, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %150)
+  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %149, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %150)
           to label %3450 unwind label %3488
 
 3450:                                             ; preds = %3449
@@ -15716,7 +15716,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1352:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %3462 unwind label %3490
 
 3462:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1352
-  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %151, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %152)
+  invoke fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %151, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %152)
           to label %3463 unwind label %3492
 
 3463:                                             ; preds = %3462
@@ -20505,7 +20505,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4

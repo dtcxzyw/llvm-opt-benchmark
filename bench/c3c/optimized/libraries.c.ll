@@ -925,7 +925,7 @@ add_library.exit:                                 ; preds = %get_optional_string
 find_library.exit:                                ; preds = %.lr.ph.i147
   %415 = getelementptr inbounds ptr, ptr %7, i64 %.08.i
   %416 = load ptr, ptr %415, align 8
-  call fastcc void @add_library_dependency(ptr noundef %416, ptr noundef nonnull %7, i64 noundef %.0111.lcssa)
+  call fastcc void @add_library_dependency(ptr noundef %416, ptr noundef %7, i64 noundef %.0111.lcssa)
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
   br i1 %exitcond490.not, label %.preheader, label %.lr.ph.i147.preheader, !llvm.loop !15
@@ -1182,7 +1182,7 @@ declare ptr @file_read_all(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_library_dependency(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_library_dependency(ptr nocapture noundef %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1286,7 +1286,7 @@ define internal fastcc void @add_library_dependency(ptr nocapture noundef %0, pt
 find_library.exit:                                ; preds = %.lr.ph.i
   %41 = getelementptr inbounds ptr, ptr %1, i64 %.08.i
   %42 = load ptr, ptr %41, align 8
-  tail call fastcc void @add_library_dependency(ptr noundef %42, ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @add_library_dependency(ptr noundef %42, ptr noundef %1, i64 noundef %2)
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %._crit_edge79, label %.lr.ph.i.preheader, !llvm.loop !20
@@ -1344,7 +1344,7 @@ find_library.exit:                                ; preds = %.lr.ph.i
 find_library.exit62:                              ; preds = %.lr.ph.i58
   %60 = getelementptr inbounds ptr, ptr %1, i64 %.08.i59
   %61 = load ptr, ptr %60, align 8
-  tail call fastcc void @add_library_dependency(ptr noundef %61, ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @add_library_dependency(ptr noundef %61, ptr noundef %1, i64 noundef %2)
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
   br i1 %exitcond103.not, label %.loopexit, label %.lr.ph.i58.preheader, !llvm.loop !21

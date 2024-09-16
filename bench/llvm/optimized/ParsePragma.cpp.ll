@@ -8517,7 +8517,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i242:    ; preds = %269, %_ZNK5clang17D
   %.sroa.1330.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.1330.0.copyload = load ptr, ptr %.sroa.1330.0..sroa_idx, align 8
   %.sroa.2331.0.copyload = load i16, ptr %33, align 8
-  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.1334.0.copyload, ptr %.sroa.1330.0.copyload, i16 %.sroa.2331.0.copyload)
+  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.1334.0.copyload, ptr %.sroa.1330.0.copyload, i16 %.sroa.2331.0.copyload)
   %294 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %6) #20
@@ -8624,7 +8624,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit260.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %.sroa.1313.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.1313.0.copyload = load ptr, ptr %.sroa.1313.0..sroa_idx, align 8
   %.sroa.2314.0.copyload = load i16, ptr %33, align 8
-  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %.sroa.1317.0.copyload, ptr %.sroa.1313.0.copyload, i16 %.sroa.2314.0.copyload)
+  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.1317.0.copyload, ptr %.sroa.1313.0.copyload, i16 %.sroa.2314.0.copyload)
   %333 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %8) #20
@@ -8734,7 +8734,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread497:      ; preds = %_ZN4llvmneENS_9Stri
   %.sroa.1297.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.1297.0.copyload = load ptr, ptr %.sroa.1297.0..sroa_idx, align 8
   %.sroa.2298.0.copyload = load i16, ptr %33, align 8
-  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.sroa.1301.0.copyload, ptr %.sroa.1297.0.copyload, i16 %.sroa.2298.0.copyload)
+  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %13, ptr %.sroa.1301.0.copyload, ptr %.sroa.1297.0.copyload, i16 %.sroa.2298.0.copyload)
   %374 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %12) #20
@@ -8797,7 +8797,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread484:      ; preds = %302, %_ZN4llvmeqENS
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.2288.0.copyload = load i16, ptr %33, align 8
-  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.sroa.1290.0.copyload, ptr %.sroa.1.0.copyload, i16 %.sroa.2288.0.copyload)
+  call fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %15, ptr %.sroa.1290.0.copyload, ptr %.sroa.1.0.copyload, i16 %.sroa.2288.0.copyload)
   %402 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
   %403 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr %402, i64 %403)
@@ -8954,7 +8954,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(26) ptr @_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.8.val, ptr readonly %.8.val1, i16 %.16.val3) unnamed_addr #0 {
+define internal fastcc void @_ZL20PragmaLoopHintStringB5cxx11N5clang5TokenES0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.8.val, ptr readonly %.8.val1, i16 %.16.val3) unnamed_addr #0 {
 _ZNK5clang5Token17getIdentifierInfoEv.exit:
   %1 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11183,7 +11183,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit95:          ; preds = %_ZN5clang17Diagnost
   br i1 %.not.i96, label %305, label %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit97
 
 _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit97: ; preds = %._crit_edge158
-  call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias nonnull writable align 8 %16, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(2936) %0)
+  call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias writable align 8 %16, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(2936) %0)
   %262 = load ptr, ptr %16, align 8
   %.not.i.i.i98 = icmp eq ptr %262, null
   br i1 %.not.i.i.i98, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i99, label %_ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit
@@ -11285,7 +11285,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit105:         ; preds = %_ZN5clang17Diagnost
   br i1 %.not151, label %_ZNK5clang5Token17getIdentifierInfoEv.exit107, label %309
 
 309:                                              ; preds = %305
-  call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias nonnull writable align 8 %17, i32 noundef 1732, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(2936) %0)
+  call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias writable align 8 %17, i32 noundef 1732, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(2936) %0)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %17) #20
   call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
@@ -11306,7 +11306,7 @@ _ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit: ; preds = %_ZNK5clang5Toke
   br i1 %317, label %318, label %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.thread
 
 _ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.thread: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit107, %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit
-  call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias nonnull writable align 8 %18, i32 noundef 1732, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(2936) %0)
+  call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias writable align 8 %18, i32 noundef 1732, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(2936) %0)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %18) #20
   call fastcc void @"_ZZN5clang6Parser21HandlePragmaAttributeEvENK3$_0clEv"(ptr %0)
   br label %390
@@ -11321,7 +11321,7 @@ _ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit.thread: ; preds = %_ZNK5cla
   br i1 %.not.i109, label %337, label %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit110
 
 _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit110: ; preds = %318
-  call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias nonnull writable align 8 %19, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(2936) %0)
+  call fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias writable align 8 %19, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(144) %68, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(2936) %0)
   %322 = load ptr, ptr %19, align 8
   %.not.i.i.i111 = icmp eq ptr %322, null
   br i1 %.not.i.i.i111, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i112, label %_ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit113
@@ -11590,7 +11590,7 @@ define linkonce_odr hidden i32 @_ZNK5clang5Token9getEndLocEv(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK5clang10ParsedAttr28isSupportedByPragmaAttributeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(2936) %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRulesTokenDiagnosticEjRN5clang16ParsedAttributesENS_41MissingAttributeSubjectRulesRecoveryPointERNS0_6ParserE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 15, 1733) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef range(i32 0, 3) %3, ptr noundef nonnull align 8 dereferenceable(2936) %4) unnamed_addr #0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.80", align 1
@@ -11617,7 +11617,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_150createExpectedAttributeSubjectRu
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %29 = load i32, ptr %28, align 8
   %.sroa.088.0 = select i1 %27, i32 %29, i32 %26
-  tail call void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind writable sret(%"class.clang::DiagnosticBuilder") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2936) %4, i32 %.sroa.088.0, i32 noundef %1) #20
+  tail call void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2936) %4, i32 %.sroa.088.0, i32 noundef %1) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   %30 = getelementptr inbounds i8, ptr %4, i64 24
   %.val = load ptr, ptr %30, align 8
@@ -11674,7 +11674,7 @@ _ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5Token
   br label %45
 
 45:                                               ; preds = %43, %_ZN12_GLOBAL__N_145getAttributeSubjectRulesRecoveryPointForTokenERKN5clang5TokenE.exit
-  %46 = icmp slt i32 %3, 2
+  %46 = icmp ult i32 %3, 2
   %47 = icmp ugt i32 %.0.i, 1
   %or.cond = and i1 %46, %47
   br i1 %or.cond, label %48, label %50

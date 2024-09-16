@@ -218,7 +218,7 @@ define internal fastcc void @__up(ptr nocapture noundef readonly %0) unnamed_add
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 section ".sched.text" align 16 {
+define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef %0, i64 noundef range(i64 1, 259) %1, i64 noundef %2) unnamed_addr #3 section ".sched.text" align 16 {
   %4 = alloca %struct.semaphore_waiter, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_contention_begin, i64 8), i32 2) #7
           to label %25 [label %5], !srcloc !9
@@ -277,7 +277,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 0, ptr %34, align 8
-  %35 = trunc i64 %1 to i32
+  %35 = trunc nuw nsw i64 %1 to i32
   %36 = and i32 %35, 257
   %37 = icmp eq i32 %36, 0
   %38 = getelementptr inbounds i8, ptr %32, i64 1936

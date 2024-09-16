@@ -87,7 +87,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_dh_print(ptr noundef %bp, ptr noundef %x, i32 noundef %indent, i32 noundef %ptype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_dh_print(ptr noundef %bp, ptr noundef %x, i32 noundef %indent, i32 noundef range(i32 0, 3) %ptype) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %ptype, 2
   br i1 %cmp, label %if.end.thread, label %if.end
@@ -98,8 +98,8 @@ if.end.thread:                                    ; preds = %entry
   br label %if.then3
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp sgt i32 %ptype, 0
-  br i1 %cmp2, label %if.then3, label %if.end6
+  %cmp2.not = icmp eq i32 %ptype, 0
+  br i1 %cmp2.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end.thread, %if.end
   %priv_key.031 = phi ptr [ %0, %if.end.thread ], [ null, %if.end ]
@@ -1050,7 +1050,7 @@ declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dh_pkey_import_from_type(ptr noundef %params, ptr noundef %vpctx, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dh_pkey_import_from_type(ptr noundef %params, ptr noundef %vpctx, i32 noundef range(i32 28, 921) %type) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %vpctx) #4
   %libctx = getelementptr inbounds i8, ptr %vpctx, i64 8

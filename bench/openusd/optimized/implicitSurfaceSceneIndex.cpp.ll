@@ -1359,7 +1359,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTy
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit: ; preds = %14, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i, %3
   %17 = phi ptr [ %6, %3 ], [ %16, %14 ], [ %8, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
   %.val = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %18 unwind label %83
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
@@ -1400,7 +1400,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %32 = phi ptr [ %21, %18 ], [ %31, %29 ], [ %23, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i21 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %.val16 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr %.val16, ptr noundef nonnull align 8 dereferenceable(8) %33)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %19, ptr %.val16, ptr noundef nonnull align 8 dereferenceable(8) %33)
           to label %34 unwind label %85
 
 34:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit25
@@ -1441,7 +1441,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %48 = phi ptr [ %37, %34 ], [ %47, %45 ], [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i27 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %.val17 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr %.val17, ptr noundef nonnull align 8 dereferenceable(8) %49)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %35, ptr %.val17, ptr noundef nonnull align 8 dereferenceable(8) %49)
           to label %50 unwind label %87
 
 50:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit31
@@ -1482,7 +1482,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %64 = phi ptr [ %53, %50 ], [ %63, %61 ], [ %55, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i33 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %.val18 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr %.val18, ptr noundef nonnull align 8 dereferenceable(8) %65)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %51, ptr %.val18, ptr noundef nonnull align 8 dereferenceable(8) %65)
           to label %66 unwind label %89
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit37
@@ -1523,7 +1523,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 104
   %.val19 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %80, ptr %.val19, ptr noundef nonnull align 8 dereferenceable(8) %81)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %80, ptr %.val19, ptr noundef nonnull align 8 dereferenceable(8) %81)
           to label %82 unwind label %91
 
 82:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit43
@@ -1619,7 +1619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_GetModeERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.33", align 8
   %4 = alloca %"class.std::shared_ptr.36", align 8
   %.not = icmp eq ptr %.0.val, null
@@ -1761,7 +1761,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   %65 = load ptr, ptr %62, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
-  invoke void %67(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %62, float noundef 0.000000e+00)
+  invoke void %67(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %62, float noundef 0.000000e+00)
           to label %70 unwind label %68
 
 68:                                               ; preds = %64
@@ -2307,7 +2307,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZNK32pxr
   br i1 %.not10.i, label %268, label %262
 
 262:                                              ; preds = %260
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %145)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %145)
           to label %263 unwind label %704, !noalias !18
 
 263:                                              ; preds = %262
@@ -3844,7 +3844,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit52: ; preds = %_ZNK32p
   br i1 %.not10.i151, label %935, label %929
 
 929:                                              ; preds = %927
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %123)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %123)
           to label %930 unwind label %1371, !noalias !34
 
 930:                                              ; preds = %929
@@ -6606,7 +6606,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit242: ; preds = %_ZNK32
   br i1 %.not10.i327, label %2131, label %2125
 
 2125:                                             ; preds = %2123
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %83)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %83)
           to label %2126 unwind label %2600, !noalias !58
 
 2126:                                             ; preds = %2125
@@ -9458,7 +9458,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit461: ; preds = %_ZNK32
   br i1 %.not10.i545, label %3360, label %3354
 
 3354:                                             ; preds = %3352
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %43)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %43)
           to label %3355 unwind label %3840, !noalias !82
 
 3355:                                             ; preds = %3354
@@ -11108,7 +11108,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit572: ; preds = %_ZNK32
   br i1 %.not10.i683, label %4066, label %4060
 
 4060:                                             ; preds = %4058
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %21)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %21)
           to label %4061 unwind label %4535, !noalias !97
 
 4061:                                             ; preds = %4060
@@ -14383,7 +14383,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #11
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshSchema::Builder", align 8
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshTopologySchema::Builder", align 8
@@ -14564,7 +14564,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit: ; pr
           to label %84 unwind label %495
 
 84:                                               ; preds = %78
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
           to label %85 unwind label %495
 
 85:                                               ; preds = %84
@@ -18420,7 +18420,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_Cube
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSource37GetContributingSampleTimesForIntervalEffPSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(24) %0, float noundef %1, float noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.97", align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSource14_GetSizeSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSource14_GetSizeSourceEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %6 = load ptr, ptr %5, align 8
   %.not = icmp ne ptr %6, null
   br i1 %.not, label %7, label %14
@@ -18526,7 +18526,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_Cube
   %7 = tail call noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__27GeomUtilCuboidMeshGenerator16ComputeNumPointsEv()
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1Em(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSource14_GetSizeSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSource14_GetSizeSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %3
@@ -19018,7 +19018,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIF
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_StreamerclERSo(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSource14_GetSizeSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSource14_GetSizeSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSource14_GetSizeSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -22156,7 +22156,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshSchema::Builder", align 8
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshTopologySchema::Builder", align 8
@@ -22337,7 +22337,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit: ; pr
           to label %84 unwind label %495
 
 84:                                               ; preds = %78
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
           to label %85 unwind label %495
 
 85:                                               ; preds = %84
@@ -23478,7 +23478,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %6 = alloca %"class.std::shared_ptr.97", align 8
   %7 = alloca %"class.std::shared_ptr.97", align 8
   %8 = alloca %"class.std::shared_ptr.33", align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %5, align 16
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -23488,7 +23488,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %12, ptr %10, align 8
   store ptr null, ptr %6, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 16
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %14 unwind label %27
 
 14:                                               ; preds = %4
@@ -23501,7 +23501,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %18, ptr %16, align 8
   store ptr null, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 32
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit30 unwind label %29
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit30: ; preds = %14
@@ -23656,7 +23656,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_Cone
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !157
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !157
   %11 = load ptr, ptr %8, align 8, !noalias !157
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %18, label %12
@@ -23895,7 +23895,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %104, %118
 
 124:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc17 unwind label %233
 
 .noexc17:                                         ; preds = %124
@@ -23995,7 +23995,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %171 = fptrunc double %.05.i to float
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc27 unwind label %233
 
 .noexc27:                                         ; preds = %170
@@ -24141,7 +24141,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetHeightSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -24298,7 +24298,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource16_GetRadiusSourceEvE7locator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -24455,7 +24455,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSource14_GetAxisSourceEvE7locator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -25163,7 +25163,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %6 = alloca %"class.std::shared_ptr.154", align 8
   %7 = alloca %"class.std::shared_ptr.33", align 8
   %8 = alloca %"class.std::shared_ptr.97", align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %5, align 16
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -25173,7 +25173,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %12, ptr %10, align 8
   store ptr null, ptr %6, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 16
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %14 unwind label %61
 
 14:                                               ; preds = %4
@@ -25186,7 +25186,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %18, ptr %16, align 8
   store ptr null, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 32
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit unwind label %63
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit: ; preds = %14
@@ -25417,7 +25417,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_Cone
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !184
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !184
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !184
   %12 = load ptr, ptr %7, align 8, !noalias !184
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %20, label %13
@@ -25529,7 +25529,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_M
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !187
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !187
   %62 = load ptr, ptr %5, align 8, !noalias !187
   %.not.i.i4 = icmp eq ptr %62, null
   br i1 %.not.i.i4, label %69, label %63
@@ -25834,7 +25834,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_M
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0, i64 128, i1 false)
   %192 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %.05.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !190
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !190
   %193 = load ptr, ptr %4, align 8, !noalias !190
   %.not.i11 = icmp eq ptr %193, null
   br i1 %.not.i11, label %200, label %194
@@ -26443,11 +26443,11 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4deq
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdXformSchema", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema13GetFromParentERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdXformSchema") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13HdXformSchema9GetMatrixEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.154") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13HdXformSchema9GetMatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.154") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %5 unwind label %42
 
 5:                                                ; preds = %2
@@ -26535,7 +26535,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchemaD2Ev.exit: ; preds = %5, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource14_GetAxisSourceEvE7locator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -26692,7 +26692,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_MatrixDataSource16_GetHeightSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -26990,7 +26990,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__42HdDependenciesSchemaTokens_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__42HdDependenciesSchemaTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshSchema::Builder", align 8
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshTopologySchema::Builder", align 8
@@ -27171,7 +27171,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit: ; pr
           to label %84 unwind label %495
 
 84:                                               ; preds = %78
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
           to label %85 unwind label %495
 
 85:                                               ; preds = %84
@@ -28314,7 +28314,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %8 = alloca %"class.std::shared_ptr.97", align 8
   %9 = alloca %"class.std::shared_ptr.97", align 8
   %10 = alloca %"class.std::shared_ptr.33", align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %5, align 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -28324,7 +28324,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %14, ptr %12, align 8
   store ptr null, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 16
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %16 unwind label %41
 
 16:                                               ; preds = %4
@@ -28337,7 +28337,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %20, ptr %18, align 8
   store ptr null, ptr %7, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %22 unwind label %43
 
 22:                                               ; preds = %16
@@ -28350,7 +28350,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %26, ptr %24, align 8
   store ptr null, ptr %8, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 48
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %28 unwind label %45
 
 28:                                               ; preds = %22
@@ -28363,7 +28363,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %32, ptr %30, align 8
   store ptr null, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %5, i64 64
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit50 unwind label %47
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit50: ; preds = %28
@@ -28543,7 +28543,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_Cyli
   %13 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !216
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !216
   %14 = load ptr, ptr %11, align 8, !noalias !216
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %21, label %15
@@ -28783,7 +28783,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %107, %121
 127:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc18 unwind label %378
 
 .noexc18:                                         ; preds = %127
@@ -28882,7 +28882,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br i1 %.not.i11, label %173, label %221
 
 173:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc19 unwind label %378
 
 .noexc19:                                         ; preds = %173
@@ -28995,7 +28995,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc41 unwind label %378
 
 .noexc41:                                         ; preds = %221
@@ -29094,7 +29094,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br i1 %.not.i20, label %267, label %315
 
 267:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc42 unwind label %378
 
 .noexc42:                                         ; preds = %267
@@ -29206,7 +29206,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc53 unwind label %378
 
 .noexc53:                                         ; preds = %315
@@ -29353,7 +29353,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetHeightSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -29510,7 +29510,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource16_GetRadiusSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -29667,7 +29667,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource22_GetRadiusBottomSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -29824,7 +29824,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource19_GetRadiusTopSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -29981,7 +29981,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDataSource14_GetAxisSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -30417,7 +30417,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %5 = alloca [2 x %"class.std::shared_ptr.84"], align 16
   %6 = alloca %"class.std::shared_ptr.154", align 8
   %7 = alloca %"class.std::shared_ptr.33", align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %8 = load ptr, ptr %6, align 8
   store ptr %8, ptr %5, align 16
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -30426,7 +30426,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr null, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   store ptr null, ptr %6, align 8
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit unwind label %.loopexit.loopexit30
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit: ; preds = %4
@@ -30636,7 +30636,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_Cyli
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !257
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !257
   %8 = load ptr, ptr %5, align 8, !noalias !257
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %15, label %9
@@ -30943,7 +30943,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdConeSchemaTokens_Sta
 _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource20_GetAdjustmentMatrixEf.exit: ; preds = %123, %127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !260
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !260
   %138 = load ptr, ptr %4, align 8, !noalias !260
   %.not.i3 = icmp eq ptr %138, null
   br i1 %.not.i3, label %145, label %139
@@ -31050,11 +31050,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCyli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource16_GetMatrixSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdXformSchema", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema13GetFromParentERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdXformSchema") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13HdXformSchema9GetMatrixEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.154") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13HdXformSchema9GetMatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.154") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %5 unwind label %42
 
 5:                                                ; preds = %2
@@ -31142,7 +31142,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchemaD2Ev.exit: ; preds = %5, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylinder17_MatrixDataSource14_GetAxisSourceEvE7locator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -31339,7 +31339,7 @@ define internal noalias noundef ptr @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshSchema::Builder", align 8
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshTopologySchema::Builder", align 8
@@ -31520,7 +31520,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit: ; pr
           to label %84 unwind label %495
 
 84:                                               ; preds = %78
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
           to label %85 unwind label %495
 
 85:                                               ; preds = %84
@@ -32692,7 +32692,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_Sphe
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataSource37GetContributingSampleTimesForIntervalEffPSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(24) %0, float noundef %1, float noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.97", align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %6 = load ptr, ptr %5, align 8
   %.not = icmp ne ptr %6, null
   br i1 %.not, label %7, label %14
@@ -32802,7 +32802,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_Sphe
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %9
@@ -32930,7 +32930,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataSource16_GetRadiusSourceEvE13radiusLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -33138,7 +33138,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSphereSchemaTokens_Static
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSphereSchemaTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh22_ComputeMeshDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshSchema::Builder", align 8
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshTopologySchema::Builder", align 8
@@ -33319,7 +33319,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit: ; pr
           to label %84 unwind label %495
 
 84:                                               ; preds = %78
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema7Builder5BuildEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %83)
           to label %85 unwind label %495
 
 85:                                               ; preds = %84
@@ -34462,7 +34462,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %8 = alloca %"class.std::shared_ptr.97", align 8
   %9 = alloca %"class.std::shared_ptr.97", align 8
   %10 = alloca %"class.std::shared_ptr.33", align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %5, align 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -34472,7 +34472,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %14, ptr %12, align 8
   store ptr null, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 16
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %16 unwind label %41
 
 16:                                               ; preds = %4
@@ -34485,7 +34485,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %20, ptr %18, align 8
   store ptr null, ptr %7, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 32
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %22 unwind label %43
 
 22:                                               ; preds = %16
@@ -34498,7 +34498,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %26, ptr %24, align 8
   store ptr null, ptr %8, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 48
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %28 unwind label %45
 
 28:                                               ; preds = %22
@@ -34511,7 +34511,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   store ptr %32, ptr %30, align 8
   store ptr null, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %5, i64 64
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit50 unwind label %47
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit50: ; preds = %28
@@ -34691,7 +34691,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_Caps
   %13 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !283
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !283
   %14 = load ptr, ptr %11, align 8, !noalias !283
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %21, label %15
@@ -34931,7 +34931,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %107, %121
 127:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc18 unwind label %378
 
 .noexc18:                                         ; preds = %127
@@ -35030,7 +35030,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br i1 %.not.i11, label %173, label %221
 
 173:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc19 unwind label %378
 
 .noexc19:                                         ; preds = %173
@@ -35143,7 +35143,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc41 unwind label %378
 
 .noexc41:                                         ; preds = %221
@@ -35242,7 +35242,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br i1 %.not.i20, label %267, label %315
 
 267:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIdEEED2Ev.exit.i27
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc42 unwind label %378
 
 .noexc42:                                         ; preds = %267
@@ -35354,7 +35354,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc53 unwind label %378
 
 .noexc53:                                         ; preds = %315
@@ -35501,7 +35501,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetHeightSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetHeightSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -35658,7 +35658,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource16_GetRadiusSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -35815,7 +35815,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource22_GetRadiusBottomSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource22_GetRadiusBottomSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -35972,7 +35972,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource19_GetRadiusTopSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource19_GetRadiusTopSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -36129,7 +36129,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource14_GetAxisSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.36", align 8
   %4 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsDataSource14_GetAxisSourceEvE11sizeLocator acquire, align 8
   %5 = icmp eq i8 %4, 0

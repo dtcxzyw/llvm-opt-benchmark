@@ -849,7 +849,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
   br i1 %.not21.i, label %144, label %131
 
 131:                                              ; preds = %126
-  %132 = call fastcc zeroext i1 @_valid_prog(ptr noundef nonnull %130)
+  %132 = call fastcc zeroext i1 @_valid_prog(ptr noundef %130)
   br i1 %132, label %144, label %133
 
 133:                                              ; preds = %131
@@ -2854,7 +2854,7 @@ declare ptr @node_state_string_complete(i32 noundef) local_unnamed_addr #1
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_valid_prog(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_valid_prog(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %3, 47

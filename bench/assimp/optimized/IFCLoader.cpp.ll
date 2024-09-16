@@ -8426,7 +8426,7 @@ if.end416:                                        ; preds = %if.then415, %for.en
   br i1 %skipGeometry.0, label %if.end422, label %if.then418
 
 if.then418:                                       ; preds = %if.end416
-  invoke fastcc void @_ZN12_GLOBAL__N_128ProcessProductRepresentationERKN6Assimp3IFC10Schema_2x310IfcProductEP6aiNodeRSt6vectorIS7_SaIS7_EERNS1_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(256) %el, ptr noundef nonnull %call17, ptr noundef nonnull align 8 dereferenceable(24) %subnodes, ptr noundef nonnull align 8 dereferenceable(392) %conv)
+  invoke fastcc void @_ZN12_GLOBAL__N_128ProcessProductRepresentationERKN6Assimp3IFC10Schema_2x310IfcProductEP6aiNodeRSt6vectorIS7_SaIS7_EERNS1_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(256) %el, ptr noundef %call17, ptr noundef nonnull align 8 dereferenceable(24) %subnodes, ptr noundef nonnull align 8 dereferenceable(392) %conv)
           to label %invoke.cont419 unwind label %lpad125.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont419:                                   ; preds = %if.then418
@@ -9904,7 +9904,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128ProcessProductRepresentationERKN6Assimp3IFC10Schema_2x310IfcProductEP6aiNodeRSt6vectorIS7_SaIS7_EERNS1_14ConversionDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %el, ptr noundef %nd, ptr nocapture noundef nonnull align 8 dereferenceable(24) %subnodes, ptr noundef nonnull align 8 dereferenceable(392) %conv) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_128ProcessProductRepresentationERKN6Assimp3IFC10Schema_2x310IfcProductEP6aiNodeRSt6vectorIS7_SaIS7_EERNS1_14ConversionDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %el, ptr noundef nonnull %nd, ptr nocapture noundef nonnull align 8 dereferenceable(24) %subnodes, ptr noundef nonnull align 8 dereferenceable(392) %conv) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i122 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i123 = alloca %"class.Assimp::Formatter::basic_formatter", align 8
@@ -11319,7 +11319,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %or.cond, label %for.end74, label %for.body.backedge
 
 for.end74:                                        ; preds = %for.cond, %for.end, %invoke.cont22
-  invoke void @_ZN6Assimp3IFC17AssignAddedMeshesERSt3setIjSt4lessIjESaIjEEP6aiNodeRNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(48) %meshes, ptr noundef %nd, ptr noundef nonnull align 8 dereferenceable(392) %conv)
+  invoke void @_ZN6Assimp3IFC17AssignAddedMeshesERSt3setIjSt4lessIjESaIjEEP6aiNodeRNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(48) %meshes, ptr noundef nonnull %nd, ptr noundef nonnull align 8 dereferenceable(392) %conv)
           to label %invoke.cont75 unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont75:                                    ; preds = %for.end74
@@ -11577,7 +11577,7 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115ProcessMetadataERKN6Assimp4STEP6ListOfINS1_4LazyINS0_3IFC10Schema_2x311IfcPropertyEEELm1ELm0EEERNS4_14ConversionDataERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St4lessISJ_ESaISt4pairIKSJ_SJ_EEERSN_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %set, ptr noundef nonnull align 8 dereferenceable(48) %properties, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i32 noundef %nest) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115ProcessMetadataERKN6Assimp4STEP6ListOfINS1_4LazyINS0_3IFC10Schema_2x311IfcPropertyEEELm1ELm0EEERNS4_14ConversionDataERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St4lessISJ_ESaISt4pairIKSJ_SJ_EEERSN_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %set, ptr noundef nonnull align 8 dereferenceable(48) %properties, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i32 noundef range(i32 0, 4) %nest) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11601,7 +11601,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %add.ptr47 = getelementptr inbounds i8, ptr %s, i64 16
   %add.ptr70 = getelementptr inbounds i8, ptr %s68, i64 16
   %add.ptr95 = getelementptr inbounds i8, ptr %ss, i64 16
-  %cmp188 = icmp ugt i32 %nest, 2
+  %cmp188 = icmp eq i32 %nest, 3
   %add192 = add nuw nsw i32 %nest, 1
   br label %for.body
 

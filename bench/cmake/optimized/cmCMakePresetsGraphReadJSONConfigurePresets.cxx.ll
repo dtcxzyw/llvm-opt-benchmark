@@ -563,7 +563,7 @@ declare void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dere
 declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ArchToolsetHelperEMN19cmCMakePresetsGraph15ConfigurePresetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMS1_St8optionalINS0_19ArchToolsetStrategyEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 %1, i64 %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ArchToolsetHelperEMN19cmCMakePresetsGraph15ConfigurePresetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMS1_St8optionalINS0_19ArchToolsetStrategyEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 range(i64 248, 289) %1, i64 range(i64 280, 321) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph15ConfigurePresetEEC2ESt8functionIFS4_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EEEEb.exit:
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %"class.std::function", align 8

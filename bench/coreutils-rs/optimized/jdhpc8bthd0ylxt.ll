@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.4d24509ba2bb005ad408e69ea276a3d2.65 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.4d24509ba2bb005ad408e69ea276a3d2.17, [16 x i8] c"`\00\00\00\00\00\00\00+\06\00\00?\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h23ffce962d0713aeE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h23ffce962d0713aeE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
   %.sroa.230 = alloca [4 x i64], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
@@ -68,7 +68,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_nu
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = icmp ne ptr %.32.val, null
   tail call void @llvm.assume(i1 %11)
-  %12 = tail call fastcc { ptr, i64 } @_ZN10fundu_core5parse5Bytes19buffered_advance_to17h10747439f5ea9659E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %.32.val)
+  %12 = tail call fastcc { ptr, i64 } @_ZN10fundu_core5parse5Bytes19buffered_advance_to17h10747439f5ea9659E(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull %.32.val)
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
   %15 = icmp eq i64 %14, 0
@@ -174,7 +174,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_nu
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17hadb958d444d6ee32E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17hadb958d444d6ee32E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
   %.sroa.230 = alloca [4 x i64], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
@@ -188,7 +188,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_nu
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = icmp ne ptr %.32.val, null
   tail call void @llvm.assume(i1 %11)
-  %12 = tail call fastcc { ptr, i64 } @_ZN10fundu_core5parse5Bytes19buffered_advance_to17h10747439f5ea9659E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %.32.val)
+  %12 = tail call fastcc { ptr, i64 } @_ZN10fundu_core5parse5Bytes19buffered_advance_to17h10747439f5ea9659E(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull %.32.val)
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
   %15 = icmp eq i64 %14, 0
@@ -294,7 +294,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_nu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17h4a5a72e94dd0a0a0E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17h4a5a72e94dd0a0a0E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #1 {
   %.sroa.212 = alloca [4 x i64], align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -351,7 +351,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_nu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17hc44ddac5b3e7a775E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17hc44ddac5b3e7a775E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #1 {
   %.sroa.212 = alloca [4 x i64], align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -715,7 +715,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf67f8104bcded3feE
   store ptr %.0330, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %24, i64 112, i1 false)
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17h96105b745590e38cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %22)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17h96105b745590e38cE"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %22)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %22)
   br label %344
 
@@ -767,12 +767,12 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf67f8104bcded3feE
   store i8 %158, ptr %34, align 1
   store i64 %.sroa.13.8.copyload, ptr %41, align 8
   store i16 %.sroa.15.8.copyload, ptr %42, align 8
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %24)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
   br label %344
 
 166:                                              ; preds = %180, %161
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
-  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17hadb958d444d6ee32E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %20, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %7, ptr %8, ptr %.val)
+  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17hadb958d444d6ee32E(ptr noalias nocapture noundef align 8 dereferenceable(40) %20, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef align 1 %7, ptr %8, ptr %.val)
   %167 = load i64, ptr %20, align 8, !range !7, !noundef !4
   %168 = icmp eq i64 %167, 8
   %169 = getelementptr inbounds i8, ptr %20, i64 8
@@ -844,7 +844,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf67f8104bcded3feE
   store i8 %.sroa.0200.0.copyload, ptr %34, align 1
   store i64 %.sroa.5202.0.copyload, ptr %41, align 8
   store i16 %.sroa.6203.0.copyload, ptr %42, align 8
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %24)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
   br label %344
 
 186:                                              ; preds = %166
@@ -885,7 +885,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf67f8104bcded3feE
   br i1 %192, label %197, label %199
 
 194:                                              ; preds = %186
-  call fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  call fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef align 8 dereferenceable(40) %13, ptr noalias noundef readonly align 8 dereferenceable(64) %1)
   %195 = load i64, ptr %13, align 8, !range !7, !noundef !4
   %196 = icmp eq i64 %195, 8
   br i1 %196, label %223, label %233
@@ -945,7 +945,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf67f8104bcded3feE
   store i8 %.sroa.0252.0.copyload, ptr %34, align 1
   store i64 %.sroa.5254.0.copyload, ptr %41, align 8
   store i16 %.sroa.6255.0.copyload, ptr %42, align 8
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %24)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
   br label %222
 
 208:                                              ; preds = %201
@@ -965,7 +965,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf67f8104bcded3feE
   store ptr %14, ptr %213, align 8, !alias.scope !47, !noalias !50
   %214 = getelementptr inbounds i8, ptr %15, i64 24
   store i64 1, ptr %214, align 8, !alias.scope !47, !noalias !50
-  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.5107, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %15)
+  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %.sroa.5107, ptr noalias nocapture noundef align 8 dereferenceable(48) %15)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   store i64 3, ptr %206, align 8
@@ -993,7 +993,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf67f8104bcded3feE
   store ptr %16, ptr %220, align 8, !alias.scope !53, !noalias !56
   %221 = getelementptr inbounds i8, ptr %17, i64 24
   store i64 1, ptr %221, align 8, !alias.scope !53, !noalias !56
-  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.5102, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %17)
+  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %.sroa.5102, ptr noalias nocapture noundef align 8 dereferenceable(48) %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   store i64 3, ptr %206, align 8
@@ -1301,7 +1301,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hfc20e73684321
   %322 = load i8, ptr %321, align 1, !range !25, !noundef !4
   %323 = trunc nuw i8 %322 to i1
   %.0332 = select i1 %323, ptr %.val, ptr null
-  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17hc44ddac5b3e7a775E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %.0332)
+  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17hc44ddac5b3e7a775E(ptr noalias nocapture noundef align 8 dereferenceable(40) %12, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef %.0332)
   %324 = load i64, ptr %12, align 8, !range !7, !noundef !4
   %325 = icmp eq i64 %324, 8
   %326 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1332,7 +1332,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hfc20e73684321
 
 333:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17h5ed3be094a9f7b7cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(112) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17h5ed3be094a9f7b7cE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %11, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(112) %24, ptr noalias noundef readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4)
   %334 = load i64, ptr %11, align 8, !range !7, !noundef !4
   %335 = icmp eq i64 %334, 8
   %336 = getelementptr inbounds i8, ptr %11, i64 8
@@ -1362,7 +1362,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hfc20e73684321
   br label %344
 
 343:                                              ; preds = %338
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %24)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
   br label %344
 
 344:                                              ; preds = %71, %_ZN10fundu_core5parse18ReprParserTemplate21parse_number_fraction17h0d0d1cfa8bfcaf46E.exit, %237, %_ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hfc20e73684321050E.exit, %319, %330, %332, %340, %342, %235, %165, %138, %73, %222, %187, %185, %178, %343, %68
@@ -1682,7 +1682,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hd935762b08a3c594E
   store ptr %.0330, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(112) %25, i64 112, i1 false)
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17hf95d9e294e4b54eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17hf95d9e294e4b54eaE"(ptr noalias nocapture noundef align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %23, ptr noalias noundef readonly align 8 dereferenceable(64) %2)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %23)
   br label %425
 
@@ -1955,7 +1955,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
   store i8 %.sroa.8.0396.ph, ptr %35, align 1
   store i64 %.sroa.17.0.ph, ptr %42, align 8
   store i16 %.sroa.19.0.ph, ptr %43, align 8
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %25, ptr noalias noundef readonly align 8 dereferenceable(64) %2)
   br label %425
 
 239:                                              ; preds = %235
@@ -1966,7 +1966,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
 
 243:                                              ; preds = %257, %239
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
-  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h23ffce962d0713aeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %21, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %7, ptr %8, ptr %.val)
+  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h23ffce962d0713aeE(ptr noalias nocapture noundef align 8 dereferenceable(40) %21, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef align 1 %7, ptr %8, ptr %.val)
   %244 = load i64, ptr %21, align 8, !range !7, !noundef !4
   %245 = icmp eq i64 %244, 8
   %246 = getelementptr inbounds i8, ptr %21, i64 8
@@ -1983,7 +1983,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
   %248 = getelementptr inbounds i8, ptr %1, i64 16
   %249 = load i64, ptr %248, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit17h40ee86e3cbe96712E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %22, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit17h40ee86e3cbe96712E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %22, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4)
   %250 = load i64, ptr %22, align 8, !range !7, !noundef !4
   %251 = icmp eq i64 %250, 8
   %252 = getelementptr inbounds i8, ptr %22, i64 8
@@ -2038,7 +2038,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
   store i8 %.sroa.0200.0.copyload, ptr %35, align 1
   store i64 %.sroa.5202.0.copyload, ptr %42, align 8
   store i16 %.sroa.6203.0.copyload, ptr %43, align 8
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %25, ptr noalias noundef readonly align 8 dereferenceable(64) %2)
   br label %425
 
 263:                                              ; preds = %243
@@ -2071,7 +2071,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
   %267 = getelementptr inbounds i8, ptr %20, i64 8
   store i64 %.sroa.4230.0.copyload, ptr %267, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit17h40ee86e3cbe96712E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit17h40ee86e3cbe96712E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %19, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4)
   %268 = load i64, ptr %19, align 8, !range !7, !noundef !4
   %269 = icmp eq i64 %268, 8
   %270 = getelementptr inbounds i8, ptr %19, i64 8
@@ -2079,7 +2079,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
   br i1 %269, label %274, label %276
 
 271:                                              ; preds = %263
-  call fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  call fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef align 8 dereferenceable(40) %14, ptr noalias noundef readonly align 8 dereferenceable(64) %1)
   %272 = load i64, ptr %14, align 8, !range !7, !noundef !4
   %273 = icmp eq i64 %272, 8
   br i1 %273, label %300, label %310
@@ -2139,7 +2139,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
   store i8 %.sroa.0252.0.copyload, ptr %35, align 1
   store i64 %.sroa.5254.0.copyload, ptr %42, align 8
   store i16 %.sroa.6255.0.copyload, ptr %43, align 8
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %25, ptr noalias noundef readonly align 8 dereferenceable(64) %2)
   br label %299
 
 285:                                              ; preds = %278
@@ -2159,7 +2159,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
   store ptr %15, ptr %290, align 8, !alias.scope !123, !noalias !126
   %291 = getelementptr inbounds i8, ptr %16, i64 24
   store i64 1, ptr %291, align 8, !alias.scope !123, !noalias !126
-  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.5107, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16)
+  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %.sroa.5107, ptr noalias nocapture noundef align 8 dereferenceable(48) %16)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   store i64 3, ptr %283, align 8
@@ -2187,7 +2187,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h04bcde498091b30bE.exit.i: ; p
   store ptr %17, ptr %297, align 8, !alias.scope !129, !noalias !132
   %298 = getelementptr inbounds i8, ptr %18, i64 24
   store i64 1, ptr %298, align 8, !alias.scope !129, !noalias !132
-  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.5102, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %18)
+  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %.sroa.5102, ptr noalias nocapture noundef align 8 dereferenceable(48) %18)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   store i64 3, ptr %283, align 8
@@ -2499,7 +2499,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hd943b0ab5dd2c
   %399 = load i8, ptr %398, align 1, !range !25, !noundef !4
   %400 = trunc nuw i8 %399 to i1
   %.0332 = select i1 %400, ptr %.val, ptr null
-  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17h4a5a72e94dd0a0a0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %.0332)
+  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17h4a5a72e94dd0a0a0E(ptr noalias nocapture noundef align 8 dereferenceable(40) %13, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef %.0332)
   %401 = load i64, ptr %13, align 8, !range !7, !noundef !4
   %402 = icmp eq i64 %401, 8
   %403 = getelementptr inbounds i8, ptr %13, i64 8
@@ -2535,7 +2535,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hd943b0ab5dd2c
 
 412:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17ha8f8290d0001b103E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(112) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17ha8f8290d0001b103E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %12, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(112) %25, ptr noalias noundef readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4)
   %413 = load i64, ptr %12, align 8, !range !7, !noundef !4
   %414 = icmp eq i64 %413, 8
   %415 = getelementptr inbounds i8, ptr %12, i64 8
@@ -2570,7 +2570,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hd943b0ab5dd2c
   br label %425
 
 424:                                              ; preds = %417
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %25, ptr noalias noundef readonly align 8 dereferenceable(64) %2)
   br label %425
 
 425:                                              ; preds = %72, %_ZN10fundu_core5parse18ReprParserTemplate21parse_number_fraction17hde7253470a30aafaE.exit, %314, %_ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hd943b0ab5dd2c190E.exit, %396, %407, %409, %419, %421, %312, %139, %74, %238, %236, %299, %264, %262, %255, %424, %69
@@ -2578,7 +2578,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hd943b0ab5dd2c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -2691,7 +2691,7 @@ define internal fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, i64 } @_ZN10fundu_core5parse5Bytes19buffered_advance_to17h10747439f5ea9659E(ptr noalias nocapture noundef align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN10fundu_core5parse5Bytes19buffered_advance_to17h10747439f5ea9659E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = icmp eq ptr %4, null
@@ -2868,7 +2868,7 @@ define internal void @"_ZN4core3ptr55drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -3184,7 +3184,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !122, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3252,7 +3252,7 @@ define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17h5ed3be094a9f7b7cE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef writeonly align 8 dereferenceable(112) %2, ptr noalias noundef readonly align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17h5ed3be094a9f7b7cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca [1 x { ptr, ptr }], align 8
@@ -3354,7 +3354,7 @@ define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$
   br label %24
 
 42:                                               ; preds = %35
-  call fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  call fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef align 8 dereferenceable(40) %13, ptr noalias noundef readonly align 8 dereferenceable(64) %1)
   %43 = load i64, ptr %13, align 8, !range !7, !noundef !4
   %44 = icmp eq i64 %43, 8
   br i1 %44, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, label %53
@@ -3439,7 +3439,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit63:  ; preds = %29
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17h96105b745590e38cE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(112) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17h96105b745590e38cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -3480,7 +3480,7 @@ define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !316
-  invoke fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  invoke fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef align 8 dereferenceable(40) %8, ptr noalias noundef readonly align 8 dereferenceable(64) %1)
           to label %.noexc.i unwind label %32, !noalias !322
 
 .noexc.i:                                         ; preds = %22
@@ -3531,7 +3531,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %.noexc.i
 32:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i, %22
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #11
+  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef align 8 dereferenceable(40) %9) #11
           to label %34 unwind label %35, !noalias !340
 
 34:                                               ; preds = %32
@@ -3552,7 +3552,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %.noexc.i
   %.sroa.03.0 = phi i64 [ 1, %.noexc4.i ], [ %23, %31 ]
   %.sroa.76.0 = phi i64 [ %63, %.noexc4.i ], [ %.sroa.76.0.copyload, %31 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !316
-  call fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9), !noalias !340
+  call fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef align 8 dereferenceable(40) %9), !noalias !340
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !341)
   %39 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3659,7 +3659,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %51
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(112) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %.sroa.5.i.i = alloca [3 x i64], align 8
@@ -3679,7 +3679,7 @@ define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$
 11:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !368
-  invoke fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  invoke fastcc void @_ZN10fundu_core5parse5Bytes17get_remainder_str17hf53b547eb9b90ccdE(ptr noalias nocapture noundef align 8 dereferenceable(40) %7, ptr noalias noundef readonly align 8 dereferenceable(64) %1)
           to label %.noexc.i unwind label %23, !noalias !372
 
 .noexc.i:                                         ; preds = %11
@@ -3732,7 +3732,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %.noexc.i
 23:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i, %11
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #11
+  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef align 8 dereferenceable(40) %8) #11
           to label %25 unwind label %26, !noalias !390
 
 25:                                               ; preds = %23
@@ -3753,7 +3753,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %.noexc.i
   %.sroa.7.0 = phi i64 [ %20, %.noexc4.i ], [ %.sroa.7.0.copyload, %22 ]
   %.sroa.0.0 = phi i64 [ 1, %.noexc4.i ], [ %12, %22 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !368
-  call fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8), !noalias !390
+  call fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$fundu_core..error..ParseError$GT$$GT$17h0a1f76f9a947a4beE"(ptr noalias noundef align 8 dereferenceable(40) %8), !noalias !390
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !391)
   %30 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3771,7 +3771,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %.noexc.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit17h40ee86e3cbe96712E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit17h40ee86e3cbe96712E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   %7 = alloca { i64, { i64, [1 x i64] } }, align 8
   %8 = alloca { ptr, ptr, {} }, align 8
@@ -4342,7 +4342,7 @@ switch.early.test:                                ; preds = %228
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17ha8f8290d0001b103E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef writeonly align 8 dereferenceable(112) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #0 {
+define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17ha8f8290d0001b103E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #0 {
   %7 = alloca { i64, [4 x i64] }, align 8
   %.sroa.7.sroa.7 = alloca [7 x i8], align 1
   %.sroa.7.sroa.10 = alloca [6 x i8], align 2
@@ -4368,7 +4368,7 @@ define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u2
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit17h40ee86e3cbe96712E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit17h40ee86e3cbe96712E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %7, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) %5)
   %19 = load i64, ptr %7, align 8, !range !7, !noundef !4
   %20 = icmp eq i64 %19, 8
   %21 = getelementptr inbounds i8, ptr %7, i64 8
@@ -4428,7 +4428,7 @@ define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17hf95d9e294e4b54eaE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17hf95d9e294e4b54eaE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -4736,7 +4736,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit61:  ; preds = %93
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %3) unnamed_addr #0 {
+define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #0 {
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !noundef !4

@@ -246,7 +246,7 @@ define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = alloca %struct.Branch, align 8
   store ptr null, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = call fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull %6, i32 noundef %4)
+  %9 = call fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8, ptr noundef %6, i32 noundef %4)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %30, label %10
 
@@ -287,7 +287,7 @@ define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #2 {
   %7 = alloca %struct.Branch, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
@@ -303,7 +303,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %16 = getelementptr inbounds [64 x %struct.Branch], ptr %14, i64 0, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = call fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18, ptr noundef nonnull %8, i32 noundef %5)
+  %19 = call fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18, ptr noundef %8, i32 noundef %5)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %24
 
@@ -333,7 +333,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   store i64 %32, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %33, ptr %.sroa.2.0..sroa_idx, align 8
-  %34 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %4) #7
+  %34 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   br label %40
 
 35:                                               ; preds = %6
@@ -344,7 +344,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %38 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %2, ptr %38, align 8
-  %39 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %4) #7
+  %39 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   br label %40
 
 40:                                               ; preds = %35, %37, %24, %20

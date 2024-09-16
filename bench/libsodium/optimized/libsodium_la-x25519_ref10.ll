@@ -425,7 +425,7 @@ for.body20:                                       ; preds = %for.body.preheader,
   store i64 %add71.i146, ptr %arrayidx74.i148, align 16
   store i64 %and55.i129, ptr %arrayidx75.i149, align 8
   store i64 %and61.i136, ptr %arrayidx76.i150, align 16
-  call fastcc void @fe25519_mul(ptr noundef nonnull %x2, ptr noundef nonnull %aa, ptr noundef nonnull %bb)
+  call fastcc void @fe25519_mul(ptr noundef %x2, ptr noundef %aa, ptr noundef %bb)
   %shr8.i161 = lshr i64 %add71.i146, 51
   %add9.i162 = add nuw nsw i64 %shr8.i161, %and55.i129
   %and10.i163 = and i64 %add71.i146, 2251799813685247
@@ -482,7 +482,7 @@ for.body20:                                       ; preds = %for.body.preheader,
   store i64 %sub24.i216, ptr %arrayidx33.i224, align 16
   store i64 %sub27.i219, ptr %arrayidx34.i225, align 8
   store i64 %sub30.i222, ptr %arrayidx35.i226, align 16
-  call fastcc void @fe25519_mul(ptr noundef nonnull %da, ptr noundef nonnull %da, ptr noundef nonnull %a)
+  call fastcc void @fe25519_mul(ptr noundef %da, ptr noundef %da, ptr noundef %a)
   %add.i227 = add i64 %xor28.i45, %xor28.i
   %add4.i230 = add i64 %xor30.i46, %xor30.i
   %add7.i233 = add i64 %xor32.i47, %xor32.i
@@ -493,7 +493,7 @@ for.body20:                                       ; preds = %for.body.preheader,
   store i64 %add7.i233, ptr %arrayidx16.i241, align 16
   store i64 %add10.i236, ptr %arrayidx17.i242, align 8
   store i64 %add13.i239, ptr %arrayidx18.i243, align 16
-  call fastcc void @fe25519_mul(ptr noundef nonnull %cb, ptr noundef nonnull %cb, ptr noundef nonnull %b)
+  call fastcc void @fe25519_mul(ptr noundef %cb, ptr noundef %cb, ptr noundef %b)
   %32 = load i64, ptr %da, align 16
   %33 = load i64, ptr %cb, align 16
   %add.i244 = add i64 %33, %32
@@ -676,7 +676,7 @@ for.body20:                                       ; preds = %for.body.preheader,
   store i64 %add71.i446, ptr %arrayidx7.i27, align 16
   store i64 %and55.i429, ptr %arrayidx8.i28, align 8
   store i64 %and61.i436, ptr %arrayidx9.i29, align 16
-  call fastcc void @fe25519_mul(ptr noundef nonnull %z3, ptr noundef nonnull %z3, ptr noundef nonnull %x1)
+  call fastcc void @fe25519_mul(ptr noundef %z3, ptr noundef %z3, ptr noundef %x1)
   %conv1.i = zext nneg i64 %sub.i172 to i128
   %mul.i451 = mul nuw nsw i128 %conv1.i, 121666
   %conv4.i453 = zext nneg i64 %sub21.i175 to i128
@@ -718,7 +718,7 @@ for.body20:                                       ; preds = %for.body.preheader,
   store i64 %add7.i469, ptr %arrayidx2.i23, align 16
   store i64 %add10.i472, ptr %arrayidx3.i24, align 8
   store i64 %add13.i475, ptr %arrayidx4.i25, align 16
-  call fastcc void @fe25519_mul(ptr noundef nonnull %z2, ptr noundef nonnull %z2, ptr noundef nonnull %e)
+  call fastcc void @fe25519_mul(ptr noundef %z2, ptr noundef %z2, ptr noundef %e)
   %dec = add nsw i32 %pos.0566, -1
   %cmp18.not = icmp eq i32 %pos.0566, 0
   br i1 %cmp18.not, label %for.end80, label %for.body20, !llvm.loop !10
@@ -784,7 +784,7 @@ for.end80:                                        ; preds = %for.body20
   %xor26.i534 = xor i64 %and17.i529, %52
   store i64 %xor26.i534, ptr %arrayidx4.i25, align 16
   call void @_sodium_fe25519_invert(ptr noundef nonnull %z2, ptr noundef nonnull %z2) #6
-  call fastcc void @fe25519_mul(ptr noundef nonnull %x2, ptr noundef nonnull %x2, ptr noundef nonnull %z2)
+  call fastcc void @fe25519_mul(ptr noundef %x2, ptr noundef %x2, ptr noundef %z2)
   call void @_sodium_fe25519_tobytes(ptr noundef %q, ptr noundef nonnull %x2) #6
   call void @sodium_memzero(ptr noundef nonnull %t, i64 noundef 32) #6
   br label %return
@@ -895,7 +895,7 @@ for.end:                                          ; preds = %for.body
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %tempZ.i, i64 32
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 16
   call void @_sodium_fe25519_invert(ptr noundef nonnull %tempZ.i, ptr noundef nonnull %tempZ.i) #6
-  call fastcc void @fe25519_mul(ptr noundef nonnull %pk, ptr noundef nonnull %tempX.i, ptr noundef nonnull %tempZ.i)
+  call fastcc void @fe25519_mul(ptr noundef %pk, ptr noundef %tempX.i, ptr noundef %tempZ.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tempX.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tempZ.i)
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %q, ptr noundef nonnull %pk) #6
@@ -905,7 +905,7 @@ for.end:                                          ; preds = %for.body
 declare void @_sodium_fe25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe25519_mul(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %g) unnamed_addr #2 {
+define internal fastcc void @fe25519_mul(ptr nocapture noundef nonnull writeonly %h, ptr nocapture noundef nonnull readonly %f, ptr nocapture noundef nonnull readonly %g) unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %f, align 8
   %conv = zext i64 %0 to i128

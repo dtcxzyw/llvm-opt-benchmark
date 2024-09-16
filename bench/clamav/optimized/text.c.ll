@@ -65,35 +65,35 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %5 = tail call i32 @messageGetEncoding(ptr noundef nonnull %1) #7
   %6 = icmp eq i32 %5, 0
   %7 = icmp eq ptr %0, null
-  br i1 %6, label %8, label %54
+  br i1 %6, label %8, label %55
 
 8:                                                ; preds = %4
   %9 = tail call ptr @messageGetBody(ptr noundef nonnull %1) #7
   %10 = icmp eq ptr %9, null
-  br i1 %7, label %11, label %36
+  br i1 %7, label %11, label %37
 
 11:                                               ; preds = %8
-  br i1 %10, label %12, label %.lr.ph.i.i
+  br i1 %10, label %12, label %.preheader.i
 
 12:                                               ; preds = %11
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.11) #7
   br label %textAdd.exit
 
-.lr.ph.i.i:                                       ; preds = %11, %31
-  %.030.i.i = phi ptr [ %14, %31 ], [ null, %11 ]
-  %.01729.i.i = phi ptr [ %.118.i.i, %31 ], [ null, %11 ]
-  %.01928.i.i = phi ptr [ %33, %31 ], [ %9, %11 ]
-  %13 = icmp eq ptr %.01729.i.i, null
+.preheader.i:                                     ; preds = %11, %31
+  %.029.i.i = phi ptr [ %14, %31 ], [ null, %11 ]
+  %.01728.i.i = phi ptr [ %.118.i.i, %31 ], [ null, %11 ]
+  %.01927.i.i = phi ptr [ %33, %31 ], [ %9, %11 ]
+  %13 = icmp eq ptr %.01728.i.i, null
   %14 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   br i1 %13, label %17, label %15
 
-15:                                               ; preds = %.lr.ph.i.i
-  %16 = getelementptr inbounds i8, ptr %.030.i.i, i64 8
+15:                                               ; preds = %.preheader.i
+  %16 = getelementptr inbounds i8, ptr %.029.i.i, i64 8
   store ptr %14, ptr %16, align 8
   br label %17
 
-17:                                               ; preds = %15, %.lr.ph.i.i
-  %.118.i.i = phi ptr [ %.01729.i.i, %15 ], [ %14, %.lr.ph.i.i ]
+17:                                               ; preds = %15, %.preheader.i
+  %.118.i.i = phi ptr [ %.01728.i.i, %15 ], [ %14, %.preheader.i ]
   %18 = icmp eq ptr %14, null
   br i1 %18, label %19, label %26
 
@@ -122,7 +122,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 26:                                               ; preds = %17
   %27 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr null, ptr %27, align 8
-  %28 = load ptr, ptr %.01928.i.i, align 8
+  %28 = load ptr, ptr %.01927.i.i, align 8
   %.not23.i.i = icmp eq ptr %28, null
   br i1 %.not23.i.i, label %31, label %29
 
@@ -133,121 +133,121 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 31:                                               ; preds = %29, %26
   %storemerge.i.i = phi ptr [ %30, %29 ], [ null, %26 ]
   store ptr %storemerge.i.i, ptr %14, align 8
-  %32 = getelementptr inbounds i8, ptr %.01928.i.i, i64 8
+  %32 = getelementptr inbounds i8, ptr %.01927.i.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %34, label %.preheader.i
 
-._crit_edge.i.i:                                  ; preds = %31
+34:                                               ; preds = %31
   %.not22.i.i = icmp eq ptr %.118.i.i, null
-  br i1 %.not22.i.i, label %textAdd.exit, label %34
+  br i1 %.not22.i.i, label %textAdd.exit, label %35
 
-34:                                               ; preds = %._crit_edge.i.i
-  %35 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr null, ptr %35, align 8
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr null, ptr %36, align 8
   br label %textAdd.exit
 
-36:                                               ; preds = %8
-  br i1 %10, label %textAdd.exit, label %.preheader.i
+37:                                               ; preds = %8
+  br i1 %10, label %textAdd.exit, label %.preheader33.i
 
-.preheader.i:                                     ; preds = %36, %.preheader.i
-  %.023.i = phi ptr [ %38, %.preheader.i ], [ %0, %36 ]
-  %.0.i = phi i32 [ %39, %.preheader.i ], [ 0, %36 ]
-  %37 = getelementptr inbounds i8, ptr %.023.i, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not.i = icmp eq ptr %38, null
-  %39 = add nuw nsw i32 %.0.i, 1
-  br i1 %.not.i, label %40, label %.preheader.i
+.preheader33.i:                                   ; preds = %37, %.preheader33.i
+  %.023.i = phi ptr [ %39, %.preheader33.i ], [ %0, %37 ]
+  %.0.i = phi i32 [ %40, %.preheader33.i ], [ 0, %37 ]
+  %38 = getelementptr inbounds i8, ptr %.023.i, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %.not.i = icmp eq ptr %39, null
+  %40 = add nuw nsw i32 %.0.i, 1
+  br i1 %.not.i, label %41, label %.preheader33.i
 
-40:                                               ; preds = %.preheader.i
+41:                                               ; preds = %.preheader33.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i32 noundef %.0.i) #7
-  br label %41
+  br label %42
 
-41:                                               ; preds = %49, %40
-  %.02236.i = phi ptr [ %9, %40 ], [ %51, %49 ]
-  %.135.i = phi ptr [ %.023.i, %40 ], [ %42, %49 ]
-  %42 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %43 = getelementptr inbounds i8, ptr %.135.i, i64 8
-  store ptr %42, ptr %43, align 8
-  %.not31.i = icmp eq ptr %42, null
-  br i1 %.not31.i, label %44, label %45
+42:                                               ; preds = %50, %41
+  %.02237.i = phi ptr [ %9, %41 ], [ %52, %50 ]
+  %.136.i = phi ptr [ %.023.i, %41 ], [ %43, %50 ]
+  %43 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %44 = getelementptr inbounds i8, ptr %.136.i, i64 8
+  store ptr %43, ptr %44, align 8
+  %.not31.i = icmp eq ptr %43, null
+  br i1 %.not31.i, label %45, label %46
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__PRETTY_FUNCTION__.textAdd) #8
   unreachable
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %.02236.i, align 8
-  %.not32.i = icmp eq ptr %46, null
-  br i1 %.not32.i, label %49, label %47
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %.02237.i, align 8
+  %.not32.i = icmp eq ptr %47, null
+  br i1 %.not32.i, label %50, label %48
 
-47:                                               ; preds = %45
-  %48 = tail call ptr @lineLink(ptr noundef nonnull %46) #7
-  br label %49
+48:                                               ; preds = %46
+  %49 = tail call ptr @lineLink(ptr noundef nonnull %47) #7
+  br label %50
 
-49:                                               ; preds = %47, %45
-  %storemerge.i = phi ptr [ %48, %47 ], [ null, %45 ]
-  store ptr %storemerge.i, ptr %42, align 8
-  %50 = getelementptr inbounds i8, ptr %.02236.i, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %.not30.i = icmp eq ptr %51, null
-  br i1 %.not30.i, label %52, label %41
+50:                                               ; preds = %48, %46
+  %storemerge.i = phi ptr [ %49, %48 ], [ null, %46 ]
+  store ptr %storemerge.i, ptr %43, align 8
+  %51 = getelementptr inbounds i8, ptr %.02237.i, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %.not30.i = icmp eq ptr %52, null
+  br i1 %.not30.i, label %53, label %42
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr null, ptr %53, align 8
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr null, ptr %54, align 8
   br label %textAdd.exit
 
-54:                                               ; preds = %4
-  %55 = tail call ptr @messageToText(ptr noundef nonnull %1) #7
-  br i1 %7, label %textAdd.exit, label %56
+55:                                               ; preds = %4
+  %56 = tail call ptr @messageToText(ptr noundef nonnull %1) #7
+  br i1 %7, label %textAdd.exit, label %57
 
-56:                                               ; preds = %54
-  %57 = icmp eq ptr %55, null
-  br i1 %57, label %textMove.exit, label %.preheader.i15
+57:                                               ; preds = %55
+  %58 = icmp eq ptr %56, null
+  br i1 %58, label %textMove.exit, label %.preheader.i15
 
-.preheader.i15:                                   ; preds = %56, %.preheader.i15
-  %.029.i = phi ptr [ %59, %.preheader.i15 ], [ %0, %56 ]
-  %58 = getelementptr inbounds i8, ptr %.029.i, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %.not.i16 = icmp eq ptr %59, null
-  br i1 %.not.i16, label %60, label %.preheader.i15
+.preheader.i15:                                   ; preds = %57, %.preheader.i15
+  %.029.i = phi ptr [ %60, %.preheader.i15 ], [ %0, %57 ]
+  %59 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %.not.i16 = icmp eq ptr %60, null
+  br i1 %.not.i16, label %61, label %.preheader.i15
 
-60:                                               ; preds = %.preheader.i15
-  %61 = getelementptr inbounds i8, ptr %.029.i, i64 8
-  %62 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  store ptr %62, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %65
+61:                                               ; preds = %.preheader.i15
+  %62 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %63 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  store ptr %63, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %60
+65:                                               ; preds = %61
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #7
   br label %textMove.exit
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %55, align 8
-  %.not36.i = icmp eq ptr %66, null
-  br i1 %.not36.i, label %68, label %67
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %56, align 8
+  %.not36.i = icmp eq ptr %67, null
+  br i1 %.not36.i, label %69, label %68
 
-67:                                               ; preds = %65
-  store ptr null, ptr %55, align 8
-  br label %68
+68:                                               ; preds = %66
+  store ptr null, ptr %56, align 8
+  br label %69
 
-68:                                               ; preds = %67, %65
-  store ptr %66, ptr %62, align 8
-  %69 = getelementptr inbounds i8, ptr %55, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %62, i64 8
-  store ptr %70, ptr %71, align 8
+69:                                               ; preds = %68, %66
+  store ptr %67, ptr %63, align 8
+  %70 = getelementptr inbounds i8, ptr %56, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %63, i64 8
+  store ptr %71, ptr %72, align 8
   br label %textMove.exit
 
-textMove.exit:                                    ; preds = %56, %64, %68
-  %.0.i17 = phi ptr [ null, %64 ], [ %0, %68 ], [ %0, %56 ]
-  tail call void @free(ptr noundef %55) #7
+textMove.exit:                                    ; preds = %57, %65, %69
+  %.0.i17 = phi ptr [ null, %65 ], [ %0, %69 ], [ %0, %57 ]
+  tail call void @free(ptr noundef %56) #7
   br label %textAdd.exit
 
-textAdd.exit:                                     ; preds = %25, %52, %36, %34, %._crit_edge.i.i, %19, %12, %54, %textMove.exit
-  %.0 = phi ptr [ %.0.i17, %textMove.exit ], [ %55, %54 ], [ null, %12 ], [ %0, %52 ], [ %0, %36 ], [ null, %19 ], [ %.118.i.i, %34 ], [ null, %._crit_edge.i.i ], [ null, %25 ]
+textAdd.exit:                                     ; preds = %25, %53, %37, %35, %34, %19, %12, %55, %textMove.exit
+  %.0 = phi ptr [ %.0.i17, %textMove.exit ], [ %56, %55 ], [ null, %12 ], [ %0, %53 ], [ %0, %37 ], [ null, %19 ], [ %.118.i.i, %35 ], [ null, %34 ], [ null, %25 ]
   ret ptr %.0
 }
 
@@ -344,32 +344,32 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define noundef ptr @textToBlob(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %56, label %.lr.ph24.i
+  br i1 %4, label %56, label %.preheader.i
 
-.lr.ph24.i:                                       ; preds = %3, %getLength.exit
-  %.039 = phi i64 [ %storemerge.i, %getLength.exit ], [ 0, %3 ]
-  %.123.i = phi ptr [ %14, %getLength.exit ], [ %0, %3 ]
-  %5 = load ptr, ptr %.123.i, align 8
-  %.not.i32 = icmp eq ptr %5, null
-  br i1 %.not.i32, label %11, label %6
+.preheader.i:                                     ; preds = %3, %getLength.exit
+  %.037 = phi i64 [ %storemerge.i, %getLength.exit ], [ 0, %3 ]
+  %.121.i = phi ptr [ %14, %getLength.exit ], [ %0, %3 ]
+  %5 = load ptr, ptr %.121.i, align 8
+  %.not.i30 = icmp eq ptr %5, null
+  br i1 %.not.i30, label %11, label %6
 
-6:                                                ; preds = %.lr.ph24.i
+6:                                                ; preds = %.preheader.i
   %7 = tail call ptr @lineGetData(ptr noundef nonnull %5) #7
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
-  %9 = add i64 %.039, 1
+  %9 = add i64 %.037, 1
   %10 = add i64 %9, %8
   br label %getLength.exit
 
-11:                                               ; preds = %.lr.ph24.i
-  %12 = add i64 %.039, 1
+11:                                               ; preds = %.preheader.i
+  %12 = add i64 %.037, 1
   br label %getLength.exit
 
 getLength.exit:                                   ; preds = %6, %11
   %storemerge.i = phi i64 [ %12, %11 ], [ %10, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.123.i, i64 8
+  %13 = getelementptr inbounds i8, ptr %.121.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not15.i = icmp eq ptr %14, null
-  br i1 %.not15.i, label %textIterate.exit, label %.lr.ph24.i
+  br i1 %.not15.i, label %textIterate.exit, label %.preheader.i
 
 textIterate.exit:                                 ; preds = %getLength.exit
   %15 = icmp eq i64 %storemerge.i, 0
@@ -400,66 +400,66 @@ textIterate.exit:                                 ; preds = %getLength.exit
 
 25:                                               ; preds = %21
   %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %.lr.ph24.i26, label %.lr.ph.i
+  br i1 %.not.i, label %.preheader.i25, label %.preheader18.i
 
-.lr.ph.i:                                         ; preds = %25, %35
-  %.021.i = phi ptr [ %37, %35 ], [ %0, %25 ]
-  %26 = load ptr, ptr %.021.i, align 8
-  %.not.i34 = icmp eq ptr %26, null
-  br i1 %.not.i34, label %addToBlob.exit35, label %27
+.preheader18.i:                                   ; preds = %25, %35
+  %.020.i = phi ptr [ %37, %35 ], [ %0, %25 ]
+  %26 = load ptr, ptr %.020.i, align 8
+  %.not.i32 = icmp eq ptr %26, null
+  br i1 %.not.i32, label %addToBlob.exit33, label %27
 
-27:                                               ; preds = %.lr.ph.i
+27:                                               ; preds = %.preheader18.i
   %28 = tail call ptr @lineGetData(ptr noundef nonnull %26) #7
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #10
   %30 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef %28, i64 noundef %29) #7
-  br label %addToBlob.exit35
+  br label %addToBlob.exit33
 
-addToBlob.exit35:                                 ; preds = %.lr.ph.i, %27
+addToBlob.exit33:                                 ; preds = %.preheader18.i, %27
   %31 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %32 = load ptr, ptr %.021.i, align 8
+  %32 = load ptr, ptr %.020.i, align 8
   %.not17.i = icmp eq ptr %32, null
   br i1 %.not17.i, label %35, label %33
 
-33:                                               ; preds = %addToBlob.exit35
+33:                                               ; preds = %addToBlob.exit33
   %34 = tail call ptr @lineUnlink(ptr noundef nonnull %32) #7
-  store ptr null, ptr %.021.i, align 8
+  store ptr null, ptr %.020.i, align 8
   br label %35
 
-35:                                               ; preds = %33, %addToBlob.exit35
-  %36 = getelementptr inbounds i8, ptr %.021.i, i64 8
+35:                                               ; preds = %33, %addToBlob.exit33
+  %36 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not16.i = icmp eq ptr %37, null
-  br i1 %.not16.i, label %textIterate.exit29, label %.lr.ph.i
+  br i1 %.not16.i, label %textIterate.exit28, label %.preheader18.i
 
-.lr.ph24.i26:                                     ; preds = %25, %addToBlob.exit
-  %.123.i27 = phi ptr [ %45, %addToBlob.exit ], [ %0, %25 ]
-  %38 = load ptr, ptr %.123.i27, align 8
-  %.not.i33 = icmp eq ptr %38, null
-  br i1 %.not.i33, label %addToBlob.exit, label %39
+.preheader.i25:                                   ; preds = %25, %addToBlob.exit
+  %.121.i26 = phi ptr [ %45, %addToBlob.exit ], [ %0, %25 ]
+  %38 = load ptr, ptr %.121.i26, align 8
+  %.not.i31 = icmp eq ptr %38, null
+  br i1 %.not.i31, label %addToBlob.exit, label %39
 
-39:                                               ; preds = %.lr.ph24.i26
+39:                                               ; preds = %.preheader.i25
   %40 = tail call ptr @lineGetData(ptr noundef nonnull %38) #7
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #10
   %42 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef %40, i64 noundef %41) #7
   br label %addToBlob.exit
 
-addToBlob.exit:                                   ; preds = %.lr.ph24.i26, %39
+addToBlob.exit:                                   ; preds = %.preheader.i25, %39
   %43 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %44 = getelementptr inbounds i8, ptr %.123.i27, i64 8
+  %44 = getelementptr inbounds i8, ptr %.121.i26, i64 8
   %45 = load ptr, ptr %44, align 8
-  %.not15.i28 = icmp eq ptr %45, null
-  br i1 %.not15.i28, label %textIterate.exit29, label %.lr.ph24.i26
+  %.not15.i27 = icmp eq ptr %45, null
+  br i1 %.not15.i27, label %textIterate.exit28, label %.preheader.i25
 
-textIterate.exit29:                               ; preds = %35, %addToBlob.exit
+textIterate.exit28:                               ; preds = %35, %addToBlob.exit
   br i1 %.not.i, label %55, label %46
 
-46:                                               ; preds = %textIterate.exit29
+46:                                               ; preds = %textIterate.exit28
   %47 = getelementptr inbounds i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not24 = icmp eq ptr %48, null
-  br i1 %.not24, label %55, label %.lr.ph.i30
+  br i1 %.not24, label %55, label %.lr.ph.i
 
-.lr.ph.i30:                                       ; preds = %46, %54
+.lr.ph.i:                                         ; preds = %46, %54
   %.010.i = phi ptr [ %50, %54 ], [ %48, %46 ]
   %49 = getelementptr inbounds i8, ptr %.010.i, i64 8
   %50 = load ptr, ptr %49, align 8
@@ -467,20 +467,20 @@ textIterate.exit29:                               ; preds = %35, %addToBlob.exit
   %.not8.i = icmp eq ptr %51, null
   br i1 %.not8.i, label %54, label %52
 
-52:                                               ; preds = %.lr.ph.i30
+52:                                               ; preds = %.lr.ph.i
   %53 = tail call ptr @lineUnlink(ptr noundef nonnull %51) #7
   br label %54
 
-54:                                               ; preds = %52, %.lr.ph.i30
+54:                                               ; preds = %52, %.lr.ph.i
   tail call void @free(ptr noundef nonnull %.010.i) #7
-  %.not.i31 = icmp eq ptr %50, null
-  br i1 %.not.i31, label %textDestroy.exit, label %.lr.ph.i30
+  %.not.i29 = icmp eq ptr %50, null
+  br i1 %.not.i29, label %textDestroy.exit, label %.lr.ph.i
 
 textDestroy.exit:                                 ; preds = %54
   store ptr null, ptr %47, align 8
   br label %55
 
-55:                                               ; preds = %textDestroy.exit, %46, %textIterate.exit29
+55:                                               ; preds = %textDestroy.exit, %46, %textIterate.exit28
   tail call void @blobClose(ptr noundef nonnull %.018) #7
   br label %56
 
@@ -522,55 +522,55 @@ define nonnull ptr @textToFileblob(ptr noundef %0, ptr noundef returned %1, i32 
   %9 = getelementptr inbounds i8, ptr %1, i64 64
   store ptr null, ptr %9, align 8
   %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %.lr.ph24.i, label %.lr.ph.i
+  br i1 %.not.i, label %.preheader.i, label %.preheader18.i
 
-.lr.ph.i:                                         ; preds = %7, %19
-  %.021.i = phi ptr [ %21, %19 ], [ %0, %7 ]
-  %10 = load ptr, ptr %.021.i, align 8
-  %.not.i27 = icmp eq ptr %10, null
-  br i1 %.not.i27, label %addToFileblob.exit28, label %11
+.preheader18.i:                                   ; preds = %7, %19
+  %.020.i = phi ptr [ %21, %19 ], [ %0, %7 ]
+  %10 = load ptr, ptr %.020.i, align 8
+  %.not.i26 = icmp eq ptr %10, null
+  br i1 %.not.i26, label %addToFileblob.exit27, label %11
 
-11:                                               ; preds = %.lr.ph.i
+11:                                               ; preds = %.preheader18.i
   %12 = tail call ptr @lineGetData(ptr noundef nonnull %10) #7
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
   %14 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef %12, i64 noundef %13) #7
-  br label %addToFileblob.exit28
+  br label %addToFileblob.exit27
 
-addToFileblob.exit28:                             ; preds = %.lr.ph.i, %11
+addToFileblob.exit27:                             ; preds = %.preheader18.i, %11
   %15 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %16 = load ptr, ptr %.021.i, align 8
+  %16 = load ptr, ptr %.020.i, align 8
   %.not17.i = icmp eq ptr %16, null
   br i1 %.not17.i, label %19, label %17
 
-17:                                               ; preds = %addToFileblob.exit28
+17:                                               ; preds = %addToFileblob.exit27
   %18 = tail call ptr @lineUnlink(ptr noundef nonnull %16) #7
-  store ptr null, ptr %.021.i, align 8
+  store ptr null, ptr %.020.i, align 8
   br label %19
 
-19:                                               ; preds = %17, %addToFileblob.exit28
-  %20 = getelementptr inbounds i8, ptr %.021.i, i64 8
+19:                                               ; preds = %17, %addToFileblob.exit27
+  %20 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not16.i = icmp eq ptr %21, null
-  br i1 %.not16.i, label %textIterate.exit, label %.lr.ph.i
+  br i1 %.not16.i, label %textIterate.exit, label %.preheader18.i
 
-.lr.ph24.i:                                       ; preds = %7, %addToFileblob.exit
-  %.123.i = phi ptr [ %29, %addToFileblob.exit ], [ %0, %7 ]
-  %22 = load ptr, ptr %.123.i, align 8
-  %.not.i26 = icmp eq ptr %22, null
-  br i1 %.not.i26, label %addToFileblob.exit, label %23
+.preheader.i:                                     ; preds = %7, %addToFileblob.exit
+  %.121.i = phi ptr [ %29, %addToFileblob.exit ], [ %0, %7 ]
+  %22 = load ptr, ptr %.121.i, align 8
+  %.not.i25 = icmp eq ptr %22, null
+  br i1 %.not.i25, label %addToFileblob.exit, label %23
 
-23:                                               ; preds = %.lr.ph24.i
+23:                                               ; preds = %.preheader.i
   %24 = tail call ptr @lineGetData(ptr noundef nonnull %22) #7
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #10
   %26 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef %24, i64 noundef %25) #7
   br label %addToFileblob.exit
 
-addToFileblob.exit:                               ; preds = %.lr.ph24.i, %23
+addToFileblob.exit:                               ; preds = %.preheader.i, %23
   %27 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %28 = getelementptr inbounds i8, ptr %.123.i, i64 8
+  %28 = getelementptr inbounds i8, ptr %.121.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not15.i = icmp eq ptr %29, null
-  br i1 %.not15.i, label %textIterate.exit, label %.lr.ph24.i
+  br i1 %.not15.i, label %textIterate.exit, label %.preheader.i
 
 textIterate.exit:                                 ; preds = %19, %addToFileblob.exit
   br i1 %.not.i, label %39, label %30
@@ -579,9 +579,9 @@ textIterate.exit:                                 ; preds = %19, %addToFileblob.
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not23 = icmp eq ptr %32, null
-  br i1 %.not23, label %39, label %.lr.ph.i24
+  br i1 %.not23, label %39, label %.lr.ph.i
 
-.lr.ph.i24:                                       ; preds = %30, %38
+.lr.ph.i:                                         ; preds = %30, %38
   %.010.i = phi ptr [ %34, %38 ], [ %32, %30 ]
   %33 = getelementptr inbounds i8, ptr %.010.i, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -589,14 +589,14 @@ textIterate.exit:                                 ; preds = %19, %addToFileblob.
   %.not8.i = icmp eq ptr %35, null
   br i1 %.not8.i, label %38, label %36
 
-36:                                               ; preds = %.lr.ph.i24
+36:                                               ; preds = %.lr.ph.i
   %37 = tail call ptr @lineUnlink(ptr noundef nonnull %35) #7
   br label %38
 
-38:                                               ; preds = %36, %.lr.ph.i24
+38:                                               ; preds = %36, %.lr.ph.i
   tail call void @free(ptr noundef nonnull %.010.i) #7
-  %.not.i25 = icmp eq ptr %34, null
-  br i1 %.not.i25, label %textDestroy.exit, label %.lr.ph.i24
+  %.not.i24 = icmp eq ptr %34, null
+  br i1 %.not.i24, label %textDestroy.exit, label %.lr.ph.i
 
 textDestroy.exit:                                 ; preds = %38
   store ptr null, ptr %31, align 8

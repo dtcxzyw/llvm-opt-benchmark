@@ -22510,7 +22510,7 @@ define dso_local void @_ZNK4llvm16X86FrameLowering21adjustForHiPEPrologueERNS_15
   %63 = trunc i8 %62 to i1
   %64 = select i1 %63, ptr @.str.22, ptr @.str.23
   %65 = select i1 %63, i64 16, i64 14
-  %66 = tail call fastcc noundef i32 @_ZL14getHiPELiteralPN4llvm11NamedMDNodeENS_9StringRefE(ptr noundef nonnull %58, ptr nonnull %64, i64 %65)
+  %66 = tail call fastcc noundef i32 @_ZL14getHiPELiteralPN4llvm11NamedMDNodeENS_9StringRefE(ptr noundef %58, ptr nonnull %64, i64 %65)
   %67 = load i8, ptr %61, align 4
   %68 = trunc i8 %67 to i1
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -22883,7 +22883,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm17M
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store ptr %164, ptr %240, align 8
   store ptr %164, ptr %237, align 8
-  %241 = call fastcc noundef i32 @_ZL14getHiPELiteralPN4llvm11NamedMDNodeENS_9StringRefE(ptr noundef nonnull %58, ptr nonnull @.str.27, i64 11)
+  %241 = call fastcc noundef i32 @_ZL14getHiPELiteralPN4llvm11NamedMDNodeENS_9StringRefE(ptr noundef %58, ptr nonnull @.str.27, i64 11)
   %242 = load i8, ptr %61, align 4
   %243 = trunc i8 %242 to i1
   %. = select i1 %243, i32 61, i32 33

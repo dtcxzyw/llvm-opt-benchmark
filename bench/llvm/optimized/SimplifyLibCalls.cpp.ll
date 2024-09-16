@@ -3511,7 +3511,7 @@ _ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread: ; preds = %_Z
 191:                                              ; preds = %182
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %193 = load ptr, ptr %192, align 8
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LibCallSimplifier20optimizeStringLengthEPNS_8CallInstERNS_13IRBuilderBaseEjPNS_5ValueEE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %193, ptr nonnull %8)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LibCallSimplifier20optimizeStringLengthEPNS_8CallInstERNS_13IRBuilderBaseEjPNS_5ValueEE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %193, ptr %8)
   %194 = getelementptr inbounds i8, ptr %26, i64 -96
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3700,7 +3700,7 @@ _ZN4llvm5APIntD2Ev.exit1:                         ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LibCallSimplifier20optimizeStringLengthEPNS_8CallInstERNS_13IRBuilderBaseEjPNS_5ValueEE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LibCallSimplifier20optimizeStringLengthEPNS_8CallInstERNS_13IRBuilderBaseEjPNS_5ValueEE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::OptimizationRemark", align 8
   %4 = alloca %"class.llvm::OptimizationRemark", align 8
   %5 = load ptr, ptr %0, align 8
@@ -17108,7 +17108,7 @@ _ZNK4llvm8CallBase10isStrictFPEv.exit.thread:     ; preds = %4, %_ZN4llvm17LibCa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL16replaceUnaryCallPN4llvm8CallInstERNS_13IRBuilderBaseEj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL16replaceUnaryCallPN4llvm8CallInstERNS_13IRBuilderBaseEj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef range(i32 20, 347) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4

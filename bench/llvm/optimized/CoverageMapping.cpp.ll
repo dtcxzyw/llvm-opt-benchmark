@@ -9990,7 +9990,7 @@ _ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %._crit_edge146, %37
   %387 = ptrtoint ptr %.sroa.0105.0.lcssa to i64
   %388 = sub i64 %.sroa.5.0.lcssa, %387
   %389 = sdiv exact i64 %388, 80
-  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.0105.0.lcssa, i64 %389)
+  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0105.0.lcssa, i64 %389)
   %390 = load ptr, ptr %14, align 8
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10038,7 +10038,7 @@ _ZNSt6vectorIN4llvm8coverage13CountedRegionESaIS2_EED2Ev.exit: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.395", align 8
   %.sroa.0.i.i.i.i.i.i.i.i = alloca { %"struct.llvm::coverage::Counter", %"struct.llvm::coverage::Counter", %"class.std::variant", i32, i32 }, align 8
   %.sroa.5.i.i.i.i.i.i.i.i = alloca <{ i64, i64, i8, i8, [6 x i8] }>, align 8
@@ -11318,7 +11318,7 @@ _ZNSt6vectorIN4llvm8coverage10MCDCRecordESaIS2_EE9push_backERKS2_.exit: ; preds 
   %132 = ptrtoint ptr %.sroa.056.0.lcssa to i64
   %133 = sub i64 %.sroa.5.0.lcssa, %132
   %134 = sdiv exact i64 %133, 80
-  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.sroa.056.0.lcssa, i64 %134)
+  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr %.sroa.056.0.lcssa, i64 %134)
   %135 = load ptr, ptr %23, align 8
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11852,7 +11852,7 @@ _ZNSt6vectorIN4llvm8coverage13CountedRegionESaIS2_EE9push_backERKS2_.exit35: ; p
   %120 = ptrtoint ptr %.sroa.047.0.lcssa to i64
   %121 = sub i64 %.sroa.5.0.lcssa, %120
   %122 = sdiv exact i64 %121, 80
-  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.sroa.047.0.lcssa, i64 %122)
+  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr %.sroa.047.0.lcssa, i64 %122)
   %123 = load ptr, ptr %22, align 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -18034,7 +18034,7 @@ _ZSt14__partial_sortIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_T2_(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%"struct.llvm::coverage::CountedRegion") align 8 %3) unnamed_addr #16 {
+define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_T2_(ptr nocapture noundef %0, i64 noundef range(i64 0, 57646075230342348) %1, i64 noundef range(i64 -115292150460684697, 115292150460684698) %2, ptr nocapture noundef readonly byval(%"struct.llvm::coverage::CountedRegion") align 8 %3) unnamed_addr #16 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -20016,7 +20016,7 @@ _ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPPKN4llvm8coverage13CountedRegionES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #6 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPPKN4llvm8coverage13CountedRegionES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3) unnamed_addr #6 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -26025,7 +26025,7 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit.i.i.i:  ; preds = %27, %24
   br label %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit15.i.i.i
 
 _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit15.i.i.i: ; preds = %30, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit.i.i.i
-  call fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %19, ptr noundef nonnull %8)
+  call fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %19, ptr noundef %8)
   %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
   %33 = load ptr, ptr %8, align 8
   %34 = icmp eq ptr %33, %23
@@ -26084,7 +26084,7 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit.i:      ; preds = %45, %.lr.ph.i5.i
   br label %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit7.i
 
 _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit7.i:     ; preds = %52, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit.i
-  call fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %50, ptr noundef nonnull %6)
+  call fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %50, ptr noundef %6)
   %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   %55 = load ptr, ptr %6, align 8
   %56 = icmp eq ptr %55, %42
@@ -26361,7 +26361,7 @@ _ZSt4swapIN4llvm11SmallVectorIhLj10EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_T2_"(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_T2_"(ptr noundef %0, i64 noundef range(i64 0, 115292150460684697) %1, i64 noundef range(i64 -230584300921369395, 230584300921369396) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.629", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

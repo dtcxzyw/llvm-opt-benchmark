@@ -369,7 +369,7 @@ if.then33:                                        ; preds = %if.end31
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %if.then33
-  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef 7, ptr noundef nonnull %agg.tmp34, ptr noundef null, i64 noundef 0, ptr noundef null)
+  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef 7, ptr noundef %agg.tmp34, ptr noundef null, i64 noundef 0, ptr noundef null)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
@@ -413,7 +413,7 @@ invoke.cont53:                                    ; preds = %if.then52
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont53
-  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef 8, ptr noundef nonnull %agg.tmp54, ptr noundef null, i64 noundef 0, ptr noundef null)
+  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef 8, ptr noundef %agg.tmp54, ptr noundef null, i64 noundef 0, ptr noundef null)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
@@ -464,7 +464,7 @@ invoke.cont67:                                    ; preds = %if.then66
           to label %invoke.cont71 unwind label %lpad70
 
 invoke.cont71:                                    ; preds = %invoke.cont67
-  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef 8, ptr noundef nonnull %agg.tmp68, ptr noundef null, i64 noundef 0, ptr noundef null)
+  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef 8, ptr noundef %agg.tmp68, ptr noundef null, i64 noundef 0, ptr noundef null)
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont71
@@ -554,7 +554,7 @@ invoke.cont99:                                    ; preds = %if.then98
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %invoke.cont99
-  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef %call96, ptr noundef nonnull %agg.tmp100, ptr noundef null, i64 noundef 0, ptr noundef null)
+  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef %call96, ptr noundef %agg.tmp100, ptr noundef null, i64 noundef 0, ptr noundef null)
           to label %invoke.cont105 unwind label %lpad104
 
 invoke.cont105:                                   ; preds = %invoke.cont103
@@ -644,7 +644,7 @@ if.end140:                                        ; preds = %invoke.cont118, %in
 invoke.cont141:                                   ; preds = %if.end140
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %error) #20
   %41 = load ptr, ptr %result, align 8
-  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef %call142, ptr noundef nonnull %agg.tmp143, ptr noundef %bytes_to_send.0, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef %41)
+  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef %call142, ptr noundef %agg.tmp143, ptr noundef %bytes_to_send.0, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef %41)
           to label %invoke.cont145 unwind label %lpad144
 
 invoke.cont145:                                   ; preds = %invoke.cont141
@@ -714,7 +714,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef %client, i32 noundef %status, ptr noundef %error, ptr noundef %bytes_to_send, i64 noundef %bytes_to_send_size, ptr noundef %result) unnamed_addr #3 {
+define internal fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef %client, i32 noundef %status, ptr noundef nonnull %error, ptr noundef %bytes_to_send, i64 noundef %bytes_to_send_size, ptr noundef %result) unnamed_addr #3 {
 entry:
   %error1 = getelementptr inbounds i8, ptr %client, i64 336
   %0 = load ptr, ptr %error1, align 8
@@ -2399,7 +2399,7 @@ if.end3:                                          ; preds = %_ZL27get_serialized
   %51 = load ptr, ptr %send_buffer.i, align 8
   call void @grpc_byte_buffer_destroy(ptr noundef %51)
   store ptr %retval.0.i136.i, ptr %send_buffer.i, align 8
-  %call4 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true)
+  %call4 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef %c, i1 noundef zeroext true)
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %return, label %if.then6
 
@@ -2822,7 +2822,7 @@ if.end4:                                          ; preds = %_ZL27get_serialized
   %48 = load ptr, ptr %send_buffer.i, align 8
   call void @grpc_byte_buffer_destroy(ptr noundef %48)
   store ptr %retval.0.i121.i, ptr %send_buffer.i, align 8
-  %call5 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true)
+  %call5 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef %c, i1 noundef zeroext true)
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %return, label %if.then7
 
@@ -3182,7 +3182,7 @@ if.end10:                                         ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 8) i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef %c, i1 noundef zeroext %is_start) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext %is_start) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   br i1 %is_start, label %if.then1, label %if.else
 
@@ -3254,7 +3254,7 @@ cleanup.cont.i.i:                                 ; preds = %_ZN4absl12lts_20230
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call = tail call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef %c, i1 noundef zeroext false)
+  %call = tail call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext false)
   br label %return
 
 return:                                           ; preds = %cleanup.cont.i.i, %_ZN4absl12lts_202308029MutexLockD2Ev.exit3.i.i, %if.else

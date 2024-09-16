@@ -281,7 +281,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   %70 = load ptr, ptr %56, align 8
   %71 = tail call i32 @dlclose(ptr noundef %70) #17
   tail call void @free(ptr noundef nonnull %27) #17
-  call fastcc void @incompatible_module_error(ptr noundef %0, ptr noundef nonnull %3) #21
+  call fastcc void @incompatible_module_error(ptr noundef %0, ptr noundef %3) #21
   unreachable
 
 72:                                               ; preds = %63
@@ -519,7 +519,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr noundef %1) unnamed_addr #13 {
+define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #13 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [32 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 4

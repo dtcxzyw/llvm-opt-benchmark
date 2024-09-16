@@ -1065,7 +1065,7 @@ invoke.cont2:                                     ; preds = %invoke.cont, %if.th
   store ptr %queue, ptr %queue_.i.i.i, align 8
   %growth_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i64 16, ptr %growth_.i.i, align 8
-  invoke fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS2_9FrameTypeEmE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nonnull align 8 %typeRes, i64 noundef %type, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS2_9FrameTypeEmE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias align 8 %typeRes, i64 noundef %type, ptr noundef %agg.tmp)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
@@ -1144,7 +1144,7 @@ invoke.cont5:                                     ; preds = %"_ZZN8proxygen2hq16
   %growth_.i.i15 = getelementptr inbounds i8, ptr %agg.tmp4, i64 32
   %20 = load i64, ptr %growth_.i5, align 8
   store i64 %20, ptr %growth_.i.i15, align 8
-  invoke fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS2_9FrameTypeEmE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nonnull align 8 %lengthRes, i64 noundef %length, ptr noundef nonnull %agg.tmp4)
+  invoke fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS2_9FrameTypeEmE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias align 8 %lengthRes, i64 noundef %length, ptr noundef %agg.tmp4)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
@@ -1369,7 +1369,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i48.invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS2_9FrameTypeEmE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nocapture writeonly align 8 %agg.result, i64 noundef %value, ptr nocapture noundef %bufop) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS2_9FrameTypeEmE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef %value, ptr nocapture noundef nonnull %bufop) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %class.anon, align 8
   %agg.tmp4 = alloca %class.anon, align 8
@@ -1632,7 +1632,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 invoke.cont6:                                     ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i, %if.then.i.i.i.i63
   %.sink.i.i.i.i55 = phi ptr [ %40, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i ], [ %31, %if.then.i.i.i.i63 ]
-  %conv.i56 = trunc nuw i64 %value to i16
+  %conv.i56 = trunc nuw nsw i64 %value to i16
   %or.i = or disjoint i16 %conv.i56, 16384
   %41 = call noundef i16 @llvm.bswap.i16(i16 %or.i)
   store i16 %41, ptr %.sink.i.i.i.i55, align 1
@@ -2757,7 +2757,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 invoke.cont6.i:                                   ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i63.i
   %.sink.i.i.i.i55.i = phi ptr [ %47, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %38, %if.then.i.i.i.i63.i ]
-  %conv.i56.i = trunc nuw i64 %pushId to i16
+  %conv.i56.i = trunc nuw nsw i64 %pushId to i16
   %or.i.i = or disjoint i16 %conv.i56.i, 16384
   %48 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %48, ptr %.sink.i.i.i.i55.i, align 1, !noalias !34
@@ -3642,7 +3642,7 @@ invoke.cont23:                                    ; preds = %invoke.cont23.lr.ph
   store ptr %28, ptr %queue_.i.i.i, align 8
   %29 = load i64, ptr %growth_.i37, align 8
   store i64 %29, ptr %growth_.i.i, align 8
-  invoke fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS2_9SettingIdEmESaIS9_EEE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nonnull align 8 %tmp, i64 noundef %27, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS2_9SettingIdEmESaIS9_EEE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias align 8 %tmp, i64 noundef %27, ptr noundef %agg.tmp)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont23
@@ -3711,7 +3711,7 @@ invoke.cont28:                                    ; preds = %if.then.i.i.i.i54, 
   store ptr %43, ptr %queue_.i.i.i60, align 8
   %44 = load i64, ptr %growth_.i37, align 8
   store i64 %44, ptr %growth_.i.i62, align 8
-  invoke fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS2_9SettingIdEmESaIS9_EEE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nonnull align 8 %tmp29, i64 noundef %42, ptr noundef nonnull %agg.tmp27)
+  invoke fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS2_9SettingIdEmESaIS9_EEE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias align 8 %tmp29, i64 noundef %42, ptr noundef %agg.tmp27)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
@@ -3970,7 +3970,7 @@ return:                                           ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS2_9SettingIdEmESaIS9_EEE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nocapture writeonly align 8 %agg.result, i64 noundef %value, ptr nocapture noundef %bufop) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS2_9SettingIdEmESaIS9_EEE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef %value, ptr nocapture noundef nonnull %bufop) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %class.anon.20, align 8
   %agg.tmp4 = alloca %class.anon.20, align 8
@@ -4233,7 +4233,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 invoke.cont6:                                     ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i, %if.then.i.i.i.i63
   %.sink.i.i.i.i55 = phi ptr [ %40, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i ], [ %31, %if.then.i.i.i.i63 ]
-  %conv.i56 = trunc nuw i64 %value to i16
+  %conv.i56 = trunc nuw nsw i64 %value to i16
   %or.i = or disjoint i16 %conv.i56, 16384
   %41 = call noundef i16 @llvm.bswap.i16(i16 %or.i)
   store i16 %41, ptr %.sink.i.i.i.i55, align 1
@@ -4941,7 +4941,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 "_ZN4quic12_GLOBAL__N_114encodeTwoBytesIZN8proxygen2hq16writePushPromiseERN5folly10IOBufQueueEmSt10unique_ptrINS4_5IOBufESt14default_deleteIS8_EEE3$_0EEtT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i34.i
   %.sink.i.i.i.i25.i = phi ptr [ %31, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %21, %if.then.i.i.i.i34.i ]
-  %conv.i26.i = trunc nuw i64 %pushId to i16
+  %conv.i26.i = trunc nuw nsw i64 %pushId to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
   %32 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %32, ptr %.sink.i.i.i.i25.i, align 1, !noalias !58
@@ -5583,7 +5583,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 invoke.cont6.i:                                   ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i63.i
   %.sink.i.i.i.i55.i = phi ptr [ %47, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %38, %if.then.i.i.i.i63.i ]
-  %conv.i56.i = trunc nuw i64 %lastStreamId to i16
+  %conv.i56.i = trunc nuw nsw i64 %lastStreamId to i16
   %or.i.i = or disjoint i16 %conv.i56.i, 16384
   %48 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %48, ptr %.sink.i.i.i.i55.i, align 1, !noalias !61
@@ -6627,7 +6627,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 invoke.cont6.i:                                   ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i63.i
   %.sink.i.i.i.i55.i = phi ptr [ %47, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %38, %if.then.i.i.i.i63.i ]
-  %conv.i56.i = trunc nuw i64 %maxPushId to i16
+  %conv.i56.i = trunc nuw nsw i64 %maxPushId to i16
   %or.i.i = or disjoint i16 %conv.i56.i, 16384
   %48 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %48, ptr %.sink.i.i.i.i55.i, align 1, !noalias !73
@@ -7542,7 +7542,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 "_ZN4quic12_GLOBAL__N_114encodeTwoBytesIZN8proxygen2hq19writePriorityUpdateERN5folly10IOBufQueueEmNS4_5RangeIPKcEEE3$_0EEtT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i34.i
   %.sink.i.i.i.i25.i = phi ptr [ %31, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %21, %if.then.i.i.i.i34.i ]
-  %conv.i26.i = trunc nuw i64 %streamId to i16
+  %conv.i26.i = trunc nuw nsw i64 %streamId to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
   %32 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %32, ptr %.sink.i.i.i.i25.i, align 1, !noalias !85
@@ -8191,7 +8191,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 "_ZN4quic12_GLOBAL__N_114encodeTwoBytesIZN8proxygen2hq23writePushPriorityUpdateERN5folly10IOBufQueueEmNS4_5RangeIPKcEEE3$_0EEtT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i34.i
   %.sink.i.i.i.i25.i = phi ptr [ %31, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %21, %if.then.i.i.i.i34.i ]
-  %conv.i26.i = trunc nuw i64 %pushId to i16
+  %conv.i26.i = trunc nuw nsw i64 %pushId to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
   %32 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %32, ptr %.sink.i.i.i.i25.i, align 1, !noalias !98
@@ -8810,7 +8810,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 "_ZN4quic12_GLOBAL__N_114encodeTwoBytesIZN8proxygen2hq18writeStreamPrefaceERN5folly10IOBufQueueEmE3$_0EEtT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i34.i
   %.sink.i.i.i.i25.i = phi ptr [ %29, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %19, %if.then.i.i.i.i34.i ]
-  %conv.i26.i = trunc nuw i64 %streamPreface to i16
+  %conv.i26.i = trunc nuw nsw i64 %streamPreface to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
   %30 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %30, ptr %.sink.i.i.i.i25.i, align 1, !noalias !110
@@ -9473,7 +9473,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 "_ZN4quic12_GLOBAL__N_114encodeTwoBytesIZN8proxygen2hq20writeWTStreamPrefaceERN5folly10IOBufQueueENS3_22WebTransportStreamTypeEmE3$_0EEtT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i34.i
   %.sink.i.i.i.i25.i = phi ptr [ %30, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %20, %if.then.i.i.i.i34.i ]
-  %conv.i26.i = trunc nuw i64 %6 to i16
+  %conv.i26.i = trunc nuw nsw i64 %6 to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
   %31 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %31, ptr %.sink.i.i.i.i25.i, align 1, !noalias !113
@@ -9784,7 +9784,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 "_ZN4quic12_GLOBAL__N_114encodeTwoBytesIZN8proxygen2hq20writeWTStreamPrefaceERN5folly10IOBufQueueENS3_22WebTransportStreamTypeEmE3$_1EEtT_m.exit.i": ; preds = %if.then3.i95, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i120
   %.sink.i.i.i.i25.i121 = phi ptr [ %82, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i120 ], [ %storemerge.i.i.i.i105.i, %if.then3.i95 ]
-  %conv.i26.i122 = trunc nuw i64 %wtSessionId to i16
+  %conv.i26.i122 = trunc nuw nsw i64 %wtSessionId to i16
   %or.i.i123 = or disjoint i16 %conv.i26.i122, 16384
   %83 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i123)
   store i16 %83, ptr %.sink.i.i.i.i25.i121, align 1, !noalias !116

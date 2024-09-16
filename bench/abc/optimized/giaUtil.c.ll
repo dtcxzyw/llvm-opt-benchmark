@@ -1203,7 +1203,7 @@ define noundef i32 @Gia_ManLevelNum(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %narrow.i38, label %47, label %48
 
 47:                                               ; preds = %44
-  tail call fastcc void @Gia_ObjSetGateLevel(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  tail call fastcc void @Gia_ObjSetGateLevel(ptr noundef nonnull %0, ptr noundef %11)
   br label %76
 
 48:                                               ; preds = %44
@@ -1288,7 +1288,7 @@ define noundef i32 @Gia_ManLevelNum(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ObjSetGateLevel(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @Gia_ObjSetGateLevel(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -2044,7 +2044,7 @@ define i32 @Gia_ManSetLevels(ptr nocapture noundef %0, ptr noundef readonly %1) 
   br i1 %narrow.i, label %57, label %58
 
 57:                                               ; preds = %53
-  tail call fastcc void @Gia_ObjSetGateLevel(ptr noundef nonnull %0, ptr noundef nonnull %52)
+  tail call fastcc void @Gia_ObjSetGateLevel(ptr noundef nonnull %0, ptr noundef %52)
   %.pre72 = ptrtoint ptr %52 to i64
   br label %81
 
@@ -17105,7 +17105,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

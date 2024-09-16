@@ -973,7 +973,7 @@ add2dq.exit272:                                   ; preds = %add2dq.exit269, %41
   br i1 %.not246, label %438, label %430
 
 430:                                              ; preds = %427
-  %431 = call fastcc i64 @finddqsplit(ptr noundef nonnull %9, ptr noundef %.0224)
+  %431 = call fastcc i64 @finddqsplit(ptr noundef %9, ptr noundef %.0224)
   %.not19.i273 = icmp ult i64 %348, %431
   br i1 %.not19.i273, label %add2dq.exit275, label %432
 
@@ -994,7 +994,7 @@ add2dq.exit275:                                   ; preds = %430, %432
   br label %446
 
 438:                                              ; preds = %427, %424
-  %439 = call fastcc i64 @finddqsplit(ptr noundef nonnull %9, ptr noundef %.0225)
+  %439 = call fastcc i64 @finddqsplit(ptr noundef %9, ptr noundef %.0225)
   %.not19.i276 = icmp ult i64 %439, %347
   br i1 %.not19.i276, label %add2dq.exit278, label %440
 
@@ -1207,7 +1207,7 @@ define internal fastcc range(i32 -1, 1) i32 @growops(i64 noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @finddqsplit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i64 @finddqsplit(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

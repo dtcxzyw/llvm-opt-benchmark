@@ -295,7 +295,7 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_pwritev_generic.exit
 
 162:                                              ; preds = %69
-  %163 = call fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %163 = call fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3)
   br label %mca_fbtl_posix_pwritev_generic.exit
 
 164:                                              ; preds = %35
@@ -379,7 +379,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   %5 = load i32, ptr %4, align 8
   %.not148 = icmp sgt i32 %5, 0
@@ -467,7 +467,7 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
 49:                                               ; preds = %45, %.loopexit
   %.1106 = phi ptr [ %.0105150, %.loopexit ], [ %46, %45 ]
   %.1 = phi i64 [ %.098153, %.loopexit ], [ %41, %45 ]
-  %50 = tail call i32 @mca_fbtl_posix_lock(ptr noundef %1, ptr noundef %0, i32 noundef 1, i64 noundef %13, i64 noundef %41, i32 noundef 10, ptr noundef %2) #9
+  %50 = tail call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 1, i64 noundef %13, i64 noundef %41, i32 noundef 10, ptr noundef nonnull %2) #9
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %53, label %.preheader120
 
@@ -480,7 +480,7 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %55 = load i32, ptr %54, align 4
   %56 = tail call ptr @strerror(i32 noundef %55) #9
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %50, ptr noundef %56) #9
-  tail call void @mca_fbtl_posix_unlock(ptr noundef %1, ptr noundef %0, ptr noundef %2) #9
+  tail call void @mca_fbtl_posix_unlock(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %2) #9
   tail call void @free(ptr noundef %.1106) #9
   br label %95
 
@@ -498,7 +498,7 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %61 = load i32, ptr %60, align 4
   %62 = tail call ptr @strerror(i32 noundef %61) #9
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %62) #9
-  tail call void @mca_fbtl_posix_unlock(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2) #9
+  tail call void @mca_fbtl_posix_unlock(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #9
   tail call void @free(ptr noundef %.1106) #9
   br label %95
 
@@ -560,13 +560,13 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %92 = load i32, ptr %91, align 4
   %93 = tail call ptr @strerror(i32 noundef %92) #9
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %93) #9
-  tail call void @mca_fbtl_posix_unlock(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2) #9
+  tail call void @mca_fbtl_posix_unlock(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #9
   tail call void @free(ptr noundef %.1106) #9
   br label %95
 
 ._crit_edge146:                                   ; preds = %81, %.preheader
   %.2.lcssa = phi i64 [ 0, %.preheader ], [ %82, %81 ]
-  tail call void @mca_fbtl_posix_unlock(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2) #9
+  tail call void @mca_fbtl_posix_unlock(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #9
   %94 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %32, %94
   br i1 %.not, label %7, label %._crit_edge156, !llvm.loop !12

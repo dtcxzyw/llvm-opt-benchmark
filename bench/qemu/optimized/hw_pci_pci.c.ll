@@ -1926,7 +1926,7 @@ land.lhs.true:                                    ; preds = %pci_is_express_down
   %sub.i4.i = add nuw nsw i64 %conv3, 19
   %cmp.i = icmp ult i64 %sub.i4.i, %conv
   %cmp2.i = icmp ult i64 %sub.i.i, %add4
-  %.not.i.not = or i1 %cmp2.i, %cmp.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
@@ -2032,25 +2032,25 @@ for.end:                                          ; preds = %if.end12, %for.cond
   %sub.i.i = add nsw i64 %add.i.i, %conv37
   %cmp.i = icmp ugt i32 %addr, 39
   %cmp2.i = icmp ult i64 %sub.i.i, 16
-  %.not.i.not = or i1 %cmp.i, %cmp2.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %lor.lhs.false, label %if.then54
 
 lor.lhs.false:                                    ; preds = %for.end
   %cmp.i55 = icmp ugt i32 %addr, 51
   %cmp2.i56 = icmp ult i64 %sub.i.i, 48
-  %.not.i57.not = or i1 %cmp.i55, %cmp2.i56
+  %.not.i57.not = select i1 %cmp.i55, i1 true, i1 %cmp2.i56
   br i1 %.not.i57.not, label %lor.lhs.false44, label %if.then54
 
 lor.lhs.false44:                                  ; preds = %lor.lhs.false
   %cmp.i61 = icmp ugt i32 %addr, 59
   %cmp2.i62 = icmp ult i64 %sub.i.i, 56
-  %.not.i63.not = or i1 %cmp.i61, %cmp2.i62
+  %.not.i63.not = select i1 %cmp.i61, i1 true, i1 %cmp2.i62
   br i1 %.not.i63.not, label %lor.lhs.false49, label %if.then54
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false44
   %cmp.i65 = icmp ugt i32 %addr, 4
   %cmp1.i = icmp ult i64 %sub.i.i, 4
-  %narrow.i.not = or i1 %cmp.i65, %cmp1.i
+  %narrow.i.not = select i1 %cmp.i65, i1 true, i1 %cmp1.i
   br i1 %narrow.i.not, label %if.end55, label %if.then54
 
 if.then54:                                        ; preds = %lor.lhs.false49, %lor.lhs.false44, %lor.lhs.false, %for.end
@@ -2060,7 +2060,7 @@ if.then54:                                        ; preds = %lor.lhs.false49, %l
 if.end55:                                         ; preds = %if.then54, %lor.lhs.false49
   %cmp.i70 = icmp ugt i32 %addr, 5
   %cmp2.i71 = icmp ult i64 %sub.i.i, 4
-  %.not.i72.not = or i1 %cmp.i70, %cmp2.i71
+  %.not.i72.not = select i1 %cmp.i70, i1 true, i1 %cmp2.i71
   br i1 %.not.i72.not, label %if.end68, label %if.then60
 
 if.then60:                                        ; preds = %if.end55
@@ -3805,7 +3805,7 @@ if.then3.i:                                       ; preds = %if.end.i
 range_set_bounds.exit.i:                          ; preds = %if.then3.i
   store i64 %cond.i, ptr %pref_range.i, align 8
   store i64 %call5.i, ptr %upb2.i.i, align 8
-  call fastcc void @range_extend(ptr noundef nonnull %range, ptr noundef nonnull %pref_range.i)
+  call fastcc void @range_extend(ptr noundef nonnull %range, ptr noundef %pref_range.i)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %range_set_bounds.exit.i, %if.then3.i, %if.end.i
@@ -3844,7 +3844,7 @@ if.end32.i:                                       ; preds = %if.end24.i
 range_set_bounds.exit36.i:                        ; preds = %if.end32.i
   store i64 %cond39.i, ptr %region_range.i, align 8
   store i64 %sub.i, ptr %upb2.i27.i, align 8
-  call fastcc void @range_extend(ptr noundef nonnull %range, ptr noundef nonnull %region_range.i)
+  call fastcc void @range_extend(ptr noundef nonnull %range, ptr noundef %region_range.i)
   br label %for.inc.i6
 
 for.inc.i6:                                       ; preds = %range_set_bounds.exit36.i, %if.end32.i, %if.end24.i, %lor.lhs.false.i, %for.body.i3
@@ -4256,7 +4256,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pci_change_irq_level(ptr noundef %pci_dev, i32 noundef %irq_num, i32 noundef %change) unnamed_addr #0 {
+define internal fastcc void @pci_change_irq_level(ptr noundef %pci_dev, i32 noundef range(i32 -2147483648, 4) %irq_num, i32 noundef %change) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
@@ -4396,7 +4396,7 @@ declare i64 @pci_bridge_get_base(ptr noundef, i8 noundef zeroext) local_unnamed_
 declare i64 @pci_bridge_get_limit(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @range_extend(ptr nocapture noundef %range, ptr nocapture noundef readonly %extend_by) unnamed_addr #0 {
+define internal fastcc void @range_extend(ptr nocapture noundef %range, ptr nocapture noundef nonnull readonly %extend_by) unnamed_addr #0 {
 entry:
   %extend_by.val = load i64, ptr %extend_by, align 8
   %0 = getelementptr i8, ptr %extend_by, i64 8
@@ -5757,7 +5757,7 @@ if.then60.i:                                      ; preds = %if.then55.i
 
 if.else65.i:                                      ; preds = %if.end51.i
   %sub.i.i75 = add nsw i64 %call34.i, -1
-  %122 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i75, i1 false)
+  %122 = call range(i64 33, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i75, i1 false)
   %sub2.i.i = add nuw nsw i64 %122, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
   %shr.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i
@@ -5808,7 +5808,7 @@ if.end89.i:                                       ; preds = %if.then81.i
 
 if.then91.i:                                      ; preds = %if.end89.i
   %conv92.i = trunc nuw i64 %size.0.i to i32
-  call fastcc void @pci_patch_ids(ptr noundef nonnull %qdev, ptr noundef %call83.i, i32 noundef %conv92.i)
+  call fastcc void @pci_patch_ids(ptr noundef %qdev, ptr noundef %call83.i, i32 noundef %conv92.i)
   br label %if.end94.i74
 
 if.end94.i74:                                     ; preds = %if.then91.i, %if.end89.i, %cond.end.i
@@ -6104,7 +6104,7 @@ declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #2
 declare i64 @load_image_size(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pci_patch_ids(ptr nocapture noundef readonly %pdev, ptr nocapture noundef %ptr, i32 noundef %size) unnamed_addr #19 {
+define internal fastcc void @pci_patch_ids(ptr nocapture noundef nonnull readonly %pdev, ptr nocapture noundef %ptr, i32 noundef range(i32 0, -2147483647) %size) unnamed_addr #19 {
 entry:
   %ptr.val = load i16, ptr %ptr, align 1
   %cmp.not = icmp eq i16 %ptr.val, -21931

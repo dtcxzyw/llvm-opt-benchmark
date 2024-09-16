@@ -1119,7 +1119,7 @@ define dso_local void @_ZN4llvm15BitcodeAnalyzer7analyzeESt8optionalINS_13BCDump
   %.sroa.098.0.copyload = load ptr, ptr %2, align 8
   %.sroa.2100.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.2100.0.copyload = load i8, ptr %.sroa.2100.0..sroa_idx, align 8
-  call fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.098.0.copyload, i8 %.sroa.2100.0.copyload, ptr noundef nonnull align 8 dereferenceable(344) %1)
+  call fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.098.0.copyload, i8 %.sroa.2100.0.copyload, ptr noundef nonnull align 8 dereferenceable(344) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i8, ptr %14, align 8
@@ -1155,7 +1155,7 @@ _ZN4llvm8ExpectedINS_17CurStreamTypeTypeEED2Ev.exit: ; preds = %4
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 376
   call void @_ZN4llvm15BitstreamCursorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %8, ptr noundef nonnull align 8 dereferenceable(344) %28)
-  call fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %.sroa.098.0.copyload, i8 %.sroa.2100.0.copyload, ptr noundef nonnull align 8 dereferenceable(344) %8)
+  call fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.098.0.copyload, i8 %.sroa.2100.0.copyload, ptr noundef nonnull align 8 dereferenceable(344) %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load i8, ptr %29, align 8
@@ -1601,7 +1601,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %157
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %.0.val, i8 %.16.val, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, i8 %.16.val, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Expected.95", align 8
   %4 = alloca %"class.llvm::Expected.95", align 8
   %5 = alloca %"class.llvm::Expected.95", align 8

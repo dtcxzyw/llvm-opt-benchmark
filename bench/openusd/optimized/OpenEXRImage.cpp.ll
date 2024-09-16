@@ -1414,24 +1414,24 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRIma
 
 127:                                              ; preds = %124
   %128 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii(ptr noundef nonnull %128, i32 noundef %23, i32 noundef %25, i32 noundef %126, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii(ptr noundef %128, i32 noundef %23, i32 noundef %25, i32 noundef %126, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %74, label %129, label %137
 
 129:                                              ; preds = %127
   %130 = load ptr, ptr %8, align 8
   %131 = load i32, ptr %125, align 4
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef nonnull %130, i32 noundef %56, i32 noundef %58, i32 noundef %131)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef %130, i32 noundef %56, i32 noundef %58, i32 noundef %131)
   br label %137
 
 132:                                              ; preds = %124
   %133 = load ptr, ptr %9, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9CropImageEPfiiiiiii(ptr noundef nonnull %133, i32 noundef %23, i32 noundef %25, i32 noundef %126, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9CropImageEPfiiiiiii(ptr noundef %133, i32 noundef %23, i32 noundef %25, i32 noundef %126, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %74, label %134, label %137
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr %9, align 8
   %136 = load i32, ptr %125, align 4
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9FlipImageEPfiii(ptr noundef nonnull %135, i32 noundef %56, i32 noundef %58, i32 noundef %136)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9FlipImageEPfiii(ptr noundef %135, i32 noundef %56, i32 noundef %58, i32 noundef %136)
   br label %137
 
 137:                                              ; preds = %129, %134, %132, %127
@@ -1620,7 +1620,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
 225:                                              ; preds = %219
   %226 = load ptr, ptr %11, align 8
   %227 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr noundef nonnull %226, ptr noundef %227, i32 noundef %30, i32 noundef %32, i32 noundef %35)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr noundef %226, ptr noundef %227, i32 noundef %30, i32 noundef %32, i32 noundef %35)
           to label %228 unwind label %207
 
 228:                                              ; preds = %225
@@ -1970,76 +1970,79 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit30: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIjE9CropImageEPjiiiiiii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #4 align 2 {
-  %9 = add i32 %7, %6
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIjE9CropImageEPjiiiiiii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, i32 noundef range(i32 0, -2147483648) %5, i32 noundef range(i32 0, -2147483648) %6, i32 noundef range(i32 0, -2147483648) %7) unnamed_addr #4 align 2 {
+  %9 = add nuw i32 %7, %6
   %10 = sub i32 %1, %9
-  %11 = add i32 %5, %4
+  %11 = add nuw i32 %5, %4
   %12 = sub i32 %2, %11
-  %13 = icmp sgt i32 %10, 0
-  %14 = icmp sgt i32 %12, 0
-  %or.cond.not73 = and i1 %14, %13
-  %15 = or i32 %9, %11
-  %or.cond40 = icmp ne i32 %15, 0
-  %or.cond41.not71 = and i1 %or.cond40, %or.cond.not73
-  %16 = icmp sgt i32 %3, 0
-  %or.cond70 = and i1 %or.cond41.not71, %16
-  br i1 %or.cond70, label %.preheader42.us.us.preheader, label %.loopexit
+  %13 = icmp slt i32 %10, 1
+  %14 = icmp slt i32 %12, 1
+  %or.cond = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond, label %.loopexit, label %15
 
-.preheader42.us.us.preheader:                     ; preds = %8
-  %17 = zext nneg i32 %3 to i64
-  %18 = zext nneg i32 %10 to i64
-  %wide.trip.count66 = zext nneg i32 %12 to i64
-  %wide.trip.count61 = zext nneg i32 %10 to i64
+15:                                               ; preds = %8
+  %16 = icmp ne i32 %9, 0
+  %17 = icmp ne i32 %11, 0
+  %or.cond40.not54 = select i1 %16, i1 true, i1 %17
+  %18 = icmp sgt i32 %3, 0
+  %or.cond73 = and i1 %or.cond40.not54, %18
+  br i1 %or.cond73, label %.preheader41.us.us.preheader, label %.loopexit
+
+.preheader41.us.us.preheader:                     ; preds = %15
+  %19 = zext nneg i32 %3 to i64
+  %20 = zext nneg i32 %10 to i64
+  %wide.trip.count69 = zext nneg i32 %12 to i64
+  %wide.trip.count64 = zext nneg i32 %10 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %.preheader42.us.us
+  br label %.preheader41.us.us
 
-.preheader42.us.us:                               ; preds = %.preheader42.us.us.preheader, %._crit_edge46.split.us.us.us
-  %indvars.iv63 = phi i64 [ 0, %.preheader42.us.us.preheader ], [ %indvars.iv.next64, %._crit_edge46.split.us.us.us ]
-  %19 = trunc i64 %indvars.iv63 to i32
-  %20 = add i32 %4, %19
-  %21 = mul i32 %20, %1
-  %invariant.op47.us.us = add i32 %6, %21
-  %22 = mul nuw nsw i64 %indvars.iv63, %18
+.preheader41.us.us:                               ; preds = %.preheader41.us.us.preheader, %._crit_edge45.split.us.us.us
+  %indvars.iv66 = phi i64 [ 0, %.preheader41.us.us.preheader ], [ %indvars.iv.next67, %._crit_edge45.split.us.us.us ]
+  %21 = trunc i64 %indvars.iv66 to i32
+  %22 = add i32 %4, %21
+  %23 = mul i32 %22, %1
+  %invariant.op46.us.us = add i32 %6, %23
+  %24 = mul nuw nsw i64 %indvars.iv66, %20
   br label %.preheader.us.us.us
 
-.preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader42.us.us
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %._crit_edge.us.us.us ], [ 0, %.preheader42.us.us ]
-  %23 = trunc nuw nsw i64 %indvars.iv58 to i32
-  %.reass.reass.us.us.us = add i32 %invariant.op47.us.us, %23
-  %24 = mul nsw i32 %.reass.reass.us.us.us, %3
-  %25 = add nuw nsw i64 %indvars.iv58, %22
-  %26 = mul nuw nsw i64 %25, %17
-  %27 = sext i32 %24 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %27
-  %invariant.gep68 = getelementptr inbounds i32, ptr %0, i64 %26
-  br label %28
+.preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader41.us.us
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %._crit_edge.us.us.us ], [ 0, %.preheader41.us.us ]
+  %25 = trunc nuw nsw i64 %indvars.iv61 to i32
+  %.reass.reass.us.us.us = add i32 %invariant.op46.us.us, %25
+  %26 = mul nsw i32 %.reass.reass.us.us.us, %3
+  %27 = add nuw nsw i64 %indvars.iv61, %24
+  %28 = mul nuw nsw i64 %27, %19
+  %29 = sext i32 %26 to i64
+  %invariant.gep = getelementptr i32, ptr %0, i64 %29
+  %invariant.gep71 = getelementptr inbounds i32, ptr %0, i64 %28
+  br label %30
 
-28:                                               ; preds = %28, %.preheader.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader.us.us.us ]
+30:                                               ; preds = %30, %.preheader.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader.us.us.us ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %29 = load i32, ptr %gep, align 4
-  %gep69 = getelementptr inbounds i32, ptr %invariant.gep68, i64 %indvars.iv
-  store i32 %29, ptr %gep69, align 4
+  %31 = load i32, ptr %gep, align 4
+  %gep72 = getelementptr inbounds i32, ptr %invariant.gep71, i64 %indvars.iv
+  store i32 %31, ptr %gep72, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %28, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %30, !llvm.loop !14
 
-._crit_edge.us.us.us:                             ; preds = %28
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge46.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !15
+._crit_edge.us.us.us:                             ; preds = %30
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %._crit_edge45.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !15
 
-._crit_edge46.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %.loopexit, label %.preheader42.us.us, !llvm.loop !16
+._crit_edge45.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
+  br i1 %exitcond70.not, label %.loopexit, label %.preheader41.us.us, !llvm.loop !16
 
-.loopexit:                                        ; preds = %._crit_edge46.split.us.us.us, %8
+.loopexit:                                        ; preds = %._crit_edge45.split.us.us.us, %15, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIjE9FlipImageEPjiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIjE9FlipImageEPjiii(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
   %.not = icmp ult i32 %2, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2168,76 +2171,79 @@ _ZNSt6vectorIfSaIfEE15_M_erase_at_endEPf.exit:    ; preds = %17, %15, %13, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #4 align 2 {
-  %9 = add i32 %7, %6
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, i32 noundef range(i32 0, -2147483648) %5, i32 noundef range(i32 0, -2147483648) %6, i32 noundef range(i32 0, -2147483648) %7) unnamed_addr #4 align 2 {
+  %9 = add nuw i32 %7, %6
   %10 = sub i32 %1, %9
-  %11 = add i32 %5, %4
+  %11 = add nuw i32 %5, %4
   %12 = sub i32 %2, %11
-  %13 = icmp sgt i32 %10, 0
-  %14 = icmp sgt i32 %12, 0
-  %or.cond.not73 = and i1 %14, %13
-  %15 = or i32 %9, %11
-  %or.cond40 = icmp ne i32 %15, 0
-  %or.cond41.not71 = and i1 %or.cond40, %or.cond.not73
-  %16 = icmp sgt i32 %3, 0
-  %or.cond70 = and i1 %or.cond41.not71, %16
-  br i1 %or.cond70, label %.preheader42.us.us.preheader, label %.loopexit
+  %13 = icmp slt i32 %10, 1
+  %14 = icmp slt i32 %12, 1
+  %or.cond = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond, label %.loopexit, label %15
 
-.preheader42.us.us.preheader:                     ; preds = %8
-  %17 = zext nneg i32 %3 to i64
-  %18 = zext nneg i32 %10 to i64
-  %wide.trip.count66 = zext nneg i32 %12 to i64
-  %wide.trip.count61 = zext nneg i32 %10 to i64
+15:                                               ; preds = %8
+  %16 = icmp ne i32 %9, 0
+  %17 = icmp ne i32 %11, 0
+  %or.cond40.not54 = select i1 %16, i1 true, i1 %17
+  %18 = icmp sgt i32 %3, 0
+  %or.cond73 = and i1 %or.cond40.not54, %18
+  br i1 %or.cond73, label %.preheader41.us.us.preheader, label %.loopexit
+
+.preheader41.us.us.preheader:                     ; preds = %15
+  %19 = zext nneg i32 %3 to i64
+  %20 = zext nneg i32 %10 to i64
+  %wide.trip.count69 = zext nneg i32 %12 to i64
+  %wide.trip.count64 = zext nneg i32 %10 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %.preheader42.us.us
+  br label %.preheader41.us.us
 
-.preheader42.us.us:                               ; preds = %.preheader42.us.us.preheader, %._crit_edge46.split.us.us.us
-  %indvars.iv63 = phi i64 [ 0, %.preheader42.us.us.preheader ], [ %indvars.iv.next64, %._crit_edge46.split.us.us.us ]
-  %19 = trunc i64 %indvars.iv63 to i32
-  %20 = add i32 %4, %19
-  %21 = mul i32 %20, %1
-  %invariant.op47.us.us = add i32 %6, %21
-  %22 = mul nuw nsw i64 %indvars.iv63, %18
+.preheader41.us.us:                               ; preds = %.preheader41.us.us.preheader, %._crit_edge45.split.us.us.us
+  %indvars.iv66 = phi i64 [ 0, %.preheader41.us.us.preheader ], [ %indvars.iv.next67, %._crit_edge45.split.us.us.us ]
+  %21 = trunc i64 %indvars.iv66 to i32
+  %22 = add i32 %4, %21
+  %23 = mul i32 %22, %1
+  %invariant.op46.us.us = add i32 %6, %23
+  %24 = mul nuw nsw i64 %indvars.iv66, %20
   br label %.preheader.us.us.us
 
-.preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader42.us.us
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %._crit_edge.us.us.us ], [ 0, %.preheader42.us.us ]
-  %23 = trunc nuw nsw i64 %indvars.iv58 to i32
-  %.reass.reass.us.us.us = add i32 %invariant.op47.us.us, %23
-  %24 = mul nsw i32 %.reass.reass.us.us.us, %3
-  %25 = add nuw nsw i64 %indvars.iv58, %22
-  %26 = mul nuw nsw i64 %25, %17
-  %27 = sext i32 %24 to i64
-  %invariant.gep = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %27
-  %invariant.gep68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %26
-  br label %28
+.preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader41.us.us
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %._crit_edge.us.us.us ], [ 0, %.preheader41.us.us ]
+  %25 = trunc nuw nsw i64 %indvars.iv61 to i32
+  %.reass.reass.us.us.us = add i32 %invariant.op46.us.us, %25
+  %26 = mul nsw i32 %.reass.reass.us.us.us, %3
+  %27 = add nuw nsw i64 %indvars.iv61, %24
+  %28 = mul nuw nsw i64 %27, %19
+  %29 = sext i32 %26 to i64
+  %invariant.gep = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %29
+  %invariant.gep71 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %28
+  br label %30
 
-28:                                               ; preds = %28, %.preheader.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader.us.us.us ]
+30:                                               ; preds = %30, %.preheader.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader.us.us.us ]
   %gep = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %invariant.gep, i64 %indvars.iv
-  %gep69 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %invariant.gep68, i64 %indvars.iv
-  %29 = load i16, ptr %gep, align 2
-  store i16 %29, ptr %gep69, align 2
+  %gep72 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %invariant.gep71, i64 %indvars.iv
+  %31 = load i16, ptr %gep, align 2
+  store i16 %31, ptr %gep72, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %28, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %30, !llvm.loop !19
 
-._crit_edge.us.us.us:                             ; preds = %28
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge46.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !20
+._crit_edge.us.us.us:                             ; preds = %30
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %._crit_edge45.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !20
 
-._crit_edge46.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %.loopexit, label %.preheader42.us.us, !llvm.loop !21
+._crit_edge45.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
+  br i1 %exitcond70.not, label %.loopexit, label %.preheader41.us.us, !llvm.loop !21
 
-.loopexit:                                        ; preds = %._crit_edge46.split.us.us.us, %8
+.loopexit:                                        ; preds = %._crit_edge45.split.us.us.us, %15, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
   %.not = icmp ult i32 %2, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2291,76 +2297,79 @@ _ZSt11swap_rangesIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9CropImageEPfiiiiiii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #4 align 2 {
-  %9 = add i32 %7, %6
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9CropImageEPfiiiiiii(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, i32 noundef range(i32 0, -2147483648) %5, i32 noundef range(i32 0, -2147483648) %6, i32 noundef range(i32 0, -2147483648) %7) unnamed_addr #4 align 2 {
+  %9 = add nuw i32 %7, %6
   %10 = sub i32 %1, %9
-  %11 = add i32 %5, %4
+  %11 = add nuw i32 %5, %4
   %12 = sub i32 %2, %11
-  %13 = icmp sgt i32 %10, 0
-  %14 = icmp sgt i32 %12, 0
-  %or.cond.not73 = and i1 %14, %13
-  %15 = or i32 %9, %11
-  %or.cond40 = icmp ne i32 %15, 0
-  %or.cond41.not71 = and i1 %or.cond40, %or.cond.not73
-  %16 = icmp sgt i32 %3, 0
-  %or.cond70 = and i1 %or.cond41.not71, %16
-  br i1 %or.cond70, label %.preheader42.us.us.preheader, label %.loopexit
+  %13 = icmp slt i32 %10, 1
+  %14 = icmp slt i32 %12, 1
+  %or.cond = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond, label %.loopexit, label %15
 
-.preheader42.us.us.preheader:                     ; preds = %8
-  %17 = zext nneg i32 %3 to i64
-  %18 = zext nneg i32 %10 to i64
-  %wide.trip.count66 = zext nneg i32 %12 to i64
-  %wide.trip.count61 = zext nneg i32 %10 to i64
+15:                                               ; preds = %8
+  %16 = icmp ne i32 %9, 0
+  %17 = icmp ne i32 %11, 0
+  %or.cond40.not54 = select i1 %16, i1 true, i1 %17
+  %18 = icmp sgt i32 %3, 0
+  %or.cond73 = and i1 %or.cond40.not54, %18
+  br i1 %or.cond73, label %.preheader41.us.us.preheader, label %.loopexit
+
+.preheader41.us.us.preheader:                     ; preds = %15
+  %19 = zext nneg i32 %3 to i64
+  %20 = zext nneg i32 %10 to i64
+  %wide.trip.count69 = zext nneg i32 %12 to i64
+  %wide.trip.count64 = zext nneg i32 %10 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %.preheader42.us.us
+  br label %.preheader41.us.us
 
-.preheader42.us.us:                               ; preds = %.preheader42.us.us.preheader, %._crit_edge46.split.us.us.us
-  %indvars.iv63 = phi i64 [ 0, %.preheader42.us.us.preheader ], [ %indvars.iv.next64, %._crit_edge46.split.us.us.us ]
-  %19 = trunc i64 %indvars.iv63 to i32
-  %20 = add i32 %4, %19
-  %21 = mul i32 %20, %1
-  %invariant.op47.us.us = add i32 %6, %21
-  %22 = mul nuw nsw i64 %indvars.iv63, %18
+.preheader41.us.us:                               ; preds = %.preheader41.us.us.preheader, %._crit_edge45.split.us.us.us
+  %indvars.iv66 = phi i64 [ 0, %.preheader41.us.us.preheader ], [ %indvars.iv.next67, %._crit_edge45.split.us.us.us ]
+  %21 = trunc i64 %indvars.iv66 to i32
+  %22 = add i32 %4, %21
+  %23 = mul i32 %22, %1
+  %invariant.op46.us.us = add i32 %6, %23
+  %24 = mul nuw nsw i64 %indvars.iv66, %20
   br label %.preheader.us.us.us
 
-.preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader42.us.us
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %._crit_edge.us.us.us ], [ 0, %.preheader42.us.us ]
-  %23 = trunc nuw nsw i64 %indvars.iv58 to i32
-  %.reass.reass.us.us.us = add i32 %invariant.op47.us.us, %23
-  %24 = mul nsw i32 %.reass.reass.us.us.us, %3
-  %25 = add nuw nsw i64 %indvars.iv58, %22
-  %26 = mul nuw nsw i64 %25, %17
-  %27 = sext i32 %24 to i64
-  %invariant.gep = getelementptr float, ptr %0, i64 %27
-  %invariant.gep68 = getelementptr inbounds float, ptr %0, i64 %26
-  br label %28
+.preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader41.us.us
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %._crit_edge.us.us.us ], [ 0, %.preheader41.us.us ]
+  %25 = trunc nuw nsw i64 %indvars.iv61 to i32
+  %.reass.reass.us.us.us = add i32 %invariant.op46.us.us, %25
+  %26 = mul nsw i32 %.reass.reass.us.us.us, %3
+  %27 = add nuw nsw i64 %indvars.iv61, %24
+  %28 = mul nuw nsw i64 %27, %19
+  %29 = sext i32 %26 to i64
+  %invariant.gep = getelementptr float, ptr %0, i64 %29
+  %invariant.gep71 = getelementptr inbounds float, ptr %0, i64 %28
+  br label %30
 
-28:                                               ; preds = %28, %.preheader.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader.us.us.us ]
+30:                                               ; preds = %30, %.preheader.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader.us.us.us ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
-  %29 = load float, ptr %gep, align 4
-  %gep69 = getelementptr inbounds float, ptr %invariant.gep68, i64 %indvars.iv
-  store float %29, ptr %gep69, align 4
+  %31 = load float, ptr %gep, align 4
+  %gep72 = getelementptr inbounds float, ptr %invariant.gep71, i64 %indvars.iv
+  store float %31, ptr %gep72, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %28, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %30, !llvm.loop !24
 
-._crit_edge.us.us.us:                             ; preds = %28
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge46.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !25
+._crit_edge.us.us.us:                             ; preds = %30
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %._crit_edge45.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !25
 
-._crit_edge46.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %.loopexit, label %.preheader42.us.us, !llvm.loop !26
+._crit_edge45.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
+  br i1 %exitcond70.not, label %.loopexit, label %.preheader41.us.us, !llvm.loop !26
 
-.loopexit:                                        ; preds = %._crit_edge46.split.us.us.us, %8
+.loopexit:                                        ; preds = %._crit_edge45.split.us.us.us, %15, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9FlipImageEPfiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9FlipImageEPfiii(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
   %.not = icmp ult i32 %2, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2456,7 +2465,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %5, %13,
 declare zeroext i1 @nanoexr_Gaussian_resample(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr nocapture noundef nonnull readonly %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 

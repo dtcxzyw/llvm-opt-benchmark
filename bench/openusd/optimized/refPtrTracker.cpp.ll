@@ -1406,7 +1406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_9TfHashMapIPKNS_9TfRefBase
   %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %13)
   %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.10)
   %16 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_GetDemangledB5cxx11EPKNS_9TfRefBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %16)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_GetDemangledB5cxx11EPKNS_9TfRefBaseE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %16)
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %18 unwind label %22
 
@@ -1447,7 +1447,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_GetDemangledB5cxx11EPKNS_9TfRefBaseE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef readonly %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_GetDemangledB5cxx11EPKNS_9TfRefBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.24", align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -1481,7 +1481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %14 = icmp eq i8 %13, 42
   %.idx.i.i = zext i1 %14 to i64
   %15 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull %15)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull %15)
   br label %17
 
 16:                                               ; preds = %.noexc6
@@ -1717,7 +1717,7 @@ _ZNKSt13unordered_mapIPKN32pxrInternal_v0_24__pxrReserved__9TfRefBaseEmNS0_6TfHa
           to label %60 unwind label %.loopexit.split-lp
 
 60:                                               ; preds = %58
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_GetDemangledB5cxx11EPKNS_9TfRefBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_GetDemangledB5cxx11EPKNS_9TfRefBaseE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %2)
           to label %61 unwind label %.loopexit.split-lp
 
 61:                                               ; preds = %60

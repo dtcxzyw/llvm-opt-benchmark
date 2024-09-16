@@ -835,7 +835,7 @@ ehcleanup14:                                      ; preds = %if.then.i.i.i46, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16getMediaCacheDirB5cxx11v(ptr dead_on_unwind noalias writable align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16getMediaCacheDirB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

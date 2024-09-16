@@ -5503,7 +5503,7 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %10 = alloca [128 x ptr], align 16
   %11 = load i32, ptr %2, align 4
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %127
+  br i1 %12, label %13, label %128
 
 13:                                               ; preds = %4
   %14 = add nsw i32 %11, -1
@@ -5517,10 +5517,10 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %17 = call i32 @llvm.smin.i32(i32 %16, i32 %14)
   store i32 %17, ptr %7, align 4
   %18 = load i32, ptr %6, align 4
-  %.not66 = icmp sgt i32 %18, %17
-  br i1 %.not66, label %._crit_edge70, label %.lr.ph69
+  %.not67 = icmp sgt i32 %18, %17
+  br i1 %.not67, label %._crit_edge71, label %.lr.ph70
 
-.lr.ph69:                                         ; preds = %13
+.lr.ph70:                                         ; preds = %13
   %19 = getelementptr inbounds i8, ptr %3, i64 440
   %20 = getelementptr inbounds i8, ptr %3, i64 448
   %21 = getelementptr inbounds i8, ptr %3, i64 276
@@ -5538,11 +5538,11 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %26 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %29, %28 ]
   %27 = sext i32 %26 to i64
   %.not.not = icmp slt i64 %indvars.iv, %27
-  br i1 %.not.not, label %28, label %._crit_edge70
+  br i1 %.not.not, label %28, label %._crit_edge71
 
-28:                                               ; preds = %.lr.ph69, %.loopexit
-  %29 = phi i32 [ %17, %.lr.ph69 ], [ %26, %.loopexit ]
-  %indvars.iv = phi i64 [ %25, %.lr.ph69 ], [ %indvars.iv.next, %.loopexit ]
+28:                                               ; preds = %.lr.ph70, %.loopexit
+  %29 = phi i32 [ %17, %.lr.ph70 ], [ %26, %.loopexit ]
+  %indvars.iv = phi i64 [ %25, %.lr.ph70 ], [ %indvars.iv.next, %.loopexit ]
   %30 = load ptr, ptr %19, align 8
   %31 = load ptr, ptr %20, align 8
   %32 = ptrtoint ptr %31 to i64
@@ -5559,24 +5559,24 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %42 = udiv i64 %41, %38
   %43 = trunc i64 %42 to i32
   %44 = icmp slt i32 %40, %43
-  br i1 %44, label %.lr.ph65.preheader, label %.loopexit
+  br i1 %44, label %.lr.ph66.preheader, label %.loopexit
 
-.lr.ph65.preheader:                               ; preds = %28
+.lr.ph66.preheader:                               ; preds = %28
   %sext = shl i64 %39, 32
   %45 = ashr exact i64 %sext, 32
-  %sext77 = shl i64 %42, 32
-  %46 = ashr exact i64 %sext77, 32
-  br label %.lr.ph65
+  %sext78 = shl i64 %42, 32
+  %46 = ashr exact i64 %sext78, 32
+  br label %.lr.ph66
 
-.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
-  %indvars.iv73 = phi i64 [ %45, %.lr.ph65.preheader ], [ %indvars.iv.next74, %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit ]
+.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
+  %indvars.iv74 = phi i64 [ %45, %.lr.ph66.preheader ], [ %indvars.iv.next75, %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit ]
   %47 = load i32, ptr %21, align 4
-  %indvars.iv73.tr = trunc i64 %indvars.iv73 to i32
-  %48 = shl i32 %indvars.iv73.tr, 4
+  %indvars.iv74.tr = trunc i64 %indvars.iv74 to i32
+  %48 = shl i32 %indvars.iv74.tr, 4
   %49 = mul nsw i32 %47, %48
-  %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
-  %indvars.iv.next74.tr = trunc i64 %indvars.iv.next74 to i32
-  %50 = shl i32 %indvars.iv.next74.tr, 4
+  %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
+  %indvars.iv.next75.tr = trunc i64 %indvars.iv.next75 to i32
+  %50 = shl i32 %indvars.iv.next75.tr, 4
   %51 = mul nsw i32 %47, %50
   %52 = load ptr, ptr %23, align 8
   %53 = load ptr, ptr %22, align 8
@@ -5586,9 +5586,9 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %57 = icmp sgt i64 %56, 144
   br i1 %57, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.lr.ph65
+.lr.ph:                                           ; preds = %.lr.ph66
   %58 = udiv exact i64 %56, 144
-  %59 = getelementptr inbounds %"struct.std::array.122", ptr %30, i64 %indvars.iv73
+  %59 = getelementptr inbounds %"struct.std::array.122", ptr %30, i64 %indvars.iv74
   %.sroa.03.0.copyload = load i64, ptr %59, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
@@ -5596,9 +5596,9 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   br label %61
 
 61:                                               ; preds = %.lr.ph, %77
-  %.04261 = phi i32 [ 0, %.lr.ph ], [ %.1, %77 ]
-  %.04360 = phi i64 [ 1, %.lr.ph ], [ %78, %77 ]
-  %62 = trunc i64 %.04360 to i32
+  %.04262 = phi i32 [ 0, %.lr.ph ], [ %.1, %77 ]
+  %.04361 = phi i64 [ 1, %.lr.ph ], [ %78, %77 ]
+  %62 = trunc i64 %.04361 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %.sroa.03.0.copyload, ptr %5, align 8
   store i64 %.sroa.24.0.copyload, ptr %24, align 8
@@ -5610,22 +5610,22 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %68 = zext nneg i32 %67 to i64
   %69 = shl nuw i64 1, %68
   %70 = and i64 %66, %69
-  %.not56 = icmp eq i64 %70, 0
+  %.not57 = icmp eq i64 %70, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %.not56, label %77, label %71
+  br i1 %.not57, label %77, label %71
 
 71:                                               ; preds = %61
-  %72 = getelementptr inbounds %struct.nbnxn_atomdata_output_t, ptr %53, i64 %.04360, i32 0, i32 0, i32 0, i32 1
+  %72 = getelementptr inbounds %struct.nbnxn_atomdata_output_t, ptr %53, i64 %.04361, i32 0, i32 0, i32 0, i32 1
   %73 = load ptr, ptr %72, align 8
-  %74 = add nsw i32 %.04261, 1
-  %75 = sext i32 %.04261 to i64
+  %74 = add nsw i32 %.04262, 1
+  %75 = sext i32 %.04262 to i64
   %76 = getelementptr inbounds [128 x ptr], ptr %10, i64 0, i64 %75
   store ptr %73, ptr %76, align 8
   br label %77
 
 77:                                               ; preds = %61, %71
-  %.1 = phi i32 [ %74, %71 ], [ %.04261, %61 ]
-  %78 = add nuw nsw i64 %.04360, 1
+  %.1 = phi i32 [ %74, %71 ], [ %.04262, %61 ]
+  %78 = add nuw nsw i64 %.04361, 1
   %exitcond.not = icmp eq i64 %78, %60
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !98
 
@@ -5636,28 +5636,28 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
 80:                                               ; preds = %._crit_edge
   %81 = getelementptr inbounds i8, ptr %53, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %"struct.std::array.122", ptr %30, i64 %indvars.iv73
+  %83 = getelementptr inbounds %"struct.std::array.122", ptr %30, i64 %indvars.iv74
   %.sroa.01.0.copyload = load i64, ptr %83, align 8
   %84 = and i64 %.sroa.01.0.copyload, 1
-  %.not54 = icmp eq i64 %84, 0
+  %.not55 = icmp eq i64 %84, 0
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %85 = icmp slt i32 %49, %51
-  br i1 %.not54, label %.preheader49.i, label %.preheader.i
+  br i1 %.not55, label %.preheader49.i, label %.preheader.i
 
 .preheader49.i:                                   ; preds = %80
   br i1 %85, label %.lr.ph54.i, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
 
 .lr.ph54.i:                                       ; preds = %.preheader49.i
   %86 = load ptr, ptr %10, align 16, !alias.scope !102, !noalias !99
-  %.not55 = icmp eq i32 %.1, 1
+  %.not56 = icmp eq i32 %.1, 1
   %87 = sext i32 %49 to i64
-  br i1 %.not55, label %.lr.ph54.split.preheader.i, label %.lr.ph.us.preheader.i
+  br i1 %.not56, label %.lr.ph54.split.preheader.i, label %.lr.ph.us.preheader.i
 
 .lr.ph54.split.preheader.i:                       ; preds = %.lr.ph54.i
   %88 = shl nsw i64 %87, 2
   %scevgep.i = getelementptr i8, ptr %82, i64 %88
-  %scevgep66.i = getelementptr i8, ptr %86, i64 %88
+  %scevgep61.i = getelementptr i8, ptr %86, i64 %88
   %89 = or disjoint i32 %49, 8
   %smax.i = call i32 @llvm.smax.i32(i32 %51, i32 %89)
   %90 = xor i32 %49, -1
@@ -5666,7 +5666,7 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %93 = zext nneg i32 %92 to i64
   %94 = shl nuw nsw i64 %93, 5
   %95 = add nuw nsw i64 %94, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 32 dereferenceable(1) %scevgep66.i, i64 %95, i1 false), !noalias !102
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 32 dereferenceable(1) %scevgep61.i, i64 %95, i1 false), !noalias !102
   br label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph54.i
@@ -5675,8 +5675,8 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv69.i = phi i64 [ %87, %.lr.ph.us.preheader.i ], [ %indvars.iv.next70.i, %._crit_edge.us.i ]
-  %97 = getelementptr inbounds float, ptr %86, i64 %indvars.iv69.i
+  %indvars.iv64.i = phi i64 [ %87, %.lr.ph.us.preheader.i ], [ %indvars.iv.next65.i, %._crit_edge.us.i ]
+  %97 = getelementptr inbounds float, ptr %86, i64 %indvars.iv64.i
   %.val43.us.i = load <8 x float>, ptr %97, align 32, !noalias !104
   br label %98
 
@@ -5685,7 +5685,7 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %.sroa.045.151.us.i = phi <8 x float> [ %.val43.us.i, %.lr.ph.us.i ], [ %102, %98 ]
   %99 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.i
   %100 = load ptr, ptr %99, align 8, !alias.scope !102, !noalias !99
-  %101 = getelementptr inbounds float, ptr %100, i64 %indvars.iv69.i
+  %101 = getelementptr inbounds float, ptr %100, i64 %indvars.iv64.i
   %.val44.us.i = load <8 x float>, ptr %101, align 32, !noalias !104
   %102 = fadd <8 x float> %.sroa.045.151.us.i, %.val44.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5693,77 +5693,77 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %98, !llvm.loop !105
 
 ._crit_edge.us.i:                                 ; preds = %98
-  %103 = getelementptr inbounds float, ptr %82, i64 %indvars.iv69.i
+  %103 = getelementptr inbounds float, ptr %82, i64 %indvars.iv64.i
   store <8 x float> %102, ptr %103, align 32, !alias.scope !99, !noalias !102
-  %indvars.iv.next70.i = add nsw i64 %indvars.iv69.i, 8
-  %104 = icmp slt i64 %indvars.iv.next70.i, %96
+  %indvars.iv.next65.i = add nsw i64 %indvars.iv64.i, 8
+  %104 = icmp slt i64 %indvars.iv.next65.i, %96
   br i1 %104, label %.lr.ph.us.i, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit, !llvm.loop !106
 
 .preheader.i:                                     ; preds = %80
-  br i1 %85, label %.lr.ph.us59.preheader.i, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
+  br i1 %85, label %.lr.ph.preheader.i, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
 
-.lr.ph.us59.preheader.i:                          ; preds = %.preheader.i
+.lr.ph.preheader.i:                               ; preds = %.preheader.i
   %105 = sext i32 %49 to i64
   %106 = sext i32 %51 to i64
-  %wide.trip.count75.i = zext nneg i32 %.1 to i64
-  br label %.lr.ph.us59.i
+  %wide.trip.count70.i = zext nneg i32 %.1 to i64
+  br label %.lr.ph.i
 
-.lr.ph.us59.i:                                    ; preds = %._crit_edge.us60.i, %.lr.ph.us59.preheader.i
-  %indvars.iv77.i = phi i64 [ %105, %.lr.ph.us59.preheader.i ], [ %indvars.iv.next78.i, %._crit_edge.us60.i ]
-  %107 = getelementptr inbounds float, ptr %82, i64 %indvars.iv77.i
-  %.val.us.i = load <8 x float>, ptr %107, align 32, !alias.scope !99, !noalias !102
+.lr.ph.i:                                         ; preds = %113, %.lr.ph.preheader.i
+  %indvars.iv72.i = phi i64 [ %105, %.lr.ph.preheader.i ], [ %indvars.iv.next73.i, %113 ]
+  %107 = getelementptr inbounds float, ptr %82, i64 %indvars.iv72.i
+  %.val.i = load <8 x float>, ptr %107, align 32, !alias.scope !99, !noalias !102
   br label %108
 
-108:                                              ; preds = %108, %.lr.ph.us59.i
-  %indvars.iv72.i = phi i64 [ 0, %.lr.ph.us59.i ], [ %indvars.iv.next73.i, %108 ]
-  %.sroa.045.055.us.i = phi <8 x float> [ %.val.us.i, %.lr.ph.us59.i ], [ %112, %108 ]
-  %109 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv72.i
+108:                                              ; preds = %108, %.lr.ph.i
+  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next68.i, %108 ]
+  %.sroa.045.055.i = phi <8 x float> [ %.val.i, %.lr.ph.i ], [ %112, %108 ]
+  %109 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv67.i
   %110 = load ptr, ptr %109, align 8, !alias.scope !102, !noalias !99
-  %111 = getelementptr inbounds float, ptr %110, i64 %indvars.iv77.i
-  %.val42.us.i = load <8 x float>, ptr %111, align 32, !noalias !104
-  %112 = fadd <8 x float> %.sroa.045.055.us.i, %.val42.us.i
-  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
-  %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
-  br i1 %exitcond76.not.i, label %._crit_edge.us60.i, label %108, !llvm.loop !107
+  %111 = getelementptr inbounds float, ptr %110, i64 %indvars.iv72.i
+  %.val42.i = load <8 x float>, ptr %111, align 32, !noalias !104
+  %112 = fadd <8 x float> %.sroa.045.055.i, %.val42.i
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count70.i
+  br i1 %exitcond71.not.i, label %113, label %108, !llvm.loop !107
 
-._crit_edge.us60.i:                               ; preds = %108
+113:                                              ; preds = %108
   store <8 x float> %112, ptr %107, align 32, !alias.scope !99, !noalias !102
-  %indvars.iv.next78.i = add nsw i64 %indvars.iv77.i, 8
-  %113 = icmp slt i64 %indvars.iv.next78.i, %106
-  br i1 %113, label %.lr.ph.us59.i, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit, !llvm.loop !108
+  %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, 8
+  %114 = icmp slt i64 %indvars.iv.next73.i, %106
+  br i1 %114, label %.lr.ph.i, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit, !llvm.loop !108
 
-._crit_edge.thread:                               ; preds = %.lr.ph65, %._crit_edge
-  %114 = getelementptr inbounds %"struct.std::array.122", ptr %30, i64 %indvars.iv73
-  %.sroa.0.0.copyload = load i64, ptr %114, align 8
-  %115 = and i64 %.sroa.0.0.copyload, 1
-  %.not53 = icmp eq i64 %115, 0
-  %116 = icmp slt i32 %49, %51
-  %or.cond = select i1 %.not53, i1 %116, i1 false
-  br i1 %or.cond, label %.lr.ph.preheader.i, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
+._crit_edge.thread:                               ; preds = %.lr.ph66, %._crit_edge
+  %115 = getelementptr inbounds %"struct.std::array.122", ptr %30, i64 %indvars.iv74
+  %.sroa.0.0.copyload = load i64, ptr %115, align 8
+  %116 = and i64 %.sroa.0.0.copyload, 1
+  %.not54 = icmp eq i64 %116, 0
+  %117 = icmp slt i32 %49, %51
+  %or.cond = select i1 %.not54, i1 %117, i1 false
+  br i1 %or.cond, label %.lr.ph.preheader.i45, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge.thread
-  %117 = getelementptr inbounds i8, ptr %53, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = sext i32 %49 to i64
-  %120 = shl nsw i64 %119, 2
-  %scevgep.i45 = getelementptr i8, ptr %118, i64 %120
-  %121 = xor i32 %49, -1
-  %122 = add i32 %51, %121
-  %123 = zext i32 %122 to i64
-  %124 = shl nuw nsw i64 %123, 2
-  %125 = add nuw nsw i64 %124, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i45, i8 0, i64 %125, i1 false)
+.lr.ph.preheader.i45:                             ; preds = %._crit_edge.thread
+  %118 = getelementptr inbounds i8, ptr %53, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = sext i32 %49 to i64
+  %121 = shl nsw i64 %120, 2
+  %scevgep.i46 = getelementptr i8, ptr %119, i64 %121
+  %122 = xor i32 %49, -1
+  %123 = add i32 %51, %122
+  %124 = zext i32 %123 to i64
+  %125 = shl nuw nsw i64 %124, 2
+  %126 = add nuw nsw i64 %125, 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i46, i8 0, i64 %126, i1 false)
   br label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
 
-_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit: ; preds = %._crit_edge.us60.i, %._crit_edge.us.i, %.lr.ph.preheader.i, %.preheader.i, %.lr.ph54.split.preheader.i, %.preheader49.i, %._crit_edge.thread
-  %126 = icmp slt i64 %indvars.iv.next74, %46
-  br i1 %126, label %.lr.ph65, label %.loopexit.loopexit, !llvm.loop !109
+_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit: ; preds = %113, %._crit_edge.us.i, %.lr.ph.preheader.i45, %.preheader.i, %.lr.ph54.split.preheader.i, %.preheader49.i, %._crit_edge.thread
+  %127 = icmp slt i64 %indvars.iv.next75, %46
+  br i1 %127, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !109
 
-._crit_edge70:                                    ; preds = %.loopexit, %13
+._crit_edge71:                                    ; preds = %.loopexit, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
-  br label %127
+  br label %128
 
-127:                                              ; preds = %._crit_edge70, %4
+128:                                              ; preds = %._crit_edge71, %4
   ret void
 }
 

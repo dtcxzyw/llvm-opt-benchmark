@@ -193,7 +193,7 @@ define internal noundef i32 @gray_raster_render(ptr noundef readnone %0, ptr noc
   br i1 %.not51, label %76, label %78
 
 76:                                               ; preds = %71
-  %77 = call fastcc i32 @gray_convert_glyph(ptr noundef nonnull %3)
+  %77 = call fastcc i32 @gray_convert_glyph(ptr noundef %3)
   br label %78
 
 78:                                               ; preds = %68, %71, %52, %47, %50, %46, %37, %27, %21, %24, %12, %17, %11, %7, %2, %76
@@ -531,7 +531,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [16 x %struct.FT_Span_], align 16
   %3 = alloca [682 x %struct.TCell_], align 16
   %4 = alloca [32 x i32], align 16
@@ -651,7 +651,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef %0) unnamed_a
   %69 = getelementptr inbounds %struct.TCell_, ptr %3, i64 %68
   store ptr %69, ptr %35, align 8
   store ptr %65, ptr %36, align 8
-  %70 = call fastcc i32 @gray_convert_glyph_inner(ptr noundef nonnull %0, i32 noundef %.1)
+  %70 = call fastcc i32 @gray_convert_glyph_inner(ptr noundef %0, i32 noundef %.1)
   switch i32 %70, label %.loopexit [
     i32 0, label %71
     i32 98, label %275
@@ -1171,7 +1171,7 @@ gray_sweep.exit:                                  ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gray_convert_glyph_inner(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @gray_convert_glyph_inner(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   %5 = call i32 @_setjmp(ptr noundef nonnull %4) #12
@@ -1185,7 +1185,7 @@ define internal fastcc i32 @gray_convert_glyph_inner(ptr noundef %0, i32 noundef
 8:                                                ; preds = %7
   call void @FT_Trace_Disable() #11
   %9 = getelementptr inbounds i8, ptr %0, i64 104
-  %10 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %9, ptr noundef nonnull @func_interface, ptr noundef %0) #11
+  %10 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %9, ptr noundef nonnull @func_interface, ptr noundef nonnull %0) #11
   store volatile i32 %10, ptr %3, align 4
   call void @FT_Trace_Enable() #11
   br label %14
@@ -1196,7 +1196,7 @@ define internal fastcc i32 @gray_convert_glyph_inner(ptr noundef %0, i32 noundef
 
 .critedge:                                        ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 104
-  %13 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %12, ptr noundef nonnull @func_interface, ptr noundef %0) #11
+  %13 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %12, ptr noundef nonnull @func_interface, ptr noundef nonnull %0) #11
   store volatile i32 %13, ptr %3, align 4
   br label %14
 

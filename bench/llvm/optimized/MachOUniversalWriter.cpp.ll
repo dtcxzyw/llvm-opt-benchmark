@@ -801,7 +801,7 @@ _ZNSt8optionalISt4pairIjjEE7emplaceIJRS1_EEENSt9enable_ifIX18is_constructible_vI
   %202 = call { ptr, i64 } @_ZNK4llvm6object12IRObjectFile15getTargetTripleEv(ptr noundef nonnull align 8 dereferenceable(224) %118) #18
   %203 = extractvalue { ptr, i64 } %202, 0
   %204 = extractvalue { ptr, i64 } %202, 1
-  call fastcc void @_ZL21getMachoCPUFromTripleN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr %203, i64 %204)
+  call fastcc void @_ZL21getMachoCPUFromTripleN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %32, ptr %203, i64 %204)
   %205 = load i8, ptr %87, align 8
   %206 = trunc i8 %205 to i1
   br i1 %206, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i196, label %212
@@ -1434,7 +1434,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21getMachoCPUFromTripleN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL21getMachoCPUFromTripleN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Expected.147", align 8
   %5 = alloca %"class.llvm::Expected.147", align 8
   %6 = alloca %"class.llvm::Triple", align 8
@@ -1654,7 +1654,7 @@ define dso_local void @_ZN4llvm6object5Slice6createERKNS0_12IRObjectFileEj(ptr d
   %11 = tail call { ptr, i64 } @_ZNK4llvm6object12IRObjectFile15getTargetTripleEv(ptr noundef nonnull align 8 dereferenceable(224) %1) #18
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
-  call fastcc void @_ZL21getMachoCPUFromTripleN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %12, i64 %13)
+  call fastcc void @_ZL21getMachoCPUFromTripleN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr %12, i64 %13)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1

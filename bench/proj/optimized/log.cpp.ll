@@ -94,7 +94,7 @@ _ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit: ; preds = %8, %15, %18
 declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 36
@@ -125,7 +125,7 @@ define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20, %18
-  %25 = tail call i32 @vsnprintf(ptr noundef nonnull %16, i64 noundef 100000, ptr noundef %3, ptr noundef %4) #12
+  %25 = tail call i32 @vsnprintf(ptr noundef nonnull %16, i64 noundef 100000, ptr noundef %3, ptr noundef nonnull %4) #12
   br label %38
 
 26:                                               ; preds = %20
@@ -144,7 +144,7 @@ define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(
 
 31:                                               ; preds = %29
   %32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
-  %33 = call i32 @vsnprintf(ptr noundef nonnull %16, i64 noundef 100000, ptr noundef %32, ptr noundef %4) #12
+  %33 = call i32 @vsnprintf(ptr noundef nonnull %16, i64 noundef 100000, ptr noundef %32, ptr noundef nonnull %4) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   br label %38
 
@@ -219,7 +219,7 @@ define void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %0, ptr noundef %1, .
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call noundef ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef %0)
-  call fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr noundef %4, i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr noundef %4, i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -231,7 +231,7 @@ define hidden void @_Z14proj_log_debugP8PJconstsPKcz(ptr noundef %0, ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call noundef ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef %0)
-  call fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr noundef %4, i32 noundef 2, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr noundef %4, i32 noundef 2, ptr noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -279,7 +279,7 @@ define hidden void @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef %0, ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call noundef ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef %0)
-  call fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr noundef %4, i32 noundef 3, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr noundef %4, i32 noundef 3, ptr noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }

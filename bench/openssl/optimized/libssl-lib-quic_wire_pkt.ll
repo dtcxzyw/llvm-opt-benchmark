@@ -139,7 +139,7 @@ entry:
   %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
-  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
+  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef %mask.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_quic_hdr_protector_decrypt_fields.exit, label %if.end.i
 
@@ -178,7 +178,7 @@ ossl_quic_hdr_protector_decrypt_fields.exit:      ; preds = %for.body.i, %entry
 define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
 entry:
   %mask = alloca [5 x i8], align 1
-  %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask)
+  %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -213,7 +213,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hdr_generate_mask(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hdr_generate_mask(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask) unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %dst = alloca [16 x i8], align 16
@@ -278,7 +278,7 @@ if.end18:                                         ; preds = %if.then15
 
 lor.lhs.false22:                                  ; preds = %if.end18
   %4 = load ptr, ptr %cipher_ctx19, align 8
-  %call24 = call i32 @EVP_CipherUpdate(ptr noundef %4, ptr noundef %mask, ptr noundef nonnull %l, ptr noundef nonnull @hdr_generate_mask.zeroes, i32 noundef 5) #9
+  %call24 = call i32 @EVP_CipherUpdate(ptr noundef %4, ptr noundef nonnull %mask, ptr noundef nonnull %l, ptr noundef nonnull @hdr_generate_mask.zeroes, i32 noundef 5) #9
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %return
 
@@ -311,7 +311,7 @@ entry:
   %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
-  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
+  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef %mask.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_quic_hdr_protector_encrypt_fields.exit, label %if.end.i
 
@@ -354,7 +354,7 @@ ossl_quic_hdr_protector_encrypt_fields.exit:      ; preds = %entry, %for.end.i
 define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
 entry:
   %mask = alloca [5 x i8], align 1
-  %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask)
+  %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -714,7 +714,7 @@ default.unreachable303:                           ; preds = %if.end202
 sw.epilog:                                        ; preds = %if.end202
   %bf.set225 = or disjoint i32 %bf.clear206, 32769
   store i32 %bf.set225, ptr %hdr, align 8
-  %call238 = call fastcc i32 @PACKET_get_quic_vlint(ptr noundef nonnull %pkt, ptr noundef nonnull %token_len237)
+  %call238 = call fastcc i32 @PACKET_get_quic_vlint(ptr noundef nonnull %pkt, ptr noundef %token_len237)
   %tobool239 = icmp eq i32 %call238, 0
   br i1 %tobool239, label %return, label %lor.lhs.false243
 
@@ -795,7 +795,7 @@ if.else284:                                       ; preds = %if.end258
   %bf.set293 = select i1 %tobool286.not, i32 %31, i32 0
   %bf.set305 = or disjoint i32 %bf.set293, %bf.clear292
   store i32 %bf.set305, ptr %hdr, align 8
-  %call306 = call fastcc i32 @PACKET_get_quic_vlint(ptr noundef nonnull %pkt, ptr noundef nonnull %len285)
+  %call306 = call fastcc i32 @PACKET_get_quic_vlint(ptr noundef nonnull %pkt, ptr noundef %len285)
   %tobool307 = icmp eq i32 %call306, 0
   %32 = load i64, ptr %len285, align 8
   %cmp309 = icmp ult i64 %32, 4
@@ -915,7 +915,7 @@ return:                                           ; preds = %if.end107, %if.else
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr nocapture noundef %pkt, ptr nocapture noundef nonnull writeonly %data) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val6 = load i64, ptr %0, align 8

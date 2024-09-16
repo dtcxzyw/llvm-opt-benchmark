@@ -837,7 +837,7 @@ if.then26:                                        ; preds = %if.end24
   br label %return
 
 if.end27:                                         ; preds = %if.end24
-  %call28 = tail call fastcc i32 @hpke_encap(ptr noundef nonnull %ctx, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %pub, i64 noundef %publen)
+  %call28 = tail call fastcc i32 @hpke_encap(ptr noundef %ctx, ptr noundef %enc, ptr noundef %enclen, ptr noundef %pub, i64 noundef %publen)
   %cmp29.not.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not.not, label %if.then30, label %if.end31
 
@@ -848,7 +848,7 @@ if.then30:                                        ; preds = %if.end27
   br label %return
 
 if.end31:                                         ; preds = %if.end27
-  %call32 = tail call fastcc i32 @hpke_do_middle(ptr noundef nonnull %ctx, ptr noundef %info, i64 noundef %infolen)
+  %call32 = tail call fastcc i32 @hpke_do_middle(ptr noundef %ctx, ptr noundef %info, i64 noundef %infolen)
   br label %return
 
 return:                                           ; preds = %if.end31, %if.then30, %if.then26, %if.then23, %if.then18, %if.then14, %if.then11, %if.then
@@ -895,7 +895,7 @@ hpke_expansion.exit:                              ; preds = %if.end4.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_encap(ptr noundef %ctx, ptr noundef %enc, ptr noundef %enclen, ptr noundef %pub, i64 noundef %publen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_encap(ptr noundef nonnull %ctx, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %pub, i64 noundef range(i64 1, 0) %publen) unnamed_addr #0 {
 entry:
   %params = alloca [3 x %struct.ossl_param_st], align 16
   %lsslen = alloca i64, align 8
@@ -958,7 +958,7 @@ if.then20:                                        ; preds = %hpke_kem_id_nist_cu
   %6 = load ptr, ptr %propq, align 8
   %groupname = getelementptr inbounds i8, ptr %call, i64 16
   %7 = load ptr, ptr %groupname, align 8
-  %call21 = tail call fastcc ptr @evp_pkey_new_raw_nist_public_key(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %pub, i64 noundef %publen)
+  %call21 = tail call fastcc ptr @evp_pkey_new_raw_nist_public_key(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %pub, i64 noundef %publen)
   br label %if.end25
 
 if.else:                                          ; preds = %if.end15, %hpke_kem_id_nist_curve.exit
@@ -967,7 +967,7 @@ if.else:                                          ; preds = %if.end15, %hpke_kem
   %9 = load ptr, ptr %keytype, align 8
   %propq23 = getelementptr inbounds i8, ptr %ctx, i64 8
   %10 = load ptr, ptr %propq23, align 8
-  %call24 = tail call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %pub, i64 noundef %publen) #5
+  %call24 = tail call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %pub, i64 noundef %publen) #5
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else, %if.then20
@@ -1082,7 +1082,7 @@ if.end71:                                         ; preds = %if.end65
   %22 = load i64, ptr %lsslen, align 8
   %shared_secretlen = getelementptr inbounds i8, ptr %ctx, i64 88
   store i64 %22, ptr %shared_secretlen, align 8
-  %call74 = call i32 @EVP_PKEY_encapsulate(ptr noundef nonnull %call31, ptr noundef %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %call66, ptr noundef nonnull %shared_secretlen) #5
+  %call74 = call i32 @EVP_PKEY_encapsulate(ptr noundef nonnull %call31, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %call66, ptr noundef nonnull %shared_secretlen) #5
   %cmp75.not = icmp eq i32 %call74, 1
   br i1 %cmp75.not, label %err, label %if.then76
 
@@ -1109,7 +1109,7 @@ return:                                           ; preds = %err, %if.then14, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_do_middle(ptr nocapture noundef %ctx, ptr noundef %info, i64 noundef %infolen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_do_middle(ptr nocapture noundef nonnull %ctx, ptr noundef %info, i64 noundef range(i64 0, 1025) %infolen) unnamed_addr #0 {
 entry:
   %ks_context = alloca [512 x i8], align 16
   %secret = alloca [512 x i8], align 16
@@ -1473,7 +1473,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %if.end20
-  %call24 = tail call fastcc i32 @hpke_decap(ptr noundef nonnull %ctx, ptr noundef nonnull %enc, i64 noundef %enclen, ptr noundef nonnull %recippriv)
+  %call24 = tail call fastcc i32 @hpke_decap(ptr noundef %ctx, ptr noundef %enc, i64 noundef %enclen, ptr noundef %recippriv)
   %cmp25.not.not = icmp eq i32 %call24, 0
   br i1 %cmp25.not.not, label %if.then26, label %if.end27
 
@@ -1484,7 +1484,7 @@ if.then26:                                        ; preds = %if.end23
   br label %return
 
 if.end27:                                         ; preds = %if.end23
-  %call28 = tail call fastcc i32 @hpke_do_middle(ptr noundef nonnull %ctx, ptr noundef %info, i64 noundef %infolen)
+  %call28 = tail call fastcc i32 @hpke_do_middle(ptr noundef %ctx, ptr noundef %info, i64 noundef %infolen)
   br label %return
 
 return:                                           ; preds = %if.end27, %if.then26, %if.then22, %if.then19, %if.then14, %if.then10, %if.then7, %if.then
@@ -1493,7 +1493,7 @@ return:                                           ; preds = %if.end27, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_decap(ptr nocapture noundef %ctx, ptr noundef %enc, i64 noundef %enclen, ptr noundef %priv) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_decap(ptr nocapture noundef nonnull %ctx, ptr noundef nonnull %enc, i64 noundef range(i64 1, 0) %enclen, ptr noundef nonnull %priv) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %lsslen = alloca i64, align 8
@@ -1515,7 +1515,7 @@ if.end8:                                          ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
   %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %propq, align 8
-  %call = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %1, ptr noundef %priv, ptr noundef %2) #5
+  %call = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %1, ptr noundef nonnull %priv, ptr noundef %2) #5
   %cmp9 = icmp eq ptr %call, null
   br i1 %cmp9, label %if.then10, label %if.end11
 
@@ -1621,7 +1621,7 @@ if.then48:                                        ; preds = %if.else44
 
 if.end50:                                         ; preds = %if.else44, %if.end38
   %spub.2 = phi ptr [ %spub.1, %if.end38 ], [ null, %if.else44 ]
-  %call51 = call i32 @EVP_PKEY_decapsulate(ptr noundef nonnull %call, ptr noundef null, ptr noundef nonnull %lsslen, ptr noundef %enc, i64 noundef %enclen) #5
+  %call51 = call i32 @EVP_PKEY_decapsulate(ptr noundef nonnull %call, ptr noundef null, ptr noundef nonnull %lsslen, ptr noundef nonnull %enc, i64 noundef %enclen) #5
   %cmp52.not = icmp eq i32 %call51, 1
   br i1 %cmp52.not, label %if.end54, label %if.then53
 
@@ -1639,7 +1639,7 @@ if.end54:                                         ; preds = %if.end50
   br i1 %cmp58, label %err, label %if.end60
 
 if.end60:                                         ; preds = %if.end54
-  %call62 = call i32 @EVP_PKEY_decapsulate(ptr noundef nonnull %call, ptr noundef nonnull %call55, ptr noundef nonnull %lsslen, ptr noundef %enc, i64 noundef %enclen) #5
+  %call62 = call i32 @EVP_PKEY_decapsulate(ptr noundef nonnull %call, ptr noundef nonnull %call55, ptr noundef nonnull %lsslen, ptr noundef nonnull %enc, i64 noundef %enclen) #5
   %cmp63.not = icmp eq i32 %call62, 1
   br i1 %cmp63.not, label %if.end65, label %if.then64
 
@@ -1783,7 +1783,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %for.body9.i
-  %call25 = call fastcc i32 @hpke_aead_enc(ptr noundef %ctx, ptr noundef nonnull %seqbuf, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen, ptr noundef %ct, ptr noundef nonnull %ctlen)
+  %call25 = call fastcc i32 @hpke_aead_enc(ptr noundef %ctx, ptr noundef %seqbuf, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen, ptr noundef %ct, ptr noundef %ctlen)
   %cmp26.not.not = icmp eq i32 %call25, 0
   br i1 %cmp26.not.not, label %if.then27, label %if.else
 
@@ -1807,7 +1807,7 @@ return:                                           ; preds = %if.else, %if.then27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_aead_enc(ptr nocapture noundef readonly %hctx, ptr noundef %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen, ptr noundef %ct, ptr nocapture noundef %ctlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_aead_enc(ptr nocapture noundef nonnull readonly %hctx, ptr noundef nonnull %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef nonnull %pt, i64 noundef range(i64 1, 0) %ptlen, ptr noundef nonnull %ct, ptr nocapture noundef nonnull %ctlen) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %tag = alloca [16 x i8], align 16
@@ -1873,7 +1873,7 @@ if.then23:                                        ; preds = %if.end18
 if.end24:                                         ; preds = %if.end18
   %key = getelementptr inbounds i8, ptr %hctx, i64 96
   %5 = load ptr, ptr %key, align 8
-  %call25 = tail call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef %iv) #5
+  %call25 = tail call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef nonnull %iv) #5
   %cmp26.not = icmp eq i32 %call25, 1
   br i1 %cmp26.not, label %if.end29, label %if.then28
 
@@ -1903,7 +1903,7 @@ if.then39:                                        ; preds = %if.then34
 
 if.end41:                                         ; preds = %if.then34, %if.end29
   %conv42 = trunc i64 %ptlen to i32
-  %call43 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %call, ptr noundef %ct, ptr noundef nonnull %len, ptr noundef %pt, i32 noundef %conv42) #5
+  %call43 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %call, ptr noundef nonnull %ct, ptr noundef nonnull %len, ptr noundef nonnull %pt, i32 noundef %conv42) #5
   %cmp44.not = icmp eq i32 %call43, 1
   br i1 %cmp44.not, label %if.end47, label %if.then46
 
@@ -1918,7 +1918,7 @@ if.end47:                                         ; preds = %if.end41
   %conv48 = sext i32 %6 to i64
   store i64 %conv48, ptr %ctlen, align 8
   %add.ptr = getelementptr inbounds i8, ptr %ct, i64 %conv48
-  %call49 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %call, ptr noundef %add.ptr, ptr noundef nonnull %len) #5
+  %call49 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr, ptr noundef nonnull %len) #5
   %cmp50.not = icmp eq i32 %call49, 1
   br i1 %cmp50.not, label %if.end53, label %if.then52
 
@@ -1948,7 +1948,7 @@ if.then59:                                        ; preds = %if.end53
 err:                                              ; preds = %if.end53
   %9 = load i64, ptr %ctlen, align 8
   %add.ptr61 = getelementptr inbounds i8, ptr %ct, i64 %9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr61, ptr nonnull align 16 %tag, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr61, ptr nonnull align 16 %tag, i64 %1, i1 false)
   %10 = load i64, ptr %ctlen, align 8
   %add63 = add i64 %10, %1
   store i64 %add63, ptr %ctlen, align 8
@@ -1956,7 +1956,7 @@ err:                                              ; preds = %if.end53
 
 if.then66:                                        ; preds = %if.then17, %if.then23, %if.then28, %if.then39, %if.then46, %if.then52, %if.then59
   %11 = load i64, ptr %ctlen, align 8
-  call void @OPENSSL_cleanse(ptr noundef %ct, i64 noundef %11) #5
+  call void @OPENSSL_cleanse(ptr noundef nonnull %ct, i64 noundef %11) #5
   br label %if.end67
 
 if.end67:                                         ; preds = %err, %if.then66
@@ -2080,7 +2080,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %for.body9.i
-  %call25 = call fastcc i32 @hpke_aead_dec(ptr noundef %ctx, ptr noundef nonnull %seqbuf, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %pt, ptr noundef nonnull %ptlen)
+  %call25 = call fastcc i32 @hpke_aead_dec(ptr noundef %ctx, ptr noundef %seqbuf, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %pt, ptr noundef %ptlen)
   %cmp26.not.not = icmp eq i32 %call25, 0
   br i1 %cmp26.not.not, label %if.then27, label %if.end29
 
@@ -2104,7 +2104,7 @@ return:                                           ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_aead_dec(ptr nocapture noundef readonly %hctx, ptr noundef %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %pt, ptr nocapture noundef %ptlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_aead_dec(ptr nocapture noundef nonnull readonly %hctx, ptr noundef nonnull %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef nonnull %ct, i64 noundef range(i64 1, 0) %ctlen, ptr noundef nonnull %pt, ptr nocapture noundef nonnull %ptlen) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
@@ -2162,7 +2162,7 @@ if.then13:                                        ; preds = %if.end9
 if.end14:                                         ; preds = %if.end9
   %key = getelementptr inbounds i8, ptr %hctx, i64 96
   %5 = load ptr, ptr %key, align 8
-  %call15 = tail call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef %iv) #5
+  %call15 = tail call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef nonnull %iv) #5
   %cmp16.not = icmp eq i32 %call15, 1
   br i1 %cmp16.not, label %if.end19, label %if.then18
 
@@ -2192,7 +2192,7 @@ if.then29:                                        ; preds = %if.then24
 
 if.end31:                                         ; preds = %if.then24, %if.end19
   %conv33 = trunc i64 %sub to i32
-  %call34 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %call, ptr noundef %pt, ptr noundef nonnull %len, ptr noundef %ct, i32 noundef %conv33) #5
+  %call34 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %call, ptr noundef nonnull %pt, ptr noundef nonnull %len, ptr noundef nonnull %ct, i32 noundef %conv33) #5
   %cmp35.not = icmp eq i32 %call34, 1
   br i1 %cmp35.not, label %if.end38, label %if.then37
 
@@ -2224,7 +2224,7 @@ if.end44:                                         ; preds = %if.end38
   %7 = load i32, ptr %len, align 4
   %idx.ext = sext i32 %7 to i64
   %add.ptr45 = getelementptr inbounds i8, ptr %pt, i64 %idx.ext
-  %call46 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %call, ptr noundef %add.ptr45, ptr noundef nonnull %len) #5
+  %call46 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr45, ptr noundef nonnull %len) #5
   %cmp47 = icmp slt i32 %call46, 1
   br i1 %cmp47, label %if.then49, label %if.end54
 
@@ -2236,7 +2236,7 @@ if.then49:                                        ; preds = %if.end44
 
 if.then53:                                        ; preds = %if.then8, %if.then13, %if.then18, %if.then29, %if.then37, %if.then49, %if.then43
   %8 = load i64, ptr %ptlen, align 8
-  call void @OPENSSL_cleanse(ptr noundef %pt, i64 noundef %8) #5
+  call void @OPENSSL_cleanse(ptr noundef nonnull %pt, i64 noundef %8) #5
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end44, %if.then53

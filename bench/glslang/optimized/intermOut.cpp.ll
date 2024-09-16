@@ -6738,7 +6738,7 @@ define void @_ZN7glslang16TOutputTraverser18visitConstantUnionEPNS_20TIntermCons
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_12TIntermTypedERKNS_16TConstUnionArrayENS_16TOutputTraverser12EExtraOutputEi(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_12TIntermTypedERKNS_16TConstUnionArrayENS_16TOutputTraverser12EExtraOutputEi(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef range(i32 -2147483647, -2147483648) %4) unnamed_addr #0 {
   %6 = alloca [340 x i8], align 16
   %7 = alloca [300 x i8], align 16
   %8 = alloca [300 x i8], align 16

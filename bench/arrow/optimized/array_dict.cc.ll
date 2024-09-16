@@ -3904,7 +3904,7 @@ entry:
   %1 = load ptr, ptr %dictionary, align 8
   %data_.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.val = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr %call.val, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef %transpose_map, ptr noundef %pool)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr %call.val, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef %transpose_map, ptr noundef %pool)
   %2 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %invoke.cont11, label %if.then
@@ -4024,7 +4024,7 @@ cleanup:                                          ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture readonly %in_type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %out_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef %transpose_map, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture readonly %in_type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %out_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef %transpose_map, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %out_data = alloca %"class.std::shared_ptr", align 8
@@ -6114,7 +6114,7 @@ if.end.i:                                         ; preds = %entry
   %15 = load ptr, ptr %index_type_.i.i, align 8, !noalias !59
   %16 = getelementptr i8, ptr %15, i64 40
   %call12.val.i = load i32, ptr %16, align 8, !noalias !59
-  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_126CompactTransposeMapVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp10.i, i32 %call12.val.i, ptr noundef nonnull %visitor.i)
+  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_126CompactTransposeMapVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp10.i, i32 %call12.val.i, ptr noundef %visitor.i)
           to label %_ZN5arrow6StatusD2Ev.exit38.i unwind label %lpad.i, !noalias !59
 
 _ZN5arrow6StatusD2Ev.exit38.i:                    ; preds = %if.end.i
@@ -6830,7 +6830,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow12_GLOBAL_
   %18 = load ptr, ptr %value_type, align 8
   %19 = getelementptr i8, ptr %18, i64 40
   %call.val = load i32, ptr %19, align 8
-  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_111MakeUnifierEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp, i32 %call.val, ptr noundef nonnull %maker)
+  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_111MakeUnifierEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp, i32 %call.val, ptr noundef %maker)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad1
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit
@@ -7113,7 +7113,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_111MakeUnifierEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, i32 %type.40.val, ptr noundef %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_111MakeUnifierEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i2043 = alloca %"class.std::shared_ptr.9", align 8
   %agg.tmp.i1975 = alloca %"class.std::shared_ptr.9", align 8
@@ -7194,7 +7194,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %0 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val = load ptr, ptr %0, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
@@ -12574,77 +12574,77 @@ _ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIX
 sw.bb62:                                          ; preds = %entry
   %691 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val86 = load ptr, ptr %691, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val86, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val86, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb64:                                          ; preds = %entry
   %692 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val87 = load ptr, ptr %692, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val87, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val87, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb66:                                          ; preds = %entry
   %693 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val88 = load ptr, ptr %693, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val88, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val88, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb68:                                          ; preds = %entry
   %694 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val89 = load ptr, ptr %694, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val89, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val89, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb70:                                          ; preds = %entry
   %695 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val90 = load ptr, ptr %695, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val90, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val90, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb72:                                          ; preds = %entry
   %696 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val91 = load ptr, ptr %696, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val91, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val91, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb74:                                          ; preds = %entry
   %697 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val92 = load ptr, ptr %697, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val92, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val92, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb76:                                          ; preds = %entry
   %698 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val93 = load ptr, ptr %698, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val93, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val93, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb78:                                          ; preds = %entry
   %699 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val94 = load ptr, ptr %699, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val94, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val94, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb80:                                          ; preds = %entry
   %700 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val95 = load ptr, ptr %700, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val95, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val95, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb82:                                          ; preds = %entry
   %701 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val96 = load ptr, ptr %701, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val96, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val96, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.bb84:                                          ; preds = %entry
   %702 = getelementptr i8, ptr %visitor, i64 8
   %visitor.val97 = load ptr, ptr %702, align 8
-  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val97, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA16_KcRNS_8DataTypeERA33_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(16) @.str.25, ptr noundef nonnull align 8 dereferenceable(72) %visitor.val97, ptr noundef nonnull align 1 dereferenceable(33) @.str.26)
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.16)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.16)
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb84, %sw.bb82, %sw.bb80, %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %sw.bb
@@ -13087,7 +13087,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %invoke.cont22, %if.then.i.i.i.i.i22, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EE(ptr noalias nonnull align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26, ptr noundef nonnull %agg.tmp28, ptr noundef nonnull %data_chunks)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EE(ptr noalias align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26, ptr noundef %agg.tmp28, ptr noundef %data_chunks)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
@@ -13786,7 +13786,7 @@ return:                                           ; preds = %if.then.i.i.i190, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef %type, ptr nocapture noundef readonly %chunks) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull %type, ptr nocapture noundef nonnull readonly %chunks) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ext_type = alloca %"class.std::shared_ptr.9", align 8
   %children = alloca %"class.std::vector.12", align 8
@@ -14163,7 +14163,7 @@ if.else.i.i.i.i.i87:                              ; preds = %if.then.i.i.i82
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %invoke.cont38, %if.then.i.i.i.i.i85, %if.else.i.i.i.i.i87
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EE(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp42, ptr noundef nonnull %children)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EE(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %agg.tmp42, ptr noundef %children)
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
@@ -15315,7 +15315,7 @@ for.body192:                                      ; preds = %for.body192.lr.ph, 
   %cond.i = select i1 %tobool.i, ptr %229, ptr null
   %230 = load ptr, ptr %this, align 8
   %type.val = load ptr, ptr %type, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp193, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i572, ptr %type.val, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef %cond.i, ptr noundef %230)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp193, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i572, ptr %type.val, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef %cond.i, ptr noundef %230)
           to label %invoke.cont201 unwind label %lpad171.loopexit
 
 invoke.cont201:                                   ; preds = %for.body192
@@ -19746,7 +19746,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_126CompactTransposeMapVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, i32 %type.40.val, ptr noundef %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_126CompactTransposeMapVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i433.i.i2950 = alloca %class.anon.231, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i2951 = alloca %class.anon.231, align 1
@@ -19963,11 +19963,11 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb4:                                           ; preds = %entry
@@ -31125,139 +31125,139 @@ _ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9
   br label %return
 
 sw.bb20:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb22:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb24:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb26:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb28:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb30:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb32:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb34:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb36:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb38:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb40:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb42:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb44:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb46:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb48:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb50:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb52:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb54:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb56:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb58:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb60:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb62:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb64:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb66:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb68:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb70:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb72:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb74:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb76:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb78:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb80:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb82:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.bb84:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA38_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(38) @.str.17)
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.16)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.16)
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb84, %sw.bb82, %sw.bb80, %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %sw.bb2, %sw.bb
@@ -65120,7 +65120,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPtEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -65831,7 +65831,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -69060,7 +69060,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPiEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -69771,7 +69771,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -76766,7 +76766,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -77477,7 +77477,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -83824,7 +83824,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPtEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -87396,6 +87396,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !2817
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
+  %conv.i.i.i = trunc nuw nsw i64 %length to i32
+  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %add.ptr13.val.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 1, !alias.scope !2816
@@ -87414,14 +87416,11 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %mul.i.i32.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
   %shr.i4.i.i33.i.i = lshr i64 %mul.i.i32.i.i, 32
   %xor.i5.i.i34.i.i = xor i64 %shr.i4.i.i33.i.i, %mul.i.i32.i.i
-  %cmp203.i.i.i = icmp ugt i64 %length, 143
-  br i1 %cmp203.i.i.i, label %for.body21.preheader.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i
+  %cmp203.not.i.i.i = icmp eq i32 %div25.i.i.i, 8
+  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.preheader.i.i.i
 
 for.body21.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %conv.i.i.i = trunc nuw i64 %length to i32
-  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
-  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div25.i.i.i, i32 9)
-  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %div25.i.i.i to i64
   br label %for.body21.i.i.i
 
 for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %for.body21.preheader.i.i.i
@@ -87561,7 +87560,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i:     ; preds = %for.body.i29.i.i.i.
   br i1 %exitcond.not.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !2872
 
 for.end.i.i.i.i:                                  ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i, %if.end9.i.i
-  %mul9.i.i.i.i = mul nuw i64 %div2.i.i.i.i, 576
+  %mul9.i.i.i.i = mul nuw nsw i64 %div2.i.i.i.i, 576
   %div1127.i.i.i.i = lshr i64 %sub10.i.i.i.i.recomposed, 6
   %cmp13.i.i.i.i = icmp ult i64 %sub10.i.i.i.i.recomposed, 1152
   tail call void @llvm.assume(i1 %cmp13.i.i.i.i)
@@ -98151,7 +98150,7 @@ if.then28:                                        ; preds = %invoke.cont27
 if.end37:                                         ; preds = %if.then28, %invoke.cont27
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp39, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp39, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad40
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end37
@@ -98826,7 +98825,7 @@ cleanup89:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -104449,7 +104448,7 @@ if.then27:                                        ; preds = %invoke.cont26
 if.end35:                                         ; preds = %if.then27, %invoke.cont26
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp37, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp37, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad38
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end35
@@ -113314,7 +113313,7 @@ if.then28:                                        ; preds = %invoke.cont27
 if.end36:                                         ; preds = %if.then28, %invoke.cont27
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp38, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad39
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end36
@@ -113989,7 +113988,7 @@ cleanup88:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -116497,7 +116496,7 @@ if.then27:                                        ; preds = %invoke.cont26
 if.end35:                                         ; preds = %if.then27, %invoke.cont26
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp37, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp37, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad38
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end35
@@ -119371,7 +119370,7 @@ if.then25.i:                                      ; preds = %if.end17.i
 invoke.cont16:                                    ; preds = %if.then25.i, %if.end17.i, %if.then4.i, %call.i.noexc
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp18, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp18, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad19
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont16
@@ -122327,7 +122326,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -125363,7 +125362,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPiEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -128393,7 +128392,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -131423,7 +131422,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -134459,7 +134458,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPiEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -137489,7 +137488,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -144305,7 +144304,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont14:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPiEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp16, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad17
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont14
@@ -150982,7 +150981,7 @@ if.then25.i:                                      ; preds = %if.end17.i
 invoke.cont16:                                    ; preds = %if.then25.i, %if.end17.i, %if.then4.i, %call.i.noexc
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp18, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp18, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad19
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont16
@@ -153816,7 +153815,7 @@ if.then25.i:                                      ; preds = %if.end17.i
 invoke.cont16:                                    ; preds = %if.then25.i, %if.end17.i, %if.then4.i, %call.i.noexc
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp18, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp18, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad19
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont16
@@ -154952,9 +154951,6 @@ declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21

@@ -1125,7 +1125,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$syn..path..PathArguments$GT$17h4ba049f76b6e7b99E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #7 {
+define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$syn..path..PathArguments$GT$17h4ba049f76b6e7b99E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 {
   %2 = load i64, ptr %0, align 8, !range !211, !noundef !9
   %3 = xor i64 %2, -9223372036854775808
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
@@ -6165,7 +6165,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
   br label %282
 
 281:                                              ; preds = %269
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$syn..path..PathArguments$GT$17h4ba049f76b6e7b99E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %198)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$syn..path..PathArguments$GT$17h4ba049f76b6e7b99E"(ptr noalias noundef align 8 dereferenceable(64) %198)
           to label %280 unwind label %175
 
 282:                                              ; preds = %280, %184
@@ -6214,7 +6214,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
           to label %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit148" unwind label %241
 
 298:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit148"
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$syn..path..PathArguments$GT$17h4ba049f76b6e7b99E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %198) #37
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$syn..path..PathArguments$GT$17h4ba049f76b6e7b99E"(ptr noalias noundef align 8 dereferenceable(64) %198) #37
           to label %306 unwind label %241
 
 299:                                              ; preds = %300, %187

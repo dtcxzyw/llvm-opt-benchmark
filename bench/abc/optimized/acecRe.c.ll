@@ -52,8 +52,8 @@ define void @Ree_TruthPrecompute() local_unnamed_addr #0 {
   %12 = load ptr, ptr @stdout, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %20, %2
-  %.018.i = phi ptr [ %1, %2 ], [ %21, %20 ]
+.preheader.i:                                     ; preds = %22, %2
+  %.018.i = phi ptr [ %1, %2 ], [ %23, %22 ]
   br label %13
 
 13:                                               ; preds = %13, %.preheader.i
@@ -64,81 +64,83 @@ define void @Ree_TruthPrecompute() local_unnamed_addr #0 {
   %17 = trunc i64 %16 to i32
   %18 = and i32 %17, 15
   %19 = icmp ult i32 %18, 10
-  %.0.v.i.i = select i1 %19, i32 48, i32 55
-  %.0.i.i = add nuw nsw i32 %.0.v.i.i, %18
+  %20 = or disjoint i32 %18, 48
+  %21 = add nuw nsw i32 %18, 55
+  %.0.i.i = select i1 %19, i32 %20, i32 %21
   %fputc.i = call i32 @fputc(i32 %.0.i.i, ptr %12)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not20.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not20.i, label %20, label %13, !llvm.loop !4
+  br i1 %.not20.i, label %22, label %13, !llvm.loop !4
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %.018.i, i64 -8
-  %.not.i = icmp ult ptr %21, %1
+22:                                               ; preds = %13
+  %23 = getelementptr inbounds i8, ptr %.018.i, i64 -8
+  %.not.i = icmp ult ptr %23, %1
   br i1 %.not.i, label %Abc_TtPrintHexRev.exit, label %.preheader.i, !llvm.loop !6
 
-Abc_TtPrintHexRev.exit:                           ; preds = %20
+Abc_TtPrintHexRev.exit:                           ; preds = %22
   %putchar8 = call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %22, label %2, !llvm.loop !7
+  br i1 %exitcond.not, label %24, label %2, !llvm.loop !7
 
-22:                                               ; preds = %Abc_TtPrintHexRev.exit
+24:                                               ; preds = %Abc_TtPrintHexRev.exit
   %putchar = call i32 @putchar(i32 10)
-  br label %23
+  br label %25
 
-23:                                               ; preds = %22, %Abc_TtPrintHexRev.exit18
-  %indvars.iv22 = phi i64 [ 0, %22 ], [ %indvars.iv.next23, %Abc_TtPrintHexRev.exit18 ]
-  %24 = getelementptr inbounds [8 x i64], ptr @__const.Ree_TruthPrecompute.Truths, i64 0, i64 %indvars.iv22
-  %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, -4340410370284600381
-  %27 = shl i64 %25, 2
-  %28 = and i64 %27, 3472328296227680304
-  %29 = or disjoint i64 %28, %26
-  %30 = lshr i64 %25, 2
-  %31 = and i64 %30, 868082074056920076
-  %32 = or disjoint i64 %29, %31
-  %33 = and i64 %32, -7378697629483820647
-  %34 = shl i64 %29, 1
-  %35 = and i64 %34, 4919131752989213764
-  %36 = or disjoint i64 %35, %33
-  %37 = lshr i64 %32, 1
-  %38 = and i64 %37, 2459565876494606882
-  %39 = or disjoint i64 %36, %38
-  store i64 %39, ptr %1, align 8
-  %40 = load ptr, ptr @stdout, align 8
+25:                                               ; preds = %24, %Abc_TtPrintHexRev.exit17
+  %indvars.iv21 = phi i64 [ 0, %24 ], [ %indvars.iv.next22, %Abc_TtPrintHexRev.exit17 ]
+  %26 = getelementptr inbounds [8 x i64], ptr @__const.Ree_TruthPrecompute.Truths, i64 0, i64 %indvars.iv21
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, -4340410370284600381
+  %29 = shl i64 %27, 2
+  %30 = and i64 %29, 3472328296227680304
+  %31 = or disjoint i64 %30, %28
+  %32 = lshr i64 %27, 2
+  %33 = and i64 %32, 868082074056920076
+  %34 = or disjoint i64 %31, %33
+  %35 = and i64 %34, -7378697629483820647
+  %36 = shl i64 %31, 1
+  %37 = and i64 %36, 4919131752989213764
+  %38 = or disjoint i64 %37, %35
+  %39 = lshr i64 %34, 1
+  %40 = and i64 %39, 2459565876494606882
+  %41 = or disjoint i64 %38, %40
+  store i64 %41, ptr %1, align 8
+  %42 = load ptr, ptr @stdout, align 8
   br label %.preheader.i9
 
-.preheader.i9:                                    ; preds = %48, %23
-  %.018.i10 = phi ptr [ %1, %23 ], [ %49, %48 ]
-  br label %41
+.preheader.i9:                                    ; preds = %52, %25
+  %.018.i10 = phi ptr [ %1, %25 ], [ %53, %52 ]
+  br label %43
 
-41:                                               ; preds = %41, %.preheader.i9
-  %indvars.iv.i11 = phi i64 [ 1, %.preheader.i9 ], [ %indvars.iv.next.i15, %41 ]
-  %42 = load i64, ptr %.018.i10, align 8
-  %43 = shl nuw nsw i64 %indvars.iv.i11, 2
-  %44 = lshr i64 %42, %43
-  %45 = trunc i64 %44 to i32
-  %46 = and i32 %45, 15
-  %47 = icmp ult i32 %46, 10
-  %.0.v.i.i12 = select i1 %47, i32 48, i32 55
-  %.0.i.i13 = add nuw nsw i32 %.0.v.i.i12, %46
-  %fputc.i14 = call i32 @fputc(i32 %.0.i.i13, ptr %40)
-  %indvars.iv.next.i15 = add nsw i64 %indvars.iv.i11, -1
-  %.not20.i16 = icmp eq i64 %indvars.iv.i11, 0
-  br i1 %.not20.i16, label %48, label %41, !llvm.loop !4
+43:                                               ; preds = %43, %.preheader.i9
+  %indvars.iv.i11 = phi i64 [ 1, %.preheader.i9 ], [ %indvars.iv.next.i14, %43 ]
+  %44 = load i64, ptr %.018.i10, align 8
+  %45 = shl nuw nsw i64 %indvars.iv.i11, 2
+  %46 = lshr i64 %44, %45
+  %47 = trunc i64 %46 to i32
+  %48 = and i32 %47, 15
+  %49 = icmp ult i32 %48, 10
+  %50 = or disjoint i32 %48, 48
+  %51 = add nuw nsw i32 %48, 55
+  %.0.i.i12 = select i1 %49, i32 %50, i32 %51
+  %fputc.i13 = call i32 @fputc(i32 %.0.i.i12, ptr %42)
+  %indvars.iv.next.i14 = add nsw i64 %indvars.iv.i11, -1
+  %.not20.i15 = icmp eq i64 %indvars.iv.i11, 0
+  br i1 %.not20.i15, label %52, label %43, !llvm.loop !4
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %.018.i10, i64 -8
-  %.not.i17 = icmp ult ptr %49, %1
-  br i1 %.not.i17, label %Abc_TtPrintHexRev.exit18, label %.preheader.i9, !llvm.loop !6
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds i8, ptr %.018.i10, i64 -8
+  %.not.i16 = icmp ult ptr %53, %1
+  br i1 %.not.i16, label %Abc_TtPrintHexRev.exit17, label %.preheader.i9, !llvm.loop !6
 
-Abc_TtPrintHexRev.exit18:                         ; preds = %48
+Abc_TtPrintHexRev.exit17:                         ; preds = %52
   %putchar7 = call i32 @putchar(i32 10)
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %50, label %23, !llvm.loop !8
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
+  br i1 %exitcond24.not, label %54, label %25, !llvm.loop !8
 
-50:                                               ; preds = %Abc_TtPrintHexRev.exit18
+54:                                               ; preds = %Abc_TtPrintHexRev.exit17
   %putchar6 = call i32 @putchar(i32 10)
   ret void
 }
@@ -236,8 +238,8 @@ define void @Ree_ManCutPrint(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %18 = load ptr, ptr @stdout, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %._crit_edge
-  %.018.i = phi ptr [ %5, %._crit_edge ], [ %27, %26 ]
+.preheader.i:                                     ; preds = %28, %._crit_edge
+  %.018.i = phi ptr [ %5, %._crit_edge ], [ %29, %28 ]
   br label %19
 
 19:                                               ; preds = %19, %.preheader.i
@@ -248,19 +250,20 @@ define void @Ree_ManCutPrint(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 15
   %25 = icmp ult i32 %24, 10
-  %.0.v.i.i = select i1 %25, i32 48, i32 55
-  %.0.i.i = add nuw nsw i32 %.0.v.i.i, %24
+  %26 = or disjoint i32 %24, 48
+  %27 = add nuw nsw i32 %24, 55
+  %.0.i.i = select i1 %25, i32 %26, i32 %27
   %fputc.i = call i32 @fputc(i32 %.0.i.i, ptr %18)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not20.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not20.i, label %26, label %19, !llvm.loop !4
+  br i1 %.not20.i, label %28, label %19, !llvm.loop !4
 
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %.018.i, i64 -8
-  %.not.i = icmp ult ptr %27, %5
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds i8, ptr %.018.i, i64 -8
+  %.not.i = icmp ult ptr %29, %5
   br i1 %.not.i, label %Abc_TtPrintHexRev.exit, label %.preheader.i, !llvm.loop !6
 
-Abc_TtPrintHexRev.exit:                           ; preds = %26
+Abc_TtPrintHexRev.exit:                           ; preds = %28
   %putchar = call i32 @putchar(i32 10)
   ret void
 }

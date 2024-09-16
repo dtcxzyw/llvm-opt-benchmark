@@ -2154,7 +2154,7 @@ define { i64, i64 } @_ZN8uu_shred8get_size17hd373381363b3d5b0E(ptr noalias nocap
   %14 = alloca { { i64, [2 x i64] } }, align 8
   %15 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %16 = icmp eq i64 %15, -9223372036854775808
-  br i1 %16, label %.critedge.i, label %17
+  br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2203,7 +2203,7 @@ default.unreachable:                              ; preds = %.noexc
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i": ; preds = %30, %26, %.noexc6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !668
-  br label %.thread19
+  br label %.thread17
 
 32:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !681
@@ -2229,7 +2229,7 @@ default.unreachable:                              ; preds = %.noexc
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit2.i.i.i": ; preds = %39, %35, %.noexc7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !681
-  br label %.thread19
+  br label %.thread17
 
 41:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !690
@@ -2255,21 +2255,21 @@ default.unreachable:                              ; preds = %.noexc
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit4.i.i.i": ; preds = %48, %44, %.noexc8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !690
-  br label %.thread19
+  br label %.thread17
 
-.thread19:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit4.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit2.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i"
+.thread17:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit4.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit2.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br label %.critedge.i
+  br label %.thread
 
-.critedge.i:                                      ; preds = %1, %.thread19
-  %.sroa.5.016 = phi i64 [ %22, %.thread19 ], [ undef, %1 ]
+.thread:                                          ; preds = %1, %.thread17
+  %.sroa.5.016 = phi i64 [ %22, %.thread17 ], [ undef, %1 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.0.0.copyload.i = load i64, ptr %14, align 8, !alias.scope !699
   %.not.i.i = icmp eq i64 %.sroa.0.0.copyload.i, -9223372036854775808
   br i1 %.not.i.i, label %88, label %50
 
-50:                                               ; preds = %.critedge.i
+50:                                               ; preds = %.thread
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !702
   store i64 %.sroa.0.0.copyload.i, ptr %9, align 8, !noalias !699
@@ -2390,17 +2390,17 @@ default.unreachable:                              ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !724
   br label %88
 
-88:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i10", %77, %.critedge.i
-  %.sroa.0.017 = phi i64 [ 1, %77 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i10" ], [ 0, %.critedge.i ]
-  %.sroa.5.015 = phi i64 [ %22, %77 ], [ %22, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i10" ], [ %.sroa.5.016, %.critedge.i ]
-  %89 = insertvalue { i64, i64 } poison, i64 %.sroa.0.017, 0
+88:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i10", %77, %.thread
+  %.sroa.5.015 = phi i64 [ %22, %77 ], [ %22, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i10" ], [ %.sroa.5.016, %.thread ]
+  %.sroa.02.09.i = phi i64 [ 1, %77 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64b27204983f4b1bE.exit.i.i.i10" ], [ 0, %.thread ]
+  %89 = insertvalue { i64, i64 } poison, i64 %.sroa.02.09.i, 0
   %90 = insertvalue { i64, i64 } %89, i64 %.sroa.5.015, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   ret { i64, i64 } %90
 
 .body.thread:                                     ; preds = %52, %91
-  %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm, %91 ], [ %53, %52 ]
-  resume { ptr, i32 } %eh.lpad-body24
+  %eh.lpad-body22 = phi { ptr, i32 } [ %lpad.thr_comm, %91 ], [ %53, %52 ]
+  resume { ptr, i32 } %eh.lpad-body22
 
 91:                                               ; preds = %17, %23, %32, %41
   %lpad.thr_comm = landingpad { ptr, i32 }

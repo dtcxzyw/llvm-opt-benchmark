@@ -155,7 +155,7 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
 
 55:                                               ; preds = %51, %48, %43
   %56 = load ptr, ptr %44, align 8
-  call fastcc void @onas_scan_thread_scanfile(ptr noundef nonnull %0, ptr noundef %56, ptr noundef nonnull byval(%struct.stat) align 8 %13, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  call fastcc void @onas_scan_thread_scanfile(ptr noundef %0, ptr noundef %56, ptr noundef nonnull byval(%struct.stat) align 8 %13, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   br label %.split.i
 
 .split.i:                                         ; preds = %55, %40
@@ -204,7 +204,7 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
   br label %76
 
 76:                                               ; preds = %73, %69, %65
-  call fastcc void @onas_scan_thread_scanfile(ptr noundef nonnull %0, ptr noundef nonnull %63, ptr noundef nonnull byval(%struct.stat) align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @onas_scan_thread_scanfile(ptr noundef %0, ptr noundef nonnull %63, ptr noundef nonnull byval(%struct.stat) align 8 %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %onas_scan_thread_handle_file.exit
 
 onas_scan_thread_handle_file.exit:                ; preds = %60, %76
@@ -254,7 +254,7 @@ onas_scan_thread_handle_file.exit:                ; preds = %60, %76
   br label %94
 
 94:                                               ; preds = %91, %87, %83
-  call fastcc void @onas_scan_thread_scanfile(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull byval(%struct.stat) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @onas_scan_thread_scanfile(ptr noundef %0, ptr noundef nonnull %81, ptr noundef nonnull byval(%struct.stat) align 8 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %onas_scan_thread_handle_file.exit52
 
 onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
@@ -447,7 +447,7 @@ declare ptr @optget(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @onas_scan_thread_scanfile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.stat) align 8 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @onas_scan_thread_scanfile(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.stat) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.fanotify_response, align 4
   %9 = icmp eq ptr %1, null
@@ -496,7 +496,7 @@ onas_scan_safe.exit.i:                            ; preds = %.thread, %16
   %32 = load i64, ptr %31, align 1
   %33 = getelementptr inbounds i8, ptr %0, i64 57
   %34 = load i64, ptr %33, align 1
-  %35 = tail call i32 @onas_client_scan(ptr noundef %26, i64 noundef %28, i32 noundef %30, i64 noundef %32, ptr noundef nonnull %1, i32 noundef %.0.i.i, i64 noundef %34, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef %3, ptr noundef %4, ptr noundef %5) #9
+  %35 = tail call i32 @onas_client_scan(ptr noundef %26, i64 noundef %28, i32 noundef %30, i64 noundef %32, ptr noundef nonnull %1, i32 noundef %.0.i.i, i64 noundef %34, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
   %37 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %37, 0
@@ -558,7 +558,7 @@ onas_scan_safe.exit29.i:                          ; preds = %55, %52
   %62 = load i32, ptr %29, align 1
   %63 = load i64, ptr %31, align 1
   %64 = load i64, ptr %33, align 1
-  %65 = tail call i32 @onas_client_scan(ptr noundef %60, i64 noundef %61, i32 noundef %62, i64 noundef %63, ptr noundef nonnull %1, i32 noundef %.0.i28.i, i64 noundef %64, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %65 = tail call i32 @onas_client_scan(ptr noundef %60, i64 noundef %61, i32 noundef %62, i64 noundef %63, ptr noundef nonnull %1, i32 noundef %.0.i28.i, i64 noundef %64, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
   %67 = load i32, ptr %4, align 4
   %.not26.i = icmp eq i32 %67, 0

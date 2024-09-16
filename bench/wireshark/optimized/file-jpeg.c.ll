@@ -685,15 +685,15 @@ define internal range(i32 0, -2147483648) i32 @dissect_jfif(ptr noundef %0, ptr 
   ]
 
 63:                                               ; preds = %57
-  tail call fastcc void @process_app0_segment(ptr noundef %20, ptr noundef %62, ptr noundef %1, i32 noundef %60, i16 noundef zeroext -32, ptr noundef nonnull %53)
+  tail call fastcc void @process_app0_segment(ptr noundef %20, ptr noundef %62, ptr noundef %1, i32 noundef %60, i16 noundef zeroext -32, ptr noundef %53)
   br label %process_sof_header.exit
 
 64:                                               ; preds = %57
-  tail call fastcc void @process_app1_segment(ptr noundef %20, ptr noundef %62, ptr noundef %1, i32 noundef %60, i16 noundef zeroext -31, ptr noundef nonnull %53, i32 noundef %.1118.ph)
+  tail call fastcc void @process_app1_segment(ptr noundef %20, ptr noundef %62, ptr noundef %1, i32 noundef %60, i16 noundef zeroext -31, ptr noundef %53, i32 noundef %.1118.ph)
   br label %process_sof_header.exit
 
 65:                                               ; preds = %57
-  tail call fastcc void @process_app2_segment(ptr noundef %20, ptr noundef %62, ptr noundef %1, i32 noundef %60, i16 noundef zeroext -30, ptr noundef nonnull %53)
+  tail call fastcc void @process_app2_segment(ptr noundef %20, ptr noundef %62, ptr noundef %1, i32 noundef %60, i16 noundef zeroext -30, ptr noundef %53)
   br label %process_sof_header.exit
 
 66:                                               ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57
@@ -740,15 +740,15 @@ define internal range(i32 0, -2147483648) i32 @dissect_jfif(ptr noundef %0, ptr 
   br i1 %.not35.i, label %process_sof_header.exit, label %.lr.ph.i, !llvm.loop !6
 
 97:                                               ; preds = %57
-  tail call fastcc void @process_sos_header(ptr noundef %20, ptr noundef %62, i16 noundef zeroext -38, ptr noundef nonnull %53)
+  tail call fastcc void @process_sos_header(ptr noundef %20, ptr noundef %62, i16 noundef zeroext -38, ptr noundef %53)
   br label %process_sof_header.exit
 
 98:                                               ; preds = %57
-  tail call fastcc void @process_comment_header(ptr noundef %20, ptr noundef %62, i32 noundef %60, i16 noundef zeroext -2, ptr noundef nonnull %53)
+  tail call fastcc void @process_comment_header(ptr noundef %20, ptr noundef %62, i32 noundef %60, i16 noundef zeroext -2, ptr noundef %53)
   br label %process_sof_header.exit
 
 99:                                               ; preds = %57
-  tail call fastcc void @process_marker_segment(ptr noundef %20, ptr noundef %62, i32 noundef %60, i16 noundef zeroext %51, ptr noundef nonnull %53)
+  tail call fastcc void @process_marker_segment(ptr noundef %20, ptr noundef %62, i32 noundef %60, i16 noundef zeroext %51, ptr noundef %53)
   br label %process_sof_header.exit
 
 process_sof_header.exit:                          ; preds = %.lr.ph.i, %67, %66, %99, %98, %97, %65, %64, %63
@@ -824,7 +824,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_app0_segment(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @process_app0_segment(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i16 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %73, label %8
@@ -835,7 +835,7 @@ define internal fastcc void @process_app0_segment(ptr noundef %0, ptr noundef %1
   %11 = load i32, ptr @ett_marker_segment, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #4
   %13 = zext i16 %4 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.391, ptr noundef %5, i32 noundef %13) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.391, ptr noundef nonnull %5, i32 noundef %13) #4
   %14 = load i32, ptr @hf_marker, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %16 = load i32, ptr @hf_len, align 4
@@ -914,7 +914,7 @@ define internal fastcc void @process_app0_segment(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_app1_segment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @process_app1_segment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3, i16 noundef zeroext %4, ptr noundef nonnull %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_marker_segment, align 4
@@ -922,7 +922,7 @@ define internal fastcc void @process_app1_segment(ptr noundef %0, ptr noundef %1
   %12 = load i32, ptr @ett_marker_segment, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
   %14 = zext i16 %4 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.391, ptr noundef %5, i32 noundef %14) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.391, ptr noundef nonnull %5, i32 noundef %14) #4
   %15 = load i32, ptr @hf_marker, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %17 = load i32, ptr @hf_len, align 4
@@ -1013,7 +1013,7 @@ process_tiff.exit:                                ; preds = %44, %53, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_app2_segment(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @process_app2_segment(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i16 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %36, label %8
@@ -1024,7 +1024,7 @@ define internal fastcc void @process_app2_segment(ptr noundef %0, ptr noundef %1
   %11 = load i32, ptr @ett_marker_segment, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #4
   %13 = zext i16 %4 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.391, ptr noundef %5, i32 noundef %13) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.391, ptr noundef nonnull %5, i32 noundef %13) #4
   %14 = load i32, ptr @hf_marker, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %16 = load i32, ptr @hf_len, align 4
@@ -1059,7 +1059,7 @@ define internal fastcc void @process_app2_segment(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_sos_header(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @process_sos_header(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %37, label %5
 
@@ -1069,7 +1069,7 @@ define internal fastcc void @process_sos_header(ptr noundef %0, ptr noundef %1, 
   %8 = load i32, ptr @ett_marker_segment, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
   %10 = zext i16 %2 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.391, ptr noundef %3, i32 noundef %10) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.391, ptr noundef nonnull %3, i32 noundef %10) #4
   %11 = load i32, ptr @hf_marker, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %13 = load i32, ptr @hf_len, align 4
@@ -1114,7 +1114,7 @@ define internal fastcc void @process_sos_header(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_comment_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @process_comment_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i16 noundef zeroext %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %6
 
@@ -1124,7 +1124,7 @@ define internal fastcc void @process_comment_header(ptr noundef %0, ptr noundef 
   %9 = load i32, ptr @ett_marker_segment, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #4
   %11 = zext i16 %3 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.391, ptr noundef %4, i32 noundef %11) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.391, ptr noundef nonnull %4, i32 noundef %11) #4
   %12 = load i32, ptr @hf_marker, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %12, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %14 = load i32, ptr @hf_len, align 4
@@ -1139,7 +1139,7 @@ define internal fastcc void @process_comment_header(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_marker_segment(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @process_marker_segment(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i16 noundef zeroext %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %6
 
@@ -1149,7 +1149,7 @@ define internal fastcc void @process_marker_segment(ptr noundef %0, ptr noundef 
   %9 = load i32, ptr @ett_marker_segment, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #4
   %11 = zext i16 %3 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.391, ptr noundef %4, i32 noundef %11) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.391, ptr noundef nonnull %4, i32 noundef %11) #4
   %12 = load i32, ptr @hf_marker, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %12, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %14 = load i32, ptr @hf_len, align 4
@@ -1185,7 +1185,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 1) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4

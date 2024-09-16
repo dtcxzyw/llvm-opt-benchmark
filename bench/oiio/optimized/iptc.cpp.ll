@@ -533,7 +533,7 @@ if.then26:                                        ; preds = %invoke.cont22
   store ptr %call.i30, ptr %agg.tmp29, align 8
   %call2.i32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin4.sroa.0.055) #14
   store i64 %call2.i32, ptr %m_len.i31, align 8
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L23encode_iptc_iim_one_tagEiNS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIcSaIcEE(i32 noundef %8, ptr noundef nonnull %agg.tmp29, ptr noundef nonnull align 8 dereferenceable(24) %iptc)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L23encode_iptc_iim_one_tagEiNS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIcSaIcEE(i32 noundef %8, ptr noundef %agg.tmp29, ptr noundef nonnull align 8 dereferenceable(24) %iptc)
           to label %for.inc unwind label %lpad.loopexit
 
 lpad.loopexit:                                    ; preds = %for.body17, %if.then26, %invoke.cont21
@@ -589,7 +589,7 @@ if.else:                                          ; preds = %if.then
   store ptr %call.i34, ptr %agg.tmp35, align 8
   %call2.i36 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36) #14
   store i64 %call2.i36, ptr %m_len.i35, align 8
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L23encode_iptc_iim_one_tagEiNS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIcSaIcEE(i32 noundef %10, ptr noundef nonnull %agg.tmp35, ptr noundef nonnull align 8 dereferenceable(24) %iptc)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L23encode_iptc_iim_one_tagEiNS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIcSaIcEE(i32 noundef %10, ptr noundef %agg.tmp35, ptr noundef nonnull align 8 dereferenceable(24) %iptc)
           to label %if.end40.sink.split unwind label %lpad37
 
 lpad37:                                           ; preds = %if.else
@@ -628,7 +628,7 @@ if.then52:                                        ; preds = %_ZN18OpenImageIO_v2
   store ptr %call.i47, ptr %agg.tmp56, align 8
   %call2.i49 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #14
   store i64 %call2.i49, ptr %m_len.i48, align 8
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L23encode_iptc_iim_one_tagEiNS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIcSaIcEE(i32 noundef %13, ptr noundef nonnull %agg.tmp56, ptr noundef nonnull align 8 dereferenceable(24) %iptc)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L23encode_iptc_iim_one_tagEiNS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIcSaIcEE(i32 noundef %13, ptr noundef %agg.tmp56, ptr noundef nonnull align 8 dereferenceable(24) %iptc)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %if.then52
@@ -665,7 +665,7 @@ declare void @_ZNK18OpenImageIO_v2_6_010ParamValue10get_stringB5cxx11Ei(ptr sret
 declare void @_ZN18OpenImageIO_v2_6_07Strutil5splitENS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorINSt7__cxx1112basic_stringIcS3_SaIcEEESaIS9_EES4_i(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L23encode_iptc_iim_one_tagEiNS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIcSaIcEE(i32 noundef %tag, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(24) %iptc) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L23encode_iptc_iim_one_tagEiNS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIcSaIcEE(i32 noundef %tag, ptr nocapture noundef nonnull readonly %data, ptr noundef nonnull align 8 dereferenceable(24) %iptc) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %iptc, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8

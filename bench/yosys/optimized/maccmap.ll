@@ -2843,7 +2843,7 @@ _ZN12_GLOBAL__N_113MaccmapWorkerC2EPN5Yosys5RTLIL6ModuleEi.exit: ; preds = %966,
   %1031 = getelementptr inbounds i8, ptr %.sroa.0500.0831, i64 129
   %1032 = load i8, ptr %1031, align 1
   %1033 = trunc i8 %1032 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull align 8 dereferenceable(36) %107, ptr noundef nonnull %108, i1 noundef zeroext %1030, i1 noundef zeroext %1033)
+  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull align 8 dereferenceable(36) %107, ptr noundef %108, i1 noundef zeroext %1030, i1 noundef zeroext %1033)
           to label %1034 unwind label %1044
 
 1034:                                             ; preds = %1027
@@ -3351,7 +3351,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i396: ; preds = %1166, %1162
           to label %1179 unwind label %1291
 
 1179:                                             ; preds = %1178
-  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef nonnull %14, i1 noundef zeroext false, i1 noundef zeroext %1054)
+  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef %14, i1 noundef zeroext false, i1 noundef zeroext %1054)
           to label %1180 unwind label %1293
 
 1180:                                             ; preds = %1179
@@ -3518,7 +3518,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i142.i: ; preds = %1219, %_ZN5Yos
           to label %1229 unwind label %1301
 
 1229:                                             ; preds = %1228
-  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef nonnull %23, i1 noundef zeroext false, i1 noundef zeroext %1054)
+  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext %1054)
           to label %1230 unwind label %1303
 
 1230:                                             ; preds = %1229
@@ -3870,7 +3870,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i173.i: ; preds = %1317, %1313
           to label %1330 unwind label %1418
 
 1330:                                             ; preds = %1329
-  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef nonnull %25, i1 noundef zeroext false, i1 noundef zeroext %1054)
+  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef %25, i1 noundef zeroext false, i1 noundef zeroext %1054)
           to label %1331 unwind label %1420
 
 1331:                                             ; preds = %1330
@@ -4473,7 +4473,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i436: ; preds = %1471, %1467
           to label %1483 unwind label %.loopexit.split-lp533.loopexit.split-lp
 
 1483:                                             ; preds = %._crit_edge838
-  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker5synthEv(ptr dead_on_unwind noalias nonnull writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(36) %107)
+  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker5synthEv(ptr dead_on_unwind noalias writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(36) %107)
           to label %1484 unwind label %.loopexit.split-lp533.loopexit.split-lp
 
 1484:                                             ; preds = %1483
@@ -6185,7 +6185,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker5synthEv(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker5synthEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8

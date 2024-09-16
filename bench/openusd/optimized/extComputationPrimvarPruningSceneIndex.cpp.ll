@@ -7922,7 +7922,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext26_ExecuteComputationNetworkERKNS_7SdfPathERKf(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %.val, ptr noundef nonnull readonly align 4 dereferenceable(8) %11, ptr noundef nonnull readonly align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext26_ExecuteComputationNetworkERKNS_7SdfPathERKf(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %.val, ptr noundef nonnull readonly align 4 dereferenceable(8) %11, ptr noundef nonnull readonly align 4 dereferenceable(4) %7)
           to label %.noexc unwind label %281
 
 .noexc:                                           ; preds = %119
@@ -8794,7 +8794,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   store float 1.000000e+00, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext25_GatherComputationSourcesERKNS_7SdfPathEPSt13unordered_mapIS2_St10shared_ptrINS_21HdContainerDataSourceEENS2_4HashESt8equal_toIS2_ESaISt4pairIS3_S8_EEEPS5_IS2_St6vectorIS2_SaIS2_EES9_SB_SaISC_IS3_SJ_EEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val, ptr noundef nonnull readonly align 4 dereferenceable(8) %15, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext25_GatherComputationSourcesERKNS_7SdfPathEPSt13unordered_mapIS2_St10shared_ptrINS_21HdContainerDataSourceEENS2_4HashESt8equal_toIS2_ESaISt4pairIS3_S8_EEEPS5_IS2_St6vectorIS2_SaIS2_EES9_SB_SaISC_IS3_SJ_EEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val, ptr noundef nonnull readonly align 4 dereferenceable(8) %15, ptr noundef %5, ptr noundef %6)
           to label %126 unwind label %329
 
 126:                                              ; preds = %114
@@ -10362,7 +10362,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8HdSchemaD2Ev.exit: ; preds = %1, %20, %33,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext26_ExecuteComputationNetworkERKNS_7SdfPathERKf(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext26_ExecuteComputationNetworkERKNS_7SdfPathERKf(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::VtValue::_HoldAside", align 8
   %6 = alloca %"struct.std::_Hashtable<pxrInternal_v0_24__pxrReserved__::TfToken, std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, pxrInternal_v0_24__pxrReserved__::VtValue>, std::allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, pxrInternal_v0_24__pxrReserved__::VtValue>>, std::__detail::_Select1st, std::equal_to<pxrInternal_v0_24__pxrReserved__::TfToken>, pxrInternal_v0_24__pxrReserved__::TfToken::HashFunctor, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
   %7 = alloca %"class.std::shared_ptr", align 8
@@ -10427,7 +10427,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   store float 1.000000e+00, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %21, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext25_GatherComputationSourcesERKNS_7SdfPathEPSt13unordered_mapIS2_St10shared_ptrINS_21HdContainerDataSourceEENS2_4HashESt8equal_toIS2_ESaISt4pairIS3_S8_EEEPS5_IS2_St6vectorIS2_SaIS2_EES9_SB_SaISC_IS3_SJ_EEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext25_GatherComputationSourcesERKNS_7SdfPathEPSt13unordered_mapIS2_St10shared_ptrINS_21HdContainerDataSourceEENS2_4HashESt8equal_toIS2_ESaISt4pairIS3_S8_EEEPS5_IS2_St6vectorIS2_SaIS2_EES9_SB_SaISC_IS3_SJ_EEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef %21, ptr noundef %20)
           to label %58 unwind label %144
 
 58:                                               ; preds = %4
@@ -15877,7 +15877,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS1_7VtV
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext25_GatherComputationSourcesERKNS_7SdfPathEPSt13unordered_mapIS2_St10shared_ptrINS_21HdContainerDataSourceEENS2_4HashESt8equal_toIS2_ESaISt4pairIS3_S8_EEEPS5_IS2_St6vectorIS2_SaIS2_EES9_SB_SaISC_IS3_SJ_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputationContext25_GatherComputationSourcesERKNS_7SdfPathEPSt13unordered_mapIS2_St10shared_ptrINS_21HdContainerDataSourceEENS2_4HashESt8equal_toIS2_ESaISt4pairIS3_S8_EEEPS5_IS2_St6vectorIS2_SaIS2_EES9_SB_SaISC_IS3_SJ_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Deque_iterator", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.std::shared_ptr.35", align 8

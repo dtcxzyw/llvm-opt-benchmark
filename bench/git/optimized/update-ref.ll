@@ -720,7 +720,7 @@ entry:
   %old_oid = alloca %struct.object_id, align 4
   store ptr %next, ptr %next.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
-  %call = call fastcc ptr @parse_refname(ptr noundef nonnull %next.addr)
+  %call = call fastcc ptr @parse_refname(ptr noundef %next.addr)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -729,7 +729,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %new_oid, ptr noundef nonnull @.str.23, ptr noundef nonnull %call, i32 noundef 2)
+  %call1 = call fastcc i32 @parse_next_oid(ptr noundef %next.addr, ptr noundef %end, ptr noundef %new_oid, ptr noundef nonnull @.str.23, ptr noundef %call, i32 noundef 2)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
@@ -738,7 +738,7 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %call5 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.23, ptr noundef nonnull %call, i32 noundef 1)
+  %call5 = call fastcc i32 @parse_next_oid(ptr noundef %next.addr, ptr noundef %end, ptr noundef %old_oid, ptr noundef nonnull @.str.23, ptr noundef %call, i32 noundef 1)
   %0 = load ptr, ptr %next.addr, align 8
   %1 = load i8, ptr %0, align 1
   %conv = sext i8 %1 to i32
@@ -785,7 +785,7 @@ entry:
   %new_oid = alloca %struct.object_id, align 4
   store ptr %next, ptr %next.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
-  %call = call fastcc ptr @parse_refname(ptr noundef nonnull %next.addr)
+  %call = call fastcc ptr @parse_refname(ptr noundef %next.addr)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -794,7 +794,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %new_oid, ptr noundef nonnull @.str.24, ptr noundef nonnull %call, i32 noundef 0)
+  %call1 = call fastcc i32 @parse_next_oid(ptr noundef %next.addr, ptr noundef %end, ptr noundef %new_oid, ptr noundef nonnull @.str.24, ptr noundef %call, i32 noundef 0)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
@@ -889,7 +889,7 @@ entry:
   %old_oid = alloca %struct.object_id, align 4
   store ptr %next, ptr %next.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
-  %call = call fastcc ptr @parse_refname(ptr noundef nonnull %next.addr)
+  %call = call fastcc ptr @parse_refname(ptr noundef %next.addr)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -898,7 +898,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.25, ptr noundef nonnull %call, i32 noundef 1)
+  %call1 = call fastcc i32 @parse_next_oid(ptr noundef %next.addr, ptr noundef %end, ptr noundef %old_oid, ptr noundef nonnull @.str.25, ptr noundef %call, i32 noundef 1)
   %tobool2.not.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not.not, label %if.else, label %if.end8
 
@@ -988,7 +988,7 @@ entry:
   %old_oid = alloca %struct.object_id, align 4
   store ptr %next, ptr %next.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
-  %call = call fastcc ptr @parse_refname(ptr noundef nonnull %next.addr)
+  %call = call fastcc ptr @parse_refname(ptr noundef %next.addr)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -997,7 +997,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.26, ptr noundef nonnull %call, i32 noundef 1)
+  %call1 = call fastcc i32 @parse_next_oid(ptr noundef %next.addr, ptr noundef %end, ptr noundef %old_oid, ptr noundef nonnull @.str.26, ptr noundef %call, i32 noundef 1)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
@@ -1219,7 +1219,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_refname(ptr nocapture noundef %next) unnamed_addr #0 {
+define internal fastcc ptr @parse_refname(ptr nocapture noundef nonnull %next) unnamed_addr #0 {
 entry:
   %ref = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
@@ -1228,7 +1228,7 @@ entry:
   br i1 %.b, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = call fastcc ptr @parse_arg(ptr noundef %0, ptr noundef nonnull %ref)
+  %call = call fastcc ptr @parse_arg(ptr noundef %0, ptr noundef %ref)
   %len1.phi.trans.insert = getelementptr inbounds i8, ptr %ref, i64 8
   %.pre = load i64, ptr %len1.phi.trans.insert, align 8
   br label %if.end
@@ -1275,7 +1275,7 @@ return:                                           ; preds = %if.end9, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr nocapture noundef %next, ptr noundef readnone %end, ptr noundef %oid, ptr noundef %command, ptr noundef %refname, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr nocapture noundef nonnull %next, ptr noundef readnone %end, ptr noundef nonnull %oid, ptr noundef %command, ptr noundef nonnull %refname, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
 entry:
   %arg = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arg, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
@@ -1296,13 +1296,13 @@ if.then1:                                         ; preds = %if.end
   ]
 
 if.then11:                                        ; preds = %if.then1
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.38, ptr noundef %command, ptr noundef %refname, ptr noundef nonnull %0) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.38, ptr noundef %command, ptr noundef nonnull %refname, ptr noundef nonnull %0) #12
   unreachable
 
 if.end12:                                         ; preds = %if.then1
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %incdec.ptr, ptr %next, align 8
-  %call = call fastcc ptr @parse_arg(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %arg)
+  %call = call fastcc ptr @parse_arg(ptr noundef nonnull %incdec.ptr, ptr noundef %arg)
   store ptr %call, ptr %next, align 8
   %len = getelementptr inbounds i8, ptr %arg, i64 8
   %2 = load i64, ptr %len, align 8
@@ -1313,7 +1313,7 @@ if.then14:                                        ; preds = %if.end12
   %3 = load ptr, ptr @the_repository, align 8
   %buf = getelementptr inbounds i8, ptr %arg, i64 16
   %4 = load ptr, ptr %buf, align 8
-  %call15 = call i32 @repo_get_oid(ptr noundef %3, ptr noundef %4, ptr noundef %oid) #11
+  %call15 = call i32 @repo_get_oid(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %oid) #11
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end44, label %invalid
 
@@ -1322,7 +1322,7 @@ if.else20:                                        ; preds = %if.end
   br i1 %tobool21.not, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.else20
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.39, ptr noundef %command, ptr noundef %refname, ptr noundef nonnull %0) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.39, ptr noundef %command, ptr noundef nonnull %refname, ptr noundef nonnull %0) #12
   unreachable
 
 if.end23:                                         ; preds = %if.else20
@@ -1346,17 +1346,16 @@ if.then32:                                        ; preds = %if.end28
   %7 = load ptr, ptr @the_repository, align 8
   %buf33 = getelementptr inbounds i8, ptr %arg, i64 16
   %8 = load ptr, ptr %buf33, align 8
-  %call34 = call i32 @repo_get_oid(ptr noundef %7, ptr noundef %8, ptr noundef %oid) #11
+  %call34 = call i32 @repo_get_oid(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %oid) #11
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.end44, label %invalid
 
 if.else38:                                        ; preds = %if.end28
-  %and = and i32 %flags, 2
-  %tobool39.not = icmp eq i32 %and, 0
+  %tobool39.not = icmp ult i32 %flags, 2
   br i1 %tobool39.not, label %if.end44, label %if.then40
 
 if.then40:                                        ; preds = %if.else38
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.40, ptr noundef %command, ptr noundef %refname) #11
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.40, ptr noundef %command, ptr noundef nonnull %refname) #11
   br label %if.end44.sink.split
 
 if.end44.sink.split:                              ; preds = %if.end12, %if.then40
@@ -1383,14 +1382,14 @@ invalid:                                          ; preds = %if.then32, %if.then
   %cond = select i1 %tobool46.not, ptr @.str.42, ptr @.str.41
   %buf47 = getelementptr inbounds i8, ptr %arg, i64 16
   %11 = load ptr, ptr %buf47, align 8
-  call void (ptr, ...) @die(ptr noundef nonnull %cond, ptr noundef %command, ptr noundef %refname, ptr noundef %11) #12
+  call void (ptr, ...) @die(ptr noundef nonnull %cond, ptr noundef %command, ptr noundef nonnull %refname, ptr noundef %11) #12
   unreachable
 
 eof:                                              ; preds = %if.end23, %entry
   %and48 = and i32 %flags, 1
   %tobool49.not = icmp eq i32 %and48, 0
   %cond50 = select i1 %tobool49.not, ptr @.str.44, ptr @.str.43
-  tail call void (ptr, ...) @die(ptr noundef nonnull %cond50, ptr noundef %command, ptr noundef %refname) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull %cond50, ptr noundef %command, ptr noundef nonnull %refname) #12
   unreachable
 
 return:                                           ; preds = %if.then1, %if.then1, %if.end44
@@ -1404,7 +1403,7 @@ declare i32 @ref_transaction_update(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_arg(ptr noundef %next, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc ptr @parse_arg(ptr noundef %next, ptr noundef nonnull %arg) unnamed_addr #0 {
 entry:
   %next.addr = alloca ptr, align 8
   store ptr %next, ptr %next.addr, align 8
@@ -1420,7 +1419,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
   br label %land.rhs
 
 if.then:                                          ; preds = %entry
-  %call = call i32 @unquote_c_style(ptr noundef %arg, ptr noundef nonnull %next, ptr noundef nonnull %next.addr) #11
+  %call = call i32 @unquote_c_style(ptr noundef nonnull %arg, ptr noundef nonnull %next, ptr noundef nonnull %next.addr) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then2
 

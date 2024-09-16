@@ -795,7 +795,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 cleanup.i.i:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i11.i.i, %if.then.i.i59
   %55 = phi i1 [ true, %if.then.i.i59 ], [ %cmp.i.i.i.i12.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i11.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %55, ptr noundef nonnull %call5.i.i.i.i.i.i.i67, ptr noundef %retval.sroa.12.0.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 8)) #22
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %55, ptr noundef nonnull %call5.i.i.i.i.i.i.i67, ptr noundef nonnull %retval.sroa.12.0.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 8)) #22
   %56 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 40), align 8
   %inc.i.i.i.i = add i64 %56, 1
   store i64 %inc.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119g_fastFileHashCacheB5cxx11E, i64 40), align 8

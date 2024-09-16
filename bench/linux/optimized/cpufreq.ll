@@ -4943,7 +4943,7 @@ declare dso_local i32 @cpufreq_frequency_table_get_index(ptr noundef, i32 nounde
 declare dso_local i32 @kobject_uevent(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cpufreq_policy_free(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cpufreq_policy_free(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %6, label %4, !prof !8
@@ -5007,7 +5007,7 @@ define internal fastcc void @cpufreq_policy_free(ptr noundef %0) unnamed_addr #0
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %.thread
-  %44 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @cpufreq_policy_notifier_list, i64 noundef 1, ptr noundef %0) #21
+  %44 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @cpufreq_policy_notifier_list, i64 noundef 1, ptr noundef nonnull %0) #21
   %45 = load ptr, ptr %40, align 8
   %46 = tail call i32 @freq_qos_remove_request(ptr noundef %45) #21
   br label %47
@@ -5025,7 +5025,7 @@ define internal fastcc void @cpufreq_policy_free(ptr noundef %0) unnamed_addr #0
   tail call void @up_write(ptr noundef %52) #21
   tail call void @kobject_put(ptr noundef %53) #21
   tail call void @wait_for_completion(ptr noundef %54) #21
-  tail call void @kfree(ptr noundef %0) #21
+  tail call void @kfree(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -5804,7 +5804,7 @@ declare dso_local i32 @freq_qos_remove_request(ptr noundef) local_unnamed_addr #
 declare dso_local i32 @sysfs_create_link(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr @cpufreq_driver, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -5834,12 +5834,12 @@ define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef %1) u
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %17
-  tail call void %19(ptr noundef %1) #21
+  tail call void %19(ptr noundef nonnull %1) #21
   br label %22
 
 22:                                               ; preds = %21, %17, %13, %11, %7
   %23 = zext i32 %0 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %23) #21, !srcloc !78
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %23) #21, !srcloc !78
   %24 = load i64, ptr %1, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %70, label %26
@@ -5886,7 +5886,7 @@ define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef %1) u
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call fastcc i32 @cpufreq_verify_current_freq(ptr noundef %1, i1 noundef zeroext false)
+  %53 = tail call fastcc i32 @cpufreq_verify_current_freq(ptr noundef nonnull %1, i1 noundef zeroext false)
   %.pre = load ptr, ptr %45, align 8
   br label %54
 
@@ -5898,7 +5898,7 @@ define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef %1) u
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %54
-  %60 = tail call i32 %57(ptr noundef %1) #21
+  %60 = tail call i32 %57(ptr noundef nonnull %1) #21
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %._crit_edge, label %68
 
@@ -5914,7 +5914,7 @@ define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef %1) u
   br i1 %66, label %126, label %67
 
 67:                                               ; preds = %62
-  tail call void %65(ptr noundef %1) #21
+  tail call void %65(ptr noundef nonnull %1) #21
   br label %126
 
 68:                                               ; preds = %59, %44
@@ -5979,7 +5979,7 @@ define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef %1) u
   br i1 %106, label %108, label %107
 
 107:                                              ; preds = %103
-  tail call void %105(ptr noundef %1) #21
+  tail call void %105(ptr noundef nonnull %1) #21
   %.pre11 = load ptr, ptr %100, align 8
   br label %108
 
@@ -5999,7 +5999,7 @@ define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef %1) u
   br i1 %116, label %119, label %117
 
 117:                                              ; preds = %112
-  %118 = tail call i32 %115(ptr noundef %1) #21
+  %118 = tail call i32 %115(ptr noundef nonnull %1) #21
   br label %126
 
 119:                                              ; preds = %112
@@ -6009,7 +6009,7 @@ define internal fastcc void @__cpufreq_offline(i32 noundef %0, ptr noundef %1) u
   br i1 %122, label %126, label %123
 
 123:                                              ; preds = %119
-  %124 = tail call i32 %121(ptr noundef %1) #21
+  %124 = tail call i32 %121(ptr noundef nonnull %1) #21
   %125 = getelementptr inbounds i8, ptr %1, i64 336
   store ptr null, ptr %125, align 8
   br label %126

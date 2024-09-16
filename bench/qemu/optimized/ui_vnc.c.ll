@@ -1018,7 +1018,7 @@ if.else:                                          ; preds = %lor.lhs.false2
   store i8 1, ptr %call, align 8
   %has_clients = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %has_clients, align 8
-  %call6 = tail call fastcc ptr @qmp_query_client_list(ptr noundef nonnull %0)
+  %call6 = tail call fastcc ptr @qmp_query_client_list(ptr noundef %0)
   %clients = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call6, ptr %clients, align 8
   %3 = load ptr, ptr %listener, align 8
@@ -1169,7 +1169,7 @@ return:                                           ; preds = %out_error, %if.end3
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @qmp_query_client_list(ptr nocapture noundef readonly %vd) unnamed_addr #0 {
+define internal fastcc noundef ptr @qmp_query_client_list(ptr nocapture noundef nonnull readonly %vd) unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %client.06 = load ptr, ptr %vd, align 8
@@ -1190,7 +1190,7 @@ do.body:                                          ; preds = %entry, %qmp_query_v
   br i1 %tobool.not.i.i, label %vnc_init_basic_info_from_remote_addr.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.body
-  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef %call.i, ptr noundef nonnull %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i, ptr noundef %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #25
   br label %vnc_init_basic_info_from_remote_addr.exit.i
 
@@ -1267,7 +1267,7 @@ for.body:                                         ; preds = %entry, %do.body
   %0 = load ptr, ptr %id, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #25
   store ptr %call1, ptr %call, align 8
-  %call3 = tail call fastcc ptr @qmp_query_client_list(ptr noundef nonnull %vd.045)
+  %call3 = tail call fastcc ptr @qmp_query_client_list(ptr noundef %vd.045)
   %clients = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3, ptr %clients, align 8
   %auth = getelementptr inbounds i8, ptr %vd.045, i64 284984
@@ -1491,7 +1491,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #27
-  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call, ptr noundef %call1, ptr noundef nonnull %err)
+  call fastcc void @vnc_init_basic_info(ptr noundef %call, ptr noundef %call1, ptr noundef %err)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call) #25
   %0 = load ptr, ptr %err, align 8
   %tobool3.not = icmp eq ptr %0, null
@@ -2340,7 +2340,7 @@ for.end:                                          ; preds = %for.body
 declare void @vnc_jobs_join(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_qmp_event(ptr nocapture noundef readonly %vs, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc void @vnc_qmp_event(ptr nocapture noundef readonly %vs, i32 noundef range(i32 37, 40) %event) unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %info = getelementptr inbounds i8, ptr %vs, i64 49304
@@ -2383,7 +2383,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool1.not.i.i, label %vnc_init_basic_info_from_server_addr.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef %call.i, ptr noundef nonnull %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i, ptr noundef %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #25
   br label %vnc_init_basic_info_from_server_addr.exit.i
 
@@ -2465,7 +2465,7 @@ vnc_server_info_get.exit.thread:                  ; preds = %lor.lhs.false.i, %i
 if.end3:                                          ; preds = %vnc_auth_name.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   %13 = load ptr, ptr %info, align 8
-  switch i32 %event, label %default.unreachable [
+  switch i32 %event, label %default.unreachable11 [
     i32 37, label %sw.bb
     i32 38, label %sw.bb6
     i32 39, label %sw.bb8
@@ -2483,7 +2483,7 @@ sw.bb8:                                           ; preds = %if.end3
   call void @qapi_event_send_vnc_disconnected(ptr noundef nonnull %call.i, ptr noundef %13) #25
   br label %sw.epilog
 
-default.unreachable:                              ; preds = %if.end3
+default.unreachable11:                            ; preds = %if.end3
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb8, %sw.bb6, %sw.bb
@@ -5353,7 +5353,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare void @qio_net_listener_disconnect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @vnc_display_listen(ptr noundef %vd, ptr noundef readonly %saddr_list, ptr noundef readonly %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @vnc_display_listen(ptr noundef nonnull %vd, ptr noundef readonly %saddr_list, ptr noundef readonly %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %saddr_list, null
   br i1 %tobool.not, label %if.end7, label %if.then
@@ -5470,7 +5470,7 @@ if.then:                                          ; preds = %vnc_display_find.ex
 if.end:                                           ; preds = %vnc_display_find.exit.thread122, %vnc_display_find.exit
   %call1127 = phi ptr [ %call1124, %vnc_display_find.exit.thread122 ], [ %call1, %vnc_display_find.exit ]
   %retval.0.i126 = phi ptr [ %vd.07.i, %vnc_display_find.exit.thread122 ], [ %0, %vnc_display_find.exit ]
-  tail call fastcc void @vnc_display_close(ptr noundef nonnull %retval.0.i126)
+  tail call fastcc void @vnc_display_close(ptr noundef %retval.0.i126)
   %tobool2.not = icmp eq ptr %call1127, null
   br i1 %tobool2.not, label %glib_autoptr_cleanup_SocketAddressList.exit117, label %if.end4
 
@@ -5526,7 +5526,7 @@ while.body.i:                                     ; preds = %if.end19.i, %if.end
   %call2047.i = phi ptr [ %call20.i, %if.end32.i ], [ %call2043.i, %if.end19.i ]
   %displaynum.046.i = phi i32 [ %spec.select.i, %if.end32.i ], [ -1, %if.end19.i ]
   %saddr_tail.045.i = phi ptr [ %3, %if.end32.i ], [ %saddr_list.i, %if.end19.i ]
-  %call28.i = call fastcc i32 @vnc_display_get_address(ptr noundef nonnull %call2047.i, i1 noundef zeroext false, i1 noundef zeroext %call5, i32 noundef 0, i32 noundef %conv.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool4.i, i1 noundef zeroext %call6.i, i1 noundef zeroext %call8.i, ptr noundef nonnull %saddr.i, ptr noundef %errp)
+  %call28.i = call fastcc i32 @vnc_display_get_address(ptr noundef %call2047.i, i1 noundef zeroext false, i1 noundef zeroext %call5, i32 noundef 0, i32 noundef %conv.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool4.i, i1 noundef zeroext %call6.i, i1 noundef zeroext %call8.i, ptr noundef %saddr.i, ptr noundef %errp)
   %cmp29.i = icmp slt i32 %call28.i, 0
   br i1 %cmp29.i, label %cleanup.i, label %if.end32.i
 
@@ -5563,7 +5563,7 @@ if.end44.i:                                       ; preds = %if.then42.i, %land.
   %saddr_list.0.saddr_list.0.59.i = phi ptr [ %saddr_list.i.0.saddr_list.i.0.saddr_list.i.0.saddr_list.0.saddr_list.0..pre.i, %if.then42.i ], [ %saddr_list.i.0.saddr_list.i.0.saddr_list.i.0.saddr_list.0.saddr_list.0..pre.i, %land.lhs.true39.i ], [ null, %while.end.i ], [ null, %if.end19.i ]
   %single_saddr.0.i = phi ptr [ %6, %if.then42.i ], [ null, %land.lhs.true39.i ], [ null, %while.end.i ], [ null, %if.end19.i ]
   %displaynum.2.i = phi i32 [ %spec.select.i, %if.then42.i ], [ -1, %land.lhs.true39.i ], [ -1, %while.end.i ], [ -1, %if.end19.i ]
-  call void @qemu_opt_iter_init(ptr noundef nonnull %addriter.i, ptr noundef %call1127, ptr noundef nonnull @.str.852) #25
+  call void @qemu_opt_iter_init(ptr noundef nonnull %addriter.i, ptr noundef nonnull %call1127, ptr noundef nonnull @.str.852) #25
   %call4648.i = call ptr @qemu_opt_iter_next(ptr noundef nonnull %addriter.i) #25
   %cmp47.not49.i = icmp eq ptr %call4648.i, null
   br i1 %cmp47.not49.i, label %vnc_display_get_addresses.exit.thread, label %while.body49.lr.ph.i
@@ -5576,7 +5576,7 @@ while.body49.lr.ph.i:                             ; preds = %if.end44.i
 while.body49.us.i:                                ; preds = %while.body49.lr.ph.i, %if.end59.us.i
   %call4651.us.i = phi ptr [ %call46.us.i, %if.end59.us.i ], [ %call4648.i, %while.body49.lr.ph.i ]
   %wsaddr_tail.050.us.i = phi ptr [ %8, %if.end59.us.i ], [ %wsaddr_list.i, %while.body49.lr.ph.i ]
-  %call55.us.i = call fastcc i32 @vnc_display_get_address(ptr noundef nonnull %call4651.us.i, i1 noundef zeroext true, i1 noundef zeroext %call5, i32 noundef %displaynum.2.i, i32 noundef %conv.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool4.i, i1 noundef zeroext %call6.i, i1 noundef zeroext %call8.i, ptr noundef nonnull %wsaddr.i, ptr noundef %errp)
+  %call55.us.i = call fastcc i32 @vnc_display_get_address(ptr noundef %call4651.us.i, i1 noundef zeroext true, i1 noundef zeroext %call5, i32 noundef %displaynum.2.i, i32 noundef %conv.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool4.i, i1 noundef zeroext %call6.i, i1 noundef zeroext %call8.i, ptr noundef %wsaddr.i, ptr noundef %errp)
   %cmp56.us.i = icmp slt i32 %call55.us.i, 0
   br i1 %cmp56.us.i, label %cleanup.i, label %if.end59.us.i
 
@@ -5594,7 +5594,7 @@ if.end59.us.i:                                    ; preds = %while.body49.us.i
 while.body49.i:                                   ; preds = %while.body49.lr.ph.i, %do.body85.i
   %call4651.i = phi ptr [ %call46.i, %do.body85.i ], [ %call4648.i, %while.body49.lr.ph.i ]
   %wsaddr_tail.050.i = phi ptr [ %15, %do.body85.i ], [ %wsaddr_list.i, %while.body49.lr.ph.i ]
-  %call55.i = call fastcc i32 @vnc_display_get_address(ptr noundef nonnull %call4651.i, i1 noundef zeroext true, i1 noundef zeroext %call5, i32 noundef %displaynum.2.i, i32 noundef %conv.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool4.i, i1 noundef zeroext %call6.i, i1 noundef zeroext %call8.i, ptr noundef nonnull %wsaddr.i, ptr noundef %errp)
+  %call55.i = call fastcc i32 @vnc_display_get_address(ptr noundef %call4651.i, i1 noundef zeroext true, i1 noundef zeroext %call5, i32 noundef %displaynum.2.i, i32 noundef %conv.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool4.i, i1 noundef zeroext %call6.i, i1 noundef zeroext %call8.i, ptr noundef %wsaddr.i, ptr noundef %errp)
   %cmp56.i = icmp slt i32 %call55.i, 0
   br i1 %cmp56.i, label %cleanup.i, label %if.end59.i
 
@@ -5679,12 +5679,12 @@ vnc_display_get_addresses.exit:                   ; preds = %glib_autoptr_cleanu
 if.end9:                                          ; preds = %vnc_display_get_addresses.exit.thread, %vnc_display_get_addresses.exit
   %wsaddr_list.1134 = phi ptr [ %wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.0.wsaddr_list.0..i, %vnc_display_get_addresses.exit.thread ], [ null, %vnc_display_get_addresses.exit ]
   %saddr_list.1132 = phi ptr [ %saddr_list.0.saddr_list.0.59.i, %vnc_display_get_addresses.exit.thread ], [ null, %vnc_display_get_addresses.exit ]
-  %call10 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.15) #25
+  %call10 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.15) #25
   %tobool11.not = icmp eq ptr %call10, null
   br i1 %tobool11.not, label %if.end25, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %call13 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.16) #25
+  %call13 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.16) #25
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %if.end16, label %if.then15
 
@@ -5700,7 +5700,7 @@ if.end16:                                         ; preds = %if.then12
   br i1 %tobool20.not, label %fail, label %if.then27
 
 if.end25:                                         ; preds = %if.end9
-  %call23 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1127, ptr noundef nonnull @.str.16, i1 noundef zeroext false) #25
+  %call23 = call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.16, i1 noundef zeroext false) #25
   br i1 %call23, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end16, %if.end25
@@ -5713,11 +5713,11 @@ if.then29:                                        ; preds = %if.then27
 
 if.end31:                                         ; preds = %if.then27, %if.end25
   %password.0137 = phi i1 [ true, %if.then27 ], [ false, %if.end25 ]
-  %call32 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1127, ptr noundef nonnull @.str.19, i1 noundef zeroext true) #25
+  %call32 = call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.19, i1 noundef zeroext true) #25
   %conv = zext i1 %call32 to i32
-  %call33 = call i64 @qemu_opt_get_number(ptr noundef %call1127, ptr noundef nonnull @.str.20, i64 noundef 10) #25
+  %call33 = call i64 @qemu_opt_get_number(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.20, i64 noundef 10) #25
   %conv34 = trunc i64 %call33 to i32
-  %call35 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1127, ptr noundef nonnull @.str.21, i1 noundef zeroext false) #25
+  %call35 = call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.21, i1 noundef zeroext false) #25
   br i1 %call35, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.end31
@@ -5725,7 +5725,7 @@ if.then38:                                        ; preds = %if.end31
   br label %fail
 
 if.end39:                                         ; preds = %if.end31
-  %call40 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.23) #25
+  %call40 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.23) #25
   %tobool41.not = icmp eq ptr %call40, null
   br i1 %tobool41.not, label %if.end59, label %if.then42
 
@@ -5757,7 +5757,7 @@ if.end52:                                         ; preds = %if.end47
   br i1 %call56, label %if.end59, label %fail
 
 if.end59:                                         ; preds = %if.end52, %if.end39
-  %call60 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.26) #25
+  %call60 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.26) #25
   %tobool61.not = icmp eq ptr %call60, null
   br i1 %tobool61.not, label %if.end65, label %land.lhs.true
 
@@ -5772,7 +5772,7 @@ if.then64:                                        ; preds = %land.lhs.true
   br label %fail
 
 if.end65:                                         ; preds = %land.lhs.true, %if.end59
-  %call66 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.28) #25
+  %call66 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.28) #25
   %tobool67.not = icmp eq ptr %call66, null
   br i1 %tobool67.not, label %if.end71, label %if.then70
 
@@ -5781,7 +5781,7 @@ if.then70:                                        ; preds = %if.end65
   br label %fail
 
 if.end71:                                         ; preds = %if.end65
-  %call72 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.30) #25
+  %call72 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.30) #25
   %tobool73.not = icmp eq ptr %call72, null
   br i1 %tobool73.not, label %if.end97, label %if.then74
 
@@ -5808,15 +5808,15 @@ if.end97:                                         ; preds = %if.end71, %if.else8
   %.sink = phi i32 [ 1, %if.then74 ], [ 2, %if.else79 ], [ 3, %if.else85 ], [ 2, %if.end71 ]
   %share_policy = getelementptr inbounds i8, ptr %retval.0.i126, i64 32
   store i32 %.sink, ptr %share_policy, align 8
-  %call98 = call i64 @qemu_opt_get_number(ptr noundef %call1127, ptr noundef nonnull @.str.35, i64 noundef 32) #25
+  %call98 = call i64 @qemu_opt_get_number(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.35, i64 noundef 32) #25
   %conv99 = trunc i64 %call98 to i32
   %connections_limit = getelementptr inbounds i8, ptr %retval.0.i126, i64 28
   store i32 %conv99, ptr %connections_limit, align 4
-  %call100 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1127, ptr noundef nonnull @.str.36, i1 noundef zeroext false) #25
+  %call100 = call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.36, i1 noundef zeroext false) #25
   %lossy = getelementptr inbounds i8, ptr %retval.0.i126, i64 285000
   %frombool101 = zext i1 %call100 to i8
   store i8 %frombool101, ptr %lossy, align 8
-  %call102 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1127, ptr noundef nonnull @.str.37, i1 noundef zeroext false) #25
+  %call102 = call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.37, i1 noundef zeroext false) #25
   %non_adaptive = getelementptr inbounds i8, ptr %retval.0.i126, i64 285001
   %18 = load i8, ptr %lossy, align 8
   %tobool105 = trunc i8 %18 to i1
@@ -5824,7 +5824,7 @@ if.end97:                                         ; preds = %if.end71, %if.else8
   %narrow = select i1 %not.tobool105, i1 true, i1 %call102
   %spec.store.select = zext i1 %narrow to i8
   store i8 %spec.store.select, ptr %non_adaptive, align 1
-  %call109 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1127, ptr noundef nonnull @.str.38, i1 noundef zeroext false) #25
+  %call109 = call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.38, i1 noundef zeroext false) #25
   %power_control = getelementptr inbounds i8, ptr %retval.0.i126, i64 285002
   %frombool110 = zext i1 %call109 to i8
   store i8 %frombool110, ptr %power_control, align 2
@@ -5841,20 +5841,20 @@ if.end114:                                        ; preds = %if.then112, %if.end
   %subauth = getelementptr inbounds i8, ptr %retval.0.i126, i64 284988
   %tlscreds115 = getelementptr inbounds i8, ptr %retval.0.i126, i64 285008
   %19 = load ptr, ptr %tlscreds115, align 8
-  %call118 = call fastcc i32 @vnc_display_setup_auth(ptr noundef nonnull %auth, ptr noundef nonnull %subauth, ptr noundef %19, i1 noundef zeroext %password.0137, i1 noundef zeroext false, ptr noundef %errp)
+  %call118 = call fastcc i32 @vnc_display_setup_auth(ptr noundef %auth, ptr noundef %subauth, ptr noundef %19, i1 noundef zeroext %password.0137, i1 noundef zeroext false, ptr noundef %errp)
   %cmp119 = icmp slt i32 %call118, 0
   br i1 %cmp119, label %fail, label %if.end132
 
 if.end132:                                        ; preds = %if.end114
   %20 = load i32, ptr %auth, align 8
   %21 = load i32, ptr %subauth, align 4
-  call fastcc void @trace_vnc_auth_init(ptr noundef nonnull %retval.0.i126, i32 noundef 0, i32 noundef %20, i32 noundef %21)
+  call fastcc void @trace_vnc_auth_init(ptr noundef %retval.0.i126, i32 noundef 0, i32 noundef %20, i32 noundef %21)
   %ws_auth = getelementptr inbounds i8, ptr %retval.0.i126, i64 284992
   %ws_subauth = getelementptr inbounds i8, ptr %retval.0.i126, i64 284996
   %storemerge.i = select i1 %password.0137, i32 2, i32 1
   store i32 %storemerge.i, ptr %ws_auth, align 4
   store i32 0, ptr %ws_subauth, align 4
-  call fastcc void @trace_vnc_auth_init(ptr noundef nonnull %retval.0.i126, i32 noundef 1, i32 noundef %storemerge.i, i32 noundef 0)
+  call fastcc void @trace_vnc_auth_init(ptr noundef %retval.0.i126, i32 noundef 1, i32 noundef %storemerge.i, i32 noundef 0)
   %lock_key_sync135 = getelementptr inbounds i8, ptr %retval.0.i126, i64 120
   store i32 %conv, ptr %lock_key_sync135, align 8
   br i1 %call32, label %if.then137, label %if.end139
@@ -5868,7 +5868,7 @@ if.then137:                                       ; preds = %if.end132
 if.end139:                                        ; preds = %if.then137, %if.end132
   %ledstate = getelementptr inbounds i8, ptr %retval.0.i126, i64 136
   store i32 0, ptr %ledstate, align 8
-  %call140 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.39) #25
+  %call140 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.39) #25
   %tobool141.not = icmp eq ptr %call140, null
   %audio_state150 = getelementptr inbounds i8, ptr %retval.0.i126, i64 285032
   br i1 %tobool141.not, label %if.else148, label %if.then142
@@ -5885,12 +5885,12 @@ if.else148:                                       ; preds = %if.end139
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then142, %if.else148
-  %call152 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.40) #25
+  %call152 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.40) #25
   %tobool153.not = icmp eq ptr %call152, null
   br i1 %tobool153.not, label %if.end162, label %if.then154
 
 if.then154:                                       ; preds = %if.end151
-  %call155 = call i64 @qemu_opt_get_number(ptr noundef %call1127, ptr noundef nonnull @.str.41, i64 noundef 0) #25
+  %call155 = call i64 @qemu_opt_get_number(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.41, i64 noundef 0) #25
   %conv156 = trunc i64 %call155 to i32
   store ptr null, ptr %err, align 8
   %call157 = call ptr @qemu_console_lookup_by_device_name(ptr noundef nonnull %call152, i32 noundef %conv156, ptr noundef nonnull %err) #25
@@ -5937,17 +5937,17 @@ if.end180:                                        ; preds = %if.end175
   br i1 %call5, label %if.then182, label %if.else188
 
 if.then182:                                       ; preds = %if.end180
-  %call183 = call fastcc i32 @vnc_display_connect(ptr noundef nonnull %retval.0.i126, ptr noundef nonnull %saddr_list.1132, ptr noundef %wsaddr_list.1134, ptr noundef %errp)
+  %call183 = call fastcc i32 @vnc_display_connect(ptr noundef %retval.0.i126, ptr noundef %saddr_list.1132, ptr noundef %wsaddr_list.1134, ptr noundef %errp)
   %cmp184 = icmp slt i32 %call183, 0
   br i1 %cmp184, label %fail, label %if.end194
 
 if.else188:                                       ; preds = %if.end180
-  %call189 = call fastcc i32 @vnc_display_listen(ptr noundef nonnull %retval.0.i126, ptr noundef nonnull %saddr_list.1132, ptr noundef %wsaddr_list.1134, ptr noundef %errp)
+  %call189 = call fastcc i32 @vnc_display_listen(ptr noundef %retval.0.i126, ptr noundef nonnull %saddr_list.1132, ptr noundef %wsaddr_list.1134, ptr noundef %errp)
   %cmp190 = icmp slt i32 %call189, 0
   br i1 %cmp190, label %fail, label %if.end194
 
 if.end194:                                        ; preds = %if.else188, %if.then182
-  %call195 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.42) #25
+  %call195 = call ptr @qemu_opt_get(ptr noundef nonnull %call1127, ptr noundef nonnull @.str.42) #25
   %tobool196.not = icmp eq ptr %call195, null
   br i1 %tobool196.not, label %cleanup, label %if.then197
 
@@ -5960,7 +5960,7 @@ if.then197:                                       ; preds = %if.end194
 fail:                                             ; preds = %if.else188, %if.then182, %if.then142, %if.end114, %if.end52, %if.end16, %vnc_display_get_addresses.exit, %if.then159, %if.else91, %if.then70, %if.then64, %if.then51, %if.then46, %if.then38, %if.then29, %if.then15
   %wsaddr_list.1135 = phi ptr [ %wsaddr_list.1134, %if.else188 ], [ %wsaddr_list.1134, %if.then182 ], [ %wsaddr_list.1134, %if.then142 ], [ %wsaddr_list.1134, %if.end114 ], [ %wsaddr_list.1134, %if.end52 ], [ %wsaddr_list.1134, %if.end16 ], [ null, %vnc_display_get_addresses.exit ], [ %wsaddr_list.1134, %if.then159 ], [ %wsaddr_list.1134, %if.else91 ], [ %wsaddr_list.1134, %if.then70 ], [ %wsaddr_list.1134, %if.then64 ], [ %wsaddr_list.1134, %if.then51 ], [ %wsaddr_list.1134, %if.then46 ], [ %wsaddr_list.1134, %if.then38 ], [ %wsaddr_list.1134, %if.then29 ], [ %wsaddr_list.1134, %if.then15 ]
   %saddr_list.1133 = phi ptr [ %saddr_list.1132, %if.else188 ], [ %saddr_list.1132, %if.then182 ], [ %saddr_list.1132, %if.then142 ], [ %saddr_list.1132, %if.end114 ], [ %saddr_list.1132, %if.end52 ], [ %saddr_list.1132, %if.end16 ], [ null, %vnc_display_get_addresses.exit ], [ %saddr_list.1132, %if.then159 ], [ %saddr_list.1132, %if.else91 ], [ %saddr_list.1132, %if.then70 ], [ %saddr_list.1132, %if.then64 ], [ %saddr_list.1132, %if.then51 ], [ %saddr_list.1132, %if.then46 ], [ %saddr_list.1132, %if.then38 ], [ %saddr_list.1132, %if.then29 ], [ %saddr_list.1132, %if.then15 ]
-  call fastcc void @vnc_display_close(ptr noundef nonnull %retval.0.i126)
+  call fastcc void @vnc_display_close(ptr noundef %retval.0.i126)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end194, %if.then197, %if.end175, %fail
@@ -5988,7 +5988,7 @@ glib_autoptr_cleanup_SocketAddressList.exit117:   ; preds = %if.then, %if.end, %
 declare ptr @qemu_opts_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_display_close(ptr nocapture noundef %vd) unnamed_addr #0 {
+define internal fastcc void @vnc_display_close(ptr nocapture noundef nonnull %vd) unnamed_addr #0 {
 entry:
   %is_unix = getelementptr inbounds i8, ptr %vd, i64 284960
   store i8 0, ptr %is_unix, align 8
@@ -6088,7 +6088,7 @@ declare zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef, i32 noundef, p
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @vnc_display_setup_auth(ptr nocapture noundef writeonly %auth, ptr nocapture noundef writeonly %subauth, ptr noundef %tlscreds, i1 noundef zeroext %password, i1 noundef zeroext %websocket, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @vnc_display_setup_auth(ptr nocapture noundef nonnull writeonly %auth, ptr nocapture noundef nonnull writeonly %subauth, ptr noundef %tlscreds, i1 noundef zeroext %password, i1 noundef zeroext %websocket, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool3 = icmp eq ptr %tlscreds, null
   %or.cond.not = or i1 %tobool3, %websocket
@@ -6145,7 +6145,7 @@ return:                                           ; preds = %if.then, %do.end52,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_vnc_auth_init(ptr noundef %display, i32 noundef %websock, i32 noundef %auth, i32 noundef %subauth) unnamed_addr #0 {
+define internal fastcc void @trace_vnc_auth_init(ptr noundef nonnull %display, i32 noundef range(i32 0, 2) %websock, i32 noundef %auth, i32 noundef %subauth) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -6173,11 +6173,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.870, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %display, i32 noundef %websock, i32 noundef %auth, i32 noundef %subauth) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.870, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %display, i32 noundef %websock, i32 noundef %auth, i32 noundef %subauth) #25
   br label %_nocheck__trace_vnc_auth_init.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.871, ptr noundef %display, i32 noundef %websock, i32 noundef %auth, i32 noundef %subauth) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.871, ptr noundef nonnull %display, i32 noundef %websock, i32 noundef %auth, i32 noundef %subauth) #25
   br label %_nocheck__trace_vnc_auth_init.exit
 
 _nocheck__trace_vnc_auth_init.exit:               ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -6270,7 +6270,7 @@ declare void @unregister_displaychangelistener(ptr noundef) local_unnamed_addr #
 declare void @qkbd_state_set_delay(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @vnc_display_connect(ptr noundef %vd, ptr nocapture noundef readonly %saddr_list, ptr noundef readnone %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @vnc_display_connect(ptr noundef nonnull %vd, ptr nocapture noundef nonnull readonly %saddr_list, ptr noundef readnone %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %wsaddr_list, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
@@ -6594,7 +6594,7 @@ if.end65:                                         ; preds = %if.then52, %if.else
   br i1 %tobool.not.i.i, label %vnc_init_basic_info_from_remote_addr.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end65
-  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef %call.i95, ptr noundef nonnull %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i95, ptr noundef %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #25
   br label %vnc_init_basic_info_from_remote_addr.exit.i
 
@@ -6860,7 +6860,7 @@ declare ptr @qcrypto_tls_session_get_peer_name(ptr noundef) local_unnamed_addr #
 declare ptr @qio_channel_socket_get_remote_address(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_init_basic_info(ptr nocapture noundef readonly %addr, ptr nocapture noundef writeonly %info, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @vnc_init_basic_info(ptr nocapture noundef nonnull readonly %addr, ptr nocapture noundef writeonly %info, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %addr, align 8
   switch i32 %0, label %sw.default [
@@ -6908,7 +6908,7 @@ sw.bb6:                                           ; preds = %entry
 
 sw.bb13:                                          ; preds = %entry, %entry
   %call15 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @SocketAddressType_lookup, i32 noundef %0) #25
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 144, ptr noundef nonnull @__func__.vnc_init_basic_info, ptr noundef nonnull @.str.2, ptr noundef %call15) #25
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 144, ptr noundef nonnull @__func__.vnc_init_basic_info, ptr noundef nonnull @.str.2, ptr noundef %call15) #25
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -7175,65 +7175,65 @@ sw.epilog.i:                                      ; preds = %if.end.i, %if.end.i
   br label %sw.epilog.thread.i
 
 sw.epilog.thread.i:                               ; preds = %sw.epilog.i, %if.end8
-  %bits_per_pixel.addr.048109.i = phi i32 [ 8, %if.end8 ], [ %conv9, %sw.epilog.i ]
-  %red_max.addr.052106.i = phi i32 [ 7, %if.end8 ], [ %or.i, %sw.epilog.i ]
-  %green_max.addr.055104.i = phi i32 [ 7, %if.end8 ], [ %15, %sw.epilog.i ]
-  %blue_max.addr.059100.i = phi i32 [ 3, %if.end8 ], [ %or.i145, %sw.epilog.i ]
-  %red_shift.addr.06396.i = phi i32 [ 0, %if.end8 ], [ %conv21, %sw.epilog.i ]
-  %green_shift.addr.06594.i = phi i32 [ 3, %if.end8 ], [ %conv23, %sw.epilog.i ]
-  %blue_shift.addr.06792.i = phi i32 [ 6, %if.end8 ], [ %conv25, %sw.epilog.i ]
+  %bits_per_pixel.addr.049113.i = phi i32 [ 8, %if.end8 ], [ %conv9, %sw.epilog.i ]
+  %red_max.addr.052111.i = phi i32 [ 7, %if.end8 ], [ %or.i, %sw.epilog.i ]
+  %green_max.addr.055109.i = phi i32 [ 7, %if.end8 ], [ %15, %sw.epilog.i ]
+  %blue_max.addr.059105.i = phi i32 [ 3, %if.end8 ], [ %or.i145, %sw.epilog.i ]
+  %red_shift.addr.063101.i = phi i32 [ 0, %if.end8 ], [ %conv21, %sw.epilog.i ]
+  %green_shift.addr.06599.i = phi i32 [ 3, %if.end8 ], [ %conv23, %sw.epilog.i ]
+  %blue_shift.addr.06797.i = phi i32 [ 6, %if.end8 ], [ %conv25, %sw.epilog.i ]
+  %trunc6995.i = phi i8 [ 8, %if.end8 ], [ %3, %sw.epilog.i ]
   %16 = phi i8 [ 7, %if.end8 ], [ %spec.select.i, %sw.epilog.i ]
   %client_pf.i = getelementptr inbounds i8, ptr %vs, i64 49416
   %rmax.i = getelementptr inbounds i8, ptr %vs, i64 49440
   store i8 %16, ptr %rmax.i, align 8
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %red_max.addr.052106.i)
+  %17 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %red_max.addr.052111.i)
   %conv3.i = trunc nuw nsw i32 %17 to i8
   %rbits.i = getelementptr inbounds i8, ptr %vs, i64 49444
   store i8 %conv3.i, ptr %rbits.i, align 4
-  %conv5.i = trunc nuw i32 %red_shift.addr.06396.i to i8
+  %conv5.i = trunc nuw i32 %red_shift.addr.063101.i to i8
   %rshift.i = getelementptr inbounds i8, ptr %vs, i64 49436
   store i8 %conv5.i, ptr %rshift.i, align 4
-  %shl.i149 = shl i32 %red_max.addr.052106.i, %red_shift.addr.06396.i
+  %shl.i149 = shl i32 %red_max.addr.052111.i, %red_shift.addr.063101.i
   %rmask.i = getelementptr inbounds i8, ptr %vs, i64 49420
   store i32 %shl.i149, ptr %rmask.i, align 4
-  %tobool8.not.i = icmp eq i32 %green_max.addr.055104.i, 0
-  %18 = trunc i32 %green_max.addr.055104.i to i8
+  %tobool8.not.i = icmp eq i32 %green_max.addr.055109.i, 0
+  %18 = trunc i32 %green_max.addr.055109.i to i8
   %spec.select = select i1 %tobool8.not.i, i8 -1, i8 %18
   %gmax.i = getelementptr inbounds i8, ptr %vs, i64 49441
   store i8 %spec.select, ptr %gmax.i, align 1
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %green_max.addr.055104.i)
+  %19 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %green_max.addr.055109.i)
   %conv17.i = trunc nuw nsw i32 %19 to i8
   %gbits.i = getelementptr inbounds i8, ptr %vs, i64 49445
   store i8 %conv17.i, ptr %gbits.i, align 1
-  %conv19.i = trunc nuw i32 %green_shift.addr.06594.i to i8
+  %conv19.i = trunc nuw i32 %green_shift.addr.06599.i to i8
   %gshift.i = getelementptr inbounds i8, ptr %vs, i64 49437
   store i8 %conv19.i, ptr %gshift.i, align 1
-  %shl21.i = shl i32 %green_max.addr.055104.i, %green_shift.addr.06594.i
+  %shl21.i = shl i32 %green_max.addr.055109.i, %green_shift.addr.06599.i
   %gmask.i = getelementptr inbounds i8, ptr %vs, i64 49424
   store i32 %shl21.i, ptr %gmask.i, align 8
-  %tobool23.not.i = icmp eq i32 %blue_max.addr.059100.i, 0
-  %20 = trunc i32 %blue_max.addr.059100.i to i8
+  %tobool23.not.i = icmp eq i32 %blue_max.addr.059105.i, 0
+  %20 = trunc i32 %blue_max.addr.059105.i to i8
   %21 = select i1 %tobool23.not.i, i8 -1, i8 %20
   %bmax.i = getelementptr inbounds i8, ptr %vs, i64 49442
   store i8 %21, ptr %bmax.i, align 2
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %blue_max.addr.059100.i)
+  %22 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %blue_max.addr.059105.i)
   %conv32.i = trunc nuw nsw i32 %22 to i8
   %bbits.i = getelementptr inbounds i8, ptr %vs, i64 49446
   store i8 %conv32.i, ptr %bbits.i, align 2
-  %conv34.i = trunc nuw i32 %blue_shift.addr.06792.i to i8
+  %conv34.i = trunc nuw i32 %blue_shift.addr.06797.i to i8
   %bshift.i = getelementptr inbounds i8, ptr %vs, i64 49438
   store i8 %conv34.i, ptr %bshift.i, align 2
-  %shl36.i = shl i32 %blue_max.addr.059100.i, %blue_shift.addr.06792.i
+  %shl36.i = shl i32 %blue_max.addr.059105.i, %blue_shift.addr.06797.i
   %bmask.i = getelementptr inbounds i8, ptr %vs, i64 49428
   store i32 %shl36.i, ptr %bmask.i, align 4
-  %conv38.i = trunc nuw i32 %bits_per_pixel.addr.048109.i to i8
-  store i8 %conv38.i, ptr %client_pf.i, align 8
-  %div38.i = lshr i32 %bits_per_pixel.addr.048109.i, 3
+  store i8 %trunc6995.i, ptr %client_pf.i, align 8
+  %div38.i = lshr i32 %bits_per_pixel.addr.049113.i, 3
   %conv41.i = trunc nuw nsw i32 %div38.i to i8
   %bytes_per_pixel.i = getelementptr inbounds i8, ptr %vs, i64 49417
   store i8 %conv41.i, ptr %bytes_per_pixel.i, align 1
-  %cmp.i = icmp eq i32 %bits_per_pixel.addr.048109.i, 32
-  %23 = select i1 %cmp.i, i8 24, i8 %conv38.i
+  %cmp.i = icmp eq i32 %bits_per_pixel.addr.049113.i, 32
+  %23 = select i1 %cmp.i, i8 24, i8 %trunc6995.i
   %depth.i = getelementptr inbounds i8, ptr %vs, i64 49418
   store i8 %23, ptr %depth.i, align 2
   %tobool50.i = icmp ne i8 %4, 0
@@ -7381,18 +7381,18 @@ if.then38:                                        ; preds = %if.then33
 if.end42:                                         ; preds = %sw.bb26
   %arrayidx.i156 = getelementptr i8, ptr %data, i64 2
   %41 = load i8, ptr %arrayidx.i156, align 1
-  %conv.i157 = zext i8 %41 to i32
-  %shl.i158 = shl nuw nsw i32 %conv.i157, 8
+  %conv.i157 = zext i8 %41 to i16
+  %shl.i158 = shl nuw i16 %conv.i157, 8
   %arrayidx1.i159 = getelementptr i8, ptr %data, i64 3
   %42 = load i8, ptr %arrayidx1.i159, align 1
-  %conv2.i160 = zext i8 %42 to i32
-  %or.i161 = or disjoint i32 %shl.i158, %conv2.i160
-  %cmp44386.not = icmp eq i32 %or.i161, 0
-  br i1 %cmp44386.not, label %for.end, label %for.body.lr.ph
+  %conv2.i160 = zext i8 %42 to i16
+  %or.i161 = or disjoint i16 %shl.i158, %conv2.i160
+  %cmp44384.not = icmp eq i16 %or.i161, 0
+  br i1 %cmp44384.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end42
   %add.ptr = getelementptr i8, ptr %data, i64 4
-  %wide.trip.count = zext nneg i32 %or.i161 to i64
+  %wide.trip.count = zext i16 %or.i161 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -7421,29 +7421,31 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %or12.i, ptr %add.ptr51, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !31
 
-for.end:                                          ; preds = %for.body, %if.then33, %if.end42
-  %limit.0392 = phi i32 [ 0, %if.end42 ], [ 0, %if.then33 ], [ %or.i161, %for.body ]
-  %add.ptr52 = getelementptr i8, ptr %data, i64 4
+for.end.loopexit:                                 ; preds = %for.body
+  %49 = zext i16 %or.i161 to i64
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %if.then33, %if.end42
+  %cmp44384.not391 = phi i1 [ true, %if.end42 ], [ true, %if.then33 ], [ false, %for.end.loopexit ]
+  %limit.0390 = phi i64 [ 0, %if.end42 ], [ 0, %if.then33 ], [ %49, %for.end.loopexit ]
   %features.i = getelementptr inbounds i8, ptr %vs, i64 49212
   store i32 0, ptr %features.i, align 4
   %vnc_encoding.i = getelementptr inbounds i8, ptr %vs, i64 49252
   store i32 0, ptr %vnc_encoding.i, align 4
   %tight.i = getelementptr inbounds i8, ptr %vs, i64 49600
-  %49 = load ptr, ptr %tight.i, align 8
-  %compression.i = getelementptr inbounds i8, ptr %49, i64 5
-  store i8 9, ptr %compression.i, align 1
   %50 = load ptr, ptr %tight.i, align 8
-  %quality.i = getelementptr inbounds i8, ptr %50, i64 4
+  %compression.i = getelementptr inbounds i8, ptr %50, i64 5
+  store i8 9, ptr %compression.i, align 1
+  %51 = load ptr, ptr %tight.i, align 8
+  %quality.i = getelementptr inbounds i8, ptr %51, i64 4
   store i8 -1, ptr %quality.i, align 4
   %absolute.i = getelementptr inbounds i8, ptr %vs, i64 49216
   store i32 -1, ptr %absolute.i, align 8
-  %cmp97.i = icmp sgt i32 %limit.0392, 0
-  br i1 %cmp97.i, label %for.body.lr.ph.i, label %set_encodings.exit
+  br i1 %cmp44384.not391, label %set_encodings.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %i.096.i = add nsw i32 %limit.0392, -1
   %output_mutex.i.i61.i = getelementptr inbounds i8, ptr %vs, i64 49504
   %arrayidx5.i.i62.i = getelementptr inbounds i8, ptr %buf.i.i58.i, i64 1
   %arrayidx5.i.i.i68.i = getelementptr inbounds i8, ptr %buf.i.i.i57.i, i64 1
@@ -7465,12 +7467,12 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   %arrayidx4.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i.i, i64 1
   %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i.i, i64 2
   %arrayidx11.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i.i, i64 3
-  %51 = zext nneg i32 %i.096.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %51, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i171 = getelementptr i32, ptr %add.ptr52, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ %limit.0390, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %arrayidx.i171 = getelementptr i32, ptr %data, i64 %indvars.iv.i
   %52 = load i32, ptr %arrayidx.i171, align 4
   switch i32 %52, label %for.inc.i [
     i32 0, label %sw.bb.i
@@ -7854,8 +7856,7 @@ if.then75.i:                                      ; preds = %sw.bb72.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then75.i, %sw.bb72.i, %sw.bb67.i, %sw.bb64.i, %if.then60.i, %sw.bb57.i, %sw.bb54.i, %sw.bb51.i, %send_ext_audio_ack.exit.i, %sw.bb46.i, %send_ext_key_event_ack.exit.i, %sw.bb42.i, %sw.bb39.i, %sw.bb36.i, %sw.bb33.i, %sw.bb30.i, %sw.bb26.i, %sw.bb22.i, %if.then.i, %sw.bb15.i, %sw.bb11.i, %sw.bb7.i, %sw.bb4.i, %sw.bb.i, %for.body.i
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %cmp.i172 = icmp sgt i64 %indvars.iv.i, 0
+  %cmp.i172 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i172, label %for.body.i, label %set_encodings.exit, !llvm.loop !32
 
 set_encodings.exit:                               ; preds = %for.inc.i, %for.end
@@ -7880,7 +7881,6 @@ if.end58:                                         ; preds = %sw.bb54
   %arrayidx1.i180 = getelementptr i8, ptr %data, i64 3
   %105 = load i8, ptr %arrayidx1.i180, align 1
   %conv2.i181 = zext i8 %105 to i32
-  %or.i182 = or disjoint i32 %shl.i179, %conv2.i181
   %arrayidx.i183 = getelementptr i8, ptr %data, i64 4
   %106 = load i8, ptr %arrayidx.i183, align 1
   %conv.i184 = zext i8 %106 to i32
@@ -7937,25 +7937,25 @@ if.else.i:                                        ; preds = %if.end58
   br i1 %cmp2428.i.i, label %for.body.lr.ph.i.i, label %vnc_set_area_dirty.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else.i
-  %115 = and i8 %105, 15
-  %rem.i.i384.zext = zext nneg i8 %115 to i32
-  %sub.i.i205 = sub nsw i32 %or.i182, %rem.i.i384.zext
+  %rem.i78.i = and i32 %conv2.i181, 15
+  %conv2.i181.masked = and i32 %conv2.i181, 240
+  %sub.i.i205 = or disjoint i32 %conv2.i181.masked, %shl.i179
   %sub.i.i.i = add i32 %call.i.i.i.i, 15
   %and.i.i.i = and i32 %sub.i.i.i, -16
   %cond.i.i.i = tail call range(i32 -2147483648, 2561) i32 @llvm.smin.i32(i32 %and.i.i.i, i32 2560)
   %cond.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i205, i32 %cond.i.i.i)
-  %add.i.i = add nuw nsw i32 %or.i194, %rem.i.i384.zext
+  %add.i.i = add nuw nsw i32 %or.i194, %rem.i78.i
   %add9.i.i = add nsw i32 %add.i.i, %cond.i.i
   %cond15.i.i = tail call i32 @llvm.smin.i32(i32 %add9.i.i, i32 %cond.i.i.i)
-  %div.i.i = sdiv i32 %cond.i.i, 16
+  %div.i.i = ashr exact i32 %cond.i.i, 4
   %conv.i.i206 = sext i32 %div.i.i to i64
   %reass.sub = sub i32 %cond15.i.i, %cond.i.i
   %sub26.i.i = add i32 %reass.sub, 15
   %div27.i.i = sdiv i32 %sub26.i.i, 16
   %conv28.i.i = sext i32 %div27.i.i to i64
   %smin30.i.i = zext nneg i32 %or.i188 to i64
-  %116 = sub i32 %or.i188, %cond8.i.i
-  %117 = add i32 %116, %cond23.i.i
+  %115 = sub i32 %or.i188, %cond8.i.i
+  %116 = add i32 %115, %cond23.i.i
   br label %for.body.i.i207
 
 for.body.i.i207:                                  ; preds = %for.body.i.i207, %for.body.lr.ph.i.i
@@ -7964,12 +7964,12 @@ for.body.i.i207:                                  ; preds = %for.body.i.i207, %f
   tail call void @bitmap_set(ptr noundef %arrayidx.i.i, i64 noundef %conv.i.i206, i64 noundef %conv28.i.i) #25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
-  %exitcond.not.i.i208 = icmp eq i32 %117, %lftr.wideiv.i.i
+  %exitcond.not.i.i208 = icmp eq i32 %116, %lftr.wideiv.i.i
   br i1 %exitcond.not.i.i208, label %vnc_set_area_dirty.exit.i, label %for.body.i.i207, !llvm.loop !13
 
 vnc_set_area_dirty.exit.i:                        ; preds = %for.body.i.i207, %if.else.i
-  %118 = getelementptr i8, ptr %vs, i64 49212
-  %vs.val.i = load i32, ptr %118, align 4
+  %117 = getelementptr i8, ptr %vs, i64 49212
+  %vs.val.i = load i32, ptr %117, align 4
   %and.i.i204 = and i32 %vs.val.i, 2
   %tobool4.not.i = icmp eq i32 %and.i.i204, 0
   br i1 %tobool4.not.i, label %sw.epilog276, label %if.then5.i
@@ -7984,25 +7984,25 @@ sw.bb69:                                          ; preds = %if.end
 
 if.end73:                                         ; preds = %sw.bb69
   %arrayidx.i209 = getelementptr i8, ptr %data, i64 1
-  %119 = load i8, ptr %arrayidx.i209, align 1
-  %conv75 = zext i8 %119 to i32
+  %118 = load i8, ptr %arrayidx.i209, align 1
+  %conv75 = zext i8 %118 to i32
   %arrayidx.i210 = getelementptr i8, ptr %data, i64 4
-  %120 = load i8, ptr %arrayidx.i210, align 1
-  %conv.i211 = zext i8 %120 to i32
+  %119 = load i8, ptr %arrayidx.i210, align 1
+  %conv.i211 = zext i8 %119 to i32
   %shl.i212 = shl nuw i32 %conv.i211, 24
   %arrayidx1.i213 = getelementptr i8, ptr %data, i64 5
-  %121 = load i8, ptr %arrayidx1.i213, align 1
-  %conv2.i214 = zext i8 %121 to i32
+  %120 = load i8, ptr %arrayidx1.i213, align 1
+  %conv2.i214 = zext i8 %120 to i32
   %shl3.i215 = shl nuw nsw i32 %conv2.i214, 16
   %or.i216 = or disjoint i32 %shl3.i215, %shl.i212
   %arrayidx5.i217 = getelementptr i8, ptr %data, i64 6
-  %122 = load i8, ptr %arrayidx5.i217, align 1
-  %conv6.i218 = zext i8 %122 to i32
+  %121 = load i8, ptr %arrayidx5.i217, align 1
+  %conv6.i218 = zext i8 %121 to i32
   %shl7.i219 = shl nuw nsw i32 %conv6.i218, 8
   %or8.i220 = or disjoint i32 %or.i216, %shl7.i219
   %arrayidx10.i221 = getelementptr i8, ptr %data, i64 7
-  %123 = load i8, ptr %arrayidx10.i221, align 1
-  %conv11.i222 = zext i8 %123 to i32
+  %122 = load i8, ptr %arrayidx10.i221, align 1
+  %conv11.i222 = zext i8 %122 to i32
   %or12.i223 = or disjoint i32 %or8.i220, %conv11.i222
   tail call fastcc void @key_event(ptr noundef %vs, i32 noundef %conv75, i32 noundef %or12.i223)
   br label %sw.epilog276
@@ -8013,82 +8013,82 @@ sw.bb77:                                          ; preds = %if.end
 
 if.end81:                                         ; preds = %sw.bb77
   %arrayidx.i224 = getelementptr i8, ptr %data, i64 1
-  %124 = load i8, ptr %arrayidx.i224, align 1
-  %conv83 = zext i8 %124 to i32
+  %123 = load i8, ptr %arrayidx.i224, align 1
+  %conv83 = zext i8 %123 to i32
   %arrayidx.i225 = getelementptr i8, ptr %data, i64 2
-  %125 = load i8, ptr %arrayidx.i225, align 1
-  %conv.i226 = zext i8 %125 to i32
+  %124 = load i8, ptr %arrayidx.i225, align 1
+  %conv.i226 = zext i8 %124 to i32
   %shl.i227 = shl nuw nsw i32 %conv.i226, 8
   %arrayidx1.i228 = getelementptr i8, ptr %data, i64 3
-  %126 = load i8, ptr %arrayidx1.i228, align 1
-  %conv2.i229 = zext i8 %126 to i32
+  %125 = load i8, ptr %arrayidx1.i228, align 1
+  %conv2.i229 = zext i8 %125 to i32
   %or.i230 = or disjoint i32 %shl.i227, %conv2.i229
   %arrayidx.i231 = getelementptr i8, ptr %data, i64 4
-  %127 = load i8, ptr %arrayidx.i231, align 1
-  %conv.i232 = zext i8 %127 to i32
+  %126 = load i8, ptr %arrayidx.i231, align 1
+  %conv.i232 = zext i8 %126 to i32
   %shl.i233 = shl nuw nsw i32 %conv.i232, 8
   %arrayidx1.i234 = getelementptr i8, ptr %data, i64 5
-  %128 = load i8, ptr %arrayidx1.i234, align 1
-  %conv2.i235 = zext i8 %128 to i32
+  %127 = load i8, ptr %arrayidx1.i234, align 1
+  %conv2.i235 = zext i8 %127 to i32
   %or.i236 = or disjoint i32 %shl.i233, %conv2.i235
-  %129 = load ptr, ptr %vd1, align 8
-  %con1.i = getelementptr inbounds i8, ptr %129, i64 88
-  %130 = load ptr, ptr %con1.i, align 8
-  %server.i = getelementptr inbounds i8, ptr %129, i64 284920
-  %131 = load ptr, ptr %server.i, align 8
-  %call.i238 = tail call i32 @pixman_image_get_width(ptr noundef %131) #25
-  %132 = load ptr, ptr %vd1, align 8
-  %server4.i = getelementptr inbounds i8, ptr %132, i64 284920
-  %133 = load ptr, ptr %server4.i, align 8
-  %call5.i = tail call i32 @pixman_image_get_height(ptr noundef %133) #25
+  %128 = load ptr, ptr %vd1, align 8
+  %con1.i = getelementptr inbounds i8, ptr %128, i64 88
+  %129 = load ptr, ptr %con1.i, align 8
+  %server.i = getelementptr inbounds i8, ptr %128, i64 284920
+  %130 = load ptr, ptr %server.i, align 8
+  %call.i238 = tail call i32 @pixman_image_get_width(ptr noundef %130) #25
+  %131 = load ptr, ptr %vd1, align 8
+  %server4.i = getelementptr inbounds i8, ptr %131, i64 284920
+  %132 = load ptr, ptr %server4.i, align 8
+  %call5.i = tail call i32 @pixman_image_get_height(ptr noundef %132) #25
   %last_bmask.i = getelementptr inbounds i8, ptr %vs, i64 49228
-  %134 = load i32, ptr %last_bmask.i, align 4
-  %cmp.not.i239 = icmp eq i32 %134, %conv83
+  %133 = load i32, ptr %last_bmask.i, align 4
+  %cmp.not.i239 = icmp eq i32 %133, %conv83
   br i1 %cmp.not.i239, label %if.end.i241, label %if.then.i240
 
 if.then.i240:                                     ; preds = %if.end81
-  tail call void @qemu_input_update_buttons(ptr noundef %130, ptr noundef nonnull @pointer_event.bmap, i32 noundef %134, i32 noundef %conv83) #25
+  tail call void @qemu_input_update_buttons(ptr noundef %129, ptr noundef nonnull @pointer_event.bmap, i32 noundef %133, i32 noundef %conv83) #25
   store i32 %conv83, ptr %last_bmask.i, align 4
   br label %if.end.i241
 
 if.end.i241:                                      ; preds = %if.then.i240, %if.end81
   %absolute.i242 = getelementptr inbounds i8, ptr %vs, i64 49216
-  %135 = load i32, ptr %absolute.i242, align 8
-  %tobool.not.i243 = icmp eq i32 %135, 0
+  %134 = load i32, ptr %absolute.i242, align 8
+  %tobool.not.i243 = icmp eq i32 %134, 0
   br i1 %tobool.not.i243, label %if.else.i244, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i241
-  tail call void @qemu_input_queue_abs(ptr noundef %130, i32 noundef 0, i32 noundef %or.i230, i32 noundef 0, i32 noundef %call.i238) #25
-  tail call void @qemu_input_queue_abs(ptr noundef %130, i32 noundef 1, i32 noundef %or.i236, i32 noundef 0, i32 noundef %call5.i) #25
+  tail call void @qemu_input_queue_abs(ptr noundef %129, i32 noundef 0, i32 noundef %or.i230, i32 noundef 0, i32 noundef %call.i238) #25
+  tail call void @qemu_input_queue_abs(ptr noundef %129, i32 noundef 1, i32 noundef %or.i236, i32 noundef 0, i32 noundef %call5.i) #25
   br label %pointer_event.exit
 
 if.else.i244:                                     ; preds = %if.end.i241
-  %136 = getelementptr i8, ptr %vs, i64 49212
-  %vs.val.i245 = load i32, ptr %136, align 4
+  %135 = getelementptr i8, ptr %vs, i64 49212
+  %vs.val.i245 = load i32, ptr %135, align 4
   %and.i.i246 = and i32 %vs.val.i245, 8
   %tobool10.not.i = icmp eq i32 %and.i.i246, 0
   br i1 %tobool10.not.i, label %if.else13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i244
   %sub.i = add nsw i32 %or.i230, -32767
-  tail call void @qemu_input_queue_rel(ptr noundef %130, i32 noundef 0, i32 noundef %sub.i) #25
+  tail call void @qemu_input_queue_rel(ptr noundef %129, i32 noundef 0, i32 noundef %sub.i) #25
   %sub12.i = add nsw i32 %or.i236, -32767
-  tail call void @qemu_input_queue_rel(ptr noundef %130, i32 noundef 1, i32 noundef %sub12.i) #25
+  tail call void @qemu_input_queue_rel(ptr noundef %129, i32 noundef 1, i32 noundef %sub12.i) #25
   br label %pointer_event.exit
 
 if.else13.i:                                      ; preds = %if.else.i244
   %last_x.i = getelementptr inbounds i8, ptr %vs, i64 49220
-  %137 = load i32, ptr %last_x.i, align 4
-  %cmp14.not.i = icmp eq i32 %137, -1
+  %136 = load i32, ptr %last_x.i, align 4
+  %cmp14.not.i = icmp eq i32 %136, -1
   br i1 %cmp14.not.i, label %if.end19.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.else13.i
-  %sub17.i = sub i32 %or.i230, %137
-  tail call void @qemu_input_queue_rel(ptr noundef %130, i32 noundef 0, i32 noundef %sub17.i) #25
+  %sub17.i = sub i32 %or.i230, %136
+  tail call void @qemu_input_queue_rel(ptr noundef %129, i32 noundef 0, i32 noundef %sub17.i) #25
   %last_y.i = getelementptr inbounds i8, ptr %vs, i64 49224
-  %138 = load i32, ptr %last_y.i, align 8
-  %sub18.i = sub i32 %or.i236, %138
-  tail call void @qemu_input_queue_rel(ptr noundef %130, i32 noundef 1, i32 noundef %sub18.i) #25
+  %137 = load i32, ptr %last_y.i, align 8
+  %sub18.i = sub i32 %or.i236, %137
+  tail call void @qemu_input_queue_rel(ptr noundef %129, i32 noundef 1, i32 noundef %sub18.i) #25
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then15.i, %if.else13.i
@@ -8107,33 +8107,33 @@ sw.bb88:                                          ; preds = %if.end
 
 if.end92:                                         ; preds = %sw.bb88
   %arrayidx.i247 = getelementptr i8, ptr %data, i64 4
-  %139 = load i8, ptr %arrayidx.i247, align 1
-  %conv.i248 = zext i8 %139 to i32
+  %138 = load i8, ptr %arrayidx.i247, align 1
+  %conv.i248 = zext i8 %138 to i32
   %shl.i249 = shl nuw i32 %conv.i248, 24
   %arrayidx1.i250 = getelementptr i8, ptr %data, i64 5
-  %140 = load i8, ptr %arrayidx1.i250, align 1
-  %conv2.i251 = zext i8 %140 to i32
+  %139 = load i8, ptr %arrayidx1.i250, align 1
+  %conv2.i251 = zext i8 %139 to i32
   %shl3.i252 = shl nuw nsw i32 %conv2.i251, 16
   %arrayidx5.i254 = getelementptr i8, ptr %data, i64 6
-  %141 = load i8, ptr %arrayidx5.i254, align 1
-  %conv6.i255 = zext i8 %141 to i32
+  %140 = load i8, ptr %arrayidx5.i254, align 1
+  %conv6.i255 = zext i8 %140 to i32
   %shl7.i256 = shl nuw nsw i32 %conv6.i255, 8
   %arrayidx10.i258 = getelementptr i8, ptr %data, i64 7
-  %142 = load i8, ptr %arrayidx10.i258, align 1
-  %conv11.i259 = zext i8 %142 to i32
-  %143 = or disjoint i32 %shl3.i252, %conv11.i259
-  %144 = or disjoint i32 %143, %shl7.i256
-  %or12.i260 = or disjoint i32 %144, %shl.i249
-  %145 = tail call i32 @llvm.abs.i32(i32 %or12.i260, i1 false)
+  %141 = load i8, ptr %arrayidx10.i258, align 1
+  %conv11.i259 = zext i8 %141 to i32
+  %142 = or disjoint i32 %shl3.i252, %conv11.i259
+  %143 = or disjoint i32 %142, %shl7.i256
+  %or12.i260 = or disjoint i32 %143, %shl.i249
+  %144 = tail call i32 @llvm.abs.i32(i32 %or12.i260, i1 false)
   %cmp94 = icmp eq i64 %len, 8
   br i1 %cmp94, label %if.then96, label %if.end106
 
 if.then96:                                        ; preds = %if.end92
-  %cmp97 = icmp ugt i32 %145, 1048576
+  %cmp97 = icmp ugt i32 %144, 1048576
   br i1 %cmp97, label %if.then99, label %if.end100
 
 if.then99:                                        ; preds = %if.then96
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.86, i32 noundef %145) #25
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.86, i32 noundef %144) #25
   tail call fastcc void @vnc_disconnect_start(ptr noundef %vs)
   br label %sw.epilog276
 
@@ -8142,7 +8142,7 @@ if.end100:                                        ; preds = %if.then96
   br i1 %cmp101.not, label %if.end117, label %if.then103
 
 if.then103:                                       ; preds = %if.end100
-  %add104 = add nuw nsw i32 %145, 8
+  %add104 = add nuw nsw i32 %144, 8
   br label %return
 
 if.end106:                                        ; preds = %if.end92
@@ -8150,7 +8150,7 @@ if.end106:                                        ; preds = %if.end92
   br i1 %cmp108, label %if.then110, label %if.end117
 
 if.then110:                                       ; preds = %if.end106
-  %cmp111 = icmp ult i32 %145, 4
+  %cmp111 = icmp ult i32 %144, 4
   br i1 %cmp111, label %if.then113, label %if.end114
 
 if.then113:                                       ; preds = %if.then110
@@ -8160,25 +8160,25 @@ if.then113:                                       ; preds = %if.then110
 
 if.end114:                                        ; preds = %if.then110
   %arrayidx.i275 = getelementptr i8, ptr %data, i64 8
-  %146 = load i8, ptr %arrayidx.i275, align 1
-  %conv.i276 = zext i8 %146 to i32
+  %145 = load i8, ptr %arrayidx.i275, align 1
+  %conv.i276 = zext i8 %145 to i32
   %shl.i277 = shl nuw i32 %conv.i276, 24
   %arrayidx1.i278 = getelementptr i8, ptr %data, i64 9
-  %147 = load i8, ptr %arrayidx1.i278, align 1
-  %conv2.i279 = zext i8 %147 to i32
+  %146 = load i8, ptr %arrayidx1.i278, align 1
+  %conv2.i279 = zext i8 %146 to i32
   %shl3.i280 = shl nuw nsw i32 %conv2.i279, 16
   %or.i281 = or disjoint i32 %shl3.i280, %shl.i277
   %arrayidx5.i282 = getelementptr i8, ptr %data, i64 10
-  %148 = load i8, ptr %arrayidx5.i282, align 1
-  %conv6.i283 = zext i8 %148 to i32
+  %147 = load i8, ptr %arrayidx5.i282, align 1
+  %conv6.i283 = zext i8 %147 to i32
   %shl7.i284 = shl nuw nsw i32 %conv6.i283, 8
   %or8.i285 = or disjoint i32 %or.i281, %shl7.i284
   %arrayidx10.i286 = getelementptr i8, ptr %data, i64 11
-  %149 = load i8, ptr %arrayidx10.i286, align 1
-  %conv11.i287 = zext i8 %149 to i32
+  %148 = load i8, ptr %arrayidx10.i286, align 1
+  %conv11.i287 = zext i8 %148 to i32
   %or12.i288 = or disjoint i32 %or8.i285, %conv11.i287
   %add.ptr116 = getelementptr i8, ptr %data, i64 12
-  tail call void @vnc_client_cut_text_ext(ptr noundef %vs, i32 noundef %145, i32 noundef %or12.i288, ptr noundef %add.ptr116) #25
+  tail call void @vnc_client_cut_text_ext(ptr noundef %vs, i32 noundef %144, i32 noundef %or12.i288, ptr noundef %add.ptr116) #25
   br label %sw.epilog276
 
 if.end117:                                        ; preds = %if.end100, %if.end106
@@ -8188,8 +8188,8 @@ if.end117:                                        ; preds = %if.end100, %if.end1
   br label %sw.epilog276
 
 sw.bb121:                                         ; preds = %if.end
-  %150 = getelementptr i8, ptr %vs, i64 49212
-  %vs.val = load i32, ptr %150, align 4
+  %149 = getelementptr i8, ptr %vs, i64 49212
+  %vs.val = load i32, ptr %149, align 4
   %and.i303 = and i32 %vs.val, 8192
   %tobool.not = icmp eq i32 %and.i303, 0
   br i1 %tobool.not, label %if.then123, label %if.end124
@@ -8207,20 +8207,20 @@ if.end124:                                        ; preds = %sw.bb121
 
 if.then131:                                       ; preds = %if.end124
   %arrayidx.i304 = getelementptr i8, ptr %data, i64 2
-  %151 = load i8, ptr %arrayidx.i304, align 1
-  %cmp135.not = icmp eq i8 %151, 1
+  %150 = load i8, ptr %arrayidx.i304, align 1
+  %cmp135.not = icmp eq i8 %150, 1
   br i1 %cmp135.not, label %if.end139, label %if.then137
 
 if.then137:                                       ; preds = %if.then131
-  %conv134 = zext i8 %151 to i32
+  %conv134 = zext i8 %150 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.89, i32 noundef %conv134) #25
   tail call fastcc void @vnc_disconnect_start(ptr noundef nonnull %vs)
   br label %sw.epilog276
 
 if.end139:                                        ; preds = %if.then131
   %arrayidx.i305 = getelementptr i8, ptr %data, i64 3
-  %152 = load i8, ptr %arrayidx.i305, align 1
-  switch i8 %152, label %sw.default [
+  %151 = load i8, ptr %arrayidx.i305, align 1
+  switch i8 %151, label %sw.default [
     i8 2, label %sw.bb141
     i8 3, label %sw.bb142
     i8 4, label %sw.bb143
@@ -8248,8 +8248,8 @@ sw.bb145:                                         ; preds = %if.end
 
 if.end149:                                        ; preds = %sw.bb145
   %arrayidx.i306 = getelementptr i8, ptr %data, i64 1
-  %153 = load i8, ptr %arrayidx.i306, align 1
-  switch i8 %153, label %do.end240 [
+  %152 = load i8, ptr %arrayidx.i306, align 1
+  switch i8 %152, label %do.end240 [
     i8 0, label %sw.bb152
     i8 1, label %sw.bb162
   ]
@@ -8260,53 +8260,53 @@ sw.bb152:                                         ; preds = %if.end149
 
 if.end156:                                        ; preds = %sw.bb152
   %arrayidx.i307 = getelementptr i8, ptr %data, i64 2
-  %154 = load i8, ptr %arrayidx.i307, align 1
-  %conv.i308 = zext i8 %154 to i32
+  %153 = load i8, ptr %arrayidx.i307, align 1
+  %conv.i308 = zext i8 %153 to i32
   %shl.i309 = shl nuw nsw i32 %conv.i308, 8
   %arrayidx1.i310 = getelementptr i8, ptr %data, i64 3
-  %155 = load i8, ptr %arrayidx1.i310, align 1
-  %conv2.i311 = zext i8 %155 to i32
+  %154 = load i8, ptr %arrayidx1.i310, align 1
+  %conv2.i311 = zext i8 %154 to i32
   %or.i312 = or disjoint i32 %shl.i309, %conv2.i311
   %arrayidx.i313 = getelementptr i8, ptr %data, i64 4
-  %156 = load i8, ptr %arrayidx.i313, align 1
-  %conv.i314 = zext i8 %156 to i32
+  %155 = load i8, ptr %arrayidx.i313, align 1
+  %conv.i314 = zext i8 %155 to i32
   %shl.i315 = shl nuw i32 %conv.i314, 24
   %arrayidx1.i316 = getelementptr i8, ptr %data, i64 5
-  %157 = load i8, ptr %arrayidx1.i316, align 1
-  %conv2.i317 = zext i8 %157 to i32
+  %156 = load i8, ptr %arrayidx1.i316, align 1
+  %conv2.i317 = zext i8 %156 to i32
   %shl3.i318 = shl nuw nsw i32 %conv2.i317, 16
   %or.i319 = or disjoint i32 %shl3.i318, %shl.i315
   %arrayidx5.i320 = getelementptr i8, ptr %data, i64 6
-  %158 = load i8, ptr %arrayidx5.i320, align 1
-  %conv6.i321 = zext i8 %158 to i32
+  %157 = load i8, ptr %arrayidx5.i320, align 1
+  %conv6.i321 = zext i8 %157 to i32
   %shl7.i322 = shl nuw nsw i32 %conv6.i321, 8
   %or8.i323 = or disjoint i32 %or.i319, %shl7.i322
   %arrayidx10.i324 = getelementptr i8, ptr %data, i64 7
-  %159 = load i8, ptr %arrayidx10.i324, align 1
-  %conv11.i325 = zext i8 %159 to i32
+  %158 = load i8, ptr %arrayidx10.i324, align 1
+  %conv11.i325 = zext i8 %158 to i32
   %or12.i326 = or disjoint i32 %or8.i323, %conv11.i325
   %arrayidx5.i334 = getelementptr i8, ptr %data, i64 10
-  %160 = load i8, ptr %arrayidx5.i334, align 1
-  %conv6.i335 = zext i8 %160 to i16
+  %159 = load i8, ptr %arrayidx5.i334, align 1
+  %conv6.i335 = zext i8 %159 to i16
   %shl7.i336 = shl nuw i16 %conv6.i335, 8
   %arrayidx10.i338 = getelementptr i8, ptr %data, i64 11
-  %161 = load i8, ptr %arrayidx10.i338, align 1
-  %conv11.i339 = zext i8 %161 to i16
+  %160 = load i8, ptr %arrayidx10.i338, align 1
+  %conv11.i339 = zext i8 %160 to i16
   %or12.i340 = or disjoint i16 %shl7.i336, %conv11.i339
   tail call fastcc void @ext_key_event(ptr noundef %vs, i32 noundef %or.i312, i32 noundef %or12.i326, i16 noundef zeroext %or12.i340)
   br label %sw.epilog276
 
 sw.bb162:                                         ; preds = %if.end149
-  %162 = getelementptr i8, ptr %vs, i64 49212
-  %vs.val130 = load i32, ptr %162, align 4
+  %161 = getelementptr i8, ptr %vs, i64 49212
+  %vs.val130 = load i32, ptr %161, align 4
   %and.i341 = and i32 %vs.val130, 32768
   %tobool164.not = icmp eq i32 %and.i341, 0
   br i1 %tobool164.not, label %if.then165, label %if.end168
 
 if.then165:                                       ; preds = %sw.bb162
   %arrayidx.i342 = getelementptr i8, ptr %data, i64 2
-  %163 = load i8, ptr %arrayidx.i342, align 1
-  %conv167 = zext i8 %163 to i32
+  %162 = load i8, ptr %arrayidx.i342, align 1
+  %conv167 = zext i8 %162 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.90, i32 noundef %conv167) #25
   tail call fastcc void @vnc_disconnect_start(ptr noundef nonnull %vs)
   br label %sw.epilog276
@@ -8317,12 +8317,12 @@ if.end168:                                        ; preds = %sw.bb162
 
 if.end172:                                        ; preds = %if.end168
   %arrayidx.i343 = getelementptr i8, ptr %data, i64 2
-  %164 = load i8, ptr %arrayidx.i343, align 1
-  %conv.i344 = zext i8 %164 to i16
+  %163 = load i8, ptr %arrayidx.i343, align 1
+  %conv.i344 = zext i8 %163 to i16
   %shl.i345 = shl nuw i16 %conv.i344, 8
   %arrayidx1.i346 = getelementptr i8, ptr %data, i64 3
-  %165 = load i8, ptr %arrayidx1.i346, align 1
-  %conv2.i347 = zext i8 %165 to i16
+  %164 = load i8, ptr %arrayidx1.i346, align 1
+  %conv2.i347 = zext i8 %164 to i16
   %or.i348 = or disjoint i16 %shl.i345, %conv2.i347
   switch i16 %or.i348, label %do.end236 [
     i16 0, label %sw.bb175
@@ -8332,22 +8332,22 @@ if.end172:                                        ; preds = %if.end168
 
 sw.bb175:                                         ; preds = %if.end172
   %ioc = getelementptr inbounds i8, ptr %vs, i64 16
-  %166 = load ptr, ptr %ioc, align 8
-  tail call fastcc void @trace_vnc_msg_client_audio_enable(ptr noundef nonnull %vs, ptr noundef %166)
+  %165 = load ptr, ptr %ioc, align 8
+  tail call fastcc void @trace_vnc_msg_client_audio_enable(ptr noundef nonnull %vs, ptr noundef %165)
   tail call fastcc void @audio_add(ptr noundef nonnull %vs)
   br label %sw.epilog276
 
 sw.bb176:                                         ; preds = %if.end172
   %ioc177 = getelementptr inbounds i8, ptr %vs, i64 16
-  %167 = load ptr, ptr %ioc177, align 8
-  tail call fastcc void @trace_vnc_msg_client_audio_disable(ptr noundef nonnull %vs, ptr noundef %167)
+  %166 = load ptr, ptr %ioc177, align 8
+  tail call fastcc void @trace_vnc_msg_client_audio_disable(ptr noundef nonnull %vs, ptr noundef %166)
   %audio_cap.i = getelementptr inbounds i8, ptr %vs, i64 49456
-  %168 = load ptr, ptr %audio_cap.i, align 8
-  %tobool.not.i349 = icmp eq ptr %168, null
+  %167 = load ptr, ptr %audio_cap.i, align 8
+  %tobool.not.i349 = icmp eq ptr %167, null
   br i1 %tobool.not.i349, label %sw.epilog276, label %if.then.i350
 
 if.then.i350:                                     ; preds = %sw.bb176
-  tail call void @AUD_del_capture(ptr noundef nonnull %168, ptr noundef nonnull %vs) #25
+  tail call void @AUD_del_capture(ptr noundef nonnull %167, ptr noundef nonnull %vs) #25
   store ptr null, ptr %audio_cap.i, align 8
   br label %sw.epilog276
 
@@ -8357,8 +8357,8 @@ sw.bb178:                                         ; preds = %if.end172
 
 if.end182:                                        ; preds = %sw.bb178
   %arrayidx.i352 = getelementptr i8, ptr %data, i64 4
-  %169 = load i8, ptr %arrayidx.i352, align 1
-  switch i8 %169, label %do.end [
+  %168 = load i8, ptr %arrayidx.i352, align 1
+  switch i8 %168, label %do.end [
     i8 0, label %sw.bb185
     i8 1, label %sw.bb186
     i8 2, label %sw.bb189
@@ -8403,12 +8403,12 @@ do.end:                                           ; preds = %if.end182
 
 sw.epilog202:                                     ; preds = %do.end, %sw.bb198, %sw.bb195, %sw.bb192, %sw.bb189, %sw.bb186, %sw.bb185
   %arrayidx.i353 = getelementptr i8, ptr %data, i64 5
-  %170 = load i8, ptr %arrayidx.i353, align 1
-  %conv204 = zext i8 %170 to i32
+  %169 = load i8, ptr %arrayidx.i353, align 1
+  %conv204 = zext i8 %169 to i32
   %as205 = getelementptr inbounds i8, ptr %vs, i64 49464
   %nchannels = getelementptr inbounds i8, ptr %vs, i64 49468
   store i32 %conv204, ptr %nchannels, align 4
-  %call203.off = add i8 %170, -1
+  %call203.off = add i8 %169, -1
   %switch = icmp ult i8 %call203.off, 2
   br i1 %switch, label %if.end217, label %do.end216
 
@@ -8418,22 +8418,22 @@ do.end216:                                        ; preds = %sw.epilog202
 
 if.end217:                                        ; preds = %sw.epilog202
   %arrayidx.i354 = getelementptr i8, ptr %data, i64 6
-  %171 = load i8, ptr %arrayidx.i354, align 1
-  %conv.i355 = zext i8 %171 to i32
+  %170 = load i8, ptr %arrayidx.i354, align 1
+  %conv.i355 = zext i8 %170 to i32
   %shl.i356 = shl nuw i32 %conv.i355, 24
   %arrayidx1.i357 = getelementptr i8, ptr %data, i64 7
-  %172 = load i8, ptr %arrayidx1.i357, align 1
-  %conv2.i358 = zext i8 %172 to i32
+  %171 = load i8, ptr %arrayidx1.i357, align 1
+  %conv2.i358 = zext i8 %171 to i32
   %shl3.i359 = shl nuw nsw i32 %conv2.i358, 16
   %or.i360 = or disjoint i32 %shl3.i359, %shl.i356
   %arrayidx5.i361 = getelementptr i8, ptr %data, i64 8
-  %173 = load i8, ptr %arrayidx5.i361, align 1
-  %conv6.i362 = zext i8 %173 to i32
+  %172 = load i8, ptr %arrayidx5.i361, align 1
+  %conv6.i362 = zext i8 %172 to i32
   %shl7.i363 = shl nuw nsw i32 %conv6.i362, 8
   %or8.i364 = or disjoint i32 %or.i360, %shl7.i363
   %arrayidx10.i365 = getelementptr i8, ptr %data, i64 9
-  %174 = load i8, ptr %arrayidx10.i365, align 1
-  %conv11.i366 = zext i8 %174 to i32
+  %173 = load i8, ptr %arrayidx10.i365, align 1
+  %conv11.i366 = zext i8 %173 to i32
   %or12.i367 = or disjoint i32 %or8.i364, %conv11.i366
   %cmp219 = icmp ugt i32 %or12.i367, 48000
   br i1 %cmp219, label %do.end223, label %if.end224
@@ -8445,10 +8445,10 @@ do.end223:                                        ; preds = %if.end217
 if.end224:                                        ; preds = %if.end217
   store i32 %or12.i367, ptr %as205, align 8
   %ioc227 = getelementptr inbounds i8, ptr %vs, i64 16
-  %175 = load ptr, ptr %ioc227, align 8
+  %174 = load ptr, ptr %ioc227, align 8
   %fmt229 = getelementptr inbounds i8, ptr %vs, i64 49472
-  %176 = load i32, ptr %fmt229, align 8
-  tail call fastcc void @trace_vnc_msg_client_audio_format(ptr noundef nonnull %vs, ptr noundef %175, i32 noundef %176, i32 noundef %conv204, i32 noundef %or12.i367)
+  %175 = load i32, ptr %fmt229, align 8
+  tail call fastcc void @trace_vnc_msg_client_audio_format(ptr noundef nonnull %vs, ptr noundef %174, i32 noundef %175, i32 noundef %conv204, i32 noundef %or12.i367)
   br label %sw.epilog276
 
 do.end236:                                        ; preds = %if.end172
@@ -8465,8 +8465,8 @@ sw.bb242:                                         ; preds = %if.end
 
 if.end246:                                        ; preds = %sw.bb242
   %arrayidx.i368 = getelementptr i8, ptr %data, i64 6
-  %177 = load i8, ptr %arrayidx.i368, align 1
-  %conv248 = zext i8 %177 to i32
+  %176 = load i8, ptr %arrayidx.i368, align 1
+  %conv248 = zext i8 %176 to i32
   %mul249 = shl nuw nsw i32 %conv248, 4
   %add250 = or disjoint i32 %mul249, 8
   %conv251 = zext nneg i32 %add250 to i64
@@ -8475,61 +8475,61 @@ if.end246:                                        ; preds = %sw.bb242
 
 if.end256:                                        ; preds = %if.end246
   %arrayidx.i369 = getelementptr i8, ptr %data, i64 2
-  %178 = load i8, ptr %arrayidx.i369, align 1
-  %conv.i370 = zext i8 %178 to i32
+  %177 = load i8, ptr %arrayidx.i369, align 1
+  %conv.i370 = zext i8 %177 to i32
   %shl.i371 = shl nuw nsw i32 %conv.i370, 8
   %arrayidx1.i372 = getelementptr i8, ptr %data, i64 3
-  %179 = load i8, ptr %arrayidx1.i372, align 1
-  %conv2.i373 = zext i8 %179 to i32
+  %178 = load i8, ptr %arrayidx1.i372, align 1
+  %conv2.i373 = zext i8 %178 to i32
   %or.i374 = or disjoint i32 %shl.i371, %conv2.i373
   %arrayidx.i375 = getelementptr i8, ptr %data, i64 4
-  %180 = load i8, ptr %arrayidx.i375, align 1
-  %conv.i376 = zext i8 %180 to i32
+  %179 = load i8, ptr %arrayidx.i375, align 1
+  %conv.i376 = zext i8 %179 to i32
   %shl.i377 = shl nuw nsw i32 %conv.i376, 8
   %arrayidx1.i378 = getelementptr i8, ptr %data, i64 5
-  %181 = load i8, ptr %arrayidx1.i378, align 1
-  %conv2.i379 = zext i8 %181 to i32
+  %180 = load i8, ptr %arrayidx1.i378, align 1
+  %conv2.i379 = zext i8 %180 to i32
   %or.i380 = or disjoint i32 %shl.i377, %conv2.i379
   %ioc261 = getelementptr inbounds i8, ptr %vs, i64 16
-  %182 = load ptr, ptr %ioc261, align 8
+  %181 = load ptr, ptr %ioc261, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %183 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %183, 0
-  %184 = load i16, ptr @_TRACE_VNC_MSG_CLIENT_SET_DESKTOP_SIZE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %184, 0
+  %182 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %182, 0
+  %183 = load i16, ptr @_TRACE_VNC_MSG_CLIENT_SET_DESKTOP_SIZE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %183, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_vnc_msg_client_set_desktop_size.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end256
-  %185 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i381 = and i32 %185, 32768
+  %184 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i381 = and i32 %184, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i381, 0
   br i1 %cmp.i.not.i.i, label %trace_vnc_msg_client_set_desktop_size.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %186 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %186 to i1
+  %185 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %185 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #25
   %call10.i.i = tail call i32 @qemu_get_thread_id() #25
-  %187 = load i64, ptr %_now.i.i, align 8
+  %186 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %188 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i, i64 noundef %187, i64 noundef %188, ptr noundef nonnull %vs, ptr noundef %182, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #25
+  %187 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i, i64 noundef %186, i64 noundef %187, ptr noundef nonnull %vs, ptr noundef %181, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #25
   br label %trace_vnc_msg_client_set_desktop_size.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull %vs, ptr noundef %182, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull %vs, ptr noundef %181, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #25
   br label %trace_vnc_msg_client_set_desktop_size.exit
 
 trace_vnc_msg_client_set_desktop_size.exit:       ; preds = %if.end256, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %189 = load ptr, ptr %vd1, align 8
-  %con = getelementptr inbounds i8, ptr %189, i64 88
-  %190 = load ptr, ptr %con, align 8
-  %call265 = tail call zeroext i1 @dpy_ui_info_supported(ptr noundef %190) #25
+  %188 = load ptr, ptr %vd1, align 8
+  %con = getelementptr inbounds i8, ptr %188, i64 88
+  %189 = load ptr, ptr %con, align 8
+  %call265 = tail call zeroext i1 @dpy_ui_info_supported(ptr noundef %189) #25
   br i1 %call265, label %if.then266, label %if.else271
 
 if.then266:                                       ; preds = %trace_vnc_msg_client_set_desktop_size.exit
@@ -8538,10 +8538,10 @@ if.then266:                                       ; preds = %trace_vnc_msg_clien
   store i32 %or.i374, ptr %width, align 4
   %height = getelementptr inbounds i8, ptr %info, i64 16
   store i32 %or.i380, ptr %height, align 4
-  %191 = load ptr, ptr %vd1, align 8
-  %con269 = getelementptr inbounds i8, ptr %191, i64 88
-  %192 = load ptr, ptr %con269, align 8
-  %call270 = call i32 @dpy_set_ui_info(ptr noundef %192, ptr noundef nonnull %info, i1 noundef zeroext false) #25
+  %190 = load ptr, ptr %vd1, align 8
+  %con269 = getelementptr inbounds i8, ptr %190, i64 88
+  %191 = load ptr, ptr %con269, align 8
+  %call270 = call i32 @dpy_set_ui_info(ptr noundef %191, ptr noundef nonnull %info, i1 noundef zeroext false) #25
   call fastcc void @vnc_desktop_resize_ext(ptr noundef nonnull %vs, i32 noundef 4)
   br label %sw.epilog276
 
@@ -8584,7 +8584,7 @@ entry:
 declare void @update_displaychangelistener(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @key_event(ptr nocapture noundef readonly %vs, i32 noundef %down, i32 noundef %sym) unnamed_addr #0 {
+define internal fastcc void @key_event(ptr nocapture noundef readonly %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef %sym) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = add i32 %sym, -65
@@ -8663,7 +8663,7 @@ declare void @vnc_client_cut_text(ptr noundef, i64 noundef, ptr noundef) local_u
 declare void @qemu_system_powerdown_request() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @send_xvp_message(ptr noundef %vs, i32 noundef %code) unnamed_addr #0 {
+define internal fastcc void @send_xvp_message(ptr noundef %vs, i32 noundef range(i32 0, 2) %code) unnamed_addr #0 {
 entry:
   %value.addr.i9 = alloca i8, align 1
   %value.addr.i8 = alloca i8, align 1
@@ -8737,7 +8737,7 @@ vnc_flush.exit:                                   ; preds = %if.end.i, %if.end6.
 declare void @qemu_system_reset_request(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ext_key_event(ptr nocapture noundef readonly %vs, i32 noundef %down, i32 noundef %sym, i16 noundef zeroext %keycode) unnamed_addr #0 {
+define internal fastcc void @ext_key_event(ptr nocapture noundef readonly %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef %sym, i16 noundef zeroext %keycode) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr @keyboard_layout, align 8
@@ -8916,7 +8916,7 @@ _nocheck__trace_vnc_msg_client_audio_disable.exit: ; preds = %entry, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_vnc_msg_client_audio_format(ptr noundef %state, ptr noundef %ioc, i32 noundef %fmt, i32 noundef %channels, i32 noundef %freq) unnamed_addr #0 {
+define internal fastcc void @trace_vnc_msg_client_audio_format(ptr noundef %state, ptr noundef %ioc, i32 noundef %fmt, i32 noundef %channels, i32 noundef range(i32 0, 48001) %freq) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -8961,7 +8961,7 @@ declare zeroext i1 @dpy_ui_info_supported(ptr noundef) local_unnamed_addr #2
 declare i32 @dpy_set_ui_info(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_desktop_resize_ext(ptr noundef %vs, i32 noundef %reject_reason) unnamed_addr #0 {
+define internal fastcc void @vnc_desktop_resize_ext(ptr noundef %vs, i32 noundef range(i32 0, 5) %reject_reason) unnamed_addr #0 {
 entry:
   %buf.i44 = alloca [4 x i8], align 4
   %buf.i39 = alloca [2 x i8], align 1
@@ -9053,10 +9053,8 @@ trace_vnc_msg_server_ext_desktop_resize.exit:     ; preds = %entry, %land.lhs.tr
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i5.i)
-  %shr.i621.i = lshr i32 %reject_reason, 8
-  %conv1.i7.i = trunc i32 %shr.i621.i to i8
-  store i8 %conv1.i7.i, ptr %buf.i5.i, align 1
-  %conv4.i8.i = trunc i32 %reject_reason to i8
+  store i8 0, ptr %buf.i5.i, align 1
+  %conv4.i8.i = trunc nuw nsw i32 %reject_reason to i8
   %arrayidx5.i9.i = getelementptr inbounds i8, ptr %buf.i5.i, i64 1
   store i8 %conv4.i8.i, ptr %arrayidx5.i9.i, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i5.i, i64 noundef 2)
@@ -10025,7 +10023,7 @@ declare zeroext i1 @qemu_console_is_graphic(ptr noundef) local_unnamed_addr #2
 declare i32 @keysym2scancode(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_key_event(ptr nocapture noundef readonly %vs, i32 noundef %down, i32 noundef %keycode, i32 noundef %sym) unnamed_addr #0 {
+define internal fastcc void @do_key_event(ptr nocapture noundef readonly %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef range(i32 0, 65536) %keycode, i32 noundef %sym) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %keycode) #25
@@ -10226,38 +10224,39 @@ if.then85:                                        ; preds = %if.end80
   br i1 %tobool1053, label %if.then95, label %if.end156
 
 if.then95:                                        ; preds = %if.then85
-  switch i32 %keycode, label %sw.default148 [
-    i32 42, label %if.end156
-    i32 54, label %if.end156
-    i32 29, label %if.end156
-    i32 157, label %if.end156
-    i32 56, label %if.end156
-    i32 184, label %if.end156
-    i32 200, label %sw.bb97
-    i32 208, label %sw.bb98
-    i32 203, label %sw.bb99
-    i32 205, label %sw.bb100
-    i32 211, label %sw.bb101
-    i32 199, label %sw.bb102
-    i32 207, label %sw.bb103
-    i32 201, label %sw.bb104
-    i32 209, label %sw.bb105
-    i32 71, label %sw.bb106
-    i32 72, label %sw.bb109
-    i32 73, label %sw.bb113
-    i32 75, label %sw.bb117
-    i32 76, label %sw.bb121
-    i32 77, label %sw.bb122
-    i32 79, label %sw.bb126
-    i32 80, label %sw.bb130
-    i32 81, label %sw.bb134
-    i32 82, label %sw.bb138
-    i32 83, label %sw.bb139
-    i32 181, label %sw.bb143
-    i32 55, label %sw.bb144
-    i32 74, label %sw.bb145
-    i32 78, label %sw.bb146
-    i32 156, label %sw.bb147
+  %trunc = trunc nuw i32 %keycode to i16
+  switch i16 %trunc, label %sw.default148 [
+    i16 42, label %if.end156
+    i16 54, label %if.end156
+    i16 29, label %if.end156
+    i16 157, label %if.end156
+    i16 56, label %if.end156
+    i16 184, label %if.end156
+    i16 200, label %sw.bb97
+    i16 208, label %sw.bb98
+    i16 203, label %sw.bb99
+    i16 205, label %sw.bb100
+    i16 211, label %sw.bb101
+    i16 199, label %sw.bb102
+    i16 207, label %sw.bb103
+    i16 201, label %sw.bb104
+    i16 209, label %sw.bb105
+    i16 71, label %sw.bb106
+    i16 72, label %sw.bb109
+    i16 73, label %sw.bb113
+    i16 75, label %sw.bb117
+    i16 76, label %sw.bb121
+    i16 77, label %sw.bb122
+    i16 79, label %sw.bb126
+    i16 80, label %sw.bb130
+    i16 81, label %sw.bb134
+    i16 82, label %sw.bb138
+    i16 83, label %sw.bb139
+    i16 181, label %sw.bb143
+    i16 55, label %sw.bb144
+    i16 74, label %sw.bb145
+    i16 78, label %sw.bb146
+    i16 156, label %sw.bb147
   ]
 
 sw.bb97:                                          ; preds = %if.then95
@@ -10439,7 +10438,7 @@ _nocheck__trace_vnc_key_sync_numlock.exit:        ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @press_key(ptr nocapture noundef readonly %vs, i32 noundef %qcode) unnamed_addr #0 {
+define internal fastcc void @press_key(ptr nocapture noundef readonly %vs, i32 noundef range(i32 61, 73) %qcode) unnamed_addr #0 {
 entry:
   %vd = getelementptr inbounds i8, ptr %vs, i64 49192
   %0 = load ptr, ptr %vd, align 8
@@ -12561,7 +12560,7 @@ declare void @qemu_opt_iter_init(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @qemu_opt_iter_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vnc_display_get_address(ptr noundef %addrstr, i1 noundef zeroext %websocket, i1 noundef zeroext %reverse, i32 noundef %displaynum, i32 noundef %to, i1 noundef zeroext %has_ipv4, i1 noundef zeroext %has_ipv6, i1 noundef zeroext %ipv4, i1 noundef zeroext %ipv6, ptr nocapture noundef writeonly %retaddr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @vnc_display_get_address(ptr noundef nonnull %addrstr, i1 noundef zeroext %websocket, i1 noundef zeroext %reverse, i32 noundef range(i32 -1, -2147483648) %displaynum, i32 noundef %to, i1 noundef zeroext %has_ipv4, i1 noundef zeroext %has_ipv6, i1 noundef zeroext %ipv4, i1 noundef zeroext %ipv6, ptr nocapture noundef nonnull writeonly %retaddr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %baseport = alloca i64, align 8
   %frombool2 = zext i1 %has_ipv4 to i8
@@ -12656,7 +12655,7 @@ if.else40:                                        ; preds = %if.end24.thread, %l
   %u2662 = phi ptr [ %u2656, %if.end24.thread ], [ %u26, %land.lhs.true31 ], [ %u26, %land.lhs.true ], [ %u26, %if.end24 ]
   %hostlen.060 = phi i64 [ 0, %if.end24.thread ], [ %sub.ptr.sub, %land.lhs.true31 ], [ %sub.ptr.sub, %land.lhs.true ], [ 0, %if.end24 ]
   %port.059 = phi ptr [ %addrstr, %if.end24.thread ], [ %incdec.ptr, %land.lhs.true31 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr, %if.end24 ]
-  %call41 = tail call noalias ptr @g_strndup(ptr noundef %addrstr, i64 noundef %hostlen.060) #25
+  %call41 = tail call noalias ptr @g_strndup(ptr noundef nonnull %addrstr, i64 noundef %hostlen.060) #25
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else40, %if.then36
@@ -12667,12 +12666,12 @@ if.end43:                                         ; preds = %if.else40, %if.then
   br i1 %websocket, label %if.then45, label %if.else67
 
 if.then45:                                        ; preds = %if.end43
-  %call46 = tail call i32 @g_str_equal(ptr noundef %addrstr, ptr noundef nonnull @.str) #25
+  %call46 = tail call i32 @g_str_equal(ptr noundef nonnull %addrstr, ptr noundef nonnull @.str) #25
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %lor.lhs.false, label %if.then50
 
 lor.lhs.false:                                    ; preds = %if.then45
-  %call48 = tail call i32 @g_str_equal(ptr noundef %addrstr, ptr noundef nonnull @.str.862) #25
+  %call48 = tail call i32 @g_str_equal(ptr noundef nonnull %addrstr, ptr noundef nonnull @.str.862) #25
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.else63, label %if.then50
 
@@ -12702,19 +12701,19 @@ if.then58:                                        ; preds = %if.end54
   br label %cleanup
 
 if.else63:                                        ; preds = %lor.lhs.false
-  %call64 = tail call noalias ptr @g_strdup(ptr noundef %port.058) #25
+  %call64 = tail call noalias ptr @g_strdup(ptr noundef nonnull %port.058) #25
   %port65 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call64, ptr %port65, align 8
   br label %cleanup
 
 if.else67:                                        ; preds = %if.end43
   %cond = select i1 %reverse, i32 0, i32 5900
-  %call70 = call i32 @parse_uint_full(ptr noundef %port.058, i32 noundef 10, ptr noundef nonnull %baseport) #25
+  %call70 = call i32 @parse_uint_full(ptr noundef nonnull %port.058, i32 noundef 10, ptr noundef nonnull %baseport) #25
   %cmp71 = icmp slt i32 %call70, 0
   br i1 %cmp71, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.else67
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3789, ptr noundef nonnull @__func__.vnc_display_get_address, ptr noundef nonnull @.str.865, ptr noundef %port.058) #25
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3789, ptr noundef nonnull @__func__.vnc_display_get_address, ptr noundef nonnull @.str.865, ptr noundef nonnull %port.058) #25
   br label %if.then112
 
 if.end74:                                         ; preds = %if.else67
@@ -12727,7 +12726,7 @@ if.end74:                                         ; preds = %if.else67
   br i1 %or.cond, label %if.then82, label %if.end83
 
 if.then82:                                        ; preds = %if.end74
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3794, ptr noundef nonnull @__func__.vnc_display_get_address, ptr noundef nonnull @.str.866, ptr noundef %port.058) #25
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 3794, ptr noundef nonnull @__func__.vnc_display_get_address, ptr noundef nonnull @.str.866, ptr noundef nonnull %port.058) #25
   br label %if.then112
 
 if.end83:                                         ; preds = %if.end74

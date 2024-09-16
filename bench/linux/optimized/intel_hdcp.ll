@@ -1693,7 +1693,7 @@ define dso_local i32 @intel_hdcp_disable(ptr noundef %0) local_unnamed_addr #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_hdcp_update_value(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_hdcp_update_value(ptr noundef %0, i64 noundef range(i64 0, 3) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1976
   %6 = load ptr, ptr %5, align 8

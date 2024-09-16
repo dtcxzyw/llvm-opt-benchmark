@@ -105,7 +105,7 @@ if.end.i:                                         ; preds = %entry
   %cmp1.i = icmp ult i32 %call, 32
   %1 = add nsw i32 %call, -127
   %or.cond.i = icmp ult i32 %1, 33
-  %or.cond6.i = or i1 %cmp1.i, %or.cond.i
+  %or.cond6.i = select i1 %cmp1.i, i1 true, i1 %or.cond.i
   br i1 %or.cond6.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -114,11 +114,11 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %or.cond40.i, label %return, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end5.i, %if.end18.i.i
-  %min.016.i.i = phi i32 [ %min.1.i.i, %if.end18.i.i ], [ 0, %if.end5.i ]
-  %max.addr.015.i.i = phi i32 [ %max.addr.1.i.i, %if.end18.i.i ], [ 356, %if.end5.i ]
-  %sub.i.i = sub nsw i32 %max.addr.015.i.i, %min.016.i.i
+  %min.015.i.i = phi i32 [ %min.1.i.i, %if.end18.i.i ], [ 0, %if.end5.i ]
+  %max.addr.014.i.i = phi i32 [ %max.addr.1.i.i, %if.end18.i.i ], [ 356, %if.end5.i ]
+  %sub.i.i = sub nsw i32 %max.addr.014.i.i, %min.015.i.i
   %div.i.i = sdiv i32 %sub.i.i, 2
-  %add.i.i = add nsw i32 %div.i.i, %min.016.i.i
+  %add.i.i = add nsw i32 %div.i.i, %min.015.i.i
   %idxprom4.i.i = sext i32 %add.i.i to i64
   %arrayidx5.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i
   %last6.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 4
@@ -140,8 +140,8 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
   br label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.then14.i.i, %if.then8.i.i
-  %max.addr.1.i.i = phi i32 [ %max.addr.015.i.i, %if.then8.i.i ], [ %sub15.i.i, %if.then14.i.i ]
-  %min.1.i.i = phi i32 [ %add9.i.i, %if.then8.i.i ], [ %min.016.i.i, %if.then14.i.i ]
+  %max.addr.1.i.i = phi i32 [ %max.addr.014.i.i, %if.then8.i.i ], [ %sub15.i.i, %if.then14.i.i ]
+  %min.1.i.i = phi i32 [ %add9.i.i, %if.then8.i.i ], [ %min.015.i.i, %if.then14.i.i ]
   %cmp3.not.i.i = icmp slt i32 %max.addr.1.i.i, %min.1.i.i
   br i1 %cmp3.not.i.i, label %if.end7.i, label %while.body.i.i, !llvm.loop !7
 
@@ -151,11 +151,11 @@ if.end7.i:                                        ; preds = %if.end18.i.i
   br i1 %or.cond41.i, label %return, label %while.body.i10.i
 
 while.body.i10.i:                                 ; preds = %if.end7.i, %if.end18.i25.i
-  %min.016.i11.i = phi i32 [ %min.1.i27.i, %if.end18.i25.i ], [ 0, %if.end7.i ]
-  %max.addr.015.i12.i = phi i32 [ %max.addr.1.i26.i, %if.end18.i25.i ], [ 119, %if.end7.i ]
-  %sub.i13.i = sub nsw i32 %max.addr.015.i12.i, %min.016.i11.i
+  %min.015.i11.i = phi i32 [ %min.1.i27.i, %if.end18.i25.i ], [ 0, %if.end7.i ]
+  %max.addr.014.i12.i = phi i32 [ %max.addr.1.i26.i, %if.end18.i25.i ], [ 119, %if.end7.i ]
+  %sub.i13.i = sub nsw i32 %max.addr.014.i12.i, %min.015.i11.i
   %div.i14.i = sdiv i32 %sub.i13.i, 2
-  %add.i15.i = add nsw i32 %div.i14.i, %min.016.i11.i
+  %add.i15.i = add nsw i32 %div.i14.i, %min.015.i11.i
   %idxprom4.i16.i = sext i32 %add.i15.i to i64
   %arrayidx5.i17.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i
   %last6.i18.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i, i64 4
@@ -177,8 +177,8 @@ if.then14.i23.i:                                  ; preds = %if.else.i20.i
   br label %if.end18.i25.i
 
 if.end18.i25.i:                                   ; preds = %if.then14.i23.i, %if.then8.i29.i
-  %max.addr.1.i26.i = phi i32 [ %max.addr.015.i12.i, %if.then8.i29.i ], [ %sub15.i24.i, %if.then14.i23.i ]
-  %min.1.i27.i = phi i32 [ %add9.i30.i, %if.then8.i29.i ], [ %min.016.i11.i, %if.then14.i23.i ]
+  %max.addr.1.i26.i = phi i32 [ %max.addr.014.i12.i, %if.then8.i29.i ], [ %sub15.i24.i, %if.then14.i23.i ]
+  %min.1.i27.i = phi i32 [ %add9.i30.i, %if.then8.i29.i ], [ %min.015.i11.i, %if.then14.i23.i ]
   %cmp3.not.i28.i = icmp slt i32 %max.addr.1.i26.i, %min.1.i27.i
   br i1 %cmp3.not.i28.i, label %return, label %while.body.i10.i, !llvm.loop !7
 
@@ -457,7 +457,7 @@ if.end.i.i:                                       ; preds = %while.end
   %cmp1.i.i = icmp ult i32 %call.i, 32
   %8 = add nsw i32 %call.i, -127
   %or.cond.i.i = icmp ult i32 %8, 33
-  %or.cond6.i.i = or i1 %cmp1.i.i, %or.cond.i.i
+  %or.cond6.i.i = select i1 %cmp1.i.i, i1 true, i1 %or.cond.i.i
   br i1 %or.cond6.i.i, label %utf8_width.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
@@ -466,11 +466,11 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %or.cond40.i.i, label %.loopexit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.end18.i.i.i
-  %min.016.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
-  %max.addr.015.i.i.i = phi i32 [ %max.addr.1.i.i.i, %if.end18.i.i.i ], [ 356, %if.end5.i.i ]
-  %sub.i.i.i = sub nsw i32 %max.addr.015.i.i.i, %min.016.i.i.i
+  %min.015.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
+  %max.addr.014.i.i.i = phi i32 [ %max.addr.1.i.i.i, %if.end18.i.i.i ], [ 356, %if.end5.i.i ]
+  %sub.i.i.i = sub nsw i32 %max.addr.014.i.i.i, %min.015.i.i.i
   %div.i.i.i = sdiv i32 %sub.i.i.i, 2
-  %add.i.i.i = add nsw i32 %div.i.i.i, %min.016.i.i.i
+  %add.i.i.i = add nsw i32 %div.i.i.i, %min.015.i.i.i
   %idxprom4.i.i.i = sext i32 %add.i.i.i to i64
   %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
@@ -492,8 +492,8 @@ if.then14.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %if.then8.i.i.i
-  %max.addr.1.i.i.i = phi i32 [ %max.addr.015.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
-  %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.016.i.i.i, %if.then14.i.i.i ]
+  %max.addr.1.i.i.i = phi i32 [ %max.addr.014.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
+  %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.015.i.i.i, %if.then14.i.i.i ]
   %cmp3.not.i.i.i = icmp slt i32 %max.addr.1.i.i.i, %min.1.i.i.i
   br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !7
 
@@ -503,11 +503,11 @@ if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   br i1 %or.cond41.i.i, label %.loopexit, label %while.body.i10.i.i
 
 while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.end18.i25.i.i
-  %min.016.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
-  %max.addr.015.i12.i.i = phi i32 [ %max.addr.1.i26.i.i, %if.end18.i25.i.i ], [ 119, %if.end7.i.i ]
-  %sub.i13.i.i = sub nsw i32 %max.addr.015.i12.i.i, %min.016.i11.i.i
+  %min.015.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
+  %max.addr.014.i12.i.i = phi i32 [ %max.addr.1.i26.i.i, %if.end18.i25.i.i ], [ 119, %if.end7.i.i ]
+  %sub.i13.i.i = sub nsw i32 %max.addr.014.i12.i.i, %min.015.i11.i.i
   %div.i14.i.i = sdiv i32 %sub.i13.i.i, 2
-  %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.016.i11.i.i
+  %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.015.i11.i.i
   %idxprom4.i16.i.i = sext i32 %add.i15.i.i to i64
   %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
   %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
@@ -529,8 +529,8 @@ if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i
   br label %if.end18.i25.i.i
 
 if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, %if.then8.i29.i.i
-  %max.addr.1.i26.i.i = phi i32 [ %max.addr.015.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
-  %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.016.i11.i.i, %if.then14.i23.i.i ]
+  %max.addr.1.i26.i.i = phi i32 [ %max.addr.014.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
+  %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.015.i11.i.i, %if.then14.i23.i.i ]
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
   br i1 %cmp3.not.i28.i.i, label %.loopexit, label %while.body.i10.i.i, !llvm.loop !7
 
@@ -972,7 +972,7 @@ if.end.i.i:                                       ; preds = %if.end62
   %cmp1.i.i = icmp ult i32 %call.i71, 32
   %47 = add nsw i32 %call.i71, -127
   %or.cond.i.i = icmp ult i32 %47, 33
-  %or.cond6.i.i = or i1 %cmp1.i.i, %or.cond.i.i
+  %or.cond6.i.i = select i1 %cmp1.i.i, i1 true, i1 %or.cond.i.i
   br i1 %or.cond6.i.i, label %if.end72, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
@@ -981,11 +981,11 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %or.cond40.i.i, label %if.end72, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.end18.i.i.i
-  %min.016.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
-  %max.addr.015.i.i.i = phi i32 [ %max.addr.1.i.i.i, %if.end18.i.i.i ], [ 356, %if.end5.i.i ]
-  %sub.i.i.i = sub nsw i32 %max.addr.015.i.i.i, %min.016.i.i.i
+  %min.015.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
+  %max.addr.014.i.i.i = phi i32 [ %max.addr.1.i.i.i, %if.end18.i.i.i ], [ 356, %if.end5.i.i ]
+  %sub.i.i.i = sub nsw i32 %max.addr.014.i.i.i, %min.015.i.i.i
   %div.i.i.i = sdiv i32 %sub.i.i.i, 2
-  %add.i.i.i = add nsw i32 %div.i.i.i, %min.016.i.i.i
+  %add.i.i.i = add nsw i32 %div.i.i.i, %min.015.i.i.i
   %idxprom4.i.i.i = sext i32 %add.i.i.i to i64
   %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
@@ -1007,8 +1007,8 @@ if.then14.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %if.then8.i.i.i
-  %max.addr.1.i.i.i = phi i32 [ %max.addr.015.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
-  %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.016.i.i.i, %if.then14.i.i.i ]
+  %max.addr.1.i.i.i = phi i32 [ %max.addr.014.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
+  %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.015.i.i.i, %if.then14.i.i.i ]
   %cmp3.not.i.i.i = icmp slt i32 %max.addr.1.i.i.i, %min.1.i.i.i
   br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !7
 
@@ -1018,11 +1018,11 @@ if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   br i1 %or.cond41.i.i, label %utf8_width.exit, label %while.body.i10.i.i
 
 while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.end18.i25.i.i
-  %min.016.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
-  %max.addr.015.i12.i.i = phi i32 [ %max.addr.1.i26.i.i, %if.end18.i25.i.i ], [ 119, %if.end7.i.i ]
-  %sub.i13.i.i = sub nsw i32 %max.addr.015.i12.i.i, %min.016.i11.i.i
+  %min.015.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
+  %max.addr.014.i12.i.i = phi i32 [ %max.addr.1.i26.i.i, %if.end18.i25.i.i ], [ 119, %if.end7.i.i ]
+  %sub.i13.i.i = sub nsw i32 %max.addr.014.i12.i.i, %min.015.i11.i.i
   %div.i14.i.i = sdiv i32 %sub.i13.i.i, 2
-  %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.016.i11.i.i
+  %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.015.i11.i.i
   %idxprom4.i16.i.i = sext i32 %add.i15.i.i to i64
   %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
   %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
@@ -1044,8 +1044,8 @@ if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i
   br label %if.end18.i25.i.i
 
 if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, %if.then8.i29.i.i
-  %max.addr.1.i26.i.i = phi i32 [ %max.addr.015.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
-  %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.016.i11.i.i, %if.then14.i23.i.i ]
+  %max.addr.1.i26.i.i = phi i32 [ %max.addr.014.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
+  %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.015.i11.i.i, %if.then14.i23.i.i ]
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
   br i1 %cmp3.not.i28.i.i, label %utf8_width.exit, label %while.body.i10.i.i, !llvm.loop !7
 
@@ -1190,7 +1190,7 @@ if.end.i.i:                                       ; preds = %if.end
   %cmp1.i.i = icmp ult i32 %call.i, 32
   %9 = add nsw i32 %call.i, -127
   %or.cond.i.i = icmp ult i32 %9, 33
-  %or.cond6.i.i = or i1 %cmp1.i.i, %or.cond.i.i
+  %or.cond6.i.i = select i1 %cmp1.i.i, i1 true, i1 %or.cond.i.i
   br i1 %or.cond6.i.i, label %if.end10, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
@@ -1199,11 +1199,11 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %or.cond40.i.i, label %if.end10, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.end18.i.i.i
-  %min.016.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
-  %max.addr.015.i.i.i = phi i32 [ %max.addr.1.i.i.i, %if.end18.i.i.i ], [ 356, %if.end5.i.i ]
-  %sub.i.i.i = sub nsw i32 %max.addr.015.i.i.i, %min.016.i.i.i
+  %min.015.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
+  %max.addr.014.i.i.i = phi i32 [ %max.addr.1.i.i.i, %if.end18.i.i.i ], [ 356, %if.end5.i.i ]
+  %sub.i.i.i = sub nsw i32 %max.addr.014.i.i.i, %min.015.i.i.i
   %div.i.i.i = sdiv i32 %sub.i.i.i, 2
-  %add.i.i.i = add nsw i32 %div.i.i.i, %min.016.i.i.i
+  %add.i.i.i = add nsw i32 %div.i.i.i, %min.015.i.i.i
   %idxprom4.i.i.i = sext i32 %add.i.i.i to i64
   %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
@@ -1225,8 +1225,8 @@ if.then14.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %if.then8.i.i.i
-  %max.addr.1.i.i.i = phi i32 [ %max.addr.015.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
-  %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.016.i.i.i, %if.then14.i.i.i ]
+  %max.addr.1.i.i.i = phi i32 [ %max.addr.014.i.i.i, %if.then8.i.i.i ], [ %sub15.i.i.i, %if.then14.i.i.i ]
+  %min.1.i.i.i = phi i32 [ %add9.i.i.i, %if.then8.i.i.i ], [ %min.015.i.i.i, %if.then14.i.i.i ]
   %cmp3.not.i.i.i = icmp slt i32 %max.addr.1.i.i.i, %min.1.i.i.i
   br i1 %cmp3.not.i.i.i, label %if.end7.i.i, label %while.body.i.i.i, !llvm.loop !7
 
@@ -1236,11 +1236,11 @@ if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   br i1 %or.cond41.i.i, label %utf8_width.exit, label %while.body.i10.i.i
 
 while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.end18.i25.i.i
-  %min.016.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
-  %max.addr.015.i12.i.i = phi i32 [ %max.addr.1.i26.i.i, %if.end18.i25.i.i ], [ 119, %if.end7.i.i ]
-  %sub.i13.i.i = sub nsw i32 %max.addr.015.i12.i.i, %min.016.i11.i.i
+  %min.015.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
+  %max.addr.014.i12.i.i = phi i32 [ %max.addr.1.i26.i.i, %if.end18.i25.i.i ], [ 119, %if.end7.i.i ]
+  %sub.i13.i.i = sub nsw i32 %max.addr.014.i12.i.i, %min.015.i11.i.i
   %div.i14.i.i = sdiv i32 %sub.i13.i.i, 2
-  %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.016.i11.i.i
+  %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.015.i11.i.i
   %idxprom4.i16.i.i = sext i32 %add.i15.i.i to i64
   %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
   %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
@@ -1262,8 +1262,8 @@ if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i
   br label %if.end18.i25.i.i
 
 if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, %if.then8.i29.i.i
-  %max.addr.1.i26.i.i = phi i32 [ %max.addr.015.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
-  %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.016.i11.i.i, %if.then14.i23.i.i ]
+  %max.addr.1.i26.i.i = phi i32 [ %max.addr.014.i12.i.i, %if.then8.i29.i.i ], [ %sub15.i24.i.i, %if.then14.i23.i.i ]
+  %min.1.i27.i.i = phi i32 [ %add9.i30.i.i, %if.then8.i29.i.i ], [ %min.015.i11.i.i, %if.then14.i23.i.i ]
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
   br i1 %cmp3.not.i28.i.i, label %utf8_width.exit, label %while.body.i10.i.i, !llvm.loop !7
 
@@ -1353,15 +1353,15 @@ do.cond.i:                                        ; preds = %do.body.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
-  %idxprom.i.i = zext i8 %1 to i64
-  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i
+  %conv.i.i = zext i8 %1 to i64
+  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %3 = shl i8 %2, 3
   %4 = and i8 %3, 32
   %spec.select.i1.i = or i8 %4, %1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
-  %idxprom.i3.i = zext i8 %0 to i64
-  %arrayidx.i4.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i3.i
+  %conv.i3.i = zext i8 %0 to i64
+  %arrayidx.i4.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i3.i
   %5 = load i8, ptr %arrayidx.i4.i, align 1
   %6 = shl i8 %5, 3
   %7 = and i8 %6, 32
@@ -1384,15 +1384,15 @@ do.cond.i6:                                       ; preds = %do.body.i2
   %8 = load i8, ptr %prefix.addr.0.ptr.i7, align 1
   %incdec.ptr.i8 = getelementptr inbounds i8, ptr %str.addr.0.i3, i64 1
   %9 = load i8, ptr %str.addr.0.i3, align 1
-  %idxprom.i.i9 = zext i8 %9 to i64
-  %arrayidx.i.i10 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i9
+  %conv.i.i9 = zext i8 %9 to i64
+  %arrayidx.i.i10 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i9
   %10 = load i8, ptr %arrayidx.i.i10, align 1
   %11 = shl i8 %10, 3
   %12 = and i8 %11, 32
   %spec.select.i1.i11 = or i8 %12, %9
   %prefix.addr.0.add.i12 = add nuw nsw i64 %prefix.addr.0.idx.i4, 1
-  %idxprom.i3.i13 = zext i8 %8 to i64
-  %arrayidx.i4.i14 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i3.i13
+  %conv.i3.i13 = zext i8 %8 to i64
+  %arrayidx.i4.i14 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i3.i13
   %13 = load i8, ptr %arrayidx.i4.i14, align 1
   %14 = shl i8 %13, 3
   %15 = and i8 %14, 32
@@ -1886,38 +1886,38 @@ entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 3, %entry ]
-  %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.9, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 3, %entry ]
+  %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.9, %entry ]
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
-  %idxprom.i.i.i = zext nneg i32 %call2.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
+  %conv.i.i.i = zext nneg i32 %call2.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %1 = shl i8 %0, 3
   %2 = and i8 %1, 32
   %3 = zext nneg i8 %2 to i32
   %spec.select.i.i.i = or i32 %call2.i.i, %3
-  %4 = load i8, ptr %needle.addr.08.i.i, align 1
+  %4 = load i8, ptr %needle.addr.09.i.i, align 1
   %conv8.i.i = sext i8 %4 to i32
   %cmp9.not.i.i = icmp eq i32 %spec.select.i.i.i, %conv8.i.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %is_hfs_dot_str.exit
 
 for.inc.i.i:                                      ; preds = %if.end5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
-  %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.09.i.i, i64 1
+  %dec.i.i = add nsw i64 %needle_len.addr.010.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -1936,38 +1936,38 @@ entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 10, %entry ]
-  %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.10, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 10, %entry ]
+  %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.10, %entry ]
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
-  %idxprom.i.i.i = zext nneg i32 %call2.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
+  %conv.i.i.i = zext nneg i32 %call2.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %1 = shl i8 %0, 3
   %2 = and i8 %1, 32
   %3 = zext nneg i8 %2 to i32
   %spec.select.i.i.i = or i32 %call2.i.i, %3
-  %4 = load i8, ptr %needle.addr.08.i.i, align 1
+  %4 = load i8, ptr %needle.addr.09.i.i, align 1
   %conv8.i.i = sext i8 %4 to i32
   %cmp9.not.i.i = icmp eq i32 %spec.select.i.i.i, %conv8.i.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %is_hfs_dot_str.exit
 
 for.inc.i.i:                                      ; preds = %if.end5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
-  %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.09.i.i, i64 1
+  %dec.i.i = add nsw i64 %needle_len.addr.010.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -1986,38 +1986,38 @@ entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 9, %entry ]
-  %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.11, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 9, %entry ]
+  %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.11, %entry ]
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
-  %idxprom.i.i.i = zext nneg i32 %call2.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
+  %conv.i.i.i = zext nneg i32 %call2.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %1 = shl i8 %0, 3
   %2 = and i8 %1, 32
   %3 = zext nneg i8 %2 to i32
   %spec.select.i.i.i = or i32 %call2.i.i, %3
-  %4 = load i8, ptr %needle.addr.08.i.i, align 1
+  %4 = load i8, ptr %needle.addr.09.i.i, align 1
   %conv8.i.i = sext i8 %4 to i32
   %cmp9.not.i.i = icmp eq i32 %spec.select.i.i.i, %conv8.i.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %is_hfs_dot_str.exit
 
 for.inc.i.i:                                      ; preds = %if.end5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
-  %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.09.i.i, i64 1
+  %dec.i.i = add nsw i64 %needle_len.addr.010.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -2036,38 +2036,38 @@ entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 13, %entry ]
-  %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.12, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 13, %entry ]
+  %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.12, %entry ]
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
-  %idxprom.i.i.i = zext nneg i32 %call2.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
+  %conv.i.i.i = zext nneg i32 %call2.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %1 = shl i8 %0, 3
   %2 = and i8 %1, 32
   %3 = zext nneg i8 %2 to i32
   %spec.select.i.i.i = or i32 %call2.i.i, %3
-  %4 = load i8, ptr %needle.addr.08.i.i, align 1
+  %4 = load i8, ptr %needle.addr.09.i.i, align 1
   %conv8.i.i = sext i8 %4 to i32
   %cmp9.not.i.i = icmp eq i32 %spec.select.i.i.i, %conv8.i.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %is_hfs_dot_str.exit
 
 for.inc.i.i:                                      ; preds = %if.end5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
-  %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.09.i.i, i64 1
+  %dec.i.i = add nsw i64 %needle_len.addr.010.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -2086,38 +2086,38 @@ entry:
   %path.addr.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i.i)
   store ptr %path, ptr %path.addr.i.i, align 8
-  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp.not.i.i = icmp eq i32 %call.i.i, 46
   br i1 %cmp.not.i.i, label %for.body.i.i, label %is_hfs_dot_str.exit
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %needle_len.addr.09.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 7, %entry ]
-  %needle.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.13, %entry ]
-  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %needle_len.addr.010.i.i = phi i64 [ %dec.i.i, %for.inc.i.i ], [ 7, %entry ]
+  %needle.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @.str.13, %entry ]
+  %call2.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %cmp3.i.i = icmp ugt i32 %call2.i.i, 127
   br i1 %cmp3.i.i, label %is_hfs_dot_str.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
-  %idxprom.i.i.i = zext nneg i32 %call2.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
+  %conv.i.i.i = zext nneg i32 %call2.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %1 = shl i8 %0, 3
   %2 = and i8 %1, 32
   %3 = zext nneg i8 %2 to i32
   %spec.select.i.i.i = or i32 %call2.i.i, %3
-  %4 = load i8, ptr %needle.addr.08.i.i, align 1
+  %4 = load i8, ptr %needle.addr.09.i.i, align 1
   %conv8.i.i = sext i8 %4 to i32
   %cmp9.not.i.i = icmp eq i32 %spec.select.i.i.i, %conv8.i.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %is_hfs_dot_str.exit
 
 for.inc.i.i:                                      ; preds = %if.end5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.08.i.i, i64 1
-  %dec.i.i = add nsw i64 %needle_len.addr.09.i.i, -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %needle.addr.09.i.i, i64 1
+  %dec.i.i = add nsw i64 %needle_len.addr.010.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i)
+  %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef %path.addr.i.i)
   %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
   %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -2210,9 +2210,9 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #15
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2097152) i32 @next_hfs_char(ptr nocapture noundef %in) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2097152) i32 @next_hfs_char(ptr nocapture noundef nonnull %in) unnamed_addr #5 {
 entry:
-  %call3 = tail call fastcc i32 @pick_one_utf8_char(ptr noundef %in, ptr noundef null)
+  %call3 = tail call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %in, ptr noundef null)
   %0 = load ptr, ptr %in, align 8
   %tobool.not4 = icmp eq ptr %0, null
   br i1 %tobool.not4, label %return, label %if.end

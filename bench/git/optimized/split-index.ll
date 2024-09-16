@@ -244,15 +244,15 @@ if.then5:                                         ; preds = %if.then
   store ptr %call, ptr %ce_mem_pool3, align 8
   tail call void @mem_pool_init(ptr noundef %call, i64 noundef 0) #11
   %.pre = load ptr, ptr %ce_mem_pool3, align 8
-  %.pre47 = load ptr, ptr %split_index, align 8
-  %base10.phi.trans.insert = getelementptr inbounds i8, ptr %.pre47, i64 40
-  %.pre48 = load ptr, ptr %base10.phi.trans.insert, align 8
-  %ce_mem_pool11.phi.trans.insert = getelementptr inbounds i8, ptr %.pre48, i64 224
-  %.pre49 = load ptr, ptr %ce_mem_pool11.phi.trans.insert, align 8
+  %.pre46 = load ptr, ptr %split_index, align 8
+  %base10.phi.trans.insert = getelementptr inbounds i8, ptr %.pre46, i64 40
+  %.pre47 = load ptr, ptr %base10.phi.trans.insert, align 8
+  %ce_mem_pool11.phi.trans.insert = getelementptr inbounds i8, ptr %.pre47, i64 224
+  %.pre48 = load ptr, ptr %ce_mem_pool11.phi.trans.insert, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %4 = phi ptr [ %.pre49, %if.then5 ], [ %2, %if.then ]
+  %4 = phi ptr [ %.pre48, %if.then5 ], [ %2, %if.then ]
   %5 = phi ptr [ %.pre, %if.then5 ], [ %3, %if.then ]
   tail call void @mem_pool_combine(ptr noundef %5, ptr noundef %4) #11
   br label %if.end12
@@ -296,13 +296,13 @@ if.then22:                                        ; preds = %if.end12
   %call43 = tail call ptr @xrealloc(ptr noundef %17, i64 noundef %mul.i) #11
   %18 = load ptr, ptr %base, align 8
   store ptr %call43, ptr %18, align 8
-  %.pre50 = load i32, ptr %cache_nr, align 4
-  %.pre51 = load ptr, ptr %base, align 8
+  %.pre49 = load i32, ptr %cache_nr, align 4
+  %.pre50 = load ptr, ptr %base, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end12, %if.then22
-  %19 = phi ptr [ %12, %if.end12 ], [ %.pre51, %if.then22 ]
-  %20 = phi i32 [ %11, %if.end12 ], [ %.pre50, %if.then22 ]
+  %19 = phi ptr [ %12, %if.end12 ], [ %.pre50, %if.then22 ]
+  %20 = phi i32 [ %11, %if.end12 ], [ %.pre49, %if.then22 ]
   %cache_nr49 = getelementptr inbounds i8, ptr %19, i64 12
   store i32 %20, ptr %cache_nr49, align 4
   %ce_mem_pool50 = getelementptr inbounds i8, ptr %istate, i64 224
@@ -313,9 +313,9 @@ do.end:                                           ; preds = %if.end12, %if.then2
   store ptr null, ptr %ce_mem_pool50, align 8
   %23 = load i32, ptr %cache_nr, align 4
   %tobool.not.i = icmp eq i32 %23, 0
-  br i1 %tobool.not.i, label %copy_array.exit, label %if.then.i41
+  br i1 %tobool.not.i, label %copy_array.exit, label %st_mult.exit.i
 
-if.then.i41:                                      ; preds = %do.end
+st_mult.exit.i:                                   ; preds = %do.end
   %conv58 = zext i32 %23 to i64
   %24 = load ptr, ptr %istate, align 8
   %25 = load ptr, ptr %base, align 8
@@ -324,7 +324,7 @@ if.then.i41:                                      ; preds = %do.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr readonly align 1 %24, i64 %mul.i.i, i1 false)
   br label %copy_array.exit
 
-copy_array.exit:                                  ; preds = %do.end, %if.then.i41
+copy_array.exit:                                  ; preds = %do.end, %st_mult.exit.i
   %27 = load ptr, ptr %base, align 8
   %cache_nr.i = getelementptr inbounds i8, ptr %27, i64 12
   %28 = load i32, ptr %cache_nr.i, align 4
@@ -346,15 +346,15 @@ for.body.i:                                       ; preds = %copy_array.exit, %f
   br i1 %cmp.i, label %for.body.i, label %mark_base_index_entries.exit, !llvm.loop !5
 
 mark_base_index_entries.exit:                     ; preds = %for.body.i
-  %.pre52 = load ptr, ptr %base, align 8
-  %cache_nr6143.phi.trans.insert = getelementptr inbounds i8, ptr %.pre52, i64 12
-  %.pre53 = load i32, ptr %cache_nr6143.phi.trans.insert, align 4
-  %34 = icmp eq i32 %.pre53, 0
+  %.pre51 = load ptr, ptr %base, align 8
+  %cache_nr6142.phi.trans.insert = getelementptr inbounds i8, ptr %.pre51, i64 12
+  %.pre52 = load i32, ptr %cache_nr6142.phi.trans.insert, align 4
+  %34 = icmp eq i32 %.pre52, 0
   br i1 %34, label %for.end, label %for.body
 
 for.body:                                         ; preds = %mark_base_index_entries.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %mark_base_index_entries.exit ]
-  %35 = phi ptr [ %39, %for.body ], [ %.pre52, %mark_base_index_entries.exit ]
+  %35 = phi ptr [ %39, %for.body ], [ %.pre51, %mark_base_index_entries.exit ]
   %36 = load ptr, ptr %35, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
   %37 = load ptr, ptr %arrayidx, align 8
@@ -442,19 +442,19 @@ do.end:                                           ; preds = %mark_base_index_ent
   %mul.i = shl nuw nsw i64 %conv, 3
   %call20 = tail call ptr @xrealloc(ptr noundef null, i64 noundef %mul.i) #11
   store ptr %call20, ptr %istate, align 8
-  %.pre56 = load i32, ptr %cache_nr, align 4
-  %tobool.not.i = icmp eq i32 %.pre56, 0
-  br i1 %tobool.not.i, label %copy_array.exit, label %if.then.i49
+  %.pre55 = load i32, ptr %cache_nr, align 4
+  %tobool.not.i = icmp eq i32 %.pre55, 0
+  br i1 %tobool.not.i, label %copy_array.exit, label %st_mult.exit.i
 
-if.then.i49:                                      ; preds = %do.end
-  %conv27 = zext i32 %.pre56 to i64
+st_mult.exit.i:                                   ; preds = %do.end
+  %conv27 = zext i32 %.pre55 to i64
   %12 = load ptr, ptr %base, align 8
   %13 = load ptr, ptr %12, align 8
   %mul.i.i = shl nuw nsw i64 %conv27, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20, ptr readonly align 1 %13, i64 %mul.i.i, i1 false)
   br label %copy_array.exit
 
-copy_array.exit:                                  ; preds = %mark_base_index_entries.exit, %do.end, %if.then.i49
+copy_array.exit:                                  ; preds = %mark_base_index_entries.exit, %do.end, %st_mult.exit.i
   %nr_deletions = getelementptr inbounds i8, ptr %0, i64 76
   store i32 0, ptr %nr_deletions, align 4
   %nr_replacements = getelementptr inbounds i8, ptr %0, i64 80
@@ -476,8 +476,8 @@ if.then29:                                        ; preds = %copy_array.exit
 if.end30:                                         ; preds = %if.then29, %copy_array.exit
   %17 = load i32, ptr %nr_replacements, align 8
   %18 = load i32, ptr %saved_cache_nr, align 8
-  %cmp3352 = icmp ult i32 %17, %18
-  br i1 %cmp3352, label %for.body.preheader, label %for.end
+  %cmp3351 = icmp ult i32 %17, %18
+  br i1 %cmp3351, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end30
   %19 = zext i32 %17 to i64

@@ -181,7 +181,7 @@ define internal range(i32 0, 2) i32 @pppdump_read(ptr nocapture noundef readonly
   %22 = getelementptr inbounds i8, ptr %2, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = call fastcc i32 @collate(ptr noundef %10, ptr noundef %20, ptr noundef %3, ptr noundef %4, ptr noundef %24, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %.0, i64 noundef 0)
+  %25 = call fastcc i32 @collate(ptr noundef %10, ptr noundef %20, ptr noundef %3, ptr noundef %4, ptr noundef %24, ptr noundef %7, ptr noundef %8, ptr noundef %.0, i64 noundef 0)
   %.not31 = icmp eq i32 %25, 0
   br i1 %.not31, label %26, label %27
 
@@ -315,7 +315,7 @@ define internal range(i32 0, 2) i32 @pppdump_seek_read(ptr nocapture noundef rea
   %.0 = phi i64 [ %47, %24 ], [ 0, %53 ]
   %50 = load ptr, ptr %25, align 8
   %51 = load ptr, ptr %19, align 8
-  %52 = call fastcc i32 @collate(ptr noundef %50, ptr noundef %51, ptr noundef %4, ptr noundef %5, ptr noundef %45, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, i64 noundef %.0)
+  %52 = call fastcc i32 @collate(ptr noundef %50, ptr noundef %51, ptr noundef %4, ptr noundef %5, ptr noundef %45, ptr noundef %7, ptr noundef %8, ptr noundef null, i64 noundef %.0)
   %.not28 = icmp eq i32 %52, 0
   br i1 %.not28, label %.loopexit, label %53
 
@@ -419,7 +419,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @collate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @collate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds i8, ptr %0, i64 16488

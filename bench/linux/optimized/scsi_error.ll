@@ -3968,7 +3968,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 8201, 8200) i32 @scsi_send_eh_cmnd(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 8201, 8200) i32 @scsi_send_eh_cmnd(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2, i32 noundef %3, i32 noundef range(i32 -1, 1) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.completion, align 8
   %7 = alloca %struct.scsi_eh_save, align 8
   %8 = load ptr, ptr %0, align 8
@@ -4469,7 +4469,7 @@ declare dso_local i32 @scsi_change_queue_depth(ptr noundef, i32 noundef) local_u
 declare dso_local void @scsi_device_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   %5 = load volatile ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %.loopexit21, label %7

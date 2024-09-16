@@ -732,7 +732,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32UsdImaging_NiPrototypeSceneI
           to label %20 unwind label %28, !noalias !10
 
 20:                                               ; preds = %18
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_ResetXformToIdentityDataSourceEv(ptr dead_on_unwind noalias nonnull writable align 8 %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_ResetXformToIdentityDataSourceEv(ptr dead_on_unwind noalias writable align 8 %6)
           to label %21 unwind label %28, !noalias !10
 
 21:                                               ; preds = %20
@@ -3008,7 +3008,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema14GetSchemaTokenEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_ResetXformToIdentityDataSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_ResetXformToIdentityDataSourceEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdXformSchema::Builder", align 8
   %4 = alloca %"class.std::shared_ptr.41", align 8

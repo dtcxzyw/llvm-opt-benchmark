@@ -756,7 +756,7 @@ declare void @gtk_grid_set_column_spacing(ptr noundef, i32 noundef) local_unname
 declare ptr @gtk_size_group_new(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_gui_init_datetime(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc noundef ptr @_gui_init_datetime(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = tail call ptr @gtk_flow_box_new() #16
   %9 = tail call i64 @gtk_flow_box_get_type() #17
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %9) #16
@@ -1771,7 +1771,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #5
 declare ptr @g_date_time_ref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_display_datetime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @_display_datetime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [8 x i8], align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
@@ -1918,7 +1918,7 @@ define internal fastcc void @_display_datetime(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef %1, ptr nocapture readonly %2) unnamed_addr #1 {
+define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture readonly %2) unnamed_addr #1 {
   %4 = alloca [4 x i8], align 1
   %5 = icmp ne i32 %1, 0
   br i1 %5, label %8, label %6

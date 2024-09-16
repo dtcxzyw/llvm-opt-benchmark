@@ -680,7 +680,7 @@ if.end109:                                        ; preds = %eat_ws.exit133, %la
 
 if.end110:                                        ; preds = %eat_ws.exit133
   store i8 0, ptr %p.addr.0.i118, align 1
-  %call111 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef null, ptr noundef nonnull %section, ptr noundef nonnull %p.addr.0.i112)
+  %call111 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef null, ptr noundef %section, ptr noundef nonnull %p.addr.0.i112)
   %tobool112.not = icmp eq i32 %call111, 0
   br i1 %tobool112.not, label %if.then223, label %if.end114
 
@@ -884,7 +884,7 @@ if.then185:                                       ; preds = %if.end176
 
 if.end186:                                        ; preds = %if.end176
   %value = getelementptr inbounds i8, ptr %calloc.i, i64 16
-  %call187 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %spec.select, ptr noundef nonnull %value, ptr noundef nonnull %p.addr.0.i182)
+  %call187 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %spec.select, ptr noundef %value, ptr noundef nonnull %p.addr.0.i182)
   %tobool188.not = icmp eq i32 %call187, 0
   br i1 %tobool188.not, label %if.then223, label %if.end190
 
@@ -1352,7 +1352,7 @@ declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @str_copy(ptr nocapture noundef readonly %conf, ptr noundef %section, ptr nocapture noundef %pto, ptr noundef %from) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @str_copy(ptr nocapture noundef readonly %conf, ptr noundef %section, ptr nocapture noundef nonnull %pto, ptr noundef %from) unnamed_addr #0 {
 entry:
   %template.i = alloca %struct.conf_value_st, align 8
   %call = tail call ptr @BUF_MEM_new() #12

@@ -5230,7 +5230,7 @@ desegment_tcp.exit:                               ; preds = %205, %708, %.split3
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, 2) %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca %struct.nstime_t, align 8
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
@@ -11687,7 +11687,7 @@ mptcp_add_analysis_subtree.exit:                  ; preds = %mptcp_add_duplicate
   %3035 = load ptr, ptr %3034, align 8
   %3036 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %3035) #20
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %3036, ptr noundef nonnull @.str.802) #20
-  call fastcc void @print_tcp_fragment_tree(ptr noundef nonnull %3022, ptr noundef %2, ptr noundef %.0857, ptr noundef nonnull %1, ptr noundef %3036)
+  call fastcc void @print_tcp_fragment_tree(ptr noundef %3022, ptr noundef %2, ptr noundef %.0857, ptr noundef nonnull %1, ptr noundef %3036)
   store i16 0, ptr %2052, align 8
   %3037 = load i16, ptr %73, align 4
   %3038 = zext i16 %3037 to i32
@@ -15576,7 +15576,7 @@ declare i32 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #1
 declare i32 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcp_analyze_get_acked_struct(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @tcp_analyze_get_acked_struct(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -15683,9 +15683,9 @@ declare void @remove_last_data_source(ptr noundef) local_unnamed_addr #1
 declare void @fragment_set_partial_reassembly(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_tcp_fragment_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @print_tcp_fragment_tree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = call i32 @show_fragment_tree(ptr noundef %0, ptr noundef nonnull @tcp_segment_items, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6) #20
+  %7 = call i32 @show_fragment_tree(ptr noundef nonnull %0, ptr noundef nonnull @tcp_segment_items, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6) #20
   %8 = call ptr @proto_tree_get_parent(ptr noundef %2) #20
   %9 = load ptr, ptr %6, align 8
   %10 = icmp ne ptr %9, null
@@ -16079,7 +16079,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare void @g_queue_push_tail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_follow_fragments(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_follow_fragments(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = zext nneg i32 %1 to i64
   %8 = getelementptr [2 x ptr], ptr %6, i64 0, i64 %7
@@ -16303,7 +16303,7 @@ tcp_option_len_check.exit:                        ; preds = %5, %13
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tcpopt_tfo_payload(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_tcpopt_tfo_payload(ptr noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = icmp eq i32 %2, 2
   br i1 %7, label %8, label %13
 
@@ -16367,7 +16367,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rvbd_probe_resp_add_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @rvbd_probe_resp_add_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 8, 13) %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @tvb_address_to_str(ptr noundef %7, ptr noundef %2, i32 noundef 2, i32 noundef %3) #20
@@ -16386,7 +16386,7 @@ declare ptr @conversation_get_dissector(ptr noundef, i32 noundef) local_unnamed_
 declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tcpopt_acc_ecn_data(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_tcpopt_acc_ecn_data(ptr noundef %0, i32 noundef range(i32 2, 5) %1, i32 noundef range(i32 -2, 2147483644) %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   switch i32 %2, label %50 [
     i32 0, label %8
     i32 3, label %11

@@ -2926,7 +2926,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 invoke.cont116:                                   ; preds = %for.body, %cond.end
   %cond.i472 = phi ptr [ null, %cond.end ], [ %call.i132, %for.body ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %costFunction) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction, ptr noundef nonnull %this)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction, ptr noundef %this)
           to label %invoke.cont129 unwind label %lpad121
 
 invoke.cont129:                                   ; preds = %invoke.cont116
@@ -3374,7 +3374,7 @@ if.else:                                          ; preds = %do.end83
 
 invoke.cont194:                                   ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %costFunction195) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction195, ptr noundef nonnull %this)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction195, ptr noundef %this)
           to label %invoke.cont197 unwind label %lpad196
 
 invoke.cont197:                                   ; preds = %invoke.cont194
@@ -4642,7 +4642,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %smileAndCms) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull %smileAndCms) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %smileAndCms_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5667,7 +5667,7 @@ lpad142:                                          ; preds = %cond.true.i
 
 invoke.cont164:                                   ; preds = %for.cond145.for.cond.cleanup147_crit_edge.us, %for.cond145.preheader.lr.ph, %_ZN8QuantLib5ArrayC2Em.exit
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %costFunction) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction, ptr noundef nonnull %this)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction, ptr noundef %this)
           to label %invoke.cont169 unwind label %lpad163
 
 invoke.cont169:                                   ; preds = %invoke.cont164
@@ -6198,7 +6198,7 @@ for.cond.cleanup270:                              ; preds = %for.cond273.for.con
   %arrayidx.i296 = getelementptr inbounds nuw double, ptr %cond.i291, i64 %mul
   store double %mul.i295, ptr %arrayidx.i296, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %costFunction300) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction300, ptr noundef nonnull %this)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction300, ptr noundef %this)
           to label %invoke.cont302 unwind label %lpad301
 
 lpad262:                                          ; preds = %if.else
@@ -7594,7 +7594,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 invoke.cont170:                                   ; preds = %for.cond.cleanup147, %invoke.cont141
   %cond.i666 = phi ptr [ null, %invoke.cont141 ], [ %call.i214, %for.cond.cleanup147 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %costFunction) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction, ptr noundef nonnull %this)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction, ptr noundef %this)
           to label %invoke.cont179 unwind label %lpad169
 
 invoke.cont179:                                   ; preds = %invoke.cont170
@@ -8102,7 +8102,7 @@ for.cond.cleanup296:                              ; preds = %for.cond.cleanup301
   %arrayidx.i315 = getelementptr inbounds nuw double, ptr %cond.i310, i64 %mul
   store double %mul.i314, ptr %arrayidx.i315, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %costFunction337) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction337, ptr noundef nonnull %this)
+  invoke fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %costFunction337, ptr noundef %this)
           to label %invoke.cont339 unwind label %lpad338
 
 lpad288:                                          ; preds = %if.else

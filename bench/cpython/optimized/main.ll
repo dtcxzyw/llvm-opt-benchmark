@@ -1534,7 +1534,7 @@ config_run_code.exit.i109.i:                      ; preds = %lor.lhs.false.i.i10
 if.end11.i.i:                                     ; preds = %config_run_code.exit.i109.i, %lor.lhs.false.i.i106.i, %land.lhs.true7.i.i
   store i32 0, ptr %inspect.i96.i, align 4
   store i32 0, ptr @Py_InspectFlag, align 4
-  %call12.i103.i = call fastcc i32 @pymain_run_interactive_hook(ptr noundef nonnull %exitcode)
+  %call12.i103.i = call fastcc i32 @pymain_run_interactive_hook(ptr noundef %exitcode)
   %tobool13.not.i.i = icmp eq i32 %call12.i103.i, 0
   br i1 %tobool13.not.i.i, label %if.end15.i.i, label %pymain_repl.exit.i
 
@@ -1656,12 +1656,12 @@ entry:
   store ptr null, ptr %bytes_argv, align 8
   %wchar_argv = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %argv, ptr %wchar_argv, align 8
-  %call = call fastcc i32 @pymain_main(ptr noundef nonnull %args)
+  %call = call fastcc i32 @pymain_main(ptr noundef %args)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pymain_main(ptr noundef %args) unnamed_addr #0 {
+define internal fastcc i32 @pymain_main(ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.PyStatus, align 8
   %preconfig.i = alloca %struct.PyPreConfig, align 4
@@ -1687,7 +1687,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig.i) #14, !noalias !5
-  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %preconfig.i, ptr noundef %args) #14, !noalias !5
+  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %preconfig.i, ptr noundef nonnull %args) #14, !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp1.i, i64 32, i1 false)
   %1 = load i32, ptr %status, align 8
   %cmp3.not.i = icmp eq i32 %1, 0
@@ -1784,7 +1784,7 @@ entry:
   store ptr %argv, ptr %bytes_argv, align 8
   %wchar_argv = getelementptr inbounds i8, ptr %args, i64 24
   store ptr null, ptr %wchar_argv, align 8
-  %call = call fastcc i32 @pymain_main(ptr noundef nonnull %args)
+  %call = call fastcc i32 @pymain_main(ptr noundef %args)
   ret i32 %call
 }
 
@@ -1803,7 +1803,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyInterpreterState_SetRunningMain(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pymain_run_module(ptr noundef %modname, i32 noundef %set_argv0) unnamed_addr #0 {
+define internal fastcc i32 @pymain_run_module(ptr noundef %modname, i32 noundef range(i32 0, 2) %set_argv0) unnamed_addr #0 {
 entry:
   %exitcode.i.i69 = alloca i32, align 4
   %exitcode.i.i62 = alloca i32, align 4
@@ -2478,7 +2478,7 @@ pymain_run_startup.exit:                          ; preds = %pymain_err_print.ex
   br i1 %tobool2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %pymain_run_startup.exit.thread, %pymain_run_startup.exit
-  %call4 = call fastcc i32 @pymain_run_interactive_hook(ptr noundef nonnull %exitcode)
+  %call4 = call fastcc i32 @pymain_run_interactive_hook(ptr noundef %exitcode)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
@@ -2635,7 +2635,7 @@ declare i32 @Py_MakePendingCalls() local_unnamed_addr #1
 declare i32 @_PyRun_AnyFileObject(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pymain_run_interactive_hook(ptr nocapture noundef writeonly %exitcode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pymain_run_interactive_hook(ptr nocapture noundef nonnull writeonly %exitcode) unnamed_addr #0 {
 entry:
   %exitcode.i = alloca i32, align 4
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.30) #14

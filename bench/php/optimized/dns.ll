@@ -1532,7 +1532,7 @@ _php_dns_free_res.exit392:                        ; preds = %214
   %222 = add nsw i32 %.in519, -1
   %223 = load i8, ptr %7, align 1
   %224 = trunc i8 %223 to i1
-  %225 = call fastcc ptr @php_parserr(ptr noundef nonnull %.1320504, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef %.0324490, i32 noundef %.0311517, i1 noundef zeroext %224, ptr noundef nonnull %8)
+  %225 = call fastcc ptr @php_parserr(ptr noundef %.1320504, ptr noundef %185, ptr noundef %6, i32 noundef %.0324490, i32 noundef %.0311517, i1 noundef zeroext %224, ptr noundef %8)
   %226 = load i8, ptr %113, align 8
   %227 = icmp ne i8 %226, 0
   %or.cond7 = select i1 %227, i1 %205, i1 false
@@ -1569,7 +1569,7 @@ _php_dns_free_res.exit392:                        ; preds = %214
   %238 = add nsw i32 %.in520, -1
   %239 = load i8, ptr %7, align 1
   %240 = trunc i8 %239 to i1
-  %241 = call fastcc ptr @php_parserr(ptr noundef nonnull %.3322509, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef 255, i32 noundef %115, i1 noundef zeroext %240, ptr noundef nonnull %9)
+  %241 = call fastcc ptr @php_parserr(ptr noundef %.3322509, ptr noundef %185, ptr noundef %6, i32 noundef 255, i32 noundef %115, i1 noundef zeroext %240, ptr noundef %9)
   %242 = load i8, ptr %116, align 8
   %.not377 = icmp eq i8 %242, 0
   br i1 %.not377, label %246, label %243
@@ -1605,7 +1605,7 @@ _php_dns_free_res.exit392:                        ; preds = %214
   %253 = add nsw i32 %.in521, -1
   %254 = load i8, ptr %7, align 1
   %255 = trunc i8 %254 to i1
-  %256 = call fastcc ptr @php_parserr(ptr noundef nonnull %.4514, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef 255, i32 noundef 1, i1 noundef zeroext %255, ptr noundef nonnull %10)
+  %256 = call fastcc ptr @php_parserr(ptr noundef %.4514, ptr noundef %185, ptr noundef %6, i32 noundef 255, i32 noundef 1, i1 noundef zeroext %255, ptr noundef %10)
   %257 = load i8, ptr %117, align 8
   %.not376 = icmp eq i8 %257, 0
   br i1 %.not376, label %261, label %258
@@ -1661,13 +1661,13 @@ declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @dn_skipname(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @php_parserr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %3, i32 noundef range(i32 0, 2) %4, i1 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca [1024 x i8], align 16
   %9 = alloca %struct._zval_struct, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %10, align 8
-  %11 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1022) #12
+  %11 = call i32 @dn_expand(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 1022) #12
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %.loopexit, label %13
 
@@ -1814,7 +1814,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
 
 93:                                               ; preds = %91, %83, %.thread767, %92
   %.2765 = phi ptr [ %16, %92 ], [ %16, %.thread767 ], [ %81, %83 ], [ %16, %91 ]
-  %94 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %.2765, ptr noundef nonnull %8, i32 noundef 1022) #12
+  %94 = call i32 @dn_expand(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %.2765, ptr noundef nonnull %8, i32 noundef 1022) #12
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %.loopexit, label %96
 
@@ -1955,7 +1955,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
 
 169:                                              ; preds = %63
   call void @add_assoc_string_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.29, i64 noundef 4, ptr noundef nonnull @.str.10) #12
-  %170 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %16, ptr noundef nonnull %8, i32 noundef 1022) #12
+  %170 = call i32 @dn_expand(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %16, ptr noundef nonnull %8, i32 noundef 1022) #12
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %.loopexit, label %172
 
@@ -1963,7 +1963,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   %173 = zext nneg i32 %170 to i64
   %174 = getelementptr inbounds i8, ptr %16, i64 %173
   call void @add_assoc_string_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.43, i64 noundef 5, ptr noundef nonnull %8) #12
-  %175 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %174, ptr noundef nonnull %8, i32 noundef 1022) #12
+  %175 = call i32 @dn_expand(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %174, ptr noundef nonnull %8, i32 noundef 1022) #12
   %176 = icmp slt i32 %175, 0
   br i1 %176, label %.loopexit, label %177
 
@@ -2320,7 +2320,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %368, label %369, label %.loopexit
 
 369:                                              ; preds = %367
-  %370 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %.6.lcssa, ptr noundef nonnull %8, i32 noundef 1022) #12
+  %370 = call i32 @dn_expand(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %.6.lcssa, ptr noundef nonnull %8, i32 noundef 1022) #12
   %371 = icmp slt i32 %370, 0
   br i1 %371, label %.loopexit, label %372
 
@@ -2363,7 +2363,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   %400 = zext i8 %399 to i64
   %401 = or disjoint i64 %397, %400
   call void @add_assoc_long_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.55, i64 noundef 4, i64 noundef %401) #12
-  %402 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %376, ptr noundef nonnull %8, i32 noundef 1022) #12
+  %402 = call i32 @dn_expand(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %376, ptr noundef nonnull %8, i32 noundef 1022) #12
   %403 = icmp slt i32 %402, 0
   br i1 %403, label %.loopexit, label %404
 
@@ -2436,7 +2436,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
 
 449:                                              ; preds = %444
   call void @add_assoc_stringl_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.59, i64 noundef 5, ptr noundef nonnull %442, i64 noundef %446) #12
-  %450 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %447, ptr noundef nonnull %8, i32 noundef 1022) #12
+  %450 = call i32 @dn_expand(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %447, ptr noundef nonnull %8, i32 noundef 1022) #12
   %451 = icmp slt i32 %450, 0
   br i1 %451, label %.loopexit, label %452
 

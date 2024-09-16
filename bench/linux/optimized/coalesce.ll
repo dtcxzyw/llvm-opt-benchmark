@@ -630,7 +630,7 @@ declare dso_local i32 @ethnl_ops_begin(ptr noundef) local_unnamed_addr #3
 declare dso_local void @ethnl_ops_complete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @coalesce_put_bool(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @coalesce_put_bool(ptr noundef %0, i16 noundef zeroext range(i16 11, 26) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i8, align 1
   %6 = icmp ne i32 %2, 0
   br i1 %6, label %15, label %7

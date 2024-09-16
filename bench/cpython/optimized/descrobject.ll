@@ -4622,9 +4622,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @method_check_args(ptr noundef %func, ptr nocapture noundef readonly %args, i64 noundef %nargs, ptr noundef readonly %kwnames) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @method_check_args(ptr noundef %func, ptr nocapture noundef readonly %args, i64 noundef range(i64 0, -9223372036854775808) %nargs, ptr noundef readonly %kwnames) unnamed_addr #0 {
 entry:
-  %cmp = icmp slt i64 %nargs, 1
+  %cmp = icmp eq i64 %nargs, 0
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry

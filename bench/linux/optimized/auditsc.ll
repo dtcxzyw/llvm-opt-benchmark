@@ -358,7 +358,7 @@ define internal fastcc i32 @audit_filter_task(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @audit_alloc_context(i32 noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef ptr @audit_alloc_context(i32 noundef range(i32 1, 0) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(1008) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1008) #13
   %4 = icmp eq ptr %3, null

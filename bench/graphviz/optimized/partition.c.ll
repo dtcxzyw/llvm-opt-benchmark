@@ -95,7 +95,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
   %35 = extractvalue { i64, ptr } %32, 1
   store ptr %35, ptr %34, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call fastcc void @monotonate_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6)
+  call fastcc void @monotonate_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %5, i32 noundef 0, ptr noundef %6)
   %36 = load ptr, ptr %34, align 8
   call void @free(ptr noundef %36) #16
   call fastcc void @genSegments(ptr noundef %0, i32 noundef %1, ptr noundef nonnull byval(%struct.boxf) align 8 %3, ptr noundef %13, i32 noundef 1)
@@ -154,7 +154,7 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
   %57 = extractvalue { i64, ptr } %54, 1
   store ptr %57, ptr %56, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  call fastcc void @monotonate_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %8)
+  call fastcc void @monotonate_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %7, i32 noundef 1, ptr noundef %8)
   %58 = load ptr, ptr %56, align 8
   call void @free(ptr noundef %58) #16
   %59 = getelementptr inbounds i8, ptr %8, i64 8
@@ -302,7 +302,7 @@ boxes_append.exit:                                ; preds = %92, %101
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 57) %1) unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -339,7 +339,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @genSegments(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @genSegments(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, ptr nocapture noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = alloca [4 x %struct.pointf_s], align 16
   %.sroa.0.0.copyload = load double, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
@@ -561,7 +561,7 @@ declare { i64, ptr } @construct_trapezoids(i32 noundef, ptr noundef, ptr noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @monotonate_trapezoids(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @monotonate_trapezoids(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.bitarray_t, align 8
   %7 = load i64, ptr %2, align 8
   %8 = icmp ult i64 %7, 65
@@ -732,7 +732,7 @@ inside_polygon.exit.thread54:                     ; preds = %inside_polygon.exit
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %._crit_edge
-  call fastcc void @traverse_polygon(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %.0.lcssa, i32 noundef %94, i32 noundef %3, i32 noundef 1)
+  call fastcc void @traverse_polygon(ptr noundef %6, ptr noundef %4, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %.0.lcssa, i32 noundef %94, i32 noundef %3, i32 noundef 1)
   br label %102
 
 97:                                               ; preds = %._crit_edge
@@ -742,7 +742,7 @@ inside_polygon.exit.thread54:                     ; preds = %inside_polygon.exit
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %97
-  call fastcc void @traverse_polygon(ptr noundef nonnull %6, ptr noundef %4, ptr noundef %1, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %.0.lcssa, i32 noundef %99, i32 noundef %3, i32 noundef 2)
+  call fastcc void @traverse_polygon(ptr noundef %6, ptr noundef %4, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %.0.lcssa, i32 noundef %99, i32 noundef %3, i32 noundef 2)
   br label %102
 
 102:                                              ; preds = %97, %101, %96
@@ -794,7 +794,7 @@ declare double @drand48() local_unnamed_addr #3
 declare double @llvm.fmuladd.f64(double, double, double) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 -2147483647, -2147483648) %4, i32 noundef %5, i32 noundef range(i32 1, -2147483648) %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 1, 3) %8) unnamed_addr #0 {
   %10 = alloca %struct.bitarray_t, align 8
   %11 = icmp slt i32 %5, 1
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -986,7 +986,7 @@ boxes_append.exit:                                ; preds = %._crit_edge.i.i, %8
 120:                                              ; preds = %113
   %121 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %118, i32 noundef %117)
   %122 = load i32, ptr %110, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %122, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %122, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %120, %124, %127, %153, %156, %159, %188, %193, %224, %230, %245, %251, %284, %290, %308, %314, %355, %362, %406, %413, %420
@@ -1000,15 +1000,15 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 124:                                              ; preds = %113
   %125 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %117, i32 noundef %118)
   %126 = load i32, ptr %106, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %126, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %126, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 127:                                              ; preds = %109, %105
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %99, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %99, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %128 = load i32, ptr %102, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %128, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %128, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %129 = load i32, ptr %106, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %129, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %129, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %130 = getelementptr inbounds i8, ptr %30, i64 52
   br label %tailrecurse.backedge
 
@@ -1047,22 +1047,22 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 153:                                              ; preds = %145
   %154 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %151, i32 noundef %147)
   %155 = load i32, ptr %142, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %155, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %155, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
 
 156:                                              ; preds = %145
   %157 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %147, i32 noundef %151)
   %158 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %158, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %158, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
 
 159:                                              ; preds = %141, %139
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %99, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %99, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %160 = getelementptr inbounds i8, ptr %30, i64 44
   %161 = load i32, ptr %160, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %161, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %161, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %162 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %162, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %162, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 163:                                              ; preds = %135, %131
@@ -1107,21 +1107,21 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 188:                                              ; preds = %185, %175
   %189 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %182, i32 noundef %179)
   %190 = load i32, ptr %165, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %190, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %190, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %191 = load i32, ptr %172, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %191, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %191, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %192 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %189, i32 noundef %192, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %189, i32 noundef %192, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
 
 193:                                              ; preds = %185
   %194 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %179, i32 noundef %182)
   %195 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %195, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %195, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %196 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %196, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %196, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %197 = load i32, ptr %165, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %194, i32 noundef %197, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %194, i32 noundef %197, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
 
 198:                                              ; preds = %171, %169
@@ -1160,23 +1160,23 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 224:                                              ; preds = %215
   %225 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %221, i32 noundef %219)
   %226 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %226, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %226, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %227 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %225, i32 noundef %227, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %225, i32 noundef %227, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %228 = load i32, ptr %165, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %225, i32 noundef %228, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %225, i32 noundef %228, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %229 = getelementptr inbounds i8, ptr %30, i64 52
   br label %tailrecurse.backedge
 
 230:                                              ; preds = %215
   %231 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %219, i32 noundef %221)
   %232 = load i32, ptr %165, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %232, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %232, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %233 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %233, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %233, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %234 = getelementptr inbounds i8, ptr %30, i64 52
   %235 = load i32, ptr %234, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %235, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %235, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 236:                                              ; preds = %208, %198
@@ -1194,23 +1194,23 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 245:                                              ; preds = %236
   %246 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %242, i32 noundef %238)
   %247 = load i32, ptr %165, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %247, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %247, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %248 = getelementptr inbounds i8, ptr %30, i64 52
   %249 = load i32, ptr %248, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %246, i32 noundef %249, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %246, i32 noundef %249, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %250 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %246, i32 noundef %250, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %246, i32 noundef %250, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 251:                                              ; preds = %236
   %252 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %238, i32 noundef %242)
   %253 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %253, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %253, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %254 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %254, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %254, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %255 = getelementptr inbounds i8, ptr %30, i64 52
   %256 = load i32, ptr %255, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %256, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %256, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 257:                                              ; preds = %163
@@ -1265,22 +1265,22 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   %285 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %.pre830, i32 noundef %281)
   %286 = getelementptr inbounds i8, ptr %30, i64 44
   %287 = load i32, ptr %286, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %287, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %287, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %288 = load i32, ptr %260, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %288, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %288, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %289 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %289, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %289, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
 
 290:                                              ; preds = %277
   %291 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %281, i32 noundef %.pre830)
   %292 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %292, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %292, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %293 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %291, i32 noundef %293, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %291, i32 noundef %293, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %294 = getelementptr inbounds i8, ptr %30, i64 44
   %295 = load i32, ptr %294, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %291, i32 noundef %295, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %291, i32 noundef %295, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
 
 296:                                              ; preds = %271, %263
@@ -1301,23 +1301,23 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 308:                                              ; preds = %296
   %309 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %305, i32 noundef %300)
   %310 = load i32, ptr %260, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %310, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %310, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %311 = getelementptr inbounds i8, ptr %30, i64 44
   %312 = load i32, ptr %311, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %309, i32 noundef %312, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %309, i32 noundef %312, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %313 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %309, i32 noundef %313, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %309, i32 noundef %313, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
 
 314:                                              ; preds = %296
   %315 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %300, i32 noundef %305)
   %316 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %316, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %316, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %317 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %317, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %317, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %318 = getelementptr inbounds i8, ptr %30, i64 44
   %319 = load i32, ptr %318, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %319, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %319, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
 
 320:                                              ; preds = %.thread._crit_edge, %259
@@ -1368,24 +1368,24 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 355:                                              ; preds = %353
   %356 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %321, i32 noundef %339)
   %357 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %357, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %357, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %358 = getelementptr inbounds i8, ptr %30, i64 44
   %359 = load i32, ptr %358, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %359, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %359, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %360 = getelementptr inbounds i8, ptr %30, i64 52
   %361 = load i32, ptr %360, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %356, i32 noundef %361, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %356, i32 noundef %361, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 362:                                              ; preds = %353
   %363 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %339, i32 noundef %321)
   %364 = getelementptr inbounds i8, ptr %30, i64 52
   %365 = load i32, ptr %364, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %365, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %365, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %366 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %366, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %366, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %367 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %363, i32 noundef %367, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %363, i32 noundef %367, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %368 = getelementptr inbounds i8, ptr %30, i64 44
   br label %tailrecurse.backedge
 
@@ -1439,34 +1439,34 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 406:                                              ; preds = %400
   %407 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %404, i32 noundef %402)
   %408 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %408, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %408, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %409 = getelementptr inbounds i8, ptr %30, i64 44
   %410 = load i32, ptr %409, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %410, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %410, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %411 = getelementptr inbounds i8, ptr %30, i64 52
   %412 = load i32, ptr %411, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %407, i32 noundef %412, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %407, i32 noundef %412, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 413:                                              ; preds = %400
   %414 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %402, i32 noundef %404)
   %415 = getelementptr inbounds i8, ptr %30, i64 52
   %416 = load i32, ptr %415, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %416, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %416, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %417 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %417, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %417, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %418 = load i32, ptr %98, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %414, i32 noundef %418, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %414, i32 noundef %418, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %419 = getelementptr inbounds i8, ptr %30, i64 44
   br label %tailrecurse.backedge
 
 420:                                              ; preds = %393, %386, %379, %369
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %99, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %99, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %421 = load i32, ptr %132, align 8
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %421, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %421, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %422 = getelementptr inbounds i8, ptr %30, i64 44
   %423 = load i32, ptr %422, align 4
-  tail call fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %.tr818823, i32 noundef %423, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
+  tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %423, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %424 = getelementptr inbounds i8, ptr %30, i64 52
   br label %tailrecurse.backedge
 
@@ -1478,7 +1478,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 declare double @llvm.fabs.f64(double) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monotone_poly(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monotone_poly(i32 noundef range(i32 -2147483647, -2147483648) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @mon_idx, align 4
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr @mon_idx, align 4

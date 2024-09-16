@@ -125,7 +125,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha512, ptr noundef %data, i32 noundef %len)
+  %call = tail call fastcc i32 @Sha512Update(ptr noundef %sha512, ptr noundef %data, i32 noundef %len)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -134,7 +134,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -132, 1) i32 @Sha512Update(ptr nocapture noundef %sha512, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc range(i32 -132, 1) i32 @Sha512Update(ptr nocapture noundef nonnull %sha512, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %sha512, i64 64
   %buffLen = getelementptr inbounds i8, ptr %sha512, i64 192
@@ -192,7 +192,7 @@ for.body.i:                                       ; preds = %if.then6, %for.body
   br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !4
 
 ByteReverseWords64.exit:                          ; preds = %for.body.i
-  tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %sha512)
+  tail call fastcc void @_Transform_Sha512(ptr noundef %sha512)
   store i32 0, ptr %buffLen, align 8
   br label %if.end30
 
@@ -221,7 +221,7 @@ for.body.i39:                                     ; preds = %for.body.i39, %whil
 
 ByteReverseWords64.exit46:                        ; preds = %for.body.i39
   %sub34 = add i32 %len.addr.2, -128
-  tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %sha512)
+  tail call fastcc void @_Transform_Sha512(ptr noundef %sha512)
   %cmp31 = icmp ugt i32 %sub34, 127
   br i1 %cmp31, label %while.body, label %while.end, !llvm.loop !6
 
@@ -282,7 +282,7 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512)
+  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef %sha512)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %InitSha512.exit, label %Sha512_Family_Final.exit
 
@@ -416,7 +416,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha384, ptr noundef %data, i32 noundef %len)
+  %call = tail call fastcc i32 @Sha512Update(ptr noundef %sha384, ptr noundef %data, i32 noundef %len)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -465,7 +465,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha384)
+  %call = tail call fastcc i32 @Sha512Final(ptr noundef %sha384)
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -498,7 +498,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -192, 1) i32 @Sha512Final(ptr nocapture noundef %sha512) unnamed_addr #1 {
+define internal fastcc range(i32 -192, 1) i32 @Sha512Final(ptr nocapture noundef nonnull %sha512) unnamed_addr #1 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %sha512, i64 64
   %buffLen = getelementptr inbounds i8, ptr %sha512, i64 192
@@ -536,7 +536,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !4
 
 ByteReverseWords64.exit:                          ; preds = %for.body.i
-  tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %sha512)
+  tail call fastcc void @_Transform_Sha512(ptr noundef %sha512)
   store i32 0, ptr %buffLen, align 8
   br label %if.end24
 
@@ -574,7 +574,7 @@ ByteReverseWords64.exit42:                        ; preds = %for.body.i35
   %8 = load i64, ptr %loLen, align 8
   %arrayidx45 = getelementptr inbounds i8, ptr %sha512, i64 184
   store i64 %8, ptr %arrayidx45, align 8
-  tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %sha512)
+  tail call fastcc void @_Transform_Sha512(ptr noundef %sha512)
   br label %for.body.i43
 
 for.body.i43:                                     ; preds = %for.body.i43, %ByteReverseWords64.exit42
@@ -728,7 +728,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512.exit.i, label %for.body.i.i.i.preheader
 
@@ -819,7 +819,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %wc_Sha512Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef readonly %data, i32 noundef %len)
+  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef %sha, ptr noundef readonly %data, i32 noundef %len)
   br label %wc_Sha512Update.exit
 
 wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -867,7 +867,7 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512)
+  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef %sha512)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %InitSha512_224.exit, label %Sha512_Family_Final.exit
 
@@ -965,7 +965,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_224.exit.i, label %for.body.i.i.i.preheader
 
@@ -1056,7 +1056,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %wc_Sha512Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef readonly %data, i32 noundef %len)
+  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef %sha, ptr noundef readonly %data, i32 noundef %len)
   br label %wc_Sha512Update.exit
 
 wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -1104,7 +1104,7 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef nonnull %sha512)
+  %call.i = tail call fastcc i32 @Sha512Final(ptr noundef %sha512)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %InitSha512_256.exit, label %Sha512_Family_Final.exit
 
@@ -1202,7 +1202,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
-  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
+  %call.i.i = call fastcc i32 @Sha512Final(ptr noundef %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_256.exit.i, label %for.body.i.i.i.preheader
 
@@ -1256,7 +1256,7 @@ entry:
 
 if.end.i5:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha384, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha384, i64 224, i1 false)
-  %call.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha384)
+  %call.i = call fastcc i32 @Sha512Final(ptr noundef %tmpSha384)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %for.body.i.i.preheader
 
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_Transform_Sha512(ptr nocapture noundef %sha512) unnamed_addr #1 {
+define internal fastcc void @_Transform_Sha512(ptr nocapture noundef nonnull %sha512) unnamed_addr #1 {
 entry:
   %T = alloca [8 x i64], align 16
   %W = alloca [16 x i64], align 16
@@ -1357,17 +1357,17 @@ for.body:                                         ; preds = %entry, %cond.end116
   %15 = phi i64 [ %arrayidx.promoted, %entry ], [ %add1167, %cond.end1160 ]
   %16 = phi i64 [ %arrayidx7.promoted, %entry ], [ %add1017, %cond.end1160 ]
   %17 = phi i64 [ %arrayidx9.promoted, %entry ], [ %add1092, %cond.end1160 ]
-  %storemerge581588 = phi i64 [ undef, %entry ], [ %storemerge, %cond.end1160 ]
+  %storemerge260267 = phi i64 [ undef, %entry ], [ %storemerge, %cond.end1160 ]
   %18 = phi i64 [ %arrayidx39.promoted, %entry ], [ %add942, %cond.end1160 ]
   %19 = phi i64 [ %arrayidx42.promoted, %entry ], [ %add962, %cond.end1160 ]
-  %add1187584587 = phi i64 [ %T.promoted, %entry ], [ %add1187, %cond.end1160 ]
+  %add1187263266 = phi i64 [ %T.promoted, %entry ], [ %add1187, %cond.end1160 ]
   %20 = phi i64 [ %arrayidx53.promoted, %entry ], [ %add1112, %cond.end1160 ]
   %21 = phi i64 [ %arrayidx55.promoted, %entry ], [ %add1037, %cond.end1160 ]
   %or.i = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 50)
-  %or.i75 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 46)
-  %xor = xor i64 %or.i, %or.i75
-  %or.i78 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 23)
-  %xor6 = xor i64 %xor, %or.i78
+  %or.i73 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 46)
+  %xor = xor i64 %or.i, %or.i73
+  %or.i74 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 23)
+  %xor6 = xor i64 %xor, %or.i74
   %xor11 = xor i64 %17, %16
   %and = and i64 %xor11, %15
   %xor12 = xor i64 %and, %16
@@ -1377,18 +1377,18 @@ for.body:                                         ; preds = %entry, %cond.end116
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %for.body
-  %or.i81 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 45)
-  %or.i84 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 3)
-  %xor20 = xor i64 %or.i81, %or.i84
+  %or.i75 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 45)
+  %or.i76 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 3)
+  %xor20 = xor i64 %or.i75, %or.i76
   %shr = lshr i64 %14, 6
   %xor22 = xor i64 %xor20, %shr
   %add24 = add i64 %xor22, %13
-  %or.i87 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 63)
-  %or.i90 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 56)
-  %xor29 = xor i64 %or.i87, %or.i90
+  %or.i77 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 63)
+  %or.i78 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 56)
+  %xor29 = xor i64 %or.i77, %or.i78
   %shr31 = lshr i64 %12, 7
   %xor32 = xor i64 %xor29, %shr31
-  %add33 = add i64 %add24, %storemerge581588
+  %add33 = add i64 %add24, %storemerge260267
   %add35 = add i64 %add33, %xor32
   br label %cond.end
 
@@ -1403,22 +1403,22 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %add38 = add i64 %add15, %storemerge
   %add40 = add i64 %add38, %18
   %add43 = add i64 %19, %add40
-  %or.i93 = tail call i64 @llvm.fshl.i64(i64 %add1187584587, i64 %add1187584587, i64 36)
-  %or.i96 = tail call i64 @llvm.fshl.i64(i64 %add1187584587, i64 %add1187584587, i64 30)
-  %xor48 = xor i64 %or.i93, %or.i96
-  %or.i99 = tail call i64 @llvm.fshl.i64(i64 %add1187584587, i64 %add1187584587, i64 25)
-  %xor51 = xor i64 %xor48, %or.i99
-  %and54 = and i64 %20, %add1187584587
-  %or = or i64 %20, %add1187584587
+  %or.i79 = tail call i64 @llvm.fshl.i64(i64 %add1187263266, i64 %add1187263266, i64 36)
+  %or.i80 = tail call i64 @llvm.fshl.i64(i64 %add1187263266, i64 %add1187263266, i64 30)
+  %xor48 = xor i64 %or.i79, %or.i80
+  %or.i81 = tail call i64 @llvm.fshl.i64(i64 %add1187263266, i64 %add1187263266, i64 25)
+  %xor51 = xor i64 %xor48, %or.i81
+  %and54 = and i64 %20, %add1187263266
+  %or = or i64 %20, %add1187263266
   %and58 = and i64 %21, %or
   %or59 = or i64 %and58, %and54
   %add60 = add i64 %xor51, %add40
   %add62 = add i64 %add60, %or59
-  %or.i102 = tail call i64 @llvm.fshl.i64(i64 %add43, i64 %add43, i64 50)
-  %or.i105 = tail call i64 @llvm.fshl.i64(i64 %add43, i64 %add43, i64 46)
-  %xor67 = xor i64 %or.i102, %or.i105
-  %or.i108 = tail call i64 @llvm.fshl.i64(i64 %add43, i64 %add43, i64 23)
-  %xor70 = xor i64 %xor67, %or.i108
+  %or.i82 = tail call i64 @llvm.fshl.i64(i64 %add43, i64 %add43, i64 50)
+  %or.i83 = tail call i64 @llvm.fshl.i64(i64 %add43, i64 %add43, i64 46)
+  %xor67 = xor i64 %or.i82, %or.i83
+  %or.i84 = tail call i64 @llvm.fshl.i64(i64 %add43, i64 %add43, i64 23)
+  %xor70 = xor i64 %xor67, %or.i84
   %xor75 = xor i64 %17, %15
   %and76 = and i64 %add43, %xor75
   %xor77 = xor i64 %and76, %17
@@ -1428,15 +1428,15 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %tobool.not, label %cond.false106, label %cond.true84
 
 cond.true84:                                      ; preds = %cond.end
-  %or.i111 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 45)
-  %or.i114 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 3)
-  %xor89 = xor i64 %or.i111, %or.i114
+  %or.i85 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 45)
+  %or.i86 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 3)
+  %xor89 = xor i64 %or.i85, %or.i86
   %shr91 = lshr i64 %11, 6
   %xor92 = xor i64 %xor89, %shr91
   %add94 = add i64 %xor92, %10
-  %or.i117 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 63)
-  %or.i120 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 56)
-  %xor99 = xor i64 %or.i117, %or.i120
+  %or.i87 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 63)
+  %or.i88 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 56)
+  %xor99 = xor i64 %or.i87, %or.i88
   %shr101 = lshr i64 %9, 7
   %xor102 = xor i64 %xor99, %shr101
   %add103 = add i64 %add94, %12
@@ -1454,22 +1454,22 @@ cond.end110:                                      ; preds = %cond.false106, %con
   %add112 = add i64 %add82, %25
   %add114 = add i64 %add112, %cond111
   %add117 = add i64 %add114, %21
-  %or.i123 = tail call i64 @llvm.fshl.i64(i64 %add62, i64 %add62, i64 36)
-  %or.i126 = tail call i64 @llvm.fshl.i64(i64 %add62, i64 %add62, i64 30)
-  %xor122 = xor i64 %or.i123, %or.i126
-  %or.i129 = tail call i64 @llvm.fshl.i64(i64 %add62, i64 %add62, i64 25)
-  %xor125 = xor i64 %xor122, %or.i129
-  %and128 = and i64 %add62, %add1187584587
-  %or132 = or i64 %add62, %add1187584587
+  %or.i89 = tail call i64 @llvm.fshl.i64(i64 %add62, i64 %add62, i64 36)
+  %or.i90 = tail call i64 @llvm.fshl.i64(i64 %add62, i64 %add62, i64 30)
+  %xor122 = xor i64 %or.i89, %or.i90
+  %or.i91 = tail call i64 @llvm.fshl.i64(i64 %add62, i64 %add62, i64 25)
+  %xor125 = xor i64 %xor122, %or.i91
+  %and128 = and i64 %add62, %add1187263266
+  %or132 = or i64 %add62, %add1187263266
   %and133 = and i64 %or132, %20
   %or134 = or i64 %and133, %and128
   %add135 = add i64 %xor125, %or134
   %add137 = add i64 %add135, %add114
-  %or.i132 = tail call i64 @llvm.fshl.i64(i64 %add117, i64 %add117, i64 50)
-  %or.i135 = tail call i64 @llvm.fshl.i64(i64 %add117, i64 %add117, i64 46)
-  %xor142 = xor i64 %or.i132, %or.i135
-  %or.i138 = tail call i64 @llvm.fshl.i64(i64 %add117, i64 %add117, i64 23)
-  %xor145 = xor i64 %xor142, %or.i138
+  %or.i92 = tail call i64 @llvm.fshl.i64(i64 %add117, i64 %add117, i64 50)
+  %or.i93 = tail call i64 @llvm.fshl.i64(i64 %add117, i64 %add117, i64 46)
+  %xor142 = xor i64 %or.i92, %or.i93
+  %or.i94 = tail call i64 @llvm.fshl.i64(i64 %add117, i64 %add117, i64 23)
+  %xor145 = xor i64 %xor142, %or.i94
   %xor150 = xor i64 %add43, %15
   %and151 = and i64 %add117, %xor150
   %xor152 = xor i64 %and151, %15
@@ -1479,15 +1479,15 @@ cond.end110:                                      ; preds = %cond.false106, %con
   br i1 %tobool.not, label %cond.false181, label %cond.true159
 
 cond.true159:                                     ; preds = %cond.end110
-  %or.i141 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 45)
-  %or.i144 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 3)
-  %xor164 = xor i64 %or.i141, %or.i144
+  %or.i95 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 45)
+  %or.i96 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 3)
+  %xor164 = xor i64 %or.i95, %or.i96
   %shr166 = lshr i64 %storemerge, 6
   %xor167 = xor i64 %xor164, %shr166
   %add169 = add i64 %8, %xor167
-  %or.i147 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 63)
-  %or.i150 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 56)
-  %xor174 = xor i64 %or.i147, %or.i150
+  %or.i97 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 63)
+  %or.i98 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 56)
+  %xor174 = xor i64 %or.i97, %or.i98
   %shr176 = lshr i64 %7, 7
   %xor177 = xor i64 %xor174, %shr176
   %add178 = add i64 %add169, %9
@@ -1505,22 +1505,22 @@ cond.end185:                                      ; preds = %cond.false181, %con
   %add187 = add i64 %add157, %xor145
   %add189 = add i64 %add187, %cond186
   %add192 = add i64 %add189, %20
-  %or.i153 = tail call i64 @llvm.fshl.i64(i64 %add137, i64 %add137, i64 36)
-  %or.i156 = tail call i64 @llvm.fshl.i64(i64 %add137, i64 %add137, i64 30)
-  %xor197 = xor i64 %or.i153, %or.i156
-  %or.i159 = tail call i64 @llvm.fshl.i64(i64 %add137, i64 %add137, i64 25)
-  %xor200 = xor i64 %xor197, %or.i159
+  %or.i99 = tail call i64 @llvm.fshl.i64(i64 %add137, i64 %add137, i64 36)
+  %or.i100 = tail call i64 @llvm.fshl.i64(i64 %add137, i64 %add137, i64 30)
+  %xor197 = xor i64 %or.i99, %or.i100
+  %or.i101 = tail call i64 @llvm.fshl.i64(i64 %add137, i64 %add137, i64 25)
+  %xor200 = xor i64 %xor197, %or.i101
   %and203 = and i64 %add137, %add62
   %or207 = or i64 %add137, %add62
-  %and208 = and i64 %or207, %add1187584587
+  %and208 = and i64 %or207, %add1187263266
   %or209 = or i64 %and208, %and203
   %add210 = add i64 %xor200, %or209
   %add212 = add i64 %add210, %add189
-  %or.i162 = tail call i64 @llvm.fshl.i64(i64 %add192, i64 %add192, i64 50)
-  %or.i165 = tail call i64 @llvm.fshl.i64(i64 %add192, i64 %add192, i64 46)
-  %xor217 = xor i64 %or.i162, %or.i165
-  %or.i168 = tail call i64 @llvm.fshl.i64(i64 %add192, i64 %add192, i64 23)
-  %xor220 = xor i64 %xor217, %or.i168
+  %or.i102 = tail call i64 @llvm.fshl.i64(i64 %add192, i64 %add192, i64 50)
+  %or.i103 = tail call i64 @llvm.fshl.i64(i64 %add192, i64 %add192, i64 46)
+  %xor217 = xor i64 %or.i102, %or.i103
+  %or.i104 = tail call i64 @llvm.fshl.i64(i64 %add192, i64 %add192, i64 23)
+  %xor220 = xor i64 %xor217, %or.i104
   %xor225 = xor i64 %add117, %add43
   %and226 = and i64 %add192, %xor225
   %xor227 = xor i64 %and226, %add43
@@ -1530,15 +1530,15 @@ cond.end185:                                      ; preds = %cond.false181, %con
   br i1 %tobool.not, label %cond.false256, label %cond.true234
 
 cond.true234:                                     ; preds = %cond.end185
-  %or.i171 = tail call i64 @llvm.fshl.i64(i64 %cond111, i64 %cond111, i64 45)
-  %or.i174 = tail call i64 @llvm.fshl.i64(i64 %cond111, i64 %cond111, i64 3)
-  %xor239 = xor i64 %or.i171, %or.i174
+  %or.i105 = tail call i64 @llvm.fshl.i64(i64 %cond111, i64 %cond111, i64 45)
+  %or.i106 = tail call i64 @llvm.fshl.i64(i64 %cond111, i64 %cond111, i64 3)
+  %xor239 = xor i64 %or.i105, %or.i106
   %shr241 = lshr i64 %cond111, 6
   %xor242 = xor i64 %xor239, %shr241
   %add244 = add i64 %xor242, %6
-  %or.i177 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 63)
-  %or.i180 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 56)
-  %xor249 = xor i64 %or.i177, %or.i180
+  %or.i107 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 63)
+  %or.i108 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 56)
+  %xor249 = xor i64 %or.i107, %or.i108
   %shr251 = lshr i64 %5, 7
   %xor252 = xor i64 %xor249, %shr251
   %add253 = add i64 %add244, %7
@@ -1555,23 +1555,23 @@ cond.end260:                                      ; preds = %cond.false256, %con
   %add232 = add i64 %add228, %xor227
   %add262 = add i64 %add232, %xor220
   %add264 = add i64 %add262, %cond261
-  %add267 = add i64 %add264, %add1187584587
-  %or.i183 = tail call i64 @llvm.fshl.i64(i64 %add212, i64 %add212, i64 36)
-  %or.i186 = tail call i64 @llvm.fshl.i64(i64 %add212, i64 %add212, i64 30)
-  %xor272 = xor i64 %or.i183, %or.i186
-  %or.i189 = tail call i64 @llvm.fshl.i64(i64 %add212, i64 %add212, i64 25)
-  %xor275 = xor i64 %xor272, %or.i189
+  %add267 = add i64 %add264, %add1187263266
+  %or.i109 = tail call i64 @llvm.fshl.i64(i64 %add212, i64 %add212, i64 36)
+  %or.i110 = tail call i64 @llvm.fshl.i64(i64 %add212, i64 %add212, i64 30)
+  %xor272 = xor i64 %or.i109, %or.i110
+  %or.i111 = tail call i64 @llvm.fshl.i64(i64 %add212, i64 %add212, i64 25)
+  %xor275 = xor i64 %xor272, %or.i111
   %and278 = and i64 %add212, %add137
   %or282 = or i64 %add212, %add137
   %and283 = and i64 %or282, %add62
   %or284 = or i64 %and283, %and278
   %add285 = add i64 %xor275, %or284
   %add287 = add i64 %add285, %add264
-  %or.i192 = tail call i64 @llvm.fshl.i64(i64 %add267, i64 %add267, i64 50)
-  %or.i195 = tail call i64 @llvm.fshl.i64(i64 %add267, i64 %add267, i64 46)
-  %xor292 = xor i64 %or.i192, %or.i195
-  %or.i198 = tail call i64 @llvm.fshl.i64(i64 %add267, i64 %add267, i64 23)
-  %xor295 = xor i64 %xor292, %or.i198
+  %or.i112 = tail call i64 @llvm.fshl.i64(i64 %add267, i64 %add267, i64 50)
+  %or.i113 = tail call i64 @llvm.fshl.i64(i64 %add267, i64 %add267, i64 46)
+  %xor292 = xor i64 %or.i112, %or.i113
+  %or.i114 = tail call i64 @llvm.fshl.i64(i64 %add267, i64 %add267, i64 23)
+  %xor295 = xor i64 %xor292, %or.i114
   %xor300 = xor i64 %add192, %add117
   %and301 = and i64 %add267, %xor300
   %xor302 = xor i64 %and301, %add117
@@ -1581,15 +1581,15 @@ cond.end260:                                      ; preds = %cond.false256, %con
   br i1 %tobool.not, label %cond.false331, label %cond.true309
 
 cond.true309:                                     ; preds = %cond.end260
-  %or.i201 = tail call i64 @llvm.fshl.i64(i64 %cond186, i64 %cond186, i64 45)
-  %or.i204 = tail call i64 @llvm.fshl.i64(i64 %cond186, i64 %cond186, i64 3)
-  %xor314 = xor i64 %or.i201, %or.i204
+  %or.i115 = tail call i64 @llvm.fshl.i64(i64 %cond186, i64 %cond186, i64 45)
+  %or.i116 = tail call i64 @llvm.fshl.i64(i64 %cond186, i64 %cond186, i64 3)
+  %xor314 = xor i64 %or.i115, %or.i116
   %shr316 = lshr i64 %cond186, 6
   %xor317 = xor i64 %xor314, %shr316
   %add319 = add i64 %xor317, %4
-  %or.i207 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 63)
-  %or.i210 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 56)
-  %xor324 = xor i64 %or.i207, %or.i210
+  %or.i117 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 63)
+  %or.i118 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 56)
+  %xor324 = xor i64 %or.i117, %or.i118
   %shr326 = lshr i64 %3, 7
   %xor327 = xor i64 %xor324, %shr326
   %add328 = add i64 %add319, %5
@@ -1607,22 +1607,22 @@ cond.end335:                                      ; preds = %cond.false331, %con
   %add337 = add i64 %add307, %xor295
   %add339 = add i64 %add337, %cond336
   %add342 = add i64 %add339, %add62
-  %or.i213 = tail call i64 @llvm.fshl.i64(i64 %add287, i64 %add287, i64 36)
-  %or.i216 = tail call i64 @llvm.fshl.i64(i64 %add287, i64 %add287, i64 30)
-  %xor347 = xor i64 %or.i213, %or.i216
-  %or.i219 = tail call i64 @llvm.fshl.i64(i64 %add287, i64 %add287, i64 25)
-  %xor350 = xor i64 %xor347, %or.i219
+  %or.i119 = tail call i64 @llvm.fshl.i64(i64 %add287, i64 %add287, i64 36)
+  %or.i120 = tail call i64 @llvm.fshl.i64(i64 %add287, i64 %add287, i64 30)
+  %xor347 = xor i64 %or.i119, %or.i120
+  %or.i121 = tail call i64 @llvm.fshl.i64(i64 %add287, i64 %add287, i64 25)
+  %xor350 = xor i64 %xor347, %or.i121
   %and353 = and i64 %add287, %add212
   %or357 = or i64 %add287, %add212
   %and358 = and i64 %or357, %add137
   %or359 = or i64 %and358, %and353
   %add360 = add i64 %xor350, %or359
   %add362 = add i64 %add360, %add339
-  %or.i222 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 50)
-  %or.i225 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 46)
-  %xor367 = xor i64 %or.i222, %or.i225
-  %or.i228 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 23)
-  %xor370 = xor i64 %xor367, %or.i228
+  %or.i122 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 50)
+  %or.i123 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 46)
+  %xor367 = xor i64 %or.i122, %or.i123
+  %or.i124 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 23)
+  %xor370 = xor i64 %xor367, %or.i124
   %xor375 = xor i64 %add267, %add192
   %and376 = and i64 %add342, %xor375
   %xor377 = xor i64 %and376, %add192
@@ -1632,15 +1632,15 @@ cond.end335:                                      ; preds = %cond.false331, %con
   br i1 %tobool.not, label %cond.false406, label %cond.true384
 
 cond.true384:                                     ; preds = %cond.end335
-  %or.i231 = tail call i64 @llvm.fshl.i64(i64 %cond261, i64 %cond261, i64 45)
-  %or.i234 = tail call i64 @llvm.fshl.i64(i64 %cond261, i64 %cond261, i64 3)
-  %xor389 = xor i64 %or.i231, %or.i234
+  %or.i125 = tail call i64 @llvm.fshl.i64(i64 %cond261, i64 %cond261, i64 45)
+  %or.i126 = tail call i64 @llvm.fshl.i64(i64 %cond261, i64 %cond261, i64 3)
+  %xor389 = xor i64 %or.i125, %or.i126
   %shr391 = lshr i64 %cond261, 6
   %xor392 = xor i64 %xor389, %shr391
   %add394 = add i64 %xor392, %14
-  %or.i237 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 63)
-  %or.i240 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 56)
-  %xor399 = xor i64 %or.i237, %or.i240
+  %or.i127 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 63)
+  %or.i128 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 56)
+  %xor399 = xor i64 %or.i127, %or.i128
   %shr401 = lshr i64 %2, 7
   %xor402 = xor i64 %xor399, %shr401
   %add403 = add i64 %add394, %3
@@ -1658,22 +1658,22 @@ cond.end410:                                      ; preds = %cond.false406, %con
   %add412 = add i64 %add382, %xor370
   %add414 = add i64 %add412, %cond411
   %add417 = add i64 %add414, %add137
-  %or.i243 = tail call i64 @llvm.fshl.i64(i64 %add362, i64 %add362, i64 36)
-  %or.i246 = tail call i64 @llvm.fshl.i64(i64 %add362, i64 %add362, i64 30)
-  %xor422 = xor i64 %or.i243, %or.i246
-  %or.i249 = tail call i64 @llvm.fshl.i64(i64 %add362, i64 %add362, i64 25)
-  %xor425 = xor i64 %xor422, %or.i249
+  %or.i129 = tail call i64 @llvm.fshl.i64(i64 %add362, i64 %add362, i64 36)
+  %or.i130 = tail call i64 @llvm.fshl.i64(i64 %add362, i64 %add362, i64 30)
+  %xor422 = xor i64 %or.i129, %or.i130
+  %or.i131 = tail call i64 @llvm.fshl.i64(i64 %add362, i64 %add362, i64 25)
+  %xor425 = xor i64 %xor422, %or.i131
   %and428 = and i64 %add362, %add287
   %or432 = or i64 %add362, %add287
   %and433 = and i64 %or432, %add212
   %or434 = or i64 %and433, %and428
   %add435 = add i64 %xor425, %or434
   %add437 = add i64 %add435, %add414
-  %or.i252 = tail call i64 @llvm.fshl.i64(i64 %add417, i64 %add417, i64 50)
-  %or.i255 = tail call i64 @llvm.fshl.i64(i64 %add417, i64 %add417, i64 46)
-  %xor442 = xor i64 %or.i252, %or.i255
-  %or.i258 = tail call i64 @llvm.fshl.i64(i64 %add417, i64 %add417, i64 23)
-  %xor445 = xor i64 %xor442, %or.i258
+  %or.i132 = tail call i64 @llvm.fshl.i64(i64 %add417, i64 %add417, i64 50)
+  %or.i133 = tail call i64 @llvm.fshl.i64(i64 %add417, i64 %add417, i64 46)
+  %xor442 = xor i64 %or.i132, %or.i133
+  %or.i134 = tail call i64 @llvm.fshl.i64(i64 %add417, i64 %add417, i64 23)
+  %xor445 = xor i64 %xor442, %or.i134
   %xor450 = xor i64 %add342, %add267
   %and451 = and i64 %add417, %xor450
   %xor452 = xor i64 %and451, %add267
@@ -1683,15 +1683,15 @@ cond.end410:                                      ; preds = %cond.false406, %con
   br i1 %tobool.not, label %cond.false481, label %cond.true459
 
 cond.true459:                                     ; preds = %cond.end410
-  %or.i261 = tail call i64 @llvm.fshl.i64(i64 %cond336, i64 %cond336, i64 45)
-  %or.i264 = tail call i64 @llvm.fshl.i64(i64 %cond336, i64 %cond336, i64 3)
-  %xor464 = xor i64 %or.i261, %or.i264
+  %or.i135 = tail call i64 @llvm.fshl.i64(i64 %cond336, i64 %cond336, i64 45)
+  %or.i136 = tail call i64 @llvm.fshl.i64(i64 %cond336, i64 %cond336, i64 3)
+  %xor464 = xor i64 %or.i135, %or.i136
   %shr466 = lshr i64 %cond336, 6
   %xor467 = xor i64 %xor464, %shr466
   %add469 = add i64 %xor467, %11
-  %or.i267 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 63)
-  %or.i270 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 56)
-  %xor474 = xor i64 %or.i267, %or.i270
+  %or.i137 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 63)
+  %or.i138 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 56)
+  %xor474 = xor i64 %or.i137, %or.i138
   %shr476 = lshr i64 %1, 7
   %xor477 = xor i64 %xor474, %shr476
   %add478 = add i64 %add469, %2
@@ -1709,22 +1709,22 @@ cond.end485:                                      ; preds = %cond.false481, %con
   %add487 = add i64 %add457, %xor445
   %add489 = add i64 %add487, %cond486
   %add492 = add i64 %add489, %add212
-  %or.i273 = tail call i64 @llvm.fshl.i64(i64 %add437, i64 %add437, i64 36)
-  %or.i276 = tail call i64 @llvm.fshl.i64(i64 %add437, i64 %add437, i64 30)
-  %xor497 = xor i64 %or.i273, %or.i276
-  %or.i279 = tail call i64 @llvm.fshl.i64(i64 %add437, i64 %add437, i64 25)
-  %xor500 = xor i64 %xor497, %or.i279
+  %or.i139 = tail call i64 @llvm.fshl.i64(i64 %add437, i64 %add437, i64 36)
+  %or.i140 = tail call i64 @llvm.fshl.i64(i64 %add437, i64 %add437, i64 30)
+  %xor497 = xor i64 %or.i139, %or.i140
+  %or.i141 = tail call i64 @llvm.fshl.i64(i64 %add437, i64 %add437, i64 25)
+  %xor500 = xor i64 %xor497, %or.i141
   %and503 = and i64 %add437, %add362
   %or507 = or i64 %add437, %add362
   %and508 = and i64 %or507, %add287
   %or509 = or i64 %and508, %and503
   %add510 = add i64 %xor500, %or509
   %add512 = add i64 %add510, %add489
-  %or.i282 = tail call i64 @llvm.fshl.i64(i64 %add492, i64 %add492, i64 50)
-  %or.i285 = tail call i64 @llvm.fshl.i64(i64 %add492, i64 %add492, i64 46)
-  %xor517 = xor i64 %or.i282, %or.i285
-  %or.i288 = tail call i64 @llvm.fshl.i64(i64 %add492, i64 %add492, i64 23)
-  %xor520 = xor i64 %xor517, %or.i288
+  %or.i142 = tail call i64 @llvm.fshl.i64(i64 %add492, i64 %add492, i64 50)
+  %or.i143 = tail call i64 @llvm.fshl.i64(i64 %add492, i64 %add492, i64 46)
+  %xor517 = xor i64 %or.i142, %or.i143
+  %or.i144 = tail call i64 @llvm.fshl.i64(i64 %add492, i64 %add492, i64 23)
+  %xor520 = xor i64 %xor517, %or.i144
   %xor525 = xor i64 %add417, %add342
   %and526 = and i64 %add492, %xor525
   %xor527 = xor i64 %and526, %add342
@@ -1734,14 +1734,14 @@ cond.end485:                                      ; preds = %cond.false481, %con
   br i1 %tobool.not, label %cond.false556, label %cond.true534
 
 cond.true534:                                     ; preds = %cond.end485
-  %or.i291 = tail call i64 @llvm.fshl.i64(i64 %cond411, i64 %cond411, i64 45)
-  %or.i294 = tail call i64 @llvm.fshl.i64(i64 %cond411, i64 %cond411, i64 3)
-  %xor539 = xor i64 %or.i291, %or.i294
+  %or.i145 = tail call i64 @llvm.fshl.i64(i64 %cond411, i64 %cond411, i64 45)
+  %or.i146 = tail call i64 @llvm.fshl.i64(i64 %cond411, i64 %cond411, i64 3)
+  %xor539 = xor i64 %or.i145, %or.i146
   %shr541 = lshr i64 %cond411, 6
   %xor542 = xor i64 %xor539, %shr541
-  %or.i297 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 63)
-  %or.i300 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 56)
-  %xor549 = xor i64 %or.i297, %or.i300
+  %or.i147 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 63)
+  %or.i148 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 56)
+  %xor549 = xor i64 %or.i147, %or.i148
   %shr551 = lshr i64 %0, 7
   %xor552 = xor i64 %xor549, %shr551
   %add544 = add i64 %1, %storemerge
@@ -1760,22 +1760,22 @@ cond.end560:                                      ; preds = %cond.false556, %con
   %add562 = add i64 %add532, %xor520
   %add564 = add i64 %add562, %cond561
   %add567 = add i64 %add564, %add287
-  %or.i303 = tail call i64 @llvm.fshl.i64(i64 %add512, i64 %add512, i64 36)
-  %or.i306 = tail call i64 @llvm.fshl.i64(i64 %add512, i64 %add512, i64 30)
-  %xor572 = xor i64 %or.i303, %or.i306
-  %or.i309 = tail call i64 @llvm.fshl.i64(i64 %add512, i64 %add512, i64 25)
-  %xor575 = xor i64 %xor572, %or.i309
+  %or.i149 = tail call i64 @llvm.fshl.i64(i64 %add512, i64 %add512, i64 36)
+  %or.i150 = tail call i64 @llvm.fshl.i64(i64 %add512, i64 %add512, i64 30)
+  %xor572 = xor i64 %or.i149, %or.i150
+  %or.i151 = tail call i64 @llvm.fshl.i64(i64 %add512, i64 %add512, i64 25)
+  %xor575 = xor i64 %xor572, %or.i151
   %and578 = and i64 %add512, %add437
   %or582 = or i64 %add512, %add437
   %and583 = and i64 %or582, %add362
   %or584 = or i64 %and583, %and578
   %add585 = add i64 %xor575, %or584
   %add587 = add i64 %add585, %add564
-  %or.i312 = tail call i64 @llvm.fshl.i64(i64 %add567, i64 %add567, i64 50)
-  %or.i315 = tail call i64 @llvm.fshl.i64(i64 %add567, i64 %add567, i64 46)
-  %xor592 = xor i64 %or.i312, %or.i315
-  %or.i318 = tail call i64 @llvm.fshl.i64(i64 %add567, i64 %add567, i64 23)
-  %xor595 = xor i64 %xor592, %or.i318
+  %or.i152 = tail call i64 @llvm.fshl.i64(i64 %add567, i64 %add567, i64 50)
+  %or.i153 = tail call i64 @llvm.fshl.i64(i64 %add567, i64 %add567, i64 46)
+  %xor592 = xor i64 %or.i152, %or.i153
+  %or.i154 = tail call i64 @llvm.fshl.i64(i64 %add567, i64 %add567, i64 23)
+  %xor595 = xor i64 %xor592, %or.i154
   %xor600 = xor i64 %add492, %add417
   %and601 = and i64 %add567, %xor600
   %xor602 = xor i64 %and601, %add417
@@ -1785,15 +1785,15 @@ cond.end560:                                      ; preds = %cond.false556, %con
   br i1 %tobool.not, label %cond.false631, label %cond.true609
 
 cond.true609:                                     ; preds = %cond.end560
-  %or.i321 = tail call i64 @llvm.fshl.i64(i64 %cond486, i64 %cond486, i64 45)
-  %or.i324 = tail call i64 @llvm.fshl.i64(i64 %cond486, i64 %cond486, i64 3)
-  %xor614 = xor i64 %or.i321, %or.i324
+  %or.i155 = tail call i64 @llvm.fshl.i64(i64 %cond486, i64 %cond486, i64 45)
+  %or.i156 = tail call i64 @llvm.fshl.i64(i64 %cond486, i64 %cond486, i64 3)
+  %xor614 = xor i64 %or.i155, %or.i156
   %shr616 = lshr i64 %cond486, 6
   %xor617 = xor i64 %xor614, %shr616
   %add619 = add i64 %xor617, %cond111
-  %or.i327 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 63)
-  %or.i330 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 56)
-  %xor624 = xor i64 %or.i327, %or.i330
+  %or.i157 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 63)
+  %or.i158 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 56)
+  %xor624 = xor i64 %or.i157, %or.i158
   %shr626 = lshr i64 %13, 7
   %xor627 = xor i64 %xor624, %shr626
   %add628 = add i64 %add619, %0
@@ -1811,22 +1811,22 @@ cond.end635:                                      ; preds = %cond.false631, %con
   %add637 = add i64 %add607, %xor595
   %add639 = add i64 %add637, %cond636
   %add642 = add i64 %add639, %add362
-  %or.i333 = tail call i64 @llvm.fshl.i64(i64 %add587, i64 %add587, i64 36)
-  %or.i336 = tail call i64 @llvm.fshl.i64(i64 %add587, i64 %add587, i64 30)
-  %xor647 = xor i64 %or.i333, %or.i336
-  %or.i339 = tail call i64 @llvm.fshl.i64(i64 %add587, i64 %add587, i64 25)
-  %xor650 = xor i64 %xor647, %or.i339
+  %or.i159 = tail call i64 @llvm.fshl.i64(i64 %add587, i64 %add587, i64 36)
+  %or.i160 = tail call i64 @llvm.fshl.i64(i64 %add587, i64 %add587, i64 30)
+  %xor647 = xor i64 %or.i159, %or.i160
+  %or.i161 = tail call i64 @llvm.fshl.i64(i64 %add587, i64 %add587, i64 25)
+  %xor650 = xor i64 %xor647, %or.i161
   %and653 = and i64 %add587, %add512
   %or657 = or i64 %add587, %add512
   %and658 = and i64 %or657, %add437
   %or659 = or i64 %and658, %and653
   %add660 = add i64 %xor650, %or659
   %add662 = add i64 %add660, %add639
-  %or.i342 = tail call i64 @llvm.fshl.i64(i64 %add642, i64 %add642, i64 50)
-  %or.i345 = tail call i64 @llvm.fshl.i64(i64 %add642, i64 %add642, i64 46)
-  %xor667 = xor i64 %or.i342, %or.i345
-  %or.i348 = tail call i64 @llvm.fshl.i64(i64 %add642, i64 %add642, i64 23)
-  %xor670 = xor i64 %xor667, %or.i348
+  %or.i162 = tail call i64 @llvm.fshl.i64(i64 %add642, i64 %add642, i64 50)
+  %or.i163 = tail call i64 @llvm.fshl.i64(i64 %add642, i64 %add642, i64 46)
+  %xor667 = xor i64 %or.i162, %or.i163
+  %or.i164 = tail call i64 @llvm.fshl.i64(i64 %add642, i64 %add642, i64 23)
+  %xor670 = xor i64 %xor667, %or.i164
   %xor675 = xor i64 %add567, %add492
   %and676 = and i64 %add642, %xor675
   %xor677 = xor i64 %and676, %add492
@@ -1836,15 +1836,15 @@ cond.end635:                                      ; preds = %cond.false631, %con
   br i1 %tobool.not, label %cond.false706, label %cond.true684
 
 cond.true684:                                     ; preds = %cond.end635
-  %or.i351 = tail call i64 @llvm.fshl.i64(i64 %cond561, i64 %cond561, i64 45)
-  %or.i354 = tail call i64 @llvm.fshl.i64(i64 %cond561, i64 %cond561, i64 3)
-  %xor689 = xor i64 %or.i351, %or.i354
+  %or.i165 = tail call i64 @llvm.fshl.i64(i64 %cond561, i64 %cond561, i64 45)
+  %or.i166 = tail call i64 @llvm.fshl.i64(i64 %cond561, i64 %cond561, i64 3)
+  %xor689 = xor i64 %or.i165, %or.i166
   %shr691 = lshr i64 %cond561, 6
   %xor692 = xor i64 %xor689, %shr691
   %add694 = add i64 %xor692, %cond186
-  %or.i357 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 63)
-  %or.i360 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 56)
-  %xor699 = xor i64 %or.i357, %or.i360
+  %or.i167 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 63)
+  %or.i168 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 56)
+  %xor699 = xor i64 %or.i167, %or.i168
   %shr701 = lshr i64 %10, 7
   %xor702 = xor i64 %xor699, %shr701
   %add703 = add i64 %add694, %13
@@ -1862,22 +1862,22 @@ cond.end710:                                      ; preds = %cond.false706, %con
   %add712 = add i64 %add682, %xor670
   %add714 = add i64 %add712, %cond711
   %add717 = add i64 %add714, %add437
-  %or.i363 = tail call i64 @llvm.fshl.i64(i64 %add662, i64 %add662, i64 36)
-  %or.i366 = tail call i64 @llvm.fshl.i64(i64 %add662, i64 %add662, i64 30)
-  %xor722 = xor i64 %or.i363, %or.i366
-  %or.i369 = tail call i64 @llvm.fshl.i64(i64 %add662, i64 %add662, i64 25)
-  %xor725 = xor i64 %xor722, %or.i369
+  %or.i169 = tail call i64 @llvm.fshl.i64(i64 %add662, i64 %add662, i64 36)
+  %or.i170 = tail call i64 @llvm.fshl.i64(i64 %add662, i64 %add662, i64 30)
+  %xor722 = xor i64 %or.i169, %or.i170
+  %or.i171 = tail call i64 @llvm.fshl.i64(i64 %add662, i64 %add662, i64 25)
+  %xor725 = xor i64 %xor722, %or.i171
   %and728 = and i64 %add662, %add587
   %or732 = or i64 %add662, %add587
   %and733 = and i64 %or732, %add512
   %or734 = or i64 %and733, %and728
   %add735 = add i64 %xor725, %or734
   %add737 = add i64 %add735, %add714
-  %or.i372 = tail call i64 @llvm.fshl.i64(i64 %add717, i64 %add717, i64 50)
-  %or.i375 = tail call i64 @llvm.fshl.i64(i64 %add717, i64 %add717, i64 46)
-  %xor742 = xor i64 %or.i372, %or.i375
-  %or.i378 = tail call i64 @llvm.fshl.i64(i64 %add717, i64 %add717, i64 23)
-  %xor745 = xor i64 %xor742, %or.i378
+  %or.i172 = tail call i64 @llvm.fshl.i64(i64 %add717, i64 %add717, i64 50)
+  %or.i173 = tail call i64 @llvm.fshl.i64(i64 %add717, i64 %add717, i64 46)
+  %xor742 = xor i64 %or.i172, %or.i173
+  %or.i174 = tail call i64 @llvm.fshl.i64(i64 %add717, i64 %add717, i64 23)
+  %xor745 = xor i64 %xor742, %or.i174
   %xor750 = xor i64 %add642, %add567
   %and751 = and i64 %add717, %xor750
   %xor752 = xor i64 %and751, %add567
@@ -1887,15 +1887,15 @@ cond.end710:                                      ; preds = %cond.false706, %con
   br i1 %tobool.not, label %cond.false781, label %cond.true759
 
 cond.true759:                                     ; preds = %cond.end710
-  %or.i381 = tail call i64 @llvm.fshl.i64(i64 %cond636, i64 %cond636, i64 45)
-  %or.i384 = tail call i64 @llvm.fshl.i64(i64 %cond636, i64 %cond636, i64 3)
-  %xor764 = xor i64 %or.i381, %or.i384
+  %or.i175 = tail call i64 @llvm.fshl.i64(i64 %cond636, i64 %cond636, i64 45)
+  %or.i176 = tail call i64 @llvm.fshl.i64(i64 %cond636, i64 %cond636, i64 3)
+  %xor764 = xor i64 %or.i175, %or.i176
   %shr766 = lshr i64 %cond636, 6
   %xor767 = xor i64 %xor764, %shr766
   %add769 = add i64 %xor767, %cond261
-  %or.i387 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 63)
-  %or.i390 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 56)
-  %xor774 = xor i64 %or.i387, %or.i390
+  %or.i177 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 63)
+  %or.i178 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 56)
+  %xor774 = xor i64 %or.i177, %or.i178
   %shr776 = lshr i64 %8, 7
   %xor777 = xor i64 %xor774, %shr776
   %add778 = add i64 %add769, %10
@@ -1913,22 +1913,22 @@ cond.end785:                                      ; preds = %cond.false781, %con
   %add787 = add i64 %add757, %xor745
   %add789 = add i64 %add787, %cond786
   %add792 = add i64 %add789, %add512
-  %or.i393 = tail call i64 @llvm.fshl.i64(i64 %add737, i64 %add737, i64 36)
-  %or.i396 = tail call i64 @llvm.fshl.i64(i64 %add737, i64 %add737, i64 30)
-  %xor797 = xor i64 %or.i393, %or.i396
-  %or.i399 = tail call i64 @llvm.fshl.i64(i64 %add737, i64 %add737, i64 25)
-  %xor800 = xor i64 %xor797, %or.i399
+  %or.i179 = tail call i64 @llvm.fshl.i64(i64 %add737, i64 %add737, i64 36)
+  %or.i180 = tail call i64 @llvm.fshl.i64(i64 %add737, i64 %add737, i64 30)
+  %xor797 = xor i64 %or.i179, %or.i180
+  %or.i181 = tail call i64 @llvm.fshl.i64(i64 %add737, i64 %add737, i64 25)
+  %xor800 = xor i64 %xor797, %or.i181
   %and803 = and i64 %add737, %add662
   %or807 = or i64 %add737, %add662
   %and808 = and i64 %or807, %add587
   %or809 = or i64 %and808, %and803
   %add810 = add i64 %xor800, %or809
   %add812 = add i64 %add810, %add789
-  %or.i402 = tail call i64 @llvm.fshl.i64(i64 %add792, i64 %add792, i64 50)
-  %or.i405 = tail call i64 @llvm.fshl.i64(i64 %add792, i64 %add792, i64 46)
-  %xor817 = xor i64 %or.i402, %or.i405
-  %or.i408 = tail call i64 @llvm.fshl.i64(i64 %add792, i64 %add792, i64 23)
-  %xor820 = xor i64 %xor817, %or.i408
+  %or.i182 = tail call i64 @llvm.fshl.i64(i64 %add792, i64 %add792, i64 50)
+  %or.i183 = tail call i64 @llvm.fshl.i64(i64 %add792, i64 %add792, i64 46)
+  %xor817 = xor i64 %or.i182, %or.i183
+  %or.i184 = tail call i64 @llvm.fshl.i64(i64 %add792, i64 %add792, i64 23)
+  %xor820 = xor i64 %xor817, %or.i184
   %xor825 = xor i64 %add717, %add642
   %and826 = and i64 %add792, %xor825
   %xor827 = xor i64 %and826, %add642
@@ -1938,15 +1938,15 @@ cond.end785:                                      ; preds = %cond.false781, %con
   br i1 %tobool.not, label %cond.false856, label %cond.true834
 
 cond.true834:                                     ; preds = %cond.end785
-  %or.i411 = tail call i64 @llvm.fshl.i64(i64 %cond711, i64 %cond711, i64 45)
-  %or.i414 = tail call i64 @llvm.fshl.i64(i64 %cond711, i64 %cond711, i64 3)
-  %xor839 = xor i64 %or.i411, %or.i414
+  %or.i185 = tail call i64 @llvm.fshl.i64(i64 %cond711, i64 %cond711, i64 45)
+  %or.i186 = tail call i64 @llvm.fshl.i64(i64 %cond711, i64 %cond711, i64 3)
+  %xor839 = xor i64 %or.i185, %or.i186
   %shr841 = lshr i64 %cond711, 6
   %xor842 = xor i64 %xor839, %shr841
   %add844 = add i64 %xor842, %cond336
-  %or.i417 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 63)
-  %or.i420 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 56)
-  %xor849 = xor i64 %or.i417, %or.i420
+  %or.i187 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 63)
+  %or.i188 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 56)
+  %xor849 = xor i64 %or.i187, %or.i188
   %shr851 = lshr i64 %6, 7
   %xor852 = xor i64 %xor849, %shr851
   %add853 = add i64 %add844, %8
@@ -1964,22 +1964,22 @@ cond.end860:                                      ; preds = %cond.false856, %con
   %add862 = add i64 %add832, %xor820
   %add864 = add i64 %add862, %cond861
   %add867 = add i64 %add864, %add587
-  %or.i423 = tail call i64 @llvm.fshl.i64(i64 %add812, i64 %add812, i64 36)
-  %or.i426 = tail call i64 @llvm.fshl.i64(i64 %add812, i64 %add812, i64 30)
-  %xor872 = xor i64 %or.i423, %or.i426
-  %or.i429 = tail call i64 @llvm.fshl.i64(i64 %add812, i64 %add812, i64 25)
-  %xor875 = xor i64 %xor872, %or.i429
+  %or.i189 = tail call i64 @llvm.fshl.i64(i64 %add812, i64 %add812, i64 36)
+  %or.i190 = tail call i64 @llvm.fshl.i64(i64 %add812, i64 %add812, i64 30)
+  %xor872 = xor i64 %or.i189, %or.i190
+  %or.i191 = tail call i64 @llvm.fshl.i64(i64 %add812, i64 %add812, i64 25)
+  %xor875 = xor i64 %xor872, %or.i191
   %and878 = and i64 %add812, %add737
   %or882 = or i64 %add812, %add737
   %and883 = and i64 %or882, %add662
   %or884 = or i64 %and883, %and878
   %add885 = add i64 %xor875, %or884
   %add887 = add i64 %add885, %add864
-  %or.i432 = tail call i64 @llvm.fshl.i64(i64 %add867, i64 %add867, i64 50)
-  %or.i435 = tail call i64 @llvm.fshl.i64(i64 %add867, i64 %add867, i64 46)
-  %xor892 = xor i64 %or.i432, %or.i435
-  %or.i438 = tail call i64 @llvm.fshl.i64(i64 %add867, i64 %add867, i64 23)
-  %xor895 = xor i64 %xor892, %or.i438
+  %or.i192 = tail call i64 @llvm.fshl.i64(i64 %add867, i64 %add867, i64 50)
+  %or.i193 = tail call i64 @llvm.fshl.i64(i64 %add867, i64 %add867, i64 46)
+  %xor892 = xor i64 %or.i192, %or.i193
+  %or.i194 = tail call i64 @llvm.fshl.i64(i64 %add867, i64 %add867, i64 23)
+  %xor895 = xor i64 %xor892, %or.i194
   %xor900 = xor i64 %add792, %add717
   %and901 = and i64 %add867, %xor900
   %xor902 = xor i64 %and901, %add717
@@ -1989,15 +1989,15 @@ cond.end860:                                      ; preds = %cond.false856, %con
   br i1 %tobool.not, label %cond.false931, label %cond.true909
 
 cond.true909:                                     ; preds = %cond.end860
-  %or.i441 = tail call i64 @llvm.fshl.i64(i64 %cond786, i64 %cond786, i64 45)
-  %or.i444 = tail call i64 @llvm.fshl.i64(i64 %cond786, i64 %cond786, i64 3)
-  %xor914 = xor i64 %or.i441, %or.i444
+  %or.i195 = tail call i64 @llvm.fshl.i64(i64 %cond786, i64 %cond786, i64 45)
+  %or.i196 = tail call i64 @llvm.fshl.i64(i64 %cond786, i64 %cond786, i64 3)
+  %xor914 = xor i64 %or.i195, %or.i196
   %shr916 = lshr i64 %cond786, 6
   %xor917 = xor i64 %xor914, %shr916
   %add919 = add i64 %xor917, %cond411
-  %or.i447 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 63)
-  %or.i450 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 56)
-  %xor924 = xor i64 %or.i447, %or.i450
+  %or.i197 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 63)
+  %or.i198 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 56)
+  %xor924 = xor i64 %or.i197, %or.i198
   %shr926 = lshr i64 %4, 7
   %xor927 = xor i64 %xor924, %shr926
   %add928 = add i64 %add919, %6
@@ -2015,22 +2015,22 @@ cond.end935:                                      ; preds = %cond.false931, %con
   %add937 = add i64 %add907, %xor895
   %add939 = add i64 %add937, %cond936
   %add942 = add i64 %add939, %add662
-  %or.i453 = tail call i64 @llvm.fshl.i64(i64 %add887, i64 %add887, i64 36)
-  %or.i456 = tail call i64 @llvm.fshl.i64(i64 %add887, i64 %add887, i64 30)
-  %xor947 = xor i64 %or.i453, %or.i456
-  %or.i459 = tail call i64 @llvm.fshl.i64(i64 %add887, i64 %add887, i64 25)
-  %xor950 = xor i64 %xor947, %or.i459
+  %or.i199 = tail call i64 @llvm.fshl.i64(i64 %add887, i64 %add887, i64 36)
+  %or.i200 = tail call i64 @llvm.fshl.i64(i64 %add887, i64 %add887, i64 30)
+  %xor947 = xor i64 %or.i199, %or.i200
+  %or.i201 = tail call i64 @llvm.fshl.i64(i64 %add887, i64 %add887, i64 25)
+  %xor950 = xor i64 %xor947, %or.i201
   %and953 = and i64 %add887, %add812
   %or957 = or i64 %add887, %add812
   %and958 = and i64 %or957, %add737
   %or959 = or i64 %and958, %and953
   %add960 = add i64 %xor950, %or959
   %add962 = add i64 %add960, %add939
-  %or.i462 = tail call i64 @llvm.fshl.i64(i64 %add942, i64 %add942, i64 50)
-  %or.i465 = tail call i64 @llvm.fshl.i64(i64 %add942, i64 %add942, i64 46)
-  %xor967 = xor i64 %or.i462, %or.i465
-  %or.i468 = tail call i64 @llvm.fshl.i64(i64 %add942, i64 %add942, i64 23)
-  %xor970 = xor i64 %xor967, %or.i468
+  %or.i202 = tail call i64 @llvm.fshl.i64(i64 %add942, i64 %add942, i64 50)
+  %or.i203 = tail call i64 @llvm.fshl.i64(i64 %add942, i64 %add942, i64 46)
+  %xor967 = xor i64 %or.i202, %or.i203
+  %or.i204 = tail call i64 @llvm.fshl.i64(i64 %add942, i64 %add942, i64 23)
+  %xor970 = xor i64 %xor967, %or.i204
   %xor975 = xor i64 %add867, %add792
   %and976 = and i64 %add942, %xor975
   %xor977 = xor i64 %and976, %add792
@@ -2040,15 +2040,15 @@ cond.end935:                                      ; preds = %cond.false931, %con
   br i1 %tobool.not, label %cond.false1006, label %cond.true984
 
 cond.true984:                                     ; preds = %cond.end935
-  %or.i471 = tail call i64 @llvm.fshl.i64(i64 %cond861, i64 %cond861, i64 45)
-  %or.i474 = tail call i64 @llvm.fshl.i64(i64 %cond861, i64 %cond861, i64 3)
-  %xor989 = xor i64 %or.i471, %or.i474
+  %or.i205 = tail call i64 @llvm.fshl.i64(i64 %cond861, i64 %cond861, i64 45)
+  %or.i206 = tail call i64 @llvm.fshl.i64(i64 %cond861, i64 %cond861, i64 3)
+  %xor989 = xor i64 %or.i205, %or.i206
   %shr991 = lshr i64 %cond861, 6
   %xor992 = xor i64 %xor989, %shr991
   %add994 = add i64 %xor992, %cond486
-  %or.i477 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 63)
-  %or.i480 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 56)
-  %xor999 = xor i64 %or.i477, %or.i480
+  %or.i207 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 63)
+  %or.i208 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 56)
+  %xor999 = xor i64 %or.i207, %or.i208
   %shr1001 = lshr i64 %14, 7
   %xor1002 = xor i64 %xor999, %shr1001
   %add1003 = add i64 %add994, %4
@@ -2066,22 +2066,22 @@ cond.end1010:                                     ; preds = %cond.false1006, %co
   %add1012 = add i64 %add982, %xor970
   %add1014 = add i64 %add1012, %cond1011
   %add1017 = add i64 %add1014, %add737
-  %or.i483 = tail call i64 @llvm.fshl.i64(i64 %add962, i64 %add962, i64 36)
-  %or.i486 = tail call i64 @llvm.fshl.i64(i64 %add962, i64 %add962, i64 30)
-  %xor1022 = xor i64 %or.i483, %or.i486
-  %or.i489 = tail call i64 @llvm.fshl.i64(i64 %add962, i64 %add962, i64 25)
-  %xor1025 = xor i64 %xor1022, %or.i489
+  %or.i209 = tail call i64 @llvm.fshl.i64(i64 %add962, i64 %add962, i64 36)
+  %or.i210 = tail call i64 @llvm.fshl.i64(i64 %add962, i64 %add962, i64 30)
+  %xor1022 = xor i64 %or.i209, %or.i210
+  %or.i211 = tail call i64 @llvm.fshl.i64(i64 %add962, i64 %add962, i64 25)
+  %xor1025 = xor i64 %xor1022, %or.i211
   %and1028 = and i64 %add962, %add887
   %or1032 = or i64 %add962, %add887
   %and1033 = and i64 %or1032, %add812
   %or1034 = or i64 %and1033, %and1028
   %add1035 = add i64 %xor1025, %or1034
   %add1037 = add i64 %add1035, %add1014
-  %or.i492 = tail call i64 @llvm.fshl.i64(i64 %add1017, i64 %add1017, i64 50)
-  %or.i495 = tail call i64 @llvm.fshl.i64(i64 %add1017, i64 %add1017, i64 46)
-  %xor1042 = xor i64 %or.i492, %or.i495
-  %or.i498 = tail call i64 @llvm.fshl.i64(i64 %add1017, i64 %add1017, i64 23)
-  %xor1045 = xor i64 %xor1042, %or.i498
+  %or.i212 = tail call i64 @llvm.fshl.i64(i64 %add1017, i64 %add1017, i64 50)
+  %or.i213 = tail call i64 @llvm.fshl.i64(i64 %add1017, i64 %add1017, i64 46)
+  %xor1042 = xor i64 %or.i212, %or.i213
+  %or.i214 = tail call i64 @llvm.fshl.i64(i64 %add1017, i64 %add1017, i64 23)
+  %xor1045 = xor i64 %xor1042, %or.i214
   %xor1050 = xor i64 %add942, %add867
   %and1051 = and i64 %add1017, %xor1050
   %xor1052 = xor i64 %and1051, %add867
@@ -2091,15 +2091,15 @@ cond.end1010:                                     ; preds = %cond.false1006, %co
   br i1 %tobool.not, label %cond.false1081, label %cond.true1059
 
 cond.true1059:                                    ; preds = %cond.end1010
-  %or.i501 = tail call i64 @llvm.fshl.i64(i64 %cond936, i64 %cond936, i64 45)
-  %or.i504 = tail call i64 @llvm.fshl.i64(i64 %cond936, i64 %cond936, i64 3)
-  %xor1064 = xor i64 %or.i501, %or.i504
+  %or.i215 = tail call i64 @llvm.fshl.i64(i64 %cond936, i64 %cond936, i64 45)
+  %or.i216 = tail call i64 @llvm.fshl.i64(i64 %cond936, i64 %cond936, i64 3)
+  %xor1064 = xor i64 %or.i215, %or.i216
   %shr1066 = lshr i64 %cond936, 6
   %xor1067 = xor i64 %xor1064, %shr1066
   %add1069 = add i64 %xor1067, %cond561
-  %or.i507 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 63)
-  %or.i510 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 56)
-  %xor1074 = xor i64 %or.i507, %or.i510
+  %or.i217 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 63)
+  %or.i218 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 56)
+  %xor1074 = xor i64 %or.i217, %or.i218
   %shr1076 = lshr i64 %11, 7
   %xor1077 = xor i64 %xor1074, %shr1076
   %add1078 = add i64 %add1069, %14
@@ -2117,22 +2117,22 @@ cond.end1085:                                     ; preds = %cond.false1081, %co
   %add1087 = add i64 %add1057, %xor1045
   %add1089 = add i64 %add1087, %cond1086
   %add1092 = add i64 %add1089, %add812
-  %or.i513 = tail call i64 @llvm.fshl.i64(i64 %add1037, i64 %add1037, i64 36)
-  %or.i516 = tail call i64 @llvm.fshl.i64(i64 %add1037, i64 %add1037, i64 30)
-  %xor1097 = xor i64 %or.i513, %or.i516
-  %or.i519 = tail call i64 @llvm.fshl.i64(i64 %add1037, i64 %add1037, i64 25)
-  %xor1100 = xor i64 %xor1097, %or.i519
+  %or.i219 = tail call i64 @llvm.fshl.i64(i64 %add1037, i64 %add1037, i64 36)
+  %or.i220 = tail call i64 @llvm.fshl.i64(i64 %add1037, i64 %add1037, i64 30)
+  %xor1097 = xor i64 %or.i219, %or.i220
+  %or.i221 = tail call i64 @llvm.fshl.i64(i64 %add1037, i64 %add1037, i64 25)
+  %xor1100 = xor i64 %xor1097, %or.i221
   %and1103 = and i64 %add1037, %add962
   %or1107 = or i64 %add1037, %add962
   %and1108 = and i64 %or1107, %add887
   %or1109 = or i64 %and1108, %and1103
   %add1110 = add i64 %xor1100, %or1109
   %add1112 = add i64 %add1110, %add1089
-  %or.i522 = tail call i64 @llvm.fshl.i64(i64 %add1092, i64 %add1092, i64 50)
-  %or.i525 = tail call i64 @llvm.fshl.i64(i64 %add1092, i64 %add1092, i64 46)
-  %xor1117 = xor i64 %or.i522, %or.i525
-  %or.i528 = tail call i64 @llvm.fshl.i64(i64 %add1092, i64 %add1092, i64 23)
-  %xor1120 = xor i64 %xor1117, %or.i528
+  %or.i222 = tail call i64 @llvm.fshl.i64(i64 %add1092, i64 %add1092, i64 50)
+  %or.i223 = tail call i64 @llvm.fshl.i64(i64 %add1092, i64 %add1092, i64 46)
+  %xor1117 = xor i64 %or.i222, %or.i223
+  %or.i224 = tail call i64 @llvm.fshl.i64(i64 %add1092, i64 %add1092, i64 23)
+  %xor1120 = xor i64 %xor1117, %or.i224
   %xor1125 = xor i64 %add1017, %add942
   %and1126 = and i64 %add1092, %xor1125
   %xor1127 = xor i64 %and1126, %add942
@@ -2142,15 +2142,15 @@ cond.end1085:                                     ; preds = %cond.false1081, %co
   br i1 %tobool.not, label %cond.false1156, label %cond.true1134
 
 cond.true1134:                                    ; preds = %cond.end1085
-  %or.i531 = tail call i64 @llvm.fshl.i64(i64 %cond1011, i64 %cond1011, i64 45)
-  %or.i534 = tail call i64 @llvm.fshl.i64(i64 %cond1011, i64 %cond1011, i64 3)
-  %xor1139 = xor i64 %or.i531, %or.i534
+  %or.i225 = tail call i64 @llvm.fshl.i64(i64 %cond1011, i64 %cond1011, i64 45)
+  %or.i226 = tail call i64 @llvm.fshl.i64(i64 %cond1011, i64 %cond1011, i64 3)
+  %xor1139 = xor i64 %or.i225, %or.i226
   %shr1141 = lshr i64 %cond1011, 6
   %xor1142 = xor i64 %xor1139, %shr1141
   %add1144 = add i64 %xor1142, %cond636
-  %or.i537 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 63)
-  %or.i540 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 56)
-  %xor1149 = xor i64 %or.i537, %or.i540
+  %or.i227 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 63)
+  %or.i228 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 56)
+  %xor1149 = xor i64 %or.i227, %or.i228
   %shr1151 = lshr i64 %storemerge, 7
   %xor1152 = xor i64 %xor1149, %shr1151
   %add1153 = add i64 %add1144, %11
@@ -2168,11 +2168,11 @@ cond.end1160:                                     ; preds = %cond.false1156, %co
   %add1162 = add i64 %add1132, %xor1120
   %add1164 = add i64 %add1162, %cond1161
   %add1167 = add i64 %add1164, %add887
-  %or.i543 = tail call i64 @llvm.fshl.i64(i64 %add1112, i64 %add1112, i64 36)
-  %or.i546 = tail call i64 @llvm.fshl.i64(i64 %add1112, i64 %add1112, i64 30)
-  %xor1172 = xor i64 %or.i543, %or.i546
-  %or.i549 = tail call i64 @llvm.fshl.i64(i64 %add1112, i64 %add1112, i64 25)
-  %xor1175 = xor i64 %xor1172, %or.i549
+  %or.i229 = tail call i64 @llvm.fshl.i64(i64 %add1112, i64 %add1112, i64 36)
+  %or.i230 = tail call i64 @llvm.fshl.i64(i64 %add1112, i64 %add1112, i64 30)
+  %xor1172 = xor i64 %or.i229, %or.i230
+  %or.i231 = tail call i64 @llvm.fshl.i64(i64 %add1112, i64 %add1112, i64 25)
+  %xor1175 = xor i64 %xor1172, %or.i231
   %and1178 = and i64 %add1112, %add1037
   %or1182 = or i64 %add1112, %add1037
   %and1183 = and i64 %or1182, %add962
@@ -2217,25 +2217,25 @@ for.end:                                          ; preds = %cond.end1160
   store i64 %add1220, ptr %arrayidx1219, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.end, %for.body.i
+for.body.i:                                       ; preds = %for.body.i, %for.end
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %W, %for.end ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ 128, %for.end ]
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0
-  br i1 %cmp5.i.not, label %for.body.i572, label %for.body.i, !llvm.loop !8
+  br i1 %cmp5.i.not, label %for.body.i243, label %for.body.i, !llvm.loop !8
 
-for.body.i572:                                    ; preds = %for.body.i, %for.body.i572
-  %w.017.i573 = phi ptr [ %incdec.ptr7.i575, %for.body.i572 ], [ %T, %for.body.i ]
-  %len.addr.016.i574 = phi i32 [ %sub8.i576, %for.body.i572 ], [ 64, %for.body.i ]
-  %incdec.ptr7.i575 = getelementptr inbounds i8, ptr %w.017.i573, i64 8
-  store volatile i64 0, ptr %w.017.i573, align 8
-  %sub8.i576 = add nsw i32 %len.addr.016.i574, -8
-  %cmp5.i577.not = icmp eq i32 %sub8.i576, 0
-  br i1 %cmp5.i577.not, label %ForceZero.exit578, label %for.body.i572, !llvm.loop !8
+for.body.i243:                                    ; preds = %for.body.i, %for.body.i243
+  %w.017.i244 = phi ptr [ %incdec.ptr7.i246, %for.body.i243 ], [ %T, %for.body.i ]
+  %len.addr.016.i245 = phi i32 [ %sub8.i247, %for.body.i243 ], [ 64, %for.body.i ]
+  %incdec.ptr7.i246 = getelementptr inbounds i8, ptr %w.017.i244, i64 8
+  store volatile i64 0, ptr %w.017.i244, align 8
+  %sub8.i247 = add nsw i32 %len.addr.016.i245, -8
+  %cmp5.i248.not = icmp eq i32 %sub8.i247, 0
+  br i1 %cmp5.i248.not, label %ForceZero.exit257, label %for.body.i243, !llvm.loop !8
 
-ForceZero.exit578:                                ; preds = %for.body.i572
+ForceZero.exit257:                                ; preds = %for.body.i243
   ret void
 }
 

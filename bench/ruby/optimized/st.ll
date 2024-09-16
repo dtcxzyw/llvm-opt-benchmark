@@ -863,7 +863,7 @@ find_entry.exit:                                  ; preds = %.thread.i, %.loopex
   br label %51
 
 45:                                               ; preds = %.backedge
-  %46 = call fastcc i64 @find_table_bin_ptr_and_reserve(ptr noundef nonnull %0, i64 %9, i64 noundef %1, ptr noundef nonnull %4)
+  %46 = call fastcc i64 @find_table_bin_ptr_and_reserve(ptr noundef nonnull %0, i64 %9, i64 noundef %1, ptr noundef %4)
   %47 = icmp eq i64 %46, -2
   br i1 %47, label %.backedge.backedge, label %48
 
@@ -1024,7 +1024,7 @@ rebuild_table.exit:                               ; preds = %21, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 2, 0) i64 @find_table_bin_ptr_and_reserve(ptr nocapture noundef %0, i64 %.0.val, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i64 2, 0) i64 @find_table_bin_ptr_and_reserve(ptr nocapture noundef %0, i64 %.0.val, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 1
   %.val = load i8, ptr %4, align 1
   %5 = zext nneg i8 %.val to i64
@@ -1457,7 +1457,7 @@ find_entry.exit:                                  ; preds = %.thread.i, %.loopex
   br label %52
 
 46:                                               ; preds = %.backedge
-  %47 = call fastcc i64 @find_table_bin_ptr_and_reserve(ptr noundef nonnull %0, i64 %10, i64 noundef %1, ptr noundef nonnull %5)
+  %47 = call fastcc i64 @find_table_bin_ptr_and_reserve(ptr noundef nonnull %0, i64 %10, i64 noundef %1, ptr noundef %5)
   %48 = icmp eq i64 %47, -2
   br i1 %48, label %.backedge.backedge, label %49
 
@@ -2651,7 +2651,7 @@ define dso_local range(i32 0, 2) i32 @rb_st_foreach_with_replace(ptr nocapture n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @st_general_foreach(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @st_general_foreach(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3779,9 +3779,9 @@ st_expand_table.exit:                             ; preds = %3, %rbimpl_size_mul
   %49 = getelementptr inbounds i8, ptr %5, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp ult i8 %50, 5
-  br i1 %51, label %.lr.ph.i, label %88
+  br i1 %51, label %.preheader, label %88
 
-.lr.ph.i:                                         ; preds = %48, %rb_obj_written.exit12.i
+.preheader:                                       ; preds = %48, %rb_obj_written.exit12.i
   %.013.i = phi i64 [ %73, %rb_obj_written.exit12.i ], [ 0, %48 ]
   %52 = or disjoint i64 %.013.i, 1
   %53 = getelementptr i64, ptr %1, i64 %.013.i
@@ -3791,7 +3791,7 @@ st_expand_table.exit:                             ; preds = %3, %rbimpl_size_mul
   %57 = icmp eq i64 %55, %56
   br i1 %57, label %58, label %st_stringify.exit.i
 
-58:                                               ; preds = %.lr.ph.i
+58:                                               ; preds = %.preheader
   %59 = and i64 %54, 7
   %60 = icmp ne i64 %59, 0
   %61 = icmp eq i64 %54, 0
@@ -3812,8 +3812,8 @@ st_expand_table.exit:                             ; preds = %3, %rbimpl_size_mul
   %71 = tail call i64 @rb_hash_key_str(i64 noundef %54) #24
   br label %st_stringify.exit.i
 
-st_stringify.exit.i:                              ; preds = %70, %63, %58, %.lr.ph.i
-  %72 = phi i64 [ %71, %70 ], [ %54, %.lr.ph.i ], [ %54, %58 ], [ %54, %63 ]
+st_stringify.exit.i:                              ; preds = %70, %63, %58, %.preheader
+  %72 = phi i64 [ %71, %70 ], [ %54, %.preheader ], [ %54, %58 ], [ %54, %63 ]
   %73 = add i64 %.013.i, 2
   %74 = getelementptr i64, ptr %1, i64 %52
   %75 = load i64, ptr %74, align 8
@@ -3841,7 +3841,7 @@ rb_obj_written.exit.i:                            ; preds = %81, %st_stringify.e
 
 rb_obj_written.exit12.i:                          ; preds = %86, %rb_obj_written.exit.i
   %87 = icmp slt i64 %73, %0
-  br i1 %87, label %.lr.ph.i, label %st_insert_linear.exit, !llvm.loop !16
+  br i1 %87, label %.preheader, label %st_insert_linear.exit, !llvm.loop !16
 
 88:                                               ; preds = %48
   tail call fastcc void @st_insert_generic(ptr noundef nonnull %5, i64 noundef %0, ptr noundef %1, i64 noundef %2)

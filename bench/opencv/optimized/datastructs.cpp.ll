@@ -793,7 +793,7 @@ define ptr @cvMemStorageAlloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   br label %83
 
 58:                                               ; preds = %44
-  tail call fastcc void @_ZL17icvGoNextMemBlockP12CvMemStorage(ptr noundef nonnull %0)
+  tail call fastcc void @_ZL17icvGoNextMemBlockP12CvMemStorage(ptr noundef %0)
   %.pre = load i32, ptr %30, align 4
   %.pre36 = sext i32 %.pre to i64
   br label %59
@@ -852,7 +852,7 @@ define ptr @cvMemStorageAlloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17icvGoNextMemBlockP12CvMemStorage(ptr nocapture noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17icvGoNextMemBlockP12CvMemStorage(ptr nocapture noundef nonnull %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.CvMemStoragePos, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -890,7 +890,7 @@ cvSaveMemStoragePos.exit:                         ; preds = %12
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %23, ptr %24, align 8
-  tail call fastcc void @_ZL17icvGoNextMemBlockP12CvMemStorage(ptr noundef nonnull %14)
+  tail call fastcc void @_ZL17icvGoNextMemBlockP12CvMemStorage(ptr noundef %14)
   %25 = load ptr, ptr %20, align 8
   call void @cvRestoreMemStoragePos(ptr noundef nonnull %14, ptr noundef nonnull %2)
   %26 = load ptr, ptr %20, align 8
@@ -2647,7 +2647,7 @@ define void @cvCreateSeqBlock(ptr noundef %0) local_unnamed_addr #0 personality 
 
 15:                                               ; preds = %4
   tail call void @cvFlushSeqWriter(ptr noundef nonnull %0)
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %6, i32 noundef 0)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %6, i32 noundef 0)
   %16 = getelementptr inbounds i8, ptr %6, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
@@ -2665,7 +2665,7 @@ define void @cvCreateSeqBlock(ptr noundef %0) local_unnamed_addr #0 personality 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2794,7 +2794,7 @@ define internal fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef
   br label %94
 
 85:                                               ; preds = %74
-  tail call fastcc void @_ZL17icvGoNextMemBlockP12CvMemStorage(ptr noundef nonnull %19)
+  tail call fastcc void @_ZL17icvGoNextMemBlockP12CvMemStorage(ptr noundef %19)
   %86 = load i32, ptr %40, align 4
   %.not131 = icmp slt i32 %86, %72
   br i1 %.not131, label %87, label %94
@@ -3250,7 +3250,7 @@ define ptr @cvSeqPush(ptr noundef %0, ptr noundef readonly %1) local_unnamed_add
   br i1 %.not29, label %33, label %22
 
 22:                                               ; preds = %14
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef 0)
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %17
   %25 = load ptr, ptr %20, align 8
@@ -3408,7 +3408,7 @@ define void @cvSeqPop(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_ad
   br i1 %45, label %46, label %58
 
 46:                                               ; preds = %36
-  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef %0, i32 noundef 0)
   %47 = load ptr, ptr %30, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 48
   %49 = load ptr, ptr %48, align 8
@@ -3449,7 +3449,7 @@ define void @cvSeqPop(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3732,7 +3732,7 @@ define ptr @cvSeqPushFront(ptr noundef %0, ptr noundef readonly %1) local_unname
   br i1 %22, label %23, label %35
 
 23:                                               ; preds = %19, %14
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 1)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef 1)
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
@@ -3903,7 +3903,7 @@ define void @cvSeqPopFront(ptr noundef %0, ptr noundef writeonly %1) local_unnam
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %34
-  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef nonnull %0, i32 noundef 1)
+  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef %0, i32 noundef 1)
   br label %48
 
 48:                                               ; preds = %47, %34
@@ -4023,7 +4023,7 @@ define ptr @cvSeqInsert(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %50
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef 0)
   %59 = load ptr, ptr %51, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 %53
   %61 = load ptr, ptr %55, align 8
@@ -4163,7 +4163,7 @@ define ptr @cvSeqInsert(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %131
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 1)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef 1)
   %138 = load ptr, ptr %132, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %138, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
@@ -4525,7 +4525,7 @@ define void @cvSeqRemove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 p
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %123
-  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef nonnull %0, i32 noundef %62)
+  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef %0, i32 noundef %62)
   br label %129
 
 129:                                              ; preds = %35, %128, %123, %32
@@ -4669,7 +4669,7 @@ define void @cvSeqPushMulti(ptr noundef %0, ptr noundef readonly %1, i32 noundef
 63:                                               ; preds = %59, %35
   %.16394 = phi i32 [ %53, %59 ], [ %.06299, %35 ]
   %.17292 = phi ptr [ %.273, %59 ], [ %.07198, %35 ]
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef 0)
   br label %35, !llvm.loop !22
 
 64:                                               ; preds = %27
@@ -4696,7 +4696,7 @@ define void @cvSeqPushMulti(ptr noundef %0, ptr noundef readonly %1, i32 noundef
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %68, %.lr.ph.split.us
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 1)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef 1)
   %73 = load ptr, ptr %65, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
@@ -4741,7 +4741,7 @@ define void @cvSeqPushMulti(ptr noundef %0, ptr noundef readonly %1, i32 noundef
   br i1 %97, label %98, label %109
 
 98:                                               ; preds = %94, %.lr.ph.split
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 1)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef 1)
   %99 = load ptr, ptr %65, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 16
   %101 = load i32, ptr %100, align 8
@@ -4978,7 +4978,7 @@ define void @cvSeqPopMulti(ptr noundef %0, ptr noundef writeonly %1, i32 noundef
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %74
-  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef %0, i32 noundef 0)
   br label %81
 
 81:                                               ; preds = %80, %74
@@ -5063,7 +5063,7 @@ define void @cvSeqPopMulti(ptr noundef %0, ptr noundef writeonly %1, i32 noundef
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %113
-  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef nonnull %0, i32 noundef 1)
+  tail call fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr noundef %0, i32 noundef 1)
   br label %123
 
 123:                                              ; preds = %122, %113
@@ -11323,7 +11323,7 @@ define range(i32 0, 67108864) i32 @cvSetAdd(ptr noundef %0, ptr noundef readonly
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 44
   %22 = load i32, ptr %21, align 4
-  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef 0)
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %16, align 8

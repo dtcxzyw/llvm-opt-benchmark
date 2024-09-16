@@ -334,7 +334,7 @@ define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function6FnOnce9call_onc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..flat..FlatTree$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h9840ef60f9f76cd1E"(ptr noalias noundef align 8 dereferenceable(144) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..flat..FlatTree$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h9840ef60f9f76cd1E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !55, !noundef !4
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -373,7 +373,7 @@ define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..ExpandMacroExtended$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h1e333d908b930688E"(ptr noalias noundef align 8 dereferenceable(168) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..ExpandMacroExtended$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h1e333d908b930688E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !55, !noundef !4
@@ -453,7 +453,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$proc_macro_api..ProcMacroKind$RP$$GT$$C$alloc..string..String$GT$$GT$17heac2c4de2b2c60a0E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$proc_macro_api..ProcMacroKind$RP$$GT$$C$alloc..string..String$GT$$GT$17heac2c4de2b2c60a0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !87, !noundef !4
   %4 = icmp eq i64 %3, 0
@@ -497,7 +497,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$proc_macro_api..msg..Request$GT$17h4da7b1ab14317431E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$proc_macro_api..msg..Request$GT$17h4da7b1ab14317431E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !97, !noundef !4
   %4 = icmp slt i64 %3, -9223372036854775805
@@ -554,7 +554,7 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$proc_macro_api..msg
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$proc_macro_api..msg..Response$GT$17hdba181f23a6ae8c5E"(ptr noalias noundef align 8 dereferenceable(168) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$proc_macro_api..msg..Response$GT$17hdba181f23a6ae8c5E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !113, !noundef !4
@@ -568,7 +568,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$proc_macro_api..msg
   ]
 
 7:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..ExpandMacroExtended$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h1e333d908b930688E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %0)
+  tail call fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..ExpandMacroExtended$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h1e333d908b930688E"(ptr noalias noundef align 8 dereferenceable(168) %0)
   br label %"_ZN4core3ptr157drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$proc_macro_api..ProcMacroKind$RP$$GT$$C$alloc..string..String$GT$$GT$17heac2c4de2b2c60a0E.exit"
 
 8:                                                ; preds = %1
@@ -1495,7 +1495,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h424fad24338e00b0E.llvm.1400927
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noalias noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h2175826dd6c1eb4fE"(ptr %.0.val, i8 noundef %0) unnamed_addr #2 {
+define internal fastcc noalias noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h2175826dd6c1eb4fE"(ptr %.0.val, i8 noundef range(i8 0, 3) %0) unnamed_addr #2 {
   %2 = icmp eq i8 %0, 0
   br i1 %2, label %19, label %3
 
@@ -1813,7 +1813,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 105:                                              ; preds = %108, %.loopexit
   %106 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$proc_macro_api..ProcMacroKind$RP$$GT$$C$alloc..string..String$GT$$GT$17heac2c4de2b2c60a0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #27
+  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$proc_macro_api..ProcMacroKind$RP$$GT$$C$alloc..string..String$GT$$GT$17heac2c4de2b2c60a0E"(ptr noalias noundef align 8 dereferenceable(32) %18) #27
           to label %129 unwind label %126
 
 107:                                              ; preds = %.loopexit
@@ -2443,7 +2443,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h1f2226d9a17cf469E.llvm.6093752533
 97:                                               ; preds = %100, %.loopexit
   %98 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..flat..FlatTree$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h9840ef60f9f76cd1E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %18) #27
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..flat..FlatTree$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h9840ef60f9f76cd1E"(ptr noalias noundef align 8 dereferenceable(144) %18) #27
           to label %120 unwind label %117
 
 99:                                               ; preds = %.loopexit
@@ -2789,7 +2789,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h1f2226d9a17cf469E.llvm.6093752533
 96:                                               ; preds = %99, %.loopexit
   %97 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..ExpandMacroExtended$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h1e333d908b930688E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %17) #27
+  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..ExpandMacroExtended$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h1e333d908b930688E"(ptr noalias noundef align 8 dereferenceable(168) %17) #27
           to label %109 unwind label %106
 
 98:                                               ; preds = %.loopexit
@@ -2821,7 +2821,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h1f2226d9a17cf469E.llvm.6093752533
   %105 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %105, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..ExpandMacroExtended$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h1e333d908b930688E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %17)
+  call fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$proc_macro_api..msg..ExpandMacroExtended$C$proc_macro_api..msg..PanicMessage$GT$$GT$17h1e333d908b930688E"(ptr noalias noundef align 8 dereferenceable(168) %17)
   br label %103
 
 106:                                              ; preds = %96
@@ -3859,7 +3859,7 @@ _ZN5serde2de10EnumAccess7variant17hd6d95371ec01a5a5E.exit.i.i.i: ; preds = %153
 218:                                              ; preds = %221, %.loopexit.i.i
   %219 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$proc_macro_api..msg..Response$GT$17hdba181f23a6ae8c5E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %24) #27
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$proc_macro_api..msg..Response$GT$17hdba181f23a6ae8c5E"(ptr noalias noundef align 8 dereferenceable(168) %24) #27
           to label %.body unwind label %225, !noalias !990
 
 220:                                              ; preds = %.loopexit.i.i
@@ -3878,7 +3878,7 @@ _ZN5serde2de10EnumAccess7variant17hd6d95371ec01a5a5E.exit.i.i.i: ; preds = %153
 
 224:                                              ; preds = %223, %220
   %.sink.i.i = phi ptr [ %217, %220 ], [ %222, %223 ]
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$proc_macro_api..msg..Response$GT$17hdba181f23a6ae8c5E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %24)
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$proc_macro_api..msg..Response$GT$17hdba181f23a6ae8c5E"(ptr noalias noundef align 8 dereferenceable(168) %24)
           to label %"_ZN14proc_macro_api3msg1_82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$proc_macro_api..msg..Response$GT$11deserialize17hd9372f84c07658d4E.exit.thread72" unwind label %228
 
 "_ZN14proc_macro_api3msg1_82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$proc_macro_api..msg..Response$GT$11deserialize17hd9372f84c07658d4E.exit.thread72": ; preds = %224
@@ -4883,7 +4883,7 @@ _ZN10serde_json3ser9Formatter10end_object17he9a608483ddbb781E.exit.i.i.i.i: ; pr
 
 .body:                                            ; preds = %384, %371, %423
   %.pn = phi { ptr, i32 } [ %424, %423 ], [ %385, %384 ], [ %372, %371 ]
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$proc_macro_api..msg..Request$GT$17h4da7b1ab14317431E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #27
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$proc_macro_api..msg..Request$GT$17h4da7b1ab14317431E"(ptr noalias noundef align 8 dereferenceable(24) %0) #27
           to label %438 unwind label %436
 
 384:                                              ; preds = %425, %373, %2, %420
@@ -5069,7 +5069,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 435:                                              ; preds = %420, %434
   %.0 = phi ptr [ %.0.i, %434 ], [ %422, %420 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$proc_macro_api..msg..Request$GT$17h4da7b1ab14317431E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$proc_macro_api..msg..Request$GT$17h4da7b1ab14317431E"(ptr noalias noundef align 8 dereferenceable(24) %0)
   ret ptr %.0
 
 436:                                              ; preds = %423, %.body

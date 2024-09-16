@@ -97,7 +97,7 @@ define dso_local noundef i32 @job_sizes_grouped_by_acct(i32 noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_run_report(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_run_report(i32 noundef range(i32 0, 3) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -630,7 +630,7 @@ _set_cond.exit:                                   ; preds = %.loopexit251.i, %25
 
 270:                                              ; preds = %268, %266, %_set_cond.exit
   %271 = load ptr, ptr @db_conn, align 8
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable218 [
     i32 0, label %272
     i32 1, label %277
     i32 2, label %282
@@ -682,7 +682,7 @@ _set_cond.exit:                                   ; preds = %.loopexit251.i, %25
   %.not142 = icmp eq i32 %286, 0
   br i1 %.not142, label %.sink.split, label %288
 
-default.unreachable:                              ; preds = %270
+default.unreachable218:                           ; preds = %270
   unreachable
 
 .sink.split:                                      ; preds = %285, %280, %275

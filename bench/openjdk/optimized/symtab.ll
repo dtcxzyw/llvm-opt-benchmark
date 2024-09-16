@@ -56,7 +56,7 @@ define hidden ptr @build_symtab(i32 noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca %struct.Elf64_Ehdr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i64 @lseek64(i32 noundef %0, i64 noundef 0, i32 noundef 0) #14
@@ -391,7 +391,7 @@ build_symtab_from_build_id.exit:                  ; preds = %122, %157, %116, %.
 183:                                              ; preds = %179
   %184 = getelementptr inbounds i8, ptr %181, i64 1
   %185 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull dereferenceable(1) %168) #14
-  %186 = call fastcc i32 @open_debug_file(ptr noundef nonnull %177, i32 noundef %173)
+  %186 = call fastcc i32 @open_debug_file(ptr noundef %177, i32 noundef %173)
   %187 = icmp sgt i32 %186, -1
   br i1 %187, label %open_file_from_debug_link.exit.thread11.sink.split.i, label %188
 
@@ -399,7 +399,7 @@ build_symtab_from_build_id.exit:                  ; preds = %122, %157, %116, %.
   store i64 13343077765047342, ptr %184, align 1
   %189 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %181, ptr noundef nonnull dereferenceable(1) %168) #14
   %190 = load i32, ptr @open_file_from_debug_link.crc, align 4
-  %191 = call fastcc i32 @open_debug_file(ptr noundef nonnull %177, i32 noundef %190)
+  %191 = call fastcc i32 @open_debug_file(ptr noundef %177, i32 noundef %190)
   %192 = icmp sgt i32 %191, -1
   br i1 %192, label %open_file_from_debug_link.exit.thread11.sink.split.i, label %open_file_from_debug_link.exit.i
 
@@ -410,7 +410,7 @@ open_file_from_debug_link.exit.i:                 ; preds = %188
   %195 = getelementptr inbounds i8, ptr %194, i64 1
   %196 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %195, ptr noundef nonnull dereferenceable(1) %168) #14
   %197 = load i32, ptr @open_file_from_debug_link.crc, align 4
-  %198 = call fastcc i32 @open_debug_file(ptr noundef nonnull %177, i32 noundef %197)
+  %198 = call fastcc i32 @open_debug_file(ptr noundef %177, i32 noundef %197)
   call void @free(ptr noundef nonnull %177) #14
   %199 = icmp sgt i32 %198, -1
   br i1 %199, label %build_symtab_from_debug_link.exit, label %.preheader
@@ -717,9 +717,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @open_debug_file(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @open_debug_file(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca [8192 x i8], align 16
-  %4 = tail call i32 @pathmap_open(ptr noundef %0) #14
+  %4 = tail call i32 @pathmap_open(ptr noundef nonnull %0) #14
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %30, label %6
 

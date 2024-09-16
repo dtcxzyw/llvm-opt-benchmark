@@ -656,7 +656,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @opal_hwloc_base_topology_set_flags(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @opal_hwloc_base_topology_set_flags(ptr noundef %0, i64 noundef range(i64 0, 3) %1) unnamed_addr #0 {
   %3 = tail call i32 @hwloc_topology_set_io_types_filter(ptr noundef %0, i32 noundef 3) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
@@ -860,7 +860,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
 
 .loopexit:                                        ; preds = %57, %40, %opal_obj_new.exit, %38
   %.1 = phi ptr [ %23, %38 ], [ %23, %opal_obj_new.exit ], [ %20, %40 ], [ %20, %57 ]
-  %59 = call fastcc ptr @df_search(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %1, i32 noundef 0, i8 noundef zeroext %3, ptr noundef nonnull %5)
+  %59 = call fastcc ptr @df_search(ptr noundef %0, ptr noundef %14, i32 noundef %1, i32 noundef 0, i8 noundef zeroext %3, ptr noundef nonnull %5)
   %60 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hwloc_summary_t_class, i64 56), align 8
   %61 = call noalias ptr @malloc(i64 noundef %60) #11
   %62 = load i32, ptr @opal_class_init_epoch, align 4
@@ -927,8 +927,8 @@ hwloc_get_nbobjs_by_type.exit.thread48:           ; preds = %9, %hwloc_get_nbobj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @df_search(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 {
-  %7 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef %2) #9
+define internal fastcc ptr @df_search(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 {
+  %7 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef %2) #9
   %switch = icmp ugt i32 %7, -3
   br i1 %switch, label %hwloc_get_next_obj_by_depth.exit.thread, label %8
 
@@ -944,12 +944,12 @@ define internal fastcc ptr @df_search(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not70, label %12, label %10
 
 10:                                               ; preds = %9
-  %11 = tail call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %0, i32 noundef %7) #10
+  %11 = tail call i32 @hwloc_get_nbobjs_by_depth(ptr noundef nonnull %0, i32 noundef %7) #10
   store i32 %11, ptr %5, align 4
   br label %12
 
 12:                                               ; preds = %10, %9
-  %13 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %7, i32 noundef %3) #10
+  %13 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %7, i32 noundef %3) #10
   br label %hwloc_get_next_obj_by_depth.exit.thread
 
 14:                                               ; preds = %8
@@ -978,7 +978,7 @@ define internal fastcc ptr @df_search(ptr noundef %0, ptr nocapture noundef read
   br label %hwloc_get_next_obj_by_depth.exit.us
 
 22:                                               ; preds = %.split.us
-  %23 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %7, i32 noundef 0) #10
+  %23 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %7, i32 noundef 0) #10
   br label %hwloc_get_next_obj_by_depth.exit.us
 
 hwloc_get_next_obj_by_depth.exit.us:              ; preds = %22, %19
@@ -1001,7 +1001,7 @@ hwloc_get_next_obj_by_depth.exit.us:              ; preds = %22, %19
   br i1 %.not.i, label %29, label %31
 
 29:                                               ; preds = %.split
-  %30 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %7, i32 noundef 0) #10
+  %30 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %7, i32 noundef 0) #10
   br label %hwloc_get_next_obj_by_depth.exit
 
 31:                                               ; preds = %.split
@@ -1049,7 +1049,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %29, %34
   br label %63
 
 51:                                               ; preds = %46
-  %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #10
+  %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #10
   %53 = getelementptr inbounds i8, ptr %52, i64 232
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noalias ptr @hwloc_bitmap_alloc() #9
@@ -1081,7 +1081,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %29, %34
   br i1 %.not66, label %.preheader, label %70
 
 70:                                               ; preds = %68
-  %71 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %7, i32 noundef 0) #10
+  %71 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %7, i32 noundef 0) #10
   %.not.i71 = icmp eq ptr %71, null
   br i1 %.not.i71, label %hwloc_get_nbobjs_inside_cpuset_by_depth.exit, label %.preheader.i
 
@@ -1123,7 +1123,7 @@ hwloc_get_nbobjs_inside_cpuset_by_depth.exit:     ; preds = %78, %70
   br i1 %.not.i.i, label %82, label %84
 
 82:                                               ; preds = %81
-  %83 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %7, i32 noundef 0) #10
+  %83 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %7, i32 noundef 0) #10
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 84:                                               ; preds = %81
@@ -1199,7 +1199,7 @@ define ptr @opal_hwloc_base_get_obj_by_type(ptr noundef %0, i32 noundef %1, i32 
 
 13:                                               ; preds = %7
   %14 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #10
-  %15 = tail call fastcc ptr @df_search(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %1, i32 noundef %3, i8 noundef zeroext %4, ptr noundef null)
+  %15 = tail call fastcc ptr @df_search(ptr noundef %0, ptr noundef %14, i32 noundef %1, i32 noundef %3, i8 noundef zeroext %4, ptr noundef null)
   br label %hwloc_get_obj_by_type.exit
 
 hwloc_get_obj_by_type.exit:                       ; preds = %11, %9, %5, %13

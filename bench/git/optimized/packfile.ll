@@ -1711,7 +1711,7 @@ if.end126.i:                                      ; preds = %if.end117.i
   %idx.ext.i = and i64 %mul.i, 4294967294
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr127.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %call129.i = call fastcc i32 @hasheq(ptr noundef nonnull %hash.i, ptr noundef %add.ptr127.i)
+  %call129.i = call fastcc i32 @hasheq(ptr noundef %hash.i, ptr noundef %add.ptr127.i)
   %tobool130.not.i = icmp eq i32 %call129.i, 0
   br i1 %tobool130.not.i, label %if.then131.i, label %open_packed_git_1.exit
 
@@ -4432,7 +4432,7 @@ sw.bb80:                                          ; preds = %for.end, %for.end, 
 
 if.then82:                                        ; preds = %sw.bb80
   %52 = load i64, ptr %size, align 8
-  %call83 = call fastcc ptr @unpack_compressed_entry(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %curpos.1, i64 noundef %52)
+  %call83 = call fastcc ptr @unpack_compressed_entry(ptr noundef %p, ptr noundef %w_curs, i64 noundef %curpos.1, i64 noundef %52)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.end.thread, %for.end
@@ -4590,7 +4590,7 @@ if.end121:                                        ; preds = %if.end109.thread333
   %74 = load i64, ptr %.in397, align 8
   %.in = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next323341, i32 2
   %75 = load i64, ptr %.in, align 8
-  %call122 = call fastcc ptr @unpack_compressed_entry(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %74, i64 noundef %75)
+  %call122 = call fastcc ptr @unpack_compressed_entry(ptr noundef %p, ptr noundef %w_curs, i64 noundef %74, i64 noundef %75)
   %tobool123.not = icmp eq ptr %call122, null
   br i1 %tobool123.not, label %if.then124, label %if.else129
 
@@ -4872,7 +4872,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unpack_compressed_entry(ptr noundef %p, ptr nocapture noundef %w_curs, i64 noundef %curpos, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc ptr @unpack_compressed_entry(ptr noundef %p, ptr nocapture noundef nonnull %w_curs, i64 noundef %curpos, i64 noundef %size) unnamed_addr #0 {
 entry:
   %stream = alloca %struct.git_zstream, align 8
   %call = tail call ptr @xmallocz_gently(i64 noundef %size) #18
@@ -4893,7 +4893,7 @@ if.end:                                           ; preds = %entry
 
 do.body:                                          ; preds = %do.body.backedge, %if.end
   %curpos.addr.0 = phi i64 [ %curpos, %if.end ], [ %add8, %do.body.backedge ]
-  %call1 = call ptr @use_pack(ptr noundef %p, ptr noundef %w_curs, i64 noundef %curpos.addr.0, ptr noundef nonnull %avail_in)
+  %call1 = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %curpos.addr.0, ptr noundef nonnull %avail_in)
   store ptr %call1, ptr %next_in, align 8
   %0 = load i32, ptr @obj_read_use_lock, align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -6208,7 +6208,7 @@ declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare i64 @pread_in_full(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @hasheq(ptr nocapture noundef readonly %sha1, ptr nocapture noundef readonly %sha2) unnamed_addr #13 {
+define internal fastcc range(i32 0, 2) i32 @hasheq(ptr nocapture noundef nonnull readonly %sha1, ptr nocapture noundef readonly %sha2) unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %0, i64 256

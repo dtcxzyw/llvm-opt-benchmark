@@ -1835,7 +1835,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit97: ; pre
 
 _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit105: ; preds = %237, %236
   %.062 = phi ptr [ %244, %237 ], [ null, %236 ]
-  call fastcc void @_ZL31ApplyNonVirtualAndVirtualOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_9CharUnitsEPN4llvm5ValueEPKNS_13CXXRecordDeclESA_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %.sroa.0151.0, ptr noundef %.062, ptr noundef %3, ptr noundef %.1)
+  call fastcc void @_ZL31ApplyNonVirtualAndVirtualOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_9CharUnitsEPN4llvm5ValueEPKNS_13CXXRecordDeclESA_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %.sroa.0151.0, ptr noundef %.062, ptr noundef %3, ptr noundef %.1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false)
   %245 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %246 = load ptr, ptr %245, align 8
@@ -2096,7 +2096,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction13EmitTypeCheckENS1_13TypeCheckK
 declare void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31ApplyNonVirtualAndVirtualOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_9CharUnitsEPN4llvm5ValueEPKNS_13CXXRecordDeclESA_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZL31ApplyNonVirtualAndVirtualOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_9CharUnitsEPN4llvm5ValueEPKNS_13CXXRecordDeclESA_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::Twine", align 8
   %.sroa.09.i.i = alloca i64, align 8
   %.sroa.07.i.i = alloca i64, align 8
@@ -10544,7 +10544,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23InitializeVTablePoint
 42:                                               ; preds = %39
   %43 = load ptr, ptr %12, align 8
   %44 = load ptr, ptr %14, align 8
-  call fastcc void @_ZL31ApplyNonVirtualAndVirtualOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_9CharUnitsEPN4llvm5ValueEPKNS_13CXXRecordDeclESA_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %storemerge, ptr noundef %.025, ptr noundef %43, ptr noundef %44)
+  call fastcc void @_ZL31ApplyNonVirtualAndVirtualOffsetRN5clang7CodeGen15CodeGenFunctionENS0_7AddressENS_9CharUnitsEPN4llvm5ValueEPKNS_13CXXRecordDeclESA_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %storemerge, ptr noundef %.025, ptr noundef %43, ptr noundef %44)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   br label %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit
 

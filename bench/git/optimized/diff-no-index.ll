@@ -225,11 +225,11 @@ if.end46.thread.i:                                ; preds = %if.end36.i
   br i1 %cmp4732.i, label %fixup_paths.exit, label %if.then52.i
 
 if.then52.i:                                      ; preds = %if.end46.thread.i
-  call fastcc void @append_basename(ptr noundef nonnull %replacement, ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71, ptr noundef %paths.sroa.5.0.paths.sroa.5.8.)
+  call fastcc void @append_basename(ptr noundef %replacement, ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71, ptr noundef %paths.sroa.5.0.paths.sroa.5.8.)
   br label %if.end60.sink.split.i
 
 if.else.i:                                        ; preds = %if.end46.i
-  call fastcc void @append_basename(ptr noundef nonnull %replacement, ptr noundef %paths.sroa.5.0.paths.sroa.5.8., ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71)
+  call fastcc void @append_basename(ptr noundef %replacement, ptr noundef %paths.sroa.5.0.paths.sroa.5.8., ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71)
   br label %if.end60.sink.split.i
 
 if.end60.sink.split.i:                            ; preds = %if.else.i, %if.then52.i
@@ -337,7 +337,7 @@ declare void @diff_setup_done(ptr noundef) local_unnamed_addr #3
 declare void @setup_diff_pager(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @queue_diff(ptr nocapture noundef readonly %o, ptr noundef %name1, ptr noundef %name2, i32 noundef %recursing) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @queue_diff(ptr nocapture noundef readonly %o, ptr noundef %name1, ptr noundef %name2, i32 noundef range(i32 0, 2) %recursing) unnamed_addr #0 {
 entry:
   %st.i33 = alloca %struct.stat, align 8
   %st.i = alloca %struct.stat, align 8
@@ -857,11 +857,11 @@ declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture nounde
 declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_basename(ptr noundef %path, ptr noundef %dir, ptr noundef %file) unnamed_addr #0 {
+define internal fastcc void @append_basename(ptr noundef nonnull %path, ptr noundef %dir, ptr noundef %file) unnamed_addr #0 {
 entry:
   %call = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %file, i32 noundef 47) #14
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dir) #14
-  tail call void @strbuf_add(ptr noundef %path, ptr noundef %dir, i64 noundef %call.i) #12
+  tail call void @strbuf_add(ptr noundef nonnull %path, ptr noundef %dir, i64 noundef %call.i) #12
   %len = getelementptr inbounds i8, ptr %path, i64 8
   %len.promoted = load i64, ptr %len, align 8
   %tobool.not10 = icmp eq i64 %len.promoted, 0

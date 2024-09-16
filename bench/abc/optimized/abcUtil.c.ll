@@ -4735,7 +4735,7 @@ define ptr @Abc_NodeRecognizeMux(ptr nocapture noundef readonly %0, ptr nocaptur
   %.val87 = load ptr, ptr %15, align 8
   %.val87.val = load i32, ptr %.val87, align 4
   %16 = icmp eq i32 %.val88.val, %.val87.val
-  br i1 %16, label %17, label %77
+  br i1 %16, label %17, label %81
 
 17:                                               ; preds = %3
   %18 = getelementptr i8, ptr %9, i64 20
@@ -4747,11 +4747,11 @@ define ptr @Abc_NodeRecognizeMux(ptr nocapture noundef readonly %0, ptr nocaptur
   %22 = lshr i32 %.val73, 10
   %23 = and i32 %22, 1
   %.not = icmp eq i32 %20, %23
-  br i1 %.not, label %77, label %24
+  br i1 %.not, label %81, label %24
 
 24:                                               ; preds = %17
   %.not69 = icmp eq i32 %20, 0
-  br i1 %.not69, label %51, label %25
+  br i1 %.not69, label %53, label %25
 
 25:                                               ; preds = %24
   %.val2.i = load ptr, ptr %13, align 8
@@ -4764,424 +4764,424 @@ define ptr @Abc_NodeRecognizeMux(ptr nocapture noundef readonly %0, ptr nocaptur
   %29 = sext i32 %.val3.val.i to i64
   %30 = getelementptr inbounds ptr, ptr %.val2.val.val.i, i64 %29
   %31 = load ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = lshr i32 %.val73, 11
-  %.lobit.i = and i32 %33, 1
-  %34 = xor i32 %.lobit.i, 1
-  %35 = zext nneg i32 %34 to i64
-  %36 = xor i64 %35, %32
-  %37 = inttoptr i64 %36 to ptr
-  store ptr %37, ptr %1, align 8
+  %32 = lshr i32 %.val73, 11
+  %33 = and i32 %32, 1
+  %34 = ptrtoint ptr %31 to i64
+  %35 = xor i32 %33, 1
+  %36 = zext nneg i32 %35 to i64
+  %37 = xor i64 %36, %34
+  %38 = inttoptr i64 %37 to ptr
+  store ptr %38, ptr %1, align 8
   %.val2.i93 = load ptr, ptr %9, align 8
   %.val3.i94 = load ptr, ptr %14, align 8
-  %38 = getelementptr i8, ptr %.val2.i93, i64 32
-  %.val2.val.i95 = load ptr, ptr %38, align 8
-  %39 = getelementptr i8, ptr %.val3.i94, i64 4
-  %.val3.val.i96 = load i32, ptr %39, align 4
-  %40 = getelementptr i8, ptr %.val2.val.i95, i64 8
-  %.val2.val.val.i97 = load ptr, ptr %40, align 8
-  %41 = sext i32 %.val3.val.i96 to i64
-  %42 = getelementptr inbounds ptr, ptr %.val2.val.val.i97, i64 %41
-  %43 = load ptr, ptr %42, align 8
+  %39 = getelementptr i8, ptr %.val2.i93, i64 32
+  %.val2.val.i95 = load ptr, ptr %39, align 8
+  %40 = getelementptr i8, ptr %.val3.i94, i64 4
+  %.val3.val.i96 = load i32, ptr %40, align 4
+  %41 = getelementptr i8, ptr %.val2.val.i95, i64 8
+  %.val2.val.val.i97 = load ptr, ptr %41, align 8
+  %42 = sext i32 %.val3.val.i96 to i64
+  %43 = getelementptr inbounds ptr, ptr %.val2.val.val.i97, i64 %42
+  %44 = load ptr, ptr %43, align 8
   %.val.i98 = load i32, ptr %18, align 4
-  %44 = ptrtoint ptr %43 to i64
   %45 = lshr i32 %.val.i98, 11
-  %.lobit.i99 = and i32 %45, 1
-  %46 = zext nneg i32 %.lobit.i99 to i64
-  %47 = xor i64 %44, %46
-  %48 = xor i64 %47, 1
-  %49 = inttoptr i64 %48 to ptr
-  store ptr %49, ptr %2, align 8
-  %.val2.i100 = load ptr, ptr %13, align 8
-  %.val3.i101 = load ptr, ptr %15, align 8
-  %50 = getelementptr i8, ptr %.val2.i100, i64 32
+  %46 = and i32 %45, 1
+  %47 = ptrtoint ptr %44 to i64
+  %48 = zext nneg i32 %46 to i64
+  %49 = xor i64 %47, %48
+  %50 = xor i64 %49, 1
+  %51 = inttoptr i64 %50 to ptr
+  store ptr %51, ptr %2, align 8
+  %.val2.i99 = load ptr, ptr %13, align 8
+  %.val3.i100 = load ptr, ptr %15, align 8
+  %52 = getelementptr i8, ptr %.val2.i99, i64 32
   br label %.sink.split
 
-51:                                               ; preds = %24
-  %.val2.i107 = load ptr, ptr %9, align 8
-  %52 = getelementptr i8, ptr %.val2.i107, i64 32
-  %.val2.val.i109 = load ptr, ptr %52, align 8
-  %53 = getelementptr i8, ptr %.val88, i64 4
-  %.val3.val.i110 = load i32, ptr %53, align 4
-  %54 = getelementptr i8, ptr %.val2.val.i109, i64 8
-  %.val2.val.val.i111 = load ptr, ptr %54, align 8
-  %55 = sext i32 %.val3.val.i110 to i64
-  %56 = getelementptr inbounds ptr, ptr %.val2.val.val.i111, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %58 = ptrtoint ptr %57 to i64
-  %59 = lshr i32 %.val74, 11
-  %.lobit.i113 = and i32 %59, 1
-  %60 = xor i32 %.lobit.i113, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = xor i64 %61, %58
-  %63 = inttoptr i64 %62 to ptr
-  store ptr %63, ptr %1, align 8
-  %.val2.i114 = load ptr, ptr %13, align 8
-  %.val3.i115 = load ptr, ptr %15, align 8
-  %64 = getelementptr i8, ptr %.val2.i114, i64 32
-  %.val2.val.i116 = load ptr, ptr %64, align 8
-  %65 = getelementptr i8, ptr %.val3.i115, i64 4
-  %.val3.val.i117 = load i32, ptr %65, align 4
-  %66 = getelementptr i8, ptr %.val2.val.i116, i64 8
-  %.val2.val.val.i118 = load ptr, ptr %66, align 8
-  %67 = sext i32 %.val3.val.i117 to i64
-  %68 = getelementptr inbounds ptr, ptr %.val2.val.val.i118, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %.val.i119 = load i32, ptr %21, align 4
-  %70 = ptrtoint ptr %69 to i64
-  %71 = lshr i32 %.val.i119, 11
-  %.lobit.i120 = and i32 %71, 1
-  %72 = zext nneg i32 %.lobit.i120 to i64
-  %73 = xor i64 %70, %72
-  %74 = xor i64 %73, 1
-  %75 = inttoptr i64 %74 to ptr
-  store ptr %75, ptr %2, align 8
-  %.val2.i121 = load ptr, ptr %9, align 8
-  %.val3.i122 = load ptr, ptr %14, align 8
-  %76 = getelementptr i8, ptr %.val2.i121, i64 32
+53:                                               ; preds = %24
+  %.val2.i105 = load ptr, ptr %9, align 8
+  %54 = getelementptr i8, ptr %.val2.i105, i64 32
+  %.val2.val.i107 = load ptr, ptr %54, align 8
+  %55 = getelementptr i8, ptr %.val88, i64 4
+  %.val3.val.i108 = load i32, ptr %55, align 4
+  %56 = getelementptr i8, ptr %.val2.val.i107, i64 8
+  %.val2.val.val.i109 = load ptr, ptr %56, align 8
+  %57 = sext i32 %.val3.val.i108 to i64
+  %58 = getelementptr inbounds ptr, ptr %.val2.val.val.i109, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = lshr i32 %.val74, 11
+  %61 = and i32 %60, 1
+  %62 = ptrtoint ptr %59 to i64
+  %63 = xor i32 %61, 1
+  %64 = zext nneg i32 %63 to i64
+  %65 = xor i64 %64, %62
+  %66 = inttoptr i64 %65 to ptr
+  store ptr %66, ptr %1, align 8
+  %.val2.i111 = load ptr, ptr %13, align 8
+  %.val3.i112 = load ptr, ptr %15, align 8
+  %67 = getelementptr i8, ptr %.val2.i111, i64 32
+  %.val2.val.i113 = load ptr, ptr %67, align 8
+  %68 = getelementptr i8, ptr %.val3.i112, i64 4
+  %.val3.val.i114 = load i32, ptr %68, align 4
+  %69 = getelementptr i8, ptr %.val2.val.i113, i64 8
+  %.val2.val.val.i115 = load ptr, ptr %69, align 8
+  %70 = sext i32 %.val3.val.i114 to i64
+  %71 = getelementptr inbounds ptr, ptr %.val2.val.val.i115, i64 %70
+  %72 = load ptr, ptr %71, align 8
+  %.val.i116 = load i32, ptr %21, align 4
+  %73 = lshr i32 %.val.i116, 11
+  %74 = and i32 %73, 1
+  %75 = ptrtoint ptr %72 to i64
+  %76 = zext nneg i32 %74 to i64
+  %77 = xor i64 %75, %76
+  %78 = xor i64 %77, 1
+  %79 = inttoptr i64 %78 to ptr
+  store ptr %79, ptr %2, align 8
+  %.val2.i117 = load ptr, ptr %9, align 8
+  %.val3.i118 = load ptr, ptr %14, align 8
+  %80 = getelementptr i8, ptr %.val2.i117, i64 32
   br label %.sink.split
 
-77:                                               ; preds = %17, %3
-  %78 = getelementptr i8, ptr %.val87, i64 4
-  %.val92.val = load i32, ptr %78, align 4
-  %79 = icmp eq i32 %.val88.val, %.val92.val
-  br i1 %79, label %80, label %139
+81:                                               ; preds = %17, %3
+  %82 = getelementptr i8, ptr %.val87, i64 4
+  %.val92.val = load i32, ptr %82, align 4
+  %83 = icmp eq i32 %.val88.val, %.val92.val
+  br i1 %83, label %84, label %147
 
-80:                                               ; preds = %77
-  %81 = getelementptr i8, ptr %9, i64 20
-  %.val71 = load i32, ptr %81, align 4
-  %82 = lshr i32 %.val71, 10
-  %83 = and i32 %82, 1
-  %84 = getelementptr i8, ptr %13, i64 20
-  %.val80 = load i32, ptr %84, align 4
-  %85 = lshr i32 %.val80, 11
-  %86 = and i32 %85, 1
-  %.not63 = icmp eq i32 %83, %86
-  br i1 %.not63, label %139, label %87
+84:                                               ; preds = %81
+  %85 = getelementptr i8, ptr %9, i64 20
+  %.val71 = load i32, ptr %85, align 4
+  %86 = lshr i32 %.val71, 10
+  %87 = and i32 %86, 1
+  %88 = getelementptr i8, ptr %13, i64 20
+  %.val80 = load i32, ptr %88, align 4
+  %89 = lshr i32 %.val80, 11
+  %90 = and i32 %89, 1
+  %.not63 = icmp eq i32 %87, %90
+  br i1 %.not63, label %147, label %91
 
-87:                                               ; preds = %80
-  %.not68 = icmp eq i32 %83, 0
-  br i1 %.not68, label %114, label %88
+91:                                               ; preds = %84
+  %.not68 = icmp eq i32 %87, 0
+  br i1 %.not68, label %120, label %92
 
-88:                                               ; preds = %87
-  %.val2.i128 = load ptr, ptr %13, align 8
-  %89 = getelementptr i8, ptr %.val2.i128, i64 32
-  %.val2.val.i130 = load ptr, ptr %89, align 8
-  %90 = getelementptr i8, ptr %.val2.val.i130, i64 8
-  %.val2.val.val.i132 = load ptr, ptr %90, align 8
-  %91 = sext i32 %.val87.val to i64
-  %92 = getelementptr inbounds ptr, ptr %.val2.val.val.i132, i64 %91
-  %93 = load ptr, ptr %92, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %95 = lshr i32 %.val80, 10
-  %.lobit.i134 = and i32 %95, 1
-  %96 = xor i32 %.lobit.i134, 1
-  %97 = zext nneg i32 %96 to i64
-  %98 = xor i64 %97, %94
-  %99 = inttoptr i64 %98 to ptr
-  store ptr %99, ptr %1, align 8
-  %.val2.i135 = load ptr, ptr %9, align 8
-  %.val3.i136 = load ptr, ptr %14, align 8
-  %100 = getelementptr i8, ptr %.val2.i135, i64 32
-  %.val2.val.i137 = load ptr, ptr %100, align 8
-  %101 = getelementptr i8, ptr %.val3.i136, i64 4
-  %.val3.val.i138 = load i32, ptr %101, align 4
-  %102 = getelementptr i8, ptr %.val2.val.i137, i64 8
-  %.val2.val.val.i139 = load ptr, ptr %102, align 8
-  %103 = sext i32 %.val3.val.i138 to i64
-  %104 = getelementptr inbounds ptr, ptr %.val2.val.val.i139, i64 %103
-  %105 = load ptr, ptr %104, align 8
-  %.val.i140 = load i32, ptr %81, align 4
-  %106 = ptrtoint ptr %105 to i64
-  %107 = lshr i32 %.val.i140, 11
-  %.lobit.i141 = and i32 %107, 1
-  %108 = zext nneg i32 %.lobit.i141 to i64
-  %109 = xor i64 %106, %108
-  %110 = xor i64 %109, 1
-  %111 = inttoptr i64 %110 to ptr
-  store ptr %111, ptr %2, align 8
-  %.val2.i142 = load ptr, ptr %13, align 8
-  %.val3.i143 = load ptr, ptr %15, align 8
-  %112 = getelementptr i8, ptr %.val2.i142, i64 32
-  %113 = getelementptr i8, ptr %.val3.i143, i64 4
+92:                                               ; preds = %91
+  %.val2.i123 = load ptr, ptr %13, align 8
+  %93 = getelementptr i8, ptr %.val2.i123, i64 32
+  %.val2.val.i125 = load ptr, ptr %93, align 8
+  %94 = getelementptr i8, ptr %.val2.val.i125, i64 8
+  %.val2.val.val.i127 = load ptr, ptr %94, align 8
+  %95 = sext i32 %.val87.val to i64
+  %96 = getelementptr inbounds ptr, ptr %.val2.val.val.i127, i64 %95
+  %97 = load ptr, ptr %96, align 8
+  %98 = lshr i32 %.val80, 10
+  %99 = and i32 %98, 1
+  %100 = ptrtoint ptr %97 to i64
+  %101 = xor i32 %99, 1
+  %102 = zext nneg i32 %101 to i64
+  %103 = xor i64 %102, %100
+  %104 = inttoptr i64 %103 to ptr
+  store ptr %104, ptr %1, align 8
+  %.val2.i129 = load ptr, ptr %9, align 8
+  %.val3.i130 = load ptr, ptr %14, align 8
+  %105 = getelementptr i8, ptr %.val2.i129, i64 32
+  %.val2.val.i131 = load ptr, ptr %105, align 8
+  %106 = getelementptr i8, ptr %.val3.i130, i64 4
+  %.val3.val.i132 = load i32, ptr %106, align 4
+  %107 = getelementptr i8, ptr %.val2.val.i131, i64 8
+  %.val2.val.val.i133 = load ptr, ptr %107, align 8
+  %108 = sext i32 %.val3.val.i132 to i64
+  %109 = getelementptr inbounds ptr, ptr %.val2.val.val.i133, i64 %108
+  %110 = load ptr, ptr %109, align 8
+  %.val.i134 = load i32, ptr %85, align 4
+  %111 = lshr i32 %.val.i134, 11
+  %112 = and i32 %111, 1
+  %113 = ptrtoint ptr %110 to i64
+  %114 = zext nneg i32 %112 to i64
+  %115 = xor i64 %113, %114
+  %116 = xor i64 %115, 1
+  %117 = inttoptr i64 %116 to ptr
+  store ptr %117, ptr %2, align 8
+  %.val2.i135 = load ptr, ptr %13, align 8
+  %.val3.i136 = load ptr, ptr %15, align 8
+  %118 = getelementptr i8, ptr %.val2.i135, i64 32
+  %119 = getelementptr i8, ptr %.val3.i136, i64 4
   br label %.sink.split
 
-114:                                              ; preds = %87
-  %.val2.i149 = load ptr, ptr %9, align 8
-  %115 = getelementptr i8, ptr %.val2.i149, i64 32
-  %.val2.val.i151 = load ptr, ptr %115, align 8
-  %116 = getelementptr i8, ptr %.val88, i64 4
-  %.val3.val.i152 = load i32, ptr %116, align 4
-  %117 = getelementptr i8, ptr %.val2.val.i151, i64 8
-  %.val2.val.val.i153 = load ptr, ptr %117, align 8
-  %118 = sext i32 %.val3.val.i152 to i64
-  %119 = getelementptr inbounds ptr, ptr %.val2.val.val.i153, i64 %118
-  %120 = load ptr, ptr %119, align 8
-  %121 = ptrtoint ptr %120 to i64
-  %122 = lshr i32 %.val71, 11
-  %.lobit.i155 = and i32 %122, 1
-  %123 = xor i32 %.lobit.i155, 1
-  %124 = zext nneg i32 %123 to i64
-  %125 = xor i64 %124, %121
-  %126 = inttoptr i64 %125 to ptr
-  store ptr %126, ptr %1, align 8
-  %.val2.i156 = load ptr, ptr %13, align 8
-  %.val3.i157 = load ptr, ptr %15, align 8
-  %127 = getelementptr i8, ptr %.val2.i156, i64 32
-  %.val2.val.i158 = load ptr, ptr %127, align 8
-  %.val3.val.i159 = load i32, ptr %.val3.i157, align 4
-  %128 = getelementptr i8, ptr %.val2.val.i158, i64 8
-  %.val2.val.val.i160 = load ptr, ptr %128, align 8
-  %129 = sext i32 %.val3.val.i159 to i64
-  %130 = getelementptr inbounds ptr, ptr %.val2.val.val.i160, i64 %129
-  %131 = load ptr, ptr %130, align 8
-  %.val.i161 = load i32, ptr %84, align 4
-  %132 = ptrtoint ptr %131 to i64
-  %133 = lshr i32 %.val.i161, 10
-  %.lobit.i162 = and i32 %133, 1
-  %134 = zext nneg i32 %.lobit.i162 to i64
-  %135 = xor i64 %132, %134
-  %136 = xor i64 %135, 1
-  %137 = inttoptr i64 %136 to ptr
-  store ptr %137, ptr %2, align 8
-  %.val2.i163 = load ptr, ptr %9, align 8
-  %.val3.i164 = load ptr, ptr %14, align 8
-  %138 = getelementptr i8, ptr %.val2.i163, i64 32
+120:                                              ; preds = %91
+  %.val2.i141 = load ptr, ptr %9, align 8
+  %121 = getelementptr i8, ptr %.val2.i141, i64 32
+  %.val2.val.i143 = load ptr, ptr %121, align 8
+  %122 = getelementptr i8, ptr %.val88, i64 4
+  %.val3.val.i144 = load i32, ptr %122, align 4
+  %123 = getelementptr i8, ptr %.val2.val.i143, i64 8
+  %.val2.val.val.i145 = load ptr, ptr %123, align 8
+  %124 = sext i32 %.val3.val.i144 to i64
+  %125 = getelementptr inbounds ptr, ptr %.val2.val.val.i145, i64 %124
+  %126 = load ptr, ptr %125, align 8
+  %127 = lshr i32 %.val71, 11
+  %128 = and i32 %127, 1
+  %129 = ptrtoint ptr %126 to i64
+  %130 = xor i32 %128, 1
+  %131 = zext nneg i32 %130 to i64
+  %132 = xor i64 %131, %129
+  %133 = inttoptr i64 %132 to ptr
+  store ptr %133, ptr %1, align 8
+  %.val2.i147 = load ptr, ptr %13, align 8
+  %.val3.i148 = load ptr, ptr %15, align 8
+  %134 = getelementptr i8, ptr %.val2.i147, i64 32
+  %.val2.val.i149 = load ptr, ptr %134, align 8
+  %.val3.val.i150 = load i32, ptr %.val3.i148, align 4
+  %135 = getelementptr i8, ptr %.val2.val.i149, i64 8
+  %.val2.val.val.i151 = load ptr, ptr %135, align 8
+  %136 = sext i32 %.val3.val.i150 to i64
+  %137 = getelementptr inbounds ptr, ptr %.val2.val.val.i151, i64 %136
+  %138 = load ptr, ptr %137, align 8
+  %.val.i152 = load i32, ptr %88, align 4
+  %139 = lshr i32 %.val.i152, 10
+  %140 = and i32 %139, 1
+  %141 = ptrtoint ptr %138 to i64
+  %142 = zext nneg i32 %140 to i64
+  %143 = xor i64 %141, %142
+  %144 = xor i64 %143, 1
+  %145 = inttoptr i64 %144 to ptr
+  store ptr %145, ptr %2, align 8
+  %.val2.i153 = load ptr, ptr %9, align 8
+  %.val3.i154 = load ptr, ptr %14, align 8
+  %146 = getelementptr i8, ptr %.val2.i153, i64 32
   br label %.sink.split
 
-139:                                              ; preds = %80, %77
-  %140 = getelementptr i8, ptr %.val88, i64 4
-  %.val91.val = load i32, ptr %140, align 4
-  %141 = icmp eq i32 %.val91.val, %.val87.val
-  br i1 %141, label %142, label %200
+147:                                              ; preds = %84, %81
+  %148 = getelementptr i8, ptr %.val88, i64 4
+  %.val91.val = load i32, ptr %148, align 4
+  %149 = icmp eq i32 %.val91.val, %.val87.val
+  br i1 %149, label %150, label %212
 
-142:                                              ; preds = %139
-  %143 = getelementptr i8, ptr %9, i64 20
-  %.val79 = load i32, ptr %143, align 4
-  %144 = lshr i32 %.val79, 11
-  %145 = and i32 %144, 1
-  %146 = getelementptr i8, ptr %13, i64 20
-  %.val = load i32, ptr %146, align 4
-  %147 = lshr i32 %.val, 10
-  %148 = and i32 %147, 1
-  %.not64 = icmp eq i32 %145, %148
-  br i1 %.not64, label %200, label %149
+150:                                              ; preds = %147
+  %151 = getelementptr i8, ptr %9, i64 20
+  %.val79 = load i32, ptr %151, align 4
+  %152 = lshr i32 %.val79, 11
+  %153 = and i32 %152, 1
+  %154 = getelementptr i8, ptr %13, i64 20
+  %.val = load i32, ptr %154, align 4
+  %155 = lshr i32 %.val, 10
+  %156 = and i32 %155, 1
+  %.not64 = icmp eq i32 %153, %156
+  br i1 %.not64, label %212, label %157
 
-149:                                              ; preds = %142
-  %.not67 = icmp eq i32 %145, 0
-  br i1 %.not67, label %174, label %150
+157:                                              ; preds = %150
+  %.not67 = icmp eq i32 %153, 0
+  br i1 %.not67, label %184, label %158
 
-150:                                              ; preds = %149
-  %.val2.i170 = load ptr, ptr %13, align 8
-  %151 = getelementptr i8, ptr %.val2.i170, i64 32
-  %.val2.val.i172 = load ptr, ptr %151, align 8
-  %152 = getelementptr i8, ptr %.val2.val.i172, i64 8
-  %.val2.val.val.i174 = load ptr, ptr %152, align 8
-  %153 = sext i32 %.val92.val to i64
-  %154 = getelementptr inbounds ptr, ptr %.val2.val.val.i174, i64 %153
-  %155 = load ptr, ptr %154, align 8
-  %156 = ptrtoint ptr %155 to i64
-  %157 = lshr i32 %.val, 11
-  %.lobit.i176 = and i32 %157, 1
-  %158 = xor i32 %.lobit.i176, 1
-  %159 = zext nneg i32 %158 to i64
-  %160 = xor i64 %159, %156
-  %161 = inttoptr i64 %160 to ptr
-  store ptr %161, ptr %1, align 8
+158:                                              ; preds = %157
+  %.val2.i159 = load ptr, ptr %13, align 8
+  %159 = getelementptr i8, ptr %.val2.i159, i64 32
+  %.val2.val.i161 = load ptr, ptr %159, align 8
+  %160 = getelementptr i8, ptr %.val2.val.i161, i64 8
+  %.val2.val.val.i163 = load ptr, ptr %160, align 8
+  %161 = sext i32 %.val92.val to i64
+  %162 = getelementptr inbounds ptr, ptr %.val2.val.val.i163, i64 %161
+  %163 = load ptr, ptr %162, align 8
+  %164 = lshr i32 %.val, 11
+  %165 = and i32 %164, 1
+  %166 = ptrtoint ptr %163 to i64
+  %167 = xor i32 %165, 1
+  %168 = zext nneg i32 %167 to i64
+  %169 = xor i64 %168, %166
+  %170 = inttoptr i64 %169 to ptr
+  store ptr %170, ptr %1, align 8
+  %.val2.i165 = load ptr, ptr %9, align 8
+  %.val3.i166 = load ptr, ptr %14, align 8
+  %171 = getelementptr i8, ptr %.val2.i165, i64 32
+  %.val2.val.i167 = load ptr, ptr %171, align 8
+  %.val3.val.i168 = load i32, ptr %.val3.i166, align 4
+  %172 = getelementptr i8, ptr %.val2.val.i167, i64 8
+  %.val2.val.val.i169 = load ptr, ptr %172, align 8
+  %173 = sext i32 %.val3.val.i168 to i64
+  %174 = getelementptr inbounds ptr, ptr %.val2.val.val.i169, i64 %173
+  %175 = load ptr, ptr %174, align 8
+  %.val.i170 = load i32, ptr %151, align 4
+  %176 = lshr i32 %.val.i170, 10
+  %177 = and i32 %176, 1
+  %178 = ptrtoint ptr %175 to i64
+  %179 = zext nneg i32 %177 to i64
+  %180 = xor i64 %178, %179
+  %181 = xor i64 %180, 1
+  %182 = inttoptr i64 %181 to ptr
+  store ptr %182, ptr %2, align 8
+  %.val2.i171 = load ptr, ptr %13, align 8
+  %.val3.i172 = load ptr, ptr %15, align 8
+  %183 = getelementptr i8, ptr %.val2.i171, i64 32
+  br label %.sink.split
+
+184:                                              ; preds = %157
   %.val2.i177 = load ptr, ptr %9, align 8
-  %.val3.i178 = load ptr, ptr %14, align 8
-  %162 = getelementptr i8, ptr %.val2.i177, i64 32
-  %.val2.val.i179 = load ptr, ptr %162, align 8
-  %.val3.val.i180 = load i32, ptr %.val3.i178, align 4
-  %163 = getelementptr i8, ptr %.val2.val.i179, i64 8
-  %.val2.val.val.i181 = load ptr, ptr %163, align 8
-  %164 = sext i32 %.val3.val.i180 to i64
-  %165 = getelementptr inbounds ptr, ptr %.val2.val.val.i181, i64 %164
-  %166 = load ptr, ptr %165, align 8
-  %.val.i182 = load i32, ptr %143, align 4
-  %167 = ptrtoint ptr %166 to i64
-  %168 = lshr i32 %.val.i182, 10
-  %.lobit.i183 = and i32 %168, 1
-  %169 = zext nneg i32 %.lobit.i183 to i64
-  %170 = xor i64 %167, %169
-  %171 = xor i64 %170, 1
-  %172 = inttoptr i64 %171 to ptr
-  store ptr %172, ptr %2, align 8
-  %.val2.i184 = load ptr, ptr %13, align 8
-  %.val3.i185 = load ptr, ptr %15, align 8
-  %173 = getelementptr i8, ptr %.val2.i184, i64 32
+  %185 = getelementptr i8, ptr %.val2.i177, i64 32
+  %.val2.val.i179 = load ptr, ptr %185, align 8
+  %186 = getelementptr i8, ptr %.val2.val.i179, i64 8
+  %.val2.val.val.i181 = load ptr, ptr %186, align 8
+  %187 = sext i32 %.val88.val to i64
+  %188 = getelementptr inbounds ptr, ptr %.val2.val.val.i181, i64 %187
+  %189 = load ptr, ptr %188, align 8
+  %190 = lshr i32 %.val79, 10
+  %191 = and i32 %190, 1
+  %192 = ptrtoint ptr %189 to i64
+  %193 = xor i32 %191, 1
+  %194 = zext nneg i32 %193 to i64
+  %195 = xor i64 %194, %192
+  %196 = inttoptr i64 %195 to ptr
+  store ptr %196, ptr %1, align 8
+  %.val2.i183 = load ptr, ptr %13, align 8
+  %.val3.i184 = load ptr, ptr %15, align 8
+  %197 = getelementptr i8, ptr %.val2.i183, i64 32
+  %.val2.val.i185 = load ptr, ptr %197, align 8
+  %198 = getelementptr i8, ptr %.val3.i184, i64 4
+  %.val3.val.i186 = load i32, ptr %198, align 4
+  %199 = getelementptr i8, ptr %.val2.val.i185, i64 8
+  %.val2.val.val.i187 = load ptr, ptr %199, align 8
+  %200 = sext i32 %.val3.val.i186 to i64
+  %201 = getelementptr inbounds ptr, ptr %.val2.val.val.i187, i64 %200
+  %202 = load ptr, ptr %201, align 8
+  %.val.i188 = load i32, ptr %154, align 4
+  %203 = lshr i32 %.val.i188, 11
+  %204 = and i32 %203, 1
+  %205 = ptrtoint ptr %202 to i64
+  %206 = zext nneg i32 %204 to i64
+  %207 = xor i64 %205, %206
+  %208 = xor i64 %207, 1
+  %209 = inttoptr i64 %208 to ptr
+  store ptr %209, ptr %2, align 8
+  %.val2.i189 = load ptr, ptr %9, align 8
+  %.val3.i190 = load ptr, ptr %14, align 8
+  %210 = getelementptr i8, ptr %.val2.i189, i64 32
+  %211 = getelementptr i8, ptr %.val3.i190, i64 4
   br label %.sink.split
 
-174:                                              ; preds = %149
-  %.val2.i191 = load ptr, ptr %9, align 8
-  %175 = getelementptr i8, ptr %.val2.i191, i64 32
-  %.val2.val.i193 = load ptr, ptr %175, align 8
-  %176 = getelementptr i8, ptr %.val2.val.i193, i64 8
-  %.val2.val.val.i195 = load ptr, ptr %176, align 8
-  %177 = sext i32 %.val88.val to i64
-  %178 = getelementptr inbounds ptr, ptr %.val2.val.val.i195, i64 %177
-  %179 = load ptr, ptr %178, align 8
-  %180 = ptrtoint ptr %179 to i64
-  %181 = lshr i32 %.val79, 10
-  %.lobit.i197 = and i32 %181, 1
-  %182 = xor i32 %.lobit.i197, 1
-  %183 = zext nneg i32 %182 to i64
-  %184 = xor i64 %183, %180
-  %185 = inttoptr i64 %184 to ptr
-  store ptr %185, ptr %1, align 8
-  %.val2.i198 = load ptr, ptr %13, align 8
-  %.val3.i199 = load ptr, ptr %15, align 8
-  %186 = getelementptr i8, ptr %.val2.i198, i64 32
-  %.val2.val.i200 = load ptr, ptr %186, align 8
-  %187 = getelementptr i8, ptr %.val3.i199, i64 4
-  %.val3.val.i201 = load i32, ptr %187, align 4
-  %188 = getelementptr i8, ptr %.val2.val.i200, i64 8
-  %.val2.val.val.i202 = load ptr, ptr %188, align 8
-  %189 = sext i32 %.val3.val.i201 to i64
-  %190 = getelementptr inbounds ptr, ptr %.val2.val.val.i202, i64 %189
-  %191 = load ptr, ptr %190, align 8
-  %.val.i203 = load i32, ptr %146, align 4
-  %192 = ptrtoint ptr %191 to i64
-  %193 = lshr i32 %.val.i203, 11
-  %.lobit.i204 = and i32 %193, 1
-  %194 = zext nneg i32 %.lobit.i204 to i64
-  %195 = xor i64 %192, %194
-  %196 = xor i64 %195, 1
-  %197 = inttoptr i64 %196 to ptr
-  store ptr %197, ptr %2, align 8
-  %.val2.i205 = load ptr, ptr %9, align 8
-  %.val3.i206 = load ptr, ptr %14, align 8
-  %198 = getelementptr i8, ptr %.val2.i205, i64 32
-  %199 = getelementptr i8, ptr %.val3.i206, i64 4
-  br label %.sink.split
+212:                                              ; preds = %150, %147
+  %213 = icmp eq i32 %.val91.val, %.val92.val
+  br i1 %213, label %214, label %286
 
-200:                                              ; preds = %142, %139
-  %201 = icmp eq i32 %.val91.val, %.val92.val
-  br i1 %201, label %202, label %269
+214:                                              ; preds = %212
+  %215 = getelementptr i8, ptr %9, i64 20
+  %.val77 = load i32, ptr %215, align 4
+  %216 = lshr i32 %.val77, 11
+  %217 = and i32 %216, 1
+  %218 = getelementptr i8, ptr %13, i64 20
+  %.val76 = load i32, ptr %218, align 4
+  %219 = lshr i32 %.val76, 11
+  %220 = and i32 %219, 1
+  %.not65 = icmp eq i32 %217, %220
+  br i1 %.not65, label %286, label %221
 
-202:                                              ; preds = %200
-  %203 = getelementptr i8, ptr %9, i64 20
-  %.val77 = load i32, ptr %203, align 4
-  %204 = lshr i32 %.val77, 11
-  %205 = and i32 %204, 1
-  %206 = getelementptr i8, ptr %13, i64 20
-  %.val76 = load i32, ptr %206, align 4
-  %207 = lshr i32 %.val76, 11
-  %208 = and i32 %207, 1
-  %.not65 = icmp eq i32 %205, %208
-  br i1 %.not65, label %269, label %209
+221:                                              ; preds = %214
+  %.not66 = icmp eq i32 %217, 0
+  br i1 %.not66, label %249, label %222
 
-209:                                              ; preds = %202
-  %.not66 = icmp eq i32 %205, 0
-  br i1 %.not66, label %235, label %210
-
-210:                                              ; preds = %209
-  %.val2.i212 = load ptr, ptr %13, align 8
-  %211 = getelementptr i8, ptr %.val2.i212, i64 32
-  %.val2.val.i214 = load ptr, ptr %211, align 8
-  %212 = getelementptr i8, ptr %.val2.val.i214, i64 8
-  %.val2.val.val.i216 = load ptr, ptr %212, align 8
-  %213 = sext i32 %.val87.val to i64
-  %214 = getelementptr inbounds ptr, ptr %.val2.val.val.i216, i64 %213
-  %215 = load ptr, ptr %214, align 8
-  %216 = ptrtoint ptr %215 to i64
-  %217 = lshr i32 %.val76, 10
-  %.lobit.i218 = and i32 %217, 1
-  %218 = xor i32 %.lobit.i218, 1
-  %219 = zext nneg i32 %218 to i64
-  %220 = xor i64 %219, %216
-  %221 = inttoptr i64 %220 to ptr
-  store ptr %221, ptr %1, align 8
-  %.val2.i219 = load ptr, ptr %9, align 8
-  %.val3.i220 = load ptr, ptr %14, align 8
-  %222 = getelementptr i8, ptr %.val2.i219, i64 32
-  %.val2.val.i221 = load ptr, ptr %222, align 8
-  %.val3.val.i222 = load i32, ptr %.val3.i220, align 4
-  %223 = getelementptr i8, ptr %.val2.val.i221, i64 8
-  %.val2.val.val.i223 = load ptr, ptr %223, align 8
-  %224 = sext i32 %.val3.val.i222 to i64
-  %225 = getelementptr inbounds ptr, ptr %.val2.val.val.i223, i64 %224
-  %226 = load ptr, ptr %225, align 8
-  %.val.i224 = load i32, ptr %203, align 4
-  %227 = ptrtoint ptr %226 to i64
-  %228 = lshr i32 %.val.i224, 10
-  %.lobit.i225 = and i32 %228, 1
-  %229 = zext nneg i32 %.lobit.i225 to i64
-  %230 = xor i64 %227, %229
-  %231 = xor i64 %230, 1
-  %232 = inttoptr i64 %231 to ptr
-  store ptr %232, ptr %2, align 8
-  %.val2.i226 = load ptr, ptr %13, align 8
-  %.val3.i227 = load ptr, ptr %15, align 8
-  %233 = getelementptr i8, ptr %.val2.i226, i64 32
-  %234 = getelementptr i8, ptr %.val3.i227, i64 4
-  br label %.sink.split
-
-235:                                              ; preds = %209
-  %.val2.i233 = load ptr, ptr %9, align 8
-  %236 = getelementptr i8, ptr %.val2.i233, i64 32
-  %.val2.val.i235 = load ptr, ptr %236, align 8
-  %237 = getelementptr i8, ptr %.val2.val.i235, i64 8
-  %.val2.val.val.i237 = load ptr, ptr %237, align 8
-  %238 = sext i32 %.val88.val to i64
-  %239 = getelementptr inbounds ptr, ptr %.val2.val.val.i237, i64 %238
-  %240 = load ptr, ptr %239, align 8
-  %241 = ptrtoint ptr %240 to i64
-  %242 = lshr i32 %.val77, 10
-  %.lobit.i239 = and i32 %242, 1
-  %243 = xor i32 %.lobit.i239, 1
-  %244 = zext nneg i32 %243 to i64
-  %245 = xor i64 %244, %241
+222:                                              ; preds = %221
+  %.val2.i195 = load ptr, ptr %13, align 8
+  %223 = getelementptr i8, ptr %.val2.i195, i64 32
+  %.val2.val.i197 = load ptr, ptr %223, align 8
+  %224 = getelementptr i8, ptr %.val2.val.i197, i64 8
+  %.val2.val.val.i199 = load ptr, ptr %224, align 8
+  %225 = sext i32 %.val87.val to i64
+  %226 = getelementptr inbounds ptr, ptr %.val2.val.val.i199, i64 %225
+  %227 = load ptr, ptr %226, align 8
+  %228 = lshr i32 %.val76, 10
+  %229 = and i32 %228, 1
+  %230 = ptrtoint ptr %227 to i64
+  %231 = xor i32 %229, 1
+  %232 = zext nneg i32 %231 to i64
+  %233 = xor i64 %232, %230
+  %234 = inttoptr i64 %233 to ptr
+  store ptr %234, ptr %1, align 8
+  %.val2.i201 = load ptr, ptr %9, align 8
+  %.val3.i202 = load ptr, ptr %14, align 8
+  %235 = getelementptr i8, ptr %.val2.i201, i64 32
+  %.val2.val.i203 = load ptr, ptr %235, align 8
+  %.val3.val.i204 = load i32, ptr %.val3.i202, align 4
+  %236 = getelementptr i8, ptr %.val2.val.i203, i64 8
+  %.val2.val.val.i205 = load ptr, ptr %236, align 8
+  %237 = sext i32 %.val3.val.i204 to i64
+  %238 = getelementptr inbounds ptr, ptr %.val2.val.val.i205, i64 %237
+  %239 = load ptr, ptr %238, align 8
+  %.val.i206 = load i32, ptr %215, align 4
+  %240 = lshr i32 %.val.i206, 10
+  %241 = and i32 %240, 1
+  %242 = ptrtoint ptr %239 to i64
+  %243 = zext nneg i32 %241 to i64
+  %244 = xor i64 %242, %243
+  %245 = xor i64 %244, 1
   %246 = inttoptr i64 %245 to ptr
-  store ptr %246, ptr %1, align 8
-  %.val2.i240 = load ptr, ptr %13, align 8
-  %.val3.i241 = load ptr, ptr %15, align 8
-  %247 = getelementptr i8, ptr %.val2.i240, i64 32
-  %.val2.val.i242 = load ptr, ptr %247, align 8
-  %.val3.val.i243 = load i32, ptr %.val3.i241, align 4
-  %248 = getelementptr i8, ptr %.val2.val.i242, i64 8
-  %.val2.val.val.i244 = load ptr, ptr %248, align 8
-  %249 = sext i32 %.val3.val.i243 to i64
-  %250 = getelementptr inbounds ptr, ptr %.val2.val.val.i244, i64 %249
-  %251 = load ptr, ptr %250, align 8
-  %.val.i245 = load i32, ptr %206, align 4
-  %252 = ptrtoint ptr %251 to i64
-  %253 = lshr i32 %.val.i245, 10
-  %.lobit.i246 = and i32 %253, 1
-  %254 = zext nneg i32 %.lobit.i246 to i64
-  %255 = xor i64 %252, %254
-  %256 = xor i64 %255, 1
-  %257 = inttoptr i64 %256 to ptr
-  store ptr %257, ptr %2, align 8
-  %.val2.i247 = load ptr, ptr %9, align 8
-  %.val3.i248 = load ptr, ptr %14, align 8
-  %258 = getelementptr i8, ptr %.val2.i247, i64 32
-  %259 = getelementptr i8, ptr %.val3.i248, i64 4
+  store ptr %246, ptr %2, align 8
+  %.val2.i207 = load ptr, ptr %13, align 8
+  %.val3.i208 = load ptr, ptr %15, align 8
+  %247 = getelementptr i8, ptr %.val2.i207, i64 32
+  %248 = getelementptr i8, ptr %.val3.i208, i64 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %51, %88, %114, %150, %174, %210, %235
-  %.sink = phi ptr [ %259, %235 ], [ %234, %210 ], [ %199, %174 ], [ %.val3.i185, %150 ], [ %.val3.i164, %114 ], [ %113, %88 ], [ %.val3.i122, %51 ], [ %.val3.i101, %25 ]
-  %.val2.val.i249.sink.in = phi ptr [ %258, %235 ], [ %233, %210 ], [ %198, %174 ], [ %173, %150 ], [ %138, %114 ], [ %112, %88 ], [ %76, %51 ], [ %50, %25 ]
-  %.sink257 = phi ptr [ %203, %235 ], [ %206, %210 ], [ %143, %174 ], [ %146, %150 ], [ %81, %114 ], [ %84, %88 ], [ %18, %51 ], [ %21, %25 ]
-  %.sink256 = phi i32 [ 11, %235 ], [ 11, %210 ], [ 11, %174 ], [ 10, %150 ], [ 10, %114 ], [ 11, %88 ], [ 10, %51 ], [ 10, %25 ]
-  %.val2.val.i249.sink = load ptr, ptr %.val2.val.i249.sink.in, align 8
-  %.val3.val.i250 = load i32, ptr %.sink, align 4
-  %260 = getelementptr i8, ptr %.val2.val.i249.sink, i64 8
-  %.val2.val.val.i251 = load ptr, ptr %260, align 8
-  %261 = sext i32 %.val3.val.i250 to i64
-  %262 = getelementptr inbounds ptr, ptr %.val2.val.val.i251, i64 %261
-  %263 = load ptr, ptr %262, align 8
-  %.val.i252 = load i32, ptr %.sink257, align 4
-  %264 = ptrtoint ptr %263 to i64
-  %265 = lshr i32 %.val.i252, %.sink256
-  %.lobit.i253 = and i32 %265, 1
-  %266 = zext nneg i32 %.lobit.i253 to i64
-  %267 = xor i64 %266, %264
-  %268 = inttoptr i64 %267 to ptr
-  br label %269
+249:                                              ; preds = %221
+  %.val2.i213 = load ptr, ptr %9, align 8
+  %250 = getelementptr i8, ptr %.val2.i213, i64 32
+  %.val2.val.i215 = load ptr, ptr %250, align 8
+  %251 = getelementptr i8, ptr %.val2.val.i215, i64 8
+  %.val2.val.val.i217 = load ptr, ptr %251, align 8
+  %252 = sext i32 %.val88.val to i64
+  %253 = getelementptr inbounds ptr, ptr %.val2.val.val.i217, i64 %252
+  %254 = load ptr, ptr %253, align 8
+  %255 = lshr i32 %.val77, 10
+  %256 = and i32 %255, 1
+  %257 = ptrtoint ptr %254 to i64
+  %258 = xor i32 %256, 1
+  %259 = zext nneg i32 %258 to i64
+  %260 = xor i64 %259, %257
+  %261 = inttoptr i64 %260 to ptr
+  store ptr %261, ptr %1, align 8
+  %.val2.i219 = load ptr, ptr %13, align 8
+  %.val3.i220 = load ptr, ptr %15, align 8
+  %262 = getelementptr i8, ptr %.val2.i219, i64 32
+  %.val2.val.i221 = load ptr, ptr %262, align 8
+  %.val3.val.i222 = load i32, ptr %.val3.i220, align 4
+  %263 = getelementptr i8, ptr %.val2.val.i221, i64 8
+  %.val2.val.val.i223 = load ptr, ptr %263, align 8
+  %264 = sext i32 %.val3.val.i222 to i64
+  %265 = getelementptr inbounds ptr, ptr %.val2.val.val.i223, i64 %264
+  %266 = load ptr, ptr %265, align 8
+  %.val.i224 = load i32, ptr %218, align 4
+  %267 = lshr i32 %.val.i224, 10
+  %268 = and i32 %267, 1
+  %269 = ptrtoint ptr %266 to i64
+  %270 = zext nneg i32 %268 to i64
+  %271 = xor i64 %269, %270
+  %272 = xor i64 %271, 1
+  %273 = inttoptr i64 %272 to ptr
+  store ptr %273, ptr %2, align 8
+  %.val2.i225 = load ptr, ptr %9, align 8
+  %.val3.i226 = load ptr, ptr %14, align 8
+  %274 = getelementptr i8, ptr %.val2.i225, i64 32
+  %275 = getelementptr i8, ptr %.val3.i226, i64 4
+  br label %.sink.split
 
-269:                                              ; preds = %.sink.split, %202, %200
-  %.0 = phi ptr [ null, %200 ], [ null, %202 ], [ %268, %.sink.split ]
+.sink.split:                                      ; preds = %25, %53, %92, %120, %158, %184, %222, %249
+  %.sink239 = phi ptr [ %275, %249 ], [ %248, %222 ], [ %211, %184 ], [ %.val3.i172, %158 ], [ %.val3.i154, %120 ], [ %119, %92 ], [ %.val3.i118, %53 ], [ %.val3.i100, %25 ]
+  %.val2.val.i227.sink.in = phi ptr [ %274, %249 ], [ %247, %222 ], [ %210, %184 ], [ %183, %158 ], [ %146, %120 ], [ %118, %92 ], [ %80, %53 ], [ %52, %25 ]
+  %.sink235 = phi ptr [ %215, %249 ], [ %218, %222 ], [ %151, %184 ], [ %154, %158 ], [ %85, %120 ], [ %88, %92 ], [ %18, %53 ], [ %21, %25 ]
+  %.sink = phi i32 [ 11, %249 ], [ 11, %222 ], [ 11, %184 ], [ 10, %158 ], [ 10, %120 ], [ 11, %92 ], [ 10, %53 ], [ 10, %25 ]
+  %.val2.val.i227.sink = load ptr, ptr %.val2.val.i227.sink.in, align 8
+  %.val3.val.i228 = load i32, ptr %.sink239, align 4
+  %276 = getelementptr i8, ptr %.val2.val.i227.sink, i64 8
+  %.val2.val.val.i229 = load ptr, ptr %276, align 8
+  %277 = sext i32 %.val3.val.i228 to i64
+  %278 = getelementptr inbounds ptr, ptr %.val2.val.val.i229, i64 %277
+  %279 = load ptr, ptr %278, align 8
+  %.val.i230 = load i32, ptr %.sink235, align 4
+  %280 = lshr i32 %.val.i230, %.sink
+  %281 = and i32 %280, 1
+  %282 = ptrtoint ptr %279 to i64
+  %283 = zext nneg i32 %281 to i64
+  %284 = xor i64 %283, %282
+  %285 = inttoptr i64 %284 to ptr
+  br label %286
+
+286:                                              ; preds = %.sink.split, %214, %212
+  %.0 = phi ptr [ null, %212 ], [ null, %214 ], [ %285, %.sink.split ]
   ret ptr %.0
 }
 
@@ -6760,9 +6760,9 @@ define void @Abc_NtkTransferCopy(ptr nocapture noundef readonly %0) local_unname
   %21 = getelementptr inbounds i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
-  %23 = ptrtoint ptr %22 to i64
-  %24 = and i64 %18, 1
-  %25 = xor i64 %24, %23
+  %23 = and i64 %18, 1
+  %24 = ptrtoint ptr %22 to i64
+  %25 = xor i64 %23, %24
   %26 = inttoptr i64 %25 to ptr
   %27 = select i1 %.not.i, ptr null, ptr %26
   br label %28
@@ -7832,7 +7832,7 @@ define noundef ptr @Abc_NtkAddBuffsInt(ptr noundef %0, i32 noundef %1, i32 nound
   %55 = lshr i32 %54, 12
   %56 = add nsw i32 %55, -1
   %57 = lshr i32 %46, 12
-  %58 = tail call noundef i32 @llvm.smin.i32(i32 %56, i32 %57)
+  %58 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %56, i32 %57)
   %59 = shl i32 %58, 12
   %60 = and i32 %46, 4095
   %61 = or disjoint i32 %59, %60
@@ -12072,11 +12072,11 @@ define i32 @Abc_NtkClpOneGia_rec(ptr noundef %0, ptr nocapture noundef %1) local
 common.ret:                                       ; preds = %15, %15, %12, %2
   %18 = getelementptr inbounds i8, ptr %1, i64 64
   %19 = load i32, ptr %18, align 8
-  br label %common.ret31
+  br label %common.ret30
 
-common.ret31:                                     ; preds = %20, %common.ret
-  %common.ret31.op = phi i32 [ %19, %common.ret ], [ %44, %20 ]
-  ret i32 %common.ret31.op
+common.ret30:                                     ; preds = %20, %common.ret
+  %common.ret30.op = phi i32 [ %19, %common.ret ], [ %46, %20 ]
+  ret i32 %common.ret30.op
 
 20:                                               ; preds = %15
   %.val26 = load i32, ptr %3, align 8
@@ -12114,15 +12114,15 @@ common.ret31:                                     ; preds = %20, %common.ret
   %39 = tail call i32 @Abc_NtkClpOneGia_rec(ptr noundef %0, ptr noundef %38)
   %.val18 = load i32, ptr %16, align 4
   %40 = lshr i32 %.val18, 10
-  %.lobit = and i32 %40, 1
-  %41 = xor i32 %.lobit, %32
-  %42 = lshr i32 %.val18, 11
-  %.lobit30 = and i32 %42, 1
-  %43 = xor i32 %.lobit30, %39
-  %44 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %41, i32 noundef %43) #28
-  %45 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 %44, ptr %45, align 8
-  br label %common.ret31
+  %41 = and i32 %40, 1
+  %42 = xor i32 %41, %32
+  %43 = lshr i32 %.val18, 11
+  %44 = and i32 %43, 1
+  %45 = xor i32 %44, %39
+  %46 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %42, i32 noundef %45) #28
+  %47 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 %46, ptr %47, align 8
+  br label %common.ret30
 }
 
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -12401,21 +12401,21 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge2, %Vec_In
   %136 = getelementptr i8, ptr %128, i64 20
   %.val41 = load i32, ptr %136, align 4
   %137 = lshr i32 %.val41, 10
-  %.lobit = and i32 %137, 1
-  %138 = xor i32 %.lobit, %135
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %19, i32 noundef %138)
+  %138 = and i32 %137, 1
+  %139 = xor i32 %138, %135
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %19, i32 noundef %139)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %.val44 = load ptr, ptr %123, align 8
-  %139 = getelementptr i8, ptr %.val44, i64 4
-  %.val44.val = load i32, ptr %139, align 4
-  %140 = sext i32 %.val44.val to i64
-  %141 = icmp slt i64 %indvars.iv.next71, %140
-  br i1 %141, label %.lr.ph65, label %.critedge4, !llvm.loop !160
+  %140 = getelementptr i8, ptr %.val44, i64 4
+  %.val44.val = load i32, ptr %140, align 4
+  %141 = sext i32 %.val44.val to i64
+  %142 = icmp slt i64 %indvars.iv.next71, %141
+  br i1 %142, label %.lr.ph65, label %.critedge4, !llvm.loop !160
 
 .critedge4:                                       ; preds = %.lr.ph65, %Abc_NtkIncrementTravId.exit
-  %142 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %19) #28
+  %143 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %19) #28
   tail call void @Gia_ManStop(ptr noundef nonnull %19) #28
-  ret ptr %142
+  ret ptr %143
 }
 
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #1
@@ -12976,7 +12976,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -13087,7 +13087,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

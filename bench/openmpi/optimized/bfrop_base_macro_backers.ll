@@ -8828,7 +8828,7 @@ pmix_bfrops_base_tma_node_stats_create.exit:      ; preds = %15
   %.072 = phi i64 [ %894, %.lr.ph ], [ 0, %pmix_bfrops_base_tma_node_stats_create.exit ]
   %892 = getelementptr inbounds %struct.pmix_node_stats_t, ptr %calloc.i1014, i64 %.072
   %893 = getelementptr inbounds %struct.pmix_node_stats_t, ptr %13, i64 %.072
-  tail call fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr noundef nonnull %892, ptr noundef %893)
+  tail call fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr noundef %892, ptr noundef %893)
   %894 = add nuw i64 %.072, 1
   %895 = load i64, ptr %7, align 8
   %896 = icmp ult i64 %894, %895
@@ -9493,7 +9493,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_ndstats(
 
 4:                                                ; preds = %2
   store ptr %calloc.i, ptr %0, align 8
-  tail call fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr noundef nonnull %calloc.i, ptr noundef %1)
+  tail call fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr noundef %calloc.i, ptr noundef %1)
   br label %5
 
 5:                                                ; preds = %2, %4
@@ -9510,7 +9510,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #28
 declare i32 @pmix_hwloc_copy_cpuset(ptr noundef, ptr noundef) local_unnamed_addr #28
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #33 {
+define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #33 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

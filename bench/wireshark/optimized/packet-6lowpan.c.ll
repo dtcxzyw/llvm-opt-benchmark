@@ -1239,7 +1239,7 @@ dissect_6lowpan_mesh.exit:                        ; preds = %247, %282
   br i1 %.not.i96, label %340, label %342
 
 340:                                              ; preds = %318
-  %341 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %339, ptr noundef nonnull %1, ptr noundef %162, ptr noundef %335, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14)
+  %341 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %339, ptr noundef nonnull %1, ptr noundef %162, ptr noundef %335, ptr noundef readonly %13, ptr noundef readonly %14)
   br label %342
 
 342:                                              ; preds = %340, %318
@@ -1378,7 +1378,7 @@ dissect_6lowpan_rfrag.exit:                       ; preds = %382
   %418 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %418, ptr noundef %.2, i32 noundef 4) #10
   %419 = call ptr @tvb_new_subset_length(ptr noundef %.2, i32 noundef 4, i32 noundef %412) #10
-  %420 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %419, ptr noundef nonnull %1, ptr noundef %162, ptr noundef %413, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14)
+  %420 = call fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %419, ptr noundef nonnull %1, ptr noundef %162, ptr noundef %413, ptr noundef readonly %13, ptr noundef readonly %14)
   %421 = icmp eq ptr %420, null
   br i1 %421, label %dissect_6lowpan_frag_first.exit, label %422
 
@@ -1891,7 +1891,7 @@ dissect_6lowpan_6loRH.exit:                       ; preds = %.loopexit.i, %527
   br i1 %686, label %687, label %700
 
 687:                                              ; preds = %684
-  %688 = call fastcc ptr @dissect_6lowpan_hc1(ptr noundef %.4, ptr noundef %1, ptr noundef %162, i32 noundef -1, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %688 = call fastcc ptr @dissect_6lowpan_hc1(ptr noundef %.4, ptr noundef %1, ptr noundef %162, i32 noundef -1, ptr noundef %13, ptr noundef %14)
   br label %700
 
 689:                                              ; preds = %524
@@ -1900,7 +1900,7 @@ dissect_6lowpan_6loRH.exit:                       ; preds = %.loopexit.i, %527
   br i1 %691, label %692, label %694
 
 692:                                              ; preds = %689
-  %693 = call fastcc ptr @dissect_6lowpan_hc1(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %162, i32 noundef -1, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %693 = call fastcc ptr @dissect_6lowpan_hc1(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %162, i32 noundef -1, ptr noundef %13, ptr noundef %14)
   br label %700
 
 694:                                              ; preds = %689
@@ -3057,7 +3057,7 @@ lowpan_reassemble_ipv6.exit:                      ; preds = %.lr.ph39.i, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.ws_ip6_hdr, align 4
   %9 = load i32, ptr @ett_6lowpan_hc1, align 4
@@ -3577,7 +3577,7 @@ declare zeroext i16 @tvb_get_bits16(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 0, i32 noundef 8) #10
   %8 = icmp eq i8 %7, 65
   br i1 %8, label %9, label %13
@@ -3623,7 +3623,7 @@ define internal fastcc ptr @dissect_6lowpan_frag_headers(ptr noundef %0, ptr nou
 
 32:                                               ; preds = %30, %27
   %33 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
-  %34 = tail call fastcc ptr @dissect_6lowpan_iphc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %33, ptr noundef %4, ptr noundef %5)
+  %34 = tail call fastcc ptr @dissect_6lowpan_iphc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %33, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br label %36
 
 35:                                               ; preds = %24

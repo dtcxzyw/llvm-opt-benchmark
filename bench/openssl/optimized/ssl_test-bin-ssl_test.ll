@@ -528,7 +528,7 @@ if.end221:                                        ; preds = %land.lhs.true217, %
   br i1 %cmp223.not, label %err, label %if.then225
 
 if.then225:                                       ; preds = %if.end221
-  %call226 = call fastcc i32 @check_test(ptr noundef nonnull %call222, ptr noundef nonnull %call2)
+  %call226 = call fastcc i32 @check_test(ptr noundef %call222, ptr noundef nonnull %call2)
   br label %err
 
 err:                                              ; preds = %if.end221, %if.then225, %land.lhs.true217, %land.lhs.true210, %land.lhs.true203, %if.end193, %lor.lhs.false196, %if.end181, %lor.lhs.false184, %lor.lhs.false187, %if.end172, %lor.lhs.false175, %if.end162, %if.then146, %lor.lhs.false155, %if.end132, %if.end123, %if.then111, %lor.lhs.false116, %if.then89, %lor.lhs.false98, %if.end76, %lor.lhs.false79, %if.end67, %if.then52, %lor.lhs.false60, %if.end40, %if.then27, %lor.lhs.false32, %if.then11, %lor.lhs.false, %entry, %if.then7
@@ -601,7 +601,7 @@ declare i32 @SSL_CTX_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @do_handshake(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_test(ptr nocapture noundef readonly %result, ptr nocapture noundef readonly %test_ctx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @check_test(ptr nocapture noundef nonnull readonly %result, ptr nocapture noundef readonly %test_ctx) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %result, align 8
   %expected_result.i = getelementptr inbounds i8, ptr %test_ctx, i64 424

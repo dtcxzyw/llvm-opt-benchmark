@@ -5078,7 +5078,7 @@ for.body86:                                       ; preds = %land.rhs81
   br i1 %cmp.i.not.i, label %if.then88, label %if.end92
 
 if.then88:                                        ; preds = %for.body86
-  invoke fastcc void @"_ZZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEvENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(8) %get_iterator_for_block, i64 noundef %i76.0)
+  invoke fastcc void @"_ZZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEvENK3$_0clEm"(ptr noalias align 8 %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(8) %get_iterator_for_block, i64 noundef %i76.0)
           to label %_ZNSt10unique_ptrIN7rocksdb13DataBlockIterESt14default_deleteIS1_EED2Ev.exit unwind label %lpad78.loopexit.split-lp.loopexit
 
 _ZNSt10unique_ptrIN7rocksdb13DataBlockIterESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then88
@@ -5142,7 +5142,7 @@ if.end92:                                         ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp96, label %if.then97, label %if.end102
 
 if.then97:                                        ; preds = %if.end92
-  invoke fastcc void @"_ZZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEvENK3$_0clEm"(ptr noalias nonnull align 8 %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(8) %get_iterator_for_block, i64 noundef %add93)
+  invoke fastcc void @"_ZZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEvENK3$_0clEm"(ptr noalias align 8 %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(8) %get_iterator_for_block, i64 noundef %add93)
           to label %invoke.cont100 unwind label %lpad78.loopexit.split-lp.loopexit
 
 invoke.cont100:                                   ; preds = %if.then97
@@ -12739,7 +12739,7 @@ if.end16:                                         ; preds = %land.lhs.true, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEvENK3$_0clEm"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEvENK3$_0clEm"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader = alloca %"class.rocksdb::Block", align 8
   %ref.tmp = alloca %"struct.rocksdb::BlockContents", align 8

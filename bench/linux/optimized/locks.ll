@@ -6885,7 +6885,7 @@ flock_to_posix_lock.exit.thread:                  ; preds = %81, %76, %60, %52, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_lock_file_wait(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @do_lock_file_wait(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 84
   %6 = load i8, ptr %5, align 4
@@ -6921,12 +6921,12 @@ define internal fastcc i32 @do_lock_file_wait(ptr noundef %0, i32 noundef %1, pt
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %20
-  %26 = call i32 %23(ptr noundef %0, i32 noundef %1, ptr noundef %2) #15
+  %26 = call i32 %23(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) #15
   br label %30
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %13, align 8
-  %29 = call fastcc i32 @posix_lock_inode(ptr noundef %28, ptr noundef %2, ptr noundef null), !range !49
+  %29 = call fastcc i32 @posix_lock_inode(ptr noundef %28, ptr noundef nonnull %2, ptr noundef null), !range !49
   br label %30
 
 30:                                               ; preds = %27, %25
@@ -6981,7 +6981,7 @@ define internal fastcc i32 @do_lock_file_wait(ptr noundef %0, i32 noundef %1, pt
 
 52:                                               ; preds = %49, %30
   %53 = phi i32 [ %31, %30 ], [ %50, %49 ]
-  %54 = call i32 @locks_delete_block(ptr noundef %2), !range !96
+  %54 = call i32 @locks_delete_block(ptr noundef nonnull %2), !range !96
   br label %55
 
 55:                                               ; preds = %52, %3

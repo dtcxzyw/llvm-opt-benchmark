@@ -285,12 +285,12 @@ define range(i32 0, 2) i32 @ossl_DER_w_uint32(ptr noundef %pkt, i32 noundef %tag
 entry:
   %v.addr = alloca i32, align 4
   store i32 %v, ptr %v.addr, align 4
-  %call = call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef nonnull %v.addr)
+  %call = call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef %v.addr)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr nocapture noundef readonly %put_bytes, ptr noundef %v) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr nocapture noundef readonly %put_bytes, ptr noundef nonnull %v) unnamed_addr #0 {
 entry:
   %size1.i = alloca i64, align 8
   %size2.i = alloca i64, align 8
@@ -314,7 +314,7 @@ land.lhs.true:                                    ; preds = %entry, %int_start_c
   br i1 %tobool2.not, label %land.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %call4 = call i32 %put_bytes(ptr noundef %pkt, ptr noundef %v, ptr noundef nonnull %top_byte) #4, !callees !6
+  %call4 = call i32 %put_bytes(ptr noundef %pkt, ptr noundef nonnull %v, ptr noundef nonnull %top_byte) #4, !callees !6
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %land.end, label %land.lhs.true6
 
@@ -433,12 +433,12 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i)
   store i32 0, ptr %v.addr.i, align 4
-  %call.i = call fastcc range(i32 0, 2) i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef nonnull %v.addr.i)
+  %call.i = call fastcc range(i32 0, 2) i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef %v.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i)
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_bn, ptr noundef nonnull %v)
+  %call6 = tail call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_bn, ptr noundef %v)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end5, %if.then3

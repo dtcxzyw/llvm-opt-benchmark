@@ -1099,7 +1099,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_ksys_old_semctl(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_semctl(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_semctl(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 257) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.compat_semid64_ds, align 4
   %7 = alloca %struct.compat_semid_ds, align 4
   %8 = alloca %struct.semid64_ds, align 8
@@ -1881,7 +1881,7 @@ declare dso_local i32 @ipcperms(ptr noundef, ptr noundef, i16 noundef signext) l
 declare dso_local i32 @security_sem_semop(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 65536) i32 @sem_lock(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #7 align 16 {
+define internal fastcc range(i32 -1, 65536) i32 @sem_lock(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #7 align 16 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %22, label %5
 
@@ -2127,7 +2127,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_smart_update(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @do_smart_update(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %12, label %7
 
@@ -2329,7 +2329,7 @@ do_smart_wakeup_zero.exit.thread:                 ; preds = %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @sem_unlock(ptr noundef %0, i32 noundef %1) unnamed_addr #7 align 16 {
+define internal fastcc void @sem_unlock(ptr noundef %0, i32 noundef range(i32 -1, 65536) %1) unnamed_addr #7 align 16 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %4, label %37
 
@@ -3520,7 +3520,7 @@ define internal fastcc i32 @semctl_info(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @semctl_stat(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @semctl_stat(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
   tail call void @__rcu_read_lock() #12
   %5 = icmp eq i32 %2, 20
@@ -3647,7 +3647,7 @@ define internal fastcc i32 @semctl_stat(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca [256 x i16], align 16
   %7 = alloca %struct.wake_q_head, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #12
@@ -4098,7 +4098,7 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.wake_q_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
@@ -4223,7 +4223,7 @@ define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @semctl_down(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @semctl_down(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @down_write(ptr noundef %5) #12
   tail call void @__rcu_read_lock() #12
@@ -4651,7 +4651,7 @@ declare dso_local i32 @get_compat_ipc64_perm(ptr noundef, ptr noundef) local_unn
 declare dso_local i32 @get_compat_ipc_perm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @lookup_undo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @lookup_undo(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0

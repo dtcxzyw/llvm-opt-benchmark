@@ -902,11 +902,11 @@ apply_case_fold2.exit53.thread:                   ; preds = %48, %57, %.lr.ph.i4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i32 0, 4216) %1, i32 noundef range(i32 4215, 4219) %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = icmp slt i32 %1, %2
+  %9 = icmp ult i32 %1, %2
   br i1 %9, label %.lr.ph64, label %.loopexit51
 
 .lr.ph64:                                         ; preds = %5
@@ -2293,7 +2293,7 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   ]
 
 83:                                               ; preds = %82, %82, %82
-  %84 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %84 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   %.not272 = icmp eq i32 %84, 0
   br i1 %.not272, label %.loopexit410, label %85
 
@@ -2350,7 +2350,7 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   ]
 
 96:                                               ; preds = %95
-  %97 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %97 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   %98 = icmp ne i32 %97, 0
   %99 = load i32, ptr %7, align 4
   %100 = icmp eq i32 %99, 7
@@ -2447,7 +2447,7 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   ]
 
 125:                                              ; preds = %124, %124, %124
-  %126 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %126 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   %127 = icmp ne i32 %126, 0
   %128 = load i32, ptr %7, align 4
   %129 = icmp eq i32 %128, 14
@@ -2612,7 +2612,7 @@ define i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = tail call i32 %6(ptr noundef %1) #10
   %8 = sext i32 %7 to i64
@@ -3350,17 +3350,17 @@ hash.exit.i:                                      ; preds = %76, %35
   %108 = xor i8 %107, %84
   %109 = and i8 %108, -33
   %110 = icmp eq i8 %109, 0
-  br i1 %110, label %.lr.ph.i.i, label %unicode_lookup_property_name.exit.thread
+  br i1 %110, label %.preheader.i, label %unicode_lookup_property_name.exit.thread
 
-.lr.ph.i.i:                                       ; preds = %104, %120
-  %.0918.i.i = phi ptr [ %122, %120 ], [ %4, %104 ]
-  %.01017.i.i = phi i64 [ %123, %120 ], [ %25, %104 ]
-  %.01116.i.i = phi ptr [ %121, %120 ], [ %106, %104 ]
-  %111 = load i8, ptr %.0918.i.i, align 1
+.preheader.i:                                     ; preds = %104, %120
+  %.0917.i.i = phi ptr [ %122, %120 ], [ %4, %104 ]
+  %.01016.i.i = phi i64 [ %123, %120 ], [ %25, %104 ]
+  %.01115.i.i = phi ptr [ %121, %120 ], [ %106, %104 ]
+  %111 = load i8, ptr %.0917.i.i, align 1
   %112 = zext i8 %111 to i64
   %113 = getelementptr inbounds [256 x i8], ptr @gperf_downcase, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
-  %115 = load i8, ptr %.01116.i.i, align 1
+  %115 = load i8, ptr %.01115.i.i, align 1
   %116 = zext i8 %115 to i64
   %117 = getelementptr inbounds [256 x i8], ptr @gperf_downcase, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
@@ -3369,14 +3369,14 @@ hash.exit.i:                                      ; preds = %76, %35
   %or.cond.i.i = select i1 %.not13.i.i, i1 %119, i1 false
   br i1 %or.cond.i.i, label %120, label %gperf_case_strncmp.exit.i
 
-120:                                              ; preds = %.lr.ph.i.i
-  %121 = getelementptr inbounds i8, ptr %.01116.i.i, i64 1
-  %122 = getelementptr inbounds i8, ptr %.0918.i.i, i64 1
-  %123 = add nsw i64 %.01017.i.i, -1
+120:                                              ; preds = %.preheader.i
+  %121 = getelementptr inbounds i8, ptr %.01115.i.i, i64 1
+  %122 = getelementptr inbounds i8, ptr %.0917.i.i, i64 1
+  %123 = add nsw i64 %.01016.i.i, -1
   %.not.i.i = icmp eq i64 %123, 0
-  br i1 %.not.i.i, label %gperf_case_strncmp.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %gperf_case_strncmp.exit.thread.i, label %.preheader.i, !llvm.loop !43
 
-gperf_case_strncmp.exit.i:                        ; preds = %.lr.ph.i.i
+gperf_case_strncmp.exit.i:                        ; preds = %.preheader.i
   br i1 %119, label %gperf_case_strncmp.exit.thread.i, label %unicode_lookup_property_name.exit.thread
 
 gperf_case_strncmp.exit.thread.i:                 ; preds = %120, %gperf_case_strncmp.exit.i

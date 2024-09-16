@@ -159,7 +159,7 @@ define internal range(i32 0, 2) i32 @candump_read(ptr nocapture noundef readonly
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = call fastcc i32 @candump_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
+  %11 = call fastcc i32 @candump_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef %7, ptr noundef %3, ptr noundef %4)
   br label %12
 
 12:                                               ; preds = %6, %10
@@ -192,7 +192,7 @@ define internal range(i32 0, 2) i32 @candump_seek_read(ptr nocapture noundef rea
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %17
-  %21 = call fastcc i32 @candump_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
+  %21 = call fastcc i32 @candump_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef %7, ptr noundef %4, ptr noundef %5)
   br label %22
 
 22:                                               ; preds = %17, %20, %12
@@ -222,7 +222,7 @@ declare i32 @run_candump_parser(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.canfd_frame, align 4
   %7 = alloca %struct.can_frame, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 24

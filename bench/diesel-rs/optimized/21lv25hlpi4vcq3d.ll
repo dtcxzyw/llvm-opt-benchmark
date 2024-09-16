@@ -20,7 +20,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %11 = zext i1 %10 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !6
   store i64 %11, ptr %7, align 8, !noalias !6
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !6
   %12 = icmp eq i64 %9, -9223372036854775808
   br i1 %12, label %13, label %16
@@ -30,7 +30,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %15 = trunc i128 %14 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !11
   store i64 %15, ptr %6, align 8, !noalias !11
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !11
   br label %_ZN4core4hash4Hash10hash_slice17h12afaecf9f4c15acE.exit
 
@@ -39,10 +39,10 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !5
-  tail call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20)
+  tail call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !14
   store i8 -1, ptr %5, align 1, !noalias !14
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !18
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !14
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !noundef !5
@@ -50,7 +50,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %24 = load i64, ptr %23, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !19
   store i64 %24, ptr %4, align 8, !noalias !19
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
@@ -222,7 +222,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 .body:                                            ; preds = %36
   %28 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5) #26
+  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef readonly align 8 dereferenceable(32) %5) #26
   br i1 %trunc, label %.thread, label %53
 
 "_ZN6diesel10type_impls6option106_$LT$impl$u20$diesel..sql_types..HasSqlType$LT$diesel..sql_types..Nullable$LT$T$GT$$GT$$u20$for$u20$DB$GT$8metadata17h2483b51a9a6b8420E.exit": ; preds = %16
@@ -309,7 +309,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 
 53:                                               ; preds = %.body.thread, %.body
   %eh.lpad-body51 = phi { ptr, i32 } [ %27, %.body.thread ], [ %28, %.body ]
-  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #26
+  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef align 8 dereferenceable(24) %6) #26
   br label %.thread
 
 54:                                               ; preds = %56
@@ -401,7 +401,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 .body:                                            ; preds = %38
   %29 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5) #26
+  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef readonly align 8 dereferenceable(32) %5) #26
   br i1 %trunc, label %.thread, label %55
 
 30:                                               ; preds = %17
@@ -488,7 +488,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 
 55:                                               ; preds = %.body.thread, %.body
   %eh.lpad-body51 = phi { ptr, i32 } [ %28, %.body.thread ], [ %29, %.body ]
-  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #26
+  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef align 8 dereferenceable(24) %6) #26
   br label %.thread
 
 56:                                               ; preds = %58
@@ -580,7 +580,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 .body:                                            ; preds = %37
   %29 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5) #26
+  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef readonly align 8 dereferenceable(32) %5) #26
   br i1 %trunc, label %.thread, label %54
 
 "_ZN6diesel10type_impls6option106_$LT$impl$u20$diesel..sql_types..HasSqlType$LT$diesel..sql_types..Nullable$LT$T$GT$$GT$$u20$for$u20$DB$GT$8metadata17h2483b51a9a6b8420E.exit": ; preds = %17
@@ -667,7 +667,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 
 54:                                               ; preds = %.body.thread, %.body
   %eh.lpad-body51 = phi { ptr, i32 } [ %28, %.body.thread ], [ %29, %.body ]
-  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #26
+  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef align 8 dereferenceable(24) %6) #26
   br label %.thread
 
 55:                                               ; preds = %57
@@ -757,7 +757,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 .body:                                            ; preds = %37
   %28 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5) #26
+  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef readonly align 8 dereferenceable(32) %5) #26
   br i1 %trunc, label %.thread, label %54
 
 29:                                               ; preds = %16
@@ -844,7 +844,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 
 54:                                               ; preds = %.body.thread, %.body
   %eh.lpad-body51 = phi { ptr, i32 } [ %27, %.body.thread ], [ %28, %.body ]
-  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #26
+  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef align 8 dereferenceable(24) %6) #26
   br label %.thread
 
 55:                                               ; preds = %57
@@ -931,7 +931,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 .body:                                            ; preds = %35
   %26 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5) #26
+  call fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias noundef readonly align 8 dereferenceable(32) %5) #26
   br i1 %trunc, label %.thread, label %52
 
 27:                                               ; preds = %14
@@ -1018,7 +1018,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
 
 52:                                               ; preds = %.body.thread, %.body
   %eh.lpad-body51 = phi { ptr, i32 } [ %25, %.body.thread ], [ %26, %.body ]
-  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #26
+  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias noundef align 8 dereferenceable(24) %6) #26
   br label %.thread
 
 53:                                               ; preds = %55
@@ -1199,7 +1199,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$diesel..connection..stateme
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17h868b3ab546878263E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   %2 = load i32, ptr %0, align 8, !range !75, !alias.scope !246, !noundef !5
   switch i32 %2, label %"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E.exit" [
@@ -1236,7 +1236,7 @@ define hidden void @"_ZN4core3ptr529drop_in_place$LT$hashbrown..raw..RawTable$LT
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17h12370298fcd51ff5E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !75, !noundef !5
   switch i32 %2, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hefbb2e5ccd244987E.exit" [
     i32 3, label %7
@@ -1543,7 +1543,7 @@ define hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..has
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h3584c23caf437972E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #12 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = add i64 %5, %2

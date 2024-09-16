@@ -555,7 +555,7 @@ if.then71:                                        ; preds = %lor.lhs.false66, %s
   br label %sw.epilog.sink.split
 
 if.else:                                          ; preds = %lor.lhs.false66
-  tail call fastcc void @usual_arith_conv(ptr noundef nonnull %then, ptr noundef nonnull %els)
+  tail call fastcc void @usual_arith_conv(ptr noundef %then, ptr noundef %els)
   %48 = load ptr, ptr %then, align 8
   %ty76 = getelementptr inbounds i8, ptr %48, i64 16
   %49 = load ptr, ptr %ty76, align 16
@@ -750,7 +750,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @usual_arith_conv(ptr nocapture noundef %lhs, ptr nocapture noundef %rhs) unnamed_addr #7 {
+define internal fastcc void @usual_arith_conv(ptr nocapture noundef nonnull %lhs, ptr nocapture noundef nonnull %rhs) unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %lhs, align 8
   %ty1 = getelementptr inbounds i8, ptr %0, i64 16

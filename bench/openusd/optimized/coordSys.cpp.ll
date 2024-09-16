@@ -75,7 +75,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10HdCoordSysC2ERKNS_7SdfPathE(
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7HdSprimC2ERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10HdCoordSysE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetNameFromSdfPathERKNS_7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetNameFromSdfPathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %1)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
@@ -91,7 +91,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10HdCoordSysC2ERKNS_7SdfPathE(
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7HdSprimC2ERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetNameFromSdfPathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetNameFromSdfPathERKNS_7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"struct.std::pair", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetNameB5cxx11Ev(ptr noundef nonnull align 4 dereferenceable(8) %1)
@@ -557,7 +557,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit37: ; preds = %140, %146
   br label %183
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread: ; preds = %88, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetNameFromSdfPathERKNS_7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 4 dereferenceable(8) %12)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetNameFromSdfPathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 4 dereferenceable(8) %12)
           to label %153 unwind label %151
 
 153:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread

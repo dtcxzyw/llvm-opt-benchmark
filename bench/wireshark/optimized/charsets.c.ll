@@ -696,7 +696,7 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @handle_ts_23_038_char(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @handle_ts_23_038_char(ptr noundef %0, i8 noundef zeroext %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq i8 %1, 27
   br i1 %.not, label %21, label %4
 

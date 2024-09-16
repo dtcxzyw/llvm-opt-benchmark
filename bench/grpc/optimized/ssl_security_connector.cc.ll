@@ -1250,7 +1250,7 @@ entry:
   %target_name_ = getelementptr inbounds i8, ptr %this, i64 64
   %overridden_target_name_.sink = select i1 %call, ptr %target_name_, ptr %overridden_target_name_
   %call5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name_.sink) #18
-  call fastcc void @_ZN12_GLOBAL__N_114ssl_check_peerEPKcPK8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEE(ptr noalias nonnull align 8 %error, ptr noundef %call5, ptr noundef nonnull %peer, ptr noundef %auth_context)
+  call fastcc void @_ZN12_GLOBAL__N_114ssl_check_peerEPKcPK8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEE(ptr noalias align 8 %error, ptr noundef %call5, ptr noundef %peer, ptr noundef %auth_context)
   %3 = load i64, ptr %error, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %land.lhs.true, label %if.end53
@@ -1845,7 +1845,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114ssl_check_peerEPKcPK8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEE(ptr noalias align 8 %agg.result, ptr noundef %peer_name, ptr noundef %peer, ptr nocapture noundef %auth_context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114ssl_check_peerEPKcPK8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEE(ptr noalias nonnull align 8 %agg.result, ptr noundef %peer_name, ptr noundef nonnull %peer, ptr nocapture noundef %auth_context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1855,7 +1855,7 @@ entry:
   %ref.tmp13 = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp16 = alloca %"class.std::vector", align 8
   %ref.tmp20 = alloca %"class.grpc_core::RefCountedPtr.12", align 8
-  call void @_Z19grpc_ssl_check_alpnPK8tsi_peer(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, ptr noundef %peer)
+  call void @_Z19grpc_ssl_check_alpnPK8tsi_peer(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, ptr noundef nonnull %peer)
   %0 = load i64, ptr %error, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.end, label %if.then
@@ -1876,7 +1876,7 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %peer_name) #18
-  %call2 = invoke noundef i32 @_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %peer, i64 %call.i.i, ptr nonnull %peer_name)
+  %call2 = invoke noundef i32 @_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %peer, i64 %call.i.i, ptr nonnull %peer_name)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %land.lhs.true
@@ -1902,7 +1902,7 @@ invoke.cont11:                                    ; preds = %invoke.cont10
   %5 = extractvalue { i64, ptr } %call12, 0
   %6 = extractvalue { i64, ptr } %call12, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp16, i8 0, i64 24, i1 false)
-  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef 2, i64 %5, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13, ptr noundef nonnull %agg.tmp16)
+  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef 2, i64 %5, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13, ptr noundef nonnull %agg.tmp16)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont11
@@ -1960,7 +1960,7 @@ lpad17:                                           ; preds = %invoke.cont11
   br label %ehcleanup24
 
 if.end19:                                         ; preds = %invoke.cont1, %if.end
-  invoke void @_Z29grpc_ssl_peer_to_auth_contextPK8tsi_peerPKc(ptr nonnull sret(%"class.grpc_core::RefCountedPtr.12") align 8 %ref.tmp20, ptr noundef %peer, ptr noundef nonnull @.str.17)
+  invoke void @_Z29grpc_ssl_peer_to_auth_contextPK8tsi_peerPKc(ptr nonnull sret(%"class.grpc_core::RefCountedPtr.12") align 8 %ref.tmp20, ptr noundef nonnull %peer, ptr noundef nonnull @.str.17)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.end19
@@ -2372,7 +2372,7 @@ entry:
   store ptr %peer.coerce0, ptr %peer, align 8
   %2 = getelementptr inbounds i8, ptr %peer, i64 8
   store i64 %peer.coerce1, ptr %2, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114ssl_check_peerEPKcPK8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEE(ptr noalias nonnull align 8 %error, ptr noundef null, ptr noundef nonnull %peer, ptr noundef %auth_context)
+  call fastcc void @_ZN12_GLOBAL__N_114ssl_check_peerEPKcPK8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEE(ptr noalias align 8 %error, ptr noundef null, ptr noundef %peer, ptr noundef %auth_context)
   invoke void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef nonnull %peer)
           to label %invoke.cont unwind label %lpad
 

@@ -555,7 +555,7 @@ if.end7.i:                                        ; preds = %if.then5.i, %land.l
   br label %submodule_cache_check_init.exit
 
 submodule_cache_check_init.exit:                  ; preds = %land.lhs.true.i, %if.end7.i
-  %call = call fastcc i32 @gitmodule_oid_from_commit(ptr noundef %commit_oid, ptr noundef nonnull %oid, ptr noundef nonnull %rev)
+  %call = call fastcc i32 @gitmodule_oid_from_commit(ptr noundef %commit_oid, ptr noundef %oid, ptr noundef %rev)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -582,7 +582,7 @@ if.end:                                           ; preds = %if.then, %submodule
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @gitmodule_oid_from_commit(ptr noundef %treeish_name, ptr noundef %gitmodules_oid, ptr noundef %rev) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gitmodule_oid_from_commit(ptr noundef %treeish_name, ptr noundef nonnull %gitmodules_oid, ptr noundef nonnull %rev) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @null_oid() #14
   %algo.i.i = getelementptr inbounds i8, ptr %treeish_name, i64 32
@@ -636,11 +636,11 @@ if.then:                                          ; preds = %is_null_oid.exit
 
 if.end:                                           ; preds = %is_null_oid.exit
   %call1 = tail call ptr @oid_to_hex(ptr noundef nonnull %treeish_name) #14
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %rev, ptr noundef nonnull @.str.28, ptr noundef %call1) #14
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %rev, ptr noundef nonnull @.str.28, ptr noundef %call1) #14
   %6 = load ptr, ptr @the_repository, align 8
   %buf = getelementptr inbounds i8, ptr %rev, i64 16
   %7 = load ptr, ptr %buf, align 8
-  %call2 = tail call i32 @repo_get_oid(ptr noundef %6, ptr noundef %7, ptr noundef %gitmodules_oid) #14
+  %call2 = tail call i32 @repo_get_oid(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %gitmodules_oid) #14
   %cmp = icmp sgt i32 %call2, -1
   %spec.select = zext i1 %cmp to i32
   br label %return
@@ -665,14 +665,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @config_from(ptr noundef %cache, ptr noundef %treeish_name, ptr noundef %key, i32 noundef %lookup_type) unnamed_addr #0 {
+define internal fastcc ptr @config_from(ptr noundef %cache, ptr noundef %treeish_name, ptr noundef %key, i32 noundef range(i32 0, 2) %lookup_type) unnamed_addr #0 {
 entry:
-  %key.i57 = alloca %struct.submodule_entry, align 8
-  %key_config.i58 = alloca %struct.submodule, align 8
-  %key.i37 = alloca %struct.submodule_entry, align 8
-  %key_config.i38 = alloca %struct.submodule, align 8
-  %key.i20 = alloca %struct.submodule_entry, align 8
-  %key_config.i21 = alloca %struct.submodule, align 8
+  %key.i58 = alloca %struct.submodule_entry, align 8
+  %key_config.i59 = alloca %struct.submodule, align 8
+  %key.i38 = alloca %struct.submodule_entry, align 8
+  %key_config.i39 = alloca %struct.submodule, align 8
+  %key.i21 = alloca %struct.submodule_entry, align 8
+  %key_config.i22 = alloca %struct.submodule, align 8
   %key.i = alloca %struct.submodule_entry, align 8
   %key_config.i = alloca %struct.submodule, align 8
   %rev = alloca %struct.strbuf, align 8
@@ -700,14 +700,14 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end7:                                          ; preds = %entry
-  %call8 = call fastcc i32 @gitmodule_oid_from_commit(ptr noundef nonnull %treeish_name, ptr noundef nonnull %oid, ptr noundef nonnull %rev)
+  %call8 = call fastcc i32 @gitmodule_oid_from_commit(ptr noundef nonnull %treeish_name, ptr noundef %oid, ptr noundef %rev)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %out, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %switch = icmp eq i32 %lookup_type, 0
-  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
-  br i1 %switch, label %sw.bb, label %sw.bb13
+  %trunc = trunc nuw i32 %lookup_type to i1
+  %algo.i.i29 = getelementptr inbounds i8, ptr %oid, i64 32
+  br i1 %trunc, label %sw.bb13, label %sw.bb
 
 sw.bb:                                            ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i)
@@ -722,7 +722,7 @@ sw.bb:                                            ; preds = %if.end11
   %add.i.i = add i32 %call1.i.i, %call.i.i
   %gitmodules_oid2.i = getelementptr inbounds i8, ptr %key_config.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %4 = load i32, ptr %algo.i.i, align 4
+  %4 = load i32, ptr %algo.i.i29, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %key_config.i, i64 96
   store i32 %4, ptr %algo3.i.i, align 8
   %name3.i = getelementptr inbounds i8, ptr %key_config.i, i64 8
@@ -749,44 +749,44 @@ cache_lookup_name.exit:                           ; preds = %sw.bb, %if.then.i
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %if.end11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i20)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i21)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i21)
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i22)
   %6 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i22 = getelementptr inbounds i8, ptr %6, i64 256
-  %7 = load ptr, ptr %hash_algo.i.i22, align 8
-  %rawsz.i.i23 = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = load i64, ptr %rawsz.i.i23, align 8
-  %call.i.i24 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %8) #14
-  %call1.i.i25 = call i32 @strhash(ptr noundef nonnull %key) #14
-  %add.i.i26 = add i32 %call1.i.i25, %call.i.i24
-  %gitmodules_oid2.i27 = getelementptr inbounds i8, ptr %key_config.i21, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i27, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %9 = load i32, ptr %algo.i.i, align 4
-  %algo3.i.i29 = getelementptr inbounds i8, ptr %key_config.i21, i64 96
-  store i32 %9, ptr %algo3.i.i29, align 8
-  store ptr %key, ptr %key_config.i21, align 8
-  %hash1.i.i30 = getelementptr inbounds i8, ptr %key.i20, i64 8
-  store i32 %add.i.i26, ptr %hash1.i.i30, align 8
-  store ptr null, ptr %key.i20, align 8
-  %config.i31 = getelementptr inbounds i8, ptr %key.i20, i64 16
-  store ptr %key_config.i21, ptr %config.i31, align 8
-  %call5.i32 = call ptr @hashmap_get(ptr noundef %cache, ptr noundef nonnull %key.i20, ptr noundef null) #14
-  %tobool.not.i33 = icmp eq ptr %call5.i32, null
-  br i1 %tobool.not.i33, label %cache_lookup_path.exit, label %if.then.i34
+  %hash_algo.i.i23 = getelementptr inbounds i8, ptr %6, i64 256
+  %7 = load ptr, ptr %hash_algo.i.i23, align 8
+  %rawsz.i.i24 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = load i64, ptr %rawsz.i.i24, align 8
+  %call.i.i25 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %8) #14
+  %call1.i.i26 = call i32 @strhash(ptr noundef nonnull %key) #14
+  %add.i.i27 = add i32 %call1.i.i26, %call.i.i25
+  %gitmodules_oid2.i28 = getelementptr inbounds i8, ptr %key_config.i22, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i28, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  %9 = load i32, ptr %algo.i.i29, align 4
+  %algo3.i.i30 = getelementptr inbounds i8, ptr %key_config.i22, i64 96
+  store i32 %9, ptr %algo3.i.i30, align 8
+  store ptr %key, ptr %key_config.i22, align 8
+  %hash1.i.i31 = getelementptr inbounds i8, ptr %key.i21, i64 8
+  store i32 %add.i.i27, ptr %hash1.i.i31, align 8
+  store ptr null, ptr %key.i21, align 8
+  %config.i32 = getelementptr inbounds i8, ptr %key.i21, i64 16
+  store ptr %key_config.i22, ptr %config.i32, align 8
+  %call5.i33 = call ptr @hashmap_get(ptr noundef %cache, ptr noundef nonnull %key.i21, ptr noundef null) #14
+  %tobool.not.i34 = icmp eq ptr %call5.i33, null
+  br i1 %tobool.not.i34, label %cache_lookup_path.exit, label %if.then.i35
 
-if.then.i34:                                      ; preds = %sw.bb13
-  %config7.i35 = getelementptr inbounds i8, ptr %call5.i32, i64 16
-  %10 = load ptr, ptr %config7.i35, align 8
+if.then.i35:                                      ; preds = %sw.bb13
+  %config7.i36 = getelementptr inbounds i8, ptr %call5.i33, i64 16
+  %10 = load ptr, ptr %config7.i36, align 8
   br label %cache_lookup_path.exit
 
-cache_lookup_path.exit:                           ; preds = %sw.bb13, %if.then.i34
-  %retval.0.i36 = phi ptr [ %10, %if.then.i34 ], [ null, %sw.bb13 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i20)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key_config.i21)
+cache_lookup_path.exit:                           ; preds = %sw.bb13, %if.then.i35
+  %retval.0.i37 = phi ptr [ %10, %if.then.i35 ], [ null, %sw.bb13 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i21)
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key_config.i22)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %cache_lookup_path.exit, %cache_lookup_name.exit
-  %submodule.1 = phi ptr [ %retval.0.i36, %cache_lookup_path.exit ], [ %retval.0.i, %cache_lookup_name.exit ]
+  %submodule.1 = phi ptr [ %retval.0.i37, %cache_lookup_path.exit ], [ %retval.0.i, %cache_lookup_name.exit ]
   %tobool15.not = icmp eq ptr %submodule.1, null
   br i1 %tobool15.not, label %if.end17, label %out
 
@@ -813,83 +813,83 @@ if.end22:                                         ; preds = %if.end17
   %call25 = call i32 @git_config_from_mem(ptr noundef nonnull @parse_config, i32 noundef 4, ptr noundef %13, ptr noundef nonnull %call18, i64 noundef %14, ptr noundef nonnull %parameter, i32 noundef 0, ptr noundef null) #14
   call void @strbuf_release(ptr noundef nonnull %rev) #14
   call void @free(ptr noundef nonnull %call18) #14
-  %algo.i.i45 = getelementptr inbounds i8, ptr %oid, i64 32
-  br i1 %switch, label %sw.bb26, label %sw.bb28
+  %algo.i.i66 = getelementptr inbounds i8, ptr %oid, i64 32
+  br i1 %trunc, label %sw.bb28, label %sw.bb26
 
 sw.bb26:                                          ; preds = %if.end22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i37)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i38)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i38)
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i39)
   %15 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i39 = getelementptr inbounds i8, ptr %15, i64 256
-  %16 = load ptr, ptr %hash_algo.i.i39, align 8
-  %rawsz.i.i40 = getelementptr inbounds i8, ptr %16, i64 16
-  %17 = load i64, ptr %rawsz.i.i40, align 8
-  %call.i.i41 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %17) #14
-  %call1.i.i42 = call i32 @strhash(ptr noundef nonnull %key) #14
-  %add.i.i43 = add i32 %call1.i.i42, %call.i.i41
-  %gitmodules_oid2.i44 = getelementptr inbounds i8, ptr %key_config.i38, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i44, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %18 = load i32, ptr %algo.i.i45, align 4
-  %algo3.i.i46 = getelementptr inbounds i8, ptr %key_config.i38, i64 96
-  store i32 %18, ptr %algo3.i.i46, align 8
-  %name3.i47 = getelementptr inbounds i8, ptr %key_config.i38, i64 8
-  store ptr %key, ptr %name3.i47, align 8
-  %hash1.i.i48 = getelementptr inbounds i8, ptr %key.i37, i64 8
-  store i32 %add.i.i43, ptr %hash1.i.i48, align 8
-  store ptr null, ptr %key.i37, align 8
-  %config.i49 = getelementptr inbounds i8, ptr %key.i37, i64 16
-  store ptr %key_config.i38, ptr %config.i49, align 8
-  %for_name.i50 = getelementptr inbounds i8, ptr %cache, i64 48
-  %call5.i51 = call ptr @hashmap_get(ptr noundef nonnull %for_name.i50, ptr noundef nonnull %key.i37, ptr noundef null) #14
-  %tobool.not.i52 = icmp eq ptr %call5.i51, null
-  br i1 %tobool.not.i52, label %cache_lookup_name.exit56, label %if.then.i53
+  %hash_algo.i.i40 = getelementptr inbounds i8, ptr %15, i64 256
+  %16 = load ptr, ptr %hash_algo.i.i40, align 8
+  %rawsz.i.i41 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = load i64, ptr %rawsz.i.i41, align 8
+  %call.i.i42 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %17) #14
+  %call1.i.i43 = call i32 @strhash(ptr noundef nonnull %key) #14
+  %add.i.i44 = add i32 %call1.i.i43, %call.i.i42
+  %gitmodules_oid2.i45 = getelementptr inbounds i8, ptr %key_config.i39, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i45, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  %18 = load i32, ptr %algo.i.i66, align 4
+  %algo3.i.i47 = getelementptr inbounds i8, ptr %key_config.i39, i64 96
+  store i32 %18, ptr %algo3.i.i47, align 8
+  %name3.i48 = getelementptr inbounds i8, ptr %key_config.i39, i64 8
+  store ptr %key, ptr %name3.i48, align 8
+  %hash1.i.i49 = getelementptr inbounds i8, ptr %key.i38, i64 8
+  store i32 %add.i.i44, ptr %hash1.i.i49, align 8
+  store ptr null, ptr %key.i38, align 8
+  %config.i50 = getelementptr inbounds i8, ptr %key.i38, i64 16
+  store ptr %key_config.i39, ptr %config.i50, align 8
+  %for_name.i51 = getelementptr inbounds i8, ptr %cache, i64 48
+  %call5.i52 = call ptr @hashmap_get(ptr noundef nonnull %for_name.i51, ptr noundef nonnull %key.i38, ptr noundef null) #14
+  %tobool.not.i53 = icmp eq ptr %call5.i52, null
+  br i1 %tobool.not.i53, label %cache_lookup_name.exit57, label %if.then.i54
 
-if.then.i53:                                      ; preds = %sw.bb26
-  %config7.i54 = getelementptr inbounds i8, ptr %call5.i51, i64 16
-  %19 = load ptr, ptr %config7.i54, align 8
-  br label %cache_lookup_name.exit56
+if.then.i54:                                      ; preds = %sw.bb26
+  %config7.i55 = getelementptr inbounds i8, ptr %call5.i52, i64 16
+  %19 = load ptr, ptr %config7.i55, align 8
+  br label %cache_lookup_name.exit57
 
-cache_lookup_name.exit56:                         ; preds = %sw.bb26, %if.then.i53
-  %retval.0.i55 = phi ptr [ %19, %if.then.i53 ], [ null, %sw.bb26 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i37)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key_config.i38)
+cache_lookup_name.exit57:                         ; preds = %sw.bb26, %if.then.i54
+  %retval.0.i56 = phi ptr [ %19, %if.then.i54 ], [ null, %sw.bb26 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i38)
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key_config.i39)
   br label %return
 
 sw.bb28:                                          ; preds = %if.end22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i57)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i58)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i58)
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i59)
   %20 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i59 = getelementptr inbounds i8, ptr %20, i64 256
-  %21 = load ptr, ptr %hash_algo.i.i59, align 8
-  %rawsz.i.i60 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i64, ptr %rawsz.i.i60, align 8
-  %call.i.i61 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %22) #14
-  %call1.i.i62 = call i32 @strhash(ptr noundef nonnull %key) #14
-  %add.i.i63 = add i32 %call1.i.i62, %call.i.i61
-  %gitmodules_oid2.i64 = getelementptr inbounds i8, ptr %key_config.i58, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i64, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %23 = load i32, ptr %algo.i.i45, align 4
-  %algo3.i.i66 = getelementptr inbounds i8, ptr %key_config.i58, i64 96
-  store i32 %23, ptr %algo3.i.i66, align 8
-  store ptr %key, ptr %key_config.i58, align 8
-  %hash1.i.i67 = getelementptr inbounds i8, ptr %key.i57, i64 8
-  store i32 %add.i.i63, ptr %hash1.i.i67, align 8
-  store ptr null, ptr %key.i57, align 8
-  %config.i68 = getelementptr inbounds i8, ptr %key.i57, i64 16
-  store ptr %key_config.i58, ptr %config.i68, align 8
-  %call5.i69 = call ptr @hashmap_get(ptr noundef %cache, ptr noundef nonnull %key.i57, ptr noundef null) #14
-  %tobool.not.i70 = icmp eq ptr %call5.i69, null
-  br i1 %tobool.not.i70, label %cache_lookup_path.exit74, label %if.then.i71
+  %hash_algo.i.i60 = getelementptr inbounds i8, ptr %20, i64 256
+  %21 = load ptr, ptr %hash_algo.i.i60, align 8
+  %rawsz.i.i61 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load i64, ptr %rawsz.i.i61, align 8
+  %call.i.i62 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %22) #14
+  %call1.i.i63 = call i32 @strhash(ptr noundef nonnull %key) #14
+  %add.i.i64 = add i32 %call1.i.i63, %call.i.i62
+  %gitmodules_oid2.i65 = getelementptr inbounds i8, ptr %key_config.i59, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i65, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  %23 = load i32, ptr %algo.i.i66, align 4
+  %algo3.i.i67 = getelementptr inbounds i8, ptr %key_config.i59, i64 96
+  store i32 %23, ptr %algo3.i.i67, align 8
+  store ptr %key, ptr %key_config.i59, align 8
+  %hash1.i.i68 = getelementptr inbounds i8, ptr %key.i58, i64 8
+  store i32 %add.i.i64, ptr %hash1.i.i68, align 8
+  store ptr null, ptr %key.i58, align 8
+  %config.i69 = getelementptr inbounds i8, ptr %key.i58, i64 16
+  store ptr %key_config.i59, ptr %config.i69, align 8
+  %call5.i70 = call ptr @hashmap_get(ptr noundef %cache, ptr noundef nonnull %key.i58, ptr noundef null) #14
+  %tobool.not.i71 = icmp eq ptr %call5.i70, null
+  br i1 %tobool.not.i71, label %cache_lookup_path.exit75, label %if.then.i72
 
-if.then.i71:                                      ; preds = %sw.bb28
-  %config7.i72 = getelementptr inbounds i8, ptr %call5.i69, i64 16
-  %24 = load ptr, ptr %config7.i72, align 8
-  br label %cache_lookup_path.exit74
+if.then.i72:                                      ; preds = %sw.bb28
+  %config7.i73 = getelementptr inbounds i8, ptr %call5.i70, i64 16
+  %24 = load ptr, ptr %config7.i73, align 8
+  br label %cache_lookup_path.exit75
 
-cache_lookup_path.exit74:                         ; preds = %sw.bb28, %if.then.i71
-  %retval.0.i73 = phi ptr [ %24, %if.then.i71 ], [ null, %sw.bb28 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i57)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key_config.i58)
+cache_lookup_path.exit75:                         ; preds = %sw.bb28, %if.then.i72
+  %retval.0.i74 = phi ptr [ %24, %if.then.i72 ], [ null, %sw.bb28 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i58)
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key_config.i59)
   br label %return
 
 out:                                              ; preds = %if.end17, %sw.epilog, %if.end7
@@ -899,8 +899,8 @@ out:                                              ; preds = %if.end17, %sw.epilo
   call void @free(ptr noundef %config.0) #14
   br label %return
 
-return:                                           ; preds = %if.then, %out, %cache_lookup_path.exit74, %cache_lookup_name.exit56, %if.end
-  %retval.0 = phi ptr [ %submodule.0, %out ], [ %retval.0.i73, %cache_lookup_path.exit74 ], [ %retval.0.i55, %cache_lookup_name.exit56 ], [ %0, %if.end ], [ null, %if.then ]
+return:                                           ; preds = %if.then, %out, %cache_lookup_path.exit75, %cache_lookup_name.exit57, %if.end
+  %retval.0 = phi ptr [ %submodule.0, %out ], [ %retval.0.i74, %cache_lookup_path.exit75 ], [ %retval.0.i56, %cache_lookup_name.exit57 ], [ %0, %if.end ], [ null, %if.then ]
   ret ptr %retval.0
 }
 

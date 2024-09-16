@@ -810,10 +810,10 @@ declare dso_local i32 @ipv6_chk_addr(ptr noundef, ptr noundef, ptr noundef, i32 
 declare dso_local zeroext i1 @ipv6_chk_acast_addr_src(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @icmpv6_rt_has_prefsrc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @icmpv6_rt_has_prefsrc(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @ip6_route_output_flags(ptr noundef %4, ptr noundef %0, ptr noundef %1, i32 noundef 0) #13
+  %5 = tail call ptr @ip6_route_output_flags(ptr noundef %4, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #13
   %6 = getelementptr inbounds i8, ptr %5, i64 96
   %7 = load i16, ptr %6, align 8
   %8 = icmp eq i16 %7, 0
@@ -851,7 +851,7 @@ declare dso_local i32 @ipv6_dev_get_saddr(ptr noundef, ptr noundef, ptr noundef,
 declare dso_local i32 @rt6_multipath_hash(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @icmpv6_xrlim_allow(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @icmpv6_xrlim_allow(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.inetpeer_addr, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -864,7 +864,7 @@ define internal fastcc noundef zeroext i1 @icmpv6_xrlim_allow(ptr noundef %0, i8
   br i1 %11, label %68, label %12
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @ip6_route_output_flags(ptr noundef %6, ptr noundef %0, ptr noundef %2, i32 noundef 0) #13
+  %13 = tail call ptr @ip6_route_output_flags(ptr noundef %6, ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 96
   %15 = load i16, ptr %14, align 8
   %16 = icmp eq i16 %15, 0
@@ -966,7 +966,7 @@ define internal fastcc noundef zeroext i1 @icmpv6_xrlim_allow(ptr noundef %0, i8
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @icmpv6_route_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @icmpv6_route_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.flowi6, align 8
@@ -975,7 +975,7 @@ define internal fastcc ptr @icmpv6_route_lookup(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false), !annotation !9
-  %8 = call i32 @ip6_dst_lookup(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %3) #13
+  %8 = call i32 @ip6_dst_lookup(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef %3) #13
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %10
 
@@ -1027,7 +1027,7 @@ define internal fastcc ptr @icmpv6_route_lookup(ptr noundef %0, ptr noundef %1, 
 
 42:                                               ; preds = %30, %23, %13
   store ptr %.pre, ptr %6, align 8
-  %43 = call ptr @xfrm_lookup(ptr noundef %0, ptr noundef %.pre, ptr noundef %3, ptr noundef %2, i32 noundef 0) #13
+  %43 = call ptr @xfrm_lookup(ptr noundef %0, ptr noundef %.pre, ptr noundef %3, ptr noundef nonnull %2, i32 noundef 0) #13
   store ptr %43, ptr %5, align 8
   %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
   br i1 %44, label %47, label %45
@@ -1050,13 +1050,13 @@ define internal fastcc ptr @icmpv6_route_lookup(ptr noundef %0, ptr noundef %1, 
   br i1 %52, label %53, label %thread-pre-split
 
 53:                                               ; preds = %50
-  %54 = call i32 @ip6_dst_lookup(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
+  %54 = call i32 @ip6_dst_lookup(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %thread-pre-split
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %6, align 8
-  %58 = call ptr @xfrm_lookup(ptr noundef %0, ptr noundef %57, ptr noundef nonnull %7, ptr noundef %2, i32 noundef 1) #13
+  %58 = call ptr @xfrm_lookup(ptr noundef %0, ptr noundef %57, ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 1) #13
   store ptr %58, ptr %6, align 8
   %59 = icmp ugt ptr %58, inttoptr (i64 -4096 to ptr)
   br i1 %59, label %62, label %60

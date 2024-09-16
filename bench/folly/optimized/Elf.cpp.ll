@@ -1682,7 +1682,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef %type, ptr nocapture noundef readonly byval(%class.anon.4) align 8 %fn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef range(i32 2, 12) %type, ptr nocapture noundef readonly byval(%class.anon.4) align 8 %fn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load i64, ptr %length_.i.i.i, align 8, !tbaa !35
@@ -1857,7 +1857,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef %type, ptr nocapture noundef readonly byval(%class.anon.8) align 8 %fn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef range(i32 2, 12) %type, ptr nocapture noundef readonly byval(%class.anon.8) align 8 %fn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load i64, ptr %length_.i.i.i, align 8, !tbaa !35

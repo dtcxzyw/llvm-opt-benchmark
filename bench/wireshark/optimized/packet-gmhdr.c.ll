@@ -474,7 +474,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gmtlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_gmtlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i16 noundef zeroext range(i16 -1, 256) %4) unnamed_addr #0 {
   %6 = icmp ugt i16 %4, 1
   br i1 %6, label %.lr.ph, label %._crit_edge
 

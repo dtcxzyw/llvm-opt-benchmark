@@ -1350,7 +1350,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZL13gmx_snew_implI
   %529 = load ptr, ptr %20, align 8
   %530 = load i32, ptr %307, align 8
   %531 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef nonnull %307, i32 noundef %528, ptr noundef %529, i32 noundef %530, ptr noundef %531)
+  invoke fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef %307, i32 noundef %528, ptr noundef %529, i32 noundef %530, ptr noundef %531)
           to label %532 unwind label %.loopexit.split-lp1242.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 532:                                              ; preds = %527, %.loopexit1274
@@ -1804,7 +1804,7 @@ _ZL11IS_CHEMBONDi.exit886.thread:                 ; preds = %._crit_edge1363.thr
   %725 = load i32, ptr %19, align 4
   %726 = load ptr, ptr %20, align 8
   %727 = load ptr, ptr %12, align 8
-  invoke fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef nonnull %307, i32 noundef %725, ptr noundef %726, i32 noundef %.sroa.speculated1163, ptr noundef %727)
+  invoke fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef %307, i32 noundef %725, ptr noundef %726, i32 noundef %.sroa.speculated1163, ptr noundef %727)
           to label %728 unwind label %.loopexit.split-lp1242.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 728:                                              ; preds = %724, %723
@@ -2203,7 +2203,7 @@ _ZL13gmx_snew_implIPA3_fEvPKcS3_iRPT_m.exit891:   ; preds = %_ZL13gmx_snew_implI
   %908 = load i32, ptr %19, align 4
   %909 = load ptr, ptr %20, align 8
   %910 = load ptr, ptr %12, align 8
-  invoke fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef nonnull %307, i32 noundef %908, ptr noundef %909, i32 noundef %.sroa.speculated1163, ptr noundef %910)
+  invoke fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef %307, i32 noundef %908, ptr noundef %909, i32 noundef %.sroa.speculated1163, ptr noundef %910)
           to label %911 unwind label %.loopexit1241
 
 911:                                              ; preds = %907, %906
@@ -4735,10 +4735,10 @@ declare void @_Z15gmx_rmpbc_applyP9gmx_rmpbciPA3_KfPA3_f(ptr noundef, i32 nounde
 declare void @_Z7reset_xiPKiiS0_PA3_fPKf(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL10norm_princPK7t_atomsiPiiPA3_f(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [3 x float], align 4
   %7 = alloca [3 x float], align 4
-  call void @_Z12orient_princPK7t_atomsiPKiiPA3_fS5_Pf(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null, ptr noundef nonnull %6)
+  call void @_Z12orient_princPK7t_atomsiPKiiPA3_fS5_Pf(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null, ptr noundef nonnull %6)
   store float 0.000000e+00, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   store float 0.000000e+00, ptr %8, align 4

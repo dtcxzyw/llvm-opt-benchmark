@@ -135,7 +135,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %33
   store ptr %28, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
-  %47 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %5)
+  %47 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %5)
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
   ret i32 %47
 }
@@ -194,7 +194,7 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 
 24:                                               ; preds = %23, %11
   store ptr %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 344), align 8
-  %25 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %2)
+  %25 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %2)
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
   br label %26
 
@@ -378,7 +378,7 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
   br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %26
-  %40 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %6)
+  %40 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %6)
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   ret i32 %40
 }
@@ -443,7 +443,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, pt
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %15
-  %27 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %4)
+  %27 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   ret i32 %27
 }
@@ -658,7 +658,7 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %18
-  %30 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %4)
+  %30 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   br label %33
 
@@ -798,7 +798,7 @@ ps_call_handler.exit.sink.split:                  ; preds = %41, %28
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i20, %ps_call_handler.exit.sink.split
-  %55 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %6)
+  %55 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %6)
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   ret i32 %55
 }
@@ -812,7 +812,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_calls(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %15 [

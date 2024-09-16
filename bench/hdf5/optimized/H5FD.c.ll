@@ -1151,7 +1151,7 @@ define ptr @H5FD_open(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 nounde
 
 106:                                              ; preds = %98
   %107 = getelementptr inbounds i8, ptr %73, i64 32
-  %108 = call fastcc i32 @H5FD__query(ptr noundef nonnull %73, ptr noundef nonnull %107)
+  %108 = call fastcc i32 @H5FD__query(ptr noundef %73, ptr noundef %107)
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %110, label %114
 
@@ -1193,7 +1193,7 @@ declare i32 @H5I_inc_ref(i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 declare i32 @H5P_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__query(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__query(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -1202,7 +1202,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__query(ptr noundef %0, ptr nou
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %1) #8
+  %8 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %15
 

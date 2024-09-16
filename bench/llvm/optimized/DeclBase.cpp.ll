@@ -15045,7 +15045,7 @@ _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %64, %._crit_edge.i.
   %.07.i.i.i = phi ptr [ %90, %._crit_edge.i.i.i ], [ %.tr.lcssa86, %64 ]
   %91 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 88
   %92 = load ptr, ptr %91, align 8
-  %93 = call fastcc noundef i32 @_ZL17CheckAvailabilityRN5clang10ASTContextEPKNS_16AvailabilityAttrEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(23096) %92, ptr noundef nonnull %28, ptr noundef %1, i64 %2, i64 %3)
+  %93 = call fastcc noundef i32 @_ZL17CheckAvailabilityRN5clang10ASTContextEPKNS_16AvailabilityAttrEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(23096) %92, ptr noundef %28, ptr noundef %1, i64 %2, i64 %3)
   %94 = icmp eq i32 %93, 3
   br i1 %94, label %95, label %104
 
@@ -15258,7 +15258,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL17CheckAvailabilityRN5clang10ASTContextEPKNS_16AvailabilityAttrEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 %3, i64 %4) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL17CheckAvailabilityRN5clang10ASTContextEPKNS_16AvailabilityAttrEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i64 %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -16254,7 +16254,7 @@ _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %18, %._crit_edge.i.
   %.07.i.i.i = phi ptr [ %44, %._crit_edge.i.i.i ], [ %0, %18 ]
   %45 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 88
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call fastcc noundef i32 @_ZL17CheckAvailabilityRN5clang10ASTContextEPKNS_16AvailabilityAttrEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(23096) %46, ptr noundef nonnull %15, ptr noundef null, i64 0, i64 0)
+  %47 = tail call fastcc noundef i32 @_ZL17CheckAvailabilityRN5clang10ASTContextEPKNS_16AvailabilityAttrEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(23096) %46, ptr noundef %15, ptr noundef null, i64 0, i64 0)
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %.loopexit, label %49
 
@@ -18339,16 +18339,16 @@ define dso_local noundef ptr @_ZN5clang4Decl20getNonClosureContextEv(ptr noundef
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %.val.i = load i32, ptr %2, align 4
   %3 = and i32 %.val.i, 127
-  switch i32 %3, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit.fold.split [
+  switch i32 %3, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i [
     i32 32, label %4
     i32 36, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
     i32 35, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
     i32 34, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
     i32 33, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
-    i32 6, label %46
+    i32 6, label %52
     i32 31, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
     i32 15, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
-    i32 7, label %38
+    i32 7, label %41
   ]
 
 4:                                                ; preds = %1
@@ -18385,8 +18385,8 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i:      ; preds = %_ZN5clang13CXXMetho
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 1048576
-  %.not42.i = icmp eq i32 %24, 0
-  br i1 %.not42.i, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit, label %25
+  %.not40.i = icmp eq i32 %24, 0
+  br i1 %.not40.i, label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit, label %25
 
 25:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i
   br i1 %12, label %_ZN5clang13CXXMethodDecl9getParentEv.exit28.i, label %26
@@ -18408,45 +18408,62 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit28.i:    ; preds = %26, %25
   %35 = icmp eq i64 %34, 0
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %37 = inttoptr i64 %36 to ptr
-  br i1 %35, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.i, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.sink.split.i
+  br i1 %35, label %_ZN5clang11DeclContext9getParentEv.exit.i, label %38
 
-38:                                               ; preds = %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
-  %40 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %39)
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i31.i = load i64, ptr %41, align 8
-  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i31.i, 4
-  %43 = icmp eq i64 %42, 0
-  %44 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i31.i, -8
-  %45 = inttoptr i64 %44 to ptr
-  br i1 %43, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.i, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.sink.split.i
+38:                                               ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit28.i
+  %39 = load ptr, ptr %37, align 8
+  br label %_ZN5clang11DeclContext9getParentEv.exit.i
 
-46:                                               ; preds = %1
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
-  %48 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %47)
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i = load i64, ptr %49, align 8
-  %50 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i, 4
-  %51 = icmp eq i64 %50, 0
-  %52 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i, -8
-  %53 = inttoptr i64 %52 to ptr
-  br i1 %51, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.i, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.sink.split.i
-
-_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.sink.split.i: ; preds = %46, %38, %_ZN5clang13CXXMethodDecl9getParentEv.exit28.i
-  %.sink.i = phi ptr [ %37, %_ZN5clang13CXXMethodDecl9getParentEv.exit28.i ], [ %45, %38 ], [ %53, %46 ]
-  %54 = load ptr, ptr %.sink.i, align 8
-  br label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.i
-
-_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.i: ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.sink.split.i, %46, %38, %_ZN5clang13CXXMethodDecl9getParentEv.exit28.i
-  %.0.i.i36.sink.i = phi ptr [ %37, %_ZN5clang13CXXMethodDecl9getParentEv.exit28.i ], [ %45, %38 ], [ %53, %46 ], [ %54, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.sink.split.i ]
-  %55 = tail call fastcc noundef ptr @_ZL20getNonClosureContextIN5clang11DeclContextEEPNS0_4DeclEPT_(ptr noundef %.0.i.i36.sink.i)
+_ZN5clang11DeclContext9getParentEv.exit.i:        ; preds = %38, %_ZN5clang13CXXMethodDecl9getParentEv.exit28.i
+  %.0.i.i.i = phi ptr [ %39, %38 ], [ %37, %_ZN5clang13CXXMethodDecl9getParentEv.exit28.i ]
+  %40 = tail call fastcc noundef ptr @_ZL20getNonClosureContextIN5clang11DeclContextEEPNS0_4DeclEPT_(ptr noundef %.0.i.i.i)
   br label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
 
-_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit.fold.split: ; preds = %1
+41:                                               ; preds = %1
+  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %42)
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i31.i = load i64, ptr %44, align 8
+  %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i31.i, 4
+  %46 = icmp eq i64 %45, 0
+  %47 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i31.i, -8
+  %48 = inttoptr i64 %47 to ptr
+  br i1 %46, label %_ZN5clang11DeclContext9getParentEv.exit33.i, label %49
+
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %48, align 8
+  br label %_ZN5clang11DeclContext9getParentEv.exit33.i
+
+_ZN5clang11DeclContext9getParentEv.exit33.i:      ; preds = %49, %41
+  %.0.i.i32.i = phi ptr [ %50, %49 ], [ %48, %41 ]
+  %51 = tail call fastcc noundef ptr @_ZL20getNonClosureContextIN5clang11DeclContextEEPNS0_4DeclEPT_(ptr noundef %.0.i.i32.i)
   br label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
 
-_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit: ; preds = %1, %1, %1, %1, %1, %1, %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit.fold.split, %4, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.i
-  %.0.i = phi ptr [ %0, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ %0, %4 ], [ %0, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i ], [ %55, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.sink.split.i ], [ null, %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit.fold.split ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
+52:                                               ; preds = %1
+  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %53)
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i = load i64, ptr %55, align 8
+  %56 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i, 4
+  %57 = icmp eq i64 %56, 0
+  %58 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i, -8
+  %59 = inttoptr i64 %58 to ptr
+  br i1 %57, label %_ZN5clang11DeclContext9getParentEv.exit37.i, label %60
+
+60:                                               ; preds = %52
+  %61 = load ptr, ptr %59, align 8
+  br label %_ZN5clang11DeclContext9getParentEv.exit37.i
+
+_ZN5clang11DeclContext9getParentEv.exit37.i:      ; preds = %60, %52
+  %.0.i.i36.i = phi ptr [ %61, %60 ], [ %59, %52 ]
+  %62 = tail call fastcc noundef ptr @_ZL20getNonClosureContextIN5clang11DeclContextEEPNS0_4DeclEPT_(ptr noundef %.0.i.i36.i)
+  br label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
+
+_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i: ; preds = %1
+  br label %_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit
+
+_ZL20getNonClosureContextIN5clang4DeclEEPS1_PT_.exit: ; preds = %1, %1, %1, %1, %1, %1, %4, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %_ZN5clang11DeclContext9getParentEv.exit.i, %_ZN5clang11DeclContext9getParentEv.exit33.i, %_ZN5clang11DeclContext9getParentEv.exit37.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i
+  %.0.i = phi ptr [ %40, %_ZN5clang11DeclContext9getParentEv.exit.i ], [ %51, %_ZN5clang11DeclContext9getParentEv.exit33.i ], [ %62, %_ZN5clang11DeclContext9getParentEv.exit37.i ], [ %0, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ %0, %4 ], [ %0, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
   ret ptr %.0.i
 }
 

@@ -3290,7 +3290,7 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   store i8 1, ptr %passphrase_.i, align 8
   %value_.i.i = getelementptr inbounds i8, ptr %result, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef nonnull %result, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, i32 noundef %context)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, i32 noundef %context)
   %12 = load i8, ptr %result, align 8
   %tobool = trunc i8 %12 to i1
   %.pre85 = load i32, ptr %offset, align 4
@@ -3677,7 +3677,7 @@ cleanup108:                                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr nocapture noundef %config, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, ptr nocapture noundef %offset, i32 noundef %context) unnamed_addr #3 {
+define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr nocapture noundef nonnull %config, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, ptr nocapture noundef %offset, i32 noundef %context) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %offset, align 4
   %cmp.i214 = icmp sgt i32 %0, -1
@@ -4161,7 +4161,7 @@ entry:
   store i32 0, ptr %format_.i, align 4
   %type_.i = getelementptr inbounds i8, ptr %retval, i64 8
   store i64 0, ptr %type_.i, align 8
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef nonnull %retval, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, i32 noundef %context)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef %retval, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, i32 noundef %context)
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.load = load i64, ptr %type_.i, align 8
@@ -4361,7 +4361,7 @@ _ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit
   %38 = load ptr, ptr %key, align 8
   %size_.i = getelementptr inbounds i8, ptr %key, i64 16
   %39 = load i64, ptr %size_.i, align 8
-  %call27 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %value_.i, ptr noundef %38, i64 noundef %39)
+  %call27 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(56) %value_.i, ptr noundef %38, i64 noundef %39)
   call void @_ZN4node6crypto14ManagedEVPPKey12GetParsedKeyEPNS_11EnvironmentEOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS5_XadL_Z13EVP_PKEY_freeEEEEENS0_14ParseKeyResultEPKc(ptr sret(%"class.node::crypto::ManagedEVPPKey") align 8 %agg.result, ptr noundef %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pkey, i32 noundef %call27, ptr noundef nonnull @.str.12)
   %40 = load ptr, ptr %pkey, align 8
   %cmp.not.i41 = icmp eq ptr %40, null
@@ -4540,7 +4540,7 @@ return:                                           ; preds = %_ZNK4node6crypto13K
 declare void @_ZN4node6crypto10ByteSource18FromStringOrBufferEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr sret(%"class.node::crypto::ByteSource") align 8, ptr noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr nocapture noundef %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %key, i64 noundef %key_len) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr nocapture noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %key, i64 noundef %key_len) unnamed_addr #3 {
 entry:
   %length.i.i = alloca i64, align 8
   %ref.tmp.i.i = alloca i64, align 8
@@ -5143,7 +5143,7 @@ if.then24:                                        ; preds = %_ZN4node16NonCopyab
   %add.ptr.i49 = getelementptr inbounds i8, ptr %34, i64 %35
   %retval.0.i = select i1 %cmp.i48, ptr %data, ptr %add.ptr.i49
   %conv = trunc i64 %33 to i32
-  %call27 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEEPKci(ptr noundef nonnull %pkey, ptr noundef %retval.0.i, i32 noundef %conv)
+  %call27 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEEPKci(ptr noundef %pkey, ptr noundef %retval.0.i, i32 noundef %conv)
   %cmp28 = icmp eq i32 %call27, 1
   br i1 %cmp28, label %if.then29, label %if.end50
 
@@ -5154,7 +5154,7 @@ if.then29:                                        ; preds = %if.then24
   %38 = load i64, ptr %offset_.i, align 8
   %add.ptr.i55 = getelementptr inbounds i8, ptr %37, i64 %38
   %retval.0.i56 = select i1 %cmp.i52, ptr %data, ptr %add.ptr.i55
-  %call32 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %retval.0.i56, i64 noundef %36)
+  %call32 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %retval.0.i56, i64 noundef %36)
   br label %if.end50
 
 if.else:                                          ; preds = %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit
@@ -5218,7 +5218,7 @@ if.then41:                                        ; preds = %_ZNKR2v85MaybeIN4no
 
 if.then.i74:                                      ; preds = %if.then41
   %conv.i = trunc i64 %46 to i32
-  %call.i = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEEPKci(ptr noundef nonnull %pkey, ptr noundef %retval.0.i70, i32 noundef %conv.i)
+  %call.i = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEEPKci(ptr noundef %pkey, ptr noundef %retval.0.i70, i32 noundef %conv.i)
   br label %_ZN4node6crypto12_GLOBAL__N_114ParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_27AsymmetricKeyEncodingConfigEPKcm.exit
 
 do.body7.i:                                       ; preds = %if.then41
@@ -5291,7 +5291,7 @@ if.else45:                                        ; preds = %_ZNKR2v85MaybeIN4no
   %54 = load i64, ptr %offset_.i78, align 8
   %add.ptr.i79 = getelementptr inbounds i8, ptr %53, i64 %54
   %retval.0.i80 = select i1 %cmp.i76, ptr %data, ptr %add.ptr.i79
-  %call48 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %retval.0.i80, i64 noundef %52)
+  %call48 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %retval.0.i80, i64 noundef %52)
   br label %if.end50
 
 if.end50:                                         ; preds = %_ZN4node6crypto12_GLOBAL__N_114ParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_27AsymmetricKeyEncodingConfigEPKcm.exit, %if.else45, %if.then24, %if.then29
@@ -5451,7 +5451,7 @@ return:                                           ; preds = %_ZNK4node6crypto13K
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEEPKci(ptr nocapture noundef %pkey, ptr noundef %key_pem, i32 noundef %key_pem_len) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEEPKci(ptr nocapture noundef nonnull %pkey, ptr noundef %key_pem, i32 noundef %key_pem_len) unnamed_addr #3 {
 entry:
   %bp = alloca %"class.std::unique_ptr.363", align 8
   %ref.tmp = alloca %"class.std::function.451", align 8
@@ -7267,7 +7267,7 @@ if.then22:                                        ; preds = %do.end
   store i32 0, ptr %format_.i.i, align 4
   %type_.i.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   store i64 0, ptr %type_.i.i, align 8
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef nonnull %retval.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, i32 noundef 1)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef %retval.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, i32 noundef 1)
   %.fca.0.load.i = load i64, ptr %retval.i, align 8
   %.fca.1.load.i = load i64, ptr %type_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
@@ -15399,7 +15399,7 @@ declare i64 @ERR_peek_error() local_unnamed_addr #0
 declare noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr nocapture noundef %pkey, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bp, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %parse) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr nocapture noundef nonnull %pkey, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bp, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %parse) unnamed_addr #3 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca i64, align 8

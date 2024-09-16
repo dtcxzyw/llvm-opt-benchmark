@@ -2131,7 +2131,7 @@ default.unreachable:                              ; preds = %"_ZN92_$LT$aho_cora
   %.fca.1.extract2.i174 = extractvalue { ptr, i32 } %174, 1
   %.fca.1.gep.i175 = getelementptr inbounds i8, ptr %19, i64 8
   store i32 %.fca.1.extract2.i174, ptr %.fca.1.gep.i175, align 8, !noalias !483
-  %175 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef nonnull align 8 dereferenceable(16) %19, i64 noundef 0), !noalias !488
+  %175 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef align 8 dereferenceable(16) %19, i64 noundef 0), !noalias !488
   %.fca.0.extract.i176 = extractvalue { i32, i32 } %175, 0
   %switch.i177 = icmp eq i32 %.fca.0.extract.i176, 0
   br i1 %switch.i177, label %176, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h82036cde2e7576a0E.exit179"
@@ -2522,7 +2522,7 @@ _ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit380.loopexit: ; 
   %.fca.1.extract2.i188 = extractvalue { ptr, i32 } %314, 1
   %.fca.1.gep.i189 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %.fca.1.extract2.i188, ptr %.fca.1.gep.i189, align 8, !noalias !566
-  %315 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef 0), !noalias !571
+  %315 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef align 8 dereferenceable(16) %17, i64 noundef 0), !noalias !571
   %.fca.0.extract.i190 = extractvalue { i32, i32 } %315, 0
   %switch.i191 = icmp eq i32 %.fca.0.extract.i190, 0
   br i1 %switch.i191, label %316, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h82036cde2e7576a0E.exit193"
@@ -2798,7 +2798,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.
   %.fca.1.extract2.i181 = extractvalue { ptr, i32 } %416, 1
   %.fca.1.gep.i182 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 %.fca.1.extract2.i181, ptr %.fca.1.gep.i182, align 8, !noalias !612
-  %417 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef nonnull align 8 dereferenceable(16) %18, i64 noundef 0), !noalias !617
+  %417 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef align 8 dereferenceable(16) %18, i64 noundef 0), !noalias !617
   %.fca.0.extract.i183 = extractvalue { i32, i32 } %417, 0
   %switch.i184 = icmp eq i32 %.fca.0.extract.i183, 0
   br i1 %switch.i184, label %418, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h82036cde2e7576a0E.exit186"
@@ -2896,7 +2896,7 @@ _ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit400: ; preds = %
   %.fca.1.extract2.i202 = extractvalue { ptr, i32 } %447, 1
   %.fca.1.gep.i203 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %.fca.1.extract2.i202, ptr %.fca.1.gep.i203, align 8, !noalias !640
-  %448 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef nonnull align 8 dereferenceable(16) %16, i64 noundef 0), !noalias !645
+  %448 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef align 8 dereferenceable(16) %16, i64 noundef 0), !noalias !645
   %.fca.0.extract.i204 = extractvalue { i32, i32 } %448, 0
   %switch.i205 = icmp eq i32 %.fca.0.extract.i204, 0
   br i1 %switch.i205, label %449, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h82036cde2e7576a0E.exit207"
@@ -3222,7 +3222,7 @@ _ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit428: ; preds = %
   %.fca.1.extract2.i216 = extractvalue { ptr, i32 } %559, 1
   %.fca.1.gep.i217 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %.fca.1.extract2.i216, ptr %.fca.1.gep.i217, align 8, !noalias !719
-  %560 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef nonnull align 8 dereferenceable(16) %14, i64 noundef 0), !noalias !724
+  %560 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef align 8 dereferenceable(16) %14, i64 noundef 0), !noalias !724
   %.fca.0.extract.i218 = extractvalue { i32, i32 } %560, 0
   %switch.i219 = icmp eq i32 %.fca.0.extract.i218, 0
   br i1 %switch.i219, label %561, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h82036cde2e7576a0E.exit221"
@@ -3455,7 +3455,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.
   %.fca.1.extract2.i209 = extractvalue { ptr, i32 } %641, 1
   %.fca.1.gep.i210 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 %.fca.1.extract2.i209, ptr %.fca.1.gep.i210, align 8, !noalias !763
-  %642 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef nonnull align 8 dereferenceable(16) %15, i64 noundef 0), !noalias !768
+  %642 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef align 8 dereferenceable(16) %15, i64 noundef 0), !noalias !768
   %.fca.0.extract.i211 = extractvalue { i32, i32 } %642, 0
   %switch.i212 = icmp eq i32 %.fca.0.extract.i211, 0
   br i1 %switch.i212, label %643, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h82036cde2e7576a0E.exit214"
@@ -9895,7 +9895,7 @@ _ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit186: ; preds = %
   %.fca.1.extract2.i79 = extractvalue { ptr, i32 } %320, 1
   %.fca.1.gep.i80 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %.fca.1.extract2.i79, ptr %.fca.1.gep.i80, align 8, !noalias !1929
-  %321 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %.0.i27), !noalias !1934
+  %321 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef align 8 dereferenceable(16) %10, i64 noundef %.0.i27), !noalias !1934
   %.fca.0.extract.i81 = extractvalue { i32, i32 } %321, 0
   %switch.i82 = icmp eq i32 %.fca.0.extract.i81, 0
   br i1 %switch.i82, label %322, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h82036cde2e7576a0E.exit84"
@@ -10304,7 +10304,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.
   %.fca.1.extract2.i65 = extractvalue { ptr, i32 } %474, 1
   %.fca.1.gep.i66 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %.fca.1.extract2.i65, ptr %.fca.1.gep.i66, align 8, !noalias !2018
-  %475 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, i64 noundef 0), !noalias !2023
+  %475 = call fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias noundef align 8 dereferenceable(16) %11, i64 noundef 0), !noalias !2023
   %.fca.0.extract.i67 = extractvalue { i32, i32 } %475, 0
   %switch.i68 = icmp eq i32 %.fca.0.extract.i67, 0
   br i1 %switch.i68, label %476, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h82036cde2e7576a0E.exit70"
@@ -10570,7 +10570,7 @@ define internal void @"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$re
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17h757deb7b34d53130E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2079)
   %.not.i = icmp eq i64 %1, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
@@ -10653,7 +10653,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hc5abf5d640490d43E.exit.thre
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h1ba5e65fc3406b65E(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h1ba5e65fc3406b65E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %._crit_edge, label %.lr.ph
 
@@ -13525,8 +13525,8 @@ define void @_ZN14regex_automata4util8captures8Captures4iter17hb7ea3c2025647805E
   %4 = load i32, ptr %3, align 8, !range !1275, !noundef !12
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %.val = load ptr, ptr %5, align 8
-  %switch.i = icmp eq i32 %4, 0
-  br i1 %switch.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha79186f7eef2908dE.exit", label %6
+  %trunc.i = trunc nuw i32 %4 to i1
+  br i1 %trunc.i, label %6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha79186f7eef2908dE.exit"
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 28

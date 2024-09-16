@@ -1202,7 +1202,7 @@ define internal fastcc void @early_ehci_bios_handoff() unnamed_addr #0 section "
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -250000, 16) i32 @dbgp_wait_until_done(i32 noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -250000, 16) i32 @dbgp_wait_until_done(i32 noundef range(i32 32, 0) %0) unnamed_addr #3 align 16 {
   %2 = or i32 %0, 32
   br label %3
 
@@ -1314,12 +1314,12 @@ define internal fastcc range(i32 -250000, 16) i32 @dbgp_wait_until_done(i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -250000, 16) i32 @dbgp_control_msg(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -250000, 16) i32 @dbgp_control_msg(i32 noundef %0, i32 noundef range(i32 0, 129) %1, i32 noundef range(i32 3, 7) %2, i32 noundef range(i32 6, 2561) %3, ptr nocapture noundef writeonly %4, i32 noundef range(i32 0, 5) %5) unnamed_addr #3 align 16 {
   %7 = alloca %struct.usb_ctrlrequest, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   %8 = lshr i32 %1, 4
   %9 = and i32 %8, 8
-  %10 = icmp slt i32 %9, %5
+  %10 = icmp ult i32 %9, %5
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %6
@@ -1400,78 +1400,77 @@ define internal fastcc range(i32 -250000, 16) i32 @dbgp_control_msg(i32 noundef 
   %67 = load ptr, ptr @ehci_debug, align 8
   %68 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67) #7, !srcloc !6
   %69 = and i32 %68, -64
-  %70 = and i32 %5, 15
-  %71 = or disjoint i32 %70, %69
-  %72 = or disjoint i32 %71, 32
-  %73 = load ptr, ptr @ehci_debug, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr elementtype(i32) %74) #7, !srcloc !15
-  %75 = load ptr, ptr @ehci_debug, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %66, ptr elementtype(i32) %76) #7, !srcloc !15
-  %77 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %72)
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %.loopexit, label %79
+  %70 = or disjoint i32 %5, %69
+  %71 = or disjoint i32 %70, 32
+  %72 = load ptr, ptr @ehci_debug, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr elementtype(i32) %73) #7, !srcloc !15
+  %74 = load ptr, ptr @ehci_debug, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %66, ptr elementtype(i32) %75) #7, !srcloc !15
+  %76 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %71)
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %.loopexit, label %78
 
-79:                                               ; preds = %61
-  %80 = tail call i32 @llvm.smin.i32(i32 %77, i32 %5)
-  %81 = load ptr, ptr @ehci_debug, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %82) #7, !srcloc !6
-  %84 = load ptr, ptr @ehci_debug, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 12
-  %86 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %85) #7, !srcloc !6
-  %87 = icmp sgt i32 %80, 0
-  br i1 %87, label %88, label %.loopexit11
+78:                                               ; preds = %61
+  %79 = tail call i32 @llvm.smin.i32(i32 %76, i32 %5)
+  %80 = load ptr, ptr @ehci_debug, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81) #7, !srcloc !6
+  %83 = load ptr, ptr @ehci_debug, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 12
+  %85 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %84) #7, !srcloc !6
+  %86 = icmp sgt i32 %79, 0
+  br i1 %86, label %87, label %.loopexit11
 
-88:                                               ; preds = %79
-  %89 = add nsw i32 %80, -1
-  %90 = tail call i32 @llvm.umin.i32(i32 %89, i32 3)
-  %91 = add nuw nsw i32 %90, 1
-  %92 = zext nneg i32 %91 to i64
-  br label %98
+87:                                               ; preds = %78
+  %88 = add nsw i32 %79, -1
+  %89 = tail call i32 @llvm.umin.i32(i32 %88, i32 3)
+  %90 = add nuw nsw i32 %89, 1
+  %91 = zext nneg i32 %90 to i64
+  br label %97
 
-.loopexit11:                                      ; preds = %98, %79
-  %93 = phi i32 [ 0, %79 ], [ %91, %98 ]
-  %94 = icmp slt i32 %93, %80
-  br i1 %94, label %95, label %.loopexit
+.loopexit11:                                      ; preds = %97, %78
+  %92 = phi i32 [ 0, %78 ], [ %90, %97 ]
+  %93 = icmp slt i32 %92, %79
+  br i1 %93, label %94, label %.loopexit
 
-95:                                               ; preds = %.loopexit11
-  %96 = zext nneg i32 %93 to i64
-  %97 = zext nneg i32 %80 to i64
-  br label %107
+94:                                               ; preds = %.loopexit11
+  %95 = zext nneg i32 %92 to i64
+  %96 = zext nneg i32 %79 to i64
+  br label %106
 
-98:                                               ; preds = %98, %88
-  %99 = phi i64 [ 0, %88 ], [ %105, %98 ]
-  %100 = trunc i64 %99 to i32
-  %101 = shl i32 %100, 3
-  %102 = lshr i32 %83, %101
-  %103 = trunc i32 %102 to i8
-  %104 = getelementptr i8, ptr %4, i64 %99
-  store i8 %103, ptr %104, align 1
-  %105 = add nuw nsw i64 %99, 1
-  %106 = icmp eq i64 %105, %92
-  br i1 %106, label %.loopexit11, label %98, !llvm.loop !30
+97:                                               ; preds = %97, %87
+  %98 = phi i64 [ 0, %87 ], [ %104, %97 ]
+  %99 = trunc i64 %98 to i32
+  %100 = shl i32 %99, 3
+  %101 = lshr i32 %82, %100
+  %102 = trunc i32 %101 to i8
+  %103 = getelementptr i8, ptr %4, i64 %98
+  store i8 %102, ptr %103, align 1
+  %104 = add nuw nsw i64 %98, 1
+  %105 = icmp eq i64 %104, %91
+  br i1 %105, label %.loopexit11, label %97, !llvm.loop !30
 
-107:                                              ; preds = %107, %95
-  %108 = phi i64 [ %96, %95 ], [ %115, %107 ]
-  %109 = trunc i64 %108 to i32
-  %110 = shl nuw nsw i32 %109, 3
-  %111 = add nsw i32 %110, -32
-  %112 = lshr i32 %86, %111
-  %113 = trunc i32 %112 to i8
-  %114 = getelementptr i8, ptr %4, i64 %108
-  store i8 %113, ptr %114, align 1
-  %115 = add nuw nsw i64 %108, 1
-  %116 = icmp ult i64 %108, 7
-  %117 = icmp ult i64 %115, %97
-  %118 = and i1 %116, %117
-  br i1 %118, label %107, label %.loopexit, !llvm.loop !37
+106:                                              ; preds = %106, %94
+  %107 = phi i64 [ %95, %94 ], [ %114, %106 ]
+  %108 = trunc i64 %107 to i32
+  %109 = shl nuw nsw i32 %108, 3
+  %110 = add nsw i32 %109, -32
+  %111 = lshr i32 %85, %110
+  %112 = trunc i32 %111 to i8
+  %113 = getelementptr i8, ptr %4, i64 %107
+  store i8 %112, ptr %113, align 1
+  %114 = add nuw nsw i64 %107, 1
+  %115 = icmp ult i64 %107, 7
+  %116 = icmp ult i64 %114, %96
+  %117 = and i1 %115, %116
+  br i1 %117, label %106, label %.loopexit, !llvm.loop !37
 
-.loopexit:                                        ; preds = %107, %.loopexit11, %61, %48, %6
-  %119 = phi i32 [ -1, %6 ], [ %59, %48 ], [ %77, %61 ], [ %77, %.loopexit11 ], [ %77, %107 ]
+.loopexit:                                        ; preds = %106, %.loopexit11, %61, %48, %6
+  %118 = phi i32 [ -1, %6 ], [ %59, %48 ], [ %76, %61 ], [ %76, %.loopexit11 ], [ %76, %106 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  ret i32 %119
+  ret i32 %118
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

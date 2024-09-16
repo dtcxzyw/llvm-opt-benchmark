@@ -432,7 +432,7 @@ define internal i32 @dissect_nlm1_granted(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -547,7 +547,7 @@ declare i32 @dissect_rpc_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare i32 @dissect_rpc_bool(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %8
@@ -647,7 +647,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %7, 0
@@ -847,7 +847,7 @@ declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -931,7 +931,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -1009,7 +1009,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -1083,7 +1083,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7

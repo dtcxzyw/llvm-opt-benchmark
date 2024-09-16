@@ -6457,7 +6457,7 @@ declare ptr @dt_ioppr_add_profile_info_to_list(ptr noundef, i32 noundef, ptr nou
 declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_chromaticity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #7 {
+define internal fastcc void @_get_chromaticity(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #7 {
   %6 = alloca [4 x float], align 16
   %7 = alloca [4 x float], align 16
   switch i32 %2, label %341 [
@@ -6885,7 +6885,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @cairo_pattern_create_mesh() local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_rgb_matrix_to_xyz(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #14 {
+define internal fastcc void @dt_ioppr_rgb_matrix_to_xyz(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #14 {
   %8 = icmp eq i32 %6, 0
   br i1 %8, label %170, label %9
 

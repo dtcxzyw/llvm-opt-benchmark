@@ -2963,7 +2963,7 @@ define internal fastcc i32 @switch_mm(ptr noundef %0, ptr noundef readonly %1) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mi_set_context(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @mi_set_context(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 257, 269) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -3005,7 +3005,7 @@ define internal fastcc i32 @mi_set_context(ptr noundef %0, ptr nocapture noundef
   %29 = phi i32 [ %26, %22 ], [ 6, %27 ], [ 4, %18 ]
   %30 = and i32 %2, 2
   %31 = icmp eq i32 %30, 0
-  %32 = and i32 %2, -3
+  %32 = and i32 %2, 269
   %33 = add nuw nsw i32 %29, %30
   %34 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef %33) #9
   %35 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)

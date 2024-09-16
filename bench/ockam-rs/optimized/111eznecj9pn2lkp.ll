@@ -1806,7 +1806,7 @@ define hidden { ptr, ptr } @_ZN13opentelemetry6global5trace6tracer17h306f7b1eb65
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_slow17h6614d382e5f24282E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_slow17h6614d382e5f24282E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { i32, i32 }, ptr, { { ptr, i64 }, i64 } }, { { ptr, [26 x i64] } }, { { ptr, [6 x i64] } }, { { ptr, [3 x i64] } } }, align 8
   %6 = alloca { { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { i32, i32 }, ptr, { { ptr, i64 }, i64 } }, { { ptr, [26 x i64] } }, { { ptr, [6 x i64] } }, { { ptr, [3 x i64] } } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
@@ -2066,7 +2066,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.2700039803678404653.exit.th
   br label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hbb1c65362af95eedE.exit40"
 
 105:                                              ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h02dd2877e95b6569E.exit.thread", %"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h02dd2877e95b6569E.exit"
-  call fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hf69400636480211cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hf69400636480211cE"(ptr noalias noundef align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1400, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
@@ -3314,7 +3314,7 @@ define internal fastcc void @"_ZN4core3ptr309drop_in_place$LT$hashbrown..scopegu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hf69400636480211cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hf69400636480211cE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !400, !noundef !10
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13055,7 +13055,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   br i1 %109, label %111, label %110
 
 110:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcc62c94b5995c8b4E.exit.i.i.i"
-  invoke fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_slow17h6614d382e5f24282E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 %102, i64 noundef %.0.val.i.i.i.i, i64 noundef %108)
+  invoke fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_slow17h6614d382e5f24282E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 %102, i64 noundef %.0.val.i.i.i.i, i64 noundef %108)
           to label %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h9b98dafcba09bf35E.exit.i.i" unwind label %224, !noalias !2047
 
 111:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcc62c94b5995c8b4E.exit.i.i.i"
@@ -13203,8 +13203,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   br label %226
 
 163:                                              ; preds = %213, %154
-  %.sroa.0.040.i.i.i = phi i32 [ 0, %154 ], [ %164, %213 ]
-  %164 = add nuw nsw i32 %.sroa.0.040.i.i.i, 1
+  %.sroa.0.039.i.i.i = phi i32 [ 0, %154 ], [ %164, %213 ]
+  %164 = add nuw nsw i32 %.sroa.0.039.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !2090
   %.val9.i.i.i = load i64, ptr %151, align 8, !noalias !2089, !noundef !10
   %165 = icmp ult i64 %155, %.val9.i.i.i
@@ -13223,7 +13223,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2091)
   %169 = cmpxchg ptr %168, i32 0, i32 1 acquire monotonic, align 4, !noalias !2094
   %.sroa.18.0.in.i.i.i.i.i = extractvalue { i32, i1 } %169, 1
-  br i1 %.sroa.18.0.in.i.i.i.i.i, label %170, label %.thread34.i.i.i
+  br i1 %.sroa.18.0.in.i.i.i.i.i, label %170, label %.thread33.i.i.i
 
 170:                                              ; preds = %167
   %171 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h0c0cb700fd497c9fE monotonic, align 8, !noalias !2095
@@ -13240,7 +13240,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   %177 = zext i1 %176 to i8
   br label %178
 
-.thread34.i.i.i:                                  ; preds = %167
+.thread33.i.i.i:                                  ; preds = %167
   store i8 2, ptr %156, align 8, !alias.scope !2091, !noalias !2090
   store i64 1, ptr %10, align 8, !alias.scope !2091, !noalias !2090
   br label %214
@@ -13339,8 +13339,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.2700039803678404653.exit.th
   %exitcond.not.i.i.i = icmp eq i32 %164, 10
   br i1 %exitcond.not.i.i.i, label %160, label %163
 
-214:                                              ; preds = %178, %.thread34.i.i.i
-  invoke fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hf69400636480211cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+214:                                              ; preds = %178, %.thread33.i.i.i
+  invoke fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hf69400636480211cE"(ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %213 unwind label %.thread.loopexit.i.i.i, !noalias !2089
 
 215:                                              ; preds = %138

@@ -4256,7 +4256,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIiEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39) %p, i32 noundef %beginindex, i32 noundef %endindex, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIiEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39) %p, i32 noundef range(i32 0, -2147483648) %beginindex, i32 noundef range(i32 1, -2147483648) %endindex, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.117", align 16
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4264,7 +4264,7 @@ entry:
   %0 = load i8, ptr %aggregate3.i.i, align 1, !noalias !164
   %.fr = freeze i8 %0
   %conv = zext i8 %.fr to i32
-  %cmp7 = icmp slt i32 %beginindex, %endindex
+  %cmp7 = icmp ult i32 %beginindex, %endindex
   br i1 %cmp7, label %for.body.lr.ph, label %for.end15
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -4278,7 +4278,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %m_data.i = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %m_data.i, align 8
   %cond.i = select i1 %tobool.i, ptr %2, ptr %m_data.i
-  %mul = mul nsw i32 %beginindex, %conv
+  %mul = mul nuw nsw i32 %beginindex, %conv
   %idx.ext = zext nneg i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %cond.i, i64 %idx.ext
   br label %for.body.us
@@ -4286,7 +4286,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond3.for.inc13_crit_edge.us
   %f.09.us = phi ptr [ %incdec.ptr.us, %for.cond3.for.inc13_crit_edge.us ], [ %add.ptr, %for.body.us.preheader ]
   %i.08.us = phi i32 [ %inc14.us, %for.cond3.for.inc13_crit_edge.us ], [ %beginindex, %for.body.us.preheader ]
-  %cmp1.us = icmp sgt i32 %i.08.us, %beginindex
+  %cmp1.us = icmp ugt i32 %i.08.us, %beginindex
   br i1 %cmp1.us, label %if.then.us, label %for.body7.us.preheader
 
 if.then.us:                                       ; preds = %for.body.us
@@ -4324,7 +4324,7 @@ invoke.cont.us:                                   ; preds = %if.end10.us
   br i1 %exitcond.not, label %for.cond3.for.inc13_crit_edge.us, label %for.body7.us, !llvm.loop !170
 
 for.cond3.for.inc13_crit_edge.us:                 ; preds = %invoke.cont.us
-  %inc14.us = add i32 %i.08.us, 1
+  %inc14.us = add nuw i32 %i.08.us, 1
   %exitcond11.not = icmp eq i32 %inc14.us, %endindex
   br i1 %exitcond11.not, label %for.end15, label %for.body.us, !llvm.loop !171
 
@@ -4336,7 +4336,7 @@ lpad.split.us:                                    ; preds = %if.end10.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %i.08 = phi i32 [ %inc14, %if.end ], [ %beginindex, %for.body.lr.ph ]
-  %cmp1 = icmp sgt i32 %i.08, %beginindex
+  %cmp1 = icmp ugt i32 %i.08, %beginindex
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -4344,7 +4344,7 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %inc14 = add i32 %i.08, 1
+  %inc14 = add nuw i32 %i.08, 1
   %exitcond12.not = icmp eq i32 %inc14, %endindex
   br i1 %exitcond12.not, label %for.end15, label %for.body, !llvm.loop !171
 
@@ -4370,7 +4370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIjEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39) %p, i32 noundef %beginindex, i32 noundef %endindex, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110formatTypeIjEEvRKNS_10ParamValueEiiPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39) %p, i32 noundef range(i32 0, -2147483648) %beginindex, i32 noundef range(i32 1, -2147483648) %endindex, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.118", align 16
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4378,7 +4378,7 @@ entry:
   %0 = load i8, ptr %aggregate3.i.i, align 1, !noalias !175
   %.fr = freeze i8 %0
   %conv = zext i8 %.fr to i32
-  %cmp7 = icmp slt i32 %beginindex, %endindex
+  %cmp7 = icmp ult i32 %beginindex, %endindex
   br i1 %cmp7, label %for.body.lr.ph, label %for.end15
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -4392,7 +4392,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %m_data.i = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %m_data.i, align 8
   %cond.i = select i1 %tobool.i, ptr %2, ptr %m_data.i
-  %mul = mul nsw i32 %beginindex, %conv
+  %mul = mul nuw nsw i32 %beginindex, %conv
   %idx.ext = zext nneg i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %cond.i, i64 %idx.ext
   br label %for.body.us
@@ -4400,7 +4400,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond3.for.inc13_crit_edge.us
   %f.09.us = phi ptr [ %incdec.ptr.us, %for.cond3.for.inc13_crit_edge.us ], [ %add.ptr, %for.body.us.preheader ]
   %i.08.us = phi i32 [ %inc14.us, %for.cond3.for.inc13_crit_edge.us ], [ %beginindex, %for.body.us.preheader ]
-  %cmp1.us = icmp sgt i32 %i.08.us, %beginindex
+  %cmp1.us = icmp ugt i32 %i.08.us, %beginindex
   br i1 %cmp1.us, label %if.then.us, label %for.body7.us.preheader
 
 if.then.us:                                       ; preds = %for.body.us
@@ -4438,7 +4438,7 @@ invoke.cont.us:                                   ; preds = %if.end10.us
   br i1 %exitcond.not, label %for.cond3.for.inc13_crit_edge.us, label %for.body7.us, !llvm.loop !181
 
 for.cond3.for.inc13_crit_edge.us:                 ; preds = %invoke.cont.us
-  %inc14.us = add i32 %i.08.us, 1
+  %inc14.us = add nuw i32 %i.08.us, 1
   %exitcond11.not = icmp eq i32 %inc14.us, %endindex
   br i1 %exitcond11.not, label %for.end15, label %for.body.us, !llvm.loop !182
 
@@ -4450,7 +4450,7 @@ lpad.split.us:                                    ; preds = %if.end10.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %i.08 = phi i32 [ %inc14, %if.end ], [ %beginindex, %for.body.lr.ph ]
-  %cmp1 = icmp sgt i32 %i.08, %beginindex
+  %cmp1 = icmp ugt i32 %i.08, %beginindex
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -4458,7 +4458,7 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %inc14 = add i32 %i.08, 1
+  %inc14 = add nuw i32 %i.08, 1
   %exitcond12.not = icmp eq i32 %inc14, %endindex
   br i1 %exitcond12.not, label %for.end15, label %for.body, !llvm.loop !182
 
@@ -39177,7 +39177,7 @@ _ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_
   %frombool18.i36.i.i.i = and i8 %22, 1
   store i8 %frombool18.i36.i.i.i, ptr %m_nonlocal.i18.i.i.i, align 2
   store ptr null, ptr %m_data49.i.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i)
   %23 = load i8, ptr %m_copy.i17.i.i.i, align 1
   %tobool.i.i37.i.i.i = trunc i8 %23 to i1
   br i1 %tobool.i.i37.i.i.i, label %land.lhs.true.i.i.i.i.i, label %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i.i.i
@@ -39384,7 +39384,7 @@ _ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_
   %frombool18.i28.i = and i8 %52, 1
   store i8 %frombool18.i28.i, ptr %m_nonlocal.i10.i, align 2
   store ptr null, ptr %m_data49.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef nonnull %agg.tmp7.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef %agg.tmp7.i)
   %53 = load i8, ptr %m_copy.i9.i, align 1
   %tobool.i.i29.i = trunc i8 %53 to i1
   br i1 %tobool.i.i29.i, label %land.lhs.true.i.i.i, label %_ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit.i
@@ -40160,7 +40160,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_T0_SF_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_T0_SF_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull %__value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp37 = alloca %"class.OpenImageIO_v2_6_0::ParamValue", align 8
   %sub = add nsw i64 %__len, -1
@@ -41262,7 +41262,7 @@ _ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_
   %frombool18.i36.i.i.i = and i8 %22, 1
   store i8 %frombool18.i36.i.i.i, ptr %m_nonlocal.i18.i.i.i, align 2
   store ptr null, ptr %m_data49.i.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit113.i.i.i
@@ -41519,7 +41519,7 @@ _ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_
   %frombool18.i28.i = and i8 %59, 1
   store i8 %frombool18.i28.i, ptr %m_nonlocal.i10.i, align 2
   store ptr null, ptr %m_data49.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef nonnull %agg.tmp7.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef %agg.tmp7.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE.exit105.i
@@ -42292,7 +42292,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_T0_SF_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_T0_SF_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull %__value) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp12.i.i.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

@@ -4640,7 +4640,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call15 = phi ptr [ %call13, %while.body.lr.ph ], [ %call, %if.end6 ]
   %value = getelementptr inbounds i8, ptr %call15, i64 16
   %6 = load ptr, ptr %value, align 8
-  %call1 = call fastcc i32 @ACLSelectorCheckCmd(ptr noundef %6, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef nonnull %local_idxptr, ptr noundef nonnull %cache)
+  %call1 = call fastcc i32 @ACLSelectorCheckCmd(ptr noundef %6, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef %local_idxptr, ptr noundef %cache)
   %cmp2 = icmp eq i32 %call1, 0
   br i1 %cmp2, label %land.lhs.true, label %if.end6
 
@@ -4718,7 +4718,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef writeonly %keyidxptr, ptr noundef %cache) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef nonnull writeonly %keyidxptr, ptr noundef nonnull %cache) unnamed_addr #0 {
 entry:
   %channels = alloca %struct.getKeysResult, align 8
   %id1 = getelementptr inbounds i8, ptr %cmd, i64 208
@@ -5215,7 +5215,7 @@ while.body:                                       ; preds = %if.end, %if.end9
   %last_idx.016 = phi i32 [ %last_idx.1, %if.end9 ], [ 0, %if.end ]
   %value = getelementptr inbounds i8, ptr %call18, i64 16
   %1 = load ptr, ptr %value, align 8
-  %call1 = call fastcc i32 @ACLSelectorCheckCmd(ptr noundef %1, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef nonnull %local_idxptr, ptr noundef nonnull %cache)
+  %call1 = call fastcc i32 @ACLSelectorCheckCmd(ptr noundef %1, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef %local_idxptr, ptr noundef %cache)
   %cmp2 = icmp eq i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 

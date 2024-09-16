@@ -656,7 +656,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P_create_id(ptr noundef %0, i1
   br i1 %.not53.i, label %55, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call fastcc i32 @H5P__do_prop_cb1(ptr noundef nonnull %12, ptr noundef nonnull %41, ptr noundef nonnull %47)
+  %49 = tail call fastcc i32 @H5P__do_prop_cb1(ptr noundef nonnull %12, ptr noundef nonnull %41, ptr noundef %47)
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %55
 
@@ -1030,7 +1030,7 @@ H5P__add_prop.exit:                               ; preds = %42
 declare ptr @H5SL_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5P__dup_prop(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5P__dup_prop(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 {
   %3 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5P_genprop_t_reg_free_list) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
@@ -1400,7 +1400,7 @@ H5P__add_prop.exit:                               ; preds = %94
 
 139:                                              ; preds = %136
   %140 = load ptr, ptr %13, align 8
-  %141 = tail call fastcc i32 @H5P__do_prop_cb1(ptr noundef %140, ptr noundef nonnull %130, ptr noundef nonnull %138)
+  %141 = tail call fastcc i32 @H5P__do_prop_cb1(ptr noundef %140, ptr noundef nonnull %130, ptr noundef %138)
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %.split.us, label %143
 
@@ -1456,7 +1456,7 @@ H5P__add_prop.exit:                               ; preds = %94
 
 164:                                              ; preds = %.lr.ph165.us184
   %165 = load ptr, ptr %13, align 8
-  %166 = tail call fastcc i32 @H5P__do_prop_cb1(ptr noundef %165, ptr noundef nonnull %161, ptr noundef nonnull %163)
+  %166 = tail call fastcc i32 @H5P__do_prop_cb1(ptr noundef %165, ptr noundef nonnull %161, ptr noundef %163)
   %167 = icmp slt i32 %166, 0
   br i1 %167, label %.split.us, label %168
 
@@ -1498,7 +1498,7 @@ H5P__add_prop.exit:                               ; preds = %94
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr %13, align 8
-  %187 = tail call fastcc i32 @H5P__do_prop_cb1(ptr noundef %186, ptr noundef nonnull %178, ptr noundef nonnull %184)
+  %187 = tail call fastcc i32 @H5P__do_prop_cb1(ptr noundef %186, ptr noundef nonnull %178, ptr noundef %184)
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %.split.us, label %192
 
@@ -1645,7 +1645,7 @@ define internal fastcc void @H5P__free_prop(ptr noundef %0) unnamed_addr #0 {
 declare ptr @H5SL_search(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5P__do_prop_cb1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5P__do_prop_cb1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #14
@@ -2422,7 +2422,7 @@ H5P__free_prop.exit:                              ; preds = %50, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5P__create_prop(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) unnamed_addr #0 {
+define internal fastcc ptr @H5P__create_prop(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 1, 3) %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) unnamed_addr #0 {
   %14 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5P_genprop_t_reg_free_list) #13
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20

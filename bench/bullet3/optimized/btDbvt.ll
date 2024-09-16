@@ -92,7 +92,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  invoke fastcc void @_ZL17recursedeletenodeP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL17recursedeletenodeP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef nonnull %0)
           to label %if.end.i unwind label %terminate.lpad
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -148,7 +148,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZL17recursedeletenodeP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZL17recursedeletenodeP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef nonnull %0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -201,7 +201,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17recursedeletenodeP6btDbvtP10btDbvtNode(ptr noundef %pdbvt, ptr noundef %node) unnamed_addr #2 {
+define internal fastcc void @_ZL17recursedeletenodeP6btDbvtP10btDbvtNode(ptr noundef nonnull %pdbvt, ptr noundef %node) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %node, null
   br i1 %cmp, label %return, label %if.end
@@ -313,13 +313,13 @@ _ZN20btAlignedObjectArrayIP10btDbvtNodeE10deallocateEv.exit.i: ; preds = %if.the
 
 invoke.cont:                                      ; preds = %_ZN20btAlignedObjectArrayIP10btDbvtNodeE10deallocateEv.exit.i, %if.then
   %7 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP10btDbvtNodeE10deallocateEv.exit.i ], [ %0, %if.then ]
-  invoke fastcc void @_ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei(ptr noundef nonnull %this, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(25) %leaves, i32 noundef -1)
+  invoke fastcc void @_ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei(ptr noundef %this, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(25) %leaves, i32 noundef -1)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %8 = load ptr, ptr %m_data.i.i, align 8
   %9 = load i32, ptr %m_size.i.i, align 4
-  invoke fastcc void @_ZL8bottomupP6btDbvtPP10btDbvtNodei(ptr noundef nonnull %this, ptr noundef nonnull %8, i32 noundef %9)
+  invoke fastcc void @_ZL8bottomupP6btDbvtPP10btDbvtNodei(ptr noundef %this, ptr noundef %8, i32 noundef %9)
           to label %if.then.i.i.i unwind label %lpad
 
 if.then.i.i.i:                                    ; preds = %invoke.cont3
@@ -352,7 +352,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei(ptr noundef %pdbvt, ptr noundef %root, ptr noundef nonnull align 8 dereferenceable(25) %leaves, i32 noundef %depth) unnamed_addr #2 {
+define internal fastcc void @_ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei(ptr noundef nonnull %pdbvt, ptr noundef %root, ptr noundef nonnull align 8 dereferenceable(25) %leaves, i32 noundef %depth) unnamed_addr #2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %root, i64 48
   %0 = load ptr, ptr %arrayidx.i.i, align 8
@@ -463,7 +463,7 @@ _ZN20btAlignedObjectArrayIP10btDbvtNodeE9push_backERKS1_.exit: ; preds = %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8bottomupP6btDbvtPP10btDbvtNodei(ptr nocapture noundef %pdbvt, ptr nocapture noundef %leaves, i32 noundef %count) unnamed_addr #6 {
+define internal fastcc void @_ZL8bottomupP6btDbvtPP10btDbvtNodei(ptr nocapture noundef nonnull %pdbvt, ptr nocapture noundef nonnull %leaves, i32 noundef %count) unnamed_addr #6 {
 entry:
   %ref.tmp = alloca %struct.btDbvtAabbMm, align 4
   %invariant.gep = getelementptr i8, ptr %leaves, i64 -8
@@ -746,13 +746,13 @@ _ZN20btAlignedObjectArrayIP10btDbvtNodeE10deallocateEv.exit.i: ; preds = %if.the
 
 invoke.cont:                                      ; preds = %_ZN20btAlignedObjectArrayIP10btDbvtNodeE10deallocateEv.exit.i, %if.then
   %7 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP10btDbvtNodeE10deallocateEv.exit.i ], [ %0, %if.then ]
-  invoke fastcc void @_ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei(ptr noundef nonnull %this, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(25) %leaves, i32 noundef -1)
+  invoke fastcc void @_ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei(ptr noundef %this, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(25) %leaves, i32 noundef -1)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %8 = load ptr, ptr %m_data.i.i, align 8
   %9 = load i32, ptr %m_size.i.i, align 4
-  %call8 = invoke fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef nonnull %this, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %bu_treshold)
+  %call8 = invoke fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef %this, ptr noundef %8, i32 noundef %9, i32 noundef %bu_treshold)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont3
@@ -788,7 +788,7 @@ if.end:                                           ; preds = %if.then3.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef %pdbvt, ptr noundef %leaves, i32 noundef %count, i32 noundef %bu_treshold) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %leaves, i32 noundef %count, i32 noundef %bu_treshold) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %vol = alloca %struct.btDbvtAabbMm, align 4
   %splitcount = alloca [3 x [2 x i32]], align 16
@@ -817,9 +817,9 @@ init.end:                                         ; preds = %init, %init.check, 
 
 if.then:                                          ; preds = %init.end
   %cmp11 = icmp sgt i32 %count, %bu_treshold
-  br i1 %cmp11, label %for.body.lr.ph.i, label %if.else78
+  br i1 %cmp11, label %if.then12, label %if.else78
 
-for.body.lr.ph.i:                                 ; preds = %if.then
+if.then12:                                        ; preds = %if.then
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %2 = load ptr, ptr %leaves, align 8, !noalias !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %vol, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -827,8 +827,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %wide.trip.count.i = zext nneg i32 %count to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_Z5MergeRK12btDbvtAabbMmS1_RS_.exit.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_Z5MergeRK12btDbvtAabbMmS1_RS_.exit.i ]
+for.body.i:                                       ; preds = %_Z5MergeRK12btDbvtAabbMmS1_RS_.exit.i, %if.then12
+  %indvars.iv.i = phi i64 [ 1, %if.then12 ], [ %indvars.iv.next.i, %_Z5MergeRK12btDbvtAabbMmS1_RS_.exit.i ]
   %arrayidx1.i = getelementptr inbounds ptr, ptr %leaves, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx1.i, align 8, !noalias !15
   %mx25.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -966,9 +966,9 @@ for.inc57:                                        ; preds = %if.then45, %for.bod
 
 for.end59:                                        ; preds = %for.inc57
   %cmp60 = icmp sgt i32 %bestaxis.1, -1
-  br i1 %cmp60, label %land.rhs.lr.ph.lr.ph.i, label %if.else
+  br i1 %cmp60, label %if.then61, label %if.else
 
-land.rhs.lr.ph.lr.ph.i:                           ; preds = %for.end59
+if.then61:                                        ; preds = %for.end59
   %idxprom62 = zext nneg i32 %bestaxis.1 to i64
   %arrayidx63 = getelementptr inbounds [3 x %class.btVector3], ptr @_ZZL7topdownP6btDbvtPP10btDbvtNodeiiE4axis, i64 0, i64 %idxprom62
   %arrayidx5.i.i1.i.i = getelementptr inbounds i8, ptr %arrayidx63, i64 4
@@ -979,10 +979,10 @@ land.rhs.lr.ph.lr.ph.i:                           ; preds = %for.end59
   %33 = load float, ptr %arrayidx10.i.i.i.i, align 8
   br label %land.rhs.lr.ph.i
 
-land.rhs.lr.ph.i:                                 ; preds = %if.end13.i, %land.rhs.lr.ph.lr.ph.i
-  %begin.058.i = phi i32 [ 0, %land.rhs.lr.ph.lr.ph.i ], [ %inc23.i, %if.end13.i ]
-  %end.057.i = phi i32 [ %count, %land.rhs.lr.ph.lr.ph.i ], [ %dec14.i, %if.end13.i ]
-  %34 = sext i32 %begin.058.i to i64
+land.rhs.lr.ph.i:                                 ; preds = %if.end13.i, %if.then61
+  %begin.057.i = phi i32 [ 0, %if.then61 ], [ %inc23.i, %if.end13.i ]
+  %end.056.i = phi i32 [ %count, %if.then61 ], [ %dec14.i, %if.end13.i ]
+  %34 = sext i32 %begin.057.i to i64
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
@@ -1017,22 +1017,22 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.cond2.preheader.i:                          ; preds = %land.rhs.i
   %44 = trunc nsw i64 %indvars.iv.i64 to i32
-  %cmp3.not52.i = icmp eq i32 %end.057.i, %44
+  %cmp3.not52.i = icmp eq i32 %end.056.i, %44
   br i1 %cmp3.not52.i, label %if.end65, label %land.rhs4.lr.ph.i
 
 land.rhs4.lr.ph.i:                                ; preds = %while.cond2.preheader.i
-  %45 = sext i32 %end.057.i to i64
+  %45 = sext i32 %end.056.i to i64
   br label %land.rhs4.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %indvars.iv.next.i65 = add nsw i64 %indvars.iv.i64, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next.i65 to i32
-  %exitcond102 = icmp eq i32 %end.057.i, %lftr.wideiv
+  %exitcond102 = icmp eq i32 %end.056.i, %lftr.wideiv
   br i1 %exitcond102, label %if.end65, label %land.rhs.i, !llvm.loop !22
 
 land.rhs4.i:                                      ; preds = %while.body9.i, %land.rhs4.lr.ph.i
-  %indvars.iv66.i = phi i64 [ %45, %land.rhs4.lr.ph.i ], [ %indvars.iv.next67.i, %while.body9.i ]
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv66.i
+  %indvars.iv64.i = phi i64 [ %45, %land.rhs4.lr.ph.i ], [ %indvars.iv.next65.i, %while.body9.i ]
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv64.i
   %46 = load ptr, ptr %gep.i, align 8
   %mx.i.i25.i = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load float, ptr %46, align 4
@@ -1061,12 +1061,12 @@ land.rhs4.i:                                      ; preds = %while.body9.i, %lan
   br i1 %cmp.i44.i, label %while.body9.i, label %if.end13.i
 
 while.body9.i:                                    ; preds = %land.rhs4.i
-  %indvars.iv.next67.i = add nsw i64 %indvars.iv66.i, -1
-  %cmp3.not.i = icmp eq i64 %indvars.iv.i64, %indvars.iv.next67.i
+  %indvars.iv.next65.i = add nsw i64 %indvars.iv64.i, -1
+  %cmp3.not.i = icmp eq i64 %indvars.iv.i64, %indvars.iv.next65.i
   br i1 %cmp3.not.i, label %if.end65, label %land.rhs4.i, !llvm.loop !23
 
 if.end13.i:                                       ; preds = %land.rhs4.i
-  %55 = trunc nsw i64 %indvars.iv66.i to i32
+  %55 = trunc nsw i64 %indvars.iv64.i to i32
   %dec14.i = add nsw i32 %55, -1
   %sext.i = shl i64 %indvars.iv.i64, 32
   %56 = ashr exact i64 %sext.i, 29
@@ -1087,7 +1087,7 @@ if.else:                                          ; preds = %for.end59
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end13.i, %while.cond2.preheader.i, %while.body.i, %while.body9.i, %if.else
-  %partition.0 = phi i32 [ %add, %if.else ], [ %44, %while.body9.i ], [ %end.057.i, %while.body.i ], [ %dec14.i, %if.end13.i ], [ %end.057.i, %while.cond2.preheader.i ]
+  %partition.0 = phi i32 [ %add, %if.else ], [ %44, %while.body9.i ], [ %end.056.i, %while.body.i ], [ %dec14.i, %if.end13.i ], [ %end.056.i, %while.cond2.preheader.i ]
   %m_free.i.i = getelementptr inbounds i8, ptr %pdbvt, i64 8
   %59 = load ptr, ptr %m_free.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %59, null
@@ -1113,12 +1113,12 @@ _ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit: ; preds = %if.then.
   %arrayidx.i.i66 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %parent3.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %node.0.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %vol, i64 32, i1 false)
-  %call68 = tail call fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %leaves, i32 noundef %partition.0, i32 noundef %bu_treshold)
+  %call68 = tail call fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef %pdbvt, ptr noundef %leaves, i32 noundef %partition.0, i32 noundef %bu_treshold)
   store ptr %call68, ptr %60, align 8
   %idxprom70 = sext i32 %partition.0 to i64
   %arrayidx71 = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom70
   %sub72 = sub nsw i32 %count, %partition.0
-  %call73 = tail call fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %arrayidx71, i32 noundef %sub72, i32 noundef %bu_treshold)
+  %call73 = tail call fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef %pdbvt, ptr noundef %arrayidx71, i32 noundef %sub72, i32 noundef %bu_treshold)
   store ptr %call73, ptr %arrayidx.i.i66, align 8
   %61 = load ptr, ptr %60, align 8
   %parent = getelementptr inbounds i8, ptr %61, i64 32
@@ -1244,11 +1244,11 @@ _ZL4sortP10btDbvtNodeRS0_.exit:                   ; preds = %while.body, %if.end
 
 while.end:                                        ; preds = %_ZL4sortP10btDbvtNodeRS0_.exit, %do.body
   %node.0.lcssa = phi ptr [ %node.010, %do.body ], [ %node.0, %_ZL4sortP10btDbvtNodeRS0_.exit ]
-  %call.i = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef nonnull %node.0.lcssa)
+  %call.i = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef nonnull %node.0.lcssa)
   %tobool.not.i8 = icmp eq ptr %call.i, null
   %20 = load ptr, ptr %this, align 8
   %spec.select = select i1 %tobool.not.i8, ptr null, ptr %20
-  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %spec.select, ptr noundef nonnull %node.0.lcssa)
+  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef %this, ptr noundef %spec.select, ptr noundef nonnull %node.0.lcssa)
   %21 = load i32, ptr %m_opath, align 8
   %inc = add i32 %21, 1
   store i32 %inc, ptr %m_opath, align 8
@@ -1263,7 +1263,7 @@ if.end11:                                         ; preds = %while.end, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6btDbvt6updateEP10btDbvtNodei(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %leaf, i32 noundef %lookahead) local_unnamed_addr #2 align 2 {
 entry:
-  %call = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef %leaf)
+  %call = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef %leaf)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end6, label %if.then
 
@@ -1294,7 +1294,7 @@ if.else:                                          ; preds = %if.then
 
 if.end6:                                          ; preds = %land.rhs, %for.cond, %for.cond.preheader, %if.else, %entry
   %root.0 = phi ptr [ %1, %if.else ], [ null, %entry ], [ %call, %for.cond.preheader ], [ %root.18, %land.rhs ], [ %0, %for.cond ]
-  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0, ptr noundef %leaf)
+  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef %this, ptr noundef %root.0, ptr noundef %leaf)
   ret void
 }
 
@@ -1325,7 +1325,7 @@ _ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit: ; preds = %if.then.
   store ptr null, ptr %arrayidx.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %node.0.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %volume, i64 32, i1 false)
   %2 = load ptr, ptr %this, align 8
-  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %2, ptr noundef nonnull %node.0.i.i)
+  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef %this, ptr noundef %2, ptr noundef nonnull %node.0.i.i)
   %m_leaves = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i32, ptr %m_leaves, align 4
   %inc = add nsw i32 %3, 1
@@ -1334,7 +1334,7 @@ _ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr nocapture noundef %pdbvt, ptr noundef %root, ptr noundef %leaf) unnamed_addr #6 {
+define internal fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr nocapture noundef nonnull %pdbvt, ptr noundef %root, ptr noundef %leaf) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %pdbvt, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1600,7 +1600,7 @@ if.end44:                                         ; preds = %_ZNK12btDbvtAabbMm7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr nocapture noundef %pdbvt, ptr noundef readonly %leaf) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr nocapture noundef nonnull %pdbvt, ptr noundef readonly %leaf) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %pdbvt, align 8
   %cmp = icmp eq ptr %leaf, %0
@@ -1743,7 +1743,7 @@ return:                                           ; preds = %_Z8NotEqualRK12btDb
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %leaf, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %volume) local_unnamed_addr #2 align 2 {
 entry:
-  %call = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef %leaf)
+  %call = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef %leaf)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end7, label %if.then
 
@@ -1777,7 +1777,7 @@ if.else:                                          ; preds = %if.then
 if.end7:                                          ; preds = %land.rhs, %for.cond, %for.cond.preheader, %if.else, %entry
   %root.0 = phi ptr [ %2, %if.else ], [ null, %entry ], [ %call, %for.cond.preheader ], [ %root.18, %land.rhs ], [ %1, %for.cond ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %leaf, ptr noundef nonnull align 4 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0, ptr noundef %leaf)
+  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef %this, ptr noundef %root.0, ptr noundef %leaf)
   ret void
 }
 
@@ -1883,7 +1883,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %22 = load float, ptr %arrayidx.i16.i, align 4
   %add42.i = fadd float %21, %22
   store float %add42.i, ptr %arrayidx.i16.i, align 4
-  %call.i = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef nonnull %leaf)
+  %call.i = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef nonnull %leaf)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %if.then.i
 
@@ -1917,7 +1917,7 @@ if.else.i:                                        ; preds = %if.then.i
 _ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i10, %if.end, %for.cond.preheader.i, %if.else.i
   %root.0.i = phi ptr [ %25, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %24, %for.cond.i ], [ %root.18.i, %land.rhs.i10 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 4 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12btDbvtAabbMm7ContainERKS_.exit, %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit
@@ -1997,7 +1997,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   %17 = load float, ptr %arrayidx.i16.i, align 4
   %add42.i = fadd float %16, %17
   store float %add42.i, ptr %arrayidx.i16.i, align 4
-  %call.i = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef nonnull %leaf)
+  %call.i = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef nonnull %leaf)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %if.then.i
 
@@ -2031,7 +2031,7 @@ if.else.i:                                        ; preds = %if.then.i
 _ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i8, %if.end, %for.cond.preheader.i, %if.else.i
   %root.0.i = phi ptr [ %20, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %19, %for.cond.i ], [ %root.18.i, %land.rhs.i8 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 4 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12btDbvtAabbMm7ContainERKS_.exit, %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit
@@ -2115,7 +2115,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %16 = load float, ptr %arrayidx12.i5.i, align 4
   %add13.i.i = fadd float %margin, %16
   store float %add13.i.i, ptr %arrayidx12.i5.i, align 4
-  %call.i = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef nonnull %leaf)
+  %call.i = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef nonnull %leaf)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %if.then.i
 
@@ -2149,7 +2149,7 @@ if.else.i:                                        ; preds = %if.then.i
 _ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i6, %if.end, %for.cond.preheader.i, %if.else.i
   %root.0.i = phi ptr [ %19, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %18, %for.cond.i ], [ %root.18.i, %land.rhs.i6 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 4 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12btDbvtAabbMm7ContainERKS_.exit, %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit
@@ -2160,7 +2160,7 @@ return:                                           ; preds = %_ZNK12btDbvtAabbMm7
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6btDbvt6removeEP10btDbvtNode(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %leaf) local_unnamed_addr #2 align 2 {
 entry:
-  %call = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull %this, ptr noundef %leaf)
+  %call = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef %this, ptr noundef %leaf)
   %m_free.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_free.i, align 8
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
@@ -2488,7 +2488,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @_ZL17recursedeletenodeP6btDbvtP10btDbvtNode(ptr noundef nonnull %dest, ptr noundef nonnull %0)
+  tail call fastcc void @_ZL17recursedeletenodeP6btDbvtP10btDbvtNode(ptr noundef %dest, ptr noundef nonnull %0)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -2871,7 +2871,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL11getmaxdepthPK10btDbvtNodeiRi(ptr nocapture noundef readonly %node, i32 noundef %depth, ptr nocapture noundef nonnull align 4 dereferenceable(4) %maxdepth) unnamed_addr #8 {
+define internal fastcc void @_ZL11getmaxdepthPK10btDbvtNodeiRi(ptr nocapture noundef readonly %node, i32 noundef range(i32 -2147483647, -2147483648) %depth, ptr nocapture noundef nonnull align 4 dereferenceable(4) %maxdepth) unnamed_addr #8 {
 entry:
   %arrayidx.i.i11 = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %arrayidx.i.i11, align 8

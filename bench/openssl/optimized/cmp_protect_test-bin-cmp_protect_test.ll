@@ -535,7 +535,7 @@ if.end8.thread:                                   ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit16:                                 ; preds = %lor.lhs.false
-  %call12 = tail call fastcc i32 @execute_calc_protection_signature_test(ptr noundef nonnull %call)
+  %call12 = tail call fastcc i32 @execute_calc_protection_signature_test(ptr noundef %call)
   %5 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #5
   br label %return.sink.split
@@ -602,7 +602,7 @@ if.end8.thread:                                   ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit16:                                 ; preds = %lor.lhs.false
-  %call12 = tail call fastcc i32 @execute_calc_protection_signature_test(ptr noundef nonnull %call)
+  %call12 = tail call fastcc i32 @execute_calc_protection_signature_test(ptr noundef %call)
   %5 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #5
   br label %return.sink.split
@@ -1285,7 +1285,7 @@ if.end51.thread:                                  ; preds = %if.end, %lor.lhs.fa
   br label %if.end69
 
 if.then54:                                        ; preds = %lor.lhs.false41
-  %call55 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef nonnull %call)
+  %call55 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef %call)
   store i32 1, ptr %with_ss, align 8
   %tobool57.not = icmp eq i32 %call55, 0
   br i1 %tobool57.not, label %if.end69, label %land.lhs.true
@@ -1301,7 +1301,7 @@ land.lhs.true:                                    ; preds = %if.then54
   br i1 %tobool65.not, label %if.end69, label %if.then66
 
 if.then66:                                        ; preds = %land.lhs.true
-  %call67 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef nonnull %call)
+  %call67 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef %call)
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end51.thread, %if.then54, %land.lhs.true, %if.then66
@@ -1384,7 +1384,7 @@ if.end24.thread:                                  ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit20:                                 ; preds = %lor.lhs.false14
-  %call28 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef nonnull %call)
+  %call28 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef %call)
   %cmp_ctx.i14 = getelementptr inbounds i8, ptr %call, i64 8
   %10 = load ptr, ptr %cmp_ctx.i14, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %10) #5
@@ -1503,7 +1503,7 @@ if.end42.thread:                                  ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit22:                                 ; preds = %lor.lhs.false32
-  %call46 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef nonnull %call)
+  %call46 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef %call)
   %cmp_ctx.i16 = getelementptr inbounds i8, ptr %call, i64 8
   %14 = load ptr, ptr %cmp_ctx.i16, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %14) #5
@@ -1612,7 +1612,7 @@ if.end33.thread:                                  ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit21:                                 ; preds = %lor.lhs.false23
-  %call37 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef nonnull %call)
+  %call37 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef %call)
   %cmp_ctx.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %12 = load ptr, ptr %cmp_ctx.i15, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %12) #5
@@ -1701,7 +1701,7 @@ if.end15.thread:                                  ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit19:                                 ; preds = %lor.lhs.false6
-  %call19 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef nonnull %call)
+  %call19 = tail call fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef %call)
   %cmp_ctx.i13 = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load ptr, ptr %cmp_ctx.i13, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %8) #5
@@ -1804,7 +1804,7 @@ if.end33.thread:                                  ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 tear_down.exit21:                                 ; preds = %lor.lhs.false26
-  %call36 = tail call fastcc i32 @execute_X509_STORE_test(ptr noundef nonnull %call)
+  %call36 = tail call fastcc i32 @execute_X509_STORE_test(ptr noundef %call)
   %cmp_ctx.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %14 = load ptr, ptr %cmp_ctx.i15, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %14) #5
@@ -1900,7 +1900,7 @@ lor.lhs.false35:                                  ; preds = %lor.lhs.false26
   br i1 %tobool43.not, label %return.sink.split, label %tear_down.exit21
 
 tear_down.exit21:                                 ; preds = %lor.lhs.false35
-  %call49 = tail call fastcc i32 @execute_X509_STORE_test(ptr noundef nonnull %call)
+  %call49 = tail call fastcc i32 @execute_X509_STORE_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %lor.lhs.false35, %lor.lhs.false26, %lor.lhs.false17, %lor.lhs.false, %if.end, %tear_down.exit21
@@ -2030,7 +2030,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_CMP_CTX_set1_pkey(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_calc_protection_signature_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_calc_protection_signature_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
 entry:
   %prot_part.i = alloca %struct.ossl_cmp_protectedpart_st, align 8
   %cmp_ctx = getelementptr inbounds i8, ptr %fixture, i64 8
@@ -2101,7 +2101,7 @@ declare i32 @OSSL_CMP_CTX_set0_newPkey(ptr noundef, i32 noundef, ptr noundef) lo
 declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_MSG_protect_pbmac_no_sender(i32 noundef %with_ref) unnamed_addr #0 {
+define internal fastcc i32 @test_MSG_protect_pbmac_no_sender(i32 noundef range(i32 0, 2) %with_ref) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_MSG_protect_pbmac_no_sender)
   %cmp = icmp eq ptr %call, null
@@ -2194,7 +2194,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_cmp_build_cert_chain_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_cmp_build_cert_chain_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
 entry:
   %cmp_ctx = getelementptr inbounds i8, ptr %fixture, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
@@ -2290,7 +2290,7 @@ declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_X509_STORE_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_X509_STORE_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_STORE_new() #5
   %certs = getelementptr inbounds i8, ptr %fixture, i64 64

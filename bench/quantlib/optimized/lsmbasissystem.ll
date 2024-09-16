@@ -1323,7 +1323,7 @@ if.then.i.i.i56:                                  ; preds = %lpad10.i
 
 invoke.cont32:                                    ; preds = %invoke.cont.i
   store ptr %call.i.i.i8.i, ptr %_M_finish.i.i.i52, align 8, !tbaa !8
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111MultiDimFctC2ESt6vectorISt8functionIFddEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp30, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111MultiDimFctC2ESt6vectorISt8functionIFddEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp30, ptr noundef %agg.tmp)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont32
@@ -2800,7 +2800,7 @@ for.inc:                                          ; preds = %if.then.i4.i, %_ZNS
 invoke.cont82:                                    ; preds = %for.inc.i, %invoke.cont.i242.thread
   %__cur.0.lcssa.i = phi ptr [ null, %invoke.cont.i242.thread ], [ %incdec.ptr.i422, %for.inc.i ]
   store ptr %__cur.0.lcssa.i, ptr %_M_finish.i.i.i244, align 8, !tbaa !8
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111MultiDimFctC2ESt6vectorISt8functionIFddEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp79, ptr noundef nonnull %agg.tmp80)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111MultiDimFctC2ESt6vectorISt8functionIFddEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp79, ptr noundef %agg.tmp80)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %invoke.cont82
@@ -3271,7 +3271,7 @@ if.end:                                           ; preds = %_ZNSt6vectorISt8fun
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_111MultiDimFctC2ESt6vectorISt8functionIFddEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_111MultiDimFctC2ESt6vectorISt8functionIFddEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

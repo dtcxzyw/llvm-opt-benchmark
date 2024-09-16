@@ -2081,7 +2081,7 @@ process_block_length.exit:                        ; preds = %69, %73, %75
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.38, i32 noundef %98) #8
   %.0..0..0..0.26 = load volatile ptr, ptr %7, align 8
   %.0..0..0..0.23 = load volatile i32, ptr %10, align 4
-  %99 = call fastcc i32 @dissect_shb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.26, i32 noundef %.0..0..0..0.23, ptr noundef nonnull %8)
+  %99 = call fastcc i32 @dissect_shb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.26, i32 noundef %.0..0..0..0.23, ptr noundef %8)
   %.not113 = icmp eq i32 %99, 0
   br i1 %.not113, label %100, label %113
 
@@ -2091,42 +2091,42 @@ process_block_length.exit:                        ; preds = %69, %73, %75
 
 101:                                              ; preds = %95
   %.0..0..0..0.27 = load volatile ptr, ptr %7, align 8
-  call fastcc void @dissect_idb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.27, ptr noundef nonnull %8)
+  call fastcc void @dissect_idb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.27, ptr noundef %8)
   br label %113
 
 102:                                              ; preds = %95
   %.0..0..0..0.28 = load volatile ptr, ptr %7, align 8
-  call fastcc void @dissect_pb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.28, ptr noundef nonnull %8)
+  call fastcc void @dissect_pb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.28, ptr noundef %8)
   br label %113
 
 103:                                              ; preds = %95
   %.0..0..0..0.29 = load volatile ptr, ptr %7, align 8
-  call fastcc void @dissect_spb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.29, ptr noundef nonnull %8)
+  call fastcc void @dissect_spb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.29, ptr noundef %8)
   br label %113
 
 104:                                              ; preds = %95
   %.0..0..0..0.30 = load volatile ptr, ptr %7, align 8
-  call fastcc void @dissect_nrb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.30, ptr noundef nonnull %8)
+  call fastcc void @dissect_nrb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.30, ptr noundef %8)
   br label %113
 
 105:                                              ; preds = %95
   %.0..0..0..0.31 = load volatile ptr, ptr %7, align 8
-  call fastcc void @dissect_isb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.31, ptr noundef nonnull %8)
+  call fastcc void @dissect_isb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.31, ptr noundef %8)
   br label %113
 
 106:                                              ; preds = %95
   %.0..0..0..0.32 = load volatile ptr, ptr %7, align 8
-  call fastcc void @dissect_epb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.32, ptr noundef nonnull %8)
+  call fastcc void @dissect_epb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.32, ptr noundef %8)
   br label %113
 
 107:                                              ; preds = %95
   %.0..0..0..0.33 = load volatile ptr, ptr %7, align 8
-  call fastcc void @dissect_dsb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.33, ptr noundef nonnull %8)
+  call fastcc void @dissect_dsb_data(ptr noundef %.0132, ptr noundef %1, ptr noundef %.0..0..0..0.33, ptr noundef %8)
   br label %113
 
 108:                                              ; preds = %95, %95
   %.0..0..0..0.34 = load volatile ptr, ptr %7, align 8
-  call fastcc void @dissect_cb_data(ptr noundef %.0132, ptr noundef %.0..0..0..0.34, ptr noundef nonnull %8)
+  call fastcc void @dissect_cb_data(ptr noundef %.0132, ptr noundef %.0..0..0..0.34, ptr noundef %8)
   br label %113
 
 109:                                              ; preds = %95
@@ -2245,7 +2245,7 @@ declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_shb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_shb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_pcapng_section_header_byte_order_magic, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #8
   %.not = icmp eq i32 %3, 0
@@ -2290,7 +2290,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_shb_data(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_idb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_idb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.interface_description, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %6, align 8
@@ -2346,7 +2346,7 @@ define internal fastcc void @dissect_idb_data(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_pb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2613,7 +2613,7 @@ get_interface_description.exit:                   ; preds = %34, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_spb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2890,7 +2890,7 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct._address, align 8
@@ -3167,7 +3167,7 @@ define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_isb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_pcapng_interface_id, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -3210,7 +3210,7 @@ get_interface_description.exit:                   ; preds = %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_epb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_epb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3467,7 +3467,7 @@ get_interface_description.exit:                   ; preds = %33, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dsb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dsb_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pcapng_dsb_secrets_type, align 4
   %7 = getelementptr inbounds i8, ptr %3, i64 16
@@ -3509,7 +3509,7 @@ define internal fastcc void @dissect_dsb_data(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cb_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_cb_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_pcapng_cb_pen, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8

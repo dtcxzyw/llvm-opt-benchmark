@@ -527,13 +527,13 @@ qio_channel_websock_handshake_send_res_err.exit51.i.i.i: ; preds = %if.then.i.i.
   br label %qio_channel_websock_handshake_process.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i47.i.i
-  %inc.i54.i.i = add nuw nsw i64 %i.06.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %i.06.i.i.i, %nhdrs.0.i.i.i
+  %inc.i54.i.i = add nuw nsw i64 %i.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %i.05.i.i.i, %nhdrs.0.i.i.i
   br i1 %exitcond.not.i.i.i, label %qio_channel_websock_find_header.exit.i.i, label %for.body.i47.i.i, !llvm.loop !9
 
 for.body.i47.i.i:                                 ; preds = %for.end.i.i.i, %for.cond.i.i.i
-  %i.06.i.i.i = phi i64 [ %inc.i54.i.i, %for.cond.i.i.i ], [ 0, %for.end.i.i.i ]
-  %arrayidx.i48.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.06.i.i.i
+  %i.05.i.i.i = phi i64 [ %inc.i54.i.i, %for.cond.i.i.i ], [ 0, %for.end.i.i.i ]
+  %arrayidx.i48.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.05.i.i.i
   %16 = load ptr, ptr %arrayidx.i48.i.i, align 16
   %call.i49.i.i = call i32 @g_str_equal(ptr noundef %16, ptr noundef nonnull @.str.16) #15
   %tobool.not.i50.i.i = icmp eq i32 %call.i49.i.i, 0
@@ -546,124 +546,124 @@ if.then.i51.i.i:                                  ; preds = %for.body.i47.i.i
 
 qio_channel_websock_find_header.exit.i.i:         ; preds = %for.cond.i.i.i, %if.then.i51.i.i
   %retval.0.i53.i.i = phi ptr [ %17, %if.then.i51.i.i ], [ null, %for.cond.i.i.i ]
-  br label %for.body.i56.i.i
+  br label %for.body.i55.i.i
 
-for.cond.i64.i.i:                                 ; preds = %for.body.i56.i.i
-  %inc.i65.i.i = add nuw nsw i64 %i.06.i57.i.i, 1
-  %exitcond.not.i66.i.i = icmp eq i64 %i.06.i57.i.i, %nhdrs.0.i.i.i
-  br i1 %exitcond.not.i66.i.i, label %if.then6.i.i, label %for.body.i56.i.i, !llvm.loop !9
+for.cond.i63.i.i:                                 ; preds = %for.body.i55.i.i
+  %inc.i64.i.i = add nuw nsw i64 %i.05.i56.i.i, 1
+  %exitcond.not.i65.i.i = icmp eq i64 %i.05.i56.i.i, %nhdrs.0.i.i.i
+  br i1 %exitcond.not.i65.i.i, label %if.then6.i.i, label %for.body.i55.i.i, !llvm.loop !9
 
-for.body.i56.i.i:                                 ; preds = %for.cond.i64.i.i, %qio_channel_websock_find_header.exit.i.i
-  %i.06.i57.i.i = phi i64 [ %inc.i65.i.i, %for.cond.i64.i.i ], [ 0, %qio_channel_websock_find_header.exit.i.i ]
-  %arrayidx.i58.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.06.i57.i.i
-  %18 = load ptr, ptr %arrayidx.i58.i.i, align 16
-  %call.i59.i.i = call i32 @g_str_equal(ptr noundef %18, ptr noundef nonnull @.str.17) #15
-  %tobool.not.i60.i.i = icmp eq i32 %call.i59.i.i, 0
-  br i1 %tobool.not.i60.i.i, label %for.cond.i64.i.i, label %qio_channel_websock_find_header.exit67.i.i
+for.body.i55.i.i:                                 ; preds = %for.cond.i63.i.i, %qio_channel_websock_find_header.exit.i.i
+  %i.05.i56.i.i = phi i64 [ 0, %qio_channel_websock_find_header.exit.i.i ], [ %inc.i64.i.i, %for.cond.i63.i.i ]
+  %arrayidx.i57.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.05.i56.i.i
+  %18 = load ptr, ptr %arrayidx.i57.i.i, align 16
+  %call.i58.i.i = call i32 @g_str_equal(ptr noundef %18, ptr noundef nonnull @.str.17) #15
+  %tobool.not.i59.i.i = icmp eq i32 %call.i58.i.i, 0
+  br i1 %tobool.not.i59.i.i, label %for.cond.i63.i.i, label %qio_channel_websock_find_header.exit66.i.i
 
-qio_channel_websock_find_header.exit67.i.i:       ; preds = %for.body.i56.i.i
-  %value.i62.i.i = getelementptr inbounds i8, ptr %arrayidx.i58.i.i, i64 8
-  %19 = load ptr, ptr %value.i62.i.i, align 8
+qio_channel_websock_find_header.exit66.i.i:       ; preds = %for.body.i55.i.i
+  %value.i61.i.i = getelementptr inbounds i8, ptr %arrayidx.i57.i.i, i64 8
+  %19 = load ptr, ptr %value.i61.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %19, null
-  br i1 %tobool5.not.i.i, label %if.then6.i.i, label %for.body.i69.i.i
+  br i1 %tobool5.not.i.i, label %if.then6.i.i, label %for.body.i67.i.i
 
-if.then6.i.i:                                     ; preds = %for.cond.i64.i.i, %qio_channel_websock_find_header.exit67.i.i
+if.then6.i.i:                                     ; preds = %for.cond.i63.i.i, %qio_channel_websock_find_header.exit66.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 402, ptr noundef nonnull @__func__.qio_channel_websock_handshake_process, ptr noundef nonnull @.str.18) #15
   br label %bad_request.i.i
 
-for.cond.i77.i.i:                                 ; preds = %for.body.i69.i.i
-  %inc.i78.i.i = add nuw nsw i64 %i.06.i70.i.i, 1
-  %exitcond.not.i79.i.i = icmp eq i64 %i.06.i70.i.i, %nhdrs.0.i.i.i
-  br i1 %exitcond.not.i79.i.i, label %if.then11.i.i, label %for.body.i69.i.i, !llvm.loop !9
+for.cond.i75.i.i:                                 ; preds = %for.body.i67.i.i
+  %inc.i76.i.i = add nuw nsw i64 %i.05.i68.i.i, 1
+  %exitcond.not.i77.i.i = icmp eq i64 %i.05.i68.i.i, %nhdrs.0.i.i.i
+  br i1 %exitcond.not.i77.i.i, label %if.then11.i.i, label %for.body.i67.i.i, !llvm.loop !9
 
-for.body.i69.i.i:                                 ; preds = %qio_channel_websock_find_header.exit67.i.i, %for.cond.i77.i.i
-  %i.06.i70.i.i = phi i64 [ %inc.i78.i.i, %for.cond.i77.i.i ], [ 0, %qio_channel_websock_find_header.exit67.i.i ]
-  %arrayidx.i71.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.06.i70.i.i
-  %20 = load ptr, ptr %arrayidx.i71.i.i, align 16
-  %call.i72.i.i = call i32 @g_str_equal(ptr noundef %20, ptr noundef nonnull @.str.19) #15
-  %tobool.not.i73.i.i = icmp eq i32 %call.i72.i.i, 0
-  br i1 %tobool.not.i73.i.i, label %for.cond.i77.i.i, label %qio_channel_websock_find_header.exit80.i.i
+for.body.i67.i.i:                                 ; preds = %qio_channel_websock_find_header.exit66.i.i, %for.cond.i75.i.i
+  %i.05.i68.i.i = phi i64 [ %inc.i76.i.i, %for.cond.i75.i.i ], [ 0, %qio_channel_websock_find_header.exit66.i.i ]
+  %arrayidx.i69.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.05.i68.i.i
+  %20 = load ptr, ptr %arrayidx.i69.i.i, align 16
+  %call.i70.i.i = call i32 @g_str_equal(ptr noundef %20, ptr noundef nonnull @.str.19) #15
+  %tobool.not.i71.i.i = icmp eq i32 %call.i70.i.i, 0
+  br i1 %tobool.not.i71.i.i, label %for.cond.i75.i.i, label %qio_channel_websock_find_header.exit78.i.i
 
-qio_channel_websock_find_header.exit80.i.i:       ; preds = %for.body.i69.i.i
-  %value.i75.i.i = getelementptr inbounds i8, ptr %arrayidx.i71.i.i, i64 8
-  %21 = load ptr, ptr %value.i75.i.i, align 8
+qio_channel_websock_find_header.exit78.i.i:       ; preds = %for.body.i67.i.i
+  %value.i73.i.i = getelementptr inbounds i8, ptr %arrayidx.i69.i.i, i64 8
+  %21 = load ptr, ptr %value.i73.i.i, align 8
   %tobool10.not.i.i = icmp eq ptr %21, null
-  br i1 %tobool10.not.i.i, label %if.then11.i.i, label %for.body.i82.i.i
+  br i1 %tobool10.not.i.i, label %if.then11.i.i, label %for.body.i79.i.i
 
-if.then11.i.i:                                    ; preds = %for.cond.i77.i.i, %qio_channel_websock_find_header.exit80.i.i
+if.then11.i.i:                                    ; preds = %for.cond.i75.i.i, %qio_channel_websock_find_header.exit78.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 409, ptr noundef nonnull @__func__.qio_channel_websock_handshake_process, ptr noundef nonnull @.str.20) #15
   br label %bad_request.i.i
 
-for.cond.i90.i.i:                                 ; preds = %for.body.i82.i.i
-  %inc.i91.i.i = add nuw nsw i64 %i.06.i83.i.i, 1
-  %exitcond.not.i92.i.i = icmp eq i64 %i.06.i83.i.i, %nhdrs.0.i.i.i
-  br i1 %exitcond.not.i92.i.i, label %if.then16.i.i, label %for.body.i82.i.i, !llvm.loop !9
+for.cond.i87.i.i:                                 ; preds = %for.body.i79.i.i
+  %inc.i88.i.i = add nuw nsw i64 %i.05.i80.i.i, 1
+  %exitcond.not.i89.i.i = icmp eq i64 %i.05.i80.i.i, %nhdrs.0.i.i.i
+  br i1 %exitcond.not.i89.i.i, label %if.then16.i.i, label %for.body.i79.i.i, !llvm.loop !9
 
-for.body.i82.i.i:                                 ; preds = %qio_channel_websock_find_header.exit80.i.i, %for.cond.i90.i.i
-  %i.06.i83.i.i = phi i64 [ %inc.i91.i.i, %for.cond.i90.i.i ], [ 0, %qio_channel_websock_find_header.exit80.i.i ]
-  %arrayidx.i84.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.06.i83.i.i
-  %22 = load ptr, ptr %arrayidx.i84.i.i, align 16
-  %call.i85.i.i = call i32 @g_str_equal(ptr noundef %22, ptr noundef nonnull @.str.21) #15
-  %tobool.not.i86.i.i = icmp eq i32 %call.i85.i.i, 0
-  br i1 %tobool.not.i86.i.i, label %for.cond.i90.i.i, label %qio_channel_websock_find_header.exit93.i.i
+for.body.i79.i.i:                                 ; preds = %qio_channel_websock_find_header.exit78.i.i, %for.cond.i87.i.i
+  %i.05.i80.i.i = phi i64 [ %inc.i88.i.i, %for.cond.i87.i.i ], [ 0, %qio_channel_websock_find_header.exit78.i.i ]
+  %arrayidx.i81.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.05.i80.i.i
+  %22 = load ptr, ptr %arrayidx.i81.i.i, align 16
+  %call.i82.i.i = call i32 @g_str_equal(ptr noundef %22, ptr noundef nonnull @.str.21) #15
+  %tobool.not.i83.i.i = icmp eq i32 %call.i82.i.i, 0
+  br i1 %tobool.not.i83.i.i, label %for.cond.i87.i.i, label %qio_channel_websock_find_header.exit90.i.i
 
-qio_channel_websock_find_header.exit93.i.i:       ; preds = %for.body.i82.i.i
-  %value.i88.i.i = getelementptr inbounds i8, ptr %arrayidx.i84.i.i, i64 8
-  %23 = load ptr, ptr %value.i88.i.i, align 8
+qio_channel_websock_find_header.exit90.i.i:       ; preds = %for.body.i79.i.i
+  %value.i85.i.i = getelementptr inbounds i8, ptr %arrayidx.i81.i.i, i64 8
+  %23 = load ptr, ptr %value.i85.i.i, align 8
   %tobool15.not.i.i = icmp eq ptr %23, null
-  br i1 %tobool15.not.i.i, label %if.then16.i.i, label %for.body.i95.i.i
+  br i1 %tobool15.not.i.i, label %if.then16.i.i, label %for.body.i91.i.i
 
-if.then16.i.i:                                    ; preds = %for.cond.i90.i.i, %qio_channel_websock_find_header.exit93.i.i
+if.then16.i.i:                                    ; preds = %for.cond.i87.i.i, %qio_channel_websock_find_header.exit90.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 416, ptr noundef nonnull @__func__.qio_channel_websock_handshake_process, ptr noundef nonnull @.str.22) #15
   br label %bad_request.i.i
 
-for.cond.i103.i.i:                                ; preds = %for.body.i95.i.i
-  %inc.i104.i.i = add nuw nsw i64 %i.06.i96.i.i, 1
-  %exitcond.not.i105.i.i = icmp eq i64 %i.06.i96.i.i, %nhdrs.0.i.i.i
-  br i1 %exitcond.not.i105.i.i, label %if.then21.i.i, label %for.body.i95.i.i, !llvm.loop !9
+for.cond.i99.i.i:                                 ; preds = %for.body.i91.i.i
+  %inc.i100.i.i = add nuw nsw i64 %i.05.i92.i.i, 1
+  %exitcond.not.i101.i.i = icmp eq i64 %i.05.i92.i.i, %nhdrs.0.i.i.i
+  br i1 %exitcond.not.i101.i.i, label %if.then21.i.i, label %for.body.i91.i.i, !llvm.loop !9
 
-for.body.i95.i.i:                                 ; preds = %qio_channel_websock_find_header.exit93.i.i, %for.cond.i103.i.i
-  %i.06.i96.i.i = phi i64 [ %inc.i104.i.i, %for.cond.i103.i.i ], [ 0, %qio_channel_websock_find_header.exit93.i.i ]
-  %arrayidx.i97.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.06.i96.i.i
-  %24 = load ptr, ptr %arrayidx.i97.i.i, align 16
-  %call.i98.i.i = call i32 @g_str_equal(ptr noundef %24, ptr noundef nonnull @.str.23) #15
-  %tobool.not.i99.i.i = icmp eq i32 %call.i98.i.i, 0
-  br i1 %tobool.not.i99.i.i, label %for.cond.i103.i.i, label %qio_channel_websock_find_header.exit106.i.i
+for.body.i91.i.i:                                 ; preds = %qio_channel_websock_find_header.exit90.i.i, %for.cond.i99.i.i
+  %i.05.i92.i.i = phi i64 [ %inc.i100.i.i, %for.cond.i99.i.i ], [ 0, %qio_channel_websock_find_header.exit90.i.i ]
+  %arrayidx.i93.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.05.i92.i.i
+  %24 = load ptr, ptr %arrayidx.i93.i.i, align 16
+  %call.i94.i.i = call i32 @g_str_equal(ptr noundef %24, ptr noundef nonnull @.str.23) #15
+  %tobool.not.i95.i.i = icmp eq i32 %call.i94.i.i, 0
+  br i1 %tobool.not.i95.i.i, label %for.cond.i99.i.i, label %qio_channel_websock_find_header.exit102.i.i
 
-qio_channel_websock_find_header.exit106.i.i:      ; preds = %for.body.i95.i.i
-  %value.i101.i.i = getelementptr inbounds i8, ptr %arrayidx.i97.i.i, i64 8
-  %25 = load ptr, ptr %value.i101.i.i, align 8
+qio_channel_websock_find_header.exit102.i.i:      ; preds = %for.body.i91.i.i
+  %value.i97.i.i = getelementptr inbounds i8, ptr %arrayidx.i93.i.i, i64 8
+  %25 = load ptr, ptr %value.i97.i.i, align 8
   %tobool20.not.i.i = icmp eq ptr %25, null
-  br i1 %tobool20.not.i.i, label %if.then21.i.i, label %for.body.i108.i.i
+  br i1 %tobool20.not.i.i, label %if.then21.i.i, label %for.body.i103.i.i
 
-if.then21.i.i:                                    ; preds = %for.cond.i103.i.i, %qio_channel_websock_find_header.exit106.i.i
+if.then21.i.i:                                    ; preds = %for.cond.i99.i.i, %qio_channel_websock_find_header.exit102.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 423, ptr noundef nonnull @__func__.qio_channel_websock_handshake_process, ptr noundef nonnull @.str.24) #15
   br label %bad_request.i.i
 
-for.cond.i116.i.i:                                ; preds = %for.body.i108.i.i
-  %inc.i117.i.i = add nuw nsw i64 %i.06.i109.i.i, 1
-  %exitcond.not.i118.i.i = icmp eq i64 %i.06.i109.i.i, %nhdrs.0.i.i.i
-  br i1 %exitcond.not.i118.i.i, label %if.then26.i.i, label %for.body.i108.i.i, !llvm.loop !9
+for.cond.i111.i.i:                                ; preds = %for.body.i103.i.i
+  %inc.i112.i.i = add nuw nsw i64 %i.05.i104.i.i, 1
+  %exitcond.not.i113.i.i = icmp eq i64 %i.05.i104.i.i, %nhdrs.0.i.i.i
+  br i1 %exitcond.not.i113.i.i, label %if.then26.i.i, label %for.body.i103.i.i, !llvm.loop !9
 
-for.body.i108.i.i:                                ; preds = %qio_channel_websock_find_header.exit106.i.i, %for.cond.i116.i.i
-  %i.06.i109.i.i = phi i64 [ %inc.i117.i.i, %for.cond.i116.i.i ], [ 0, %qio_channel_websock_find_header.exit106.i.i ]
-  %arrayidx.i110.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.06.i109.i.i
-  %26 = load ptr, ptr %arrayidx.i110.i.i, align 16
-  %call.i111.i.i = call i32 @g_str_equal(ptr noundef %26, ptr noundef nonnull @.str.25) #15
-  %tobool.not.i112.i.i = icmp eq i32 %call.i111.i.i, 0
-  br i1 %tobool.not.i112.i.i, label %for.cond.i116.i.i, label %qio_channel_websock_find_header.exit119.i.i
+for.body.i103.i.i:                                ; preds = %qio_channel_websock_find_header.exit102.i.i, %for.cond.i111.i.i
+  %i.05.i104.i.i = phi i64 [ %inc.i112.i.i, %for.cond.i111.i.i ], [ 0, %qio_channel_websock_find_header.exit102.i.i ]
+  %arrayidx.i105.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %i.05.i104.i.i
+  %26 = load ptr, ptr %arrayidx.i105.i.i, align 16
+  %call.i106.i.i = call i32 @g_str_equal(ptr noundef %26, ptr noundef nonnull @.str.25) #15
+  %tobool.not.i107.i.i = icmp eq i32 %call.i106.i.i, 0
+  br i1 %tobool.not.i107.i.i, label %for.cond.i111.i.i, label %qio_channel_websock_find_header.exit114.i.i
 
-qio_channel_websock_find_header.exit119.i.i:      ; preds = %for.body.i108.i.i
-  %value.i114.i.i = getelementptr inbounds i8, ptr %arrayidx.i110.i.i, i64 8
-  %27 = load ptr, ptr %value.i114.i.i, align 8
+qio_channel_websock_find_header.exit114.i.i:      ; preds = %for.body.i103.i.i
+  %value.i109.i.i = getelementptr inbounds i8, ptr %arrayidx.i105.i.i, i64 8
+  %27 = load ptr, ptr %value.i109.i.i, align 8
   %tobool25.not.i.i = icmp eq ptr %27, null
   br i1 %tobool25.not.i.i, label %if.then26.i.i, label %if.end27.i.i
 
-if.then26.i.i:                                    ; preds = %for.cond.i116.i.i, %qio_channel_websock_find_header.exit119.i.i
+if.then26.i.i:                                    ; preds = %for.cond.i111.i.i, %qio_channel_websock_find_header.exit114.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 430, ptr noundef nonnull @__func__.qio_channel_websock_handshake_process, ptr noundef nonnull @.str.26) #15
   br label %bad_request.i.i
 
-if.end27.i.i:                                     ; preds = %qio_channel_websock_find_header.exit119.i.i
+if.end27.i.i:                                     ; preds = %qio_channel_websock_find_header.exit114.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %28 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i.i = icmp ne i32 %28, 0
@@ -735,21 +735,21 @@ if.end42.i.i:                                     ; preds = %if.end38.i.i
 
 land.rhs.lr.ph.split.i.i:                         ; preds = %if.end42.i.i
   %34 = load ptr, ptr %call43.i.i, align 8
-  %cmp45.not144.i.i = icmp eq ptr %34, null
-  br i1 %cmp45.not144.i.i, label %if.then55.critedge.i.i, label %for.body.i.i
+  %cmp45.not139.i.i = icmp eq ptr %34, null
+  br i1 %cmp45.not139.i.i, label %if.then55.critedge.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.lr.ph.split.i.i, %for.body.i.i
   %35 = phi ptr [ %37, %for.body.i.i ], [ %34, %land.rhs.lr.ph.split.i.i ]
-  %upgraded.0140146.i.i = phi i1 [ %spec.select.i.i, %for.body.i.i ], [ false, %land.rhs.lr.ph.split.i.i ]
-  %i.0141145.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %land.rhs.lr.ph.split.i.i ]
-  %arrayidx147.i.i = getelementptr ptr, ptr %call43.i.i, i64 %i.0141145.i.i
+  %upgraded.0135141.i.i = phi i1 [ %spec.select.i.i, %for.body.i.i ], [ false, %land.rhs.lr.ph.split.i.i ]
+  %i.0136140.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %land.rhs.lr.ph.split.i.i ]
+  %arrayidx142.i.i = getelementptr ptr, ptr %call43.i.i, i64 %i.0136140.i.i
   %call47.i.i = call ptr @g_strchug(ptr noundef nonnull %35) #15
   %call48.i.i = call ptr @g_strchomp(ptr noundef %call47.i.i) #15
-  %36 = load ptr, ptr %arrayidx147.i.i, align 8
+  %36 = load ptr, ptr %arrayidx142.i.i, align 8
   %call50.i.i = call i32 @strcasecmp(ptr noundef %36, ptr noundef nonnull @.str.33) #16
   %cmp51.i.i = icmp eq i32 %call50.i.i, 0
-  %spec.select.i.i = select i1 %cmp51.i.i, i1 true, i1 %upgraded.0140146.i.i
-  %inc.i.i = add i64 %i.0141145.i.i, 1
+  %spec.select.i.i = select i1 %cmp51.i.i, i1 true, i1 %upgraded.0135141.i.i
+  %inc.i.i = add i64 %i.0136140.i.i, 1
   %arrayidx.i.i = getelementptr ptr, ptr %call43.i.i, i64 %inc.i.i
   %37 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp45.not.i.i = icmp eq ptr %37, null
@@ -777,7 +777,7 @@ if.then59.i.i:                                    ; preds = %if.end56.i.i
   br label %bad_request.i.i
 
 if.end60.i.i:                                     ; preds = %if.end56.i.i
-  call fastcc void @qio_channel_websock_handshake_send_res_ok(ptr noundef %call.i, ptr noundef nonnull %21, i1 noundef zeroext %tobool28.i.i, ptr noundef nonnull %err)
+  call fastcc void @qio_channel_websock_handshake_send_res_ok(ptr noundef %call.i, ptr noundef %21, i1 noundef zeroext %tobool28.i.i, ptr noundef %err)
   br label %qio_channel_websock_handshake_process.exit.i
 
 bad_request.i.i:                                  ; preds = %if.then59.i.i, %if.then55.i.i, %if.then40.i.i, %if.then37.i.i, %if.then32.i.i, %if.then26.i.i, %if.then21.i.i, %if.then16.i.i, %if.then11.i.i, %if.then6.i.i
@@ -1325,14 +1325,14 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qio_channel_websock_handshake_send_res_ok(ptr noundef %ioc, ptr noundef %key, i1 noundef zeroext %use_protocols, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @qio_channel_websock_handshake_send_res_ok(ptr noundef %ioc, ptr noundef nonnull %key, i1 noundef zeroext %use_protocols, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %combined_key = alloca [61 x i8], align 16
   %accept = alloca ptr, align 8
   store ptr null, ptr %accept, align 8
-  %call = call i64 @g_strlcpy(ptr noundef nonnull %combined_key, ptr noundef %key, i64 noundef 25) #15
+  %call = call i64 @g_strlcpy(ptr noundef nonnull %combined_key, ptr noundef nonnull %key, i64 noundef 25) #15
   %call2 = call i64 @g_strlcat(ptr noundef nonnull %combined_key, ptr noundef nonnull @.str.55, i64 noundef 61) #15
-  %call4 = call i32 @qcrypto_hash_base64(i32 noundef 1, ptr noundef nonnull %combined_key, i64 noundef 60, ptr noundef nonnull %accept, ptr noundef %errp) #15
+  %call4 = call i32 @qcrypto_hash_base64(i32 noundef 1, ptr noundef nonnull %combined_key, i64 noundef 60, ptr noundef nonnull %accept, ptr noundef nonnull %errp) #15
   %cmp = icmp slt i32 %call4, 0
   %call.i.i = call ptr @g_date_time_new_now_utc() #15
   %call1.i.i = call noalias ptr @g_date_time_format(ptr noundef %call.i.i, ptr noundef nonnull @.str.15) #15
@@ -1871,7 +1871,7 @@ declare i64 @iov_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @error_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qio_channel_websock_encode(ptr noundef %ioc, i8 noundef zeroext %opcode, ptr noundef %iov, i64 noundef %niov, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @qio_channel_websock_encode(ptr noundef %ioc, i8 noundef zeroext range(i8 2, 11) %opcode, ptr noundef %iov, i64 noundef %niov, i64 noundef %size) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %header = alloca %union.anon, align 1
@@ -1885,9 +1885,8 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %0 = and i8 %opcode, 15
-  %1 = or disjoint i8 %0, -128
-  store i8 %1, ptr %header, align 1
+  %0 = or disjoint i8 %opcode, -128
+  store i8 %0, ptr %header, align 1
   %cmp4 = icmp ult i64 %size, 126
   %b1 = getelementptr inbounds i8, ptr %header, i64 1
   br i1 %cmp4, label %if.then6, label %if.else8
@@ -1904,47 +1903,47 @@ if.else8:                                         ; preds = %if.end
 if.then11:                                        ; preds = %if.else8
   store i8 126, ptr %b1, align 1
   %conv13 = trunc nuw i64 %size to i16
-  %2 = tail call noundef i16 @llvm.bswap.i16(i16 %conv13)
+  %1 = tail call noundef i16 @llvm.bswap.i16(i16 %conv13)
   %u = getelementptr inbounds i8, ptr %header, i64 2
-  store i16 %2, ptr %u, align 1
+  store i16 %1, ptr %u, align 1
   br label %if.end20
 
 if.else15:                                        ; preds = %if.else8
   store i8 127, ptr %b1, align 1
-  %3 = tail call noundef i64 @llvm.bswap.i64(i64 %size)
+  %2 = tail call noundef i64 @llvm.bswap.i64(i64 %size)
   %u18 = getelementptr inbounds i8, ptr %header, i64 2
-  store i64 %3, ptr %u18, align 1
+  store i64 %2, ptr %u18, align 1
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then11, %if.else15, %if.then6
   %header_size.0 = phi i64 [ 2, %if.then6 ], [ 4, %if.then11 ], [ 10, %if.else15 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %4 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %4, 0
-  %5 = load i16, ptr @_TRACE_QIO_CHANNEL_WEBSOCK_ENCODE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %5, 0
+  %3 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %3, 0
+  %4 = load i16, ptr @_TRACE_QIO_CHANNEL_WEBSOCK_ENCODE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %4, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_qio_channel_websock_encode.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end20
-  %6 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %6, 32768
+  %5 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %5, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_qio_channel_websock_encode.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %7 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %7 to i1
+  %6 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %6 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
+  %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i8 %opcode to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %ioc, i32 noundef %conv11.i.i, i64 noundef %header_size.0, i64 noundef %size) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %ioc, i32 noundef %conv11.i.i, i64 noundef %header_size.0, i64 noundef %size) #15
   br label %trace_qio_channel_websock_encode.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1960,24 +1959,24 @@ trace_qio_channel_websock_encode.exit:            ; preds = %if.end20, %land.lhs
   call void @buffer_append(ptr noundef nonnull %encoutput, ptr noundef nonnull %header, i64 noundef %header_size.0) #15
   %cmp2227 = icmp ne i64 %niov, 0
   %cmp2428 = icmp ne i64 %size, 0
-  %10 = and i1 %cmp2227, %cmp2428
-  br i1 %10, label %for.body, label %for.end
+  %9 = and i1 %cmp2227, %cmp2428
+  br i1 %9, label %for.body, label %for.end
 
 for.body:                                         ; preds = %trace_qio_channel_websock_encode.exit, %for.body
   %i.030 = phi i64 [ %inc, %for.body ], [ 0, %trace_qio_channel_websock_encode.exit ]
   %size.addr.029 = phi i64 [ %sub32, %for.body ], [ %size, %trace_qio_channel_websock_encode.exit ]
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %i.030
   %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %11 = load i64, ptr %iov_len, align 8
-  %spec.select = call i64 @llvm.umin.i64(i64 %11, i64 %size.addr.029)
-  %12 = load ptr, ptr %arrayidx, align 8
-  call void @buffer_append(ptr noundef nonnull %encoutput, ptr noundef %12, i64 noundef %spec.select) #15
+  %10 = load i64, ptr %iov_len, align 8
+  %spec.select = call i64 @llvm.umin.i64(i64 %10, i64 %size.addr.029)
+  %11 = load ptr, ptr %arrayidx, align 8
+  call void @buffer_append(ptr noundef nonnull %encoutput, ptr noundef %11, i64 noundef %spec.select) #15
   %sub32 = sub i64 %size.addr.029, %spec.select
   %inc = add nuw i64 %i.030, 1
   %cmp22 = icmp ult i64 %inc, %niov
   %cmp24 = icmp ne i64 %sub32, 0
-  %13 = and i1 %cmp22, %cmp24
-  br i1 %13, label %for.body, label %for.end, !llvm.loop !12
+  %12 = and i1 %cmp22, %cmp24
+  br i1 %12, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %trace_qio_channel_websock_encode.exit
   ret void
@@ -2594,7 +2593,7 @@ return:                                           ; preds = %qio_channel_websock
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qio_channel_websock_write_close(ptr noundef %ioc, i16 noundef zeroext %code, ptr noundef %reason) unnamed_addr #0 {
+define internal fastcc void @qio_channel_websock_write_close(ptr noundef %ioc, i16 noundef zeroext range(i16 1000, 1012) %code, ptr noundef %reason) unnamed_addr #0 {
 entry:
   %code.addr = alloca i16, align 2
   %iov = alloca [2 x %struct.iovec], align 16

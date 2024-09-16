@@ -622,7 +622,7 @@ define internal i32 @dissect_pnrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %92 = load i32, ptr @hf_pnrp_message_pnrpID, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %92, ptr noundef %.0533, i32 noundef %.07.i, i32 noundef 32, i32 noundef 0) #3
   %94 = add nsw i32 %.056.i, -32
-  %95 = add i32 %.07.i, 32
+  %95 = add nsw i32 %.07.i, 32
   %96 = icmp ugt i32 %.056.i, 63
   br i1 %96, label %.lr.ph.i, label %dissect_pnrp_ids.exit, !llvm.loop !4
 
@@ -812,7 +812,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   %224 = load i32, ptr @hf_pnrp_message_pnrpID, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %224, ptr noundef %.0533, i32 noundef %.07.i575, i32 noundef 32, i32 noundef 0) #3
   %226 = add nsw i32 %.056.i576, -32
-  %227 = add i32 %.07.i575, 32
+  %227 = add nsw i32 %.07.i575, 32
   %228 = icmp ugt i32 %.056.i576, 63
   br i1 %228, label %.lr.ph.i574, label %dissect_pnrp_ids.exit577, !llvm.loop !4
 
@@ -874,7 +874,7 @@ dissect_pnrp_ids.exit577:                         ; preds = %.lr.ph.i574, %214, 
   %263 = load i32, ptr @hf_pnrp_message_pnrpID, align 4
   %264 = call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %263, ptr noundef %.0533, i32 noundef %.07.i579, i32 noundef 32, i32 noundef 0) #3
   %265 = add nsw i32 %.056.i580, -32
-  %266 = add i32 %.07.i579, 32
+  %266 = add nsw i32 %.07.i579, 32
   %267 = icmp ugt i32 %.056.i580, 63
   br i1 %267, label %.lr.ph.i578, label %dissect_pnrp_ids.exit581, !llvm.loop !4
 
@@ -1403,8 +1403,8 @@ dissect_payload_structure.exit.i:                 ; preds = %dissect_ipv6_addres
   %597 = add i32 %550, %596
   %598 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0533, i32 noundef %597) #3
   %599 = zext i16 %598 to i32
-  %.not115.i = icmp eq i16 %598, 0
-  br i1 %.not115.i, label %dissect_publicKey_structure.exit.i, label %600
+  %.not.i.i = icmp eq i16 %598, 0
+  br i1 %.not.i.i, label %dissect_publicKey_structure.exit.i, label %600
 
 600:                                              ; preds = %dissect_payload_structure.exit.i
   %601 = add i32 %597, %599
@@ -1447,8 +1447,8 @@ dissect_publicKey_structure.exit.i:               ; preds = %604, %600, %dissect
   %633 = add i32 %597, %632
   %634 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0533, i32 noundef %633) #3
   %635 = zext i16 %634 to i32
-  %.not116.i = icmp eq i16 %634, 0
-  br i1 %.not116.i, label %dissect_encodedCPA_structure.exit, label %636
+  %.not.i115.i = icmp eq i16 %634, 0
+  br i1 %.not.i115.i, label %dissect_encodedCPA_structure.exit, label %636
 
 636:                                              ; preds = %dissect_publicKey_structure.exit.i
   %637 = add i32 %633, %635
@@ -1598,7 +1598,7 @@ declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ipv6_endpoint_structure(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_ipv6_endpoint_structure(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -8, -131070) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = add i32 %1, 18
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %5) #3
   %7 = icmp sgt i32 %6, -1

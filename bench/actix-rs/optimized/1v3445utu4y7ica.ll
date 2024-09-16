@@ -1416,7 +1416,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hdf2055dd60affad1E(ptr no
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %11
-  %15 = call fastcc noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hddfe934c9fc60d22E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0), !noalias !215
+  %15 = call fastcc noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hddfe934c9fc60d22E"(ptr noalias noundef align 8 dereferenceable(136) %0), !noalias !215
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %21
 
@@ -5406,7 +5406,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit.us.
 65:                                               ; preds = %.lr.ph194.us.us.us
   %66 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.3192.us.us.us
   %67 = load i32, ptr %66, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h188c3b0bc824c289E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %25, i32 noundef %67, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h188c3b0bc824c289E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %25, i32 noundef %67, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %68 = add nuw i64 %.3192.us.us.us, 1
   %69 = icmp ult i64 %68, %63
   br i1 %69, label %.lr.ph194.us.us.us, label %.loopexit.us.us.us
@@ -5733,7 +5733,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit: ; 
 181:                                              ; preds = %.lr.ph194
   %182 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.3192
   %183 = load i32, ptr %182, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h188c3b0bc824c289E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %132, i32 noundef %183, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h188c3b0bc824c289E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %132, i32 noundef %183, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %184 = add nuw i64 %.3192, 1
   %185 = icmp ult i64 %184, %166
   br i1 %185, label %.lr.ph194, label %.loopexit
@@ -5877,7 +5877,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit: ; 
   %232 = load i32, ptr %122, align 4, !noundef !4
   %233 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.094181
   %234 = load i32, ptr %233, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h188c3b0bc824c289E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %232, i32 noundef %234, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h188c3b0bc824c289E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %232, i32 noundef %234, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %235 = add nuw i64 %.094181, 1
   %236 = icmp ult i64 %235, %10
   br i1 %236, label %.lr.ph.split, label %.loopexit126
@@ -6021,7 +6021,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit.us.
 65:                                               ; preds = %.lr.ph194.us.us.us
   %66 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.3192.us.us.us
   %67 = load i32, ptr %66, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h66dc5bb3398c0ce5E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %25, i32 noundef %67, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h66dc5bb3398c0ce5E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %25, i32 noundef %67, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %68 = add nuw i64 %.3192.us.us.us, 1
   %69 = icmp ult i64 %68, %63
   br i1 %69, label %.lr.ph194.us.us.us, label %.loopexit.us.us.us
@@ -6348,7 +6348,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit: ; 
 181:                                              ; preds = %.lr.ph194
   %182 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.3192
   %183 = load i32, ptr %182, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h66dc5bb3398c0ce5E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %132, i32 noundef %183, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h66dc5bb3398c0ce5E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %132, i32 noundef %183, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %184 = add nuw i64 %.3192, 1
   %185 = icmp ult i64 %184, %166
   br i1 %185, label %.lr.ph194, label %.loopexit
@@ -6492,7 +6492,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit: ; 
   %232 = load i32, ptr %122, align 4, !noundef !4
   %233 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.094181
   %234 = load i32, ptr %233, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h66dc5bb3398c0ce5E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %232, i32 noundef %234, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h66dc5bb3398c0ce5E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %232, i32 noundef %234, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %235 = add nuw i64 %.094181, 1
   %236 = icmp ult i64 %235, %10
   br i1 %236, label %.lr.ph.split, label %.loopexit126
@@ -6636,7 +6636,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit.us.
 65:                                               ; preds = %.lr.ph194.us.us.us
   %66 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.3192.us.us.us
   %67 = load i32, ptr %66, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h612555ff4767d390E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %25, i32 noundef %67, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h612555ff4767d390E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %25, i32 noundef %67, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %68 = add nuw i64 %.3192.us.us.us, 1
   %69 = icmp ult i64 %68, %63
   br i1 %69, label %.lr.ph194.us.us.us, label %.loopexit.us.us.us
@@ -6963,7 +6963,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit: ; 
 181:                                              ; preds = %.lr.ph194
   %182 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.3192
   %183 = load i32, ptr %182, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h612555ff4767d390E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %132, i32 noundef %183, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h612555ff4767d390E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %132, i32 noundef %183, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %184 = add nuw i64 %.3192, 1
   %185 = icmp ult i64 %184, %166
   br i1 %185, label %.lr.ph194, label %.loopexit
@@ -7107,7 +7107,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit: ; 
   %232 = load i32, ptr %122, align 4, !noundef !4
   %233 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %.094181
   %234 = load i32, ptr %233, align 4, !noundef !4
-  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h612555ff4767d390E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %232, i32 noundef %234, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h612555ff4767d390E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %232, i32 noundef %234, i64 noundef %13, ptr noalias noundef nonnull align 1 %14, ptr noalias noundef nonnull align 4 %8, i64 noundef %9, ptr noalias noundef align 8 dereferenceable(8) %17)
   %235 = add nuw i64 %.094181, 1
   %236 = icmp ult i64 %235, %10
   br i1 %236, label %.lr.ph.split, label %.loopexit126
@@ -9610,7 +9610,7 @@ _ZN6brotli3enc7cluster22BrotliHistogramReindex17h6fa0f962a14fe26dE.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h188c3b0bc824c289E(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %7, ptr noalias nocapture noundef nonnull align 4 %8, i64 noundef %9, ptr noalias nocapture noundef align 8 dereferenceable(8) %10) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h188c3b0bc824c289E(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %7, ptr noalias nocapture noundef nonnull align 4 %8, i64 noundef %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %10) unnamed_addr #4 personality ptr @rust_eh_personality {
   %12 = alloca { [256 x i32], i64, float, [1 x i32] }, align 8
   %13 = icmp eq i32 %4, %5
   br i1 %13, label %138, label %14
@@ -9878,7 +9878,7 @@ _ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit: ; preds = %47,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h612555ff4767d390E(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %7, ptr noalias nocapture noundef nonnull align 4 %8, i64 noundef %9, ptr noalias nocapture noundef align 8 dereferenceable(8) %10) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h612555ff4767d390E(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %7, ptr noalias nocapture noundef nonnull align 4 %8, i64 noundef %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %10) unnamed_addr #4 personality ptr @rust_eh_personality {
   %12 = alloca { [704 x i32], i64, float, [1 x i32] }, align 8
   %13 = icmp eq i32 %4, %5
   br i1 %13, label %138, label %14
@@ -10146,7 +10146,7 @@ _ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit: ; preds = %47,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h66dc5bb3398c0ce5E(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %7, ptr noalias nocapture noundef nonnull align 4 %8, i64 noundef %9, ptr noalias nocapture noundef align 8 dereferenceable(8) %10) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue17h66dc5bb3398c0ce5E(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %7, ptr noalias nocapture noundef nonnull align 4 %8, i64 noundef %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %10) unnamed_addr #4 personality ptr @rust_eh_personality {
   %12 = alloca { [544 x i32], i64, float, [1 x i32] }, align 8
   %13 = icmp eq i32 %4, %5
   br i1 %13, label %138, label %14
@@ -11429,7 +11429,7 @@ define hidden noundef ptr @"_ZN6flate22gz5write18GzDecoder$LT$W$GT$20finish_and_
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$10try_finish17h0b7c223e83874f35E"(ptr noalias noundef align 8 dereferenceable(136) %0) unnamed_addr #4 {
   %2 = alloca [8 x i8], align 1
-  %3 = tail call fastcc noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hddfe934c9fc60d22E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0)
+  %3 = tail call fastcc noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hddfe934c9fc60d22E"(ptr noalias noundef align 8 dereferenceable(136) %0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.loopexit
 
@@ -11548,7 +11548,7 @@ define hidden noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$10try_finish1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noalias noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hddfe934c9fc60d22E"(ptr noalias noundef align 8 dereferenceable(136) %0) unnamed_addr #4 {
+define internal fastcc noalias noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hddfe934c9fc60d22E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 {
   %2 = alloca { { ptr, ptr, {} }, ptr, i64, i64 }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = getelementptr inbounds i8, ptr %0, i64 96

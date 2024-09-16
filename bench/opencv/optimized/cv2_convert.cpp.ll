@@ -589,7 +589,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread: ; preds = %182, 
   br i1 %or.cond3, label %.thread, label %204
 
 204:                                              ; preds = %202
-  call fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %0)
+  call fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %0)
   %205 = load ptr, ptr %2, align 8
   %206 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
   %207 = invoke noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.3, ptr noundef %205, ptr noundef %206)
@@ -675,7 +675,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread: ; preds = %235, 
   store ptr @.str.6, ptr %13, align 8
   %239 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 0, ptr %239, align 8
-  %240 = call fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_RK7ArgInfo(ptr noundef nonnull %237, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(12) %13)
+  %240 = call fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_RK7ArgInfo(ptr noundef %237, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(12) %13)
   %241 = load i64, ptr %237, align 8
   %242 = add nsw i64 %241, -1
   store i64 %242, ptr %237, align 8
@@ -1181,7 +1181,7 @@ declare noundef i32 @_Z7failmsgPKcz(ptr noundef, ...) local_unnamed_addr #0
 declare void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.PySafeObject, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr i8, ptr %1, i64 56
@@ -1195,7 +1195,7 @@ define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr
   %.val7 = load ptr, ptr %5, align 8
   %8 = getelementptr i8, ptr %.val7, i64 28
   %.val7.val = load i32, ptr %8, align 4
-  invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.75, i32 noundef %.val7.val)
+  invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.75, i32 noundef %.val7.val)
           to label %_ZN12PySafeObjectD2Ev.exit unwind label %9
 
 9:                                                ; preds = %7
@@ -1219,7 +1219,7 @@ define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr
   %.val = load ptr, ptr %5, align 8
   %16 = getelementptr i8, ptr %.val, i64 28
   %.val.val = load i32, ptr %16, align 4
-  invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.75, i32 noundef %.val.val)
+  invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.75, i32 noundef %.val.val)
           to label %20 unwind label %17
 
 17:                                               ; preds = %15, %14, %11
@@ -1270,10 +1270,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_RK7ArgInfo(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = invoke noundef zeroext i1 @_Z11pyopencv_toIbEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
+  %6 = invoke noundef zeroext i1 @_Z11pyopencv_toIbEbP7_objectRT_RK7ArgInfo(ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %36 unwind label %7
 
 7:                                                ; preds = %3
@@ -3637,7 +3637,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv11RotatedRectEEbP7_objectR
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %17 = tail call ptr @PyObject_Type(ptr noundef nonnull %0)
-  call fastcc void @_ZL15getPyObjectAttrB5cxx11P7_objectPKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %17, ptr noundef nonnull @.str.76)
+  call fastcc void @_ZL15getPyObjectAttrB5cxx11P7_objectPKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %17, ptr noundef nonnull @.str.76)
   %18 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.77) #13
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %.thread13.i

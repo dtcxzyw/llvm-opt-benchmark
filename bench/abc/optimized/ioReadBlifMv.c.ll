@@ -6818,7 +6818,7 @@ declare void @Abc_NtkStartMvVars(ptr noundef) local_unnamed_addr #2
 declare ptr @Io_ReadCreateResetLatch(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_MvParseLineNamesMv(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_MvParseLineNamesMv(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -7820,7 +7820,7 @@ declare ptr @Abc_NtkFindNet(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @Io_ReadCreateNode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_MvParseLiteralMv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_MvParseLiteralMv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 -2147483648, 2147483645) %4) unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = load i8, ptr %2, align 1
   %8 = icmp eq i8 %7, 61

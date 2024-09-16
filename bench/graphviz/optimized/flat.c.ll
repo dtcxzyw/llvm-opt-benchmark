@@ -728,7 +728,7 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr i8, ptr %54, i64 16
   %.val31.i = load ptr, ptr %55, align 8
-  call fastcc void @setbounds(ptr %.val31.i, ptr noundef nonnull %2, i32 noundef %spec.select14.i.i, i32 noundef %spec.select.i.i)
+  call fastcc void @setbounds(ptr %.val31.i, ptr noundef %2, i32 noundef %spec.select14.i.i, i32 noundef %spec.select.i.i)
   %56 = and i64 %indvars.iv.next.i83, 4294967295
   %.not.i = icmp eq i64 %indvars.iv5.i82, %56
   br i1 %.not.i, label %61, label %57
@@ -738,7 +738,7 @@ define internal fastcc void @flat_node(ptr noundef %0) unnamed_addr #0 {
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i8, ptr %59, i64 16
   %.val32.i = load ptr, ptr %60, align 8
-  call fastcc void @setbounds(ptr %.val32.i, ptr noundef nonnull %2, i32 noundef %spec.select14.i.i, i32 noundef %spec.select.i.i)
+  call fastcc void @setbounds(ptr %.val32.i, ptr noundef %2, i32 noundef %spec.select14.i.i, i32 noundef %spec.select.i.i)
   br label %61
 
 61:                                               ; preds = %57, %.lr.ph
@@ -1041,7 +1041,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 declare ptr @virtual_edge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @setbounds(ptr nocapture readonly %.16.val, ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc void @setbounds(ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %.16.val, i64 216
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 1

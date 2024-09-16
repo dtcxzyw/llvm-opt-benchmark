@@ -422,29 +422,30 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm10bfi
   %11 = and i32 %10, 15
   %12 = icmp ult i32 %11, 10
   %13 = trunc nuw nsw i32 %11 to i8
-  %.0.v.i = select i1 %12, i8 48, i8 87
-  %.0.i = add nuw nsw i8 %.0.v.i, %13
-  %14 = load ptr, ptr %3, align 8
-  %15 = load ptr, ptr %4, align 8
-  %.not.i = icmp ult ptr %14, %15
-  br i1 %.not.i, label %18, label %16
-
-16:                                               ; preds = %5
-  %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext %.0.i) #23
-  br label %_ZN4llvm11raw_ostreamlsEc.exit
+  %14 = or disjoint i8 %13, 48
+  %15 = add nuw nsw i8 %13, 87
+  %.0.i = select i1 %12, i8 %14, i8 %15
+  %16 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %4, align 8
+  %.not.i = icmp ult ptr %16, %17
+  br i1 %.not.i, label %20, label %18
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %14, i64 1
-  store ptr %19, ptr %3, align 8
-  store i8 %.0.i, ptr %14, align 1
+  %19 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext %.0.i) #23
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %16, %18
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds i8, ptr %16, i64 1
+  store ptr %21, ptr %3, align 8
+  store i8 %.0.i, ptr %16, align 1
+  br label %_ZN4llvm11raw_ostreamlsEc.exit
+
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %18, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %20, label %5, !llvm.loop !4
+  br i1 %exitcond.not, label %22, label %5, !llvm.loop !4
 
-20:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
+22:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   ret ptr %1
 }
 
@@ -1111,7 +1112,7 @@ _ZL18shiftRightAndRoundmi.exit:                   ; preds = %_ZL18shiftRightAndR
   %257 = lshr i64 %256, %252
   %258 = lshr i64 %256, %254
   %259 = and i64 %258, 1
-  %260 = add nuw i64 %259, %257
+  %260 = add i64 %259, %257
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %260, i64 1)
   store i64 %.sroa.speculated, ptr %255, align 8
   %261 = load i64, ptr %248, align 8

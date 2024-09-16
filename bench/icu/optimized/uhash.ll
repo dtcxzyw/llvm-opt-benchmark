@@ -1338,16 +1338,15 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr nocapture noundef %hash, ptr %key.coerce, ptr %value.coerce, i8 noundef signext %hint, ptr nocapture noundef %status) unnamed_addr #0 {
+define internal fastcc ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr nocapture noundef %hash, ptr %key.coerce, ptr %value.coerce, i8 noundef signext range(i8 0, 6) %hint, ptr nocapture noundef %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %do.body
 
 if.end:                                           ; preds = %entry
-  %conv = zext nneg i8 %hint to i32
-  %and = and i32 %conv, 2
-  %tobool2.not = icmp eq i32 %and, 0
+  %1 = and i8 %hint, 2
+  %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
@@ -1355,12 +1354,11 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp, label %if.then7, label %if.end11
 
 cond.false:                                       ; preds = %if.end
-  %1 = ptrtoint ptr %value.coerce to i64
-  %2 = and i64 %1, 4294967295
-  %cmp3 = icmp eq i64 %2, 0
-  %and5 = and i32 %conv, 4
-  %cmp6 = icmp eq i32 %and5, 0
-  %or.cond27 = and i1 %cmp3, %cmp6
+  %2 = ptrtoint ptr %value.coerce to i64
+  %3 = and i64 %2, 4294967295
+  %cmp3 = icmp eq i64 %3, 0
+  %cmp6 = icmp ult i8 %hint, 4
+  %or.cond27 = and i1 %cmp6, %cmp3
   br i1 %or.cond27, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %cond.false, %cond.true
@@ -1369,47 +1367,47 @@ if.then7:                                         ; preds = %cond.false, %cond.t
 
 if.end11:                                         ; preds = %cond.false, %cond.true
   %count = getelementptr inbounds i8, ptr %hash, i64 48
-  %3 = load i32, ptr %count, align 8
+  %4 = load i32, ptr %count, align 8
   %highWaterMark = getelementptr inbounds i8, ptr %hash, i64 56
-  %4 = load i32, ptr %highWaterMark, align 8
-  %cmp12 = icmp sgt i32 %3, %4
+  %5 = load i32, ptr %highWaterMark, align 8
+  %cmp12 = icmp sgt i32 %4, %5
   br i1 %cmp12, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %if.end11
   tail call fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef nonnull %hash, ptr noundef nonnull %status)
-  %5 = load i32, ptr %status, align 4
-  %cmp.i28 = icmp slt i32 %5, 1
+  %6 = load i32, ptr %status, align 4
+  %cmp.i28 = icmp slt i32 %6, 1
   br i1 %cmp.i28, label %if.end18, label %do.body
 
 if.end18:                                         ; preds = %if.then13, %if.end11
   %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
-  %6 = load ptr, ptr %keyHasher, align 8
-  %call21 = tail call noundef i32 %6(ptr %key.coerce)
-  %7 = load ptr, ptr %hash, align 8
+  %7 = load ptr, ptr %keyHasher, align 8
+  %call21 = tail call noundef i32 %7(ptr %key.coerce)
+  %8 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call21, 2147483647
   %xor.i = xor i32 %and.i, 67108864
   %length.i = getelementptr inbounds i8, ptr %hash, i64 52
-  %8 = load i32, ptr %length.i, align 4
-  %rem.i = srem i32 %xor.i, %8
+  %9 = load i32, ptr %length.i, align 4
+  %rem.i = srem i32 %xor.i, %9
   %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %if.end18
-  %.pre47.i = phi i32 [ %8, %if.end18 ], [ %.pre.i, %if.end28.i ]
+  %.pre47.i = phi i32 [ %9, %if.end18 ], [ %.pre.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %if.end18 ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %if.end18 ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %if.end18 ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %7, i64 %idxprom.i
-  %9 = load i32, ptr %arrayidx.i, align 8
-  %cmp.i30 = icmp eq i32 %9, %and.i
+  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %8, i64 %idxprom.i
+  %10 = load i32, ptr %arrayidx.i, align 8
+  %cmp.i30 = icmp eq i32 %10, %and.i
   br i1 %cmp.i30, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
-  %10 = load ptr, ptr %keyComparator.i, align 8
+  %11 = load ptr, ptr %keyComparator.i, align 8
   %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
-  %call.i = tail call noundef signext i8 %10(ptr %key.coerce, ptr %agg.tmp3.sroa.0.0.copyload.i)
+  %call.i = tail call noundef signext i8 %11(ptr %key.coerce, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %if.then.if.end23_crit_edge.i, label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -1418,11 +1416,11 @@ if.then.if.end23_crit_edge.i:                     ; preds = %if.then.i
   br label %if.end23.i
 
 if.else.i:                                        ; preds = %do.body.i
-  %cmp12.i = icmp slt i32 %9, 0
+  %cmp12.i = icmp slt i32 %10, 0
   br i1 %cmp12.i, label %if.else14.i, label %if.end23.i
 
 if.else14.i:                                      ; preds = %if.else.i
-  %cmp15.i = icmp eq i32 %9, -2147483647
+  %cmp15.i = icmp eq i32 %10, -2147483647
   %cmp332530.i = icmp slt i32 %firstDeleted.0.i, 0
   %spec.select29.i = select i1 %cmp332530.i, i32 %theIndex.0.i, i32 %firstDeleted.0.i
   br i1 %cmp15.i, label %if.end39.i, label %if.end23.i
@@ -1451,7 +1449,7 @@ do.end.i:                                         ; preds = %if.end28.i
   br i1 %cmp33.i, label %if.end39.i, label %if.else35.i
 
 if.else35.i:                                      ; preds = %do.end.i
-  %cmp36.not.i = icmp eq i32 %9, -2147483647
+  %cmp36.not.i = icmp eq i32 %10, -2147483647
   br i1 %cmp36.not.i, label %if.end39.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.else35.i
@@ -1461,25 +1459,25 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %7, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %8, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
   %retval.0.i = phi ptr [ %arrayidx41.i, %if.end39.i ], [ %arrayidx.i, %if.then.i ]
-  %11 = load i32, ptr %retval.0.i, align 8
-  %cmp26 = icmp slt i32 %11, 0
+  %12 = load i32, ptr %retval.0.i, align 8
+  %cmp26 = icmp slt i32 %12, 0
   br i1 %cmp26, label %if.then27, label %if.end34
 
 if.then27:                                        ; preds = %_ZL11_uhash_findPK10UHashtable8UElementi.exit
-  %12 = load i32, ptr %count, align 8
-  %inc = add nsw i32 %12, 1
+  %13 = load i32, ptr %count, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %count, align 8
-  %13 = load i32, ptr %length.i, align 4
-  %cmp30 = icmp eq i32 %inc, %13
+  %14 = load i32, ptr %length.i, align 4
+  %cmp30 = icmp eq i32 %inc, %14
   br i1 %cmp30, label %if.then31, label %if.end34
 
 if.then31:                                        ; preds = %if.then27
-  store i32 %12, ptr %count, align 8
+  store i32 %13, ptr %count, align 8
   store i32 7, ptr %status, align 4
   br label %do.body
 
@@ -1487,26 +1485,26 @@ if.end34:                                         ; preds = %if.then27, %_ZL11_u
   %value2.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %retval.sroa.0.0.copyload.i = load ptr, ptr %value2.i, align 8
   %keyDeleter.i = getelementptr inbounds i8, ptr %hash, i64 32
-  %14 = load ptr, ptr %keyDeleter.i, align 8
-  %cmp.not.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %keyDeleter.i, align 8
+  %cmp.not.i = icmp eq ptr %15, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end34
   %key3.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %15 = load ptr, ptr %key3.i, align 8
-  %cmp4.not.i = icmp eq ptr %15, null
-  %cmp7.not.i = icmp eq ptr %15, %key.coerce
+  %16 = load ptr, ptr %key3.i, align 8
+  %cmp4.not.i = icmp eq ptr %16, null
+  %cmp7.not.i = icmp eq ptr %16, %key.coerce
   %or.cond.i = select i1 %cmp4.not.i, i1 true, i1 %cmp7.not.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i31
 
 if.then.i31:                                      ; preds = %land.lhs.true.i
-  tail call void %14(ptr noundef nonnull %15)
+  tail call void %15(ptr noundef nonnull %16)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i31, %land.lhs.true.i, %if.end34
   %valueDeleter.i = getelementptr inbounds i8, ptr %hash, i64 40
-  %16 = load ptr, ptr %valueDeleter.i, align 8
-  %cmp10.not.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %valueDeleter.i, align 8
+  %cmp10.not.i = icmp eq ptr %17, null
   br i1 %cmp10.not.i, label %_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
@@ -1516,39 +1514,39 @@ if.then11.i:                                      ; preds = %if.end.i
   br i1 %or.cond20.i, label %_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then11.i
-  tail call void %16(ptr noundef nonnull %retval.sroa.0.0.copyload.i)
+  tail call void %17(ptr noundef nonnull %retval.sroa.0.0.copyload.i)
   br label %_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit
 
 _ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit: ; preds = %if.end.i, %if.then11.i, %if.then15.i
   %retval.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.copyload.i, %if.end.i ], [ null, %if.then15.i ], [ null, %if.then11.i ]
-  %17 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  store ptr %key.coerce, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  store ptr %key.coerce, ptr %18, align 8
   store ptr %value.coerce, ptr %value2.i, align 8
   store i32 %and.i, ptr %retval.0.i, align 8
   br label %return
 
 do.body:                                          ; preds = %if.then31, %entry, %if.then13
   %keyDeleter = getelementptr inbounds i8, ptr %hash, i64 32
-  %18 = load ptr, ptr %keyDeleter, align 8
-  %cmp42 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %keyDeleter, align 8
+  %cmp42 = icmp ne ptr %19, null
   %cmp44 = icmp ne ptr %key.coerce, null
   %or.cond = select i1 %cmp42, i1 %cmp44, i1 false
   br i1 %or.cond, label %if.then45, label %if.end47
 
 if.then45:                                        ; preds = %do.body
-  tail call void %18(ptr noundef nonnull %key.coerce)
+  tail call void %19(ptr noundef nonnull %key.coerce)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then45, %do.body
   %valueDeleter = getelementptr inbounds i8, ptr %hash, i64 40
-  %19 = load ptr, ptr %valueDeleter, align 8
-  %cmp48 = icmp ne ptr %19, null
+  %20 = load ptr, ptr %valueDeleter, align 8
+  %cmp48 = icmp ne ptr %20, null
   %cmp50 = icmp ne ptr %value.coerce, null
   %or.cond1 = select i1 %cmp48, i1 %cmp50, i1 false
   br i1 %or.cond1, label %if.then51, label %return
 
 if.then51:                                        ; preds = %if.end47
-  tail call void %19(ptr noundef nonnull %value.coerce)
+  tail call void %20(ptr noundef nonnull %value.coerce)
   br label %return
 
 return:                                           ; preds = %if.then51, %if.end47, %_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit, %if.then7

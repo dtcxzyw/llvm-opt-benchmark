@@ -936,7 +936,7 @@ read_ga.exit:                                     ; preds = %202, %204, %206, %2
   br i1 %.not147, label %.loopexit, label %224
 
 224:                                              ; preds = %223
-  call fastcc void @add_ga_key(i16 noundef zeroext %.1103, ptr noundef nonnull %12, ptr noundef %49)
+  call fastcc void @add_ga_key(i16 noundef zeroext %.1103, ptr noundef %12, ptr noundef %49)
   br label %.loopexit
 
 225:                                              ; preds = %221
@@ -1104,7 +1104,7 @@ read_ia.exit:                                     ; preds = %282, %284, %286, %2
   br i1 %.not136, label %.loopexit, label %303
 
 303:                                              ; preds = %302
-  call fastcc void @add_ia_key(i16 noundef zeroext %.197, ptr noundef nonnull %12, ptr noundef %49)
+  call fastcc void @add_ia_key(i16 noundef zeroext %.197, ptr noundef %12, ptr noundef %49)
   br label %.loopexit
 
 304:                                              ; preds = %301
@@ -1115,7 +1115,7 @@ read_ia.exit:                                     ; preds = %282, %284, %286, %2
   br i1 %or.cond16, label %307, label %.loopexit
 
 307:                                              ; preds = %304
-  call fastcc void @add_ia_seq(i16 noundef zeroext %.197, ptr noundef nonnull %12, ptr noundef %49)
+  call fastcc void @add_ia_seq(i16 noundef zeroext %.197, ptr noundef %12, ptr noundef %49)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %add_ga_sender.exit, %227, %278, %.critedge, %._crit_edge242, %151, %add_mca_key.exit, %141, %303, %302, %307, %304, %read_ia.exit, %read_ga.exit, %225, %223, %224, %.critedge5, %101
@@ -1192,7 +1192,7 @@ declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #3
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [25 x i8], align 16
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
@@ -1202,7 +1202,7 @@ define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef %1, 
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.3, ptr noundef %1) #11
+  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.3, ptr noundef nonnull %1) #11
   %11 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %12 = load ptr, ptr @knx_keyring_ga_keys, align 8
@@ -1279,7 +1279,7 @@ fprintf_hex.exit:                                 ; preds = %29
 declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [25 x i8], align 16
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
@@ -1289,7 +1289,7 @@ define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef %1, 
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.3, ptr noundef %1) #11
+  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.3, ptr noundef nonnull %1) #11
   %11 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %12 = load ptr, ptr @knx_keyring_ia_keys, align 8
@@ -1363,10 +1363,10 @@ fprintf_hex.exit:                                 ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ia_seq(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ia_seq(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %5 = call zeroext i1 @ws_strtou64(ptr noundef %1, ptr noundef null, ptr noundef nonnull %4) #11
+  %5 = call zeroext i1 @ws_strtou64(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %4) #11
   %6 = load i64, ptr %4, align 8
   %7 = select i1 %5, i64 %6, i64 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

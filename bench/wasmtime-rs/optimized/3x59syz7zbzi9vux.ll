@@ -757,7 +757,7 @@ default.unreachable:                              ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h812d90b0b7ba5babE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %4 = tail call fastcc noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17h5362cad511928061E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %4 = tail call fastcc noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17h5362cad511928061E"(ptr noalias noundef readonly align 8 dereferenceable(56) %3, ptr noalias noundef align 8 dereferenceable(64) %1)
   ret i1 %4
 }
 
@@ -1082,7 +1082,7 @@ define internal noundef zeroext i1 @"_ZN81_$LT$wasmparser..readers..core..operat
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17h5362cad511928061E"(ptr noalias noundef readonly align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17h5362cad511928061E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

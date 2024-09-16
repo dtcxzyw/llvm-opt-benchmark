@@ -293,7 +293,7 @@ invoke.cont13:                                    ; preds = %if.else.i.i, %if.th
   store ptr %20, ptr %call3.i.i.i40, align 8, !tbaa !10
   store i64 0, ptr %_M_string_length.i12.i.i, align 8, !tbaa !13
   store i8 0, ptr %20, align 8, !tbaa !12
-  invoke fastcc void @_ZN12_GLOBAL__N_16formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS7_S7_(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
+  invoke fastcc void @_ZN12_GLOBAL__N_16formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS7_S7_(ptr dead_on_unwind noalias writable align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -472,7 +472,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS7_S7_(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %message) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS7_S7_(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %message) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %msg = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %msg) #19
@@ -926,7 +926,7 @@ invoke.cont21:                                    ; preds = %if.end.i.i.i.i.i67,
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont21
-  invoke fastcc void @_ZN12_GLOBAL__N_16formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS7_S7_(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
+  invoke fastcc void @_ZN12_GLOBAL__N_16formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS7_S7_(ptr dead_on_unwind noalias writable align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont23
@@ -1309,7 +1309,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %message_, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #19
-  invoke fastcc void @_ZN12_GLOBAL__N_16formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS7_S7_(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %message)
+  invoke fastcc void @_ZN12_GLOBAL__N_16formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS7_S7_(ptr dead_on_unwind noalias writable align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %message)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

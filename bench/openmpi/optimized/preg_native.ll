@@ -673,7 +673,7 @@ pmix_obj_new_tma.exit241:                         ; preds = %.lr.ph.i.i238, %225
 .lr.ph.i243:                                      ; preds = %282, %.lr.ph.i243
   %288 = phi ptr [ %290, %.lr.ph.i243 ], [ %287, %282 ]
   %.07.i244 = phi ptr [ %289, %.lr.ph.i243 ], [ %286, %282 ]
-  call void %288(ptr noundef %256) #18
+  call void %288(ptr noundef nonnull %256) #18
   %289 = getelementptr inbounds i8, ptr %.07.i244, i64 8
   %290 = load ptr, ptr %289, align 8
   %.not.i245 = icmp eq ptr %290, null
@@ -793,7 +793,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i243, %282
 .lr.ph.i249:                                      ; preds = %348, %.lr.ph.i249
   %354 = phi ptr [ %356, %.lr.ph.i249 ], [ %353, %348 ]
   %.07.i250 = phi ptr [ %355, %.lr.ph.i249 ], [ %352, %348 ]
-  call void %354(ptr noundef %314) #18
+  call void %354(ptr noundef nonnull %314) #18
   %355 = getelementptr inbounds i8, ptr %.07.i250, i64 8
   %356 = load ptr, ptr %355, align 8
   %.not.i251 = icmp eq ptr %356, null
@@ -880,7 +880,7 @@ pmix_obj_run_destructors.exit252:                 ; preds = %.lr.ph.i249, %348
 .lr.ph.i254:                                      ; preds = %391, %.lr.ph.i254
   %397 = phi ptr [ %399, %.lr.ph.i254 ], [ %396, %391 ]
   %.07.i255 = phi ptr [ %398, %.lr.ph.i254 ], [ %395, %391 ]
-  call void %397(ptr noundef %256) #18
+  call void %397(ptr noundef nonnull %256) #18
   %398 = getelementptr inbounds i8, ptr %.07.i255, i64 8
   %399 = load ptr, ptr %398, align 8
   %.not.i256 = icmp eq ptr %399, null
@@ -1451,7 +1451,7 @@ pmix_obj_new_tma.exit175:                         ; preds = %.lr.ph.i.i172, %173
 .lr.ph.i177:                                      ; preds = %241, %.lr.ph.i177
   %247 = phi ptr [ %249, %.lr.ph.i177 ], [ %246, %241 ]
   %.07.i178 = phi ptr [ %248, %.lr.ph.i177 ], [ %245, %241 ]
-  call void %247(ptr noundef %209) #18
+  call void %247(ptr noundef nonnull %209) #18
   %248 = getelementptr inbounds i8, ptr %.07.i178, i64 8
   %249 = load ptr, ptr %248, align 8
   %.not.i179 = icmp eq ptr %249, null
@@ -1551,7 +1551,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i177, %241
 .lr.ph.i183:                                      ; preds = %292, %.lr.ph.i183
   %298 = phi ptr [ %300, %.lr.ph.i183 ], [ %297, %292 ]
   %.07.i184 = phi ptr [ %299, %.lr.ph.i183 ], [ %296, %292 ]
-  call void %298(ptr noundef %275) #18
+  call void %298(ptr noundef nonnull %275) #18
   %299 = getelementptr inbounds i8, ptr %.07.i184, i64 8
   %300 = load ptr, ptr %299, align 8
   %.not.i185 = icmp eq ptr %300, null
@@ -1645,7 +1645,7 @@ pmix_obj_run_destructors.exit186:                 ; preds = %.lr.ph.i183, %292
 .lr.ph.i195:                                      ; preds = %338, %.lr.ph.i195
   %344 = phi ptr [ %346, %.lr.ph.i195 ], [ %343, %338 ]
   %.07.i196 = phi ptr [ %345, %.lr.ph.i195 ], [ %342, %338 ]
-  call void %344(ptr noundef %321) #18
+  call void %344(ptr noundef nonnull %321) #18
   %345 = getelementptr inbounds i8, ptr %.07.i196, i64 8
   %346 = load ptr, ptr %345, align 8
   %.not.i197 = icmp eq ptr %346, null
@@ -1982,7 +1982,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
 
 113:                                              ; preds = %.lr.ph.i.i
   store i8 0, ptr %110, align 1
-  %114 = tail call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0108.i, ptr noundef %.03346.i.i, i32 noundef %60, ptr noundef %.0106.i, ptr noundef nonnull %1)
+  %114 = tail call fastcc i32 @regex_parse_value_range(ptr noundef readonly %.0108.i, ptr noundef %.03346.i.i, i32 noundef %60, ptr noundef %.0106.i, ptr noundef nonnull %1)
   switch i32 %114, label %115 [
     i32 0, label %117
     i32 -2, label %regex_parse_value_ranges.exit.i
@@ -2028,7 +2028,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   br label %131
 
 131:                                              ; preds = %130, %125, %123
-  %132 = tail call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0108.i, ptr noundef %.033.lcssa.i.i, i32 noundef %60, ptr noundef %.0106.i, ptr noundef nonnull %1)
+  %132 = tail call fastcc i32 @regex_parse_value_range(ptr noundef readonly %.0108.i, ptr noundef %.033.lcssa.i.i, i32 noundef %60, ptr noundef %.0106.i, ptr noundef nonnull %1)
   switch i32 %132, label %133 [
     i32 0, label %135
     i32 -2, label %regex_parse_value_ranges.exit.i
@@ -2420,7 +2420,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @regex_parse_value_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @regex_parse_value_range(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [132 x i8], align 16
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19

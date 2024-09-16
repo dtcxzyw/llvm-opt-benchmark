@@ -278,7 +278,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %25 = fdiv float 1.000000e+00, %24
   %26 = getelementptr inbounds i8, ptr %5, i64 8
   %27 = getelementptr inbounds i8, ptr %5, i64 20
-  %28 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %26, ptr noundef nonnull %27, float noundef %21, float noundef %22, float noundef %25, i32 noundef %6)
+  %28 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %26, ptr noundef %27, float noundef %21, float noundef %22, float noundef %25, i32 noundef %6)
           to label %29 unwind label %31
 
 29:                                               ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
@@ -336,7 +336,7 @@ _ZN13rcScopedTimerD2Ev.exit22:                    ; preds = %42, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, float noundef %7, float noundef %8, float noundef %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6, float noundef %7, float noundef %8, float noundef %9, i32 noundef %10) unnamed_addr #0 {
   %12 = alloca [84 x float], align 16
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
@@ -471,7 +471,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %109 = tail call float @llvm.fmuladd.f32(float %108, float %7, float %107)
   %110 = load i32, ptr %14, align 4
   %111 = fadd float %7, %109
-  call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.0160177, i32 noundef %110, ptr noundef %.0157178, ptr noundef nonnull %13, ptr noundef %.0156179, ptr noundef nonnull %14, float noundef %111, i32 noundef 2)
+  call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.0160177, i32 noundef %110, ptr noundef %.0157178, ptr noundef %13, ptr noundef %.0156179, ptr noundef %14, float noundef %111, i32 noundef 2)
   %112 = load i32, ptr %13, align 4
   %113 = icmp slt i32 %112, 3
   %114 = icmp slt i32 %.0100181, 0
@@ -531,7 +531,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %138 = tail call float @llvm.fmuladd.f32(float %137, float %7, float %136)
   %139 = load i32, ptr %16, align 4
   %140 = fadd float %7, %138
-  call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.2159172, i32 noundef %139, ptr noundef %.0160177, ptr noundef nonnull %15, ptr noundef %.2173, ptr noundef nonnull %16, float noundef %140, i32 noundef 0)
+  call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.2159172, i32 noundef %139, ptr noundef %.0160177, ptr noundef %15, ptr noundef %.2173, ptr noundef %16, float noundef %140, i32 noundef 0)
   %141 = load i32, ptr %15, align 4
   %142 = icmp slt i32 %141, 3
   %143 = icmp slt i32 %.0101174, 0
@@ -676,7 +676,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
   %47 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   %48 = load i8, ptr %47, align 1
   %49 = load float, ptr %21, align 8
-  %50 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %36, ptr noundef %41, ptr noundef %46, i8 noundef zeroext %48, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %28, ptr noundef nonnull %29, float noundef %49, float noundef %23, float noundef %26, i32 noundef %7)
+  %50 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %36, ptr noundef %41, ptr noundef %46, i8 noundef zeroext %48, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %28, ptr noundef %29, float noundef %49, float noundef %23, float noundef %26, i32 noundef %7)
           to label %51 unwind label %.loopexit39
 
 51:                                               ; preds = %31
@@ -810,7 +810,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
   %44 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
   %46 = load float, ptr %21, align 8
-  %47 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %35, ptr noundef %39, ptr noundef %43, i8 noundef zeroext %45, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %28, ptr noundef nonnull %29, float noundef %46, float noundef %23, float noundef %26, i32 noundef %7)
+  %47 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %35, ptr noundef %39, ptr noundef %43, i8 noundef zeroext %45, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %28, ptr noundef %29, float noundef %46, float noundef %23, float noundef %26, i32 noundef %7)
           to label %48 unwind label %.loopexit41
 
 48:                                               ; preds = %31
@@ -938,7 +938,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
   %40 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %41 = load i8, ptr %40, align 1
   %42 = load float, ptr %19, align 8
-  %43 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %33, ptr noundef %36, ptr noundef %39, i8 noundef zeroext %41, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %26, ptr noundef nonnull %27, float noundef %42, float noundef %21, float noundef %24, i32 noundef %5)
+  %43 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %33, ptr noundef %36, ptr noundef %39, i8 noundef zeroext %41, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %26, ptr noundef %27, float noundef %42, float noundef %21, float noundef %24, i32 noundef %5)
           to label %44 unwind label %.loopexit36
 
 44:                                               ; preds = %29
@@ -1011,7 +1011,7 @@ declare noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef, i32 noundef) local_un
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, float noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef nonnull writeonly %5, float noundef %6, i32 noundef range(i32 0, 3) %7) unnamed_addr #0 {
   %9 = alloca [12 x float], align 16
   %10 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %11 = icmp eq ptr %10, null
@@ -1028,7 +1028,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge98
 
 .lr.ph.preheader:                                 ; preds = %.thread, %13
-  %15 = sext i32 %7 to i64
+  %15 = zext nneg i32 %7 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   %invariant.gep = getelementptr float, ptr %0, i64 %15
   br label %.lr.ph

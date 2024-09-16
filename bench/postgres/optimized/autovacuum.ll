@@ -2328,7 +2328,7 @@ extract_autovac_opts.exit:                        ; preds = %84, %87
   %91 = load i8, ptr %90, align 1
   %92 = trunc i8 %91 to i1
   %93 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %92, i32 noundef %73) #18
-  call fastcc void @relation_needs_vacanalyze(i32 noundef %73, ptr noundef %.0.i, ptr noundef nonnull %69, ptr noundef %93, i32 noundef %23, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  call fastcc void @relation_needs_vacanalyze(i32 noundef %73, ptr noundef %.0.i, ptr noundef nonnull %69, ptr noundef %93, i32 noundef %23, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   %94 = load i8, ptr %10, align 1
   %95 = trunc i8 %94 to i1
   br i1 %95, label %99, label %96
@@ -2443,7 +2443,7 @@ extract_autovac_opts.exit214:                     ; preds = %132
   %151 = load i32, ptr %14, align 4
   %152 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %150, i32 noundef %151) #18
   %153 = load i32, ptr %14, align 4
-  call fastcc void @relation_needs_vacanalyze(i32 noundef %153, ptr noundef %.0165, ptr noundef nonnull %128, ptr noundef %152, i32 noundef %23, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  call fastcc void @relation_needs_vacanalyze(i32 noundef %153, ptr noundef %.0165, ptr noundef nonnull %128, ptr noundef %152, i32 noundef %23, ptr noundef %15, ptr noundef %16, ptr noundef %17)
   %154 = load i8, ptr %15, align 1
   %155 = trunc i8 %154 to i1
   br i1 %155, label %156, label %.outer, !llvm.loop !18
@@ -2775,7 +2775,7 @@ extract_autovac_opts.exit.i:                      ; preds = %293
   %321 = load i8, ptr %320, align 1
   %322 = trunc i8 %321 to i1
   %323 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %322, i32 noundef %319) #18
-  call fastcc void @relation_needs_vacanalyze(i32 noundef %319, ptr noundef %.066.i, ptr noundef %299, ptr noundef %323, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @relation_needs_vacanalyze(i32 noundef %319, ptr noundef %.066.i, ptr noundef %299, ptr noundef %323, i32 noundef %23, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %324 = load i8, ptr %318, align 1
   %325 = icmp eq i8 %324, 116
   br i1 %325, label %recheck_relation_needs_vacanalyze.exit.thread.i, label %recheck_relation_needs_vacanalyze.exit.i
@@ -3284,7 +3284,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %45, label %.thread120
 

@@ -257,7 +257,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 32:                                               ; preds = %24
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9) #10
-  %33 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef 20)
+  %33 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 20)
   br label %83
 
 34:                                               ; preds = %24
@@ -271,7 +271,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 1, ptr %39, align 8
-  %40 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef 26)
+  %40 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 41:                                               ; preds = %34
@@ -284,7 +284,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 4, ptr %46, align 8
-  %47 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef 12)
+  %47 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
   br label %83
 
 48:                                               ; preds = %41
@@ -299,7 +299,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i32 noundef %50) #10
   %51 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 8, ptr %51, align 8
-  %52 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef 26)
+  %52 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 53:                                               ; preds = %48
@@ -311,7 +311,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #10
   %56 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 8, ptr %56, align 8
-  %57 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef 26)
+  %57 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 58:                                               ; preds = %53
@@ -324,7 +324,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 1, ptr %62, align 8
-  %63 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef 26)
+  %63 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 64:                                               ; preds = %58
@@ -336,19 +336,19 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 67:                                               ; preds = %64
   %68 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 4, ptr %68, align 8
-  %69 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef 12)
+  %69 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
   br label %83
 
 70:                                               ; preds = %64
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 16
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 1
   %71 = zext i32 %.sroa.1.0.copyload to i64
-  %72 = call fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull %4, i64 noundef %71)
+  %72 = call fastcc i32 @ole2_summary_propset_json(ptr noundef %4, i64 noundef %71)
   %.not49 = icmp eq i32 %72, 0
   br i1 %.not49, label %75, label %73
 
 73:                                               ; preds = %70
-  %74 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef %72)
+  %74 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef %72)
   br label %83
 
 75:                                               ; preds = %70
@@ -362,7 +362,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %81
 
 81:                                               ; preds = %77, %75
-  %82 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef nonnull %4, i32 noundef 0)
+  %82 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 0)
   br label %83
 
 83:                                               ; preds = %3, %81, %73, %67, %61, %55, %49, %45, %38, %32, %23, %17, %11, %9
@@ -385,7 +385,7 @@ declare ptr @cli_jsonobj(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr nocapture noundef readonly %0, i32 noundef returned %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr nocapture noundef nonnull readonly %0, i32 noundef returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %4) #10
@@ -576,7 +576,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr nocapture 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ole2_summary_propset_json(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [256 x i8], align 16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #10
@@ -1293,7 +1293,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   %324 = getelementptr inbounds i8, ptr %49, i64 %300
   %325 = zext nneg i32 %.0259.i to i64
   %326 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull readonly %324, i64 noundef %325) #10
-  %327 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef nonnull %322, i64 noundef %325, ptr noundef null)
+  %327 = call fastcc ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %322, i64 noundef %325, ptr noundef null)
   %.not279.i = icmp eq ptr %327, null
   br i1 %.not279.i, label %328, label %337
 
@@ -1382,7 +1382,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   %369 = getelementptr inbounds i8, ptr %49, i64 %343
   %370 = zext nneg i32 %.0256.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr nonnull readonly align 1 %369, i64 %370, i1 false)
-  %371 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef nonnull %367, i64 noundef %370, ptr noundef nonnull @.str.88)
+  %371 = call fastcc ptr @ole2_convert_utf(ptr noundef %0, ptr noundef %367, i64 noundef %370, ptr noundef nonnull @.str.88)
   %.not275.i = icmp eq ptr %371, null
   br i1 %.not275.i, label %372, label %381
 
@@ -1515,7 +1515,7 @@ declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef range(i64 0, 513) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -1544,7 +1544,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br i1 %.not119, label %.loopexit126, label %19
 
 19:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %1, i64 %2, i1 false)
   %20 = load i16, ptr %14, align 8
   %21 = icmp eq i16 %20, -535
   br i1 %21, label %22, label %.loopexit126
@@ -1615,7 +1615,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br i1 %.not, label %.loopexit126, label %44
 
 44:                                               ; preds = %42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %1, i64 %2, i1 false)
   store i64 %2, ptr %7, align 8
   %.not115 = icmp eq ptr %3, null
   br i1 %.not115, label %.preheader125, label %63
@@ -1669,7 +1669,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br i1 %65, label %69, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %63
-  %66 = shl nsw i64 %2, 1
+  %66 = shl nuw nsw i64 %2, 1
   %67 = or disjoint i64 %66, 1
   %68 = tail call ptr @cli_max_realloc(ptr noundef null, i64 noundef %67) #10
   %.not117195 = icmp eq ptr %68, null
@@ -1724,11 +1724,11 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   %92 = load i64, ptr %8, align 8
   %93 = sub i64 %78, %92
   %94 = add nuw nsw i64 %79, 2
-  %95 = mul nsw i64 %2, %94
+  %95 = mul nuw nsw i64 %2, %94
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.99, i64 noundef %78, i64 noundef %95) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv196, 1
   %96 = shl nuw nsw i64 %indvars.iv.next, 1
-  %97 = mul nsw i64 %2, %96
+  %97 = mul nuw nsw i64 %2, %96
   %98 = or disjoint i64 %97, 1
   %99 = call ptr @cli_max_realloc(ptr noundef nonnull %77, i64 noundef %98) #10
   %.not117 = icmp eq ptr %99, null

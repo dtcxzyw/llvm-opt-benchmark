@@ -5093,7 +5093,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2147483645) %4) unnamed_addr #0 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %55, label %7
 

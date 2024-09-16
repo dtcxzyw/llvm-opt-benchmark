@@ -5647,7 +5647,7 @@ declare i32 @_ZNK3smt7context11get_literalEP4expr(ptr noundef nonnull align 8 de
 declare noundef i32 @_ZNK3smt7context14get_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %queue, i32 noundef %head, i32 noundef %idx) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %queue, i32 noundef %head, i32 noundef range(i32 1, 3) %idx) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %cmp.i = icmp eq ptr %0, null

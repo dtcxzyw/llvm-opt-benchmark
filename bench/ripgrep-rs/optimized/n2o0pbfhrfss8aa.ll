@@ -853,7 +853,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %40 = add nsw i64 %37, -1
   %41 = lshr i64 %40, 1
   %42 = add i64 %3, -1
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %41, i64 %42)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 4611686018427387904) i64 @llvm.umin.i64(i64 %41, i64 %42)
   %.not.i = icmp eq i64 %.0.sroa.speculated.i, 0
   br i1 %.not.i, label %57, label %43
 
@@ -2596,7 +2596,7 @@ __rust_try.llvm.18333092558533072501.exit.i:      ; preds = %.body.i
 
 .thread21:                                        ; preds = %21, %13
   %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %13 ], [ %22, %21 ]
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41c4b55e465bd51aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) #33
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41c4b55e465bd51aE"(ptr noalias noundef align 8 dereferenceable(96) %0) #33
           to label %.thread unwind label %108
 }
 
@@ -3240,7 +3240,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$crossbeam_epoch..collector..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41c4b55e465bd51aE"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41c4b55e465bd51aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %3 = getelementptr inbounds i8, ptr %0, i64 8

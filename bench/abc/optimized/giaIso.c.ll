@@ -2259,11 +2259,11 @@ define void @Gia_IsoSimulate(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %85, label %.sink.split.i, label %Gia_IsoUpdate.exit
 
 .sink.split.i:                                    ; preds = %81, %77
-  %.sink14.i = phi i32 [ %80, %77 ], [ %84, %81 ]
-  %86 = add nsw i32 %.sink14.i, 1
-  %87 = shl nsw i32 %.sink14.i, 1
-  %.masked = and i32 %87, 254
-  %88 = or disjoint i32 %.masked, %75
+  %.sink.i = phi i32 [ %80, %77 ], [ %84, %81 ]
+  %86 = add nsw i32 %.sink.i, 1
+  %87 = shl nsw i32 %.sink.i, 1
+  %.masked.i10.i = and i32 %87, 254
+  %88 = or disjoint i32 %.masked.i10.i, %75
   %89 = zext nneg i32 %88 to i64
   %90 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4
@@ -2302,21 +2302,21 @@ Gia_IsoUpdate.exit:                               ; preds = %81, %.sink.split.i
   %114 = getelementptr inbounds i32, ptr %113, i64 %107
   %115 = load i32, ptr %114, align 4
   %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %.sink.split.i110, label %Gia_IsoUpdate.exit112
+  br i1 %116, label %.sink.split.i110, label %Gia_IsoUpdate.exit113
 
 .sink.split.i110:                                 ; preds = %112, %108
-  %.sink14.i111 = phi i32 [ %111, %108 ], [ %115, %112 ]
-  %117 = add nsw i32 %.sink14.i111, 1
-  %118 = shl nsw i32 %.sink14.i111, 1
-  %.masked118 = and i32 %118, 254
-  %119 = or disjoint i32 %.masked118, %106
+  %.sink.i111 = phi i32 [ %111, %108 ], [ %115, %112 ]
+  %117 = add nsw i32 %.sink.i111, 1
+  %118 = shl nsw i32 %.sink.i111, 1
+  %.masked.i10.i112 = and i32 %118, 254
+  %119 = or disjoint i32 %.masked.i10.i112, %106
   %120 = zext nneg i32 %119 to i64
   %121 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = mul i32 %122, %117
-  br label %Gia_IsoUpdate.exit112
+  br label %Gia_IsoUpdate.exit113
 
-Gia_IsoUpdate.exit112:                            ; preds = %112, %.sink.split.i110
+Gia_IsoUpdate.exit113:                            ; preds = %112, %.sink.split.i110
   %.0.i109 = phi i32 [ 0, %112 ], [ %123, %.sink.split.i110 ]
   %124 = add i32 %101, %96
   %125 = add i32 %124, %.0.i109
@@ -2324,8 +2324,8 @@ Gia_IsoUpdate.exit112:                            ; preds = %112, %.sink.split.i
   %.pre = load ptr, ptr %0, align 8
   br label %126
 
-126:                                              ; preds = %Gia_IsoUpdate.exit112, %63
-  %127 = phi ptr [ %.pre, %Gia_IsoUpdate.exit112 ], [ %60, %63 ]
+126:                                              ; preds = %Gia_IsoUpdate.exit113, %63
+  %127 = phi ptr [ %.pre, %Gia_IsoUpdate.exit113 ], [ %60, %63 ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %128 = getelementptr inbounds i8, ptr %127, i64 24
   %129 = load i32, ptr %128, align 8
@@ -2347,10 +2347,10 @@ Gia_IsoUpdate.exit112:                            ; preds = %112, %.sink.split.i
   %138 = getelementptr inbounds i8, ptr %0, i64 24
   br label %139
 
-139:                                              ; preds = %.lr.ph136, %Gia_IsoUpdate.exit116
-  %indvars.iv148 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next149, %Gia_IsoUpdate.exit116 ]
-  %140 = phi ptr [ %134, %.lr.ph136 ], [ %182, %Gia_IsoUpdate.exit116 ]
-  %141 = phi ptr [ %132, %.lr.ph136 ], [ %180, %Gia_IsoUpdate.exit116 ]
+139:                                              ; preds = %.lr.ph136, %Gia_IsoUpdate.exit118
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next149, %Gia_IsoUpdate.exit118 ]
+  %140 = phi ptr [ %134, %.lr.ph136 ], [ %182, %Gia_IsoUpdate.exit118 ]
+  %141 = phi ptr [ %132, %.lr.ph136 ], [ %180, %Gia_IsoUpdate.exit118 ]
   %142 = getelementptr i8, ptr %141, i64 32
   %.val93 = load ptr, ptr %142, align 8
   %143 = getelementptr i8, ptr %140, i64 8
@@ -2380,30 +2380,30 @@ Gia_IsoUpdate.exit112:                            ; preds = %112, %.sink.split.i
   %161 = load ptr, ptr %138, align 8
   %162 = getelementptr inbounds i32, ptr %161, i64 %159
   %163 = load i32, ptr %162, align 4
-  br label %.sink.split.i114
+  br label %.sink.split.i115
 
 164:                                              ; preds = %148
   %165 = load ptr, ptr %137, align 8
   %166 = getelementptr inbounds i32, ptr %165, i64 %159
   %167 = load i32, ptr %166, align 4
   %168 = icmp sgt i32 %167, 0
-  br i1 %168, label %.sink.split.i114, label %Gia_IsoUpdate.exit116
+  br i1 %168, label %.sink.split.i115, label %Gia_IsoUpdate.exit118
 
-.sink.split.i114:                                 ; preds = %164, %160
-  %.sink14.i115 = phi i32 [ %163, %160 ], [ %167, %164 ]
-  %169 = add nsw i32 %.sink14.i115, 1
-  %170 = shl nsw i32 %.sink14.i115, 1
-  %.masked119 = and i32 %170, 254
-  %171 = or disjoint i32 %.masked119, %158
+.sink.split.i115:                                 ; preds = %164, %160
+  %.sink.i116 = phi i32 [ %163, %160 ], [ %167, %164 ]
+  %169 = add nsw i32 %.sink.i116, 1
+  %170 = shl nsw i32 %.sink.i116, 1
+  %.masked.i10.i117 = and i32 %170, 254
+  %171 = or disjoint i32 %.masked.i10.i117, %158
   %172 = zext nneg i32 %171 to i64
   %173 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = mul i32 %174, %169
-  br label %Gia_IsoUpdate.exit116
+  br label %Gia_IsoUpdate.exit118
 
-Gia_IsoUpdate.exit116:                            ; preds = %164, %.sink.split.i114
-  %.0.i113 = phi i32 [ 0, %164 ], [ %175, %.sink.split.i114 ]
-  %176 = add i32 %.0.i113, %153
+Gia_IsoUpdate.exit118:                            ; preds = %164, %.sink.split.i115
+  %.0.i114 = phi i32 [ 0, %164 ], [ %175, %.sink.split.i115 ]
+  %176 = add i32 %.0.i114, %153
   %177 = getelementptr inbounds i8, ptr %147, i64 8
   %178 = load i32, ptr %177, align 4
   %179 = add i32 %176, %178
@@ -2418,8 +2418,8 @@ Gia_IsoUpdate.exit116:                            ; preds = %164, %.sink.split.i
   %185 = icmp slt i64 %indvars.iv.next149, %184
   br i1 %185, label %139, label %.critedge6, !llvm.loop !25
 
-.critedge6:                                       ; preds = %139, %Gia_IsoUpdate.exit116, %.critedge4
-  %186 = phi ptr [ %132, %.critedge4 ], [ %141, %139 ], [ %180, %Gia_IsoUpdate.exit116 ]
+.critedge6:                                       ; preds = %139, %Gia_IsoUpdate.exit118, %.critedge4
+  %186 = phi ptr [ %132, %.critedge4 ], [ %141, %139 ], [ %180, %Gia_IsoUpdate.exit118 ]
   %187 = getelementptr i8, ptr %186, i64 16
   %.val105138 = load i32, ptr %187, align 8
   %188 = icmp sgt i32 %.val105138, 0
@@ -2518,8 +2518,8 @@ define void @Gia_IsoSimulateBack(ptr nocapture noundef readonly %0, i32 noundef 
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, 1
   %28 = shl nsw i32 %26, 1
-  %.masked.us = and i32 %28, 254
-  %29 = or disjoint i32 %.masked.us, %23
+  %.masked.i10.i.us = and i32 %28, 254
+  %29 = or disjoint i32 %.masked.i10.i.us, %23
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
@@ -2572,8 +2572,8 @@ define void @Gia_IsoSimulateBack(ptr nocapture noundef readonly %0, i32 noundef 
   %63 = and i32 %62, 1
   %64 = add nuw nsw i32 %59, 1
   %65 = shl nuw nsw i32 %59, 1
-  %.masked = and i32 %65, 254
-  %66 = or disjoint i32 %.masked, %63
+  %.masked.i10.i = and i32 %65, 254
+  %66 = or disjoint i32 %.masked.i10.i, %63
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 %67
   %69 = load i32, ptr %68, align 4
@@ -2651,21 +2651,21 @@ Gia_IsoUpdate.exit:                               ; preds = %54, %.sink.split.i
   %110 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv.next103
   %111 = load i32, ptr %110, align 4
   %112 = icmp sgt i32 %111, 0
-  br i1 %112, label %.sink.split.i71, label %Gia_IsoUpdate.exit73
+  br i1 %112, label %.sink.split.i71, label %Gia_IsoUpdate.exit74
 
 .sink.split.i71:                                  ; preds = %108, %104
-  %.sink14.i72 = phi i32 [ %107, %104 ], [ %111, %108 ]
-  %113 = add nsw i32 %.sink14.i72, 1
-  %114 = shl nsw i32 %.sink14.i72, 1
-  %.masked79 = and i32 %114, 254
-  %115 = or disjoint i32 %.masked79, %103
+  %.sink.i72 = phi i32 [ %107, %104 ], [ %111, %108 ]
+  %113 = add nsw i32 %.sink.i72, 1
+  %114 = shl nsw i32 %.sink.i72, 1
+  %.masked.i10.i73 = and i32 %114, 254
+  %115 = or disjoint i32 %.masked.i10.i73, %103
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = mul i32 %118, %113
-  br label %Gia_IsoUpdate.exit73
+  br label %Gia_IsoUpdate.exit74
 
-Gia_IsoUpdate.exit73:                             ; preds = %108, %.sink.split.i71
+Gia_IsoUpdate.exit74:                             ; preds = %108, %.sink.split.i71
   %.0.i70 = phi i32 [ 0, %108 ], [ %119, %.sink.split.i71 ]
   %120 = add i32 %.0.i70, %100
   %121 = sub nsw i64 0, %96
@@ -2679,34 +2679,34 @@ Gia_IsoUpdate.exit73:                             ; preds = %108, %.sink.split.i
   %128 = and i32 %127, 1
   br i1 %86, label %129, label %133
 
-129:                                              ; preds = %Gia_IsoUpdate.exit73
+129:                                              ; preds = %Gia_IsoUpdate.exit74
   %130 = load ptr, ptr %88, align 8
   %131 = getelementptr inbounds i32, ptr %130, i64 %indvars.iv.next103
   %132 = load i32, ptr %131, align 4
-  br label %.sink.split.i75
+  br label %.sink.split.i76
 
-133:                                              ; preds = %Gia_IsoUpdate.exit73
+133:                                              ; preds = %Gia_IsoUpdate.exit74
   %134 = load ptr, ptr %87, align 8
   %135 = getelementptr inbounds i32, ptr %134, i64 %indvars.iv.next103
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %.sink.split.i75, label %Gia_IsoUpdate.exit77
+  br i1 %137, label %.sink.split.i76, label %Gia_IsoUpdate.exit79
 
-.sink.split.i75:                                  ; preds = %133, %129
-  %.sink14.i76 = phi i32 [ %132, %129 ], [ %136, %133 ]
-  %138 = add nsw i32 %.sink14.i76, 1
-  %139 = shl nsw i32 %.sink14.i76, 1
-  %.masked80 = and i32 %139, 254
-  %140 = or disjoint i32 %.masked80, %128
+.sink.split.i76:                                  ; preds = %133, %129
+  %.sink.i77 = phi i32 [ %132, %129 ], [ %136, %133 ]
+  %138 = add nsw i32 %.sink.i77, 1
+  %139 = shl nsw i32 %.sink.i77, 1
+  %.masked.i10.i78 = and i32 %139, 254
+  %140 = or disjoint i32 %.masked.i10.i78, %128
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds [256 x i32], ptr @s_256Primes, i64 0, i64 %141
   %143 = load i32, ptr %142, align 4
   %144 = mul i32 %143, %138
-  br label %Gia_IsoUpdate.exit77
+  br label %Gia_IsoUpdate.exit79
 
-Gia_IsoUpdate.exit77:                             ; preds = %133, %.sink.split.i75
-  %.0.i74 = phi i32 [ 0, %133 ], [ %144, %.sink.split.i75 ]
-  %145 = add i32 %.0.i74, %125
+Gia_IsoUpdate.exit79:                             ; preds = %133, %.sink.split.i76
+  %.0.i75 = phi i32 [ 0, %133 ], [ %144, %.sink.split.i76 ]
+  %145 = add i32 %.0.i75, %125
   %146 = lshr i64 %.val57, 32
   %147 = and i64 %146, 536870911
   %148 = sub nsw i64 0, %147
@@ -2716,7 +2716,7 @@ Gia_IsoUpdate.exit77:                             ; preds = %133, %.sink.split.i
   store i32 %151, ptr %149, align 4
   br label %152
 
-152:                                              ; preds = %Gia_IsoUpdate.exit77, %94
+152:                                              ; preds = %Gia_IsoUpdate.exit79, %94
   %153 = icmp ugt i64 %indvars.iv102, 2
   br i1 %153, label %90, label %..critedge2.loopexit_crit_edge, !llvm.loop !28
 

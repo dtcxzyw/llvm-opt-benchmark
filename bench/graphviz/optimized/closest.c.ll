@@ -408,7 +408,7 @@ push.exit.i:                                      ; preds = %gv_alloc.exit.i.i, 
   %172 = load double, ptr %171, align 8
   %173 = fsub double %170, %172
   store double %173, ptr %86, align 8
-  call fastcc void @insert(ptr noundef nonnull %7, ptr noundef nonnull byval(%struct.Pair) align 8 %8)
+  call fastcc void @insert(ptr noundef %7, ptr noundef nonnull byval(%struct.Pair) align 8 %8)
   store i64 %.sroa.7.0.copyload.i, ptr %163, align 8
   %174 = getelementptr inbounds i64, ptr %10, i64 %.sroa.7.0.copyload.i
   store i64 %162, ptr %174, align 8
@@ -437,7 +437,7 @@ push.exit.i:                                      ; preds = %gv_alloc.exit.i.i, 
   %188 = load double, ptr %187, align 8
   %189 = fsub double %186, %188
   store double %189, ptr %86, align 8
-  call fastcc void @insert(ptr noundef nonnull %7, ptr noundef nonnull byval(%struct.Pair) align 8 %8)
+  call fastcc void @insert(ptr noundef %7, ptr noundef nonnull byval(%struct.Pair) align 8 %8)
   store i64 %.sroa.0.0.copyload.i, ptr %179, align 8
   %190 = getelementptr inbounds i64, ptr %11, i64 %.sroa.0.0.copyload.i
   store i64 %178, ptr %190, align 8
@@ -625,7 +625,7 @@ construct_graph.exit:                             ; preds = %add_edge.exit.i, %.
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 4, 41) %1) unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -677,7 +677,7 @@ define internal range(i32 -1, 2) i32 @cmp(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.Pair) align 8 %1) unnamed_addr #0 {
+define internal fastcc void @insert(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly byval(%struct.Pair) align 8 %1) unnamed_addr #0 {
   %3 = alloca %struct.Pair, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8

@@ -167,7 +167,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  call fastcc void @base_extent_bump_alloc_post(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %edata, i64 noundef %sub5.i, ptr noundef nonnull %add.ptr.i, i64 noundef 3968)
+  call fastcc void @base_extent_bump_alloc_post(ptr noundef nonnull %add.ptr.i, ptr noundef %edata, i64 noundef %sub5.i, ptr noundef nonnull %add.ptr.i, i64 noundef 3968)
   %locked.i42 = getelementptr inbounds i8, ptr %add.ptr.i, i64 96
   store atomic i8 0, ptr %locked.i42 monotonic, align 1
   %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #10
@@ -181,7 +181,7 @@ return:                                           ; preds = %entry, %malloc_mute
 declare void @ehooks_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %pind_last, ptr nocapture noundef %extent_sn_next, i64 noundef %size, i64 noundef %alignment) unnamed_addr #1 {
+define internal fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %pind_last, ptr nocapture noundef %extent_sn_next, i64 noundef %size, i64 noundef range(i64 0, -15) %alignment) unnamed_addr #1 {
 entry:
   %zero.i = alloca i8, align 1
   %commit.i = alloca i8, align 1
@@ -882,7 +882,7 @@ declare void @edata_heap_new(ptr noundef) local_unnamed_addr #2
 declare void @edata_avail_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef %edata, i64 noundef %gap_size, ptr noundef %addr, i64 noundef %size) unnamed_addr #1 {
+define internal fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef nonnull %edata, i64 noundef %gap_size, ptr noundef %addr, i64 noundef %size) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 16
   %edata.val = load i64, ptr %0, align 8
@@ -1104,22 +1104,22 @@ if.end12.i:                                       ; preds = %if.end.i
   %sub13.i = add i64 %shl.i, -1
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
   %5 = trunc nuw nsw i64 %4 to i32
-  %6 = shl nuw nsw i32 %5, 2
   %sub28.i = sub nuw nsw i64 60, %4
   %shl31.i = shl nsw i64 -1, %sub28.i
   %sub32.i = add nsw i64 %add4, -17
   %and.i = and i64 %shl31.i, %sub32.i
   %shr.i29 = lshr i64 %and.i, %sub28.i
-  %7 = trunc i64 %shr.i29 to i32
-  %conv35.i = and i32 %7, 3
-  %reass.sub = sub nsw i32 %conv35.i, %6
+  %6 = trunc i64 %shr.i29 to i32
+  %conv35.i = and i32 %6, 3
+  %7 = shl nuw nsw i32 %5, 2
+  %reass.sub = sub nsw i32 %conv35.i, %7
   %add36.i = add nsw i32 %reass.sub, 229
   br label %sz_size2index.exit
 
 sz_size2index.exit:                               ; preds = %if.end12.i, %if.then.i
   %retval.i.0 = phi i32 [ %conv.i33, %if.then.i ], [ %add36.i, %if.end12.i ]
-  %cmp43 = icmp ult i32 %retval.i.0, 232
-  br i1 %cmp43, label %for.body.lr.ph, label %if.then12
+  %cmp42 = icmp ult i32 %retval.i.0, 232
+  br i1 %cmp42, label %for.body.lr.ph, label %if.then12
 
 for.body.lr.ph:                                   ; preds = %sz_size2index.exit
   %avail = getelementptr inbounds i8, ptr %base, i64 168
@@ -1183,8 +1183,8 @@ if.end.i33:                                       ; preds = %malloc_mutex_lock.e
   store ptr %call3.i, ptr %blocks.i, align 8
   %allocated.i = getelementptr inbounds i8, ptr %base, i64 3896
   %13 = load i64, ptr %allocated.i, align 8
-  %add.i34 = add i64 %13, 144
-  store i64 %add.i34, ptr %allocated.i, align 8
+  %add.i = add i64 %13, 144
+  store i64 %add.i, ptr %allocated.i, align 8
   %resident.i = getelementptr inbounds i8, ptr %base, i64 3920
   %14 = load i64, ptr %resident.i, align 8
   %add6.i = add i64 %14, 4096
@@ -1242,7 +1242,7 @@ if.end18:                                         ; preds = %for.body, %do.end20
   %and.i14.i.i.i = and i64 %edata.val18.i.i, -268369920
   %or.i17.i.i.i = or disjoint i64 %and.i14.i.i.i, 243314687
   store i64 %or.i17.i.i.i, ptr %edata.2.ph, align 8
-  tail call fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef nonnull %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %add.ptr.i.i, i64 noundef %and3)
+  tail call fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %add.ptr.i.i, i64 noundef %and3)
   %cmp20.not = icmp eq ptr %esn, null
   br i1 %cmp20.not, label %if.end24, label %if.then22
 
@@ -1262,8 +1262,8 @@ if.then27:                                        ; preds = %if.end24
 
 label_return:                                     ; preds = %malloc_mutex_lock.exit.i, %if.end24, %if.then27
   %ret.0 = phi ptr [ %add.ptr.i.i, %if.then27 ], [ %add.ptr.i.i, %if.end24 ], [ null, %malloc_mutex_lock.exit.i ]
-  %locked.i36 = getelementptr inbounds i8, ptr %base, i64 96
-  store atomic i8 0, ptr %locked.i36 monotonic, align 1
+  %locked.i35 = getelementptr inbounds i8, ptr %base, i64 96
+  store atomic i8 0, ptr %locked.i35 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #10
   ret ptr %ret.0
 }

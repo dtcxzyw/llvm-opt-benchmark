@@ -159,7 +159,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_nbit(i64 noundef %0, i64 no
   br label %.thread
 
 24:                                               ; preds = %22
-  %25 = call fastcc i32 @H5Z__calc_parms_array(ptr noundef nonnull %9, ptr noundef nonnull %6)
+  %25 = call fastcc i32 @H5Z__calc_parms_array(ptr noundef %9, ptr noundef %6)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %42
 
@@ -170,7 +170,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_nbit(i64 noundef %0, i64 no
   br label %124
 
 31:                                               ; preds = %22
-  %32 = call fastcc i32 @H5Z__calc_parms_compound(ptr noundef nonnull %9, ptr noundef nonnull %6)
+  %32 = call fastcc i32 @H5Z__calc_parms_compound(ptr noundef %9, ptr noundef %6)
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %42
 
@@ -276,7 +276,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_nbit(i64 noundef %0, i64 no
   ]
 
 88:                                               ; preds = %85, %85
-  %89 = call fastcc i32 @H5Z__set_parms_atomic(ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %50, ptr noundef nonnull %8)
+  %89 = call fastcc i32 @H5Z__set_parms_atomic(ptr noundef %9, ptr noundef %5, ptr noundef %50, ptr noundef %8)
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %109
 
@@ -287,7 +287,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_nbit(i64 noundef %0, i64 no
   br label %122
 
 95:                                               ; preds = %85
-  %96 = call fastcc i32 @H5Z__set_parms_array(ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %50, ptr noundef nonnull %8)
+  %96 = call fastcc i32 @H5Z__set_parms_array(ptr noundef %9, ptr noundef %5, ptr noundef %50, ptr noundef %8)
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %98, label %109
 
@@ -298,7 +298,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_nbit(i64 noundef %0, i64 no
   br label %122
 
 102:                                              ; preds = %85
-  %103 = call fastcc i32 @H5Z__set_parms_compound(ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %50, ptr noundef nonnull %8)
+  %103 = call fastcc i32 @H5Z__set_parms_compound(ptr noundef %9, ptr noundef %5, ptr noundef %50, ptr noundef %8)
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %105, label %109
 
@@ -444,7 +444,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 .lr.ph45.i:                                       ; preds = %.preheader.i, %.lr.ph45.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph45.i ], [ 0, %.preheader.i ]
   %63 = mul nuw i64 %indvars.iv56.i, %34
-  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull %calloc47, i64 noundef %63, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef %calloc47, i64 noundef %63, ptr noundef readonly %42, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %31
   br i1 %exitcond60.not.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph45.i
@@ -457,7 +457,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 .lr.ph43.i:                                       ; preds = %64, %72
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %72 ], [ 0, %64 ]
   %65 = mul nuw i64 %indvars.iv51.i, %34
-  %66 = call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef nonnull %calloc47, i64 noundef %65, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %2, ptr noundef nonnull %14)
+  %66 = call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef %calloc47, i64 noundef %65, ptr noundef readonly %42, ptr noundef %11, ptr noundef %12, ptr noundef nonnull readonly %2, ptr noundef %14)
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %72
 
@@ -481,7 +481,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 .lr.ph.i:                                         ; preds = %73, %81
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %73 ]
   %74 = mul nuw i64 %indvars.iv.i, %34
-  %75 = call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef nonnull %calloc47, i64 noundef %74, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %2, ptr noundef nonnull %14)
+  %75 = call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef %calloc47, i64 noundef %74, ptr noundef readonly %42, ptr noundef %11, ptr noundef %12, ptr noundef nonnull readonly %2, ptr noundef %14)
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %81
 
@@ -570,7 +570,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
 110:                                              ; preds = %110, %.lr.ph37.i
   %indvars.iv48.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next49.i, %110 ]
   %111 = mul nuw i64 %indvars.iv48.i, %109
-  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly %94, i64 noundef %111, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly %94, i64 noundef %111, ptr noundef %calloc, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i
   br i1 %exitcond52.not.i, label %H5Z__nbit_compress.exit, label %110
@@ -590,7 +590,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
 .lr.ph35.i:                                       ; preds = %.lr.ph35.i, %.lr.ph35.preheader.i
   %indvars.iv43.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next44.i, %.lr.ph35.i ]
   %116 = mul nuw i64 %indvars.iv43.i, %115
-  call fastcc void @H5Z__nbit_compress_one_array(ptr noundef readonly %94, i64 noundef %116, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %2, ptr noundef nonnull %10)
+  call fastcc void @H5Z__nbit_compress_one_array(ptr noundef readonly %94, i64 noundef %116, ptr noundef %calloc, ptr noundef %7, ptr noundef %8, ptr noundef nonnull readonly %2, ptr noundef %10)
   store i32 4, ptr %10, align 4
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count46.i
@@ -611,7 +611,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
   %121 = mul nuw i64 %indvars.iv.i33, %120
-  call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef readonly %94, i64 noundef %121, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %2, ptr noundef nonnull %10)
+  call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef readonly %94, i64 noundef %121, ptr noundef %calloc, ptr noundef %7, ptr noundef %8, ptr noundef nonnull readonly %2, ptr noundef %10)
   store i32 4, ptr %10, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i
@@ -649,11 +649,11 @@ declare i32 @H5T_get_class(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, 2
   store i64 %4, ptr %1, align 8
-  %5 = tail call ptr @H5T_get_super(ptr noundef %0) #8
+  %5 = tail call ptr @H5T_get_super(ptr noundef nonnull %0) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %37, label %7
 
@@ -687,7 +687,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef %
   br label %41
 
 16:                                               ; preds = %7
-  %17 = tail call fastcc i32 @H5Z__calc_parms_array(ptr noundef nonnull %5, ptr noundef nonnull %1)
+  %17 = tail call fastcc i32 @H5Z__calc_parms_array(ptr noundef %5, ptr noundef %1)
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %41
 
@@ -698,7 +698,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef %
   br label %41
 
 23:                                               ; preds = %7
-  %24 = tail call fastcc i32 @H5Z__calc_parms_compound(ptr noundef nonnull %5, ptr noundef nonnull %1)
+  %24 = tail call fastcc i32 @H5Z__calc_parms_compound(ptr noundef %5, ptr noundef %1)
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %26, label %41
 
@@ -744,11 +744,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, 2
   store i64 %4, ptr %1, align 8
-  %5 = tail call i32 @H5T_get_nmembers(ptr noundef %0) #8
+  %5 = tail call i32 @H5T_get_nmembers(ptr noundef nonnull %0) #8
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
 
@@ -772,7 +772,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
 
 .lr.ph:                                           ; preds = %11, %14
   %.03145 = phi i32 [ %15, %14 ], [ 0, %11 ]
-  %16 = tail call ptr @H5T_get_member_type(ptr noundef %0, i32 noundef %.03145) #8
+  %16 = tail call ptr @H5T_get_member_type(ptr noundef nonnull %0, i32 noundef %.03145) #8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
@@ -812,7 +812,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   ]
 
 32:                                               ; preds = %29
-  %33 = tail call fastcc i32 @H5Z__calc_parms_array(ptr noundef nonnull %16, ptr noundef nonnull %1)
+  %33 = tail call fastcc i32 @H5Z__calc_parms_array(ptr noundef %16, ptr noundef %1)
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %52
 
@@ -823,7 +823,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   br label %59
 
 39:                                               ; preds = %29
-  %40 = tail call fastcc i32 @H5Z__calc_parms_compound(ptr noundef nonnull %16, ptr noundef nonnull %1)
+  %40 = tail call fastcc i32 @H5Z__calc_parms_compound(ptr noundef %16, ptr noundef %1)
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %52
 
@@ -885,14 +885,14 @@ declare i32 @H5P_get_filter_by_id(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare i64 @H5S_get_simple_extent_npoints(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   store i32 1, ptr %8, align 4
-  %9 = tail call i64 @H5T_get_size(ptr noundef %0) #8
+  %9 = tail call i64 @H5T_get_size(ptr noundef nonnull %0) #8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %15
 
@@ -910,7 +910,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef %
   %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds i32, ptr %2, i64 %19
   store i32 %16, ptr %20, align 4
-  %21 = tail call i32 @H5T_get_order(ptr noundef %0) #8
+  %21 = tail call i32 @H5T_get_order(ptr noundef nonnull %0) #8
   switch i32 %21, label %26 [
     i32 -1, label %22
     i32 0, label %30
@@ -936,7 +936,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef %
   %33 = zext i32 %31 to i64
   %34 = getelementptr inbounds i32, ptr %2, i64 %33
   store i32 %21, ptr %34, align 4
-  %35 = tail call i64 @H5T_get_precision(ptr noundef %0) #8
+  %35 = tail call i64 @H5T_get_precision(ptr noundef nonnull %0) #8
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %41
 
@@ -947,7 +947,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef %
   br label %72
 
 41:                                               ; preds = %30
-  %42 = tail call i32 @H5T_get_offset(ptr noundef %0) #8
+  %42 = tail call i32 @H5T_get_offset(ptr noundef nonnull %0) #8
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %48
 
@@ -1006,14 +1006,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   store i32 2, ptr %8, align 4
-  %9 = tail call i64 @H5T_get_size(ptr noundef %0) #8
+  %9 = tail call i64 @H5T_get_size(ptr noundef nonnull %0) #8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %15
 
@@ -1031,7 +1031,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef %0
   %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds i32, ptr %2, i64 %19
   store i32 %16, ptr %20, align 4
-  %21 = tail call ptr @H5T_get_super(ptr noundef %0) #8
+  %21 = tail call ptr @H5T_get_super(ptr noundef nonnull %0) #8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %27
 
@@ -1065,7 +1065,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef %0
   br label %86
 
 33:                                               ; preds = %27, %27
-  %34 = tail call fastcc i32 @H5Z__set_parms_atomic(ptr noundef nonnull %21, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %34 = tail call fastcc i32 @H5Z__set_parms_atomic(ptr noundef %21, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %86
 
@@ -1076,7 +1076,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef %0
   br label %86
 
 40:                                               ; preds = %27
-  %41 = tail call fastcc i32 @H5Z__set_parms_array(ptr noundef nonnull %21, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %41 = tail call fastcc i32 @H5Z__set_parms_array(ptr noundef %21, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %86
 
@@ -1087,7 +1087,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef %0
   br label %86
 
 47:                                               ; preds = %27
-  %48 = tail call fastcc i32 @H5Z__set_parms_compound(ptr noundef nonnull %21, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %48 = tail call fastcc i32 @H5Z__set_parms_compound(ptr noundef %21, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %86
 
@@ -1166,14 +1166,14 @@ H5Z__set_parms_nooptype.exit:                     ; preds = %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   store i32 3, ptr %8, align 4
-  %9 = tail call i64 @H5T_get_size(ptr noundef %0) #8
+  %9 = tail call i64 @H5T_get_size(ptr noundef nonnull %0) #8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %15
 
@@ -1191,7 +1191,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds i32, ptr %2, i64 %19
   store i32 %16, ptr %20, align 4
-  %21 = tail call i32 @H5T_get_nmembers(ptr noundef %0) #8
+  %21 = tail call i32 @H5T_get_nmembers(ptr noundef nonnull %0) #8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %27
 
@@ -1222,7 +1222,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
 
 35:                                               ; preds = %.lr.ph, %33
   %.06893 = phi i32 [ 0, %.lr.ph ], [ %34, %33 ]
-  %36 = tail call ptr @H5T_get_member_type(ptr noundef %0, i32 noundef %.06893) #8
+  %36 = tail call ptr @H5T_get_member_type(ptr noundef nonnull %0, i32 noundef %.06893) #8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %42
 
@@ -1244,7 +1244,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   br label %124
 
 49:                                               ; preds = %42
-  %50 = tail call i64 @H5T_get_member_offset(ptr noundef %0, i32 noundef %.06893) #8
+  %50 = tail call i64 @H5T_get_member_offset(ptr noundef nonnull %0, i32 noundef %.06893) #8
   %51 = trunc i64 %50 to i32
   %52 = load i32, ptr %1, align 4
   %53 = add i32 %52, 1
@@ -1267,7 +1267,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   ]
 
 56:                                               ; preds = %49, %49
-  %57 = tail call fastcc i32 @H5Z__set_parms_atomic(ptr noundef nonnull %36, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %57 = tail call fastcc i32 @H5Z__set_parms_atomic(ptr noundef %36, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %117
 
@@ -1278,7 +1278,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   br label %124
 
 63:                                               ; preds = %49
-  %64 = tail call fastcc i32 @H5Z__set_parms_array(ptr noundef nonnull %36, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %64 = tail call fastcc i32 @H5Z__set_parms_array(ptr noundef %36, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %117
 
@@ -1289,7 +1289,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   br label %124
 
 70:                                               ; preds = %49
-  %71 = tail call fastcc i32 @H5Z__set_parms_compound(ptr noundef nonnull %36, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %71 = tail call fastcc i32 @H5Z__set_parms_compound(ptr noundef %36, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %117
 
@@ -1322,7 +1322,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
 
 89:                                               ; preds = %84
   %90 = add nuw nsw i32 %.06893, 1
-  %91 = tail call i64 @H5T_get_member_offset(ptr noundef %0, i32 noundef %90) #8
+  %91 = tail call i64 @H5T_get_member_offset(ptr noundef nonnull %0, i32 noundef %90) #8
   %.pre = trunc i64 %91 to i32
   br label %92
 
@@ -1421,7 +1421,7 @@ declare i32 @H5T_is_variable_str(ptr noundef) local_unnamed_addr #1
 declare i64 @H5T_get_member_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #3 {
+define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #3 {
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
@@ -1832,7 +1832,7 @@ H5Z__nbit_decompress_one_byte.exit56:             ; preds = %238, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.parms_atomic, align 4
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 1
@@ -1907,7 +1907,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   %indvars.iv92 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next93, %50 ]
   %51 = mul nuw i64 %indvars.iv92, %48
   %52 = add i64 %51, %1
-  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef %0, i64 noundef %52, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %8)
+  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef %0, i64 noundef %52, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %8)
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %53 = icmp ult i64 %indvars.iv.next93, %49
   br i1 %53, label %50, label %H5Z__nbit_decompress_one_nooptype.exit
@@ -1929,7 +1929,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   %indvars.iv89 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next90, %70 ]
   %62 = mul nuw i64 %indvars.iv89, %59
   %63 = add i64 %62, %1
-  %64 = tail call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef %0, i64 noundef %63, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  %64 = tail call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef %0, i64 noundef %63, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %70
 
@@ -1962,7 +1962,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
   %80 = mul nuw i64 %indvars.iv, %77
   %81 = add i64 %80, %1
-  %82 = tail call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef %0, i64 noundef %81, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  %82 = tail call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef %0, i64 noundef %81, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %88
 
@@ -2044,7 +2044,7 @@ H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %125, %88, %70, %50,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.parms_atomic, align 4
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 1
@@ -2160,13 +2160,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
 76:                                               ; preds = %54
   %77 = zext i32 %27 to i64
   %78 = add i64 %1, %77
-  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef %0, i64 noundef %78, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %8)
+  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef %0, i64 noundef %78, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %8)
   br label %H5Z__nbit_decompress_one_nooptype.exit
 
 79:                                               ; preds = %53
   %80 = zext i32 %27 to i64
   %81 = add i64 %1, %80
-  %82 = tail call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef %0, i64 noundef %81, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %82 = tail call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef %0, i64 noundef %81, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %H5Z__nbit_decompress_one_nooptype.exit
 
@@ -2179,7 +2179,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
 88:                                               ; preds = %53
   %89 = zext i32 %27 to i64
   %90 = add i64 %1, %89
-  %91 = tail call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef %0, i64 noundef %90, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %91 = tail call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef %0, i64 noundef %90, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %H5Z__nbit_decompress_one_nooptype.exit
 
@@ -2261,7 +2261,7 @@ H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %133, %97, %76, %79,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #3 {
+define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #3 {
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
@@ -2646,7 +2646,7 @@ H5Z__nbit_compress_one_byte.exit55:               ; preds = %228, %.sink.split.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #4 {
+define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #4 {
   %8 = alloca %struct.parms_atomic, align 4
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 1
@@ -2707,7 +2707,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
   %indvars.iv84 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next85, %41 ]
   %42 = mul nuw i64 %indvars.iv84, %39
   %43 = add i64 %42, %1
-  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef %0, i64 noundef %43, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %8)
+  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef %0, i64 noundef %43, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %8)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %44 = icmp ult i64 %indvars.iv.next85, %40
   br i1 %44, label %41, label %H5Z__nbit_compress_one_nooptype.exit
@@ -2729,7 +2729,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
   %indvars.iv81 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next82, %52 ]
   %53 = mul nuw i64 %indvars.iv81, %50
   %54 = add i64 %53, %1
-  tail call fastcc void @H5Z__nbit_compress_one_array(ptr noundef %0, i64 noundef %54, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  tail call fastcc void @H5Z__nbit_compress_one_array(ptr noundef %0, i64 noundef %54, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store i32 %14, ptr %6, align 4
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %55 = icmp ult i64 %indvars.iv.next82, %51
@@ -2752,7 +2752,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %64 = mul nuw i64 %indvars.iv, %61
   %65 = add i64 %64, %1
-  tail call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef %0, i64 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  tail call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef %0, i64 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store i32 %14, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = icmp ult i64 %indvars.iv.next, %62
@@ -2824,7 +2824,7 @@ H5Z__nbit_compress_one_nooptype.exit:             ; preds = %103, %63, %52, %41,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__nbit_compress_one_compound(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #4 {
+define internal fastcc void @H5Z__nbit_compress_one_compound(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #4 {
   %8 = alloca %struct.parms_atomic, align 4
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 1
@@ -2890,19 +2890,19 @@ define internal fastcc void @H5Z__nbit_compress_one_compound(ptr nocapture nound
   store i32 %45, ptr %18, align 4
   %46 = zext i32 %24 to i64
   %47 = add i64 %1, %46
-  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef %0, i64 noundef %47, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %8)
+  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef %0, i64 noundef %47, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %8)
   br label %H5Z__nbit_compress_one_nooptype.exit
 
 48:                                               ; preds = %19
   %49 = zext i32 %24 to i64
   %50 = add i64 %1, %49
-  tail call fastcc void @H5Z__nbit_compress_one_array(ptr noundef %0, i64 noundef %50, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  tail call fastcc void @H5Z__nbit_compress_one_array(ptr noundef %0, i64 noundef %50, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   br label %H5Z__nbit_compress_one_nooptype.exit
 
 51:                                               ; preds = %19
   %52 = zext i32 %24 to i64
   %53 = add i64 %1, %52
-  tail call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef %0, i64 noundef %53, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  tail call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef %0, i64 noundef %53, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   br label %H5Z__nbit_compress_one_nooptype.exit
 
 54:                                               ; preds = %19

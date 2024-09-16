@@ -5850,7 +5850,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %enum_values_by_number_ = getelementptr inbounds i8, ptr %this, i64 88
-  call fastcc void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf19EnumValueDescriptorEEENS5_12_GLOBAL__N_116ParentNumberHashENSA_14ParentNumberEqESaIS8_EE6insertIPS6_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSE_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbESL_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %enum_values_by_number_, ptr noundef nonnull align 8 dereferenceable(8) %value.addr)
+  call fastcc void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf19EnumValueDescriptorEEENS5_12_GLOBAL__N_116ParentNumberHashENSA_14ParentNumberEqESaIS8_EE6insertIPS6_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSE_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbESL_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %enum_values_by_number_, ptr noundef nonnull align 8 dereferenceable(8) %value.addr)
   %second = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %5 = load i8, ptr %second, align 8
   %tobool = trunc i8 %5 to i1
@@ -5862,7 +5862,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf19EnumValueDescriptorEEENS5_12_GLOBAL__N_116ParentNumberHashENSA_14ParentNumberEqESaIS8_EE6insertIPS6_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSE_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbESL_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %value) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf19EnumValueDescriptorEEENS5_12_GLOBAL__N_116ParentNumberHashENSA_14ParentNumberEqESaIS8_EE6insertIPS6_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSE_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbESL_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %value) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i.i.i.i.i.i.i = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
@@ -11420,7 +11420,7 @@ invoke.cont61:                                    ; preds = %call.i97.noexc
   store ptr %parent, ptr %type_, align 8
   %options_ = getelementptr inbounds i8, ptr %call47, i64 24
   store ptr @_ZN6google8protobuf35_EnumValueOptions_default_instance_E, ptr %options_, align 8
-  invoke fastcc void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf19EnumValueDescriptorEEENS5_12_GLOBAL__N_116ParentNumberHashENSA_14ParentNumberEqESaIS8_EE6insertIPS6_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSE_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbESL_(ptr noalias nonnull align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %unknown_enum_values_by_number_, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf19EnumValueDescriptorEEENS5_12_GLOBAL__N_116ParentNumberHashENSA_14ParentNumberEqESaIS8_EE6insertIPS6_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSE_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbESL_(ptr noalias align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %unknown_enum_values_by_number_, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont64 unwind label %lpad37
 
 invoke.cont64:                                    ; preds = %invoke.cont61
@@ -16884,7 +16884,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp.not.i, label %invoke.cont27, label %if.then.i67
 
 if.then.i67:                                      ; preds = %land.lhs.true.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %syntax_comment, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %syntax_comment, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
           to label %.noexc70 unwind label %lpad8
 
 .noexc70:                                         ; preds = %if.then.i67
@@ -17513,7 +17513,7 @@ land.lhs.true.i305:                               ; preds = %invoke.cont112
   br i1 %cmp.not.i308, label %invoke.cont113, label %if.then.i309
 
 if.then.i309:                                     ; preds = %land.lhs.true.i305
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i302, ptr noundef nonnull align 8 dereferenceable(152) %package_comment, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i276)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i302, ptr noundef nonnull align 8 dereferenceable(152) %package_comment, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i276)
           to label %.noexc313 unwind label %lpad106
 
 .noexc313:                                        ; preds = %if.then.i309
@@ -18183,7 +18183,7 @@ land.lhs.true.i485:                               ; preds = %if.end241
   br i1 %cmp.not.i488, label %invoke.cont242, label %if.then.i489
 
 if.then.i489:                                     ; preds = %land.lhs.true.i485
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i482, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i89)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i482, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i89)
           to label %.noexc493 unwind label %lpad147.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc493:                                        ; preds = %if.then.i489
@@ -18350,7 +18350,7 @@ invoke.cont8.lr.ph:                               ; preds = %if.then
 
 invoke.cont8:                                     ; preds = %invoke.cont8.lr.ph, %invoke.cont9
   %__begin4.sroa.0.08 = phi ptr [ %1, %invoke.cont8.lr.ph ], [ %incdec.ptr.i, %invoke.cont9 ]
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(32) %__begin4.sroa.0.08)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(32) %__begin4.sroa.0.08)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #38
   %5 = extractvalue { i64, ptr } %call.i, 0
   store i64 %5, ptr %ref.tmp, align 8
@@ -18378,7 +18378,7 @@ for.end:                                          ; preds = %invoke.cont9, %if.t
   br i1 %call12, label %if.end21, label %if.then13
 
 if.then13:                                        ; preds = %for.end
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(32) %leading_comments)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(32) %leading_comments)
   %call.i4 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #38
   %8 = extractvalue { i64, ptr } %call.i4, 0
   store i64 %8, ptr %ref.tmp14, align 8
@@ -18448,7 +18448,7 @@ _ZN6google8protobuf14SourceLocationD2Ev.exit:     ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_117FormatLineOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr noundef %output) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_117FormatLineOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef range(i32 -2147483647, -2147483648) %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr noundef %output) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i = alloca [2 x %"class.std::basic_string_view"], align 16
   %prefix = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18477,7 +18477,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %all_options, i8 0, i64 24, i1 false)
-  %call = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_115RetrieveOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr noundef nonnull %all_options)
+  %call = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_115RetrieveOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr noundef %all_options)
           to label %invoke.cont2 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -19094,7 +19094,7 @@ land.lhs.true.i:                                  ; preds = %invoke.cont106
   br i1 %cmp.not.i154, label %invoke.cont107, label %if.then.i155
 
 if.then.i155:                                     ; preds = %land.lhs.true.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
           to label %.noexc158 unwind label %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc158:                                        ; preds = %if.then.i155
@@ -20247,7 +20247,7 @@ invoke.cont175:                                   ; preds = %invoke.cont170, %_Z
   %159 = load ptr, ptr %file_.i, align 8
   %pool_.i381 = getelementptr inbounds i8, ptr %159, i64 24
   %160 = load ptr, ptr %pool_.i381, align 8
-  %call182 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_122FormatBracketedOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(16) %range_options, ptr noundef %160, ptr noundef nonnull %formatted_options)
+  %call182 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_122FormatBracketedOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(16) %range_options, ptr noundef %160, ptr noundef %formatted_options)
           to label %invoke.cont181 unwind label %lpad176
 
 invoke.cont181:                                   ; preds = %invoke.cont175
@@ -20618,7 +20618,7 @@ land.lhs.true.i530:                               ; preds = %invoke.cont328
   br i1 %cmp.not.i532, label %invoke.cont329, label %if.then.i533
 
 if.then.i533:                                     ; preds = %land.lhs.true.i530
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
           to label %.noexc536 unwind label %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc536:                                        ; preds = %if.then.i533
@@ -20993,7 +20993,7 @@ land.lhs.true.i:                                  ; preds = %invoke.cont26
   br i1 %cmp.not.i28, label %invoke.cont28, label %if.then.i29
 
 if.then.i29:                                      ; preds = %land.lhs.true.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
           to label %.noexc32 unwind label %lpad13.loopexit.split-lp
 
 .noexc32:                                         ; preds = %if.then.i29
@@ -21851,7 +21851,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111, %_Z
   %120 = load ptr, ptr %77, align 8
   %pool_.i = getelementptr inbounds i8, ptr %120, i64 24
   %121 = load ptr, ptr %pool_.i, align 8
-  %call120 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_122FormatBracketedOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %full_options, ptr noundef %121, ptr noundef nonnull %formatted_options)
+  %call120 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_122FormatBracketedOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %full_options, ptr noundef %121, ptr noundef %formatted_options)
           to label %invoke.cont119 unwind label %lpad114
 
 invoke.cont119:                                   ; preds = %invoke.cont113
@@ -22007,7 +22007,7 @@ land.lhs.true.i151:                               ; preds = %if.end152
   br i1 %cmp.not.i153, label %invoke.cont153, label %if.then.i154
 
 if.then.i154:                                     ; preds = %land.lhs.true.i151
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
           to label %.noexc157 unwind label %lpad114
 
 .noexc157:                                        ; preds = %if.then.i154
@@ -22444,7 +22444,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp.not.i44, label %invoke.cont36, label %if.then.i45
 
 if.then.i45:                                      ; preds = %land.lhs.true.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
           to label %.noexc48 unwind label %lpad13.loopexit.split-lp
 
 .noexc48:                                         ; preds = %if.then.i45
@@ -22520,12 +22520,12 @@ eh.resume:                                        ; preds = %ehcleanup37, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_122FormatBracketedOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr noundef %output) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_122FormatBracketedOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr noundef nonnull %output) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %all_options = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %all_options, i8 0, i64 24, i1 false)
-  %call = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_115RetrieveOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr noundef nonnull %all_options)
+  %call = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_115RetrieveOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr noundef %all_options)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -23366,7 +23366,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16, %_ZN
   %28 = load ptr, ptr %file_.i, align 8
   %pool_.i = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %pool_.i, align 8
-  %call27 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_122FormatBracketedOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %full_options, ptr noundef %29, ptr noundef nonnull %formatted_options)
+  %call27 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_122FormatBracketedOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %full_options, ptr noundef %29, ptr noundef %formatted_options)
           to label %invoke.cont26 unwind label %lpad19
 
 invoke.cont26:                                    ; preds = %invoke.cont18
@@ -23434,7 +23434,7 @@ land.lhs.true.i:                                  ; preds = %invoke.cont31
   br i1 %cmp.not.i34, label %invoke.cont33, label %if.then.i35
 
 if.then.i35:                                      ; preds = %land.lhs.true.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
           to label %.noexc38 unwind label %lpad19
 
 .noexc38:                                         ; preds = %if.then.i35
@@ -23968,7 +23968,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp.not.i55, label %invoke.cont49, label %if.then.i56
 
 if.then.i56:                                      ; preds = %land.lhs.true.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(152) %comment_printer, ptr noundef nonnull align 8 dereferenceable(32) %trailing_comments.i.i)
           to label %.noexc59 unwind label %lpad34
 
 .noexc59:                                         ; preds = %if.then.i56
@@ -32286,7 +32286,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -41192,7 +41192,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   %10 = ptrtoint ptr %9 to i64
   %and.i.i.i.i19 = and i64 %10, -4
   %11 = inttoptr i64 %and.i.i.i.i19 to ptr
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_110ToJsonNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %default_json_name.i, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_110ToJsonNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %default_json_name.i, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
@@ -41966,7 +41966,7 @@ invoke.cont12.i:                                  ; preds = %call.i22.noexc.i
   br label %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_.exit
 
 sw.bb14.i:                                        ; preds = %for.inc.i.i.thread, %invoke.cont.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp16.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp16.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true)
           to label %invoke.cont17.i unwind label %lpad.i, !noalias !692
 
 invoke.cont17.i:                                  ; preds = %sw.bb14.i
@@ -42038,17 +42038,17 @@ invoke.cont27.i:                                  ; preds = %invoke.cont26.i
 
 invoke.cont29.i:                                  ; preds = %invoke.cont27.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30.i, ptr noundef nonnull align 8 dereferenceable(32) %lowercase_name.i) #38, !noalias !692
-  %call33.i = invoke fastcc noundef i64 @_ZZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_ENKUlS8_E_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %push_name.i, ptr noundef nonnull %agg.tmp30.i)
+  %call33.i = invoke fastcc noundef i64 @_ZZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_ENKUlS8_E_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %push_name.i, ptr noundef %agg.tmp30.i)
           to label %invoke.cont32.i unwind label %lpad31.i, !noalias !692
 
 invoke.cont32.i:                                  ; preds = %invoke.cont29.i
   %conv.i = trunc i64 %call33.i to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30.i) #38, !noalias !692
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %agg.tmp35.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %agg.tmp35.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true)
           to label %invoke.cont36.i unwind label %lpad28.i, !noalias !692
 
 invoke.cont36.i:                                  ; preds = %invoke.cont32.i
-  %call39.i = invoke fastcc noundef i64 @_ZZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_ENKUlS8_E_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %push_name.i, ptr noundef nonnull %agg.tmp35.i)
+  %call39.i = invoke fastcc noundef i64 @_ZZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_ENKUlS8_E_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %push_name.i, ptr noundef %agg.tmp35.i)
           to label %invoke.cont38.i unwind label %lpad37.i, !noalias !692
 
 invoke.cont38.i:                                  ; preds = %invoke.cont36.i
@@ -42061,11 +42061,11 @@ cond.true44.i:                                    ; preds = %invoke.cont38.i
           to label %cond.end51.i unwind label %lpad28.i, !noalias !692
 
 cond.false47.i:                                   ; preds = %invoke.cont38.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_110ToJsonNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.tmp42.i, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_110ToJsonNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.tmp42.i, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %cond.end51.i unwind label %lpad48.i, !noalias !692
 
 cond.end51.i:                                     ; preds = %cond.false47.i, %cond.true44.i
-  %call54.i = invoke fastcc noundef i64 @_ZZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_ENKUlS8_E_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %push_name.i, ptr noundef nonnull %agg.tmp42.i)
+  %call54.i = invoke fastcc noundef i64 @_ZZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_ENKUlS8_E_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %push_name.i, ptr noundef %agg.tmp42.i)
           to label %invoke.cont53.i unwind label %lpad52.i, !noalias !692
 
 invoke.cont53.i:                                  ; preds = %cond.end51.i
@@ -44561,7 +44561,7 @@ land.lhs.true.i:                                  ; preds = %if.end90
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end90
   %enum_values_by_number_.i = getelementptr inbounds i8, ptr %37, i64 88
-  invoke fastcc void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf19EnumValueDescriptorEEENS5_12_GLOBAL__N_116ParentNumberHashENSA_14ParentNumberEqESaIS8_EE6insertIPS6_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSE_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbESL_(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %enum_values_by_number_.i, ptr noundef nonnull align 8 dereferenceable(8) %value.addr.i)
+  invoke fastcc void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf19EnumValueDescriptorEEENS5_12_GLOBAL__N_116ParentNumberHashENSA_14ParentNumberEqESaIS8_EE6insertIPS6_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSE_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbESL_(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %enum_values_by_number_.i, ptr noundef nonnull align 8 dereferenceable(8) %value.addr.i)
           to label %invoke.cont92 unwind label %lpad
 
 invoke.cont92:                                    ; preds = %if.end.i, %land.lhs.true.i
@@ -49396,7 +49396,7 @@ land.rhs66:                                       ; preds = %if.end63
   %bf.clear.i = and i8 %bf.lshr.i, 7
   %idxprom.i = zext nneg i8 %bf.clear.i to i64
   %arrayidx.i100 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %70, i64 %idxprom.i
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_110ToJsonNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %70)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_110ToJsonNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %70)
   %call.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i100) #38
   %call1.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #38
   %cmp.i.i102 = icmp eq i64 %call.i.i, %call1.i.i
@@ -50427,7 +50427,7 @@ invoke.cont23:                                    ; preds = %lor.lhs.false14
   %14 = load ptr, ptr %all_names_.i, align 8
   %all_names_.i24 = getelementptr inbounds i8, ptr %field, i64 8
   %15 = load ptr, ptr %all_names_.i24, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(32) %15, i1 noundef zeroext false)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(32) %15, i1 noundef zeroext false)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #38
   %16 = extractvalue { i64, ptr } %call.i, 0
   store i64 %16, ptr %ref.tmp19, align 8
@@ -51249,7 +51249,7 @@ invoke.cont68:                                    ; preds = %call.i.i.i.i.i.i.no
   %call70 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #38
   %41 = extractvalue { i64, ptr } %call70, 0
   %42 = extractvalue { i64, ptr } %call70, 1
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128ValidateSymbolForDeclarationB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %err, i64 %41, ptr %42)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128ValidateSymbolForDeclarationB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %err, i64 %41, ptr %42)
           to label %invoke.cont71 unwind label %lpad.loopexit
 
 invoke.cont71:                                    ; preds = %invoke.cont68
@@ -51317,7 +51317,7 @@ invoke.cont91:                                    ; preds = %invoke.cont86
   %call93 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #38
   %56 = extractvalue { i64, ptr } %call93, 0
   %57 = extractvalue { i64, ptr } %call93, 1
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128ValidateSymbolForDeclarationB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp89, i64 %56, ptr %57)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_128ValidateSymbolForDeclarationB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp89, i64 %56, ptr %57)
           to label %invoke.cont94 unwind label %lpad76
 
 invoke.cont94:                                    ; preds = %invoke.cont91
@@ -51452,7 +51452,7 @@ _ZN4absl12lts_2023080213flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_128ValidateSymbolForDeclarationB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %symbol.coerce0, ptr %symbol.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_128ValidateSymbolForDeclarationB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %symbol.coerce0, ptr %symbol.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -58647,7 +58647,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(32) %comment_text) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_128SourceLocationCommentPrinter13FormatCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(32) %comment_text) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i = alloca [2 x %"class.std::basic_string_view"], align 16
   %stripped_comment = alloca %"class.std::__cxx11::basic_string", align 8
@@ -59569,7 +59569,7 @@ invoke.cont5:
 declare void @_ZN6google8protobuf11FileOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, ptr noundef nonnull align 8 dereferenceable(176)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_115RetrieveOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr nocapture noundef %option_entries) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf12_GLOBAL__N_115RetrieveOptionsEiRKNS0_7MessageEPKNS0_14DescriptorPoolEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EE(i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %pool, ptr nocapture noundef nonnull %option_entries) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %factory = alloca %"class.google::protobuf::DynamicMessageFactory", align 8
   %serialized = alloca %"class.std::__cxx11::basic_string", align 8
@@ -61212,7 +61212,7 @@ if.end.i:                                         ; preds = %if.else.i.i, %if.th
           to label %invoke.cont11.i unwind label %lpad10.i
 
 invoke.cont11.i:                                  ; preds = %if.end.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %camelcase_name.i, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_111ToCamelCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %camelcase_name.i, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext true)
           to label %invoke.cont12.i unwind label %lpad10.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont11.i
@@ -61223,7 +61223,7 @@ cond.true14.i:                                    ; preds = %invoke.cont12.i
           to label %.noexc31.i unwind label %lpad15.i
 
 cond.false17.i:                                   ; preds = %invoke.cont12.i
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_110ToJsonNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %json_name.i, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_110ToJsonNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %json_name.i, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %.noexc31.i unwind label %lpad15.i
 
 .noexc31.i:                                       ; preds = %cond.false17.i, %cond.true14.i
@@ -71845,7 +71845,7 @@ _ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE12empla
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 %ns.coerce0, ptr %ns.coerce1, i64 %el.coerce0, ptr %el.coerce1, ptr nocapture readonly %path.0.val, i64 %path.8.val, ptr noundef %orig_opt, ptr noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 %ns.coerce0, ptr %ns.coerce1, i64 %el.coerce0, ptr %el.coerce1, ptr nocapture readonly %path.0.val, i64 %path.8.val, ptr noundef nonnull %orig_opt, ptr noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -75970,7 +75970,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -77289,7 +77289,7 @@ eh.resume.i.i.i.i:                                ; preds = %lpad8.i.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_ENKUlS8_E_clES8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %new_name) unnamed_addr #3 align 2 {
+define internal fastcc noundef i64 @_ZZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE18AllocateFieldNamesERKS8_SN_PSM_ENKUlS8_E_clES8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull %new_name) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -77771,7 +77771,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -78205,7 +78205,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -78639,7 +78639,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -79423,7 +79423,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -80065,7 +80065,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -80556,7 +80556,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -80990,7 +80990,7 @@ if.then18:                                        ; preds = %invoke.cont15
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %options_path, align 8
   %agg.tmp22.sroa.2.0.options_path.sroa_idx = getelementptr inbounds i8, ptr %options_path, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.options_path.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118OptionsToInterpretC2ESt17basic_string_viewIcSt11char_traitsIcEES6_N4absl12lts_202308024SpanIKiEEPKNS0_7MessageEPSC_(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19, i64 %name_scope.coerce0, ptr %name_scope.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr noundef %cond-lvalue.i.i, ptr noundef nonnull %add.ptr.i)
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %options_to_interpret_, ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 

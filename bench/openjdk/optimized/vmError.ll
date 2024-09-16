@@ -737,7 +737,7 @@ define hidden void @_ZN7VMError18print_native_stackEP12outputStream5frameP6Threa
 
 38:                                               ; preds = %29, %27, %24, %18
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull byval(%class.frame) align 8 %1, ptr noundef %2)
+  call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull byval(%class.frame) align 8 %1, ptr noundef %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   %39 = load ptr, ptr %11, align 8
   %40 = icmp eq ptr %39, null
@@ -777,7 +777,7 @@ define hidden void @_ZN7VMError18print_native_stackEP12outputStream5frameP6Threa
 
 57:                                               ; preds = %44, %48, %42
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull byval(%class.frame) align 8 %1, ptr noundef %2)
+  call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull byval(%class.frame) align 8 %1, ptr noundef %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   %58 = load ptr, ptr %11, align 8
   %59 = icmp eq ptr %58, null
@@ -800,7 +800,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare noundef zeroext i1 @_ZN7Decoder15get_source_infoEPhPcmPib(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef byval(%class.frame) align 8 %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef byval(%class.frame) align 8 %1, ptr noundef %2) unnamed_addr #0 {
   %.sroa.7 = alloca [19 x i8], align 1
   %4 = alloca %class.RegisterMap, align 8
   %.sroa.7.3..sroa_idx = getelementptr inbounds i8, ptr %.sroa.7, i64 3
@@ -893,7 +893,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %36, %_ZNK5frame20is
 
 52:                                               ; preds = %48, %_ZNK5frame20is_interpreted_frameEv.exit
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1, i32 noundef 0) #21
-  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %4)
+  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %4)
   %53 = getelementptr inbounds i8, ptr %4, i64 4981
   %54 = load i8, ptr %53, align 1, !noalias !12
   %55 = trunc i8 %54 to i1
@@ -931,7 +931,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
 66:                                               ; preds = %63
-  call void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull %1) #21
+  call void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %0, ptr noundef nonnull %1) #21
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
 67:                                               ; preds = %5, %3
@@ -949,7 +949,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
 70:                                               ; preds = %67
-  call void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull %1) #21
+  call void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %0, ptr noundef nonnull %1) #21
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
 _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i, %_ZNK11RegisterMap7in_contEv.exit.i, %52, %70, %69, %66, %65, %35
@@ -2782,7 +2782,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
 698:                                              ; preds = %695
   %699 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   %700 = load ptr, ptr @_ZN7VMError3_pcE, align 8
-  %701 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %699, ptr noundef %700, i1 noundef zeroext true, ptr noundef nonnull %20)
+  %701 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %699, ptr noundef %700, i1 noundef zeroext true, ptr noundef %20)
   %spec.select407 = zext i1 %701 to i32
   br label %.critedge
 
@@ -2813,11 +2813,11 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
   %709 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   %710 = load ptr, ptr @_ZN7VMError3_pcE, align 8
   %711 = icmp eq ptr %707, %710
-  %712 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %709, ptr noundef nonnull %707, i1 noundef zeroext %711, ptr noundef nonnull %20)
+  %712 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %709, ptr noundef nonnull %707, i1 noundef zeroext %711, ptr noundef %20)
   %713 = zext i1 %712 to i32
   %spec.select408 = add nuw nsw i32 %.2603, %713
   %714 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull byval(%class.frame) align 8 %21, ptr noundef %714)
+  call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull byval(%class.frame) align 8 %21, ptr noundef %714)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false)
   %715 = icmp slt i32 %spec.select408, %693
   br i1 %715, label %.lr.ph, label %.critedge, !llvm.loop !15
@@ -2896,7 +2896,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %744
   %755 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   %756 = load ptr, ptr @_ZN7VMError3_pcE, align 8
   %757 = icmp eq ptr %754, %756
-  %758 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %755, ptr noundef %754, i1 noundef zeroext %757, ptr noundef nonnull %20)
+  %758 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %755, ptr noundef %754, i1 noundef zeroext %757, ptr noundef %20)
   %759 = zext i1 %758 to i32
   %spec.select409 = add nsw i32 %.4606, %759
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -4050,7 +4050,7 @@ define internal fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr no
 declare void @_ZN9LockStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN19TemplateInterpreter8containsEPh.exit.thread, label %_ZN19TemplateInterpreter8containsEPh.exit

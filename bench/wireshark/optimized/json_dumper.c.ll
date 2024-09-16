@@ -46,7 +46,7 @@ define void @json_dumper_begin_object(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_dumper_begin_nested_element(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @json_dumper_begin_nested_element(ptr nocapture noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536
@@ -70,7 +70,7 @@ json_dumper_stack_would_overflow.exit.thread:     ; preds = %6
 
 json_dumper_stack_would_overflow.exit:            ; preds = %6
   tail call fastcc void @prepare_token(ptr noundef nonnull %0)
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable23 [
     i32 2, label %11
     i32 3, label %33
     i32 4, label %55
@@ -197,7 +197,7 @@ json_dumper_stack_would_overflow.exit:            ; preds = %6
   %78 = tail call ptr @g_string_insert_c(ptr noundef nonnull %63, i64 noundef -1, i8 noundef signext 34) #7
   br label %jd_putc.exit
 
-default.unreachable:                              ; preds = %json_dumper_stack_would_overflow.exit
+default.unreachable23:                            ; preds = %json_dumper_stack_would_overflow.exit
   unreachable
 
 jd_putc.exit:                                     ; preds = %77, %71, %61, %53, %47, %37, %31, %25, %15
@@ -880,7 +880,7 @@ define void @json_dumper_end_object(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -908,7 +908,7 @@ json_dumper_check_previous_error.exit:            ; preds = %2
 
 json_dumper_get_prev_state.exit:                  ; preds = %7, %10
   %16 = phi i8 [ %15, %10 ], [ 0, %7 ]
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable40 [
     i32 2, label %17
     i32 3, label %20
     i32 4, label %23
@@ -941,7 +941,7 @@ json_dumper_get_prev_state.exit:                  ; preds = %7, %10
   tail call fastcc void @json_dumper_bad(ptr noundef nonnull %0, ptr noundef nonnull @.str.22)
   br label %115
 
-default.unreachable:                              ; preds = %36, %json_dumper_get_prev_state.exit
+default.unreachable40:                            ; preds = %36, %json_dumper_get_prev_state.exit
   unreachable
 
 26:                                               ; preds = %23, %20, %17
@@ -974,7 +974,7 @@ json_dumper_stack_would_underflow.exit:           ; preds = %29
   br label %36
 
 36:                                               ; preds = %34, %json_dumper_stack_would_underflow.exit
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable40 [
     i32 2, label %37
     i32 3, label %59
     i32 4, label %81

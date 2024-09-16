@@ -124,12 +124,12 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   %49 = and i32 %48, 61440
   %50 = add nsw i32 %49, -4096
   %51 = lshr exact i32 %50, 12
-  switch i32 %51, label %119 [
+  switch i32 %51, label %117 [
     i32 1, label %52
     i32 0, label %64
     i32 9, label %76
     i32 11, label %82
-    i32 7, label %102
+    i32 7, label %100
   ]
 
 52:                                               ; preds = %46
@@ -195,12 +195,12 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br label %handle_mime.exit.thread
 
 82:                                               ; preds = %46
-  br i1 %.not92, label %97, label %83
+  br i1 %.not92, label %95, label %83
 
 83:                                               ; preds = %82
   %84 = and i32 %.fr112, 16
   %.not.i = icmp eq i32 %84, 0
-  br i1 %.not.i, label %93, label %85
+  br i1 %.not.i, label %92, label %85
 
 85:                                               ; preds = %83
   %86 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12) #5
@@ -208,95 +208,93 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %87, label %handle_mime.exit.thread, label %88
 
 88:                                               ; preds = %85
-  %89 = and i32 %.fr112, 1024
-  %.not7.i = icmp eq i32 %89, 0
-  br i1 %.not7.i, label %handle_mime.exit.thread96, label %90
+  %.not7.i = icmp ult i32 %6, 1024
+  br i1 %.not7.i, label %handle_mime.exit.thread96, label %89
 
-90:                                               ; preds = %88
-  %91 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #5
-  %92 = icmp eq i32 %91, -1
-  br i1 %92, label %handle_mime.exit.thread, label %.thread10.i
+89:                                               ; preds = %88
+  %90 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #5
+  %91 = icmp eq i32 %90, -1
+  br i1 %91, label %handle_mime.exit.thread, label %.thread10.i
 
-93:                                               ; preds = %83
-  %.pre.i = and i32 %.fr112, 1024
-  %94 = icmp eq i32 %.pre.i, 0
-  br i1 %94, label %handle_mime.exit.thread96, label %.thread10.i
+92:                                               ; preds = %83
+  %.not8.i = icmp ult i32 %6, 1024
+  br i1 %.not8.i, label %handle_mime.exit.thread96, label %.thread10.i
 
-.thread10.i:                                      ; preds = %93, %90
-  %95 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #5
-  %96 = icmp eq i32 %95, -1
-  %brmerge = or i1 %.not113, %96
-  %.mux = select i1 %96, i32 -1, i32 1
+.thread10.i:                                      ; preds = %92, %89
+  %93 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #5
+  %94 = icmp eq i32 %93, -1
+  %brmerge = or i1 %.not113, %94
+  %.mux = select i1 %94, i32 -1, i32 1
   br i1 %brmerge, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
 
-97:                                               ; preds = %82
-  br i1 %.not113, label %98, label %handle_mime.exit.thread96.thread108
+95:                                               ; preds = %82
+  br i1 %.not113, label %96, label %handle_mime.exit.thread96.thread108
 
-98:                                               ; preds = %97
+96:                                               ; preds = %95
   %.not85 = icmp eq i32 %.073, 0
-  %99 = select i1 %.not85, ptr @.str.4, ptr @.str.3
-  %100 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %99) #5
-  %101 = icmp eq i32 %100, -1
-  br i1 %101, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread
+  %97 = select i1 %.not85, ptr @.str.4, ptr @.str.3
+  %98 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %97) #5
+  %99 = icmp eq i32 %98, -1
+  br i1 %99, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread
 
-102:                                              ; preds = %46
-  %103 = load i32, ptr %4, align 4
-  %104 = and i32 %103, 8
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %handle_mime.exit
+100:                                              ; preds = %46
+  %101 = load i32, ptr %4, align 4
+  %102 = and i32 %101, 8
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %handle_mime.exit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %2, i64 48
-  %108 = load i64, ptr %107, align 8
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %110, label %handle_mime.exit
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds i8, ptr %2, i64 48
+  %106 = load i64, ptr %105, align 8
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %108, label %handle_mime.exit
 
-110:                                              ; preds = %106
-  br i1 %.not92, label %114, label %111
+108:                                              ; preds = %104
+  br i1 %.not92, label %112, label %109
 
-111:                                              ; preds = %110
-  %112 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.14)
-  %113 = icmp eq i32 %112, -1
-  %brmerge116 = or i1 %.not113, %113
-  %.mux117 = select i1 %113, i32 -1, i32 1
+109:                                              ; preds = %108
+  %110 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.14)
+  %111 = icmp eq i32 %110, -1
+  %brmerge116 = or i1 %.not113, %111
+  %.mux117 = select i1 %111, i32 -1, i32 1
   br i1 %brmerge116, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
 
-114:                                              ; preds = %110
-  br i1 %.not113, label %115, label %handle_mime.exit.thread96.thread108
+112:                                              ; preds = %108
+  br i1 %.not113, label %113, label %handle_mime.exit.thread96.thread108
 
-115:                                              ; preds = %114
+113:                                              ; preds = %112
   %.not84 = icmp eq i32 %.073, 0
-  %116 = select i1 %.not84, ptr @.str.4, ptr @.str.3
-  %117 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %116) #5
-  %118 = icmp eq i32 %117, -1
-  br i1 %118, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread
+  %114 = select i1 %.not84, ptr @.str.4, ptr @.str.3
+  %115 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %114) #5
+  %116 = icmp eq i32 %115, -1
+  br i1 %116, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread
 
-119:                                              ; preds = %46
+117:                                              ; preds = %46
   tail call void (ptr, i32, ptr, ...) @file_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.16, i32 noundef %48) #5
   br label %handle_mime.exit.thread
 
-handle_mime.exit:                                 ; preds = %102, %106, %52
-  %120 = icmp ne i32 %.073, 0
-  %or.cond5 = select i1 %or.cond.not, i1 %120, i1 false
-  br i1 %or.cond5, label %121, label %handle_mime.exit.thread96.thread
+handle_mime.exit:                                 ; preds = %100, %104, %52
+  %118 = icmp ne i32 %.073, 0
+  %or.cond5 = select i1 %or.cond.not, i1 %118, i1 false
+  br i1 %or.cond5, label %119, label %handle_mime.exit.thread96.thread
 
-121:                                              ; preds = %handle_mime.exit
-  %122 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #5
-  %123 = icmp eq i32 %122, -1
-  br i1 %123, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread
+119:                                              ; preds = %handle_mime.exit
+  %120 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #5
+  %121 = icmp eq i32 %120, -1
+  br i1 %121, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread
 
-handle_mime.exit.thread96.thread:                 ; preds = %121, %handle_mime.exit, %72, %98, %115
-  %.072103.ph = phi i32 [ 1, %72 ], [ 1, %98 ], [ 1, %115 ], [ 0, %handle_mime.exit ], [ 0, %121 ]
+handle_mime.exit.thread96.thread:                 ; preds = %119, %handle_mime.exit, %72, %96, %113
+  %.072103.ph = phi i32 [ 1, %72 ], [ 1, %96 ], [ 1, %113 ], [ 0, %handle_mime.exit ], [ 0, %119 ]
   br label %handle_mime.exit.thread
 
-handle_mime.exit.thread96:                        ; preds = %93, %88, %64
+handle_mime.exit.thread96:                        ; preds = %92, %88, %64
   br i1 %.not113, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
 
-handle_mime.exit.thread96.thread108:              ; preds = %111, %68, %.thread10.i, %114, %97, %71, %handle_mime.exit.thread96
+handle_mime.exit.thread96.thread108:              ; preds = %109, %68, %.thread10.i, %112, %95, %71, %handle_mime.exit.thread96
   br label %handle_mime.exit.thread
 
-handle_mime.exit.thread:                          ; preds = %111, %68, %.thread10.i, %handle_mime.exit.thread96.thread108, %handle_mime.exit.thread96, %handle_mime.exit.thread96.thread, %90, %85, %121, %115, %98, %76, %72, %59, %56, %41, %33, %27, %17, %3, %119, %79, %63, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %119 ], [ -1, %79 ], [ 1, %63 ], [ 0, %3 ], [ %., %17 ], [ -1, %27 ], [ -1, %33 ], [ -1, %41 ], [ -1, %56 ], [ -1, %59 ], [ %.mux115, %68 ], [ -1, %72 ], [ 1, %76 ], [ -1, %98 ], [ %.mux117, %111 ], [ -1, %115 ], [ -1, %121 ], [ -1, %85 ], [ -1, %90 ], [ %.mux, %.thread10.i ], [ 0, %handle_mime.exit.thread96.thread108 ], [ 1, %handle_mime.exit.thread96 ], [ %.072103.ph, %handle_mime.exit.thread96.thread ]
+handle_mime.exit.thread:                          ; preds = %109, %68, %.thread10.i, %handle_mime.exit.thread96.thread108, %handle_mime.exit.thread96, %handle_mime.exit.thread96.thread, %89, %85, %119, %113, %96, %76, %72, %59, %56, %41, %33, %27, %17, %3, %117, %79, %63, %16
+  %.0 = phi i32 [ -1, %16 ], [ -1, %117 ], [ -1, %79 ], [ 1, %63 ], [ 0, %3 ], [ %., %17 ], [ -1, %27 ], [ -1, %33 ], [ -1, %41 ], [ -1, %56 ], [ -1, %59 ], [ %.mux115, %68 ], [ -1, %72 ], [ 1, %76 ], [ -1, %96 ], [ %.mux117, %109 ], [ -1, %113 ], [ -1, %119 ], [ -1, %85 ], [ -1, %89 ], [ %.mux, %.thread10.i ], [ 0, %handle_mime.exit.thread96.thread108 ], [ 1, %handle_mime.exit.thread96 ], [ %.072103.ph, %handle_mime.exit.thread96.thread ]
   ret i32 %.0
 }
 
@@ -314,41 +312,39 @@ declare i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @handle_mime(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @handle_mime(ptr noundef %0, i32 noundef range(i32 1, 1041) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = and i32 %1, 16
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %13, label %5
+  br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef %2) #5
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %17, label %8
+  br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = and i32 %1, 1024
-  %.not7 = icmp eq i32 %9, 0
-  br i1 %.not7, label %.thread, label %10
+  %.not7 = icmp ult i32 %1, 1024
+  br i1 %.not7, label %.thread, label %9
 
-10:                                               ; preds = %8
-  %11 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.19) #5
-  %12 = icmp eq i32 %11, -1
-  br i1 %12, label %17, label %.thread10
+9:                                                ; preds = %8
+  %10 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.19) #5
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %15, label %.thread10
 
-13:                                               ; preds = %3
-  %.pre = and i32 %1, 1024
-  %14 = icmp eq i32 %.pre, 0
-  br i1 %14, label %.thread, label %.thread10
+12:                                               ; preds = %3
+  %.not8 = icmp ult i32 %1, 1024
+  br i1 %.not8, label %.thread, label %.thread10
 
-.thread10:                                        ; preds = %10, %13
-  %15 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.20) #5
-  %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %.thread
+.thread10:                                        ; preds = %9, %12
+  %13 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.20) #5
+  %14 = icmp eq i32 %13, -1
+  br i1 %14, label %15, label %.thread
 
-.thread:                                          ; preds = %8, %.thread10, %13
-  br label %17
+.thread:                                          ; preds = %8, %.thread10, %12
+  br label %15
 
-17:                                               ; preds = %.thread10, %10, %5, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ -1, %5 ], [ -1, %10 ], [ -1, %.thread10 ]
+15:                                               ; preds = %.thread10, %9, %5, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ -1, %5 ], [ -1, %9 ], [ -1, %.thread10 ]
   ret i32 %.0
 }
 

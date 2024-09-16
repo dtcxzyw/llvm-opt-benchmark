@@ -591,7 +591,7 @@ define dso_local void @_ZN4llvm6object19ArchiveMemberHeaderC2EPKNS0_7ArchiveEPKc
   br i1 %34, label %_ZN4llvm5ErrorD2Ev.exit, label %36
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %33
-  call fastcc void @_ZL28createMemberHeaderParseErrorPKN4llvm6object27AbstractArchiveMemberHeaderEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3)
+  call fastcc void @_ZL28createMemberHeaderParseErrorPKN4llvm6object27AbstractArchiveMemberHeaderEPKcm(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %0, ptr noundef %2, i64 noundef %3)
   %35 = load ptr, ptr %21, align 8
   store ptr %35, ptr %4, align 8
   br label %104
@@ -815,7 +815,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %96, %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28createMemberHeaderParseErrorPKN4llvm6object27AbstractArchiveMemberHeaderEPKcm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZL28createMemberHeaderParseErrorPKN4llvm6object27AbstractArchiveMemberHeaderEPKcm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1023,7 +1023,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #1 {
+define internal fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #1 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1195,7 +1195,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %21
   br i1 %32, label %33, label %_ZN4llvm5ErrorD2Ev.exit17
 
 33:                                               ; preds = %27
-  call fastcc void @_ZL28createMemberHeaderParseErrorPKN4llvm6object27AbstractArchiveMemberHeaderEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3)
+  call fastcc void @_ZL28createMemberHeaderParseErrorPKN4llvm6object27AbstractArchiveMemberHeaderEPKcm(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %0, ptr noundef %2, i64 noundef %3)
   %.not15 = icmp eq ptr %4, null
   %.pr = load ptr, ptr %11, align 8
   br i1 %.not15, label %34, label %.thread
@@ -2060,7 +2060,7 @@ _ZN4llvm5ErrorD2Ev.exit25:                        ; preds = %150, %131
   store i8 1, ptr %164, align 1
   store ptr %26, ptr %32, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %28, ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef nonnull align 8 dereferenceable(34) %32)
-  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %28)
+  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %28)
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %166 = load i8, ptr %165, align 8
   %167 = or i8 %166, 1
@@ -2119,7 +2119,7 @@ _ZN4llvm5ErrorD2Ev.exit33:                        ; preds = %169
   store i8 1, ptr %188, align 1
   store ptr %33, ptr %41, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %35, ptr noundef nonnull align 8 dereferenceable(34) %36, ptr noundef nonnull align 8 dereferenceable(34) %41)
-  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %35)
+  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %35)
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %190 = load i8, ptr %189, align 8
   %191 = or i8 %190, 1
@@ -2176,7 +2176,7 @@ _ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %_ZNSt11char_traitsI
   store ptr @.str.21, ptr %47, align 8
   store i8 3, ptr %212, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %43, ptr noundef nonnull align 8 dereferenceable(34) %44, ptr noundef nonnull align 8 dereferenceable(34) %47)
-  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %43)
+  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %43)
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %215 = load i8, ptr %214, align 8
   %216 = or i8 %215, 1
@@ -2403,7 +2403,7 @@ _ZN4llvm5ErrorD2Ev.exit99:                        ; preds = %286
   store i8 1, ptr %310, align 1
   store ptr %56, ptr %64, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %58, ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef nonnull align 8 dereferenceable(34) %64)
-  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %58)
+  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %57, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %58)
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %312 = load i8, ptr %311, align 8
   %313 = or i8 %312, 1
@@ -3443,7 +3443,7 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %_ZNK4llvm9StringRef
   store i8 1, ptr %117, align 1
   store ptr %10, ptr %16, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %12, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull align 8 dereferenceable(34) %16)
-  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %12)
+  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %12)
   %118 = load ptr, ptr %11, align 8
   store ptr %118, ptr %3, align 8
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread70
@@ -7304,7 +7304,7 @@ _ZN4llvm5ErrorD2Ev.exit115:                       ; preds = %95
   store i8 1, ptr %100, align 1
   store ptr @.str.47, ptr %27, align 8
   store i8 3, ptr %99, align 8
-  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %27)
+  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %27)
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = load i8, ptr %101, align 8
   %103 = or i8 %102, 1
@@ -7343,7 +7343,7 @@ _ZN4llvm5ErrorD2Ev.exit116:                       ; preds = %105
   store i8 1, ptr %115, align 1
   store i32 %.0.copyload.i.i.i.i.i.i113, ptr %35, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %29, ptr noundef nonnull align 8 dereferenceable(34) %30, ptr noundef nonnull align 8 dereferenceable(34) %35)
-  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %29)
+  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %29)
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %117 = load i8, ptr %116, align 8
   %118 = or i8 %117, 1
@@ -7376,7 +7376,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %_ZNK4llvm9StringRef
   store i8 1, ptr %129, align 1
   store ptr @.str.50, ptr %37, align 8
   store i8 3, ptr %128, align 8
-  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %37)
+  call fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %37)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %131 = load i8, ptr %130, align 8
   %132 = or i8 %131, 1
@@ -8272,7 +8272,7 @@ _ZN4llvm5ErrorD2Ev.exit147:                       ; preds = %152
   %.val = load ptr, ptr %52, align 8
   %154 = getelementptr inbounds i8, ptr %52, i64 8
   %.val35 = load i64, ptr %154, align 8
-  call fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr %.val, i64 %.val35, i64 noundef %133, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.58)
+  call fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias writable align 8 %53, ptr %.val, i64 %.val35, i64 noundef %133, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.58)
   %155 = load ptr, ptr %53, align 8
   store ptr %155, ptr %2, align 8
   %.not356 = icmp eq ptr %155, null
@@ -8290,7 +8290,7 @@ _ZN4llvm5ErrorD2Ev.exit148:                       ; preds = %157
   %.val36 = load ptr, ptr %52, align 8
   %158 = getelementptr inbounds i8, ptr %52, i64 8
   %.val37 = load i64, ptr %158, align 8
-  call fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias nonnull writable align 8 %54, ptr %.val36, i64 %.val37, i64 noundef %153, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.59)
+  call fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias writable align 8 %54, ptr %.val36, i64 %.val37, i64 noundef %153, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.59)
   %159 = load ptr, ptr %54, align 8
   store ptr %159, ptr %2, align 8
   %.not357 = icmp eq ptr %159, null
@@ -8558,7 +8558,7 @@ _ZN4llvm11SmallVectorI16GlobalSymtabInfoLj1EED2Ev.exit: ; preds = %274, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

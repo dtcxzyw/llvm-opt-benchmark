@@ -12929,7 +12929,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %7 = load ptr, ptr %6, align 8, !noalias !296
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noalias !296
-  invoke fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_1clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %9)
+  invoke fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_1clEv"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %9)
           to label %_ZN7xgboost10collective6ResultD2Ev.exit.i.i.i unwind label %13, !noalias !296
 
 _ZN7xgboost10collective6ResultD2Ev.exit.i.i.i:    ; preds = %2
@@ -13047,7 +13047,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrINS
 declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_1clEv"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_1clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -13708,7 +13708,7 @@ _ZNSt10unique_ptrIN7xgboost10collective6detail10ResultImplESt14default_deleteIS3
   store i64 %.sink10.i, ptr %57, align 8, !alias.scope !325
   store ptr null, ptr %.sink.i56, align 8, !noalias !325
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS0_6ResultEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %55, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull @.str.6, i32 noundef 288)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS0_6ResultEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %55, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull @.str.6, i32 noundef 288)
           to label %.critedge unwind label %266
 
 .critedge:                                        ; preds = %258
@@ -13917,7 +13917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75: ; 
 
 305:                                              ; preds = %304
   %.val = load ptr, ptr %102, align 8
-  invoke fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_0clERKNS1_11WorkerProxyE"(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr %.val, ptr noundef nonnull align 8 dereferenceable(144) %59)
+  invoke fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_0clERKNS1_11WorkerProxyE"(ptr dead_on_unwind noalias writable align 8 %65, ptr %.val, ptr noundef nonnull align 8 dereferenceable(144) %59)
           to label %_ZN7xgboost10collective6ResultD2Ev.exit80 unwind label %.loopexit240
 
 _ZN7xgboost10collective6ResultD2Ev.exit80:        ; preds = %305
@@ -13993,7 +13993,7 @@ _ZNSt10unique_ptrIN7xgboost10collective6detail10ResultImplESt14default_deleteIS3
   store i64 %.sink10.i92, ptr %68, align 8, !alias.scope !329
   store ptr null, ptr %.sink.i93, align 8, !noalias !329
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS0_6ResultEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @.str.6, i32 noundef 304)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS0_6ResultEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @.str.6, i32 noundef 304)
           to label %324 unwind label %331
 
 324:                                              ; preds = %323
@@ -15265,7 +15265,7 @@ _ZZN7xgboost10collective12RabitTracker3RunEvEN5State8ShutdownEv.exit: ; preds = 
 
 692:                                              ; preds = %691
   %.val44 = load ptr, ptr %102, align 8
-  invoke fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_0clERKNS1_11WorkerProxyE"(ptr dead_on_unwind noalias nonnull writable align 8 %72, ptr %.val44, ptr noundef nonnull align 8 dereferenceable(144) %59)
+  invoke fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_0clERKNS1_11WorkerProxyE"(ptr dead_on_unwind noalias writable align 8 %72, ptr %.val44, ptr noundef nonnull align 8 dereferenceable(144) %59)
           to label %_ZN7xgboost10collective6ResultD2Ev.exit205 unwind label %.loopexit240
 
 _ZN7xgboost10collective6ResultD2Ev.exit205:       ; preds = %692
@@ -15334,7 +15334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ;
           to label %710 unwind label %715
 
 710:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS0_6ResultEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.6, i32 noundef 341)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS0_6ResultEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.6, i32 noundef 341)
           to label %711 unwind label %717
 
 711:                                              ; preds = %710
@@ -15431,7 +15431,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit222:       ; preds = %_ZN7xgboost10collec
   %724 = load ptr, ptr %78, align 8
   %725 = getelementptr inbounds i8, ptr %724, i64 40
   %726 = load ptr, ptr %725, align 8
-  invoke void %726(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %78)
+  invoke void %726(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %78)
           to label %729 unwind label %.loopexit.split-lp
 
 .critedge43:                                      ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit104, %_ZN7xgboost10collective6ResultD2Ev.exit178, %_ZN7xgboost10collective6ResultD2Ev.exit215
@@ -15691,7 +15691,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_0clERKNS1_11WorkerProxyE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7xgboost10collective12RabitTracker3RunEvENK3$_0clERKNS1_11WorkerProxyE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.xgboost::collective::proto::Error", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.xgboost::ConsoleLogger", align 8
@@ -15920,7 +15920,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit43thread-pre-split: ; preds = %_ZNKSt14de
 
 85:                                               ; preds = %83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %84) #10
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS0_6ResultEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.6, i32 noundef 247)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS0_6ResultEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.6, i32 noundef 247)
           to label %86 unwind label %96
 
 86:                                               ; preds = %85

@@ -1103,12 +1103,12 @@ sw.bb:                                            ; preds = %if.end17
   ]
 
 if.then.i53:                                      ; preds = %sw.bb
-  %call9.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef nonnull readonly %u43, ptr noundef nonnull %iov.addr.i, ptr noundef nonnull %out_num.addr.i)
+  %call9.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef readonly %u43, ptr noundef %iov.addr.i, ptr noundef %out_num.addr.i)
   %cmp10.i = icmp slt i32 %call9.i, 0
   br i1 %cmp10.i, label %virtio_crypto_create_sym_session.exit.thread, label %virtio_crypto_create_sym_session.exit
 
 if.then15.i:                                      ; preds = %sw.bb
-  %call18.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef nonnull readonly %keylen7.i, ptr noundef nonnull %iov.addr.i, ptr noundef nonnull %out_num.addr.i)
+  %call18.i = call fastcc i32 @virtio_crypto_cipher_session_helper(ptr noundef %call.i.i, ptr noundef nonnull %u5.i, ptr noundef readonly %keylen7.i, ptr noundef %iov.addr.i, ptr noundef %out_num.addr.i)
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %virtio_crypto_create_sym_session.exit.thread, label %if.end22.i
 
@@ -1980,7 +1980,7 @@ out:                                              ; preds = %if.end8, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -14, 1) i32 @virtio_crypto_cipher_session_helper(ptr noundef %vdev, ptr nocapture noundef %info, ptr nocapture noundef readonly %cipher_para, ptr noundef %iov, ptr nocapture noundef %out_num) unnamed_addr #0 {
+define internal fastcc range(i32 -14, 1) i32 @virtio_crypto_cipher_session_helper(ptr noundef %vdev, ptr nocapture noundef %info, ptr nocapture noundef nonnull readonly %cipher_para, ptr noundef nonnull %iov, ptr nocapture noundef nonnull %out_num) unnamed_addr #0 {
 entry:
   %num = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_CRYPTO) #11

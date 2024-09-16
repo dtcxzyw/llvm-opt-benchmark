@@ -1325,7 +1325,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #9
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushOrder(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushOrder(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8

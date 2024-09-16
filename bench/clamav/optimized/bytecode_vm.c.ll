@@ -17633,7 +17633,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
 
 8375:                                             ; preds = %.sink.split13703, %8359
   %.04646 = phi i64 [ 0, %8359 ], [ %8374, %.sink.split13703 ]
-  %8376 = call fastcc ptr @ptr_torealptr(ptr noundef nonnull %5, i64 noundef %.04646, i32 noundef %.04649)
+  %8376 = call fastcc ptr @ptr_torealptr(ptr noundef %5, i64 noundef %.04646, i32 noundef %.04649)
   %.not9296 = icmp eq ptr %8376, null
   br i1 %.not9296, label %.thread12145, label %8377
 
@@ -17774,7 +17774,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   %8446 = getelementptr inbounds [0 x ptr], ptr @cli_apicalls3, i64 0, i64 %8445
   %8447 = load ptr, ptr %8446, align 8
   %8448 = tail call ptr %8447(ptr noundef %1, i32 noundef %.04642) #11
-  %8449 = call fastcc i64 @ptr_register_glob(ptr noundef nonnull %5, ptr noundef %8448, i32 noundef %.04642)
+  %8449 = call fastcc i64 @ptr_register_glob(ptr noundef %5, ptr noundef %8448, i32 noundef %.04642)
   %8450 = getelementptr inbounds i8, ptr %.08049, i64 16
   %8451 = load i32, ptr %8450, align 8
   %8452 = getelementptr inbounds i8, ptr %.08037, i64 8
@@ -17879,7 +17879,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
 
 8497:                                             ; preds = %.sink.split13723, %8481
   %.04633 = phi i64 [ 0, %8481 ], [ %8496, %.sink.split13723 ]
-  %8498 = call fastcc ptr @ptr_torealptr(ptr noundef nonnull %5, i64 noundef %.04633, i32 noundef %.04639)
+  %8498 = call fastcc ptr @ptr_torealptr(ptr noundef %5, i64 noundef %.04633, i32 noundef %.04639)
   %.not9246 = icmp eq ptr %8498, null
   br i1 %.not9246, label %.thread12145, label %8499
 
@@ -18153,7 +18153,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   %8630 = getelementptr inbounds [0 x ptr], ptr @cli_apicalls6, i64 0, i64 %8629
   %8631 = load ptr, ptr %8630, align 8
   %8632 = tail call ptr %8631(ptr noundef %1, i32 noundef %.04628, i32 noundef %.04627) #11
-  %8633 = call fastcc i64 @ptr_register_glob(ptr noundef nonnull %5, ptr noundef %8632, i32 noundef %.04627)
+  %8633 = call fastcc i64 @ptr_register_glob(ptr noundef %5, ptr noundef %8632, i32 noundef %.04627)
   %8634 = getelementptr inbounds i8, ptr %.08049, i64 16
   %8635 = load i32, ptr %8634, align 8
   %8636 = getelementptr inbounds i8, ptr %.08037, i64 8
@@ -18411,7 +18411,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
 
 8754:                                             ; preds = %.sink.split13773, %8738
   %.04611 = phi i64 [ 0, %8738 ], [ %8753, %.sink.split13773 ]
-  %8755 = call fastcc ptr @ptr_torealptr(ptr noundef nonnull %5, i64 noundef %.04611, i32 noundef %.04617)
+  %8755 = call fastcc ptr @ptr_torealptr(ptr noundef %5, i64 noundef %.04611, i32 noundef %.04617)
   %.not9182 = icmp eq ptr %8755, null
   br i1 %.not9182, label %.thread12145, label %8756
 
@@ -18502,7 +18502,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
 
 8794:                                             ; preds = %.sink.split13783, %8778
   %.04608 = phi i64 [ 0, %8778 ], [ %8793, %.sink.split13783 ]
-  %8795 = call fastcc ptr @ptr_torealptr(ptr noundef nonnull %5, i64 noundef %.04608, i32 noundef %.04616)
+  %8795 = call fastcc ptr @ptr_torealptr(ptr noundef %5, i64 noundef %.04608, i32 noundef %.04616)
   %.not9195 = icmp eq ptr %8795, null
   br i1 %.not9195, label %.thread12145, label %8796
 
@@ -18617,7 +18617,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
 
 8850:                                             ; preds = %.sink.split13793, %8834
   %.04601 = phi i64 [ 0, %8834 ], [ %8849, %.sink.split13793 ]
-  %8851 = call fastcc ptr @ptr_torealptr(ptr noundef nonnull %5, i64 noundef %.04601, i32 noundef %.04606)
+  %8851 = call fastcc ptr @ptr_torealptr(ptr noundef %5, i64 noundef %.04601, i32 noundef %.04606)
   %.not9161 = icmp eq ptr %8851, null
   br i1 %.not9161, label %.thread12145, label %8852
 
@@ -19456,7 +19456,7 @@ ptr_torealptr.exit._crit_edge:                    ; preds = %ptr_torealptr.exit
 
 9283:                                             ; preds = %.sink.split13831, %9267
   %.04578 = phi i64 [ 0, %9267 ], [ %9282, %.sink.split13831 ]
-  %9284 = call fastcc ptr @ptr_torealptr(ptr noundef nonnull %5, i64 noundef %.04578, i32 noundef 2)
+  %9284 = call fastcc ptr @ptr_torealptr(ptr noundef %5, i64 noundef %.04578, i32 noundef 2)
   %.not9083 = icmp eq ptr %9284, null
   br i1 %.not9083, label %.thread12145, label %._crit_edge12315
 
@@ -19545,7 +19545,7 @@ ptr_torealptr.exit._crit_edge:                    ; preds = %ptr_torealptr.exit
 
 9323:                                             ; preds = %.sink.split13836, %9307
   %.04574 = phi i64 [ 0, %9307 ], [ %9322, %.sink.split13836 ]
-  %9324 = call fastcc ptr @ptr_torealptr(ptr noundef nonnull %5, i64 noundef %.04574, i32 noundef 4)
+  %9324 = call fastcc ptr @ptr_torealptr(ptr noundef %5, i64 noundef %.04574, i32 noundef 4)
   %.not9072 = icmp eq ptr %9324, null
   br i1 %.not9072, label %.thread12145, label %._crit_edge12312
 
@@ -19634,7 +19634,7 @@ ptr_torealptr.exit._crit_edge:                    ; preds = %ptr_torealptr.exit
 
 9363:                                             ; preds = %.sink.split13841, %9347
   %.04570 = phi i64 [ 0, %9347 ], [ %9362, %.sink.split13841 ]
-  %9364 = call fastcc ptr @ptr_torealptr(ptr noundef nonnull %5, i64 noundef %.04570, i32 noundef 8)
+  %9364 = call fastcc ptr @ptr_torealptr(ptr noundef %5, i64 noundef %.04570, i32 noundef 8)
   %.not9061 = icmp eq ptr %9364, null
   br i1 %.not9061, label %.thread12145, label %._crit_edge12309
 
@@ -22322,7 +22322,7 @@ declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #4
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @ptr_torealptr(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc ptr @ptr_torealptr(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, i32 noundef %2) unnamed_addr #5 {
   %4 = lshr i64 %1, 32
   %5 = trunc nuw i64 %4 to i32
   %6 = trunc i64 %1 to i32
@@ -22384,7 +22384,7 @@ define internal fastcc ptr @ptr_torealptr(ptr nocapture noundef readonly %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -9223372036854775808, 9223372032559808513) i64 @ptr_register_glob(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775808, 9223372032559808513) i64 @ptr_register_glob(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %ptr_register_glob_fixedid.exit, label %4
 

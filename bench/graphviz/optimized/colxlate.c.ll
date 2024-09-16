@@ -2925,7 +2925,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.l
   br i1 %.not.i, label %188, label %187
 
 187:                                              ; preds = %agxbsizeof.exit.i
-  call fastcc void @agxbmore(ptr noundef nonnull %13, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %13, i64 noundef 1)
   %.val.i15.pre.i = load i8, ptr %178, align 1
   br label %188
 
@@ -2980,7 +2980,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i
   br i1 %.not.i.i124, label %206, label %205
 
 205:                                              ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %13, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %13, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %202, align 1
   br label %206
 
@@ -3418,7 +3418,7 @@ agxbfree.exit137:                                 ; preds = %.thread193, %395, %
 
 415:                                              ; preds = %413
   %416 = getelementptr inbounds i8, ptr %.0112, i64 2
-  %417 = call fastcc ptr @fullColor(ptr noundef nonnull %4, ptr noundef nonnull %410, ptr noundef nonnull %416)
+  %417 = call fastcc ptr @fullColor(ptr noundef %4, ptr noundef %410, ptr noundef nonnull %416)
   br label %fullColor.exit.i
 
 418:                                              ; preds = %413, %411, %409
@@ -3448,7 +3448,7 @@ agxbfree.exit137:                                 ; preds = %.thread193, %395, %
   br i1 %.not29.i, label %fullColor.exit.i, label %agxbsizeof.exit.i.i.i.i
 
 agxbsizeof.exit.i.i.i.i:                          ; preds = %427
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, ptr noundef nonnull %424, ptr noundef nonnull %.0112)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr nonnull poison, ptr noundef nonnull %424, ptr noundef nonnull %.0112)
   %429 = getelementptr inbounds i8, ptr %4, i64 31
   %.val.i.i.i.i.i = load i8, ptr %429, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
@@ -3463,7 +3463,7 @@ agxbsizeof.exit.i.i.i.i:                          ; preds = %427
   br i1 %.not.i.i.i.i, label %436, label %435
 
 435:                                              ; preds = %agxbsizeof.exit.i.i.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
   %.val.i15.pre.i.i.i.i = load i8, ptr %429, align 1
   br label %436
 
@@ -3823,7 +3823,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -3868,7 +3868,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #27
   %26 = icmp eq ptr %25, null
@@ -3913,8 +3913,8 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fullColor(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr nonnull poison, ptr noundef %1, ptr noundef %2)
+define internal fastcc ptr @fullColor(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr nonnull poison, ptr noundef nonnull %1, ptr noundef %2)
   %4 = getelementptr i8, ptr %0, i64 31
   %.val.i.i.i = load i8, ptr %4, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -3938,7 +3938,7 @@ agxbsizeof.exit.i.i:                              ; preds = %6, %agxblen.exit.i.
   br i1 %.not.i.i, label %12, label %11
 
 11:                                               ; preds = %agxbsizeof.exit.i.i
-  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %4, align 1
   br label %12
 
@@ -3989,7 +3989,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -4032,7 +4032,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

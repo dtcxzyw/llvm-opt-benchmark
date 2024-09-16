@@ -629,7 +629,7 @@ Abc_Clock.exit331:                                ; preds = %Abc_Clock.exit329, 
 324:                                              ; preds = %Abc_Clock.exit331
   %325 = load ptr, ptr %135, align 8
   %326 = call ptr @Aig_ManDupSimple(ptr noundef %325) #15
-  call fastcc void @Vec_PtrPush(ptr noundef nonnull %323, ptr noundef %326)
+  call fastcc void @Vec_PtrPush(ptr noundef %323, ptr noundef %326)
   br label %327
 
 327:                                              ; preds = %Abc_Clock.exit331, %324, %282, %280, %278
@@ -1553,7 +1553,7 @@ declare i32 @Inter_CheckPerform(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @Vec_PtrPush(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8

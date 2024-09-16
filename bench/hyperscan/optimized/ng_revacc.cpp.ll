@@ -1214,17 +1214,17 @@ entry:
   %accept = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %accept, align 8
   %acceptReach = getelementptr inbounds i8, ptr %rai, i64 8
-  tail call fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull %acceptReach)
+  tail call fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, ptr noundef %acceptReach)
   %acceptEod = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp1.sroa.0.0.copyload = load ptr, ptr %acceptEod, align 8
   %acceptEodReach = getelementptr inbounds i8, ptr %rai, i64 32
-  tail call fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp1.sroa.0.0.copyload, ptr noundef nonnull %acceptEodReach)
+  tail call fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp1.sroa.0.0.copyload, ptr noundef %acceptEodReach)
   store i8 1, ptr %rai, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %terminal.coerce0, ptr nocapture noundef readonly %reach) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %terminal.coerce0, ptr nocapture noundef nonnull readonly %reach) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %vset = alloca %"class.std::set", align 8
   %v = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8

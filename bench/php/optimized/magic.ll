@@ -105,7 +105,7 @@ define hidden ptr @magic_descriptor(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
+  %5 = tail call fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef null, ptr noundef null)
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -114,11 +114,11 @@ define hidden ptr @magic_descriptor(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct._php_stream_statbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  %6 = tail call i32 @file_reset(ptr noundef %0, i32 noundef 1) #11
+  %6 = tail call i32 @file_reset(ptr noundef nonnull %0, i32 noundef 1) #11
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %.thread, label %8
 
@@ -259,7 +259,7 @@ define hidden ptr @magic_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null)
+  %5 = tail call fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr noundef null)
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -273,7 +273,7 @@ define hidden ptr @magic_stream(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1)
+  %5 = tail call fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef null, ptr noundef %1)
   br label %6
 
 6:                                                ; preds = %2, %4

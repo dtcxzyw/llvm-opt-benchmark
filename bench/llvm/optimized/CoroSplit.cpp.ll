@@ -909,7 +909,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   br label %_ZNSt8functionIFbRN4llvm11InstructionEEEC2ERKS4_.exit
 
 _ZNSt8functionIFbRN4llvm11InstructionEEEC2ERKS4_.exit: ; preds = %117, %128
-  call fastcc void @_ZL14splitCoroutineRN4llvm8FunctionERNS_15SmallVectorImplIPS0_EERNS_19TargetTransformInfoEbSt8functionIFbRNS_11InstructionEEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(136) %120, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %124, i1 noundef zeroext %126, ptr noundef nonnull %19)
+  call fastcc void @_ZL14splitCoroutineRN4llvm8FunctionERNS_15SmallVectorImplIPS0_EERNS_19TargetTransformInfoEbSt8functionIFbRNS_11InstructionEEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(136) %120, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %124, i1 noundef zeroext %126, ptr noundef %19)
   %132 = load ptr, ptr %77, align 8
   %.not.i.i = icmp eq ptr %132, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRN4llvm11InstructionEEED2Ev.exit, label %133
@@ -1751,7 +1751,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit: ; pred
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14splitCoroutineRN4llvm8FunctionERNS_15SmallVectorImplIPS0_EERNS_19TargetTransformInfoEbSt8functionIFbRNS_11InstructionEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL14splitCoroutineRN4llvm8FunctionERNS_15SmallVectorImplIPS0_EERNS_19TargetTransformInfoEbSt8functionIFbRNS_11InstructionEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::InsertPosition", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::IRBuilder", align 8
@@ -5809,7 +5809,7 @@ _ZL20splitRetconCoroutineRN4llvm8FunctionERNS_4coro5ShapeERNS_15SmallVectorImplI
 
 _ZN4llvm13SmallDenseMapIPNS_8ArgumentEPNS_10AllocaInstELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i113
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %89, i64 16
-  call fastcc void @_ZL28collectDbgVariableIntrinsicsRN4llvm8FunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %90, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call fastcc void @_ZL28collectDbgVariableIntrinsicsRN4llvm8FunctionE(ptr dead_on_unwind noalias writable align 8 %90, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %2051 = getelementptr inbounds nuw i8, ptr %90, i64 80
   %2052 = load ptr, ptr %90, align 8
   %2053 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #15
@@ -6588,7 +6588,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28collectDbgVariableIntrinsicsRN4llvm8FunctionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL28collectDbgVariableIntrinsicsRN4llvm8FunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.264", align 8
   %4 = alloca %"class.llvm::SmallVector.269", align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -7731,7 +7731,7 @@ declare void @_ZN4llvm10AllocaInstC1EPNS_4TypeEjPNS_5ValueENS_5AlignERKNS_5Twine
 declare noundef ptr @_ZN4llvm11ConstantInt8getFalseERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_123SwitchCoroutineSplitter11createCloneERN4llvm8FunctionERKNS1_5TwineERNS1_4coro5ShapeENS_10CoroCloner4KindERNS1_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(392) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_123SwitchCoroutineSplitter11createCloneERN4llvm8FunctionERKNS1_5TwineERNS1_4coro5ShapeENS_10CoroCloner4KindERNS1_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(392) %2, i32 noundef range(i32 0, 3) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 {
 _ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.i.preheader:
   %5 = alloca %"class.(anonymous namespace)::CoroCloner", align 8
   store ptr %0, ptr %5, align 8
@@ -11053,7 +11053,7 @@ _ZN12_GLOBAL__N_110CoroCloner15replaceCoroEndsEv.exit: ; preds = %_ZN4llvm8Value
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   %1389 = load ptr, ptr %55, align 8
-  call fastcc void @_ZL28collectDbgVariableIntrinsicsRN4llvm8FunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(136) %1389)
+  call fastcc void @_ZL28collectDbgVariableIntrinsicsRN4llvm8FunctionE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(136) %1389)
   store i32 1, ptr %4, align 8
   %1390 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %1390, align 4

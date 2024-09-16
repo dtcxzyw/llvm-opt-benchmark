@@ -2505,7 +2505,7 @@ if.then78.i:                                      ; preds = %if.then76.i
   unreachable
 
 if.end80.i:                                       ; preds = %if.then76.i
-  call fastcc void @prepare_amend_commit(ptr noundef nonnull %call60.i, ptr noundef nonnull %sb.i, ptr noundef nonnull %ctx59.i)
+  call fastcc void @prepare_amend_commit(ptr noundef %call60.i, ptr noundef %sb.i, ptr noundef %ctx59.i)
   br label %if.end159.i
 
 if.else82.i:                                      ; preds = %if.else56.i
@@ -4012,7 +4012,7 @@ return:                                           ; preds = %if.end22, %if.then2
 declare ptr @lookup_commit_or_die(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @prepare_index(ptr noundef %argv, ptr noundef %prefix, ptr noundef %current_head, i32 noundef %is_status) unnamed_addr #0 {
+define internal fastcc ptr @prepare_index(ptr noundef %argv, ptr noundef %prefix, ptr noundef %current_head, i32 noundef range(i32 0, 2) %is_status) unnamed_addr #0 {
 entry:
   %st.i62 = alloca %struct.stat, align 8
   %opts.i = alloca %struct.unpack_trees_options, align 8
@@ -4981,20 +4981,20 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 declare ptr @skip_blank_lines(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prepare_amend_commit(ptr noundef %commit, ptr noundef %sb, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc void @prepare_amend_commit(ptr noundef nonnull %commit, ptr noundef nonnull %sb, ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %subject = alloca ptr, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %call = tail call ptr @repo_get_commit_buffer(ptr noundef %0, ptr noundef %commit, ptr noundef null) #16
+  %call = tail call ptr @repo_get_commit_buffer(ptr noundef %0, ptr noundef nonnull %commit, ptr noundef null) #16
   %call1 = call i32 @find_commit_subject(ptr noundef %call, ptr noundef nonnull %subject) #16
   %1 = load ptr, ptr %subject, align 8
   %call2 = call i32 @starts_with(ptr noundef %1, ptr noundef nonnull @.str.278) #16
   %tobool.not = icmp eq i32 %call2, 0
   %cond = select i1 %tobool.not, ptr @.str.280, ptr @.str.279
   %2 = load ptr, ptr @the_repository, align 8
-  call void @repo_format_commit_message(ptr noundef %2, ptr noundef %commit, ptr noundef nonnull %cond, ptr noundef %sb, ptr noundef %ctx) #16
+  call void @repo_format_commit_message(ptr noundef %2, ptr noundef nonnull %commit, ptr noundef nonnull %cond, ptr noundef nonnull %sb, ptr noundef nonnull %ctx) #16
   %3 = load ptr, ptr @the_repository, align 8
-  call void @repo_unuse_commit_buffer(ptr noundef %3, ptr noundef %commit, ptr noundef %call) #16
+  call void @repo_unuse_commit_buffer(ptr noundef %3, ptr noundef nonnull %commit, ptr noundef %call) #16
   ret void
 }
 

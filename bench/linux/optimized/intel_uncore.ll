@@ -7571,7 +7571,7 @@ define internal noundef i32 @i915_pmic_bus_access_notifier(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @__fw_domain_init(ptr noundef %0, i32 noundef %1, i32 %2, i32 %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__fw_domain_init(ptr noundef %0, i32 noundef %1, i32 range(i32 41352, 0) %2, i32 range(i32 3408, 3405) %3) unnamed_addr #1 align 16 {
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 104) #15
   %7 = icmp eq ptr %6, null
@@ -7869,8 +7869,8 @@ define internal void @fw_domains_get_with_fallback(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 1) i32 @fw_domain_wait_ack_with_fallback(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
-  %3 = icmp eq i32 %1, 1
+define internal fastcc range(i32 -110, 1) i32 @fw_domain_wait_ack_with_fallback(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 align 16 {
+  %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   br label %6
@@ -7994,7 +7994,7 @@ define internal fastcc range(i32 -110, 1) i32 @fw_domain_wait_ack_with_fallback(
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @fw_domain_wait_ack_clear(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @fw_domain_wait_ack_clear(ptr nocapture noundef nonnull readonly %0) unnamed_addr #4 align 16 {
   %2 = tail call i64 @local_clock() #12
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = tail call i64 @local_clock() #12
@@ -8113,7 +8113,7 @@ declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #3
 declare dso_local void @add_taint_for_CI(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @fw_domain_wait_ack_set(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @fw_domain_wait_ack_set(ptr nocapture noundef nonnull readonly %0) unnamed_addr #4 align 16 {
   %2 = tail call i64 @local_clock() #12
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = tail call i64 @local_clock() #12

@@ -4517,7 +4517,7 @@ entry:
   br i1 %cmp.not, label %if.end17, label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120ValidateColumnLengthERKNS_11RecordBatchEi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120ValidateColumnLengthERKNS_11RecordBatchEi(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %1 = load ptr, ptr %ref.tmp, align 8, !noalias !60
   store ptr %1, ptr %__s, align 8, !alias.scope !60
@@ -4927,7 +4927,7 @@ eh.resume:                                        ; preds = %lpad25.body, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_120ValidateColumnLengthERKNS_11RecordBatchEi(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, i32 noundef %i) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_120ValidateColumnLengthERKNS_11RecordBatchEi(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, i32 noundef %i) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %i.addr = alloca i32, align 4
@@ -8328,7 +8328,7 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph:                  ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.lr.ph, %for.inc
   %1 = load i32, ptr %i, align 4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120ValidateColumnLengthERKNS_11RecordBatchEi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %batch, i32 noundef %1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120ValidateColumnLengthERKNS_11RecordBatchEi(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %batch, i32 noundef %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %2 = load ptr, ptr %ref.tmp, align 8, !noalias !107
   store ptr %2, ptr %agg.result, align 8, !alias.scope !107

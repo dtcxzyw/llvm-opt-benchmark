@@ -298,7 +298,7 @@ _ZNK4llvm5APInt11countl_zeroEv.exit.i:            ; preds = %126, %121
   br i1 %.not81.i, label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i, label %129
 
 129:                                              ; preds = %_ZNK4llvm5APInt11countl_zeroEv.exit.i
-  call fastcc void @_ZL23clearAssumptionsOfUsersPN4llvm11InstructionERNS_12DemandedBitsE(ptr noundef nonnull %61, ptr noundef nonnull align 8 dereferenceable(504) %12)
+  call fastcc void @_ZL23clearAssumptionsOfUsersPN4llvm11InstructionERNS_12DemandedBitsE(ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(504) %12)
   %130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %61) #9
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %44, i64 noundef 2) #9
   store ptr %130, ptr %45, align 8
@@ -482,7 +482,7 @@ _ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i:         ; preds = %203
   br i1 %212, label %213, label %.critedge.thread.i
 
 213:                                              ; preds = %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i, %206, %_ZNK4llvm5APInt10intersectsERKS0_.exit.i, %198
-  call fastcc void @_ZL23clearAssumptionsOfUsersPN4llvm11InstructionERNS_12DemandedBitsE(ptr noundef nonnull %61, ptr noundef nonnull align 8 dereferenceable(504) %12)
+  call fastcc void @_ZL23clearAssumptionsOfUsersPN4llvm11InstructionERNS_12DemandedBitsE(ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(504) %12)
   %214 = load ptr, ptr %175, align 8
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef %214) #9
   %215 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #9
@@ -598,7 +598,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit106.i:   ; preds = %249, %.lr.ph.i
   br i1 %259, label %260, label %_ZN4llvm3Use3setEPNS_5ValueE.exit.i
 
 260:                                              ; preds = %258
-  call fastcc void @_ZL23clearAssumptionsOfUsersPN4llvm11InstructionERNS_12DemandedBitsE(ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(504) %12)
+  call fastcc void @_ZL23clearAssumptionsOfUsersPN4llvm11InstructionERNS_12DemandedBitsE(ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(504) %12)
   %261 = load ptr, ptr %.077154.i, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load ptr, ptr %262, align 8
@@ -863,12 +863,12 @@ declare noundef zeroext i1 @_ZN4llvm31wouldInstructionBeTriviallyDeadEPKNS_11Ins
 declare noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23clearAssumptionsOfUsersPN4llvm11InstructionERNS_12DemandedBitsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(504) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL23clearAssumptionsOfUsersPN4llvm11InstructionERNS_12DemandedBitsE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(504) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::SmallPtrSet.46", align 8
   %5 = alloca %"class.llvm::SmallVector.47", align 8
   %6 = alloca %"class.llvm::APInt", align 8
-  call void @_ZN4llvm12DemandedBits15getDemandedBitsEPNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef %0) #9
+  call void @_ZN4llvm12DemandedBits15getDemandedBitsEPNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull %0) #9
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0

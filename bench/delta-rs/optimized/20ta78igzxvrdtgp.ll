@@ -2479,7 +2479,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h37a7310898be7598E.ll
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h53f9109d57ea80baE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h53f9109d57ea80baE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
@@ -2626,7 +2626,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i8 %.0.val) unnamed_addr #2 {
+define internal fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, i8 %.0.val) unnamed_addr #2 {
   %2 = alloca { { i64, i64 }, [1 x i8], [7 x i8] }, align 8
   %3 = alloca { { i64, i64 }, [3 x i8], [5 x i8] }, align 8
   %4 = alloca { { i64, i64 }, [3 x i8], [5 x i8] }, align 8
@@ -2720,11 +2720,11 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env17h2d3c71617bc94fa8E(ptr noalias noundef readonly align 8 dereferenceable(120) %0, i8 %.0.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env17h2d3c71617bc94fa8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, i8 %.0.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, i8 %.0.val)
+  call fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef align 8 dereferenceable(24) %3, i8 %.0.val)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -3016,7 +3016,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   %.val66 = load i8, ptr %.sroa.0.0, align 1, !range !113, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !114
-  invoke fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21, i8 %.val66)
+  invoke fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, i8 %.val66)
           to label %.noexc72 unwind label %.thread209.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc72:                                         ; preds = %60
@@ -3183,7 +3183,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   %.val67 = load i8, ptr %.sroa.0133.0299, align 1, !range !113, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !170)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !170
-  invoke fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19, i8 %.val67)
+  invoke fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef align 8 dereferenceable(24) %19, i8 %.val67)
           to label %.noexc80 unwind label %.thread209.loopexit.split-lp.loopexit
 
 .noexc80:                                         ; preds = %119
@@ -3275,7 +3275,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
 
 142:                                              ; preds = %141
   %.val69 = load i8, ptr %.sroa.0133.0299, align 1, !range !113, !noundef !4
-  %143 = invoke fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env17h2d3c71617bc94fa8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, i8 %.val69)
+  %143 = invoke fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env17h2d3c71617bc94fa8E(ptr noalias noundef readonly align 8 dereferenceable(120) %1, i8 %.val69)
           to label %146 unwind label %.thread209.loopexit.split-lp.loopexit
 
 144:                                              ; preds = %146, %141
@@ -3288,7 +3288,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
 147:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
   %.val65 = load i8, ptr %.sroa.0133.0299, align 1, !range !113, !noundef !4
-  invoke fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %35, i8 %.val65)
+  invoke fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef align 8 dereferenceable(24) %35, i8 %.val65)
           to label %148 unwind label %.thread209.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 148:                                              ; preds = %147
@@ -3387,7 +3387,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
-  %167 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h53f9109d57ea80baE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %152, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %33)
+  %167 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h53f9109d57ea80baE"(ptr noalias noundef readonly align 8 dereferenceable(48) %152, ptr noalias noundef readonly align 1 dereferenceable(1) %33)
           to label %172 unwind label %.loopexit280
 
 168:                                              ; preds = %165, %184
@@ -3491,7 +3491,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
 
 214:                                              ; preds = %212
   %.val68 = load i8, ptr %.sroa.0137.0, align 1, !range !113, !noundef !4
-  %215 = invoke fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env17h2d3c71617bc94fa8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, i8 %.val68)
+  %215 = invoke fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env17h2d3c71617bc94fa8E(ptr noalias noundef readonly align 8 dereferenceable(120) %1, i8 %.val68)
           to label %216 unwind label %.thread209.loopexit
 
 216:                                              ; preds = %214
@@ -3501,7 +3501,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
 218:                                              ; preds = %216
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   %.val64 = load i8, ptr %.sroa.0137.0, align 1, !range !113, !noundef !4
-  invoke fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %31, i8 %.val64)
+  invoke fastcc void @_ZN15deltalake_azure6config15AzureCredential4keys17h9978896e1cd831beE(ptr noalias nocapture noundef align 8 dereferenceable(24) %31, i8 %.val64)
           to label %219 unwind label %.thread209.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 219:                                              ; preds = %218
@@ -3600,7 +3600,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   %.sroa.5166.0.copyload = load i8, ptr %.sroa.5166.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
-  %238 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h53f9109d57ea80baE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %223, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %29)
+  %238 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h53f9109d57ea80baE"(ptr noalias noundef readonly align 8 dereferenceable(48) %223, ptr noalias noundef readonly align 1 dereferenceable(1) %29)
           to label %243 unwind label %.loopexit272
 
 239:                                              ; preds = %236, %254
@@ -3980,7 +3980,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   %.sroa.5186.0.copyload = load i8, ptr %.sroa.5186.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
-  %378 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h53f9109d57ea80baE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %298, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.0.i)
+  %378 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h53f9109d57ea80baE"(ptr noalias noundef readonly align 8 dereferenceable(48) %298, ptr noalias noundef readonly align 1 dereferenceable(1) %.sroa.0.0.i)
           to label %379 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 379:                                              ; preds = %377

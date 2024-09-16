@@ -516,14 +516,14 @@ entry:
   %ll_callback10 = getelementptr inbounds i8, ptr %options, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback10, i8 0, i64 112, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_stash_apply_usage, i32 noundef 0) #14
-  %call26 = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef %argv)
+  %call26 = call fastcc i32 @get_stash_info(ptr noundef %info, i32 noundef %call, ptr noundef %argv)
   %tobool.not = icmp eq i32 %call26, 0
   br i1 %tobool.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %index, align 4
   %1 = load i32, ptr %quiet, align 4
-  %call27 = call fastcc i32 @do_apply_stash(ptr noundef %prefix, ptr noundef nonnull %info, i32 noundef %0, i32 noundef %1)
+  %call27 = call fastcc i32 @do_apply_stash(ptr noundef %prefix, ptr noundef %info, i32 noundef %0, i32 noundef %1)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %if.end
@@ -600,7 +600,7 @@ entry:
   %flags = getelementptr inbounds i8, ptr %options, i64 40
   store i32 2, ptr %flags, align 8
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_stash_drop_usage, i32 noundef 0) #14
-  %call.i = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef readonly %argv)
+  %call.i = call fastcc i32 @get_stash_info(ptr noundef %info, i32 noundef %call, ptr noundef readonly %argv)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end.i
 
@@ -628,7 +628,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
 
 if.end:                                           ; preds = %if.end.i
   %4 = load i32, ptr %quiet, align 4
-  %call8 = call fastcc i32 @do_drop_stash(ptr noundef nonnull %info, i32 noundef %4)
+  %call8 = call fastcc i32 @do_drop_stash(ptr noundef %info, i32 noundef %4)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %_.exit.i, %if.end
@@ -684,7 +684,7 @@ entry:
   %ll_callback10 = getelementptr inbounds i8, ptr %options, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback10, i8 0, i64 112, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_stash_pop_usage, i32 noundef 0) #14
-  %call.i = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef readonly %argv)
+  %call.i = call fastcc i32 @get_stash_info(ptr noundef %info, i32 noundef %call, ptr noundef readonly %argv)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end.i
 
@@ -713,7 +713,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
 if.end:                                           ; preds = %if.end.i
   %3 = load i32, ptr %index, align 4
   %4 = load i32, ptr %quiet, align 4
-  %call27 = call fastcc i32 @do_apply_stash(ptr noundef %prefix, ptr noundef nonnull %info, i32 noundef %3, i32 noundef %4)
+  %call27 = call fastcc i32 @do_apply_stash(ptr noundef %prefix, ptr noundef %info, i32 noundef %3, i32 noundef %4)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.else, label %if.then29
 
@@ -733,7 +733,7 @@ _.exit:                                           ; preds = %if.then29, %if.end3
 
 if.else:                                          ; preds = %if.end
   %6 = load i32, ptr %quiet, align 4
-  %call32 = call fastcc i32 @do_drop_stash(ptr noundef nonnull %info, i32 noundef %6)
+  %call32 = call fastcc i32 @do_drop_stash(ptr noundef %info, i32 noundef %6)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %_.exit.i, %_.exit, %if.else
@@ -775,7 +775,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %argv, align 8
   %sub = add nsw i32 %call, -1
   %add.ptr = getelementptr inbounds i8, ptr %argv, i64 8
-  %call3 = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %sub, ptr noundef nonnull %add.ptr)
+  %call3 = call fastcc i32 @get_stash_info(ptr noundef %info, i32 noundef %sub, ptr noundef nonnull %add.ptr)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %cleanup
 
@@ -792,7 +792,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool13.not, label %if.end16, label %cleanup
 
 if.end16:                                         ; preds = %if.end6
-  %call15 = call fastcc i32 @do_apply_stash(ptr noundef %prefix, ptr noundef nonnull %info, i32 noundef 1, i32 noundef 0)
+  %call15 = call fastcc i32 @do_apply_stash(ptr noundef %prefix, ptr noundef %info, i32 noundef 1, i32 noundef 0)
   %tobool17 = icmp eq i32 %call15, 0
   %is_stash_ref = getelementptr inbounds i8, ptr %info, i64 312
   %3 = load i32, ptr %is_stash_ref, align 8
@@ -801,7 +801,7 @@ if.end16:                                         ; preds = %if.end6
   br i1 %or.cond, label %if.then19, label %cleanup
 
 if.then19:                                        ; preds = %if.end16
-  %call20 = call fastcc i32 @do_drop_stash(ptr noundef nonnull %info, i32 noundef 0)
+  %call20 = call fastcc i32 @do_drop_stash(ptr noundef %info, i32 noundef 0)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end6, %if.end16, %if.then19, %if.end
@@ -936,7 +936,7 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %6 = phi ptr [ %.pre22, %for.end.loopexit ], [ @empty_strvec, %entry ]
   %conv37 = phi i32 [ %5, %for.end.loopexit ], [ 0, %entry ]
-  %call38 = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %conv37, ptr noundef %6)
+  %call38 = call fastcc i32 @get_stash_info(ptr noundef %info, i32 noundef %conv37, ptr noundef %6)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.end41, label %cleanup
 
@@ -1203,7 +1203,7 @@ _.exit8:                                          ; preds = %if.then35, %if.end3
 if.end40:                                         ; preds = %if.end29
   %10 = load ptr, ptr %stash_msg, align 8
   %11 = load i32, ptr %quiet, align 4
-  %call41 = call fastcc i32 @do_store_stash(ptr noundef nonnull %obj, ptr noundef %10, i32 noundef %11)
+  %call41 = call fastcc i32 @do_store_stash(ptr noundef %obj, ptr noundef %10, i32 noundef %11)
   br label %return
 
 return:                                           ; preds = %if.then33, %_.exit8, %if.then, %_.exit, %if.end40
@@ -1223,12 +1223,12 @@ entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   %call = call ptr @strbuf_join_argv(ptr noundef nonnull %stash_msg_buf, i32 noundef %sub, ptr noundef nonnull %incdec.ptr, i8 noundef signext 32) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ps, i8 0, i64 24, i1 false)
-  %call1 = call fastcc i32 @check_changes_tracked_files(ptr noundef nonnull %ps)
+  %call1 = call fastcc i32 @check_changes_tracked_files(ptr noundef %ps)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = call fastcc i32 @do_create_stash(ptr noundef nonnull %ps, ptr noundef nonnull %stash_msg_buf, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %info, ptr noundef null, i32 noundef 0)
+  %call2 = call fastcc i32 @do_create_stash(ptr noundef %ps, ptr noundef %stash_msg_buf, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %info, ptr noundef null, i32 noundef 0)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then4, label %if.end7
 
@@ -1426,7 +1426,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %3 = load i32, ptr %patch_mode, align 4
   %4 = load i32, ptr %include_untracked, align 4
   %5 = load i32, ptr %only_staged, align 4
-  %call92 = call fastcc i32 @do_push_stash(ptr noundef nonnull %ps, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %call92 = call fastcc i32 @do_push_stash(ptr noundef %ps, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   call void @strbuf_release(ptr noundef nonnull %stash_msg_buf) #14
   ret i32 %call92
 }
@@ -1490,7 +1490,7 @@ declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @strvec_pushv(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @push_stash(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, i32 noundef %push_assumed) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @push_stash(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, i32 noundef range(i32 0, 2) %push_assumed) unnamed_addr #0 {
 entry:
   %keep_index = alloca i32, align 4
   %only_staged = alloca i32, align 4
@@ -1795,13 +1795,13 @@ if.end152:                                        ; preds = %if.else147, %if.end
   %24 = load i32, ptr %patch_mode, align 4
   %25 = load i32, ptr %include_untracked, align 4
   %26 = load i32, ptr %only_staged, align 4
-  %call153 = call fastcc i32 @do_push_stash(ptr noundef nonnull %ps, ptr noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26)
+  %call153 = call fastcc i32 @do_push_stash(ptr noundef %ps, ptr noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26)
   call void @clear_pathspec(ptr noundef nonnull %ps) #14
   ret i32 %call153
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @get_stash_info(ptr noundef %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #0 {
 entry:
   %expanded_ref = alloca ptr, align 8
   %dummy = alloca %struct.object_id, align 4
@@ -1896,7 +1896,7 @@ if.end23:                                         ; preds = %if.then18, %if.else
   %buf25 = getelementptr inbounds i8, ptr %info, i64 304
   %7 = load ptr, ptr %buf25, align 8
   %8 = load ptr, ptr @the_repository, align 8
-  %call26 = tail call i32 @repo_get_oid(ptr noundef %8, ptr noundef %7, ptr noundef %info) #14
+  %call26 = tail call i32 @repo_get_oid(ptr noundef %8, ptr noundef %7, ptr noundef nonnull %info) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.end32, label %if.then28
 
@@ -1915,7 +1915,7 @@ _.exit37:                                         ; preds = %if.then28, %if.end3
   br label %return
 
 if.end32:                                         ; preds = %if.end23
-  tail call fastcc void @assert_stash_like(ptr noundef nonnull %info, ptr noundef %7)
+  tail call fastcc void @assert_stash_like(ptr noundef %info, ptr noundef %7)
   %u_tree = getelementptr inbounds i8, ptr %info, i64 252
   %call33 = tail call i32 (ptr, ptr, ...) @get_oidf(ptr noundef nonnull %u_tree, ptr noundef nonnull @.str.24, ptr noundef %7) #14
   %tobool34.not = icmp eq i32 %call33, 0
@@ -1966,7 +1966,7 @@ return:                                           ; preds = %sw.epilog, %_.exit3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @do_apply_stash(ptr noundef %prefix, ptr noundef %info, i32 noundef %index, i32 noundef %quiet) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @do_apply_stash(ptr noundef %prefix, ptr noundef nonnull %info, i32 noundef %index, i32 noundef %quiet) unnamed_addr #0 {
 entry:
   %cp.i = alloca %struct.child_process, align 8
   %state.i = alloca %struct.checkout, align 8
@@ -2090,7 +2090,7 @@ oideq.exit36:                                     ; preds = %if.then.i.i32, %if.
 
 if.else:                                          ; preds = %oideq.exit36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_push_stash.out, i64 24, i1 false)
-  %call18 = call fastcc i32 @diff_tree_binary(ptr noundef nonnull %out, ptr noundef nonnull %info)
+  %call18 = call fastcc i32 @diff_tree_binary(ptr noundef %out, ptr noundef %info)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end26, label %if.then20
 
@@ -2111,7 +2111,7 @@ _.exit42:                                         ; preds = %if.then20, %if.end3
   br label %return
 
 if.end26:                                         ; preds = %if.else
-  %call27 = call fastcc i32 @apply_cached(ptr noundef nonnull %out)
+  %call27 = call fastcc i32 @apply_cached(ptr noundef %out)
   call void @strbuf_release(ptr noundef nonnull %out) #14
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end33, label %if.then29
@@ -2313,7 +2313,7 @@ if.end95:                                         ; preds = %if.end86
   br i1 %tobool96.not, label %if.else102, label %if.then97
 
 if.then97:                                        ; preds = %if.end95
-  %call98 = call fastcc i32 @reset_tree(ptr noundef nonnull %index_tree)
+  %call98 = call fastcc i32 @reset_tree(ptr noundef %index_tree)
   %tobool99.not = icmp ne i32 %call98, 0
   %spec.select = sext i1 %tobool99.not to i32
   br label %restore_untracked
@@ -2589,7 +2589,7 @@ declare i32 @repo_get_oid(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assert_stash_like(ptr noundef %info, ptr noundef %revision) unnamed_addr #0 {
+define internal fastcc void @assert_stash_like(ptr noundef nonnull %info, ptr noundef %revision) unnamed_addr #0 {
 entry:
   %b_commit = getelementptr inbounds i8, ptr %info, i64 36
   %call = tail call i32 (ptr, ptr, ...) @get_oidf(ptr noundef nonnull %b_commit, ptr noundef nonnull @.str.26, ptr noundef %revision) #14
@@ -2651,23 +2651,23 @@ declare i32 @repo_refresh_and_write_index(ptr noundef, i32 noundef, i32 noundef,
 declare i32 @write_index_as_tree(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @diff_tree_binary(ptr noundef %out, ptr noundef %w_commit) unnamed_addr #0 {
+define internal fastcc i32 @diff_tree_binary(ptr noundef nonnull %out, ptr noundef nonnull %w_commit) unnamed_addr #0 {
 entry:
   %cp = alloca %struct.child_process, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_push_stash.cp.160, i64 120, i1 false)
-  %call = tail call ptr @oid_to_hex(ptr noundef %w_commit) #14
+  %call = tail call ptr @oid_to_hex(ptr noundef nonnull %w_commit) #14
   %git_cmd = getelementptr inbounds i8, ptr %cp, i64 104
   store i16 8, ptr %git_cmd, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, ptr noundef null) #14
   %call2 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cp, ptr noundef nonnull @.str.48, ptr noundef %call, ptr noundef %call) #14
-  %call3 = call i32 @pipe_command(ptr noundef nonnull %cp, ptr noundef null, i64 noundef 0, ptr noundef %out, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %call3 = call i32 @pipe_command(ptr noundef nonnull %cp, ptr noundef null, i64 noundef 0, ptr noundef nonnull %out, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
   ret i32 %call3
 }
 
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @apply_cached(ptr nocapture noundef readonly %out) unnamed_addr #0 {
+define internal fastcc i32 @apply_cached(ptr nocapture noundef nonnull readonly %out) unnamed_addr #0 {
 entry:
   %cp = alloca %struct.child_process, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_push_stash.cp.160, i64 120, i1 false)
@@ -2713,7 +2713,7 @@ declare i32 @write_locked_index(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare i32 @repo_rerere(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @reset_tree(ptr noundef %i_tree) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @reset_tree(ptr noundef nonnull %i_tree) unnamed_addr #0 {
 entry:
   %opts = alloca %struct.unpack_trees_options, align 8
   %t = alloca [8 x %struct.tree_desc], align 16
@@ -2730,7 +2730,7 @@ if.end:                                           ; preds = %entry
   %call2 = call i32 @repo_hold_locked_index(ptr noundef %1, ptr noundef nonnull %lock_file, i32 noundef 1) #14
   %2 = getelementptr inbounds i8, ptr %opts, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %2, i8 0, i64 1112, i1 false)
-  %call3 = call ptr @parse_tree_indirect(ptr noundef %i_tree) #14
+  %call3 = call ptr @parse_tree_indirect(ptr noundef nonnull %i_tree) #14
   %call.i = call i32 @parse_tree_gently(ptr noundef %call3, i32 noundef 0) #14
   %tobool5.not = icmp eq i32 %call.i, 0
   br i1 %tobool5.not, label %if.end7, label %return
@@ -2866,7 +2866,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @delete_ref(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_drop_stash(ptr noundef %info, i32 noundef %quiet) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_drop_stash(ptr noundef nonnull %info, i32 noundef %quiet) unnamed_addr #0 {
 entry:
   %obj.i = alloca %struct.object_id, align 4
   %buf = getelementptr inbounds i8, ptr %info, i64 304
@@ -2975,17 +2975,17 @@ declare i32 @stash_worktree_untracked_merge(ptr noundef, ptr noundef) #4
 declare i32 @get_oid_with_context(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_store_stash(ptr noundef %w_commit, ptr noundef %stash_msg, i32 noundef %quiet) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_store_stash(ptr noundef nonnull %w_commit, ptr noundef %stash_msg, i32 noundef %quiet) unnamed_addr #0 {
 entry:
   %info = alloca %struct.stash_info, align 8
   %revision = alloca [64 x i8], align 16
-  %call = call ptr @oid_to_hex_r(ptr noundef nonnull %revision, ptr noundef %w_commit) #14
-  call fastcc void @assert_stash_like(ptr noundef nonnull %info, ptr noundef nonnull %revision)
+  %call = call ptr @oid_to_hex_r(ptr noundef nonnull %revision, ptr noundef nonnull %w_commit) #14
+  call fastcc void @assert_stash_like(ptr noundef %info, ptr noundef nonnull %revision)
   %tobool.not = icmp eq ptr %stash_msg, null
   %spec.store.select = select i1 %tobool.not, ptr @.str.93, ptr %stash_msg
   %tobool2.not = icmp ne i32 %quiet, 0
   %cond = select i1 %tobool2.not, i32 2, i32 0
-  %call3 = call i32 @update_ref(ptr noundef nonnull %spec.store.select, ptr noundef nonnull @ref_stash, ptr noundef %w_commit, ptr noundef null, i32 noundef 2, i32 noundef %cond) #14
+  %call3 = call i32 @update_ref(ptr noundef nonnull %spec.store.select, ptr noundef nonnull @ref_stash, ptr noundef nonnull %w_commit, ptr noundef null, i32 noundef 2, i32 noundef %cond) #14
   %tobool4.not = icmp eq i32 %call3, 0
   %brmerge = or i1 %tobool2.not, %tobool4.not
   %not.tobool4.not = xor i1 %tobool4.not, true
@@ -3004,7 +3004,7 @@ if.end3.i:                                        ; preds = %if.then7
 
 _.exit:                                           ; preds = %if.then7, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.91, %if.then7 ]
-  %call9 = call ptr @oid_to_hex(ptr noundef %w_commit) #14
+  %call9 = call ptr @oid_to_hex(ptr noundef nonnull %w_commit) #14
   %call10 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %0, ptr noundef %retval.0.i, ptr noundef nonnull @ref_stash, ptr noundef %call9) #14
   br label %return
 
@@ -3020,7 +3020,7 @@ declare i32 @update_ref(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 
 declare ptr @strbuf_join_argv(ptr noundef, i32 noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @check_changes_tracked_files(ptr noundef %ps) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @check_changes_tracked_files(ptr noundef nonnull %ps) unnamed_addr #0 {
 entry:
   %rev = alloca %struct.rev_info, align 8
   %dummy = alloca %struct.object_id, align 4
@@ -3039,7 +3039,7 @@ if.end3:                                          ; preds = %if.end
   %2 = load ptr, ptr @the_repository, align 8
   call void @repo_init_revisions(ptr noundef %2, ptr noundef nonnull %rev, ptr noundef null) #14
   %prune_data = getelementptr inbounds i8, ptr %rev, i64 240
-  call void @copy_pathspec(ptr noundef nonnull %prune_data, ptr noundef %ps) #14
+  call void @copy_pathspec(ptr noundef nonnull %prune_data, ptr noundef nonnull %ps) #14
   %diffopt = getelementptr inbounds i8, ptr %rev, i64 1472
   %quick = getelementptr inbounds i8, ptr %rev, i64 1616
   store i32 1, ptr %quick, align 8
@@ -3072,7 +3072,7 @@ return:                                           ; preds = %if.end, %entry, %do
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @do_create_stash(ptr noundef %ps, ptr noundef %stash_msg_buf, i32 noundef %include_untracked, i32 noundef %patch_mode, i32 noundef %only_staged, ptr noundef %info, ptr noundef %patch, i32 noundef %quiet) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @do_create_stash(ptr noundef nonnull %ps, ptr noundef nonnull %stash_msg_buf, i32 noundef %include_untracked, i32 noundef %patch_mode, i32 noundef %only_staged, ptr noundef nonnull %info, ptr noundef %patch, i32 noundef %quiet) unnamed_addr #0 {
 entry:
   %flags = alloca i32, align 4
   %parents = alloca ptr, align 8
@@ -3121,7 +3121,7 @@ _.exit:                                           ; preds = %if.then5, %if.end3.
 if.else:                                          ; preds = %if.end
   %5 = load ptr, ptr @the_repository, align 8
   %call10 = tail call ptr @lookup_commit(ptr noundef %5, ptr noundef nonnull %b_commit) #14
-  %call12 = call fastcc i32 @check_changes(ptr noundef %ps, i32 noundef %include_untracked, ptr noundef nonnull %untracked_files)
+  %call12 = call fastcc i32 @check_changes(ptr noundef %ps, i32 noundef %include_untracked, ptr noundef %untracked_files)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %done, label %if.end15
 
@@ -3208,7 +3208,7 @@ if.then38:                                        ; preds = %if.end36
   %untracked_files.val = load i64, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %untracked_files, i64 16
   %untracked_files.val36 = load ptr, ptr %18, align 8
-  %call39 = call fastcc i32 @save_untracked_files(ptr noundef %info, ptr noundef nonnull %msg, i64 %untracked_files.val, ptr %untracked_files.val36)
+  %call39 = call fastcc i32 @save_untracked_files(ptr noundef %info, ptr noundef %msg, i64 %untracked_files.val, ptr %untracked_files.val36)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.end48, label %if.then41
 
@@ -3355,7 +3355,7 @@ if.end102:                                        ; preds = %if.then99, %if.end9
   %32 = load i64, ptr %len92, align 8
   %w_tree = getelementptr inbounds i8, ptr %info, i64 144
   %33 = load ptr, ptr %parents, align 8
-  %call109 = call i32 @commit_tree(ptr noundef %31, i64 noundef %32, ptr noundef nonnull %w_tree, ptr noundef %33, ptr noundef %info, ptr noundef null, ptr noundef null) #14
+  %call109 = call i32 @commit_tree(ptr noundef %31, i64 noundef %32, ptr noundef nonnull %w_tree, ptr noundef %33, ptr noundef nonnull %info, ptr noundef null, ptr noundef null) #14
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %done, label %if.then111
 
@@ -3399,7 +3399,7 @@ declare void @prepare_fallback_ident(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @lookup_commit(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_changes(ptr noundef %ps, i32 noundef %include_untracked, ptr noundef %untracked_files) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_changes(ptr noundef nonnull %ps, i32 noundef %include_untracked, ptr noundef nonnull %untracked_files) unnamed_addr #0 {
 entry:
   %dir.i = alloca %struct.dir_struct, align 8
   %call = tail call fastcc i32 @check_changes_tracked_files(ptr noundef %ps)
@@ -3421,7 +3421,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   %0 = load ptr, ptr @the_repository, align 8
   %index.i = getelementptr inbounds i8, ptr %0, i64 240
   %1 = load ptr, ptr %index.i, align 8
-  %call.i = call i32 @fill_directory(ptr noundef nonnull %dir.i, ptr noundef %1, ptr noundef %ps) #14
+  %call.i = call i32 @fill_directory(ptr noundef nonnull %dir.i, ptr noundef %1, ptr noundef nonnull %ps) #14
   %nr.i = getelementptr inbounds i8, ptr %dir.i, i64 4
   %2 = load i32, ptr %nr.i, align 4
   %cmp15.i = icmp sgt i32 %2, 0
@@ -3446,7 +3446,7 @@ for.body.i:                                       ; preds = %strbuf_addch.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %name.i = getelementptr inbounds i8, ptr %4, i64 4
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i) #16
-  call void @strbuf_add(ptr noundef %untracked_files, ptr noundef nonnull %name.i, i64 noundef %call.i.i) #14
+  call void @strbuf_add(ptr noundef nonnull %untracked_files, ptr noundef nonnull %name.i, i64 noundef %call.i.i) #14
   %5 = load i64, ptr %untracked_files, align 8
   %tobool.not.i.i.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
@@ -3506,7 +3506,7 @@ declare ptr @commit_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @commit_tree(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @save_untracked_files(ptr noundef %info, ptr nocapture noundef readonly %msg, i64 %files.8.val, ptr %files.16.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @save_untracked_files(ptr noundef nonnull %info, ptr nocapture noundef nonnull readonly %msg, i64 %files.8.val, ptr %files.16.val) unnamed_addr #0 {
 entry:
   %untracked_msg = alloca %struct.strbuf, align 8
   %cp_upd_index = alloca %struct.child_process, align 8
@@ -3558,7 +3558,7 @@ done:                                             ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @stash_patch(ptr noundef %info, ptr noundef %ps, ptr noundef %out_patch, i32 noundef %quiet) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @stash_patch(ptr noundef nonnull %info, ptr noundef nonnull %ps, ptr noundef %out_patch, i32 noundef %quiet) unnamed_addr #0 {
 entry:
   %cp_read_tree = alloca %struct.child_process, align 8
   %cp_diff_tree = alloca %struct.child_process, align 8
@@ -3603,7 +3603,7 @@ xstrdup_or_null.exit:                             ; preds = %if.end, %cond.true.
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %if.end ]
   %call7 = call i32 @setenv(ptr noundef nonnull @.str.116, ptr noundef %6, i32 noundef 1) #14
   %7 = load ptr, ptr @the_repository, align 8
-  %call8 = call i32 @run_add_p(ptr noundef %7, i32 noundef 1, ptr noundef null, ptr noundef %ps) #14
+  %call8 = call i32 @run_add_p(ptr noundef %7, i32 noundef 1, ptr noundef null, ptr noundef nonnull %ps) #14
   %tobool9 = icmp ne i32 %call8, 0
   %lnot.ext = zext i1 %tobool9 to i32
   %8 = load ptr, ptr @the_repository, align 8
@@ -3676,7 +3676,7 @@ done:                                             ; preds = %if.then34, %_.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @stash_staged(ptr noundef %info, ptr noundef %out_patch, i32 noundef %quiet) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @stash_staged(ptr noundef nonnull %info, ptr noundef %out_patch, i32 noundef %quiet) unnamed_addr #0 {
 entry:
   %cp_diff_tree = alloca %struct.child_process, align 8
   %istate = alloca %struct.index_state, align 8
@@ -3733,7 +3733,7 @@ done:                                             ; preds = %if.then8, %_.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @stash_working_tree(ptr noundef %info, ptr noundef %ps) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @stash_working_tree(ptr noundef nonnull %info, ptr noundef nonnull %ps) unnamed_addr #0 {
 entry:
   %rev = alloca %struct.rev_info, align 8
   %cp_upd_index = alloca %struct.child_process, align 8
@@ -3747,11 +3747,11 @@ entry:
   store ptr %0, ptr %repo, align 8
   call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %rev, ptr noundef null) #14
   %prune_data = getelementptr inbounds i8, ptr %rev, i64 240
-  call void @copy_pathspec(ptr noundef nonnull %prune_data, ptr noundef %ps) #14
+  call void @copy_pathspec(ptr noundef nonnull %prune_data, ptr noundef nonnull %ps) #14
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   call void @set_alternate_index_output(ptr noundef %1) #14
   %i_tree = getelementptr inbounds i8, ptr %info, i64 216
-  %call = call fastcc i32 @reset_tree(ptr noundef nonnull %i_tree)
+  %call = call fastcc i32 @reset_tree(ptr noundef %i_tree)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %done
 
@@ -3921,7 +3921,7 @@ declare void @add_pending_object(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @parse_object(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_push_stash(ptr noundef %ps, ptr noundef %stash_msg, i32 noundef %quiet, i32 noundef %keep_index, i32 noundef %patch_mode, i32 noundef %include_untracked, i32 noundef %only_staged) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_push_stash(ptr noundef nonnull %ps, ptr noundef %stash_msg, i32 noundef %quiet, i32 noundef %keep_index, i32 noundef %patch_mode, i32 noundef %include_untracked, i32 noundef %only_staged) unnamed_addr #0 {
 entry:
   %info = alloca %struct.stash_info, align 8
   %patch = alloca %struct.strbuf, align 8
@@ -4056,7 +4056,7 @@ if.end33:                                         ; preds = %if.end32, %land.lhs
   br i1 %tobool35.not, label %if.end37, label %done
 
 if.end37:                                         ; preds = %if.end33
-  %call38 = call fastcc i32 @check_changes(ptr noundef %ps, i32 noundef %include_untracked, ptr noundef nonnull %untracked_files)
+  %call38 = call fastcc i32 @check_changes(ptr noundef %ps, i32 noundef %include_untracked, ptr noundef %untracked_files)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.then40, label %if.end46
 
@@ -4117,14 +4117,14 @@ if.then60:                                        ; preds = %if.end58
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then60, %if.end58
-  %call62 = call fastcc i32 @do_create_stash(ptr noundef %ps, ptr noundef nonnull %stash_msg_buf, i32 noundef %include_untracked, i32 noundef %patch_mode, i32 noundef %spec.select, ptr noundef nonnull %info, ptr noundef nonnull %patch, i32 noundef %quiet)
+  %call62 = call fastcc i32 @do_create_stash(ptr noundef %ps, ptr noundef %stash_msg_buf, i32 noundef %include_untracked, i32 noundef %patch_mode, i32 noundef %spec.select, ptr noundef %info, ptr noundef nonnull %patch, i32 noundef %quiet)
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %if.end65, label %done
 
 if.end65:                                         ; preds = %if.end61
   %buf = getelementptr inbounds i8, ptr %stash_msg_buf, i64 16
   %19 = load ptr, ptr %buf, align 8
-  %call66 = call fastcc i32 @do_store_stash(ptr noundef nonnull %info, ptr noundef %19, i32 noundef 1)
+  %call66 = call fastcc i32 @do_store_stash(ptr noundef %info, ptr noundef %19, i32 noundef 1)
   %tobool67.not = icmp eq i32 %call66, 0
   %tobool75.not = icmp eq i32 %quiet, 0
   br i1 %tobool67.not, label %if.end74, label %if.then68
@@ -4239,7 +4239,7 @@ if.end124.sink.split:                             ; preds = %if.end118, %if.then
 
 if.end124:                                        ; preds = %if.end124.sink.split, %if.end118
   %call126 = call ptr @strvec_push(ptr noundef nonnull %cp_add, ptr noundef nonnull @.str.78) #14
-  call fastcc void @add_pathspecs(ptr noundef nonnull %cp_add, ptr noundef nonnull %ps)
+  call fastcc void @add_pathspecs(ptr noundef %cp_add, ptr noundef %ps)
   %call128 = call i32 @run_command(ptr noundef nonnull %cp_add) #14
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %if.end131, label %done
@@ -4248,7 +4248,7 @@ if.end131:                                        ; preds = %if.end124
   %git_cmd132 = getelementptr inbounds i8, ptr %cp_diff, i64 104
   store i16 8, ptr %git_cmd132, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp_diff, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.78, ptr noundef null) #14
-  call fastcc void @add_pathspecs(ptr noundef nonnull %cp_diff, ptr noundef nonnull %ps)
+  call fastcc void @add_pathspecs(ptr noundef %cp_diff, ptr noundef %ps)
   %call138 = call i32 @pipe_command(ptr noundef nonnull %cp_diff, ptr noundef null, i64 noundef 0, ptr noundef nonnull %out, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %if.end141, label %done
@@ -4280,7 +4280,7 @@ if.end162:                                        ; preds = %if.else, %if.end141
 
 land.lhs.true165:                                 ; preds = %if.end162
   %i_tree = getelementptr inbounds i8, ptr %info, i64 216
-  %call166 = call fastcc i32 @is_null_oid(ptr noundef nonnull %i_tree)
+  %call166 = call fastcc i32 @is_null_oid(ptr noundef %i_tree)
   %tobool167.not = icmp eq i32 %call166, 0
   br i1 %tobool167.not, label %if.then168, label %done
 
@@ -4299,7 +4299,7 @@ if.then179:                                       ; preds = %if.then168
   br label %if.end184
 
 if.else182:                                       ; preds = %if.then168
-  call fastcc void @add_pathspecs(ptr noundef nonnull %cp169, ptr noundef nonnull %ps)
+  call fastcc void @add_pathspecs(ptr noundef %cp169, ptr noundef %ps)
   br label %if.end184
 
 if.end184:                                        ; preds = %if.else182, %if.then179
@@ -4348,7 +4348,7 @@ if.then210:                                       ; preds = %if.end207
   %git_cmd212 = getelementptr inbounds i8, ptr %cp211, i64 104
   store i16 8, ptr %git_cmd212, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp211, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.78, ptr noundef null) #14
-  call fastcc void @add_pathspecs(ptr noundef nonnull %cp211, ptr noundef %ps)
+  call fastcc void @add_pathspecs(ptr noundef %cp211, ptr noundef %ps)
   %call218 = call i32 @run_command(ptr noundef nonnull %cp211) #14
   %tobool219.not = icmp ne i32 %call218, 0
   %spec.select45 = sext i1 %tobool219.not to i32
@@ -4373,7 +4373,7 @@ declare i32 @report_path_error(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @reflog_exists(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_pathspecs(ptr noundef %args, ptr nocapture noundef readonly %ps) unnamed_addr #0 {
+define internal fastcc void @add_pathspecs(ptr noundef nonnull %args, ptr nocapture noundef nonnull readonly %ps) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ps, align 8
   %cmp4 = icmp sgt i32 %0, 0
@@ -4388,7 +4388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %items, align 8
   %original = getelementptr inbounds %struct.pathspec_item, ptr %1, i64 %indvars.iv, i32 1
   %2 = load ptr, ptr %original, align 8
-  %call = tail call ptr @strvec_push(ptr noundef %args, ptr noundef %2) #14
+  %call = tail call ptr @strvec_push(ptr noundef nonnull %args, ptr noundef %2) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %ps, align 8
   %4 = sext i32 %3 to i64
@@ -4400,7 +4400,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_null_oid(ptr nocapture noundef readonly %oid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_null_oid(ptr nocapture noundef nonnull readonly %oid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @null_oid() #14
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32

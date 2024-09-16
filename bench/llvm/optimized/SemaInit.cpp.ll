@@ -19289,7 +19289,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %48, %_ZNK5clang4Typ
   %.pre-phi156 = phi ptr [ %43, %48 ], [ %43, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %.pre155, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
   %.sroa.0.0.in.i.sroa.speculated = phi i64 [ %3, %48 ], [ %3, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
   %73 = icmp ne i64 %.sroa.0.0.in.i.sroa.speculated, %3
-  call fastcc void @"_ZZL27DiagnoseNarrowingInInitListRN5clang4SemaERKNS_26ImplicitConversionSequenceENS_8QualTypeES5_PKNS_4ExprEENK3$_0clEbjjj"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %73, i32 noundef 5220, i32 noundef 5221, i32 noundef 6595)
+  call fastcc void @"_ZZL27DiagnoseNarrowingInInitListRN5clang4SemaERKNS_26ImplicitConversionSequenceENS_8QualTypeES5_PKNS_4ExprEENK3$_0clEbjjj"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %73, i32 noundef 5220, i32 noundef 5221, i32 noundef 6595)
   %74 = and i64 %2, -16
   %75 = inttoptr i64 %74 to ptr
   %76 = load ptr, ptr %75, align 16
@@ -19373,7 +19373,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i43: ; preds = %_ZNK5clang4Type
 _ZNK5clang8QualType19getNonReferenceTypeEv.exit45: ; preds = %91, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i31, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i43
   %.sroa.0.0.in.i29.sroa.speculated = phi i64 [ %.sroa.0.0.in.i29.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i43, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i43 ], [ %3, %91 ], [ %3, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i31 ]
   %116 = icmp ne i64 %.sroa.0.0.in.i29.sroa.speculated, %3
-  call fastcc void @"_ZZL27DiagnoseNarrowingInInitListRN5clang4SemaERKNS_26ImplicitConversionSequenceENS_8QualTypeES5_PKNS_4ExprEENK3$_0clEbjjj"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %116, i32 noundef 5218, i32 noundef 5219, i32 noundef 6594)
+  call fastcc void @"_ZZL27DiagnoseNarrowingInInitListRN5clang4SemaERKNS_26ImplicitConversionSequenceENS_8QualTypeES5_PKNS_4ExprEENK3$_0clEbjjj"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %116, i32 noundef 5218, i32 noundef 5219, i32 noundef 6594)
   %117 = load ptr, ptr %38, align 8
   %.sroa.010.0.copyload = load i64, ptr %15, align 8
   call void @_ZNK5clang7APValue11getAsStringB5cxx11ERKNS_10ASTContextENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(23096) %117, i64 %.sroa.010.0.copyload) #20
@@ -19522,7 +19522,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i88: ; preds = %_ZNK5clang4Type
 _ZNK5clang8QualType19getNonReferenceTypeEv.exit90: ; preds = %159, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i76, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i88
   %.sroa.0.0.in.i74.sroa.speculated = phi i64 [ %.sroa.0.0.in.i74.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i88, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i88 ], [ %3, %159 ], [ %3, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i76 ]
   %184 = icmp ne i64 %.sroa.0.0.in.i74.sroa.speculated, %3
-  call fastcc void @"_ZZL27DiagnoseNarrowingInInitListRN5clang4SemaERKNS_26ImplicitConversionSequenceENS_8QualTypeES5_PKNS_4ExprEENK3$_0clEbjjj"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %184, i32 noundef 5222, i32 noundef 5223, i32 noundef 6596)
+  call fastcc void @"_ZZL27DiagnoseNarrowingInInitListRN5clang4SemaERKNS_26ImplicitConversionSequenceENS_8QualTypeES5_PKNS_4ExprEENK3$_0clEbjjj"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %184, i32 noundef 5222, i32 noundef 5223, i32 noundef 6596)
   %185 = and i64 %2, -16
   %186 = inttoptr i64 %185 to ptr
   %187 = load ptr, ptr %186, align 16
@@ -25984,7 +25984,7 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %.lr.ph, %259
 
 280:                                              ; preds = %278
   %281 = load ptr, ptr %11, align 8
-  %282 = call fastcc noundef zeroext i1 @_ZL33isOrIsDerivedFromSpecializationOfPN5clang13CXXRecordDeclEPNS_17ClassTemplateDeclE(ptr noundef nonnull %274, ptr noundef %281)
+  %282 = call fastcc noundef zeroext i1 @_ZL33isOrIsDerivedFromSpecializationOfPN5clang13CXXRecordDeclEPNS_17ClassTemplateDeclE(ptr noundef %274, ptr noundef %281)
   br i1 %282, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %266, %250, %240, %278, %268, %280
@@ -26635,7 +26635,7 @@ declare noundef zeroext i1 @_ZN5clang4Sema19LookupQualifiedNameERNS_12LookupResu
 declare noundef i32 @_ZNK5clang12FunctionDecl23getMinRequiredArgumentsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL33isOrIsDerivedFromSpecializationOfPN5clang13CXXRecordDeclEPNS_17ClassTemplateDeclE(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL33isOrIsDerivedFromSpecializationOfPN5clang13CXXRecordDeclEPNS_17ClassTemplateDeclE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.1605, align 8
   store ptr %1, ptr %3, align 8
@@ -26645,9 +26645,7 @@ define internal fastcc noundef zeroext i1 @_ZL33isOrIsDerivedFromSpecializationO
   %7 = and i32 %6, 127
   %8 = add nsw i32 %7, -59
   %9 = icmp ult i32 %8, -2
-  %.not4.i = icmp eq ptr %0, null
-  %.not.i = or i1 %.not4.i, %9
-  br i1 %.not.i, label %"_ZZL33isOrIsDerivedFromSpecializationOfPN5clang13CXXRecordDeclEPNS_17ClassTemplateDeclEENK3$_0clEPKS0_.exit.thread", label %10
+  br i1 %9, label %"_ZZL33isOrIsDerivedFromSpecializationOfPN5clang13CXXRecordDeclEPNS_17ClassTemplateDeclEENK3$_0clEPKS0_.exit.thread", label %10
 
 10:                                               ; preds = %2
   %11 = call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %0) #20
@@ -29071,7 +29069,7 @@ _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %435, %438
   %441 = phi ptr [ %437, %435 ], [ %433, %438 ]
   %442 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i8 %440, ptr %442, align 4
-  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeERKN5clang17InitializedEntityEPNS1_12InitListExprERNS1_8QualTypeEN4llvm6APSIntEbRjS6_SB_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %25, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeERKN5clang17InitializedEntityEPNS1_12InitListExprERNS1_8QualTypeEN4llvm6APSIntEbRjS6_SB_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %25, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %443 = load i32, ptr %441, align 8
   %444 = icmp ugt i32 %443, 64
   br i1 %444, label %445, label %_ZN4llvm6APSIntD2Ev.exit
@@ -29614,7 +29612,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker15CheckScalarType
   br label %214
 
 117:                                              ; preds = %72
-  %118 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_115InitListChecker11HandleEmbedEPN5clang9EmbedExprERKNS1_17InitializedEntityE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %118 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_115InitListChecker11HandleEmbedEPN5clang9EmbedExprERKNS1_17InitializedEntityE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %75, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %119
 
 119:                                              ; preds = %72, %117
@@ -29746,7 +29744,7 @@ _ZN5clang12InitListExpr7setInitEjPNS_4ExprE.exit: ; preds = %175, %170, %162, %1
 
 190:                                              ; preds = %182
   %191 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.0) #19
-  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %187, i64 %191, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %187, i64 %191, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %192
 
 192:                                              ; preds = %190, %182
@@ -31433,7 +31431,7 @@ _ZN4llvm11SmallPtrSetIPN5clang9FieldDeclELj4EED2Ev.exit: ; preds = %_ZN5clang11D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeERKN5clang17InitializedEntityEPNS1_12InitListExprERNS1_8QualTypeEN4llvm6APSIntEbRjS6_SB_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %7, ptr nocapture noundef nonnull align 4 dereferenceable(4) %8) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeERKN5clang17InitializedEntityEPNS1_12InitListExprERNS1_8QualTypeEN4llvm6APSIntEbRjS6_SB_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %7, ptr nocapture noundef nonnull align 4 dereferenceable(4) %8) unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::APInt", align 8
   %11 = alloca %"class.llvm::APInt", align 8
   %12 = alloca %"class.llvm::APInt", align 8
@@ -31737,7 +31735,7 @@ _ZL29initializingConstexprVariableRKN5clang17InitializedEntityE.exit: ; preds = 
 
 182:                                              ; preds = %169
   %183 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %174) #19
-  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %179, i64 %183, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %179, i64 %183, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_115InitListChecker27UpdateStructuredListElementEPN5clang12InitListExprERjPNS1_4ExprE.exit
 
 _ZN12_GLOBAL__N_115InitListChecker27UpdateStructuredListElementEPN5clang12InitListExprERjPNS1_4ExprE.exit: ; preds = %169, %182
@@ -32029,7 +32027,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %303, %300, %_ZNK4ll
   br i1 %5, label %336, label %_ZN12_GLOBAL__N_115InitListChecker23CheckEmptyInitializableERKN5clang17InitializedEntityENS1_14SourceLocationE.exit
 
 336:                                              ; preds = %335
-  %337 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115InitListChecker26CheckDesignatedInitializerERKN5clang17InitializedEntityEPNS1_12InitListExprEPNS1_18DesignatedInitExprEjRNS1_8QualTypeEPNS1_11DeclContext22specific_decl_iteratorINS1_9FieldDeclEEEPN4llvm6APSIntERjS6_SJ_bb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %2, ptr noundef nonnull %333, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8, i1 noundef zeroext true, i1 noundef zeroext false)
+  %337 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115InitListChecker26CheckDesignatedInitializerERKN5clang17InitializedEntityEPNS1_12InitListExprEPNS1_18DesignatedInitExprEjRNS1_8QualTypeEPNS1_11DeclContext22specific_decl_iteratorINS1_9FieldDeclEEEPN4llvm6APSIntERjS6_SJ_bb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %2, ptr noundef nonnull %333, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8, i1 noundef zeroext true, i1 noundef zeroext false)
   br i1 %337, label %338, label %348
 
 338:                                              ; preds = %336
@@ -32972,7 +32970,7 @@ _ZN5clang12InitListExpr7setInitEjPNS_4ExprE.exit: ; preds = %119
 
 145:                                              ; preds = %137
   %146 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %136) #19
-  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %142, i64 %146, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %142, i64 %146, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %147
 
 147:                                              ; preds = %145, %137
@@ -33109,7 +33107,7 @@ _ZL12IsStringInitPN5clang4ExprENS_8QualTypeERNS_10ASTContextE.exit: ; preds = %4
 
 66:                                               ; preds = %60
   %67 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #19
-  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %65, i64 %67, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %65, i64 %67, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %68
 
 68:                                               ; preds = %66, %60
@@ -33274,7 +33272,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit: ; p
   br i1 %.not136, label %144, label %.thread155
 
 144:                                              ; preds = %143
-  %145 = call fastcc noundef ptr @_ZN12_GLOBAL__N_115InitListChecker11HandleEmbedEPN5clang9EmbedExprERKNS1_17InitializedEntityE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %.pre146, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %145 = call fastcc noundef ptr @_ZN12_GLOBAL__N_115InitListChecker11HandleEmbedEPN5clang9EmbedExprERKNS1_17InitializedEntityE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.pre146, ptr noundef nonnull align 8 dereferenceable(48) %1)
   store ptr %145, ptr %10, align 8
   br label %.thread155
 
@@ -33314,7 +33312,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit: ; p
 
 166:                                              ; preds = %158
   %167 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %157) #19
-  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %163, i64 %167, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %163, i64 %167, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %168
 
 168:                                              ; preds = %166, %158
@@ -33693,7 +33691,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker27UpdateStructure
 
 13:                                               ; preds = %5
   %14 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %10, i64 %14, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %10, i64 %14, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %15
 
 15:                                               ; preds = %13, %5
@@ -33707,7 +33705,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker27UpdateStructure
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115InitListChecker11HandleEmbedEPN5clang9EmbedExprERKNS1_17InitializedEntityE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115InitListChecker11HandleEmbedEPN5clang9EmbedExprERKNS1_17InitializedEntityE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -34116,7 +34114,7 @@ _ZN12_GLOBAL__N_115InitListChecker26getStructuredSubobjectInitEPN5clang12InitLis
   br label %142
 
 110:                                              ; preds = %107
-  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %106, i64 %.sroa.089.0.insert.insert, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %106, i64 %.sroa.089.0.insert.insert, i1 noundef zeroext false, i1 noundef zeroext true)
   %.pre = load ptr, ptr %85, align 8
   br label %.thread54.i
 
@@ -34470,7 +34468,7 @@ _ZL29isIdiomaticBraceElisionEntityRKN5clang17InitializedEntityE.exit.thread: ; p
 declare noundef ptr @_ZN5clang12InitListExpr10updateInitERKNS_10ASTContextEjPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(23096), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::SourceRange", align 8
   %7 = alloca i8, align 1
   %8 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -36650,7 +36648,7 @@ _ZN12_GLOBAL__N_115InitListChecker12getDummyInitEv.exit: ; preds = %117, %_ZN5cl
 
 158:                                              ; preds = %148
   %159 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %150) #19
-  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %155, i64 %159, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %155, i64 %159, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_115InitListChecker27UpdateStructuredListElementEPN5clang12InitListExprERjPNS1_4ExprE.exit
 
 _ZN12_GLOBAL__N_115InitListChecker27UpdateStructuredListElementEPN5clang12InitListExprERjPNS1_4ExprE.exit: ; preds = %148, %158
@@ -36908,7 +36906,7 @@ _ZN5clang12InitListExpr7setInitEjPNS_4ExprE.exit455: ; preds = %_ZN5clang18Desig
   br i1 %290, label %_ZN12_GLOBAL__N_115InitListChecker26getStructuredSubobjectInitEPN5clang12InitListExprEjNS1_8QualTypeES3_jNS1_11SourceRangeEb.exit, label %291
 
 291:                                              ; preds = %288
-  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %287, i64 %.sroa.0748.0.insert.insert, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %287, i64 %.sroa.0748.0.insert.insert, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %.thread54.i
 
 .thread54.i:                                      ; preds = %291, %284, %282
@@ -36991,7 +36989,7 @@ _ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit463: ; preds = %_Z
   %.sroa.2747.0.insert.shift = shl nuw i64 %.sroa.2747.0.insert.ext, 32
   %.sroa.0746.0.insert.ext = zext i32 %.sroa.0.0.i460 to i64
   %.sroa.0746.0.insert.insert = or disjoint i64 %.sroa.2747.0.insert.shift, %.sroa.0746.0.insert.ext
-  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %.0375766, i64 %.sroa.0746.0.insert.insert, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0375766, i64 %.sroa.0746.0.insert.insert, i1 noundef zeroext false, i1 noundef zeroext false)
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %336 = load i8, ptr %335, align 1
   %337 = trunc i8 %336 to i1
@@ -37175,7 +37173,7 @@ _ZN4llvm19dyn_cast_if_presentIN5clang17IndirectFieldDeclENS1_9ValueDeclEEEDaPT0_
 _ZN4llvm19dyn_cast_if_presentIN5clang17IndirectFieldDeclENS1_9ValueDeclEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm19dyn_cast_if_presentIN5clang17IndirectFieldDeclENS1_9ValueDeclEEEDaPT0_.exit, %427
   %.2370 = phi ptr [ %429, %427 ], [ %3, %_ZN4llvm19dyn_cast_if_presentIN5clang17IndirectFieldDeclENS1_9ValueDeclEEEDaPT0_.exit ]
   %430 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZL30ExpandAnonymousFieldDesignatorRN5clang4SemaEPNS_18DesignatedInitExprEjPNS_17IndirectFieldDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %430, ptr noundef %.2370, i32 noundef %4, ptr noundef nonnull %415)
+  tail call fastcc void @_ZL30ExpandAnonymousFieldDesignatorRN5clang4SemaEPNS_18DesignatedInitExprEjPNS_17IndirectFieldDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %430, ptr noundef %.2370, i32 noundef %4, ptr noundef %415)
   %431 = getelementptr inbounds nuw i8, ptr %.2370, i64 24
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr inbounds %"class.clang::DesignatedInitExpr::Designator", ptr %432, i64 %247
@@ -37581,7 +37579,7 @@ _ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit515: ; preds = %_Z
   %.sroa.2710.0.insert.shift = shl nuw i64 %.sroa.2710.0.insert.ext, 32
   %.sroa.0709.0.insert.ext = zext i32 %.sroa.0.0.i512 to i64
   %.sroa.0709.0.insert.insert = or disjoint i64 %.sroa.2710.0.insert.shift, %.sroa.0709.0.insert.ext
-  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %614, i64 %.sroa.0709.0.insert.insert, i1 noundef zeroext true, i1 noundef zeroext %.not432)
+  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker20diagnoseInitOverrideEPN5clang4ExprENS1_11SourceRangeEbb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %614, i64 %.sroa.0709.0.insert.insert, i1 noundef zeroext true, i1 noundef zeroext %.not432)
   br label %628
 
 628:                                              ; preds = %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit515, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit510.thread786
@@ -39264,7 +39262,7 @@ _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %1444, %1446
   %1448 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %1449 = and i8 %1447, 1
   store i8 %1449, ptr %1448, align 4
-  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeERKN5clang17InitializedEntityEPNS1_12InitListExprERNS1_8QualTypeEN4llvm6APSIntEbRjS6_SB_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %87, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef %.1372799, ptr noundef nonnull align 4 dereferenceable(4) %84)
+  call fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeERKN5clang17InitializedEntityEPNS1_12InitListExprERNS1_8QualTypeEN4llvm6APSIntEbRjS6_SB_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %87, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef %.1372799, ptr noundef nonnull align 4 dereferenceable(4) %84)
   %1450 = load i32, ptr %1441, align 8
   %1451 = icmp ugt i32 %1450, 64
   br i1 %1451, label %1452, label %_ZN4llvm6APSIntD2Ev.exit654
@@ -39667,7 +39665,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev.exit: ; preds = %_ZNK5clang18Desig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL30ExpandAnonymousFieldDesignatorRN5clang4SemaEPNS_18DesignatedInitExprEjPNS_17IndirectFieldDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_ZL30ExpandAnonymousFieldDesignatorRN5clang4SemaEPNS_18DesignatedInitExprEjPNS_17IndirectFieldDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.1446", align 8
   %6 = alloca %"class.clang::DesignatedInitExpr::Designator", align 8
   %7 = alloca %"class.clang::DesignatedInitExpr::Designator", align 8
@@ -46271,7 +46269,7 @@ declare void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef n
 declare noundef i32 @_ZNK5clang26StandardConversionSequence16getNarrowingKindERNS_10ASTContextEPKNS_4ExprERNS_7APValueERNS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL27DiagnoseNarrowingInInitListRN5clang4SemaERKNS_26ImplicitConversionSequenceENS_8QualTypeES5_PKNS_4ExprEENK3$_0clEbjjj"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL27DiagnoseNarrowingInInitListRN5clang4SemaERKNS_26ImplicitConversionSequenceENS_8QualTypeES5_PKNS_4ExprEENK3$_0clEbjjj"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, i32 noundef range(i32 5218, 5223) %3, i32 noundef range(i32 5219, 5224) %4, i32 noundef range(i32 6594, 6597) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %8 = alloca %"class.clang::SourceRange", align 8
   %9 = load ptr, ptr %1, align 8

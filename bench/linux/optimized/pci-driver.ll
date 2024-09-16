@@ -3643,7 +3643,7 @@ declare dso_local void @pm_generic_complete(ptr noundef) local_unnamed_addr #2
 declare dso_local void @pci_refresh_power_state(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pci_legacy_suspend(ptr noundef %0, i32 %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @pci_legacy_suspend(ptr noundef %0, i32 range(i32 1, 5) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -184
   %4 = getelementptr i8, ptr %0, i64 -64
   %5 = load ptr, ptr %4, align 8

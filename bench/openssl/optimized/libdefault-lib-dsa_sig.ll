@@ -725,7 +725,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dsa_signverify_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dsa_signverify_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params, i32 noundef range(i32 16, 33) %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #8
   %tobool = icmp eq i32 %call, 0
@@ -807,7 +807,7 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #3
 declare i32 @DSA_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dsa_digest_signverify_init(ptr noundef %vpdsactx, ptr noundef %mdname, ptr noundef %vdsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dsa_digest_signverify_init(ptr noundef %vpdsactx, ptr noundef %mdname, ptr noundef %vdsa, ptr noundef %params, i32 noundef range(i32 16, 33) %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #8
   %tobool.not = icmp eq i32 %call, 0

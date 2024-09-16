@@ -357,7 +357,7 @@ define hidden i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @chachapoly_crypt_and_tag(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @chachapoly_crypt_and_tag(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   %11 = tail call i32 @mbedtls_chacha20_starts(ptr noundef %0, ptr noundef %3, i32 noundef 0) #7

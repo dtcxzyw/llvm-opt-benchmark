@@ -454,7 +454,7 @@ if.end146:                                        ; preds = %if.else136, %if.the
 
 if.end152:                                        ; preds = %if.end146
   %27 = load ptr, ptr %q, align 8
-  %call155 = tail call fastcc ptr @dsa_mod_inverse_fermat(ptr noundef %call38, ptr noundef %27, ptr noundef nonnull %ctx.1)
+  %call155 = tail call fastcc ptr @dsa_mod_inverse_fermat(ptr noundef %call38, ptr noundef %27, ptr noundef %ctx.1)
   %cmp156 = icmp eq ptr %call155, null
   br i1 %cmp156, label %if.then161, label %err
 
@@ -797,15 +797,15 @@ declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @BN_mod_exp_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dsa_mod_inverse_fermat(ptr noundef %k, ptr noundef %q, ptr noundef %ctx) unnamed_addr #3 {
+define internal fastcc ptr @dsa_mod_inverse_fermat(ptr noundef nonnull %k, ptr noundef %q, ptr noundef nonnull %ctx) unnamed_addr #3 {
 entry:
   %call = tail call ptr @BN_new() #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @BN_CTX_start(ptr noundef %ctx) #7
-  %call1 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #7
+  tail call void @BN_CTX_start(ptr noundef nonnull %ctx) #7
+  %call1 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #7
   %cmp2.not = icmp eq ptr %call1, null
   br i1 %cmp2.not, label %if.else, label %land.lhs.true
 
@@ -820,7 +820,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %tobool6.not, label %if.else, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
-  %call8 = tail call i32 @BN_mod_exp_mont(ptr noundef nonnull %call, ptr noundef %k, ptr noundef nonnull %call1, ptr noundef %q, ptr noundef %ctx, ptr noundef null) #7
+  %call8 = tail call i32 @BN_mod_exp_mont(ptr noundef nonnull %call, ptr noundef nonnull %k, ptr noundef nonnull %call1, ptr noundef %q, ptr noundef nonnull %ctx, ptr noundef null) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.else, label %if.end11
 
@@ -830,7 +830,7 @@ if.else:                                          ; preds = %land.lhs.true7, %la
 
 if.end11:                                         ; preds = %land.lhs.true7, %if.else
   %res.0 = phi ptr [ null, %if.else ], [ %call, %land.lhs.true7 ]
-  tail call void @BN_CTX_end(ptr noundef %ctx) #7
+  tail call void @BN_CTX_end(ptr noundef nonnull %ctx) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end11

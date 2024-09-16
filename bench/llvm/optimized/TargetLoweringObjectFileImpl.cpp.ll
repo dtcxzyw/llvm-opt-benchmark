@@ -2786,7 +2786,7 @@ _ZL25getELFKindForNamedSectionN4llvm9StringRefENS_11SectionKindE.exit: ; preds =
   %.6.i = select i1 %or.cond.i, i32 %134, i32 %.5.i
   %135 = or i32 %.6.i, 32
   %spec.select10.i = select i1 %switch.i12.i, i32 %135, i32 %.6.i
-  call fastcc void @_ZL19getGlobalObjectInfoPKN4llvm12GlobalObjectERKNS_13TargetMachineE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(1232) %2)
+  call fastcc void @_ZL19getGlobalObjectInfoPKN4llvm12GlobalObjectERKNS_13TargetMachineE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(1232) %2)
   %136 = getelementptr inbounds i8, ptr %23, i64 8
   %137 = getelementptr inbounds i8, ptr %23, i64 4
   %138 = load i32, ptr %23, align 8
@@ -2948,7 +2948,7 @@ _ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit44.thread54.i: ; preds = %_ZNK4llv
   br i1 %209, label %_ZL30calcUniqueIDUpdateFlagsAndSizePKN4llvm12GlobalObjectENS_9StringRefENS_11SectionKindERKNS_13TargetMachineERNS_9MCContextERNS_7ManglerERjSC_SC_bb.exit, label %210
 
 210:                                              ; preds = %208, %201
-  call fastcc void @_ZL26getELFSectionNameForGlobalPKN4llvm12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEjb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %0, i32 %.sroa.0242.0.insert.insert260, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(1232) %2, i32 noundef %.0.i60, i1 noundef zeroext false)
+  call fastcc void @_ZL26getELFSectionNameForGlobalPKN4llvm12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEjb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %0, i32 %.sroa.0242.0.insert.insert260, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(1232) %2, i32 noundef %.0.i60, i1 noundef zeroext false)
   br i1 %.not43.i, label %211, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55.i
 
 211:                                              ; preds = %210
@@ -3498,12 +3498,12 @@ _ZNK4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5countEPKS1_.exit: ; preds = %.lr
   %68 = getelementptr inbounds ptr, ptr %62, i64 %.v.i.i
   %69 = icmp ne ptr %.0.i.i, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 972
-  %71 = tail call fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbbjPj(ptr noundef nonnull align 8 dereferenceable(2432) %33, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(1232) %3, i1 noundef zeroext %69, i1 noundef zeroext %64, i32 noundef %spec.select10.i, ptr noundef nonnull %70)
+  %71 = tail call fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbbjPj(ptr noundef nonnull align 8 dereferenceable(2432) %33, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(1232) %3, i1 noundef zeroext %69, i1 noundef zeroext %64, i32 noundef %spec.select10.i, ptr noundef %70)
   ret ptr %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbbjPj(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1232) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbbjPj(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1232) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 536870912
@@ -3755,7 +3755,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5countEPKS1_.exit44: ; preds = %.
   %77 = getelementptr inbounds ptr, ptr %73, i64 %.v.i.i36
   %78 = icmp ne ptr %.0.i.i34, %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 972
-  %80 = tail call fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbbjPj(ptr noundef nonnull align 8 dereferenceable(2432) %8, ptr noundef nonnull %1, i32 2, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(1232) %2, i1 noundef zeroext %78, i1 noundef zeroext true, i32 noundef 6, ptr noundef nonnull %79)
+  %80 = tail call fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbbjPj(ptr noundef nonnull align 8 dereferenceable(2432) %8, ptr noundef nonnull %1, i32 2, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(1232) %2, i1 noundef zeroext %78, i1 noundef zeroext true, i32 noundef 6, ptr noundef %79)
   br label %81
 
 81:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5countEPKS1_.exit44, %_ZNK4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5countEPKS1_.exit
@@ -3786,7 +3786,7 @@ define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF22getSection
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 972
-  %21 = tail call fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %17, ptr noundef nonnull %1, i32 4, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(1232) %2, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull %20, ptr noundef null)
+  %21 = tail call fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %17, ptr noundef nonnull %1, i32 4, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(1232) %2, i1 noundef zeroext true, i32 noundef 2, ptr noundef %20, ptr noundef null)
   br label %22
 
 22:                                               ; preds = %15, %12
@@ -3795,12 +3795,12 @@ define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF22getSection
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1232) %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1232) %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef nonnull %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca %"class.std::tuple.549", align 8
   %11 = alloca %"class.llvm::SmallString", align 8
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::Twine", align 8
-  call fastcc void @_ZL19getGlobalObjectInfoPKN4llvm12GlobalObjectERKNS_13TargetMachineE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %4)
+  call fastcc void @_ZL19getGlobalObjectInfoPKN4llvm12GlobalObjectERKNS_13TargetMachineE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %4)
   %14 = getelementptr inbounds i8, ptr %10, i64 8
   %15 = getelementptr inbounds i8, ptr %10, i64 4
   %16 = load i32, ptr %10, align 8
@@ -3840,7 +3840,7 @@ _ZL19getEntrySizeForKindN4llvm11SectionKindE.exit: ; preds = %switch.lookup, %18
 28:                                               ; preds = %21, %25, %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit
   %.022 = phi i32 [ %26, %25 ], [ -1, %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit ], [ -1, %21 ]
   %.0 = phi i1 [ false, %25 ], [ false, %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit ], [ true, %21 ]
-  call fastcc void @_ZL26getELFSectionNameForGlobalPKN4llvm12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEjb(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1232) %4, i32 noundef %.0.i, i1 noundef zeroext %.0)
+  call fastcc void @_ZL26getELFSectionNameForGlobalPKN4llvm12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEjb(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1232) %4, i32 noundef %.0.i, i1 noundef zeroext %.0)
   %29 = and i32 %2, 255
   %30 = icmp eq i32 %29, 3
   %spec.select = select i1 %30, i32 0, i32 %.022
@@ -7965,7 +7965,7 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileCOFF21getSectio
   br i1 %.not42, label %39, label %27
 
 27:                                               ; preds = %26
-  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %3)
+  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %3)
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, ptr noundef nonnull @.str.47) #24, !noalias !146
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %28) #24
   br label %.sink.split
@@ -7975,7 +7975,7 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileCOFF21getSectio
   br i1 %.not41, label %39, label %30
 
 30:                                               ; preds = %29
-  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %3)
+  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull %3)
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.47) #24, !noalias !149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %31) #24
   br label %.sink.split
@@ -7985,7 +7985,7 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileCOFF21getSectio
   br i1 %.not, label %39, label %33
 
 33:                                               ; preds = %32
-  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %3)
+  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull %3)
   %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, ptr noundef nonnull @.str.48) #24, !noalias !152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %34) #24
   br label %.sink.split
@@ -7995,7 +7995,7 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileCOFF21getSectio
   br i1 %.not43, label %39, label %36
 
 36:                                               ; preds = %35
-  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull %3)
+  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull %3)
   %37 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 0, ptr noundef nonnull @.str.49) #24, !noalias !155
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %37) #24
   br label %.sink.split
@@ -8036,7 +8036,7 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileCOFF21getSectio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -8157,7 +8157,7 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %30, %31
   %.014.in33 = phi i32 [ %.014, %.lr.ph ], [ %.0, %52 ]
   %.014 = add i32 %.014.in33, -1
   %53 = call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.014) #24
-  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %53)
+  call fastcc void @_ZL25scalarConstantToHexStringB5cxx11PKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %53)
   %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   %.not20 = icmp eq i32 %.014, 0
@@ -10830,7 +10830,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19getGlobalObjectInfoPKN4llvm12GlobalObjectERKNS_13TargetMachineE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL19getGlobalObjectInfoPKN4llvm12GlobalObjectERKNS_13TargetMachineE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -11033,7 +11033,7 @@ declare noundef zeroext i1 @_ZN4llvm9MCContext28isELFGenericMergeableSectionENS_
 declare i64 @_ZN4llvm9MCContext24getELFUniqueIDForEntsizeENS_9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(2432), ptr, i64, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26getELFSectionNameForGlobalPKN4llvm12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEjb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1232) %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_ZL26getELFSectionNameForGlobalPKN4llvm12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEjb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1232) %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca [21 x i8], align 16
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca [21 x i8], align 16
@@ -11463,10 +11463,10 @@ declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef 
 declare { ptr, i64 } @_ZNK4llvm11GlobalValue10getSectionEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16APIntToHexStringB5cxx11RKN4llvm5APIntE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL16APIntToHexStringB5cxx11RKN4llvm5APIntE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
-  tail call void @_ZN4llvm8toStringB5cxx11ERKNS_5APIntEjbbbb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef 16, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
+  tail call void @_ZN4llvm8toStringB5cxx11ERKNS_5APIntEjbbbb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef 16, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
   %5 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   %6 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   %7 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24

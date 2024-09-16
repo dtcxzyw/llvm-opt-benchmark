@@ -636,7 +636,7 @@ if.then85.i32:                                    ; preds = %if.end82.i29
   %sub.ptr.lhs.cast.i34 = ptrtoint ptr %add.ptr.i17 to i64
   %sub.ptr.rhs.cast.i35 = ptrtoint ptr %p.i8.1 to i64
   %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem6486.i33, ptr readonly align 1 %p.i8.1, i64 %sub.ptr.sub.i36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem6486.i33, ptr nonnull readonly align 1 %p.i8.1, i64 %sub.ptr.sub.i36, i1 false)
   %conv92.i41 = trunc i64 %sub.ptr.sub.i36 to i32
   br label %return.sink.split
 
@@ -730,7 +730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @XXH32_finalize(i32 noundef %h32, ptr nocapture noundef readonly %ptr, i64 noundef %len) unnamed_addr #9 {
+define internal fastcc i32 @XXH32_finalize(i32 noundef %h32, ptr nocapture noundef readonly %ptr, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #9 {
 entry:
   %and = and i64 %len, 15
   switch i64 %and, label %default.unreachable184 [

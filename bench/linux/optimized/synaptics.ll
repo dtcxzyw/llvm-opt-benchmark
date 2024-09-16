@@ -2207,7 +2207,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_abs_position_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @set_abs_position_params(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 54) %2, i32 noundef range(i32 1, 55) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0

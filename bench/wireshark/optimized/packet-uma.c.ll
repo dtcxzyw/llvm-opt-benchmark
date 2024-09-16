@@ -1002,7 +1002,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483647, 65537) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct._address, align 8
@@ -1047,10 +1047,10 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br label %37
 
 37:                                               ; preds = %31, %19
-  %.sink632 = phi i32 [ 2, %31 ], [ 3, %19 ]
+  %.sink634 = phi i32 [ 2, %31 ], [ 3, %19 ]
   %.0599 = phi i16 [ %32, %31 ], [ %25, %19 ]
   %.0 = phi i32 [ %17, %31 ], [ %20, %19 ]
-  %38 = add nsw i32 %3, %.sink632
+  %38 = add nsw i32 %3, %.sink634
   switch i8 %10, label %548 [
     i8 1, label %45
     i8 2, label %48
@@ -1156,19 +1156,19 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
 
 .preheader617:                                    ; preds = %37
   %39 = zext nneg i16 %.0599 to i32
-  %40 = add i32 %.0, %39
+  %40 = add nsw i32 %.0, %39
   %.not604619 = icmp sgt i32 %38, %40
   br i1 %.not604619, label %.loopexit, label %.lr.ph
 
 .preheader615:                                    ; preds = %37
   %41 = zext nneg i16 %.0599 to i32
-  %42 = add i32 %.0, %41
+  %42 = add nsw i32 %.0, %41
   %.not605621 = icmp sgt i32 %38, %42
   br i1 %.not605621, label %.loopexit, label %.lr.ph623
 
 .preheader:                                       ; preds = %37
   %43 = zext nneg i16 %.0599 to i32
-  %44 = add i32 %.0, %43
+  %44 = add nsw i32 %.0, %43
   %.not610624 = icmp sgt i32 %38, %44
   br i1 %.not610624, label %.loopexit, label %.lr.ph626
 
@@ -1191,7 +1191,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %51
-  %58 = add i32 %38, 1
+  %58 = add nsw i32 %38, 1
   %59 = load i32, ptr @hf_uma_urr_radio_id, align 4
   %60 = zext nneg i16 %.0599 to i32
   %61 = add nsw i32 %60, -1
@@ -1229,7 +1229,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %82, label %83, label %.loopexit
 
 83:                                               ; preds = %75
-  %84 = add i32 %38, 1
+  %84 = add nsw i32 %38, 1
   %85 = load i32, ptr @hf_uma_urr_gmsi, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef 0) #3
   %87 = load i32, ptr @hf_uma_urr_psho, align 4
@@ -1252,7 +1252,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %99, label %.loopexit, label %100
 
 100:                                              ; preds = %95
-  %101 = add i32 %38, 1
+  %101 = add nsw i32 %38, 1
   %102 = load i32, ptr @hf_uma_urr_sgw_ipv4, align 4
   %103 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef 0) #3
   br label %.loopexit
@@ -1299,13 +1299,13 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   %130 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %129, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #3
   %131 = load i32, ptr @hf_uma_urr_MSCR, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %131, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #3
-  %133 = add i32 %38, 1
+  %133 = add nsw i32 %38, 1
   %134 = load i32, ptr @hf_uma_urr_T3212_timer, align 4
   %135 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #3
-  %136 = add i32 %38, 2
+  %136 = add nsw i32 %38, 2
   %137 = load i32, ptr @hf_uma_urr_RAC, align 4
   %138 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %137, ptr noundef %0, i32 noundef %136, i32 noundef 1, i32 noundef 0) #3
-  %139 = add i32 %38, 3
+  %139 = add nsw i32 %38, 3
   %140 = load i32, ptr @hf_uma_urr_SGSNR, align 4
   %141 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %140, ptr noundef %0, i32 noundef %139, i32 noundef 1, i32 noundef 0) #3
   %142 = load i32, ptr @hf_uma_urr_ECMP, align 4
@@ -1316,7 +1316,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   %147 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %146, ptr noundef %0, i32 noundef %139, i32 noundef 1, i32 noundef 0) #3
   %148 = load i32, ptr @hf_uma_urr_3GECS, align 4
   %149 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %148, ptr noundef %0, i32 noundef %139, i32 noundef 1, i32 noundef 0) #3
-  %150 = add i32 %38, 4
+  %150 = add nsw i32 %38, 4
   %151 = load i32, ptr @hf_uma_access_control_class_n, align 4
   %152 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #3
   br label %.loopexit
@@ -1603,7 +1603,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
 327:                                              ; preds = %37
   %328 = load i32, ptr @hf_uma_urr_ap_service_name_type, align 4
   %329 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %328, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #3
-  %330 = add i32 %38, 1
+  %330 = add nsw i32 %38, 1
   %331 = load i32, ptr @hf_uma_urr_ap_Service_name_value, align 4
   %332 = zext nneg i16 %.0599 to i32
   %333 = add nsw i32 %332, -1
@@ -1613,11 +1613,11 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
 335:                                              ; preds = %37
   %336 = load i32, ptr @hf_uma_urr_uma_service_zone_icon_ind, align 4
   %337 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %336, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #3
-  %338 = add i32 %38, 1
+  %338 = add nsw i32 %38, 1
   %339 = load i32, ptr @hf_uma_urr_uma_service_zone_str_len, align 4
   %340 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %339, ptr noundef %0, i32 noundef %338, i32 noundef 1, i32 noundef 0) #3
   %341 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %338) #3
-  %342 = add i32 %38, 2
+  %342 = add nsw i32 %38, 2
   %343 = load i32, ptr @hf_uma_urr_uma_service_zone_str, align 4
   %344 = zext i8 %341 to i32
   %345 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %343, ptr noundef %0, i32 noundef %342, i32 noundef %344, i32 noundef 0) #3
@@ -1649,7 +1649,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %362, label %363, label %.loopexit
 
 363:                                              ; preds = %358
-  %364 = add i32 %38, 1
+  %364 = add nsw i32 %38, 1
   %365 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %364, i32 noundef 0, i32 noundef 1) #3
   %366 = load i32, ptr @hf_uma_urr_lac, align 4
   %367 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %366, ptr noundef %0, i32 noundef %365, i32 noundef 2, i32 noundef 0) #3
@@ -1678,9 +1678,9 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   %.1625 = phi i32 [ %383, %.lr.ph626 ], [ %38, %.preheader ]
   %381 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
   %382 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %381, ptr noundef %0, i32 noundef %.1625, i32 noundef 1, i32 noundef 0) #3
-  %383 = add i32 %.1625, 1
-  %.not610 = icmp sgt i32 %383, %44
-  br i1 %.not610, label %.loopexit, label %.lr.ph626, !llvm.loop !8
+  %383 = add nsw i32 %.1625, 1
+  %exitcond630 = icmp eq i32 %.1625, %44
+  br i1 %exitcond630, label %.loopexit, label %.lr.ph626, !llvm.loop !8
 
 384:                                              ; preds = %37
   %385 = load i32, ptr @hf_uma_urr_cbs, align 4
@@ -1690,7 +1690,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
 387:                                              ; preds = %37
   %388 = load i32, ptr @hf_uma_urr_num_of_cbs_frms, align 4
   %389 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %388, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #3
-  %390 = add i32 %38, 1
+  %390 = add nsw i32 %38, 1
   %391 = zext nneg i16 %.0599 to i32
   %392 = add nsw i32 %391, -1
   %393 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_uma_cbs_frames, ptr noundef %0, i32 noundef %390, i32 noundef %392) #3
@@ -1711,7 +1711,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %403, label %404, label %410
 
 404:                                              ; preds = %398
-  %405 = add i32 %38, 1
+  %405 = add nsw i32 %38, 1
   %406 = load i32, ptr @hf_uma_urr_ms_radio_id, align 4
   %407 = zext nneg i16 %.0599 to i32
   %408 = add nsw i32 %407, -1
@@ -1733,7 +1733,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
 418:                                              ; preds = %413
   %419 = icmp ugt i16 %.0599, 4
   %420 = zext i1 %419 to i32
-  %spec.select = add i32 %38, %420
+  %spec.select = add nsw i32 %38, %420
   %421 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %spec.select) #3
   store i32 %421, ptr @unc_ipv4_address, align 4
   %422 = load i32, ptr @hf_uma_urr_unc_ipv4, align 4
@@ -1764,7 +1764,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %437, label %.loopexit, label %438
 
 438:                                              ; preds = %433
-  %439 = add i32 %38, 1
+  %439 = add nsw i32 %38, 1
   %440 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %439) #3
   store i32 %440, ptr @GPRS_user_data_ipv4_address, align 4
   %441 = load i32, ptr @hf_uma_urr_GPRS_user_data_transport_ipv4, align 4
@@ -1859,10 +1859,10 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br label %499
 
 499:                                              ; preds = %487, %492
-  %.sink629 = phi i32 [ %494, %492 ], [ 2, %487 ]
+  %.sink631 = phi i32 [ %494, %492 ], [ 2, %487 ]
   %.sink = phi i32 [ %496, %492 ], [ 4, %487 ]
   %unc_ipv4_address.sink = phi ptr [ %498, %492 ], [ @unc_ipv4_address, %487 ]
-  store i32 %.sink629, ptr %9, align 8
+  store i32 %.sink631, ptr %9, align 8
   %500 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %.sink, ptr %500, align 4
   %501 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1933,17 +1933,17 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   %.3622 = phi i32 [ %544, %.lr.ph623 ], [ %38, %.preheader615 ]
   %542 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
   %543 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %542, ptr noundef %0, i32 noundef %.3622, i32 noundef 1, i32 noundef 0) #3
-  %544 = add i32 %.3622, 1
-  %.not605 = icmp sgt i32 %544, %42
-  br i1 %.not605, label %.loopexit, label %.lr.ph623, !llvm.loop !9
+  %544 = add nsw i32 %.3622, 1
+  %exitcond629 = icmp eq i32 %.3622, %42
+  br i1 %exitcond629, label %.loopexit, label %.lr.ph623, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader617, %.lr.ph
   %.4620 = phi i32 [ %547, %.lr.ph ], [ %38, %.preheader617 ]
   %545 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
   %546 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %545, ptr noundef %0, i32 noundef %.4620, i32 noundef 1, i32 noundef 0) #3
-  %547 = add i32 %.4620, 1
-  %.not604 = icmp sgt i32 %547, %40
-  br i1 %.not604, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  %547 = add nsw i32 %.4620, 1
+  %exitcond = icmp eq i32 %.4620, %40
+  br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 548:                                              ; preds = %37
   %549 = load i32, ptr @hf_uma_data, align 4
@@ -1953,7 +1953,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph623, %.lr.ph626, %.preheader617, %.preheader615, %.preheader, %520, %535, %499, %516, %510, %475, %483, %465, %452, %461, %443, %438, %433, %425, %431, %418, %413, %404, %410, %37, %358, %363, %310, %316, %211, %220, %186, %195, %105, %109, %100, %95, %75, %83, %57, %63, %548, %394, %387, %384, %374, %371, %368, %355, %351, %346, %335, %327, %324, %321, %318, %301, %298, %295, %292, %288, %285, %282, %279, %276, %272, %268, %265, %262, %259, %255, %252, %247, %244, %237, %234, %231, %228, %225, %222, %208, %205, %203, %200, %197, %183, %180, %177, %174, %171, %168, %165, %162, %159, %156, %153, %120, %117, %114, %111, %91, %72, %69, %66, %48, %45
   %552 = zext nneg i16 %.0599 to i32
-  %553 = add i32 %.0, %552
+  %553 = add nsw i32 %.0, %552
   ret i32 %553
 }
 

@@ -2021,7 +2021,7 @@ _ZL14escapeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %238 = load ptr, ptr %237, align 8
   %239 = load ptr, ptr %225, align 8
   %240 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.82, ptr noundef %240) #23
+  %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %209, ptr noundef nonnull @.str.82, ptr noundef %240) #23
   %.not.i.i30 = icmp eq ptr %238, %239
   br i1 %.not.i.i30, label %_ZL22serializeScriptSummaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaISA_EEP8_IO_FILE.exit.i, label %.lr.ph.i.i
 
@@ -2040,51 +2040,51 @@ _ZL14escapeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %249 = getelementptr inbounds %"class.Luau::CodeGen::FunctionBytecodeSummary", ptr %248, i64 %.017.i.i
   %250 = getelementptr inbounds i8, ptr %249, i64 68
   %251 = load i32, ptr %250, align 4
-  %252 = call i64 @fwrite(ptr nonnull @.str.84, i64 10, i64 1, ptr %209)
+  %252 = call i64 @fwrite(ptr nonnull @.str.84, i64 10, i64 1, ptr nonnull %209)
   %253 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %249) #23
-  %254 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.85, ptr noundef %253) #23
+  %254 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %209, ptr noundef nonnull @.str.85, ptr noundef %253) #23
   %255 = getelementptr inbounds i8, ptr %249, i64 32
   %256 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %255) #23
-  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.86, ptr noundef %256) #23
+  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %209, ptr noundef nonnull @.str.86, ptr noundef %256) #23
   %258 = getelementptr inbounds i8, ptr %249, i64 64
   %259 = load i32, ptr %258, align 8
-  %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.87, i32 noundef %259) #23
-  %261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.88, i32 noundef %251) #23
-  %262 = call i64 @fwrite(ptr nonnull @.str.89, i64 23, i64 1, ptr %209)
+  %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %209, ptr noundef nonnull @.str.87, i32 noundef %259) #23
+  %261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %209, ptr noundef nonnull @.str.88, i32 noundef %251) #23
+  %262 = call i64 @fwrite(ptr nonnull @.str.89, i64 23, i64 1, ptr nonnull %209)
   %263 = getelementptr inbounds i8, ptr %249, i64 72
   br label %264
 
 264:                                              ; preds = %283, %247
   %.03137.i.i.i = phi i32 [ 0, %247 ], [ %284, %283 ]
-  %265 = call i64 @fwrite(ptr nonnull @.str.90, i64 18, i64 1, ptr %209)
+  %265 = call i64 @fwrite(ptr nonnull @.str.90, i64 18, i64 1, ptr nonnull %209)
   %266 = zext i32 %.03137.i.i.i to i64
   %267 = load ptr, ptr %263, align 8
   %268 = getelementptr inbounds %"class.std::vector.20", ptr %267, i64 %266
   %269 = load ptr, ptr %268, align 8
   %270 = load i32, ptr %269, align 4
-  %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.91, i32 noundef %270) #23
+  %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %209, ptr noundef nonnull @.str.91, i32 noundef %270) #23
   br label %272
 
 272:                                              ; preds = %272, %264
   %indvars.iv.i16.i.i = phi i64 [ 0, %264 ], [ %indvars.iv.next.i.i.i, %272 ]
-  %273 = call i64 @fwrite(ptr nonnull @.str.92, i64 2, i64 1, ptr %209)
+  %273 = call i64 @fwrite(ptr nonnull @.str.92, i64 2, i64 1, ptr nonnull %209)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i16.i.i, 1
   %274 = load ptr, ptr %263, align 8
   %275 = getelementptr inbounds %"class.std::vector.20", ptr %274, i64 %266
   %276 = load ptr, ptr %275, align 8
   %277 = getelementptr inbounds i32, ptr %276, i64 %indvars.iv.next.i.i.i
   %278 = load i32, ptr %277, align 4
-  %279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.91, i32 noundef %278) #23
+  %279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %209, ptr noundef nonnull @.str.91, i32 noundef %278) #23
   %.not35.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 82
   br i1 %.not35.i.i.i, label %280, label %272
 
 280:                                              ; preds = %272
-  %fputc.i.i.i = call i32 @fputc(i32 93, ptr %209)
+  %fputc.i.i.i = call i32 @fputc(i32 93, ptr nonnull %209)
   %281 = icmp ult i32 %.03137.i.i.i, %251
   br i1 %281, label %282, label %283
 
 282:                                              ; preds = %280
-  %fputc34.i.i.i = call i32 @fputc(i32 44, ptr %209)
+  %fputc34.i.i.i = call i32 @fputc(i32 44, ptr nonnull %209)
   br label %283
 
 283:                                              ; preds = %282, %280
@@ -2093,17 +2093,17 @@ _ZL14escapeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   br i1 %.not.i15.i.i, label %285, label %264, !llvm.loop !11
 
 285:                                              ; preds = %283
-  %286 = call i64 @fwrite(ptr nonnull @.str.95, i64 14, i64 1, ptr %209)
-  %287 = call i64 @fwrite(ptr nonnull @.str.96, i64 10, i64 1, ptr %209)
+  %286 = call i64 @fwrite(ptr nonnull @.str.95, i64 14, i64 1, ptr nonnull %209)
+  %287 = call i64 @fwrite(ptr nonnull @.str.96, i64 10, i64 1, ptr nonnull %209)
   %288 = icmp eq i64 %.017.i.i, %246
   %289 = select i1 %288, ptr @.str.65, ptr @.str.80
-  %290 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull %289) #23
+  %290 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %209, ptr noundef nonnull %289) #23
   %291 = add nuw i64 %.017.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %291, %umax.i.i
   br i1 %exitcond.not.i.i, label %_ZL22serializeScriptSummaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaISA_EEP8_IO_FILE.exit.i, label %247, !llvm.loop !12
 
 _ZL22serializeScriptSummaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaISA_EEP8_IO_FILE.exit.i: ; preds = %285, %_ZL14escapeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i
-  %292 = call i64 @fwrite(ptr nonnull @.str.83, i64 5, i64 1, ptr %209)
+  %292 = call i64 @fwrite(ptr nonnull @.str.83, i64 5, i64 1, ptr nonnull %209)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %293 = icmp ult i64 %.021.i, %221

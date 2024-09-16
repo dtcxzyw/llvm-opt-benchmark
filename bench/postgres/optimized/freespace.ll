@@ -39,7 +39,7 @@ fsm_space_needed_to_cat.exit:                     ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fsm_search(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc i32 @fsm_search(ptr noundef %0, i8 noundef zeroext range(i8 1, 0) %1) unnamed_addr #0 {
   br label %.outer
 
 .outer:                                           ; preds = %60, %2
@@ -786,12 +786,12 @@ declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @FreeSpaceMapVacuum(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  %3 = call fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 2, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %2)
+  %3 = call fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 2, i32 noundef 0, i32 noundef -1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %.sroa.042.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
@@ -900,7 +900,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %51 = add nuw nsw i64 %41, %50
   %.sroa.22.0.insert.ext.i = shl i64 %51, 32
   %.sroa.01.0.insert.insert.i = or disjoint i64 %.sroa.22.0.insert.ext.i, %.sroa.01.0.insert.ext.i
-  %52 = call fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 %.sroa.01.0.insert.insert.i, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %6)
+  %52 = call fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 %.sroa.01.0.insert.insert.i, i32 noundef %2, i32 noundef %3, ptr noundef %6)
   %53 = zext i8 %52 to i32
   br label %54
 
@@ -943,7 +943,7 @@ define dso_local void @FreeSpaceMapVacuumRange(ptr noundef %0, i32 noundef %1, i
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = call fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 2, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4)
+  %7 = call fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 2, i32 noundef %1, i32 noundef %2, ptr noundef %4)
   br label %8
 
 8:                                                ; preds = %6, %3

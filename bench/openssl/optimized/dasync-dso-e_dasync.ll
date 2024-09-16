@@ -1428,7 +1428,7 @@ declare ptr @EVP_CIPHER_meth_get_do_cipher(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dasync_cipher_ctrl_helper(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr, i32 noundef %aeadcapable, ptr noundef %ciph) unnamed_addr #1 {
+define internal fastcc i32 @dasync_cipher_ctrl_helper(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr, i32 noundef range(i32 0, 2) %aeadcapable, ptr noundef %ciph) unnamed_addr #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   %cmp = icmp eq ptr %call, null

@@ -409,7 +409,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
           to label %122 unwind label %.loopexit.split-lp67.loopexit.split-lp
 
 122:                                              ; preds = %120
-  %123 = invoke fastcc noundef i32 @_ZL13get_electronsPP10t_electronPKc(ptr noundef nonnull %29, ptr noundef %121)
+  %123 = invoke fastcc noundef i32 @_ZL13get_electronsPP10t_electronPKc(ptr noundef %29, ptr noundef %121)
           to label %124 unwind label %.loopexit.split-lp67.loopexit.split-lp
 
 124:                                              ; preds = %122
@@ -428,7 +428,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   %135 = load ptr, ptr %31, align 8
   %136 = load i32, ptr %28, align 4
   %137 = load ptr, ptr %22, align 8
-  invoke fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t(ptr noundef %127, ptr noundef %91, ptr noundef %94, ptr noundef nonnull %25, ptr noundef %81, i32 noundef %129, i32 noundef %130, i32 noundef %131, ptr noundef nonnull %26, ptr noundef %132, i32 noundef %123, i1 noundef zeroext %134, ptr noundef %135, i32 noundef %136, ptr noundef %137)
+  invoke fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t(ptr noundef %127, ptr noundef %91, ptr noundef %94, ptr noundef %25, ptr noundef %81, i32 noundef %129, i32 noundef %130, i32 noundef %131, ptr noundef %26, ptr noundef %132, i32 noundef %123, i1 noundef zeroext %134, ptr noundef %135, i32 noundef %136, ptr noundef %137)
           to label %396 unwind label %.loopexit.split-lp67.loopexit.split-lp
 
 138:                                              ; preds = %116
@@ -1579,7 +1579,7 @@ declare void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef, ptr noundef, i32 
 declare noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL13get_electronsPP10t_electronPKc(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL13get_electronsPP10t_electronPKc(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca [256 x i8], align 16
   %5 = alloca [80 x i8], align 16
@@ -1750,7 +1750,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %15, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8, ptr noundef %9, i32 noundef %10, i1 noundef zeroext %11, ptr nocapture noundef readonly %12, i32 noundef %13, ptr noundef %14) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 2147483560) %6, i32 noundef %7, ptr nocapture noundef nonnull writeonly %8, ptr noundef %9, i32 noundef %10, i1 noundef zeroext %11, ptr nocapture noundef readonly %12, i32 noundef %13, ptr noundef %14) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca %"class.std::filesystem::__cxx11::path", align 8

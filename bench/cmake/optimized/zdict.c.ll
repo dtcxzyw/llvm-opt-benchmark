@@ -1602,7 +1602,7 @@ ZDICT_analyzePos.exit.i.i:                        ; preds = %._crit_edge345.i.i.
   %.sroa.0187.sroa.3.0.insert.shift.i.le.i.i = shl nuw i64 %286, 32
   %.sroa.0187.sroa.0.0.insert.ext.i.le.i.i = zext i32 %224 to i64
   %.sroa.0187.sroa.0.0.insert.insert.i.le.i.i = or disjoint i64 %.sroa.0187.sroa.3.0.insert.shift.i.le.i.i, %.sroa.0187.sroa.0.0.insert.ext.i.le.i.i
-  %336 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %31, i64 %.sroa.0187.sroa.0.0.insert.insert.i.le.i.i, i32 %312, i32 noundef 0, ptr noundef nonnull readonly %17)
+  %336 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %31, i64 %.sroa.0187.sroa.0.0.insert.insert.i.le.i.i, i32 %312, i32 noundef 0, ptr noundef readonly %17)
   %.not.i104.i.i = icmp eq i32 %336, 0
   br i1 %.not.i104.i.i, label %350, label %.preheader.i105.preheader.i.i
 
@@ -1612,7 +1612,7 @@ ZDICT_analyzePos.exit.i.i:                        ; preds = %._crit_edge345.i.i.
   %.sroa.0.0.copyload.i136.i.i = load i64, ptr %338, align 4
   %.sroa.2.0..sroa_idx.i137.i.i = getelementptr inbounds i8, ptr %338, i64 8
   %.sroa.2.0.copyload.i138.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i137.i.i, align 4
-  %339 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %31, i64 %.sroa.0.0.copyload.i136.i.i, i32 %.sroa.2.0.copyload.i138.i.i, i32 noundef %336, ptr noundef nonnull readonly %17)
+  %339 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %31, i64 %.sroa.0.0.copyload.i136.i.i, i32 %.sroa.2.0.copyload.i138.i.i, i32 noundef %336, ptr noundef readonly %17)
   %.not43.i139.i.i = icmp eq i32 %339, 0
   br i1 %.not43.i139.i.i, label %ZDICT_insertDictItem.exit.i.i, label %.preheader.i.i.i.i
 
@@ -1651,7 +1651,7 @@ ZDICT_removeDictItem.exit.i.i.i:                  ; preds = %._crit_edge.loopexi
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %348, align 4
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %348, i64 8
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
-  %349 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull %31, i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i, i32 noundef %340, ptr noundef nonnull readonly %17)
+  %349 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %31, i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i, i32 noundef %340, ptr noundef readonly %17)
   %.not43.i.i.i = icmp eq i32 %349, 0
   br i1 %.not43.i.i.i, label %ZDICT_insertDictItem.exit.i.i, label %.preheader.i.i.i.i
 
@@ -2137,7 +2137,7 @@ declare i64 @clock() local_unnamed_addr #10
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef %0, i64 %1, i32 %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #11 {
+define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef nonnull %0, i64 %1, i32 %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #11 {
   %.sroa.0102.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.0102.sroa.14.0.extract.shift = lshr i64 %1, 32
   %.sroa.0102.sroa.14.0.extract.trunc = trunc nuw i64 %.sroa.0102.sroa.14.0.extract.shift to i32

@@ -767,7 +767,7 @@ define hidden { i32, i32 } @_ZN14wasmtime_types11TypeConvert17convert_heap_type1
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h129c6985a7c2c29dE"(ptr noalias noundef align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h129c6985a7c2c29dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [39 x i8] }, align 8
   %4 = alloca { i8, [39 x i8] }, align 8
   %.sroa.5 = alloca [39 x i8], align 1
@@ -802,7 +802,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cr
   br label %14
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit": ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ab8591e8fdee786E.llvm.7808069312437652055.exit"
-  %12 = sub nuw i64 %5, %11
+  %12 = sub nuw nsw i64 %5, %11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !36
   store i8 %.sroa.0.0, ptr %3, align 8, !noalias !28
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds i8, ptr %3, i64 1
@@ -888,7 +888,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_e
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17he570f1d129c261d7E"(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17he570f1d129c261d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf737a7591577cb4E.exit":
   %2 = alloca { i32, [3 x i32] }, align 4
   %3 = add nuw nsw i64 %1, 1
@@ -915,7 +915,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cr
   %.sroa.6.0 = select i1 %12, i32 undef, i32 %9
   %.sroa.4.0 = select i1 %12, i32 undef, i32 %.sroa.5.0.i.i
   %.sroa.5.0 = select i1 %12, i32 undef, i32 %7
-  %13 = sub nuw i64 %3, %11
+  %13 = sub nuw nsw i64 %3, %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !67
   store i32 %5, ptr %2, align 4, !noalias !59
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
@@ -1173,7 +1173,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN16wasmtime_environ6module6Module18owned_memory_index17hd5ca4f71e9f99b77E(ptr noalias nocapture noundef readonly align 8 dereferenceable(464) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @_ZN16wasmtime_environ6module6Module18owned_memory_index17hd5ca4f71e9f99b77E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(464) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { ptr, ptr, {} }, i64 }, {} }, i64 }, i64 }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = zext i32 %1 to i64
@@ -2009,7 +2009,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$core..num..error..TryFromInt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !214, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -4217,7 +4217,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
   br i1 %77, label %79, label %78
 
 78:                                               ; preds = %75
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %40)
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E"(ptr noalias noundef align 8 dereferenceable(32) %40)
           to label %616 unwind label %69
 
 79:                                               ; preds = %75
@@ -5514,7 +5514,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
   %20 = alloca { { i64, ptr, {} }, i64 }, align 8
   %21 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
-  call fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15abi_load_params17h43b92902d0ca95eaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(160) %0)
+  call fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15abi_load_params17h43b92902d0ca95eaE(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, ptr noalias noundef align 8 dereferenceable(160) %0)
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = getelementptr inbounds i8, ptr %21, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !4
@@ -5839,7 +5839,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7808069312437652055.ex
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !640
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !640
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !640
-  %144 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %27, i32 noundef 0)
+  %144 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %27, i32 noundef 0)
           to label %145 unwind label %35
 
 145:                                              ; preds = %143
@@ -5916,7 +5916,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7808069312437652055.ex
   %176 = load i32, ptr %175, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   store i32 %176, ptr %18, align 4
-  invoke fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17abi_store_results17hab14b7115d27122bE(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 4 %18)
+  invoke fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17abi_store_results17hab14b7115d27122bE(ptr noalias noundef align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 4 %18)
           to label %180 unwind label %35
 
 .invoke:                                          ; preds = %172, %87, %60
@@ -6010,7 +6010,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
   %20 = alloca { { i64, ptr, {} }, i64 }, align 8
   %21 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
-  call fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15abi_load_params17h43b92902d0ca95eaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(160) %0)
+  call fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15abi_load_params17h43b92902d0ca95eaE(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, ptr noalias noundef align 8 dereferenceable(160) %0)
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = getelementptr inbounds i8, ptr %21, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !4
@@ -6336,7 +6336,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7808069312437652055.ex
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !691
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !691
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !691
-  %145 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %27, i32 noundef 1)
+  %145 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %27, i32 noundef 1)
           to label %146 unwind label %35
 
 146:                                              ; preds = %144
@@ -6413,7 +6413,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7808069312437652055.ex
   %177 = load i32, ptr %176, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   store i32 %177, ptr %18, align 4
-  invoke fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17abi_store_results17hab14b7115d27122bE(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 4 %18)
+  invoke fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17abi_store_results17hab14b7115d27122bE(ptr noalias noundef align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 4 %18)
           to label %181 unwind label %35
 
 .invoke:                                          ; preds = %173, %87, %60
@@ -6525,7 +6525,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
   %38 = alloca { { i64, ptr, {} }, i64 }, align 8
   %39 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
-  call fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15abi_load_params17h43b92902d0ca95eaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %39, ptr noalias noundef nonnull align 8 dereferenceable(160) %0)
+  call fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15abi_load_params17h43b92902d0ca95eaE(ptr noalias nocapture noundef align 8 dereferenceable(24) %39, ptr noalias noundef align 8 dereferenceable(160) %0)
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds i8, ptr %39, i64 16
@@ -6837,7 +6837,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7808069312437652055.ex
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28), !noalias !742
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !742
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !742
-  %155 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %45, i32 noundef 2)
+  %155 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %45, i32 noundef 2)
           to label %156 unwind label %62
 
 156:                                              ; preds = %154
@@ -7738,7 +7738,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
 69:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h38e2f19e70eaa98eE.exit"
   %70 = extractvalue { i32, i32 } %68, 0
   %71 = extractvalue { i32, i32 } %68, 1
-  %72 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %42, i32 noundef %71)
+  %72 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %42, i32 noundef %71)
           to label %73 unwind label %61
 
 73:                                               ; preds = %69
@@ -7953,7 +7953,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
@@ -8033,7 +8033,7 @@ define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15abi_load_params17h43b92902d0ca95eaE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(160) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15abi_load_params17h43b92902d0ca95eaE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -8170,7 +8170,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler9component18Trampol
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17abi_store_results17hab14b7115d27122bE(ptr noalias noundef align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 4 %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17abi_store_results17hab14b7115d27122bE(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 4 %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca i32, align 4
   %5 = alloca { ptr, i32, [1 x i32] }, align 8
@@ -10161,9 +10161,9 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
 672:                                              ; preds = %_ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a20302c52E.exit, %_ZN18wasmtime_cranelift8compiler9component4host14utf16_to_utf1617hfe573aff2ff72f7aE.exit, %_ZN18wasmtime_cranelift8compiler9component4host12utf8_to_utf817hf3e7ae9d675e4c64E.exit, %_ZN18wasmtime_cranelift8compiler9component4host13utf8_to_utf1617h3725c9585512870cE.exit, %_ZN18wasmtime_cranelift8compiler9component4host14utf8_to_latin117h5b3559f10fbaadeaE.exit, %_ZN18wasmtime_cranelift8compiler9component4host21utf8_to_compact_utf1617h2fc54adabbca857aE.exit, %_ZN18wasmtime_cranelift8compiler9component4host13utf16_to_utf817h2bf1a74eb49e6ce0E.exit, %_ZN18wasmtime_cranelift8compiler9component4host15utf16_to_latin117h5945aef5a94e6f62E.exit, %_ZN18wasmtime_cranelift8compiler9component4host22utf16_to_compact_utf1617h4b8c9971e869a5c7E.exit, %_ZN18wasmtime_cranelift8compiler9component4host31utf16_to_compact_probably_utf1617h5cddc7d4ebadf449E.exit, %_ZN18wasmtime_cranelift8compiler9component4host14latin1_to_utf817hec62e12e59fb8109E.exit, %_ZN18wasmtime_cranelift8compiler9component4host15latin1_to_utf1617h9ca6cbdc083054c3E.exit
   %.sroa.15.0 = phi i32 [ 11, %_ZN18wasmtime_cranelift8compiler9component4host13utf8_to_utf1617h3725c9585512870cE.exit ], [ 15, %_ZN18wasmtime_cranelift8compiler9component4host14utf8_to_latin117h5b3559f10fbaadeaE.exit ], [ 17, %_ZN18wasmtime_cranelift8compiler9component4host21utf8_to_compact_utf1617h2fc54adabbca857aE.exit ], [ 12, %_ZN18wasmtime_cranelift8compiler9component4host13utf16_to_utf817h2bf1a74eb49e6ce0E.exit ], [ 16, %_ZN18wasmtime_cranelift8compiler9component4host15utf16_to_latin117h5945aef5a94e6f62E.exit ], [ 18, %_ZN18wasmtime_cranelift8compiler9component4host22utf16_to_compact_utf1617h4b8c9971e869a5c7E.exit ], [ 14, %_ZN18wasmtime_cranelift8compiler9component4host31utf16_to_compact_probably_utf1617h5cddc7d4ebadf449E.exit ], [ 13, %_ZN18wasmtime_cranelift8compiler9component4host14latin1_to_utf817hec62e12e59fb8109E.exit ], [ 10, %_ZN18wasmtime_cranelift8compiler9component4host15latin1_to_utf1617h9ca6cbdc083054c3E.exit ], [ 9, %_ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a20302c52E.exit ], [ 8, %_ZN18wasmtime_cranelift8compiler9component4host14utf16_to_utf1617hfe573aff2ff72f7aE.exit ], [ 7, %_ZN18wasmtime_cranelift8compiler9component4host12utf8_to_utf817hf3e7ae9d675e4c64E.exit ]
   %.pn220 = phi i32 [ %566, %_ZN18wasmtime_cranelift8compiler9component4host13utf8_to_utf1617h3725c9585512870cE.exit ], [ %523, %_ZN18wasmtime_cranelift8compiler9component4host14utf8_to_latin117h5b3559f10fbaadeaE.exit ], [ %478, %_ZN18wasmtime_cranelift8compiler9component4host21utf8_to_compact_utf1617h2fc54adabbca857aE.exit ], [ %431, %_ZN18wasmtime_cranelift8compiler9component4host13utf16_to_utf817h2bf1a74eb49e6ce0E.exit ], [ %384, %_ZN18wasmtime_cranelift8compiler9component4host15utf16_to_latin117h5945aef5a94e6f62E.exit ], [ %339, %_ZN18wasmtime_cranelift8compiler9component4host22utf16_to_compact_utf1617h4b8c9971e869a5c7E.exit ], [ %292, %_ZN18wasmtime_cranelift8compiler9component4host31utf16_to_compact_probably_utf1617h5cddc7d4ebadf449E.exit ], [ %249, %_ZN18wasmtime_cranelift8compiler9component4host14latin1_to_utf817hec62e12e59fb8109E.exit ], [ %202, %_ZN18wasmtime_cranelift8compiler9component4host15latin1_to_utf1617h9ca6cbdc083054c3E.exit ], [ %671, %_ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a20302c52E.exit ], [ %636, %_ZN18wasmtime_cranelift8compiler9component4host14utf16_to_utf1617hfe573aff2ff72f7aE.exit ], [ %601, %_ZN18wasmtime_cranelift8compiler9component4host12utf8_to_utf817hf3e7ae9d675e4c64E.exit ]
-  %673 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %.sroa.15.0)
-  %674 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler24load_runtime_memory_base17h18180426473ceb3cE(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %2)
-  %675 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler24load_runtime_memory_base17h18180426473ceb3cE(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %4)
+  %673 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %.sroa.15.0)
+  %674 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler24load_runtime_memory_base17h18180426473ceb3cE(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %2)
+  %675 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler24load_runtime_memory_base17h18180426473ceb3cE(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %146)
   store i64 0, ptr %146, align 8
   %676 = getelementptr inbounds i8, ptr %146, i64 8
@@ -10189,7 +10189,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   ]
 
 679:                                              ; preds = %672, %672, %672, %672, %672, %672
-  %680 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 0, i1 noundef zeroext %3)
+  %680 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 0, i1 noundef zeroext %3)
           to label %.noexc unwind label %728
 
 .noexc:                                           ; preds = %679
@@ -10232,7 +10232,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
           to label %856 unwind label %728
 
 695:                                              ; preds = %672, %672
-  %696 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 0, i1 noundef zeroext %3)
+  %696 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 0, i1 noundef zeroext %3)
           to label %.noexc108 unwind label %728
 
 .noexc108:                                        ; preds = %695
@@ -10275,7 +10275,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
           to label %730 unwind label %728
 
 711:                                              ; preds = %672, %672
-  %712 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 0, i1 noundef zeroext %3)
+  %712 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 0, i1 noundef zeroext %3)
           to label %.noexc116 unwind label %728
 
 .noexc116:                                        ; preds = %711
@@ -10350,7 +10350,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %739 = load i64, ptr %677, align 8, !alias.scope !1134, !noundef !4
   %740 = add i64 %739, 1
   store i64 %740, ptr %677, align 8, !alias.scope !1134
-  %741 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 1, i1 noundef zeroext %3)
+  %741 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 1, i1 noundef zeroext %3)
           to label %742 unwind label %728
 
 742:                                              ; preds = %735
@@ -10375,7 +10375,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %751 = load i64, ptr %677, align 8, !alias.scope !1137, !noundef !4
   %752 = add i64 %751, 1
   store i64 %752, ptr %677, align 8, !alias.scope !1137
-  %753 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 2, i1 noundef zeroext %5)
+  %753 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 2, i1 noundef zeroext %5)
           to label %.noexc128 unwind label %728
 
 .noexc128:                                        ; preds = %747
@@ -10440,7 +10440,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %777 = load i64, ptr %677, align 8, !alias.scope !1149, !noundef !4
   %778 = add i64 %777, 1
   store i64 %778, ptr %677, align 8, !alias.scope !1149
-  %779 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 3, i1 noundef zeroext %5)
+  %779 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 3, i1 noundef zeroext %5)
           to label %780 unwind label %728
 
 780:                                              ; preds = %773
@@ -10491,7 +10491,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %798 = load i64, ptr %677, align 8, !alias.scope !1155, !noundef !4
   %799 = add i64 %798, 1
   store i64 %799, ptr %677, align 8, !alias.scope !1155
-  %800 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 1, i1 noundef zeroext %3)
+  %800 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 1, i1 noundef zeroext %3)
           to label %801 unwind label %728
 
 801:                                              ; preds = %794
@@ -10516,7 +10516,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %810 = load i64, ptr %677, align 8, !alias.scope !1158, !noundef !4
   %811 = add i64 %810, 1
   store i64 %811, ptr %677, align 8, !alias.scope !1158
-  %812 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 2, i1 noundef zeroext %5)
+  %812 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 2, i1 noundef zeroext %5)
           to label %.noexc148 unwind label %728
 
 .noexc148:                                        ; preds = %806
@@ -10581,7 +10581,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %836 = load i64, ptr %677, align 8, !alias.scope !1170, !noundef !4
   %837 = add i64 %836, 1
   store i64 %837, ptr %677, align 8, !alias.scope !1170
-  %838 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 3, i1 noundef zeroext %5)
+  %838 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 3, i1 noundef zeroext %5)
           to label %839 unwind label %728
 
 839:                                              ; preds = %832
@@ -10606,7 +10606,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %848 = load i64, ptr %677, align 8, !alias.scope !1173, !noundef !4
   %849 = add i64 %848, 1
   store i64 %849, ptr %677, align 8, !alias.scope !1173
-  %850 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 4, i1 noundef zeroext %5)
+  %850 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 4, i1 noundef zeroext %5)
           to label %851 unwind label %728
 
 851:                                              ; preds = %844
@@ -10646,7 +10646,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %865 = load i64, ptr %677, align 8, !alias.scope !1179, !noundef !4
   %866 = add i64 %865, 1
   store i64 %866, ptr %677, align 8, !alias.scope !1179
-  %867 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 1, i1 noundef zeroext %3)
+  %867 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 1, i1 noundef zeroext %3)
           to label %868 unwind label %728
 
 868:                                              ; preds = %861
@@ -10671,7 +10671,7 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   %877 = load i64, ptr %677, align 8, !alias.scope !1182, !noundef !4
   %878 = add i64 %877, 1
   store i64 %878, ptr %677, align 8, !alias.scope !1182
-  %879 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef 2, i1 noundef zeroext %5)
+  %879 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef 2, i1 noundef zeroext %5)
           to label %.noexc171 unwind label %728
 
 .noexc171:                                        ; preds = %873
@@ -11017,7 +11017,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit: ; 
 1016:                                             ; preds = %1014
   %1017 = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %1018 = load i32, ptr %1017, align 4, !noundef !4
-  %1019 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17cast_from_pointer17hef1c0d873d0b8787E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1018, i1 noundef zeroext %3)
+  %1019 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17cast_from_pointer17hef1c0d873d0b8787E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %1018, i1 noundef zeroext %3)
           to label %1022 unwind label %1020
 
 1020:                                             ; preds = %.invoke, %.noexc209, %.noexc208, %1057, %1056, %1044, %1026, %1045, %1035, %1016, %1012
@@ -11056,7 +11056,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit: ; 
   %1036 = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %1037 = getelementptr inbounds i8, ptr %1036, i64 4
   %1038 = load i32, ptr %1037, align 4, !noundef !4
-  %1039 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17cast_from_pointer17hef1c0d873d0b8787E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1038, i1 noundef zeroext %5)
+  %1039 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17cast_from_pointer17hef1c0d873d0b8787E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %1038, i1 noundef zeroext %5)
           to label %1040 unwind label %1020
 
 1040:                                             ; preds = %1035
@@ -11076,7 +11076,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit: ; 
 1045:                                             ; preds = %1015
   %1046 = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %1047 = load i32, ptr %1046, align 4, !noundef !4
-  %1048 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17cast_from_pointer17hef1c0d873d0b8787E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1047, i1 noundef zeroext %5)
+  %1048 = invoke fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17cast_from_pointer17hef1c0d873d0b8787E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %1047, i1 noundef zeroext %5)
           to label %1052 unwind label %1020
 
 .invoke:                                          ; preds = %1014, %1015, %1027
@@ -11219,7 +11219,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef align 8 dereferenceable(160) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler9len_param17h60a29fb35d5f77e8E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i64 noundef range(i64 0, 5) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11309,7 +11309,7 @@ _ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15cast_to_pointer1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17cast_from_pointer17hef1c0d873d0b8787E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler17cast_from_pointer17hef1c0d873d0b8787E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11381,7 +11381,7 @@ define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler24load_runtime_memory_base17h18180426473ceb3cE(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler24load_runtime_memory_base17h18180426473ceb3cE(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
@@ -11781,7 +11781,7 @@ define hidden noundef i32 @"_ZN18wasmtime_cranelift12func_environ15FuncEnvironme
 
 30:                                               ; preds = %19
   %31 = getelementptr inbounds i8, ptr %26, i64 544
-  %32 = tail call fastcc noundef align 8 dereferenceable(40) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h129c6985a7c2c29dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %31, i64 noundef %27)
+  %32 = tail call fastcc noundef align 8 dereferenceable(40) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h129c6985a7c2c29dE"(ptr noalias noundef align 8 dereferenceable(64) %31, i64 noundef %27)
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf0d12dd7fc6e29f1E.exit"
 
 33:                                               ; preds = %19
@@ -13702,7 +13702,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   br i1 %.not.i, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = tail call fastcc noundef align 4 dereferenceable(16) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17he570f1d129c261d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10, i64 noundef %15)
+  %146 = tail call fastcc noundef align 4 dereferenceable(16) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17he570f1d129c261d7E"(ptr noalias noundef align 8 dereferenceable(40) %10, i64 noundef %15)
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h8528cd010de83023E.exit"
 
 147:                                              ; preds = %143
@@ -13974,7 +13974,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes17had58630edef9c1e6E(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(520) %1, ptr noalias noundef align 8 dereferenceable(872) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes17had58630edef9c1e6E(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(520) %1, ptr noalias noundef nonnull align 8 dereferenceable(872) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 %6) unnamed_addr #4 personality ptr @rust_eh_personality {
   %8 = alloca {}, align 1
   %9 = alloca ptr, align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -14005,8 +14005,8 @@ define internal fastcc void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironm
   store i8 1, ptr %12, align 8
   %27 = call noundef i32 @_ZN17cranelift_codegen2ir8function15FunctionStencil19create_global_value17h766432427a6a7bcdE(ptr noalias noundef nonnull align 8 dereferenceable(776) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  %switch = icmp eq i32 %5, 0
-  br i1 %switch, label %82, label %28
+  %trunc = trunc nuw i32 %5 to i1
+  br i1 %trunc, label %28, label %82
 
 .split:                                           ; preds = %7
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %8)
@@ -14126,7 +14126,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment20add_field_to_memtype17h5
 
 75:                                               ; preds = %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment20add_field_to_memtype17h5f2cdaf8025ee22aE.exit.i
   %76 = getelementptr inbounds i8, ptr %71, i64 544
-  %77 = call fastcc noundef align 8 dereferenceable(40) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h129c6985a7c2c29dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %76, i64 noundef %72), !noalias !1840
+  %77 = call fastcc noundef align 8 dereferenceable(40) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h129c6985a7c2c29dE"(ptr noalias noundef align 8 dereferenceable(64) %76, i64 noundef %72), !noalias !1840
   br label %"_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes28_$u7b$$u7b$closure$u7d$$u7d$17hc7732e11a0f40283E.exit"
 
 78:                                               ; preds = %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment20add_field_to_memtype17h5f2cdaf8025ee22aE.exit.i
@@ -14147,10 +14147,11 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment20add_field_to_memtype17h5
   br label %82
 
 82:                                               ; preds = %.split4, %"_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes28_$u7b$$u7b$closure$u7d$$u7d$17hc7732e11a0f40283E.exit"
+  %.sroa.02.0 = phi i32 [ 1, %"_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes28_$u7b$$u7b$closure$u7d$$u7d$17hc7732e11a0f40283E.exit" ], [ 0, %.split4 ]
   %.sroa.3.0 = phi i32 [ %31, %"_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes28_$u7b$$u7b$closure$u7d$$u7d$17hc7732e11a0f40283E.exit" ], [ undef, %.split4 ]
   store i32 %27, ptr %0, align 4
   %83 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %5, ptr %83, align 4
+  store i32 %.sroa.02.0, ptr %83, align 4
   %84 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.3.0, ptr %84, align 4
   ret void
@@ -16900,7 +16901,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   %75 = load i32, ptr %49, align 8, !range !455, !noundef !4
   %76 = getelementptr inbounds i8, ptr %1, i64 76
   %77 = load i32, ptr %76, align 4
-  call fastcc void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes17had58630edef9c1e6E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(520) %1, ptr noalias noundef nonnull align 8 dereferenceable(872) %2, i32 noundef %.0.i122, i32 noundef %74, i32 noundef %75, i32 %77)
+  call fastcc void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes17had58630edef9c1e6E(ptr noalias nocapture noundef align 4 dereferenceable(12) %16, ptr noalias noundef readonly align 8 dereferenceable(520) %1, ptr noalias noundef align 8 dereferenceable(872) %2, i32 noundef %.0.i122, i32 noundef %74, i32 noundef %75, i32 %77)
   %78 = load i32, ptr %16, align 4, !noundef !4
   %79 = getelementptr inbounds i8, ptr %16, i64 4
   %80 = load i32, ptr %79, align 4, !range !455, !noundef !4
@@ -16912,7 +16913,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   br label %109
 
 85:                                               ; preds = %61
-  %86 = tail call fastcc noundef i32 @_ZN16wasmtime_environ6module6Module18owned_memory_index17hd5ca4f71e9f99b77E(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %56, i32 noundef %60)
+  %86 = tail call fastcc noundef i32 @_ZN16wasmtime_environ6module6Module18owned_memory_index17hd5ca4f71e9f99b77E(ptr noalias noundef readonly align 8 dereferenceable(464) %56, i32 noundef %60)
   %87 = getelementptr inbounds i8, ptr %1, i64 400
   %88 = load i32, ptr %87, align 8, !noundef !4
   %89 = icmp ult i32 %86, %88
@@ -17006,7 +17007,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   %131 = load i32, ptr %49, align 8, !range !455, !noundef !4
   %132 = getelementptr inbounds i8, ptr %1, i64 76
   %133 = load i32, ptr %132, align 4
-  call fastcc void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes17had58630edef9c1e6E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(520) %1, ptr noalias noundef nonnull align 8 dereferenceable(872) %2, i32 noundef %.0.i122, i32 noundef %130, i32 noundef %131, i32 %133)
+  call fastcc void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment26load_pointer_with_memtypes17had58630edef9c1e6E(ptr noalias nocapture noundef align 4 dereferenceable(12) %17, ptr noalias noundef readonly align 8 dereferenceable(520) %1, ptr noalias noundef align 8 dereferenceable(872) %2, i32 noundef %.0.i122, i32 noundef %130, i32 noundef %131, i32 %133)
   %134 = load i32, ptr %17, align 4, !noundef !4
   %135 = getelementptr inbounds i8, ptr %17, i64 4
   %136 = load i32, ptr %135, align 4, !range !455, !noundef !4
@@ -17569,7 +17570,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
 
 369:                                              ; preds = %356
   %370 = getelementptr inbounds i8, ptr %365, i64 544
-  %371 = call fastcc noundef align 8 dereferenceable(40) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h129c6985a7c2c29dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %370, i64 noundef %366)
+  %371 = call fastcc noundef align 8 dereferenceable(40) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h129c6985a7c2c29dE"(ptr noalias noundef align 8 dereferenceable(64) %370, i64 noundef %366)
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf0d12dd7fc6e29f1E.exit"
 
 372:                                              ; preds = %356
@@ -18476,7 +18477,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   ret void
 
 132:                                              ; preds = %81
-  %133 = call fastcc noundef i32 @_ZN16wasmtime_environ6module6Module18owned_memory_index17hd5ca4f71e9f99b77E(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %62, i32 noundef %66)
+  %133 = call fastcc noundef i32 @_ZN16wasmtime_environ6module6Module18owned_memory_index17hd5ca4f71e9f99b77E(ptr noalias noundef readonly align 8 dereferenceable(464) %62, i32 noundef %66)
   call void @llvm.experimental.noalias.scope.decl(metadata !2682)
   %134 = getelementptr inbounds i8, ptr %1, i64 400
   %135 = load i32, ptr %134, align 8, !alias.scope !2682, !noundef !4
@@ -20052,7 +20053,7 @@ define hidden void @_ZN18wasmtime_cranelift2gc7enabled25gc_ref_global_set_builti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef align 8 dereferenceable(520) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef nonnull align 8 dereferenceable(520) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { {} }, align 1
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { ptr, i32, [1 x i32] }, align 8
@@ -20384,7 +20385,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit5:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21gc_ref_is_null_or_i3117h52fa7cd176e5253aE"(ptr %.336.val, ptr %.344.val, ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21gc_ref_is_null_or_i3117h52fa7cd176e5253aE"(ptr %.336.val, ptr %.344.val, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca [0 x { ptr, ptr }], align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { ptr, i32, [1 x i32] }, align 8
@@ -20600,12 +20601,12 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit6:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18wasmtime_cranelift2gc7enabled11DrcCompiler16mutate_ref_count17h0dbecf6dbfab6525E(ptr noalias noundef align 8 dereferenceable(520) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18wasmtime_cranelift2gc7enabled11DrcCompiler16mutate_ref_count17h0dbecf6dbfab6525E(ptr noalias noundef nonnull align 8 dereferenceable(520) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { ptr, i32, [1 x i32] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = tail call noundef i32 @_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E(i16 noundef 121), !noalias !3199
-  %8 = tail call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef nonnull align 8 dereferenceable(520) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %7)
+  %8 = tail call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef align 8 dereferenceable(520) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %7)
   %9 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
@@ -20631,7 +20632,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift2gc7enabled11DrcCompiler16mu
   %24 = extractvalue { ptr, i32 } %22, 1
   %25 = tail call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder8iadd_imm17h483975dfab6e31c0E(ptr noalias noundef align 8 dereferenceable(24) %23, i32 noundef %24, i32 noundef %21, i64 noundef 1)
   %26 = tail call noundef i32 @_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E(i16 noundef 121), !noalias !3210
-  %27 = tail call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef nonnull align 8 dereferenceable(520) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %26)
+  %27 = tail call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef align 8 dereferenceable(520) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %26)
   %28 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = extractvalue { ptr, i32 } %28, 1
@@ -20857,7 +20858,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %38)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %38, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
-  %115 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21gc_ref_is_null_or_i3117h52fa7cd176e5253aE"(ptr nonnull %45, ptr nonnull %47, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %38, i32 noundef %113)
+  %115 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21gc_ref_is_null_or_i3117h52fa7cd176e5253aE"(ptr nonnull %45, ptr nonnull %47, ptr noalias noundef align 8 dereferenceable(24) %3, ptr noalias nocapture noundef align 4 dereferenceable(12) %38, i32 noundef %113)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %38)
   %116 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %117 = extractvalue { ptr, i32 } %116, 0
@@ -21064,7 +21065,7 @@ _ZN18wasmtime_cranelift2gc7enabled11DrcCompiler16load_bump_region17hb9293f95affe
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder15switch_to_block17h0ad797f5d6836863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %107)
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder10seal_block17hc7ce5644f1852b67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %107)
-  call fastcc void @_ZN18wasmtime_cranelift2gc7enabled11DrcCompiler16mutate_ref_count17h0dbecf6dbfab6525E(ptr noalias noundef nonnull align 8 dereferenceable(520) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %113)
+  call fastcc void @_ZN18wasmtime_cranelift2gc7enabled11DrcCompiler16mutate_ref_count17h0dbecf6dbfab6525E(ptr noalias noundef align 8 dereferenceable(520) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %113)
   %230 = call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %231 = extractvalue { ptr, i32 } %230, 0
   %232 = extractvalue { ptr, i32 } %230, 1
@@ -21453,7 +21454,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %39, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
-  %129 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21gc_ref_is_null_or_i3117h52fa7cd176e5253aE"(ptr nonnull %46, ptr nonnull %48, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %39, i32 noundef %6)
+  %129 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21gc_ref_is_null_or_i3117h52fa7cd176e5253aE"(ptr nonnull %46, ptr nonnull %48, ptr noalias noundef align 8 dereferenceable(24) %3, ptr noalias nocapture noundef align 4 dereferenceable(12) %39, i32 noundef %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %39)
   %130 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %131 = extractvalue { ptr, i32 } %130, 0
@@ -21485,7 +21486,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder15switch_to_block17h0ad797f5d6836863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %117)
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder10seal_block17hc7ce5644f1852b67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %117)
-  call fastcc void @_ZN18wasmtime_cranelift2gc7enabled11DrcCompiler16mutate_ref_count17h0dbecf6dbfab6525E(ptr noalias noundef nonnull align 8 dereferenceable(520) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %6)
+  call fastcc void @_ZN18wasmtime_cranelift2gc7enabled11DrcCompiler16mutate_ref_count17h0dbecf6dbfab6525E(ptr noalias noundef align 8 dereferenceable(520) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %6)
   %146 = call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %147 = extractvalue { ptr, i32 } %146, 0
   %148 = extractvalue { ptr, i32 } %146, 1
@@ -21532,7 +21533,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %37, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %.val = load ptr, ptr %45, align 8
   %.val28 = load ptr, ptr %47, align 8
-  %162 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21gc_ref_is_null_or_i3117h52fa7cd176e5253aE"(ptr %.val, ptr %.val28, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %37, i32 noundef %127)
+  %162 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21gc_ref_is_null_or_i3117h52fa7cd176e5253aE"(ptr %.val, ptr %.val28, ptr noalias noundef align 8 dereferenceable(24) %3, ptr noalias nocapture noundef align 4 dereferenceable(12) %37, i32 noundef %127)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %37)
   %163 = call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %164 = extractvalue { ptr, i32 } %163, 0
@@ -21565,7 +21566,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder15switch_to_block17h0ad797f5d6836863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %119)
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder10seal_block17hc7ce5644f1852b67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %119)
   %179 = call noundef i32 @_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E(i16 noundef 121), !noalias !3421
-  %180 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef nonnull align 8 dereferenceable(520) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %127, i32 noundef %179)
+  %180 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef align 8 dereferenceable(520) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %127, i32 noundef %179)
   %181 = call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %182 = extractvalue { ptr, i32 } %181, 0
   %183 = extractvalue { ptr, i32 } %181, 1
@@ -21709,7 +21710,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder15switch_to_block17h0ad797f5d6836863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %121)
   call void @_ZN18cranelift_frontend8frontend15FunctionBuilder10seal_block17hc7ce5644f1852b67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %121)
   %263 = call noundef i32 @_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E(i16 noundef 121), !noalias !3471
-  %264 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef nonnull align 8 dereferenceable(520) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %127, i32 noundef %263)
+  %264 = call fastcc noundef i32 @"_ZN18wasmtime_cranelift2gc7enabled67_$LT$impl$u20$wasmtime_cranelift..func_environ..FuncEnvironment$GT$21prepare_gc_ref_access17he2d7bfe2827b30a8E"(ptr noalias noundef align 8 dereferenceable(520) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %127, i32 noundef %263)
   %265 = call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %266 = extractvalue { ptr, i32 } %265, 0
   %267 = extractvalue { ptr, i32 } %265, 1
@@ -23141,7 +23142,7 @@ define hidden range(i48 8257536, 68719476736) i48 @_ZN18wasmtime_cranelift25Buil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %0) unnamed_addr #4 {
+define internal fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %0) unnamed_addr #4 {
   %2 = alloca { { i32, [1 x i32] }, i16, i8, [1 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
   call void @_ZN17cranelift_codegen2ir7extfunc8AbiParam3new17h841398fc81d42101E(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 dereferenceable(12) %2, i16 noundef 120)
@@ -23617,12 +23618,12 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7808069312437652055.ex
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit203: ; preds = %253
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %21)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %21)
           to label %257 unwind label %255
 
 257:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit203
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %20)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %20)
           to label %258 unwind label %255
 
 258:                                              ; preds = %257
@@ -23634,7 +23635,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures9reference17hd6ba4d73a4f28725E.exit: ; preds = %258
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %18)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %18)
           to label %260 unwind label %255
 
 260:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures9reference17hd6ba4d73a4f28725E.exit
@@ -23690,12 +23691,12 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures9reference17hd6ba4d73a4f28725E
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit202: ; preds = %250
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %26)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %26)
           to label %275 unwind label %273
 
 275:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit202
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %25)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %25)
           to label %276 unwind label %273
 
 276:                                              ; preds = %275
@@ -23737,7 +23738,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures9reference17hd6ba4d73a4f28725E
 
 287:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures9reference17hd6ba4d73a4f28725E.exit204
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %23)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %23)
           to label %290 unwind label %288
 
 288:                                              ; preds = %287
@@ -23771,7 +23772,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures9reference17hd6ba4d73a4f28725E
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit201: ; preds = %245
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %30)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %30)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %30)
           to label %297 unwind label %295
 
 297:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit201
@@ -23815,7 +23816,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures9reference17hd6ba4d73a4f28725E
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit200: ; preds = %240
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %33)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %33)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %33)
           to label %307 unwind label %305
 
 307:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit200
@@ -24060,7 +24061,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit195: ; preds = %215
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %50)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %50)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %50)
           to label %373 unwind label %371
 
 373:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit195
@@ -24113,7 +24114,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit2
 
 384:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit211
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %46)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %46)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %46)
           to label %387 unwind label %385
 
 385:                                              ; preds = %384
@@ -24147,7 +24148,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit2
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit194: ; preds = %210
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %57)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %57)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %57)
           to label %394 unwind label %392
 
 394:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit194
@@ -24157,7 +24158,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit212: ; preds = %394
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %55)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %55)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %55)
           to label %395 unwind label %392
 
 395:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit212
@@ -24200,7 +24201,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit2
 
 406:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit213
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %53)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %53)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %53)
           to label %409 unwind label %407
 
 407:                                              ; preds = %406
@@ -24234,7 +24235,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit2
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit193: ; preds = %205
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %63)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %63)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %63)
           to label %416 unwind label %414
 
 416:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit193
@@ -24244,7 +24245,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit214: ; preds = %416
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %61)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %61)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %61)
           to label %417 unwind label %414
 
 417:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit214
@@ -24279,7 +24280,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit2
 
 427:                                              ; preds = %417
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %60)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %60)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %60)
           to label %430 unwind label %428
 
 428:                                              ; preds = %427
@@ -24313,12 +24314,12 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit2
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit192: ; preds = %200
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %69)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %69)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %69)
           to label %437 unwind label %435
 
 437:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit192
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %68)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %68)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %68)
           to label %438 unwind label %435
 
 438:                                              ; preds = %437
@@ -24328,7 +24329,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures7pointer17hbac43e3715066995E.exit215: ; preds = %438
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %66)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %66)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %66)
           to label %439 unwind label %435
 
 439:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures7pointer17hbac43e3715066995E.exit215
@@ -24371,12 +24372,12 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures7pointer17hbac43e3715066995E.e
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit191: ; preds = %195
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %74)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %74)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %74)
           to label %450 unwind label %448
 
 450:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit191
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %73)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %73)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %73)
           to label %451 unwind label %448
 
 451:                                              ; preds = %450
@@ -24416,7 +24417,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures7pointer17hbac43e3715066995E.e
 
 461:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures7pointer17hbac43e3715066995E.exit216
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %71)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %71)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %71)
           to label %464 unwind label %462
 
 462:                                              ; preds = %461
@@ -24450,12 +24451,12 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures7pointer17hbac43e3715066995E.e
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit190: ; preds = %190
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %79)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %79)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %79)
           to label %471 unwind label %469
 
 471:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit190
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %78)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %78)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %78)
           to label %472 unwind label %469
 
 472:                                              ; preds = %471
@@ -24521,7 +24522,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit189: ; preds = %185
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %82)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %82)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %82)
           to label %491 unwind label %489
 
 491:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit189
@@ -24555,7 +24556,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit188: ; preds = %180
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %85)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %85)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %85)
           to label %499 unwind label %497
 
 499:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit188
@@ -24618,12 +24619,12 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit187: ; preds = %175
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %92)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %92)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %92)
           to label %517 unwind label %515
 
 517:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit187
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %91)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %91)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %91)
           to label %518 unwind label %515
 
 518:                                              ; preds = %517
@@ -24633,12 +24634,12 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit219: ; preds = %518
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %89)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %89)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %89)
           to label %519 unwind label %515
 
 519:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit219
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %88)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %88)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %88)
           to label %520 unwind label %515
 
 520:                                              ; preds = %519
@@ -24684,7 +24685,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit2
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit186: ; preds = %170
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %97)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %97)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %97)
           to label %532 unwind label %530
 
 532:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exit186
@@ -24694,7 +24695,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures5vmctx17h1b6c85d717adfaa5E.exi
 
 _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit220: ; preds = %532
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %95)
-  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %95)
+  invoke fastcc void @_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i3217hb87005b76885bc0eE(ptr noalias nocapture noundef align 4 dereferenceable(12) %95)
           to label %533 unwind label %530
 
 533:                                              ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3i6417h896b17f8cf64162dE.exit220

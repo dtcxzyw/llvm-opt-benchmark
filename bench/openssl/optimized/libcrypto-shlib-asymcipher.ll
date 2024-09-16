@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_asym_cipher_init(ptr noundef %ctx, i32 noundef %operation, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_asym_cipher_init(ptr noundef %ctx, i32 noundef range(i32 512, 1025) %operation, ptr noundef %params) unnamed_addr #0 {
 entry:
   %tmp_keymgmt = alloca ptr, align 8
   store ptr null, ptr %tmp_keymgmt, align 8

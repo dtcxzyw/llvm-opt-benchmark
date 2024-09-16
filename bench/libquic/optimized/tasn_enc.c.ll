@@ -13,7 +13,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_item_flags_i2d(ptr noundef %val, ptr noundef %out, ptr noundef %it, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @asn1_item_flags_i2d(ptr noundef %val, ptr noundef %out, ptr noundef %it, i32 noundef range(i32 0, 2049) %flags) unnamed_addr #0 {
 entry:
   %val.addr = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -448,7 +448,7 @@ for.body.i:                                       ; preds = %for.cond.i.preheade
   %i.0.i99 = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.i.preheader ]
   %call17.i = call ptr @sk_value(ptr noundef nonnull %4, i64 noundef %i.0.i99) #11
   store ptr %call17.i, ptr %skitem.i, align 8
-  %call18.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef %out, ptr noundef %6, i32 noundef -1, i32 noundef %and14)
+  %call18.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %out, ptr noundef %6, i32 noundef -1, i32 noundef %and14)
   %inc.i = add nuw i64 %i.0.i99, 1
   %call14.i = call i64 @sk_num(ptr noundef nonnull %4) #11
   %cmp15.i = icmp ult i64 %inc.i, %call14.i

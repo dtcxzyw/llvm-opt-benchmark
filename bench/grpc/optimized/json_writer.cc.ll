@@ -366,7 +366,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter15ContainerBeginsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %type) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter15ContainerBeginsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef range(i32 4, 6) %type) unnamed_addr #0 align 2 {
 entry:
   %got_key_ = getelementptr inbounds i8, ptr %this, i64 9
   %0 = load i8, ptr %got_key_, align 1
@@ -406,7 +406,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit: ; preds = %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter13ContainerEndsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %type) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter13ContainerEndsENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef range(i32 4, 6) %type) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %tobool.not = icmp eq i32 %0, 0

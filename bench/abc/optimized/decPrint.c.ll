@@ -132,7 +132,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 {
+define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 {
   %7 = load i32, ptr %2, align 8
   %8 = lshr i32 %7, 1
   %9 = and i32 %8, 1073741823

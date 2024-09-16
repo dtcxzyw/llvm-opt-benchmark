@@ -671,7 +671,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
   br i1 %.not356, label %110, label %109
 
 109:                                              ; preds = %106
-  call fastcc void @_ZL14yy_stack_printPhS_(ptr noundef %.0281, ptr noundef nonnull %.0284)
+  call fastcc void @_ZL14yy_stack_printPhS_(ptr noundef %.0281, ptr noundef %.0284)
   br label %110
 
 110:                                              ; preds = %106, %109
@@ -7002,7 +7002,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007: ; preds =
   br i1 %.not394, label %2904, label %2903
 
 2903:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007
-  call fastcc void @_ZL14yy_stack_printPhS_(ptr noundef %.1282, ptr noundef nonnull %2901)
+  call fastcc void @_ZL14yy_stack_printPhS_(ptr noundef %.1282, ptr noundef %2901)
   %.pre2439 = load i32, ptr @rtlil_frontend_yydebug, align 4
   br label %2904
 
@@ -7122,7 +7122,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1017: ; preds =
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL14yy_stack_printPhS_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #6 {
+define internal fastcc void @_ZL14yy_stack_printPhS_(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #6 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 9, i64 1, ptr %3) #26
   %.not4 = icmp ugt ptr %0, %1
@@ -7156,7 +7156,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare noundef i32 @_Z20rtlil_frontend_yylexv() local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPhP22RTLIL_FRONTEND_YYSTYPEi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc void @_ZL15yy_reduce_printPhP22RTLIL_FRONTEND_YYSTYPEi(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -128, 32769) %1) unnamed_addr #6 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [98 x i16], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2

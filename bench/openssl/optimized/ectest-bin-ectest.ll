@@ -7395,7 +7395,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb3
 declare i32 @EC_GROUP_get_asn1_flag(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ec_point_hex2point_test_helper(ptr noundef %group, ptr noundef %P, i32 noundef %form, ptr noundef %bnctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ec_point_hex2point_test_helper(ptr noundef %group, ptr noundef %P, i32 noundef range(i32 2, 7) %form, ptr noundef %bnctx) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %P, null
   br i1 %cmp, label %if.then, label %if.end7
@@ -7469,7 +7469,7 @@ declare i32 @EC_GROUP_order_bits(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_clear_bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_test_custom_explicit_fromdata(ptr noundef %group, ptr noundef %ctx, ptr noundef %gen, i32 noundef %gen_size) unnamed_addr #0 {
+define internal fastcc i32 @do_test_custom_explicit_fromdata(ptr noundef %group, ptr noundef %ctx, ptr noundef %gen, i32 noundef range(i32 -536870909, 536870912) %gen_size) unnamed_addr #0 {
 entry:
   %i_out = alloca i32, align 4
   %pkeyparam = alloca ptr, align 8

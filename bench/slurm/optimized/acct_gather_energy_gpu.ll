@@ -1555,7 +1555,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_add_energy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @_add_energy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65535) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -2

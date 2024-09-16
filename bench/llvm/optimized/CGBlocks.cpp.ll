@@ -5584,15 +5584,15 @@ define internal fastcc noundef ptr @_ZL20buildBlockDescriptorRN5clang7CodeGen13C
   br i1 %132, label %133, label %134
 
 133:                                              ; preds = %125
-  call fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(56) %.047.i, i32 noundef 2, i64 %.sroa.04.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(3600) %0)
+  call fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(56) %.047.i, i32 noundef 2, i64 %.sroa.04.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(3600) %0)
   br label %.sink.split.i
 
 134:                                              ; preds = %125
-  call fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(56) %.047.i, i32 noundef 0, i64 %.sroa.04.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(3600) %0)
+  call fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(56) %.047.i, i32 noundef 0, i64 %.sroa.04.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(3600) %0)
   %135 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %18) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #24
   %.sroa.02.0.copyload.i = load i64, ptr %98, align 8, !noalias !138
-  call fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(56) %.047.i, i32 noundef 1, i64 %.sroa.02.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(3600) %0)
+  call fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(56) %.047.i, i32 noundef 1, i64 %.sroa.02.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(3600) %0)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %134, %133
@@ -8612,7 +8612,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction26GenerateCopyHe
   %.sroa.065.0.copyload = load i64, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %36 = load ptr, ptr %35, align 8
-  call fastcc void @_ZL28getCopyDestroyHelperFuncNameB5cxx11RKN4llvm15SmallVectorImplIN5clang7CodeGen11CGBlockInfo7CaptureEEENS1_9CharUnitsEN12_GLOBAL__N_114CaptureStrKindERNS2_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 %.sroa.065.0.copyload, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(3600) %36)
+  call fastcc void @_ZL28getCopyDestroyHelperFuncNameB5cxx11RKN4llvm15SmallVectorImplIN5clang7CodeGen11CGBlockInfo7CaptureEEENS1_9CharUnitsEN12_GLOBAL__N_114CaptureStrKindERNS2_13CodeGenModuleE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 %.sroa.065.0.copyload, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(3600) %36)
   %37 = load ptr, ptr %35, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 200
   %39 = load ptr, ptr %38, align 8
@@ -9465,7 +9465,7 @@ _ZN5clang7CodeGen15FunctionArgListD2Ev.exit:      ; preds = %470, %_ZN4llvm11Sma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28getCopyDestroyHelperFuncNameB5cxx11RKN4llvm15SmallVectorImplIN5clang7CodeGen11CGBlockInfo7CaptureEEENS1_9CharUnitsEN12_GLOBAL__N_114CaptureStrKindERNS2_13CodeGenModuleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3600) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL28getCopyDestroyHelperFuncNameB5cxx11RKN4llvm15SmallVectorImplIN5clang7CodeGen11CGBlockInfo7CaptureEEENS1_9CharUnitsEN12_GLOBAL__N_114CaptureStrKindERNS2_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3600) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -9571,7 +9571,7 @@ define internal fastcc void @_ZL28getCopyDestroyHelperFuncNameB5cxx11RKN4llvm15S
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
-  call fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(56) %.021, i32 noundef %3, i64 %2, ptr noundef nonnull align 8 dereferenceable(3600) %4)
+  call fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(56) %.021, i32 noundef %3, i64 %2, ptr noundef nonnull align 8 dereferenceable(3600) %4)
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   br label %63
@@ -9874,7 +9874,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction29GenerateDestro
   %.sroa.037.0.copyload = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load ptr, ptr %16, align 8
-  call fastcc void @_ZL28getCopyDestroyHelperFuncNameB5cxx11RKN4llvm15SmallVectorImplIN5clang7CodeGen11CGBlockInfo7CaptureEEENS1_9CharUnitsEN12_GLOBAL__N_114CaptureStrKindERNS2_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 %.sroa.037.0.copyload, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(3600) %17)
+  call fastcc void @_ZL28getCopyDestroyHelperFuncNameB5cxx11RKN4llvm15SmallVectorImplIN5clang7CodeGen11CGBlockInfo7CaptureEEENS1_9CharUnitsEN12_GLOBAL__N_114CaptureStrKindERNS2_13CodeGenModuleE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 %.sroa.037.0.copyload, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(3600) %17)
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 200
   %20 = load ptr, ptr %19, align 8
@@ -14646,7 +14646,7 @@ _ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_116BlockLayoutChunkES2_S2_N9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #14 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 329406144173384849) %3) unnamed_addr #14 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -15013,7 +15013,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i32 noundef %2, i64 %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3600) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL18getBlockCaptureStrB5cxx11RKN5clang7CodeGen11CGBlockInfo7CaptureEN12_GLOBAL__N_114CaptureStrKindENS_9CharUnitsERNS0_13CodeGenModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i32 noundef range(i32 0, 3) %2, i64 %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3600) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
   %8 = alloca %"class.llvm::SmallString", align 8

@@ -1011,7 +1011,7 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %25, %21, %19, %17, %13
   %.sroa.0.0.i9 = phi ptr [ %26, %25 ], [ %23, %21 ], [ null, %13 ], [ null, %17 ], [ %18, %19 ]
   %.sroa.6.0.i = phi i64 [ %28, %25 ], [ %24, %21 ], [ 0, %13 ], [ 0, %17 ], [ %20, %19 ]
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %8, ptr %.sroa.0.0.i9, i64 %.sroa.6.0.i)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %8, ptr %.sroa.0.0.i9, i64 %.sroa.6.0.i)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i8, ptr %29, align 8
   %31 = or i8 %30, 1
@@ -1072,7 +1072,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
 declare void @_ZN4llvm12MemoryBuffer14getFileOrSTDINERKNS_5TwineEbbSt8optionalINS_5AlignEE(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr") align 8, ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext, i1 noundef zeroext, i16) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef %1, ptr %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull %1, ptr %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1303,7 +1303,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm7memprof16R
   %75 = call { ptr, i64 } %74(ptr noundef nonnull align 8 dereferenceable(24) %71) #20
   %76 = extractvalue { ptr, i64 } %75, 0
   %77 = extractvalue { ptr, i64 } %75, 1
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %13, ptr %76, i64 %77)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %13, ptr %76, i64 %77)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i8, ptr %78, align 8
   %80 = or i8 %79, 1
@@ -1364,7 +1364,7 @@ _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %.lr.ph, %90
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %101, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %99, ptr %100) #20, !noalias !55
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !52
   store ptr %101, ptr %18, align 8, !alias.scope !52
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull %18, ptr nonnull @.str.2, i64 0)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %18, ptr nonnull @.str.2, i64 0)
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load i8, ptr %104, align 8
   %106 = or i8 %105, 1
@@ -1424,7 +1424,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %128 = inttoptr i64 %127 to ptr
   store ptr null, ptr %19, align 8, !noalias !62
   store ptr %128, ptr %21, align 8, !alias.scope !62
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull %21, ptr %2, i64 %3)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef %21, ptr %2, i64 %3)
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %130 = load i8, ptr %129, align 8
   %131 = or i8 %130, 1
@@ -1789,7 +1789,7 @@ _ZN4llvm7memprof12_GLOBAL__N_118readSegmentEntriesEPKc.exit: ; preds = %_ZN4llvm
 
 .lr.ph:                                           ; preds = %_ZN4llvm7memprof12_GLOBAL__N_118readSegmentEntriesEPKc.exit, %_ZN4llvm9SetVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EENS_8SmallSetIS6_Lj10ESt4lessIS6_EEELj0EE6insertERKS6_.exit
   %.01528 = phi ptr [ %151, %_ZN4llvm9SetVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EENS_8SmallSetIS6_Lj10ESt4lessIS6_EEELj0EE6insertERKS6_.exit ], [ %115, %_ZN4llvm7memprof12_GLOBAL__N_118readSegmentEntriesEPKc.exit ]
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_116getBuildIdStringB5cxx11ERKNS0_12SegmentEntryE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(64) %.01528)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_116getBuildIdStringB5cxx11ERKNS0_12SegmentEntryE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(64) %.01528)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj10ESt4lessIS6_EE6insertERKS6_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.401") align 8 %5, ptr noundef nonnull align 8 dereferenceable(384) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %118 = load i8, ptr %21, align 8
@@ -2011,7 +2011,7 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader10initializeESt10unique
   %39 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21, !noalias !85
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %39, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %37, ptr %38) #20, !noalias !85
   store ptr %39, ptr %5, align 8, !alias.scope !82
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %5, ptr %27, i64 %28)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %5, ptr %27, i64 %28)
   %40 = load ptr, ptr %5, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit.sink.split
@@ -2037,7 +2037,7 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader10initializeESt10unique
   %53 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21, !noalias !91
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %53, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 %51, ptr %52) #20, !noalias !91
   store ptr %53, ptr %8, align 8, !alias.scope !88
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %8, ptr %27, i64 %28)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %8, ptr %27, i64 %28)
   %54 = load ptr, ptr %8, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZN4llvm5ErrorD2Ev.exit55, label %56
@@ -2096,7 +2096,7 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader10initializeESt10unique
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %77, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 %75, ptr %76) #20, !noalias !97
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !94
   store ptr %77, ptr %10, align 8, !alias.scope !94
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %10, ptr %27, i64 %28)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %10, ptr %27, i64 %28)
   %80 = load ptr, ptr %10, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %_ZN4llvm5ErrorD2Ev.exit55, label %82
@@ -2149,7 +2149,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %._crit_edge
   %102 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21, !noalias !108
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %102, ptr noundef nonnull align 8 dereferenceable(34) %13, i32 %100, ptr %101) #20, !noalias !108
   store ptr %102, ptr %12, align 8, !alias.scope !105
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %12, ptr %27, i64 %28)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %12, ptr %27, i64 %28)
   %103 = load ptr, ptr %12, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.critedge, label %105
@@ -2259,7 +2259,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %140 = inttoptr i64 %139 to ptr
   store ptr null, ptr %20, align 8, !noalias !111
   store ptr %140, ptr %22, align 8, !alias.scope !111
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %22, ptr %27, i64 %28)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_16reportENS_5ErrorENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %22, ptr %27, i64 %28)
   %141 = load ptr, ptr %22, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %_ZN4llvm5ErrorD2Ev.exit72, label %143
@@ -3056,7 +3056,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit91:               ; preds = %195, %197
 
 _ZN4llvm11raw_ostreamlsEPKc.exit94:               ; preds = %206, %208
   %.0.i.i93 = phi ptr [ %207, %206 ], [ %1, %208 ]
-  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_116getBuildIdStringB5cxx11ERKNS0_12SegmentEntryE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 1 dereferenceable(64) %.049160)
+  call fastcc void @_ZN4llvm7memprof12_GLOBAL__N_116getBuildIdStringB5cxx11ERKNS0_12SegmentEntryE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 1 dereferenceable(64) %.049160)
   %211 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   %212 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   %213 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i93, ptr noundef %211, i64 noundef %212) #20
@@ -3448,7 +3448,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm7memprof12_GLOBAL__N_116getBuildIdStringB5cxx11ERKNS0_12SegmentEntryE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(64) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm7memprof12_GLOBAL__N_116getBuildIdStringB5cxx11ERKNS0_12SegmentEntryE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator.31", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8

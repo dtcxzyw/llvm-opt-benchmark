@@ -2633,7 +2633,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_audio_stream(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_registration(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_registration(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_mpeg_descr_reg_form_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #5
   %7 = icmp ugt i32 %2, 4
@@ -2657,7 +2657,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_registration(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_ca(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_ca(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_mpeg_descr_ca_system_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #5
   %7 = add i32 %1, 2
@@ -2680,25 +2680,21 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_ca(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_iso639(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_iso639(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = icmp ugt i32 %2, 1
   br i1 %5, label %6, label %._crit_edge
-
-._crit_edge:                                      ; preds = %4
-  %.pre = add nsw i32 %2, -1
-  br label %10
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @hf_mpeg_descr_iso639_lang, align 4
   %8 = add nsw i32 %2, -1
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef %8, i32 noundef 0) #5
-  br label %10
+  br label %._crit_edge
 
-10:                                               ; preds = %._crit_edge, %6
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %8, %6 ]
-  %11 = add i32 %.pre-phi, %1
-  %12 = load i32, ptr @hf_mpeg_descr_iso639_type, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #5
+._crit_edge:                                      ; preds = %4, %6
+  %.pre-phi = phi i32 [ %8, %6 ], [ 0, %4 ]
+  %10 = add i32 %.pre-phi, %1
+  %11 = load i32, ptr @hf_mpeg_descr_iso639_type, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #5
   ret void
 }
 
@@ -2759,7 +2755,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_std(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_carousel_identifier(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_carousel_identifier(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_mpeg_descr_carousel_identifier_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #5
   %7 = add i32 %1, 4
@@ -2811,7 +2807,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_carousel_identifier(p
 47:                                               ; preds = %13
   %48 = add i32 %39, %36
   %49 = add nsw i32 %2, -20
-  %50 = sub i32 %49, %36
+  %50 = sub nsw i32 %49, %36
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %.thread, label %.thread66
 
@@ -2827,7 +2823,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_carousel_identifier(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_association_tag(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_association_tag(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = load i32, ptr @hf_mpeg_descr_association_tag, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #5
@@ -2905,7 +2901,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_avc_vid(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_network_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_network_name(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5) #5
   %7 = load i32, ptr @hf_mpeg_descr_network_name_encoding, align 4
@@ -2921,7 +2917,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_network_name(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_service_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_service_list(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -3187,7 +3183,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_cable_delivery(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_vbi_data(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_vbi_data(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph43, label %._crit_edge
@@ -3249,7 +3245,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_vbi_data(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_bouquet_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_bouquet_name(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5) #5
   %7 = load i32, ptr @hf_mpeg_descr_bouquet_name_encoding, align 4
@@ -3319,14 +3315,14 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_service(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_country_availability_descriptor(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_country_availability_descriptor(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = load i32, ptr @hf_mpeg_descr_country_availability_flag, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %8 = load i32, ptr @hf_mpeg_descr_country_availability_reserved_future_use, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %10 = add i32 %1, 1
-  %11 = add i32 %2, -1
+  %11 = add nsw i32 %2, -1
   %12 = load i32, ptr @ett_mpeg_descriptor_country_availability_countries, align 4
   %13 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.749) #5
   %14 = icmp ult i32 %10, %5
@@ -3345,7 +3341,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_country_availability_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_linkage(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_linkage(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = load i32, ptr @hf_mpeg_descr_linkage_transport_stream_id, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #5
@@ -3467,7 +3463,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_linkage(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_nvod_reference(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_nvod_reference(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -3633,7 +3629,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_time_shifted_event(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_component(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_component(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = add i32 %2, %1
   %7 = icmp ult i32 %2, 6
@@ -3711,7 +3707,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_component(ptr noundef
   br i1 %64, label %65, label %76
 
 65:                                               ; preds = %57
-  %66 = add i32 %2, -6
+  %66 = add nsw i32 %2, -6
   %67 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %63, i32 noundef %66, ptr noundef nonnull %5) #5
   %68 = load i32, ptr @hf_mpeg_descr_component_text_encoding, align 4
   %69 = load i32, ptr %5, align 4
@@ -3729,7 +3725,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_component(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_mosaic(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_mosaic(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = load i32, ptr @hf_mpeg_descr_mosaic_mosaic_entry_point, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
@@ -3854,7 +3850,7 @@ proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit: ; preds = %.lr.ph9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_ca_identifier(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_ca_identifier(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -3872,7 +3868,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_ca_identifier(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_content(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_content(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -3909,7 +3905,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_parental_rating(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_teletext(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_teletext(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4047,7 +4043,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_telephone(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_local_time_offset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_local_time_offset(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -4138,7 +4134,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_local_time_offset(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_subtitling(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_subtitling(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4207,7 +4203,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_terrestrial_delivery(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_network_name_desc(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_network_name_desc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4270,7 +4266,7 @@ proto_mpeg_descriptor_dissect_multilng_network_name_desc_measure_lng_len.exit._c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4333,7 +4329,7 @@ proto_mpeg_descriptor_dissect_multilng_bouquet_name_desc_measure_lng_len.exit._c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_srv_name_desc(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_srv_name_desc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4435,23 +4431,23 @@ proto_mpeg_descriptor_dissect_multilng_srv_name_desc_measure_lng_len.exit: ; pre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_component_desc(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_multilng_component_desc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mpeg_descr_multilng_component_desc_tag, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
-  %10 = add nsw i32 %2, -1
-  %11 = icmp ult i32 %10, 3
-  br i1 %11, label %proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit._crit_edge, label %.lr.ph.preheader
+  %10 = icmp ult i32 %2, 4
+  br i1 %10, label %proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
+  %11 = add nsw i32 %2, -1
   %12 = add i32 %1, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %.056 = phi i32 [ %46, %28 ], [ %12, %.lr.ph.preheader ]
-  %.05255 = phi i32 [ %47, %28 ], [ %10, %.lr.ph.preheader ]
+  %.05255 = phi i32 [ %47, %28 ], [ %11, %.lr.ph.preheader ]
   %13 = icmp eq i32 %.05255, 3
   br i1 %13, label %proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit, label %14
 
@@ -4505,7 +4501,7 @@ proto_mpeg_descriptor_dissect_multilng_component_desc_measure_lng_len.exit._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_short_smoothing_buffer(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_short_smoothing_buffer(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_mpeg_descr_short_smoothing_buffer_sb_size, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %7 = load i32, ptr @hf_mpeg_descr_short_smoothing_buffer_sb_leak_rate, align 4
@@ -4525,7 +4521,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_short_smoothing_buffe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_partial_transport_stream(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_partial_transport_stream(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = icmp ult i32 %2, 3
   br i1 %5, label %46, label %6
 
@@ -4556,7 +4552,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_partial_transport_str
   %28 = select i1 %27, ptr @.str.759, ptr @.str.758
   %29 = mul nuw nsw i32 %23, 400
   %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %24, ptr noundef %0, i32 noundef %26, i32 noundef 22, i32 noundef %23, i32 noundef 0, ptr noundef nonnull %28, i32 noundef %29) #5
-  %31 = and i32 %2, -2
+  %31 = and i32 %2, 254
   %32 = icmp eq i32 %31, 6
   br i1 %32, label %46, label %33
 
@@ -4624,7 +4620,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_data_bcast(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_data_bcast_id(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_data_bcast_id(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_mpeg_descr_data_bcast_id_bcast_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #5
   %7 = icmp ugt i32 %2, 2
@@ -4661,7 +4657,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_pdc(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_ac3(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_ac3(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %7 = load i32, ptr @hf_mpeg_descr_ac3_component_type_flag, align 4
@@ -4747,35 +4743,34 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_ac3(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_app_sig(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+define internal fastcc void @proto_mpeg_descriptor_dissect_app_sig(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
+  br label %5
 
-.lr.ph:                                           ; preds = %4, %.lr.ph
-  %.011 = phi i32 [ %10, %.lr.ph ], [ %1, %4 ]
-  %5 = load i32, ptr @hf_mpeg_descr_app_sig_app_type, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %.011, i32 noundef 2, i32 noundef 0) #5
-  %7 = add i32 %.011, 2
-  %8 = load i32, ptr @hf_mpeg_descr_app_sig_ait_ver, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0) #5
-  %10 = add i32 %.011, 3
-  %11 = sub i32 %10, %1
-  %12 = icmp ult i32 %11, %2
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+5:                                                ; preds = %4, %5
+  %.011 = phi i32 [ %1, %4 ], [ %11, %5 ]
+  %6 = load i32, ptr @hf_mpeg_descr_app_sig_app_type, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %.011, i32 noundef 2, i32 noundef 0) #5
+  %8 = add i32 %.011, 2
+  %9 = load i32, ptr @hf_mpeg_descr_app_sig_ait_ver, align 4
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #5
+  %11 = add i32 %.011, 3
+  %12 = sub i32 %11, %1
+  %13 = icmp ult i32 %12, %2
+  br i1 %13, label %5, label %14, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %.lr.ph, %4
+14:                                               ; preds = %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_service_availability(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_service_availability(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = load i32, ptr @hf_mpeg_descr_service_availability_flag, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %8 = load i32, ptr @hf_mpeg_descr_service_availability_reserved, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %10 = add i32 %1, 1
-  %11 = add i32 %2, -1
+  %11 = add nsw i32 %2, -1
   %12 = load i32, ptr @ett_mpeg_descriptor_srv_avail_cells, align 4
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.763) #5
   %14 = icmp ult i32 %10, %5
@@ -4794,7 +4789,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_service_availability(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_tva_id(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_tva_id(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4823,7 +4818,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_tva_id(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_content_identifier(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_content_identifier(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4921,7 +4916,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_fta(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_extension(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %6 = load i32, ptr @hf_mpeg_descr_extension_tag_extension, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
@@ -4975,7 +4970,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_extension(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_ac3_system_a(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_ac3_system_a(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = load i32, ptr @hf_mpeg_descr_ac3_sysa_srate, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
@@ -5107,7 +5102,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_ac3_system_a(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_nordig_lcd_v1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_nordig_lcd_v1(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = and i32 %2, 3
   %.not = icmp eq i32 %6, 0
@@ -5139,137 +5134,136 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_nordig_lcd_v1(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_nordig_lcd_v2(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_nordig_lcd_v2(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = add i32 %2, %1
-  %.not113 = icmp eq i32 %2, 0
-  br i1 %.not113, label %.loopexit102, label %.lr.ph116
+  br label %7
 
-.loopexit:                                        ; preds = %73, %55
-  %.194.lcssa = phi i32 [ %60, %55 ], [ %81, %73 ]
-  %.1.lcssa = phi i32 [ %.1106, %55 ], [ %.1, %73 ]
+.loopexit:                                        ; preds = %74, %56
+  %.194.lcssa = phi i32 [ %61, %56 ], [ %82, %74 ]
+  %.1.lcssa = phi i32 [ %.1106, %56 ], [ %.1, %74 ]
   %.not = icmp eq i32 %.194.lcssa, 0
-  br i1 %.not, label %.loopexit102, label %.lr.ph116, !llvm.loop !29
+  br i1 %.not, label %.loopexit102, label %7, !llvm.loop !29
 
-.lr.ph116:                                        ; preds = %4, %.loopexit
-  %.0115 = phi i32 [ %.1.lcssa, %.loopexit ], [ %1, %4 ]
-  %.093114 = phi i32 [ %.194.lcssa, %.loopexit ], [ %2, %4 ]
-  %7 = sub i32 %6, %.0115
-  %8 = icmp ult i32 %7, 2
-  br i1 %8, label %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit, label %9
+7:                                                ; preds = %4, %.loopexit
+  %.0114 = phi i32 [ %1, %4 ], [ %.1.lcssa, %.loopexit ]
+  %.093113 = phi i32 [ %2, %4 ], [ %.194.lcssa, %.loopexit ]
+  %8 = sub i32 %6, %.0114
+  %9 = icmp ult i32 %8, 2
+  br i1 %9, label %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit, label %10
 
-9:                                                ; preds = %.lr.ph116
-  %10 = add i32 %.0115, 1
-  %11 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #5
-  %12 = zext i8 %11 to i32
-  %13 = add i32 %.0115, 6
-  %14 = add i32 %13, %12
-  %15 = icmp ugt i32 %14, %6
-  br i1 %15, label %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit, label %16
+10:                                               ; preds = %7
+  %11 = add i32 %.0114, 1
+  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #5
+  %13 = zext i8 %12 to i32
+  %14 = add i32 %.0114, 6
+  %15 = add i32 %14, %13
+  %16 = icmp ugt i32 %15, %6
+  br i1 %16, label %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit, label %17
 
-16:                                               ; preds = %9
-  %17 = add i32 %14, -1
-  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %17) #5
-  %19 = zext i8 %18 to i32
-  %20 = add i32 %14, %19
-  %21 = icmp ugt i32 %20, %6
-  %22 = sub i32 %20, %.0115
-  %spec.select.i = select i1 %21, i32 %7, i32 %22
+17:                                               ; preds = %10
+  %18 = add i32 %15, -1
+  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #5
+  %20 = zext i8 %19 to i32
+  %21 = add i32 %15, %20
+  %22 = icmp ugt i32 %21, %6
+  %23 = sub i32 %21, %.0114
+  %spec.select.i = select i1 %22, i32 %8, i32 %23
   br label %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit
 
-proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit: ; preds = %.lr.ph116, %9, %16
-  %.0.i = phi i32 [ %7, %.lr.ph116 ], [ %7, %9 ], [ %spec.select.i, %16 ]
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0115) #5
-  %24 = load i32, ptr @ett_mpeg_descriptor_nordig_lcd_v2_channel_list_list, align 4
-  %25 = zext i8 %23 to i32
-  %26 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.0115, i32 noundef %.0.i, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.767, i32 noundef %25) #5
-  %27 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_id, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.0115, i32 noundef 1, i32 noundef 0) #5
-  %29 = icmp eq i32 %.093114, 1
-  br i1 %29, label %.loopexit102, label %30
+proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit: ; preds = %7, %10, %17
+  %.0.i = phi i32 [ %8, %7 ], [ %8, %10 ], [ %spec.select.i, %17 ]
+  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0114) #5
+  %25 = load i32, ptr @ett_mpeg_descriptor_nordig_lcd_v2_channel_list_list, align 4
+  %26 = zext i8 %24 to i32
+  %27 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.0114, i32 noundef %.0.i, i32 noundef %25, ptr noundef null, ptr noundef nonnull @.str.767, i32 noundef %26) #5
+  %28 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_id, align 4
+  %29 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.0114, i32 noundef 1, i32 noundef 0) #5
+  %30 = icmp eq i32 %.093113, 1
+  br i1 %30, label %.loopexit102, label %31
 
-30:                                               ; preds = %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit
-  %31 = add i32 %.0115, 1
-  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #5
-  %33 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_name_length, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0) #5
-  %35 = add i32 %.0115, 2
-  %36 = add i32 %.093114, -2
-  %37 = zext i8 %32 to i32
-  %38 = call i32 @llvm.umin.i32(i32 %36, i32 %37)
-  %39 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %35, i32 noundef %38, ptr noundef nonnull %5) #5
-  %40 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_name_encoding, align 4
-  %41 = load i32, ptr %5, align 4
-  call void @dvb_add_chartbl(ptr noundef %26, i32 noundef %40, ptr noundef %0, i32 noundef %35, i32 noundef %39, i32 noundef %41) #5
-  %42 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_name, align 4
-  %43 = add i32 %39, %35
-  %44 = sub i32 %38, %39
-  %45 = load i32, ptr %5, align 4
-  %46 = call i32 @dvb_enc_to_item_enc(i32 noundef %45) #5
-  %47 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %42, ptr noundef %0, i32 noundef %43, i32 noundef %44, i32 noundef %46) #5
-  %48 = sub i32 %36, %38
-  %49 = icmp ult i32 %48, 3
-  br i1 %49, label %.loopexit102, label %50
+31:                                               ; preds = %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit
+  %32 = add i32 %.0114, 1
+  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #5
+  %34 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_name_length, align 4
+  %35 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %34, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef 0) #5
+  %36 = add i32 %.0114, 2
+  %37 = add i32 %.093113, -2
+  %38 = zext i8 %33 to i32
+  %39 = call i32 @llvm.umin.i32(i32 %37, i32 %38)
+  %40 = call i32 @dvb_analyze_string_charset(ptr noundef %0, i32 noundef %36, i32 noundef %39, ptr noundef nonnull %5) #5
+  %41 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_name_encoding, align 4
+  %42 = load i32, ptr %5, align 4
+  call void @dvb_add_chartbl(ptr noundef %27, i32 noundef %41, ptr noundef %0, i32 noundef %36, i32 noundef %40, i32 noundef %42) #5
+  %43 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_channel_list_name, align 4
+  %44 = add i32 %40, %36
+  %45 = sub i32 %39, %40
+  %46 = load i32, ptr %5, align 4
+  %47 = call i32 @dvb_enc_to_item_enc(i32 noundef %46) #5
+  %48 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef %45, i32 noundef %47) #5
+  %49 = sub i32 %37, %39
+  %50 = icmp ult i32 %49, 3
+  br i1 %50, label %.loopexit102, label %51
 
-50:                                               ; preds = %30
-  %51 = add i32 %38, %35
-  %52 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_country_code, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef 3, i32 noundef 0) #5
-  %54 = icmp eq i32 %48, 3
-  br i1 %54, label %.loopexit102, label %55
+51:                                               ; preds = %31
+  %52 = add i32 %39, %36
+  %53 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_country_code, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 3, i32 noundef 0) #5
+  %55 = icmp eq i32 %49, 3
+  br i1 %55, label %.loopexit102, label %56
 
-55:                                               ; preds = %50
-  %56 = add i32 %51, 3
-  %57 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %56) #5
-  %58 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_descriptor_length, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %58, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #5
-  %60 = add i32 %48, -4
-  %61 = zext i8 %57 to i32
-  %62 = call i32 @llvm.umin.i32(i32 %60, i32 %61)
-  %.1106 = add i32 %51, 4
-  %.not101107 = icmp eq i32 %62, 0
+56:                                               ; preds = %51
+  %57 = add i32 %52, 3
+  %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #5
+  %59 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_descriptor_length, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %59, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #5
+  %61 = add i32 %49, -4
+  %62 = zext i8 %58 to i32
+  %63 = call i32 @llvm.umin.i32(i32 %61, i32 %62)
+  %.1106 = add i32 %52, 4
+  %.not101107 = icmp eq i32 %63, 0
   br i1 %.not101107, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %55, %73
-  %.1111 = phi i32 [ %.1, %73 ], [ %.1106, %55 ]
-  %.1.in110 = phi i32 [ %.1111, %73 ], [ %51, %55 ]
-  %.194109 = phi i32 [ %81, %73 ], [ %60, %55 ]
-  %.095.in108 = phi i32 [ %82, %73 ], [ %62, %55 ]
-  %63 = icmp ult i32 %.194109, 2
-  br i1 %63, label %.loopexit102, label %64
+.lr.ph:                                           ; preds = %56, %74
+  %.1111 = phi i32 [ %.1, %74 ], [ %.1106, %56 ]
+  %.1.in110 = phi i32 [ %.1111, %74 ], [ %52, %56 ]
+  %.194109 = phi i32 [ %82, %74 ], [ %61, %56 ]
+  %.095.in108 = phi i32 [ %83, %74 ], [ %63, %56 ]
+  %64 = icmp ult i32 %.194109, 2
+  br i1 %64, label %.loopexit102, label %65
 
-64:                                               ; preds = %.lr.ph
-  %65 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1111) #5
-  %66 = load i32, ptr @ett_mpeg_descriptor_nordig_lcd_v2_service_list, align 4
-  %67 = zext i16 %65 to i32
-  %68 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %26, ptr noundef %0, i32 noundef %.1111, i32 noundef 4, i32 noundef %66, ptr noundef null, ptr noundef nonnull @.str.766, i32 noundef %67) #5
-  %69 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_service_id, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef %.1111, i32 noundef 2, i32 noundef 0) #5
-  %71 = and i32 %.194109, -2
-  %72 = icmp eq i32 %71, 2
-  br i1 %72, label %.loopexit102, label %73
+65:                                               ; preds = %.lr.ph
+  %66 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1111) #5
+  %67 = load i32, ptr @ett_mpeg_descriptor_nordig_lcd_v2_service_list, align 4
+  %68 = zext i16 %66 to i32
+  %69 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %0, i32 noundef %.1111, i32 noundef 4, i32 noundef %67, ptr noundef null, ptr noundef nonnull @.str.766, i32 noundef %68) #5
+  %70 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_service_id, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %0, i32 noundef %.1111, i32 noundef 2, i32 noundef 0) #5
+  %72 = and i32 %.194109, -2
+  %73 = icmp eq i32 %72, 2
+  br i1 %73, label %.loopexit102, label %74
 
-73:                                               ; preds = %64
-  %74 = add i32 %.1.in110, 6
-  %75 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_visible_service_flag, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0) #5
-  %77 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_reserved, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %77, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0) #5
-  %79 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_logical_channel_number, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %79, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0) #5
-  %81 = add i32 %.194109, -4
-  %82 = add i32 %.095.in108, 252
+74:                                               ; preds = %65
+  %75 = add i32 %.1.in110, 6
+  %76 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_visible_service_flag, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 2, i32 noundef 0) #5
+  %78 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_reserved, align 4
+  %79 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %78, ptr noundef %0, i32 noundef %75, i32 noundef 2, i32 noundef 0) #5
+  %80 = load i32, ptr @hf_mpeg_descr_nordig_lcd_v2_logical_channel_number, align 4
+  %81 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %80, ptr noundef %0, i32 noundef %75, i32 noundef 2, i32 noundef 0) #5
+  %82 = add i32 %.194109, -4
+  %83 = add i32 %.095.in108, 252
   %.1 = add i32 %.1111, 4
-  %83 = and i32 %82, 255
-  %.not101 = icmp eq i32 %83, 0
+  %84 = and i32 %83, 255
+  %.not101 = icmp eq i32 %84, 0
   br i1 %.not101, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
-.loopexit102:                                     ; preds = %.loopexit, %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit, %30, %50, %64, %.lr.ph, %4
+.loopexit102:                                     ; preds = %51, %31, %proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit, %.loopexit, %65, %.lr.ph
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_logon_initialize(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_logon_initialize(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = load i32, ptr @hf_mpeg_descr_logon_initialize_group_id, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
@@ -5392,7 +5386,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_logon_initialize(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_mpeg_descriptor_dissect_rcs_content(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @proto_mpeg_descriptor_dissect_rcs_content(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge

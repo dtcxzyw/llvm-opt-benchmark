@@ -2104,7 +2104,7 @@ _ZNSt10unique_ptrIN4llvm5MachO13InterfaceFileESt14default_deleteIS2_EED2Ev.exit:
   %.sroa.08.0.copyload = load ptr, ptr %29, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8
-  call fastcc void @_ZL19createInterfaceFileRKN4llvm11SmallVectorISt10shared_ptrINS_5MachO12RecordsSliceEELj4EEENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload)
+  call fastcc void @_ZL19createInterfaceFileRKN4llvm11SmallVectorISt10shared_ptrINS_5MachO12RecordsSliceEELj4EEENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload)
   %30 = load ptr, ptr %5, align 8
   store ptr %30, ptr %0, align 8
   store ptr null, ptr %5, align 8
@@ -2127,7 +2127,7 @@ _ZNSt10unique_ptrIN4llvm5MachO13InterfaceFileESt14default_deleteIS2_EED2Ev.exit:
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %.pn34, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %36 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL19createInterfaceFileRKN4llvm11SmallVectorISt10shared_ptrINS_5MachO12RecordsSliceEELj4EEENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload)
+  call fastcc void @_ZL19createInterfaceFileRKN4llvm11SmallVectorISt10shared_ptrINS_5MachO12RecordsSliceEELj4EEENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload)
   call void @_ZNSt12__shared_ptrIN4llvm5MachO13InterfaceFileELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @_ZN4llvm5MachO13InterfaceFile11addDocumentEOSt10shared_ptrIS1_E(ptr noundef nonnull align 8 dereferenceable(464) %36, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   %37 = load ptr, ptr %34, align 8
@@ -2288,7 +2288,7 @@ _ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19createInterfaceFileRKN4llvm11SmallVectorISt10shared_ptrINS_5MachO12RecordsSliceEELj4EEENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL19createInterfaceFileRKN4llvm11SmallVectorISt10shared_ptrINS_5MachO12RecordsSliceEELj4EEENS_9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1

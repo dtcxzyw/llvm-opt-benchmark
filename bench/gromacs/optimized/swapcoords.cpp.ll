@@ -2239,7 +2239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
 
 ._crit_edge.i386:                                 ; preds = %969, %963
   %988 = load ptr, ptr %960, align 8
-  call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef nonnull %965, ptr noundef readonly %6, ptr noundef readonly %.val338, ptr noundef nonnull %46, ptr noundef nonnull readonly %955, i64 noundef 0, ptr noundef %988, i1 noundef zeroext %957, i1 noundef zeroext false)
+  call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef %965, ptr noundef readonly %6, ptr noundef readonly %.val338, ptr noundef nonnull %46, ptr noundef nonnull readonly %955, i64 noundef 0, ptr noundef %988, i1 noundef zeroext %957, i1 noundef zeroext false)
   %989 = getelementptr inbounds i8, ptr %965, i64 112
   br label %990
 
@@ -4014,7 +4014,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .split:
   %9 = alloca [3 x float], align 4
   %10 = alloca [3 x float], align 4
@@ -5037,7 +5037,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %10, %24, 
   %108 = extractvalue { ptr, ptr } %107, 0
   tail call void @_Z27communicate_group_positionsPK9t_commrecPA3_fPA3_iS5_bPA3_KfiiPKiSA_S3_S8_(ptr noundef %0, ptr noundef %99, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef %6, i32 noundef %102, i32 noundef %104, ptr noundef %106, ptr noundef %108, ptr noundef null, ptr noundef null)
   %109 = load ptr, ptr %67, align 8
-  tail call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef nonnull %97, ptr noundef %0, ptr noundef %22, ptr noundef nonnull %4, ptr noundef %7, i64 noundef %1, ptr noundef %109, i1 noundef zeroext %9, i1 noundef zeroext false)
+  tail call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef %97, ptr noundef %0, ptr noundef %22, ptr noundef nonnull %4, ptr noundef %7, i64 noundef %1, ptr noundef %109, i1 noundef zeroext %9, i1 noundef zeroext false)
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %110 = load i32, ptr %64, align 8
   %111 = sext i32 %110 to i64
@@ -5119,7 +5119,7 @@ _ZL9need_swapPK12t_swapcoordsP6t_swap.exit:       ; preds = %132
   tail call void @_Z27communicate_group_positionsPK9t_commrecPA3_fPA3_iS5_bPA3_KfiiPKiSA_S3_S8_(ptr noundef %0, ptr noundef %144, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef %6, i32 noundef %147, i32 noundef %149, ptr noundef %151, ptr noundef %153, ptr noundef null, ptr noundef null)
   %154 = getelementptr inbounds i8, ptr %4, i64 16
   %155 = load ptr, ptr %154, align 8
-  tail call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef nonnull %142, ptr noundef %0, ptr noundef %22, ptr noundef %4, ptr noundef %7, i64 noundef %1, ptr noundef %155, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @_ZL29sortMoleculesIntoCompartmentsP10swap_groupP9t_commrecPK12t_swapcoordsP6t_swapPA3_KflP8_IO_FILEbb(ptr noundef %142, ptr noundef %0, ptr noundef %22, ptr noundef %4, ptr noundef %7, i64 noundef %1, ptr noundef %155, i1 noundef zeroext false, i1 noundef zeroext true)
   %156 = getelementptr inbounds i8, ptr %126, i64 592
   %157 = load i32, ptr %156, align 8
   %158 = getelementptr inbounds i8, ptr %126, i64 596

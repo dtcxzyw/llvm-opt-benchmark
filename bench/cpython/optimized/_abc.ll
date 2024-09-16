@@ -2020,7 +2020,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i27.i
 
 if.end18.i:                                       ; preds = %if.end.i26.i
   %_abc_registry.i = getelementptr inbounds i8, ptr %call1.i.i, i64 16
-  %call19.i = tail call fastcc i32 @_add_to_weak_set(ptr noundef nonnull %_abc_registry.i, ptr noundef nonnull %1)
+  %call19.i = tail call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_registry.i, ptr noundef nonnull %1)
   %cmp20.i = icmp slt i32 %call19.i, 0
   %13 = load i64, ptr %call1.i.i, align 8
   %14 = and i64 %13, 2147483648
@@ -2603,7 +2603,7 @@ if.then1.i147.i:                                  ; preds = %if.end.i144.i
   br label %Py_DECREF.exit149.i
 
 Py_DECREF.exit149.i:                              ; preds = %if.then1.i147.i, %if.end.i144.i, %if.then36.i
-  %call38.i = call fastcc i32 @_add_to_weak_set(ptr noundef nonnull %_abc_cache.i, ptr noundef nonnull %1)
+  %call38.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache.i, ptr noundef nonnull %1)
   %cmp39.i = icmp slt i32 %call38.i, 0
   br i1 %cmp39.i, label %end.i, label %if.end41.i
 
@@ -2632,7 +2632,7 @@ if.then1.i138.i:                                  ; preds = %if.end.i135.i
   br label %Py_DECREF.exit140.i
 
 Py_DECREF.exit140.i:                              ; preds = %if.then1.i138.i, %if.end.i135.i, %if.then44.i
-  %call46.i = call fastcc i32 @_add_to_weak_set(ptr noundef nonnull %_abc_negative_cache.i, ptr noundef nonnull %1)
+  %call46.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_negative_cache.i, ptr noundef nonnull %1)
   %cmp47.i = icmp slt i32 %call46.i, 0
   br i1 %cmp47.i, label %end.i, label %if.end49.i
 
@@ -2705,7 +2705,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp57.i, label %if.then58.i, label %for.cond.i
 
 if.then58.i:                                      ; preds = %for.body.i
-  %call60.i = call fastcc i32 @_add_to_weak_set(ptr noundef nonnull %_abc_cache.i, ptr noundef %1)
+  %call60.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache.i, ptr noundef %1)
   %cmp61.i = icmp slt i32 %call60.i, 0
   br i1 %cmp61.i, label %end.i, label %if.end63.i
 
@@ -2714,7 +2714,7 @@ if.end63.i:                                       ; preds = %if.then58.i
   br label %end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %Py_DECREF.exit122.i
-  %call65.i = call fastcc i32 @subclasscheck_check_registry(ptr noundef nonnull %call1.i.i, ptr noundef %1, ptr noundef nonnull %result.i)
+  %call65.i = call fastcc i32 @subclasscheck_check_registry(ptr noundef %call1.i.i, ptr noundef %1, ptr noundef %result.i)
   %tobool66.not.i = icmp eq i32 %call65.i, 0
   br i1 %tobool66.not.i, label %if.end68.i, label %end.i
 
@@ -2789,7 +2789,7 @@ Py_DECREF.exit113.i:                              ; preds = %if.then1.i111.i, %i
   br i1 %cmp85.i, label %if.then86.i, label %if.end92.i
 
 if.then86.i:                                      ; preds = %Py_DECREF.exit113.i
-  %call88.i = call fastcc i32 @_add_to_weak_set(ptr noundef nonnull %_abc_cache.i, ptr noundef %1)
+  %call88.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache.i, ptr noundef %1)
   %cmp89.i = icmp slt i32 %call88.i, 0
   br i1 %cmp89.i, label %end.i, label %if.end91.i
 
@@ -2802,7 +2802,7 @@ if.end92.i:                                       ; preds = %Py_DECREF.exit113.i
   br i1 %cmp93.i, label %end.i, label %for.cond78.i
 
 for.end98.i:                                      ; preds = %for.cond78.i, %for.cond78.preheader.i
-  %call100.i = call fastcc i32 @_add_to_weak_set(ptr noundef nonnull %_abc_negative_cache.i, ptr noundef %1)
+  %call100.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_negative_cache.i, ptr noundef %1)
   %cmp101.i = icmp slt i32 %call100.i, 0
   br i1 %cmp101.i, label %end.i, label %if.end103.i
 
@@ -2966,7 +2966,7 @@ declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare i32 @PyObject_IsSubclass(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_add_to_weak_set(ptr nocapture noundef %pset, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc i32 @_add_to_weak_set(ptr nocapture noundef nonnull %pset, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pset, align 8
   %cmp = icmp eq ptr %0, null
@@ -3075,7 +3075,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_collection_flag_recursive(ptr noundef %child, i64 noundef %flag) unnamed_addr #0 {
+define internal fastcc void @set_collection_flag_recursive(ptr noundef %child, i64 noundef range(i64 1, 97) %flag) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %child, i64 168
   %child.val = load i64, ptr %0, align 8
@@ -3264,7 +3264,7 @@ declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, pt
 declare ptr @_PyType_GetMRO(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @subclasscheck_check_registry(ptr nocapture noundef %impl, ptr noundef %subclass, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @subclasscheck_check_registry(ptr nocapture noundef nonnull %impl, ptr noundef %subclass, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
 entry:
   %key = alloca ptr, align 8
   %pos = alloca i64, align 8
@@ -3422,7 +3422,7 @@ if.end33:                                         ; preds = %Py_DECREF.exit57
 
 if.then35:                                        ; preds = %if.end33
   %_abc_cache = getelementptr inbounds i8, ptr %impl, i64 24
-  %call36 = call fastcc i32 @_add_to_weak_set(ptr noundef nonnull %_abc_cache, ptr noundef %subclass)
+  %call36 = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache, ptr noundef %subclass)
   %cmp37 = icmp slt i32 %call36, 0
   br i1 %cmp37, label %for.end, label %if.end39
 

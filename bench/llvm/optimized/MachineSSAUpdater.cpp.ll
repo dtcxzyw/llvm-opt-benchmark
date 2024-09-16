@@ -975,14 +975,14 @@ _ZN4llvm11SmallVectorISt4pairIPNS_17MachineBasicBlockENS_8RegisterEELj8EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZL12InsertNewDefjPN4llvm17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_19MachineRegisterInfo9VRegAttrsEPS5_PKNS_15TargetInstrInfoE(i32 noundef %0, ptr noundef %1, ptr %2, i64 %3, i64 %4, ptr noundef nonnull %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc { ptr, ptr } @_ZL12InsertNewDefjPN4llvm17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_19MachineRegisterInfo9VRegAttrsEPS5_PKNS_15TargetInstrInfoE(i32 noundef range(i32 0, 20) %0, ptr noundef %1, ptr %2, i64 %3, i64 %4, ptr noundef nonnull %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit:
   %7 = alloca %"class.llvm::MIMetadata", align 8
   %8 = tail call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterENS0_9VRegAttrsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(512) %5, i64 %3, i64 %4, ptr nonnull @.str, i64 0) #12
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %9, align 8
-  %11 = zext i32 %0 to i64
+  %11 = zext nneg i32 %0 to i64
   %12 = sub nsw i64 0, %11
   %13 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %10, i64 %12
   %14 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 %8)

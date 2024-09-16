@@ -1728,7 +1728,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h647b3ac3b26ab6b9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h647b3ac3b26ab6b9E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -1932,7 +1932,7 @@ _ZN14regex_automata6hybrid3dfa3DFA7builder17hb2618ecd6972b727E.exit: ; preds = %
   store ptr %1, ptr %4, align 8, !noalias !287
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %2, ptr %22, align 8, !noalias !287
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 %7, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 1)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 %7, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 1)
           to label %25 unwind label %23
 
 23:                                               ; preds = %_ZN14regex_automata6hybrid3dfa3DFA7builder17hb2618ecd6972b727E.exit
@@ -2543,7 +2543,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr %1, ptr %6, align 8
   %51 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %12, ptr %51, align 8
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy10init_cache17h96aa5924314ccc5bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy10init_cache17h96aa5924314ccc5bE(ptr noalias noundef align 8 dereferenceable(16) %6)
           to label %54 unwind label %52
 
 52:                                               ; preds = %41
@@ -2802,7 +2802,7 @@ define { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy16cache_next_state17hfa2
   %83 = getelementptr inbounds i8, ptr %14, i64 16
   %84 = load i64, ptr %83, align 8, !alias.scope !434, !noalias !437, !noundef !5
   %85 = getelementptr inbounds i8, ptr %.val24, i64 280
-  %86 = invoke fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h647b3ac3b26ab6b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %85, ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %84)
+  %86 = invoke fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h647b3ac3b26ab6b9E"(ptr noalias noundef readonly align 8 dereferenceable(48) %85, ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %84)
           to label %87 unwind label %.body.thread19.i, !noalias !439
 
 .body.thread19.i:                                 ; preds = %249, %236, %.noexc6.i, %.noexc5.i, %96, %80
@@ -2931,7 +2931,7 @@ define { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy16cache_next_state17hfa2
   br i1 %.not.i.i.i, label %147, label %148
 
 147:                                              ; preds = %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i.i.i, %142, %138
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef readonly align 8 dereferenceable(16) %0)
           to label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.i.i unwind label %.body.thread88.loopexit.split-lp.i.i, !noalias !434
 
 148:                                              ; preds = %142
@@ -2971,7 +2971,7 @@ _ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.
   br i1 %167, label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread.i.i, label %147
 
 _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.i.i: ; preds = %147, %105
-  %168 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  %168 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef readonly align 8 dereferenceable(16) %0)
           to label %169 unwind label %.body.thread88.loopexit.split-lp.i.i, !noalias !434
 
 169:                                              ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.i.i
@@ -3394,7 +3394,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy14saved_state_id17hb1badbf157cf4579E.exit: ; 
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define range(i64 2, 0) i64 @_ZN14regex_automata6hybrid3dfa4Lazy17cache_start_group17h2117cbc769952567E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 %2, i8 noundef %3) unnamed_addr #9 personality ptr @rust_eh_personality {
+define i64 @_ZN14regex_automata6hybrid3dfa4Lazy17cache_start_group17h2117cbc769952567E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 %2, i8 noundef %3) unnamed_addr #9 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca i64, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -3592,7 +3592,7 @@ common.resume.i:                                  ; preds = %288, %285, %.body.t
   %90 = getelementptr inbounds i8, ptr %17, i64 16
   %91 = load i64, ptr %90, align 8, !alias.scope !658, !noalias !661, !noundef !5
   %92 = getelementptr inbounds i8, ptr %.val.i, i64 280
-  %93 = invoke fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h647b3ac3b26ab6b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %92, ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %91)
+  %93 = invoke fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h647b3ac3b26ab6b9E"(ptr noalias noundef readonly align 8 dereferenceable(48) %92, ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %91)
           to label %94 unwind label %.body.thread5.i.i, !noalias !663
 
 .body.thread5.i.i:                                ; preds = %269, %255, %.noexc6.i.i, %.noexc5.i.i, %103, %84
@@ -3734,7 +3734,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit.th
   br i1 %.not.i.i.i.i, label %164, label %165
 
 164:                                              ; preds = %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i.i.i.i, %159, %155
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef readonly align 8 dereferenceable(16) %0)
           to label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.i.i.i unwind label %.body.thread90.loopexit.split-lp.i.i.i, !noalias !703
 
 165:                                              ; preds = %159
@@ -3774,7 +3774,7 @@ _ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.
   br i1 %184, label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread.i.i.i, label %164
 
 _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.i.i.i: ; preds = %164, %111
-  %185 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  %185 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef readonly align 8 dereferenceable(16) %0)
           to label %186 unwind label %.body.thread90.loopexit.split-lp.i.i.i, !noalias !703
 
 186:                                              ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.i.i.i
@@ -4001,7 +4001,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.th
 
 .noexc12.i.i:                                     ; preds = %269, %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread.i.i.i, %255
   %.sroa.4.0.i.i.i = phi i32 [ undef, %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread.i.i.i ], [ %spec.select.i.i.i, %255 ], [ undef, %269 ]
-  %switch.i = phi i1 [ false, %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread.i.i.i ], [ true, %255 ], [ false, %269 ]
+  %.sroa.0.1.i.i.i = phi i1 [ true, %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread.i.i.i ], [ false, %255 ], [ true, %269 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !663
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !776
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !noalias !776
@@ -4058,7 +4058,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit: ;
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !608
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !608
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
-  br i1 %switch.i, label %309, label %.thread
+  br i1 %.sroa.0.1.i.i.i, label %.thread, label %309
 
 290:                                              ; preds = %33
   %291 = getelementptr inbounds i8, ptr %23, i64 376
@@ -4069,9 +4069,9 @@ _ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit: ;
   %295 = icmp ugt i64 %293, %294
   br i1 %295, label %305, label %296
 
-.thread:                                          ; preds = %33, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit, %_ZN14regex_automata6hybrid3dfa4Lazy15set_start_state17h4bda2483c008e6deE.exit, %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit
-  %.sroa.5.0 = phi i32 [ %.in.in.in, %_ZN14regex_automata6hybrid3dfa4Lazy15set_start_state17h4bda2483c008e6deE.exit ], [ %304, %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit ], [ 0, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit ], [ %2, %33 ]
-  %.sroa.05.0 = phi i64 [ 5, %_ZN14regex_automata6hybrid3dfa4Lazy15set_start_state17h4bda2483c008e6deE.exit ], [ 5, %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit ], [ 3, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit ], [ 2, %33 ]
+.thread:                                          ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit, %33, %_ZN14regex_automata6hybrid3dfa4Lazy15set_start_state17h4bda2483c008e6deE.exit, %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit
+  %.sroa.5.0 = phi i32 [ %.in.in.in, %_ZN14regex_automata6hybrid3dfa4Lazy15set_start_state17h4bda2483c008e6deE.exit ], [ %304, %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit ], [ %2, %33 ], [ 0, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit ]
+  %.sroa.05.0 = phi i64 [ 5, %_ZN14regex_automata6hybrid3dfa4Lazy15set_start_state17h4bda2483c008e6deE.exit ], [ 5, %_ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit ], [ 2, %33 ], [ 3, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit ]
   %.sroa.5.0.insert.ext = zext i32 %.sroa.5.0 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.05.0
@@ -4102,8 +4102,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit: ; preds
   %308 = getelementptr inbounds i32, ptr %307, i64 %294
   br label %37
 
-309:                                              ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit.thread, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit
-  %.in.in.in = phi i32 [ %95, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit.thread ], [ %.sroa.4.0.i.i.i, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit ]
+309:                                              ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit.thread
+  %.in.in.in = phi i32 [ %.sroa.4.0.i.i.i, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit ], [ %95, %_ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit.thread ]
   %310 = and i32 %.in.in.in, 134217727
   %311 = zext nneg i32 %310 to i64
   %312 = getelementptr inbounds i8, ptr %.val.i, i64 40
@@ -4117,7 +4117,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef8is_valid17h6ff33c3c23a0a93eE.exit.i: ; pr
   %316 = and i64 %.val.i.i, 63
   %notmask.i.i = shl nsw i64 -1, %316
   %317 = xor i64 %notmask.i.i, -1
-  %318 = and i64 %317, %311
+  %318 = and i64 %311, %317
   %319 = icmp eq i64 %318, 0
   br i1 %319, label %320, label %_ZN14regex_automata6hybrid3dfa7LazyRef8is_valid17h6ff33c3c23a0a93eE.exit.thread.i
 
@@ -4189,7 +4189,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15set_start_state17h4bda2483c008e6deE.exit: ;
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !6, !noundef !5
@@ -4257,7 +4257,7 @@ _ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.
   br i1 %40, label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread, label %41
 
 41:                                               ; preds = %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i, %14, %9
-  tail call fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef align 8 dereferenceable(16) %0)
   %42 = load ptr, ptr %3, align 8, !nonnull !5, !align !6, !noundef !5
   %43 = getelementptr inbounds i8, ptr %42, i64 40
   %44 = load i64, ptr %43, align 8, !noundef !5
@@ -4324,7 +4324,7 @@ define hidden void @_ZN14regex_automata6hybrid3dfa4Lazy11reset_cache17hd245a430a
   %.sroa.5.0..sroa_idx11 = getelementptr inbounds i8, ptr %5, i64 260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx11, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.5)
-  tail call fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef align 8 dereferenceable(16) %0)
   %16 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %17 = getelementptr inbounds i8, ptr %16, i64 376
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
@@ -4428,7 +4428,7 @@ _ZN14regex_automata4util10sparse_set9SparseSet6resize17he074802e2420d7e1E.exit9:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -4541,7 +4541,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr68drop
   br label %53
 
 53:                                               ; preds = %49, %"_ZN4core3ptr78drop_in_place$LT$$u5b$regex_automata..util..determinize..state..State$u5d$$GT$17h99ce8f732a5aeebeE.exit"
-  tail call fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy10init_cache17h96aa5924314ccc5bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy10init_cache17h96aa5924314ccc5bE(ptr noalias noundef align 8 dereferenceable(16) %0)
   %54 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
   %55 = getelementptr inbounds i8, ptr %54, i64 256
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 8, !alias.scope !903, !noalias !906
@@ -4688,7 +4688,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit: ; 
   br i1 %.not.i55, label %129, label %130
 
 129:                                              ; preds = %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i, %124, %120
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef align 8 dereferenceable(16) %0)
           to label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit unwind label %.body40.thread91.loopexit.split-lp
 
 130:                                              ; preds = %124
@@ -4728,7 +4728,7 @@ _ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.
   br i1 %149, label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread, label %129
 
 _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit: ; preds = %129, %79
-  %150 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  %150 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef align 8 dereferenceable(16) %0)
           to label %151 unwind label %.body40.thread91.loopexit.split-lp
 
 151:                                              ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit
@@ -5060,7 +5060,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy10init_cache17h96aa5924314ccc5bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy10init_cache17h96aa5924314ccc5bE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -5232,7 +5232,7 @@ define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy10init_cache17h9
   br i1 %.not.i196, label %100, label %101
 
 100:                                              ; preds = %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i, %95, %91
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef align 8 dereferenceable(16) %0)
           to label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit unwind label %.body184.thread348.loopexit.split-lp
 
 101:                                              ; preds = %95
@@ -5272,7 +5272,7 @@ _ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.
   br i1 %120, label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.thread, label %100
 
 _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit: ; preds = %100, %49
-  %121 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  %121 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef align 8 dereferenceable(16) %0)
           to label %122 unwind label %.body184.thread348.loopexit.split-lp
 
 122:                                              ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit
@@ -5610,7 +5610,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.th
   br i1 %.not.i233, label %274, label %275
 
 274:                                              ; preds = %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i236, %269, %265
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef align 8 dereferenceable(16) %0)
           to label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit244 unwind label %.body205.thread367.loopexit.split-lp
 
 275:                                              ; preds = %269
@@ -5650,7 +5650,7 @@ _ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.
   br i1 %294, label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit244.thread, label %274
 
 _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit244: ; preds = %274, %223
-  %295 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  %295 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef align 8 dereferenceable(16) %0)
           to label %296 unwind label %.body205.thread367.loopexit.split-lp
 
 296:                                              ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit244
@@ -5983,7 +5983,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit244
   br i1 %.not.i284, label %446, label %447
 
 446:                                              ; preds = %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i287, %441, %437
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy11clear_cache17h73a1fa30526cd86fE(ptr noalias noundef align 8 dereferenceable(16) %0)
           to label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit295 unwind label %.body256.thread388.loopexit.split-lp
 
 447:                                              ; preds = %441
@@ -6023,7 +6023,7 @@ _ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.
   br i1 %466, label %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit295.thread, label %446
 
 _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit295: ; preds = %446, %396
-  %467 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  %467 = invoke fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_state_id17h122264d031edbe2aE(ptr noalias noundef align 8 dereferenceable(16) %0)
           to label %468 unwind label %.body256.thread388.loopexit.split-lp
 
 468:                                              ; preds = %_ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit295
@@ -7145,7 +7145,7 @@ define void @_ZN14regex_automata6hybrid3dfa6Config26get_minimum_cache_capacity17
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
   %33 = getelementptr inbounds i8, ptr %1, i64 114
   %.val13 = load i8, ptr %33, align 2, !range !97, !alias.scope !1415, !noundef !5
-  call fastcc void @_ZN14regex_automata6hybrid3dfa6Config21byte_classes_from_nfa17h0b4dfdbcb14cc3f7E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(256) %7, i8 %.val13, ptr nonnull %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
+  call fastcc void @_ZN14regex_automata6hybrid3dfa6Config21byte_classes_from_nfa17h0b4dfdbcb14cc3f7E(ptr noalias nocapture noundef align 1 dereferenceable(256) %7, i8 %.val13, ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %8)
   %34 = getelementptr inbounds i8, ptr %1, i64 113
   %35 = load i8, ptr %34, align 1, !range !97, !alias.scope !1418, !noundef !5
   %36 = trunc i8 %35 to i1
@@ -7224,7 +7224,7 @@ _ZN14regex_automata6hybrid3dfa22minimum_cache_capacity17h527dfd360432b17cE.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata6hybrid3dfa6Config21byte_classes_from_nfa17h0b4dfdbcb14cc3f7E(ptr noalias nocapture noundef writeonly align 1 dereferenceable(256) %0, i8 %.114.val, ptr readonly %.0.val, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN14regex_automata6hybrid3dfa6Config21byte_classes_from_nfa17h0b4dfdbcb14cc3f7E(ptr noalias nocapture noundef nonnull writeonly align 1 dereferenceable(256) %0, i8 %.114.val, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca { [256 x i8] }, align 1
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { [256 x i8] }, align 1
@@ -7602,13 +7602,13 @@ define void @_ZN14regex_automata6hybrid3dfa7Builder5build17h6c191253f06adc25E(pt
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
-  call fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 %5, i64 noundef 1)
+  call fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 %5, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, align 8
   %.sroa.310 = alloca [14 x i64], align 8
   %6 = alloca { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, align 8
@@ -7619,7 +7619,7 @@ define internal fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %7)
   %10 = getelementptr inbounds i8, ptr %1, i64 120
-  call fastcc void @"_ZN88_$LT$regex_automata..nfa..thompson..compiler..Compiler$u20$as$u20$core..clone..Clone$GT$5clone17h079374e8d2a8ba8bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(448) %7, ptr noundef nonnull align 8 %10)
+  call fastcc void @"_ZN88_$LT$regex_automata..nfa..thompson..compiler..Compiler$u20$as$u20$core..clone..Clone$GT$5clone17h079374e8d2a8ba8bE"(ptr noalias nocapture noundef align 8 dereferenceable(448) %7, ptr noundef nonnull align 8 %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store i64 2, ptr %6, align 8, !alias.scope !1479
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
@@ -7807,7 +7807,7 @@ define void @_ZN14regex_automata6hybrid3dfa7Builder14build_from_nfa17hc1e1fabb94
   store i64 %.sroa.738.16.copyload39, ptr %9, align 8
   %40 = getelementptr i8, ptr %1, i64 114
   %.val26 = load i8, ptr %40, align 2, !range !97, !alias.scope !1415, !noundef !5
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa6Config21byte_classes_from_nfa17h0b4dfdbcb14cc3f7E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(256) %8, i8 %.val26, ptr %.val27, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa6Config21byte_classes_from_nfa17h0b4dfdbcb14cc3f7E(ptr noalias nocapture noundef align 1 dereferenceable(256) %8, i8 %.val26, ptr %.val27, ptr noalias noundef readonly align 8 dereferenceable(32) %9)
           to label %42 unwind label %34
 
 41:                                               ; preds = %.noexc
@@ -8622,7 +8622,7 @@ define hidden void @_ZN14regex_automata6hybrid5regex7Builder10build_many17h80437
   %15 = alloca { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 688, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 688, ptr nonnull %14)
-  call fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(688) %14, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3)
+  call fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef align 8 dereferenceable(688) %14, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3)
   %16 = load i64, ptr %14, align 8, !range !194, !noundef !5
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds i8, ptr %14, i64 8
@@ -8754,7 +8754,7 @@ define hidden void @_ZN14regex_automata6hybrid5regex7Builder10build_many17h80437
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %7), !noalias !1657
   %72 = getelementptr inbounds i8, ptr %1, i64 120
-  invoke fastcc void @"_ZN88_$LT$regex_automata..nfa..thompson..compiler..Compiler$u20$as$u20$core..clone..Clone$GT$5clone17h079374e8d2a8ba8bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(448) %7, ptr noundef nonnull align 8 %72)
+  invoke fastcc void @"_ZN88_$LT$regex_automata..nfa..thompson..compiler..Compiler$u20$as$u20$core..clone..Clone$GT$5clone17h079374e8d2a8ba8bE"(ptr noalias nocapture noundef align 8 dereferenceable(448) %7, ptr noundef nonnull align 8 %72)
           to label %83 unwind label %73, !noalias !1657
 
 73:                                               ; preds = %"_ZN74_$LT$regex_automata..hybrid..dfa..Config$u20$as$u20$core..clone..Clone$GT$5clone17h9446d4d1378e4932E.exit.i"
@@ -8879,7 +8879,7 @@ define hidden void @_ZN14regex_automata6hybrid5regex7Builder10build_many17h80437
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !1720
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1713
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(688) %12, ptr noundef nonnull align 8 %11, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa7Builder10build_many17h5e03c3ca71fe6d06E(ptr noalias nocapture noundef align 8 dereferenceable(688) %12, ptr noundef nonnull align 8 %11, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3)
           to label %100 unwind label %81
 
 100:                                              ; preds = %99
@@ -13551,7 +13551,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers18BoundedBacktracker17hdbb6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN88_$LT$regex_automata..nfa..thompson..compiler..Compiler$u20$as$u20$core..clone..Clone$GT$5clone17h079374e8d2a8ba8bE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN88_$LT$regex_automata..nfa..thompson..compiler..Compiler$u20$as$u20$core..clone..Clone$GT$5clone17h079374e8d2a8ba8bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr }, i64 }, align 8
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8

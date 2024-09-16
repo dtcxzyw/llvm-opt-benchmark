@@ -2060,7 +2060,7 @@ trace_usb_uhci_td_load.exit:                      ; preds = %if.end32, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i93)
   %51 = load i32, ptr %ctrl, align 4
   %52 = load i32, ptr %link, align 4
-  %call36 = call fastcc i32 @uhci_handle_td(ptr noundef nonnull %s, ptr noundef null, i32 noundef %curr_qh.0161, ptr noundef nonnull %td, i32 noundef %52, ptr noundef nonnull %int_mask)
+  %call36 = call fastcc i32 @uhci_handle_td(ptr noundef nonnull %s, ptr noundef null, i32 noundef %curr_qh.0161, ptr noundef %td, i32 noundef %52, ptr noundef %int_mask)
   %53 = load i32, ptr %ctrl, align 4
   %cmp38.not = icmp eq i32 %51, %53
   br i1 %cmp38.not, label %if.end48, label %if.then40
@@ -2265,7 +2265,7 @@ out:                                              ; preds = %if.end48, %for.inc,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 10, 15) i32 @uhci_handle_td(ptr noundef %s, ptr noundef %q, i32 noundef %qh_addr, ptr nocapture noundef %td, i32 noundef %td_addr, ptr nocapture noundef %int_mask) unnamed_addr #0 {
+define internal fastcc range(i32 10, 15) i32 @uhci_handle_td(ptr noundef %s, ptr noundef %q, i32 noundef %qh_addr, ptr nocapture noundef nonnull %td, i32 noundef %td_addr, ptr nocapture noundef nonnull %int_mask) unnamed_addr #0 {
 entry:
   %_now.i.i24.i = alloca %struct.timeval, align 8
   %_now.i.i.i162 = alloca %struct.timeval, align 8
@@ -2530,7 +2530,7 @@ if.then54:                                        ; preds = %if.end52
   fence seq_cst
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv.i136, i32 1, ptr noundef nonnull %last_td, i64 noundef 16, i1 noundef zeroext false) #11
   %34 = load ptr, ptr %queue55, align 8
-  call fastcc void @uhci_queue_fill(ptr noundef %34, ptr noundef nonnull %last_td)
+  call fastcc void @uhci_queue_fill(ptr noundef %34, ptr noundef %last_td)
   br label %return
 
 if.end59:                                         ; preds = %if.end52
@@ -2760,7 +2760,7 @@ uhci_async_link.exit:                             ; preds = %if.then142, %land.l
   br i1 %cmp, label %return, label %if.then144
 
 if.then144:                                       ; preds = %uhci_async_link.exit
-  tail call fastcc void @uhci_queue_fill(ptr noundef nonnull %q.addr.2, ptr noundef nonnull %td)
+  tail call fastcc void @uhci_queue_fill(ptr noundef nonnull %q.addr.2, ptr noundef %td)
   br label %return
 
 done147:                                          ; preds = %sw.epilog137.thread, %sw.epilog137, %if.end59
@@ -2789,7 +2789,7 @@ if.end.i169:                                      ; preds = %if.then.i168, %done
 if.then7.i:                                       ; preds = %if.end.i169
   %td_addr.i171 = getelementptr inbounds i8, ptr %async.1, i64 232
   %77 = load i32, ptr %td_addr.i171, align 8
-  %call.i172 = tail call fastcc i32 @uhci_handle_td_error(ptr noundef %s, ptr noundef nonnull %td, i32 noundef %77, i32 noundef %76, ptr noundef %int_mask)
+  %call.i172 = tail call fastcc i32 @uhci_handle_td_error(ptr noundef %s, ptr noundef %td, i32 noundef %77, i32 noundef %76, ptr noundef %int_mask)
   br label %uhci_complete_td.exit
 
 if.end10.i:                                       ; preds = %if.end.i169
@@ -2938,7 +2938,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @uhci_queue_fill(ptr noundef %q, ptr nocapture noundef readonly %td) unnamed_addr #0 {
+define internal fastcc void @uhci_queue_fill(ptr noundef %q, ptr nocapture noundef nonnull readonly %td) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %int_mask = alloca i32, align 4
@@ -3017,7 +3017,7 @@ trace_usb_uhci_td_queue.exit:                     ; preds = %if.end4, %land.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load ptr, ptr %uhci, align 8
   %11 = load i32, ptr %q, align 8
-  %call9 = call fastcc i32 @uhci_handle_td(ptr noundef %10, ptr noundef nonnull %q, i32 noundef %11, ptr noundef nonnull %ptd, i32 noundef %plink.0, ptr noundef nonnull %int_mask)
+  %call9 = call fastcc i32 @uhci_handle_td(ptr noundef %10, ptr noundef nonnull %q, i32 noundef %11, ptr noundef %ptd, i32 noundef %plink.0, ptr noundef %int_mask)
   switch i32 %call9, label %if.else [
     i32 14, label %while.end
     i32 13, label %if.end15
@@ -3046,7 +3046,7 @@ while.end:                                        ; preds = %trace_usb_uhci_td_q
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 10, 13) i32 @uhci_handle_td_error(ptr nocapture noundef %s, ptr nocapture noundef %td, i32 noundef %td_addr, i32 noundef %status, ptr nocapture noundef %int_mask) unnamed_addr #0 {
+define internal fastcc range(i32 10, 13) i32 @uhci_handle_td_error(ptr nocapture noundef %s, ptr nocapture noundef nonnull %td, i32 noundef %td_addr, i32 noundef range(i32 1, 0) %status, ptr nocapture noundef nonnull %int_mask) unnamed_addr #0 {
 entry:
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i13 = alloca %struct.timeval, align 8
@@ -3285,7 +3285,7 @@ return:                                           ; preds = %uhci_update_irq.exi
 declare ptr @usb_ep_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @uhci_queue_new(ptr noundef %s, i32 noundef %qh_addr, ptr nocapture noundef readonly %td, ptr noundef %ep) unnamed_addr #0 {
+define internal fastcc noundef ptr @uhci_queue_new(ptr noundef %s, i32 noundef %qh_addr, ptr nocapture noundef nonnull readonly %td, ptr noundef %ep) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #12

@@ -330,7 +330,7 @@ if.end39.i.i.i.i:                                 ; preds = %if.else34.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %FSE_decompress.exit.thread.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end39.i.i.i.i
-  %call.i.i.i.i.i = call fastcc i64 @FSE_readNCount(ptr noundef nonnull %counting.i.i.i.i.i, ptr noundef nonnull %maxSymbolValue.i.i.i.i.i, ptr noundef nonnull %tableLog.i.i.i.i.i, ptr noundef nonnull %add.ptr41.i.i.i.i, i64 noundef %conv.i.i.i.i)
+  %call.i.i.i.i.i = call fastcc i64 @FSE_readNCount(ptr noundef %counting.i.i.i.i.i, ptr noundef %maxSymbolValue.i.i.i.i.i, ptr noundef %tableLog.i.i.i.i.i, ptr noundef nonnull %add.ptr41.i.i.i.i, i64 noundef %conv.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp ult i64 %call.i.i.i.i.i, -7
   %cmp4.not.i.i.i.i.i = icmp ult i64 %call.i.i.i.i.i, %conv.i.i.i.i
   %or.cond.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp4.not.i.i.i.i.i
@@ -567,7 +567,7 @@ sw.epilog.i.i.i.i.i.i.i:                          ; preds = %sw.bb50.i.i.i.i.i.i
 FSE_initDStream.exit.thread877.i.i.i.i.i.i:       ; preds = %sw.epilog.i.i.i.i.i.i.i
   %conv59.i.i.i.i.i.i.i = zext i8 %39 to i32
   %40 = tail call range(i32 24, 33) i32 @llvm.ctlz.i32(i32 %conv59.i.i.i.i.i.i.i, i1 true)
-  %41 = trunc nuw i64 %sub.i.i.i.i.i to i32
+  %41 = trunc nuw nsw i64 %sub.i.i.i.i.i to i32
   %42 = shl nuw nsw i32 %41, 3
   %reass.sub = sub nsw i32 %40, %42
   %add70.i.i.i.i.i.i.i = add nsw i32 %reass.sub, 41
@@ -619,9 +619,9 @@ if.end22.i.i.i.i.i.i.i.i:                         ; preds = %if.end10.i.i.i.i.i.
   %idx.neg27.i.i.i.i.i.i.i.i = sub nsw i64 0, %idx.ext26.i.i.i.i.i.i.i.i
   %add.ptr28.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bitD.i13.sroa.58.3887.ptr.ptr.i.i.i.i.i.i, i64 %idx.neg27.i.i.i.i.i.i.i.i
   %cmp30.i.i.i.i.i.i.i.i = icmp ult ptr %add.ptr28.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  %conv35.i.i.i.i.i.i.i.i = trunc i64 %bitD.i13.sroa.58.3887.idx.i.i.i.i.i.i to i32
+  %conv35.i.i.i.i.i.i.i.i = trunc nsw i64 %bitD.i13.sroa.58.3887.idx.i.i.i.i.i.i to i32
   %nbBytes.0.i.i.i.i.i.i.i.i = select i1 %cmp30.i.i.i.i.i.i.i.i, i32 %conv35.i.i.i.i.i.i.i.i, i32 %shr24.i.i.i.i.i.i.i.i
-  %mul.i.i.i.i.i.i.i.i = shl i32 %nbBytes.0.i.i.i.i.i.i.i.i, 3
+  %mul.i.i.i.i.i.i.i.i = shl nsw i32 %nbBytes.0.i.i.i.i.i.i.i.i, 3
   %sub.i.i.i.i.i.i.i.i = sub i32 %add.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i
   br label %FSE_reloadDStream.exit.sink.split.i.i.i.i.i.i.i
 
@@ -1075,7 +1075,7 @@ sw.epilog.i355.i.i.i.i.i.i:                       ; preds = %sw.bb50.i350.i.i.i.
 FSE_initDStream.exit400.thread916.i.i.i.i.i.i:    ; preds = %sw.epilog.i355.i.i.i.i.i.i
   %conv59.i359.i.i.i.i.i.i = zext i8 %64 to i32
   %65 = tail call range(i32 24, 33) i32 @llvm.ctlz.i32(i32 %conv59.i359.i.i.i.i.i.i, i1 true)
-  %66 = trunc nuw i64 %sub.i.i.i.i.i to i32
+  %66 = trunc nuw nsw i64 %sub.i.i.i.i.i to i32
   %67 = shl nuw nsw i32 %66, 3
   %reass.sub127 = sub nsw i32 %65, %67
   %add70.i361.i.i.i.i.i.i = add nsw i32 %reass.sub127, 41
@@ -1127,9 +1127,9 @@ if.end22.i.i435.i.i.i.i.i.i:                      ; preds = %if.end10.i.i433.i.i
   %idx.neg27.i.i438.i.i.i.i.i.i = sub nsw i64 0, %idx.ext26.i.i437.i.i.i.i.i.i
   %add.ptr28.i.i439.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bitD.i.sroa.58.3924.ptr.ptr.i.i.i.i.i.i, i64 %idx.neg27.i.i438.i.i.i.i.i.i
   %cmp30.i.i440.i.i.i.i.i.i = icmp ult ptr %add.ptr28.i.i439.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  %conv35.i.i444.i.i.i.i.i.i = trunc i64 %bitD.i.sroa.58.3924.idx.i.i.i.i.i.i to i32
+  %conv35.i.i444.i.i.i.i.i.i = trunc nsw i64 %bitD.i.sroa.58.3924.idx.i.i.i.i.i.i to i32
   %nbBytes.0.i.i445.i.i.i.i.i.i = select i1 %cmp30.i.i440.i.i.i.i.i.i, i32 %conv35.i.i444.i.i.i.i.i.i, i32 %shr24.i.i436.i.i.i.i.i.i
-  %mul.i.i449.i.i.i.i.i.i = shl i32 %nbBytes.0.i.i445.i.i.i.i.i.i, 3
+  %mul.i.i449.i.i.i.i.i.i = shl nsw i32 %nbBytes.0.i.i445.i.i.i.i.i.i, 3
   %sub.i.i450.i.i.i.i.i.i = sub i32 %add.i.i.i414.i.i.i.i.i.i, %mul.i.i449.i.i.i.i.i.i
   br label %FSE_reloadDStream.exit.sink.split.i427.i.i.i.i.i.i
 
@@ -2029,12 +2029,12 @@ if.end37.i.i.i.i:                                 ; preds = %if.end63.i165.i.i.i
   %bitD3.sroa.27.1.i.i.i.i = phi ptr [ %add.ptr3.i197.i.i.i.i, %if.end8.i202.i.i.i.i ], [ %add.ptr16.i.i.i.i, %if.end63.i165.i.i.i.i ]
   %bitD3.sroa.14.1.i.i.i.i = phi i32 [ %sub10.i205.i.i.i.i, %if.end8.i202.i.i.i.i ], [ %add70.i168.i.i.i.i, %if.end63.i165.i.i.i.i ]
   %bitD3.sroa.0.2.i.i.i.i = phi i64 [ %add.ptr3.val.i199.i.i.i.i, %if.end8.i202.i.i.i.i ], [ %bitD3.sroa.0.1.i.i.i.i, %if.end63.i165.i.i.i.i ]
-  %call38.i.i.i.i = call fastcc i64 @FSE_initDStream(ptr noundef nonnull %bitD4.i.i.i.i, ptr noundef nonnull %add.ptr17.i.i.i.i, i64 noundef %sub13.i.i.i.i)
+  %call38.i.i.i.i = call fastcc i64 @FSE_initDStream(ptr noundef %bitD4.i.i.i.i, ptr noundef nonnull %add.ptr17.i.i.i.i, i64 noundef %sub13.i.i.i.i)
   %cmp.i210.i.i.i.i = icmp ult i64 %call38.i.i.i.i, -7
   br i1 %cmp.i210.i.i.i.i, label %if.end42.i.i.i.i, label %HUF_decompress.exit.thread132.i.i
 
 if.end42.i.i.i.i:                                 ; preds = %if.end37.i.i.i.i
-  %call43.i.i.i.i = call fastcc i32 @FSE_reloadDStream(ptr noundef nonnull %bitD2.i.i.i.i)
+  %call43.i.i.i.i = call fastcc i32 @FSE_reloadDStream(ptr noundef %bitD2.i.i.i.i)
   %cmp44647.i.i.i.i = icmp ult i32 %call43.i.i.i.i, 2
   %cmp46648.i.i.i.i = icmp ult ptr %add.ptr9.i.i, %cond.i.i.i.i
   %146 = select i1 %cmp44647.i.i.i.i, i1 %cmp46648.i.i.i.i, i1 false
@@ -2725,7 +2725,7 @@ sw.default.i.i:                                   ; preds = %if.end31.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr26.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call35.i.i = call fastcc i64 @FSE_readNCount(ptr noundef nonnull %norm.i.i, ptr noundef nonnull %max.i.i, ptr noundef nonnull %LLlog.i.i, ptr noundef nonnull %add.ptr26.i.i, i64 noundef %sub.ptr.sub.i.i)
+  %call35.i.i = call fastcc i64 @FSE_readNCount(ptr noundef %norm.i.i, ptr noundef %max.i.i, ptr noundef %LLlog.i.i, ptr noundef nonnull %add.ptr26.i.i, i64 noundef %sub.ptr.sub.i.i)
   %cmp.i.i.i = icmp ult i64 %call35.i.i, -7
   br i1 %cmp.i.i.i, label %if.end39.i.i, label %ZSTDv01_decodeSeqHeaders.exit.thread.i
 
@@ -2925,7 +2925,7 @@ sw.default57.i.i:                                 ; preds = %sw.epilog.i.i
   %sub.ptr.lhs.cast60.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast61.i.i = ptrtoint ptr %ip.1.i.i to i64
   %sub.ptr.sub62.i.i = sub i64 %sub.ptr.lhs.cast60.i.i, %sub.ptr.rhs.cast61.i.i
-  %call63.i.i = call fastcc i64 @FSE_readNCount(ptr noundef nonnull %norm.i.i, ptr noundef nonnull %max58.i.i, ptr noundef nonnull %Offlog.i.i, ptr noundef %ip.1.i.i, i64 noundef %sub.ptr.sub62.i.i)
+  %call63.i.i = call fastcc i64 @FSE_readNCount(ptr noundef %norm.i.i, ptr noundef %max58.i.i, ptr noundef %Offlog.i.i, ptr noundef %ip.1.i.i, i64 noundef %sub.ptr.sub62.i.i)
   %cmp.i73.i.i = icmp ult i64 %call63.i.i, -7
   br i1 %cmp.i73.i.i, label %if.end67.i.i, label %ZSTDv01_decodeSeqHeaders.exit.thread.i
 
@@ -2937,7 +2937,7 @@ if.end67.i.i:                                     ; preds = %sw.default57.i.i
 if.end71.i.i:                                     ; preds = %if.end67.i.i
   %add.ptr72.i.i = getelementptr inbounds i8, ptr %ip.1.i.i, i64 %call63.i.i
   %207 = load i32, ptr %max58.i.i, align 4
-  call fastcc void @FSE_buildDTable(ptr noundef nonnull %OffTable.i, ptr noundef nonnull %norm.i.i, i32 noundef %207, i32 noundef %206)
+  call fastcc void @FSE_buildDTable(ptr noundef nonnull %OffTable.i, ptr noundef %norm.i.i, i32 noundef %207, i32 noundef %206)
   br label %sw.epilog75.i.i
 
 sw.epilog75.i.i:                                  ; preds = %for.body.i63.i.i, %if.end71.i.i, %if.end52.i.i
@@ -2992,7 +2992,7 @@ sw.default86.i.i:                                 ; preds = %sw.epilog75.i.i
   %sub.ptr.lhs.cast89.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast90.i.i = ptrtoint ptr %ip.2.i.i to i64
   %sub.ptr.sub91.i.i = sub i64 %sub.ptr.lhs.cast89.i.i, %sub.ptr.rhs.cast90.i.i
-  %call92.i.i = call fastcc i64 @FSE_readNCount(ptr noundef nonnull %norm.i.i, ptr noundef nonnull %max87.i.i, ptr noundef nonnull %MLlog.i.i, ptr noundef %ip.2.i.i, i64 noundef %sub.ptr.sub91.i.i)
+  %call92.i.i = call fastcc i64 @FSE_readNCount(ptr noundef %norm.i.i, ptr noundef %max87.i.i, ptr noundef %MLlog.i.i, ptr noundef %ip.2.i.i, i64 noundef %sub.ptr.sub91.i.i)
   %cmp.i91.i.i = icmp ult i64 %call92.i.i, -7
   br i1 %cmp.i91.i.i, label %if.end96.i.i, label %ZSTDv01_decodeSeqHeaders.exit.thread.i
 
@@ -3004,7 +3004,7 @@ if.end96.i.i:                                     ; preds = %sw.default86.i.i
 if.end100.i.i:                                    ; preds = %if.end96.i.i
   %add.ptr101.i.i = getelementptr inbounds i8, ptr %ip.2.i.i, i64 %call92.i.i
   %210 = load i32, ptr %max87.i.i, align 4
-  call fastcc void @FSE_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull %norm.i.i, i32 noundef %210, i32 noundef %209)
+  call fastcc void @FSE_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef %norm.i.i, i32 noundef %210, i32 noundef %209)
   br label %ZSTDv01_decodeSeqHeaders.exit.i
 
 ZSTDv01_decodeSeqHeaders.exit.thread.i:           ; preds = %if.end96.i.i, %sw.default86.i.i, %sw.bb76.i.i, %if.end67.i.i, %sw.default57.i.i, %sw.bb47.i.i, %if.end39.i.i, %sw.default.i.i, %if.end25.i.i, %if.end
@@ -4134,7 +4134,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @FSE_readNCount(ptr nocapture noundef writeonly %normalizedCounter, ptr nocapture noundef %maxSVPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) unnamed_addr #2 {
+define internal fastcc i64 @FSE_readNCount(ptr nocapture noundef nonnull writeonly %normalizedCounter, ptr nocapture noundef nonnull %maxSVPtr, ptr nocapture noundef nonnull writeonly %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %headerBuffer, i64 %hbSize
   %cmp = icmp ult i64 %hbSize, 4
@@ -4376,7 +4376,7 @@ return:                                           ; preds = %land.rhs, %while.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @FSE_buildDTable(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) unnamed_addr #2 {
+define internal fastcc void @FSE_buildDTable(ptr nocapture noundef %dt, ptr nocapture noundef nonnull readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) unnamed_addr #2 {
 entry:
   %symbolNext = alloca [256 x i16], align 16
   %add.ptr = getelementptr inbounds i8, ptr %dt, i64 4
@@ -4517,7 +4517,7 @@ return:                                           ; preds = %for.end60, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @FSE_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #11 {
+define internal fastcc range(i64 1, 0) i64 @FSE_initDStream(ptr nocapture noundef nonnull writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #11 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %return, label %if.end
@@ -4647,7 +4647,7 @@ return:                                           ; preds = %if.end8, %if.end63,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 4) i32 @FSE_reloadDStream(ptr nocapture noundef %bitD) unnamed_addr #12 {
+define internal fastcc range(i32 0, 4) i32 @FSE_reloadDStream(ptr nocapture noundef nonnull %bitD) unnamed_addr #12 {
 entry:
   %bitsConsumed = getelementptr inbounds i8, ptr %bitD, i64 8
   %0 = load i32, ptr %bitsConsumed, align 8

@@ -6867,7 +6867,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper4dumpEv(ptr noundef no
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %198, %204
   store i32 %203, ptr %8, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i32 %203)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %7, i32 %203)
           to label %210 unwind label %260
 
 210:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
@@ -7117,7 +7117,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit598: ; preds = %277, %285
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit:    ; preds = %311, %308
   %.sroa.2.0.i = phi i32 [ %.sroa.2.8.insert.ext.i, %311 ], [ %310, %308 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %307, i32 %.sroa.2.0.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %307, i32 %.sroa.2.0.i)
           to label %315 unwind label %335
 
 315:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit
@@ -7288,7 +7288,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit607: ; preds = %369, %366
   %.sroa.2.0.i603 = phi i32 [ %.sroa.2.8.insert.ext.i605, %369 ], [ %368, %366 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %365, i32 %.sroa.2.0.i603)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %365, i32 %.sroa.2.0.i603)
           to label %373 unwind label %395
 
 373:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit607
@@ -7511,7 +7511,7 @@ _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread: ; preds = %.
           to label %457 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 457:                                              ; preds = %453
-  %458 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %25)
+  %458 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %25)
           to label %459 unwind label %469
 
 459:                                              ; preds = %457
@@ -7614,7 +7614,7 @@ _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread: ; preds = %.
           to label %506 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 506:                                              ; preds = %502
-  %507 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %29)
+  %507 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %29)
           to label %508 unwind label %518
 
 508:                                              ; preds = %506
@@ -7717,7 +7717,7 @@ _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread: ; preds = %.
           to label %555 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 555:                                              ; preds = %551
-  %556 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %33)
+  %556 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %33)
           to label %557 unwind label %567
 
 557:                                              ; preds = %555
@@ -8026,7 +8026,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i:          ; preds = %661, %658
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit640: ; preds = %685, %682
   %.sroa.2.0.i636 = phi i32 [ %.sroa.2.8.insert.ext.i638, %685 ], [ %684, %682 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %681, i32 %.sroa.2.0.i636)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %681, i32 %.sroa.2.0.i636)
           to label %689 unwind label %738
 
 689:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit640
@@ -8059,7 +8059,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit640: ; preds = %685, %682
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit646: ; preds = %699, %696
   %.sroa.2.0.i642 = phi i32 [ %.sroa.2.8.insert.ext.i644, %699 ], [ %698, %696 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %695, i32 %.sroa.2.0.i642)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %695, i32 %.sroa.2.0.i642)
           to label %703 unwind label %740
 
 703:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit646
@@ -8275,7 +8275,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit653:             ; preds = %782, %776, %766
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit659: ; preds = %796, %793
   %.sroa.2.0.i655 = phi i32 [ %.sroa.2.8.insert.ext.i657, %796 ], [ %795, %793 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %792, i32 %.sroa.2.0.i655)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %792, i32 %.sroa.2.0.i655)
           to label %800 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 800:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit659
@@ -8308,7 +8308,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit659: ; preds = %796, %793
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit665: ; preds = %810, %807
   %.sroa.2.0.i661 = phi i32 [ %.sroa.2.8.insert.ext.i663, %810 ], [ %809, %807 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %806, i32 %.sroa.2.0.i661)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %806, i32 %.sroa.2.0.i661)
           to label %814 unwind label %819
 
 814:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit665
@@ -8460,7 +8460,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit672:             ; preds = %861, %855, %845
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit678: ; preds = %875, %872
   %.sroa.2.0.i674 = phi i32 [ %.sroa.2.8.insert.ext.i676, %875 ], [ %874, %872 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %871, i32 %.sroa.2.0.i674)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %871, i32 %.sroa.2.0.i674)
           to label %879 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 879:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit678
@@ -8493,7 +8493,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit678: ; preds = %875, %872
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit684: ; preds = %889, %886
   %.sroa.2.0.i680 = phi i32 [ %.sroa.2.8.insert.ext.i682, %889 ], [ %888, %886 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %885, i32 %.sroa.2.0.i680)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %885, i32 %.sroa.2.0.i680)
           to label %893 unwind label %912
 
 893:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit684
@@ -8526,7 +8526,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit684: ; preds = %889, %886
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit690: ; preds = %903, %900
   %.sroa.2.0.i686 = phi i32 [ %.sroa.2.8.insert.ext.i688, %903 ], [ %902, %900 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %899, i32 %.sroa.2.0.i686)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %899, i32 %.sroa.2.0.i686)
           to label %907 unwind label %914
 
 907:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit690
@@ -8689,7 +8689,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit697:             ; preds = %957, %951, %941
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit703: ; preds = %971, %968
   %.sroa.2.0.i699 = phi i32 [ %.sroa.2.8.insert.ext.i701, %971 ], [ %970, %968 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %967, i32 %.sroa.2.0.i699)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %967, i32 %.sroa.2.0.i699)
           to label %975 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 975:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit703
@@ -8722,7 +8722,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit703: ; preds = %971, %968
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit709: ; preds = %985, %982
   %.sroa.2.0.i705 = phi i32 [ %.sroa.2.8.insert.ext.i707, %985 ], [ %984, %982 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %981, i32 %.sroa.2.0.i705)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %981, i32 %.sroa.2.0.i705)
           to label %989 unwind label %1008
 
 989:                                              ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit709
@@ -8755,7 +8755,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit709: ; preds = %985, %982
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit715: ; preds = %999, %996
   %.sroa.2.0.i711 = phi i32 [ %.sroa.2.8.insert.ext.i713, %999 ], [ %998, %996 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %995, i32 %.sroa.2.0.i711)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %995, i32 %.sroa.2.0.i711)
           to label %1003 unwind label %1010
 
 1003:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit715
@@ -8918,7 +8918,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit722:             ; preds = %1053, %1047, %1037
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit728: ; preds = %1067, %1064
   %.sroa.2.0.i724 = phi i32 [ %.sroa.2.8.insert.ext.i726, %1067 ], [ %1066, %1064 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1063, i32 %.sroa.2.0.i724)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1063, i32 %.sroa.2.0.i724)
           to label %1071 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1071:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit728
@@ -8951,7 +8951,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit728: ; preds = %1067, %1064
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit734: ; preds = %1081, %1078
   %.sroa.2.0.i730 = phi i32 [ %.sroa.2.8.insert.ext.i732, %1081 ], [ %1080, %1078 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1077, i32 %.sroa.2.0.i730)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1077, i32 %.sroa.2.0.i730)
           to label %1085 unwind label %1104
 
 1085:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit734
@@ -8984,7 +8984,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit734: ; preds = %1081, %1078
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit740: ; preds = %1095, %1092
   %.sroa.2.0.i736 = phi i32 [ %.sroa.2.8.insert.ext.i738, %1095 ], [ %1094, %1092 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1091, i32 %.sroa.2.0.i736)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1091, i32 %.sroa.2.0.i736)
           to label %1099 unwind label %1106
 
 1099:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit740
@@ -9147,7 +9147,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit747:             ; preds = %1149, %1143, %1133
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit753: ; preds = %1163, %1160
   %.sroa.2.0.i749 = phi i32 [ %.sroa.2.8.insert.ext.i751, %1163 ], [ %1162, %1160 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1159, i32 %.sroa.2.0.i749)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1159, i32 %.sroa.2.0.i749)
           to label %1167 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1167:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit753
@@ -9180,7 +9180,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit753: ; preds = %1163, %1160
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit759: ; preds = %1177, %1174
   %.sroa.2.0.i755 = phi i32 [ %.sroa.2.8.insert.ext.i757, %1177 ], [ %1176, %1174 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1173, i32 %.sroa.2.0.i755)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1173, i32 %.sroa.2.0.i755)
           to label %1181 unwind label %1200
 
 1181:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit759
@@ -9213,7 +9213,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit759: ; preds = %1177, %1174
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit765: ; preds = %1191, %1188
   %.sroa.2.0.i761 = phi i32 [ %.sroa.2.8.insert.ext.i763, %1191 ], [ %1190, %1188 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1187, i32 %.sroa.2.0.i761)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1187, i32 %.sroa.2.0.i761)
           to label %1195 unwind label %1202
 
 1195:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit765
@@ -9376,7 +9376,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit772:             ; preds = %1245, %1239, %1229
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit778: ; preds = %1259, %1256
   %.sroa.2.0.i774 = phi i32 [ %.sroa.2.8.insert.ext.i776, %1259 ], [ %1258, %1256 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1255, i32 %.sroa.2.0.i774)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1255, i32 %.sroa.2.0.i774)
           to label %1263 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1263:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit778
@@ -9409,7 +9409,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit778: ; preds = %1259, %1256
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit784: ; preds = %1273, %1270
   %.sroa.2.0.i780 = phi i32 [ %.sroa.2.8.insert.ext.i782, %1273 ], [ %1272, %1270 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1269, i32 %.sroa.2.0.i780)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1269, i32 %.sroa.2.0.i780)
           to label %1277 unwind label %1296
 
 1277:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit784
@@ -9442,7 +9442,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit784: ; preds = %1273, %1270
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit790: ; preds = %1287, %1284
   %.sroa.2.0.i786 = phi i32 [ %.sroa.2.8.insert.ext.i788, %1287 ], [ %1286, %1284 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1283, i32 %.sroa.2.0.i786)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1283, i32 %.sroa.2.0.i786)
           to label %1291 unwind label %1298
 
 1291:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit790
@@ -9605,7 +9605,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit797:             ; preds = %1341, %1335, %1325
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit803: ; preds = %1355, %1352
   %.sroa.2.0.i799 = phi i32 [ %.sroa.2.8.insert.ext.i801, %1355 ], [ %1354, %1352 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1351, i32 %.sroa.2.0.i799)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1351, i32 %.sroa.2.0.i799)
           to label %1359 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1359:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit803
@@ -9638,7 +9638,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit803: ; preds = %1355, %1352
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit809: ; preds = %1369, %1366
   %.sroa.2.0.i805 = phi i32 [ %.sroa.2.8.insert.ext.i807, %1369 ], [ %1368, %1366 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1365, i32 %.sroa.2.0.i805)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1365, i32 %.sroa.2.0.i805)
           to label %1373 unwind label %1392
 
 1373:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit809
@@ -9671,7 +9671,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit809: ; preds = %1369, %1366
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit815: ; preds = %1383, %1380
   %.sroa.2.0.i811 = phi i32 [ %.sroa.2.8.insert.ext.i813, %1383 ], [ %1382, %1380 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1379, i32 %.sroa.2.0.i811)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1379, i32 %.sroa.2.0.i811)
           to label %1387 unwind label %1394
 
 1387:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit815
@@ -9733,7 +9733,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit797.thread:      ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %1405, label %.thread1538, label %1406
 
 1406:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit797.thread
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %66)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEv(ptr dead_on_unwind noalias writable align 4 %66)
           to label %1407 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1407:                                             ; preds = %1406
@@ -9778,7 +9778,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit797.thread:      ; preds = %_ZN5Yosys5RTLIL8IdS
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit821: ; preds = %1421, %1418
   %.sroa.2.0.i817 = phi i32 [ %.sroa.2.8.insert.ext.i819, %1421 ], [ %1420, %1418 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1417, i32 %.sroa.2.0.i817)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1417, i32 %.sroa.2.0.i817)
           to label %1425 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1425:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit821
@@ -9811,7 +9811,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit821: ; preds = %1421, %1418
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit827: ; preds = %1435, %1432
   %.sroa.2.0.i823 = phi i32 [ %.sroa.2.8.insert.ext.i825, %1435 ], [ %1434, %1432 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %69, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1431, i32 %.sroa.2.0.i823)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %69, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1431, i32 %.sroa.2.0.i823)
           to label %1439 unwind label %1458
 
 1439:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit827
@@ -9844,7 +9844,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit827: ; preds = %1435, %1432
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit833: ; preds = %1449, %1446
   %.sroa.2.0.i829 = phi i32 [ %.sroa.2.8.insert.ext.i831, %1449 ], [ %1448, %1446 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %70, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1445, i32 %.sroa.2.0.i829)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %70, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1445, i32 %.sroa.2.0.i829)
           to label %1453 unwind label %1460
 
 1453:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit833
@@ -9905,7 +9905,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit833: ; preds = %1449, %1446
   br i1 %1470, label %.thread1540, label %1471
 
 1471:                                             ; preds = %.thread1538
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %71)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEv(ptr dead_on_unwind noalias writable align 4 %71)
           to label %1472 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1472:                                             ; preds = %1471
@@ -9950,7 +9950,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit833: ; preds = %1449, %1446
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit839: ; preds = %1486, %1483
   %.sroa.2.0.i835 = phi i32 [ %.sroa.2.8.insert.ext.i837, %1486 ], [ %1485, %1483 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1482, i32 %.sroa.2.0.i835)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1482, i32 %.sroa.2.0.i835)
           to label %1490 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1490:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit839
@@ -9983,7 +9983,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit839: ; preds = %1486, %1483
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit845: ; preds = %1500, %1497
   %.sroa.2.0.i841 = phi i32 [ %.sroa.2.8.insert.ext.i843, %1500 ], [ %1499, %1497 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1496, i32 %.sroa.2.0.i841)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1496, i32 %.sroa.2.0.i841)
           to label %1504 unwind label %1523
 
 1504:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit845
@@ -10016,7 +10016,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit845: ; preds = %1500, %1497
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit851: ; preds = %1514, %1511
   %.sroa.2.0.i847 = phi i32 [ %.sroa.2.8.insert.ext.i849, %1514 ], [ %1513, %1511 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1510, i32 %.sroa.2.0.i847)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1510, i32 %.sroa.2.0.i847)
           to label %1518 unwind label %1525
 
 1518:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit851
@@ -10077,7 +10077,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit851: ; preds = %1514, %1511
   br i1 %1535, label %.thread1542, label %1536
 
 1536:                                             ; preds = %.thread1540
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %76)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEv(ptr dead_on_unwind noalias writable align 4 %76)
           to label %1537 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1537:                                             ; preds = %1536
@@ -10122,7 +10122,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit851: ; preds = %1514, %1511
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit857: ; preds = %1551, %1548
   %.sroa.2.0.i853 = phi i32 [ %.sroa.2.8.insert.ext.i855, %1551 ], [ %1550, %1548 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1547, i32 %.sroa.2.0.i853)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1547, i32 %.sroa.2.0.i853)
           to label %1555 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1555:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit857
@@ -10155,7 +10155,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit857: ; preds = %1551, %1548
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit863: ; preds = %1565, %1562
   %.sroa.2.0.i859 = phi i32 [ %.sroa.2.8.insert.ext.i861, %1565 ], [ %1564, %1562 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1561, i32 %.sroa.2.0.i859)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1561, i32 %.sroa.2.0.i859)
           to label %1569 unwind label %1602
 
 1569:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit863
@@ -10188,7 +10188,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit863: ; preds = %1565, %1562
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit869: ; preds = %1579, %1576
   %.sroa.2.0.i865 = phi i32 [ %.sroa.2.8.insert.ext.i867, %1579 ], [ %1578, %1576 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1575, i32 %.sroa.2.0.i865)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1575, i32 %.sroa.2.0.i865)
           to label %1583 unwind label %1604
 
 1583:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit869
@@ -10221,7 +10221,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit869: ; preds = %1579, %1576
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit875: ; preds = %1593, %1590
   %.sroa.2.0.i871 = phi i32 [ %.sroa.2.8.insert.ext.i873, %1593 ], [ %1592, %1590 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1589, i32 %.sroa.2.0.i871)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1589, i32 %.sroa.2.0.i871)
           to label %1597 unwind label %1606
 
 1597:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit875
@@ -10293,7 +10293,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit875: ; preds = %1593, %1590
   br i1 %1617, label %.thread1544, label %1618
 
 1618:                                             ; preds = %.thread1542
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %82)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEv(ptr dead_on_unwind noalias writable align 4 %82)
           to label %1619 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1619:                                             ; preds = %1618
@@ -10338,7 +10338,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit875: ; preds = %1593, %1590
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit881: ; preds = %1633, %1630
   %.sroa.2.0.i877 = phi i32 [ %.sroa.2.8.insert.ext.i879, %1633 ], [ %1632, %1630 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %84, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1629, i32 %.sroa.2.0.i877)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %84, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1629, i32 %.sroa.2.0.i877)
           to label %1637 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1637:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit881
@@ -10371,7 +10371,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit881: ; preds = %1633, %1630
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit887: ; preds = %1647, %1644
   %.sroa.2.0.i883 = phi i32 [ %.sroa.2.8.insert.ext.i885, %1647 ], [ %1646, %1644 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1643, i32 %.sroa.2.0.i883)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1643, i32 %.sroa.2.0.i883)
           to label %1651 unwind label %1684
 
 1651:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit887
@@ -10404,7 +10404,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit887: ; preds = %1647, %1644
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit893: ; preds = %1661, %1658
   %.sroa.2.0.i889 = phi i32 [ %.sroa.2.8.insert.ext.i891, %1661 ], [ %1660, %1658 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1657, i32 %.sroa.2.0.i889)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1657, i32 %.sroa.2.0.i889)
           to label %1665 unwind label %1686
 
 1665:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit893
@@ -10437,7 +10437,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit893: ; preds = %1661, %1658
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit899: ; preds = %1675, %1672
   %.sroa.2.0.i895 = phi i32 [ %.sroa.2.8.insert.ext.i897, %1675 ], [ %1674, %1672 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %87, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1671, i32 %.sroa.2.0.i895)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %87, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1671, i32 %.sroa.2.0.i895)
           to label %1679 unwind label %1688
 
 1679:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit899
@@ -10509,7 +10509,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit899: ; preds = %1675, %1672
   br i1 %1699, label %.thread1546, label %1700
 
 1700:                                             ; preds = %.thread1544
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %88)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEv(ptr dead_on_unwind noalias writable align 4 %88)
           to label %1701 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1701:                                             ; preds = %1700
@@ -10554,7 +10554,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit899: ; preds = %1675, %1672
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit905: ; preds = %1715, %1712
   %.sroa.2.0.i901 = phi i32 [ %.sroa.2.8.insert.ext.i903, %1715 ], [ %1714, %1712 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %90, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1711, i32 %.sroa.2.0.i901)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %90, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1711, i32 %.sroa.2.0.i901)
           to label %1719 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1719:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit905
@@ -10587,7 +10587,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit905: ; preds = %1715, %1712
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit911: ; preds = %1729, %1726
   %.sroa.2.0.i907 = phi i32 [ %.sroa.2.8.insert.ext.i909, %1729 ], [ %1728, %1726 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1725, i32 %.sroa.2.0.i907)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1725, i32 %.sroa.2.0.i907)
           to label %1733 unwind label %1780
 
 1733:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit911
@@ -10620,7 +10620,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit911: ; preds = %1729, %1726
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit917: ; preds = %1743, %1740
   %.sroa.2.0.i913 = phi i32 [ %.sroa.2.8.insert.ext.i915, %1743 ], [ %1742, %1740 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1739, i32 %.sroa.2.0.i913)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1739, i32 %.sroa.2.0.i913)
           to label %1747 unwind label %1782
 
 1747:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit917
@@ -10653,7 +10653,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit917: ; preds = %1743, %1740
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit923: ; preds = %1757, %1754
   %.sroa.2.0.i919 = phi i32 [ %.sroa.2.8.insert.ext.i921, %1757 ], [ %1756, %1754 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1753, i32 %.sroa.2.0.i919)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1753, i32 %.sroa.2.0.i919)
           to label %1761 unwind label %1784
 
 1761:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit923
@@ -10686,7 +10686,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit923: ; preds = %1757, %1754
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit929: ; preds = %1771, %1768
   %.sroa.2.0.i925 = phi i32 [ %.sroa.2.8.insert.ext.i927, %1771 ], [ %1770, %1768 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %94, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1767, i32 %.sroa.2.0.i925)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %94, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1767, i32 %.sroa.2.0.i925)
           to label %1775 unwind label %1786
 
 1775:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit929
@@ -10769,7 +10769,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit929: ; preds = %1771, %1768
   br i1 %1798, label %.thread1548, label %1799
 
 1799:                                             ; preds = %.thread1546
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %95)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEv(ptr dead_on_unwind noalias writable align 4 %95)
           to label %1800 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1800:                                             ; preds = %1799
@@ -10814,7 +10814,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit929: ; preds = %1771, %1768
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit935: ; preds = %1814, %1811
   %.sroa.2.0.i931 = phi i32 [ %.sroa.2.8.insert.ext.i933, %1814 ], [ %1813, %1811 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %97, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1810, i32 %.sroa.2.0.i931)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %97, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1810, i32 %.sroa.2.0.i931)
           to label %1818 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1818:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit935
@@ -10847,7 +10847,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit935: ; preds = %1814, %1811
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit941: ; preds = %1828, %1825
   %.sroa.2.0.i937 = phi i32 [ %.sroa.2.8.insert.ext.i939, %1828 ], [ %1827, %1825 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1824, i32 %.sroa.2.0.i937)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1824, i32 %.sroa.2.0.i937)
           to label %1832 unwind label %1879
 
 1832:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit941
@@ -10880,7 +10880,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit941: ; preds = %1828, %1825
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit947: ; preds = %1842, %1839
   %.sroa.2.0.i943 = phi i32 [ %.sroa.2.8.insert.ext.i945, %1842 ], [ %1841, %1839 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %99, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1838, i32 %.sroa.2.0.i943)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %99, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1838, i32 %.sroa.2.0.i943)
           to label %1846 unwind label %1881
 
 1846:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit947
@@ -10913,7 +10913,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit947: ; preds = %1842, %1839
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit953: ; preds = %1856, %1853
   %.sroa.2.0.i949 = phi i32 [ %.sroa.2.8.insert.ext.i951, %1856 ], [ %1855, %1853 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %100, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1852, i32 %.sroa.2.0.i949)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %100, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1852, i32 %.sroa.2.0.i949)
           to label %1860 unwind label %1883
 
 1860:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit953
@@ -10946,7 +10946,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit953: ; preds = %1856, %1853
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit959: ; preds = %1870, %1867
   %.sroa.2.0.i955 = phi i32 [ %.sroa.2.8.insert.ext.i957, %1870 ], [ %1869, %1867 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %101, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1866, i32 %.sroa.2.0.i955)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %101, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1866, i32 %.sroa.2.0.i955)
           to label %1874 unwind label %1885
 
 1874:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit959
@@ -11029,7 +11029,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit959: ; preds = %1870, %1867
   br i1 %1897, label %.thread1550, label %1898
 
 1898:                                             ; preds = %.thread1548
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %102)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEv(ptr dead_on_unwind noalias writable align 4 %102)
           to label %1899 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1899:                                             ; preds = %1898
@@ -11074,7 +11074,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit959: ; preds = %1870, %1867
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit965: ; preds = %1913, %1910
   %.sroa.2.0.i961 = phi i32 [ %.sroa.2.8.insert.ext.i963, %1913 ], [ %1912, %1910 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1909, i32 %.sroa.2.0.i961)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1909, i32 %.sroa.2.0.i961)
           to label %1917 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1917:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit965
@@ -11107,7 +11107,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit965: ; preds = %1913, %1910
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit971: ; preds = %1927, %1924
   %.sroa.2.0.i967 = phi i32 [ %.sroa.2.8.insert.ext.i969, %1927 ], [ %1926, %1924 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1923, i32 %.sroa.2.0.i967)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1923, i32 %.sroa.2.0.i967)
           to label %1931 unwind label %1964
 
 1931:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit971
@@ -11140,7 +11140,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit971: ; preds = %1927, %1924
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit977: ; preds = %1941, %1938
   %.sroa.2.0.i973 = phi i32 [ %.sroa.2.8.insert.ext.i975, %1941 ], [ %1940, %1938 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %106, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1937, i32 %.sroa.2.0.i973)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %106, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1937, i32 %.sroa.2.0.i973)
           to label %1945 unwind label %1966
 
 1945:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit977
@@ -11173,7 +11173,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit977: ; preds = %1941, %1938
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit983: ; preds = %1955, %1952
   %.sroa.2.0.i979 = phi i32 [ %.sroa.2.8.insert.ext.i981, %1955 ], [ %1954, %1952 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %107, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1951, i32 %.sroa.2.0.i979)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %107, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1951, i32 %.sroa.2.0.i979)
           to label %1959 unwind label %1968
 
 1959:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit983
@@ -11245,7 +11245,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit983: ; preds = %1955, %1952
   br i1 %1979, label %.thread1552, label %1980
 
 1980:                                             ; preds = %.thread1550
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %108)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEv(ptr dead_on_unwind noalias writable align 4 %108)
           to label %1981 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1981:                                             ; preds = %1980
@@ -11290,7 +11290,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit983: ; preds = %1955, %1952
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit989: ; preds = %1995, %1992
   %.sroa.2.0.i985 = phi i32 [ %.sroa.2.8.insert.ext.i987, %1995 ], [ %1994, %1992 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1991, i32 %.sroa.2.0.i985)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1991, i32 %.sroa.2.0.i985)
           to label %1999 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1999:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit989
@@ -11323,7 +11323,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit989: ; preds = %1995, %1992
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit995: ; preds = %2009, %2006
   %.sroa.2.0.i991 = phi i32 [ %.sroa.2.8.insert.ext.i993, %2009 ], [ %2008, %2006 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2005, i32 %.sroa.2.0.i991)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2005, i32 %.sroa.2.0.i991)
           to label %2013 unwind label %2046
 
 2013:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit995
@@ -11356,7 +11356,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit995: ; preds = %2009, %2006
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1001: ; preds = %2023, %2020
   %.sroa.2.0.i997 = phi i32 [ %.sroa.2.8.insert.ext.i999, %2023 ], [ %2022, %2020 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %112, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2019, i32 %.sroa.2.0.i997)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %112, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2019, i32 %.sroa.2.0.i997)
           to label %2027 unwind label %2048
 
 2027:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1001
@@ -11389,7 +11389,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1001: ; preds = %2023, %2020
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1007: ; preds = %2037, %2034
   %.sroa.2.0.i1003 = phi i32 [ %.sroa.2.8.insert.ext.i1005, %2037 ], [ %2036, %2034 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %113, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2033, i32 %.sroa.2.0.i1003)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %113, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2033, i32 %.sroa.2.0.i1003)
           to label %2041 unwind label %2050
 
 2041:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1007
@@ -11461,7 +11461,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1007: ; preds = %2037, %2034
   br i1 %2061, label %.thread1554, label %2062
 
 2062:                                             ; preds = %.thread1552
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %114)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEv(ptr dead_on_unwind noalias writable align 4 %114)
           to label %2063 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2063:                                             ; preds = %2062
@@ -11506,7 +11506,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1007: ; preds = %2037, %2034
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1013: ; preds = %2077, %2074
   %.sroa.2.0.i1009 = phi i32 [ %.sroa.2.8.insert.ext.i1011, %2077 ], [ %2076, %2074 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2073, i32 %.sroa.2.0.i1009)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %116, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2073, i32 %.sroa.2.0.i1009)
           to label %2081 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2081:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1013
@@ -11539,7 +11539,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1013: ; preds = %2077, %2074
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1019: ; preds = %2091, %2088
   %.sroa.2.0.i1015 = phi i32 [ %.sroa.2.8.insert.ext.i1017, %2091 ], [ %2090, %2088 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %117, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2087, i32 %.sroa.2.0.i1015)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %117, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2087, i32 %.sroa.2.0.i1015)
           to label %2095 unwind label %2114
 
 2095:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1019
@@ -11572,7 +11572,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1019: ; preds = %2091, %2088
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1025: ; preds = %2105, %2102
   %.sroa.2.0.i1021 = phi i32 [ %.sroa.2.8.insert.ext.i1023, %2105 ], [ %2104, %2102 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %118, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2101, i32 %.sroa.2.0.i1021)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %118, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2101, i32 %.sroa.2.0.i1021)
           to label %2109 unwind label %2116
 
 2109:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1025
@@ -11633,7 +11633,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1025: ; preds = %2105, %2102
   br i1 %2126, label %.thread1556, label %2127
 
 2127:                                             ; preds = %.thread1554
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %119)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEv(ptr dead_on_unwind noalias writable align 4 %119)
           to label %2128 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2128:                                             ; preds = %2127
@@ -11678,7 +11678,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1025: ; preds = %2105, %2102
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1031: ; preds = %2142, %2139
   %.sroa.2.0.i1027 = phi i32 [ %.sroa.2.8.insert.ext.i1029, %2142 ], [ %2141, %2139 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %121, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2138, i32 %.sroa.2.0.i1027)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %121, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2138, i32 %.sroa.2.0.i1027)
           to label %2146 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2146:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1031
@@ -11711,7 +11711,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1031: ; preds = %2142, %2139
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1037: ; preds = %2156, %2153
   %.sroa.2.0.i1033 = phi i32 [ %.sroa.2.8.insert.ext.i1035, %2156 ], [ %2155, %2153 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %122, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2152, i32 %.sroa.2.0.i1033)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %122, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2152, i32 %.sroa.2.0.i1033)
           to label %2160 unwind label %2193
 
 2160:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1037
@@ -11744,7 +11744,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1037: ; preds = %2156, %2153
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1043: ; preds = %2170, %2167
   %.sroa.2.0.i1039 = phi i32 [ %.sroa.2.8.insert.ext.i1041, %2170 ], [ %2169, %2167 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %123, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2166, i32 %.sroa.2.0.i1039)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %123, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2166, i32 %.sroa.2.0.i1039)
           to label %2174 unwind label %2195
 
 2174:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1043
@@ -11777,7 +11777,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1043: ; preds = %2170, %2167
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1049: ; preds = %2184, %2181
   %.sroa.2.0.i1045 = phi i32 [ %.sroa.2.8.insert.ext.i1047, %2184 ], [ %2183, %2181 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %124, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2180, i32 %.sroa.2.0.i1045)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %124, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2180, i32 %.sroa.2.0.i1045)
           to label %2188 unwind label %2197
 
 2188:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1049
@@ -11849,7 +11849,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1049: ; preds = %2184, %2181
   br i1 %2208, label %.thread1558, label %2209
 
 2209:                                             ; preds = %.thread1556
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %125)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEv(ptr dead_on_unwind noalias writable align 4 %125)
           to label %2210 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2210:                                             ; preds = %2209
@@ -11894,7 +11894,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1049: ; preds = %2184, %2181
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1055: ; preds = %2224, %2221
   %.sroa.2.0.i1051 = phi i32 [ %.sroa.2.8.insert.ext.i1053, %2224 ], [ %2223, %2221 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %127, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2220, i32 %.sroa.2.0.i1051)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %127, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2220, i32 %.sroa.2.0.i1051)
           to label %2228 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2228:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1055
@@ -11927,7 +11927,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1055: ; preds = %2224, %2221
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1061: ; preds = %2238, %2235
   %.sroa.2.0.i1057 = phi i32 [ %.sroa.2.8.insert.ext.i1059, %2238 ], [ %2237, %2235 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %128, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2234, i32 %.sroa.2.0.i1057)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %128, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2234, i32 %.sroa.2.0.i1057)
           to label %2242 unwind label %2275
 
 2242:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1061
@@ -11960,7 +11960,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1061: ; preds = %2238, %2235
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1067: ; preds = %2252, %2249
   %.sroa.2.0.i1063 = phi i32 [ %.sroa.2.8.insert.ext.i1065, %2252 ], [ %2251, %2249 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %129, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2248, i32 %.sroa.2.0.i1063)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %129, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2248, i32 %.sroa.2.0.i1063)
           to label %2256 unwind label %2277
 
 2256:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1067
@@ -11993,7 +11993,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1067: ; preds = %2252, %2249
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1073: ; preds = %2266, %2263
   %.sroa.2.0.i1069 = phi i32 [ %.sroa.2.8.insert.ext.i1071, %2266 ], [ %2265, %2263 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %130, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2262, i32 %.sroa.2.0.i1069)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %130, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2262, i32 %.sroa.2.0.i1069)
           to label %2270 unwind label %2279
 
 2270:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1073
@@ -12065,7 +12065,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1073: ; preds = %2266, %2263
   br i1 %2290, label %.thread1560, label %2291
 
 2291:                                             ; preds = %.thread1558
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %131)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEv(ptr dead_on_unwind noalias writable align 4 %131)
           to label %2292 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2292:                                             ; preds = %2291
@@ -12110,7 +12110,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1073: ; preds = %2266, %2263
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1079: ; preds = %2306, %2303
   %.sroa.2.0.i1075 = phi i32 [ %.sroa.2.8.insert.ext.i1077, %2306 ], [ %2305, %2303 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %133, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2302, i32 %.sroa.2.0.i1075)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %133, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2302, i32 %.sroa.2.0.i1075)
           to label %2310 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2310:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1079
@@ -12143,7 +12143,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1079: ; preds = %2306, %2303
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1085: ; preds = %2320, %2317
   %.sroa.2.0.i1081 = phi i32 [ %.sroa.2.8.insert.ext.i1083, %2320 ], [ %2319, %2317 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %134, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2316, i32 %.sroa.2.0.i1081)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %134, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2316, i32 %.sroa.2.0.i1081)
           to label %2324 unwind label %2357
 
 2324:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1085
@@ -12176,7 +12176,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1085: ; preds = %2320, %2317
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1091: ; preds = %2334, %2331
   %.sroa.2.0.i1087 = phi i32 [ %.sroa.2.8.insert.ext.i1089, %2334 ], [ %2333, %2331 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %135, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2330, i32 %.sroa.2.0.i1087)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %135, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2330, i32 %.sroa.2.0.i1087)
           to label %2338 unwind label %2359
 
 2338:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1091
@@ -12209,7 +12209,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1091: ; preds = %2334, %2331
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1097: ; preds = %2348, %2345
   %.sroa.2.0.i1093 = phi i32 [ %.sroa.2.8.insert.ext.i1095, %2348 ], [ %2347, %2345 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %136, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2344, i32 %.sroa.2.0.i1093)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %136, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2344, i32 %.sroa.2.0.i1093)
           to label %2352 unwind label %2361
 
 2352:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1097
@@ -12281,7 +12281,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1097: ; preds = %2348, %2345
   br i1 %2372, label %.thread1562, label %2373
 
 2373:                                             ; preds = %.thread1560
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %137)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEv(ptr dead_on_unwind noalias writable align 4 %137)
           to label %2374 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2374:                                             ; preds = %2373
@@ -12326,7 +12326,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1097: ; preds = %2348, %2345
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1103: ; preds = %2388, %2385
   %.sroa.2.0.i1099 = phi i32 [ %.sroa.2.8.insert.ext.i1101, %2388 ], [ %2387, %2385 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %139, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2384, i32 %.sroa.2.0.i1099)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %139, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2384, i32 %.sroa.2.0.i1099)
           to label %2392 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2392:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1103
@@ -12359,7 +12359,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1103: ; preds = %2388, %2385
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1109: ; preds = %2402, %2399
   %.sroa.2.0.i1105 = phi i32 [ %.sroa.2.8.insert.ext.i1107, %2402 ], [ %2401, %2399 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %140, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2398, i32 %.sroa.2.0.i1105)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %140, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2398, i32 %.sroa.2.0.i1105)
           to label %2406 unwind label %2439
 
 2406:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1109
@@ -12392,7 +12392,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1109: ; preds = %2402, %2399
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1115: ; preds = %2416, %2413
   %.sroa.2.0.i1111 = phi i32 [ %.sroa.2.8.insert.ext.i1113, %2416 ], [ %2415, %2413 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %141, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2412, i32 %.sroa.2.0.i1111)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %141, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2412, i32 %.sroa.2.0.i1111)
           to label %2420 unwind label %2441
 
 2420:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1115
@@ -12425,7 +12425,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1115: ; preds = %2416, %2413
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1121: ; preds = %2430, %2427
   %.sroa.2.0.i1117 = phi i32 [ %.sroa.2.8.insert.ext.i1119, %2430 ], [ %2429, %2427 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %142, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2426, i32 %.sroa.2.0.i1117)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %142, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2426, i32 %.sroa.2.0.i1117)
           to label %2434 unwind label %2443
 
 2434:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1121
@@ -12497,7 +12497,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1121: ; preds = %2430, %2427
   br i1 %2454, label %.thread1564, label %2455
 
 2455:                                             ; preds = %.thread1562
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %143)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEv(ptr dead_on_unwind noalias writable align 4 %143)
           to label %2456 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2456:                                             ; preds = %2455
@@ -12570,7 +12570,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1121: ; preds = %2430, %2427
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1127: ; preds = %2481, %2478
   %.sroa.2.0.i1123 = phi i32 [ %.sroa.2.8.insert.ext.i1125, %2481 ], [ %2480, %2478 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %146, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2477, i32 %.sroa.2.0.i1123)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %146, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2477, i32 %.sroa.2.0.i1123)
           to label %2485 unwind label %2494
 
 2485:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1127
@@ -12652,7 +12652,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1127: ; preds = %2481, %2478
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1133: ; preds = %2511, %2508
   %.sroa.2.0.i1129 = phi i32 [ %.sroa.2.8.insert.ext.i1131, %2511 ], [ %2510, %2508 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %149, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2507, i32 %.sroa.2.0.i1129)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %149, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2507, i32 %.sroa.2.0.i1129)
           to label %2515 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2515:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1133
@@ -12781,7 +12781,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread:      ; preds = %2529, %._crit_edge1
   br i1 %2555, label %.thread1566, label %2556
 
 2556:                                             ; preds = %.thread1564
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %152)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEv(ptr dead_on_unwind noalias writable align 4 %152)
           to label %2557 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2557:                                             ; preds = %2556
@@ -12921,7 +12921,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread:      ; preds = %2529, %._crit_edge1
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1140: ; preds = %2601, %2598
   %.sroa.2.0.i1136 = phi i32 [ %.sroa.2.8.insert.ext.i1138, %2601 ], [ %2600, %2598 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %157, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2597, i32 %.sroa.2.0.i1136)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %157, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2597, i32 %.sroa.2.0.i1136)
           to label %2605 unwind label %2611
 
 2605:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1140
@@ -12997,7 +12997,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1140: ; preds = %2601, %2598
 
 _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
   %.sroa.2.0.i1142 = phi i32 [ %.sroa.2.8.insert.ext.i1144, %2628 ], [ %2627, %2625 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2624, i32 %.sroa.2.0.i1142)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %160, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %2624, i32 %.sroa.2.0.i1142)
           to label %2632 unwind label %.loopexit.split-lp1591.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 2632:                                             ; preds = %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146
@@ -13141,7 +13141,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
           to label %2680 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2680:                                             ; preds = %.thread1566
-  %2681 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %163)
+  %2681 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %163)
           to label %2682 unwind label %2732
 
 2682:                                             ; preds = %2680
@@ -13160,7 +13160,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2690:                                             ; preds = %2684, %2682
   store i32 %2683, ptr %165, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %164, i32 %2683)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %164, i32 %2683)
           to label %2691 unwind label %2734
 
 2691:                                             ; preds = %2690
@@ -13225,7 +13225,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2722:                                             ; preds = %2716, %2713
   store i32 %2715, ptr %168, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %167, i32 %2715)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %167, i32 %2715)
           to label %2723 unwind label %2743
 
 2723:                                             ; preds = %2722
@@ -13237,7 +13237,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
   %.sroa.047.0.copyload = load ptr, ptr %2725, align 8
   %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %2725, i64 8
   %.sroa.248.0.copyload = load i32, ptr %.sroa.248.0..sroa_idx, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %169, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.047.0.copyload, i32 %.sroa.248.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %169, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.047.0.copyload, i32 %.sroa.248.0.copyload)
           to label %2727 unwind label %2745
 
 2727:                                             ; preds = %2726
@@ -13381,7 +13381,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2778:                                             ; preds = %2772, %.lr.ph2005
   store i32 %2771, ptr %172, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %171, i32 %2771)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %171, i32 %2771)
           to label %2779 unwind label %2791
 
 2779:                                             ; preds = %2778
@@ -13393,7 +13393,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
   %.sroa.035.0.copyload = load ptr, ptr %2781, align 8
   %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %2781, i64 8
   %.sroa.236.0.copyload = load i32, ptr %.sroa.236.0..sroa_idx, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %173, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.035.0.copyload, i32 %.sroa.236.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %173, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.035.0.copyload, i32 %.sroa.236.0.copyload)
           to label %2783 unwind label %2793
 
 2783:                                             ; preds = %2782
@@ -13469,7 +13469,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2811:                                             ; preds = %2805, %2802
   store i32 %2804, ptr %176, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %175, i32 %2804)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %175, i32 %2804)
           to label %2812 unwind label %2837
 
 2812:                                             ; preds = %2811
@@ -13499,7 +13499,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
   %.sroa.028.0.copyload = load ptr, ptr %2826, align 8
   %.sroa.229.0..sroa_idx = getelementptr inbounds i8, ptr %2826, i64 8
   %.sroa.229.0.copyload = load i32, ptr %.sroa.229.0..sroa_idx, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %177, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.028.0.copyload, i32 %.sroa.229.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %177, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.028.0.copyload, i32 %.sroa.229.0.copyload)
           to label %2828 unwind label %2839
 
 2828:                                             ; preds = %2827
@@ -13598,7 +13598,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2866:                                             ; preds = %2860, %2856
   store i32 %2859, ptr %181, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %180, i32 %2859)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %180, i32 %2859)
           to label %2867 unwind label %2874
 
 2867:                                             ; preds = %2866
@@ -13706,7 +13706,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %2676, %._crit_edg
 
 2911:                                             ; preds = %2905, %2901
   store i32 %2904, ptr %184, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %183, i32 %2904)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %183, i32 %2904)
           to label %2912 unwind label %2931
 
 2912:                                             ; preds = %2911
@@ -14213,12 +14213,12 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
 
 3166:                                             ; preds = %.loopexit
   %3167 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %186, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.017.0.copyload, i32 %.sroa.4.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %186, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.017.0.copyload, i32 %.sroa.4.0.copyload)
           to label %3168 unwind label %.loopexit1583
 
 3168:                                             ; preds = %3166
   %3169 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %186) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %187, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.fr.i, i32 %.sroa.7.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %187, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.fr.i, i32 %.sroa.7.0.copyload)
           to label %3170 unwind label %3174
 
 3170:                                             ; preds = %3168
@@ -14269,7 +14269,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
           to label %3189 unwind label %.loopexit1583
 
 3189:                                             ; preds = %3186
-  %3190 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %189)
+  %3190 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %189)
           to label %3191 unwind label %3208
 
 3191:                                             ; preds = %3189
@@ -14279,7 +14279,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
   %3195 = load ptr, ptr %427, align 8
   %3196 = getelementptr inbounds i8, ptr %3195, i64 48
   %3197 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3196) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %190, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.017.0.copyload, i32 %.sroa.4.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %190, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.017.0.copyload, i32 %.sroa.4.0.copyload)
           to label %3198 unwind label %3208
 
 3198:                                             ; preds = %3191
@@ -14287,7 +14287,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
   %3200 = load ptr, ptr %427, align 8
   %3201 = getelementptr inbounds i8, ptr %3200, i64 80
   %3202 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3201) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %191, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.fr.i, i32 %.sroa.7.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %191, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.fr.i, i32 %.sroa.7.0.copyload)
           to label %3203 unwind label %3210
 
 3203:                                             ; preds = %3198
@@ -14340,12 +14340,12 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
   br label %.body1200
 
 3219:                                             ; preds = %3182
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %193, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.017.0.copyload, i32 %.sroa.4.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %193, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.017.0.copyload, i32 %.sroa.4.0.copyload)
           to label %3220 unwind label %.loopexit1583
 
 3220:                                             ; preds = %3219
   %3221 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %193) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %194, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.fr.i, i32 %.sroa.7.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %194, ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.fr.i, i32 %.sroa.7.0.copyload)
           to label %3222 unwind label %3226
 
 3222:                                             ; preds = %3220
@@ -72603,7 +72603,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %0, i32 %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %0, i32 %.0.val)
   %2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   %.not = icmp eq i64 %2, 0
@@ -72757,7 +72757,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN5Yosys5RTLIL4WireEESt10_Select1stIS6_ESt4lessIiESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr %2, i32 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr %2, i32 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %6 = alloca %"struct.std::pair.532", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -73018,7 +73018,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit:             ; preds = %4
 declare void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_110BlifDumper14subckt_or_gateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -73220,7 +73220,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit18:              ; preds = %_ZNK5Yosys5RTLIL10A
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73266,7 +73266,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73312,7 +73312,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73358,7 +73358,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73404,7 +73404,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73450,7 +73450,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73496,7 +73496,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73542,7 +73542,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73588,7 +73588,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73634,7 +73634,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr %2, i32 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper8str_initB5cxx11EN5Yosys5RTLIL6SigBitE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr %2, i32 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %6 = alloca %"class.std::allocator", align 1
   store ptr %2, ptr %5, align 8
@@ -73718,7 +73718,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit:  ; preds = %4, %_ZNK5Yosys7hash
 39:                                               ; preds = %_ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit
   %40 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 8 dereferenceable(12) %5)
   %41 = load i32, ptr %40, align 4
-  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.280, i32 noundef %41)
+  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.280, i32 noundef %41)
   br label %42
 
 42:                                               ; preds = %39, %36
@@ -73726,7 +73726,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit:  ; preds = %4, %_ZNK5Yosys7hash
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73772,7 +73772,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73818,7 +73818,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73864,7 +73864,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73910,7 +73910,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73966,7 +73966,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -74313,7 +74313,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN5Yosys5RTLIL4WireEESt10_Select1stIS6_ESt4lessIiESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %0, i32 %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -74390,7 +74390,7 @@ _ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit:      ; preds = %_ZNSt6vectorIPcSaIS
           to label %_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %38
 
 37:                                               ; preds = %33, %29
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 1, i64 noundef -1)
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 1, i64 noundef -1)
           to label %_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %38
 
 _ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.invoke, %37

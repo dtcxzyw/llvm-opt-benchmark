@@ -1173,7 +1173,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 if.then10:                                        ; preds = %if.then.i, %if.end.i.i.i
   %4 = phi i8 [ -1, %if.then.i ], [ %.pre, %if.end.i.i.i ]
   store i8 0, ptr %gi_frame_state, align 1
-  %call14 = tail call fastcc i32 @gen_close_iter(ptr noundef nonnull %2)
+  %call14 = tail call fastcc i32 @gen_close_iter(ptr noundef %2)
   store i8 %4, ptr %gi_frame_state, align 1
   %5 = load i64, ptr %2, align 8
   %6 = and i64 %5, 2147483648
@@ -2083,7 +2083,7 @@ return:                                           ; preds = %if.end7, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compute_cr_origin(i32 noundef %origin_depth, ptr noundef %current_frame) unnamed_addr #1 {
+define internal fastcc ptr @compute_cr_origin(i32 noundef range(i32 1, 0) %origin_depth, ptr noundef %current_frame) unnamed_addr #1 {
 entry:
   %tobool35 = icmp ne ptr %current_frame, null
   %cmp36 = icmp sgt i32 %origin_depth, 0
@@ -3347,7 +3347,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gen_close_iter(ptr noundef %yf) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @gen_close_iter(ptr noundef nonnull %yf) unnamed_addr #1 {
 entry:
   %meth = alloca ptr, align 8
   %0 = getelementptr i8, ptr %yf, i64 8
@@ -3451,7 +3451,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gen_send_ex(ptr noundef %gen, ptr noundef %arg, i32 noundef %exc, i32 noundef %closing) unnamed_addr #1 {
+define internal fastcc ptr @gen_send_ex(ptr noundef %gen, ptr noundef %arg, i32 noundef range(i32 0, 2) %exc, i32 noundef range(i32 0, 2) %closing) unnamed_addr #1 {
 entry:
   %result = alloca ptr, align 8
   %call = call fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr noundef nonnull %result, i32 noundef %exc, i32 noundef %closing)
@@ -3559,7 +3559,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly %presult, i32 noundef %exc, i32 noundef %closing) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly %presult, i32 noundef range(i32 0, 2) %exc, i32 noundef range(i32 0, 2) %closing) unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3855,7 +3855,7 @@ declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare i32 @PyErr_WarnEx(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_gen_throw(ptr noundef %gen, i32 noundef %close_on_genexit, ptr noundef %typ, ptr noundef %val, ptr noundef %tb) unnamed_addr #1 {
+define internal fastcc ptr @_gen_throw(ptr noundef %gen, i32 noundef range(i32 0, 2) %close_on_genexit, ptr noundef %typ, ptr noundef %val, ptr noundef %tb) unnamed_addr #1 {
 entry:
   %typ.addr = alloca ptr, align 8
   %val.addr = alloca ptr, align 8
@@ -3898,7 +3898,7 @@ if.then:                                          ; preds = %if.then.i, %if.end.
 if.then4:                                         ; preds = %if.then
   %5 = load i8, ptr %gi_frame_state.i, align 1
   store i8 0, ptr %gi_frame_state.i, align 1
-  %call6 = tail call fastcc i32 @gen_close_iter(ptr noundef nonnull %2)
+  %call6 = tail call fastcc i32 @gen_close_iter(ptr noundef %2)
   store i8 %5, ptr %gi_frame_state.i, align 1
   %6 = load i64, ptr %2, align 8
   %7 = and i64 %6, 2147483648

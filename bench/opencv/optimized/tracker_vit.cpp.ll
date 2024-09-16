@@ -518,7 +518,7 @@ _ZN2cvL6hann1dEib.exit17.i:                       ; preds = %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN2cvL10crop_imageERKNS_3MatERS0_NS_5Rect_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %2, i64 %3, i32 noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN2cvL10crop_imageERKNS_3MatERS0_NS_5Rect_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %2, i64 %3, i32 noundef range(i32 2, 5) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Rect_", align 4
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::_InputArray", align 8

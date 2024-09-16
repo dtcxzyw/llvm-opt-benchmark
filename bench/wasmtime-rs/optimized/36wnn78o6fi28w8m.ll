@@ -614,7 +614,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$core..cell..UnsafeCell$LT$s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #3 {
+define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !range !141, !alias.scope !142, !noundef !4
   %4 = add nsw i32 %3, -1000000000
@@ -1009,7 +1009,7 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$wasi_common..sched
 19:                                               ; preds = %15
   %20 = getelementptr inbounds [0 x { { [10 x i32], i32, [1 x i32] }, i64 }], ptr %0, i64 0, i64 %.1
   %21 = add i64 %.1, 1
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %20) #24
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef align 8 dereferenceable(56) %20) #24
           to label %15 unwind label %23
 
 22:                                               ; preds = %15
@@ -1898,7 +1898,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$alloc..vec..Vec$LT$$LP$wasi
 22:                                               ; preds = %18
   %23 = getelementptr inbounds [0 x { { [10 x i32], i32, [1 x i32] }, i64 }], ptr %3, i64 0, i64 %.1.i.i
   %24 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %23) #24
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef align 8 dereferenceable(56) %23) #24
           to label %18 unwind label %25, !noalias !611
 
 25:                                               ; preds = %22
@@ -12165,7 +12165,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 22:                                               ; preds = %18
   %23 = getelementptr inbounds [0 x { { [10 x i32], i32, [1 x i32] }, i64 }], ptr %3, i64 0, i64 %.1.i
   %24 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %23) #24
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef align 8 dereferenceable(56) %23) #24
           to label %18 unwind label %26
 
 25:                                               ; preds = %18
@@ -14017,7 +14017,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 32:                                               ; preds = %28
   %33 = getelementptr inbounds [0 x { { [10 x i32], i32, [1 x i32] }, i64 }], ptr %3, i64 0, i64 %.1.i
   %34 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %33) #24
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef align 8 dereferenceable(56) %33) #24
           to label %28 unwind label %35
 
 35:                                               ; preds = %32

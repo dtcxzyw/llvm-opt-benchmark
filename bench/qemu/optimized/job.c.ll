@@ -1903,7 +1903,7 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %tobool2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  tail call fastcc void @job_do_finalize_locked(ptr noundef nonnull %job)
+  tail call fastcc void @job_do_finalize_locked(ptr noundef %job)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end4
@@ -1911,7 +1911,7 @@ return:                                           ; preds = %if.end, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @job_do_finalize_locked(ptr noundef %job) unnamed_addr #0 {
+define internal fastcc void @job_do_finalize_locked(ptr noundef nonnull %job) unnamed_addr #0 {
 entry:
   %txn = getelementptr inbounds i8, ptr %job, i64 256
   %0 = load ptr, ptr %txn, align 8
@@ -2021,12 +2021,12 @@ for.cond.i.backedge:                              ; preds = %job_is_cancelled_lo
   br i1 %tobool.not.i, label %if.else4, label %land.rhs.i, !llvm.loop !8
 
 if.then3:                                         ; preds = %do.end.i, %if.end10.i.i
-  tail call void @job_unref_locked(ptr noundef %job)
-  tail call fastcc void @job_completed_txn_abort_locked(ptr noundef %job)
+  tail call void @job_unref_locked(ptr noundef nonnull %job)
+  tail call fastcc void @job_completed_txn_abort_locked(ptr noundef nonnull %job)
   br label %if.end6
 
 if.else4:                                         ; preds = %for.cond.i.backedge, %if.end
-  tail call void @job_unref_locked(ptr noundef %job)
+  tail call void @job_unref_locked(ptr noundef nonnull %job)
   %16 = load ptr, ptr %txn, align 8
   %17 = load i32, ptr %refcnt.i.i, align 8
   %inc.i.i7 = add i32 %17, 1
@@ -2048,7 +2048,7 @@ land.rhs.i12:                                     ; preds = %for.cond.i9
   br i1 %tobool2.not.i15, label %for.cond.i9, label %job_txn_apply_locked.exit17, !llvm.loop !8
 
 job_txn_apply_locked.exit17:                      ; preds = %for.cond.i9, %land.rhs.i12
-  tail call void @job_unref_locked(ptr noundef %job)
+  tail call void @job_unref_locked(ptr noundef nonnull %job)
   br label %if.end6
 
 if.end6:                                          ; preds = %job_txn_apply_locked.exit17, %if.then3
@@ -2658,7 +2658,7 @@ job_txn_apply_locked.exit20.i:                    ; preds = %land.rhs.i15.i
 
 if.then7.i:                                       ; preds = %for.cond.i12.i
   tail call void @job_unref_locked(ptr noundef nonnull %job)
-  tail call fastcc void @job_do_finalize_locked(ptr noundef nonnull %job)
+  tail call fastcc void @job_do_finalize_locked(ptr noundef %job)
   br label %if.end7
 
 if.end7:                                          ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %if.then7.i, %job_txn_apply_locked.exit20.i, %if.then5

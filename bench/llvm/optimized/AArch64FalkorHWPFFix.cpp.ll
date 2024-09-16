@@ -3366,7 +3366,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIPNS_12MachineInstrELj4EEEN
   %.val.i = load ptr, ptr %258, align 8
   %259 = getelementptr i8, ptr %.sroa.0237.0292.i, i64 68
   %.val102.i = load i16, ptr %259, align 4
-  call fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.val.i, i16 %.val102.i)
+  call fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias writable align 8 %15, ptr %.val.i, i16 %.val102.i)
   %.val105.i = load i8, ptr %79, align 8
   %260 = trunc i8 %.val105.i to i1
   br i1 %260, label %261, label %342
@@ -3716,7 +3716,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit.i:      ; preds = %_ZNK4llvm14ilist_it
   %.val103.i = load ptr, ptr %406, align 8
   %407 = getelementptr i8, ptr %.sroa.0225.0318.i, i64 68
   %.val104.i = load i16, ptr %407, align 4
-  call fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr %.val103.i, i16 %.val104.i)
+  call fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias writable align 8 %18, ptr %.val103.i, i16 %.val104.i)
   %.val106.i = load i8, ptr %86, align 8
   %408 = trunc i8 %.val106.i to i1
   br i1 %408, label %409, label %_ZN4llvm8DebugLocD2Ev.exit184.i
@@ -4892,7 +4892,7 @@ _ZN4llvm11df_iteratorIPNS_11MachineLoopENS_23df_iterator_default_setIS2_Lj8EEELb
 declare { ptr, i64 } @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE9getBlocksEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.32.val, i16 %.68.val) unnamed_addr #11 {
+define internal fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.32.val, i16 %.68.val) unnamed_addr #11 {
   switch i16 %.68.val, label %28 [
     i16 4023, label %15
     i16 4071, label %15

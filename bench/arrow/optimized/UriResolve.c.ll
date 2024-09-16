@@ -162,7 +162,7 @@ if.then84.i:                                      ; preds = %if.else81.i, %land.
   br i1 %tobool86.not.i, label %if.then7, label %if.end88.i
 
 if.end88.i:                                       ; preds = %if.then84.i
-  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0)
+  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef %absDest, ptr noundef nonnull %memory.addr.0)
   %cmp90.not.i = icmp eq i32 %call89.i, 0
   br i1 %cmp90.not.i, label %if.end92.i, label %if.then7
 
@@ -177,7 +177,7 @@ if.else97.i:                                      ; preds = %if.else81.i
   br i1 %tobool99.not.i, label %if.then7, label %if.end101.i
 
 if.end101.i:                                      ; preds = %if.else97.i
-  %call102.i = tail call fastcc i32 @uriMergePathA(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0)
+  %call102.i = tail call fastcc i32 @uriMergePathA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef nonnull %memory.addr.0)
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %if.then7, label %if.end105.i
 
@@ -378,7 +378,7 @@ if.then84.i:                                      ; preds = %if.else81.i, %land.
   br i1 %tobool86.not.i, label %if.then7, label %if.end88.i
 
 if.end88.i:                                       ; preds = %if.then84.i
-  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0)
+  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef %absDest, ptr noundef nonnull %memory.addr.0)
   %cmp90.not.i = icmp eq i32 %call89.i, 0
   br i1 %cmp90.not.i, label %if.end92.i, label %if.then7
 
@@ -393,7 +393,7 @@ if.else97.i:                                      ; preds = %if.else81.i
   br i1 %tobool99.not.i, label %if.then7, label %if.end101.i
 
 if.end101.i:                                      ; preds = %if.else97.i
-  %call102.i = tail call fastcc i32 @uriMergePathW(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0)
+  %call102.i = tail call fastcc i32 @uriMergePathW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef nonnull %memory.addr.0)
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %if.then7, label %if.end105.i
 
@@ -455,9 +455,9 @@ declare i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef, ptr noundef) local_unnam
 declare i32 @uriIsHostSetA(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagA(ptr noundef %absWork, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagA(ptr noundef nonnull %absWork, ptr noundef %memory) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uriIsHostSetA(ptr noundef %absWork) #3
+  %call = tail call i32 @uriIsHostSetA(ptr noundef nonnull %absWork) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -501,7 +501,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMergePathA(ptr nocapture noundef %absWork, ptr nocapture noundef readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMergePathA(ptr nocapture noundef nonnull %absWork, ptr nocapture noundef nonnull readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %pathHead = getelementptr inbounds i8, ptr %relAppend, i64 96
   %0 = load ptr, ptr %pathHead, align 8
@@ -607,9 +607,9 @@ declare i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef, ptr noundef) local_unnam
 declare i32 @uriIsHostSetW(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagW(ptr noundef %absWork, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagW(ptr noundef nonnull %absWork, ptr noundef %memory) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uriIsHostSetW(ptr noundef %absWork) #3
+  %call = tail call i32 @uriIsHostSetW(ptr noundef nonnull %absWork) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -653,7 +653,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMergePathW(ptr nocapture noundef %absWork, ptr nocapture noundef readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMergePathW(ptr nocapture noundef nonnull %absWork, ptr nocapture noundef nonnull readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %pathHead = getelementptr inbounds i8, ptr %relAppend, i64 96
   %0 = load ptr, ptr %pathHead, align 8

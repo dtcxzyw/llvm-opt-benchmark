@@ -1351,7 +1351,7 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_preset_to_string(ptr nocapture readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc ptr @_preset_to_string(ptr nocapture readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
   %4 = select i1 %3, i64 80, i64 96
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
@@ -1664,7 +1664,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_manage_editor_groups_cleanup(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_manage_editor_groups_cleanup(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = icmp eq i32 %1, 0
@@ -1780,7 +1780,7 @@ define internal fastcc void @_manage_editor_groups_cleanup(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_preset_from_string(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @_preset_from_string(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %137, label %5
 
@@ -4491,7 +4491,7 @@ declare i64 @gtk_button_get_type() local_unnamed_addr #7
 declare ptr @g_list_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_manage_basics_add_popup(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @_manage_basics_add_popup(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   store i32 0, ptr %4, align 4, !tbaa !33
@@ -4561,7 +4561,7 @@ define internal fastcc void @_manage_basics_add_popup(ptr noundef %0, ptr nounde
 declare ptr @gtk_menu_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #1 {
+define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 {
   %7 = icmp eq i32 %4, 0
   %8 = select i1 %7, ptr @_manage_editor_basics_add, ptr @_manage_direct_basics_module_toggle
   %9 = icmp eq ptr %0, null
@@ -4954,7 +4954,7 @@ define internal void @_manage_editor_basics_add(ptr noundef %0, ptr noundef %1) 
 declare ptr @gtk_check_menu_item_new_with_label(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @_action_label(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc noalias ptr @_action_label(ptr nocapture noundef nonnull readonly %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8, !tbaa !147
   %3 = icmp eq i32 %2, 4
   br i1 %3, label %common.ret, label %4
@@ -5450,7 +5450,7 @@ declare i32 @gtk_widget_get_visible(ptr noundef) local_unnamed_addr #4
 declare void @dt_ui_container_add_widget(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_basics_add_widget(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_basics_add_widget(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -5983,7 +5983,7 @@ define internal fastcc void @_basics_add_widget(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @_basics_add_items_from_module_widget(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @_basics_add_items_from_module_widget(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #1 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %99, label %6
 
@@ -6766,7 +6766,7 @@ declare void @dtgtk_cairo_paint_modulegroup_technical(ptr noundef, i32 noundef, 
 declare void @dtgtk_cairo_paint_modulegroup_basic(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_manage_module_add_popup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @_manage_module_add_popup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = tail call ptr @gtk_menu_new() #16
   tail call void @gtk_widget_set_name(ptr noundef %6, ptr noundef nonnull @.str.179) #16
   %7 = tail call ptr @gtk_menu_new() #16

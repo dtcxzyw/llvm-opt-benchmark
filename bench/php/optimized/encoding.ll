@@ -363,7 +363,7 @@ looks_ucs32.exit:                                 ; preds = %139, %104
 
 .loopexit:                                        ; preds = %.lr.ph.split.i, %172, %.lr.ph.split.us.i, %136, %75, %100, %96, %92, %88, %84, %80, %78
   %179 = load ptr, ptr %spec.store.select, align 8
-  %180 = call fastcc i32 @looks_ucs16(ptr noundef %11, i64 noundef %.0127, ptr noundef %179, ptr noundef nonnull %spec.select)
+  %180 = call fastcc i32 @looks_ucs16(ptr noundef %11, i64 noundef %.0127, ptr noundef %179, ptr noundef %spec.select)
   switch i32 %180, label %182 [
     i32 0, label %183
     i32 1, label %181
@@ -720,7 +720,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #4 {
   %5 = icmp ult i64 %1, 2
   br i1 %5, label %.thread, label %6
 

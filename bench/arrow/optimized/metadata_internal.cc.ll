@@ -8062,7 +8062,7 @@ entry:
   %string_pool.i = getelementptr inbounds i8, ptr %fbb, i64 120
   store ptr null, ptr %string_pool.i, align 8
   store i32 0, ptr %fb_schema, align 4
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_118SchemaToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_6SchemaERKNS0_21DictionaryFieldMapperEPNS4_6OffsetIN3org6apache5arrow7flatbuf6SchemaEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef nonnull align 8 dereferenceable(8) %mapper, ptr noundef nonnull %fb_schema)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_118SchemaToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_6SchemaERKNS0_21DictionaryFieldMapperEPNS4_6OffsetIN3org6apache5arrow7flatbuf6SchemaEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef nonnull align 8 dereferenceable(8) %mapper, ptr noundef %fb_schema)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
@@ -8122,7 +8122,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_118SchemaToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_6SchemaERKNS0_21DictionaryFieldMapperEPNS4_6OffsetIN3org6apache5arrow7flatbuf6SchemaEEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef nonnull align 8 dereferenceable(8) %mapper, ptr nocapture noundef writeonly %out) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_118SchemaToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_6SchemaERKNS0_21DictionaryFieldMapperEPNS4_6OffsetIN3org6apache5arrow7flatbuf6SchemaEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef nonnull align 8 dereferenceable(8) %mapper, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %key_values.i = alloca %"class.std::vector.168", align 8
   %pos = alloca %"class.arrow::ipc::internal::FieldPosition", align 8
@@ -8182,7 +8182,7 @@ do.body:                                          ; preds = %invoke.cont1
           to label %invoke.cont8 unwind label %lpad7.loopexit
 
 invoke.cont8:                                     ; preds = %do.body
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr noalias nonnull align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(120) %field_visitor, ptr noundef nonnull align 8 dereferenceable(16) %call9, ptr noundef nonnull %offset)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr noalias align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(120) %field_visitor, ptr noundef nonnull align 8 dereferenceable(16) %call9, ptr noundef %offset)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad7.loopexit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont8
@@ -8358,7 +8358,7 @@ invoke.cont29:                                    ; preds = %invoke.cont23
   br i1 %cmp.i.i.not.i, label %invoke.cont31, label %if.then.i52
 
 if.then.i52:                                      ; preds = %invoke.cont29
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %call30.val, ptr noundef nonnull %key_values.i)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %call30.val, ptr noundef %key_values.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i52
@@ -8560,7 +8560,7 @@ if.end:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext %header_type, i32 %header.coerce, i64 noundef %body_length, i8 noundef signext %version, ptr %custom_metadata.0.val, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext range(i8 1, 6) %header_type, i32 %header.coerce, i64 noundef %body_length, i8 noundef signext %version, ptr %custom_metadata.0.val, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.245", align 8
   %result.i = alloca %"class.std::unique_ptr.249", align 8
@@ -8573,7 +8573,7 @@ entry:
   br i1 %cmp.i.i.not.i, label %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %custom_metadata.0.val, ptr noundef nonnull %key_values.i)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %custom_metadata.0.val, ptr noundef %key_values.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -9194,7 +9194,7 @@ entry:
   %string_pool.i = getelementptr inbounds i8, ptr %fbb, i64 120
   store ptr null, ptr %string_pool.i, align 8
   store i32 0, ptr %record_batch, align 4
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull align 8 dereferenceable(24) %buffers, ptr noundef nonnull align 8 dereferenceable(24) %variadic_buffer_counts, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef nonnull %record_batch)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull align 8 dereferenceable(24) %buffers, ptr noundef nonnull align 8 dereferenceable(24) %variadic_buffer_counts, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %record_batch)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
@@ -9244,7 +9244,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffers, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %variadic_buffer_counts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %options, ptr nocapture noundef writeonly %offset) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffers, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %variadic_buffer_counts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %options, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp28 = alloca %"class.arrow::Status", align 8
@@ -9856,7 +9856,7 @@ if.else.i.i.i.i.i.i25:                            ; preds = %if.then.i.i.i.i20
 
 _ZNK5arrow6Tensor4typeEv.exit26:                  ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, %if.then.i.i.i.i.i.i23, %if.else.i.i.i.i.i.i25
   %23 = phi ptr [ %18, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit ], [ %18, %if.then.i.i.i.i.i.i23 ], [ %.pre209, %if.else.i.i.i.i.i.i25 ]
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122TensorTypeToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_8DataTypeEPN3org6apache5arrow7flatbuf4TypeEPNS4_6OffsetIvEE(ptr noalias nonnull align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull %fb_type_type, ptr noundef nonnull %fb_type)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122TensorTypeToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_8DataTypeEPN3org6apache5arrow7flatbuf4TypeEPNS4_6OffsetIvEE(ptr noalias align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef %fb_type_type, ptr noundef %fb_type)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad10
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow6Tensor4typeEv.exit26
@@ -10260,7 +10260,7 @@ ehcleanup80:                                      ; preds = %if.then.i.i.i179, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122TensorTypeToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_8DataTypeEPN3org6apache5arrow7flatbuf4TypeEPNS4_6OffsetIvEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr nocapture noundef writeonly %out_type, ptr nocapture noundef writeonly %offset) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122TensorTypeToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_8DataTypeEPN3org6apache5arrow7flatbuf4TypeEPNS4_6OffsetIvEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr nocapture noundef nonnull writeonly %out_type, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %id_.i = getelementptr inbounds i8, ptr %type, i64 40
@@ -10355,7 +10355,7 @@ sw.default:                                       ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(72) %type)
-  invoke void @_ZN5arrow6Status8FromArgsIJRA25_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(25) @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42)
+  invoke void @_ZN5arrow6Status8FromArgsIJRA25_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(25) @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.default
@@ -11224,7 +11224,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNK5arrow12SparseTensor4typeEv.exit.i:           ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %entry
   %5 = phi ptr [ %0, %entry ], [ %0, %if.then.i.i.i.i.i.i.i ], [ %.pre.i, %if.else.i.i.i.i.i.i.i ]
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122TensorTypeToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_8DataTypeEPN3org6apache5arrow7flatbuf4TypeEPNS4_6OffsetIvEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull %fb_type_type.i, ptr noundef nonnull %fb_type.i)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122TensorTypeToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_8DataTypeEPN3org6apache5arrow7flatbuf4TypeEPNS4_6OffsetIvEE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef %fb_type_type.i, ptr noundef %fb_type.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i unwind label %lpad.i, !noalias !227
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZNK5arrow12SparseTensor4typeEv.exit.i
@@ -13462,7 +13462,7 @@ entry:
   %string_pool.i = getelementptr inbounds i8, ptr %fbb, i64 120
   store ptr null, ptr %string_pool.i, align 8
   store i32 0, ptr %record_batch, align 4
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull align 8 dereferenceable(24) %buffers, ptr noundef nonnull align 8 dereferenceable(24) %variadic_buffer_counts, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef nonnull %record_batch)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull align 8 dereferenceable(24) %buffers, ptr noundef nonnull align 8 dereferenceable(24) %variadic_buffer_counts, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %record_batch)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
@@ -13720,7 +13720,7 @@ entry:
           to label %do.body unwind label %lpad
 
 do.body:                                          ; preds = %entry
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_118SchemaToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_6SchemaERKNS0_21DictionaryFieldMapperEPNS4_6OffsetIN3org6apache5arrow7flatbuf6SchemaEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef nonnull align 8 dereferenceable(8) %mapper, ptr noundef nonnull %fb_schema)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_118SchemaToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_6SchemaERKNS0_21DictionaryFieldMapperEPNS4_6OffsetIN3org6apache5arrow7flatbuf6SchemaEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef nonnull align 8 dereferenceable(8) %mapper, ptr noundef %fb_schema)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad2
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -13767,7 +13767,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   br i1 %cmp.i.i.not.i, label %invoke.cont19, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont16
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %metadata.val, ptr noundef nonnull %key_values.i)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %metadata.val, ptr noundef %key_values.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -14402,7 +14402,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %retval.sroa.4.8.insert.shift.i = shl nuw i64 %retval.sroa.4.8.insert.ext.i, 32
   %retval.sroa.2.8.insert.insert.i = or disjoint i64 %retval.sroa.4.8.insert.shift.i, %indvars.iv
   %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.8", ptr %call5.i.i.i.i2.i.i34, i64 %indvars.iv
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_119FieldFromFlatbufferEPKN3org6apache5arrow7flatbuf5FieldENS1_13FieldPositionEPNS0_14DictionaryMemoEPSt10shared_ptrINS_5FieldEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef nonnull %add.ptr2.i.i, ptr nonnull %field_pos, i64 %retval.sroa.2.8.insert.insert.i, ptr noundef %dictionary_memo, ptr noundef nonnull %add.ptr.i)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_119FieldFromFlatbufferEPKN3org6apache5arrow7flatbuf5FieldENS1_13FieldPositionEPNS0_14DictionaryMemoEPSt10shared_ptrINS_5FieldEE(ptr noalias align 8 %ref.tmp16, ptr noundef nonnull %add.ptr2.i.i, ptr nonnull %field_pos, i64 %retval.sroa.2.8.insert.insert.i, ptr noundef %dictionary_memo, ptr noundef %add.ptr.i)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad7
 
 lpad7:                                            ; preds = %for.body
@@ -15054,7 +15054,7 @@ return:                                           ; preds = %if.then.i.i.i298, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_119FieldFromFlatbufferEPKN3org6apache5arrow7flatbuf5FieldENS1_13FieldPositionEPNS0_14DictionaryMemoEPSt10shared_ptrINS_5FieldEE(ptr noalias align 8 %agg.result, ptr noundef %field, ptr %field_pos.coerce0, i64 %field_pos.coerce1, ptr noundef %dictionary_memo, ptr nocapture noundef %out) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_119FieldFromFlatbufferEPKN3org6apache5arrow7flatbuf5FieldENS1_13FieldPositionEPNS0_14DictionaryMemoEPSt10shared_ptrINS_5FieldEE(ptr noalias nonnull align 8 %agg.result, ptr noundef %field, ptr %field_pos.coerce0, i64 %field_pos.coerce1, ptr noundef %dictionary_memo, ptr nocapture noundef nonnull %out) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %field_pos = alloca %"class.arrow::ipc::internal::FieldPosition", align 8
   %type = alloca %"class.std::shared_ptr", align 8
@@ -15196,7 +15196,7 @@ invoke.cont24:                                    ; preds = %invoke.cont24.lr.ph
   %retval.sroa.2.8.insert.insert.i = or disjoint i64 %retval.sroa.4.8.insert.shift.i, %indvars.iv
   %17 = load ptr, ptr %child_fields, align 8
   %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.8", ptr %17, i64 %indvars.iv
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_119FieldFromFlatbufferEPKN3org6apache5arrow7flatbuf5FieldENS1_13FieldPositionEPNS0_14DictionaryMemoEPSt10shared_ptrINS_5FieldEE(ptr noalias nonnull align 8 %ref.tmp21, ptr noundef nonnull %add.ptr2.i.i, ptr nonnull %field_pos, i64 %retval.sroa.2.8.insert.insert.i, ptr noundef %dictionary_memo, ptr noundef nonnull %add.ptr.i)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_119FieldFromFlatbufferEPKN3org6apache5arrow7flatbuf5FieldENS1_13FieldPositionEPNS0_14DictionaryMemoEPSt10shared_ptrINS_5FieldEE(ptr noalias align 8 %ref.tmp21, ptr noundef nonnull %add.ptr2.i.i, ptr nonnull %field_pos, i64 %retval.sroa.2.8.insert.insert.i, ptr noundef %dictionary_memo, ptr noundef %add.ptr.i)
           to label %_ZN5arrow6StatusD2Ev.exit162 unwind label %lpad9.loopexit
 
 _ZN5arrow6StatusD2Ev.exit162:                     ; preds = %invoke.cont24
@@ -19127,7 +19127,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %field, ptr nocapture noundef writeonly %offset) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %field, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp22 = alloca %"class.arrow::Result.158", align 8
@@ -19137,7 +19137,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %0 = load ptr, ptr %field, align 8
   %type_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %type_.i, align 8
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %this)
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %this)
   call void @llvm.experimental.noalias.scope.decl(metadata !429)
   %2 = load ptr, ptr %ref.tmp, align 8, !noalias !429
   store ptr %2, ptr %agg.result, align 8, !alias.scope !429
@@ -19477,7 +19477,7 @@ _ZNK5arrow5Field8metadataEv.exit:                 ; preds = %if.end69, %if.then.
 
 if.then74:                                        ; preds = %_ZNK5arrow5Field8metadataEv.exit
   %53 = load ptr, ptr %this, align 8
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %53, ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull %key_values)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %53, ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef %key_values)
           to label %if.then74.if.end79_crit_edge unwind label %lpad77.loopexit.split-lp
 
 if.then74.if.end79_crit_edge:                     ; preds = %if.then74
@@ -20149,7 +20149,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry, %_ZN5arrow6S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %metadata, ptr nocapture noundef %key_values) unnamed_addr #1 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %metadata, ptr nocapture noundef nonnull %key_values) unnamed_addr #1 {
 entry:
   %call = tail call noundef i64 @_ZNK5arrow16KeyValueMetadata4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %metadata)
   %cmp.i = icmp ugt i64 %call, 2305843009213693951
@@ -20942,7 +20942,7 @@ _ZN3org6apache5arrow7flatbuf12FieldBuilder12add_nullableEb.exit: ; preds = %land
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i314 = alloca %"class.arrow::Status", align 8
   %ref.tmp9.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21520,7 +21520,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %fb_type_.i232 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 12, ptr %fb_type_.i232, align 8, !noalias !680
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !680
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !680
   tail call void @llvm.experimental.noalias.scope.decl(metadata !683)
   %69 = load ptr, ptr %ref.tmp.i, align 8, !noalias !683
   store ptr %69, ptr %agg.result, align 8, !alias.scope !683
@@ -21548,7 +21548,7 @@ _ZN5arrow6StatusD2Ev.exit363:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i234)
   %fb_type_.i236 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 21, ptr %fb_type_.i236, align 8, !noalias !689
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i234, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !689
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i234, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !689
   tail call void @llvm.experimental.noalias.scope.decl(metadata !692)
   %72 = load ptr, ptr %ref.tmp.i234, align 8, !noalias !692
   store ptr %72, ptr %agg.result, align 8, !alias.scope !692
@@ -21576,7 +21576,7 @@ _ZN5arrow6StatusD2Ev.exit403:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i245)
   %fb_type_.i247 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 25, ptr %fb_type_.i247, align 8, !noalias !698
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i245, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !698
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i245, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !698
   tail call void @llvm.experimental.noalias.scope.decl(metadata !701)
   %75 = load ptr, ptr %ref.tmp.i245, align 8, !noalias !701
   store ptr %75, ptr %agg.result, align 8, !alias.scope !701
@@ -21604,7 +21604,7 @@ _ZN5arrow6StatusD2Ev.exit443:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i256)
   %fb_type_.i258 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 26, ptr %fb_type_.i258, align 8, !noalias !707
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i256, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !707
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i256, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !707
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
   %78 = load ptr, ptr %ref.tmp.i256, align 8, !noalias !710
   store ptr %78, ptr %agg.result, align 8, !alias.scope !710
@@ -21632,7 +21632,7 @@ _ZN5arrow6StatusD2Ev.exit480:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i267)
   %fb_type_.i269 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 17, ptr %fb_type_.i269, align 8, !noalias !716
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i267, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !716
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i267, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !716
   tail call void @llvm.experimental.noalias.scope.decl(metadata !719)
   %81 = load ptr, ptr %ref.tmp.i267, align 8, !noalias !719
   store ptr %81, ptr %agg.result, align 8, !alias.scope !719
@@ -21659,7 +21659,7 @@ _ZN5arrow6StatusD2Ev.exit517:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i278)
   %fb_type_.i280 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 16, ptr %fb_type_.i280, align 8, !noalias !725
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i278, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !725
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i278, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !725
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
   %84 = load ptr, ptr %ref.tmp.i278, align 8, !noalias !728
   store ptr %84, ptr %agg.result, align 8, !alias.scope !728
@@ -21685,7 +21685,7 @@ _ZN5arrow6StatusD2Ev.exit557:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i290)
   %fb_type_.i292 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 13, ptr %fb_type_.i292, align 8, !noalias !734
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i290, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !734
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i290, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !734
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
   %87 = load ptr, ptr %ref.tmp.i290, align 8, !noalias !737
   store ptr %87, ptr %agg.result, align 8, !alias.scope !737
@@ -21726,7 +21726,7 @@ _ZN5arrow6StatusD2Ev.exit597:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i303)
   %fb_type_.i305 = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 22, ptr %fb_type_.i305, align 8, !noalias !746
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i303, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !746
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i303, ptr noundef nonnull align 8 dereferenceable(120) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type.tr), !noalias !746
   tail call void @llvm.experimental.noalias.scope.decl(metadata !749)
   %91 = load ptr, ptr %ref.tmp.i303, align 8, !noalias !749
   store ptr %91, ptr %agg.result, align 8, !alias.scope !749
@@ -21760,7 +21760,7 @@ _ZN5arrow6StatusD2Ev.exit637:                     ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp24.i)
   %storage_type_.i = getelementptr inbounds i8, ptr %type.tr, i64 72
   %94 = load ptr, ptr %storage_type_.i, align 8, !noalias !755
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp.i314, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull %visitor), !noalias !755
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp.i314, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef %visitor), !noalias !755
   call void @llvm.experimental.noalias.scope.decl(metadata !758)
   %95 = load ptr, ptr %ref.tmp.i314, align 8, !noalias !758
   store ptr %95, ptr %agg.result, align 8, !alias.scope !758
@@ -21849,7 +21849,7 @@ _ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13Exte
   br label %return
 
 sw.epilog:                                        ; preds = %tailrecurse
-  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.36)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.36)
   br label %return
 
 return:                                           ; preds = %sw.epilog, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13ExtensionTypeE.exit, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_17RunEndEncodedTypeE.exit, %sw.bb78, %sw.bb76, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10StructTypeE.exit, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_17FixedSizeListTypeE.exit, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_7MapTypeE.exit, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_17LargeListViewTypeE.exit, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_12ListViewTypeE.exit, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13LargeListTypeE.exit, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_8ListTypeE.exit, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13TimestampTypeE.exit, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb10, %sw.bb8, %sw.bb6, %sw.bb4, %sw.bb2, %sw.bb
@@ -21857,12 +21857,12 @@ return:                                           ; preds = %sw.epilog, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_9UnionTypeE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_9UnionTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %fb_type_ = getelementptr inbounds i8, ptr %this, i64 32
   store i8 14, ptr %fb_type_, align 8
-  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(72) %type)
+  call fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(72) %type)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !764)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !764
   store ptr %0, ptr %agg.result, align 8, !alias.scope !764
@@ -22962,7 +22962,7 @@ return:                                           ; preds = %if.then.i, %_ZN22ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor16VisitChildFieldsERKNS_8DataTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child_offset = alloca %"struct.arrow_vendored_private::flatbuffers::Offset.149", align 4
   %child_visitor = alloca %"class.arrow::ipc::internal::(anonymous namespace)::FieldToFlatbufferVisitor", align 8
@@ -23033,7 +23033,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.8", ptr %5, i64 %indvars.iv
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr noalias nonnull align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(120) %child_visitor, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull %child_offset)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr noalias align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(120) %child_visitor, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef %child_offset)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad.loopexit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %for.body

@@ -28617,7 +28617,7 @@ _ZNSt14_Optional_baseIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_s
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3nix19LocalDerivationGoal9isAllowedERKNS_11DerivedPathE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.nix::StorePath", align 8
-  call fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(73) %1)
+  call fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(73) %1)
   %4 = invoke noundef zeroext i1 @_ZN3nix19LocalDerivationGoal9isAllowedERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %5 unwind label %12
 
@@ -28814,7 +28814,7 @@ _ZNKSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE5countERKS1_.exit33: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #5 {
+define internal fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !noalias !192
   switch i8 %4, label %8 [
@@ -36273,7 +36273,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %541
 
 499:                                              ; preds = %477
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull %456) #34
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef %456) #34
   br label %541
 
 500:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
@@ -37302,7 +37302,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %846
 
 815:                                              ; preds = %795
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull %766) #34
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef %766) #34
   br label %846
 
 816:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i436
@@ -38278,7 +38278,7 @@ _ZN3nix3getISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7varian
           to label %.noexc585 unwind label %.loopexit1025
 
 .noexc585:                                        ; preds = %1231
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_11clENS_9StorePathE"(ptr noundef nonnull readonly align 8 dereferenceable(32) %96, ptr noundef nonnull %36)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_11clENS_9StorePathE"(ptr noundef nonnull readonly align 8 dereferenceable(32) %96, ptr noundef %36)
           to label %1232 unwind label %1237, !noalias !294
 
 1232:                                             ; preds = %.noexc585
@@ -38760,7 +38760,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i.i.i
 _ZN3nix20UnkeyedValidPathInfoD2Ev.exit.i.i.i.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit.i.i.i.i.i.i.i
   %1350 = load i64, ptr %1016, align 8, !noalias !328
   store i64 %1350, ptr %1017, align 8, !alias.scope !328
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_12clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %100)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_12clEv"(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %100)
           to label %1351 unwind label %1377
 
 1351:                                             ; preds = %_ZN3nix20UnkeyedValidPathInfoD2Ev.exit.i.i.i.i.i.i
@@ -38942,7 +38942,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %.sroa.2.0.insert.shift.i.i.i.i.i.i = shl nuw i24 %.sroa.2.0.insert.ext.i.i.i.i.i.i, 16
   %.sroa.0.0.insert.ext.i.i.i.i.i.i = zext i16 %.sroa.0.sroa.0.0.copyload.i.i.i.i.i.i to i24
   %.sroa.0.0.insert.insert.i.i.i.i.i.i = or disjoint i24 %.sroa.2.0.insert.shift.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_13clENS_16DerivationOutput10CAFloatingE"(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(56) %101, i24 %.sroa.0.0.insert.insert.i.i.i.i.i.i)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_13clENS_16DerivationOutput10CAFloatingE"(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(56) %101, i24 %.sroa.0.0.insert.insert.i.i.i.i.i.i)
           to label %.noexc618 unwind label %.loopexit1030
 
 .noexc618:                                        ; preds = %1393
@@ -39338,7 +39338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48.i.i.i.i.i.i: ; 
 
 .invoke:                                          ; preds = %1499, %1496
   %1497 = phi i24 [ %.val12.i.i, %1496 ], [ %.sroa.0.0.insert.insert.i.i.i.i26.i.i, %1499 ]
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_13clENS_16DerivationOutput10CAFloatingE"(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr noundef nonnull readonly align 8 dereferenceable(56) %101, i24 %1497)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_13clENS_16DerivationOutput10CAFloatingE"(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull readonly align 8 dereferenceable(56) %101, i24 %1497)
           to label %"_ZSt5visitIN3nix10overloadedIJZNS0_19LocalDerivationGoal15registerOutputsB5cxx11EvE3$_5ZNS2_15registerOutputsB5cxx11EvE3$_6ZNS2_15registerOutputsB5cxx11EvE3$_7ZNS2_15registerOutputsB5cxx11EvE3$_8ZNS2_15registerOutputsB5cxx11EvE3$_9EEEJRSt7variantIJNS0_16DerivationOutput14InputAddressedENSA_7CAFixedENSA_10CAFloatingENSA_8DeferredENSA_6ImpureEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit" unwind label %.loopexit1030
 
 1498:                                             ; preds = %1284
@@ -40784,7 +40784,7 @@ _ZNSt8optionalIN3nix9StorePathEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is
           to label %_ZN3nix9StorePathC2ERKS0_.exit719 unwind label %1584
 
 _ZN3nix9StorePathC2ERKS0_.exit719:                ; preds = %2016
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_11clENS_9StorePathE"(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull %141)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_11clENS_9StorePathE"(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef %141)
           to label %2017 unwind label %2060
 
 2017:                                             ; preds = %_ZN3nix9StorePathC2ERKS0_.exit719
@@ -43361,7 +43361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
           to label %195 unwind label %267
 
 195:                                              ; preds = %194
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %196 unwind label %269
 
 196:                                              ; preds = %195
@@ -43425,7 +43425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
           to label %213 unwind label %272
 
 213:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %214 unwind label %274
 
 214:                                              ; preds = %213
@@ -43489,7 +43489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
           to label %231 unwind label %277
 
 231:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %25)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %232 unwind label %279
 
 232:                                              ; preds = %231
@@ -43553,7 +43553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %_Z
           to label %249 unwind label %282
 
 249:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %250 unwind label %284
 
 250:                                              ; preds = %249
@@ -44510,7 +44510,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_0clB5cxx11ERSC_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::list", align 8
   %6 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -44948,7 +44948,7 @@ define internal fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3m
   %52 = getelementptr inbounds i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %.pre39.pre, i64 352
-  call fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_2clERKNS_9StorePathE"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(32) %54)
+  call fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_2clERKNS_9StorePathE"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(32) %54)
   %55 = getelementptr inbounds i8, ptr %7, i64 48
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %7, i64 16
@@ -60600,7 +60600,7 @@ _ZNSt8optionalIN3nix9StorePathEED2Ev.exit:        ; preds = %_ZNSt3setIN3nix9Sto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_12clEv"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_12clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %4 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -62329,7 +62329,7 @@ _ZNKSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11_Alloc
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_13clENS_16DerivationOutput10CAFloatingE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i24 %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_13clENS_16DerivationOutput10CAFloatingE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i24 %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = alloca %"struct.nix::PosixSourceAccessor", align 8
   %6 = alloca %"struct.nix::HashModuloSink", align 8
@@ -62761,7 +62761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(80) %19, i64 80, i1 false)
   %185 = getelementptr inbounds i8, ptr %1, i64 48
   %186 = load ptr, ptr %185, align 8
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_12clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %186)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal15registerOutputsB5cxx11EvENK4$_12clEv"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %186)
           to label %187 unwind label %278
 
 187:                                              ; preds = %181
@@ -63795,7 +63795,7 @@ define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull %.02) #34
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef %.02) #34
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !474
 
@@ -63804,7 +63804,7 @@ define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJZN3nix19LocalDerivationGoal15registerOutputsEvE17AlreadyRegisteredZNSA_15registerOutputsEvE21PerhapsNeedToRegisterEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -64907,7 +64907,7 @@ _ZN3nix5ErrorCI2NS_9BaseErrorEIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_2clERKNS_9StorePathE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_2clERKNS_9StorePathE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
@@ -66141,7 +66141,7 @@ select.unfold:                                    ; preds = %_ZNKSt3mapINSt7__cx
   %119 = getelementptr inbounds i8, ptr %0, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 352
-  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_2clERKNS_9StorePathE"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(32) %121)
+  invoke fastcc void @"_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_2clERKNS_9StorePathE"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(32) %121)
           to label %122 unwind label %.loopexit.split-lp209
 
 122:                                              ; preds = %116
@@ -112663,7 +112663,7 @@ define linkonce_odr void @_ZN3nix15RestrictedStore21buildPathsWithResultsERKSt6v
   %.sroa.0139.0184 = phi ptr [ %38, %.lr.ph ], [ %77, %76 ]
   %46 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  invoke fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(73) %.sroa.0139.0184)
+  invoke fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(73) %.sroa.0139.0184)
           to label %.noexc unwind label %67
 
 .noexc:                                           ; preds = %45
@@ -113676,7 +113676,7 @@ define linkonce_odr void @_ZN3nix15RestrictedStore12queryMissingERKSt6vectorINS_
   %.sroa.021.025 = phi ptr [ %12, %.lr.ph ], [ %64, %_ZNSt6vectorIN3nix11DerivedPathESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit ]
   %24 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  invoke fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(73) %.sroa.021.025)
+  invoke fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(73) %.sroa.021.025)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %23
@@ -113766,7 +113766,7 @@ _ZNSt16allocator_traitsISaIN3nix11DerivedPathEEE9constructIS1_JRKS1_EEEvRS2_PT_D
   br label %.body
 
 50:                                               ; preds = %33
-  invoke fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(73) %.sroa.021.025)
+  invoke fastcc void @_ZN3nixL13pathPartOfReqERKNS_11DerivedPathE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(73) %.sroa.021.025)
           to label %51 unwind label %.loopexit
 
 51:                                               ; preds = %50

@@ -4528,7 +4528,7 @@ define internal fastcc void @vring_unmap_extra_packed(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @vring_map_single(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i64 @vring_map_single(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 16, 68719476721) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 65
   %5 = load i8, ptr %4, align 1, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0

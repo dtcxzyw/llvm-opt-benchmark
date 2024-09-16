@@ -1610,13 +1610,13 @@ declare ptr @PyErr_NewException(ptr noundef, ptr noundef, ptr noundef) local_unn
 define void @_ZN8nanobind11chain_errorENS_6handleEPKcz(ptr %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %0, ptr noundef %1, ptr noundef nonnull %3) #23
+  call fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %0, ptr noundef %1, ptr noundef %3) #23
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1676,7 +1676,7 @@ _ZL10_Py_DECREFP7_object.exit7:                   ; preds = %_ZL10_Py_DECREFP7_o
   br label %25
 
 25:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit7, %8
-  %26 = invoke ptr @PyErr_FormatV(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %26 = invoke ptr @PyErr_FormatV(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
           to label %27 unwind label %45
 
 27:                                               ; preds = %25
@@ -1732,7 +1732,7 @@ define void @_ZN8nanobind10raise_fromERNS_12python_errorENS_6handleEPKcz(ptr noc
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   tail call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #23
   call void @llvm.va_start.p0(ptr nonnull %4)
-  call fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %1, ptr noundef %2, ptr noundef nonnull %4) #23
+  call fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %1, ptr noundef %2, ptr noundef %4) #23
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @_ZN8nanobind6detail18raise_python_errorEv() #30
   unreachable

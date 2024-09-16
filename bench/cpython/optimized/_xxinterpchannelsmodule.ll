@@ -512,7 +512,7 @@ if.end5:                                          ; preds = %if.end
   store ptr null, ptr %cidobj, align 8
   %ChannelIDType = getelementptr inbounds i8, ptr %call.i14, i64 72
   %14 = load ptr, ptr %ChannelIDType, align 8
-  %call6 = call fastcc i32 @newchannelid(ptr noundef %14, i64 noundef %9, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cidobj)
+  %call6 = call fastcc i32 @newchannelid(ptr noundef %14, i64 noundef %9, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
   %call7 = tail call fastcc i32 @handle_channel_error(i32 noundef %call6, ptr noundef %self, i64 noundef %9)
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %if.end14, label %if.then8
@@ -636,7 +636,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   store ptr null, ptr %cidobj, align 8
   %9 = load ptr, ptr %ChannelIDType, align 8
   %10 = load i64, ptr %cur.029, align 8
-  %call14 = call fastcc i32 @newchannelid(ptr noundef %9, i64 noundef %10, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cidobj)
+  %call14 = call fastcc i32 @newchannelid(ptr noundef %9, i64 noundef %10, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
   %11 = load i64, ptr %cur.029, align 8
   %call15 = tail call fastcc i32 @handle_channel_error(i32 noundef %call14, ptr noundef %self, i64 noundef %11)
   %tobool.not = icmp eq i32 %call15, 0
@@ -2540,7 +2540,7 @@ if.end19.i:                                       ; preds = %if.else14.i, %if.th
   store ptr null, ptr %cidobj.i, align 8
   %11 = load i32, ptr %force.i, align 4
   %12 = load i32, ptr %resolve.i, align 4
-  %call21.i = call fastcc i32 @newchannelid(ptr noundef %0, i64 noundef %5, i32 noundef %end.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_globals, i64 8), i32 noundef %11, i32 noundef %12, ptr noundef nonnull %cidobj.i)
+  %call21.i = call fastcc i32 @newchannelid(ptr noundef %0, i64 noundef %5, i32 noundef %end.0.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_globals, i64 8), i32 noundef %11, i32 noundef %12, ptr noundef %cidobj.i)
   %call22.i = call fastcc i32 @handle_channel_error(i32 noundef %call21.i, ptr noundef %self, i64 noundef %5)
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   %13 = load ptr, ptr %cidobj.i, align 8
@@ -2756,7 +2756,7 @@ return:                                           ; preds = %if.then2, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @newchannelid(ptr noundef %cls, i64 noundef %cid, i32 noundef %end, ptr noundef %channels, i32 noundef %force, i32 noundef %resolve, ptr nocapture noundef writeonly %res) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @newchannelid(ptr noundef %cls, i64 noundef %cid, i32 noundef %end, ptr noundef %channels, i32 noundef %force, i32 noundef %resolve, ptr nocapture noundef nonnull writeonly %res) unnamed_addr #0 {
 entry:
   store ptr null, ptr %res, align 8
   %call = tail call ptr @_PyObject_New(ptr noundef %cls) #6
@@ -3835,7 +3835,7 @@ if.end5:                                          ; preds = %if.end
   %2 = load i64, ptr %0, align 8
   %end = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %end, align 8
-  %call7 = call fastcc i32 @newchannelid(ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cidobj)
+  %call7 = call fastcc i32 @newchannelid(ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
   %cmp8.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not, label %if.end12, label %if.then9
 

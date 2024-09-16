@@ -151,7 +151,7 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sign_and_verify(i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sign_and_verify(i32 noundef range(i32 1, 65) %len) unnamed_addr #0 {
 entry:
   %sigLength = alloca i64, align 8
   %0 = load ptr, ptr @dsakey, align 8
@@ -191,7 +191,7 @@ if.else:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %conv3
   %idx.neg = sub nsw i64 0, %conv
   %add.ptr17 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr17, ptr align 1 %call2, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr17, ptr noundef nonnull align 1 dereferenceable(1) %call2, i64 %conv, i1 false)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then14

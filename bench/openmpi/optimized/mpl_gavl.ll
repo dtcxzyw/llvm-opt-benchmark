@@ -113,7 +113,7 @@ MPLI_gavl_subset_cmp_func.exit.thread41.i:        ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #2 {
   %5 = load ptr, ptr %0, align 8
   %.not16 = icmp eq ptr %5, null
   br i1 %.not16, label %.loopexit, label %.lr.ph
@@ -135,7 +135,7 @@ define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i6
   %.0.i = phi ptr [ %12, %11 ], [ %.1.i, %32 ]
   %14 = getelementptr i8, ptr %.0.i, i64 32
   %15 = load i64, ptr %14, align 8
-  switch i32 %3, label %default.unreachable.i [
+  switch i32 %3, label %default.unreachable [
     i32 0, label %16
     i32 1, label %21
     i32 2, label %26
@@ -167,12 +167,12 @@ define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i6
   %27 = icmp eq i64 %15, %1
   br i1 %27, label %37, label %MPLI_gavl_subset_cmp_func.exit.i
 
-default.unreachable.i:                            ; preds = %13
+default.unreachable:                              ; preds = %13
   unreachable
 
 MPLI_gavl_subset_cmp_func.exit.i:                 ; preds = %26
-  %.not53.i = icmp ult i64 %1, %15
-  br i1 %.not53.i, label %MPLI_gavl_subset_cmp_func.exit.thread38.i, label %MPLI_gavl_subset_cmp_func.exit.thread41.i
+  %.not54.i = icmp ult i64 %1, %15
+  br i1 %.not54.i, label %MPLI_gavl_subset_cmp_func.exit.thread38.i, label %MPLI_gavl_subset_cmp_func.exit.thread41.i
 
 MPLI_gavl_subset_cmp_func.exit.thread38.i:        ; preds = %MPLI_gavl_subset_cmp_func.exit.i, %21, %16
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 8

@@ -3350,7 +3350,7 @@ declare i32 @dt_history_check_module_exists(i32 noundef, ptr noundef, i32 nounde
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_find_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc void @_find_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
   %3 = alloca [4 x double], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 664
   %5 = load ptr, ptr %4, align 8, !tbaa !58
@@ -4966,7 +4966,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #4 {
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, double noundef %1) unnamed_addr #4 {
+define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, double noundef %1) unnamed_addr #4 {
   %3 = alloca %struct.cmsCIExyY, align 16
   %4 = fcmp reassoc nsz arcp contract afn olt double %1, 1.901000e+03
   %5 = select i1 %4, double 1.901000e+03, double %1

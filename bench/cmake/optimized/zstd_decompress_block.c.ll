@@ -936,7 +936,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
 
 71:                                               ; preds = %70
   %72 = icmp ne i32 %53, 0
-  %73 = icmp sgt i32 %.072, 24
+  %73 = icmp ugt i32 %.072, 24
   %or.cond.i = and i1 %73, %72
   br i1 %or.cond.i, label %74, label %.loopexit111
 
@@ -1045,7 +1045,7 @@ ZSTD_buildSeqTable.exit.thread:                   ; preds = %55, %56, %70, %80, 
 
 113:                                              ; preds = %112
   %114 = icmp ne i32 %90, 0
-  %115 = icmp sgt i32 %.072, 24
+  %115 = icmp ugt i32 %.072, 24
   %or.cond.i89 = and i1 %115, %114
   br i1 %or.cond.i89, label %116, label %.loopexit110
 
@@ -1149,7 +1149,7 @@ ZSTD_buildSeqTable.exit93.thread:                 ; preds = %97, %98, %112, %122
 
 153:                                              ; preds = %152
   %154 = icmp ne i32 %133, 0
-  %155 = icmp sgt i32 %.072, 24
+  %155 = icmp ugt i32 %.072, 24
   %or.cond.i99 = and i1 %155, %154
   br i1 %or.cond.i99, label %156, label %.loopexit
 
@@ -2544,7 +2544,7 @@ thread-pre-split:                                 ; preds = %651, %ZSTD_safecopy
   br i1 %698, label %700, label %.loopexit2505.i
 
 .critedge.i:                                      ; preds = %thread-pre-split
-  %699 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.21836.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %646, ptr noundef nonnull %7, ptr noundef nonnull %269, ptr noundef %25, ptr noundef %27, ptr noundef %29)
+  %699 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.21836.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %646, ptr noundef %7, ptr noundef nonnull %269, ptr noundef %25, ptr noundef %27, ptr noundef %29)
   br label %.loopexit2501.i
 
 700:                                              ; preds = %.critedge17.i
@@ -3103,7 +3103,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i.i:               ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %962, label %964, label %.loopexit2516.i
 
 .critedge35.i:                                    ; preds = %949
-  %963 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.11835.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %952, ptr noundef nonnull %7, ptr noundef %.11832.i, ptr noundef %25, ptr noundef %27, ptr noundef %29)
+  %963 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.11835.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %952, ptr noundef %7, ptr noundef %.11832.i, ptr noundef %25, ptr noundef %27, ptr noundef %29)
   br label %ZSTD_execSequenceEndSplitLitBuffer.exit.i
 
 964:                                              ; preds = %.critedge37.i
@@ -3477,7 +3477,7 @@ thread-pre-split36:                               ; preds = %1086, %ZSTD_safecop
   br i1 %1133, label %1135, label %.loopexit2489.i
 
 .critedge45.i:                                    ; preds = %thread-pre-split36
-  %1134 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.51839.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %1077, ptr noundef nonnull %7, ptr noundef nonnull %1072, ptr noundef %25, ptr noundef %27, ptr noundef %29)
+  %1134 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.51839.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %1077, ptr noundef %7, ptr noundef nonnull %1072, ptr noundef %25, ptr noundef %27, ptr noundef %29)
   br label %.loopexit2485.i
 
 1135:                                             ; preds = %.critedge47.i
@@ -4021,7 +4021,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i2403.i:           ; preds = %.lr.ph.i.i2400.i, %
   br i1 %1387, label %1389, label %.loopexit2500.i
 
 .critedge65.i:                                    ; preds = %1377
-  %1388 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.418382538.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %1077, ptr noundef nonnull %7, ptr noundef %.32542.i, ptr noundef %25, ptr noundef %27, ptr noundef %29)
+  %1388 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.418382538.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %1077, ptr noundef %7, ptr noundef %.32542.i, ptr noundef %25, ptr noundef %27, ptr noundef %29)
   br label %ZSTD_execSequenceEndSplitLitBuffer.exit2421.i
 
 1389:                                             ; preds = %.critedge67.i
@@ -5725,7 +5725,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i:                 ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %802, label %804, label %.loopexit2028.i
 
 .critedge25.i:                                    ; preds = %789
-  %803 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.4.i, ptr noundef %11, ptr noundef nonnull byval(%struct.seq_t) align 8 %7, ptr noundef nonnull %9, ptr noundef nonnull %790, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  %803 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.4.i, ptr noundef %11, ptr noundef nonnull byval(%struct.seq_t) align 8 %7, ptr noundef %9, ptr noundef nonnull %790, ptr noundef %17, ptr noundef %19, ptr noundef %21)
   br label %.loopexit2024.i
 
 804:                                              ; preds = %.critedge27.i
@@ -6262,7 +6262,7 @@ BIT_reloadDStreamFast.exit1966.i:                 ; preds = %1039
   br i1 %1118, label %1120, label %.loopexit2023.i
 
 .critedge43.i:                                    ; preds = %1076
-  %1119 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.6.i, ptr noundef %11, ptr noundef nonnull byval(%struct.seq_t) align 8 %8, ptr noundef nonnull %9, ptr noundef nonnull %790, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  %1119 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.6.i, ptr noundef %11, ptr noundef nonnull byval(%struct.seq_t) align 8 %8, ptr noundef %9, ptr noundef nonnull %790, ptr noundef %17, ptr noundef %19, ptr noundef %21)
   br label %.loopexit2020.i
 
 1120:                                             ; preds = %.critedge45.i
@@ -7304,7 +7304,7 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %329
   br i1 %407, label %409, label %.loopexit722.i
 
 .critedge.i:                                      ; preds = %366
-  %408 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.1554.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %7, ptr noundef nonnull %8, ptr noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %30)
+  %408 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %.1554.i, ptr noundef %19, ptr noundef nonnull byval(%struct.seq_t) align 8 %7, ptr noundef %8, ptr noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %30)
   br label %.loopexit719.i
 
 409:                                              ; preds = %.critedge9.i
@@ -7732,7 +7732,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 declare i64 @FSE_readNCount(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.seq_t) align 8 %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7) unnamed_addr #10 {
+define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.seq_t) align 8 %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7) unnamed_addr #10 {
   %9 = load i64, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr inbounds i8, ptr %2, i64 8
@@ -7901,7 +7901,7 @@ ZSTD_safecopy.exit:                               ; preds = %42, %.lr.ph.i, %.lr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #11 {
+define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #11 {
   %6 = ptrtoint ptr %0 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -7924,7 +7924,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %15, label %.lr.ph164, label %.loopexit, !llvm.loop !60
 
 16:                                               ; preds = %5
-  %17 = icmp eq i32 %4, 1
+  %17 = icmp ne i32 %4, 0
   br i1 %17, label %18, label %46
 
 18:                                               ; preds = %16

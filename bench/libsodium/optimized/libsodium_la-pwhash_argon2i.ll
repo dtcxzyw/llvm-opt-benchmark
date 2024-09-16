@@ -281,12 +281,12 @@ declare i32 @_sodium_argon2i_verify(ptr noundef, ptr noundef, i64 noundef) local
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 2) i32 @crypto_pwhash_argon2i_str_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef 1)
+  %call = tail call fastcc i32 @_needs_rehash(ptr noundef %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc range(i32 -1, 2) i32 @_needs_rehash(ptr noundef %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef %type) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef range(i32 1, 3) %type) unnamed_addr #1 {
 entry:
   %ctx = alloca %struct.Argon2_Context, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
@@ -331,7 +331,7 @@ if.end8:                                          ; preds = %if.end
   store i32 0, ptr %secretlen, align 8
   %adlen = getelementptr inbounds i8, ptr %ctx, i64 72
   store i32 0, ptr %adlen, align 8
-  %call9 = call i32 @_sodium_argon2_decode_string(ptr noundef nonnull %ctx, ptr noundef %str, i32 noundef %type) #9
+  %call9 = call i32 @_sodium_argon2_decode_string(ptr noundef nonnull %ctx, ptr noundef nonnull %str, i32 noundef %type) #9
   %cmp10.not = icmp eq i32 %call9, 0
   br i1 %cmp10.not, label %if.else, label %if.then12
 
@@ -366,7 +366,7 @@ return:                                           ; preds = %if.end, %if.end24, 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 2) i32 @crypto_pwhash_argon2id_str_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef 2)
+  %call = tail call fastcc i32 @_needs_rehash(ptr noundef %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef 2)
   ret i32 %call
 }
 

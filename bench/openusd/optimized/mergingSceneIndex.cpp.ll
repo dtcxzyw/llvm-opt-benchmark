@@ -1239,7 +1239,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %421, %423
   %434 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %435 = load i32, ptr %355, align 4
   store i32 %435, ptr %434, align 4
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEE(ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %16, ptr noundef nonnull %13)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEE(ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %16, ptr noundef nonnull %13)
           to label %436 unwind label %572
 
 436:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
@@ -1752,7 +1752,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNSt10shared
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherC1Ev(ptr noundef nonnull align 8 dereferenceable(345)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %7 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::WorkDispatcher::_InvokerTask", align 8
   %8 = alloca ptr, align 8
@@ -9237,7 +9237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %12,
   store i32 %25, ptr %23, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %27 = load ptr, ptr %26, align 32
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEE(ptr noundef %6, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %3, ptr noundef %27)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L33_FillAddedChildEntriesRecursivelyEPNS_14WorkDispatcherEPNS_19HdMergingSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEENS_7SdfPathEPN3tbb6detail2d216concurrent_queueINS_20HdSceneIndexObserver14AddedPrimEntryENSB_2d123cache_aligned_allocatorISF_EEEE(ptr noundef %6, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef %3, ptr noundef %27)
           to label %28 unwind label %47
 
 28:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i

@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef %sha3, ptr noundef readonly %data, i32 noundef %len, i8 noundef zeroext %p) unnamed_addr #1 {
+define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef %sha3, ptr noundef readonly %data, i32 noundef %len, i8 noundef zeroext range(i8 9, 19) %p) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha3, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -54,12 +54,11 @@ if.end7:                                          ; preds = %if.end
   %i1.i = getelementptr inbounds i8, ptr %sha3, i64 400
   %0 = load i8, ptr %i1.i, align 8
   %cmp.not.i = icmp eq i8 %0, 0
-  %.pre73.i = zext nneg i8 %p to i32
-  %.pre74.i = shl nuw nsw i32 %.pre73.i, 3
+  %1 = shl nuw i8 %p, 3
+  %.pre70.i = zext i8 %1 to i32
   br i1 %cmp.not.i, label %if.end52.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  %1 = trunc i32 %.pre74.i to i8
   %conv6.i = sub i8 %1, %0
   %conv7.i = zext i8 %conv6.i to i32
   %cmp8.i = icmp ult i32 %len, %conv7.i
@@ -97,99 +96,82 @@ for.end.i:                                        ; preds = %if.then.i, %for.end
   %sub21.i = sub i32 %len, %conv14.i
   %conv26.i = add i8 %3, %spec.select.i
   store i8 %conv26.i, ptr %i1.i, align 8
-  %conv28.i = zext i8 %conv26.i to i32
-  %cmp31.i = icmp eq i32 %.pre74.i, %conv28.i
-  br i1 %cmp31.i, label %for.cond34.preheader.i, label %if.end52.i
+  %cmp31.i = icmp eq i8 %1, %conv26.i
+  br i1 %cmp31.i, label %for.body38.preheader.i, label %if.end52.i
 
-for.cond34.preheader.i:                           ; preds = %for.end.i
-  %cmp3648.not.i = icmp eq i8 %p, 0
-  br i1 %cmp3648.not.i, label %for.end47.i, label %for.body38.preheader.i
-
-for.body38.preheader.i:                           ; preds = %for.cond34.preheader.i
-  %wide.trip.count65.i = zext i8 %p to i64
+for.body38.preheader.i:                           ; preds = %for.end.i
+  %wide.trip.count61.i = zext nneg i8 %p to i64
   br label %for.body38.i
 
 for.body38.i:                                     ; preds = %for.body38.i, %for.body38.preheader.i
-  %indvars.iv61.i = phi i64 [ 0, %for.body38.preheader.i ], [ %indvars.iv.next62.i, %for.body38.i ]
-  %4 = shl nuw nsw i64 %indvars.iv61.i, 3
+  %indvars.iv57.i = phi i64 [ 0, %for.body38.preheader.i ], [ %indvars.iv.next58.i, %for.body38.i ]
+  %4 = shl nuw nsw i64 %indvars.iv57.i, 3
   %add.ptr42.i = getelementptr inbounds i8, ptr %t12.i, i64 %4
   %add.ptr42.val.i = load i64, ptr %add.ptr42.i, align 8
-  %arrayidx44.i = getelementptr inbounds [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv61.i
+  %arrayidx44.i = getelementptr inbounds [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv57.i
   %5 = load i64, ptr %arrayidx44.i, align 8
   %xor.i = xor i64 %5, %add.ptr42.val.i
   store i64 %xor.i, ptr %arrayidx44.i, align 8
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count65.i
-  br i1 %exitcond66.not.i, label %for.end47.i, label %for.body38.i, !llvm.loop !6
+  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count61.i
+  br i1 %exitcond62.not.i, label %for.end47.i, label %for.body38.i, !llvm.loop !6
 
-for.end47.i:                                      ; preds = %for.body38.i, %for.cond34.preheader.i
-  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
+for.end47.i:                                      ; preds = %for.body38.i
+  tail call fastcc void @BlockSha3(ptr noundef %sha3)
   store i8 0, ptr %i1.i, align 8
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %for.end47.i, %for.end.i, %if.end7
   %len.addr.0.i = phi i32 [ %sub21.i, %for.end.i ], [ %sub21.i, %for.end47.i ], [ %len, %if.end7 ]
   %data.addr.0.i = phi ptr [ %add.ptr.i, %for.end.i ], [ %add.ptr.i, %for.end47.i ], [ %data, %if.end7 ]
-  %cmp56.not52.i = icmp ugt i32 %.pre74.i, %len.addr.0.i
-  br i1 %cmp56.not52.i, label %Sha3Update.exit, label %for.cond59.preheader.lr.ph.i
+  %cmp56.not50.i = icmp ult i32 %len.addr.0.i, %.pre70.i
+  br i1 %cmp56.not50.i, label %Sha3Update.exit, label %for.cond59.preheader.lr.ph.i
 
 for.cond59.preheader.lr.ph.i:                     ; preds = %if.end52.i
-  %div.i = udiv i32 %len.addr.0.i, %.pre74.i
-  %cmp6150.not.i = icmp eq i8 %p, 0
-  %idx.ext82.i = zext nneg i32 %.pre74.i to i64
-  br i1 %cmp6150.not.i, label %for.cond59.preheader.i, label %for.cond59.preheader.us.preheader.i
+  %div.i = udiv i32 %len.addr.0.i, %.pre70.i
+  %.recomposed = urem i32 %len.addr.0.i, %.pre70.i
+  %idx.ext82.i = zext i8 %1 to i64
+  %wide.trip.count67.i = zext nneg i8 %p to i64
+  br label %for.cond59.preheader.i
 
-for.cond59.preheader.us.preheader.i:              ; preds = %for.cond59.preheader.lr.ph.i
-  %wide.trip.count71.i = zext i8 %p to i64
-  br label %for.cond59.preheader.us.i
+for.cond59.preheader.i:                           ; preds = %for.end74.i, %for.cond59.preheader.lr.ph.i
+  %data.addr.153.i = phi ptr [ %data.addr.0.i, %for.cond59.preheader.lr.ph.i ], [ %add.ptr83.i, %for.end74.i ]
+  %blocks.052.i = phi i32 [ %div.i, %for.cond59.preheader.lr.ph.i ], [ %dec.i, %for.end74.i ]
+  br label %for.body63.i
 
-for.cond59.preheader.us.i:                        ; preds = %for.cond59.for.end74_crit_edge.us.i, %for.cond59.preheader.us.preheader.i
-  %data.addr.155.us.i = phi ptr [ %add.ptr83.us.i, %for.cond59.for.end74_crit_edge.us.i ], [ %data.addr.0.i, %for.cond59.preheader.us.preheader.i ]
-  %blocks.054.us.i = phi i32 [ %dec.us.i, %for.cond59.for.end74_crit_edge.us.i ], [ %div.i, %for.cond59.preheader.us.preheader.i ]
-  %len.addr.153.us.i = phi i32 [ %sub79.us.i, %for.cond59.for.end74_crit_edge.us.i ], [ %len.addr.0.i, %for.cond59.preheader.us.preheader.i ]
-  br label %for.body63.us.i
+for.body63.i:                                     ; preds = %for.body63.i, %for.cond59.preheader.i
+  %indvars.iv63.i = phi i64 [ 0, %for.cond59.preheader.i ], [ %indvars.iv.next64.i, %for.body63.i ]
+  %6 = shl nuw nsw i64 %indvars.iv63.i, 3
+  %add.ptr66.i = getelementptr inbounds i8, ptr %data.addr.153.i, i64 %6
+  %7 = load i64, ptr %add.ptr66.i, align 1
+  %arrayidx70.i = getelementptr inbounds [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv63.i
+  %8 = load i64, ptr %arrayidx70.i, align 8
+  %xor71.i = xor i64 %8, %7
+  store i64 %xor71.i, ptr %arrayidx70.i, align 8
+  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+  %exitcond68.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count67.i
+  br i1 %exitcond68.not.i, label %for.end74.i, label %for.body63.i, !llvm.loop !7
 
-for.body63.us.i:                                  ; preds = %for.body63.us.i, %for.cond59.preheader.us.i
-  %indvars.iv67.i = phi i64 [ 0, %for.cond59.preheader.us.i ], [ %indvars.iv.next68.i, %for.body63.us.i ]
-  %6 = shl nuw nsw i64 %indvars.iv67.i, 3
-  %add.ptr66.us.i = getelementptr inbounds i8, ptr %data.addr.155.us.i, i64 %6
-  %7 = load i64, ptr %add.ptr66.us.i, align 1
-  %arrayidx70.us.i = getelementptr inbounds [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv67.i
-  %8 = load i64, ptr %arrayidx70.us.i, align 8
-  %xor71.us.i = xor i64 %8, %7
-  store i64 %xor71.us.i, ptr %arrayidx70.us.i, align 8
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %exitcond72.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count71.i
-  br i1 %exitcond72.not.i, label %for.cond59.for.end74_crit_edge.us.i, label %for.body63.us.i, !llvm.loop !7
-
-for.cond59.for.end74_crit_edge.us.i:              ; preds = %for.body63.us.i
-  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
-  %sub79.us.i = sub i32 %len.addr.153.us.i, %.pre74.i
-  %add.ptr83.us.i = getelementptr inbounds i8, ptr %data.addr.155.us.i, i64 %idx.ext82.i
-  %dec.us.i = add nsw i32 %blocks.054.us.i, -1
-  %cmp56.not.us.i = icmp eq i32 %dec.us.i, 0
-  br i1 %cmp56.not.us.i, label %Sha3Update.exit, label %for.cond59.preheader.us.i, !llvm.loop !8
-
-for.cond59.preheader.i:                           ; preds = %for.cond59.preheader.lr.ph.i, %for.cond59.preheader.i
-  %data.addr.155.i = phi ptr [ %add.ptr83.i, %for.cond59.preheader.i ], [ %data.addr.0.i, %for.cond59.preheader.lr.ph.i ]
-  %blocks.054.i = phi i32 [ %dec.i, %for.cond59.preheader.i ], [ %div.i, %for.cond59.preheader.lr.ph.i ]
-  %len.addr.153.i = phi i32 [ %sub79.i, %for.cond59.preheader.i ], [ %len.addr.0.i, %for.cond59.preheader.lr.ph.i ]
-  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
-  %sub79.i = sub nuw nsw i32 %len.addr.153.i, %.pre74.i
-  %add.ptr83.i = getelementptr inbounds i8, ptr %data.addr.155.i, i64 %idx.ext82.i
-  %dec.i = add nsw i32 %blocks.054.i, -1
+for.end74.i:                                      ; preds = %for.body63.i
+  tail call fastcc void @BlockSha3(ptr noundef %sha3)
+  %add.ptr83.i = getelementptr inbounds i8, ptr %data.addr.153.i, i64 %idx.ext82.i
+  %dec.i = add nsw i32 %blocks.052.i, -1
   %cmp56.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp56.not.i, label %Sha3Update.exit, label %for.cond59.preheader.i, !llvm.loop !8
+  br i1 %cmp56.not.i, label %for.end85.loopexit.i, label %for.cond59.preheader.i, !llvm.loop !8
 
-Sha3Update.exit:                                  ; preds = %for.cond59.for.end74_crit_edge.us.i, %for.cond59.preheader.i, %if.end52.i
-  %len.addr.1.lcssa.i = phi i32 [ %len.addr.0.i, %if.end52.i ], [ %sub79.i, %for.cond59.preheader.i ], [ %sub79.us.i, %for.cond59.for.end74_crit_edge.us.i ]
-  %data.addr.1.lcssa.i = phi ptr [ %data.addr.0.i, %if.end52.i ], [ %add.ptr83.i, %for.cond59.preheader.i ], [ %add.ptr83.us.i, %for.cond59.for.end74_crit_edge.us.i ]
+for.end85.loopexit.i:                             ; preds = %for.end74.i
+  %9 = mul i32 %div.i, %.pre70.i
+  br label %Sha3Update.exit
+
+Sha3Update.exit:                                  ; preds = %if.end52.i, %for.end85.loopexit.i
+  %len.addr.1.lcssa.i = phi i32 [ %len.addr.0.i, %if.end52.i ], [ %.recomposed, %for.end85.loopexit.i ]
+  %data.addr.1.lcssa.i = phi ptr [ %data.addr.0.i, %if.end52.i ], [ %add.ptr83.i, %for.end85.loopexit.i ]
   %t86.i = getelementptr inbounds i8, ptr %sha3, i64 200
   %conv88.i = zext i32 %len.addr.1.lcssa.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %t86.i, ptr align 1 %data.addr.1.lcssa.i, i64 %conv88.i, i1 false)
-  %9 = load i8, ptr %i1.i, align 8
-  %10 = trunc i32 %len.addr.1.lcssa.i to i8
-  %conv94.i = add i8 %9, %10
+  %10 = load i8, ptr %i1.i, align 8
+  %11 = trunc i32 %len.addr.1.lcssa.i to i8
+  %conv94.i = add i8 %10, %11
   store i8 %conv94.i, ptr %i1.i, align 8
   br label %return
 
@@ -248,7 +230,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %for.body.i.i, !llvm.loop !9
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
-  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef %sha3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %sha3, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
@@ -318,7 +300,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
-  call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
+  call fastcc void @BlockSha3(ptr noundef %tmpSha3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %tmpSha3.i, i64 28, i1 false)
   br label %wc_Sha3GetHash.exit
 
@@ -421,7 +403,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %for.body.i.i, !llvm.loop !9
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
-  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef %sha3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %sha3, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
@@ -491,7 +473,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
-  call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
+  call fastcc void @BlockSha3(ptr noundef %tmpSha3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %tmpSha3.i, i64 32, i1 false)
   br label %wc_Sha3GetHash.exit
 
@@ -594,7 +576,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %for.body.i.i, !llvm.loop !9
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
-  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef %sha3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 8 dereferenceable(48) %sha3, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
@@ -664,7 +646,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
-  call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
+  call fastcc void @BlockSha3(ptr noundef %tmpSha3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 8 dereferenceable(48) %tmpSha3.i, i64 48, i1 false)
   br label %wc_Sha3GetHash.exit
 
@@ -767,7 +749,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %for.body.i.i, !llvm.loop !9
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
-  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef %sha3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %sha3, i64 64, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
@@ -837,7 +819,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
-  call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
+  call fastcc void @BlockSha3(ptr noundef %tmpSha3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %tmpSha3.i, i64 64, i1 false)
   br label %wc_Sha3GetHash.exit
 
@@ -865,7 +847,7 @@ wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BlockSha3(ptr nocapture noundef %s) unnamed_addr #1 {
+define internal fastcc void @BlockSha3(ptr nocapture noundef nonnull %s) unnamed_addr #1 {
 entry:
   %arrayidx2 = getelementptr inbounds i8, ptr %s, i64 40
   %arrayidx3 = getelementptr inbounds i8, ptr %s, i64 80

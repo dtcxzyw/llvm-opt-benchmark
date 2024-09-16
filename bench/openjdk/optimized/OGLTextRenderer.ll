@@ -100,7 +100,7 @@ define hidden void @OGLTR_EnableGlyphVertexCache(ptr noundef %0) local_unnamed_a
 declare zeroext i8 @OGLVertexCache_InitVertexCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @OGLTR_InitGlyphCache(i8 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @OGLTR_InitGlyphCache(i8 noundef zeroext range(i8 0, 2) %0) unnamed_addr #0 {
   %2 = alloca float, align 4
   store float 1.000000e+00, ptr %2, align 4
   %3 = tail call ptr @AccelGlyphCache_Init(i32 noundef 512, i32 noundef 512, i32 noundef 32, i32 noundef 32, ptr noundef nonnull @OGLVertexCache_FlushVertexCache) #5
@@ -414,7 +414,7 @@ OGLTR_AddToGlyphCache.exit.i:                     ; preds = %119
   %151 = load float, ptr %150, align 4
   %152 = getelementptr inbounds i8, ptr %134, i64 64
   %153 = load float, ptr %152, align 8
-  tail call void @OGLVertexCache_AddGlyphQuad(ptr noundef %1, float noundef %147, float noundef %149, float noundef %151, float noundef %153, float noundef %138, float noundef %139, float noundef %142, float noundef %145) #5
+  tail call void @OGLVertexCache_AddGlyphQuad(ptr noundef nonnull %1, float noundef %147, float noundef %149, float noundef %151, float noundef %153, float noundef %138, float noundef %139, float noundef %142, float noundef %145) #5
   br label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread
 
 154:                                              ; preds = %._crit_edge, %96
@@ -479,7 +479,7 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %161, %154
   %177 = sub nuw nsw i32 %156, %.03741.us.i
   %178 = select i1 %176, i32 %177, i32 32
   %179 = load ptr, ptr %83, align 8
-  tail call void @OGLVertexCache_AddMaskQuad(ptr noundef %1, i32 noundef %.03741.us.i, i32 noundef %.03843.us.i, i32 noundef %.042.us.i, i32 noundef %.03644.us.i, i32 noundef %178, i32 noundef %173, i32 noundef %156, ptr noundef %179) #5
+  tail call void @OGLVertexCache_AddMaskQuad(ptr noundef nonnull %1, i32 noundef %.03741.us.i, i32 noundef %.03843.us.i, i32 noundef %.042.us.i, i32 noundef %.03644.us.i, i32 noundef %178, i32 noundef %173, i32 noundef %156, ptr noundef %179) #5
   %180 = add nsw i32 %.042.us.i, 32
   %181 = icmp ult i32 %175, %156
   br i1 %181, label %174, label %._crit_edge.us.i, !llvm.loop !6

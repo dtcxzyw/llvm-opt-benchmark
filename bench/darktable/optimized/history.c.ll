@@ -673,7 +673,7 @@ declare void @dt_gui_container_destroy_children(ptr noundef) local_unnamed_addr 
 declare i64 @gtk_container_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 5) %7) unnamed_addr #1 {
   %9 = alloca [10 x i8], align 1
   %10 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #16
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #16
@@ -3412,7 +3412,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lib_history_truncate(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %4 = getelementptr inbounds i8, ptr %3, i64 1544

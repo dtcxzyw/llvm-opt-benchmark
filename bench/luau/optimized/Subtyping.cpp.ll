@@ -2646,7 +2646,7 @@ define dso_local noundef nonnull align 8 dereferenceable(120) ptr @_ZN4Luau15Sub
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %1, i64 32
-  call fastcc void @_ZN4LuauL15mergeReasoningsERKNS_12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %8)
+  call fastcc void @_ZN4LuauL15mergeReasoningsERKNS_12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEES7_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %8)
   %.not.i.i = icmp eq ptr %7, %3
   br i1 %.not.i.i, label %_ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEaSEOS5_.exit, label %9
 
@@ -2877,7 +2877,7 @@ _ZN4Luau18SubtypingReasoningD2Ev.exit:            ; preds = %74, %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL15mergeReasoningsERKNS_12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEES7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL15mergeReasoningsERKNS_12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::SubtypingReasoning", align 8
   %5 = alloca %"struct.Luau::SubtypingReasoning", align 8
   %6 = alloca %"struct.Luau::SubtypingReasoning", align 8
@@ -3854,7 +3854,7 @@ define dso_local noundef nonnull align 8 dereferenceable(120) ptr @_ZN4Luau15Sub
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 32
-  call fastcc void @_ZN4LuauL15mergeReasoningsERKNS_12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(88) %12)
+  call fastcc void @_ZN4LuauL15mergeReasoningsERKNS_12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEES7_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(88) %12)
   %.not.i.i = icmp eq ptr %9, %3
   br i1 %.not.i.i, label %_ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEaSEOS5_.exit, label %13
 

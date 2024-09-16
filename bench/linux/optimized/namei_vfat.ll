@@ -1273,7 +1273,7 @@ declare dso_local { i64, i64 } @current_time(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #2 align 16 {
+define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #2 align 16 {
   %7 = alloca %struct.fat_slot_info, align 8
   %8 = alloca %struct.fat_slot_info, align 8
   %9 = alloca %struct.fat_slot_info, align 8
@@ -2403,7 +2403,7 @@ declare dso_local i32 @fat_dir_empty(ptr noundef) local_unnamed_addr #1
 declare dso_local void @drop_nlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vfat_update_dotdot_de(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @vfat_update_dotdot_de(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #2 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -108
   %6 = load i32, ptr %5, align 4
   %7 = trunc i32 %6 to i16

@@ -1451,7 +1451,7 @@ define internal void @zend_enum_cases_func(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef range(i32 62, 66) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr @zend_known_strings, align 8
   %6 = zext nneg i32 %1 to i64

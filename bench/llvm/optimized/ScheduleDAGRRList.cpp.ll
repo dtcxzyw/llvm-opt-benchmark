@@ -6118,7 +6118,7 @@ _ZNK4llvm6SDNode12getGluedNodeEv.exit.i:          ; preds = %217, %210
   br i1 %.not.i.i.i.i, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i, label %231, !llvm.loop !33
 
 231:                                              ; preds = %217, %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i
-  %232 = call fastcc noundef zeroext i1 @_ZL16IsChainDependentPN4llvm6SDNodeES1_jPKNS_15TargetInstrInfoE(ptr noundef nonnull %.090.i, ptr noundef nonnull %.084178.i, i32 noundef 0, ptr noundef %197)
+  %232 = call fastcc noundef zeroext i1 @_ZL16IsChainDependentPN4llvm6SDNodeES1_jPKNS_15TargetInstrInfoE(ptr noundef nonnull %.090.i, ptr noundef %.084178.i, i32 noundef 0, ptr noundef %197)
   br i1 %232, label %.thread152.i, label %233
 
 233:                                              ; preds = %231
@@ -6805,7 +6805,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %52, %58
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL16IsChainDependentPN4llvm6SDNodeES1_jPKNS_15TargetInstrInfoE(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #13 {
+define internal fastcc noundef zeroext i1 @_ZL16IsChainDependentPN4llvm6SDNodeES1_jPKNS_15TargetInstrInfoE(ptr noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %7

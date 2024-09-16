@@ -2688,7 +2688,7 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #5
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = alloca ptr, align 8

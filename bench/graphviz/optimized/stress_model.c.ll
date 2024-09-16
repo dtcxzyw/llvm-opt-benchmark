@@ -106,7 +106,7 @@ declare ptr @SparseMatrix_remove_diagonal(ptr noundef) local_unnamed_addr #1
 declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @gv_calloc(i64 noundef %0) unnamed_addr #2 {
+define internal fastcc void @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #2 {
   %mul.ov = icmp ugt i64 %0, 2305843009213693951
   br i1 %mul.ov, label %2, label %5
 

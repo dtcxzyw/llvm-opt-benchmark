@@ -425,7 +425,7 @@ pmix_obj_run_constructors.exit159:                ; preds = %.lr.ph.i156, %70
   br i1 %.not.i163, label %pmix_obj_run_destructors.exit, label %.lr.ph.i161, !llvm.loop !8
 
 .sink.split:                                      ; preds = %94, %89
-  %148 = call fastcc ptr @pmix_bfrop_tma_kval_new(ptr noundef nonnull %88)
+  %148 = call fastcc ptr @pmix_bfrop_tma_kval_new(ptr noundef %88)
   %149 = getelementptr inbounds i8, ptr %148, i64 152
   %150 = load ptr, ptr %149, align 8
   %151 = call i32 @PMIx_Value_load(ptr noundef %150, ptr noundef nonnull @.str.5, i16 noundef zeroext 3) #12
@@ -711,7 +711,7 @@ declare void @PMIx_Load_nspace(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr nocapture noundef nonnull readonly %0) unnamed_addr #1 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %3 = tail call noalias noundef ptr @malloc(i64 noundef %2) #17
   %4 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -752,7 +752,7 @@ define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr nocapture nounde
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread1, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit.thread1:                    ; preds = %.lr.ph.i.i, %8
-  %19 = tail call noalias ptr @strdup(ptr noundef readonly %0) #12
+  %19 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #12
   %20 = getelementptr inbounds i8, ptr %3, i64 144
   store ptr %19, ptr %20, align 8
   %21 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17

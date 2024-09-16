@@ -4140,7 +4140,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @hb_tag_from_string(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL14subtag_matchesPKcS0_S0_j(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZL14subtag_matchesPKcS0_S0_j(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 3, 9) %3) unnamed_addr #7 {
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %5, %6

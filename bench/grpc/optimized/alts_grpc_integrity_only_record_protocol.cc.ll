@@ -217,7 +217,7 @@ if.then.i:                                        ; preds = %for.end.i
   br label %_ZL43alts_grpc_integrity_only_extra_copy_protectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_.exit
 
 if.end.i:                                         ; preds = %for.end.i
-  call void @grpc_slice_buffer_add(ptr noundef %protected_slices, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %protected_slice.i)
+  call void @grpc_slice_buffer_add(ptr noundef nonnull %protected_slices, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %protected_slice.i)
   call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %unprotected_slices)
   br label %_ZL43alts_grpc_integrity_only_extra_copy_protectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_.exit
 

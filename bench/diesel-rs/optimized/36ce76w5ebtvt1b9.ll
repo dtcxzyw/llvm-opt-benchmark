@@ -864,7 +864,7 @@ common.resume:                                    ; preds = %69, %29
 78:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
-  invoke fastcc void @"_ZN25diesel_demo_step_3_sqlite20establish_connection28_$u7b$$u7b$closure$u7d$$u7d$17hdd9ef560d10ca9bfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN25diesel_demo_step_3_sqlite20establish_connection28_$u7b$$u7b$closure$u7d$$u7d$17hdd9ef560d10ca9bfE"(ptr noalias noundef readonly align 8 dereferenceable(24) %11, ptr noalias nocapture noundef align 8 dereferenceable(40) %8)
           to label %.unreachable unwind label %69
 
 79:                                               ; preds = %75
@@ -890,7 +890,7 @@ common.resume:                                    ; preds = %69, %29
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN25diesel_demo_step_3_sqlite20establish_connection28_$u7b$$u7b$closure$u7d$$u7d$17hdd9ef560d10ca9bfE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN25diesel_demo_step_3_sqlite20establish_connection28_$u7b$$u7b$closure$u7d$$u7d$17hdd9ef560d10ca9bfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8

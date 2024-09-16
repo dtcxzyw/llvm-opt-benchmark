@@ -1830,13 +1830,13 @@ define linkonce_odr hidden void @_ZN5clang11declvisitor4BaseISt11add_pointerNS_1
 
 47:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
+  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %96
 
 48:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call fastcc void @_ZN5clang13ASTDeclReader38VisitVarTemplateSpecializationDeclImplEPNS_29VarTemplateSpecializationDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
+  call fastcc void @_ZN5clang13ASTDeclReader38VisitVarTemplateSpecializationDeclImplEPNS_29VarTemplateSpecializationDeclE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %96
 
@@ -1850,13 +1850,13 @@ define linkonce_odr hidden void @_ZN5clang11declvisitor4BaseISt11add_pointerNS_1
 
 51:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
+  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %96
 
 52:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
+  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %96
 
@@ -1914,13 +1914,13 @@ define linkonce_odr hidden void @_ZN5clang11declvisitor4BaseISt11add_pointerNS_1
 
 66:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call fastcc void @_ZN5clang13ASTDeclReader22VisitCXXRecordDeclImplEPNS_13CXXRecordDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
+  call fastcc void @_ZN5clang13ASTDeclReader22VisitCXXRecordDeclImplEPNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %96
 
 67:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN5clang13ASTDeclReader40VisitClassTemplateSpecializationDeclImplEPNS_31ClassTemplateSpecializationDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
+  call fastcc void @_ZN5clang13ASTDeclReader40VisitClassTemplateSpecializationDeclImplEPNS_31ClassTemplateSpecializationDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %96
 
@@ -3356,7 +3356,7 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %35, %36
 define dso_local void @_ZN5clang13ASTDeclReader16VisitTypedefDeclEPNS_11TypedefDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.clang::ASTDeclReader::FindExistingResult", align 8
   %4 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %5 = icmp eq ptr %1, null
   %6 = getelementptr inbounds i8, ptr %1, i64 64
   %spec.select = select i1 %5, ptr null, ptr %6
@@ -3431,7 +3431,7 @@ _ZN5clang13ASTDeclReader17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12Redecl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = icmp eq ptr %2, null
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %spec.select = select i1 %4, ptr null, ptr %5
@@ -3702,7 +3702,7 @@ _ZN5clang15TypedefNameDecl22setModedTypeSourceInfoEPNS_14TypeSourceInfoENS_8Qual
 define dso_local void @_ZN5clang13ASTDeclReader18VisitTypeAliasDeclEPNS_13TypeAliasDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.clang::ASTDeclReader::FindExistingResult", align 8
   %4 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3803,7 +3803,7 @@ define dso_local void @_ZN5clang13ASTDeclReader13VisitEnumDeclEPNS_8EnumDeclE(pt
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::pair.986", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN5clang15ASTRecordReader18readTypeSourceInfoEv(ptr noundef nonnull align 8 dereferenceable(560) %7) #26
@@ -4298,7 +4298,7 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %285, %286
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDeclE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDeclE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = icmp eq ptr %2, null
   %5 = getelementptr inbounds i8, ptr %2, i64 96
   %spec.select = select i1 %4, ptr null, ptr %5
@@ -4726,7 +4726,7 @@ define dso_local void @_ZN5clang13ASTDeclReader15VisitRecordDeclEPNS_10RecordDec
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::pair.986", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !noalias !47
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -7606,7 +7606,7 @@ declare void @_ZN5clang14ObjCMethodDecl19setParamsAndSelLocsERNS_10ASTContextEN4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCTypeParamDeclEPNS_17ObjCTypeParamDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -13548,7 +13548,7 @@ declare noundef zeroext i1 @_ZNK5clang7APValue12needsCleanupEv(ptr noundef nonnu
 define dso_local void @_ZN5clang13ASTDeclReader22VisitImplicitParamDeclEPNS_17ImplicitParamDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }
@@ -13557,7 +13557,7 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitImplicitParamDeclEPNS_17Im
 define dso_local void @_ZN5clang13ASTDeclReader16VisitParmVarDeclEPNS_11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -13725,7 +13725,7 @@ declare void @_ZN5clang11ParmVarDecl27setUninstantiatedDefaultArgEPNS_4ExprE(ptr
 define dso_local void @_ZN5clang13ASTDeclReader22VisitDecompositionDeclEPNS_17DecompositionDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -20469,7 +20469,7 @@ define dso_local void @_ZN5clang13ASTDeclReader25VisitRequiresExprBodyDeclEPNS_2
 define dso_local void @_ZN5clang13ASTDeclReader22VisitClassTemplateDeclEPNS_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   %4 = alloca %"class.llvm::SmallVector.1209", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   call fastcc void @_ZN5clang13ASTDeclReader25mergeRedeclarableTemplateEPNS_24RedeclarableTemplateDeclERN12_GLOBAL__N_118RedeclarableResultE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(17) %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -20513,7 +20513,7 @@ _ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj32EED2Ev.exit: ; preds = %14, %9, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = icmp eq ptr %2, null
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %spec.select = select i1 %4, ptr null, ptr %5
@@ -21125,7 +21125,7 @@ define dso_local void @_ZN5clang13ASTDeclReader24VisitBuiltinTemplateDeclEPNS_19
 define dso_local void @_ZN5clang13ASTDeclReader20VisitVarTemplateDeclEPNS_15VarTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   %4 = alloca %"class.llvm::SmallVector.1209", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   call fastcc void @_ZN5clang13ASTDeclReader25mergeRedeclarableTemplateEPNS_24RedeclarableTemplateDeclERN12_GLOBAL__N_118RedeclarableResultE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(17) %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -21335,7 +21335,7 @@ define dso_local void @_ZN5clang13ASTDeclReader43VisitClassTemplatePartialSpecia
   %6 = tail call noundef ptr @_ZN5clang15ASTRecordReader25readTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(560) %5) #26
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store ptr %6, ptr %7, align 8
-  call fastcc void @_ZN5clang13ASTDeclReader40VisitClassTemplateSpecializationDeclImplEPNS_31ClassTemplateSpecializationDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader40VisitClassTemplateSpecializationDeclImplEPNS_31ClassTemplateSpecializationDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %.val = load i64, ptr %9, align 8
@@ -21382,7 +21382,7 @@ define dso_local void @_ZN5clang13ASTDeclReader43VisitClassTemplatePartialSpecia
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13ASTDeclReader40VisitClassTemplateSpecializationDeclImplEPNS_31ClassTemplateSpecializationDeclE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN5clang13ASTDeclReader40VisitClassTemplateSpecializationDeclImplEPNS_31ClassTemplateSpecializationDeclE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallVector.1010", align 8
   %5 = alloca %"class.llvm::SmallVector.1010", align 8
   tail call fastcc void @_ZN5clang13ASTDeclReader22VisitCXXRecordDeclImplEPNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2)
@@ -21853,7 +21853,7 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj8EED2Ev.exit75: ; preds = %_ZN
 define dso_local void @_ZN5clang13ASTDeclReader25VisitFunctionTemplateDeclEPNS_20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   %4 = alloca %"class.llvm::SmallVector.1209", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %.val = load i64, ptr %6, align 8
@@ -22062,7 +22062,7 @@ define dso_local void @_ZN5clang13ASTDeclReader41VisitVarTemplatePartialSpeciali
   %6 = tail call noundef ptr @_ZN5clang15ASTRecordReader25readTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(560) %5) #26
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %6, ptr %7, align 8
-  call fastcc void @_ZN5clang13ASTDeclReader38VisitVarTemplateSpecializationDeclImplEPNS_29VarTemplateSpecializationDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader38VisitVarTemplateSpecializationDeclImplEPNS_29VarTemplateSpecializationDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %.val = load i64, ptr %9, align 8
@@ -22109,7 +22109,7 @@ define dso_local void @_ZN5clang13ASTDeclReader41VisitVarTemplatePartialSpeciali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13ASTDeclReader38VisitVarTemplateSpecializationDeclImplEPNS_29VarTemplateSpecializationDeclE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN5clang13ASTDeclReader38VisitVarTemplateSpecializationDeclImplEPNS_29VarTemplateSpecializationDeclE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallVector.1010", align 8
   %5 = alloca %"class.llvm::SmallVector.1010", align 8
   %6 = load ptr, ptr %1, align 8
@@ -22995,7 +22995,7 @@ declare void @_ZN5clang24TemplateTemplateParmDecl18setDefaultArgumentERKNS_10AST
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang13ASTDeclReader26VisitTypeAliasTemplateDeclEPNS_21TypeAliasTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
-  call fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   call fastcc void @_ZN5clang13ASTDeclReader25mergeRedeclarableTemplateEPNS_24RedeclarableTemplateDeclERN12_GLOBAL__N_118RedeclarableResultE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(17) %3)
   ret void
 }
@@ -23643,7 +23643,7 @@ define dso_local void @_ZN5clang13ASTDeclReader25VisitOMPDeclareMapperDeclEPNS_2
 define dso_local void @_ZN5clang13ASTDeclReader24VisitOMPCapturedExprDeclEPNS_19OMPCapturedExprDeclE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::RedeclarableResult", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
+  call fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }
@@ -55808,7 +55808,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7VarDeclE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %2, null
   %6 = getelementptr inbounds i8, ptr %2, i64 72
@@ -57514,7 +57514,7 @@ declare noundef ptr @_ZN5clang19NestedNameSpecifier15GlobalSpecifierERKNS_10ASTC
 declare noundef ptr @_ZN5clang19NestedNameSpecifier14SuperSpecifierERKNS_10ASTContextEPNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13ASTDeclReader22VisitCXXRecordDeclImplEPNS_13CXXRecordDeclE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN5clang13ASTDeclReader22VisitCXXRecordDeclImplEPNS_13CXXRecordDeclE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.std::pair.1581", align 8
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8

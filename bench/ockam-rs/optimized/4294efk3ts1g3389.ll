@@ -134,7 +134,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$all
 9:                                                ; preds = %7
   %10 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.0.i.i.i
   %11 = add i64 %.0.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %10)
           to label %7 unwind label %14, !noalias !29
 
 12:                                               ; preds = %16, %14
@@ -150,7 +150,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$all
 16:                                               ; preds = %12
   %17 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.1.i.i.i
   %18 = add i64 %.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17) #13
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %17) #13
           to label %12 unwind label %19, !noalias !29
 
 19:                                               ; preds = %16
@@ -446,7 +446,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..Er
   %.07.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { [6 x i64], ptr, [2 x i64] }], ptr %3, i64 0, i64 %.07.i.i.i
   %8 = add nuw i64 %.07.i.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %7), !noalias !142
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias noundef readonly align 8 dereferenceable(72) %7), !noalias !142
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2525698c80f5f8c2E.llvm.12192176430880052379.exit.i", label %.lr.ph.i.i.i
 
@@ -538,7 +538,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..Er
 43:                                               ; preds = %41
   %44 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %36, i64 0, i64 %.0.i.i.i.i
   %45 = add i64 %.0.i.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %44)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %44)
           to label %41 unwind label %48, !noalias !195
 
 46:                                               ; preds = %50, %48
@@ -554,7 +554,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..Er
 50:                                               ; preds = %46
   %51 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %36, i64 0, i64 %.1.i.i.i.i
   %52 = add i64 %.1.i.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %51) #13
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %51) #13
           to label %46 unwind label %53, !noalias !195
 
 53:                                               ; preds = %50
@@ -646,7 +646,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpack
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %.not = icmp eq ptr %3, null
@@ -732,7 +732,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { ptr, ptr } }, align 8
   %3 = alloca i64, align 8
   %4 = alloca [2 x { ptr, ptr }], align 8
@@ -1033,7 +1033,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
 85:                                               ; preds = %.noexc21.i.i, %.noexc20.i.i, %.noexc19.i.i, %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit126.i.i.i", %.noexc17.i.i, %.noexc16.i.i, %.noexc15.i.i, %.noexc14.i.i, %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit.i.i.i", %.noexc12.i.i, %.critedge.i8.i.i, %28, %20, %11
   %86 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h01a8e39f417b394eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #13
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h01a8e39f417b394eE"(ptr noalias noundef align 8 dereferenceable(32) %0) #13
           to label %99 unwind label %97
 
 "_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04d42e0f064cae5bE.exit.i.i": ; preds = %.noexc5.i.i, %17, %.noexc2.i.i
@@ -1123,7 +1123,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$u5b$ockam_core..error..inne
   %.07 = phi i64 [ %5, %.lr.ph ], [ 0, %2 ]
   %4 = getelementptr inbounds [0 x { [6 x i64], ptr, [2 x i64] }], ptr %0, i64 0, i64 %.07
   %5 = add nuw i64 %.07, 1
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias noundef align 8 dereferenceable(72) %4)
   %6 = icmp eq i64 %5, %1
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -1132,7 +1132,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$u5b$ockam_core..error..inne
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h01a8e39f417b394eE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h01a8e39f417b394eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !326, !noundef !5
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr41drop_in_place$LT$tracing..span..Inner$GT$17h4baa4f88522af995E.exit", label %4
@@ -1174,7 +1174,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$u5b$ockam_core..error..inne
 5:                                                ; preds = %3
   %6 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %0, i64 0, i64 %.0
   %7 = add i64 %.0, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %6)
           to label %3 unwind label %11
 
 8:                                                ; preds = %3
@@ -1193,7 +1193,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$u5b$ockam_core..error..inne
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14) #13
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %14) #13
           to label %9 unwind label %17
 
 16:                                               ; preds = %9
@@ -1236,7 +1236,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$ockam_cor
   %.07.i.i = phi i64 [ %7, %.lr.ph.i.i ], [ 0, %1 ]
   %6 = getelementptr inbounds [0 x { [6 x i64], ptr, [2 x i64] }], ptr %2, i64 0, i64 %.07.i.i
   %7 = add nuw i64 %.07.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %6), !noalias !408
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias noundef readonly align 8 dereferenceable(72) %6), !noalias !408
   %8 = icmp eq i64 %7, %4
   br i1 %8, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2525698c80f5f8c2E.llvm.12192176430880052379.exit", label %.lr.ph.i.i
 
@@ -1273,7 +1273,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$ockam_cor
 7:                                                ; preds = %5
   %8 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.0.i.i
   %9 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %5 unwind label %12, !noalias !423
 
 10:                                               ; preds = %14, %12
@@ -1289,7 +1289,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$ockam_cor
 14:                                               ; preds = %10
   %15 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.1.i.i
   %16 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15) #13
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %15) #13
           to label %10 unwind label %17, !noalias !423
 
 17:                                               ; preds = %14
@@ -1388,7 +1388,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.07.i = phi i64 [ %7, %.lr.ph.i ], [ 0, %1 ]
   %6 = getelementptr inbounds [0 x { [6 x i64], ptr, [2 x i64] }], ptr %2, i64 0, i64 %.07.i
   %7 = add nuw i64 %.07.i, 1
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %6)
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8d79fb4c15fe568cE"(ptr noalias noundef readonly align 8 dereferenceable(72) %6)
   %8 = icmp eq i64 %7, %4
   br i1 %8, label %"_ZN4core3ptr69drop_in_place$LT$$u5b$ockam_core..error..inner..PayloadEntry$u5d$$GT$17h00b25fc96b2f57d5E.llvm.12192176430880052379.exit", label %.lr.ph.i
 
@@ -1416,7 +1416,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 7:                                                ; preds = %5
   %8 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %5 unwind label %12
 
 10:                                               ; preds = %14, %12
@@ -1432,7 +1432,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 14:                                               ; preds = %10
   %15 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.1.i
   %16 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15) #13
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h107823bef977c58bE"(ptr noalias noundef align 8 dereferenceable(40) %15) #13
           to label %10 unwind label %18
 
 17:                                               ; preds = %10

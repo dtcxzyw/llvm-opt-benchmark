@@ -420,7 +420,7 @@ define dso_local { i64, i32 } @CreatePublication(ptr noundef %0, ptr nocapture n
   store i64 %44, ptr %45, align 16
   %46 = getelementptr inbounds i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8
-  call fastcc void @parse_publication_options(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @parse_publication_options(ptr noundef %0, ptr noundef %47, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %48 = tail call i32 @GetNewOidWithIndex(ptr noundef %28, i32 noundef 6110, i16 noundef signext 1) #8
   %49 = zext i32 %48 to i64
   store i64 %49, ptr %4, align 16
@@ -477,7 +477,7 @@ define dso_local { i64, i32 } @CreatePublication(ptr noundef %0, ptr nocapture n
 84:                                               ; preds = %38
   %85 = getelementptr inbounds i8, ptr %1, i64 24
   %86 = load ptr, ptr %85, align 8
-  call fastcc void @ObjectsInPublicationToOids(ptr noundef %86, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @ObjectsInPublicationToOids(ptr noundef %86, ptr noundef %9, ptr noundef %10)
   %87 = load ptr, ptr %10, align 8
   %.not35 = icmp eq ptr %87, null
   br i1 %.not35, label %94, label %88
@@ -656,7 +656,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @namein(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_publication_options(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @parse_publication_options(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store i8 0, ptr %2, align 1
   store i8 0, ptr %4, align 1
@@ -820,7 +820,7 @@ declare void @CommandCounterIncrement() local_unnamed_addr #1
 declare void @CacheInvalidateRelcacheAll() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ObjectsInPublicationToOids(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @ObjectsInPublicationToOids(ptr noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1722,7 +1722,7 @@ define dso_local void @AlterPublication(ptr noundef %0, ptr noundef %1) local_un
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
-  call fastcc void @parse_publication_options(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  call fastcc void @parse_publication_options(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   %41 = load ptr, ptr %26, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 22
   %43 = load i8, ptr %42, align 2
@@ -1991,7 +1991,7 @@ AlterPublicationOptions.exit:                     ; preds = %InvalidatePublicati
   %174 = load i32, ptr %31, align 4
   %175 = getelementptr inbounds i8, ptr %1, i64 24
   %176 = load ptr, ptr %175, align 8
-  call fastcc void @ObjectsInPublicationToOids(ptr noundef %176, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @ObjectsInPublicationToOids(ptr noundef %176, ptr noundef %13, ptr noundef %14)
   %177 = load ptr, ptr %13, align 8
   %178 = load ptr, ptr %14, align 8
   %179 = getelementptr i8, ptr %1, i64 36
@@ -2750,7 +2750,7 @@ define dso_local { i64, i32 } @AlterPublicationOwner(ptr noundef %0, i32 noundef
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4
-  tail call fastcc void @AlterPublicationOwner_internal(ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @AlterPublicationOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
   tail call void @heap_freetuple(ptr noundef nonnull %5) #8
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #8
   %.sroa.212.0.insert.ext = zext i32 %17 to i64
@@ -2762,7 +2762,7 @@ define dso_local { i64, i32 } @AlterPublicationOwner(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AlterPublicationOwner_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @AlterPublicationOwner_internal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 22
@@ -2878,7 +2878,7 @@ define dso_local void @AlterPublicationOwner_oid(i32 noundef %0, i32 noundef %1)
   unreachable
 
 10:                                               ; preds = %2
-  tail call fastcc void @AlterPublicationOwner_internal(ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @AlterPublicationOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
   tail call void @heap_freetuple(ptr noundef nonnull %5) #8
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #8
   ret void

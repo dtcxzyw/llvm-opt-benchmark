@@ -1313,7 +1313,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %64, %67
 declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 1, 513) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1344,116 +1344,116 @@ define internal fastcc void @_ZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayE
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %53
 
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
-  br label %51
+  br label %53
 
 20:                                               ; preds = %3, %3, %3
-  switch i32 %2, label %21 [
-    i32 4, label %28
-    i32 3, label %28
-    i32 1, label %28
-  ]
+  %21 = and i32 %2, 1021
+  %or.cond5 = icmp eq i32 %21, 1
+  %22 = icmp eq i32 %2, 4
+  %or.cond7 = or i1 %22, %or.cond5
+  br i1 %or.cond7, label %30, label %23
 
-21:                                               ; preds = %20
+23:                                               ; preds = %20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %22 unwind label %24
+          to label %24 unwind label %26
 
-22:                                               ; preds = %21
+24:                                               ; preds = %23
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 171) #10
-          to label %23 unwind label %26
+          to label %25 unwind label %28
 
-23:                                               ; preds = %22
+25:                                               ; preds = %24
   unreachable
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  br label %51
-
-26:                                               ; preds = %22
+26:                                               ; preds = %23
   %27 = landingpad { ptr, i32 }
           cleanup
+  br label %53
+
+28:                                               ; preds = %24
+  %29 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
-  br label %51
+  br label %53
 
-28:                                               ; preds = %20, %20, %20
-  %29 = zext nneg i32 %12 to i64
-  %30 = zext nneg i32 %2 to i64
-  %31 = getelementptr inbounds [5 x [5 x i32]], ptr @_ZZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE5codes, i64 0, i64 %29, i64 %30
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp sgt i32 %32, -1
-  br i1 %33, label %41, label %34
+30:                                               ; preds = %20
+  %31 = zext nneg i32 %12 to i64
+  %32 = zext nneg i32 %2 to i64
+  %33 = getelementptr inbounds [5 x [5 x i32]], ptr @_ZZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE5codes, i64 0, i64 %31, i64 %32
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp sgt i32 %34, -1
+  br i1 %35, label %43, label %36
 
-34:                                               ; preds = %28
+36:                                               ; preds = %30
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %35 unwind label %37
+          to label %37 unwind label %39
 
-35:                                               ; preds = %34
+37:                                               ; preds = %36
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 183) #10
-          to label %36 unwind label %39
+          to label %38 unwind label %41
 
-36:                                               ; preds = %35
+38:                                               ; preds = %37
   unreachable
 
-37:                                               ; preds = %34
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  br label %51
-
-39:                                               ; preds = %35
+39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
+  br label %53
+
+41:                                               ; preds = %37
+  %42 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #9
-  br label %51
+  br label %53
 
-41:                                               ; preds = %28
-  %42 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %cond = icmp eq i32 %42, 589824
-  br i1 %cond, label %43, label %50
+43:                                               ; preds = %30
+  %44 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %cond = icmp eq i32 %44, 589824
+  br i1 %cond, label %45, label %52
 
-43:                                               ; preds = %41
+45:                                               ; preds = %43
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %44 unwind label %46
+          to label %46 unwind label %48
 
-44:                                               ; preds = %43
+46:                                               ; preds = %45
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 191) #10
-          to label %45 unwind label %48
+          to label %47 unwind label %50
 
-45:                                               ; preds = %44
+47:                                               ; preds = %46
   unreachable
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  br label %51
-
-48:                                               ; preds = %44
+48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
-  br label %51
+  br label %53
 
-50:                                               ; preds = %41
-  tail call void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %32, i32 noundef %2)
+50:                                               ; preds = %46
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
+  br label %53
+
+52:                                               ; preds = %43
+  tail call void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %34, i32 noundef %2)
   ret void
 
-51:                                               ; preds = %46, %48, %37, %39, %24, %26, %16, %18
-  %.sink = phi ptr [ %5, %18 ], [ %5, %16 ], [ %7, %26 ], [ %7, %24 ], [ %9, %39 ], [ %9, %37 ], [ %11, %48 ], [ %11, %46 ]
-  %.pn34.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %27, %26 ], [ %25, %24 ], [ %40, %39 ], [ %38, %37 ], [ %49, %48 ], [ %47, %46 ]
+53:                                               ; preds = %48, %50, %39, %41, %26, %28, %16, %18
+  %.sink = phi ptr [ %5, %18 ], [ %5, %16 ], [ %7, %28 ], [ %7, %26 ], [ %9, %41 ], [ %9, %39 ], [ %11, %50 ], [ %11, %48 ]
+  %.pn34.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %29, %28 ], [ %27, %26 ], [ %42, %41 ], [ %40, %39 ], [ %51, %50 ], [ %49, %48 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #9
   resume { ptr, i32 } %.pn34.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::_OutputArray", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1

@@ -4423,7 +4423,7 @@ _ZNK4Luau6TxnLog10getMutableINS_11GenericTypeEPKNS_4TypeEEEPT_T0_.exit302: ; pre
   %453 = getelementptr inbounds i8, ptr %0, i64 288
   %454 = load i8, ptr %453, align 8
   %455 = trunc i8 %454 to i1
-  %456 = invoke fastcc noundef zeroext i1 @_ZN4LuauL8subsumesINS_11GenericTypeENS_8FreeTypeEEEbbPT_PT0_(i1 noundef zeroext %455, ptr noundef nonnull %452, ptr noundef nonnull %277)
+  %456 = invoke fastcc noundef zeroext i1 @_ZN4LuauL8subsumesINS_11GenericTypeENS_8FreeTypeEEEbbPT_PT0_(i1 noundef zeroext %455, ptr noundef %452, ptr noundef %277)
           to label %457 unwind label %78
 
 457:                                              ; preds = %_ZNK4Luau6TxnLog10getMutableINS_11GenericTypeEPKNS_4TypeEEEPT_T0_.exit302
@@ -5930,7 +5930,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 declare noundef ptr @_ZN4Luau6TxnLog11changeLevelEPKNS_4TypeENS_9TypeLevelE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, i64) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4LuauL8subsumesINS_11GenericTypeENS_8FreeTypeEEEbbPT_PT0_(i1 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN4LuauL8subsumesINS_11GenericTypeENS_8FreeTypeEEEbbPT_PT0_(i1 noundef zeroext %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
   br i1 %0, label %4, label %10
 
 4:                                                ; preds = %3
@@ -9059,7 +9059,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread290, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %59, %.preheader313, %46
   %.087 = phi i64 [ 0, %46 ], [ 0, %.preheader313 ], [ %.0120357, %59 ], [ %.0120357, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread290 ]
   %.082 = phi i1 [ false, %46 ], [ false, %.preheader313 ], [ true, %59 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread290 ]
-  invoke fastcc void @_ZN4LuauL16getTableMatchTagB5cxx11EPKNS_4TypeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %1)
+  invoke fastcc void @_ZN4LuauL16getTableMatchTagB5cxx11EPKNS_4TypeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %1)
           to label %73 unwind label %.loopexit.split-lp
 
 73:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
@@ -9099,7 +9099,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.0121364 = phi i64 [ 0, %.lr.ph367 ], [ %84, %83 ]
   %94 = getelementptr inbounds ptr, ptr %93, i64 %.0121364
   %95 = load ptr, ptr %94, align 8
-  invoke fastcc void @_ZN4LuauL16getTableMatchTagB5cxx11EPKNS_4TypeE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %95)
+  invoke fastcc void @_ZN4LuauL16getTableMatchTagB5cxx11EPKNS_4TypeE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %95)
           to label %96 unwind label %121
 
 96:                                               ; preds = %92
@@ -19314,7 +19314,7 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PNS_11PendingTypeE.exit.sink.split.i.i: 
 129:                                              ; preds = %122, %124, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PNS_11PendingTypeE.exit.sink.split.i.i
   %130 = getelementptr inbounds i8, ptr %14, i64 160
   store i8 0, ptr %130, align 8
-  invoke fastcc void @"_ZZN4Luau7Unifier19tryUnifyScalarShapeEPKNS_4TypeES3_bENK3$_0clESt8optionalINS_9TypeErrorEE"(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %14)
+  invoke fastcc void @"_ZZN4Luau7Unifier19tryUnifyScalarShapeEPKNS_4TypeES3_bENK3$_0clESt8optionalINS_9TypeErrorEE"(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %14)
           to label %131 unwind label %145
 
 131:                                              ; preds = %129
@@ -19770,7 +19770,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit.thread: ; preds = %_ZSt8_Destroy
           to label %314 unwind label %304
 
 314:                                              ; preds = %313
-  invoke fastcc void @"_ZZN4Luau7Unifier19tryUnifyScalarShapeEPKNS_4TypeES3_bENK3$_0clESt8optionalINS_9TypeErrorEE"(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %20)
+  invoke fastcc void @"_ZZN4Luau7Unifier19tryUnifyScalarShapeEPKNS_4TypeES3_bENK3$_0clESt8optionalINS_9TypeErrorEE"(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %20)
           to label %315 unwind label %316
 
 315:                                              ; preds = %314
@@ -19899,7 +19899,7 @@ _ZNSt22_Optional_payload_baseIN4Luau9TypeErrorEE10_M_destroyEv.exit.i.i.i.i43: ;
 376:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
   %377 = getelementptr inbounds i8, ptr %22, i64 160
   store i8 0, ptr %377, align 8
-  invoke fastcc void @"_ZZN4Luau7Unifier19tryUnifyScalarShapeEPKNS_4TypeES3_bENK3$_0clESt8optionalINS_9TypeErrorEE"(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %22)
+  invoke fastcc void @"_ZZN4Luau7Unifier19tryUnifyScalarShapeEPKNS_4TypeES3_bENK3$_0clESt8optionalINS_9TypeErrorEE"(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %22)
           to label %378 unwind label %392
 
 378:                                              ; preds = %376
@@ -24257,7 +24257,7 @@ declare void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_NSt7__cxx1112basic_stringIc
 declare noundef ptr @_ZN4Luau7getNameB5cxx11EPKNS_4TypeE(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL16getTableMatchTagB5cxx11EPKNS_4TypeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL16getTableMatchTagB5cxx11EPKNS_4TypeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.220", align 8
   %4 = tail call noundef ptr @_ZN4Luau12getTableTypeEPKNS_4TypeE(ptr noundef %1)
   %.not = icmp eq ptr %4, null
@@ -35207,7 +35207,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4Luau7Unifier19tryUnifyScalarShapeEPKNS_4TypeES3_bENK3$_0clESt8optionalINS_9TypeErrorEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4Luau7Unifier19tryUnifyScalarShapeEPKNS_4TypeES3_bENK3$_0clESt8optionalINS_9TypeErrorEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"struct.Luau::Location", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

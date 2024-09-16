@@ -36,7 +36,7 @@ entry:
   store ptr %hugebuf, ptr %hugebufp, align 8
   store i64 2048, ptr %hugebufsize, align 8
   store ptr null, ptr %dynbuf, align 8
-  %call = call fastcc i32 @_dopr(ptr noundef nonnull %hugebufp, ptr noundef nonnull %dynbuf, ptr noundef nonnull %hugebufsize, ptr noundef nonnull %retlen, ptr noundef nonnull %ignored, ptr noundef %format, ptr noundef %args)
+  %call = call fastcc i32 @_dopr(ptr noundef %hugebufp, ptr noundef nonnull %dynbuf, ptr noundef %hugebufsize, ptr noundef %retlen, ptr noundef %ignored, ptr noundef %format, ptr noundef %args)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load ptr, ptr %dynbuf, align 8
   br i1 %tobool.not, label %if.then, label %if.end
@@ -67,7 +67,7 @@ return:                                           ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_dopr(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %maxlen, ptr nocapture noundef writeonly %retlen, ptr nocapture noundef writeonly %truncated, ptr nocapture noundef readonly %format, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_dopr(ptr nocapture noundef nonnull %sbuffer, ptr noundef %buffer, ptr nocapture noundef nonnull %maxlen, ptr nocapture noundef nonnull writeonly %retlen, ptr nocapture noundef nonnull writeonly %truncated, ptr nocapture noundef readonly %format, ptr noundef %args) unnamed_addr #0 {
 entry:
   %currlen = alloca i64, align 8
   store i64 0, ptr %currlen, align 8
@@ -489,7 +489,7 @@ vaarg.end174:                                     ; preds = %vaarg.in_mem170, %v
 
 sw.epilog177:                                     ; preds = %vaarg.end174, %vaarg.end162, %vaarg.end150, %vaarg.end138, %vaarg.end124
   %value.0 = phi i64 [ %conv176, %vaarg.end174 ], [ %37, %vaarg.end162 ], [ %33, %vaarg.end150 ], [ %29, %vaarg.end138 ], [ %conv127, %vaarg.end124 ]
-  %call178 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %value.0, i32 noundef 10, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %flags.0526)
+  %call178 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef %currlen, ptr noundef %maxlen, i64 noundef %value.0, i32 noundef 10, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %flags.0526)
   %tobool179.not = icmp eq i32 %call178, 0
   br i1 %tobool179.not, label %return, label %sw.epilog442.sink.split
 
@@ -628,7 +628,7 @@ sw.epilog249:                                     ; preds = %vaarg.end246, %vaar
   %cmp254 = icmp eq i8 %ch.0521, 117
   %cond = select i1 %cmp254, i32 10, i32 16
   %cond256 = select i1 %cmp251, i32 8, i32 %cond
-  %call257 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %value.1, i32 noundef %cond256, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %or185)
+  %call257 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef %currlen, ptr noundef %maxlen, i64 noundef %value.1, i32 noundef %cond256, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %or185)
   %tobool258.not = icmp eq i32 %call257, 0
   br i1 %tobool258.not, label %return, label %sw.epilog442.sink.split
 
@@ -675,7 +675,7 @@ vaarg.in_mem279:                                  ; preds = %if.else273
 if.end285:                                        ; preds = %vaarg.in_reg277, %vaarg.in_mem279, %vaarg.in_reg265, %vaarg.in_mem267
   %fvalue.0.in = phi ptr [ %64, %vaarg.in_reg265 ], [ %overflow_arg_area269, %vaarg.in_mem267 ], [ %67, %vaarg.in_reg277 ], [ %overflow_arg_area281, %vaarg.in_mem279 ]
   %fvalue.0 = load double, ptr %fvalue.0.in, align 8
-  %call286 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.0, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %flags.0526, i32 noundef 0)
+  %call286 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef %currlen, ptr noundef %maxlen, double noundef %fvalue.0, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %flags.0526, i32 noundef 0)
   %tobool287.not = icmp eq i32 %call286, 0
   br i1 %tobool287.not, label %return, label %sw.epilog442.sink.split
 
@@ -727,7 +727,7 @@ vaarg.in_mem313:                                  ; preds = %if.else307
 if.end319:                                        ; preds = %vaarg.in_reg311, %vaarg.in_mem313, %vaarg.in_reg299, %vaarg.in_mem301
   %fvalue.1.in = phi ptr [ %70, %vaarg.in_reg299 ], [ %overflow_arg_area303, %vaarg.in_mem301 ], [ %73, %vaarg.in_reg311 ], [ %overflow_arg_area315, %vaarg.in_mem313 ]
   %fvalue.1 = load double, ptr %fvalue.1.in, align 8
-  %call320 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.1, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %flags.3, i32 noundef 1)
+  %call320 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef %currlen, ptr noundef %maxlen, double noundef %fvalue.1, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %flags.3, i32 noundef 1)
   %tobool321.not = icmp eq i32 %call320, 0
   br i1 %tobool321.not, label %return, label %sw.epilog442.sink.split
 
@@ -779,7 +779,7 @@ vaarg.in_mem347:                                  ; preds = %if.else341
 if.end353:                                        ; preds = %vaarg.in_reg345, %vaarg.in_mem347, %vaarg.in_reg333, %vaarg.in_mem335
   %fvalue.2.in = phi ptr [ %76, %vaarg.in_reg333 ], [ %overflow_arg_area337, %vaarg.in_mem335 ], [ %79, %vaarg.in_reg345 ], [ %overflow_arg_area349, %vaarg.in_mem347 ]
   %fvalue.2 = load double, ptr %fvalue.2.in, align 8
-  %call354 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.2, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %flags.4, i32 noundef 2)
+  %call354 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef %currlen, ptr noundef %maxlen, double noundef %fvalue.2, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %flags.4, i32 noundef 2)
   %tobool355.not = icmp eq i32 %call354, 0
   br i1 %tobool355.not, label %return, label %sw.epilog442.sink.split
 
@@ -1585,7 +1585,7 @@ vaarg.end409:                                     ; preds = %vaarg.in_mem405, %v
   %157 = load ptr, ptr %vaarg.addr410, align 8
   %158 = ptrtoint ptr %157 to i64
   %or411 = or i32 %flags.0526, 8
-  %call412 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %158, i32 noundef 16, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %or411)
+  %call412 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef %currlen, ptr noundef %maxlen, i64 noundef %158, i32 noundef 16, i32 noundef %min.0523, i32 noundef %max.0524, i32 noundef %or411)
   %tobool413.not = icmp eq i32 %call412, 0
   br i1 %tobool413.not, label %return, label %sw.epilog442.sink.split
 
@@ -1867,7 +1867,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %truncated.i)
   store ptr %buf, ptr %buf.addr.i, align 8
   store i64 %n, ptr %n.addr.i, align 8
-  %call.i = call fastcc i32 @_dopr(ptr noundef nonnull %buf.addr.i, ptr noundef null, ptr noundef nonnull %n.addr.i, ptr noundef nonnull %retlen.i, ptr noundef nonnull %truncated.i, ptr noundef readonly %format, ptr noundef nonnull %args)
+  %call.i = call fastcc i32 @_dopr(ptr noundef %buf.addr.i, ptr noundef null, ptr noundef %n.addr.i, ptr noundef %retlen.i, ptr noundef %truncated.i, ptr noundef readonly %format, ptr noundef nonnull %args)
   %tobool.not.i = icmp ne i32 %call.i, 0
   %0 = load i32, ptr %truncated.i, align 4
   %tobool1.not.i = icmp eq i32 %0, 0
@@ -1894,7 +1894,7 @@ entry:
   %truncated = alloca i32, align 4
   store ptr %buf, ptr %buf.addr, align 8
   store i64 %n, ptr %n.addr, align 8
-  %call = call fastcc i32 @_dopr(ptr noundef nonnull %buf.addr, ptr noundef null, ptr noundef nonnull %n.addr, ptr noundef nonnull %retlen, ptr noundef nonnull %truncated, ptr noundef %format, ptr noundef %args)
+  %call = call fastcc i32 @_dopr(ptr noundef %buf.addr, ptr noundef null, ptr noundef %n.addr, ptr noundef %retlen, ptr noundef %truncated, ptr noundef %format, ptr noundef %args)
   %tobool.not = icmp ne i32 %call, 0
   %0 = load i32, ptr %truncated, align 4
   %tobool1.not = icmp eq i32 %0, 0
@@ -1908,7 +1908,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @doapr_outch(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @doapr_outch(ptr nocapture noundef nonnull %sbuffer, ptr noundef %buffer, ptr nocapture noundef nonnull %currlen, ptr nocapture noundef nonnull %maxlen, i32 noundef %c) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sbuffer, align 8
   %cmp = icmp ne ptr %0, null
@@ -2003,7 +2003,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fmtint(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, i64 noundef %value, i32 noundef %base, i32 noundef %min, i32 noundef %max, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fmtint(ptr nocapture noundef nonnull %sbuffer, ptr noundef %buffer, ptr nocapture noundef nonnull %currlen, ptr nocapture noundef nonnull %maxlen, i64 noundef %value, i32 noundef range(i32 8, 17) %base, i32 noundef %min, i32 noundef %max, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %convert = alloca [26 x i8], align 16
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %max, i32 0)
@@ -2185,7 +2185,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fmtfp(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, double noundef %fvalue, i32 noundef %min, i32 noundef %max, i32 noundef %flags, i32 noundef %style) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fmtfp(ptr nocapture noundef nonnull %sbuffer, ptr noundef %buffer, ptr nocapture noundef nonnull %currlen, ptr nocapture noundef nonnull %maxlen, double noundef %fvalue, i32 noundef %min, i32 noundef %max, i32 noundef %flags, i32 noundef range(i32 0, 3) %style) unnamed_addr #0 {
 entry:
   %iconvert = alloca [20 x i8], align 16
   %fconvert = alloca [20 x i8], align 16

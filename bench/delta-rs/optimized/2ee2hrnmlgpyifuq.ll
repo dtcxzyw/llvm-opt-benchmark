@@ -113,7 +113,7 @@ define internal void @"_ZN4core3ptr57drop_in_place$LT$$RF$alloc..sync..Arc$LT$ur
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h56c024bc31b8aec8E"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h56c024bc31b8aec8E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !21, !noundef !7
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -237,7 +237,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE(i64 noundef %0) unnamed_addr #1 {
+define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE(i64 noundef range(i64 16, 33) %0) unnamed_addr #1 {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %3 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %0, i64 noundef 8) #19
   %4 = icmp eq ptr %3, null
@@ -1676,7 +1676,7 @@ define void @_ZN15deltalake_mount17register_handlers17h856599a172232cc5E(ptr noa
 
 "_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$deltalake_mount..MountFactory$GT$$GT$17h39a9284df09d11d3E.exit": ; preds = %78, %82, %27
   %.pn22 = phi { ptr, i32 } [ %28, %27 ], [ %.pn20, %82 ], [ %.pn20, %78 ]
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h56c024bc31b8aec8E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) #21
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h56c024bc31b8aec8E"(ptr noalias noundef align 8 dereferenceable(88) %0) #21
           to label %206 unwind label %204
 
 27:                                               ; preds = %89, %26

@@ -929,17 +929,17 @@ define internal void @_ZN3gmx12_GLOBAL__N_113ElectricField14initMdpOptionsEPNS_2
   store ptr %9, ptr %10, align 8, !alias.scope !10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19OptionSectionHandleE, i64 16), ptr %3, align 8, !alias.scope !10
   %11 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull %3, ptr noundef nonnull @.str.22)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef %3, ptr noundef nonnull @.str.22)
           to label %12 unwind label %17
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull %3, ptr noundef nonnull @.str.23)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef %3, ptr noundef nonnull @.str.23)
           to label %14 unwind label %17
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull %3, ptr noundef nonnull @.str.24)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef %3, ptr noundef nonnull @.str.24)
           to label %16 unwind label %17
 
 16:                                               ; preds = %14
@@ -1861,17 +1861,17 @@ define internal void @_ZThn8_N3gmx12_GLOBAL__N_113ElectricField14initMdpOptionsE
   store ptr %9, ptr %10, align 8, !alias.scope !21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19OptionSectionHandleE, i64 16), ptr %3, align 8, !alias.scope !21
   %11 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull %3, ptr noundef nonnull @.str.22)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef %3, ptr noundef nonnull @.str.22)
           to label %12 unwind label %16
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull %3, ptr noundef nonnull @.str.23)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef %3, ptr noundef nonnull @.str.23)
           to label %14 unwind label %16
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 56
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull %3, ptr noundef nonnull @.str.24)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef %3, ptr noundef nonnull @.str.24)
           to label %_ZN3gmx12_GLOBAL__N_113ElectricField14initMdpOptionsEPNS_29IOptionsContainerWithSectionsE.exit unwind label %16
 
 16:                                               ; preds = %14, %12, %2
@@ -4068,7 +4068,7 @@ _ZNSt14_Function_base13_Base_managerIPFvPN3gmx25KeyValueTreeObjectBuilderERKNSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_122ElectricFieldDimension14initMdpOptionsEPNS_29IOptionsContainerWithSectionsEPKc(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::OptionSectionHandle", align 8
   %5 = alloca %"class.gmx::OptionSection", align 8
   %6 = alloca %"class.gmx::FloatOption", align 8

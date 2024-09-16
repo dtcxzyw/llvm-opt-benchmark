@@ -636,7 +636,7 @@ _ZNKSt14default_deleteIN4llvm16MemorySSAUpdaterEEclEPS1_.exit.i.i.i.i.i: ; preds
   br label %_ZN12_GLOBAL__N_114IndVarSimplifyC2EPN4llvm8LoopInfoEPNS1_15ScalarEvolutionEPNS1_13DominatorTreeERKNS1_10DataLayoutEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_9MemorySSAEb.exit
 
 _ZN12_GLOBAL__N_114IndVarSimplifyC2EPN4llvm8LoopInfoEPNS1_15ScalarEvolutionEPNS1_13DominatorTreeERKNS1_10DataLayoutEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_9MemorySSAEb.exit: ; preds = %6, %39, %_ZNKSt14default_deleteIN4llvm16MemorySSAUpdaterEEclEPS1_.exit.i.i.i.i.i
-  %57 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114IndVarSimplify3runEPN4llvm4LoopE(ptr noundef nonnull align 8 dereferenceable(458) %7, ptr noundef nonnull %2)
+  %57 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114IndVarSimplify3runEPN4llvm4LoopE(ptr noundef nonnull align 8 dereferenceable(458) %7, ptr noundef %2)
   br i1 %57, label %70, label %58
 
 58:                                               ; preds = %_ZN12_GLOBAL__N_114IndVarSimplifyC2EPN4llvm8LoopInfoEPNS1_15ScalarEvolutionEPNS1_13DominatorTreeERKNS1_10DataLayoutEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_9MemorySSAEb.exit
@@ -3806,7 +3806,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i118:  ; preds = %1383, %1380
   br i1 %.not43.i, label %.thread.i122, label %1409
 
 1409:                                             ; preds = %1407
-  %1410 = call fastcc noundef ptr @_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE(ptr noundef nonnull %.036.i, ptr noundef nonnull %1)
+  %1410 = call fastcc noundef ptr @_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE(ptr noundef nonnull %.036.i, ptr noundef %1)
   %.not29.i = icmp eq ptr %1410, null
   br i1 %.not29.i, label %_ZL9needsLFTRPN4llvm4LoopEPNS_10BasicBlockE.exit.thread, label %.thread.i122
 
@@ -3845,7 +3845,7 @@ _ZL9needsLFTRPN4llvm4LoopEPNS_10BasicBlockE.exit: ; preds = %1422
   %1427 = and i64 %indvars.iv.i123, 4294967295
   %1428 = getelementptr inbounds %"class.llvm::Use", ptr %1416, i64 %1427
   %1429 = load ptr, ptr %1428, align 8
-  %1430 = call fastcc noundef ptr @_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE(ptr noundef %1429, ptr noundef nonnull %1)
+  %1430 = call fastcc noundef ptr @_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE(ptr noundef %1429, ptr noundef %1)
   %.not218 = icmp eq ptr %.02439.i, %1430
   br i1 %.not218, label %_ZL9needsLFTRPN4llvm4LoopEPNS_10BasicBlockE.exit.thread209, label %_ZL9needsLFTRPN4llvm4LoopEPNS_10BasicBlockE.exit.thread
 
@@ -3976,7 +3976,7 @@ _ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.i.i: ; preds = %_Z
   %.0.i.i49.i = phi i64 [ %1500, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.i.i ], [ 4294967295, %1485 ]
   %1501 = getelementptr inbounds %"class.llvm::Use", ptr %.pre.i.i133, i64 %.0.i.i49.i
   %1502 = load ptr, ptr %1501, align 8
-  %1503 = call fastcc noundef ptr @_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE(ptr noundef %1502, ptr noundef nonnull %1)
+  %1503 = call fastcc noundef ptr @_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE(ptr noundef %1502, ptr noundef %1)
   %1504 = icmp eq ptr %1503, %1462
   br i1 %1504, label %_ZL13isLoopCounterPN4llvm7PHINodeEPNS_4LoopEPNS_15ScalarEvolutionE.exit.i, label %_ZL13isLoopCounterPN4llvm7PHINodeEPNS_4LoopEPNS_15ScalarEvolutionE.exit.thread.i
 
@@ -10925,7 +10925,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i23.i.i: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture readonly %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3, ptr nocapture readonly %4) unnamed_addr #0 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7
@@ -11270,7 +11270,7 @@ declare void @_ZN4llvm8ZExtInstC1EPNS_5ValueEPNS_4TypeERKNS_5TwineENS_14InsertPo
 declare void @_ZN4llvm11Instruction9setNonNegEb(ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL20getLoopPhiForCounterPN4llvm5ValueEPNS_4LoopE(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 8
   %4 = icmp ult i8 %3, 29
   br i1 %4, label %84, label %5
@@ -11534,7 +11534,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE18uninitialized_copyIKS3_S3_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18hasConcreteDefImplPN4llvm5ValueERNS_15SmallPtrSetImplIS1_EEj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL18hasConcreteDefImplPN4llvm5ValueERNS_15SmallPtrSetImplIS1_EEj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 {
   %4 = load i8, ptr %0, align 8
   %5 = icmp ult i8 %4, 22
   br i1 %5, label %6, label %8

@@ -229,7 +229,7 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   %63 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
   %64 = load double, ptr %63, align 8
   %65 = trunc nuw i64 %indvars.iv to i32
-  %66 = call fastcc i32 @ComputeConversion(i32 noundef %65, ptr noundef nonnull %3, i32 noundef %40, i32 noundef %62, double noundef %64, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %66 = call fastcc i32 @ComputeConversion(i32 noundef %65, ptr noundef nonnull %3, i32 noundef %40, i32 noundef %62, double noundef %64, ptr noundef %8, ptr noundef %9)
   %.not112 = icmp eq i32 %66, 0
   br i1 %.not112, label %100, label %68
 
@@ -239,7 +239,7 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   br label %68
 
 68:                                               ; preds = %60, %67
-  %69 = call fastcc i32 @AddConversion(ptr noundef nonnull %12, i32 noundef %.097130, i32 noundef %.093, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %69 = call fastcc i32 @AddConversion(ptr noundef %12, i32 noundef %.097130, i32 noundef %.093, ptr noundef %8, ptr noundef %9)
   %.not113 = icmp eq i32 %69, 0
   br i1 %.not113, label %100, label %86
 
@@ -262,12 +262,12 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   %80 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
   %81 = load double, ptr %80, align 8
   %82 = trunc nuw i64 %indvars.iv to i32
-  %83 = call fastcc i32 @ComputeConversion(i32 noundef %82, ptr noundef nonnull %3, i32 noundef %40, i32 noundef %79, double noundef %81, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %83 = call fastcc i32 @ComputeConversion(i32 noundef %82, ptr noundef nonnull %3, i32 noundef %40, i32 noundef %79, double noundef %81, ptr noundef %8, ptr noundef %9)
   %.not110 = icmp eq i32 %83, 0
   br i1 %.not110, label %100, label %84
 
 84:                                               ; preds = %77
-  %85 = call fastcc i32 @AddConversion(ptr noundef nonnull %12, i32 noundef %.097130, i32 noundef %.093, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %85 = call fastcc i32 @AddConversion(ptr noundef %12, i32 noundef %.097130, i32 noundef %.093, ptr noundef %8, ptr noundef %9)
   %.not111 = icmp eq i32 %85, 0
   br i1 %.not111, label %100, label %86
 
@@ -671,7 +671,7 @@ declare i32 @cmsGetPCS(ptr noundef) local_unnamed_addr #1
 declare ptr @_cmsReadDevicelinkLUT(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.cmsCIEXYZ, align 8
   %9 = alloca %struct.cmsCIExyY, align 8
   %10 = alloca %struct.cmsMAT3, align 8
@@ -686,8 +686,8 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef %0, pt
   %19 = alloca %struct.cmsMAT3, align 8
   %20 = alloca %struct.cmsCIEXYZ, align 8
   %21 = alloca %struct.cmsCIEXYZ, align 8
-  tail call void @_cmsMAT3identity(ptr noundef %5) #7
-  tail call void @_cmsVEC3init(ptr noundef %6, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
+  tail call void @_cmsMAT3identity(ptr noundef nonnull %5) #7
+  tail call void @_cmsVEC3init(ptr noundef nonnull %6, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
   %22 = icmp eq i32 %2, 3
   br i1 %22, label %23, label %92
 
@@ -738,7 +738,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef %0, pt
   br i1 %41, label %49, label %58
 
 49:                                               ; preds = %40
-  call void @_cmsVEC3init(ptr noundef %5, double noundef %44, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
+  call void @_cmsVEC3init(ptr noundef nonnull %5, double noundef %44, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
   %50 = getelementptr inbounds i8, ptr %5, i64 24
   %51 = load double, ptr %45, align 8
   %52 = load double, ptr %46, align 8
@@ -769,14 +769,14 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef %0, pt
 68:                                               ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false)
   call void @_cmsMAT3per(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10) #7
-  call void @_cmsMAT3per(ptr noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %19) #7
+  call void @_cmsMAT3per(ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %19) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull readonly align 8 dereferenceable(72) %18, i64 72, i1 false)
   %69 = call i32 @_cmsMAT3inverse(ptr noundef nonnull %13, ptr noundef nonnull %14) #7
   %.not41.i = icmp eq i32 %69, 0
   br i1 %.not41.i, label %ComputeAbsoluteIntent.exit, label %70
 
 70:                                               ; preds = %68
-  call void @_cmsMAT3per(ptr noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %14) #7
+  call void @_cmsMAT3per(ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %14) #7
   br label %ComputeAbsoluteIntent.exit.thread
 
 71:                                               ; preds = %58
@@ -787,8 +787,8 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef %0, pt
 
 73:                                               ; preds = %71
   call void @_cmsMAT3per(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %10) #7
-  %74 = call fastcc double @CHAD2Temp(ptr noundef nonnull readonly %18)
-  %75 = call fastcc double @CHAD2Temp(ptr noundef nonnull %19)
+  %74 = call fastcc double @CHAD2Temp(ptr noundef readonly %18)
+  %75 = call fastcc double @CHAD2Temp(ptr noundef %19)
   %76 = fcmp olt double %74, 0.000000e+00
   %77 = fcmp olt double %75, 0.000000e+00
   %or.cond.i = select i1 %76, i1 true, i1 %77
@@ -806,7 +806,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef %0, pt
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %80
-  call void @_cmsMAT3identity(ptr noundef %5) #7
+  call void @_cmsMAT3identity(ptr noundef nonnull %5) #7
   br label %ComputeAbsoluteIntent.exit.thread
 
 85:                                               ; preds = %80, %78
@@ -821,7 +821,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef %0, pt
   %91 = call i32 @_cmsAdaptationMatrix(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %8, ptr noundef %90) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @_cmsMAT3per(ptr noundef %5, ptr noundef nonnull %13, ptr noundef nonnull %15) #7
+  call void @_cmsMAT3per(ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %15) #7
   br label %ComputeAbsoluteIntent.exit.thread
 
 ComputeAbsoluteIntent.exit.thread:                ; preds = %84, %70, %85, %49
@@ -940,12 +940,12 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   %176 = fsub double %174, %175
   %177 = fmul double %176, %173
   %178 = fdiv double %177, %133
-  call void @_cmsVEC3init(ptr noundef %5, double noundef %138, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
+  call void @_cmsVEC3init(ptr noundef nonnull %5, double noundef %138, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
   %179 = getelementptr inbounds i8, ptr %5, i64 24
   call void @_cmsVEC3init(ptr noundef nonnull %179, double noundef 0.000000e+00, double noundef %145, double noundef 0.000000e+00) #7
   %180 = getelementptr inbounds i8, ptr %5, i64 48
   call void @_cmsVEC3init(ptr noundef nonnull %180, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %152) #7
-  call void @_cmsVEC3init(ptr noundef %6, double noundef %160, double noundef %169, double noundef %178) #7
+  call void @_cmsVEC3init(ptr noundef nonnull %6, double noundef %160, double noundef %169, double noundef %178) #7
   br label %.preheader
 
 .preheader:                                       ; preds = %ComputeAbsoluteIntent.exit.thread, %92, %118, %112
@@ -971,7 +971,7 @@ declare void @_cmsMAT3identity(ptr noundef) local_unnamed_addr #1
 declare void @_cmsVEC3init(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.cmsMAT3, align 8
   %7 = alloca %struct.cmsMAT3, align 8
   %8 = alloca %struct.cmsMAT3, align 8
@@ -1025,8 +1025,8 @@ IsEmptyLayer.exit:                                ; preds = %.preheader.i
 25:                                               ; preds = %IsEmptyLayer.exit
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @cmsStageAllocMatrix(ptr noundef %27, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
-  %29 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %28) #7
+  %28 = call ptr @cmsStageAllocMatrix(ptr noundef %27, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  %29 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %28) #7
   %.not49 = icmp eq i32 %29, 0
   br i1 %.not49, label %107, label %106
 
@@ -1068,8 +1068,8 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
 44:                                               ; preds = %IsEmptyLayer.exit60
   %45 = getelementptr inbounds i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = call ptr @cmsStageAllocMatrix(ptr noundef %46, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
-  %48 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %47) #7
+  %47 = call ptr @cmsStageAllocMatrix(ptr noundef %46, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  %48 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %47) #7
   %.not46 = icmp eq i32 %48, 0
   br i1 %.not46, label %107, label %49
 
@@ -1077,7 +1077,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   %50 = getelementptr inbounds i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr @_cmsStageAllocXYZ2Lab(ptr noundef %51) #7
-  %53 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %52) #7
+  %53 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %52) #7
   %.not47 = icmp eq i32 %53, 0
   br i1 %.not47, label %107, label %106
 
@@ -1091,7 +1091,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   %56 = getelementptr inbounds i8, ptr %0, i64 56
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @_cmsStageAllocLab2XYZ(ptr noundef %57) #7
-  %59 = tail call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %58) #7
+  %59 = tail call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %58) #7
   %.not42 = icmp eq i32 %59, 0
   br i1 %.not42, label %107, label %60
 
@@ -1132,8 +1132,8 @@ IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
 
 74:                                               ; preds = %IsEmptyLayer.exit70
   %75 = load ptr, ptr %56, align 8
-  %76 = call ptr @cmsStageAllocMatrix(ptr noundef %75, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
-  %77 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %76) #7
+  %76 = call ptr @cmsStageAllocMatrix(ptr noundef %75, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  %77 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %76) #7
   %.not44 = icmp eq i32 %77, 0
   br i1 %.not44, label %107, label %106
 
@@ -1176,13 +1176,13 @@ IsEmptyLayer.exit80:                              ; preds = %.preheader.i75
   %93 = getelementptr inbounds i8, ptr %0, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = call ptr @_cmsStageAllocLab2XYZ(ptr noundef %94) #7
-  %96 = call i32 @cmsPipelineInsertStage(ptr noundef %0, i32 noundef 1, ptr noundef %95) #7
+  %96 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %95) #7
   %.not39 = icmp eq i32 %96, 0
   br i1 %.not39, label %107, label %97
 
 97:                                               ; preds = %92
   %98 = load ptr, ptr %93, align 8
-  %99 = call ptr @cmsStageAllocMatrix(ptr noundef %98, i32 noundef 3, i32 noundef 3, ptr noundef %3, ptr noundef nonnull %4) #7
+  %99 = call ptr @cmsStageAllocMatrix(ptr noundef %98, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %100 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %99) #7
   %.not40 = icmp eq i32 %100, 0
   br i1 %.not40, label %107, label %101
@@ -1236,7 +1236,7 @@ declare void @_cmsMAT3per(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @_cmsMAT3inverse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @CHAD2Temp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc double @CHAD2Temp(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.cmsVEC3, align 8
   %3 = alloca %struct.cmsVEC3, align 8
   %4 = alloca %struct.cmsCIEXYZ, align 8

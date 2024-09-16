@@ -267,7 +267,7 @@ while.body7.i:                                    ; preds = %if.end12.i, %while.
   br i1 %tobool8.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body7.i
-  call fastcc void @add_poll_add_sqe(ptr noundef %ctx, ptr noundef nonnull %submit_list.sroa.0.08.i)
+  call fastcc void @add_poll_add_sqe(ptr noundef %ctx, ptr noundef %submit_list.sroa.0.08.i)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body7.i
@@ -404,7 +404,7 @@ if.then15.i.i:                                    ; preds = %do.body.i.i10
   %23 = load i32, ptr %res.i.i, align 8
   %or11.i.i.i = and i32 %23, 29
   call void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef nonnull %18, i32 noundef %or11.i.i.i) #6
-  call fastcc void @add_poll_add_sqe(ptr noundef nonnull %ctx, ptr noundef nonnull %18)
+  call fastcc void @add_poll_add_sqe(ptr noundef nonnull %ctx, ptr noundef %18)
   %inc.i = add i32 %num_ready.017.i, 1
   br label %process_cqe.exit.thread.i
 
@@ -492,7 +492,7 @@ declare ptr @io_uring_get_sqe(ptr noundef) local_unnamed_addr #1
 declare i32 @io_uring_submit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_poll_add_sqe(ptr noundef %ctx, ptr noundef %node) unnamed_addr #0 {
+define internal fastcc void @add_poll_add_sqe(ptr noundef %ctx, ptr noundef nonnull %node) unnamed_addr #0 {
 entry:
   %fdmon_io_uring.i = getelementptr inbounds i8, ptr %ctx, i64 256
   %call.i = tail call ptr @io_uring_get_sqe(ptr noundef nonnull %fdmon_io_uring.i) #6

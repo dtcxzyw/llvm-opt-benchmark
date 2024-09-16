@@ -66,7 +66,7 @@ if.end:                                           ; preds = %entry
   %arrayidx20.i9 = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 0, ptr %arrayidx20.i9, align 4
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
-  call fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
+  call fastcc void @salsa20_encrypt_bytes(ptr noundef %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
   br label %return
 
@@ -134,7 +134,7 @@ if.end:                                           ; preds = %entry
   store i32 %conv1, ptr %arrayidx10.i7, align 4
   %arrayidx20.i8 = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 %conv, ptr %arrayidx20.i8, align 4
-  call fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
+  call fastcc void @salsa20_encrypt_bytes(ptr noundef %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
   br label %return
 
@@ -146,7 +146,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @salsa20_encrypt_bytes(ptr nocapture noundef %ctx, ptr noundef readonly %m, ptr noundef writeonly %c, i64 noundef %bytes) unnamed_addr #2 {
+define internal fastcc void @salsa20_encrypt_bytes(ptr nocapture noundef nonnull %ctx, ptr noundef readonly %m, ptr noundef writeonly %c, i64 noundef range(i64 1, 0) %bytes) unnamed_addr #2 {
 entry:
   %partialblock = alloca [64 x i8], align 16
   %cmp = icmp ugt i64 %bytes, 511

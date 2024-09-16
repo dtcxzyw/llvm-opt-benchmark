@@ -30,7 +30,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$tracing_subscriber..registry..shar
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN103_$LT$tracing_subscriber..registry..Scope$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb090ca17e9b633daE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN103_$LT$tracing_subscriber..registry..Scope$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb090ca17e9b633daE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, ptr, i64 } }, align 8
   %4 = alloca { ptr, [2 x i64] }, align 8
   %5 = alloca { ptr, { { ptr, ptr, i64 } }, i64 }, align 8
@@ -220,7 +220,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call fastcc void @"_ZN103_$LT$tracing_subscriber..registry..Scope$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb090ca17e9b633daE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZN103_$LT$tracing_subscriber..registry..Scope$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb090ca17e9b633daE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(24) %5)
   %22 = load ptr, ptr %4, align 8, !noundef !4
   %23 = icmp eq ptr %22, null
   br i1 %23, label %._crit_edge25, label %.lr.ph24
@@ -232,7 +232,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 .lr.ph:                                           ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651.exit", %57
   %.sroa.7.022 = phi i64 [ %59, %57 ], [ %20, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651.exit" ]
-  invoke fastcc void @"_ZN103_$LT$tracing_subscriber..registry..Scope$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb090ca17e9b633daE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @"_ZN103_$LT$tracing_subscriber..registry..Scope$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb090ca17e9b633daE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %6, ptr noalias noundef align 8 dereferenceable(24) %7)
           to label %55 unwind label %53
 
 ._crit_edge25:                                    ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h6fc05c83b43c3c40E.exit", %._crit_edge
@@ -273,7 +273,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br i1 %38, label %39, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h6fc05c83b43c3c40E.exit"
 
 39:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651.exit.i7"
-  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h5e430fd282e6d020E"(ptr noalias noundef nonnull align 8 dereferenceable(656) %0)
+  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h5e430fd282e6d020E"(ptr noalias noundef align 8 dereferenceable(656) %0)
           to label %40 unwind label %35, !noalias !56
 
 40:                                               ; preds = %39
@@ -305,7 +305,7 @@ common.resume:                                    ; preds = %35, %53
   store i64 %49, ptr %.05.i, align 8, !alias.scope !55, !noalias !56
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call fastcc void @"_ZN103_$LT$tracing_subscriber..registry..Scope$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb090ca17e9b633daE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZN103_$LT$tracing_subscriber..registry..Scope$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb090ca17e9b633daE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(24) %5)
   %50 = load ptr, ptr %4, align 8, !noundef !4
   %51 = icmp eq ptr %50, null
   br i1 %51, label %._crit_edge25, label %26
@@ -826,7 +826,7 @@ common.resume:                                    ; preds = %.body, %21
 
 .body:                                            ; preds = %.body.i, %99
   %eh.lpad-body = phi { ptr, i32 } [ %100, %99 ], [ %eh.lpad-body.i, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hf5a4279efd304c0aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #24
+  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hf5a4279efd304c0aE"(ptr noalias noundef align 8 dereferenceable(40) %8) #24
           to label %common.resume unwind label %118
 
 101:                                              ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered17h700f8b970b67cae4E.exit"
@@ -1104,7 +1104,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hf5a4279efd304c0aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hf5a4279efd304c0aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit", label %4
@@ -1577,7 +1577,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hb7ac1f0153c66
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h5e430fd282e6d020E"(ptr noalias noundef align 8 dereferenceable(656) %0) unnamed_addr #10 {
+define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h5e430fd282e6d020E"(ptr noalias noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 648
   %3 = load i64, ptr %2, align 8, !alias.scope !295, !noalias !298, !noundef !4
   %4 = icmp ugt i64 %3, 16
@@ -1619,7 +1619,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unche
 
 22:                                               ; preds = %14
   %23 = extractvalue { i64, i1 } %20, 0
-  %24 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h72a32fed425df30fE"(ptr noalias noundef nonnull align 8 dereferenceable(656) %0, i64 noundef %23)
+  %24 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h72a32fed425df30fE"(ptr noalias noundef align 8 dereferenceable(656) %0, i64 noundef %23)
   %25 = extractvalue { i64, i64 } %24, 0
   switch i64 %25, label %27 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17hd4e50444dcc83450E.exit
@@ -1683,7 +1683,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h97447ab3ad8b5384E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h72a32fed425df30fE"(ptr noalias noundef align 8 dereferenceable(656) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h72a32fed425df30fE"(ptr noalias noundef nonnull align 8 dereferenceable(656) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i64, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 648
   %5 = load i64, ptr %4, align 8, !noundef !4

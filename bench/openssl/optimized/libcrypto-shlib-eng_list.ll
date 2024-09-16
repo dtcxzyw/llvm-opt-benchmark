@@ -687,7 +687,7 @@ if.then15:                                        ; preds = %if.then13
   br i1 %cmp17, label %if.end31, label %if.else
 
 if.else:                                          ; preds = %if.then15
-  tail call fastcc void @engine_cpy(ptr noundef nonnull %call16, ptr noundef nonnull %iterator.029)
+  tail call fastcc void @engine_cpy(ptr noundef %call16, ptr noundef %iterator.029)
   br label %if.end27
 
 if.else20:                                        ; preds = %if.then13
@@ -762,8 +762,8 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @ENGINE_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @engine_cpy(ptr noundef %dest, ptr nocapture noundef readonly %src) unnamed_addr #3 {
-if.end.i:
+define internal fastcc void @engine_cpy(ptr noundef nonnull %dest, ptr nocapture noundef nonnull readonly %src) unnamed_addr #3 {
+entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %dest, align 8
   %name = getelementptr inbounds i8, ptr %src, i64 8
@@ -841,7 +841,7 @@ if.end.i:
   %cmp2.i = icmp eq ptr %18, null
   br i1 %cmp2.i, label %engine_add_dynamic_id.exit, label %if.end5.i
 
-if.end5.i:                                        ; preds = %if.end.i
+if.end5.i:                                        ; preds = %entry
   %.pre.i = load ptr, ptr @engine_dyn_list_head, align 8
   %cmp23.i = icmp eq ptr %.pre.i, null
   %19 = load ptr, ptr @engine_dyn_list_tail, align 8
@@ -871,7 +871,7 @@ if.end34.i:                                       ; preds = %lor.lhs.false.i, %i
   store ptr null, ptr %next_dyn35.i, align 8
   br label %engine_add_dynamic_id.exit
 
-engine_add_dynamic_id.exit:                       ; preds = %if.then24.i, %if.else.i, %lor.lhs.false.i, %if.end34.i, %if.end.i
+engine_add_dynamic_id.exit:                       ; preds = %if.then24.i, %if.else.i, %lor.lhs.false.i, %if.end34.i, %entry
   ret void
 }
 

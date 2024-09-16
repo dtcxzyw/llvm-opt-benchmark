@@ -58,12 +58,12 @@ define ptr @strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store i32 1900, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 -1, ptr %5, align 4
-  %6 = call fastcc ptr @_strptime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  %6 = call fastcc ptr @_strptime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load i8, ptr %1, align 1
   %.not591597 = icmp eq i8 %5, 0
   br i1 %.not591597, label %.outer._crit_edge, label %.lr.ph.lr.ph
@@ -579,7 +579,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
   br i1 %or.cond.i225, label %209, label %.critedge.i226
 
 209:                                              ; preds = %.preheader.i222
-  %210 = sdiv i32 %.0.i224, 10
+  %210 = udiv i32 %.0.i224, 10
   %211 = load i8, ptr %202, align 1
   %212 = add i8 %211, -48
   %or.cond28.i229 = icmp ult i8 %212, 10
@@ -949,7 +949,7 @@ _conv_num.exit315:                                ; preds = %.critedge.i311
   br i1 %or.cond.i327, label %377, label %.critedge.i328
 
 377:                                              ; preds = %.preheader.i324
-  %378 = sdiv i32 %.0.i326, 10
+  %378 = udiv i32 %.0.i326, 10
   %379 = load i8, ptr %370, align 1
   %380 = add i8 %379, -48
   %or.cond28.i331 = icmp ult i8 %380, 10

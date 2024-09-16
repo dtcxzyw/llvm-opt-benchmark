@@ -3603,7 +3603,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse noreturn uwtable
-define internal fastcc void @_ZL5usagePKci(ptr noundef %pname, i32 noundef %ecode) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5usagePKci(ptr noundef %pname, i32 noundef range(i32 0, 2) %ecode) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %msgLen = alloca i32, align 4
   %err = alloca i32, align 4

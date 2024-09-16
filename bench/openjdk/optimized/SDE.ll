@@ -687,8 +687,8 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
   %22 = load ptr, ptr @stratumTable, align 8
   %23 = zext nneg i32 %11 to i64
   %24 = getelementptr inbounds %struct.StratumTableRecord, ptr %22, i64 %23, i32 2
-  %25 = getelementptr %struct.StratumTableRecord, ptr %22, i64 %23
-  %26 = getelementptr i8, ptr %25, i64 28
+  %25 = getelementptr inbounds %struct.StratumTableRecord, ptr %22, i64 %23
+  %26 = getelementptr inbounds i8, ptr %25, i64 28
   %27 = load ptr, ptr @lineTable, align 8
   %28 = load i32, ptr %24, align 4
   %29 = load i32, ptr %26, align 4
@@ -1228,7 +1228,7 @@ assureFileTableSize.exit:                         ; preds = %.assureFileTableSiz
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @storeLine(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @storeLine(i32 noundef %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @lineIndex, align 4
   %8 = load i32, ptr @lineTableSize, align 4
   %.not.i = icmp slt i32 %7, %8

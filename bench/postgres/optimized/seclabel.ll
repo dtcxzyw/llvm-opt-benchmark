@@ -490,7 +490,7 @@ define dso_local ptr @GetSecurityLabel(ptr nocapture noundef readonly %0, ptr no
 24:                                               ; preds = %9
   %25 = getelementptr inbounds i8, ptr %19, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = call fastcc i64 @heap_getattr(ptr noundef nonnull %23, i32 noundef 4, ptr noundef %26, ptr noundef nonnull %4)
+  %27 = call fastcc i64 @heap_getattr(ptr noundef %23, i32 noundef 4, ptr noundef %26, ptr noundef %4)
   %28 = load i8, ptr %4, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %GetSharedSecurityLabel.exit, label %30
@@ -535,7 +535,7 @@ GetSharedSecurityLabel.exit:                      ; preds = %9, %24, %30
 50:                                               ; preds = %33
   %51 = getelementptr inbounds i8, ptr %47, i64 64
   %52 = load ptr, ptr %51, align 8
-  %53 = call fastcc i64 @heap_getattr(ptr noundef nonnull %49, i32 noundef 5, ptr noundef %52, ptr noundef nonnull %6)
+  %53 = call fastcc i64 @heap_getattr(ptr noundef %49, i32 noundef 5, ptr noundef %52, ptr noundef %6)
   %54 = load i8, ptr %6, align 1
   %55 = trunc i8 %54 to i1
   br i1 %55, label %59, label %56
@@ -569,18 +569,18 @@ declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, pt
 declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 6) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 18
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp sgt i32 %1, %10
+  %11 = icmp ugt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #8
+  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #8
   br label %fastgetattr.exit
 
 14:                                               ; preds = %4
@@ -660,26 +660,25 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 59:                                               ; preds = %14
-  %60 = add nsw i32 %1, 7
+  %60 = add nsw i32 %1, -1
   %61 = getelementptr inbounds i8, ptr %15, i64 23
   %.val.i = load i8, ptr %61, align 1
   %62 = zext i8 %.val.i to i32
-  %63 = and i32 %60, 7
-  %64 = shl nuw nsw i32 1, %63
-  %65 = and i32 %64, %62
-  %.not.i.i = icmp eq i32 %65, 0
-  br i1 %.not.i.i, label %66, label %67
+  %63 = shl nuw nsw i32 1, %60
+  %64 = and i32 %63, %62
+  %.not.i.i = icmp eq i32 %64, 0
+  br i1 %.not.i.i, label %65, label %66
 
-66:                                               ; preds = %59
+65:                                               ; preds = %59
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-67:                                               ; preds = %59
-  %68 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
+66:                                               ; preds = %59
+  %67 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %67, %66, %57, %55, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %66 ], [ %68, %67 ], [ %58, %57 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %56, %55 ]
+fastgetattr.exit:                                 ; preds = %66, %65, %57, %55, %49, %46, %43, %40, %12
+  %.0 = phi i64 [ %13, %12 ], [ 0, %65 ], [ %67, %66 ], [ %58, %57 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %56, %55 ]
   ret i64 %.0
 }
 

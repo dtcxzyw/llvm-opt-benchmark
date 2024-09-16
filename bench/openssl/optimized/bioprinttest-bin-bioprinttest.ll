@@ -612,7 +612,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %test, i32 noundef %sub, double noundef %val, ptr noundef %width, i32 noundef %prec) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %test, i32 noundef range(i32 0, 10) %sub, double noundef %val, ptr noundef %width, i32 noundef %prec) unnamed_addr #1 {
 entry:
   %format = alloca [80 x i8], align 16
   %result = alloca [80 x i8], align 16

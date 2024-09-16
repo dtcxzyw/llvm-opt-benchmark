@@ -1020,7 +1020,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugP
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %95, %98
   %100 = phi ptr [ %97, %95 ], [ %99, %98 ]
-  %101 = invoke fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_PopulateMetadataFromPlugInfoEvENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS8_ESaISt4pairIKS8_S9_EEERSD_PSG_"(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull %6)
+  %101 = invoke fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_PopulateMetadataFromPlugInfoEvENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS8_ESaISt4pairIKS8_S9_EEERSD_PSG_"(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef %6)
           to label %102 unwind label %103
 
 102:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
@@ -1048,7 +1048,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr null, ptr %9, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ParseStringArrayValueERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS6_ESaISt4pairIKS6_S7_EEERKNS_7TfTokenESJ_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ParseStringArrayValueERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS6_ESaISt4pairIKS6_S7_EEERKNS_7TfTokenESJ_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit62
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %107
@@ -1654,7 +1654,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1
 
 317:                                              ; preds = %315
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 24
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ParseStringArrayValueERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS6_ESaISt4pairIKS6_S7_EEERKNS_7TfTokenESJ_(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(8) %318, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ParseStringArrayValueERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS6_ESaISt4pairIKS6_S7_EEERKNS_7TfTokenESJ_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(8) %318, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %319 unwind label %436
 
 319:                                              ; preds = %317
@@ -1753,7 +1753,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit: ; pr
 
 357:                                              ; preds = %355
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ParseStringArrayValueERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS6_ESaISt4pairIKS6_S7_EEERKNS_7TfTokenESJ_(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(8) %358, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ParseStringArrayValueERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS6_ESaISt4pairIKS6_S7_EEERKNS_7TfTokenESJ_(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(8) %358, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %359 unwind label %436
 
 359:                                              ; preds = %357
@@ -2531,7 +2531,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__12PlugRegistry13GetAllPlugin
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__10PlugPlugin11GetMetadataB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::map") align 8, ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_PopulateMetadataFromPlugInfoEvENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS8_ESaISt4pairIKS8_S9_EEERSD_PSG_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_PopulateMetadataFromPlugInfoEvENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS8_ESaISt4pairIKS8_S9_EEERSD_PSG_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3105,7 +3105,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ParseStringArrayValueERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS6_ESaISt4pairIKS6_S7_EEERKNS_7TfTokenESJ_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ParseStringArrayValueERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7JsValueESt4lessIS6_ESaISt4pairIKS6_S7_EEERKNS_7TfTokenESJ_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.81", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

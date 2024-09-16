@@ -787,7 +787,7 @@ for.body94:                                       ; preds = %if.else, %for.inc14
   %curr.1122 = phi ptr [ %45, %for.inc141 ], [ %28, %if.else ]
   %links95 = getelementptr inbounds i8, ptr %curr.1122, i64 8
   %29 = load ptr, ptr %links95, align 8
-  call fastcc void @enqueue(ptr noundef %29, ptr noundef nonnull %last)
+  call fastcc void @enqueue(ptr noundef %29, ptr noundef %last)
   %30 = load i32, ptr %mind, align 8
   %shift = getelementptr inbounds i8, ptr %curr.1122, i64 44
   store i32 %30, ptr %shift, align 4
@@ -796,7 +796,7 @@ for.body94:                                       ; preds = %if.else, %for.inc14
   %31 = load ptr, ptr %links95, align 8
   %depth = getelementptr inbounds i8, ptr %curr.1122, i64 40
   %32 = load i32, ptr %depth, align 8
-  call fastcc void @treedelta(ptr noundef %31, i32 noundef %32, ptr noundef nonnull %delta)
+  call fastcc void @treedelta(ptr noundef %31, i32 noundef %32, ptr noundef %delta)
   %33 = load ptr, ptr %links95, align 8
   %fail101 = getelementptr inbounds i8, ptr %curr.1122, i64 32
   %34 = load ptr, ptr %fail101, align 8
@@ -876,7 +876,7 @@ for.cond169.preheader:                            ; preds = %for.cond169.prehead
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %next, i8 0, i64 2048, i1 false)
   %links179 = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load ptr, ptr %links179, align 8
-  call fastcc void @treenext(ptr noundef %47, ptr noundef nonnull %next)
+  call fastcc void @treenext(ptr noundef %47, ptr noundef %next)
   %trans181 = getelementptr inbounds i8, ptr %kws, i64 2432
   %48 = load ptr, ptr %trans181, align 8
   %tobool182.not = icmp eq ptr %48, null
@@ -965,7 +965,7 @@ return:                                           ; preds = %for.body210, %if.el
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @enqueue(ptr noundef readonly %tree, ptr noundef %last) unnamed_addr #5 {
+define internal fastcc void @enqueue(ptr noundef readonly %tree, ptr noundef nonnull %last) unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %tree, null
   br i1 %tobool.not, label %common.ret7, label %if.end
@@ -989,7 +989,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @treedelta(ptr noundef readonly %tree, i32 noundef %depth, ptr noundef %delta) unnamed_addr #5 {
+define internal fastcc void @treedelta(ptr noundef readonly %tree, i32 noundef %depth, ptr noundef nonnull %delta) unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %tree, null
   br i1 %tobool.not, label %if.end7, label %if.end
@@ -1133,7 +1133,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @treenext(ptr noundef readonly %tree, ptr noundef %next) unnamed_addr #5 {
+define internal fastcc void @treenext(ptr noundef readonly %tree, ptr noundef nonnull %next) unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %tree, null
   br i1 %tobool.not, label %common.ret7, label %if.end

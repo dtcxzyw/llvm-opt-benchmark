@@ -6034,7 +6034,7 @@ declare i32 @SSL_get_early_data_status(ptr noundef) local_unnamed_addr #1
 declare i32 @SSL_is_init_finished(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_connection_info(ptr noundef %con) unnamed_addr #0 {
+define internal fastcc void @print_connection_info(ptr noundef nonnull %con) unnamed_addr #0 {
 entry:
   %buf = alloca [8192 x i8], align 16
   %next_proto_neg = alloca ptr, align 8
@@ -6043,14 +6043,14 @@ entry:
   br i1 %.b, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @print_ssl_summary(ptr noundef %con) #14
+  tail call void @print_ssl_summary(ptr noundef nonnull %con) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %0 = load ptr, ptr @bio_s_out, align 8
-  %call = tail call ptr @SSL_get_session(ptr noundef %con) #14
+  %call = tail call ptr @SSL_get_session(ptr noundef nonnull %con) #14
   %call1 = tail call i32 @PEM_write_bio_SSL_SESSION(ptr noundef %0, ptr noundef %call) #14
-  %call2 = tail call ptr @SSL_get0_peer_certificate(ptr noundef %con) #14
+  %call2 = tail call ptr @SSL_get0_peer_certificate(ptr noundef nonnull %con) #14
   %cmp.not = icmp eq ptr %call2, null
   br i1 %cmp.not, label %if.end6, label %if.then3
 
@@ -6064,7 +6064,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %if.end
-  %call7 = tail call i32 @SSL_get_negotiated_server_cert_type(ptr noundef %con) #14
+  %call7 = tail call i32 @SSL_get_negotiated_server_cert_type(ptr noundef nonnull %con) #14
   %cmp8 = icmp eq i32 %call7, 2
   br i1 %cmp8, label %if.then9, label %if.end11
 
@@ -6074,7 +6074,7 @@ if.then9:                                         ; preds = %if.end6
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end6
-  %call12 = tail call i32 @SSL_get_negotiated_client_cert_type(ptr noundef %con) #14
+  %call12 = tail call i32 @SSL_get_negotiated_client_cert_type(ptr noundef nonnull %con) #14
   %cmp13 = icmp eq i32 %call12, 2
   br i1 %cmp13, label %if.then14, label %if.end16
 
@@ -6088,7 +6088,7 @@ if.end16:                                         ; preds = %if.then14, %if.end1
   br i1 %.b27, label %if.then18, label %if.end25
 
 if.then18:                                        ; preds = %if.end16
-  %call19 = tail call ptr @SSL_get0_peer_rpk(ptr noundef %con) #14
+  %call19 = tail call ptr @SSL_get0_peer_rpk(ptr noundef nonnull %con) #14
   %cmp20.not = icmp eq ptr %call19, null
   br i1 %cmp20.not, label %if.end25, label %if.then21
 
@@ -6100,7 +6100,7 @@ if.then21:                                        ; preds = %if.then18
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then18, %if.then21, %if.end16
-  %call26 = call ptr @SSL_get_shared_ciphers(ptr noundef %con, ptr noundef nonnull %buf, i32 noundef 8192) #14
+  %call26 = call ptr @SSL_get_shared_ciphers(ptr noundef nonnull %con, ptr noundef nonnull %buf, i32 noundef 8192) #14
   %cmp27.not = icmp eq ptr %call26, null
   br i1 %cmp27.not, label %if.end31, label %if.then28
 
@@ -6110,21 +6110,21 @@ if.then28:                                        ; preds = %if.end25
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.end25
-  %call32 = call ptr @SSL_get_current_cipher(ptr noundef %con) #14
+  %call32 = call ptr @SSL_get_current_cipher(ptr noundef nonnull %con) #14
   %call33 = call ptr @SSL_CIPHER_get_name(ptr noundef %call32) #14
   %9 = load ptr, ptr @bio_s_out, align 8
-  %call34 = call i32 @ssl_print_sigalgs(ptr noundef %9, ptr noundef %con) #14
+  %call34 = call i32 @ssl_print_sigalgs(ptr noundef %9, ptr noundef nonnull %con) #14
   %10 = load ptr, ptr @bio_s_out, align 8
-  %call35 = call i32 @ssl_print_point_formats(ptr noundef %10, ptr noundef %con) #14
+  %call35 = call i32 @ssl_print_point_formats(ptr noundef %10, ptr noundef nonnull %con) #14
   %11 = load ptr, ptr @bio_s_out, align 8
-  %call36 = call i32 @ssl_print_groups(ptr noundef %11, ptr noundef %con, i32 noundef 0) #14
+  %call36 = call i32 @ssl_print_groups(ptr noundef %11, ptr noundef nonnull %con, i32 noundef 0) #14
   %12 = load ptr, ptr @bio_s_out, align 8
-  call void @print_ca_names(ptr noundef %12, ptr noundef %con) #14
+  call void @print_ca_names(ptr noundef %12, ptr noundef nonnull %con) #14
   %13 = load ptr, ptr @bio_s_out, align 8
   %cmp37.not = icmp eq ptr %call33, null
   %cond = select i1 %cmp37.not, ptr @.str.542, ptr %call33
   %call38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.541, ptr noundef nonnull %cond) #14
-  call void @SSL_get0_next_proto_negotiated(ptr noundef %con, ptr noundef nonnull %next_proto_neg, ptr noundef nonnull %next_proto_neg_len) #14
+  call void @SSL_get0_next_proto_negotiated(ptr noundef nonnull %con, ptr noundef nonnull %next_proto_neg, ptr noundef nonnull %next_proto_neg_len) #14
   %14 = load ptr, ptr %next_proto_neg, align 8
   %tobool39.not = icmp eq ptr %14, null
   br i1 %tobool39.not, label %if.end44, label %if.then40
@@ -6141,7 +6141,7 @@ if.then40:                                        ; preds = %if.end31
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then40, %if.end31
-  %call45 = call ptr @SSL_get_selected_srtp_profile(ptr noundef %con) #14
+  %call45 = call ptr @SSL_get_selected_srtp_profile(ptr noundef nonnull %con) #14
   %tobool46.not = icmp eq ptr %call45, null
   br i1 %tobool46.not, label %if.end49, label %if.then47
 
@@ -6152,7 +6152,7 @@ if.then47:                                        ; preds = %if.end44
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %if.end44
-  %call50 = call i32 @SSL_session_reused(ptr noundef %con) #14
+  %call50 = call i32 @SSL_session_reused(ptr noundef nonnull %con) #14
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %if.end54, label %if.then52
 
@@ -6163,8 +6163,8 @@ if.then52:                                        ; preds = %if.end49
 
 if.end54:                                         ; preds = %if.then52, %if.end49
   %23 = load ptr, ptr @bio_s_out, align 8
-  call void @ssl_print_secure_renegotiation_notes(ptr noundef %23, ptr noundef %con) #14
-  %call55 = call i64 @SSL_get_options(ptr noundef %con) #14
+  call void @ssl_print_secure_renegotiation_notes(ptr noundef %23, ptr noundef nonnull %con) #14
+  %call55 = call i64 @SSL_get_options(ptr noundef nonnull %con) #14
   %and = and i64 %call55, 1073741824
   %tobool56.not = icmp eq i64 %and, 0
   br i1 %tobool56.not, label %if.end59, label %if.then57
@@ -6195,7 +6195,7 @@ if.then61:                                        ; preds = %if.end59
   %conv66 = sext i32 %32 to i64
   %33 = load ptr, ptr @keymatexportlabel, align 8
   %call67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #15
-  %call68 = call i32 @SSL_export_keying_material(ptr noundef %con, ptr noundef %call65, i64 noundef %conv66, ptr noundef %33, i64 noundef %call67, ptr noundef null, i64 noundef 0, i32 noundef 0) #14
+  %call68 = call i32 @SSL_export_keying_material(ptr noundef nonnull %con, ptr noundef %call65, i64 noundef %conv66, ptr noundef %33, i64 noundef %call67, ptr noundef null, i64 noundef 0, i32 noundef 0) #14
   %cmp69 = icmp slt i32 %call68, 1
   %34 = load ptr, ptr @bio_s_out, align 8
   br i1 %cmp69, label %if.then71, label %if.else
@@ -6291,7 +6291,7 @@ declare void @wait_for_async(ptr noundef) local_unnamed_addr #1
 declare void @BIO_set_callback_arg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @init_ssl_connection(ptr noundef %con) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @init_ssl_connection(ptr noundef nonnull %con) unnamed_addr #0 {
 entry:
   %fd = alloca i32, align 4
   %.b35 = load i1, ptr @dtlslisten, align 4
@@ -6313,11 +6313,11 @@ if.then4:                                         ; preds = %if.then3
   br label %return
 
 if.end:                                           ; preds = %if.then3
-  %call6 = tail call i32 @DTLSv1_listen(ptr noundef %con, ptr noundef nonnull %call) #14
+  %call6 = tail call i32 @DTLSv1_listen(ptr noundef nonnull %con, ptr noundef nonnull %call) #14
   br label %if.end8
 
 if.else:                                          ; preds = %if.then
-  %call7 = tail call i32 @SSL_stateless(ptr noundef %con) #14
+  %call7 = tail call i32 @SSL_stateless(ptr noundef nonnull %con) #14
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.end
@@ -6332,7 +6332,7 @@ if.then10:                                        ; preds = %if.end8
   br i1 %.b34, label %if.then12, label %if.end56
 
 if.then12:                                        ; preds = %if.then10
-  %call13 = tail call ptr @SSL_get_wbio(ptr noundef %con) #14
+  %call13 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %con) #14
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %if.then22, label %if.then15
 
@@ -6359,14 +6359,14 @@ if.else29:                                        ; preds = %if.end8
   br label %if.then59
 
 do.body:                                          ; preds = %entry, %land.rhs52
-  %call32 = tail call i32 @SSL_accept(ptr noundef %con) #14
+  %call32 = tail call i32 @SSL_accept(ptr noundef nonnull %con) #14
   %cmp33 = icmp slt i32 %call32, 1
   br i1 %cmp33, label %land.rhs, label %if.end82
 
 land.rhs:                                         ; preds = %do.body, %while.body
   %call44.sink = phi i32 [ %call44, %while.body ], [ %call32, %do.body ]
-  %call.i39 = tail call i32 @SSL_get_error(ptr noundef %con, i32 noundef %call44.sink) #14
-  %call40 = tail call i32 @SSL_get_error(ptr noundef %con, i32 noundef %call44.sink) #14
+  %call.i39 = tail call i32 @SSL_get_error(ptr noundef nonnull %con, i32 noundef %call44.sink) #14
+  %call40 = tail call i32 @SSL_get_error(ptr noundef nonnull %con, i32 noundef %call44.sink) #14
   %cmp41 = icmp eq i32 %call40, 4
   br i1 %cmp41, label %while.body, label %do.cond
 
@@ -6376,7 +6376,7 @@ while.body:                                       ; preds = %land.rhs
   %call43 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.557, ptr noundef %4) #14
   %5 = load ptr, ptr @bio_s_out, align 8
   tail call void @lookup_srp_user(ptr noundef nonnull @srp_callback_parm, ptr noundef %5) #14
-  %call44 = tail call i32 @SSL_accept(ptr noundef %con) #14
+  %call44 = tail call i32 @SSL_accept(ptr noundef nonnull %con) #14
   %cmp45 = icmp slt i32 %call44, 1
   br i1 %cmp45, label %land.rhs, label %if.end82, !llvm.loop !26
 
@@ -6385,14 +6385,14 @@ do.cond:                                          ; preds = %land.rhs
   br i1 %cmp50, label %land.rhs52, label %if.then59.loopexit
 
 land.rhs52:                                       ; preds = %do.cond
-  %call53 = tail call i32 @SSL_waiting_for_async(ptr noundef %con) #14
+  %call53 = tail call i32 @SSL_waiting_for_async(ptr noundef nonnull %con) #14
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %if.then59.loopexit, label %do.body, !llvm.loop !27
 
 if.end56:                                         ; preds = %if.then10, %if.end24
   %dtlslisten.sink = phi ptr [ @dtlslisten, %if.end24 ], [ @stateless, %if.then10 ]
   store i1 false, ptr %dtlslisten.sink, align 4
-  %call28 = call i32 @SSL_accept(ptr noundef %con) #14
+  %call28 = call i32 @SSL_accept(ptr noundef nonnull %con) #14
   %cmp57 = icmp slt i32 %call28, 1
   br i1 %cmp57, label %if.then59, label %if.end82
 
@@ -6422,7 +6422,7 @@ if.then71:                                        ; preds = %if.then59
 if.end73:                                         ; preds = %if.then59
   %8 = load ptr, ptr @bio_err, align 8
   %call74 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.530) #14
-  %call75 = call i64 @SSL_get_verify_result(ptr noundef %con) #14
+  %call75 = call i64 @SSL_get_verify_result(ptr noundef nonnull %con) #14
   %cmp76.not = icmp eq i64 %call75, 0
   br i1 %cmp76.not, label %if.end81, label %if.then78
 

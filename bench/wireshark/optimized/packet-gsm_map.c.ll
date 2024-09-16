@@ -11146,7 +11146,7 @@ define internal i32 @dissect_gsm_map(ptr noundef %0, ptr noundef %1, ptr noundef
   %15 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_gsm_map, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
-  call fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %17)
+  call fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef %6, ptr noundef %17)
   %18 = load i32, ptr @opcode, align 4
   %19 = call ptr @try_val_to_str_idx(i32 noundef %18, ptr noundef nonnull @gsm_map_opr_code_strings, ptr noundef nonnull %5) #5
   %20 = load i32, ptr %5, align 4
@@ -11193,7 +11193,7 @@ define internal i32 @dissect_gsm_map_sccp(ptr noundef %0, ptr noundef %1, ptr no
   %16 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_gsm_map, align 4
   %18 = call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
-  call fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %18)
+  call fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef %6, ptr noundef %18)
   %19 = load i32, ptr @opcode, align 4
   %20 = call ptr @try_val_to_str_idx(i32 noundef %19, ptr noundef nonnull @gsm_map_opr_code_strings, ptr noundef nonnull %5) #5
   %21 = load i32, ptr %5, align 4
@@ -13465,7 +13465,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   store i32 0, ptr @opcode, align 4
   %4 = load i32, ptr @pref_application_context_version, align 4
   %5 = icmp eq i32 %4, 0
@@ -13525,7 +13525,7 @@ define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr nound
   tail call void @col_append_str(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.4944) #5
   %37 = load i32, ptr @hf_gsm_map_old_Component_PDU, align 4
   %38 = load i32, ptr @ett_gsm_old_Component, align 4
-  %39 = tail call i32 @dissect_ber_choice(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @gsm_old_Component_choice, i32 noundef %37, i32 noundef %38, ptr noundef null) #5
+  %39 = tail call i32 @dissect_ber_choice(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @gsm_old_Component_choice, i32 noundef %37, i32 noundef %38, ptr noundef null) #5
   ret void
 }
 

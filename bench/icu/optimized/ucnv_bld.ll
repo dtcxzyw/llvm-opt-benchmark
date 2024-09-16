@@ -201,7 +201,7 @@ if.else:                                          ; preds = %if.then9
   br i1 %tobool16.not, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.else
-  tail call fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData(ptr noundef nonnull %call10)
+  tail call fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData(ptr noundef %call10)
   br label %return
 
 if.else20:                                        ; preds = %_ZL27ucnv_getSharedConverterDataPKc.exit
@@ -327,7 +327,7 @@ return:                                           ; preds = %if.then25.i, %_ZL24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData(ptr noundef %data) unnamed_addr #0 {
+define internal fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData(ptr noundef nonnull %data) unnamed_addr #0 {
 entry:
   %err = alloca i32, align 4
   store i32 0, ptr %err, align 4
@@ -357,7 +357,7 @@ if.end4:                                          ; preds = %if.then.if.end4_cri
   %staticData = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load ptr, ptr %staticData, align 8
   %name = getelementptr inbounds i8, ptr %3, i64 4
-  %call5 = call ptr @uhash_put_75(ptr noundef %2, ptr noundef nonnull %name, ptr noundef %data, ptr noundef nonnull %err)
+  %call5 = call ptr @uhash_put_75(ptr noundef %2, ptr noundef nonnull %name, ptr noundef nonnull %data, ptr noundef nonnull %err)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end4
@@ -640,7 +640,7 @@ if.then56:                                        ; preds = %land.lhs.true52, %l
   br label %return
 
 if.else58:                                        ; preds = %land.lhs.true36, %if.else, %land.lhs.true52, %land.lhs.true44, %cond.true40, %land.lhs.true32, %land.lhs.true28, %land.lhs.true, %cond.true
-  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef nonnull %converterName, ptr noundef nonnull %pPieces.addr.0154, ptr noundef nonnull %pArgs.addr.0, ptr noundef nonnull %err)
+  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef nonnull %converterName, ptr noundef %pPieces.addr.0154, ptr noundef %pArgs.addr.0, ptr noundef nonnull %err)
   %11 = load i32, ptr %err, align 4
   %cmp.i109 = icmp slt i32 %11, 1
   br i1 %cmp.i109, label %if.end62, label %return
@@ -677,7 +677,7 @@ if.end80:                                         ; preds = %if.else74, %if.then
   br i1 %or.cond, label %if.then91, label %if.then87
 
 if.then87:                                        ; preds = %if.end80
-  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %.pre177, ptr noundef nonnull %pPieces.addr.0154, ptr noundef nonnull %pArgs.addr.0, ptr noundef nonnull %err)
+  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %.pre177, ptr noundef %pPieces.addr.0154, ptr noundef %pArgs.addr.0, ptr noundef nonnull %err)
   %.pre = load ptr, ptr %pArgs.addr.0.sroa.phi192, align 8
   br label %if.then91
 
@@ -773,7 +773,7 @@ if.else.i117:                                     ; preds = %if.then9.i
   br i1 %tobool16.not.i, label %if.then17.i, label %ucnv_load_75.exit
 
 if.then17.i:                                      ; preds = %if.else.i117
-  call fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData(ptr noundef nonnull %call10.i)
+  call fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData(ptr noundef %call10.i)
   br label %ucnv_load_75.exit
 
 if.else20.i:                                      ; preds = %_ZL27ucnv_getSharedConverterDataPKc.exit.i
@@ -800,7 +800,7 @@ return:                                           ; preds = %ucnv_load_75.exit, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %inName, ptr noundef %pPieces, ptr nocapture noundef writeonly %pArgs, ptr nocapture noundef writeonly %err) unnamed_addr #3 {
+define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %inName, ptr noundef nonnull %pPieces, ptr nocapture noundef nonnull writeonly %pArgs, ptr nocapture noundef writeonly %err) unnamed_addr #3 {
 entry:
   %name = getelementptr inbounds i8, ptr %pArgs, i64 24
   store ptr %inName, ptr %name, align 8
@@ -1352,7 +1352,7 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %locale, align 4
   %options = getelementptr inbounds i8, ptr %stackPieces, i64 220
   store i32 0, ptr %options, align 4
-  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %converterName, ptr noundef nonnull %stackPieces, ptr noundef nonnull %stackArgs, ptr noundef nonnull %err)
+  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %converterName, ptr noundef %stackPieces, ptr noundef %stackArgs, ptr noundef nonnull %err)
   %2 = load i32, ptr %err, align 4
   %cmp.i8 = icmp slt i32 %2, 1
   br i1 %cmp.i8, label %if.end5, label %return

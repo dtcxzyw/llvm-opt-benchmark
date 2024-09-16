@@ -946,7 +946,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   br label %143
 
 102:                                              ; preds = %98
-  %103 = call fastcc ptr @adb_send_and_read(i32 noundef %99, ptr noundef nonnull @.str.117, ptr noundef nonnull @add_tcpdump_interfaces.recv_buffer, ptr noundef nonnull %4)
+  %103 = call fastcc ptr @adb_send_and_read(i32 noundef %99, ptr noundef nonnull @.str.117, ptr noundef nonnull @add_tcpdump_interfaces.recv_buffer, ptr noundef %4)
   %104 = call i32 @close(i32 noundef %99) #16
   %.not.i212 = icmp eq ptr %103, null
   br i1 %.not.i212, label %105, label %106
@@ -1015,7 +1015,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
 
 125:                                              ; preds = %123
   %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 80, ptr noundef nonnull @.str.127, ptr noundef %120) #16
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %120, ptr noundef nonnull %11, ptr noundef nonnull @.str.128)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %120, ptr noundef %11, ptr noundef nonnull @.str.128)
   br label %127
 
 127:                                              ; preds = %125, %123, %118
@@ -1044,7 +1044,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   %137 = load ptr, ptr %6, align 8
   %138 = call ptr @g_match_info_fetch_named(ptr noundef %137, ptr noundef nonnull @.str.125) #16
   %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 80, ptr noundef nonnull @.str.127, ptr noundef %136) #16
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %136, ptr noundef nonnull %11, ptr noundef nonnull @.str.128)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %136, ptr noundef %11, ptr noundef nonnull @.str.128)
   call void @g_free(ptr noundef %138) #16
   call void @g_free(ptr noundef %136) #16
   br label %140
@@ -1079,7 +1079,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %146, label %.backedge, label %147
 
 147:                                              ; preds = %144
-  %148 = call fastcc ptr @adb_send_and_read(i32 noundef %145, ptr noundef nonnull @.str.67, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef nonnull %10)
+  %148 = call fastcc ptr @adb_send_and_read(i32 noundef %145, ptr noundef nonnull @.str.67, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %149 = call i32 @close(i32 noundef %145) #16
   %.not190 = icmp eq ptr %148, null
   br i1 %.not190, label %150, label %151
@@ -1098,14 +1098,14 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %156, label %157, label %213
 
 157:                                              ; preds = %151
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.80, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.81)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.83)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.85)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.87)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.81)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.83)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.85)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.87)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.80, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.81)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.83)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.85)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.87)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.81)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.83)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.85)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.87)
   %158 = add i32 %155, -5
   %or.cond = icmp ult i32 %158, 12
   br i1 %or.cond, label %159, label %172
@@ -1117,7 +1117,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %161, label %.backedge, label %162
 
 162:                                              ; preds = %159
-  %163 = call fastcc ptr @adb_send_and_read(i32 noundef %160, ptr noundef nonnull @.str.68, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef nonnull %10)
+  %163 = call fastcc ptr @adb_send_and_read(i32 noundef %160, ptr noundef nonnull @.str.68, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %164 = call i32 @close(i32 noundef %160) #16
   %165 = icmp eq ptr %163, null
   %166 = load i64, ptr %10, align 8
@@ -1137,7 +1137,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %.not, label %.backedge, label %171
 
 171:                                              ; preds = %168
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.95)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.95)
   br label %.backedge
 
 172:                                              ; preds = %157
@@ -1152,7 +1152,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %176, label %.backedge, label %177
 
 177:                                              ; preds = %174
-  %178 = call fastcc ptr @adb_send_and_read(i32 noundef %175, ptr noundef nonnull @.str.69, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef nonnull %10)
+  %178 = call fastcc ptr @adb_send_and_read(i32 noundef %175, ptr noundef nonnull @.str.69, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %179 = call i32 @close(i32 noundef %175) #16
   %180 = icmp eq ptr %178, null
   %181 = load i64, ptr %10, align 8
@@ -1194,7 +1194,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %196, label %.backedge, label %197
 
 197:                                              ; preds = %194
-  %198 = call fastcc ptr @adb_send_and_read(i32 noundef %195, ptr noundef nonnull %9, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef nonnull %10)
+  %198 = call fastcc ptr @adb_send_and_read(i32 noundef %195, ptr noundef nonnull %9, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %199 = call i32 @close(i32 noundef %195) #16
   %.not193 = icmp eq ptr %198, null
   br i1 %.not193, label %.backedge, label %200
@@ -1223,15 +1223,15 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %211, label %212, label %.backedge
 
 212:                                              ; preds = %210
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.100)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.100)
   br label %.backedge
 
 213:                                              ; preds = %151
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.81)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.83)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.85)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.87)
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.92, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.93)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.81)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.83)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.85)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.87)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.92, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.93)
   %214 = icmp ugt i32 %155, 25
   br i1 %214, label %219, label %215
 
@@ -1252,7 +1252,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %221, label %.backedge, label %222
 
 222:                                              ; preds = %219
-  %223 = call fastcc ptr @adb_send_and_read(i32 noundef %220, ptr noundef nonnull %.0160, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef nonnull %10)
+  %223 = call fastcc ptr @adb_send_and_read(i32 noundef %220, ptr noundef nonnull %.0160, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %224 = call i32 @close(i32 noundef %220) #16
   %225 = icmp eq ptr %223, null
   %226 = load i64, ptr %10, align 8
@@ -1299,7 +1299,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %242, label %.backedge, label %243
 
 243:                                              ; preds = %240
-  %244 = call fastcc ptr @adb_send_and_read(i32 noundef %241, ptr noundef nonnull %9, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef nonnull %10)
+  %244 = call fastcc ptr @adb_send_and_read(i32 noundef %241, ptr noundef nonnull %9, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %245 = call i32 @close(i32 noundef %241) #16
   %.not197 = icmp eq ptr %244, null
   br i1 %.not197, label %.backedge, label %246
@@ -1334,7 +1334,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   br i1 %cond, label %.backedge, label %.lr.ph, !llvm.loop !11
 
 259:                                              ; preds = %255
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.103)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.103)
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %60, %3, %239, %193, %58
@@ -1536,7 +1536,7 @@ define internal fastcc zeroext i1 @is_logcat_interface(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 43) i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 43) i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = tail call fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %1, i32 noundef 155)
@@ -2544,7 +2544,7 @@ thread-pre-split:                                 ; preds = %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 41) i32 @capture_android_bluetooth_external_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 41) i32 @capture_android_bluetooth_external_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca %struct.timeval, align 8
   %10 = alloca %struct.timeval, align 8
   %11 = alloca i32, align 4
@@ -3632,7 +3632,7 @@ define internal fastcc i32 @adb_connect_transport(ptr noundef %0, i16 %.0.val, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @adb_send_and_read(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -1) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 65535, ptr noundef nonnull @.str.109, i64 noundef %5) #16
   %7 = tail call i64 @send(i32 noundef %0, ptr noundef %2, i64 noundef 4, i32 noundef 0) #16
@@ -3727,9 +3727,9 @@ split:                                            ; preds = %.lr.ph
 declare i64 @g_ascii_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @new_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.135, ptr noundef %1, ptr noundef %3) #16
-  %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.136, ptr noundef %4, ptr noundef %2, ptr noundef %3) #16
+define internal fastcc void @new_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+  %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.135, ptr noundef %1, ptr noundef nonnull %3) #16
+  %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.136, ptr noundef %4, ptr noundef %2, ptr noundef nonnull %3) #16
   %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(26) @.str.39, i64 noundef 25) #19
   %.not.i.not = icmp eq i32 %8, 0
   br i1 %.not.i.not, label %13, label %9
@@ -3877,7 +3877,7 @@ declare void @g_match_info_free(ptr noundef) local_unnamed_addr #1
 declare void @g_regex_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 34) i32 @adb_send(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 34) i32 @adb_send(i32 noundef range(i32 0, -1) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [5 x i8], align 1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 5, ptr noundef nonnull @.str.109, i64 noundef %4) #16
@@ -3995,7 +3995,7 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #10
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @extcap_dumper_dump(i32 %0, ptr %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @extcap_dumper_dump(i32 %0, ptr nonnull %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca %struct.wtap_rec, align 8
@@ -4035,25 +4035,25 @@ define internal fastcc noundef zeroext i1 @extcap_dumper_dump(i32 %0, ptr %1, pt
   %.018 = phi ptr [ %27, %21 ], [ %3, %8 ]
   %29 = getelementptr inbounds i8, ptr %11, i64 72
   store i32 %0, ptr %29, align 8
-  %30 = call i32 @wtap_dump(ptr noundef %1, ptr noundef nonnull %11, ptr noundef %.018, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
+  %30 = call i32 @wtap_dump(ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %.018, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
   %.not19 = icmp eq i32 %30, 0
   br i1 %.not19, label %31, label %35
 
 31:                                               ; preds = %28
   %32 = load i32, ptr %9, align 4
   %33 = load ptr, ptr %10, align 8
-  %34 = call i32 @wtap_dump_file_type_subtype(ptr noundef %1) #16
+  %34 = call i32 @wtap_dump_file_type_subtype(ptr noundef nonnull %1) #16
   call void @cfile_write_failure_message(ptr noundef null, ptr noundef %2, i32 noundef %32, ptr noundef %33, i32 noundef 0, i32 noundef %34) #16
   br label %40
 
 35:                                               ; preds = %28
-  %36 = call i32 @wtap_dump_flush(ptr noundef %1, ptr noundef nonnull %9) #16
+  %36 = call i32 @wtap_dump_flush(ptr noundef nonnull %1, ptr noundef nonnull %9) #16
   %.not20 = icmp eq i32 %36, 0
   br i1 %.not20, label %37, label %40
 
 37:                                               ; preds = %35
   %38 = load i32, ptr %9, align 4
-  %39 = call i32 @wtap_dump_file_type_subtype(ptr noundef %1) #16
+  %39 = call i32 @wtap_dump_file_type_subtype(ptr noundef nonnull %1) #16
   call void @cfile_write_failure_message(ptr noundef null, ptr noundef %2, i32 noundef %38, ptr noundef null, i32 noundef 0, i32 noundef %39) #16
   br label %40
 

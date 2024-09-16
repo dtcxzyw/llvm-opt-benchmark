@@ -3773,7 +3773,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare void @_ZN9grpc_core4Rbac10Permission16MakeOrPermissionESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr sret(%"struct.grpc_core::Rbac::Permission") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission22MakeRbacPermissionListESt6vectorIS5_SaIS5_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %permission_list) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission22MakeRbacPermissionListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %permission_list) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %permission_list.val = load ptr, ptr %permission_list, align 8
@@ -3910,7 +3910,7 @@ _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Poli
 declare void @_ZN9grpc_core4Rbac9Principal15MakeOrPrincipalESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr sret(%"struct.grpc_core::Rbac::Principal") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal21MakeRbacPrincipalListESt6vectorIS5_SaIS5_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %principal_list) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal21MakeRbacPrincipalListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %principal_list) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %principal_list.val = load ptr, ptr %principal_list, align 8
@@ -4703,7 +4703,7 @@ if.else.i.i.i.i21.i:                              ; preds = %if.then.i.i.i17.i
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit23.i: ; preds = %if.end.i
   %10 = load ptr, ptr %errors.addr.i, align 8
-  call fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %regex_match.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 9, ptr nonnull @.str.47, ptr noundef %10)
+  call fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %regex_match.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 9, ptr nonnull @.str.47, ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %regex_match.i, i64 32
   %regex_match.val.i = load i8, ptr %11, align 8
   %tobool.i.i26.i = trunc i8 %regex_match.val.i to i1
@@ -4975,7 +4975,7 @@ _ZSt3getISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEENS_13StringMatcher4TypeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 %field_name.coerce0, ptr %field_name.coerce1, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEENS_13StringMatcher4TypeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 %field_name.coerce0, ptr %field_name.coerce1, i32 noundef range(i32 0, 5) %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %match = alloca %"class.std::optional.288", align 8
   %agg.tmp3 = alloca %"class.absl::lts_20230802::StatusOr", align 8
@@ -5146,7 +5146,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit8: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5658,7 +5658,7 @@ if.else.i.i.i.i62.i:                              ; preds = %if.then.i.i.i58.i
   unreachable
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit64.i: ; preds = %if.end.i
-  call fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %header.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 6, ptr nonnull @.str.53, ptr noundef nonnull %errors)
+  call fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %header.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 6, ptr nonnull @.str.53, ptr noundef nonnull %errors)
   %6 = getelementptr inbounds i8, ptr %header.i, i64 120
   %header.val.i = load i8, ptr %6, align 8
   %tobool.i.i67.i = trunc i8 %header.val.i to i1
@@ -5738,7 +5738,7 @@ if.else.i.i.i.i83.cont.i:                         ; preds = %if.then.i.i.i79.i
   unreachable
 
 invoke.cont25.i:                                  ; preds = %if.end23.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %url_path.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 7, ptr nonnull @.str.54, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %url_path.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 7, ptr nonnull @.str.54, ptr noundef nonnull %errors)
           to label %invoke.cont28.i unwind label %lpad24.i
 
 invoke.cont28.i:                                  ; preds = %invoke.cont25.i
@@ -5833,7 +5833,7 @@ if.else.i.i.i.i104.cont.i:                        ; preds = %if.then.i.i.i100.i
   unreachable
 
 invoke.cont47.i:                                  ; preds = %if.end46.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %destination_ip.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 13, ptr nonnull @.str.55, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %destination_ip.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 13, ptr nonnull @.str.55, ptr noundef nonnull %errors)
           to label %invoke.cont50.i unwind label %lpad36.i
 
 invoke.cont50.i:                                  ; preds = %invoke.cont47.i
@@ -6014,7 +6014,7 @@ if.end105.i:                                      ; preds = %invoke.cont89.i
           to label %invoke.cont106.i unwind label %lpad66.i
 
 invoke.cont106.i:                                 ; preds = %if.end105.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %requested_server_name.i, ptr noundef nonnull align 8 dereferenceable(48) %call107.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 19, ptr nonnull @.str.58, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %requested_server_name.i, ptr noundef nonnull align 8 dereferenceable(48) %call107.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 19, ptr nonnull @.str.58, ptr noundef nonnull %errors)
           to label %invoke.cont109.i unwind label %lpad66.i
 
 invoke.cont109.i:                                 ; preds = %invoke.cont106.i
@@ -6063,7 +6063,7 @@ if.end125.i:                                      ; preds = %invoke.cont109.i
           to label %invoke.cont127.i unwind label %lpad126.i
 
 invoke.cont127.i:                                 ; preds = %if.end125.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %rules.i, ptr noundef nonnull align 8 dereferenceable(48) %call128.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 8, ptr nonnull @.str.59, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias align 8 %rules.i, ptr noundef nonnull align 8 dereferenceable(48) %call128.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 8, ptr nonnull @.str.59, ptr noundef nonnull %errors)
           to label %invoke.cont130.i unwind label %lpad126.i
 
 invoke.cont130.i:                                 ; preds = %invoke.cont127.i
@@ -6084,7 +6084,7 @@ if.then132.i:                                     ; preds = %invoke.cont130.i
   %38 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
   store ptr %38, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rules.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission22MakeRbacPermissionListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.tmp135.i, ptr noundef nonnull %agg.tmp136.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission22MakeRbacPermissionListESt6vectorIS5_SaIS5_EE(ptr noalias align 8 %agg.tmp135.i, ptr noundef %agg.tmp136.i)
           to label %invoke.cont140.i unwind label %lpad139.i
 
 invoke.cont140.i:                                 ; preds = %if.then132.i
@@ -6142,7 +6142,7 @@ if.end150.i:                                      ; preds = %invoke.cont130.i
           to label %invoke.cont153.i unwind label %lpad152.i
 
 invoke.cont153.i:                                 ; preds = %if.end150.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %ref.tmp151.i, ptr noundef nonnull align 8 dereferenceable(48) %call154.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 7, ptr nonnull @.str.60, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias align 8 %ref.tmp151.i, ptr noundef nonnull align 8 dereferenceable(48) %call154.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 7, ptr nonnull @.str.60, ptr noundef nonnull %errors)
           to label %invoke.cont156.i unwind label %lpad152.i
 
 invoke.cont156.i:                                 ; preds = %invoke.cont153.i
@@ -6164,7 +6164,7 @@ if.then159.i:                                     ; preds = %invoke.cont156.i
   %45 = load ptr, ptr %_M_end_of_storage4.i.i.i.i175.i, align 8
   store ptr %45, ptr %_M_end_of_storage.i.i.i.i174.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rules.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission22MakeRbacPermissionListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.tmp162.i, ptr noundef nonnull %agg.tmp163.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission22MakeRbacPermissionListESt6vectorIS5_SaIS5_EE(ptr noalias align 8 %agg.tmp162.i, ptr noundef %agg.tmp163.i)
           to label %invoke.cont167.i unwind label %lpad166.i
 
 invoke.cont167.i:                                 ; preds = %if.then159.i
@@ -6222,7 +6222,7 @@ if.end177.i:                                      ; preds = %invoke.cont156.i
           to label %invoke.cont178.i unwind label %lpad152.i
 
 invoke.cont178.i:                                 ; preds = %if.end177.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %not_rule.i, ptr noundef nonnull align 8 dereferenceable(48) %call179.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 7, ptr nonnull @.str.61, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %not_rule.i, ptr noundef nonnull align 8 dereferenceable(48) %call179.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 7, ptr nonnull @.str.61, ptr noundef nonnull %errors)
           to label %invoke.cont181.i unwind label %lpad152.i
 
 invoke.cont181.i:                                 ; preds = %invoke.cont178.i
@@ -6458,7 +6458,7 @@ _ZNSt15__uniq_ptr_dataIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_ELb1EL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6595,7 +6595,7 @@ declare void @_ZN9grpc_core4Rbac10Permission20MakeHeaderPermissionENS_13HeaderMa
 declare void @_ZN9grpc_core13HeaderMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(114), ptr noundef nonnull align 8 dereferenceable(114)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6723,7 +6723,7 @@ declare void @_ZN9grpc_core4Rbac10Permission18MakePathPermissionENS_13StringMatc
 declare void @_ZN9grpc_core13StringMatcherC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef nonnull align 8 dereferenceable(49)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7016,7 +7016,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 declare void @_ZN9grpc_core4Rbac10Permission22MakeMetadataPermissionEb(ptr sret(%"struct.grpc_core::Rbac::Permission") align 8, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7145,7 +7145,7 @@ declare void @_ZN9grpc_core4Rbac10Permission27MakeReqServerNamePermissionENS_13S
 declare void @_ZN9grpc_core13StringMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef nonnull align 8 dereferenceable(49)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7463,7 +7463,7 @@ _ZNSt14_Optional_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Po
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8247,7 +8247,7 @@ if.else.i.i.i.i70.cont.i:                         ; preds = %if.else.i.i.i.i70.i
 
 invoke.cont48.i:                                  ; preds = %if.end47.i
   %37 = load ptr, ptr %errors.addr.i, align 8
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %regex_match.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 14, ptr nonnull @.str.70, ptr noundef %37)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %regex_match.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 14, ptr nonnull @.str.70, ptr noundef %37)
           to label %invoke.cont51.i unwind label %lpad4.i
 
 invoke.cont51.i:                                  ; preds = %invoke.cont48.i
@@ -8271,7 +8271,7 @@ if.then53.i:                                      ; preds = %invoke.cont51.i
 invoke.cont62.i:                                  ; preds = %if.then53.i
   %set_header_matcher.val16.i = load ptr, ptr %set_header_matcher.i, align 8
   %set_header_matcher.val17.i = load ptr, ptr %7, align 8
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_1clEN4absl12lts_202308028StatusOrINS_13HeaderMatcherEEE"(ptr %set_header_matcher.val16.i, ptr %set_header_matcher.val17.i, ptr noundef nonnull %agg.tmp54.i)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_1clEN4absl12lts_202308028StatusOrINS_13HeaderMatcherEEE"(ptr %set_header_matcher.val16.i, ptr %set_header_matcher.val17.i, ptr noundef %agg.tmp54.i)
           to label %cleanup.sink.split.i unwind label %lpad63.i
 
 lpad61.i:                                         ; preds = %invoke.cont66.i, %if.then84.i, %if.then71.i, %if.end65.i, %if.then53.i
@@ -8291,7 +8291,7 @@ if.end65.i:                                       ; preds = %invoke.cont51.i
 
 invoke.cont66.i:                                  ; preds = %if.end65.i
   %46 = load ptr, ptr %errors.addr.i, align 8
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %range_match.i, ptr noundef nonnull align 8 dereferenceable(48) %call67.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 10, ptr nonnull @.str.71, ptr noundef %46)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias align 8 %range_match.i, ptr noundef nonnull align 8 dereferenceable(48) %call67.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 10, ptr nonnull @.str.71, ptr noundef %46)
           to label %invoke.cont69.i unwind label %lpad61.i
 
 invoke.cont69.i:                                  ; preds = %invoke.cont66.i
@@ -8315,7 +8315,7 @@ if.then71.i:                                      ; preds = %invoke.cont69.i
 invoke.cont79.i:                                  ; preds = %if.then71.i
   %set_header_matcher.val18.i = load ptr, ptr %set_header_matcher.i, align 8
   %set_header_matcher.val19.i = load ptr, ptr %7, align 8
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_1clEN4absl12lts_202308028StatusOrINS_13HeaderMatcherEEE"(ptr %set_header_matcher.val18.i, ptr %set_header_matcher.val19.i, ptr noundef nonnull %agg.tmp72.i)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_1clEN4absl12lts_202308028StatusOrINS_13HeaderMatcherEEE"(ptr %set_header_matcher.val18.i, ptr %set_header_matcher.val19.i, ptr noundef %agg.tmp72.i)
           to label %cleanup.sink.split.i unwind label %lpad80.i
 
 lpad80.i:                                         ; preds = %invoke.cont79.i
@@ -8447,7 +8447,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEENS_13HeaderMatcher4TypeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %field_name.coerce0, ptr %field_name.coerce1, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEENS_13HeaderMatcher4TypeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %field_name.coerce0, ptr %field_name.coerce1, i32 noundef range(i32 0, 5) %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %match = alloca %"class.std::optional.288", align 8
   %agg.tmp3 = alloca %"class.absl::lts_20230802::StatusOr.395", align 8
@@ -8625,7 +8625,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit8: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_1clEN4absl12lts_202308028StatusOrINS_13HeaderMatcherEEE"(ptr %this.0.val, ptr nocapture readonly %this.8.val, ptr noundef %header_matcher) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_1clEN4absl12lts_202308028StatusOrINS_13HeaderMatcherEEE"(ptr %this.0.val, ptr nocapture readonly %this.8.val, ptr noundef nonnull %header_matcher) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %header_matcher, align 8
   %cmp.i.i = icmp eq i64 %0, 0
@@ -8717,7 +8717,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core13HeaderMatch
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9648,7 +9648,7 @@ if.else.i.i.i.i104.cont.i:                        ; preds = %if.then.i.i.i100.i
   unreachable
 
 invoke.cont39.i:                                  ; preds = %if.end38.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %cidr_range.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 8, ptr nonnull @.str.78, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %cidr_range.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 8, ptr nonnull @.str.78, ptr noundef nonnull %errors)
           to label %invoke.cont42.i unwind label %lpad30.i
 
 invoke.cont42.i:                                  ; preds = %invoke.cont39.i
@@ -9719,7 +9719,7 @@ if.else.i.i.i.i126.i:                             ; preds = %if.then.i.i.i122.i
   br label %if.else.i.i.i.i192.invoke.i
 
 invoke.cont61.i:                                  ; preds = %if.end58.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %ref.tmp59.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 14, ptr nonnull @.str.79, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %ref.tmp59.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 14, ptr nonnull @.str.79, ptr noundef nonnull %errors)
           to label %invoke.cont64.i unwind label %lpad60.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont61.i
@@ -9832,7 +9832,7 @@ if.else.i.i.i.i154.i:                             ; preds = %if.then.i.i.i150.i
   br label %if.else.i.i.i.i192.invoke.i
 
 invoke.cont83.i:                                  ; preds = %if.end81.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %ref.tmp82.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 8, ptr nonnull @.str.80, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %ref.tmp82.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 8, ptr nonnull @.str.80, ptr noundef nonnull %errors)
           to label %invoke.cont86.i unwind label %lpad60.i
 
 invoke.cont86.i:                                  ; preds = %invoke.cont83.i
@@ -9948,7 +9948,7 @@ if.else.i.i.i.i192.cont.i:                        ; preds = %if.else.i.i.i.i192.
   unreachable
 
 invoke.cont104.i:                                 ; preds = %if.end103.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %header.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 6, ptr nonnull @.str.53, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %header.i, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 6, ptr nonnull @.str.53, ptr noundef nonnull %errors)
           to label %invoke.cont107.i unwind label %lpad60.i
 
 invoke.cont107.i:                                 ; preds = %invoke.cont104.i
@@ -9997,7 +9997,7 @@ if.end123.i:                                      ; preds = %invoke.cont107.i
           to label %invoke.cont125.i unwind label %lpad124.i
 
 invoke.cont125.i:                                 ; preds = %if.end123.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %url_path.i, ptr noundef nonnull align 8 dereferenceable(48) %call126.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 7, ptr nonnull @.str.54, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %url_path.i, ptr noundef nonnull align 8 dereferenceable(48) %call126.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 7, ptr nonnull @.str.54, ptr noundef nonnull %errors)
           to label %invoke.cont128.i unwind label %lpad124.i
 
 invoke.cont128.i:                                 ; preds = %invoke.cont125.i
@@ -10092,7 +10092,7 @@ if.end165.i:                                      ; preds = %invoke.cont149.i
           to label %invoke.cont166.i unwind label %lpad145.i
 
 invoke.cont166.i:                                 ; preds = %if.end165.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %ids.i, ptr noundef nonnull align 8 dereferenceable(48) %call167.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 6, ptr nonnull @.str.81, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias align 8 %ids.i, ptr noundef nonnull align 8 dereferenceable(48) %call167.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 6, ptr nonnull @.str.81, ptr noundef nonnull %errors)
           to label %invoke.cont169.i unwind label %lpad145.i
 
 invoke.cont169.i:                                 ; preds = %invoke.cont166.i
@@ -10113,7 +10113,7 @@ if.then171.i:                                     ; preds = %invoke.cont169.i
   %64 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
   store ptr %64, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ids.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal21MakeRbacPrincipalListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.tmp174.i, ptr noundef nonnull %agg.tmp175.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal21MakeRbacPrincipalListESt6vectorIS5_SaIS5_EE(ptr noalias align 8 %agg.tmp174.i, ptr noundef %agg.tmp175.i)
           to label %invoke.cont179.i unwind label %lpad178.i
 
 invoke.cont179.i:                                 ; preds = %if.then171.i
@@ -10166,7 +10166,7 @@ if.end189.i:                                      ; preds = %invoke.cont169.i
           to label %invoke.cont192.i unwind label %lpad191.i
 
 invoke.cont192.i:                                 ; preds = %if.end189.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %ref.tmp190.i, ptr noundef nonnull align 8 dereferenceable(48) %call193.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 5, ptr nonnull @.str.82, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias align 8 %ref.tmp190.i, ptr noundef nonnull align 8 dereferenceable(48) %call193.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 5, ptr nonnull @.str.82, ptr noundef nonnull %errors)
           to label %invoke.cont195.i unwind label %lpad191.i
 
 invoke.cont195.i:                                 ; preds = %invoke.cont192.i
@@ -10188,7 +10188,7 @@ if.then198.i:                                     ; preds = %invoke.cont195.i
   %70 = load ptr, ptr %_M_end_of_storage4.i.i.i.i227.i, align 8
   store ptr %70, ptr %_M_end_of_storage.i.i.i.i226.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ids.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal21MakeRbacPrincipalListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.tmp201.i, ptr noundef nonnull %agg.tmp202.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal21MakeRbacPrincipalListESt6vectorIS5_SaIS5_EE(ptr noalias align 8 %agg.tmp201.i, ptr noundef %agg.tmp202.i)
           to label %invoke.cont206.i unwind label %lpad205.i
 
 invoke.cont206.i:                                 ; preds = %if.then198.i
@@ -10246,7 +10246,7 @@ if.end216.i:                                      ; preds = %invoke.cont195.i
           to label %invoke.cont217.i unwind label %lpad191.i
 
 invoke.cont217.i:                                 ; preds = %if.end216.i
-  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nonnull align 8 %not_rule.i, ptr noundef nonnull align 8 dereferenceable(48) %call218.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 5, ptr nonnull @.str.83, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias align 8 %not_rule.i, ptr noundef nonnull align 8 dereferenceable(48) %call218.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 5, ptr nonnull @.str.83, ptr noundef nonnull %errors)
           to label %invoke.cont220.i unwind label %lpad191.i
 
 invoke.cont220.i:                                 ; preds = %invoke.cont217.i
@@ -10502,7 +10502,7 @@ declare void @_ZN9grpc_core4Rbac9Principal17MakePathPrincipalENS_13StringMatcher
 declare void @_ZN9grpc_core4Rbac9Principal21MakeMetadataPrincipalEb(ptr sret(%"struct.grpc_core::Rbac::Principal") align 8, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISH_ESaISt4pairIKSH_SJ_EEERKNS_8JsonArgsESt17basic_string_viewIcSF_EPNS_16ValidationErrorsEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10820,7 +10820,7 @@ _ZNSt14_Optional_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Po
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

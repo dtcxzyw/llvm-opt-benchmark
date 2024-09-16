@@ -1613,7 +1613,7 @@ ucp_handle_string.exit122.i:                      ; preds = %237, %235
 
 ucp_handle_byte.exit124.i:                        ; preds = %244, %ucp_handle_string.exit122.i
   %248 = load i32, ptr @hf_ucp_parm_NPID, align 4
-  %249 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %248, ptr noundef nonnull %6)
+  %249 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %248, ptr noundef %6)
   %250 = load i32, ptr @hf_ucp_parm_LRq, align 4
   %251 = load i32, ptr %6, align 4
   %252 = add i32 %251, 1
@@ -1659,7 +1659,7 @@ ucp_handle_string.exit133.i:                      ; preds = %268, %266
   %spec.select.i131.i = add i32 %271, %.0.i129.i
   store i32 %spec.select.i131.i, ptr %6, align 4
   %272 = load i32, ptr @hf_ucp_parm_LPID, align 4
-  %273 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %272, ptr noundef nonnull %6)
+  %273 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %272, ptr noundef %6)
   %274 = load i32, ptr @hf_ucp_parm_DD, align 4
   %275 = load i32, ptr %6, align 4
   %276 = add i32 %275, 1
@@ -1677,9 +1677,9 @@ ucp_handle_string.exit133.i:                      ; preds = %268, %266
 
 ucp_handle_byte.exit135.i:                        ; preds = %278, %ucp_handle_string.exit133.i
   %282 = load i32, ptr @hf_ucp_parm_DDT, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %96, ptr noundef %91, i32 noundef %282, ptr noundef nonnull %6)
+  call fastcc void @ucp_handle_time(ptr noundef %96, ptr noundef %91, i32 noundef %282, ptr noundef %6)
   %283 = load i32, ptr @hf_ucp_parm_VP, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %96, ptr noundef %91, i32 noundef %283, ptr noundef nonnull %6)
+  call fastcc void @ucp_handle_time(ptr noundef %96, ptr noundef %91, i32 noundef %283, ptr noundef %6)
   %284 = load i32, ptr @hf_ucp_parm_RPID, align 4
   %285 = load i32, ptr %6, align 4
   %286 = tail call i32 @tvb_find_guint8(ptr noundef %91, i32 noundef %285, i32 noundef -1, i8 noundef zeroext 47) #4
@@ -1711,7 +1711,7 @@ ucp_handle_string.exit142.i:                      ; preds = %295, %293
   %spec.select.i140.i = add i32 %298, %.0.i138.i
   store i32 %spec.select.i140.i, ptr %6, align 4
   %299 = load i32, ptr @hf_ucp_parm_SCTS, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %96, ptr noundef %91, i32 noundef %299, ptr noundef nonnull %6)
+  call fastcc void @ucp_handle_time(ptr noundef %96, ptr noundef %91, i32 noundef %299, ptr noundef %6)
   %300 = load i32, ptr @hf_ucp_parm_Dst, align 4
   %301 = load i32, ptr %6, align 4
   %302 = add i32 %301, 1
@@ -1729,9 +1729,9 @@ ucp_handle_string.exit142.i:                      ; preds = %295, %293
 
 ucp_handle_byte.exit144.i:                        ; preds = %304, %ucp_handle_string.exit142.i
   %308 = load i32, ptr @hf_ucp_parm_Rsn, align 4
-  %309 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %308, ptr noundef nonnull %6)
+  %309 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %308, ptr noundef %6)
   %310 = load i32, ptr @hf_ucp_parm_DSCTS, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %96, ptr noundef %91, i32 noundef %310, ptr noundef nonnull %6)
+  call fastcc void @ucp_handle_time(ptr noundef %96, ptr noundef %91, i32 noundef %310, ptr noundef %6)
   %311 = load i32, ptr @hf_ucp_parm_MT, align 4
   %312 = load i32, ptr %6, align 4
   %313 = add i32 %312, 1
@@ -1802,7 +1802,7 @@ ucp_handle_string.exit153.i:                      ; preds = %329, %327
 
 344:                                              ; preds = %ucp_handle_string.exit153.i
   %345 = load i32, ptr @hf_ucp_parm_AMsg, align 4
-  call fastcc void @ucp_handle_IRAstring(ptr noundef %96, ptr noundef %91, i32 noundef %345, ptr noundef nonnull %6)
+  call fastcc void @ucp_handle_IRAstring(ptr noundef %96, ptr noundef %91, i32 noundef %345, ptr noundef %6)
   %.pre.i = load i32, ptr %6, align 4
   br label %ucp_handle_data.exit.i
 
@@ -1907,7 +1907,7 @@ ucp_handle_byte.exit165.i:                        ; preds = %382, %ucp_handle_by
 
 401:                                              ; preds = %397, %393
   %402 = load i32, ptr @hf_ucp_parm_OTOA, align 4
-  %403 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %402, ptr noundef nonnull %6)
+  %403 = call fastcc i32 @ucp_handle_int(ptr noundef %96, ptr noundef %1, ptr noundef %91, i32 noundef %402, ptr noundef %6)
   %404 = icmp eq i32 %403, 5039
   br i1 %404, label %405, label %proto_item_set_hidden.exit.i
 
@@ -2429,18 +2429,18 @@ ucp_handle_byte.exit47:                           ; preds = %ucp_handle_byte.exi
 
 ucp_handle_byte.exit49:                           ; preds = %ucp_handle_byte.exit47, %69
   %73 = load i32, ptr @hf_ucp_parm_NoN, align 4
-  %74 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %73, ptr noundef nonnull %5)
+  %74 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %73, ptr noundef %5)
   %75 = load i32, ptr @hf_ucp_parm_NoA, align 4
-  %76 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %75, ptr noundef nonnull %5)
+  %76 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %75, ptr noundef %5)
   %77 = load i32, ptr @hf_ucp_parm_NoB, align 4
-  %78 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %77, ptr noundef nonnull %5)
+  %78 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %77, ptr noundef %5)
   %79 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %79, align 4
   br label %ucp_handle_string.exit
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %80 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %81 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %80, ptr noundef nonnull %5)
+  %81 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %80, ptr noundef %5)
   %82 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %81, ptr %82, align 4
   %83 = load i32, ptr @hf_ucp_parm_SM, align 4
@@ -2560,7 +2560,7 @@ ucp_handle_string.exit22:                         ; preds = %39, %41
   %44 = add i32 %spec.select.i13, %43
   %spec.select.i20 = add i32 %44, %.0.i18
   store i32 %spec.select.i20, ptr %4, align 4
-  call fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  call fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
@@ -2581,7 +2581,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 
 11:                                               ; preds = %ucp_handle_byte.exit
   %12 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef %5)
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %13, ptr %14, align 4
   %.pre = load i32, ptr %5, align 4
@@ -2628,7 +2628,7 @@ define internal fastcc void @add_02O(ptr noundef %0, ptr noundef %1, ptr noundef
   %4 = alloca i32, align 4
   store i32 1, ptr %4, align 4
   %5 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %6 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, ptr noundef %4)
   %.promoted = load i32, ptr %4, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2727,7 +2727,7 @@ ucp_handle_string.exit27:                         ; preds = %44, %46
   %49 = add i32 %spec.select.i18, %48
   %spec.select.i25 = add i32 %49, %.0.i23
   store i32 %spec.select.i25, ptr %4, align 4
-  call fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  call fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
@@ -2820,7 +2820,7 @@ ucp_handle_string.exit49:                         ; preds = %39, %41
   %spec.select.i47 = add i32 %44, %.0.i45
   store i32 %spec.select.i47, ptr %4, align 4
   %45 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %46 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %45, ptr noundef nonnull %4)
+  %46 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %45, ptr noundef %4)
   %.promoted = load i32, ptr %4, align 4
   %.not96 = icmp eq i32 %46, 0
   br i1 %.not96, label %._crit_edge, label %.lr.ph
@@ -3048,8 +3048,8 @@ ucp_handle_string.exit90:                         ; preds = %144, %146
 
 ucp_handle_byte.exit92:                           ; preds = %ucp_handle_string.exit90, %153
   %157 = load i32, ptr @hf_ucp_parm_DDT, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %157, ptr noundef nonnull %4)
-  call fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %157, ptr noundef %4)
+  call fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
@@ -3184,7 +3184,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 
 11:                                               ; preds = %ucp_handle_byte.exit
   %12 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef %5)
   %.promoted = load i32, ptr %5, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3260,7 +3260,7 @@ ucp_handle_string.exit25:                         ; preds = %37, %39
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %44 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %45 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %44, ptr noundef nonnull %5)
+  %45 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %44, ptr noundef %5)
   %46 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %45, ptr %46, align 4
   %.pre = load i32, ptr %5, align 4
@@ -3413,7 +3413,7 @@ ucp_handle_string.exit37:                         ; preds = %53, %55
   %spec.select.i35 = add i32 %58, %.0.i33
   store i32 %spec.select.i35, ptr %4, align 4
   %59 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %60 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %59, ptr noundef nonnull %4)
+  %60 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %59, ptr noundef %4)
   %.promoted = load i32, ptr %4, align 4
   %.not48 = icmp eq i32 %60, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
@@ -3544,7 +3544,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 
 11:                                               ; preds = %ucp_handle_byte.exit
   %12 = load i32, ptr @hf_ucp_parm_CT, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %12, ptr noundef nonnull %5)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %12, ptr noundef %5)
   %13 = load i32, ptr @hf_ucp_parm_AAC, align 4
   %14 = load i32, ptr %5, align 4
   %15 = tail call i32 @tvb_find_guint8(ptr noundef %2, i32 noundef %14, i32 noundef -1, i8 noundef zeroext 47) #4
@@ -3580,7 +3580,7 @@ ucp_handle_string.exit:                           ; preds = %22, %24
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %29 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %30 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %29, ptr noundef nonnull %5)
+  %30 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %29, ptr noundef %5)
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %30, ptr %31, align 4
   %.pre = load i32, ptr %5, align 4
@@ -4029,7 +4029,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 
 11:                                               ; preds = %ucp_handle_byte.exit
   %12 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef %5)
   %.promoted = load i32, ptr %5, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -4077,7 +4077,7 @@ ucp_handle_string.exit:                           ; preds = %22, %24
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %30 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %31 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %30, ptr noundef nonnull %5)
+  %31 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %30, ptr noundef %5)
   %32 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %31, ptr %32, align 4
   %.pre = load i32, ptr %5, align 4
@@ -4251,7 +4251,7 @@ ucp_handle_string.exit33:                         ; preds = %53, %55
 ucp_handle_data.exit:                             ; preds = %63, %66
   store i32 %61, ptr %4, align 4
   %69 = load i32, ptr @hf_ucp_parm_CS, align 4
-  %70 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %69, ptr noundef nonnull %4)
+  %70 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %69, ptr noundef %4)
   ret void
 }
 
@@ -4273,7 +4273,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 
 11:                                               ; preds = %ucp_handle_byte.exit
   %12 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef %5)
   %.promoted = load i32, ptr %5, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -4321,7 +4321,7 @@ ucp_handle_string.exit:                           ; preds = %22, %24
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %30 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %31 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %30, ptr noundef nonnull %5)
+  %31 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %30, ptr noundef %5)
   %32 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %31, ptr %32, align 4
   %.pre = load i32, ptr %5, align 4
@@ -4417,7 +4417,7 @@ ucp_handle_string.exit17:                         ; preds = %25, %27
   %spec.select.i15 = add i32 %30, %.0.i13
   store i32 %spec.select.i15, ptr %4, align 4
   %31 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %32 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %31, ptr noundef nonnull %4)
+  %32 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %31, ptr noundef %4)
   %.not28 = icmp eq i32 %32, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4581,7 +4581,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 
 11:                                               ; preds = %ucp_handle_byte.exit
   %12 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef %5)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4624,7 +4624,7 @@ ucp_handle_data.exit:                             ; preds = %18, %21
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %26 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %27 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26, ptr noundef nonnull %5)
+  %27 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26, ptr noundef %5)
   %28 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %27, ptr %28, align 4
   %29 = load i32, ptr @hf_ucp_parm_SM, align 4
@@ -4716,9 +4716,9 @@ ucp_handle_string.exit14:                         ; preds = %24, %26
   %spec.select.i12 = add i32 %29, %.0.i10
   store i32 %spec.select.i12, ptr %3, align 4
   %30 = load i32, ptr @hf_ucp_parm_ST, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %30, ptr noundef nonnull %3)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %30, ptr noundef %3)
   %31 = load i32, ptr @hf_ucp_parm_SP, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %31, ptr noundef nonnull %3)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %31, ptr noundef %3)
   ret void
 }
 
@@ -4811,9 +4811,9 @@ ucp_handle_string.exit23:                         ; preds = %38, %40
   %spec.select.i21 = add i32 %43, %.0.i19
   store i32 %spec.select.i21, ptr %3, align 4
   %44 = load i32, ptr @hf_ucp_parm_ST, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %44, ptr noundef nonnull %3)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %44, ptr noundef %3)
   %45 = load i32, ptr @hf_ucp_parm_SP, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %45, ptr noundef nonnull %3)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %45, ptr noundef %3)
   ret void
 }
 
@@ -4877,9 +4877,9 @@ ucp_handle_string.exit14:                         ; preds = %24, %26
   %spec.select.i12 = add i32 %29, %.0.i10
   store i32 %spec.select.i12, ptr %3, align 4
   %30 = load i32, ptr @hf_ucp_parm_ST, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %30, ptr noundef nonnull %3)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %30, ptr noundef %3)
   %31 = load i32, ptr @hf_ucp_parm_SP, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %31, ptr noundef nonnull %3)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %31, ptr noundef %3)
   ret void
 }
 
@@ -4993,7 +4993,7 @@ ucp_handle_string.exit24:                         ; preds = %39, %41
 ucp_handle_data.exit:                             ; preds = %49, %52
   store i32 %47, ptr %4, align 4
   %55 = load i32, ptr @hf_ucp_parm_CS, align 4
-  %56 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %55, ptr noundef nonnull %4)
+  %56 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %55, ptr noundef %4)
   ret void
 }
 
@@ -5071,21 +5071,21 @@ ucp_handle_byte.exit:                             ; preds = %4
 
 ucp_handle_byte.exit21:                           ; preds = %11, %14
   %17 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %18 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %5)
+  %18 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, ptr noundef %5)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ucp_handle_byte.exit21, %.lr.ph
   %.022 = phi i32 [ %21, %.lr.ph ], [ 0, %ucp_handle_byte.exit21 ]
   %19 = load i32, ptr @hf_ucp_hdr_OT, align 4
-  %20 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %19, ptr noundef nonnull %5)
+  %20 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %19, ptr noundef %5)
   %21 = add nuw i32 %.022, 1
   %exitcond.not = icmp eq i32 %21, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %22 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %23 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %22, ptr noundef nonnull %5)
+  %23 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %22, ptr noundef %5)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %ucp_handle_byte.exit21, %ucp_handle_byte.exit.thread
@@ -5227,7 +5227,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 20:                                               ; preds = %13
   store i32 3, ptr %5, align 4
   %21 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %22 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, ptr noundef nonnull %5)
+  %22 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, ptr noundef %5)
   %.promoted = load i32, ptr %5, align 4
   %.not122 = icmp eq i32 %22, 0
   br i1 %.not122, label %.loopexit97, label %.lr.ph
@@ -5282,7 +5282,7 @@ ucp_handle_data.exit:                             ; preds = %27, %30
 45:                                               ; preds = %37
   store i32 %34, ptr %5, align 4
   %46 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %47 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %46, ptr noundef nonnull %5)
+  %47 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %46, ptr noundef %5)
   %.promoted104 = load i32, ptr %5, align 4
   %.not123 = icmp eq i32 %47, 0
   br i1 %.not123, label %.loopexit96, label %.lr.ph108
@@ -5337,7 +5337,7 @@ ucp_handle_data.exit87:                           ; preds = %52, %55
 70:                                               ; preds = %62
   store i32 %59, ptr %5, align 4
   %71 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %72 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %71, ptr noundef nonnull %5)
+  %72 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %71, ptr noundef %5)
   %.promoted110 = load i32, ptr %5, align 4
   %.not124 = icmp eq i32 %72, 0
   br i1 %.not124, label %.loopexit95, label %.lr.ph114
@@ -5393,7 +5393,7 @@ ucp_handle_data.exit90:                           ; preds = %77, %80
 95:                                               ; preds = %87
   store i32 %84, ptr %5, align 4
   %96 = load i32, ptr @hf_ucp_parm_NPL, align 4
-  %97 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %96, ptr noundef nonnull %5)
+  %97 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %96, ptr noundef %5)
   %.promoted116 = load i32, ptr %5, align 4
   %.not125 = icmp eq i32 %97, 0
   br i1 %.not125, label %.sink.split, label %.lr.ph120
@@ -5433,7 +5433,7 @@ ucp_handle_data.exit93:                           ; preds = %102, %105
 
 109:                                              ; preds = %.sink.split, %.loopexit95
   %110 = load i32, ptr @hf_ucp_parm_LMN, align 4
-  %111 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %110, ptr noundef nonnull %5)
+  %111 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %110, ptr noundef %5)
   %112 = load i32, ptr %5, align 4
   %113 = add i32 %112, 1
   store i32 %113, ptr %5, align 4
@@ -5453,12 +5453,12 @@ ucp_handle_data.exit93:                           ; preds = %102, %105
 119:                                              ; preds = %109
   store i32 %112, ptr %5, align 4
   %120 = load i32, ptr @hf_ucp_parm_NMESS, align 4
-  %121 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %120, ptr noundef nonnull %5)
+  %121 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %120, ptr noundef %5)
   br label %124
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %122 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %123 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %122, ptr noundef nonnull %5)
+  %123 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %122, ptr noundef %5)
   br label %124
 
 124:                                              ; preds = %119, %115, %109, %ucp_handle_byte.exit.thread
@@ -5625,7 +5625,7 @@ ucp_handle_string.exit41:                         ; preds = %61, %63
   %spec.select.i39 = add i32 %66, %.0.i37
   store i32 %spec.select.i39, ptr %4, align 4
   %67 = load i32, ptr @hf_ucp_parm_NPID, align 4
-  %68 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %67, ptr noundef nonnull %4)
+  %68 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %67, ptr noundef %4)
   %69 = load i32, ptr @hf_ucp_parm_DD, align 4
   %70 = load i32, ptr %4, align 4
   %71 = add i32 %70, 1
@@ -5643,11 +5643,11 @@ ucp_handle_string.exit41:                         ; preds = %61, %63
 
 ucp_handle_byte.exit43:                           ; preds = %ucp_handle_string.exit41, %73
   %77 = load i32, ptr @hf_ucp_parm_DDT, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %77, ptr noundef nonnull %4)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %77, ptr noundef %4)
   %78 = load i32, ptr @hf_ucp_parm_VP, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %78, ptr noundef nonnull %4)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %78, ptr noundef %4)
   %79 = load i32, ptr @hf_ucp_parm_AMsg, align 4
-  call fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %2, i32 noundef %79, ptr noundef nonnull %4)
+  call fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %2, i32 noundef %79, ptr noundef %4)
   ret void
 }
 
@@ -5669,12 +5669,12 @@ ucp_handle_byte.exit:                             ; preds = %4
 
 11:                                               ; preds = %ucp_handle_byte.exit
   %12 = load i32, ptr @hf_ucp_parm_MVP, align 4
-  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %12, ptr noundef nonnull %5)
+  call fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %2, i32 noundef %12, ptr noundef %5)
   br label %15
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %13 = load i32, ptr @hf_ucp_parm_EC, align 4
-  %14 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %13, ptr noundef nonnull %5)
+  %14 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %13, ptr noundef %5)
   br label %15
 
 15:                                               ; preds = %ucp_handle_byte.exit.thread, %11
@@ -5742,7 +5742,7 @@ ucp_handle_string.exit:                           ; preds = %12, %14
   %spec.select.i = add i32 %16, %.0.i
   store i32 %spec.select.i, ptr %4, align 4
   %17 = load i32, ptr @hf_ucp_parm_PID, align 4
-  %18 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %4)
+  %18 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, ptr noundef %4)
   ret void
 }
 
@@ -5834,9 +5834,9 @@ ucp_handle_byte.exit34.sink.split:                ; preds = %41, %38
 
 ucp_handle_byte.exit34:                           ; preds = %ucp_handle_byte.exit34.sink.split, %41, %38
   %47 = load i32, ptr @hf_ucp_parm_PWD, align 4
-  call fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %2, i32 noundef %47, ptr noundef nonnull %5)
+  call fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %2, i32 noundef %47, ptr noundef %5)
   %48 = load i32, ptr @hf_ucp_parm_NPWD, align 4
-  call fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %2, i32 noundef %48, ptr noundef nonnull %5)
+  call fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %2, i32 noundef %48, ptr noundef %5)
   %49 = load i32, ptr @hf_ucp_parm_VERS, align 4
   %50 = load i32, ptr %5, align 4
   %51 = tail call i32 @tvb_find_guint8(ptr noundef %2, i32 noundef %50, i32 noundef -1, i8 noundef zeroext 47) #4
@@ -5928,7 +5928,7 @@ ucp_handle_byte.exit54:                           ; preds = %ucp_handle_byte.exi
 
 94:                                               ; preds = %ucp_handle_byte.exit54
   %95 = load i32, ptr @hf_ucp_parm_OPID, align 4
-  %96 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %95, ptr noundef nonnull %5)
+  %96 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %95, ptr noundef %5)
   %.pre = load i32, ptr %5, align 4
   br label %97
 
@@ -5994,7 +5994,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   %7 = load i32, ptr %4, align 4
@@ -6050,7 +6050,7 @@ declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_ucp_parm_MT, align 4
   %6 = load i32, ptr %3, align 4
   %7 = add i32 %6, 1
@@ -6142,7 +6142,7 @@ ucp_handle_data.exit:                             ; preds = %39, %43
 
 46:                                               ; preds = %ucp_handle_byte.exit
   %47 = load i32, ptr @hf_ucp_parm_AMsg, align 4
-  tail call fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %2, i32 noundef %47, ptr noundef nonnull %3)
+  tail call fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %2, i32 noundef %47, ptr noundef %3)
   br label %ucp_handle_byte.exit.thread
 
 48:                                               ; preds = %ucp_handle_byte.exit
@@ -6297,7 +6297,7 @@ ucp_handle_string.exit55:                         ; preds = %103, %105
 ucp_handle_data.exit58:                           ; preds = %115, %119
   store i32 %113, ptr %3, align 4
   %122 = load i32, ptr @hf_ucp_parm_CS, align 4
-  %123 = tail call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %122, ptr noundef nonnull %3)
+  %123 = tail call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %122, ptr noundef %3)
   br label %ucp_handle_byte.exit.thread
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit, %ucp_handle_data.exit58, %ucp_handle_string.exit55, %46, %ucp_handle_data.exit
@@ -6305,7 +6305,7 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %3, align 4
   %7 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %6, i32 noundef -1, i8 noundef zeroext 47) #4
@@ -6433,7 +6433,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.tm, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = load i32, ptr %3, align 4

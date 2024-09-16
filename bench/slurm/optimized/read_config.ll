@@ -13765,7 +13765,7 @@ _validate_bcast_exclude.exit:                     ; preds = %.lr.ph.i1260
 
 1357:                                             ; preds = %1355
   %1358 = load ptr, ptr %9, align 8
-  %1359 = call fastcc i32 @_parse_select_type_param(ptr noundef %1358, ptr noundef nonnull %19)
+  %1359 = call fastcc i32 @_parse_select_type_param(ptr noundef %1358, ptr noundef %19)
   %.not1183 = icmp eq i32 %1359, 0
   br i1 %.not1183, label %1363, label %1360
 
@@ -15132,7 +15132,7 @@ declare i32 @time_str2secs(ptr noundef) local_unnamed_addr #1
 declare void @extra_constraints_set_parsing(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_parse_select_type_param(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_parse_select_type_param(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store i16 0, ptr %1, align 2
   %4 = tail call ptr @xstrdup(ptr noundef %0) #18

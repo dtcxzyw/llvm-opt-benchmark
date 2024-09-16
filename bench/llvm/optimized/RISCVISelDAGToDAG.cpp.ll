@@ -4917,7 +4917,7 @@ _ZN4llvm5SDLocC2ERKS0_.exit57:                    ; preds = %102, %105
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %108 = load i32, ptr %30, align 8
   store i32 %108, ptr %107, align 8
-  %109 = call fastcc noundef ptr @"_ZZN4llvm17RISCVDAGToDAGISel24trySignedBitfieldExtractEPNS_6SDNodeEENK3$_0clENS_7SDValueEjjNS_5SDLocENS_3MVTE"(ptr nonnull %0, ptr nonnull %.sroa.065.0.copyload, i32 noundef %103, i32 noundef %42, ptr noundef nonnull %11, i16 %.sroa.0.0.copyload.i.i)
+  %109 = call fastcc noundef ptr @"_ZZN4llvm17RISCVDAGToDAGISel24trySignedBitfieldExtractEPNS_6SDNodeEENK3$_0clENS_7SDValueEjjNS_5SDLocENS_3MVTE"(ptr nonnull %0, ptr nonnull %.sroa.065.0.copyload, i32 noundef %103, i32 noundef %42, ptr noundef %11, i16 %.sroa.0.0.copyload.i.i)
   %110 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i58 = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i.i58, label %_ZN4llvm5SDLocD2Ev.exit59, label %111
@@ -6875,7 +6875,7 @@ _ZN4llvm5SDLocC2ERKS0_.exit:                      ; preds = %.critedge, %790
   %792 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %793 = load i32, ptr %173, align 8
   store i32 %793, ptr %792, align 8
-  %794 = call fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %47, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.02181.0.copyload, i32 %.sroa.22.0.copyload, i32 noundef %788, i32 noundef %701)
+  %794 = call fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nonnull %0, ptr noundef nonnull %1, ptr noundef %47, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.02181.0.copyload, i32 %.sroa.22.0.copyload, i32 noundef %788, i32 noundef %701)
   %795 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i1553 = icmp eq ptr %795, null
   br i1 %.not.i.i.i.i.i1553, label %_ZN4llvm5SDLocD2Ev.exit, label %796
@@ -7662,7 +7662,7 @@ _ZN4llvm5SDLocC2ERKS0_.exit1591:                  ; preds = %1164, %1169
   %1171 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %1172 = load i32, ptr %173, align 8
   store i32 %1172, ptr %1171, align 8
-  %1173 = call fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %92, i16 %.sroa.0.0.copyload.i.i, ptr nonnull %.sroa.02244.0.copyload, i32 %.sroa.14.0.copyload, i32 noundef %1167, i32 noundef 0)
+  %1173 = call fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nonnull %0, ptr noundef nonnull %1, ptr noundef %92, i16 %.sroa.0.0.copyload.i.i, ptr nonnull %.sroa.02244.0.copyload, i32 %.sroa.14.0.copyload, i32 noundef %1167, i32 noundef 0)
   %1174 = load ptr, ptr %92, align 8
   %.not.i.i.i.i.i1592 = icmp eq ptr %1174, null
   br i1 %.not.i.i.i.i.i1592, label %_ZN4llvm5SDLocD2Ev.exit1593, label %1175
@@ -10152,7 +10152,7 @@ declare { ptr, i32 } @_ZN4llvm12SelectionDAG22getTargetExtractSubregEiRKNS_5SDLo
 declare noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_(ptr noundef nonnull align 8 dereferenceable(904), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nocapture readonly %.0.val, ptr noundef %0, ptr noundef %1, i16 %2, ptr %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nocapture readonly %.0.val, ptr noundef %0, ptr noundef nonnull %1, i16 %2, ptr %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::SDValue", align 8
   %9 = alloca %"class.llvm::SDValue", align 8
   %10 = alloca %"class.llvm::SDValue", align 8
@@ -14552,7 +14552,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel17selectVSplatSi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %10, align 8
-  %12 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %7, ptr noundef nonnull align 8 dereferenceable(409192) %9, ptr noundef nonnull %5)
+  %12 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %7, ptr noundef nonnull align 8 dereferenceable(409192) %9, ptr noundef %5)
   %13 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZNSt8functionIFblEED2Ev.exit, label %14
@@ -14566,7 +14566,7 @@ _ZNSt8functionIFblEED2Ev.exit:                    ; preds = %4, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr nocapture readonly %0, i32 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(904) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409192) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr nocapture readonly %0, i32 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(904) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409192) %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %"struct.llvm::EVT", align 8
   %9 = alloca %"struct.llvm::EVT", align 8
@@ -14805,7 +14805,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel22selectVSplatSi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %10, align 8
-  %12 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %7, ptr noundef nonnull align 8 dereferenceable(409192) %9, ptr noundef nonnull %5)
+  %12 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %7, ptr noundef nonnull align 8 dereferenceable(409192) %9, ptr noundef %5)
   %13 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZNSt8functionIFblEED2Ev.exit, label %14
@@ -14830,7 +14830,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel29selectVSplatSi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %10, align 8
-  %12 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %7, ptr noundef nonnull align 8 dereferenceable(409192) %9, ptr noundef nonnull %5)
+  %12 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %7, ptr noundef nonnull align 8 dereferenceable(409192) %9, ptr noundef %5)
   %13 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZNSt8functionIFblEED2Ev.exit, label %14
@@ -14856,7 +14856,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel16selectVSplatUi
   store i32 %3, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %11, align 8
-  %13 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(904) %8, ptr noundef nonnull align 8 dereferenceable(409192) %10, ptr noundef nonnull %6)
+  %13 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(904) %8, ptr noundef nonnull align 8 dereferenceable(409192) %10, ptr noundef %6)
   %14 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZNSt8functionIFblEED2Ev.exit, label %15
@@ -23062,7 +23062,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel19Chec
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %60, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %59, align 8
-  %61 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %54, ptr noundef nonnull align 8 dereferenceable(904) %56, ptr noundef nonnull align 8 dereferenceable(409192) %58, ptr noundef nonnull %12)
+  %61 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %54, ptr noundef nonnull align 8 dereferenceable(904) %56, ptr noundef nonnull align 8 dereferenceable(409192) %58, ptr noundef %12)
   %62 = load ptr, ptr %59, align 8
   %.not.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i, label %_ZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS_7SDValueERS1_.exit, label %63
@@ -23092,7 +23092,7 @@ _ZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS_7SDValueERS1_.exit: ; preds = 
   store i32 5, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %75, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %74, align 8
-  %76 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 8 dereferenceable(904) %71, ptr noundef nonnull align 8 dereferenceable(409192) %73, ptr noundef nonnull %11)
+  %76 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 8 dereferenceable(904) %71, ptr noundef nonnull align 8 dereferenceable(409192) %73, ptr noundef %11)
   %77 = load ptr, ptr %74, align 8
   %.not.i.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm17RISCVDAGToDAGISel20selectVSplatUimmBitsILj5EEEbNS_7SDValueERS2_.exit, label %78
@@ -23121,7 +23121,7 @@ _ZN4llvm17RISCVDAGToDAGISel20selectVSplatUimmBitsILj5EEEbNS_7SDValueERS2_.exit: 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %90, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %89, align 8
-  %91 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %84, ptr noundef nonnull align 8 dereferenceable(904) %86, ptr noundef nonnull align 8 dereferenceable(409192) %88, ptr noundef nonnull %10)
+  %91 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %84, ptr noundef nonnull align 8 dereferenceable(904) %86, ptr noundef nonnull align 8 dereferenceable(409192) %88, ptr noundef %10)
   %92 = load ptr, ptr %89, align 8
   %.not.i.i.i343 = icmp eq ptr %92, null
   br i1 %.not.i.i.i343, label %_ZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS_7SDValueERS1_.exit, label %93
@@ -23150,7 +23150,7 @@ _ZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS_7SDValueERS1_.exit: ; pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %105, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %104, align 8
-  %106 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %99, ptr noundef nonnull align 8 dereferenceable(904) %101, ptr noundef nonnull align 8 dereferenceable(409192) %103, ptr noundef nonnull %9)
+  %106 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %99, ptr noundef nonnull align 8 dereferenceable(904) %101, ptr noundef nonnull align 8 dereferenceable(409192) %103, ptr noundef %9)
   %107 = load ptr, ptr %104, align 8
   %.not.i.i.i344 = icmp eq ptr %107, null
   br i1 %.not.i.i.i344, label %_ZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS_7SDValueERS1_.exit, label %108
@@ -23198,7 +23198,7 @@ _ZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS_7SDValueERS1_.exit
   store i32 6, ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %132, align 8
   store ptr @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %131, align 8
-  %133 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %126, ptr noundef nonnull align 8 dereferenceable(904) %128, ptr noundef nonnull align 8 dereferenceable(409192) %130, ptr noundef nonnull %8)
+  %133 = call fastcc noundef zeroext i1 @_ZL21selectVSplatImmHelperN4llvm7SDValueERS0_RNS_12SelectionDAGERKNS_14RISCVSubtargetESt8functionIFblEE(ptr readonly %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %126, ptr noundef nonnull align 8 dereferenceable(904) %128, ptr noundef nonnull align 8 dereferenceable(409192) %130, ptr noundef %8)
   %134 = load ptr, ptr %131, align 8
   %.not.i.i.i.i345 = icmp eq ptr %134, null
   br i1 %.not.i.i.i.i345, label %_ZN4llvm17RISCVDAGToDAGISel20selectVSplatUimmBitsILj6EEEbNS_7SDValueERS2_.exit, label %135

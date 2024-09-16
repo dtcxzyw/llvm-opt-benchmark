@@ -136,7 +136,7 @@ define { i64, ptr } @jv_get(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #
   %63 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #6
   %64 = extractvalue { i64, ptr } %63, 0
   %65 = extractvalue { i64, ptr } %63, 1
-  %66 = call fastcc { i64, ptr } @parse_slice(i64 %64, ptr %65, i64 %2, ptr %3, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %66 = call fastcc { i64, ptr } @parse_slice(i64 %64, ptr %65, i64 %2, ptr %3, ptr noundef %5, ptr noundef %6)
   %67 = extractvalue { i64, ptr } %66, 0
   %68 = extractvalue { i64, ptr } %66, 1
   %69 = tail call i32 @jv_get_kind(i64 %67, ptr %68) #6
@@ -169,7 +169,7 @@ define { i64, ptr } @jv_get(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #
   %85 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #6
   %86 = extractvalue { i64, ptr } %85, 0
   %87 = extractvalue { i64, ptr } %85, 1
-  %88 = call fastcc { i64, ptr } @parse_slice(i64 %86, ptr %87, i64 %2, ptr %3, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %88 = call fastcc { i64, ptr } @parse_slice(i64 %86, ptr %87, i64 %2, ptr %3, ptr noundef %7, ptr noundef %8)
   %89 = extractvalue { i64, ptr } %88, 0
   %90 = extractvalue { i64, ptr } %88, 1
   %91 = tail call i32 @jv_get_kind(i64 %89, ptr %90) #6
@@ -298,7 +298,7 @@ declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_array_get(i64, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, ptr } @parse_slice(i64 %0, ptr %1, i64 %2, ptr %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc { i64, ptr } @parse_slice(i64 %0, ptr %1, i64 %2, ptr %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #6
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
@@ -573,7 +573,7 @@ define { i64, ptr } @jv_set(i64 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %5) loca
   %68 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0139.3, ptr %.sroa.38.3) #6
   %69 = extractvalue { i64, ptr } %68, 0
   %70 = extractvalue { i64, ptr } %68, 1
-  %71 = call fastcc { i64, ptr } @parse_slice(i64 %69, ptr %70, i64 %2, ptr %3, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %71 = call fastcc { i64, ptr } @parse_slice(i64 %69, ptr %70, i64 %2, ptr %3, ptr noundef %7, ptr noundef %8)
   %72 = extractvalue { i64, ptr } %71, 0
   %73 = extractvalue { i64, ptr } %71, 1
   %74 = tail call i32 @jv_get_kind(i64 %72, ptr %73) #6
@@ -1451,7 +1451,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
   %157 = tail call { i64, ptr } @jv_copy(i64 %.sroa.089.1, ptr %.sroa.13.1) #6
   %158 = extractvalue { i64, ptr } %157, 0
   %159 = extractvalue { i64, ptr } %157, 1
-  %160 = call fastcc { i64, ptr } @parse_slice(i64 %158, ptr %159, i64 %138, ptr %139, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %160 = call fastcc { i64, ptr } @parse_slice(i64 %158, ptr %159, i64 %138, ptr %139, ptr noundef %6, ptr noundef %7)
   %161 = extractvalue { i64, ptr } %160, 0
   %162 = extractvalue { i64, ptr } %160, 1
   %163 = tail call i32 @jv_get_kind(i64 %161, ptr %162) #6

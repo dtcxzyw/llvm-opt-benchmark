@@ -1417,7 +1417,7 @@ common.ret:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !79, !noundef !28
   %cond = icmp eq i32 %2, 8
   br i1 %cond, label %4, label %3
@@ -2576,7 +2576,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   br i1 %167, label %"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit", label %168
 
 168:                                              ; preds = %166
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %27)
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias noundef readonly align 8 dereferenceable(64) %27)
   br label %"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit"
 
 .body.thread320:                                  ; preds = %.body.thread, %170, %142
@@ -2589,7 +2589,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   br i1 %169, label %.body.thread320, label %170
 
 170:                                              ; preds = %.body.thread
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %27)
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE"(ptr noalias noundef readonly align 8 dereferenceable(64) %27)
           to label %.body.thread320 unwind label %171
 
 171:                                              ; preds = %170

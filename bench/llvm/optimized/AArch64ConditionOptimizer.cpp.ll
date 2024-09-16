@@ -755,8 +755,8 @@ _ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEESt8optio
   br i1 %238, label %239, label %248
 
 239:                                              ; preds = %235
-  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias nonnull writable align 4 %12, ptr noundef nonnull %199, i32 noundef %211)
-  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias nonnull writable align 4 %13, ptr noundef nonnull %202, i32 noundef %219)
+  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias writable align 4 %12, ptr noundef %199, i32 noundef %211)
+  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias writable align 4 %13, ptr noundef %202, i32 noundef %219)
   %240 = load i32, ptr %97, align 4
   %241 = load i32, ptr %98, align 4
   %242 = icmp eq i32 %240, %241
@@ -769,8 +769,8 @@ _ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEESt8optio
   br i1 %246, label %247, label %_ZL9parseCondN4llvm8ArrayRefINS_14MachineOperandEEERNS_9AArch64CC8CondCodeE.exit
 
 247:                                              ; preds = %243
-  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %199, ptr noundef nonnull align 4 dereferenceable(12) %12)
-  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %202, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %199, ptr noundef nonnull align 4 dereferenceable(12) %12)
+  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %202, ptr noundef nonnull align 4 dereferenceable(12) %13)
   br label %_ZL9parseCondN4llvm8ArrayRefINS_14MachineOperandEEERNS_9AArch64CC8CondCodeE.exit
 
 248:                                              ; preds = %235, %232
@@ -793,12 +793,12 @@ _ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEESt8optio
   br i1 %spec.select, label %257, label %260
 
 257:                                              ; preds = %255
-  %258 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %199, i32 noundef %211, ptr noundef nonnull %202, i32 noundef %229)
+  %258 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %199, i32 noundef %211, ptr noundef %202, i32 noundef %229)
   %259 = or i1 %.043, %258
   br label %_ZL9parseCondN4llvm8ArrayRefINS_14MachineOperandEEERNS_9AArch64CC8CondCodeE.exit
 
 260:                                              ; preds = %255
-  %261 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %202, i32 noundef %219, ptr noundef nonnull %199, i32 noundef %224)
+  %261 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %202, i32 noundef %219, ptr noundef %199, i32 noundef %224)
   %262 = or i1 %.043, %261
   br label %_ZL9parseCondN4llvm8ArrayRefINS_14MachineOperandEEERNS_9AArch64CC8CondCodeE.exit
 
@@ -1290,7 +1290,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i16, ptr %4, align 4
   %6 = icmp eq i16 %5, 1447
@@ -1366,7 +1366,7 @@ _ZL16getComplementOpci.exit:                      ; preds = %22, %switch.early.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MIMetadata", align 8
@@ -1551,7 +1551,7 @@ _ZN4llvm8DebugLocD2Ev.exit25:                     ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef nonnull %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::tuple.267", align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -1634,7 +1634,7 @@ _ZL16getComplementOpci.exit.i:                    ; preds = %27, %26, %25, %swit
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %35
-  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(12) %6)
+  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %6)
   br label %40
 
 40:                                               ; preds = %_ZL16getComplementOpci.exit.i, %35, %39

@@ -12703,7 +12703,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_skinny_xml(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_skinny_xml(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 2000, 2049) %4) unnamed_addr #0 {
   %6 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -12744,7 +12744,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 33) %3) unnamed_addr #0 {
   %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6

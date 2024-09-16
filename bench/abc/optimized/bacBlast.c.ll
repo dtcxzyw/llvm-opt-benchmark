@@ -2462,7 +2462,7 @@ define void @Bac_NtkCreateAndConnectBuffer(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc i32 @Bac_ObjAlloc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc i32 @Bac_ObjAlloc(ptr nocapture noundef %0, i32 noundef range(i32 -1073741824, 1073741824) %1, i32 noundef %2) unnamed_addr #5 {
   %4 = getelementptr i8, ptr %0, i64 84
   %.val = load i32, ptr %4, align 4
   switch i32 %1, label %65 [
@@ -8447,7 +8447,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef range(i32 -1, 1) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %1, %5

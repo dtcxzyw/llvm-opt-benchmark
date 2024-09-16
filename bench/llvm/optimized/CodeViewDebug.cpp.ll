@@ -10400,9 +10400,9 @@ _ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit: ; preds = %48, %38, %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28emitNullTerminatedSymbolNameRN4llvm10MCStreamerENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL28emitNullTerminatedSymbolNameRN4llvm10MCStreamerENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, i64 %2, i32 noundef range(i32 12, 3841) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallString.694", align 8
-  %6 = sub i32 65279, %3
+  %6 = sub nuw nsw i32 65279, %3
   %7 = zext nneg i32 %6 to i64
   %..i = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
   %8 = getelementptr inbounds i8, ptr %1, i64 %..i

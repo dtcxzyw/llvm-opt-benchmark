@@ -9473,7 +9473,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h7f335ecb705c0432
   %17 = phi i64 [ %9, %.lr.ph.split.us ], [ %.pre.i.i.i.i.us, %13 ]
   %18 = load ptr, ptr %6, align 8, !alias.scope !1703, !noalias !1711, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1720
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %2, i1 false), !noalias !1720
   %20 = load i64, ptr %5, align 8, !alias.scope !1703, !noalias !1711, !noundef !5
   %21 = add i64 %20, %2
   store i64 %21, ptr %5, align 8, !alias.scope !1703, !noalias !1711
@@ -9818,7 +9818,7 @@ define hidden void @"_ZN4core3ptr134drop_in_place$LT$triomphe..arc..Arc$LT$salsa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !range !1773, !noundef !5
@@ -9879,7 +9879,7 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Opti
 
 .body.i:                                          ; preds = %23, %11
   %eh.lpad-body.i = phi { ptr, i32 } [ %24, %23 ], [ %12, %11 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17h9f2fb498d4c015a1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #29
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17h9f2fb498d4c015a1E"(ptr noalias noundef align 8 dereferenceable(16) %3) #29
           to label %37 unwind label %35
 
 25:                                               ; preds = %19, %15, %.noexc.i
@@ -10306,7 +10306,7 @@ define internal void @"_ZN4core3ptr40drop_in_place$LT$$RF$hir_def..ImplId$GT$17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1793, !noundef !5
   %.not.i = icmp eq i64 %2, 2
   br i1 %.not.i, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17he73dad44db0634b8E.exit", label %3
@@ -10320,7 +10320,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17he73dad44db0634b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #29
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17he73dad44db0634b8E"(ptr noalias noundef align 8 dereferenceable(32) %0) #29
           to label %19 unwind label %17
 
 9:                                                ; preds = %3
@@ -10449,7 +10449,7 @@ define internal void @"_ZN4core3ptr47drop_in_place$LT$hir_def..item_tree..TreeId
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17h9f2fb498d4c015a1E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17h9f2fb498d4c015a1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1793, !noundef !5
   %switch = icmp ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h5116b69d314ad13fE.exit", label %3
@@ -10475,7 +10475,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..Wai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1793, !noundef !5
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E.exit", label %4
@@ -10488,7 +10488,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..Ente
 6:                                                ; preds = %4
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #29
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef align 8 dereferenceable(40) %0) #29
           to label %common.resume unwind label %22
 
 "_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit": ; preds = %4
@@ -10499,7 +10499,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..Ente
 10:                                               ; preds = %"_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit"
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17he73dad44db0634b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #29
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17he73dad44db0634b8E"(ptr noalias noundef align 8 dereferenceable(32) %0) #29
           to label %common.resume unwind label %20
 
 12:                                               ; preds = %"_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit"
@@ -10610,7 +10610,7 @@ define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17he73dad44db0634b8E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17he73dad44db0634b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1793, !noundef !5
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr41drop_in_place$LT$tracing..span..Inner$GT$17h51558ccebc16aa57E.exit", label %4
@@ -11345,7 +11345,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h03d460d9b302
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !1965
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !1965
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -11672,7 +11672,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1b29c6c59f2c
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2015
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2015
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -12005,7 +12005,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1bd050a0746a
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !2080
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !2080
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -12332,7 +12332,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1c9228d6efbb
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2130
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2130
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -12665,7 +12665,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h208d18fed2c4
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !2195
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !2195
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -12986,7 +12986,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h26ff89f34e02
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !2245
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !2245
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -13313,7 +13313,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h280effd1a393
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2295
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2295
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -13652,7 +13652,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h2b7867abfaff
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2360
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2360
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -13991,7 +13991,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h30d0576ed1b7
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2425
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2425
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -14330,7 +14330,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3203bb24c5c7
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2490
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2490
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -14663,7 +14663,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328532188327
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !2555
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !2555
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -14984,7 +14984,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328b8b107f95
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !2605
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !2605
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -15311,7 +15311,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h32adee750414
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2655
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2655
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -15650,7 +15650,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h34b788be934e
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2720
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2720
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -15989,7 +15989,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h35797b11c7e3
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2785
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2785
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -16322,7 +16322,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h37c217bcd657
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !2850
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !2850
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -16649,7 +16649,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4337fbb591ad
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !2900
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !2900
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -16982,7 +16982,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4342a7e460a2
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !2965
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !2965
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -17309,7 +17309,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4fa996fd06c4
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3015
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3015
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -17648,7 +17648,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5012ff8c2e4a
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3080
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3080
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -17981,7 +17981,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5281baa56379
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !3145
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !3145
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -18302,7 +18302,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h58c37152a8ea
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !3195
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !3195
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -18623,7 +18623,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5ad3c9e5fa0a
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !3245
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !3245
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -18944,7 +18944,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5b9ff65d055d
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !3295
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !3295
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -19271,7 +19271,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5d751a16e706
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3345
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3345
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -19610,7 +19610,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5df362a564fd
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3410
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3410
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -19949,7 +19949,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60015f662fbc
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3475
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3475
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -20288,7 +20288,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60b3568e6ccb
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3540
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3540
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -20621,7 +20621,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h613cc727f7a6
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !3605
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !3605
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -20942,7 +20942,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h651174b843ee
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !3655
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !3655
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -21263,7 +21263,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6906964aa349
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !3705
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !3705
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -21590,7 +21590,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6a1af2613bc5
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3755
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3755
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -21929,7 +21929,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6c38cc632d04
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3820
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3820
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -22268,7 +22268,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6cb47b53dfb4
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !3885
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !3885
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -22601,7 +22601,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6ec52a12dd7a
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !3950
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !3950
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -22928,7 +22928,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h718d9c7d5392
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4000
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4000
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -23267,7 +23267,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7586815bff23
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4065
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4065
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -23600,7 +23600,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h77a35bd05683
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !4130
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !4130
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -23921,7 +23921,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7e0fc5325753
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !4180
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !4180
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -24242,7 +24242,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h82d02b0b7fd0
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !4230
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !4230
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -24563,7 +24563,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h84eb344e94e7
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !4280
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !4280
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -24890,7 +24890,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h86a80e03d0b2
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4330
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4330
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -25229,7 +25229,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8a2a11e32ea3
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4395
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4395
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -25568,7 +25568,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h909d3bdf0d80
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4460
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4460
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -25907,7 +25907,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h90d2f71ef02c
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4525
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4525
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -26240,7 +26240,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95b67bd2a19e
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !4590
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !4590
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -26567,7 +26567,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95bebdacf432
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4640
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4640
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -26906,7 +26906,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a9c8536bc25
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4705
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4705
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -27239,7 +27239,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9d4f6aa2568c
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !4770
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !4770
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -27566,7 +27566,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha00d11c169ad
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4820
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4820
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -27899,7 +27899,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha05a4a2aafb5
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !4885
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !4885
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -28220,7 +28220,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17had0a657bbd45
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !4935
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !4935
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -28547,7 +28547,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb2ebcce7fa49
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !4985
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !4985
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -28886,7 +28886,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb329ba92e616
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !5050
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !5050
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -29225,7 +29225,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3f473ee3be0
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !5115
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !5115
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -29558,7 +29558,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3fcb3d1cc55
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5180
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5180
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -29879,7 +29879,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb58e986d3f9d
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5230
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5230
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -30200,7 +30200,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbf3a046dd302
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5280
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5280
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -30527,7 +30527,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc177c10d8a36
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !5330
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !5330
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -30866,7 +30866,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb77c4a7e034
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !5395
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !5395
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -31199,7 +31199,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb9979dbe71c
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5460
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5460
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -31520,7 +31520,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcc7ee5fa13c8
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5510
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5510
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -31841,7 +31841,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hce6f218b69e7
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5560
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5560
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -32162,7 +32162,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd3ee3b58121a
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5610
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5610
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -32483,7 +32483,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd4c23e695337
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5660
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5660
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -32804,7 +32804,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd59487972b2c
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5710
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5710
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -33125,7 +33125,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd74defba74ce
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5760
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5760
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -33446,7 +33446,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdc53e4b207e1
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5810
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5810
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -33773,7 +33773,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdebeda864291
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !5860
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !5860
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -34106,7 +34106,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdf28458b9dd3
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !5925
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !5925
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -34433,7 +34433,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17he2f3e8db6a42
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !5975
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !5975
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -34772,7 +34772,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb820260150c
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !6040
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !6040
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -35105,7 +35105,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hed006bb29beb
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i" unwind label %43, !noalias !6105
 
 75:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %79 unwind label %.loopexit.i, !noalias !6105
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit11.i": ; preds = %72, %68
@@ -35432,7 +35432,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf9462b17eeaa
           to label %"_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i" unwind label %43, !noalias !6155
 
 78:                                               ; preds = %69
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17h818796a2ea102318E"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %82 unwind label %.loopexit.i, !noalias !6155
 
 "_ZN4core3ptr76drop_in_place$LT$triomphe..arc..Arc$LT$parking_lot..condvar..Condvar$GT$$GT$17h340d3195d95274bdE.exit9.i": ; preds = %75, %71
@@ -50781,7 +50781,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 27:                                               ; preds = %26
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #29
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef align 8 dereferenceable(40) %9) #29
           to label %common.resume unwind label %29, !noalias !8866
 
 29:                                               ; preds = %27
@@ -50938,7 +50938,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %20,
 
 "_ZN4core3ptr50drop_in_place$LT$hir_def..lang_item..LangItems$GT$17h6921e0775dbd88cdE.exit": ; preds = %.noexc74, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit73"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   ret ptr %.0
 
@@ -50953,7 +50953,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %20,
 
 "_ZN4core3ptr50drop_in_place$LT$hir_def..lang_item..LangItems$GT$17h6921e0775dbd88cdE.exit92": ; preds = %.noexc90, %82, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit"
   %.pn68 = phi { ptr, i32 } [ %83, %82 ], [ %.pn66, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit" ], [ %.pn66, %.noexc90 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11) #29
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %11) #29
           to label %common.resume unwind label %183
 
 82:                                               ; preds = %.noexc74, %80
@@ -51364,7 +51364,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 25:                                               ; preds = %24
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #29
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef align 8 dereferenceable(40) %7) #29
           to label %common.resume unwind label %27, !noalias !8979
 
 27:                                               ; preds = %25
@@ -51387,7 +51387,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread46, %1
 32:                                               ; preds = %74, %.thread, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #29
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %9) #29
           to label %common.resume unwind label %123
 
 34:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -51485,7 +51485,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread46, %1
   br i1 %.not20, label %.thread, label %78
 
 78:                                               ; preds = %77
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %82
 
@@ -51521,7 +51521,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread46, %1
 
 88:                                               ; preds = %.loopexit.split-lp, %.loopexit41
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit41 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #29
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %9) #29
           to label %107 unwind label %123
 
 89:                                               ; preds = %85
@@ -51558,7 +51558,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread46, %1
 .loopexit:                                        ; preds = %96, %105
   %.sroa.3.0.i24 = phi i32 [ %106, %105 ], [ undef, %96 ]
   %.sroa.0.0.i25 = phi i32 [ %104, %105 ], [ 9, %96 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %9)
           to label %116 unwind label %114
 
 107:                                              ; preds = %114, %88
@@ -51780,7 +51780,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #29
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef align 8 dereferenceable(40) %7) #29
           to label %common.resume unwind label %39, !noalias !9070
 
 39:                                               ; preds = %37
@@ -51807,7 +51807,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
 
 "_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$17h6781cb6240455824E.exit": ; preds = %50, %55, %45
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %51, %55 ], [ %51, %50 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12) #29
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %12) #29
           to label %common.resume unwind label %69
 
 45:                                               ; preds = %66, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -51867,7 +51867,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
 
 "_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$17h6781cb6240455824E.exit26": ; preds = %62, %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   ret { ptr, i64 } %61
 
@@ -51986,7 +51986,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11) #29
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h0eacb36224ff19e6E"(ptr noalias noundef align 8 dereferenceable(40) %11) #29
           to label %common.resume unwind label %46, !noalias !9090
 
 46:                                               ; preds = %44
@@ -52125,7 +52125,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %39,
 
 93:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$hir_def..TraitId$GT$$GT$17h8d1021890d72d603E.exit", %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit40"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   %94 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %95 = insertvalue { ptr, i64 } %94, i64 %.sroa.3.0, 1
@@ -52159,7 +52159,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %39,
 
 105:                                              ; preds = %153, %106, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit"
   %.pn35 = phi { ptr, i32 } [ %107, %106 ], [ %.pn33, %153 ], [ %.pn33, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit" ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16) #29
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %16) #29
           to label %common.resume unwind label %151
 
 106:                                              ; preds = %96

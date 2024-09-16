@@ -339,10 +339,11 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sll_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  switch i32 %3, label %6 [
-    i32 25, label %7
-    i32 210, label %5
+define internal fastcc i32 @dissect_sll_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 25, 211) %3) unnamed_addr #0 {
+  %trunc = trunc nuw i32 %3 to i8
+  switch i8 %trunc, label %6 [
+    i8 25, label %7
+    i8 -46, label %5
   ]
 
 5:                                                ; preds = %4
@@ -376,9 +377,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %13
 
 13:                                               ; preds = %switch.hole_check, %7, %switch.lookup
-  switch i32 %3, label %15 [
-    i32 25, label %16
-    i32 210, label %14
+  switch i8 %trunc, label %15 [
+    i8 25, label %16
+    i8 -46, label %14
   ]
 
 14:                                               ; preds = %13
@@ -389,8 +390,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   unreachable
 
 16:                                               ; preds = %13, %14
-  %.sink76 = phi i32 [ 8, %14 ], [ 2, %13 ]
-  %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.sink76) #7
+  %.sink78 = phi i32 [ 8, %14 ], [ 2, %13 ]
+  %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.sink78) #7
   %18 = zext i16 %17 to i32
   %19 = icmp eq i16 %17, 824
   br i1 %19, label %20, label %23
@@ -415,9 +416,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #7
   %33 = tail call ptr @wmem_file_scope() #7
   %34 = tail call noalias ptr @wmem_alloc0(ptr noundef %33, i64 noundef 24) #7
-  switch i32 %3, label %57 [
-    i32 25, label %35
-    i32 210, label %45
+  switch i8 %trunc, label %57 [
+    i8 25, label %35
+    i8 -46, label %45
   ]
 
 35:                                               ; preds = %23
@@ -443,12 +444,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %46 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #7
   %47 = zext i16 %46 to i32
   %48 = icmp ult i16 %46, 1537
-  %cond.i69 = icmp eq i16 %17, 778
-  %hf_sll_ltype.val.i70 = load i32, ptr @hf_sll_ltype, align 4
-  %hf_sll_gretype.val.i71 = load i32, ptr @hf_sll_gretype, align 4
-  %hf_sll_etype.val.i72 = load i32, ptr @hf_sll_etype, align 4
-  %hf_sll_gretype.hf_sll_etype.val.i73 = select i1 %cond.i69, i32 %hf_sll_gretype.val.i71, i32 %hf_sll_etype.val.i72
-  %49 = select i1 %48, i32 %hf_sll_ltype.val.i70, i32 %hf_sll_gretype.hf_sll_etype.val.i73
+  %cond.i71 = icmp eq i16 %17, 778
+  %hf_sll_ltype.val.i72 = load i32, ptr @hf_sll_ltype, align 4
+  %hf_sll_gretype.val.i73 = load i32, ptr @hf_sll_gretype, align 4
+  %hf_sll_etype.val.i74 = load i32, ptr @hf_sll_etype, align 4
+  %hf_sll_gretype.hf_sll_etype.val.i75 = select i1 %cond.i71, i32 %hf_sll_gretype.val.i73, i32 %hf_sll_etype.val.i74
+  %49 = select i1 %48, i32 %hf_sll_ltype.val.i72, i32 %hf_sll_gretype.hf_sll_etype.val.i75
   %50 = tail call ptr @proto_tree_add_uint(ptr noundef %32, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %47) #7
   %51 = load i32, ptr @hf_sll_ifindex, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %51, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
@@ -503,7 +504,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ll_address(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @add_ll_address(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef range(i32 4, 12) %3, i32 noundef range(i32 1, 3) %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = add nuw nsw i32 %4, %3
   %9 = load i32, ptr @hf_sll_halen, align 4
@@ -625,7 +626,7 @@ copy_address_wmem.exit31:                         ; preds = %35, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 16, 21) %4, i32 noundef range(i32 0, 65536) %5, i16 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %struct.ethertype_data_s, align 8
   %9 = tail call ptr @tvb_new_subset_remaining(ptr noundef %3, i32 noundef %4) #7
   %10 = zext i16 %6 to i32

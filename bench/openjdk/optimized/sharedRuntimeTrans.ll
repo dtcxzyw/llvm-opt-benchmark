@@ -1071,7 +1071,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 declare double @sqrt(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noundef range(i32 -2097151, 2097152) %1) unnamed_addr #0 {
   %3 = bitcast double %0 to i64
   %.sroa.0.4.extract.shift.i = lshr i64 %3, 32
   %.sroa.0.4.extract.trunc.i = trunc nuw i64 %.sroa.0.4.extract.shift.i to i32

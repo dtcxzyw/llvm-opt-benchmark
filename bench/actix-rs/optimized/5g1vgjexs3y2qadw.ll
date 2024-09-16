@@ -387,7 +387,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h60c8d03c50c9581
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h31ecfc0f5fb80c6eE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h31ecfc0f5fb80c6eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !17
   %.not = icmp eq ptr %3, null
@@ -739,7 +739,7 @@ _ZN3std4path4Path4join17h081f4dc02bd9adafE.exit:  ; preds = %33
   br i1 %brmerge15, label %47, label %51
 
 51:                                               ; preds = %48, %44
-  call fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h31ecfc0f5fb80c6eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  call fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h31ecfc0f5fb80c6eE"(ptr noalias noundef align 8 dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   %52 = icmp slt i32 %34, 0
   br i1 %52, label %24, label %33

@@ -900,7 +900,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @EVP_RAND_uninstantiate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %primary, ptr noundef %public, ptr noundef %private, ptr noundef %public_random, ptr noundef %private_random, i32 noundef %expect_primary_reseed, i64 noundef %reseed_when) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %primary, ptr noundef %public, ptr noundef %private, ptr noundef %public_random, ptr noundef %private_random, i32 noundef range(i32 0, 2) %expect_primary_reseed, i64 noundef %reseed_when) unnamed_addr #0 {
 entry:
   %params.i.i60 = alloca [2 x %struct.ossl_param_st], align 16
   %n.i.i61 = alloca i32, align 4
@@ -985,8 +985,8 @@ if.then17:                                        ; preds = %if.end15
 
 if.end19:                                         ; preds = %if.then17, %if.end15
   %reseed_when.addr.0 = phi i64 [ %call18, %if.then17 ], [ %reseed_when, %if.end15 ]
-  %cmp20 = icmp eq i32 %expect_primary_reseed, 1
-  %cond21 = select i1 %cmp20, i64 %reseed_when.addr.0, i64 0
+  %cmp20.not = icmp eq i32 %expect_primary_reseed, 0
+  %cond21 = select i1 %cmp20.not, i64 0, i64 %reseed_when.addr.0
   %call.i = call ptr @RAND_get0_public(ptr noundef null) #14
   %call.i.i39 = call ptr @RAND_get_rand_method() #14
   %cmp.not.i.i = icmp eq ptr %call.i.i39, null

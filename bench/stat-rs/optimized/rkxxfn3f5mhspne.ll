@@ -2885,25 +2885,25 @@ define noundef double @_ZN6statrs8function8harmonic8harmonic17hb10dfb4c8202bd94E
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
 define noundef double @_ZN6statrs8function8harmonic12gen_harmonic17hf5a5ac6ebead9cbbE(i64 noundef %0, double noundef %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = icmp eq i64 %0, 0
-  br i1 %3, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit, label %.lr.ph.i
+  br i1 %3, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit, label %4
 
-.lr.ph.i:                                         ; preds = %2
-  %4 = fneg double %1
-  br label %5
+4:                                                ; preds = %2
+  %5 = fneg double %1
+  br label %6
 
-5:                                                ; preds = %5, %.lr.ph.i
-  %.sroa.0.015.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %10, %5 ]
-  %.sroa.0.0814.i = phi i64 [ 0, %.lr.ph.i ], [ %6, %5 ]
-  %6 = add nuw i64 %.sroa.0.0814.i, 1
-  %7 = uitofp i64 %.sroa.0.0814.i to double
-  %8 = fadd double %7, 1.000000e+00
-  %9 = tail call double @llvm.pow.f64(double %8, double %4)
-  %10 = fadd double %.sroa.0.015.i, %9
-  %exitcond.not.i = icmp eq i64 %6, %0
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit, label %5
+6:                                                ; preds = %6, %4
+  %.sroa.0.015.i = phi double [ 0.000000e+00, %4 ], [ %11, %6 ]
+  %.sroa.0.0814.i = phi i64 [ 0, %4 ], [ %7, %6 ]
+  %7 = add nuw i64 %.sroa.0.0814.i, 1
+  %8 = uitofp i64 %.sroa.0.0814.i to double
+  %9 = fadd double %8, 1.000000e+00
+  %10 = tail call double @llvm.pow.f64(double %9, double %5)
+  %11 = fadd double %.sroa.0.015.i, %10
+  %exitcond.not.i = icmp eq i64 %7, %0
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit, label %6
 
-_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit: ; preds = %5, %2
-  %.sroa.0.0 = phi double [ 1.000000e+00, %2 ], [ %10, %5 ]
+_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit: ; preds = %6, %2
+  %.sroa.0.0 = phi double [ 1.000000e+00, %2 ], [ %11, %6 ]
   ret double %.sroa.0.0
 }
 

@@ -3003,7 +3003,7 @@ define range(i32 0, 65536) i32 @cli_ac_scanbuff(ptr nocapture noundef readonly %
   br i1 %125, label %ac_findmatch.exit.thread, label %ac_findmatch.exit
 
 ac_findmatch.exit:                                ; preds = %121
-  %126 = call fastcc i32 @ac_forward_match_branch(ptr noundef readonly %0, i32 noundef %55, i32 noundef %67, i32 noundef %113, i32 noundef %1, ptr noundef nonnull readonly %58, i32 noundef %66, i16 noundef zeroext %115, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %126 = call fastcc i32 @ac_forward_match_branch(ptr noundef readonly %0, i32 noundef %55, i32 noundef %67, i32 noundef %113, i32 noundef %1, ptr noundef nonnull readonly %58, i32 noundef %66, i16 noundef zeroext %115, ptr noundef %13, ptr noundef %14)
   %.not.i.not = icmp eq i32 %126, 0
   br i1 %.not.i.not, label %ac_findmatch.exit.thread, label %.preheader598
 
@@ -4597,7 +4597,7 @@ sub_0636:                                         ; preds = %.tail631.thread
   br label %.backedge
 
 .tail643.thread:                                  ; preds = %sub_0636, %.tail639, %.tail635, %.tail643
-  %273 = call fastcc i32 @ac_special_altstr(ptr noundef nonnull %134, i8 noundef zeroext %3, ptr noundef %136, ptr noundef nonnull %0)
+  %273 = call fastcc i32 @ac_special_altstr(ptr noundef %134, i8 noundef zeroext %3, ptr noundef %136, ptr noundef %0)
   %.not548 = icmp eq i32 %273, 0
   br i1 %.not548, label %.backedge, label %.loopexit650
 
@@ -5334,8 +5334,8 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #12
 declare i64 @cli_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @ac_special_altstr(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call ptr @cli_safer_strdup(ptr noundef %0) #18
+define internal fastcc range(i32 0, 28) i32 @ac_special_altstr(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
+  %5 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %0) #18
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
@@ -5661,7 +5661,7 @@ thread-pre-split:                                 ; preds = %96
 115:                                              ; preds = %109
   %116 = trunc i32 %.4.i85 to i16
   %117 = add i16 %116, 1
-  %118 = tail call fastcc i32 @ac_special_altexpand(ptr noundef nonnull %5, ptr noundef nonnull %113, i16 noundef zeroext %117, i32 noundef 0, i32 noundef 0, i8 noundef zeroext %1, ptr noundef nonnull %2, ptr noundef %3)
+  %118 = tail call fastcc i32 @ac_special_altexpand(ptr noundef nonnull %5, ptr noundef %113, i16 noundef zeroext %117, i32 noundef 0, i32 noundef 0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3)
   tail call void @free(ptr noundef nonnull %113) #18
   tail call void @free(ptr noundef %5) #18
   br label %119
@@ -6187,7 +6187,7 @@ define internal range(i32 -1, 2) i32 @sort_heads_by_partno_fn(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ac_forward_match_branch(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i16 noundef zeroext %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc i32 @ac_forward_match_branch(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 65537) %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = trunc i32 %6 to i16
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load i16, ptr %12, align 8
@@ -6517,7 +6517,7 @@ select.unfold:                                    ; preds = %52, %45, %30, %25, 
 181:                                              ; preds = %167
   %182 = trunc nuw i64 %indvars.iv261 to i32
   %183 = zext i16 %.1248 to i32
-  %184 = tail call fastcc i32 @ac_findmatch_special(ptr noundef %0, i32 noundef %2, i32 noundef %182, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %183, i16 noundef zeroext %.0142.lcssa, ptr noundef %8, ptr noundef nonnull %9, i32 noundef 0)
+  %184 = tail call fastcc i32 @ac_findmatch_special(ptr noundef %0, i32 noundef %2, i32 noundef %182, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %183, i16 noundef zeroext %.0142.lcssa, ptr noundef %8, ptr noundef %9, i32 noundef 0)
   %185 = icmp slt i32 %184, 1
   br i1 %185, label %.loopexit, label %.thread219
 
@@ -6565,7 +6565,7 @@ select.unfold:                                    ; preds = %52, %45, %30, %25, 
   %209 = getelementptr inbounds i8, ptr %5, i64 86
   %210 = load i16, ptr %209, align 2
   %211 = add i16 %210, -1
-  %212 = tail call fastcc i32 @ac_backward_match_branch(ptr noundef %0, i32 noundef %204, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %208, i16 noundef zeroext %211, ptr noundef %8, ptr noundef nonnull %9)
+  %212 = tail call fastcc i32 @ac_backward_match_branch(ptr noundef %0, i32 noundef %204, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %208, i16 noundef zeroext %211, ptr noundef %8, ptr noundef %9)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %30, %45, %52, %38, %200, %.lr.ph250, %59, %._crit_edge251, %181, %153, %108, %86, %.thread219
@@ -6574,7 +6574,7 @@ select.unfold:                                    ; preds = %52, %45, %30, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @ac_findmatch_special(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i16 noundef zeroext %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @ac_findmatch_special(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 65536) %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
   %12 = zext i32 %2 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1
@@ -6919,7 +6919,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @ac_findmatch_special(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @ac_backward_match_branch(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i16 noundef zeroext %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ac_backward_match_branch(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 -1, 65535) %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
@@ -7331,7 +7331,7 @@ define internal i32 @qcompare_fstr(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @ac_special_altexpand(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @ac_special_altexpand(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
   %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
@@ -7425,7 +7425,7 @@ ac_analyze_expr.exit:                             ; preds = %16, %.thread99.i, %
 
 40:                                               ; preds = %36, %.critedge
   store i8 0, ptr %.193, align 1
-  %41 = tail call i64 @cli_strlcat(ptr noundef %1, ptr noundef %.090, i64 noundef %24) #18
+  %41 = tail call i64 @cli_strlcat(ptr noundef nonnull %1, ptr noundef %.090, i64 noundef %24) #18
   %.not112 = icmp ult i64 %41, %24
   br i1 %.not112, label %42, label %.loopexit154.sink.split
 
@@ -7618,7 +7618,7 @@ find_paren_end.exit141:                           ; preds = %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @mpool_calloc(ptr noundef %6, i64 noundef 1, i64 noundef 24) #18
@@ -7631,7 +7631,7 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
-  %11 = tail call ptr @cli_mpool_hex2ui(ptr noundef %10, ptr noundef %0) #18
+  %11 = tail call ptr @cli_mpool_hex2ui(ptr noundef %10, ptr noundef nonnull %0) #18
   %.not62 = icmp eq ptr %11, null
   br i1 %.not62, label %12, label %14
 

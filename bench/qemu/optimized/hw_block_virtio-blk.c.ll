@@ -197,7 +197,7 @@ while.body.us:                                    ; preds = %while.cond.us
   store ptr %vq, ptr %vq1.i.i.us, align 8
   %size.i.i.us = getelementptr inbounds i8, ptr %call.i.us, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i.i.us, i8 0, i64 32, i1 false)
-  %call4.us = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %call.i.us, ptr noundef nonnull %mrb)
+  %call4.us = call fastcc i32 @virtio_blk_handle_request(ptr noundef %call.i.us, ptr noundef %mrb)
   %tobool5.not.us = icmp eq i32 %call4.us, 0
   br i1 %tobool5.not.us, label %while.cond.us, label %if.then6.us, !llvm.loop !5
 
@@ -226,7 +226,7 @@ while.body:                                       ; preds = %while.cond
   store ptr %vq, ptr %vq1.i.i, align 8
   %size.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i.i, i8 0, i64 32, i1 false)
-  %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %call.i, ptr noundef nonnull %mrb)
+  %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef %call.i, ptr noundef %mrb)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %while.cond.backedge, label %if.then6
 
@@ -252,7 +252,7 @@ do.end:                                           ; preds = %while.end, %while.e
   br i1 %tobool14.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %do.end
-  call fastcc void @virtio_blk_submit_multireq(ptr noundef %s, ptr noundef nonnull %mrb)
+  call fastcc void @virtio_blk_submit_multireq(ptr noundef %s, ptr noundef %mrb)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %do.end
@@ -277,7 +277,7 @@ declare void @defer_call_begin() local_unnamed_addr #2
 declare void @virtio_queue_set_notification(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @virtio_blk_handle_request(ptr noundef %req, ptr noundef %mrb) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @virtio_blk_handle_request(ptr noundef nonnull %req, ptr noundef nonnull %mrb) unnamed_addr #0 {
 entry:
   %out_iov = alloca ptr, align 8
   %in_num = alloca i32, align 4
@@ -405,7 +405,7 @@ if.then40:                                        ; preds = %sw.bb
   %size = getelementptr inbounds i8, ptr %req, i64 184
   %17 = load i64, ptr %size, align 8
   %div98 = lshr i64 %17, 9
-  call fastcc void @trace_virtio_blk_handle_write(ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef %16, i64 noundef %div98)
+  call fastcc void @trace_virtio_blk_handle_write(ptr noundef %call.i, ptr noundef %req, i64 noundef %16, i64 noundef %div98)
   br label %if.end48
 
 if.else:                                          ; preds = %sw.bb
@@ -415,7 +415,7 @@ if.else:                                          ; preds = %sw.bb
   %size46 = getelementptr inbounds i8, ptr %req, i64 184
   %20 = load i64, ptr %size46, align 8
   %div4797 = lshr i64 %20, 9
-  call fastcc void @trace_virtio_blk_handle_read(ptr noundef %call.i, ptr noundef nonnull %req, i64 noundef %19, i64 noundef %div4797)
+  call fastcc void @trace_virtio_blk_handle_read(ptr noundef %call.i, ptr noundef %req, i64 noundef %19, i64 noundef %div4797)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else, %if.then40
@@ -465,7 +465,7 @@ lor.lhs.false78:                                  ; preds = %lor.lhs.false70
   br i1 %tobool79.not, label %if.then80, label %if.end81
 
 if.then80:                                        ; preds = %if.end57, %lor.lhs.false78, %lor.lhs.false70
-  call fastcc void @virtio_blk_submit_multireq(ptr noundef nonnull %4, ptr noundef nonnull %mrb)
+  call fastcc void @virtio_blk_submit_multireq(ptr noundef nonnull %4, ptr noundef %mrb)
   %.pr.pre = load i32, ptr %num_reqs, align 8
   br label %if.end81
 
@@ -490,36 +490,36 @@ if.end87:                                         ; preds = %if.end57, %if.end81
   br label %return
 
 sw.bb94:                                          ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_flush(ptr noundef nonnull %req, ptr noundef %mrb)
+  call fastcc void @virtio_blk_handle_flush(ptr noundef %req, ptr noundef %mrb)
   br label %return
 
 sw.bb95:                                          ; preds = %if.end21
   %31 = load i32, ptr %in_num, align 4
-  call fastcc void @virtio_blk_handle_zone_report(ptr noundef nonnull %req, ptr noundef nonnull %0, i32 noundef %31)
+  call fastcc void @virtio_blk_handle_zone_report(ptr noundef %req, ptr noundef nonnull %0, i32 noundef %31)
   br label %return
 
 sw.bb96:                                          ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef nonnull %req, i32 noundef 0)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 0)
   br label %return
 
 sw.bb98:                                          ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef nonnull %req, i32 noundef 1)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 1)
   br label %return
 
 sw.bb100:                                         ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef nonnull %req, i32 noundef 2)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 2)
   br label %return
 
 sw.bb102:                                         ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef nonnull %req, i32 noundef 3)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 3)
   br label %return
 
 sw.bb104:                                         ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef nonnull %req, i32 noundef 3)
+  call fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef 3)
   br label %return
 
 sw.bb106:                                         ; preds = %if.end21
-  call fastcc void @virtio_blk_handle_scsi(ptr noundef nonnull %req)
+  call fastcc void @virtio_blk_handle_scsi(ptr noundef %req)
   br label %return
 
 sw.bb107:                                         ; preds = %if.end21
@@ -544,7 +544,7 @@ sw.bb131:                                         ; preds = %if.end21
   %36 = load i32, ptr %out_num, align 4
   %conv132 = zext i32 %36 to i64
   %37 = load i32, ptr %in_num, align 4
-  call fastcc void @virtio_blk_handle_zone_append(ptr noundef nonnull %req, ptr noundef %35, ptr noundef nonnull %0, i64 noundef %conv132, i32 noundef %37)
+  call fastcc void @virtio_blk_handle_zone_append(ptr noundef %req, ptr noundef %35, ptr noundef nonnull %0, i64 noundef %conv132, i32 noundef %37)
   br label %return
 
 sw.bb134:                                         ; preds = %if.end21, %if.end21
@@ -593,7 +593,7 @@ if.then161:                                       ; preds = %iov_to_buf.exit113
   br label %return
 
 if.end164:                                        ; preds = %iov_to_buf.exit113.thread, %iov_to_buf.exit113
-  %call166 = call fastcc zeroext i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef nonnull %req, ptr noundef nonnull %dwz_hdr, i1 noundef zeroext %cmp137)
+  %call166 = call fastcc zeroext i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef %req, ptr noundef %dwz_hdr, i1 noundef zeroext %cmp137)
   %cmp168.not = icmp eq i8 %call166, 0
   br i1 %cmp168.not, label %return, label %if.then170
 
@@ -617,7 +617,7 @@ declare void @virtqueue_detach_element(ptr noundef, ptr noundef, i32 noundef) lo
 declare i32 @virtio_queue_empty(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_submit_multireq(ptr nocapture noundef readonly %s, ptr noundef %mrb) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_submit_multireq(ptr nocapture noundef readonly %s, ptr noundef nonnull %mrb) unnamed_addr #0 {
 entry:
   %num_reqs1 = getelementptr inbounds i8, ptr %mrb, i64 256
   %0 = load i32, ptr %num_reqs1, align 8
@@ -711,7 +711,7 @@ lor.lhs.false27:                                  ; preds = %lor.lhs.false22
   br i1 %cmp33, label %if.end37.thread, label %if.end42
 
 if.end37.thread:                                  ; preds = %if.then12, %lor.lhs.false, %lor.lhs.false22, %lor.lhs.false27
-  tail call fastcc void @submit_requests(ptr noundef %s, ptr noundef nonnull %mrb, i32 noundef %start.047, i32 noundef %num_reqs.044, i32 noundef %niov.045)
+  tail call fastcc void @submit_requests(ptr noundef %s, ptr noundef %mrb, i32 noundef %start.047, i32 noundef %num_reqs.044, i32 noundef %niov.045)
   br label %if.then40
 
 if.end37:                                         ; preds = %for.body
@@ -747,7 +747,7 @@ for.end:                                          ; preds = %if.end42, %if.end
   %num_reqs.0.lcssa = phi i32 [ 0, %if.end ], [ %inc, %if.end42 ]
   %niov.0.lcssa = phi i32 [ 0, %if.end ], [ %add51, %if.end42 ]
   %start.0.lcssa = phi i32 [ 0, %if.end ], [ %start.1, %if.end42 ]
-  tail call fastcc void @submit_requests(ptr noundef %s, ptr noundef nonnull %mrb, i32 noundef %start.0.lcssa, i32 noundef %num_reqs.0.lcssa, i32 noundef %niov.0.lcssa)
+  tail call fastcc void @submit_requests(ptr noundef %s, ptr noundef %mrb, i32 noundef %start.0.lcssa, i32 noundef %num_reqs.0.lcssa, i32 noundef %niov.0.lcssa)
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.then47.i, %for.end
@@ -790,7 +790,7 @@ declare i64 @iov_discard_back_undoable(ptr noundef, ptr noundef, i64 noundef, pt
 declare void @qemu_iovec_init_external(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_virtio_blk_handle_write(ptr noundef %vdev, ptr noundef %req, i64 noundef %sector, i64 noundef %nsectors) unnamed_addr #0 {
+define internal fastcc void @trace_virtio_blk_handle_write(ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef range(i64 0, 36028797018963968) %nsectors) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -818,11 +818,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef %req, i64 noundef %sector, i64 noundef %nsectors) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef %nsectors) #14
   br label %_nocheck__trace_virtio_blk_handle_write.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef %vdev, ptr noundef %req, i64 noundef %sector, i64 noundef %nsectors) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef %nsectors) #14
   br label %_nocheck__trace_virtio_blk_handle_write.exit
 
 _nocheck__trace_virtio_blk_handle_write.exit:     ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -831,7 +831,7 @@ _nocheck__trace_virtio_blk_handle_write.exit:     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_virtio_blk_handle_read(ptr noundef %vdev, ptr noundef %req, i64 noundef %sector, i64 noundef %nsectors) unnamed_addr #0 {
+define internal fastcc void @trace_virtio_blk_handle_read(ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef range(i64 0, 36028797018963968) %nsectors) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -859,11 +859,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef %req, i64 noundef %sector, i64 noundef %nsectors) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef %nsectors) #14
   br label %_nocheck__trace_virtio_blk_handle_read.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef %vdev, ptr noundef %req, i64 noundef %sector, i64 noundef %nsectors) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef %vdev, ptr noundef nonnull %req, i64 noundef %sector, i64 noundef %nsectors) #14
   br label %_nocheck__trace_virtio_blk_handle_read.exit
 
 _nocheck__trace_virtio_blk_handle_read.exit:      ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -1003,7 +1003,7 @@ declare void @block_acct_start(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_handle_flush(ptr noundef %req, ptr noundef %mrb) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_handle_flush(ptr noundef nonnull %req, ptr noundef nonnull %mrb) unnamed_addr #0 {
 entry:
   %dev = getelementptr inbounds i8, ptr %req, i64 64
   %0 = load ptr, ptr %dev, align 8
@@ -1024,7 +1024,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call fastcc void @virtio_blk_submit_multireq(ptr noundef nonnull %0, ptr noundef nonnull %mrb)
+  tail call fastcc void @virtio_blk_submit_multireq(ptr noundef nonnull %0, ptr noundef %mrb)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -1034,7 +1034,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_handle_zone_report(ptr noundef %req, ptr noundef %in_iov, i32 noundef %in_num) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_handle_zone_report(ptr noundef nonnull %req, ptr noundef %in_iov, i32 noundef %in_num) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dev = getelementptr inbounds i8, ptr %req, i64 64
@@ -1143,7 +1143,7 @@ return:                                           ; preds = %out17, %trace_virti
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef %req, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_handle_zone_mgmt(ptr noundef nonnull %req, i32 noundef range(i32 0, 4) %op) unnamed_addr #0 {
 entry:
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1247,13 +1247,11 @@ if.then8.i.i37:                                   ; preds = %if.then.i.i34
   %15 = load i64, ptr %_now.i.i27, align 8
   %tv_usec.i.i40 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
   %16 = load i64, ptr %tv_usec.i.i40, align 8
-  %conv11.i.i = and i32 %op, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i39, i64 noundef %15, i64 noundef %16, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %conv11.i.i, i64 noundef %shr, i64 noundef %shr22) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i39, i64 noundef %15, i64 noundef %16, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %op, i64 noundef %shr, i64 noundef %shr22) #14
   br label %trace_virtio_blk_handle_zone_mgmt.exit
 
 if.else.i.i36:                                    ; preds = %if.then.i.i34
-  %conv12.i.i = and i32 %op, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %conv12.i.i, i64 noundef %shr, i64 noundef %shr22) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %call.i, ptr noundef nonnull %req, i32 noundef %op, i64 noundef %shr, i64 noundef %shr22) #14
   br label %trace_virtio_blk_handle_zone_mgmt.exit
 
 trace_virtio_blk_handle_zone_mgmt.exit:           ; preds = %if.end, %land.lhs.true5.i.i31, %if.then8.i.i37, %if.else.i.i36
@@ -1302,7 +1300,7 @@ return:                                           ; preds = %out29, %if.end26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_handle_scsi(ptr noundef %req) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_handle_scsi(ptr noundef nonnull %req) unnamed_addr #0 {
 entry:
   %dev.i = getelementptr inbounds i8, ptr %req, i64 64
   %0 = load ptr, ptr %dev.i, align 8
@@ -1480,7 +1478,7 @@ if.end:                                           ; preds = %if.end84.i, %if.the
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_handle_zone_append(ptr noundef %req, ptr noundef %out_iov, ptr noundef %in_iov, i64 noundef %out_num, i32 noundef %in_num) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_handle_zone_append(ptr noundef nonnull %req, ptr noundef %out_iov, ptr noundef %in_iov, i64 noundef range(i64 0, 4294967296) %out_num, i32 noundef %in_num) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dev = getelementptr inbounds i8, ptr %req, i64 64
@@ -1627,7 +1625,7 @@ return:                                           ; preds = %out15, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i8 0, 3) i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef %req, ptr nocapture noundef readonly %dwz_hdr, i1 noundef zeroext %is_write_zeroes) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 3) i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef nonnull %req, ptr nocapture noundef nonnull readonly %dwz_hdr, i1 noundef zeroext %is_write_zeroes) unnamed_addr #0 {
 entry:
   %total_sectors.i = alloca i64, align 8
   %dev = getelementptr inbounds i8, ptr %req, i64 64
@@ -1787,7 +1785,7 @@ out:                                              ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @virtio_blk_handle_rw_error(ptr noundef %req, i32 noundef %error, i1 noundef zeroext %is_read, i1 noundef zeroext %acct_failed) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @virtio_blk_handle_rw_error(ptr noundef %req, i32 noundef range(i32 1, 0) %error, i1 noundef zeroext %is_read, i1 noundef zeroext %acct_failed) unnamed_addr #0 {
 entry:
   %dev = getelementptr inbounds i8, ptr %req, i64 64
   %0 = load ptr, ptr %dev, align 8
@@ -2355,7 +2353,7 @@ out14:                                            ; preds = %if.then, %if.end13
 declare ptr @blk_aio_pdiscard(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @submit_requests(ptr nocapture noundef readonly %s, ptr noundef %mrb, i32 noundef %start, i32 noundef %num_reqs, i32 noundef %niov) unnamed_addr #0 {
+define internal fastcc void @submit_requests(ptr nocapture noundef readonly %s, ptr noundef nonnull %mrb, i32 noundef %start, i32 noundef %num_reqs, i32 noundef %niov) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %blk1 = getelementptr inbounds i8, ptr %s, i64 520
@@ -3636,7 +3634,7 @@ while.cond:                                       ; preds = %while.body, %entry
 while.body:                                       ; preds = %while.cond
   %next3 = getelementptr inbounds i8, ptr %req.0, i64 200
   %2 = load ptr, ptr %next3, align 8
-  %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %req.0, ptr noundef nonnull %mrb)
+  %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef %req.0, ptr noundef %mrb)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %while.cond, label %while.body8, !llvm.loop !22
 
@@ -3658,7 +3656,7 @@ while.end10:                                      ; preds = %while.cond, %while.
   br i1 %tobool11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %while.end10
-  call fastcc void @virtio_blk_submit_multireq(ptr noundef %opaque, ptr noundef nonnull %mrb)
+  call fastcc void @virtio_blk_submit_multireq(ptr noundef %opaque, ptr noundef %mrb)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %while.end10

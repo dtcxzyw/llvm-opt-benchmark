@@ -5897,7 +5897,7 @@ return:                                           ; preds = %if.end39, %if.end3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -6513,7 +6513,7 @@ declare ptr @_PyPegen_name_token(ptr noundef) #1
 declare ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @INVALID_VERSION_CHECK(ptr noundef %p, i32 noundef %version, ptr noundef %msg, ptr noundef readnone %node) unnamed_addr #0 {
+define internal fastcc ptr @INVALID_VERSION_CHECK(ptr noundef %p, i32 noundef range(i32 5, 13) %version, ptr noundef %msg, ptr noundef readnone %node) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %node, null
   br i1 %cmp, label %if.then, label %if.end
@@ -15059,9 +15059,9 @@ return:                                           ; preds = %if.end111, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET(ptr noundef %p, i32 noundef %type, ptr noundef %e) unnamed_addr #0 {
+define internal fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET(ptr noundef %p, i32 noundef range(i32 0, 3) %type, ptr noundef nonnull %e) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @_PyPegen_get_invalid_target(ptr noundef %e, i32 noundef %type) #4
+  %call = tail call ptr @_PyPegen_get_invalid_target(ptr noundef nonnull %e, i32 noundef %type) #4
   %cmp.i = icmp eq ptr %call, null
   br i1 %cmp.i, label %land.lhs.true.i, label %if.then
 
@@ -15076,7 +15076,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %return
 
 if.then:                                          ; preds = %entry
-  %0 = and i32 %type, -3
+  %0 = and i32 %type, 1
   %or.cond = icmp eq i32 %0, 0
   %.str.57..str.58 = select i1 %or.cond, ptr @.str.57, ptr @.str.58
   %1 = load ptr, ptr @PyExc_SyntaxError, align 8
@@ -52409,7 +52409,7 @@ land.lhs.true131:                                 ; preds = %land.lhs.true128
   br i1 %tobool133.not, label %if.end146, label %if.then134
 
 if.then134:                                       ; preds = %land.lhs.true131
-  tail call fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET(ptr noundef nonnull %p, i32 noundef 0, ptr noundef nonnull %call129)
+  tail call fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET(ptr noundef nonnull %p, i32 noundef 0, ptr noundef %call129)
   %call139 = tail call ptr @PyErr_Occurred() #4
   %tobool140.not = icmp eq ptr %call139, null
   br i1 %tobool140.not, label %return, label %if.then141

@@ -3917,7 +3917,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wstr.i)
   store ptr null, ptr %bytesobj.i, align 8
   store ptr null, ptr %wstr.i, align 8
-  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef nonnull %bytesobj.i, ptr noundef nonnull %wstr.i)
+  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_curses_window_addnstr_impl.exit, label %if.end.i
 
@@ -4099,7 +4099,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wstr.i)
   store ptr null, ptr %bytesobj.i, align 8
   store ptr null, ptr %wstr.i, align 8
-  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef nonnull %bytesobj.i, ptr noundef nonnull %wstr.i)
+  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_curses_window_addstr_impl.exit, label %if.end.i
 
@@ -6106,7 +6106,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wstr.i)
   store ptr null, ptr %bytesobj.i, align 8
   store ptr null, ptr %wstr.i, align 8
-  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef nonnull %bytesobj.i, ptr noundef nonnull %wstr.i)
+  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_curses_window_insnstr_impl.exit, label %if.end.i
 
@@ -6288,7 +6288,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wstr.i)
   store ptr null, ptr %bytesobj.i, align 8
   store ptr null, ptr %wstr.i, align 8
-  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef nonnull %bytesobj.i, ptr noundef nonnull %wstr.i)
+  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_curses_window_insstr_impl.exit, label %if.end.i
 
@@ -7922,7 +7922,7 @@ declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 declare i64 @PyLong_AsLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString(ptr noundef %obj, ptr nocapture noundef writeonly %bytes, ptr nocapture noundef writeonly %wstr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %bytes, ptr nocapture noundef nonnull writeonly %wstr) unnamed_addr #0 {
 entry:
   %str = alloca ptr, align 8
   %0 = getelementptr i8, ptr %obj, i64 8

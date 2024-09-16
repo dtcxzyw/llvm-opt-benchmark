@@ -927,7 +927,7 @@ sdslen.exit:                                      ; preds = %sw.bb3.i, %sw.bb5.i
 
 if.end:                                           ; preds = %entry, %sdslen.exit
   %argv5 = getelementptr inbounds i8, ptr %c, i64 96
-  call fastcc void @evalCalcFunctionName(i32 noundef %lor.ext, ptr noundef %4, ptr noundef nonnull %funcname)
+  call fastcc void @evalCalcFunctionName(i32 noundef %lor.ext, ptr noundef %4, ptr noundef %funcname)
   %add.ptr = getelementptr inbounds i8, ptr %funcname, i64 2
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @lctx, i64 16), align 8
   %call9 = call ptr @dictFind(ptr noundef %11, ptr noundef nonnull %add.ptr) #17
@@ -1057,7 +1057,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evalCalcFunctionName(i32 noundef %evalsha, ptr noundef %script, ptr nocapture noundef writeonly %out_funcname) unnamed_addr #0 {
+define internal fastcc void @evalCalcFunctionName(i32 noundef %evalsha, ptr noundef %script, ptr nocapture noundef nonnull writeonly %out_funcname) unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.SHA1_CTX, align 4
   %hash.i = alloca [20 x i8], align 16
@@ -1497,7 +1497,7 @@ if.else15:                                        ; preds = %if.end8
   %7 = load ptr, ptr %arrayidx17, align 8
   %ptr = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr, align 8
-  call fastcc void @evalCalcFunctionName(i32 noundef %evalsha, ptr noundef %8, ptr noundef nonnull %funcname)
+  call fastcc void @evalCalcFunctionName(i32 noundef %evalsha, ptr noundef %8, ptr noundef %funcname)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else15, %if.then9

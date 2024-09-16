@@ -11,13 +11,13 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.inode_search_s, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %96, label %8
@@ -222,7 +222,7 @@ define i32 @nx_open_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...
   call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %6 = call i32 @getumask() #6
-  %7 = call fastcc i32 @file_vopen(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, i32 noundef %6, ptr noundef nonnull %5)
+  %7 = call fastcc i32 @file_vopen(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, i32 noundef %6, ptr noundef %5)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %nx_vopen.exit, label %9
 
@@ -257,7 +257,7 @@ define i32 @nx_open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %5 = call ptr @nxsched_self() #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = call i32 @getumask() #6
-  %7 = call fastcc i32 @file_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @file_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %4)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %nx_vopen.exit, label %9
 
@@ -294,7 +294,7 @@ define range(i32 -1, -2147483648) i32 @open(ptr noundef %0, i32 noundef %1, ...)
   %5 = call ptr @nxsched_self() #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = call i32 @getumask() #6
-  %7 = call fastcc i32 @file_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @file_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %4)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %21, label %9
 

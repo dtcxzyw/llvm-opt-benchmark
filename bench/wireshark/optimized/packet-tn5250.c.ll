@@ -2851,7 +2851,7 @@ define internal i32 @dissect_tn5250(ptr noundef %0, ptr noundef %1, ptr noundef 
   %67 = getelementptr inbounds i8, ptr %6, i64 224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %67, i8 0, i64 32, i1 false)
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #5
-  %69 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %22, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6)
+  %69 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %22, ptr noundef %0, i32 noundef 0, ptr noundef %6)
   %70 = and i8 %68, 2
   %.not.i = icmp eq i8 %70, 0
   br i1 %.not.i, label %dissect_tn5250_header.exit, label %71
@@ -3415,7 +3415,7 @@ tn5250_is_valid_aid.exit.i.us.us:                 ; preds = %306, %306, %306, %3
   store ptr null, ptr %299, align 16
   store i32 0, ptr %300, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %301, i8 0, i64 32, i1 false)
-  %329 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %22, ptr noundef %0, i32 noundef %321, ptr noundef nonnull %5)
+  %329 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %22, ptr noundef %0, i32 noundef %321, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 1472, ptr nonnull %5)
   %330 = add i32 %329, 3
   br label %dissect_inbound_stream.exit.us.us
@@ -3630,7 +3630,7 @@ define internal fastcc i32 @dissect_outbound_stream(ptr noundef %0, ptr noundef 
   store i32 0, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %8, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %35, i8 0, i64 32, i1 false)
-  %36 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %8)
+  %36 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   %37 = add i32 %3, 4
   %38 = tail call fastcc i32 @dissect_tn5250_orders_and_data(ptr noundef %13, ptr noundef %2, i32 noundef %37)
@@ -3697,7 +3697,7 @@ define internal fastcc i32 @dissect_outbound_stream(ptr noundef %0, ptr noundef 
   store i32 0, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %7, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %77, i8 0, i64 32, i1 false)
-  %78 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %7)
+  %78 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef %7)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
   %79 = add i32 %3, 4
   br label %.loopexit
@@ -3768,7 +3768,7 @@ define internal fastcc i32 @dissect_outbound_stream(ptr noundef %0, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %111, i8 0, i64 32, i1 false)
   %112 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %17) #5
   %113 = zext i8 %112 to i32
-  %114 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %6)
+  %114 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef %6)
   %115 = sub i32 %113, %114
   %116 = icmp sgt i32 %115, 0
   %117 = add i32 %114, %17
@@ -3833,7 +3833,7 @@ dissect_save_partial_screen.exit:                 ; preds = %80, %118
   store i32 0, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %150, i8 0, i64 32, i1 false)
-  %151 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %5)
+  %151 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   %152 = add i32 %151, %17
   br label %.loopexit
@@ -3876,7 +3876,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = load ptr, ptr %3, align 8
   %.not39 = icmp eq ptr %5, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -4954,7 +4954,7 @@ dissect_tn5250_ra_data.exit103:                   ; preds = %._crit_edge._crit_e
   store ptr @dissect_start_of_header.byte3, ptr %777, align 16
   store i32 0, ptr %778, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %779, i8 0, i64 32, i1 false)
-  %864 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %859, ptr noundef %1, i32 noundef %857, ptr noundef nonnull %22)
+  %864 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %859, ptr noundef %1, i32 noundef %857, ptr noundef %22)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %22)
   %865 = add i32 %864, %857
   br label %dissect_erase_to_address.exit
@@ -5055,7 +5055,7 @@ dissect_twobyte_length_and_data.exit:             ; preds = %878, %882, %884
   br i1 %.not.i106, label %.loopexit.i, label %921
 
 921:                                              ; preds = %912
-  %922 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %917, ptr noundef %1, i32 noundef %915, ptr noundef nonnull %21)
+  %922 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %917, ptr noundef %1, i32 noundef %915, ptr noundef %21)
   %923 = add i32 %922, %915
   %924 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %923) #5
   %925 = icmp sgt i32 %924, 0
@@ -5247,7 +5247,7 @@ dissect_tn5250_ra_data.exit119:                   ; preds = %._crit_edge._crit_e
   %971 = zext i16 %970 to i32
   %972 = add i32 %.0139, 4
   %973 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %972) #5
-  %974 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %963, ptr noundef nonnull @__const.dissect_write_structured_field.standard_fields)
+  %974 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %963, ptr noundef @__const.dissect_write_structured_field.standard_fields)
   %975 = add i32 %974, %963
   %976 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %975) #5
   %977 = icmp sgt i32 %976, 0
@@ -5409,7 +5409,7 @@ dissect_tn5250_ra_data.exit119:                   ; preds = %._crit_edge._crit_e
   store ptr null, ptr %727, align 16
   store i32 0, ptr %728, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %729, i8 0, i64 32, i1 false)
-  %986 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef nonnull %14)
+  %986 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef %14)
   %987 = add i32 %986, %.088108.i
   %988 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %987) #5
   %989 = icmp sgt i32 %988, 0
@@ -5429,13 +5429,13 @@ dissect_tn5250_ra_data.exit119:                   ; preds = %._crit_edge._crit_e
   br label %dissect_create_window.exit.i
 
 993:                                              ; preds = %.lr.ph.i.i
-  %994 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.02932.i.i, ptr noundef nonnull %15)
+  %994 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.02932.i.i, ptr noundef %15)
   %995 = add i32 %994, %.02932.i.i
   br label %1007
 
 996:                                              ; preds = %.lr.ph.i.i
   %997 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.02932.i.i) #5
-  %998 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.02932.i.i, ptr noundef nonnull %16)
+  %998 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.02932.i.i, ptr noundef %16)
   %999 = add i32 %998, %.02932.i.i
   %1000 = icmp ult i8 %997, 6
   br i1 %1000, label %1007, label %1001
@@ -5470,12 +5470,12 @@ dissect_create_window.exit.i:                     ; preds = %1007, %.thread.i.i,
   br label %.loopexit.i121
 
 1016:                                             ; preds = %980
-  %1017 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef nonnull %17)
+  %1017 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef %17)
   %1018 = add i32 %1017, %.088108.i
   br label %.loopexit.i121
 
 1019:                                             ; preds = %980
-  %1020 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef nonnull %18)
+  %1020 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef %18)
   %1021 = add i32 %1020, %.088108.i
   br label %.loopexit.i121
 
@@ -5858,7 +5858,7 @@ dissect_create_window.exit.i:                     ; preds = %1007, %.thread.i.i,
   store ptr null, ptr %607, align 16
   store i32 46, ptr %608, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %609, i8 0, i64 32, i1 false)
-  %1029 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef nonnull %8)
+  %1029 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef %8)
   %1030 = add i32 %1029, %.088108.i
   %1031 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %1030) #5
   %1032 = icmp sgt i32 %1031, 0
@@ -5886,7 +5886,7 @@ dissect_create_window.exit.i:                     ; preds = %1007, %.thread.i.i,
   %1039 = add i32 %.066.i.i, 2
   %1040 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1039) #5
   %1041 = zext i8 %1040 to i32
-  %1042 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %9)
+  %1042 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef %9)
   %1043 = add i32 %1042, %.066.i.i
   %1044 = and i32 %1041, 1
   %.not64.i.i = icmp eq i32 %1044, 0
@@ -5919,22 +5919,22 @@ dissect_create_window.exit.i:                     ; preds = %1007, %.thread.i.i,
   br label %1070
 
 1058:                                             ; preds = %.lr.ph.i93.i
-  %1059 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %10)
+  %1059 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef %10)
   %1060 = add i32 %1059, %.066.i.i
   br label %1070
 
 1061:                                             ; preds = %.lr.ph.i93.i
-  %1062 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %11)
+  %1062 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef %11)
   %1063 = add i32 %1062, %.066.i.i
   br label %1070
 
 1064:                                             ; preds = %.lr.ph.i93.i
-  %1065 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %12)
+  %1065 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef %12)
   %1066 = add i32 %1065, %.066.i.i
   br label %1070
 
 1067:                                             ; preds = %.lr.ph.i93.i
-  %1068 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %13)
+  %1068 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef %13)
   %1069 = add i32 %1068, %.066.i.i
   br label %1070
 
@@ -6041,7 +6041,7 @@ dissect_define_selection.exit.i:                  ; preds = %1070, %.thread.i94.
   store ptr null, ptr %247, align 16
   store i32 46, ptr %248, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %249, i8 0, i64 32, i1 false)
-  %1076 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef nonnull %6)
+  %1076 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef %6)
   %1077 = add i32 %1076, %.088108.i
   %1078 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %1077) #5
   %1079 = icmp sgt i32 %1078, 0
@@ -6059,7 +6059,7 @@ dissect_define_selection.exit.i:                  ; preds = %1070, %.thread.i94.
   br label %dissect_define_scrollbar.exit.i
 
 1083:                                             ; preds = %.lr.ph.i95.i
-  %1084 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.01618.i.i, ptr noundef nonnull %7)
+  %1084 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.01618.i.i, ptr noundef %7)
   %1085 = add i32 %1084, %.01618.i.i
   %1086 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %1085) #5
   %1087 = icmp sgt i32 %1086, 0
@@ -6072,7 +6072,7 @@ dissect_define_scrollbar.exit.i:                  ; preds = %1083, %.thread.i96.
   br label %.loopexit.i121
 
 1088:                                             ; preds = %980
-  %1089 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef nonnull %19)
+  %1089 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef %19)
   %1090 = add i32 %1089, %.088108.i
   br i1 %978, label %.loopexit.i121, label %1091
 
@@ -6100,7 +6100,7 @@ dissect_define_scrollbar.exit.i:                  ; preds = %1083, %.thread.i96.
 .lr.ph.i122:                                      ; preds = %1103, %.lr.ph.i122
   %.0107.i = phi i32 [ %1108, %.lr.ph.i122 ], [ 0, %1103 ]
   %.2106.i = phi i32 [ %1107, %.lr.ph.i122 ], [ %1100, %1103 ]
-  %1106 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.2106.i, ptr noundef nonnull %20)
+  %1106 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.2106.i, ptr noundef %20)
   %1107 = add i32 %1106, %.2106.i
   %1108 = add i32 %.0107.i, 4
   %1109 = icmp slt i32 %1108, %1104
@@ -6198,7 +6198,7 @@ dissect_define_scrollbar.exit.i:                  ; preds = %1083, %.thread.i96.
   store ptr null, ptr %167, align 16
   store i32 0, ptr %168, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %169, i8 0, i64 32, i1 false)
-  %1113 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef nonnull %4)
+  %1113 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef %4)
   %1114 = add i32 %1113, %.088108.i
   %1115 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %1114) #5
   %1116 = icmp sgt i32 %1115, 0
@@ -6216,7 +6216,7 @@ dissect_define_scrollbar.exit.i:                  ; preds = %1083, %.thread.i96.
   br label %dissect_draw_erase_gridlines.exit.i
 
 1120:                                             ; preds = %.lr.ph.i98.i
-  %1121 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.01618.i99.i, ptr noundef nonnull %5)
+  %1121 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.01618.i99.i, ptr noundef %5)
   %1122 = add i32 %1121, %.01618.i99.i
   %1123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %1122) #5
   %1124 = icmp sgt i32 %1123, 0
@@ -6229,7 +6229,7 @@ dissect_draw_erase_gridlines.exit.i:              ; preds = %1120, %.thread.i100
   br label %.loopexit.i121
 
 1125:                                             ; preds = %980
-  %1126 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef nonnull @__const.dissect_wdsf_structured_field.cgl_fields)
+  %1126 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.088108.i, ptr noundef @__const.dissect_wdsf_structured_field.cgl_fields)
   %1127 = add i32 %1126, %.088108.i
   br label %.loopexit.i121
 
@@ -6513,7 +6513,7 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
   %123 = zext i16 %122 to i32
   %124 = add i32 %2, 3
   %125 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %124) #5
-  %126 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @__const.dissect_write_structured_field.standard_fields)
+  %126 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef @__const.dissect_write_structured_field.standard_fields)
   %127 = add i32 %126, %2
   %128 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %127) #5
   %129 = icmp sgt i32 %128, 0
@@ -6560,7 +6560,7 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_write_single_structured_field_minor_fields.exit.us
   %.0104.us = phi i32 [ %.016.lcssa.i.us, %dissect_write_single_structured_field_minor_fields.exit.us ], [ %127, %.lr.ph ]
-  %160 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0104.us, ptr noundef nonnull %6)
+  %160 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0104.us, ptr noundef %6)
   %161 = add i32 %160, %.0104.us
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
@@ -6687,7 +6687,7 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
 
 .lr.ph.split.us105:                               ; preds = %.lr.ph, %.lr.ph.split.us105
   %.0104.us106 = phi i32 [ %spec.select.us, %.lr.ph.split.us105 ], [ %127, %.lr.ph ]
-  %207 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0104.us106, ptr noundef nonnull %7)
+  %207 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0104.us106, ptr noundef %7)
   %208 = add i32 %207, %.0104.us106
   %209 = load i32, ptr @hf_tn5250_wssf_ifc_imagefax_name, align 4
   %210 = add i32 %208, %2
@@ -6705,7 +6705,7 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
   %217 = add i32 %.0104.us114, 6
   %218 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %217) #5
   %219 = zext i16 %218 to i32
-  %220 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0104.us114, ptr noundef nonnull %8)
+  %220 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0104.us114, ptr noundef %8)
   %221 = add i32 %220, %.0104.us114
   %222 = load i32, ptr @hf_tn5250_wssf_ifd_imagefax_name, align 4
   %223 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %222, ptr noundef %1, i32 noundef %221, i32 noundef %219, i32 noundef 46) #5
@@ -7312,7 +7312,7 @@ define internal fastcc i32 @dissect_write_structured_field(ptr noundef %0, ptr n
   %272 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0238) #5
   %273 = add i32 %.0238, 3
   %274 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %273) #5
-  %275 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0238, ptr noundef nonnull @__const.dissect_write_structured_field.standard_fields)
+  %275 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0238, ptr noundef @__const.dissect_write_structured_field.standard_fields)
   %276 = add i32 %275, %.0238
   switch i8 %274, label %dissect_unknown_data.exit.thread.thread [
     i8 63, label %278
@@ -7350,7 +7350,7 @@ dissect_unknown_data.exit.thread.thread:          ; preds = %.lr.ph239
   br label %dissect_unknown_data.exit.thread
 
 287:                                              ; preds = %.lr.ph239
-  %288 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef nonnull %4)
+  %288 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef %4)
   %289 = add i32 %288, %276
   br label %dissect_unknown_data.exit.thread
 
@@ -7366,7 +7366,7 @@ dissect_unknown_data.exit.thread.thread:          ; preds = %.lr.ph239
 .lr.ph233:                                        ; preds = %290, %301
   %.2232 = phi i32 [ %306, %301 ], [ %293, %290 ]
   %297 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2232) #5
-  %298 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.2232, ptr noundef nonnull @__const.dissect_write_structured_field.dawt_fields)
+  %298 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.2232, ptr noundef @__const.dissect_write_structured_field.dawt_fields)
   %299 = add i32 %298, %.2232
   %300 = icmp ult i8 %297, 2
   br i1 %300, label %dissect_unknown_data.exit.thread, label %301
@@ -7393,7 +7393,7 @@ dissect_unknown_data.exit.thread.thread:          ; preds = %.lr.ph239
 .lr.ph228:                                        ; preds = %309, %320
   %.3227 = phi i32 [ %325, %320 ], [ %312, %309 ]
   %316 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.3227) #5
-  %317 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.3227, ptr noundef nonnull @__const.dissect_write_structured_field.dckf_fields)
+  %317 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.3227, ptr noundef @__const.dissect_write_structured_field.dckf_fields)
   %318 = add i32 %317, %.3227
   %319 = icmp ult i8 %316, 2
   br i1 %319, label %dissect_unknown_data.exit.thread, label %320
@@ -7409,22 +7409,22 @@ dissect_unknown_data.exit.thread.thread:          ; preds = %.lr.ph239
   br i1 %327, label %.lr.ph228, label %dissect_unknown_data.exit.thread, !llvm.loop !21
 
 328:                                              ; preds = %.lr.ph239
-  %329 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef nonnull %5)
+  %329 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef %5)
   %330 = add i32 %329, %276
   br label %dissect_unknown_data.exit.thread
 
 331:                                              ; preds = %.lr.ph239
-  %332 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef nonnull %6)
+  %332 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef %6)
   %333 = add i32 %332, %276
   br label %dissect_unknown_data.exit.thread
 
 334:                                              ; preds = %.lr.ph239
-  %335 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef nonnull %7)
+  %335 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef %7)
   %336 = add i32 %335, %276
   br label %dissect_unknown_data.exit.thread
 
 337:                                              ; preds = %.lr.ph239
-  %338 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef nonnull @__const.dissect_write_structured_field.dsl_fields)
+  %338 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef @__const.dissect_write_structured_field.dsl_fields)
   %339 = add i32 %338, %276
   %340 = zext i16 %272 to i32
   %341 = sub i32 %339, %2
@@ -7502,11 +7502,11 @@ tn5250_add_hf_items.exit.loopexit:                ; preds = %370
   br i1 %377, label %.lr.ph.i.backedge, label %dissect_unknown_data.exit.thread
 
 378:                                              ; preds = %.lr.ph239
-  %379 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef nonnull %9)
+  %379 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef %9)
   %380 = add i32 %379, %276
   %381 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %380) #5
   %382 = zext i8 %381 to i32
-  %383 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %380, ptr noundef nonnull %10)
+  %383 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %380, ptr noundef %10)
   %384 = add i32 %383, %380
   %385 = icmp sgt i32 %383, %382
   br i1 %385, label %dissect_unknown_data.exit.thread, label %386
@@ -7518,7 +7518,7 @@ tn5250_add_hf_items.exit.loopexit:                ; preds = %370
   br label %dissect_unknown_data.exit.thread
 
 390:                                              ; preds = %.lr.ph239
-  %391 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef nonnull @__const.dissect_write_structured_field.dsc_fields)
+  %391 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef @__const.dissect_write_structured_field.dsc_fields)
   %392 = add i32 %391, %276
   br label %dissect_unknown_data.exit.thread
 
@@ -7534,7 +7534,7 @@ tn5250_add_hf_items.exit.loopexit:                ; preds = %370
 .lr.ph220:                                        ; preds = %393, %404
   %.5219 = phi i32 [ %409, %404 ], [ %396, %393 ]
   %400 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.5219) #5
-  %401 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.5219, ptr noundef nonnull @__const.dissect_write_structured_field.dorm_fields)
+  %401 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.5219, ptr noundef @__const.dissect_write_structured_field.dorm_fields)
   %402 = add i32 %401, %.5219
   %403 = icmp ult i8 %400, 2
   br i1 %403, label %dissect_unknown_data.exit.thread, label %404
@@ -7571,7 +7571,7 @@ tn5250_add_hf_items.exit.loopexit:                ; preds = %370
   br i1 %426, label %.lr.ph217, label %dissect_unknown_data.exit.thread, !llvm.loop !24
 
 427:                                              ; preds = %.lr.ph239
-  %428 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef nonnull @__const.dissect_write_structured_field.dfdpck_fields)
+  %428 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %276, ptr noundef @__const.dissect_write_structured_field.dfdpck_fields)
   %429 = add i32 %428, %276
   %430 = zext i16 %272 to i32
   %431 = sub i32 %429, %2
@@ -7589,11 +7589,11 @@ tn5250_add_hf_items.exit.loopexit:                ; preds = %370
   ]
 
 436:                                              ; preds = %.lr.ph
-  %437 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.7213, ptr noundef nonnull %11)
+  %437 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.7213, ptr noundef %11)
   br label %446
 
 438:                                              ; preds = %.lr.ph
-  %439 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.7213, ptr noundef nonnull %12)
+  %439 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.7213, ptr noundef %12)
   br label %446
 
 440:                                              ; preds = %.lr.ph

@@ -5489,41 +5489,40 @@ define internal fastcc void @OUT_FS_AFSStoreStatus(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 32, 1025) %2) unnamed_addr #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call ptr @wmem_packet_scope() #6
   %6 = add nuw nsw i32 %2, 1
   %7 = zext nneg i32 %6 to i64
   %8 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %5, i64 noundef %7) #6
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br label %10
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.023 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
-  %.02022 = phi i32 [ %12, %.lr.ph ], [ %9, %3 ]
-  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %.02022) #6
-  %11 = trunc i32 %10 to i8
-  tail call void @wmem_strbuf_append_c(ptr noundef %8, i8 noundef signext %11) #6
-  %12 = add i32 %.02022, 4
-  %13 = add nuw i32 %.023, 1
-  %exitcond.not = icmp eq i32 %13, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+10:                                               ; preds = %3, %10
+  %.023 = phi i32 [ 0, %3 ], [ %14, %10 ]
+  %.02022 = phi i32 [ %9, %3 ], [ %13, %10 ]
+  %11 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %.02022) #6
+  %12 = trunc i32 %11 to i8
+  tail call void @wmem_strbuf_append_c(ptr noundef %8, i8 noundef signext %12) #6
+  %13 = add i32 %.02022, 4
+  %14 = add nuw nsw i32 %.023, 1
+  %exitcond.not = icmp eq i32 %14, %2
+  br i1 %exitcond.not, label %15, label %10, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %14 = tail call zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef %8, ptr noundef null) #6
-  br i1 %14, label %16, label %15
+15:                                               ; preds = %10
+  %16 = tail call zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef %8, ptr noundef null) #6
+  br i1 %16, label %18, label %17
 
-15:                                               ; preds = %._crit_edge
+17:                                               ; preds = %15
   tail call void @wmem_strbuf_utf8_make_valid(ptr noundef %8) #6
-  br label %16
+  br label %18
 
-16:                                               ; preds = %15, %._crit_edge
-  %17 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
-  %18 = shl nuw nsw i32 %2, 2
-  %19 = tail call ptr @wmem_strbuf_finalize(ptr noundef %8) #6
-  %20 = tail call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %1, ptr noundef %4, i32 noundef %9, i32 noundef %18, ptr noundef %19) #6
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %18) #6
+18:                                               ; preds = %17, %15
+  %19 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %20 = shl nuw nsw i32 %2, 2
+  %21 = tail call ptr @wmem_strbuf_finalize(ptr noundef %8) #6
+  %22 = tail call ptr @proto_tree_add_string(ptr noundef %19, i32 noundef %1, ptr noundef %4, i32 noundef %9, i32 noundef %20, ptr noundef %21) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #6
   ret void
 }
 

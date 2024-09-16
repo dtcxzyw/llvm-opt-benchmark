@@ -1049,7 +1049,7 @@ define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_current(ptr
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef %1) unnamed_addr #7 section ".init.text" align 16 {
+define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 section ".init.text" align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8

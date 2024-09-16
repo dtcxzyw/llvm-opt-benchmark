@@ -465,14 +465,14 @@ declare ptr @VP8LHtreeGroupsNew(i32 noundef) local_unnamed_addr #2
 declare i32 @VP8LHuffmanTablesAllocate(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.HuffmanTables, align 8
   %6 = alloca [19 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = tail call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef 1) #7
   %9 = sext i32 %0 to i64
   %10 = shl nsw i64 %9, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %2, i8 0, i64 %10, i1 false)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %24, label %11
 
@@ -673,7 +673,7 @@ ReadHuffmanCodeLengths.exit:                      ; preds = %49, %.loopexit.i, %
   br i1 %.not39, label %102, label %.thread42
 
 102:                                              ; preds = %99
-  %103 = call i32 @VP8LBuildHuffmanTable(ptr noundef %3, i32 noundef 8, ptr noundef %2, i32 noundef %0) #7
+  %103 = call i32 @VP8LBuildHuffmanTable(ptr noundef %3, i32 noundef 8, ptr noundef nonnull %2, i32 noundef %0) #7
   %.not45 = icmp eq i32 %103, 0
   br i1 %.not45, label %.thread42, label %VP8LSetError.exit
 
@@ -828,7 +828,7 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaHeader(ptr noundef %0, ptr nou
   tail call void @VP8LInitBitReader(ptr noundef nonnull %21, ptr noundef %1, i64 noundef %2) #7
   %22 = load i32, ptr %0, align 8
   %23 = load i32, ptr %10, align 4
-  %24 = tail call fastcc i32 @DecodeImageStream(i32 noundef %22, i32 noundef %23, i32 noundef 1, ptr noundef nonnull %4, ptr noundef null)
+  %24 = tail call fastcc i32 @DecodeImageStream(i32 noundef %22, i32 noundef %23, i32 noundef 1, ptr noundef %4, ptr noundef null)
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %VP8LDelete.exit, label %25
 
@@ -970,7 +970,7 @@ VP8LNew.exit.thread:                              ; preds = %3, %VP8LDelete.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3, ptr noundef writeonly %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1033,7 +1033,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %37 = load i32, ptr %25, align 4
   %38 = add i32 %37, %34
   %39 = lshr i32 %38, %31
-  %40 = tail call fastcc i32 @DecodeImageStream(i32 noundef %36, i32 noundef %39, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %26)
+  %40 = tail call fastcc i32 @DecodeImageStream(i32 noundef %36, i32 noundef %39, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %26)
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.threadthread-pre-split, label %.backedge
 
@@ -1058,7 +1058,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %56 = lshr i32 %55, %51
   %57 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %51, ptr %57, align 4
-  %58 = tail call fastcc i32 @DecodeImageStream(i32 noundef %45, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %26)
+  %58 = tail call fastcc i32 @DecodeImageStream(i32 noundef %45, i32 noundef 1, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %26)
   %.not45.i = icmp eq i32 %58, 0
   br i1 %.not45.i, label %.threadthread-pre-split, label %59
 
@@ -2917,7 +2917,7 @@ VP8LIsEndOfStream.exit266.thread:                 ; preds = %373, %VP8LIsEndOfSt
 
 415:                                              ; preds = %._crit_edge.i.i
   %416 = and i32 %.017.i.i, -2
-  %417 = sext i32 %416 to i64
+  %417 = zext nneg i32 %416 to i64
   %418 = getelementptr inbounds i32, ptr %.019.i.i, i64 %417
   %419 = load i32, ptr %418, align 4
   %420 = getelementptr inbounds i32, ptr %.018.i.i, i64 %417
@@ -3339,7 +3339,7 @@ ReadImageInfo.exit.thread:                        ; preds = %17, %9, %ReadImageI
   store i32 %19, ptr %1, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %21, ptr %30, align 4
-  %31 = tail call fastcc i32 @DecodeImageStream(i32 noundef %19, i32 noundef %21, i32 noundef 1, ptr noundef nonnull %0, ptr noundef null)
+  %31 = tail call fastcc i32 @DecodeImageStream(i32 noundef %19, i32 noundef %21, i32 noundef 1, ptr noundef %0, ptr noundef null)
   %.not18 = icmp eq i32 %31, 0
   br i1 %.not18, label %VP8LSetError.exit19, label %VP8LSetError.exit
 

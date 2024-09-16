@@ -2183,7 +2183,7 @@ do.end:                                           ; preds = %if.end.i115, %if.th
   br i1 %cmp91, label %if.then93, label %if.else
 
 if.then93:                                        ; preds = %do.end
-  %call94 = call fastcc i32 @add_getset(ptr noundef nonnull %call, ptr noundef nonnull @CharArray_getsets)
+  %call94 = call fastcc i32 @add_getset(ptr noundef %call, ptr noundef nonnull @CharArray_getsets)
   %cmp95 = icmp eq i32 %call94, -1
   br i1 %cmp95, label %Py_XDECREF.exit, label %return
 
@@ -2196,7 +2196,7 @@ if.else:                                          ; preds = %do.end
   br i1 %cmp102, label %if.then104, label %return
 
 if.then104:                                       ; preds = %if.else
-  %call105 = call fastcc i32 @add_getset(ptr noundef nonnull %call, ptr noundef nonnull @WCharArray_getsets)
+  %call105 = call fastcc i32 @add_getset(ptr noundef %call, ptr noundef nonnull @WCharArray_getsets)
   %cmp106 = icmp eq i32 %call105, -1
   br i1 %cmp106, label %Py_XDECREF.exit, label %return
 
@@ -2612,7 +2612,7 @@ land.lhs.true83:                                  ; preds = %land.lhs.true
 
 if.then85:                                        ; preds = %land.lhs.true83
   %55 = load ptr, ptr %proto, align 8
-  %call86 = call fastcc ptr @CreateSwappedType(ptr noundef %args, ptr noundef %kwds, ptr noundef %55, ptr noundef nonnull %call24)
+  %call86 = call fastcc ptr @CreateSwappedType(ptr noundef %args, ptr noundef %kwds, ptr noundef %55, ptr noundef %call24)
   %cmp87 = icmp eq ptr %call86, null
   br i1 %cmp87, label %if.then89, label %if.end90
 
@@ -6997,7 +6997,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare ptr @dlerror() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @StructUnionType_new(ptr noundef %type, ptr noundef %args, ptr noundef %kwds, i32 noundef %isStruct) unnamed_addr #0 {
+define internal fastcc ptr @StructUnionType_new(ptr noundef %type, ptr noundef %args, ptr noundef %kwds, i32 noundef range(i32 0, 2) %isStruct) unnamed_addr #0 {
 entry:
   %fields = alloca ptr, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 312), align 8
@@ -7762,7 +7762,7 @@ return:                                           ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_getset(ptr noundef %type, ptr noundef %gsp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_getset(ptr noundef nonnull %type, ptr noundef %gsp) unnamed_addr #0 {
 entry:
   %tp_dict = getelementptr inbounds i8, ptr %type, i64 264
   %0 = load ptr, ptr %tp_dict, align 8
@@ -7772,7 +7772,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %gsp.addr.013 = phi ptr [ %incdec.ptr, %for.inc ], [ %gsp, %entry ]
-  %call = tail call ptr @PyDescr_NewGetSet(ptr noundef %type, ptr noundef nonnull %gsp.addr.013) #15
+  %call = tail call ptr @PyDescr_NewGetSet(ptr noundef nonnull %type, ptr noundef nonnull %gsp.addr.013) #15
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end
 
@@ -8378,7 +8378,7 @@ return:                                           ; preds = %entry, %_Py_NewRef.
 declare ptr @PyDescr_NewClassMethod(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CreateSwappedType(ptr nocapture noundef readonly %args, ptr noundef %kwds, ptr noundef %proto, ptr nocapture noundef readonly %fmt) unnamed_addr #0 {
+define internal fastcc ptr @CreateSwappedType(ptr nocapture noundef readonly %args, ptr noundef %kwds, ptr noundef %proto, ptr nocapture noundef nonnull readonly %fmt) unnamed_addr #0 {
 entry:
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %0 = load ptr, ptr %ob_item, align 8

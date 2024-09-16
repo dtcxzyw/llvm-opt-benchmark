@@ -685,24 +685,24 @@ Saig_ManSimInfo2Not.exit:                         ; preds = %switch.lookup, %3
   %37 = and i32 %36, 3
   %38 = and i64 %27, 1
   %.not26 = icmp eq i64 %38, 0
-  br i1 %.not26, label %Saig_ManSimInfo2Not.exit40, label %switch.lookup51
+  br i1 %.not26, label %Saig_ManSimInfo2Not.exit41, label %switch.lookup51
 
 switch.lookup51:                                  ; preds = %25
   %39 = zext nneg i32 %37 to i64
   %switch.gep52 = getelementptr inbounds [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %39
   %switch.load53 = load i32, ptr %switch.gep52, align 4
-  br label %Saig_ManSimInfo2Not.exit40
+  br label %Saig_ManSimInfo2Not.exit41
 
-Saig_ManSimInfo2Not.exit40:                       ; preds = %switch.lookup51, %25
+Saig_ManSimInfo2Not.exit41:                       ; preds = %switch.lookup51, %25
   %.023 = phi i32 [ %37, %25 ], [ %switch.load53, %switch.lookup51 ]
   %40 = icmp eq i32 %.024, 1
   %41 = icmp eq i32 %.023, 1
   %or.cond3.i = and i1 %40, %41
-  %.0.i41 = zext i1 %or.cond3.i to i32
+  %.0.i42 = zext i1 %or.cond3.i to i32
   br label %42
 
-42:                                               ; preds = %Saig_ManSimInfo2Not.exit, %Saig_ManSimInfo2Not.exit40
-  %.0.i41.sink = phi i32 [ %.0.i41, %Saig_ManSimInfo2Not.exit40 ], [ %.024, %Saig_ManSimInfo2Not.exit ]
+42:                                               ; preds = %Saig_ManSimInfo2Not.exit, %Saig_ManSimInfo2Not.exit41
+  %.0.i42.sink = phi i32 [ %.0.i42, %Saig_ManSimInfo2Not.exit41 ], [ %.024, %Saig_ManSimInfo2Not.exit ]
   %43 = getelementptr i8, ptr %1, i64 36
   %.val38 = load i32, ptr %43, align 4
   %44 = sext i32 %.val38 to i64
@@ -712,11 +712,11 @@ Saig_ManSimInfo2Not.exit40:                       ; preds = %switch.lookup51, %2
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, %18
   %50 = and i32 %49, 3
-  %51 = xor i32 %50, %.0.i41.sink
+  %51 = xor i32 %50, %.0.i42.sink
   %52 = shl nuw i32 %51, %18
   %53 = xor i32 %52, %48
   store i32 %53, ptr %47, align 4
-  ret i32 %.0.i41.sink
+  ret i32 %.0.i42.sink
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -928,24 +928,24 @@ Saig_ManSimInfo2Not.exit.i:                       ; preds = %switch.lookup, %100
   %128 = and i32 %127, 3
   %129 = and i64 %118, 1
   %.not26.i = icmp eq i64 %129, 0
-  br i1 %.not26.i, label %Saig_ManSimInfo2Not.exit40.i, label %switch.lookup169
+  br i1 %.not26.i, label %Saig_ManSimInfo2Not.exit41.i, label %switch.lookup169
 
 switch.lookup169:                                 ; preds = %116
   %130 = zext nneg i32 %128 to i64
   %switch.gep170 = getelementptr inbounds [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %130
   %switch.load171 = load i32, ptr %switch.gep170, align 4
-  br label %Saig_ManSimInfo2Not.exit40.i
+  br label %Saig_ManSimInfo2Not.exit41.i
 
-Saig_ManSimInfo2Not.exit40.i:                     ; preds = %switch.lookup169, %116
+Saig_ManSimInfo2Not.exit41.i:                     ; preds = %switch.lookup169, %116
   %.023.i = phi i32 [ %128, %116 ], [ %switch.load171, %switch.lookup169 ]
   %131 = icmp eq i32 %.024.i, 1
   %132 = icmp eq i32 %.023.i, 1
   %or.cond3.i.i = and i1 %131, %132
-  %.0.i41.i = zext i1 %or.cond3.i.i to i32
+  %.0.i42.i = zext i1 %or.cond3.i.i to i32
   br label %Saig_ManExtendOneEval2.exit
 
-Saig_ManExtendOneEval2.exit:                      ; preds = %Saig_ManSimInfo2Not.exit.i, %Saig_ManSimInfo2Not.exit40.i
-  %.0.i41.sink.i = phi i32 [ %.0.i41.i, %Saig_ManSimInfo2Not.exit40.i ], [ %.024.i, %Saig_ManSimInfo2Not.exit.i ]
+Saig_ManExtendOneEval2.exit:                      ; preds = %Saig_ManSimInfo2Not.exit.i, %Saig_ManSimInfo2Not.exit41.i
+  %.0.i42.sink.i = phi i32 [ %.0.i42.i, %Saig_ManSimInfo2Not.exit41.i ], [ %.024.i, %Saig_ManSimInfo2Not.exit.i ]
   %133 = getelementptr i8, ptr %93, i64 36
   %.val38.i = load i32, ptr %133, align 4
   %134 = sext i32 %.val38.i to i64
@@ -955,7 +955,7 @@ Saig_ManExtendOneEval2.exit:                      ; preds = %Saig_ManSimInfo2Not
   %138 = load i32, ptr %137, align 4
   %139 = lshr i32 %138, %52
   %140 = and i32 %139, 3
-  %141 = xor i32 %140, %.0.i41.sink.i
+  %141 = xor i32 %140, %.0.i42.sink.i
   %142 = shl nuw i32 %141, %52
   %143 = xor i32 %142, %138
   store i32 %143, ptr %137, align 4
@@ -1028,24 +1028,24 @@ Saig_ManSimInfo2Not.exit.i111:                    ; preds = %switch.lookup172, %
   %180 = and i32 %179, 3
   %181 = and i64 %170, 1
   %.not26.i117 = icmp eq i64 %181, 0
-  br i1 %.not26.i117, label %Saig_ManSimInfo2Not.exit40.i118, label %switch.lookup175
+  br i1 %.not26.i117, label %Saig_ManSimInfo2Not.exit41.i118, label %switch.lookup175
 
 switch.lookup175:                                 ; preds = %168
   %182 = zext nneg i32 %180 to i64
   %switch.gep176 = getelementptr inbounds [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %182
   %switch.load177 = load i32, ptr %switch.gep176, align 4
-  br label %Saig_ManSimInfo2Not.exit40.i118
+  br label %Saig_ManSimInfo2Not.exit41.i118
 
-Saig_ManSimInfo2Not.exit40.i118:                  ; preds = %switch.lookup175, %168
+Saig_ManSimInfo2Not.exit41.i118:                  ; preds = %switch.lookup175, %168
   %.023.i119 = phi i32 [ %180, %168 ], [ %switch.load177, %switch.lookup175 ]
   %183 = icmp eq i32 %.024.i112, 1
   %184 = icmp eq i32 %.023.i119, 1
   %or.cond3.i.i120 = and i1 %183, %184
-  %.0.i41.i121 = zext i1 %or.cond3.i.i120 to i32
+  %.0.i42.i121 = zext i1 %or.cond3.i.i120 to i32
   br label %Saig_ManExtendOneEval2.exit125
 
-Saig_ManExtendOneEval2.exit125:                   ; preds = %Saig_ManSimInfo2Not.exit.i111, %Saig_ManSimInfo2Not.exit40.i118
-  %.0.i41.sink.i122 = phi i32 [ %.0.i41.i121, %Saig_ManSimInfo2Not.exit40.i118 ], [ %.024.i112, %Saig_ManSimInfo2Not.exit.i111 ]
+Saig_ManExtendOneEval2.exit125:                   ; preds = %Saig_ManSimInfo2Not.exit.i111, %Saig_ManSimInfo2Not.exit41.i118
+  %.0.i42.sink.i122 = phi i32 [ %.0.i42.i121, %Saig_ManSimInfo2Not.exit41.i118 ], [ %.024.i112, %Saig_ManSimInfo2Not.exit.i111 ]
   %185 = getelementptr i8, ptr %151, i64 36
   %.val38.i123 = load i32, ptr %185, align 4
   %186 = sext i32 %.val38.i123 to i64
@@ -1055,7 +1055,7 @@ Saig_ManExtendOneEval2.exit125:                   ; preds = %Saig_ManSimInfo2Not
   %190 = load i32, ptr %189, align 4
   %191 = lshr i32 %190, %52
   %192 = and i32 %191, 3
-  %193 = xor i32 %192, %.0.i41.sink.i122
+  %193 = xor i32 %192, %.0.i42.sink.i122
   %194 = shl nuw i32 %193, %52
   %195 = xor i32 %194, %190
   store i32 %195, ptr %189, align 4
@@ -1360,40 +1360,40 @@ Saig_ManSimInfo2Not.exit:                         ; preds = %switch.lookup, %82
   %.066 = phi i32 [ %94, %82 ], [ %switch.load, %switch.lookup ]
   %109 = and i64 %96, 1
   %.not75 = icmp eq i64 %109, 0
-  br i1 %.not75, label %Saig_ManSimInfo2Not.exit108, label %110
+  br i1 %.not75, label %Saig_ManSimInfo2Not.exit109, label %110
 
 110:                                              ; preds = %Saig_ManSimInfo2Not.exit
   switch i32 %106, label %default.unreachable [
-    i32 0, label %Saig_ManSimInfo2Not.exit108
+    i32 0, label %Saig_ManSimInfo2Not.exit109
     i32 1, label %111
     i32 2, label %112
-    i32 3, label %Saig_ManSimInfo2Not.exit108.thread
+    i32 3, label %Saig_ManSimInfo2Not.exit109.thread
   ]
 
 111:                                              ; preds = %110
-  br label %Saig_ManSimInfo2Not.exit108
+  br label %Saig_ManSimInfo2Not.exit109
 
 112:                                              ; preds = %110
-  br label %Saig_ManSimInfo2Not.exit108
+  br label %Saig_ManSimInfo2Not.exit109
 
-Saig_ManSimInfo2Not.exit108:                      ; preds = %110, %112, %111, %Saig_ManSimInfo2Not.exit
+Saig_ManSimInfo2Not.exit109:                      ; preds = %112, %111, %110, %Saig_ManSimInfo2Not.exit
   %.0 = phi i32 [ %106, %Saig_ManSimInfo2Not.exit ], [ 0, %111 ], [ 3, %112 ], [ 1, %110 ]
   %113 = icmp eq i32 %.066, 2
   %114 = icmp eq i32 %.0, 2
   %or.cond = select i1 %113, i1 true, i1 %114
-  br i1 %or.cond, label %Saig_ManSimInfo2Not.exit108.thread, label %115
+  br i1 %or.cond, label %Saig_ManSimInfo2Not.exit109.thread, label %115
 
-115:                                              ; preds = %Saig_ManSimInfo2Not.exit108
+115:                                              ; preds = %Saig_ManSimInfo2Not.exit109
   %116 = icmp eq i32 %.066, 3
   %117 = icmp eq i32 %.0, 3
   %or.cond3 = select i1 %116, i1 %117, i1 false
-  br i1 %or.cond3, label %Saig_ManSimInfo2Not.exit108.thread, label %.critedge121
+  br i1 %or.cond3, label %Saig_ManSimInfo2Not.exit109.thread, label %.critedge121
 
-Saig_ManSimInfo2Not.exit108.thread:               ; preds = %110, %115, %Saig_ManSimInfo2Not.exit108
+Saig_ManSimInfo2Not.exit109.thread:               ; preds = %110, %115, %Saig_ManSimInfo2Not.exit109
   tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef %.tr118, i32 noundef %3, ptr noundef %4)
   br label %.critedge121
 
-.critedge121:                                     ; preds = %115, %Saig_ManSimInfo2Not.exit108.thread, %Aig_ManObj.exit, %81
+.critedge121:                                     ; preds = %115, %Saig_ManSimInfo2Not.exit109.thread, %Aig_ManObj.exit, %81
   %118 = add nuw nsw i32 %.068134, 1
   %119 = load i64, ptr %28, align 8
   %120 = trunc i64 %119 to i32
@@ -1412,18 +1412,18 @@ define void @Saig_ManExplorePaths_rec(ptr noundef %0, ptr nocapture noundef read
   %8 = sext i32 %7 to i64
   %9 = shl i32 %2, 1
   %10 = and i32 %9, 30
-  %.val6597101 = load ptr, ptr %6, align 8
-  %11 = getelementptr i8, ptr %1, i64 36
-  %.val6698102 = load i32, ptr %11, align 4
-  %12 = sext i32 %.val6698102 to i64
-  %13 = getelementptr inbounds ptr, ptr %.val6597101, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %8
-  %16 = load i32, ptr %15, align 4
-  %17 = lshr i32 %16, %10
-  %18 = and i32 %17, 2
-  %.not99103 = icmp eq i32 %18, 0
-  br i1 %.not99103, label %.lr.ph.lr.ph, label %.loopexit
+  %11 = shl nuw i32 2, %10
+  %.val6597105 = load ptr, ptr %6, align 8
+  %12 = getelementptr i8, ptr %1, i64 36
+  %.val6698106 = load i32, ptr %12, align 4
+  %13 = sext i32 %.val6698106 to i64
+  %14 = getelementptr inbounds ptr, ptr %.val6597105, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i32, ptr %15, i64 %8
+  %17 = load i32, ptr %16, align 4
+  %18 = and i32 %17, %11
+  %.not88.not99107 = icmp eq i32 %18, 0
+  br i1 %.not88.not99107, label %.lr.ph.lr.ph, label %.loopexit
 
 .lr.ph.lr.ph:                                     ; preds = %5
   %19 = getelementptr i8, ptr %0, i64 108
@@ -1432,128 +1432,162 @@ define void @Saig_ManExplorePaths_rec(ptr noundef %0, ptr nocapture noundef read
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse.outer
-  %.in = phi i32 [ %17, %.lr.ph.lr.ph ], [ %59, %tailrecurse.outer ]
-  %22 = phi i32 [ %10, %.lr.ph.lr.ph ], [ %52, %tailrecurse.outer ]
-  %23 = phi i64 [ %8, %.lr.ph.lr.ph ], [ %50, %tailrecurse.outer ]
-  %.tr90.ph105 = phi i32 [ %2, %.lr.ph.lr.ph ], [ %48, %tailrecurse.outer ]
-  %.tr89.ph104 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %47, %tailrecurse.outer ]
-  %24 = icmp eq i32 %.tr90.ph105, 0
-  br label %25
+  %22 = phi i32 [ %11, %.lr.ph.lr.ph ], [ %64, %tailrecurse.outer ]
+  %23 = phi i64 [ %8, %.lr.ph.lr.ph ], [ %61, %tailrecurse.outer ]
+  %.tr90.ph109 = phi i32 [ %2, %.lr.ph.lr.ph ], [ %59, %tailrecurse.outer ]
+  %.tr89.ph108 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %58, %tailrecurse.outer ]
+  %24 = icmp eq i32 %.tr90.ph109, 0
+  br i1 %24, label %.lr.ph.split, label %.lr.ph.split.us
 
-25:                                               ; preds = %.lr.ph, %tailrecurse.backedge
-  %.in108 = phi i32 [ %.in, %.lr.ph ], [ %68, %tailrecurse.backedge ]
-  %.tr89100 = phi ptr [ %.tr89.ph104, %.lr.ph ], [ %.tr89.be, %tailrecurse.backedge ]
-  tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef %0, ptr noundef nonnull %.tr89100, i32 noundef %.tr90.ph105, i32 noundef %3, ptr noundef nonnull %4)
-  %26 = getelementptr i8, ptr %.tr89100, i64 24
-  %.val4.i = load i64, ptr %26, align 8
-  %27 = and i64 %.val4.i, 7
-  switch i64 %27, label %.thread84 [
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %tailrecurse.backedge.us
+  %.tr89100.us = phi ptr [ %.tr89.be.us, %tailrecurse.backedge.us ], [ %.tr89.ph108, %.lr.ph ]
+  tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef %0, ptr noundef nonnull %.tr89100.us, i32 noundef %.tr90.ph109, i32 noundef %3, ptr noundef nonnull %4)
+  %25 = getelementptr i8, ptr %.tr89100.us, i64 24
+  %.val4.i.us = load i64, ptr %25, align 8
+  %26 = and i64 %.val4.i.us, 7
+  switch i64 %26, label %.thread84.us [
+    i64 2, label %Saig_ObjIsLo.exit.us
+    i64 3, label %tailrecurse.backedge.us
+  ]
+
+Saig_ObjIsLo.exit.us:                             ; preds = %.lr.ph.split.us
+  %.val3.i71.us = load i32, ptr %.tr89100.us, align 8
+  %.val.i72.us = load i32, ptr %19, align 4
+  %.not86.us = icmp slt i32 %.val3.i71.us, %.val.i72.us
+  br i1 %.not86.us, label %.split.us, label %tailrecurse.outer
+
+.thread84.us:                                     ; preds = %.lr.ph.split.us
+  %27 = getelementptr i8, ptr %.tr89100.us, i64 8
+  %.val.us = load ptr, ptr %27, align 8
+  %28 = ptrtoint ptr %.val.us to i64
+  %29 = and i64 %28, -2
+  %30 = inttoptr i64 %29 to ptr
+  tail call void @Saig_ManExplorePaths_rec(ptr noundef %0, ptr noundef %30, i32 noundef %.tr90.ph109, i32 noundef %3, ptr noundef nonnull %4)
+  br label %tailrecurse.backedge.us
+
+tailrecurse.backedge.us:                          ; preds = %.lr.ph.split.us, %.thread84.us
+  %.sink = phi i64 [ 16, %.thread84.us ], [ 8, %.lr.ph.split.us ]
+  %31 = getelementptr i8, ptr %.tr89100.us, i64 %.sink
+  %.tr89.be.us.in.in.in = load ptr, ptr %31, align 8
+  %.tr89.be.us.in.in = ptrtoint ptr %.tr89.be.us.in.in.in to i64
+  %.tr89.be.us.in = and i64 %.tr89.be.us.in.in, -2
+  %.tr89.be.us = inttoptr i64 %.tr89.be.us.in to ptr
+  %.val65.us = load ptr, ptr %6, align 8
+  %32 = getelementptr i8, ptr %.tr89.be.us, i64 36
+  %.val66.us = load i32, ptr %32, align 4
+  %33 = sext i32 %.val66.us to i64
+  %34 = getelementptr inbounds ptr, ptr %.val65.us, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i32, ptr %35, i64 %23
+  %37 = load i32, ptr %36, align 4
+  %38 = and i32 %37, %22
+  %.not88.not.us = icmp eq i32 %38, 0
+  br i1 %.not88.not.us, label %.lr.ph.split.us, label %.loopexit
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %tailrecurse.backedge
+  %.tr89100 = phi ptr [ %.tr89.be, %tailrecurse.backedge ], [ %.tr89.ph108, %.lr.ph ]
+  tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef %0, ptr noundef nonnull %.tr89100, i32 noundef 0, i32 noundef %3, ptr noundef nonnull %4)
+  %39 = getelementptr i8, ptr %.tr89100, i64 24
+  %.val4.i = load i64, ptr %39, align 8
+  %40 = and i64 %.val4.i, 7
+  switch i64 %40, label %.thread84 [
     i64 2, label %Saig_ObjIsLo.exit
     i64 3, label %tailrecurse.backedge
   ]
 
-Saig_ObjIsLo.exit:                                ; preds = %25
+Saig_ObjIsLo.exit:                                ; preds = %.lr.ph.split
   %.val3.i = load i32, ptr %.tr89100, align 8
   %.val.i = load i32, ptr %19, align 4
-  %28 = icmp sge i32 %.val3.i, %.val.i
-  %or.cond = and i1 %24, %28
-  br i1 %or.cond, label %.loopexit, label %Saig_ObjIsPi.exit
+  %.not = icmp slt i32 %.val3.i, %.val.i
+  br i1 %.not, label %.split.us, label %.loopexit
 
-Saig_ObjIsPi.exit:                                ; preds = %Saig_ObjIsLo.exit
-  %.not87 = icmp slt i32 %.val3.i, %.val.i
-  br i1 %.not87, label %29, label %tailrecurse.outer
+.split.us:                                        ; preds = %Saig_ObjIsLo.exit.us, %Saig_ObjIsLo.exit
+  %.val67 = phi i32 [ %.val3.i, %Saig_ObjIsLo.exit ], [ %.val3.i71.us, %Saig_ObjIsLo.exit.us ]
+  %.tr90.ph109125 = phi i32 [ 0, %Saig_ObjIsLo.exit ], [ %.tr90.ph109, %Saig_ObjIsLo.exit.us ]
+  %41 = icmp sgt i32 %3, -1
+  br i1 %41, label %.lr.ph111, label %.loopexit
 
-29:                                               ; preds = %Saig_ObjIsPi.exit
-  %30 = icmp sgt i32 %3, -1
-  br i1 %30, label %.lr.ph107, label %.loopexit
+.lr.ph111:                                        ; preds = %.split.us
+  %42 = getelementptr i8, ptr %0, i64 16
+  %43 = sext i32 %.val67 to i64
+  br label %44
 
-.lr.ph107:                                        ; preds = %29
-  %31 = getelementptr i8, ptr %0, i64 16
-  %32 = sext i32 %.val3.i to i64
-  br label %33
+44:                                               ; preds = %.lr.ph111, %49
+  %.0110 = phi i32 [ %3, %.lr.ph111 ], [ %50, %49 ]
+  %.not59 = icmp eq i32 %.0110, %.tr90.ph109125
+  br i1 %.not59, label %49, label %45
 
-33:                                               ; preds = %.lr.ph107, %38
-  %.0106 = phi i32 [ %3, %.lr.ph107 ], [ %39, %38 ]
-  %.not59 = icmp eq i32 %.0106, %.tr90.ph105
-  br i1 %.not59, label %38, label %34
+45:                                               ; preds = %44
+  %.val64 = load ptr, ptr %42, align 8
+  %46 = getelementptr i8, ptr %.val64, i64 8
+  %.val64.val = load ptr, ptr %46, align 8
+  %47 = getelementptr inbounds ptr, ptr %.val64.val, i64 %43
+  %48 = load ptr, ptr %47, align 8
+  tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef %0, ptr noundef %48, i32 noundef %.0110, i32 noundef %3, ptr noundef %4)
+  br label %49
 
-34:                                               ; preds = %33
-  %.val64 = load ptr, ptr %31, align 8
-  %35 = getelementptr i8, ptr %.val64, i64 8
-  %.val64.val = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds ptr, ptr %.val64.val, i64 %32
-  %37 = load ptr, ptr %36, align 8
-  tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef %0, ptr noundef %37, i32 noundef %.0106, i32 noundef %3, ptr noundef %4)
-  br label %38
+49:                                               ; preds = %44, %45
+  %50 = add nsw i32 %.0110, -1
+  %51 = icmp sgt i32 %.0110, 0
+  br i1 %51, label %44, label %.loopexit, !llvm.loop !20
 
-38:                                               ; preds = %33, %34
-  %39 = add nsw i32 %.0106, -1
-  %40 = icmp sgt i32 %.0106, 0
-  br i1 %40, label %33, label %.loopexit, !llvm.loop !20
-
-tailrecurse.outer:                                ; preds = %Saig_ObjIsPi.exit
-  %41 = load ptr, ptr %20, align 8
+tailrecurse.outer:                                ; preds = %Saig_ObjIsLo.exit.us
+  %52 = load ptr, ptr %20, align 8
   %.val5.i = load i32, ptr %21, align 8
-  %42 = add nsw i32 %.val5.i, %.val3.i
-  %43 = sub i32 %42, %.val.i
-  %44 = getelementptr i8, ptr %41, i64 8
-  %.val.i79 = load ptr, ptr %44, align 8
-  %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %.val.i79, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  %48 = add nsw i32 %.tr90.ph105, -1
-  %49 = ashr i32 %48, 4
-  %50 = sext i32 %49 to i64
-  %51 = shl i32 %48, 1
-  %52 = and i32 %51, 30
+  %53 = add nsw i32 %.val5.i, %.val3.i71.us
+  %54 = sub i32 %53, %.val.i72.us
+  %55 = getelementptr i8, ptr %52, i64 8
+  %.val.i79 = load ptr, ptr %55, align 8
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds ptr, ptr %.val.i79, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %59 = add i32 %.tr90.ph109, -1
+  %60 = ashr i32 %59, 4
+  %61 = sext i32 %60 to i64
+  %62 = shl i32 %59, 1
+  %63 = and i32 %62, 30
+  %64 = shl nuw i32 2, %63
   %.val6597 = load ptr, ptr %6, align 8
-  %53 = getelementptr i8, ptr %47, i64 36
-  %.val6698 = load i32, ptr %53, align 4
-  %54 = sext i32 %.val6698 to i64
-  %55 = getelementptr inbounds ptr, ptr %.val6597, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %50
-  %58 = load i32, ptr %57, align 4
-  %59 = lshr i32 %58, %52
-  %60 = and i32 %59, 2
-  %.not99 = icmp eq i32 %60, 0
-  br i1 %.not99, label %.lr.ph, label %.loopexit
+  %65 = getelementptr i8, ptr %58, i64 36
+  %.val6698 = load i32, ptr %65, align 4
+  %66 = sext i32 %.val6698 to i64
+  %67 = getelementptr inbounds ptr, ptr %.val6597, i64 %66
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i32, ptr %68, i64 %61
+  %70 = load i32, ptr %69, align 4
+  %71 = and i32 %70, %64
+  %.not88.not99 = icmp eq i32 %71, 0
+  br i1 %.not88.not99, label %.lr.ph, label %.loopexit
 
-tailrecurse.backedge:                             ; preds = %25, %.thread84, %72
-  %.sink = phi i64 [ 16, %72 ], [ 8, %.thread84 ], [ 8, %25 ]
-  %61 = getelementptr i8, ptr %.tr89100, i64 %.sink
-  %.tr89.be.in.in.in = load ptr, ptr %61, align 8
+tailrecurse.backedge:                             ; preds = %.lr.ph.split, %.thread84
+  %.sink149 = phi i64 [ 16, %.thread84 ], [ 8, %.lr.ph.split ]
+  %72 = getelementptr i8, ptr %.tr89100, i64 %.sink149
+  %.tr89.be.in.in.in = load ptr, ptr %72, align 8
   %.tr89.be.in.in = ptrtoint ptr %.tr89.be.in.in.in to i64
   %.tr89.be.in = and i64 %.tr89.be.in.in, -2
   %.tr89.be = inttoptr i64 %.tr89.be.in to ptr
   %.val65 = load ptr, ptr %6, align 8
-  %62 = getelementptr i8, ptr %.tr89.be, i64 36
-  %.val66 = load i32, ptr %62, align 4
-  %63 = sext i32 %.val66 to i64
-  %64 = getelementptr inbounds ptr, ptr %.val65, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i32, ptr %65, i64 %23
-  %67 = load i32, ptr %66, align 4
-  %68 = lshr i32 %67, %22
-  %69 = and i32 %68, 2
-  %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %25, label %.loopexit
+  %73 = getelementptr i8, ptr %.tr89.be, i64 36
+  %.val66 = load i32, ptr %73, align 4
+  %74 = sext i32 %.val66 to i64
+  %75 = getelementptr inbounds ptr, ptr %.val65, i64 %74
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i32, ptr %76, i64 %23
+  %78 = load i32, ptr %77, align 4
+  %79 = and i32 %78, %22
+  %.not88.not = icmp eq i32 %79, 0
+  br i1 %.not88.not, label %.lr.ph.split, label %.loopexit
 
-.thread84:                                        ; preds = %25
-  %70 = and i32 %.in108, 3
-  %71 = icmp eq i32 %70, 2
-  br i1 %71, label %tailrecurse.backedge, label %72
-
-72:                                               ; preds = %.thread84
-  %73 = getelementptr i8, ptr %.tr89100, i64 8
-  %.val = load ptr, ptr %73, align 8
-  %74 = ptrtoint ptr %.val to i64
-  %75 = and i64 %74, -2
-  %76 = inttoptr i64 %75 to ptr
-  tail call void @Saig_ManExplorePaths_rec(ptr noundef %0, ptr noundef %76, i32 noundef %.tr90.ph105, i32 noundef %3, ptr noundef nonnull %4)
+.thread84:                                        ; preds = %.lr.ph.split
+  %80 = getelementptr i8, ptr %.tr89100, i64 8
+  %.val = load ptr, ptr %80, align 8
+  %81 = ptrtoint ptr %.val to i64
+  %82 = and i64 %81, -2
+  %83 = inttoptr i64 %82 to ptr
+  tail call void @Saig_ManExplorePaths_rec(ptr noundef %0, ptr noundef %83, i32 noundef 0, i32 noundef %3, ptr noundef nonnull %4)
   br label %tailrecurse.backedge
 
-.loopexit:                                        ; preds = %tailrecurse.outer, %Saig_ObjIsLo.exit, %tailrecurse.backedge, %38, %5, %29
+.loopexit:                                        ; preds = %tailrecurse.outer, %tailrecurse.backedge.us, %tailrecurse.backedge, %49, %Saig_ObjIsLo.exit, %5, %.split.us
   ret void
 }
 

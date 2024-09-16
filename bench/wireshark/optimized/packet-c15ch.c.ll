@@ -8225,7 +8225,7 @@ declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unn
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_digits_string_info_col(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @add_digits_string_info_col(ptr noundef %0, i32 noundef range(i32 4, 14) %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef %2) #3
   %5 = getelementptr inbounds i8, ptr %3, i64 408
   %6 = load ptr, ptr %5, align 8
@@ -8298,7 +8298,7 @@ define internal fastcc void @add_digits_string_info_col(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_digits_string(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @add_digits_string(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 168) %3, i32 noundef %4, i32 noundef range(i32 4, 55) %5, i32 noundef range(i32 0, 5) %6) unnamed_addr #0 {
   %8 = icmp ult i32 %5, %4
   br i1 %8, label %33, label %9
 
@@ -8313,7 +8313,7 @@ define internal fastcc void @add_digits_string(i32 noundef %0, ptr noundef %1, p
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
-  %wide.trip.count = zext i32 %4 to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27

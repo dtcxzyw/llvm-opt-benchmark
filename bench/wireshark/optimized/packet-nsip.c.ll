@@ -356,7 +356,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 decode_iei_control_bits.exit.i.i:                 ; preds = %64, %62
   %67 = getelementptr inbounds i8, ptr %18, i64 12
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %67, i32 noundef 1, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %67, i32 noundef 1, ptr noundef %19)
   %68 = load ptr, ptr %19, align 8
   %69 = load i32, ptr %29, align 8
   %70 = call ptr @tvb_new_subset_remaining(ptr noundef %68, i32 noundef %69) #5
@@ -388,28 +388,28 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
 85:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %17, ptr noundef nonnull align 16 dereferenceable(36) @__const.decode_pdu_ns_reset.ies, i64 36, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %17, i32 noundef 3, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %17, i32 noundef 3, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %17)
   br label %decode_pdu.exit
 
 86:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %16, ptr noundef nonnull align 16 dereferenceable(24) @__const.decode_pdu_ns_reset_ack.ies, i64 24, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %16, i32 noundef 2, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %decode_pdu.exit
 
 87:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %15, ptr noundef nonnull align 16 dereferenceable(24) @__const.decode_pdu_ns_block.ies, i64 24, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %15, i32 noundef 2, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %15, i32 noundef 2, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %decode_pdu.exit
 
 88:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) @__const.decode_pdu_ns_block_ack.ies, i64 12, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %14, i32 noundef 1, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %14, i32 noundef 1, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   br label %decode_pdu.exit
 
@@ -420,14 +420,14 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   store i8 %92, ptr %90, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %13, ptr noundef nonnull align 16 dereferenceable(72) @__const.decode_pdu_ns_status.ies, i64 72, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %13, i32 noundef 6, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %13, i32 noundef 6, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
   br label %decode_pdu.exit
 
 93:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %12, ptr noundef nonnull align 16 dereferenceable(72) @__const.decode_pdu_sns_ack.ies, i64 72, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %12, i32 noundef 1, ptr noundef %19)
   %94 = load i32, ptr %29, align 8
   %95 = load ptr, ptr %19, align 8
   %96 = call zeroext i8 @tvb_get_guint8(ptr noundef %95, i32 noundef %94) #5
@@ -448,14 +448,14 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %110 = add i32 %109, 1
   store i32 %110, ptr %29, align 8
   %111 = getelementptr inbounds i8, ptr %12, i64 24
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %111, i32 noundef 4, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %111, i32 noundef 4, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   br label %decode_pdu.exit
 
 112:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, ptr noundef nonnull align 16 dereferenceable(48) @__const.decode_pdu_sns_changeweight.ies, i64 48, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %11, i32 noundef 1, ptr noundef %19)
   %113 = load i32, ptr %29, align 8
   %114 = load ptr, ptr %19, align 8
   %115 = call zeroext i8 @tvb_get_guint8(ptr noundef %114, i32 noundef %113) #5
@@ -476,14 +476,14 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %129 = add i32 %128, 1
   store i32 %129, ptr %29, align 8
   %130 = getelementptr inbounds i8, ptr %11, i64 24
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %130, i32 noundef 2, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %130, i32 noundef 2, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   br label %decode_pdu.exit
 
 131:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 16 dereferenceable(48) @__const.decode_pdu_sns_changeweight.ies, i64 48, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %10, i32 noundef 1, ptr noundef %19)
   %132 = load i32, ptr %29, align 8
   %133 = load ptr, ptr %19, align 8
   %134 = call zeroext i8 @tvb_get_guint8(ptr noundef %133, i32 noundef %132) #5
@@ -504,7 +504,7 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %148 = add i32 %147, 1
   store i32 %148, ptr %29, align 8
   %149 = getelementptr inbounds i8, ptr %10, i64 24
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %149, i32 noundef 2, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %149, i32 noundef 2, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br label %decode_pdu.exit
 
@@ -516,21 +516,21 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %153 = tail call ptr @proto_tree_add_bitmask(ptr noundef %43, ptr noundef %0, i32 noundef 1, i32 noundef %151, i32 noundef %152, ptr noundef nonnull @decode_iei_end_flag.end_flags, i32 noundef 0) #5
   store i32 2, ptr %29, align 8
   %154 = getelementptr inbounds i8, ptr %9, i64 12
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %154, i32 noundef 3, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %154, i32 noundef 3, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br label %decode_pdu.exit
 
 155:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 16 dereferenceable(24) @__const.decode_pdu_sns_size_ack.ies, i64 24, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %8, i32 noundef 2, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %decode_pdu.exit
 
 156:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %7, ptr noundef nonnull align 16 dereferenceable(60) @__const.decode_pdu_sns_delete.ies, i64 60, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %7, i32 noundef 1, ptr noundef %19)
   %157 = load i32, ptr %29, align 8
   %158 = load ptr, ptr %19, align 8
   %159 = call zeroext i8 @tvb_get_guint8(ptr noundef %158, i32 noundef %157) #5
@@ -551,21 +551,21 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %173 = add i32 %172, 1
   store i32 %173, ptr %29, align 8
   %174 = getelementptr inbounds i8, ptr %7, i64 24
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %174, i32 noundef 3, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %174, i32 noundef 3, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %7)
   br label %decode_pdu.exit
 
 175:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %6, ptr noundef nonnull align 16 dereferenceable(60) @__const.decode_pdu_sns_size.ies, i64 60, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %6, i32 noundef 5, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %6, i32 noundef 5, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %6)
   br label %decode_pdu.exit
 
 176:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 16 dereferenceable(24) @__const.decode_pdu_sns_size_ack.ies, i64 24, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %5, i32 noundef 2, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %decode_pdu.exit
 
@@ -626,465 +626,461 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_pdu_general(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @decode_pdu_general(ptr nocapture noundef %0, i32 noundef range(i32 1, 7) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.e_in6_addr, align 1
-  %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds i8, ptr %2, i64 40
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %decode_ie.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %decode_ie.exit ]
-  %11 = getelementptr %struct.nsip_ie_t, ptr %0, i64 %indvars.iv
-  %12 = load i32, ptr %6, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = call i32 @tvb_captured_length_remaining(ptr noundef %13, i32 noundef %12) #5
-  %15 = icmp slt i32 %14, 1
-  br i1 %15, label %decode_ie.exit, label %16
+9:                                                ; preds = %3, %decode_ie.exit
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %decode_ie.exit ]
+  %10 = getelementptr %struct.nsip_ie_t, ptr %0, i64 %indvars.iv
+  %11 = load i32, ptr %5, align 8
+  %12 = load ptr, ptr %2, align 8
+  %13 = call i32 @tvb_captured_length_remaining(ptr noundef %12, i32 noundef %11) #5
+  %14 = icmp slt i32 %13, 1
+  br i1 %14, label %decode_ie.exit, label %15
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
-  %18 = load i32, ptr %17, align 4
-  switch i32 %18, label %61 [
-    i32 3, label %19
-    i32 2, label %47
-    i32 1, label %57
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds i8, ptr %10, i64 4
+  %17 = load i32, ptr %16, align 4
+  switch i32 %17, label %60 [
+    i32 3, label %18
+    i32 2, label %46
+    i32 1, label %56
   ]
 
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   %.val.i = load ptr, ptr %2, align 8
-  %.val54.i = load i32, ptr %6, align 8
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %.val.i, i32 noundef %.val54.i) #5
-  %21 = load i8, ptr %11, align 4
-  %.not66.i = icmp eq i8 %20, %21
-  br i1 %.not66.i, label %22, label %decode_ie.exit
+  %.val54.i = load i32, ptr %5, align 8
+  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %.val.i, i32 noundef %.val54.i) #5
+  %20 = load i8, ptr %10, align 4
+  %.not66.i = icmp eq i8 %19, %20
+  br i1 %.not66.i, label %21, label %decode_ie.exit
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %6, align 8
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 10
-  store i16 1, ptr %25, align 2
-  %26 = load ptr, ptr %2, align 8
-  %27 = load i32, ptr %6, align 8
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %27) #5
-  %.not.i.i = icmp sgt i8 %28, -1
-  br i1 %.not.i.i, label %32, label %29
+21:                                               ; preds = %18
+  %22 = load i32, ptr %5, align 8
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %5, align 8
+  %24 = getelementptr inbounds i8, ptr %10, i64 10
+  store i16 1, ptr %24, align 2
+  %25 = load ptr, ptr %2, align 8
+  %26 = load i32, ptr %5, align 8
+  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %25, i32 noundef %26) #5
+  %.not.i.i = icmp sgt i8 %27, -1
+  br i1 %.not.i.i, label %31, label %28
 
-29:                                               ; preds = %22
-  %30 = and i8 %28, 127
-  %31 = zext nneg i8 %30 to i16
+28:                                               ; preds = %21
+  %29 = and i8 %27, 127
+  %30 = zext nneg i8 %29 to i16
   br label %get_value_length.exit.i
 
-32:                                               ; preds = %22
-  %.tr.i.i = zext nneg i8 %28 to i16
-  %33 = shl nuw nsw i16 %.tr.i.i, 8
-  %34 = load ptr, ptr %2, align 8
-  %35 = load i32, ptr %6, align 8
-  %36 = add i32 %35, 1
-  %37 = call zeroext i8 @tvb_get_guint8(ptr noundef %34, i32 noundef %36) #5
-  %38 = zext i8 %37 to i16
-  %39 = or disjoint i16 %33, %38
+31:                                               ; preds = %21
+  %.tr.i.i = zext nneg i8 %27 to i16
+  %32 = shl nuw nsw i16 %.tr.i.i, 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = load i32, ptr %5, align 8
+  %35 = add i32 %34, 1
+  %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef %35) #5
+  %37 = zext i8 %36 to i16
+  %38 = or disjoint i16 %32, %37
   br label %get_value_length.exit.i
 
-get_value_length.exit.i:                          ; preds = %32, %29
-  %.015.i.i = phi i32 [ 1, %29 ], [ 2, %32 ]
-  %.0.i.i = phi i16 [ %31, %29 ], [ %39, %32 ]
-  %40 = getelementptr inbounds i8, ptr %11, i64 8
-  store i16 %.0.i.i, ptr %40, align 4
-  %41 = load i16, ptr %25, align 2
-  %42 = trunc nuw nsw i32 %.015.i.i to i16
-  %43 = add nuw i16 %.0.i.i, %42
-  %44 = add i16 %43, %41
-  store i16 %44, ptr %25, align 2
-  %45 = load i32, ptr %6, align 8
-  %46 = add i32 %45, %.015.i.i
-  store i32 %46, ptr %6, align 8
-  br label %61
+get_value_length.exit.i:                          ; preds = %31, %28
+  %.015.i.i = phi i32 [ 1, %28 ], [ 2, %31 ]
+  %.0.i.i = phi i16 [ %30, %28 ], [ %38, %31 ]
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  store i16 %.0.i.i, ptr %39, align 4
+  %40 = load i16, ptr %24, align 2
+  %41 = trunc nuw nsw i32 %.015.i.i to i16
+  %42 = add nuw i16 %.0.i.i, %41
+  %43 = add i16 %42, %40
+  store i16 %43, ptr %24, align 2
+  %44 = load i32, ptr %5, align 8
+  %45 = add i32 %44, %.015.i.i
+  store i32 %45, ptr %5, align 8
+  br label %60
 
-47:                                               ; preds = %16
+46:                                               ; preds = %15
   %.val55.i = load ptr, ptr %2, align 8
-  %.val56.i = load i32, ptr %6, align 8
-  %48 = call zeroext i8 @tvb_get_guint8(ptr noundef %.val55.i, i32 noundef %.val56.i) #5
-  %49 = load i8, ptr %11, align 4
-  %.not.i = icmp eq i8 %48, %49
-  br i1 %.not.i, label %50, label %decode_ie.exit
+  %.val56.i = load i32, ptr %5, align 8
+  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %.val55.i, i32 noundef %.val56.i) #5
+  %48 = load i8, ptr %10, align 4
+  %.not.i = icmp eq i8 %47, %48
+  br i1 %.not.i, label %49, label %decode_ie.exit
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr %6, align 8
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %11, i64 10
-  %54 = load i16, ptr %53, align 2
-  %55 = add i16 %54, -1
-  %56 = getelementptr inbounds i8, ptr %11, i64 8
-  store i16 %55, ptr %56, align 4
-  br label %61
+49:                                               ; preds = %46
+  %50 = load i32, ptr %5, align 8
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %5, align 8
+  %52 = getelementptr inbounds i8, ptr %10, i64 10
+  %53 = load i16, ptr %52, align 2
+  %54 = add i16 %53, -1
+  %55 = getelementptr inbounds i8, ptr %10, i64 8
+  store i16 %54, ptr %55, align 4
+  br label %60
 
-57:                                               ; preds = %16
-  %58 = getelementptr inbounds i8, ptr %11, i64 10
-  %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds i8, ptr %11, i64 8
-  store i16 %59, ptr %60, align 4
-  br label %61
+56:                                               ; preds = %15
+  %57 = getelementptr inbounds i8, ptr %10, i64 10
+  %58 = load i16, ptr %57, align 2
+  %59 = getelementptr inbounds i8, ptr %10, i64 8
+  store i16 %58, ptr %59, align 4
+  br label %60
 
-61:                                               ; preds = %57, %50, %get_value_length.exit.i, %16
-  %62 = load i8, ptr %11, align 4
-  switch i8 %62, label %decode_ie.exit [
-    i8 0, label %63
-    i8 1, label %86
-    i8 2, label %107
-    i8 4, label %132
-    i8 3, label %153
-    i8 5, label %174
-    i8 6, label %177
-    i8 7, label %180
-    i8 8, label %195
-    i8 9, label %210
-    i8 10, label %225
-    i8 11, label %242
+60:                                               ; preds = %56, %49, %get_value_length.exit.i, %15
+  %61 = load i8, ptr %10, align 4
+  switch i8 %61, label %decode_ie.exit [
+    i8 0, label %62
+    i8 1, label %85
+    i8 2, label %106
+    i8 4, label %131
+    i8 3, label %152
+    i8 5, label %173
+    i8 6, label %176
+    i8 7, label %179
+    i8 8, label %194
+    i8 9, label %209
+    i8 10, label %224
+    i8 11, label %241
   ]
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %2, align 8
-  %65 = load i32, ptr %6, align 8
-  %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %64, i32 noundef %65) #5
-  %67 = load ptr, ptr %7, align 8
-  %68 = load i32, ptr @hf_nsip_cause, align 4
-  %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds i8, ptr %11, i64 10
-  %71 = load i16, ptr %70, align 2
-  %72 = zext i16 %71 to i32
-  %73 = zext i8 %66 to i32
-  %74 = call ptr @proto_tree_add_uint(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %12, i32 noundef %72, i32 noundef %73) #5
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = call ptr @val_to_str(i32 noundef %73, ptr noundef nonnull @tab_nsip_cause_values, ptr noundef nonnull @.str.115) #5
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %77, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.114, ptr noundef %78) #5
-  %79 = load ptr, ptr %9, align 8
-  %80 = call ptr @val_to_str(i32 noundef %73, ptr noundef nonnull @tab_nsip_cause_values, ptr noundef nonnull @.str.115) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %79, ptr noundef nonnull @.str.116, ptr noundef %80) #5
-  %81 = getelementptr inbounds i8, ptr %11, i64 8
-  %82 = load i16, ptr %81, align 4
-  %83 = zext i16 %82 to i32
-  %84 = load i32, ptr %6, align 8
-  %85 = add i32 %84, %83
-  store i32 %85, ptr %6, align 8
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %2, align 8
+  %64 = load i32, ptr %5, align 8
+  %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %63, i32 noundef %64) #5
+  %66 = load ptr, ptr %6, align 8
+  %67 = load i32, ptr @hf_nsip_cause, align 4
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds i8, ptr %10, i64 10
+  %70 = load i16, ptr %69, align 2
+  %71 = zext i16 %70 to i32
+  %72 = zext i8 %65 to i32
+  %73 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %11, i32 noundef %71, i32 noundef %72) #5
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = call ptr @val_to_str(i32 noundef %72, ptr noundef nonnull @tab_nsip_cause_values, ptr noundef nonnull @.str.115) #5
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.114, ptr noundef %77) #5
+  %78 = load ptr, ptr %8, align 8
+  %79 = call ptr @val_to_str(i32 noundef %72, ptr noundef nonnull @tab_nsip_cause_values, ptr noundef nonnull @.str.115) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.116, ptr noundef %79) #5
+  %80 = getelementptr inbounds i8, ptr %10, i64 8
+  %81 = load i16, ptr %80, align 4
+  %82 = zext i16 %81 to i32
+  %83 = load i32, ptr %5, align 8
+  %84 = add i32 %83, %82
+  store i32 %84, ptr %5, align 8
   br label %decode_ie.exit
 
-86:                                               ; preds = %61
-  %87 = load ptr, ptr %2, align 8
-  %88 = load i32, ptr %6, align 8
-  %89 = call zeroext i16 @tvb_get_ntohs(ptr noundef %87, i32 noundef %88) #5
-  %90 = load ptr, ptr %7, align 8
-  %91 = load i32, ptr @hf_nsip_ns_vci, align 4
-  %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds i8, ptr %11, i64 10
-  %94 = load i16, ptr %93, align 2
-  %95 = zext i16 %94 to i32
-  %96 = zext i16 %89 to i32
-  %97 = call ptr @proto_tree_add_uint(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %12, i32 noundef %95, i32 noundef %96) #5
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.117, i32 noundef %96) #5
-  %101 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %101, ptr noundef nonnull @.str.118, i32 noundef %96) #5
-  %102 = getelementptr inbounds i8, ptr %11, i64 8
-  %103 = load i16, ptr %102, align 4
-  %104 = zext i16 %103 to i32
-  %105 = load i32, ptr %6, align 8
-  %106 = add i32 %105, %104
-  store i32 %106, ptr %6, align 8
+85:                                               ; preds = %60
+  %86 = load ptr, ptr %2, align 8
+  %87 = load i32, ptr %5, align 8
+  %88 = call zeroext i16 @tvb_get_ntohs(ptr noundef %86, i32 noundef %87) #5
+  %89 = load ptr, ptr %6, align 8
+  %90 = load i32, ptr @hf_nsip_ns_vci, align 4
+  %91 = load ptr, ptr %2, align 8
+  %92 = getelementptr inbounds i8, ptr %10, i64 10
+  %93 = load i16, ptr %92, align 2
+  %94 = zext i16 %93 to i32
+  %95 = zext i16 %88 to i32
+  %96 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %11, i32 noundef %94, i32 noundef %95) #5
+  %97 = load ptr, ptr %7, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = load ptr, ptr %98, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.117, i32 noundef %95) #5
+  %100 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.118, i32 noundef %95) #5
+  %101 = getelementptr inbounds i8, ptr %10, i64 8
+  %102 = load i16, ptr %101, align 4
+  %103 = zext i16 %102 to i32
+  %104 = load i32, ptr %5, align 8
+  %105 = add i32 %104, %103
+  store i32 %105, ptr %5, align 8
   br label %decode_ie.exit
 
-107:                                              ; preds = %61
-  %108 = load ptr, ptr %7, align 8
-  %109 = load i32, ptr @hf_nsip_ns_pdu, align 4
-  %110 = load ptr, ptr %2, align 8
-  %111 = getelementptr inbounds i8, ptr %11, i64 10
-  %112 = load i16, ptr %111, align 2
-  %113 = zext i16 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %11, i64 8
-  %115 = load i16, ptr %114, align 4
-  %116 = zext i16 %115 to i32
-  %117 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %12, i32 noundef %113, ptr noundef null, ptr noundef nonnull @.str.119, i32 noundef %116) #5
-  %118 = load ptr, ptr %2, align 8
-  %119 = load i32, ptr %6, align 8
-  %120 = load i16, ptr %114, align 4
-  %121 = zext i16 %120 to i32
-  %122 = call ptr @tvb_new_subset_length_caplen(ptr noundef %118, i32 noundef %119, i32 noundef %121, i32 noundef -1) #5
-  %123 = load ptr, ptr @nsip_handle, align 8
-  %.not.i61.i = icmp eq ptr %123, null
-  br i1 %.not.i61.i, label %decode_iei_ns_pdu.exit.i, label %124
+106:                                              ; preds = %60
+  %107 = load ptr, ptr %6, align 8
+  %108 = load i32, ptr @hf_nsip_ns_pdu, align 4
+  %109 = load ptr, ptr %2, align 8
+  %110 = getelementptr inbounds i8, ptr %10, i64 10
+  %111 = load i16, ptr %110, align 2
+  %112 = zext i16 %111 to i32
+  %113 = getelementptr inbounds i8, ptr %10, i64 8
+  %114 = load i16, ptr %113, align 4
+  %115 = zext i16 %114 to i32
+  %116 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %107, i32 noundef %108, ptr noundef %109, i32 noundef %11, i32 noundef %112, ptr noundef null, ptr noundef nonnull @.str.119, i32 noundef %115) #5
+  %117 = load ptr, ptr %2, align 8
+  %118 = load i32, ptr %5, align 8
+  %119 = load i16, ptr %113, align 4
+  %120 = zext i16 %119 to i32
+  %121 = call ptr @tvb_new_subset_length_caplen(ptr noundef %117, i32 noundef %118, i32 noundef %120, i32 noundef -1) #5
+  %122 = load ptr, ptr @nsip_handle, align 8
+  %.not.i61.i = icmp eq ptr %122, null
+  br i1 %.not.i61.i, label %decode_iei_ns_pdu.exit.i, label %123
 
-124:                                              ; preds = %107
+123:                                              ; preds = %106
   %.b.i.i = load i1, ptr @nsip_is_recursive, align 4
   store i1 true, ptr @nsip_is_recursive, align 4
-  %125 = load ptr, ptr %8, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = call i32 @call_dissector(ptr noundef nonnull %123, ptr noundef %122, ptr noundef %125, ptr noundef %126) #5
+  %124 = load ptr, ptr %7, align 8
+  %125 = load ptr, ptr %6, align 8
+  %126 = call i32 @call_dissector(ptr noundef nonnull %122, ptr noundef %121, ptr noundef %124, ptr noundef %125) #5
   store i1 %.b.i.i, ptr @nsip_is_recursive, align 4
   br label %decode_iei_ns_pdu.exit.i
 
-decode_iei_ns_pdu.exit.i:                         ; preds = %124, %107
-  %128 = load i16, ptr %114, align 4
-  %129 = zext i16 %128 to i32
-  %130 = load i32, ptr %6, align 8
-  %131 = add i32 %130, %129
-  store i32 %131, ptr %6, align 8
+decode_iei_ns_pdu.exit.i:                         ; preds = %123, %106
+  %127 = load i16, ptr %113, align 4
+  %128 = zext i16 %127 to i32
+  %129 = load i32, ptr %5, align 8
+  %130 = add i32 %129, %128
+  store i32 %130, ptr %5, align 8
   br label %decode_ie.exit
 
-132:                                              ; preds = %61
-  %133 = load ptr, ptr %2, align 8
-  %134 = load i32, ptr %6, align 8
-  %135 = call zeroext i16 @tvb_get_ntohs(ptr noundef %133, i32 noundef %134) #5
-  %136 = load ptr, ptr %7, align 8
-  %137 = load i32, ptr @hf_nsip_nsei, align 4
-  %138 = load ptr, ptr %2, align 8
-  %139 = getelementptr inbounds i8, ptr %11, i64 10
-  %140 = load i16, ptr %139, align 2
-  %141 = zext i16 %140 to i32
-  %142 = zext i16 %135 to i32
-  %143 = call ptr @proto_tree_add_uint(ptr noundef %136, i32 noundef %137, ptr noundef %138, i32 noundef %12, i32 noundef %141, i32 noundef %142) #5
-  %144 = getelementptr inbounds i8, ptr %11, i64 8
-  %145 = load i16, ptr %144, align 4
-  %146 = zext i16 %145 to i32
-  %147 = load i32, ptr %6, align 8
-  %148 = add i32 %147, %146
-  store i32 %148, ptr %6, align 8
-  %149 = load ptr, ptr %8, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.120, i32 noundef %142) #5
-  %152 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef nonnull @.str.121, i32 noundef %142) #5
+131:                                              ; preds = %60
+  %132 = load ptr, ptr %2, align 8
+  %133 = load i32, ptr %5, align 8
+  %134 = call zeroext i16 @tvb_get_ntohs(ptr noundef %132, i32 noundef %133) #5
+  %135 = load ptr, ptr %6, align 8
+  %136 = load i32, ptr @hf_nsip_nsei, align 4
+  %137 = load ptr, ptr %2, align 8
+  %138 = getelementptr inbounds i8, ptr %10, i64 10
+  %139 = load i16, ptr %138, align 2
+  %140 = zext i16 %139 to i32
+  %141 = zext i16 %134 to i32
+  %142 = call ptr @proto_tree_add_uint(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %11, i32 noundef %140, i32 noundef %141) #5
+  %143 = getelementptr inbounds i8, ptr %10, i64 8
+  %144 = load i16, ptr %143, align 4
+  %145 = zext i16 %144 to i32
+  %146 = load i32, ptr %5, align 8
+  %147 = add i32 %146, %145
+  store i32 %147, ptr %5, align 8
+  %148 = load ptr, ptr %7, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %150 = load ptr, ptr %149, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %150, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.120, i32 noundef %141) #5
+  %151 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.121, i32 noundef %141) #5
   br label %decode_ie.exit
 
-153:                                              ; preds = %61
-  %154 = load ptr, ptr %2, align 8
-  %155 = load i32, ptr %6, align 8
-  %156 = call zeroext i16 @tvb_get_ntohs(ptr noundef %154, i32 noundef %155) #5
-  %157 = load ptr, ptr %7, align 8
-  %158 = load i32, ptr @hf_nsip_bvci, align 4
-  %159 = load ptr, ptr %2, align 8
-  %160 = getelementptr inbounds i8, ptr %11, i64 10
-  %161 = load i16, ptr %160, align 2
-  %162 = zext i16 %161 to i32
-  %163 = zext i16 %156 to i32
-  %164 = call ptr @proto_tree_add_uint(ptr noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef %12, i32 noundef %162, i32 noundef %163) #5
-  %165 = getelementptr inbounds i8, ptr %11, i64 8
-  %166 = load i16, ptr %165, align 4
-  %167 = zext i16 %166 to i32
-  %168 = load i32, ptr %6, align 8
-  %169 = add i32 %168, %167
-  store i32 %169, ptr %6, align 8
-  %170 = load ptr, ptr %8, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 8
-  %172 = load ptr, ptr %171, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %172, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.122, i32 noundef %163) #5
-  %173 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %173, ptr noundef nonnull @.str.123, i32 noundef %163) #5
+152:                                              ; preds = %60
+  %153 = load ptr, ptr %2, align 8
+  %154 = load i32, ptr %5, align 8
+  %155 = call zeroext i16 @tvb_get_ntohs(ptr noundef %153, i32 noundef %154) #5
+  %156 = load ptr, ptr %6, align 8
+  %157 = load i32, ptr @hf_nsip_bvci, align 4
+  %158 = load ptr, ptr %2, align 8
+  %159 = getelementptr inbounds i8, ptr %10, i64 10
+  %160 = load i16, ptr %159, align 2
+  %161 = zext i16 %160 to i32
+  %162 = zext i16 %155 to i32
+  %163 = call ptr @proto_tree_add_uint(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %11, i32 noundef %161, i32 noundef %162) #5
+  %164 = getelementptr inbounds i8, ptr %10, i64 8
+  %165 = load i16, ptr %164, align 4
+  %166 = zext i16 %165 to i32
+  %167 = load i32, ptr %5, align 8
+  %168 = add i32 %167, %166
+  store i32 %168, ptr %5, align 8
+  %169 = load ptr, ptr %7, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %171 = load ptr, ptr %170, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %171, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.122, i32 noundef %162) #5
+  %172 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %172, ptr noundef nonnull @.str.123, i32 noundef %162) #5
   br label %decode_ie.exit
 
-174:                                              ; preds = %61
-  %175 = getelementptr i8, ptr %11, i64 8
-  %.val57.i = load i16, ptr %175, align 4
-  %176 = getelementptr i8, ptr %11, i64 10
-  %.val58.i = load i16, ptr %176, align 2
-  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv4_element, i16 %.val57.i, i16 %.val58.i, ptr noundef nonnull %2, i32 noundef %12)
+173:                                              ; preds = %60
+  %174 = getelementptr i8, ptr %10, i64 8
+  %.val57.i = load i16, ptr %174, align 4
+  %175 = getelementptr i8, ptr %10, i64 10
+  %.val58.i = load i16, ptr %175, align 2
+  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv4_element, i16 %.val57.i, i16 %.val58.i, ptr noundef %2, i32 noundef %11)
   br label %decode_ie.exit
 
-177:                                              ; preds = %61
-  %178 = getelementptr i8, ptr %11, i64 8
-  %.val59.i = load i16, ptr %178, align 4
-  %179 = getelementptr i8, ptr %11, i64 10
-  %.val60.i = load i16, ptr %179, align 2
-  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv6_element, i16 %.val59.i, i16 %.val60.i, ptr noundef nonnull %2, i32 noundef %12)
+176:                                              ; preds = %60
+  %177 = getelementptr i8, ptr %10, i64 8
+  %.val59.i = load i16, ptr %177, align 4
+  %178 = getelementptr i8, ptr %10, i64 10
+  %.val60.i = load i16, ptr %178, align 2
+  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv6_element, i16 %.val59.i, i16 %.val60.i, ptr noundef %2, i32 noundef %11)
   br label %decode_ie.exit
 
-180:                                              ; preds = %61
-  %181 = load ptr, ptr %7, align 8
-  %.not.i62.i = icmp eq ptr %181, null
-  %.pre71.i = load i32, ptr %6, align 8
-  br i1 %.not.i62.i, label %decode_iei_max_num_ns_vc.exit.i, label %182
+179:                                              ; preds = %60
+  %180 = load ptr, ptr %6, align 8
+  %.not.i62.i = icmp eq ptr %180, null
+  %.pre71.i = load i32, ptr %5, align 8
+  br i1 %.not.i62.i, label %decode_iei_max_num_ns_vc.exit.i, label %181
 
-182:                                              ; preds = %180
-  %183 = load ptr, ptr %2, align 8
-  %184 = call zeroext i16 @tvb_get_ntohs(ptr noundef %183, i32 noundef %.pre71.i) #5
-  %185 = load ptr, ptr %7, align 8
-  %186 = load i32, ptr @hf_nsip_max_num_ns_vc, align 4
-  %187 = load ptr, ptr %2, align 8
-  %188 = getelementptr inbounds i8, ptr %11, i64 10
-  %189 = load i16, ptr %188, align 2
-  %190 = zext i16 %189 to i32
-  %191 = zext i16 %184 to i32
-  %192 = call ptr @proto_tree_add_uint(ptr noundef %185, i32 noundef %186, ptr noundef %187, i32 noundef %12, i32 noundef %190, i32 noundef %191) #5
-  %.pre70.i = load i32, ptr %6, align 8
+181:                                              ; preds = %179
+  %182 = load ptr, ptr %2, align 8
+  %183 = call zeroext i16 @tvb_get_ntohs(ptr noundef %182, i32 noundef %.pre71.i) #5
+  %184 = load ptr, ptr %6, align 8
+  %185 = load i32, ptr @hf_nsip_max_num_ns_vc, align 4
+  %186 = load ptr, ptr %2, align 8
+  %187 = getelementptr inbounds i8, ptr %10, i64 10
+  %188 = load i16, ptr %187, align 2
+  %189 = zext i16 %188 to i32
+  %190 = zext i16 %183 to i32
+  %191 = call ptr @proto_tree_add_uint(ptr noundef %184, i32 noundef %185, ptr noundef %186, i32 noundef %11, i32 noundef %189, i32 noundef %190) #5
+  %.pre70.i = load i32, ptr %5, align 8
   br label %decode_iei_max_num_ns_vc.exit.i
 
-decode_iei_max_num_ns_vc.exit.i:                  ; preds = %182, %180
-  %193 = phi i32 [ %.pre71.i, %180 ], [ %.pre70.i, %182 ]
-  %194 = add i32 %193, 2
-  store i32 %194, ptr %6, align 8
+decode_iei_max_num_ns_vc.exit.i:                  ; preds = %181, %179
+  %192 = phi i32 [ %.pre71.i, %179 ], [ %.pre70.i, %181 ]
+  %193 = add i32 %192, 2
+  store i32 %193, ptr %5, align 8
   br label %decode_ie.exit
 
-195:                                              ; preds = %61
-  %196 = load ptr, ptr %7, align 8
-  %.not.i63.i = icmp eq ptr %196, null
-  %.pre69.i = load i32, ptr %6, align 8
-  br i1 %.not.i63.i, label %decode_iei_num_ip4_endpoints.exit.i, label %197
+194:                                              ; preds = %60
+  %195 = load ptr, ptr %6, align 8
+  %.not.i63.i = icmp eq ptr %195, null
+  %.pre69.i = load i32, ptr %5, align 8
+  br i1 %.not.i63.i, label %decode_iei_num_ip4_endpoints.exit.i, label %196
 
-197:                                              ; preds = %195
-  %198 = load ptr, ptr %2, align 8
-  %199 = call zeroext i16 @tvb_get_ntohs(ptr noundef %198, i32 noundef %.pre69.i) #5
-  %200 = load ptr, ptr %7, align 8
-  %201 = load i32, ptr @hf_nsip_num_ip4_endpoints, align 4
-  %202 = load ptr, ptr %2, align 8
-  %203 = getelementptr inbounds i8, ptr %11, i64 10
-  %204 = load i16, ptr %203, align 2
-  %205 = zext i16 %204 to i32
-  %206 = zext i16 %199 to i32
-  %207 = call ptr @proto_tree_add_uint(ptr noundef %200, i32 noundef %201, ptr noundef %202, i32 noundef %12, i32 noundef %205, i32 noundef %206) #5
-  %.pre68.i = load i32, ptr %6, align 8
+196:                                              ; preds = %194
+  %197 = load ptr, ptr %2, align 8
+  %198 = call zeroext i16 @tvb_get_ntohs(ptr noundef %197, i32 noundef %.pre69.i) #5
+  %199 = load ptr, ptr %6, align 8
+  %200 = load i32, ptr @hf_nsip_num_ip4_endpoints, align 4
+  %201 = load ptr, ptr %2, align 8
+  %202 = getelementptr inbounds i8, ptr %10, i64 10
+  %203 = load i16, ptr %202, align 2
+  %204 = zext i16 %203 to i32
+  %205 = zext i16 %198 to i32
+  %206 = call ptr @proto_tree_add_uint(ptr noundef %199, i32 noundef %200, ptr noundef %201, i32 noundef %11, i32 noundef %204, i32 noundef %205) #5
+  %.pre68.i = load i32, ptr %5, align 8
   br label %decode_iei_num_ip4_endpoints.exit.i
 
-decode_iei_num_ip4_endpoints.exit.i:              ; preds = %197, %195
-  %208 = phi i32 [ %.pre69.i, %195 ], [ %.pre68.i, %197 ]
-  %209 = add i32 %208, 2
-  store i32 %209, ptr %6, align 8
+decode_iei_num_ip4_endpoints.exit.i:              ; preds = %196, %194
+  %207 = phi i32 [ %.pre69.i, %194 ], [ %.pre68.i, %196 ]
+  %208 = add i32 %207, 2
+  store i32 %208, ptr %5, align 8
   br label %decode_ie.exit
 
-210:                                              ; preds = %61
-  %211 = load ptr, ptr %7, align 8
-  %.not.i64.i = icmp eq ptr %211, null
-  %.pre67.i = load i32, ptr %6, align 8
-  br i1 %.not.i64.i, label %decode_iei_num_ip6_endpoints.exit.i, label %212
+209:                                              ; preds = %60
+  %210 = load ptr, ptr %6, align 8
+  %.not.i64.i = icmp eq ptr %210, null
+  %.pre67.i = load i32, ptr %5, align 8
+  br i1 %.not.i64.i, label %decode_iei_num_ip6_endpoints.exit.i, label %211
 
-212:                                              ; preds = %210
-  %213 = load ptr, ptr %2, align 8
-  %214 = call zeroext i16 @tvb_get_ntohs(ptr noundef %213, i32 noundef %.pre67.i) #5
-  %215 = load ptr, ptr %7, align 8
-  %216 = load i32, ptr @hf_nsip_num_ip6_endpoints, align 4
-  %217 = load ptr, ptr %2, align 8
-  %218 = getelementptr inbounds i8, ptr %11, i64 10
-  %219 = load i16, ptr %218, align 2
-  %220 = zext i16 %219 to i32
-  %221 = zext i16 %214 to i32
-  %222 = call ptr @proto_tree_add_uint(ptr noundef %215, i32 noundef %216, ptr noundef %217, i32 noundef %12, i32 noundef %220, i32 noundef %221) #5
-  %.pre.i = load i32, ptr %6, align 8
+211:                                              ; preds = %209
+  %212 = load ptr, ptr %2, align 8
+  %213 = call zeroext i16 @tvb_get_ntohs(ptr noundef %212, i32 noundef %.pre67.i) #5
+  %214 = load ptr, ptr %6, align 8
+  %215 = load i32, ptr @hf_nsip_num_ip6_endpoints, align 4
+  %216 = load ptr, ptr %2, align 8
+  %217 = getelementptr inbounds i8, ptr %10, i64 10
+  %218 = load i16, ptr %217, align 2
+  %219 = zext i16 %218 to i32
+  %220 = zext i16 %213 to i32
+  %221 = call ptr @proto_tree_add_uint(ptr noundef %214, i32 noundef %215, ptr noundef %216, i32 noundef %11, i32 noundef %219, i32 noundef %220) #5
+  %.pre.i = load i32, ptr %5, align 8
   br label %decode_iei_num_ip6_endpoints.exit.i
 
-decode_iei_num_ip6_endpoints.exit.i:              ; preds = %212, %210
-  %223 = phi i32 [ %.pre67.i, %210 ], [ %.pre.i, %212 ]
-  %224 = add i32 %223, 2
-  store i32 %224, ptr %6, align 8
+decode_iei_num_ip6_endpoints.exit.i:              ; preds = %211, %209
+  %222 = phi i32 [ %.pre67.i, %209 ], [ %.pre.i, %211 ]
+  %223 = add i32 %222, 2
+  store i32 %223, ptr %5, align 8
   br label %decode_ie.exit
 
-225:                                              ; preds = %61
-  %226 = load ptr, ptr %2, align 8
-  %227 = load i32, ptr %6, align 8
-  %228 = call zeroext i8 @tvb_get_guint8(ptr noundef %226, i32 noundef %227) #5
-  %229 = load ptr, ptr %7, align 8
-  %230 = load ptr, ptr %2, align 8
-  %231 = load i32, ptr %6, align 8
-  %232 = load i32, ptr @hf_nsip_reset_flag, align 4
-  %233 = load i32, ptr @ett_nsip_reset_flag, align 4
-  %234 = call ptr @proto_tree_add_bitmask(ptr noundef %229, ptr noundef %230, i32 noundef %231, i32 noundef %232, i32 noundef %233, ptr noundef nonnull @decode_iei_reset_flag.reset_flags, i32 noundef 0) #5
-  %235 = and i8 %228, 1
-  %.not.i65.i = icmp eq i8 %235, 0
-  br i1 %.not.i65.i, label %decode_iei_reset_flag.exit.i, label %236
+224:                                              ; preds = %60
+  %225 = load ptr, ptr %2, align 8
+  %226 = load i32, ptr %5, align 8
+  %227 = call zeroext i8 @tvb_get_guint8(ptr noundef %225, i32 noundef %226) #5
+  %228 = load ptr, ptr %6, align 8
+  %229 = load ptr, ptr %2, align 8
+  %230 = load i32, ptr %5, align 8
+  %231 = load i32, ptr @hf_nsip_reset_flag, align 4
+  %232 = load i32, ptr @ett_nsip_reset_flag, align 4
+  %233 = call ptr @proto_tree_add_bitmask(ptr noundef %228, ptr noundef %229, i32 noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef nonnull @decode_iei_reset_flag.reset_flags, i32 noundef 0) #5
+  %234 = and i8 %227, 1
+  %.not.i65.i = icmp eq i8 %234, 0
+  br i1 %.not.i65.i, label %decode_iei_reset_flag.exit.i, label %235
 
-236:                                              ; preds = %225
-  %237 = load ptr, ptr %8, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 8
-  %239 = load ptr, ptr %238, align 8
-  call void @col_append_sep_str(ptr noundef %239, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.128) #5
+235:                                              ; preds = %224
+  %236 = load ptr, ptr %7, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %238 = load ptr, ptr %237, align 8
+  call void @col_append_sep_str(ptr noundef %238, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.128) #5
   br label %decode_iei_reset_flag.exit.i
 
-decode_iei_reset_flag.exit.i:                     ; preds = %236, %225
-  %240 = load i32, ptr %6, align 8
-  %241 = add i32 %240, 1
-  store i32 %241, ptr %6, align 8
+decode_iei_reset_flag.exit.i:                     ; preds = %235, %224
+  %239 = load i32, ptr %5, align 8
+  %240 = add i32 %239, 1
+  store i32 %240, ptr %5, align 8
   br label %decode_ie.exit
 
-242:                                              ; preds = %61
+241:                                              ; preds = %60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %243 = load ptr, ptr %2, align 8
-  %244 = load i32, ptr %6, align 8
-  %245 = call zeroext i8 @tvb_get_guint8(ptr noundef %243, i32 noundef %244) #5
-  %246 = load ptr, ptr %7, align 8
-  %247 = load i32, ptr @hf_nsip_ip_address_type, align 4
-  %248 = load ptr, ptr %2, align 8
-  %249 = load i32, ptr %6, align 8
-  %250 = call ptr @proto_tree_add_item(ptr noundef %246, i32 noundef %247, ptr noundef %248, i32 noundef %249, i32 noundef 1, i32 noundef 0) #5
-  switch i8 %245, label %decode_iei_ip_address.exit.i [
-    i8 1, label %251
-    i8 2, label %266
+  %242 = load ptr, ptr %2, align 8
+  %243 = load i32, ptr %5, align 8
+  %244 = call zeroext i8 @tvb_get_guint8(ptr noundef %242, i32 noundef %243) #5
+  %245 = load ptr, ptr %6, align 8
+  %246 = load i32, ptr @hf_nsip_ip_address_type, align 4
+  %247 = load ptr, ptr %2, align 8
+  %248 = load i32, ptr %5, align 8
+  %249 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %246, ptr noundef %247, i32 noundef %248, i32 noundef 1, i32 noundef 0) #5
+  switch i8 %244, label %decode_iei_ip_address.exit.i [
+    i8 1, label %250
+    i8 2, label %265
   ]
 
-251:                                              ; preds = %242
-  %252 = load i32, ptr getelementptr inbounds (i8, ptr @ipv4_element, i64 4), align 4
-  %253 = trunc i32 %252 to i16
-  %254 = add i16 %253, 2
-  %255 = getelementptr inbounds i8, ptr %11, i64 10
-  store i16 %254, ptr %255, align 2
-  %256 = load ptr, ptr %2, align 8
-  %257 = load i32, ptr %6, align 8
-  %258 = add i32 %257, 1
-  %259 = call i32 @tvb_get_ipv4(ptr noundef %256, i32 noundef %258) #5
-  %260 = load ptr, ptr %7, align 8
-  %261 = load i32, ptr @hf_nsip_ip_address_ipv4, align 4
-  %262 = load ptr, ptr %2, align 8
-  %263 = load i16, ptr %255, align 2
-  %264 = zext i16 %263 to i32
-  %265 = call ptr @proto_tree_add_ipv4(ptr noundef %260, i32 noundef %261, ptr noundef %262, i32 noundef %12, i32 noundef %264, i32 noundef %259) #5
-  br label %280
+250:                                              ; preds = %241
+  %251 = load i32, ptr getelementptr inbounds (i8, ptr @ipv4_element, i64 4), align 4
+  %252 = trunc i32 %251 to i16
+  %253 = add i16 %252, 2
+  %254 = getelementptr inbounds i8, ptr %10, i64 10
+  store i16 %253, ptr %254, align 2
+  %255 = load ptr, ptr %2, align 8
+  %256 = load i32, ptr %5, align 8
+  %257 = add i32 %256, 1
+  %258 = call i32 @tvb_get_ipv4(ptr noundef %255, i32 noundef %257) #5
+  %259 = load ptr, ptr %6, align 8
+  %260 = load i32, ptr @hf_nsip_ip_address_ipv4, align 4
+  %261 = load ptr, ptr %2, align 8
+  %262 = load i16, ptr %254, align 2
+  %263 = zext i16 %262 to i32
+  %264 = call ptr @proto_tree_add_ipv4(ptr noundef %259, i32 noundef %260, ptr noundef %261, i32 noundef %11, i32 noundef %263, i32 noundef %258) #5
+  br label %279
 
-266:                                              ; preds = %242
-  %267 = load i32, ptr getelementptr inbounds (i8, ptr @ipv6_element, i64 4), align 4
-  %268 = trunc i32 %267 to i16
-  %269 = add i16 %268, 2
-  %270 = getelementptr inbounds i8, ptr %11, i64 10
-  store i16 %269, ptr %270, align 2
-  %271 = load ptr, ptr %2, align 8
-  %272 = load i32, ptr %6, align 8
-  %273 = add i32 %272, 1
-  call void @tvb_get_ipv6(ptr noundef %271, i32 noundef %273, ptr noundef nonnull %4) #5
-  %274 = load ptr, ptr %7, align 8
-  %275 = load i32, ptr @hf_nsip_ip_address_ipv4, align 4
-  %276 = load ptr, ptr %2, align 8
-  %277 = load i16, ptr %270, align 2
-  %278 = zext i16 %277 to i32
-  %279 = call ptr @proto_tree_add_ipv6(ptr noundef %274, i32 noundef %275, ptr noundef %276, i32 noundef %12, i32 noundef %278, ptr noundef nonnull %4) #5
-  br label %280
+265:                                              ; preds = %241
+  %266 = load i32, ptr getelementptr inbounds (i8, ptr @ipv6_element, i64 4), align 4
+  %267 = trunc i32 %266 to i16
+  %268 = add i16 %267, 2
+  %269 = getelementptr inbounds i8, ptr %10, i64 10
+  store i16 %268, ptr %269, align 2
+  %270 = load ptr, ptr %2, align 8
+  %271 = load i32, ptr %5, align 8
+  %272 = add i32 %271, 1
+  call void @tvb_get_ipv6(ptr noundef %270, i32 noundef %272, ptr noundef nonnull %4) #5
+  %273 = load ptr, ptr %6, align 8
+  %274 = load i32, ptr @hf_nsip_ip_address_ipv4, align 4
+  %275 = load ptr, ptr %2, align 8
+  %276 = load i16, ptr %269, align 2
+  %277 = zext i16 %276 to i32
+  %278 = call ptr @proto_tree_add_ipv6(ptr noundef %273, i32 noundef %274, ptr noundef %275, i32 noundef %11, i32 noundef %277, ptr noundef nonnull %4) #5
+  br label %279
 
-280:                                              ; preds = %266, %251
-  %281 = getelementptr inbounds i8, ptr %11, i64 8
-  %282 = load i16, ptr %281, align 4
-  %283 = zext i16 %282 to i32
-  %284 = load i32, ptr %6, align 8
-  %285 = add i32 %284, %283
-  store i32 %285, ptr %6, align 8
+279:                                              ; preds = %265, %250
+  %280 = getelementptr inbounds i8, ptr %10, i64 8
+  %281 = load i16, ptr %280, align 4
+  %282 = zext i16 %281 to i32
+  %283 = load i32, ptr %5, align 8
+  %284 = add i32 %283, %282
+  store i32 %284, ptr %5, align 8
   br label %decode_iei_ip_address.exit.i
 
-decode_iei_ip_address.exit.i:                     ; preds = %280, %242
+decode_iei_ip_address.exit.i:                     ; preds = %279, %241
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %decode_ie.exit
 
-decode_ie.exit:                                   ; preds = %10, %19, %47, %61, %63, %86, %decode_iei_ns_pdu.exit.i, %132, %153, %174, %177, %decode_iei_max_num_ns_vc.exit.i, %decode_iei_num_ip4_endpoints.exit.i, %decode_iei_num_ip6_endpoints.exit.i, %decode_iei_reset_flag.exit.i, %decode_iei_ip_address.exit.i
+decode_ie.exit:                                   ; preds = %9, %18, %46, %60, %62, %85, %decode_iei_ns_pdu.exit.i, %131, %152, %173, %176, %decode_iei_max_num_ns_vc.exit.i, %decode_iei_num_ip4_endpoints.exit.i, %decode_iei_num_ip6_endpoints.exit.i, %decode_iei_reset_flag.exit.i, %decode_iei_ip_address.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !4
+  br i1 %exitcond.not, label %285, label %9, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %decode_ie.exit, %3
+285:                                              ; preds = %decode_ie.exit
   ret void
 }
 
@@ -1099,7 +1095,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_ip_elements(ptr nocapture noundef readonly %0, i16 %.8.val, i16 %.10.val, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @decode_ip_elements(ptr nocapture noundef readonly %0, i16 %.8.val, i16 %.10.val, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = zext i16 %.8.val to i32

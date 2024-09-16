@@ -54,7 +54,7 @@ define noundef ptr @unicode_normalize(i32 noundef %0, ptr nocapture noundef read
 .lr.ph115:                                        ; preds = %23, %.lr.ph115
   %25 = phi i32 [ %27, %.lr.ph115 ], [ %24, %23 ]
   %.169113 = phi ptr [ %26, %.lr.ph115 ], [ %1, %23 ]
-  call fastcc void @decompose_code(i32 noundef %25, i1 noundef zeroext %9, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @decompose_code(i32 noundef %25, i1 noundef zeroext %9, ptr noundef %6, ptr noundef %7)
   %26 = getelementptr i8, ptr %.169113, i64 4
   %27 = load i32, ptr %26, align 4
   %.not84 = icmp eq i32 %27, 0
@@ -369,7 +369,7 @@ get_code_decomposition.exit:                      ; preds = %22, %24
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = add i32 %0, -44032
   %or.cond = icmp ult i32 %6, 11172

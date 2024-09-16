@@ -488,7 +488,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f19c93680791899E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f19c93680791899E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -669,7 +669,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN105_$LT$alloc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, i64 } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b50db057f6d6a06E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b50db057f6d6a06E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -1405,7 +1405,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %3 = alloca { { { ptr, ptr }, ptr } }, align 8
   %4 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %5 = tail call fastcc { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f19c93680791899E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  %5 = tail call fastcc { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f19c93680791899E"(ptr noalias noundef align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { i64, i64 } %5, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   br i1 %switch, label %6, label %9
@@ -1433,7 +1433,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %14 = invoke fastcc { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f19c93680791899E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
+  %14 = invoke fastcc { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f19c93680791899E"(ptr noalias noundef align 8 dereferenceable(24) %3)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %9
@@ -1459,7 +1459,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 %.fca.1.extract7.i.i, ptr %20, align 8, !noalias !427
   %21 = add i64 %16, 1
   store i64 %21, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !422, !noalias !427
-  %22 = invoke fastcc { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f19c93680791899E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
+  %22 = invoke fastcc { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f19c93680791899E"(ptr noalias noundef align 8 dereferenceable(24) %3)
           to label %.noexc6 unwind label %.loopexit
 
 .noexc6:                                          ; preds = %.noexc5
@@ -1585,7 +1585,7 @@ common.resume:                                    ; preds = %76, %.body, %22, %2
 32:                                               ; preds = %34
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$mini_lsm_mvcc..lsm_storage..WriteBatchRecord$LT$bytes..bytes..Bytes$GT$$GT$17hc800b990f0d328c5E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %9) #24
+  invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$mini_lsm_mvcc..lsm_storage..WriteBatchRecord$LT$bytes..bytes..Bytes$GT$$GT$17hc800b990f0d328c5E"(ptr noalias noundef align 8 dereferenceable(64) %9) #24
           to label %76 unwind label %74
 
 34:                                               ; preds = %13
@@ -1662,7 +1662,7 @@ common.resume:                                    ; preds = %76, %.body, %22, %2
 55:                                               ; preds = %57
   %56 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$mini_lsm_mvcc..lsm_storage..WriteBatchRecord$LT$bytes..bytes..Bytes$GT$$GT$17hc800b990f0d328c5E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #24
+  invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$mini_lsm_mvcc..lsm_storage..WriteBatchRecord$LT$bytes..bytes..Bytes$GT$$GT$17hc800b990f0d328c5E"(ptr noalias noundef align 8 dereferenceable(64) %5) #24
           to label %.body.i.i unwind label %58
 
 57:                                               ; preds = %48
@@ -2061,7 +2061,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93ea3adc29ff4412E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93ea3adc29ff4412E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -2162,7 +2162,7 @@ define internal fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_ma
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26a4dd1ca067916E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26a4dd1ca067916E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -2263,7 +2263,7 @@ define internal fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_ma
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8b31968270d2cd5E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8b31968270d2cd5E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -2703,7 +2703,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr92drop_in_place$LT$mini_lsm_mvcc..lsm_storage..WriteBatchRecord$LT$bytes..bytes..Bytes$GT$$GT$17hc800b990f0d328c5E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr92drop_in_place$LT$mini_lsm_mvcc..lsm_storage..WriteBatchRecord$LT$bytes..bytes..Bytes$GT$$GT$17hc800b990f0d328c5E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !noundef !9
   %.not = icmp eq ptr %3, null
@@ -5185,7 +5185,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, i64 %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -5331,7 +5331,7 @@ define void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompactionController3new
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompactionController21find_overlapping_ssts17h1eb5b79fbbf24478E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(128) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompactionController21find_overlapping_ssts17h1eb5b79fbbf24478E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0.i43 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %.sroa.0.i = alloca { ptr, ptr, i64, { ptr } }, align 8
   %6 = alloca { { i64, ptr }, i64 }, align 8
@@ -5372,7 +5372,7 @@ define internal fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompacti
   %.017.i.i.i.i = phi i64 [ 0, %20 ], [ %30, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94c8d0a6d5c51085E.exit.i.i.i.i" ]
   %23 = getelementptr inbounds i64, ptr %11, i64 %.017.i.i.i.i
   %.val22.i.i.i.i = load i64, ptr %23, align 8, !noalias !1325
-  %24 = tail call fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12, i64 %.val22.i.i.i.i), !noalias !1330
+  %24 = tail call fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %12, i64 %.val22.i.i.i.i), !noalias !1330
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94c8d0a6d5c51085E.exit.i.i.i.i"
 
@@ -5454,7 +5454,7 @@ define internal fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompacti
   %.017.i.i.i.i33 = phi i64 [ 0, %50 ], [ %59, %.noexc41 ]
   %53 = getelementptr inbounds i64, ptr %11, i64 %.017.i.i.i.i33
   %.val22.i.i.i.i34 = load i64, ptr %53, align 8, !noalias !1362
-  %54 = invoke fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12, i64 %.val22.i.i.i.i34)
+  %54 = invoke fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %12, i64 %.val22.i.i.i.i34)
           to label %.noexc39 unwind label %.loopexit28
 
 .noexc39:                                         ; preds = %52
@@ -5611,7 +5611,7 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17hef417f0bd17474d0E.exit.thread20:
   %.sroa.012.033 = phi ptr [ %.val25, %.lr.ph ], [ %104, %160 ]
   %104 = getelementptr inbounds i8, ptr %.sroa.012.033, i64 8
   %.val24 = load i64, ptr %.sroa.012.033, align 8
-  %105 = invoke fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12, i64 %.val24)
+  %105 = invoke fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %12, i64 %.val24)
           to label %113 unwind label %.loopexit
 
 "_ZN4core3ptr71drop_in_place$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$17h6017671203e4d70dE.exit49": ; preds = %._crit_edge
@@ -6491,7 +6491,7 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread: ;
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 %259, ptr %26, align 8
   %263 = add i64 %262, 1
-  invoke fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompactionController21find_overlapping_ssts17h1eb5b79fbbf24478E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %2, ptr noalias noundef nonnull readonly align 8 %26, i64 noundef 1, i64 noundef %263)
+  invoke fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompactionController21find_overlapping_ssts17h1eb5b79fbbf24478E(ptr noalias nocapture noundef align 8 dereferenceable(24) %27, ptr noalias noundef readonly align 8 dereferenceable(128) %2, ptr noalias noundef nonnull readonly align 8 %26, i64 noundef 1, i64 noundef %263)
           to label %266 unwind label %264
 
 264:                                              ; preds = %258
@@ -6710,7 +6710,7 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread: ;
   store i64 %110, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !1630, !noalias !1635
   %340 = load i64, ptr %42, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
-  invoke fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompactionController21find_overlapping_ssts17h1eb5b79fbbf24478E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %2, ptr noalias noundef nonnull readonly align 8 %333, i64 noundef %110, i64 noundef %340)
+  invoke fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompactionController21find_overlapping_ssts17h1eb5b79fbbf24478E(ptr noalias nocapture noundef align 8 dereferenceable(24) %38, ptr noalias noundef readonly align 8 dereferenceable(128) %2, ptr noalias noundef nonnull readonly align 8 %333, i64 noundef %110, i64 noundef %340)
           to label %343 unwind label %341
 
 341:                                              ; preds = %335
@@ -6999,7 +6999,7 @@ define void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompactionController23ap
   %32 = alloca { { i64, ptr }, i64 }, align 8
   %33 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %33)
-  call fastcc void @"_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %2)
+  call fastcc void @"_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE"(ptr noalias nocapture noundef align 8 dereferenceable(128) %33, ptr noalias noundef readonly align 8 dereferenceable(128) %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
   store i64 0, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 8
@@ -7171,7 +7171,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1721)
   call void @llvm.experimental.noalias.scope.decl(metadata !1724)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !1727
-  %91 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93ea3adc29ff4412E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
+  %91 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93ea3adc29ff4412E"(ptr noalias noundef align 8 dereferenceable(24) %25)
           to label %.noexc112 unwind label %113
 
 .noexc112:                                        ; preds = %82
@@ -7205,7 +7205,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   store i64 1, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !1727
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !1727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !1730
-  %100 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93ea3adc29ff4412E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %100 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93ea3adc29ff4412E"(ptr noalias noundef align 8 dereferenceable(24) %17)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i, !noalias !1727
 
 .noexc.i.i:                                       ; preds = %.noexc113
@@ -7231,7 +7231,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   store i64 %.fca.1.extract7.i.i.i.i, ptr %106, align 8, !noalias !1737
   %107 = add i64 %102, 1
   store i64 %107, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !1732, !noalias !1737
-  %108 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93ea3adc29ff4412E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %108 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93ea3adc29ff4412E"(ptr noalias noundef align 8 dereferenceable(24) %17)
           to label %.noexc6.i.i unwind label %.loopexit.i.i, !noalias !1727
 
 .noexc6.i.i:                                      ; preds = %.noexc5.i.i
@@ -7291,7 +7291,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1740)
   call void @llvm.experimental.noalias.scope.decl(metadata !1743)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !1746
-  %124 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8b31968270d2cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
+  %124 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8b31968270d2cd5E"(ptr noalias noundef align 8 dereferenceable(24) %28)
           to label %.noexc135 unwind label %113
 
 .noexc135:                                        ; preds = %115
@@ -7325,7 +7325,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   store i64 1, ptr %.sroa.6.0..sroa_idx.i.i120, align 8, !noalias !1746
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !1746
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !noalias !1749
-  %133 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8b31968270d2cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  %133 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8b31968270d2cd5E"(ptr noalias noundef align 8 dereferenceable(24) %15)
           to label %.noexc.i.i124 unwind label %.loopexit.split-lp.i.i121, !noalias !1746
 
 .noexc.i.i124:                                    ; preds = %.noexc136
@@ -7351,7 +7351,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   store i64 %.fca.1.extract7.i.i.i.i128, ptr %139, align 8, !noalias !1756
   %140 = add i64 %135, 1
   store i64 %140, ptr %.sroa.6.0..sroa_idx.i.i120, align 8, !alias.scope !1751, !noalias !1756
-  %141 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8b31968270d2cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  %141 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8b31968270d2cd5E"(ptr noalias noundef align 8 dereferenceable(24) %15)
           to label %.noexc6.i.i132 unwind label %.loopexit.i.i130, !noalias !1746
 
 .noexc6.i.i132:                                   ; preds = %.noexc5.i.i129
@@ -7591,7 +7591,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1785)
   call void @llvm.experimental.noalias.scope.decl(metadata !1788)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !1791
-  %225 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26a4dd1ca067916E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %225 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26a4dd1ca067916E"(ptr noalias noundef align 8 dereferenceable(24) %22)
           to label %.noexc171 unwind label %113
 
 .noexc171:                                        ; preds = %216
@@ -7625,7 +7625,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   store i64 1, ptr %.sroa.6.0..sroa_idx.i.i156, align 8, !noalias !1791
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !1791
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !1794
-  %234 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26a4dd1ca067916E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  %234 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26a4dd1ca067916E"(ptr noalias noundef align 8 dereferenceable(24) %11)
           to label %.noexc.i.i160 unwind label %.loopexit.split-lp.i.i157, !noalias !1791
 
 .noexc.i.i160:                                    ; preds = %.noexc172
@@ -7651,7 +7651,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   store i64 %.fca.1.extract7.i.i.i.i164, ptr %240, align 8, !noalias !1801
   %241 = add i64 %236, 1
   store i64 %241, ptr %.sroa.6.0..sroa_idx.i.i156, align 8, !alias.scope !1796, !noalias !1801
-  %242 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26a4dd1ca067916E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  %242 = invoke fastcc { i64, i64 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26a4dd1ca067916E"(ptr noalias noundef align 8 dereferenceable(24) %11)
           to label %.noexc6.i.i168 unwind label %.loopexit.i.i166, !noalias !1791
 
 .noexc6.i.i168:                                   ; preds = %.noexc5.i.i165
@@ -8269,7 +8269,7 @@ define void @_ZN13mini_lsm_mvcc7compact14simple_leveled33SimpleLeveledCompaction
   %20 = alloca { { i64, ptr }, i64 }, align 8
   %21 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %21)
-  call fastcc void @"_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %2)
+  call fastcc void @"_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE"(ptr noalias nocapture noundef align 8 dereferenceable(128) %21, ptr noalias noundef readonly align 8 dereferenceable(128) %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 8
@@ -8480,7 +8480,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1924)
   call void @llvm.experimental.noalias.scope.decl(metadata !1927)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !1930
-  %98 = invoke fastcc { i64, i64 } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b50db057f6d6a06E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
+  %98 = invoke fastcc { i64, i64 } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b50db057f6d6a06E"(ptr noalias noundef align 8 dereferenceable(24) %16)
           to label %.noexc77 unwind label %120
 
 .noexc77:                                         ; preds = %89
@@ -8514,7 +8514,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   store i64 1, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !1930
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1930
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !1933
-  %107 = invoke fastcc { i64, i64 } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b50db057f6d6a06E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  %107 = invoke fastcc { i64, i64 } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b50db057f6d6a06E"(ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i, !noalias !1930
 
 .noexc.i.i:                                       ; preds = %.noexc78
@@ -8540,7 +8540,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   store i64 %.fca.1.extract7.i.i.i.i, ptr %113, align 8, !noalias !1940
   %114 = add i64 %109, 1
   store i64 %114, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !1935, !noalias !1940
-  %115 = invoke fastcc { i64, i64 } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b50db057f6d6a06E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  %115 = invoke fastcc { i64, i64 } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b50db057f6d6a06E"(ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %.noexc6.i.i unwind label %.loopexit.i.i, !noalias !1930
 
 .noexc6.i.i:                                      ; preds = %.noexc5.i.i
@@ -8840,7 +8840,7 @@ define noundef zeroext i1 @"_ZN225_$LT$mini_lsm_mvcc..compact..simple_leveled.._
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(128) %0, ptr noalias noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [3 x i64] }, align 8
   %4 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %.sroa.0.i = alloca { ptr, i64, i64, i64 }, align 8

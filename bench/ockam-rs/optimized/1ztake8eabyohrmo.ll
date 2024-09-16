@@ -4994,7 +4994,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %.not, label %.outer._crit_edge.thread, label %56
 
 56:                                               ; preds = %.outer._crit_edge
-  tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h7aed01791ab2cc37E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
+  tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h7aed01791ab2cc37E"(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
   br label %.outer._crit_edge.thread
 
 .outer._crit_edge.thread:                         ; preds = %55, %56, %.outer._crit_edge
@@ -5558,7 +5558,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %.not, label %.outer._crit_edge.thread, label %56
 
 56:                                               ; preds = %.outer._crit_edge
-  tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h7aed01791ab2cc37E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
+  tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h7aed01791ab2cc37E"(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
   br label %.outer._crit_edge.thread
 
 .outer._crit_edge.thread:                         ; preds = %55, %56, %.outer._crit_edge
@@ -6180,7 +6180,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$6ret
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h7aed01791ab2cc37E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h7aed01791ab2cc37E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !4

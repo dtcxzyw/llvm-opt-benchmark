@@ -2242,7 +2242,7 @@ Gla_ObjTruthDup.exit:                             ; preds = %.lr.ph.split.i, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -1000000000, 1) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %1, %5

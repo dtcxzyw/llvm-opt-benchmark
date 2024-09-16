@@ -39764,7 +39764,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg12ToolProvider16system_exe_stemsEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 range(i64 3, 18) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg.18", align 8
   %8 = alloca %"struct.vcpkg::msg::TagArg.10", align 8

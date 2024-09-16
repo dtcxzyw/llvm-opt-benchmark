@@ -1377,7 +1377,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #4
 declare i64 @SSL_CTX_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %ctx, ptr noundef %c, i32 noundef %lck) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %ctx, ptr noundef %c, i32 noundef range(i32 0, 2) %lck) unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %return, label %land.lhs.true

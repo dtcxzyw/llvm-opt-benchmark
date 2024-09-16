@@ -248,7 +248,7 @@ entry:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator", align 1
-  call fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias nonnull align 8 %printer, ptr noundef nonnull align 8 dereferenceable(99) %vector)
+  call fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias align 8 %printer, ptr noundef nonnull align 8 dereferenceable(99) %vector)
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox11printVectorB5cxx11ERKNS0_10BaseVectorERKNS0_17SelectivityVectorEE10kSeparatorB5cxx11 acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
@@ -315,7 +315,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup26
 
 invoke.cont20:                                    ; preds = %.noexc
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -590,7 +590,7 @@ call2.i.i.i.i.i.i.noexc:                          ; preds = %call.i.i.i.i.i.i.no
 call3.i.i.i.i.i.i.noexc:                          ; preds = %call2.i.i.i.i.i.i.noexc
   %.val4.i.i.i.i.i.i = load ptr, ptr %printer, align 8
   %conv.i.i.i.i.i.i = trunc i64 %row.015.i.i.i.i.i to i32
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %.val4.i.i.i.i.i.i, i32 noundef %conv.i.i.i.i.i.i)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %.val4.i.i.i.i.i.i, i32 noundef %conv.i.i.i.i.i.i)
           to label %.noexc15 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc15:                                         ; preds = %call3.i.i.i.i.i.i.noexc
@@ -604,7 +604,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %.noexc15
 invoke.cont6.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i) #22
   %.val.i.i.i.i.i.i = load ptr, ptr %printer, align 8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp9.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %.val.i.i.i.i.i.i, i32 noundef %conv.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8facebook5velox12_GLOBAL__N_17kIndentB5cxx11E)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp9.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %.val.i.i.i.i.i.i, i32 noundef %conv.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8facebook5velox12_GLOBAL__N_17kIndentB5cxx11E)
           to label %.noexc16 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc16:                                         ; preds = %invoke.cont6.i.i.i.i.i.i
@@ -1109,7 +1109,7 @@ lpad:                                             ; preds = %_ZN8facebook5velox4
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(99) %vector) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(99) %vector) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i89 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i20 = alloca %"class.std::unique_ptr", align 8
@@ -1171,7 +1171,7 @@ _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE.exit.i: ; 
   %5 = tail call noundef ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #22, !noalias !14
   %elements_.i.i = getelementptr inbounds i8, ptr %5, i64 136
   %6 = load ptr, ptr %elements_.i.i, align 8, !noalias !14
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(99) %6)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(99) %6)
           to label %invoke.cont7.i unwind label %lpad.i19, !noalias !14
 
 invoke.cont7.i:                                   ; preds = %_ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE.exit.i
@@ -1336,7 +1336,7 @@ _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE.exit.i35: 
   %19 = tail call noundef ptr @__dynamic_cast(ptr nonnull %18, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #22, !noalias !25
   %keys_.i.i = getelementptr inbounds i8, ptr %19, i64 136
   %20 = load ptr, ptr %keys_.i.i, align 8, !noalias !25
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp.i20, ptr noundef nonnull align 8 dereferenceable(99) %20)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp.i20, ptr noundef nonnull align 8 dereferenceable(99) %20)
           to label %invoke.cont6.i unwind label %lpad.i40, !noalias !25
 
 invoke.cont6.i:                                   ; preds = %_ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE.exit.i35
@@ -1423,7 +1423,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14de
 _ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i49, %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i49.thread
   %values_.i.i = getelementptr inbounds i8, ptr %19, i64 152
   %25 = load ptr, ptr %values_.i.i, align 8, !noalias !25
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp11.i, ptr noundef nonnull align 8 dereferenceable(99) %25)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp11.i, ptr noundef nonnull align 8 dereferenceable(99) %25)
           to label %invoke.cont15.i unwind label %lpad.i40, !noalias !25
 
 invoke.cont15.i:                                  ; preds = %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev.exit.i
@@ -1608,7 +1608,7 @@ for.body.i.lr.ph:                                 ; preds = %_ZN8facebook5velox1
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev.exit.i122
   %__begin3.i.sroa.0.0172 = phi ptr [ %42, %for.body.i.lr.ph ], [ %incdec.ptr.i7.i, %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev.exit.i122 ]
   %44 = load ptr, ptr %__begin3.i.sroa.0.0172, align 8, !noalias !42
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp.i89, ptr noundef nonnull align 8 dereferenceable(99) %44)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_119createVectorPrinterERKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp.i89, ptr noundef nonnull align 8 dereferenceable(99) %44)
           to label %invoke.cont11.i unwind label %lpad.i109, !noalias !42
 
 invoke.cont11.i:                                  ; preds = %for.body.i
@@ -1818,7 +1818,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef nonnull align 8 dereferenceable(32) %indent) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef nonnull align 8 dereferenceable(32) %indent) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1943,7 +1943,7 @@ if.then:                                          ; preds = %invoke.cont17
 
 invoke.cont23:                                    ; preds = %if.then
   %10 = load ptr, ptr %call24, align 8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(99) %10, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(99) %10, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
           to label %invoke.cont26 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %invoke.cont23
@@ -2013,7 +2013,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
 invoke.cont52:                                    ; preds = %invoke.cont50
   %elements_.i = getelementptr inbounds i8, ptr %16, i64 136
   %17 = load ptr, ptr %elements_.i, align 8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(99) %17, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(99) %17, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
           to label %invoke.cont57 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont57:                                    ; preds = %invoke.cont52
@@ -2046,7 +2046,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
 invoke.cont68:                                    ; preds = %invoke.cont66
   %keys_.i = getelementptr inbounds i8, ptr %19, i64 136
   %20 = load ptr, ptr %keys_.i, align 8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(99) %20, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(99) %20, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
           to label %invoke.cont73 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont73:                                    ; preds = %invoke.cont68
@@ -2069,7 +2069,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
 invoke.cont81:                                    ; preds = %invoke.cont79
   %values_.i = getelementptr inbounds i8, ptr %19, i64 152
   %21 = load ptr, ptr %values_.i, align 8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(99) %21, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(99) %21, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
           to label %invoke.cont86 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont86:                                    ; preds = %invoke.cont81
@@ -2178,7 +2178,7 @@ _ZNK8facebook5velox9RowVector7childAtEj.exit:     ; preds = %invoke.cont111
   %33 = load ptr, ptr %children_.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.70", ptr %33, i64 %indvars.iv
   %34 = load ptr, ptr %add.ptr.i.i, align 8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(99) %34, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_124printTypeAndEncodingTreeERKNS0_10BaseVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(99) %34, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
           to label %invoke.cont117 unwind label %lpad1.loopexit
 
 invoke.cont117:                                   ; preds = %_ZNK8facebook5velox9RowVector7childAtEj.exit
@@ -2205,7 +2205,7 @@ sw.epilog.sink.split:                             ; preds = %invoke.cont86, %inv
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %invoke.cont99, %sw.epilog.sink.split, %sw.bb43
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %out)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %out)
           to label %invoke.cont121 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont121:                                   ; preds = %sw.epilog
@@ -2843,7 +2843,7 @@ invoke.cont28.us:                                 ; preds = %invoke.cont26.us
   %call5.val.us = load ptr, ptr %children_.val, align 8
   %decoded_.i.us = getelementptr inbounds i8, ptr %call5.val.us, i64 8
   %add.us = add nsw i32 %i.025.us, %8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_115printFixedWidthB5cxx11ERKNS0_13DecodedVectorEi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.us, i32 noundef %add.us)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_115printFixedWidthB5cxx11ERKNS0_13DecodedVectorEi(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.us, i32 noundef %add.us)
           to label %invoke.cont33.us unwind label %lpad11.loopexit.split.us
 
 invoke.cont33.us:                                 ; preds = %invoke.cont28.us
@@ -2906,7 +2906,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
 invoke.cont46:                                    ; preds = %invoke.cont44
   %call5.val18 = load ptr, ptr %children_.val, align 8
   %add50 = add nsw i32 %i.025, %8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(152) %call5.val18, i32 noundef %add50)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(152) %call5.val18, i32 noundef %add50)
           to label %invoke.cont51 unwind label %lpad11.loopexit.split
 
 invoke.cont51:                                    ; preds = %invoke.cont46
@@ -2920,7 +2920,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
 invoke.cont55:                                    ; preds = %invoke.cont53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #22
   %call5.val19 = load ptr, ptr %children_.val, align 8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(152) %call5.val19, i32 noundef %add50, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(152) %call5.val19, i32 noundef %add50, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
           to label %invoke.cont61 unwind label %lpad11.loopexit.split
 
 invoke.cont61:                                    ; preds = %invoke.cont55
@@ -3120,7 +3120,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_115printFixedWidthB5cxx11ERKNS0_13DecodedVectorEi(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %decodedVector, i32 noundef %index) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_115printFixedWidthB5cxx11ERKNS0_13DecodedVectorEi(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %decodedVector, i32 noundef %index) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %nulls_.i = getelementptr inbounds i8, ptr %decodedVector, i64 24
@@ -3242,7 +3242,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %if.end, %if.then3.i
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 320
   %15 = load ptr, ptr %vfn, align 8
-  tail call void %15(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(99) %10, i32 noundef %retval.0.i13)
+  tail call void %15(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(99) %10, i32 noundef %retval.0.i13)
   br label %return
 
 return:                                           ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit, %invoke.cont
@@ -3250,7 +3250,7 @@ return:                                           ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %index) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %index) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3325,7 +3325,7 @@ call2.i.noexc:                                    ; preds = %_ZNK8facebook5velox
   store i64 %12, ptr %ref.tmp.i, align 16, !noalias !65
   %13 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i, ptr %13, align 8, !noalias !65
-  invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.7, i64 9, i64 13, ptr nonnull %ref.tmp.i)
+  invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.7, i64 9, i64 13, ptr nonnull %ref.tmp.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call2.i.noexc
@@ -3342,7 +3342,7 @@ if.end:                                           ; preds = %entry, %if.then8.i,
   %vtable6 = load ptr, ptr %this, align 8
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
   %15 = load ptr, ptr %vfn7, align 8
-  tail call void %15(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %index)
+  tail call void %15(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %index)
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont
@@ -3350,7 +3350,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %indent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %indent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %nulls_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3423,7 +3423,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %out)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %out)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -3440,7 +3440,7 @@ if.end:                                           ; preds = %entry, %if.then8.i,
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %10 = load ptr, ptr %vfn, align 8
-  tail call void %10(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %indent)
+  tail call void %10(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont7
@@ -3732,7 +3732,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   %call5.val35 = load ptr, ptr %children_.val31, align 8
   %decoded_.i = getelementptr inbounds i8, ptr %call5.val35, i64 8
   %add = add nsw i32 %i.043, %8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_115printFixedWidthB5cxx11ERKNS0_13DecodedVectorEi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i, i32 noundef %add)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_115printFixedWidthB5cxx11ERKNS0_13DecodedVectorEi(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i, i32 noundef %add)
           to label %invoke.cont42 unwind label %lpad12.loopexit
 
 invoke.cont42:                                    ; preds = %invoke.cont38
@@ -3783,7 +3783,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
 invoke.cont55:                                    ; preds = %invoke.cont53
   %call7.val34 = load ptr, ptr %add.ptr.i, align 8
   %add59 = add nsw i32 %i.043, %8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(152) %call7.val34, i32 noundef %add59)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(152) %call7.val34, i32 noundef %add59)
           to label %invoke.cont60 unwind label %lpad12.loopexit
 
 invoke.cont60:                                    ; preds = %invoke.cont55
@@ -3797,7 +3797,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
 invoke.cont64:                                    ; preds = %invoke.cont62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #22
   %call5.val = load ptr, ptr %children_.val31, align 8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(152) %call5.val, i32 noundef %add59, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(152) %call5.val, i32 noundef %add59, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
           to label %invoke.cont70 unwind label %lpad12.loopexit
 
 invoke.cont70:                                    ; preds = %invoke.cont64
@@ -3841,7 +3841,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
   %call7.val33 = load ptr, ptr %add.ptr.i, align 8
   %decoded_.i41 = getelementptr inbounds i8, ptr %call7.val33, i64 8
   %add88 = add nsw i32 %i.043, %8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_115printFixedWidthB5cxx11ERKNS0_13DecodedVectorEi(ptr noalias nonnull align 8 %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i41, i32 noundef %add88)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_115printFixedWidthB5cxx11ERKNS0_13DecodedVectorEi(ptr noalias align 8 %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i41, i32 noundef %add88)
           to label %invoke.cont89 unwind label %lpad12.loopexit
 
 invoke.cont89:                                    ; preds = %invoke.cont83
@@ -3877,7 +3877,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
 invoke.cont103:                                   ; preds = %invoke.cont101
   %call7.val32 = load ptr, ptr %add.ptr.i, align 8
   %add107 = add nsw i32 %i.043, %8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp105, ptr noundef nonnull align 8 dereferenceable(152) %call7.val32, i32 noundef %add107)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias align 8 %ref.tmp105, ptr noundef nonnull align 8 dereferenceable(152) %call7.val32, i32 noundef %add107)
           to label %invoke.cont108 unwind label %lpad12.loopexit
 
 invoke.cont108:                                   ; preds = %invoke.cont103
@@ -3891,7 +3891,7 @@ invoke.cont110:                                   ; preds = %invoke.cont108
 invoke.cont112:                                   ; preds = %invoke.cont110
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105) #22
   %call7.val = load ptr, ptr %add.ptr.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(152) %call7.val, i32 noundef %add107, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(152) %call7.val, i32 noundef %add107, ptr noundef nonnull align 8 dereferenceable(32) %newIndent)
           to label %invoke.cont118 unwind label %lpad12.loopexit
 
 invoke.cont118:                                   ; preds = %invoke.cont112
@@ -4248,7 +4248,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %children_.val10 = load ptr, ptr %children_, align 8
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %children_.val10, i64 %indvars.iv
   %call19.val = load ptr, ptr %add.ptr.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(152) %call19.val, i32 noundef %retval.0.i)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(152) %call19.val, i32 noundef %retval.0.i)
           to label %invoke.cont21 unwind label %lpad.loopexit
 
 invoke.cont21:                                    ; preds = %invoke.cont17
@@ -4278,7 +4278,7 @@ lpad.i.i:                                         ; preds = %.noexc13
   br label %ehcleanup41
 
 invoke.cont34:                                    ; preds = %.noexc13
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(152) %call31.val, i32 noundef %retval.0.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(152) %call31.val, i32 noundef %retval.0.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont34
@@ -4958,7 +4958,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %1, align 8
   %.val4 = load ptr, ptr %2, align 8
-  call fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(152) %.val4, i32 noundef %i)
+  call fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter9summarizeB5cxx11Ei(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(152) %.val4, i32 noundef %i)
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -4972,7 +4972,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
   %add.ptr8 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %1, align 8
   %.val = load ptr, ptr %4, align 8
-  call fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(152) %.val, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8facebook5velox12_GLOBAL__N_17kIndentB5cxx11E)
+  call fastcc void @_ZNK8facebook5velox12_GLOBAL__N_113VectorPrinter5printEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(152) %.val, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8facebook5velox12_GLOBAL__N_17kIndentB5cxx11E)
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
           to label %invoke.cont12 unwind label %lpad11
 

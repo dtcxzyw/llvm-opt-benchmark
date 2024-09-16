@@ -799,15 +799,15 @@ if.end28:                                         ; preds = %if.then2, %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rru_flags.i)
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.end28, %for.inc.i
-  %list.014.i = phi ptr [ %6, %for.inc.i ], [ %call.i, %if.end28 ]
-  %type.i = getelementptr inbounds i8, ptr %list.014.i, i64 8
+for.body.i:                                       ; preds = %for.inc.i, %if.end28
+  %list.013.i = phi ptr [ %call.i, %if.end28 ], [ %6, %for.inc.i ]
+  %type.i = getelementptr inbounds i8, ptr %list.013.i, i64 8
   %5 = load i32, ptr %type.i, align 8
   %cmp.i = icmp eq i32 %5, 5
   br i1 %cmp.i, label %if.end3.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %6 = load ptr, ptr %list.014.i, align 8
+  %6 = load ptr, ptr %list.013.i, align 8
   %tobool.not.i59 = icmp eq ptr %6, null
   br i1 %tobool.not.i59, label %current_pointed_by_HEAD.exit, label %for.body.i, !llvm.loop !10
 
@@ -828,25 +828,25 @@ if.end7.i:                                        ; preds = %lor.lhs.false.i
   br i1 %tobool9.not.i, label %current_pointed_by_HEAD.exit, label %for.body14.i
 
 for.body14.i:                                     ; preds = %if.end7.i, %for.inc21.i
-  %list.115.i = phi ptr [ %9, %for.inc21.i ], [ %call.i, %if.end7.i ]
-  %type15.i = getelementptr inbounds i8, ptr %list.115.i, i64 8
+  %list.114.i = phi ptr [ %9, %for.inc21.i ], [ %call.i, %if.end7.i ]
+  %type15.i = getelementptr inbounds i8, ptr %list.114.i, i64 8
   %8 = load i32, ptr %type15.i, align 8
   %cmp16.i = icmp eq i32 %8, 1
   br i1 %cmp16.i, label %land.lhs.true.i, label %for.inc21.i
 
 land.lhs.true.i:                                  ; preds = %for.body14.i
-  %name.i = getelementptr inbounds i8, ptr %list.115.i, i64 12
+  %name.i = getelementptr inbounds i8, ptr %list.114.i, i64 12
   %call17.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i61, ptr noundef nonnull dereferenceable(1) %name.i) #13
   %tobool18.not.i = icmp eq i32 %call17.i, 0
   br i1 %tobool18.not.i, label %current_pointed_by_HEAD.exit, label %for.inc21.i
 
 for.inc21.i:                                      ; preds = %land.lhs.true.i, %for.body14.i
-  %9 = load ptr, ptr %list.115.i, align 8
+  %9 = load ptr, ptr %list.114.i, align 8
   %tobool13.not.i = icmp eq ptr %9, null
   br i1 %tobool13.not.i, label %current_pointed_by_HEAD.exit, label %for.body14.i, !llvm.loop !11
 
 current_pointed_by_HEAD.exit:                     ; preds = %for.inc.i, %land.lhs.true.i, %for.inc21.i, %if.end3.i, %lor.lhs.false.i, %if.end7.i
-  %retval.0.i60 = phi ptr [ null, %lor.lhs.false.i ], [ null, %if.end3.i ], [ null, %if.end7.i ], [ %list.115.i, %land.lhs.true.i ], [ null, %for.inc21.i ], [ null, %for.inc.i ]
+  %retval.0.i60 = phi ptr [ null, %lor.lhs.false.i ], [ null, %if.end3.i ], [ null, %if.end7.i ], [ %list.114.i, %land.lhs.true.i ], [ null, %for.inc21.i ], [ null, %for.inc.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rru_flags.i)
   %tobool44.not = icmp eq ptr %retval.0.i60, null
   %type50 = getelementptr inbounds i8, ptr %retval.0.i60, i64 8

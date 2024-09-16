@@ -828,7 +828,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool12.not, label %if.end20, label %if.then13
 
 if.then13:                                        ; preds = %if.else
-  %call14 = call fastcc ptr @get_attrib_from_keywords(ptr noundef nonnull %kwds)
+  %call14 = call fastcc ptr @get_attrib_from_keywords(ptr noundef %kwds)
   store ptr %call14, ptr %attrib, align 8
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %return, label %if.end20
@@ -1113,14 +1113,14 @@ declare ptr @PyDict_Copy(ptr noundef) local_unnamed_addr #1
 declare i32 @PyDict_Update(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_attrib_from_keywords(ptr noundef %kwds) unnamed_addr #0 {
+define internal fastcc ptr @get_attrib_from_keywords(ptr noundef nonnull %kwds) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.4) #11
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @PyDict_GetItemWithError(ptr noundef %kwds, ptr noundef nonnull %call) #11
+  %call1 = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %kwds, ptr noundef nonnull %call) #11
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.else, label %if.then2
 
@@ -1163,7 +1163,7 @@ if.end9:                                          ; preds = %if.then2
   br i1 %tobool11.not, label %if.end21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end9
-  %call12 = tail call i32 @PyDict_DelItem(ptr noundef %kwds, ptr noundef nonnull %call) #11
+  %call12 = tail call i32 @PyDict_DelItem(ptr noundef nonnull %kwds, ptr noundef nonnull %call) #11
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %do.body, label %if.end21
 
@@ -1214,7 +1214,7 @@ Py_DECREF.exit36:                                 ; preds = %if.end21, %if.then1
   br i1 %cmp22.not, label %return, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %Py_DECREF.exit36
-  %call24 = tail call i32 @PyDict_Update(ptr noundef nonnull %attrib.0, ptr noundef %kwds) #11
+  %call24 = tail call i32 @PyDict_Update(ptr noundef nonnull %attrib.0, ptr noundef nonnull %kwds) #11
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %if.then26, label %return
 
@@ -3807,7 +3807,7 @@ do.end:                                           ; preds = %if.end18, %if.then2
   br i1 %cmp23.not, label %if.else29, label %if.then24
 
 if.then24:                                        ; preds = %do.end
-  %call25 = tail call fastcc i32 @treebuilder_add_subelement(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %node.0)
+  %call25 = tail call fastcc i32 @treebuilder_add_subelement(ptr noundef %0, ptr noundef %13, ptr noundef %node.0)
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %error, label %if.end35
 
@@ -3998,7 +3998,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @treebuilder_add_subelement(ptr nocapture noundef readonly %st, ptr noundef %element, ptr noundef %child) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @treebuilder_add_subelement(ptr nocapture noundef readonly %st, ptr noundef %element, ptr noundef nonnull %child) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %Element_Type = getelementptr inbounds i8, ptr %st, i64 104
@@ -4583,7 +4583,7 @@ if.end6:                                          ; preds = %if.then1
 if.then11:                                        ; preds = %if.end6
   %state = getelementptr inbounds i8, ptr %self, i64 160
   %11 = load ptr, ptr %state, align 8
-  %call12 = tail call fastcc i32 @treebuilder_add_subelement(ptr noundef %11, ptr noundef %9, ptr noundef nonnull %call3)
+  %call12 = tail call fastcc i32 @treebuilder_add_subelement(ptr noundef %11, ptr noundef %9, ptr noundef %call3)
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %error, label %do.body
 
@@ -4775,7 +4775,7 @@ if.end6:                                          ; preds = %if.then1
 if.then11:                                        ; preds = %if.end6
   %state = getelementptr inbounds i8, ptr %self, i64 160
   %11 = load ptr, ptr %state, align 8
-  %call12 = call fastcc i32 @treebuilder_add_subelement(ptr noundef %11, ptr noundef %9, ptr noundef nonnull %call3)
+  %call12 = call fastcc i32 @treebuilder_add_subelement(ptr noundef %11, ptr noundef %9, ptr noundef %call3)
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %error, label %do.body
 
@@ -5252,7 +5252,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool13.not, label %Py_XDECREF.exit, label %if.then14
 
 if.then14:                                        ; preds = %if.else
-  %call15 = call fastcc ptr @get_attrib_from_keywords(ptr noundef nonnull %kwds)
+  %call15 = call fastcc ptr @get_attrib_from_keywords(ptr noundef %kwds)
   store ptr %call15, ptr %attrib, align 8
   %tobool16.not = icmp eq ptr %call15, null
   br i1 %tobool16.not, label %return, label %land.lhs.true
@@ -9383,7 +9383,7 @@ declare ptr @_PyNumber_Index(ptr noundef) local_unnamed_addr #1
 declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_elementiter(ptr %st.112.val, ptr noundef %self, ptr noundef %tag, i32 noundef %gettext) unnamed_addr #0 {
+define internal fastcc ptr @create_elementiter(ptr %st.112.val, ptr noundef %self, ptr noundef %tag, i32 noundef range(i32 0, 2) %gettext) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyObject_GC_New(ptr noundef %st.112.val) #11
   %tobool.not = icmp eq ptr %call, null

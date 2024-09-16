@@ -337,7 +337,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext10HandleExitEi(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim(ptr noundef nonnull align 8 dereferenceable(217) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim(ptr noundef nonnull align 8 dereferenceable(217) %0, i32 noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114CurrentContextE)
   store ptr %4, ptr %5, align 8

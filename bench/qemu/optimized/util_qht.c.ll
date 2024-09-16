@@ -613,7 +613,7 @@ entry:
 define dso_local zeroext i1 @qht_insert(ptr noundef %ht, ptr noundef %p, i32 noundef %hash, ptr noundef writeonly %existing) local_unnamed_addr #0 {
 entry:
   %map = alloca ptr, align 8
-  %call = call fastcc ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr noundef nonnull %map)
+  %call = call fastcc ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr noundef %map)
   %0 = load ptr, ptr %map, align 8
   %cmp4.i = getelementptr inbounds i8, ptr %ht, i64 8
   br label %do.body.i
@@ -804,7 +804,7 @@ return:                                           ; preds = %if.end5.i, %qht_try
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr nocapture noundef writeonly %pmap) unnamed_addr #0 {
+define internal fastcc noundef ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr nocapture noundef nonnull writeonly %pmap) unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -907,7 +907,7 @@ return:                                           ; preds = %qht_bucket_lock.exi
 define dso_local noundef zeroext i1 @qht_remove(ptr noundef %ht, ptr noundef readnone %p, i32 noundef %hash) local_unnamed_addr #0 {
 entry:
   %map = alloca ptr, align 8
-  %call = call fastcc ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr noundef nonnull %map)
+  %call = call fastcc ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr noundef %map)
   br label %do.body.i
 
 do.body.i:                                        ; preds = %for.end.i, %entry
@@ -1119,7 +1119,7 @@ qemu_spin_lock.exit.i.i:                          ; preds = %while.cond.loopexit
   br i1 %cmp.i.i, label %for.body.i.i, label %qht_map_lock_buckets.exit.i, !llvm.loop !13
 
 qht_map_lock_buckets.exit.i:                      ; preds = %qemu_spin_lock.exit.i.i, %entry
-  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull readonly %iter, ptr noundef %userp)
+  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef readonly %iter, ptr noundef %userp)
   %9 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i4.i = icmp eq i64 %9, 0
   br i1 %cmp5.not.i4.i, label %do_qht_iter.exit, label %for.body.lr.ph.i5.i
@@ -1192,7 +1192,7 @@ qemu_spin_lock.exit.i.i:                          ; preds = %while.cond.loopexit
   br i1 %cmp.i.i, label %for.body.i.i, label %qht_map_lock_buckets.exit.i, !llvm.loop !13
 
 qht_map_lock_buckets.exit.i:                      ; preds = %qemu_spin_lock.exit.i.i, %entry
-  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull readonly %iter, ptr noundef %userp)
+  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef readonly %iter, ptr noundef %userp)
   %9 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i4.i = icmp eq i64 %9, 0
   br i1 %cmp5.not.i4.i, label %do_qht_iter.exit, label %for.body.lr.ph.i5.i
@@ -1583,7 +1583,7 @@ do.end:                                           ; preds = %do.body
   store ptr %ht, ptr %data, align 8
   %new8 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %new, ptr %new8, align 8
-  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %0, ptr noundef nonnull @__const.qht_do_resize_reset.iter, ptr noundef nonnull %data)
+  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %0, ptr noundef @__const.qht_do_resize_reset.iter, ptr noundef nonnull %data)
   %18 = ptrtoint ptr %new to i64
   store atomic i64 %18, ptr %ht release, align 8
   %19 = load i64, ptr %n_buckets.i, align 8
@@ -1717,7 +1717,7 @@ qht_insert__locked.exit:                          ; preds = %land.rhs.i, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qht_map_iter__all_locked(ptr nocapture noundef readonly %map, ptr nocapture noundef readonly %iter, ptr noundef %userp) unnamed_addr #0 {
+define internal fastcc void @qht_map_iter__all_locked(ptr nocapture noundef readonly %map, ptr nocapture noundef nonnull readonly %iter, ptr noundef %userp) unnamed_addr #0 {
 entry:
   %n_buckets = getelementptr inbounds i8, ptr %map, i64 24
   %0 = load i64, ptr %n_buckets, align 8

@@ -15900,7 +15900,7 @@ define dso_local void @_ZN4Luau19magicFunctionFormatERNS_11TypeCheckerERKSt10sha
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %.1107, i64 40
   %66 = load i64, ptr %65, align 8
-  invoke fastcc void @_ZN4LuauL17parseFormatStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.sroa.020.0.copyload, ptr noundef %64, i64 noundef %66)
+  invoke fastcc void @_ZN4LuauL17parseFormatStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias writable align 8 %8, ptr %.sroa.020.0.copyload, ptr noundef %64, i64 noundef %66)
           to label %67 unwind label %43
 
 67:                                               ; preds = %.thread104
@@ -16238,7 +16238,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit82:   ; preds = %184, %_ZNSt4pairISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL17parseFormatStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL17parseFormatStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not75 = icmp eq i64 %3, 0
   br i1 %.not75, label %._crit_edge, label %.lr.ph74
@@ -23526,7 +23526,7 @@ define internal noundef zeroext i1 @_ZN4LuauL22dcrMagicFunctionFormatENS_24Magic
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %.165, i64 40
   %55 = load i64, ptr %54, align 8
-  call fastcc void @_ZN4LuauL17parseFormatStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.sroa.021.0.copyload, ptr noundef %53, i64 noundef %55)
+  call fastcc void @_ZN4LuauL17parseFormatStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.021.0.copyload, ptr noundef %53, i64 noundef %55)
   %56 = getelementptr inbounds i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8
   invoke void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.590") align 8 %4, ptr noundef %57)
@@ -23894,7 +23894,7 @@ define internal void @_ZN4LuauL19magicFunctionGmatchERNS_11TypeCheckerERKSt10sha
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %44, i64 40
   %58 = load i64, ptr %57, align 8
-  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.sroa.03.0.copyload, ptr noundef %56, i64 noundef %58)
+  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias writable align 8 %8, ptr %.sroa.03.0.copyload, ptr noundef %56, i64 noundef %58)
           to label %59 unwind label %49
 
 59:                                               ; preds = %53
@@ -24228,7 +24228,7 @@ define internal noundef zeroext i1 @_ZN4LuauL22dcrMagicFunctionGmatchENS_24Magic
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %33, i64 40
   %45 = load i64, ptr %44, align 8
-  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.sroa.04.0.copyload, ptr noundef %43, i64 noundef %45)
+  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.04.0.copyload, ptr noundef %43, i64 noundef %45)
           to label %46 unwind label %38
 
 46:                                               ; preds = %40
@@ -24546,7 +24546,7 @@ define internal void @_ZN4LuauL18magicFunctionMatchERNS_11TypeCheckerERKSt10shar
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %43, i64 40
   %57 = load i64, ptr %56, align 8
-  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.sroa.03.0.copyload, ptr noundef %55, i64 noundef %57)
+  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias writable align 8 %8, ptr %.sroa.03.0.copyload, ptr noundef %55, i64 noundef %57)
           to label %58 unwind label %48
 
 58:                                               ; preds = %52
@@ -24892,7 +24892,7 @@ define internal noundef zeroext i1 @_ZN4LuauL21dcrMagicFunctionMatchENS_24MagicF
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %32, i64 40
   %44 = load i64, ptr %43, align 8
-  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.sroa.03.0.copyload, ptr noundef %42, i64 noundef %44)
+  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.03.0.copyload, ptr noundef %42, i64 noundef %44)
           to label %45 unwind label %37
 
 45:                                               ; preds = %39
@@ -25245,7 +25245,7 @@ define internal void @_ZN4LuauL17magicFunctionFindERNS_11TypeCheckerERKSt10share
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %47, i64 40
   %74 = load i64, ptr %73, align 8
-  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %.sroa.011.0.copyload, ptr noundef %72, i64 noundef %74)
+  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.011.0.copyload, ptr noundef %72, i64 noundef %74)
           to label %75 unwind label %92
 
 75:                                               ; preds = %69
@@ -25764,7 +25764,7 @@ define internal noundef zeroext i1 @_ZN4LuauL20dcrMagicFunctionFindENS_24MagicFu
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %39, i64 40
   %63 = load i64, ptr %62, align 8
-  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %24, ptr noundef %61, i64 noundef %63)
+  invoke fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias writable align 8 %4, ptr %24, ptr noundef %61, i64 noundef %63)
           to label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit unwind label %72
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %59
@@ -29341,7 +29341,7 @@ _ZN4Luau26TypeFamilyInstanceTypePackD2Ev.exit:    ; preds = %_ZNSt6vectorIPKN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL18parsePatternStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not152 = icmp eq i64 %3, 0
   %5 = getelementptr inbounds i8, ptr %1, i64 168
   br i1 %.not152, label %_ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i71, label %.lr.ph

@@ -357,7 +357,7 @@ free_virtual_node_list.exit:                      ; preds = %40, %1
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph19
-  tail call fastcc void @dot_cleanup_node(ptr noundef nonnull %.01318)
+  tail call fastcc void @dot_cleanup_node(ptr noundef %.01318)
   %44 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01318) #14
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %._crit_edge20, label %.lr.ph19
@@ -370,7 +370,7 @@ free_virtual_node_list.exit:                      ; preds = %40, %1
 declare void @gv_cleanup_edge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dot_cleanup_node(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @dot_cleanup_node(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 256
@@ -909,7 +909,7 @@ declare void @gv_nodesize(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 declare ptr @agraphof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 105) %1) unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -1112,7 +1112,7 @@ define internal fastcc void @dotLayout(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not.i.i, label %remove_from_rank.exit.i, label %36
 
 remove_from_rank.exit.i:                          ; preds = %56, %._crit_edge.i.i, %.lr.ph.i
-  tail call fastcc void @dot_cleanup_node(ptr noundef nonnull %.022.i)
+  tail call fastcc void @dot_cleanup_node(ptr noundef %.022.i)
   %57 = tail call i32 @agdelnode(ptr noundef %0, ptr noundef nonnull %.022.i) #14
   %.not17.i = icmp eq ptr %22, null
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1189,7 +1189,7 @@ define internal fastcc void @dot_init_subg(ptr noundef %0, ptr noundef %1) unnam
 declare void @dot_rank(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @attach_phase_attrs(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @attach_phase_attrs(ptr noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 {
   %3 = alloca %struct.agxbuf, align 8
   %4 = tail call ptr @agattr(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4) #14
   %5 = tail call ptr @agattr(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.4) #14
@@ -1202,7 +1202,7 @@ agxbsizeof.exit.i.i.lr.ph:                        ; preds = %2
   %7 = getelementptr inbounds i8, ptr %3, i64 31
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = icmp sgt i32 %1, 1
+  %10 = icmp ugt i32 %1, 1
   br label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i.lr.ph, %58
@@ -1211,7 +1211,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 360
   %14 = load i32, ptr %13, align 8
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr nonnull poison, i32 noundef %14)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr nonnull poison, i32 noundef %14)
   %.val.i.i.i = load i8, ptr %7, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   %15 = load i64, ptr %8, align 8
@@ -1223,7 +1223,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i
   br i1 %.not.i.i, label %19, label %18
 
 18:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %3, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %7, align 1
   br label %19
 
@@ -1275,7 +1275,7 @@ agxbsizeof.exit.i.i17:                            ; preds = %agxbuse.exit
   %35 = load ptr, ptr %11, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 364
   %37 = load i32, ptr %36, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr nonnull poison, i32 noundef %37)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr nonnull poison, i32 noundef %37)
   %.val.i.i.i14 = load i8, ptr %7, align 1
   %.not.i.i.i15 = icmp eq i8 %.val.i.i.i14, -1
   %38 = load i64, ptr %8, align 8
@@ -1287,7 +1287,7 @@ agxbsizeof.exit.i.i17:                            ; preds = %agxbuse.exit
   br i1 %.not.i.i20, label %42, label %41
 
 41:                                               ; preds = %agxbsizeof.exit.i.i17
-  call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %3, i64 noundef 1)
   %.val.i15.pre.i.i21 = load i8, ptr %7, align 1
   br label %42
 
@@ -1372,7 +1372,7 @@ declare void @dot_compoundEdges(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1415,7 +1415,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -1473,7 +1473,7 @@ declare i32 @agxset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1518,7 +1518,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #15
   %26 = icmp eq ptr %25, null

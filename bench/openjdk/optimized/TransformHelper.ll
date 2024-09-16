@@ -821,14 +821,14 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   br label %301
 
 150:                                              ; preds = %137
-  %151 = call fastcc zeroext i8 @checkOverflow(i32 noundef %18, i32 noundef %19, ptr noundef nonnull %22, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27)
+  %151 = call fastcc zeroext i8 @checkOverflow(i32 noundef %18, i32 noundef %19, ptr noundef %22, ptr noundef %25, ptr noundef %26, ptr noundef %27)
   %.not220 = icmp eq i8 %151, 0
   br i1 %.not220, label %155, label %152
 
 152:                                              ; preds = %150
   %153 = sub nsw i32 %11, %9
   %154 = sub nsw i32 %12, %10
-  call fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %34, ptr noundef nonnull %23, ptr noundef %.0191, ptr noundef %.0192.fr, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %29, ptr noundef nonnull %.0193236, i32 noundef %18, i32 noundef %19, i32 noundef %153, i32 noundef %154)
+  call fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %21, ptr noundef %22, ptr noundef %34, ptr noundef %23, ptr noundef %.0191, ptr noundef %.0192.fr, ptr noundef %24, ptr noundef %25, ptr noundef %29, ptr noundef %.0193236, i32 noundef %18, i32 noundef %19, i32 noundef %153, i32 noundef %154)
   br label %301
 
 155:                                              ; preds = %150
@@ -855,7 +855,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   %176 = fptosi double %175 to i64
   %177 = sub nsw i32 %11, %9
   %178 = sub nsw i32 %12, %10
-  call fastcc void @calculateEdges(ptr noundef nonnull %.0193236, ptr noundef nonnull %22, ptr noundef nonnull %25, i64 noundef %173, i64 noundef %176, i32 noundef %177, i32 noundef %178)
+  call fastcc void @calculateEdges(ptr noundef %.0193236, ptr noundef %22, ptr noundef %25, i64 noundef %173, i64 noundef %176, i32 noundef %177, i32 noundef %178)
   call void @Region_StartIteration(ptr noundef %0, ptr noundef nonnull %24) #8
   %179 = call i32 @Region_NextIteration(ptr noundef nonnull %24, ptr noundef nonnull %30) #8
   %.not221245 = icmp eq i32 %179, 0
@@ -1145,7 +1145,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 {
+define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #2 {
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = load i32, ptr %2, align 4
@@ -1159,7 +1159,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
   %16 = sitofp i32 %15 to double
   %17 = fadd double %16, 5.000000e-01
   store double %17, ptr %8, align 8
-  call void @Transform_transform(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  call void @Transform_transform(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %18 = load double, ptr %7, align 8
   store double %18, ptr %4, align 8
   %19 = load double, ptr %8, align 8
@@ -1183,7 +1183,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
   %32 = sitofp i32 %31 to double
   %33 = fadd double %32, 5.000000e-01
   store double %33, ptr %8, align 8
-  call void @Transform_transform(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  call void @Transform_transform(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %34 = load double, ptr %7, align 8
   %35 = call double @llvm.fabs.f64(double %34)
   %36 = fcmp ult double %35, 0x41D0000000000000
@@ -1207,7 +1207,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
   %49 = sitofp i32 %48 to double
   %50 = fadd double %49, -5.000000e-01
   store double %50, ptr %8, align 8
-  call void @Transform_transform(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  call void @Transform_transform(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %51 = load double, ptr %7, align 8
   %52 = call double @llvm.fabs.f64(double %51)
   %53 = fcmp ult double %52, 0x41D0000000000000
@@ -1230,7 +1230,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
   %65 = sitofp i32 %64 to double
   %66 = fadd double %65, -5.000000e-01
   store double %66, ptr %8, align 8
-  call void @Transform_transform(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  call void @Transform_transform(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %67 = load double, ptr %7, align 8
   %68 = call double @llvm.fabs.f64(double %67)
   %69 = fcmp ult double %68, 0x41D0000000000000
@@ -1251,7 +1251,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #2 {
+define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #2 {
   %16 = alloca %struct.SurfaceDataBounds, align 4
   %17 = alloca double, align 8
   %18 = alloca double, align 8
@@ -1287,8 +1287,8 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  tail call void @Region_StartIteration(ptr noundef %0, ptr noundef %7) #8
-  %33 = call i32 @Region_NextIteration(ptr noundef %7, ptr noundef nonnull %16) #8
+  tail call void @Region_StartIteration(ptr noundef %0, ptr noundef nonnull %7) #8
+  %33 = call i32 @Region_NextIteration(ptr noundef nonnull %7, ptr noundef nonnull %16) #8
   %.not9 = icmp eq i32 %33, 0
   br i1 %.not9, label %._crit_edge12, label %.lr.ph11
 
@@ -1306,7 +1306,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   br label %44
 
 .loopexit:                                        ; preds = %._crit_edge5, %.lr.ph8, %44
-  %43 = call i32 @Region_NextIteration(ptr noundef %7, ptr noundef nonnull %16) #8
+  %43 = call i32 @Region_NextIteration(ptr noundef nonnull %7, ptr noundef nonnull %16) #8
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %._crit_edge12, label %44, !llvm.loop !16
 
@@ -1357,7 +1357,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   %72 = fadd double %71, 5.000000e-01
   store double %72, ptr %17, align 8
   store double %62, ptr %18, align 8
-  call void @Transform_transform(ptr noundef %8, ptr noundef nonnull %17, ptr noundef nonnull %18) #8
+  call void @Transform_transform(ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull %18) #8
   %73 = load double, ptr %17, align 8
   %74 = fmul double %73, 0x41F0000000000000
   %75 = fptosi double %74 to i64
@@ -1405,7 +1405,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   br label %101
 
 101:                                              ; preds = %98, %95
-  call void %5(ptr noundef %1, ptr noundef %9, i32 noundef 1, i64 noundef %75, i64 noundef 0, i64 noundef %78, i64 noundef 0) #8
+  call void %5(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 1, i64 noundef %75, i64 noundef 0, i64 noundef %78, i64 noundef 0) #8
   br i1 %.not84, label %107, label %102
 
 102:                                              ; preds = %101
@@ -1413,7 +1413,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   %104 = xor i32 %103, -2147483648
   %105 = trunc i64 %78 to i32
   %106 = xor i32 %105, -2147483648
-  call void %6(ptr noundef %9, i32 noundef 1, i32 noundef %104, i32 noundef 0, i32 noundef %106, i32 noundef 0) #8
+  call void %6(ptr noundef nonnull %9, i32 noundef 1, i32 noundef %104, i32 noundef 0, i32 noundef %106, i32 noundef 0) #8
   br label %107
 
 107:                                              ; preds = %102, %101
@@ -1429,7 +1429,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   %117 = add i64 %116, %115
   %118 = inttoptr i64 %117 to ptr
   %119 = load ptr, ptr %42, align 8
-  call void %119(ptr noundef %118, ptr noundef %9, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %1, ptr noundef %3, ptr noundef %4) #8
+  call void %119(ptr noundef %118, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   br label %120
 
 120:                                              ; preds = %107, %68
@@ -1445,12 +1445,12 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   br i1 %exitcond23.not, label %.loopexit, label %.lr.ph8.split, !llvm.loop !18
 
 ._crit_edge12:                                    ; preds = %.loopexit, %._crit_edge
-  call void @Region_EndIteration(ptr noundef %0, ptr noundef %7) #8
+  call void @Region_EndIteration(ptr noundef %0, ptr noundef nonnull %7) #8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @calculateEdges(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @calculateEdges(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = load double, ptr %2, align 8
   %9 = fmul double %8, 0x41F0000000000000
   %10 = fptosi double %9 to i64

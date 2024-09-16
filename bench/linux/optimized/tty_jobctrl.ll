@@ -539,7 +539,7 @@ declare dso_local i32 @send_signal_locked(i32 noundef, ptr noundef, ptr noundef,
 declare dso_local void @put_pid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef nonnull ptr @get_pid(ptr noundef returned %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef nonnull ptr @get_pid(ptr noundef nonnull returned %0) unnamed_addr #3 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #8, !srcloc !9
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %8, label %4, !prof !10
@@ -1202,13 +1202,13 @@ declare void @llvm.write_register.i64(metadata, i64) #5
 declare dso_local ptr @find_vpid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @session_of_pgrp(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = tail call ptr @pid_task(ptr noundef %0, i32 noundef 2) #8
+define internal fastcc ptr @session_of_pgrp(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
+  %2 = tail call ptr @pid_task(ptr noundef nonnull %0, i32 noundef 2) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %.thread
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @pid_task(ptr noundef %0, i32 noundef 0) #8
+  %5 = tail call ptr @pid_task(ptr noundef nonnull %0, i32 noundef 0) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %.thread
 

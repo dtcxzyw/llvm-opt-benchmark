@@ -570,7 +570,7 @@ if.end95:                                         ; preds = %if.else.i176, %if.t
   br i1 %cmp5.i.i184.not382, label %for.end, label %land.rhs97.lr.ph
 
 land.rhs97.lr.ph:                                 ; preds = %if.end95
-  %cmp6.i = icmp sgt i32 %radix.1.fr, 10
+  %cmp6.i = icmp ugt i32 %radix.1.fr, 10
   %sub.i = add nuw nsw i32 %radix.1.fr, 87
   %add.i = add nuw nsw i32 %radix.1.fr, 48
   %realEnd.sroa.7.1.idx = select i1 %tobool.not.i.i179379, i64 2, i64 0
@@ -643,7 +643,7 @@ land.rhs97.us.us531:                              ; preds = %land.rhs97.lr.ph.sp
   %57 = add i16 %56, -48
   %or.cond.i.us.us538 = icmp ult i16 %57, 10
   %conv.i.us.us = zext nneg i16 %56 to i32
-  %cmp5.i.us.us = icmp sgt i32 %add.i, %conv.i.us.us
+  %cmp5.i.us.us = icmp ugt i32 %add.i, %conv.i.us.us
   %or.cond587 = select i1 %or.cond.i.us.us538, i1 %cmp5.i.us.us, i1 false
   br i1 %or.cond587, label %for.inc.us.us540, label %for.end.thread
 
@@ -660,7 +660,7 @@ land.rhs97.us:                                    ; preds = %land.rhs97.us.prehe
   %60 = add nsw i16 %59, -48
   %or.cond.i.us = icmp ult i16 %60, 10
   %conv.i.us = zext nneg i16 %59 to i32
-  %cmp5.i.us = icmp sgt i32 %add.i, %conv.i.us
+  %cmp5.i.us = icmp ugt i32 %add.i, %conv.i.us
   %or.cond588 = select i1 %or.cond.i.us, i1 %cmp5.i.us, i1 false
   br i1 %or.cond588, label %for.inc.us, label %for.end.thread
 

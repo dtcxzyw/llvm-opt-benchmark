@@ -391,7 +391,7 @@ define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function6FnOnce9call_onc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !132, !noundef !11
@@ -884,7 +884,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h09dc
   store i64 %.sink21.i, ptr %10, align 8, !alias.scope !248, !noalias !251
   %11 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 %.sink.i, ptr %11, align 8, !alias.scope !248, !noalias !251
-  %12 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.sink.i)
+  %12 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.sink.i)
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %switch = icmp eq i64 %13, 0
@@ -1199,7 +1199,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h4cb1
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !531, !noundef !11
   %7 = getelementptr inbounds { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } }, i64 }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -1278,7 +1278,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h52ae
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !605, !noundef !11
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, i64 }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -1595,7 +1595,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h6c49
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !824, !noundef !11
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [9 x i64] }, i64 }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -1675,7 +1675,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7430
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !898, !noundef !11
   %7 = getelementptr inbounds { { i64, [3 x i64] }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, i64 }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -2070,7 +2070,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h856f
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1287, !noundef !11
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [3 x i64] }, i64 }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -2150,7 +2150,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h9206
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1361, !noundef !11
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -2576,7 +2576,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hd091
   store i64 %.sink21.i, ptr %10, align 8, !alias.scope !1777, !noalias !1780
   %11 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 %.sink.i, ptr %11, align 8, !alias.scope !1777, !noalias !1780
-  %12 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.sink.i)
+  %12 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.sink.i)
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %switch = icmp eq i64 %13, 0
@@ -2699,7 +2699,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hd75c
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1880, !noundef !11
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -2779,7 +2779,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hdafe
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1954, !noundef !11
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -3140,7 +3140,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit: ;
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h04c8e6e81fa575c9E(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %1, i64 %2
-  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
+  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %6, 0
@@ -3291,7 +3291,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hd0b42f174e14d9d0E.exit: ;
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h12c8e78e7dac013fE(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { i32, [2 x i32] }, ptr %1, i64 %2
-  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
+  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %6, 0
@@ -3502,7 +3502,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h250b
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { i32, i32 }, { i32, i32 }, { i32, i32 } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -3589,7 +3589,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h290d
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -3777,7 +3777,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h34de
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64, i64 }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -3835,7 +3835,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h380b
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -3893,7 +3893,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h39fe
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -3922,7 +3922,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3ada
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { i64, [2 x i64] }, { i32, [1 x i32] }, i32, i32 }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -3980,7 +3980,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3c1f
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i64, [9 x i64] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4009,7 +4009,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3f24
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { i32, i32 }, { { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }, { i32, [2 x i32] }, { i32, [2 x i32] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4096,7 +4096,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h45a0
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4207,7 +4207,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17he244e48113109249E.exit:
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h48d3e5e62f5a6e28E.llvm.12642593798105491766(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %2
-  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
+  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %6, 0
@@ -4327,7 +4327,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h535d
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds i32, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4386,7 +4386,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h567d
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4483,7 +4483,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h01dae6fa7aee2f4bE.exit: ;
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h57b43cb42d0d320dE.llvm.12642593798105491766(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i32, ptr %1, i64 %2
-  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
+  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %6, 0
@@ -4538,7 +4538,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3dd08013ce2aa9bcE.exit: ;
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h59241e1d62b5954bE(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }, i32, [1 x i32] }, ptr %1, i64 %2
-  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
+  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %6, 0
@@ -4610,7 +4610,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h5b42
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { i32, [1 x i32] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4711,7 +4711,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h6071
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4845,7 +4845,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h64dc
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i32, i32 }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4874,7 +4874,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h659c
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -4903,7 +4903,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h68d9
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -5024,7 +5024,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h7221
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i32, i32 }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -5067,7 +5067,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h7999
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i32, { i32, i32 } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -5134,7 +5134,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h7a6b
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -5330,7 +5330,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h859d
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -5359,7 +5359,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h86e2
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -5562,7 +5562,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8aa7
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i32, i32 }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -5645,7 +5645,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h96793fa73887428cE.exit: ;
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8db6ad5d3893fe4eE(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i32, ptr %1, i64 %2
-  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
+  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %6, 0
@@ -5738,7 +5738,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8e15
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6222,7 +6222,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha43c
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i32, i32 }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6304,7 +6304,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha50d
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { i64, [3 x i64] }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { { { i64, ptr, {} }, i64 }, {} }, { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { i64, [2 x i64] }, { i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i64, i64, i64 }, { { { i64, ptr, {} }, i64 }, {} }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, i64, i8, i8, i8, [5 x i8] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6333,7 +6333,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha57f
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6362,7 +6362,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha710
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6450,7 +6450,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h8155478646edc612E.exit: ;
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha9373b5def0042bcE(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { i64, [3 x i64] }, ptr %1, i64 %2
-  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
+  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %6, 0
@@ -6479,7 +6479,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha9c2
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds i32, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6658,7 +6658,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hadb9
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6808,7 +6808,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hbf82
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6837,7 +6837,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc278
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6866,7 +6866,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc461
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds i32, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6925,7 +6925,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc698
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i32, [7 x i32] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -6954,7 +6954,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc97f
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i32, i32, i32 }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -7378,7 +7378,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdbd8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -7407,7 +7407,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdd1f
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !4613, !noundef !11
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, {} }, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %9, 0
@@ -7578,7 +7578,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdee9
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds i32, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -7778,7 +7778,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h588b121ff72b3eb1E.exit: ;
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he5f518fc571e080eE(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %2
-  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
+  %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %6, 0
@@ -7821,7 +7821,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he880
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -7904,7 +7904,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hec29
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { { i32, [1 x i32] }, i64, { i32, i32 }, i32, [1 x i32] }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -8012,7 +8012,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hfa79
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
   %5 = getelementptr inbounds { i8, [7 x i8], { i64, i64 } }, ptr %.val, i64 %.val7
-  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
+  %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %switch = icmp eq i64 %7, 0
@@ -12662,7 +12662,7 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %switch.not = icmp eq i64 %1, 0
   br i1 %switch.not, label %.critedge, label %"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE.exit"
@@ -12715,7 +12715,7 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
 25:                                               ; preds = %24
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #35
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE"(ptr noalias noundef align 8 dereferenceable(24) %4) #35
           to label %29 unwind label %27
 
 27:                                               ; preds = %25
@@ -12741,7 +12741,7 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %switch.not = icmp eq i64 %1, 0
   br i1 %switch.not, label %.critedge, label %"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE.exit"
@@ -12794,7 +12794,7 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
 25:                                               ; preds = %24
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #35
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE"(ptr noalias noundef align 8 dereferenceable(24) %4) #35
           to label %29 unwind label %27
 
 27:                                               ; preds = %25

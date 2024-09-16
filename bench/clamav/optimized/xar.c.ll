@@ -326,7 +326,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   br label %.thread439
 
 104:                                              ; preds = %99
-  %105 = call fastcc i32 @xar_scan_subdocuments(ptr noundef nonnull %101, ptr noundef nonnull %0)
+  %105 = call fastcc i32 @xar_scan_subdocuments(ptr noundef %101, ptr noundef nonnull %0)
   %.not320 = icmp eq i32 %105, 0
   br i1 %.not320, label %107, label %106
 
@@ -337,7 +337,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 107:                                              ; preds = %104
   store i32 -1, ptr %2, align 4
   store ptr null, ptr %9, align 8
-  %108 = call fastcc i32 @xar_get_toc_data_values(ptr noundef nonnull %101, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %11)
+  %108 = call fastcc i32 @xar_get_toc_data_values(ptr noundef %101, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %12, ptr noundef %10, ptr noundef %13, ptr noundef %11)
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %.lr.ph550, label %.loopexit452
 
@@ -1041,7 +1041,7 @@ xar_hash_final.exit368.thread433:                 ; preds = %326, %351, %xar_has
   br label %362
 
 362:                                              ; preds = %360, %358
-  %363 = call fastcc i32 @xar_get_toc_data_values(ptr noundef nonnull %101, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %11)
+  %363 = call fastcc i32 @xar_get_toc_data_values(ptr noundef %101, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %12, ptr noundef %10, ptr noundef %13, ptr noundef %11)
   %364 = icmp eq i32 %363, 0
   br i1 %364, label %117, label %.loopexit452
 
@@ -1205,10 +1205,10 @@ define internal fastcc range(i32 0, 11) i32 @xar_cleanup_temp_file(ptr nocapture
 declare ptr @xmlReaderForMemory(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @xar_scan_subdocuments(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @xar_scan_subdocuments(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #9
+  %5 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #9
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %.lr.ph, label %.loopexit
 
@@ -1218,7 +1218,7 @@ define internal fastcc i32 @xar_scan_subdocuments(ptr noundef %0, ptr noundef %1
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.backedge
-  %10 = call ptr @xmlTextReaderConstLocalName(ptr noundef %0) #9
+  %10 = call ptr @xmlTextReaderConstLocalName(ptr noundef nonnull %0) #9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
@@ -1232,7 +1232,7 @@ define internal fastcc i32 @xar_scan_subdocuments(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %16 = call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %.loopexit, label %18
 
@@ -1242,12 +1242,12 @@ define internal fastcc i32 @xar_scan_subdocuments(ptr noundef %0, ptr noundef %1
   br i1 %.not29, label %.backedge, label %20
 
 20:                                               ; preds = %18
-  %21 = call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %21 = call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %23, label %.backedge
 
 23:                                               ; preds = %20
-  %24 = call ptr @xmlTextReaderReadInnerXml(ptr noundef %0) #9
+  %24 = call ptr @xmlTextReaderReadInnerXml(ptr noundef nonnull %0) #9
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %30
 
@@ -1256,11 +1256,11 @@ define internal fastcc i32 @xar_scan_subdocuments(ptr noundef %0, ptr noundef %1
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %62, %26
-  %27 = call i32 @xmlTextReaderNext(ptr noundef %0) #9
+  %27 = call i32 @xmlTextReaderNext(ptr noundef nonnull %0) #9
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %18, %20
-  %28 = call i32 @xmlTextReaderRead(ptr noundef %0) #9
+  %28 = call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #9
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %9, label %.loopexit
 
@@ -1352,13 +1352,13 @@ xar_cleanup_temp_file.exit:                       ; preds = %53, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   store ptr null, ptr %5, align 8
   store i32 0, ptr %6, align 4
   store ptr null, ptr %7, align 8
   store i32 0, ptr %8, align 4
   store i32 0, ptr %4, align 4
-  %10 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #9
+  %10 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #9
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %.lr.ph, label %.loopexit
 
@@ -1368,7 +1368,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   %.077114 = phi i32 [ %.178, %107 ], [ 0, %9 ]
   %.079113 = phi i32 [ %.180, %107 ], [ 0, %9 ]
   %.083112 = phi i32 [ %.184, %107 ], [ 0, %9 ]
-  %12 = tail call ptr @xmlTextReaderConstLocalName(ptr noundef %0) #9
+  %12 = tail call ptr @xmlTextReaderConstLocalName(ptr noundef nonnull %0) #9
   %13 = icmp ne i32 %.0116, 0
   %14 = icmp ne i32 %.083112, 0
   %or.cond = select i1 %13, i1 true, i1 %14
@@ -1380,7 +1380,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br i1 %.not89, label %23, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %18 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %23
 
@@ -1396,7 +1396,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br i1 %.not90, label %31, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %26 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %31
 
@@ -1412,7 +1412,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br i1 %.not91, label %39, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %34 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %39
 
@@ -1428,13 +1428,13 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br i1 %.not92, label %45, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %42 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %41
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53) #9
-  tail call fastcc void @xar_get_checksum_values(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  tail call fastcc void @xar_get_checksum_values(ptr noundef %0, ptr noundef %5, ptr noundef %6)
   br label %107
 
 45:                                               ; preds = %41, %39
@@ -1448,13 +1448,13 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br i1 %.not94, label %53, label %49
 
 49:                                               ; preds = %47, %45
-  %50 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %50 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %49
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.56) #9
-  tail call fastcc void @xar_get_checksum_values(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  tail call fastcc void @xar_get_checksum_values(ptr noundef %0, ptr noundef %7, ptr noundef %8)
   br label %107
 
 53:                                               ; preds = %49, %47
@@ -1463,12 +1463,12 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br i1 %.not95, label %80, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %56 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %57 = icmp eq i32 %56, 1
   br i1 %57, label %58, label %80
 
 58:                                               ; preds = %55
-  %59 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef %0, ptr noundef nonnull @.str.58) #9
+  %59 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #9
   %60 = icmp eq ptr %59, null
   br i1 %60, label %77, label %61
 
@@ -1542,7 +1542,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br i1 %.not96, label %86, label %83
 
 83:                                               ; preds = %81
-  %84 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %84 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %85 = icmp eq i32 %84, 15
   br i1 %85, label %.loopexit, label %86
 
@@ -1555,12 +1555,12 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br i1 %.not97, label %107, label %89
 
 89:                                               ; preds = %87
-  %90 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %90 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %91 = icmp eq i32 %90, 15
   br i1 %91, label %.loopexit, label %107
 
 92:                                               ; preds = %.lr.ph
-  %93 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %93 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %94 = icmp eq i32 %93, 1
   br i1 %94, label %95, label %101
 
@@ -1583,7 +1583,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   br label %107
 
 101:                                              ; preds = %92
-  %102 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %102 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %103 = icmp eq i32 %102, 15
   br i1 %103, label %104, label %107
 
@@ -1602,7 +1602,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   %.178 = phi i32 [ %.077114, %44 ], [ %.077114, %52 ], [ %.077114, %78 ], [ %.077114, %77 ], [ %.077114, %89 ], [ %.077114, %87 ], [ %.077114, %86 ], [ %.077114, %97 ], [ %.077114, %100 ], [ %.077114, %98 ], [ %.077114, %104 ], [ %.077114, %101 ], [ %.077114, %20 ], [ %spec.select104, %28 ], [ %.077114, %36 ]
   %.176 = phi i32 [ %.075115, %44 ], [ %.075115, %52 ], [ %.075115, %78 ], [ %.075115, %77 ], [ %.075115, %89 ], [ %.075115, %87 ], [ %.075115, %86 ], [ %.075115, %97 ], [ %.075115, %100 ], [ %.075115, %98 ], [ %.075115, %104 ], [ %.075115, %101 ], [ %.075115, %20 ], [ %.075115, %28 ], [ %spec.select105, %36 ]
   %.1 = phi i32 [ %.0116, %44 ], [ %.0116, %52 ], [ %.0116, %78 ], [ %.0116, %77 ], [ %.0116, %89 ], [ %.0116, %87 ], [ %.0116, %86 ], [ 1, %97 ], [ 0, %100 ], [ 0, %98 ], [ 0, %104 ], [ 0, %101 ], [ %.0116, %20 ], [ %.0116, %28 ], [ %.0116, %36 ]
-  %108 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #9
+  %108 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #9
   %109 = icmp eq i32 %108, 1
   br i1 %109, label %.lr.ph, label %.loopexit
 
@@ -1673,19 +1673,19 @@ declare i32 @xmlTextReaderNext(ptr noundef) local_unnamed_addr #2
 declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @xar_get_numeric_from_xml_element(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @xar_get_numeric_from_xml_element(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #9
+  %4 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #9
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %7 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %8 = icmp eq i32 %7, 3
   br i1 %8, label %9, label %25
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @xmlTextReaderConstValue(ptr noundef %0) #9
+  %10 = tail call ptr @xmlTextReaderConstValue(ptr noundef nonnull %0) #9
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %25, label %11
 
@@ -1737,8 +1737,8 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_numeric_from_xml_element(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xar_get_checksum_values(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
-  %4 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef %0, ptr noundef nonnull @.str.58) #9
+define internal fastcc void @xar_get_checksum_values(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+  %4 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #9
   store i32 0, ptr %2, align 4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
@@ -1770,17 +1770,17 @@ define internal fastcc void @xar_get_checksum_values(ptr noundef %0, ptr nocaptu
   br label %16
 
 16:                                               ; preds = %13, %14
-  %17 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #9
+  %17 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #9
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %40
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #9
+  %20 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #9
   %21 = icmp eq i32 %20, 3
   br i1 %21, label %22, label %40
 
 22:                                               ; preds = %19
-  %23 = tail call ptr @xmlTextReaderConstValue(ptr noundef %0) #9
+  %23 = tail call ptr @xmlTextReaderConstValue(ptr noundef nonnull %0) #9
   %.not27 = icmp eq ptr %23, null
   br i1 %.not27, label %39, label %24
 

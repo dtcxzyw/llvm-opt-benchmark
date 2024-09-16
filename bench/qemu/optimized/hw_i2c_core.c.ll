@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @i2c_do_start_transfer(ptr noundef %bus, i8 noundef zeroext %address, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc i32 @i2c_do_start_transfer(ptr noundef %bus, i8 noundef zeroext %address, i32 noundef range(i32 0, 3) %event) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp = icmp eq i8 %address, 0

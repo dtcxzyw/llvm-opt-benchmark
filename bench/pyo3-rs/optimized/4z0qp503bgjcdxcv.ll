@@ -2759,7 +2759,7 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
   %164 = getelementptr inbounds i8, ptr %1, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %27, i64 72, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9bd2f08e4329c3E(ptr noalias align 8 %0, ptr nonnull align 8 %164, ptr align 8 %2, ptr nonnull align 8 %11, ptr nonnull align 8 %10, i1 zeroext %3, ptr nonnull align 8 %28)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9bd2f08e4329c3E(ptr noalias align 8 %0, ptr nonnull align 8 %164, ptr align 8 %2, ptr align 8 %11, ptr align 8 %10, i1 zeroext %3, ptr align 8 %28)
           to label %.invoke unwind label %60
 
 165:                                              ; preds = %160
@@ -3261,7 +3261,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9bd2f08e4329c3E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3, ptr align 8 %4, i1 zeroext %5, ptr align 8 %6) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9bd2f08e4329c3E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr nonnull align 8 %3, ptr nonnull align 8 %4, i1 zeroext %5, ptr nonnull align 8 %6) unnamed_addr #0 personality ptr @rust_eh_personality {
   %8 = alloca [64 x i8], align 8
   %9 = alloca [88 x i8], align 8
   %10 = alloca [64 x i8], align 8
@@ -3315,7 +3315,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
   %57 = alloca [64 x i8], align 8
   %58 = alloca [392 x i8], align 8
   %59 = alloca [32 x i8], align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias nonnull align 8 %59, ptr align 8 %1, ptr align 8 %2, ptr align 8 %6)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %59, ptr align 8 %1, ptr align 8 %2, ptr align 8 %6)
           to label %64 unwind label %62
 
 60:                                               ; preds = %65, %62
@@ -3366,7 +3366,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
           to label %72 unwind label %66
 
 72:                                               ; preds = %71
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17h3556bfea48f89a5eE(ptr noalias nonnull align 8 %56, ptr align 8 %2, ptr nonnull align 8 %55, ptr align 8 %6)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17h3556bfea48f89a5eE(ptr noalias align 8 %56, ptr align 8 %2, ptr align 8 %55, ptr align 8 %6)
           to label %75 unwind label %73
 
 73:                                               ; preds = %72
@@ -3435,7 +3435,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
           to label %91 unwind label %84
 
 91:                                               ; preds = %90
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias nonnull align 8 %50, ptr align 8 %2, ptr nonnull align 8 %49, ptr align 8 %6)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias align 8 %50, ptr align 8 %2, ptr align 8 %49, ptr align 8 %6)
           to label %94 unwind label %92
 
 92:                                               ; preds = %91
@@ -3716,7 +3716,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
   store ptr %..i, ptr %136, align 8, !noalias !9
   store i8 %.sroa.012.0.i, ptr %137, align 8, !noalias !9
   store i64 -9223372036854775806, ptr %14, align 8, !noalias !9
-  invoke void @_ZN19pyo3_macros_backend8pymethod18impl_py_getter_def17hec3127d43f8f4df5E(ptr nonnull sret([64 x i8]) align 8 %15, ptr nonnull align 8 %26, ptr nonnull align 8 %14, ptr align 8 %6)
+  invoke void @_ZN19pyo3_macros_backend8pymethod18impl_py_getter_def17hec3127d43f8f4df5E(ptr nonnull sret([64 x i8]) align 8 %15, ptr nonnull align 8 %26, ptr nonnull align 8 %14, ptr nonnull align 8 %6)
           to label %174 unwind label %.loopexit64.i, !noalias !9
 
 174:                                              ; preds = %173
@@ -3782,7 +3782,7 @@ thread-pre-split.i:                               ; preds = %176
   store ptr %.48.i, ptr %143, align 8, !noalias !9
   store i8 %.sroa.020.0.i, ptr %144, align 8, !noalias !9
   store i64 -9223372036854775806, ptr %9, align 8, !noalias !9
-  invoke void @_ZN19pyo3_macros_backend8pymethod18impl_py_setter_def17h9f70c5774cce9279E(ptr nonnull sret([64 x i8]) align 8 %10, ptr nonnull align 8 %26, ptr nonnull align 8 %9, ptr align 8 %6)
+  invoke void @_ZN19pyo3_macros_backend8pymethod18impl_py_setter_def17h9f70c5774cce9279E(ptr nonnull sret([64 x i8]) align 8 %10, ptr nonnull align 8 %26, ptr nonnull align 8 %9, ptr nonnull align 8 %6)
           to label %192 unwind label %.loopexit64.i, !noalias !9
 
 192:                                              ; preds = %191
@@ -3880,7 +3880,7 @@ thread-pre-split.i:                               ; preds = %176
           to label %_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit unwind label %108
 
 _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit: ; preds = %204
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias nonnull align 8 %44, ptr nonnull align 8 %43, ptr align 8 %6)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias align 8 %44, ptr align 8 %43, ptr align 8 %6)
           to label %218 unwind label %216
 
 216:                                              ; preds = %_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit
@@ -3938,7 +3938,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   br label %229
 
 232:                                              ; preds = %228
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %6, ptr nonnull align 8 %40)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %6, ptr nonnull align 8 %40)
           to label %233 unwind label %230
 
 233:                                              ; preds = %232
@@ -4205,7 +4205,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   br i1 %295, label %301, label %279
 
 296:                                              ; preds = %292
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$$GT$17h0f9c144e860dd2bbE"(ptr align 8 %4)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$$GT$17h0f9c144e860dd2bbE"(ptr nonnull align 8 %4)
           to label %294 unwind label %299
 
 297:                                              ; preds = %302, %299, %60
@@ -4220,18 +4220,18 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   br label %297
 
 301:                                              ; preds = %294
-  call void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr align 8 %3)
+  call void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %3)
   br label %279
 
 302:                                              ; preds = %60
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$$GT$17h0f9c144e860dd2bbE"(ptr align 8 %4) #14
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$$GT$17h0f9c144e860dd2bbE"(ptr nonnull align 8 %4) #14
           to label %297 unwind label %280
 
 303:                                              ; preds = %304, %297
   resume { ptr, i32 } %.pn58.pn
 
 304:                                              ; preds = %297
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr align 8 %3) #14
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %3) #14
           to label %303 unwind label %280
 }
 
@@ -5006,7 +5006,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
 292:                                              ; preds = %291
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false), !noalias !33
   %293 = load ptr, ptr %104, align 8, !noalias !33
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias nonnull align 8 %99, ptr align 8 %293, ptr nonnull align 8 %2, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %99, ptr align 8 %293, ptr nonnull align 8 %2, ptr align 8 %134)
           to label %297 unwind label %295, !noalias !33
 
 294:                                              ; preds = %299, %295
@@ -5205,7 +5205,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
           to label %350 unwind label %.loopexit.split-lp.i.i, !noalias !33
 
 350:                                              ; preds = %349
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias nonnull align 8 %82, ptr nonnull align 8 %103, ptr nonnull align 8 %94, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.77, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %82, ptr align 8 %103, ptr align 8 %94, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.77, ptr align 8 %134)
           to label %353 unwind label %351, !noalias !33
 
 351:                                              ; preds = %350
@@ -5395,7 +5395,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
           to label %403 unwind label %368, !noalias !33
 
 403:                                              ; preds = %402
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias nonnull align 8 %66, ptr nonnull align 8 %103, ptr nonnull align 8 %78, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.83, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %66, ptr align 8 %103, ptr align 8 %78, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.83, ptr align 8 %134)
           to label %406 unwind label %404, !noalias !33
 
 404:                                              ; preds = %403
@@ -5522,7 +5522,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   br label %.noexc113.i.i
 
 .noexc113.i.i:                                    ; preds = %.noexc114.i.i, %431
-  invoke fastcc void @"_ZN87_$LT$pyo3_macros_backend..pyclass..PyClassPyO3Options$u20$as$u20$core..clone..Clone$GT$5clone17h07b18ea039cf7a0dE"(ptr noalias nonnull align 8 %31, ptr nonnull align 8 %2)
+  invoke fastcc void @"_ZN87_$LT$pyo3_macros_backend..pyclass..PyClassPyO3Options$u20$as$u20$core..clone..Clone$GT$5clone17h07b18ea039cf7a0dE"(ptr noalias align 8 %31, ptr nonnull align 8 %2)
           to label %436 unwind label %434, !noalias !34
 
 433:                                              ; preds = %441, %434
@@ -5579,7 +5579,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
 
 452:                                              ; preds = %449, %436
   %453 = getelementptr inbounds i8, ptr %31, i64 128
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms17hc55fe5d85b02ab19E(ptr noalias nonnull align 8 %27, ptr nonnull align 8 %31, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms17hc55fe5d85b02ab19E(ptr noalias align 8 %27, ptr nonnull align 8 %31, ptr align 8 %134)
           to label %454 unwind label %442, !noalias !34
 
 454:                                              ; preds = %452
@@ -5972,11 +5972,11 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   br i1 %567, label %568, label %569
 
 568:                                              ; preds = %565
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias nonnull align 8 %13, ptr nonnull align 8 %103, ptr nonnull align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.216, i64 11, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias align 8 %13, ptr align 8 %103, ptr align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.216, i64 11, ptr align 8 %134)
           to label %572 unwind label %570, !noalias !34
 
 569:                                              ; preds = %565
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias nonnull align 8 %12, ptr nonnull align 8 %103, ptr nonnull align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %12, ptr align 8 %103, ptr align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr align 8 %134)
           to label %582 unwind label %570, !noalias !34
 
 570:                                              ; preds = %569, %568
@@ -6186,7 +6186,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   %604 = getelementptr inbounds i8, ptr %.sroa.8.i.i, i64 360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(64) %604, i64 64, i1 false), !noalias !33
   store i64 %.sroa.0121.0.copyload.i.i, ptr %65, align 8, !noalias !33
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias nonnull align 8 %61, ptr nonnull align 8 %2, ptr nonnull align 8 %103, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias align 8 %61, ptr nonnull align 8 %2, ptr align 8 %103, ptr align 8 %134)
           to label %611 unwind label %609, !noalias !33
 
 605:                                              ; preds = %602, %.thread136.i.i
@@ -6307,7 +6307,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
           to label %_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit.i.i unwind label %624, !noalias !33
 
 _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit.i.i: ; preds = %633
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias nonnull align 8 %57, ptr nonnull align 8 %56, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias align 8 %57, ptr align 8 %56, ptr align 8 %134)
           to label %647 unwind label %645, !noalias !33
 
 645:                                              ; preds = %_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit.i.i
@@ -6832,7 +6832,7 @@ _ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i: ;
   store i64 %.sroa.339.sroa.4.0.copyload.i, ptr %.sroa.339.sroa.0.sroa.4.0..sroa_idx, align 8, !noalias !27
   %.sroa.339.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %105, i64 24
   store i64 %756, ptr %.sroa.339.sroa.3.0..sroa_idx, align 8, !noalias !27
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum17h59e07bf01530dac4E(ptr noalias align 8 %0, ptr nonnull align 8 %105, ptr nonnull align 8 %2, ptr nonnull align 8 %128, i1 zeroext %3, ptr nonnull align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum17h59e07bf01530dac4E(ptr noalias align 8 %0, ptr align 8 %105, ptr nonnull align 8 %2, ptr align 8 %128, i1 zeroext %3, ptr align 8 %134)
           to label %759 unwind label %.body22
 
 757:                                              ; preds = %.thread, %281
@@ -7311,7 +7311,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass22EnumVariantPyO3Options10se
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum17h59e07bf01530dac4E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3, i1 zeroext %4, ptr align 8 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum17h59e07bf01530dac4E(ptr noalias nocapture writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 8 %2, ptr nonnull align 8 %3, i1 zeroext %4, ptr nonnull align 8 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [32 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [192 x i8], align 8
@@ -7541,7 +7541,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum
 208:                                              ; preds = %207
   %209 = getelementptr inbounds i8, ptr %2, i64 304
   %210 = load i8, ptr %209, align 8
-  invoke fastcc void @"_ZN87_$LT$pyo3_macros_backend..pyclass..PyClassPyO3Options$u20$as$u20$core..clone..Clone$GT$5clone17h07b18ea039cf7a0dE"(ptr noalias nonnull align 8 %100, ptr nonnull align 8 %2)
+  invoke fastcc void @"_ZN87_$LT$pyo3_macros_backend..pyclass..PyClassPyO3Options$u20$as$u20$core..clone..Clone$GT$5clone17h07b18ea039cf7a0dE"(ptr noalias align 8 %100, ptr nonnull align 8 %2)
           to label %214 unwind label %212
 
 211:                                              ; preds = %240, %217, %212
@@ -7645,7 +7645,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum
   %244 = load ptr, ptr %198, align 8
   store ptr %244, ptr %186, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias nonnull align 8 %184, ptr align 8 %244, ptr nonnull align 8 %193, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %184, ptr align 8 %244, ptr nonnull align 8 %193, ptr align 8 %187)
           to label %249 unwind label %247
 
 245:                                              ; preds = %250, %247
@@ -7663,7 +7663,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum
   br label %245
 
 249:                                              ; preds = %243
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17h3556bfea48f89a5eE(ptr noalias nonnull align 8 %181, ptr nonnull align 8 %193, ptr nonnull align 8 %196, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17h3556bfea48f89a5eE(ptr noalias align 8 %181, ptr nonnull align 8 %193, ptr align 8 %196, ptr align 8 %187)
           to label %253 unwind label %251
 
 250:                                              ; preds = %.thread195, %251
@@ -7695,7 +7695,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum
   %257 = getelementptr inbounds i8, ptr %181, i64 392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %182, ptr noundef nonnull align 8 dereferenceable(64) %257, i64 64, i1 false)
   store i64 %254, ptr %183, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias nonnull align 8 %178, ptr nonnull align 8 %193, ptr nonnull align 8 %196, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias align 8 %178, ptr nonnull align 8 %193, ptr align 8 %196, ptr align 8 %187)
           to label %260 unwind label %1082
 
 258:                                              ; preds = %253
@@ -8053,7 +8053,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   %.val181 = load ptr, ptr %289, align 8
   %370 = getelementptr i8, ptr %.val181, i64 144
   %.val181.val = load i32, ptr %370, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias nonnull align 8 %156, ptr %.val, i32 %.val181.val, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias align 8 %156, ptr %.val, i32 %.val181.val, ptr align 8 %187)
           to label %373 unwind label %372
 
 371:                                              ; preds = %375
@@ -8075,7 +8075,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   %.val183 = load ptr, ptr %289, align 8
   %374 = getelementptr i8, ptr %.val183, i64 144
   %.val183.val = load i32, ptr %374, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias nonnull align 8 %155, ptr %.val182, i32 %.val183.val, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias align 8 %155, ptr %.val182, i32 %.val183.val, ptr align 8 %187)
           to label %378 unwind label %376
 
 375:                                              ; preds = %1075, %376
@@ -8091,7 +8091,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 
 378:                                              ; preds = %373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %172, i64 32, i1 false)
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder16impl_pyclassimpl17h7942aaf7b693dbb6E(ptr noalias nonnull align 8 %152, ptr nonnull align 8 %176, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder16impl_pyclassimpl17h7942aaf7b693dbb6E(ptr noalias align 8 %152, ptr align 8 %176, ptr align 8 %187)
           to label %381 unwind label %379
 
 379:                                              ; preds = %378
@@ -8111,7 +8111,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.224.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %383, i64 24, i1 false)
   store i64 %382, ptr %153, align 8
   %.val184 = load ptr, ptr %288, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias nonnull align 8 %151, ptr %.val184, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias align 8 %151, ptr %.val184, ptr align 8 %187)
           to label %390 unwind label %388
 
 385:                                              ; preds = %381
@@ -8926,7 +8926,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 661:                                              ; preds = %658
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %129, ptr noundef nonnull align 8 dereferenceable(304) %128, i64 304, i1 false)
   store i8 0, ptr %419, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias nonnull align 8 %125, ptr nonnull align 8 %140, ptr nonnull align 8 %129, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %125, ptr nonnull align 8 %140, ptr nonnull align 8 %129, ptr align 8 %187)
           to label %662 unwind label %.loopexit309
 
 .thread244:                                       ; preds = %.loopexit309, %.loopexit.split-lp310, %1039, %1032, %1044, %670, %1051
@@ -8951,7 +8951,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 
 663:                                              ; preds = %662
   %664 = load ptr, ptr %186, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum_variant_cls17hb02cf5fc1a8a7359E(ptr noalias nonnull align 8 %122, ptr align 8 %664, ptr nonnull align 8 %141, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum_variant_cls17hb02cf5fc1a8a7359E(ptr noalias align 8 %122, ptr align 8 %664, ptr align 8 %141, ptr align 8 %187)
           to label %665 unwind label %.loopexit309
 
 665:                                              ; preds = %663
@@ -10440,7 +10440,7 @@ _ZN19pyo3_macros_backend7pyclass30complex_enum_tuple_variant_new17h53206f9bb0424
   store ptr %129, ptr %497, align 8, !alias.scope !63
   store i8 %285, ptr %498, align 8, !alias.scope !63
   store i64 -9223372036854775806, ptr %500, align 8, !alias.scope !63
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias nonnull align 8 %118, ptr nonnull align 8 %117, ptr nonnull align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias align 8 %118, ptr align 8 %117, ptr align 8 %187)
           to label %1034 unwind label %1032
 
 1032:                                             ; preds = %1031
@@ -10701,7 +10701,7 @@ _ZN19pyo3_macros_backend7pyclass30complex_enum_tuple_variant_new17h53206f9bb0424
   br i1 %1093, label %1094, label %608
 
 1094:                                             ; preds = %1092
-  call void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr align 8 %3)
+  call void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %3)
   br label %608
 
 1095:                                             ; preds = %.thread, %200
@@ -10716,19 +10716,19 @@ _ZN19pyo3_macros_backend7pyclass30complex_enum_tuple_variant_new17h53206f9bb0424
 .thread:                                          ; preds = %205, %200
   %.pn178194 = phi { ptr, i32 } [ %.pn178, %200 ], [ %206, %205 ]
   %.sroa.069.1193 = phi i1 [ %.sroa.069.1, %200 ], [ true, %205 ]
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr align 8 %3) #14
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %3) #14
           to label %1095 unwind label %609
 
 1097:                                             ; preds = %1098, %1095
   resume { ptr, i32 } %.pn178.pn
 
 1098:                                             ; preds = %1095
-  invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$GT$17hef052bbd604a3280E"(ptr align 8 %1) #14
+  invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$GT$17hef052bbd604a3280E"(ptr nonnull align 8 %1) #14
           to label %1097 unwind label %609
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum_variant_cls17hb02cf5fc1a8a7359E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum_variant_cls17hb02cf5fc1a8a7359E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [64 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -11070,7 +11070,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
   br i1 %.not97.i, label %206, label %207
 
 206:                                              ; preds = %205
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias nonnull align 8 %139, ptr align 8 %3, ptr nonnull align 8 %173, ptr nonnull align 8 %170)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias align 8 %139, ptr align 8 %3, ptr align 8 %173, ptr align 8 %170)
           to label %211 unwind label %.loopexit.split-lp104.i, !noalias !66
 
 207:                                              ; preds = %205
@@ -11266,7 +11266,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           to label %254 unwind label %.loopexit.split-lp99.i, !noalias !66
 
 254:                                              ; preds = %253
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %126)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %126)
           to label %255 unwind label %.loopexit.split-lp99.i, !noalias !66
 
 255:                                              ; preds = %254
@@ -11324,7 +11324,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           to label %273 unwind label %.loopexit.split-lp.i, !noalias !66
 
 273:                                              ; preds = %272
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %128)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %128)
           to label %274 unwind label %.loopexit.split-lp.i, !noalias !66
 
 274:                                              ; preds = %273
@@ -11426,7 +11426,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           to label %304 unwind label %282, !noalias !66
 
 304:                                              ; preds = %303
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %123)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %123)
           to label %305 unwind label %282, !noalias !66
 
 305:                                              ; preds = %304
@@ -11608,7 +11608,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %164, i64 32, i1 false), !noalias !66
   %355 = getelementptr inbounds i8, ptr %204, i64 16
   %356 = load i32, ptr %355, align 8, !noalias !66
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias nonnull align 8 %162, ptr nonnull align 8 %173, ptr align 8 %208, i32 %356, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias align 8 %162, ptr align 8 %173, ptr align 8 %208, i32 %356, ptr align 8 %3)
           to label %359 unwind label %.thread71.i, !noalias !66
 
 357:                                              ; preds = %.thread75.i, %364
@@ -11685,7 +11685,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           to label %377 unwind label %374, !noalias !66
 
 377:                                              ; preds = %376
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %158)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %158)
           to label %378 unwind label %374, !noalias !66
 
 378:                                              ; preds = %377
@@ -11718,7 +11718,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           to label %385 unwind label %369, !noalias !66
 
 385:                                              ; preds = %384
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %160)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %160)
           to label %386 unwind label %369, !noalias !66
 
 386:                                              ; preds = %385
@@ -12327,7 +12327,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   %505 = load ptr, ptr %494, align 8
   %506 = getelementptr inbounds i8, ptr %494, i64 8
   %507 = load i32, ptr %506, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias nonnull align 8 %60, ptr nonnull align 8 %112, ptr nonnull align 8 %67, i32 %507, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias align 8 %60, ptr align 8 %112, ptr nonnull align 8 %67, i32 %507, ptr align 8 %3)
           to label %511 unwind label %.thread.i.i, !noalias !72
 
 508:                                              ; preds = %617, %515
@@ -12425,7 +12425,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %533 unwind label %530, !noalias !72
 
 533:                                              ; preds = %532
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %53)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %53)
           to label %534 unwind label %530, !noalias !72
 
 534:                                              ; preds = %533
@@ -12458,7 +12458,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %541 unwind label %525, !noalias !72
 
 541:                                              ; preds = %540
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %55)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %55)
           to label %542 unwind label %525, !noalias !72
 
 542:                                              ; preds = %541
@@ -12927,7 +12927,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %639 unwind label %636, !noalias !75
 
 639:                                              ; preds = %638
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %30)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %30)
           to label %640 unwind label %636, !noalias !75
 
 640:                                              ; preds = %639
@@ -12960,7 +12960,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %647 unwind label %631, !noalias !75
 
 647:                                              ; preds = %646
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %32)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %32)
           to label %648 unwind label %631, !noalias !75
 
 648:                                              ; preds = %647
@@ -13031,7 +13031,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %.noexc79.i unwind label %675, !noalias !69
 
 .noexc79.i:                                       ; preds = %664
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias nonnull align 8 %25, ptr nonnull align 8 %112, ptr nonnull align 8 %34, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.130, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %25, ptr align 8 %112, ptr align 8 %34, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.130, ptr align 8 %3)
           to label %667 unwind label %665, !noalias !75
 
 665:                                              ; preds = %.noexc79.i
@@ -13510,7 +13510,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %776 unwind label %688, !noalias !78
 
 776:                                              ; preds = %775
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias nonnull align 8 %5, ptr nonnull align 8 %112, ptr nonnull align 8 %20, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.142, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %5, ptr align 8 %112, ptr align 8 %20, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.142, ptr align 8 %3)
           to label %779 unwind label %777, !noalias !78
 
 777:                                              ; preds = %776
@@ -13615,7 +13615,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   br label %792
 
 795:                                              ; preds = %789
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias nonnull align 8 %100, ptr align 8 %3, ptr nonnull align 8 %112, ptr nonnull align 8 %108)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias align 8 %100, ptr align 8 %3, ptr align 8 %112, ptr align 8 %108)
           to label %796 unwind label %793, !noalias !69
 
 796:                                              ; preds = %795
@@ -13804,7 +13804,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %839 unwind label %.loopexit.split-lp142.i, !noalias !69
 
 839:                                              ; preds = %838
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %87)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %87)
           to label %840 unwind label %.loopexit.split-lp142.i, !noalias !69
 
 840:                                              ; preds = %839
@@ -13876,7 +13876,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %866 unwind label %.loopexit.split-lp.i10, !noalias !69
 
 866:                                              ; preds = %865
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %89)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %89)
           to label %867 unwind label %.loopexit.split-lp.i10, !noalias !69
 
 867:                                              ; preds = %866
@@ -13978,7 +13978,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %897 unwind label %875, !noalias !69
 
 897:                                              ; preds = %896
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %83)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %83)
           to label %898 unwind label %875, !noalias !69
 
 898:                                              ; preds = %897
@@ -14276,7 +14276,7 @@ _ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_cls17hf4091065
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr nocapture readonly align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_variant_match_args17h3eb25a79993d2ffcE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2, ptr nocapture nonnull readonly align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [64 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -14455,7 +14455,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum
 79:                                               ; preds = %71
   %80 = getelementptr inbounds i8, ptr %7, i64 16
   store i8 3, ptr %80, align 8
-  invoke void @_ZN19pyo3_macros_backend12deprecations12Deprecations3new17h84af1d2ab74840dbE(ptr nonnull sret([32 x i8]) align 8 %6, ptr align 8 %1)
+  invoke void @_ZN19pyo3_macros_backend12deprecations12Deprecations3new17h84af1d2ab74840dbE(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %1)
           to label %83 unwind label %81
 
 81:                                               ; preds = %79
@@ -14483,7 +14483,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum
           to label %.thread unwind label %90
 
 87:                                               ; preds = %83
-  invoke void @_ZN19pyo3_macros_backend6pyimpl12gen_py_const17he874ebf74eb01c9eE(ptr nonnull sret([64 x i8]) align 8 %5, ptr align 8 %2, ptr nonnull align 8 %12, ptr align 8 %1)
+  invoke void @_ZN19pyo3_macros_backend6pyimpl12gen_py_const17he874ebf74eb01c9eE(ptr nonnull sret([64 x i8]) align 8 %5, ptr nonnull align 8 %2, ptr nonnull align 8 %12, ptr nonnull align 8 %1)
           to label %88 unwind label %85
 
 88:                                               ; preds = %87
@@ -14630,7 +14630,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass36gen_complex_enum_variant_c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3, ptr align 1 %4, i64 %5, ptr align 8 %6) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias nonnull align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2, ptr align 8 %3, ptr align 1 %4, i64 range(i64 8, 12) %5, ptr nonnull align 8 %6) unnamed_addr #0 personality ptr @rust_eh_personality {
   %8 = alloca [24 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %10 = alloca [32 x i8], align 8
@@ -14653,7 +14653,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol
   store i8 4, ptr %.sroa.14.0..sroa_idx, align 8
   %19 = getelementptr inbounds i8, ptr %12, i64 56
   store i64 -9223372036854775808, ptr %19, align 8
-  invoke void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E(ptr nonnull sret([320 x i8]) align 8 %14, ptr align 8 %2, ptr nonnull align 8 %13, ptr nonnull align 8 %12, ptr align 8 %6)
+  invoke void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E(ptr nonnull sret([320 x i8]) align 8 %14, ptr nonnull align 8 %2, ptr nonnull align 8 %13, ptr nonnull align 8 %12, ptr nonnull align 8 %6)
           to label %22 unwind label %20
 
 20:                                               ; preds = %7
@@ -14714,7 +14714,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol
           to label %36 unwind label %33
 
 36:                                               ; preds = %35
-  invoke void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9c5683aaf726593eE"(ptr align 8 %1, ptr nonnull align 8 %9)
+  invoke void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9c5683aaf726593eE"(ptr nonnull align 8 %1, ptr nonnull align 8 %9)
           to label %39 unwind label %37
 
 37:                                               ; preds = %36
@@ -14729,7 +14729,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol
           to label %40 unwind label %33
 
 40:                                               ; preds = %39
-  invoke void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slot17ha78e61cb325f19deE(ptr sret([64 x i8]) align 8 %0, ptr align 8 %3, ptr nonnull align 8 %11, ptr nonnull align 8 %15, ptr align 1 %4, i64 %5, ptr align 8 %6)
+  invoke void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slot17ha78e61cb325f19deE(ptr nonnull sret([64 x i8]) align 8 %0, ptr align 8 %3, ptr nonnull align 8 %11, ptr nonnull align 8 %15, ptr align 1 %4, i64 %5, ptr nonnull align 8 %6)
           to label %43 unwind label %41
 
 41:                                               ; preds = %40
@@ -14768,7 +14768,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_protocol_slot17h857b8bbcb2d1c333E(ptr noalias nonnull align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2, ptr align 8 %3, ptr nonnull align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [24 x i8], align 8
   %7 = alloca [16 x i8], align 8
   %8 = alloca [48 x i8], align 8
@@ -14796,7 +14796,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_
   store i8 4, ptr %.sroa.14.0..sroa_idx, align 8
   %22 = getelementptr inbounds i8, ptr %15, i64 56
   store i64 -9223372036854775808, ptr %22, align 8
-  invoke void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E(ptr nonnull sret([320 x i8]) align 8 %17, ptr align 8 %2, ptr nonnull align 8 %16, ptr nonnull align 8 %15, ptr align 8 %4)
+  invoke void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E(ptr nonnull sret([320 x i8]) align 8 %17, ptr nonnull align 8 %2, ptr nonnull align 8 %16, ptr nonnull align 8 %15, ptr nonnull align 8 %4)
           to label %25 unwind label %23
 
 23:                                               ; preds = %5
@@ -14873,7 +14873,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_
   br label %42
 
 45:                                               ; preds = %41
-  invoke void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9c5683aaf726593eE"(ptr align 8 %1, ptr nonnull align 8 %11)
+  invoke void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9c5683aaf726593eE"(ptr nonnull align 8 %1, ptr nonnull align 8 %11)
           to label %48 unwind label %46
 
 46:                                               ; preds = %45
@@ -14915,7 +14915,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass30generate_default_
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %10, i64 16
   %60 = load i64, ptr %59, align 8
-  invoke void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slot17ha78e61cb325f19deE(ptr sret([64 x i8]) align 8 %0, ptr align 8 %3, ptr nonnull align 8 %13, ptr nonnull align 8 %18, ptr align 1 %58, i64 %60, ptr align 8 %4)
+  invoke void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slot17ha78e61cb325f19deE(ptr nonnull sret([64 x i8]) align 8 %0, ptr align 8 %3, ptr nonnull align 8 %13, ptr nonnull align 8 %18, ptr align 1 %58, i64 %60, ptr nonnull align 8 %4)
           to label %63 unwind label %61
 
 61:                                               ; preds = %56
@@ -15632,7 +15632,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass29gen_complex_enum_variant_a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, i32 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 8 %2, i32 %3, ptr nonnull align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %8 = alloca [24 x i8], align 8
@@ -15685,7 +15685,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_vari
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %13, ptr noundef nonnull align 8 dereferenceable(192) %19, i64 192, i1 false)
   %29 = getelementptr inbounds i8, ptr %12, i64 16
   store i8 4, ptr %29, align 8
-  invoke void @_ZN19pyo3_macros_backend12deprecations12Deprecations3new17h84af1d2ab74840dbE(ptr nonnull sret([32 x i8]) align 8 %11, ptr align 8 %4)
+  invoke void @_ZN19pyo3_macros_backend12deprecations12Deprecations3new17h84af1d2ab74840dbE(ptr nonnull sret([32 x i8]) align 8 %11, ptr nonnull align 8 %4)
           to label %32 unwind label %30
 
 30:                                               ; preds = %28
@@ -15715,7 +15715,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_vari
   %40 = getelementptr inbounds i8, ptr %15, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   store i64 -9223372036854775808, ptr %8, align 8
-  invoke void @_ZN19pyo3_macros_backend5utils7get_doc17h84cb2c9e291a1b9bE(ptr nonnull sret([72 x i8]) align 8 %9, ptr nonnull align 8 inttoptr (i64 8 to ptr), i64 0, ptr nonnull align 8 %8, ptr align 8 %4)
+  invoke void @_ZN19pyo3_macros_backend5utils7get_doc17h84cb2c9e291a1b9bE(ptr nonnull sret([72 x i8]) align 8 %9, ptr nonnull align 8 inttoptr (i64 8 to ptr), i64 0, ptr nonnull align 8 %8, ptr nonnull align 8 %4)
           to label %43 unwind label %41
 
 41:                                               ; preds = %43, %32
@@ -15730,7 +15730,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_vari
   %45 = getelementptr inbounds i8, ptr %10, i64 80
   store ptr %15, ptr %45, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
-  invoke void @_ZN19pyo3_macros_backend8pymethod18impl_py_getter_def17hec3127d43f8f4df5E(ptr nonnull sret([64 x i8]) align 8 %7, ptr align 8 %1, ptr nonnull align 8 %10, ptr align 8 %4)
+  invoke void @_ZN19pyo3_macros_backend8pymethod18impl_py_getter_def17hec3127d43f8f4df5E(ptr nonnull sret([64 x i8]) align 8 %7, ptr nonnull align 8 %1, ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %46 unwind label %41
 
 46:                                               ; preds = %43
@@ -15785,7 +15785,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_vari
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -16025,7 +16025,7 @@ _ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda7f5645ed810f8dE.exit
           to label %87 unwind label %83
 
 87:                                               ; preds = %86
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %18)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %18)
           to label %88 unwind label %83
 
 88:                                               ; preds = %87
@@ -16220,7 +16220,7 @@ _ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda7f5645ed810f8dE.exit
           to label %137 unwind label %134
 
 137:                                              ; preds = %136
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %12)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %12)
           to label %138 unwind label %134
 
 138:                                              ; preds = %137
@@ -16261,7 +16261,7 @@ _ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda7f5645ed810f8dE.exit
           to label %147 unwind label %97
 
 147:                                              ; preds = %146
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %16)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %16)
           to label %148 unwind label %97
 
 148:                                              ; preds = %147
@@ -16299,7 +16299,7 @@ _ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda7f5645ed810f8dE.exit
   br label %154
 
 157:                                              ; preds = %153
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %10)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %10)
           to label %158 unwind label %155
 
 158:                                              ; preds = %157
@@ -16339,7 +16339,7 @@ _ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda7f5645ed810f8dE.exit
           to label %167 unwind label %155
 
 167:                                              ; preds = %166
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %10)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %10)
           to label %168 unwind label %155
 
 168:                                              ; preds = %167
@@ -16458,7 +16458,7 @@ _ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda7f5645ed810f8dE.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms17hc55fe5d85b02ab19E(ptr noalias nocapture writeonly align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms17hc55fe5d85b02ab19E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nocapture readonly align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -16601,7 +16601,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17h3556bfea48f89a5eE(ptr noalias nocapture writeonly align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17h3556bfea48f89a5eE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nocapture readonly align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [456 x i8], align 8
@@ -16640,7 +16640,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
   br label %36
 
 33:                                               ; preds = %4
-  call fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms17hc55fe5d85b02ab19E(ptr noalias nonnull align 8 %21, ptr nonnull align 8 %1, ptr align 8 %3)
+  call fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms17hc55fe5d85b02ab19E(ptr noalias align 8 %21, ptr nonnull align 8 %1, ptr align 8 %3)
   %34 = load i64, ptr %21, align 8
   %.not = icmp eq i64 %34, -9223372036854775807
   %35 = getelementptr inbounds i8, ptr %21, i64 8
@@ -16733,7 +16733,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
           to label %61 unwind label %55
 
 61:                                               ; preds = %60
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %16)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %16)
           to label %62 unwind label %55
 
 62:                                               ; preds = %61
@@ -16761,7 +16761,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
           to label %68 unwind label %55
 
 68:                                               ; preds = %67
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %16)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %16)
           to label %69 unwind label %55
 
 69:                                               ; preds = %68
@@ -16785,7 +16785,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
           to label %74 unwind label %55
 
 74:                                               ; preds = %73
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %16)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %16)
           to label %75 unwind label %55
 
 75:                                               ; preds = %74
@@ -16813,7 +16813,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
           to label %81 unwind label %55
 
 81:                                               ; preds = %80
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %16)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %16)
           to label %82 unwind label %55
 
 82:                                               ; preds = %81
@@ -16842,7 +16842,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
           to label %88 unwind label %50
 
 88:                                               ; preds = %87
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %18)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %18)
           to label %89 unwind label %50
 
 89:                                               ; preds = %88
@@ -16858,7 +16858,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
           to label %92 unwind label %50
 
 92:                                               ; preds = %91
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %18)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %18)
           to label %93 unwind label %50
 
 93:                                               ; preds = %92
@@ -16928,7 +16928,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
           to label %110 unwind label %99
 
 110:                                              ; preds = %109
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %3, ptr nonnull align 8 %14)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %3, ptr nonnull align 8 %14)
           to label %111 unwind label %99
 
 111:                                              ; preds = %110
@@ -17052,7 +17052,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
           to label %141 unwind label %46
 
 141:                                              ; preds = %140
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias nonnull align 8 %8, ptr align 8 %2, ptr nonnull align 8 %20, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.216, i64 11, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias align 8 %8, ptr align 8 %2, ptr align 8 %20, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.220, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.216, i64 11, ptr align 8 %3)
           to label %144 unwind label %142
 
 142:                                              ; preds = %141
@@ -17115,7 +17115,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15pyclass_richcmp17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0fb7b329cf63cdcdE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -17523,7 +17523,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0f
 131:                                              ; preds = %130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
   call void @_ZN3syn11parse_quote5parse17h4b2b3b2b3a705211E(ptr nonnull sret([392 x i8]) align 8 %24, ptr nonnull align 8 %23, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.241)
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias nonnull align 8 %12, ptr align 8 %2, ptr nonnull align 8 %24, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.245, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.242, i64 8, ptr align 8 %3)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass22generate_protocol_slot17hf654de47512aa55dE(ptr noalias align 8 %12, ptr align 8 %2, ptr align 8 %24, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.245, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.242, i64 8, ptr align 8 %3)
           to label %134 unwind label %132
 
 132:                                              ; preds = %131
@@ -17573,7 +17573,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass12pyclass_hash17h0f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder8impl_all17h2516525283f5645bE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
@@ -17605,12 +17605,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   %.val14 = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %.val14, i64 144
   %.val14.val = load i32, ptr %31, align 8
-  call fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias nonnull align 8 %25, ptr %.val, i32 %.val14.val, ptr align 8 %2)
+  call fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias align 8 %25, ptr %.val, i32 %.val14.val, ptr align 8 %2)
   %.val15 = load ptr, ptr %29, align 8
   %.val16 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %.val16, i64 144
   %.val16.val = load i32, ptr %32, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias nonnull align 8 %24, ptr %.val15, i32 %.val16.val, ptr align 8 %2)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias align 8 %24, ptr %.val15, i32 %.val16.val, ptr align 8 %2)
           to label %36 unwind label %34
 
 33:                                               ; preds = %.body, %34
@@ -17666,7 +17666,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %40
 
 43:                                               ; preds = %.noexc22
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %18)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %18)
           to label %44 unwind label %41, !noalias !81
 
 44:                                               ; preds = %43
@@ -17682,7 +17682,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %47 unwind label %41, !noalias !81
 
 47:                                               ; preds = %46
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %18)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %18)
           to label %48 unwind label %41, !noalias !81
 
 48:                                               ; preds = %47
@@ -17754,7 +17754,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %66 unwind label %61, !noalias !81
 
 66:                                               ; preds = %65
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %14)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %14)
           to label %67 unwind label %61, !noalias !81
 
 67:                                               ; preds = %66
@@ -17775,7 +17775,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %71 unwind label %56, !noalias !81
 
 71:                                               ; preds = %70
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %16)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %16)
           to label %72 unwind label %56, !noalias !81
 
 72:                                               ; preds = %71
@@ -17791,7 +17791,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %75 unwind label %56, !noalias !81
 
 75:                                               ; preds = %74
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %12)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %12)
           to label %79 unwind label %77, !noalias !81
 
 76:                                               ; preds = %85, %77
@@ -17825,7 +17825,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %84 unwind label %77, !noalias !81
 
 84:                                               ; preds = %83
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %10)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %10)
           to label %88 unwind label %86, !noalias !81
 
 85:                                               ; preds = %94, %86
@@ -17953,7 +17953,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder16impl_pyclassimpl17h7942aaf7b693dbb6E(ptr noalias nonnull align 8 %21, ptr nonnull align 8 %1, ptr align 8 %2)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder16impl_pyclassimpl17h7942aaf7b693dbb6E(ptr noalias align 8 %21, ptr align 8 %1, ptr align 8 %2)
           to label %116 unwind label %114
 
 114:                                              ; preds = %113
@@ -17973,7 +17973,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
   store i64 %117, ptr %22, align 8
   %.val19 = load ptr, ptr %29, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias nonnull align 8 %20, ptr %.val19, ptr align 8 %2)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias align 8 %20, ptr %.val19, ptr align 8 %2)
           to label %125 unwind label %123
 
 120:                                              ; preds = %116
@@ -18089,7 +18089,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias nocapture writeonly align 8 %0, ptr %.120.val, i32 %.128.val.144.val, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, i32 %.128.val.144.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -18101,12 +18101,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 
 10:                                               ; preds = %2
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %7)
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %7)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %7)
           to label %14 unwind label %12
 
 11:                                               ; preds = %2
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %6)
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %6)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %6)
           to label %26 unwind label %24
 
 12:                                               ; preds = %19, %18, %17, %16, %15, %14, %10
@@ -18210,7 +18210,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %36
 
 39:                                               ; preds = %35
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %5)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %5)
           to label %40 unwind label %37
 
 40:                                               ; preds = %39
@@ -18271,7 +18271,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias nocapture writeonly align 8 %0, ptr %.120.val, i32 %.128.val.144.val, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, i32 %.128.val.144.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -18348,7 +18348,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %46 unwind label %39
 
 46:                                               ; preds = %45
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %34)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %34)
           to label %47 unwind label %39
 
 47:                                               ; preds = %46
@@ -18466,7 +18466,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %76 unwind label %65
 
 76:                                               ; preds = %75
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %32)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %32)
           to label %77 unwind label %65
 
 77:                                               ; preds = %76
@@ -18559,7 +18559,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %100 unwind label %95
 
 100:                                              ; preds = %99
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %28)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %28)
           to label %101 unwind label %95
 
 101:                                              ; preds = %100
@@ -18583,7 +18583,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %106 unwind label %95
 
 106:                                              ; preds = %105
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %28)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %28)
           to label %107 unwind label %95
 
 107:                                              ; preds = %106
@@ -18644,7 +18644,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %121 unwind label %65
 
 121:                                              ; preds = %120
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %32)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %32)
           to label %122 unwind label %65
 
 122:                                              ; preds = %121
@@ -18672,7 +18672,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %128 unwind label %65
 
 128:                                              ; preds = %127
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %26)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %26)
           to label %132 unwind label %130
 
 129:                                              ; preds = %140, %130
@@ -18792,7 +18792,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %159 unwind label %152
 
 159:                                              ; preds = %158
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %23)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %23)
           to label %160 unwind label %152
 
 160:                                              ; preds = %159
@@ -18910,7 +18910,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %189 unwind label %178
 
 189:                                              ; preds = %188
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %21)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %21)
           to label %190 unwind label %178
 
 190:                                              ; preds = %189
@@ -19003,7 +19003,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %213 unwind label %208
 
 213:                                              ; preds = %212
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %17)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %17)
           to label %214 unwind label %208
 
 214:                                              ; preds = %213
@@ -19027,7 +19027,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %219 unwind label %208
 
 219:                                              ; preds = %218
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %17)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %17)
           to label %220 unwind label %208
 
 220:                                              ; preds = %219
@@ -19088,7 +19088,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %234 unwind label %178
 
 234:                                              ; preds = %233
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %21)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %21)
           to label %235 unwind label %178
 
 235:                                              ; preds = %234
@@ -19116,7 +19116,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %241 unwind label %178
 
 241:                                              ; preds = %240
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %15)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %15)
           to label %245 unwind label %243
 
 242:                                              ; preds = %253, %243
@@ -19215,7 +19215,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %266 unwind label %152
 
 266:                                              ; preds = %265
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %23)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %23)
           to label %267 unwind label %152
 
 267:                                              ; preds = %266
@@ -19337,7 +19337,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %297 unwind label %286
 
 297:                                              ; preds = %296
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %11)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %11)
           to label %298 unwind label %286
 
 298:                                              ; preds = %297
@@ -19430,7 +19430,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %321 unwind label %316
 
 321:                                              ; preds = %320
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %7)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %7)
           to label %322 unwind label %316
 
 322:                                              ; preds = %321
@@ -19454,7 +19454,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %327 unwind label %316
 
 327:                                              ; preds = %326
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %7)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %7)
           to label %328 unwind label %316
 
 328:                                              ; preds = %327
@@ -19515,7 +19515,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %342 unwind label %286
 
 342:                                              ; preds = %341
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %11)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %11)
           to label %343 unwind label %286
 
 343:                                              ; preds = %342
@@ -19543,7 +19543,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %349 unwind label %286
 
 349:                                              ; preds = %348
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %5)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %5)
           to label %353 unwind label %351
 
 350:                                              ; preds = %361, %351
@@ -19619,7 +19619,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder16impl_pyclassimpl17h7942aaf7b693dbb6E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder16impl_pyclassimpl17h7942aaf7b693dbb6E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -19771,7 +19771,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %1, i64 48
   %152 = load i64, ptr %151, align 8
-  call void @_ZN19pyo3_macros_backend5utils7LitCStr5empty17h28afa4641b58f34fE(ptr nonnull sret([72 x i8]) align 8 %146, ptr align 8 %2)
+  call void @_ZN19pyo3_macros_backend5utils7LitCStr5empty17h28afa4641b58f34fE(ptr nonnull sret([72 x i8]) align 8 %146, ptr nonnull align 8 %2)
   invoke void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h5770fd8c6ff2f6e6E(ptr nonnull sret([32 x i8]) align 8 %147, ptr nonnull align 8 %146)
           to label %155 unwind label %153
 
@@ -19823,7 +19823,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %177 unwind label %159
 
 171:                                              ; preds = %169
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %142)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %142)
           to label %174 unwind label %172
 
 172:                                              ; preds = %175, %174, %171
@@ -19956,7 +19956,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %215 unwind label %202
 
 215:                                              ; preds = %214
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %136)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %136)
           to label %216 unwind label %202
 
 216:                                              ; preds = %215
@@ -20030,7 +20030,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %234 unwind label %224
 
 234:                                              ; preds = %233
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %131)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %131)
           to label %237 unwind label %235
 
 235:                                              ; preds = %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %234
@@ -20184,7 +20184,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %276 unwind label %263
 
 276:                                              ; preds = %275
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %128)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %128)
           to label %277 unwind label %263
 
 277:                                              ; preds = %276
@@ -20258,7 +20258,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %295 unwind label %285
 
 295:                                              ; preds = %294
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %123)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %123)
           to label %298 unwind label %296
 
 296:                                              ; preds = %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %295
@@ -20354,7 +20354,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %319
 
 322:                                              ; preds = %317
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %120)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %120)
           to label %325 unwind label %323
 
 323:                                              ; preds = %330, %329, %328, %327, %326, %325, %322
@@ -20397,7 +20397,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br i1 %335, label %348, label %349
 
 336:                                              ; preds = %318
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %119)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %119)
           to label %339 unwind label %337
 
 337:                                              ; preds = %347, %346, %345, %344, %343, %342, %341, %340, %339, %336
@@ -20676,7 +20676,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %420 unwind label %410
 
 420:                                              ; preds = %419
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %102)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %102)
           to label %423 unwind label %421
 
 421:                                              ; preds = %453, %452, %451, %450, %449, %448, %447, %446, %445, %444, %443, %442, %441, %440, %439, %438, %437, %436, %435, %434, %433, %432, %431, %430, %429, %428, %427, %426, %425, %424, %423, %420
@@ -20718,7 +20718,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %431 unwind label %421
 
 431:                                              ; preds = %430
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %102)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %102)
           to label %432 unwind label %421
 
 432:                                              ; preds = %431
@@ -20774,7 +20774,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %445 unwind label %421
 
 445:                                              ; preds = %444
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %102)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %102)
           to label %446 unwind label %421
 
 446:                                              ; preds = %445
@@ -20975,7 +20975,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %490 unwind label %487, !noalias !87
 
 490:                                              ; preds = %489
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %29)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %29)
           to label %491 unwind label %487, !noalias !87
 
 491:                                              ; preds = %490
@@ -21068,7 +21068,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %514 unwind label %511, !noalias !87
 
 514:                                              ; preds = %513
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %25)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %25)
           to label %515 unwind label %511, !noalias !87
 
 515:                                              ; preds = %514
@@ -21160,7 +21160,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %537 unwind label %469, !noalias !87
 
 537:                                              ; preds = %536
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %35)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %35)
           to label %538 unwind label %469, !noalias !87
 
 538:                                              ; preds = %537
@@ -21249,7 +21249,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %560 unwind label %549, !noalias !87
 
 560:                                              ; preds = %559
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %19)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %19)
           to label %561 unwind label %549, !noalias !87
 
 561:                                              ; preds = %560
@@ -21313,7 +21313,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %576 unwind label %469, !noalias !87
 
 576:                                              ; preds = %575
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %35)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %35)
           to label %577 unwind label %469, !noalias !87
 
 577:                                              ; preds = %576
@@ -21465,7 +21465,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %602
 
 605:                                              ; preds = %.noexc127
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %10)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %10)
           to label %609 unwind label %607, !noalias !90
 
 606:                                              ; preds = %615, %607
@@ -21513,7 +21513,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %618 unwind label %615, !noalias !90
 
 618:                                              ; preds = %617
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %8)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %8)
           to label %619 unwind label %615, !noalias !90
 
 619:                                              ; preds = %618
@@ -21545,7 +21545,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %626 unwind label %615, !noalias !90
 
 626:                                              ; preds = %625
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %8)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %8)
           to label %627 unwind label %615, !noalias !90
 
 627:                                              ; preds = %626
@@ -21629,7 +21629,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %644
 
 647:                                              ; preds = %643
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %6)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %6)
           to label %651 unwind label %649, !noalias !90
 
 648:                                              ; preds = %657, %649
@@ -21677,7 +21677,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %660 unwind label %657, !noalias !90
 
 660:                                              ; preds = %659
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %4)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %4)
           to label %661 unwind label %657, !noalias !90
 
 661:                                              ; preds = %660
@@ -21709,7 +21709,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %668 unwind label %657, !noalias !90
 
 668:                                              ; preds = %667
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %4)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %4)
           to label %669 unwind label %657, !noalias !90
 
 669:                                              ; preds = %668
@@ -21868,7 +21868,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %707
 
 710:                                              ; preds = %705
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %92)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %92)
           to label %713 unwind label %711
 
 711:                                              ; preds = %718, %717, %716, %715, %714, %713, %710
@@ -21907,7 +21907,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br i1 %255, label %729, label %730
 
 720:                                              ; preds = %706
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %91)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %91)
           to label %723 unwind label %721
 
 721:                                              ; preds = %728, %727, %726, %725, %724, %723, %720
@@ -21959,7 +21959,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %731
 
 734:                                              ; preds = %729
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %89)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %89)
           to label %737 unwind label %735
 
 735:                                              ; preds = %742, %741, %740, %739, %738, %737, %734
@@ -21998,7 +21998,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br i1 %.not, label %754, label %753
 
 744:                                              ; preds = %730
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %88)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %88)
           to label %747 unwind label %745
 
 745:                                              ; preds = %752, %751, %750, %749, %748, %747, %744
@@ -22076,7 +22076,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %765 unwind label %759
 
 765:                                              ; preds = %764
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %86)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %86)
           to label %766 unwind label %759
 
 766:                                              ; preds = %765
@@ -22122,7 +22122,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %784 unwind label %782
 
 776:                                              ; preds = %754
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %85)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %85)
           to label %779 unwind label %777
 
 777:                                              ; preds = %780, %779, %776
@@ -22164,7 +22164,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %785
 
 788:                                              ; preds = %784
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %84)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %84)
           to label %789 unwind label %786
 
 789:                                              ; preds = %788
@@ -22394,7 +22394,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %846 unwind label %800
 
 846:                                              ; preds = %845
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %82)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %82)
           to label %847 unwind label %800
 
 847:                                              ; preds = %846
@@ -22438,7 +22438,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %857 unwind label %800
 
 857:                                              ; preds = %856
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %82)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %82)
           to label %858 unwind label %800
 
 858:                                              ; preds = %857
@@ -22562,7 +22562,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %888 unwind label %800
 
 888:                                              ; preds = %887
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %82)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %82)
           to label %889 unwind label %800
 
 889:                                              ; preds = %888
@@ -22608,7 +22608,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %897
 
 900:                                              ; preds = %896
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %79)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %79)
           to label %901 unwind label %898
 
 901:                                              ; preds = %900
@@ -22946,7 +22946,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %993 unwind label %990
 
 993:                                              ; preds = %992
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %65)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %65)
           to label %994 unwind label %990
 
 994:                                              ; preds = %993
@@ -22979,7 +22979,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %1001 unwind label %800
 
 1001:                                             ; preds = %1000
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %82)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %82)
           to label %1002 unwind label %800
 
 1002:                                             ; preds = %1001
@@ -23049,7 +23049,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   br label %1016
 
 1019:                                             ; preds = %1015
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %63)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %63)
           to label %1020 unwind label %1017
 
 1020:                                             ; preds = %1019
@@ -23093,7 +23093,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %1030 unwind label %1017
 
 1030:                                             ; preds = %1029
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %63)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %63)
           to label %1031 unwind label %1017
 
 1031:                                             ; preds = %1030
@@ -23185,7 +23185,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %1053 unwind label %1017
 
 1053:                                             ; preds = %1052
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %63)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %63)
           to label %1054 unwind label %1017
 
 1054:                                             ; preds = %1053
@@ -23355,7 +23355,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %1097 unwind label %1093
 
 1097:                                             ; preds = %1096
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %55)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %55)
           to label %1098 unwind label %1093
 
 1098:                                             ; preds = %1097
@@ -23522,7 +23522,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %1138 unwind label %800
 
 1138:                                             ; preds = %1137
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %82)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %82)
           to label %1139 unwind label %800
 
 1139:                                             ; preds = %1138
@@ -23576,7 +23576,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %799 unwind label %185
 
 1152:                                             ; preds = %1149
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %49)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %49)
           to label %1153 unwind label %1150
 
 1153:                                             ; preds = %1152
@@ -23943,7 +23943,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias nocapture writeonly align 8 %0, ptr %.120.val, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -24047,7 +24047,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %35 unwind label %18
 
 35:                                               ; preds = %34
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %8)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %8)
           to label %36 unwind label %18
 
 36:                                               ; preds = %35
@@ -24091,7 +24091,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %46 unwind label %18
 
 46:                                               ; preds = %45
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %1, ptr nonnull align 8 %8)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %1, ptr nonnull align 8 %8)
           to label %47 unwind label %18
 
 47:                                               ; preds = %46
@@ -24158,7 +24158,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN87_$LT$pyo3_macros_backend..pyclass..PyClassPyO3Options$u20$as$u20$core..clone..Clone$GT$5clone17h07b18ea039cf7a0dE"(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN87_$LT$pyo3_macros_backend..pyclass..PyClassPyO3Options$u20$as$u20$core..clone..Clone$GT$5clone17h07b18ea039cf7a0dE"(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [56 x i8], align 8

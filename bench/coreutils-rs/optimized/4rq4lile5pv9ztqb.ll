@@ -114,7 +114,7 @@ define internal void @"_ZN4core3ptr51drop_in_place$LT$uucore..features..sum..Bla
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE(i64 noundef range(i64 2, 1041) %0, i64 noundef range(i64 2, 17) %1) unnamed_addr #1 {
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %4 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef %1) #11
   %5 = icmp eq ptr %4, null

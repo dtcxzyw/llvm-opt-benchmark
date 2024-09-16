@@ -886,7 +886,7 @@ define internal ptr @H5HF__sect_row_deserialize(ptr nocapture noundef readonly %
   %73 = add i32 %72, %70
   %74 = udiv i32 %73, %69
   %75 = urem i32 %73, %69
-  %76 = tail call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %8, ptr noundef nonnull %31, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, i32 noundef %55, i32 noundef %51, i32 noundef %74, i32 noundef %75)
+  %76 = tail call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %8, ptr noundef %31, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, i32 noundef %55, i32 noundef %51, i32 noundef %74, i32 noundef %75)
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %78, label %H5HF__sect_indirect_deserialize.exit
 
@@ -2645,7 +2645,7 @@ define range(i32 -1, 1) i32 @H5HF__sect_indirect_add(ptr noundef %0, ptr noundef
   br label %.thread
 
 35:                                               ; preds = %._crit_edge
-  %36 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef nonnull %0, ptr noundef nonnull %29, i1 noundef zeroext true, ptr noundef nonnull %5, i32 noundef 4, i32 noundef %8, i32 noundef %9, i32 noundef %12, i32 noundef %13)
+  %36 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef nonnull %0, ptr noundef %29, i1 noundef zeroext true, ptr noundef nonnull %5, i32 noundef 4, i32 noundef %8, i32 noundef %9, i32 noundef %12, i32 noundef %13)
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %42
 
@@ -2760,7 +2760,7 @@ define internal fastcc ptr @H5HF__sect_indirect_new(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef range(i32 1, 5) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i64, align 8
   %12 = zext i1 %2 to i8
@@ -3040,7 +3040,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
 170:                                              ; preds = %163
   %171 = load i32, ptr %17, align 8
   %172 = add i32 %171, -1
-  %173 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %164, i1 noundef zeroext %.2227, ptr noundef %.2145226, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %172)
+  %173 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef %164, i1 noundef zeroext %.2227, ptr noundef %.2145226, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %172)
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %175, label %179
 

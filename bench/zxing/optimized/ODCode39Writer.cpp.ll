@@ -353,7 +353,7 @@ switch.early.test.i:                              ; preds = %95
 
 133:                                              ; preds = %127
   %134 = call ptr @__cxa_allocate_exception(i64 16) #9
-  invoke fastcc void @_ZN5ZXing4OneDL11ToHexStringB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %8, i32 noundef %75)
+  invoke fastcc void @_ZN5ZXing4OneDL11ToHexStringB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %8, i32 noundef %75)
           to label %135 unwind label %.thread.i
 
 135:                                              ; preds = %133
@@ -950,7 +950,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXing4OneDL11ToHexStringB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing4OneDL11ToHexStringB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 48, 47) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.5", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)

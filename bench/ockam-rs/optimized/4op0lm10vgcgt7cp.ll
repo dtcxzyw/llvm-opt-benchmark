@@ -1511,7 +1511,7 @@ common.resume:                                    ; preds = %.body, %.body25, %3
   %51 = landingpad { ptr, i32 }
           cleanup
   store i8 4, ptr %8, align 1, !noalias !373
-  invoke fastcc void @"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5) #29
+  invoke fastcc void @"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E"(ptr noalias noundef align 8 dereferenceable(48) %5) #29
           to label %common.resume unwind label %46
 
 52:                                               ; preds = %48
@@ -2233,7 +2233,7 @@ define hidden void @"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$eit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !366, !noundef !5
   switch i64 %2, label %5 [
     i64 17, label %"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$17h4f103f547676f052E.llvm.16633494844240028166.exit"
@@ -3121,7 +3121,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
 .body:                                            ; preds = %128, %121, %116
   %.pn6 = phi { ptr, i32 } [ %117, %116 ], [ %129, %128 ], [ %122, %121 ]
   %127 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hc07619f6ded04473E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %127) #29
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hc07619f6ded04473E"(ptr noalias noundef align 8 dereferenceable(8) %127) #29
           to label %135 unwind label %160
 
 128:                                              ; preds = %"_ZN4core3ptr120drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$$GT$17h9872dbf0441e2602E.exit.i"
@@ -3908,7 +3908,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$trac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hc07619f6ded04473E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hc07619f6ded04473E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !816)
   %2 = load ptr, ptr %0, align 8, !alias.scope !816, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !816
@@ -5471,7 +5471,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %.not, label %.outer._crit_edge.thread, label %56
 
 56:                                               ; preds = %.outer._crit_edge
-  tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h808e37c1e5eb6105E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
+  tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h808e37c1e5eb6105E"(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
   br label %.outer._crit_edge.thread
 
 .outer._crit_edge.thread:                         ; preds = %55, %56, %.outer._crit_edge
@@ -6035,7 +6035,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %.not, label %.outer._crit_edge.thread, label %56
 
 56:                                               ; preds = %.outer._crit_edge
-  tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h808e37c1e5eb6105E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
+  tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h808e37c1e5eb6105E"(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
   br label %.outer._crit_edge.thread
 
 .outer._crit_edge.thread:                         ; preds = %55, %56, %.outer._crit_edge
@@ -6756,7 +6756,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$6ret
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h808e37c1e5eb6105E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h808e37c1e5eb6105E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !5

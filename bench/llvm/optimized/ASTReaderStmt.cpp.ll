@@ -8709,7 +8709,7 @@ define dso_local void @_ZN5clang13ASTStmtReader30VisitConceptSpecializationExprE
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8
-  call fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordReaderE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(560) %32)
+  call fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordReaderE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(560) %32)
   %37 = call noundef ptr @_ZN5clang25ASTConstraintSatisfaction6CreateERKNS_10ASTContextERKNS_22ConstraintSatisfactionE(ptr noundef nonnull align 8 dereferenceable(23096) %36, ptr noundef nonnull align 8 dereferenceable(184) %3) #18
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %37, ptr %38, align 8
@@ -8750,7 +8750,7 @@ declare noundef ptr @_ZN5clang15ASTRecordReader20readConceptReferenceEv(ptr noun
 declare noundef ptr @_ZN5clang25ASTConstraintSatisfaction6CreateERKNS_10ASTContextERKNS_22ConstraintSatisfactionE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordReaderE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordReaderE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -9660,7 +9660,7 @@ _ZnwmRKN5clang10ASTContextEm.exit87:              ; preds = %397, %.critedge.i.i
   %408 = load ptr, ptr %407, align 8
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 136
   %410 = load ptr, ptr %409, align 8
-  call fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordReaderE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(560) %406)
+  call fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordReaderE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(560) %406)
   %411 = call noundef ptr @_ZN5clang25ASTConstraintSatisfaction6CreateERKNS_10ASTContextERKNS_22ConstraintSatisfactionE(ptr noundef nonnull align 8 dereferenceable(23096) %410, ptr noundef nonnull align 8 dereferenceable(184) %7) #18
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
   %413 = load i8, ptr %412, align 8
@@ -9817,7 +9817,7 @@ _ZnwmRKN5clang10ASTContextEm.exit99:              ; preds = %489, %.critedge.i.i
   %.0.i.i.i.i97 = phi ptr [ %496, %.critedge.i.i.i.i98 ], [ %491, %489 ]
   store ptr %.sink162, ptr %453, align 8
   %498 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordReaderE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(560) %498)
+  call fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordReaderE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(560) %498)
   %499 = load i16, ptr %450, align 1
   %500 = load i8, ptr %118, align 8
   %501 = trunc i8 %500 to i1

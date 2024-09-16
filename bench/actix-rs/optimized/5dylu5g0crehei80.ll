@@ -789,7 +789,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8, !range !124, !noundef !7
   %4 = icmp eq i32 %3, 1000000000
@@ -950,7 +950,7 @@ define internal void @"_ZN4core3ptr123drop_in_place$LT$$RF$core..option..Option$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef align 8 dereferenceable(112) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8, !range !124, !noundef !7
   %4 = icmp eq i32 %3, 1000000000
@@ -1237,7 +1237,7 @@ common.ret.sink.split.i:                          ; preds = %55, %51
   %76 = landingpad { ptr, i32 }
           cleanup
   %77 = getelementptr inbounds i8, ptr %0, i64 848
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %77) #35
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef align 8 dereferenceable(88) %77) #35
           to label %87 unwind label %66
 
 "_ZN4core3ptr193drop_in_place$LT$awc..client..h1proto..send_body$LT$awc..client..connection..H1Connection$LT$tokio..net..tcp..stream..TcpStream$GT$$C$awc..any_body..AnyBody$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc755e23cfc5e32bcE.exit": ; preds = %51, %common.ret.sink.split.i, %1, %1
@@ -1333,18 +1333,18 @@ common.ret.sink.split.i:                          ; preds = %55, %51
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !113, !noundef !7
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %3, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %4)
+  tail call fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %4)
   br label %7
 
 6:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %4)
+  tail call fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef align 8 dereferenceable(112) %4)
   br label %7
 
 7:                                                ; preds = %6, %5
@@ -1582,7 +1582,7 @@ common.ret.sink.split.i:                          ; preds = %62, %58
   %83 = landingpad { ptr, i32 }
           cleanup
   %84 = getelementptr inbounds i8, ptr %0, i64 832
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %84) #35
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef align 8 dereferenceable(88) %84) #35
           to label %94 unwind label %73
 
 "_ZN4core3ptr229drop_in_place$LT$awc..client..h1proto..send_body$LT$awc..client..connection..H1Connection$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$awc..any_body..AnyBody$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb2a5e72b37fc5464E.exit": ; preds = %58, %common.ret.sink.split.i, %1, %1
@@ -1955,7 +1955,7 @@ common.resume:                                    ; preds = %136, %31, %144
   %96 = getelementptr inbounds i8, ptr %0, i64 1365
   store i8 0, ptr %96, align 1
   %97 = getelementptr inbounds i8, ptr %0, i64 1240
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$h2..error..Error$GT$$GT$17h79183aa1ca7936e0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %97) #35
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$h2..error..Error$GT$$GT$17h79183aa1ca7936e0E"(ptr noalias noundef align 8 dereferenceable(40) %97) #35
           to label %100 unwind label %35
 
 98:                                               ; preds = %.noexc29, %93
@@ -2179,11 +2179,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr171dro
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %7)
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %7)
           to label %"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE.exit" unwind label %28
 
 9:                                                ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %7)
+  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef align 8 dereferenceable(112) %7)
           to label %"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE.exit" unwind label %28
 
 10:                                               ; preds = %1
@@ -2276,7 +2276,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr171dro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h7c91f9f275e44899E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h7c91f9f275e44899E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !376, !noundef !7
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %14
@@ -2352,11 +2352,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr171dro
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %7)
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %7)
           to label %"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE.exit" unwind label %14
 
 9:                                                ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %7)
+  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef align 8 dereferenceable(112) %7)
           to label %"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE.exit" unwind label %14
 
 10:                                               ; preds = %1
@@ -2422,11 +2422,11 @@ common.ret:                                       ; preds = %24, %45, %52, %1
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %7)
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %7)
           to label %"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE.exit" unwind label %16
 
 9:                                                ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %7)
+  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef align 8 dereferenceable(112) %7)
           to label %"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE.exit" unwind label %16
 
 10:                                               ; preds = %1
@@ -2526,7 +2526,7 @@ common.ret:                                       ; preds = %24, %45, %52, %1
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %51)
+  tail call fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %51)
   br label %45
 
 52:                                               ; preds = %31
@@ -2548,7 +2548,7 @@ common.ret:                                       ; preds = %24, %45, %52, %1
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %63) #35
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %63) #35
           to label %26 unwind label %27
 }
 
@@ -2818,7 +2818,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$actix_http..requests..head..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$h2..error..Error$GT$$GT$17h79183aa1ca7936e0E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$h2..error..Error$GT$$GT$17h79183aa1ca7936e0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i8, ptr %0, align 8, !range !214, !noundef !7
   %4 = icmp eq i8 %3, 5
@@ -2875,7 +2875,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef align 8 dereferenceable(288) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !461, !noundef !7
   switch i64 %2, label %3 [
     i64 6, label %"_ZN4core3ptr49drop_in_place$LT$awc..connect..ConnectRequest$GT$17hcc11aa8df950c75dE.llvm.3304932924735990938.exit"
@@ -2941,7 +2941,7 @@ define internal void @"_ZN4core3ptr87drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 83
   %3 = load i8, ptr %2, align 1, !range !215, !noundef !7
   %4 = icmp eq i8 %3, 6
@@ -2967,7 +2967,7 @@ define internal void @"_ZN4core3ptr95drop_in_place$LT$$RF$core..ptr..non_null..N
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr985drop_in_place$LT$awc..connect..ConnectRequestFuture$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$GT$$GT$17h295cb5c2d7103fd0E"(ptr noalias noundef align 8 dereferenceable(312) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr985drop_in_place$LT$awc..connect..ConnectRequestFuture$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$GT$$GT$17h295cb5c2d7103fd0E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !177, !noundef !7
   %3 = add nsw i64 %2, -3
   %4 = icmp ult i64 %3, 2
@@ -3105,7 +3105,7 @@ common.resume:                                    ; preds = %.body, %57, %44, %1
 .body:                                            ; preds = %24, %34, %48
   %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %25, %24 ], [ %35, %34 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %50) #35
+  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef align 8 dereferenceable(288) %50) #35
           to label %common.resume unwind label %62
 
 "_ZN4core3ptr906drop_in_place$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17h8b864d3188f97acdE.exit": ; preds = %17, %"_ZN4core3ptr274drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$17he53de2394d21e9f4E.exit.i", %"_ZN4core3ptr310drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$17h2513043ad54d1abeE.exit.i"
@@ -3185,7 +3185,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17he5925e6adc547f1
   %15 = load i64, ptr %14, align 8, !noalias !507, !noundef !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !515
   store i64 %15, ptr %4, align 8, !noalias !515
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8), !noalias !518
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8), !noalias !518
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !515
   %16 = load ptr, ptr %13, align 8, !noalias !507, !nonnull !7, !noundef !7
   %17 = getelementptr inbounds i8, ptr %16, i64 %15
@@ -3202,7 +3202,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17he5925e6adc547f1
   %23 = or i8 %.0.i.i.i, %20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !519
   store i8 %23, ptr %3, align 1, !noalias !519
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !518
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !518
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !519
   %24 = icmp eq ptr %19, %17
   br i1 %24, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h651eb5fe11d63621E.llvm.3304932924735990938.exit", label %.lr.ph.i.i.i
@@ -3289,7 +3289,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %8 = load i64, ptr %7, align 8, !noalias !527, !noundef !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !532
   store i64 %8, ptr %4, align 8, !noalias !532
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !532
   %9 = load ptr, ptr %6, align 8, !noalias !527, !nonnull !7, !noundef !7
   %10 = getelementptr inbounds i8, ptr %9, i64 %8
@@ -3306,7 +3306,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %16 = or i8 %.0.i.i, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !535
   store i8 %16, ptr %3, align 1, !noalias !535
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !535
   %17 = icmp eq ptr %12, %10
   br i1 %17, label %"_ZN59_$LT$awc..client..pool..Key$u20$as$u20$core..hash..Hash$GT$4hash17hdf73cf863398df50E.llvm.3304932924735990938.exit", label %.lr.ph.i.i
@@ -3316,7 +3316,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17he8afa22d373870b6E"(ptr noalias noundef returned align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17he8afa22d373870b6E"(ptr noalias noundef nonnull returned align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !noundef !7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %4
@@ -3342,7 +3342,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4cor
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(88) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 83
@@ -3863,7 +3863,7 @@ define internal noundef zeroext i1 @_ZN5bytes5bytes16static_is_unique17h1d728fa3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca i64, align 8
   %4 = alloca [2 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -4062,7 +4062,7 @@ define hidden void @"_ZN68_$LT$http..uri..authority..Authority$u20$as$u20$core..
   %7 = load i64, ptr %6, align 8, !noundef !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !643
   store i64 %7, ptr %4, align 8, !noalias !643
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !643
   %8 = load ptr, ptr %5, align 8, !nonnull !7, !noundef !7
   %9 = getelementptr inbounds i8, ptr %8, i64 %7
@@ -4082,7 +4082,7 @@ define hidden void @"_ZN68_$LT$http..uri..authority..Authority$u20$as$u20$core..
   %15 = or i8 %.0, %12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !646
   store i8 %15, ptr %3, align 1, !noalias !646
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !646
   %16 = icmp eq ptr %11, %9
   br i1 %16, label %._crit_edge, label %.lr.ph
@@ -4308,7 +4308,7 @@ define hidden void @"_ZN71_$LT$http..header..value..HeaderValue$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #15 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 9) %2) unnamed_addr #15 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6036,7 +6036,7 @@ _ZN4core4iter6traits8iterator8Iterator3any17hb549db5b7d1878a3E.exit.i: ; preds =
   br label %321
 
 319:                                              ; preds = %316
-  invoke fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %145, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %144)
+  invoke fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE(ptr noalias nocapture noundef align 8 dereferenceable(32) %145, ptr noalias nocapture noundef align 8 dereferenceable(32) %144)
           to label %320 unwind label %317, !noalias !772
 
 320:                                              ; preds = %319
@@ -6116,7 +6116,7 @@ _ZN4core4iter6traits8iterator8Iterator3any17hb549db5b7d1878a3E.exit.i: ; preds =
 
 340:                                              ; preds = %332
   %341 = getelementptr inbounds i8, ptr %1, i64 752
-  %342 = invoke fastcc noundef align 8 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17he8afa22d373870b6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %341, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %140)
+  %342 = invoke fastcc noundef align 8 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17he8afa22d373870b6E"(ptr noalias noundef align 8 dereferenceable(64) %341, ptr noalias nocapture noundef align 8 dereferenceable(64) %140)
           to label %343 unwind label %351, !noalias !772
 
 343:                                              ; preds = %340
@@ -6822,7 +6822,7 @@ default.unreachable4.i.i213.i:                    ; preds = %474
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %131), !noalias !768
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %129), !noalias !768
   store i8 10, ptr %129, align 8, !noalias !768
-  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %132, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %130, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %129)
+  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %132, ptr noalias nocapture noundef align 8 dereferenceable(88) %130, ptr noalias nocapture noundef align 8 dereferenceable(40) %129)
           to label %579 unwind label %577, !noalias !772
 
 576:                                              ; preds = %"_ZN94_$LT$actix_utils..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heb7945cac24666aeE.exit.i"
@@ -7526,7 +7526,7 @@ default.unreachable4.i.i230.i:                    ; preds = %630
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %126), !noalias !768
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %124), !noalias !768
   store i8 10, ptr %124, align 8, !noalias !768
-  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %127, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %124)
+  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %127, ptr noalias nocapture noundef align 8 dereferenceable(88) %125, ptr noalias nocapture noundef align 8 dereferenceable(40) %124)
           to label %851 unwind label %849, !noalias !772
 
 848:                                              ; preds = %"_ZN94_$LT$actix_utils..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf0afe3d3b9779b32E.exit.i"
@@ -7969,7 +7969,7 @@ default.unreachable4.i.i230.i:                    ; preds = %630
 
 993:                                              ; preds = %832
   %994 = getelementptr inbounds i8, ptr %1, i64 1232
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %994) #35
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef align 8 dereferenceable(88) %994) #35
           to label %946 unwind label %361, !noalias !772
 
 995:                                              ; preds = %516
@@ -8412,7 +8412,7 @@ _ZN4core4iter6traits8iterator8Iterator3any17h6d735842b4735806E.exit.i: ; preds =
   br label %1130
 
 1128:                                             ; preds = %1125
-  invoke fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %98, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %97)
+  invoke fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE(ptr noalias nocapture noundef align 8 dereferenceable(32) %98, ptr noalias nocapture noundef align 8 dereferenceable(32) %97)
           to label %1129 unwind label %1126, !noalias !967
 
 1129:                                             ; preds = %1128
@@ -8492,7 +8492,7 @@ _ZN4core4iter6traits8iterator8Iterator3any17h6d735842b4735806E.exit.i: ; preds =
 
 1149:                                             ; preds = %1141
   %1150 = getelementptr inbounds i8, ptr %1, i64 744
-  %1151 = invoke fastcc noundef align 8 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17he8afa22d373870b6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1150, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %93)
+  %1151 = invoke fastcc noundef align 8 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17he8afa22d373870b6E"(ptr noalias noundef align 8 dereferenceable(64) %1150, ptr noalias nocapture noundef align 8 dereferenceable(64) %93)
           to label %1152 unwind label %1160, !noalias !967
 
 1152:                                             ; preds = %1149
@@ -9203,7 +9203,7 @@ default.unreachable4.i.i213.i258:                 ; preds = %1292
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %84), !noalias !963
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %82), !noalias !963
   store i8 10, ptr %82, align 8, !noalias !963
-  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %85, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %83, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %82)
+  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %85, ptr noalias nocapture noundef align 8 dereferenceable(88) %83, ptr noalias nocapture noundef align 8 dereferenceable(40) %82)
           to label %1397 unwind label %1395, !noalias !967
 
 1394:                                             ; preds = %"_ZN94_$LT$actix_utils..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he265d0ee8ce2b03bE.exit.i"
@@ -9907,7 +9907,7 @@ default.unreachable4.i.i230.i210:                 ; preds = %1448
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %79), !noalias !963
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %77), !noalias !963
   store i8 10, ptr %77, align 8, !noalias !963
-  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %80, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %78, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %77)
+  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %80, ptr noalias nocapture noundef align 8 dereferenceable(88) %78, ptr noalias nocapture noundef align 8 dereferenceable(40) %77)
           to label %1669 unwind label %1667, !noalias !967
 
 1666:                                             ; preds = %"_ZN94_$LT$actix_utils..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h38bf0e2871f14b56E.exit.i"
@@ -10376,7 +10376,7 @@ default.unreachable4.i.i230.i210:                 ; preds = %1448
 
 1818:                                             ; preds = %1650
   %1819 = getelementptr inbounds i8, ptr %1, i64 1216
-  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1819) #35
+  invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$actix_http..responses..head..ResponseHead$GT$$GT$17hf3c1552817a1b97bE"(ptr noalias noundef align 8 dereferenceable(88) %1819) #35
           to label %1764 unwind label %1170, !noalias !967
 
 1820:                                             ; preds = %1334
@@ -12875,7 +12875,7 @@ _ZN4http6header5value11HeaderValue8from_str17h65e04d006e83ee0aE.exit.i: ; preds 
   %.2.i = phi i1 [ false, %2633 ], [ true, %2521 ]
   %.pn68.pn.i = phi { ptr, i32 } [ %.pn68.i, %2633 ], [ %2522, %2521 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %34), !noalias !1164
-  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h7c91f9f275e44899E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #35
+  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h7c91f9f275e44899E"(ptr noalias noundef align 8 dereferenceable(24) %36) #35
           to label %2520 unwind label %2024, !noalias !1168
 
 2635:                                             ; preds = %2520
@@ -13243,7 +13243,7 @@ _ZN4http6header5value11HeaderValue8from_str17h65e04d006e83ee0aE.exit.i: ; preds 
 
 2772:                                             ; preds = %2768
   %2773 = getelementptr inbounds i8, ptr %1, i64 8
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %2773)
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %2773)
           to label %2767 unwind label %2775
 
 2774:                                             ; preds = %2823, %2817, %2775
@@ -13319,7 +13319,7 @@ _ZN4http6header5value11HeaderValue8from_str17h65e04d006e83ee0aE.exit.i: ; preds 
   br i1 %2799, label %2801, label %2787
 
 2800:                                             ; preds = %2791
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %2792) #35
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %2792) #35
           to label %2787 unwind label %186
 
 2801:                                             ; preds = %2796
@@ -13605,7 +13605,7 @@ default.unreachable93:                            ; preds = %3
 73:                                               ; preds = %20, %24
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %9)
   %74 = getelementptr inbounds i8, ptr %1, i64 344
-  invoke fastcc void @"_ZN3awc6client7h1proto11open_tunnel28_$u7b$$u7b$closure$u7d$$u7d$17h0b0709953bd92f10E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(344) %9, ptr noundef nonnull align 8 %74, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN3awc6client7h1proto11open_tunnel28_$u7b$$u7b$closure$u7d$$u7d$17h0b0709953bd92f10E"(ptr noalias nocapture noundef align 8 dereferenceable(344) %9, ptr noundef nonnull align 8 %74, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %77 unwind label %75
 
 75:                                               ; preds = %73
@@ -13683,7 +13683,7 @@ common.ret:                                       ; preds = %100, %90, %82
 91:                                               ; preds = %21, %53
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %8)
   %92 = getelementptr inbounds i8, ptr %1, i64 344
-  invoke fastcc void @"_ZN3awc6client7h1proto11open_tunnel28_$u7b$$u7b$closure$u7d$$u7d$17h0b0709953bd92f10E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(344) %8, ptr noundef nonnull align 8 %92, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN3awc6client7h1proto11open_tunnel28_$u7b$$u7b$closure$u7d$$u7d$17h0b0709953bd92f10E"(ptr noalias nocapture noundef align 8 dereferenceable(344) %8, ptr noundef nonnull align 8 %92, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %95 unwind label %93
 
 93:                                               ; preds = %91
@@ -13754,7 +13754,7 @@ common.ret:                                       ; preds = %100, %90, %82
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds i8, ptr %1, i64 8
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %117)
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17he1503fc042dab83fE"(ptr noalias noundef align 8 dereferenceable(112) %117)
           to label %"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE.exit" unwind label %124
 
 118:                                              ; preds = %122, %119, %112
@@ -13769,7 +13769,7 @@ common.ret:                                       ; preds = %100, %90, %82
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds i8, ptr %1, i64 8
-  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %123)
+  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef align 8 dereferenceable(112) %123)
           to label %118 unwind label %124
 
 124:                                              ; preds = %116, %122
@@ -13823,7 +13823,7 @@ common.ret:                                       ; preds = %100, %90, %82
   br i1 %146, label %148, label %137
 
 147:                                              ; preds = %141
-  invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %1) #35
+  invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef align 8 dereferenceable(120) %1) #35
           to label %137 unwind label %27
 
 148:                                              ; preds = %143
@@ -13834,7 +13834,7 @@ common.ret:                                       ; preds = %100, %90, %82
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds i8, ptr %1, i64 8
-  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %152) #35
+  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfbf5a0f04490f9c8E"(ptr noalias noundef align 8 dereferenceable(112) %152) #35
           to label %137 unwind label %27
 
 153:                                              ; preds = %137
@@ -13844,7 +13844,7 @@ common.ret:                                       ; preds = %100, %90, %82
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3awc6client7h1proto11open_tunnel28_$u7b$$u7b$closure$u7d$$u7d$17h0b0709953bd92f10E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(344) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3awc6client7h1proto11open_tunnel28_$u7b$$u7b$closure$u7d$$u7d$17h0b0709953bd92f10E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(344) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.8.sroa.5 = alloca [35 x i8], align 8
   %.sroa.14 = alloca [31 x i64], align 8
   %.sroa.044.sroa.7.sroa.3 = alloca [35 x i8], align 8
@@ -13923,7 +13923,7 @@ default.unreachable113:                           ; preds = %3
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %9) #35
+  invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef align 8 dereferenceable(120) %9) #35
           to label %24 unwind label %28
 
 28:                                               ; preds = %102, %72, %39, %26
@@ -14073,7 +14073,7 @@ common.ret:                                       ; preds = %96, %81, %62
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   store i8 10, ptr %4, align 8
-  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
+  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$5ok_or17hb47f86a25137741fE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %7, ptr noalias nocapture noundef align 8 dereferenceable(88) %5, ptr noalias nocapture noundef align 8 dereferenceable(40) %4)
           to label %85 unwind label %83
 
 81:                                               ; preds = %"_ZN94_$LT$actix_utils..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h14cc041353682b06E.exit"
@@ -14546,7 +14546,7 @@ default.unreachable13.i:                          ; preds = %35
 85:                                               ; preds = %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1968) %75, ptr noundef nonnull align 8 dereferenceable(1968) %8, i64 1968, i1 false)
   call void @llvm.lifetime.end.p0(i64 1968, ptr nonnull %8)
-  invoke fastcc void @"_ZN4core3ptr985drop_in_place$LT$awc..connect..ConnectRequestFuture$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$GT$$GT$17h295cb5c2d7103fd0E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %1)
+  invoke fastcc void @"_ZN4core3ptr985drop_in_place$LT$awc..connect..ConnectRequestFuture$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$GT$$GT$17h295cb5c2d7103fd0E"(ptr noalias noundef align 8 dereferenceable(312) %1)
           to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h6654bc83376fab7cE.exit" unwind label %83, !noalias !1713
 
 "_ZN4core3pin14Pin$LT$Ptr$GT$3set17h6654bc83376fab7cE.exit": ; preds = %85, %97
@@ -14598,13 +14598,13 @@ default.unreachable13.i:                          ; preds = %35
   call void @llvm.lifetime.end.p0(i64 1184, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %15)
-  invoke fastcc void @"_ZN4core3ptr985drop_in_place$LT$awc..connect..ConnectRequestFuture$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$GT$$GT$17h295cb5c2d7103fd0E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %1)
+  invoke fastcc void @"_ZN4core3ptr985drop_in_place$LT$awc..connect..ConnectRequestFuture$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$GT$$GT$17h295cb5c2d7103fd0E"(ptr noalias noundef align 8 dereferenceable(312) %1)
           to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h6654bc83376fab7cE.exit" unwind label %95, !noalias !1719
 
 98:                                               ; preds = %82
   %99 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %15) #35
+  invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef align 8 dereferenceable(120) %15) #35
           to label %.thread151 unwind label %100
 
 100:                                              ; preds = %112, %102, %98
@@ -14630,7 +14630,7 @@ default.unreachable13.i:                          ; preds = %35
 102:                                              ; preds = %71
   %103 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %17) #35
+  invoke fastcc void @"_ZN4core3ptr171drop_in_place$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hbab8707429951d5aE"(ptr noalias noundef align 8 dereferenceable(120) %17) #35
           to label %.thread151 unwind label %100
 
 104:                                              ; preds = %.loopexit, %69
@@ -16557,7 +16557,7 @@ define hidden void @"_ZN59_$LT$awc..client..pool..Key$u20$as$u20$core..hash..Has
   %7 = load i64, ptr %6, align 8, !noalias !2117, !noundef !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !2120
   store i64 %7, ptr %4, align 8, !noalias !2120
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !2120
   %8 = load ptr, ptr %5, align 8, !noalias !2117, !nonnull !7, !noundef !7
   %9 = getelementptr inbounds i8, ptr %8, i64 %7
@@ -16574,7 +16574,7 @@ define hidden void @"_ZN59_$LT$awc..client..pool..Key$u20$as$u20$core..hash..Has
   %15 = or i8 %.0.i, %12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !2123
   store i8 %15, ptr %3, align 1, !noalias !2123
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !2123
   %16 = icmp eq ptr %11, %9
   br i1 %16, label %"_ZN68_$LT$http..uri..authority..Authority$u20$as$u20$core..hash..Hash$GT$4hash17h23446faadd261294E.llvm.3304932924735990938.exit", label %.lr.ph.i

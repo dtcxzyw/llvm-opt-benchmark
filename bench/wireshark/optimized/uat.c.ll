@@ -1510,7 +1510,7 @@ define noundef zeroext i1 @uat_fld_chk_num_dec(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @uat_fld_chk_num(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @uat_fld_chk_num(i32 noundef range(i32 10, 17) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %.not = icmp eq i32 %2, 0
@@ -1588,7 +1588,7 @@ define noundef zeroext i1 @uat_fld_chk_num_dec64(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @uat_fld_chk_num64(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @uat_fld_chk_num64(i32 noundef range(i32 10, 17) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %.not = icmp eq i32 %2, 0

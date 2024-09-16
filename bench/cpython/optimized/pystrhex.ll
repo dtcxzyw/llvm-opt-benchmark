@@ -82,7 +82,7 @@ _Py_strhex_impl.exit:                             ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_Py_strhex_impl(ptr nocapture noundef readonly %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_sep_group, i32 noundef %return_bytes) unnamed_addr #0 {
+define internal fastcc ptr @_Py_strhex_impl(ptr nocapture noundef readonly %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_sep_group, i32 noundef range(i32 0, 2) %return_bytes) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %sep, null
   br i1 %tobool.not, label %if.end38, label %if.then

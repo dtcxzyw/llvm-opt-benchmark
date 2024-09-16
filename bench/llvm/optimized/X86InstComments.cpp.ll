@@ -990,11 +990,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit: ; preds = %23, %27, %32
   %39 = load i64, ptr %38, align 8
   %40 = trunc i64 %39 to i32
   call void @_ZN4llvm15DecodeBLENDMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1013 = load ptr, ptr %6, align 8
+  %.pre933 = load ptr, ptr %6, align 8
   br label %41
 
 41:                                               ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit, %16
-  %42 = phi ptr [ %.pre1013, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit ], [ %19, %16 ]
+  %42 = phi ptr [ %.pre933, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit ], [ %19, %16 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %44) #6
@@ -1046,16 +1046,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit: ; preds = %23, %27, %32
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678: ; preds = %62, %66, %71
-  %.0.i.i677 = phi i32 [ 16, %62 ], [ 8, %66 ], [ %76, %71 ]
+  %.0.i.i676 = phi i32 [ 16, %62 ], [ 8, %66 ], [ %76, %71 ]
   %77 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %78 = load i64, ptr %77, align 8
   %79 = trunc i64 %78 to i32
-  call void @_ZN4llvm15DecodeBLENDMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i677, i32 noundef %79, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1012 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodeBLENDMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i676, i32 noundef %79, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre932 = load ptr, ptr %6, align 8
   br label %80
 
 80:                                               ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678, %55
-  %81 = phi ptr [ %.pre1012, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678 ], [ %58, %55 ]
+  %81 = phi ptr [ %.pre932, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678 ], [ %58, %55 ]
   %82 = getelementptr inbounds i8, ptr %81, i64 24
   %83 = load i32, ptr %82, align 8
   %84 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %83) #6
@@ -1107,16 +1107,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678: ; preds = %62, %66, %71
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683: ; preds = %101, %105, %110
-  %.0.i.i682 = phi i32 [ 32, %101 ], [ 16, %105 ], [ %115, %110 ]
+  %.0.i.i681 = phi i32 [ 32, %101 ], [ 16, %105 ], [ %115, %110 ]
   %116 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %117 = load i64, ptr %116, align 8
   %118 = trunc i64 %117 to i32
-  call void @_ZN4llvm15DecodeBLENDMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i682, i32 noundef %118, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1011 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodeBLENDMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i681, i32 noundef %118, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre931 = load ptr, ptr %6, align 8
   br label %119
 
 119:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683, %94
-  %120 = phi ptr [ %.pre1011, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683 ], [ %97, %94 ]
+  %120 = phi ptr [ %.pre931, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683 ], [ %97, %94 ]
   %121 = getelementptr inbounds i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %122) #6
@@ -1168,16 +1168,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683: ; preds = %101, %105, %110
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
-  %.0.i.i687 = phi i32 [ 16, %140 ], [ 8, %144 ], [ %154, %149 ]
+  %.0.i.i686 = phi i32 [ 16, %140 ], [ 8, %144 ], [ %154, %149 ]
   %155 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %156 = load i64, ptr %155, align 8
   %157 = trunc i64 %156 to i32
-  call void @_ZN4llvm15DecodeBLENDMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i687, i32 noundef %157, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1010 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodeBLENDMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i686, i32 noundef %157, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre930 = load ptr, ptr %6, align 8
   br label %158
 
 158:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688, %133
-  %159 = phi ptr [ %.pre1010, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688 ], [ %136, %133 ]
+  %159 = phi ptr [ %.pre930, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688 ], [ %136, %133 ]
   %160 = getelementptr inbounds i8, ptr %159, i64 24
   %161 = load i32, ptr %160, align 8
   %162 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %161) #6
@@ -1339,8 +1339,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693: ; preds = %260, %268, %273
-  %.0.i.i692 = phi i32 [ 16, %260 ], [ 8, %268 ], [ %278, %273 ]
-  call void @_ZN4llvm18DecodeMOVSLDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i692, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i691 = phi i32 [ 16, %260 ], [ 8, %268 ], [ %278, %273 ]
+  call void @_ZN4llvm18DecodeMOVSLDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i691, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 279:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -1383,8 +1383,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693: ; preds = %260, %268, %273
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698: ; preds = %286, %294, %299
-  %.0.i.i697 = phi i32 [ 16, %286 ], [ 8, %294 ], [ %304, %299 ]
-  call void @_ZN4llvm18DecodeMOVSHDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i697, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i696 = phi i32 [ 16, %286 ], [ 8, %294 ], [ %304, %299 ]
+  call void @_ZN4llvm18DecodeMOVSHDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i696, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 305:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -1427,8 +1427,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698: ; preds = %286, %294, %299
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703: ; preds = %312, %320, %325
-  %.0.i.i702 = phi i32 [ 8, %312 ], [ 4, %320 ], [ %330, %325 ]
-  call void @_ZN4llvm17DecodeMOVDDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i702, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i701 = phi i32 [ 8, %312 ], [ 4, %320 ], [ %330, %325 ]
+  call void @_ZN4llvm17DecodeMOVDDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i701, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 331:                                              ; preds = %9, %9, %9, %9, %9, %9
@@ -1477,11 +1477,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703: ; preds = %312, %320, %325
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708: ; preds = %347, %351, %356
-  %.0.i.i707 = phi i32 [ 64, %347 ], [ 32, %351 ], [ %361, %356 ]
+  %.0.i.i706 = phi i32 [ 64, %347 ], [ 32, %351 ], [ %361, %356 ]
   %362 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %363 = load i64, ptr %362, align 8
   %364 = trunc i64 %363 to i32
-  call void @_ZN4llvm16DecodePSLLDQMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i707, i32 noundef %364, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm16DecodePSLLDQMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i706, i32 noundef %364, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 365:                                              ; preds = %9, %9, %9, %9, %9, %9
@@ -1530,11 +1530,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708: ; preds = %347, %351, %356
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713: ; preds = %381, %385, %390
-  %.0.i.i712 = phi i32 [ 64, %381 ], [ 32, %385 ], [ %395, %390 ]
+  %.0.i.i711 = phi i32 [ 64, %381 ], [ 32, %385 ], [ %395, %390 ]
   %396 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %397 = load i64, ptr %396, align 8
   %398 = trunc i64 %397 to i32
-  call void @_ZN4llvm16DecodePSRLDQMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i712, i32 noundef %398, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm16DecodePSRLDQMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i711, i32 noundef %398, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 399:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -1592,11 +1592,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713: ; preds = %381, %385, %390
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718: ; preds = %423, %427, %432
-  %.0.i.i717 = phi i32 [ 64, %423 ], [ 32, %427 ], [ %437, %432 ]
+  %.0.i.i716 = phi i32 [ 64, %423 ], [ 32, %427 ], [ %437, %432 ]
   %438 = getelementptr inbounds nuw i8, ptr %420, i64 8
   %439 = load i64, ptr %438, align 8
   %440 = trunc i64 %439 to i32
-  call void @_ZN4llvm17DecodePALIGNRMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i717, i32 noundef %440, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm17DecodePALIGNRMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i716, i32 noundef %440, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 441:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -1654,11 +1654,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718: ; preds = %423, %427, %432
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723: ; preds = %465, %469, %474
-  %.0.i.i722 = phi i32 [ 8, %465 ], [ 4, %469 ], [ %479, %474 ]
+  %.0.i.i721 = phi i32 [ 8, %465 ], [ 4, %469 ], [ %479, %474 ]
   %480 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %481 = load i64, ptr %480, align 8
   %482 = trunc i64 %481 to i32
-  call void @_ZN4llvm16DecodeVALIGNMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i722, i32 noundef %482, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm16DecodeVALIGNMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i721, i32 noundef %482, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 483:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -1716,11 +1716,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723: ; preds = %465, %469, %474
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728: ; preds = %507, %511, %516
-  %.0.i.i727 = phi i32 [ 16, %507 ], [ 8, %511 ], [ %521, %516 ]
+  %.0.i.i726 = phi i32 [ 16, %507 ], [ 8, %511 ], [ %521, %516 ]
   %522 = getelementptr inbounds nuw i8, ptr %504, i64 8
   %523 = load i64, ptr %522, align 8
   %524 = trunc i64 %523 to i32
-  call void @_ZN4llvm16DecodeVALIGNMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i727, i32 noundef %524, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm16DecodeVALIGNMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i726, i32 noundef %524, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 525:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -1771,11 +1771,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728: ; preds = %507, %511, %516
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733: ; preds = %543, %547, %552
-  %.0.i.i732 = phi i32 [ 16, %543 ], [ 8, %547 ], [ %557, %552 ]
+  %.0.i.i731 = phi i32 [ 16, %543 ], [ 8, %547 ], [ %557, %552 ]
   %558 = getelementptr inbounds nuw i8, ptr %540, i64 8
   %559 = load i64, ptr %558, align 8
   %560 = trunc i64 %559 to i32
-  call void @_ZN4llvm15DecodePSHUFMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i732, i32 noundef 32, i32 noundef %560, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm15DecodePSHUFMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i731, i32 noundef 32, i32 noundef %560, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 561:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -1826,11 +1826,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733: ; preds = %543, %547, %552
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738: ; preds = %579, %583, %588
-  %.0.i.i737 = phi i32 [ 32, %579 ], [ 16, %583 ], [ %593, %588 ]
+  %.0.i.i736 = phi i32 [ 32, %579 ], [ 16, %583 ], [ %593, %588 ]
   %594 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %595 = load i64, ptr %594, align 8
   %596 = trunc i64 %595 to i32
-  call void @_ZN4llvm17DecodePSHUFHWMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i737, i32 noundef %596, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm17DecodePSHUFHWMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i736, i32 noundef %596, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 597:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -1881,11 +1881,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738: ; preds = %579, %583, %588
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743: ; preds = %615, %619, %624
-  %.0.i.i742 = phi i32 [ 32, %615 ], [ 16, %619 ], [ %629, %624 ]
+  %.0.i.i741 = phi i32 [ 32, %615 ], [ 16, %619 ], [ %629, %624 ]
   %630 = getelementptr inbounds nuw i8, ptr %612, i64 8
   %631 = load i64, ptr %630, align 8
   %632 = trunc i64 %631 to i32
-  call void @_ZN4llvm17DecodePSHUFLWMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i742, i32 noundef %632, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm17DecodePSHUFLWMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i741, i32 noundef %632, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 633:                                              ; preds = %9
@@ -1979,8 +1979,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743: ; preds = %615, %619, %624
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748: ; preds = %670, %684, %689
-  %.0.i.i747 = phi i32 [ 64, %670 ], [ 32, %684 ], [ %694, %689 ]
-  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i747, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i746 = phi i32 [ 64, %670 ], [ 32, %684 ], [ %694, %689 ]
+  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i746, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 695:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -2030,8 +2030,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748: ; preds = %670, %684, %689
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753: ; preds = %702, %716, %721
-  %.0.i.i752 = phi i32 [ 32, %702 ], [ 16, %716 ], [ %726, %721 ]
-  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i752, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i751 = phi i32 [ 32, %702 ], [ 16, %716 ], [ %726, %721 ]
+  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i751, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 727:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -2081,8 +2081,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753: ; preds = %702, %716, %721
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758: ; preds = %734, %748, %753
-  %.0.i.i757 = phi i32 [ 16, %734 ], [ 8, %748 ], [ %758, %753 ]
-  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i757, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i756 = phi i32 [ 16, %734 ], [ 8, %748 ], [ %758, %753 ]
+  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i756, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 759:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -2132,8 +2132,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758: ; preds = %734, %748, %753
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763: ; preds = %766, %780, %785
-  %.0.i.i762 = phi i32 [ 8, %766 ], [ 4, %780 ], [ %790, %785 ]
-  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i762, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i761 = phi i32 [ 8, %766 ], [ 4, %780 ], [ %790, %785 ]
+  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i761, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 791:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -2183,8 +2183,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763: ; preds = %766, %780, %785
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768: ; preds = %798, %812, %817
-  %.0.i.i767 = phi i32 [ 64, %798 ], [ 32, %812 ], [ %822, %817 ]
-  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i767, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i766 = phi i32 [ 64, %798 ], [ 32, %812 ], [ %822, %817 ]
+  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i766, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 823:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -2234,8 +2234,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768: ; preds = %798, %812, %817
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773: ; preds = %830, %844, %849
-  %.0.i.i772 = phi i32 [ 32, %830 ], [ 16, %844 ], [ %854, %849 ]
-  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i772, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i771 = phi i32 [ 32, %830 ], [ 16, %844 ], [ %854, %849 ]
+  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i771, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 855:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -2285,8 +2285,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773: ; preds = %830, %844, %849
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778: ; preds = %862, %876, %881
-  %.0.i.i777 = phi i32 [ 16, %862 ], [ 8, %876 ], [ %886, %881 ]
-  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i777, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i776 = phi i32 [ 16, %862 ], [ 8, %876 ], [ %886, %881 ]
+  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i776, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 887:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -2336,8 +2336,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778: ; preds = %862, %876, %881
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783: ; preds = %894, %908, %913
-  %.0.i.i782 = phi i32 [ 8, %894 ], [ 4, %908 ], [ %918, %913 ]
-  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i782, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i781 = phi i32 [ 8, %894 ], [ 4, %908 ], [ %918, %913 ]
+  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i781, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   br label %1685
 
 919:                                              ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -2385,16 +2385,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783: ; preds = %894, %908, %913
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788: ; preds = %933, %937, %942
-  %.0.i.i787 = phi i32 [ 8, %933 ], [ 4, %937 ], [ %947, %942 ]
+  %.0.i.i786 = phi i32 [ 8, %933 ], [ 4, %937 ], [ %947, %942 ]
   %948 = getelementptr inbounds nuw i8, ptr %930, i64 8
   %949 = load i64, ptr %948, align 8
   %950 = trunc i64 %949 to i32
-  call void @_ZN4llvm15DecodeSHUFPMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i787, i32 noundef 64, i32 noundef %950, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1009 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodeSHUFPMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i786, i32 noundef 64, i32 noundef %950, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre929 = load ptr, ptr %6, align 8
   br label %951
 
 951:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788, %926
-  %952 = phi ptr [ %.pre1009, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788 ], [ %929, %926 ]
+  %952 = phi ptr [ %.pre929, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788 ], [ %929, %926 ]
   %953 = add i64 %.11615.neg, %7
   %954 = and i64 %953, 4294967295
   %955 = getelementptr inbounds %"class.llvm::MCOperand", ptr %952, i64 %954, i32 1
@@ -2451,16 +2451,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788: ; preds = %933, %937, %942
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793: ; preds = %976, %980, %985
-  %.0.i.i792 = phi i32 [ 16, %976 ], [ 8, %980 ], [ %990, %985 ]
+  %.0.i.i791 = phi i32 [ 16, %976 ], [ 8, %980 ], [ %990, %985 ]
   %991 = getelementptr inbounds nuw i8, ptr %973, i64 8
   %992 = load i64, ptr %991, align 8
   %993 = trunc i64 %992 to i32
-  call void @_ZN4llvm15DecodeSHUFPMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i792, i32 noundef 32, i32 noundef %993, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1008 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodeSHUFPMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i791, i32 noundef 32, i32 noundef %993, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre928 = load ptr, ptr %6, align 8
   br label %994
 
 994:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793, %969
-  %995 = phi ptr [ %.pre1008, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793 ], [ %972, %969 ]
+  %995 = phi ptr [ %.pre928, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793 ], [ %972, %969 ]
   %996 = add i64 %.12616.neg, %7
   %997 = and i64 %996, 4294967295
   %998 = getelementptr inbounds %"class.llvm::MCOperand", ptr %995, i64 %997, i32 1
@@ -2509,13 +2509,13 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793: ; preds = %976, %980, %985
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798: ; preds = %1012, %1016, %1021
-  %.0.i.i797 = phi i32 [ 8, %1012 ], [ 4, %1016 ], [ %1026, %1021 ]
+  %.0.i.i796 = phi i32 [ 8, %1012 ], [ 4, %1016 ], [ %1026, %1021 ]
   %1027 = add i64 %7, 4294967295
   %1028 = and i64 %1027, 4294967295
   %1029 = getelementptr inbounds %"class.llvm::MCOperand", ptr %.val658, i64 %1028, i32 1
   %1030 = load i64, ptr %1029, align 8
   %1031 = trunc i64 %1030 to i32
-  call void @_ZN4llvm25decodeVSHUF64x2FamilyMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i797, i32 noundef 64, i32 noundef %1031, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm25decodeVSHUF64x2FamilyMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i796, i32 noundef 64, i32 noundef %1031, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1032 = add i64 %.13617.neg, %7
   %1033 = and i64 %1032, 4294967295
   %1034 = load ptr, ptr %6, align 8
@@ -2565,13 +2565,13 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798: ; preds = %1012, %1016, %10
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803: ; preds = %1049, %1053, %1058
-  %.0.i.i802 = phi i32 [ 16, %1049 ], [ 8, %1053 ], [ %1063, %1058 ]
+  %.0.i.i801 = phi i32 [ 16, %1049 ], [ 8, %1053 ], [ %1063, %1058 ]
   %1064 = add i64 %7, 4294967295
   %1065 = and i64 %1064, 4294967295
   %1066 = getelementptr inbounds %"class.llvm::MCOperand", ptr %.val659, i64 %1065, i32 1
   %1067 = load i64, ptr %1066, align 8
   %1068 = trunc i64 %1067 to i32
-  call void @_ZN4llvm25decodeVSHUF64x2FamilyMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i802, i32 noundef 32, i32 noundef %1068, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN4llvm25decodeVSHUF64x2FamilyMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i801, i32 noundef 32, i32 noundef %1068, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1069 = add i64 %.14618.neg, %7
   %1070 = and i64 %1069, 4294967295
   %1071 = load ptr, ptr %6, align 8
@@ -2621,8 +2621,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803: ; preds = %1049, %1053, %10
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808: ; preds = %1086, %1090, %1095
-  %.0.i.i807 = phi i32 [ 8, %1086 ], [ 4, %1090 ], [ %1100, %1095 ]
-  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i807, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i806 = phi i32 [ 8, %1086 ], [ 4, %1090 ], [ %1100, %1095 ]
+  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i806, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1101 = add i64 %.15619.neg, %7
   %1102 = and i64 %1101, 4294967295
   %1103 = load ptr, ptr %6, align 8
@@ -2672,8 +2672,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808: ; preds = %1086, %1090, %10
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813: ; preds = %1118, %1122, %1127
-  %.0.i.i812 = phi i32 [ 16, %1118 ], [ 8, %1122 ], [ %1132, %1127 ]
-  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i812, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i811 = phi i32 [ 16, %1118 ], [ 8, %1122 ], [ %1132, %1127 ]
+  call void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i811, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1133 = add i64 %.16620.neg, %7
   %1134 = and i64 %1133, 4294967295
   %1135 = load ptr, ptr %6, align 8
@@ -2723,8 +2723,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813: ; preds = %1118, %1122, %11
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818: ; preds = %1150, %1154, %1159
-  %.0.i.i817 = phi i32 [ 8, %1150 ], [ 4, %1154 ], [ %1164, %1159 ]
-  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i817, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i816 = phi i32 [ 8, %1150 ], [ 4, %1154 ], [ %1164, %1159 ]
+  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i816, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1165 = add i64 %.17621.neg, %7
   %1166 = and i64 %1165, 4294967295
   %1167 = load ptr, ptr %6, align 8
@@ -2774,8 +2774,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818: ; preds = %1150, %1154, %11
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823: ; preds = %1182, %1186, %1191
-  %.0.i.i822 = phi i32 [ 16, %1182 ], [ 8, %1186 ], [ %1196, %1191 ]
-  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i822, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i821 = phi i32 [ 16, %1182 ], [ 8, %1186 ], [ %1196, %1191 ]
+  call void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i821, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1197 = add i64 %.18622.neg, %7
   %1198 = and i64 %1197, 4294967295
   %1199 = load ptr, ptr %6, align 8
@@ -2832,16 +2832,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823: ; preds = %1182, %1186, %11
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828: ; preds = %1221, %1225, %1230
-  %.0.i.i827 = phi i32 [ 16, %1221 ], [ 8, %1225 ], [ %1235, %1230 ]
+  %.0.i.i826 = phi i32 [ 16, %1221 ], [ 8, %1225 ], [ %1235, %1230 ]
   %1236 = getelementptr inbounds nuw i8, ptr %1218, i64 8
   %1237 = load i64, ptr %1236, align 8
   %1238 = trunc i64 %1237 to i32
-  call void @_ZN4llvm15DecodePSHUFMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i827, i32 noundef 32, i32 noundef %1238, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1007 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodePSHUFMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i826, i32 noundef 32, i32 noundef %1238, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre927 = load ptr, ptr %6, align 8
   br label %1239
 
 1239:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828, %1214
-  %1240 = phi ptr [ %.pre1007, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828 ], [ %1217, %1214 ]
+  %1240 = phi ptr [ %.pre927, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828 ], [ %1217, %1214 ]
   %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 8
   %1242 = load i32, ptr %1241, align 8
   %1243 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1242) #6
@@ -2891,16 +2891,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828: ; preds = %1221, %1225, %12
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %1267
-  %.0.i.i832 = phi i32 [ 8, %1258 ], [ 4, %1262 ], [ %1272, %1267 ]
+  %.0.i.i831 = phi i32 [ 8, %1258 ], [ 4, %1262 ], [ %1272, %1267 ]
   %1273 = getelementptr inbounds nuw i8, ptr %1255, i64 8
   %1274 = load i64, ptr %1273, align 8
   %1275 = trunc i64 %1274 to i32
-  call void @_ZN4llvm15DecodePSHUFMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i832, i32 noundef 64, i32 noundef %1275, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1006 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodePSHUFMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i831, i32 noundef 64, i32 noundef %1275, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre926 = load ptr, ptr %6, align 8
   br label %1276
 
 1276:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833, %1251
-  %1277 = phi ptr [ %.pre1006, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833 ], [ %1254, %1251 ]
+  %1277 = phi ptr [ %.pre926, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833 ], [ %1254, %1251 ]
   %1278 = getelementptr inbounds nuw i8, ptr %1277, i64 8
   %1279 = load i32, ptr %1278, align 8
   %1280 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1279) #6
@@ -2928,11 +2928,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %12
   %1295 = load i64, ptr %1294, align 8
   %1296 = trunc i64 %1295 to i32
   call void @_ZN4llvm20DecodeVPERM2X128MaskEjjRNS_15SmallVectorImplIiEE(i32 noundef 4, i32 noundef %1296, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1005 = load ptr, ptr %6, align 8
+  %.pre925 = load ptr, ptr %6, align 8
   br label %1297
 
 1297:                                             ; preds = %1293, %1286
-  %1298 = phi ptr [ %.pre1005, %1293 ], [ %1289, %1286 ]
+  %1298 = phi ptr [ %.pre925, %1293 ], [ %1289, %1286 ]
   %1299 = getelementptr inbounds i8, ptr %1298, i64 24
   %1300 = load i32, ptr %1299, align 8
   %1301 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1300) #6
@@ -2986,16 +2986,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %12
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838: ; preds = %1320, %1324, %1329
-  %.0.i.i837 = phi i32 [ 8, %1320 ], [ 4, %1324 ], [ %1334, %1329 ]
+  %.0.i.i836 = phi i32 [ 8, %1320 ], [ 4, %1324 ], [ %1334, %1329 ]
   %1335 = getelementptr inbounds nuw i8, ptr %1317, i64 8
   %1336 = load i64, ptr %1335, align 8
   %1337 = trunc i64 %1336 to i32
-  call void @_ZN4llvm15DecodeVPERMMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i837, i32 noundef %1337, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1004 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodeVPERMMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i836, i32 noundef %1337, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre924 = load ptr, ptr %6, align 8
   br label %1338
 
 1338:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838, %1313
-  %1339 = phi ptr [ %.pre1004, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838 ], [ %1316, %1313 ]
+  %1339 = phi ptr [ %.pre924, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838 ], [ %1316, %1313 ]
   %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 8
   %1341 = load i32, ptr %1340, align 8
   %1342 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1341) #6
@@ -3045,16 +3045,16 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838: ; preds = %1320, %1324, %13
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %1366
-  %.0.i.i842 = phi i32 [ 8, %1357 ], [ 4, %1361 ], [ %1371, %1366 ]
+  %.0.i.i841 = phi i32 [ 8, %1357 ], [ 4, %1361 ], [ %1371, %1366 ]
   %1372 = getelementptr inbounds nuw i8, ptr %1354, i64 8
   %1373 = load i64, ptr %1372, align 8
   %1374 = trunc i64 %1373 to i32
-  call void @_ZN4llvm15DecodeVPERMMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i842, i32 noundef %1374, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1003 = load ptr, ptr %6, align 8
+  call void @_ZN4llvm15DecodeVPERMMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i841, i32 noundef %1374, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.pre923 = load ptr, ptr %6, align 8
   br label %1375
 
 1375:                                             ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843, %1350
-  %1376 = phi ptr [ %.pre1003, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843 ], [ %1353, %1350 ]
+  %1376 = phi ptr [ %.pre923, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843 ], [ %1353, %1350 ]
   %1377 = getelementptr inbounds nuw i8, ptr %1376, i64 8
   %1378 = load i32, ptr %1377, align 8
   %1379 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1378) #6
@@ -3125,11 +3125,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
   %1429 = load i64, ptr %1428, align 8
   %1430 = trunc i64 %1429 to i32
   call void @_ZN4llvm16DecodeEXTRQIMaskEjjiiRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 8, i32 noundef %1427, i32 noundef %1430, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %.pre1002 = load ptr, ptr %6, align 8
+  %.pre922 = load ptr, ptr %6, align 8
   br label %1431
 
 1431:                                             ; preds = %1424, %1420, %1415
-  %1432 = phi ptr [ %.pre1002, %1424 ], [ %1416, %1420 ], [ %1416, %1415 ]
+  %1432 = phi ptr [ %.pre922, %1424 ], [ %1416, %1420 ], [ %1416, %1415 ]
   %1433 = getelementptr inbounds nuw i8, ptr %1432, i64 8
   %1434 = load i32, ptr %1433, align 8
   %1435 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1434) #6
@@ -3312,8 +3312,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848: ; preds = %1535, %1545, %1550
-  %.0.i.i847 = phi i32 [ 32, %1535 ], [ 16, %1545 ], [ %1555, %1550 ]
-  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 16, i32 noundef %.0.i.i847, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i846 = phi i32 [ 32, %1535 ], [ 16, %1545 ], [ %1555, %1550 ]
+  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 16, i32 noundef %.0.i.i846, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1556 = load ptr, ptr %6, align 8
   %1557 = getelementptr inbounds nuw i8, ptr %1556, i64 8
   %1558 = load i32, ptr %1557, align 8
@@ -3352,8 +3352,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848: ; preds = %1535, %1545, %15
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853: ; preds = %1560, %1570, %1575
-  %.0.i.i852 = phi i32 [ 16, %1560 ], [ 8, %1570 ], [ %1580, %1575 ]
-  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 32, i32 noundef %.0.i.i852, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i851 = phi i32 [ 16, %1560 ], [ 8, %1570 ], [ %1580, %1575 ]
+  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 32, i32 noundef %.0.i.i851, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1581 = load ptr, ptr %6, align 8
   %1582 = getelementptr inbounds nuw i8, ptr %1581, i64 8
   %1583 = load i32, ptr %1582, align 8
@@ -3392,8 +3392,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853: ; preds = %1560, %1570, %15
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858: ; preds = %1585, %1595, %1600
-  %.0.i.i857 = phi i32 [ 8, %1585 ], [ 4, %1595 ], [ %1605, %1600 ]
-  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 64, i32 noundef %.0.i.i857, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i856 = phi i32 [ 8, %1585 ], [ 4, %1595 ], [ %1605, %1600 ]
+  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 8, i32 noundef 64, i32 noundef %.0.i.i856, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1606 = load ptr, ptr %6, align 8
   %1607 = getelementptr inbounds nuw i8, ptr %1606, i64 8
   %1608 = load i32, ptr %1607, align 8
@@ -3432,8 +3432,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858: ; preds = %1585, %1595, %16
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863: ; preds = %1610, %1620, %1625
-  %.0.i.i862 = phi i32 [ 16, %1610 ], [ 8, %1620 ], [ %1630, %1625 ]
-  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 32, i32 noundef %.0.i.i862, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i861 = phi i32 [ 16, %1610 ], [ 8, %1620 ], [ %1630, %1625 ]
+  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 32, i32 noundef %.0.i.i861, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1631 = load ptr, ptr %6, align 8
   %1632 = getelementptr inbounds nuw i8, ptr %1631, i64 8
   %1633 = load i32, ptr %1632, align 8
@@ -3472,8 +3472,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863: ; preds = %1610, %1620, %16
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868: ; preds = %1635, %1645, %1650
-  %.0.i.i867 = phi i32 [ 8, %1635 ], [ 4, %1645 ], [ %1655, %1650 ]
-  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 64, i32 noundef %.0.i.i867, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i866 = phi i32 [ 8, %1635 ], [ 4, %1645 ], [ %1655, %1650 ]
+  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 64, i32 noundef %.0.i.i866, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1656 = load ptr, ptr %6, align 8
   %1657 = getelementptr inbounds nuw i8, ptr %1656, i64 8
   %1658 = load i32, ptr %1657, align 8
@@ -3512,8 +3512,8 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868: ; preds = %1635, %1645, %16
   br label %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873
 
 _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit873: ; preds = %1660, %1670, %1675
-  %.0.i.i872 = phi i32 [ 8, %1660 ], [ 4, %1670 ], [ %1680, %1675 ]
-  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 32, i32 noundef 64, i32 noundef %.0.i.i872, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  %.0.i.i871 = phi i32 [ 8, %1660 ], [ 4, %1670 ], [ %1680, %1675 ]
+  call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef 32, i32 noundef 64, i32 noundef %.0.i.i871, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1681 = load ptr, ptr %6, align 8
   %1682 = getelementptr inbounds nuw i8, ptr %1681, i64 8
   %1683 = load i32, ptr %1682, align 8
@@ -3617,8 +3617,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit882:              ; preds = %1725, %1727
   %1732 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1733 = trunc i64 %1732 to i32
   %invariant.smax = call i32 @llvm.smax.i32(i32 %1733, i32 0)
-  %.not626988 = icmp eq i32 %1733, 0
-  br i1 %.not626988, label %.loopexit, label %.lr.ph.preheader
+  %.not626908 = icmp eq i32 %1733, 0
+  br i1 %.not626908, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1731
   %1734 = and i64 %1732, 4294967295
@@ -3645,15 +3645,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit882:              ; preds = %1725, %1727
 .loopexit:                                        ; preds = %1740, %1731, %_ZN4llvm11raw_ostreamlsEPKc.exit882
   %1741 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1742 = trunc i64 %1741 to i32
-  %.not627998 = icmp eq i32 %1742, 0
-  br i1 %.not627998, label %._crit_edge, label %.lr.ph1000
+  %.not627918 = icmp eq i32 %1742, 0
+  br i1 %.not627918, label %._crit_edge, label %.lr.ph920
 
-.lr.ph1000:                                       ; preds = %.loopexit, %_ZN4llvm11raw_ostreamlsEc.exit904
-  %.0579999 = phi i32 [ %.1580, %_ZN4llvm11raw_ostreamlsEc.exit904 ], [ 0, %.loopexit ]
-  %.not628 = icmp eq i32 %.0579999, 0
+.lr.ph920:                                        ; preds = %.loopexit, %_ZN4llvm11raw_ostreamlsEc.exit904
+  %.0579919 = phi i32 [ %.1580, %_ZN4llvm11raw_ostreamlsEc.exit904 ], [ 0, %.loopexit ]
+  %.not628 = icmp eq i32 %.0579919, 0
   br i1 %.not628, label %_ZN4llvm11raw_ostreamlsEc.exit, label %1743
 
-1743:                                             ; preds = %.lr.ph1000
+1743:                                             ; preds = %.lr.ph920
   %1744 = load ptr, ptr %1719, align 8
   %1745 = load ptr, ptr %1717, align 8
   %.not.i = icmp ult ptr %1744, %1745
@@ -3669,8 +3669,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit882:              ; preds = %1725, %1727
   store i8 44, ptr %1744, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %1748, %1746, %.lr.ph1000
-  %1750 = zext i32 %.0579999 to i64
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %1748, %1746, %.lr.ph920
+  %1750 = zext i32 %.0579919 to i64
   %1751 = load ptr, ptr %4, align 8
   %1752 = getelementptr inbounds i32, ptr %1751, i64 %1750
   %1753 = load i32, ptr %1752, align 4
@@ -3698,7 +3698,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %1748, %1746, %.lr.p
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit886
 
 _ZN4llvm11raw_ostreamlsEPKc.exit886:              ; preds = %1762, %1764
-  %1767 = add i32 %.0579999, 1
+  %1767 = add i32 %.0579919, 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit904
 
 1768:                                             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
@@ -3720,7 +3720,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit886:              ; preds = %1762, %1764
 1781:                                             ; preds = %1768
   %1782 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %1773, i64 noundef %1774) #6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1782, i64 32
-  %.pre1014 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre934 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit891
 
 1783:                                             ; preds = %1768
@@ -3735,7 +3735,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit886:              ; preds = %1762, %1764
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit891
 
 _ZN4llvm11raw_ostreamlsEPKc.exit891:              ; preds = %1781, %1783, %1784
-  %1787 = phi ptr [ %.pre1014, %1781 ], [ %1786, %1784 ], [ %1776, %1783 ]
+  %1787 = phi ptr [ %.pre934, %1781 ], [ %1786, %1784 ], [ %1776, %1783 ]
   %.0.i.i890 = phi ptr [ %1782, %1781 ], [ %1, %1784 ], [ %1, %1783 ]
   %1788 = getelementptr inbounds nuw i8, ptr %.0.i.i890, i64 24
   %1789 = load ptr, ptr %1788, align 8
@@ -3754,20 +3754,20 @@ _ZN4llvm11raw_ostreamlsEPKc.exit891:              ; preds = %1781, %1783, %1784
   br label %_ZN4llvm11raw_ostreamlsEc.exit894
 
 _ZN4llvm11raw_ostreamlsEc.exit894:                ; preds = %1790, %1792
-  %.not630990 = icmp eq i32 %.0579999, %1742
-  br i1 %.not630990, label %.critedge, label %.lr.ph993
+  %.not630910 = icmp eq i32 %.0579919, %1742
+  br i1 %.not630910, label %.critedge, label %.lr.ph913
 
-.lr.ph993:                                        ; preds = %_ZN4llvm11raw_ostreamlsEc.exit894, %_ZN4llvm11raw_ostreamlsEPKc.exit901
-  %.0992 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit901 ], [ true, %_ZN4llvm11raw_ostreamlsEc.exit894 ]
-  %.2581991 = phi i32 [ %1830, %_ZN4llvm11raw_ostreamlsEPKc.exit901 ], [ %.0579999, %_ZN4llvm11raw_ostreamlsEc.exit894 ]
-  %1795 = zext i32 %.2581991 to i64
+.lr.ph913:                                        ; preds = %_ZN4llvm11raw_ostreamlsEc.exit894, %_ZN4llvm11raw_ostreamlsEPKc.exit901
+  %.0912 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit901 ], [ true, %_ZN4llvm11raw_ostreamlsEc.exit894 ]
+  %.2581911 = phi i32 [ %1830, %_ZN4llvm11raw_ostreamlsEPKc.exit901 ], [ %.0579919, %_ZN4llvm11raw_ostreamlsEc.exit894 ]
+  %1795 = zext i32 %.2581911 to i64
   %1796 = load ptr, ptr %4, align 8
   %1797 = getelementptr inbounds i32, ptr %1796, i64 %1795
   %1798 = load i32, ptr %1797, align 4
   %.not631 = icmp eq i32 %1798, -2
   br i1 %.not631, label %.critedge, label %1799
 
-1799:                                             ; preds = %.lr.ph993
+1799:                                             ; preds = %.lr.ph913
   %1800 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1801 = trunc i64 %1800 to i32
   %1802 = icmp sge i32 %1798, %1801
@@ -3775,7 +3775,7 @@ _ZN4llvm11raw_ostreamlsEc.exit894:                ; preds = %1790, %1792
   br i1 %1803, label %1804, label %.critedge
 
 1804:                                             ; preds = %1799
-  br i1 %.0992, label %_ZN4llvm11raw_ostreamlsEc.exit897, label %1805
+  br i1 %.0912, label %_ZN4llvm11raw_ostreamlsEc.exit897, label %1805
 
 1805:                                             ; preds = %1804
   %1806 = load ptr, ptr %1719, align 8
@@ -3825,12 +3825,12 @@ _ZN4llvm11raw_ostreamlsEc.exit897:                ; preds = %1810, %1808, %1804
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit901
 
 _ZN4llvm11raw_ostreamlsEPKc.exit901:              ; preds = %1822, %1820, %1825
-  %1830 = add i32 %.2581991, 1
+  %1830 = add i32 %.2581911, 1
   %.not630 = icmp eq i32 %1830, %1742
-  br i1 %.not630, label %.critedge, label %.lr.ph993, !llvm.loop !6
+  br i1 %.not630, label %.critedge, label %.lr.ph913, !llvm.loop !6
 
-.critedge:                                        ; preds = %1799, %_ZN4llvm11raw_ostreamlsEPKc.exit901, %.lr.ph993, %_ZN4llvm11raw_ostreamlsEc.exit894
-  %.2581.lcssa = phi i32 [ %1742, %_ZN4llvm11raw_ostreamlsEc.exit894 ], [ %.2581991, %.lr.ph993 ], [ %1742, %_ZN4llvm11raw_ostreamlsEPKc.exit901 ], [ %.2581991, %1799 ]
+.critedge:                                        ; preds = %1799, %_ZN4llvm11raw_ostreamlsEPKc.exit901, %.lr.ph913, %_ZN4llvm11raw_ostreamlsEc.exit894
+  %.2581.lcssa = phi i32 [ %1742, %_ZN4llvm11raw_ostreamlsEc.exit894 ], [ %.2581911, %.lr.ph913 ], [ %1742, %_ZN4llvm11raw_ostreamlsEPKc.exit901 ], [ %.2581911, %1799 ]
   %1831 = load ptr, ptr %1719, align 8
   %1832 = load ptr, ptr %1717, align 8
   %.not.i902 = icmp ult ptr %1831, %1832
@@ -3849,7 +3849,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit901:              ; preds = %1822, %1820, %1825
 _ZN4llvm11raw_ostreamlsEc.exit904:                ; preds = %1835, %1833, %_ZN4llvm11raw_ostreamlsEPKc.exit886
   %.1580 = phi i32 [ %1767, %_ZN4llvm11raw_ostreamlsEPKc.exit886 ], [ %.2581.lcssa, %1833 ], [ %.2581.lcssa, %1835 ]
   %.not627 = icmp eq i32 %.1580, %1742
-  br i1 %.not627, label %._crit_edge, label %.lr.ph1000, !llvm.loop !7
+  br i1 %.not627, label %._crit_edge, label %.lr.ph920, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit904, %.loopexit
   %1837 = load ptr, ptr %1719, align 8

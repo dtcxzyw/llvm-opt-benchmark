@@ -462,7 +462,7 @@ declare void @dt_gaussian_free(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @make_noise(ptr noundef %0, float noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #8 {
+define internal fastcc void @make_noise(ptr noundef %0, float noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #8 {
   %5 = icmp eq i64 %3, 0
   %6 = icmp eq i64 %2, 0
   %7 = or i1 %6, %5

@@ -2209,7 +2209,7 @@ if.end:                                           ; preds = %entry
   store ptr %3, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call, ptr %arrayinit.element, align 8
-  %call4 = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.7, ptr noundef nonnull %args, i64 noundef 2)
+  %call4 = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.7, ptr noundef %args, i64 noundef 2)
   %5 = load i64, ptr %call, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i6.not = icmp eq i64 %6, 0
@@ -2339,7 +2339,7 @@ return:                                           ; preds = %for.inc, %if.end.i.
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @call_typing_func_object(ptr noundef %name, ptr noundef %args, i64 noundef %nargs) unnamed_addr #0 {
+define internal fastcc ptr @call_typing_func_object(ptr noundef %name, ptr noundef nonnull %args, i64 noundef range(i64 2, 4) %nargs) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.59) #7
   %cmp = icmp eq ptr %call, null
@@ -2363,7 +2363,7 @@ if.end.i18:                                       ; preds = %if.then3
   br i1 %cmp.i20, label %return.sink.split, label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr @PyObject_Vectorcall(ptr noundef nonnull %call1, ptr noundef %args, i64 noundef %nargs, ptr noundef null) #7
+  %call5 = tail call ptr @PyObject_Vectorcall(ptr noundef nonnull %call1, ptr noundef nonnull %args, i64 noundef %nargs, ptr noundef null) #7
   %2 = load i64, ptr %call1, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i28.not = icmp eq i64 %3, 0
@@ -2606,7 +2606,7 @@ entry:
   store ptr %self, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %other, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.14, ptr noundef nonnull %args, i64 noundef 2)
+  %call = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.14, ptr noundef %args, i64 noundef 2)
   ret ptr %call
 }
 
@@ -2762,7 +2762,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   store ptr %bound.03754, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %call2.i.i, ptr %arrayinit.element.i.i, align 8
-  %call6.i.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.28, ptr noundef nonnull %args.i.i, i64 noundef 2)
+  %call6.i.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.28, ptr noundef %args.i.i, i64 noundef 2)
   %14 = load i64, ptr %call2.i.i, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i8.not.i.i = icmp eq i64 %15, 0
@@ -3405,7 +3405,7 @@ entry:
   store ptr %self, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %arg, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.12, ptr noundef nonnull %args, i64 noundef 2)
+  %call = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.12, ptr noundef %args, i64 noundef 2)
   ret ptr %call
 }
 
@@ -4096,7 +4096,7 @@ if.end5.i.i:                                      ; preds = %if.end.i18.i
   store ptr %bound.05471, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %call2.i.i, ptr %arrayinit.element.i.i, align 8
-  %call6.i.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.28, ptr noundef nonnull %args.i.i, i64 noundef 2)
+  %call6.i.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.28, ptr noundef %args.i.i, i64 noundef 2)
   %22 = load i64, ptr %call2.i.i, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i8.not.i.i = icmp eq i64 %23, 0
@@ -4479,7 +4479,7 @@ entry:
   store ptr %self, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %arg, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.47, ptr noundef nonnull %args, i64 noundef 2)
+  %call = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.47, ptr noundef %args, i64 noundef 2)
   ret ptr %call
 }
 
@@ -4505,7 +4505,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   store ptr %0, ptr %arrayinit.element.i, align 8
   %arrayinit.element1.i = getelementptr inbounds i8, ptr %args_array.i, i64 16
   store ptr %1, ptr %arrayinit.element1.i, align 16
-  %call.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.48, ptr noundef nonnull %args_array.i, i64 noundef 3)
+  %call.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.48, ptr noundef %args_array.i, i64 noundef 3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %args_array.i)
   br label %exit
 
@@ -4674,7 +4674,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   store ptr %0, ptr %arrayinit.element.i, align 8
   %arrayinit.element1.i = getelementptr inbounds i8, ptr %args_array.i, i64 16
   store ptr %1, ptr %arrayinit.element1.i, align 16
-  %call.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.56, ptr noundef nonnull %args_array.i, i64 noundef 3)
+  %call.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.56, ptr noundef %args_array.i, i64 noundef 3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %args_array.i)
   br label %exit
 

@@ -781,7 +781,7 @@ readSkippableFrameSize.exit:                      ; preds = %12
 
 31:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull %.02848, i64 noundef %.02947)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull %.02848, i64 noundef %.02947)
   %32 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %33 = icmp ult i64 %32, -119
@@ -808,7 +808,7 @@ readSkippableFrameSize.exit.thread:               ; preds = %31, %28, %22, %12, 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ZSTD_findFrameCompressedSize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ZSTD_frameSizeInfo, align 8
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %0, i64 noundef %1)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0, i64 noundef %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   ret i64 %5
@@ -833,7 +833,7 @@ define dso_local i64 @ZSTD_getDecompressedSize(ptr noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.ZSTD_frameHeader, align 8
   %5 = alloca %struct.blockProperties_t, align 4
   %6 = icmp ugt i64 %2, 7
@@ -955,7 +955,7 @@ define dso_local i64 @ZSTD_decompressBound(ptr noundef %0, i64 noundef %1) local
   %.01320 = phi ptr [ %0, %.lr.ph ], [ %12, %11 ]
   %.01419 = phi i64 [ 0, %.lr.ph ], [ %14, %11 ]
   %.01518 = phi i64 [ %1, %.lr.ph ], [ %13, %11 ]
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.01320, i64 noundef %.01518)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %.01320, i64 noundef %.01518)
   %7 = load i64, ptr %4, align 8
   %8 = load i64, ptr %5, align 8
   %9 = icmp ugt i64 %7, -120
@@ -996,7 +996,7 @@ define dso_local i64 @ZSTD_decompressionMargin(ptr noundef %0, i64 noundef %1) l
   %.02536 = phi i64 [ %1, %.lr.ph ], [ %38, %36 ]
   %.02635 = phi i32 [ 0, %.lr.ph ], [ %.1, %36 ]
   %.02734 = phi i64 [ 0, %.lr.ph ], [ %.128, %36 ]
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.02437, i64 noundef %.02536)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %.02437, i64 noundef %.02536)
   %12 = load i64, ptr %5, align 8
   %13 = load i64, ptr %6, align 8
   %14 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef %.02437, i64 noundef %.02536, i32 noundef 0)
@@ -2221,7 +2221,7 @@ declare i64 @ZSTD_decompressBlock_internal(ptr noundef, ptr noundef, i64 noundef
 declare i32 @ZSTD_XXH64_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ZSTD_DCtx_trace_end(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @ZSTD_DCtx_trace_end(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.ZSTD_Trace, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 95960
   %7 = load i64, ptr %6, align 8
@@ -3999,7 +3999,7 @@ ZSTD_checkOutBuffer.exit:                         ; preds = %30, %22, %26
 
 135:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %8, i64 noundef %gepdiff)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %8, i64 noundef %gepdiff)
   %136 = load i64, ptr %51, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.not311 = icmp ugt i64 %136, %gepdiff

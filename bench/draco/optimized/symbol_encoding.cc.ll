@@ -671,9 +671,9 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %8, i64 16
   %19 = shl nuw nsw i64 %17, 2
   %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #20
-          to label %.lr.ph35.i unwind label %.loopexit.split-lp
+          to label %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i unwind label %.loopexit.split-lp
 
-.lr.ph35.i:                                       ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIjSaIjEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
   %21 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %20, ptr %8, align 8
   store ptr %20, ptr %21, align 8
@@ -684,11 +684,11 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %15
   %25 = zext nneg i32 %spec.store.select to i64
   br label %26
 
-26:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i, %.lr.ph35.i
-  %27 = phi ptr [ %20, %.lr.ph35.i ], [ %60, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ]
-  %.0 = phi i32 [ 0, %.lr.ph35.i ], [ %spec.select, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ]
-  %indvars.iv38.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next39.i, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ]
-  %28 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv38.i
+26:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i
+  %27 = phi ptr [ %20, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %60, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ]
+  %.0 = phi i32 [ 0, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %spec.select, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ]
+  %indvars.iv36.i = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %indvars.iv.next37.i, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i ]
+  %28 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv36.i
   %29 = load i32, ptr %28, align 4
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
@@ -780,8 +780,8 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i:         ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i, %34
   %60 = phi ptr [ %57, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i ], [ %36, %34 ]
-  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, %25
-  %61 = icmp ult i64 %indvars.iv.next39.i, %17
+  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, %25
+  %61 = icmp ult i64 %indvars.iv.next37.i, %17
   br i1 %61, label %26, label %_ZN5dracoL17ComputeBitLengthsEPKjiiPSt6vectorIjSaIjEEPj.exit, !llvm.loop !6
 
 _ZN5dracoL17ComputeBitLengthsEPKjiiPSt6vectorIjSaIjEEPj.exit: ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i

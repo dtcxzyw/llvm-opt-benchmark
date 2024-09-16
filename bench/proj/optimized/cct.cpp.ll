@@ -2234,7 +2234,7 @@ _Z10opt_recordP7OPTARGS.exit:                     ; preds = %534, %539
 
 560:                                              ; preds = %552
   %561 = call i32 @proj_errno_restore(ptr noundef nonnull %.5, i32 noundef %553)
-  %562 = call fastcc noundef ptr @_ZL6columnPci(ptr noundef nonnull %.0195, i32 noundef %465)
+  %562 = call fastcc noundef ptr @_ZL6columnPci(ptr noundef %.0195, i32 noundef %465)
   %563 = call noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %20, ptr noundef nonnull @.str.38)
   %.not268 = icmp eq i32 %563, 0
   br i1 %.not268, label %569, label %.preheader
@@ -2251,7 +2251,7 @@ _Z10opt_recordP7OPTARGS.exit:                     ; preds = %534, %539
 
 566:                                              ; preds = %.preheader
   %567 = add nuw nsw i32 %.0193., 1
-  %568 = call fastcc noundef ptr @_ZL6columnPci(ptr noundef nonnull %.0195, i32 noundef %567)
+  %568 = call fastcc noundef ptr @_ZL6columnPci(ptr noundef %.0195, i32 noundef %567)
   br label %569
 
 569:                                              ; preds = %566, %560
@@ -2378,7 +2378,7 @@ define internal void @_ZL6loggerPviPKc(ptr nocapture noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal void @_ZL5print12PJ_LOG_LEVELPKcz(i32 noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #12 {
+define internal void @_ZL5print12PJ_LOG_LEVELPKcz(i32 noundef range(i32 0, 4) %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #12 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call noalias dereferenceable_or_null(100000) ptr @malloc(i64 noundef 100000) #31
@@ -2802,58 +2802,53 @@ _ZL4coldPKci.exit68:                              ; preds = %89, %79
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read) uwtable
-define internal fastcc noundef ptr @_ZL6columnPci(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #18 {
-  %3 = icmp slt i32 %1, 1
-  br i1 %3, label %_ZL6columnPKci.exit, label %.preheader20.i
-
-.preheader20.i:                                   ; preds = %2
-  %4 = add nsw i32 %1, -1
+define internal fastcc noundef nonnull ptr @_ZL6columnPci(ptr noundef nonnull readonly %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #18 {
+  %3 = add nsw i32 %1, -1
   br label %.preheader19.i
 
-.preheader19.i:                                   ; preds = %.critedge.i, %.preheader20.i
-  %.026.i = phi i32 [ 0, %.preheader20.i ], [ %18, %.critedge.i ]
-  %.01425.i = phi ptr [ %0, %.preheader20.i ], [ %.3.lcssa.i, %.critedge.i ]
-  br label %5
+.preheader19.i:                                   ; preds = %.critedge.i, %2
+  %.026.i = phi i32 [ 0, %2 ], [ %17, %.critedge.i ]
+  %.01425.i = phi ptr [ %0, %2 ], [ %.3.lcssa.i, %.critedge.i ]
+  br label %4
 
-5:                                                ; preds = %5, %.preheader19.i
-  %.2.i = phi ptr [ %9, %5 ], [ %.01425.i, %.preheader19.i ]
-  %6 = load i8, ptr %.2.i, align 1
-  %7 = sext i8 %6 to i32
-  %8 = tail call i32 @isspace(i32 noundef %7) #26
-  %.not.i = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %.2.i, i64 1
-  br i1 %.not.i, label %10, label %5, !llvm.loop !18
+4:                                                ; preds = %4, %.preheader19.i
+  %.2.i = phi ptr [ %8, %4 ], [ %.01425.i, %.preheader19.i ]
+  %5 = load i8, ptr %.2.i, align 1
+  %6 = sext i8 %5 to i32
+  %7 = tail call i32 @isspace(i32 noundef %6) #26
+  %.not.i = icmp eq i32 %7, 0
+  %8 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  br i1 %.not.i, label %9, label %4, !llvm.loop !18
 
-10:                                               ; preds = %5
-  %11 = icmp eq i32 %.026.i, %4
-  br i1 %11, label %_ZL6columnPKci.exit, label %.preheader.i
+9:                                                ; preds = %4
+  %10 = icmp eq i32 %.026.i, %3
+  br i1 %10, label %_ZL6columnPKci.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %10
-  %.not1721.i = icmp eq i8 %6, 0
+.preheader.i:                                     ; preds = %9
+  %.not1721.i = icmp eq i8 %5, 0
   br i1 %.not1721.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %15
-  %12 = phi i8 [ %17, %15 ], [ %6, %.preheader.i ]
-  %.322.i = phi ptr [ %16, %15 ], [ %.2.i, %.preheader.i ]
-  %13 = sext i8 %12 to i32
-  %14 = tail call i32 @isspace(i32 noundef %13) #26
-  %.not18.i = icmp eq i32 %14, 0
-  br i1 %.not18.i, label %15, label %.critedge.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %14
+  %11 = phi i8 [ %16, %14 ], [ %5, %.preheader.i ]
+  %.322.i = phi ptr [ %15, %14 ], [ %.2.i, %.preheader.i ]
+  %12 = sext i8 %11 to i32
+  %13 = tail call i32 @isspace(i32 noundef %12) #26
+  %.not18.i = icmp eq i32 %13, 0
+  br i1 %.not18.i, label %14, label %.critedge.i
 
-15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %.322.i, i64 1
-  %17 = load i8, ptr %16, align 1
-  %.not17.i = icmp eq i8 %17, 0
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds i8, ptr %.322.i, i64 1
+  %16 = load i8, ptr %15, align 1
+  %.not17.i = icmp eq i8 %16, 0
   br i1 %.not17.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !20
 
-.critedge.i:                                      ; preds = %15, %.lr.ph.i, %.preheader.i
-  %.3.lcssa.i = phi ptr [ %.2.i, %.preheader.i ], [ %16, %15 ], [ %.322.i, %.lr.ph.i ]
-  %18 = add nuw nsw i32 %.026.i, 1
+.critedge.i:                                      ; preds = %14, %.lr.ph.i, %.preheader.i
+  %.3.lcssa.i = phi ptr [ %.2.i, %.preheader.i ], [ %15, %14 ], [ %.322.i, %.lr.ph.i ]
+  %17 = add nuw nsw i32 %.026.i, 1
   br label %.preheader19.i
 
-_ZL6columnPKci.exit:                              ; preds = %10, %2
-  %.013.i = phi ptr [ %0, %2 ], [ %.2.i, %10 ]
-  ret ptr %.013.i
+_ZL6columnPKci.exit:                              ; preds = %9
+  ret ptr %.2.i
 }
 
 declare i32 @proj_angular_input(ptr noundef, i32 noundef) local_unnamed_addr #0

@@ -1066,7 +1066,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage14CreateInMemoryENS0
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetPseudoRootEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8, ptr noundef nonnull align 8 dereferenceable(1282)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef range(i64 0, 5) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.115", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
@@ -2931,7 +2931,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCoun
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef range(i64 0, 5) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8

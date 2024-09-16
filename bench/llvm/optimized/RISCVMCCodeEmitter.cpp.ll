@@ -15523,13 +15523,13 @@ declare noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noun
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %.216.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef range(i32 0, 5) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %.216.val) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MCFixup", align 8
   %6 = alloca %"class.llvm::MCFixup", align 8
   %7 = and i64 %.216.val, 512
   %.not1 = icmp eq i64 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = zext i32 %2 to i64
+  %9 = zext nneg i32 %2 to i64
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds %"class.llvm::MCOperand", ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16

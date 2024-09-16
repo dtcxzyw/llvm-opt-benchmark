@@ -8835,17 +8835,17 @@ define noundef ptr @ggml_view_1d(ptr nocapture noundef %ctx, ptr noundef %a, i64
 entry:
   %ne0.addr = alloca i64, align 8
   store i64 %ne0, ptr %ne0.addr, align 8
-  %call = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %a, i32 noundef 1, ptr noundef nonnull %ne0.addr, i64 noundef %offset)
+  %call = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %a, i32 noundef 1, ptr noundef %ne0.addr, i64 noundef %offset)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_view_impl(ptr nocapture noundef %ctx, ptr noundef %a, i32 noundef %n_dims, ptr nocapture noundef readonly %ne, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc noundef ptr @ggml_view_impl(ptr nocapture noundef %ctx, ptr noundef %a, i32 noundef range(i32 1, 5) %n_dims, ptr nocapture noundef nonnull readonly %ne, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %0 = load ptr, ptr %grad, align 8
   %1 = load i32, ptr %a, align 8
-  %call = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef %n_dims, ptr noundef %ne, ptr noundef nonnull %a, i64 noundef %offset)
+  %call = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef %n_dims, ptr noundef nonnull %ne, ptr noundef nonnull %a, i64 noundef %offset)
   %name = getelementptr inbounds i8, ptr %a, i64 288
   %call1 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call, ptr noundef nonnull @.str.33, ptr noundef nonnull %name)
   %cmp.not.i = icmp eq ptr %call, null
@@ -8890,7 +8890,7 @@ entry:
   store i64 %ne0, ptr %ne, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %ne, i64 8
   store i64 %ne1, ptr %arrayinit.element, align 8
-  %call = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %a, i32 noundef 2, ptr noundef nonnull %ne, i64 noundef %offset)
+  %call = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %a, i32 noundef 2, ptr noundef %ne, i64 noundef %offset)
   %arrayidx = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %nb1, ptr %arrayidx, align 8
   %mul = mul i64 %nb1, %ne1
@@ -8910,7 +8910,7 @@ entry:
   store i64 %ne1, ptr %arrayinit.element, align 8
   %arrayinit.element1 = getelementptr inbounds i8, ptr %ne, i64 16
   store i64 %ne2, ptr %arrayinit.element1, align 16
-  %call = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %a, i32 noundef 3, ptr noundef nonnull %ne, i64 noundef %offset)
+  %call = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %a, i32 noundef 3, ptr noundef %ne, i64 noundef %offset)
   %arrayidx = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %nb1, ptr %arrayidx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %call, i64 64
@@ -8932,7 +8932,7 @@ entry:
   store i64 %ne2, ptr %arrayinit.element1, align 16
   %arrayinit.element2 = getelementptr inbounds i8, ptr %ne, i64 24
   store i64 %ne3, ptr %arrayinit.element2, align 8
-  %call = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %a, i32 noundef 4, ptr noundef nonnull %ne, i64 noundef %offset)
+  %call = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %a, i32 noundef 4, ptr noundef %ne, i64 noundef %offset)
   %arrayidx = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %nb1, ptr %arrayidx, align 8
   %arrayidx5 = getelementptr inbounds i8, ptr %call, i64 64
@@ -11470,7 +11470,7 @@ do.end:                                           ; preds = %entry
   store i64 %4, ptr %arrayinit.element1.i, align 16
   %arrayinit.element2.i = getelementptr inbounds i8, ptr %ne.i11, i64 24
   store i64 %5, ptr %arrayinit.element2.i, align 8
-  %call.i = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %call.i.i, i32 noundef 4, ptr noundef nonnull %ne.i11, i64 noundef 0)
+  %call.i = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %call.i.i, i32 noundef 4, ptr noundef %ne.i11, i64 noundef 0)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i64 %6, ptr %arrayidx.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %call.i, i64 64
@@ -15014,7 +15014,7 @@ if.then53:                                        ; preds = %if.end50
   store i64 %23, ptr %arrayinit.element1.i, align 16
   %arrayinit.element2.i = getelementptr inbounds i8, ptr %ne.i, i64 24
   store i64 %24, ptr %arrayinit.element2.i, align 8
-  %call.i = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %20, i32 noundef 4, ptr noundef nonnull %ne.i, i64 noundef %conv66)
+  %call.i = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef %20, i32 noundef 4, ptr noundef %ne.i, i64 noundef %conv66)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i64 %conv, ptr %arrayidx.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %call.i, i64 64
@@ -15052,7 +15052,7 @@ if.end95:                                         ; preds = %if.then90, %sw.bb87
 if.then98:                                        ; preds = %if.end95
   %grad100 = getelementptr inbounds i8, ptr %tensor, i64 152
   %30 = load ptr, ptr %grad100, align 8
-  %call101 = tail call fastcc ptr @ggml_sub_or_set(ptr noundef %ctx, ptr noundef nonnull %29, ptr noundef %30, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
+  %call101 = tail call fastcc ptr @ggml_sub_or_set(ptr noundef %ctx, ptr noundef %29, ptr noundef %30, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
   store ptr %call101, ptr %grad96, align 8
   br label %for.body.preheader
 
@@ -15109,7 +15109,7 @@ if.then135:                                       ; preds = %if.end132
   %38 = load ptr, ptr %grad137, align 8
   %call.i499 = tail call fastcc noundef ptr @ggml_div_impl(ptr noundef %ctx, ptr noundef nonnull %tensor, ptr noundef nonnull %1, i1 noundef zeroext false)
   %call.i500 = tail call fastcc noundef ptr @ggml_mul_impl(ptr noundef %ctx, ptr noundef %38, ptr noundef %call.i499, i1 noundef zeroext false)
-  %call140 = tail call fastcc ptr @ggml_sub_or_set(ptr noundef %ctx, ptr noundef nonnull %37, ptr noundef %call.i500, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
+  %call140 = tail call fastcc ptr @ggml_sub_or_set(ptr noundef %ctx, ptr noundef %37, ptr noundef %call.i500, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
   store ptr %call140, ptr %grad133, align 8
   br label %for.body.preheader
 
@@ -15168,7 +15168,7 @@ sw.bb177:                                         ; preds = %entry
 if.then180:                                       ; preds = %sw.bb177
   %grad182 = getelementptr inbounds i8, ptr %tensor, i64 152
   %46 = load ptr, ptr %grad182, align 8
-  %call183 = tail call fastcc ptr @ggml_add1_or_set(ptr noundef %ctx, ptr noundef nonnull %45, ptr noundef %46, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
+  %call183 = tail call fastcc ptr @ggml_add1_or_set(ptr noundef %ctx, ptr noundef %45, ptr noundef %46, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
   store ptr %call183, ptr %grad178, align 8
   br label %for.body.preheader
 
@@ -15470,7 +15470,7 @@ if.end402:                                        ; preds = %do.body376
   store i64 %104, ptr %arrayinit.element1.i508, align 16
   %arrayinit.element2.i509 = getelementptr inbounds i8, ptr %ne.i506, i64 24
   store i64 %105, ptr %arrayinit.element2.i509, align 8
-  %call.i510 = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef nonnull %94, i32 noundef 4, ptr noundef nonnull %ne.i506, i64 noundef %conv348)
+  %call.i510 = call fastcc ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef nonnull %94, i32 noundef 4, ptr noundef %ne.i506, i64 noundef %conv348)
   %arrayidx.i511 = getelementptr inbounds i8, ptr %call.i510, i64 56
   store i64 %conv333, ptr %arrayidx.i511, align 8
   %arrayidx5.i512 = getelementptr inbounds i8, ptr %call.i510, i64 64
@@ -16118,7 +16118,7 @@ do.end863:                                        ; preds = %if.end847
 if.then875:                                       ; preds = %do.end863
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 %mul8.i, ptr %ne0.addr.i, align 8
-  %call.i534 = call fastcc noundef ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef nonnull %flash_grad.0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i, i64 noundef 0)
+  %call.i534 = call fastcc noundef ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef nonnull %flash_grad.0, i32 noundef 1, ptr noundef %ne0.addr.i, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i)
   %call877 = tail call ptr @ggml_reshape(ptr noundef %ctx, ptr noundef %call.i534, ptr noundef nonnull %0)
   %226 = load ptr, ptr %grad816, align 8
@@ -16135,7 +16135,7 @@ if.end881:                                        ; preds = %if.then875, %do.end
 if.then884:                                       ; preds = %if.end881
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i535)
   store i64 %mul8.i525, ptr %ne0.addr.i535, align 8
-  %call.i536 = call fastcc noundef ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef nonnull %flash_grad.0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i535, i64 noundef %and866)
+  %call.i536 = call fastcc noundef ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef nonnull %flash_grad.0, i32 noundef 1, ptr noundef %ne0.addr.i535, i64 noundef %and866)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i535)
   %call886 = tail call ptr @ggml_reshape(ptr noundef %ctx, ptr noundef %call.i536, ptr noundef nonnull %1)
   %228 = load ptr, ptr %grad882, align 8
@@ -16152,7 +16152,7 @@ if.end890:                                        ; preds = %if.then884, %if.end
 if.then893:                                       ; preds = %if.end890
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i537)
   store i64 %mul8.i532, ptr %ne0.addr.i537, align 8
-  %call.i538 = call fastcc noundef ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef nonnull %flash_grad.0, i32 noundef 1, ptr noundef nonnull %ne0.addr.i537, i64 noundef %add872)
+  %call.i538 = call fastcc noundef ptr @ggml_view_impl(ptr noundef %ctx, ptr noundef nonnull %flash_grad.0, i32 noundef 1, ptr noundef %ne0.addr.i537, i64 noundef %add872)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ne0.addr.i537)
   %call895 = tail call ptr @ggml_reshape(ptr noundef %ctx, ptr noundef %call.i538, ptr noundef nonnull %207)
   %230 = load ptr, ptr %grad891, align 8
@@ -16227,7 +16227,7 @@ sw.bb928:                                         ; preds = %ggml_get_unary_op.e
 if.then931:                                       ; preds = %sw.bb928
   %grad933 = getelementptr inbounds i8, ptr %tensor, i64 152
   %241 = load ptr, ptr %grad933, align 8
-  %call934 = tail call fastcc ptr @ggml_sub_or_set(ptr noundef %ctx, ptr noundef nonnull %240, ptr noundef %241, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
+  %call934 = tail call fastcc ptr @ggml_sub_or_set(ptr noundef %ctx, ptr noundef %240, ptr noundef %241, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
   store ptr %call934, ptr %grad929, align 8
   br label %for.body.preheader
 
@@ -16598,7 +16598,7 @@ ggml_hash_size.exit:                              ; preds = %cond.true.i, %cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ggml_new_object(ptr nocapture noundef %ctx, i32 noundef %type, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc ptr @ggml_new_object(ptr nocapture noundef %ctx, i32 noundef range(i32 0, 3) %type, i64 noundef %size) unnamed_addr #0 {
 entry:
   %objects_end = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %objects_end, align 8
@@ -18078,7 +18078,7 @@ if.then13:                                        ; preds = %if.then10
 if.then17:                                        ; preds = %if.then13
   %call18 = tail call fastcc i32 @ggml_get_n_tasks(ptr noundef nonnull %22, i32 noundef %3)
   store i32 %call18, ptr %nth, align 8
-  call fastcc void @ggml_compute_forward(ptr noundef nonnull %params, ptr noundef nonnull %22)
+  call fastcc void @ggml_compute_forward(ptr noundef %params, ptr noundef nonnull %22)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.then13
@@ -18134,7 +18134,7 @@ while.body25:                                     ; preds = %while.body25.prehea
 
 if.then38:                                        ; preds = %while.body25
   store i32 0, ptr %params, align 8
-  call fastcc void @ggml_compute_forward(ptr noundef nonnull %params, ptr noundef nonnull %34)
+  call fastcc void @ggml_compute_forward(ptr noundef %params, ptr noundef nonnull %34)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %while.body25
@@ -18143,7 +18143,7 @@ if.end40:                                         ; preds = %if.then38, %while.b
 
 if.then42:                                        ; preds = %if.end40
   store i32 1, ptr %params, align 8
-  call fastcc void @ggml_compute_forward(ptr noundef nonnull %params, ptr noundef nonnull %34)
+  call fastcc void @ggml_compute_forward(ptr noundef %params, ptr noundef nonnull %34)
   %39 = load i32, ptr %op34, align 8
   %idxprom45 = zext i32 %39 to i64
   %arrayidx46 = getelementptr inbounds [72 x i8], ptr @GGML_OP_HAS_FINALIZE, i64 0, i64 %idxprom45
@@ -18153,7 +18153,7 @@ if.then42:                                        ; preds = %if.end40
 
 if.then48:                                        ; preds = %if.then42
   store i32 2, ptr %params, align 8
-  call fastcc void @ggml_compute_forward(ptr noundef nonnull %params, ptr noundef nonnull %34)
+  call fastcc void @ggml_compute_forward(ptr noundef %params, ptr noundef nonnull %34)
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %if.then42
@@ -18236,7 +18236,7 @@ if.end81:                                         ; preds = %if.end77
   br i1 %cmp98, label %if.then99, label %while.body.backedge
 
 if.then99:                                        ; preds = %if.end81
-  call fastcc void @ggml_compute_forward(ptr noundef nonnull %params88, ptr noundef %57)
+  call fastcc void @ggml_compute_forward(ptr noundef %params88, ptr noundef %57)
   br label %while.body.backedge
 
 while.body.backedge:                              ; preds = %if.then99, %if.end81
@@ -19484,7 +19484,7 @@ sw.bb164:                                         ; preds = %for.end156
   store i64 %63, ptr %arrayinit.element.i, align 8
   store i64 %64, ptr %arrayinit.element1.i, align 16
   store i64 %65, ptr %arrayinit.element2.i, align 8
-  %call.i195 = call fastcc ptr @ggml_view_impl(ptr noundef %55, ptr noundef %61, i32 noundef 4, ptr noundef nonnull %ne.i194, i64 noundef 0)
+  %call.i195 = call fastcc ptr @ggml_view_impl(ptr noundef %55, ptr noundef %61, i32 noundef 4, ptr noundef %ne.i194, i64 noundef 0)
   %arrayidx.i196 = getelementptr inbounds i8, ptr %call.i195, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i196, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ne.i194)
@@ -19511,7 +19511,7 @@ sw.bb177:                                         ; preds = %for.end156
   store i64 %70, ptr %arrayinit.element.i199, align 8
   store i64 %71, ptr %arrayinit.element1.i200, align 16
   store i64 %72, ptr %arrayinit.element2.i201, align 8
-  %call.i202 = call fastcc ptr @ggml_view_impl(ptr noundef %55, ptr noundef %68, i32 noundef 4, ptr noundef nonnull %ne.i198, i64 noundef 0)
+  %call.i202 = call fastcc ptr @ggml_view_impl(ptr noundef %55, ptr noundef %68, i32 noundef 4, ptr noundef %ne.i198, i64 noundef 0)
   %arrayidx.i203 = getelementptr inbounds i8, ptr %call.i202, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i203, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ne.i198)
@@ -20179,7 +20179,7 @@ ggml_graph_dump_dot_node_edge.exit:               ; preds = %for.cond.i21.i, %fo
   %cond10.i = select i1 %tobool4.not.i, ptr @.str.171, ptr @.str.172
   %cond12.i = select i1 %tobool4.not.i, ptr @.str.581, ptr @.str.580
   %cond14.i = select i1 %tobool4.not.i, ptr @.str.583, ptr @.str.582
-  %call15.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.579, ptr noundef %cond.i, ptr noundef nonnull %cond3.i, ptr noundef %cond8.i, ptr noundef nonnull %cond10.i, ptr noundef nonnull %cond12.i, ptr noundef nonnull %cond14.i, ptr noundef nonnull %label)
+  %call15.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.579, ptr noundef %cond.i, ptr noundef nonnull %cond3.i, ptr noundef %cond8.i, ptr noundef nonnull %cond10.i, ptr noundef nonnull %cond12.i, ptr noundef nonnull %cond14.i, ptr noundef nonnull %label)
   br label %for.inc182
 
 for.inc182:                                       ; preds = %for.body170, %ggml_graph_dump_dot_node_edge.exit
@@ -20213,7 +20213,7 @@ if.then207:                                       ; preds = %for.body202
   %84 = trunc nuw nsw i64 %indvars.iv175 to i32
   %call210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %label208, i64 noundef 16, ptr noundef nonnull @.str.203, i32 noundef %84) #45
   %85 = load ptr, ptr %arrayidx205, align 8
-  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.584, ptr noundef %85, ptr noundef nonnull @.str.171, ptr noundef nonnull %82, ptr noundef nonnull @.str.171, ptr noundef nonnull %label208)
+  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.584, ptr noundef %85, ptr noundef nonnull @.str.171, ptr noundef nonnull %82, ptr noundef nonnull @.str.171, ptr noundef nonnull %label208)
   br label %for.inc216
 
 for.inc216:                                       ; preds = %for.body202, %if.then207
@@ -25368,7 +25368,7 @@ if.then9:                                         ; preds = %for.body
   %6 = load i8, ptr %arrayidx16, align 1
   %conv17 = sext i8 %6 to i32
   %call18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.215, ptr noundef nonnull @__func__.gguf_init_from_file, i32 noundef %conv11, i32 noundef %conv13, i32 noundef %conv15, i32 noundef %conv17) #46
-  %call19 = tail call i32 @fclose(ptr noundef %call)
+  %call19 = tail call i32 @fclose(ptr noundef nonnull %call)
   br label %return
 
 for.end:                                          ; preds = %for.cond
@@ -25406,21 +25406,21 @@ ggml_aligned_malloc.exit:                         ; preds = %sw.epilog.i, %if.en
   store ptr null, ptr %data, align 8
   %version = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %kv, i8 0, i64 16, i1 false)
-  %call.i209 = call i64 @fread(ptr noundef nonnull %version, i64 noundef 1, i64 noundef 4, ptr noundef %call)
+  %call.i209 = call i64 @fread(ptr noundef nonnull %version, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call)
   %add.i210 = add i64 %call.i209, %call.i
   %cmp.i211 = icmp eq i64 %call.i209, 4
   br i1 %cmp.i211, label %land.rhs32, label %land.end44
 
 land.rhs32:                                       ; preds = %ggml_aligned_malloc.exit
   %n_tensors = getelementptr inbounds i8, ptr %retval.0.i, i64 8
-  %call.i212 = call i64 @fread(ptr noundef nonnull %n_tensors, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i212 = call i64 @fread(ptr noundef nonnull %n_tensors, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i213 = add i64 %call.i212, %add.i210
   %cmp.i214 = icmp eq i64 %call.i212, 8
   br i1 %cmp.i214, label %land.rhs40, label %land.end44
 
 land.rhs40:                                       ; preds = %land.rhs32
   %n_kv = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %call.i215 = call i64 @fread(ptr noundef nonnull %n_kv, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i215 = call i64 @fread(ptr noundef nonnull %n_kv, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i216 = add i64 %call.i215, %add.i213
   %cmp.i217 = icmp eq i64 %call.i215, 8
   br label %land.end44
@@ -25435,7 +25435,7 @@ land.end44:                                       ; preds = %ggml_aligned_malloc
 if.then50:                                        ; preds = %land.end44
   %10 = load ptr, ptr @stderr, align 8
   %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.216, ptr noundef nonnull @__func__.gguf_init_from_file) #46
-  %call52 = call i32 @fclose(ptr noundef %call)
+  %call52 = call i32 @fclose(ptr noundef nonnull %call)
   call void @gguf_free(ptr noundef nonnull %retval.0.i)
   br label %return
 
@@ -25445,7 +25445,7 @@ if.end53:                                         ; preds = %land.end44
 if.then55:                                        ; preds = %if.end53
   %11 = load ptr, ptr @stderr, align 8
   %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.217, ptr noundef nonnull @__func__.gguf_init_from_file) #46
-  %call57 = call i32 @fclose(ptr noundef %call)
+  %call57 = call i32 @fclose(ptr noundef nonnull %call)
   call void @gguf_free(ptr noundef nonnull %retval.0.i)
   br label %return
 
@@ -25476,7 +25476,7 @@ for.body69:                                       ; preds = %if.end58, %for.cond
 land.rhs75:                                       ; preds = %for.body69
   %data.i = getelementptr inbounds i8, ptr %arrayidx72, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx72, i8 0, i64 16, i1 false)
-  %call.i.i = call i64 @fread(ptr noundef nonnull %arrayidx72, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i.i = call i64 @fread(ptr noundef nonnull %arrayidx72, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i.i = add i64 %call.i.i, %offset.1376
   %cmp.i.i = icmp eq i64 %call.i.i, 8
   %15 = load i64, ptr %arrayidx72, align 8
@@ -25486,14 +25486,14 @@ land.rhs75:                                       ; preds = %for.body69
   br i1 %cmp.i.i, label %gguf_fread_str.exit, label %land.end85
 
 gguf_fread_str.exit:                              ; preds = %land.rhs75
-  %call.i11.i = call i64 @fread(ptr noundef %call3.i, i64 noundef 1, i64 noundef %15, ptr noundef %call)
+  %call.i11.i = call i64 @fread(ptr noundef %call3.i, i64 noundef 1, i64 noundef %15, ptr noundef nonnull %call)
   %add.i12.i = add i64 %call.i11.i, %add.i.i
   %cmp.i13.i = icmp eq i64 %call.i11.i, %15
   br i1 %cmp.i13.i, label %land.rhs82, label %land.end85
 
 land.rhs82:                                       ; preds = %gguf_fread_str.exit
   %type = getelementptr inbounds i8, ptr %arrayidx72, i64 16
-  %call.i219 = call i64 @fread(ptr noundef nonnull %type, i64 noundef 1, i64 noundef 4, ptr noundef %call)
+  %call.i219 = call i64 @fread(ptr noundef nonnull %type, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call)
   %add.i220 = add i64 %call.i219, %add.i12.i
   %cmp.i221 = icmp eq i64 %call.i219, 4
   br label %land.end85
@@ -25526,7 +25526,7 @@ sw.bb:                                            ; preds = %land.end85
 
 land.rhs90:                                       ; preds = %sw.bb
   %value = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i222 = call i64 @fread(ptr noundef nonnull %value, i64 noundef 1, i64 noundef 1, ptr noundef %call)
+  %call.i222 = call i64 @fread(ptr noundef nonnull %value, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %call)
   %add.i223 = add i64 %call.i222, %offset.3
   %cmp.i224 = icmp eq i64 %call.i222, 1
   %18 = zext i1 %cmp.i224 to i8
@@ -25537,7 +25537,7 @@ sw.bb95:                                          ; preds = %land.end85
 
 land.rhs98:                                       ; preds = %sw.bb95
   %value99 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i225 = call i64 @fread(ptr noundef nonnull %value99, i64 noundef 1, i64 noundef 1, ptr noundef %call)
+  %call.i225 = call i64 @fread(ptr noundef nonnull %value99, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %call)
   %add.i226 = add i64 %call.i225, %offset.3
   %cmp.i227 = icmp eq i64 %call.i225, 1
   %19 = zext i1 %cmp.i227 to i8
@@ -25548,7 +25548,7 @@ sw.bb104:                                         ; preds = %land.end85
 
 land.rhs107:                                      ; preds = %sw.bb104
   %value108 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i228 = call i64 @fread(ptr noundef nonnull %value108, i64 noundef 1, i64 noundef 2, ptr noundef %call)
+  %call.i228 = call i64 @fread(ptr noundef nonnull %value108, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %call)
   %add.i229 = add i64 %call.i228, %offset.3
   %cmp.i230 = icmp eq i64 %call.i228, 2
   %20 = zext i1 %cmp.i230 to i8
@@ -25559,7 +25559,7 @@ sw.bb113:                                         ; preds = %land.end85
 
 land.rhs116:                                      ; preds = %sw.bb113
   %value117 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i231 = call i64 @fread(ptr noundef nonnull %value117, i64 noundef 1, i64 noundef 2, ptr noundef %call)
+  %call.i231 = call i64 @fread(ptr noundef nonnull %value117, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %call)
   %add.i232 = add i64 %call.i231, %offset.3
   %cmp.i233 = icmp eq i64 %call.i231, 2
   %21 = zext i1 %cmp.i233 to i8
@@ -25570,7 +25570,7 @@ sw.bb122:                                         ; preds = %land.end85
 
 land.rhs125:                                      ; preds = %sw.bb122
   %value126 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i234 = call i64 @fread(ptr noundef nonnull %value126, i64 noundef 1, i64 noundef 4, ptr noundef %call)
+  %call.i234 = call i64 @fread(ptr noundef nonnull %value126, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call)
   %add.i235 = add i64 %call.i234, %offset.3
   %cmp.i236 = icmp eq i64 %call.i234, 4
   %22 = zext i1 %cmp.i236 to i8
@@ -25581,7 +25581,7 @@ sw.bb131:                                         ; preds = %land.end85
 
 land.rhs134:                                      ; preds = %sw.bb131
   %value135 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i237 = call i64 @fread(ptr noundef nonnull %value135, i64 noundef 1, i64 noundef 4, ptr noundef %call)
+  %call.i237 = call i64 @fread(ptr noundef nonnull %value135, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call)
   %add.i238 = add i64 %call.i237, %offset.3
   %cmp.i239 = icmp eq i64 %call.i237, 4
   %23 = zext i1 %cmp.i239 to i8
@@ -25592,7 +25592,7 @@ sw.bb140:                                         ; preds = %land.end85
 
 land.rhs143:                                      ; preds = %sw.bb140
   %value144 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i240 = call i64 @fread(ptr noundef nonnull %value144, i64 noundef 1, i64 noundef 4, ptr noundef %call)
+  %call.i240 = call i64 @fread(ptr noundef nonnull %value144, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call)
   %add.i241 = add i64 %call.i240, %offset.3
   %cmp.i242 = icmp eq i64 %call.i240, 4
   %24 = zext i1 %cmp.i242 to i8
@@ -25603,7 +25603,7 @@ sw.bb149:                                         ; preds = %land.end85
 
 land.rhs152:                                      ; preds = %sw.bb149
   %value153 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i243 = call i64 @fread(ptr noundef nonnull %value153, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i243 = call i64 @fread(ptr noundef nonnull %value153, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i244 = add i64 %call.i243, %offset.3
   %cmp.i245 = icmp eq i64 %call.i243, 8
   %25 = zext i1 %cmp.i245 to i8
@@ -25614,7 +25614,7 @@ sw.bb158:                                         ; preds = %land.end85
 
 land.rhs161:                                      ; preds = %sw.bb158
   %value162 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i246 = call i64 @fread(ptr noundef nonnull %value162, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i246 = call i64 @fread(ptr noundef nonnull %value162, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i247 = add i64 %call.i246, %offset.3
   %cmp.i248 = icmp eq i64 %call.i246, 8
   %26 = zext i1 %cmp.i248 to i8
@@ -25625,7 +25625,7 @@ sw.bb167:                                         ; preds = %land.end85
 
 land.rhs170:                                      ; preds = %sw.bb167
   %value171 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i249 = call i64 @fread(ptr noundef nonnull %value171, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i249 = call i64 @fread(ptr noundef nonnull %value171, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i250 = add i64 %call.i249, %offset.3
   %cmp.i251 = icmp eq i64 %call.i249, 8
   %27 = zext i1 %cmp.i251 to i8
@@ -25636,7 +25636,7 @@ sw.bb176:                                         ; preds = %land.end85
 
 land.rhs179:                                      ; preds = %sw.bb176
   %value180 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i252 = call i64 @fread(ptr noundef nonnull %value180, i64 noundef 1, i64 noundef 1, ptr noundef %call)
+  %call.i252 = call i64 @fread(ptr noundef nonnull %value180, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %call)
   %add.i253 = add i64 %call.i252, %offset.3
   %cmp.i254 = icmp eq i64 %call.i252, 1
   %28 = zext i1 %cmp.i254 to i8
@@ -25649,7 +25649,7 @@ land.rhs188:                                      ; preds = %sw.bb185
   %value189 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
   %data.i255 = getelementptr inbounds i8, ptr %arrayidx72, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value189, i8 0, i64 16, i1 false)
-  %call.i.i256 = call i64 @fread(ptr noundef nonnull %value189, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i.i256 = call i64 @fread(ptr noundef nonnull %value189, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %cmp.i.i258 = icmp eq i64 %call.i.i256, 8
   %29 = load i64, ptr %value189, align 8
   %add.i259 = add i64 %29, 1
@@ -25659,7 +25659,7 @@ land.rhs188:                                      ; preds = %sw.bb185
 
 land.rhs6.i261:                                   ; preds = %land.rhs188
   %add.i.i257 = add i64 %call.i.i256, %offset.3
-  %call.i11.i262 = call i64 @fread(ptr noundef %call3.i260, i64 noundef 1, i64 noundef %29, ptr noundef %call)
+  %call.i11.i262 = call i64 @fread(ptr noundef %call3.i260, i64 noundef 1, i64 noundef %29, ptr noundef nonnull %call)
   %add.i12.i263 = add i64 %call.i11.i262, %add.i.i257
   %cmp.i13.i264 = icmp eq i64 %call.i11.i262, %29
   %30 = zext i1 %cmp.i13.i264 to i8
@@ -25670,14 +25670,14 @@ sw.bb194:                                         ; preds = %land.end85
 
 land.rhs197:                                      ; preds = %sw.bb194
   %value198 = getelementptr inbounds i8, ptr %arrayidx72, i64 24
-  %call.i266 = call i64 @fread(ptr noundef nonnull %value198, i64 noundef 1, i64 noundef 4, ptr noundef %call)
+  %call.i266 = call i64 @fread(ptr noundef nonnull %value198, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call)
   %add.i267 = add i64 %call.i266, %offset.3
   %cmp.i268 = icmp eq i64 %call.i266, 4
   br i1 %cmp.i268, label %land.rhs206, label %land.end210
 
 land.rhs206:                                      ; preds = %land.rhs197
   %n = getelementptr inbounds i8, ptr %arrayidx72, i64 32
-  %call.i269 = call i64 @fread(ptr noundef nonnull %n, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i269 = call i64 @fread(ptr noundef nonnull %n, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i270 = add i64 %call.i269, %add.i267
   %cmp.i271 = icmp eq i64 %call.i269, 8
   br label %land.end210
@@ -25718,7 +25718,7 @@ sw.bb214:                                         ; preds = %land.end210, %land.
   br i1 %31, label %land.rhs227, label %if.then283
 
 land.rhs227:                                      ; preds = %sw.bb214
-  %call.i272 = call i64 @fread(ptr noundef %call222, i64 noundef 1, i64 noundef %mul221, ptr noundef %call)
+  %call.i272 = call i64 @fread(ptr noundef %call222, i64 noundef 1, i64 noundef %mul221, ptr noundef nonnull %call)
   %add.i273 = add i64 %call.i272, %offset.5
   %cmp.i274 = icmp eq i64 %call.i272, %mul221
   %35 = zext i1 %cmp.i274 to i8
@@ -25746,7 +25746,7 @@ land.rhs256:                                      ; preds = %for.body253
   %arrayidx259 = getelementptr inbounds %struct.gguf_str, ptr %37, i64 %j.0372
   %data.i275 = getelementptr inbounds i8, ptr %arrayidx259, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx259, i8 0, i64 16, i1 false)
-  %call.i.i276 = call i64 @fread(ptr noundef nonnull %arrayidx259, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i.i276 = call i64 @fread(ptr noundef nonnull %arrayidx259, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i.i277 = add i64 %call.i.i276, %offset.6371
   %cmp.i.i278 = icmp eq i64 %call.i.i276, 8
   %38 = load i64, ptr %arrayidx259, align 8
@@ -25756,7 +25756,7 @@ land.rhs256:                                      ; preds = %for.body253
   br i1 %cmp.i.i278, label %land.rhs6.i281, label %land.end262
 
 land.rhs6.i281:                                   ; preds = %land.rhs256
-  %call.i11.i282 = call i64 @fread(ptr noundef %call3.i280, i64 noundef 1, i64 noundef %38, ptr noundef %call)
+  %call.i11.i282 = call i64 @fread(ptr noundef %call3.i280, i64 noundef 1, i64 noundef %38, ptr noundef nonnull %call)
   %add.i12.i283 = add i64 %call.i11.i282, %add.i.i277
   %cmp.i13.i284 = icmp eq i64 %call.i11.i282, %38
   %39 = zext i1 %cmp.i13.i284 to i8
@@ -25801,7 +25801,7 @@ for.end281:                                       ; preds = %for.cond64, %sw.epi
 if.then283:                                       ; preds = %land.rhs188, %sw.bb, %sw.bb95, %sw.bb104, %sw.bb113, %sw.bb122, %sw.bb131, %sw.bb140, %sw.bb149, %sw.bb158, %sw.bb167, %sw.bb176, %sw.bb185, %sw.bb214, %for.end281
   %45 = load ptr, ptr @stderr, align 8
   %call284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.219, ptr noundef nonnull @__func__.gguf_init_from_file) #46
-  %call285 = call i32 @fclose(ptr noundef %call)
+  %call285 = call i32 @fclose(ptr noundef nonnull %call)
   call void @gguf_free(ptr noundef %retval.0.i)
   br label %return
 
@@ -25843,7 +25843,7 @@ for.end310:                                       ; preds = %for.body305
 land.rhs313:                                      ; preds = %for.end310
   %data.i286 = getelementptr inbounds i8, ptr %arrayidx300, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx300, i8 0, i64 16, i1 false)
-  %call.i.i287 = call i64 @fread(ptr noundef nonnull %arrayidx300, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i.i287 = call i64 @fread(ptr noundef nonnull %arrayidx300, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i.i288 = add i64 %call.i.i287, %offset.8391
   %cmp.i.i289 = icmp eq i64 %call.i.i287, 8
   %49 = load i64, ptr %arrayidx300, align 8
@@ -25853,14 +25853,14 @@ land.rhs313:                                      ; preds = %for.end310
   br i1 %cmp.i.i289, label %gguf_fread_str.exit296, label %land.end323
 
 gguf_fread_str.exit296:                           ; preds = %land.rhs313
-  %call.i11.i293 = call i64 @fread(ptr noundef %call3.i291, i64 noundef 1, i64 noundef %49, ptr noundef %call)
+  %call.i11.i293 = call i64 @fread(ptr noundef %call3.i291, i64 noundef 1, i64 noundef %49, ptr noundef nonnull %call)
   %add.i12.i294 = add i64 %call.i11.i293, %add.i.i288
   %cmp.i13.i295 = icmp eq i64 %call.i11.i293, %49
   br i1 %cmp.i13.i295, label %land.rhs320, label %land.end323
 
 land.rhs320:                                      ; preds = %gguf_fread_str.exit296
   %n_dims = getelementptr inbounds i8, ptr %arrayidx300, i64 16
-  %call.i297 = call i64 @fread(ptr noundef nonnull %n_dims, i64 noundef 1, i64 noundef 4, ptr noundef %call)
+  %call.i297 = call i64 @fread(ptr noundef nonnull %n_dims, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call)
   %add.i298 = add i64 %call.i297, %add.i12.i294
   %cmp.i299 = icmp eq i64 %call.i297, 4
   br label %land.end323
@@ -25882,7 +25882,7 @@ for.body330:                                      ; preds = %land.end323, %land.
 
 land.rhs333:                                      ; preds = %for.body330
   %arrayidx336 = getelementptr inbounds [4 x i64], ptr %ne, i64 0, i64 %indvars.iv415
-  %call.i300 = call i64 @fread(ptr noundef nonnull %arrayidx336, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i300 = call i64 @fread(ptr noundef nonnull %arrayidx336, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %add.i301 = add i64 %call.i300, %offset.10385
   %cmp.i302 = icmp eq i64 %call.i300, 8
   %.pre = load i32, ptr %n_dims327, align 8
@@ -25904,20 +25904,20 @@ for.end343:                                       ; preds = %land.end339, %land.
 
 land.rhs346:                                      ; preds = %for.end343
   %type347 = getelementptr inbounds i8, ptr %arrayidx300, i64 56
-  %call.i303 = call i64 @fread(ptr noundef nonnull %type347, i64 noundef 1, i64 noundef 4, ptr noundef %call)
+  %call.i303 = call i64 @fread(ptr noundef nonnull %type347, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call)
   %cmp.i305 = icmp eq i64 %call.i303, 4
   br i1 %cmp.i305, label %land.rhs354, label %if.then361
 
 land.rhs354:                                      ; preds = %land.rhs346
   %offset355 = getelementptr inbounds i8, ptr %arrayidx300, i64 64
-  %call.i306 = call i64 @fread(ptr noundef nonnull %offset355, i64 noundef 1, i64 noundef 8, ptr noundef %call)
+  %call.i306 = call i64 @fread(ptr noundef nonnull %offset355, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call)
   %cmp.i308 = icmp eq i64 %call.i306, 8
   br i1 %cmp.i308, label %for.inc365, label %if.then361
 
 if.then361:                                       ; preds = %land.rhs346, %for.end343, %land.rhs354
   %55 = load ptr, ptr @stderr, align 8
   %call362 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.220, ptr noundef nonnull @__func__.gguf_init_from_file) #46
-  %call363 = call i32 @fclose(ptr noundef %call)
+  %call363 = call i32 @fclose(ptr noundef nonnull %call)
   call void @gguf_free(ptr noundef %retval.0.i)
   br label %return
 
@@ -25972,7 +25972,7 @@ if.end375:                                        ; preds = %for.inc.i, %for.end
 if.then379:                                       ; preds = %if.end375
   %sub = sub nsw i64 %61, %rem
   %add = add i64 %sub, %offset.8.lcssa
-  %call381 = call i32 @fseek(ptr noundef %call, i64 noundef %add, i32 noundef 0)
+  %call381 = call i32 @fseek(ptr noundef nonnull %call, i64 noundef %add, i32 noundef 0)
   br label %if.end382
 
 if.end382:                                        ; preds = %if.then379, %if.end375
@@ -26019,7 +26019,7 @@ if.then412:                                       ; preds = %for.body390
   %data414 = getelementptr inbounds i8, ptr %arrayidx393, i64 8
   %71 = load ptr, ptr %data414, align 8
   %call417 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.222, ptr noundef nonnull @__func__.gguf_init_from_file, ptr noundef %71, i64 noundef %mul405, i32 noundef %69) #46
-  %call418 = call i32 @fclose(ptr noundef %call)
+  %call418 = call i32 @fclose(ptr noundef nonnull %call)
   call void @gguf_free(ptr noundef nonnull %retval.0.i)
   br label %return
 
@@ -26079,14 +26079,14 @@ land.rhs472:                                      ; preds = %if.then460
   %data473 = getelementptr inbounds i8, ptr %call.i.i311, i64 280
   %78 = load ptr, ptr %data473, align 8
   %79 = load i64, ptr %size, align 8
-  %call.i312 = call i64 @fread(ptr noundef %78, i64 noundef 1, i64 noundef %79, ptr noundef %call)
+  %call.i312 = call i64 @fread(ptr noundef %78, i64 noundef 1, i64 noundef %79, ptr noundef nonnull %call)
   %cmp.i314 = icmp eq i64 %call.i312, %79
   br i1 %cmp.i314, label %if.end483, label %if.then480
 
 if.then480:                                       ; preds = %if.then460, %land.rhs472
   %80 = load ptr, ptr @stderr, align 8
   %call481 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.223, ptr noundef nonnull @__func__.gguf_init_from_file) #46
-  %call482 = call i32 @fclose(ptr noundef %call)
+  %call482 = call i32 @fclose(ptr noundef nonnull %call)
   call void @ggml_free(ptr noundef %call454)
   call void @gguf_free(ptr noundef nonnull %retval.0.i)
   br label %return
@@ -26171,7 +26171,7 @@ for.end547:                                       ; preds = %if.end486
 if.then549:                                       ; preds = %for.body493, %for.end547
   %98 = load ptr, ptr @stderr, align 8
   %call550 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.224, ptr noundef nonnull @__func__.gguf_init_from_file) #46
-  %call551 = call i32 @fclose(ptr noundef %call)
+  %call551 = call i32 @fclose(ptr noundef nonnull %call)
   call void @ggml_free(ptr noundef %call454)
   call void @gguf_free(ptr noundef nonnull %retval.0.i)
   br label %return
@@ -26181,7 +26181,7 @@ if.end552:                                        ; preds = %for.inc545, %for.en
   br label %if.end555
 
 if.end555:                                        ; preds = %if.end552, %for.end431
-  %call556 = call i32 @fclose(ptr noundef %call)
+  %call556 = call i32 @fclose(ptr noundef nonnull %call)
   br label %return
 
 return:                                           ; preds = %entry, %if.end555, %if.then549, %if.then480, %if.then412, %if.then361, %if.then283, %if.then55, %if.then50, %if.then9
@@ -28884,7 +28884,7 @@ if.end:                                           ; preds = %entry
   store i64 16384, ptr %size1.i, align 8, !alias.scope !280
   %offset.i = getelementptr inbounds i8, ptr %buf, i64 16
   store i64 0, ptr %offset.i, align 8, !alias.scope !280
-  call fastcc void @gguf_write_to_buf(ptr noundef %ctx, ptr noundef nonnull %buf, i1 noundef zeroext %only_meta)
+  call fastcc void @gguf_write_to_buf(ptr noundef %ctx, ptr noundef %buf, i1 noundef zeroext %only_meta)
   %2 = load ptr, ptr %buf, align 8
   %3 = load i64, ptr %offset.i, align 8
   %call4 = call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef nonnull %call)
@@ -28902,7 +28902,7 @@ gguf_buf_free.exit:                               ; preds = %if.end, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gguf_write_to_buf(ptr nocapture noundef readonly %ctx, ptr noundef %buf, i1 noundef zeroext %only_meta) unnamed_addr #0 {
+define internal fastcc void @gguf_write_to_buf(ptr nocapture noundef readonly %ctx, ptr noundef nonnull %buf, i1 noundef zeroext %only_meta) unnamed_addr #0 {
 entry:
   %offset.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i64, ptr %offset.i.i, align 8
@@ -30531,7 +30531,7 @@ entry:
   %buf = alloca %struct.gguf_buf, align 8
   %offset.i = getelementptr inbounds i8, ptr %buf, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, i8 0, i64 24, i1 false)
-  call fastcc void @gguf_write_to_buf(ptr noundef %ctx, ptr noundef nonnull %buf, i1 noundef zeroext true)
+  call fastcc void @gguf_write_to_buf(ptr noundef %ctx, ptr noundef %buf, i1 noundef zeroext true)
   %0 = load i64, ptr %offset.i, align 8
   ret i64 %0
 }
@@ -30546,7 +30546,7 @@ entry:
   store i64 16384, ptr %size1.i, align 8, !alias.scope !290
   %offset.i = getelementptr inbounds i8, ptr %buf, i64 16
   store i64 0, ptr %offset.i, align 8, !alias.scope !290
-  call fastcc void @gguf_write_to_buf(ptr noundef %ctx, ptr noundef nonnull %buf, i1 noundef zeroext true)
+  call fastcc void @gguf_write_to_buf(ptr noundef %ctx, ptr noundef %buf, i1 noundef zeroext true)
   %0 = load ptr, ptr %buf, align 8
   %1 = load i64, ptr %offset.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data, ptr align 1 %0, i64 %1, i1 false)
@@ -31143,7 +31143,7 @@ return:                                           ; preds = %ggml_hash_contains.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_sub_or_set(ptr nocapture noundef %ctx, ptr noundef %a, ptr noundef %b, i64 %zero_table.coerce0, ptr nocapture readonly %zero_table.coerce1) unnamed_addr #0 {
+define internal fastcc noundef ptr @ggml_sub_or_set(ptr nocapture noundef %ctx, ptr noundef nonnull %a, ptr noundef %b, i64 %zero_table.coerce0, ptr nocapture readonly %zero_table.coerce1) unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %a to i64
   %rem.i.i = urem i64 %0, %zero_table.coerce0
@@ -31199,7 +31199,7 @@ ggml_neg.exit:                                    ; preds = %if.then, %cond.true
   br label %return
 
 if.else:                                          ; preds = %while.body.i.i, %ggml_hash_contains.exit
-  %call2 = tail call fastcc ptr @ggml_sub_impl(ptr noundef %ctx, ptr noundef %a, ptr noundef %b, i1 noundef zeroext false)
+  %call2 = tail call fastcc ptr @ggml_sub_impl(ptr noundef %ctx, ptr noundef nonnull %a, ptr noundef %b, i1 noundef zeroext false)
   br label %return
 
 return:                                           ; preds = %if.else, %ggml_neg.exit
@@ -31208,7 +31208,7 @@ return:                                           ; preds = %if.else, %ggml_neg.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_add1_or_set(ptr nocapture noundef %ctx, ptr noundef %a, ptr noundef %b, i64 %zero_table.coerce0, ptr nocapture readonly %zero_table.coerce1) unnamed_addr #0 {
+define internal fastcc noundef ptr @ggml_add1_or_set(ptr nocapture noundef %ctx, ptr noundef nonnull %a, ptr noundef %b, i64 %zero_table.coerce0, ptr nocapture readonly %zero_table.coerce1) unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %a to i64
   %rem.i.i = urem i64 %0, %zero_table.coerce0
@@ -31237,11 +31237,11 @@ ggml_hash_contains.exit:                          ; preds = %while.cond.i.i
   br i1 %spec.select.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %ggml_hash_contains.exit
-  %call1 = tail call ptr @ggml_repeat(ptr noundef %ctx, ptr noundef %b, ptr noundef %a)
+  %call1 = tail call ptr @ggml_repeat(ptr noundef %ctx, ptr noundef %b, ptr noundef nonnull %a)
   br label %return
 
 if.else:                                          ; preds = %while.body.i.i, %ggml_hash_contains.exit
-  %call2 = tail call fastcc ptr @ggml_add1_impl(ptr noundef %ctx, ptr noundef %a, ptr noundef %b, i1 noundef zeroext false)
+  %call2 = tail call fastcc ptr @ggml_add1_impl(ptr noundef %ctx, ptr noundef nonnull %a, ptr noundef %b, i1 noundef zeroext false)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -31310,7 +31310,7 @@ return:                                           ; preds = %while.body.i.i, %gg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward(ptr nocapture noundef readonly %params, ptr noundef %tensor) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward(ptr nocapture noundef nonnull readonly %params, ptr noundef %tensor) unnamed_addr #0 {
 entry:
   %op = getelementptr inbounds i8, ptr %tensor, i64 80
   %0 = load i32, ptr %op, align 8
@@ -32017,7 +32017,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 declare void @__sched_cpufree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_dup(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
+define internal fastcc void @ggml_compute_forward_dup(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
 entry:
   %nb.i = getelementptr inbounds i8, ptr %src0, i64 48
   %0 = load i64, ptr %nb.i, align 8
@@ -32220,7 +32220,7 @@ land.lhs.true.i351.i:                             ; preds = %land.lhs.true.i41
   br i1 %or.cond407.i, label %if.then46.i, label %if.end47.i
 
 if.then46.i:                                      ; preds = %land.lhs.true.i351.i
-  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef nonnull readonly %params, ptr noundef nonnull readonly %src0, ptr noundef nonnull readonly %dst)
+  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef readonly %params, ptr noundef nonnull readonly %src0, ptr noundef nonnull readonly %dst)
   br label %sw.epilog
 
 if.end47.i:                                       ; preds = %land.lhs.true.i351.i, %land.lhs.true.i41, %land.lhs.true.i.i, %if.end8.if.end47_crit_edge.i
@@ -33310,7 +33310,7 @@ land.lhs.true.i312.i:                             ; preds = %land.lhs.true.i200
   br i1 %or.cond361.i, label %if.then46.i202, label %if.end47.i70
 
 if.then46.i202:                                   ; preds = %land.lhs.true.i312.i
-  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef nonnull readonly %params, ptr noundef nonnull readonly %src0, ptr noundef nonnull readonly %dst)
+  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef readonly %params, ptr noundef nonnull readonly %src0, ptr noundef nonnull readonly %dst)
   br label %sw.epilog
 
 if.end47.i70:                                     ; preds = %land.lhs.true.i312.i, %land.lhs.true.i200, %land.lhs.true.i.i191, %if.end8.if.end47_crit_edge.i68
@@ -34127,7 +34127,7 @@ sw.epilog:                                        ; preds = %for.cond507.for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_add(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
+define internal fastcc void @ggml_compute_forward_add(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body10 [
@@ -35345,7 +35345,7 @@ sw.epilog:                                        ; preds = %for.inc.i, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_add1(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
+define internal fastcc void @ggml_compute_forward_add1(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body10 [
@@ -36357,7 +36357,7 @@ sw.epilog:                                        ; preds = %for.body.i, %ggml_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_acc(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_acc(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -36813,7 +36813,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_sub(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_sub(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -37053,7 +37053,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_mul(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_mul(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src1, align 8
   %cmp = icmp eq i32 %0, 0
@@ -37370,7 +37370,7 @@ do.body3:                                         ; preds = %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_div(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_div(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -37673,7 +37673,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_sqr(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_sqr(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -37757,7 +37757,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_sqrt(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_sqrt(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -37841,7 +37841,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_log(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_log(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -38003,7 +38003,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_sum(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
+define internal fastcc void @ggml_compute_forward_sum(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body [
@@ -38222,7 +38222,7 @@ sw.epilog:                                        ; preds = %for.end32.i14, %sw.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_sum_rows(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_sum_rows(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -38478,7 +38478,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_mean(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_mean(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -38644,7 +38644,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_argmax(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_argmax(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -38732,7 +38732,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_repeat(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_repeat(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body [
@@ -39240,7 +39240,7 @@ sw.epilog:                                        ; preds = %for.cond67.for.inc1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_repeat_back(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_repeat_back(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -39596,7 +39596,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_concat(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_concat(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -39815,7 +39815,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_silu_back(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %grad, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
+define internal fastcc void @ggml_compute_forward_silu_back(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %grad, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -40087,7 +40087,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_norm(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_norm(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -40817,7 +40817,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_rms_norm(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_rms_norm(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -41565,7 +41565,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_rms_norm_back(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_rms_norm_back(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -41909,7 +41909,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_group_norm(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_group_norm(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -42322,7 +42322,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_mul_mat(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_mul_mat(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %tmp = alloca [16 x float], align 16
   %ne = getelementptr inbounds i8, ptr %src0, i64 16
@@ -42761,7 +42761,7 @@ for.end319:                                       ; preds = %for.cond138.for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_mul_mat_id(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %ids, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_mul_mat_id(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %ids, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %tmp = alloca [16 x float], align 16
   %src = getelementptr inbounds i8, ptr %dst, i64 160
@@ -43324,7 +43324,7 @@ for.end404:                                       ; preds = %do.end201, %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_out_prod(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_out_prod(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %x.i.i = alloca [32 x ptr], align 16
   %v.i.i = alloca [32 x ptr], align 16
@@ -44330,7 +44330,7 @@ sw.epilog:                                        ; preds = %for.cond132.for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_scale(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_scale(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -44727,7 +44727,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_set(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_set(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -45125,7 +45125,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_get_rows(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_get_rows(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body [
@@ -45479,7 +45479,7 @@ sw.epilog:                                        ; preds = %for.cond52.for.inc8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_get_rows_back(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_get_rows_back(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body [
@@ -45932,7 +45932,7 @@ sw.epilog:                                        ; preds = %ggml_vec_add_f32.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_diag(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_diag(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -46175,7 +46175,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_diag_mask_inf(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_diag_mask_inf(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -46196,7 +46196,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_diag_mask_zero(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_diag_mask_zero(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -46217,7 +46217,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_soft_max(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_soft_max(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -46493,7 +46493,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_soft_max_back(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_soft_max_back(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %sum.i.i = alloca [4 x <8 x float>], align 32
   %0 = load i32, ptr %src0, align 8
@@ -46869,7 +46869,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_rope(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_rope(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body [
@@ -46899,7 +46899,7 @@ sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_rope_back(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_rope_back(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body [
@@ -46929,7 +46929,7 @@ sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_alibi(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_alibi(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %sw.epilog [
@@ -47265,7 +47265,7 @@ sw.epilog:                                        ; preds = %for.cond41.for.inc8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_clamp(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_clamp(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %sw.epilog [
@@ -47411,7 +47411,7 @@ sw.epilog:                                        ; preds = %for.cond38.for.inc6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_conv_transpose_1d(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_conv_transpose_1d(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %sum.i.i6 = alloca [4 x <8 x float>], align 32
   %sum.i.i = alloca [4 x <8 x float>], align 32
@@ -48572,7 +48572,7 @@ sw.epilog:                                        ; preds = %for.cond175.for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_im2col(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
+define internal fastcc void @ggml_compute_forward_im2col(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %src0, align 8
   switch i32 %0, label %do.body3 [
@@ -48881,7 +48881,7 @@ do.body3:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_conv_transpose_2d(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_conv_transpose_2d(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %sum.i = alloca [4 x <8 x float>], align 32
   %0 = load i32, ptr %src0, align 8
@@ -49617,7 +49617,7 @@ for.end278:                                       ; preds = %for.inc276, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_pool_1d(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_pool_1d(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %op_params = getelementptr inbounds i8, ptr %dst, i64 84
   %0 = load i32, ptr %op_params, align 4
@@ -50370,7 +50370,7 @@ while.end:                                        ; preds = %for.cond.for.end105
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_upscale(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_upscale(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -50512,7 +50512,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_pad(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_pad(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -50690,7 +50690,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_argsort(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_argsort(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -50922,7 +50922,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_leaky_relu(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_leaky_relu(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -51012,7 +51012,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_flash_attn(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %q, ptr nocapture noundef readonly %k, ptr nocapture noundef readonly %v, i1 noundef zeroext %masked, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_flash_attn(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %q, ptr nocapture noundef readonly %k, ptr nocapture noundef readonly %v, i1 noundef zeroext %masked, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %sum.i196.i = alloca [4 x <8 x float>], align 32
   %sum.i.i8 = alloca [4 x <8 x float>], align 32
@@ -52856,7 +52856,7 @@ sw.epilog:                                        ; preds = %ggml_compute_forwar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_flash_ff(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b0, ptr nocapture noundef readonly %b1, ptr nocapture noundef readonly %c0, ptr nocapture noundef readonly %c1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_flash_ff(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b0, ptr nocapture noundef readonly %b1, ptr nocapture noundef readonly %c0, ptr nocapture noundef readonly %c1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %sum.i166.i = alloca [4 x <8 x float>], align 32
   %sum.i.i = alloca [4 x <8 x float>], align 32
@@ -53593,7 +53593,7 @@ do.body3:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_flash_attn_back(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %q, ptr nocapture noundef readonly %k, ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %d, i1 noundef zeroext %masked, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_flash_attn_back(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %q, ptr nocapture noundef readonly %k, ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %d, i1 noundef zeroext %masked, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %sum.i328.i = alloca [4 x <8 x float>], align 32
   %sum.i.i = alloca [4 x <8 x float>], align 32
@@ -54789,7 +54789,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_win_part(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_win_part(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -54955,7 +54955,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_win_unpart(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_win_unpart(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -55062,7 +55062,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_unary(ptr nocapture noundef readonly %params, ptr noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
+define internal fastcc void @ggml_compute_forward_unary(ptr nocapture noundef nonnull readonly %params, ptr noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #15 {
 entry:
   %op.i = getelementptr inbounds i8, ptr %dst, i64 80
   %0 = load i32, ptr %op.i, align 8
@@ -56238,7 +56238,7 @@ sw.epilog:                                        ; preds = %ggml_vec_silu_f32.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_get_rel_pos(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_get_rel_pos(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 1
@@ -56322,7 +56322,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_add_rel_pos(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %src2, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_add_rel_pos(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %src2, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -56529,7 +56529,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_map_unary(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst, ptr nocapture noundef readonly %fun) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_map_unary(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst, ptr nocapture noundef readonly %fun) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -56628,7 +56628,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_map_binary(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst, ptr nocapture noundef readonly %fun) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_map_binary(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst, ptr nocapture noundef readonly %fun) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -56700,7 +56700,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_cross_entropy_loss(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_cross_entropy_loss(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -57133,7 +57133,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_cross_entropy_loss_back(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %opt0, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_cross_entropy_loss_back(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %opt0, ptr nocapture noundef readonly %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0
@@ -57595,7 +57595,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_dup_same_cont(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_dup_same_cont(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   %ne.i = getelementptr inbounds i8, ptr %dst, i64 16
   %0 = load i64, ptr %ne.i, align 8
@@ -57769,7 +57769,7 @@ if.end49:                                         ; preds = %do.end19, %do.end19
 declare float @sqrtf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_diag_mask_f32(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst, float noundef %value) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_diag_mask_f32(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %dst, float noundef %value) unnamed_addr #0 {
 entry:
   %ith1 = getelementptr inbounds i8, ptr %params, i64 4
   %0 = load i32, ptr %ith1, align 4
@@ -58082,7 +58082,7 @@ for.end94:                                        ; preds = %for.cond63.for.inc9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_rope_f16(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst, i1 noundef zeroext %forward) unnamed_addr #15 {
+define internal fastcc void @ggml_compute_forward_rope_f16(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst, i1 noundef zeroext %forward) unnamed_addr #15 {
 entry:
   %corr_dims = alloca [2 x float], align 4
   %0 = load i32, ptr %params, align 8
@@ -58814,7 +58814,7 @@ for.end392:                                       ; preds = %for.cond102.for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_rope_f32(ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst, i1 noundef zeroext %forward) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_rope_f32(ptr nocapture noundef nonnull readonly %params, ptr nocapture noundef readonly %src0, ptr nocapture noundef readonly %src1, ptr nocapture noundef readonly %dst, i1 noundef zeroext %forward) unnamed_addr #0 {
 entry:
   %corr_dims = alloca [2 x float], align 4
   %0 = load i32, ptr %params, align 8

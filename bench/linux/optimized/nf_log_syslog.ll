@@ -1218,7 +1218,7 @@ declare i16 @llvm.bswap.i16(i16) #5
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.tcphdr, align 4
   %7 = alloca [40 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #7
@@ -1465,7 +1465,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef range(i32 0, 65536) %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.udphdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   %7 = icmp eq i8 %2, 17
@@ -1806,7 +1806,7 @@ define internal void @nf_log_ip6_packet(ptr noundef %0, i8 zeroext %1, i32 %2, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 align 16 {
+define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #4 align 16 {
   %7 = alloca %struct.ipv6hdr, align 4
   %8 = alloca %struct.ipv6_opt_hdr, align 2
   %9 = alloca %struct.frag_hdr, align 8

@@ -371,7 +371,7 @@ ssl_write_extended_ms_ext.exit:                   ; preds = %92
 102:                                              ; preds = %98, %85
   %103 = phi i64 [ 4, %98 ], [ 0, %85 ]
   %104 = getelementptr inbounds i8, ptr %88, i64 %103
-  %105 = call fastcc i32 @ssl_write_session_ticket_ext(ptr noundef nonnull %0, ptr noundef %104, ptr noundef %2, ptr noundef nonnull %6)
+  %105 = call fastcc i32 @ssl_write_session_ticket_ext(ptr noundef nonnull %0, ptr noundef %104, ptr noundef %2, ptr noundef %6)
   %.not60 = icmp eq i32 %105, 0
   br i1 %.not60, label %107, label %106
 
@@ -396,7 +396,7 @@ ssl_write_extended_ms_ext.exit:                   ; preds = %92
 declare void @mbedtls_debug_print_ret(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -27136, 1) i32 @ssl_write_session_ticket_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -27136, 1) i32 @ssl_write_session_ticket_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 136
@@ -1349,7 +1349,7 @@ ssl_get_ecdh_params_from_cert.exit.i:             ; preds = %429
   br i1 %switch.i, label %462, label %466
 
 462:                                              ; preds = %454
-  %463 = call fastcc i32 @ssl_parse_server_psk_hint(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %460)
+  %463 = call fastcc i32 @ssl_parse_server_psk_hint(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %460)
   %.not113.i = icmp eq i32 %463, 0
   br i1 %.not113.i, label %thread-pre-split.i, label %464
 
@@ -1375,7 +1375,7 @@ thread-pre-split.i:                               ; preds = %462
   ]
 
 468:                                              ; preds = %466, %466
-  %469 = call fastcc i32 @ssl_parse_server_dh_params(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %460)
+  %469 = call fastcc i32 @ssl_parse_server_dh_params(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %460)
   %.not115.i = icmp eq i32 %469, 0
   br i1 %.not115.i, label %477, label %470
 
@@ -1385,7 +1385,7 @@ thread-pre-split.i:                               ; preds = %462
   br label %ssl_parse_server_key_exchange.exit
 
 472:                                              ; preds = %466, %466, %466
-  %473 = call fastcc i32 @ssl_parse_server_ecdh_params(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %460)
+  %473 = call fastcc i32 @ssl_parse_server_ecdh_params(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %460)
   %.not114.i = icmp eq i32 %473, 0
   br i1 %.not114.i, label %477, label %474
 
@@ -1418,7 +1418,7 @@ thread-pre-split.i:                               ; preds = %462
   %485 = ptrtoint ptr %484 to i64
   %486 = ptrtoint ptr %483 to i64
   %487 = sub i64 %485, %486
-  %488 = call fastcc i32 @ssl_parse_signature_algorithm(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %460, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  %488 = call fastcc i32 @ssl_parse_signature_algorithm(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %460, ptr noundef %14, ptr noundef %15)
   %.not117.i = icmp eq i32 %488, 0
   br i1 %.not117.i, label %491, label %489
 
@@ -2073,7 +2073,7 @@ mbedtls_ssl_conf_has_static_psk.exit.i:           ; preds = %801
   br label %880
 
 830:                                              ; preds = %807
-  %831 = call fastcc i32 @ssl_write_encrypted_pms(ptr noundef nonnull %0, i64 noundef %827, ptr noundef nonnull %5, i64 noundef 2)
+  %831 = call fastcc i32 @ssl_write_encrypted_pms(ptr noundef nonnull %0, i64 noundef %827, ptr noundef %5, i64 noundef 2)
   %.not143.i = icmp eq i32 %831, 0
   br i1 %.not143.i, label %880, label %ssl_write_client_key_exchange.exit
 
@@ -2169,7 +2169,7 @@ mbedtls_ssl_conf_has_static_psk.exit.i:           ; preds = %801
   br i1 %887, label %888, label %890
 
 888:                                              ; preds = %885
-  %889 = call fastcc i32 @ssl_write_encrypted_pms(ptr noundef nonnull %0, i64 noundef 4, ptr noundef nonnull %5, i64 noundef 0)
+  %889 = call fastcc i32 @ssl_write_encrypted_pms(ptr noundef nonnull %0, i64 noundef 4, ptr noundef %5, i64 noundef 0)
   %.not140.i = icmp eq i32 %889, 0
   br i1 %.not140.i, label %891, label %ssl_write_client_key_exchange.exit
 
@@ -2674,7 +2674,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #5
 declare i32 @mbedtls_ssl_validate_ciphersuite(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -28160, 1) i32 @ssl_parse_renegotiation_info(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -28160, 1) i32 @ssl_parse_renegotiation_info(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -2739,7 +2739,7 @@ define internal fastcc range(i32 -28160, 1) i32 @ssl_parse_renegotiation_info(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -26112, 1) i32 @ssl_parse_max_fragment_length_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -26112, 1) i32 @ssl_parse_max_fragment_length_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 12
   %6 = load i8, ptr %5, align 4
@@ -2764,7 +2764,7 @@ define internal fastcc range(i32 -26112, 1) i32 @ssl_parse_max_fragment_length_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_encrypt_then_mac_ext(ptr noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_encrypt_then_mac_ext(ptr noundef %0, i64 noundef range(i64 0, 65536) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 13
   %5 = load i8, ptr %4, align 1
@@ -2791,7 +2791,7 @@ define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_encrypt_then_mac_ext(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_extended_ms_ext(ptr noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_extended_ms_ext(ptr noundef %0, i64 noundef range(i64 0, 65536) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 14
   %5 = load i8, ptr %4, align 2
@@ -2818,7 +2818,7 @@ define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_extended_ms_ext(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_session_ticket_ext(ptr noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_session_ticket_ext(ptr noundef %0, i64 noundef range(i64 0, 65536) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 17
   %5 = load i8, ptr %4, align 1
@@ -2845,7 +2845,7 @@ define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_session_ticket_ext(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_supported_point_formats_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_supported_point_formats_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %9, label %5
 
@@ -2899,7 +2899,7 @@ define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_supported_point_forma
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_alpn_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -29952, 1) i32 @ssl_parse_alpn_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 328
   %6 = load ptr, ptr %5, align 8
@@ -3004,7 +3004,7 @@ declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_server_psk_hint(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_server_psk_hint(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -3046,11 +3046,11 @@ define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_server_psk_hint(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_parse_server_dh_params(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @ssl_parse_server_dh_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 120
-  %7 = tail call i32 @mbedtls_dhm_read_params(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2) #11
+  %7 = tail call i32 @mbedtls_dhm_read_params(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %2) #11
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -3091,11 +3091,11 @@ define internal fastcc i32 @ssl_parse_server_dh_params(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_parse_server_ecdh_params(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @ssl_parse_server_ecdh_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 360
-  %7 = tail call i32 @mbedtls_ecdh_read_params(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2) #11
+  %7 = tail call i32 @mbedtls_ecdh_read_params(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %2) #11
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -3118,7 +3118,7 @@ define internal fastcc i32 @ssl_parse_server_ecdh_params(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_signature_algorithm(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_signature_algorithm(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef readnone %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   %6 = load ptr, ptr %1, align 8
@@ -3315,7 +3315,7 @@ declare i32 @mbedtls_ecdh_calc_secret(ptr noundef, ptr noundef, ptr noundef, i64
 declare i32 @mbedtls_ssl_ciphersuite_uses_psk(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_write_encrypted_pms(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @ssl_write_encrypted_pms(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 3) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1560
@@ -3387,7 +3387,7 @@ define internal fastcc i32 @ssl_write_encrypted_pms(ptr noundef %0, i64 noundef 
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 56
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 @mbedtls_pk_encrypt(ptr noundef nonnull %35, ptr noundef nonnull %8, i64 noundef %41, ptr noundef nonnull %45, ptr noundef %2, i64 noundef %46, ptr noundef %49, ptr noundef %51) #11
+  %52 = tail call i32 @mbedtls_pk_encrypt(ptr noundef nonnull %35, ptr noundef nonnull %8, i64 noundef %41, ptr noundef nonnull %45, ptr noundef nonnull %2, i64 noundef %46, ptr noundef %49, ptr noundef %51) #11
   %.not45 = icmp eq i32 %52, 0
   br i1 %.not45, label %54, label %53
 

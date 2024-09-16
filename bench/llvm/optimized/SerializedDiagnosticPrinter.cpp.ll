@@ -3543,7 +3543,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   %92 = load ptr, ptr %91, align 8
   %.val21 = load ptr, ptr %73, align 8
   %93 = load ptr, ptr %.val21, align 8
-  call void @_ZN5clang18DiagnosticRendererC2ERKNS_11LangOptionsEPNS_17DiagnosticOptionsE(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(841) %92, ptr noundef %93) #18
+  call void @_ZN5clang18DiagnosticRendererC2ERKNS_11LangOptionsEPNS_17DiagnosticOptionsE(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(841) %92, ptr noundef nonnull %93) #18
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN12_GLOBAL__N_114SDiagsRendererE, i64 16), ptr %7, align 8
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %0, ptr %94, align 8
@@ -4721,7 +4721,7 @@ _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit: ; preds = %_ZN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11EmitBlockIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL11EmitBlockIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef range(i32 8, 10) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %6, align 8
@@ -4801,7 +4801,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit16: ; preds = %25, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12EmitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL12EmitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef range(i32 1, 8) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %6, align 8

@@ -1603,7 +1603,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h07262a84045f1b7eE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h07262a84045f1b7eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
 .lr.ph.i.i.lr.ph:
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -1652,7 +1652,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h072
   br i1 %14, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %15
 
 15:                                               ; preds = %.lr.ph.i.i.i
-  %16 = add nuw i64 %.05.i.i.i, 1
+  %16 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %16, %.sroa.3.0.i47.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
@@ -3253,7 +3253,7 @@ define hidden noundef ptr @_ZN7uu_sort4Line11print_debug17h9c12660a583419e8E.llv
   %37 = load ptr, ptr %0, align 8, !nonnull !4, !align !88, !noundef !4
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load i64, ptr %38, align 8, !noundef !4
-  call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h07262a84045f1b7eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39)
+  call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h07262a84045f1b7eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store ptr %36, ptr %34, align 8
@@ -5105,7 +5105,7 @@ define hidden noundef ptr @_ZN7uu_sort4Line11print_debug17haf977d0bee38872eE.llv
   %37 = load ptr, ptr %0, align 8, !nonnull !4, !align !88, !noundef !4
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load i64, ptr %38, align 8, !noundef !4
-  call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h07262a84045f1b7eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39)
+  call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h07262a84045f1b7eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store ptr %36, ptr %34, align 8
@@ -6957,7 +6957,7 @@ define hidden noundef ptr @_ZN7uu_sort4Line11print_debug17hec0544257559312cE.llv
   %37 = load ptr, ptr %0, align 8, !nonnull !4, !align !88, !noundef !4
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load i64, ptr %38, align 8, !noundef !4
-  call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h07262a84045f1b7eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39)
+  call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h07262a84045f1b7eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store ptr %36, ptr %34, align 8

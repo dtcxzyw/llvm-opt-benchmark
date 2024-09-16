@@ -459,7 +459,7 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   br label %143
 
 143:                                              ; preds = %141, %139
-  %144 = call fastcc i32 @compile_filter(ptr noundef nonnull %137, ptr noundef nonnull %7)
+  %144 = call fastcc i32 @compile_filter(ptr noundef %137, ptr noundef %7)
   %.not57 = icmp eq i32 %144, 0
   br i1 %.not57, label %167, label %145
 
@@ -568,7 +568,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 declare void @show_help_header(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @print_usage(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @print_usage(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @stdout, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %2)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 38, i64 1, ptr %2)
@@ -675,7 +675,7 @@ define internal fastcc ptr @expand_filter(ptr noundef %0) unnamed_addr #7 {
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #7 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load i64, ptr @opt_optimize, align 8
@@ -694,7 +694,7 @@ define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef %0, ptr n
   %9 = or i32 %.3, 32
   %.4 = select i1 %.b13, i32 %9, i32 %.3
   %10 = tail call i64 @g_get_monotonic_time() #14
-  %11 = call zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %.4, ptr noundef nonnull @.str.1) #14
+  %11 = call zeroext i1 @dfilter_compile_full(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %.4, ptr noundef nonnull @.str.1) #14
   br i1 %11, label %32, label %12
 
 12:                                               ; preds = %2
@@ -711,7 +711,7 @@ define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef %0, ptr n
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr @stderr, align 8
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.51, ptr noundef %0) #19
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.51, ptr noundef nonnull %0) #19
   %25 = load ptr, ptr @stderr, align 8
   %26 = load ptr, ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16

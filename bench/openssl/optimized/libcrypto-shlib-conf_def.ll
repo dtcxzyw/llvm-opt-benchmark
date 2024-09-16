@@ -305,7 +305,7 @@ if.then48:                                        ; preds = %if.end43
 
 if.then51:                                        ; preds = %if.then48
   %5 = load ptr, ptr %dirpath, align 8
-  %call52 = call fastcc ptr @get_next_file(ptr noundef %5, ptr noundef nonnull %dirctx)
+  %call52 = call fastcc ptr @get_next_file(ptr noundef %5, ptr noundef %dirctx)
   %cmp53.not = icmp eq ptr %call52, null
   br i1 %cmp53.not, label %if.else, label %read_retry.backedge
 
@@ -769,7 +769,7 @@ if.end141:                                        ; preds = %eat_ws.exit252, %la
 
 if.end142:                                        ; preds = %eat_ws.exit252
   store i8 0, ptr %p.addr.0.lcssa.i237343, align 1
-  %call143 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef null, ptr noundef nonnull %section, ptr noundef nonnull %p.addr.0.lcssa.i223)
+  %call143 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef null, ptr noundef %section, ptr noundef nonnull %p.addr.0.lcssa.i223)
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %err, label %if.end146
 
@@ -1061,7 +1061,7 @@ while.body.i301:                                  ; preds = %is_keytype.exit.i29
 if.end267:                                        ; preds = %while.body.i301, %is_keytype.exit.i295, %if.then264, %if.end260
   %p.1 = phi ptr [ %p.addr.0.lcssa.i261, %if.end260 ], [ %incdec.ptr265, %if.then264 ], [ %p.addr.018.i296, %is_keytype.exit.i295 ], [ %incdec.ptr.i302, %while.body.i301 ]
   call fastcc void @trim_ws(ptr noundef %conf, ptr noundef nonnull %p.1)
-  %call268 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef nonnull %include, ptr noundef nonnull %p.1)
+  %call268 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef %include, ptr noundef nonnull %p.1)
   %tobool269.not = icmp eq i32 %call268, 0
   br i1 %tobool269.not, label %err, label %if.end271
 
@@ -1130,7 +1130,7 @@ if.then301:                                       ; preds = %land.lhs.true298
   br label %err
 
 if.end302:                                        ; preds = %land.lhs.true298, %if.end295
-  %call303 = call fastcc ptr @process_include(ptr noundef %include_path.0, ptr noundef nonnull %dirctx, ptr noundef nonnull %dirpath)
+  %call303 = call fastcc ptr @process_include(ptr noundef %include_path.0, ptr noundef %dirctx, ptr noundef %dirpath)
   %109 = load ptr, ptr %dirpath, align 8
   %cmp304.not = icmp eq ptr %include_path.0, %109
   br i1 %cmp304.not, label %if.end307, label %if.then306
@@ -1239,7 +1239,7 @@ if.end343:                                        ; preds = %eat_ws.exit323
   br i1 %cmp346, label %err, label %if.end349
 
 if.end349:                                        ; preds = %if.end343
-  %call351 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef nonnull %value, ptr noundef nonnull %p.addr.0.lcssa.i319)
+  %call351 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef %value, ptr noundef nonnull %p.addr.0.lcssa.i319)
   %tobool352.not = icmp eq i32 %call351, 0
   br i1 %tobool352.not, label %err, label %if.end354
 
@@ -1465,10 +1465,10 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_next_file(ptr noundef %path, ptr noundef %dirctx) unnamed_addr #1 {
+define internal fastcc ptr @get_next_file(ptr noundef %path, ptr noundef nonnull %dirctx) unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #14
-  %call123 = tail call ptr @OPENSSL_DIR_read(ptr noundef %dirctx, ptr noundef %path) #13
+  %call123 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %dirctx, ptr noundef %path) #13
   %cmp.not24 = icmp eq ptr %call123, null
   br i1 %cmp.not24, label %while.end, label %while.body.lr.ph
 
@@ -1524,12 +1524,12 @@ if.end22:                                         ; preds = %if.then19, %if.end
   br i1 %cmp25.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end22, %land.lhs.true8, %lor.lhs.false
-  %call1 = tail call ptr @OPENSSL_DIR_read(ptr noundef %dirctx, ptr noundef %path) #13
+  %call1 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %dirctx, ptr noundef %path) #13
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end29, %if.then, %entry
-  %call30 = tail call i32 @OPENSSL_DIR_end(ptr noundef %dirctx) #13
+  %call30 = tail call i32 @OPENSSL_DIR_end(ptr noundef nonnull %dirctx) #13
   store ptr null, ptr %dirctx, align 8
   br label %return
 
@@ -1617,7 +1617,7 @@ if.end10:                                         ; preds = %lor.lhs.false.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef %conf, ptr noundef %section, ptr nocapture noundef %pto, ptr noundef %from) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef %conf, ptr noundef %section, ptr nocapture noundef nonnull %pto, ptr noundef %from) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BUF_MEM_new() #13
   %cmp = icmp eq ptr %call, null
@@ -2182,7 +2182,7 @@ declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_include(ptr noundef %include, ptr noundef %dirctx, ptr nocapture noundef writeonly %dirpath) unnamed_addr #1 {
+define internal fastcc ptr @process_include(ptr noundef %include, ptr noundef nonnull %dirctx, ptr nocapture noundef nonnull writeonly %dirpath) unnamed_addr #1 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @stat(ptr noundef %include, ptr noundef nonnull %st) #13
@@ -2216,7 +2216,7 @@ if.then5:                                         ; preds = %if.then3
   br label %return
 
 if.end6:                                          ; preds = %if.then3
-  %call7 = tail call fastcc ptr @get_next_file(ptr noundef %include, ptr noundef nonnull %dirctx)
+  %call7 = tail call fastcc ptr @get_next_file(ptr noundef %include, ptr noundef %dirctx)
   %cmp8.not = icmp eq ptr %call7, null
   br i1 %cmp8.not, label %return, label %if.then9
 

@@ -1049,7 +1049,7 @@ if.else.i.i7.i.i129:                              ; preds = %_ZN11mpq_managerILb
           to label %invoke.cont68 unwind label %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont68:                                    ; preds = %if.then.i.i8.i.i130, %if.else.i.i7.i.i129
-  %call71 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112update_boundEPK4expr8rationalR7obj_refIS0_11ast_managerEb(ptr noundef %42, ptr noundef nonnull %agg.tmp67, ptr noundef nonnull align 8 dereferenceable(16) %new_lit, i1 noundef zeroext false)
+  %call71 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112update_boundEPK4expr8rationalR7obj_refIS0_11ast_managerEb(ptr noundef %42, ptr noundef %agg.tmp67, ptr noundef nonnull align 8 dereferenceable(16) %new_lit, i1 noundef zeroext false)
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %invoke.cont68
@@ -2293,7 +2293,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112update_boundEPK4expr8rationalR7obj_refIS0_11ast_managerEb(ptr nocapture noundef readonly %lit, ptr noundef %num, ptr nocapture noundef nonnull align 8 dereferenceable(16) %res, i1 noundef zeroext %negate) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112update_boundEPK4expr8rationalR7obj_refIS0_11ast_managerEb(ptr nocapture noundef readonly %lit, ptr noundef nonnull %num, ptr nocapture noundef nonnull align 8 dereferenceable(16) %res, i1 noundef zeroext %negate) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %agg.tmp = alloca %class.rational, align 8
@@ -2385,7 +2385,7 @@ if.else.i.i7.i.i:                                 ; preds = %_ZN11mpq_managerILb
 
 _ZN8rationalC2ERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %if.else.i.i7.i.i
   %lnot = xor i1 %negate, true
-  %call2 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112update_boundEPK4expr8rationalR7obj_refIS0_11ast_managerEb(ptr noundef %7, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %res, i1 noundef zeroext %lnot)
+  %call2 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112update_boundEPK4expr8rationalR7obj_refIS0_11ast_managerEb(ptr noundef %7, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %res, i1 noundef zeroext %lnot)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8rationalC2ERKS_.exit

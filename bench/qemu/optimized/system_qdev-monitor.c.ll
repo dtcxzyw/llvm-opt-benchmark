@@ -1168,7 +1168,7 @@ for.inc.i56.i:                                    ; preds = %for.body.i52.i
 
 if.then108.i:                                     ; preds = %if.end103.i, %for.inc.i56.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.5, i32 noundef 574, ptr noundef nonnull @__func__.qbus_find, ptr noundef nonnull @.str.135, ptr noundef nonnull %elem.i) #8
-  call fastcc void @qbus_error_append_bus_list_hint(ptr noundef nonnull %retval.0.i70.i, ptr noundef %spec.select)
+  call fastcc void @qbus_error_append_bus_list_hint(ptr noundef %retval.0.i70.i, ptr noundef %spec.select)
   br label %qbus_find.exit.thread
 
 for.end.i:                                        ; preds = %while.cond.i, %if.then83.i
@@ -1299,7 +1299,7 @@ if.end47:                                         ; preds = %if.else43
   br i1 %or.cond1, label %land.lhs.true51, label %if.end55
 
 land.lhs.true51:                                  ; preds = %if.end47
-  %call52 = call fastcc zeroext i1 @qbus_is_hotpluggable(ptr noundef nonnull %bus.098)
+  %call52 = call fastcc zeroext i1 @qbus_is_hotpluggable(ptr noundef %bus.098)
   br i1 %call52, label %if.end55, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true51
@@ -1503,7 +1503,7 @@ declare ptr @sysbus_get_default() local_unnamed_addr #1
 declare zeroext i1 @qdev_should_hide_device(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @qbus_is_hotpluggable(ptr noundef %bus) unnamed_addr #0 {
+define internal fastcc zeroext i1 @qbus_is_hotpluggable(ptr noundef nonnull %bus) unnamed_addr #0 {
 entry:
   %hotplug_handler = getelementptr inbounds i8, ptr %bus, i64 56
   %0 = load ptr, ptr %hotplug_handler, align 8
@@ -2397,7 +2397,7 @@ declare zeroext i1 @device_type_is_dynamic_sysbus(ptr noundef, ptr noundef) loca
 declare void @error_set_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qbus_error_append_bus_list_hint(ptr noundef %dev, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @qbus_error_append_bus_list_hint(ptr noundef nonnull %dev, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %id = getelementptr inbounds i8, ptr %dev, i64 40
   %0 = load ptr, ptr %id, align 8

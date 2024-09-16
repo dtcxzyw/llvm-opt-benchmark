@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @curl_getdate(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 -1, ptr %3, align 8
-  %4 = call fastcc i32 @parsedate(ptr noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @parsedate(ptr noundef %0, ptr noundef %3)
   %5 = icmp eq i32 %4, 0
   %6 = load i64, ptr %3, align 8
   %7 = icmp eq i64 %6, -1
@@ -51,7 +51,7 @@ define dso_local i64 @curl_getdate(ptr noundef %0, ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i8, ptr %0, align 1
   %.not322 = icmp eq i8 %4, 0
@@ -553,7 +553,7 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
 define dso_local i64 @Curl_getdate_capped(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   store i64 -1, ptr %2, align 8
-  %3 = call fastcc i32 @parsedate(ptr noundef %0, ptr noundef nonnull %2)
+  %3 = call fastcc i32 @parsedate(ptr noundef %0, ptr noundef %2)
   %cond = icmp eq i32 %3, 0
   %4 = load i64, ptr %2, align 8
   %5 = icmp eq i64 %4, -1

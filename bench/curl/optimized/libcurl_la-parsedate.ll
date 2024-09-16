@@ -42,7 +42,7 @@ define i64 @curl_getdate(ptr noundef %p, ptr nocapture noundef readnone %now) lo
 entry:
   %parsed = alloca i64, align 8
   store i64 -1, ptr %parsed, align 8
-  %call = call fastcc i32 @parsedate(ptr noundef %p, ptr noundef nonnull %parsed)
+  %call = call fastcc i32 @parsedate(ptr noundef %p, ptr noundef %parsed)
   %cmp = icmp eq i32 %call, 0
   %0 = load i64, ptr %parsed, align 8
   %cmp1 = icmp eq i64 %0, -1
@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %date, ptr nocapture noundef writeonly %output) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %date, ptr nocapture noundef nonnull writeonly %output) unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i8, ptr %date, align 1
@@ -556,7 +556,7 @@ define hidden i64 @Curl_getdate_capped(ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %parsed = alloca i64, align 8
   store i64 -1, ptr %parsed, align 8
-  %call = call fastcc i32 @parsedate(ptr noundef %p, ptr noundef nonnull %parsed)
+  %call = call fastcc i32 @parsedate(ptr noundef %p, ptr noundef %parsed)
   %cond = icmp eq i32 %call, 0
   %0 = load i64, ptr %parsed, align 8
   %cmp = icmp eq i64 %0, -1

@@ -84366,7 +84366,7 @@ declare { i64, i64 } @_ZNK6duckdb9hugeint_tmlERKS0_(ptr noundef nonnull align 8 
 declare { i64, i64 } @_ZNK6duckdb9hugeint_tplERKS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL11DeltaDecodeINS_9hugeint_tEEET_PS2_S2_m(ptr noundef nonnull %data, i64 %previous_value.coerce0, i64 %previous_value.coerce1, i64 noundef %size) unnamed_addr #1 {
+define internal fastcc void @_ZN6duckdbL11DeltaDecodeINS_9hugeint_tEEET_PS2_S2_m(ptr noundef nonnull %data, i64 %previous_value.coerce0, i64 %previous_value.coerce1, i64 noundef range(i64 0, 33) %size) unnamed_addr #1 {
 entry:
   %previous_value = alloca %"struct.duckdb::hugeint_t", align 8
   %a = alloca %"struct.duckdb::hugeint_t", align 8
@@ -84374,7 +84374,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %previous_value, i64 8
   store i64 %previous_value.coerce1, ptr %0, align 8
   %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(16) %previous_value)
-  %div45 = and i64 %size, -4
+  %div45 = and i64 %size, 60
   %cmp.not = icmp eq i64 %div45, 0
   br i1 %cmp.not, label %if.end, label %if.then
 

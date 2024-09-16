@@ -211,11 +211,11 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @create_bitmap_mapping(ptr noundef nonnull %call2, ptr noundef nonnull %to_pack) #18
-  call fastcc void @bitmap_builder_init(ptr noundef nonnull %bb, ptr noundef nonnull %call2)
+  call fastcc void @bitmap_builder_init(ptr noundef %bb, ptr noundef nonnull %call2)
   br label %if.end6
 
 if.else.split:                                    ; preds = %if.end
-  call fastcc void @bitmap_builder_init(ptr noundef nonnull %bb, ptr noundef null)
+  call fastcc void @bitmap_builder_init(ptr noundef %bb, ptr noundef null)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else.split, %if.then4
@@ -1182,7 +1182,7 @@ declare ptr @prepare_bitmap_git(ptr noundef) local_unnamed_addr #2
 declare ptr @create_bitmap_mapping(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bitmap_builder_init(ptr nocapture noundef %bb, ptr noundef %old_bitmap) unnamed_addr #1 {
+define internal fastcc void @bitmap_builder_init(ptr nocapture noundef nonnull %bb, ptr noundef %old_bitmap) unnamed_addr #1 {
 entry:
   %revs = alloca %struct.rev_info, align 8
   %reusable = alloca ptr, align 8

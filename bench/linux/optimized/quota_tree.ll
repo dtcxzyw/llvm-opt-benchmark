@@ -942,7 +942,7 @@ define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
@@ -1705,7 +1705,7 @@ check_dquot_block_header.exit.thread:             ; preds = %.thread6.i, %.threa
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4
@@ -1728,7 +1728,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocaptu
   %20 = load i32, ptr %19, align 8
   %21 = zext nneg i32 %20 to i64
   %22 = shl i64 %18, %21
-  %23 = tail call i64 %12(ptr noundef %8, i32 noundef %14, ptr noundef %1, i64 noundef %17, i64 noundef %22) #8
+  %23 = tail call i64 %12(ptr noundef %8, i32 noundef %14, ptr noundef nonnull %1, i64 noundef %17, i64 noundef %22) #8
   %24 = load i32, ptr %15, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp eq i64 %23, %25
@@ -1759,7 +1759,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -1813,7 +1813,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(
 declare dso_local void @mark_info_dirty(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -1966,7 +1966,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %118 = load i32, ptr %117, align 8
   %119 = zext nneg i32 %118 to i64
   %120 = shl i64 %116, %119
-  %121 = tail call i64 %111(ptr noundef %107, i32 noundef %113, ptr noundef %1, i64 noundef %115, i64 noundef %120) #8
+  %121 = tail call i64 %111(ptr noundef %107, i32 noundef %113, ptr noundef nonnull %1, i64 noundef %115, i64 noundef %120) #8
   %122 = load i32, ptr %4, align 8
   %123 = zext i32 %122 to i64
   %124 = icmp eq i64 %121, %123
@@ -1998,7 +1998,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 sect
 declare dso_local void @percpu_counter_add_batch(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64

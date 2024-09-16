@@ -3479,7 +3479,7 @@ _ZL22prepareAndFilterRangesRKN4llvm15SmallVectorImplIN5clang15CharSourceRangeEEE
   %497 = getelementptr inbounds i32, ptr %495, i64 %496
   %498 = getelementptr inbounds i8, ptr %497, i64 -4
   store i32 %494, ptr %498, align 4
-  call fastcc void @_ZL29printableTextForNextCharacterN4llvm9StringRefEPmj(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %474, i64 %475, ptr noundef nonnull %15, i32 noundef %479)
+  call fastcc void @_ZL29printableTextForNextCharacterN4llvm9StringRefEPmj(ptr dead_on_unwind noalias writable align 8 %16, ptr %474, i64 %475, ptr noundef %15, i32 noundef %479)
   %499 = load ptr, ptr %16, align 8
   %500 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #15
   %501 = call noundef i32 @_ZN4llvm3sys6locale11columnWidthENS_9StringRefE(ptr %499, i64 %500) #15
@@ -3861,7 +3861,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_
   store i64 %677, ptr %12, align 8, !noalias !33
   %681 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #15
   %682 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #15
-  call fastcc void @_ZL29printableTextForNextCharacterN4llvm9StringRefEPmj(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %681, i64 %682, ptr noundef nonnull %12, i32 noundef %675)
+  call fastcc void @_ZL29printableTextForNextCharacterN4llvm9StringRefEPmj(ptr dead_on_unwind noalias writable align 8 %13, ptr %681, i64 %682, ptr noundef %12, i32 noundef %675)
   %683 = call noundef ptr @_ZN4llvm11SmallStringILj16EE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
   %684 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, i64 noundef %677, i64 noundef 1, ptr noundef %683) #15
   %685 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
@@ -4974,7 +4974,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %29, %7
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %48 = load i64, ptr %47, align 4
   %49 = trunc i64 %48 to i32
-  call fastcc void @_ZL29printableTextForNextCharacterN4llvm9StringRefEPmj(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %1, i64 %2, ptr noundef nonnull %8, i32 noundef %49)
+  call fastcc void @_ZL29printableTextForNextCharacterN4llvm9StringRefEPmj(ptr dead_on_unwind noalias writable align 8 %9, ptr %1, i64 %2, ptr noundef %8, i32 noundef %49)
   %50 = load ptr, ptr %34, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i64, ptr %51, align 4
@@ -5484,7 +5484,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66:               ; preds = %134, %136
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL29printableTextForNextCharacterN4llvm9StringRefEPmj(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL29printableTextForNextCharacterN4llvm9StringRefEPmj(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca %"class.llvm::SmallString", align 8
@@ -5792,7 +5792,7 @@ define linkonce_odr hidden void @_ZN5clang18DiagnosticRenderer13endDiagnosticEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL13findEndOfWordjN4llvm9StringRefEjjj(i32 noundef %0, ptr nocapture readonly %1, i64 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL13findEndOfWordjN4llvm9StringRefEjjj(i32 noundef %0, ptr nocapture readonly %1, i64 %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 1, 0) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::SmallString", align 8
   %8 = add i32 %0, 1
   %9 = zext i32 %8 to i64

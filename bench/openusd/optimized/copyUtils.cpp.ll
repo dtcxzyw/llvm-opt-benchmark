@@ -1244,13 +1244,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_SpecDataEntryC2ERKNS_7SdfP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetFieldNamesERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEPSt6vectorINS_7TfTokenESaIS9_EESC_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(8) %112, ptr noundef nonnull %19, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetFieldNamesERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEPSt6vectorINS_7TfTokenESaIS9_EESC_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(8) %112, ptr noundef %19, ptr noundef %20)
           to label %181 unwind label %216
 
 181:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_SpecDataEntryC2ERKNS_7SdfPathENS_11SdfSpecTypeE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetFieldNamesERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEPSt6vectorINS_7TfTokenESaIS9_EESC_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetFieldNamesERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEPSt6vectorINS_7TfTokenESaIS9_EESC_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %21, ptr noundef %22)
           to label %182 unwind label %.loopexit.split-lp.loopexit
 
 182:                                              ; preds = %181
@@ -3414,7 +3414,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetFieldNamesERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEPSt6vectorINS_7TfTokenESaIS9_EESC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetFieldNamesERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEPSt6vectorINS_7TfTokenESaIS9_EESC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.std::vector.50", align 8

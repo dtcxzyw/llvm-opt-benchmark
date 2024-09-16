@@ -4003,7 +4003,7 @@ define void @_Z7push_bt9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEiP22Prepro
   br label %_ZL13copy_B_from_AiPd.exit
 
 _ZL13copy_B_from_AiPd.exit:                       ; preds = %.lr.ph.i, %.lr.ph.preheader, %100, %83, %54
-  call fastcc void @_ZL22atomTypesFromAtomNamesPK22PreprocessingAtomTypesPK25PreprocessingBondAtomTypeN3gmx8ArrayRefIA20_KcEEP14WarningHandler(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %4, ptr noundef %5, ptr nonnull %10, ptr nonnull %55, ptr noundef %7)
+  call fastcc void @_ZL22atomTypesFromAtomNamesPK22PreprocessingAtomTypesPK25PreprocessingBondAtomTypeN3gmx8ArrayRefIA20_KcEEP14WarningHandler(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %4, ptr noundef %5, ptr nonnull %10, ptr nonnull %55, ptr noundef %7)
   %109 = icmp sgt i32 %64, 0
   br i1 %109, label %.lr.ph96.preheader, label %._crit_edge
 
@@ -4055,7 +4055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %126 unwind label %134
 
 126:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17InteractionOfTypeiibPKcP14WarningHandler(ptr noundef nonnull %114, ptr noundef nonnull align 8 dereferenceable(104) %18, i32 noundef %3, i32 noundef %58, i1 noundef zeroext false, ptr noundef %6, ptr noundef %7)
+  invoke fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17InteractionOfTypeiibPKcP14WarningHandler(ptr noundef %114, ptr noundef nonnull align 8 dereferenceable(104) %18, i32 noundef %3, i32 noundef %58, i1 noundef zeroext false, ptr noundef %6, ptr noundef %7)
           to label %127 unwind label %136
 
 127:                                              ; preds = %126
@@ -4127,7 +4127,7 @@ declare noundef i32 @_Z11ifunc_index9Directivei(i32 noundef, i32 noundef) local_
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL22atomTypesFromAtomNamesPK22PreprocessingAtomTypesPK25PreprocessingBondAtomTypeN3gmx8ArrayRefIA20_KcEEP14WarningHandler(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr readnone %4, ptr noundef %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL22atomTypesFromAtomNamesPK22PreprocessingAtomTypesPK25PreprocessingBondAtomTypeN3gmx8ArrayRefIA20_KcEEP14WarningHandler(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr readnone %4, ptr noundef %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4537,7 +4537,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit72, %119
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17InteractionOfTypeiibPKcP14WarningHandler(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17InteractionOfTypeiibPKcP14WarningHandler(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.gmx::ArrayRef", align 8
   %10 = alloca %"class.gmx::ArrayRef.30", align 8
@@ -5972,7 +5972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit99: ; 
           to label %201 unwind label %209
 
 201:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit99
-  invoke fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17InteractionOfTypeiibPKcP14WarningHandler(ptr noundef nonnull %192, ptr noundef nonnull align 8 dereferenceable(104) %16, i32 noundef 4, i32 noundef %59, i1 noundef zeroext %58, ptr noundef %4, ptr noundef %5)
+  invoke fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17InteractionOfTypeiibPKcP14WarningHandler(ptr noundef %192, ptr noundef nonnull align 8 dereferenceable(104) %16, i32 noundef 4, i32 noundef %59, i1 noundef zeroext %58, ptr noundef %4, ptr noundef %5)
           to label %202 unwind label %211
 
 202:                                              ; preds = %201
@@ -7217,7 +7217,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit129: ; preds = %239, %_ZNSt6
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit138
 
 280:                                              ; preds = %277, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit129
-  call fastcc void @_ZL22atomTypesFromAtomNamesPK22PreprocessingAtomTypesPK25PreprocessingBondAtomTypeN3gmx8ArrayRefIA20_KcEEP14WarningHandler(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %4, ptr noundef %5, ptr nonnull %11, ptr nonnull %44, ptr noundef %7)
+  call fastcc void @_ZL22atomTypesFromAtomNamesPK22PreprocessingAtomTypesPK25PreprocessingBondAtomTypeN3gmx8ArrayRefIA20_KcEEP14WarningHandler(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %4, ptr noundef %5, ptr nonnull %11, ptr nonnull %44, ptr noundef %7)
   %281 = getelementptr inbounds i8, ptr %19, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %281, i8 0, i64 44, i1 false)
   store float -4.092030e+05, ptr %19, align 4
@@ -7254,7 +7254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit135: ;
           to label %295 unwind label %303
 
 295:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit135
-  invoke fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17InteractionOfTypeiibPKcP14WarningHandler(ptr noundef nonnull %283, ptr noundef nonnull align 8 dereferenceable(104) %20, i32 noundef %3, i32 noundef %66, i1 noundef zeroext false, ptr noundef %6, ptr noundef %7)
+  invoke fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17InteractionOfTypeiibPKcP14WarningHandler(ptr noundef %283, ptr noundef nonnull align 8 dereferenceable(104) %20, i32 noundef %3, i32 noundef %66, i1 noundef zeroext false, ptr noundef %6, ptr noundef %7)
           to label %296 unwind label %305
 
 296:                                              ; preds = %295
@@ -9064,7 +9064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %213 = ptrtoint ptr %.sroa.0410.0597603609 to i64
   %214 = sub i64 %.0.i.i.i.i.i599602610, %213
   %215 = getelementptr inbounds i8, ptr %.sroa.0410.0597603609, i64 %214
-  %216 = invoke fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IKiEEPi(i32 noundef %.0238, ptr nonnull %1, ptr %.sroa.0410.0597603609, ptr %215, ptr noundef nonnull %18)
+  %216 = invoke fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IKiEEPi(i32 noundef %.0238, ptr nonnull %1, ptr %.sroa.0410.0597603609, ptr %215, ptr noundef %18)
           to label %217 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 217:                                              ; preds = %212
@@ -9145,7 +9145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %239 = ptrtoint ptr %.sroa.0403.0612 to i64
   %240 = sub i64 %.0.i.i.i.i.i309613, %239
   %241 = getelementptr inbounds i8, ptr %.sroa.0403.0612, i64 %240
-  %242 = invoke fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IKiEEPi(i32 noundef %.0238, ptr %1, ptr %.sroa.0403.0612, ptr %241, ptr noundef nonnull %19)
+  %242 = invoke fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IKiEEPi(i32 noundef %.0238, ptr %1, ptr %.sroa.0403.0612, ptr %241, ptr noundef %19)
           to label %243 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 243:                                              ; preds = %238
@@ -9189,11 +9189,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ]
 
 261:                                              ; preds = %260
-  %262 = invoke fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibb(ptr nonnull %1, ptr noundef %5, ptr noundef nonnull %27, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext %9)
+  %262 = invoke fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibb(ptr nonnull %1, ptr noundef %5, ptr noundef %27, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext %9)
           to label %263 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 263:                                              ; preds = %261
-  %264 = invoke fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibb(ptr nonnull %1, ptr noundef %5, ptr noundef nonnull %27, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext %9)
+  %264 = invoke fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibb(ptr nonnull %1, ptr noundef %5, ptr noundef %27, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext %9)
           to label %.loopexit460 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 265:                                              ; preds = %260
@@ -9228,7 +9228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %283 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 283:                                              ; preds = %278
-  %284 = invoke fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibb(ptr nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %27, i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext %9)
+  %284 = invoke fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibb(ptr nonnull %1, ptr noundef nonnull %5, ptr noundef %27, i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext %9)
           to label %.loopexit460 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 285:                                              ; preds = %260
@@ -10017,7 +10017,7 @@ declare noundef ptr @_Z17enumValueToString9Directive(i32 noundef) local_unnamed_
 declare void @_ZN14WarningHandler7addNoteESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64), i64, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IKiEEPi(i32 noundef %0, ptr nocapture readonly %1, ptr %2, ptr %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IKiEEPi(i32 noundef %0, ptr nocapture readonly %1, ptr %2, ptr %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 {
   switch i32 %0, label %226 [
     i32 25, label %6
     i32 24, label %6
@@ -10817,7 +10817,7 @@ _ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibb(ptr nocapture readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibb(ptr nocapture readonly %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 4) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -11504,7 +11504,8 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   br i1 %337, label %.lr.ph196.preheader, label %.loopexit
 
 .lr.ph196.preheader:                              ; preds = %.preheader121
-  %338 = sext i32 %3 to i64
+  %338 = zext nneg i32 %3 to i64
+  %wide.trip.count = zext i32 %20 to i64
   br label %.lr.ph196
 
 339:                                              ; preds = %.thread117
@@ -11517,7 +11518,8 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   br i1 %342, label %.lr.ph198.preheader, label %.loopexit
 
 .lr.ph198.preheader:                              ; preds = %.preheader
-  %343 = sext i32 %3 to i64
+  %343 = zext nneg i32 %3 to i64
+  %wide.trip.count236 = zext i32 %21 to i64
   br label %.lr.ph198
 
 344:                                              ; preds = %339
@@ -11569,26 +11571,24 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %358 = trunc i64 %indvars.iv233 to i32
   %359 = add i32 %20, %358
   tail call void @_ZN17InteractionOfType17setForceParameterEif(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %359, float noundef %357)
-  %indvars.iv.next234 = add nsw i64 %indvars.iv233, 1
-  %lftr.wideiv236 = trunc i64 %indvars.iv.next234 to i32
-  %exitcond237.not = icmp eq i32 %21, %lftr.wideiv236
+  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
+  %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
   br i1 %exitcond237.not, label %.loopexit, label %.lr.ph198, !llvm.loop !132
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %.lr.ph196
   %indvars.iv = phi i64 [ %338, %.lr.ph196.preheader ], [ %indvars.iv.next, %.lr.ph196 ]
   %360 = getelementptr inbounds float, ptr %336, i64 %indvars.iv
   %361 = load float, ptr %360, align 4
-  %362 = trunc nsw i64 %indvars.iv to i32
+  %362 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN17InteractionOfType17setForceParameterEif(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %362, float noundef %361)
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond232.not = icmp eq i32 %20, %lftr.wideiv
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond232.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond232.not, label %.loopexit, label %.lr.ph196, !llvm.loop !133
 
 .lr.ph:                                           ; preds = %.preheader123, %.lr.ph
   %.0194 = phi i32 [ %363, %.lr.ph ], [ %3, %.preheader123 ]
   tail call void @_ZN17InteractionOfType17setForceParameterEif(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %.0194, float noundef 0.000000e+00)
-  %363 = add i32 %.0194, 1
+  %363 = add nuw i32 %.0194, 1
   %exitcond.not = icmp eq i32 %363, %20
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !134
 

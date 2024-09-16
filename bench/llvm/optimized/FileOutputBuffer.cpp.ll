@@ -112,7 +112,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %5
   br i1 %34, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread50
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr nonnull @.str, i64 1, i64 noundef %3, i32 noundef 0)
+  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias writable align 8 %27, ptr nonnull @.str, i64 1, i64 noundef %3, i32 noundef 0)
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -134,7 +134,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread50:       ; preds = %5, %_ZN4llvmeqENS_9
   br i1 %44, label %_ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_deleteIS3_EEED2Ev.exit28, label %53
 
 _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_deleteIS3_EEED2Ev.exit28: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread50
-  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr %1, i64 %2, i64 noundef 0, i32 noundef %spec.select)
+  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias writable align 8 %28, ptr %1, i64 %2, i64 noundef 0, i32 noundef %spec.select)
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %46 = load i8, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -189,7 +189,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %53
   br i1 %.not23, label %77, label %_ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_deleteIS3_EEED2Ev.exit33
 
 _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_deleteIS3_EEED2Ev.exit33: ; preds = %67
-  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr %1, i64 %2, i64 noundef %3, i32 noundef %spec.select)
+  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias writable align 8 %32, ptr %1, i64 %2, i64 noundef %3, i32 noundef %spec.select)
   %69 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %70 = load i8, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -350,7 +350,7 @@ _ZN4llvm12consumeErrorENS_5ErrorE.exit12.i:       ; preds = %125, %120
   br label %_ZN4llvm5ErrorD2Ev.exit13.i
 
 _ZN4llvm5ErrorD2Ev.exit13.i:                      ; preds = %131, %_ZN4llvm12consumeErrorENS_5ErrorE.exit12.i
-  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr %1, i64 %2, i64 noundef %3, i32 noundef %spec.select), !noalias !7
+  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias writable align 8 %26, ptr %1, i64 %2, i64 noundef %3, i32 noundef %spec.select), !noalias !7
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %136 = load i8, ptr %135, align 8, !noalias !7
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -471,7 +471,7 @@ _ZL18createOnDiskBufferN4llvm9StringRefEmj.exit:  ; preds = %173, %174, %_ZNKSt1
   br label %187
 
 _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_deleteIS3_EEED2Ev.exit39: ; preds = %53
-  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr %1, i64 %2, i64 noundef %3, i32 noundef %spec.select)
+  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias writable align 8 %33, ptr %1, i64 %2, i64 noundef %3, i32 noundef %spec.select)
   %179 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %180 = load i8, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -493,7 +493,7 @@ _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_del
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %1, i64 %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, i64 %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.llvm::sys::MemoryBlock", align 8

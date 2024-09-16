@@ -15860,7 +15860,7 @@ declare void @_ZN6duckdb3Bit10BitwiseXorERKNS_8string_tES3_RS1_(ptr noundef nonn
 declare void @_ZN6duckdb3Bit10BitwiseNotERKNS_8string_tERS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L25BitwiseShiftLeftOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tEiS9_EET3_T_T1_T2_RNS_12ValidityMaskEm"(ptr %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i32 noundef %right) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L25BitwiseShiftLeftOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tEiS9_EET3_T_T1_T2_RNS_12ValidityMaskEm"(ptr nonnull %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i32 noundef %right) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"struct.duckdb::string_t", align 8
   %input.i = alloca %"struct.duckdb::string_t", align 8

@@ -4435,7 +4435,7 @@ define range(i32 0, 2) i32 @Gia_ManSifCheckIter(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 -2147483647, -2147483648) %4) unnamed_addr #4 {
   %6 = alloca [2 x i32], align 4
   %7 = alloca [2 x i32], align 4
   %8 = getelementptr i8, ptr %0, i64 32
@@ -5546,7 +5546,7 @@ define void @Gia_ManSifPrintTimes(ptr nocapture noundef readonly %0, ptr nocaptu
   %21 = zext i1 %20 to i32
   %22 = add i32 %18, -65536
   %23 = add i32 %22, %21
-  %24 = tail call noundef i32 @llvm.smin.i32(i32 %23, i32 255)
+  %24 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %23, i32 255)
   %25 = tail call noundef i32 @llvm.smax.i32(i32 %24, i32 -255)
   %26 = icmp sgt i32 %23, -1
   %27 = sub nsw i32 0, %25
@@ -6358,7 +6358,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

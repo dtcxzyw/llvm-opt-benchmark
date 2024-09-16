@@ -9650,7 +9650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %if
 }
 
 ; Function Attrs: norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL14game_configureP10GameParamsRK8Settings(ptr noundef %game_params, ptr noundef nonnull align 8 dereferenceable(236) %cmd_args) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL14game_configureP10GameParamsRK8Settings(ptr noundef nonnull %game_params, ptr noundef nonnull align 8 dereferenceable(236) %cmd_args) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %gamespec.i.i = alloca %struct.SubgameSpec, align 8
   %ref.tmp.i6.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23036,7 +23036,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare noundef zeroext i16 @_ZNK8Settings6getU16ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: norecurse uwtable
-define internal fastcc void @_ZL20get_clean_world_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %path) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20get_clean_world_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %path) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i89 = alloca i64, align 8
   %__dnew.i.i.i65 = alloca i64, align 8

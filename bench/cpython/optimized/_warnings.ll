@@ -1439,7 +1439,7 @@ get_current_tstate.exit.thread:                   ; preds = %entry, %if.end.i7
   br label %return
 
 if.end3:                                          ; preds = %if.end.i7
-  %call4 = tail call fastcc ptr @warn_explicit(ptr noundef nonnull %2, ptr noundef %spec.select, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %module, ptr noundef %registry, ptr noundef null, ptr noundef null)
+  %call4 = tail call fastcc ptr @warn_explicit(ptr noundef %2, ptr noundef %spec.select, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %module, ptr noundef %registry, ptr noundef null, ptr noundef null)
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end7
 
@@ -1465,7 +1465,7 @@ return:                                           ; preds = %get_current_tstate.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @warn_explicit(ptr noundef %tstate, ptr noundef %category, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %module, ptr noundef %registry, ptr noundef %sourceline, ptr noundef %source) unnamed_addr #0 {
+define internal fastcc noundef ptr @warn_explicit(ptr noundef nonnull %tstate, ptr noundef %category, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %module, ptr noundef %registry, ptr noundef %sourceline, ptr noundef %source) unnamed_addr #0 {
 entry:
   %obj.i.i.i = alloca ptr, align 8
   %obj.i.i = alloca ptr, align 8
@@ -2185,7 +2185,7 @@ if.end126:                                        ; preds = %if.then109, %if.the
   ]
 
 if.then133:                                       ; preds = %if.else118, %if.then109, %if.end76, %if.end126
-  %call134 = call fastcc i32 @call_show_warning(ptr noundef %tstate, ptr noundef %category.addr.0, ptr noundef nonnull %text.1, ptr noundef nonnull %message.addr.1, ptr noundef %filename, i32 noundef %lineno, ptr noundef nonnull %call32, ptr noundef %sourceline, ptr noundef %spec.store.select)
+  %call134 = call fastcc i32 @call_show_warning(ptr noundef %tstate, ptr noundef %category.addr.0, ptr noundef nonnull %text.1, ptr noundef nonnull %message.addr.1, ptr noundef %filename, i32 noundef %lineno, ptr noundef %call32, ptr noundef %sourceline, ptr noundef %spec.store.select)
   %cmp135 = icmp slt i32 %call134, 0
   br i1 %cmp135, label %cleanup, label %return_none
 
@@ -2405,7 +2405,7 @@ get_current_tstate.exit.thread.i:                 ; preds = %if.end.i7.i, %if.en
   br label %PyErr_WarnExplicitObject.exit
 
 if.end3.i:                                        ; preds = %if.end.i7.i
-  %call4.i = tail call fastcc ptr @warn_explicit(ptr noundef nonnull %8, ptr noundef %spec.select.i, ptr noundef nonnull %call, ptr noundef nonnull %call1, i32 noundef %lineno, ptr noundef %module.0, ptr noundef %registry, ptr noundef null, ptr noundef null)
+  %call4.i = tail call fastcc ptr @warn_explicit(ptr noundef %8, ptr noundef %spec.select.i, ptr noundef nonnull %call, ptr noundef nonnull %call1, i32 noundef %lineno, ptr noundef %module.0, ptr noundef %registry, ptr noundef null, ptr noundef null)
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %PyErr_WarnExplicitObject.exit, label %if.end7.i
 
@@ -2528,7 +2528,7 @@ get_current_tstate.exit.thread:                   ; preds = %if.then11, %if.end.
   br label %exit
 
 if.then14:                                        ; preds = %if.end.i15
-  %call15 = call fastcc ptr @warn_explicit(ptr noundef nonnull %1, ptr noundef %category, ptr noundef nonnull %call9, ptr noundef nonnull %call, i32 noundef %lineno, ptr noundef %module.1, ptr noundef %registry, ptr noundef null, ptr noundef null)
+  %call15 = call fastcc ptr @warn_explicit(ptr noundef %1, ptr noundef %category, ptr noundef nonnull %call9, ptr noundef nonnull %call, i32 noundef %lineno, ptr noundef %module.1, ptr noundef %registry, ptr noundef null, ptr noundef null)
   %4 = load i64, ptr %call9, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i32.not = icmp eq i64 %5, 0
@@ -2776,7 +2776,7 @@ if.end17:                                         ; preds = %if.then13, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_warnings_attr(ptr noundef %interp, ptr noundef %attr, i32 noundef %try_import) unnamed_addr #0 {
+define internal fastcc ptr @get_warnings_attr(ptr noundef %interp, ptr noundef %attr, i32 noundef range(i32 0, 2) %try_import) unnamed_addr #0 {
 entry:
   %obj = alloca ptr, align 8
   %tobool.not = icmp eq i32 %try_import, 0
@@ -3452,7 +3452,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end3:                                          ; preds = %if.else68.i, %if.end.i95.i, %if.then63.i
   %module.2 = phi ptr [ %call56.i, %if.then63.i ], [ %call56.i, %if.end.i95.i ], [ %call69.i, %if.else68.i ]
-  %call4 = tail call fastcc ptr @warn_explicit(ptr noundef nonnull %1, ptr noundef %category, ptr noundef %message, ptr noundef %filename.0, i32 noundef %lineno.0, ptr noundef nonnull %module.2, ptr noundef nonnull %registry.0, ptr noundef null, ptr noundef %source)
+  %call4 = tail call fastcc ptr @warn_explicit(ptr noundef %1, ptr noundef %category, ptr noundef %message, ptr noundef %filename.0, i32 noundef %lineno.0, ptr noundef nonnull %module.2, ptr noundef nonnull %registry.0, ptr noundef null, ptr noundef %source)
   %63 = load i64, ptr %filename.0, align 8
   %64 = and i64 %63, 2147483648
   %cmp.i24.not = icmp eq i64 %64, 0
@@ -3537,7 +3537,7 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @already_warned(ptr nocapture noundef readonly %interp, ptr noundef %registry, ptr noundef %key, i32 noundef %should_set) unnamed_addr #0 {
+define internal fastcc i32 @already_warned(ptr nocapture noundef readonly %interp, ptr noundef %registry, ptr noundef %key, i32 noundef range(i32 0, 2) %should_set) unnamed_addr #0 {
 entry:
   %already_warned = alloca ptr, align 8
   %cmp = icmp eq ptr %key, null
@@ -3790,7 +3790,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @call_show_warning(ptr noundef %tstate, ptr noundef %category, ptr noundef %text, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %lineno_obj, ptr noundef %sourceline, ptr noundef %source) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @call_show_warning(ptr noundef nonnull %tstate, ptr noundef %category, ptr noundef %text, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef nonnull %lineno_obj, ptr noundef %sourceline, ptr noundef %source) unnamed_addr #0 {
 entry:
   %obj.i = alloca ptr, align 8
   %lineno_str.i = alloca [128 x i8], align 16
@@ -4064,7 +4064,7 @@ if.then17:                                        ; preds = %if.then14
   br label %if.then.i
 
 if.end19:                                         ; preds = %get_warnings_attr.exit
-  %call20 = call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef nonnull %19, ptr noundef %message, ptr noundef %category, ptr noundef %filename, ptr noundef %lineno_obj, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %source, ptr noundef null) #7
+  %call20 = call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef nonnull %19, ptr noundef %message, ptr noundef %category, ptr noundef %filename, ptr noundef nonnull %lineno_obj, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %source, ptr noundef null) #7
   %21 = load i64, ptr %19, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i58.not = icmp eq i64 %22, 0
@@ -4809,11 +4809,11 @@ land.lhs.true12.i:                                ; preds = %get_source_line.exi
   br i1 %tobool14.not.i, label %if.end17.thread.i, label %exit
 
 if.end17.thread.i:                                ; preds = %land.lhs.true12.i, %if.end.i
-  %call186.i = call fastcc ptr @warn_explicit(ptr noundef nonnull %16, ptr noundef %5, ptr noundef %4, ptr noundef nonnull %6, i32 noundef %call22, ptr noundef %mod.0, ptr noundef %registry.0, ptr noundef null, ptr noundef %sourceobj.0)
+  %call186.i = call fastcc ptr @warn_explicit(ptr noundef %16, ptr noundef %5, ptr noundef %4, ptr noundef nonnull %6, i32 noundef %call22, ptr noundef %mod.0, ptr noundef %registry.0, ptr noundef null, ptr noundef %sourceobj.0)
   br label %exit
 
 if.then.i.i:                                      ; preds = %get_source_line.exit.i
-  %call18.i = call fastcc ptr @warn_explicit(ptr noundef nonnull %16, ptr noundef %5, ptr noundef %4, ptr noundef nonnull %6, i32 noundef %call22, ptr noundef %mod.0, ptr noundef %registry.0, ptr noundef nonnull %call19.i.i, ptr noundef %sourceobj.0)
+  %call18.i = call fastcc ptr @warn_explicit(ptr noundef %16, ptr noundef %5, ptr noundef %4, ptr noundef nonnull %6, i32 noundef %call22, ptr noundef %mod.0, ptr noundef %registry.0, ptr noundef nonnull %call19.i.i, ptr noundef %sourceobj.0)
   %44 = load i64, ptr %call19.i.i, align 8
   %45 = and i64 %44, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %45, 0

@@ -10330,7 +10330,7 @@ declare noundef zeroext i1 @_ZN12MapBlockMesh7animateEbfij(ptr noundef nonnull a
 declare void @_Z13analyze_blockB5cxx11P8MapBlock(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MeshBufListMaps3addEPN3irr5scene11IMeshBufferENS1_4core8vector3dIsEEh(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %buf, i48 %position.coerce, i8 noundef zeroext %layer) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MeshBufListMaps3addEPN3irr5scene11IMeshBufferENS1_4core8vector3dIsEEh(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %buf, i48 %position.coerce, i8 noundef zeroext range(i8 0, 2) %layer) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = zext nneg i8 %layer to i64
   %arrayidx.i.i = getelementptr inbounds [2 x %"class.std::unordered_map.523"], ptr %this, i64 0, i64 %conv
@@ -16568,7 +16568,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10_HashtableIN3irr5video9SMaterialESt4pairIKS2_St6vectorIS3_INS0_4core8vector3dIsEEPNS0_5scene11IMeshBufferEESaISC_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS2_EN12_GLOBAL__N_115MeshBufListMaps12MaterialHashENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr %this.8.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10_HashtableIN3irr5video9SMaterialESt4pairIKS2_St6vectorIS3_INS0_4core8vector3dIsEEPNS0_5scene11IMeshBufferEESaISC_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS2_EN12_GLOBAL__N_115MeshBufListMaps12MaterialHashENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr nonnull %this.8.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %second.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 192
   %0 = load ptr, ptr %second.i.i.i.i, align 8, !tbaa !506

@@ -4786,7 +4786,7 @@ define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef range(i32 0, 219) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = icmp eq i32 %0, %1
   br i1 %7, label %.critedge, label %.lr.ph.lr.ph
 
@@ -4796,21 +4796,21 @@ define internal fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassemb
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse.outer
-  %.tr2014.ph3256 = phi i1 [ %5, %.lr.ph.lr.ph ], [ false, %tailrecurse.outer ]
-  %.tr2013.ph3255 = phi i1 [ %4, %.lr.ph.lr.ph ], [ false, %tailrecurse.outer ]
-  %.tr2012.ph3254 = phi i1 [ %3, %.lr.ph.lr.ph ], [ false, %tailrecurse.outer ]
-  %.tr2011.ph3253 = phi i1 [ %2, %.lr.ph.lr.ph ], [ true, %tailrecurse.outer ]
-  %.tr2010.ph3252 = phi i32 [ %1, %.lr.ph.lr.ph ], [ 13, %tailrecurse.outer ]
-  %accumulator.tr.ph3251 = phi i1 [ false, %.lr.ph.lr.ph ], [ %8, %tailrecurse.outer ]
+  %.tr2037.ph3279 = phi i1 [ %5, %.lr.ph.lr.ph ], [ false, %tailrecurse.outer ]
+  %.tr2036.ph3278 = phi i1 [ %4, %.lr.ph.lr.ph ], [ false, %tailrecurse.outer ]
+  %.tr2035.ph3277 = phi i1 [ %3, %.lr.ph.lr.ph ], [ false, %tailrecurse.outer ]
+  %.tr2034.ph3276 = phi i1 [ %2, %.lr.ph.lr.ph ], [ true, %tailrecurse.outer ]
+  %.tr2033.ph3275 = phi i32 [ %1, %.lr.ph.lr.ph ], [ 13, %tailrecurse.outer ]
+  %accumulator.tr.ph3274 = phi i1 [ false, %.lr.ph.lr.ph ], [ %8, %tailrecurse.outer ]
   br label %10
 
 10:                                               ; preds = %.lr.ph, %tailrecurse.backedge
-  %.tr20142940 = phi i1 [ %.tr2014.ph3256, %.lr.ph ], [ false, %tailrecurse.backedge ]
-  %.tr20132939 = phi i1 [ %.tr2013.ph3255, %.lr.ph ], [ false, %tailrecurse.backedge ]
-  %.tr20122938 = phi i1 [ %.tr2012.ph3254, %.lr.ph ], [ false, %tailrecurse.backedge ]
-  %.tr20112937 = phi i1 [ %.tr2011.ph3253, %.lr.ph ], [ true, %tailrecurse.backedge ]
-  %.tr20102936 = phi i32 [ %.tr2010.ph3252, %.lr.ph ], [ %.tr2010.be, %tailrecurse.backedge ]
-  switch i32 %.tr20102936, label %482 [
+  %.tr20372963 = phi i1 [ %.tr2037.ph3279, %.lr.ph ], [ false, %tailrecurse.backedge ]
+  %.tr20362962 = phi i1 [ %.tr2036.ph3278, %.lr.ph ], [ false, %tailrecurse.backedge ]
+  %.tr20352961 = phi i1 [ %.tr2035.ph3277, %.lr.ph ], [ false, %tailrecurse.backedge ]
+  %.tr20342960 = phi i1 [ %.tr2034.ph3276, %.lr.ph ], [ true, %tailrecurse.backedge ]
+  %.tr20332959 = phi i32 [ %.tr2033.ph3275, %.lr.ph ], [ %.tr2033.be, %tailrecurse.backedge ]
+  switch i32 %.tr20332959, label %482 [
     i32 0, label %11
     i32 1, label %20
     i32 2, label %tailrecurse.outer
@@ -5033,11 +5033,11 @@ define internal fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassemb
   ]
 
 11:                                               ; preds = %10
-  %12 = tail call fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef %0, i32 noundef 1, i1 noundef zeroext %.tr20142940, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
+  %12 = tail call fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef %0, i32 noundef 1, i1 noundef zeroext %.tr20372963, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %11
-  br i1 %.tr20112937, label %14, label %tailrecurse.backedge
+  br i1 %.tr20342960, label %14, label %tailrecurse.backedge
 
 14:                                               ; preds = %13
   %15 = tail call fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef %0, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -5056,17 +5056,17 @@ define internal fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassemb
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %20
-  br i1 %.tr20112937, label %23, label %.thread1611
+  br i1 %.tr20342960, label %23, label %.thread1611
 
 23:                                               ; preds = %22
   %24 = tail call fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef %0, i32 noundef 13, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %23
-  br i1 %.tr20142940, label %28, label %26
+  br i1 %.tr20372963, label %28, label %26
 
 .thread1611:                                      ; preds = %22
-  br i1 %.tr20142940, label %.critedge, label %tailrecurse.backedge
+  br i1 %.tr20372963, label %.critedge, label %tailrecurse.backedge
 
 26:                                               ; preds = %25
   %27 = tail call fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef %0, i32 noundef 14, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -5080,20 +5080,20 @@ tailrecurse.outer:                                ; preds = %10
   br i1 %9, label %.critedge, label %.lr.ph
 
 30:                                               ; preds = %10
-  %spec.select = and i1 %.tr20112937, %8
+  %spec.select = and i1 %.tr20342960, %8
   br label %.critedge
 
 31:                                               ; preds = %10
   %32 = icmp eq i32 %0, 15
-  %spec.select2015 = and i1 %.tr20112937, %32
+  %spec.select2038 = and i1 %.tr20342960, %32
   br label %.critedge
 
 33:                                               ; preds = %10
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %33, %13, %18, %.thread1611, %28, %10
-  %.tr2010.be = phi i32 [ 17, %33 ], [ 3, %13 ], [ 6, %18 ], [ 14, %.thread1611 ], [ 17, %28 ], [ 16, %10 ]
-  %34 = icmp eq i32 %0, %.tr2010.be
+  %.tr2033.be = phi i32 [ 17, %33 ], [ 3, %13 ], [ 6, %18 ], [ 14, %.thread1611 ], [ 17, %28 ], [ 16, %10 ]
+  %34 = icmp eq i32 %0, %.tr2033.be
   br i1 %34, label %.critedge, label %10
 
 35:                                               ; preds = %10
@@ -5113,16 +5113,16 @@ tailrecurse.backedge:                             ; preds = %33, %13, %18, %.thr
   br label %.critedge
 
 43:                                               ; preds = %10
-  br i1 %.tr20112937, label %44, label %.critedge604
+  br i1 %.tr20342960, label %44, label %.critedge604
 
 44:                                               ; preds = %43
-  %.off = add i32 %0, -22
+  %.off = add nsw i32 %0, -22
   %switch = icmp ult i32 %.off, 3
-  %brmerge = or i1 %switch, %.tr20142940
+  %brmerge = or i1 %switch, %.tr20372963
   br i1 %brmerge, label %.critedge, label %45
 
 .critedge604:                                     ; preds = %43
-  br i1 %.tr20142940, label %.critedge, label %45
+  br i1 %.tr20372963, label %.critedge, label %45
 
 45:                                               ; preds = %44, %.critedge604
   %46 = icmp eq i32 %0, 12
@@ -5130,13 +5130,13 @@ tailrecurse.backedge:                             ; preds = %33, %13, %18, %.thr
 
 47:                                               ; preds = %10
   %48 = icmp eq i32 %0, 24
-  %brmerge2016 = or i1 %48, %.tr20142940
-  br i1 %brmerge2016, label %.critedge, label %49
+  %brmerge2039 = or i1 %48, %.tr20372963
+  br i1 %brmerge2039, label %.critedge, label %49
 
 49:                                               ; preds = %47
   %50 = icmp eq i32 %0, 15
   %51 = icmp eq i32 %0, 12
-  %spec.select2181 = or i1 %50, %51
+  %spec.select2204 = or i1 %50, %51
   br label %.critedge
 
 52:                                               ; preds = %10
@@ -5145,8 +5145,8 @@ tailrecurse.backedge:                             ; preds = %33, %13, %18, %.thr
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1126: ; preds = %52
   %54 = icmp eq i32 %0, 20
-  %not..tr201429403259 = xor i1 %.tr20142940, true
-  %spec.select2018 = and i1 %54, %not..tr201429403259
+  %not..tr203729633282 = xor i1 %.tr20372963, true
+  %spec.select2041 = and i1 %54, %not..tr203729633282
   br label %.critedge
 
 55:                                               ; preds = %10
@@ -5155,27 +5155,27 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1126: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1130: ; preds = %55
   %57 = icmp eq i32 %0, 21
-  %not..tr20142940 = xor i1 %.tr20142940, true
-  %spec.select2019 = and i1 %57, %not..tr20142940
+  %not..tr20372963 = xor i1 %.tr20372963, true
+  %spec.select2042 = and i1 %57, %not..tr20372963
   br label %.critedge
 
 58:                                               ; preds = %10
   %59 = icmp eq i32 %0, 38
-  %60 = and i1 %59, %.tr20132939
-  %or.cond1887 = and i1 %.tr20122938, %60
+  %60 = and i1 %59, %.tr20362962
+  %or.cond1887 = and i1 %.tr20352961, %60
   br i1 %or.cond1887, label %.critedge, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1134
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1134: ; preds = %58
-  br i1 %.tr20132939, label %61, label %63
+  br i1 %.tr20362962, label %61, label %63
 
 61:                                               ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1134
   %62 = icmp eq i32 %0, 30
-  %.tr2012.not = xor i1 %.tr20122938, true
-  %brmerge2020 = or i1 %62, %.tr2012.not
-  br i1 %brmerge2020, label %.critedge, label %64
+  %.tr2035.not = xor i1 %.tr20352961, true
+  %brmerge2043 = or i1 %62, %.tr2035.not
+  br i1 %brmerge2043, label %.critedge, label %64
 
 63:                                               ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1134
-  br i1 %.tr20122938, label %64, label %.critedge
+  br i1 %.tr20352961, label %64, label %.critedge
 
 64:                                               ; preds = %61, %63
   %65 = icmp eq i32 %0, 34
@@ -5183,21 +5183,21 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1134: ;
 
 66:                                               ; preds = %10
   %67 = icmp eq i32 %0, 39
-  %68 = and i1 %67, %.tr20132939
-  %or.cond1889 = and i1 %.tr20122938, %68
+  %68 = and i1 %67, %.tr20362962
+  %or.cond1889 = and i1 %.tr20352961, %68
   br i1 %or.cond1889, label %.critedge, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1140
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1140: ; preds = %66
-  br i1 %.tr20132939, label %69, label %71
+  br i1 %.tr20362962, label %69, label %71
 
 69:                                               ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1140
   %70 = icmp eq i32 %0, 31
-  %.tr2012.not2022 = xor i1 %.tr20122938, true
-  %brmerge2023 = or i1 %70, %.tr2012.not2022
-  br i1 %brmerge2023, label %.critedge, label %72
+  %.tr2035.not2045 = xor i1 %.tr20352961, true
+  %brmerge2046 = or i1 %70, %.tr2035.not2045
+  br i1 %brmerge2046, label %.critedge, label %72
 
 71:                                               ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1140
-  br i1 %.tr20122938, label %72, label %.critedge
+  br i1 %.tr20352961, label %72, label %.critedge
 
 72:                                               ; preds = %69, %71
   %73 = icmp eq i32 %0, 35
@@ -5205,21 +5205,21 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1140: ;
 
 74:                                               ; preds = %10
   %75 = icmp eq i32 %0, 40
-  %76 = and i1 %75, %.tr20132939
-  %or.cond1891 = and i1 %.tr20122938, %76
+  %76 = and i1 %75, %.tr20362962
+  %or.cond1891 = and i1 %.tr20352961, %76
   br i1 %or.cond1891, label %.critedge, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1146
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1146: ; preds = %74
-  br i1 %.tr20132939, label %77, label %79
+  br i1 %.tr20362962, label %77, label %79
 
 77:                                               ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1146
   %78 = icmp eq i32 %0, 32
-  %.tr2012.not2025 = xor i1 %.tr20122938, true
-  %brmerge2026 = or i1 %78, %.tr2012.not2025
-  br i1 %brmerge2026, label %.critedge, label %80
+  %.tr2035.not2048 = xor i1 %.tr20352961, true
+  %brmerge2049 = or i1 %78, %.tr2035.not2048
+  br i1 %brmerge2049, label %.critedge, label %80
 
 79:                                               ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1146
-  br i1 %.tr20122938, label %80, label %.critedge
+  br i1 %.tr20352961, label %80, label %.critedge
 
 80:                                               ; preds = %77, %79
   %81 = icmp eq i32 %0, 36
@@ -5227,21 +5227,21 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1146: ;
 
 82:                                               ; preds = %10
   %83 = icmp eq i32 %0, 41
-  %84 = and i1 %83, %.tr20132939
-  %or.cond1893 = and i1 %.tr20122938, %84
+  %84 = and i1 %83, %.tr20362962
+  %or.cond1893 = and i1 %.tr20352961, %84
   br i1 %or.cond1893, label %.critedge, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1152
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1152: ; preds = %82
-  br i1 %.tr20132939, label %85, label %87
+  br i1 %.tr20362962, label %85, label %87
 
 85:                                               ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1152
   %86 = icmp eq i32 %0, 33
-  %.tr2012.not2028 = xor i1 %.tr20122938, true
-  %brmerge2029 = or i1 %86, %.tr2012.not2028
-  br i1 %brmerge2029, label %.critedge, label %88
+  %.tr2035.not2051 = xor i1 %.tr20352961, true
+  %brmerge2052 = or i1 %86, %.tr2035.not2051
+  br i1 %brmerge2052, label %.critedge, label %88
 
 87:                                               ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1152
-  br i1 %.tr20122938, label %88, label %.critedge
+  br i1 %.tr20352961, label %88, label %.critedge
 
 88:                                               ; preds = %85, %87
   %89 = icmp eq i32 %0, 37
@@ -5249,57 +5249,58 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1152: ;
 
 90:                                               ; preds = %10
   %91 = icmp eq i32 %0, 38
-  %spec.select2031 = and i1 %.tr20122938, %91
+  %spec.select2054 = and i1 %.tr20352961, %91
   br label %.critedge
 
 92:                                               ; preds = %10
   %93 = icmp eq i32 %0, 39
-  %spec.select2032 = and i1 %.tr20122938, %93
+  %spec.select2055 = and i1 %.tr20352961, %93
   br label %.critedge
 
 94:                                               ; preds = %10
   %95 = icmp eq i32 %0, 40
-  %spec.select2033 = and i1 %.tr20122938, %95
+  %spec.select2056 = and i1 %.tr20352961, %95
   br label %.critedge
 
 96:                                               ; preds = %10
   %97 = icmp eq i32 %0, 41
-  %spec.select2034 = and i1 %.tr20122938, %97
+  %spec.select2057 = and i1 %.tr20352961, %97
   br label %.critedge
 
 98:                                               ; preds = %10
   %99 = icmp eq i32 %0, 38
-  %spec.select2035 = and i1 %.tr20132939, %99
+  %spec.select2058 = and i1 %.tr20362962, %99
   br label %.critedge
 
 100:                                              ; preds = %10
   %101 = icmp eq i32 %0, 39
-  %spec.select2036 = and i1 %.tr20132939, %101
+  %spec.select2059 = and i1 %.tr20362962, %101
   br label %.critedge
 
 102:                                              ; preds = %10
   %103 = icmp eq i32 %0, 40
-  %spec.select2037 = and i1 %.tr20132939, %103
+  %spec.select2060 = and i1 %.tr20362962, %103
   br label %.critedge
 
 104:                                              ; preds = %10
   %105 = icmp eq i32 %0, 41
-  %spec.select2038 = and i1 %.tr20132939, %105
+  %spec.select2061 = and i1 %.tr20362962, %105
   br label %.critedge
 
 106:                                              ; preds = %10
-  %.not639 = xor i1 %.tr20122938, true
-  %brmerge641.not = and i1 %.tr20122938, %.tr20132939
+  %.not639 = xor i1 %.tr20352961, true
+  %brmerge641.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge641.not, label %107, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1176
 
 107:                                              ; preds = %106
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1176 [
-    i32 60, label %.critedge
-    i32 68, label %.critedge
+  %trunc2028 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2028, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1176 [
+    i8 60, label %.critedge
+    i8 68, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1176: ; preds = %107, %106
-  br i1 %.tr20132939, label %108, label %110
+  br i1 %.tr20362962, label %108, label %110
 
 108:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1176
   %109 = tail call fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef %0, i32 noundef 51, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -5307,7 +5308,7 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1176: ;
   br i1 %brmerge1028, label %.critedge, label %111
 
 110:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1176
-  br i1 %.tr20122938, label %111, label %.critedge
+  br i1 %.tr20352961, label %111, label %.critedge
 
 111:                                              ; preds = %108, %110
   %112 = icmp eq i32 %0, 56
@@ -5315,30 +5316,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1176: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1178: ; preds = %111
   %113 = icmp eq i32 %0, 64
-  %spec.select2039 = and i1 %.tr20122938, %113
+  %spec.select2062 = and i1 %.tr20352961, %113
   br label %.critedge
 
 114:                                              ; preds = %10
-  %brmerge652.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge652.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge652.not, label %115, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1184
 
 115:                                              ; preds = %114
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1184 [
-    i32 61, label %.critedge
-    i32 69, label %.critedge
+  %trunc2027 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2027, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1184 [
+    i8 61, label %.critedge
+    i8 69, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1184: ; preds = %115, %114
-  br i1 %.tr20132939, label %116, label %118
+  br i1 %.tr20362962, label %116, label %118
 
 116:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1184
   %117 = icmp eq i32 %0, 53
-  %.tr2012.not2040 = xor i1 %.tr20122938, true
-  %brmerge2041 = or i1 %117, %.tr2012.not2040
-  br i1 %brmerge2041, label %.critedge, label %119
+  %.tr2035.not2063 = xor i1 %.tr20352961, true
+  %brmerge2064 = or i1 %117, %.tr2035.not2063
+  br i1 %brmerge2064, label %.critedge, label %119
 
 118:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1184
-  br i1 %.tr20122938, label %119, label %.critedge
+  br i1 %.tr20352961, label %119, label %.critedge
 
 119:                                              ; preds = %116, %118
   %120 = icmp eq i32 %0, 57
@@ -5346,30 +5348,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1184: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1188: ; preds = %119
   %121 = icmp eq i32 %0, 65
-  %spec.select2043 = and i1 %.tr20122938, %121
+  %spec.select2066 = and i1 %.tr20352961, %121
   br label %.critedge
 
 122:                                              ; preds = %10
-  %brmerge663.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge663.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge663.not, label %123, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1194
 
 123:                                              ; preds = %122
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1194 [
-    i32 62, label %.critedge
-    i32 70, label %.critedge
+  %trunc2026 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2026, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1194 [
+    i8 62, label %.critedge
+    i8 70, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1194: ; preds = %123, %122
-  br i1 %.tr20132939, label %124, label %126
+  br i1 %.tr20362962, label %124, label %126
 
 124:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1194
   %125 = icmp eq i32 %0, 54
-  %.tr2012.not2044 = xor i1 %.tr20122938, true
-  %brmerge2045 = or i1 %125, %.tr2012.not2044
-  br i1 %brmerge2045, label %.critedge, label %127
+  %.tr2035.not2067 = xor i1 %.tr20352961, true
+  %brmerge2068 = or i1 %125, %.tr2035.not2067
+  br i1 %brmerge2068, label %.critedge, label %127
 
 126:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1194
-  br i1 %.tr20122938, label %127, label %.critedge
+  br i1 %.tr20352961, label %127, label %.critedge
 
 127:                                              ; preds = %124, %126
   %128 = icmp eq i32 %0, 58
@@ -5377,30 +5380,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1194: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1198: ; preds = %127
   %129 = icmp eq i32 %0, 66
-  %spec.select2047 = and i1 %.tr20122938, %129
+  %spec.select2070 = and i1 %.tr20352961, %129
   br label %.critedge
 
 130:                                              ; preds = %10
-  %brmerge674.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge674.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge674.not, label %131, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1204
 
 131:                                              ; preds = %130
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1204 [
-    i32 63, label %.critedge
-    i32 71, label %.critedge
+  %trunc2025 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2025, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1204 [
+    i8 63, label %.critedge
+    i8 71, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1204: ; preds = %131, %130
-  br i1 %.tr20132939, label %132, label %134
+  br i1 %.tr20362962, label %132, label %134
 
 132:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1204
   %133 = icmp eq i32 %0, 55
-  %.tr2012.not2048 = xor i1 %.tr20122938, true
-  %brmerge2049 = or i1 %133, %.tr2012.not2048
-  br i1 %brmerge2049, label %.critedge, label %135
+  %.tr2035.not2071 = xor i1 %.tr20352961, true
+  %brmerge2072 = or i1 %133, %.tr2035.not2071
+  br i1 %brmerge2072, label %.critedge, label %135
 
 134:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1204
-  br i1 %.tr20122938, label %135, label %.critedge
+  br i1 %.tr20352961, label %135, label %.critedge
 
 135:                                              ; preds = %132, %134
   %136 = icmp eq i32 %0, 59
@@ -5408,30 +5412,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1204: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1208: ; preds = %135
   %137 = icmp eq i32 %0, 67
-  %spec.select2051 = and i1 %.tr20122938, %137
+  %spec.select2074 = and i1 %.tr20352961, %137
   br label %.critedge
 
 138:                                              ; preds = %10
-  %brmerge685.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge685.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge685.not, label %139, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1214
 
 139:                                              ; preds = %138
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1214 [
-    i32 84, label %.critedge
-    i32 92, label %.critedge
+  %trunc2024 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2024, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1214 [
+    i8 84, label %.critedge
+    i8 92, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1214: ; preds = %139, %138
-  br i1 %.tr20132939, label %140, label %142
+  br i1 %.tr20362962, label %140, label %142
 
 140:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1214
   %141 = icmp eq i32 %0, 76
-  %.tr2012.not2052 = xor i1 %.tr20122938, true
-  %brmerge2053 = or i1 %141, %.tr2012.not2052
-  br i1 %brmerge2053, label %.critedge, label %143
+  %.tr2035.not2075 = xor i1 %.tr20352961, true
+  %brmerge2076 = or i1 %141, %.tr2035.not2075
+  br i1 %brmerge2076, label %.critedge, label %143
 
 142:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1214
-  br i1 %.tr20122938, label %143, label %.critedge
+  br i1 %.tr20352961, label %143, label %.critedge
 
 143:                                              ; preds = %140, %142
   %144 = icmp eq i32 %0, 80
@@ -5439,30 +5444,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1214: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1218: ; preds = %143
   %145 = icmp eq i32 %0, 88
-  %spec.select2055 = and i1 %.tr20122938, %145
+  %spec.select2078 = and i1 %.tr20352961, %145
   br label %.critedge
 
 146:                                              ; preds = %10
-  %brmerge696.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge696.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge696.not, label %147, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1224
 
 147:                                              ; preds = %146
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1224 [
-    i32 85, label %.critedge
-    i32 93, label %.critedge
+  %trunc2023 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2023, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1224 [
+    i8 85, label %.critedge
+    i8 93, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1224: ; preds = %147, %146
-  br i1 %.tr20132939, label %148, label %150
+  br i1 %.tr20362962, label %148, label %150
 
 148:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1224
   %149 = icmp eq i32 %0, 77
-  %.tr2012.not2056 = xor i1 %.tr20122938, true
-  %brmerge2057 = or i1 %149, %.tr2012.not2056
-  br i1 %brmerge2057, label %.critedge, label %151
+  %.tr2035.not2079 = xor i1 %.tr20352961, true
+  %brmerge2080 = or i1 %149, %.tr2035.not2079
+  br i1 %brmerge2080, label %.critedge, label %151
 
 150:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1224
-  br i1 %.tr20122938, label %151, label %.critedge
+  br i1 %.tr20352961, label %151, label %.critedge
 
 151:                                              ; preds = %148, %150
   %152 = icmp eq i32 %0, 81
@@ -5470,30 +5476,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1224: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1228: ; preds = %151
   %153 = icmp eq i32 %0, 89
-  %spec.select2059 = and i1 %.tr20122938, %153
+  %spec.select2082 = and i1 %.tr20352961, %153
   br label %.critedge
 
 154:                                              ; preds = %10
-  %brmerge707.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge707.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge707.not, label %155, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1234
 
 155:                                              ; preds = %154
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1234 [
-    i32 86, label %.critedge
-    i32 94, label %.critedge
+  %trunc2022 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2022, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1234 [
+    i8 86, label %.critedge
+    i8 94, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1234: ; preds = %155, %154
-  br i1 %.tr20132939, label %156, label %158
+  br i1 %.tr20362962, label %156, label %158
 
 156:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1234
   %157 = icmp eq i32 %0, 78
-  %.tr2012.not2060 = xor i1 %.tr20122938, true
-  %brmerge2061 = or i1 %157, %.tr2012.not2060
-  br i1 %brmerge2061, label %.critedge, label %159
+  %.tr2035.not2083 = xor i1 %.tr20352961, true
+  %brmerge2084 = or i1 %157, %.tr2035.not2083
+  br i1 %brmerge2084, label %.critedge, label %159
 
 158:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1234
-  br i1 %.tr20122938, label %159, label %.critedge
+  br i1 %.tr20352961, label %159, label %.critedge
 
 159:                                              ; preds = %156, %158
   %160 = icmp eq i32 %0, 82
@@ -5501,30 +5508,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1234: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1238: ; preds = %159
   %161 = icmp eq i32 %0, 90
-  %spec.select2063 = and i1 %.tr20122938, %161
+  %spec.select2086 = and i1 %.tr20352961, %161
   br label %.critedge
 
 162:                                              ; preds = %10
-  %brmerge718.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge718.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge718.not, label %163, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1244
 
 163:                                              ; preds = %162
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1244 [
-    i32 87, label %.critedge
-    i32 95, label %.critedge
+  %trunc2021 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2021, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1244 [
+    i8 87, label %.critedge
+    i8 95, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1244: ; preds = %163, %162
-  br i1 %.tr20132939, label %164, label %166
+  br i1 %.tr20362962, label %164, label %166
 
 164:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1244
   %165 = icmp eq i32 %0, 79
-  %.tr2012.not2064 = xor i1 %.tr20122938, true
-  %brmerge2065 = or i1 %165, %.tr2012.not2064
-  br i1 %brmerge2065, label %.critedge, label %167
+  %.tr2035.not2087 = xor i1 %.tr20352961, true
+  %brmerge2088 = or i1 %165, %.tr2035.not2087
+  br i1 %brmerge2088, label %.critedge, label %167
 
 166:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1244
-  br i1 %.tr20122938, label %167, label %.critedge
+  br i1 %.tr20352961, label %167, label %.critedge
 
 167:                                              ; preds = %164, %166
   %168 = icmp eq i32 %0, 83
@@ -5532,30 +5540,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1244: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1248: ; preds = %167
   %169 = icmp eq i32 %0, 91
-  %spec.select2067 = and i1 %.tr20122938, %169
+  %spec.select2090 = and i1 %.tr20352961, %169
   br label %.critedge
 
 170:                                              ; preds = %10
-  %brmerge729.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge729.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge729.not, label %171, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1254
 
 171:                                              ; preds = %170
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1254 [
-    i32 183, label %.critedge
-    i32 191, label %.critedge
+  %trunc2020 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2020, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1254 [
+    i8 -73, label %.critedge
+    i8 -65, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1254: ; preds = %171, %170
-  br i1 %.tr20132939, label %172, label %174
+  br i1 %.tr20362962, label %172, label %174
 
 172:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1254
   %173 = icmp eq i32 %0, 175
-  %.tr2012.not2068 = xor i1 %.tr20122938, true
-  %brmerge2069 = or i1 %173, %.tr2012.not2068
-  br i1 %brmerge2069, label %.critedge, label %175
+  %.tr2035.not2091 = xor i1 %.tr20352961, true
+  %brmerge2092 = or i1 %173, %.tr2035.not2091
+  br i1 %brmerge2092, label %.critedge, label %175
 
 174:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1254
-  br i1 %.tr20122938, label %175, label %.critedge
+  br i1 %.tr20352961, label %175, label %.critedge
 
 175:                                              ; preds = %172, %174
   %176 = icmp eq i32 %0, 179
@@ -5563,30 +5572,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1254: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1258: ; preds = %175
   %177 = icmp eq i32 %0, 187
-  %spec.select2071 = and i1 %.tr20122938, %177
+  %spec.select2094 = and i1 %.tr20352961, %177
   br label %.critedge
 
 178:                                              ; preds = %10
-  %brmerge740.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge740.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge740.not, label %179, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1264
 
 179:                                              ; preds = %178
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1264 [
-    i32 184, label %.critedge
-    i32 192, label %.critedge
+  %trunc2019 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2019, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1264 [
+    i8 -72, label %.critedge
+    i8 -64, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1264: ; preds = %179, %178
-  br i1 %.tr20132939, label %180, label %182
+  br i1 %.tr20362962, label %180, label %182
 
 180:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1264
   %181 = icmp eq i32 %0, 176
-  %.tr2012.not2072 = xor i1 %.tr20122938, true
-  %brmerge2073 = or i1 %181, %.tr2012.not2072
-  br i1 %brmerge2073, label %.critedge, label %183
+  %.tr2035.not2095 = xor i1 %.tr20352961, true
+  %brmerge2096 = or i1 %181, %.tr2035.not2095
+  br i1 %brmerge2096, label %.critedge, label %183
 
 182:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1264
-  br i1 %.tr20122938, label %183, label %.critedge
+  br i1 %.tr20352961, label %183, label %.critedge
 
 183:                                              ; preds = %180, %182
   %184 = icmp eq i32 %0, 180
@@ -5594,30 +5604,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1264: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1268: ; preds = %183
   %185 = icmp eq i32 %0, 188
-  %spec.select2075 = and i1 %.tr20122938, %185
+  %spec.select2098 = and i1 %.tr20352961, %185
   br label %.critedge
 
 186:                                              ; preds = %10
-  %brmerge751.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge751.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge751.not, label %187, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1274
 
 187:                                              ; preds = %186
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1274 [
-    i32 185, label %.critedge
-    i32 193, label %.critedge
+  %trunc2018 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2018, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1274 [
+    i8 -71, label %.critedge
+    i8 -63, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1274: ; preds = %187, %186
-  br i1 %.tr20132939, label %188, label %190
+  br i1 %.tr20362962, label %188, label %190
 
 188:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1274
   %189 = icmp eq i32 %0, 177
-  %.tr2012.not2076 = xor i1 %.tr20122938, true
-  %brmerge2077 = or i1 %189, %.tr2012.not2076
-  br i1 %brmerge2077, label %.critedge, label %191
+  %.tr2035.not2099 = xor i1 %.tr20352961, true
+  %brmerge2100 = or i1 %189, %.tr2035.not2099
+  br i1 %brmerge2100, label %.critedge, label %191
 
 190:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1274
-  br i1 %.tr20122938, label %191, label %.critedge
+  br i1 %.tr20352961, label %191, label %.critedge
 
 191:                                              ; preds = %188, %190
   %192 = icmp eq i32 %0, 181
@@ -5625,30 +5636,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1274: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1278: ; preds = %191
   %193 = icmp eq i32 %0, 189
-  %spec.select2079 = and i1 %.tr20122938, %193
+  %spec.select2102 = and i1 %.tr20352961, %193
   br label %.critedge
 
 194:                                              ; preds = %10
-  %brmerge762.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge762.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge762.not, label %195, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1284
 
 195:                                              ; preds = %194
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1284 [
-    i32 186, label %.critedge
-    i32 194, label %.critedge
+  %trunc2017 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2017, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1284 [
+    i8 -70, label %.critedge
+    i8 -62, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1284: ; preds = %195, %194
-  br i1 %.tr20132939, label %196, label %198
+  br i1 %.tr20362962, label %196, label %198
 
 196:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1284
   %197 = icmp eq i32 %0, 178
-  %.tr2012.not2080 = xor i1 %.tr20122938, true
-  %brmerge2081 = or i1 %197, %.tr2012.not2080
-  br i1 %brmerge2081, label %.critedge, label %199
+  %.tr2035.not2103 = xor i1 %.tr20352961, true
+  %brmerge2104 = or i1 %197, %.tr2035.not2103
+  br i1 %brmerge2104, label %.critedge, label %199
 
 198:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1284
-  br i1 %.tr20122938, label %199, label %.critedge
+  br i1 %.tr20352961, label %199, label %.critedge
 
 199:                                              ; preds = %196, %198
   %200 = icmp eq i32 %0, 182
@@ -5656,248 +5668,249 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1284: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1288: ; preds = %199
   %201 = icmp eq i32 %0, 190
-  %spec.select2083 = and i1 %.tr20122938, %201
+  %spec.select2106 = and i1 %.tr20352961, %201
   br label %.critedge
 
 202:                                              ; preds = %10
   %203 = icmp eq i32 %0, 60
-  %or.cond1915 = and i1 %203, %.tr20122938
+  %or.cond1915 = and i1 %203, %.tr20352961
   %204 = icmp eq i32 %0, 55
   %or.cond1916 = or i1 %204, %or.cond1915
   br i1 %or.cond1916, label %.critedge, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1294
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1294: ; preds = %202
   %205 = icmp eq i32 %0, 68
-  %spec.select2084 = and i1 %.tr20122938, %205
+  %spec.select2107 = and i1 %.tr20352961, %205
   br label %.critedge
 
 206:                                              ; preds = %10
-  br i1 %.tr20122938, label %207, label %.critedge
+  br i1 %.tr20352961, label %207, label %.critedge
 
 207:                                              ; preds = %206
   %208 = icmp eq i32 %0, 61
   %209 = icmp eq i32 %0, 69
-  %spec.select2182 = or i1 %208, %209
+  %spec.select2205 = or i1 %208, %209
   br label %.critedge
 
 210:                                              ; preds = %10
-  br i1 %.tr20122938, label %211, label %.critedge
+  br i1 %.tr20352961, label %211, label %.critedge
 
 211:                                              ; preds = %210
   %212 = icmp eq i32 %0, 62
   %213 = icmp eq i32 %0, 70
-  %spec.select2183 = or i1 %212, %213
+  %spec.select2206 = or i1 %212, %213
   br label %.critedge
 
 214:                                              ; preds = %10
-  br i1 %.tr20122938, label %215, label %.critedge
+  br i1 %.tr20352961, label %215, label %.critedge
 
 215:                                              ; preds = %214
   %216 = icmp eq i32 %0, 63
   %217 = icmp eq i32 %0, 71
-  %spec.select2184 = or i1 %216, %217
+  %spec.select2207 = or i1 %216, %217
   br label %.critedge
 
 218:                                              ; preds = %10
-  br i1 %.tr20122938, label %219, label %.critedge
+  br i1 %.tr20352961, label %219, label %.critedge
 
 219:                                              ; preds = %218
-  %220 = and i32 %0, -9
-  %spec.select2185 = icmp eq i32 %220, 84
+  %220 = and i32 %0, 247
+  %spec.select2208 = icmp eq i32 %220, 84
   br label %.critedge
 
 221:                                              ; preds = %10
-  br i1 %.tr20122938, label %222, label %.critedge
+  br i1 %.tr20352961, label %222, label %.critedge
 
 222:                                              ; preds = %221
-  %223 = and i32 %0, -9
-  %spec.select2186 = icmp eq i32 %223, 85
+  %223 = and i32 %0, 247
+  %spec.select2209 = icmp eq i32 %223, 85
   br label %.critedge
 
 224:                                              ; preds = %10
-  br i1 %.tr20122938, label %225, label %.critedge
+  br i1 %.tr20352961, label %225, label %.critedge
 
 225:                                              ; preds = %224
-  %226 = and i32 %0, -9
-  %spec.select2187 = icmp eq i32 %226, 86
+  %226 = and i32 %0, 247
+  %spec.select2210 = icmp eq i32 %226, 86
   br label %.critedge
 
 227:                                              ; preds = %10
-  br i1 %.tr20122938, label %228, label %.critedge
+  br i1 %.tr20352961, label %228, label %.critedge
 
 228:                                              ; preds = %227
-  %229 = and i32 %0, -9
-  %spec.select2188 = icmp eq i32 %229, 87
+  %229 = and i32 %0, 247
+  %spec.select2211 = icmp eq i32 %229, 87
   br label %.critedge
 
 230:                                              ; preds = %10
-  br i1 %.tr20122938, label %231, label %.critedge
+  br i1 %.tr20352961, label %231, label %.critedge
 
 231:                                              ; preds = %230
-  %232 = and i32 %0, -9
-  %spec.select2189 = icmp eq i32 %232, 183
+  %232 = and i32 %0, 247
+  %spec.select2212 = icmp eq i32 %232, 183
   br label %.critedge
 
 233:                                              ; preds = %10
-  br i1 %.tr20122938, label %234, label %.critedge
+  br i1 %.tr20352961, label %234, label %.critedge
 
 234:                                              ; preds = %233
   %235 = icmp eq i32 %0, 184
   %236 = icmp eq i32 %0, 192
-  %spec.select2190 = or i1 %235, %236
+  %spec.select2213 = or i1 %235, %236
   br label %.critedge
 
 237:                                              ; preds = %10
-  br i1 %.tr20122938, label %238, label %.critedge
+  br i1 %.tr20352961, label %238, label %.critedge
 
 238:                                              ; preds = %237
   %239 = icmp eq i32 %0, 185
   %240 = icmp eq i32 %0, 193
-  %spec.select2191 = or i1 %239, %240
+  %spec.select2214 = or i1 %239, %240
   br label %.critedge
 
 241:                                              ; preds = %10
-  br i1 %.tr20122938, label %242, label %.critedge
+  br i1 %.tr20352961, label %242, label %.critedge
 
 242:                                              ; preds = %241
   %243 = icmp eq i32 %0, 186
   %244 = icmp eq i32 %0, 194
-  %spec.select2192 = or i1 %243, %244
+  %spec.select2215 = or i1 %243, %244
   br label %.critedge
 
 245:                                              ; preds = %10
   %246 = icmp eq i32 %0, 60
-  %spec.select2085 = and i1 %.tr20132939, %246
+  %spec.select2108 = and i1 %.tr20362962, %246
   br label %.critedge
 
 247:                                              ; preds = %10
   %248 = icmp eq i32 %0, 61
-  %spec.select2086 = and i1 %.tr20132939, %248
+  %spec.select2109 = and i1 %.tr20362962, %248
   br label %.critedge
 
 249:                                              ; preds = %10
   %250 = icmp eq i32 %0, 62
-  %spec.select2087 = and i1 %.tr20132939, %250
+  %spec.select2110 = and i1 %.tr20362962, %250
   br label %.critedge
 
 251:                                              ; preds = %10
   %252 = icmp eq i32 %0, 63
-  %spec.select2088 = and i1 %.tr20132939, %252
+  %spec.select2111 = and i1 %.tr20362962, %252
   br label %.critedge
 
 253:                                              ; preds = %10
   %254 = icmp eq i32 %0, 84
-  %spec.select2089 = and i1 %.tr20132939, %254
+  %spec.select2112 = and i1 %.tr20362962, %254
   br label %.critedge
 
 255:                                              ; preds = %10
   %256 = icmp eq i32 %0, 85
-  %spec.select2090 = and i1 %.tr20132939, %256
+  %spec.select2113 = and i1 %.tr20362962, %256
   br label %.critedge
 
 257:                                              ; preds = %10
   %258 = icmp eq i32 %0, 86
-  %spec.select2091 = and i1 %.tr20132939, %258
+  %spec.select2114 = and i1 %.tr20362962, %258
   br label %.critedge
 
 259:                                              ; preds = %10
   %260 = icmp eq i32 %0, 87
-  %spec.select2092 = and i1 %.tr20132939, %260
+  %spec.select2115 = and i1 %.tr20362962, %260
   br label %.critedge
 
 261:                                              ; preds = %10
   %262 = icmp eq i32 %0, 183
-  %spec.select2093 = and i1 %.tr20132939, %262
+  %spec.select2116 = and i1 %.tr20362962, %262
   br label %.critedge
 
 263:                                              ; preds = %10
   %264 = icmp eq i32 %0, 184
-  %spec.select2094 = and i1 %.tr20132939, %264
+  %spec.select2117 = and i1 %.tr20362962, %264
   br label %.critedge
 
 265:                                              ; preds = %10
   %266 = icmp eq i32 %0, 185
-  %spec.select2095 = and i1 %.tr20132939, %266
+  %spec.select2118 = and i1 %.tr20362962, %266
   br label %.critedge
 
 267:                                              ; preds = %10
   %268 = icmp eq i32 %0, 186
-  %spec.select2096 = and i1 %.tr20132939, %268
+  %spec.select2119 = and i1 %.tr20362962, %268
   br label %.critedge
 
 269:                                              ; preds = %10
   %270 = icmp eq i32 %0, 68
-  %spec.select2097 = and i1 %.tr20132939, %270
+  %spec.select2120 = and i1 %.tr20362962, %270
   br label %.critedge
 
 271:                                              ; preds = %10
   %272 = icmp eq i32 %0, 69
-  %spec.select2098 = and i1 %.tr20132939, %272
+  %spec.select2121 = and i1 %.tr20362962, %272
   br label %.critedge
 
 273:                                              ; preds = %10
   %274 = icmp eq i32 %0, 70
-  %spec.select2099 = and i1 %.tr20132939, %274
+  %spec.select2122 = and i1 %.tr20362962, %274
   br label %.critedge
 
 275:                                              ; preds = %10
   %276 = icmp eq i32 %0, 71
-  %spec.select2100 = and i1 %.tr20132939, %276
+  %spec.select2123 = and i1 %.tr20362962, %276
   br label %.critedge
 
 277:                                              ; preds = %10
   %278 = icmp eq i32 %0, 92
-  %spec.select2101 = and i1 %.tr20132939, %278
+  %spec.select2124 = and i1 %.tr20362962, %278
   br label %.critedge
 
 279:                                              ; preds = %10
   %280 = icmp eq i32 %0, 93
-  %spec.select2102 = and i1 %.tr20132939, %280
+  %spec.select2125 = and i1 %.tr20362962, %280
   br label %.critedge
 
 281:                                              ; preds = %10
   %282 = icmp eq i32 %0, 94
-  %spec.select2103 = and i1 %.tr20132939, %282
+  %spec.select2126 = and i1 %.tr20362962, %282
   br label %.critedge
 
 283:                                              ; preds = %10
   %284 = icmp eq i32 %0, 95
-  %spec.select2104 = and i1 %.tr20132939, %284
+  %spec.select2127 = and i1 %.tr20362962, %284
   br label %.critedge
 
 285:                                              ; preds = %10
   %286 = icmp eq i32 %0, 191
-  %spec.select2105 = and i1 %.tr20132939, %286
+  %spec.select2128 = and i1 %.tr20362962, %286
   br label %.critedge
 
 287:                                              ; preds = %10
   %288 = icmp eq i32 %0, 192
-  %spec.select2106 = and i1 %.tr20132939, %288
+  %spec.select2129 = and i1 %.tr20362962, %288
   br label %.critedge
 
 289:                                              ; preds = %10
   %290 = icmp eq i32 %0, 193
-  %spec.select2107 = and i1 %.tr20132939, %290
+  %spec.select2130 = and i1 %.tr20362962, %290
   br label %.critedge
 
 291:                                              ; preds = %10
   %292 = icmp eq i32 %0, 194
-  %spec.select2108 = and i1 %.tr20132939, %292
+  %spec.select2131 = and i1 %.tr20362962, %292
   br label %.critedge
 
 293:                                              ; preds = %10
-  %.not829 = xor i1 %.tr20122938, true
-  %brmerge831.not = and i1 %.tr20122938, %.tr20132939
+  %.not829 = xor i1 %.tr20352961, true
+  %brmerge831.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge831.not, label %294, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1392
 
 294:                                              ; preds = %293
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1392 [
-    i32 111, label %.critedge
-    i32 119, label %.critedge
+  %trunc2016 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2016, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1392 [
+    i8 111, label %.critedge
+    i8 119, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1392: ; preds = %294, %293
-  br i1 %.tr20132939, label %295, label %297
+  br i1 %.tr20362962, label %295, label %297
 
 295:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1392
   %296 = tail call fastcc noundef zeroext i1 @_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb(i32 noundef %0, i32 noundef 102, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -5905,7 +5918,7 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1392: ;
   br i1 %brmerge1064, label %.critedge, label %298
 
 297:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1392
-  br i1 %.tr20122938, label %298, label %.critedge
+  br i1 %.tr20352961, label %298, label %.critedge
 
 298:                                              ; preds = %295, %297
   %299 = icmp eq i32 %0, 107
@@ -5913,30 +5926,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1392: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1394: ; preds = %298
   %300 = icmp eq i32 %0, 115
-  %spec.select2109 = and i1 %.tr20122938, %300
+  %spec.select2132 = and i1 %.tr20352961, %300
   br label %.critedge
 
 301:                                              ; preds = %10
-  %brmerge842.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge842.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge842.not, label %302, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1400
 
 302:                                              ; preds = %301
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1400 [
-    i32 112, label %.critedge
-    i32 120, label %.critedge
+  %trunc2015 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2015, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1400 [
+    i8 112, label %.critedge
+    i8 120, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1400: ; preds = %302, %301
-  br i1 %.tr20132939, label %303, label %305
+  br i1 %.tr20362962, label %303, label %305
 
 303:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1400
   %304 = icmp eq i32 %0, 104
-  %.tr2012.not2110 = xor i1 %.tr20122938, true
-  %brmerge2111 = or i1 %304, %.tr2012.not2110
-  br i1 %brmerge2111, label %.critedge, label %306
+  %.tr2035.not2133 = xor i1 %.tr20352961, true
+  %brmerge2134 = or i1 %304, %.tr2035.not2133
+  br i1 %brmerge2134, label %.critedge, label %306
 
 305:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1400
-  br i1 %.tr20122938, label %306, label %.critedge
+  br i1 %.tr20352961, label %306, label %.critedge
 
 306:                                              ; preds = %303, %305
   %307 = icmp eq i32 %0, 108
@@ -5944,30 +5958,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1400: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1404: ; preds = %306
   %308 = icmp eq i32 %0, 116
-  %spec.select2113 = and i1 %.tr20122938, %308
+  %spec.select2136 = and i1 %.tr20352961, %308
   br label %.critedge
 
 309:                                              ; preds = %10
-  %brmerge853.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge853.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge853.not, label %310, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1410
 
 310:                                              ; preds = %309
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1410 [
-    i32 113, label %.critedge
-    i32 121, label %.critedge
+  %trunc2014 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2014, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1410 [
+    i8 113, label %.critedge
+    i8 121, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1410: ; preds = %310, %309
-  br i1 %.tr20132939, label %311, label %313
+  br i1 %.tr20362962, label %311, label %313
 
 311:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1410
   %312 = icmp eq i32 %0, 105
-  %.tr2012.not2114 = xor i1 %.tr20122938, true
-  %brmerge2115 = or i1 %312, %.tr2012.not2114
-  br i1 %brmerge2115, label %.critedge, label %314
+  %.tr2035.not2137 = xor i1 %.tr20352961, true
+  %brmerge2138 = or i1 %312, %.tr2035.not2137
+  br i1 %brmerge2138, label %.critedge, label %314
 
 313:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1410
-  br i1 %.tr20122938, label %314, label %.critedge
+  br i1 %.tr20352961, label %314, label %.critedge
 
 314:                                              ; preds = %311, %313
   %315 = icmp eq i32 %0, 109
@@ -5975,30 +5990,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1410: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1414: ; preds = %314
   %316 = icmp eq i32 %0, 117
-  %spec.select2117 = and i1 %.tr20122938, %316
+  %spec.select2140 = and i1 %.tr20352961, %316
   br label %.critedge
 
 317:                                              ; preds = %10
-  %brmerge864.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge864.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge864.not, label %318, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1420
 
 318:                                              ; preds = %317
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1420 [
-    i32 114, label %.critedge
-    i32 122, label %.critedge
+  %trunc2013 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2013, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1420 [
+    i8 114, label %.critedge
+    i8 122, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1420: ; preds = %318, %317
-  br i1 %.tr20132939, label %319, label %321
+  br i1 %.tr20362962, label %319, label %321
 
 319:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1420
   %320 = icmp eq i32 %0, 106
-  %.tr2012.not2118 = xor i1 %.tr20122938, true
-  %brmerge2119 = or i1 %320, %.tr2012.not2118
-  br i1 %brmerge2119, label %.critedge, label %322
+  %.tr2035.not2141 = xor i1 %.tr20352961, true
+  %brmerge2142 = or i1 %320, %.tr2035.not2141
+  br i1 %brmerge2142, label %.critedge, label %322
 
 321:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1420
-  br i1 %.tr20122938, label %322, label %.critedge
+  br i1 %.tr20352961, label %322, label %.critedge
 
 322:                                              ; preds = %319, %321
   %323 = icmp eq i32 %0, 110
@@ -6006,30 +6022,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1420: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1424: ; preds = %322
   %324 = icmp eq i32 %0, 118
-  %spec.select2121 = and i1 %.tr20122938, %324
+  %spec.select2144 = and i1 %.tr20352961, %324
   br label %.critedge
 
 325:                                              ; preds = %10
-  %brmerge875.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge875.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge875.not, label %326, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1430
 
 326:                                              ; preds = %325
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1430 [
-    i32 135, label %.critedge
-    i32 143, label %.critedge
+  %trunc2012 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2012, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1430 [
+    i8 -121, label %.critedge
+    i8 -113, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1430: ; preds = %326, %325
-  br i1 %.tr20132939, label %327, label %329
+  br i1 %.tr20362962, label %327, label %329
 
 327:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1430
   %328 = icmp eq i32 %0, 127
-  %.tr2012.not2122 = xor i1 %.tr20122938, true
-  %brmerge2123 = or i1 %328, %.tr2012.not2122
-  br i1 %brmerge2123, label %.critedge, label %330
+  %.tr2035.not2145 = xor i1 %.tr20352961, true
+  %brmerge2146 = or i1 %328, %.tr2035.not2145
+  br i1 %brmerge2146, label %.critedge, label %330
 
 329:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1430
-  br i1 %.tr20122938, label %330, label %.critedge
+  br i1 %.tr20352961, label %330, label %.critedge
 
 330:                                              ; preds = %327, %329
   %331 = icmp eq i32 %0, 131
@@ -6037,30 +6054,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1430: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1434: ; preds = %330
   %332 = icmp eq i32 %0, 139
-  %spec.select2125 = and i1 %.tr20122938, %332
+  %spec.select2148 = and i1 %.tr20352961, %332
   br label %.critedge
 
 333:                                              ; preds = %10
-  %brmerge886.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge886.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge886.not, label %334, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1440
 
 334:                                              ; preds = %333
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1440 [
-    i32 136, label %.critedge
-    i32 144, label %.critedge
+  %trunc2011 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2011, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1440 [
+    i8 -120, label %.critedge
+    i8 -112, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1440: ; preds = %334, %333
-  br i1 %.tr20132939, label %335, label %337
+  br i1 %.tr20362962, label %335, label %337
 
 335:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1440
   %336 = icmp eq i32 %0, 128
-  %.tr2012.not2126 = xor i1 %.tr20122938, true
-  %brmerge2127 = or i1 %336, %.tr2012.not2126
-  br i1 %brmerge2127, label %.critedge, label %338
+  %.tr2035.not2149 = xor i1 %.tr20352961, true
+  %brmerge2150 = or i1 %336, %.tr2035.not2149
+  br i1 %brmerge2150, label %.critedge, label %338
 
 337:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1440
-  br i1 %.tr20122938, label %338, label %.critedge
+  br i1 %.tr20352961, label %338, label %.critedge
 
 338:                                              ; preds = %335, %337
   %339 = icmp eq i32 %0, 132
@@ -6068,30 +6086,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1440: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1444: ; preds = %338
   %340 = icmp eq i32 %0, 140
-  %spec.select2129 = and i1 %.tr20122938, %340
+  %spec.select2152 = and i1 %.tr20352961, %340
   br label %.critedge
 
 341:                                              ; preds = %10
-  %brmerge897.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge897.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge897.not, label %342, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1450
 
 342:                                              ; preds = %341
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1450 [
-    i32 137, label %.critedge
-    i32 145, label %.critedge
+  %trunc2010 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2010, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1450 [
+    i8 -119, label %.critedge
+    i8 -111, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1450: ; preds = %342, %341
-  br i1 %.tr20132939, label %343, label %345
+  br i1 %.tr20362962, label %343, label %345
 
 343:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1450
   %344 = icmp eq i32 %0, 129
-  %.tr2012.not2130 = xor i1 %.tr20122938, true
-  %brmerge2131 = or i1 %344, %.tr2012.not2130
-  br i1 %brmerge2131, label %.critedge, label %346
+  %.tr2035.not2153 = xor i1 %.tr20352961, true
+  %brmerge2154 = or i1 %344, %.tr2035.not2153
+  br i1 %brmerge2154, label %.critedge, label %346
 
 345:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1450
-  br i1 %.tr20122938, label %346, label %.critedge
+  br i1 %.tr20352961, label %346, label %.critedge
 
 346:                                              ; preds = %343, %345
   %347 = icmp eq i32 %0, 133
@@ -6099,30 +6118,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1450: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1454: ; preds = %346
   %348 = icmp eq i32 %0, 141
-  %spec.select2133 = and i1 %.tr20122938, %348
+  %spec.select2156 = and i1 %.tr20352961, %348
   br label %.critedge
 
 349:                                              ; preds = %10
-  %brmerge908.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge908.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge908.not, label %350, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1460
 
 350:                                              ; preds = %349
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1460 [
-    i32 138, label %.critedge
-    i32 146, label %.critedge
+  %trunc2009 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2009, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1460 [
+    i8 -118, label %.critedge
+    i8 -110, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1460: ; preds = %350, %349
-  br i1 %.tr20132939, label %351, label %353
+  br i1 %.tr20362962, label %351, label %353
 
 351:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1460
   %352 = icmp eq i32 %0, 130
-  %.tr2012.not2134 = xor i1 %.tr20122938, true
-  %brmerge2135 = or i1 %352, %.tr2012.not2134
-  br i1 %brmerge2135, label %.critedge, label %354
+  %.tr2035.not2157 = xor i1 %.tr20352961, true
+  %brmerge2158 = or i1 %352, %.tr2035.not2157
+  br i1 %brmerge2158, label %.critedge, label %354
 
 353:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1460
-  br i1 %.tr20122938, label %354, label %.critedge
+  br i1 %.tr20352961, label %354, label %.critedge
 
 354:                                              ; preds = %351, %353
   %355 = icmp eq i32 %0, 134
@@ -6130,30 +6150,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1460: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1464: ; preds = %354
   %356 = icmp eq i32 %0, 142
-  %spec.select2137 = and i1 %.tr20122938, %356
+  %spec.select2160 = and i1 %.tr20352961, %356
   br label %.critedge
 
 357:                                              ; preds = %10
-  %brmerge919.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge919.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge919.not, label %358, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1470
 
 358:                                              ; preds = %357
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1470 [
-    i32 159, label %.critedge
-    i32 167, label %.critedge
+  %trunc2008 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2008, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1470 [
+    i8 -97, label %.critedge
+    i8 -89, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1470: ; preds = %358, %357
-  br i1 %.tr20132939, label %359, label %361
+  br i1 %.tr20362962, label %359, label %361
 
 359:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1470
   %360 = icmp eq i32 %0, 151
-  %.tr2012.not2138 = xor i1 %.tr20122938, true
-  %brmerge2139 = or i1 %360, %.tr2012.not2138
-  br i1 %brmerge2139, label %.critedge, label %362
+  %.tr2035.not2161 = xor i1 %.tr20352961, true
+  %brmerge2162 = or i1 %360, %.tr2035.not2161
+  br i1 %brmerge2162, label %.critedge, label %362
 
 361:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1470
-  br i1 %.tr20122938, label %362, label %.critedge
+  br i1 %.tr20352961, label %362, label %.critedge
 
 362:                                              ; preds = %359, %361
   %363 = icmp eq i32 %0, 155
@@ -6161,30 +6182,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1470: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1474: ; preds = %362
   %364 = icmp eq i32 %0, 163
-  %spec.select2141 = and i1 %.tr20122938, %364
+  %spec.select2164 = and i1 %.tr20352961, %364
   br label %.critedge
 
 365:                                              ; preds = %10
-  %brmerge930.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge930.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge930.not, label %366, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1480
 
 366:                                              ; preds = %365
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1480 [
-    i32 160, label %.critedge
-    i32 168, label %.critedge
+  %trunc2007 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2007, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1480 [
+    i8 -96, label %.critedge
+    i8 -88, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1480: ; preds = %366, %365
-  br i1 %.tr20132939, label %367, label %369
+  br i1 %.tr20362962, label %367, label %369
 
 367:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1480
   %368 = icmp eq i32 %0, 152
-  %.tr2012.not2142 = xor i1 %.tr20122938, true
-  %brmerge2143 = or i1 %368, %.tr2012.not2142
-  br i1 %brmerge2143, label %.critedge, label %370
+  %.tr2035.not2165 = xor i1 %.tr20352961, true
+  %brmerge2166 = or i1 %368, %.tr2035.not2165
+  br i1 %brmerge2166, label %.critedge, label %370
 
 369:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1480
-  br i1 %.tr20122938, label %370, label %.critedge
+  br i1 %.tr20352961, label %370, label %.critedge
 
 370:                                              ; preds = %367, %369
   %371 = icmp eq i32 %0, 156
@@ -6192,30 +6214,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1480: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1484: ; preds = %370
   %372 = icmp eq i32 %0, 164
-  %spec.select2145 = and i1 %.tr20122938, %372
+  %spec.select2168 = and i1 %.tr20352961, %372
   br label %.critedge
 
 373:                                              ; preds = %10
-  %brmerge941.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge941.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge941.not, label %374, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1490
 
 374:                                              ; preds = %373
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1490 [
-    i32 161, label %.critedge
-    i32 169, label %.critedge
+  %trunc2006 = trunc nuw i32 %0 to i8
+  switch i8 %trunc2006, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1490 [
+    i8 -95, label %.critedge
+    i8 -87, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1490: ; preds = %374, %373
-  br i1 %.tr20132939, label %375, label %377
+  br i1 %.tr20362962, label %375, label %377
 
 375:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1490
   %376 = icmp eq i32 %0, 153
-  %.tr2012.not2146 = xor i1 %.tr20122938, true
-  %brmerge2147 = or i1 %376, %.tr2012.not2146
-  br i1 %brmerge2147, label %.critedge, label %378
+  %.tr2035.not2169 = xor i1 %.tr20352961, true
+  %brmerge2170 = or i1 %376, %.tr2035.not2169
+  br i1 %brmerge2170, label %.critedge, label %378
 
 377:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1490
-  br i1 %.tr20122938, label %378, label %.critedge
+  br i1 %.tr20352961, label %378, label %.critedge
 
 378:                                              ; preds = %375, %377
   %379 = icmp eq i32 %0, 157
@@ -6223,30 +6246,31 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1490: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1494: ; preds = %378
   %380 = icmp eq i32 %0, 165
-  %spec.select2149 = and i1 %.tr20122938, %380
+  %spec.select2172 = and i1 %.tr20352961, %380
   br label %.critedge
 
 381:                                              ; preds = %10
-  %brmerge952.not = and i1 %.tr20122938, %.tr20132939
+  %brmerge952.not = and i1 %.tr20352961, %.tr20362962
   br i1 %brmerge952.not, label %382, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1500
 
 382:                                              ; preds = %381
-  switch i32 %0, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1500 [
-    i32 162, label %.critedge
-    i32 170, label %.critedge
+  %trunc = trunc nuw i32 %0 to i8
+  switch i8 %trunc, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1500 [
+    i8 -94, label %.critedge
+    i8 -86, label %.critedge
   ]
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1500: ; preds = %382, %381
-  br i1 %.tr20132939, label %383, label %385
+  br i1 %.tr20362962, label %383, label %385
 
 383:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1500
   %384 = icmp eq i32 %0, 154
-  %.tr2012.not2150 = xor i1 %.tr20122938, true
-  %brmerge2151 = or i1 %384, %.tr2012.not2150
-  br i1 %brmerge2151, label %.critedge, label %386
+  %.tr2035.not2173 = xor i1 %.tr20352961, true
+  %brmerge2174 = or i1 %384, %.tr2035.not2173
+  br i1 %brmerge2174, label %.critedge, label %386
 
 385:                                              ; preds = %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1500
-  br i1 %.tr20122938, label %386, label %.critedge
+  br i1 %.tr20352961, label %386, label %.critedge
 
 386:                                              ; preds = %383, %385
   %387 = icmp eq i32 %0, 158
@@ -6254,255 +6278,255 @@ _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1500: ;
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1504: ; preds = %386
   %388 = icmp eq i32 %0, 166
-  %spec.select2153 = and i1 %.tr20122938, %388
+  %spec.select2176 = and i1 %.tr20352961, %388
   br label %.critedge
 
 389:                                              ; preds = %10
   %390 = icmp eq i32 %0, 111
-  %or.cond1965 = and i1 %390, %.tr20122938
+  %or.cond1965 = and i1 %390, %.tr20352961
   %391 = icmp eq i32 %0, 106
   %or.cond1966 = or i1 %391, %or.cond1965
   br i1 %or.cond1966, label %.critedge, label %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1510
 
 _ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1510: ; preds = %389
   %392 = icmp eq i32 %0, 119
-  %spec.select2154 = and i1 %.tr20122938, %392
+  %spec.select2177 = and i1 %.tr20352961, %392
   br label %.critedge
 
 393:                                              ; preds = %10
-  br i1 %.tr20122938, label %394, label %.critedge
+  br i1 %.tr20352961, label %394, label %.critedge
 
 394:                                              ; preds = %393
-  %395 = and i32 %0, -9
-  %spec.select2193 = icmp eq i32 %395, 112
+  %395 = and i32 %0, 247
+  %spec.select2216 = icmp eq i32 %395, 112
   br label %.critedge
 
 396:                                              ; preds = %10
-  br i1 %.tr20122938, label %397, label %.critedge
+  br i1 %.tr20352961, label %397, label %.critedge
 
 397:                                              ; preds = %396
-  %398 = and i32 %0, -9
-  %spec.select2194 = icmp eq i32 %398, 113
+  %398 = and i32 %0, 247
+  %spec.select2217 = icmp eq i32 %398, 113
   br label %.critedge
 
 399:                                              ; preds = %10
-  br i1 %.tr20122938, label %400, label %.critedge
+  br i1 %.tr20352961, label %400, label %.critedge
 
 400:                                              ; preds = %399
-  %401 = and i32 %0, -9
-  %spec.select2195 = icmp eq i32 %401, 114
+  %401 = and i32 %0, 247
+  %spec.select2218 = icmp eq i32 %401, 114
   br label %.critedge
 
 402:                                              ; preds = %10
-  br i1 %.tr20122938, label %403, label %.critedge
+  br i1 %.tr20352961, label %403, label %.critedge
 
 403:                                              ; preds = %402
-  %404 = and i32 %0, -9
-  %spec.select2196 = icmp eq i32 %404, 135
+  %404 = and i32 %0, 247
+  %spec.select2219 = icmp eq i32 %404, 135
   br label %.critedge
 
 405:                                              ; preds = %10
-  br i1 %.tr20122938, label %406, label %.critedge
+  br i1 %.tr20352961, label %406, label %.critedge
 
 406:                                              ; preds = %405
   %407 = icmp eq i32 %0, 136
   %408 = icmp eq i32 %0, 144
-  %spec.select2197 = or i1 %407, %408
+  %spec.select2220 = or i1 %407, %408
   br label %.critedge
 
 409:                                              ; preds = %10
-  br i1 %.tr20122938, label %410, label %.critedge
+  br i1 %.tr20352961, label %410, label %.critedge
 
 410:                                              ; preds = %409
   %411 = icmp eq i32 %0, 137
   %412 = icmp eq i32 %0, 145
-  %spec.select2198 = or i1 %411, %412
+  %spec.select2221 = or i1 %411, %412
   br label %.critedge
 
 413:                                              ; preds = %10
-  br i1 %.tr20122938, label %414, label %.critedge
+  br i1 %.tr20352961, label %414, label %.critedge
 
 414:                                              ; preds = %413
   %415 = icmp eq i32 %0, 138
   %416 = icmp eq i32 %0, 146
-  %spec.select2199 = or i1 %415, %416
+  %spec.select2222 = or i1 %415, %416
   br label %.critedge
 
 417:                                              ; preds = %10
-  br i1 %.tr20122938, label %418, label %.critedge
+  br i1 %.tr20352961, label %418, label %.critedge
 
 418:                                              ; preds = %417
   %419 = icmp eq i32 %0, 159
   %420 = icmp eq i32 %0, 167
-  %spec.select2200 = or i1 %419, %420
+  %spec.select2223 = or i1 %419, %420
   br label %.critedge
 
 421:                                              ; preds = %10
-  br i1 %.tr20122938, label %422, label %.critedge
+  br i1 %.tr20352961, label %422, label %.critedge
 
 422:                                              ; preds = %421
-  %423 = and i32 %0, -9
-  %spec.select2201 = icmp eq i32 %423, 160
+  %423 = and i32 %0, 247
+  %spec.select2224 = icmp eq i32 %423, 160
   br label %.critedge
 
 424:                                              ; preds = %10
-  br i1 %.tr20122938, label %425, label %.critedge
+  br i1 %.tr20352961, label %425, label %.critedge
 
 425:                                              ; preds = %424
-  %426 = and i32 %0, -9
-  %spec.select2202 = icmp eq i32 %426, 161
+  %426 = and i32 %0, 247
+  %spec.select2225 = icmp eq i32 %426, 161
   br label %.critedge
 
 427:                                              ; preds = %10
-  br i1 %.tr20122938, label %428, label %.critedge
+  br i1 %.tr20352961, label %428, label %.critedge
 
 428:                                              ; preds = %427
-  %429 = and i32 %0, -9
-  %spec.select2203 = icmp eq i32 %429, 162
+  %429 = and i32 %0, 247
+  %spec.select2226 = icmp eq i32 %429, 162
   br label %.critedge
 
 430:                                              ; preds = %10
   %431 = icmp eq i32 %0, 111
-  %spec.select2155 = and i1 %.tr20132939, %431
+  %spec.select2178 = and i1 %.tr20362962, %431
   br label %.critedge
 
 432:                                              ; preds = %10
   %433 = icmp eq i32 %0, 112
-  %spec.select2156 = and i1 %.tr20132939, %433
+  %spec.select2179 = and i1 %.tr20362962, %433
   br label %.critedge
 
 434:                                              ; preds = %10
   %435 = icmp eq i32 %0, 113
-  %spec.select2157 = and i1 %.tr20132939, %435
+  %spec.select2180 = and i1 %.tr20362962, %435
   br label %.critedge
 
 436:                                              ; preds = %10
   %437 = icmp eq i32 %0, 114
-  %spec.select2158 = and i1 %.tr20132939, %437
+  %spec.select2181 = and i1 %.tr20362962, %437
   br label %.critedge
 
 438:                                              ; preds = %10
   %439 = icmp eq i32 %0, 135
-  %spec.select2159 = and i1 %.tr20132939, %439
+  %spec.select2182 = and i1 %.tr20362962, %439
   br label %.critedge
 
 440:                                              ; preds = %10
   %441 = icmp eq i32 %0, 136
-  %spec.select2160 = and i1 %.tr20132939, %441
+  %spec.select2183 = and i1 %.tr20362962, %441
   br label %.critedge
 
 442:                                              ; preds = %10
   %443 = icmp eq i32 %0, 137
-  %spec.select2161 = and i1 %.tr20132939, %443
+  %spec.select2184 = and i1 %.tr20362962, %443
   br label %.critedge
 
 444:                                              ; preds = %10
   %445 = icmp eq i32 %0, 138
-  %spec.select2162 = and i1 %.tr20132939, %445
+  %spec.select2185 = and i1 %.tr20362962, %445
   br label %.critedge
 
 446:                                              ; preds = %10
   %447 = icmp eq i32 %0, 159
-  %spec.select2163 = and i1 %.tr20132939, %447
+  %spec.select2186 = and i1 %.tr20362962, %447
   br label %.critedge
 
 448:                                              ; preds = %10
   %449 = icmp eq i32 %0, 160
-  %spec.select2164 = and i1 %.tr20132939, %449
+  %spec.select2187 = and i1 %.tr20362962, %449
   br label %.critedge
 
 450:                                              ; preds = %10
   %451 = icmp eq i32 %0, 161
-  %spec.select2165 = and i1 %.tr20132939, %451
+  %spec.select2188 = and i1 %.tr20362962, %451
   br label %.critedge
 
 452:                                              ; preds = %10
   %453 = icmp eq i32 %0, 162
-  %spec.select2166 = and i1 %.tr20132939, %453
+  %spec.select2189 = and i1 %.tr20362962, %453
   br label %.critedge
 
 454:                                              ; preds = %10
   %455 = icmp eq i32 %0, 119
-  %spec.select2167 = and i1 %.tr20132939, %455
+  %spec.select2190 = and i1 %.tr20362962, %455
   br label %.critedge
 
 456:                                              ; preds = %10
   %457 = icmp eq i32 %0, 120
-  %spec.select2168 = and i1 %.tr20132939, %457
+  %spec.select2191 = and i1 %.tr20362962, %457
   br label %.critedge
 
 458:                                              ; preds = %10
   %459 = icmp eq i32 %0, 121
-  %spec.select2169 = and i1 %.tr20132939, %459
+  %spec.select2192 = and i1 %.tr20362962, %459
   br label %.critedge
 
 460:                                              ; preds = %10
   %461 = icmp eq i32 %0, 122
-  %spec.select2170 = and i1 %.tr20132939, %461
+  %spec.select2193 = and i1 %.tr20362962, %461
   br label %.critedge
 
 462:                                              ; preds = %10
   %463 = icmp eq i32 %0, 143
-  %spec.select2171 = and i1 %.tr20132939, %463
+  %spec.select2194 = and i1 %.tr20362962, %463
   br label %.critedge
 
 464:                                              ; preds = %10
   %465 = icmp eq i32 %0, 144
-  %spec.select2172 = and i1 %.tr20132939, %465
+  %spec.select2195 = and i1 %.tr20362962, %465
   br label %.critedge
 
 466:                                              ; preds = %10
   %467 = icmp eq i32 %0, 145
-  %spec.select2173 = and i1 %.tr20132939, %467
+  %spec.select2196 = and i1 %.tr20362962, %467
   br label %.critedge
 
 468:                                              ; preds = %10
   %469 = icmp eq i32 %0, 146
-  %spec.select2174 = and i1 %.tr20132939, %469
+  %spec.select2197 = and i1 %.tr20362962, %469
   br label %.critedge
 
 470:                                              ; preds = %10
   %471 = icmp eq i32 %0, 167
-  %spec.select2175 = and i1 %.tr20132939, %471
+  %spec.select2198 = and i1 %.tr20362962, %471
   br label %.critedge
 
 472:                                              ; preds = %10
   %473 = icmp eq i32 %0, 168
-  %spec.select2176 = and i1 %.tr20132939, %473
+  %spec.select2199 = and i1 %.tr20362962, %473
   br label %.critedge
 
 474:                                              ; preds = %10
   %475 = icmp eq i32 %0, 169
-  %spec.select2177 = and i1 %.tr20132939, %475
+  %spec.select2200 = and i1 %.tr20362962, %475
   br label %.critedge
 
 476:                                              ; preds = %10
   %477 = icmp eq i32 %0, 170
-  %spec.select2178 = and i1 %.tr20132939, %477
+  %spec.select2201 = and i1 %.tr20362962, %477
   br label %.critedge
 
 478:                                              ; preds = %10
   %479 = icmp eq i32 %0, 52
-  %spec.select2179 = and i1 %.tr20132939, %479
+  %spec.select2202 = and i1 %.tr20362962, %479
   br label %.critedge
 
 480:                                              ; preds = %10
   %481 = icmp eq i32 %0, 103
-  %spec.select2180 = and i1 %.tr20132939, %481
+  %spec.select2203 = and i1 %.tr20362962, %481
   br label %.critedge
 
 482:                                              ; preds = %10
   %483 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
   %484 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %483, ptr noundef nonnull @.str.370)
-  %485 = tail call fastcc noundef ptr @_ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE(i32 noundef %.tr20102936)
+  %485 = tail call fastcc noundef ptr @_ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE(i32 noundef %.tr20332959)
   %486 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %484, ptr noundef nonnull %485)
   %487 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %486, ptr noundef nonnull @.str.14)
   unreachable
 
 .critedge:                                        ; preds = %tailrecurse.outer, %tailrecurse.backedge, %18, %14, %11, %28, %23, %20, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %16, %26, %.thread1611, %6, %428, %425, %422, %418, %414, %410, %406, %403, %400, %397, %394, %242, %238, %234, %231, %228, %225, %222, %219, %215, %211, %207, %49, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %432, %430, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1510, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1504, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1494, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1484, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1474, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1464, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1454, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1444, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1434, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1424, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1414, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1404, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1394, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1294, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1288, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1278, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1268, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1258, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1248, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1238, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1228, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1218, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1208, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1198, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1188, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1178, %104, %102, %100, %98, %96, %94, %92, %90, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1130, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1126, %31, %30, %383, %375, %367, %359, %351, %343, %335, %327, %319, %311, %303, %196, %188, %180, %172, %164, %156, %148, %140, %132, %124, %116, %85, %77, %69, %61, %47, %44, %88, %80, %72, %64, %45, %41, %39, %37, %35, %389, %382, %382, %374, %374, %366, %366, %358, %358, %350, %350, %342, %342, %334, %334, %326, %326, %318, %318, %310, %310, %302, %302, %294, %294, %202, %195, %195, %187, %187, %179, %179, %171, %171, %163, %163, %155, %155, %147, %147, %139, %139, %131, %131, %123, %123, %115, %115, %107, %107, %82, %74, %66, %58, %386, %378, %370, %362, %354, %346, %338, %330, %322, %314, %306, %298, %199, %191, %183, %175, %167, %159, %151, %143, %135, %127, %119, %111, %55, %52, %295, %108, %427, %424, %421, %417, %413, %409, %405, %402, %399, %396, %393, %385, %377, %369, %361, %353, %345, %337, %329, %321, %313, %305, %297, %241, %237, %233, %230, %227, %224, %221, %218, %214, %210, %206, %198, %190, %182, %174, %166, %158, %150, %142, %134, %126, %118, %110, %87, %79, %71, %63, %.critedge604
-  %accumulator.tr.ph2935 = phi i1 [ %accumulator.tr.ph3251, %.critedge604 ], [ %accumulator.tr.ph3251, %63 ], [ %accumulator.tr.ph3251, %71 ], [ %accumulator.tr.ph3251, %79 ], [ %accumulator.tr.ph3251, %87 ], [ %accumulator.tr.ph3251, %108 ], [ %accumulator.tr.ph3251, %110 ], [ %accumulator.tr.ph3251, %118 ], [ %accumulator.tr.ph3251, %126 ], [ %accumulator.tr.ph3251, %134 ], [ %accumulator.tr.ph3251, %142 ], [ %accumulator.tr.ph3251, %150 ], [ %accumulator.tr.ph3251, %158 ], [ %accumulator.tr.ph3251, %166 ], [ %accumulator.tr.ph3251, %174 ], [ %accumulator.tr.ph3251, %182 ], [ %accumulator.tr.ph3251, %190 ], [ %accumulator.tr.ph3251, %198 ], [ %accumulator.tr.ph3251, %206 ], [ %accumulator.tr.ph3251, %210 ], [ %accumulator.tr.ph3251, %214 ], [ %accumulator.tr.ph3251, %218 ], [ %accumulator.tr.ph3251, %221 ], [ %accumulator.tr.ph3251, %224 ], [ %accumulator.tr.ph3251, %227 ], [ %accumulator.tr.ph3251, %230 ], [ %accumulator.tr.ph3251, %233 ], [ %accumulator.tr.ph3251, %237 ], [ %accumulator.tr.ph3251, %241 ], [ %accumulator.tr.ph3251, %295 ], [ %accumulator.tr.ph3251, %297 ], [ %accumulator.tr.ph3251, %305 ], [ %accumulator.tr.ph3251, %313 ], [ %accumulator.tr.ph3251, %321 ], [ %accumulator.tr.ph3251, %329 ], [ %accumulator.tr.ph3251, %337 ], [ %accumulator.tr.ph3251, %345 ], [ %accumulator.tr.ph3251, %353 ], [ %accumulator.tr.ph3251, %361 ], [ %accumulator.tr.ph3251, %369 ], [ %accumulator.tr.ph3251, %377 ], [ %accumulator.tr.ph3251, %385 ], [ %accumulator.tr.ph3251, %393 ], [ %accumulator.tr.ph3251, %396 ], [ %accumulator.tr.ph3251, %399 ], [ %accumulator.tr.ph3251, %402 ], [ %accumulator.tr.ph3251, %405 ], [ %accumulator.tr.ph3251, %409 ], [ %accumulator.tr.ph3251, %413 ], [ %accumulator.tr.ph3251, %417 ], [ %accumulator.tr.ph3251, %421 ], [ %accumulator.tr.ph3251, %424 ], [ %accumulator.tr.ph3251, %427 ], [ %accumulator.tr.ph3251, %47 ], [ %accumulator.tr.ph3251, %52 ], [ %accumulator.tr.ph3251, %55 ], [ %accumulator.tr.ph3251, %61 ], [ %accumulator.tr.ph3251, %69 ], [ %accumulator.tr.ph3251, %77 ], [ %accumulator.tr.ph3251, %85 ], [ %accumulator.tr.ph3251, %107 ], [ %accumulator.tr.ph3251, %111 ], [ %accumulator.tr.ph3251, %115 ], [ %accumulator.tr.ph3251, %116 ], [ %accumulator.tr.ph3251, %119 ], [ %accumulator.tr.ph3251, %123 ], [ %accumulator.tr.ph3251, %124 ], [ %accumulator.tr.ph3251, %127 ], [ %accumulator.tr.ph3251, %131 ], [ %accumulator.tr.ph3251, %132 ], [ %accumulator.tr.ph3251, %135 ], [ %accumulator.tr.ph3251, %139 ], [ %accumulator.tr.ph3251, %140 ], [ %accumulator.tr.ph3251, %143 ], [ %accumulator.tr.ph3251, %147 ], [ %accumulator.tr.ph3251, %148 ], [ %accumulator.tr.ph3251, %151 ], [ %accumulator.tr.ph3251, %155 ], [ %accumulator.tr.ph3251, %156 ], [ %accumulator.tr.ph3251, %159 ], [ %accumulator.tr.ph3251, %163 ], [ %accumulator.tr.ph3251, %164 ], [ %accumulator.tr.ph3251, %167 ], [ %accumulator.tr.ph3251, %171 ], [ %accumulator.tr.ph3251, %172 ], [ %accumulator.tr.ph3251, %175 ], [ %accumulator.tr.ph3251, %179 ], [ %accumulator.tr.ph3251, %180 ], [ %accumulator.tr.ph3251, %183 ], [ %accumulator.tr.ph3251, %187 ], [ %accumulator.tr.ph3251, %188 ], [ %accumulator.tr.ph3251, %191 ], [ %accumulator.tr.ph3251, %195 ], [ %accumulator.tr.ph3251, %196 ], [ %accumulator.tr.ph3251, %199 ], [ %accumulator.tr.ph3251, %294 ], [ %accumulator.tr.ph3251, %298 ], [ %accumulator.tr.ph3251, %302 ], [ %accumulator.tr.ph3251, %303 ], [ %accumulator.tr.ph3251, %306 ], [ %accumulator.tr.ph3251, %310 ], [ %accumulator.tr.ph3251, %311 ], [ %accumulator.tr.ph3251, %314 ], [ %accumulator.tr.ph3251, %318 ], [ %accumulator.tr.ph3251, %319 ], [ %accumulator.tr.ph3251, %322 ], [ %accumulator.tr.ph3251, %326 ], [ %accumulator.tr.ph3251, %327 ], [ %accumulator.tr.ph3251, %330 ], [ %accumulator.tr.ph3251, %334 ], [ %accumulator.tr.ph3251, %335 ], [ %accumulator.tr.ph3251, %338 ], [ %accumulator.tr.ph3251, %342 ], [ %accumulator.tr.ph3251, %343 ], [ %accumulator.tr.ph3251, %346 ], [ %accumulator.tr.ph3251, %350 ], [ %accumulator.tr.ph3251, %351 ], [ %accumulator.tr.ph3251, %354 ], [ %accumulator.tr.ph3251, %358 ], [ %accumulator.tr.ph3251, %359 ], [ %accumulator.tr.ph3251, %362 ], [ %accumulator.tr.ph3251, %366 ], [ %accumulator.tr.ph3251, %367 ], [ %accumulator.tr.ph3251, %370 ], [ %accumulator.tr.ph3251, %374 ], [ %accumulator.tr.ph3251, %375 ], [ %accumulator.tr.ph3251, %378 ], [ %accumulator.tr.ph3251, %382 ], [ %accumulator.tr.ph3251, %383 ], [ %accumulator.tr.ph3251, %386 ], [ %accumulator.tr.ph3251, %35 ], [ %accumulator.tr.ph3251, %37 ], [ %accumulator.tr.ph3251, %39 ], [ %accumulator.tr.ph3251, %41 ], [ %accumulator.tr.ph3251, %44 ], [ %accumulator.tr.ph3251, %45 ], [ %accumulator.tr.ph3251, %58 ], [ %accumulator.tr.ph3251, %64 ], [ %accumulator.tr.ph3251, %66 ], [ %accumulator.tr.ph3251, %72 ], [ %accumulator.tr.ph3251, %74 ], [ %accumulator.tr.ph3251, %80 ], [ %accumulator.tr.ph3251, %82 ], [ %accumulator.tr.ph3251, %88 ], [ %accumulator.tr.ph3251, %107 ], [ %accumulator.tr.ph3251, %115 ], [ %accumulator.tr.ph3251, %123 ], [ %accumulator.tr.ph3251, %131 ], [ %accumulator.tr.ph3251, %139 ], [ %accumulator.tr.ph3251, %147 ], [ %accumulator.tr.ph3251, %155 ], [ %accumulator.tr.ph3251, %163 ], [ %accumulator.tr.ph3251, %171 ], [ %accumulator.tr.ph3251, %179 ], [ %accumulator.tr.ph3251, %187 ], [ %accumulator.tr.ph3251, %195 ], [ %accumulator.tr.ph3251, %202 ], [ %accumulator.tr.ph3251, %294 ], [ %accumulator.tr.ph3251, %302 ], [ %accumulator.tr.ph3251, %310 ], [ %accumulator.tr.ph3251, %318 ], [ %accumulator.tr.ph3251, %326 ], [ %accumulator.tr.ph3251, %334 ], [ %accumulator.tr.ph3251, %342 ], [ %accumulator.tr.ph3251, %350 ], [ %accumulator.tr.ph3251, %358 ], [ %accumulator.tr.ph3251, %366 ], [ %accumulator.tr.ph3251, %374 ], [ %accumulator.tr.ph3251, %382 ], [ %accumulator.tr.ph3251, %389 ], [ %accumulator.tr.ph3251, %30 ], [ %accumulator.tr.ph3251, %31 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1126 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1130 ], [ %accumulator.tr.ph3251, %90 ], [ %accumulator.tr.ph3251, %92 ], [ %accumulator.tr.ph3251, %94 ], [ %accumulator.tr.ph3251, %96 ], [ %accumulator.tr.ph3251, %98 ], [ %accumulator.tr.ph3251, %100 ], [ %accumulator.tr.ph3251, %102 ], [ %accumulator.tr.ph3251, %104 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1178 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1188 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1198 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1208 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1218 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1228 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1238 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1248 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1258 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1268 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1278 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1288 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1294 ], [ %accumulator.tr.ph3251, %245 ], [ %accumulator.tr.ph3251, %247 ], [ %accumulator.tr.ph3251, %249 ], [ %accumulator.tr.ph3251, %251 ], [ %accumulator.tr.ph3251, %253 ], [ %accumulator.tr.ph3251, %255 ], [ %accumulator.tr.ph3251, %257 ], [ %accumulator.tr.ph3251, %259 ], [ %accumulator.tr.ph3251, %261 ], [ %accumulator.tr.ph3251, %263 ], [ %accumulator.tr.ph3251, %265 ], [ %accumulator.tr.ph3251, %267 ], [ %accumulator.tr.ph3251, %269 ], [ %accumulator.tr.ph3251, %271 ], [ %accumulator.tr.ph3251, %273 ], [ %accumulator.tr.ph3251, %275 ], [ %accumulator.tr.ph3251, %277 ], [ %accumulator.tr.ph3251, %279 ], [ %accumulator.tr.ph3251, %281 ], [ %accumulator.tr.ph3251, %283 ], [ %accumulator.tr.ph3251, %285 ], [ %accumulator.tr.ph3251, %287 ], [ %accumulator.tr.ph3251, %289 ], [ %accumulator.tr.ph3251, %291 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1394 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1404 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1414 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1424 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1434 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1444 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1454 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1464 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1474 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1484 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1494 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1504 ], [ %accumulator.tr.ph3251, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1510 ], [ %accumulator.tr.ph3251, %430 ], [ %accumulator.tr.ph3251, %432 ], [ %accumulator.tr.ph3251, %434 ], [ %accumulator.tr.ph3251, %436 ], [ %accumulator.tr.ph3251, %438 ], [ %accumulator.tr.ph3251, %440 ], [ %accumulator.tr.ph3251, %442 ], [ %accumulator.tr.ph3251, %444 ], [ %accumulator.tr.ph3251, %446 ], [ %accumulator.tr.ph3251, %448 ], [ %accumulator.tr.ph3251, %450 ], [ %accumulator.tr.ph3251, %452 ], [ %accumulator.tr.ph3251, %454 ], [ %accumulator.tr.ph3251, %456 ], [ %accumulator.tr.ph3251, %458 ], [ %accumulator.tr.ph3251, %460 ], [ %accumulator.tr.ph3251, %462 ], [ %accumulator.tr.ph3251, %464 ], [ %accumulator.tr.ph3251, %466 ], [ %accumulator.tr.ph3251, %468 ], [ %accumulator.tr.ph3251, %470 ], [ %accumulator.tr.ph3251, %472 ], [ %accumulator.tr.ph3251, %474 ], [ %accumulator.tr.ph3251, %476 ], [ %accumulator.tr.ph3251, %478 ], [ %accumulator.tr.ph3251, %480 ], [ %accumulator.tr.ph3251, %49 ], [ %accumulator.tr.ph3251, %207 ], [ %accumulator.tr.ph3251, %211 ], [ %accumulator.tr.ph3251, %215 ], [ %accumulator.tr.ph3251, %219 ], [ %accumulator.tr.ph3251, %222 ], [ %accumulator.tr.ph3251, %225 ], [ %accumulator.tr.ph3251, %228 ], [ %accumulator.tr.ph3251, %231 ], [ %accumulator.tr.ph3251, %234 ], [ %accumulator.tr.ph3251, %238 ], [ %accumulator.tr.ph3251, %242 ], [ %accumulator.tr.ph3251, %394 ], [ %accumulator.tr.ph3251, %397 ], [ %accumulator.tr.ph3251, %400 ], [ %accumulator.tr.ph3251, %403 ], [ %accumulator.tr.ph3251, %406 ], [ %accumulator.tr.ph3251, %410 ], [ %accumulator.tr.ph3251, %414 ], [ %accumulator.tr.ph3251, %418 ], [ %accumulator.tr.ph3251, %422 ], [ %accumulator.tr.ph3251, %425 ], [ %accumulator.tr.ph3251, %428 ], [ false, %6 ], [ %accumulator.tr.ph3251, %.thread1611 ], [ %accumulator.tr.ph3251, %26 ], [ %accumulator.tr.ph3251, %16 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %10 ], [ %accumulator.tr.ph3251, %20 ], [ %accumulator.tr.ph3251, %23 ], [ %accumulator.tr.ph3251, %28 ], [ %accumulator.tr.ph3251, %11 ], [ %accumulator.tr.ph3251, %14 ], [ %accumulator.tr.ph3251, %18 ], [ %accumulator.tr.ph3251, %tailrecurse.backedge ], [ %8, %tailrecurse.outer ]
-  %.0 = phi i1 [ false, %.critedge604 ], [ false, %63 ], [ false, %71 ], [ false, %79 ], [ false, %87 ], [ %109, %108 ], [ false, %110 ], [ false, %118 ], [ false, %126 ], [ false, %134 ], [ false, %142 ], [ false, %150 ], [ false, %158 ], [ false, %166 ], [ false, %174 ], [ false, %182 ], [ false, %190 ], [ false, %198 ], [ false, %206 ], [ false, %210 ], [ false, %214 ], [ false, %218 ], [ false, %221 ], [ false, %224 ], [ false, %227 ], [ false, %230 ], [ false, %233 ], [ false, %237 ], [ false, %241 ], [ %296, %295 ], [ false, %297 ], [ false, %305 ], [ false, %313 ], [ false, %321 ], [ false, %329 ], [ false, %337 ], [ false, %345 ], [ false, %353 ], [ false, %361 ], [ false, %369 ], [ false, %377 ], [ false, %385 ], [ false, %393 ], [ false, %396 ], [ false, %399 ], [ false, %402 ], [ false, %405 ], [ false, %409 ], [ false, %413 ], [ false, %417 ], [ false, %421 ], [ false, %424 ], [ false, %427 ], [ %48, %47 ], [ true, %52 ], [ true, %55 ], [ %62, %61 ], [ %70, %69 ], [ %78, %77 ], [ %86, %85 ], [ true, %107 ], [ true, %111 ], [ true, %115 ], [ %117, %116 ], [ true, %119 ], [ true, %123 ], [ %125, %124 ], [ true, %127 ], [ true, %131 ], [ %133, %132 ], [ true, %135 ], [ true, %139 ], [ %141, %140 ], [ true, %143 ], [ true, %147 ], [ %149, %148 ], [ true, %151 ], [ true, %155 ], [ %157, %156 ], [ true, %159 ], [ true, %163 ], [ %165, %164 ], [ true, %167 ], [ true, %171 ], [ %173, %172 ], [ true, %175 ], [ true, %179 ], [ %181, %180 ], [ true, %183 ], [ true, %187 ], [ %189, %188 ], [ true, %191 ], [ true, %195 ], [ %197, %196 ], [ true, %199 ], [ true, %294 ], [ true, %298 ], [ true, %302 ], [ %304, %303 ], [ true, %306 ], [ true, %310 ], [ %312, %311 ], [ true, %314 ], [ true, %318 ], [ %320, %319 ], [ true, %322 ], [ true, %326 ], [ %328, %327 ], [ true, %330 ], [ true, %334 ], [ %336, %335 ], [ true, %338 ], [ true, %342 ], [ %344, %343 ], [ true, %346 ], [ true, %350 ], [ %352, %351 ], [ true, %354 ], [ true, %358 ], [ %360, %359 ], [ true, %362 ], [ true, %366 ], [ %368, %367 ], [ true, %370 ], [ true, %374 ], [ %376, %375 ], [ true, %378 ], [ true, %382 ], [ %384, %383 ], [ true, %386 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %switch, %44 ], [ %46, %45 ], [ true, %58 ], [ %65, %64 ], [ true, %66 ], [ %73, %72 ], [ true, %74 ], [ %81, %80 ], [ true, %82 ], [ %89, %88 ], [ true, %107 ], [ true, %115 ], [ true, %123 ], [ true, %131 ], [ true, %139 ], [ true, %147 ], [ true, %155 ], [ true, %163 ], [ true, %171 ], [ true, %179 ], [ true, %187 ], [ true, %195 ], [ true, %202 ], [ true, %294 ], [ true, %302 ], [ true, %310 ], [ true, %318 ], [ true, %326 ], [ true, %334 ], [ true, %342 ], [ true, %350 ], [ true, %358 ], [ true, %366 ], [ true, %374 ], [ true, %382 ], [ true, %389 ], [ %spec.select, %30 ], [ %spec.select2015, %31 ], [ %spec.select2018, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1126 ], [ %spec.select2019, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1130 ], [ %spec.select2031, %90 ], [ %spec.select2032, %92 ], [ %spec.select2033, %94 ], [ %spec.select2034, %96 ], [ %spec.select2035, %98 ], [ %spec.select2036, %100 ], [ %spec.select2037, %102 ], [ %spec.select2038, %104 ], [ %spec.select2039, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1178 ], [ %spec.select2043, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1188 ], [ %spec.select2047, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1198 ], [ %spec.select2051, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1208 ], [ %spec.select2055, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1218 ], [ %spec.select2059, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1228 ], [ %spec.select2063, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1238 ], [ %spec.select2067, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1248 ], [ %spec.select2071, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1258 ], [ %spec.select2075, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1268 ], [ %spec.select2079, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1278 ], [ %spec.select2083, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1288 ], [ %spec.select2084, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1294 ], [ %spec.select2085, %245 ], [ %spec.select2086, %247 ], [ %spec.select2087, %249 ], [ %spec.select2088, %251 ], [ %spec.select2089, %253 ], [ %spec.select2090, %255 ], [ %spec.select2091, %257 ], [ %spec.select2092, %259 ], [ %spec.select2093, %261 ], [ %spec.select2094, %263 ], [ %spec.select2095, %265 ], [ %spec.select2096, %267 ], [ %spec.select2097, %269 ], [ %spec.select2098, %271 ], [ %spec.select2099, %273 ], [ %spec.select2100, %275 ], [ %spec.select2101, %277 ], [ %spec.select2102, %279 ], [ %spec.select2103, %281 ], [ %spec.select2104, %283 ], [ %spec.select2105, %285 ], [ %spec.select2106, %287 ], [ %spec.select2107, %289 ], [ %spec.select2108, %291 ], [ %spec.select2109, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1394 ], [ %spec.select2113, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1404 ], [ %spec.select2117, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1414 ], [ %spec.select2121, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1424 ], [ %spec.select2125, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1434 ], [ %spec.select2129, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1444 ], [ %spec.select2133, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1454 ], [ %spec.select2137, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1464 ], [ %spec.select2141, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1474 ], [ %spec.select2145, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1484 ], [ %spec.select2149, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1494 ], [ %spec.select2153, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1504 ], [ %spec.select2154, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1510 ], [ %spec.select2155, %430 ], [ %spec.select2156, %432 ], [ %spec.select2157, %434 ], [ %spec.select2158, %436 ], [ %spec.select2159, %438 ], [ %spec.select2160, %440 ], [ %spec.select2161, %442 ], [ %spec.select2162, %444 ], [ %spec.select2163, %446 ], [ %spec.select2164, %448 ], [ %spec.select2165, %450 ], [ %spec.select2166, %452 ], [ %spec.select2167, %454 ], [ %spec.select2168, %456 ], [ %spec.select2169, %458 ], [ %spec.select2170, %460 ], [ %spec.select2171, %462 ], [ %spec.select2172, %464 ], [ %spec.select2173, %466 ], [ %spec.select2174, %468 ], [ %spec.select2175, %470 ], [ %spec.select2176, %472 ], [ %spec.select2177, %474 ], [ %spec.select2178, %476 ], [ %spec.select2179, %478 ], [ %spec.select2180, %480 ], [ %spec.select2181, %49 ], [ %spec.select2182, %207 ], [ %spec.select2183, %211 ], [ %spec.select2184, %215 ], [ %spec.select2185, %219 ], [ %spec.select2186, %222 ], [ %spec.select2187, %225 ], [ %spec.select2188, %228 ], [ %spec.select2189, %231 ], [ %spec.select2190, %234 ], [ %spec.select2191, %238 ], [ %spec.select2192, %242 ], [ %spec.select2193, %394 ], [ %spec.select2194, %397 ], [ %spec.select2195, %400 ], [ %spec.select2196, %403 ], [ %spec.select2197, %406 ], [ %spec.select2198, %410 ], [ %spec.select2199, %414 ], [ %spec.select2200, %418 ], [ %spec.select2201, %422 ], [ %spec.select2202, %425 ], [ %spec.select2203, %428 ], [ true, %6 ], [ true, %tailrecurse.backedge ], [ true, %18 ], [ true, %14 ], [ true, %11 ], [ true, %28 ], [ true, %23 ], [ true, %20 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ true, %16 ], [ true, %26 ], [ false, %.thread1611 ], [ true, %tailrecurse.outer ]
-  %accumulator.ret.tr = or i1 %accumulator.tr.ph2935, %.0
+  %accumulator.tr.ph2958 = phi i1 [ %accumulator.tr.ph3274, %.critedge604 ], [ %accumulator.tr.ph3274, %63 ], [ %accumulator.tr.ph3274, %71 ], [ %accumulator.tr.ph3274, %79 ], [ %accumulator.tr.ph3274, %87 ], [ %accumulator.tr.ph3274, %108 ], [ %accumulator.tr.ph3274, %110 ], [ %accumulator.tr.ph3274, %118 ], [ %accumulator.tr.ph3274, %126 ], [ %accumulator.tr.ph3274, %134 ], [ %accumulator.tr.ph3274, %142 ], [ %accumulator.tr.ph3274, %150 ], [ %accumulator.tr.ph3274, %158 ], [ %accumulator.tr.ph3274, %166 ], [ %accumulator.tr.ph3274, %174 ], [ %accumulator.tr.ph3274, %182 ], [ %accumulator.tr.ph3274, %190 ], [ %accumulator.tr.ph3274, %198 ], [ %accumulator.tr.ph3274, %206 ], [ %accumulator.tr.ph3274, %210 ], [ %accumulator.tr.ph3274, %214 ], [ %accumulator.tr.ph3274, %218 ], [ %accumulator.tr.ph3274, %221 ], [ %accumulator.tr.ph3274, %224 ], [ %accumulator.tr.ph3274, %227 ], [ %accumulator.tr.ph3274, %230 ], [ %accumulator.tr.ph3274, %233 ], [ %accumulator.tr.ph3274, %237 ], [ %accumulator.tr.ph3274, %241 ], [ %accumulator.tr.ph3274, %295 ], [ %accumulator.tr.ph3274, %297 ], [ %accumulator.tr.ph3274, %305 ], [ %accumulator.tr.ph3274, %313 ], [ %accumulator.tr.ph3274, %321 ], [ %accumulator.tr.ph3274, %329 ], [ %accumulator.tr.ph3274, %337 ], [ %accumulator.tr.ph3274, %345 ], [ %accumulator.tr.ph3274, %353 ], [ %accumulator.tr.ph3274, %361 ], [ %accumulator.tr.ph3274, %369 ], [ %accumulator.tr.ph3274, %377 ], [ %accumulator.tr.ph3274, %385 ], [ %accumulator.tr.ph3274, %393 ], [ %accumulator.tr.ph3274, %396 ], [ %accumulator.tr.ph3274, %399 ], [ %accumulator.tr.ph3274, %402 ], [ %accumulator.tr.ph3274, %405 ], [ %accumulator.tr.ph3274, %409 ], [ %accumulator.tr.ph3274, %413 ], [ %accumulator.tr.ph3274, %417 ], [ %accumulator.tr.ph3274, %421 ], [ %accumulator.tr.ph3274, %424 ], [ %accumulator.tr.ph3274, %427 ], [ %accumulator.tr.ph3274, %47 ], [ %accumulator.tr.ph3274, %52 ], [ %accumulator.tr.ph3274, %55 ], [ %accumulator.tr.ph3274, %61 ], [ %accumulator.tr.ph3274, %69 ], [ %accumulator.tr.ph3274, %77 ], [ %accumulator.tr.ph3274, %85 ], [ %accumulator.tr.ph3274, %107 ], [ %accumulator.tr.ph3274, %111 ], [ %accumulator.tr.ph3274, %115 ], [ %accumulator.tr.ph3274, %116 ], [ %accumulator.tr.ph3274, %119 ], [ %accumulator.tr.ph3274, %123 ], [ %accumulator.tr.ph3274, %124 ], [ %accumulator.tr.ph3274, %127 ], [ %accumulator.tr.ph3274, %131 ], [ %accumulator.tr.ph3274, %132 ], [ %accumulator.tr.ph3274, %135 ], [ %accumulator.tr.ph3274, %139 ], [ %accumulator.tr.ph3274, %140 ], [ %accumulator.tr.ph3274, %143 ], [ %accumulator.tr.ph3274, %147 ], [ %accumulator.tr.ph3274, %148 ], [ %accumulator.tr.ph3274, %151 ], [ %accumulator.tr.ph3274, %155 ], [ %accumulator.tr.ph3274, %156 ], [ %accumulator.tr.ph3274, %159 ], [ %accumulator.tr.ph3274, %163 ], [ %accumulator.tr.ph3274, %164 ], [ %accumulator.tr.ph3274, %167 ], [ %accumulator.tr.ph3274, %171 ], [ %accumulator.tr.ph3274, %172 ], [ %accumulator.tr.ph3274, %175 ], [ %accumulator.tr.ph3274, %179 ], [ %accumulator.tr.ph3274, %180 ], [ %accumulator.tr.ph3274, %183 ], [ %accumulator.tr.ph3274, %187 ], [ %accumulator.tr.ph3274, %188 ], [ %accumulator.tr.ph3274, %191 ], [ %accumulator.tr.ph3274, %195 ], [ %accumulator.tr.ph3274, %196 ], [ %accumulator.tr.ph3274, %199 ], [ %accumulator.tr.ph3274, %294 ], [ %accumulator.tr.ph3274, %298 ], [ %accumulator.tr.ph3274, %302 ], [ %accumulator.tr.ph3274, %303 ], [ %accumulator.tr.ph3274, %306 ], [ %accumulator.tr.ph3274, %310 ], [ %accumulator.tr.ph3274, %311 ], [ %accumulator.tr.ph3274, %314 ], [ %accumulator.tr.ph3274, %318 ], [ %accumulator.tr.ph3274, %319 ], [ %accumulator.tr.ph3274, %322 ], [ %accumulator.tr.ph3274, %326 ], [ %accumulator.tr.ph3274, %327 ], [ %accumulator.tr.ph3274, %330 ], [ %accumulator.tr.ph3274, %334 ], [ %accumulator.tr.ph3274, %335 ], [ %accumulator.tr.ph3274, %338 ], [ %accumulator.tr.ph3274, %342 ], [ %accumulator.tr.ph3274, %343 ], [ %accumulator.tr.ph3274, %346 ], [ %accumulator.tr.ph3274, %350 ], [ %accumulator.tr.ph3274, %351 ], [ %accumulator.tr.ph3274, %354 ], [ %accumulator.tr.ph3274, %358 ], [ %accumulator.tr.ph3274, %359 ], [ %accumulator.tr.ph3274, %362 ], [ %accumulator.tr.ph3274, %366 ], [ %accumulator.tr.ph3274, %367 ], [ %accumulator.tr.ph3274, %370 ], [ %accumulator.tr.ph3274, %374 ], [ %accumulator.tr.ph3274, %375 ], [ %accumulator.tr.ph3274, %378 ], [ %accumulator.tr.ph3274, %382 ], [ %accumulator.tr.ph3274, %383 ], [ %accumulator.tr.ph3274, %386 ], [ %accumulator.tr.ph3274, %35 ], [ %accumulator.tr.ph3274, %37 ], [ %accumulator.tr.ph3274, %39 ], [ %accumulator.tr.ph3274, %41 ], [ %accumulator.tr.ph3274, %44 ], [ %accumulator.tr.ph3274, %45 ], [ %accumulator.tr.ph3274, %58 ], [ %accumulator.tr.ph3274, %64 ], [ %accumulator.tr.ph3274, %66 ], [ %accumulator.tr.ph3274, %72 ], [ %accumulator.tr.ph3274, %74 ], [ %accumulator.tr.ph3274, %80 ], [ %accumulator.tr.ph3274, %82 ], [ %accumulator.tr.ph3274, %88 ], [ %accumulator.tr.ph3274, %107 ], [ %accumulator.tr.ph3274, %115 ], [ %accumulator.tr.ph3274, %123 ], [ %accumulator.tr.ph3274, %131 ], [ %accumulator.tr.ph3274, %139 ], [ %accumulator.tr.ph3274, %147 ], [ %accumulator.tr.ph3274, %155 ], [ %accumulator.tr.ph3274, %163 ], [ %accumulator.tr.ph3274, %171 ], [ %accumulator.tr.ph3274, %179 ], [ %accumulator.tr.ph3274, %187 ], [ %accumulator.tr.ph3274, %195 ], [ %accumulator.tr.ph3274, %202 ], [ %accumulator.tr.ph3274, %294 ], [ %accumulator.tr.ph3274, %302 ], [ %accumulator.tr.ph3274, %310 ], [ %accumulator.tr.ph3274, %318 ], [ %accumulator.tr.ph3274, %326 ], [ %accumulator.tr.ph3274, %334 ], [ %accumulator.tr.ph3274, %342 ], [ %accumulator.tr.ph3274, %350 ], [ %accumulator.tr.ph3274, %358 ], [ %accumulator.tr.ph3274, %366 ], [ %accumulator.tr.ph3274, %374 ], [ %accumulator.tr.ph3274, %382 ], [ %accumulator.tr.ph3274, %389 ], [ %accumulator.tr.ph3274, %30 ], [ %accumulator.tr.ph3274, %31 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1126 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1130 ], [ %accumulator.tr.ph3274, %90 ], [ %accumulator.tr.ph3274, %92 ], [ %accumulator.tr.ph3274, %94 ], [ %accumulator.tr.ph3274, %96 ], [ %accumulator.tr.ph3274, %98 ], [ %accumulator.tr.ph3274, %100 ], [ %accumulator.tr.ph3274, %102 ], [ %accumulator.tr.ph3274, %104 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1178 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1188 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1198 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1208 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1218 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1228 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1238 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1248 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1258 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1268 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1278 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1288 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1294 ], [ %accumulator.tr.ph3274, %245 ], [ %accumulator.tr.ph3274, %247 ], [ %accumulator.tr.ph3274, %249 ], [ %accumulator.tr.ph3274, %251 ], [ %accumulator.tr.ph3274, %253 ], [ %accumulator.tr.ph3274, %255 ], [ %accumulator.tr.ph3274, %257 ], [ %accumulator.tr.ph3274, %259 ], [ %accumulator.tr.ph3274, %261 ], [ %accumulator.tr.ph3274, %263 ], [ %accumulator.tr.ph3274, %265 ], [ %accumulator.tr.ph3274, %267 ], [ %accumulator.tr.ph3274, %269 ], [ %accumulator.tr.ph3274, %271 ], [ %accumulator.tr.ph3274, %273 ], [ %accumulator.tr.ph3274, %275 ], [ %accumulator.tr.ph3274, %277 ], [ %accumulator.tr.ph3274, %279 ], [ %accumulator.tr.ph3274, %281 ], [ %accumulator.tr.ph3274, %283 ], [ %accumulator.tr.ph3274, %285 ], [ %accumulator.tr.ph3274, %287 ], [ %accumulator.tr.ph3274, %289 ], [ %accumulator.tr.ph3274, %291 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1394 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1404 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1414 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1424 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1434 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1444 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1454 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1464 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1474 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1484 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1494 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1504 ], [ %accumulator.tr.ph3274, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1510 ], [ %accumulator.tr.ph3274, %430 ], [ %accumulator.tr.ph3274, %432 ], [ %accumulator.tr.ph3274, %434 ], [ %accumulator.tr.ph3274, %436 ], [ %accumulator.tr.ph3274, %438 ], [ %accumulator.tr.ph3274, %440 ], [ %accumulator.tr.ph3274, %442 ], [ %accumulator.tr.ph3274, %444 ], [ %accumulator.tr.ph3274, %446 ], [ %accumulator.tr.ph3274, %448 ], [ %accumulator.tr.ph3274, %450 ], [ %accumulator.tr.ph3274, %452 ], [ %accumulator.tr.ph3274, %454 ], [ %accumulator.tr.ph3274, %456 ], [ %accumulator.tr.ph3274, %458 ], [ %accumulator.tr.ph3274, %460 ], [ %accumulator.tr.ph3274, %462 ], [ %accumulator.tr.ph3274, %464 ], [ %accumulator.tr.ph3274, %466 ], [ %accumulator.tr.ph3274, %468 ], [ %accumulator.tr.ph3274, %470 ], [ %accumulator.tr.ph3274, %472 ], [ %accumulator.tr.ph3274, %474 ], [ %accumulator.tr.ph3274, %476 ], [ %accumulator.tr.ph3274, %478 ], [ %accumulator.tr.ph3274, %480 ], [ %accumulator.tr.ph3274, %49 ], [ %accumulator.tr.ph3274, %207 ], [ %accumulator.tr.ph3274, %211 ], [ %accumulator.tr.ph3274, %215 ], [ %accumulator.tr.ph3274, %219 ], [ %accumulator.tr.ph3274, %222 ], [ %accumulator.tr.ph3274, %225 ], [ %accumulator.tr.ph3274, %228 ], [ %accumulator.tr.ph3274, %231 ], [ %accumulator.tr.ph3274, %234 ], [ %accumulator.tr.ph3274, %238 ], [ %accumulator.tr.ph3274, %242 ], [ %accumulator.tr.ph3274, %394 ], [ %accumulator.tr.ph3274, %397 ], [ %accumulator.tr.ph3274, %400 ], [ %accumulator.tr.ph3274, %403 ], [ %accumulator.tr.ph3274, %406 ], [ %accumulator.tr.ph3274, %410 ], [ %accumulator.tr.ph3274, %414 ], [ %accumulator.tr.ph3274, %418 ], [ %accumulator.tr.ph3274, %422 ], [ %accumulator.tr.ph3274, %425 ], [ %accumulator.tr.ph3274, %428 ], [ false, %6 ], [ %accumulator.tr.ph3274, %.thread1611 ], [ %accumulator.tr.ph3274, %26 ], [ %accumulator.tr.ph3274, %16 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %10 ], [ %accumulator.tr.ph3274, %20 ], [ %accumulator.tr.ph3274, %23 ], [ %accumulator.tr.ph3274, %28 ], [ %accumulator.tr.ph3274, %11 ], [ %accumulator.tr.ph3274, %14 ], [ %accumulator.tr.ph3274, %18 ], [ %accumulator.tr.ph3274, %tailrecurse.backedge ], [ %8, %tailrecurse.outer ]
+  %.0 = phi i1 [ false, %.critedge604 ], [ false, %63 ], [ false, %71 ], [ false, %79 ], [ false, %87 ], [ %109, %108 ], [ false, %110 ], [ false, %118 ], [ false, %126 ], [ false, %134 ], [ false, %142 ], [ false, %150 ], [ false, %158 ], [ false, %166 ], [ false, %174 ], [ false, %182 ], [ false, %190 ], [ false, %198 ], [ false, %206 ], [ false, %210 ], [ false, %214 ], [ false, %218 ], [ false, %221 ], [ false, %224 ], [ false, %227 ], [ false, %230 ], [ false, %233 ], [ false, %237 ], [ false, %241 ], [ %296, %295 ], [ false, %297 ], [ false, %305 ], [ false, %313 ], [ false, %321 ], [ false, %329 ], [ false, %337 ], [ false, %345 ], [ false, %353 ], [ false, %361 ], [ false, %369 ], [ false, %377 ], [ false, %385 ], [ false, %393 ], [ false, %396 ], [ false, %399 ], [ false, %402 ], [ false, %405 ], [ false, %409 ], [ false, %413 ], [ false, %417 ], [ false, %421 ], [ false, %424 ], [ false, %427 ], [ %48, %47 ], [ true, %52 ], [ true, %55 ], [ %62, %61 ], [ %70, %69 ], [ %78, %77 ], [ %86, %85 ], [ true, %107 ], [ true, %111 ], [ true, %115 ], [ %117, %116 ], [ true, %119 ], [ true, %123 ], [ %125, %124 ], [ true, %127 ], [ true, %131 ], [ %133, %132 ], [ true, %135 ], [ true, %139 ], [ %141, %140 ], [ true, %143 ], [ true, %147 ], [ %149, %148 ], [ true, %151 ], [ true, %155 ], [ %157, %156 ], [ true, %159 ], [ true, %163 ], [ %165, %164 ], [ true, %167 ], [ true, %171 ], [ %173, %172 ], [ true, %175 ], [ true, %179 ], [ %181, %180 ], [ true, %183 ], [ true, %187 ], [ %189, %188 ], [ true, %191 ], [ true, %195 ], [ %197, %196 ], [ true, %199 ], [ true, %294 ], [ true, %298 ], [ true, %302 ], [ %304, %303 ], [ true, %306 ], [ true, %310 ], [ %312, %311 ], [ true, %314 ], [ true, %318 ], [ %320, %319 ], [ true, %322 ], [ true, %326 ], [ %328, %327 ], [ true, %330 ], [ true, %334 ], [ %336, %335 ], [ true, %338 ], [ true, %342 ], [ %344, %343 ], [ true, %346 ], [ true, %350 ], [ %352, %351 ], [ true, %354 ], [ true, %358 ], [ %360, %359 ], [ true, %362 ], [ true, %366 ], [ %368, %367 ], [ true, %370 ], [ true, %374 ], [ %376, %375 ], [ true, %378 ], [ true, %382 ], [ %384, %383 ], [ true, %386 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %switch, %44 ], [ %46, %45 ], [ true, %58 ], [ %65, %64 ], [ true, %66 ], [ %73, %72 ], [ true, %74 ], [ %81, %80 ], [ true, %82 ], [ %89, %88 ], [ true, %107 ], [ true, %115 ], [ true, %123 ], [ true, %131 ], [ true, %139 ], [ true, %147 ], [ true, %155 ], [ true, %163 ], [ true, %171 ], [ true, %179 ], [ true, %187 ], [ true, %195 ], [ true, %202 ], [ true, %294 ], [ true, %302 ], [ true, %310 ], [ true, %318 ], [ true, %326 ], [ true, %334 ], [ true, %342 ], [ true, %350 ], [ true, %358 ], [ true, %366 ], [ true, %374 ], [ true, %382 ], [ true, %389 ], [ %spec.select, %30 ], [ %spec.select2038, %31 ], [ %spec.select2041, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1126 ], [ %spec.select2042, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1130 ], [ %spec.select2054, %90 ], [ %spec.select2055, %92 ], [ %spec.select2056, %94 ], [ %spec.select2057, %96 ], [ %spec.select2058, %98 ], [ %spec.select2059, %100 ], [ %spec.select2060, %102 ], [ %spec.select2061, %104 ], [ %spec.select2062, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1178 ], [ %spec.select2066, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1188 ], [ %spec.select2070, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1198 ], [ %spec.select2074, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1208 ], [ %spec.select2078, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1218 ], [ %spec.select2082, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1228 ], [ %spec.select2086, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1238 ], [ %spec.select2090, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1248 ], [ %spec.select2094, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1258 ], [ %spec.select2098, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1268 ], [ %spec.select2102, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1278 ], [ %spec.select2106, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1288 ], [ %spec.select2107, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1294 ], [ %spec.select2108, %245 ], [ %spec.select2109, %247 ], [ %spec.select2110, %249 ], [ %spec.select2111, %251 ], [ %spec.select2112, %253 ], [ %spec.select2113, %255 ], [ %spec.select2114, %257 ], [ %spec.select2115, %259 ], [ %spec.select2116, %261 ], [ %spec.select2117, %263 ], [ %spec.select2118, %265 ], [ %spec.select2119, %267 ], [ %spec.select2120, %269 ], [ %spec.select2121, %271 ], [ %spec.select2122, %273 ], [ %spec.select2123, %275 ], [ %spec.select2124, %277 ], [ %spec.select2125, %279 ], [ %spec.select2126, %281 ], [ %spec.select2127, %283 ], [ %spec.select2128, %285 ], [ %spec.select2129, %287 ], [ %spec.select2130, %289 ], [ %spec.select2131, %291 ], [ %spec.select2132, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1394 ], [ %spec.select2136, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1404 ], [ %spec.select2140, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1414 ], [ %spec.select2144, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1424 ], [ %spec.select2148, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1434 ], [ %spec.select2152, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1444 ], [ %spec.select2156, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1454 ], [ %spec.select2160, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1464 ], [ %spec.select2164, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1474 ], [ %spec.select2168, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1484 ], [ %spec.select2172, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1494 ], [ %spec.select2176, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1504 ], [ %spec.select2177, %_ZL12inheritsFromN4llvm15X86Disassembler18InstructionContextES1_bbbb.exit1510 ], [ %spec.select2178, %430 ], [ %spec.select2179, %432 ], [ %spec.select2180, %434 ], [ %spec.select2181, %436 ], [ %spec.select2182, %438 ], [ %spec.select2183, %440 ], [ %spec.select2184, %442 ], [ %spec.select2185, %444 ], [ %spec.select2186, %446 ], [ %spec.select2187, %448 ], [ %spec.select2188, %450 ], [ %spec.select2189, %452 ], [ %spec.select2190, %454 ], [ %spec.select2191, %456 ], [ %spec.select2192, %458 ], [ %spec.select2193, %460 ], [ %spec.select2194, %462 ], [ %spec.select2195, %464 ], [ %spec.select2196, %466 ], [ %spec.select2197, %468 ], [ %spec.select2198, %470 ], [ %spec.select2199, %472 ], [ %spec.select2200, %474 ], [ %spec.select2201, %476 ], [ %spec.select2202, %478 ], [ %spec.select2203, %480 ], [ %spec.select2204, %49 ], [ %spec.select2205, %207 ], [ %spec.select2206, %211 ], [ %spec.select2207, %215 ], [ %spec.select2208, %219 ], [ %spec.select2209, %222 ], [ %spec.select2210, %225 ], [ %spec.select2211, %228 ], [ %spec.select2212, %231 ], [ %spec.select2213, %234 ], [ %spec.select2214, %238 ], [ %spec.select2215, %242 ], [ %spec.select2216, %394 ], [ %spec.select2217, %397 ], [ %spec.select2218, %400 ], [ %spec.select2219, %403 ], [ %spec.select2220, %406 ], [ %spec.select2221, %410 ], [ %spec.select2222, %414 ], [ %spec.select2223, %418 ], [ %spec.select2224, %422 ], [ %spec.select2225, %425 ], [ %spec.select2226, %428 ], [ true, %6 ], [ true, %tailrecurse.backedge ], [ true, %18 ], [ true, %14 ], [ true, %11 ], [ true, %28 ], [ true, %23 ], [ true, %20 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ true, %16 ], [ true, %26 ], [ false, %.thread1611 ], [ true, %tailrecurse.outer ]
+  %accumulator.ret.tr = or i1 %accumulator.tr.ph2958, %.0
   ret i1 %accumulator.ret.tr
 }
 

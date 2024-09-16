@@ -5384,7 +5384,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   unreachable
 
 236:                                              ; preds = %227, %224
-  call fastcc void @AlterTypeRecurse(i32 noundef %8, i1 noundef zeroext false, ptr noundef %7, ptr noundef %3, ptr noundef nonnull %2)
+  call fastcc void @AlterTypeRecurse(i32 noundef %8, i1 noundef zeroext false, ptr noundef %7, ptr noundef %3, ptr noundef %2)
   tail call void @ReleaseSysCache(ptr noundef %7) #8
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #8
   %.sroa.272.0.insert.ext = zext i32 %8 to i64
@@ -5396,7 +5396,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [32 x i64], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
@@ -5587,7 +5587,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
   %119 = load i32, ptr %118, align 4
   %120 = getelementptr inbounds i8, ptr %10, i64 20
   store i32 %119, ptr %120, align 4
-  call fastcc void @AlterTypeRecurse(i32 noundef %101, i1 noundef zeroext true, ptr noundef nonnull %104, ptr noundef nonnull %3, ptr noundef nonnull %10)
+  call fastcc void @AlterTypeRecurse(i32 noundef %101, i1 noundef zeroext true, ptr noundef nonnull %104, ptr noundef nonnull %3, ptr noundef %10)
   call void @ReleaseSysCache(ptr noundef nonnull %104) #8
   br label %121
 
@@ -5633,7 +5633,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 143:                                              ; preds = %.lr.ph
   %144 = load i32, ptr %140, align 4
-  call fastcc void @AlterTypeRecurse(i32 noundef %144, i1 noundef zeroext false, ptr noundef nonnull %134, ptr noundef %3, ptr noundef nonnull %4)
+  call fastcc void @AlterTypeRecurse(i32 noundef %144, i1 noundef zeroext false, ptr noundef nonnull %134, ptr noundef %3, ptr noundef %4)
   br label %.backedge
 
 .backedge:                                        ; preds = %143, %.lr.ph

@@ -2337,7 +2337,7 @@ mmap_close_method.exit:                           ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mmap_gfind(ptr nocapture noundef readonly %self, ptr noundef %args, i32 noundef %reverse) unnamed_addr #0 {
+define internal fastcc ptr @mmap_gfind(ptr nocapture noundef readonly %self, ptr noundef %args, i32 noundef range(i32 0, 2) %reverse) unnamed_addr #0 {
 entry:
   %start = alloca i64, align 8
   %end = alloca i64, align 8

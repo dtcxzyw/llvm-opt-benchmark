@@ -374,7 +374,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_msg_sendto(i32 noundef %0,
   store i32 %12, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %9, ptr %5, align 4
-  %13 = call fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %5)
+  %13 = call fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %18, label %15
@@ -382,7 +382,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_msg_sendto(i32 noundef %0,
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %9, ptr %4, align 4
-  %16 = call fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0, ptr noundef nonnull %4)
+  %16 = call fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %17 = sext i32 %16 to i64
   br label %18
@@ -402,12 +402,12 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #1
 define dso_local range(i32 -1, -2147483648) i32 @slurm_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 %4, ptr %6, align 4
-  %7 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %6)
+  %7 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %6)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.timeval, align 8
   %7 = alloca %struct.timeval, align 8
   %8 = alloca %struct.pollfd, align 4
@@ -719,7 +719,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   %23 = add i32 %22, %.026
   %24 = tail call i32 @htonl(i32 noundef %23) #9
   store i32 %24, ptr %3, align 4
-  %25 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %4)
+  %25 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 4, i32 noundef 0, ptr noundef %4)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %58, label %27
 
@@ -730,7 +730,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   %31 = getelementptr inbounds i8, ptr %28, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
-  %34 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %30, i64 noundef %33, i32 noundef 0, ptr noundef nonnull %4)
+  %34 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %30, i64 noundef %33, i32 noundef 0, ptr noundef %4)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %58, label %36
 
@@ -746,7 +746,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   %42 = getelementptr inbounds i8, ptr %38, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
-  %45 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %41, i64 noundef %44, i32 noundef 0, ptr noundef nonnull %4)
+  %45 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %41, i64 noundef %44, i32 noundef 0, ptr noundef %4)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %58, label %47
 
@@ -762,7 +762,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   %53 = getelementptr inbounds i8, ptr %50, i64 20
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
-  %56 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %52, i64 noundef %55, i32 noundef 0, ptr noundef nonnull %4)
+  %56 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %52, i64 noundef %55, i32 noundef 0, ptr noundef %4)
   %57 = call i32 @llvm.smax.i32(i32 %56, i32 0)
   %spec.select = add nuw nsw i32 %57, %.1
   br label %58

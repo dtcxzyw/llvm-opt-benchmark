@@ -3574,11 +3574,11 @@ if.end364:                                        ; preds = %invoke.cont358
   br i1 %tobool365.not, label %if.else370, label %if.then366
 
 if.then366:                                       ; preds = %if.end364
-  %call368 = invoke fastcc noundef ptr @_ZN6icu_75L17createRuleByRRULEERKNS_13UnicodeStringEiidPNS_7UVectorEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %zonename, i32 noundef %rawOffset.0, i32 noundef %dstSavings.0, double noundef %call359, ptr noundef nonnull %dates, i32 noundef %call339, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call368 = invoke fastcc noundef ptr @_ZN6icu_75L17createRuleByRRULEERKNS_13UnicodeStringEiidPNS_7UVectorEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %zonename, i32 noundef %rawOffset.0, i32 noundef %dstSavings.0, double noundef %call359, ptr noundef %dates, i32 noundef %call339, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end374 unwind label %lpad337
 
 if.else370:                                       ; preds = %if.end364
-  %call372 = invoke fastcc noundef ptr @_ZN6icu_75L17createRuleByRDATEERKNS_13UnicodeStringEiidPNS_7UVectorEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %zonename, i32 noundef %rawOffset.0, i32 noundef %dstSavings.0, double noundef %call359, ptr noundef nonnull %dates, i32 noundef %call339, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call372 = invoke fastcc noundef ptr @_ZN6icu_75L17createRuleByRDATEERKNS_13UnicodeStringEiidPNS_7UVectorEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %zonename, i32 noundef %rawOffset.0, i32 noundef %dstSavings.0, double noundef %call359, ptr noundef %dates, i32 noundef %call339, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end374 unwind label %lpad337
 
 if.end374:                                        ; preds = %if.else370, %if.then366
@@ -4582,7 +4582,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_i(ptr noundef nonnull align 8 der
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L16getDefaultTZNameERKNS_13UnicodeStringEaRS0_(ptr noundef nonnull align 8 dereferenceable(64) %tzid, i8 noundef signext %isDST, ptr noundef nonnull align 8 dereferenceable(64) %zonename) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_75L16getDefaultTZNameERKNS_13UnicodeStringEaRS0_(ptr noundef nonnull align 8 dereferenceable(64) %tzid, i8 noundef signext range(i8 0, 2) %isDST, ptr noundef nonnull align 8 dereferenceable(64) %zonename) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -4945,7 +4945,7 @@ if.end9:                                          ; preds = %if.else, %delete.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN6icu_75L17createRuleByRRULEERKNS_13UnicodeStringEiidPNS_7UVectorEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %zonename, i32 noundef %rawOffset, i32 noundef %dstSavings, double noundef %start, ptr noundef %dates, i32 noundef %fromOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN6icu_75L17createRuleByRRULEERKNS_13UnicodeStringEiidPNS_7UVectorEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %zonename, i32 noundef %rawOffset, i32 noundef range(i32 0, -2147483648) %dstSavings, double noundef %start, ptr noundef nonnull %dates, i32 noundef %fromOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %rrule = alloca %"class.icu_75::UnicodeString", align 8
   %month = alloca i32, align 4
@@ -4990,7 +4990,7 @@ if.end4:                                          ; preds = %lor.lhs.false
   %call5 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %dates, i32 noundef 0)
   call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %rrule, ptr noundef nonnull align 8 dereferenceable(64) %call5)
   store i32 7, ptr %daysCount, align 4
-  invoke fastcc void @_ZN6icu_75L10parseRRULEERKNS_13UnicodeStringERiS3_S3_PiS3_RdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %rrule, ptr noundef nonnull align 4 dereferenceable(4) %month, ptr noundef nonnull align 4 dereferenceable(4) %dayOfWeek, ptr noundef nonnull align 4 dereferenceable(4) %nthDayOfWeek, ptr noundef nonnull %days, ptr noundef nonnull align 4 dereferenceable(4) %daysCount, ptr noundef nonnull align 8 dereferenceable(8) %until, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L10parseRRULEERKNS_13UnicodeStringERiS3_S3_PiS3_RdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %rrule, ptr noundef nonnull align 4 dereferenceable(4) %month, ptr noundef nonnull align 4 dereferenceable(4) %dayOfWeek, ptr noundef nonnull align 4 dereferenceable(4) %nthDayOfWeek, ptr noundef %days, ptr noundef nonnull align 4 dereferenceable(4) %daysCount, ptr noundef nonnull align 8 dereferenceable(8) %until, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.end4
@@ -5143,7 +5143,7 @@ invoke.cont95:                                    ; preds = %for.body94
 
 invoke.cont97:                                    ; preds = %invoke.cont95
   store i32 7, ptr %tmp_daysCount, align 4
-  invoke fastcc void @_ZN6icu_75L10parseRRULEERKNS_13UnicodeStringERiS3_S3_PiS3_RdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %rrule, ptr noundef nonnull align 4 dereferenceable(4) %tmp_month, ptr noundef nonnull align 4 dereferenceable(4) %tmp_dayOfWeek, ptr noundef nonnull align 4 dereferenceable(4) %tmp_nthDayOfWeek, ptr noundef nonnull %tmp_days, ptr noundef nonnull align 4 dereferenceable(4) %tmp_daysCount, ptr noundef nonnull align 8 dereferenceable(8) %tmp_until, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L10parseRRULEERKNS_13UnicodeStringERiS3_S3_PiS3_RdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %rrule, ptr noundef nonnull align 4 dereferenceable(4) %tmp_month, ptr noundef nonnull align 4 dereferenceable(4) %tmp_dayOfWeek, ptr noundef nonnull align 4 dereferenceable(4) %tmp_nthDayOfWeek, ptr noundef %tmp_days, ptr noundef nonnull align 4 dereferenceable(4) %tmp_daysCount, ptr noundef nonnull align 8 dereferenceable(8) %tmp_until, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont100 unwind label %lpad.loopexit
 
 invoke.cont100:                                   ; preds = %invoke.cont97
@@ -5391,7 +5391,7 @@ return:                                           ; preds = %entry, %cleanup, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN6icu_75L17createRuleByRDATEERKNS_13UnicodeStringEiidPNS_7UVectorEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %zonename, i32 noundef %rawOffset, i32 noundef %dstSavings, double noundef %start, ptr noundef %dates, i32 noundef %fromOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN6icu_75L17createRuleByRDATEERKNS_13UnicodeStringEiidPNS_7UVectorEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %zonename, i32 noundef %rawOffset, i32 noundef range(i32 0, -2147483648) %dstSavings, double noundef %start, ptr noundef nonnull %dates, i32 noundef %fromOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %start.addr = alloca double, align 8
   store double %start, ptr %start.addr, align 8
@@ -9305,7 +9305,7 @@ declare noundef double @_ZN6icu_755Grego11fieldsToDayEiii(i32 noundef, i32 nound
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L10parseRRULEERKNS_13UnicodeStringERiS3_S3_PiS3_RdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %rrule, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %month, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dow, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %wim, ptr nocapture noundef writeonly %dom, ptr nocapture noundef nonnull align 4 dereferenceable(4) %domCount, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %until, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_75L10parseRRULEERKNS_13UnicodeStringERiS3_S3_PiS3_RdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %rrule, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %month, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dow, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %wim, ptr nocapture noundef nonnull writeonly %dom, ptr nocapture noundef nonnull align 4 dereferenceable(4) %domCount, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %until, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %prop = alloca %"class.icu_75::UnicodeString", align 8
   %attr = alloca %"class.icu_75::UnicodeString", align 8

@@ -239,7 +239,7 @@ declare ptr @SparseMatrix_import_matrix_market(ptr noundef) local_unnamed_addr #
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @usage(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc void @usage(i32 noundef range(i32 0, 2) %0) unnamed_addr #3 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = load ptr, ptr @cmd, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %3) #21
@@ -250,7 +250,7 @@ define internal fastcc void @usage(i32 noundef %0) unnamed_addr #3 {
 declare ptr @SparseMatrix_to_square_matrix(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #4 {
   tail call void @exit(i32 noundef %0) #23
   unreachable
 }
@@ -324,7 +324,7 @@ agxbsizeof.exit.i.i:                              ; preds = %38
   %39 = load i32, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load i32, ptr %40, align 8
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.20, ptr noundef %16, i32 noundef %39, i32 noundef %41)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.20, ptr noundef %16, i32 noundef %39, i32 noundef %41)
   %42 = getelementptr inbounds i8, ptr %6, i64 31
   %.val.i.i.i = load i8, ptr %42, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -339,7 +339,7 @@ agxbsizeof.exit.i.i:                              ; preds = %38
   br i1 %.not.i.i, label %49, label %48
 
 48:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %42, align 1
   br label %49
 
@@ -401,7 +401,7 @@ agxbsizeof.exit.i.i190.lr.ph:                     ; preds = %65
 agxbsizeof.exit.i.i190:                           ; preds = %agxbsizeof.exit.i.i190.lr.ph, %agxbuse.exit202
   %indvars.iv = phi i64 [ 0, %agxbsizeof.exit.i.i190.lr.ph ], [ %indvars.iv.next, %agxbuse.exit202 ]
   %71 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, i32 noundef %71)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.5, i32 noundef %71)
   %.val.i.i.i187 = load i8, ptr %68, align 1
   %.not.i.i.i188 = icmp eq i8 %.val.i.i.i187, -1
   %72 = load i64, ptr %69, align 8
@@ -413,7 +413,7 @@ agxbsizeof.exit.i.i190:                           ; preds = %agxbsizeof.exit.i.i
   br i1 %.not.i.i193, label %76, label %75
 
 75:                                               ; preds = %agxbsizeof.exit.i.i190
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i194 = load i8, ptr %68, align 1
   br label %76
 
@@ -699,7 +699,7 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
 200:                                              ; preds = %.lr.ph72
   %201 = getelementptr inbounds double, ptr %12, i64 %indvars.iv91
   %202 = load double, ptr %201, align 8
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.28, double noundef %202)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.28, double noundef %202)
   %.val.i.i.i203 = load i8, ptr %179, align 1
   %.not.i.i.i204 = icmp eq i8 %.val.i.i.i203, -1
   br i1 %.not.i.i.i204, label %agxbsizeof.exit.i.i206, label %agxbsizeof.exit.i.i206.thread
@@ -923,7 +923,7 @@ Hue2RGB.exit26.i:                                 ; preds = %300, %297, %294, %2
   %.018.i25.i = phi double [ %293, %292 ], [ %302, %300 ], [ 1.000000e+00, %294 ], [ 0.000000e+00, %297 ]
   %303 = call double @llvm.fmuladd.f64(double %.018.i25.i, double 2.550000e+02, double 5.000000e-01)
   %304 = fptosi double %303 to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.31, i32 noundef %265, i32 noundef %284, i32 noundef %304)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.31, i32 noundef %265, i32 noundef %284, i32 noundef %304)
   %.val.i.i.i.i = load i8, ptr %179, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
   br i1 %.not.i.i.i.i, label %agxbsizeof.exit.i.i.i, label %agxbsizeof.exit.i.i.i.thread
@@ -1038,7 +1038,7 @@ hue2rgb.exit:                                     ; preds = %agxbclear.exit.thre
   %341 = phi ptr [ %340, %339 ], [ %6, %agxbclear.exit.thread.i.i ]
   %342 = call i32 @agxset(ptr noundef %199, ptr noundef %.0164, ptr noundef %341) #20
   %343 = load double, ptr %243, align 8
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.28, double noundef %343)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.28, double noundef %343)
   %.val.i.i.i220 = load i8, ptr %179, align 1
   %.not.i.i.i221 = icmp eq i8 %.val.i.i.i220, -1
   br i1 %.not.i.i.i221, label %agxbsizeof.exit.i.i223, label %agxbsizeof.exit.i.i223.thread
@@ -1201,7 +1201,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #9 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 9) %1) unnamed_addr #9 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -1247,7 +1247,7 @@ declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_un
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #5 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1290,7 +1290,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -1375,7 +1375,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #5 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1420,7 +1420,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #26
   %26 = icmp eq ptr %25, null

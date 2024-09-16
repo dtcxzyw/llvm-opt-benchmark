@@ -67,40 +67,40 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr nocapture nounde
   %.val.val.i = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %.val.val.i, i64 8
   %21 = getelementptr inbounds i8, ptr %.val.val.i, i64 32
-  br label %.lr.ph.split.i
+  br label %22
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i"
-  %.09.i = phi i32 [ %38, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ 0, %.lr.ph.i ]
-  %.sroa.04.08.i = phi ptr [ %39, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ %16, %.lr.ph.i ]
-  %22 = load i32, ptr %.sroa.04.08.i, align 4
-  %23 = icmp eq i32 %.09.i, 0
-  br i1 %23, label %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", label %24
+22:                                               ; preds = %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", %.lr.ph.i
+  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %39, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ]
+  %.sroa.04.08.i = phi ptr [ %16, %.lr.ph.i ], [ %40, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ]
+  %23 = load i32, ptr %.sroa.04.08.i, align 4
+  %24 = icmp eq i32 %.09.i, 0
+  br i1 %24, label %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", label %25
 
-24:                                               ; preds = %.lr.ph.split.i
-  %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr inbounds i16, ptr %25, i64 %19
-  %27 = load i16, ptr %26, align 2
-  %28 = sext i16 %27 to i64
-  %29 = sext i32 %.09.i to i64
-  %30 = getelementptr inbounds i16, ptr %25, i64 %29
-  %31 = load i16, ptr %30, align 2
-  %32 = sext i16 %31 to i64
-  %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr i16, ptr %33, i64 %28
-  %35 = getelementptr i16, ptr %34, i64 %32
-  %36 = load i16, ptr %35, align 2
-  %37 = sext i16 %36 to i32
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %21, align 8
+  %27 = getelementptr inbounds i16, ptr %26, i64 %19
+  %28 = load i16, ptr %27, align 2
+  %29 = sext i16 %28 to i64
+  %30 = sext i32 %.09.i to i64
+  %31 = getelementptr inbounds i16, ptr %26, i64 %30
+  %32 = load i16, ptr %31, align 2
+  %33 = sext i16 %32 to i64
+  %34 = load ptr, ptr %20, align 8
+  %35 = getelementptr i16, ptr %34, i64 %29
+  %36 = getelementptr i16, ptr %35, i64 %33
+  %37 = load i16, ptr %36, align 2
+  %38 = sext i16 %37 to i32
   br label %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i"
 
-"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i": ; preds = %24, %.lr.ph.split.i
-  %.0.i.i.i = phi i32 [ %37, %24 ], [ 0, %.lr.ph.split.i ]
-  %38 = xor i32 %.0.i.i.i, %22
-  %39 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 4
-  %.not.i = icmp eq ptr %39, %18
-  br i1 %.not.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit", label %.lr.ph.split.i, !llvm.loop !6
+"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i": ; preds = %25, %22
+  %.0.i.i.i = phi i32 [ %38, %25 ], [ 0, %22 ]
+  %39 = xor i32 %.0.i.i.i, %23
+  %40 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 4
+  %.not.i = icmp eq ptr %40, %18
+  br i1 %.not.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit", label %22, !llvm.loop !6
 
 "_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit": ; preds = %.lr.ph.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", %14, %8, %3
-  %.0 = phi i32 [ %7, %3 ], [ 0, %8 ], [ 0, %14 ], [ %38, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ %12, %.lr.ph.i.i.i ]
+  %.0 = phi i32 [ %7, %3 ], [ 0, %8 ], [ 0, %14 ], [ %39, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ %12, %.lr.ph.i.i.i ]
   ret i32 %.0
 }
 

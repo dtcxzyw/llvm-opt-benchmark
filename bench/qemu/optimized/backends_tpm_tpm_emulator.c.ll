@@ -1027,7 +1027,7 @@ return:                                           ; preds = %tpm_emulator_ctrlcm
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_state_blob(ptr noundef %tpm_emu, i32 noundef %type, ptr nocapture noundef readonly %tsb, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_state_blob(ptr noundef %tpm_emu, i32 noundef range(i32 1, 4) %type, ptr nocapture noundef readonly %tsb, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = alloca [16 x i8], align 16
@@ -1040,7 +1040,7 @@ if.end:                                           ; preds = %entry
   %.compoundliteral.sroa.5.0.pss.sroa_idx = getelementptr inbounds i8, ptr %pss, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3072) %.compoundliteral.sroa.5.0.pss.sroa_idx, i8 0, i64 3072, i1 false)
   %2 = tail call noundef i32 @llvm.bswap.i32(i32 %flags)
-  %3 = tail call noundef i32 @llvm.bswap.i32(i32 %type)
+  %3 = shl nuw nsw i32 %type, 24
   %4 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   store i32 %2, ptr %pss, align 4
   %.compoundliteral.sroa.3.0.pss.sroa_idx = getelementptr inbounds i8, ptr %pss, i64 4
@@ -1151,13 +1151,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %20 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i, align 8
-  %conv11.i.i = and i32 %type, 255
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %conv11.i.i, i32 noundef %15, i32 noundef %flags) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %type, i32 noundef %15, i32 noundef %flags) #12
   br label %trace_tpm_emulator_set_state_blob.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv12.i.i = and i32 %type, 255
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %conv12.i.i, i32 noundef %15, i32 noundef %flags) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %type, i32 noundef %15, i32 noundef %flags) #12
   br label %trace_tpm_emulator_set_state_blob.exit
 
 trace_tpm_emulator_set_state_blob.exit:           ; preds = %if.end34, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1311,7 +1309,7 @@ return:                                           ; preds = %entry, %trace_tpm_e
 declare void @tpm_backend_finish_sync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_get_state_blob(ptr noundef %tpm_emu, i8 noundef zeroext %type, ptr noundef %tsb, ptr nocapture noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_get_state_blob(ptr noundef %tpm_emu, i8 noundef zeroext range(i8 1, 4) %type, ptr noundef %tsb, ptr nocapture noundef %flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = alloca [16 x i8], align 16

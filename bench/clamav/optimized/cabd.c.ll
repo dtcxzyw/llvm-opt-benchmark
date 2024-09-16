@@ -98,7 +98,7 @@ define internal ptr @cabd_open(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 92
   %15 = load i32, ptr %14, align 4
-  %16 = tail call fastcc i32 @cabd_read_headers(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %11, i64 noundef 0, i32 noundef %15, i32 noundef 0)
+  %16 = tail call fastcc i32 @cabd_read_headers(ptr noundef nonnull %5, ptr noundef %7, ptr noundef %11, i64 noundef 0, i32 noundef %15, i32 noundef 0)
   %.not31 = icmp eq i32 %16, 0
   br i1 %.not31, label %18, label %17
 
@@ -582,7 +582,7 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   %123 = getelementptr inbounds i8, ptr %121, i64 8
   store ptr %1, ptr %123, align 8
   %124 = load i32, ptr %29, align 4
-  %125 = call fastcc i32 @cabd_read_headers(ptr noundef nonnull %23, ptr noundef nonnull %17, ptr noundef nonnull %121, i64 noundef %106, i32 noundef %124, i32 noundef 1)
+  %125 = call fastcc i32 @cabd_read_headers(ptr noundef nonnull %23, ptr noundef %17, ptr noundef %121, i64 noundef %106, i32 noundef %124, i32 noundef 1)
   %.not136.i = icmp eq i32 %125, 0
   br i1 %.not136.i, label %127, label %126
 
@@ -971,7 +971,7 @@ cabd_free_decomp.exit:                            ; preds = %88, %105
 146:                                              ; preds = %136
   %147 = getelementptr inbounds i8, ptr %11, i64 8
   %148 = load i32, ptr %147, align 8
-  %149 = tail call fastcc i32 @cabd_init_decomp(ptr noundef nonnull %0, i32 noundef %148)
+  %149 = tail call fastcc i32 @cabd_init_decomp(ptr noundef %0, i32 noundef %148)
   %.not141 = icmp eq i32 %149, 0
   br i1 %.not141, label %153, label %150
 
@@ -1271,7 +1271,7 @@ cabd_free_decomp.exit:                            ; preds = %10, %.thread, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 -9223372036854775808, 9223372036854775788) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca [64 x i8], align 16
   store ptr null, ptr %2, align 8
@@ -1287,14 +1287,14 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   store i64 %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef %1, i64 noundef %3, i32 noundef 0) #8
+  %19 = tail call i32 %18(ptr noundef nonnull %1, i64 noundef %3, i32 noundef 0) #8
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %.loopexit
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = call i32 %22(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 36) #8
+  %23 = call i32 %22(ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 36) #8
   %.not186 = icmp eq i32 %23, 36
   br i1 %.not186, label %24, label %.loopexit
 
@@ -1340,7 +1340,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 52:                                               ; preds = %51
   %53 = getelementptr inbounds i8, ptr %0, i64 48
   %54 = load ptr, ptr %53, align 8
-  call void (ptr, ptr, ...) %54(ptr noundef %1, ptr noundef nonnull @.str) #8
+  call void (ptr, ptr, ...) %54(ptr noundef nonnull %1, ptr noundef nonnull @.str) #8
   br label %.loopexit
 
 55:                                               ; preds = %29
@@ -1362,7 +1362,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 66:                                               ; preds = %65
   %67 = getelementptr inbounds i8, ptr %0, i64 48
   %68 = load ptr, ptr %67, align 8
-  call void (ptr, ptr, ...) %68(ptr noundef %1, ptr noundef nonnull @.str.1) #8
+  call void (ptr, ptr, ...) %68(ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #8
   br label %.loopexit
 
 69:                                               ; preds = %55
@@ -1380,7 +1380,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 77:                                               ; preds = %69
   %78 = getelementptr inbounds i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
-  call void (ptr, ptr, ...) %79(ptr noundef %1, ptr noundef nonnull @.str.2) #8
+  call void (ptr, ptr, ...) %79(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #8
   br label %80
 
 80:                                               ; preds = %77, %69
@@ -1400,7 +1400,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 
 91:                                               ; preds = %80
   %92 = load ptr, ptr %21, align 8
-  %93 = call i32 %92(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 4) #8
+  %93 = call i32 %92(ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 4) #8
   %.not192 = icmp eq i32 %93, 4
   br i1 %.not192, label %94, label %.loopexit
 
@@ -1425,7 +1425,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 107:                                              ; preds = %94
   %108 = getelementptr inbounds i8, ptr %0, i64 48
   %109 = load ptr, ptr %108, align 8
-  call void (ptr, ptr, ...) %109(ptr noundef %1, ptr noundef nonnull @.str.3) #8
+  call void (ptr, ptr, ...) %109(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #8
   %.pre = load i16, ptr %101, align 4
   br label %110
 
@@ -1437,7 +1437,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 112:                                              ; preds = %110
   %113 = load ptr, ptr %17, align 8
   %114 = zext i16 %111 to i64
-  %115 = call i32 %113(ptr noundef %1, i64 noundef %114, i32 noundef 1) #8
+  %115 = call i32 %113(ptr noundef nonnull %1, i64 noundef %114, i32 noundef 1) #8
   %.not194 = icmp eq i32 %115, 0
   br i1 %.not194, label %119, label %.loopexit
 
@@ -1457,14 +1457,14 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not195, label %128, label %122
 
 122:                                              ; preds = %119
-  %123 = call fastcc ptr @cabd_read_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
+  %123 = call fastcc ptr @cabd_read_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %7)
   store ptr %123, ptr %13, align 8
   %124 = load i32, ptr %7, align 4
   %.not196 = icmp eq i32 %124, 0
   br i1 %.not196, label %125, label %.loopexit
 
 125:                                              ; preds = %122
-  %126 = call fastcc ptr @cabd_read_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %7)
+  %126 = call fastcc ptr @cabd_read_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1, ptr noundef %7)
   store ptr %126, ptr %15, align 8
   %127 = load i32, ptr %7, align 4
   %.not197 = icmp eq i32 %127, 0
@@ -1481,14 +1481,14 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not198, label %137, label %131
 
 131:                                              ; preds = %128
-  %132 = call fastcc ptr @cabd_read_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
+  %132 = call fastcc ptr @cabd_read_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %7)
   store ptr %132, ptr %12, align 8
   %133 = load i32, ptr %7, align 4
   %.not199 = icmp eq i32 %133, 0
   br i1 %.not199, label %134, label %.loopexit
 
 134:                                              ; preds = %131
-  %135 = call fastcc ptr @cabd_read_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %7)
+  %135 = call fastcc ptr @cabd_read_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1, ptr noundef %7)
   store ptr %135, ptr %14, align 8
   %136 = load i32, ptr %7, align 4
   %.not200 = icmp eq i32 %136, 0
@@ -1506,7 +1506,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   %.0170224.us = phi ptr [ %146, %147 ], [ null, %137 ]
   %.0173223.us = phi i32 [ %161, %147 ], [ 0, %137 ]
   %142 = load ptr, ptr %21, align 8
-  %143 = call i32 %142(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 8) #8
+  %143 = call i32 %142(ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 8) #8
   %.not213.us = icmp eq i32 %143, 8
   br i1 %.not213.us, label %144, label %.loopexit
 
@@ -1557,13 +1557,13 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   %.0170224 = phi ptr [ %173, %174 ], [ null, %137 ]
   %.0173223 = phi i32 [ %188, %174 ], [ 0, %137 ]
   %166 = load ptr, ptr %21, align 8
-  %167 = call i32 %166(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 8) #8
+  %167 = call i32 %166(ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 8) #8
   %.not213 = icmp eq i32 %167, 8
   br i1 %.not213, label %168, label %.loopexit
 
 168:                                              ; preds = %.split
   %169 = load ptr, ptr %17, align 8
-  %170 = call i32 %169(ptr noundef %1, i64 noundef %138, i32 noundef 1) #8
+  %170 = call i32 %169(ptr noundef nonnull %1, i64 noundef %138, i32 noundef 1) #8
   %.not215 = icmp eq i32 %170, 0
   br i1 %.not215, label %171, label %.loopexit
 
@@ -1605,7 +1605,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   %.0167228 = phi ptr [ null, %.preheader ], [ %.1168, %281 ]
   %.1174227 = phi i32 [ 0, %.preheader ], [ %282, %281 ]
   %190 = load ptr, ptr %21, align 8
-  %191 = call i32 %190(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 16) #8
+  %191 = call i32 %190(ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 16) #8
   %.not201 = icmp eq i32 %191, 16
   br i1 %.not201, label %192, label %.loopexit
 
@@ -1754,7 +1754,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   %268 = add nuw nsw i32 %267, 1980
   %269 = getelementptr inbounds i8, ptr %194, i64 32
   store i32 %268, ptr %269, align 8
-  %270 = call fastcc ptr @cabd_read_string(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
+  %270 = call fastcc ptr @cabd_read_string(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %7)
   %271 = getelementptr inbounds i8, ptr %194, i64 8
   store ptr %270, ptr %271, align 8
   %272 = load i32, ptr %7, align 4
@@ -1802,14 +1802,14 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cabd_read_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @cabd_read_string(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 %7(ptr noundef %1) #8
+  %8 = tail call i64 %7(ptr noundef nonnull %1) #8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = call i32 %10(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 256) #8
+  %11 = call i32 %10(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 256) #8
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %.thread, label %.preheader.preheader
 
@@ -1841,7 +1841,7 @@ define internal fastcc ptr @cabd_read_string(ptr noundef %0, ptr noundef %1, i32
   %22 = load ptr, ptr %21, align 8
   %23 = and i64 %20, 4294967295
   %24 = add nsw i64 %8, %23
-  %25 = call i32 %22(ptr noundef %1, i64 noundef %24, i32 noundef 0) #8
+  %25 = call i32 %22(ptr noundef nonnull %1, i64 noundef %24, i32 noundef 0) #8
   %.not34 = icmp eq i32 %25, 0
   br i1 %.not34, label %26, label %.thread
 
@@ -2681,7 +2681,7 @@ define internal i32 @cabd_sys_write(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9) i32 @cabd_init_decomp(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @cabd_init_decomp(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120

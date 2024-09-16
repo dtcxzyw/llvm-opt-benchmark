@@ -3142,7 +3142,7 @@ is_var_dead.exit.i:                               ; preds = %1784
 1800:                                             ; preds = %is_var_dead.exit.i, %1788, %1775
   %1801 = getelementptr inbounds i8, ptr %1719, i64 24
   %1802 = load i32, ptr %1801, align 4
-  %1803 = call fastcc zeroext i1 @try_remove_var_def(ptr noundef nonnull readonly %5, i32 noundef %1768, i32 noundef %1802, ptr noundef nonnull %1717)
+  %1803 = call fastcc zeroext i1 @try_remove_var_def(ptr noundef readonly %5, i32 noundef %1768, i32 noundef %1802, ptr noundef nonnull %1717)
   br i1 %1803, label %1816, label %1804
 
 1804:                                             ; preds = %1800
@@ -3229,7 +3229,7 @@ is_var_dead.exit99.i:                             ; preds = %1839
 1855:                                             ; preds = %is_var_dead.exit99.i, %1843, %1830
   %1856 = getelementptr inbounds i8, ptr %1719, i64 28
   %1857 = load i32, ptr %1856, align 4
-  %1858 = call fastcc zeroext i1 @try_remove_var_def(ptr noundef nonnull readonly %5, i32 noundef %1822, i32 noundef %1857, ptr noundef nonnull %1717)
+  %1858 = call fastcc zeroext i1 @try_remove_var_def(ptr noundef readonly %5, i32 noundef %1822, i32 noundef %1857, ptr noundef nonnull %1717)
   br i1 %1858, label %1888, label %1859
 
 1859:                                             ; preds = %1855
@@ -3687,7 +3687,7 @@ declare i32 @zend_array_type_info(ptr noundef) local_unnamed_addr #2
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @try_remove_var_def(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @try_remove_var_def(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #7 {
   %5 = icmp sgt i32 %2, -1
   br i1 %5, label %46, label %6
 

@@ -1778,7 +1778,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKS3_.exit105:     ; preds = %_ZN2cv4Mat_INS_3Vec
           to label %_ZN2cv4Mat_IfEC2ERKS1_.exit110 unwind label %263
 
 _ZN2cv4Mat_IfEC2ERKS1_.exit110:                   ; preds = %256
-  invoke fastcc void @_ZN2cv5kinfuL16pyrDownBilateralENS_4Mat_IfEEf(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull %47, float noundef %112)
+  invoke fastcc void @_ZN2cv5kinfuL16pyrDownBilateralENS_4Mat_IfEEf(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %47, float noundef %112)
           to label %259 unwind label %273
 
 259:                                              ; preds = %_ZN2cv4Mat_IfEC2ERKS1_.exit110
@@ -1942,7 +1942,7 @@ declare void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonn
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZNK2cv12_OutputArray9getMatRefEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv5kinfuL16pyrDownBilateralENS_4Mat_IfEEf(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, float noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5kinfuL16pyrDownBilateralENS_4Mat_IfEEf(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, float noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   %5 = alloca %"struct.cv::kinfu::PyrDownBilateralInvoker", align 8
   %6 = alloca %"class.cv::Range", align 4
@@ -2560,7 +2560,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKS3_.exit158:     ; preds = %_ZN2cv4Mat_INS_3Vec
           to label %_ZN2cv4Mat_IfEC2ERKS1_.exit160 unwind label %227
 
 _ZN2cv4Mat_IfEC2ERKS1_.exit160:                   ; preds = %218
-  invoke fastcc void @_ZN2cv5kinfuL16pyrDownBilateralENS_4Mat_IfEEf(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull %48, float noundef %135)
+  invoke fastcc void @_ZN2cv5kinfuL16pyrDownBilateralENS_4Mat_IfEEf(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef %48, float noundef %135)
           to label %221 unwind label %243
 
 221:                                              ; preds = %_ZN2cv4Mat_IfEC2ERKS1_.exit160

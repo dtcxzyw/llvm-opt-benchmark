@@ -362,7 +362,7 @@ _ZNSt16allocator_traitsISaISt6vectorImSaImEEEE8allocateERS3_m.exit.i.i.i.i: ; pr
 
 92:                                               ; preds = %.noexc85
   store ptr %88, ptr %85, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_ImSaImEESaIS2_EESt17basic_string_viewIcSt11char_traitsIcEES8_(ptr noundef nonnull %3, i64 6, ptr nonnull @.str.22, i64 7, ptr nonnull @.str.23)
+  invoke fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_ImSaImEESaIS2_EESt17basic_string_viewIcSt11char_traitsIcEES8_(ptr noundef %3, i64 6, ptr nonnull @.str.22, i64 7, ptr nonnull @.str.23)
           to label %93 unwind label %136
 
 93:                                               ; preds = %92
@@ -770,7 +770,7 @@ _ZNSt16allocator_traitsISaISt6vectorImSaImEEEE8allocateERS3_m.exit.i.i.i.i: ; pr
 
 108:                                              ; preds = %.noexc107
   store ptr %104, ptr %101, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_ImSaImEESaIS2_EESt17basic_string_viewIcSt11char_traitsIcEES8_(ptr noundef nonnull %3, i64 8, ptr nonnull @.str.42, i64 6, ptr nonnull @.str.43)
+  invoke fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_ImSaImEESaIS2_EESt17basic_string_viewIcSt11char_traitsIcEES8_(ptr noundef %3, i64 8, ptr nonnull @.str.42, i64 6, ptr nonnull @.str.43)
           to label %109 unwind label %152
 
 109:                                              ; preds = %108
@@ -1683,7 +1683,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EmiEEbRKT0_RKT1_.exit34: ; p
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_ImSaImEESaIS2_EESt17basic_string_viewIcSt11char_traitsIcEES8_(ptr nocapture noundef readonly %0, i64 %1, ptr %2, i64 %3, ptr %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_ImSaImEESaIS2_EESt17basic_string_viewIcSt11char_traitsIcEES8_(ptr nocapture noundef nonnull readonly %0, i64 %1, ptr %2, i64 %3, ptr %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.doctest::String", align 8
   %7 = alloca %"class.doctest::String", align 8
   %8 = alloca %"class.std::basic_string_view", align 8

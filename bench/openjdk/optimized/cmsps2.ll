@@ -283,7 +283,7 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
 85:                                               ; preds = %80
   %86 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %82) #9
   %87 = load ptr, ptr %86, align 8
-  call fastcc void @EmitCIEBasedA(ptr noundef %5, ptr noundef %87, ptr noundef nonnull %30)
+  call fastcc void @EmitCIEBasedA(ptr noundef %5, ptr noundef %87, ptr noundef %30)
   br label %WriteInputMatrixShaper.exit.thread.i
 
 88:                                               ; preds = %80
@@ -524,7 +524,7 @@ _cmsQuickSaturateWord.exit.i.i.i:                 ; preds = %187, %185, %179
 ExtractGray2Y.exit.i.i:                           ; preds = %197, %196
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  call fastcc void @EmitCIEBasedA(ptr noundef %5, ptr noundef %172, ptr noundef nonnull %27)
+  call fastcc void @EmitCIEBasedA(ptr noundef %5, ptr noundef %172, ptr noundef %27)
   call void @cmsFreeToneCurve(ptr noundef %172) #9
   br label %WriteInputLUT.exit.i
 
@@ -863,7 +863,7 @@ EmitHeader.exit.i:                                ; preds = %316
   %.not.i.i.i14 = icmp eq i32 %332, 0
   %345 = getelementptr inbounds i8, ptr %14, i64 31
   %346 = add nsw i32 %332, -1
-  %347 = zext i32 %346 to i64
+  %347 = zext nneg i32 %346 to i64
   %wide.trip.count.i.i.i = zext nneg i32 %332 to i64
   br i1 %.not.i.i.i14, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
@@ -1264,7 +1264,7 @@ declare i32 @cmsDetectBlackPoint(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare ptr @_cmsStageGetPtrToCurveSet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @EmitCIEBasedA(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @EmitCIEBasedA(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.10) #9
   %5 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.11) #9
   %6 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.12) #9
@@ -1423,7 +1423,7 @@ declare i32 @cmsStageType(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsStageOutputChannels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.cmsPsSamplerCargo, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 -1, ptr %10, align 8

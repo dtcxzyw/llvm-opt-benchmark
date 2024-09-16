@@ -448,7 +448,7 @@ define internal i32 @dissect_fc(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %4
-  tail call fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %3)
+  tail call fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %7
 
@@ -463,7 +463,7 @@ define internal i32 @dissect_fc_ifcp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %4
-  tail call fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %3)
+  tail call fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %7
 
@@ -691,13 +691,13 @@ define internal i32 @dissect_fc_wtap(ptr noundef %0, ptr noundef %1, ptr noundef
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i8 0, ptr %6, align 4
-  call fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %5)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca %struct._fcseq_conv_key, align 4
   %7 = alloca %struct.nstime_t, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 408

@@ -467,7 +467,7 @@ define dso_local void @_ZN5vcpkg15ParagraphParser14optional_fieldB5cxx11ENS_13St
   %6 = alloca %"struct.vcpkg::Optional", align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
-  call fastcc void @_ZN5vcpkgL12remove_fieldEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_NS_10TextRowColEESt4lessIvESaIS7_IKS6_S9_EEENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %8, ptr %2, i64 %3)
+  call fastcc void @_ZN5vcpkgL12remove_fieldEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_NS_10TextRowColEESt4lessIvESaIS7_IKS6_S9_EEENS_10StringViewE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %8, ptr %2, i64 %3)
   %9 = load i8, ptr %6, align 8
   %10 = trunc i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %6, i64 8
@@ -498,7 +498,7 @@ _ZN5vcpkg8OptionalISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL12remove_fieldEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_NS_10TextRowColEESt4lessIvESaIS7_IKS6_S9_EEENS_10StringViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL12remove_fieldEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_NS_10TextRowColEESt4lessIvESaIS7_IKS6_S9_EEENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::StringView", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"struct.std::pair", align 8
@@ -611,7 +611,7 @@ define dso_local void @_ZN5vcpkg15ParagraphParser14optional_fieldB5cxx11ENS_13St
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !noalias !7
-  call fastcc void @_ZN5vcpkgL12remove_fieldEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_NS_10TextRowColEESt4lessIvESaIS7_IKS6_S9_EEENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %7, ptr %2, i64 %3), !noalias !7
+  call fastcc void @_ZN5vcpkgL12remove_fieldEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_NS_10TextRowColEESt4lessIvESaIS7_IKS6_S9_EEENS_10StringViewE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %7, ptr %2, i64 %3), !noalias !7
   %8 = load i8, ptr %5, align 8, !noalias !7
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %5, i64 8
@@ -648,7 +648,7 @@ define dso_local void @_ZN5vcpkg15ParagraphParser14required_fieldB5cxx11ENS_13St
   %9 = alloca %"struct.vcpkg::StringView", align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
-  call fastcc void @_ZN5vcpkgL12remove_fieldEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_NS_10TextRowColEESt4lessIvESaIS7_IKS6_S9_EEENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %11, ptr %2, i64 %3)
+  call fastcc void @_ZN5vcpkgL12remove_fieldEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_NS_10TextRowColEESt4lessIvESaIS7_IKS6_S9_EEENS_10StringViewE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %11, ptr %2, i64 %3)
   %12 = load i8, ptr %7, align 8
   %13 = trunc i8 %12 to i1
   %14 = getelementptr inbounds i8, ptr %7, i64 8

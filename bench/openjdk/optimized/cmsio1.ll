@@ -329,7 +329,7 @@ BuildGrayInputMatrixPipeline.exit:                ; preds = %79, %101, %105, %10
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %110 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #4
-  %111 = call fastcc i32 @ReadICCMatrixRGB2XYZ(ptr noundef nonnull %3, ptr noundef %0)
+  %111 = call fastcc i32 @ReadICCMatrixRGB2XYZ(ptr noundef %3, ptr noundef %0)
   %.not.i59 = icmp eq i32 %111, 0
   br i1 %.not.i59, label %BuildRGBInputMatrixShaper.exit, label %.preheader.i
 
@@ -664,7 +664,7 @@ BuildGrayOutputPipeline.exit:                     ; preds = %85, %89, %95, %108,
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   %112 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #4
-  %113 = call fastcc i32 @ReadICCMatrixRGB2XYZ(ptr noundef nonnull %4, ptr noundef %0)
+  %113 = call fastcc i32 @ReadICCMatrixRGB2XYZ(ptr noundef %4, ptr noundef %0)
   %.not.i47 = icmp eq i32 %113, 0
   br i1 %.not.i47, label %BuildRGBOutputMatrixShaper.exit, label %114
 
@@ -770,8 +770,8 @@ _cmsReadFloatOutputTag.exit:                      ; preds = %37, %34, %31, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ChangeInterpolationToTrilinear(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef %0) #4
+define internal fastcc void @ChangeInterpolationToTrilinear(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef nonnull %0) #4
   %.not8 = icmp eq ptr %2, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -946,7 +946,7 @@ define hidden ptr @_cmsReadDevicelinkLUT(ptr noundef %0, i32 noundef %1) local_u
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %68
-  tail call fastcc void @ChangeInterpolationToTrilinear(ptr noundef nonnull %66)
+  tail call fastcc void @ChangeInterpolationToTrilinear(ptr noundef %66)
   br label %72
 
 72:                                               ; preds = %71, %68
@@ -1439,7 +1439,7 @@ declare ptr @cmsStageAllocToneCurves(ptr noundef, i32 noundef, ptr noundef) loca
 declare void @cmsFreeToneCurve(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ReadICCMatrixRGB2XYZ(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ReadICCMatrixRGB2XYZ(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @cmsReadTag(ptr noundef %1, i32 noundef 1918392666) #4
   %4 = tail call ptr @cmsReadTag(ptr noundef %1, i32 noundef 1733843290) #4
   %5 = tail call ptr @cmsReadTag(ptr noundef %1, i32 noundef 1649957210) #4
@@ -1454,7 +1454,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadICCMatrixRGB2XYZ(ptr noundef %0,
   %10 = load double, ptr %3, align 8
   %11 = load double, ptr %4, align 8
   %12 = load double, ptr %5, align 8
-  tail call void @_cmsVEC3init(ptr noundef %0, double noundef %10, double noundef %11, double noundef %12) #4
+  tail call void @_cmsVEC3init(ptr noundef nonnull %0, double noundef %10, double noundef %11, double noundef %12) #4
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = load double, ptr %14, align 8

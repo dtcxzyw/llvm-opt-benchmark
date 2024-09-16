@@ -590,7 +590,7 @@ cleanup:                                          ; preds = %if.end24, %if.else1
 declare hidden i32 @luaG_ordererror(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @call_orderTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @call_orderTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, i32 noundef range(i32 13, 15) %event) unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaT_gettmbyobj(ptr noundef %L, ptr noundef %p1, i32 noundef %event) #9
   %tt = getelementptr inbounds i8, ptr %call, i64 8
@@ -1098,7 +1098,7 @@ do.end:                                           ; preds = %if.end83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @call_binTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @call_binTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef range(i32 5, 16) %event) unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaT_gettmbyobj(ptr noundef %L, ptr noundef %p1, i32 noundef %event) #9
   %tt = getelementptr inbounds i8, ptr %call, i64 8
@@ -2935,7 +2935,7 @@ declare hidden i32 @luaO_fb2int(i32 noundef) local_unnamed_addr #2
 declare hidden void @luaC_step(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Arith(ptr noundef %L, ptr noundef %ra, ptr noundef %rb, ptr noundef %rc, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc void @Arith(ptr noundef %L, ptr noundef %ra, ptr noundef %rb, ptr noundef %rc, i32 noundef range(i32 5, 12) %op) unnamed_addr #0 {
 entry:
   %num.i68 = alloca double, align 8
   %num.i = alloca double, align 8
@@ -2992,7 +2992,7 @@ if.then:                                          ; preds = %land.lhs.true.i70, 
   %5 = load double, ptr %.in, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num.i68) #9
   %6 = load double, ptr %retval.0.i.ph, align 8, !tbaa !9
-  switch i32 %op, label %default.unreachable1 [
+  switch i32 %op, label %default.unreachable [
     i32 5, label %sw.bb
     i32 6, label %sw.bb5
     i32 7, label %sw.bb9
@@ -3054,7 +3054,7 @@ sw.bb28:                                          ; preds = %if.then
   store i32 3, ptr %tt31, align 8, !tbaa !4
   br label %if.end34
 
-default.unreachable1:                             ; preds = %if.then
+default.unreachable:                              ; preds = %if.then
   unreachable
 
 if.else:                                          ; preds = %luaV_tonumber.exit78, %luaV_tonumber.exit

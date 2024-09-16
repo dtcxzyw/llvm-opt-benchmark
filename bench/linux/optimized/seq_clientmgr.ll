@@ -437,7 +437,7 @@ declare dso_local void @snd_seq_cell_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_seq_deliver_event(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_seq_deliver_event(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = add i32 %3, 1
   %6 = icmp sgt i32 %5, 7
   br i1 %6, label %54, label %7
@@ -473,7 +473,7 @@ define internal fastcc i32 @snd_seq_deliver_event(ptr noundef %0, ptr noundef %1
   %27 = getelementptr inbounds i8, ptr %1, i64 13
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = tail call ptr @snd_seq_port_use_ptr(ptr noundef %0, i32 noundef %29) #18
+  %30 = tail call ptr @snd_seq_port_use_ptr(ptr noundef nonnull %0, i32 noundef %29) #18
   %31 = icmp eq ptr %30, null
   br i1 %31, label %35, label %32
 
@@ -497,7 +497,7 @@ define internal fastcc i32 @snd_seq_deliver_event(ptr noundef %0, ptr noundef %1
   br i1 %43, label %54, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call ptr @snd_seq_port_use_ptr(ptr noundef %0, i32 noundef %38) #18
+  %45 = tail call ptr @snd_seq_port_use_ptr(ptr noundef nonnull %0, i32 noundef %38) #18
   %46 = icmp eq ptr %45, null
   br i1 %46, label %54, label %47
 
@@ -510,7 +510,7 @@ define internal fastcc i32 @snd_seq_deliver_event(ptr noundef %0, ptr noundef %1
   br label %54
 
 52:                                               ; preds = %22
-  %53 = tail call fastcc i32 @snd_seq_deliver_single_event(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %5)
+  %53 = tail call fastcc i32 @snd_seq_deliver_single_event(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %5)
   br label %54
 
 54:                                               ; preds = %52, %47, %44, %40, %35, %14, %4
@@ -651,7 +651,7 @@ define dso_local i32 @snd_seq_create_kernel_client(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @seq_create_client1(i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @seq_create_client1(i32 noundef %0, i32 noundef range(i32 0, 501) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(280) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 280) #20
   %5 = icmp eq ptr %4, null
@@ -783,7 +783,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_delete_kernel_client(i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @seq_free_client(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @seq_free_client(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #18
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %10 [
@@ -910,7 +910,7 @@ default.unreachable:                              ; preds = %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_seq_client_enqueue_event(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_seq_client_enqueue_event(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   %7 = getelementptr inbounds i8, ptr %1, i64 3
@@ -933,9 +933,9 @@ define internal fastcc i32 @snd_seq_client_enqueue_event(ptr noundef %0, ptr nou
   %15 = getelementptr inbounds i8, ptr %1, i64 13
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
-  %18 = tail call ptr @snd_seq_port_use_ptr(ptr noundef %0, i32 noundef %17) #18
+  %18 = tail call ptr @snd_seq_port_use_ptr(ptr noundef nonnull %0, i32 noundef %17) #18
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %54, label %20
+  br i1 %19, label %53, label %20
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %18, i64 96
@@ -951,11 +951,11 @@ define internal fastcc i32 @snd_seq_client_enqueue_event(ptr noundef %0, ptr nou
 24:                                               ; preds = %.thread, %22
   %25 = load i8, ptr %1, align 4
   %26 = icmp eq i8 %25, 5
-  br i1 %26, label %54, label %27
+  br i1 %26, label %53, label %27
 
 27:                                               ; preds = %24
   %28 = tail call fastcc i32 @snd_seq_deliver_event(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0)
-  br label %54
+  br label %53
 
 29:                                               ; preds = %22
   %30 = zext i8 %.pr to i32
@@ -963,43 +963,42 @@ define internal fastcc i32 @snd_seq_client_enqueue_event(ptr noundef %0, ptr nou
   %32 = load i32, ptr %31, align 8
   %33 = tail call i32 @snd_seq_queue_is_used(i32 noundef %30, i32 noundef %32) #18
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %54, label %35
+  br i1 %34, label %53, label %35
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds i8, ptr %0, i64 232
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %54, label %39
+  br i1 %38, label %53, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %37, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = icmp slt i32 %41, 1
-  br i1 %42, label %54, label %43
+  br i1 %42, label %53, label %43
 
 43:                                               ; preds = %39
   store ptr null, ptr %6, align 8, !annotation !17
-  %44 = icmp eq i32 %3, 0
-  %45 = zext i1 %44 to i32
-  %46 = call i32 @snd_seq_event_dup(ptr noundef nonnull %37, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %45, ptr noundef %2, ptr noundef %4) #18
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %54, label %48
+  %44 = xor i32 %3, 1
+  %45 = call i32 @snd_seq_event_dup(ptr noundef nonnull %37, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %44, ptr noundef %2, ptr noundef %4) #18
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %53, label %47
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %6, align 8
-  %50 = call i32 @snd_seq_enqueue_event(ptr noundef %49, i32 noundef 0, i32 noundef 0) #18
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %54
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %6, align 8
+  %49 = call i32 @snd_seq_enqueue_event(ptr noundef %48, i32 noundef 0, i32 noundef 0) #18
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %53
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %6, align 8
-  call void @snd_seq_cell_free(ptr noundef %53) #18
-  br label %54
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %6, align 8
+  call void @snd_seq_cell_free(ptr noundef %52) #18
+  br label %53
 
-54:                                               ; preds = %52, %48, %43, %39, %35, %29, %27, %24, %14
-  %55 = phi i32 [ %28, %27 ], [ %50, %52 ], [ -22, %24 ], [ -22, %29 ], [ -6, %39 ], [ %46, %43 ], [ 0, %48 ], [ -22, %14 ], [ -6, %35 ]
+53:                                               ; preds = %51, %47, %43, %39, %35, %29, %27, %24, %14
+  %54 = phi i32 [ %28, %27 ], [ %49, %51 ], [ -22, %24 ], [ -22, %29 ], [ -6, %39 ], [ %45, %43 ], [ 0, %47 ], [ -22, %14 ], [ -6, %35 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  ret i32 %55
+  ret i32 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1786,7 +1785,7 @@ define internal fastcc i32 @snd_seq_deliver_single_event(ptr noundef %0, ptr nou
 declare dso_local ptr @snd_seq_port_use_ptr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__deliver_to_subscribers(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__deliver_to_subscribers(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 -2147483648, 8) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.snd_seq_event, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef align 4 dereferenceable(28) %1, i64 28, i1 false)
@@ -1873,7 +1872,7 @@ define internal fastcc i32 @__deliver_to_subscribers(ptr noundef %0, ptr noundef
   br label %56
 
 56:                                               ; preds = %54, %35, %28
-  %57 = tail call fastcc i32 @snd_seq_deliver_single_event(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %4)
+  %57 = tail call fastcc i32 @snd_seq_deliver_single_event(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %3, i32 noundef %4)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %62
 
@@ -1960,7 +1959,7 @@ declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @seq_free_client1(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @seq_free_client1(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @clients_lock) #18
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
@@ -1970,7 +1969,7 @@ define internal fastcc void @seq_free_client1(ptr noundef %0) unnamed_addr #0 al
   %6 = getelementptr [192 x ptr], ptr @clienttab, i64 0, i64 %4
   store ptr null, ptr %6, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @clients_lock) #18
-  %7 = tail call i32 @snd_seq_delete_all_ports(ptr noundef %0) #18
+  %7 = tail call i32 @snd_seq_delete_all_ports(ptr noundef nonnull %0) #18
   %8 = load i32, ptr %2, align 8
   tail call void @snd_seq_queue_client_leave(i32 noundef %8) #18
   %9 = getelementptr inbounds i8, ptr %0, i64 124
@@ -4648,7 +4647,7 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 declare dso_local i32 @snd_seq_fifo_poll_wait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_seq_call_port_info_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_seq_call_port_info_ioctl(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -1062710496, 1084773156) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 168) #20
   %6 = icmp eq ptr %5, null

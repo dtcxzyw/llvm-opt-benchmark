@@ -749,9 +749,9 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
 52:                                               ; preds = %.lr.ph, %106
   %53 = phi ptr [ %46, %.lr.ph ], [ %121, %106 ]
   %.083110 = phi i32 [ %22, %.lr.ph ], [ %120, %106 ]
-  %54 = call fastcc i64 @fastgetattr(ptr noundef nonnull %53, i32 noundef 2, ptr noundef %13, ptr noundef nonnull %11)
+  %54 = call fastcc i64 @fastgetattr(ptr noundef %53, i32 noundef 2, ptr noundef %13, ptr noundef %11)
   %55 = trunc i64 %54 to i32
-  %56 = call fastcc i64 @fastgetattr(ptr noundef nonnull %53, i32 noundef 3, ptr noundef %13, ptr noundef nonnull %11)
+  %56 = call fastcc i64 @fastgetattr(ptr noundef %53, i32 noundef 3, ptr noundef %13, ptr noundef %11)
   %57 = inttoptr i64 %56 to ptr
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
@@ -895,7 +895,7 @@ declare ptr @systable_beginscan_ordered(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @systable_getnext_ordered(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 2, 4) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -973,26 +973,25 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   br label %fetch_att.exit
 
 50:                                               ; preds = %4
-  %51 = add i32 %1, 7
+  %51 = add nsw i32 %1, -1
   %52 = getelementptr inbounds i8, ptr %6, i64 23
   %.val = load i8, ptr %52, align 1
   %53 = zext i8 %.val to i32
-  %54 = and i32 %51, 7
-  %55 = shl nuw nsw i32 1, %54
-  %56 = and i32 %55, %53
-  %.not.i = icmp eq i32 %56, 0
-  br i1 %.not.i, label %57, label %58
+  %54 = shl nuw nsw i32 1, %51
+  %55 = and i32 %54, %53
+  %.not.i = icmp eq i32 %55, 0
+  br i1 %.not.i, label %56, label %57
 
-57:                                               ; preds = %50
+56:                                               ; preds = %50
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-58:                                               ; preds = %50
-  %59 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #6
+57:                                               ; preds = %50
+  %58 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #6
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %46, %40, %37, %34, %31, %58, %57, %48
-  %.0 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %49, %48 ], [ %41, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %47, %46 ]
+fetch_att.exit:                                   ; preds = %46, %40, %37, %34, %31, %57, %56, %48
+  %.0 = phi i64 [ 0, %56 ], [ %58, %57 ], [ %49, %48 ], [ %41, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %47, %46 ]
   ret i64 %.0
 }
 

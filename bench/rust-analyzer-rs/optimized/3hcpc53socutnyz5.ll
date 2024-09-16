@@ -201,7 +201,7 @@ define hidden void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17h7c421a170fbb281
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hf62792af474aa6c2E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0) unnamed_addr #0 {
+define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hf62792af474aa6c2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 65
   %3 = load i8, ptr %2, align 1, !range !33, !noundef !12
   %4 = trunc nuw i8 %3 to i1
@@ -257,7 +257,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
   br i1 %29, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.us.i
-  %31 = add nuw i64 %.05.i.us.i, 1
+  %31 = add nuw nsw i64 %.05.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %31, %.sroa.3.0.i47.us.i
   br i1 %exitcond.not.i.us.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %.lr.ph.i.us.i
 
@@ -314,7 +314,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i: ; preds = %30
   br i1 %52, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %53
 
 53:                                               ; preds = %.lr.ph.i.i
-  %54 = add nuw i64 %.05.i.i, 1
+  %54 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %54, %.sroa.3.0.i47.i
   br i1 %exitcond.not.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %.lr.ph.i.i
 
@@ -1177,7 +1177,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noca
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.loopexit90
-  %29 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hf62792af474aa6c2E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
+  %29 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hf62792af474aa6c2E"(ptr noalias noundef align 8 dereferenceable(72) %12)
           to label %30 unwind label %.loopexit
 
 30:                                               ; preds = %.outer
@@ -1600,7 +1600,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noca
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.loopexit90
-  %29 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hf62792af474aa6c2E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
+  %29 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hf62792af474aa6c2E"(ptr noalias noundef align 8 dereferenceable(72) %12)
           to label %30 unwind label %.loopexit
 
 30:                                               ; preds = %.outer

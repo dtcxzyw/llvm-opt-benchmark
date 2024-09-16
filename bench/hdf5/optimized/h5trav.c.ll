@@ -323,7 +323,7 @@ define range(i32 -1, 1) i32 @h5trav_getinfo(i64 noundef %0, ptr noundef %1) loca
   store ptr @trav_info_visit_lnk, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %5, align 8
-  %6 = call fastcc i32 @traverse(i64 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %3, i32 noundef 1)
+  %6 = call fastcc i32 @traverse(i64 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %3, i32 noundef 1)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %24
 
@@ -359,7 +359,7 @@ define range(i32 -1, 1) i32 @h5trav_getinfo(i64 noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @traverse(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @traverse(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca %struct.H5O_info2_t, align 8
   %8 = alloca %struct.trav_addr_t, align 8
   %9 = alloca %struct.trav_ud_traverse_t, align 8
@@ -690,7 +690,7 @@ define range(i32 -1, 1) i32 @h5trav_gettable(i64 noundef %0, ptr noundef %1) loc
   store ptr @trav_table_visit_lnk, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %5, align 8
-  %6 = call fastcc i32 @traverse(i64 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %3, i32 noundef 1)
+  %6 = call fastcc i32 @traverse(i64 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %3, i32 noundef 1)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %24
 
@@ -1088,7 +1088,7 @@ define range(i32 -1, 1) i32 @h5trav_print(i64 noundef %0) local_unnamed_addr #1 
   store ptr @trav_print_visit_lnk, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %2, ptr %5, align 8
-  %6 = call fastcc i32 @traverse(i64 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %3, i32 noundef 1)
+  %6 = call fastcc i32 @traverse(i64 noundef %0, ptr noundef nonnull @.str.1, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %3, i32 noundef 1)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %24
 
@@ -1268,7 +1268,7 @@ define range(i32 -1, 1) i32 @h5trav_visit(i64 noundef %0, ptr noundef %1, i1 nou
   store ptr %5, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %6, ptr %11, align 8
-  %12 = call fastcc i32 @traverse(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull %9, i32 noundef %7)
+  %12 = call fastcc i32 @traverse(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %9, i32 noundef %7)
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %30
 

@@ -3756,7 +3756,7 @@ _ZN4node16BlobDeserializerINS_3sea12_GLOBAL__N_115SeaDeserializerEE14ReadArithme
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, ptr } @_ZN4node16BlobDeserializerINS_3sea12_GLOBAL__N_115SeaDeserializerEE14ReadStringViewENS_13StringLogModeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %mode) unnamed_addr #4 align 2 {
+define internal fastcc { i64, ptr } @_ZN4node16BlobDeserializerINS_3sea12_GLOBAL__N_115SeaDeserializerEE14ReadStringViewENS_13StringLogModeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef range(i32 0, 2) %mode) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3911,8 +3911,8 @@ if.then.i4:                                       ; preds = %_ZNK4node26BlobSeri
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit: ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit, %if.then.i4
-  %cmp = icmp eq i32 %mode, 1
-  br i1 %cmp, label %if.then, label %if.end
+  %cmp.not = icmp eq i32 %mode, 0
+  br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit
   %19 = load i8, ptr %this, align 8
@@ -6630,7 +6630,7 @@ _ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmetic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %data.coerce0, ptr %data.coerce1, i32 noundef %mode) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %data.coerce0, ptr %data.coerce1, i32 noundef range(i32 0, 2) %mode) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6773,8 +6773,8 @@ if.then.i6:                                       ; preds = %_ZN4node14BlobSeria
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticImEEmRKT_.exit, %if.then.i6
-  %cmp = icmp eq i32 %mode, 1
-  br i1 %cmp, label %if.then, label %if.end
+  %cmp.not = icmp eq i32 %mode, 0
+  br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
   %16 = load i8, ptr %this, align 8

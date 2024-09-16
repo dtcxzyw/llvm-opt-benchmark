@@ -256,7 +256,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %35 = load i32, ptr %34, align 2
   %36 = lshr i32 %35, 24
   %37 = and i32 %36, 63
-  %38 = call i32 @llvm.umax.i32(i32 %33, i32 %37)
+  %38 = call range(i32 0, 64) i32 @llvm.umax.i32(i32 %33, i32 %37)
   %39 = add nuw nsw i32 %38, 1
   %40 = call i32 @Rwr_ManNodeVolume(ptr noundef %0, ptr noundef %25, ptr noundef %29) #14
   %41 = and i32 %18, 1
@@ -535,7 +535,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %52 = load i32, ptr %51, align 2
   %53 = lshr i32 %52, 24
   %54 = and i32 %53, 63
-  %55 = call i32 @llvm.umax.i32(i32 %50, i32 %54)
+  %55 = call range(i32 0, 64) i32 @llvm.umax.i32(i32 %50, i32 %54)
   %56 = add nuw nsw i32 %55, 1
   %57 = call i32 @Rwr_ManNodeVolume(ptr noundef %0, ptr noundef %39, ptr noundef %46) #14
   %58 = and i32 %32, 1
@@ -667,14 +667,14 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13

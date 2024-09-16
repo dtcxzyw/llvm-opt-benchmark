@@ -436,7 +436,7 @@ _ZN6google8protobuf8compiler4javaL19WriteDocCommentBodyINS0_10DescriptorEEEvPNS0
   br i1 %kdoc, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN6google8protobuf8compiler4javaL19WriteDocCommentBodyINS0_10DescriptorEEEvPNS0_2io7PrinterEPKT_b.exit
-  call fastcc void @_ZN6google8protobuf8compiler4javaL10EscapeKdocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i)
+  call fastcc void @_ZN6google8protobuf8compiler4javaL10EscapeKdocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i)
   invoke void @_ZN6google8protobuf2io7Printer5PrintIJA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 34, ptr nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(9) @.str.9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %if.end unwind label %lpad
 
@@ -691,7 +691,7 @@ _ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit: ; preds = %_ZN6google8pr
   %6 = load i8, ptr %strip_nonfunctional_codegen5.i, align 8
   %frombool.i = and i8 %6, 1
   store i8 %frombool.i, ptr %strip_nonfunctional_codegen.i, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef nonnull %printer, ptr noundef %field, ptr noundef nonnull %agg.tmp1, i1 noundef zeroext %kdoc)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef nonnull %printer, ptr noundef %field, ptr noundef %agg.tmp1, i1 noundef zeroext %kdoc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit
@@ -802,14 +802,14 @@ _ZN6google8protobuf14SourceLocationD2Ev.exit:     ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef %printer, ptr noundef nonnull %field, ptr nocapture noundef readonly %options, i1 noundef zeroext %kdoc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef %printer, ptr noundef nonnull %field, ptr nocapture noundef nonnull readonly %options, i1 noundef zeroext %kdoc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %field_comment = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK6google8protobuf15FieldDescriptor11DebugStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %field)
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL11FirstLineOfERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %field_comment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL11FirstLineOfERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %field_comment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -839,7 +839,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br i1 %kdoc, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL10EscapeKdocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %field_comment)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL10EscapeKdocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %field_comment)
           to label %invoke.cont8 unwind label %lpad1
 
 invoke.cont8:                                     ; preds = %if.then6
@@ -1491,7 +1491,7 @@ _ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit: ; preds = %_ZN6google8pr
   %6 = load i8, ptr %strip_nonfunctional_codegen5.i, align 8
   %frombool.i = and i8 %6, 1
   store i8 %frombool.i, ptr %strip_nonfunctional_codegen.i, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef nonnull %printer, ptr noundef %field, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext %kdoc)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef nonnull %printer, ptr noundef %field, ptr noundef %agg.tmp2, i1 noundef zeroext %kdoc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit
@@ -1851,7 +1851,7 @@ _ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit: ; preds = %_ZN6google8pr
   %6 = load i8, ptr %strip_nonfunctional_codegen5.i, align 8
   %frombool.i = and i8 %6, 1
   store i8 %frombool.i, ptr %strip_nonfunctional_codegen.i, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef nonnull %printer, ptr noundef %field, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext %kdoc)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef nonnull %printer, ptr noundef %field, ptr noundef %agg.tmp2, i1 noundef zeroext %kdoc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit
@@ -2185,7 +2185,7 @@ _ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit: ; preds = %_ZN6google8pr
   %6 = load i8, ptr %strip_nonfunctional_codegen5.i, align 8
   %frombool.i = and i8 %6, 1
   store i8 %frombool.i, ptr %strip_nonfunctional_codegen.i, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef nonnull %printer, ptr noundef %field, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext %kdoc)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL16WriteDebugStringEPNS0_2io7PrinterEPKNS0_15FieldDescriptorENS2_7OptionsEb(ptr noundef nonnull %printer, ptr noundef %field, ptr noundef %agg.tmp2, i1 noundef zeroext %kdoc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit
@@ -2555,7 +2555,7 @@ _ZN6google8protobuf8compiler4javaL19WriteDocCommentBodyINS0_14EnumDescriptorEEEv
   br i1 %kdoc, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN6google8protobuf8compiler4javaL19WriteDocCommentBodyINS0_14EnumDescriptorEEEvPNS0_2io7PrinterEPKT_b.exit
-  call fastcc void @_ZN6google8protobuf8compiler4javaL10EscapeKdocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i)
+  call fastcc void @_ZN6google8protobuf8compiler4javaL10EscapeKdocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i)
   invoke void @_ZN6google8protobuf2io7Printer5PrintIJA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 34, ptr nonnull @.str.43, ptr noundef nonnull align 1 dereferenceable(9) @.str.9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %if.end unwind label %lpad
 
@@ -2684,7 +2684,7 @@ _ZN6google8protobuf8compiler4javaL19WriteDocCommentBodyINS0_19EnumValueDescripto
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %leading_comments.i.i) #21
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %location.i)
   call void @_ZNK6google8protobuf19EnumValueDescriptor11DebugStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %value)
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL11FirstLineOfERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL11FirstLineOfERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8compiler4javaL19WriteDocCommentBodyINS0_19EnumValueDescriptorEEEvPNS0_2io7PrinterEPKT_b.exit
@@ -3085,7 +3085,7 @@ _ZN6google8protobuf8compiler4javaL19WriteDocCommentBodyINS0_16MethodDescriptorEE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %leading_comments.i.i) #21
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %location.i)
   call void @_ZNK6google8protobuf16MethodDescriptor11DebugStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(80) %method)
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL11FirstLineOfERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL11FirstLineOfERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8compiler4javaL19WriteDocCommentBodyINS0_16MethodDescriptorEEEvPNS0_2io7PrinterEPKT_b.exit
@@ -4382,7 +4382,7 @@ if.then:                                          ; preds = %entry
   br i1 %kdoc, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  invoke fastcc void @_ZN6google8protobuf8compiler4javaL10EscapeKdocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %comments)
+  invoke fastcc void @_ZN6google8protobuf8compiler4javaL10EscapeKdocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %comments)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.end, %if.else, %if.then3

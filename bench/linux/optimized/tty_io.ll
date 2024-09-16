@@ -512,7 +512,7 @@ define dso_local void @tty_vhangup(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__tty_hangup(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__tty_hangup(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %157, label %4
 
@@ -2726,7 +2726,7 @@ define dso_local ptr @tty_kopen_exclusive(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @tty_kopen(i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @tty_kopen(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #22
   store i32 -1, ptr %3, align 4
@@ -3659,7 +3659,7 @@ declare i64 @llvm.read_register.i64(metadata) #10
 declare void @llvm.write_register.i64(metadata, i64) #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tiocsetd(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tiocsetd(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = tail call i64 @llvm.read_register.i64(metadata !0)
   %4 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %3) #22, !srcloc !46
   %5 = extractvalue { ptr, i32, i64 } %4, 0
@@ -3672,7 +3672,7 @@ define internal fastcc i32 @tiocsetd(ptr noundef %0, ptr noundef %1) unnamed_add
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, i32, i64 } %4, 1
-  %12 = tail call i32 @tty_set_ldisc(ptr noundef %0, i32 noundef %11) #22
+  %12 = tail call i32 @tty_set_ldisc(ptr noundef nonnull %0, i32 noundef %11) #22
   br label %13
 
 13:                                               ; preds = %10, %2
@@ -3700,7 +3700,7 @@ define dso_local i32 @tty_devnum(ptr nocapture noundef readonly %0) #4 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @send_break(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @send_break(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 160
@@ -3718,7 +3718,7 @@ define internal fastcc i32 @send_break(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call i32 %6(ptr noundef %0, i32 noundef %1) #22
+  %16 = tail call i32 %6(ptr noundef nonnull %0, i32 noundef %1) #22
   br label %53
 
 17:                                               ; preds = %8
@@ -3736,7 +3736,7 @@ define internal fastcc i32 @send_break(ptr noundef %0, i32 noundef %1) unnamed_a
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 160
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %27(ptr noundef %0, i32 noundef -1) #22
+  %28 = tail call i32 %27(ptr noundef nonnull %0, i32 noundef -1) #22
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %36
 
@@ -3745,7 +3745,7 @@ define internal fastcc i32 @send_break(ptr noundef %0, i32 noundef %1) unnamed_a
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 160
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 %34(ptr noundef %0, i32 noundef 0) #22
+  %35 = tail call i32 %34(ptr noundef nonnull %0, i32 noundef 0) #22
   br label %39
 
 36:                                               ; preds = %24
@@ -6259,7 +6259,7 @@ define internal void @tty_show_fdinfo(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @compat_tty_tiocsserial(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @compat_tty_tiocsserial(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca %struct.serial_struct32, align 4
   %5 = alloca %struct.serial_struct, align 8
@@ -6319,7 +6319,7 @@ define internal fastcc i32 @compat_tty_tiocsserial(ptr noundef %0, ptr noundef %
   br i1 %39, label %42, label %40
 
 40:                                               ; preds = %34
-  %41 = call i32 %38(ptr noundef %0, ptr noundef nonnull %5) #22
+  %41 = call i32 %38(ptr noundef nonnull %0, ptr noundef nonnull %5) #22
   br label %42
 
 42:                                               ; preds = %40, %34
@@ -6335,7 +6335,7 @@ define internal fastcc i32 @compat_tty_tiocsserial(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @compat_tty_tiocgserial(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @compat_tty_tiocgserial(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.serial_struct32, align 4
   %4 = alloca %struct.serial_struct, align 8
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #22
@@ -6351,7 +6351,7 @@ define internal fastcc i32 @compat_tty_tiocgserial(ptr noundef %0, ptr noundef %
   br i1 %10, label %31, label %11
 
 11:                                               ; preds = %2
-  %12 = call i32 %9(ptr noundef %0, ptr noundef nonnull %4) #22
+  %12 = call i32 %9(ptr noundef nonnull %0, ptr noundef nonnull %4) #22
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %31
 
@@ -6395,7 +6395,7 @@ declare dso_local void @schedule() local_unnamed_addr #2
 declare dso_local void @tty_open_proc_set_tty(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tty_reopen(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tty_reopen(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -6427,7 +6427,7 @@ define internal fastcc i32 @tty_reopen(ptr noundef %0) unnamed_addr #0 align 16 
   br i1 %21, label %22, label %41
 
 22:                                               ; preds = %20, %15
-  %23 = tail call ptr @tty_ldisc_ref_wait(ptr noundef %0) #22
+  %23 = tail call ptr @tty_ldisc_ref_wait(ptr noundef nonnull %0) #22
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %.thread
 
@@ -6436,7 +6436,7 @@ define internal fastcc i32 @tty_reopen(ptr noundef %0) unnamed_addr #0 align 16 
   br label %38
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @tty_ldisc_lock(ptr noundef %0, i64 noundef 5000) #22
+  %26 = tail call i32 @tty_ldisc_lock(ptr noundef nonnull %0, i64 noundef 5000) #22
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %41
 
@@ -6447,15 +6447,15 @@ define internal fastcc i32 @tty_reopen(ptr noundef %0) unnamed_addr #0 align 16 
   br i1 %31, label %32, label %.thread3
 
 .thread3:                                         ; preds = %28
-  tail call void @tty_ldisc_unlock(ptr noundef %0) #22
+  tail call void @tty_ldisc_unlock(ptr noundef nonnull %0) #22
   br label %38
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %0, i64 280
   %34 = load i8, ptr %33, align 8
   %35 = zext i8 %34 to i32
-  %36 = tail call i32 @tty_ldisc_reinit(ptr noundef %0, i32 noundef %35) #22
-  tail call void @tty_ldisc_unlock(ptr noundef %0) #22
+  %36 = tail call i32 @tty_ldisc_reinit(ptr noundef nonnull %0, i32 noundef %35) #22
+  tail call void @tty_ldisc_unlock(ptr noundef nonnull %0) #22
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %41
 

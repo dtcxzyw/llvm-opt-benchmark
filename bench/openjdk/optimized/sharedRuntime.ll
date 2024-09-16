@@ -7592,12 +7592,12 @@ _ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit: ; preds = 
 _ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge: ; preds = %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert41 = getelementptr inbounds i8, ptr %.pre, i64 46
-  %.pre42 = load i16, ptr %.phi.trans.insert41, align 2
+  %.phi.trans.insert40 = getelementptr inbounds i8, ptr %.pre, i64 46
+  %.pre41 = load i16, ptr %.phi.trans.insert40, align 2
   br label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread
 
 _ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread: ; preds = %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge, %28, %30, %16, %9
-  %42 = phi i16 [ %.pre42, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge ], [ 2, %28 ], [ 2, %30 ], [ 1, %16 ], [ %13, %9 ]
+  %42 = phi i16 [ %.pre41, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge ], [ 2, %28 ], [ 2, %30 ], [ 1, %16 ], [ %13, %9 ]
   %43 = phi ptr [ %.pre, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge ], [ %11, %28 ], [ %11, %30 ], [ %11, %16 ], [ %11, %9 ]
   %44 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %45 = load ptr, ptr %44, align 8
@@ -7721,8 +7721,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN24Adapte
   %104 = sub nsw i32 0, %95
   %105 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 %104, ptr %105, align 8
-  %.not38 = icmp eq i16 %42, 0
-  br i1 %.not38, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i, label %.preheader.preheader.i.i
+  %.not5.i = icmp eq i16 %42, 0
+  br i1 %.not5.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %101, %.thread.i.i
   %.040.i.i = phi ptr [ %100, %.thread.i.i ], [ %2, %101 ]

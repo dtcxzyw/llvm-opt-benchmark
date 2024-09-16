@@ -76,7 +76,7 @@ define dso_local i32 @pkcs7_get_digest(ptr nocapture noundef readonly %0, ptr no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pkcs7_digest(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @pkcs7_digest(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8

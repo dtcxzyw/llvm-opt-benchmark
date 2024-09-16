@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN14cranelift_isle6parser5parse17hbc038cec3f7a6559E(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
   %3 = alloca { { { [4 x i64], i64, [3 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %3, ptr noundef nonnull readonly align 16 dereferenceable(192) %1, i64 192, i1 false)
-  call fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias align 8 %0, ptr nonnull align 16 %3)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias align 8 %0, ptr align 16 %3)
   ret void
 }
 
@@ -156,46 +156,46 @@ define hidden void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser13expect_lparen17h58444156dff9b7faE(ptr noalias align 8 %0, ptr align 16 %1) unnamed_addr #0 {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser13expect_lparen17h58444156dff9b7faE(ptr noalias nonnull align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 {
   %3 = alloca { i64, [9 x i64] }, align 16
-  call void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr align 16 %1)
-  call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8bfbdbb287f8451cE"(ptr sret({ i64, [8 x i64] }) align 8 %0, ptr nonnull align 16 %3)
+  call void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr nonnull align 16 %1)
+  call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8bfbdbb287f8451cE"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %0, ptr nonnull align 16 %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %0, ptr align 16 %1) unnamed_addr #0 {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias nonnull align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 {
   %3 = alloca { i64, [9 x i64] }, align 16
-  call void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr align 16 %1)
-  call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h484b0598e65711ceE"(ptr sret({ i64, [8 x i64] }) align 8 %0, ptr nonnull align 16 %3)
+  call void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr nonnull align 16 %1)
+  call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h484b0598e65711ceE"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %0, ptr nonnull align 16 %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser9expect_at17h6f201635bfcdf219E(ptr noalias align 8 %0, ptr align 16 %1) unnamed_addr #0 {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser9expect_at17h6f201635bfcdf219E(ptr noalias nonnull align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 {
   %3 = alloca { i64, [9 x i64] }, align 16
-  call void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr align 16 %1)
-  call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h891b15bef487b29fE"(ptr sret({ i64, [8 x i64] }) align 8 %0, ptr nonnull align 16 %3)
+  call void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr nonnull align 16 %1)
+  call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h891b15bef487b29fE"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %0, ptr nonnull align 16 %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser11eat_sym_str17h2e973a9af2b308b8E(ptr noalias align 8 %0, ptr align 16 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser11eat_sym_str17h2e973a9af2b308b8E(ptr noalias nonnull align 8 %0, ptr nonnull align 16 %1, ptr align 1 %2, i64 range(i64 1, 12) %3) unnamed_addr #0 {
   %5 = alloca { i64, [9 x i64] }, align 16
   %6 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %3, ptr %7, align 8
-  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %5, ptr align 16 %1, ptr nonnull align 8 %6)
-  call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h003f391f5593a7f2E"(ptr sret({ i64, [8 x i64] }) align 8 %0, ptr nonnull align 16 %5)
+  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %5, ptr nonnull align 16 %1, ptr nonnull align 8 %6)
+  call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h003f391f5593a7f2E"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %0, ptr nonnull align 16 %5)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser10expect_int17he5731ed33c5076eeE(ptr noalias nocapture writeonly align 16 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser10expect_int17he5731ed33c5076eeE(ptr noalias nocapture nonnull writeonly align 16 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [9 x i64] }, align 16
   %4 = alloca { i64, [3 x i64] }, align 16
-  call void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr align 16 %1)
+  call void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr nonnull align 16 %1)
   %5 = load i64, ptr %3, align 16, !range !3, !noundef !4
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %11
@@ -250,7 +250,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10expect_int17he57
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias nocapture writeonly align 8 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias nocapture writeonly align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [15 x i64] }, align 16
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca { i64, [9 x i64] }, align 16
@@ -731,7 +731,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5db
   br label %236
 
 236:                                              ; preds = %757, %2
-  %237 = invoke zeroext i1 @_ZN14cranelift_isle5lexer5Lexer3eof17h70f90a308fcbf469E(ptr align 16 %1)
+  %237 = invoke zeroext i1 @_ZN14cranelift_isle5lexer5Lexer3eof17h70f90a308fcbf469E(ptr nonnull align 16 %1)
           to label %238 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %236, %757, %239, %.noexc, %242, %.noexc14, %.noexc15
@@ -780,7 +780,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5db
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %162)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %163)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %153), !noalias !6
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %153, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %153, ptr nonnull align 16 %1)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %239
@@ -794,17 +794,17 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5db
   br i1 %241, label %242, label %256
 
 242:                                              ; preds = %.noexc13
-  %243 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %243 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %242
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %162, ptr align 16 %243, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %162, ptr align 16 %243, ptr nonnull align 16 %1)
           to label %.noexc15 unwind label %.loopexit
 
 .noexc15:                                         ; preds = %.noexc14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %151), !noalias !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %152), !noalias !6
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %151, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %151, ptr nonnull align 16 %1)
           to label %.noexc16 unwind label %.loopexit
 
 .noexc16:                                         ; preds = %.noexc15
@@ -928,7 +928,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %148), !noalias !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %149), !noalias !6
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %150), !noalias !6
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %149, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %149, ptr align 16 %1)
           to label %.noexc.i unwind label %.loopexit.split-lp682, !noalias !6
 
 .noexc.i:                                         ; preds = %263
@@ -983,7 +983,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
           to label %279 unwind label %276, !noalias !13
 
 279:                                              ; preds = %278
-  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %147, ptr align 16 %1, ptr nonnull align 8 %146, ptr nonnull align 8 %145)
+  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %147, ptr nonnull align 16 %1, ptr nonnull align 8 %146, ptr nonnull align 8 %145)
           to label %280 unwind label %276, !noalias !13
 
 280:                                              ; preds = %279
@@ -1032,15 +1032,15 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %140), !noalias !6
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %141), !noalias !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142), !noalias !6
-  %287 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %287 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc177.i unwind label %.loopexit681, !noalias !6
 
 .noexc177.i:                                      ; preds = %286
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %142, ptr align 16 %287, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %142, ptr align 16 %287, ptr nonnull align 16 %1)
           to label %.noexc178.i unwind label %.loopexit681, !noalias !6
 
 .noexc178.i:                                      ; preds = %.noexc177.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %140, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %140, ptr align 16 %1)
           to label %.noexc179.i unwind label %.loopexit681, !noalias !6
 
 .noexc179.i:                                      ; preds = %.noexc178.i
@@ -1073,7 +1073,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
 292:                                              ; preds = %435, %290
   %.060.i.i = phi i8 [ 0, %290 ], [ %.161.i.i, %435 ]
   %.0.i.i = phi i8 [ 0, %290 ], [ %.1.i.i, %435 ]
-  %293 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %293 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %294 unwind label %.loopexit.i.i, !noalias !16
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i.loopexit, %.loopexit.split-lp.i.i.loopexit.split-lp, %424, %412, %399, %.body.i.i.i, %.loopexit.i.i
@@ -1118,16 +1118,16 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %131), !noalias !16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %132), !noalias !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133), !noalias !16
-  %298 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %298 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i.loopexit, !noalias !16
 
 .noexc.i.i:                                       ; preds = %297
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %133, ptr align 16 %298, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %133, ptr align 16 %298, ptr nonnull align 16 %1)
           to label %.noexc66.i.i unwind label %.loopexit.split-lp.i.i.loopexit, !noalias !16
 
 .noexc66.i.i:                                     ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %121), !noalias !19
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %121, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %121, ptr nonnull align 16 %1)
           to label %.noexc67.i.i unwind label %.loopexit.split-lp.i.i.loopexit, !noalias !16
 
 .noexc67.i.i:                                     ; preds = %.noexc66.i.i
@@ -1145,7 +1145,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %120), !noalias !19
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.28, ptr %120, align 8, !noalias !22
   store i64 9, ptr %223, align 8, !noalias !22
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %119, ptr align 16 %1, ptr nonnull align 8 %120)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %119, ptr nonnull align 16 %1, ptr nonnull align 8 %120)
           to label %.noexc69.i.i unwind label %.loopexit.split-lp.i.i.loopexit, !noalias !16
 
 .noexc69.i.i:                                     ; preds = %301
@@ -1205,7 +1205,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %118), !noalias !19
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.29, ptr %118, align 8, !noalias !25
   store i64 4, ptr %225, align 8, !noalias !25
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %117, ptr align 16 %1, ptr nonnull align 8 %118)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %117, ptr nonnull align 16 %1, ptr nonnull align 8 %118)
           to label %.noexc71.i.i unwind label %.loopexit.split-lp.i.i.loopexit, !noalias !16
 
 .noexc71.i.i:                                     ; preds = %309
@@ -1221,7 +1221,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   br i1 %311, label %316, label %318
 
 313:                                              ; preds = %306
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %129, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %129, ptr align 16 %1)
           to label %.noexc73.i.i unwind label %.loopexit.split-lp.i.i.loopexit, !noalias !16
 
 .noexc73.i.i:                                     ; preds = %313
@@ -1265,7 +1265,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   store ptr %322, ptr %.sroa.2108.0..sroa_idx.i.i.i, align 8, !noalias !19
   %.sroa.3109.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %122, i64 16
   store i64 23, ptr %.sroa.3109.0..sroa_idx.i.i.i, align 8, !noalias !19
-  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %123, ptr align 16 %1, ptr nonnull align 8 %133, ptr nonnull align 8 %122)
+  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %123, ptr nonnull align 16 %1, ptr nonnull align 8 %133, ptr nonnull align 8 %122)
           to label %.noexc75.i.i unwind label %.loopexit.split-lp.i.i.loopexit.split-lp, !noalias !16
 
 .noexc75.i.i:                                     ; preds = %.noexc74.i.i
@@ -1295,7 +1295,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   br label %325
 
 325:                                              ; preds = %388, %324
-  %326 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr align 16 %1)
+  %326 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .loopexit.i.i.i:                                  ; preds = %388, %336, %.noexc123.i.i.i, %333, %.noexc121.i.i.i, %.noexc120.i.i.i, %330, %.noexc.i.i.i, %327, %325
@@ -1333,23 +1333,23 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i: ; pr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %114), !noalias !19
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %115), !noalias !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116), !noalias !19
-  %328 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h5a57535aabd81906E(ptr align 16 %1)
+  %328 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h5a57535aabd81906E(ptr nonnull align 16 %1)
           to label %.noexc.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc.i.i.i:                                     ; preds = %327
-  %329 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %329 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc119.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc119.i.i.i:                                  ; preds = %.noexc.i.i.i
   br i1 %328, label %333, label %330
 
 330:                                              ; preds = %.noexc119.i.i.i
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %114, ptr align 16 %329, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %114, ptr align 16 %329, ptr nonnull align 16 %1)
           to label %.noexc120.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc120.i.i.i:                                  ; preds = %330
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %107), !noalias !28
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %107, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %107, ptr nonnull align 16 %1)
           to label %.noexc121.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc121.i.i.i:                                  ; preds = %.noexc120.i.i.i
@@ -1363,11 +1363,11 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i: ; pr
   br i1 %332, label %336, label %339
 
 333:                                              ; preds = %.noexc119.i.i.i
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %116, ptr align 16 %329, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %116, ptr align 16 %329, ptr nonnull align 16 %1)
           to label %.noexc123.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc123.i.i.i:                                  ; preds = %333
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %115, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %115, ptr align 16 %1)
           to label %.noexc124.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc124.i.i.i:                                  ; preds = %.noexc123.i.i.i
@@ -1376,7 +1376,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i: ; pr
   br i1 %335, label %384, label %385
 
 336:                                              ; preds = %.noexc122.i.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %111, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %111, ptr align 16 %1)
           to label %.noexc125.i.i.i unwind label %.loopexit.i.i.i, !noalias !19
 
 .noexc125.i.i.i:                                  ; preds = %336
@@ -1429,7 +1429,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i: ; pr
   br label %.thread191.i.i.i
 
 342:                                              ; preds = %371, %340
-  %343 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr align 16 %1)
+  %343 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !28
 
 .loopexit.i.i.i.i:                                ; preds = %371, %348, %.noexc84.i.i.i.i, %.noexc83.i.i.i.i, %.noexc.i.i.i.i, %344, %342
@@ -1464,16 +1464,16 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %104), !noalias !28
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %105), !noalias !28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %106), !noalias !28
-  %345 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %345 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !28
 
 .noexc.i.i.i.i:                                   ; preds = %344
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %106, ptr align 16 %345, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %106, ptr align 16 %345, ptr nonnull align 16 %1)
           to label %.noexc83.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !28
 
 .noexc83.i.i.i.i:                                 ; preds = %.noexc.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %99), !noalias !31
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %99, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %99, ptr nonnull align 16 %1)
           to label %.noexc84.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !28
 
 .noexc84.i.i.i.i:                                 ; preds = %.noexc83.i.i.i.i
@@ -1487,7 +1487,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
   br i1 %347, label %348, label %351
 
 348:                                              ; preds = %.noexc85.i.i.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %103, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %103, ptr align 16 %1)
           to label %.noexc86.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !28
 
 .noexc86.i.i.i.i:                                 ; preds = %348
@@ -1516,7 +1516,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
 
 352:                                              ; preds = %.noexc86.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %104, ptr noundef nonnull align 8 dereferenceable(56) %232, i64 56, i1 false), !noalias !31
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %101, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %101, ptr align 16 %1)
           to label %355 unwind label %.loopexit132.i.i.i.i, !noalias !31
 
 353:                                              ; preds = %.noexc86.i.i.i.i
@@ -1560,7 +1560,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
 358:                                              ; preds = %355
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %102, ptr noundef nonnull align 8 dereferenceable(56) %233, i64 56, i1 false), !noalias !31
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %98), !noalias !31
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %98, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %98, ptr nonnull align 16 %1)
           to label %.noexc.i.i.i.i.i unwind label %360, !noalias !31
 
 .noexc.i.i.i.i.i:                                 ; preds = %358
@@ -1637,7 +1637,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
 
 369:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %97), !noalias !28
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %97, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %97, ptr nonnull align 16 %1)
           to label %.noexc88.i.i.i.i unwind label %.loopexit.split-lp.i.loopexit.i.i.i, !noalias !28
 
 .noexc88.i.i.i.i:                                 ; preds = %369
@@ -1810,7 +1810,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
   br label %.thread191.i.i.i
 
 386:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias nonnull align 8 %124, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %124, ptr align 16 %1)
           to label %390 unwind label %.loopexit.split-lp.i.i.i.loopexit, !noalias !19
 
 .thread191.i.i.i:                                 ; preds = %385, %381, %341, %339
@@ -1957,7 +1957,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
 397:                                              ; preds = %.noexc73.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %130, ptr noundef nonnull align 8 dereferenceable(56) %235, i64 56, i1 false), !noalias !19
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %96), !noalias !19
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %96, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %96, ptr nonnull align 16 %1)
           to label %.noexc127.i.i.i unwind label %399, !noalias !19
 
 .noexc127.i.i.i:                                  ; preds = %397
@@ -2017,7 +2017,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
 405:                                              ; preds = %296
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %94), !noalias !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95), !noalias !16
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %94, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %94, ptr nonnull align 16 %1)
           to label %.noexc78.i.i unwind label %.loopexit.i.i, !noalias !16
 
 .noexc78.i.i:                                     ; preds = %405
@@ -2195,11 +2195,11 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i.i.i: ; 
   br i1 %427, label %435, label %429
 
 429:                                              ; preds = %428
-  %430 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %430 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc81.i.i unwind label %.loopexit.split-lp218.i.i, !noalias !16
 
 .noexc81.i.i:                                     ; preds = %429
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %137, ptr align 16 %430, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %137, ptr align 16 %430, ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i unwind label %.loopexit.split-lp218.i.i, !noalias !16
 
 _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.noexc81.i.i
@@ -2214,7 +2214,7 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
           to label %433 unwind label %.loopexit.split-lp218.i.i, !noalias !16
 
 433:                                              ; preds = %432
-  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %138, ptr align 16 %1, ptr nonnull align 8 %137, ptr nonnull align 8 %136)
+  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %138, ptr nonnull align 16 %1, ptr nonnull align 8 %137, ptr nonnull align 8 %136)
           to label %434 unwind label %.loopexit.split-lp218.i.i, !noalias !16
 
 434:                                              ; preds = %433
@@ -2270,11 +2270,11 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %91), !noalias !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %92), !noalias !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93), !noalias !6
-  %442 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %442 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc191.i unwind label %.loopexit681, !noalias !6
 
 .noexc191.i:                                      ; preds = %441
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %93, ptr align 16 %442, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %93, ptr align 16 %442, ptr nonnull align 16 %1)
           to label %.noexc192.i unwind label %.loopexit681, !noalias !6
 
 .noexc192.i:                                      ; preds = %.noexc191.i
@@ -2282,7 +2282,7 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81), !noalias !37
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.31, ptr %81, align 8, !noalias !40
   store i64 4, ptr %209, align 8, !noalias !40
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %80, ptr align 16 %1, ptr nonnull align 8 %81)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %80, ptr nonnull align 16 %1, ptr nonnull align 8 %81)
           to label %.noexc193.i unwind label %.loopexit681, !noalias !6
 
 .noexc193.i:                                      ; preds = %.noexc192.i
@@ -2302,7 +2302,7 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79), !noalias !37
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.32, ptr %79, align 8, !noalias !43
   store i64 5, ptr %211, align 8, !noalias !43
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %78, ptr align 16 %1, ptr nonnull align 8 %79)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %78, ptr nonnull align 16 %1, ptr nonnull align 8 %79)
           to label %.noexc195.i unwind label %.loopexit681, !noalias !6
 
 .noexc195.i:                                      ; preds = %446
@@ -2339,7 +2339,7 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77), !noalias !37
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.33, ptr %77, align 8, !noalias !46
   store i64 7, ptr %213, align 8, !noalias !46
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %76, ptr align 16 %1, ptr nonnull align 8 %77)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %76, ptr nonnull align 16 %1, ptr nonnull align 8 %77)
           to label %.noexc197.i unwind label %.loopexit681, !noalias !6
 
 .noexc197.i:                                      ; preds = %451
@@ -2372,7 +2372,7 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
   br label %.thread355.i
 
 456:                                              ; preds = %.noexc198.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %88, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %88, ptr align 16 %1)
           to label %.noexc199.i unwind label %.loopexit681, !noalias !6
 
 .noexc199.i:                                      ; preds = %456
@@ -2400,7 +2400,7 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
 460:                                              ; preds = %.noexc199.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(56) %215, i64 56, i1 false), !noalias !37
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %75), !noalias !37
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %75, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %75, ptr nonnull align 16 %1)
           to label %.noexc.i184.i unwind label %.loopexit692, !noalias !37
 
 .noexc.i184.i:                                    ; preds = %460
@@ -2472,7 +2472,7 @@ _ZN14cranelift_isle6parser6Parser3pos17h9bb5a4365b425bcdE.exit.i.i: ; preds = %.
   br label %488
 
 468:                                              ; preds = %476, %466
-  %469 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr align 16 %1)
+  %469 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i unwind label %.loopexit.i185.i, !noalias !37
 
 .loopexit.i185.i:                                 ; preds = %476, %471, %468
@@ -2494,11 +2494,11 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br i1 %469, label %472, label %471
 
 471:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %85, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %85, ptr align 16 %1)
           to label %473 unwind label %.loopexit.i185.i, !noalias !37
 
 472:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias nonnull align 8 %83, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %83, ptr align 16 %1)
           to label %479 unwind label %.loopexit.split-lp.i187.i, !noalias !37
 
 473:                                              ; preds = %471
@@ -2547,7 +2547,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br i1 %481, label %482, label %483
 
 482:                                              ; preds = %479
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %82, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %82, ptr align 16 %1)
           to label %484 unwind label %.loopexit.split-lp.i187.i, !noalias !37
 
 483:                                              ; preds = %479
@@ -2625,15 +2625,15 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
-  %495 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %495 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc87 unwind label %.loopexit681
 
 .noexc87:                                         ; preds = %494
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %31, ptr align 16 %495, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %31, ptr align 16 %495, ptr nonnull align 16 %1)
           to label %.noexc88 unwind label %.loopexit681
 
 .noexc88:                                         ; preds = %.noexc87
-  %496 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h39637a1c2359a2eeE(ptr align 16 %1)
+  %496 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h39637a1c2359a2eeE(ptr nonnull align 16 %1)
           to label %.noexc89 unwind label %.loopexit681
 
 .noexc89:                                         ; preds = %.noexc88
@@ -2642,7 +2642,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
 497:                                              ; preds = %.noexc89
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %23), !noalias !49
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !49
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %23, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %23, ptr nonnull align 16 %1)
           to label %.noexc90 unwind label %.loopexit681
 
 .noexc90:                                         ; preds = %497
@@ -2678,7 +2678,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
 .thread120.i:                                     ; preds = %.noexc95, %.noexc89
   %.sroa.045.0.i = phi i64 [ 0, %.noexc89 ], [ 1, %.noexc95 ]
   %.sroa.346.0.i = phi i64 [ undef, %.noexc89 ], [ %516, %.noexc95 ]
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias nonnull align 16 %28, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %28, ptr align 16 %1)
           to label %.noexc93 unwind label %.loopexit681
 
 .noexc93:                                         ; preds = %.thread120.i
@@ -2699,7 +2699,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   %513 = trunc nsw i128 %511 to i64
   %.sroa.3.0.i = select i1 %or.cond.i, i64 undef, i64 %513
   %.sroa.05.0.i = zext i1 %or.cond.i to i64
-  invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc395d12b49b5cd51E"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %30, i64 %.sroa.05.0.i, i64 %.sroa.3.0.i, ptr align 16 %1, ptr nonnull align 8 %31)
+  invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc395d12b49b5cd51E"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %30, i64 %.sroa.05.0.i, i64 %.sroa.3.0.i, ptr nonnull align 16 %1, ptr nonnull align 8 %31)
           to label %.noexc95 unwind label %.loopexit681
 
 .noexc95:                                         ; preds = %.noexc94
@@ -2789,22 +2789,22 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %20), !noalias !49
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21), !noalias !49
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22), !noalias !49
-  %523 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %523 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc.i75 unwind label %576, !noalias !49
 
 .noexc.i75:                                       ; preds = %522
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %22, ptr align 16 %523, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %22, ptr align 16 %523, ptr nonnull align 16 %1)
           to label %.noexc84.i unwind label %576, !noalias !49
 
 .noexc84.i:                                       ; preds = %.noexc.i75
-  %524 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h3d254db310930c2dE(ptr align 16 %1)
+  %524 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h3d254db310930c2dE(ptr nonnull align 16 %1)
           to label %.noexc85.i unwind label %576, !noalias !49
 
 .noexc85.i:                                       ; preds = %.noexc84.i
   br i1 %524, label %526, label %525
 
 525:                                              ; preds = %.noexc85.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nonnull align 16 %15, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %15, ptr align 16 %1)
           to label %.noexc86.i unwind label %576, !noalias !49
 
 .noexc86.i:                                       ; preds = %525
@@ -2813,7 +2813,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
 
 526:                                              ; preds = %.noexc85.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14), !noalias !59
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %14, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %14, ptr nonnull align 16 %1)
           to label %.noexc88.i unwind label %576, !noalias !49
 
 .noexc88.i:                                       ; preds = %526
@@ -2831,7 +2831,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !59
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.43, ptr %13, align 8, !noalias !60
   store i64 6, ptr %200, align 8, !noalias !60
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %12, ptr align 16 %1, ptr nonnull align 8 %13)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %12, ptr nonnull align 16 %1, ptr nonnull align 8 %13)
           to label %.noexc90.i unwind label %576, !noalias !49
 
 .noexc90.i:                                       ; preds = %529
@@ -2868,7 +2868,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !59
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.44, ptr %11, align 8, !noalias !63
   store i64 2, ptr %202, align 8, !noalias !63
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %10, ptr align 16 %1, ptr nonnull align 8 %11)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %10, ptr nonnull align 16 %1, ptr nonnull align 8 %11)
           to label %.noexc92.i unwind label %576, !noalias !49
 
 .noexc92.i:                                       ; preds = %537
@@ -2888,15 +2888,15 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7), !noalias !59
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8), !noalias !59
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !59
-  %542 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %542 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc94.i unwind label %576, !noalias !49
 
 .noexc94.i:                                       ; preds = %541
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %9, ptr align 16 %542, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %9, ptr align 16 %542, ptr nonnull align 16 %1)
           to label %.noexc95.i unwind label %576, !noalias !49
 
 .noexc95.i:                                       ; preds = %.noexc94.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias nonnull align 16 %7, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %7, ptr align 16 %1)
           to label %.noexc96.i unwind label %576, !noalias !49
 
 .noexc96.i:                                       ; preds = %.noexc95.i
@@ -2908,7 +2908,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.3.0..sroa_idx.i.i.i, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.322.0..sroa_idx.i.i.i, i64 48, i1 false), !noalias !66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %207, i64 72, i1 false), !noalias !66
   store i64 %543, ptr %8, align 16, !noalias !66
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nonnull align 16 %6, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %6, ptr align 16 %1)
           to label %548 unwind label %546, !noalias !66
 
 545:                                              ; preds = %.noexc96.i
@@ -2949,7 +2949,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br label %578
 
 556:                                              ; preds = %553
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias nonnull align 16 %17, ptr align 16 %1, ptr nonnull align 8 %22)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias align 16 %17, ptr align 16 %1, ptr align 8 %22)
           to label %.noexc98.i unwind label %576, !noalias !49
 
 .noexc98.i:                                       ; preds = %556
@@ -2960,15 +2960,15 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
 558:                                              ; preds = %553
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !49
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !49
-  %559 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %559 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc102.i unwind label %576, !noalias !49
 
 .noexc102.i:                                      ; preds = %558
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %4, ptr align 16 %559, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %4, ptr align 16 %559, ptr nonnull align 16 %1)
           to label %.noexc103.i unwind label %576, !noalias !49
 
 .noexc103.i:                                      ; preds = %.noexc102.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nonnull align 16 %3, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %3, ptr align 16 %1)
           to label %.noexc104.i unwind label %576, !noalias !49
 
 .noexc104.i:                                      ; preds = %.noexc103.i
@@ -2991,7 +2991,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
 
 563:                                              ; preds = %566, %564, %561
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5), !noalias !59
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %5, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %5, ptr nonnull align 16 %1)
           to label %.noexc.i.i80 unwind label %567, !noalias !59
 
 .noexc.i.i80:                                     ; preds = %563
@@ -3167,16 +3167,16 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
-  %593 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %593 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc59 unwind label %.loopexit681
 
 .noexc59:                                         ; preds = %592
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %42, ptr align 16 %593, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %42, ptr align 16 %593, ptr nonnull align 16 %1)
           to label %.noexc60 unwind label %.loopexit681
 
 .noexc60:                                         ; preds = %.noexc59
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %33), !noalias !74
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %33, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %33, ptr nonnull align 16 %1)
           to label %.noexc61 unwind label %.loopexit681
 
 .noexc61:                                         ; preds = %.noexc60
@@ -3190,7 +3190,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br i1 %595, label %596, label %599
 
 596:                                              ; preds = %.noexc62
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %39, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %39, ptr align 16 %1)
           to label %.noexc63 unwind label %.loopexit681
 
 .noexc63:                                         ; preds = %596
@@ -3243,7 +3243,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i.i: ; pred
   br label %731
 
 602:                                              ; preds = %610, %600
-  %603 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr align 16 %1)
+  %603 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i unwind label %.loopexit.i, !noalias !74
 
 .loopexit.i:                                      ; preds = %610, %605, %602
@@ -3265,12 +3265,12 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br i1 %603, label %606, label %605
 
 605:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %37, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %37, ptr align 16 %1)
           to label %607 unwind label %.loopexit.i, !noalias !74
 
 606:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32), !noalias !74
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %32, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %32, ptr nonnull align 16 %1)
           to label %.noexc.i55 unwind label %.loopexit.split-lp.i, !noalias !74
 
 .noexc.i55:                                       ; preds = %606
@@ -3324,7 +3324,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br i1 %614, label %615, label %616
 
 615:                                              ; preds = %612
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias nonnull align 16 %34, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %34, ptr align 16 %1)
           to label %617 unwind label %.loopexit.split-lp.i, !noalias !74
 
 616:                                              ; preds = %612
@@ -3405,11 +3405,11 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %65)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %66)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67)
-  %629 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %629 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc32 unwind label %.loopexit681
 
 .noexc32:                                         ; preds = %628
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %67, ptr align 16 %629, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %67, ptr align 16 %629, ptr nonnull align 16 %1)
           to label %.noexc33 unwind label %.loopexit681
 
 .noexc33:                                         ; preds = %.noexc32
@@ -3417,7 +3417,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !77
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.34, ptr %50, align 8, !noalias !80
   store i64 11, ptr %174, align 8, !noalias !80
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %49, ptr align 16 %1, ptr nonnull align 8 %50)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %49, ptr nonnull align 16 %1, ptr nonnull align 8 %50)
           to label %.noexc34 unwind label %.loopexit681
 
 .noexc34:                                         ; preds = %.noexc33
@@ -3458,7 +3458,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !77
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.8, ptr %48, align 8, !noalias !83
   store i64 9, ptr %176, align 8, !noalias !83
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %47, ptr align 16 %1, ptr nonnull align 8 %48)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %47, ptr nonnull align 16 %1, ptr nonnull align 8 %48)
           to label %.noexc36 unwind label %.loopexit681
 
 .noexc36:                                         ; preds = %636
@@ -3474,7 +3474,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br i1 %638, label %643, label %645
 
 640:                                              ; preds = %633
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %64, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %64, ptr align 16 %1)
           to label %.noexc38 unwind label %.loopexit681
 
 .noexc38:                                         ; preds = %640
@@ -3508,7 +3508,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !77
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.35, ptr %46, align 8, !noalias !86
   store i64 5, ptr %178, align 8, !noalias !86
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %45, ptr align 16 %1, ptr nonnull align 8 %46)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %45, ptr nonnull align 16 %1, ptr nonnull align 8 %46)
           to label %.noexc39 unwind label %.loopexit681
 
 .noexc39:                                         ; preds = %646
@@ -3528,7 +3528,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44), !noalias !77
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.37, ptr %44, align 8, !noalias !89
   store i64 10, ptr %182, align 8, !noalias !89
-  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %43, ptr align 16 %1, ptr nonnull align 8 %44)
+  invoke void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %43, ptr nonnull align 16 %1, ptr nonnull align 8 %44)
           to label %.noexc41 unwind label %.loopexit681
 
 .noexc41:                                         ; preds = %650
@@ -3579,7 +3579,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   store ptr %660, ptr %.sroa.2202.0..sroa_idx.i, align 8, !noalias !77
   %.sroa.3203.0..sroa_idx.i = getelementptr inbounds i8, ptr %51, i64 16
   store i64 74, ptr %.sroa.3203.0..sroa_idx.i, align 8, !noalias !77
-  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %52, ptr align 16 %1, ptr nonnull align 8 %67, ptr nonnull align 8 %51)
+  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %52, ptr nonnull align 16 %1, ptr nonnull align 8 %67, ptr nonnull align 8 %51)
           to label %.noexc44 unwind label %.loopexit.split-lp682
 
 .noexc44:                                         ; preds = %.noexc43
@@ -3603,15 +3603,15 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br label %729
 
 662:                                              ; preds = %654
-  %663 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %663 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc45 unwind label %.loopexit681
 
 .noexc45:                                         ; preds = %662
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %56, ptr align 16 %663, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %56, ptr align 16 %663, ptr nonnull align 16 %1)
           to label %.noexc46 unwind label %.loopexit681
 
 .noexc46:                                         ; preds = %.noexc45
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias nonnull align 8 %54, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias align 8 %54, ptr align 16 %1)
           to label %.noexc47 unwind label %.loopexit681
 
 .noexc47:                                         ; preds = %.noexc46
@@ -3621,7 +3621,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 666:                                              ; preds = %.noexc47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(56) %180, i64 56, i1 false), !noalias !77
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %53, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %53, ptr align 16 %1)
           to label %670 unwind label %668, !noalias !77
 
 667:                                              ; preds = %.noexc47
@@ -3679,7 +3679,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   unreachable
 
 676:                                              ; preds = %.noexc42
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %59, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %59, ptr align 16 %1)
           to label %.noexc51 unwind label %.loopexit681
 
 .noexc51:                                         ; preds = %676
@@ -3706,7 +3706,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 680:                                              ; preds = %.noexc51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %184, i64 56, i1 false), !noalias !77
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %58, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %58, ptr align 16 %1)
           to label %684 unwind label %682, !noalias !77
 
 681:                                              ; preds = %.noexc51
@@ -3759,7 +3759,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 688:                                              ; preds = %.noexc38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull align 8 dereferenceable(56) %186, i64 56, i1 false), !noalias !77
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %63, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %63, ptr align 16 %1)
           to label %692 unwind label %690, !noalias !77
 
 689:                                              ; preds = %.noexc38
@@ -3831,15 +3831,15 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73)
-  %701 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %701 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc20 unwind label %.loopexit681
 
 .noexc20:                                         ; preds = %700
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %73, ptr align 16 %701, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %73, ptr align 16 %701, ptr nonnull align 16 %1)
           to label %.noexc21 unwind label %.loopexit681
 
 .noexc21:                                         ; preds = %.noexc20
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %71, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %71, ptr align 16 %1)
           to label %.noexc22 unwind label %.loopexit681
 
 .noexc22:                                         ; preds = %.noexc21
@@ -3849,7 +3849,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 704:                                              ; preds = %.noexc22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %72, ptr noundef nonnull align 8 dereferenceable(56) %170, i64 56, i1 false), !noalias !92
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %69, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %69, ptr align 16 %1)
           to label %707 unwind label %.loopexit686, !noalias !92
 
 705:                                              ; preds = %.noexc22
@@ -3892,7 +3892,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 710:                                              ; preds = %707
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %70, ptr noundef nonnull align 8 dereferenceable(56) %171, i64 56, i1 false), !noalias !92
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %68, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %68, ptr align 16 %1)
           to label %714 unwind label %712, !noalias !92
 
 711:                                              ; preds = %707
@@ -3962,7 +3962,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
           to label %722 unwind label %.loopexit.split-lp682, !noalias !6
 
 722:                                              ; preds = %721
-  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %158, ptr align 16 %1, ptr nonnull align 8 %162, ptr nonnull align 8 %157)
+  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %158, ptr nonnull align 16 %1, ptr nonnull align 8 %162, ptr nonnull align 8 %157)
           to label %723 unwind label %.loopexit.split-lp682, !noalias !6
 
 723:                                              ; preds = %722
@@ -4443,7 +4443,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 741:                                              ; preds = %727
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %74), !noalias !6
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %74, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %74, ptr nonnull align 16 %1)
           to label %.noexc203.i unwind label %739, !noalias !6
 
 .noexc203.i:                                      ; preds = %741
@@ -4643,7 +4643,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 
 759:                                              ; preds = %760, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %761, %760 ]
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..parser..Parser$GT$17h4c746f4b5c6680bdE"(ptr align 16 %1) #9
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..parser..Parser$GT$17h4c746f4b5c6680bdE"(ptr nonnull align 16 %1) #9
           to label %775 unwind label %773
 
 760:                                              ; preds = %.loopexit706
@@ -4652,7 +4652,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br label %759
 
 762:                                              ; preds = %.loopexit706
-  call void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..parser..Parser$GT$17h4c746f4b5c6680bdE"(ptr align 16 %1)
+  call void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..parser..Parser$GT$17h4c746f4b5c6680bdE"(ptr nonnull align 16 %1)
   br label %763
 
 763:                                              ; preds = %772, %762
@@ -4696,7 +4696,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nocapture writeonly align 8 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i8, align 1
   %4 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -4718,11 +4718,11 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7
   %.sroa.634 = alloca [5 x i64], align 8
   %20 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %21 = alloca { i64, i64, i64, i64 }, align 8
-  %22 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1), !noalias !95
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %21, ptr align 16 %22, ptr align 16 %1)
+  %22 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1), !noalias !95
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %21, ptr align 16 %22, ptr nonnull align 16 %1)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  call void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %18, ptr align 16 %1), !noalias !98
+  call void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %18, ptr nonnull align 16 %1), !noalias !98
   %23 = load i64, ptr %18, align 16, !range !3, !noalias !98, !noundef !4
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %25, label %_ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit
@@ -4817,7 +4817,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit: ; pre
   br i1 %51, label %52, label %.thread.i
 
 52:                                               ; preds = %.noexc
-  invoke void @"_ZN14cranelift_isle6parser6Parser12str_to_ident28_$u7b$$u7b$closure$u7d$$u7d$17h5698020375a964f8E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %4, ptr align 16 %1, ptr nonnull align 8 %21)
+  invoke void @"_ZN14cranelift_isle6parser6Parser12str_to_ident28_$u7b$$u7b$closure$u7d$$u7d$17h5698020375a964f8E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %4, ptr nonnull align 16 %1, ptr nonnull align 8 %21)
           to label %.noexc22 unwind label %76
 
 .noexc22:                                         ; preds = %52
@@ -4882,7 +4882,7 @@ switch.early.test.i:                              ; preds = %.noexc23
           to label %.noexc27 unwind label %76
 
 .noexc27:                                         ; preds = %.noexc26
-  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %15, ptr align 16 %1, ptr nonnull align 8 %14, ptr nonnull align 8 %13)
+  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %15, ptr nonnull align 16 %1, ptr nonnull align 8 %14, ptr nonnull align 8 %13)
           to label %.noexc28 unwind label %76
 
 .noexc28:                                         ; preds = %.noexc27
@@ -4925,7 +4925,7 @@ switch.early.test.i:                              ; preds = %.noexc23
           to label %.noexc31 unwind label %76
 
 .noexc31:                                         ; preds = %.noexc30
-  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %9, ptr align 16 %1, ptr nonnull align 8 %8, ptr nonnull align 8 %7)
+  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %9, ptr nonnull align 16 %1, ptr nonnull align 8 %8, ptr nonnull align 8 %7)
           to label %.noexc32 unwind label %76
 
 .noexc32:                                         ; preds = %.noexc31
@@ -4976,16 +4976,16 @@ switch.early.test.i:                              ; preds = %.noexc23
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias nocapture writeonly align 8 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { i64, [8 x i64] }, align 8
   %7 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, i64, i64, i64 } }, align 8
   %8 = alloca { i64, i64, i64, i64 }, align 8
-  %9 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1), !noalias !105
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %8, ptr align 16 %9, ptr align 16 %1)
-  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %6, ptr align 16 %1)
+  %9 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1), !noalias !105
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %8, ptr align 16 %9, ptr nonnull align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %6, ptr align 16 %1)
   %10 = load i64, ptr %6, align 8, !range !9, !noundef !4
   %11 = icmp eq i64 %10, -9223372036854775808
   %12 = getelementptr inbounds i8, ptr %6, i64 8
@@ -5070,7 +5070,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39
   store ptr %42, ptr %.sroa.237.0..sroa_idx, align 8
   %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i64 48, ptr %.sroa.338.0..sroa_idx, align 8
-  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %5, ptr align 16 %1, ptr nonnull align 8 %8, ptr nonnull align 8 %4)
+  invoke void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %5, ptr nonnull align 16 %1, ptr nonnull align 8 %8, ptr nonnull align 8 %4)
           to label %44 unwind label %20
 
 44:                                               ; preds = %40
@@ -5091,7 +5091,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias writeonly align 16 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias nonnull writeonly align 16 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [9 x i64] }, align 16
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [9 x i64] }, align 16
@@ -5119,19 +5119,19 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h
   %26 = alloca { i64, [8 x i64] }, align 8
   %27 = alloca { i64, [8 x i64] }, align 8
   %28 = alloca { i64, i64, i64, i64 }, align 8
-  %29 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1), !noalias !108
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %28, ptr align 16 %29, ptr align 16 %1)
-  %30 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h39637a1c2359a2eeE(ptr align 16 %1)
+  %29 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1), !noalias !108
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %28, ptr align 16 %29, ptr nonnull align 16 %1)
+  %30 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h39637a1c2359a2eeE(ptr nonnull align 16 %1)
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %2
-  %32 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f349E(ptr align 16 %1)
+  %32 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f349E(ptr nonnull align 16 %1)
   br i1 %32, label %52, label %46
 
 33:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %5, ptr align 16 %1), !noalias !111
+  call void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %5, ptr nonnull align 16 %1), !noalias !111
   %34 = load i64, ptr %5, align 16, !range !3, !noalias !111, !noundef !4
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %173
@@ -5172,7 +5172,7 @@ common.resume:                                    ; preds = %118, %126, %.body, 
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.40, ptr %4, align 8, !noalias !114
   %47 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %47, align 8, !noalias !114
-  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr align 16 %1, ptr nonnull align 8 %4), !noalias !114
+  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr nonnull align 16 %1, ptr nonnull align 8 %4), !noalias !114
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h003f391f5593a7f2E"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %26, ptr nonnull align 16 %3)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -5183,7 +5183,7 @@ common.resume:                                    ; preds = %118, %126, %.body, 
   br i1 %49, label %56, label %58
 
 52:                                               ; preds = %31
-  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias nonnull align 8 %27, ptr align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias align 8 %27, ptr align 16 %1)
   %53 = load i64, ptr %27, align 8, !range !9, !noundef !4
   %54 = icmp eq i64 %53, -9223372036854775808
   %55 = getelementptr inbounds i8, ptr %27, i64 8
@@ -5205,7 +5205,7 @@ common.resume:                                    ; preds = %118, %126, %.body, 
   br label %78
 
 60:                                               ; preds = %56
-  %61 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h5a57535aabd81906E(ptr align 16 %1)
+  %61 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h5a57535aabd81906E(ptr nonnull align 16 %1)
   br i1 %61, label %65, label %63
 
 62:                                               ; preds = %56
@@ -5215,11 +5215,11 @@ common.resume:                                    ; preds = %118, %126, %.body, 
   br label %78
 
 63:                                               ; preds = %60
-  %64 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h3d254db310930c2dE(ptr align 16 %1)
+  %64 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h3d254db310930c2dE(ptr nonnull align 16 %1)
   br i1 %64, label %75, label %69
 
 65:                                               ; preds = %60
-  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %24, ptr align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %24, ptr align 16 %1)
   %66 = load i64, ptr %24, align 8, !range !9, !noundef !4
   %67 = icmp eq i64 %66, -9223372036854775808
   %68 = getelementptr inbounds i8, ptr %24, i64 8
@@ -5237,14 +5237,14 @@ common.resume:                                    ; preds = %118, %126, %.body, 
   store ptr %72, ptr %.sroa.2224.0..sroa_idx, align 8
   %.sroa.3225.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   store i64 18, ptr %.sroa.3225.0..sroa_idx, align 8
-  call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %8, ptr align 16 %1, ptr nonnull align 8 %28, ptr nonnull align 8 %7)
+  call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %8, ptr nonnull align 16 %1, ptr nonnull align 8 %28, ptr nonnull align 8 %7)
   %74 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %74, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
   store i64 8, ptr %0, align 16
   br label %78
 
 75:                                               ; preds = %63
-  call fastcc void @_ZN14cranelift_isle6parser6Parser13expect_lparen17h58444156dff9b7faE(ptr noalias nonnull align 8 %20, ptr align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser13expect_lparen17h58444156dff9b7faE(ptr noalias align 8 %20, ptr align 16 %1)
   %76 = load i64, ptr %20, align 8, !range !9, !noundef !4
   %77 = icmp eq i64 %76, -9223372036854775808
   br i1 %77, label %79, label %84
@@ -5253,7 +5253,7 @@ common.resume:                                    ; preds = %118, %126, %.body, 
   ret void
 
 79:                                               ; preds = %75
-  call fastcc void @_ZN14cranelift_isle6parser6Parser11eat_sym_str17h2e973a9af2b308b8E(ptr noalias nonnull align 8 %19, ptr align 16 %1, ptr nonnull align 1 @anon.e2bdb67530b1810651fe7f9ceb2ed41b.42, i64 3)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser11eat_sym_str17h2e973a9af2b308b8E(ptr noalias align 8 %19, ptr align 16 %1, ptr nonnull align 1 @anon.e2bdb67530b1810651fe7f9ceb2ed41b.42, i64 3)
   %80 = load i64, ptr %19, align 8, !range !9, !noundef !4
   %81 = icmp eq i64 %80, -9223372036854775808
   %82 = getelementptr inbounds i8, ptr %19, i64 8
@@ -5285,7 +5285,7 @@ common.resume:                                    ; preds = %118, %126, %.body, 
   br label %78
 
 90:                                               ; preds = %86
-  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %13, ptr align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %13, ptr align 16 %1)
   %91 = load i64, ptr %13, align 8, !range !9, !noundef !4
   %92 = icmp eq i64 %91, -9223372036854775808
   %93 = getelementptr inbounds i8, ptr %13, i64 8
@@ -5329,7 +5329,7 @@ common.resume:                                    ; preds = %118, %126, %.body, 
   br label %78
 
 102:                                              ; preds = %109, %97
-  %103 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr align 16 %1)
+  %103 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit unwind label %.loopexit291
 
 .loopexit291:                                     ; preds = %105, %109, %102
@@ -5351,11 +5351,11 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit: ; preds = 
   br i1 %103, label %106, label %105
 
 105:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias nonnull align 16 %11, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %11, ptr align 16 %1)
           to label %107 unwind label %.loopexit291
 
 106:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias nonnull align 8 %9, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %9, ptr align 16 %1)
           to label %113 unwind label %.loopexit.split-lp292
 
 107:                                              ; preds = %105
@@ -5423,7 +5423,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit: ; preds = 
   unreachable
 
 124:                                              ; preds = %131, %94
-  %125 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr align 16 %1)
+  %125 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit244 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %127, %131, %124
@@ -5445,11 +5445,11 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit244: ; preds
   br i1 %125, label %128, label %127
 
 127:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit244
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias nonnull align 16 %17, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %17, ptr align 16 %1)
           to label %129 unwind label %.loopexit
 
 128:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit244
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias nonnull align 8 %15, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13expect_rparen17h23a911f69f7d4e01E(ptr noalias align 8 %15, ptr align 16 %1)
           to label %135 unwind label %.loopexit.split-lp
 
 129:                                              ; preds = %127
@@ -5496,7 +5496,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit244: ; preds
 
 140:                                              ; preds = %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %68, i64 56, i1 false)
-  %141 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h34a1584d01f4eea7E(ptr align 16 %1)
+  %141 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h34a1584d01f4eea7E(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser5is_at17hb25754fbfb5b8d28E.exit unwind label %144
 
 142:                                              ; preds = %65
@@ -5533,7 +5533,7 @@ _ZN14cranelift_isle6parser6Parser5is_at17hb25754fbfb5b8d28E.exit: ; preds = %140
   br label %78
 
 147:                                              ; preds = %_ZN14cranelift_isle6parser6Parser5is_at17hb25754fbfb5b8d28E.exit
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser9expect_at17h6f201635bfcdf219E(ptr noalias nonnull align 8 %23, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser9expect_at17h6f201635bfcdf219E(ptr noalias align 8 %23, ptr align 16 %1)
           to label %148 unwind label %144
 
 148:                                              ; preds = %147
@@ -5542,7 +5542,7 @@ _ZN14cranelift_isle6parser6Parser5is_at17hb25754fbfb5b8d28E.exit: ; preds = %140
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %148
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias nonnull align 16 %22, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser13parse_pattern17h8a821dd40cfe3820E(ptr noalias align 16 %22, ptr align 16 %1)
           to label %154 unwind label %144
 
 152:                                              ; preds = %148
@@ -5655,7 +5655,7 @@ _ZN14cranelift_isle6parser6Parser5is_at17hb25754fbfb5b8d28E.exit: ; preds = %140
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nocapture writeonly align 16 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nocapture nonnull writeonly align 16 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [9 x i64] }, align 16
   %4 = alloca { i64, [9 x i64] }, align 16
   %5 = alloca { ptr, i64 }, align 8
@@ -5674,9 +5674,9 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
   %18 = alloca { i64, [15 x i64] }, align 16
   %19 = alloca { i64, [8 x i64] }, align 8
   %20 = alloca { i64, i64, i64, i64 }, align 8
-  %21 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1), !noalias !117
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %20, ptr align 16 %21, ptr align 16 %1)
-  %22 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h3d254db310930c2dE(ptr align 16 %1)
+  %21 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1), !noalias !117
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %20, ptr align 16 %21, ptr nonnull align 16 %1)
+  %22 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h3d254db310930c2dE(ptr nonnull align 16 %1)
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %2
@@ -5685,7 +5685,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.45, ptr %8, align 8, !noalias !120
   %24 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 2, ptr %24, align 8, !noalias !120
-  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %7, ptr align 16 %1, ptr nonnull align 8 %8), !noalias !120
+  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %7, ptr nonnull align 16 %1, ptr nonnull align 8 %8), !noalias !120
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h003f391f5593a7f2E"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %15, ptr nonnull align 16 %7)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -5697,7 +5697,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
 
 29:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %6, ptr align 16 %1), !noalias !123
+  call void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %6, ptr nonnull align 16 %1), !noalias !123
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8bfbdbb287f8451cE"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %19, ptr nonnull align 16 %6)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   %30 = load i64, ptr %19, align 8, !range !9, !noundef !4
@@ -5725,7 +5725,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.46, ptr %5, align 8, !noalias !126
   %37 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 2, ptr %37, align 8, !noalias !126
-  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %4, ptr align 16 %1, ptr nonnull align 8 %5), !noalias !126
+  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %4, ptr nonnull align 16 %1, ptr nonnull align 8 %5), !noalias !126
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h003f391f5593a7f2E"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %14, ptr nonnull align 16 %4)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -5759,7 +5759,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
   br label %71
 
 47:                                               ; preds = %43
-  %48 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f349E(ptr align 16 %1)
+  %48 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f349E(ptr nonnull align 16 %1)
   br i1 %48, label %52, label %50
 
 49:                                               ; preds = %43
@@ -5771,22 +5771,22 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
   br label %71
 
 50:                                               ; preds = %47
-  %51 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h5a57535aabd81906E(ptr align 16 %1)
+  %51 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h5a57535aabd81906E(ptr nonnull align 16 %1)
   br i1 %51, label %58, label %56
 
 52:                                               ; preds = %47
-  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias nonnull align 8 %13, ptr align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias align 8 %13, ptr align 16 %1)
   %53 = load i64, ptr %13, align 8, !range !9, !noundef !4
   %54 = icmp eq i64 %53, -9223372036854775808
   %55 = getelementptr inbounds i8, ptr %13, i64 8
   br i1 %54, label %81, label %82
 
 56:                                               ; preds = %50
-  %57 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h39637a1c2359a2eeE(ptr align 16 %1)
+  %57 = call zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h39637a1c2359a2eeE(ptr nonnull align 16 %1)
   br i1 %57, label %68, label %62
 
 58:                                               ; preds = %50
-  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %12, ptr align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %12, ptr align 16 %1)
   %59 = load i64, ptr %12, align 8, !range !9, !noundef !4
   %60 = icmp eq i64 %59, -9223372036854775808
   %61 = getelementptr inbounds i8, ptr %12, i64 8
@@ -5804,14 +5804,14 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
   store ptr %65, ptr %.sroa.2155.0..sroa_idx, align 8
   %.sroa.3156.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
   store i64 18, ptr %.sroa.3156.0..sroa_idx, align 8
-  call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %10, ptr align 16 %1, ptr nonnull align 8 %20, ptr nonnull align 8 %9)
+  call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %10, ptr nonnull align 16 %1, ptr nonnull align 8 %20, ptr nonnull align 8 %9)
   %67 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %67, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   store i64 5, ptr %0, align 16
   br label %71
 
 68:                                               ; preds = %56
-  call fastcc void @_ZN14cranelift_isle6parser6Parser10expect_int17he5731ed33c5076eeE(ptr noalias nonnull align 16 %11, ptr align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser10expect_int17he5731ed33c5076eeE(ptr noalias align 16 %11, ptr align 16 %1)
   %69 = load i64, ptr %11, align 16, !range !3, !noundef !4
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %72, label %75
@@ -5885,7 +5885,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
   br label %71
 
 84:                                               ; preds = %29
-  call fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias nonnull align 16 %17, ptr align 16 %1, ptr nonnull align 8 %20)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias align 16 %17, ptr align 16 %1, ptr align 8 %20)
   %85 = load i64, ptr %17, align 16, !range !69, !noundef !4
   %.not = icmp eq i64 %85, 5
   %86 = getelementptr inbounds i8, ptr %17, i64 8
@@ -5908,7 +5908,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.211.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %86, i64 72, i1 false)
   store i64 %85, ptr %18, align 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr nonnull align 16 %1)
           to label %.noexc unwind label %92
 
 .noexc:                                           ; preds = %89
@@ -5958,7 +5958,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias nocapture writeonly align 16 %0, ptr align 16 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias nocapture nonnull writeonly align 16 %0, ptr nonnull align 16 %1, ptr nocapture nonnull readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [9 x i64] }, align 16
   %5 = alloca { i64, [9 x i64] }, align 16
   %6 = alloca { i64, [9 x i64] }, align 16
@@ -5996,7 +5996,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner
   store ptr @anon.e2bdb67530b1810651fe7f9ceb2ed41b.48, ptr %19, align 8, !noalias !129
   %32 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 3, ptr %32, align 8, !noalias !129
-  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %18, ptr align 16 %1, ptr nonnull align 8 %19), !noalias !129
+  call void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %18, ptr nonnull align 16 %1, ptr nonnull align 8 %19), !noalias !129
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h003f391f5593a7f2E"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %31, ptr nonnull align 16 %18)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
@@ -6022,7 +6022,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner
   br label %68
 
 41:                                               ; preds = %37
-  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %23, ptr align 16 %1)
+  call fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %23, ptr align 16 %1)
   %42 = load i64, ptr %23, align 8, !range !9, !noundef !4
   %43 = icmp eq i64 %42, -9223372036854775808
   %44 = getelementptr inbounds i8, ptr %23, i64 8
@@ -6030,7 +6030,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner
 
 45:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17)
-  call void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %17, ptr align 16 %1), !noalias !132
+  call void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %17, ptr nonnull align 16 %1), !noalias !132
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8bfbdbb287f8451cE"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %30, ptr nonnull align 16 %17)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17)
   %46 = load i64, ptr %30, align 8, !range !9, !noundef !4
@@ -6063,7 +6063,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner
   br label %68
 
 53:                                               ; preds = %61, %48
-  %54 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr align 16 %1)
+  %54 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit unwind label %55
 
 55:                                               ; preds = %53, %61, %57
@@ -6076,7 +6076,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit: ; preds = 
   br i1 %54, label %58, label %57
 
 57:                                               ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nonnull align 16 %21, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %21, ptr align 16 %1)
           to label %59 unwind label %55
 
 58:                                               ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit
@@ -6174,7 +6174,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit: ; preds = 
   br label %68
 
 79:                                               ; preds = %119, %72
-  %80 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr align 16 %1)
+  %80 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc316, %.noexc, %119, %79, %85, %81, %.noexc124
@@ -6207,16 +6207,16 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %82 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
+  %82 = invoke align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr nonnull align 16 %1)
           to label %.noexc124 unwind label %.loopexit
 
 .noexc124:                                        ; preds = %81
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %16, ptr align 16 %82, ptr align 16 %1)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h28ee0f6b7529cdb0E"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %16, ptr align 16 %82, ptr nonnull align 16 %1)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.noexc124
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %4, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %4, ptr nonnull align 16 %1)
           to label %.noexc316 unwind label %.loopexit
 
 .noexc316:                                        ; preds = %.noexc
@@ -6230,7 +6230,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %.noexc114
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %13, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %13, ptr align 16 %1)
           to label %.noexc115 unwind label %.loopexit
 
 .noexc115:                                        ; preds = %85
@@ -6247,7 +6247,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
 
 89:                                               ; preds = %.noexc115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %75, i64 56, i1 false)
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull align 8 %11, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias align 8 %11, ptr align 16 %1)
           to label %92 unwind label %.loopexit224
 
 90:                                               ; preds = %.noexc115
@@ -6278,7 +6278,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
 
 95:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %76, i64 56, i1 false)
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nonnull align 16 %9, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %9, ptr align 16 %1)
           to label %97 unwind label %.loopexit229
 
 96:                                               ; preds = %92
@@ -6334,7 +6334,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %100, ptr noundef nonnull align 16 dereferenceable(128) %8, i64 128, i1 false)
   store ptr %100, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %5, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %5, ptr nonnull align 16 %1)
           to label %.noexc121 unwind label %106
 
 .noexc121:                                        ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h99cdc20299ab8918E.exit.i"
@@ -6385,7 +6385,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
 
 116:                                              ; preds = %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %6, ptr align 16 %1)
+  invoke void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %6, ptr nonnull align 16 %1)
           to label %.noexc119 unwind label %.loopexit.split-lp
 
 .noexc119:                                        ; preds = %116
@@ -6466,7 +6466,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %122
-  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nonnull align 16 %26, ptr align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias align 16 %26, ptr align 16 %1)
           to label %128 unwind label %.loopexit.split-lp
 
 126:                                              ; preds = %122

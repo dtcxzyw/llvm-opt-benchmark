@@ -171,11 +171,11 @@ invoke.cont:                                      ; preds = %_ZN4absl12lts_20230
   %3 = load i64, ptr %agg.tmp, align 8
   %and.i.i.i3 = and i64 %3, 1
   %cmp.i.i.i4 = icmp eq i64 %and.i.i.i3, 0
-  br i1 %cmp.i.i.i4, label %if.end.i.i, label %if.then.i.i5
+  br i1 %cmp.i.i.i4, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %invoke.cont
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %3)
-          to label %if.end.i.i unwind label %terminate.lpad.i
+          to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i5
   %4 = landingpad { ptr, i32 }
@@ -184,7 +184,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i5
   call void @__clang_call_terminate(ptr %5) #14
   unreachable
 
-if.end.i.i:                                       ; preds = %if.then.i.i5, %invoke.cont
+_ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.then.i.i5
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
   %7 = load ptr, ptr %6, align 8
   %closure_list_.i.i = getelementptr inbounds i8, ptr %7, i64 8
@@ -193,13 +193,13 @@ if.end.i.i:                                       ; preds = %if.then.i.i5, %invo
   %cmp1.i.i = icmp eq ptr %8, null
   br i1 %cmp1.i.i, label %_ZL14exec_ctx_schedP12grpc_closure.exit, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %if.end.i.i
+if.else.i.i:                                      ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
   %tail.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %tail.i.i, align 8
   br label %_ZL14exec_ctx_schedP12grpc_closure.exit
 
-_ZL14exec_ctx_schedP12grpc_closure.exit:          ; preds = %if.end.i.i, %if.else.i.i
-  %.sink.i.i = phi ptr [ %9, %if.else.i.i ], [ %closure_list_.i.i, %if.end.i.i ]
+_ZL14exec_ctx_schedP12grpc_closure.exit:          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.else.i.i
+  %.sink.i.i = phi ptr [ %9, %if.else.i.i ], [ %closure_list_.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   store ptr %closure, ptr %.sink.i.i, align 8
   %tail6.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %closure, ptr %tail6.i.i, align 8
@@ -247,14 +247,14 @@ define void @_ZN9grpc_core7ExecCtx7RunListERKNS_13DebugLocationEP17grpc_closure_
 entry:
   %0 = load ptr, ptr %list, align 8
   %cmp.not5 = icmp eq ptr %0, null
-  br i1 %cmp.not5, label %while.end, label %if.end.i.i.lr.ph
+  br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
-if.end.i.i.lr.ph:                                 ; preds = %entry
+while.body.lr.ph:                                 ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
-  br label %if.end.i.i
+  br label %while.body
 
-if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %_ZL14exec_ctx_schedP12grpc_closure.exit
-  %c.06 = phi ptr [ %0, %if.end.i.i.lr.ph ], [ %2, %_ZL14exec_ctx_schedP12grpc_closure.exit ]
+while.body:                                       ; preds = %while.body.lr.ph, %_ZL14exec_ctx_schedP12grpc_closure.exit
+  %c.06 = phi ptr [ %0, %while.body.lr.ph ], [ %2, %_ZL14exec_ctx_schedP12grpc_closure.exit ]
   %2 = load ptr, ptr %c.06, align 8
   %3 = load ptr, ptr %1, align 8
   %closure_list_.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -263,18 +263,18 @@ if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %
   %cmp1.i.i = icmp eq ptr %4, null
   br i1 %cmp1.i.i, label %_ZL14exec_ctx_schedP12grpc_closure.exit, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %if.end.i.i
+if.else.i.i:                                      ; preds = %while.body
   %tail.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %tail.i.i, align 8
   br label %_ZL14exec_ctx_schedP12grpc_closure.exit
 
-_ZL14exec_ctx_schedP12grpc_closure.exit:          ; preds = %if.end.i.i, %if.else.i.i
-  %.sink.i.i = phi ptr [ %5, %if.else.i.i ], [ %closure_list_.i.i, %if.end.i.i ]
+_ZL14exec_ctx_schedP12grpc_closure.exit:          ; preds = %while.body, %if.else.i.i
+  %.sink.i.i = phi ptr [ %5, %if.else.i.i ], [ %closure_list_.i.i, %while.body ]
   store ptr %c.06, ptr %.sink.i.i, align 8
   %tail6.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %c.06, ptr %tail6.i.i, align 8
   %cmp.not = icmp eq ptr %2, null
-  br i1 %cmp.not, label %while.end, label %if.end.i.i, !llvm.loop !7
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %_ZL14exec_ctx_schedP12grpc_closure.exit, %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list, i8 0, i64 16, i1 false)

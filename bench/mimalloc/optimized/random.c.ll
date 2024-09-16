@@ -320,139 +320,139 @@ entry:
   br label %for.body5
 
 for.cond16.preheader:                             ; preds = %for.body5
-  store i32 %or.i44.i127, ptr %arrayidx.i, align 16
+  store i32 %or.i38.i127, ptr %arrayidx.i, align 16
   store i32 %add15.i74, ptr %x, align 16
-  store i32 %or.i41.i92, ptr %arrayidx2.i, align 16
+  store i32 %or.i37.i92, ptr %arrayidx2.i, align 16
   store i32 %add23.i109, ptr %arrayidx6.i, align 16
-  store i32 %or.i44.i79, ptr %arrayidx.i17, align 4
+  store i32 %or.i38.i79, ptr %arrayidx.i17, align 4
   store i32 %add15.i90, ptr %arrayidx1.i, align 4
-  store i32 %or.i41.i108, ptr %arrayidx2.i19, align 4
+  store i32 %or.i37.i108, ptr %arrayidx2.i19, align 4
   store i32 %add23.i125, ptr %arrayidx6.i22, align 4
-  store i32 %or.i44.i95, ptr %arrayidx.i32, align 8
+  store i32 %or.i38.i95, ptr %arrayidx.i32, align 8
   store i32 %add15.i106, ptr %arrayidx1.i33, align 8
-  store i32 %or.i41.i124, ptr %arrayidx2.i35, align 8
+  store i32 %or.i37.i124, ptr %arrayidx2.i35, align 8
   store i32 %add23.i77, ptr %arrayidx6.i38, align 8
-  store i32 %or.i44.i111, ptr %arrayidx.i48, align 4
+  store i32 %or.i38.i111, ptr %arrayidx.i48, align 4
   store i32 %add15.i122, ptr %arrayidx1.i49, align 4
-  store i32 %or.i41.i76, ptr %arrayidx2.i51, align 4
+  store i32 %or.i37.i76, ptr %arrayidx2.i51, align 4
   store i32 %add23.i93, ptr %arrayidx6.i54, align 4
   %output = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %for.body18
 
 for.body5:                                        ; preds = %entry, %for.body5
   %i2.0145 = phi i64 [ 0, %entry ], [ %add, %for.body5 ]
-  %0 = phi i32 [ %arrayidx.i.promoted, %entry ], [ %or.i44.i127, %for.body5 ]
-  %add.i66129144 = phi i32 [ %x.promoted, %entry ], [ %add15.i74, %for.body5 ]
-  %1 = phi i32 [ %arrayidx2.i.promoted, %entry ], [ %or.i41.i92, %for.body5 ]
+  %0 = phi i32 [ %arrayidx.i.promoted, %entry ], [ %or.i38.i127, %for.body5 ]
+  %add15.i74129144 = phi i32 [ %x.promoted, %entry ], [ %add15.i74, %for.body5 ]
+  %1 = phi i32 [ %arrayidx2.i.promoted, %entry ], [ %or.i37.i92, %for.body5 ]
   %2 = phi i32 [ %arrayidx6.i.promoted, %entry ], [ %add23.i109, %for.body5 ]
-  %3 = phi i32 [ %arrayidx.i17.promoted, %entry ], [ %or.i44.i79, %for.body5 ]
+  %3 = phi i32 [ %arrayidx.i17.promoted, %entry ], [ %or.i38.i79, %for.body5 ]
   %4 = phi i32 [ %arrayidx1.i.promoted, %entry ], [ %add15.i90, %for.body5 ]
-  %5 = phi i32 [ %arrayidx2.i19.promoted, %entry ], [ %or.i41.i108, %for.body5 ]
+  %5 = phi i32 [ %arrayidx2.i19.promoted, %entry ], [ %or.i37.i108, %for.body5 ]
   %6 = phi i32 [ %arrayidx6.i22.promoted, %entry ], [ %add23.i125, %for.body5 ]
-  %7 = phi i32 [ %arrayidx.i32.promoted, %entry ], [ %or.i44.i95, %for.body5 ]
+  %7 = phi i32 [ %arrayidx.i32.promoted, %entry ], [ %or.i38.i95, %for.body5 ]
   %8 = phi i32 [ %arrayidx1.i33.promoted, %entry ], [ %add15.i106, %for.body5 ]
-  %9 = phi i32 [ %arrayidx2.i35.promoted, %entry ], [ %or.i41.i124, %for.body5 ]
+  %9 = phi i32 [ %arrayidx2.i35.promoted, %entry ], [ %or.i37.i124, %for.body5 ]
   %10 = phi i32 [ %arrayidx6.i38.promoted, %entry ], [ %add23.i77, %for.body5 ]
-  %11 = phi i32 [ %arrayidx.i48.promoted, %entry ], [ %or.i44.i111, %for.body5 ]
+  %11 = phi i32 [ %arrayidx.i48.promoted, %entry ], [ %or.i38.i111, %for.body5 ]
   %12 = phi i32 [ %arrayidx1.i49.promoted, %entry ], [ %add15.i122, %for.body5 ]
-  %13 = phi i32 [ %arrayidx2.i51.promoted, %entry ], [ %or.i41.i76, %for.body5 ]
+  %13 = phi i32 [ %arrayidx2.i51.promoted, %entry ], [ %or.i37.i76, %for.body5 ]
   %14 = phi i32 [ %arrayidx6.i54.promoted, %entry ], [ %add23.i93, %for.body5 ]
-  %add.i = add i32 %add.i66129144, %0
+  %add.i = add i32 %add15.i74129144, %0
   %xor.i = xor i32 %1, %add.i
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %xor.i, i32 %xor.i, i32 16)
-  %add7.i = add i32 %2, %or.i.i
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i, i32 %xor.i, i32 16)
+  %add7.i = add i32 %or.i.i, %2
   %xor10.i = xor i32 %add7.i, %0
-  %or.i38.i = tail call i32 @llvm.fshl.i32(i32 %xor10.i, i32 %xor10.i, i32 12)
-  %add15.i = add i32 %or.i38.i, %add.i
+  %or.i36.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor10.i, i32 %xor10.i, i32 12)
+  %add15.i = add i32 %or.i36.i, %add.i
   %xor18.i = xor i32 %add15.i, %or.i.i
-  %or.i41.i = tail call i32 @llvm.fshl.i32(i32 %xor18.i, i32 %xor18.i, i32 8)
-  %add23.i = add i32 %or.i41.i, %add7.i
-  %xor26.i = xor i32 %add23.i, %or.i38.i
-  %or.i44.i = tail call i32 @llvm.fshl.i32(i32 %xor26.i, i32 %xor26.i, i32 7)
+  %or.i37.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor18.i, i32 %xor18.i, i32 8)
+  %add23.i = add i32 %or.i37.i, %add7.i
+  %xor26.i = xor i32 %add23.i, %or.i36.i
+  %or.i38.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i, i32 %xor26.i, i32 7)
   %add.i18 = add i32 %4, %3
   %xor.i20 = xor i32 %5, %add.i18
-  %or.i.i21 = tail call i32 @llvm.fshl.i32(i32 %xor.i20, i32 %xor.i20, i32 16)
-  %add7.i23 = add i32 %6, %or.i.i21
+  %or.i.i21 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i20, i32 %xor.i20, i32 16)
+  %add7.i23 = add i32 %or.i.i21, %6
   %xor10.i24 = xor i32 %add7.i23, %3
-  %or.i38.i25 = tail call i32 @llvm.fshl.i32(i32 %xor10.i24, i32 %xor10.i24, i32 12)
-  %add15.i26 = add i32 %or.i38.i25, %add.i18
+  %or.i36.i25 = tail call noundef i32 @llvm.fshl.i32(i32 %xor10.i24, i32 %xor10.i24, i32 12)
+  %add15.i26 = add i32 %or.i36.i25, %add.i18
   %xor18.i27 = xor i32 %add15.i26, %or.i.i21
-  %or.i41.i28 = tail call i32 @llvm.fshl.i32(i32 %xor18.i27, i32 %xor18.i27, i32 8)
-  %add23.i29 = add i32 %or.i41.i28, %add7.i23
-  %xor26.i30 = xor i32 %add23.i29, %or.i38.i25
-  %or.i44.i31 = tail call i32 @llvm.fshl.i32(i32 %xor26.i30, i32 %xor26.i30, i32 7)
+  %or.i37.i28 = tail call noundef i32 @llvm.fshl.i32(i32 %xor18.i27, i32 %xor18.i27, i32 8)
+  %add23.i29 = add i32 %or.i37.i28, %add7.i23
+  %xor26.i30 = xor i32 %add23.i29, %or.i36.i25
+  %or.i38.i31 = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i30, i32 %xor26.i30, i32 7)
   %add.i34 = add i32 %8, %7
   %xor.i36 = xor i32 %9, %add.i34
-  %or.i.i37 = tail call i32 @llvm.fshl.i32(i32 %xor.i36, i32 %xor.i36, i32 16)
-  %add7.i39 = add i32 %10, %or.i.i37
+  %or.i.i37 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i36, i32 %xor.i36, i32 16)
+  %add7.i39 = add i32 %or.i.i37, %10
   %xor10.i40 = xor i32 %add7.i39, %7
-  %or.i38.i41 = tail call i32 @llvm.fshl.i32(i32 %xor10.i40, i32 %xor10.i40, i32 12)
-  %add15.i42 = add i32 %or.i38.i41, %add.i34
+  %or.i36.i41 = tail call noundef i32 @llvm.fshl.i32(i32 %xor10.i40, i32 %xor10.i40, i32 12)
+  %add15.i42 = add i32 %or.i36.i41, %add.i34
   %xor18.i43 = xor i32 %add15.i42, %or.i.i37
-  %or.i41.i44 = tail call i32 @llvm.fshl.i32(i32 %xor18.i43, i32 %xor18.i43, i32 8)
-  %add23.i45 = add i32 %or.i41.i44, %add7.i39
-  %xor26.i46 = xor i32 %add23.i45, %or.i38.i41
-  %or.i44.i47 = tail call i32 @llvm.fshl.i32(i32 %xor26.i46, i32 %xor26.i46, i32 7)
+  %or.i37.i44 = tail call noundef i32 @llvm.fshl.i32(i32 %xor18.i43, i32 %xor18.i43, i32 8)
+  %add23.i45 = add i32 %or.i37.i44, %add7.i39
+  %xor26.i46 = xor i32 %add23.i45, %or.i36.i41
+  %or.i38.i47 = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i46, i32 %xor26.i46, i32 7)
   %add.i50 = add i32 %12, %11
   %xor.i52 = xor i32 %13, %add.i50
-  %or.i.i53 = tail call i32 @llvm.fshl.i32(i32 %xor.i52, i32 %xor.i52, i32 16)
-  %add7.i55 = add i32 %14, %or.i.i53
+  %or.i.i53 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i52, i32 %xor.i52, i32 16)
+  %add7.i55 = add i32 %or.i.i53, %14
   %xor10.i56 = xor i32 %add7.i55, %11
-  %or.i38.i57 = tail call i32 @llvm.fshl.i32(i32 %xor10.i56, i32 %xor10.i56, i32 12)
-  %add15.i58 = add i32 %or.i38.i57, %add.i50
+  %or.i36.i57 = tail call noundef i32 @llvm.fshl.i32(i32 %xor10.i56, i32 %xor10.i56, i32 12)
+  %add15.i58 = add i32 %or.i36.i57, %add.i50
   %xor18.i59 = xor i32 %add15.i58, %or.i.i53
-  %or.i41.i60 = tail call i32 @llvm.fshl.i32(i32 %xor18.i59, i32 %xor18.i59, i32 8)
-  %add23.i61 = add i32 %or.i41.i60, %add7.i55
-  %xor26.i62 = xor i32 %add23.i61, %or.i38.i57
-  %or.i44.i63 = tail call i32 @llvm.fshl.i32(i32 %xor26.i62, i32 %xor26.i62, i32 7)
-  %add.i66 = add i32 %or.i44.i31, %add15.i
-  %xor.i68 = xor i32 %or.i41.i60, %add.i66
-  %or.i.i69 = tail call i32 @llvm.fshl.i32(i32 %xor.i68, i32 %xor.i68, i32 16)
+  %or.i37.i60 = tail call noundef i32 @llvm.fshl.i32(i32 %xor18.i59, i32 %xor18.i59, i32 8)
+  %add23.i61 = add i32 %or.i37.i60, %add7.i55
+  %xor26.i62 = xor i32 %add23.i61, %or.i36.i57
+  %or.i38.i63 = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i62, i32 %xor26.i62, i32 7)
+  %add.i66 = add i32 %or.i38.i31, %add15.i
+  %xor.i68 = xor i32 %or.i37.i60, %add.i66
+  %or.i.i69 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i68, i32 %xor.i68, i32 16)
   %add7.i71 = add i32 %or.i.i69, %add23.i45
-  %xor10.i72 = xor i32 %add7.i71, %or.i44.i31
-  %or.i38.i73 = tail call i32 @llvm.fshl.i32(i32 %xor10.i72, i32 %xor10.i72, i32 12)
-  %add15.i74 = add i32 %or.i38.i73, %add.i66
+  %xor10.i72 = xor i32 %add7.i71, %or.i38.i31
+  %or.i36.i73 = tail call noundef i32 @llvm.fshl.i32(i32 %xor10.i72, i32 %xor10.i72, i32 12)
+  %add15.i74 = add i32 %or.i36.i73, %add.i66
   %xor18.i75 = xor i32 %add15.i74, %or.i.i69
-  %or.i41.i76 = tail call i32 @llvm.fshl.i32(i32 %xor18.i75, i32 %xor18.i75, i32 8)
-  %add23.i77 = add i32 %or.i41.i76, %add7.i71
-  %xor26.i78 = xor i32 %add23.i77, %or.i38.i73
-  %or.i44.i79 = tail call i32 @llvm.fshl.i32(i32 %xor26.i78, i32 %xor26.i78, i32 7)
-  %add.i82 = add i32 %or.i44.i47, %add15.i26
-  %xor.i84 = xor i32 %add.i82, %or.i41.i
-  %or.i.i85 = tail call i32 @llvm.fshl.i32(i32 %xor.i84, i32 %xor.i84, i32 16)
+  %or.i37.i76 = tail call noundef i32 @llvm.fshl.i32(i32 %xor18.i75, i32 %xor18.i75, i32 8)
+  %add23.i77 = add i32 %or.i37.i76, %add7.i71
+  %xor26.i78 = xor i32 %add23.i77, %or.i36.i73
+  %or.i38.i79 = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i78, i32 %xor26.i78, i32 7)
+  %add.i82 = add i32 %or.i38.i47, %add15.i26
+  %xor.i84 = xor i32 %add.i82, %or.i37.i
+  %or.i.i85 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i84, i32 %xor.i84, i32 16)
   %add7.i87 = add i32 %add23.i61, %or.i.i85
-  %xor10.i88 = xor i32 %add7.i87, %or.i44.i47
-  %or.i38.i89 = tail call i32 @llvm.fshl.i32(i32 %xor10.i88, i32 %xor10.i88, i32 12)
-  %add15.i90 = add i32 %or.i38.i89, %add.i82
+  %xor10.i88 = xor i32 %add7.i87, %or.i38.i47
+  %or.i36.i89 = tail call noundef i32 @llvm.fshl.i32(i32 %xor10.i88, i32 %xor10.i88, i32 12)
+  %add15.i90 = add i32 %or.i36.i89, %add.i82
   %xor18.i91 = xor i32 %add15.i90, %or.i.i85
-  %or.i41.i92 = tail call i32 @llvm.fshl.i32(i32 %xor18.i91, i32 %xor18.i91, i32 8)
-  %add23.i93 = add i32 %or.i41.i92, %add7.i87
-  %xor26.i94 = xor i32 %add23.i93, %or.i38.i89
-  %or.i44.i95 = tail call i32 @llvm.fshl.i32(i32 %xor26.i94, i32 %xor26.i94, i32 7)
-  %add.i98 = add i32 %or.i44.i63, %add15.i42
-  %xor.i100 = xor i32 %add.i98, %or.i41.i28
-  %or.i.i101 = tail call i32 @llvm.fshl.i32(i32 %xor.i100, i32 %xor.i100, i32 16)
+  %or.i37.i92 = tail call noundef i32 @llvm.fshl.i32(i32 %xor18.i91, i32 %xor18.i91, i32 8)
+  %add23.i93 = add i32 %or.i37.i92, %add7.i87
+  %xor26.i94 = xor i32 %add23.i93, %or.i36.i89
+  %or.i38.i95 = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i94, i32 %xor26.i94, i32 7)
+  %add.i98 = add i32 %or.i38.i63, %add15.i42
+  %xor.i100 = xor i32 %add.i98, %or.i37.i28
+  %or.i.i101 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i100, i32 %xor.i100, i32 16)
   %add7.i103 = add i32 %or.i.i101, %add23.i
-  %xor10.i104 = xor i32 %add7.i103, %or.i44.i63
-  %or.i38.i105 = tail call i32 @llvm.fshl.i32(i32 %xor10.i104, i32 %xor10.i104, i32 12)
-  %add15.i106 = add i32 %or.i38.i105, %add.i98
+  %xor10.i104 = xor i32 %add7.i103, %or.i38.i63
+  %or.i36.i105 = tail call noundef i32 @llvm.fshl.i32(i32 %xor10.i104, i32 %xor10.i104, i32 12)
+  %add15.i106 = add i32 %or.i36.i105, %add.i98
   %xor18.i107 = xor i32 %add15.i106, %or.i.i101
-  %or.i41.i108 = tail call i32 @llvm.fshl.i32(i32 %xor18.i107, i32 %xor18.i107, i32 8)
-  %add23.i109 = add i32 %or.i41.i108, %add7.i103
-  %xor26.i110 = xor i32 %add23.i109, %or.i38.i105
-  %or.i44.i111 = tail call i32 @llvm.fshl.i32(i32 %xor26.i110, i32 %xor26.i110, i32 7)
-  %add.i114 = add i32 %add15.i58, %or.i44.i
-  %xor.i116 = xor i32 %add.i114, %or.i41.i44
-  %or.i.i117 = tail call i32 @llvm.fshl.i32(i32 %xor.i116, i32 %xor.i116, i32 16)
+  %or.i37.i108 = tail call noundef i32 @llvm.fshl.i32(i32 %xor18.i107, i32 %xor18.i107, i32 8)
+  %add23.i109 = add i32 %or.i37.i108, %add7.i103
+  %xor26.i110 = xor i32 %add23.i109, %or.i36.i105
+  %or.i38.i111 = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i110, i32 %xor26.i110, i32 7)
+  %add.i114 = add i32 %add15.i58, %or.i38.i
+  %xor.i116 = xor i32 %add.i114, %or.i37.i44
+  %or.i.i117 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i116, i32 %xor.i116, i32 16)
   %add7.i119 = add i32 %or.i.i117, %add23.i29
-  %xor10.i120 = xor i32 %add7.i119, %or.i44.i
-  %or.i38.i121 = tail call i32 @llvm.fshl.i32(i32 %xor10.i120, i32 %xor10.i120, i32 12)
-  %add15.i122 = add i32 %or.i38.i121, %add.i114
+  %xor10.i120 = xor i32 %add7.i119, %or.i38.i
+  %or.i36.i121 = tail call noundef i32 @llvm.fshl.i32(i32 %xor10.i120, i32 %xor10.i120, i32 12)
+  %add15.i122 = add i32 %or.i36.i121, %add.i114
   %xor18.i123 = xor i32 %add15.i122, %or.i.i117
-  %or.i41.i124 = tail call i32 @llvm.fshl.i32(i32 %xor18.i123, i32 %xor18.i123, i32 8)
-  %add23.i125 = add i32 %or.i41.i124, %add7.i119
-  %xor26.i126 = xor i32 %add23.i125, %or.i38.i121
-  %or.i44.i127 = tail call i32 @llvm.fshl.i32(i32 %xor26.i126, i32 %xor26.i126, i32 7)
+  %or.i37.i124 = tail call noundef i32 @llvm.fshl.i32(i32 %xor18.i123, i32 %xor18.i123, i32 8)
+  %add23.i125 = add i32 %or.i37.i124, %add7.i119
+  %xor26.i126 = xor i32 %add23.i125, %or.i36.i121
+  %or.i38.i127 = tail call noundef i32 @llvm.fshl.i32(i32 %xor26.i126, i32 %xor26.i126, i32 7)
   %add = add nuw nsw i64 %i2.0145, 2
   %cmp4 = icmp ult i64 %i2.0145, 18
   br i1 %cmp4, label %for.body5, label %for.cond16.preheader, !llvm.loop !9

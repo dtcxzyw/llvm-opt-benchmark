@@ -379,7 +379,7 @@ define void @cvSetWindowProperty(ptr noundef %0, i32 noundef %1, double noundef 
           to label %19 unwind label %27
 
 19:                                               ; preds = %18
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %20 unwind label %29
 
 20:                                               ; preds = %19
@@ -628,7 +628,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN2cv14getWindowMutexEvE14g_window_mutex acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN2cv14getWindowMutexEv.exit, !prof !4
@@ -963,7 +963,7 @@ define double @cvGetWindowProperty(ptr noundef %0, i32 noundef %1) local_unnamed
           to label %18 unwind label %28
 
 18:                                               ; preds = %17
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %19 unwind label %30
 
 19:                                               ; preds = %18
@@ -1188,7 +1188,7 @@ define { i64, i64 } @_ZN2cv18getWindowImageRectERKNSt7__cxx1112basic_stringIcSt1
   br label %80
 
 15:                                               ; preds = %1
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %16 unwind label %26
 
 16:                                               ; preds = %15
@@ -2628,7 +2628,7 @@ define void @_ZN2cv13destroyWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %2 = alloca %"class.cv::utils::trace::details::Region", align 8
   %3 = alloca %"class.std::shared_ptr", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv13destroyWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE25__cv_trace_location_fn490)
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %4 unwind label %11
 
 4:                                                ; preds = %1
@@ -3140,7 +3140,7 @@ define void @_ZN2cv12resizeWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12resizeWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE25__cv_trace_location_fn525)
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %6 unwind label %12
 
 6:                                                ; preds = %3
@@ -3390,7 +3390,7 @@ define void @_ZN2cv10moveWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv10moveWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE25__cv_trace_location_fn560)
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %6 unwind label %12
 
 6:                                                ; preds = %3
@@ -3643,7 +3643,7 @@ define void @_ZN2cv14setWindowTitleERKNSt7__cxx1112basic_stringIcSt11char_traits
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %15
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %19 unwind label %27
 
 19:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -4570,7 +4570,7 @@ define noundef i32 @_ZN2cv14createTrackbarERKNSt7__cxx1112basic_stringIcSt11char
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %64
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %68 unwind label %86
 
 68:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -5613,7 +5613,7 @@ define void @_ZN2cv14setTrackbarPosERKNSt7__cxx1112basic_stringIcSt11char_traits
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %19
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %23 unwind label %33
 
 23:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -6014,7 +6014,7 @@ define void @_ZN2cv14setTrackbarMaxERKNSt7__cxx1112basic_stringIcSt11char_traits
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %20
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %24 unwind label %34
 
 24:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -6428,7 +6428,7 @@ define void @_ZN2cv14setTrackbarMinERKNSt7__cxx1112basic_stringIcSt11char_traits
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %20
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %24 unwind label %34
 
 24:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -6842,7 +6842,7 @@ define noundef i32 @_ZN2cv14getTrackbarPosERKNSt7__cxx1112basic_stringIcSt11char
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %18
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %22 unwind label %32
 
 22:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -7166,7 +7166,7 @@ define void @_ZN2cv16setMouseCallbackERKNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %16
-  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cv4implL11findWindow_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %20 unwind label %28
 
 20:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit

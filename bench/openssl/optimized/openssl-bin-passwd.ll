@@ -290,7 +290,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %3 = phi ptr [ %5, %do.cond ], [ %.pre, %do.body.preheader ]
   %passwds.2 = phi ptr [ %incdec.ptr, %do.cond ], [ %passwds.2.ph, %do.body.preheader ]
   %4 = load ptr, ptr @bio_out, align 8
-  %call98 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef nonnull %salt, ptr noundef nonnull %salt_malloc, ptr noundef %3, ptr noundef %4, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
+  %call98 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef %salt, ptr noundef %salt_malloc, ptr noundef %3, ptr noundef %4, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %end, label %do.cond
 
@@ -327,7 +327,7 @@ land.rhs:                                         ; preds = %do.body116
 if.end127:                                        ; preds = %do.body116, %land.rhs, %if.then114
   %r.1.not = phi i1 [ false, %if.then114 ], [ %cmp119, %land.rhs ], [ %cmp119, %do.body116 ]
   %6 = load ptr, ptr @bio_out, align 8
-  %call128 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef nonnull %salt, ptr noundef nonnull %salt_malloc, ptr noundef %passwd.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
+  %call128 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef %salt, ptr noundef %salt_malloc, ptr noundef %passwd.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
   %tobool129.not = icmp eq i32 %call128, 0
   %brmerge = or i1 %r.1.not, %tobool129.not
   br i1 %brmerge, label %end.loopexit57.split.loop.exit92, label %do.body104
@@ -378,7 +378,7 @@ declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_passwd(i32 noundef %passed_salt, ptr nocapture noundef %salt_p, ptr nocapture noundef %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef %quiet, i32 noundef %table, i32 noundef %reverse, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_passwd(i32 noundef range(i32 0, 2) %passed_salt, ptr nocapture noundef nonnull %salt_p, ptr nocapture noundef nonnull %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef range(i32 0, 2) %quiet, i32 noundef range(i32 0, 2) %table, i32 noundef range(i32 0, 2) %reverse, i32 noundef range(i32 0, 6) %mode) unnamed_addr #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %temp_buf.i = alloca [64 x i8], align 16
@@ -390,7 +390,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %entry
-  %switch.tableidx = add i32 %mode, -1
+  %switch.tableidx = add nsw i32 %mode, -1
   %0 = icmp ult i32 %switch.tableidx, 5
   br i1 %0, label %switch.lookup, label %if.end
 
@@ -402,7 +402,7 @@ switch.lookup:                                    ; preds = %if.then
 
 if.end:                                           ; preds = %switch.lookup, %if.then
   %saltlen.0 = phi i64 [ 0, %if.then ], [ %switch.load, %switch.lookup ]
-  %2 = add i32 %mode, -3
+  %2 = add nsw i32 %mode, -3
   %or.cond2 = icmp ult i32 %2, 2
   %spec.select = select i1 %or.cond2, i64 16, i64 %saltlen.0
   %3 = load ptr, ptr %salt_malloc_p, align 8
@@ -471,7 +471,7 @@ if.end33:                                         ; preds = %if.then30, %if.then
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end33, %if.end24
-  %11 = add i32 %mode, -1
+  %11 = add nsw i32 %mode, -1
   %or.cond3 = icmp ult i32 %11, 2
   br i1 %or.cond3, label %if.end45.thread, label %if.end45
 
@@ -492,7 +492,7 @@ if.then48:                                        ; preds = %if.end45
   br label %if.end61
 
 if.end50:                                         ; preds = %if.end45
-  %14 = add i32 %mode, -3
+  %14 = add nsw i32 %mode, -3
   %or.cond4 = icmp ult i32 %14, 2
   br i1 %or.cond4, label %if.then56, label %if.end61
 

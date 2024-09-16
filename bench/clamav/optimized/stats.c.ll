@@ -127,7 +127,7 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   br label %106
 
 54:                                               ; preds = %49
-  %55 = tail call fastcc ptr @find_sample(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
+  %55 = tail call fastcc ptr @find_sample(ptr noundef %4, ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   %.not139 = icmp eq ptr %55, null
   br i1 %.not139, label %56, label %98
 
@@ -371,7 +371,7 @@ declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @find_sample(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #4 {
+define internal fastcc ptr @find_sample(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %.03563 = load ptr, ptr %6, align 8
   %.not64 = icmp eq ptr %.03563, null

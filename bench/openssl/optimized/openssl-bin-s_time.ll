@@ -645,7 +645,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i64 @time(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @doConnection(ptr noundef %scon, ptr noundef %host, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc noundef ptr @doConnection(ptr noundef %scon, ptr noundef %host, ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %no_linger = alloca %struct.linger, align 4
   %call = tail call ptr @BIO_s_connect() #7
@@ -672,7 +672,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end8
-  %call11 = tail call ptr @SSL_new(ptr noundef %ctx) #7
+  %call11 = tail call ptr @SSL_new(ptr noundef nonnull %ctx) #7
   %cmp12 = icmp eq ptr %call11, null
   br i1 %cmp12, label %if.then13, label %if.end16
 

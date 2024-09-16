@@ -2614,7 +2614,7 @@ if.else135:                                       ; preds = %sw.epilog
   br i1 %unicode.0, label %if.then139, label %if.else143
 
 if.then139:                                       ; preds = %if.else135
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val68, i64 noundef %conv.i71, i1 noundef zeroext true, ptr noundef %prefix.0)
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val68, i64 noundef %conv.i71, i1 noundef zeroext true, ptr noundef nonnull %prefix.0)
   br label %return
 
 if.else143:                                       ; preds = %if.else135
@@ -4728,7 +4728,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z10OBJ_nid2snEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef %nid) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z10OBJ_nid2snEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef range(i32 1, 0) %nid) unnamed_addr #3 {
 entry:
   %call = tail call noundef ptr @OBJ_nid2sn(i32 noundef %nid) #17
   %cmp.not = icmp eq ptr %call, null
@@ -4757,7 +4757,7 @@ cond.end:                                         ; preds = %if.then.i.i, %cond.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z17EC_curve_nid2nistEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef %nid) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z17EC_curve_nid2nistEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef range(i32 1, 0) %nid) unnamed_addr #3 {
 entry:
   %call = tail call noundef ptr @EC_curve_nid2nist(i32 noundef %nid) #17
   %cmp.not = icmp eq ptr %call, null

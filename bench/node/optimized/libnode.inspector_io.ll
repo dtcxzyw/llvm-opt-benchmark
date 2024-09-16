@@ -609,7 +609,7 @@ entry:
   %request_queue_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %request_queue_, align 8
   store ptr null, ptr %agg.tmp, align 8
-  call fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 0, i32 noundef 0, ptr noundef %agg.tmp)
   %1 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i
@@ -868,7 +868,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %session_id, i32 noundef %action, ptr nocapture noundef %message) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %session_id, i32 noundef range(i32 0, 3) %action, ptr nocapture noundef nonnull %message) unnamed_addr #3 align 2 {
 entry:
   %lock_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @uv_mutex_lock(ptr noundef nonnull %lock_) #18
@@ -1106,7 +1106,7 @@ entry:
   %request_queue_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %request_queue_, align 8
   store ptr null, ptr %agg.tmp, align 8
-  call fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 0, i32 noundef 2, ptr noundef %agg.tmp)
   %1 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i
@@ -3386,7 +3386,7 @@ entry:
   %id_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %id_, align 8
   call void @_ZN12v8_inspector12StringBuffer6createENS_10StringViewE(ptr nonnull sret(%"class.std::unique_ptr.8") align 8 %agg.tmp, ptr noundef nonnull byval(%"class.v8_inspector::StringView") align 8 %message) #18
-  call fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4node9inspector12RequestQueue4PostEiNS0_12_GLOBAL__N_115TransportActionESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef 1, ptr noundef %agg.tmp)
   %2 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i

@@ -418,12 +418,12 @@ declare zeroext i1 @slurm_running_in_slurmd_stepd() local_unnamed_addr #2
 declare ptr @acct_gather_energy_alloc(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_get_latest_stats(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @_get_latest_stats(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [72 x i8], align 16
   store i64 0, ptr %2, align 8
-  %switch = icmp eq i32 %0, 0
-  %.str.11..str.12 = select i1 %switch, ptr @.str.11, ptr @.str.12
+  %trunc = trunc nuw i32 %0 to i1
+  %.str.11..str.12 = select i1 %trunc, ptr @.str.12, ptr @.str.11
   %4 = tail call noalias ptr @fopen(ptr noundef nonnull %.str.11..str.12, ptr noundef nonnull @.str.14)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7

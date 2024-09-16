@@ -5696,12 +5696,12 @@ define dso_local noundef ptr @_ZN4llvm10MCStreamer25getAssociatedPDataSectionEPK
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 688
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc noundef ptr @_ZL16getWinCFISectionRN4llvm9MCContextEPjPNS_9MCSectionEPKS3_(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr noundef nonnull %5, ptr noundef %9, ptr noundef %1)
+  %10 = tail call fastcc noundef ptr @_ZL16getWinCFISectionRN4llvm9MCContextEPjPNS_9MCSectionEPKS3_(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr noundef %5, ptr noundef %9, ptr noundef %1)
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL16getWinCFISectionRN4llvm9MCContextEPjPNS_9MCSectionEPKS3_(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL16getWinCFISectionRN4llvm9MCContextEPjPNS_9MCSectionEPKS3_(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -5823,7 +5823,7 @@ define dso_local noundef ptr @_ZN4llvm10MCStreamer25getAssociatedXDataSectionEPK
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 696
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc noundef ptr @_ZL16getWinCFISectionRN4llvm9MCContextEPjPNS_9MCSectionEPKS3_(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr noundef nonnull %5, ptr noundef %9, ptr noundef %1)
+  %10 = tail call fastcc noundef ptr @_ZL16getWinCFISectionRN4llvm9MCContextEPjPNS_9MCSectionEPKS3_(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr noundef %5, ptr noundef %9, ptr noundef %1)
   ret ptr %10
 }
 

@@ -3475,7 +3475,7 @@ define internal noundef range(i32 0, 2) i32 @_thumb_set(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_thumb_set_in_listview(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readonly %3) unnamed_addr #1 {
+define internal fastcc void @_thumb_set_in_listview(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture readonly %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -4833,7 +4833,7 @@ declare i32 @g_file_info_get_attribute_boolean(ptr noundef, ptr noundef) local_u
 declare i32 @gtk_tree_model_iter_children(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_find_iter_folder(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_find_iter_folder(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca %struct._GtkTreeIter, align 8
@@ -4845,7 +4845,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_find_iter_folder(ptr nounde
   br label %9
 
 9:                                                ; preds = %21, %8
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %4, i32 noundef -1) #16
   %10 = load ptr, ptr %4, align 8, !tbaa !13
   %11 = call i32 @g_strcmp0(ptr noundef nonnull %2, ptr noundef %10) #16
   %12 = icmp eq i32 %11, 0
@@ -4961,7 +4961,7 @@ declare void @gtk_tree_store_clear(ptr noundef) local_unnamed_addr #4
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_expand_folder(ptr noundef %0, i32 noundef %1, ptr nocapture readonly %2) unnamed_addr #1 {
+define internal fastcc void @_expand_folder(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture readonly %2) unnamed_addr #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = icmp eq ptr %0, null

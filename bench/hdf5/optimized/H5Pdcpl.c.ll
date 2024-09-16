@@ -432,7 +432,7 @@ switch.lookup:                                    ; preds = %28
   %36 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.H5Pset_layout, i64 0, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %37 = tail call fastcc i32 @H5P__set_layout(ptr noundef nonnull %30, ptr noundef nonnull %switch.load)
+  %37 = tail call fastcc i32 @H5P__set_layout(ptr noundef %30, ptr noundef nonnull %switch.load)
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %44
 
@@ -470,10 +470,10 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #1
 declare ptr @H5P_object_verify(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5P__set_layout(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5P__set_layout(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.H5O_fill_t, align 8
-  %5 = call i32 @H5P_get(ptr noundef %0, ptr noundef nonnull @.str.79, ptr noundef nonnull %3) #11
+  %5 = call i32 @H5P_get(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, ptr noundef nonnull %3) #11
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
 
@@ -489,7 +489,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__set_layout(ptr noundef %0, ptr
   br i1 %.not, label %35, label %13
 
 13:                                               ; preds = %11
-  %14 = call i32 @H5P_peek(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %4) #11
+  %14 = call i32 @H5P_peek(ptr noundef nonnull %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %4) #11
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %20
 
@@ -516,7 +516,7 @@ switch.lookup:                                    ; preds = %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = getelementptr inbounds i8, ptr %4, i64 72
   store i32 %switch.load, ptr %28, align 8
-  %29 = call i32 @H5P_poke(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %4) #11
+  %29 = call i32 @H5P_poke(ptr noundef nonnull %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %4) #11
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %35
 
@@ -527,7 +527,7 @@ switch.lookup:                                    ; preds = %20
   br label %42
 
 35:                                               ; preds = %switch.lookup, %11
-  %36 = call i32 @H5P_set(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1) #11
+  %36 = call i32 @H5P_set(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef %1) #11
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %42
 
@@ -750,7 +750,7 @@ define range(i32 -1, 1) i32 @H5Pset_chunk(i64 noundef %0, i32 noundef %1, ptr no
 75:                                               ; preds = %67
   %76 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %1, ptr %76, align 8
-  %77 = call fastcc i32 @H5P__set_layout(ptr noundef nonnull %69, ptr noundef nonnull %4)
+  %77 = call fastcc i32 @H5P__set_layout(ptr noundef %69, ptr noundef nonnull %4)
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %84
 

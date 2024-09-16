@@ -421,7 +421,7 @@ _ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i7
   br i1 %109, label %110, label %_ZN5ZXing11PatternView5shiftEi.exit55
 
 110:                                              ; preds = %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit
-  call fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewEb(ptr dead_on_unwind noalias nonnull writable align 4 %9, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false)
+  call fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewEb(ptr dead_on_unwind noalias writable align 4 %9, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false)
   %111 = load i32, ptr %35, align 4
   %.not149 = icmp eq i32 %111, 0
   br i1 %.not149, label %_ZN5ZXing11PatternView5shiftEi.exit53, label %112
@@ -564,7 +564,7 @@ _ZN5ZXing4OneDL11IsRightPairERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i
   br i1 %185, label %186, label %_ZN5ZXing11PatternView5shiftEi.exit80
 
 186:                                              ; preds = %_ZN5ZXing4OneDL11IsRightPairERKNS_11PatternViewE.exit
-  call fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewEb(ptr dead_on_unwind noalias nonnull writable align 4 %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext true)
+  call fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewEb(ptr dead_on_unwind noalias writable align 4 %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext true)
   %187 = load i32, ptr %38, align 4
   %.not151 = icmp eq i32 %187, 0
   br i1 %.not151, label %._ZN5ZXing11PatternView5shiftEi.exit80_crit_edge, label %188
@@ -1020,7 +1020,7 @@ _ZNSt13unordered_setIN5ZXing4OneD7DataBar4PairENS2_8PairHashESt8equal_toIS3_ESaI
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewEb(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #2 {
   %4 = alloca %"class.ZXing::PatternView", align 8
   %5 = alloca %"class.ZXing::PatternView", align 8
   %6 = load ptr, ptr %1, align 8, !noalias !15

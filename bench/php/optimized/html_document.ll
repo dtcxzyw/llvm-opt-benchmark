@@ -403,7 +403,7 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
   br label %76
 
 75:                                               ; preds = %40
-  call fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef nonnull %12, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %8)
+  call fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef %12, ptr noundef %5, ptr noundef %13, ptr noundef %8)
   br label %76
 
 76:                                               ; preds = %75, %dom_setup_parser_encoding_manually.exit
@@ -432,11 +432,11 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
   store i64 %87, ptr %5, align 8
   %88 = load ptr, ptr %12, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 %spec.store.select
-  %90 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef nonnull %9, ptr noundef nonnull %77, ptr noundef %83, ptr noundef nonnull %12, ptr noundef nonnull %89, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %90 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %9, ptr noundef %77, ptr noundef %83, ptr noundef %12, ptr noundef nonnull %89, ptr noundef %13, ptr noundef %10, ptr noundef %11)
   br i1 %90, label %84, label %.loopexit
 
 91:                                               ; preds = %84
-  %92 = call fastcc zeroext i1 @dom_parse_decode_encode_finish(ptr noundef nonnull %9, ptr noundef nonnull %77, ptr noundef %83, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %92 = call fastcc zeroext i1 @dom_parse_decode_encode_finish(ptr noundef %9, ptr noundef %77, ptr noundef %83, ptr noundef %13, ptr noundef %10, ptr noundef %11)
   br i1 %92, label %93, label %.loopexit
 
 93:                                               ; preds = %91
@@ -488,7 +488,7 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %95, %104, %105,
   %112 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %77) #11
   %113 = load ptr, ptr %14, align 8
   %114 = load i64, ptr %7, align 8
-  call fastcc void @dom_post_process_html5_loading(ptr noundef %113, i64 noundef %114, ptr noundef nonnull %103)
+  call fastcc void @dom_post_process_html5_loading(ptr noundef %113, i64 noundef %114, ptr noundef %103)
   %115 = load ptr, ptr %44, align 8
   %.not39 = icmp eq ptr %115, null
   br i1 %.not39, label %120, label %116
@@ -710,7 +710,7 @@ dom_lexbor_tree_error_code_to_string.exit21:      ; preds = %23, %switch.lookup2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.lxb_html_encoding_t, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load i64, ptr %1, align 8
@@ -847,7 +847,7 @@ declare ptr @lxb_html_document_create() local_unnamed_addr #1
 declare i32 @lxb_html_document_parse_chunk_begin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -978,7 +978,7 @@ dom_decode_encode_slow_path.exit:                 ; preds = %64, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_finish(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_finish(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
@@ -1096,7 +1096,7 @@ declare void @php_libxml_ctx_error(ptr noundef, ptr noundef, ...) local_unnamed_
 declare ptr @lxb_html_document_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_post_process_html5_loading(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @dom_post_process_html5_loading(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct._xmlDOMWrapCtxt, align 8
   %5 = and i64 %1, 8192
   %.not = icmp eq i64 %5, 0
@@ -1639,7 +1639,7 @@ lxb_encoding_data_by_name.exit86.thread:          ; preds = %102, %98, %dom_setu
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %140
-  call fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull %11, ptr noundef nonnull %8)
+  call fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef %15, ptr noundef %14, ptr noundef %11, ptr noundef %8)
   %.pre = load ptr, ptr %15, align 8
   %.pre101 = load i64, ptr %14, align 8
   br label %143
@@ -1649,11 +1649,11 @@ lxb_encoding_data_by_name.exit86.thread:          ; preds = %102, %98, %dom_setu
   %145 = phi ptr [ %.pre, %142 ], [ %10, %140 ]
   %.4 = phi i8 [ 0, %142 ], [ %.3, %140 ]
   %146 = getelementptr inbounds i8, ptr %145, i64 %144
-  %147 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef nonnull %9, ptr noundef nonnull %130, ptr noundef %136, ptr noundef nonnull %15, ptr noundef %146, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %147 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %9, ptr noundef %130, ptr noundef %136, ptr noundef %15, ptr noundef %146, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   br i1 %147, label %137, label %.loopexit
 
 148:                                              ; preds = %137
-  %149 = call fastcc zeroext i1 @dom_parse_decode_encode_finish(ptr noundef nonnull %9, ptr noundef nonnull %130, ptr noundef %136, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %149 = call fastcc zeroext i1 @dom_parse_decode_encode_finish(ptr noundef %9, ptr noundef %130, ptr noundef %136, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   br i1 %149, label %150, label %.loopexit
 
 150:                                              ; preds = %148
@@ -1706,7 +1706,7 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %152, %161, %162
   %170 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %130) #11
   %171 = load ptr, ptr %16, align 8
   %172 = load i64, ptr %7, align 8
-  call fastcc void @dom_post_process_html5_loading(ptr noundef %171, i64 noundef %172, ptr noundef nonnull %160)
+  call fastcc void @dom_post_process_html5_loading(ptr noundef %171, i64 noundef %172, ptr noundef %160)
   %173 = load ptr, ptr %51, align 8
   %.not80 = icmp eq ptr %173, null
   br i1 %.not80, label %178, label %174
@@ -1889,7 +1889,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTMLFile(ptr nocapture noundef read
   store ptr @dom_write_output_stream, ptr %42, align 8
   %43 = getelementptr i8, ptr %40, i64 112
   %.val = load ptr, ptr %43, align 8
-  %44 = call fastcc i32 @dom_common_save(ptr noundef nonnull %5, ptr %.val, ptr noundef %40)
+  %44 = call fastcc i32 @dom_common_save(ptr noundef %5, ptr %.val, ptr noundef %40)
   %.not19 = icmp eq i32 %44, 0
   br i1 %.not19, label %48, label %45
 
@@ -1922,7 +1922,7 @@ define internal range(i32 -1, 1) i32 @dom_write_output_stream(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dom_common_save(ptr noundef %0, ptr %.112.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dom_common_save(ptr noundef nonnull %0, ptr %.112.val, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.lxb_encoding_encode_t, align 8
   %4 = alloca %struct.lxb_encoding_decode_t, align 8
   %5 = alloca [4096 x i8], align 16
@@ -2185,7 +2185,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   store ptr @dom_write_output_smart_str, ptr %55, align 8
   %56 = getelementptr i8, ptr %29, i64 112
   %.val = load ptr, ptr %56, align 8
-  %57 = call fastcc i32 @dom_common_save(ptr noundef nonnull %5, ptr %.val, ptr noundef %.0119)
+  %57 = call fastcc i32 @dom_common_save(ptr noundef %5, ptr %.val, ptr noundef %.0119)
   %58 = icmp eq i32 %57, 0
   call void @llvm.assume(i1 %58)
   %59 = load ptr, ptr %4, align 8
@@ -2416,12 +2416,12 @@ declare ptr @lxb_html_encoding_destroy(ptr noundef, i1 noundef zeroext) local_un
 declare i32 @lxb_encoding_decode_utf_8_single(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 %5, ptr %11, align 8
-  %12 = tail call i32 @lxb_html_document_parse_chunk(ptr noundef %1, ptr noundef %4, i64 noundef %3) #11
+  %12 = tail call i32 @lxb_html_document_parse_chunk(ptr noundef nonnull %1, ptr noundef %4, i64 noundef %3) #11
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %60
 
@@ -2439,7 +2439,7 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef %
 18:                                               ; preds = %15, %13
   %19 = getelementptr inbounds i8, ptr %10, i64 32
   %20 = load i64, ptr %19, align 8
-  tail call void @lexbor_libxml2_bridge_report_errors(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %4, i64 noundef %20, ptr noundef %6, ptr noundef %7) #11
+  tail call void @lexbor_libxml2_bridge_report_errors(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %4, i64 noundef %20, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %21 = getelementptr inbounds i8, ptr %10, i64 40
   %22 = load i64, ptr %11, align 8
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %22)

@@ -1236,7 +1236,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %345
 
 11:                                               ; preds = %7
-  %12 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %2)
+  %12 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %2)
   br label %345
 
 13:                                               ; preds = %3
@@ -1807,7 +1807,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br label %348
 
 12:                                               ; preds = %8
-  %13 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3)
+  %13 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3)
   br label %348
 
 14:                                               ; preds = %4
@@ -6756,7 +6756,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br label %318
 
 17:                                               ; preds = %13
-  %18 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef nonnull %3, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %1)
+  %18 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i64 noundef %1)
   br label %318
 
 19:                                               ; preds = %9
@@ -7278,7 +7278,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br label %321
 
 18:                                               ; preds = %14
-  %19 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2)
+  %19 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1, i64 noundef %2)
   br label %321
 
 20:                                               ; preds = %10
@@ -8665,7 +8665,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #17
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #29
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 304
   %.07.i = load ptr, ptr %5, align 8
   %.not8.i = icmp eq ptr %.07.i, null
@@ -8738,7 +8738,7 @@ zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %1, i64 %18
   %35 = sub i64 %11, %18
-  %36 = tail call i32 @munmap(ptr noundef %34, i64 noundef %35) #39
+  %36 = tail call i32 @munmap(ptr noundef nonnull %34, i64 noundef %35) #39
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %zend_mm_chunk_truncate.exit.thread, label %37
 
@@ -8751,7 +8751,7 @@ zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
   br label %zend_mm_chunk_truncate.exit.thread
 
 zend_mm_chunk_truncate.exit:                      ; preds = %30
-  %43 = tail call zeroext i1 %32(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %11, i64 noundef %18) #39
+  %43 = tail call zeroext i1 %32(ptr noundef nonnull %.val, ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18) #39
   br i1 %43, label %zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge, label %zend_mm_chunk_truncate.exit.thread108
 
 zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge: ; preds = %zend_mm_chunk_truncate.exit
@@ -8835,11 +8835,11 @@ zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_trunc
   br i1 %.not16.i, label %zend_mm_chunk_truncate.exit.thread108, label %81
 
 81:                                               ; preds = %78
-  %82 = tail call zeroext i1 %80(ptr noundef nonnull %.val81, ptr noundef %1, i64 noundef %11, i64 noundef %18) #39
+  %82 = tail call zeroext i1 %80(ptr noundef nonnull %.val81, ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18) #39
   br i1 %82, label %84, label %zend_mm_chunk_truncate.exit.thread108
 
 zend_mm_chunk_extend.exit:                        ; preds = %76
-  %83 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %1, i64 noundef %11, i64 noundef %18, i32 noundef 0) #39
+  %83 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18, i32 noundef 0) #39
   %.not132 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
   br i1 %.not132, label %zend_mm_chunk_truncate.exit.thread108, label %84
 
@@ -8882,7 +8882,7 @@ zend_mm_chunk_extend.exit:                        ; preds = %76
 
 zend_mm_chunk_truncate.exit.thread108:            ; preds = %81, %78, %30, %zend_mm_chunk_extend.exit, %zend_mm_chunk_truncate.exit, %zend_mm_get_huge_block_size.exit
   %101 = tail call i64 @llvm.umin.i64(i64 %11, i64 %3)
-  %102 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %101)
+  %102 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %101)
   br label %zend_mm_change_huge_block_size.exit
 
 zend_mm_change_huge_block_size.exit:              ; preds = %99, %54, %24, %97, %84, %52, %zend_mm_chunk_truncate.exit.thread, %22, %zend_mm_chunk_truncate.exit.thread108
@@ -9804,7 +9804,7 @@ declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #17
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 512) %2, i32 noundef range(i32 0, 1024) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, %3
@@ -9850,7 +9850,7 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
 
 .lr.ph.preheader:                                 ; preds = %25
   %32 = lshr i32 %2, 3
-  %33 = and i32 %32, 536870904
+  %33 = and i32 %32, 56
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr i8, ptr %1, i64 %34
   %scevgep = getelementptr i8, ptr %35, i64 464

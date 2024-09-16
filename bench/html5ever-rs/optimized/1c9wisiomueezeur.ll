@@ -775,7 +775,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h89973e1151339e77E.exit: ; preds
 68:                                               ; preds = %65
   %69 = add i64 %.0155, 10
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %69, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i81, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i81, i64 1)
   %70 = icmp ugt i64 %.0155, -11
   br i1 %70, label %.invoke255, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2c8379dbca73546dE.exit.i"
 

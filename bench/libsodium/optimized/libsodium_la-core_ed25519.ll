@@ -145,14 +145,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %h_be.i)
   %call.i = call i32 @_sodium_core_h2c_string_to_hash(ptr noundef nonnull %h_be.i, i64 noundef 48, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) #6
   %cmp1.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp1.not.i, label %for.cond.preheader.i, label %_string_to_points.exit
+  br i1 %cmp1.not.i, label %for.cond5.preheader.preheader.i, label %_string_to_points.exit
 
-for.cond.preheader.i:                             ; preds = %entry
+for.cond5.preheader.preheader.i:                  ; preds = %entry
   %arrayidx11.i = getelementptr inbounds i8, ptr %h.i, i64 48
   br label %for.body7.i
 
-for.body7.i:                                      ; preds = %for.body7.i, %for.cond.preheader.i
-  %j.011.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body7.i ]
+for.body7.i:                                      ; preds = %for.body7.i, %for.cond5.preheader.preheader.i
+  %j.011.i = phi i64 [ 0, %for.cond5.preheader.preheader.i ], [ %inc.i, %for.body7.i ]
   %sub9.i = sub nuw nsw i64 47, %j.011.i
   %arrayidx.i = getelementptr [96 x i8], ptr %h_be.i, i64 0, i64 %sub9.i
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -187,15 +187,15 @@ entry:
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %h_be.i)
   %call.i = call i32 @_sodium_core_h2c_string_to_hash(ptr noundef nonnull %h_be.i, i64 noundef 96, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) #6
   %cmp1.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp1.not.i, label %for.cond.preheader.i, label %_string_to_points.exit
+  br i1 %cmp1.not.i, label %for.cond5.preheader.preheader.i, label %_string_to_points.exit
 
-for.cond.preheader.i:                             ; preds = %entry
+for.cond5.preheader.preheader.i:                  ; preds = %entry
   %arrayidx11.i = getelementptr inbounds i8, ptr %h.i, i64 48
   br label %for.cond5.preheader.i
 
-for.cond5.preheader.i:                            ; preds = %for.end.i, %for.cond.preheader.i
-  %i.013.i = phi i64 [ %inc17.i, %for.end.i ], [ 0, %for.cond.preheader.i ]
-  %mul8.i = mul nuw nsw i64 %i.013.i, 48
+for.cond5.preheader.i:                            ; preds = %for.end.i, %for.cond5.preheader.preheader.i
+  %i.012.i = phi i64 [ %inc17.i, %for.end.i ], [ 0, %for.cond5.preheader.preheader.i ]
+  %mul8.i = mul nuw nsw i64 %i.012.i, 48
   %sub.i = add nuw nsw i64 %mul8.i, 47
   br label %for.body7.i
 
@@ -212,12 +212,12 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.c
 
 for.end.i:                                        ; preds = %for.body7.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11.i, i8 0, i64 16, i1 false)
-  %mul13.i = shl nuw nsw i64 %i.013.i, 5
+  %mul13.i = shl nuw nsw i64 %i.012.i, 5
   %arrayidx14.i = getelementptr i8, ptr %px, i64 %mul13.i
   call void @_sodium_ge25519_from_hash(ptr noundef %arrayidx14.i, ptr noundef nonnull %h.i) #6
-  %inc17.i = add nuw nsw i64 %i.013.i, 1
-  %exitcond14.not.i = icmp eq i64 %inc17.i, 2
-  br i1 %exitcond14.not.i, label %if.end, label %for.cond5.preheader.i, !llvm.loop !6
+  %inc17.i = add nuw nsw i64 %i.012.i, 1
+  %exitcond13.not.i = icmp eq i64 %inc17.i, 2
+  br i1 %exitcond13.not.i, label %if.end, label %for.cond5.preheader.i, !llvm.loop !6
 
 _string_to_points.exit:                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %h.i)

@@ -451,7 +451,7 @@ between.exit.i.i.i:                               ; preds = %194, %192, %190, %1
 
 online.exit.i.i:                                  ; preds = %208, %206, %204, %202, %200, %between.exit.i.i.i, %182, %167
   %210 = phi i32 [ 3, %167 ], [ 0, %182 ], [ %197, %between.exit.i.i.i ], [ 1, %200 ], [ %..i23.i.i.i, %202 ], [ 1, %206 ], [ %.15.i22.i.i.i, %208 ], [ 0, %204 ]
-  %211 = call fastcc i32 @intpoint(ptr noundef nonnull %87, ptr noundef nonnull %.080130.i, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %210)
+  %211 = call fastcc i32 @intpoint(ptr noundef nonnull %87, ptr noundef nonnull %.080130.i, ptr noundef %3, ptr noundef %4, i32 noundef %210)
   %.not25.i.i = icmp eq i32 %211, 0
   br i1 %.not25.i.i, label %.critedge.i, label %410
 
@@ -914,7 +914,7 @@ between.exit.i115.i.i:                            ; preds = %392, %390, %388, %3
 
 online.exit119.i.i:                               ; preds = %406, %404, %402, %400, %398, %between.exit.i115.i.i, %380, %online.exit85.i.i
   %408 = phi i32 [ %367, %online.exit85.i.i ], [ 0, %380 ], [ %395, %between.exit.i115.i.i ], [ 1, %398 ], [ %..i23.i114.i.i, %400 ], [ 1, %404 ], [ %.15.i22.i113.i.i, %406 ], [ 0, %402 ]
-  %409 = call fastcc i32 @intpoint(ptr noundef nonnull %87, ptr noundef nonnull %.080130.i, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %408)
+  %409 = call fastcc i32 @intpoint(ptr noundef nonnull %87, ptr noundef nonnull %.080130.i, ptr noundef %3, ptr noundef %4, i32 noundef %408)
   %.not.i.i = icmp eq i32 %409, 0
   br i1 %.not.i.i, label %.critedge.i, label %410
 
@@ -1285,7 +1285,7 @@ findInside.exit:                                  ; preds = %.loopexit.i79, %548
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0, i64 noundef range(i64 8, 49) %1) unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -1376,7 +1376,7 @@ define internal range(i32 -1, 2) i32 @gt(ptr nocapture noundef readonly %0, ptr 
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #10 {
   %6 = icmp slt i32 %4, 1
   br i1 %6, label %online.exit204.thread, label %7
 
@@ -1749,7 +1749,7 @@ online.exit204.thread:                            ; preds = %online.exit204.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @online(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 2) i32 @online(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #8 {
   %.sroa.07.0.copyload = load double, ptr %0, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.410.0.copyload = load double, ptr %.sroa.410.0..sroa_idx, align 8
@@ -1871,7 +1871,7 @@ between.exit24:                                   ; preds = %54, %52, %50, %48, 
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @putSeg(i32 noundef %0, ptr noundef readonly %1) unnamed_addr #12 {
+define internal fastcc void @putSeg(i32 noundef range(i32 1, 3) %0, ptr noundef readonly %1) unnamed_addr #12 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

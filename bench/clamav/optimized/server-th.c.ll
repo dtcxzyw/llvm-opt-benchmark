@@ -2621,7 +2621,7 @@ handle_stream.exit:                               ; preds = %1075, %1110
 1264:                                             ; preds = %1260
   store i32 1, ptr @reload_stage, align 4
   %1265 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @reload_stage_mutex) #15
-  %1266 = call fastcc i32 @reload_db(ptr noundef nonnull %7, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %784)
+  %1266 = call fastcc i32 @reload_db(ptr noundef %7, i32 noundef %3, ptr noundef %4, ptr noundef %784)
   %.not453 = icmp eq i32 %1266, 0
   br i1 %.not453, label %1273, label %1267
 
@@ -3236,7 +3236,7 @@ define internal fastcc range(i32 0, 2) i32 @need_db_reload() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %union.pthread_attr_t, align 8
   %7 = icmp eq ptr %2, null
@@ -3323,7 +3323,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef %0,
   %44 = load ptr, ptr %0, align 8
   %45 = tail call i32 @cl_engine_free(ptr noundef %44) #15
   store ptr null, ptr %0, align 8
-  tail call void @thrmgr_wait_for_threads(ptr noundef %3) #15
+  tail call void @thrmgr_wait_for_threads(ptr noundef nonnull %3) #15
   br label %46
 
 46:                                               ; preds = %39, %43, %37

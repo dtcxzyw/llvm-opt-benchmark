@@ -837,7 +837,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit.i:           ; preds = %.lr.ph.i.i.i.i.i.i.
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %174, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
-  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) %24)
+  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) %24)
   %208 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #16
   %209 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr %208, i64 %209)
@@ -1195,7 +1195,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang19Streamin
   br i1 %3, label %378, label %_ZN5clang13SanitizerMaskoRERKS0_.exit739.critedge
 
 378:                                              ; preds = %377
-  call fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull %312, i64 %376, i64 0)
+  call fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull %312, i64 %376, i64 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %379 = load ptr, ptr %157, align 8, !noalias !57
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -1342,7 +1342,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit739:         ; preds = %_ZN5clang13Sanitize
   br i1 %3, label %440, label %_ZN5clang13SanitizerMaskoRERKS0_.exit766.critedge
 
 440:                                              ; preds = %439
-  call fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull %312, i64 %438, i64 0)
+  call fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull %312, i64 %438, i64 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %441 = load ptr, ptr %157, align 8, !noalias !67
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -1597,7 +1597,7 @@ _ZL19isExecuteOnlyTargetRKN4llvm6TripleERKNS_3opt7ArgListE.exit.thread: ; preds 
   br i1 %3, label %546, label %_ZN5clang13SanitizerMaskoRERKS0_.exit818.critedge
 
 546:                                              ; preds = %545
-  call fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull %312, i64 %544, i64 0)
+  call fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull %312, i64 %544, i64 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %547 = load ptr, ptr %157, align 8, !noalias !85
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
@@ -1803,7 +1803,7 @@ _ZN5clang13SanitizerMaskaNERKS0_.exit845.critedge: ; preds = %_ZN5clang17Diagnos
   br i1 %3, label %635, label %_ZN5clang13SanitizerMaskoRERKS0_.exit870.critedge
 
 635:                                              ; preds = %634
-  call fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull %312, i64 %628, i64 %631)
+  call fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull %312, i64 %628, i64 %631)
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %636 = load ptr, ptr %157, align 8, !noalias !103
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
@@ -2425,7 +2425,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit1016.critedge: ; preds = %.critedge4
 _ZNK5clang6driver6Driver4DiagEj.exit1030:         ; preds = %.lr.ph.i.i.i.i.i.i1027, %878
   %897 = getelementptr inbounds nuw i8, ptr %879, i64 912
   store i32 0, ptr %897, align 8, !noalias !140
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %873, i64 0)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %873, i64 0)
   %898 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #16
   %899 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr %898, i64 %899)
@@ -2574,7 +2574,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 _ZNK5clang6driver6Driver4DiagEj.exit1049:         ; preds = %.lr.ph.i.i.i.i.i.i1046, %944
   %963 = getelementptr inbounds nuw i8, ptr %945, i64 912
   store i32 0, ptr %963, align 8, !noalias !150
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %935, i64 0)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %935, i64 0)
   %964 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #16
   %965 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr %964, i64 %965)
@@ -2723,7 +2723,7 @@ _ZN5clang13SanitizerMaskaNERKS0_.exit1072:        ; preds = %.critedge8
 _ZNK5clang6driver6Driver4DiagEj.exit1079:         ; preds = %.lr.ph.i.i.i.i.i.i1076, %1009
   %1028 = getelementptr inbounds nuw i8, ptr %1010, i64 912
   store i32 0, ptr %1028, align 8, !noalias !160
-  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(16) %44)
+  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(16) %44)
   %1029 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef 0, ptr noundef nonnull @.str.10) #16, !noalias !161
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %1029) #16
   %1030 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #16
@@ -2870,11 +2870,11 @@ _ZN5clang13SanitizerMaskaNERKS0_.exit1089:        ; preds = %_ZN5clang17Diagnost
 _ZNK5clang6driver6Driver4DiagEj.exit1101:         ; preds = %.lr.ph.i.i.i.i.i.i1098, %1072
   %1087 = getelementptr inbounds nuw i8, ptr %1073, i64 912
   store i32 0, ptr %1087, align 8, !noalias !173
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %.sroa.02204.0.copyload, i64 %.sroa.22205.0.copyload)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %.sroa.02204.0.copyload, i64 %.sroa.22205.0.copyload)
   %1088 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #16
   %1089 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr %1088, i64 %1089)
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %1067, i64 %1068)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %1067, i64 %1068)
   %1090 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %50) #16
   %1091 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %50) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr %1090, i64 %1091)
@@ -3083,7 +3083,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit1139:         ; preds = %.lr.ph.i.i.i.i.i.i1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1144, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(16) %51)
   %1170 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #16
   %1171 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr %1170, i64 %1171)
@@ -3218,7 +3218,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit1171:         ; preds = %.lr.ph.i.i.i.i.i.i1
   %.sroa.2.0..sroa_idx.i1173 = getelementptr inbounds i8, ptr %1144, i64 32
   %.sroa.2.0.copyload.i1174 = load i64, ptr %.sroa.2.0..sroa_idx.i1173, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr %.sroa.0.0.copyload.i1172, i64 %.sroa.2.0.copyload.i1174)
-  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(16) %54)
+  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(16) %54)
   %1225 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #16
   %1226 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr %1225, i64 %1226)
@@ -4184,7 +4184,7 @@ _ZNK5clang17DiagnosticBuilderlsIA16_cEERKS0_RKT_.exit1322: ; preds = %_ZNK5clang
   %1624 = zext i8 %1622 to i64
   %1625 = getelementptr inbounds [10 x i64], ptr %1621, i64 0, i64 %1624
   store i64 ptrtoint (ptr @.str.16 to i64), ptr %1625, align 8
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 17732923532771328, i64 0)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 17732923532771328, i64 0)
   %1626 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #16
   %1627 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr %1626, i64 %1627)
@@ -4328,7 +4328,7 @@ _ZNK5clang17DiagnosticBuilderlsIA27_cEERKS0_RKT_.exit1368: ; preds = %_ZNK5clang
   %1689 = zext i8 %1687 to i64
   %1690 = getelementptr inbounds [10 x i64], ptr %1686, i64 0, i64 %1689
   store i64 ptrtoint (ptr @.str.1 to i64), ptr %1690, align 8
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %1654, i64 %1655)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %1654, i64 %1655)
   %1691 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #16
   %1692 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr %1691, i64 %1692)
@@ -5818,7 +5818,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit1682:         ; preds = %.lr.ph.i.i.i.i.i.i1
   %2323 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #16
   %2324 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr %2323, i64 %2324)
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %72, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 1, i64 0)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %72, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 1, i64 0)
   %2325 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #16
   %2326 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr %2325, i64 %2326)
@@ -6358,7 +6358,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit1765:        ; preds = %_ZN5clang19Streamin
 _ZNK5clang6driver6Driver4DiagEj.exit1778:         ; preds = %.lr.ph.i.i.i.i.i.i1775, %2545
   %2565 = getelementptr inbounds nuw i8, ptr %2547, i64 912
   store i32 0, ptr %2565, align 8, !noalias !415
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 6, i64 0)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(1192) %157, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 6, i64 0)
   %2566 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #16
   %2567 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr %2566, i64 %2567)
@@ -7037,7 +7037,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare { i64, i64 } @_ZN5clang21expandSanitizerGroupsENS_13SanitizerMaskE(i64, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i64 %2, i64 %3) unnamed_addr #2 {
+define internal fastcc void @_ZL19describeSanitizeArgB5cxx11PKN4llvm3opt3ArgEN5clang13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i64 %2, i64 %3) unnamed_addr #2 {
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"class.std::allocator.0", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7124,7 +7124,7 @@ declare noundef zeroext i1 @_ZNK4llvm3opt7ArgList14hasFlagNoClaimENS0_12OptSpeci
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %3, i64 %4) unnamed_addr #2 {
+define internal fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %3, i64 %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !444
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16, !noalias !444
@@ -8388,7 +8388,7 @@ define internal fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23parseSpecialCaseListArgRKN5clang6driver6DriverERKN4llvm3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS5_12OptSpecifierESJ_jb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 %3, i32 %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #2 {
+define internal fastcc void @_ZL23parseSpecialCaseListArgRKN5clang6driver6DriverERKN4llvm3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS5_12OptSpecifierESJ_jb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 %3, i32 %4, i32 noundef range(i32 408, 412) %5, i1 noundef zeroext %6) unnamed_addr #2 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.0", align 1
   %10 = alloca %"class.llvm::Twine", align 8
@@ -10197,7 +10197,7 @@ _ZL22addIncludeLinkerOptionRKN5clang6driver9ToolChainERKN4llvm3opt7ArgListERNS4_
   br i1 %.not1.i.i, label %1272, label %382
 
 382:                                              ; preds = %.thread
-  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %0)
   %383 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %48, i64 noundef 0, ptr noundef nonnull @.str.62) #16, !noalias !513
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %383) #16
   %384 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -10257,7 +10257,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit228: ; preds = %_ZN
   br i1 %.not1.i.i230, label %439, label %413
 
 413:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit228
-  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(16) %408)
+  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(16) %408)
   %414 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %51, i64 noundef 0, ptr noundef nonnull @.str.63) #16, !noalias !516
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %414) #16
   %415 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -10320,7 +10320,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit233: ; preds = %_ZN
   br i1 %.not1.i.i235, label %471, label %445
 
 445:                                              ; preds = %439
-  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias nonnull writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(16) %440)
+  call fastcc void @_ZL8toStringB5cxx11RKN5clang12SanitizerSetE(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(16) %440)
   %446 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef 0, ptr noundef nonnull @.str.64) #16, !noalias !519
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %446) #16
   %447 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -11825,7 +11825,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit:             ; preds = %.lr.ph.i.i.i.i.i.i,
   %1198 = load ptr, ptr %1177, align 8
   %.sroa.01.0.copyload = load i64, ptr %0, align 8
   %1199 = and i64 %.sroa.01.0.copyload, 17169973579350016
-  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(1192) %1198, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %1199, i64 0)
+  call fastcc void @_ZL19lastArgumentForMaskB5cxx11RKN5clang6driver6DriverERKN4llvm3opt7ArgListENS_13SanitizerMaskE(ptr dead_on_unwind noalias writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(1192) %1198, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %1199, i64 0)
   %1200 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #16
   %1201 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #16
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr %1200, i64 %1201)
@@ -12192,7 +12192,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 declare void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL29validateSpecialCaseListFormatRKN5clang6driver6DriverERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc void @_ZL29validateSpecialCaseListFormatRKN5clang6driver6DriverERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1192) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 408, 412) %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::unique_ptr.140", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8

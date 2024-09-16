@@ -1535,7 +1535,7 @@ split_pack_geometry.exit:                         ; preds = %init_pack_geometry.
 
 if.end424:                                        ; preds = %split_pack_geometry.exit, %collect_pack_filenames.exit
   %92 = load ptr, ptr @packtmp, align 8
-  call fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd, ptr noundef nonnull %po_args, ptr noundef %92)
+  call fastcc void @prepare_pack_objects(ptr noundef %cmd, ptr noundef %po_args, ptr noundef %92)
   %93 = load i32, ptr %quiet, align 8
   %tobool426.not = icmp eq i32 %93, 0
   br i1 %tobool426.not, label %land.rhs427, label %land.end430
@@ -1635,7 +1635,7 @@ if.then483:                                       ; preds = %if.end480
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.write_midx_included_packs.cmd, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %line.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.geometry_remove_redundant_packs.buf, i64 24, i1 false)
   %106 = load ptr, ptr @packtmp, align 8
-  call fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd.i, ptr noundef nonnull readonly %po_args, ptr noundef %106)
+  call fastcc void @prepare_pack_objects(ptr noundef %cmd.i, ptr noundef readonly %po_args, ptr noundef %106)
   %in.i = getelementptr inbounds i8, ptr %cmd.i, i64 80
   store i32 -1, ptr %in.i, align 8
   %call.i121 = call i32 @for_each_packed_object(ptr noundef nonnull @write_oid, ptr noundef nonnull %cmd.i, i32 noundef 2) #15
@@ -1892,7 +1892,7 @@ for.end595:                                       ; preds = %for.body587, %for.c
   br label %if.end597
 
 if.end597:                                        ; preds = %for.end595, %if.end565
-  %call598 = call fastcc i32 @finish_pack_objects_cmd(ptr noundef nonnull %cmd, ptr noundef nonnull %names, i32 noundef 1)
+  %call598 = call fastcc i32 @finish_pack_objects_cmd(ptr noundef %cmd, ptr noundef %names, i32 noundef 1)
   %tobool599.not = icmp eq i32 %call598, 0
   br i1 %tobool599.not, label %if.end601, label %cleanup
 
@@ -2014,7 +2014,7 @@ if.end644:                                        ; preds = %if.then641, %if.end
   %quiet648 = getelementptr inbounds i8, ptr %cruft_po_args, i64 48
   store i32 %168, ptr %quiet648, align 8
   %169 = load ptr, ptr %cruft_expiration, align 8
-  %call649 = call fastcc i32 @write_cruft_pack(ptr noundef nonnull %cruft_po_args, ptr noundef %153, ptr noundef nonnull %spec.select.i, ptr noundef %169, ptr noundef nonnull %names, ptr noundef nonnull %existing)
+  %call649 = call fastcc i32 @write_cruft_pack(ptr noundef %cruft_po_args, ptr noundef %153, ptr noundef nonnull %spec.select.i, ptr noundef %169, ptr noundef %names, ptr noundef %existing)
   %tobool650.not = icmp eq i32 %call649, 0
   br i1 %tobool650.not, label %if.end652, label %cleanup
 
@@ -2027,7 +2027,7 @@ if.end652:                                        ; preds = %if.end644
   br i1 %or.cond6, label %if.then656, label %if.end662
 
 if.then656:                                       ; preds = %if.end652
-  %call657 = call fastcc i32 @write_cruft_pack(ptr noundef nonnull %cruft_po_args, ptr noundef nonnull %171, ptr noundef nonnull %spec.select.i, ptr noundef null, ptr noundef nonnull %names, ptr noundef nonnull %existing)
+  %call657 = call fastcc i32 @write_cruft_pack(ptr noundef %cruft_po_args, ptr noundef nonnull %171, ptr noundef nonnull %spec.select.i, ptr noundef null, ptr noundef %names, ptr noundef %existing)
   %tobool658.not = icmp eq i32 %call657, 0
   br i1 %tobool658.not, label %if.end662, label %cleanup
 
@@ -2095,7 +2095,7 @@ do.cond.i.i164:                                   ; preds = %do.body.i.i160
 
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i164, %do.body.i.i160
   %conv.i168 = zext i1 %tobool.not.i.i163 to i32
-  call fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd.i159, ptr noundef nonnull readonly %po_args, ptr noundef %174)
+  call fastcc void @prepare_pack_objects(ptr noundef %cmd.i159, ptr noundef readonly %po_args, ptr noundef %174)
   %call2.i169 = call ptr @strvec_push(ptr noundef nonnull %cmd.i159, ptr noundef nonnull @.str.85) #15
   %181 = load i32, ptr @pack_kept_objects, align 4
   %tobool.not.i170 = icmp eq i32 %181, 0
@@ -2230,7 +2230,7 @@ for.body85.i:                                     ; preds = %land.rhs76.lr.ph.i,
 
 write_filtered_pack.exit:                         ; preds = %for.body85.i, %land.rhs76.lr.ph.i, %for.end70.i
   %call91.i = call i32 @fclose(ptr noundef %call18.i179)
-  %call92.i = call fastcc i32 @finish_pack_objects_cmd(ptr noundef nonnull %cmd.i159, ptr noundef nonnull %names, i32 noundef %conv.i168)
+  %call92.i = call fastcc i32 @finish_pack_objects_cmd(ptr noundef %cmd.i159, ptr noundef %names, i32 noundef %conv.i168)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cmd.i159)
   %tobool672.not = icmp eq i32 %call92.i, 0
   br i1 %tobool672.not, label %if.end675, label %cleanup
@@ -2350,7 +2350,7 @@ land.lhs.true752:                                 ; preds = %for.end750
   br i1 %tobool754.not, label %if.end756, label %if.then755
 
 if.then755:                                       ; preds = %land.lhs.true752
-  call fastcc void @mark_packs_for_deletion(ptr noundef nonnull %existing, ptr noundef nonnull %names)
+  call fastcc void @mark_packs_for_deletion(ptr noundef %existing, ptr noundef %names)
   br label %if.end756
 
 if.end756:                                        ; preds = %if.then755, %land.lhs.true752, %for.end750
@@ -2742,7 +2742,7 @@ write_midx_included_packs.exit:                   ; preds = %get_preferred_pack.
 
 if.then767:                                       ; preds = %write_midx_included_packs.exit
   %290 = load ptr, ptr @packdir, align 8
-  call fastcc void @remove_redundant_bitmaps(ptr noundef nonnull %include, ptr noundef %290)
+  call fastcc void @remove_redundant_bitmaps(ptr noundef %include, ptr noundef %290)
   call void @string_list_clear(ptr noundef nonnull %include, i32 noundef 0) #15
   br label %if.end772
 
@@ -2839,7 +2839,7 @@ remove_redundant_existing_packs.exit:             ; preds = %for.inc.i14.i, %rem
   br i1 %tobool776.not, label %if.end778, label %if.then777
 
 if.then777:                                       ; preds = %remove_redundant_existing_packs.exit
-  call fastcc void @geometry_remove_redundant_packs(ptr noundef nonnull %geometry, ptr noundef nonnull %names, ptr noundef nonnull %existing)
+  call fastcc void @geometry_remove_redundant_packs(ptr noundef %geometry, ptr noundef %names, ptr noundef %existing)
   br label %if.end778
 
 if.end778:                                        ; preds = %if.then777, %remove_redundant_existing_packs.exit
@@ -3069,15 +3069,15 @@ declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @getpid() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prepare_pack_objects(ptr noundef %cmd, ptr nocapture noundef readonly %args, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd, ptr nocapture noundef nonnull readonly %args, ptr noundef %out) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @strvec_push(ptr noundef %cmd, ptr noundef nonnull @.str.123) #15
+  %call = tail call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.123) #15
   %0 = load ptr, ptr %args, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %cmd, ptr noundef nonnull @.str.124, ptr noundef nonnull %0) #15
+  %call4 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.124, ptr noundef nonnull %0) #15
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3087,7 +3087,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool5.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %call9 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %cmd, ptr noundef nonnull @.str.125, ptr noundef nonnull %1) #15
+  %call9 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.125, ptr noundef nonnull %1) #15
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %if.end
@@ -3097,7 +3097,7 @@ if.end10:                                         ; preds = %if.then6, %if.end
   br i1 %tobool11.not, label %if.end16, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %call15 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %cmd, ptr noundef nonnull @.str.126, ptr noundef nonnull %2) #15
+  %call15 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.126, ptr noundef nonnull %2) #15
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %if.end10
@@ -3107,7 +3107,7 @@ if.end16:                                         ; preds = %if.then12, %if.end1
   br i1 %tobool17.not, label %if.end22, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %call21 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %cmd, ptr noundef nonnull @.str.127, ptr noundef nonnull %3) #15
+  %call21 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.127, ptr noundef nonnull %3) #15
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then18, %if.end16
@@ -3117,7 +3117,7 @@ if.end22:                                         ; preds = %if.then18, %if.end1
   br i1 %tobool23.not, label %if.end28, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %call27 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %cmd, ptr noundef nonnull @.str.128, i64 noundef %4) #15
+  %call27 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.128, i64 noundef %4) #15
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then24, %if.end22
@@ -3127,7 +3127,7 @@ if.end28:                                         ; preds = %if.then24, %if.end2
   br i1 %tobool29.not, label %if.end33, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
-  %call32 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %cmd, ptr noundef nonnull @.str.129) #15
+  %call32 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.129) #15
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then30, %if.end28
@@ -3137,7 +3137,7 @@ if.end33:                                         ; preds = %if.then30, %if.end2
   br i1 %tobool34.not, label %if.end38, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  %call37 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %cmd, ptr noundef nonnull @.str.130) #15
+  %call37 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.130) #15
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then35, %if.end33
@@ -3147,7 +3147,7 @@ if.end38:                                         ; preds = %if.then35, %if.end3
   br i1 %tobool39.not, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %if.end38
-  %call42 = tail call ptr @strvec_push(ptr noundef %cmd, ptr noundef nonnull @.str.131) #15
+  %call42 = tail call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.131) #15
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then40, %if.end38
@@ -3157,7 +3157,7 @@ if.end43:                                         ; preds = %if.then40, %if.end3
   br i1 %tobool44.not, label %if.end48, label %if.then45
 
 if.then45:                                        ; preds = %if.end43
-  %call47 = tail call ptr @strvec_push(ptr noundef %cmd, ptr noundef nonnull @.str.132) #15
+  %call47 = tail call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.132) #15
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then45, %if.end43
@@ -3166,11 +3166,11 @@ if.end48:                                         ; preds = %if.then45, %if.end4
   br i1 %tobool49.not, label %if.end53, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
-  %call52 = tail call ptr @strvec_push(ptr noundef %cmd, ptr noundef nonnull @.str.133) #15
+  %call52 = tail call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.133) #15
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then50, %if.end48
-  %call55 = tail call ptr @strvec_push(ptr noundef %cmd, ptr noundef %out) #15
+  %call55 = tail call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef %out) #15
   %git_cmd = getelementptr inbounds i8, ptr %cmd, i64 104
   %bf.load = load i16, ptr %git_cmd, align 8
   %bf.set = or i16 %bf.load, 8
@@ -3204,7 +3204,7 @@ declare ptr @pack_basename(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @finish_pack_objects_cmd(ptr noundef %cmd, ptr noundef %names, i32 noundef %local) unnamed_addr #0 {
+define internal fastcc i32 @finish_pack_objects_cmd(ptr noundef nonnull %cmd, ptr noundef nonnull %names, i32 noundef range(i32 0, 2) %local) unnamed_addr #0 {
 entry:
   %line = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %line, ptr noundef nonnull align 8 dereferenceable(24) @__const.geometry_remove_redundant_packs.buf, i64 24, i1 false)
@@ -3253,7 +3253,7 @@ if.then:                                          ; preds = %while.body, %while.
 
 if.end:                                           ; preds = %while.body
   %9 = load ptr, ptr %buf, align 8
-  %call6 = call ptr @string_list_append(ptr noundef %names, ptr noundef %9) #15
+  %call6 = call ptr @string_list_append(ptr noundef nonnull %names, ptr noundef %9) #15
   %10 = load ptr, ptr %buf, align 8
   %call8 = call fastcc ptr @populate_pack_exts(ptr noundef %10)
   %util = getelementptr inbounds i8, ptr %call6, i64 8
@@ -3265,14 +3265,14 @@ if.end:                                           ; preds = %while.body
 while.end:                                        ; preds = %if.end, %if.end.us, %entry
   %call10 = call i32 @fclose(ptr noundef %call)
   call void @strbuf_release(ptr noundef nonnull %line) #15
-  %call11 = call i32 @finish_command(ptr noundef %cmd) #15
+  %call11 = call i32 @finish_command(ptr noundef nonnull %cmd) #15
   ret i32 %call11
 }
 
 declare i32 @printf_ln(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_cruft_pack(ptr nocapture noundef readonly %args, ptr noundef %destination, ptr noundef %pack_prefix, ptr noundef %cruft_expiration, ptr noundef %names, ptr noundef %existing) unnamed_addr #0 {
+define internal fastcc i32 @write_cruft_pack(ptr nocapture noundef nonnull readonly %args, ptr noundef %destination, ptr noundef %pack_prefix, ptr noundef %cruft_expiration, ptr noundef nonnull %names, ptr noundef nonnull %existing) unnamed_addr #0 {
 entry:
   %buf.i39.i = alloca %struct.strbuf, align 8
   %buf.i = alloca %struct.strbuf, align 8
@@ -3297,7 +3297,7 @@ do.cond.i:                                        ; preds = %do.body.i
 
 skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %conv = zext i1 %tobool.not.i to i32
-  call fastcc void @prepare_pack_objects(ptr noundef nonnull %cmd, ptr noundef %args, ptr noundef %destination)
+  call fastcc void @prepare_pack_objects(ptr noundef %cmd, ptr noundef %args, ptr noundef %destination)
   %call2 = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.57) #15
   %tobool = icmp ne ptr %cruft_expiration, null
   br i1 %tobool, label %if.then, label %if.end
@@ -3666,7 +3666,7 @@ for.body73:                                       ; preds = %land.rhs64.lr.ph, %
 
 for.end78:                                        ; preds = %for.body73, %land.rhs64.lr.ph, %if.end60
   %call79 = call i32 @fclose(ptr noundef %call15)
-  %call80 = call fastcc i32 @finish_pack_objects_cmd(ptr noundef nonnull %cmd, ptr noundef nonnull %names, i32 noundef %conv)
+  %call80 = call fastcc i32 @finish_pack_objects_cmd(ptr noundef %cmd, ptr noundef %names, i32 noundef %conv)
   br label %return
 
 return:                                           ; preds = %if.end, %for.end78
@@ -3701,7 +3701,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_packs_for_deletion(ptr nocapture noundef readonly %existing, ptr noundef %names) unnamed_addr #0 {
+define internal fastcc void @mark_packs_for_deletion(ptr nocapture noundef nonnull readonly %existing, ptr noundef nonnull %names) unnamed_addr #0 {
 entry:
   %non_kept_packs = getelementptr inbounds i8, ptr %existing, i64 40
   %0 = load ptr, ptr %non_kept_packs, align 8
@@ -3744,7 +3744,7 @@ if.then12.i:                                      ; preds = %if.end.i
 if.else.i:                                        ; preds = %if.end.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %5, i64 %call.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 %idx.neg.i
-  %call13.i = tail call i32 @string_list_has_string(ptr noundef %names, ptr noundef %add.ptr9.i) #15
+  %call13.i = tail call i32 @string_list_has_string(ptr noundef nonnull %names, ptr noundef %add.ptr9.i) #15
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %if.then15.i, label %for.inc.i
 
@@ -3810,7 +3810,7 @@ if.then12.i22:                                    ; preds = %if.end.i18
 if.else.i28:                                      ; preds = %if.end.i18
   %add.ptr8.i29 = getelementptr inbounds i8, ptr %18, i64 %call.i16
   %add.ptr9.i30 = getelementptr inbounds i8, ptr %add.ptr8.i29, i64 %idx.neg.i10
-  %call13.i31 = tail call i32 @string_list_has_string(ptr noundef %names, ptr noundef %add.ptr9.i30) #15
+  %call13.i31 = tail call i32 @string_list_has_string(ptr noundef nonnull %names, ptr noundef %add.ptr9.i30) #15
   %tobool14.not.i32 = icmp eq i32 %call13.i31, 0
   br i1 %tobool14.not.i32, label %if.then15.i33, label %for.inc.i26
 
@@ -3839,7 +3839,7 @@ mark_packs_for_deletion_1.exit35:                 ; preds = %for.inc.i26, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_redundant_bitmaps(ptr nocapture noundef readonly %include, ptr noundef %packdir) unnamed_addr #0 {
+define internal fastcc void @remove_redundant_bitmaps(ptr nocapture noundef nonnull readonly %include, ptr noundef %packdir) unnamed_addr #0 {
 entry:
   %path = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.geometry_remove_redundant_packs.buf, i64 24, i1 false)
@@ -3992,7 +3992,7 @@ declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @reprepare_packed_git(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @geometry_remove_redundant_packs(ptr nocapture noundef readonly %geometry, ptr noundef %names, ptr noundef %existing) unnamed_addr #0 {
+define internal fastcc void @geometry_remove_redundant_packs(ptr nocapture noundef nonnull readonly %geometry, ptr noundef nonnull %names, ptr noundef nonnull %existing) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.geometry_remove_redundant_packs.buf, i64 24, i1 false)
@@ -4013,7 +4013,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr %arrayidx, align 8
   %hash = getelementptr inbounds i8, ptr %2, i64 153
   %call = call ptr @hash_to_hex(ptr noundef nonnull %hash) #15
-  %call1 = call i32 @string_list_has_string(ptr noundef %names, ptr noundef %call) #15
+  %call1 = call i32 @string_list_has_string(ptr noundef nonnull %names, ptr noundef %call) #15
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %for.inc
 
@@ -4071,7 +4071,7 @@ strbuf_strip_suffix.exit:                         ; preds = %strbuf_setlen.exit,
 
 lor.lhs.false:                                    ; preds = %strbuf_strip_suffix.exit
   %8 = load ptr, ptr %buf.i, align 8
-  %call6 = call i32 @string_list_has_string(ptr noundef %existing, ptr noundef %8) #15
+  %call6 = call i32 @string_list_has_string(ptr noundef nonnull %existing, ptr noundef %8) #15
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end9, label %for.inc
 

@@ -211,7 +211,7 @@ switch.early.test:                                ; preds = %77
 117:                                              ; preds = %111, %101
   %118 = phi i1 [ %85, %101 ], [ %112, %111 ]
   %.1303 = phi i32 [ %.0302, %101 ], [ %113, %111 ]
-  %119 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %12, i32 noundef %.1303, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
+  %119 = call fastcc i32 @lookup_agg_function(ptr noundef %12, i32 noundef %.1303, ptr noundef %39, i32 noundef %11, ptr noundef %37)
   %120 = load i32, ptr %37, align 4
   %.not341 = icmp eq i32 %120, %25
   br i1 %.not341, label %127, label %121
@@ -277,7 +277,7 @@ switch.early.test:                                ; preds = %77
 
 154:                                              ; preds = %153
   store i32 %27, ptr %39, align 16
-  %155 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %17, i32 noundef %.1303, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
+  %155 = call fastcc i32 @lookup_agg_function(ptr noundef %17, i32 noundef %.1303, ptr noundef %39, i32 noundef %11, ptr noundef %37)
   %156 = load i32, ptr %37, align 4
   %.not344 = icmp eq i32 %156, %27
   br i1 %.not344, label %163, label %157
@@ -354,7 +354,7 @@ switch.early.test:                                ; preds = %77
   br i1 %.not346, label %225, label %194
 
 194:                                              ; preds = %193
-  %195 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %18, i32 noundef %.1303, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
+  %195 = call fastcc i32 @lookup_agg_function(ptr noundef %18, i32 noundef %.1303, ptr noundef %39, i32 noundef %11, ptr noundef %37)
   %196 = load i32, ptr %37, align 4
   %.not347 = icmp eq i32 %196, %27
   br i1 %.not347, label %203, label %197
@@ -423,7 +423,7 @@ switch.early.test:                                ; preds = %77
   %.0300.in = select i1 %20, i32 %4, i32 %5
   %.0293 = select i1 %20, i32 %11, i32 %spec.select
   %.0300 = add nuw i32 %.0300.in, 1
-  %230 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %13, i32 noundef %.0300, ptr noundef nonnull %39, i32 noundef %.0293, ptr noundef nonnull %38)
+  %230 = call fastcc i32 @lookup_agg_function(ptr noundef %13, i32 noundef %.0300, ptr noundef %39, i32 noundef %.0293, ptr noundef %38)
   br i1 %20, label %231, label %238
 
 231:                                              ; preds = %226
@@ -451,7 +451,7 @@ switch.early.test:                                ; preds = %77
   store i32 %25, ptr %39, align 16
   %240 = getelementptr inbounds i8, ptr %39, i64 4
   store i32 %25, ptr %240, align 4
-  %241 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %14, i32 noundef 2, ptr noundef nonnull %39, i32 noundef 0, ptr noundef nonnull %41)
+  %241 = call fastcc i32 @lookup_agg_function(ptr noundef %14, i32 noundef 2, ptr noundef %39, i32 noundef 0, ptr noundef %41)
   %242 = load i32, ptr %41, align 4
   %.not352 = icmp eq i32 %242, %25
   br i1 %.not352, label %249, label %243
@@ -490,7 +490,7 @@ switch.early.test:                                ; preds = %77
 
 259:                                              ; preds = %258
   store i32 2281, ptr %39, align 16
-  %260 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %39, i32 noundef 0, ptr noundef nonnull %37)
+  %260 = call fastcc i32 @lookup_agg_function(ptr noundef %15, i32 noundef 1, ptr noundef %39, i32 noundef 0, ptr noundef %37)
   %261 = load i32, ptr %37, align 4
   %.not354 = icmp eq i32 %261, 17
   br i1 %.not354, label %268, label %262
@@ -514,7 +514,7 @@ switch.early.test:                                ; preds = %77
   store i32 17, ptr %39, align 16
   %270 = getelementptr inbounds i8, ptr %39, i64 4
   store i32 2281, ptr %270, align 4
-  %271 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull %39, i32 noundef 0, ptr noundef nonnull %37)
+  %271 = call fastcc i32 @lookup_agg_function(ptr noundef %16, i32 noundef 2, ptr noundef %39, i32 noundef 0, ptr noundef %37)
   %272 = load i32, ptr %37, align 4
   %.not356 = icmp eq i32 %272, 2281
   br i1 %.not356, label %279, label %273
@@ -577,7 +577,7 @@ switch.early.test:                                ; preds = %77
   %.1301.in = select i1 %21, i32 %4, i32 %5
   %.0292 = select i1 %21, i32 %11, i32 %spec.select382
   %.1301 = add nuw i32 %.1301.in, 1
-  %301 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %19, i32 noundef %.1301, ptr noundef nonnull %39, i32 noundef %.0292, ptr noundef nonnull %37)
+  %301 = call fastcc i32 @lookup_agg_function(ptr noundef %19, i32 noundef %.1301, ptr noundef %39, i32 noundef %.0292, ptr noundef %37)
   br i1 %21, label %302, label %309
 
 302:                                              ; preds = %297
@@ -1013,13 +1013,13 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lookup_agg_function(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @lookup_agg_function(ptr noundef nonnull %0, i32 noundef range(i32 -96, -2147483647) %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  %11 = call i32 @func_get_detail(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #8
+  %11 = call i32 @func_get_detail(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #8
   %12 = icmp eq i32 %11, 2
   %13 = load i32, ptr %6, align 4
   %14 = icmp ne i32 %13, 0
@@ -1030,7 +1030,7 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef %0, i32 noundef %1, 
   %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %16)
   %17 = call i32 @errcode(i32 noundef 52461700) #8
-  %18 = call ptr @func_signature_string(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2) #8
+  %18 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #8
   %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %18) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 860, ptr noundef nonnull @__func__.lookup_agg_function) #8
   unreachable
@@ -1044,7 +1044,7 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef %0, i32 noundef %1, 
   %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %24)
   %25 = call i32 @errcode(i32 noundef 67141764) #8
-  %26 = call ptr @func_signature_string(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2) #8
+  %26 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #8
   %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %26) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 866, ptr noundef nonnull @__func__.lookup_agg_function) #8
   unreachable
@@ -1060,7 +1060,7 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef %0, i32 noundef %1, 
   %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %33)
   %34 = call i32 @errcode(i32 noundef 67141764) #8
-  %35 = call ptr @func_signature_string(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2) #8
+  %35 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #8
   %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %35) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @__func__.lookup_agg_function) #8
   unreachable
@@ -1068,7 +1068,7 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef %0, i32 noundef %1, 
 37:                                               ; preds = %28
   %38 = load ptr, ptr %10, align 8
   %39 = load i32, ptr %4, align 4
-  %40 = call i32 @enforce_generic_type_consistency(ptr noundef %2, ptr noundef %38, i32 noundef %1, i32 noundef %39, i1 noundef zeroext true) #8
+  %40 = call i32 @enforce_generic_type_consistency(ptr noundef nonnull %2, ptr noundef %38, i32 noundef %1, i32 noundef %39, i1 noundef zeroext true) #8
   store i32 %40, ptr %4, align 4
   %41 = icmp sgt i32 %1, 0
   br i1 %41, label %.lr.ph.preheader, label %._crit_edge
@@ -1097,7 +1097,7 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef %0, i32 noundef %1, 
   call void @llvm.assume(i1 %50)
   %51 = call i32 @errcode(i32 noundef 67141764) #8
   %52 = load ptr, ptr %10, align 8
-  %53 = call ptr @func_signature_string(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %52) #8
+  %53 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %52) #8
   %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %53) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 905, ptr noundef nonnull @__func__.lookup_agg_function) #8
   unreachable

@@ -182,7 +182,7 @@ define internal void @"_ZN4core3ptr58drop_in_place$LT$$RF$rayon_core..latch..Cou
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = alloca { ptr, ptr }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %3 = load ptr, ptr %0, align 8, !alias.scope !13, !nonnull !4, !noundef !4
@@ -681,7 +681,7 @@ define void @_ZN10rayon_core5scope5Scope3new17h31f80d2948bc842bE(ptr noalias noc
 17:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #20
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef align 8 dereferenceable(8) %5) #20
           to label %21 unwind label %19, !noalias !80
 
 19:                                               ; preds = %17
@@ -749,7 +749,7 @@ define void @_ZN10rayon_core5scope9ScopeFifo3new17h23b2a5d100b5f67dE(ptr noalias
 19:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #20
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef align 8 dereferenceable(8) %5) #20
           to label %common.resume unwind label %21, !noalias !89
 
 21:                                               ; preds = %19

@@ -307,8 +307,8 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   br i1 %cmp1.not.i.i.i.i, label %for.body.i.i.i.i, label %get_days.exit.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i
-  %i.020.i.i.i.i = phi i32 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
-  %add5.i.i.i.i = add nsw i32 %dec.i.i.i, %i.020.i.i.i.i
+  %i.019.i.i.i.i = phi i32 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
+  %add5.i.i.i.i = add nsw i32 %dec.i.i.i, %i.019.i.i.i.i
   %rem.i.i.i.i = srem i32 %add5.i.i.i.i, 7
   %add6.i.i.i.i = add nsw i32 %rem.i.i.i.i, 1
   %call7.i.i.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef %cond.i.i.i, i32 noundef %add6.i.i.i.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #10
@@ -321,7 +321,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %fo
   store ptr %call9.i.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   store i32 0, ptr %status, align 4
   %call13.i.i.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef %cond.i.i.i, i32 noundef %add6.i.i.i.i, ptr noundef %call9.i.i.i.i, i32 noundef %add8.i.i.i.i, ptr noundef nonnull %status) #10
-  %inc.i.i.i.i = add nuw nsw i32 %i.020.i.i.i.i, 1
+  %inc.i.i.i.i = add nuw nsw i32 %i.019.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, 7
   br i1 %exitcond.not.i.i.i.i, label %get_days.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !7
 
@@ -958,8 +958,8 @@ if.end.i.i.i26.i:                                 ; preds = %if.end.i22.i
   br i1 %cmp1.not.i.i.i30.i, label %for.body.i.i.i69.i, label %for.body.i32.i.preheader
 
 for.body.i.i.i69.i:                               ; preds = %if.end.i.i.i26.i, %for.body.i.i.i69.i
-  %i.020.i.i.i70.i = phi i32 [ %inc.i.i.i82.i, %for.body.i.i.i69.i ], [ 0, %if.end.i.i.i26.i ]
-  %add5.i.i.i71.i = add nsw i32 %dec.i.i28.i, %i.020.i.i.i70.i
+  %i.019.i.i.i70.i = phi i32 [ %inc.i.i.i82.i, %for.body.i.i.i69.i ], [ 0, %if.end.i.i.i26.i ]
+  %add5.i.i.i71.i = add nsw i32 %dec.i.i28.i, %i.019.i.i.i70.i
   %rem.i.i.i72.i = srem i32 %add5.i.i.i71.i, 7
   %add6.i.i.i73.i = add nsw i32 %rem.i.i.i72.i, 1
   %call7.i.i.i74.i = call i32 @udat_getSymbols_75(ptr noundef %call.i23.i, i32 noundef %cond.i.i27.i, i32 noundef %add6.i.i.i73.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #10
@@ -972,7 +972,7 @@ for.body.i.i.i69.i:                               ; preds = %if.end.i.i.i26.i, %
   store ptr %call9.i.i.i78.i, ptr %arrayidx.i.i.i80.i, align 8
   store i32 0, ptr %status, align 4
   %call13.i.i.i81.i = call i32 @udat_getSymbols_75(ptr noundef %call.i23.i, i32 noundef %cond.i.i27.i, i32 noundef %add6.i.i.i73.i, ptr noundef %call9.i.i.i78.i, i32 noundef %add8.i.i.i75.i, ptr noundef nonnull %status) #10
-  %inc.i.i.i82.i = add nuw nsw i32 %i.020.i.i.i70.i, 1
+  %inc.i.i.i82.i = add nuw nsw i32 %i.019.i.i.i70.i, 1
   %exitcond.not.i.i.i83.i = icmp eq i32 %inc.i.i.i82.i, 7
   br i1 %exitcond.not.i.i.i83.i, label %for.body.i32.i.preheader, label %for.body.i.i.i69.i, !llvm.loop !7
 

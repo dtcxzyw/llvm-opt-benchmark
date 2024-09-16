@@ -1265,8 +1265,8 @@ ber_len_ok.exit.i:                                ; preds = %125, %123, %118, %1
   %151 = load i32, ptr %9, align 4
   %152 = add i32 %151, -1
   store i32 %152, ptr %9, align 4
-  %trunc.i = trunc nuw i32 %spec.select355.i.i to i8
-  switch i8 %trunc.i, label %459 [
+  %trunc.i.i = trunc nuw i32 %spec.select355.i.i to i8
+  switch i8 %trunc.i.i, label %459 [
     i8 80, label %153
     i8 81, label %171
     i8 83, label %196
@@ -2006,7 +2006,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [300 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = icmp ult i32 %1, 4

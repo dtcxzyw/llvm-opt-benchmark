@@ -14765,7 +14765,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias nonnull align 8 %os, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias align 8 %os, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %os)
           to label %invoke.cont unwind label %lpad
 
@@ -14814,7 +14814,7 @@ land.end:                                         ; preds = %land.rhs, %if.end
   br i1 %call10, label %if.then11, label %if.end27
 
 if.then11:                                        ; preds = %land.end
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias nonnull align 8 %os12, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias align 8 %os12, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
   %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os12, ptr noundef nonnull @.str.228)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -14867,7 +14867,7 @@ _ZNK19OpenColorIO_v2_4dev4View27useDisplayNameForColorspaceEv.exit: ; preds = %l
   br i1 %cmp.i.i, label %if.then31, label %if.end52
 
 if.then31:                                        ; preds = %_ZNK19OpenColorIO_v2_4dev4View27useDisplayNameForColorspaceEv.exit
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias nonnull align 8 %os32, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias align 8 %os32, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
   %call35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os32, ptr noundef nonnull @.str.229)
           to label %invoke.cont34 unwind label %lpad33
 
@@ -15045,7 +15045,7 @@ cleanup.done:                                     ; preds = %_ZN9__gnu_cxx27__ex
   br i1 %cmp.i.not, label %if.then65, label %if.end86
 
 if.then65:                                        ; preds = %land.rhs58, %if.end8.sink.split.i.i.i.i, %cleanup.action.thread, %cleanup.done
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias nonnull align 8 %os66, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias align 8 %os66, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
   %call69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os66, ptr noundef nonnull @.str.231)
           to label %invoke.cont68 unwind label %lpad67
 
@@ -15290,7 +15290,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13ViewTransformEED2Ev.exit: ; preds = %
   br i1 %cmp.i122.not, label %if.then101, label %if.end125
 
 if.then101:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13ViewTransformEED2Ev.exit
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias nonnull align 8 %os102, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias align 8 %os102, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
   %call105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os102, ptr noundef nonnull @.str.232)
           to label %invoke.cont104 unwind label %lpad103
 
@@ -15368,7 +15368,7 @@ land.lhs.true133:                                 ; preds = %if.end131
   br i1 %cmp.not, label %if.end167, label %if.then136
 
 if.then136:                                       ; preds = %land.lhs.true133
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias nonnull align 8 %os137, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias align 8 %os137, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
           to label %invoke.cont139 unwind label %lpad138
 
 invoke.cont139:                                   ; preds = %if.then136
@@ -15645,7 +15645,7 @@ cleanup.done199:                                  ; preds = %_ZN9__gnu_cxx27__ex
   br i1 %cmp.i196.not, label %if.then200, label %if.end223
 
 if.then200:                                       ; preds = %if.end8.sink.split.i.i.i.i219, %cleanup.done199
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias nonnull align 8 %os201, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias align 8 %os201, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
           to label %invoke.cont202 unwind label %lpad191.loopexit.split-lp
 
 invoke.cont202:                                   ; preds = %if.then200
@@ -15847,7 +15847,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12ViewingRulesEED2Ev.exit: ; preds = %i
   br i1 %call234, label %if.end262, label %if.then237
 
 if.then237:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12ViewingRulesEED2Ev.exit
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias nonnull align 8 %os238, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128GetDisplayViewPrefixErrorMsgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4ViewE(ptr noalias align 8 %os238, ptr noundef nonnull align 8 dereferenceable(32) %display, ptr noundef nonnull align 8 dereferenceable(192) %view)
           to label %invoke.cont239 unwind label %lpad170.loopexit.split-lp
 
 invoke.cont239:                                   ; preds = %if.then237
@@ -46797,7 +46797,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4devL23GetProcessorToBuiltinCSESt10shared_ptrIKNS_6ConfigEEPKcS5_NS_18TransformDirectionE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef %srcColorSpaceName, ptr noundef %builtinColorSpaceName, i32 noundef 0)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4devL23GetProcessorToBuiltinCSESt10shared_ptrIKNS_6ConfigEEPKcS5_NS_18TransformDirectionE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef %srcColorSpaceName, ptr noundef %builtinColorSpaceName, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit
@@ -46884,7 +46884,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4devL23GetProcessorToBuiltinCSESt10shared_ptrIKNS_6ConfigEEPKcS5_NS_18TransformDirectionE(ptr noalias align 8 %agg.result, ptr noundef %srcConfig, ptr noundef %srcColorSpaceName, ptr noundef %builtinColorSpaceName, i32 noundef %direction) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4devL23GetProcessorToBuiltinCSESt10shared_ptrIKNS_6ConfigEEPKcS5_NS_18TransformDirectionE(ptr noalias align 8 %agg.result, ptr noundef nonnull %srcConfig, ptr noundef %srcColorSpaceName, ptr noundef %builtinColorSpaceName, i32 noundef range(i32 0, 2) %direction) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %builtinConfig = alloca %"class.std::shared_ptr", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.79", align 8
@@ -47268,7 +47268,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4devL23GetProcessorToBuiltinCSESt10shared_ptrIKNS_6ConfigEEPKcS5_NS_18TransformDirectionE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef %srcColorSpaceName, ptr noundef %builtinColorSpaceName, i32 noundef 1)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4devL23GetProcessorToBuiltinCSESt10shared_ptrIKNS_6ConfigEEPKcS5_NS_18TransformDirectionE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef %srcColorSpaceName, ptr noundef %builtinColorSpaceName, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit

@@ -3120,7 +3120,7 @@ lpad31.i.i.i.i.i.i:                               ; preds = %if.else.i.i11.i.i.i
   br label %ehcleanup.i.i.i.i.i.i
 
 if.end35.i.i.i.i.i.i:                             ; preds = %invoke.cont32.i.i.i.i.i.i, %invoke.cont20.i.i.i.i.i.i, %invoke.cont11.i.i.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias nonnull align 8 %ref.tmp36.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias align 8 %ref.tmp36.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
           to label %invoke.cont37.i.i.i.i.i.i unwind label %lpad4.loopexit.split-lp.i.i.i.i.i.i
 
 invoke.cont37.i.i.i.i.i.i:                        ; preds = %if.end35.i.i.i.i.i.i
@@ -3967,7 +3967,7 @@ if.end24:                                         ; preds = %_ZNSt12_Vector_base
 declare void @_ZN17grpc_event_engine12experimental25CreateGRPCResolvedAddressERKNS0_11EventEngine15ResolvedAddressE(ptr sret(%struct.grpc_resolved_address) align 4, ptr noundef nonnull align 4 dereferenceable(132)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i31 = alloca %"class.grpc_core::ChannelArgs", align 8
   %agg.tmp.i = alloca %"class.std::vector.78", align 8
@@ -6282,7 +6282,7 @@ invoke.cont14.i.i.i.i.i.i:                        ; preds = %cond.false.i.i.i.i.
           to label %invoke.cont16.i.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.i.i.i.i.i.i
 
 invoke.cont16.i.i.i.i.i.i:                        ; preds = %invoke.cont14.i.i.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
           to label %invoke.cont17.i.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.i.i.i.i.i.i
 
 invoke.cont17.i.i.i.i.i.i:                        ; preds = %invoke.cont16.i.i.i.i.i.i
@@ -6323,7 +6323,7 @@ invoke.cont22.i.i.i.i.i.i:                        ; preds = %invoke.cont8.i.i.i.
   br i1 %cmp.i.i17.i.i.i.i.i.i, label %if.then25.i.i.i.i.i.i, label %if.end31.i.i.i.i.i.i
 
 if.then25.i.i.i.i.i.i:                            ; preds = %invoke.cont22.i.i.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias nonnull align 8 %ref.tmp26.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias align 8 %ref.tmp26.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
           to label %invoke.cont27.i.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.i.i.i.i.i.i
 
 invoke.cont27.i.i.i.i.i.i:                        ; preds = %if.then25.i.i.i.i.i.i
@@ -6370,7 +6370,7 @@ if.then33.i.i.i.i.i.i:                            ; preds = %if.end31.i.i.i.i.i.
           to label %invoke.cont36.i.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.i.i.i.i.i.i
 
 invoke.cont36.i.i.i.i.i.i:                        ; preds = %if.then33.i.i.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias nonnull align 8 %ref.tmp37.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias align 8 %ref.tmp37.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
           to label %invoke.cont38.i.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.i.i.i.i.i.i
 
 invoke.cont38.i.i.i.i.i.i:                        ; preds = %invoke.cont36.i.i.i.i.i.i
@@ -7607,7 +7607,7 @@ for.end.i.i.i.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i
   br label %if.end52.i.i.i.i.i.i
 
 if.end52.i.i.i.i.i.i:                             ; preds = %for.end.i.i.i.i.i.i, %invoke.cont20.i.i.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias nonnull align 8 %ref.tmp53.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %.val.i.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias align 8 %ref.tmp53.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %.val.i.i.i.i.i)
           to label %invoke.cont54.i.i.i.i.i.i unwind label %lpad13.i.i.i.i.i.i
 
 invoke.cont54.i.i.i.i.i.i:                        ; preds = %if.end52.i.i.i.i.i.i
@@ -8902,7 +8902,7 @@ ehcleanup.i.i.i.i.i.i:                            ; preds = %lpad78.i.i.i.i.i.i,
   br label %ehcleanup96.i.i.i.i.i.i
 
 if.end89.i.i.i.i.i.i:                             ; preds = %invoke.cont85.i.i.i.i.i.i, %invoke.cont57.i.i.i.i.i.i, %invoke.cont51.i.i.i.i.i.i, %invoke.cont18.i.i.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias nonnull align 8 %ref.tmp90.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper16OnResolvedLockedEv(ptr noalias align 8 %ref.tmp90.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %this.val.i.i.i.i.i)
           to label %invoke.cont91.i.i.i.i.i.i unwind label %lpad6.i.i.i.i.i.i
 
 invoke.cont91.i.i.i.i.i.i:                        ; preds = %if.end89.i.i.i.i.i.i

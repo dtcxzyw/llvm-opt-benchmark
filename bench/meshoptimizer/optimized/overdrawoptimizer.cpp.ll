@@ -403,25 +403,25 @@ invoke.cont16:                                    ; preds = %_ZN7meshoptL22gener
   %div93.i = lshr i64 %vertex_positions_stride, 2
   br label %for.body.i114
 
-for.body.i114:                                    ; preds = %invoke.cont16, %for.body.i114
-  %mesh_centroid.sroa.0.099.i = phi float [ %add.i118, %for.body.i114 ], [ 0.000000e+00, %invoke.cont16 ]
-  %mesh_centroid.sroa.6.098.i = phi float [ %add5.i, %for.body.i114 ], [ 0.000000e+00, %invoke.cont16 ]
-  %mesh_centroid.sroa.11.097.i = phi float [ %add8.i, %for.body.i114 ], [ 0.000000e+00, %invoke.cont16 ]
-  %i.096.i = phi i64 [ %inc.i120, %for.body.i114 ], [ 0, %invoke.cont16 ]
-  %arrayidx.i115 = getelementptr inbounds i32, ptr %indices.addr.0, i64 %i.096.i
+for.body.i114:                                    ; preds = %for.body.i114, %invoke.cont16
+  %mesh_centroid.sroa.0.098.i = phi float [ 0.000000e+00, %invoke.cont16 ], [ %add.i118, %for.body.i114 ]
+  %mesh_centroid.sroa.6.097.i = phi float [ 0.000000e+00, %invoke.cont16 ], [ %add5.i, %for.body.i114 ]
+  %mesh_centroid.sroa.11.096.i = phi float [ 0.000000e+00, %invoke.cont16 ], [ %add8.i, %for.body.i114 ]
+  %i.095.i = phi i64 [ 0, %invoke.cont16 ], [ %inc.i120, %for.body.i114 ]
+  %arrayidx.i115 = getelementptr inbounds i32, ptr %indices.addr.0, i64 %i.095.i
   %31 = load i32, ptr %arrayidx.i115, align 4
   %conv.i116 = zext i32 %31 to i64
   %mul.i117 = mul i64 %div93.i, %conv.i116
   %add.ptr.i = getelementptr inbounds float, ptr %vertex_positions, i64 %mul.i117
   %32 = load float, ptr %add.ptr.i, align 4
-  %add.i118 = fadd float %mesh_centroid.sroa.0.099.i, %32
+  %add.i118 = fadd float %mesh_centroid.sroa.0.098.i, %32
   %arrayidx3.i119 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %33 = load float, ptr %arrayidx3.i119, align 4
-  %add5.i = fadd float %mesh_centroid.sroa.6.098.i, %33
+  %add5.i = fadd float %mesh_centroid.sroa.6.097.i, %33
   %arrayidx6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %34 = load float, ptr %arrayidx6.i, align 4
-  %add8.i = fadd float %mesh_centroid.sroa.11.097.i, %34
-  %inc.i120 = add nuw i64 %i.096.i, 1
+  %add8.i = fadd float %mesh_centroid.sroa.11.096.i, %34
+  %inc.i120 = add nuw i64 %i.095.i, 1
   %exitcond.not.i121 = icmp eq i64 %inc.i120, %index_count
   br i1 %exitcond.not.i121, label %for.end.i122, label %for.body.i114, !llvm.loop !10
 
@@ -430,16 +430,16 @@ for.end.i122:                                     ; preds = %for.body.i114
   %div11.i = fdiv float %add.i118, %conv9.i
   %div14.i = fdiv float %add5.i, %conv9.i
   %div17.i = fdiv float %add8.i, %conv9.i
-  %cmp19118.not.i = icmp eq i64 %result.0.lcssa.i75168, 0
-  br i1 %cmp19118.not.i, label %_ZN7meshoptL17calculateSortDataEPfPKjmPKfmS2_m.exit, label %for.body20.i
+  %cmp19114.not.i = icmp eq i64 %result.0.lcssa.i75168, 0
+  br i1 %cmp19114.not.i, label %_ZN7meshoptL17calculateSortDataEPfPKjmPKfmS2_m.exit, label %for.body20.i
 
 for.body20.i:                                     ; preds = %for.end.i122, %for.end126.i
-  %cluster.0119.i = phi i64 [ %add24.i, %for.end126.i ], [ 0, %for.end.i122 ]
-  %arrayidx21.i = getelementptr inbounds i32, ptr %call.i67, i64 %cluster.0119.i
+  %cluster.0115.i = phi i64 [ %add24.i, %for.end126.i ], [ 0, %for.end.i122 ]
+  %arrayidx21.i = getelementptr inbounds i32, ptr %call.i67, i64 %cluster.0115.i
   %35 = load i32, ptr %arrayidx21.i, align 4
   %mul22.i = mul i32 %35, 3
   %conv23.i = zext i32 %mul22.i to i64
-  %add24.i = add nuw i64 %cluster.0119.i, 1
+  %add24.i = add nuw i64 %cluster.0115.i, 1
   %cmp25.i = icmp ult i64 %add24.i, %result.0.lcssa.i75168
   br i1 %cmp25.i, label %cond.true.i129, label %cond.end.i123
 
@@ -452,19 +452,19 @@ cond.true.i129:                                   ; preds = %for.body20.i
 
 cond.end.i123:                                    ; preds = %cond.true.i129, %for.body20.i
   %cond.i124 = phi i64 [ %conv29.i, %cond.true.i129 ], [ %index_count, %for.body20.i ]
-  %cmp32102.i = icmp ugt i64 %cond.i124, %conv23.i
-  br i1 %cmp32102.i, label %for.body33.i125, label %for.end126.i
+  %cmp3299.i = icmp ugt i64 %cond.i124, %conv23.i
+  br i1 %cmp3299.i, label %for.body33.i125, label %for.end126.i
 
 for.body33.i125:                                  ; preds = %cond.end.i123, %for.body33.i125
-  %cluster_area.0110.i = phi float [ %add123.i, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
-  %cluster_centroid.sroa.0.1109.i = phi float [ %57, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
-  %cluster_centroid.sroa.6.1108.i = phi float [ %58, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
-  %cluster_centroid.sroa.11.1107.i = phi float [ %59, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
-  %cluster_normal.sroa.0.1106.i = phi float [ %add118.i, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
-  %cluster_normal.sroa.8.1105.i = phi float [ %add120.i, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
-  %cluster_normal.sroa.15.1104.i = phi float [ %add122.i, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
-  %i30.0103.i = phi i64 [ %add125.i, %for.body33.i125 ], [ %conv23.i, %cond.end.i123 ]
-  %arrayidx35.i = getelementptr inbounds i32, ptr %indices.addr.0, i64 %i30.0103.i
+  %cluster_area.0107.i = phi float [ %add123.i, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
+  %cluster_centroid.sroa.0.1106.i = phi float [ %57, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
+  %cluster_centroid.sroa.6.1105.i = phi float [ %58, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
+  %cluster_centroid.sroa.11.1104.i = phi float [ %59, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
+  %cluster_normal.sroa.0.1103.i = phi float [ %add118.i, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
+  %cluster_normal.sroa.8.1102.i = phi float [ %add120.i, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
+  %cluster_normal.sroa.15.1101.i = phi float [ %add122.i, %for.body33.i125 ], [ 0.000000e+00, %cond.end.i123 ]
+  %i30.0100.i = phi i64 [ %add125.i, %for.body33.i125 ], [ %conv23.i, %cond.end.i123 ]
+  %arrayidx35.i = getelementptr inbounds i32, ptr %indices.addr.0, i64 %i30.0100.i
   %37 = load i32, ptr %arrayidx35.i, align 4
   %conv36.i = zext i32 %37 to i64
   %mul37.i = mul i64 %div93.i, %conv36.i
@@ -516,18 +516,18 @@ for.body33.i125:                                  ; preds = %cond.end.i123, %for
   %add95.i = fadd float %40, %41
   %add97.i = fadd float %add95.i, %46
   %div98.i = fdiv float %sqrt.i, 3.000000e+00
-  %57 = tail call float @llvm.fmuladd.f32(float %add97.i, float %div98.i, float %cluster_centroid.sroa.0.1109.i)
+  %57 = tail call float @llvm.fmuladd.f32(float %add97.i, float %div98.i, float %cluster_centroid.sroa.0.1106.i)
   %add103.i = fadd float %42, %43
   %add105.i = fadd float %add103.i, %47
-  %58 = tail call float @llvm.fmuladd.f32(float %add105.i, float %div98.i, float %cluster_centroid.sroa.6.1108.i)
+  %58 = tail call float @llvm.fmuladd.f32(float %add105.i, float %div98.i, float %cluster_centroid.sroa.6.1105.i)
   %add111.i = fadd float %44, %45
   %add113.i = fadd float %add111.i, %48
-  %59 = tail call float @llvm.fmuladd.f32(float %add113.i, float %div98.i, float %cluster_centroid.sroa.11.1107.i)
-  %add118.i = fadd float %cluster_normal.sroa.0.1106.i, %50
-  %add120.i = fadd float %cluster_normal.sroa.8.1105.i, %52
-  %add122.i = fadd float %cluster_normal.sroa.15.1104.i, %54
-  %add123.i = fadd float %cluster_area.0110.i, %sqrt.i
-  %add125.i = add i64 %i30.0103.i, 3
+  %59 = tail call float @llvm.fmuladd.f32(float %add113.i, float %div98.i, float %cluster_centroid.sroa.11.1104.i)
+  %add118.i = fadd float %cluster_normal.sroa.0.1103.i, %50
+  %add120.i = fadd float %cluster_normal.sroa.8.1102.i, %52
+  %add122.i = fadd float %cluster_normal.sroa.15.1101.i, %54
+  %add123.i = fadd float %cluster_area.0107.i, %sqrt.i
+  %add125.i = add i64 %i30.0100.i, 3
   %cmp32.i = icmp ult i64 %add125.i, %cond.i124
   br i1 %cmp32.i, label %for.body33.i125, label %for.end126.i, !llvm.loop !11
 
@@ -561,10 +561,10 @@ for.end126.i:                                     ; preds = %for.body33.i125, %c
   %mul178.i = fmul float %mul158.i, %sub168.i
   %62 = tail call float @llvm.fmuladd.f32(float %sub164.i, float %mul156.i, float %mul178.i)
   %63 = tail call float @llvm.fmuladd.f32(float %sub172.i, float %mul160.i, float %62)
-  %arrayidx182.i = getelementptr inbounds float, ptr %call.i113, i64 %cluster.0119.i
+  %arrayidx182.i = getelementptr inbounds float, ptr %call.i113, i64 %cluster.0115.i
   store float %63, ptr %arrayidx182.i, align 4
-  %exitcond122.not.i = icmp eq i64 %add24.i, %result.0.lcssa.i75168
-  br i1 %exitcond122.not.i, label %_ZN7meshoptL17calculateSortDataEPfPKjmPKfmS2_m.exit, label %for.body20.i, !llvm.loop !12
+  %exitcond118.not.i = icmp eq i64 %add24.i, %result.0.lcssa.i75168
+  br i1 %exitcond118.not.i, label %_ZN7meshoptL17calculateSortDataEPfPKjmPKfmS2_m.exit, label %for.body20.i, !llvm.loop !12
 
 _ZN7meshoptL17calculateSortDataEPfPKjmPKfmS2_m.exit: ; preds = %for.end126.i, %for.end.i122
   %64 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
@@ -589,7 +589,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   %arrayidx.i142 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %inc.i134
   store ptr %call.i143, ptr %arrayidx.i142, align 8
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %histogram.i)
-  br i1 %cmp19118.not.i, label %for.end10.thread.i, label %for.body.i145
+  br i1 %cmp19114.not.i, label %for.end10.thread.i, label %for.body.i145
 
 for.end10.thread.i:                               ; preds = %invoke.cont21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %histogram.i, i8 0, i64 8192, i1 false)
@@ -648,7 +648,7 @@ for.body14.i:                                     ; preds = %for.body14.i, %for.
   br i1 %exitcond36.not.i, label %for.body24.i.preheader, label %for.body14.i, !llvm.loop !15
 
 for.cond33.preheader.i:                           ; preds = %for.body24.i
-  br i1 %cmp19118.not.i, label %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit.thread, label %for.body35.i
+  br i1 %cmp19114.not.i, label %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit.thread, label %for.body35.i
 
 _ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit.thread: ; preds = %for.cond33.preheader.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %histogram.i)

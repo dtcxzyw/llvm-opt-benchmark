@@ -7116,7 +7116,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare dso_local zeroext i1 @intel_wm_plane_visible(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.skl_wm_params, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
@@ -7413,10 +7413,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @skl_compute_wm_params(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, i32 noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_compute_wm_params(ptr nocapture noundef readonly %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 align 16 {
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq i32 %7, 1
+  %11 = icmp ne i32 %7, 0
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %8

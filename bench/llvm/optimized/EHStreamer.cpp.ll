@@ -4835,7 +4835,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14LandingPadInfoEl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #13 {
+define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #13 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

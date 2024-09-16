@@ -335,7 +335,7 @@ if.then59:                                        ; preds = %while.cond.i
 if.end63:                                         ; preds = %while.cond.i, %while.cond.i
   %sub.ptr.lhs.cast = ptrtoint ptr %str.addr.0.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  invoke fastcc void @_ZL10StripSpaceB5cxx11PKcm(ptr noalias nonnull align 8 %key64, ptr noundef nonnull %call10, i64 noundef %sub.ptr.sub)
+  invoke fastcc void @_ZL10StripSpaceB5cxx11PKcm(ptr noalias align 8 %key64, ptr noundef nonnull %call10, i64 noundef %sub.ptr.sub)
           to label %invoke.cont67 unwind label %lpad
 
 invoke.cont67:                                    ; preds = %if.end63
@@ -344,7 +344,7 @@ invoke.cont67:                                    ; preds = %if.end63
   %sub.ptr.lhs.cast70 = ptrtoint ptr %add.ptr69 to i64
   %18 = xor i64 %sub.ptr.lhs.cast, -1
   %sub73 = add i64 %18, %sub.ptr.lhs.cast70
-  invoke fastcc void @_ZL10StripSpaceB5cxx11PKcm(ptr noalias nonnull align 8 %value, ptr noundef nonnull %add.ptr, i64 noundef %sub73)
+  invoke fastcc void @_ZL10StripSpaceB5cxx11PKcm(ptr noalias align 8 %value, ptr noundef nonnull %add.ptr, i64 noundef %sub73)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont67
@@ -508,7 +508,7 @@ declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10StripSpaceB5cxx11PKcm(ptr noalias align 8 %agg.result, ptr noundef %str, i64 noundef %len) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10StripSpaceB5cxx11PKcm(ptr noalias nonnull align 8 %agg.result, ptr noundef %str, i64 noundef %len) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %cmp.not9 = icmp eq i64 %len, 0

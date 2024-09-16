@@ -753,7 +753,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
   %.047.i.i = phi ptr [ null, %.noexc28 ], [ %.3.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit89.i.i ]
   %.044.i.i = phi i64 [ 0, %.noexc28 ], [ %.246.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit89.i.i ]
   %124 = and i64 %.05.i.i, %116
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %113, i64 noundef %124, i1 noundef zeroext false)
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %113, i64 noundef %124, i1 noundef zeroext false)
           to label %.noexc29 unwind label %.loopexit
 
 .noexc29:                                         ; preds = %123
@@ -3278,7 +3278,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
   %.sroa.0.2 = phi ptr [ null, %.noexc14 ], [ %.sroa.0.3, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i ]
   %.04.i.i = phi i64 [ %77, %.noexc14 ], [ %.25.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i ]
   %82 = and i64 %.04.i.i, %75
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly %71, i64 noundef %82, i1 noundef zeroext false)
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef readonly %71, i64 noundef %82, i1 noundef zeroext false)
           to label %.noexc15 unwind label %.loopexit.split-lp.loopexit
 
 .noexc15:                                         ; preds = %81
@@ -3582,7 +3582,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node
   %.sroa.0.4 = phi ptr [ %.sroa.0.3, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26 ], [ %.sroa.0.5, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
   %.042.i.i = phi i64 [ %202, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26 ], [ %.1.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
   %209 = and i64 %.042.i.i, %75
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %200, i64 noundef %209, i1 noundef zeroext true)
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %200, i64 noundef %209, i1 noundef zeroext true)
           to label %.noexc37 unwind label %.loopexit
 
 .noexc37:                                         ; preds = %208
@@ -5764,7 +5764,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 declare void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.tbb::detail::d2::concurrent_hash_map<pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *, pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_KeyHashEq<pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key>>::bucket_accessor", align 8
@@ -5820,7 +5820,7 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %23
   %notmask.i = shl nsw i64 -1, %34
   %35 = xor i64 %notmask.i, -1
   %36 = and i64 %2, %35
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %1, i64 noundef %36, i1 noundef zeroext false)
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1, i64 noundef %36, i1 noundef zeroext false)
           to label %.noexc7 unwind label %130
 
 .noexc7:                                          ; preds = %32

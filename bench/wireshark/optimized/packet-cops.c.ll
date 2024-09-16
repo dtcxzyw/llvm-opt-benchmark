@@ -1472,7 +1472,7 @@ cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup310, %
   ]
 
 108:                                              ; preds = %cops_c_type_to_str.exit75.i
-  %109 = icmp ugt i16 %50, 7
+  %109 = icmp ugt i32 %107, 3
   br i1 %109, label %110, label %dissect_cops_object.exit
 
 110:                                              ; preds = %108
@@ -1592,7 +1592,7 @@ cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup310, %
 193:                                              ; preds = %178
   %194 = load i32, ptr @ett_cops_decision, align 4
   %195 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %81, ptr noundef %0, i32 noundef %106, i32 noundef %107, i32 noundef %194, ptr noundef null, ptr noundef nonnull @.str.675, i32 noundef %107) #9
-  call fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %106, ptr noundef %195, i32 noundef %107, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %106, ptr noundef %195, i32 noundef %107, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %dissect_cops_object.exit
 
 196:                                              ; preds = %178
@@ -1668,7 +1668,7 @@ cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup310, %
 229:                                              ; preds = %228
   %230 = load i32, ptr @ett_cops_clientsi, align 4
   %231 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %81, ptr noundef %0, i32 noundef %106, i32 noundef 4, i32 noundef %230, ptr noundef null, ptr noundef nonnull @.str.675, i32 noundef %107) #9
-  call fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %106, ptr noundef %231, i32 noundef %107, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %106, ptr noundef %231, i32 noundef %107, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %dissect_cops_object.exit
 
 232:                                              ; preds = %cops_c_type_to_str.exit75.i
@@ -2259,7 +2259,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 65532) %4, ptr nocapture noundef nonnull %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca %struct._asn1_ctx_t, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -2277,7 +2277,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %23 = alloca i8, align 1
   %24 = load i32, ptr @ett_cops_pr_obj, align 4
   %25 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %24) #9
-  %26 = icmp sgt i32 %4, 3
+  %26 = icmp ugt i32 %4, 3
   br i1 %26, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
@@ -2375,7 +2375,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %73 = zext nneg i32 %68 to i64
   %74 = call ptr @tvb_memdup(ptr noundef %71, ptr noundef %72, i32 noundef 0, i64 noundef %73) #9
   %75 = load ptr, ptr %28, align 8
-  %76 = call i32 @oid_encoded2subid(ptr noundef %75, ptr noundef %74, i32 noundef %68, ptr noundef %6) #9
+  %76 = call i32 @oid_encoded2subid(ptr noundef %75, ptr noundef %74, i32 noundef %68, ptr noundef nonnull %6) #9
   store i32 %76, ptr %7, align 4
   br label %dissect_cops_pr_object_data.exit
 
@@ -4835,7 +4835,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint64_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   %6 = select i1 %.not, ptr @.str.797, ptr @.str.796
   %7 = load i32, ptr @hf_cops_subtree, align 4
@@ -4951,7 +4951,7 @@ define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.810) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5142,7 +5142,7 @@ define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.811) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5345,7 +5345,7 @@ define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.812) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5536,7 +5536,7 @@ define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.813) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5700,7 +5700,7 @@ define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.814) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
@@ -5888,7 +5888,7 @@ define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cops_downstream_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @cops_downstream_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.815) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4

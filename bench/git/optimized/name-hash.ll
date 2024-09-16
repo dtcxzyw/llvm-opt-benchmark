@@ -700,15 +700,15 @@ while.body.i.i:                                   ; preds = %land.lhs.true.i, %i
 if.then5.i.i:                                     ; preds = %while.body.i.i
   %conv2.i.i = zext i8 %4 to i32
   %conv.i.i = zext i8 %3 to i32
-  %idxprom.i.i.i = zext i8 %3 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
+  %conv.i.i.i = zext i8 %3 to i64
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
   %6 = and i8 %5, 4
   %cmp.not.i.i.i = icmp eq i8 %6, 0
   %and3.i.i.i = and i32 %conv.i.i, 223
   %spec.select.i.i.i = select i1 %cmp.not.i.i.i, i32 %conv.i.i, i32 %and3.i.i.i
-  %idxprom.i7.i.i = zext i8 %4 to i64
-  %arrayidx.i8.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i7.i.i
+  %conv.i7.i.i = zext i8 %4 to i64
+  %arrayidx.i8.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i7.i.i
   %7 = load i8, ptr %arrayidx.i8.i.i, align 1
   %8 = and i8 %7, 4
   %cmp.not.i9.i.i = icmp eq i8 %8, 0
@@ -830,7 +830,7 @@ entry:
   %2 = load i32, ptr %k_end, align 4
   %lazy_entries = getelementptr inbounds i8, ptr %_data, i64 16
   %3 = load ptr, ptr %lazy_entries, align 8
-  %call = call fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %prefix, ptr noundef %3)
+  %call = call fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %prefix, ptr noundef %3)
   call void @strbuf_release(ptr noundef nonnull %prefix) #13
   ret ptr null
 }
@@ -915,7 +915,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare i32 @init_recursive_mutex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_range_1(ptr noundef %istate, i32 noundef %k_start, i32 noundef %k_end, ptr noundef %parent, ptr noundef %prefix, ptr noundef %lazy_entries) unnamed_addr #0 {
+define internal fastcc i32 @handle_range_1(ptr noundef %istate, i32 noundef %k_start, i32 noundef %k_end, ptr noundef %parent, ptr noundef nonnull %prefix, ptr noundef %lazy_entries) unnamed_addr #0 {
 entry:
   %key.i.i = alloca %struct.dir_entry, align 8
   %len = getelementptr inbounds i8, ptr %prefix, i64 8
@@ -1149,7 +1149,7 @@ if.end44.i:                                       ; preds = %if.else39.i, %if.th
 
 handle_range_dir.exit:                            ; preds = %if.end44.i, %strbuf_addch.exit93, %if.else.i, %if.else9.i
   %k.0.i = phi i32 [ %k_end, %strbuf_addch.exit93 ], [ %add.i, %if.else.i ], [ %k_end, %if.else9.i ], [ %begin.1.i, %if.end44.i ]
-  %call48.i = call fastcc i32 @handle_range_1(ptr noundef nonnull %istate, i32 noundef %k.0114, i32 noundef %k.0.i, ptr noundef nonnull %dir.0.i, ptr noundef nonnull %prefix, ptr noundef %lazy_entries)
+  %call48.i = call fastcc i32 @handle_range_1(ptr noundef nonnull %istate, i32 noundef %k.0114, i32 noundef %k.0.i, ptr noundef nonnull %dir.0.i, ptr noundef %prefix, ptr noundef %lazy_entries)
   %sext.i = shl i64 %6, 32
   %conv49.i = ashr exact i64 %sext.i, 32
   %35 = load i64, ptr %prefix, align 8
@@ -1231,7 +1231,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %44 = load i64, ptr %len, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %43, i64 %44
   store i8 0, ptr %arrayidx3.i, align 1
-  %call20 = call fastcc i32 @handle_range_1(ptr noundef nonnull %istate, i32 noundef %k.0114, i32 noundef %k_end, ptr noundef nonnull %dir.0.i, ptr noundef nonnull %prefix, ptr noundef %lazy_entries)
+  %call20 = call fastcc i32 @handle_range_1(ptr noundef nonnull %istate, i32 noundef %k.0114, i32 noundef %k_end, ptr noundef nonnull %dir.0.i, ptr noundef %prefix, ptr noundef %lazy_entries)
   %add21 = add nsw i32 %call20, %k.0114
   %45 = load i64, ptr %prefix, align 8
   %spec.select.i58 = call i64 @llvm.usub.sat.i64(i64 %45, i64 1)

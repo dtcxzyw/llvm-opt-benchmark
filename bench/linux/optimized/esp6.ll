@@ -499,7 +499,7 @@ define internal fastcc void @get_page(ptr noundef %0) unnamed_addr #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @__skb_fill_page_desc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 16 {
+define internal fastcc void @__skb_fill_page_desc(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 188

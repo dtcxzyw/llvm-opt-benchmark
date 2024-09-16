@@ -12336,7 +12336,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @key2any_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, i32 noundef %type, ptr noundef %pemname, ptr noundef readonly %checker, ptr noundef readonly %writer, ptr noundef %pwcb, ptr noundef %pwcbarg, ptr noundef %key2paramstring, ptr noundef %key2der) unnamed_addr #0 {
+define internal fastcc i32 @key2any_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, i32 noundef range(i32 6, 1173) %type, ptr noundef %pemname, ptr noundef readonly %checker, ptr noundef readonly %writer, ptr noundef %pwcb, ptr noundef %pwcbarg, ptr noundef %key2paramstring, ptr noundef %key2der) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %if.then, label %if.else

@@ -842,7 +842,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %6 = alloca { i64, [1 x i64] }, align 8
@@ -1086,7 +1086,7 @@ define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a41
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %5 = alloca { i64, [21 x i64] }, align 8
   %6 = alloca { i32, [3 x i32] }, align 8
@@ -1291,7 +1291,7 @@ define hidden void @_ZN5uu_cp8platform5linux13copy_on_write17hd6060b4e46a5cbc0E(
 
 64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37), !noalias !315
-  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !320
+  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !320
   %65 = getelementptr inbounds i8, ptr %37, i64 8
   %66 = load i8, ptr %65, align 8, !range !321, !noalias !315, !noundef !14
   %67 = icmp eq i8 %66, 2
@@ -1305,7 +1305,7 @@ define hidden void @_ZN5uu_cp8platform5linux13copy_on_write17hd6060b4e46a5cbc0E(
 70:                                               ; preds = %64
   %71 = trunc nuw i8 %66 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !315
-  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %36, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !320
+  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef align 8 dereferenceable(16) %36, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !320
   %72 = load i8, ptr %36, align 8, !range !322, !noalias !315, !noundef !14
   %trunc.i = trunc nuw i8 %72 to i1
   %73 = getelementptr inbounds i8, ptr %36, i64 8
@@ -1434,7 +1434,7 @@ common.resume:                                    ; preds = %314, %270, %225, %1
 
 111:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !363
-  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !368
+  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !368
   %112 = getelementptr inbounds i8, ptr %32, i64 8
   %113 = load i8, ptr %112, align 8, !range !321, !noalias !363, !noundef !14
   %114 = icmp eq i8 %113, 2
@@ -1448,7 +1448,7 @@ common.resume:                                    ; preds = %314, %270, %225, %1
 
 117:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !363
-  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %31, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !368
+  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef align 8 dereferenceable(16) %31, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !368
   %118 = load i8, ptr %31, align 8, !range !322, !noalias !363, !noundef !14
   %trunc.i80 = trunc nuw i8 %118 to i1
   %119 = getelementptr inbounds i8, ptr %31, i64 8
@@ -1568,7 +1568,7 @@ _ZN5uu_cp8platform5linux31handle_reflink_auto_sparse_auto17h87981c65eb05dca1E.ex
 
 157:                                              ; preds = %63
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27), !noalias !409
-  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !413
+  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !413
   %158 = getelementptr inbounds i8, ptr %27, i64 8
   %159 = load i8, ptr %158, align 8, !range !321, !noalias !409, !noundef !14
   %160 = icmp eq i8 %159, 2
@@ -1578,7 +1578,7 @@ _ZN5uu_cp8platform5linux31handle_reflink_auto_sparse_auto17h87981c65eb05dca1E.ex
 
 162:                                              ; preds = %157
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !409
-  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %26, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !413
+  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef align 8 dereferenceable(16) %26, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !413
   %163 = load i8, ptr %26, align 8, !range !322, !noalias !409, !noundef !14
   %trunc.i97 = trunc nuw i8 %163 to i1
   %164 = getelementptr inbounds i8, ptr %26, i64 8
@@ -1654,7 +1654,7 @@ _ZN5uu_cp8platform5linux32handle_reflink_auto_sparse_never17h4ea2e2ff1cf4b877E.e
 
 189:                                              ; preds = %186
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !427
-  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !432
+  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !432
   %190 = getelementptr inbounds i8, ptr %24, i64 8
   %191 = load i8, ptr %190, align 8, !range !321, !noalias !427, !noundef !14
   %192 = icmp eq i8 %191, 2
@@ -1668,7 +1668,7 @@ _ZN5uu_cp8platform5linux32handle_reflink_auto_sparse_never17h4ea2e2ff1cf4b877E.e
 195:                                              ; preds = %189
   %196 = trunc nuw i8 %191 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !427
-  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !432
+  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef align 8 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !432
   %197 = load i8, ptr %23, align 8, !range !322, !noalias !427, !noundef !14
   %trunc.i106 = trunc nuw i8 %197 to i1
   %198 = getelementptr inbounds i8, ptr %23, i64 8
@@ -1799,7 +1799,7 @@ _ZN5uu_cp8platform5linux34handle_reflink_never_sparse_always17h76530089b5e1e467E
 
 236:                                              ; preds = %187
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !476
-  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !481
+  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !481
   %237 = getelementptr inbounds i8, ptr %19, i64 8
   %238 = load i8, ptr %237, align 8, !range !321, !noalias !476, !noundef !14
   %239 = icmp eq i8 %238, 2
@@ -1812,7 +1812,7 @@ _ZN5uu_cp8platform5linux34handle_reflink_never_sparse_always17h76530089b5e1e467E
 
 242:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !476
-  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !481
+  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef align 8 dereferenceable(16) %18, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !481
   %243 = load i8, ptr %18, align 8, !range !322, !noalias !476, !noundef !14
   %trunc.i130 = trunc nuw i8 %243 to i1
   %244 = getelementptr inbounds i8, ptr %18, i64 8
@@ -1931,7 +1931,7 @@ _ZN5uu_cp8platform5linux32handle_reflink_never_sparse_auto17h5bc758b1da0e5454E.e
 
 281:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !525
-  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !529
+  call fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a412dee81eeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !529
   %282 = getelementptr inbounds i8, ptr %14, i64 8
   %283 = load i8, ptr %282, align 8, !range !321, !noalias !525, !noundef !14
   %284 = icmp eq i8 %283, 2
@@ -1941,7 +1941,7 @@ _ZN5uu_cp8platform5linux32handle_reflink_never_sparse_auto17h5bc758b1da0e5454E.e
 
 286:                                              ; preds = %281
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !525
-  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !529
+  call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias nocapture noundef align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !529
   %287 = load i8, ptr %13, align 8, !range !322, !noalias !525, !noundef !14
   %trunc.i155 = trunc nuw i8 %287 to i1
   %288 = getelementptr inbounds i8, ptr %13, i64 8

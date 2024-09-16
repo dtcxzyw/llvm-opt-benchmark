@@ -691,27 +691,27 @@ if.end127:                                        ; preds = %if.end.i151, %if.en
   store i8 %storemerge.i152, ptr %doublequote123, align 1
   %escapechar128 = getelementptr inbounds i8, ptr %call35, i64 32
   %75 = load ptr, ptr %escapechar, align 8
-  %call129 = call fastcc i32 @_set_char_or_none(ptr noundef nonnull @.str.8, ptr noundef nonnull %escapechar128, ptr noundef %75, i32 noundef -1)
+  %call129 = call fastcc i32 @_set_char_or_none(ptr noundef nonnull @.str.8, ptr noundef %escapechar128, ptr noundef %75, i32 noundef -1)
   %tobool130.not = icmp eq i32 %call129, 0
   br i1 %tobool130.not, label %if.end132, label %if.then189
 
 if.end132:                                        ; preds = %if.end127
   %76 = load ptr, ptr %lineterminator, align 8
-  %call134 = call fastcc i32 @_set_str(ptr noundef nonnull %lineterminator42, ptr noundef %76)
+  %call134 = call fastcc i32 @_set_str(ptr noundef %lineterminator42, ptr noundef %76)
   %tobool135.not = icmp eq i32 %call134, 0
   br i1 %tobool135.not, label %if.end137, label %if.then189
 
 if.end137:                                        ; preds = %if.end132
   %quotechar138 = getelementptr inbounds i8, ptr %call35, i64 28
   %77 = load ptr, ptr %quotechar, align 8
-  %call139 = call fastcc i32 @_set_char_or_none(ptr noundef nonnull @.str.10, ptr noundef nonnull %quotechar138, ptr noundef %77, i32 noundef 34)
+  %call139 = call fastcc i32 @_set_char_or_none(ptr noundef nonnull @.str.10, ptr noundef %quotechar138, ptr noundef %77, i32 noundef 34)
   %tobool140.not = icmp eq i32 %call139, 0
   br i1 %tobool140.not, label %if.end142, label %if.then189
 
 if.end142:                                        ; preds = %if.end137
   %quoting143 = getelementptr inbounds i8, ptr %call35, i64 20
   %78 = load ptr, ptr %quoting, align 8
-  %call144 = call fastcc i32 @_set_int(ptr noundef nonnull %quoting143, ptr noundef %78)
+  %call144 = call fastcc i32 @_set_int(ptr noundef %quoting143, ptr noundef %78)
   %tobool145.not = icmp eq i32 %call144, 0
   br i1 %tobool145.not, label %if.end147, label %if.then189
 
@@ -1231,7 +1231,7 @@ declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @PyErr_Clear() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_set_char_or_none(ptr noundef %name, ptr nocapture noundef writeonly %target, ptr noundef %src, i32 noundef %dflt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_set_char_or_none(ptr noundef %name, ptr nocapture noundef nonnull writeonly %target, ptr noundef %src, i32 noundef range(i32 -1, 35) %dflt) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %if.then, label %if.else
@@ -1360,7 +1360,7 @@ return:                                           ; preds = %if.then, %PyUnicode
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_set_str(ptr nocapture noundef %target, ptr noundef %src) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_set_str(ptr nocapture noundef nonnull %target, ptr noundef %src) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %if.then, label %if.else
@@ -1430,7 +1430,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_set_int(ptr nocapture noundef writeonly %target, ptr noundef %src) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_set_int(ptr nocapture noundef nonnull writeonly %target, ptr noundef %src) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %if.end9, label %if.else
@@ -1738,7 +1738,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %arrayidx.i.us = getelementptr i8, ptr %retval.0.i40, i64 %pos.059.us
   %24 = load i8, ptr %arrayidx.i.us, align 1
   %conv.i45.us = zext i8 %24 to i32
-  %call35.us = tail call fastcc i32 @parse_process_char(ptr noundef %self, ptr noundef nonnull %call1.i, i32 noundef %conv.i45.us)
+  %call35.us = tail call fastcc i32 @parse_process_char(ptr noundef %self, ptr noundef %call1.i, i32 noundef %conv.i45.us)
   %cmp36.us = icmp slt i32 %call35.us, 0
   br i1 %cmp36.us, label %if.then37, label %while.cond.us
 
@@ -1754,7 +1754,7 @@ while.body.us62:                                  ; preds = %while.body.lr.ph, %
   %arrayidx4.i.us = getelementptr i16, ptr %retval.0.i40, i64 %pos.059.us64
   %25 = load i16, ptr %arrayidx4.i.us, align 2
   %conv5.i.us = zext i16 %25 to i32
-  %call35.us72 = tail call fastcc i32 @parse_process_char(ptr noundef %self, ptr noundef nonnull %call1.i, i32 noundef %conv5.i.us)
+  %call35.us72 = tail call fastcc i32 @parse_process_char(ptr noundef %self, ptr noundef %call1.i, i32 noundef %conv5.i.us)
   %cmp36.us73 = icmp slt i32 %call35.us72, 0
   br i1 %cmp36.us73, label %if.then37, label %while.cond.us65
 
@@ -1775,7 +1775,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %pos.059 = phi i64 [ %inc39, %while.cond ], [ 0, %while.body.lr.ph ]
   %arrayidx7.i = getelementptr i32, ptr %retval.0.i40, i64 %pos.059
   %26 = load i32, ptr %arrayidx7.i, align 4
-  %call35 = tail call fastcc i32 @parse_process_char(ptr noundef %self, ptr noundef nonnull %call1.i, i32 noundef %26)
+  %call35 = tail call fastcc i32 @parse_process_char(ptr noundef %self, ptr noundef %call1.i, i32 noundef %26)
   %cmp36 = icmp slt i32 %call35, 0
   br i1 %cmp36, label %if.then37, label %while.cond
 
@@ -1812,7 +1812,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %while.end, %if.then1.i, %if.end.i
-  %call40 = tail call fastcc i32 @parse_process_char(ptr noundef %self, ptr noundef nonnull %call1.i, i32 noundef -2)
+  %call40 = tail call fastcc i32 @parse_process_char(ptr noundef %self, ptr noundef %call1.i, i32 noundef -2)
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %return, label %do.cond
 
@@ -2028,7 +2028,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_process_char(ptr nocapture noundef %self, ptr nocapture noundef readonly %module_state, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_process_char(ptr nocapture noundef %self, ptr nocapture noundef nonnull readonly %module_state, i32 noundef %c) unnamed_addr #0 {
 entry:
   %dialect1 = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %dialect1, align 8
@@ -2540,7 +2540,7 @@ declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #1
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_add_char(ptr nocapture noundef %self, ptr nocapture noundef readonly %module_state, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_add_char(ptr nocapture noundef %self, ptr nocapture noundef nonnull readonly %module_state, i32 noundef %c) unnamed_addr #0 {
 entry:
   %field_len = getelementptr inbounds i8, ptr %self, i64 64
   %0 = load i64, ptr %field_len, align 8
@@ -3273,7 +3273,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare i32 @PyNumber_Check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @join_append(ptr nocapture noundef %self, ptr noundef %field, i32 noundef %quoted) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @join_append(ptr nocapture noundef %self, ptr noundef %field, i32 noundef range(i32 0, 2) %quoted) unnamed_addr #0 {
 entry:
   %quoted.addr = alloca i32, align 4
   store i32 %quoted, ptr %quoted.addr, align 4
@@ -3311,7 +3311,7 @@ if.end:                                           ; preds = %PyUnicode_DATA.exit
   %field_kind.0 = phi i32 [ %bf.clear, %PyUnicode_DATA.exit ], [ -1, %entry ]
   %field_data.0 = phi ptr [ %retval.0.i, %PyUnicode_DATA.exit ], [ null, %entry ]
   %field_len.0 = phi i64 [ %field.val, %PyUnicode_DATA.exit ], [ 0, %entry ]
-  %call2 = call fastcc i64 @join_append_data(ptr noundef %self, i32 noundef %field_kind.0, ptr noundef %field_data.0, i64 noundef %field_len.0, ptr noundef nonnull %quoted.addr, i32 noundef 0)
+  %call2 = call fastcc i64 @join_append_data(ptr noundef %self, i32 noundef %field_kind.0, ptr noundef %field_data.0, i64 noundef %field_len.0, ptr noundef %quoted.addr, i32 noundef 0)
   %cmp3 = icmp slt i64 %call2, 0
   br i1 %cmp3, label %return, label %if.end5
 
@@ -3345,7 +3345,7 @@ join_check_rec_size.exit:                         ; preds = %if.then.i13, %cond.
   br label %return
 
 if.end8:                                          ; preds = %if.end.i14, %if.end5
-  %call9 = call fastcc i64 @join_append_data(ptr noundef nonnull %self, i32 noundef %field_kind.0, ptr noundef %field_data.0, i64 noundef %field_len.0, ptr noundef nonnull %quoted.addr, i32 noundef 1)
+  %call9 = call fastcc i64 @join_append_data(ptr noundef nonnull %self, i32 noundef %field_kind.0, ptr noundef %field_data.0, i64 noundef %field_len.0, ptr noundef %quoted.addr, i32 noundef 1)
   %rec_len10 = getelementptr inbounds i8, ptr %self, i64 48
   store i64 %call9, ptr %rec_len10, align 8
   %num_fields = getelementptr inbounds i8, ptr %self, i64 56
@@ -3364,7 +3364,7 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @join_append_data(ptr nocapture noundef readonly %self, i32 noundef %field_kind, ptr noundef readonly %field_data, i64 noundef %field_len, ptr nocapture noundef %quoted, i32 noundef %copy_phase) unnamed_addr #0 {
+define internal fastcc i64 @join_append_data(ptr nocapture noundef readonly %self, i32 noundef range(i32 -1, 8) %field_kind, ptr noundef readonly %field_data, i64 noundef %field_len, ptr nocapture noundef nonnull %quoted, i32 noundef range(i32 0, 2) %copy_phase) unnamed_addr #0 {
 entry:
   %dialect1 = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %dialect1, align 8

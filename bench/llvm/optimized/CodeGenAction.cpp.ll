@@ -1172,7 +1172,7 @@ _ZN4llvm5ErrorD2Ev.exit35.thread:                 ; preds = %_ZN4llvm8ExpectedIS
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %53, align 8
-  call fastcc void @_ZN5clangL20reportOptRecordErrorEN4llvm5ErrorERNS_17DiagnosticsEngineERKNS_14CodeGenOptionsE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(1304) %102, ptr noundef nonnull align 8 dereferenceable(2136) %103)
+  call fastcc void @_ZN5clangL20reportOptRecordErrorEN4llvm5ErrorERNS_17DiagnosticsEngineERKNS_14CodeGenOptionsE(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(1304) %102, ptr noundef nonnull align 8 dereferenceable(2136) %103)
   %104 = load ptr, ptr %9, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %_ZN4llvm5ErrorD2Ev.exit34, label %106
@@ -1561,7 +1561,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN4llvm28setupLLVMOptimizationRemarksERNS_11LLVMContextENS_9StringRefES2_S2_bSt8optionalImE(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr, i64, ptr, i64, ptr noundef byval(%"class.llvm::StringRef") align 8, i1 noundef zeroext, ptr noundef byval(%"class.std::optional") align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clangL20reportOptRecordErrorEN4llvm5ErrorERNS_17DiagnosticsEngineERKNS_14CodeGenOptionsE(ptr nocapture noundef %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, ptr noundef nonnull align 8 dereferenceable(2136) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5clangL20reportOptRecordErrorEN4llvm5ErrorERNS_17DiagnosticsEngineERKNS_14CodeGenOptionsE(ptr nocapture noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, ptr noundef nonnull align 8 dereferenceable(2136) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -1619,7 +1619,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %22, %_ZN4llvm5Error
   %28 = load i64, ptr %.sroa.019.031.i.i, align 8, !noalias !20
   store i64 %28, ptr %7, align 8, !noalias !20
   store ptr null, ptr %.sroa.019.031.i.i, align 8, !noalias !20
-  call fastcc void @"_ZN4llvm15handleErrorImplIZN5clangL20reportOptRecordErrorENS_5ErrorERNS1_17DiagnosticsEngineERKNS1_14CodeGenOptionsEE3$_0JZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_1ZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_2EEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISC_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !20
+  call fastcc void @"_ZN4llvm15handleErrorImplIZN5clangL20reportOptRecordErrorENS_5ErrorERNS1_17DiagnosticsEngineERKNS1_14CodeGenOptionsEE3$_0JZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_1ZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_2EEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISC_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !20
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6), !noalias !20
   %29 = load ptr, ptr %4, align 8, !noalias !20
   store ptr null, ptr %4, align 8, !noalias !20
@@ -1667,7 +1667,7 @@ _ZN4llvm5ErrorD2Ev.exit12.i.i:                    ; preds = %42, %_ZNSt10unique_
 47:                                               ; preds = %17
   %48 = ptrtoint ptr %13 to i64
   store i64 %48, ptr %8, align 8, !noalias !20
-  call fastcc void @"_ZN4llvm15handleErrorImplIZN5clangL20reportOptRecordErrorENS_5ErrorERNS1_17DiagnosticsEngineERKNS1_14CodeGenOptionsEE3$_0JZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_1ZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_2EEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISC_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %12)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZN5clangL20reportOptRecordErrorENS_5ErrorERNS1_17DiagnosticsEngineERKNS1_14CodeGenOptionsEE3$_0JZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_1ZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_2EEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISC_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %12)
   %49 = load ptr, ptr %8, align 8, !noalias !20
   %.not.i13.i.i = icmp eq ptr %49, null
   br i1 %.not.i13.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.i
@@ -5630,7 +5630,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %138, %_ZN4llvm5Erro
   %144 = load i64, ptr %.sroa.015.027.i.i, align 8, !noalias !109
   store i64 %144, ptr %6, align 8, !noalias !109
   store ptr null, ptr %.sroa.015.027.i.i, align 8, !noalias !109
-  call fastcc void @"_ZN4llvm15handleErrorImplIZN5clang13CodeGenAction15loadLinkModulesERNS1_16CompilerInstanceEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !109
+  call fastcc void @"_ZN4llvm15handleErrorImplIZN5clang13CodeGenAction15loadLinkModulesERNS1_16CompilerInstanceEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !109
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !noalias !109
   %145 = load ptr, ptr %3, align 8, !noalias !109
   store ptr null, ptr %3, align 8, !noalias !109
@@ -5677,7 +5677,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i:                     ; preds = %158, %_ZNSt10unique
 
 163:                                              ; preds = %133
   store i64 %131, ptr %7, align 8, !noalias !109
-  call fastcc void @"_ZN4llvm15handleErrorImplIZN5clang13CodeGenAction15loadLinkModulesERNS1_16CompilerInstanceEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZN5clang13CodeGenAction15loadLinkModulesERNS1_16CompilerInstanceEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %14)
   %164 = load ptr, ptr %7, align 8, !noalias !109
   %.not.i9.i.i = icmp eq ptr %164, null
   br i1 %.not.i9.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i10.i.i
@@ -5990,7 +5990,7 @@ define dso_local void @_ZN5clang13CodeGenAction17CreateASTConsumerERNS_16Compile
   br i1 %.not84, label %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit, label %20
 
 _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %5
-  call fastcc void @_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr %3, i64 %4, i32 noundef %15)
+  call fastcc void @_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr %3, i64 %4, i32 noundef %15)
   %19 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
   br label %20
@@ -6297,7 +6297,7 @@ _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit52:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr %2, i64 %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr %2, i64 %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
@@ -6315,21 +6315,21 @@ define internal fastcc void @_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4ll
   store ptr @.str.16, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %11, align 8
-  tail call void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9StringRefES2_bbb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext false, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
+  tail call void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9StringRefES2_bbb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext false, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
   br label %21
 
 12:                                               ; preds = %5
   store ptr @.str.17, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 2, ptr %13, align 8
-  tail call void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9StringRefES2_bbb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext false, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
+  tail call void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9StringRefES2_bbb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext false, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
   br label %21
 
 14:                                               ; preds = %5
   store ptr @.str.18, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 2, ptr %15, align 8
-  tail call void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9StringRefES2_bbb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext true, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
+  tail call void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9StringRefES2_bbb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext true, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
   br label %21
 
 16:                                               ; preds = %5
@@ -6337,14 +6337,14 @@ define internal fastcc void @_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4ll
   br label %21
 
 17:                                               ; preds = %5
-  tail call void @_ZN5clang16CompilerInstance20createNullOutputFileEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1) #23
+  tail call void @_ZN5clang16CompilerInstance20createNullOutputFileEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1) #23
   br label %21
 
 18:                                               ; preds = %5
   store ptr @.str.19, ptr %9, align 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %19, align 8
-  tail call void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9StringRefES2_bbb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext true, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
+  tail call void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9StringRefES2_bbb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext true, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
   br label %21
 
 20:                                               ; preds = %5
@@ -6420,7 +6420,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %43 = inttoptr i64 %42 to ptr
   store ptr null, ptr %12, align 8, !noalias !131
   store ptr %43, ptr %13, align 8, !alias.scope !131
-  call fastcc void @"_ZZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefEENK3$_0clENS1_5ErrorE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %13)
+  call fastcc void @"_ZZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefEENK3$_0clENS1_5ErrorE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %13)
   %44 = load ptr, ptr %13, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %_ZN4llvm5ErrorD2Ev.exit, label %46
@@ -6543,7 +6543,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i31: ;
   %106 = inttoptr i64 %105 to ptr
   store ptr null, ptr %14, align 8, !noalias !137
   store ptr %106, ptr %16, align 8, !alias.scope !137
-  call fastcc void @"_ZZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefEENK3$_0clENS1_5ErrorE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %16)
+  call fastcc void @"_ZZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefEENK3$_0clENS1_5ErrorE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %16)
   %107 = load ptr, ptr %16, align 8
   %108 = icmp eq ptr %107, null
   br i1 %108, label %_ZN4llvm5ErrorD2Ev.exit32thread-pre-split, label %109
@@ -6808,7 +6808,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i48: ;
   %225 = inttoptr i64 %224 to ptr
   store ptr null, ptr %21, align 8, !noalias !140
   store ptr %225, ptr %23, align 8, !alias.scope !140
-  call fastcc void @"_ZZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefEENK3$_0clENS1_5ErrorE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %23)
+  call fastcc void @"_ZZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefEENK3$_0clENS1_5ErrorE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %23)
   %226 = load ptr, ptr %23, align 8
   %227 = icmp eq ptr %226, null
   br i1 %227, label %_ZN4llvm5ErrorD2Ev.exit50thread-pre-split, label %228
@@ -7178,7 +7178,7 @@ declare void @_ZN4llvm11LLVMContext26enableDebugTypeODRUniquingEv(ptr noundef no
 declare void @_ZN4llvm20getBitcodeModuleListENS_15MemoryBufferRefE(ptr dead_on_unwind writable sret(%"class.llvm::Expected.1253") align 8, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefEENK3$_0clENS1_5ErrorE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang13CodeGenAction10loadModuleEN4llvm15MemoryBufferRefEENK3$_0clENS1_5ErrorE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -7237,7 +7237,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %26, %_ZN4llvm5Error
   %32 = load i64, ptr %.sroa.015.027.i.i, align 8, !noalias !150
   store i64 %32, ptr %7, align 8, !noalias !150
   store ptr null, ptr %.sroa.015.027.i.i, align 8, !noalias !150
-  call fastcc void @"_ZN4llvm15handleErrorImplIZZN5clang13CodeGenAction10loadModuleENS_15MemoryBufferRefEENK3$_0clENS_5ErrorEEUlRNS_13ErrorInfoBaseEE_JEEES5_St10unique_ptrIS6_St14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !150
+  call fastcc void @"_ZN4llvm15handleErrorImplIZZN5clang13CodeGenAction10loadModuleENS_15MemoryBufferRefEENK3$_0clENS_5ErrorEEUlRNS_13ErrorInfoBaseEE_JEEES5_St10unique_ptrIS6_St14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !150
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6), !noalias !150
   %33 = load ptr, ptr %4, align 8, !noalias !150
   store ptr null, ptr %4, align 8, !noalias !150
@@ -7285,7 +7285,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i:                     ; preds = %46, %_ZNSt10unique_
 51:                                               ; preds = %21
   %52 = ptrtoint ptr %18 to i64
   store i64 %52, ptr %8, align 8, !noalias !150
-  call fastcc void @"_ZN4llvm15handleErrorImplIZZN5clang13CodeGenAction10loadModuleENS_15MemoryBufferRefEENK3$_0clENS_5ErrorEEUlRNS_13ErrorInfoBaseEE_JEEES5_St10unique_ptrIS6_St14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %11)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZZN5clang13CodeGenAction10loadModuleENS_15MemoryBufferRefEENK3$_0clENS_5ErrorEEUlRNS_13ErrorInfoBaseEE_JEEES5_St10unique_ptrIS6_St14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %11)
   %53 = load ptr, ptr %8, align 8, !noalias !150
   %.not.i9.i.i = icmp eq ptr %53, null
   br i1 %.not.i9.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i10.i.i
@@ -7447,7 +7447,7 @@ define dso_local void @_ZN5clang13CodeGenAction13ExecuteActionEv(ptr noundef non
 _ZNK5clang14FrontendAction26getCurrentFileOrBufferNameEv.exit: ; preds = %39, %43
   %.pn6.i = phi ptr [ %41, %39 ], [ %.sroa.1.0.copyload.i, %43 ]
   %.pn4.i = phi i64 [ %42, %39 ], [ %.sroa.2.0.copyload.i, %43 ]
-  call fastcc void @_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(352) %29, ptr %.pn6.i, i64 %.pn4.i, i32 noundef %27)
+  call fastcc void @_ZL15GetOutputStreamRN5clang16CompilerInstanceEN4llvm9StringRefENS_13BackendActionE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(352) %29, ptr %.pn6.i, i64 %.pn4.i, i32 noundef %27)
   %.not52 = icmp eq i32 %27, 3
   %44 = load ptr, ptr %6, align 8
   %45 = icmp ne ptr %44, null
@@ -7857,7 +7857,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_14ToolOutputFileESt14default_deleteIS2_EEE9t
 224:                                              ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_14ToolOutputFileESt14default_deleteIS2_EEE9takeErrorEv.exit
   %225 = inttoptr i64 %.pre111 to ptr
   store ptr %225, ptr %18, align 8
-  call fastcc void @_ZN5clangL20reportOptRecordErrorEN4llvm5ErrorERNS_17DiagnosticsEngineERKNS_14CodeGenOptionsE(ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(1304) %35, ptr noundef nonnull align 8 dereferenceable(2136) %33)
+  call fastcc void @_ZN5clangL20reportOptRecordErrorEN4llvm5ErrorERNS_17DiagnosticsEngineERKNS_14CodeGenOptionsE(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(1304) %35, ptr noundef nonnull align 8 dereferenceable(2136) %33)
   %226 = load ptr, ptr %18, align 8
   %227 = icmp eq ptr %226, null
   br i1 %227, label %_ZN4llvm5ErrorD2Ev.exit62, label %228
@@ -8965,7 +8965,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit32: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZN5clangL20reportOptRecordErrorENS_5ErrorERNS1_17DiagnosticsEngineERKNS1_14CodeGenOptionsEE3$_0JZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_1ZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_2EEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISC_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZN5clangL20reportOptRecordErrorENS_5ErrorERNS1_17DiagnosticsEngineERKNS1_14CodeGenOptionsEE3$_0JZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_1ZNS1_L20reportOptRecordErrorES2_S4_S7_E3$_2EEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISC_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9789,7 +9789,7 @@ declare void @_ZN5clang16CompilerInstance23createDefaultOutputFileEbN4llvm9Strin
 declare void @_ZN5clang16CompilerInstance20createNullOutputFileEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(352)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZZN5clang13CodeGenAction10loadModuleENS_15MemoryBufferRefEENK3$_0clENS_5ErrorEEUlRNS_13ErrorInfoBaseEE_JEEES5_St10unique_ptrIS6_St14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZZN5clang13CodeGenAction10loadModuleENS_15MemoryBufferRefEENK3$_0clENS_5ErrorEEUlRNS_13ErrorInfoBaseEE_JEEES5_St10unique_ptrIS6_St14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %1, align 8
@@ -10755,7 +10755,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang15CharSourceRangeELb1EE9push_backES2_.e
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZN5clang13CodeGenAction15loadLinkModulesERNS1_16CompilerInstanceEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZN5clang13CodeGenAction15loadLinkModulesERNS1_16CompilerInstanceEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %1, align 8

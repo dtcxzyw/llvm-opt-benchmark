@@ -9102,7 +9102,7 @@ ehcleanup506:                                     ; preds = %ehcleanup502, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN26BasicSnapshot_GetType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %archive, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN26BasicSnapshot_GetType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %elem = alloca %"class.std::tuple.265", align 8
@@ -11929,7 +11929,7 @@ ehcleanup367:                                     ; preds = %ehcleanup365, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN31BasicSnapshot_GetEmptyType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %archive, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN31BasicSnapshot_GetEmptyType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %archive, i32 noundef range(i32 1493973694, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %elem = alloca %"class.std::tuple.299", align 4
@@ -15585,7 +15585,7 @@ ehcleanup576:                                     ; preds = %ehcleanup570, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshot_GetTypeSparse_Test8TestBodyEvE3$_0PS2_EERKS5_RT0_T1_SE_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %archive, ptr noundef %first, ptr noundef %last, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshot_GetTypeSparse_Test8TestBodyEvE3$_0PS2_EERKS5_RT0_T1_SE_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %archive, ptr noundef nonnull %first, ptr noundef nonnull %last, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %entt = alloca i32, align 4
@@ -23306,7 +23306,7 @@ ehcleanup522:                                     ; preds = %ehcleanup512, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshotLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshotLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem = alloca i32, align 4
   %0 = load ptr, ptr %this, align 8, !tbaa !241
@@ -25948,7 +25948,7 @@ ehcleanup447:                                     ; preds = %ehcleanup439, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN37BasicSnapshotLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN37BasicSnapshotLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 1493973694, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !241
   %call.i = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIN4test5emptyEEERDaj(ptr noundef nonnull align 8 dereferenceable(320) %0, i32 noundef %id)
@@ -29120,7 +29120,7 @@ ehcleanup534:                                     ; preds = %ehcleanup524, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN38BasicSnapshotLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN38BasicSnapshotLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem = alloca i32, align 4
   %0 = load ptr, ptr %this, align 8, !tbaa !241
@@ -46902,7 +46902,7 @@ ehcleanup763:                                     ; preds = %ehcleanup753, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN34BasicContinuousLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN34BasicContinuousLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem = alloca i32, align 4
   %reg = getelementptr inbounds i8, ptr %this, i64 56
@@ -54826,7 +54826,7 @@ ehcleanup686:                                     ; preds = %ehcleanup678, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN39BasicContinuousLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN39BasicContinuousLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 1493973694, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reg = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %reg, align 8, !tbaa !331
@@ -59267,7 +59267,7 @@ ehcleanup775:                                     ; preds = %ehcleanup765, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN40BasicContinuousLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN40BasicContinuousLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem = alloca i32, align 4
   %reg = getelementptr inbounds i8, ptr %this, i64 56

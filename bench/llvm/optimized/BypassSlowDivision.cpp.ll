@@ -722,7 +722,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %341, %_ZN4llvm13IRB
   %352 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %.val44.val.i.i, i64 noundef 0, i1 noundef zeroext false) #14, !noalias !8
   store ptr %352, ptr %128, align 8, !noalias !8
   store ptr %271, ptr %129, align 8, !noalias !8
-  call fastcc void @_ZN12_GLOBAL__N_120FastDivInsertionTask12createFastBBEPN4llvm10BasicBlockE(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull readonly align 8 dereferenceable(32) %47, ptr noundef %345), !noalias !8
+  call fastcc void @_ZN12_GLOBAL__N_120FastDivInsertionTask12createFastBBEPN4llvm10BasicBlockE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull readonly align 8 dereferenceable(32) %47, ptr noundef %345), !noalias !8
   %353 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_120FastDivInsertionTask20createDivRemPhiNodesERNS_13QuotRemWithBBES2_PN4llvm10BasicBlockE(ptr noundef nonnull readonly align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef %345), !noalias !8
   store i16 257, ptr %130, align 8, !noalias !8
   %354 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %37, i32 noundef 35, ptr noundef %271, ptr noundef nonnull %273, ptr noundef nonnull align 8 dereferenceable(34) %42), !noalias !8
@@ -768,7 +768,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %374 = getelementptr inbounds i8, ptr %372, i64 -24
   %375 = select i1 %373, ptr null, ptr %374
   %376 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %375) #14, !noalias !8
-  call fastcc void @_ZN12_GLOBAL__N_120FastDivInsertionTask12createFastBBEPN4llvm10BasicBlockE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull readonly align 8 dereferenceable(32) %47, ptr noundef %371), !noalias !8
+  call fastcc void @_ZN12_GLOBAL__N_120FastDivInsertionTask12createFastBBEPN4llvm10BasicBlockE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull readonly align 8 dereferenceable(32) %47, ptr noundef %371), !noalias !8
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18), !noalias !8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %19), !noalias !8
@@ -2000,7 +2000,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %125, %128
   %133 = phi ptr [ %127, %125 ], [ %132, %128 ]
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %125 ], [ %130, %128 ]
   %134 = getelementptr inbounds %"class.llvm::Use", ptr %133, i64 %.pre-phi2.i.i.i
-  %135 = call fastcc noundef ptr @"_ZSt11find_if_notIPN4llvm3UseEZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPNS0_5ValueERNS0_11SmallPtrSetIPNS0_11InstructionELj4EEEE3$_0ET_SD_SD_T0_"(ptr noundef %133, ptr noundef %134, ptr nonnull %0, ptr nonnull %2)
+  %135 = call fastcc noundef ptr @"_ZSt11find_if_notIPN4llvm3UseEZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPNS0_5ValueERNS0_11SmallPtrSetIPNS0_11InstructionELj4EEEE3$_0ET_SD_SD_T0_"(ptr noundef %133, ptr noundef %134, ptr %0, ptr %2)
   %136 = icmp eq ptr %134, %135
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br i1 %136, label %145, label %146
@@ -2275,7 +2275,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ZExtInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
 declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120FastDivInsertionTask12createFastBBEPN4llvm10BasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120FastDivInsertionTask12createFastBBEPN4llvm10BasicBlockE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca i32, align 4
@@ -3107,7 +3107,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit: ; preds
 declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZSt11find_if_notIPN4llvm3UseEZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPNS0_5ValueERNS0_11SmallPtrSetIPNS0_11InstructionELj4EEEE3$_0ET_SD_SD_T0_"(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %2, ptr %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @"_ZSt11find_if_notIPN4llvm3UseEZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPNS0_5ValueERNS0_11SmallPtrSetIPNS0_11InstructionELj4EEEE3$_0ET_SD_SD_T0_"(ptr noundef %0, ptr noundef %1, ptr nocapture nonnull readonly %2, ptr nonnull %3) unnamed_addr #0 {
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %5, %6

@@ -1245,7 +1245,7 @@ declare i32 @dt_iop_have_required_input_format(i32 noundef, ptr noundef, i32 nou
 declare ptr @dt_ioppr_add_profile_info_to_list(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @dt_prophotorgb_to_Lab(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 {
+define internal fastcc void @dt_prophotorgb_to_Lab(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load float, ptr %0, align 4, !tbaa !13

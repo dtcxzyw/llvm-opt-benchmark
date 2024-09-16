@@ -330,7 +330,7 @@ namelist_find.exit.thread:                        ; preds = %10, %3
   br i1 %.not, label %JS_FreeValue.exit, label %54
 
 54:                                               ; preds = %48
-  call fastcc void @get_c_name(ptr noundef nonnull %6, ptr noundef %1)
+  call fastcc void @get_c_name(ptr noundef %6, ptr noundef %1)
   %55 = load i32, ptr @cname_list.1, align 8
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph.i44, label %namelist_find.exit50.thread
@@ -404,7 +404,7 @@ find_unique_cname.exit:                           ; preds = %namelist_find.exit.
 
 namelist_find.exit50.thread:                      ; preds = %58, %54, %find_unique_cname.exit
   %82 = load ptr, ptr @outfile, align 8
-  call fastcc void @output_object_code(ptr noundef %0, ptr noundef %82, i64 %51, i64 %52, ptr noundef nonnull %6, i32 noundef 1)
+  call fastcc void @output_object_code(ptr noundef %0, ptr noundef %82, i64 %51, i64 %52, ptr noundef %6, i32 noundef 1)
   %.sroa.02.0..sroa.02.0..cast = inttoptr i64 %51 to ptr
   %83 = trunc i64 %52 to i32
   %84 = icmp ugt i32 %83, -12
@@ -448,7 +448,7 @@ declare { i64, i64 } @JS_Eval(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @js_free(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_c_name(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @get_c_name(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 {
   %3 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #18
   %.not = icmp eq ptr %3, null
   %4 = getelementptr i8, ptr %3, i64 1
@@ -470,7 +470,7 @@ define internal fastcc void @get_c_name(ptr noundef %0, ptr noundef %1) unnamed_
 12:                                               ; preds = %8, %6
   %.036 = phi i64 [ %11, %8 ], [ %7, %6 ]
   %13 = load ptr, ptr @c_ident_prefix, align 8
-  tail call void @pstrcpy(ptr noundef %0, i32 noundef 1024, ptr noundef %13) #17
+  tail call void @pstrcpy(ptr noundef nonnull %0, i32 noundef 1024, ptr noundef %13) #17
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %15 = getelementptr i8, ptr %0, i64 %14
   %.not46 = icmp eq i64 %.036, 0
@@ -517,7 +517,7 @@ define internal fastcc void @get_c_name(ptr noundef %0, ptr noundef %1) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_object_code(ptr noundef %0, ptr nocapture noundef %1, i64 %2, i64 %3, ptr noundef %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc void @output_object_code(ptr noundef %0, ptr nocapture noundef %1, i64 %2, i64 %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #3 {
   %7 = alloca i64, align 8
   %.b = load i1, ptr @byte_swap, align 4
   %spec.select = select i1 %.b, i32 3, i32 1
@@ -556,7 +556,7 @@ namelist_add.exit:                                ; preds = %10, %14
   store i32 %23, ptr @cname_list.1, align 8
   %24 = sext i32 %21 to i64
   %25 = getelementptr %struct.namelist_entry_t, ptr %22, i64 %24
-  %26 = call noalias ptr @strdup(ptr noundef readonly %4) #17
+  %26 = call noalias ptr @strdup(ptr noundef nonnull readonly %4) #17
   store ptr %26, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr null, ptr %27, align 8
@@ -564,10 +564,10 @@ namelist_add.exit:                                ; preds = %10, %14
   store i32 %5, ptr %28, align 8
   %29 = load i64, ptr %7, align 8
   %30 = trunc i64 %29 to i32
-  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef %4, i32 noundef %30) #17
+  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull %4, i32 noundef %30) #17
   %32 = load i64, ptr %7, align 8
   %33 = trunc i64 %32 to i32
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef %4, i32 noundef %33) #17
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull %4, i32 noundef %33) #17
   %35 = load i64, ptr %7, align 8
   %.not14.i = icmp eq i64 %35, 0
   br i1 %.not14.i, label %dump_hex.exit, label %.lr.ph.i
@@ -881,7 +881,7 @@ split:                                            ; preds = %78, %._crit_edge248
   br label %91
 
 90:                                               ; preds = %85
-  call fastcc void @get_c_name(ptr noundef nonnull %15, ptr noundef nonnull %14)
+  call fastcc void @get_c_name(ptr noundef %15, ptr noundef nonnull %14)
   br label %91
 
 91:                                               ; preds = %90, %88
@@ -1105,11 +1105,11 @@ namelist_add.exit143:                             ; preds = %111, %114
   br label %188
 
 187:                                              ; preds = %185
-  call fastcc void @get_c_name(ptr noundef nonnull %10, ptr noundef %166)
+  call fastcc void @get_c_name(ptr noundef %10, ptr noundef %166)
   br label %188
 
 188:                                              ; preds = %187, %186
-  call fastcc void @output_object_code(ptr noundef %150, ptr noundef nonnull %146, i64 %181, i64 %182, ptr noundef nonnull %10, i32 noundef 0)
+  call fastcc void @output_object_code(ptr noundef %150, ptr noundef nonnull %146, i64 %181, i64 %182, ptr noundef %10, i32 noundef 0)
   %189 = trunc i64 %182 to i32
   %190 = icmp ugt i32 %189, -12
   br i1 %190, label %191, label %compile_file.exit

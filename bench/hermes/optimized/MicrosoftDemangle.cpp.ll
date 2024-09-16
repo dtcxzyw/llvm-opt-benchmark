@@ -1739,8 +1739,8 @@ _ZL15startsWithDigit10StringView.exit.i.i:        ; preds = %_ZNK10StringView10s
 
 if.then29.i.i:                                    ; preds = %_ZL15startsWithDigit10StringView.exit.i.i
   %conv31.i.i = sext i8 %23 to i64
-  %gep144 = getelementptr i8, ptr getelementptr (i8, ptr @.str.33, i64 -48), i64 %conv31.i.i
-  %30 = load i8, ptr %gep144, align 1
+  %gep143 = getelementptr i8, ptr getelementptr (i8, ptr @.str.33, i64 -48), i64 %conv31.i.i
+  %30 = load i8, ptr %gep143, align 1
   %add.ptr.i57.i.i = getelementptr inbounds i8, ptr %18, i64 2
   store ptr %add.ptr.i57.i.i, ptr %MangledName, align 8
   br label %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit.i
@@ -1851,8 +1851,8 @@ _ZL15startsWithDigit10StringView.exit.i15.i:      ; preds = %_ZNK10StringView10s
 
 if.then29.i37.i:                                  ; preds = %_ZL15startsWithDigit10StringView.exit.i15.i
   %conv31.i38.i = sext i8 %39 to i64
-  %gep145 = getelementptr i8, ptr getelementptr (i8, ptr @.str.33, i64 -48), i64 %conv31.i38.i
-  %46 = load i8, ptr %gep145, align 1
+  %gep144 = getelementptr i8, ptr getelementptr (i8, ptr @.str.33, i64 -48), i64 %conv31.i38.i
+  %46 = load i8, ptr %gep144, align 1
   %add.ptr.i57.i40.i = getelementptr inbounds i8, ptr %35, i64 2
   store ptr %add.ptr.i57.i40.i, ptr %MangledName, align 8
   br label %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit53.i
@@ -1922,20 +1922,20 @@ lor.lhs.false35:                                  ; preds = %_ZN12_GLOBAL__N_19D
 
 if.then38:                                        ; preds = %lor.lhs.false35, %_ZN12_GLOBAL__N_19Demangler20demangleWcharLiteralER10StringView.exit
   call fastcc void @_ZL17outputEscapedCharR12OutputStreamj(ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %retval.0.i83)
-  %.pre156 = load i8, ptr %Error, align 8
+  %.pre155 = load i8, ptr %Error, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %lor.lhs.false35
-  %53 = phi i8 [ %.pre156, %if.then38 ], [ %51, %lor.lhs.false35 ]
+  %53 = phi i8 [ %.pre155, %if.then38 ], [ %51, %lor.lhs.false35 ]
   %sub = add i64 %StringByteSize.0, -2
   %tobool41 = trunc i8 %53 to i1
   br i1 %tobool41, label %StringLiteralError, label %while.cond, !llvm.loop !11
 
 while.cond44:                                     ; preds = %if.end26, %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit
-  %.pre152154 = phi ptr [ %.pre152, %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit ], [ %16, %if.end26 ]
+  %.pre151153 = phi ptr [ %.pre151, %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit ], [ %16, %if.end26 ]
   %54 = phi ptr [ %.pre, %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit ], [ %add.ptr.i63, %if.end26 ]
   %BytesDecoded.0 = phi i32 [ %inc, %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit ], [ 0, %if.end26 ]
-  %cmp.i.i.i90 = icmp eq ptr %54, %.pre152154
+  %cmp.i.i.i90 = icmp eq ptr %54, %.pre151153
   br i1 %cmp.i.i.i90, label %if.then.i100, label %_ZNK10StringView10startsWithEc.exit.i91
 
 _ZNK10StringView10startsWithEc.exit.i91:          ; preds = %while.cond44
@@ -1955,10 +1955,10 @@ if.then.i100:                                     ; preds = %while.cond44, %_ZNK
   br label %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit
 
 if.end.i102:                                      ; preds = %_ZNK10StringView10startsWithEc.exit.i98
-  %sub.ptr.lhs.cast.i.i.i103 = ptrtoint ptr %.pre152154 to i64
+  %sub.ptr.lhs.cast.i.i.i103 = ptrtoint ptr %.pre151153 to i64
   %add.ptr.i.i104 = getelementptr inbounds i8, ptr %54, i64 1
   store ptr %add.ptr.i.i104, ptr %MangledName, align 8
-  %cmp.i25.i = icmp eq ptr %add.ptr.i.i104, %.pre152154
+  %cmp.i25.i = icmp eq ptr %add.ptr.i.i104, %.pre151153
   br i1 %cmp.i25.i, label %CharLiteralError.i, label %_ZNK10StringView10startsWithEc.exit.i.i105
 
 _ZNK10StringView10startsWithEc.exit.i.i105:       ; preds = %if.end.i102
@@ -2042,11 +2042,11 @@ if.then59.i:                                      ; preds = %if.end51.i
 CharLiteralError.i:                               ; preds = %if.end51.i, %land.lhs.true.i, %lor.lhs.false.i, %if.end11.i, %if.then8.i, %if.end.i102
   store i8 1, ptr %Error, align 8
   %.pre.pre = load ptr, ptr %MangledName, align 8
-  %.pre152.pre = load ptr, ptr %Last.i1.i.i, align 8
+  %.pre151.pre = load ptr, ptr %Last.i1.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit
 
 _ZN12_GLOBAL__N_19Demangler19demangleCharLiteralER10StringView.exit: ; preds = %if.then.i100, %if.end18.i, %if.then29.i, %if.then41.i, %if.then59.i, %CharLiteralError.i
-  %.pre152 = phi ptr [ %.pre152.pre, %CharLiteralError.i ], [ %.pre152154, %if.end18.i ], [ %.pre152154, %if.then29.i ], [ %.pre152154, %if.then41.i ], [ %.pre152154, %if.then59.i ], [ %.pre152154, %if.then.i100 ]
+  %.pre151 = phi ptr [ %.pre151.pre, %CharLiteralError.i ], [ %.pre151153, %if.end18.i ], [ %.pre151153, %if.then29.i ], [ %.pre151153, %if.then41.i ], [ %.pre151153, %if.then59.i ], [ %.pre151153, %if.then.i100 ]
   %.pre = phi ptr [ %.pre.pre, %CharLiteralError.i ], [ %add.ptr.i46.i, %if.end18.i ], [ %add.ptr.i57.i, %if.then29.i ], [ %add.ptr.i68.i, %if.then41.i ], [ %add.ptr.i79.i, %if.then59.i ], [ %incdec.ptr.i.i, %if.then.i100 ]
   %retval.0.i101 = phi i8 [ 0, %CharLiteralError.i ], [ %or.i117, %if.end18.i ], [ %65, %if.then29.i ], [ %66, %if.then41.i ], [ %68, %if.then59.i ], [ %57, %if.then.i100 ]
   %inc = add i32 %BytesDecoded.0, 1
@@ -2075,8 +2075,8 @@ if.end54:                                         ; preds = %if.then52, %while.e
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_19Demangler21demangleStringLiteralER10StringView, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %Char.i7.i, align 4
-  %cmp65142.not = icmp ugt i32 %call56, %BytesDecoded.0
-  br i1 %cmp65142.not, label %if.end76, label %for.body.lr.ph
+  %cmp65141.not = icmp ugt i32 %call56, %BytesDecoded.0
+  br i1 %cmp65141.not, label %if.end76, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end54
   %div = udiv i32 %BytesDecoded.0, %call56
@@ -2093,23 +2093,23 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i = mul i32 %call56, %71
   %idx.ext.i = zext i32 %mul.i to i64
   %add.ptr.i118 = getelementptr inbounds i8, ptr %StringBytes, i64 %idx.ext.i
-  br label %for.body.i120
+  br label %for.body.i119
 
-for.body.i120:                                    ; preds = %for.body.i120, %for.body
-  %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.body.i120 ]
-  %Result.08.i = phi i32 [ 0, %for.body ], [ %or.i124, %for.body.i120 ]
-  %arrayidx.i121 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 %indvars.iv.i
-  %72 = load i8, ptr %arrayidx.i121, align 1
-  %conv.i122 = zext i8 %72 to i32
+for.body.i119:                                    ; preds = %for.body.i119, %for.body
+  %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.body.i119 ]
+  %Result.07.i = phi i32 [ 0, %for.body ], [ %or.i123, %for.body.i119 ]
+  %arrayidx.i120 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 %indvars.iv.i
+  %72 = load i8, ptr %arrayidx.i120, align 1
+  %conv.i121 = zext i8 %72 to i32
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
   %73 = shl i32 %indvars.iv.tr.i, 3
-  %shl.i123 = shl nuw i32 %conv.i122, %73
-  %or.i124 = or i32 %shl.i123, %Result.08.i
+  %shl.i122 = shl nuw i32 %conv.i121, %73
+  %or.i123 = or i32 %shl.i122, %Result.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i125, label %_ZL19decodeMultiByteCharPKhjj.exit, label %for.body.i120, !llvm.loop !13
+  %exitcond.not.i124 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i124, label %_ZL19decodeMultiByteCharPKhjj.exit, label %for.body.i119, !llvm.loop !13
 
-_ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %for.body.i120
+_ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %for.body.i119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp69 = icmp ult i64 %indvars.iv.next, %70
   br i1 %cmp69, label %if.then73, label %lor.lhs.false70
@@ -2120,7 +2120,7 @@ lor.lhs.false70:                                  ; preds = %_ZL19decodeMultiByt
   br i1 %tobool72, label %if.then73, label %for.inc
 
 if.then73:                                        ; preds = %lor.lhs.false70, %_ZL19decodeMultiByteCharPKhjj.exit
-  call fastcc void @_ZL17outputEscapedCharR12OutputStreamj(ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %or.i124)
+  call fastcc void @_ZL17outputEscapedCharR12OutputStreamj(ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %or.i123)
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false70, %if.then73
@@ -2130,9 +2130,9 @@ for.inc:                                          ; preds = %lor.lhs.false70, %i
 if.end76:                                         ; preds = %for.inc, %if.end54, %_ZN10StringView12consumeFrontEc.exit
   %call77 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12OutputStreamlsEc(ptr noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef signext 0)
   %75 = load ptr, ptr %OS, align 8
-  %call.i128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #22
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %75, i64 %call.i128
-  %call81 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %75, ptr %add.ptr.i129)
+  %call.i127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #22
+  %add.ptr.i128 = getelementptr inbounds i8, ptr %75, i64 %call.i127
+  %call81 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %75, ptr %add.ptr.i128)
   %76 = extractvalue { ptr, ptr } %call81, 0
   %77 = extractvalue { ptr, ptr } %call81, 1
   store ptr %76, ptr %DecodedString.i6.i, align 8
@@ -2705,7 +2705,7 @@ return:                                           ; preds = %if.end11, %_ZN12_GL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler12demangleTypeER10StringView19QualifierMangleMode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef %QMM) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler12demangleTypeER10StringView19QualifierMangleMode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef range(i32 0, 3) %QMM) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp63.i = alloca i32, align 4
   %ref.tmp67.i = alloca i32, align 4
@@ -7385,7 +7385,7 @@ for.end:                                          ; preds = %for.body, %_ZN4llvh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler33demangleTemplateInstantiationNameER10StringView19NameBackrefBehavior(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName, i8 noundef zeroext %NBB) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler33demangleTemplateInstantiationNameER10StringView19NameBackrefBehavior(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName, i8 noundef zeroext range(i8 1, 3) %NBB) unnamed_addr #2 align 2 {
 entry:
   %Head.i = alloca ptr, align 8
   %IsNegative.i = alloca i8, align 1
@@ -8625,9 +8625,9 @@ _ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit: ; preds = %_ZN12Outpu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler30demangleFunctionIdentifierCodeER10StringView27FunctionIdentifierCodeGroup(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef %Group) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler30demangleFunctionIdentifierCodeER10StringView27FunctionIdentifierCodeGroup(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef range(i32 0, 3) %Group) unnamed_addr #2 align 2 {
 entry:
-  switch i32 %Group, label %default.unreachable [
+  switch i32 %Group, label %default.unreachable121 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb9
     i32 2, label %sw.bb15
@@ -9016,7 +9016,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNod
   store i8 %retval.0.i87, ptr %Operator2.i7.i106, align 8
   br label %return
 
-default.unreachable:                              ; preds = %entry
+default.unreachable121:                           ; preds = %entry
   unreachable
 
 return:                                           ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit108, %_ZN12_GLOBAL__N_19Demangler33demangleLiteralOperatorIdentifierER10StringView.exit, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit60, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit, %_ZN12_GLOBAL__N_19Demangler36demangleConversionOperatorIdentifierER10StringView.exit, %_ZN12_GLOBAL__N_19Demangler26demangleStructorIdentifierER10StringViewb.exit
@@ -10987,7 +10987,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName, i8 noundef zeroext %SC) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName, i8 noundef zeroext range(i8 0, 6) %SC) unnamed_addr #2 align 2 {
 entry:
   %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Arena, align 8

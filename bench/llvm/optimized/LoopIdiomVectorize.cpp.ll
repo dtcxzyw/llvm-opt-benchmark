@@ -1133,7 +1133,7 @@ _ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread: ; preds = %
   %367 = phi ptr [ %.pre.i.i, %..loopexit_crit_edge.i.i ], [ %.pre235.i.i, %312 ], [ %.pre235.i.i, %346 ]
   %368 = load ptr, ptr %12, align 8
   %369 = load ptr, ptr %9, align 8
-  call fastcc void @_ZN12_GLOBAL__N_118LoopIdiomVectorize20transformByteCompareEPN4llvm17GetElementPtrInstES3_PNS1_7PHINodeEPNS1_5ValueEPNS1_11InstructionES7_bPNS1_10BasicBlockESB_(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull %spec.select.i.i136.i.i, ptr noundef nonnull %spec.select.i.i137.i.i, ptr noundef %367, ptr noundef nonnull %.091.i.i, ptr noundef %.090.i.i, ptr noundef %368, ptr noundef %369)
+  call fastcc void @_ZN12_GLOBAL__N_118LoopIdiomVectorize20transformByteCompareEPN4llvm17GetElementPtrInstES3_PNS1_7PHINodeEPNS1_5ValueEPNS1_11InstructionES7_bPNS1_10BasicBlockESB_(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef %spec.select.i.i136.i.i, ptr noundef %spec.select.i.i137.i.i, ptr noundef %367, ptr noundef %.091.i.i, ptr noundef %.090.i.i, ptr noundef %368, ptr noundef %369)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -1849,7 +1849,7 @@ declare noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr nou
 declare { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118LoopIdiomVectorize20transformByteCompareEPN4llvm17GetElementPtrInstES3_PNS1_7PHINodeEPNS1_5ValueEPNS1_11InstructionES7_bPNS1_10BasicBlockESB_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118LoopIdiomVectorize20transformByteCompareEPN4llvm17GetElementPtrInstES3_PNS1_7PHINodeEPNS1_5ValueEPNS1_11InstructionES7_bPNS1_10BasicBlockESB_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -2439,7 +2439,7 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnul
 declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LoopIdiomVectorize18expandFindMismatchERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14DomTreeUpdaterEPNS1_17GetElementPtrInstESA_PNS1_11InstructionEPNS1_5ValueESE_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LoopIdiomVectorize18expandFindMismatchERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEERNS1_14DomTreeUpdaterEPNS1_17GetElementPtrInstESA_PNS1_11InstructionEPNS1_5ValueESE_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca [1 x %"class.llvm::cfg::Update"], align 8
   %11 = alloca %"class.llvm::Twine", align 8

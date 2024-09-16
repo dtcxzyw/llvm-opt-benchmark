@@ -102,15 +102,15 @@ if.then14:                                        ; preds = %if.end9
   ]
 
 if.then16:                                        ; preds = %if.then14
-  %call = tail call fastcc i64 @cts128_cs1_encrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef %inl)
+  %call = tail call fastcc i64 @cts128_cs1_encrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef %out, i64 noundef %inl)
   br label %if.end47
 
 if.then19:                                        ; preds = %if.then14
-  %call20 = tail call fastcc i64 @cts128_cs2_encrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef %inl)
+  %call20 = tail call fastcc i64 @cts128_cs2_encrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef %out, i64 noundef %inl)
   br label %if.end47
 
 if.then24:                                        ; preds = %if.then14
-  %call25 = tail call fastcc i64 @cts128_cs3_encrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef %inl)
+  %call25 = tail call fastcc i64 @cts128_cs3_encrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef %out, i64 noundef %inl)
   br label %if.end47
 
 if.else29:                                        ; preds = %if.end9
@@ -121,15 +121,15 @@ if.else29:                                        ; preds = %if.end9
   ]
 
 if.then32:                                        ; preds = %if.else29
-  %call33 = tail call fastcc i64 @cts128_cs1_decrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef %inl)
+  %call33 = tail call fastcc i64 @cts128_cs1_decrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef %out, i64 noundef %inl)
   br label %if.end47
 
 if.then37:                                        ; preds = %if.else29
-  %call38 = tail call fastcc i64 @cts128_cs2_decrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef %inl)
+  %call38 = tail call fastcc i64 @cts128_cs2_decrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef %out, i64 noundef %inl)
   br label %if.end47
 
 if.then42:                                        ; preds = %if.else29
-  %call43 = tail call fastcc i64 @cts128_cs3_decrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef %inl)
+  %call43 = tail call fastcc i64 @cts128_cs3_decrypt(ptr noundef nonnull %vctx, ptr noundef %in, ptr noundef %out, i64 noundef %inl)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then32, %if.then42, %if.then37, %if.then16, %if.then24, %if.then19
@@ -154,7 +154,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cts128_cs1_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) unnamed_addr #1 {
+define internal fastcc i64 @cts128_cs1_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef range(i64 16, 0) %len) unnamed_addr #1 {
 entry:
   %tmp_in = alloca %union.aligned_16bytes, align 8
   %rem = and i64 %len, 15
@@ -163,7 +163,7 @@ entry:
   %0 = load ptr, ptr %hw, align 8
   %cipher = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
-  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %sub) #7
+  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub) #7
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -194,7 +194,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cts128_cs2_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) unnamed_addr #1 {
+define internal fastcc i64 @cts128_cs2_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef range(i64 16, 0) %len) unnamed_addr #1 {
 entry:
   %tmp_in.i = alloca %union.aligned_16bytes, align 8
   %rem = and i64 %len, 15
@@ -206,7 +206,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %hw, align 8
   %cipher = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
-  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #7
+  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) #7
   %tobool.not = icmp eq i32 %call, 0
   %.len = select i1 %tobool.not, i64 0, i64 %len
   br label %return
@@ -221,7 +221,7 @@ if.then2.i:                                       ; preds = %if.end2
   %2 = load ptr, ptr %hw.i, align 8
   %cipher.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %cipher.i, align 8
-  %call.i = tail call i32 %3(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef 16) #7
+  %call.i = tail call i32 %3(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef 16) #7
   %tobool.not.i = icmp eq i32 %call.i, 0
   %cond.i = select i1 %tobool.not.i, i64 0, i64 16
   br label %cts128_cs3_encrypt.exit
@@ -232,7 +232,7 @@ if.end3.i:                                        ; preds = %if.end2
   %4 = load ptr, ptr %hw7.i, align 8
   %cipher8.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %cipher8.i, align 8
-  %call9.i = tail call i32 %5(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %sub.i) #7
+  %call9.i = tail call i32 %5(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub.i) #7
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %cts128_cs3_encrypt.exit, label %if.end12.i
 
@@ -264,7 +264,7 @@ return:                                           ; preds = %if.then, %cts128_cs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cts128_cs3_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) unnamed_addr #1 {
+define internal fastcc i64 @cts128_cs3_encrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef range(i64 16, 0) %len) unnamed_addr #1 {
 entry:
   %tmp_in = alloca %union.aligned_16bytes, align 8
   %cmp1 = icmp eq i64 %len, 16
@@ -275,7 +275,7 @@ if.then2:                                         ; preds = %entry
   %0 = load ptr, ptr %hw, align 8
   %cipher = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
-  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef 16) #7
+  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef 16) #7
   %tobool.not = icmp eq i32 %call, 0
   %cond = select i1 %tobool.not, i64 0, i64 16
   br label %return
@@ -289,7 +289,7 @@ if.end3:                                          ; preds = %entry
   %2 = load ptr, ptr %hw7, align 8
   %cipher8 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %cipher8, align 8
-  %call9 = tail call i32 %3(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %sub) #7
+  %call9 = tail call i32 %3(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub) #7
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.end12
 
@@ -316,7 +316,7 @@ return:                                           ; preds = %if.end12, %if.end3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cts128_cs1_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) unnamed_addr #1 {
+define internal fastcc range(i64 16, 1) i64 @cts128_cs1_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef range(i64 16, 0) %len) unnamed_addr #1 {
 entry:
   %mid_iv = alloca %union.aligned_16bytes, align 8
   %ct_mid = alloca %union.aligned_16bytes, align 8
@@ -331,7 +331,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %hw, align 8
   %cipher = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
-  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #7
+  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) #7
   %tobool.not = icmp eq i32 %call, 0
   %.len = select i1 %tobool.not, i64 0, i64 %len
   br label %return
@@ -347,7 +347,7 @@ if.then4:                                         ; preds = %if.end2
   %2 = load ptr, ptr %hw5, align 8
   %cipher6 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %cipher6, align 8
-  %call7 = tail call i32 %3(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %sub) #7
+  %call7 = tail call i32 %3(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub) #7
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %if.end10
 
@@ -413,7 +413,7 @@ return:                                           ; preds = %do_xor.exit, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cts128_cs2_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) unnamed_addr #1 {
+define internal fastcc i64 @cts128_cs2_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef range(i64 16, 0) %len) unnamed_addr #1 {
 entry:
   %rem = and i64 %len, 15
   %cmp = icmp eq i64 %rem, 0
@@ -424,7 +424,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %hw, align 8
   %cipher = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
-  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #7
+  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) #7
   %tobool.not = icmp eq i32 %call, 0
   %.len = select i1 %tobool.not, i64 0, i64 %len
   br label %return
@@ -439,7 +439,7 @@ return:                                           ; preds = %if.then, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cts128_cs3_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) unnamed_addr #1 {
+define internal fastcc i64 @cts128_cs3_decrypt(ptr noundef %ctx, ptr noundef %in, ptr noundef nonnull %out, i64 noundef range(i64 16, 0) %len) unnamed_addr #1 {
 entry:
   %mid_iv = alloca %union.aligned_16bytes, align 8
   %ct_mid = alloca %union.aligned_16bytes, align 8
@@ -453,7 +453,7 @@ if.then2:                                         ; preds = %entry
   %0 = load ptr, ptr %hw, align 8
   %cipher = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
-  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef 16) #7
+  %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef 16) #7
   %tobool.not = icmp eq i32 %call, 0
   %cond = select i1 %tobool.not, i64 0, i64 16
   br label %return
@@ -472,7 +472,7 @@ if.then8:                                         ; preds = %if.end3
   %2 = load ptr, ptr %hw9, align 8
   %cipher10 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %cipher10, align 8
-  %call11 = tail call i32 %3(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %sub) #7
+  %call11 = tail call i32 %3(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub) #7
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.end14
 

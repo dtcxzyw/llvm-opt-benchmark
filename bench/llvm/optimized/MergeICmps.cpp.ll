@@ -876,7 +876,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i.i:         ; preds = %297
 308:                                              ; preds = %303
   %309 = getelementptr inbounds i8, ptr %.sroa.26.80.copyload.i.i.i, i64 -64
   %310 = load ptr, ptr %309, align 8, !noalias !19
-  call fastcc void @_ZN12_GLOBAL__N_120visitICmpLoadOperandEPN4llvm5ValueERNS_14BaseIdentifierE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef %310, ptr noundef nonnull align 8 dereferenceable(32) %42), !noalias !19
+  call fastcc void @_ZN12_GLOBAL__N_120visitICmpLoadOperandEPN4llvm5ValueERNS_14BaseIdentifierE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef %310, ptr noundef nonnull align 8 dereferenceable(32) %42), !noalias !19
   %311 = load i32, ptr %79, align 8, !noalias !19
   %.not10.i.i.i.i = icmp eq i32 %311, 0
   br i1 %.not10.i.i.i.i, label %_ZN12_GLOBAL__N_17BCEAtomD2Ev.exit23.i.i.i.i, label %312
@@ -884,7 +884,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i.i:         ; preds = %297
 312:                                              ; preds = %308
   %313 = getelementptr inbounds i8, ptr %.sroa.26.80.copyload.i.i.i, i64 -32
   %314 = load ptr, ptr %313, align 8, !noalias !19
-  call fastcc void @_ZN12_GLOBAL__N_120visitICmpLoadOperandEPN4llvm5ValueERNS_14BaseIdentifierE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef %314, ptr noundef nonnull align 8 dereferenceable(32) %42), !noalias !19
+  call fastcc void @_ZN12_GLOBAL__N_120visitICmpLoadOperandEPN4llvm5ValueERNS_14BaseIdentifierE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %314, ptr noundef nonnull align 8 dereferenceable(32) %42), !noalias !19
   %315 = load i32, ptr %80, align 8, !noalias !19
   %.not11.i.i.i.i = icmp eq i32 %315, 0
   br i1 %.not11.i.i.i.i, label %_ZN12_GLOBAL__N_17BCEAtomD2Ev.exit21.i.i.i.i, label %316
@@ -4387,7 +4387,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120visitICmpLoadOperandEPN4llvm5ValueERNS_14BaseIdentifierE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120visitICmpLoadOperandEPN4llvm5ValueERNS_14BaseIdentifierE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = load i8, ptr %1, align 8
@@ -6273,7 +6273,7 @@ _ZN12_GLOBAL__N_111BCECmpBlockC2EOS0_.exit19.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
   store i64 %114, ptr %85, align 8
   store i32 0, ptr %76, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111BCECmpBlockESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_11mergeBlocksEOS7_E3$_0EEEvT_T0_SF_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %65, ptr noundef nonnull %12)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111BCECmpBlockESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_11mergeBlocksEOS7_E3$_0EEEvT_T0_SF_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %65, ptr noundef %12)
   %.val.i.i.i.i.i = load ptr, ptr %85, align 8
   %.val1.i.i.i.i.i = load i32, ptr %86, align 8
   %115 = icmp ult i32 %.val1.i.i.i.i.i, 65
@@ -6463,7 +6463,7 @@ _ZN12_GLOBAL__N_111BCECmpBlockC2EOS0_.exit11.i:   ; preds = %.lr.ph.i.i.i.i.i.i6
   store i64 %191, ptr %159, align 8
   store i32 0, ptr %150, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull align 8 dereferenceable(16) %151, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111BCECmpBlockESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_11mergeBlocksEOS7_E3$_0EEEvT_T0_SF_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %186, ptr noundef nonnull %10)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111BCECmpBlockESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_11mergeBlocksEOS7_E3$_0EEEvT_T0_SF_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %186, ptr noundef %10)
   %.val.i.i.i = load ptr, ptr %159, align 8
   %.val1.i.i.i = load i32, ptr %160, align 8
   %192 = icmp ult i32 %.val1.i.i.i, 65
@@ -7599,7 +7599,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111BCECmpBlockESt6v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111BCECmpBlockESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_11mergeBlocksEOS7_E3$_0EEEvT_T0_SF_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111BCECmpBlockESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_11mergeBlocksEOS7_E3$_0EEEvT_T0_SF_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef range(i64 -50127021939428129, 50127021939428130) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.(anonymous namespace)::BCECmpBlock", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -8605,7 +8605,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %31, ptr %25, align 8
   store ptr %33, ptr %26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS4_EES2_IS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_11mergeBlocksEOS6_E3$_1EEEvT_T0_SH_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %22, ptr noundef nonnull %8)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS4_EES2_IS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_11mergeBlocksEOS6_E3$_1EEEvT_T0_SH_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %22, ptr noundef %8)
   call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %34 = add nsw i64 %.08.i.i.i, -1
@@ -8648,7 +8648,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %41, ptr %35, align 8
   store ptr %43, ptr %36, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS4_EES2_IS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_11mergeBlocksEOS6_E3$_1EEEvT_T0_SH_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %49, ptr noundef nonnull %6)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS4_EES2_IS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_11mergeBlocksEOS6_E3$_1EEEvT_T0_SH_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %49, ptr noundef %6)
   call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -9098,7 +9098,7 @@ _ZN12_GLOBAL__N_115getMinOrigOrderERKSt6vectorINS_11BCECmpBlockESaIS1_EE.exit.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS4_EES2_IS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_11mergeBlocksEOS6_E3$_1EEEvT_T0_SH_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_111BCECmpBlockESaIS4_EES2_IS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_11mergeBlocksEOS6_E3$_1EEEvT_T0_SH_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef range(i64 -384307168202282325, 384307168202282326) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.std::vector.177", align 8
   %6 = alloca %"class.std::vector.177", align 8
   %7 = alloca %"class.std::vector.177", align 8

@@ -3306,7 +3306,7 @@ ppid2sid.exit:                                    ; preds = %72, %75
   br i1 %.not82, label %110, label %109
 
 109:                                              ; preds = %105
-  tail call fastcc void @ppid2sid(ptr noundef nonnull %108)
+  tail call fastcc void @ppid2sid(ptr noundef %108)
   br label %110
 
 110:                                              ; preds = %102, %105, %109, %93
@@ -3346,7 +3346,7 @@ ppid2sid.exit:                                    ; preds = %72, %75
   br i1 %.not85, label %128, label %127
 
 127:                                              ; preds = %123
-  tail call fastcc void @ppid2sid(ptr noundef nonnull %126)
+  tail call fastcc void @ppid2sid(ptr noundef %126)
   br label %128
 
 128:                                              ; preds = %120, %123, %127, %111
@@ -3561,7 +3561,7 @@ declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @zend_ini_string(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ppid2sid(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @ppid2sid(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 10
@@ -11468,7 +11468,7 @@ declare void @add_assoc_null_ex(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare i64 @time(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.timeval, align 8
   %.not = icmp eq i32 %1, 0

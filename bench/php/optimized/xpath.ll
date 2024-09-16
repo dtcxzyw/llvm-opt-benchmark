@@ -360,7 +360,7 @@ define hidden void @zim_DOMXPath_query(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8

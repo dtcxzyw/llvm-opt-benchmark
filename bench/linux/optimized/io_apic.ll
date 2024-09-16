@@ -787,7 +787,7 @@ define dso_local void @mask_ioapic_entries() local_unnamed_addr #3 align 16 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ioapic_write_entry(i32 noundef %0, i32 noundef %1, i64 %2) unnamed_addr #3 align 16 {
+define internal fastcc void @ioapic_write_entry(i32 noundef range(i32 0, -1) %0, i32 noundef range(i32 0, 256) %1, i64 %2) unnamed_addr #3 align 16 {
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
   %5 = shl nuw nsw i32 %1, 1
   %6 = add nuw nsw i32 %5, 17
@@ -2234,7 +2234,7 @@ define dso_local void @enable_IO_APIC() local_unnamed_addr #8 section ".init.tex
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -1, 256) i32 @find_isa_irq_pin(i32 noundef %0, i32 noundef %1) unnamed_addr #8 section ".init.text" align 16 {
+define internal fastcc range(i32 -1, 256) i32 @find_isa_irq_pin(i32 noundef range(i32 0, 9) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #8 section ".init.text" align 16 {
   %3 = load i32, ptr @mp_irq_entries, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.preheader, label %.loopexit
@@ -2284,7 +2284,7 @@ define internal fastcc range(i32 -1, 256) i32 @find_isa_irq_pin(i32 noundef %0, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @find_isa_irq_apic(i32 noundef %0, i32 noundef %1) unnamed_addr #8 section ".init.text" align 16 {
+define internal fastcc i32 @find_isa_irq_apic(i32 noundef range(i32 0, 9) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #8 section ".init.text" align 16 {
   %3 = load i32, ptr @mp_irq_entries, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.preheader, label %30
@@ -4251,7 +4251,7 @@ define internal fastcc void @__eoi_ioapic_pin(i32 noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @irq_is_level(i32 noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i1 @irq_is_level(i32 noundef range(i32 0, -1) %0) unnamed_addr #3 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [1024 x %struct.mpc_intsrc], ptr @mp_irqs, i64 0, i64 %2
   %4 = getelementptr inbounds i8, ptr %3, i64 2
@@ -4291,7 +4291,7 @@ default.unreachable1:                             ; preds = %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alloc_isa_irq_from_domain(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc i32 @alloc_isa_irq_from_domain(ptr noundef nonnull %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
   %5 = tail call ptr @irq_get_irq_data(i32 noundef %1) #25
   %6 = icmp eq ptr %3, null
   br i1 %6, label %15, label %7
@@ -4379,12 +4379,12 @@ define internal fastcc i32 @alloc_isa_irq_from_domain(ptr noundef %0, i32 nounde
   %55 = load i32, ptr %54, align 4
   %56 = or i32 %55, 1
   store i32 %56, ptr %54, align 4
-  %57 = tail call i32 @__irq_domain_alloc_irqs(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %16, ptr noundef %3, i1 noundef zeroext true, ptr noundef null) #25
+  %57 = tail call i32 @__irq_domain_alloc_irqs(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 1, i32 noundef %16, ptr noundef %3, i1 noundef zeroext true, ptr noundef null) #25
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %53
-  %60 = tail call ptr @irq_domain_get_irq_data(ptr noundef %0, i32 noundef %57) #25
+  %60 = tail call ptr @irq_domain_get_irq_data(ptr noundef nonnull %0, i32 noundef %57) #25
   %61 = getelementptr inbounds i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 26
@@ -4950,7 +4950,7 @@ declare dso_local ptr @irq_cfg(i32 noundef) local_unnamed_addr #10
 declare dso_local i32 @irq_set_chip(i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mp_alloc_timer_irq(i32 noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @mp_alloc_timer_irq(i32 noundef %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #3 align 16 {
   %3 = alloca %struct.irq_alloc_info, align 8
   %4 = sext i32 %0 to i64
   %5 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %4, i32 5
@@ -5030,7 +5030,7 @@ define internal fastcc range(i32 0, 2) i32 @timer_irq_works() unnamed_addr #8 se
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @replace_pin_at_irq_node(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #8 section ".init.text" align 16 {
+define internal fastcc void @replace_pin_at_irq_node(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #8 section ".init.text" align 16 {
   %7 = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %.loopexit3.i, label %.preheader

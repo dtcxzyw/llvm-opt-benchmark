@@ -1618,7 +1618,7 @@ _ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClau
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE(i32 noundef %0, ptr nocapture readonly %.8.val, i16 %.16.val) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE(i32 noundef range(i32 0, 9) %0, ptr nocapture readonly %.8.val, i16 %.16.val) unnamed_addr #5 {
   %2 = icmp eq i16 %.16.val, 103
   %3 = icmp eq i32 %0, 8
   %or.cond = and i1 %3, %2
@@ -1633,7 +1633,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTo
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable1 [
     i32 0, label %_ZNK5clang5Token17getIdentifierInfoEv.exit
     i32 1, label %_ZNK5clang5Token17getIdentifierInfoEv.exit4
     i32 2, label %_ZNK5clang5Token17getIdentifierInfoEv.exit7
@@ -1735,7 +1735,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit28:     ; preds = %6
   %46 = icmp eq i32 %bcmp.i29, 0
   br label %_ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit
 
-default.unreachable:                              ; preds = %6
+default.unreachable1:                             ; preds = %6
   unreachable
 
 _ZNK5clang14IdentifierInfo5isStrILm9EEEbRAT__Kc.exit: ; preds = %44, %_ZNK5clang5Token17getIdentifierInfoEv.exit28, %40, %_ZNK5clang5Token17getIdentifierInfoEv.exit24, %36, %_ZNK5clang5Token17getIdentifierInfoEv.exit20, %32, %_ZNK5clang5Token17getIdentifierInfoEv.exit17, %28, %_ZNK5clang5Token17getIdentifierInfoEv.exit14, %24, %_ZNK5clang5Token17getIdentifierInfoEv.exit11, %20, %_ZNK5clang5Token17getIdentifierInfoEv.exit7, %16, %_ZNK5clang5Token17getIdentifierInfoEv.exit4, %12, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %4, %1
@@ -2776,7 +2776,7 @@ _ZNSt7variantIJSt9monostateN5clang11SemaOpenACC19OpenACCParsedClause14DefaultDet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_134tryParseAndConsumeSpecialTokenKindIN5clang17OpenACCClauseKindEEEbRNS1_6ParserENS_23OpenACCSpecialTokenKindET_(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_134tryParseAndConsumeSpecialTokenKindIN5clang17OpenACCClauseKindEEEbRNS1_6ParserENS_23OpenACCSpecialTokenKindET_(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef range(i32 0, 7) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca %"class.clang::Token", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -695,7 +695,7 @@ define dso_local ptr @inet6_lookup_listener(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #3 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8

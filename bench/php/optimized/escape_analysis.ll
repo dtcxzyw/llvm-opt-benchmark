@@ -78,7 +78,7 @@ define hidden range(i32 -1, 1) i32 @zend_ssa_escape_analysis(ptr noundef %0, ptr
 
 34:                                               ; preds = %.thread, %31
   %35 = phi ptr [ %33, %.thread ], [ %32, %31 ]
-  %36 = call fastcc i32 @zend_build_equi_escape_sets(ptr noundef nonnull %35, ptr noundef %1, ptr noundef nonnull %2)
+  %36 = call fastcc i32 @zend_build_equi_escape_sets(ptr noundef %35, ptr noundef %1, ptr noundef nonnull %2)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %.critedge, label %38
 
@@ -1298,7 +1298,7 @@ define internal fastcc noundef zeroext i1 @is_allocation_def(ptr noundef %0, ptr
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_build_equi_escape_sets(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_build_equi_escape_sets(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40

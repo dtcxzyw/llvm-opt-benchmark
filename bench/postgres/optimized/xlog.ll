@@ -574,7 +574,7 @@ WALInsertLockRelease.exit:                        ; preds = %77, %78
 86:                                               ; preds = %70, %65
   %87 = load i32, ptr %10, align 8
   %88 = getelementptr inbounds i8, ptr %10, i64 8
-  call fastcc void @ReserveXLogInsertLocation(i32 noundef %87, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %88)
+  call fastcc void @ReserveXLogInsertLocation(i32 noundef %87, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %88)
   %.pre = load i64, ptr %6, align 8
   br label %231
 
@@ -814,7 +814,7 @@ WALInsertLockAcquireExclusive.exit60:             ; preds = %.preheader79
   store i1 true, ptr @holdingAllLocks, align 1
   %227 = load i32, ptr %10, align 8
   %228 = getelementptr inbounds i8, ptr %10, i64 8
-  call fastcc void @ReserveXLogInsertLocation(i32 noundef %227, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %228)
+  call fastcc void @ReserveXLogInsertLocation(i32 noundef %227, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %228)
   %229 = load i64, ptr %6, align 8
   %230 = getelementptr inbounds i8, ptr %8, i64 152
   store i64 %229, ptr %230, align 8
@@ -1307,7 +1307,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReserveXLogInsertLocation(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @ReserveXLogInsertLocation(i32 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = load ptr, ptr @XLogCtl, align 8
   %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i8 1, ptr elementtype(i8) %5) #26, !srcloc !8
   %.not = icmp eq i8 %6, 0
@@ -2372,7 +2372,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
 117:                                              ; preds = %114
   %118 = load i64, ptr @openLogSegNo, align 8
   %119 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %7, i32 noundef %2, i64 noundef %118, i32 noundef %119)
+  call fastcc void @XLogFileName(ptr noundef %7, i32 noundef %2, i64 noundef %118, i32 noundef %119)
   store i32 %115, ptr %84, align 4
   %120 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
   call void @llvm.assume(i1 %120)
@@ -2835,7 +2835,7 @@ define internal fastcc void @XLogFileClose() unnamed_addr #0 {
   %17 = load i32, ptr @openLogTLI, align 4
   %18 = load i64, ptr @openLogSegNo, align 8
   %19 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %1, i32 noundef %17, i64 noundef %18, i32 noundef %19)
+  call fastcc void @XLogFileName(ptr noundef %1, i32 noundef %17, i64 noundef %18, i32 noundef %19)
   store i32 %16, ptr %15, align 4
   %20 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
   call void @llvm.assume(i1 %20)
@@ -3176,7 +3176,7 @@ declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unn
 define dso_local range(i32 0, -2147483648) i32 @XLogFileInit(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca [1024 x i8], align 16
-  %5 = call fastcc i32 @XLogFileInitInternal(i64 noundef %0, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @XLogFileInitInternal(i64 noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %31, label %7
 
@@ -3238,7 +3238,7 @@ get_sync_bit.exit:                                ; preds = %7, %16, %16, %16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileInitInternal(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileInitInternal(i64 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca i64, align 8
   %7 = load i32, ptr @wal_segment_size, align 4
@@ -3248,7 +3248,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileInitInternal(i64 
   %11 = trunc i64 %10 to i32
   %12 = urem i64 %0, %9
   %13 = trunc nuw i64 %12 to i32
-  %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %3, i64 noundef 1024, ptr noundef nonnull @.str.116, i32 noundef %1, i32 noundef %11, i32 noundef %13) #26
+  %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.116, i32 noundef %1, i32 noundef %11, i32 noundef %13) #26
   store i8 0, ptr %2, align 1
   %15 = load i32, ptr @wal_sync_method, align 4
   %16 = load i32, ptr @io_direct_flags, align 4
@@ -3289,7 +3289,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileInitInternal(i64 
 get_sync_bit.exit:                                ; preds = %4, %23, %23, %23, %24, %26
   %.0.i = phi i32 [ %27, %26 ], [ %25, %24 ], [ %spec.store.select.i, %4 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ]
   %31 = or i32 %.0.i, 524290
-  %32 = tail call i32 @BasicOpenFile(ptr noundef %3, i32 noundef %31) #26
+  %32 = tail call i32 @BasicOpenFile(ptr noundef nonnull %3, i32 noundef %31) #26
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %110
 
@@ -3303,7 +3303,7 @@ get_sync_bit.exit:                                ; preds = %4, %23, %23, %23, %
   %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #25
   tail call void @llvm.assume(i1 %38)
   %39 = tail call i32 @errcode_for_file_access() #26
-  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %3) #26
+  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %3) #26
   tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3170, ptr noundef nonnull @__func__.XLogFileInitInternal) #26
   unreachable
 
@@ -3429,7 +3429,7 @@ get_sync_bit.exit:                                ; preds = %4, %23, %23, %23, %
   %100 = load i32, ptr @CheckPointSegments, align 4
   %101 = sext i32 %100 to i64
   %102 = add i64 %0, %101
-  %103 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef nonnull %6, ptr noundef nonnull %5, i1 noundef zeroext true, i64 noundef %102, i32 noundef %1)
+  %103 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef %6, ptr noundef %5, i1 noundef zeroext true, i64 noundef %102, i32 noundef %1)
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %99
@@ -3556,7 +3556,7 @@ define dso_local void @CheckXLogRemoved(i64 noundef %0, i32 noundef %1) local_un
 
 19:                                               ; preds = %13
   %20 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %3, i32 noundef %1, i64 noundef %0, i32 noundef %20)
+  call fastcc void @XLogFileName(ptr noundef %3, i32 noundef %1, i64 noundef %0, i32 noundef %20)
   store i32 %5, ptr %4, align 4
   %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #25
   call void @llvm.assume(i1 %21)
@@ -3571,14 +3571,14 @@ define dso_local void @CheckXLogRemoved(i64 noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @XLogFileName(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = sext i32 %3 to i64
   %6 = udiv i64 4294967296, %5
   %7 = udiv i64 %2, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %2, %6
   %10 = trunc nuw i64 %9 to i32
-  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %0, i64 noundef 64, ptr noundef nonnull @.str.117, i32 noundef %1, i32 noundef %8, i32 noundef %10) #26
+  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %0, i64 noundef 64, ptr noundef nonnull @.str.117, i32 noundef %1, i32 noundef %8, i32 noundef %10) #26
   ret void
 }
 
@@ -3742,7 +3742,7 @@ define dso_local void @RemoveNonParentXlogFiles(i64 noundef %0, i32 noundef %1) 
   br i1 %40, label %IsXLogFileName.exit.backedge, label %41
 
 41:                                               ; preds = %39
-  call fastcc void @RemoveXlogFile(ptr noundef nonnull %25, i64 noundef %10, ptr noundef nonnull %4, i32 noundef %1)
+  call fastcc void @RemoveXlogFile(ptr noundef %25, i64 noundef %10, ptr noundef %4, i32 noundef %1)
   br label %IsXLogFileName.exit.backedge
 
 IsXLogFileName.exit.backedge:                     ; preds = %32, %35, %41, %39, %29, %24
@@ -3764,7 +3764,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare zeroext i1 @XLogArchiveIsReady(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RemoveXlogFile(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @RemoveXlogFile(ptr noundef nonnull %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 19
   %7 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.119, ptr noundef nonnull %6) #26
@@ -3785,12 +3785,12 @@ define internal fastcc void @RemoveXlogFile(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %12
-  %18 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext false, i32 noundef 13) #26
+  %18 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef nonnull %0, i1 noundef zeroext false, i32 noundef 13) #26
   %19 = icmp eq i32 %18, 2
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %17
-  %21 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef nonnull %2, ptr noundef nonnull %5, i1 noundef zeroext true, i64 noundef %1, i32 noundef %3)
+  %21 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef %2, ptr noundef %5, i1 noundef zeroext true, i64 noundef %1, i32 noundef %3)
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %20
@@ -5993,7 +5993,7 @@ RemoveTempXlogFiles.exit:                         ; preds = %.backedge.i, %175
   unreachable
 
 453:                                              ; preds = %447
-  %454 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef nonnull %10, ptr noundef nonnull %12, i1 noundef zeroext false, i64 noundef 0, i32 noundef %355)
+  %454 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef %10, ptr noundef %12, i1 noundef zeroext false, i64 noundef 0, i32 noundef %355)
   br i1 %454, label %XLogFileCopy.exit.i, label %455
 
 455:                                              ; preds = %453
@@ -6020,7 +6020,7 @@ XLogFileCopy.exit.i:                              ; preds = %453
   %462 = tail call ptr @__errno_location() #27
   %463 = load i32, ptr %462, align 4
   %464 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %14, i32 noundef %355, i64 noundef %364, i32 noundef %464)
+  call fastcc void @XLogFileName(ptr noundef %14, i32 noundef %355, i64 noundef %364, i32 noundef %464)
   store i32 %463, ptr %462, align 4
   %465 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #25
   call void @llvm.assume(i1 %465)
@@ -6251,7 +6251,7 @@ XLogRecPtrToBytePos.exit89:                       ; preds = %541, %544, %548, %5
   %611 = sext i32 %602 to i64
   %612 = udiv i64 %601, %611
   %613 = add i64 %612, 1
-  %614 = call fastcc i32 @XLogFileInitInternal(i64 noundef %613, i32 noundef %.067, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %614 = call fastcc i32 @XLogFileInitInternal(i64 noundef %613, i32 noundef %.067, ptr noundef %8, ptr noundef %9)
   %615 = icmp sgt i32 %614, -1
   br i1 %615, label %616, label %618
 
@@ -7774,7 +7774,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   %153 = call i64 @GetWalRcvFlushRecPtr(ptr noundef null, ptr noundef null) #26
   %154 = call i64 @GetXLogReplayRecPtr(ptr noundef nonnull %5) #26
   %155 = call i64 @llvm.umax.i64(i64 %153, i64 %154)
-  call fastcc void @KeepLogSeg(i64 noundef %155, ptr noundef nonnull %6)
+  call fastcc void @KeepLogSeg(i64 noundef %155, ptr noundef %6)
   %156 = load i64, ptr %6, align 8
   %157 = call zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noundef 1, i64 noundef %156, i32 noundef 0, i32 noundef 0) #26
   br i1 %157, label %158, label %163
@@ -7785,7 +7785,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   %161 = sext i32 %160 to i64
   %162 = udiv i64 %159, %161
   store i64 %162, ptr %6, align 8
-  call fastcc void @KeepLogSeg(i64 noundef %155, ptr noundef nonnull %6)
+  call fastcc void @KeepLogSeg(i64 noundef %155, ptr noundef %6)
   %.pre75 = load i64, ptr %6, align 8
   br label %163
 
@@ -7845,7 +7845,7 @@ RecoveryInProgress.exit69.thread:                 ; preds = %163, %RecoveryInPro
   %193 = sext i32 %184 to i64
   %194 = udiv i64 %183, %193
   %195 = add i64 %194, 1
-  %196 = call fastcc i32 @XLogFileInitInternal(i64 noundef %195, i32 noundef %177, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %196 = call fastcc i32 @XLogFileInitInternal(i64 noundef %195, i32 noundef %177, ptr noundef %2, ptr noundef %3)
   %197 = icmp sgt i32 %196, -1
   br i1 %197, label %198, label %200
 
@@ -8503,7 +8503,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   %306 = sext i32 %305 to i64
   %307 = udiv i64 %.pre124, %306
   store i64 %307, ptr %6, align 8
-  call fastcc void @KeepLogSeg(i64 noundef %253, ptr noundef nonnull %6)
+  call fastcc void @KeepLogSeg(i64 noundef %253, ptr noundef %6)
   %308 = load i64, ptr %6, align 8
   %309 = call zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noundef 1, i64 noundef %308, i32 noundef 0, i32 noundef 0) #26
   br i1 %309, label %310, label %315
@@ -8514,7 +8514,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   %313 = sext i32 %312 to i64
   %314 = udiv i64 %311, %313
   store i64 %314, ptr %6, align 8
-  call fastcc void @KeepLogSeg(i64 noundef %253, ptr noundef nonnull %6)
+  call fastcc void @KeepLogSeg(i64 noundef %253, ptr noundef %6)
   %.pre125 = load i64, ptr %6, align 8
   br label %315
 
@@ -8553,7 +8553,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   %337 = sext i32 %328 to i64
   %338 = udiv i64 %327, %337
   %339 = add i64 %338, 1
-  %340 = call fastcc i32 @XLogFileInitInternal(i64 noundef %339, i32 noundef %321, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %340 = call fastcc i32 @XLogFileInitInternal(i64 noundef %339, i32 noundef %321, ptr noundef %2, ptr noundef %3)
   %341 = icmp sgt i32 %340, -1
   br i1 %341, label %342, label %344
 
@@ -8657,7 +8657,7 @@ declare void @SetWalSummarizerLatch() local_unnamed_addr #3
 declare void @SyncPostCheckpoint() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @KeepLogSeg(i64 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @KeepLogSeg(i64 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load i32, ptr @wal_segment_size, align 4
   %4 = sext i32 %3 to i64
   %5 = udiv i64 %0, %4
@@ -8893,7 +8893,7 @@ UpdateLastRemovedPtr.exit:                        ; preds = %85, %90
   %92 = getelementptr inbounds i8, ptr %91, i64 440
   store i8 0, ptr %92, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call fastcc void @RemoveXlogFile(ptr noundef nonnull %49, i64 noundef %.1.i, ptr noundef nonnull %9, i32 noundef %3)
+  call fastcc void @RemoveXlogFile(ptr noundef %49, i64 noundef %.1.i, ptr noundef %9, i32 noundef %3)
   br label %.backedge
 
 .backedge:                                        ; preds = %61, %UpdateLastRemovedPtr.exit, %65, %54, %IsXLogFileName.exit, %48, %57
@@ -9051,7 +9051,7 @@ GetXLogWriteRecPtr.exit:                          ; preds = %4, %8
   %18 = sext i32 %17 to i64
   %19 = udiv i64 %16, %18
   store i64 %19, ptr %2, align 8
-  call fastcc void @KeepLogSeg(i64 noundef %16, ptr noundef nonnull %2)
+  call fastcc void @KeepLogSeg(i64 noundef %16, ptr noundef %2)
   %20 = load ptr, ptr @XLogCtl, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 440
   %22 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %21, i8 1, ptr nonnull elementtype(i8) %21) #26, !srcloc !8
@@ -9365,7 +9365,7 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 125:                                              ; preds = %112
-  call fastcc void @RecoveryRestartPoint(ptr noundef nonnull %2, ptr noundef %0)
+  call fastcc void @RecoveryRestartPoint(ptr noundef %2, ptr noundef %0)
   br label %.loopexit
 
 126:                                              ; preds = %1
@@ -9461,7 +9461,7 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 187:                                              ; preds = %174
-  call fastcc void @RecoveryRestartPoint(ptr noundef nonnull %7, ptr noundef nonnull %0)
+  call fastcc void @RecoveryRestartPoint(ptr noundef %7, ptr noundef nonnull %0)
   br label %.loopexit
 
 188:                                              ; preds = %1
@@ -9735,7 +9735,7 @@ declare void @MultiXactAdvanceOldest(i32 noundef, i32 noundef) local_unnamed_add
 declare i64 @GetCurrentReplayRecPtr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RecoveryRestartPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @RecoveryRestartPoint(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @XLogHaveInvalidPages() #26
   br i1 %3, label %4, label %12
 
@@ -9820,7 +9820,7 @@ define dso_local void @assign_wal_sync_method(i32 noundef %0, ptr nocapture noun
   %14 = load i32, ptr @openLogTLI, align 4
   %15 = load i64, ptr @openLogSegNo, align 8
   %16 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %3, i32 noundef %14, i64 noundef %15, i32 noundef %16)
+  call fastcc void @XLogFileName(ptr noundef %3, i32 noundef %14, i64 noundef %15, i32 noundef %16)
   store i32 %13, ptr %12, align 4
   %17 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
   call void @llvm.assume(i1 %17)
@@ -9974,7 +9974,7 @@ switch.early.test:                                ; preds = %3
   %30 = tail call ptr @__errno_location() #27
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %6, i32 noundef %2, i64 noundef %1, i32 noundef %32)
+  call fastcc void @XLogFileName(ptr noundef %6, i32 noundef %2, i64 noundef %1, i32 noundef %32)
   store i32 %31, ptr %30, align 4
   %33 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
   call void @llvm.assume(i1 %33)
@@ -11217,7 +11217,7 @@ declare void @XLogArchiveNotifySeg(i64 noundef, i32 noundef) local_unnamed_addr 
 declare i64 @pg_pwrite_zeros(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @InstallXLogFileSegment(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @InstallXLogFileSegment(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca %struct.stat, align 8
   %8 = load i64, ptr %0, align 8
@@ -11271,7 +11271,7 @@ define internal fastcc zeroext i1 @InstallXLogFileSegment(ptr nocapture noundef 
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %30, %.preheader, %27
-  %42 = call i32 @durable_rename(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 15) #26
+  %42 = call i32 @durable_rename(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 15) #26
   %.not = icmp eq i32 %42, 0
   br label %.loopexit12
 

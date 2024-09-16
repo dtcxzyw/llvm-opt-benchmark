@@ -1082,7 +1082,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   store i64 %div.i.i.i, ptr %refresh_time.i.i.i, align 8
   %install_time.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 280
   store i64 %div.i.i.i, ptr %install_time.i.i.i, align 8
-  %call2.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef %call1.i.i.i, ptr noundef nonnull readonly %tlvs)
+  %call2.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef %call1.i.i.i, ptr noundef readonly %tlvs)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
@@ -1104,7 +1104,7 @@ sw.bb3.i:                                         ; preds = %if.end.i
   br i1 %tobool.not.i13.i, label %return, label %if.end.i14.i
 
 if.end.i14.i:                                     ; preds = %sw.bb3.i
-  %call1.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef nonnull %call.i.i12.i, ptr noundef nonnull readonly %tlvs)
+  %call1.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef nonnull %call.i.i12.i, ptr noundef readonly %tlvs)
   br label %return
 
 sw.bb5.i:                                         ; preds = %if.end.i
@@ -1259,7 +1259,7 @@ sw.bb.i24:                                        ; preds = %if.end.i9
 if.end.i.i28:                                     ; preds = %sw.bb.i24
   %call.i11.i.i = call noalias noundef dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #21
   store i32 %.val.i10, ptr %call.i11.i.i, align 8
-  %call2.i.i29 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull readonly %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i11.i.i, ptr noundef nonnull readonly %tlvs)
+  %call2.i.i29 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull readonly %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i11.i.i, ptr noundef readonly %tlvs)
   %tobool3.not.i.i30 = icmp eq i32 %call2.i.i29, 0
   br i1 %tobool3.not.i.i30, label %if.end5.i.i31, label %err_cmd_add.i.i
 
@@ -1283,7 +1283,7 @@ sw.bb3.i19:                                       ; preds = %if.end.i9
   br i1 %tobool.not.i13.i21, label %return, label %if.end.i14.i22
 
 if.end.i14.i22:                                   ; preds = %sw.bb3.i19
-  %call1.i.i23 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull readonly %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i.i12.i20, ptr noundef nonnull readonly %tlvs)
+  %call1.i.i23 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull readonly %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i.i12.i20, ptr noundef readonly %tlvs)
   br label %return
 
 sw.bb5.i11:                                       ; preds = %if.end.i9
@@ -1966,7 +1966,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef nonnull %call.i)
+  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef %call.i)
   %ethhdr.i = getelementptr inbounds i8, ptr %fc, i64 64
   %4 = load ptr, ptr %ethhdr.i, align 8
   %iov.i = getelementptr inbounds i8, ptr %fc, i64 8
@@ -2017,11 +2017,11 @@ if.end17:                                         ; preds = %if.end10
   ]
 
 sw.bb:                                            ; preds = %if.end17
-  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef nonnull %call.i21)
+  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef %call.i21)
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end17
-  call fastcc void @of_dpa_output_l2_rewrite(ptr noundef nonnull %fc, ptr noundef nonnull %call.i21)
+  call fastcc void @of_dpa_output_l2_rewrite(ptr noundef nonnull %fc, ptr noundef %call.i21)
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %if.end17, %if.end17
@@ -2076,11 +2076,11 @@ if.end.i:                                         ; preds = %for.body.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef nonnull %call.i.i)
+  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef %call.i.i)
   br label %for.inc.i
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  call fastcc void @of_dpa_output_l2_rewrite(ptr noundef nonnull %fc, ptr noundef nonnull %call.i.i)
+  call fastcc void @of_dpa_output_l2_rewrite(ptr noundef nonnull %fc, ptr noundef %call.i.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb2.i, %sw.bb.i, %if.end.i, %for.body.i
@@ -2155,7 +2155,7 @@ if.then20.i.i:                                    ; preds = %land.lhs.true18.i.i
   br label %of_dpa_flow_pkt_hdr_rewrite.exit.i
 
 of_dpa_flow_pkt_hdr_rewrite.exit.i:               ; preds = %if.then20.i.i, %land.lhs.true18.i.i, %if.end14.i.i
-  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef nonnull %call.i.i26)
+  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef %call.i.i26)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.inc.i, %of_dpa_flow_pkt_hdr_rewrite.exit.i, %sw.bb21, %sw.bb20, %if.end10, %if.end6, %sw.bb19, %sw.bb, %if.end17
@@ -2191,7 +2191,7 @@ declare ptr @world_rocker(ptr noundef) local_unnamed_addr #1
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @of_dpa_output_l2_interface(ptr nocapture noundef readonly %fc, ptr nocapture noundef readonly %group) unnamed_addr #0 {
+define internal fastcc void @of_dpa_output_l2_interface(ptr nocapture noundef readonly %fc, ptr nocapture noundef nonnull readonly %group) unnamed_addr #0 {
 entry:
   %copy_to_cpu1 = getelementptr inbounds i8, ptr %fc, i64 144
   %0 = load i8, ptr %copy_to_cpu1, align 8
@@ -2264,7 +2264,7 @@ if.end15:                                         ; preds = %if.else, %if.then6,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @of_dpa_output_l2_rewrite(ptr noundef %fc, ptr nocapture noundef readonly %group) unnamed_addr #0 {
+define internal fastcc void @of_dpa_output_l2_rewrite(ptr noundef %fc, ptr nocapture noundef nonnull readonly %group) unnamed_addr #0 {
 entry:
   %group_id.addr.i = alloca i32, align 4
   %of_dpa = getelementptr inbounds i8, ptr %fc, i64 48
@@ -2332,7 +2332,7 @@ if.then20.i:                                      ; preds = %land.lhs.true18.i
   br label %of_dpa_flow_pkt_hdr_rewrite.exit
 
 of_dpa_flow_pkt_hdr_rewrite.exit:                 ; preds = %if.end14.i, %land.lhs.true18.i, %if.then20.i
-  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef nonnull %call.i)
+  call fastcc void @of_dpa_output_l2_interface(ptr noundef nonnull %fc, ptr noundef %call.i)
   br label %return
 
 return:                                           ; preds = %entry, %of_dpa_flow_pkt_hdr_rewrite.exit
@@ -2419,7 +2419,7 @@ if.end33:                                         ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_flow_add_mod(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_flow_add_mod(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %flow_tlvs, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
@@ -2481,31 +2481,31 @@ if.end25:                                         ; preds = %if.end22, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end25
-  %call26 = tail call fastcc i32 @of_dpa_cmd_add_ig_port(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
+  %call26 = tail call fastcc i32 @of_dpa_cmd_add_ig_port(ptr noundef nonnull %flow, ptr noundef %flow_tlvs)
   br label %return
 
 sw.bb27:                                          ; preds = %if.end25
-  %call28 = tail call fastcc i32 @of_dpa_cmd_add_vlan(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
+  %call28 = tail call fastcc i32 @of_dpa_cmd_add_vlan(ptr noundef nonnull %flow, ptr noundef %flow_tlvs)
   br label %return
 
 sw.bb29:                                          ; preds = %if.end25
-  %call30 = tail call fastcc i32 @of_dpa_cmd_add_term_mac(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
+  %call30 = tail call fastcc i32 @of_dpa_cmd_add_term_mac(ptr noundef nonnull %flow, ptr noundef %flow_tlvs)
   br label %return
 
 sw.bb31:                                          ; preds = %if.end25
-  %call32 = tail call fastcc i32 @of_dpa_cmd_add_bridging(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
+  %call32 = tail call fastcc i32 @of_dpa_cmd_add_bridging(ptr noundef nonnull %flow, ptr noundef %flow_tlvs)
   br label %return
 
 sw.bb33:                                          ; preds = %if.end25
-  %call34 = tail call fastcc i32 @of_dpa_cmd_add_unicast_routing(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
+  %call34 = tail call fastcc i32 @of_dpa_cmd_add_unicast_routing(ptr noundef nonnull %flow, ptr noundef %flow_tlvs)
   br label %return
 
 sw.bb35:                                          ; preds = %if.end25
-  %call36 = tail call fastcc i32 @of_dpa_cmd_add_multicast_routing(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
+  %call36 = tail call fastcc i32 @of_dpa_cmd_add_multicast_routing(ptr noundef nonnull %flow, ptr noundef %flow_tlvs)
   br label %return
 
 sw.bb37:                                          ; preds = %if.end25
-  %call38 = tail call fastcc i32 @of_dpa_cmd_add_acl(ptr noundef nonnull %flow, ptr noundef nonnull %flow_tlvs)
+  %call38 = tail call fastcc i32 @of_dpa_cmd_add_acl(ptr noundef nonnull %flow, ptr noundef %flow_tlvs)
   br label %return
 
 return:                                           ; preds = %if.end25, %sw.bb, %sw.bb27, %sw.bb29, %sw.bb31, %sw.bb33, %sw.bb35, %sw.bb37, %if.then13, %if.then13, %if.then13, %entry, %lor.lhs.false, %lor.lhs.false3
@@ -2517,7 +2517,7 @@ return:                                           ; preds = %if.end25, %sw.bb, %
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_ig_port(ptr nocapture noundef writeonly %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #11 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_ig_port(ptr nocapture noundef writeonly %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #11 {
 entry:
   %key1 = getelementptr inbounds i8, ptr %flow, i64 24
   %mask2 = getelementptr inbounds i8, ptr %flow, i64 132
@@ -2572,7 +2572,7 @@ return:                                           ; preds = %if.end13, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_vlan(ptr nocapture noundef writeonly %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_vlan(ptr nocapture noundef writeonly %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #0 {
 entry:
   %port = alloca i32, align 4
   %key1 = getelementptr inbounds i8, ptr %flow, i64 24
@@ -2663,7 +2663,7 @@ return:                                           ; preds = %if.end48, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_term_mac(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_term_mac(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #0 {
 entry:
   %port = alloca i32, align 4
   %key1 = getelementptr inbounds i8, ptr %flow, i64 24
@@ -2848,7 +2848,7 @@ return:                                           ; preds = %if.end142, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_bridging(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #13 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_bridging(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #13 {
 entry:
   %action3 = getelementptr inbounds i8, ptr %flow, i64 240
   %tbl_id = getelementptr inbounds i8, ptr %flow, i64 32
@@ -3052,7 +3052,7 @@ return:                                           ; preds = %if.then186, %sw.bb1
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_unicast_routing(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #15 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_unicast_routing(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #15 {
 entry:
   %action3 = getelementptr inbounds i8, ptr %flow, i64 240
   %arrayidx = getelementptr i8, ptr %flow_tlvs, i64 184
@@ -3220,7 +3220,7 @@ return:                                           ; preds = %if.end73, %if.then7
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_multicast_routing(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #12 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_multicast_routing(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #12 {
 entry:
   %action3 = getelementptr inbounds i8, ptr %flow, i64 240
   %arrayidx = getelementptr i8, ptr %flow_tlvs, i64 184
@@ -3423,7 +3423,7 @@ return:                                           ; preds = %if.end121, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_acl(ptr nocapture noundef %flow, ptr nocapture noundef readonly %flow_tlvs) unnamed_addr #12 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_acl(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #12 {
 entry:
   %key1 = getelementptr inbounds i8, ptr %flow, i64 24
   %mask2 = getelementptr inbounds i8, ptr %flow, i64 132
@@ -3730,7 +3730,7 @@ declare i32 @desc_set_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -95, 1) i32 @of_dpa_cmd_group_do(ptr nocapture noundef readonly %of_dpa, i32 noundef %group_id, ptr nocapture noundef %group, ptr nocapture noundef readonly %group_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -95, 1) i32 @of_dpa_cmd_group_do(ptr nocapture noundef readonly %of_dpa, i32 noundef %group_id, ptr nocapture noundef %group, ptr nocapture noundef nonnull readonly %group_tlvs) unnamed_addr #0 {
 entry:
   %group_id.addr.i.i14 = alloca i32, align 4
   %group_id.addr.i.i = alloca i32, align 4

@@ -3887,7 +3887,7 @@ define dso_local i64 @rb_enc_sprintf(ptr noundef %0, ptr noundef nonnull %1, ...
 
 rb_enc_vsprintf.exit:                             ; preds = %13, %18
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ %17, %13 ]
-  call fastcc void @ruby_vsprintf0(i64 noundef %4, ptr noundef %.sroa.2.0.i.i, ptr noundef nonnull %1, ptr noundef nonnull %3)
+  call fastcc void @ruby_vsprintf0(i64 noundef %4, ptr noundef %.sroa.2.0.i.i, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i64 %4
 }
@@ -3983,7 +3983,7 @@ rb_str_vcatf.exit:                                ; preds = %2, %12
   %.sroa.1.0.in.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %.sroa.1.0.i.i = load i64, ptr %.sroa.1.0.in.i.i, align 8
   %13 = getelementptr i8, ptr %.sroa.3.0.i.i, i64 %.sroa.1.0.i.i
-  call fastcc void @ruby_vsprintf0(i64 noundef %7, ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  call fastcc void @ruby_vsprintf0(i64 noundef %7, ptr noundef %13, ptr noundef %1, ptr noundef nonnull %4)
   %14 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -4028,7 +4028,7 @@ define dso_local i32 @ruby_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef
   store ptr @BSD__sfvwrite, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 48
   store ptr null, ptr %16, align 8
-  %17 = call fastcc i64 @BSD_vfprintf(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %3)
+  %17 = call fastcc i64 @BSD_vfprintf(ptr noundef %5, ptr noundef %2, ptr noundef %3)
   br i1 %.not.i, label %ruby_do_vsnprintf.exit, label %18
 
 18:                                               ; preds = %8
@@ -4076,7 +4076,7 @@ define dso_local i32 @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef 
   store ptr @BSD__sfvwrite, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 48
   store ptr null, ptr %16, align 8
-  %17 = call fastcc i64 @BSD_vfprintf(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %5)
+  %17 = call fastcc i64 @BSD_vfprintf(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %5)
   br i1 %.not.i, label %ruby_do_vsnprintf.exit, label %18
 
 18:                                               ; preds = %8
@@ -4134,12 +4134,12 @@ define dso_local i64 @rb_enc_vsprintf(ptr noundef %0, ptr noundef nonnull %1, pt
 
 RSTRING_PTR.exit:                                 ; preds = %13, %18
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %18 ], [ %17, %13 ]
-  tail call fastcc void @ruby_vsprintf0(i64 noundef %4, ptr noundef %.sroa.2.0.i, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @ruby_vsprintf0(i64 noundef %4, ptr noundef %.sroa.2.0.i, ptr noundef %1, ptr noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ruby_vsprintf0(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @ruby_vsprintf0(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.rb_printf_buffer_extra, align 8
   %6 = alloca i32, align 4
   %7 = inttoptr i64 %0 to ptr
@@ -4188,7 +4188,7 @@ RSTRING_PTR.exit:                                 ; preds = %13, %16
   store ptr @ruby__sfvextra, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 56
   store volatile i64 0, ptr %28, align 8
-  %29 = call fastcc i64 @BSD_vfprintf(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3)
+  %29 = call fastcc i64 @BSD_vfprintf(ptr noundef %5, ptr noundef %2, ptr noundef %3)
   store i64 %9, ptr %8, align 8
   %30 = load i64, ptr %7, align 8, !noalias !80
   %31 = and i64 %30, 8192
@@ -4243,7 +4243,7 @@ define dso_local i64 @rb_vsprintf(ptr noundef nonnull %0, ptr noundef %1) local_
 
 rb_enc_vsprintf.exit:                             ; preds = %2, %8
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %8 ], [ %7, %2 ]
-  tail call fastcc void @ruby_vsprintf0(i64 noundef %3, ptr noundef %.sroa.2.0.i.i, ptr noundef nonnull %0, ptr noundef %1)
+  tail call fastcc void @ruby_vsprintf0(i64 noundef %3, ptr noundef %.sroa.2.0.i.i, ptr noundef %0, ptr noundef %1)
   ret i64 %3
 }
 
@@ -4265,7 +4265,7 @@ define dso_local i64 @rb_sprintf(ptr noundef nonnull %0, ...) local_unnamed_addr
 
 rb_vsprintf.exit:                                 ; preds = %1, %8
   %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i, %8 ], [ %7, %1 ]
-  call fastcc void @ruby_vsprintf0(i64 noundef %3, ptr noundef %.sroa.2.0.i.i.i, ptr noundef nonnull %0, ptr noundef nonnull %2)
+  call fastcc void @ruby_vsprintf0(i64 noundef %3, ptr noundef %.sroa.2.0.i.i.i, ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret i64 %3
 }
@@ -4294,7 +4294,7 @@ RSTRING_END.exit:                                 ; preds = %3, %12
   %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %8, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
   %13 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
-  call fastcc void @ruby_vsprintf0(i64 noundef %7, ptr noundef %13, ptr noundef nonnull %1, ptr noundef %2)
+  call fastcc void @ruby_vsprintf0(i64 noundef %7, ptr noundef %13, ptr noundef %1, ptr noundef %2)
   %14 = load i64, ptr %4, align 8
   ret i64 %14
 }
@@ -4409,7 +4409,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %28, %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @BSD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @BSD_vfprintf(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [5 x i8], align 1
   %6 = alloca i32, align 4
@@ -4522,7 +4522,7 @@ BSD__sprint.exit.thread:                          ; preds = %62
 
 BSD__sprint.exit:                                 ; preds = %62
   %64 = load ptr, ptr %29, align 8
-  %65 = call i32 %64(ptr noundef %0, ptr noundef nonnull %13) #18
+  %65 = call i32 %64(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not632 = icmp eq i32 %65, 0
@@ -6064,7 +6064,7 @@ BSD__sprint.exit781.thread:                       ; preds = %746
 
 BSD__sprint.exit781:                              ; preds = %746
   %748 = load ptr, ptr %29, align 8
-  %749 = call i32 %748(ptr noundef %0, ptr noundef nonnull %13) #18
+  %749 = call i32 %748(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not728 = icmp eq i32 %749, 0
@@ -6103,7 +6103,7 @@ BSD__sprint.exit783.thread:                       ; preds = %761
 
 BSD__sprint.exit783:                              ; preds = %761
   %763 = load ptr, ptr %29, align 8
-  %764 = call i32 %763(ptr noundef %0, ptr noundef nonnull %13) #18
+  %764 = call i32 %763(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not666 = icmp eq i32 %764, 0
@@ -6139,7 +6139,7 @@ BSD__sprint.exit785.thread:                       ; preds = %775
 
 BSD__sprint.exit785:                              ; preds = %775
   %777 = load ptr, ptr %29, align 8
-  %778 = call i32 %777(ptr noundef %0, ptr noundef nonnull %13) #18
+  %778 = call i32 %777(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not668 = icmp eq i32 %778, 0
@@ -6176,7 +6176,7 @@ BSD__sprint.exit787.thread:                       ; preds = %789
 
 BSD__sprint.exit787:                              ; preds = %789
   %791 = load ptr, ptr %29, align 8
-  %792 = call i32 %791(ptr noundef %0, ptr noundef nonnull %13) #18
+  %792 = call i32 %791(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not669 = icmp eq i32 %792, 0
@@ -6231,7 +6231,7 @@ BSD__sprint.exit789.thread:                       ; preds = %811
 
 BSD__sprint.exit789:                              ; preds = %811
   %813 = load ptr, ptr %29, align 8
-  %814 = call i32 %813(ptr noundef %0, ptr noundef nonnull %13) #18
+  %814 = call i32 %813(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not727 = icmp eq i32 %814, 0
@@ -6270,7 +6270,7 @@ BSD__sprint.exit791.thread:                       ; preds = %826
 
 BSD__sprint.exit791:                              ; preds = %826
   %828 = load ptr, ptr %29, align 8
-  %829 = call i32 %828(ptr noundef %0, ptr noundef nonnull %13) #18
+  %829 = call i32 %828(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not672 = icmp eq i32 %829, 0
@@ -6321,7 +6321,7 @@ BSD__sprint.exit793.thread:                       ; preds = %846
 
 BSD__sprint.exit793:                              ; preds = %846
   %848 = load ptr, ptr %29, align 8
-  %849 = call i32 %848(ptr noundef %0, ptr noundef nonnull %13) #18
+  %849 = call i32 %848(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not726 = icmp eq i32 %849, 0
@@ -6360,7 +6360,7 @@ BSD__sprint.exit795.thread:                       ; preds = %861
 
 BSD__sprint.exit795:                              ; preds = %861
   %863 = load ptr, ptr %29, align 8
-  %864 = call i32 %863(ptr noundef %0, ptr noundef nonnull %13) #18
+  %864 = call i32 %863(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not675 = icmp eq i32 %864, 0
@@ -6393,7 +6393,7 @@ BSD__sprint.exit795:                              ; preds = %861
 
 BSD__sprint.exit797:                              ; preds = %877
   %879 = load ptr, ptr %29, align 8
-  %880 = call i32 %879(ptr noundef %0, ptr noundef nonnull %13) #18
+  %880 = call i32 %879(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not718 = icmp eq i32 %880, 0
@@ -6437,7 +6437,7 @@ BSD__sprint.exit799.thread:                       ; preds = %895
 
 BSD__sprint.exit799:                              ; preds = %895
   %897 = load ptr, ptr %29, align 8
-  %898 = call i32 %897(ptr noundef %0, ptr noundef nonnull %13) #18
+  %898 = call i32 %897(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not713 = icmp eq i32 %898, 0
@@ -6470,7 +6470,7 @@ BSD__sprint.exit799:                              ; preds = %895
 
 BSD__sprint.exit801:                              ; preds = %911
   %913 = load ptr, ptr %29, align 8
-  %914 = call i32 %913(ptr noundef %0, ptr noundef nonnull %13) #18
+  %914 = call i32 %913(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not714 = icmp eq i32 %914, 0
@@ -6496,7 +6496,7 @@ BSD__sprint.exit801:                              ; preds = %911
 
 BSD__sprint.exit803:                              ; preds = %923
   %925 = load ptr, ptr %29, align 8
-  %926 = call i32 %925(ptr noundef %0, ptr noundef nonnull %13) #18
+  %926 = call i32 %925(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not712 = icmp eq i32 %926, 0
@@ -6542,7 +6542,7 @@ BSD__sprint.exit805.thread:                       ; preds = %938
 
 BSD__sprint.exit805:                              ; preds = %938
   %940 = load ptr, ptr %29, align 8
-  %941 = call i32 %940(ptr noundef %0, ptr noundef nonnull %13) #18
+  %941 = call i32 %940(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not717 = icmp eq i32 %941, 0
@@ -6581,7 +6581,7 @@ BSD__sprint.exit807.thread:                       ; preds = %953
 
 BSD__sprint.exit807:                              ; preds = %953
   %955 = load ptr, ptr %29, align 8
-  %956 = call i32 %955(ptr noundef %0, ptr noundef nonnull %13) #18
+  %956 = call i32 %955(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not715 = icmp eq i32 %956, 0
@@ -6609,7 +6609,7 @@ BSD__sprint.exit807:                              ; preds = %953
 
 BSD__sprint.exit809:                              ; preds = %966
   %968 = load ptr, ptr %29, align 8
-  %969 = call i32 %968(ptr noundef %0, ptr noundef nonnull %13) #18
+  %969 = call i32 %968(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not716 = icmp eq i32 %969, 0
@@ -6650,7 +6650,7 @@ BSD__sprint.exit809:                              ; preds = %966
 
 BSD__sprint.exit811:                              ; preds = %986
   %988 = load ptr, ptr %29, align 8
-  %989 = call i32 %988(ptr noundef %0, ptr noundef nonnull %13) #18
+  %989 = call i32 %988(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not710 = icmp eq i32 %989, 0
@@ -6678,7 +6678,7 @@ BSD__sprint.exit813.thread:                       ; preds = %996
 
 BSD__sprint.exit813:                              ; preds = %996
   %998 = load ptr, ptr %29, align 8
-  %999 = call i32 %998(ptr noundef %0, ptr noundef nonnull %13) #18
+  %999 = call i32 %998(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not706 = icmp eq i32 %999, 0
@@ -6726,7 +6726,7 @@ BSD__sprint.exit815.thread:                       ; preds = %1014
 
 BSD__sprint.exit815:                              ; preds = %1014
   %1016 = load ptr, ptr %29, align 8
-  %1017 = call i32 %1016(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1017 = call i32 %1016(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not709 = icmp eq i32 %1017, 0
@@ -6761,7 +6761,7 @@ BSD__sprint.exit815:                              ; preds = %1014
 
 BSD__sprint.exit817:                              ; preds = %1029
   %1031 = load ptr, ptr %29, align 8
-  %1032 = call i32 %1031(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1032 = call i32 %1031(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not708 = icmp eq i32 %1032, 0
@@ -6797,7 +6797,7 @@ BSD__sprint.exit817:                              ; preds = %1029
 
 BSD__sprint.exit819:                              ; preds = %1048
   %1050 = load ptr, ptr %29, align 8
-  %1051 = call i32 %1050(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1051 = call i32 %1050(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not705 = icmp eq i32 %1051, 0
@@ -6831,7 +6831,7 @@ BSD__sprint.exit821.thread:                       ; preds = %1062
 
 BSD__sprint.exit821:                              ; preds = %1062
   %1064 = load ptr, ptr %29, align 8
-  %1065 = call i32 %1064(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1065 = call i32 %1064(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not698 = icmp eq i32 %1065, 0
@@ -6878,7 +6878,7 @@ BSD__sprint.exit823.thread:                       ; preds = %1078
 
 BSD__sprint.exit823:                              ; preds = %1078
   %1080 = load ptr, ptr %29, align 8
-  %1081 = call i32 %1080(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1081 = call i32 %1080(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not704 = icmp eq i32 %1081, 0
@@ -6917,7 +6917,7 @@ BSD__sprint.exit825.thread:                       ; preds = %1093
 
 BSD__sprint.exit825:                              ; preds = %1093
   %1095 = load ptr, ptr %29, align 8
-  %1096 = call i32 %1095(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1096 = call i32 %1095(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not699 = icmp eq i32 %1096, 0
@@ -6949,7 +6949,7 @@ BSD__sprint.exit827.thread:                       ; preds = %1106
 
 BSD__sprint.exit827:                              ; preds = %1106
   %1108 = load ptr, ptr %29, align 8
-  %1109 = call i32 %1108(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1109 = call i32 %1108(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not700 = icmp eq i32 %1109, 0
@@ -6999,7 +6999,7 @@ BSD__sprint.exit829.thread:                       ; preds = %1126
 
 BSD__sprint.exit829:                              ; preds = %1126
   %1128 = load ptr, ptr %29, align 8
-  %1129 = call i32 %1128(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1129 = call i32 %1128(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not703 = icmp eq i32 %1129, 0
@@ -7034,7 +7034,7 @@ BSD__sprint.exit829:                              ; preds = %1126
 
 BSD__sprint.exit831:                              ; preds = %1141
   %1143 = load ptr, ptr %29, align 8
-  %1144 = call i32 %1143(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1144 = call i32 %1143(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not702 = icmp eq i32 %1144, 0
@@ -7069,7 +7069,7 @@ BSD__sprint.exit833.thread:                       ; preds = %1155
 
 BSD__sprint.exit833:                              ; preds = %1155
   %1157 = load ptr, ptr %29, align 8
-  %1158 = call i32 %1157(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1158 = call i32 %1157(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not693 = icmp eq i32 %1158, 0
@@ -7117,7 +7117,7 @@ BSD__sprint.exit835.thread:                       ; preds = %1171
 
 BSD__sprint.exit835:                              ; preds = %1171
   %1173 = load ptr, ptr %29, align 8
-  %1174 = call i32 %1173(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1174 = call i32 %1173(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not697 = icmp eq i32 %1174, 0
@@ -7156,7 +7156,7 @@ BSD__sprint.exit837.thread:                       ; preds = %1186
 
 BSD__sprint.exit837:                              ; preds = %1186
   %1188 = load ptr, ptr %29, align 8
-  %1189 = call i32 %1188(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1189 = call i32 %1188(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not694 = icmp eq i32 %1189, 0
@@ -7187,7 +7187,7 @@ BSD__sprint.exit837:                              ; preds = %1186
 
 BSD__sprint.exit839:                              ; preds = %1199
   %1201 = load ptr, ptr %29, align 8
-  %1202 = call i32 %1201(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1202 = call i32 %1201(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not696 = icmp eq i32 %1202, 0
@@ -7215,7 +7215,7 @@ BSD__sprint.exit841.thread:                       ; preds = %1210
 
 BSD__sprint.exit841:                              ; preds = %1210
   %1212 = load ptr, ptr %29, align 8
-  %1213 = call i32 %1212(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1213 = call i32 %1212(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not687 = icmp eq i32 %1213, 0
@@ -7253,7 +7253,7 @@ BSD__sprint.exit843.thread:                       ; preds = %1225
 
 BSD__sprint.exit843:                              ; preds = %1225
   %1227 = load ptr, ptr %29, align 8
-  %1228 = call i32 %1227(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1228 = call i32 %1227(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not688 = icmp eq i32 %1228, 0
@@ -7291,7 +7291,7 @@ BSD__sprint.exit845.thread:                       ; preds = %1240
 
 BSD__sprint.exit845:                              ; preds = %1240
   %1242 = load ptr, ptr %29, align 8
-  %1243 = call i32 %1242(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1243 = call i32 %1242(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not689 = icmp eq i32 %1243, 0
@@ -7341,7 +7341,7 @@ BSD__sprint.exit847.thread:                       ; preds = %1260
 
 BSD__sprint.exit847:                              ; preds = %1260
   %1262 = load ptr, ptr %29, align 8
-  %1263 = call i32 %1262(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1263 = call i32 %1262(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not692 = icmp eq i32 %1263, 0
@@ -7376,7 +7376,7 @@ BSD__sprint.exit847:                              ; preds = %1260
 
 BSD__sprint.exit849:                              ; preds = %1275
   %1277 = load ptr, ptr %29, align 8
-  %1278 = call i32 %1277(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1278 = call i32 %1277(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not691 = icmp eq i32 %1278, 0
@@ -7417,7 +7417,7 @@ BSD__sprint.exit851.thread:                       ; preds = %1292
 
 BSD__sprint.exit851:                              ; preds = %1292
   %1294 = load ptr, ptr %29, align 8
-  %1295 = call i32 %1294(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1295 = call i32 %1294(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not678 = icmp eq i32 %1295, 0
@@ -7450,7 +7450,7 @@ BSD__sprint.exit851:                              ; preds = %1292
 
 BSD__sprint.exit853:                              ; preds = %1308
   %1310 = load ptr, ptr %29, align 8
-  %1311 = call i32 %1310(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1311 = call i32 %1310(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not681 = icmp eq i32 %1311, 0
@@ -7491,7 +7491,7 @@ BSD__sprint.exit855.thread:                       ; preds = %1323
 
 BSD__sprint.exit855:                              ; preds = %1323
   %1325 = load ptr, ptr %29, align 8
-  %1326 = call i32 %1325(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1326 = call i32 %1325(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not680 = icmp eq i32 %1326, 0
@@ -7526,7 +7526,7 @@ BSD__sprint.exit855:                              ; preds = %1323
 
 BSD__sprint.exit857:                              ; preds = %1338
   %1340 = load ptr, ptr %29, align 8
-  %1341 = call i32 %1340(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1341 = call i32 %1340(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not679 = icmp eq i32 %1341, 0
@@ -7576,7 +7576,7 @@ BSD__sprint.exit859.thread:                       ; preds = %1355
 
 BSD__sprint.exit859:                              ; preds = %1355
   %1357 = load ptr, ptr %29, align 8
-  %1358 = call i32 %1357(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1358 = call i32 %1357(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not685 = icmp eq i32 %1358, 0
@@ -7611,7 +7611,7 @@ BSD__sprint.exit859:                              ; preds = %1355
 
 BSD__sprint.exit861:                              ; preds = %1370
   %1372 = load ptr, ptr %29, align 8
-  %1373 = call i32 %1372(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1373 = call i32 %1372(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not683 = icmp eq i32 %1373, 0
@@ -7637,7 +7637,7 @@ BSD__sprint.exit861:                              ; preds = %1370
 
 BSD__sprint.exit863:                              ; preds = %1382
   %1384 = load ptr, ptr %29, align 8
-  %1385 = call i32 %1384(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1385 = call i32 %1384(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not677 = icmp eq i32 %1385, 0
@@ -7669,7 +7669,7 @@ BSD__sprint.exit863:                              ; preds = %1382
 
 BSD__sprint.exit865:                              ; preds = %1395
   %1397 = load ptr, ptr %29, align 8
-  %1398 = call i32 %1397(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1398 = call i32 %1397(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not684 = icmp eq i32 %1398, 0
@@ -7730,7 +7730,7 @@ BSD__sprint.exit867.thread:                       ; preds = %1416
 
 BSD__sprint.exit867:                              ; preds = %1416
   %1418 = load ptr, ptr %29, align 8
-  %1419 = call i32 %1418(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1419 = call i32 %1418(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   store i32 0, ptr %28, align 8
   %.not725 = icmp eq i32 %1419, 0
@@ -7769,7 +7769,7 @@ thread-pre-split.thread:                          ; preds = %1430
 
 BSD__sprint.exit869:                              ; preds = %1430
   %1434 = load ptr, ptr %29, align 8
-  %1435 = call i32 %1434(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1435 = call i32 %1434(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   %.not722 = icmp eq i32 %1435, 0
   br i1 %.not722, label %.thread999, label %.loopexit1011
@@ -7788,7 +7788,7 @@ thread-pre-split:                                 ; preds = %1399, %1404, %._cri
 
 BSD__sprint.exit871:                              ; preds = %thread-pre-split
   %1441 = load ptr, ptr %29, align 8
-  %1442 = call i32 %1441(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1442 = call i32 %1441(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   store i64 0, ptr %27, align 8
   %.not724 = icmp eq i32 %1442, 0
   br i1 %.not724, label %1443, label %.loopexit1011
@@ -7805,7 +7805,7 @@ BSD__sprint.exit871:                              ; preds = %thread-pre-split
 
 BSD__sprint.exit873:                              ; preds = %.loopexit1037
   %1446 = load ptr, ptr %29, align 8
-  %1447 = call i32 %1446(ptr noundef %0, ptr noundef nonnull %13) #18
+  %1447 = call i32 %1446(ptr noundef nonnull %0, ptr noundef nonnull %13) #18
   br label %.loopexit1011
 
 .loopexit1011.sink.split:                         ; preds = %1401, %830, %795, %730

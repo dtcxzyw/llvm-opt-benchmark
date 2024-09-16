@@ -411,7 +411,7 @@ define void @Java_sun_java2d_loops_DrawGlyphList_DrawGlyphList(ptr noundef %0, p
   %15 = tail call i32 @GrPrim_Sg2dGetEaRGB(ptr noundef %0, ptr noundef %2) #10
   %16 = getelementptr inbounds i8, ptr %8, i64 32
   %17 = load ptr, ptr %16, align 8
-  tail call fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %11, i32 noundef %14, i32 noundef %15, ptr noundef nonnull %8, ptr noundef %17)
+  tail call fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef %14, i32 noundef %15, ptr noundef %8, ptr noundef %17)
   tail call void @free(ptr noundef nonnull %11) #10
   br label %18
 
@@ -426,7 +426,7 @@ declare i32 @GrPrim_Sg2dGetPixel(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @GrPrim_Sg2dGetEaRGB(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca %struct.SurfaceDataBounds, align 4
   %10 = alloca %struct.SurfaceDataRasInfo, align 8
   %11 = alloca %struct._CompositeInfo, align 4
@@ -601,7 +601,7 @@ RefineBounds.exit:                                ; preds = %._crit_edge.i
   %88 = getelementptr inbounds i8, ptr %3, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = load i32, ptr %3, align 8
-  call void %7(ptr noundef nonnull %10, ptr noundef %89, i32 noundef %90, i32 noundef %4, i32 noundef %5, i32 noundef %81, i32 noundef %83, i32 noundef %82, i32 noundef %84, ptr noundef %6, ptr noundef nonnull %11) #10
+  call void %7(ptr noundef nonnull %10, ptr noundef %89, i32 noundef %90, i32 noundef %4, i32 noundef %5, i32 noundef %81, i32 noundef %83, i32 noundef %82, i32 noundef %84, ptr noundef nonnull %6, ptr noundef nonnull %11) #10
   %91 = getelementptr inbounds i8, ptr %12, i64 16
   %92 = load ptr, ptr %91, align 8
   %.not64 = icmp eq ptr %92, null
@@ -642,7 +642,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListAA_DrawGlyphListAA(ptr noundef %
   %15 = tail call i32 @GrPrim_Sg2dGetEaRGB(ptr noundef %0, ptr noundef %2) #10
   %16 = getelementptr inbounds i8, ptr %8, i64 32
   %17 = load ptr, ptr %16, align 8
-  tail call fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %11, i32 noundef %14, i32 noundef %15, ptr noundef nonnull %8, ptr noundef %17)
+  tail call fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %11, i32 noundef %14, i32 noundef %15, ptr noundef %8, ptr noundef %17)
   tail call void @free(ptr noundef nonnull %11) #10
   br label %18
 

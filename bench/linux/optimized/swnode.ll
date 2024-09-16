@@ -963,11 +963,11 @@ define dso_local void @software_node_unregister(ptr noundef readnone %0) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @swnode_register(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @swnode_register(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 208) #14
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %60, label %7
+  br i1 %6, label %59, label %7
 
 7:                                                ; preds = %3
   %8 = icmp eq ptr %1, null
@@ -981,7 +981,7 @@ define internal fastcc ptr @swnode_register(ptr noundef %0, ptr noundef %1, i32 
   tail call void @kfree(ptr noundef nonnull %5) #12
   %14 = sext i32 %11 to i64
   %15 = inttoptr i64 %14 to ptr
-  br label %60
+  br label %59
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %5, i64 136
@@ -1039,35 +1039,34 @@ define internal fastcc ptr @swnode_register(ptr noundef %0, ptr noundef %1, i32 
   tail call void @kobject_put(ptr noundef nonnull %5) #12
   %45 = sext i32 %42 to i64
   %46 = inttoptr i64 %45 to ptr
-  br label %60
+  br label %59
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds i8, ptr %5, i64 200
   %49 = trunc nuw nsw i32 %2 to i8
   %50 = load i8, ptr %48, align 8
-  %51 = and i8 %49, 1
-  %52 = and i8 %50, -2
-  %53 = or disjoint i8 %52, %51
-  store i8 %53, ptr %48, align 8
-  br i1 %8, label %58, label %54
+  %51 = and i8 %50, -2
+  %52 = or disjoint i8 %51, %49
+  store i8 %52, ptr %48, align 8
+  br i1 %8, label %57, label %53
 
-54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %1, i64 176
-  %56 = getelementptr inbounds i8, ptr %1, i64 184
-  %57 = load ptr, ptr %56, align 8
-  store ptr %31, ptr %56, align 8
-  store ptr %55, ptr %31, align 8
-  store ptr %57, ptr %32, align 8
-  store volatile ptr %31, ptr %57, align 8
-  br label %58
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %1, i64 176
+  %55 = getelementptr inbounds i8, ptr %1, i64 184
+  %56 = load ptr, ptr %55, align 8
+  store ptr %31, ptr %55, align 8
+  store ptr %54, ptr %31, align 8
+  store ptr %56, ptr %32, align 8
+  store volatile ptr %31, ptr %56, align 8
+  br label %57
 
-58:                                               ; preds = %54, %47
-  %59 = tail call i32 @kobject_uevent(ptr noundef nonnull %5, i32 noundef 0) #12
-  br label %60
+57:                                               ; preds = %53, %47
+  %58 = tail call i32 @kobject_uevent(ptr noundef nonnull %5, i32 noundef 0) #12
+  br label %59
 
-60:                                               ; preds = %58, %44, %13, %3
-  %61 = phi ptr [ %15, %13 ], [ %46, %44 ], [ %22, %58 ], [ inttoptr (i64 -12 to ptr), %3 ]
-  ret ptr %61
+59:                                               ; preds = %57, %44, %13, %3
+  %60 = phi ptr [ %15, %13 ], [ %46, %44 ], [ %22, %57 ], [ inttoptr (i64 -12 to ptr), %3 ]
+  ret ptr %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

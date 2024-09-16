@@ -5808,7 +5808,7 @@ _ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.i.
 .critedge:                                        ; preds = %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit, %77, %96, %101, %94, %.lr.ph.split.us
   %103 = phi ptr [ %71, %.lr.ph.split.us ], [ %76, %94 ], [ %76, %101 ], [ %76, %96 ], [ %76, %77 ], [ %76, %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit ]
   %104 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5clangL19diagnoseRetainCycleERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17560) %104, ptr noundef nonnull %103, ptr noundef nonnull align 8 dereferenceable(21) %5)
+  call fastcc void @_ZN5clangL19diagnoseRetainCycleERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17560) %104, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(21) %5)
   br label %.loopexit
 
 105:                                              ; preds = %.lr.ph.split, %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit
@@ -6243,7 +6243,7 @@ define dso_local void @_ZN5clang8SemaObjC17checkRetainCyclesEPNS_4ExprES2_(ptr n
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5clangL19diagnoseRetainCycleERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17560) %11, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(21) %4)
+  call fastcc void @_ZN5clangL19diagnoseRetainCycleERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17560) %11, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(21) %4)
   br label %12
 
 12:                                               ; preds = %3, %10, %7
@@ -6293,7 +6293,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %3
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5clangL19diagnoseRetainCycleERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17560) %26, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(21) %4)
+  call fastcc void @_ZN5clangL19diagnoseRetainCycleERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17560) %26, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(21) %4)
   br label %_ZN5clangL16considerVariableEPNS_7VarDeclEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE.exit.thread
 
 _ZN5clangL16considerVariableEPNS_7VarDeclEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE.exit.thread: ; preds = %3, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %25, %15
@@ -14544,7 +14544,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clangL29checkCollectionLiteralElementERNS_4SemaENS_8QualTypeEPNS_4ExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN5clangL29checkCollectionLiteralElementERNS_4SemaENS_8QualTypeEPNS_4ExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::QualType", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.clang::QualType", align 8

@@ -589,12 +589,12 @@ select.unfold173:                                 ; preds = %63, %59, %61, %67, 
 121:                                              ; preds = %120, %118
   %.1 = phi ptr [ %14, %120 ], [ null, %118 ]
   %. = phi ptr [ %15, %120 ], [ null, %118 ]
-  %122 = call fastcc i32 @adjacent_inner_consistent(ptr noundef %86, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %.)
+  %122 = call fastcc i32 @adjacent_inner_consistent(ptr noundef %86, ptr noundef %11, ptr noundef %9, ptr noundef %.)
   %123 = icmp sgt i32 %122, 0
   %124 = icmp slt i32 %122, 0
   %.163 = select i1 %124, i32 12, i32 0
   %.0130 = select i1 %123, i32 18, i32 %.163
-  %125 = call fastcc i32 @adjacent_inner_consistent(ptr noundef %86, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef %.1)
+  %125 = call fastcc i32 @adjacent_inner_consistent(ptr noundef %86, ptr noundef %12, ptr noundef %8, ptr noundef %.1)
   %126 = icmp sgt i32 %125, 0
   %127 = icmp slt i32 %125, 0
   %.164 = select i1 %127, i32 24, i32 0
@@ -894,12 +894,12 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @adjacent_inner_consistent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @adjacent_inner_consistent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %29, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #6
+  %6 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3) #6
   %7 = getelementptr inbounds i8, ptr %3, i64 10
   %8 = load i8, ptr %7, align 2
   %9 = trunc i8 %8 to i1
@@ -929,7 +929,7 @@ define internal fastcc range(i32 -1, 2) i32 @adjacent_inner_consistent(ptr nound
 
 adjacent_cmp_bounds.exit:                         ; preds = %12, %20, %21
   %.0.i = phi i32 [ 1, %20 ], [ -1, %12 ], [ %..i, %21 ]
-  %23 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #6
+  %23 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %24 = icmp slt i32 %.0.i, 0
   %25 = icmp sgt i32 %23, -1
   %or.cond = select i1 %24, i1 %25, i1 false
@@ -942,7 +942,7 @@ adjacent_cmp_bounds.exit:                         ; preds = %12, %20, %21
   br i1 %or.cond3, label %adjacent_cmp_bounds.exit20, label %29
 
 29:                                               ; preds = %26, %4
-  %30 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6
+  %30 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #6
   %31 = getelementptr inbounds i8, ptr %2, i64 10
   %32 = load i8, ptr %31, align 2
   %33 = trunc i8 %32 to i1

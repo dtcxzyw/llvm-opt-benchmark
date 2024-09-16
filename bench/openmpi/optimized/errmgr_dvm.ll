@@ -1230,7 +1230,7 @@ pmix_pointer_array_get_item.exit342:              ; preds = %pmix_pointer_array_
   br i1 %366, label %407, label %691
 
 407:                                              ; preds = %406
-  tail call fastcc void @check_send_notification(ptr noundef nonnull %32, ptr noundef nonnull %72, i32 noundef -400)
+  tail call fastcc void @check_send_notification(ptr noundef %32, ptr noundef %72, i32 noundef -400)
   br label %691
 
 408:                                              ; preds = %365
@@ -1255,7 +1255,7 @@ pmix_pointer_array_get_item.exit342:              ; preds = %pmix_pointer_array_
   br i1 %366, label %419, label %420
 
 419:                                              ; preds = %418
-  tail call fastcc void @check_send_notification(ptr noundef %32, ptr noundef nonnull %72, i32 noundef -402)
+  tail call fastcc void @check_send_notification(ptr noundef %32, ptr noundef %72, i32 noundef -402)
   br label %691
 
 420:                                              ; preds = %418
@@ -1318,7 +1318,7 @@ pmix_pointer_array_get_item.exit342:              ; preds = %pmix_pointer_array_
   br i1 %366, label %452, label %453
 
 452:                                              ; preds = %451
-  tail call fastcc void @check_send_notification(ptr noundef %32, ptr noundef nonnull %72, i32 noundef -200)
+  tail call fastcc void @check_send_notification(ptr noundef %32, ptr noundef %72, i32 noundef -200)
   br label %691
 
 453:                                              ; preds = %451
@@ -1356,7 +1356,7 @@ pmix_pointer_array_get_item.exit342:              ; preds = %pmix_pointer_array_
   %472 = load i32, ptr %471, align 8
   %473 = getelementptr inbounds i8, ptr %32, i64 144
   store i32 %472, ptr %473, align 8
-  tail call fastcc void @check_send_notification(ptr noundef nonnull %32, ptr noundef nonnull %72, i32 noundef -200)
+  tail call fastcc void @check_send_notification(ptr noundef %32, ptr noundef %72, i32 noundef -200)
   %474 = load i32, ptr %473, align 8
   %475 = icmp eq i32 %474, 0
   br i1 %475, label %476, label %477
@@ -1498,7 +1498,7 @@ pmix_pointer_array_get_item.exit342:              ; preds = %pmix_pointer_array_
   br i1 %366, label %553, label %554
 
 553:                                              ; preds = %552
-  tail call fastcc void @check_send_notification(ptr noundef %32, ptr noundef nonnull %72, i32 noundef -8)
+  tail call fastcc void @check_send_notification(ptr noundef %32, ptr noundef %72, i32 noundef -8)
   br label %691
 
 554:                                              ; preds = %552
@@ -1630,7 +1630,7 @@ pmix_pointer_array_get_item.exit342:              ; preds = %pmix_pointer_array_
   br i1 %630, label %631, label %632
 
 631:                                              ; preds = %629
-  call fastcc void @check_send_notification(ptr noundef nonnull %32, ptr noundef nonnull %72, i32 noundef -404)
+  call fastcc void @check_send_notification(ptr noundef %32, ptr noundef %72, i32 noundef -404)
   br label %691
 
 632:                                              ; preds = %629, %628
@@ -1956,7 +1956,7 @@ declare i32 @prte_set_attribute(ptr noundef, i16 noundef zeroext, i1 noundef zer
 declare zeroext i1 @prte_get_attribute(ptr noundef, i16 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_send_notification(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @check_send_notification(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 -404, -7) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.prte_grpcomm_signature_t, align 8
   %6 = alloca i64, align 8

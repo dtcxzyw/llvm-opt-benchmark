@@ -2351,7 +2351,7 @@ declare ptr @_ZN6hermes2vm6Domain6createERNS0_7RuntimeE(ptr noundef nonnull alig
 declare noundef ptr @_ZN6hermes2vm13RuntimeModule19createUninitializedERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS0_18RuntimeModuleFlagsEj(ptr noundef nonnull align 8 dereferenceable(9832), ptr, i8, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_19benchmarkERN6hermes2vm7RuntimeEddENK3$_0clERNS0_3hbc25BytecodeFunctionGeneratorEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(200) %builder, i32 noundef %pass) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_19benchmarkERN6hermes2vm7RuntimeEddENK3$_0clERNS0_3hbc25BytecodeFunctionGeneratorEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(200) %builder, i32 noundef range(i32 0, 2) %pass) unnamed_addr #2 align 2 {
 entry:
   %line = alloca i32, align 4
   %ref.tmp = alloca i32, align 4

@@ -959,7 +959,7 @@ define dso_local ptr @__neigh_create(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @___neigh_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @___neigh_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 273) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load volatile i64, ptr @jiffies, align 64
@@ -5191,7 +5191,7 @@ neigh_cleanup_and_release.exit:                   ; preds = %86, %85, %83, %40
 declare dso_local void @_raw_write_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @neigh_cleanup_and_release(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @neigh_cleanup_and_release(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_neigh_cleanup_and_release, i64 8), i32 2) #21
           to label %22 [label %2], !srcloc !17
 
@@ -5214,7 +5214,7 @@ define internal fastcc void @neigh_cleanup_and_release(ptr noundef %0) unnamed_a
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @__SCT__tp_func_neigh_cleanup_and_release(ptr noundef %13, ptr noundef %0, i32 noundef 0) #21
+  %14 = tail call i32 @__SCT__tp_func_neigh_cleanup_and_release(ptr noundef %13, ptr noundef nonnull %0, i32 noundef 0) #21
   br label %15
 
 15:                                               ; preds = %11, %8
@@ -5232,8 +5232,8 @@ define internal fastcc void @neigh_cleanup_and_release(ptr noundef %0) unnamed_a
   br label %22
 
 22:                                               ; preds = %19, %15, %2, %1
-  tail call fastcc void @__neigh_notify(ptr noundef %0, i32 noundef 29, i32 noundef 0, i32 noundef 0)
-  %23 = tail call i32 @call_netevent_notifiers(i64 noundef 1, ptr noundef %0) #21
+  tail call fastcc void @__neigh_notify(ptr noundef nonnull %0, i32 noundef 29, i32 noundef 0, i32 noundef 0)
+  %23 = tail call i32 @call_netevent_notifiers(i64 noundef 1, ptr noundef nonnull %0) #21
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24, i32 -1, ptr elementtype(i32) %24) #21, !srcloc !13
   %26 = icmp eq i32 %25, 1
@@ -5249,7 +5249,7 @@ define internal fastcc void @neigh_cleanup_and_release(ptr noundef %0) unnamed_a
 
 30:                                               ; preds = %22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !15
-  tail call void @neigh_destroy(ptr noundef %0)
+  tail call void @neigh_destroy(ptr noundef nonnull %0)
   br label %.thread
 
 .thread:                                          ; preds = %27, %29, %30
@@ -6112,7 +6112,7 @@ define dso_local void @neigh_app_ns(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__neigh_notify(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @__neigh_notify(ptr noundef %0, i32 noundef range(i32 28, 31) %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 272
@@ -7284,7 +7284,7 @@ declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @neigh_fill_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @neigh_fill_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 28, 31) %4, i32 noundef range(i32 0, 35) %5) unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -10297,7 +10297,7 @@ define internal fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @pneigh_fill_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @pneigh_fill_info(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 35) %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = getelementptr inbounds i8, ptr %0, i64 116
@@ -10433,7 +10433,7 @@ declare dso_local i32 @rtnl_unicast(ptr noundef, ptr noundef, i32 noundef) local
 declare dso_local ptr @netdev_master_upper_dev_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef range(i32 3, 20) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #6 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   %5 = tail call i32 @jiffies_to_msecs(i64 noundef %2) #21

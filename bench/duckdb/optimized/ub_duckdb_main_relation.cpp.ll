@@ -24232,7 +24232,7 @@ eh.resume:                                        ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL23CreateValueFromFileListERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr readonly %file_list.0.val, ptr readnone %file_list.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL23CreateValueFromFileListERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr readonly %file_list.0.val, ptr readnone %file_list.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %files = alloca %"class.duckdb::vector.520", align 16
@@ -24264,7 +24264,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i, align 16, !tbaa !608
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %files, i8 0, i64 24, i1 false)
-  invoke void @_ZN6duckdb5Value4LISTENS_6vectorIS0_Lb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8 %agg.result, ptr noundef nonnull %agg.tmp15)
+  invoke void @_ZN6duckdb5Value4LISTENS_6vectorIS0_Lb1EEE(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %agg.result, ptr noundef nonnull %agg.tmp15)
           to label %invoke.cont17 unwind label %lpad16
 
 for.body:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %for.body.lr.ph
@@ -33952,7 +33952,7 @@ ehcleanup28:                                      ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14ParseConditionERNS_13ClientContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(32) %condition) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14ParseConditionERNS_13ClientContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(32) %condition) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %expression_list = alloca %"class.duckdb::vector", align 8
   %agg.tmp = alloca %"struct.duckdb::ParserOptions", align 8

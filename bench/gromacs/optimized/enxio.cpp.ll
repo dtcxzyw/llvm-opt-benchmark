@@ -1364,7 +1364,7 @@ define noundef ptr @_Z8open_enxRKNSt10filesystem7__cxx114pathEPKc(ptr noundef no
   call void @_Z9do_enxnmsP9ener_filePiPP11gmx_enxnm_t(ptr noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %27 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.9, i32 noundef 822, i64 noundef 1, i64 noundef 80)
   %28 = load i32, ptr %4, align 4
-  %29 = call fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr noundef %21, ptr noundef nonnull %6, ptr noundef %27, i32 noundef %28, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %29 = call fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr noundef %21, ptr noundef %6, ptr noundef %27, i32 noundef %28, ptr noundef nonnull %7, ptr noundef %8)
   %30 = load i8, ptr %8, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %44, label %32
@@ -1455,7 +1455,7 @@ define noundef ptr @_Z8open_enxRKNSt10filesystem7__cxx114pathEPKc(ptr noundef no
   call void @_Z20gmx_fio_setprecisionP8t_fileiob(ptr noundef %69, i1 noundef zeroext true)
   call void @_Z9do_enxnmsP9ener_filePiPP11gmx_enxnm_t(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %70 = load i32, ptr %4, align 4
-  %71 = call fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr noundef nonnull %21, ptr noundef nonnull %6, ptr noundef %27, i32 noundef %70, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %71 = call fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr noundef nonnull %21, ptr noundef %6, ptr noundef %27, i32 noundef %70, ptr noundef nonnull %7, ptr noundef %8)
   %72 = load i8, ptr %8, align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %86, label %74
@@ -1655,7 +1655,7 @@ declare noundef ptr @_Z12gmx_fio_openRKNSt10filesystem7__cxx114pathEPKc(ptr noun
 declare void @_Z20gmx_fio_setprecisionP8t_fileiob(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -2683,7 +2683,7 @@ define noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr nocapture nound
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %2
-  %28 = call fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, i32 noundef -1, ptr noundef null, ptr noundef nonnull %8)
+  %28 = call fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %1, i32 noundef -1, ptr noundef null, ptr noundef %8)
   br i1 %28, label %59, label %34
 
 .thread:                                          ; preds = %2
@@ -2692,7 +2692,7 @@ define noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr nocapture nound
   %31 = shl i32 %30, 4
   %32 = getelementptr inbounds i8, ptr %1, i64 40
   store i32 %31, ptr %32, align 8
-  %33 = call fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, i32 noundef -1, ptr noundef null, ptr noundef nonnull %8)
+  %33 = call fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %1, i32 noundef -1, ptr noundef null, ptr noundef %8)
   br i1 %33, label %.thread164, label %47
 
 34:                                               ; preds = %27

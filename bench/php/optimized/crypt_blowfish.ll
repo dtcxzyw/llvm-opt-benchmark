@@ -247,7 +247,7 @@ _crypt_output_magic.exit57:                       ; preds = %100, %101, %106, %1
 }
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @BF_crypt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @BF_crypt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4) unnamed_addr #1 {
   %6 = alloca %struct.anon.0, align 4
   %7 = icmp slt i32 %3, 61
   br i1 %7, label %8, label %10
@@ -334,7 +334,7 @@ define internal fastcc noundef ptr @BF_crypt(ptr nocapture noundef readonly %0, 
 52:                                               ; preds = %44
   %53 = getelementptr inbounds i8, ptr %6, i64 4240
   %54 = getelementptr inbounds i8, ptr %1, i64 7
-  %55 = call fastcc i32 @BF_decode(ptr noundef nonnull %53, ptr noundef nonnull %54)
+  %55 = call fastcc i32 @BF_decode(ptr noundef %53, ptr noundef nonnull %54)
   %.not1870 = icmp eq i32 %55, 0
   br i1 %.not1870, label %.preheader1886, label %56
 
@@ -359,7 +359,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %.ptr1871 = getelementptr inbounds i8, ptr %6, i64 4096
   %63 = getelementptr inbounds [26 x i8], ptr @flags_by_subtype, i64 0, i64 %22
   %64 = load i8, ptr %63, align 1
-  call fastcc void @BF_set_key(ptr noundef %0, ptr noundef nonnull %62, ptr noundef nonnull %.ptr1871, i8 noundef zeroext %64)
+  call fastcc void @BF_set_key(ptr noundef %0, ptr noundef %62, ptr noundef %.ptr1871, i8 noundef zeroext %64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %6, ptr noundef nonnull align 4 dereferenceable(4096) @BF_init_state, i64 4096, i1 false)
   %65 = getelementptr inbounds i8, ptr %6, i64 3072
   %66 = getelementptr inbounds i8, ptr %6, i64 2048
@@ -2921,7 +2921,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
 
 BF_swap.exit1881:                                 ; preds = %2515
   %2520 = getelementptr inbounds i8, ptr %2, i64 29
-  call fastcc void @BF_encode(ptr noundef nonnull %2520, ptr noundef nonnull %53)
+  call fastcc void @BF_encode(ptr noundef nonnull %2520, ptr noundef %53)
   %2521 = getelementptr inbounds i8, ptr %2, i64 60
   store i8 0, ptr %2521, align 1
   br label %2522
@@ -2941,7 +2941,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, i8 noundef zeroext %3) unnamed_addr #5 {
+define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull %2, i8 noundef zeroext %3) unnamed_addr #5 {
   %5 = alloca [2 x i32], align 4
   %6 = zext i8 %3 to i32
   %7 = and i32 %6, 1
@@ -3020,7 +3020,7 @@ define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = add nsw i32 %4, -32
@@ -3115,7 +3115,7 @@ split:                                            ; preds = %53, %.lr.ph, %12, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BF_encode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc void @BF_encode(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = lshr i32 %4, 2

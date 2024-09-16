@@ -375,7 +375,7 @@ default.unreachable:                              ; preds = %27
   unreachable
 
 30:                                               ; preds = %27
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h3183bb69bec89e65E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %24)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h3183bb69bec89e65E"(ptr noalias noundef align 8 dereferenceable(80) %24)
           to label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_mount..error..Error$GT$$GT$$GT$17h24e2d870816b7ef9E.exit" unwind label %50
 
 31:                                               ; preds = %27
@@ -2426,7 +2426,7 @@ common.ret:                                       ; preds = %53, %12
 .body11:                                          ; preds = %70, %74, %85
   %eh.lpad-body12 = phi { ptr, i32 } [ %86, %85 ], [ %71, %70 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$GT$17hc24c46328ce14740E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %8) #23
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$GT$17hc24c46328ce14740E"(ptr noalias noundef align 8 dereferenceable(96) %8) #23
           to label %31 unwind label %87
 
 "_ZN4core3ptr51drop_in_place$LT$object_store..GetResultPayload$GT$17h5baa38d51501dbb6E.exit": ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hec0c4139f8f797a6E.exit.i", %"_ZN4core3ptr220drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h84ace9e590ea1602E.exit.i"
@@ -3085,7 +3085,7 @@ common.resume:                                    ; preds = %20, %10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h3183bb69bec89e65E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h3183bb69bec89e65E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -3799,7 +3799,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$$LP$deltalake_mount..config.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$GT$17hc24c46328ce14740E"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$GT$17hc24c46328ce14740E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !146, !noundef !13
   %.not = icmp eq i64 %2, -9223372036854775808
   br i1 %.not, label %4, label %3
@@ -3810,7 +3810,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Resul
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h3183bb69bec89e65E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
+  tail call fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h3183bb69bec89e65E"(ptr noalias noundef align 8 dereferenceable(80) %5)
   br label %6
 
 6:                                                ; preds = %4, %3

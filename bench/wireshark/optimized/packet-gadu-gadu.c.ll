@@ -503,10 +503,10 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %21, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #2
   %23 = load i32, ptr %14, align 4
   %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %322
+  br i1 %24, label %25, label %326
 
 25:                                               ; preds = %12
-  switch i32 %13, label %317 [
+  switch i32 %13, label %321 [
     i32 11, label %26
     i32 13, label %27
     i32 3, label %28
@@ -519,16 +519,16 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
     i32 46, label %128
     i32 5, label %179
     i32 15, label %186
-    i32 23, label %213
-    i32 54, label %242
-    i32 55, label %264
-    i32 35, label %265
-    i32 1, label %270
-    i32 48, label %273
-    i32 65, label %280
-    i32 92, label %295
-    i32 14, label %298
-    i32 44, label %311
+    i32 23, label %215
+    i32 54, label %246
+    i32 55, label %268
+    i32 35, label %269
+    i32 1, label %274
+    i32 48, label %277
+    i32 65, label %284
+    i32 92, label %299
+    i32 14, label %302
+    i32 44, label %315
   ]
 
 26:                                               ; preds = %25
@@ -862,554 +862,560 @@ dissect_gadu_gadu_recv_msg80.exit:                ; preds = %proto_item_set_hidd
   %201 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %200, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef -2147483648) #2
   %202 = load i32, ptr @hf_gadu_gadu_data, align 4
   %203 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %202, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #2
+  %204 = and i8 %191, -2
+  %205 = icmp eq i8 %204, 4
+  br i1 %205, label %gadu_gadu_status_has_descr.exit.thread.i, label %switch.early.test.i.i
+
+switch.early.test.i.i:                            ; preds = %186
   switch i8 %191, label %dissect_gadu_gadu_user_data.exit [
     i8 34, label %gadu_gadu_status_has_descr.exit.thread.i
     i8 24, label %gadu_gadu_status_has_descr.exit.thread.i
     i8 21, label %gadu_gadu_status_has_descr.exit.thread.i
-    i8 5, label %gadu_gadu_status_has_descr.exit.thread.i
-    i8 4, label %gadu_gadu_status_has_descr.exit.thread.i
     i8 22, label %gadu_gadu_status_has_descr.exit.thread.i
   ]
 
-gadu_gadu_status_has_descr.exit.thread.i:         ; preds = %186, %186, %186, %186, %186, %186
-  %204 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %205 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 22, i32 noundef -1, i8 noundef zeroext 0) #2
-  %206 = icmp eq i32 %205, -1
-  br i1 %206, label %207, label %dissect_gadu_gadu_stringz_cp1250.exit.i
+gadu_gadu_status_has_descr.exit.thread.i:         ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %186
+  %206 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
+  %207 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 22, i32 noundef -1, i8 noundef zeroext 0) #2
+  %208 = icmp eq i32 %207, -1
+  br i1 %208, label %209, label %dissect_gadu_gadu_stringz_cp1250.exit.i
 
-207:                                              ; preds = %gadu_gadu_status_has_descr.exit.thread.i
-  %208 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %209 = add i32 %208, -1
+209:                                              ; preds = %gadu_gadu_status_has_descr.exit.thread.i
+  %210 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %211 = add i32 %210, -1
   br label %dissect_gadu_gadu_stringz_cp1250.exit.i
 
-dissect_gadu_gadu_stringz_cp1250.exit.i:          ; preds = %207, %gadu_gadu_status_has_descr.exit.thread.i
-  %.0.i.i.i264 = phi i32 [ %209, %207 ], [ %205, %gadu_gadu_status_has_descr.exit.thread.i ]
-  %210 = add i32 %.0.i.i.i264, -21
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %204, ptr noundef %0, i32 noundef 22, i32 noundef %210, i32 noundef 42) #2
-  %212 = add i32 %.0.i.i.i264, 1
+dissect_gadu_gadu_stringz_cp1250.exit.i:          ; preds = %209, %gadu_gadu_status_has_descr.exit.thread.i
+  %.0.i.i.i264 = phi i32 [ %211, %209 ], [ %207, %gadu_gadu_status_has_descr.exit.thread.i ]
+  %212 = add i32 %.0.i.i.i264, -21
+  %213 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %206, ptr noundef %0, i32 noundef 22, i32 noundef %212, i32 noundef 42) #2
+  %214 = add i32 %.0.i.i.i264, 1
   br label %dissect_gadu_gadu_user_data.exit
 
-213:                                              ; preds = %25
+215:                                              ; preds = %25
   %.val235 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val235, i32 noundef 25, ptr noundef nonnull @.str.228) #2
-  %214 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #2
-  %215 = and i32 %214, -1140850689
-  %216 = load i32, ptr @hf_gadu_gadu_status_uin, align 4
-  %217 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %216, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %215) #2
-  %218 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #2
-  %219 = load i32, ptr @hf_gadu_gadu_status_status, align 4
-  %220 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %219, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648) #2
-  %221 = load i32, ptr @hf_gadu_gadu_status_ip, align 4
-  %222 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %221, ptr noundef %0, i32 noundef 13, i32 noundef 4, i32 noundef 0) #2
-  %223 = load i32, ptr @hf_gadu_gadu_status_port, align 4
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %223, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef -2147483648) #2
-  %225 = load i32, ptr @hf_gadu_gadu_status_version, align 4
-  %226 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %225, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef -2147483648) #2
-  %227 = load i32, ptr @hf_gadu_gadu_status_img_size, align 4
-  %228 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %227, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef -2147483648) #2
-  %229 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %229, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #2
+  %216 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #2
+  %217 = and i32 %216, -1140850689
+  %218 = load i32, ptr @hf_gadu_gadu_status_uin, align 4
+  %219 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %218, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %217) #2
+  %220 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #2
+  %221 = load i32, ptr @hf_gadu_gadu_status_status, align 4
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %221, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648) #2
+  %223 = load i32, ptr @hf_gadu_gadu_status_ip, align 4
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %223, ptr noundef %0, i32 noundef 13, i32 noundef 4, i32 noundef 0) #2
+  %225 = load i32, ptr @hf_gadu_gadu_status_port, align 4
+  %226 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %225, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef -2147483648) #2
+  %227 = load i32, ptr @hf_gadu_gadu_status_version, align 4
+  %228 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %227, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef -2147483648) #2
+  %229 = load i32, ptr @hf_gadu_gadu_status_img_size, align 4
+  %230 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %229, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef -2147483648) #2
   %231 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %232 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %231, ptr noundef %0, i32 noundef 22, i32 noundef 4, i32 noundef 0) #2
-  switch i8 %218, label %dissect_gadu_gadu_user_data.exit [
-    i8 34, label %gadu_gadu_status_has_descr.exit.thread.i265
-    i8 24, label %gadu_gadu_status_has_descr.exit.thread.i265
-    i8 21, label %gadu_gadu_status_has_descr.exit.thread.i265
-    i8 5, label %gadu_gadu_status_has_descr.exit.thread.i265
-    i8 4, label %gadu_gadu_status_has_descr.exit.thread.i265
-    i8 22, label %gadu_gadu_status_has_descr.exit.thread.i265
+  %232 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %231, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #2
+  %233 = load i32, ptr @hf_gadu_gadu_data, align 4
+  %234 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %233, ptr noundef %0, i32 noundef 22, i32 noundef 4, i32 noundef 0) #2
+  %235 = and i8 %220, -2
+  %236 = icmp eq i8 %235, 4
+  br i1 %236, label %gadu_gadu_status_has_descr.exit.thread.i266, label %switch.early.test.i.i265
+
+switch.early.test.i.i265:                         ; preds = %215
+  switch i8 %220, label %dissect_gadu_gadu_user_data.exit [
+    i8 34, label %gadu_gadu_status_has_descr.exit.thread.i266
+    i8 24, label %gadu_gadu_status_has_descr.exit.thread.i266
+    i8 21, label %gadu_gadu_status_has_descr.exit.thread.i266
+    i8 22, label %gadu_gadu_status_has_descr.exit.thread.i266
   ]
 
-gadu_gadu_status_has_descr.exit.thread.i265:      ; preds = %213, %213, %213, %213, %213, %213
-  %233 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %234 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 26, i32 noundef -1, i8 noundef zeroext 0) #2
-  %235 = icmp eq i32 %234, -1
-  br i1 %235, label %236, label %dissect_gadu_gadu_stringz_cp1250.exit.i266
+gadu_gadu_status_has_descr.exit.thread.i266:      ; preds = %switch.early.test.i.i265, %switch.early.test.i.i265, %switch.early.test.i.i265, %switch.early.test.i.i265, %215
+  %237 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
+  %238 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 26, i32 noundef -1, i8 noundef zeroext 0) #2
+  %239 = icmp eq i32 %238, -1
+  br i1 %239, label %240, label %dissect_gadu_gadu_stringz_cp1250.exit.i267
 
-236:                                              ; preds = %gadu_gadu_status_has_descr.exit.thread.i265
-  %237 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %238 = add i32 %237, -1
-  br label %dissect_gadu_gadu_stringz_cp1250.exit.i266
+240:                                              ; preds = %gadu_gadu_status_has_descr.exit.thread.i266
+  %241 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %242 = add i32 %241, -1
+  br label %dissect_gadu_gadu_stringz_cp1250.exit.i267
 
-dissect_gadu_gadu_stringz_cp1250.exit.i266:       ; preds = %236, %gadu_gadu_status_has_descr.exit.thread.i265
-  %.0.i.i.i267 = phi i32 [ %238, %236 ], [ %234, %gadu_gadu_status_has_descr.exit.thread.i265 ]
-  %239 = add i32 %.0.i.i.i267, -25
-  %240 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %233, ptr noundef %0, i32 noundef 26, i32 noundef %239, i32 noundef 42) #2
-  %241 = add i32 %.0.i.i.i267, 1
+dissect_gadu_gadu_stringz_cp1250.exit.i267:       ; preds = %240, %gadu_gadu_status_has_descr.exit.thread.i266
+  %.0.i.i.i268 = phi i32 [ %242, %240 ], [ %238, %gadu_gadu_status_has_descr.exit.thread.i266 ]
+  %243 = add i32 %.0.i.i.i268, -25
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %237, ptr noundef %0, i32 noundef 26, i32 noundef %243, i32 noundef 42) #2
+  %245 = add i32 %.0.i.i.i268, 1
   br label %dissect_gadu_gadu_user_data.exit
 
-242:                                              ; preds = %25
+246:                                              ; preds = %25
   %.val236 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val236, i32 noundef 25, ptr noundef nonnull @.str.229) #2
-  %243 = load i32, ptr @hf_gadu_gadu_status_uin, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %243, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
-  %245 = load i32, ptr @hf_gadu_gadu_status_status, align 4
-  %246 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %245, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #2
-  %247 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %247, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
-  %249 = load i32, ptr @hf_gadu_gadu_status_ip, align 4
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %249, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #2
-  %251 = load i32, ptr @hf_gadu_gadu_status_port, align 4
-  %252 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %251, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef -2147483648) #2
-  %253 = load i32, ptr @hf_gadu_gadu_status_img_size, align 4
-  %254 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %253, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef -2147483648) #2
-  %255 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %256 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %255, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #2
-  %257 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %258 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %257, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #2
-  %259 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %260 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 32) #2
-  %261 = add i32 %260, 36
-  %262 = add i32 %260, 4
-  %263 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %259, ptr noundef %0, i32 noundef 32, i32 noundef %262, i32 noundef 2) #2
+  %247 = load i32, ptr @hf_gadu_gadu_status_uin, align 4
+  %248 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %247, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
+  %249 = load i32, ptr @hf_gadu_gadu_status_status, align 4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %249, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #2
+  %251 = load i32, ptr @hf_gadu_gadu_data, align 4
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %251, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
+  %253 = load i32, ptr @hf_gadu_gadu_status_ip, align 4
+  %254 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %253, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #2
+  %255 = load i32, ptr @hf_gadu_gadu_status_port, align 4
+  %256 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %255, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef -2147483648) #2
+  %257 = load i32, ptr @hf_gadu_gadu_status_img_size, align 4
+  %258 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %257, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef -2147483648) #2
+  %259 = load i32, ptr @hf_gadu_gadu_data, align 4
+  %260 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %259, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #2
+  %261 = load i32, ptr @hf_gadu_gadu_data, align 4
+  %262 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %261, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #2
+  %263 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
+  %264 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 32) #2
+  %265 = add i32 %264, 36
+  %266 = add i32 %264, 4
+  %267 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %263, ptr noundef %0, i32 noundef 32, i32 noundef %266, i32 noundef 2) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-264:                                              ; preds = %25
+268:                                              ; preds = %25
   %.val237 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val237, i32 noundef 25, ptr noundef nonnull @.str.230) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-265:                                              ; preds = %25
+269:                                              ; preds = %25
   %.val238 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val238, i32 noundef 25, ptr noundef nonnull @.str.231) #2
-  %266 = load i32, ptr @hf_dcc_type, align 4
-  %267 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %266, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
-  %268 = load i32, ptr @hf_dcc_id, align 4
-  %269 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %268, ptr noundef %0, i32 noundef 12, i32 noundef 8, i32 noundef 0) #2
+  %270 = load i32, ptr @hf_dcc_type, align 4
+  %271 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %270, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
+  %272 = load i32, ptr @hf_dcc_id, align 4
+  %273 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %272, ptr noundef %0, i32 noundef 12, i32 noundef 8, i32 noundef 0) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-270:                                              ; preds = %25
+274:                                              ; preds = %25
   %.val239 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val239, i32 noundef 25, ptr noundef nonnull @.str.232) #2
-  %271 = load i32, ptr @hf_gadu_gadu_welcome_seed, align 4
-  %272 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %271, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
+  %275 = load i32, ptr @hf_gadu_gadu_welcome_seed, align 4
+  %276 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %275, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-273:                                              ; preds = %25
-  %274 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %274, i32 noundef 25, ptr noundef nonnull @.str.233) #2
-  %275 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
-  %276 = load i32, ptr @hf_gadu_gadu_userlist_reply_type, align 4
-  %277 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %276, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
-  %cond.i = icmp eq i8 %275, 6
-  br i1 %cond.i, label %278, label %dissect_gadu_gadu_user_data.exit
+277:                                              ; preds = %25
+  %278 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %278, i32 noundef 25, ptr noundef nonnull @.str.233) #2
+  %279 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
+  %280 = load i32, ptr @hf_gadu_gadu_userlist_reply_type, align 4
+  %281 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %280, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
+  %cond.i = icmp eq i8 %279, 6
+  br i1 %cond.i, label %282, label %dissect_gadu_gadu_user_data.exit
 
-278:                                              ; preds = %273
-  %279 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef 9)
+282:                                              ; preds = %277
+  %283 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef 9)
   br label %dissect_gadu_gadu_user_data.exit
 
-280:                                              ; preds = %25
-  %281 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %281, i32 noundef 25, ptr noundef nonnull @.str.238) #2
-  %282 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
-  %283 = load i32, ptr @hf_gadu_gadu_userlist_reply_type, align 4
-  %284 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %283, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
-  %285 = load i32, ptr @hf_gadu_gadu_userlist_version, align 4
-  %286 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %285, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #2
-  %287 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #2
-  %288 = load i32, ptr @hf_gadu_gadu_userlist_format, align 4
-  %289 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %288, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef -2147483648) #2
-  %290 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %291 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %290, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #2
-  %cond.i270 = icmp eq i8 %282, 6
-  %292 = icmp eq i8 %287, 2
-  %or.cond.i = select i1 %cond.i270, i1 %292, i1 false
-  br i1 %or.cond.i, label %293, label %dissect_gadu_gadu_user_data.exit
+284:                                              ; preds = %25
+  %285 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %285, i32 noundef 25, ptr noundef nonnull @.str.238) #2
+  %286 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
+  %287 = load i32, ptr @hf_gadu_gadu_userlist_reply_type, align 4
+  %288 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %287, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
+  %289 = load i32, ptr @hf_gadu_gadu_userlist_version, align 4
+  %290 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %289, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #2
+  %291 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #2
+  %292 = load i32, ptr @hf_gadu_gadu_userlist_format, align 4
+  %293 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %292, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef -2147483648) #2
+  %294 = load i32, ptr @hf_gadu_gadu_data, align 4
+  %295 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %294, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #2
+  %cond.i271 = icmp eq i8 %286, 6
+  %296 = icmp eq i8 %291, 2
+  %or.cond.i = select i1 %cond.i271, i1 %296, i1 false
+  br i1 %or.cond.i, label %297, label %dissect_gadu_gadu_user_data.exit
 
-293:                                              ; preds = %280
-  %294 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef 15)
+297:                                              ; preds = %284
+  %298 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef 15)
   br label %dissect_gadu_gadu_user_data.exit
 
-295:                                              ; preds = %25
+299:                                              ; preds = %25
   %.val240 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val240, i32 noundef 25, ptr noundef nonnull @.str.239) #2
-  %296 = load i32, ptr @hf_gadu_gadu_userlist_version, align 4
-  %297 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %296, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
+  %300 = load i32, ptr @hf_gadu_gadu_userlist_version, align 4
+  %301 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %300, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-298:                                              ; preds = %25
+302:                                              ; preds = %25
   %.val241 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val241, i32 noundef 25, ptr noundef nonnull @.str.240) #2
-  %299 = load i32, ptr @hf_gadu_gadu_pubdir_reply_type, align 4
-  %300 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %299, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
-  %301 = load i32, ptr @hf_gadu_gadu_pubdir_reply_seq, align 4
-  %302 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %301, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #2
-  %303 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 13, i32 noundef -1, i8 noundef zeroext 0) #2
-  %304 = icmp sgt i32 %303, 0
-  br i1 %304, label %.lr.ph.i273, label %dissect_gadu_gadu_user_data.exit
+  %303 = load i32, ptr @hf_gadu_gadu_pubdir_reply_type, align 4
+  %304 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %303, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
+  %305 = load i32, ptr @hf_gadu_gadu_pubdir_reply_seq, align 4
+  %306 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %305, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #2
+  %307 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 13, i32 noundef -1, i8 noundef zeroext 0) #2
+  %308 = icmp sgt i32 %307, 0
+  br i1 %308, label %.lr.ph.i274, label %dissect_gadu_gadu_user_data.exit
 
-.lr.ph.i273:                                      ; preds = %298, %.lr.ph.i273
-  %305 = phi i32 [ %309, %.lr.ph.i273 ], [ %303, %298 ]
-  %.01.i = phi i32 [ %reass.sub.i, %.lr.ph.i273 ], [ 13, %298 ]
-  %306 = load i32, ptr @hf_gadu_gadu_pubdir_reply_str, align 4
-  %reass.sub.i = add nuw i32 %305, 1
-  %307 = sub i32 %reass.sub.i, %.01.i
-  %308 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %306, ptr noundef %0, i32 noundef %.01.i, i32 noundef %307, i32 noundef 42) #2
-  %309 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %reass.sub.i, i32 noundef -1, i8 noundef zeroext 0) #2
-  %310 = icmp sgt i32 %309, 0
-  br i1 %310, label %.lr.ph.i273, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !7
+.lr.ph.i274:                                      ; preds = %302, %.lr.ph.i274
+  %309 = phi i32 [ %313, %.lr.ph.i274 ], [ %307, %302 ]
+  %.01.i = phi i32 [ %reass.sub.i, %.lr.ph.i274 ], [ 13, %302 ]
+  %310 = load i32, ptr @hf_gadu_gadu_pubdir_reply_str, align 4
+  %reass.sub.i = add nuw i32 %309, 1
+  %311 = sub i32 %reass.sub.i, %.01.i
+  %312 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %310, ptr noundef %0, i32 noundef %.01.i, i32 noundef %311, i32 noundef 42) #2
+  %313 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %reass.sub.i, i32 noundef -1, i8 noundef zeroext 0) #2
+  %314 = icmp sgt i32 %313, 0
+  br i1 %314, label %.lr.ph.i274, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !7
 
-311:                                              ; preds = %25
-  %312 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %312, i32 noundef 25, ptr noundef nonnull @.str.241) #2
-  %313 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #2
-  %314 = load ptr, ptr @xml_handle, align 8
-  %315 = tail call i32 @call_dissector_only(ptr noundef %314, ptr noundef %313, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef null) #2
-  %316 = add i32 %315, 8
+315:                                              ; preds = %25
+  %316 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %316, i32 noundef 25, ptr noundef nonnull @.str.241) #2
+  %317 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #2
+  %318 = load ptr, ptr @xml_handle, align 8
+  %319 = tail call i32 @call_dissector_only(ptr noundef %318, ptr noundef %317, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef null) #2
+  %320 = add i32 %319, 8
   br label %dissect_gadu_gadu_user_data.exit
 
-317:                                              ; preds = %25
-  %318 = tail call ptr @try_val_to_str(i32 noundef %13, ptr noundef nonnull @gadu_gadu_packets_type_recv) #2
-  %.not225 = icmp eq ptr %318, null
-  %319 = load ptr, ptr %5, align 8
-  br i1 %.not225, label %321, label %320
+321:                                              ; preds = %25
+  %322 = tail call ptr @try_val_to_str(i32 noundef %13, ptr noundef nonnull @gadu_gadu_packets_type_recv) #2
+  %.not225 = icmp eq ptr %322, null
+  %323 = load ptr, ptr %5, align 8
+  br i1 %.not225, label %325, label %324
 
-320:                                              ; preds = %317
-  tail call void @col_set_str(ptr noundef %319, i32 noundef 25, ptr noundef nonnull %318) #2
+324:                                              ; preds = %321
+  tail call void @col_set_str(ptr noundef %323, i32 noundef 25, ptr noundef nonnull %322) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-321:                                              ; preds = %317
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %319, i32 noundef 25, ptr noundef nonnull @.str.214, i32 noundef %13) #2
+325:                                              ; preds = %321
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %323, i32 noundef 25, ptr noundef nonnull @.str.214, i32 noundef %13) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-322:                                              ; preds = %12
-  switch i32 %13, label %464 [
-    i32 12, label %323
-    i32 25, label %325
-    i32 49, label %327
-    i32 18, label %329
-    i32 15, label %330
-    i32 16, label %332
-    i32 120, label %334
-    i32 13, label %336
-    i32 123, label %337
-    i32 14, label %353
-    i32 124, label %354
-    i32 8, label %370
-    i32 89, label %371
-    i32 11, label %372
-    i32 45, label %436
-    i32 70, label %437
-    i32 2, label %440
-    i32 56, label %442
-    i32 35, label %444
-    i32 32, label %445
-    i32 37, label %446
-    i32 47, label %447
-    i32 64, label %449
-    i32 20, label %451
+326:                                              ; preds = %12
+  switch i32 %13, label %468 [
+    i32 12, label %327
+    i32 25, label %329
+    i32 49, label %331
+    i32 18, label %333
+    i32 15, label %334
+    i32 16, label %336
+    i32 120, label %338
+    i32 13, label %340
+    i32 123, label %341
+    i32 14, label %357
+    i32 124, label %358
+    i32 8, label %374
+    i32 89, label %375
+    i32 11, label %376
+    i32 45, label %440
+    i32 70, label %441
+    i32 2, label %444
+    i32 56, label %446
+    i32 35, label %448
+    i32 32, label %449
+    i32 37, label %450
+    i32 47, label %451
+    i32 64, label %453
+    i32 20, label %455
   ]
 
-323:                                              ; preds = %322
-  %324 = tail call fastcc i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+327:                                              ; preds = %326
+  %328 = tail call fastcc i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-325:                                              ; preds = %322
-  %326 = tail call fastcc i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+329:                                              ; preds = %326
+  %330 = tail call fastcc i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-327:                                              ; preds = %322
-  %328 = tail call fastcc i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+331:                                              ; preds = %326
+  %332 = tail call fastcc i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-329:                                              ; preds = %322
+333:                                              ; preds = %326
   %.val242 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val242, i32 noundef 25, ptr noundef nonnull @.str.272) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-330:                                              ; preds = %322
+334:                                              ; preds = %326
   %.val243 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val243, i32 noundef 25, ptr noundef nonnull @.str.273) #2
-  %331 = tail call fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef %.0)
+  %335 = tail call fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-332:                                              ; preds = %322
+336:                                              ; preds = %326
   %.val244 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val244, i32 noundef 25, ptr noundef nonnull @.str.275) #2
-  %333 = tail call fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef %.0)
+  %337 = tail call fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-334:                                              ; preds = %322
-  %335 = tail call fastcc i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+338:                                              ; preds = %326
+  %339 = tail call fastcc i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-336:                                              ; preds = %322
+340:                                              ; preds = %326
   %.val245 = load ptr, ptr %5, align 8
   tail call fastcc void @dissect_gadu_gadu_add_notify(ptr noundef %0, ptr %.val245, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-337:                                              ; preds = %322
-  %338 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %338, i32 noundef 25, ptr noundef nonnull @.str.279) #2
-  %339 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %340 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %339, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %341 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
-  %342 = getelementptr inbounds i8, ptr %1, i64 408
-  %343 = load ptr, ptr %342, align 8
-  %344 = zext i8 %341 to i32
-  %345 = tail call ptr @tvb_get_string_enc(ptr noundef %343, ptr noundef %0, i32 noundef 10, i32 noundef %344, i32 noundef 0) #2
-  %346 = load i32, ptr @hf_gadu_gadu_contact_uin_str, align 4
-  %347 = add nuw nsw i32 %344, 1
-  %348 = tail call ptr @proto_tree_add_string(ptr noundef %.0, i32 noundef %346, ptr noundef %0, i32 noundef 9, i32 noundef %347, ptr noundef %345) #2
-  %349 = add nuw nsw i32 %344, 10
-  %350 = load i32, ptr @hf_gadu_gadu_contact_type, align 4
-  %351 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %350, ptr noundef %0, i32 noundef %349, i32 noundef 1, i32 noundef -2147483648) #2
-  %352 = add nuw nsw i32 %344, 11
+341:                                              ; preds = %326
+  %342 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %342, i32 noundef 25, ptr noundef nonnull @.str.279) #2
+  %343 = load i32, ptr @hf_gadu_gadu_data, align 4
+  %344 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %343, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %345 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
+  %346 = getelementptr inbounds i8, ptr %1, i64 408
+  %347 = load ptr, ptr %346, align 8
+  %348 = zext i8 %345 to i32
+  %349 = tail call ptr @tvb_get_string_enc(ptr noundef %347, ptr noundef %0, i32 noundef 10, i32 noundef %348, i32 noundef 0) #2
+  %350 = load i32, ptr @hf_gadu_gadu_contact_uin_str, align 4
+  %351 = add nuw nsw i32 %348, 1
+  %352 = tail call ptr @proto_tree_add_string(ptr noundef %.0, i32 noundef %350, ptr noundef %0, i32 noundef 9, i32 noundef %351, ptr noundef %349) #2
+  %353 = add nuw nsw i32 %348, 10
+  %354 = load i32, ptr @hf_gadu_gadu_contact_type, align 4
+  %355 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %354, ptr noundef %0, i32 noundef %353, i32 noundef 1, i32 noundef -2147483648) #2
+  %356 = add nuw nsw i32 %348, 11
   br label %dissect_gadu_gadu_user_data.exit
 
-353:                                              ; preds = %322
+357:                                              ; preds = %326
   %.val246 = load ptr, ptr %5, align 8
   tail call fastcc void @dissect_gadu_gadu_remove_notify(ptr noundef %0, ptr %.val246, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-354:                                              ; preds = %322
-  %355 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %355, i32 noundef 25, ptr noundef nonnull @.str.281) #2
-  %356 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %357 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %356, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %358 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
-  %359 = getelementptr inbounds i8, ptr %1, i64 408
-  %360 = load ptr, ptr %359, align 8
-  %361 = zext i8 %358 to i32
-  %362 = tail call ptr @tvb_get_string_enc(ptr noundef %360, ptr noundef %0, i32 noundef 10, i32 noundef %361, i32 noundef 0) #2
-  %363 = load i32, ptr @hf_gadu_gadu_contact_uin_str, align 4
-  %364 = add nuw nsw i32 %361, 1
-  %365 = tail call ptr @proto_tree_add_string(ptr noundef %.0, i32 noundef %363, ptr noundef %0, i32 noundef 9, i32 noundef %364, ptr noundef %362) #2
-  %366 = add nuw nsw i32 %361, 10
-  %367 = load i32, ptr @hf_gadu_gadu_contact_type, align 4
-  %368 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %367, ptr noundef %0, i32 noundef %366, i32 noundef 1, i32 noundef -2147483648) #2
-  %369 = add nuw nsw i32 %361, 11
+358:                                              ; preds = %326
+  %359 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %359, i32 noundef 25, ptr noundef nonnull @.str.281) #2
+  %360 = load i32, ptr @hf_gadu_gadu_data, align 4
+  %361 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %360, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %362 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
+  %363 = getelementptr inbounds i8, ptr %1, i64 408
+  %364 = load ptr, ptr %363, align 8
+  %365 = zext i8 %362 to i32
+  %366 = tail call ptr @tvb_get_string_enc(ptr noundef %364, ptr noundef %0, i32 noundef 10, i32 noundef %365, i32 noundef 0) #2
+  %367 = load i32, ptr @hf_gadu_gadu_contact_uin_str, align 4
+  %368 = add nuw nsw i32 %365, 1
+  %369 = tail call ptr @proto_tree_add_string(ptr noundef %.0, i32 noundef %367, ptr noundef %0, i32 noundef 9, i32 noundef %368, ptr noundef %366) #2
+  %370 = add nuw nsw i32 %365, 10
+  %371 = load i32, ptr @hf_gadu_gadu_contact_type, align 4
+  %372 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %371, ptr noundef %0, i32 noundef %370, i32 noundef 1, i32 noundef -2147483648) #2
+  %373 = add nuw nsw i32 %365, 11
   br label %dissect_gadu_gadu_user_data.exit
 
-370:                                              ; preds = %322
+374:                                              ; preds = %326
   %.val247 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val247, i32 noundef 25, ptr noundef nonnull @.str.282) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-371:                                              ; preds = %322
+375:                                              ; preds = %326
   %.val232 = load ptr, ptr %5, align 8
   tail call fastcc void @dissect_gadu_gadu_typing_notify(ptr noundef %0, ptr %.val232, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-372:                                              ; preds = %322
-  %373 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %373, i32 noundef 25, ptr noundef nonnull @.str.283) #2
-  %374 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
-  %375 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %374, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
-  %.not.i.i274 = icmp eq ptr %375, null
-  br i1 %.not.i.i274, label %proto_item_set_hidden.exit.i276, label %376
+376:                                              ; preds = %326
+  %377 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %377, i32 noundef 25, ptr noundef nonnull @.str.283) #2
+  %378 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
+  %379 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %378, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
+  %.not.i.i275 = icmp eq ptr %379, null
+  br i1 %.not.i.i275, label %proto_item_set_hidden.exit.i277, label %380
 
-376:                                              ; preds = %372
-  %377 = getelementptr inbounds i8, ptr %375, i64 32
-  %378 = load ptr, ptr %377, align 8
-  %.not5.i.i275 = icmp eq ptr %378, null
-  br i1 %.not5.i.i275, label %proto_item_set_hidden.exit.i276, label %379
+380:                                              ; preds = %376
+  %381 = getelementptr inbounds i8, ptr %379, i64 32
+  %382 = load ptr, ptr %381, align 8
+  %.not5.i.i276 = icmp eq ptr %382, null
+  br i1 %.not5.i.i276, label %proto_item_set_hidden.exit.i277, label %383
 
-379:                                              ; preds = %376
-  %380 = getelementptr inbounds i8, ptr %378, i64 28
-  %381 = load i32, ptr %380, align 4
-  %382 = or i32 %381, 1
-  store i32 %382, ptr %380, align 4
-  br label %proto_item_set_hidden.exit.i276
+383:                                              ; preds = %380
+  %384 = getelementptr inbounds i8, ptr %382, i64 28
+  %385 = load i32, ptr %384, align 4
+  %386 = or i32 %385, 1
+  store i32 %386, ptr %384, align 4
+  br label %proto_item_set_hidden.exit.i277
 
-proto_item_set_hidden.exit.i276:                  ; preds = %379, %376, %372
-  %383 = load i32, ptr @hf_gadu_gadu_msg_recipient, align 4
-  %384 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %383, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
-  %385 = tail call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #2
-  %.not.i37.i277 = icmp eq ptr %385, null
-  br i1 %.not.i37.i277, label %proto_item_set_hidden.exit45.i287, label %gadu_gadu_get_conversation_data.exit.i278
+proto_item_set_hidden.exit.i277:                  ; preds = %383, %380, %376
+  %387 = load i32, ptr @hf_gadu_gadu_msg_recipient, align 4
+  %388 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %387, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
+  %389 = tail call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #2
+  %.not.i37.i278 = icmp eq ptr %389, null
+  br i1 %.not.i37.i278, label %proto_item_set_hidden.exit45.i288, label %gadu_gadu_get_conversation_data.exit.i279
 
-gadu_gadu_get_conversation_data.exit.i278:        ; preds = %proto_item_set_hidden.exit.i276
-  %386 = load i32, ptr @proto_gadu_gadu, align 4
-  %387 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %385, i32 noundef %386) #2
-  %.not.i279 = icmp eq ptr %387, null
-  br i1 %.not.i279, label %proto_item_set_hidden.exit45.i287, label %388
+gadu_gadu_get_conversation_data.exit.i279:        ; preds = %proto_item_set_hidden.exit.i277
+  %390 = load i32, ptr @proto_gadu_gadu, align 4
+  %391 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %389, i32 noundef %390) #2
+  %.not.i280 = icmp eq ptr %391, null
+  br i1 %.not.i280, label %proto_item_set_hidden.exit45.i288, label %392
 
-388:                                              ; preds = %gadu_gadu_get_conversation_data.exit.i278
-  %389 = load i32, ptr @hf_gadu_gadu_msg_sender, align 4
-  %390 = load i32, ptr %387, align 4
-  %391 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %389, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %390) #2
-  %.not.i38.i280 = icmp eq ptr %391, null
-  br i1 %.not.i38.i280, label %proto_item_set_generated.exit.i282, label %392
+392:                                              ; preds = %gadu_gadu_get_conversation_data.exit.i279
+  %393 = load i32, ptr @hf_gadu_gadu_msg_sender, align 4
+  %394 = load i32, ptr %391, align 4
+  %395 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %393, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %394) #2
+  %.not.i38.i281 = icmp eq ptr %395, null
+  br i1 %.not.i38.i281, label %proto_item_set_generated.exit.i283, label %396
 
-392:                                              ; preds = %388
-  %393 = getelementptr inbounds i8, ptr %391, i64 32
-  %394 = load ptr, ptr %393, align 8
-  %.not5.i39.i281 = icmp eq ptr %394, null
-  br i1 %.not5.i39.i281, label %proto_item_set_generated.exit.i282, label %395
+396:                                              ; preds = %392
+  %397 = getelementptr inbounds i8, ptr %395, i64 32
+  %398 = load ptr, ptr %397, align 8
+  %.not5.i39.i282 = icmp eq ptr %398, null
+  br i1 %.not5.i39.i282, label %proto_item_set_generated.exit.i283, label %399
 
-395:                                              ; preds = %392
-  %396 = getelementptr inbounds i8, ptr %394, i64 28
-  %397 = load i32, ptr %396, align 4
-  %398 = or i32 %397, 2
-  store i32 %398, ptr %396, align 4
-  br label %proto_item_set_generated.exit.i282
+399:                                              ; preds = %396
+  %400 = getelementptr inbounds i8, ptr %398, i64 28
+  %401 = load i32, ptr %400, align 4
+  %402 = or i32 %401, 2
+  store i32 %402, ptr %400, align 4
+  br label %proto_item_set_generated.exit.i283
 
-proto_item_set_generated.exit.i282:               ; preds = %395, %392, %388
-  %399 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
-  %400 = load i32, ptr %387, align 4
-  %401 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %399, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %400) #2
-  %.not.i40.i283 = icmp eq ptr %401, null
-  br i1 %.not.i40.i283, label %proto_item_set_hidden.exit45.i287, label %402
+proto_item_set_generated.exit.i283:               ; preds = %399, %396, %392
+  %403 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
+  %404 = load i32, ptr %391, align 4
+  %405 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %403, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %404) #2
+  %.not.i40.i284 = icmp eq ptr %405, null
+  br i1 %.not.i40.i284, label %proto_item_set_hidden.exit45.i288, label %406
 
-402:                                              ; preds = %proto_item_set_generated.exit.i282
-  %403 = getelementptr inbounds i8, ptr %401, i64 32
-  %404 = load ptr, ptr %403, align 8
-  %.not5.i41.i284 = icmp eq ptr %404, null
-  br i1 %.not5.i41.i284, label %proto_item_set_hidden.exit45.i287, label %405
+406:                                              ; preds = %proto_item_set_generated.exit.i283
+  %407 = getelementptr inbounds i8, ptr %405, i64 32
+  %408 = load ptr, ptr %407, align 8
+  %.not5.i41.i285 = icmp eq ptr %408, null
+  br i1 %.not5.i41.i285, label %proto_item_set_hidden.exit45.i288, label %409
 
-405:                                              ; preds = %402
-  %406 = getelementptr inbounds i8, ptr %404, i64 28
-  %407 = load i32, ptr %406, align 4
-  %408 = or i32 %407, 2
-  store i32 %408, ptr %406, align 4
-  %.pre.i285 = load ptr, ptr %403, align 8
-  %.not5.i44.i286 = icmp eq ptr %.pre.i285, null
-  br i1 %.not5.i44.i286, label %proto_item_set_hidden.exit45.i287, label %409
-
-409:                                              ; preds = %405
-  %410 = getelementptr inbounds i8, ptr %.pre.i285, i64 28
+409:                                              ; preds = %406
+  %410 = getelementptr inbounds i8, ptr %408, i64 28
   %411 = load i32, ptr %410, align 4
-  %412 = or i32 %411, 1
+  %412 = or i32 %411, 2
   store i32 %412, ptr %410, align 4
-  br label %proto_item_set_hidden.exit45.i287
+  %.pre.i286 = load ptr, ptr %407, align 8
+  %.not5.i44.i287 = icmp eq ptr %.pre.i286, null
+  br i1 %.not5.i44.i287, label %proto_item_set_hidden.exit45.i288, label %413
 
-proto_item_set_hidden.exit45.i287:                ; preds = %409, %405, %402, %proto_item_set_generated.exit.i282, %gadu_gadu_get_conversation_data.exit.i278, %proto_item_set_hidden.exit.i276
-  %413 = load i32, ptr @hf_gadu_gadu_msg_seq, align 4
-  %414 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %413, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #2
-  %415 = load i32, ptr @hf_gadu_gadu_msg_time, align 4
-  %416 = getelementptr inbounds i8, ptr %1, i64 24
-  %417 = tail call ptr @proto_tree_add_time(ptr noundef %.0, i32 noundef %415, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %416) #2
-  %.not.i46.i = icmp eq ptr %417, null
-  br i1 %.not.i46.i, label %proto_item_set_generated.exit48.i, label %418
+413:                                              ; preds = %409
+  %414 = getelementptr inbounds i8, ptr %.pre.i286, i64 28
+  %415 = load i32, ptr %414, align 4
+  %416 = or i32 %415, 1
+  store i32 %416, ptr %414, align 4
+  br label %proto_item_set_hidden.exit45.i288
 
-418:                                              ; preds = %proto_item_set_hidden.exit45.i287
-  %419 = getelementptr inbounds i8, ptr %417, i64 32
-  %420 = load ptr, ptr %419, align 8
-  %.not5.i47.i = icmp eq ptr %420, null
-  br i1 %.not5.i47.i, label %proto_item_set_generated.exit48.i, label %421
+proto_item_set_hidden.exit45.i288:                ; preds = %413, %409, %406, %proto_item_set_generated.exit.i283, %gadu_gadu_get_conversation_data.exit.i279, %proto_item_set_hidden.exit.i277
+  %417 = load i32, ptr @hf_gadu_gadu_msg_seq, align 4
+  %418 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %417, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #2
+  %419 = load i32, ptr @hf_gadu_gadu_msg_time, align 4
+  %420 = getelementptr inbounds i8, ptr %1, i64 24
+  %421 = tail call ptr @proto_tree_add_time(ptr noundef %.0, i32 noundef %419, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %420) #2
+  %.not.i46.i = icmp eq ptr %421, null
+  br i1 %.not.i46.i, label %proto_item_set_generated.exit48.i, label %422
 
-421:                                              ; preds = %418
-  %422 = getelementptr inbounds i8, ptr %420, i64 28
-  %423 = load i32, ptr %422, align 4
-  %424 = or i32 %423, 2
-  store i32 %424, ptr %422, align 4
+422:                                              ; preds = %proto_item_set_hidden.exit45.i288
+  %423 = getelementptr inbounds i8, ptr %421, i64 32
+  %424 = load ptr, ptr %423, align 8
+  %.not5.i47.i = icmp eq ptr %424, null
+  br i1 %.not5.i47.i, label %proto_item_set_generated.exit48.i, label %425
+
+425:                                              ; preds = %422
+  %426 = getelementptr inbounds i8, ptr %424, i64 28
+  %427 = load i32, ptr %426, align 4
+  %428 = or i32 %427, 2
+  store i32 %428, ptr %426, align 4
   br label %proto_item_set_generated.exit48.i
 
-proto_item_set_generated.exit48.i:                ; preds = %421, %418, %proto_item_set_hidden.exit45.i287
-  %425 = load i32, ptr @hf_gadu_gadu_msg_class, align 4
-  %426 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %425, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #2
-  %427 = load i32, ptr @hf_gadu_gadu_msg_text, align 4
-  %428 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 20, i32 noundef -1, i8 noundef zeroext 0) #2
-  %429 = icmp eq i32 %428, -1
-  br i1 %429, label %430, label %dissect_gadu_gadu_send_msg.exit
+proto_item_set_generated.exit48.i:                ; preds = %425, %422, %proto_item_set_hidden.exit45.i288
+  %429 = load i32, ptr @hf_gadu_gadu_msg_class, align 4
+  %430 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %429, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #2
+  %431 = load i32, ptr @hf_gadu_gadu_msg_text, align 4
+  %432 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 20, i32 noundef -1, i8 noundef zeroext 0) #2
+  %433 = icmp eq i32 %432, -1
+  br i1 %433, label %434, label %dissect_gadu_gadu_send_msg.exit
 
-430:                                              ; preds = %proto_item_set_generated.exit48.i
-  %431 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %432 = add i32 %431, -1
+434:                                              ; preds = %proto_item_set_generated.exit48.i
+  %435 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %436 = add i32 %435, -1
   br label %dissect_gadu_gadu_send_msg.exit
 
-dissect_gadu_gadu_send_msg.exit:                  ; preds = %proto_item_set_generated.exit48.i, %430
-  %.0.i.i.i289 = phi i32 [ %432, %430 ], [ %428, %proto_item_set_generated.exit48.i ]
-  %433 = add i32 %.0.i.i.i289, -19
-  %434 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %427, ptr noundef %0, i32 noundef 20, i32 noundef %433, i32 noundef 42) #2
-  %435 = add i32 %.0.i.i.i289, 1
+dissect_gadu_gadu_send_msg.exit:                  ; preds = %proto_item_set_generated.exit48.i, %434
+  %.0.i.i.i290 = phi i32 [ %436, %434 ], [ %432, %proto_item_set_generated.exit48.i ]
+  %437 = add i32 %.0.i.i.i290, -19
+  %438 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %431, ptr noundef %0, i32 noundef 20, i32 noundef %437, i32 noundef 42) #2
+  %439 = add i32 %.0.i.i.i290, 1
   br label %dissect_gadu_gadu_user_data.exit
 
-436:                                              ; preds = %322
+440:                                              ; preds = %326
   tail call fastcc void @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-437:                                              ; preds = %322
+441:                                              ; preds = %326
   %.val248 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val248, i32 noundef 25, ptr noundef nonnull @.str.285) #2
-  %438 = load i32, ptr @hf_gadu_gadu_msg_ack_seq, align 4
-  %439 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %438, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
+  %442 = load i32, ptr @hf_gadu_gadu_msg_ack_seq, align 4
+  %443 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %442, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-440:                                              ; preds = %322
+444:                                              ; preds = %326
   %.val249 = load ptr, ptr %5, align 8
-  %441 = tail call fastcc i32 @dissect_gadu_gadu_new_status(ptr noundef %0, ptr %.val249, ptr noundef %.0)
+  %445 = tail call fastcc i32 @dissect_gadu_gadu_new_status(ptr noundef %0, ptr %.val249, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-442:                                              ; preds = %322
+446:                                              ; preds = %326
   %.val250 = load ptr, ptr %5, align 8
-  %443 = tail call fastcc i32 @dissect_gadu_gadu_new_status80(ptr noundef %0, ptr %.val250, ptr noundef %.0)
+  %447 = tail call fastcc i32 @dissect_gadu_gadu_new_status80(ptr noundef %0, ptr %.val250, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-444:                                              ; preds = %322
+448:                                              ; preds = %326
   %.val251 = load ptr, ptr %5, align 8
   tail call fastcc void @dissect_gadu_gadu_dcc7_id_request(ptr noundef %0, ptr %.val251, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-445:                                              ; preds = %322
+449:                                              ; preds = %326
   %.val252 = load ptr, ptr %5, align 8
   tail call fastcc void @dissect_gadu_gadu_dcc7_new(ptr noundef %0, ptr %.val252, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-446:                                              ; preds = %322
+450:                                              ; preds = %326
   %.val253 = load ptr, ptr %5, align 8
   tail call fastcc void @dissect_gadu_gadu_dcc7_id_abort(ptr noundef %0, ptr %.val253, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-447:                                              ; preds = %322
-  %448 = tail call fastcc i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+451:                                              ; preds = %326
+  %452 = tail call fastcc i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-449:                                              ; preds = %322
-  %450 = tail call fastcc i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+453:                                              ; preds = %326
+  %454 = tail call fastcc i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
-451:                                              ; preds = %322
+455:                                              ; preds = %326
   %.val254 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val254, i32 noundef 25, ptr noundef nonnull @.str.293) #2
-  %452 = load i32, ptr @hf_gadu_gadu_pubdir_request_type, align 4
-  %453 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %452, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
-  %454 = load i32, ptr @hf_gadu_gadu_pubdir_request_seq, align 4
-  %455 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %454, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #2
-  %456 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 13, i32 noundef -1, i8 noundef zeroext 0) #2
-  %457 = icmp sgt i32 %456, 0
-  br i1 %457, label %.lr.ph.i291, label %dissect_gadu_gadu_user_data.exit
+  %456 = load i32, ptr @hf_gadu_gadu_pubdir_request_type, align 4
+  %457 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %456, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #2
+  %458 = load i32, ptr @hf_gadu_gadu_pubdir_request_seq, align 4
+  %459 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %458, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #2
+  %460 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 13, i32 noundef -1, i8 noundef zeroext 0) #2
+  %461 = icmp sgt i32 %460, 0
+  br i1 %461, label %.lr.ph.i292, label %dissect_gadu_gadu_user_data.exit
 
-.lr.ph.i291:                                      ; preds = %451, %.lr.ph.i291
-  %458 = phi i32 [ %462, %.lr.ph.i291 ], [ %456, %451 ]
-  %.01.i292 = phi i32 [ %reass.sub.i293, %.lr.ph.i291 ], [ 13, %451 ]
-  %459 = load i32, ptr @hf_gadu_gadu_pubdir_request_str, align 4
-  %reass.sub.i293 = add nuw i32 %458, 1
-  %460 = sub i32 %reass.sub.i293, %.01.i292
-  %461 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %459, ptr noundef %0, i32 noundef %.01.i292, i32 noundef %460, i32 noundef 42) #2
-  %462 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %reass.sub.i293, i32 noundef -1, i8 noundef zeroext 0) #2
-  %463 = icmp sgt i32 %462, 0
-  br i1 %463, label %.lr.ph.i291, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !8
+.lr.ph.i292:                                      ; preds = %455, %.lr.ph.i292
+  %462 = phi i32 [ %466, %.lr.ph.i292 ], [ %460, %455 ]
+  %.01.i293 = phi i32 [ %reass.sub.i294, %.lr.ph.i292 ], [ 13, %455 ]
+  %463 = load i32, ptr @hf_gadu_gadu_pubdir_request_str, align 4
+  %reass.sub.i294 = add nuw i32 %462, 1
+  %464 = sub i32 %reass.sub.i294, %.01.i293
+  %465 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %463, ptr noundef %0, i32 noundef %.01.i293, i32 noundef %464, i32 noundef 42) #2
+  %466 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %reass.sub.i294, i32 noundef -1, i8 noundef zeroext 0) #2
+  %467 = icmp sgt i32 %466, 0
+  br i1 %467, label %.lr.ph.i292, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !8
 
-464:                                              ; preds = %322
-  %465 = tail call ptr @try_val_to_str(i32 noundef %13, ptr noundef nonnull @gadu_gadu_packets_type_send) #2
-  %.not224 = icmp eq ptr %465, null
-  %466 = load ptr, ptr %5, align 8
-  br i1 %.not224, label %468, label %467
+468:                                              ; preds = %326
+  %469 = tail call ptr @try_val_to_str(i32 noundef %13, ptr noundef nonnull @gadu_gadu_packets_type_send) #2
+  %.not224 = icmp eq ptr %469, null
+  %470 = load ptr, ptr %5, align 8
+  br i1 %.not224, label %472, label %471
 
-467:                                              ; preds = %464
-  tail call void @col_set_str(ptr noundef %466, i32 noundef 25, ptr noundef nonnull %465) #2
+471:                                              ; preds = %468
+  tail call void @col_set_str(ptr noundef %470, i32 noundef 25, ptr noundef nonnull %469) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-468:                                              ; preds = %464
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %466, i32 noundef 25, ptr noundef nonnull @.str.215, i32 noundef %13) #2
+472:                                              ; preds = %468
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %470, i32 noundef 25, ptr noundef nonnull @.str.215, i32 noundef %13) #2
   br label %dissect_gadu_gadu_user_data.exit
 
-dissect_gadu_gadu_user_data.exit:                 ; preds = %.lr.ph.i291, %.lr.ph.i273, %.loopexit.i, %451, %298, %293, %280, %278, %273, %dissect_gadu_gadu_stringz_cp1250.exit.i266, %213, %dissect_gadu_gadu_stringz_cp1250.exit.i, %186, %36, %323, %325, %327, %329, %330, %332, %334, %336, %337, %353, %354, %370, %371, %dissect_gadu_gadu_send_msg.exit, %436, %437, %440, %442, %444, %445, %446, %447, %449, %468, %467, %26, %27, %28, %29, %32, %33, %67, %dissect_gadu_gadu_recv_msg.exit, %dissect_gadu_gadu_recv_msg80.exit, %179, %242, %264, %265, %270, %295, %311, %321, %320
-  %.0220 = phi i32 [ 8, %320 ], [ 8, %321 ], [ %316, %311 ], [ 12, %295 ], [ 12, %270 ], [ 20, %265 ], [ 8, %264 ], [ %261, %242 ], [ 20, %179 ], [ 32, %dissect_gadu_gadu_recv_msg80.exit ], [ %127, %dissect_gadu_gadu_recv_msg.exit ], [ 14, %67 ], [ 12, %33 ], [ 8, %32 ], [ 12, %29 ], [ 8, %28 ], [ 8, %27 ], [ 8, %26 ], [ 8, %467 ], [ 8, %468 ], [ %450, %449 ], [ %448, %447 ], [ 24, %446 ], [ 283, %445 ], [ 12, %444 ], [ %443, %442 ], [ %441, %440 ], [ 12, %437 ], [ 28, %436 ], [ %435, %dissect_gadu_gadu_send_msg.exit ], [ 14, %371 ], [ 8, %370 ], [ %369, %354 ], [ 13, %353 ], [ %352, %337 ], [ 13, %336 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ 8, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ 16, %36 ], [ %212, %dissect_gadu_gadu_stringz_cp1250.exit.i ], [ 22, %186 ], [ %241, %dissect_gadu_gadu_stringz_cp1250.exit.i266 ], [ 26, %213 ], [ %279, %278 ], [ 9, %273 ], [ %294, %293 ], [ 15, %280 ], [ 13, %298 ], [ 13, %451 ], [ %.1.lcssa.i, %.loopexit.i ], [ %reass.sub.i, %.lr.ph.i273 ], [ %reass.sub.i293, %.lr.ph.i291 ]
-  %469 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0220) #2
-  %470 = icmp sgt i32 %469, 0
-  br i1 %470, label %471, label %474
+dissect_gadu_gadu_user_data.exit:                 ; preds = %.lr.ph.i292, %.lr.ph.i274, %.loopexit.i, %455, %302, %297, %284, %282, %277, %dissect_gadu_gadu_stringz_cp1250.exit.i267, %switch.early.test.i.i265, %dissect_gadu_gadu_stringz_cp1250.exit.i, %switch.early.test.i.i, %36, %327, %329, %331, %333, %334, %336, %338, %340, %341, %357, %358, %374, %375, %dissect_gadu_gadu_send_msg.exit, %440, %441, %444, %446, %448, %449, %450, %451, %453, %472, %471, %26, %27, %28, %29, %32, %33, %67, %dissect_gadu_gadu_recv_msg.exit, %dissect_gadu_gadu_recv_msg80.exit, %179, %246, %268, %269, %274, %299, %315, %325, %324
+  %.0220 = phi i32 [ 8, %324 ], [ 8, %325 ], [ %320, %315 ], [ 12, %299 ], [ 12, %274 ], [ 20, %269 ], [ 8, %268 ], [ %265, %246 ], [ 20, %179 ], [ 32, %dissect_gadu_gadu_recv_msg80.exit ], [ %127, %dissect_gadu_gadu_recv_msg.exit ], [ 14, %67 ], [ 12, %33 ], [ 8, %32 ], [ 12, %29 ], [ 8, %28 ], [ 8, %27 ], [ 8, %26 ], [ 8, %471 ], [ 8, %472 ], [ %454, %453 ], [ %452, %451 ], [ 24, %450 ], [ 283, %449 ], [ 12, %448 ], [ %447, %446 ], [ %445, %444 ], [ 12, %441 ], [ 28, %440 ], [ %439, %dissect_gadu_gadu_send_msg.exit ], [ 14, %375 ], [ 8, %374 ], [ %373, %358 ], [ 13, %357 ], [ %356, %341 ], [ 13, %340 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ 8, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ 16, %36 ], [ %214, %dissect_gadu_gadu_stringz_cp1250.exit.i ], [ 22, %switch.early.test.i.i ], [ %245, %dissect_gadu_gadu_stringz_cp1250.exit.i267 ], [ 26, %switch.early.test.i.i265 ], [ %283, %282 ], [ 9, %277 ], [ %298, %297 ], [ 15, %284 ], [ 13, %302 ], [ 13, %455 ], [ %.1.lcssa.i, %.loopexit.i ], [ %reass.sub.i, %.lr.ph.i274 ], [ %reass.sub.i294, %.lr.ph.i292 ]
+  %473 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0220) #2
+  %474 = icmp sgt i32 %473, 0
+  br i1 %474, label %475, label %478
 
-471:                                              ; preds = %dissect_gadu_gadu_user_data.exit
-  %472 = load i32, ptr @hf_gadu_gadu_data, align 4
-  %473 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %472, ptr noundef %0, i32 noundef %.0220, i32 noundef -1, i32 noundef 0) #2
-  br label %474
+475:                                              ; preds = %dissect_gadu_gadu_user_data.exit
+  %476 = load i32, ptr @hf_gadu_gadu_data, align 4
+  %477 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %476, ptr noundef %0, i32 noundef %.0220, i32 noundef -1, i32 noundef 0) #2
+  br label %478
 
-474:                                              ; preds = %471, %dissect_gadu_gadu_user_data.exit
-  %475 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %475
+478:                                              ; preds = %475, %dissect_gadu_gadu_user_data.exit
+  %479 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %479
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
@@ -1814,40 +1820,43 @@ define internal fastcc i32 @dissect_gadu_gadu_new_status(ptr noundef %0, ptr %.8
   %3 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #2
   %4 = load i32, ptr @hf_gadu_gadu_new_status_status, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
-  %trunc = trunc i32 %3 to i8
-  switch i8 %trunc, label %gadu_gadu_status_has_descr.exit [
+  %6 = and i32 %3, 255
+  %7 = and i32 %3, 254
+  %8 = icmp eq i32 %7, 4
+  br i1 %8, label %gadu_gadu_status_has_descr.exit.thread, label %switch.early.test.i
+
+switch.early.test.i:                              ; preds = %2
+  %trunc.i = trunc i32 %3 to i8
+  switch i8 %trunc.i, label %gadu_gadu_status_has_descr.exit [
     i8 34, label %gadu_gadu_status_has_descr.exit.thread
     i8 24, label %gadu_gadu_status_has_descr.exit.thread
     i8 21, label %gadu_gadu_status_has_descr.exit.thread
-    i8 5, label %gadu_gadu_status_has_descr.exit.thread
-    i8 4, label %gadu_gadu_status_has_descr.exit.thread
   ]
 
-gadu_gadu_status_has_descr.exit:                  ; preds = %2
-  %6 = and i32 %3, 255
+gadu_gadu_status_has_descr.exit:                  ; preds = %switch.early.test.i
   %.not = icmp eq i32 %6, 22
-  br i1 %.not, label %gadu_gadu_status_has_descr.exit.thread, label %16
+  br i1 %.not, label %gadu_gadu_status_has_descr.exit.thread, label %18
 
-gadu_gadu_status_has_descr.exit.thread:           ; preds = %2, %2, %2, %2, %2, %gadu_gadu_status_has_descr.exit
-  %7 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %8 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 12, i32 noundef -1, i8 noundef zeroext 0) #2
-  %9 = icmp eq i32 %8, -1
-  br i1 %9, label %10, label %dissect_gadu_gadu_stringz_cp1250.exit
+gadu_gadu_status_has_descr.exit.thread:           ; preds = %2, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %gadu_gadu_status_has_descr.exit
+  %9 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
+  %10 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 12, i32 noundef -1, i8 noundef zeroext 0) #2
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %12, label %dissect_gadu_gadu_stringz_cp1250.exit
 
-10:                                               ; preds = %gadu_gadu_status_has_descr.exit.thread
-  %11 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %12 = add i32 %11, -1
+12:                                               ; preds = %gadu_gadu_status_has_descr.exit.thread
+  %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %14 = add i32 %13, -1
   br label %dissect_gadu_gadu_stringz_cp1250.exit
 
-dissect_gadu_gadu_stringz_cp1250.exit:            ; preds = %gadu_gadu_status_has_descr.exit.thread, %10
-  %.0.i.i = phi i32 [ %12, %10 ], [ %8, %gadu_gadu_status_has_descr.exit.thread ]
-  %13 = add i32 %.0.i.i, -11
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 12, i32 noundef %13, i32 noundef 42) #2
-  %15 = add i32 %.0.i.i, 1
-  br label %16
+dissect_gadu_gadu_stringz_cp1250.exit:            ; preds = %gadu_gadu_status_has_descr.exit.thread, %12
+  %.0.i.i = phi i32 [ %14, %12 ], [ %10, %gadu_gadu_status_has_descr.exit.thread ]
+  %15 = add i32 %.0.i.i, -11
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 12, i32 noundef %15, i32 noundef 42) #2
+  %17 = add i32 %.0.i.i, 1
+  br label %18
 
-16:                                               ; preds = %dissect_gadu_gadu_stringz_cp1250.exit, %gadu_gadu_status_has_descr.exit
-  %.0 = phi i32 [ %15, %dissect_gadu_gadu_stringz_cp1250.exit ], [ 12, %gadu_gadu_status_has_descr.exit ]
+18:                                               ; preds = %dissect_gadu_gadu_stringz_cp1250.exit, %gadu_gadu_status_has_descr.exit
+  %.0 = phi i32 [ %17, %dissect_gadu_gadu_stringz_cp1250.exit ], [ 12, %gadu_gadu_status_has_descr.exit ]
   ret i32 %.0
 }
 
@@ -1987,7 +1996,7 @@ declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef z
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 9, 16) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #2
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %18, label %7
@@ -2039,7 +2048,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 77, 80) i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 77, 80) i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 12, 15) %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #2
   %6 = load i32, ptr @hf_gadu_gadu_login_hash_type, align 4
@@ -2057,7 +2066,7 @@ define internal fastcc range(i32 77, 80) i32 @dissect_gadu_gadu_login_hash(ptr n
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.010.i) #2
   %11 = getelementptr i8, ptr %4, i64 %9
   store i8 %10, ptr %11, align 1
-  %12 = add i32 %.010.i, 1
+  %12 = add nuw nsw i32 %.010.i, 1
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %_tvb_memcpy_reverse.exit, label %.preheader, !llvm.loop !9
 
@@ -2074,7 +2083,7 @@ _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
 
 18:                                               ; preds = %_tvb_memcpy_reverse.exit, %16
   %.040 = phi i32 [ 4, %_tvb_memcpy_reverse.exit ], [ %17, %16 ]
-  %19 = add nsw i32 %.040, %8
+  %19 = add nuw nsw i32 %.040, %8
   %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #2
   %.not37 = icmp eq i8 %20, 0
   br i1 %.not37, label %16, label %21
@@ -2097,7 +2106,7 @@ _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
 
 30:                                               ; preds = %25, %28
   %.139 = phi i32 [ 20, %25 ], [ %29, %28 ]
-  %31 = add nsw i32 %.139, %8
+  %31 = add nuw nsw i32 %.139, %8
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #2
   %.not = icmp eq i8 %32, 0
   br i1 %.not, label %28, label %33

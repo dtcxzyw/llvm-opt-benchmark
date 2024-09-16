@@ -229,7 +229,7 @@ if.end:                                           ; preds = %if.then, %trace_tpm
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tpm_tis_raise_irq(ptr nocapture noundef %s, i8 noundef zeroext %locty, i32 noundef %irqmask) unnamed_addr #0 {
+define internal fastcc void @tpm_tis_raise_irq(ptr nocapture noundef %s, i8 noundef zeroext %locty, i32 noundef range(i32 2, 129) %irqmask) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp = icmp ult i8 %locty, 5
@@ -1781,7 +1781,7 @@ declare i32 @llvm.bswap.i32(i32) #3
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_tpm_tis_mmio_write_release_locty(i8 noundef zeroext %locty) unnamed_addr #0 {
+define internal fastcc void @trace_tpm_tis_mmio_write_release_locty(i8 noundef zeroext range(i8 0, 8) %locty) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1954,7 +1954,7 @@ return:                                           ; preds = %for.end, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_tpm_tis_mmio_write_locty_seized(i8 noundef zeroext %locty, i8 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc void @trace_tpm_tis_mmio_write_locty_seized(i8 noundef zeroext range(i8 0, 8) %locty, i8 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -2085,7 +2085,7 @@ declare void @tpm_backend_cancel_cmd(ptr noundef) local_unnamed_addr #2
 declare i32 @tpm_backend_reset_tpm_established_flag(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tpm_tis_tpm_send(ptr noundef %s, i8 noundef zeroext %locty) unnamed_addr #0 {
+define internal fastcc void @tpm_tis_tpm_send(ptr noundef %s, i8 noundef zeroext range(i8 0, 8) %locty) unnamed_addr #0 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %s, i64 272
   %be_buffer_size = getelementptr inbounds i8, ptr %s, i64 4568

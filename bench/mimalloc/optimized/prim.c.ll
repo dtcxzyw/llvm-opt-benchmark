@@ -130,7 +130,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unix_mmap(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i1 noundef zeroext %large_only, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %is_large) unnamed_addr #0 {
+define internal fastcc ptr @unix_mmap(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %protect_flags, i1 noundef zeroext %large_only, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %is_large) unnamed_addr #0 {
 entry:
   %call2 = tail call zeroext i1 @_mi_os_has_overcommit() #8
   %spec.select = select i1 %call2, i32 16418, i32 34
@@ -678,7 +678,7 @@ declare zeroext i1 @_mi_os_has_overcommit() local_unnamed_addr #3
 declare zeroext i1 @_mi_os_use_large_page(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unix_mmap_prim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc ptr @unix_mmap_prim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %protect_flags, i32 noundef range(i32 34, 2013528099) %flags) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %addr, null
   br i1 %cmp, label %if.then, label %if.end12

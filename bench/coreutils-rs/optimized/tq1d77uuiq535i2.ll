@@ -1743,7 +1743,7 @@ _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = 
 209:                                              ; preds = %208
   %210 = icmp ne ptr %.sroa.5.0.copyload.i, null
   call void @llvm.assume(i1 %210)
-  call fastcc void @_ZN5uu_wc13process_chunk17h8d4bf9a3b52d0a39E(ptr noalias noundef nonnull align 8 dereferenceable(40) %56, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i, i64 noundef %.sroa.7.0.copyload.i, i64 0, ptr noalias noundef nonnull align 1 dereferenceable(1) %54), !noalias !250
+  call fastcc void @_ZN5uu_wc13process_chunk17h8d4bf9a3b52d0a39E(ptr noalias noundef align 8 dereferenceable(40) %56, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i, i64 noundef %.sroa.7.0.copyload.i, i64 0, ptr noalias noundef align 1 dereferenceable(1) %54), !noalias !250
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i"
 
 211:                                              ; preds = %208
@@ -1897,7 +1897,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17h229a0ba87ef78cfcE.exit: ; preds 
 255:                                              ; preds = %254
   %256 = icmp ne ptr %.sroa.5.0.copyload.i34, null
   call void @llvm.assume(i1 %256)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr noalias noundef nonnull align 8 dereferenceable(40) %52, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i34, i64 noundef %.sroa.7.0.copyload.i35, ptr noalias noundef nonnull align 8 dereferenceable(8) %50)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr noalias noundef align 8 dereferenceable(40) %52, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i34, i64 noundef %.sroa.7.0.copyload.i35, ptr noalias noundef align 8 dereferenceable(8) %50)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i38" unwind label %250, !noalias !294
 
 257:                                              ; preds = %254
@@ -2050,7 +2050,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17ha2991ae0c5361329E.exit: ; preds 
 300:                                              ; preds = %299
   %301 = icmp ne ptr %.sroa.5.0.copyload.i57, null
   call void @llvm.assume(i1 %301)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17h2625e94c5f252d56E(ptr noalias noundef nonnull align 8 dereferenceable(40) %48, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i57, i64 noundef %.sroa.7.0.copyload.i58, ptr noalias noundef nonnull align 8 dereferenceable(8) %45, ptr noalias noundef nonnull align 1 dereferenceable(1) %46)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17h2625e94c5f252d56E(ptr noalias noundef align 8 dereferenceable(40) %48, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i57, i64 noundef %.sroa.7.0.copyload.i58, ptr noalias noundef align 8 dereferenceable(8) %45, ptr noalias noundef align 1 dereferenceable(1) %46)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i61" unwind label %295, !noalias !337
 
 302:                                              ; preds = %299
@@ -2204,7 +2204,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17hbf14cf6d3265b27bE.exit: ; preds 
 345:                                              ; preds = %344
   %346 = icmp ne ptr %.sroa.5.0.copyload.i83, null
   call void @llvm.assume(i1 %346)
-  call fastcc void @_ZN5uu_wc13process_chunk17h0f75c002d821cfccE(ptr noalias noundef nonnull align 8 dereferenceable(40) %43, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i83, i64 noundef %.sroa.7.0.copyload.i84, i64 0, ptr noalias noundef nonnull align 1 dereferenceable(1) %41), !noalias !380
+  call fastcc void @_ZN5uu_wc13process_chunk17h0f75c002d821cfccE(ptr noalias noundef align 8 dereferenceable(40) %43, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i83, i64 noundef %.sroa.7.0.copyload.i84, i64 0, ptr noalias noundef align 1 dereferenceable(1) %41), !noalias !380
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i87"
 
 347:                                              ; preds = %344
@@ -2358,7 +2358,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17hec861c3b2b398314E.exit: ; preds 
 391:                                              ; preds = %390
   %392 = icmp ne ptr %.sroa.5.0.copyload.i109, null
   call void @llvm.assume(i1 %392)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr noalias noundef nonnull align 8 dereferenceable(40) %39, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i109, i64 noundef %.sroa.7.0.copyload.i110, ptr noalias noundef nonnull align 8 dereferenceable(8) %37)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr noalias noundef align 8 dereferenceable(40) %39, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i109, i64 noundef %.sroa.7.0.copyload.i110, ptr noalias noundef align 8 dereferenceable(8) %37)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i113" unwind label %386, !noalias !423
 
 393:                                              ; preds = %390
@@ -2511,7 +2511,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17h9383c281a7c7a386E.exit: ; preds 
 436:                                              ; preds = %435
   %437 = icmp ne ptr %.sroa.5.0.copyload.i135, null
   call void @llvm.assume(i1 %437)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17h4691d1aac14e8592E(ptr noalias noundef nonnull align 8 dereferenceable(40) %35, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i135, i64 noundef %.sroa.7.0.copyload.i136, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull align 1 dereferenceable(1) %33)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17h4691d1aac14e8592E(ptr noalias noundef align 8 dereferenceable(40) %35, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i135, i64 noundef %.sroa.7.0.copyload.i136, ptr noalias noundef align 8 dereferenceable(8) %32, ptr noalias noundef align 1 dereferenceable(1) %33)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i139" unwind label %431, !noalias !466
 
 438:                                              ; preds = %435
@@ -2671,7 +2671,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17ha8276e7ca7a84684E.exit: ; preds 
 483:                                              ; preds = %482
   %484 = icmp ne ptr %.sroa.5.0.copyload.i161, null
   call void @llvm.assume(i1 %484)
-  call fastcc void @_ZN5uu_wc13process_chunk17hb34c730f98e07b6eE(ptr noalias noundef nonnull align 8 dereferenceable(40) %30, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i161, i64 noundef %.sroa.7.0.copyload.i162, i64 0, ptr noalias noundef nonnull align 1 dereferenceable(1) %28), !noalias !509
+  call fastcc void @_ZN5uu_wc13process_chunk17hb34c730f98e07b6eE(ptr noalias noundef align 8 dereferenceable(40) %30, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i161, i64 noundef %.sroa.7.0.copyload.i162, i64 0, ptr noalias noundef align 1 dereferenceable(1) %28), !noalias !509
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i165"
 
 485:                                              ; preds = %482
@@ -2825,7 +2825,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17h839df54a032ab41dE.exit: ; preds 
 529:                                              ; preds = %528
   %530 = icmp ne ptr %.sroa.5.0.copyload.i187, null
   call void @llvm.assume(i1 %530)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr noalias noundef nonnull align 8 dereferenceable(40) %26, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i187, i64 noundef %.sroa.7.0.copyload.i188, ptr noalias noundef nonnull align 8 dereferenceable(8) %24)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr noalias noundef align 8 dereferenceable(40) %26, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i187, i64 noundef %.sroa.7.0.copyload.i188, ptr noalias noundef align 8 dereferenceable(8) %24)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i191" unwind label %524, !noalias !552
 
 531:                                              ; preds = %528
@@ -2978,7 +2978,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17h5877e2b74064aa5aE.exit: ; preds 
 574:                                              ; preds = %573
   %575 = icmp ne ptr %.sroa.5.0.copyload.i213, null
   call void @llvm.assume(i1 %575)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17hf70047982a2aca0cE(ptr noalias noundef nonnull align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i213, i64 noundef %.sroa.7.0.copyload.i214, ptr noalias noundef nonnull align 8 dereferenceable(8) %19, ptr noalias noundef nonnull align 1 dereferenceable(1) %20)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17hf70047982a2aca0cE(ptr noalias noundef align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i213, i64 noundef %.sroa.7.0.copyload.i214, ptr noalias noundef align 8 dereferenceable(8) %19, ptr noalias noundef align 1 dereferenceable(1) %20)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i217" unwind label %569, !noalias !595
 
 576:                                              ; preds = %573
@@ -3132,7 +3132,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17h9d1926a3cec35abeE.exit: ; preds 
 619:                                              ; preds = %618
   %620 = icmp ne ptr %.sroa.5.0.copyload.i239, null
   call void @llvm.assume(i1 %620)
-  call fastcc void @_ZN5uu_wc13process_chunk17he412f00c866b0d31E(ptr noalias noundef nonnull align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i239, i64 noundef %.sroa.7.0.copyload.i240, i64 0, ptr noalias noundef nonnull align 1 dereferenceable(1) %15), !noalias !638
+  call fastcc void @_ZN5uu_wc13process_chunk17he412f00c866b0d31E(ptr noalias noundef align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i239, i64 noundef %.sroa.7.0.copyload.i240, i64 0, ptr noalias noundef align 1 dereferenceable(1) %15), !noalias !638
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i243"
 
 621:                                              ; preds = %618
@@ -3286,7 +3286,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17h90968f59e39ea096E.exit: ; preds 
 665:                                              ; preds = %664
   %666 = icmp ne ptr %.sroa.5.0.copyload.i265, null
   call void @llvm.assume(i1 %666)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr noalias noundef nonnull align 8 dereferenceable(40) %13, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i265, i64 noundef %.sroa.7.0.copyload.i266, ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr noalias noundef align 8 dereferenceable(40) %13, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i265, i64 noundef %.sroa.7.0.copyload.i266, ptr noalias noundef align 8 dereferenceable(8) %11)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i269" unwind label %660, !noalias !681
 
 667:                                              ; preds = %664
@@ -3439,7 +3439,7 @@ _ZN5uu_wc34word_count_from_reader_specialized17he2465d174b38a9abE.exit: ; preds 
 710:                                              ; preds = %709
   %711 = icmp ne ptr %.sroa.5.0.copyload.i291, null
   call void @llvm.assume(i1 %711)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17hf6f771c9aadeeee8E(ptr noalias noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i291, i64 noundef %.sroa.7.0.copyload.i292, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 dereferenceable(1) %7)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17hf6f771c9aadeeee8E(ptr noalias noundef align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i291, i64 noundef %.sroa.7.0.copyload.i292, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef align 1 dereferenceable(1) %7)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i295" unwind label %705, !noalias !724
 
 712:                                              ; preds = %709
@@ -4273,7 +4273,7 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.i: ; pr
 247:                                              ; preds = %246
   %248 = icmp ne ptr %.sroa.5.0.copyload.i, null
   call void @llvm.assume(i1 %248)
-  call fastcc void @_ZN5uu_wc13process_chunk17h8d4bf9a3b52d0a39E(ptr noalias noundef nonnull align 8 dereferenceable(40) %55, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i, i64 noundef %.sroa.7.0.copyload.i, i64 0, ptr noalias noundef nonnull align 1 dereferenceable(1) %53), !noalias !831
+  call fastcc void @_ZN5uu_wc13process_chunk17h8d4bf9a3b52d0a39E(ptr noalias noundef align 8 dereferenceable(40) %55, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i, i64 noundef %.sroa.7.0.copyload.i, i64 0, ptr noalias noundef align 1 dereferenceable(1) %53), !noalias !831
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i"
 
 249:                                              ; preds = %246
@@ -4422,7 +4422,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i: ; preds = %249
 292:                                              ; preds = %291
   %293 = icmp ne ptr %.sroa.5.0.copyload.i40, null
   call void @llvm.assume(i1 %293)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr noalias noundef nonnull align 8 dereferenceable(40) %51, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i40, i64 noundef %.sroa.7.0.copyload.i41, ptr noalias noundef nonnull align 8 dereferenceable(8) %49)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr noalias noundef align 8 dereferenceable(40) %51, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i40, i64 noundef %.sroa.7.0.copyload.i41, ptr noalias noundef align 8 dereferenceable(8) %49)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i44" unwind label %287, !noalias !879
 
 294:                                              ; preds = %291
@@ -4570,7 +4570,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i45: ; preds = %294
 336:                                              ; preds = %335
   %337 = icmp ne ptr %.sroa.5.0.copyload.i61, null
   call void @llvm.assume(i1 %337)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17h2625e94c5f252d56E(ptr noalias noundef nonnull align 8 dereferenceable(40) %47, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i61, i64 noundef %.sroa.7.0.copyload.i62, ptr noalias noundef nonnull align 8 dereferenceable(8) %44, ptr noalias noundef nonnull align 1 dereferenceable(1) %45)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17h2625e94c5f252d56E(ptr noalias noundef align 8 dereferenceable(40) %47, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i61, i64 noundef %.sroa.7.0.copyload.i62, ptr noalias noundef align 8 dereferenceable(8) %44, ptr noalias noundef align 1 dereferenceable(1) %45)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i65" unwind label %331, !noalias !927
 
 338:                                              ; preds = %335
@@ -4719,7 +4719,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i66: ; preds = %338
 380:                                              ; preds = %379
   %381 = icmp ne ptr %.sroa.5.0.copyload.i83, null
   call void @llvm.assume(i1 %381)
-  call fastcc void @_ZN5uu_wc13process_chunk17h0f75c002d821cfccE(ptr noalias noundef nonnull align 8 dereferenceable(40) %42, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i83, i64 noundef %.sroa.7.0.copyload.i84, i64 0, ptr noalias noundef nonnull align 1 dereferenceable(1) %40), !noalias !975
+  call fastcc void @_ZN5uu_wc13process_chunk17h0f75c002d821cfccE(ptr noalias noundef align 8 dereferenceable(40) %42, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i83, i64 noundef %.sroa.7.0.copyload.i84, i64 0, ptr noalias noundef align 1 dereferenceable(1) %40), !noalias !975
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i87"
 
 382:                                              ; preds = %379
@@ -4868,7 +4868,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i88: ; preds = %382
 425:                                              ; preds = %424
   %426 = icmp ne ptr %.sroa.5.0.copyload.i105, null
   call void @llvm.assume(i1 %426)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr noalias noundef nonnull align 8 dereferenceable(40) %38, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i105, i64 noundef %.sroa.7.0.copyload.i106, ptr noalias noundef nonnull align 8 dereferenceable(8) %36)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr noalias noundef align 8 dereferenceable(40) %38, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i105, i64 noundef %.sroa.7.0.copyload.i106, ptr noalias noundef align 8 dereferenceable(8) %36)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i109" unwind label %420, !noalias !1023
 
 427:                                              ; preds = %424
@@ -5016,7 +5016,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i110: ; preds = %427
 469:                                              ; preds = %468
   %470 = icmp ne ptr %.sroa.5.0.copyload.i127, null
   call void @llvm.assume(i1 %470)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17h4691d1aac14e8592E(ptr noalias noundef nonnull align 8 dereferenceable(40) %34, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i127, i64 noundef %.sroa.7.0.copyload.i128, ptr noalias noundef nonnull align 8 dereferenceable(8) %31, ptr noalias noundef nonnull align 1 dereferenceable(1) %32)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17h4691d1aac14e8592E(ptr noalias noundef align 8 dereferenceable(40) %34, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i127, i64 noundef %.sroa.7.0.copyload.i128, ptr noalias noundef align 8 dereferenceable(8) %31, ptr noalias noundef align 1 dereferenceable(1) %32)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i131" unwind label %464, !noalias !1071
 
 471:                                              ; preds = %468
@@ -5171,7 +5171,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i132: ; preds = %471
 515:                                              ; preds = %514
   %516 = icmp ne ptr %.sroa.5.0.copyload.i149, null
   call void @llvm.assume(i1 %516)
-  call fastcc void @_ZN5uu_wc13process_chunk17hb34c730f98e07b6eE(ptr noalias noundef nonnull align 8 dereferenceable(40) %29, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i149, i64 noundef %.sroa.7.0.copyload.i150, i64 0, ptr noalias noundef nonnull align 1 dereferenceable(1) %27), !noalias !1119
+  call fastcc void @_ZN5uu_wc13process_chunk17hb34c730f98e07b6eE(ptr noalias noundef align 8 dereferenceable(40) %29, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i149, i64 noundef %.sroa.7.0.copyload.i150, i64 0, ptr noalias noundef align 1 dereferenceable(1) %27), !noalias !1119
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i153"
 
 517:                                              ; preds = %514
@@ -5320,7 +5320,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i154: ; preds = %517
 560:                                              ; preds = %559
   %561 = icmp ne ptr %.sroa.5.0.copyload.i171, null
   call void @llvm.assume(i1 %561)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr noalias noundef nonnull align 8 dereferenceable(40) %25, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i171, i64 noundef %.sroa.7.0.copyload.i172, ptr noalias noundef nonnull align 8 dereferenceable(8) %23)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr noalias noundef align 8 dereferenceable(40) %25, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i171, i64 noundef %.sroa.7.0.copyload.i172, ptr noalias noundef align 8 dereferenceable(8) %23)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i175" unwind label %555, !noalias !1167
 
 562:                                              ; preds = %559
@@ -5468,7 +5468,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i176: ; preds = %562
 604:                                              ; preds = %603
   %605 = icmp ne ptr %.sroa.5.0.copyload.i193, null
   call void @llvm.assume(i1 %605)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17hf70047982a2aca0cE(ptr noalias noundef nonnull align 8 dereferenceable(40) %21, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i193, i64 noundef %.sroa.7.0.copyload.i194, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 dereferenceable(1) %19)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17hf70047982a2aca0cE(ptr noalias noundef align 8 dereferenceable(40) %21, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i193, i64 noundef %.sroa.7.0.copyload.i194, ptr noalias noundef align 8 dereferenceable(8) %18, ptr noalias noundef align 1 dereferenceable(1) %19)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i197" unwind label %599, !noalias !1215
 
 606:                                              ; preds = %603
@@ -5617,7 +5617,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i198: ; preds = %606
 648:                                              ; preds = %647
   %649 = icmp ne ptr %.sroa.5.0.copyload.i215, null
   call void @llvm.assume(i1 %649)
-  call fastcc void @_ZN5uu_wc13process_chunk17he412f00c866b0d31E(ptr noalias noundef nonnull align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i215, i64 noundef %.sroa.7.0.copyload.i216, i64 0, ptr noalias noundef nonnull align 1 dereferenceable(1) %14), !noalias !1263
+  call fastcc void @_ZN5uu_wc13process_chunk17he412f00c866b0d31E(ptr noalias noundef align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i215, i64 noundef %.sroa.7.0.copyload.i216, i64 0, ptr noalias noundef align 1 dereferenceable(1) %14), !noalias !1263
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i219"
 
 650:                                              ; preds = %647
@@ -5766,7 +5766,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i220: ; preds = %650
 693:                                              ; preds = %692
   %694 = icmp ne ptr %.sroa.5.0.copyload.i237, null
   call void @llvm.assume(i1 %694)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr noalias noundef nonnull align 8 dereferenceable(40) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i237, i64 noundef %.sroa.7.0.copyload.i238, ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr noalias noundef align 8 dereferenceable(40) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i237, i64 noundef %.sroa.7.0.copyload.i238, ptr noalias noundef align 8 dereferenceable(8) %10)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i241" unwind label %688, !noalias !1311
 
 695:                                              ; preds = %692
@@ -5914,7 +5914,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i242: ; preds = %695
 737:                                              ; preds = %736
   %738 = icmp ne ptr %.sroa.5.0.copyload.i259, null
   call void @llvm.assume(i1 %738)
-  invoke fastcc void @_ZN5uu_wc13process_chunk17hf6f771c9aadeeee8E(ptr noalias noundef nonnull align 8 dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i259, i64 noundef %.sroa.7.0.copyload.i260, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 dereferenceable(1) %6)
+  invoke fastcc void @_ZN5uu_wc13process_chunk17hf6f771c9aadeeee8E(ptr noalias noundef align 8 dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 1 %.sroa.5.0.copyload.i259, i64 noundef %.sroa.7.0.copyload.i260, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 1 dereferenceable(1) %6)
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h3e276dc1fd342cd0E.exit.i263" unwind label %732, !noalias !1359
 
 739:                                              ; preds = %736
@@ -6026,7 +6026,7 @@ _ZN5uu_wc12handle_error17h0a29afce6de416d2E.exit.i264: ; preds = %739
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17h0f75c002d821cfccE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val, ptr noalias nocapture noundef align 1 dereferenceable(1) %3) unnamed_addr #13 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17h0f75c002d821cfccE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val, ptr noalias nocapture noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #13 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %.thread, label %.lr.ph
@@ -6193,7 +6193,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17h2625e94c5f252d56E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3, ptr noalias nocapture noundef align 1 dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17h2625e94c5f252d56E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nocapture noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
   %7 = icmp eq i64 %2, 0
   %.pre = load i64, ptr %3, align 8
@@ -6442,7 +6442,7 @@ _ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
@@ -6609,7 +6609,7 @@ _ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17h4691d1aac14e8592E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3, ptr noalias nocapture noundef align 1 dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17h4691d1aac14e8592E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nocapture noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
   %7 = icmp eq i64 %2, 0
   %.pre = load i64, ptr %3, align 8
@@ -6874,7 +6874,7 @@ _ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
@@ -7064,7 +7064,7 @@ _ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10: ; p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17h8d4bf9a3b52d0a39E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val, ptr noalias nocapture noundef align 1 dereferenceable(1) %3) unnamed_addr #13 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17h8d4bf9a3b52d0a39E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val, ptr noalias nocapture noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #13 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %.thread, label %.lr.ph
@@ -7218,7 +7218,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17hb34c730f98e07b6eE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val, ptr noalias nocapture noundef align 1 dereferenceable(1) %3) unnamed_addr #13 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17hb34c730f98e07b6eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val, ptr noalias nocapture noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #13 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %.thread, label %.lr.ph
@@ -7377,7 +7377,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
@@ -7556,7 +7556,7 @@ _ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10: ; p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17he412f00c866b0d31E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val, ptr noalias nocapture noundef align 1 dereferenceable(1) %3) unnamed_addr #13 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17he412f00c866b0d31E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val, ptr noalias nocapture noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #13 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %.thread, label %.lr.ph
@@ -7728,7 +7728,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
@@ -7923,7 +7923,7 @@ _ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread10: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17hf6f771c9aadeeee8E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3, ptr noalias nocapture noundef align 1 dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17hf6f771c9aadeeee8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nocapture noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
   %7 = icmp eq i64 %2, 0
   %.pre = load i64, ptr %3, align 8
@@ -8193,7 +8193,7 @@ _ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.thread27: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_wc13process_chunk17hf70047982a2aca0cE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3, ptr noalias nocapture noundef align 1 dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_wc13process_chunk17hf70047982a2aca0cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nocapture noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
   %7 = icmp eq i64 %2, 0
   %.pre = load i64, ptr %3, align 8

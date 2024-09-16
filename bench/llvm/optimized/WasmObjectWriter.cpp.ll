@@ -3817,7 +3817,7 @@ _ZN4llvm8DenseMapIPKNS_13MCSectionWasmESt6vectorIN12_GLOBAL__N_119WasmRelocation
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN12_GLOBAL__N_116WasmObjectWriter14writeOneObjectERN4llvm11MCAssemblerENS0_7DwoModeE(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull align 8 dereferenceable(372) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef i64 @_ZN12_GLOBAL__N_116WasmObjectWriter14writeOneObjectERN4llvm11MCAssemblerENS0_7DwoModeE(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull align 8 dereferenceable(372) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [5 x i8], align 1
   %6 = alloca [5 x i8], align 1
@@ -17024,7 +17024,7 @@ declare noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116WasmObjectWriter12startSectionERNS_18SectionBookkeepingEj(ptr nocapture noundef nonnull align 8 dereferenceable(1048) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116WasmObjectWriter12startSectionERNS_18SectionBookkeepingEj(ptr nocapture noundef nonnull align 8 dereferenceable(1048) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %1, i32 noundef range(i32 0, 14) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

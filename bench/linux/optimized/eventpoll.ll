@@ -755,7 +755,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -28, 1) i32 @ep_insert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @ep_insert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.name_snapshot, align 8
   %7 = alloca %struct.ep_pqueue, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
@@ -1235,8 +1235,8 @@ define internal fastcc noundef range(i32 -28, 1) i32 @ep_insert(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ep_remove_safe(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = tail call fastcc zeroext i1 @__ep_remove(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
+define internal fastcc void @ep_remove_safe(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+  %3 = tail call fastcc zeroext i1 @__ep_remove(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext false)
   br i1 %3, label %4, label %5, !prof !24
 
 4:                                                ; preds = %2
@@ -1250,7 +1250,7 @@ define internal fastcc void @ep_remove_safe(ptr noundef %0, ptr noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ep_modify(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ep_modify(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.name_snapshot, align 8
   %5 = alloca %struct.poll_table_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
@@ -3016,8 +3016,8 @@ declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_
 declare dso_local void @rb_insert_color(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 1) i32 @reverse_path_check_proc(ptr noundef %0, i32 noundef %1) unnamed_addr #7 align 16 {
-  %3 = icmp sgt i32 %1, 4
+define internal fastcc range(i32 -1, 1) i32 @reverse_path_check_proc(ptr noundef %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #7 align 16 {
+  %3 = icmp ugt i32 %1, 4
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2

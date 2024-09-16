@@ -432,8 +432,8 @@ for.inc.i:                                        ; preds = %if.end12.i.i, %if.e
   br i1 %exitcond.not.i, label %if.end88, label %for.body.i, !llvm.loop !6
 
 if.then84:                                        ; preds = %vorbiscomment_entry_array_delete_.exit.i, %if.else
-  %comments79160 = getelementptr inbounds i8, ptr %call, i64 40
-  store ptr null, ptr %comments79160, align 8
+  %comments79159 = getelementptr inbounds i8, ptr %call, i64 40
+  store ptr null, ptr %comments79159, align 8
   %num_comments86 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %num_comments86, align 8
   tail call void @FLAC__metadata_object_delete_data(ptr noundef %call)
@@ -463,69 +463,69 @@ if.else100:                                       ; preds = %sw.bb93
   %conv.i.i100 = zext i32 %16 to i64
   %call2.i.i.i101 = tail call noalias noundef ptr @calloc(i64 noundef %conv.i.i100, i64 noundef 32) #25
   %cmp.not.i102 = icmp eq ptr %call2.i.i.i101, null
-  br i1 %cmp.not.i102, label %if.then111, label %for.body.i104
+  br i1 %cmp.not.i102, label %if.then111, label %for.body.i103
 
-for.body.i104:                                    ; preds = %if.else100, %for.inc.i113
-  %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i114, %for.inc.i113 ], [ 0, %if.else100 ]
-  %add.ptr.i106 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i101, i64 %indvars.iv.i105
-  %add.ptr3.i107 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %17, i64 %indvars.iv.i105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i106, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr3.i107, i64 32, i1 false)
-  %indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i107, i64 24
+for.body.i103:                                    ; preds = %if.else100, %for.inc.i112
+  %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i113, %for.inc.i112 ], [ 0, %if.else100 ]
+  %add.ptr.i105 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i101, i64 %indvars.iv.i104
+  %add.ptr3.i106 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %17, i64 %indvars.iv.i104
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i105, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr3.i106, i64 32, i1 false)
+  %indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i106, i64 24
   %18 = load ptr, ptr %indices.i.i, align 8
-  %cmp.i.i108 = icmp eq ptr %18, null
-  br i1 %cmp.i.i108, label %for.inc.i113, label %if.else.i.i109
+  %cmp.i.i107 = icmp eq ptr %18, null
+  br i1 %cmp.i.i107, label %for.inc.i112, label %if.else.i.i108
 
-if.else.i.i109:                                   ; preds = %for.body.i104
-  %num_indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i107, i64 23
+if.else.i.i108:                                   ; preds = %for.body.i103
+  %num_indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i106, i64 23
   %19 = load i8, ptr %num_indices.i.i, align 1
-  %conv.i9.i110 = zext i8 %19 to i64
-  %call.i.i111 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %conv.i9.i110, i64 noundef 16) #28
-  %cmp1.i.i = icmp eq ptr %call.i.i111, null
-  br i1 %cmp1.i.i, label %for.body.i.i117, label %if.end.i.i112
+  %conv.i9.i109 = zext i8 %19 to i64
+  %call.i.i110 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %conv.i9.i109, i64 noundef 16) #28
+  %cmp1.i.i = icmp eq ptr %call.i.i110, null
+  br i1 %cmp1.i.i, label %for.body.i.i116, label %if.end.i.i111
 
-if.end.i.i112:                                    ; preds = %if.else.i.i109
+if.end.i.i111:                                    ; preds = %if.else.i.i108
   %20 = load ptr, ptr %indices.i.i, align 8
   %21 = load i8, ptr %num_indices.i.i, align 1
   %conv6.i.i = zext i8 %21 to i64
   %mul.i.i = shl nuw nsw i64 %conv6.i.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i111, ptr align 8 %20, i64 %mul.i.i, i1 false)
-  %indices7.i.i = getelementptr inbounds i8, ptr %add.ptr.i106, i64 24
-  store ptr %call.i.i111, ptr %indices7.i.i, align 8
-  br label %for.inc.i113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i110, ptr align 8 %20, i64 %mul.i.i, i1 false)
+  %indices7.i.i = getelementptr inbounds i8, ptr %add.ptr.i105, i64 24
+  store ptr %call.i.i110, ptr %indices7.i.i, align 8
+  br label %for.inc.i112
 
-for.body.i.i117:                                  ; preds = %if.else.i.i109, %for.inc.i.i
-  %indvars.iv.i.i118 = phi i64 [ %indvars.iv.next.i.i120, %for.inc.i.i ], [ 0, %if.else.i.i109 ]
-  %indices.i10.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i101, i64 %indvars.iv.i.i118, i32 5
+for.body.i.i116:                                  ; preds = %if.else.i.i108, %for.inc.i.i
+  %indvars.iv.i.i117 = phi i64 [ %indvars.iv.next.i.i119, %for.inc.i.i ], [ 0, %if.else.i.i108 ]
+  %indices.i10.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i101, i64 %indvars.iv.i.i117, i32 5
   %22 = load ptr, ptr %indices.i10.i, align 8
   %cmp1.not.i.i = icmp eq ptr %22, null
-  br i1 %cmp1.not.i.i, label %for.inc.i.i, label %if.then.i.i119
+  br i1 %cmp1.not.i.i, label %for.inc.i.i, label %if.then.i.i118
 
-if.then.i.i119:                                   ; preds = %for.body.i.i117
+if.then.i.i118:                                   ; preds = %for.body.i.i116
   tail call void @free(ptr noundef nonnull %22) #28
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %if.then.i.i119, %for.body.i.i117
-  %indvars.iv.next.i.i120 = add nuw nsw i64 %indvars.iv.i.i118, 1
-  %exitcond.not.i.i121 = icmp eq i64 %indvars.iv.next.i.i120, %conv.i.i100
-  br i1 %exitcond.not.i.i121, label %cuesheet_track_array_delete_.exit.i, label %for.body.i.i117, !llvm.loop !7
+for.inc.i.i:                                      ; preds = %if.then.i.i118, %for.body.i.i116
+  %indvars.iv.next.i.i119 = add nuw nsw i64 %indvars.iv.i.i117, 1
+  %exitcond.not.i.i120 = icmp eq i64 %indvars.iv.next.i.i119, %conv.i.i100
+  br i1 %exitcond.not.i.i120, label %cuesheet_track_array_delete_.exit.i, label %for.body.i.i116, !llvm.loop !7
 
 cuesheet_track_array_delete_.exit.i:              ; preds = %for.inc.i.i
   tail call void @free(ptr noundef nonnull %call2.i.i.i101) #28
   br label %if.then111
 
-for.inc.i113:                                     ; preds = %if.end.i.i112, %for.body.i104
-  %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i105, 1
-  %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %conv.i.i100
-  br i1 %exitcond.not.i115, label %cuesheet_track_array_copy_.exit, label %for.body.i104, !llvm.loop !8
+for.inc.i112:                                     ; preds = %if.end.i.i111, %for.body.i103
+  %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i104, 1
+  %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %conv.i.i100
+  br i1 %exitcond.not.i114, label %cuesheet_track_array_copy_.exit, label %for.body.i103, !llvm.loop !8
 
-cuesheet_track_array_copy_.exit:                  ; preds = %for.inc.i113
+cuesheet_track_array_copy_.exit:                  ; preds = %for.inc.i112
   %tracks106 = getelementptr inbounds i8, ptr %call, i64 168
   store ptr %call2.i.i.i101, ptr %tracks106, align 8
   br label %return
 
 if.then111:                                       ; preds = %cuesheet_track_array_delete_.exit.i, %if.else100
-  %tracks106163 = getelementptr inbounds i8, ptr %call, i64 168
-  store ptr null, ptr %tracks106163, align 8
+  %tracks106162 = getelementptr inbounds i8, ptr %call, i64 168
+  store ptr null, ptr %tracks106162, align 8
   tail call void @FLAC__metadata_object_delete_data(ptr noundef %call)
   tail call void @free(ptr noundef %call) #28
   br label %return
@@ -553,9 +553,9 @@ if.end125:                                        ; preds = %sw.bb114
   store ptr %call.i, ptr %mime_type, align 8
   %description128 = getelementptr inbounds i8, ptr %object, i64 32
   %26 = load ptr, ptr %description128, align 8
-  %call.i124 = tail call noalias ptr @strdup(ptr noundef readonly %26) #28
-  %tobool.not.i125 = icmp eq ptr %call.i124, null
-  br i1 %tobool.not.i125, label %if.then131, label %if.end132
+  %call.i123 = tail call noalias ptr @strdup(ptr noundef readonly %26) #28
+  %tobool.not.i124 = icmp eq ptr %call.i123, null
+  br i1 %tobool.not.i124, label %if.then131, label %if.end132
 
 if.then131:                                       ; preds = %if.end125
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
@@ -566,7 +566,7 @@ if.end132:                                        ; preds = %if.end125
   %description = getelementptr inbounds i8, ptr %call, i64 32
   %27 = load ptr, ptr %description, align 8
   tail call void @free(ptr noundef %27) #28
-  store ptr %call.i124, ptr %description, align 8
+  store ptr %call.i123, ptr %description, align 8
   %width = getelementptr inbounds i8, ptr %object, i64 40
   %28 = load i32, ptr %width, align 8
   %width135 = getelementptr inbounds i8, ptr %call, i64 40
@@ -590,27 +590,27 @@ if.end132:                                        ; preds = %if.end125
   %data149 = getelementptr inbounds i8, ptr %call, i64 64
   %data151 = getelementptr inbounds i8, ptr %object, i64 64
   %33 = load ptr, ptr %data151, align 8
-  %cmp.i129 = icmp ne i32 %32, 0
-  %cmp1.i130 = icmp ne ptr %33, null
-  %or.cond.i131 = and i1 %cmp.i129, %cmp1.i130
-  br i1 %or.cond.i131, label %if.then.i135, label %copy_bytes_.exit140
+  %cmp.i128 = icmp ne i32 %32, 0
+  %cmp1.i129 = icmp ne ptr %33, null
+  %or.cond.i130 = and i1 %cmp.i128, %cmp1.i129
+  br i1 %or.cond.i130, label %if.then.i134, label %copy_bytes_.exit139
 
-if.then.i135:                                     ; preds = %if.end132
-  %conv.i136 = zext i32 %32 to i64
-  %call.i.i137 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i136) #27
-  %cmp2.i138 = icmp eq ptr %call.i.i137, null
-  br i1 %cmp2.i138, label %if.then156, label %if.end.i139
+if.then.i134:                                     ; preds = %if.end132
+  %conv.i135 = zext i32 %32 to i64
+  %call.i.i136 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i135) #27
+  %cmp2.i137 = icmp eq ptr %call.i.i136, null
+  br i1 %cmp2.i137, label %if.then156, label %if.end.i138
 
-if.end.i139:                                      ; preds = %if.then.i135
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i137, ptr nonnull readonly align 1 %33, i64 %conv.i136, i1 false)
-  br label %copy_bytes_.exit140
+if.end.i138:                                      ; preds = %if.then.i134
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i136, ptr nonnull readonly align 1 %33, i64 %conv.i135, i1 false)
+  br label %copy_bytes_.exit139
 
-copy_bytes_.exit140:                              ; preds = %if.end132, %if.end.i139
-  %storemerge.i133 = phi ptr [ %call.i.i137, %if.end.i139 ], [ null, %if.end132 ]
-  store ptr %storemerge.i133, ptr %data149, align 8
+copy_bytes_.exit139:                              ; preds = %if.end132, %if.end.i138
+  %storemerge.i132 = phi ptr [ %call.i.i136, %if.end.i138 ], [ null, %if.end132 ]
+  store ptr %storemerge.i132, ptr %data149, align 8
   br label %return
 
-if.then156:                                       ; preds = %if.then.i135
+if.then156:                                       ; preds = %if.then.i134
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
   tail call void @free(ptr noundef nonnull %call) #28
   br label %return
@@ -619,33 +619,33 @@ sw.default:                                       ; preds = %if.then
   %data158 = getelementptr inbounds i8, ptr %call, i64 16
   %data160 = getelementptr inbounds i8, ptr %object, i64 16
   %34 = load ptr, ptr %data160, align 8
-  %cmp.i141 = icmp ne i32 %3, 0
-  %cmp1.i142 = icmp ne ptr %34, null
-  %or.cond.i143 = and i1 %cmp.i141, %cmp1.i142
-  br i1 %or.cond.i143, label %if.then.i147, label %copy_bytes_.exit152
+  %cmp.i140 = icmp ne i32 %3, 0
+  %cmp1.i141 = icmp ne ptr %34, null
+  %or.cond.i142 = and i1 %cmp.i140, %cmp1.i141
+  br i1 %or.cond.i142, label %if.then.i146, label %copy_bytes_.exit151
 
-if.then.i147:                                     ; preds = %sw.default
-  %conv.i148 = zext i32 %3 to i64
-  %call.i.i149 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i148) #27
-  %cmp2.i150 = icmp eq ptr %call.i.i149, null
-  br i1 %cmp2.i150, label %if.then165, label %if.end.i151
+if.then.i146:                                     ; preds = %sw.default
+  %conv.i147 = zext i32 %3 to i64
+  %call.i.i148 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i147) #27
+  %cmp2.i149 = icmp eq ptr %call.i.i148, null
+  br i1 %cmp2.i149, label %if.then165, label %if.end.i150
 
-if.end.i151:                                      ; preds = %if.then.i147
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i149, ptr nonnull readonly align 1 %34, i64 %conv.i148, i1 false)
-  br label %copy_bytes_.exit152
+if.end.i150:                                      ; preds = %if.then.i146
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i148, ptr nonnull readonly align 1 %34, i64 %conv.i147, i1 false)
+  br label %copy_bytes_.exit151
 
-copy_bytes_.exit152:                              ; preds = %sw.default, %if.end.i151
-  %storemerge.i145 = phi ptr [ %call.i.i149, %if.end.i151 ], [ null, %sw.default ]
-  store ptr %storemerge.i145, ptr %data158, align 8
+copy_bytes_.exit151:                              ; preds = %sw.default, %if.end.i150
+  %storemerge.i144 = phi ptr [ %call.i.i148, %if.end.i150 ], [ null, %sw.default ]
+  store ptr %storemerge.i144, ptr %data158, align 8
   br label %return
 
-if.then165:                                       ; preds = %if.then.i147
+if.then165:                                       ; preds = %if.then.i146
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
   tail call void @free(ptr noundef nonnull %call) #28
   br label %return
 
-return:                                           ; preds = %copy_bytes_.exit152, %copy_bytes_.exit140, %cuesheet_track_array_copy_.exit, %copy_bytes_.exit91, %copy_bytes_.exit, %entry, %sw.bb93, %if.then, %if.end88, %sw.bb, %if.then165, %if.then156, %if.then131, %if.then124, %if.then111, %if.then84, %if.then66, %if.then45, %if.then34, %if.then23, %if.then11
-  %retval.0 = phi ptr [ null, %if.then165 ], [ null, %if.then156 ], [ null, %if.then131 ], [ null, %if.then124 ], [ null, %if.then111 ], [ null, %if.then84 ], [ null, %if.then66 ], [ null, %if.then34 ], [ null, %if.then45 ], [ null, %if.then11 ], [ null, %if.then23 ], [ %call, %sw.bb ], [ %call, %if.end88 ], [ %call, %if.then ], [ %call, %copy_bytes_.exit ], [ %call, %copy_bytes_.exit91 ], [ %call, %cuesheet_track_array_copy_.exit ], [ %call, %sw.bb93 ], [ %call, %copy_bytes_.exit140 ], [ %call, %copy_bytes_.exit152 ], [ null, %entry ]
+return:                                           ; preds = %copy_bytes_.exit151, %copy_bytes_.exit139, %cuesheet_track_array_copy_.exit, %copy_bytes_.exit91, %copy_bytes_.exit, %entry, %sw.bb93, %if.then, %if.end88, %sw.bb, %if.then165, %if.then156, %if.then131, %if.then124, %if.then111, %if.then84, %if.then66, %if.then45, %if.then34, %if.then23, %if.then11
+  %retval.0 = phi ptr [ null, %if.then165 ], [ null, %if.then156 ], [ null, %if.then131 ], [ null, %if.then124 ], [ null, %if.then111 ], [ null, %if.then84 ], [ null, %if.then66 ], [ null, %if.then34 ], [ null, %if.then45 ], [ null, %if.then11 ], [ null, %if.then23 ], [ %call, %sw.bb ], [ %call, %if.end88 ], [ %call, %if.then ], [ %call, %copy_bytes_.exit ], [ %call, %copy_bytes_.exit91 ], [ %call, %cuesheet_track_array_copy_.exit ], [ %call, %sw.bb93 ], [ %call, %copy_bytes_.exit139 ], [ %call, %copy_bytes_.exit151 ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -1526,19 +1526,19 @@ if.then5:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.then5
   %call.i = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %conv, i64 noundef 24) #28
-  %cmp.not.i.not = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i.not, label %seekpoint_array_new_.exit.thread, label %for.body.lr.ph.i
+  %cmp.not.i = icmp eq ptr %call.i, null
+  br i1 %cmp.not.i, label %seekpoint_array_new_.exit.thread, label %for.cond.preheader.i
 
 seekpoint_array_new_.exit.thread:                 ; preds = %if.else
   store ptr null, ptr %points, align 8
   br label %return
 
-for.body.lr.ph.i:                                 ; preds = %if.else
+for.cond.preheader.i:                             ; preds = %if.else
   %2 = load i64, ptr @FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %call.i, i64 %indvars.iv.i
   store i64 %2, ptr %arrayidx.i, align 8
   %stream_offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -1580,8 +1580,8 @@ if.end44:                                         ; preds = %if.else34, %if.then
 
 if.then47:                                        ; preds = %if.end44
   %4 = load i32, ptr %data, align 8
-  %cmp5026 = icmp ult i32 %4, %new_num_points
-  br i1 %cmp5026, label %for.body.lr.ph, label %if.end63
+  %cmp5025 = icmp ult i32 %4, %new_num_points
+  br i1 %cmp5025, label %for.body.lr.ph, label %if.end63
 
 for.body.lr.ph:                                   ; preds = %if.then47
   %5 = load i64, ptr @FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER, align 8
@@ -1964,7 +1964,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %data = getelementptr inbounds i8, ptr %object, i64 16
-  %call4 = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %object, ptr noundef nonnull %data, ptr noundef nonnull %entry2, i32 noundef %copy)
+  %call4 = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %object, ptr noundef nonnull %data, ptr noundef %entry2, i32 noundef %copy)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1975,7 +1975,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @vorbiscomment_set_entry_(ptr nocapture noundef %object, ptr nocapture noundef %dest, ptr nocapture noundef %src, i32 noundef %copy) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @vorbiscomment_set_entry_(ptr nocapture noundef %object, ptr nocapture noundef %dest, ptr nocapture noundef nonnull %src, i32 noundef %copy) unnamed_addr #4 {
 entry:
   %entry1 = getelementptr inbounds i8, ptr %dest, i64 8
   %0 = load ptr, ptr %entry1, align 8
@@ -2269,7 +2269,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %comments, align 8
   %idxprom = zext i32 %comment_num to i64
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idxprom
-  %call4 = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %object, ptr noundef %arrayidx, ptr noundef nonnull %entry2, i32 noundef %copy)
+  %call4 = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %object, ptr noundef %arrayidx, ptr noundef %entry2, i32 noundef %copy)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2328,7 +2328,7 @@ if.end7:                                          ; preds = %if.end
 if.end.i:                                         ; preds = %if.end7
   %6 = load ptr, ptr %comments, align 8
   %arrayidx.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %6, i64 %idxprom14
-  %call4.i = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef nonnull %object, ptr noundef %arrayidx.i, ptr noundef nonnull %entry2.i, i32 noundef %copy)
+  %call4.i = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef nonnull %object, ptr noundef %arrayidx.i, ptr noundef %entry2.i, i32 noundef %copy)
   br label %FLAC__metadata_object_vorbiscomment_set_comment.exit
 
 FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %if.end7, %if.end.i
@@ -2433,7 +2433,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %if.then16
   %8 = load ptr, ptr %comments.i, align 8
   %idxprom.i = and i64 %indvars.iv.i, 2147483647
   %arrayidx.i35 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %8, i64 %idxprom.i
-  %call4.i = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %object, ptr noundef %arrayidx.i35, ptr noundef nonnull %entry2.i, i32 noundef %copy)
+  %call4.i = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %object, ptr noundef %arrayidx.i35, ptr noundef %entry2.i, i32 noundef %copy)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %entry2.i)
   %tobool18.not = icmp eq i32 %call4.i, 0
   br i1 %tobool18.not, label %return, label %if.end20

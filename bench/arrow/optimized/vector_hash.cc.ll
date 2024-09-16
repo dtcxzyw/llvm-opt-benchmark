@@ -18687,7 +18687,7 @@ _ZN5arrow6StatusD2Ev.exit:
 do.end5:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit
   %state_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %state_.i, align 8
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_120EnsureHashDictionaryEPNS0_13KernelContextEPNS2_20DictionaryHashKernelE(ptr noalias nonnull align 8 %ref.tmp9, ptr noundef nonnull %ctx, ptr noundef %1)
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_120EnsureHashDictionaryEPNS0_13KernelContextEPNS2_20DictionaryHashKernelE(ptr noalias align 8 %ref.tmp9, ptr noundef nonnull %ctx, ptr noundef %1)
   %2 = load ptr, ptr %ref.tmp9, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %invoke.cont23, label %cond.false.i
@@ -19468,7 +19468,7 @@ if.else.i.i.i.i.cont:                             ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont36:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit115
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_114BoxValueCountsERKSt10shared_ptrINS_9ArrayDataEES7_(ptr noalias nonnull align 8 %agg.tmp34, ptr noundef nonnull align 8 dereferenceable(16) %uniques, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_114BoxValueCountsERKSt10shared_ptrINS_9ArrayDataEES7_(ptr noalias align 8 %agg.tmp34, ptr noundef nonnull align 8 dereferenceable(16) %uniques, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont38 unwind label %lpad35
 
 invoke.cont38:                                    ; preds = %invoke.cont36
@@ -20599,7 +20599,7 @@ _ZN5arrow6StatusD2Ev.exit84:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i85, label %_ZN5arrow6StatusD2Ev.exit121, label %cleanup76
 
 _ZN5arrow6StatusD2Ev.exit121:                     ; preds = %_ZN5arrow6StatusD2Ev.exit84
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_120EnsureHashDictionaryEPNS0_13KernelContextEPNS2_20DictionaryHashKernelE(ptr noalias nonnull align 8 %ref.tmp32, ptr noundef nonnull %ctx, ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_120EnsureHashDictionaryEPNS0_13KernelContextEPNS2_20DictionaryHashKernelE(ptr noalias align 8 %ref.tmp32, ptr noundef nonnull %ctx, ptr noundef nonnull %0)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit121
@@ -20761,7 +20761,7 @@ if.else.i.i.i.i.cont:                             ; preds = %if.then.i.i.i144
   unreachable
 
 invoke.cont53:                                    ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_114BoxValueCountsERKSt10shared_ptrINS_9ArrayDataEES7_(ptr noalias nonnull align 8 %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %uniques, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_114BoxValueCountsERKSt10shared_ptrINS_9ArrayDataEES7_(ptr noalias align 8 %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %uniques, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont55 unwind label %lpad52
 
 invoke.cont55:                                    ; preds = %invoke.cont53
@@ -24449,7 +24449,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_120EnsureHashDictionaryEPNS0_13KernelContextEPNS2_20DictionaryHashKernelE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %hash) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_120EnsureHashDictionaryEPNS0_13KernelContextEPNS2_20DictionaryHashKernelE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %hash) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.arrow::Result.140", align 8
   %ref.tmp5 = alloca %"class.std::shared_ptr.12", align 8
@@ -25524,7 +25524,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZN5arrow7compute5match10SameTypeIdENS_4Type4typeE(ptr sret(%"class.std::shared_ptr.31") align 8, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_114BoxValueCountsERKSt10shared_ptrINS_9ArrayDataEES7_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %uniques, ptr noundef nonnull align 8 dereferenceable(16) %counts) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_114BoxValueCountsERKSt10shared_ptrINS_9ArrayDataEES7_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %uniques, ptr noundef nonnull align 8 dereferenceable(16) %counts) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %data_type = alloca %"class.std::shared_ptr.12", align 8
   %ref.tmp = alloca %"class.std::vector.168", align 8
@@ -48045,7 +48045,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1102)
   %11 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !1105
   store ptr %11, ptr %agg.result, align 8, !alias.scope !1105
@@ -48084,7 +48084,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1101
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1101
   call void @llvm.experimental.noalias.scope.decl(metadata !1107)
   %14 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !1110
   store ptr %14, ptr %agg.result, align 8, !alias.scope !1110
@@ -48112,7 +48112,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1112)
   %19 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !1115
   store ptr %19, ptr %agg.result, align 8, !alias.scope !1115
@@ -48121,7 +48121,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1101
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1101
   call void @llvm.experimental.noalias.scope.decl(metadata !1116)
   %20 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !1119
   store ptr %20, ptr %agg.result, align 8, !alias.scope !1119
@@ -51140,7 +51140,7 @@ if.then28:                                        ; preds = %invoke.cont27
 if.end37:                                         ; preds = %if.then28, %invoke.cont27
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp39, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp39, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad40
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end37
@@ -51815,7 +51815,7 @@ cleanup89:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.375", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -52071,7 +52071,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -52218,7 +52218,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -52656,6 +52656,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !1348
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
+  %conv.i.i.i = trunc nuw nsw i64 %length to i32
+  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %add.ptr13.val.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 1, !alias.scope !1347
@@ -52674,14 +52676,11 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %mul.i.i32.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
   %shr.i4.i.i33.i.i = lshr i64 %mul.i.i32.i.i, 32
   %xor.i5.i.i34.i.i = xor i64 %shr.i4.i.i33.i.i, %mul.i.i32.i.i
-  %cmp203.i.i.i = icmp ugt i64 %length, 143
-  br i1 %cmp203.i.i.i, label %for.body21.preheader.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i
+  %cmp203.not.i.i.i = icmp eq i32 %div25.i.i.i, 8
+  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.preheader.i.i.i
 
 for.body21.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %conv.i.i.i = trunc nuw i64 %length to i32
-  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
-  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div25.i.i.i, i32 9)
-  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %div25.i.i.i to i64
   br label %for.body21.i.i.i
 
 for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %for.body21.preheader.i.i.i
@@ -52821,7 +52820,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i:     ; preds = %for.body.i29.i.i.i.
   br i1 %exitcond.not.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1403
 
 for.end.i.i.i.i:                                  ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i, %if.end9.i.i
-  %mul9.i.i.i.i = mul nuw i64 %div2.i.i.i.i, 576
+  %mul9.i.i.i.i = mul nuw nsw i64 %div2.i.i.i.i, 576
   %div1127.i.i.i.i = lshr i64 %sub10.i.i.i.i.recomposed, 6
   %cmp13.i.i.i.i = icmp ult i64 %sub10.i.i.i.i.recomposed, 1152
   tail call void @llvm.assume(i1 %cmp13.i.i.i.i)
@@ -53888,7 +53887,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1545)
   %11 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !1548
   store ptr %11, ptr %agg.result, align 8, !alias.scope !1548
@@ -53927,7 +53926,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1544
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1544
   call void @llvm.experimental.noalias.scope.decl(metadata !1550)
   %14 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !1553
   store ptr %14, ptr %agg.result, align 8, !alias.scope !1553
@@ -53955,7 +53954,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1555)
   %19 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !1558
   store ptr %19, ptr %agg.result, align 8, !alias.scope !1558
@@ -53964,7 +53963,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1544
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1544
   call void @llvm.experimental.noalias.scope.decl(metadata !1559)
   %20 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !1562
   store ptr %20, ptr %agg.result, align 8, !alias.scope !1562
@@ -57623,7 +57622,7 @@ cleanup88:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp14.i.i.i = alloca %"class.arrow::Status", align 8
@@ -57758,7 +57757,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTyp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -58858,7 +58857,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !1876
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !1876
   call void @llvm.experimental.noalias.scope.decl(metadata !1877)
   %10 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !1880
   store ptr %10, ptr %agg.result, align 8, !alias.scope !1880
@@ -58898,7 +58897,7 @@ _ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 _ZN5arrow6StatusD2Ev.exit96.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i
   %i15.0296.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i ]
   %visit_null.val.val.val.i.i.i.i = load ptr, ptr %9, align 8, !noalias !1882
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr %visit_null.val.val.val.i.i.i.i), !noalias !1876
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr %visit_null.val.val.val.i.i.i.i), !noalias !1876
   call void @llvm.experimental.noalias.scope.decl(metadata !1885)
   %13 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !1888
   store ptr %13, ptr %agg.result, align 8, !alias.scope !1888
@@ -58926,7 +58925,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !1876
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !1876
   call void @llvm.experimental.noalias.scope.decl(metadata !1890)
   %18 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !1893
   store ptr %18, ptr %agg.result, align 8, !alias.scope !1893
@@ -58936,7 +58935,7 @@ _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit242.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   %visit_null.val21.val.val.i.i.i.i = load ptr, ptr %9, align 8, !noalias !1882
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr %visit_null.val21.val.val.i.i.i.i), !noalias !1876
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr %visit_null.val21.val.val.i.i.i.i), !noalias !1876
   call void @llvm.experimental.noalias.scope.decl(metadata !1894)
   %19 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !1897
   store ptr %19, ptr %agg.result, align 8, !alias.scope !1897
@@ -60012,7 +60011,7 @@ _ZN5arrow8internal17StringHeapBuilder6AppendILb0EEENSt11conditionalIXT_ENS_6Resu
 declare { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %index) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %index) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -60176,7 +60175,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewType
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val.0.val.104.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val.0.val.104.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1956)
@@ -60846,7 +60845,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2011)
   %10 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !2014
   store ptr %10, ptr %agg.result, align 8, !alias.scope !2014
@@ -60885,7 +60884,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !2010
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !2010
   call void @llvm.experimental.noalias.scope.decl(metadata !2016)
   %13 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !2019
   store ptr %13, ptr %agg.result, align 8, !alias.scope !2019
@@ -60913,7 +60912,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2021)
   %18 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !2024
   store ptr %18, ptr %agg.result, align 8, !alias.scope !2024
@@ -60922,7 +60921,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %return
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !2010
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !2010
   call void @llvm.experimental.noalias.scope.decl(metadata !2025)
   %19 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !2028
   store ptr %19, ptr %agg.result, align 8, !alias.scope !2028
@@ -61085,7 +61084,7 @@ if.then25.i:                                      ; preds = %if.end17.i
 invoke.cont16:                                    ; preds = %if.then25.i, %if.end17.i, %if.then4.i, %call.i.noexc
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp18, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp18, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad19
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont16
@@ -61722,7 +61721,7 @@ cleanup62:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -61859,7 +61858,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinar
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -74147,7 +74146,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !2610
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !2610
   call void @llvm.experimental.noalias.scope.decl(metadata !2611)
   %6 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !2614
   store ptr %6, ptr %agg.result, align 8, !alias.scope !2614
@@ -74186,7 +74185,7 @@ _ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit96.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i
   %i15.0296.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !2610
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !2610
   call void @llvm.experimental.noalias.scope.decl(metadata !2616)
   %9 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !2619
   store ptr %9, ptr %agg.result, align 8, !alias.scope !2619
@@ -74214,7 +74213,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !2610
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !2610
   call void @llvm.experimental.noalias.scope.decl(metadata !2621)
   %14 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !2624
   store ptr %14, ptr %agg.result, align 8, !alias.scope !2624
@@ -74223,7 +74222,7 @@ _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i170.i.i.i.i, label %for.inc99.i.i.i.i, label %return
 
 _ZN5arrow6StatusD2Ev.exit242.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !2610
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !2610
   call void @llvm.experimental.noalias.scope.decl(metadata !2625)
   %15 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !2628
   store ptr %15, ptr %agg.result, align 8, !alias.scope !2628
@@ -74259,7 +74258,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8
@@ -74381,7 +74380,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.arrow::Status", align 8
   store ptr null, ptr %s, align 8, !alias.scope !2643
@@ -75199,7 +75198,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0303.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1302.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0306.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !2690
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !2690
   call void @llvm.experimental.noalias.scope.decl(metadata !2691)
   %4 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !2694
   store ptr %4, ptr %agg.result, align 8, !alias.scope !2694
@@ -75238,7 +75237,7 @@ _ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit99.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i
   %i15.0299.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !2690
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !2690
   call void @llvm.experimental.noalias.scope.decl(metadata !2696)
   %7 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !2699
   store ptr %7, ptr %agg.result, align 8, !alias.scope !2699
@@ -75266,7 +75265,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit245.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !2690
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !2690
   call void @llvm.experimental.noalias.scope.decl(metadata !2701)
   %12 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !2704
   store ptr %12, ptr %agg.result, align 8, !alias.scope !2704
@@ -75275,7 +75274,7 @@ _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i173.i.i.i.i, label %for.inc99.i.i.i.i, label %return
 
 _ZN5arrow6StatusD2Ev.exit245.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !2690
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !2690
   call void @llvm.experimental.noalias.scope.decl(metadata !2705)
   %13 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !2708
   store ptr %13, ptr %agg.result, align 8, !alias.scope !2708
@@ -75307,7 +75306,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.arrow::Status", align 8
   %arrayidx = getelementptr inbounds i8, ptr %this.8.val.0.val, i64 %i
@@ -75430,7 +75429,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_17ValueCountsActionEhLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.arrow::Status", align 8
   store ptr null, ptr %s, align 8, !alias.scope !2723
@@ -76108,7 +76107,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0336.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1335.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0339.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEtLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1335.i.i.i.i), !noalias !2758
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEtLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1335.i.i.i.i), !noalias !2758
   call void @llvm.experimental.noalias.scope.decl(metadata !2759)
   %5 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !2762
   store ptr %5, ptr %agg.result, align 8, !alias.scope !2762
@@ -76216,7 +76215,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %do.body77.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEtLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4328.i.i.i.i), !noalias !2758
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEtLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4328.i.i.i.i), !noalias !2758
   call void @llvm.experimental.noalias.scope.decl(metadata !2776)
   %17 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !2779
   store ptr %17, ptr %agg.result, align 8, !alias.scope !2779
@@ -76290,7 +76289,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEtLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEtLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %s.i = alloca %"class.arrow::Status", align 8
@@ -77056,7 +77055,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0336.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1335.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0339.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEjLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1335.i.i.i.i), !noalias !2846
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEjLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1335.i.i.i.i), !noalias !2846
   call void @llvm.experimental.noalias.scope.decl(metadata !2847)
   %5 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !2850
   store ptr %5, ptr %agg.result, align 8, !alias.scope !2850
@@ -77164,7 +77163,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %do.body77.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEjLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4328.i.i.i.i), !noalias !2846
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEjLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4328.i.i.i.i), !noalias !2846
   call void @llvm.experimental.noalias.scope.decl(metadata !2864)
   %17 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !2867
   store ptr %17, ptr %agg.result, align 8, !alias.scope !2867
@@ -77238,7 +77237,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEjLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEjLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %s.i = alloca %"class.arrow::Status", align 8
@@ -78004,7 +78003,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0336.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1335.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0339.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEmLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1335.i.i.i.i), !noalias !2934
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEmLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1335.i.i.i.i), !noalias !2934
   call void @llvm.experimental.noalias.scope.decl(metadata !2935)
   %5 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !2938
   store ptr %5, ptr %agg.result, align 8, !alias.scope !2938
@@ -78112,7 +78111,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %do.body77.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEmLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4328.i.i.i.i), !noalias !2934
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEmLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4328.i.i.i.i), !noalias !2934
   call void @llvm.experimental.noalias.scope.decl(metadata !2952)
   %17 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !2955
   store ptr %17, ptr %agg.result, align 8, !alias.scope !2955
@@ -78186,7 +78185,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEmLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEmLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %s.i = alloca %"class.arrow::Status", align 8
@@ -78990,7 +78989,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3027)
   %11 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3030
   store ptr %11, ptr %agg.result, align 8, !alias.scope !3030
@@ -79029,7 +79028,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3026
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3026
   call void @llvm.experimental.noalias.scope.decl(metadata !3032)
   %14 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3035
   store ptr %14, ptr %agg.result, align 8, !alias.scope !3035
@@ -79057,7 +79056,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3037)
   %19 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3040
   store ptr %19, ptr %agg.result, align 8, !alias.scope !3040
@@ -79066,7 +79065,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb1EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3026
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3026
   call void @llvm.experimental.noalias.scope.decl(metadata !3041)
   %20 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3044
   store ptr %20, ptr %agg.result, align 8, !alias.scope !3044
@@ -79109,7 +79108,7 @@ return:                                           ; preds = %_ZN5arrow8internalL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -79381,7 +79380,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %s.i = alloca %"class.arrow::Status", align 8
@@ -80203,7 +80202,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3127)
   %11 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3130
   store ptr %11, ptr %agg.result, align 8, !alias.scope !3130
@@ -80242,7 +80241,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3126
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3126
   call void @llvm.experimental.noalias.scope.decl(metadata !3132)
   %14 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3135
   store ptr %14, ptr %agg.result, align 8, !alias.scope !3135
@@ -80270,7 +80269,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3137)
   %19 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3140
   store ptr %19, ptr %agg.result, align 8, !alias.scope !3140
@@ -80279,7 +80278,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb1EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3126
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3126
   call void @llvm.experimental.noalias.scope.decl(metadata !3141)
   %20 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3144
   store ptr %20, ptr %agg.result, align 8, !alias.scope !3144
@@ -80322,7 +80321,7 @@ return:                                           ; preds = %_ZN5arrow8internalL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp14.i.i.i = alloca %"class.arrow::Status", align 8
@@ -80582,7 +80581,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTyp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %s.i = alloca %"class.arrow::Status", align 8
@@ -81383,7 +81382,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !3226
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !3226
   call void @llvm.experimental.noalias.scope.decl(metadata !3227)
   %9 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3230
   store ptr %9, ptr %agg.result, align 8, !alias.scope !3230
@@ -81422,7 +81421,7 @@ _ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit96.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i
   %i15.0296.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !3226
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !3226
   call void @llvm.experimental.noalias.scope.decl(metadata !3232)
   %12 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3235
   store ptr %12, ptr %agg.result, align 8, !alias.scope !3235
@@ -81450,7 +81449,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !3226
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !3226
   call void @llvm.experimental.noalias.scope.decl(metadata !3237)
   %17 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3240
   store ptr %17, ptr %agg.result, align 8, !alias.scope !3240
@@ -81459,7 +81458,7 @@ _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i170.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb1EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit242.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !3226
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !3226
   call void @llvm.experimental.noalias.scope.decl(metadata !3241)
   %18 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3244
   store ptr %18, ptr %agg.result, align 8, !alias.scope !3244
@@ -81498,7 +81497,7 @@ return:                                           ; preds = %_ZN5arrow8internalL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %index) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %index) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -81787,7 +81786,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewType
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %s.i = alloca %"class.arrow::Status", align 8
@@ -82583,7 +82582,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3324)
   %10 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3327
   store ptr %10, ptr %agg.result, align 8, !alias.scope !3327
@@ -82622,7 +82621,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !3323
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !3323
   call void @llvm.experimental.noalias.scope.decl(metadata !3329)
   %13 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3332
   store ptr %13, ptr %agg.result, align 8, !alias.scope !3332
@@ -82650,7 +82649,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3334)
   %18 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3337
   store ptr %18, ptr %agg.result, align 8, !alias.scope !3337
@@ -82659,7 +82658,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %return
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !3323
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !3323
   call void @llvm.experimental.noalias.scope.decl(metadata !3338)
   %19 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3341
   store ptr %19, ptr %agg.result, align 8, !alias.scope !3341
@@ -82697,7 +82696,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -82959,7 +82958,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinar
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %s.i = alloca %"class.arrow::Status", align 8
@@ -83741,7 +83740,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0336.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1335.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0339.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionENS2_13MonthDayNanosELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb1EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1335.i.i.i.i), !noalias !3419
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionENS2_13MonthDayNanosELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb1EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1335.i.i.i.i), !noalias !3419
   call void @llvm.experimental.noalias.scope.decl(metadata !3420)
   %5 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3423
   store ptr %5, ptr %agg.result, align 8, !alias.scope !3423
@@ -83849,7 +83848,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %do.body77.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionENS2_13MonthDayNanosELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb1EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4328.i.i.i.i), !noalias !3419
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionENS2_13MonthDayNanosELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb1EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4328.i.i.i.i), !noalias !3419
   call void @llvm.experimental.noalias.scope.decl(metadata !3437)
   %17 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3440
   store ptr %17, ptr %agg.result, align 8, !alias.scope !3440
@@ -83923,7 +83922,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionENS2_13MonthDayNanosELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb1EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionENS2_13MonthDayNanosELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb1EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %s.i = alloca %"class.arrow::Status", align 8
@@ -91055,7 +91054,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !3838
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !3838
   call void @llvm.experimental.noalias.scope.decl(metadata !3839)
   %10 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3842
   store ptr %10, ptr %agg.result, align 8, !alias.scope !3842
@@ -91094,7 +91093,7 @@ _ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit96.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i
   %i15.0296.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !3838
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !3838
   call void @llvm.experimental.noalias.scope.decl(metadata !3844)
   %13 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3847
   store ptr %13, ptr %agg.result, align 8, !alias.scope !3847
@@ -91122,7 +91121,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !3838
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !3838
   call void @llvm.experimental.noalias.scope.decl(metadata !3849)
   %18 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3852
   store ptr %18, ptr %agg.result, align 8, !alias.scope !3852
@@ -91131,7 +91130,7 @@ _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i170.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanE.exit
 
 _ZN5arrow6StatusD2Ev.exit242.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !3838
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !3838
   call void @llvm.experimental.noalias.scope.decl(metadata !3853)
   %19 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3856
   store ptr %19, ptr %agg.result, align 8, !alias.scope !3856
@@ -91170,7 +91169,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -91292,7 +91291,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
@@ -92046,7 +92045,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0303.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1302.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0306.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !3914
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !3914
   call void @llvm.experimental.noalias.scope.decl(metadata !3915)
   %8 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3918
   store ptr %8, ptr %agg.result, align 8, !alias.scope !3918
@@ -92085,7 +92084,7 @@ _ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit99.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i
   %i15.0299.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !3914
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !3914
   call void @llvm.experimental.noalias.scope.decl(metadata !3920)
   %11 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3923
   store ptr %11, ptr %agg.result, align 8, !alias.scope !3923
@@ -92113,7 +92112,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit245.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !3914
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !3914
   call void @llvm.experimental.noalias.scope.decl(metadata !3925)
   %16 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3928
   store ptr %16, ptr %agg.result, align 8, !alias.scope !3928
@@ -92122,7 +92121,7 @@ _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i173.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanE.exit
 
 _ZN5arrow6StatusD2Ev.exit245.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !3914
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !3914
   call void @llvm.experimental.noalias.scope.decl(metadata !3929)
   %17 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3932
   store ptr %17, ptr %agg.result, align 8, !alias.scope !3932
@@ -92157,7 +92156,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlhE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %this.8.val.0.val, i64 %i
   %0 = load i8, ptr %arrayidx, align 1
@@ -92280,7 +92279,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
@@ -93061,7 +93060,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0303.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1302.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0306.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !3990
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !3990
   call void @llvm.experimental.noalias.scope.decl(metadata !3991)
   %8 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3994
   store ptr %8, ptr %agg.result, align 8, !alias.scope !3994
@@ -93100,7 +93099,7 @@ _ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit99.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i
   %i15.0299.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !3990
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !3990
   call void @llvm.experimental.noalias.scope.decl(metadata !3996)
   %11 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3999
   store ptr %11, ptr %agg.result, align 8, !alias.scope !3999
@@ -93128,7 +93127,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit245.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !3990
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !3990
   call void @llvm.experimental.noalias.scope.decl(metadata !4001)
   %16 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4004
   store ptr %16, ptr %agg.result, align 8, !alias.scope !4004
@@ -93137,7 +93136,7 @@ _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i173.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanE.exit
 
 _ZN5arrow6StatusD2Ev.exit245.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !3990
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !3990
   call void @llvm.experimental.noalias.scope.decl(metadata !4005)
   %17 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4008
   store ptr %17, ptr %agg.result, align 8, !alias.scope !4008
@@ -93172,7 +93171,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUltE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %arrayidx = getelementptr inbounds i16, ptr %this.8.val.0.val, i64 %i
@@ -93294,7 +93293,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
@@ -94007,7 +94006,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0303.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1302.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0306.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !4076
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !4076
   call void @llvm.experimental.noalias.scope.decl(metadata !4077)
   %8 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4080
   store ptr %8, ptr %agg.result, align 8, !alias.scope !4080
@@ -94046,7 +94045,7 @@ _ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit99.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i
   %i15.0299.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !4076
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !4076
   call void @llvm.experimental.noalias.scope.decl(metadata !4082)
   %11 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4085
   store ptr %11, ptr %agg.result, align 8, !alias.scope !4085
@@ -94074,7 +94073,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit245.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !4076
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !4076
   call void @llvm.experimental.noalias.scope.decl(metadata !4087)
   %16 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4090
   store ptr %16, ptr %agg.result, align 8, !alias.scope !4090
@@ -94083,7 +94082,7 @@ _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i173.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanE.exit
 
 _ZN5arrow6StatusD2Ev.exit245.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !4076
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !4076
   call void @llvm.experimental.noalias.scope.decl(metadata !4091)
   %17 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4094
   store ptr %17, ptr %agg.result, align 8, !alias.scope !4094
@@ -94118,7 +94117,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUljE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %arrayidx = getelementptr inbounds i32, ptr %this.8.val.0.val, i64 %i
@@ -94240,7 +94239,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
@@ -94953,7 +94952,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0303.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1302.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0306.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !4162
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !4162
   call void @llvm.experimental.noalias.scope.decl(metadata !4163)
   %8 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4166
   store ptr %8, ptr %agg.result, align 8, !alias.scope !4166
@@ -94992,7 +94991,7 @@ _ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit99.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i
   %i15.0299.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !4162
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !4162
   call void @llvm.experimental.noalias.scope.decl(metadata !4168)
   %11 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4171
   store ptr %11, ptr %agg.result, align 8, !alias.scope !4171
@@ -95020,7 +95019,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit245.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !4162
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !4162
   call void @llvm.experimental.noalias.scope.decl(metadata !4173)
   %16 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4176
   store ptr %16, ptr %agg.result, align 8, !alias.scope !4176
@@ -95029,7 +95028,7 @@ _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i173.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanE.exit
 
 _ZN5arrow6StatusD2Ev.exit245.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !4162
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !4162
   call void @llvm.experimental.noalias.scope.decl(metadata !4177)
   %17 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4180
   store ptr %17, ptr %agg.result, align 8, !alias.scope !4180
@@ -95064,7 +95063,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlmE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %arrayidx = getelementptr inbounds i64, ptr %this.8.val.0.val, i64 %i
@@ -95184,7 +95183,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
@@ -95941,7 +95940,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4253)
   %15 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4256
   store ptr %15, ptr %agg.result, align 8, !alias.scope !4256
@@ -95980,7 +95979,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4252
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4252
   call void @llvm.experimental.noalias.scope.decl(metadata !4258)
   %18 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4261
   store ptr %18, ptr %agg.result, align 8, !alias.scope !4261
@@ -96008,7 +96007,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4263)
   %23 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4266
   store ptr %23, ptr %agg.result, align 8, !alias.scope !4266
@@ -96017,7 +96016,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4252
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4252
   call void @llvm.experimental.noalias.scope.decl(metadata !4267)
   %24 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4270
   store ptr %24, ptr %agg.result, align 8, !alias.scope !4270
@@ -96063,7 +96062,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -96244,7 +96243,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -97168,7 +97167,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4364)
   %15 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4367
   store ptr %15, ptr %agg.result, align 8, !alias.scope !4367
@@ -97207,7 +97206,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4363
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4363
   call void @llvm.experimental.noalias.scope.decl(metadata !4369)
   %18 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4372
   store ptr %18, ptr %agg.result, align 8, !alias.scope !4372
@@ -97235,7 +97234,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4374)
   %23 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4377
   store ptr %23, ptr %agg.result, align 8, !alias.scope !4377
@@ -97244,7 +97243,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4363
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4363
   call void @llvm.experimental.noalias.scope.decl(metadata !4378)
   %24 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4381
   store ptr %24, ptr %agg.result, align 8, !alias.scope !4381
@@ -97290,7 +97289,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp14.i.i.i = alloca %"class.arrow::Status", align 8
@@ -97459,7 +97458,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTyp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -98362,7 +98361,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !4474
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !4474
   call void @llvm.experimental.noalias.scope.decl(metadata !4475)
   %13 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4478
   store ptr %13, ptr %agg.result, align 8, !alias.scope !4478
@@ -98401,7 +98400,7 @@ _ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit96.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i
   %i15.0296.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit96.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !4474
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !4474
   call void @llvm.experimental.noalias.scope.decl(metadata !4480)
   %16 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4483
   store ptr %16, ptr %agg.result, align 8, !alias.scope !4483
@@ -98429,7 +98428,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !4474
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.4292.i.i.i.i), !noalias !4474
   call void @llvm.experimental.noalias.scope.decl(metadata !4485)
   %21 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4488
   store ptr %21, ptr %agg.result, align 8, !alias.scope !4488
@@ -98438,7 +98437,7 @@ _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i170.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit242.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !4474
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !4474
   call void @llvm.experimental.noalias.scope.decl(metadata !4489)
   %22 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4492
   store ptr %22, ptr %agg.result, align 8, !alias.scope !4492
@@ -98480,7 +98479,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %index) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %index) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -98678,7 +98677,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewType
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4525)
@@ -99576,7 +99575,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4583)
   %14 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4586
   store ptr %14, ptr %agg.result, align 8, !alias.scope !4586
@@ -99615,7 +99614,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !4582
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !4582
   call void @llvm.experimental.noalias.scope.decl(metadata !4588)
   %17 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4591
   store ptr %17, ptr %agg.result, align 8, !alias.scope !4591
@@ -99643,7 +99642,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4593)
   %22 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4596
   store ptr %22, ptr %agg.result, align 8, !alias.scope !4596
@@ -99652,7 +99651,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanE.exit
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !4582
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !4582
   call void @llvm.experimental.noalias.scope.decl(metadata !4597)
   %23 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4600
   store ptr %23, ptr %agg.result, align 8, !alias.scope !4600
@@ -99693,7 +99692,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp15.i.i.i = alloca %"class.arrow::Status", align 8
@@ -99864,7 +99863,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinar
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -100744,7 +100743,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0303.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1302.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0306.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionENS2_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb0EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !4689
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionENS2_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb0EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1302.i.i.i.i), !noalias !4689
   call void @llvm.experimental.noalias.scope.decl(metadata !4690)
   %8 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4693
   store ptr %8, ptr %agg.result, align 8, !alias.scope !4693
@@ -100783,7 +100782,7 @@ _ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit99.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i
   %i15.0299.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit99.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !4689
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp23.i.i.i.i, ptr nonnull %this), !noalias !4689
   call void @llvm.experimental.noalias.scope.decl(metadata !4695)
   %11 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4698
   store ptr %11, ptr %agg.result, align 8, !alias.scope !4698
@@ -100811,7 +100810,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit245.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionENS2_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb0EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !4689
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionENS2_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb0EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull %this, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4295.i.i.i.i), !noalias !4689
   call void @llvm.experimental.noalias.scope.decl(metadata !4700)
   %16 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4703
   store ptr %16, ptr %agg.result, align 8, !alias.scope !4703
@@ -100820,7 +100819,7 @@ _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i173.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanE.exit
 
 _ZN5arrow6StatusD2Ev.exit245.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !4689
+  call fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias align 8 %ref.tmp79.i.i.i.i, ptr nonnull %this), !noalias !4689
   call void @llvm.experimental.noalias.scope.decl(metadata !4704)
   %17 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4707
   store ptr %17, ptr %agg.result, align 8, !alias.scope !4707
@@ -100855,7 +100854,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionENS2_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb0EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_24MonthDayNanoIntervalTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionENS2_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSA_E_ZNSC_ILb0EEESG_SJ_EUlvE_EESE_SJ_OT_OT0_ENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %arrayidx = getelementptr inbounds %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %this.8.val.0.val, i64 %i
@@ -100986,7 +100985,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr i8, ptr %this.0.val, i64 336
   %action_.val = load i32, ptr %0, align 8
@@ -103361,9 +103360,6 @@ declare i64 @llvm.fshr.i64(i64, i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27

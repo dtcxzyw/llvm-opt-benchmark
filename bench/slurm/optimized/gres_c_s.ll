@@ -509,7 +509,7 @@ _build_shared_list.exit:                          ; preds = %_build_sharing_list
   %227 = phi ptr [ %223, %.lr.ph.i.i ], [ %233, %226 ]
   %.01417.i.i = phi i64 [ %221, %.lr.ph.i.i ], [ %232, %226 ]
   %228 = load ptr, ptr %224, align 8
-  %229 = tail call fastcc ptr @_create_shared_rec(ptr noundef nonnull %227, ptr noundef %228, ptr noundef nonnull %216)
+  %229 = tail call fastcc ptr @_create_shared_rec(ptr noundef %227, ptr noundef %228, ptr noundef nonnull %216)
   %230 = udiv i64 %.01417.i.i, %indvars.iv.i.i
   %231 = getelementptr inbounds i8, ptr %229, i64 8
   store i64 %230, ptr %231, align 8
@@ -605,7 +605,7 @@ _distribute_count.exit.i:                         ; preds = %226, %219
   br label %276
 
 273:                                              ; preds = %.lr.ph.i52
-  %274 = tail call fastcc ptr @_create_shared_rec(ptr noundef nonnull %237, ptr noundef %206, ptr noundef null)
+  %274 = tail call fastcc ptr @_create_shared_rec(ptr noundef %237, ptr noundef %206, ptr noundef null)
   %275 = getelementptr inbounds i8, ptr %274, i64 8
   store i64 0, ptr %275, align 8
   tail call void @slurm_list_append(ptr noundef %0, ptr noundef %274) #7
@@ -983,7 +983,7 @@ define internal range(i32 0, 2) i32 @_find_matching_file_gres(ptr nocapture noun
 declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_create_shared_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_create_shared_rec(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 46, ptr noundef nonnull @__func__._create_shared_rec) #7
   %5 = load i32, ptr %0, align 8
   store i32 %5, ptr %4, align 8

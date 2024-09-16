@@ -1091,7 +1091,7 @@ _filter_job_records.exit:                         ; preds = %._crit_edge.i42, %3
   unreachable
 
 400:                                              ; preds = %396
-  call fastcc void @_cancel_jobs_by_state(i32 noundef 0, ptr noundef nonnull %1)
+  call fastcc void @_cancel_jobs_by_state(i32 noundef 0, ptr noundef %1)
   %401 = call i32 @pthread_mutex_lock(ptr noundef nonnull @num_active_threads_lock) #13
   %.not30.i = icmp eq i32 %401, 0
   br i1 %.not30.i, label %.preheader38.i, label %404
@@ -1135,7 +1135,7 @@ _filter_job_records.exit:                         ; preds = %._crit_edge.i42, %3
   unreachable
 
 416:                                              ; preds = %._crit_edge.i46
-  call fastcc void @_cancel_jobs_by_state(i32 noundef 12, ptr noundef nonnull %1)
+  call fastcc void @_cancel_jobs_by_state(i32 noundef 12, ptr noundef %1)
   %417 = call i32 @pthread_mutex_lock(ptr noundef nonnull @num_active_threads_lock) #13
   %.not32.i = icmp eq i32 %417, 0
   br i1 %.not32.i, label %.preheader.i47, label %420
@@ -1653,7 +1653,7 @@ declare void @hostset_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @job_state_string(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_cancel_jobs_by_state(i32 noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_cancel_jobs_by_state(i32 noundef range(i32 0, 13) %0, ptr noundef nonnull %1) unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8

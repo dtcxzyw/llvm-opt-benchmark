@@ -2235,7 +2235,7 @@ tcp_metrics_flush_all.exit:                       ; preds = %87, %48, %22, %225
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -97, 1) i32 @tcp_metrics_fill_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -97, 1) i32 @tcp_metrics_fill_info(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4

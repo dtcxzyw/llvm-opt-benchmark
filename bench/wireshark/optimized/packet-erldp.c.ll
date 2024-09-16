@@ -940,7 +940,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %56 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %55, ptr noundef %2, i32 noundef %22, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #5
   %57 = add i32 %3, 2
   %58 = load i32, ptr %9, align 4
-  %59 = call fastcc i32 @dissect_etf_big_ext(ptr noundef %2, ptr noundef %1, i32 noundef %57, i32 noundef %58, ptr noundef %19, ptr noundef nonnull %16)
+  %59 = call fastcc i32 @dissect_etf_big_ext(ptr noundef %2, ptr noundef %1, i32 noundef %57, i32 noundef %58, ptr noundef %19, ptr noundef %16)
   br label %dissect_etf_type_content.exit
 
 60:                                               ; preds = %27
@@ -948,7 +948,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %62 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %61, ptr noundef %2, i32 noundef %22, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #5
   %63 = add i32 %3, 5
   %64 = load i32, ptr %9, align 4
-  %65 = call fastcc i32 @dissect_etf_big_ext(ptr noundef %2, ptr noundef %1, i32 noundef %63, i32 noundef %64, ptr noundef %19, ptr noundef nonnull %16)
+  %65 = call fastcc i32 @dissect_etf_big_ext(ptr noundef %2, ptr noundef %1, i32 noundef %63, i32 noundef %64, ptr noundef %19, ptr noundef %16)
   br label %dissect_etf_type_content.exit
 
 66:                                               ; preds = %27
@@ -1273,7 +1273,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #5
   %8 = add i32 %2, 1
   %9 = icmp ult i32 %3, 9
@@ -1416,7 +1416,7 @@ declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1446,7 +1446,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readon
   %25 = phi i32 [ %43, %.lr.ph ], [ 0, %16 ]
   %.08492 = phi i8 [ %42, %.lr.ph ], [ 0, %16 ]
   %26 = lshr i32 %25, 1
-  %27 = add i32 %26, %13
+  %27 = add nuw nsw i32 %26, %13
   %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %27) #5
   %29 = load i32, ptr @hf_etf_dist_header_new_cache, align 4
   %30 = zext i8 %28 to i32
@@ -1511,7 +1511,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readon
   %.08394 = phi i32 [ %61, %.lr.ph96 ], [ %.1, %101 ]
   %.18593 = phi i8 [ 0, %.lr.ph96 ], [ %102, %101 ]
   %72 = lshr i32 %71, 1
-  %73 = add i32 %72, %13
+  %73 = add nuw nsw i32 %72, %13
   %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %73) #5
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %71, 2

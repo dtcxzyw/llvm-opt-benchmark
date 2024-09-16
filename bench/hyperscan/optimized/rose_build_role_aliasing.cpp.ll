@@ -20143,7 +20143,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 declare void @_ZN3ue215duplicateReportERNS_8NGHolderEjj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19pruneReportIfUnusedERKNS_13RoseBuildImplESt10shared_ptrINS_8NGHolderEERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISE_ESaISE_EEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(780) %build, ptr nocapture noundef readonly %h, ptr noundef nonnull readonly align 8 dereferenceable(48) %verts, i32 noundef %report) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19pruneReportIfUnusedERKNS_13RoseBuildImplESt10shared_ptrINS_8NGHolderEERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISE_ESaISE_EEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly %h, ptr noundef nonnull readonly align 8 dereferenceable(48) %verts, i32 noundef %report) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %h_new = alloca %"class.std::unique_ptr.420", align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %verts, i64 24

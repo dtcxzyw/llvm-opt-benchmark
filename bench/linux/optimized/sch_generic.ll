@@ -4299,7 +4299,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc ptr @xfrm_offload(ptr nocapture noundef readonly %0) unnamed_addr #13 align 16 {
+define internal fastcc ptr @xfrm_offload(ptr nocapture noundef nonnull readonly %0) unnamed_addr #13 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 127
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 1

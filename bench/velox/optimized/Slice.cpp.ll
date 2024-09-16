@@ -6350,7 +6350,7 @@ entry:
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_113SliceFunction10applyArrayIlEESt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKSt6vectorISC_SaISC_EERS4_RKSA_IKNS0_4TypeEEEUlT_E_EEvSF_SR_EUlSR_E_EEvPKmiibSR_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_113SliceFunction10applyArrayIlEESt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKSt6vectorISC_SaISC_EERS4_RKSA_IKNS0_4TypeEEEUlT_E_EEvSF_SR_EUlSR_E_EEvPKmiibSR_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8

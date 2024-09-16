@@ -634,7 +634,7 @@ define hidden void @create_config(ptr nocapture noundef %0, ptr noundef %1) loca
 
 23:                                               ; preds = %2
   %24 = load ptr, ptr %0, align 8
-  tail call fastcc void @parse_config_file(ptr noundef %24, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %18, i32 noundef 1)
+  tail call fastcc void @parse_config_file(ptr noundef %24, ptr noundef %20, ptr noundef %1, ptr noundef %18, i32 noundef 1)
   %25 = tail call i32 @fclose(ptr noundef nonnull %20)
   br label %26
 
@@ -700,14 +700,14 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare void @report_failure(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_config_file(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @parse_config_file(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca [4096 x i8], align 16
   %8 = icmp sgt i32 %4, 8
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %9 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef %1)
+  %9 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %1)
   %.not98 = icmp eq ptr %9, null
   br i1 %.not98, label %.loopexit, label %.lr.ph100
 
@@ -1167,7 +1167,7 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
   br label %parse_include_file.exit
 
 parse_include_file.exit:                          ; preds = %181, %182
-  call fastcc void @parse_config_file(ptr noundef %0, ptr noundef nonnull %178, ptr noundef %.1.i, ptr noundef %3, i32 noundef %17)
+  call fastcc void @parse_config_file(ptr noundef %0, ptr noundef %178, ptr noundef %.1.i, ptr noundef %3, i32 noundef %17)
   call void @g_free(ptr noundef %.1.i) #16
   %185 = call i32 @fclose(ptr noundef nonnull %178)
   br label %.backedge
@@ -1728,7 +1728,7 @@ process_rule_option.exit.i:                       ; preds = %408, %405, %403, %4
   br label %.backedge
 
 .backedge:                                        ; preds = %211, %208, %186, %420, %22, %22, %.critedge, %parse_include_file.exit
-  %428 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef %1)
+  %428 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %1)
   %.not = icmp eq ptr %428, null
   br i1 %.not, label %.loopexit, label %22, !llvm.loop !13
 

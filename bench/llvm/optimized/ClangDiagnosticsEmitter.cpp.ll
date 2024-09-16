@@ -1993,7 +1993,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit204:              ; preds = %741, %739, %734, %7
 
 _ZN4llvm11raw_ostreamlsEPKc.exit210:              ; preds = %750, %752
   %.0.i.i209 = phi ptr [ %751, %750 ], [ %1, %752 ]
-  call fastcc void @_ZL21getDiagnosticCategoryB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull %248, ptr noundef nonnull align 8 dereferenceable(56) %30)
+  call fastcc void @_ZL21getDiagnosticCategoryB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull %248, ptr noundef nonnull align 8 dereferenceable(56) %30)
   %755 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #19
   %756 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #19
   %757 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %755, i64 %756) #19
@@ -2570,7 +2570,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_19Gr
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_19GroupInfoESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_.exit
 
 81:                                               ; preds = %.critedge.i
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull %64) #19
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E(ptr noundef %64) #19
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_19GroupInfoESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_19GroupInfoESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_.exit: ; preds = %60, %.thread.i.i, %81
@@ -3139,7 +3139,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %34 = load ptr, ptr %6, align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
-  call fastcc void @_ZL21getDiagnosticCategoryB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call fastcc void @_ZL21getDiagnosticCategoryB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %37 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br i1 %37, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, label %38
 
@@ -4333,7 +4333,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13
 declare noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21getDiagnosticCategoryB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL21getDiagnosticCategoryB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = tail call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.9, i64 5) #19
@@ -9744,7 +9744,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_19Gr
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit
 
 31:                                               ; preds = %.critedge
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull %13) #19
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E(ptr noundef %13) #19
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit: ; preds = %31, %.thread.i, %9
@@ -9796,7 +9796,7 @@ declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull 
 declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_121DiagnosticTextBuilder8DiagText13parseDiagTextERN4llvm9StringRefENS1_6StopAtE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_121DiagnosticTextBuilder8DiagText13parseDiagTextERN4llvm9StringRefENS1_6StopAtE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -12853,7 +12853,7 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   %4 = load ptr, ptr %2, align 8
@@ -15615,7 +15615,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24getCategoryFromDiagGroupB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL24getCategoryFromDiagGroupB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::tuple.137", align 8
   %5 = alloca %"class.std::tuple.119", align 1
   %6 = alloca ptr, align 8
@@ -15718,7 +15718,7 @@ _ZN12_GLOBAL__N_118DiagGroupParentMap10getParentsEPKN4llvm6RecordE.exit: ; preds
   %48 = load ptr, ptr %37, align 8
   %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
-  call fastcc void @_ZL24getCategoryFromDiagGroupB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  call fastcc void @_ZL24getCategoryFromDiagGroupB5cxx11PKN4llvm6RecordERN12_GLOBAL__N_118DiagGroupParentMapE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %51 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   %52 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
@@ -15788,7 +15788,7 @@ define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull %.02) #19
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_19GroupInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E(ptr noundef %.02) #19
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !194
 
@@ -19193,7 +19193,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %27 = getelementptr inbounds %"struct.(anonymous namespace)::RecordIndexElement", ptr %0, i64 %.08.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %27) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13) #19
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_118RecordIndexElementESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5clang23EmitClangDiagsIndexNameERN4llvm12RecordKeeperERNSC_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa44, ptr noundef nonnull %14)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_118RecordIndexElementESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5clang23EmitClangDiagsIndexNameERN4llvm12RecordKeeperERNSC_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa44, ptr noundef %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %28 = add nsw i64 %.08.i.i.i, -1
@@ -19217,7 +19217,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %33 = sub i64 %32, %15
   %34 = ashr exact i64 %33, 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11) #19
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_118RecordIndexElementESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5clang23EmitClangDiagsIndexNameERN4llvm12RecordKeeperERNSC_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %34, ptr noundef nonnull %12)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_118RecordIndexElementESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5clang23EmitClangDiagsIndexNameERN4llvm12RecordKeeperERNSC_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %34, ptr noundef %12)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -19359,7 +19359,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_118RecordIndexElementESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5clang23EmitClangDiagsIndexNameERN4llvm12RecordKeeperERNSC_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_118RecordIndexElementESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5clang23EmitClangDiagsIndexNameERN4llvm12RecordKeeperERNSC_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef range(i64 -288230376151711744, 288230376151711744) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.(anonymous namespace)::RecordIndexElement", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

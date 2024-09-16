@@ -254,7 +254,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %call.i = tail call fastcc i32 @hkdf_common_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef nonnull %params)
+  %call.i = tail call fastcc i32 @hkdf_common_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %kdf_hkdf_set_ctx_params.exit
 
@@ -325,12 +325,12 @@ sw.default:                                       ; preds = %if.end13
 
 if.end.i30:                                       ; preds = %sw.default
   %conv.i = zext nneg i32 %call.i28 to i64
-  %call1.i = call fastcc i32 @HKDF_Extract(ptr noundef %call, ptr noundef nonnull %call4, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %1, i64 noundef %5, ptr noundef nonnull %prk.i, i64 noundef %conv.i)
+  %call1.i = call fastcc i32 @HKDF_Extract(ptr noundef %call, ptr noundef %call4, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %1, i64 noundef %5, ptr noundef nonnull %prk.i, i64 noundef %conv.i)
   %tobool.not.i31 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i31, label %HKDF.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i30
-  %call5.i = call fastcc i32 @HKDF_Expand(ptr noundef nonnull %call4, ptr noundef nonnull %prk.i, i64 noundef %conv.i, ptr noundef %6, i64 noundef %7, ptr noundef %key, i64 noundef %keylen)
+  %call5.i = call fastcc i32 @HKDF_Expand(ptr noundef %call4, ptr noundef nonnull %prk.i, i64 noundef %conv.i, ptr noundef %6, i64 noundef %7, ptr noundef %key, i64 noundef %keylen)
   call void @OPENSSL_cleanse(ptr noundef nonnull %prk.i, i64 noundef 64) #7
   br label %HKDF.exit
 
@@ -346,7 +346,7 @@ sw.bb16:                                          ; preds = %if.end13
   %9 = load i64, ptr %salt_len18, align 8
   %key_len20 = getelementptr inbounds i8, ptr %vctx, i64 64
   %10 = load i64, ptr %key_len20, align 8
-  %call21 = tail call fastcc i32 @HKDF_Extract(ptr noundef %call, ptr noundef nonnull %call4, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %1, i64 noundef %10, ptr noundef %key, i64 noundef %keylen)
+  %call21 = tail call fastcc i32 @HKDF_Extract(ptr noundef %call, ptr noundef %call4, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %1, i64 noundef %10, ptr noundef %key, i64 noundef %keylen)
   br label %return
 
 sw.bb22:                                          ; preds = %if.end13
@@ -356,7 +356,7 @@ sw.bb22:                                          ; preds = %if.end13
   %12 = load ptr, ptr %info25, align 8
   %info_len26 = getelementptr inbounds i8, ptr %vctx, i64 128
   %13 = load i64, ptr %info_len26, align 8
-  %call27 = tail call fastcc i32 @HKDF_Expand(ptr noundef nonnull %call4, ptr noundef nonnull %1, i64 noundef %11, ptr noundef %12, i64 noundef %13, ptr noundef %key, i64 noundef %keylen)
+  %call27 = tail call fastcc i32 @HKDF_Expand(ptr noundef %call4, ptr noundef nonnull %1, i64 noundef %11, ptr noundef %12, i64 noundef %13, ptr noundef %key, i64 noundef %keylen)
   br label %return
 
 return:                                           ; preds = %if.end.i, %entry, %kdf_hkdf_set_ctx_params.exit, %sw.bb22, %sw.bb16, %HKDF.exit, %if.then12, %if.then9, %if.then5
@@ -377,7 +377,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @hkdf_common_set_ctx_params(ptr noundef %vctx, ptr noundef nonnull %params)
+  %call = tail call fastcc i32 @hkdf_common_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -527,16 +527,16 @@ if.then18.i:                                      ; preds = %lor.lhs.false14.i, 
 
 if.end19.i:                                       ; preds = %lor.lhs.false14.i
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call8.i) #7
-  %call22.i = call fastcc i32 @prov_tls13_hkdf_expand(ptr noundef nonnull %call3, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %hash.i, i64 noundef %conv.i, ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i)
+  %call22.i = call fastcc i32 @prov_tls13_hkdf_expand(ptr noundef %call3, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %hash.i, i64 noundef %conv.i, ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i)
   %tobool.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool.not.i, label %prov_tls13_hkdf_generate_secret.exit, label %if.then31.i
 
 if.end26.i:                                       ; preds = %if.end.i
-  %call27.i = tail call fastcc i32 @HKDF_Extract(ptr noundef %call6, ptr noundef nonnull %call3, ptr noundef nonnull @prov_tls13_hkdf_generate_secret.default_zeros, i64 noundef 0, ptr noundef nonnull %spec.select19.i, i64 noundef %spec.select.i, ptr noundef %key, i64 noundef %keylen)
+  %call27.i = tail call fastcc i32 @HKDF_Extract(ptr noundef %call6, ptr noundef %call3, ptr noundef nonnull @prov_tls13_hkdf_generate_secret.default_zeros, i64 noundef 0, ptr noundef nonnull %spec.select19.i, i64 noundef %spec.select.i, ptr noundef %key, i64 noundef %keylen)
   br label %prov_tls13_hkdf_generate_secret.exit
 
 if.then31.i:                                      ; preds = %if.end19.i
-  %call2722.i = call fastcc i32 @HKDF_Extract(ptr noundef %call6, ptr noundef nonnull %call3, ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i, ptr noundef nonnull %spec.select19.i, i64 noundef %spec.select.i, ptr noundef %key, i64 noundef %keylen)
+  %call2722.i = call fastcc i32 @HKDF_Extract(ptr noundef %call6, ptr noundef %call3, ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i, ptr noundef nonnull %spec.select19.i, i64 noundef %spec.select.i, ptr noundef %key, i64 noundef %keylen)
   call void @OPENSSL_cleanse(ptr noundef nonnull %preextractsec.i, i64 noundef %conv.i) #7
   br label %prov_tls13_hkdf_generate_secret.exit
 
@@ -563,7 +563,7 @@ sw.bb9:                                           ; preds = %if.end5
   %15 = load ptr, ptr %data, align 8
   %data_len = getelementptr inbounds i8, ptr %vctx, i64 112
   %16 = load i64, ptr %data_len, align 8
-  %call16 = tail call fastcc i32 @prov_tls13_hkdf_expand(ptr noundef nonnull %call3, ptr noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, ptr noundef %key, i64 noundef %keylen)
+  %call16 = tail call fastcc i32 @prov_tls13_hkdf_expand(ptr noundef %call3, ptr noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, ptr noundef %key, i64 noundef %keylen)
   br label %return
 
 return:                                           ; preds = %if.end5, %entry, %lor.lhs.false, %sw.bb9, %prov_tls13_hkdf_generate_secret.exit, %if.then4
@@ -584,7 +584,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @hkdf_common_set_ctx_params(ptr noundef %vctx, ptr noundef nonnull %params)
+  %call = tail call fastcc i32 @hkdf_common_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -682,9 +682,9 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @HKDF_Extract(ptr noundef %libctx, ptr noundef %evp_md, ptr noundef %salt, i64 noundef %salt_len, ptr noundef %ikm, i64 noundef %ikm_len, ptr noundef %prk, i64 noundef %prk_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @HKDF_Extract(ptr noundef %libctx, ptr noundef nonnull %evp_md, ptr noundef %salt, i64 noundef %salt_len, ptr noundef %ikm, i64 noundef %ikm_len, ptr noundef %prk, i64 noundef %prk_len) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef %evp_md) #7
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %evp_md) #7
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -700,8 +700,8 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr @EVP_MD_get0_name(ptr noundef %evp_md) #7
-  %call6 = tail call i32 @EVP_MD_get_size(ptr noundef %evp_md) #7
+  %call5 = tail call ptr @EVP_MD_get0_name(ptr noundef nonnull %evp_md) #7
+  %call6 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %evp_md) #7
   %conv7 = sext i32 %call6 to i64
   %call8 = tail call ptr @EVP_Q_mac(ptr noundef %libctx, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %call5, ptr noundef null, ptr noundef %salt, i64 noundef %salt_len, ptr noundef %ikm, i64 noundef %ikm_len, ptr noundef %prk, i64 noundef %conv7, ptr noundef null) #7
   %cmp9 = icmp ne ptr %call8, null
@@ -714,11 +714,11 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef %evp_md, ptr noundef %prk, i64 noundef %prk_len, ptr noundef %info, i64 noundef %info_len, ptr noundef writeonly %okm, i64 noundef %okm_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef nonnull %evp_md, ptr noundef %prk, i64 noundef %prk_len, ptr noundef %info, i64 noundef %info_len, ptr noundef writeonly %okm, i64 noundef %okm_len) unnamed_addr #0 {
 entry:
   %prev = alloca [64 x i8], align 16
   %ctr = alloca i8, align 1
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef %evp_md) #7
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %evp_md) #7
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -741,7 +741,7 @@ if.end8:                                          ; preds = %if.end
 
 if.end13:                                         ; preds = %if.end8
   %conv14 = trunc i64 %prk_len to i32
-  %call15 = tail call i32 @HMAC_Init_ex(ptr noundef nonnull %call9, ptr noundef %prk, i32 noundef %conv14, ptr noundef %evp_md, ptr noundef null) #7
+  %call15 = tail call i32 @HMAC_Init_ex(ptr noundef nonnull %call9, ptr noundef %prk, i32 noundef %conv14, ptr noundef nonnull %evp_md, ptr noundef null) #7
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %err, label %for.cond.preheader
 
@@ -826,18 +826,18 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @HMAC_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hkdf_common_set_ctx_params(ptr noundef %ctx, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hkdf_common_set_ctx_params(ptr noundef %ctx, ptr noundef nonnull %params) unnamed_addr #0 {
 entry:
   %n = alloca i32, align 4
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #7
   %digest = getelementptr inbounds i8, ptr %ctx, i64 16
-  %call1 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef %params, ptr noundef %call) #7
+  %call1 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef nonnull %params, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
-  %call4 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.2) #7
+  %call4 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.2) #7
   %cmp5.not = icmp eq ptr %call4, null
   br i1 %cmp5.not, label %if.end41, label %if.then6
 
@@ -901,7 +901,7 @@ if.end41.sink.split:                              ; preds = %if.then30, %if.else
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end41.sink.split, %if.end3
-  %call42 = call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.5) #7
+  %call42 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.5) #7
   %cmp43.not = icmp eq ptr %call42, null
   br i1 %cmp43.not, label %if.end52, label %if.then44
 
@@ -917,7 +917,7 @@ if.then44:                                        ; preds = %if.end41
   br i1 %tobool49.not, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.then44, %if.end41
-  %call53 = call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.6) #7
+  %call53 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.6) #7
   %cmp54.not = icmp eq ptr %call53, null
   br i1 %cmp54.not, label %if.end68, label %if.then55
 
@@ -968,7 +968,7 @@ declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_PARAM_set_size_t(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @prov_tls13_hkdf_expand(ptr noundef %md, ptr noundef %key, i64 noundef %keylen, ptr noundef %prefix, i64 noundef %prefixlen, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @prov_tls13_hkdf_expand(ptr noundef nonnull %md, ptr noundef %key, i64 noundef %keylen, ptr noundef %prefix, i64 noundef %prefixlen, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen) unnamed_addr #0 {
 entry:
   %hkdflabellen = alloca i64, align 8
   %hkdflabel = alloca [2048 x i8], align 16

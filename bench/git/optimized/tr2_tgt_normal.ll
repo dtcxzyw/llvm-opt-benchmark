@@ -91,7 +91,7 @@ entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str, ptr noundef nonnull @git_version_string) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -103,7 +103,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.4, i64 noundef 6) #7
   call void @sq_append_quote_argv_pretty(ptr noundef nonnull %buf_payload, ptr noundef %argv) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -116,7 +116,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_absolute to double
   %div = fdiv double %conv, 1.000000e+06
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.5, double noundef %div, i32 noundef %code) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -129,7 +129,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_absolute to double
   %div = fdiv double %conv, 1.000000e+06
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.6, double noundef %div, i32 noundef %signo) #7
-  call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 118, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 118, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -142,7 +142,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_absolute to double
   %div = fdiv double %conv, 1.000000e+06
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.8, double noundef %div, i32 noundef %code) #7
-  call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 128, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 128, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -210,7 +210,7 @@ maybe_append_string_va.exit:                      ; preds = %land.lhs.true.i, %i
   br label %if.end
 
 if.end:                                           ; preds = %maybe_append_string_va.exit, %land.lhs.true, %entry
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -221,7 +221,7 @@ entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.10, ptr noundef %pathname) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -253,7 +253,7 @@ if.end:                                           ; preds = %while.body
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %if.end, %entry
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -277,7 +277,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -288,7 +288,7 @@ entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.15, ptr noundef %mode) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -300,7 +300,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.16, ptr noundef %alias) #7
   call void @sq_append_quote_argv_pretty(ptr noundef nonnull %buf_payload, ptr noundef %argv) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -370,7 +370,7 @@ if.then3:                                         ; preds = %strbuf_addch.exit
 if.end4:                                          ; preds = %if.then3, %strbuf_addch.exit
   %10 = load ptr, ptr %cmd, align 8
   call void @sq_append_quote_argv_pretty(ptr noundef nonnull %buf_payload, ptr noundef %10) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -383,7 +383,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_child to double
   %div = fdiv double %conv, 1.000000e+06
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.21, i32 noundef %cid, i32 noundef %pid, i32 noundef %code, double noundef %div) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -396,7 +396,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_child to double
   %div = fdiv double %conv, 1.000000e+06
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.22, i32 noundef %cid, i32 noundef %pid, ptr noundef %ready, double noundef %div) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -448,7 +448,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 if.end:                                           ; preds = %strbuf_addch.exit, %entry
   call void @sq_append_quote_argv_pretty(ptr noundef nonnull %buf_payload, ptr noundef %argv) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -468,7 +468,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -482,7 +482,7 @@ entry:
   %0 = load i32, ptr %scope1, align 8
   %call = tail call ptr @config_scope_name(i32 noundef %0) #7
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.26, ptr noundef %call, ptr noundef %param, ptr noundef %value) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -496,7 +496,7 @@ entry:
   %worktree = getelementptr inbounds i8, ptr %repo, i64 128
   %0 = load ptr, ptr %worktree, align 8
   call void @sq_quote_buf_pretty(ptr noundef nonnull %buf_payload, ptr noundef %0) #7
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -524,7 +524,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 maybe_append_string_va.exit:                      ; preds = %entry, %land.lhs.true.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %copy_ap.i)
-  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -553,7 +553,7 @@ entry:
   %interval_count = getelementptr inbounds i8, ptr %timer, i64 32
   %5 = load i64, ptr %interval_count, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.30, ptr noundef nonnull %cond, ptr noundef %3, ptr noundef %4, i64 noundef %5, double noundef %div, double noundef %div2, double noundef %div4) #7
-  call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 356, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 356, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -570,7 +570,7 @@ entry:
   %1 = load ptr, ptr %name, align 8
   %2 = load i64, ptr %counter, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.33, ptr noundef nonnull %cond, ptr noundef %0, ptr noundef %1, i64 noundef %2) #7
-  call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 371, ptr noundef nonnull %buf_payload)
+  call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 371, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
 }
@@ -589,7 +589,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload) unnamed_addr #0 {
+define internal fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buf_payload) unnamed_addr #0 {
 strbuf_setlen.exit.i:
   %tb_now.i = alloca %struct.tr2_tbuf, align 1
   %buf_line = alloca %struct.strbuf, align 8
@@ -682,7 +682,7 @@ strbuf_addch.exit23.i:                            ; preds = %if.then.i19.i, %whi
 
 normal_fmt_prepare.exit:                          ; preds = %strbuf_addch.exit23.i, %strbuf_setlen.exit.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tb_now.i)
-  call void @strbuf_addbuf(ptr noundef nonnull %buf_line, ptr noundef %buf_payload) #7
+  call void @strbuf_addbuf(ptr noundef nonnull %buf_line, ptr noundef nonnull %buf_payload) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_normal, ptr noundef nonnull %buf_line) #7
   call void @strbuf_release(ptr noundef nonnull %buf_line) #7
   ret void

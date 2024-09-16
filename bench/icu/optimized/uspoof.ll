@@ -838,12 +838,12 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %call7 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull %call3, ptr noundef nonnull %status)
+  %call7 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %call3, ptr noundef nonnull %status)
   br label %return
 
 if.else:                                          ; preds = %if.end
   call void @_ZN6icu_7511CheckResultC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %stackCheckResult)
-  %call8 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull %stackCheckResult, ptr noundef nonnull %status)
+  %call8 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %stackCheckResult, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
@@ -907,7 +907,7 @@ if.end.i3:                                        ; preds = %call.i.noexc
           to label %.noexc unwind label %lpad.i
 
 .noexc:                                           ; preds = %if.end.i3
-  %call8.i = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef nonnull %call.i7, ptr noundef nonnull align 8 dereferenceable(64) %idStr.i, ptr noundef nonnull %stackCheckResult.i, ptr noundef nonnull %status)
+  %call8.i = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef %call.i7, ptr noundef nonnull align 8 dereferenceable(64) %idStr.i, ptr noundef %stackCheckResult.i, ptr noundef nonnull %status)
           to label %invoke.cont.i5 unwind label %lpad.i4
 
 invoke.cont.i5:                                   ; preds = %.noexc
@@ -1911,7 +1911,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.end.i:                                         ; preds = %if.end
   call void @_ZN6icu_7511CheckResultC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %stackCheckResult.i)
-  %call8.i = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef nonnull %call.i, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull %stackCheckResult.i, ptr noundef nonnull %status)
+  %call8.i = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef %call.i, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %stackCheckResult.i, ptr noundef nonnull %status)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i
@@ -1933,7 +1933,7 @@ uspoof_check2UnicodeString_75.exit:               ; preds = %if.end, %invoke.con
 declare noundef ptr @_ZN6icu_7511CheckResult12validateThisEP17USpoofCheckResultR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef %This, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull %checkResult, ptr noundef %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_759SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef nonnull %This, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull %checkResult, ptr noundef %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %numerics = alloca %"class.icu_75::UnicodeSet", align 8
   %nfdText = alloca %"class.icu_75::UnicodeString", align 8

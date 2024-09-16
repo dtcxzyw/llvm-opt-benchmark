@@ -2066,7 +2066,7 @@ define internal void @dis_msg_deliver(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call fastcc void @dis_field_pid(ptr noundef %0, ptr noundef %2, i32 noundef %24, i8 noundef zeroext %25)
   %26 = add i32 %24, 1
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #8
-  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %26, i8 noundef zeroext %27, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %26, i8 noundef zeroext %27, ptr noundef %7, ptr noundef %8)
   %28 = add i32 %24, 2
   %29 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28) #8
   %30 = icmp ult i32 %29, 7
@@ -2186,7 +2186,7 @@ define internal void @dis_msg_deliver_report(ptr noundef %0, ptr noundef %1, ptr
 46:                                               ; preds = %42
   %47 = add i32 %.1, 1
   %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %47) #8
-  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %47, i8 noundef zeroext %48, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %47, i8 noundef zeroext %48, ptr noundef %6, ptr noundef %7)
   br label %49
 
 49:                                               ; preds = %46, %40
@@ -2260,7 +2260,7 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call fastcc void @dis_field_pid(ptr noundef %0, ptr noundef %2, i32 noundef %29, i8 noundef zeroext %30)
   %31 = add i32 %29, 1
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #8
-  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %31, i8 noundef zeroext %32, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %31, i8 noundef zeroext %32, ptr noundef %7, ptr noundef %8)
   %33 = add i32 %29, 2
   %34 = icmp eq i8 %12, 0
   br i1 %34, label %dis_field_vp.exit, label %.preheader.outer
@@ -2550,7 +2550,7 @@ dis_field_scts.exit:                              ; preds = %30, %32
 
 51:                                               ; preds = %47
   %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #8
-  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %.1, i8 noundef zeroext %52, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %.1, i8 noundef zeroext %52, ptr noundef %6, ptr noundef %7)
   %53 = add i32 %.1, 1
   br label %54
 
@@ -2724,7 +2724,7 @@ dis_field_st.exit:                                ; preds = %dis_field_dt.exit
 
 82:                                               ; preds = %78
   %83 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %76) #8
-  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %76, i8 noundef zeroext %83, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %2, i32 noundef %76, i8 noundef zeroext %83, ptr noundef %8, ptr noundef %9)
   %84 = add i32 %76, 1
   br label %85
 
@@ -2862,7 +2862,7 @@ default.unreachable35:                            ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
   %7 = load i32, ptr @hf_gsm_sms_tp_dcs, align 4
@@ -2979,7 +2979,7 @@ default.unreachable82:                            ; preds = %27, %23, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly %9) unnamed_addr #0 {
+define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65) %5, i8 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i8, align 1

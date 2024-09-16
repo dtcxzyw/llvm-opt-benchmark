@@ -495,7 +495,7 @@ _ZN4llvm5ErrorD2Ev.exit24:                        ; preds = %77
   br label %_ZN4llvm8ExpectedIbED2Ev.exit
 
 86:                                               ; preds = %77
-  call fastcc void @_ZL11parseStrTabRN4llvm9StringRefEm(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef %.0.copyload.i.i.i.i.i18)
+  call fastcc void @_ZL11parseStrTabRN4llvm9StringRefEm(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef %.0.copyload.i.i.i.i.i18)
   %87 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %88 = load i8, ptr %87, align 8
   %89 = trunc i8 %88 to i1
@@ -818,7 +818,7 @@ _ZN4llvm8ExpectedIbED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11parseStrTabRN4llvm9StringRefEm(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL11parseStrTabRN4llvm9StringRefEm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.llvm::Error", align 8

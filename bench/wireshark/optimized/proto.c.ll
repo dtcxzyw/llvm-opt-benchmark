@@ -2669,7 +2669,7 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %13
   br i1 %.not5.i.i, label %proto_item_set_len.exit, label %proto_item_is_hidden.exit.thread.thread11.i
 
 proto_item_is_hidden.exit.thread.thread11.i:      ; preds = %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.i
-  tail call fastcc void @finfo_set_len(ptr noundef nonnull %23, i32 noundef %17)
+  tail call fastcc void @finfo_set_len(ptr noundef %23, i32 noundef %17)
   br label %proto_item_set_len.exit
 
 proto_item_set_len.exit:                          ; preds = %proto_item_is_hidden.exit.thread.thread11.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.i, %24, %5
@@ -2713,7 +2713,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %3
   br i1 %.not5.i, label %proto_item_is_hidden.exit.thread.thread, label %proto_item_is_hidden.exit.thread.thread11
 
 proto_item_is_hidden.exit.thread.thread11:        ; preds = %proto_item_is_hidden.exit, %proto_item_is_hidden.exit.thread
-  tail call fastcc void @finfo_set_len(ptr noundef nonnull %9, i32 noundef %1)
+  tail call fastcc void @finfo_set_len(ptr noundef %9, i32 noundef %1)
   br label %proto_item_is_hidden.exit.thread.thread
 
 proto_item_is_hidden.exit.thread.thread:          ; preds = %10, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit, %2, %proto_item_is_hidden.exit.thread.thread11
@@ -2946,7 +2946,7 @@ proto_tree_add_text_node.exit:                    ; preds = %58, %64, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %1, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %75, i32 noundef %77, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %75, i32 noundef %77, ptr noundef %6, ptr noundef %5, i32 noundef 0)
   %78 = load i32, ptr %5, align 4
   %79 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %9, ptr noundef nonnull @hfi_text_only, ptr noundef %75, i32 noundef %77, i32 noundef %78)
   %80 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %9, ptr noundef %79)
@@ -3220,7 +3220,7 @@ proto_tree_add_text_node.exit:                    ; preds = %64, %70, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %.032, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef %7, ptr noundef %6, i32 noundef 0)
   %80 = load i32, ptr %6, align 4
   %81 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, i32 noundef %80)
   %82 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %81)
@@ -3395,7 +3395,7 @@ proto_tree_add_text_node.exit:                    ; preds = %57, %63, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %3, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %73 = load i32, ptr %7, align 4
   %74 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, i32 noundef %73)
   %75 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %74)
@@ -3706,7 +3706,7 @@ proto_tree_add_text_node.exit:                    ; preds = %55, %61, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %3, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef %6, ptr noundef %5, i32 noundef 0)
   %71 = load i32, ptr %5, align 4
   %72 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, i32 noundef %71)
   %73 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %72)
@@ -3936,7 +3936,7 @@ proto_tree_add_text_node.exit:                    ; preds = %55, %61, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %3, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef %6, ptr noundef %5, i32 noundef 0)
   %71 = load i32, ptr %5, align 4
   %72 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, i32 noundef %71)
   %73 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %72)
@@ -5285,7 +5285,7 @@ define ptr @ptvcursor_add_ret_uint(ptr nocapture noundef %0, i32 noundef %1, i32
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
-  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %35, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %3)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %35, i32 noundef %9, ptr noundef %6, ptr noundef %7, i32 noundef %3)
   %36 = load ptr, ptr %34, align 8
   %37 = load i32, ptr %7, align 4
   %.not.i = icmp eq ptr %36, null
@@ -5370,7 +5370,7 @@ test_length.exit:                                 ; preds = %33, %49
 64:                                               ; preds = %54, %57, %test_length.exit
   %65 = load ptr, ptr %34, align 8
   %66 = load i32, ptr %6, align 4
-  %67 = tail call fastcc i32 @get_full_length(ptr noundef nonnull %25, ptr noundef %65, i32 noundef %9, i32 noundef %66, i32 noundef %37, i32 noundef %3)
+  %67 = tail call fastcc i32 @get_full_length(ptr noundef %25, ptr noundef %65, i32 noundef %9, i32 noundef %66, i32 noundef %37, i32 noundef %3)
   %68 = load i32, ptr %8, align 8
   %69 = add i32 %68, %67
   store i32 %69, ptr %8, align 8
@@ -5504,7 +5504,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %118, %124, %proto_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_hfi_length(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @get_hfi_length(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef %5) unnamed_addr #0 {
   %.not71 = icmp eq ptr %1, null
   %7 = load i32, ptr %3, align 4
   br i1 %.not71, label %8, label %11
@@ -5649,7 +5649,7 @@ thread-pre-split65:                               ; preds = %32, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_full_length(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @get_full_length(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 %3, ptr %7, align 4
@@ -6502,7 +6502,7 @@ get_stringztrunc_value.exit:                      ; preds = %275, %283
 288:                                              ; preds = %6
   %289 = icmp eq i32 %5, 1
   %spec.store.select11 = select i1 %289, i32 -2147483648, i32 %5
-  call fastcc void @get_time_value(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %spec.store.select11, ptr noundef nonnull %12, i32 noundef 0)
+  call fastcc void @get_time_value(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %spec.store.select11, ptr noundef %12, i32 noundef 0)
   %290 = load ptr, ptr %15, align 8
   call void @fvalue_set_time(ptr noundef %290, ptr noundef nonnull %12) #33
   br label %310
@@ -6510,7 +6510,7 @@ get_stringztrunc_value.exit:                      ; preds = %275, %283
 291:                                              ; preds = %6
   %292 = icmp eq i32 %5, 1
   %spec.store.select12 = select i1 %292, i32 -2147483648, i32 %5
-  call fastcc void @get_time_value(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %spec.store.select12, ptr noundef nonnull %12, i32 noundef 1)
+  call fastcc void @get_time_value(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %spec.store.select12, ptr noundef %12, i32 noundef 1)
   %293 = load ptr, ptr %15, align 8
   call void @fvalue_set_time(ptr noundef %293, ptr noundef nonnull %12) #33
   br label %310
@@ -6678,7 +6678,7 @@ define ptr @ptvcursor_add_ret_int(ptr nocapture noundef %0, i32 noundef %1, i32 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
-  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %36, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %3)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %36, i32 noundef %9, ptr noundef %6, ptr noundef %7, i32 noundef %3)
   %37 = load ptr, ptr %35, align 8
   %38 = load i32, ptr %7, align 4
   %.not.i = icmp eq ptr %37, null
@@ -6788,7 +6788,7 @@ ws_sign_ext32.exit:                               ; preds = %65, %71
 77:                                               ; preds = %ws_sign_ext32.exit, %test_length.exit
   %78 = load ptr, ptr %35, align 8
   %79 = load i32, ptr %6, align 4
-  %80 = tail call fastcc i32 @get_full_length(ptr noundef nonnull %25, ptr noundef %78, i32 noundef %9, i32 noundef %79, i32 noundef %38, i32 noundef %3)
+  %80 = tail call fastcc i32 @get_full_length(ptr noundef %25, ptr noundef %78, i32 noundef %9, i32 noundef %79, i32 noundef %38, i32 noundef %3)
   %81 = load i32, ptr %8, align 8
   %82 = add i32 %81, %80
   store i32 %82, ptr %8, align 8
@@ -7322,7 +7322,7 @@ define ptr @ptvcursor_add_ret_boolean(ptr nocapture noundef %0, i32 noundef %1, 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
-  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %43, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %3)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %43, i32 noundef %9, ptr noundef %6, ptr noundef %7, i32 noundef %3)
   %44 = load ptr, ptr %42, align 8
   %45 = load i32, ptr %7, align 4
   %.not.i = icmp eq ptr %44, null
@@ -7400,7 +7400,7 @@ test_length.exit:                                 ; preds = %41, %57
 
 69:                                               ; preds = %63, %test_length.exit
   %70 = load ptr, ptr %42, align 8
-  %71 = tail call fastcc i32 @get_full_length(ptr noundef nonnull %25, ptr noundef %70, i32 noundef %9, i32 noundef %61, i32 noundef %45, i32 noundef %3)
+  %71 = tail call fastcc i32 @get_full_length(ptr noundef %25, ptr noundef %70, i32 noundef %9, i32 noundef %61, i32 noundef %45, i32 noundef %3)
   %72 = load i32, ptr %8, align 8
   %73 = add i32 %72, %71
   store i32 %73, ptr %8, align 8
@@ -9244,7 +9244,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %90, %96, %proto_ite
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_type_length_mismatch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @report_type_length_mismatch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %5
 
@@ -11076,14 +11076,14 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
   ]
 
 30:                                               ; preds = %27
-  call fastcc void @get_time_value(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9, i32 noundef 0)
+  call fastcc void @get_time_value(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %9, i32 noundef 0)
   %31 = getelementptr inbounds i8, ptr %25, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = call ptr @abs_time_to_str_ex(ptr noundef %6, ptr noundef nonnull %9, i32 noundef %32, i32 noundef 1) #33
   br label %39
 
 34:                                               ; preds = %27
-  call fastcc void @get_time_value(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9, i32 noundef 1)
+  call fastcc void @get_time_value(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %9, i32 noundef 1)
   %35 = call ptr @rel_time_to_secs_str(ptr noundef %6, ptr noundef nonnull %9) #33
   br label %39
 
@@ -11252,7 +11252,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %89, %95, %proto_ite
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull writeonly %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   switch i32 %4, label %408 [
     i32 0, label %8
     i32 -2147483648, label %36
@@ -12191,7 +12191,7 @@ define ptr @ptvcursor_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  call fastcc void @get_hfi_length(ptr noundef nonnull %24, ptr noundef %28, i32 noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %3)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %24, ptr noundef %28, i32 noundef %8, ptr noundef %5, ptr noundef %6, i32 noundef %3)
   %29 = load ptr, ptr %27, align 8
   %30 = load i32, ptr %6, align 4
   %.not.i = icmp eq ptr %29, null
@@ -12251,7 +12251,7 @@ define ptr @ptvcursor_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef 
 test_length.exit:                                 ; preds = %26, %43
   %44 = phi ptr [ null, %26 ], [ %.pre, %43 ]
   %45 = load i32, ptr %5, align 4
-  %46 = tail call fastcc i32 @get_full_length(ptr noundef nonnull %24, ptr noundef %44, i32 noundef %8, i32 noundef %45, i32 noundef %30, i32 noundef %3)
+  %46 = tail call fastcc i32 @get_full_length(ptr noundef %24, ptr noundef %44, i32 noundef %8, i32 noundef %45, i32 noundef %30, i32 noundef %3)
   %47 = load i32, ptr %7, align 8
   %48 = add i32 %47, %46
   store i32 %48, ptr %7, align 8
@@ -12398,7 +12398,7 @@ define noundef ptr @proto_tree_add_item_new(ptr noundef %0, ptr noundef readonly
   unreachable
 
 10:                                               ; preds = %6
-  call fastcc void @get_hfi_length(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %5)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %7, ptr noundef %8, i32 noundef %5)
   %11 = load i32, ptr %8, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %test_length.exit, label %12
@@ -12652,7 +12652,7 @@ define noundef ptr @proto_tree_add_item_new_ret_length(ptr noundef %0, ptr nound
   unreachable
 
 11:                                               ; preds = %7
-  call fastcc void @get_hfi_length(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %5)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %9, i32 noundef %5)
   %12 = load i32, ptr %9, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %test_length.exit, label %13
@@ -12713,7 +12713,7 @@ test_length.exit:                                 ; preds = %11, %25
 
 26:                                               ; preds = %test_length.exit
   %27 = load i32, ptr %8, align 4
-  %28 = tail call fastcc i32 @get_full_length(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %27, i32 noundef %12, i32 noundef %5)
+  %28 = tail call fastcc i32 @get_full_length(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %27, i32 noundef %12, i32 noundef %5)
   br label %107
 
 29:                                               ; preds = %test_length.exit
@@ -12777,7 +12777,7 @@ test_length.exit:                                 ; preds = %11, %25
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %8, align 4
-  %62 = tail call fastcc i32 @get_full_length(ptr noundef nonnull %52, ptr noundef %2, i32 noundef %3, i32 noundef %61, i32 noundef %12, i32 noundef %5)
+  %62 = tail call fastcc i32 @get_full_length(ptr noundef %52, ptr noundef %2, i32 noundef %3, i32 noundef %61, i32 noundef %12, i32 noundef %5)
   store i32 %62, ptr %6, align 4
   %63 = load i32, ptr @wireshark_abort_on_too_many_items, align 4
   %.not72 = icmp eq i32 %63, 0
@@ -12846,7 +12846,7 @@ proto_item_is_hidden.exit:                        ; preds = %83
 
 99:                                               ; preds = %96, %93
   %100 = load i32, ptr %8, align 4
-  %101 = tail call fastcc i32 @get_full_length(ptr noundef nonnull %52, ptr noundef %2, i32 noundef %3, i32 noundef %100, i32 noundef %12, i32 noundef %5)
+  %101 = tail call fastcc i32 @get_full_length(ptr noundef %52, ptr noundef %2, i32 noundef %3, i32 noundef %100, i32 noundef %12, i32 noundef %5)
   br label %107
 
 proto_item_is_hidden.exit.thread:                 ; preds = %83, %89, %proto_item_is_hidden.exit, %96, %80
@@ -13441,7 +13441,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
   %50 = icmp eq i32 %36, 25
   %51 = zext i1 %50 to i32
   call void @tvb_ensure_bytes_exist(ptr noundef %2, i32 noundef %3, i32 noundef %4) #33
-  call fastcc void @get_time_value(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %10, i32 noundef %51)
+  call fastcc void @get_time_value(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %10, i32 noundef %51)
   %.not102 = icmp eq ptr %7, null
   br i1 %.not102, label %54, label %52
 
@@ -13780,7 +13780,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %63, %proto_ite
 
 79:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %80 = load i32, ptr %7, align 4
   %81 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, i32 noundef %80)
   %82 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %81)
@@ -13973,7 +13973,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
 
 .split:                                           ; preds = %80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %32, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %32, ptr noundef %2, i32 noundef 0, ptr noundef %9, ptr noundef %8, i32 noundef 0)
   %82 = load i32, ptr %8, align 4
   %83 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %2, i32 noundef 0, i32 noundef %82)
   %84 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %83)
@@ -13983,7 +13983,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
 .split44:                                         ; preds = %80
   %85 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %3, i32 noundef %4) #33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %32, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %32, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %7, i32 noundef 0)
   %86 = load i32, ptr %7, align 4
   %87 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %2, i32 noundef %3, i32 noundef %86)
   %88 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %87)
@@ -14086,7 +14086,7 @@ define noundef ptr @proto_tree_add_bytes(ptr noundef %0, i32 noundef %1, ptr nou
   unreachable
 
 27:                                               ; preds = %21
-  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %9, i32 noundef 0)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %test_length.exit, label %28
 
@@ -14227,7 +14227,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %76, %82, %proto_ite
 
 98:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %99 = load i32, ptr %7, align 4
   %100 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, i32 noundef %99)
   %101 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %100)
@@ -14313,7 +14313,7 @@ define noundef ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef
   unreachable
 
 28:                                               ; preds = %22
-  call fastcc void @get_hfi_length(ptr noundef nonnull %26, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %26, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, i32 noundef 0)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %test_length.exit, label %29
 
@@ -14454,7 +14454,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %77, %83, %proto_ite
 
 99:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %51, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %51, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %8, i32 noundef 0)
   %100 = load i32, ptr %8, align 4
   %101 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef %2, i32 noundef %3, i32 noundef %100)
   %102 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %101)
@@ -14529,7 +14529,7 @@ proto_item_is_hidden.exit:                        ; preds = %20
 
 proto_item_is_hidden.exit.thread:                 ; preds = %20, %proto_item_is_hidden.exit, %15
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef nonnull %13, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef nonnull %13, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %26
 
@@ -14538,7 +14538,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %20, %proto_item_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_tree_set_representation_value(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @proto_tree_set_representation_value(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -14741,7 +14741,7 @@ decode_bitfield_value.exit:                       ; preds = %65, %hfinfo_contain
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 408
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noalias ptr @wmem_strdup_vprintf(ptr noundef %84, ptr noundef %1, ptr noundef %2) #33
+  %85 = tail call noalias ptr @wmem_strdup_vprintf(ptr noundef %84, ptr noundef %1, ptr noundef nonnull %2) #33
   %86 = load ptr, ptr %21, align 8
   %87 = tail call i64 @ws_label_strcpy(ptr noundef %86, i64 noundef 240, i64 noundef %79, ptr noundef %85, i32 noundef 0) #33
   %88 = icmp ugt i64 %87, 239
@@ -14967,7 +14967,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -15001,7 +15001,7 @@ define noundef ptr @proto_tree_add_time_format_value(ptr noundef %0, i32 noundef
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -15189,7 +15189,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -15215,7 +15215,7 @@ define noundef ptr @proto_tree_add_ipxnet_format_value(ptr noundef %0, i32 nound
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -15404,7 +15404,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %63, %proto_ite
 
 79:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %8, i32 noundef 0)
   %80 = load i32, ptr %8, align 4
   %81 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, i32 noundef %80)
   %82 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %81)
@@ -15433,7 +15433,7 @@ define noundef ptr @proto_tree_add_ipv4_format_value(ptr noundef %0, i32 noundef
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -15622,7 +15622,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %63, %proto_ite
 
 79:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %8, i32 noundef 0)
   %80 = load i32, ptr %8, align 4
   %81 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, i32 noundef %80)
   %82 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %81)
@@ -15661,7 +15661,7 @@ define noundef ptr @proto_tree_add_ipv6_format_value(ptr noundef %0, i32 noundef
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -15849,7 +15849,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -15883,7 +15883,7 @@ define noundef ptr @proto_tree_add_guid_format_value(ptr noundef %0, i32 noundef
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -16071,7 +16071,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -16117,7 +16117,7 @@ define noundef ptr @proto_tree_add_oid_format_value(ptr noundef %0, i32 noundef 
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -16212,7 +16212,7 @@ define noundef ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr no
   unreachable
 
 27:                                               ; preds = %21
-  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %25, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %9, i32 noundef 0)
   %28 = load i32, ptr %9, align 4
   %.not59 = icmp eq i32 %28, 0
   %.not.i = icmp eq ptr %2, null
@@ -16360,7 +16360,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %76, %82, %proto_ite
 
 97:                                               ; preds = %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %98 = load i32, ptr %7, align 4
   %99 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, i32 noundef %98)
   %100 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %99)
@@ -16397,7 +16397,7 @@ define noundef ptr @proto_tree_add_string_format_value(ptr noundef %0, i32 nound
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -16585,7 +16585,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -16611,7 +16611,7 @@ define noundef ptr @proto_tree_add_ether_format_value(ptr noundef %0, i32 nounde
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -16799,7 +16799,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -16823,7 +16823,7 @@ define noundef ptr @proto_tree_add_boolean_format_value(ptr noundef %0, i32 noun
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -17011,7 +17011,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -17038,7 +17038,7 @@ define noundef ptr @proto_tree_add_float_format_value(ptr noundef %0, i32 nounde
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -17226,7 +17226,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -17252,7 +17252,7 @@ define noundef ptr @proto_tree_add_double_format_value(ptr noundef %0, i32 nound
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -17440,7 +17440,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 74:                                               ; preds = %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %75 = load i32, ptr %7, align 4
   %76 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %75)
   %77 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %76)
@@ -17470,7 +17470,7 @@ define noundef ptr @proto_tree_add_uint_format_value(ptr noundef %0, i32 noundef
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -17657,7 +17657,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 74:                                               ; preds = %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %75 = load i32, ptr %7, align 4
   %76 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %75)
   %77 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %76)
@@ -17687,7 +17687,7 @@ define noundef ptr @proto_tree_add_uint64_format_value(ptr noundef %0, i32 nound
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -17870,7 +17870,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 75:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %76 = load i32, ptr %7, align 4
   %77 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %76)
   %78 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %77)
@@ -17900,7 +17900,7 @@ define noundef ptr @proto_tree_add_int_format_value(ptr noundef %0, i32 noundef 
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -18083,7 +18083,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 75:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %76 = load i32, ptr %7, align 4
   %77 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %76)
   %78 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %77)
@@ -18113,7 +18113,7 @@ define noundef ptr @proto_tree_add_int64_format_value(ptr noundef %0, i32 nounde
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -18301,7 +18301,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -18327,7 +18327,7 @@ define noundef ptr @proto_tree_add_eui64_format_value(ptr noundef %0, i32 nounde
 
 10:                                               ; preds = %7
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef nonnull %8)
+  call fastcc void @proto_tree_set_representation_value(ptr noundef %9, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %11
 
@@ -19074,7 +19074,7 @@ protoo_strlcpy.exit259:                           ; preds = %47, %53
   br i1 %.not238, label %158, label %139
 
 139:                                              ; preds = %137
-  %140 = call fastcc ptr @hfinfo_numeric_value_format(ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %120)
+  %140 = call fastcc ptr @hfinfo_numeric_value_format(ptr noundef nonnull %10, ptr noundef %5, i32 noundef %120)
   %141 = icmp eq i32 %2, 0
   br i1 %141, label %protoo_strlcpy.exit283.thread, label %protoo_strlcpy.exit283
 
@@ -19119,7 +19119,7 @@ protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit
 
 160:                                              ; preds = %158
   %161 = load i32, ptr %121, align 4
-  %162 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %10, i32 noundef %161, ptr noundef nonnull %5, i32 noundef %120)
+  %162 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %10, i32 noundef %161, ptr noundef %5, i32 noundef %120)
   br label %163
 
 163:                                              ; preds = %160, %158
@@ -19139,7 +19139,7 @@ protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit
 170:                                              ; preds = %136
   %171 = icmp eq i32 %.pre, 35
   %spec.store.select.i = select i1 %171, i32 1, i32 %122
-  %172 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i, ptr noundef nonnull %5, i32 noundef %120)
+  %172 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i, ptr noundef %5, i32 noundef %120)
   %173 = icmp eq i32 %2, 0
   br i1 %173, label %protoo_strlcpy.exit, label %174
 
@@ -19228,7 +19228,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 hfinfo_numeric_value_format64.exit:               ; preds = %switch.lookup, %switch.hole_check, %206
   %.0.i = phi i32 [ %spec.store.select.i300, %206 ], [ %spec.store.select.i300, %switch.hole_check ], [ %switch.load, %switch.lookup ]
-  %211 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %.0.i, ptr noundef nonnull %5, i64 noundef %187)
+  %211 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %.0.i, ptr noundef %5, i64 noundef %187)
   %212 = icmp eq i32 %2, 0
   br i1 %212, label %protoo_strlcpy.exit304, label %213
 
@@ -19350,7 +19350,7 @@ hf_try_val64_to_str.exit316:                      ; preds = %254, %256, %260
 
 265:                                              ; preds = %hf_try_val64_to_str.exit316
   %266 = load i32, ptr %188, align 4
-  %267 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %10, i32 noundef %266, ptr noundef nonnull %5, i64 noundef %187)
+  %267 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull %10, i32 noundef %266, ptr noundef %5, i64 noundef %187)
   br label %268
 
 268:                                              ; preds = %265, %hf_try_val64_to_str.exit316
@@ -19371,7 +19371,7 @@ hf_try_val64_to_str.exit316:                      ; preds = %254, %256, %260
   %276 = load i32, ptr %11, align 8
   %277 = icmp eq i32 %276, 35
   %spec.store.select.i321 = select i1 %277, i32 1, i32 %189
-  %278 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i321, ptr noundef nonnull %5, i64 noundef %187)
+  %278 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i321, ptr noundef %5, i64 noundef %187)
   %279 = icmp eq i32 %2, 0
   br i1 %279, label %protoo_strlcpy.exit, label %280
 
@@ -19719,7 +19719,7 @@ protoo_strlcpy.exit:                              ; preds = %338, %336, %protoo_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   %6 = getelementptr inbounds i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
@@ -20035,7 +20035,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare i32 @fvalue_get_sinteger(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hfinfo_numeric_value_format(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @hfinfo_numeric_value_format(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 255
@@ -20070,7 +20070,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hfinfo_number_value_format_display(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @hfinfo_number_value_format_display(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 79
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
@@ -20302,7 +20302,7 @@ display_to_port_type.exit:                        ; preds = %83, %switch.lookup8
 declare i64 @fvalue_get_sinteger64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hfinfo_number_value_format_display64(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @hfinfo_number_value_format_display64(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 79
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
@@ -21637,7 +21637,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %404, %406, %410, %4
   %423 = getelementptr inbounds i8, ptr %286, i64 48
   %424 = load ptr, ptr %423, align 8
   %425 = call i64 @fvalue_get_uinteger64(ptr noundef %424) #33
-  %426 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %425, ptr noundef nonnull %.us-phi536)
+  %426 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %425, ptr noundef %.us-phi536)
   br label %427
 
 427:                                              ; preds = %hf_try_val_to_str.exit352, %422, %hf_try_val64_to_str_const.exit, %hf_try_val_to_str.exit
@@ -21872,7 +21872,7 @@ define internal fastcc ptr @hfinfo_same_name_get_prev(i32 %.60.val) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @hf_try_val64_to_str_const(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @hf_try_val64_to_str_const(i64 noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1024
@@ -22636,7 +22636,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
 14:                                               ; preds = %7
   %15 = getelementptr i8, ptr %0, i64 48
   %.val174 = load ptr, ptr %15, align 8
-  tail call fastcc void @fill_label_boolean(ptr nonnull %8, ptr %.val174, ptr noundef nonnull %1)
+  tail call fastcc void @fill_label_boolean(ptr nonnull %8, ptr %.val174, ptr noundef %1)
   br label %free_address.exit
 
 16:                                               ; preds = %7, %7
@@ -22647,7 +22647,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %21 = tail call i64 @fvalue_length2(ptr noundef %20) #33
   %22 = trunc i64 %21 to i32
   %23 = tail call fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef %19, i32 noundef %22, i64 noundef 240)
-  tail call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %23)
+  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %23)
   tail call void @wmem_free(ptr noundef null, ptr noundef %23) #33
   br label %free_address.exit
 
@@ -22658,13 +22658,13 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not173, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call fastcc void @fill_label_bitfield_char(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @fill_label_bitfield_char(ptr noundef %0, ptr noundef %1)
   br label %free_address.exit
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %0, i64 48
   %.val176 = load ptr, ptr %29, align 8
-  tail call fastcc void @fill_label_char(ptr nonnull %8, ptr %.val176, ptr noundef nonnull %1)
+  tail call fastcc void @fill_label_char(ptr nonnull %8, ptr %.val176, ptr noundef %1)
   br label %free_address.exit
 
 30:                                               ; preds = %7, %7, %7, %7
@@ -22674,15 +22674,15 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not172, label %34, label %33
 
 33:                                               ; preds = %30
-  tail call fastcc void @fill_label_bitfield(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
+  tail call fastcc void @fill_label_bitfield(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   br label %free_address.exit
 
 34:                                               ; preds = %30
-  tail call fastcc void @fill_label_number(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
+  tail call fastcc void @fill_label_number(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0)
   br label %free_address.exit
 
 35:                                               ; preds = %7
-  tail call fastcc void @fill_label_number(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
+  tail call fastcc void @fill_label_number(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0)
   br label %free_address.exit
 
 36:                                               ; preds = %7, %7, %7, %7
@@ -22692,11 +22692,11 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not171, label %40, label %39
 
 39:                                               ; preds = %36
-  tail call fastcc void @fill_label_bitfield64(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
+  tail call fastcc void @fill_label_bitfield64(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   br label %free_address.exit
 
 40:                                               ; preds = %36
-  tail call fastcc void @fill_label_number64(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
+  tail call fastcc void @fill_label_number64(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0)
   br label %free_address.exit
 
 41:                                               ; preds = %7, %7, %7, %7
@@ -22706,11 +22706,11 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not170, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call fastcc void @fill_label_bitfield(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1)
+  tail call fastcc void @fill_label_bitfield(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   br label %free_address.exit
 
 45:                                               ; preds = %41
-  tail call fastcc void @fill_label_number(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1)
+  tail call fastcc void @fill_label_number(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
   br label %free_address.exit
 
 46:                                               ; preds = %7, %7, %7, %7
@@ -22720,15 +22720,15 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not169, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call fastcc void @fill_label_bitfield64(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1)
+  tail call fastcc void @fill_label_bitfield64(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   br label %free_address.exit
 
 50:                                               ; preds = %46
-  tail call fastcc void @fill_label_number64(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1)
+  tail call fastcc void @fill_label_number64(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
   br label %free_address.exit
 
 51:                                               ; preds = %7, %7
-  tail call fastcc void @fill_label_float(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @fill_label_float(ptr noundef %0, ptr noundef %1)
   br label %free_address.exit
 
 52:                                               ; preds = %7
@@ -22738,7 +22738,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %56 = getelementptr inbounds i8, ptr %8, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = tail call ptr @abs_time_to_str_ex(ptr noundef null, ptr noundef %55, i32 noundef %57, i32 noundef 1) #33
-  tail call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %58)
+  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %58)
   tail call void @wmem_free(ptr noundef null, ptr noundef %58) #33
   br label %free_address.exit
 
@@ -22909,7 +22909,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %153 = load ptr, ptr %152, align 8
   %154 = tail call ptr @fvalue_get_guid(ptr noundef %153) #33
   %155 = tail call ptr @guid_to_str(ptr noundef null, ptr noundef %154) #33
-  tail call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %155)
+  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %155)
   tail call void @wmem_free(ptr noundef null, ptr noundef %155) #33
   br label %free_address.exit
 
@@ -22929,12 +22929,12 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not168, label %169, label %168
 
 168:                                              ; preds = %156
-  tail call fastcc void @label_fill_descr(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %167, ptr noundef nonnull %163)
+  tail call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %167, ptr noundef nonnull %163)
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %163) #33
   br label %170
 
 169:                                              ; preds = %156
-  tail call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %167)
+  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %167)
   br label %170
 
 170:                                              ; preds = %169, %168
@@ -22957,12 +22957,12 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not167, label %184, label %183
 
 183:                                              ; preds = %171
-  tail call fastcc void @label_fill_descr(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %182, ptr noundef nonnull %178)
+  tail call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %182, ptr noundef nonnull %178)
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %178) #33
   br label %185
 
 184:                                              ; preds = %171
-  tail call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %182)
+  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %182)
   br label %185
 
 185:                                              ; preds = %184, %183
@@ -22977,7 +22977,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %191 = tail call i64 @fvalue_length2(ptr noundef %190) #33
   %192 = trunc i64 %191 to i32
   %193 = tail call ptr @print_system_id(ptr noundef null, ptr noundef %189, i32 noundef %192) #33
-  tail call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %193)
+  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %193)
   tail call void @wmem_free(ptr noundef null, ptr noundef %193) #33
   br label %free_address.exit
 
@@ -22987,7 +22987,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %197 = tail call i64 @fvalue_get_uinteger64(ptr noundef %196) #33
   %198 = tail call ptr @eui64_to_str(ptr noundef null, i64 noundef %197) #33
   %199 = tail call ptr @eui64_to_display(ptr noundef null, i64 noundef %197) #33
-  tail call fastcc void @label_fill_descr(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %199, ptr noundef %198)
+  tail call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %199, ptr noundef %198)
   tail call void @wmem_free(ptr noundef null, ptr noundef %199) #33
   tail call void @wmem_free(ptr noundef null, ptr noundef %198) #33
   br label %free_address.exit
@@ -22996,7 +22996,7 @@ define void @proto_item_fill_label(ptr noundef readonly %0, ptr noundef %1) loca
   %201 = getelementptr inbounds i8, ptr %0, i64 48
   %202 = load ptr, ptr %201, align 8
   %203 = tail call ptr @fvalue_get_string(ptr noundef %202) #33
-  tail call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %203)
+  tail call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %203)
   br label %free_address.exit
 
 204:                                              ; preds = %7, %7
@@ -23118,7 +23118,7 @@ proto_item_is_hidden.exit.thread.thread:          ; preds = %12, %31, %43, %47, 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finfo_set_len(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @finfo_set_len(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %9, label %5
@@ -23228,7 +23228,7 @@ proto_item_is_hidden.exit.thread.thread20:        ; preds = %proto_item_is_hidde
 
 20:                                               ; preds = %proto_item_is_hidden.exit.thread.thread20
   %21 = sub i32 %16, %18
-  tail call fastcc void @finfo_set_len(ptr noundef nonnull %10, i32 noundef %21)
+  tail call fastcc void @finfo_set_len(ptr noundef %10, i32 noundef %21)
   br label %proto_item_is_hidden.exit.thread.thread
 
 proto_item_is_hidden.exit.thread.thread:          ; preds = %11, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit, %3, %20
@@ -25470,7 +25470,7 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_boolean(ptr nocapture readonly %.0.val, ptr %.48.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @fill_label_boolean(ptr nocapture readonly %.0.val, ptr %.48.val, ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call i64 @fvalue_get_uinteger64(ptr noundef %.48.val) #33
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 32
   %4 = load i64, ptr %3, align 8
@@ -25612,9 +25612,9 @@ decode_bitfield_value.exit:                       ; preds = %35, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @label_fill(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @label_fill(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
-  %6 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %1, ptr noundef %5, i32 noundef 0) #33
+  %6 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %1, ptr noundef %5, i32 noundef 0) #33
   %7 = getelementptr inbounds i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 8192
@@ -25622,14 +25622,14 @@ define internal fastcc void @label_fill(ptr noundef %0, i64 noundef %1, ptr noca
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %4
-  %11 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %6, ptr noundef nonnull @.str.282, i32 noundef 0) #33
+  %11 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %6, ptr noundef nonnull @.str.282, i32 noundef 0) #33
   %.not14 = icmp eq ptr %3, null
   %12 = select i1 %.not14, ptr @.str.370, ptr %3
   %.val = load i32, ptr %7, align 4
   %13 = and i32 %.val, 23
   %.not.i = icmp ne i32 %13, 0
   %..i = zext i1 %.not.i to i32
-  %14 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %11, ptr noundef nonnull %12, i32 noundef %..i) #33
+  %14 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %11, ptr noundef nonnull %12, i32 noundef %..i) #33
   br label %15
 
 15:                                               ; preds = %10, %4
@@ -25667,7 +25667,7 @@ label_mark_truncated.exit:                        ; preds = %27, %25, %19, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_bitfield_char(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @fill_label_bitfield_char(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [240 x i8], align 16
   %5 = load ptr, ptr %0, align 8
@@ -25819,7 +25819,7 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
   call void %56(ptr noundef nonnull %4, i32 noundef %24) #33
   %sext47 = shl i64 %51, 32
   %60 = ashr exact i64 %sext47, 32
-  call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef %60, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  call fastcc void @label_fill(ptr noundef %1, i64 noundef %60, ptr noundef nonnull %5, ptr noundef nonnull %4)
   br label %75
 
 61:                                               ; preds = %decode_bitfield_value.exit
@@ -25838,11 +25838,11 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
   br i1 %67, label %69, label %70
 
 69:                                               ; preds = %62
-  call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %64)
+  call fastcc void @label_fill(ptr noundef %1, i64 noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %64)
   br label %75
 
 70:                                               ; preds = %62
-  call fastcc void @label_fill_descr(ptr noundef nonnull %1, i64 noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %64, ptr noundef nonnull %66)
+  call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %64, ptr noundef nonnull %66)
   br label %75
 
 71:                                               ; preds = %61
@@ -25850,7 +25850,7 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
   %73 = call noundef ptr @hfinfo_char_value_format_display(i32 noundef %72, ptr noundef nonnull %3, i32 noundef %24)
   %sext = shl i64 %51, 32
   %74 = ashr exact i64 %sext, 32
-  call fastcc void @label_fill(ptr noundef nonnull %1, i64 noundef %74, ptr noundef nonnull %5, ptr noundef %73)
+  call fastcc void @label_fill(ptr noundef %1, i64 noundef %74, ptr noundef nonnull %5, ptr noundef %73)
   br label %75
 
 75:                                               ; preds = %71, %70, %69, %59
@@ -25858,7 +25858,7 @@ decode_bitfield_value.exit:                       ; preds = %44, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_char(ptr nocapture readonly %.0.val, ptr %.48.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @fill_label_char(ptr nocapture readonly %.0.val, ptr %.48.val, ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca [240 x i8], align 16
   %4 = tail call i32 @fvalue_get_uinteger(ptr noundef %.48.val) #33
@@ -25906,7 +25906,7 @@ define internal fastcc void @fill_label_char(ptr nocapture readonly %.0.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_bitfield(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @fill_label_bitfield(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [80 x i8], align 16
   %5 = alloca [240 x i8], align 16
   %6 = load ptr, ptr %0, align 8
@@ -26159,7 +26159,7 @@ hfinfo_number_vals_format.exit:                   ; preds = %96
   %spec.store.select.i = select i1 %101, i32 1, i32 %99
   %102 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %102, i32 2, i32 %spec.store.select.i
-  %103 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %.064)
+  %103 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef %4, i32 noundef %.064)
   %104 = load i32, ptr %86, align 4
   %105 = and i32 %104, 32768
   %.not72 = icmp eq i32 %105, 0
@@ -26214,7 +26214,7 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %96
   %121 = load i32, ptr %120, align 8
   %122 = icmp eq i32 %121, 35
   %spec.store.select.i90 = select i1 %122, i32 1, i32 %87
-  %123 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i90, ptr noundef nonnull %4, i32 noundef %.064)
+  %123 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i90, ptr noundef %4, i32 noundef %.064)
   %sext = shl i64 %85, 32
   %124 = ashr exact i64 %sext, 32
   call fastcc void @label_fill(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef %123)
@@ -26225,7 +26225,7 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %96
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_number(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @fill_label_number(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [80 x i8], align 16
   %5 = alloca [240 x i8], align 16
   %6 = alloca [240 x i8], align 16
@@ -26286,7 +26286,7 @@ hfinfo_number_vals_format.exit:                   ; preds = %27
   %spec.store.select.i = select i1 %32, i32 1, i32 %30
   %33 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %33, i32 2, i32 %spec.store.select.i
-  %34 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %.0)
+  %34 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select1.i, ptr noundef %4, i32 noundef %.0)
   %35 = load i32, ptr %15, align 4
   %36 = and i32 %35, 32768
   %.not53 = icmp eq i32 %36, 0
@@ -26349,7 +26349,7 @@ switch.lookup:                                    ; preds = %47
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 35
   %spec.store.select.i57 = select i1 %53, i32 1, i32 %16
-  %54 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select.i57, ptr noundef nonnull %4, i32 noundef %.0)
+  %54 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select.i57, ptr noundef %4, i32 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %54)
   br label %55
 
@@ -26358,7 +26358,7 @@ switch.lookup:                                    ; preds = %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_bitfield64(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @fill_label_bitfield64(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [80 x i8], align 16
   %5 = alloca [240 x i8], align 16
   %6 = load ptr, ptr %0, align 8
@@ -26651,7 +26651,7 @@ hfinfo_number_vals_format64.exit:                 ; preds = %hf_try_val64_to_str
   %spec.store.select.i = select i1 %116, i32 1, i32 %114
   %117 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %117, i32 2, i32 %spec.store.select.i
-  %118 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i64 noundef %.064)
+  %118 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef %4, i64 noundef %.064)
   %119 = load i32, ptr %84, align 4
   %120 = and i32 %119, 32768
   %.not72 = icmp eq i32 %120, 0
@@ -26706,7 +26706,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %136 = load i32, ptr %135, align 8
   %137 = icmp eq i32 %136, 35
   %spec.store.select.i92 = select i1 %137, i32 1, i32 %85
-  %138 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i92, ptr noundef nonnull %4, i64 noundef %.064)
+  %138 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i92, ptr noundef %4, i64 noundef %.064)
   %sext = shl i64 %83, 32
   %139 = ashr exact i64 %sext, 32
   call fastcc void @label_fill(ptr noundef %1, i64 noundef %139, ptr noundef nonnull %6, ptr noundef %138)
@@ -26717,7 +26717,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_number64(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @fill_label_number64(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [80 x i8], align 16
   %5 = alloca [240 x i8], align 16
   %6 = load ptr, ptr %0, align 8
@@ -26813,7 +26813,7 @@ hfinfo_number_vals_format64.exit:                 ; preds = %hf_try_val64_to_str
   %spec.store.select.i = select i1 %45, i32 1, i32 %43
   %46 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %46, i32 2, i32 %spec.store.select.i
-  %47 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i64 noundef %.0)
+  %47 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef %4, i64 noundef %.0)
   %48 = load i32, ptr %14, align 4
   %49 = and i32 %48, 32768
   %.not42 = icmp eq i32 %49, 0
@@ -26862,7 +26862,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 35
   %spec.store.select.i46 = select i1 %63, i32 1, i32 %15
-  %64 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i46, ptr noundef nonnull %4, i64 noundef %.0)
+  %64 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i46, ptr noundef %4, i64 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef %64)
   br label %65
 
@@ -26871,9 +26871,9 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_label_float(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @fill_label_float(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [240 x i8], align 16
-  %4 = call fastcc i64 @fill_display_label_float(ptr noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i64 @fill_display_label_float(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %5 = load ptr, ptr %0, align 8
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %5, ptr noundef nonnull %3)
   ret void
@@ -26888,9 +26888,9 @@ declare ptr @address_with_resolution_to_str(ptr noundef, ptr noundef) local_unna
 declare ptr @oid_encoded2string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @label_fill_descr(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @label_fill_descr(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
-  %7 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %1, ptr noundef %6, i32 noundef 0) #33
+  %7 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %1, ptr noundef %6, i32 noundef 0) #33
   %8 = getelementptr inbounds i8, ptr %2, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 8192
@@ -26898,7 +26898,7 @@ define internal fastcc void @label_fill_descr(ptr noundef %0, i64 noundef %1, pt
   br i1 %.not, label %11, label %27
 
 11:                                               ; preds = %5
-  %12 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %7, ptr noundef nonnull @.str.282, i32 noundef 0) #33
+  %12 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %7, ptr noundef nonnull @.str.282, i32 noundef 0) #33
   %13 = load i32, ptr %8, align 4
   %14 = and i32 %13, 4096
   %.not30 = icmp eq i32 %14, 0
@@ -26907,21 +26907,21 @@ define internal fastcc void @label_fill_descr(ptr noundef %0, i64 noundef %1, pt
 15:                                               ; preds = %11
   %.not33 = icmp eq ptr %4, null
   %16 = select i1 %.not33, ptr @.str.370, ptr %4
-  %17 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %12, ptr noundef nonnull %16, i32 noundef 0) #33
+  %17 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %12, ptr noundef nonnull %16, i32 noundef 0) #33
   %.not34 = icmp eq ptr %3, null
   %18 = select i1 %.not34, ptr @.str.370, ptr %3
-  %19 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %17, ptr noundef nonnull %18, i32 noundef 0) #33
+  %19 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %17, ptr noundef nonnull %18, i32 noundef 0) #33
   br label %27
 
 20:                                               ; preds = %11
   %.not31 = icmp eq ptr %3, null
   %21 = select i1 %.not31, ptr @.str.370, ptr %3
-  %22 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %12, ptr noundef nonnull %21, i32 noundef 0) #33
-  %23 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %22, ptr noundef nonnull @.str.371, i32 noundef 0) #33
+  %22 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %12, ptr noundef nonnull %21, i32 noundef 0) #33
+  %23 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %22, ptr noundef nonnull @.str.371, i32 noundef 0) #33
   %.not32 = icmp eq ptr %4, null
   %24 = select i1 %.not32, ptr @.str.370, ptr %4
-  %25 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %23, ptr noundef nonnull %24, i32 noundef 0) #33
-  %26 = tail call i64 @ws_label_strcpy(ptr noundef %0, i64 noundef 240, i64 noundef %25, ptr noundef nonnull @.str.372, i32 noundef 0) #33
+  %25 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %23, ptr noundef nonnull %24, i32 noundef 0) #33
+  %26 = tail call i64 @ws_label_strcpy(ptr noundef nonnull %0, i64 noundef 240, i64 noundef %25, ptr noundef nonnull @.str.372, i32 noundef 0) #33
   br label %27
 
 27:                                               ; preds = %15, %20, %5
@@ -27345,14 +27345,14 @@ define ptr @proto_find_finfo(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %5, align 8
-  %6 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @find_finfo, ptr noundef nonnull %3)
+  %6 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @find_finfo, ptr noundef %3)
   %7 = load ptr, ptr %3, align 8
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 %1(ptr noundef %0, ptr noundef %2) #33
+define internal fastcc range(i32 0, 2) i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
+  %4 = tail call i32 %1(ptr noundef %0, ptr noundef nonnull %2) #33
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %.loopexit
 
@@ -27413,7 +27413,7 @@ define ptr @proto_find_first_finfo(ptr noundef %0, i32 noundef %1) local_unnamed
   store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %5, align 8
-  %6 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @find_first_finfo, ptr noundef nonnull %3)
+  %6 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @find_first_finfo, ptr noundef %3)
   %7 = load ptr, ptr %3, align 8
   ret ptr %7
 }
@@ -27455,7 +27455,7 @@ define ptr @proto_all_finfos(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %3, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %4, align 8
-  %5 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @every_finfo, ptr noundef nonnull %2)
+  %5 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @every_finfo, ptr noundef %2)
   %6 = load ptr, ptr %2, align 8
   ret ptr %6
 }
@@ -27489,7 +27489,7 @@ define ptr @proto_find_field_from_offset(ptr noundef %0, i32 noundef %1, ptr nou
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %2, ptr %6, align 8
-  %7 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @check_for_offset, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @check_for_offset, ptr noundef %4)
   %8 = load ptr, ptr %5, align 8
   ret ptr %8
 }
@@ -27559,7 +27559,7 @@ define ptr @proto_find_undecoded_data(ptr noundef %0, i32 noundef %1) local_unna
   %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef %12) #33
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @check_for_undecoded, ptr noundef nonnull %3)
+  %15 = call fastcc i32 @proto_tree_traverse_pre_order(ptr noundef %0, ptr noundef nonnull @check_for_undecoded, ptr noundef %3)
   %16 = load ptr, ptr %14, align 8
   ret ptr %16
 }
@@ -29515,7 +29515,7 @@ define noundef ptr @proto_tree_add_bitmask_with_flags(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @proto_item_add_bitmask_tree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i64 noundef %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @proto_item_add_bitmask_tree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, ptr noundef %9, i64 noundef %10) unnamed_addr #0 {
   %12 = alloca [240 x i8], align 16
   %13 = alloca [32 x i8], align 16
   %14 = alloca [240 x i8], align 16
@@ -29895,7 +29895,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   %162 = load i32, ptr %97, align 8
   %163 = icmp eq i32 %162, 35
   %spec.store.select.i = select i1 %163, i32 1, i32 %160
-  %164 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i, ptr noundef nonnull %15, i32 noundef %161)
+  %164 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i, ptr noundef %15, i32 noundef %161)
   br label %165
 
 165:                                              ; preds = %.thread407, %156
@@ -30018,7 +30018,7 @@ ws_sign_ext32.exit:                               ; preds = %180, %176, %174
   %213 = load i32, ptr %97, align 8
   %214 = icmp eq i32 %213, 35
   %spec.store.select.i391 = select i1 %214, i32 1, i32 %212
-  %215 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i391, ptr noundef nonnull %17, i32 noundef %.0280)
+  %215 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i391, ptr noundef %17, i32 noundef %.0280)
   br label %216
 
 216:                                              ; preds = %.thread410, %209
@@ -30071,7 +30071,7 @@ ws_sign_ext32.exit:                               ; preds = %180, %176, %174
   %.not336 = icmp eq i32 %.0268.ph489, 0
   %237 = select i1 %.not336, ptr @.str.402, ptr @.str.77
   %238 = load ptr, ptr %66, align 8
-  %239 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %101, ptr noundef nonnull %66)
+  %239 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %101, ptr noundef %66)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.401, ptr noundef nonnull %237, ptr noundef %238, ptr noundef nonnull %239)
   br label %.outer
 
@@ -30153,7 +30153,7 @@ hf_try_val64_to_str.exit.thread:                  ; preds = %hf_try_val64_to_str
   %267 = load i32, ptr %97, align 8
   %268 = icmp eq i32 %267, 35
   %spec.store.select.i394 = select i1 %268, i32 1, i32 %266
-  %269 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i394, ptr noundef nonnull %19, i64 noundef %101)
+  %269 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i394, ptr noundef %19, i64 noundef %101)
   br label %270
 
 270:                                              ; preds = %hf_try_val64_to_str.exit.thread, %hf_try_val64_to_str.exit
@@ -30232,7 +30232,7 @@ ws_sign_ext64.exit:                               ; preds = %282, %279, %278
   %.not325 = icmp eq i32 %.0268.ph489, 0
   %302 = select i1 %.not325, ptr @.str.402, ptr @.str.77
   %303 = load ptr, ptr %66, align 8
-  %304 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %.0279, ptr noundef nonnull %66)
+  %304 = call fastcc ptr @hf_try_val64_to_str_const(i64 noundef %.0279, ptr noundef %66)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.401, ptr noundef nonnull %302, ptr noundef %303, ptr noundef nonnull %304)
   br label %.outer
 
@@ -30314,7 +30314,7 @@ hf_try_val64_to_str.exit404.thread:               ; preds = %hf_try_val64_to_str
   %332 = load i32, ptr %97, align 8
   %333 = icmp eq i32 %332, 35
   %spec.store.select.i405 = select i1 %333, i32 1, i32 %331
-  %334 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i405, ptr noundef nonnull %21, i64 noundef %.0279)
+  %334 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i405, ptr noundef %21, i64 noundef %.0279)
   br label %335
 
 335:                                              ; preds = %hf_try_val64_to_str.exit404.thread, %hf_try_val64_to_str.exit404
@@ -31271,7 +31271,7 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %127, %120, %proto_i
   %.val.i = load ptr, ptr %141, align 8
   %142 = getelementptr i8, ptr %141, i64 48
   %.val154.i = load ptr, ptr %142, align 8
-  call fastcc void @fill_label_char(ptr %.val.i, ptr %.val154.i, ptr noundef nonnull %8)
+  call fastcc void @fill_label_char(ptr %.val.i, ptr %.val154.i, ptr noundef %8)
   br label %178
 
 143:                                              ; preds = %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i
@@ -31279,7 +31279,7 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %127, %120, %proto_i
   %145 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %43, i32 noundef %48, i32 noundef %144)
   %146 = getelementptr inbounds i8, ptr %145, i64 32
   %147 = load ptr, ptr %146, align 8
-  call fastcc void @fill_label_number(ptr noundef %147, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @fill_label_number(ptr noundef %147, ptr noundef %8, i32 noundef 0)
   br label %178
 
 148:                                              ; preds = %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i
@@ -31287,21 +31287,21 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %127, %120, %proto_i
   %150 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %43, i32 noundef %48, i32 noundef %149)
   %151 = getelementptr inbounds i8, ptr %150, i64 32
   %152 = load ptr, ptr %151, align 8
-  call fastcc void @fill_label_number(ptr noundef %152, ptr noundef nonnull %8, i32 noundef 1)
+  call fastcc void @fill_label_number(ptr noundef %152, ptr noundef %8, i32 noundef 1)
   br label %178
 
 153:                                              ; preds = %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i
   %154 = tail call ptr @proto_tree_add_uint64(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %43, i32 noundef %48, i64 noundef %.1.i)
   %155 = getelementptr inbounds i8, ptr %154, i64 32
   %156 = load ptr, ptr %155, align 8
-  call fastcc void @fill_label_number64(ptr noundef %156, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @fill_label_number64(ptr noundef %156, ptr noundef %8, i32 noundef 0)
   br label %178
 
 157:                                              ; preds = %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i, %proto_item_is_hidden.exit.thread.i
   %158 = tail call ptr @proto_tree_add_int64(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %43, i32 noundef %48, i64 noundef %.1.i)
   %159 = getelementptr inbounds i8, ptr %158, i64 32
   %160 = load ptr, ptr %159, align 8
-  call fastcc void @fill_label_number64(ptr noundef %160, ptr noundef nonnull %8, i32 noundef 1)
+  call fastcc void @fill_label_number64(ptr noundef %160, ptr noundef %8, i32 noundef 1)
   br label %178
 
 161:                                              ; preds = %proto_item_is_hidden.exit.thread.i
@@ -31767,7 +31767,7 @@ other_decode_bitfield_value.exit:                 ; preds = %169
   %.val = load ptr, ptr %190, align 8
   %191 = getelementptr i8, ptr %190, i64 48
   %.val180 = load ptr, ptr %191, align 8
-  call fastcc void @fill_label_char(ptr %.val, ptr %.val180, ptr noundef nonnull %8)
+  call fastcc void @fill_label_char(ptr %.val, ptr %.val180, ptr noundef %8)
   br label %214
 
 192:                                              ; preds = %175, %175, %175, %175
@@ -31775,7 +31775,7 @@ other_decode_bitfield_value.exit:                 ; preds = %169
   %194 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %151, i32 noundef %152, i32 noundef %193)
   %195 = getelementptr inbounds i8, ptr %194, i64 32
   %196 = load ptr, ptr %195, align 8
-  call fastcc void @fill_label_number(ptr noundef %196, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @fill_label_number(ptr noundef %196, ptr noundef %8, i32 noundef 0)
   br label %214
 
 197:                                              ; preds = %175, %175, %175, %175
@@ -31783,21 +31783,21 @@ other_decode_bitfield_value.exit:                 ; preds = %169
   %199 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %151, i32 noundef %152, i32 noundef %198)
   %200 = getelementptr inbounds i8, ptr %199, i64 32
   %201 = load ptr, ptr %200, align 8
-  call fastcc void @fill_label_number(ptr noundef %201, ptr noundef nonnull %8, i32 noundef 1)
+  call fastcc void @fill_label_number(ptr noundef %201, ptr noundef %8, i32 noundef 1)
   br label %214
 
 202:                                              ; preds = %175, %175, %175, %175
   %203 = tail call ptr @proto_tree_add_uint64(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %151, i32 noundef %152, i64 noundef %.1147)
   %204 = getelementptr inbounds i8, ptr %203, i64 32
   %205 = load ptr, ptr %204, align 8
-  call fastcc void @fill_label_number64(ptr noundef %205, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @fill_label_number64(ptr noundef %205, ptr noundef %8, i32 noundef 0)
   br label %214
 
 206:                                              ; preds = %175, %175, %175, %175
   %207 = tail call ptr @proto_tree_add_int64(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %151, i32 noundef %152, i64 noundef %.1147)
   %208 = getelementptr inbounds i8, ptr %207, i64 32
   %209 = load ptr, ptr %208, align 8
-  call fastcc void @fill_label_number64(ptr noundef %209, ptr noundef nonnull %8, i32 noundef 1)
+  call fastcc void @fill_label_number64(ptr noundef %209, ptr noundef %8, i32 noundef 1)
   br label %214
 
 210:                                              ; preds = %175
@@ -32069,7 +32069,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
   %85 = load ptr, ptr %84, align 8
   %86 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %85, ptr noundef %7, ptr noundef nonnull %10) #33
   call void @llvm.va_end.p0(ptr nonnull %10)
-  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %9, i32 noundef %6, ptr noundef %86)
+  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %9, i32 noundef %6, ptr noundef %86)
   br label %88
 
 88:                                               ; preds = %68, %71, %8, %80
@@ -32078,7 +32078,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
@@ -32498,7 +32498,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
   %85 = load ptr, ptr %84, align 8
   %86 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %85, ptr noundef %7, ptr noundef nonnull %10) #33
   call void @llvm.va_end.p0(ptr nonnull %10)
-  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %9, i32 noundef %6, ptr noundef %86)
+  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %9, i32 noundef %6, ptr noundef %86)
   br label %88
 
 88:                                               ; preds = %68, %71, %8, %80
@@ -32655,7 +32655,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
   %85 = load ptr, ptr %84, align 8
   %86 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %85, ptr noundef %7, ptr noundef nonnull %10) #33
   call void @llvm.va_end.p0(ptr nonnull %10)
-  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %9, i32 noundef %6, ptr noundef %86)
+  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %9, i32 noundef %6, ptr noundef %86)
   br label %88
 
 88:                                               ; preds = %68, %71, %8, %80
@@ -32813,7 +32813,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
   %85 = load ptr, ptr %84, align 8
   %86 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %85, ptr noundef %7, ptr noundef nonnull %10) #33
   call void @llvm.va_end.p0(ptr nonnull %10)
-  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %9, i32 noundef %6, ptr noundef %86)
+  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %9, i32 noundef %6, ptr noundef %86)
   br label %88
 
 88:                                               ; preds = %68, %71, %8, %80
@@ -32971,7 +32971,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
   %85 = load ptr, ptr %84, align 8
   %86 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %85, ptr noundef %7, ptr noundef nonnull %10) #33
   call void @llvm.va_end.p0(ptr nonnull %10)
-  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %9, i32 noundef %6, ptr noundef %86)
+  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %9, i32 noundef %6, ptr noundef %86)
   br label %88
 
 88:                                               ; preds = %68, %71, %8, %80
@@ -33128,7 +33128,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
   %85 = load ptr, ptr %84, align 8
   %86 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %85, ptr noundef %7, ptr noundef nonnull %10) #33
   call void @llvm.va_end.p0(ptr nonnull %10)
-  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %9, i32 noundef %6, ptr noundef %86)
+  %87 = call fastcc ptr @proto_tree_add_bits_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %9, i32 noundef %6, ptr noundef %86)
   br label %88
 
 88:                                               ; preds = %68, %71, %8, %80
@@ -33289,7 +33289,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %55, %61, %proto_ite
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @tvb_get_ts_23_038_7bits_string_packed(ptr noundef %87, ptr noundef %2, i32 noundef %3, i32 noundef %4) #33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, ptr noundef %7, ptr noundef %6, i32 noundef 0)
   %89 = load i32, ptr %6, align 4
   %90 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, i32 noundef %89)
   %91 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %90)
@@ -33472,7 +33472,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %55, %61, %proto_ite
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @tvb_get_ascii_7bits_string(ptr noundef %87, ptr noundef %2, i32 noundef %3, i32 noundef %4) #33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, ptr noundef %7, ptr noundef %6, i32 noundef 0)
   %89 = load i32, ptr %6, align 4
   %90 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, i32 noundef %89)
   %91 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %90)

@@ -1320,7 +1320,7 @@ thread-pre-split:                                 ; preds = %35
   br i1 %528, label %copy_from_sockptr.exit, label %copy_from_sockptr.exit.thread
 
 copy_from_sockptr.exit.thread:                    ; preds = %523
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %526, ptr align 1 %3, i64 %519, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %526, ptr noundef align 1 %3, i64 %519, i1 false)
   br label %532
 
 copy_from_sockptr.exit:                           ; preds = %523
@@ -1826,8 +1826,8 @@ declare dso_local ptr @sock_kmalloc(ptr noundef, i32 noundef, i32 noundef) local
 declare dso_local i32 @ip6_datagram_send_ctl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @txopt_put(ptr noundef %0) unnamed_addr #6 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #13, !srcloc !9
+define internal fastcc void @txopt_put(ptr noundef nonnull %0) unnamed_addr #6 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #13, !srcloc !9
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
 
@@ -1836,13 +1836,13 @@ define internal fastcc void @txopt_put(ptr noundef %0) unnamed_addr #6 align 16 
   br i1 %5, label %.thread, label %6, !prof !10
 
 6:                                                ; preds = %4
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 3) #13
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 3) #13
   br label %.thread
 
 7:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @kvfree_call_rcu(ptr noundef %8, ptr noundef %0) #13
+  tail call void @kvfree_call_rcu(ptr noundef %8, ptr noundef nonnull %0) #13
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %7
@@ -3388,7 +3388,7 @@ declare dso_local void @ip6_datagram_recv_ctl(ptr noundef, ptr noundef, ptr noun
 declare dso_local i32 @put_cmsg(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 align 16 {
+define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #6 align 16 {
   %5 = and i8 %1, 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %15
@@ -3422,7 +3422,7 @@ define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc i32 @dst_mtu(ptr noundef nonnull %0) unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -3431,7 +3431,7 @@ define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #6 align 16 {
   br i1 %6, label %7, label %9, !prof !10
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @ip6_mtu(ptr noundef %0) #13
+  %8 = tail call i32 @ip6_mtu(ptr noundef nonnull %0) #13
   br label %15
 
 9:                                                ; preds = %1
@@ -3439,11 +3439,11 @@ define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #6 align 16 {
   br i1 %10, label %11, label %13, !prof !10
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @ipv4_mtu(ptr noundef %0) #13
+  %12 = tail call i32 @ipv4_mtu(ptr noundef nonnull %0) #13
   br label %15
 
 13:                                               ; preds = %9
-  %14 = tail call i32 %5(ptr noundef %0) #13
+  %14 = tail call i32 %5(ptr noundef nonnull %0) #13
   br label %15
 
 15:                                               ; preds = %13, %11, %7

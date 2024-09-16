@@ -183,13 +183,13 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   store ptr null, ptr %11, align 8
   %28 = load i32, ptr @ett_amp_proto, align 4
   %29 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %28, ptr noundef nonnull %7, ptr noundef nonnull @.str) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %0, i32 noundef %3)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %0, i32 noundef %3)
   %.sroa.3110.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 4
   %.sroa.3110.0.copyload = load i32, ptr %.sroa.3110.0..sroa_idx, align 4
   %.sroa.8124.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
   %.sroa.8124.0.copyload = load i64, ptr %.sroa.8124.0..sroa_idx, align 8
   %30 = add i32 %.sroa.3110.0.copyload, %3
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %0, i32 noundef %30)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %0, i32 noundef %30)
   %.sroa.3110.0..sroa_idx111 = getelementptr inbounds i8, ptr %13, i64 4
   %.sroa.3110.0.copyload112 = load i32, ptr %.sroa.3110.0..sroa_idx111, align 4
   %.sroa.8124.0..sroa_idx125 = getelementptr inbounds i8, ptr %13, i64 16
@@ -242,7 +242,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 41:                                               ; preds = %.lr.ph342, %.loopexit
   %.0340 = phi i32 [ %39, %.lr.ph342 ], [ %.5, %.loopexit ]
   %.0293339 = phi i32 [ 1, %.lr.ph342 ], [ %169, %.loopexit ]
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %0, i32 noundef %.0340)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %0, i32 noundef %.0340)
   %.sroa.3110.0.copyload114 = load i32, ptr %.sroa.3110.0..sroa_idx113, align 4
   %42 = add i32 %.sroa.3110.0.copyload114, %.0340
   %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #5
@@ -263,7 +263,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 51:                                               ; preds = %41
   %52 = load i32, ptr @ett_amp_register, align 4
   %53 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef %52, ptr noundef nonnull %9, ptr noundef nonnull @.str.2) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %0, i32 noundef %49)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %0, i32 noundef %49)
   %.sroa.395.0.copyload = load i32, ptr %.sroa.395.0..sroa_idx, align 4
   %.sroa.6102.0.copyload = load i64, ptr %.sroa.6102.0..sroa_idx, align 8
   %54 = add i32 %.sroa.395.0.copyload, %49
@@ -278,7 +278,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %61 = add i32 %42, -1
   %62 = load i32, ptr @ett_amp_report_set, align 4
   %63 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %61, i32 noundef -1, i32 noundef %62, ptr noundef nonnull %10, ptr noundef nonnull @.str.3) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %0, i32 noundef %49)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %0, i32 noundef %49)
   %.sroa.093.0.copyload94 = load i32, ptr %16, align 8
   %.sroa.395.0.copyload97 = load i32, ptr %.sroa.395.0..sroa_idx96, align 4
   %.sroa.6102.0.copyload104 = load i64, ptr %.sroa.6102.0..sroa_idx103, align 8
@@ -299,7 +299,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph:                                           ; preds = %64, %66
   %.1326 = phi i32 [ %74, %66 ], [ %65, %64 ]
   %.0295325 = phi i32 [ %67, %66 ], [ 0, %64 ]
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %0, i32 noundef %.1326)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %0, i32 noundef %.1326)
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.388.0.copyload = load i64, ptr %.sroa.388.0..sroa_idx, align 8
   %70 = add i32 %.sroa.2.0.copyload, %.1326
@@ -312,7 +312,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 ._crit_edge:                                      ; preds = %66, %64
   %.1.lcssa = phi i32 [ %65, %64 ], [ %74, %66 ]
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %0, i32 noundef %.1.lcssa)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %0, i32 noundef %.1.lcssa)
   %.sroa.388.0.copyload90 = load i64, ptr %.sroa.388.0..sroa_idx89, align 8
   %76 = add i32 %.1.lcssa, %.sroa.395.0.copyload97
   %.not345 = icmp eq i64 %.sroa.388.0.copyload90, 0
@@ -323,12 +323,12 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %.1296334 = phi i32 [ %158, %._crit_edge330 ], [ 0, %._crit_edge ]
   %77 = load i32, ptr @ett_amp_report, align 4
   %78 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.2335, i32 noundef -1, i32 noundef %77, ptr noundef nonnull %11, ptr noundef nonnull @.str.4) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef %0, i32 noundef %.2335)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %0, i32 noundef %.2335)
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
   %79 = add i32 %.sroa.8.0.copyload, %.2335
   %.not308 = icmp eq i64 %.sroa.23.0.copyload, 3
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef %0, i32 noundef %79)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef %0, i32 noundef %79)
   %.sroa.8.0.copyload26 = load i32, ptr %.sroa.8.0..sroa_idx25, align 4
   %.sroa.23.0.copyload63 = load i64, ptr %.sroa.23.0..sroa_idx62, align 8
   %80 = add i32 %.sroa.8.0.copyload26, %79
@@ -365,7 +365,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not308, label %100, label %107
 
 100:                                              ; preds = %99
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef %0, i32 noundef %97)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %0, i32 noundef %97)
   %.sroa.8.0.copyload28 = load i32, ptr %.sroa.8.0..sroa_idx27, align 4
   %.sroa.23.0.copyload65 = load i64, ptr %.sroa.23.0..sroa_idx64, align 8
   %101 = add i32 %97, 1
@@ -384,10 +384,10 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 107:                                              ; preds = %100, %99
   %.3 = phi i32 [ %106, %100 ], [ %97, %99 ]
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef %0, i32 noundef %.3)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %0, i32 noundef %.3)
   %.sroa.8.0.copyload30 = load i32, ptr %.sroa.8.0..sroa_idx29, align 4
   %108 = add i32 %.sroa.8.0.copyload30, %.3
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef %0, i32 noundef %108)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %0, i32 noundef %108)
   %.sroa.8.0.copyload32 = load i32, ptr %.sroa.8.0..sroa_idx31, align 4
   %.sroa.23.0.copyload69 = load i64, ptr %.sroa.23.0..sroa_idx68, align 8
   %109 = add i32 %.sroa.8.0.copyload32, %108
@@ -399,7 +399,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %115 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %114) #5
   %116 = load i32, ptr @ett_amp_message, align 4
   %117 = call ptr @proto_tree_add_subtree(ptr noundef %115, ptr noundef %0, i32 noundef %113, i32 noundef -1, i32 noundef %116, ptr noundef nonnull %8, ptr noundef nonnull @.str.5) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef %0, i32 noundef %113)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %0, i32 noundef %113)
   %.sroa.8.0.copyload34 = load i32, ptr %.sroa.8.0..sroa_idx33, align 4
   %.sroa.23.0.copyload71 = load i64, ptr %.sroa.23.0..sroa_idx70, align 8
   %118 = add i32 %.sroa.8.0.copyload34, %113
@@ -417,7 +417,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph329:                                        ; preds = %.preheader, %154
   %.4328 = phi i32 [ %156, %154 ], [ %120, %.preheader ]
   %.0294327 = phi i32 [ %157, %154 ], [ 0, %.preheader ]
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef %0, i32 noundef %.4328)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %0, i32 noundef %.4328)
   %.sroa.018.0.copyload24 = load i32, ptr %25, align 8
   %.sroa.8.0.copyload36 = load i32, ptr %.sroa.8.0..sroa_idx35, align 4
   %.sroa.20.0.copyload59 = load i64, ptr %.sroa.20.0..sroa_idx58, align 8
@@ -435,7 +435,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 127:                                              ; preds = %124
   %128 = add i32 %.sroa.8.0.copyload36, %.4328
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef %0, i32 noundef %128)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %0, i32 noundef %128)
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %129 = load i32, ptr @hf_amp_text_string, align 4
   %130 = add i32 %.sroa.3.0.copyload, %128
@@ -446,7 +446,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 134:                                              ; preds = %124
   %135 = add i32 %.sroa.8.0.copyload36, %.4328
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef %0, i32 noundef %135)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %0, i32 noundef %135)
   %.sroa.0.0.copyload11 = load i32, ptr %27, align 8
   %.sroa.3.0.copyload13 = load i32, ptr %.sroa.3.0..sroa_idx12, align 4
   %.not310 = icmp eq i32 %.sroa.0.0.copyload11, 0
@@ -536,7 +536,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8

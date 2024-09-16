@@ -254,7 +254,7 @@ define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 s
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @early_console_register(ptr noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @early_console_register(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = icmp eq i16 %4, -1
@@ -444,7 +444,7 @@ define internal void @io_serial_out(i64 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @early_serial_hw_init(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @early_serial_hw_init(i32 noundef range(i32 0, 115201) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = load ptr, ptr @serial_out, align 8
   %3 = load i64, ptr @early_serial_base, align 8
   tail call void %2(i64 noundef %3, i32 noundef 3, i32 noundef 3) #6, !callees !11

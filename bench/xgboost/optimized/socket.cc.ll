@@ -1890,7 +1890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit106: ;
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #10, !noalias !68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  invoke fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull %33)
+  invoke fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef %33)
           to label %179 unwind label %185
 
 179:                                              ; preds = %176
@@ -2030,7 +2030,7 @@ _ZNSt10unique_ptrIN7xgboost10collective6detail10ResultImplESt14default_deleteIS3
   store i64 %.sink10.i, ptr %38, align 8, !alias.scope !75
   store ptr null, ptr %.sink.i, align 8, !noalias !75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  invoke fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull %38)
+  invoke fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef %38)
           to label %215 unwind label %220
 
 215:                                              ; preds = %214
@@ -2197,7 +2197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit135: ;
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #10, !noalias !80
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  invoke fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull %40)
+  invoke fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef %40)
           to label %262 unwind label %268
 
 262:                                              ; preds = %259
@@ -2280,7 +2280,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit148:       ; preds = %271, %_ZN7xgboost10
   %276 = ptrtoint ptr %274 to i64
   store i64 %276, ptr %44, align 8
   store ptr null, ptr %37, align 8
-  invoke fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull %44)
+  invoke fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef %44)
           to label %277 unwind label %279
 
 277:                                              ; preds = %275
@@ -2887,7 +2887,7 @@ declare void @_ZN7xgboost13ConsoleLoggerD1Ev(ptr noundef nonnull align 8 derefer
 declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7xgboost10collective7ConnectENS_10StringViewEiiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEPNS0_9TCPSocketEENK3$_0clENS0_6ResultE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::ConsoleLogger", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1

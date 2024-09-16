@@ -978,7 +978,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZL10hex_encodeB5cxx11PKcj(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef readonly %data) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10hex_encodeB5cxx11PKcj(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly %data) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %buf2 = alloca [3 x i8], align 1
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16

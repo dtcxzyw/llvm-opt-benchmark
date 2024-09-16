@@ -4747,8 +4747,8 @@ define dso_local void @i915_error_state_store(ptr noundef %0) local_unnamed_addr
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef nonnull ptr @i915_gpu_coredump_get(ptr noundef returned %0) unnamed_addr #6 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #15, !srcloc !57
+define internal fastcc noundef nonnull ptr @i915_gpu_coredump_get(ptr noundef nonnull returned %0) unnamed_addr #6 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #15, !srcloc !57
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %8, label %4, !prof !52
 
@@ -4760,7 +4760,7 @@ define internal fastcc noundef nonnull ptr @i915_gpu_coredump_get(ptr noundef re
 
 8:                                                ; preds = %4, %1
   %9 = phi i32 [ 2, %1 ], [ 1, %4 ]
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %9) #15
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %9) #15
   br label %10
 
 10:                                               ; preds = %8, %4
@@ -5596,7 +5596,7 @@ declare dso_local void @sysfs_remove_bin_file(ptr noundef, ptr noundef) local_un
 declare dso_local noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @__i915_error_grow(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @__i915_error_grow(ptr nocapture noundef %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.thread4, label %4
 
@@ -5694,7 +5694,7 @@ define internal fastcc noundef zeroext i1 @__i915_error_grow(ptr nocapture nound
   br label %65
 
 65:                                               ; preds = %63, %42
-  %66 = and i64 %1, -65536
+  %66 = and i64 %1, 4294901760
   %67 = add nuw nsw i64 %66, 65536
   store i64 %67, ptr %9, align 8
   %68 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %67, i32 noundef 26624) #17
@@ -5704,7 +5704,7 @@ define internal fastcc noundef zeroext i1 @__i915_error_grow(ptr nocapture nound
   br i1 %70, label %71, label %.thread4
 
 71:                                               ; preds = %65
-  %72 = and i64 %1, -4096
+  %72 = and i64 %1, 4294963200
   %73 = add nuw nsw i64 %72, 4096
   store i64 %73, ptr %9, align 8
   %74 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %73, i32 noundef 3264) #17
@@ -6234,7 +6234,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @i915_gem_get_pat_index(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @compress_page(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @compress_page(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %1, ptr %5, align 8
   br i1 %3, label %6, label %14

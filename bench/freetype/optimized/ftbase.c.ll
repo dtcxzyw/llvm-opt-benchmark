@@ -137,7 +137,7 @@ ft_face_scale_advances_.exit:                     ; preds = %ft_face_scale_advan
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 37) i32 @ft_face_scale_advances_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 37) i32 @ft_face_scale_advances_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #1 {
   %5 = zext i32 %3 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -155,16 +155,12 @@ define internal fastcc range(i32 0, 37) i32 @ft_face_scale_advances_(ptr nocaptu
   %.013.in.v = select i1 %.not17, i64 32, i64 40
   %.013.in = getelementptr inbounds i8, ptr %9, i64 %.013.in.v
   %.013 = load i64, ptr %.013.in, align 8
-  %.not19 = icmp eq i32 %2, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %10
   %.023.i = tail call i64 @llvm.abs.i64(i64 %.013, i1 false)
   %wide.trip.count = zext i32 %2 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph, %12
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+12:                                               ; preds = %10, %12
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
   %.021.i = tail call i64 @llvm.abs.i64(i64 %14, i1 false)
@@ -180,8 +176,8 @@ define internal fastcc range(i32 0, 37) i32 @ft_face_scale_advances_(ptr nocaptu
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !4
 
-.loopexit:                                        ; preds = %12, %10, %7, %4
-  %.014 = phi i32 [ 0, %4 ], [ 36, %7 ], [ 0, %10 ], [ 0, %12 ]
+.loopexit:                                        ; preds = %12, %7, %4
+  %.014 = phi i32 [ 0, %4 ], [ 36, %7 ], [ 0, %12 ]
   ret i32 %.014
 }
 
@@ -234,7 +230,7 @@ define i32 @FT_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %.not64, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = tail call fastcc i32 @ft_face_scale_advances_(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2, i32 noundef %3)
+  %30 = tail call fastcc i32 @ft_face_scale_advances_(ptr noundef %0, ptr noundef %4, i32 noundef %2, i32 noundef %3)
   br label %.loopexit
 
 31:                                               ; preds = %27
@@ -841,7 +837,7 @@ ft_lookup_glyph_renderer.exit:                    ; preds = %.lr.ph.i.i, %288
   %307 = getelementptr inbounds i8, ptr %306, i64 88
   %308 = load ptr, ptr %307, align 8
   %309 = getelementptr inbounds i8, ptr %277, i64 32
-  %310 = tail call i32 %308(ptr noundef nonnull %.0.i209, ptr noundef %9, ptr noundef %277, ptr noundef nonnull %309) #34
+  %310 = tail call i32 %308(ptr noundef nonnull %.0.i209, ptr noundef nonnull %9, ptr noundef %277, ptr noundef nonnull %309) #34
   br label %FT_Outline_Translate.exit
 
 .loopexit:                                        ; preds = %302, %293
@@ -5676,7 +5672,7 @@ define range(i32 0, 21) i32 @FT_Outline_Check(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ft_glyphslot_grid_fit_metrics(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #5 {
+define internal fastcc void @ft_glyphslot_grid_fit_metrics(ptr nocapture noundef nonnull %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %29, label %4
@@ -6054,7 +6050,7 @@ define i32 @FT_New_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca [9 x ptr], align 16
   %8 = alloca [9 x i64], align 16
@@ -6135,7 +6131,7 @@ define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef %1
 51:                                               ; preds = %46, %44
   %.094 = phi i32 [ %48, %46 ], [ 0, %44 ]
   %.093 = phi ptr [ %50, %46 ], [ null, %44 ]
-  %52 = call fastcc i32 @open_face(ptr noundef nonnull %39, ptr noundef nonnull %10, ptr noundef nonnull %12, i64 noundef %.089, i32 noundef %.094, ptr noundef %.093, ptr noundef nonnull %11)
+  %52 = call fastcc i32 @open_face(ptr noundef nonnull %39, ptr noundef %10, ptr noundef %12, i64 noundef %.089, i32 noundef %.094, ptr noundef %.093, ptr noundef %11)
   %.not125 = icmp eq i32 %52, 0
   br i1 %.not125, label %.loopexit269, label %._crit_edge
 
@@ -6214,7 +6210,7 @@ ft_mem_free.exit.i:                               ; preds = %FT_Stream_Close.exi
 82:                                               ; preds = %79, %76
   %.092 = phi i32 [ %80, %79 ], [ 0, %76 ]
   %.091 = phi ptr [ %81, %79 ], [ null, %76 ]
-  %83 = call fastcc i32 @open_face(ptr noundef nonnull %72, ptr noundef nonnull %10, ptr noundef nonnull %12, i64 noundef %.089, i32 noundef %.092, ptr noundef %.091, ptr noundef nonnull %11)
+  %83 = call fastcc i32 @open_face(ptr noundef nonnull %72, ptr noundef %10, ptr noundef %12, i64 noundef %.089, i32 noundef %.092, ptr noundef %.091, ptr noundef %11)
   %.not118 = icmp eq i32 %83, 0
   br i1 %.not118, label %.loopexit269, label %84
 
@@ -17825,7 +17821,7 @@ define internal zeroext range(i8 0, 2) i8 @hash_str_compare(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @open_face(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @open_face(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, i64 noundef range(i64 -2147483647, 2147483648) %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -18114,7 +18110,7 @@ ft_mem_alloc.exit.thread101:                      ; preds = %.preheader.i, %130,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @open_face_PS_from_sfnt_stream(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @open_face_PS_from_sfnt_stream(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483647, 2147483648) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   %7 = alloca [4 x i8], align 1
@@ -18619,7 +18615,7 @@ ft_mem_qalloc.exit.thread41:                      ; preds = %79, %115, %117, %FT
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @open_face_from_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @open_face_from_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 -2147483647, 65536) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.FT_Open_Args_, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 40
@@ -18736,7 +18732,7 @@ ft_mem_free.exit9:                                ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 -2147483647, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [4 x i8], align 1
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -18761,7 +18757,7 @@ define internal fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef %1, i64 no
   %21 = load i64, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %22 = load ptr, ptr %0, align 8
-  %23 = add i64 %3, 1
+  %23 = add nsw i64 %3, 1
   %.not.i = icmp ult i64 %23, 2
   br i1 %.not.i, label %.preheader, label %Mac_Read_POST_Resource.exit
 
@@ -19243,7 +19239,7 @@ define internal range(i32 0, 86) i32 @raccess_guess_apple_double(ptr nocapture r
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef nonnull %1, i32 noundef 333319, ptr noundef %4)
+  %8 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %1, i32 noundef 333319, ptr noundef %4)
   br label %9
 
 9:                                                ; preds = %5, %7
@@ -19258,7 +19254,7 @@ define internal range(i32 0, 86) i32 @raccess_guess_apple_single(ptr nocapture r
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef nonnull %1, i32 noundef 333312, ptr noundef %4)
+  %8 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %1, i32 noundef 333312, ptr noundef %4)
   br label %9
 
 9:                                                ; preds = %5, %7
@@ -19296,7 +19292,7 @@ ft_mem_free.exit.i.i:                             ; preds = %13
   br label %ft_mem_free.exit
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef nonnull %12, i32 noundef 333319, ptr noundef %4)
+  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -19468,7 +19464,7 @@ ft_mem_free.exit.i.i:                             ; preds = %13
   br label %ft_mem_free.exit
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef nonnull %12, i32 noundef 333319, ptr noundef %4)
+  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -19532,7 +19528,7 @@ ft_mem_free.exit.i.i:                             ; preds = %13
   br label %ft_mem_free.exit
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef nonnull %12, i32 noundef 333319, ptr noundef %4)
+  %19 = tail call fastcc i32 @raccess_guess_apple_generic(ptr noundef %12, i32 noundef 333319, ptr noundef %4)
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -19567,7 +19563,7 @@ ft_mem_free.exit:                                 ; preds = %8, %ft_mem_free.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 86) i32 @raccess_guess_apple_generic(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 86) i32 @raccess_guess_apple_generic(ptr noundef nonnull %0, i32 noundef range(i32 333312, 333320) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [2 x i8], align 1
@@ -19596,52 +19592,53 @@ define internal fastcc range(i32 0, 86) i32 @raccess_guess_apple_generic(ptr nou
 
 ..thread_crit_edge.i:                             ; preds = %19
   %.pre.pre.i = load i64, ptr %10, align 8
-  br label %.thread.i
+  br label %25
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %11
   %.not23.i = icmp eq ptr %22, null
-  br i1 %.not23.i, label %41, label %.thread.i
+  br i1 %.not23.i, label %.thread, label %25
 
-.thread.i:                                        ; preds = %21, %..thread_crit_edge.i
-  %.pre.i = phi i64 [ %11, %21 ], [ %.pre.pre.i, %..thread_crit_edge.i ]
-  %.01926.i = phi ptr [ %23, %21 ], [ %8, %..thread_crit_edge.i ]
-  %24 = load i8, ptr %.01926.i, align 1
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw i32 %25, 24
-  %27 = getelementptr inbounds i8, ptr %.01926.i, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = shl nuw nsw i32 %29, 16
-  %31 = or disjoint i32 %30, %26
-  %32 = getelementptr inbounds i8, ptr %.01926.i, i64 2
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw nsw i32 %34, 8
-  %36 = or disjoint i32 %31, %35
-  %37 = getelementptr inbounds i8, ptr %.01926.i, i64 3
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = or disjoint i32 %36, %39
-  br label %41
+.thread:                                          ; preds = %21
+  %24 = add i64 %11, 4
+  store i64 %24, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  br label %.loopexit
 
 FT_Stream_ReadULong.exit.thread:                  ; preds = %3, %19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %.loopexit
 
-41:                                               ; preds = %.thread.i, %21
-  %42 = phi i64 [ %.pre.i, %.thread.i ], [ %11, %21 ]
-  %.0.i = phi i32 [ %40, %.thread.i ], [ 0, %21 ]
-  %43 = add i64 %42, 4
+25:                                               ; preds = %..thread_crit_edge.i, %21
+  %.pre.i = phi i64 [ %11, %21 ], [ %.pre.pre.i, %..thread_crit_edge.i ]
+  %.01926.i = phi ptr [ %23, %21 ], [ %8, %..thread_crit_edge.i ]
+  %26 = load i8, ptr %.01926.i, align 1
+  %27 = zext i8 %26 to i32
+  %28 = shl nuw i32 %27, 24
+  %29 = getelementptr inbounds i8, ptr %.01926.i, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = shl nuw nsw i32 %31, 16
+  %33 = or disjoint i32 %32, %28
+  %34 = getelementptr inbounds i8, ptr %.01926.i, i64 2
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = shl nuw nsw i32 %36, 8
+  %38 = or disjoint i32 %33, %37
+  %39 = getelementptr inbounds i8, ptr %.01926.i, i64 3
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = or disjoint i32 %38, %41
+  %43 = add i64 %.pre.i, 4
   store i64 %43, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %.not29 = icmp eq i32 %.0.i, %1
+  %.not29 = icmp eq i32 %42, %1
   br i1 %.not29, label %44, label %.loopexit
 
-44:                                               ; preds = %41
+44:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %45 = add i64 %42, 7
+  %45 = add i64 %.pre.i, 7
   %46 = load i64, ptr %13, align 8
   %47 = icmp ult i64 %45, %46
   br i1 %47, label %48, label %FT_Stream_ReadULong.exit48.thread
@@ -19652,10 +19649,10 @@ FT_Stream_ReadULong.exit.thread:                  ; preds = %3, %19
   br i1 %.not.i39, label %.thread.i43.thread, label %52
 
 .thread.i43.thread:                               ; preds = %48
-  %50 = add i64 %42, 8
+  %50 = add i64 %.pre.i, 8
   store i64 %50, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %51 = add i64 %42, 24
+  %51 = add i64 %.pre.i, 24
   br label %58
 
 52:                                               ; preds = %48
@@ -19683,7 +19680,7 @@ FT_Stream_ReadULong.exit48.thread:                ; preds = %44, %52
   br i1 %.not10.i.i, label %._crit_edge, label %.loopexit
 
 ._crit_edge:                                      ; preds = %56
-  %.pre23 = load i64, ptr %13, align 8
+  %.pre26 = load i64, ptr %13, align 8
   br label %62
 
 58:                                               ; preds = %.thread.i43.thread, %.thread.i43
@@ -19696,7 +19693,7 @@ FT_Stream_ReadULong.exit48.thread:                ; preds = %44, %52
 62:                                               ; preds = %._crit_edge, %58
   %63 = phi i64 [ %55, %._crit_edge ], [ %59, %58 ]
   %64 = phi i64 [ %.pre.pre.i42, %._crit_edge ], [ %60, %58 ]
-  %65 = phi i64 [ %.pre23, %._crit_edge ], [ %61, %58 ]
+  %65 = phi i64 [ %.pre26, %._crit_edge ], [ %61, %58 ]
   store i64 %63, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   %66 = add i64 %64, 21
@@ -19721,9 +19718,9 @@ FT_Stream_ReadULong.exit48.thread:                ; preds = %44, %52
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 %63
   %.not21.i = icmp eq ptr %73, null
-  br i1 %.not21.i, label %.thread, label %76
+  br i1 %.not21.i, label %.thread13, label %76
 
-.thread:                                          ; preds = %72
+.thread13:                                        ; preds = %72
   %75 = add i64 %64, 22
   store i64 %75, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
@@ -19751,7 +19748,7 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %62, %70
   br i1 %86, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %76, %162
-  %.02122 = phi i32 [ %163, %162 ], [ 0, %76 ]
+  %.02125 = phi i32 [ %163, %162 ], [ 0, %76 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %87 = load i64, ptr %10, align 8
   %88 = add i64 %87, 3
@@ -19777,9 +19774,9 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %62, %70
   %96 = load ptr, ptr %0, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 %87
   %.not23.i67 = icmp eq ptr %96, null
-  br i1 %.not23.i67, label %.thread27, label %99
+  br i1 %.not23.i67, label %.thread30, label %99
 
-.thread27:                                        ; preds = %95
+.thread30:                                        ; preds = %95
   %98 = add i64 %87, 4
   store i64 %98, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -19888,18 +19885,18 @@ FT_Stream_ReadULong.exit80.thread:                ; preds = %119, %125
   br label %.loopexit
 
 154:                                              ; preds = %99
-  %.pre25 = load ptr, ptr %17, align 8
+  %.pre28 = load ptr, ptr %17, align 8
   %155 = add i64 %.pre.i64, 12
-  %.not.i.i81 = icmp eq ptr %.pre25, null
+  %.not.i.i81 = icmp eq ptr %.pre28, null
   br i1 %.not.i.i81, label %158, label %156
 
 156:                                              ; preds = %154
-  %157 = call i64 %.pre25(ptr noundef nonnull %0, i64 noundef %155, ptr noundef null, i64 noundef 0) #34
+  %157 = call i64 %.pre28(ptr noundef nonnull %0, i64 noundef %155, ptr noundef null, i64 noundef 0) #34
   %.not10.i.i82 = icmp eq i64 %157, 0
   br i1 %.not10.i.i82, label %FT_Stream_Skip.exit85, label %.loopexit
 
-158:                                              ; preds = %.thread27, %154
-  %159 = phi i64 [ %.reass, %.thread27 ], [ %155, %154 ]
+158:                                              ; preds = %.thread30, %154
+  %159 = phi i64 [ %.reass, %.thread30 ], [ %155, %154 ]
   %160 = load i64, ptr %13, align 8
   %.not17.i.i84 = icmp ugt i64 %159, %160
   br i1 %.not17.i.i84, label %.loopexit, label %FT_Stream_Skip.exit85
@@ -19911,12 +19908,12 @@ FT_Stream_Skip.exit85:                            ; preds = %156, %158
   br label %162
 
 162:                                              ; preds = %FT_Stream_Skip.exit85, %FT_Stream_ReadULong.exit80.thread, %148
-  %163 = add nuw nsw i32 %.02122, 1
+  %163 = add nuw nsw i32 %.02125, 1
   %exitcond.not = icmp eq i32 %163, %85
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !83
 
-.loopexit:                                        ; preds = %162, %158, %156, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %FT_Stream_ReadULong.exit.thread, %76, %41, %153
-  %.0 = phi i32 [ 0, %153 ], [ 2, %41 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %156 ], [ 85, %158 ], [ 2, %162 ]
+.loopexit:                                        ; preds = %162, %158, %156, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread13, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %.thread, %FT_Stream_ReadULong.exit.thread, %76, %25, %153
+  %.0 = phi i32 [ 0, %153 ], [ 2, %25 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread13 ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %156 ], [ 85, %158 ], [ 2, %162 ]
   ret i32 %.0
 }
 

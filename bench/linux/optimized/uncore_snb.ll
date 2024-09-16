@@ -1411,7 +1411,7 @@ define internal range(i32 -22, 1) i32 @uncore_freerunning_hw_config(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__uncore_imc_init_box(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @__uncore_imc_init_box(ptr nocapture noundef %0, i32 noundef range(i32 0, 55553) %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   br label %8
 

@@ -1182,10 +1182,10 @@ define dso_local void @init_asm() local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)
-  call void (ptr, i32, ...) @clobbers_make(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %40, i32 noundef 2, i32 noundef -1)
-  call void (ptr, i32, ...) @clobbers_make(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %41, i32 noundef 0, i32 noundef -1)
-  call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %42, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef -1)
-  call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %43, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 5, i32 noundef -1)
+  call void (ptr, i32, ...) @clobbers_make(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %40, i32 noundef 2, i32 noundef -1)
+  call void (ptr, i32, ...) @clobbers_make(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %41, i32 noundef 0, i32 noundef -1)
+  call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %42, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef -1)
+  call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %43, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 5, i32 noundef -1)
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %50 = icmp eq i32 %49, 32
   br i1 %50, label %.critedge.i, label %.lr.ph.preheader.i.i.i
@@ -1251,7 +1251,7 @@ reg_instr_clob.exit436.i:                         ; preds = %70
 
 .critedge.i:                                      ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0894.i)
-  call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %.sroa.0894.i, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 12, i32 noundef 4, i32 noundef -1)
+  call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %.sroa.0894.i, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 12, i32 noundef 4, i32 noundef -1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   store i32 64, ptr %24, align 4
   %77 = call ptr @symtab_add(ptr noundef nonnull @.str.10, i32 noundef 7, i32 noundef -237846118, ptr noundef nonnull %24) #11
@@ -1561,7 +1561,7 @@ reg_instr.exit561.i:                              ; preds = %187
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.110, ptr noundef nonnull byval(%struct.Clobbers) align 8 %42, ptr noundef nonnull @.str.82)
   call fastcc void @reg_instr_clob(ptr noundef nonnull @.str.111, ptr noundef nonnull byval(%struct.Clobbers) align 8 %42, ptr noundef nonnull @.str.84)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0900.i)
-  call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind nonnull writable sret(%struct.Clobbers) align 8 %.sroa.0900.i, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef -1)
+  call void (ptr, ptr, ...) @clobbers_make_from(ptr dead_on_unwind writable sret(%struct.Clobbers) align 8 %.sroa.0900.i, ptr noundef nonnull byval(%struct.Clobbers) align 8 %41, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef -1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   store i32 64, ptr %15, align 4
   %194 = call ptr @symtab_add(ptr noundef nonnull @.str.112, i32 noundef 5, i32 noundef 1385526668, ptr noundef nonnull %15) #11
@@ -3873,67 +3873,66 @@ fnv1a.exit657:                                    ; preds = %386
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @clobbers_make(ptr dead_on_unwind noalias nocapture writable sret(%struct.Clobbers) align 8 %0, i32 noundef %1, ...) unnamed_addr #3 {
+define internal void @clobbers_make(ptr dead_on_unwind noalias nocapture nonnull writable sret(%struct.Clobbers) align 8 %0, i32 noundef range(i32 0, 3) %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
-  %5 = and i32 %1, 63
-  %6 = zext nneg i32 %5 to i64
-  %7 = shl nuw nsw i64 1, %6
-  store i64 %7, ptr %0, align 8
+  %5 = zext nneg i32 %1 to i64
+  %6 = shl nuw nsw i64 1, %5
+  store i64 %6, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.promoted = load i32, ptr %3, align 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = load ptr, ptr %9, align 16
-  %.promoted9 = load ptr, ptr %8, align 8
-  br label %11
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load ptr, ptr %8, align 16
+  %.promoted9 = load ptr, ptr %7, align 8
+  br label %10
 
-11:                                               ; preds = %27, %2
-  %12 = phi ptr [ %22, %27 ], [ %.promoted9, %2 ]
-  %13 = phi i32 [ %23, %27 ], [ %.promoted, %2 ]
-  %14 = icmp ult i32 %13, 41
-  br i1 %14, label %15, label %19
+10:                                               ; preds = %26, %2
+  %11 = phi ptr [ %21, %26 ], [ %.promoted9, %2 ]
+  %12 = phi i32 [ %22, %26 ], [ %.promoted, %2 ]
+  %13 = icmp ult i32 %12, 41
+  br i1 %13, label %14, label %18
 
-15:                                               ; preds = %11
-  %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr i8, ptr %10, i64 %16
-  %18 = add nuw nsw i32 %13, 8
-  store i32 %18, ptr %3, align 16
-  br label %21
+14:                                               ; preds = %10
+  %15 = zext nneg i32 %12 to i64
+  %16 = getelementptr i8, ptr %9, i64 %15
+  %17 = add nuw nsw i32 %12, 8
+  store i32 %17, ptr %3, align 16
+  br label %20
 
-19:                                               ; preds = %11
-  %20 = getelementptr i8, ptr %12, i64 8
-  store ptr %20, ptr %8, align 8
-  br label %21
+18:                                               ; preds = %10
+  %19 = getelementptr i8, ptr %11, i64 8
+  store ptr %19, ptr %7, align 8
+  br label %20
 
-21:                                               ; preds = %19, %15
-  %22 = phi ptr [ %12, %15 ], [ %20, %19 ]
-  %23 = phi i32 [ %18, %15 ], [ %13, %19 ]
-  %24 = phi ptr [ %17, %15 ], [ %12, %19 ]
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %27, label %36
+20:                                               ; preds = %18, %14
+  %21 = phi ptr [ %11, %14 ], [ %19, %18 ]
+  %22 = phi i32 [ %17, %14 ], [ %12, %18 ]
+  %23 = phi ptr [ %16, %14 ], [ %11, %18 ]
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp sgt i32 %24, -1
+  br i1 %25, label %26, label %35
 
-27:                                               ; preds = %21
-  %28 = and i32 %25, 63
-  %29 = lshr i32 %25, 6
-  %30 = zext nneg i32 %28 to i64
-  %31 = shl nuw i64 1, %30
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 %32
-  %34 = load i64, ptr %33, align 8
-  %35 = or i64 %34, %31
-  store i64 %35, ptr %33, align 8
-  br label %11, !llvm.loop !37
+26:                                               ; preds = %20
+  %27 = and i32 %24, 63
+  %28 = lshr i32 %24, 6
+  %29 = zext nneg i32 %27 to i64
+  %30 = shl nuw i64 1, %29
+  %31 = zext nneg i32 %28 to i64
+  %32 = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 %31
+  %33 = load i64, ptr %32, align 8
+  %34 = or i64 %33, %30
+  store i64 %34, ptr %32, align 8
+  br label %10, !llvm.loop !37
 
-36:                                               ; preds = %21
+35:                                               ; preds = %20
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @clobbers_make_from(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Clobbers) align 8 %0, ptr nocapture noundef byval(%struct.Clobbers) align 8 %1, ...) unnamed_addr #3 {
+define internal void @clobbers_make_from(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%struct.Clobbers) align 8 %0, ptr nocapture noundef byval(%struct.Clobbers) align 8 %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.promoted = load i32, ptr %3, align 16

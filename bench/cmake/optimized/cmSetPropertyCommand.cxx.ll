@@ -3215,7 +3215,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbb.exit.us unwind label %.loopexit.split.us
 
 51:                                               ; preds = %47
-  %52 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand44HandleAndValidateSourceFilePropertyGENERATEDEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10PropertyOpE(ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %38)
+  %52 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand44HandleAndValidateSourceFilePropertyGENERATEDEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10PropertyOpE(ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %38)
           to label %_ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbb.exit.us unwind label %.loopexit.split.us
 
 _ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbb.exit.us: ; preds = %51, %50
@@ -3250,7 +3250,7 @@ _ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11
           to label %_ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbb.exit.us74 unwind label %.loopexit.split.split.us
 
 60:                                               ; preds = %56
-  %61 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand44HandleAndValidateSourceFilePropertyGENERATEDEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10PropertyOpE(ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %38)
+  %61 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand44HandleAndValidateSourceFilePropertyGENERATEDEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10PropertyOpE(ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %38)
           to label %_ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbb.exit.us74 unwind label %.loopexit.split.split.us
 
 _ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbb.exit.us74: ; preds = %60, %59
@@ -3278,7 +3278,7 @@ _ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %65
-  %69 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand44HandleAndValidateSourceFilePropertyGENERATEDEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10PropertyOpE(ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %38)
+  %69 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand44HandleAndValidateSourceFilePropertyGENERATEDEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10PropertyOpE(ptr noundef nonnull %63, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %38)
           to label %_ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_bbb.exit unwind label %.loopexit.split.split
 
 70:                                               ; preds = %65

@@ -169,7 +169,7 @@ define hidden { ptr, i32 } @"_ZN100_$LT$futures_util..future..future..fuse..Fuse
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc { ptr, i32 } @"_ZN9sqlx_core4sync14AsyncSemaphore7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hae90c7b5b1e83cb0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %8 = tail call fastcc { ptr, i32 } @"_ZN9sqlx_core4sync14AsyncSemaphore7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hae90c7b5b1e83cb0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1)
   %.fca.0.extract = extractvalue { ptr, i32 } %8, 0
   %9 = icmp eq ptr %.fca.0.extract, null
   br i1 %9, label %10, label %13
@@ -1995,7 +1995,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$$LP$alloc..sync..Arc$LT$str
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   %2 = load ptr, ptr %0, align 8, !alias.scope !337, !nonnull !4, !noundef !4
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !337
@@ -2151,7 +2151,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .body:                                            ; preds = %.body.i.i, %29
   %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %eh.lpad-body.i.i, %.body.i.i ]
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #44
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %0) #44
           to label %28 unwind label %34
 
 "_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..acquire..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cae8569da2e96eaE.exit": ; preds = %"_ZN4core3ptr195drop_in_place$LT$tokio..time..timeout..Timeout$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..acquire..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17heab75a237de9c8deE.exit.i.i", %11, %8, %14
@@ -2675,7 +2675,7 @@ common.resume:                                    ; preds = %15, %.body25
 123:                                              ; preds = %125, %.body
   %.pn5 = phi { ptr, i32 } [ %126, %125 ], [ %.pn2.pn, %.body ]
   %124 = getelementptr inbounds i8, ptr %0, i64 112
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %124) #44
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef align 8 dereferenceable(8) %124) #44
           to label %127 unwind label %119
 
 125:                                              ; preds = %78
@@ -3189,7 +3189,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %101 = landingpad { ptr, i32 }
           cleanup
   %102 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #44
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %102) #44
           to label %107 unwind label %108
 
 "_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$$GT$17hd5bf9b8ad7376604E.exit": ; preds = %4, %7
@@ -3255,7 +3255,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %125 = landingpad { ptr, i32 }
           cleanup
   %126 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %126) #44
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %126) #44
           to label %107 unwind label %108
 
 127:                                              ; preds = %.body
@@ -3266,7 +3266,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 131:                                              ; preds = %.body, %133, %127
   %132 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %132) #44
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %132) #44
           to label %107 unwind label %108
 
 133:                                              ; preds = %127
@@ -5983,7 +5983,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$sqlx_co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1064)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1064, !nonnull !4, !noundef !4
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !1064
@@ -9176,7 +9176,7 @@ define hidden void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$7acquire17h5323bc0495982d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hfbbbd75fc9e5218eE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hfbbbd75fc9e5218eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i8 }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { { { i32, i32 }, { ptr, ptr, ptr }, i64 }, { i64, i32 } }, align 8
@@ -9216,7 +9216,7 @@ default.unreachable58:                            ; preds = %58, %20, %3
 
 .body24:                                          ; preds = %153, %.body
   %.pn14 = phi { ptr, i32 } [ %.pn12, %.body ], [ %150, %153 ]
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1) #44
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$alloc..sync..Arc$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$GT$17h6ab9501924939c6cE"(ptr noalias noundef align 8 dereferenceable(8) %1) #44
           to label %160 unwind label %164
 
 18:                                               ; preds = %3
@@ -9831,7 +9831,7 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$14acquire_perm
   %37 = getelementptr inbounds i8, ptr %1, i64 40
   %38 = load ptr, ptr %37, align 8, !nonnull !4, !align !5, !noundef !4
   %39 = load ptr, ptr %38, align 8, !nonnull !4, !align !5, !noundef !4
-  %40 = tail call fastcc { ptr, i32 } @"_ZN9sqlx_core4sync14AsyncSemaphore7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hae90c7b5b1e83cb0E"(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %40 = tail call fastcc { ptr, i32 } @"_ZN9sqlx_core4sync14AsyncSemaphore7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hae90c7b5b1e83cb0E"(ptr noundef nonnull align 8 %39, ptr noalias noundef align 8 dereferenceable(8) %2)
   %.fca.0.extract12 = extractvalue { ptr, i32 } %40, 0
   %41 = icmp eq ptr %.fca.0.extract12, null
   br i1 %41, label %43, label %42
@@ -10026,7 +10026,7 @@ default.unreachable62:                            ; preds = %3
 22:                                               ; preds = %3, %17
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   %23 = getelementptr inbounds i8, ptr %1, i64 64
-  invoke fastcc void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hfbbbd75fc9e5218eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 %23, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hfbbbd75fc9e5218eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 %23, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %26 unwind label %24
 
 24:                                               ; preds = %22
@@ -10295,7 +10295,7 @@ common.ret:                                       ; preds = %93, %"_ZN4core3ptr1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i32 } @"_ZN9sqlx_core4sync14AsyncSemaphore7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hae90c7b5b1e83cb0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i32 } @"_ZN9sqlx_core4sync14AsyncSemaphore7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hae90c7b5b1e83cb0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = alloca { ptr, { { ptr, ptr }, { ptr, ptr }, { { { i64 } } }, {} }, i64, i8, [7 x i8] }, align 8
   %5 = alloca { ptr, { { ptr, ptr }, { ptr, ptr }, { { { i64 } } }, {} }, i64, i8, [7 x i8] }, align 8
@@ -10535,7 +10535,7 @@ common.ret:                                       ; preds = %75, %71
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN9sqlx_core5query19Query$LT$DB$C$A$GT$7execute28_$u7b$$u7b$closure$u7d$$u7d$17h05233d90cf7c2845E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN9sqlx_core5query19Query$LT$DB$C$A$GT$7execute28_$u7b$$u7b$closure$u7d$$u7d$17h05233d90cf7c2845E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [5 x i64] }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = alloca { { ptr, [1 x i64] }, { ptr, [2 x i64] }, i8, {}, [7 x i8] }, align 8
@@ -12530,7 +12530,7 @@ common.ret:                                       ; preds = %368, %270, %189, %1
   %62 = phi ptr [ %42, %41 ], [ %46, %53 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !1972
   %63 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke fastcc void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hfbbbd75fc9e5218eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 %63, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN9sqlx_core4pool14Pool$LT$DB$GT$7acquire28_$u7b$$u7b$closure$u7d$$u7d$17hfbbbd75fc9e5218eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 %63, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %66 unwind label %64, !noalias !1994
 
 64:                                               ; preds = %60
@@ -12947,7 +12947,7 @@ common.ret:                                       ; preds = %368, %270, %189, %1
 181:                                              ; preds = %2, %164
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   %182 = getelementptr inbounds i8, ptr %0, i64 104
-  invoke fastcc void @"_ZN9sqlx_core5query19Query$LT$DB$C$A$GT$7execute28_$u7b$$u7b$closure$u7d$$u7d$17h05233d90cf7c2845E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 %182, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN9sqlx_core5query19Query$LT$DB$C$A$GT$7execute28_$u7b$$u7b$closure$u7d$$u7d$17h05233d90cf7c2845E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 %182, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %185 unwind label %183
 
 183:                                              ; preds = %181
@@ -13199,7 +13199,7 @@ common.ret:                                       ; preds = %368, %270, %189, %1
 262:                                              ; preds = %2, %235
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   %263 = getelementptr inbounds i8, ptr %0, i64 104
-  invoke fastcc void @"_ZN9sqlx_core5query19Query$LT$DB$C$A$GT$7execute28_$u7b$$u7b$closure$u7d$$u7d$17h05233d90cf7c2845E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 %263, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN9sqlx_core5query19Query$LT$DB$C$A$GT$7execute28_$u7b$$u7b$closure$u7d$$u7d$17h05233d90cf7c2845E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 %263, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %266 unwind label %264
 
 264:                                              ; preds = %262

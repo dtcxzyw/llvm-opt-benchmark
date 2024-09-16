@@ -8312,7 +8312,7 @@ entry:
   %exceptionContext = alloca %"class.facebook::velox::ExceptionContextSetter", align 8
   %row_.i = getelementptr inbounds i8, ptr %context, i64 16
   %0 = load ptr, ptr %row_.i, align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_120ExprExceptionContextC2EPKNS1_4ExprEPKNS0_9RowVectorEPKNS1_7ExprSetE(ptr noundef nonnull align 8 dereferenceable(120) %exprExceptionContext, ptr noundef nonnull %this, ptr noundef %0, ptr noundef %parentExprSet)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_120ExprExceptionContextC2EPKNS1_4ExprEPKNS0_9RowVectorEPKNS1_7ExprSetE(ptr noundef nonnull align 8 dereferenceable(120) %exprExceptionContext, ptr noundef %this, ptr noundef %0, ptr noundef %parentExprSet)
   %tobool.not = icmp eq ptr %parentExprSet, null
   %_ZN8facebook5velox4exec12_GLOBAL__N_119onTopLevelExceptionB5cxx11ENS0_14VeloxException4TypeEPv._ZN8facebook5velox4exec12_GLOBAL__N_111onExceptionB5cxx11ENS0_14VeloxException4TypeEPv = select i1 %tobool.not, ptr @_ZN8facebook5velox4exec12_GLOBAL__N_111onExceptionB5cxx11ENS0_14VeloxException4TypeEPv, ptr @_ZN8facebook5velox4exec12_GLOBAL__N_119onTopLevelExceptionB5cxx11ENS0_14VeloxException4TypeEPv
   %cond = select i1 %tobool.not, ptr %this, ptr %exprExceptionContext
@@ -8801,7 +8801,7 @@ ehcleanup:                                        ; preds = %_ZN8facebook5velox2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_120ExprExceptionContextC2EPKNS1_4ExprEPKNS0_9RowVectorEPKNS1_7ExprSetE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %expr, ptr noundef %vector, ptr noundef %parentExprSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_120ExprExceptionContextC2EPKNS1_4ExprEPKNS0_9RowVectorEPKNS1_7ExprSetE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %expr, ptr noundef %vector, ptr noundef %parentExprSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.8", align 1
   %ref.tmp2 = alloca %"class.std::allocator.8", align 1
@@ -10926,7 +10926,7 @@ if.then:                                          ; preds = %land.lhs.true4
 if.end:                                           ; preds = %land.lhs.true4, %land.lhs.true2, %land.lhs.true, %entry
   %row_.i = getelementptr inbounds i8, ptr %context, i64 16
   %3 = load ptr, ptr %row_.i, align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_120ExprExceptionContextC2EPKNS1_4ExprEPKNS0_9RowVectorEPKNS1_7ExprSetE(ptr noundef nonnull align 8 dereferenceable(120) %exprExceptionContext, ptr noundef nonnull %this, ptr noundef %3, ptr noundef %parentExprSet)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_120ExprExceptionContextC2EPKNS1_4ExprEPKNS0_9RowVectorEPKNS1_7ExprSetE(ptr noundef nonnull align 8 dereferenceable(120) %exprExceptionContext, ptr noundef %this, ptr noundef %3, ptr noundef %parentExprSet)
   %tobool7.not = icmp eq ptr %parentExprSet, null
   %_ZN8facebook5velox4exec12_GLOBAL__N_119onTopLevelExceptionB5cxx11ENS0_14VeloxException4TypeEPv._ZN8facebook5velox4exec12_GLOBAL__N_111onExceptionB5cxx11ENS0_14VeloxException4TypeEPv = select i1 %tobool7.not, ptr @_ZN8facebook5velox4exec12_GLOBAL__N_111onExceptionB5cxx11ENS0_14VeloxException4TypeEPv, ptr @_ZN8facebook5velox4exec12_GLOBAL__N_119onTopLevelExceptionB5cxx11ENS0_14VeloxException4TypeEPv
   %cond = select i1 %tobool7.not, ptr %this, ptr %exprExceptionContext

@@ -64,7 +64,7 @@ declare ptr @DSA_SIG_new() local_unnamed_addr #1
 declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_integer(ptr noundef %cbs, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   store ptr %call, ptr %out, align 8
@@ -72,7 +72,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @BN_parse_asn1_unsigned(ptr noundef %cbs, ptr noundef nonnull %call) #2
+  %call1 = tail call i32 @BN_parse_asn1_unsigned(ptr noundef nonnull %cbs, ptr noundef nonnull %call) #2
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -492,7 +492,7 @@ parse_integer.exit25:                             ; preds = %lor.lhs.false17
 
 lor.lhs.false20:                                  ; preds = %parse_integer.exit25
   %priv_key = getelementptr inbounds i8, ptr %call, i64 40
-  %call21 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %priv_key)
+  %call21 = call fastcc i32 @parse_integer(ptr noundef %child, ptr noundef %priv_key)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then26, label %lor.lhs.false23
 

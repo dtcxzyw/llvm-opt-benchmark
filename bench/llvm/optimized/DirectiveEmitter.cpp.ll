@@ -12750,7 +12750,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssocia
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load ptr, ptr %65, align 8
-  call fastcc void @"_ZZL31GenerateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clB5cxx11ENS_9DirectiveE"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %66, ptr %1)
+  call fastcc void @"_ZZL31GenerateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clB5cxx11ENS_9DirectiveE"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %66, ptr %1)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.98)
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 4, ptr %67, align 8
@@ -12785,7 +12785,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssocia
   store ptr %1, ptr %12, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %63, ptr %.sroa.216.0..sroa_idx, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEE11AssociationNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef nonnull align 8 dereferenceable(12) %12)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEE11AssociationNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef nonnull align 8 dereferenceable(12) %12)
   br label %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit
 
 79:                                               ; preds = %59
@@ -12806,7 +12806,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssocia
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load ptr, ptr %91, align 8
   %.sroa.010.0.copyload = load ptr, ptr %4, align 8
-  call fastcc void @"_ZZL31GenerateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clB5cxx11ENS_9DirectiveE"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %92, ptr %.sroa.010.0.copyload)
+  call fastcc void @"_ZZL31GenerateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clB5cxx11ENS_9DirectiveE"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %92, ptr %.sroa.010.0.copyload)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.100)
   %93 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 4, ptr %93, align 8
@@ -12867,7 +12867,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssocia
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load ptr, ptr %119, align 8
   %.sroa.01.0.copyload = load ptr, ptr %4, align 8
-  call fastcc void @"_ZZL31GenerateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clB5cxx11ENS_9DirectiveE"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %120, ptr %.sroa.01.0.copyload)
+  call fastcc void @"_ZZL31GenerateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clB5cxx11ENS_9DirectiveE"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %120, ptr %.sroa.01.0.copyload)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.101)
   %121 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 4, ptr %121, align 8
@@ -12928,7 +12928,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssocia
   store ptr %1, ptr %27, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   store i32 %.062.lcssa, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEE11AssociationNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 1 dereferenceable(1) %142, ptr noundef nonnull align 8 dereferenceable(12) %27)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEE11AssociationNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 1 dereferenceable(1) %142, ptr noundef nonnull align 8 dereferenceable(12) %27)
   %143 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %143, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit, label %144
@@ -13189,7 +13189,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm9Directive14getAssociationEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL31GenerateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clB5cxx11ENS_9DirectiveE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL31GenerateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_4clB5cxx11ENS_9DirectiveE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nonnull %2) unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit45:
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -13235,12 +13235,12 @@ _ZN4llvmplERKNS_5TwineES2_.exit45:
   store i8 2, ptr %25, align 8, !alias.scope !414
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 3, ptr %26, align 1, !alias.scope !414
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %3) #21
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %3) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEE11AssociationNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEZL31GenerateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEE11AssociationNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   %.val9.i = load ptr, ptr %1, align 8, !noalias !419

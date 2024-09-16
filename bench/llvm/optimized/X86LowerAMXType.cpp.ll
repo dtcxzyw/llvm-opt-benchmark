@@ -580,7 +580,7 @@ _ZN4llvm28TargetLibraryInfoWrapperPass6getTLIERKNS_8FunctionE.exit: ; preds = %_
   store ptr %1, ptr %39, align 8
   %99 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr null, ptr %99, align 8
-  %100 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86LowerAMXCast14combineAMXcastEPN4llvm17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %94)
+  %100 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86LowerAMXCast14combineAMXcastEPN4llvm17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef %94)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %36)
   %101 = getelementptr inbounds i8, ptr %36, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %101, i64 noundef 8) #14
@@ -1261,7 +1261,7 @@ _ZN4llvm14iterator_rangeINS_11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10B
   br i1 %.not105.i, label %448, label %442
 
 442:                                              ; preds = %440
-  %443 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86LowerAMXType16transformBitcastEPN4llvm11BitCastInstE(ptr noundef nonnull %421)
+  %443 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86LowerAMXType16transformBitcastEPN4llvm11BitCastInstE(ptr noundef %421)
   br i1 %443, label %444, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i
 
 444:                                              ; preds = %442
@@ -1467,7 +1467,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %_ZN4llvm23SmallVect
   br i1 %.not101.i, label %525, label %.preheader.i
 
 525:                                              ; preds = %522
-  %526 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86LowerAMXType16transformBitcastEPN4llvm11BitCastInstE(ptr noundef nonnull %spec.select.i.i.i)
+  %526 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86LowerAMXType16transformBitcastEPN4llvm11BitCastInstE(ptr noundef %spec.select.i.i.i)
   br i1 %526, label %527, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i
 
 527:                                              ; preds = %525
@@ -2003,7 +2003,7 @@ declare void @_ZN4llvm13AnalysisUsage15setPreservesCFGEv(ptr noundef nonnull ali
 declare noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86LowerAMXCast14combineAMXcastEPN4llvm17TargetLibraryInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86LowerAMXCast14combineAMXcastEPN4llvm17TargetLibraryInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::AlignedCharArrayUnion.295", align 8
   %4 = alloca %"struct.llvm::AlignedCharArrayUnion.295", align 8
   %5 = alloca %"struct.llvm::PatternMatch::match_combine_and.262", align 8
@@ -5784,7 +5784,7 @@ _ZN12_GLOBAL__N_115X86LowerAMXCast22optimizeAMXCastFromPhiEPN4llvm13IntrinsicIns
 .lr.ph373:                                        ; preds = %.preheader, %_ZN12_GLOBAL__N_114DCEInstructionEPN4llvm11InstructionERNS0_14SmallSetVectorIS2_Lj16EEEPKNS0_17TargetLibraryInfoE.exit
   %1790 = call noundef ptr @_ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE12pop_back_valEv(ptr noundef nonnull align 8 dereferenceable(168) %64)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %1791 = call noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef %1790, ptr noundef %1) #14
+  %1791 = call noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef %1790, ptr noundef nonnull %1) #14
   br i1 %1791, label %1792, label %_ZN12_GLOBAL__N_114DCEInstructionEPN4llvm11InstructionERNS0_14SmallSetVectorIS2_Lj16EEEPKNS0_17TargetLibraryInfoE.exit
 
 1792:                                             ; preds = %.lr.ph373
@@ -5859,7 +5859,7 @@ _ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i123: ; preds = %1816, %1811, %_ZN4l
   br i1 %.not22.i, label %1830, label %1826
 
 1826:                                             ; preds = %1823
-  %1827 = call noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull %spec.select.i.i.i, ptr noundef %1) #14
+  %1827 = call noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull %spec.select.i.i.i, ptr noundef nonnull %1) #14
   br i1 %1827, label %1828, label %1830
 
 1828:                                             ; preds = %1826

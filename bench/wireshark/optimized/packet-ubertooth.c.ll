@@ -1927,7 +1927,7 @@ proto_item_set_generated.exit:                    ; preds = %280, %293, %296
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.5596 = phi i32 [ %306, %.lr.ph ], [ 0, %.preheader ]
-  %306 = call fastcc i32 @dissect_usb_rx_packet(ptr noundef %2, ptr noundef %14, ptr noundef %1, ptr noundef %0, i32 noundef %.5596, i16 noundef signext %283, ptr noundef nonnull %3)
+  %306 = call fastcc i32 @dissect_usb_rx_packet(ptr noundef %2, ptr noundef %14, ptr noundef %1, ptr noundef %0, i32 noundef %.5596, i16 noundef signext %283, ptr noundef %3)
   %307 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %306) #2
   %308 = icmp sgt i32 %307, 0
   br i1 %308, label %.lr.ph, label %.loopexit, !llvm.loop !4
@@ -2171,7 +2171,7 @@ proto_item_set_generated.exit:                    ; preds = %280, %293, %296
   br label %.loopexit
 
 474:                                              ; preds = %468
-  %475 = call fastcc i32 @dissect_usb_rx_packet(ptr noundef %2, ptr noundef %14, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0, i16 noundef signext %283, ptr noundef nonnull %3)
+  %475 = call fastcc i32 @dissect_usb_rx_packet(ptr noundef %2, ptr noundef %14, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0, i16 noundef signext %283, ptr noundef %3)
   br label %.loopexit
 
 476:                                              ; preds = %proto_item_set_generated.exit
@@ -2310,7 +2310,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cc2400_register(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_cc2400_register(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2, i8 noundef zeroext %3) unnamed_addr #0 {
   switch i8 %3, label %402 [
     i8 0, label %5
     i8 1, label %22
@@ -2881,7 +2881,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef signext %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef signext range(i16 -1, 256) %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_usb_rx_packet, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %3, i32 noundef %4, i32 noundef 64, i32 noundef 0) #2
   %10 = load i32, ptr @ett_usb_rx_packet, align 4

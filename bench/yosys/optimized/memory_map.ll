@@ -10660,7 +10660,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
 356:                                              ; preds = %355, %.noexc498
   %357 = getelementptr inbounds i8, ptr %348, i64 %354
   store ptr %357, ptr %240, align 8
-  invoke fastcc void @_ZNK12_GLOBAL__N_115MemoryMapWorker8map_caseEN5Yosys5RTLIL5ConstE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %12)
+  invoke fastcc void @_ZNK12_GLOBAL__N_115MemoryMapWorker8map_caseEN5Yosys5RTLIL5ConstE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %12)
           to label %358 unwind label %391
 
 358:                                              ; preds = %356
@@ -10713,7 +10713,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i5
 378:                                              ; preds = %377, %.noexc504
   %379 = getelementptr inbounds i8, ptr %370, i64 %376
   store ptr %379, ptr %243, align 8
-  invoke fastcc void @_ZNK12_GLOBAL__N_115MemoryMapWorker8map_caseEN5Yosys5RTLIL5ConstE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %14)
+  invoke fastcc void @_ZNK12_GLOBAL__N_115MemoryMapWorker8map_caseEN5Yosys5RTLIL5ConstE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %14)
           to label %380 unwind label %393
 
 380:                                              ; preds = %378
@@ -11802,7 +11802,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit614:          ; preds = %.noexc612
           to label %841 unwind label %922
 
 841:                                              ; preds = %840
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull %26, ptr noundef nonnull %27, i32 noundef %838, ptr noundef nonnull %29, i32 noundef -1, ptr noundef nonnull %31, i32 noundef -1, ptr noundef nonnull %33)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %26, ptr noundef %27, i32 noundef %838, ptr noundef %29, i32 noundef -1, ptr noundef %31, i32 noundef -1, ptr noundef %33)
           to label %842 unwind label %924
 
 842:                                              ; preds = %841
@@ -12647,7 +12647,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit694:                ; preds = %_ZN5Yosys5RTLIL5Con
           to label %1178 unwind label %1381
 
 1178:                                             ; preds = %1177
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull %50, ptr noundef nonnull %51, i32 noundef %1175, ptr noundef nonnull %53, i32 noundef -1, ptr noundef nonnull %55, i32 noundef -1, ptr noundef nonnull %57)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef %50, ptr noundef %51, i32 noundef %1175, ptr noundef %53, i32 noundef -1, ptr noundef %55, i32 noundef -1, ptr noundef %57)
           to label %1179 unwind label %1383
 
 1179:                                             ; preds = %1178
@@ -13063,7 +13063,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit752:             ; preds = %_ZNK5Yosys7hashlib4
           to label %1354 unwind label %1405
 
 1354:                                             ; preds = %1353
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull %64, ptr noundef nonnull %65, i32 noundef %1351, ptr noundef nonnull %67, i32 noundef -1, ptr noundef nonnull %69, i32 noundef -1, ptr noundef nonnull %71)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef %64, ptr noundef %65, i32 noundef %1351, ptr noundef %67, i32 noundef -1, ptr noundef %69, i32 noundef -1, ptr noundef %71)
           to label %1355 unwind label %1407
 
 1355:                                             ; preds = %1354
@@ -13900,7 +13900,7 @@ _ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EE9push_backERKS2_.exit: ; preds = %163
           to label %1661 unwind label %2203
 
 1661:                                             ; preds = %1659
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %86, ptr noundef nonnull %87, ptr noundef nonnull %88, i32 noundef %1633, ptr noundef nonnull %90, i32 noundef %.03502550, ptr noundef nonnull %92, i32 noundef %1660, ptr noundef nonnull %94)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef %87, ptr noundef %88, i32 noundef %1633, ptr noundef %90, i32 noundef %.03502550, ptr noundef %92, i32 noundef %1660, ptr noundef %94)
           to label %1662 unwind label %2205
 
 1662:                                             ; preds = %1661
@@ -14557,7 +14557,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit879:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1895 unwind label %2230
 
 1895:                                             ; preds = %1894
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr noundef nonnull %103, ptr noundef nonnull %104, i32 noundef %1633, ptr noundef nonnull %106, i32 noundef %.03502550, ptr noundef nonnull %108, i32 noundef %1660, ptr noundef nonnull %110)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef %103, ptr noundef %104, i32 noundef %1633, ptr noundef %106, i32 noundef %.03502550, ptr noundef %108, i32 noundef %1660, ptr noundef %110)
           to label %1896 unwind label %2232
 
 1896:                                             ; preds = %1895
@@ -14726,7 +14726,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit900:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1956 unwind label %2253
 
 1956:                                             ; preds = %1955
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %114, ptr noundef nonnull %115, ptr noundef nonnull %116, i32 noundef %1633, ptr noundef nonnull %118, i32 noundef %.03502550, ptr noundef nonnull %120, i32 noundef %1660, ptr noundef nonnull %122)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %114, ptr noundef %115, ptr noundef %116, i32 noundef %1633, ptr noundef %118, i32 noundef %.03502550, ptr noundef %120, i32 noundef %1660, ptr noundef %122)
           to label %1957 unwind label %2255
 
 1957:                                             ; preds = %1956
@@ -16221,7 +16221,7 @@ _ZNK5Yosys5RTLIL7SigSpec11extract_endEi.exit:     ; preds = %.lr.ph2570
           to label %2474 unwind label %2530
 
 2474:                                             ; preds = %2470
-  %2475 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115MemoryMapWorker11addr_decodeEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %129, ptr noundef nonnull %130)
+  %2475 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115MemoryMapWorker11addr_decodeEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %129, ptr noundef %130)
           to label %2476 unwind label %2532
 
 2476:                                             ; preds = %2474
@@ -16546,7 +16546,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1070:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %2564 unwind label %2768
 
 2564:                                             ; preds = %2563
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %135, ptr noundef nonnull %136, ptr noundef nonnull %137, i32 noundef %2443, ptr noundef nonnull %139, i32 noundef %2504, ptr noundef nonnull %141, i32 noundef %.03362564, ptr noundef nonnull %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %135, ptr noundef %136, ptr noundef %137, i32 noundef %2443, ptr noundef %139, i32 noundef %2504, ptr noundef %141, i32 noundef %.03362564, ptr noundef %143)
           to label %2565 unwind label %2770
 
 2565:                                             ; preds = %2564
@@ -16959,7 +16959,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1130:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %2712 unwind label %2812
 
 2712:                                             ; preds = %2711
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %154, ptr noundef nonnull %155, ptr noundef nonnull %156, i32 noundef %2443, ptr noundef nonnull %158, i32 noundef %2504, ptr noundef nonnull %160, i32 noundef %.03362564, ptr noundef nonnull %162)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %154, ptr noundef %155, ptr noundef %156, i32 noundef %2443, ptr noundef %158, i32 noundef %2504, ptr noundef %160, i32 noundef %.03362564, ptr noundef %162)
           to label %2713 unwind label %2814
 
 2713:                                             ; preds = %2712
@@ -17352,7 +17352,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1151:             ; preds = %2759, %_ZSt8_Destro
           to label %2840 unwind label %3050
 
 2840:                                             ; preds = %2839
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %166, ptr noundef nonnull %167, ptr noundef nonnull %168, i32 noundef %2443, ptr noundef nonnull %170, i32 noundef %2505, ptr noundef nonnull %172, i32 noundef %.03362564, ptr noundef nonnull %174)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %166, ptr noundef %167, ptr noundef %168, i32 noundef %2443, ptr noundef %170, i32 noundef %2505, ptr noundef %172, i32 noundef %.03362564, ptr noundef %174)
           to label %2841 unwind label %3052
 
 2841:                                             ; preds = %2840
@@ -17724,7 +17724,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1218:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %2971 unwind label %3080
 
 2971:                                             ; preds = %2970
-  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %182, ptr noundef nonnull %183, ptr noundef nonnull %184, i32 noundef %2443, ptr noundef nonnull %186, i32 noundef %2505, ptr noundef nonnull %188, i32 noundef %.03362564, ptr noundef nonnull %190)
+  invoke fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %182, ptr noundef %183, ptr noundef %184, i32 noundef %2443, ptr noundef %186, i32 noundef %2505, ptr noundef %188, i32 noundef %.03362564, ptr noundef %190)
           to label %2972 unwind label %3082
 
 2972:                                             ; preds = %2971
@@ -18681,7 +18681,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_115MemoryMapWorker8map_caseEN5Yosys5RTLIL5ConstE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_115MemoryMapWorker8map_caseEN5Yosys5RTLIL5ConstE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load i32, ptr %2, align 8
@@ -18849,7 +18849,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL7SigSpecESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZN
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec12is_fully_defEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MemoryMapWorker5genidEN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_iS9_iS9_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull %6, i32 noundef %7, ptr noundef nonnull %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18985,7 +18985,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %15
           to label %73 unwind label %41
 
 73:                                               ; preds = %69
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %11)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %11)
           to label %74 unwind label %41
 
 74:                                               ; preds = %73
@@ -19366,7 +19366,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL7SigSpecESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115MemoryMapWorker11addr_decodeEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115MemoryMapWorker11addr_decodeEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.172", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -19628,7 +19628,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
           to label %108 unwind label %247
 
 108:                                              ; preds = %107
-  %109 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115MemoryMapWorker11addr_decodeEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  %109 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115MemoryMapWorker11addr_decodeEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %14, ptr noundef %15)
           to label %110 unwind label %249
 
 110:                                              ; preds = %108
@@ -19741,7 +19741,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit67:               ; preds = %_ZSt8_DestroyIPN5Yo
           to label %143 unwind label %252
 
 143:                                              ; preds = %140
-  %144 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115MemoryMapWorker11addr_decodeEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %144 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115MemoryMapWorker11addr_decodeEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %17, ptr noundef %18)
           to label %145 unwind label %254
 
 145:                                              ; preds = %143

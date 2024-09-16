@@ -201,7 +201,7 @@ _ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6Tag
 declare void @_ZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewE(i8 noundef signext, ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125locale_invariant_lineinfoERKN5vcpkg8LineInfoE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125locale_invariant_lineinfoERKN5vcpkg8LineInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca %"class.fmt::v10::format_arg_store", align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = ptrtoint ptr %1 to i64
@@ -209,7 +209,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125locale_invariant_lineinfoERKN5vc
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN5vcpkg8LineInfoENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %6, align 8, !noalias !14
   call void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull @.str.2, i64 4, i64 15, ptr nonnull %3)
-  call void @_ZN5vcpkg15LocalizedString8from_rawIcTnNSt9enable_ifIXsr3std7is_sameIcT_EE5valueEiE4typeELi0EEES0_ONSt7__cxx1112basic_stringIS3_St11char_traitsIS3_ESaIS3_EEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN5vcpkg15LocalizedString8from_rawIcTnNSt9enable_ifIXsr3std7is_sameIcT_EE5valueEiE4typeELi0EEES0_ONSt7__cxx1112basic_stringIS3_St11char_traitsIS3_ESaIS3_EEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   ret void
 }
@@ -407,7 +407,7 @@ define dso_local void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef
 
 5:                                                ; preds = %2
   call void @_ZN5vcpkg21internal_error_prefixEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %3)
-  invoke fastcc void @_ZN12_GLOBAL__N_125locale_invariant_lineinfoERKN5vcpkg8LineInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_125locale_invariant_lineinfoERKN5vcpkg8LineInfoE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %6 unwind label %17
 
 6:                                                ; preds = %5
@@ -477,7 +477,7 @@ define dso_local void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEbNS_10StringV
 
 7:                                                ; preds = %4
   call void @_ZN5vcpkg21internal_error_prefixEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5)
-  invoke fastcc void @_ZN12_GLOBAL__N_125locale_invariant_lineinfoERKN5vcpkg8LineInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_125locale_invariant_lineinfoERKN5vcpkg8LineInfoE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %8 unwind label %21
 
 8:                                                ; preds = %7

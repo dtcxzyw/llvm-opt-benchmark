@@ -433,8 +433,8 @@ _ZSt10accumulateIPKjmSt4plusImEET0_T_S5_S4_T1_.exit: ; preds = %.lr.ph.i, %._cri
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %72, %70
-  %.sink21.i.i = phi ptr [ %74, %72 ], [ %71, %70 ]
-  %75 = load ptr, ptr %.sink21.i.i, align 8
+  %.sink19.i.i = phi ptr [ %74, %72 ], [ %71, %70 ]
+  %75 = load ptr, ptr %.sink19.i.i, align 8
   %76 = load i8, ptr %75, align 8
   %77 = icmp ugt i8 %76, 28
   %spec.select.i.i15.i.i = select i1 %77, ptr %75, ptr null

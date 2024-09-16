@@ -1134,7 +1134,7 @@ invoke.cont88:                                    ; preds = %do.end85
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %57, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp93) #27
   %58 = load double, ptr %baseNominal_, align 8, !tbaa !66
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_127compoundedSubPeriodicCouponERKNS_4DateES3_S3_dRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate_, ptr noundef nonnull align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %58, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_127compoundedSubPeriodicCouponERKNS_4DateES3_S3_dRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias writable align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate_, ptr noundef nonnull align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %58, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_)
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %invoke.cont88
@@ -1689,7 +1689,7 @@ declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare i64 @_ZNK8QuantLib8Calendar7advanceERKNS_4DateEiNS_8TimeUnitENS_21BusinessDayConventionEb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_127compoundedSubPeriodicCouponERKNS_4DateES3_S3_dRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, ptr noundef nonnull align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %nominal, ptr noundef nonnull align 8 dereferenceable(16) %index) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_127compoundedSubPeriodicCouponERKNS_4DateES3_S3_dRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, ptr noundef nonnull align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %nominal, ptr noundef nonnull align 8 dereferenceable(16) %index) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %nominal.addr = alloca double, align 8
   %floatCpn = alloca %"class.boost::shared_ptr.83", align 8
@@ -2679,7 +2679,7 @@ invoke.cont86:                                    ; preds = %do.end83
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %56, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp91) #27
   %57 = load double, ptr %baseNominal_, align 8, !tbaa !66
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_127compoundedSubPeriodicCouponERKNS_4DateES3_S3_dRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate_, ptr noundef nonnull align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %57, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_127compoundedSubPeriodicCouponERKNS_4DateES3_S3_dRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias writable align 8 %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate_, ptr noundef nonnull align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %57, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_)
           to label %invoke.cont96 unwind label %lpad95
 
 invoke.cont96:                                    ; preds = %invoke.cont86

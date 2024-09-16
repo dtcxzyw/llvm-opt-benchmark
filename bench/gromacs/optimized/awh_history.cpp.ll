@@ -627,7 +627,7 @@ _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit: ; preds = %103, %105,
           to label %120 unwind label %138
 
 120:                                              ; preds = %118
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116doCheckpointDataILNS_23CheckpointDataOperationE0EEEvNS_14CheckpointDataIXT_EEEPNS_14AwhBiasHistoryE(ptr %119, ptr noundef nonnull %.sroa.040.044)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116doCheckpointDataILNS_23CheckpointDataOperationE0EEEvNS_14CheckpointDataIXT_EEEPNS_14AwhBiasHistoryE(ptr %119, ptr noundef %.sroa.040.044)
           to label %121 unwind label %138
 
 121:                                              ; preds = %120
@@ -940,7 +940,7 @@ _ZNK3gmx17KeyValueTreeValue4castIiEERKT_v.exit:   ; preds = %26, %_ZNK3gmx3Any6i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_116doCheckpointDataILNS_23CheckpointDataOperationE0EEEvNS_14CheckpointDataIXT_EEEPNS_14AwhBiasHistoryE(ptr %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_116doCheckpointDataILNS_23CheckpointDataOperationE0EEEvNS_14CheckpointDataIXT_EEEPNS_14AwhBiasHistoryE(ptr %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct._Guard, align 8
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %struct._Guard, align 8
@@ -1197,7 +1197,7 @@ _ZNSt6vectorIN3gmx20AwhPointStateHistoryESaIS1_EE6resizeEm.exit: ; preds = %129,
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %149
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  invoke void @_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE6scalarIdEENSt9enable_ifIXsr18IsSerializableTypeIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef %.sroa.091.0107)
+  invoke void @_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE6scalarIdEENSt9enable_ifIXsr18IsSerializableTypeIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull %.sroa.091.0107)
           to label %151 unwind label %250
 
 151:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -2599,7 +2599,7 @@ _ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE6resizeEm.exit.i: ; pred
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: ; preds = %480
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  invoke void @_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE6scalarIdEENSt9enable_ifIXsr18IsSerializableTypeIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %.sroa.059.066.i)
+  invoke void @_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE6scalarIdEENSt9enable_ifIXsr18IsSerializableTypeIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull %.sroa.059.066.i)
           to label %482 unwind label %552
 
 482:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i
@@ -4425,7 +4425,7 @@ _ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i5.i.i41: ; preds = 
           to label %98 unwind label %116
 
 98:                                               ; preds = %96
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116doCheckpointDataILNS_23CheckpointDataOperationE1EEEvNS_14CheckpointDataIXT_EEEPNS_14AwhBiasHistoryE(ptr %97, i8 1, ptr noundef nonnull %.sroa.052.056)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116doCheckpointDataILNS_23CheckpointDataOperationE1EEEvNS_14CheckpointDataIXT_EEEPNS_14AwhBiasHistoryE(ptr %97, i8 1, ptr noundef %.sroa.052.056)
           to label %99 unwind label %116
 
 99:                                               ; preds = %98
@@ -4521,7 +4521,7 @@ _ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i5.i.i41: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_116doCheckpointDataILNS_23CheckpointDataOperationE1EEEvNS_14CheckpointDataIXT_EEEPNS_14AwhBiasHistoryE(ptr %0, i8 %1, ptr nocapture noundef readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_116doCheckpointDataILNS_23CheckpointDataOperationE1EEEvNS_14CheckpointDataIXT_EEEPNS_14AwhBiasHistoryE(ptr %0, i8 %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %struct._Guard, align 8
   %6 = alloca %struct._Guard, align 8

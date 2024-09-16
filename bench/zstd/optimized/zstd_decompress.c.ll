@@ -411,27 +411,27 @@ if.then17:                                        ; preds = %if.end15
   %6 = load ptr, ptr %5, align 8
   %tobool1.not.i = icmp eq ptr %6, null
   %tobool.not.i10.i = icmp eq ptr %cMem.sroa.1.0.copyload, null
-  br i1 %tobool1.not.i, label %if.then.i9.i, label %if.then.i.i
+  br i1 %tobool1.not.i, label %if.then4.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then17
-  br i1 %tobool.not.i10.i, label %if.then.i9.thread.i, label %if.then.i9.thread2.i
+  br i1 %tobool.not.i10.i, label %if.then4.thread.i, label %if.then4.thread2.i
 
-if.then.i9.thread2.i:                             ; preds = %if.then.i.i
+if.then4.thread2.i:                               ; preds = %if.then.i.i
   tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %6) #16
   br label %if.then1.i11.i
 
-if.then.i9.thread.i:                              ; preds = %if.then.i.i
+if.then4.thread.i:                                ; preds = %if.then.i.i
   tail call void @free(ptr noundef nonnull %6) #16
   br label %if.else.i12.i
 
-if.then.i9.i:                                     ; preds = %if.then17
+if.then4.i:                                       ; preds = %if.then17
   br i1 %tobool.not.i10.i, label %if.else.i12.i, label %if.then1.i11.i
 
-if.then1.i11.i:                                   ; preds = %if.then.i9.i, %if.then.i9.thread2.i
+if.then1.i11.i:                                   ; preds = %if.then4.i, %if.then4.thread2.i
   tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %5) #16
   br label %ZSTD_freeDDictHashSet.exit
 
-if.else.i12.i:                                    ; preds = %if.then.i9.i, %if.then.i9.thread.i
+if.else.i12.i:                                    ; preds = %if.then4.i, %if.then4.thread.i
   tail call void @free(ptr noundef nonnull %5) #16
   br label %ZSTD_freeDDictHashSet.exit
 
@@ -971,7 +971,7 @@ if.end10:                                         ; preds = %if.end6
 
 if.end13:                                         ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %frameSizeInfo.i)
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias nonnull align 8 %frameSizeInfo.i, ptr noundef nonnull %src.addr.039, i64 noundef %srcSize.addr.038)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias align 8 %frameSizeInfo.i, ptr noundef nonnull %src.addr.039, i64 noundef %srcSize.addr.038)
   %0 = load i64, ptr %compressedSize.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %frameSizeInfo.i)
   %cmp.i24 = icmp ult i64 %0, -119
@@ -999,7 +999,7 @@ return:                                           ; preds = %if.end13, %if.end10
 define i64 @ZSTD_findFrameCompressedSize(ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %frameSizeInfo = alloca %struct.ZSTD_frameSizeInfo, align 8
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias nonnull align 8 %frameSizeInfo, ptr noundef %src, i64 noundef %srcSize)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias align 8 %frameSizeInfo, ptr noundef %src, i64 noundef %srcSize)
   %compressedSize = getelementptr inbounds i8, ptr %frameSizeInfo, i64 8
   %0 = load i64, ptr %compressedSize, align 8
   ret i64 %0
@@ -1015,7 +1015,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ZSTD_findFrameSizeInfo(ptr noalias align 8 %agg.result, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #0 {
+define internal fastcc void @ZSTD_findFrameSizeInfo(ptr noalias nonnull align 8 %agg.result, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #0 {
 entry:
   %zfh = alloca %struct.ZSTD_frameHeader, align 8
   %blockProperties = alloca %struct.blockProperties_t, align 4
@@ -1223,7 +1223,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %src.addr.011 = phi ptr [ %src, %while.body.lr.ph ], [ %add.ptr, %if.end ]
   %bound.010 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end ]
   %srcSize.addr.09 = phi i64 [ %srcSize, %while.body.lr.ph ], [ %sub, %if.end ]
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias nonnull align 8 %frameSizeInfo, ptr noundef %src.addr.011, i64 noundef %srcSize.addr.09)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias align 8 %frameSizeInfo, ptr noundef %src.addr.011, i64 noundef %srcSize.addr.09)
   %0 = load i64, ptr %compressedSize1, align 8
   %1 = load i64, ptr %decompressedBound2, align 8
   %cmp.i = icmp ugt i64 %0, -120
@@ -1265,7 +1265,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %srcSize.addr.024 = phi i64 [ %srcSize, %while.body.lr.ph ], [ %sub, %if.end28 ]
   %maxBlockSize.023 = phi i32 [ 0, %while.body.lr.ph ], [ %maxBlockSize.1, %if.end28 ]
   %margin.022 = phi i64 [ 0, %while.body.lr.ph ], [ %margin.1, %if.end28 ]
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias nonnull align 8 %frameSizeInfo, ptr noundef %src.addr.025, i64 noundef %srcSize.addr.024)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias align 8 %frameSizeInfo, ptr noundef %src.addr.025, i64 noundef %srcSize.addr.024)
   %0 = load i64, ptr %compressedSize1, align 8
   %1 = load i64, ptr %decompressedBound2, align 8
   %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %zfh, ptr noundef %src.addr.025, i64 noundef %srcSize.addr.024, i32 noundef 0)
@@ -2598,7 +2598,7 @@ declare i64 @ZSTD_decompressBlock_internal(ptr noundef, ptr noundef, i64 noundef
 declare i32 @ZSTD_XXH64_update(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ZSTD_DCtx_trace_end(ptr noundef %dctx, i64 noundef %uncompressedSize, i64 noundef %compressedSize, i32 noundef %streaming) unnamed_addr #0 {
+define internal fastcc void @ZSTD_DCtx_trace_end(ptr noundef %dctx, i64 noundef %uncompressedSize, i64 noundef %compressedSize, i32 noundef range(i32 0, 2) %streaming) unnamed_addr #0 {
 entry:
   %trace = alloca %struct.ZSTD_Trace, align 8
   %traceCtx = getelementptr inbounds i8, ptr %dctx, i64 95984
@@ -4620,7 +4620,7 @@ land.lhs.true241:                                 ; preds = %land.lhs.true237
 
 if.then249:                                       ; preds = %land.lhs.true241
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %frameSizeInfo.i)
-  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias nonnull align 8 %frameSizeInfo.i, ptr noundef %add.ptr, i64 noundef %gepdiff461)
+  call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias align 8 %frameSizeInfo.i, ptr noundef %add.ptr, i64 noundef %gepdiff461)
   %31 = load i64, ptr %compressedSize.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %frameSizeInfo.i)
   %cmp257.not = icmp ugt i64 %31, %gepdiff461
@@ -5299,7 +5299,7 @@ return:                                           ; preds = %while.body, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressLegacyStream(ptr noundef %legacyContext, i32 noundef %version, ptr nocapture noundef %output, ptr nocapture noundef %input) unnamed_addr #0 {
+define internal fastcc i64 @ZSTD_decompressLegacyStream(ptr noundef %legacyContext, i32 noundef range(i32 1, 0) %version, ptr nocapture noundef %output, ptr nocapture noundef %input) unnamed_addr #0 {
 entry:
   %readSize = alloca i64, align 8
   %decodedSize = alloca i64, align 8
@@ -5480,7 +5480,7 @@ if.end9:                                          ; preds = %ZSTD_DDictHashSet_g
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -64, 1) i64 @ZSTD_initLegacyStream(ptr nocapture noundef %legacyContext, i32 noundef %prevVersion, i32 noundef %newVersion, ptr noundef %dict, i64 noundef %dictSize) unnamed_addr #0 {
+define internal fastcc range(i64 -64, 1) i64 @ZSTD_initLegacyStream(ptr nocapture noundef %legacyContext, i32 noundef %prevVersion, i32 noundef range(i32 1, 8) %newVersion, ptr noundef %dict, i64 noundef %dictSize) unnamed_addr #0 {
 entry:
   %x = alloca i8, align 1
   %cmp = icmp eq ptr %dict, null

@@ -2478,7 +2478,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf07abd95a42d7095E.ll
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd94fd5370775cc3aE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd94fd5370775cc3aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
@@ -2625,7 +2625,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN13deltalake_gcp6config15GcpConfigHelper24has_full_config_with_env17h18068fd2cce7a0c8E(ptr noalias noundef readonly align 8 dereferenceable(120) %0, i8 %.0.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN13deltalake_gcp6config15GcpConfigHelper24has_full_config_with_env17h18068fd2cce7a0c8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, i8 %.0.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { i64, i64 }, [1 x i8], [7 x i8] }, align 8
   %4 = alloca { { i64, i64 }, [1 x i8], [7 x i8] }, align 8
@@ -3254,7 +3254,7 @@ _ZN13deltalake_gcp6config13GcpCredential4keys17ha05719f7f5dfb74eE.exit.i75: ; pr
 
 156:                                              ; preds = %155
   %.val69 = load i8, ptr %.sroa.0141.0305, align 1, !range !111, !noundef !4
-  %157 = invoke fastcc noundef zeroext i1 @_ZN13deltalake_gcp6config15GcpConfigHelper24has_full_config_with_env17h18068fd2cce7a0c8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, i8 %.val69)
+  %157 = invoke fastcc noundef zeroext i1 @_ZN13deltalake_gcp6config15GcpConfigHelper24has_full_config_with_env17h18068fd2cce7a0c8E(ptr noalias noundef readonly align 8 dereferenceable(120) %1, i8 %.val69)
           to label %160 unwind label %.thread217.loopexit.split-lp.loopexit
 
 158:                                              ; preds = %160, %155
@@ -3394,7 +3394,7 @@ _ZN13deltalake_gcp6config13GcpCredential4keys17ha05719f7f5dfb74eE.exit.i75: ; pr
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
-  %187 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd94fd5370775cc3aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %172, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %41)
+  %187 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd94fd5370775cc3aE"(ptr noalias noundef readonly align 8 dereferenceable(48) %172, ptr noalias noundef readonly align 1 dereferenceable(1) %41)
           to label %192 unwind label %.loopexit283
 
 188:                                              ; preds = %185, %204
@@ -3498,7 +3498,7 @@ _ZN13deltalake_gcp6config13GcpCredential4keys17ha05719f7f5dfb74eE.exit.i75: ; pr
 
 234:                                              ; preds = %232
   %.val68 = load i8, ptr %.sroa.0145.0, align 1, !range !111, !noundef !4
-  %235 = invoke fastcc noundef zeroext i1 @_ZN13deltalake_gcp6config15GcpConfigHelper24has_full_config_with_env17h18068fd2cce7a0c8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, i8 %.val68)
+  %235 = invoke fastcc noundef zeroext i1 @_ZN13deltalake_gcp6config15GcpConfigHelper24has_full_config_with_env17h18068fd2cce7a0c8E(ptr noalias noundef readonly align 8 dereferenceable(120) %1, i8 %.val68)
           to label %236 unwind label %.thread217.loopexit
 
 236:                                              ; preds = %234
@@ -3635,7 +3635,7 @@ _ZN13deltalake_gcp6config13GcpCredential4keys17ha05719f7f5dfb74eE.exit.i75: ; pr
   %.sroa.5174.0.copyload = load i8, ptr %.sroa.5174.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
-  %264 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd94fd5370775cc3aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %249, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %37)
+  %264 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd94fd5370775cc3aE"(ptr noalias noundef readonly align 8 dereferenceable(48) %249, ptr noalias noundef readonly align 1 dereferenceable(1) %37)
           to label %269 unwind label %.loopexit275
 
 265:                                              ; preds = %262, %280
@@ -4015,7 +4015,7 @@ _ZN13deltalake_gcp6config13GcpCredential4keys17ha05719f7f5dfb74eE.exit.i75: ; pr
   %.sroa.5194.0.copyload = load i8, ptr %.sroa.5194.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
-  %404 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd94fd5370775cc3aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %324, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.0.i)
+  %404 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd94fd5370775cc3aE"(ptr noalias noundef readonly align 8 dereferenceable(48) %324, ptr noalias noundef readonly align 1 dereferenceable(1) %.sroa.0.0.i)
           to label %405 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 405:                                              ; preds = %403

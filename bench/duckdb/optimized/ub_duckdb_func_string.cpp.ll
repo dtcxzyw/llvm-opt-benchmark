@@ -66926,7 +66926,7 @@ if.end86:                                         ; preds = %if.end86.critedge, 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L15ReplaceFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0NS_8string_tES9_S9_S9_EET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr %fun.coerce0, ptr %fun.coerce1, i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr %b.coerce1, ptr nocapture noundef readonly byval(%"struct.duckdb::string_t") align 8 %c) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L15ReplaceFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0NS_8string_tES9_S9_S9_EET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr nonnull %fun.coerce0, ptr nonnull %fun.coerce1, i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr %b.coerce1, ptr nocapture noundef readonly byval(%"struct.duckdb::string_t") align 8 %c) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.sroa.0.i.i = alloca %struct.anon, align 8
   %input_string.i = alloca %"struct.duckdb::string_t", align 8
@@ -69768,7 +69768,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L14ToBaseFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0liiNS_8string_tEEET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr %fun.coerce, i64 noundef %a, i32 noundef %b, i32 noundef %c) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L14ToBaseFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0liiNS_8string_tEEET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr nonnull %fun.coerce, i64 noundef %a, i32 noundef %b, i32 noundef %c) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -69992,7 +69992,7 @@ declare void @_ZN6duckdb5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN6duckdb23BoundConstantExpressionC1ENS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L17TranslateFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0NS_8string_tES9_S9_S9_EET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr %fun.coerce0, ptr %fun.coerce1, i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr %b.coerce1, ptr nocapture noundef readonly byval(%"struct.duckdb::string_t") align 8 %c) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L17TranslateFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0NS_8string_tES9_S9_S9_EET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr nonnull %fun.coerce0, ptr nonnull %fun.coerce1, i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr %b.coerce1, ptr nocapture noundef readonly byval(%"struct.duckdb::string_t") align 8 %c) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %retval.sroa.0.i.i = alloca %struct.anon, align 8
@@ -73787,7 +73787,7 @@ _ZN6duckdb20ExceptionFormatValueD2Ev.exit9:       ; preds = %if.then.i.i.i5, %_Z
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L19FormatBytesFunctionILl1024EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUllE_lNS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv(i64 noundef %input, ptr %dataptr.0.val) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L19FormatBytesFunctionILl1024EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUllE_lNS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv(i64 noundef %input, ptr nonnull %dataptr.0.val) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -73967,7 +73967,7 @@ declare void @_ZN6duckdb10StringUtil26BytesToHumanReadableStringB5cxx11Emm(ptr d
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L19FormatBytesFunctionILl1000EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUllE_lNS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv(i64 noundef %input, ptr %dataptr.0.val) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L19FormatBytesFunctionILl1000EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUllE_lNS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv(i64 noundef %input, ptr nonnull %dataptr.0.val) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -142172,7 +142172,7 @@ for.body:                                         ; preds = %while.body, %for.bo
 declare noundef i32 @_ZN6duckdb17utf8proc_categoryEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18BinaryTrimFunctionILb1ELb1EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tES9_E_bS9_S9_S9_EET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i64 %right.coerce0, ptr %right.coerce1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18BinaryTrimFunctionILb1ELb1EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tES9_E_bS9_S9_S9_EET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nonnull %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i64 %right.coerce0, ptr %right.coerce1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ignored.i.i = alloca %"struct.duckdb::string_t", align 8
@@ -143382,7 +143382,7 @@ _ZN6duckdb8string_t8FinalizeEv.exit:              ; preds = %if.else.i, %for.bod
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18BinaryTrimFunctionILb1ELb0EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tES9_E_bS9_S9_S9_EET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i64 %right.coerce0, ptr %right.coerce1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18BinaryTrimFunctionILb1ELb0EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tES9_E_bS9_S9_S9_EET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nonnull %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i64 %right.coerce0, ptr %right.coerce1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ignored.i.i = alloca %"struct.duckdb::string_t", align 8
@@ -144494,7 +144494,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18BinaryTrimFunctionILb0ELb1EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tES9_E_bS9_S9_S9_EET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i64 %right.coerce0, ptr %right.coerce1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18BinaryTrimFunctionILb0ELb1EEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tES9_E_bS9_S9_S9_EET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nonnull %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i64 %right.coerce0, ptr %right.coerce1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ignored.i.i = alloca %"struct.duckdb::string_t", align 8

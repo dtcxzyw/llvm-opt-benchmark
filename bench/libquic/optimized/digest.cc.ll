@@ -459,7 +459,7 @@ lpad.i:                                           ; preds = %if.end13.i, %if.the
 
 if.else.i:                                        ; preds = %for.body115
   %filename_.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0248, i64 8
-  %call4.i = invoke fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %fd.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i)
+  %call4.i = invoke fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %fd.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i)
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %if.else.i
@@ -650,7 +650,7 @@ if.end97.i:                                       ; preds = %if.else93.i, %if.th
   store i8 %frombool.i45.i, ptr %target_source.i, align 8
   %call.i48.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i39.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i44.sink226.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i44.sink226.i) #19
-  %call99.i = invoke fastcc noundef zeroext i1 @_ZL7SumFilePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK9env_md_stRK6Source(ptr noundef nonnull %calculated_hex_digest.i, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(40) %target_source.i)
+  %call99.i = invoke fastcc noundef zeroext i1 @_ZL7SumFilePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK9env_md_stRK6Source(ptr noundef %calculated_hex_digest.i, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(40) %target_source.i)
           to label %invoke.cont98.i unwind label %lpad90.i
 
 invoke.cont98.i:                                  ; preds = %if.end97.i
@@ -828,7 +828,7 @@ for.body136:                                      ; preds = %if.else126, %invoke
   %__begin2128.sroa.0.0244 = phi ptr [ %incdec.ptr.i104, %invoke.cont139 ], [ %32, %if.else126 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %hex_digest.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hex_digest.i) #19
-  %call.i91 = invoke fastcc noundef zeroext i1 @_ZL7SumFilePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK9env_md_stRK6Source(ptr noundef nonnull %hex_digest.i, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(40) %__begin2128.sroa.0.0244)
+  %call.i91 = invoke fastcc noundef zeroext i1 @_ZL7SumFilePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK9env_md_stRK6Source(ptr noundef %hex_digest.i, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(40) %__begin2128.sroa.0.0244)
           to label %invoke.cont.i unwind label %lpad.i92
 
 invoke.cont.i:                                    ; preds = %for.body136
@@ -1148,7 +1148,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef writeonly %out_fd, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly %out_fd, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %st = alloca %struct.stat, align 8
   store i32 -1, ptr %out_fd, align 4
@@ -1241,7 +1241,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL7SumFilePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK9env_md_stRK6Source(ptr noundef %out_hex, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(40) %source) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL7SumFilePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK9env_md_stRK6Source(ptr noundef nonnull %out_hex, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(40) %source) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_fd = alloca %"class.std::unique_ptr.12", align 8
   %fd = alloca i32, align 4
@@ -1263,7 +1263,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %filename_.i = getelementptr inbounds i8, ptr %source, i64 8
-  %call2 = invoke fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %fd, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i)
+  %call2 = invoke fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %fd, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else

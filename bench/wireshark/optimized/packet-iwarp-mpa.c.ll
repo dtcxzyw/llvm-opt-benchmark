@@ -370,7 +370,7 @@ define internal range(i32 0, 33619977) i32 @iwrap_mpa_pdu_length(ptr noundef %0,
   br i1 %.not, label %44, label %8
 
 8:                                                ; preds = %4
-  %9 = call fastcc ptr @get_state_of_first_fpdu(ptr noundef %1, ptr noundef %0, ptr noundef %3, ptr noundef nonnull %5)
+  %9 = call fastcc ptr @get_state_of_first_fpdu(ptr noundef %1, ptr noundef %0, ptr noundef %3, ptr noundef %5)
   %.not44 = icmp eq ptr %9, null
   br i1 %.not44, label %.thread, label %10
 
@@ -452,7 +452,7 @@ define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %
   br i1 %7, label %dissect_iwarp_mpa.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = call fastcc ptr @get_state_of_first_fpdu(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly %3, ptr noundef nonnull %5)
+  %9 = call fastcc ptr @get_state_of_first_fpdu(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly %3, ptr noundef %5)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %207, label %10
 
@@ -852,7 +852,7 @@ declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_state_of_first_fpdu(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @get_state_of_first_fpdu(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ugt i32 %5, 7
   br i1 %6, label %7, label %is_mpa_fpdu.exit.thread
@@ -965,7 +965,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.56) #5
@@ -977,66 +977,56 @@ define internal fastcc range(i32 0, 2) i32 @dissect_mpa_req_rep(ptr noundef %0, 
   %12 = tail call ptr @val_to_str(i32 noundef %3, ptr noundef nonnull @mpa_messages, ptr noundef nonnull @.str.58) #5
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.57, i32 noundef %9, i32 noundef %11, ptr noundef %12) #5
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %47, label %13
+  br i1 %.not, label %46, label %13
 
 13:                                               ; preds = %4
   %14 = load i32, ptr @proto_iwarp_mpa, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_mpa, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
-  switch i32 %3, label %25 [
-    i32 1, label %.sink.split
-    i32 2, label %18
-  ]
-
-18:                                               ; preds = %13
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %13, %18
-  %hf_mpa_req.sink = phi ptr [ @hf_mpa_rep, %18 ], [ @hf_mpa_req, %13 ]
-  %hf_mpa_key_req.sink = phi ptr [ @hf_mpa_key_rep, %18 ], [ @hf_mpa_key_req, %13 ]
-  %19 = load i32, ptr %hf_mpa_req.sink, align 4
+  %18 = icmp eq i32 %3, 1
+  %hf_mpa_req.val = load i32, ptr @hf_mpa_req, align 4
+  %hf_mpa_rep.val = load i32, ptr @hf_mpa_rep, align 4
+  %19 = select i1 %18, i32 %hf_mpa_req.val, i32 %hf_mpa_rep.val
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %21 = load i32, ptr @ett_mpa, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #5
-  %23 = load i32, ptr %hf_mpa_key_req.sink, align 4
+  %hf_mpa_key_req.val = load i32, ptr @hf_mpa_key_req, align 4
+  %hf_mpa_key_rep.val = load i32, ptr @hf_mpa_key_rep, align 4
+  %23 = select i1 %18, i32 %hf_mpa_key_req.val, i32 %hf_mpa_key_rep.val
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #5
-  br label %25
+  %25 = load i32, ptr @hf_mpa_flag_m, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
+  %27 = load i32, ptr @hf_mpa_flag_c, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %27, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
+  %29 = load i32, ptr @hf_mpa_flag_r, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %29, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
+  %31 = load i32, ptr @hf_mpa_flag_res, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %31, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
+  %33 = load i32, ptr @hf_mpa_rev, align 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %33, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #5
+  %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #5
+  %36 = zext i16 %35 to i32
+  %37 = icmp ugt i16 %35, 512
+  br i1 %37, label %38, label %40
 
-25:                                               ; preds = %.sink.split, %13
-  %.1 = phi ptr [ null, %13 ], [ %22, %.sink.split ]
-  %26 = load i32, ptr @hf_mpa_flag_m, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %26, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
-  %28 = load i32, ptr @hf_mpa_flag_c, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %28, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
-  %30 = load i32, ptr @hf_mpa_flag_r, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %30, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
-  %32 = load i32, ptr @hf_mpa_flag_res, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %32, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
-  %34 = load i32, ptr @hf_mpa_rev, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %34, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #5
-  %36 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #5
-  %37 = zext i16 %36 to i32
-  %38 = icmp ugt i16 %36, 512
-  br i1 %38, label %39, label %41
+38:                                               ; preds = %13
+  %39 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_mpa_bad_length, ptr noundef %0, i32 noundef 18, i32 noundef 2, ptr noundef nonnull @.str.70) #5
+  br label %46
 
-39:                                               ; preds = %25
-  %40 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_mpa_bad_length, ptr noundef %0, i32 noundef 18, i32 noundef 2, ptr noundef nonnull @.str.70) #5
-  br label %47
+40:                                               ; preds = %13
+  %41 = load i32, ptr @hf_mpa_pd_length, align 4
+  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %22, i32 noundef %41, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef %36) #5
+  %.not60 = icmp eq i16 %35, 0
+  br i1 %.not60, label %46, label %43
 
-41:                                               ; preds = %25
-  %42 = load i32, ptr @hf_mpa_pd_length, align 4
-  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %.1, i32 noundef %42, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef %37) #5
-  %.not60 = icmp eq i16 %36, 0
-  br i1 %.not60, label %47, label %44
+43:                                               ; preds = %40
+  %44 = load i32, ptr @hf_mpa_private_data, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %44, ptr noundef %0, i32 noundef 20, i32 noundef %36, i32 noundef 0) #5
+  br label %46
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr @hf_mpa_private_data, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %45, ptr noundef %0, i32 noundef 20, i32 noundef %37, i32 noundef 0) #5
-  br label %47
-
-47:                                               ; preds = %4, %44, %41, %39
-  %.0 = phi i32 [ 0, %39 ], [ 1, %41 ], [ 1, %44 ], [ 1, %4 ]
+46:                                               ; preds = %4, %43, %40, %38
+  %.0 = phi i32 [ 0, %38 ], [ 1, %40 ], [ 1, %43 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -1047,7 +1037,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fpdu_crc(ptr noundef %0, ptr noundef %1, i32 %.44.val, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_fpdu_crc(ptr noundef %0, ptr noundef %1, i32 %.44.val, i32 noundef %2, i32 noundef range(i32 2, 33619973) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %.44.val, 0
   br i1 %.not, label %15, label %5
 

@@ -506,7 +506,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1
   br i1 %27, label %.preheader154.i, label %28
 
 28:                                               ; preds = %23
-  %29 = call fastcc ptr @CreateBotDist(ptr noundef %1, ptr noundef nonnull %18)
+  %29 = call fastcc ptr @CreateBotDist(ptr noundef %1, ptr noundef %18)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.preheader154.i, label %31
 
@@ -583,7 +583,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1
 
 62:                                               ; preds = %._crit_edge.i
   %63 = load ptr, ptr %12, align 8
-  %64 = call fastcc double @CountMinterms(ptr noundef %1, double noundef %ldexp.i, ptr noundef nonnull %60, ptr noundef %63)
+  %64 = call fastcc double @CountMinterms(ptr noundef %1, double noundef %ldexp.i, ptr noundef %60, ptr noundef %63)
   %65 = fcmp oeq double %64, -1.000000e+00
   br i1 %65, label %.preheader154.i, label %66
 
@@ -601,7 +601,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1
   br i1 %73, label %.preheader154.i, label %74
 
 74:                                               ; preds = %71
-  %75 = call fastcc ptr @BuildConjuncts(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %18, ptr noundef nonnull %69, i32 noundef %spec.select.i, i32 noundef %.0.lcssa.i, ptr noundef nonnull %72, ptr noundef nonnull %60)
+  %75 = call fastcc ptr @BuildConjuncts(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %18, ptr noundef %69, i32 noundef %spec.select.i, i32 noundef %.0.lcssa.i, ptr noundef %72, ptr noundef %60)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.preheader154.i, label %77
 
@@ -1196,12 +1196,12 @@ declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CreateBotDist(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @CreateBotDist(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = call i32 @st__lookup(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %3) #8
+  %7 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %6, ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %14, label %8
 
@@ -1249,7 +1249,7 @@ define internal fastcc ptr @CreateBotDist(ptr noundef %0, ptr noundef %1) unname
   store i32 %37, ptr %34, align 4
   %38 = getelementptr inbounds i8, ptr %34, i64 4
   store i32 1, ptr %38, align 4
-  %39 = call i32 @st__insert(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %34) #8
+  %39 = call i32 @st__insert(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %34) #8
   %40 = icmp eq i32 %39, -10000
   %41 = load ptr, ptr %3, align 8
   %spec.select = select i1 %40, ptr null, ptr %41
@@ -1272,7 +1272,7 @@ declare void @st__free_gen(ptr noundef) local_unnamed_addr #1
 declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %6, -2
@@ -1288,7 +1288,7 @@ define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, 
   br label %47
 
 14:                                               ; preds = %4
-  %15 = call i32 @st__lookup(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5) #8
+  %15 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %16
 
@@ -1329,7 +1329,7 @@ define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, 
 
 42:                                               ; preds = %36
   store double %39, ptr %40, align 8
-  %43 = call i32 @st__insert(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %40) #8
+  %43 = call i32 @st__insert(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %40) #8
   %44 = icmp eq i32 %43, -10000
   br i1 %44, label %45, label %47
 
@@ -1345,7 +1345,7 @@ define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, 
 declare i64 @Cudd_Random() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef range(i32 5, -2147483648) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -1378,7 +1378,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 29:                                               ; preds = %8
-  %30 = call i32 @st__lookup(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %9) #8
+  %30 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %9) #8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %33, label %31
 
@@ -1387,7 +1387,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 33:                                               ; preds = %29
-  %34 = call i32 @st__lookup(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull %12) #8
+  %34 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %16, ptr noundef nonnull %12) #8
   %.not362 = icmp eq i32 %34, 0
   br i1 %.not362, label %35, label %40
 
@@ -1435,7 +1435,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 
 59:                                               ; preds = %54
   store i32 0, ptr %13, align 4
-  %60 = call i32 @st__lookup_int(ptr noundef %6, ptr noundef nonnull %16, ptr noundef nonnull %13) #8
+  %60 = call i32 @st__lookup_int(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull %13) #8
   %.not384 = icmp eq i32 %60, 0
   br i1 %.not384, label %74, label %61
 
@@ -1490,7 +1490,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %78, ptr %76, align 8
   store i64 1, ptr @lastTimeG, align 8
   store i32 1, ptr %13, align 4
-  %79 = call i32 @st__insert(ptr noundef %6, ptr noundef nonnull %16, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %79 = call i32 @st__insert(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %80 = icmp eq i32 %79, -10000
   br i1 %80, label %81, label %89
 
@@ -1506,7 +1506,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %76, align 8
   store i64 0, ptr @lastTimeG, align 8
   store i32 2, ptr %13, align 4
-  %85 = call i32 @st__insert(ptr noundef %6, ptr noundef nonnull %16, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %85 = call i32 @st__insert(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %86 = icmp eq i32 %85, -10000
   br i1 %86, label %87, label %89
 
@@ -1541,7 +1541,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %108, label %119, label %109
 
 109:                                              ; preds = %93
-  %110 = call i32 @st__lookup(ptr noundef %7, ptr noundef %101, ptr noundef nonnull %10) #8
+  %110 = call i32 @st__lookup(ptr noundef nonnull %7, ptr noundef %101, ptr noundef nonnull %10) #8
   %.not364 = icmp eq i32 %110, 0
   br i1 %.not364, label %111, label %116
 
@@ -1567,7 +1567,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %123, label %134, label %124
 
 124:                                              ; preds = %119
-  %125 = call i32 @st__lookup(ptr noundef %7, ptr noundef %104, ptr noundef nonnull %10) #8
+  %125 = call i32 @st__lookup(ptr noundef nonnull %7, ptr noundef %104, ptr noundef nonnull %10) #8
   %.not365 = icmp eq i32 %125, 0
   br i1 %.not365, label %126, label %131
 
@@ -1902,7 +1902,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %300
 
 300:                                              ; preds = %299, %298
-  %301 = call fastcc ptr @CheckInTables(ptr noundef %1, ptr noundef nonnull %215, ptr noundef nonnull %238, ptr noundef nonnull %257, ptr noundef nonnull %278, ptr noundef %6, ptr noundef %3, ptr noundef nonnull %11)
+  %301 = call fastcc ptr @CheckInTables(ptr noundef %1, ptr noundef %215, ptr noundef nonnull %238, ptr noundef nonnull %257, ptr noundef %278, ptr noundef %6, ptr noundef %3, ptr noundef %11)
   %302 = load i32, ptr %11, align 4
   %.not373 = icmp eq i32 %302, 0
   br i1 %.not373, label %305, label %303
@@ -1938,7 +1938,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 312:                                              ; preds = %305
-  %313 = call fastcc ptr @PickOnePair(ptr noundef %1, ptr noundef nonnull %215, ptr noundef nonnull %238, ptr noundef nonnull %257, ptr noundef nonnull %278, ptr noundef %6, ptr noundef %3)
+  %313 = call fastcc ptr @PickOnePair(ptr noundef %1, ptr noundef %215, ptr noundef nonnull %238, ptr noundef nonnull %257, ptr noundef %278, ptr noundef %6, ptr noundef %3)
   %314 = icmp eq ptr %313, null
   br i1 %314, label %315, label %317
 
@@ -1978,7 +1978,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @st__lookup_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = ptrtoint ptr %1 to i64
@@ -2028,7 +2028,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %40, ptr %41, align 8
-  %42 = tail call i32 @st__insert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %32) #8
+  %42 = tail call i32 @st__insert(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %32) #8
   %43 = icmp eq i32 %42, -10000
   br i1 %43, label %44, label %47
 
@@ -2042,7 +2042,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br label %200
 
 47:                                               ; preds = %38
-  %48 = call i32 @st__lookup_int(ptr noundef %3, ptr noundef nonnull %24, ptr noundef nonnull %7) #8
+  %48 = call i32 @st__lookup_int(ptr noundef nonnull %3, ptr noundef nonnull %24, ptr noundef nonnull %7) #8
   %.not246 = icmp eq i32 %48, 0
   %49 = load i32, ptr %7, align 4
   %50 = or i32 %49, 1
@@ -2050,7 +2050,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   store i32 %storemerge247, ptr %7, align 4
   %51 = sext i32 %storemerge247 to i64
   %52 = inttoptr i64 %51 to ptr
-  %53 = call i32 @st__insert(ptr noundef %3, ptr noundef nonnull %24, ptr noundef nonnull %52) #8
+  %53 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %24, ptr noundef nonnull %52) #8
   %54 = icmp eq i32 %53, -10000
   br i1 %54, label %55, label %200
 
@@ -2084,7 +2084,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   store ptr %68, ptr %62, align 8
   %69 = getelementptr inbounds i8, ptr %62, i64 8
   store ptr %21, ptr %69, align 8
-  %70 = tail call i32 @st__insert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %62) #8
+  %70 = tail call i32 @st__insert(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %62) #8
   %71 = icmp eq i32 %70, -10000
   br i1 %71, label %72, label %75
 
@@ -2098,7 +2098,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br label %200
 
 75:                                               ; preds = %67
-  %76 = call i32 @st__lookup_int(ptr noundef %3, ptr noundef nonnull %24, ptr noundef nonnull %7) #8
+  %76 = call i32 @st__lookup_int(ptr noundef nonnull %3, ptr noundef nonnull %24, ptr noundef nonnull %7) #8
   %.not245 = icmp eq i32 %76, 0
   %77 = load i32, ptr %7, align 4
   %78 = or i32 %77, 2
@@ -2106,7 +2106,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   store i32 %storemerge, ptr %7, align 4
   %79 = sext i32 %storemerge to i64
   %80 = inttoptr i64 %79 to ptr
-  %81 = call i32 @st__insert(ptr noundef %3, ptr noundef nonnull %24, ptr noundef nonnull %80) #8
+  %81 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %24, ptr noundef nonnull %80) #8
   %82 = icmp eq i32 %81, -10000
   br i1 %82, label %83, label %200
 
@@ -2266,7 +2266,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %173 = load i32, ptr %172, align 4
   %174 = add i32 %173, 1
   store i32 %174, ptr %172, align 4
-  %175 = call fastcc ptr @CheckInTables(ptr noundef %1, ptr noundef nonnull %156, ptr noundef %154, ptr noundef %163, ptr noundef nonnull %165, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %8)
+  %175 = call fastcc ptr @CheckInTables(ptr noundef %1, ptr noundef %156, ptr noundef %154, ptr noundef %163, ptr noundef %165, ptr noundef %3, ptr noundef %4, ptr noundef %8)
   %176 = load i32, ptr %8, align 4
   %.not241 = icmp eq i32 %176, 0
   br i1 %.not241, label %182, label %180
@@ -2309,7 +2309,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br label %200
 
 189:                                              ; preds = %182
-  %190 = tail call fastcc ptr @PickOnePair(ptr noundef %1, ptr noundef nonnull %156, ptr noundef %154, ptr noundef %163, ptr noundef nonnull %165, ptr noundef %3, ptr noundef %4)
+  %190 = tail call fastcc ptr @PickOnePair(ptr noundef %1, ptr noundef %156, ptr noundef %154, ptr noundef %163, ptr noundef %165, ptr noundef %3, ptr noundef %4)
   %191 = icmp eq ptr %190, null
   br i1 %191, label %192, label %194
 
@@ -2347,10 +2347,10 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   store i32 0, ptr %7, align 4
-  %9 = tail call fastcc i32 @PairInTables(ptr noundef %1, ptr noundef %2, ptr noundef %5)
-  %10 = tail call fastcc i32 @PairInTables(ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %9 = tail call fastcc i32 @PairInTables(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
+  %10 = tail call fastcc i32 @PairInTables(ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %11 = icmp eq i32 %9, 0
   %12 = icmp eq i32 %10, 0
   %or.cond = select i1 %11, i1 %12, i1 false
@@ -2401,7 +2401,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %30 = ptrtoint ptr %2 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %32, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %33 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %32, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %34 = icmp eq i32 %33, -10000
   br i1 %34, label %35, label %150
 
@@ -2422,7 +2422,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %40 = ptrtoint ptr %2 to i64
   %41 = and i64 %40, -2
   %42 = inttoptr i64 %41 to ptr
-  %43 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %42, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %43 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %42, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
   %44 = icmp eq i32 %43, -10000
   br i1 %44, label %45, label %150
 
@@ -2443,7 +2443,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %50 = ptrtoint ptr %1 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %52, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %53 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %52, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %54 = icmp eq i32 %53, -10000
   br i1 %54, label %55, label %150
 
@@ -2464,7 +2464,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %60 = ptrtoint ptr %1 to i64
   %61 = and i64 %60, -2
   %62 = inttoptr i64 %61 to ptr
-  %63 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %62, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %63 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %62, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
   %64 = icmp eq i32 %63, -10000
   br i1 %64, label %65, label %150
 
@@ -2493,7 +2493,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %71 = ptrtoint ptr %4 to i64
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
-  %74 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %73, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %74 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %73, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %75 = icmp eq i32 %74, -10000
   br i1 %75, label %76, label %150
 
@@ -2514,7 +2514,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %81 = ptrtoint ptr %4 to i64
   %82 = and i64 %81, -2
   %83 = inttoptr i64 %82 to ptr
-  %84 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %83, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %84 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %83, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
   %85 = icmp eq i32 %84, -10000
   br i1 %85, label %86, label %150
 
@@ -2535,7 +2535,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %91 = ptrtoint ptr %3 to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
-  %94 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %93, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %94 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %93, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %95 = icmp eq i32 %94, -10000
   br i1 %95, label %96, label %150
 
@@ -2556,7 +2556,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %101 = ptrtoint ptr %3 to i64
   %102 = and i64 %101, -2
   %103 = inttoptr i64 %102 to ptr
-  %104 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %103, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %104 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %103, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
   %105 = icmp eq i32 %104, -10000
   br i1 %105, label %106, label %150
 
@@ -2583,7 +2583,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %112 = ptrtoint ptr %2 to i64
   %113 = and i64 %112, -2
   %114 = inttoptr i64 %113 to ptr
-  %115 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %114, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %115 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %114, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %116 = icmp eq i32 %115, -10000
   br i1 %116, label %117, label %150
 
@@ -2604,7 +2604,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %122 = ptrtoint ptr %1 to i64
   %123 = and i64 %122, -2
   %124 = inttoptr i64 %123 to ptr
-  %125 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %124, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %125 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %124, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %126 = icmp eq i32 %125, -10000
   br i1 %126, label %127, label %150
 
@@ -2631,7 +2631,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %133 = ptrtoint ptr %4 to i64
   %134 = and i64 %133, -2
   %135 = inttoptr i64 %134 to ptr
-  %136 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %135, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %136 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %135, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %137 = icmp eq i32 %136, -10000
   br i1 %137, label %138, label %150
 
@@ -2652,7 +2652,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %143 = ptrtoint ptr %3 to i64
   %144 = and i64 %143, -2
   %145 = inttoptr i64 %144 to ptr
-  %146 = tail call i32 @st__insert(ptr noundef %5, ptr noundef %145, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %146 = tail call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %145, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %147 = icmp eq i32 %146, -10000
   br i1 %147, label %148, label %150
 
@@ -2670,7 +2670,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   br label %150
 
 150:                                              ; preds = %.sink.split, %128, %39, %36, %59, %56, %80, %77, %100, %97, %121, %118, %142, %139, %129, %132, %108, %111, %87, %90, %67, %70, %46, %49, %26, %29
-  %151 = tail call i32 @st__insert(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %14) #8
+  %151 = tail call i32 @st__insert(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %14) #8
   %152 = icmp eq i32 %151, -10000
   br i1 %152, label %153, label %154
 
@@ -2685,7 +2685,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %10 = icmp eq ptr %9, null
@@ -2787,7 +2787,7 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
   %73 = ptrtoint ptr %spec.select to i64
   %74 = and i64 %73, -2
   %75 = inttoptr i64 %74 to ptr
-  %76 = call i32 @st__lookup_int(ptr noundef %5, ptr noundef %75, ptr noundef nonnull %8) #8
+  %76 = call i32 @st__lookup_int(ptr noundef nonnull %5, ptr noundef %75, ptr noundef nonnull %8) #8
   %.not63 = icmp eq i32 %76, 0
   br i1 %.not63, label %83, label %77
 
@@ -2798,13 +2798,13 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
 
 80:                                               ; preds = %77
   store i32 3, ptr %8, align 4
-  %81 = call i32 @st__insert(ptr noundef %5, ptr noundef %75, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %81 = call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %75, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
   %82 = icmp eq i32 %81, -10000
   br i1 %82, label %.sink.split, label %86
 
 83:                                               ; preds = %72
   store i32 1, ptr %8, align 4
-  %84 = call i32 @st__insert(ptr noundef %5, ptr noundef %75, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %84 = call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %75, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %85 = icmp eq i32 %84, -10000
   br i1 %85, label %.sink.split, label %86
 
@@ -2819,7 +2819,7 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
   %90 = ptrtoint ptr %87 to i64
   %91 = and i64 %90, -2
   %92 = inttoptr i64 %91 to ptr
-  %93 = call i32 @st__lookup_int(ptr noundef %5, ptr noundef %92, ptr noundef nonnull %8) #8
+  %93 = call i32 @st__lookup_int(ptr noundef nonnull %5, ptr noundef %92, ptr noundef nonnull %8) #8
   %.not65 = icmp eq i32 %93, 0
   br i1 %.not65, label %100, label %94
 
@@ -2830,18 +2830,18 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
 
 97:                                               ; preds = %94
   store i32 3, ptr %8, align 4
-  %98 = call i32 @st__insert(ptr noundef %5, ptr noundef %92, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
+  %98 = call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %92, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
   %99 = icmp eq i32 %98, -10000
   br i1 %99, label %.sink.split, label %103
 
 100:                                              ; preds = %89
   store i32 2, ptr %8, align 4
-  %101 = call i32 @st__insert(ptr noundef %5, ptr noundef %92, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %101 = call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %92, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %102 = icmp eq i32 %101, -10000
   br i1 %102, label %.sink.split, label %103
 
 103:                                              ; preds = %97, %94, %100, %86
-  %104 = call i32 @st__insert(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %9) #8
+  %104 = call i32 @st__insert(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %9) #8
   %105 = icmp eq i32 %104, -10000
   br i1 %105, label %.sink.split, label %106
 
@@ -2857,7 +2857,7 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
 declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   %7 = tail call fastcc i32 @PairInTables(ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -2881,7 +2881,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = call i32 @st__lookup_int(ptr noundef %3, ptr noundef %16, ptr noundef nonnull %6) #8
+  %17 = call i32 @st__lookup_int(ptr noundef nonnull %3, ptr noundef %16, ptr noundef nonnull %6) #8
   %.not70 = icmp eq i32 %17, 0
   %18 = load i32, ptr %6, align 4
   %19 = or i32 %18, 1
@@ -2889,7 +2889,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   store i32 %storemerge71, ptr %6, align 4
   %20 = sext i32 %storemerge71 to i64
   %21 = inttoptr i64 %20 to ptr
-  %22 = call i32 @st__insert(ptr noundef %3, ptr noundef %16, ptr noundef nonnull %21) #8
+  %22 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef %16, ptr noundef nonnull %21) #8
   %23 = icmp eq i32 %22, -10000
   br i1 %23, label %62, label %.sink.split
 
@@ -2908,7 +2908,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   %29 = ptrtoint ptr %2 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = call i32 @st__lookup_int(ptr noundef %3, ptr noundef %31, ptr noundef nonnull %6) #8
+  %32 = call i32 @st__lookup_int(ptr noundef nonnull %3, ptr noundef %31, ptr noundef nonnull %6) #8
   %.not68 = icmp eq i32 %32, 0
   %33 = load i32, ptr %6, align 4
   %34 = or i32 %33, 2
@@ -2916,7 +2916,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   store i32 %storemerge, ptr %6, align 4
   %35 = sext i32 %storemerge to i64
   %36 = inttoptr i64 %35 to ptr
-  %37 = call i32 @st__insert(ptr noundef %3, ptr noundef %31, ptr noundef nonnull %36) #8
+  %37 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef %31, ptr noundef nonnull %36) #8
   %38 = icmp eq i32 %37, -10000
   br i1 %38, label %62, label %.sink.split
 
@@ -2938,7 +2938,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   %43 = ptrtoint ptr %1 to i64
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
-  %46 = tail call i32 @st__insert(ptr noundef %3, ptr noundef %45, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
+  %46 = tail call i32 @st__insert(ptr noundef nonnull %3, ptr noundef %45, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %47 = icmp eq i32 %46, -10000
   br i1 %47, label %62, label %.sink.split
 
@@ -2952,7 +2952,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   %51 = ptrtoint ptr %2 to i64
   %52 = and i64 %51, -2
   %53 = inttoptr i64 %52 to ptr
-  %54 = tail call i32 @st__insert(ptr noundef %3, ptr noundef %53, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
+  %54 = tail call i32 @st__insert(ptr noundef nonnull %3, ptr noundef %53, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %55 = icmp eq i32 %54, -10000
   br i1 %55, label %62, label %.sink.split
 
@@ -2968,7 +2968,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   br label %58
 
 58:                                               ; preds = %.sink.split, %39
-  %59 = call i32 @st__insert(ptr noundef %4, ptr noundef %0, ptr noundef nonnull %8) #8
+  %59 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %8) #8
   %60 = icmp eq i32 %59, -10000
   br i1 %60, label %61, label %62
 
@@ -2982,7 +2982,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -2990,11 +2990,11 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  %9 = call i32 @st__lookup_int(ptr noundef %2, ptr noundef %8, ptr noundef nonnull %4) #8
+  %9 = call i32 @st__lookup_int(ptr noundef nonnull %2, ptr noundef %8, ptr noundef nonnull %4) #8
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = call i32 @st__lookup_int(ptr noundef %2, ptr noundef %12, ptr noundef nonnull %5) #8
+  %13 = call i32 @st__lookup_int(ptr noundef nonnull %2, ptr noundef %12, ptr noundef nonnull %5) #8
   %14 = icmp ne i32 %9, 0
   %15 = icmp ne i32 %13, 0
   %or.cond = select i1 %14, i1 true, i1 %15

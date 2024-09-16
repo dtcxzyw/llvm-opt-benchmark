@@ -1982,7 +1982,7 @@ _ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev.exi
 
 175:                                              ; preds = %147
   %176 = getelementptr inbounds i8, ptr %19, i64 24
-  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRSt6vectorINS_17InstallPlanActionESaIS3_EEZNS_28command_depend_info_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISL_EEOSI_OSG_"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %176)
+  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRSt6vectorINS_17InstallPlanActionESaIS3_EEZNS_28command_depend_info_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISL_EEOSI_OSG_"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %176)
           to label %177 unwind label %173
 
 177:                                              ; preds = %175
@@ -2093,7 +2093,7 @@ _ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE9push_backEOS3_.exit: ; preds 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE9push_backEOS3_.exit, %177
   %.lcssa = phi ptr [ %.promoted, %177 ], [ %213, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE9push_backEOS3_.exit ]
   store ptr %.lcssa, ptr %22, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_119extract_depend_infoERKSt6vectorIPKN5vcpkg17InstallPlanActionESaIS4_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %22, i32 noundef %.sroa.7.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_119extract_depend_infoERKSt6vectorIPKN5vcpkg17InstallPlanActionESaIS4_EEi(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %22, i32 noundef %.sroa.7.0.copyload)
           to label %216 unwind label %.loopexit.split-lp181
 
 216:                                              ; preds = %._crit_edge
@@ -2755,7 +2755,7 @@ declare void @_ZN5vcpkg10ActionPlan26print_unsupported_warningsEv(ptr noundef no
 declare void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util4fmapIRSt6vectorINS_17InstallPlanActionESaIS3_EEZNS_28command_depend_info_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISL_EEOSI_OSG_"(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util4fmapIRSt6vectorINS_17InstallPlanActionESaIS3_EEZNS_28command_depend_info_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISL_EEOSI_OSG_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2909,7 +2909,7 @@ _ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EED2Ev.exit: ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119extract_depend_infoERKSt6vectorIPKN5vcpkg17InstallPlanActionESaIS4_EEi(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119extract_depend_infoERKSt6vectorIPKN5vcpkg17InstallPlanActionESaIS4_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode", align 8
   %5 = alloca %"struct.vcpkg::PackageDependInfo", align 8
   %6 = alloca %"struct.std::__detail::_AllocNode", align 8
@@ -11903,7 +11903,7 @@ _ZN5vcpkg17PackageDependInfoC2EOS0_.exit12.i.i.i: ; preds = %96, %94
   %103 = load ptr, ptr %43, align 8
   store ptr %103, ptr %54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %31, ptr noundef nonnull %8)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %31, ptr noundef %8)
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %8) #19
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %104 = add nsw i64 %.010.i.i.i, -1
@@ -12052,7 +12052,7 @@ _ZN5vcpkg17PackageDependInfoC2EOS0_.exit.i:       ; preds = %144, %142
   %177 = load ptr, ptr %114, align 8
   store ptr %177, ptr %125, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %174, ptr noundef nonnull %6)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %174, ptr noundef %6)
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %6) #19
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #19
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
@@ -12462,7 +12462,7 @@ _ZN5vcpkg17PackageDependInfoD2Ev.exit:            ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::PackageDependInfo", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -13216,7 +13216,7 @@ _ZN5vcpkg17PackageDependInfoC2EOS0_.exit12.i.i.i: ; preds = %94, %92
   %101 = load ptr, ptr %41, align 8
   store ptr %101, ptr %52, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %29, ptr noundef nonnull %8)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %29, ptr noundef %8)
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %8) #19
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %102 = add nsw i64 %.010.i.i.i, -1
@@ -13365,7 +13365,7 @@ _ZN5vcpkg17PackageDependInfoC2EOS0_.exit.i:       ; preds = %142, %140
   %175 = load ptr, ptr %112, align 8
   store ptr %175, ptr %123, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %172, ptr noundef nonnull %6)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %172, ptr noundef %6)
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %6) #19
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #19
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
@@ -13843,7 +13843,7 @@ _ZN5vcpkg17PackageDependInfoD2Ev.exit:            ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_3EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::PackageDependInfo", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -14535,7 +14535,7 @@ _ZN5vcpkg17PackageDependInfoC2EOS0_.exit12.i.i.i: ; preds = %96, %94
   %103 = load ptr, ptr %43, align 8
   store ptr %103, ptr %54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %31, ptr noundef nonnull %8)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %31, ptr noundef %8)
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %8) #19
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %104 = add nsw i64 %.010.i.i.i, -1
@@ -14684,7 +14684,7 @@ _ZN5vcpkg17PackageDependInfoC2EOS0_.exit.i:       ; preds = %144, %142
   %177 = load ptr, ptr %114, align 8
   store ptr %177, ptr %125, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %174, ptr noundef nonnull %6)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %174, ptr noundef %6)
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %6) #19
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #19
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
@@ -15094,7 +15094,7 @@ _ZN5vcpkg17PackageDependInfoD2Ev.exit:            ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::PackageDependInfo", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

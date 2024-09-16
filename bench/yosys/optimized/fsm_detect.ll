@@ -44491,7 +44491,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit277:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %699 unwind label %1031
 
 699:                                              ; preds = %698
-  %700 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120check_state_mux_treeEN5Yosys5RTLIL7SigSpecES2_RNS0_7hashlib4poolIPNS1_4CellENS3_8hash_opsIS6_EEEERNS3_4dictIS2_bNS7_IS2_EEEE(ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 8 dereferenceable(49) %37)
+  %700 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120check_state_mux_treeEN5Yosys5RTLIL7SigSpecES2_RNS0_7hashlib4poolIPNS1_4CellENS3_8hash_opsIS6_EEEERNS3_4dictIS2_bNS7_IS2_EEEE(ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 8 dereferenceable(49) %37)
           to label %701 unwind label %1033
 
 701:                                              ; preds = %699
@@ -76007,7 +76007,7 @@ declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120check_state_mux_treeEN5Yosys5RTLIL7SigSpecES2_RNS0_7hashlib4poolIPNS1_4CellENS3_8hash_opsIS6_EEEERNS3_4dictIS2_bNS7_IS2_EEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(49) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120check_state_mux_treeEN5Yosys5RTLIL7SigSpecES2_RNS0_7hashlib4poolIPNS1_4CellENS3_8hash_opsIS6_EEEERNS3_4dictIS2_bNS7_IS2_EEEE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(49) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::SigSet<std::pair<Yosys::RTLIL::Cell *, Yosys::RTLIL::IdString>, std::less<std::pair<Yosys::RTLIL::Cell *, Yosys::RTLIL::IdString>>>::bitDef_t", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -76730,7 +76730,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit117:              ; preds = %333
           to label %341 unwind label %373
 
 341:                                              ; preds = %340
-  %342 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120check_state_mux_treeEN5Yosys5RTLIL7SigSpecES2_RNS0_7hashlib4poolIPNS1_4CellENS3_8hash_opsIS6_EEEERNS3_4dictIS2_bNS7_IS2_EEEE(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(49) %3)
+  %342 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120check_state_mux_treeEN5Yosys5RTLIL7SigSpecES2_RNS0_7hashlib4poolIPNS1_4CellENS3_8hash_opsIS6_EEEERNS3_4dictIS2_bNS7_IS2_EEEE(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(49) %3)
           to label %343 unwind label %375
 
 343:                                              ; preds = %341
@@ -76887,7 +76887,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit143:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %380 unwind label %403
 
 380:                                              ; preds = %378
-  %381 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120check_state_mux_treeEN5Yosys5RTLIL7SigSpecES2_RNS0_7hashlib4poolIPNS1_4CellENS3_8hash_opsIS6_EEEERNS3_4dictIS2_bNS7_IS2_EEEE(ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(49) %3)
+  %381 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120check_state_mux_treeEN5Yosys5RTLIL7SigSpecES2_RNS0_7hashlib4poolIPNS1_4CellENS3_8hash_opsIS6_EEEERNS3_4dictIS2_bNS7_IS2_EEEE(ptr noundef %18, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(49) %3)
           to label %382 unwind label %405
 
 382:                                              ; preds = %380

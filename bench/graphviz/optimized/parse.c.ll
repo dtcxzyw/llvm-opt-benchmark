@@ -113,7 +113,7 @@ bindAction.exit:                                  ; preds = %bindAction.exit.bac
   br label %gv_isspace.exit.i.i.i
 
 gv_isspace.exit.i.i.i:                            ; preds = %gv_isspace.exit.i.i.i.backedge, %bindAction.exit
-  %24 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
+  %24 = call fastcc i32 @readc(ptr noundef %.080175, ptr noundef null)
   switch i32 %24, label %skipWS.exit.i.i [
     i32 9, label %gv_isspace.exit.i.i.i.backedge
     i32 10, label %gv_isspace.exit.i.i.i.backedge
@@ -145,7 +145,7 @@ skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i
   store i32 %30, ptr @kwLine, align 4
   %33 = trunc i32 %24 to i8
   store i8 %33, ptr %3, align 1
-  %34 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
+  %34 = call fastcc i32 @readc(ptr noundef %.080175, ptr noundef null)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %parseID.exit.i.i, label %.lr.ph.i.i.i
 
@@ -169,7 +169,7 @@ skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx22.i.i.i, 1
   store i8 %44, ptr %.0.ptr23.i.i.i, align 1
   %.0.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
-  %45 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
+  %45 = call fastcc i32 @readc(ptr noundef %.080175, ptr noundef null)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %parseID.exit.i.i, label %.lr.ph.i.i.i
 
@@ -229,7 +229,7 @@ parseKind.exit.thread19.i:                        ; preds = %63, %31, %skipWS.ex
 65:                                               ; preds = %60, %58, %54, %parseID.exit.i.i
   %.08.i.ph.i = phi i32 [ 0, %parseID.exit.i.i ], [ 2, %54 ], [ 1, %58 ], [ 3, %60 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %66 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 123, i32 noundef 125)
+  %66 = call fastcc ptr @parseBracket(ptr noundef %.080175, ptr noundef %4, i32 noundef 123, i32 noundef 125)
   %67 = load i32, ptr @startLine, align 4
   %68 = call i32 @getErrorErrors() #15
   %.not12.i = icmp eq i32 %68, 0
@@ -239,14 +239,14 @@ parseKind.exit.thread19.i:                        ; preds = %63, %31, %skipWS.ex
 69:                                               ; preds = %62, %56
   %.08.i.i = phi i32 [ 4, %62 ], [ 5, %56 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %70 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 91, i32 noundef 93)
+  %70 = call fastcc ptr @parseBracket(ptr noundef %.080175, ptr noundef %4, i32 noundef 91, i32 noundef 93)
   %71 = load i32, ptr @startLine, align 4
   %72 = call i32 @getErrorErrors() #15
   %.not.i = icmp eq i32 %72, 0
   br i1 %.not.i, label %73, label %76
 
 73:                                               ; preds = %69
-  %74 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 123, i32 noundef 125)
+  %74 = call fastcc ptr @parseBracket(ptr noundef %.080175, ptr noundef %4, i32 noundef 123, i32 noundef 125)
   %75 = load i32, ptr @startLine, align 4
   br label %76
 
@@ -721,8 +721,8 @@ freeBlocks.exit:                                  ; preds = %freeCaseList.exit10
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @getc(ptr noundef %0)
+define internal fastcc noundef i32 @readc(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %3, label %49 [
     i32 10, label %4
     i32 35, label %7
@@ -741,7 +741,7 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   br i1 %.b, label %14, label %.preheader
 
 .preheader:                                       ; preds = %7, %9
-  %8 = tail call i32 @getc(ptr noundef %0)
+  %8 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %8, 10
   br i1 %.not.i, label %11, label %9
 
@@ -761,7 +761,7 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   br label %eol.exit
 
 15:                                               ; preds = %2
-  %16 = tail call i32 @getc(ptr noundef %0)
+  %16 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %16, label %45 [
     i32 42, label %.preheader32
     i32 47, label %.preheader34
@@ -772,14 +772,14 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not, label %.preheader32.split.us.split.us, label %.preheader32.split.split
 
 .preheader32.split.us.split.us:                   ; preds = %.preheader32, %.preheader32.split.us.split.us.backedge
-  %17 = tail call i32 @getc(ptr noundef %0)
+  %17 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %17, label %.preheader32.split.us.split.us.backedge [
     i32 10, label %25
     i32 42, label %18
   ]
 
 18:                                               ; preds = %.preheader32.split.us.split.us
-  %19 = tail call i32 @getc(ptr noundef %0)
+  %19 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %19, label %.preheader32.split.us.split.us.backedge [
     i32 -1, label %eol.exit
     i32 10, label %22
@@ -788,7 +788,7 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   ]
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @ungetc(i32 noundef 42, ptr noundef %0)
+  %21 = tail call i32 @ungetc(i32 noundef 42, ptr noundef nonnull %0)
   br label %.preheader32.split.us.split.us.backedge
 
 22:                                               ; preds = %18
@@ -807,7 +807,7 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   br label %.preheader32.split.us.split.us
 
 .preheader32.split.split:                         ; preds = %.preheader32, %.preheader32.split.split.backedge
-  %28 = tail call i32 @getc(ptr noundef %0)
+  %28 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %28, label %.preheader32.split.split.backedge [
     i32 10, label %29
     i32 42, label %32
@@ -817,11 +817,11 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   %30 = load i32, ptr @lineno, align 4
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr @lineno, align 4
-  tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext 10)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 10)
   br label %.preheader32.split.split.backedge
 
 32:                                               ; preds = %.preheader32.split.split
-  %33 = tail call i32 @getc(ptr noundef %0)
+  %33 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %33, label %.preheader32.split.split.backedge [
     i32 -1, label %eol.exit
     i32 10, label %34
@@ -836,11 +836,11 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   %35 = load i32, ptr @lineno, align 4
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr @lineno, align 4
-  tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext 10)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 10)
   br label %.preheader32.split.split.backedge
 
 37:                                               ; preds = %32
-  %38 = tail call i32 @ungetc(i32 noundef 42, ptr noundef %0)
+  %38 = tail call i32 @ungetc(i32 noundef 42, ptr noundef nonnull %0)
   br label %.preheader32.split.split.backedge
 
 .split.us:                                        ; preds = %32, %18
@@ -848,7 +848,7 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   br label %eol.exit
 
 .preheader34:                                     ; preds = %15, %40
-  %39 = tail call i32 @getc(ptr noundef %0)
+  %39 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not.i30 = icmp eq i32 %39, 10
   br i1 %.not.i30, label %42, label %40
 
@@ -868,7 +868,7 @@ define internal fastcc noundef i32 @readc(ptr nocapture noundef %0, ptr noundef 
   br i1 %46, label %47, label %eol.exit
 
 47:                                               ; preds = %45
-  %48 = tail call i32 @ungetc(i32 noundef %16, ptr noundef %0)
+  %48 = tail call i32 @ungetc(i32 noundef %16, ptr noundef nonnull %0)
   br label %eol.exit
 
 49:                                               ; preds = %2
@@ -884,7 +884,7 @@ eol.exit:                                         ; preds = %40, %32, %18, %9, %
 declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbputc(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc void @agxbputc(ptr nocapture noundef nonnull %0, i8 noundef signext %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1014,7 +1014,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parseBracket(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @parseBracket(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 91, 124) %2, i32 noundef range(i32 93, 126) %3) unnamed_addr #0 {
   br label %gv_isspace.exit.i
 
 gv_isspace.exit.i:                                ; preds = %gv_isspace.exit.i.backedge, %4
@@ -1040,7 +1040,7 @@ skipWS.exit:                                      ; preds = %gv_isspace.exit.i
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @ungetc(i32 noundef %5, ptr noundef %0)
+  %9 = tail call i32 @ungetc(i32 noundef %5, ptr noundef nonnull %0)
   %10 = icmp eq i32 %5, 10
   br i1 %10, label %11, label %unreadc.exit
 
@@ -1089,7 +1089,7 @@ agxblen.exit.i:                                   ; preds = %24
   unreachable
 
 33:                                               ; preds = %24
-  tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext 0)
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 0)
   %34 = load ptr, ptr %1, align 8
   br label %agxbdisown.exit
 
@@ -1104,8 +1104,8 @@ unreadc.exit:                                     ; preds = %11, %8, %20, %22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @endBracket(ptr nocapture noundef %0, ptr noundef %1, i8 noundef signext %2, i8 noundef signext %3) unnamed_addr #0 {
-  %5 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef %1)
+define internal fastcc i32 @endBracket(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i8 noundef signext range(i8 91, 124) %2, i8 noundef signext range(i8 93, 126) %3) unnamed_addr #0 {
+  %5 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
   %6 = icmp slt i32 %5, 0
   %7 = zext nneg i8 %3 to i32
   %8 = icmp eq i32 %5, %7
@@ -1137,7 +1137,7 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef %0, ptr noundef %1,
   %18 = trunc nuw i32 %11 to i8
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %18)
   %19 = load i32, ptr @lineno, align 4
-  %20 = tail call i32 @getc(ptr noundef %0)
+  %20 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not17.i = icmp eq i32 %20, %11
   br i1 %.not17.i, label %endString.exit.thread, label %.lr.ph.i
 
@@ -1148,7 +1148,7 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef %0, ptr noundef %1,
 
 23:                                               ; preds = %.lr.ph.i
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 92)
-  %24 = tail call i32 @getc(ptr noundef %0)
+  %24 = tail call i32 @getc(ptr noundef nonnull %0)
   br label %25
 
 25:                                               ; preds = %23, %.lr.ph.i
@@ -1169,7 +1169,7 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef %0, ptr noundef %1,
 32:                                               ; preds = %29, %27
   %33 = trunc i32 %.0.i to i8
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %33)
-  %34 = tail call i32 @getc(ptr noundef %0)
+  %34 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %34, %11
   br i1 %.not.i, label %endString.exit.thread, label %.lr.ph.i
 
@@ -1181,7 +1181,7 @@ endString.exit.thread:                            ; preds = %32, %16, %17, %13
   %.lcssa.i.sink = phi i32 [ %14, %13 ], [ %20, %17 ], [ %11, %16 ], [ %11, %32 ]
   %35 = trunc i32 %.lcssa.i.sink to i8
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %35)
-  %36 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef %1)
+  %36 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
   %37 = icmp slt i32 %36, 0
   %38 = icmp eq i32 %36, %7
   %or.cond31 = select i1 %37, i1 true, i1 %38

@@ -719,7 +719,7 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -30, 1) i32 @insert_header(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -30, 1) i32 @insert_header(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
@@ -1086,7 +1086,7 @@ define internal fastcc range(i32 -30, 1) i32 @insert_header(ptr noundef %0, ptr 
   br i1 %238, label %219, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %224, %219, %210
-  tail call fastcc void @put_links(ptr noundef %1)
+  tail call fastcc void @put_links(ptr noundef nonnull %1)
   br label %239
 
 239:                                              ; preds = %.thread, %.loopexit, %145
@@ -1857,7 +1857,7 @@ define internal fastcc ptr @xlate_dir(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @get_links(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) unnamed_addr #13 align 16 {
+define internal fastcc noundef zeroext i1 @get_links(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #13 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -2995,7 +2995,7 @@ declare dso_local i64 @iter_file_splice_write(ptr noundef, ptr noundef, ptr noun
 declare dso_local i64 @copy_splice_read(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @proc_sys_call_handler(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i64 @proc_sys_call_handler(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 168
@@ -3489,7 +3489,7 @@ declare dso_local ptr @rb_first(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @proc_sys_link_fill_cache(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @proc_sys_link_fill_cache(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %3, ptr %6, align 8

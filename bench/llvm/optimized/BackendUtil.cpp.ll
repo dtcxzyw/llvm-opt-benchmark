@@ -2008,7 +2008,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i:                    ; preds = %128, %_ZN4llvm5Erro
   %134 = load i64, ptr %.sroa.01.013.i.i.i, align 8, !noalias !16
   store i64 %134, ptr %43, align 8, !noalias !16
   store ptr null, ptr %.sroa.01.013.i.i.i, align 8, !noalias !16
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull %43), !noalias !16
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %43), !noalias !16
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %40, ptr noundef nonnull %41, ptr noundef nonnull %42), !noalias !16
   %135 = load ptr, ptr %40, align 8, !noalias !16
   store ptr null, ptr %40, align 8, !noalias !16
@@ -2056,7 +2056,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i.i:                   ; preds = %148, %_ZNSt10unique
 153:                                              ; preds = %123
   %154 = ptrtoint ptr %122 to i64
   store i64 %154, ptr %44, align 8, !noalias !16
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull %44)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %44)
   %155 = load ptr, ptr %44, align 8, !noalias !16
   %.not.i9.i.i.i = icmp eq ptr %155, null
   br i1 %.not.i9.i.i.i, label %159, label %.sink.split.i
@@ -2397,7 +2397,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i50.i:                  ; preds = %310, %_ZN4llvm5Erro
   %316 = load i64, ptr %.sroa.01.013.i.i51.i, align 8, !noalias !19
   store i64 %316, ptr %33, align 8, !noalias !19
   store ptr null, ptr %.sroa.01.013.i.i51.i, align 8, !noalias !19
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull %33), !noalias !19
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %33), !noalias !19
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %30, ptr noundef nonnull %31, ptr noundef nonnull %32), !noalias !19
   %317 = load ptr, ptr %30, align 8, !noalias !19
   store ptr null, ptr %30, align 8, !noalias !19
@@ -2445,7 +2445,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i56.i:                 ; preds = %330, %_ZNSt10unique
 335:                                              ; preds = %305
   %336 = ptrtoint ptr %304 to i64
   store i64 %336, ptr %34, align 8, !noalias !19
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull %34)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %34)
   %337 = load ptr, ptr %34, align 8, !noalias !19
   %.not.i9.i.i46.i = icmp eq ptr %337, null
   br i1 %.not.i9.i.i46.i, label %341, label %.sink.split95.i
@@ -3057,7 +3057,7 @@ _ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit.i.i: 
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 752
   %588 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %587) #22
   %589 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %587) #22
-  call fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper14openOutputFileEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(304) %67, ptr %588, i64 %589)
+  call fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper14openOutputFileEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(304) %67, ptr %588, i64 %589)
   %590 = load ptr, ptr %15, align 8
   store ptr null, ptr %15, align 8
   %.not.i9.i = icmp eq ptr %590, null
@@ -7051,7 +7051,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit32: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
@@ -8373,7 +8373,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
@@ -11543,7 +11543,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12Ve
   %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 1128
   %1325 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1324) #22
   %1326 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1324) #22
-  call fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper14openOutputFileEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %123, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr %1325, i64 %1326)
+  call fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper14openOutputFileEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %123, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr %1325, i64 %1326)
   %1327 = load ptr, ptr %123, align 8
   %1328 = load ptr, ptr %3, align 8
   store ptr %1327, ptr %3, align 8
@@ -12513,7 +12513,7 @@ declare noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef 
 declare void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857), i32 noundef, ptr, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper14openOutputFileEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper14openOutputFileEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::error_code", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18661,7 +18661,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit13: ; preds = %39, %3
 declare void @_ZN4llvm27SanitizerBinaryMetadataPassC1ENS_30SanitizerBinaryMetadataOptionsENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(24), i24, ptr, i64) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE_clESK_b"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE_clESK_b"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 range(i64 1024, 2049) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.893", align 8
   %5 = alloca %"class.llvm::PassManager.1007", align 8
   %6 = alloca %"class.llvm::InstCombinePass", align 8
@@ -19377,7 +19377,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE0_clESK_b"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE0_clESK_b"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 range(i64 1, 9) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.893", align 8
   %5 = alloca %"struct.llvm::AddressSanitizerOptions", align 4
   %6 = alloca %"class.llvm::AddressSanitizerPass", align 4

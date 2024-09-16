@@ -266,7 +266,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
 38:                                               ; preds = %ruby_nonempty_memcpy.exit
   %39 = sub i64 %.048, %.047
   %40 = getelementptr inbounds i8, ptr %8, i64 8
-  %41 = call fastcc i32 @glob_helper(i32 noundef %1, ptr noundef nonnull %31, i64 noundef %.047, i64 noundef %39, i32 noundef %.0, i32 noundef -2, ptr noundef nonnull %8, ptr noundef nonnull %40, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6)
+  %41 = call fastcc i32 @glob_helper(i32 noundef %1, ptr noundef nonnull %31, i64 noundef %.047, i64 noundef %39, i32 noundef %.0, i32 noundef -2, ptr noundef %8, ptr noundef nonnull %40, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6)
   %42 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %42, null
   br i1 %.not8.i, label %glob_free_pattern.exit, label %.lr.ph.i
@@ -2681,7 +2681,7 @@ glob_free_pattern.exit:                           ; preds = %74, %.loopexit, %67
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @glob_helper(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc i32 @glob_helper(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca %struct.warning_args, align 8
   %14 = alloca %struct.warning_args, align 8
   %15 = alloca %struct.warning_args, align 8
@@ -3806,7 +3806,7 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
   %439 = add i64 %2, %438
   %440 = sub i64 %332, %439
   %441 = add i64 %440, %437
-  %442 = call fastcc i32 @glob_helper(i32 noundef %0, ptr noundef nonnull %348, i64 noundef %2, i64 noundef %441, i32 noundef 1, i32 noundef %.2278.fr, ptr noundef nonnull %386, ptr noundef %.0279.lcssa, i32 noundef %294, ptr noundef %9, i64 noundef %10, ptr noundef %11)
+  %442 = call fastcc i32 @glob_helper(i32 noundef %0, ptr noundef nonnull %348, i64 noundef %2, i64 noundef %441, i32 noundef 1, i32 noundef %.2278.fr, ptr noundef %386, ptr noundef %.0279.lcssa, i32 noundef %294, ptr noundef %9, i64 noundef %10, ptr noundef %11)
   call void @free(ptr noundef %348) #22
   call void @free(ptr noundef %386) #22
   %.not338 = icmp eq i32 %442, 0
@@ -4098,7 +4098,7 @@ ruby_nonempty_memcpy.exit.i411:                   ; preds = %528, %527
   %537 = getelementptr i8, ptr %526, i64 %24
   %538 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %537) #23
   %539 = add i64 %538, %3
-  %540 = call fastcc i32 @glob_helper(i32 noundef %0, ptr noundef nonnull %526, i64 noundef %2, i64 noundef %539, i32 noundef 1, i32 noundef -2, ptr noundef nonnull %505, ptr noundef %.4.lcssa, i32 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11)
+  %540 = call fastcc i32 @glob_helper(i32 noundef %0, ptr noundef nonnull %526, i64 noundef %2, i64 noundef %539, i32 noundef 1, i32 noundef -2, ptr noundef %505, ptr noundef %.4.lcssa, i32 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11)
   call void @free(ptr noundef nonnull %526) #22
   call void @free(ptr noundef %505) #22
   %.not328 = icmp eq i32 %540, 0
@@ -4380,7 +4380,7 @@ define internal i32 @push_caller(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 56
   %28 = load i64, ptr %27, align 8
-  %29 = call fastcc i32 @glob_helper(i32 noundef %12, ptr noundef %14, i64 noundef %16, i64 noundef %18, i32 noundef %20, i32 noundef %22, ptr noundef nonnull %4, ptr noundef nonnull %23, i32 noundef %24, ptr noundef %26, i64 noundef %28, ptr noundef %2)
+  %29 = call fastcc i32 @glob_helper(i32 noundef %12, ptr noundef %14, i64 noundef %16, i64 noundef %18, i32 noundef %20, i32 noundef %22, ptr noundef %4, ptr noundef nonnull %23, i32 noundef %24, ptr noundef %26, i64 noundef %28, ptr noundef %2)
   %30 = load ptr, ptr %4, align 8
   %.not8.i = icmp eq ptr %30, null
   br i1 %.not8.i, label %glob_free_pattern.exit, label %.lr.ph.i
@@ -4479,7 +4479,7 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr noundef 
 34:                                               ; preds = %.critedge, %18, %14, %.preheader47
   %.132 = phi ptr [ %23, %.critedge ], [ %.031, %18 ], [ %.031, %14 ], [ %.031, %.preheader47 ]
   %.1 = phi ptr [ %11, %.critedge ], [ %.0, %18 ], [ %.0, %14 ], [ %.0, %.preheader47 ]
-  %35 = call fastcc i32 @fnmatch_helper(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %3, ptr noundef %1)
+  %35 = call fastcc i32 @fnmatch_helper(ptr noundef %5, ptr noundef %6, i32 noundef %3, ptr noundef %1)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.preheader, label %52
 
@@ -4565,7 +4565,7 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr noundef 
   br label %.backedge
 
 67:                                               ; preds = %4
-  %68 = call fastcc i32 @fnmatch_helper(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %3, ptr noundef %1)
+  %68 = call fastcc i32 @fnmatch_helper(ptr noundef %5, ptr noundef %6, i32 noundef %3, ptr noundef %1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %56, %51, %59, %67
@@ -4726,7 +4726,7 @@ declare void @rb_sys_enc_warning(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = and i32 %2, 4
   %.not = icmp eq i32 %5, 0
   %6 = and i32 %2, 2
@@ -5389,7 +5389,7 @@ dir_each_entry.exit:                              ; preds = %.backedge.us.i, %di
 declare i64 @rb_ary_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @dir_each_entry(i64 noundef returned %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @dir_each_entry(i64 noundef returned %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = and i64 %0, 7
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %0, 0
@@ -6105,7 +6105,7 @@ define internal noalias noundef ptr @nogvl_opendir(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rb_push_glob(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @rb_push_glob(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, -8) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   store i64 %0, ptr %4, align 8
@@ -6168,7 +6168,7 @@ define internal fastcc noundef i64 @rb_push_glob(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @dir_globs(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @dir_globs(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, -8) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -6253,7 +6253,7 @@ declare i64 @rb_enc_from_encoding(ptr noundef) local_unnamed_addr #1
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @push_glob(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @push_glob(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, -8) %3) unnamed_addr #0 {
   %5 = alloca %struct.glob_args, align 8
   %6 = tail call ptr @rb_enc_get(i64 noundef %1) #22
   %7 = tail call i32 @rb_enc_to_index(ptr noundef %6) #23

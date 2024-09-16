@@ -478,7 +478,7 @@ _ZN19pyo3_macros_backend6pyimpl13PyImplOptions10from_attrs17h8c149298024703e7E.e
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %1, i64 128
   %81 = load i64, ptr %80, align 8
-  call fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf9972823333be0b4E(ptr noalias align 8 %0, ptr align 8 %77, ptr align 8 %79, i64 %81, i1 zeroext %2, ptr nonnull align 8 %16)
+  call fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf9972823333be0b4E(ptr noalias align 8 %0, ptr align 8 %77, ptr align 8 %79, i64 %81, i1 zeroext %2, ptr align 8 %16)
   br label %31
 
 82:                                               ; preds = %_ZN19pyo3_macros_backend6pyimpl13PyImplOptions10from_attrs17h8c149298024703e7E.exit.thread, %_ZN19pyo3_macros_backend6pyimpl13PyImplOptions10from_attrs17h8c149298024703e7E.exit
@@ -498,7 +498,7 @@ _ZN19pyo3_macros_backend6pyimpl13PyImplOptions10from_attrs17h8c149298024703e7E.e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf9972823333be0b4E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, i64 %3, i1 zeroext %4, ptr align 8 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf9972823333be0b4E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, i64 %3, i1 zeroext %4, ptr nonnull align 8 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca [16 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [32 x i8], align 8
@@ -795,7 +795,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
   br i1 %.not430, label %241, label %242
 
 241:                                              ; preds = %240
-  invoke void @_ZN19pyo3_macros_backend5utils3Ctx3new17h9d29bb1afca1261dE(ptr nonnull sret([56 x i8]) align 8 %137, ptr align 8 %5, ptr align 8 null)
+  invoke void @_ZN19pyo3_macros_backend5utils3Ctx3new17h9d29bb1afca1261dE(ptr nonnull sret([56 x i8]) align 8 %137, ptr nonnull align 8 %5, ptr align 8 null)
           to label %248 unwind label %.thread193.loopexit.split-lp
 
 242:                                              ; preds = %240
@@ -3761,7 +3761,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
 
 1048:                                             ; preds = %.thread337, %1049
   %.pn161 = phi { ptr, i32 } [ %1050, %1049 ], [ %.pn157.pn.pn, %.thread337 ]
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplOptions$GT$17h6358ce944c7e33bdE"(ptr align 8 %5) #8
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplOptions$GT$17h6358ce944c7e33bdE"(ptr nonnull align 8 %5) #8
           to label %1308 unwind label %1052
 
 1049:                                             ; preds = %.invoke429
@@ -3770,7 +3770,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
   br label %1048
 
 1051:                                             ; preds = %.invoke429
-  call void @"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplOptions$GT$17h6358ce944c7e33bdE"(ptr align 8 %5)
+  call void @"_ZN4core3ptr63drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplOptions$GT$17h6358ce944c7e33bdE"(ptr nonnull align 8 %5)
   ret void
 
 1052:                                             ; preds = %1307, %1306, %.thread, %.thread337, %.critedge164, %1292, %1289, %1281, %1272, %1263, %1260, %1252, %1239, %1230, %1227, %1224, %1221, %1213, %1200, %1191, %1188, %.critedge165, %1157, %1150, %1144, %1139, %1134, %1124, %1117, %1109, %1096, %1087, %1083, %1080, %.thread196, %1048, %1036, %1022, %1017, %1010, %1005, %997, %987, %.body, %.thread188
@@ -3780,12 +3780,12 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
   unreachable
 
 1054:                                             ; preds = %242
-  invoke void @_ZN19pyo3_macros_backend5utils3Ctx3new17h9d29bb1afca1261dE(ptr nonnull sret([56 x i8]) align 8 %162, ptr align 8 %5, ptr align 8 null)
+  invoke void @_ZN19pyo3_macros_backend5utils3Ctx3new17h9d29bb1afca1261dE(ptr nonnull sret([56 x i8]) align 8 %162, ptr nonnull align 8 %5, ptr align 8 null)
           to label %1059 unwind label %.thread193.loopexit
 
 1055:                                             ; preds = %242
   %1056 = getelementptr inbounds i8, ptr %238, i64 8
-  invoke void @_ZN19pyo3_macros_backend5utils3Ctx3new17h9d29bb1afca1261dE(ptr nonnull sret([56 x i8]) align 8 %193, ptr align 8 %5, ptr nonnull align 8 %1056)
+  invoke void @_ZN19pyo3_macros_backend5utils3Ctx3new17h9d29bb1afca1261dE(ptr nonnull sret([56 x i8]) align 8 %193, ptr nonnull align 8 %5, ptr nonnull align 8 %1056)
           to label %1160 unwind label %.thread193.loopexit
 
 1057:                                             ; preds = %242
@@ -4175,7 +4175,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.270.0..sroa_idx, i64 24, i1 false)
   store i64 %1165, ptr %192, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %189, ptr noundef nonnull align 8 dereferenceable(56) %234, i64 56, i1 false)
-  invoke void @"_ZN4core6option15Option$LT$T$GT$7or_else17h8825252e7869bec6E"(ptr nonnull sret([56 x i8]) align 8 %190, ptr nonnull align 8 %189, ptr align 8 %5)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$7or_else17h8825252e7869bec6E"(ptr nonnull sret([56 x i8]) align 8 %190, ptr nonnull align 8 %189, ptr nonnull align 8 %5)
           to label %1169 unwind label %1289
 
 1167:                                             ; preds = %1169

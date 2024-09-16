@@ -297,7 +297,7 @@ dissect_wsmp_length_and_count.exit81.i:           ; preds = %65, %61, %58
   br i1 %cond.i, label %83, label %85
 
 83:                                               ; preds = %.loopexit.i
-  %84 = call fastcc i32 @dissect_wsmp_psid(ptr noundef %0, ptr noundef %1, ptr noundef %81, i32 noundef %78, ptr noundef nonnull %9)
+  %84 = call fastcc i32 @dissect_wsmp_psid(ptr noundef %0, ptr noundef %1, ptr noundef %81, i32 noundef %78, ptr noundef %9)
   br label %85
 
 85:                                               ; preds = %83, %.loopexit.i
@@ -369,7 +369,7 @@ dissect_wsmp_v3.exit:                             ; preds = %110, %.sink.split.i
 116:                                              ; preds = %4
   %117 = load i32, ptr @hf_wsmp_version, align 4
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %117, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %119 = call fastcc i32 @dissect_wsmp_psid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17, i32 noundef 1, ptr noundef nonnull %10)
+  %119 = call fastcc i32 @dissect_wsmp_psid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17, i32 noundef 1, ptr noundef %10)
   %120 = trunc i32 %119 to i16
   %121 = and i32 %119, 65535
   %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %121) #3
@@ -499,7 +499,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_wsmp_psid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_wsmp_psid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   store i32 0, ptr %4, align 4
   %7 = zext i8 %6 to i32

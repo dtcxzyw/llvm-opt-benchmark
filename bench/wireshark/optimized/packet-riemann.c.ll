@@ -217,7 +217,7 @@ define hidden void @proto_reg_handoff_riemann() local_unnamed_addr #0 {
 declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #2
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #2
   %7 = icmp ult i32 %5, 16
@@ -233,7 +233,7 @@ define internal fastcc i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %9, label %is_riemann.exit.thread, label %10
 
 10:                                               ; preds = %.preheader.i
-  %11 = add i32 %.013.i.i, 1
+  %11 = add nuw nsw i32 %.013.i.i, 1
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.013.i.i) #2
   %13 = and i8 %12, 127
   %14 = zext nneg i8 %13 to i64

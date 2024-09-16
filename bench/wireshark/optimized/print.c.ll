@@ -1348,7 +1348,7 @@ print_indent.exit180:                             ; preds = %314, %316
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_specified_fields(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @write_specified_fields(i32 noundef range(i32 0, 4) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.write_field_data_t, align 8
   %7 = alloca ptr, align 8
   store ptr %1, ptr %6, align 8
@@ -1559,7 +1559,7 @@ format_field_values.exit:                         ; preds = %66, %90, %.critedge
   %109 = getelementptr inbounds i8, ptr %2, i64 16
   %110 = load ptr, ptr %109, align 8
   call void @proto_tree_children_foreach(ptr noundef %110, ptr noundef nonnull @proto_tree_get_node_field_values, ptr noundef nonnull %6) #18
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable55 [
     i32 0, label %.preheader
     i32 3, label %.preheader2
     i32 1, label %204
@@ -1851,7 +1851,7 @@ print_escaped_csv.exit:                           ; preds = %._crit_edge37, %163
   %261 = icmp ult i64 %257, %260
   br i1 %261, label %.lr.ph20, label %.loopexit, !llvm.loop !17
 
-default.unreachable:                              ; preds = %._crit_edge14
+default.unreachable55:                            ; preds = %._crit_edge14
   unreachable
 
 .loopexit:                                        ; preds = %255, %197, %169, %.preheader4, %.preheader2, %.preheader, %._crit_edge28
@@ -2986,7 +2986,7 @@ define void @write_csv_column_titles(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @csv_write_str(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @csv_write_str(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strescape(ptr noundef %0, ptr noundef nonnull @.str.106) #18
   %5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.106) #19
   %.not1.i = icmp eq ptr %5, null

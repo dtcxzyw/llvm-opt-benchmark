@@ -1564,18 +1564,18 @@ switch.lookup:                                    ; preds = %31
 
 60:                                               ; preds = %28
   %61 = getelementptr inbounds i8, ptr %0, i64 8
-  %62 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %61, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %62 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %61, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %71
 
 63:                                               ; preds = %28
-  %64 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %64 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %71
 
 65:                                               ; preds = %52
   %66 = getelementptr inbounds i8, ptr %56, i64 8
   %67 = load ptr, ptr %66, align 8, !noalias !126, !nonnull !9, !noundef !9
   %68 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %67, i64 0, i64 %54
-  %69 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %68, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %69 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %68, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %71
 
 70:                                               ; preds = %52
@@ -1717,7 +1717,7 @@ define internal noundef zeroext i1 @"_ZN104_$LT$cpp_demangle..ast..FunctionArgLi
   %9 = load ptr, ptr %8, align 8, !nonnull !9, !noundef !9
   %10 = add i64 %5, -1
   %11 = getelementptr inbounds i8, ptr %9, i64 32
-  %12 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %11, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %11, i64 noundef %10, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   ret i1 %12
 
 13:                                               ; preds = %3
@@ -3452,7 +3452,7 @@ define hidden void @"_ZN12cpp_demangle15Symbol$LT$T$GT$16new_with_options17h8edc
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %28, align 8
   store i64 16, ptr %0, align 8
-  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..MangledName$GT$17h7d3482526da2d902E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %6)
+  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..MangledName$GT$17h7d3482526da2d902E"(ptr noalias noundef align 8 dereferenceable(120) %6)
           to label %30 unwind label %15
 
 29:                                               ; preds = %31, %26
@@ -3479,7 +3479,7 @@ define hidden void @"_ZN12cpp_demangle15Symbol$LT$T$GT$16new_with_options17h8edc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = load i64, ptr %0, align 8, !range !402, !noundef !9
@@ -3495,11 +3495,11 @@ define internal fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19de
   br i1 %10, label %.thread, label %.thread21.thread
 
 .thread21.thread:                                 ; preds = %9, %3
-  %11 = tail call fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %11 = tail call fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   br label %24
 
 .thread21:                                        ; preds = %.thread
-  %12 = tail call fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   br i1 %12, label %24, label %18
 
 .thread:                                          ; preds = %3, %9
@@ -3634,7 +3634,7 @@ define internal noundef zeroext i1 @_ZN12cpp_demangle3ast15DemangleAsInner17dema
   %5 = load ptr, ptr %4, align 8, !alias.scope !403, !noalias !406, !nonnull !9, !noundef !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !403, !noalias !406, !noundef !9
-  %8 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %5, i64 noundef %7, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2), !noalias !403
+  %8 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %5, i64 noundef %7, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2), !noalias !403
   ret i1 %8
 }
 
@@ -3661,7 +3661,7 @@ define internal noundef zeroext i1 @_ZN12cpp_demangle3ast15DemangleAsInner17dema
   %9 = load ptr, ptr %8, align 8, !alias.scope !409, !noalias !412, !nonnull !9, !noundef !9
   %10 = add i64 %5, -1
   %11 = getelementptr inbounds i8, ptr %9, i64 32
-  %12 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %11, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !409
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %11, i64 noundef %10, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2), !noalias !409
   ret i1 %12
 }
 
@@ -3786,7 +3786,7 @@ define internal noalias noundef align 8 dereferenceable_or_null(64) ptr @_ZN12cp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$15demangle_inners17hd76ccb9f8997d6ddE"(ptr noalias noundef align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$15demangle_inners17hd76ccb9f8997d6ddE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
   %3 = alloca { ptr, [4 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3822,7 +3822,7 @@ define internal fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleConte
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$6ensure17h0696e24667fd3917E"(ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$6ensure17h0696e24667fd3917E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca i32, align 4
@@ -7842,12 +7842,12 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$cpp_demangle..ast..Name$GT
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26) #43
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef align 8 dereferenceable(8) %26) #43
           to label %23 unwind label %21
 
 27:                                               ; preds = %14
   %28 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
+  tail call fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef align 8 dereferenceable(8) %28)
   br label %"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E.exit"
 
 29:                                               ; preds = %1
@@ -7880,7 +7880,7 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$cpp_demangle..ast..Name$GT
 
 40:                                               ; preds = %1
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..UnscopedName$GT$17h9709cc3c26b82c16E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %41)
+  tail call fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..UnscopedName$GT$17h9709cc3c26b82c16E"(ptr noalias noundef align 8 dereferenceable(56) %41)
   br label %"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E.exit"
 
 42:                                               ; preds = %1
@@ -8011,7 +8011,7 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$cpp_demangle..ast..Type$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$object..read..any..File$GT$17hb456177d3e65b120E"(ptr noalias noundef align 8 dereferenceable(304) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$object..read..any..File$GT$17hb456177d3e65b120E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !1095, !noundef !9
@@ -8278,7 +8278,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %60)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E"(ptr noalias noundef align 8 dereferenceable(40) %60)
           to label %"_ZN4core3ptr44drop_in_place$LT$cpp_demangle..ast..Name$GT$17he63e1c2fc35f7047E.exit" unwind label %100
 
 61:                                               ; preds = %54
@@ -8314,7 +8314,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 72:                                               ; preds = %54
   %73 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..UnscopedName$GT$17h9709cc3c26b82c16E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %73)
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..UnscopedName$GT$17h9709cc3c26b82c16E"(ptr noalias noundef align 8 dereferenceable(56) %73)
           to label %"_ZN4core3ptr44drop_in_place$LT$cpp_demangle..ast..Name$GT$17he63e1c2fc35f7047E.exit" unwind label %100
 
 74:                                               ; preds = %54
@@ -8337,7 +8337,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 83:                                               ; preds = %76
   %84 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call fastcc void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %84)
+  tail call fastcc void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E"(ptr noalias noundef align 8 dereferenceable(40) %84)
   br label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..SpecialName$GT$17h4c1079ae41214879E.exit"
 
 85:                                               ; preds = %76
@@ -8370,7 +8370,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 96:                                               ; preds = %76
   %97 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..UnscopedName$GT$17h9709cc3c26b82c16E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %97)
+  tail call fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..UnscopedName$GT$17h9709cc3c26b82c16E"(ptr noalias noundef align 8 dereferenceable(56) %97)
   br label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..SpecialName$GT$17h4c1079ae41214879E.exit"
 
 98:                                               ; preds = %76
@@ -8437,7 +8437,7 @@ define internal void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..ArrayTy
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..LocalName$GT$17hc737991c288da2b5E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !285, !noundef !9
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %11
@@ -8470,11 +8470,11 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef 96, i64 noundef 8) #45, !noalias !1186
   %15 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15) #43
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef align 8 dereferenceable(8) %15) #43
           to label %common.resume unwind label %22
 
 16:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef align 8 dereferenceable(8) %8)
           to label %common.resume unwind label %22
 
 17:                                               ; preds = %4
@@ -8485,7 +8485,7 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$cpp_demangle..ast..
   br i1 %20, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$$GT$17hd4f8938f7128567eE.exit7", label %21
 
 21:                                               ; preds = %17
-  tail call fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
+  tail call fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias noundef align 8 dereferenceable(8) %18)
   br label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$$GT$17hd4f8938f7128567eE.exit7"
 
 "_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$$GT$17hd4f8938f7128567eE.exit7": ; preds = %21, %17, %"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE.exit"
@@ -8521,7 +8521,7 @@ common.resume:                                    ; preds = %.body4, %16, %.body
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hffa8a68e30251570E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hffa8a68e30251570E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !600, !noundef !9
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -8614,7 +8614,7 @@ define internal void @"_ZN4core3ptr50drop_in_place$LT$cpp_demangle..ast..Express
   br i1 %6, label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..ExprPrimary$GT$17h2e2bd8de81a4712dE.exit", label %7
 
 7:                                                ; preds = %5
-  tail call fastcc void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..MangledName$GT$17h7d3482526da2d902E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0)
+  tail call fastcc void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..MangledName$GT$17h7d3482526da2d902E"(ptr noalias noundef align 8 dereferenceable(120) %0)
   br label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..ExprPrimary$GT$17h2e2bd8de81a4712dE.exit"
 
 8:                                                ; preds = %1
@@ -9166,7 +9166,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %194 = landingpad { ptr, i32 }
           cleanup
   %195 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$cpp_demangle..ast..BaseUnresolvedName$GT$17hf693a981df87d871E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %195) #43
+  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$cpp_demangle..ast..BaseUnresolvedName$GT$17hf693a981df87d871E"(ptr noalias noundef align 8 dereferenceable(64) %195) #43
           to label %common.resume unwind label %211
 
 196:                                              ; preds = %190
@@ -9206,7 +9206,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %214 = landingpad { ptr, i32 }
           cleanup
   %215 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$cpp_demangle..ast..BaseUnresolvedName$GT$17hf693a981df87d871E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %215) #43
+  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$cpp_demangle..ast..BaseUnresolvedName$GT$17hf693a981df87d871E"(ptr noalias noundef align 8 dereferenceable(64) %215) #43
           to label %common.resume unwind label %211
 
 216:                                              ; preds = %191
@@ -9240,7 +9240,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %232 = landingpad { ptr, i32 }
           cleanup
   %233 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$cpp_demangle..ast..BaseUnresolvedName$GT$17hf693a981df87d871E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %233) #43
+  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$cpp_demangle..ast..BaseUnresolvedName$GT$17hf693a981df87d871E"(ptr noalias noundef align 8 dereferenceable(64) %233) #43
           to label %common.resume unwind label %211
 
 234:                                              ; preds = %158
@@ -9484,7 +9484,7 @@ define internal void @"_ZN4core3ptr51drop_in_place$LT$$RF$cpp_demangle..ast..VOf
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..MangledName$GT$17h7d3482526da2d902E"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..MangledName$GT$17h7d3482526da2d902E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !550, !noundef !9
   %3 = add nsw i64 %2, -13
   %4 = icmp ult i64 %3, 3
@@ -9673,7 +9673,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..PrefixH
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..UnscopedName$GT$17h9709cc3c26b82c16E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$cpp_demangle..ast..UnscopedName$GT$17h9709cc3c26b82c16E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !285, !noundef !9
@@ -9992,7 +9992,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$$RF$wasmtime_types..VMShared
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$cpp_demangle..ast..BaseUnresolvedName$GT$17hf693a981df87d871E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$cpp_demangle..ast..BaseUnresolvedName$GT$17hf693a981df87d871E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !586, !noundef !9
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 3
@@ -10117,7 +10117,7 @@ define internal void @"_ZN4core3ptr59drop_in_place$LT$$RF$wasmtime..runtime..typ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc6b1c14a2e40f435E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc6b1c14a2e40f435E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !600, !noundef !9
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -10241,7 +10241,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$$RF$cpp_demangle..ast..Unres
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$cpp_demangle..ast..Name$GT$$GT$17h155786cd35b42fdbE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !9
   invoke void @"_ZN4core3ptr44drop_in_place$LT$cpp_demangle..ast..Name$GT$17he63e1c2fc35f7047E"(ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %3 unwind label %4
@@ -10486,7 +10486,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h2a4750412c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h39e3278bedfb80a3E(ptr noalias nocapture noundef align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h39e3278bedfb80a3E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !1497, !noundef !9
@@ -10514,7 +10514,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %17 = load i32, ptr %13, align 4, !range !1507, !alias.scope !1505, !noalias !1510, !noundef !9
   %18 = getelementptr inbounds i8, ptr %13, i64 4
   %19 = load i32, ptr %18, align 4, !alias.scope !1505, !noalias !1510
-  %20 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %14, i32 %16, i32 noundef %17, i32 %19), !noalias !1511
+  %20 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %14, i32 %16, i32 noundef %17, i32 %19), !noalias !1511
   br i1 %20, label %7, label %21
 
 21:                                               ; preds = %7, %10
@@ -12854,7 +12854,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$cpp_demangle..Symbol$LT$T$GT$$u20$a
   store i32 0, ptr %28, align 8, !alias.scope !1752, !noalias !1755
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  %29 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..MangledName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h1ece1adbb45c131bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10)
+  %29 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..MangledName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h1ece1adbb45c131bE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %11, ptr noalias nocapture noundef align 8 dereferenceable(40) %10)
           to label %35 unwind label %33
 
 30:                                               ; preds = %33, %31
@@ -14191,7 +14191,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #22 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #22 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.7 = alloca { ptr, [1 x i64] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -17187,7 +17187,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !2248, !noalias !2257, !nonnull !9, !noundef !9
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %2, i1 false)
   %19 = load i64, ptr %8, align 8, !alias.scope !2248, !noalias !2257, !noundef !9
   %20 = add i64 %19, %2
   store i64 %20, ptr %8, align 8, !alias.scope !2248, !noalias !2257
@@ -17265,7 +17265,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -17326,14 +17326,14 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u2
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !2281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %39 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12)
+  %39 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef readonly align 8 dereferenceable(16) %38, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %12)
           to label %54 unwind label %99, !noalias !2280
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !2281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %42 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14)
+  %42 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef readonly align 8 dereferenceable(16) %41, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %14)
           to label %43 unwind label %99, !noalias !2280
 
 43:                                               ; preds = %40
@@ -17351,7 +17351,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u2
 47:                                               ; preds = %45, %44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !2281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
-  %48 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13)
+  %48 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %13)
           to label %49 unwind label %99, !noalias !2280
 
 49:                                               ; preds = %47
@@ -17445,7 +17445,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u2
 
 93:                                               ; preds = %87, %90
   %.041.val.i = phi i8 [ %89, %87 ], [ %92, %90 ]
-  %94 = invoke fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$6ensure17h0696e24667fd3917E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %94 = invoke fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$6ensure17h0696e24667fd3917E"(ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %95 unwind label %99
 
 .thread71:                                        ; preds = %90, %87, %98
@@ -17455,7 +17455,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u2
   br i1 %94, label %"_ZN86_$LT$cpp_demangle..ast..NestedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h19a1d396e74aca53E.exit.sink.split", label %96
 
 96:                                               ; preds = %95
-  %97 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E"(i8 %.041.val.i, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %97 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E"(i8 %.041.val.i, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %98 unwind label %99, !noalias !2280
 
 98:                                               ; preds = %96
@@ -17487,7 +17487,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u2
 
 .invoke.i:                                        ; preds = %116, %105
   %108 = getelementptr inbounds i8, ptr %0, i64 16
-  %109 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %108, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %18)
+  %109 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %108, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %18)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" unwind label %119
 
 110:                                              ; preds = %105
@@ -17646,7 +17646,7 @@ switch.lookup:                                    ; preds = %129
 
 166:                                              ; preds = %.noexc29
   %167 = getelementptr inbounds i8, ptr %161, i64 8
-  %168 = invoke fastcc noundef zeroext i1 @"_ZN96_$LT$cpp_demangle..ast..UnscopedTemplateName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha0d40f983b7c7e78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %167, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %168 = invoke fastcc noundef zeroext i1 @"_ZN96_$LT$cpp_demangle..ast..UnscopedTemplateName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha0d40f983b7c7e78E"(ptr noalias noundef readonly align 8 dereferenceable(56) %167, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %"_ZN102_$LT$cpp_demangle..ast..UnscopedTemplateNameHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h309295a9a4ba2685E.exit" unwind label %228
 
 169:                                              ; preds = %.noexc29
@@ -17655,24 +17655,24 @@ switch.lookup:                                    ; preds = %129
 
 171:                                              ; preds = %.noexc29
   %172 = getelementptr inbounds i8, ptr %161, i64 8
-  %173 = invoke fastcc noundef zeroext i1 @"_ZN97_$LT$cpp_demangle..ast..TemplateTemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5da88042ecb3ea46E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %172, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %173 = invoke fastcc noundef zeroext i1 @"_ZN97_$LT$cpp_demangle..ast..TemplateTemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5da88042ecb3ea46E"(ptr noalias noundef readonly align 8 dereferenceable(8) %172, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %"_ZN102_$LT$cpp_demangle..ast..UnscopedTemplateNameHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h309295a9a4ba2685E.exit" unwind label %228
 
 174:                                              ; preds = %.noexc29
   %175 = getelementptr inbounds i8, ptr %161, i64 8
-  %176 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %175, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %176 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef readonly align 8 dereferenceable(128) %175, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %"_ZN102_$LT$cpp_demangle..ast..UnscopedTemplateNameHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h309295a9a4ba2685E.exit" unwind label %228
 
 177:                                              ; preds = %.noexc29
   %178 = getelementptr inbounds i8, ptr %161, i64 8
-  %179 = invoke fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %178, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %179 = invoke fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef readonly align 8 dereferenceable(128) %178, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %"_ZN102_$LT$cpp_demangle..ast..UnscopedTemplateNameHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h309295a9a4ba2685E.exit" unwind label %228
 
 180:                                              ; preds = %148
   %181 = getelementptr inbounds i8, ptr %152, i64 8
   %182 = load ptr, ptr %181, align 8, !noalias !2319, !nonnull !9, !noundef !9
   %183 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %182, i64 0, i64 %150
-  %184 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %183, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %184 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %183, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %"_ZN102_$LT$cpp_demangle..ast..UnscopedTemplateNameHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h309295a9a4ba2685E.exit" unwind label %228
 
 185:                                              ; preds = %148
@@ -17772,7 +17772,7 @@ switch.lookup:                                    ; preds = %129
   br i1 %220, label %"_ZN85_$LT$cpp_demangle..ast..LocalName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd5bebeff329886a5E.exit.sink.split", label %222
 
 222:                                              ; preds = %221
-  %223 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %194, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %15)
+  %223 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %194, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %15)
           to label %213 unwind label %224, !noalias !2335
 
 224:                                              ; preds = %199, %201, %203, %206, %215, %222
@@ -17825,7 +17825,7 @@ switch.lookup:                                    ; preds = %129
 236:                                              ; preds = %141, %"_ZN102_$LT$cpp_demangle..ast..UnscopedTemplateNameHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h309295a9a4ba2685E.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %237 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %125, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %16)
+  %237 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %125, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %16)
           to label %238 unwind label %228
 
 238:                                              ; preds = %236
@@ -17940,7 +17940,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 .invoke:                                          ; preds = %32, %57, %56, %55
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %35, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %36 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %35, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN89_$LT$cpp_demangle..ast..ClassEnumType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h09cde9090226099aE.exit.sink.split" unwind label %58
 
 37:                                               ; preds = %32
@@ -18022,7 +18022,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 71:                                               ; preds = %25
   %72 = getelementptr inbounds i8, ptr %0, i64 8
-  %73 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %72, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %73 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %72, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %224
 
 74:                                               ; preds = %25
@@ -18038,7 +18038,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i111 = load i8, ptr %78, align 1, !alias.scope !2363, !noalias !2368
-  %79 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i111, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %79 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i111, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN103_$LT$cpp_demangle..ast..TemplateTemplateParamHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hacbf8acd46d65510E.exit" unwind label %224
 
 80:                                               ; preds = %74
@@ -18055,7 +18055,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
   %89 = getelementptr inbounds i8, ptr %84, i64 8
   %90 = load ptr, ptr %89, align 8, !noalias !2371, !nonnull !9, !noundef !9
   %91 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %90, i64 0, i64 %82
-  %92 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %91, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %15)
+  %92 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %91, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %15)
           to label %"_ZN103_$LT$cpp_demangle..ast..TemplateTemplateParamHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hacbf8acd46d65510E.exit" unwind label %224
 
 93:                                               ; preds = %25
@@ -18085,7 +18085,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
   br i1 %100, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i", label %102
 
 102:                                              ; preds = %101
-  %103 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.014.i, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %103 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.014.i, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %104 unwind label %114
 
 104:                                              ; preds = %102
@@ -18156,7 +18156,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 128:                                              ; preds = %124
   %129 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i116 = load i8, ptr %129, align 1, !alias.scope !2388, !noalias !2393
-  %130 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i116, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %130 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i116, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %224
 
 131:                                              ; preds = %124
@@ -18171,18 +18171,18 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 139:                                              ; preds = %124
   %140 = getelementptr inbounds i8, ptr %0, i64 16
-  %141 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %140, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %141 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %140, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %224
 
 142:                                              ; preds = %124
-  %143 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %125, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %143 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %125, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %224
 
 144:                                              ; preds = %131
   %145 = getelementptr inbounds i8, ptr %135, i64 8
   %146 = load ptr, ptr %145, align 8, !noalias !2396, !nonnull !9, !noundef !9
   %147 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %146, i64 0, i64 %133
-  %148 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %147, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %148 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %147, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %224
 
 149:                                              ; preds = %25
@@ -18202,7 +18202,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 153:                                              ; preds = %149
   %154 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i124 = load i8, ptr %154, align 1, !alias.scope !2397, !noalias !2402
-  %155 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i124, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %155 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i124, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit130" unwind label %224
 
 156:                                              ; preds = %149
@@ -18217,18 +18217,18 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 164:                                              ; preds = %149
   %165 = getelementptr inbounds i8, ptr %0, i64 16
-  %166 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %165, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %166 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %165, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit130" unwind label %224
 
 167:                                              ; preds = %149
-  %168 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %150, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %168 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %150, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit130" unwind label %224
 
 169:                                              ; preds = %156
   %170 = getelementptr inbounds i8, ptr %160, i64 8
   %171 = load ptr, ptr %170, align 8, !noalias !2405, !nonnull !9, !noundef !9
   %172 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %171, i64 0, i64 %158
-  %173 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %172, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %173 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %172, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit130" unwind label %224
 
 174:                                              ; preds = %25
@@ -18250,7 +18250,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 178:                                              ; preds = %174
   %179 = getelementptr inbounds i8, ptr %0, i64 25
   %.val.i133 = load i8, ptr %179, align 1, !alias.scope !2406, !noalias !2411
-  %180 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i133, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %180 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i133, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit139" unwind label %224
 
 181:                                              ; preds = %174
@@ -18265,18 +18265,18 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 189:                                              ; preds = %174
   %190 = getelementptr inbounds i8, ptr %0, i64 32
-  %191 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %190, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %191 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %190, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit139" unwind label %224
 
 192:                                              ; preds = %174
-  %193 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %175, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %193 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %175, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit139" unwind label %224
 
 194:                                              ; preds = %181
   %195 = getelementptr inbounds i8, ptr %185, i64 8
   %196 = load ptr, ptr %195, align 8, !noalias !2414, !nonnull !9, !noundef !9
   %197 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %196, i64 0, i64 %183
-  %198 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %197, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12)
+  %198 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %197, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %12)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit139" unwind label %224
 
 199:                                              ; preds = %25
@@ -18296,7 +18296,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 203:                                              ; preds = %199
   %204 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i142 = load i8, ptr %204, align 1, !alias.scope !2415, !noalias !2420
-  %205 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i142, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %205 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i142, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit148" unwind label %224
 
 206:                                              ; preds = %199
@@ -18311,18 +18311,18 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 214:                                              ; preds = %199
   %215 = getelementptr inbounds i8, ptr %0, i64 16
-  %216 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %216 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %215, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit148" unwind label %224
 
 217:                                              ; preds = %199
-  %218 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %200, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %218 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %200, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit148" unwind label %224
 
 219:                                              ; preds = %206
   %220 = getelementptr inbounds i8, ptr %210, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !2423, !nonnull !9, !noundef !9
   %222 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %221, i64 0, i64 %208
-  %223 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %222, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %223 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %222, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit148" unwind label %224
 
 224:                                              ; preds = %.invoke211, %331, %329, %326, %286, %259, %257, %254, %243, %219, %217, %214, %203, %194, %192, %189, %178, %169, %167, %164, %153, %144, %142, %139, %128, %123, %88, %77, %377, %392, %385, %370, %363, %356, %351, %276, %228, %71, %68, %65, %62, %27
@@ -18345,7 +18345,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 228:                                              ; preds = %"_ZN103_$LT$cpp_demangle..ast..TemplateTemplateParamHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hacbf8acd46d65510E.exit"
   %229 = getelementptr inbounds i8, ptr %0, i64 24
-  %230 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %229, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %230 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %229, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %224
 
 231:                                              ; preds = %311, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit169.thread", %398, %381, %376, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit139", %369, %362, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit169", %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit157", %"_ZN103_$LT$cpp_demangle..ast..TemplateTemplateParamHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hacbf8acd46d65510E.exit", %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit148", %387, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit130", %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit", %355, %280
@@ -18380,7 +18380,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 243:                                              ; preds = %232
   %244 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i151 = load i8, ptr %244, align 1, !alias.scope !2424, !noalias !2429
-  %245 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i151, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %245 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i151, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit157" unwind label %224
 
 246:                                              ; preds = %232
@@ -18395,18 +18395,18 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 254:                                              ; preds = %232
   %255 = getelementptr inbounds i8, ptr %0, i64 16
-  %256 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %255, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %256 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %255, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit157" unwind label %224
 
 257:                                              ; preds = %232
-  %258 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %240, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %258 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %240, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit157" unwind label %224
 
 259:                                              ; preds = %246
   %260 = getelementptr inbounds i8, ptr %250, i64 8
   %261 = load ptr, ptr %260, align 8, !noalias !2432, !nonnull !9, !noundef !9
   %262 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %261, i64 0, i64 %248
-  %263 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %262, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14)
+  %263 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %262, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %14)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit157" unwind label %224
 
 "_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit157": ; preds = %243, %254, %257, %259
@@ -18557,18 +18557,18 @@ switch.lookup:                                    ; preds = %297
 
 326:                                              ; preds = %287
   %327 = getelementptr inbounds i8, ptr %0, i64 16
-  %328 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %327, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %328 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %327, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit169" unwind label %224
 
 329:                                              ; preds = %287
-  %330 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.045, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %330 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %.045, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit169" unwind label %224
 
 331:                                              ; preds = %318
   %332 = getelementptr inbounds i8, ptr %322, i64 8
   %333 = load ptr, ptr %332, align 8, !noalias !2467, !nonnull !9, !noundef !9
   %334 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %333, i64 0, i64 %320
-  %335 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %334, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13)
+  %335 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %334, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %13)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit169" unwind label %224
 
 .invoke211:                                       ; preds = %206, %181, %156, %131, %80, %318, %246
@@ -18687,7 +18687,7 @@ switch.lookup:                                    ; preds = %297
   %.val108 = load i64, ptr %378, align 8
   %379 = getelementptr inbounds i8, ptr %0, i64 16
   %.val109 = load i64, ptr %379, align 8
-  %380 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val108, i64 %.val109, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %380 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val108, i64 %.val109, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %381 unwind label %224
 
 381:                                              ; preds = %377
@@ -18700,7 +18700,7 @@ switch.lookup:                                    ; preds = %297
   br i1 %.not, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %385
 
 385:                                              ; preds = %382
-  %386 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %383, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %386 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %383, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %387 unwind label %224
 
 387:                                              ; preds = %385
@@ -18909,7 +18909,7 @@ define internal void @"_ZN82_$LT$cpp_demangle..ast..ClosureTypeName$u20$as$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef readonly align 8 dereferenceable(128) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { ptr, [4 x i64] }, align 8
@@ -18977,7 +18977,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$
   %37 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %38 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
+  %38 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef readonly align 8 dereferenceable(16) %37, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %8)
           to label %71 unwind label %25
 
 39:                                               ; preds = %28
@@ -18985,12 +18985,12 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %41 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %40, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %41 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef readonly align 8 dereferenceable(16) %40, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %84 unwind label %25
 
 42:                                               ; preds = %28
   %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %43, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %44 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %43, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %25
 
 45:                                               ; preds = %28
@@ -19020,7 +19020,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$
   br i1 %52, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.sink.split", label %54
 
 54:                                               ; preds = %53
-  %55 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.014.i, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %55 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.014.i, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %56 unwind label %64
 
 56:                                               ; preds = %54
@@ -19056,7 +19056,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$
   %69 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %70 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %69, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6)
+  %70 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias noundef readonly align 8 dereferenceable(16) %69, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %6)
           to label %88 unwind label %25
 
 71:                                               ; preds = %36
@@ -19085,7 +19085,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$
 
 .invoke:                                          ; preds = %72, %83, %34
   %81 = phi ptr [ %35, %34 ], [ %73, %83 ], [ %73, %72 ]
-  %82 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %81, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %82 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %81, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %25
 
 83:                                               ; preds = %75
@@ -19099,7 +19099,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$
 85:                                               ; preds = %84
   store i8 0, ptr %18, align 1
   %86 = getelementptr inbounds i8, ptr %0, i64 8
-  %87 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %87 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %86, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %25
 
 88:                                               ; preds = %68
@@ -19137,7 +19137,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$
   %102 = getelementptr inbounds i8, ptr %0, i64 24
   %.val43 = load i64, ptr %102, align 8
   store i32 %98, ptr %11, align 8, !alias.scope !2516
-  %103 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val43, i64 %.val44, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %103 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val43, i64 %.val44, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.sink.split" unwind label %104
 
 104:                                              ; preds = %100
@@ -19396,7 +19396,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
   %82 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %83 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %82, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %47)
+  %83 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %82, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %47)
           to label %557 unwind label %382
 
 84:                                               ; preds = %70
@@ -19646,7 +19646,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 182:                                              ; preds = %181
   %183 = getelementptr inbounds i8, ptr %0, i64 16
-  %184 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %183, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %46)
+  %184 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %183, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %46)
           to label %185 unwind label %179
 
 185:                                              ; preds = %182
@@ -19679,7 +19679,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 194:                                              ; preds = %193
   %195 = getelementptr inbounds i8, ptr %0, i64 16
-  %196 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %195, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %46)
+  %196 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %195, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %46)
           to label %197 unwind label %179
 
 197:                                              ; preds = %194
@@ -19717,7 +19717,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 208:                                              ; preds = %207
   %209 = getelementptr inbounds i8, ptr %0, i64 16
-  %210 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %209, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %210 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef readonly align 8 dereferenceable(24) %209, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %211 unwind label %179, !noalias !2543
 
 211:                                              ; preds = %208
@@ -19774,7 +19774,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 232:                                              ; preds = %231
   %233 = getelementptr inbounds i8, ptr %0, i64 16
-  %234 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %233, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %234 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef readonly align 8 dereferenceable(24) %233, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %235 unwind label %179, !noalias !2543
 
 235:                                              ; preds = %232
@@ -19800,7 +19800,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 243:                                              ; preds = %242
   %244 = getelementptr inbounds i8, ptr %0, i64 40
-  %245 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %244, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %245 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef readonly align 8 dereferenceable(24) %244, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %246 unwind label %179, !noalias !2543
 
 246:                                              ; preds = %243
@@ -19883,7 +19883,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
   br i1 %275, label %279, label %277
 
 277:                                              ; preds = %276
-  %278 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %85, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %46)
+  %278 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %85, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %46)
           to label %280 unwind label %179
 
 279:                                              ; preds = %276
@@ -19902,7 +19902,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
   %283 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18), !noalias !2542
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %46, i64 40, i1 false), !noalias !2550
-  %284 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %283, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %18)
+  %284 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %283, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %18)
           to label %285 unwind label %179, !noalias !2543
 
 285:                                              ; preds = %282
@@ -19934,7 +19934,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 .invoke178:                                       ; preds = %293, %292, %206, %205
   %.sink = phi i64 [ 16, %205 ], [ 16, %206 ], [ 48, %292 ], [ 16, %293 ]
   %294 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %295 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %294, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %46)
+  %295 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %294, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %46)
           to label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split" unwind label %179
 
 296:                                              ; preds = %149
@@ -19947,7 +19947,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 .invoke177:                                       ; preds = %297, %296, %266
   %298 = getelementptr inbounds i8, ptr %0, i64 16
-  %299 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %298, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %46)
+  %299 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %298, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %46)
           to label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split" unwind label %179
 
 300:                                              ; preds = %161
@@ -20336,7 +20336,7 @@ default.unreachable:                              ; preds = %426
 432:                                              ; preds = %426
   %433 = getelementptr inbounds i8, ptr %428, i64 1
   %.val.i90 = load i8, ptr %433, align 1, !alias.scope !2583, !noalias !2588
-  %434 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i90, ptr noalias noundef nonnull align 8 dereferenceable(104) %429)
+  %434 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i90, ptr noalias noundef align 8 dereferenceable(104) %429)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %382
 
 435:                                              ; preds = %426
@@ -20351,18 +20351,18 @@ default.unreachable:                              ; preds = %426
 
 443:                                              ; preds = %426
   %444 = getelementptr inbounds i8, ptr %428, i64 8
-  %445 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %444, ptr noalias noundef nonnull align 8 dereferenceable(104) %429)
+  %445 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %444, ptr noalias noundef align 8 dereferenceable(104) %429)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %382
 
 446:                                              ; preds = %426
-  %447 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %428, ptr noalias noundef nonnull align 8 dereferenceable(104) %429, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %45)
+  %447 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %428, ptr noalias noundef align 8 dereferenceable(104) %429, ptr noalias nocapture noundef align 8 dereferenceable(40) %45)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %382
 
 448:                                              ; preds = %435
   %449 = getelementptr inbounds i8, ptr %439, i64 8
   %450 = load ptr, ptr %449, align 8, !noalias !2591, !nonnull !9, !noundef !9
   %451 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %450, i64 0, i64 %437
-  %452 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %451, ptr noalias noundef nonnull align 8 dereferenceable(104) %429, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %45)
+  %452 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %451, ptr noalias noundef align 8 dereferenceable(104) %429, ptr noalias nocapture noundef align 8 dereferenceable(40) %45)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %382
 
 .invoke180:                                       ; preds = %423, %435
@@ -20448,7 +20448,7 @@ default.unreachable:                              ; preds = %426
   br i1 %482, label %485, label %483
 
 483:                                              ; preds = %478
-  %484 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %479, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %48)
+  %484 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(104) %479, ptr noalias nocapture noundef align 8 dereferenceable(40) %48)
           to label %491 unwind label %382
 
 485:                                              ; preds = %478
@@ -20487,7 +20487,7 @@ default.unreachable:                              ; preds = %426
   %500 = load ptr, ptr %71, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %48, i64 40, i1 false)
-  %501 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %500, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %49)
+  %501 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(104) %500, ptr noalias nocapture noundef align 8 dereferenceable(40) %49)
           to label %502 unwind label %382
 
 502:                                              ; preds = %492
@@ -20839,18 +20839,18 @@ switch.lookup:                                    ; preds = %34
 
 63:                                               ; preds = %21
   %64 = getelementptr inbounds i8, ptr %31, i64 8
-  %65 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %65 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %64, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 66:                                               ; preds = %21
-  %67 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %31, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %67 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %31, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 68:                                               ; preds = %55
   %69 = getelementptr inbounds i8, ptr %59, i64 8
   %70 = load ptr, ptr %69, align 8, !noalias !2675, !nonnull !9, !noundef !9
   %71 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %70, i64 0, i64 %57
-  %72 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %71, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %72 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %71, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 73:                                               ; preds = %55
@@ -20941,7 +20941,7 @@ define internal void @"_ZN85_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [2 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i64, align 8
@@ -21051,7 +21051,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOff
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [4 x i64] }, align 8
   %5 = alloca { ptr, [4 x i64] }, align 8
   %6 = alloca { ptr, [4 x i64] }, align 8
@@ -21286,7 +21286,7 @@ default.unreachable:                              ; preds = %122
   %158 = load ptr, ptr %157, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %159 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %158, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %26)
+  %159 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %158, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %26)
           to label %483 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 160:                                              ; preds = %122
@@ -21307,14 +21307,14 @@ default.unreachable:                              ; preds = %122
   %167 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %168 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %167, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %23)
+  %168 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %167, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %23)
           to label %540 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 169:                                              ; preds = %122
   %170 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %171 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %170, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %21)
+  %171 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %170, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %21)
           to label %573 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 172:                                              ; preds = %122
@@ -21599,12 +21599,12 @@ default.unreachable:                              ; preds = %122
 
 292:                                              ; preds = %122
   %293 = getelementptr inbounds i8, ptr %0, i64 8
-  %294 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..SubobjectExpr$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h09b56954c5b70ed2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %293, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %294 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..SubobjectExpr$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h09b56954c5b70ed2E"(ptr noalias noundef readonly align 8 dereferenceable(48) %293, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 295:                                              ; preds = %122
   %296 = getelementptr inbounds i8, ptr %0, i64 8
-  %297 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %296, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %297 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %296, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 298:                                              ; preds = %122
@@ -21612,7 +21612,7 @@ default.unreachable:                              ; preds = %122
   %.val986 = load i64, ptr %299, align 8
   %300 = getelementptr inbounds i8, ptr %0, i64 16
   %.val987 = load i64, ptr %300, align 8
-  %301 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.val986, i64 %.val987, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %301 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.val986, i64 %.val987, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 302:                                              ; preds = %122
@@ -21620,7 +21620,7 @@ default.unreachable:                              ; preds = %122
   %304 = load ptr, ptr %303, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %305 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %304, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %305 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %304, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %951 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 306:                                              ; preds = %122
@@ -21628,7 +21628,7 @@ default.unreachable:                              ; preds = %122
   %308 = load ptr, ptr %307, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %309 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %308, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6)
+  %309 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %308, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %6)
           to label %961 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 310:                                              ; preds = %122
@@ -21636,7 +21636,7 @@ default.unreachable:                              ; preds = %122
   %312 = load ptr, ptr %311, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %313 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %312, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  %313 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %312, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %5)
           to label %969 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 314:                                              ; preds = %122
@@ -21684,7 +21684,7 @@ default.unreachable:                              ; preds = %122
 332:                                              ; preds = %122
   %333 = getelementptr inbounds i8, ptr %0, i64 8
   %334 = load ptr, ptr %333, align 8, !nonnull !9, !align !125, !noundef !9
-  %335 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %334, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %335 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %334, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %1028 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 336:                                              ; preds = %122
@@ -21717,11 +21717,11 @@ default.unreachable:                              ; preds = %122
 
 348:                                              ; preds = %122
   %349 = getelementptr inbounds i8, ptr %0, i64 8
-  %350 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ed0217d6d61a242E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %349, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %350 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ed0217d6d61a242E"(ptr noalias noundef readonly align 8 dereferenceable(104) %349, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 351:                                              ; preds = %122
-  %352 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPrimary$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8a583376190ca3b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %352 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPrimary$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8a583376190ca3b6E"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 353:                                              ; preds = %126
@@ -21734,7 +21734,7 @@ default.unreachable:                              ; preds = %122
 356:                                              ; preds = %353, %126
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %357 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %127, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %35)
+  %357 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef readonly align 8 dereferenceable(40) %127, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %35)
           to label %365 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 358:                                              ; preds = %353
@@ -21742,7 +21742,7 @@ default.unreachable:                              ; preds = %122
   %360 = load ptr, ptr %359, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %361 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %360, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %36)
+  %361 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %360, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %36)
           to label %362 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 362:                                              ; preds = %358
@@ -21750,7 +21750,7 @@ default.unreachable:                              ; preds = %122
   br i1 %361, label %.loopexit1160, label %363
 
 363:                                              ; preds = %362
-  %364 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %355, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %364 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %355, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit1160:                                    ; preds = %1026, %1027, %761, %762, %725, %726, %689, %690, %653, %654, %604, %605, %571, %572, %514, %515, %1037, %1036, %1035, %1021, %1002, %1001, %989, %988, %977, %976, %969, %968, %961, %958, %951, %950, %938, %937, %925, %924, %913, %912, %900, %899, %888, %887, %875, %874, %863, %862, %850, %843, %839, %838, %826, %819, %815, %814, %802, %795, %791, %790, %778, %771, %767, %766, %765, %764, %763, %750, %746, %727, %714, %710, %691, %678, %674, %655, %642, %638, %619, %618, %606, %599, %580, %573, %566, %547, %540, %539, %527, %520, %516, %509, %490, %483, %482, %478, %477, %465, %458, %453, %446, %441, %434, %433, %426, %421, %414, %407, %404, %391, %384, %379, %365, %362, %1028, %994, %981, %943, %930, %917, %905, %892, %880, %867, %855, %831, %807, %783, %756, %720, %684, %648, %611, %532, %470, %396
@@ -21764,7 +21764,7 @@ default.unreachable:                              ; preds = %122
   %.sink1203 = phi i64 [ 56, %407 ], [ 64, %433 ], [ 48, %365 ]
   %366 = getelementptr inbounds i8, ptr %0, i64 %.sink1203
   %367 = load ptr, ptr %366, align 8, !nonnull !9, !align !125, !noundef !9
-  %368 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %367, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %368 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %367, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 369:                                              ; preds = %130
@@ -21772,7 +21772,7 @@ default.unreachable:                              ; preds = %122
   %371 = load ptr, ptr %370, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %372 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %371, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %33)
+  %372 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %371, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %33)
           to label %404 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 373:                                              ; preds = %130
@@ -21798,7 +21798,7 @@ default.unreachable:                              ; preds = %122
   %382 = load ptr, ptr %381, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %383 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %382, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %34)
+  %383 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %382, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %34)
           to label %384 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 384:                                              ; preds = %380
@@ -21826,7 +21826,7 @@ default.unreachable:                              ; preds = %122
 392:                                              ; preds = %391
   %393 = getelementptr inbounds i8, ptr %0, i64 56
   %394 = load ptr, ptr %393, align 8, !nonnull !9, !align !125, !noundef !9
-  %395 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %394, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %395 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %394, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %396 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 396:                                              ; preds = %392
@@ -21857,7 +21857,7 @@ default.unreachable:                              ; preds = %122
 405:                                              ; preds = %404
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %406 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %131, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %32)
+  %406 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef readonly align 8 dereferenceable(40) %131, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %32)
           to label %407 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 407:                                              ; preds = %405
@@ -21867,7 +21867,7 @@ default.unreachable:                              ; preds = %122
 408:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %409 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %138, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %29)
+  %409 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef readonly align 8 dereferenceable(40) %138, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %29)
           to label %434 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 410:                                              ; preds = %137
@@ -21875,7 +21875,7 @@ default.unreachable:                              ; preds = %122
   %412 = load ptr, ptr %411, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %413 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %412, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %31)
+  %413 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %412, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %31)
           to label %414 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 414:                                              ; preds = %410
@@ -21905,7 +21905,7 @@ default.unreachable:                              ; preds = %122
   %424 = load ptr, ptr %423, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %425 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %424, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %30)
+  %425 = invoke fastcc noundef zeroext i1 @_ZN12cpp_demangle3ast10Expression19demangle_as_subexpr17hd3b6593ea7e61c1bE(ptr noalias noundef readonly align 8 dereferenceable(120) %424, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %30)
           to label %426 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 426:                                              ; preds = %422
@@ -21957,7 +21957,7 @@ default.unreachable:                              ; preds = %122
   %444 = load ptr, ptr %443, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %445 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %444, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %28)
+  %445 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %444, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %28)
           to label %446 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 446:                                              ; preds = %442
@@ -21987,7 +21987,7 @@ default.unreachable:                              ; preds = %122
   %456 = load ptr, ptr %455, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %457 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %456, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %27)
+  %457 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %456, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %27)
           to label %458 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 458:                                              ; preds = %454
@@ -22015,7 +22015,7 @@ default.unreachable:                              ; preds = %122
 466:                                              ; preds = %465
   %467 = getelementptr inbounds i8, ptr %0, i64 64
   %468 = load ptr, ptr %467, align 8, !nonnull !9, !align !125, !noundef !9
-  %469 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %468, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %469 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %468, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %470 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 470:                                              ; preds = %466
@@ -22047,7 +22047,7 @@ default.unreachable:                              ; preds = %122
   %.sink1204 = phi i64 [ 8, %482 ], [ 8, %763 ], [ 8, %764 ], [ 8, %765 ], [ 8, %766 ], [ 16, %976 ], [ 8, %1036 ], [ 8, %478 ]
   %479 = getelementptr inbounds i8, ptr %0, i64 %.sink1204
   %480 = load ptr, ptr %479, align 8, !nonnull !9, !align !125, !noundef !9
-  %481 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %480, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %481 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %480, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 482:                                              ; preds = %150
@@ -22119,7 +22119,7 @@ default.unreachable:                              ; preds = %122
 510:                                              ; preds = %514, %507
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %511 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %25)
+  %511 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.sroa.0.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %25)
           to label %515 unwind label %.loopexit
 
 512:                                              ; preds = %507
@@ -22148,7 +22148,7 @@ default.unreachable:                              ; preds = %122
   %518 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %519 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %518, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %24)
+  %519 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %518, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %24)
           to label %520 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 520:                                              ; preds = %517
@@ -22176,7 +22176,7 @@ default.unreachable:                              ; preds = %122
 528:                                              ; preds = %527
   %529 = getelementptr inbounds i8, ptr %0, i64 40
   %530 = load ptr, ptr %529, align 8, !nonnull !9, !align !125, !noundef !9
-  %531 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %530, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %531 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %530, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %532 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 532:                                              ; preds = %528
@@ -22265,7 +22265,7 @@ default.unreachable:                              ; preds = %122
 567:                                              ; preds = %571, %564
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %568 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01128.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %22)
+  %568 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.sroa.01128.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %22)
           to label %572 unwind label %.loopexit.split-lp.loopexit
 
 569:                                              ; preds = %564
@@ -22351,7 +22351,7 @@ default.unreachable:                              ; preds = %122
 600:                                              ; preds = %604, %597
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %601 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01130.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %20)
+  %601 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.sroa.01130.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %20)
           to label %605 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 602:                                              ; preds = %597
@@ -22379,7 +22379,7 @@ default.unreachable:                              ; preds = %122
 607:                                              ; preds = %606
   %608 = getelementptr inbounds i8, ptr %0, i64 8
   %609 = load ptr, ptr %608, align 8, !nonnull !9, !align !125, !noundef !9
-  %610 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %609, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %610 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %609, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %611 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 611:                                              ; preds = %607
@@ -22451,7 +22451,7 @@ default.unreachable:                              ; preds = %122
   %640 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %641 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %640, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %19)
+  %641 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %640, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %19)
           to label %642 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 642:                                              ; preds = %639
@@ -22465,7 +22465,7 @@ default.unreachable:                              ; preds = %122
   br i1 %.not454, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %646
 
 646:                                              ; preds = %643
-  %647 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %644, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %647 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias noundef readonly align 8 dereferenceable(24) %644, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %648 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 648:                                              ; preds = %646
@@ -22474,7 +22474,7 @@ default.unreachable:                              ; preds = %122
 649:                                              ; preds = %653, %636
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %650 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01132.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %18)
+  %650 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.sroa.01132.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %18)
           to label %654 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 651:                                              ; preds = %636
@@ -22543,7 +22543,7 @@ default.unreachable:                              ; preds = %122
   %676 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %677 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %676, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %677 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %676, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %678 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 678:                                              ; preds = %675
@@ -22557,7 +22557,7 @@ default.unreachable:                              ; preds = %122
   br i1 %.not453, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %682
 
 682:                                              ; preds = %679
-  %683 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %680, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %683 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias noundef readonly align 8 dereferenceable(24) %680, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %684 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 684:                                              ; preds = %682
@@ -22566,7 +22566,7 @@ default.unreachable:                              ; preds = %122
 685:                                              ; preds = %689, %672
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %686 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01134.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %16)
+  %686 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.sroa.01134.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %16)
           to label %690 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 687:                                              ; preds = %672
@@ -22635,7 +22635,7 @@ default.unreachable:                              ; preds = %122
   %712 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %713 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %712, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %15)
+  %713 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %712, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %15)
           to label %714 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 714:                                              ; preds = %711
@@ -22649,7 +22649,7 @@ default.unreachable:                              ; preds = %122
   br i1 %.not452, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %718
 
 718:                                              ; preds = %715
-  %719 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %716, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %719 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias noundef readonly align 8 dereferenceable(24) %716, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %720 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 720:                                              ; preds = %718
@@ -22658,7 +22658,7 @@ default.unreachable:                              ; preds = %122
 721:                                              ; preds = %725, %708
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %722 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01136.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14)
+  %722 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.sroa.01136.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %14)
           to label %726 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 723:                                              ; preds = %708
@@ -22727,7 +22727,7 @@ default.unreachable:                              ; preds = %122
   %748 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %749 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %748, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13)
+  %749 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %748, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %13)
           to label %750 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 750:                                              ; preds = %747
@@ -22741,7 +22741,7 @@ default.unreachable:                              ; preds = %122
   br i1 %.not, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %754
 
 754:                                              ; preds = %751
-  %755 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %752, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %755 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias noundef readonly align 8 dereferenceable(24) %752, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %756 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 756:                                              ; preds = %754
@@ -22750,7 +22750,7 @@ default.unreachable:                              ; preds = %122
 757:                                              ; preds = %761, %744
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %758 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01138.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12)
+  %758 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.sroa.01138.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %12)
           to label %762 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 759:                                              ; preds = %744
@@ -22795,7 +22795,7 @@ default.unreachable:                              ; preds = %122
   %769 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %770 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %769, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %11)
+  %770 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %769, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %11)
           to label %771 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 771:                                              ; preds = %768
@@ -22823,7 +22823,7 @@ default.unreachable:                              ; preds = %122
 779:                                              ; preds = %778
   %780 = getelementptr inbounds i8, ptr %0, i64 40
   %781 = load ptr, ptr %780, align 8, !nonnull !9, !align !125, !noundef !9
-  %782 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %781, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %782 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %781, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %783 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 783:                                              ; preds = %779
@@ -22855,7 +22855,7 @@ default.unreachable:                              ; preds = %122
   %793 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %794 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %793, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10)
+  %794 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %793, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %10)
           to label %795 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 795:                                              ; preds = %792
@@ -22883,7 +22883,7 @@ default.unreachable:                              ; preds = %122
 803:                                              ; preds = %802
   %804 = getelementptr inbounds i8, ptr %0, i64 40
   %805 = load ptr, ptr %804, align 8, !nonnull !9, !align !125, !noundef !9
-  %806 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %805, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %806 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %805, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %807 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 807:                                              ; preds = %803
@@ -22915,7 +22915,7 @@ default.unreachable:                              ; preds = %122
   %817 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %818 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %817, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9)
+  %818 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %817, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %9)
           to label %819 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 819:                                              ; preds = %816
@@ -22943,7 +22943,7 @@ default.unreachable:                              ; preds = %122
 827:                                              ; preds = %826
   %828 = getelementptr inbounds i8, ptr %0, i64 40
   %829 = load ptr, ptr %828, align 8, !nonnull !9, !align !125, !noundef !9
-  %830 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %829, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %830 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %829, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %831 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 831:                                              ; preds = %827
@@ -22975,7 +22975,7 @@ default.unreachable:                              ; preds = %122
   %841 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %842 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %841, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
+  %842 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %841, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %8)
           to label %843 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 843:                                              ; preds = %840
@@ -23003,7 +23003,7 @@ default.unreachable:                              ; preds = %122
 851:                                              ; preds = %850
   %852 = getelementptr inbounds i8, ptr %0, i64 40
   %853 = load ptr, ptr %852, align 8, !nonnull !9, !align !125, !noundef !9
-  %854 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %853, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %854 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %853, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %855 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 855:                                              ; preds = %851
@@ -23033,7 +23033,7 @@ default.unreachable:                              ; preds = %122
 
 864:                                              ; preds = %863
   %865 = getelementptr inbounds i8, ptr %0, i64 8
-  %866 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %865, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %866 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %865, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %867 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 867:                                              ; preds = %864
@@ -23064,7 +23064,7 @@ default.unreachable:                              ; preds = %122
 876:                                              ; preds = %875
   %877 = getelementptr inbounds i8, ptr %0, i64 8
   %878 = load ptr, ptr %877, align 8, !nonnull !9, !align !125, !noundef !9
-  %879 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %878, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %879 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %878, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %880 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 880:                                              ; preds = %876
@@ -23094,7 +23094,7 @@ default.unreachable:                              ; preds = %122
 
 889:                                              ; preds = %888
   %890 = getelementptr inbounds i8, ptr %0, i64 8
-  %891 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %890, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %891 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %890, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %892 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 892:                                              ; preds = %889
@@ -23125,7 +23125,7 @@ default.unreachable:                              ; preds = %122
 901:                                              ; preds = %900
   %902 = getelementptr inbounds i8, ptr %0, i64 8
   %903 = load ptr, ptr %902, align 8, !nonnull !9, !align !125, !noundef !9
-  %904 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %903, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %904 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %903, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %905 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 905:                                              ; preds = %901
@@ -23155,7 +23155,7 @@ default.unreachable:                              ; preds = %122
 
 914:                                              ; preds = %913
   %915 = getelementptr inbounds i8, ptr %0, i64 8
-  %916 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %915, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %916 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %915, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %917 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 917:                                              ; preds = %914
@@ -23186,7 +23186,7 @@ default.unreachable:                              ; preds = %122
 926:                                              ; preds = %925
   %927 = getelementptr inbounds i8, ptr %0, i64 8
   %928 = load ptr, ptr %927, align 8, !nonnull !9, !align !125, !noundef !9
-  %929 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %928, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %929 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %928, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %930 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 930:                                              ; preds = %926
@@ -23217,7 +23217,7 @@ default.unreachable:                              ; preds = %122
 939:                                              ; preds = %938
   %940 = getelementptr inbounds i8, ptr %0, i64 8
   %941 = load ptr, ptr %940, align 8, !nonnull !9, !align !125, !noundef !9
-  %942 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %941, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %942 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %941, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %943 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 943:                                              ; preds = %939
@@ -23265,7 +23265,7 @@ default.unreachable:                              ; preds = %122
 
 .invoke1202:                                      ; preds = %958, %968
   %959 = getelementptr inbounds i8, ptr %0, i64 8
-  %960 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..MemberName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h12300e42b11b714bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %959, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %960 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..MemberName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h12300e42b11b714bE"(ptr noalias noundef readonly align 8 dereferenceable(72) %959, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 961:                                              ; preds = %306
@@ -23318,7 +23318,7 @@ default.unreachable:                              ; preds = %122
 
 978:                                              ; preds = %977
   %979 = getelementptr inbounds i8, ptr %0, i64 8
-  %980 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %979, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %980 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %979, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %981 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 981:                                              ; preds = %978
@@ -23351,7 +23351,7 @@ default.unreachable:                              ; preds = %122
   %.val988 = load i64, ptr %991, align 8
   %992 = getelementptr inbounds i8, ptr %0, i64 16
   %.val989 = load i64, ptr %992, align 8
-  %993 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.val988, i64 %.val989, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %993 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.val988, i64 %.val989, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %994 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 994:                                              ; preds = %990
@@ -23422,7 +23422,7 @@ default.unreachable:                              ; preds = %122
 1022:                                             ; preds = %1026, %1019
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %1023 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01140.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
+  %1023 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef readonly align 8 dereferenceable(128) %.sroa.01140.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %4)
           to label %1027 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1024:                                             ; preds = %1019
@@ -23537,7 +23537,7 @@ default.unreachable:                              ; preds = %122
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..MemberName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h12300e42b11b714bE"(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..MemberName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h12300e42b11b714bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 88
@@ -23574,7 +23574,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..MemberN
           to label %24 unwind label %37
 
 22:                                               ; preds = %24, %15
-  %23 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %23 = invoke fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he7d6bc7e89bc9a37E"(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %25 unwind label %37
 
 24:                                               ; preds = %16
@@ -23629,7 +23629,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..MemberN
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.0.val, i64 %.8.val, ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.0.val, i64 %.8.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -23752,7 +23752,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceN
 51:                                               ; preds = %53, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.exit.i.i"
   %52 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hffa8a68e30251570E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #43
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hffa8a68e30251570E"(ptr noalias noundef align 8 dereferenceable(24) %7) #43
           to label %97 unwind label %95
 
 53:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.exit.i.i"
@@ -23896,7 +23896,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceN
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -23983,11 +23983,11 @@ switch.lookup:                                    ; preds = %9
 
 40:                                               ; preds = %3
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = tail call fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %42 = tail call fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %41, ptr noalias noundef align 8 dereferenceable(104) %1)
   br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 43:                                               ; preds = %3
-  %44 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %44 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 "_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit": ; preds = %25, %9, %45, %43, %40
@@ -23998,7 +23998,7 @@ switch.lookup:                                    ; preds = %9
   %46 = getelementptr inbounds i8, ptr %36, i64 8
   %47 = load ptr, ptr %46, align 8, !nonnull !9, !noundef !9
   %48 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %47, i64 0, i64 %34
-  %49 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %48, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %49 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %48, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 50:                                               ; preds = %32
@@ -24147,18 +24147,18 @@ switch.lookup:                                    ; preds = %33
 
 62:                                               ; preds = %21
   %63 = getelementptr inbounds i8, ptr %.012, i64 8
-  %64 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %64 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %63, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 65:                                               ; preds = %21
-  %66 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.012, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %66 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %.012, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 67:                                               ; preds = %54
   %68 = getelementptr inbounds i8, ptr %58, i64 8
   %69 = load ptr, ptr %68, align 8, !noalias !2796, !nonnull !9, !noundef !9
   %70 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %69, i64 0, i64 %56
-  %71 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %70, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %71 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %70, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 72:                                               ; preds = %54
@@ -24225,7 +24225,7 @@ switch.lookup:                                    ; preds = %33
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -24302,7 +24302,7 @@ switch.lookup:                                    ; preds = %13
   %.val6 = load i64, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 16
   %.val7 = load i64, ptr %34, align 8
-  %35 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val6, i64 %.val7, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %35 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val6, i64 %.val7, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit_crit_edge" unwind label %36
 
 "._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit_crit_edge": ; preds = %32
@@ -24335,7 +24335,7 @@ switch.lookup:                                    ; preds = %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPrimary$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8a583376190ca3b6E"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPrimary$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8a583376190ca3b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -24378,7 +24378,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   %34 = getelementptr inbounds i8, ptr %1, i64 96
   %35 = load i8, ptr %34, align 8, !range !286, !noundef !9
   store i8 1, ptr %34, align 8
-  %36 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..MangledName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h1ece1adbb45c131bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %36 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..MangledName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h1ece1adbb45c131bE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %312 unwind label %315
 
 37:                                               ; preds = %45, %26
@@ -24557,7 +24557,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   %123 = getelementptr inbounds i8, ptr %114, i64 8
   %124 = load ptr, ptr %123, align 8, !alias.scope !2836, !noalias !2845, !nonnull !9, !noundef !9
   %125 = getelementptr inbounds i8, ptr %124, i64 %122
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr nonnull readonly align 1 %107, i64 %109, i1 false), !noalias !2830
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %125, ptr noundef nonnull readonly align 1 dereferenceable(1) %107, i64 %109, i1 false), !noalias !2830
   %126 = load i64, ptr %115, align 8, !alias.scope !2836, !noalias !2845, !noundef !9
   %127 = add i64 %126, %109
   store i64 %127, ptr %115, align 8, !alias.scope !2836, !noalias !2845
@@ -24744,7 +24744,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   br i1 %214, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %216
 
 216:                                              ; preds = %215
-  %217 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %217 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE"(ptr noalias noundef readonly align 8 dereferenceable(32) %27, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %218 unwind label %315
 
 218:                                              ; preds = %216
@@ -24910,7 +24910,7 @@ default.unreachable123:                           ; preds = %284
 286:                                              ; preds = %284
   %287 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i = load i8, ptr %287, align 1, !alias.scope !2858, !noalias !2863
-  %288 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %288 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %315
 
 289:                                              ; preds = %284
@@ -24923,18 +24923,18 @@ default.unreachable123:                           ; preds = %284
   br i1 %295, label %300, label %.invoke128, !prof !127
 
 296:                                              ; preds = %284
-  %297 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %297 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %30, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %315
 
 298:                                              ; preds = %284
-  %299 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %299 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %27, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %315
 
 300:                                              ; preds = %289
   %301 = getelementptr inbounds i8, ptr %292, i64 8
   %302 = load ptr, ptr %301, align 8, !noalias !2866, !nonnull !9, !noundef !9
   %303 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %302, i64 0, i64 %290
-  %304 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %303, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %304 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %303, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %315
 
 "_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit": ; preds = %286, %296, %298, %300
@@ -24984,7 +24984,7 @@ default.unreachable123:                           ; preds = %284
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initializer$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h960f9860ceb3d34fE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [4 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -25070,7 +25070,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initial
 41:                                               ; preds = %45, %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %42 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
+  %42 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.sroa.0.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %4)
           to label %46 unwind label %.loopexit
 
 43:                                               ; preds = %36
@@ -25110,7 +25110,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Initial
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..MangledName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h1ece1adbb45c131bE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..MangledName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h1ece1adbb45c131bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -25261,18 +25261,18 @@ switch.lookup:                                    ; preds = %50
 
 77:                                               ; preds = %46
   %78 = getelementptr inbounds i8, ptr %0, i64 16
-  %79 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %78, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %79 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %78, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %167
 
 80:                                               ; preds = %46
-  %81 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %47, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %81 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %47, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %167
 
 82:                                               ; preds = %69
   %83 = getelementptr inbounds i8, ptr %73, i64 8
   %84 = load ptr, ptr %83, align 8, !noalias !2893, !nonnull !9, !noundef !9
   %85 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %84, i64 0, i64 %71
-  %86 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %85, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %86 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %85, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %167
 
 87:                                               ; preds = %69
@@ -25459,7 +25459,7 @@ switch.lookup:                                    ; preds = %50
   %152 = getelementptr inbounds i8, ptr %0, i64 16
   %153 = load ptr, ptr %152, align 8, !alias.scope !2894, !noalias !2913, !nonnull !9, !align !125, !noundef !9
   %154 = load ptr, ptr %103, align 8, !noalias !2904, !nonnull !9, !align !125, !noundef !9
-  %155 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..MangledName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h1ece1adbb45c131bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %153, ptr noalias noundef nonnull align 8 dereferenceable(104) %154, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %155 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..MangledName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h1ece1adbb45c131bE"(ptr noalias noundef readonly align 8 dereferenceable(120) %153, ptr noalias noundef align 8 dereferenceable(104) %154, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %122 unwind label %119, !noalias !2894
 
 156:                                              ; preds = %133, %129, %.noexc48
@@ -25648,7 +25648,7 @@ switch.lookup:                                    ; preds = %50
 233:                                              ; preds = %235, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.exit.i.i.i"
   %234 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hffa8a68e30251570E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #43
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hffa8a68e30251570E"(ptr noalias noundef align 8 dereferenceable(24) %15) #43
           to label %265 unwind label %263, !noalias !2936
 
 235:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.exit.i.i.i"
@@ -25869,7 +25869,7 @@ switch.lookup:                                    ; preds = %50
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef readonly align 8 dereferenceable(128) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -25976,18 +25976,18 @@ switch.lookup:                                    ; preds = %20
 
 47:                                               ; preds = %16
   %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %49 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %48, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp
 
 50:                                               ; preds = %16
-  %51 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %51 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %17, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds i8, ptr %43, i64 8
   %54 = load ptr, ptr %53, align 8, !noalias !3018, !nonnull !9, !noundef !9
   %55 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %54, i64 0, i64 %41
-  %56 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %55, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %56 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %55, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp
 
 57:                                               ; preds = %39
@@ -25999,12 +25999,12 @@ switch.lookup:                                    ; preds = %20
 
 58:                                               ; preds = %14
   %59 = getelementptr inbounds i8, ptr %0, i64 8
-  %60 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %59, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %60 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %59, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp
 
 61:                                               ; preds = %14
   %62 = getelementptr inbounds i8, ptr %0, i64 8
-  %63 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPrimary$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8a583376190ca3b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %62, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %63 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPrimary$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8a583376190ca3b6E"(ptr noalias noundef readonly align 8 dereferenceable(120) %62, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp
 
 64:                                               ; preds = %14
@@ -26055,7 +26055,7 @@ switch.lookup:                                    ; preds = %20
 80:                                               ; preds = %84, %76
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %81 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %81 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef readonly align 8 dereferenceable(128) %.sroa.0.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %85 unwind label %.loopexit
 
 82:                                               ; preds = %76
@@ -26787,7 +26787,7 @@ define internal noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..FunctionType$u
   br i1 %81, label %95, label %86
 
 86:                                               ; preds = %85
-  %87 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %87 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %88 unwind label %98
 
 88:                                               ; preds = %86
@@ -26852,7 +26852,7 @@ define internal noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..FunctionType$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -26900,7 +26900,7 @@ default.unreachable93:                            ; preds = %"_ZN4core6option15O
   %.val62 = load i64, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   %.val63 = load i64, ptr %30, align 8
-  %31 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val62, i64 %.val63, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %31 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val62, i64 %.val63, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %118 unwind label %51
 
 32:                                               ; preds = %23
@@ -26912,11 +26912,11 @@ default.unreachable93:                            ; preds = %"_ZN4core6option15O
   %.val60 = load i64, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %.val61 = load i64, ptr %36, align 8
-  %37 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val60, i64 %.val61, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %37 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val60, i64 %.val61, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %126 unwind label %51
 
 38:                                               ; preds = %.thread, %53, %25
-  %39 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %27, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %39 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %27, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %54 unwind label %51
 
 40:                                               ; preds = %25
@@ -27115,18 +27115,18 @@ switch.lookup:                                    ; preds = %79
 
 107:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6347003d90449eb5E.exit"
   %108 = getelementptr inbounds i8, ptr %0, i64 16
-  %109 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %108, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %109 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %108, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %51
 
 110:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6347003d90449eb5E.exit"
-  %111 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.031, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %111 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %.031, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %51
 
 112:                                              ; preds = %100
   %113 = getelementptr inbounds i8, ptr %103, i64 8
   %114 = load ptr, ptr %113, align 8, !noalias !3159, !nonnull !9, !noundef !9
   %115 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %114, i64 0, i64 %102
-  %116 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %115, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %116 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %115, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %51
 
 117:                                              ; preds = %100
@@ -27215,7 +27215,7 @@ switch.lookup:                                    ; preds = %79
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..PrefixHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3adfb4d01407c252E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -27311,7 +27311,7 @@ common.resume:                                    ; preds = %78, %94, %30
   %43 = load ptr, ptr %42, align 8, !alias.scope !3181, !noalias !3183, !nonnull !9, !align !125, !noundef !9
   %44 = load i64, ptr %41, align 8, !alias.scope !3178, !noalias !3185, !noundef !9
   %45 = tail call noundef align 8 dereferenceable(160) ptr @_ZN12cpp_demangle4subs17SubstitutionTable16non_substitution17hb0e2056dba983a16E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %43, i64 noundef %44), !noalias !3186
-  %46 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %45, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !3178
+  %46 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %45, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2), !noalias !3178
   br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 "_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit": ; preds = %102, %99, %83, %55, %"_ZN88_$LT$cpp_demangle..ast..UnscopedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h311493baf008e79bE.exit", %85, %96, %25, %9, %40
@@ -27363,7 +27363,7 @@ common.resume:                                    ; preds = %78, %94, %30
 
 .invoke.i:                                        ; preds = %74, %63
   %66 = getelementptr inbounds i8, ptr %50, i64 16
-  %67 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %66, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %67 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %66, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" unwind label %78
 
 68:                                               ; preds = %63
@@ -27422,7 +27422,7 @@ common.resume:                                    ; preds = %78, %94, %30
 91:                                               ; preds = %85
   %92 = getelementptr inbounds i8, ptr %50, i64 8
   store i32 %88, ptr %86, align 8, !alias.scope !3214, !noalias !3219
-  %93 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %92, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %93 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %92, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %96 unwind label %94
 
 94:                                               ; preds = %91
@@ -27438,12 +27438,12 @@ common.resume:                                    ; preds = %78, %94, %30
 
 99:                                               ; preds = %47
   %100 = getelementptr inbounds i8, ptr %50, i64 8
-  %101 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %100, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %101 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef readonly align 8 dereferenceable(128) %100, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 102:                                              ; preds = %47
   %103 = getelementptr inbounds i8, ptr %50, i64 8
-  %104 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %103, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %104 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef readonly align 8 dereferenceable(128) %103, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 105:                                              ; preds = %32
@@ -27452,7 +27452,7 @@ common.resume:                                    ; preds = %78, %94, %30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E"(i8 %.0.val, ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -27513,7 +27513,7 @@ define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQual
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -27674,7 +27674,7 @@ define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..Templat
   %70 = load ptr, ptr %31, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %71 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %69, ptr noalias noundef nonnull align 8 dereferenceable(104) %70, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9)
+  %71 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef readonly align 8 dereferenceable(128) %69, ptr noalias noundef align 8 dereferenceable(104) %70, ptr noalias nocapture noundef align 8 dereferenceable(40) %9)
           to label %72 unwind label %.loopexit.split.us
 
 72:                                               ; preds = %68
@@ -27847,7 +27847,7 @@ define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..Templat
   %126 = load ptr, ptr %31, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %127 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %125, ptr noalias noundef nonnull align 8 dereferenceable(104) %126, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9)
+  %127 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef readonly align 8 dereferenceable(128) %125, ptr noalias noundef align 8 dereferenceable(104) %126, ptr noalias nocapture noundef align 8 dereferenceable(40) %9)
           to label %132 unwind label %.loopexit.split
 
 128:                                              ; preds = %77
@@ -27926,7 +27926,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.0.val, i64 %.8.val, ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.0.val, i64 %.8.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -28010,7 +28010,7 @@ define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..Functio
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..SubobjectExpr$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h09b56954c5b70ed2E"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..SubobjectExpr$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h09b56954c5b70ed2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -28032,7 +28032,7 @@ define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..Subobje
   %18 = load ptr, ptr %17, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %19 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %18, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %19 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %18, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %22 unwind label %20
 
 20:                                               ; preds = %72, %67, %65, %62, %73, %23, %16
@@ -28147,18 +28147,18 @@ switch.lookup:                                    ; preds = %33
 
 62:                                               ; preds = %30
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %64 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %63, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %20
 
 65:                                               ; preds = %30
-  %66 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %66 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %20
 
 67:                                               ; preds = %54
   %68 = getelementptr inbounds i8, ptr %58, i64 8
   %69 = load ptr, ptr %68, align 8, !noalias !3326, !nonnull !9, !noundef !9
   %70 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %69, i64 0, i64 %56
-  %71 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %70, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %71 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %70, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %20
 
 72:                                               ; preds = %54
@@ -28218,7 +28218,7 @@ switch.lookup:                                    ; preds = %33
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [4 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -28250,7 +28250,7 @@ define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..Templat
   br i1 %20, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %21
 
 21:                                               ; preds = %19
-  %22 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %18, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %22 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..TemplateArg$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf9047a6fe2b2c824E"(ptr noalias noundef readonly align 8 dereferenceable(128) %18, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %35
 
 23:                                               ; preds = %13
@@ -28407,7 +28407,7 @@ _ZN7bincode6config3int11IntEncoding15deserialize_len17h88c2b2125419152fE.llvm.74
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..LeafName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h4e58d583dc9db1a1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..LeafName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h4e58d583dc9db1a1E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca i64, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -28438,7 +28438,7 @@ default.unreachable5:                             ; preds = %22, %2
   %.val = load i64, ptr %19, align 8
   %20 = getelementptr i8, ptr %19, i64 8
   %.val1 = load i64, ptr %20, align 8
-  %21 = tail call fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val, i64 %.val1, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val, i64 %.val1, ptr noalias noundef align 8 dereferenceable(104) %1)
   br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 22:                                               ; preds = %2
@@ -28554,7 +28554,7 @@ default.unreachable5:                             ; preds = %22, %2
   %64 = load ptr, ptr %63, align 8, !nonnull !9, !align !125, !noundef !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   store ptr null, ptr %15, align 8
-  %65 = call fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..ClosureTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h414376902bbb16f9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %64, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %15)
+  %65 = call fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..ClosureTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h414376902bbb16f9E"(ptr noalias noundef readonly align 8 dereferenceable(40) %64, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
@@ -28617,9 +28617,9 @@ default.unreachable5:                             ; preds = %22, %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !3359
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3359
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !3359
-  %switch.i.i = icmp eq i64 %.val3, 0
+  %trunc.i.i = trunc nuw i64 %.val3 to i1
   %91 = add i64 %.val4, 1
-  %spec.select.i20.i = select i1 %switch.i.i, i64 1, i64 %91
+  %spec.select.i20.i = select i1 %trunc.i.i, i64 %91, i64 1
   store i64 %spec.select.i20.i, ptr %3, align 8, !noalias !3359
   store ptr %3, ptr %4, align 8, !noalias !3359
   %92 = getelementptr inbounds i8, ptr %4, i64 8
@@ -28663,7 +28663,7 @@ default.unreachable5:                             ; preds = %22, %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ed0217d6d61a242E"(ptr noalias noundef readonly align 8 dereferenceable(104) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ed0217d6d61a242E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -28747,7 +28747,7 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
   %.val16.i259 = load i64, ptr %47, align 8, !alias.scope !3391, !noalias !3401
   %48 = getelementptr inbounds i8, ptr %33, i64 40
   %.val17.i260 = load i64, ptr %48, align 8, !alias.scope !3391, !noalias !3401
-  %49 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i259, i64 %.val17.i260, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %49 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i259, i64 %.val17.i260, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %50 unwind label %59, !noalias !3399
 
 50:                                               ; preds = %46
@@ -28759,7 +28759,7 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
   br i1 %.not.i261, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i262", label %53
 
 53:                                               ; preds = %51
-  %54 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %54 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %44, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %55 unwind label %59
 
 55:                                               ; preds = %53
@@ -28787,7 +28787,7 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
   %64 = getelementptr inbounds i8, ptr %33, i64 24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !3402
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3403
-  %65 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %64, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
+  %65 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef readonly align 8 dereferenceable(40) %64, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %8)
           to label %150 unwind label %147, !noalias !3404
 
 66:                                               ; preds = %38
@@ -28909,7 +28909,7 @@ switch.lookup:                                    ; preds = %86
   %116 = getelementptr inbounds i8, ptr %111, i64 8
   %117 = load ptr, ptr %116, align 8, !noalias !3440, !nonnull !9, !noundef !9
   %118 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %117, i64 0, i64 %109
-  %119 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %118, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %119 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %118, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"._ZN96_$LT$cpp_demangle..ast..UnresolvedTypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h39cb44ce6ada5015E.exit_crit_edge.i" unwind label %75, !noalias !3380
 
 "._ZN96_$LT$cpp_demangle..ast..UnresolvedTypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h39cb44ce6ada5015E.exit_crit_edge.i": ; preds = %115
@@ -28938,7 +28938,7 @@ switch.lookup:                                    ; preds = %86
   %.val16.i.i = load i64, ptr %126, align 8, !alias.scope !3451, !noalias !3452
   %127 = getelementptr inbounds i8, ptr %33, i64 40
   %.val17.i.i = load i64, ptr %127, align 8, !alias.scope !3451, !noalias !3452
-  %128 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i.i, i64 %.val17.i.i, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %128 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i.i, i64 %.val17.i.i, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %133 unwind label %129, !noalias !3449
 
 129:                                              ; preds = %135, %125
@@ -28957,7 +28957,7 @@ switch.lookup:                                    ; preds = %86
   br i1 %.not.i.i, label %137, label %135
 
 135:                                              ; preds = %134
-  %136 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %67, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %136 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %67, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %140 unwind label %129
 
 137:                                              ; preds = %140, %134
@@ -29004,7 +29004,7 @@ switch.lookup:                                    ; preds = %86
   br i1 %.not.i255, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i", label %152
 
 152:                                              ; preds = %151
-  %153 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %153 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %33, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %154 unwind label %147
 
 154:                                              ; preds = %152
@@ -29124,7 +29124,7 @@ switch.lookup344:                                 ; preds = %169
   %197 = getelementptr inbounds i8, ptr %192, i64 8
   %198 = load ptr, ptr %197, align 8, !noalias !3474, !nonnull !9, !noundef !9
   %199 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %198, i64 0, i64 %190
-  %200 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %199, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %15)
+  %200 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %199, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %15)
           to label %"_ZN96_$LT$cpp_demangle..ast..UnresolvedTypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h39cb44ce6ada5015E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 201:                                              ; preds = %188
@@ -29251,7 +29251,7 @@ switch.lookup344:                                 ; preds = %169
   %.val16.i = load i64, ptr %246, align 8, !alias.scope !3483, !noalias !3493
   %247 = getelementptr i8, ptr %.sroa.0.0, i64 32
   %.val17.i = load i64, ptr %247, align 8, !alias.scope !3483, !noalias !3493
-  %248 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i, i64 %.val17.i, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %248 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i, i64 %.val17.i, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %253 unwind label %249, !noalias !3491
 
 249:                                              ; preds = %256, %245
@@ -29271,7 +29271,7 @@ switch.lookup344:                                 ; preds = %169
   br i1 %.not.i, label %264, label %256
 
 256:                                              ; preds = %254
-  %257 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14)
+  %257 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %14)
           to label %258 unwind label %249
 
 258:                                              ; preds = %256
@@ -29341,7 +29341,7 @@ switch.lookup344:                                 ; preds = %169
   %.val16.i124 = load i64, ptr %279, align 8, !alias.scope !3504, !noalias !3514
   %280 = getelementptr i8, ptr %.sroa.0167.0, i64 32
   %.val17.i125 = load i64, ptr %280, align 8, !alias.scope !3504, !noalias !3514
-  %281 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i124, i64 %.val17.i125, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %281 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i124, i64 %.val17.i125, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %286 unwind label %282, !noalias !3512
 
 282:                                              ; preds = %289, %278
@@ -29361,7 +29361,7 @@ switch.lookup344:                                 ; preds = %169
   br i1 %.not.i130, label %297, label %289
 
 289:                                              ; preds = %287
-  %290 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0167.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13)
+  %290 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0167.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %13)
           to label %291 unwind label %282
 
 291:                                              ; preds = %289
@@ -29447,7 +29447,7 @@ switch.lookup344:                                 ; preds = %169
   %.val16.i142 = load i64, ptr %323, align 8, !alias.scope !3525, !noalias !3535
   %324 = getelementptr i8, ptr %.sroa.0169.0, i64 32
   %.val17.i143 = load i64, ptr %324, align 8, !alias.scope !3525, !noalias !3535
-  %325 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i142, i64 %.val17.i143, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %325 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i142, i64 %.val17.i143, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %330 unwind label %326, !noalias !3533
 
 326:                                              ; preds = %333, %322
@@ -29467,7 +29467,7 @@ switch.lookup344:                                 ; preds = %169
   br i1 %.not.i148, label %343, label %333
 
 333:                                              ; preds = %331
-  %334 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0169.0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12)
+  %334 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0169.0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %12)
           to label %335 unwind label %326
 
 335:                                              ; preds = %333
@@ -29524,7 +29524,7 @@ switch.lookup344:                                 ; preds = %169
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef readonly align 8 dereferenceable(128) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { ptr, [4 x i64] }, align 8
@@ -29580,7 +29580,7 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
   br i1 %28, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i", label %30
 
 30:                                               ; preds = %29
-  %31 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.014.i, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9)
+  %31 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %.014.i, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %9)
           to label %32 unwind label %42
 
 32:                                               ; preds = %30
@@ -29633,14 +29633,14 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
   %49 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  %50 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6)
+  %50 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %49, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %6)
           to label %54 unwind label %62
 
 51:                                               ; preds = %18
   %52 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %53 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %52, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %53 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %52, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %58 unwind label %62
 
 54:                                               ; preds = %46
@@ -29648,7 +29648,7 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
   br i1 %50, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %55
 
 55:                                               ; preds = %54
-  %56 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
+  %56 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..TemplateArgs$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hdc84fe3617145152E"(ptr noalias noundef readonly align 8 dereferenceable(24) %19, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %8)
           to label %57 unwind label %62
 
 57:                                               ; preds = %55
@@ -29693,7 +29693,7 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = load i8, ptr %0, align 8, !range !2328, !noundef !9
   %6 = add nsw i8 %5, -16
@@ -29736,7 +29736,7 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substi
 
 .invoke.i:                                        ; preds = %28, %17
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %20, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %21 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %20, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" unwind label %32
 
 22:                                               ; preds = %17
@@ -29803,7 +29803,7 @@ common.resume:                                    ; preds = %32, %53
 47:                                               ; preds = %41
   %48 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %44, ptr %42, align 8, !alias.scope !3573, !noalias !3578
-  %49 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %48, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %49 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %48, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %50 unwind label %53
 
 50:                                               ; preds = %47
@@ -29820,12 +29820,12 @@ common.resume:                                    ; preds = %32, %53
 
 55:                                               ; preds = %3
   %56 = getelementptr inbounds i8, ptr %0, i64 8
-  %57 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %56, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %57 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef readonly align 8 dereferenceable(128) %56, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   br label %"_ZN96_$LT$cpp_demangle..ast..UnscopedTemplateName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha0d40f983b7c7e78E.exit"
 
 58:                                               ; preds = %3
   %59 = getelementptr inbounds i8, ptr %0, i64 8
-  %60 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %59, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %60 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef readonly align 8 dereferenceable(128) %59, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   br label %"_ZN96_$LT$cpp_demangle..ast..UnscopedTemplateName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha0d40f983b7c7e78E.exit"
 
 "_ZN96_$LT$cpp_demangle..ast..UnscopedTemplateName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha0d40f983b7c7e78E.exit": ; preds = %50, %41, %"_ZN88_$LT$cpp_demangle..ast..UnscopedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h311493baf008e79bE.exit", %9, %58, %55, %39
@@ -30404,7 +30404,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..ClosureTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h414376902bbb16f9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..ClosureTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h414376902bbb16f9E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -30440,19 +30440,19 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..Closure
 24:                                               ; preds = %._crit_edge, %18
   %25 = landingpad { ptr, i32 }
           cleanup
-  %.pre61 = load i32, ptr %13, align 8
+  %.pre60 = load i32, ptr %13, align 8
   br label %106
 
 26:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
-  %.pre63 = load i32, ptr %13, align 8
+  %.pre62 = load i32, ptr %13, align 8
   br i1 %23, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %27
 
 27:                                               ; preds = %26
-  %28 = add i32 %.pre63, 1
+  %28 = add i32 %.pre62, 1
   %29 = load i32, ptr %16, align 4, !alias.scope !3585, !noalias !3590, !noundef !9
-  %.not.i.not.i33 = icmp ult i32 %28, %29
-  br i1 %.not.i.not.i33, label %30, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
+  %.not.i.not.i32 = icmp ult i32 %28, %29
+  br i1 %.not.i.not.i32, label %30, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
 30:                                               ; preds = %27
   store i32 %28, ptr %13, align 8, !alias.scope !3585, !noalias !3590
@@ -30480,17 +30480,17 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..Closure
   br i1 %46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %.backedge
-  %.08.i74 = phi i1 [ true, %.backedge ], [ false, %30 ]
-  %.sroa.0.073 = phi ptr [ %47, %.backedge ], [ %.val.i26, %30 ]
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.073, i64 32
-  br i1 %.08.i74, label %85, label %48
+  %.08.i73 = phi i1 [ true, %.backedge ], [ false, %30 ]
+  %.sroa.0.072 = phi ptr [ %47, %.backedge ], [ %.val.i26, %30 ]
+  %47 = getelementptr inbounds i8, ptr %.sroa.0.072, i64 32
+  br i1 %.08.i73, label %85, label %48
 
-48:                                               ; preds = %.noexc32, %.lr.ph
+48:                                               ; preds = %.noexc31, %.lr.ph
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !3600
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !3601
   call void @llvm.experimental.noalias.scope.decl(metadata !3602)
   call void @llvm.experimental.noalias.scope.decl(metadata !3605)
-  %49 = load i8, ptr %.sroa.0.073, align 8, !range !109, !alias.scope !3602, !noalias !3607, !noundef !9
+  %49 = load i8, ptr %.sroa.0.072, align 8, !range !109, !alias.scope !3602, !noalias !3607, !noundef !9
   %50 = add nsw i8 %49, -2
   %narrow.i.i = call i8 @llvm.umin.i8(i8 %50, i8 3)
   switch i8 %narrow.i.i, label %default.unreachable [
@@ -30504,7 +30504,7 @@ default.unreachable:                              ; preds = %48
   unreachable
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.073, i64 1
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.072, i64 1
   %.val.i.i = load i8, ptr %52, align 1, !alias.scope !3602, !noalias !3607
   call void @llvm.experimental.noalias.scope.decl(metadata !3609)
   %53 = load i32, ptr %13, align 8, !noundef !9
@@ -30515,7 +30515,7 @@ default.unreachable:                              ; preds = %48
 
 "_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i.thread": ; preds = %51
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !3600
-  br label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53"
+  br label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52"
 
 switch.lookup:                                    ; preds = %51
   store i32 %54, ptr %13, align 8, !alias.scope !3612
@@ -30526,10 +30526,10 @@ switch.lookup:                                    ; preds = %51
   %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE", i64 0, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
   %57 = sext i8 %.val.i.i to i64
-  %switch.gep75 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %57
-  %switch.load76 = load i64, ptr %switch.gep75, align 8
+  %switch.gep74 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121", i64 0, i64 %57
+  %switch.load75 = load i64, ptr %switch.gep74, align 8
   store ptr %switch.load, ptr %4, align 8, !noalias !3609
-  store i64 %switch.load76, ptr %40, align 8, !noalias !3609
+  store i64 %switch.load75, ptr %40, align 8, !noalias !3609
   store ptr %4, ptr %5, align 8, !noalias !3609
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4c78af84c82888acE", ptr %41, align 8, !noalias !3609
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.42, ptr %6, align 8, !alias.scope !3615, !noalias !3618
@@ -30548,7 +30548,7 @@ switch.lookup:                                    ; preds = %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3609
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3609
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !3600
-  br i1 %58, label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53.loopexit", label %.backedge
+  br i1 %58, label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52.loopexit", label %.backedge
 
 62:                                               ; preds = %switch.lookup
   %63 = landingpad { ptr, i32 }
@@ -30559,7 +30559,7 @@ switch.lookup:                                    ; preds = %51
   br label %87
 
 66:                                               ; preds = %48
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.073, i64 8
+  %67 = getelementptr inbounds i8, ptr %.sroa.0.072, i64 8
   %68 = load i64, ptr %67, align 8, !alias.scope !3602, !noalias !3607, !noundef !9
   %69 = load ptr, ptr %39, align 8, !alias.scope !3621, !noalias !3622, !nonnull !9, !align !125, !noundef !9
   %70 = getelementptr inbounds i8, ptr %69, i64 16
@@ -30568,32 +30568,32 @@ switch.lookup:                                    ; preds = %51
   br i1 %72, label %78, label %83, !prof !127
 
 73:                                               ; preds = %48
-  %74 = getelementptr inbounds i8, ptr %.sroa.0.073, i64 8
-  %75 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %74 = getelementptr inbounds i8, ptr %.sroa.0.072, i64 8
+  %75 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %74, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i" unwind label %.loopexit
 
 76:                                               ; preds = %48
-  %77 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.073, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %77 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %.sroa.0.072, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i" unwind label %.loopexit
 
 78:                                               ; preds = %66
   %79 = getelementptr inbounds i8, ptr %69, i64 8
   %80 = load ptr, ptr %79, align 8, !noalias !3623, !nonnull !9, !noundef !9
   %81 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %80, i64 0, i64 %68
-  %82 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %81, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %82 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %81, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i" unwind label %.loopexit
 
 83:                                               ; preds = %66
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %68, i64 noundef %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.610) #42
-          to label %.noexc31 unwind label %.loopexit.split-lp
+          to label %.noexc30 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %83
+.noexc30:                                         ; preds = %83
   unreachable
 
 "_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i": ; preds = %78, %76, %73
   %.0.in.i.i = phi i1 [ %75, %73 ], [ %77, %76 ], [ %82, %78 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !3600
-  br i1 %.0.in.i.i, label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53.loopexit", label %.backedge
+  br i1 %.0.in.i.i, label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52.loopexit", label %.backedge
 
 .backedge:                                        ; preds = %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i", %59
   %84 = icmp eq ptr %47, %34
@@ -30607,11 +30607,11 @@ switch.lookup:                                    ; preds = %51
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %37, align 8, !noalias !3600
   store i64 0, ptr %38, align 8, !noalias !3600
   %86 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
-          to label %.noexc32 unwind label %.loopexit
+          to label %.noexc31 unwind label %.loopexit
 
-.noexc32:                                         ; preds = %85
+.noexc31:                                         ; preds = %85
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !3600
-  br i1 %86, label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53.loopexit", label %48
+  br i1 %86, label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52.loopexit", label %48
 
 .loopexit:                                        ; preds = %73, %76, %78, %85
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -30624,18 +30624,18 @@ switch.lookup:                                    ; preds = %51
   br label %87
 
 87:                                               ; preds = %.loopexit, %.loopexit.split-lp, %62
-  %eh.lpad-body38 = phi { ptr, i32 } [ %63, %62 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body37 = phi { ptr, i32 } [ %63, %62 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %88 = load i32, ptr %13, align 8, !noalias !3624, !noundef !9
   %89 = add i32 %88, -1
   store i32 %89, ptr %13, align 8, !noalias !3624
   br label %106
 
-"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53.loopexit": ; preds = %59, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i", %.noexc32
+"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52.loopexit": ; preds = %59, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i", %.noexc31
   %.pre = load i32, ptr %13, align 8, !noalias !3624
-  br label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53"
+  br label %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52"
 
-"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53": ; preds = %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53.loopexit", %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i.thread"
-  %90 = phi i32 [ %.pre, %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53.loopexit" ], [ %53, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i.thread" ]
+"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52": ; preds = %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52.loopexit", %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i.thread"
+  %90 = phi i32 [ %.pre, %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52.loopexit" ], [ %53, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i.thread" ]
   store i8 0, ptr %31, align 4, !noalias !3624
   %91 = add i32 %90, -1
   store i32 %91, ptr %13, align 8, !noalias !3624
@@ -30652,9 +30652,9 @@ switch.lookup:                                    ; preds = %51
   %94 = load i64, ptr %0, align 8, !range !285, !noundef !9
   %95 = getelementptr inbounds i8, ptr %0, i64 8
   %96 = load i64, ptr %95, align 8
-  %switch.i = icmp eq i64 %94, 0
+  %trunc.i = trunc nuw i64 %94 to i1
   %97 = add i64 %96, 2
-  %spec.select.i25 = select i1 %switch.i, i64 1, i64 %97
+  %spec.select.i25 = select i1 %trunc.i, i64 %97, i64 1
   store i64 %spec.select.i25, ptr %9, align 8
   store ptr %9, ptr %10, align 8
   %98 = getelementptr inbounds i8, ptr %10, i64 8
@@ -30675,13 +30675,13 @@ switch.lookup:                                    ; preds = %51
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %.pre62 = load i32, ptr %13, align 8
+  %.pre61 = load i32, ptr %13, align 8
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
-"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %104, %26, %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53", %27
-  %.sink68 = phi i32 [ %.pre63, %27 ], [ %91, %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53" ], [ %.pre63, %26 ], [ %.pre62, %104 ]
-  %.2.ph = phi i1 [ true, %27 ], [ true, %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread53" ], [ true, %26 ], [ %103, %104 ]
-  %105 = add i32 %.sink68, -1
+"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %104, %26, %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52", %27
+  %.sink67 = phi i32 [ %.pre62, %27 ], [ %91, %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52" ], [ %.pre62, %26 ], [ %.pre61, %104 ]
+  %.2.ph = phi i1 [ true, %27 ], [ true, %"_ZN85_$LT$cpp_demangle..ast..LambdaSig$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h352f3ba08e38777cE.exit.thread52" ], [ true, %26 ], [ %103, %104 ]
+  %105 = add i32 %.sink67, -1
   store i32 %105, ptr %13, align 8
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread"
 
@@ -30690,8 +30690,8 @@ switch.lookup:                                    ; preds = %51
   ret i1 %.2
 
 106:                                              ; preds = %24, %87
-  %107 = phi i32 [ %.pre61, %24 ], [ %89, %87 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %eh.lpad-body38, %87 ]
+  %107 = phi i32 [ %.pre60, %24 ], [ %89, %87 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %eh.lpad-body37, %87 ]
   %108 = add i32 %107, -1
   store i32 %108, ptr %13, align 8
   resume { ptr, i32 } %eh.lpad-body
@@ -30763,12 +30763,12 @@ define internal noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..FunctionArgLis
   %5 = load ptr, ptr %4, align 8, !nonnull !9, !noundef !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !9
-  %8 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %5, i64 noundef %7, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %8 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %5, i64 noundef %7, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
   ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca i64, align 8
@@ -30875,7 +30875,7 @@ default.unreachable43:                            ; preds = %21
   br i1 %49, label %.invoke, label %51
 
 .invoke:                                          ; preds = %66, %47
-  %50 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..LeafName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h4e58d583dc9db1a1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %50 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..LeafName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h4e58d583dc9db1a1E"(ptr noalias noundef readonly align 8 dereferenceable(16) %12, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %64 unwind label %67, !noalias !3640
 
 51:                                               ; preds = %47
@@ -30895,7 +30895,7 @@ default.unreachable43:                            ; preds = %21
   store i64 %56, ptr %10, align 8, !noalias !3650
   %60 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %59, ptr %60, align 8, !noalias !3650
-  %61 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..LeafName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h4e58d583dc9db1a1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %61 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..LeafName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h4e58d583dc9db1a1E"(ptr noalias noundef readonly align 8 dereferenceable(16) %10, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %63 unwind label %67
 
 62:                                               ; preds = %55
@@ -30942,9 +30942,9 @@ default.unreachable43:                            ; preds = %21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !3657
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !3657
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !3657
-  %switch.i.i = icmp eq i64 %.val13, 0
+  %trunc.i.i = trunc nuw i64 %.val13 to i1
   %76 = add i64 %.val14, 1
-  %spec.select.i12.i = select i1 %switch.i.i, i64 1, i64 %76
+  %spec.select.i12.i = select i1 %trunc.i.i, i64 %76, i64 1
   store i64 %spec.select.i12.i, ptr %6, align 8, !noalias !3657
   store ptr %6, ptr %7, align 8, !noalias !3657
   %77 = getelementptr inbounds i8, ptr %7, i64 8
@@ -31005,7 +31005,7 @@ default.unreachable43:                            ; preds = %21
   br i1 %97, label %"_ZN88_$LT$cpp_demangle..ast..CtorDtorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3df889dcc7d4aac7E.exit.sink.split", label %99
 
 99:                                               ; preds = %98
-  %100 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val15, i64 %.val16, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %100 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val15, i64 %.val16, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %101 unwind label %109
 
 101:                                              ; preds = %99
@@ -31039,7 +31039,7 @@ default.unreachable43:                            ; preds = %21
 
 113:                                              ; preds = %21
   %114 = getelementptr inbounds i8, ptr %0, i64 8
-  %115 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..ClosureTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h414376902bbb16f9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %114, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %115 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..ClosureTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h414376902bbb16f9E"(ptr noalias noundef readonly align 8 dereferenceable(40) %114, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %19
 
 116:                                              ; preds = %23
@@ -31048,7 +31048,7 @@ default.unreachable43:                            ; preds = %21
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds i8, ptr %0, i64 8
-  %119 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %118, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %119 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..OperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb72828977570be42E"(ptr noalias noundef readonly align 8 dereferenceable(40) %118, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %19
 
 120:                                              ; preds = %21, %21
@@ -31056,7 +31056,7 @@ default.unreachable43:                            ; preds = %21
   %.08.val = load i64, ptr %.08, align 8
   %121 = getelementptr inbounds i8, ptr %0, i64 16
   %.08.val12 = load i64, ptr %121, align 8
-  %122 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.08.val, i64 %.08.val12, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %122 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.08.val, i64 %.08.val12, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %19
 
 "_ZN88_$LT$cpp_demangle..ast..CtorDtorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3df889dcc7d4aac7E.exit.sink.split": ; preds = %98, %101, %108, %83, %64, %65
@@ -31534,7 +31534,7 @@ define internal noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..ArrayType$u20$
   br i1 %176, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %195
 
 195:                                              ; preds = %194
-  %196 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %196 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %197 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 197:                                              ; preds = %195
@@ -31745,18 +31745,18 @@ switch.lookup:                                    ; preds = %36
 
 65:                                               ; preds = %33
   %66 = getelementptr inbounds i8, ptr %32, i64 8
-  %67 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %67 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %66, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %22
 
 68:                                               ; preds = %33
-  %69 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %32, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %69 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %32, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %22
 
 70:                                               ; preds = %57
   %71 = getelementptr inbounds i8, ptr %61, i64 8
   %72 = load ptr, ptr %71, align 8, !noalias !3757, !nonnull !9, !noundef !9
   %73 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %72, i64 0, i64 %59
-  %74 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %73, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10)
+  %74 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %73, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %10)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %22
 
 75:                                               ; preds = %57
@@ -31859,7 +31859,7 @@ switch.lookup:                                    ; preds = %36
   %112 = load ptr, ptr %111, align 8, !alias.scope !3784, !noalias !3789, !nonnull !9, !noundef !9
   %113 = add i64 %108, -1
   %114 = getelementptr inbounds i8, ptr %112, i64 32
-  %115 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %114, i64 noundef %113, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %115 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %114, i64 noundef %113, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %_ZN12cpp_demangle3ast15DemangleAsInner17demangle_as_inner17hddd48d6cffc4ee35E.exit unwind label %118
 
 _ZN12cpp_demangle3ast15DemangleAsInner17demangle_as_inner17hddd48d6cffc4ee35E.exit: ; preds = %"_ZN104_$LT$cpp_demangle..ast..FunctionArgListAndReturnType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb7e83bde4eecaa25E.exit.i"
@@ -31896,7 +31896,7 @@ _ZN12cpp_demangle3ast15DemangleAsInner17demangle_as_inner17hddd48d6cffc4ee35E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(104) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -32353,7 +32353,7 @@ define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..Functio
   br i1 %201, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %204
 
 204:                                              ; preds = %203
-  %205 = invoke fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$15demangle_inners17hd76ccb9f8997d6ddE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3)
+  %205 = invoke fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$15demangle_inners17hd76ccb9f8997d6ddE"(ptr noalias noundef align 8 dereferenceable(104) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %3)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp
 
 "_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit", %246, %219, %204, %146, %147, %162, %163, %196, %203, %148, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.thread"
@@ -32452,18 +32452,18 @@ switch.lookup:                                    ; preds = %211
 
 233:                                              ; preds = %208
   %234 = getelementptr inbounds i8, ptr %.sroa.0.0131, i64 8
-  %235 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %234, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
+  %235 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %234, ptr noalias noundef align 8 dereferenceable(104) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %.loopexit
 
 236:                                              ; preds = %208
-  %237 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0131, ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3)
+  %237 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %.sroa.0.0131, ptr noalias noundef align 8 dereferenceable(104) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %3)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %.loopexit
 
 238:                                              ; preds = %226
   %239 = getelementptr inbounds i8, ptr %229, i64 8
   %240 = load ptr, ptr %239, align 8, !noalias !3887, !nonnull !9, !noundef !9
   %241 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %240, i64 0, i64 %228
-  %242 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %241, ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
+  %242 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %241, ptr noalias noundef align 8 dereferenceable(104) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %17)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %.loopexit
 
 243:                                              ; preds = %226
@@ -32505,7 +32505,7 @@ switch.lookup:                                    ; preds = %211
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load i32, ptr %4, align 8, !alias.scope !3888, !noundef !9
   %6 = add i32 %5, 1
@@ -32542,7 +32542,7 @@ define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..Qualifi
   %22 = load i64, ptr %11, align 8, !alias.scope !3891, !noalias !3894, !noundef !9
   %23 = add i64 %22, 1
   store i64 %23, ptr %11, align 8, !alias.scope !3891, !noalias !3894
-  %24 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %24 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %25 unwind label %45
 
 25:                                               ; preds = %16
@@ -32691,7 +32691,7 @@ define internal noundef zeroext i1 @"_ZN93_$LT$cpp_demangle..ast..VectorType$u20
   br i1 %22, label %33, label %35
 
 35:                                               ; preds = %34
-  %36 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %36 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..Expression$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf0e6d38bcab95a9fE"(ptr noalias noundef readonly align 8 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %37 unwind label %47
 
 37:                                               ; preds = %35
@@ -32809,7 +32809,7 @@ define hidden noundef align 8 dereferenceable_or_null(3000) ptr @"_ZN94_$LT$core
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %.0.val, ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -32873,7 +32873,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.0.val, ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -33314,18 +33314,18 @@ switch.lookup:                                    ; preds = %32
 
 61:                                               ; preds = %21
   %62 = getelementptr inbounds i8, ptr %0, i64 40
-  %63 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %62, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  %63 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %62, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 64:                                               ; preds = %21
-  %65 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %29, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %65 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %29, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 66:                                               ; preds = %53
   %67 = getelementptr inbounds i8, ptr %57, i64 8
   %68 = load ptr, ptr %67, align 8, !noalias !4026, !nonnull !9, !noundef !9
   %69 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %68, i64 0, i64 %55
-  %70 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %69, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %70 = invoke fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %69, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 71:                                               ; preds = %53
@@ -33398,7 +33398,7 @@ define hidden noundef i32 @"_ZN95_$LT$wasmtime_environ..component..types..Import
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN96_$LT$cpp_demangle..ast..UnscopedTemplateName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha0d40f983b7c7e78E"(ptr noalias noundef readonly align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN96_$LT$cpp_demangle..ast..UnscopedTemplateName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha0d40f983b7c7e78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 88
   %6 = load i32, ptr %5, align 8, !alias.scope !4036, !noundef !9
@@ -33424,7 +33424,7 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$cpp_demangle..ast..Unscope
 
 .invoke.i:                                        ; preds = %22, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %15 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..UnqualifiedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8138a0674717690eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %14, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" unwind label %.body
 
 16:                                               ; preds = %12
@@ -33473,7 +33473,7 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$cpp_demangle..ast..Unscope
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN97_$LT$cpp_demangle..ast..TemplateTemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5da88042ecb3ea46E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN97_$LT$cpp_demangle..ast..TemplateTemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5da88042ecb3ea46E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load i32, ptr %4, align 8, !alias.scope !4051, !noundef !9
   %6 = add i32 %5, 1
@@ -33484,7 +33484,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$cpp_demangle..ast..Templat
 
 9:                                                ; preds = %3
   store i32 %6, ptr %4, align 8, !alias.scope !4051
-  %10 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
+  %10 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..TemplateParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h5e915b3cf2dce58dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
           to label %11 unwind label %15
 
 11:                                               ; preds = %9
@@ -33535,7 +33535,7 @@ define internal noundef zeroext i1 @"_ZN99_$LT$cpp_demangle..ast..BareFunctionTy
   %15 = load ptr, ptr %14, align 8, !alias.scope !4057, !noalias !4062, !nonnull !9, !noundef !9
   %16 = add i64 %11, -1
   %17 = getelementptr inbounds i8, ptr %15, i64 32
-  %18 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %17, i64 noundef %16, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2)
+  %18 = invoke fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h6369a6c14b43268eE"(ptr noalias noundef nonnull readonly align 8 %17, i64 noundef %16, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2)
           to label %_ZN12cpp_demangle3ast15DemangleAsInner17demangle_as_inner17hddd48d6cffc4ee35E.exit unwind label %21
 
 _ZN12cpp_demangle3ast15DemangleAsInner17demangle_as_inner17hddd48d6cffc4ee35E.exit: ; preds = %"_ZN104_$LT$cpp_demangle..ast..FunctionArgListAndReturnType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb7e83bde4eecaa25E.exit.i"
@@ -33965,7 +33965,7 @@ _ZN6object4read3elf4file10FileHeader12is_supported17h1b0c3c6464cb8d5aE.llvm.5281
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %94, align 8, !noalias !4085
   %95 = getelementptr inbounds i8, ptr %54, i64 24
   store i64 0, ptr %95, align 8, !noalias !4085
-  %96 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %54)
+  %96 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %54)
           to label %.noexc26 unwind label %138
 
 .noexc26:                                         ; preds = %91
@@ -34084,7 +34084,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %129, align 8, !noalias !4085
   %130 = getelementptr inbounds i8, ptr %48, i64 24
   store i64 0, ptr %130, align 8, !noalias !4085
-  %131 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %48)
+  %131 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %48)
           to label %.noexc31 unwind label %138
 
 .noexc31:                                         ; preds = %126
@@ -34102,7 +34102,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %135, align 8, !noalias !4085
   %136 = getelementptr inbounds i8, ptr %49, i64 24
   store i64 0, ptr %136, align 8, !noalias !4085
-  %137 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %49)
+  %137 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %49)
           to label %.noexc32 unwind label %138
 
 .noexc32:                                         ; preds = %132
@@ -34200,7 +34200,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
 .body.i:                                          ; preds = %205, %179, %176, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
   %.3.i = phi i1 [ false, %176 ], [ false, %179 ], [ false, %205 ], [ true, %.loopexit.i ], [ true, %.loopexit.split-lp.loopexit.i ], [ %.2.ph.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %.pn.i = phi { ptr, i32 } [ %177, %176 ], [ %180, %179 ], [ %206, %205 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit102.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp103.i, %.loopexit.split-lp.loopexit.split-lp.i ]
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$object..read..any..File$GT$17hb456177d3e65b120E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %43) #43
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$object..read..any..File$GT$17hb456177d3e65b120E"(ptr noalias noundef align 8 dereferenceable(304) %43) #43
           to label %145 unwind label %211
 
 .loopexit.i:                                      ; preds = %243, %233, %229, %219
@@ -34309,7 +34309,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
 189:                                              ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heaa2fc4b836905c4E.llvm.5456684732158232753.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28), !noalias !4140
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !4132
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$object..read..any..File$GT$17hb456177d3e65b120E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %43)
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$object..read..any..File$GT$17hb456177d3e65b120E"(ptr noalias noundef align 8 dereferenceable(304) %43)
           to label %261 unwind label %138
 
 190:                                              ; preds = %.lr.ph.i
@@ -34334,7 +34334,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %197, align 8, !noalias !4146
   %198 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 0, ptr %198, align 8, !noalias !4146
-  %199 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %27)
+  %199 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %27)
           to label %203 unwind label %176
 
 200:                                              ; preds = %190
@@ -34369,7 +34369,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
 209:                                              ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heaa2fc4b836905c4E.llvm.5456684732158232753.exit.i54.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26), !noalias !4150
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !4132
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$object..read..any..File$GT$17hb456177d3e65b120E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %43)
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$object..read..any..File$GT$17hb456177d3e65b120E"(ptr noalias noundef align 8 dereferenceable(304) %43)
           to label %.noexc38 unwind label %138
 
 .noexc38:                                         ; preds = %209
@@ -35852,7 +35852,7 @@ _ZN8wasmtime7runtime5types7ValType22comes_from_same_engine17h64bd51793ef5779fE.e
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %27, align 8
-  %28 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %28 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread10
 
@@ -35986,7 +35986,7 @@ _ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread: ; pr
   store ptr %4, ptr %70, align 8, !alias.scope !4411, !noalias !4414
   %71 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %71, align 8, !alias.scope !4411, !noalias !4414
-  %72 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %72 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZN8wasmtime7runtime5types7ValType7matches17h9920265f7a82b936E.exit.thread10
@@ -36663,7 +36663,7 @@ _ZN8wasmtime7runtime5types7RefType22comes_from_same_engine17hdcdcd74198939eefE.e
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %23, align 8
-  %24 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %24 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %_ZN8wasmtime7runtime5types7RefType7matches17hb83bb4788f564348E.exit.thread10
 
@@ -36757,7 +36757,7 @@ _ZN8wasmtime7runtime5types7RefType7matches17hb83bb4788f564348E.exit.thread: ; pr
   store ptr %4, ptr %52, align 8, !alias.scope !4562, !noalias !4565
   %53 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %53, align 8, !alias.scope !4562, !noalias !4565
-  %54 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %54 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZN8wasmtime7runtime5types7RefType7matches17hb83bb4788f564348E.exit.thread10
@@ -37383,7 +37383,7 @@ _ZN8wasmtime7runtime5types8HeapType22comes_from_same_engine17h72cbdca1da6b6dcbE.
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %23, align 8
-  %24 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %24 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %_ZN8wasmtime7runtime5types8HeapType7matches17h180b062b45974c97E.exit.thread
 
@@ -37463,7 +37463,7 @@ _ZN8wasmtime7runtime5types8HeapType7matches17h180b062b45974c97E.exit.thread10: ;
   store ptr %4, ptr %44, align 8, !alias.scope !4649, !noalias !4652
   %45 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %45, align 8, !alias.scope !4649, !noalias !4652
-  %46 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %46 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZN8wasmtime7runtime5types8HeapType7matches17h180b062b45974c97E.exit.thread
@@ -41415,7 +41415,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 %2, i32 noundef %3, i32 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 23) %1, i32 %2, i32 noundef range(i32 0, 24) %3, i32 %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !9, !align !125
   %8 = getelementptr inbounds i8, ptr %7, i64 256
@@ -41435,7 +41435,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr48 = phi i32 [ %2, %5 ], [ %.tr48.be, %tailrecurse.backedge ]
   %.tr49 = phi i32 [ %3, %5 ], [ %.tr49.be, %tailrecurse.backedge ]
   %.tr50 = phi i32 [ %4, %5 ], [ %.tr50.be, %tailrecurse.backedge ]
-  switch i32 %.tr47, label %default.unreachable [
+  switch i32 %.tr47, label %default.unreachable235 [
     i32 0, label %18
     i32 1, label %20
     i32 2, label %22
@@ -41461,7 +41461,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 22, label %62
   ]
 
-default.unreachable:                              ; preds = %tailrecurse
+default.unreachable235:                           ; preds = %tailrecurse
   unreachable
 
 18:                                               ; preds = %tailrecurse
@@ -41665,7 +41665,7 @@ tailrecurse.backedge:                             ; preds = %_ZN8wasmtime7runtim
   store i64 %99, ptr %111, align 8, !alias.scope !5563, !noalias !5562
   %112 = getelementptr inbounds i8, ptr %6, i64 48
   store i64 %99, ptr %112, align 8, !alias.scope !5563, !noalias !5562
-  %113 = call fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h39e3278bedfb80a3E(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  %113 = call fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h39e3278bedfb80a3E(ptr noalias noundef align 8 dereferenceable(56) %6, ptr noalias noundef readonly align 8 dereferenceable(32) %0)
   %114 = xor i1 %113, true
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !5562
   br label %_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit
@@ -41826,16 +41826,16 @@ tailrecurse.backedge:                             ; preds = %_ZN8wasmtime7runtim
   br label %_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit
 
 198:                                              ; preds = %60
-  %199 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker15resources_equal17hf434fe3fb90747a6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %.tr48, i32 noundef %.tr50)
+  %199 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker15resources_equal17hf434fe3fb90747a6E(ptr noalias noundef readonly align 8 dereferenceable(32) %0, i32 noundef %.tr48, i32 noundef %.tr50)
   br label %_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit
 
 200:                                              ; preds = %62
-  %201 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker15resources_equal17hf434fe3fb90747a6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %.tr48, i32 noundef %.tr50)
+  %201 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker15resources_equal17hf434fe3fb90747a6E(ptr noalias noundef readonly align 8 dereferenceable(32) %0, i32 noundef %.tr48, i32 noundef %.tr50)
   br label %_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker15resources_equal17hf434fe3fb90747a6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker15resources_equal17hf434fe3fb90747a6E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8, !nonnull !9, !align !125, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5646)
   %5 = zext i32 %1 to i64
@@ -42062,7 +42062,7 @@ define internal fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types1
   %49 = load i32, ptr %48, align 8, !range !1507, !alias.scope !5707, !noalias !5708, !noundef !9
   %50 = getelementptr inbounds i8, ptr %34, i64 28
   %51 = load i32, ptr %50, align 4, !alias.scope !5707, !noalias !5708
-  %52 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %45, i32 %47, i32 noundef %49, i32 %51), !noalias !5709
+  %52 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %0, i32 noundef %45, i32 %47, i32 noundef %49, i32 %51), !noalias !5709
   br i1 %52, label %30, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h888b6f3c54030c31E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h888b6f3c54030c31E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6112ba5fb1207f00E.exit", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.llvm.14851531119274094909.exit", %31, %30, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf3b34acda3a1f524E.exit8"
@@ -42173,7 +42173,7 @@ define internal fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types1
   %58 = load i32, ptr %57, align 4, !noalias !5741
   %59 = getelementptr inbounds i8, ptr %.sroa.7.037, i64 28
   %60 = load i32, ptr %59, align 4, !noalias !5741
-  %61 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %51, i32 %58, i32 noundef %53, i32 %60), !noalias !5741
+  %61 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %0, i32 noundef %51, i32 %58, i32 noundef %53, i32 %60), !noalias !5741
   br i1 %61, label %.backedge, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h8f9de044630845e4E.exit
 
 .backedge:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h22f4379504219dd9E.exit", %55
@@ -42237,7 +42237,7 @@ define internal fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types1
   br i1 %30, label %.critedge, label %33
 
 33:                                               ; preds = %32
-  %34 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %23, i32 %25, i32 noundef %26, i32 %28)
+  %34 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %0, i32 noundef %23, i32 %25, i32 noundef %26, i32 %28)
   br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %31, %33
@@ -42260,7 +42260,7 @@ define internal fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types1
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds i8, ptr %12, i64 12
   %46 = load i32, ptr %45, align 4
-  %47 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %37, i32 %46, i32 noundef %39, i32 %44)
+  %47 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %0, i32 noundef %37, i32 %46, i32 noundef %39, i32 %44)
   br label %.critedge
 }
 
@@ -42335,7 +42335,7 @@ _ZN8wasmtime7runtime9component5types11TypeChecker11lists_equal17h61f1ac11446c6a5
   %41 = load i32, ptr %37, align 4, !range !1507, !noalias !5772, !noundef !9
   %42 = getelementptr inbounds i8, ptr %37, i64 4
   %43 = load i32, ptr %42, align 4, !noalias !5772
-  %44 = call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, i32 noundef %38, i32 %40, i32 noundef %41, i32 %43), !noalias !5757
+  %44 = call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i32 noundef %38, i32 %40, i32 noundef %41, i32 %43), !noalias !5757
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !5757
   br label %"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$10equivalent17ha5bc0bc4f08eeeddE.exit"
 
@@ -42577,7 +42577,7 @@ define noundef zeroext i1 @"_ZN83_$LT$wasmtime..runtime..component..types..Tuple
   %54 = load i32, ptr %50, align 4, !range !1507, !alias.scope !5818, !noalias !5825, !noundef !9
   %55 = getelementptr inbounds i8, ptr %50, i64 4
   %56 = load i32, ptr %55, align 4, !alias.scope !5818, !noalias !5825
-  %57 = call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, i32 noundef %51, i32 %53, i32 noundef %54, i32 %56) #46, !noalias !5826
+  %57 = call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i32 noundef %51, i32 %53, i32 noundef %54, i32 %56) #46, !noalias !5826
   br i1 %57, label %45, label %_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit
 
 _ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit: ; preds = %45, %47, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h1e6f94fce748b575E.exit8.i"
@@ -42888,7 +42888,7 @@ _ZN8wasmtime7runtime9component5types11TypeChecker13options_equal17h85deba368529b
   %41 = load i32, ptr %37, align 4, !range !1507, !noalias !5909, !noundef !9
   %42 = getelementptr inbounds i8, ptr %37, i64 4
   %43 = load i32, ptr %42, align 4, !noalias !5909
-  %44 = call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, i32 noundef %38, i32 %40, i32 noundef %41, i32 %43), !noalias !5894
+  %44 = call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i32 noundef %38, i32 %40, i32 noundef %41, i32 %43), !noalias !5894
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !5894
   br label %"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$10equivalent17hd1ccad01a9eb7b09E.exit"
 
@@ -44946,7 +44946,7 @@ define { i64, ptr } @_ZN8wasmtime7compile12code_builder11CodeBuilder4wasm17he472
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 0, ptr %13, align 8
-  %14 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %14 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %15
 
@@ -45051,7 +45051,7 @@ define { i64, ptr } @_ZN8wasmtime7compile12code_builder11CodeBuilder9wasm_file17
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 0, ptr %18, align 8
-  %19 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
+  %19 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   br label %33
 
@@ -45256,7 +45256,7 @@ define hidden void @_ZN8wasmtime7compile12code_builder11CodeBuilder11wasm_binary
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %16, align 8
-  %17 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %17 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %17, ptr %18, align 8
@@ -45373,7 +45373,7 @@ define void @_ZN8wasmtime7compile12code_builder11CodeBuilder25compile_module_ser
 
 16:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc6b1c14a2e40f435E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #43
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc6b1c14a2e40f435E"(ptr noalias noundef align 8 dereferenceable(24) %9) #43
           to label %63 unwind label %61
 
 17:                                               ; preds = %19
@@ -45560,7 +45560,7 @@ define void @_ZN8wasmtime7compile12code_builder11CodeBuilder28compile_component_
 
 16:                                               ; preds = %44, %17
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %18, %17 ]
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc6b1c14a2e40f435E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #43
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc6b1c14a2e40f435E"(ptr noalias noundef align 8 dereferenceable(24) %9) #43
           to label %59 unwind label %57
 
 17:                                               ; preds = %19

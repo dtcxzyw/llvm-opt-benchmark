@@ -357,7 +357,7 @@ scp_dump_value.exit:                              ; preds = %94, %97, %100, %107
 
 168:                                              ; preds = %164, %160
   %169 = trunc nsw i64 %indvars.iv.next.i51 to i32
-  %170 = call fastcc i32 @try_remove_definition(ptr noundef nonnull readonly %8, i32 noundef %169, ptr noundef nonnull %136, ptr noundef null)
+  %170 = call fastcc i32 @try_remove_definition(ptr noundef readonly %8, i32 noundef %169, ptr noundef nonnull %136, ptr noundef null)
   %171 = add nsw i32 %170, %.098123.i
   br label %288
 
@@ -367,7 +367,7 @@ scp_dump_value.exit:                              ; preds = %94, %97, %100, %107
   br i1 %spec.select.i.i, label %._crit_edge75, label %173
 
 173:                                              ; preds = %172
-  %174 = call fastcc ptr @value_from_type_and_range(ptr noundef nonnull readonly %8, i32 noundef %.pre76, ptr noundef nonnull %7)
+  %174 = call fastcc ptr @value_from_type_and_range(ptr noundef nonnull readonly %8, i32 noundef %.pre76, ptr noundef %7)
   %.not.i52 = icmp eq ptr %174, null
   br i1 %.not.i52, label %288, label %._crit_edge75
 
@@ -671,7 +671,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %270, %265, %263, %2
   br i1 %spec.select.i115.i, label %285, label %288
 
 285:                                              ; preds = %._crit_edge.i
-  %286 = call fastcc i32 @try_remove_definition(ptr noundef nonnull readonly %8, i32 noundef %.pre76, ptr noundef %136, ptr noundef %.0100.i)
+  %286 = call fastcc i32 @try_remove_definition(ptr noundef readonly %8, i32 noundef %.pre76, ptr noundef %136, ptr noundef %.0100.i)
   %287 = add nsw i32 %286, %.2.lcssa.i
   br label %288
 
@@ -1129,7 +1129,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   br label %208
 
 196:                                              ; preds = %190
-  %197 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1989)
+  %197 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1989)
   %198 = icmp eq i32 %197, 0
   %199 = load i32, ptr %180, align 4
   %200 = icmp sgt i32 %199, -1
@@ -1220,7 +1220,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   br i1 %.not1745, label %239, label %.split
 
 .split:                                           ; preds = %237
-  %238 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1991, ptr noundef nonnull %.0.i1989)
+  %238 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %.0.i1991, ptr noundef nonnull %.0.i1989)
   br label %256
 
 239:                                              ; preds = %237
@@ -1230,7 +1230,7 @@ get_op1_value.exit1992:                           ; preds = %94, %102, %105
   br i1 %242, label %244, label %.split1522
 
 .split1522:                                       ; preds = %239
-  %243 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1991, ptr noundef null)
+  %243 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %.0.i1991, ptr noundef null)
   br label %256
 
 244:                                              ; preds = %239
@@ -1651,7 +1651,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   br label %453
 
 453:                                              ; preds = %450, %445, %441
-  %454 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1994, ptr noundef nonnull %.0.i1989)
+  %454 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %.0.i1994, ptr noundef nonnull %.0.i1989)
   %455 = icmp eq i32 %454, 0
   %456 = getelementptr inbounds i8, ptr %2, i64 20
   %457 = load i32, ptr %456, align 4
@@ -2004,7 +2004,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   br label %650
 
 638:                                              ; preds = %632
-  %639 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1989)
+  %639 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1989)
   %640 = icmp eq i32 %639, 0
   %641 = load i32, ptr %621, align 4
   %642 = icmp sgt i32 %641, -1
@@ -2077,7 +2077,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   br i1 %.not1723, label %672, label %.split1523
 
 .split1523:                                       ; preds = %670
-  %671 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
+  %671 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
   br label %683
 
 672:                                              ; preds = %670
@@ -2087,7 +2087,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   br i1 %675, label %677, label %.split1524
 
 .split1524:                                       ; preds = %672
-  %676 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef null)
+  %676 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef null)
   br label %683
 
 677:                                              ; preds = %672
@@ -2233,7 +2233,7 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %754 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %753, ptr %754, align 8
   store i32 1, ptr %727, align 8
-  %755 = call fastcc i32 @ct_eval_add_array_unpack(ptr noundef nonnull %4, ptr noundef nonnull %.0.i)
+  %755 = call fastcc i32 @ct_eval_add_array_unpack(ptr noundef %4, ptr noundef nonnull %.0.i)
   %756 = icmp eq i32 %755, 0
   %757 = getelementptr inbounds i8, ptr %2, i64 20
   %758 = load i32, ptr %757, align 4
@@ -2746,7 +2746,7 @@ get_op1_value.exit2001:                           ; preds = %963, %971, %974
   br i1 %981, label %.loopexit, label %982
 
 982:                                              ; preds = %get_op1_value.exit2001
-  %983 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef nonnull %5, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989, i32 noundef 0)
+  %983 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef %5, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989, i32 noundef 0)
   %984 = icmp eq i32 %983, 0
   br i1 %984, label %985, label %ct_eval_binary_op.exit1998.thread
 
@@ -2761,7 +2761,7 @@ get_op1_value.exit2001:                           ; preds = %963, %971, %974
   %990 = load ptr, ptr %.0.i, align 8
   %991 = tail call ptr @zend_array_dup(ptr noundef %990) #13
   store ptr %991, ptr %4, align 8
-  %992 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1989)
+  %992 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1989)
   %993 = getelementptr inbounds i8, ptr %.015182030, i64 20
   %994 = load i32, ptr %993, align 4
   %995 = icmp sgt i32 %994, -1
@@ -2919,7 +2919,7 @@ ct_eval_binary_op.exit2003.thread:                ; preds = %1024, %ct_eval_bina
   br label %1071
 
 1071:                                             ; preds = %1068, %1063, %1059
-  %1072 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1989)
+  %1072 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1989)
   %1073 = icmp eq i32 %1072, 0
   br i1 %1073, label %1074, label %1105
 
@@ -3091,7 +3091,7 @@ get_op1_value.exit2006:                           ; preds = %1147, %1155, %1158
   br i1 %1165, label %.loopexit, label %1166
 
 1166:                                             ; preds = %get_op1_value.exit2006
-  %1167 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %6, ptr noundef nonnull %.0.i, ptr noundef %.0.i1989)
+  %1167 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %6, ptr noundef %.0.i, ptr noundef %.0.i1989)
   %1168 = icmp eq i32 %1167, 0
   br i1 %1168, label %1169, label %ct_eval_binary_op.exit1998.thread
 
@@ -3239,7 +3239,7 @@ ct_eval_binary_op.exit2008.thread:                ; preds = %1207, %ct_eval_bina
   %1241 = load ptr, ptr %.0.i, align 8
   %1242 = call ptr @zend_array_dup(ptr noundef %1241) #13
   store ptr %1242, ptr %4, align 8
-  %1243 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %.0.i1989)
+  %1243 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %6, ptr noundef %.0.i1989)
   %1244 = icmp eq i32 %1243, 0
   br i1 %1244, label %1245, label %1276
 
@@ -3414,13 +3414,13 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   br i1 %1332, label %1333, label %1394
 
 1333:                                             ; preds = %1323
-  %1334 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %7, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
+  %1334 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %7, ptr noundef %.0.i, ptr noundef nonnull %.0.i1989)
   %1335 = icmp eq i32 %1334, 0
   br i1 %1335, label %1336, label %1394
 
 1336:                                             ; preds = %1333
   %1337 = load i8, ptr %869, align 4
-  %1338 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %8, i8 noundef zeroext %1337, ptr noundef nonnull %7)
+  %1338 = call fastcc i32 @ct_eval_incdec(ptr noundef %8, i8 noundef zeroext %1337, ptr noundef nonnull %7)
   %1339 = icmp eq i32 %1338, 0
   br i1 %1339, label %1340, label %1385
 
@@ -3430,7 +3430,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   %1342 = load ptr, ptr %.0.i, align 8
   %1343 = call ptr @zend_array_dup(ptr noundef %1342) #13
   store ptr %1343, ptr %4, align 8
-  %1344 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %.0.i1989)
+  %1344 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %.0.i1989)
   %1345 = getelementptr inbounds i8, ptr %.015182030, i64 20
   %1346 = load i32, ptr %1345, align 4
   %1347 = icmp sgt i32 %1346, -1
@@ -3572,7 +3572,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
   br i1 %1411, label %.loopexit, label %1412
 
 1412:                                             ; preds = %1408
-  %1413 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %4, i8 noundef zeroext %870, ptr noundef nonnull %.0.i)
+  %1413 = call fastcc i32 @ct_eval_incdec(ptr noundef %4, i8 noundef zeroext %870, ptr noundef nonnull %.0.i)
   %1414 = icmp eq i32 %1413, 0
   %1415 = getelementptr inbounds i8, ptr %.015182030, i64 12
   %1416 = load i32, ptr %1415, align 4
@@ -3665,7 +3665,7 @@ ct_eval_binary_op.exit1998.thread:                ; preds = %ct_eval_binary_op.e
 
 1458:                                             ; preds = %1452, %1456
   %1459 = phi i8 [ %870, %1452 ], [ %.pre2092, %1456 ]
-  %1460 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %4, i8 noundef zeroext %1459, ptr noundef nonnull %.0.i)
+  %1460 = call fastcc i32 @ct_eval_incdec(ptr noundef %4, i8 noundef zeroext %1459, ptr noundef nonnull %.0.i)
   %1461 = icmp eq i32 %1460, 0
   %1462 = getelementptr inbounds i8, ptr %.015182030, i64 12
   %1463 = load i32, ptr %1462, align 4
@@ -4088,7 +4088,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1668:                                             ; preds = %1664
   %1669 = getelementptr inbounds i8, ptr %.015172033, i64 20
   %1670 = load i32, ptr %1669, align 4
-  %1671 = call fastcc i32 @ct_eval_in_array(ptr noundef nonnull %4, i32 noundef %1670, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
+  %1671 = call fastcc i32 @ct_eval_in_array(ptr noundef %4, i32 noundef %1670, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
   %1672 = icmp eq i32 %1671, 0
   %1673 = getelementptr inbounds i8, ptr %.015182030, i64 20
   %1674 = load i32, ptr %1673, align 4
@@ -4148,7 +4148,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   br i1 %1700, label %.loopexit, label %1701
 
 1701:                                             ; preds = %1697
-  %1702 = call fastcc i32 @ct_eval_array_key_exists(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
+  %1702 = call fastcc i32 @ct_eval_array_key_exists(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
   %1703 = icmp eq i32 %1702, 0
   %1704 = getelementptr inbounds i8, ptr %.015182030, i64 20
   %1705 = load i32, ptr %1704, align 4
@@ -4210,7 +4210,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1732:                                             ; preds = %1728
   %1733 = icmp ne i8 %870, 98
   %1734 = zext i1 %1733 to i32
-  %1735 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989, i32 noundef %1734)
+  %1735 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989, i32 noundef %1734)
   %1736 = icmp eq i32 %1735, 0
   %1737 = getelementptr inbounds i8, ptr %.015182030, i64 20
   %1738 = load i32, ptr %1737, align 4
@@ -4272,7 +4272,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1765:                                             ; preds = %1761
   %1766 = getelementptr inbounds i8, ptr %.015172033, i64 20
   %1767 = load i32, ptr %1766, align 4
-  %1768 = call fastcc i32 @ct_eval_isset_dim(ptr noundef nonnull %4, i32 noundef %1767, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
+  %1768 = call fastcc i32 @ct_eval_isset_dim(ptr noundef %4, i32 noundef %1767, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
   %1769 = icmp eq i32 %1768, 0
   %1770 = getelementptr inbounds i8, ptr %.015182030, i64 20
   %1771 = load i32, ptr %1770, align 4
@@ -4335,7 +4335,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
   br i1 %1798, label %.loopexit, label %1799
 
 1799:                                             ; preds = %1795
-  %1800 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
+  %1800 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %4, ptr noundef %.0.i, ptr noundef nonnull %.0.i1989)
   %1801 = icmp eq i32 %1800, 0
   br i1 %1801, label %1802, label %1818
 
@@ -4403,7 +4403,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1553
 1834:                                             ; preds = %1830
   %1835 = getelementptr inbounds i8, ptr %.015172033, i64 20
   %1836 = load i32, ptr %1835, align 4
-  %1837 = call fastcc i32 @ct_eval_isset_obj(ptr noundef nonnull %4, i32 noundef %1836, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1989)
+  %1837 = call fastcc i32 @ct_eval_isset_obj(ptr noundef %4, i32 noundef %1836, ptr noundef %.0.i, ptr noundef nonnull %.0.i1989)
   %1838 = icmp eq i32 %1837, 0
   br i1 %1838, label %1839, label %1855
 
@@ -4504,7 +4504,7 @@ switch.lookup:                                    ; preds = %868
 1887:                                             ; preds = %1883
   %1888 = getelementptr inbounds i8, ptr %.015172033, i64 20
   %1889 = load i32, ptr %1888, align 4
-  %1890 = call fastcc i32 @ct_eval_isset_isempty(ptr noundef nonnull %4, i32 noundef %1889, ptr noundef nonnull %.0.i)
+  %1890 = call fastcc i32 @ct_eval_isset_isempty(ptr noundef %4, i32 noundef %1889, ptr noundef nonnull %.0.i)
   %1891 = icmp eq i32 %1890, 0
   %1892 = getelementptr inbounds i8, ptr %.015182030, i64 20
   %1893 = load i32, ptr %1892, align 4
@@ -4932,7 +4932,7 @@ get_op1_value.exit2017:                           ; preds = %2087, %2102
 
 2113:                                             ; preds = %._crit_edge2053
   %2114 = load ptr, ptr %2044, align 8
-  %2115 = call fastcc i32 @ct_eval_func_call(ptr noundef %2028, ptr noundef nonnull %4, ptr noundef %2114, i32 noundef %2057, ptr noundef nonnull %9)
+  %2115 = call fastcc i32 @ct_eval_func_call(ptr noundef %2028, ptr noundef %4, ptr noundef %2114, i32 noundef %2057, ptr noundef %9)
   %2116 = icmp eq i32 %2115, 0
   %2117 = load i32, ptr %2045, align 4
   %2118 = icmp sgt i32 %2117, -1
@@ -5195,7 +5195,7 @@ get_op1_value.exit2026:                           ; preds = %2218, %2225, %2238
 
 ._crit_edge:                                      ; preds = %2257, %2241
   %2258 = load ptr, ptr %0, align 8
-  %2259 = call fastcc i32 @ct_eval_func_call_ex(ptr noundef %2258, ptr noundef nonnull %4, ptr noundef %2151, i32 noundef %2153, ptr noundef nonnull %10)
+  %2259 = call fastcc i32 @ct_eval_func_call_ex(ptr noundef %2258, ptr noundef %4, ptr noundef %2151, i32 noundef %2153, ptr noundef %10)
   %2260 = icmp eq i32 %2259, 0
   %2261 = load i32, ptr %2135, align 4
   %2262 = icmp sgt i32 %2261, -1
@@ -5376,7 +5376,7 @@ scdf_is_edge_feasible.exit:                       ; preds = %46
   %68 = load i8, ptr %67, align 8
   %69 = and i8 %68, 48
   %70 = icmp ne i8 %69, 16
-  call fastcc void @join_phi_values(ptr noundef nonnull %3, ptr noundef %64, i1 noundef zeroext %70)
+  call fastcc void @join_phi_values(ptr noundef %3, ptr noundef %64, i1 noundef zeroext %70)
   br label %.loopexit
 
 71:                                               ; preds = %.lr.ph, %118
@@ -5439,7 +5439,7 @@ scdf_is_edge_feasible.exit46:                     ; preds = %92
   %115 = load i8, ptr %114, align 8
   %116 = and i8 %115, 48
   %117 = icmp ne i8 %116, 16
-  call fastcc void @join_phi_values(ptr noundef nonnull %3, ptr noundef %110, i1 noundef zeroext %117)
+  call fastcc void @join_phi_values(ptr noundef %3, ptr noundef %110, i1 noundef zeroext %117)
   %.pre = load i32, ptr %32, align 8
   br label %118
 
@@ -5538,7 +5538,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %37 = load i32, ptr %4, align 4
   %38 = icmp sgt i32 %37, -1
   tail call void @llvm.assume(i1 %38)
-  %39 = call fastcc ptr @value_from_type_and_range(ptr noundef nonnull %0, i32 noundef %37, ptr noundef nonnull %6)
+  %39 = call fastcc ptr @value_from_type_and_range(ptr noundef nonnull %0, i32 noundef %37, ptr noundef %6)
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %41, label %..thread_crit_edge
 
@@ -5976,7 +5976,7 @@ define internal fastcc void @set_value(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_array_elem(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_array_elem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -6088,7 +6088,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_array_elem(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %10 [
@@ -6105,7 +6105,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr nocapture no
   br label %8
 
 8:                                                ; preds = %6, %3, %3
-  %9 = tail call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %9 = tail call fastcc i32 @ct_eval_add_array_elem(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %10
 
 10:                                               ; preds = %3, %8
@@ -6164,7 +6164,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_obj_prop(ptr %.0.val, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_obj(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_obj(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
@@ -6252,7 +6252,7 @@ ct_eval_add_obj_prop.exit:                        ; preds = %9, %33, %36
 declare ptr @_zend_new_array_0() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %24
@@ -6563,7 +6563,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_unpack(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_unpack(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 7
@@ -6674,7 +6674,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_unpack(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6685,7 +6685,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr nocapture nou
   ]
 
 9:                                                ; preds = %4, %4
-  %10 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %2)
+  %10 = call fastcc i32 @fetch_array_elem(ptr noundef %5, ptr noundef nonnull %1, ptr noundef %2)
   %11 = icmp eq i32 %10, 0
   %12 = load ptr, ptr %5, align 8
   %13 = icmp ne ptr %12, null
@@ -6791,7 +6791,7 @@ zval_to_string_offset.exit.thread:                ; preds = %32, %28, %14, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_obj(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_obj(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
@@ -6881,7 +6881,7 @@ fetch_obj_prop.exit:                              ; preds = %28, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_incdec(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_incdec(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %23 [
@@ -6943,7 +6943,7 @@ declare i32 @zend_optimizer_eval_cast(ptr noundef, i32 noundef, ptr noundef) loc
 declare i32 @zend_optimizer_eval_strlen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8
@@ -7050,7 +7050,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_array_key_exists(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_array_key_exists(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
@@ -7069,7 +7069,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_array_key_exists(ptr nocapt
   ]
 
 10:                                               ; preds = %7, %7, %7
-  %11 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %1)
+  %11 = call fastcc i32 @fetch_array_elem(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %1)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %24, label %13
 
@@ -7102,7 +7102,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_array_key_exists(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_dim(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_dim(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8
@@ -7113,7 +7113,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_dim(ptr nocapture nou
   ]
 
 8:                                                ; preds = %4, %4
-  %9 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %3)
+  %9 = call fastcc i32 @fetch_array_elem(ptr noundef %5, ptr noundef nonnull %2, ptr noundef %3)
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %ct_eval_isset_isempty.exit, label %11
 
@@ -7188,7 +7188,7 @@ ct_eval_isset_isempty.exit:                       ; preds = %ct_eval_isset_isemp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_obj(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_obj(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8
@@ -7302,7 +7302,7 @@ ct_eval_isset_isempty.exit:                       ; preds = %ct_eval_bool_cast.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_isempty(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_isempty(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
   %.not11 = icmp eq ptr %2, null
@@ -7355,7 +7355,7 @@ ct_eval_bool_cast.exit:                           ; preds = %ct_eval_bool_cast.e
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
   %7 = tail call ptr @zend_hash_find(ptr noundef %6, ptr noundef %2) #13
   %.not = icmp eq ptr %7, null
@@ -7377,7 +7377,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca %struct._zend_execute_data, align 8
   %7 = alloca %struct._zend_op, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
@@ -7394,7 +7394,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %12, align 8
-  %18 = tail call i32 @zend_optimizer_eval_special_func_call(ptr noundef %1, ptr noundef %9, ptr noundef %17) #13
+  %18 = tail call i32 @zend_optimizer_eval_special_func_call(ptr noundef nonnull %1, ptr noundef %9, ptr noundef %17) #13
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %can_ct_eval_func_call.exit.thread, label %20
 
@@ -7489,7 +7489,7 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %2, i64 80
   %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull %57, ptr noundef %1) #13
+  call void %65(ptr noundef nonnull %57, ptr noundef nonnull %1) #13
   br label %._crit_edge71
 
 .lr.ph:                                           ; preds = %can_ct_eval_func_call.exit.thread65, %80
@@ -7526,7 +7526,7 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   store i32 1, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %2, i64 80
   %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull %57, ptr noundef %1) #13
+  call void %84(ptr noundef nonnull %57, ptr noundef nonnull %1) #13
   br label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %97
@@ -7565,7 +7565,7 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   br i1 %.not, label %101, label %100
 
 100:                                              ; preds = %._crit_edge71
-  call void @zval_ptr_dtor(ptr noundef %1) #13
+  call void @zval_ptr_dtor(ptr noundef nonnull %1) #13
   call void @zend_clear_exception() #13
   br label %101
 
@@ -7576,7 +7576,7 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %101
-  call void @zval_ptr_dtor(ptr noundef %1) #13
+  call void @zval_ptr_dtor(ptr noundef nonnull %1) #13
   br label %105
 
 105:                                              ; preds = %104, %101
@@ -7759,7 +7759,7 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 declare i32 @zend_optimizer_eval_binary_op(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @fetch_array_elem(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @fetch_array_elem(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
@@ -7900,7 +7900,7 @@ declare void @zend_clear_exception() local_unnamed_addr #1
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @join_phi_values(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @join_phi_values(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, -2
@@ -8064,7 +8064,7 @@ join_partial_arrays.exit:                         ; preds = %48, %54, %59
   br i1 %2, label %79, label %76
 
 76:                                               ; preds = %75
-  %77 = tail call fastcc i32 @join_partial_objects(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %77 = tail call fastcc i32 @join_partial_objects(ptr noundef %0, ptr noundef nonnull %1)
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %79, label %106
 
@@ -8098,7 +8098,7 @@ join_partial_arrays.exit:                         ; preds = %48, %54, %59
   br i1 %91, label %106, label %92
 
 92:                                               ; preds = %90
-  %93 = tail call fastcc i32 @join_partial_arrays(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %93 = tail call fastcc i32 @join_partial_arrays(ptr noundef %0, ptr noundef nonnull %1)
   %94 = icmp eq i32 %93, -1
   br i1 %94, label %95, label %106
 
@@ -8132,7 +8132,7 @@ join_partial_arrays.exit:                         ; preds = %48, %54, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @join_partial_arrays(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @join_partial_arrays(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %22 [
@@ -8184,7 +8184,7 @@ define internal fastcc range(i32 -1, 1) i32 @join_partial_arrays(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @join_partial_objects(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @join_partial_objects(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, -4
@@ -8342,7 +8342,7 @@ declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) loca
 declare void @scdf_mark_edge_feasible(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @value_from_type_and_range(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #7 {
+define internal fastcc noundef ptr @value_from_type_and_range(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef nonnull writeonly %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 72
@@ -8479,7 +8479,7 @@ declare void @zend_dump_const(ptr noundef) local_unnamed_addr #1
 declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483646, -2147483648) i32 @try_remove_definition(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483646, -2147483648) i32 @try_remove_definition(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -2147483648, 2147483647) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -8674,7 +8674,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @try_remove_defin
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %95
-  %101 = tail call fastcc i32 @remove_call(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %18)
+  %101 = tail call fastcc i32 @remove_call(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %18)
   br label %107
 
 102:                                              ; preds = %95
@@ -8799,7 +8799,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @try_remove_defin
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %153
-  %169 = tail call fastcc i32 @remove_call(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %18)
+  %169 = tail call fastcc i32 @remove_call(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %18)
   br label %327
 
 170:                                              ; preds = %153
@@ -9115,7 +9115,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @try_remove_defin
 declare void @zend_ssa_unlink_use_chain(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8

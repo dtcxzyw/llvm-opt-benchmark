@@ -1650,7 +1650,7 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @enable_local_addr(ptr nocapture noundef readonly %b, i32 noundef %enable) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @enable_local_addr(ptr nocapture noundef readonly %b, i32 noundef range(i32 0, 2) %enable) unnamed_addr #1 {
 entry:
   %enable.addr = alloca i32, align 4
   store i32 %enable, ptr %enable.addr, align 4

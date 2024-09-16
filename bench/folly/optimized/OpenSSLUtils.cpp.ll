@@ -2216,7 +2216,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef %b) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull %b) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::unique_ptr.66", align 8
   %x509.i = alloca %"class.std::unique_ptr.57", align 8
@@ -2229,7 +2229,7 @@ while.body.i:                                     ; preds = %_ZNSt10unique_ptrI7
   %0 = phi ptr [ %18, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %entry ]
   %1 = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x509.i) #23
-  %call.i2 = invoke ptr @PEM_read_bio_X509(ptr noundef %b, ptr noundef null, ptr noundef null, ptr noundef null)
+  %call.i2 = invoke ptr @PEM_read_bio_X509(ptr noundef nonnull %b, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %while.body.i

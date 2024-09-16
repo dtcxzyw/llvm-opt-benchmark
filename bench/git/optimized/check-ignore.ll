@@ -237,7 +237,7 @@ if.end.i:                                         ; preds = %strbuf_setlen.exit.
 if.end9.i:                                        ; preds = %if.end.i, %land.lhs.true.i, %while.body.i
   %15 = phi ptr [ %.pre6.i, %if.end.i ], [ %.pre7.i, %land.lhs.true.i ], [ %.pre7.i, %while.body.i ]
   store ptr %15, ptr %pathspec.i, align 16
-  %call12.i = call fastcc i32 @check_ignore(ptr noundef nonnull %dir, ptr noundef %prefix, i32 noundef 1, ptr noundef nonnull %pathspec.i)
+  %call12.i = call fastcc i32 @check_ignore(ptr noundef %dir, ptr noundef %prefix, i32 noundef 1, ptr noundef nonnull %pathspec.i)
   %add.i = add nsw i32 %call12.i, %num_ignored.05.i
   %16 = load ptr, ptr @stdout, align 8
   call void @maybe_flush_or_die(ptr noundef %16, ptr noundef nonnull @.str.23) #10
@@ -256,7 +256,7 @@ check_ignore_stdin_paths.exit:                    ; preds = %if.end9.i, %if.then
   br label %if.end40
 
 if.else38:                                        ; preds = %if.end34
-  %call39 = call fastcc i32 @check_ignore(ptr noundef nonnull %dir, ptr noundef %prefix, i32 noundef %call, ptr noundef %argv)
+  %call39 = call fastcc i32 @check_ignore(ptr noundef %dir, ptr noundef %prefix, i32 noundef %call, ptr noundef %argv)
   %18 = load ptr, ptr @stdout, align 8
   call void @maybe_flush_or_die(ptr noundef %18, ptr noundef nonnull @.str.7) #10
   br label %if.end40
@@ -307,7 +307,7 @@ declare i32 @repo_read_index(ptr noundef) local_unnamed_addr #2
 declare void @setup_standard_excludes(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_ignore(ptr noundef %dir, ptr noundef %prefix, i32 noundef %argc, ptr noundef %argv) unnamed_addr #0 {
+define internal fastcc i32 @check_ignore(ptr noundef nonnull %dir, ptr noundef %prefix, i32 noundef %argc, ptr noundef %argv) unnamed_addr #0 {
 entry:
   %pathspec = alloca %struct.pathspec, align 8
   %dtype = alloca i32, align 4
@@ -349,7 +349,7 @@ if.then8:                                         ; preds = %for.body
   %arrayidx = getelementptr inbounds %struct.pathspec_item, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   store i32 0, ptr %dtype, align 4
-  %call9 = call ptr @last_matching_pattern(ptr noundef %dir, ptr noundef nonnull @the_index, ptr noundef %6, ptr noundef nonnull %dtype) #10
+  %call9 = call ptr @last_matching_pattern(ptr noundef nonnull %dir, ptr noundef nonnull @the_index, ptr noundef %6, ptr noundef nonnull %dtype) #10
   %7 = load i32, ptr @verbose, align 4
   %tobool10 = icmp eq i32 %7, 0
   %tobool11 = icmp ne ptr %call9, null

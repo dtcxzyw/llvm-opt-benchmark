@@ -647,7 +647,7 @@ if.end8:                                          ; preds = %if.end5
 
 if.then10:                                        ; preds = %if.end8
   %3 = load ptr, ptr %vpeddsactx, align 8
-  %call11 = call fastcc i32 @ed448_shake256(ptr noundef %3, ptr noundef %tbs, i64 noundef %tbslen, ptr noundef nonnull %md)
+  %call11 = call fastcc i32 @ed448_shake256(ptr noundef %3, ptr noundef %tbs, i64 noundef %tbslen, ptr noundef %md)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.then10.if.end16_crit_edge
 
@@ -710,7 +710,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %2 = load ptr, ptr %vpeddsactx, align 8
-  %call3 = call fastcc i32 @ed448_shake256(ptr noundef %2, ptr noundef %tbs, i64 noundef %tbslen, ptr noundef nonnull %md)
+  %call3 = call fastcc i32 @ed448_shake256(ptr noundef %2, ptr noundef %tbs, i64 noundef %tbslen, ptr noundef %md)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %if.then2.if.end8_crit_edge
 
@@ -796,7 +796,7 @@ declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ed448_shake256(ptr noundef %libctx, ptr noundef %in, i64 noundef %inlen, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ed448_shake256(ptr noundef %libctx, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull %out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_new() #5
   %call1 = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull @.str.10, ptr noundef null) #5
@@ -816,7 +816,7 @@ lor.lhs.false4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %err, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false4
-  %call8 = tail call i32 @EVP_DigestFinalXOF(ptr noundef nonnull %call, ptr noundef %out, i64 noundef 64) #5
+  %call8 = tail call i32 @EVP_DigestFinalXOF(ptr noundef nonnull %call, ptr noundef nonnull %out, i64 noundef 64) #5
   %tobool9.not = icmp ne i32 %call8, 0
   %spec.select = zext i1 %tobool9.not to i32
   br label %err

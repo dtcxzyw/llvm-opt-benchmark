@@ -1231,14 +1231,14 @@ sub_0357:                                         ; preds = %268, %.tail, %292, 
 612:                                              ; preds = %563
   %613 = load ptr, ptr %6, align 8
   %614 = load ptr, ptr %7, align 8
-  call fastcc void @build_match_list(ptr noundef %613, ptr noundef %.1210, ptr noundef %614, ptr noundef %.0207, ptr noundef nonnull %18, ptr noundef nonnull %4)
+  call fastcc void @build_match_list(ptr noundef %613, ptr noundef %.1210, ptr noundef %614, ptr noundef %.0207, ptr noundef %18, ptr noundef nonnull %4)
   br label %655
 
 615:                                              ; preds = %589
   %616 = load ptr, ptr %13, align 8
   %617 = load ptr, ptr %6, align 8
   %618 = load ptr, ptr %7, align 8
-  call fastcc void @build_match_list(ptr noundef %617, ptr noundef %590, ptr noundef %618, ptr noundef %616, ptr noundef nonnull %18, ptr noundef nonnull %4)
+  call fastcc void @build_match_list(ptr noundef %617, ptr noundef %590, ptr noundef %618, ptr noundef %616, ptr noundef %18, ptr noundef nonnull %4)
   %619 = load i32, ptr %551, align 8
   %.not307 = icmp eq i32 %619, 0
   br i1 %.not307, label %655, label %620
@@ -1746,7 +1746,7 @@ define internal range(i32 -1, -2147483648) i32 @trav_grp_symlinks(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_match_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) unnamed_addr #1 {
+define internal fastcc void @build_match_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef %5) unnamed_addr #1 {
   %7 = alloca [2 x i32], align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -3102,7 +3102,7 @@ define i64 @diff(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3,
   br i1 %.not377, label %236, label %231
 
 231:                                              ; preds = %230
-  %232 = call fastcc i32 @is_exclude_attr(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %4)
+  %232 = call fastcc i32 @is_exclude_attr(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %4)
   %.not378 = icmp eq i32 %232, 0
   br i1 %.not378, label %233, label %236
 
@@ -3299,7 +3299,7 @@ print_objname.exit:                               ; preds = %331
   br i1 %.not366, label %344, label %339
 
 339:                                              ; preds = %.thread
-  %340 = call fastcc i32 @is_exclude_attr(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %4)
+  %340 = call fastcc i32 @is_exclude_attr(ptr noundef %1, i32 noundef 2, ptr noundef nonnull %4)
   %.not367 = icmp eq i32 %340, 0
   br i1 %.not367, label %341, label %344
 
@@ -3458,7 +3458,7 @@ print_objname.exit408:                            ; preds = %382
   br i1 %.not358, label %429, label %425
 
 425:                                              ; preds = %424
-  %426 = call fastcc i32 @is_exclude_attr(ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %4)
+  %426 = call fastcc i32 @is_exclude_attr(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
   %.not359 = icmp eq i32 %426, 0
   br i1 %.not359, label %427, label %429
 
@@ -3839,7 +3839,7 @@ declare i64 @H5Dopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @diff_dataset(i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_exclude_attr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @is_exclude_attr(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %2, i64 96
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -3861,7 +3861,7 @@ define internal fastcc range(i32 0, 2) i32 @is_exclude_attr(ptr nocapture nounde
 
 12:                                               ; preds = %.lr.ph
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #16
-  %14 = tail call i32 @strncmp(ptr noundef %11, ptr noundef %0, i64 noundef %13) #16
+  %14 = tail call i32 @strncmp(ptr noundef %11, ptr noundef nonnull %0, i64 noundef %13) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %25
 

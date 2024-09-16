@@ -1156,7 +1156,7 @@ declare dso_local i32 @ttm_bo_move_accel_cleanup(ptr noundef, ptr noundef, i1 no
 declare dso_local void @ttm_bo_move_sync_cleanup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @dma_fence_put(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc void @dma_fence_put(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #9, !srcloc !15
   %4 = icmp eq i32 %3, 1
@@ -1258,7 +1258,7 @@ define dso_local i32 @i915_gem_obj_copy_ttm(ptr noundef %0, ptr noundef %1, i1 n
   call void @dma_resv_add_fence(ptr noundef %48, ptr noundef nonnull %39, i32 noundef 1) #9
   %49 = load ptr, ptr %16, align 8
   call void @dma_resv_add_fence(ptr noundef %49, ptr noundef nonnull %39, i32 noundef 2) #9
-  call fastcc void @dma_fence_put(ptr noundef nonnull %39)
+  call fastcc void @dma_fence_put(ptr noundef %39)
   br label %50
 
 50:                                               ; preds = %47, %43, %29, %25, %20, %15, %11, %4

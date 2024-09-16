@@ -1342,7 +1342,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @drm_debugfs_dev_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_minor_register(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @drm_minor_register(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 33) %1) unnamed_addr #0 align 16 {
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str) #10
   switch i32 %1, label %5 [
     i32 0, label %6
@@ -1581,7 +1581,7 @@ define internal void @drm_dev_init_release(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_minor_alloc(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @drm_minor_alloc(ptr noundef %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 align 16 {
   %3 = tail call noalias ptr @drmm_kmalloc(ptr noundef %0, i64 noundef 40, i32 noundef 3520) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %37, label %5

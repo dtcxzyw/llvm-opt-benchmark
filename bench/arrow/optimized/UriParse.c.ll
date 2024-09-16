@@ -284,51 +284,51 @@ sw.bb.i.i:                                        ; preds = %if.end2.i.i, %if.en
   br i1 %exitcond.not.i.i, label %if.then.i.i, label %if.end2.i.i
 
 sw.bb4.i.i:                                       ; preds = %if.end2.i.i
-  %call5.i.i = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call5.i.i = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef %first.tr83.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp6.i.i = icmp eq ptr %call5.i.i, null
   br i1 %cmp6.i.i, label %if.then13, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %sw.bb4.i.i
-  %call10.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcA(ptr noundef %state, ptr noundef nonnull %call5.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call10.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcA(ptr noundef %state, ptr noundef %call5.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 sw.bb11.i.i:                                      ; preds = %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 1
-  %call13.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcA(ptr noundef %state, ptr noundef nonnull %add.ptr12.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call13.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcA(ptr noundef %state, ptr noundef %add.ptr12.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 sw.bb14.i.i:                                      ; preds = %if.end2.i.i
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 1
-  %call16.i.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef nonnull %add.ptr15.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call16.i.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %add.ptr15.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp17.i.i = icmp eq ptr %call16.i.i, null
   br i1 %cmp17.i.i, label %if.then13, label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %sw.bb14.i.i
   %16 = load ptr, ptr %state, align 8
   %17 = load ptr, ptr %16, align 8
-  %call22.i.i = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
+  %call22.i.i = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef %state, ptr noundef %17, ptr noundef %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool23.not.i.i = icmp eq i32 %call22.i.i, 0
   %18 = load ptr, ptr %state, align 8
   br i1 %tobool23.not.i.i, label %if.then13.sink.split, label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.end20.i.i
   store ptr null, ptr %18, align 8
-  %call30.i.i = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr15.i.i, ptr noundef nonnull %call16.i.i, ptr noundef nonnull %memory.addr.0)
+  %call30.i.i = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef %state, ptr noundef nonnull %add.ptr15.i.i, ptr noundef %call16.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool31.not.i.i = icmp eq i32 %call30.i.i, 0
   br i1 %tobool31.not.i.i, label %if.then13.sink.split.sink.split, label %if.end33.i.i
 
 if.end33.i.i:                                     ; preds = %if.end25.i.i
-  %call34.i.i = tail call fastcc ptr @uriParseZeroMoreSlashSegsA(ptr noundef nonnull %state, ptr noundef nonnull %call16.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call34.i.i = tail call fastcc ptr @uriParseZeroMoreSlashSegsA(ptr noundef %state, ptr noundef %call16.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp35.i.i = icmp eq ptr %call34.i.i, null
   br i1 %cmp35.i.i, label %if.then13, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end33.i.i
-  %call39.i.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef nonnull %state, ptr noundef nonnull %call34.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call39.i.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef %state, ptr noundef %call34.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 sw.bb40.i.i:                                      ; preds = %if.end2.i.i
   %add.ptr41.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 1
-  %call42.i.i = tail call fastcc ptr @uriParseHierPartA(ptr noundef %state, ptr noundef nonnull %add.ptr41.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call42.i.i = tail call fastcc ptr @uriParseHierPartA(ptr noundef %state, ptr noundef %add.ptr41.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %19 = load ptr, ptr %state, align 8
   %afterLast45.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %first.tr83.i.i, ptr %afterLast45.i.i, align 8
@@ -336,48 +336,48 @@ sw.bb40.i.i:                                      ; preds = %if.end2.i.i
   br i1 %cmp46.i.i, label %if.then13, label %if.end49.i.i
 
 if.end49.i.i:                                     ; preds = %sw.bb40.i.i
-  %call50.i.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef nonnull %state, ptr noundef nonnull %call42.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call50.i.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef %state, ptr noundef %call42.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 sw.default.i.i:                                   ; preds = %if.end2.i.i
-  %call51.i.i = tail call fastcc i32 @uriOnExitSegmentNzNcOrScheme2A(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
+  %call51.i.i = tail call fastcc i32 @uriOnExitSegmentNzNcOrScheme2A(ptr noundef %state, ptr noundef %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool52.not.i.i = icmp eq i32 %call51.i.i, 0
   br i1 %tobool52.not.i.i, label %if.then13.sink.split.sink.split, label %if.end54.i.i
 
 if.end54.i.i:                                     ; preds = %sw.default.i.i
-  %call55.i.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call55.i.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef %state, ptr noundef %first.tr83.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 sw.bb2.i:                                         ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
   %20 = load ptr, ptr %state, align 8
   store ptr %first, ptr %20, align 8
   %add.ptr6.i = getelementptr inbounds i8, ptr %first, i64 1
-  %call7.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr6.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call7.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcA(ptr noundef %state, ptr noundef %add.ptr6.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 sw.bb8.i:                                         ; preds = %if.end.i
-  %call9.i = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call9.i = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp10.i = icmp eq ptr %call9.i, null
   br i1 %cmp10.i, label %if.then13, label %if.end13.i
 
 if.end13.i:                                       ; preds = %sw.bb8.i
   %21 = load ptr, ptr %state, align 8
   store ptr %first, ptr %21, align 8
-  %call17.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcA(ptr noundef nonnull %state, ptr noundef nonnull %call9.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call17.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcA(ptr noundef %state, ptr noundef %call9.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 sw.bb18.i:                                        ; preds = %if.end.i
   %add.ptr19.i = getelementptr inbounds i8, ptr %first, i64 1
-  %call20.i = tail call fastcc ptr @uriParsePartHelperTwoA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr19.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call20.i = tail call fastcc ptr @uriParsePartHelperTwoA(ptr noundef %state, ptr noundef %add.ptr19.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp21.i = icmp eq ptr %call20.i, null
   br i1 %cmp21.i, label %if.then13, label %if.end24.i
 
 if.end24.i:                                       ; preds = %sw.bb18.i
-  %call25.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef nonnull %state, ptr noundef nonnull %call20.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call25.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef %state, ptr noundef %call20.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 sw.default.i:                                     ; preds = %if.end.i
-  %call26.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call26.i = tail call fastcc ptr @uriParseUriTailA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceA.exit
 
 uriParseUriReferenceA.exit:                       ; preds = %uriOnExitSegmentNzNcOrScheme2A.exit.i.i, %if.end9.i.i, %sw.bb11.i.i, %if.end38.i.i, %if.end49.i.i, %if.end54.i.i, %sw.bb2.i, %if.end13.i, %if.end24.i, %sw.default.i
@@ -891,7 +891,7 @@ entry:
   %call2 = call ptr %1(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #6
   %ip6 = getelementptr inbounds i8, ptr %uri, i64 56
   store ptr %call2, ptr %ip6, align 8
-  %call4 = call fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
+  %call4 = call fastcc ptr @uriParseIPv6address2A(ptr noundef %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
   %call5 = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   %cmp = icmp eq ptr %call4, %add.ptr
   %cond = zext i1 %cmp to i32
@@ -901,7 +901,7 @@ entry:
 declare void @uriResetUriA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseIPv6address2A(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %digitHistory = alloca [4 x i8], align 1
   %quadsAfterZipper = alloca [14 x i8], align 1
@@ -1920,51 +1920,51 @@ sw.bb.i.i:                                        ; preds = %if.end2.i.i, %if.en
   br i1 %cmp.not.i.i, label %if.end2.i.i, label %if.then.i.i
 
 sw.bb4.i.i:                                       ; preds = %if.end2.i.i
-  %call5.i.i = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call5.i.i = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef %first.tr83.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp6.i.i = icmp eq ptr %call5.i.i, null
   br i1 %cmp6.i.i, label %if.then13, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %sw.bb4.i.i
-  %call9.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef %state, ptr noundef nonnull %call5.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call9.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef %state, ptr noundef %call5.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.bb10.i.i:                                      ; preds = %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 4
-  %call12.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef %state, ptr noundef nonnull %add.ptr11.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call12.i.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef %state, ptr noundef %add.ptr11.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.bb13.i.i:                                      ; preds = %if.end2.i.i
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 4
-  %call15.i.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef nonnull %add.ptr14.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call15.i.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %add.ptr14.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp16.i.i = icmp eq ptr %call15.i.i, null
   br i1 %cmp16.i.i, label %if.then13, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %sw.bb13.i.i
   %15 = load ptr, ptr %state, align 8
   %16 = load ptr, ptr %15, align 8
-  %call20.i.i = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %16, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
+  %call20.i.i = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef %state, ptr noundef %16, ptr noundef %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool21.not.i.i = icmp eq i32 %call20.i.i, 0
   %17 = load ptr, ptr %state, align 8
   br i1 %tobool21.not.i.i, label %if.then13.sink.split, label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %if.end18.i.i
   store ptr null, ptr %17, align 8
-  %call28.i.i = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr14.i.i, ptr noundef nonnull %call15.i.i, ptr noundef nonnull %memory.addr.0)
+  %call28.i.i = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef %state, ptr noundef nonnull %add.ptr14.i.i, ptr noundef %call15.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool29.not.i.i = icmp eq i32 %call28.i.i, 0
   br i1 %tobool29.not.i.i, label %if.then13.sink.split.sink.split, label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %if.end23.i.i
-  %call32.i.i = tail call fastcc ptr @uriParseZeroMoreSlashSegsW(ptr noundef nonnull %state, ptr noundef nonnull %call15.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call32.i.i = tail call fastcc ptr @uriParseZeroMoreSlashSegsW(ptr noundef %state, ptr noundef %call15.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp33.i.i = icmp eq ptr %call32.i.i, null
   br i1 %cmp33.i.i, label %if.then13, label %if.end35.i.i
 
 if.end35.i.i:                                     ; preds = %if.end31.i.i
-  %call36.i.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef nonnull %state, ptr noundef nonnull %call32.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call36.i.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef %state, ptr noundef %call32.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.bb37.i.i:                                      ; preds = %if.end2.i.i
   %add.ptr38.i.i = getelementptr inbounds i8, ptr %first.tr83.i.i, i64 4
-  %call39.i.i = tail call fastcc ptr @uriParseHierPartW(ptr noundef %state, ptr noundef nonnull %add.ptr38.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call39.i.i = tail call fastcc ptr @uriParseHierPartW(ptr noundef %state, ptr noundef %add.ptr38.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %18 = load ptr, ptr %state, align 8
   %afterLast42.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %first.tr83.i.i, ptr %afterLast42.i.i, align 8
@@ -1972,48 +1972,48 @@ sw.bb37.i.i:                                      ; preds = %if.end2.i.i
   br i1 %cmp43.i.i, label %if.then13, label %if.end45.i.i
 
 if.end45.i.i:                                     ; preds = %sw.bb37.i.i
-  %call46.i.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef nonnull %state, ptr noundef nonnull %call39.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call46.i.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef %state, ptr noundef %call39.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.default.i.i:                                   ; preds = %if.end2.i.i
-  %call47.i.i = tail call fastcc i32 @uriOnExitSegmentNzNcOrScheme2W(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
+  %call47.i.i = tail call fastcc i32 @uriOnExitSegmentNzNcOrScheme2W(ptr noundef %state, ptr noundef %first.tr83.i.i, ptr noundef nonnull %memory.addr.0)
   %tobool48.not.i.i = icmp eq i32 %call47.i.i, 0
   br i1 %tobool48.not.i.i, label %if.then13.sink.split.sink.split, label %if.end50.i.i
 
 if.end50.i.i:                                     ; preds = %sw.default.i.i
-  %call51.i.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef %state, ptr noundef nonnull %first.tr83.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call51.i.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef %state, ptr noundef %first.tr83.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.bb2.i:                                         ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
   %19 = load ptr, ptr %state, align 8
   store ptr %first, ptr %19, align 8
   %add.ptr6.i = getelementptr inbounds i8, ptr %first, i64 4
-  %call7.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr6.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call7.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef %state, ptr noundef %add.ptr6.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.bb8.i:                                         ; preds = %if.end.i
-  %call9.i = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call9.i = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp10.i = icmp eq ptr %call9.i, null
   br i1 %cmp10.i, label %if.then13, label %if.end12.i
 
 if.end12.i:                                       ; preds = %sw.bb8.i
   %20 = load ptr, ptr %state, align 8
   store ptr %first, ptr %20, align 8
-  %call16.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef nonnull %state, ptr noundef nonnull %call9.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call16.i = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef %state, ptr noundef %call9.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.bb17.i:                                        ; preds = %if.end.i
   %add.ptr18.i = getelementptr inbounds i8, ptr %first, i64 4
-  %call19.i = tail call fastcc ptr @uriParsePartHelperTwoW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr18.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call19.i = tail call fastcc ptr @uriParsePartHelperTwoW(ptr noundef %state, ptr noundef %add.ptr18.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   %cmp20.i = icmp eq ptr %call19.i, null
   br i1 %cmp20.i, label %if.then13, label %if.end22.i
 
 if.end22.i:                                       ; preds = %sw.bb17.i
-  %call23.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef nonnull %state, ptr noundef nonnull %call19.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call23.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef %state, ptr noundef %call19.i, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 sw.default.i:                                     ; preds = %if.end.i
-  %call24.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory.addr.0)
+  %call24.i = tail call fastcc ptr @uriParseUriTailW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef nonnull %memory.addr.0)
   br label %uriParseUriReferenceW.exit
 
 uriParseUriReferenceW.exit:                       ; preds = %uriOnExitSegmentNzNcOrScheme2W.exit.i.i, %if.end8.i.i, %sw.bb10.i.i, %if.end35.i.i, %if.end45.i.i, %if.end50.i.i, %sw.bb2.i, %if.end12.i, %if.end22.i, %sw.default.i
@@ -2525,7 +2525,7 @@ entry:
   %call2 = call ptr %1(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #6
   %ip6 = getelementptr inbounds i8, ptr %uri, i64 56
   store ptr %call2, ptr %ip6, align 8
-  %call4 = call fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
+  %call4 = call fastcc ptr @uriParseIPv6address2W(ptr noundef %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
   %call5 = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   %cmp = icmp eq ptr %call4, %add.ptr
   %cond = zext i1 %cmp to i32
@@ -2535,7 +2535,7 @@ entry:
 declare void @uriResetUriW(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseIPv6address2W(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %digitHistory = alloca [4 x i8], align 1
   %quadsAfterZipper = alloca [14 x i8], align 1
@@ -3297,7 +3297,7 @@ entry:
 declare i32 @uriParseIpFourAddressW(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not71 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not71, label %if.end6, label %if.then
@@ -3438,7 +3438,7 @@ if.end6:                                          ; preds = %entry, %tailrecurse
   ]
 
 sw.bb:                                            ; preds = %if.end6
-  %call7 = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef nonnull %first.tr72, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call7 = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef %first.tr72, ptr noundef %afterLast, ptr noundef %memory)
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %return, label %tailrecurse.backedge
 
@@ -3454,7 +3454,7 @@ tailrecurse.backedge:                             ; preds = %sw.bb13, %sw.bb
 sw.bb15:                                          ; preds = %if.end6
   %12 = load ptr, ptr %state, align 8
   %13 = load ptr, ptr %12, align 8
-  %call19 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %13, ptr noundef nonnull %first.tr72, ptr noundef %memory)
+  %call19 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef %state, ptr noundef %13, ptr noundef %first.tr72, ptr noundef %memory)
   %tobool20.not = icmp eq i32 %call19, 0
   %14 = load ptr, ptr %state, align 8
   br i1 %tobool20.not, label %if.then21, label %if.end22
@@ -3470,12 +3470,12 @@ if.then21:                                        ; preds = %sw.bb15
 if.end22:                                         ; preds = %sw.bb15
   store ptr null, ptr %14, align 8
   %add.ptr26 = getelementptr inbounds i8, ptr %first.tr72, i64 1
-  %call27 = tail call fastcc ptr @uriParseSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr26, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call27 = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %add.ptr26, ptr noundef %afterLast, ptr noundef %memory)
   %cmp28 = icmp eq ptr %call27, null
   br i1 %cmp28, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end22
-  %call33 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr26, ptr noundef nonnull %call27, ptr noundef %memory)
+  %call33 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef %state, ptr noundef nonnull %add.ptr26, ptr noundef %call27, ptr noundef %memory)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.then35, label %if.end36
 
@@ -3489,18 +3489,18 @@ if.then35:                                        ; preds = %if.end31
   br label %return
 
 if.end36:                                         ; preds = %if.end31
-  %call37 = tail call fastcc ptr @uriParseZeroMoreSlashSegsA(ptr noundef nonnull %state, ptr noundef nonnull %call27, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call37 = tail call fastcc ptr @uriParseZeroMoreSlashSegsA(ptr noundef %state, ptr noundef %call27, ptr noundef %afterLast, ptr noundef %memory)
   %cmp38 = icmp eq ptr %call37, null
   br i1 %cmp38, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end36
-  %call42 = tail call fastcc ptr @uriParseUriTailA(ptr noundef nonnull %state, ptr noundef nonnull %call37, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call42 = tail call fastcc ptr @uriParseUriTailA(ptr noundef %state, ptr noundef %call37, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.default:                                       ; preds = %if.end6
   %16 = load ptr, ptr %state, align 8
   %17 = load ptr, ptr %16, align 8
-  %call46 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr72, ptr noundef %memory)
+  %call46 = tail call fastcc i32 @uriPushPathSegmentA(ptr noundef %state, ptr noundef %17, ptr noundef %first.tr72, ptr noundef %memory)
   %tobool47.not = icmp eq i32 %call46, 0
   %18 = load ptr, ptr %state, align 8
   br i1 %tobool47.not, label %if.then48, label %if.end49
@@ -3515,7 +3515,7 @@ if.then48:                                        ; preds = %sw.default
 
 if.end49:                                         ; preds = %sw.default
   store ptr null, ptr %18, align 8
-  %call53 = tail call fastcc ptr @uriParseUriTailA(ptr noundef nonnull %state, ptr noundef nonnull %first.tr72, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call53 = tail call fastcc ptr @uriParseUriTailA(ptr noundef %state, ptr noundef %first.tr72, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 return:                                           ; preds = %sw.bb, %if.end36, %if.end22, %if.end49, %if.then48, %if.end41, %if.then35, %if.then21, %if.end, %if.then2
@@ -3524,7 +3524,7 @@ return:                                           ; preds = %sw.bb, %if.end36, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePctEncodedA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePctEncodedA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3648,7 +3648,7 @@ return:                                           ; preds = %sw.default14, %sw.d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParsePartHelperTwoA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParsePartHelperTwoA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3677,7 +3677,7 @@ if.then.i:                                        ; preds = %sw.bb
   %3 = load ptr, ptr %state, align 8
   %afterLast4.i = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %afterLast4.i, align 8
-  br label %uriParseAuthorityA.exit
+  br label %uriParsePathAbsEmptyA.exit
 
 if.end.i:                                         ; preds = %sw.bb
   %4 = load i8, ptr %add.ptr, align 1
@@ -3767,7 +3767,7 @@ if.end.i:                                         ; preds = %sw.bb
 
 sw.bb.i:                                          ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %first, i64 2
-  %call.i = tail call fastcc ptr @uriParseIpLit2A(ptr noundef %state, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i = tail call fastcc ptr @uriParseIpLit2A(ptr noundef %state, ptr noundef %add.ptr.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp5.i = icmp eq ptr %call.i, null
   br i1 %cmp5.i, label %return, label %if.end8.i
 
@@ -3776,7 +3776,7 @@ if.end8.i:                                        ; preds = %sw.bb.i
   %hostText11.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %add.ptr.i, ptr %hostText11.i, align 8
   %cmp.not.i.i = icmp ult ptr %call.i, %afterLast
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %uriParseAuthorityA.exit
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %uriParsePathAbsEmptyA.exit
 
 if.end.i.i:                                       ; preds = %if.end8.i
   %6 = load i8, ptr %call.i, align 1
@@ -3786,41 +3786,31 @@ if.end.i.i:                                       ; preds = %if.end8.i
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 1
   %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
-  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %uriParsePortA.exit.i.i
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end4.sink.split
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i, %sw.bb.i.i.i
   %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
   %7 = load i8, ptr %first.tr2.i.i.i, align 1
   %.off.i.i.i = add i8 %7, -48
   %switch.i.i.i = icmp ult i8 %.off.i.i.i, 10
-  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %uriParsePortA.exit.i.i
+  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end4.sink.split
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %add.ptr.i.i.i, %afterLast
-  br i1 %exitcond.not.i.i.i, label %uriParsePortA.exit.i.i, label %if.end.i.i.i
-
-uriParsePortA.exit.i.i:                           ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
-  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
-  %8 = load ptr, ptr %state, align 8
-  %portText.i.i = getelementptr inbounds i8, ptr %8, i64 80
-  store ptr %add.ptr.i.i, ptr %portText.i.i, align 8
-  %9 = load ptr, ptr %state, align 8
-  %afterLast9.i.i = getelementptr inbounds i8, ptr %9, i64 88
-  store ptr %retval.0.i.i.i, ptr %afterLast9.i.i, align 8
-  br label %uriParseAuthorityA.exit
+  br i1 %exitcond.not.i.i.i, label %if.end4.sink.split, label %if.end.i.i.i
 
 if.end.preheader.i.i:                             ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
-  %10 = load ptr, ptr %state, align 8
-  %userInfo.i = getelementptr inbounds i8, ptr %10, i64 16
+  %8 = load ptr, ptr %state, align 8
+  %userInfo.i = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %add.ptr, ptr %userInfo.i, align 8
   %.pre.i.i = load i8, ptr %add.ptr, align 1
   br label %if.end.i22.i
 
 if.end.i22.i:                                     ; preds = %if.end.i22.i.backedge, %if.end.preheader.i.i
-  %11 = phi i8 [ %.pre.i.i, %if.end.preheader.i.i ], [ %26, %if.end.i22.i.backedge ]
+  %9 = phi i8 [ %.pre.i.i, %if.end.preheader.i.i ], [ %24, %if.end.i22.i.backedge ]
   %first.tr53.i.i = phi ptr [ %add.ptr, %if.end.preheader.i.i ], [ %call.i.i, %if.end.i22.i.backedge ]
-  switch i8 %11, label %sw.default.i.i [
+  switch i8 %9, label %sw.default.i.i [
     i8 33, label %sw.bb.i25.i
     i8 36, label %sw.bb.i25.i
     i8 37, label %sw.bb.i25.i
@@ -3904,7 +3894,7 @@ if.end.i22.i:                                     ; preds = %if.end.i22.i.backed
   ]
 
 sw.bb.i25.i:                                      ; preds = %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i
-  %call.i.i = tail call fastcc ptr @uriParsePctSubUnresA(ptr noundef %state, ptr noundef nonnull %first.tr53.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i.i = tail call fastcc ptr @uriParsePctSubUnresA(ptr noundef %state, ptr noundef %first.tr53.i.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %return, label %if.end4.i.i
 
@@ -3913,51 +3903,51 @@ if.end4.i.i:                                      ; preds = %sw.bb.i25.i
   br i1 %cmp.not.i.i.i, label %if.end2.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end4.i.i
+  %10 = load ptr, ptr %state, align 8
+  %userInfo.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load ptr, ptr %userInfo.i.i.i, align 8
+  %hostText.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr %11, ptr %hostText.i.i.i, align 8
   %12 = load ptr, ptr %state, align 8
-  %userInfo.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load ptr, ptr %userInfo.i.i.i, align 8
-  %hostText.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr %13, ptr %hostText.i.i.i, align 8
-  %14 = load ptr, ptr %state, align 8
-  %userInfo5.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
+  %userInfo5.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr null, ptr %userInfo5.i.i.i, align 8
-  %15 = load ptr, ptr %state, align 8
-  %afterLast.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %13 = load ptr, ptr %state, align 8
+  %afterLast.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
   store ptr %call.i.i, ptr %afterLast.i.i.i, align 8
-  %16 = load ptr, ptr %memory, align 8
-  %call.i39.i.i = tail call ptr %16(ptr noundef nonnull %memory, i64 noundef 4) #6
-  %17 = load ptr, ptr %state, align 8
-  %hostData.i.i.i = getelementptr inbounds i8, ptr %17, i64 48
+  %14 = load ptr, ptr %memory, align 8
+  %call.i39.i.i = tail call ptr %14(ptr noundef nonnull %memory, i64 noundef 4) #6
+  %15 = load ptr, ptr %state, align 8
+  %hostData.i.i.i = getelementptr inbounds i8, ptr %15, i64 48
   store ptr %call.i39.i.i, ptr %hostData.i.i.i, align 8
-  %18 = load ptr, ptr %state, align 8
-  %hostData11.i.i.i = getelementptr inbounds i8, ptr %18, i64 48
-  %19 = load ptr, ptr %hostData11.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %19, null
+  %16 = load ptr, ptr %state, align 8
+  %hostData11.i.i.i = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = load ptr, ptr %hostData11.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.end.i.i26.i
 
 if.end.i.i26.i:                                   ; preds = %if.then.i.i.i
-  %hostText17.i.i.i = getelementptr inbounds i8, ptr %18, i64 32
-  %20 = load ptr, ptr %hostText17.i.i.i, align 8
-  %afterLast21.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
-  %21 = load ptr, ptr %afterLast21.i.i.i, align 8
-  %call22.i.i.i = tail call i32 @uriParseIpFourAddressA(ptr noundef nonnull %19, ptr noundef %20, ptr noundef %21) #6
+  %hostText17.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = load ptr, ptr %hostText17.i.i.i, align 8
+  %afterLast21.i.i.i = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = load ptr, ptr %afterLast21.i.i.i, align 8
+  %call22.i.i.i = tail call i32 @uriParseIpFourAddressA(ptr noundef nonnull %17, ptr noundef %18, ptr noundef %19) #6
   %tobool.not.i40.i.i = icmp eq i32 %call22.i.i.i, 0
-  br i1 %tobool.not.i40.i.i, label %uriParseAuthorityA.exit, label %if.then23.i.i.i
+  br i1 %tobool.not.i40.i.i, label %uriParsePathAbsEmptyA.exit, label %if.then23.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end.i.i26.i
   %free.i.i.i = getelementptr inbounds i8, ptr %memory, i64 32
-  %22 = load ptr, ptr %free.i.i.i, align 8
+  %20 = load ptr, ptr %free.i.i.i, align 8
+  %21 = load ptr, ptr %state, align 8
+  %hostData25.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = load ptr, ptr %hostData25.i.i.i, align 8
+  tail call void %20(ptr noundef nonnull %memory, ptr noundef %22) #6
   %23 = load ptr, ptr %state, align 8
-  %hostData25.i.i.i = getelementptr inbounds i8, ptr %23, i64 48
-  %24 = load ptr, ptr %hostData25.i.i.i, align 8
-  tail call void %22(ptr noundef nonnull %memory, ptr noundef %24) #6
-  %25 = load ptr, ptr %state, align 8
-  %hostData28.i.i.i = getelementptr inbounds i8, ptr %25, i64 48
+  %hostData28.i.i.i = getelementptr inbounds i8, ptr %23, i64 48
   store ptr null, ptr %hostData28.i.i.i, align 8
-  br label %uriParseAuthorityA.exit
+  br label %uriParsePathAbsEmptyA.exit
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call.i36.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %18, ptr noundef nonnull %memory)
+  %call.i36.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %16, ptr noundef nonnull %memory)
   %errorPos.i37.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i37.i.i, align 8
   %errorCode.i38.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -3965,8 +3955,8 @@ if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %return
 
 if.end2.i.i.i:                                    ; preds = %if.end4.i.i
-  %26 = load i8, ptr %call.i.i, align 1
-  switch i8 %26, label %sw.default.i.i.i [
+  %24 = load i8, ptr %call.i.i, align 1
+  switch i8 %24, label %sw.default.i.i.i [
     i8 33, label %if.end.i22.i.backedge
     i8 36, label %if.end.i22.i.backedge
     i8 37, label %if.end.i22.i.backedge
@@ -4053,13 +4043,13 @@ if.end.i22.i.backedge:                            ; preds = %if.end2.i.i.i, %if.
   br label %if.end.i22.i
 
 sw.default.i.i.i:                                 ; preds = %if.end2.i.i.i
-  %call4.i.i.i = tail call fastcc i32 @uriOnExitOwnHostUserInfoA(ptr noundef %state, ptr noundef nonnull %call.i.i, ptr noundef %memory)
+  %call4.i.i.i = tail call fastcc i32 @uriOnExitOwnHostUserInfoA(ptr noundef %state, ptr noundef %call.i.i, ptr noundef %memory)
   %tobool5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %tobool5.not.i.i.i, label %if.then6.i.i.i, label %if.end4
 
 if.then6.i.i.i:                                   ; preds = %sw.default.i.i.i
-  %27 = load ptr, ptr %state, align 8
-  %call.i34.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %27, ptr noundef %memory)
+  %25 = load ptr, ptr %state, align 8
+  %call.i34.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %25, ptr noundef %memory)
   %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
   %errorCode.i35.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4067,30 +4057,30 @@ if.then6.i.i.i:                                   ; preds = %sw.default.i.i.i
   br label %return
 
 sw.bb6.i.i:                                       ; preds = %if.end.i22.i
-  %28 = load ptr, ptr %state, align 8
-  %afterLast7.i.i = getelementptr inbounds i8, ptr %28, i64 40
+  %26 = load ptr, ptr %state, align 8
+  %afterLast7.i.i = getelementptr inbounds i8, ptr %26, i64 40
   store ptr %first.tr53.i.i, ptr %afterLast7.i.i, align 8
   %add.ptr.i23.i = getelementptr inbounds i8, ptr %first.tr53.i.i, i64 1
-  %29 = load ptr, ptr %state, align 8
-  %portText.i24.i = getelementptr inbounds i8, ptr %29, i64 80
+  %27 = load ptr, ptr %state, align 8
+  %portText.i24.i = getelementptr inbounds i8, ptr %27, i64 80
   store ptr %add.ptr.i23.i, ptr %portText.i24.i, align 8
-  %call11.i.i = tail call fastcc ptr @uriParseOwnPortUserInfoA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i23.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call11.i.i = tail call fastcc ptr @uriParseOwnPortUserInfoA(ptr noundef %state, ptr noundef %add.ptr.i23.i, ptr noundef %afterLast, ptr noundef %memory)
   br label %uriParseAuthorityA.exit
 
 sw.bb12.i.i:                                      ; preds = %if.end.i22.i
-  %30 = load ptr, ptr %state, align 8
-  %afterLast14.i.i = getelementptr inbounds i8, ptr %30, i64 24
+  %28 = load ptr, ptr %state, align 8
+  %afterLast14.i.i = getelementptr inbounds i8, ptr %28, i64 24
   store ptr %first.tr53.i.i, ptr %afterLast14.i.i, align 8
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %first.tr53.i.i, i64 1
-  %31 = load ptr, ptr %state, align 8
-  %hostText17.i.i = getelementptr inbounds i8, ptr %31, i64 32
+  %29 = load ptr, ptr %state, align 8
+  %hostText17.i.i = getelementptr inbounds i8, ptr %29, i64 32
   store ptr %add.ptr15.i.i, ptr %hostText17.i.i, align 8
-  %call20.i.i = tail call fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr15.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call20.i.i = tail call fastcc ptr @uriParseOwnHostA(ptr noundef %state, ptr noundef %add.ptr15.i.i, ptr noundef %afterLast, ptr noundef %memory)
   br label %uriParseAuthorityA.exit
 
 sw.default.i.i:                                   ; preds = %if.end.i22.i
-  %32 = load ptr, ptr %state, align 8
-  %call.i31.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %32, ptr noundef %memory)
+  %30 = load ptr, ptr %state, align 8
+  %call.i31.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %30, ptr noundef %memory)
   %errorPos1.i32.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr53.i.i, ptr %errorPos1.i32.i.i, align 8
   %errorCode.i33.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4098,70 +4088,78 @@ sw.default.i.i:                                   ; preds = %if.end.i22.i
   br label %return
 
 sw.default.i:                                     ; preds = %if.end.i
-  %33 = load ptr, ptr @uriSafeToPointToA, align 8
-  %34 = load ptr, ptr %state, align 8
-  %hostText19.i = getelementptr inbounds i8, ptr %34, i64 32
-  store ptr %33, ptr %hostText19.i, align 8
-  %35 = load ptr, ptr %state, align 8
-  %afterLast23.i = getelementptr inbounds i8, ptr %35, i64 40
-  store ptr %33, ptr %afterLast23.i, align 8
-  br label %if.end4
+  %31 = load ptr, ptr @uriSafeToPointToA, align 8
+  br label %if.end4.sink.split
 
-uriParseAuthorityA.exit:                          ; preds = %if.then.i, %if.end8.i, %uriParsePortA.exit.i.i, %if.end.i.i26.i, %if.then23.i.i.i, %sw.bb6.i.i, %sw.bb12.i.i
-  %retval.0.i = phi ptr [ %afterLast, %if.then.i ], [ %retval.0.i.i.i, %uriParsePortA.exit.i.i ], [ %afterLast, %if.end8.i ], [ %call20.i.i, %sw.bb12.i.i ], [ %call11.i.i, %sw.bb6.i.i ], [ %afterLast, %if.then23.i.i.i ], [ %afterLast, %if.end.i.i26.i ]
+uriParseAuthorityA.exit:                          ; preds = %sw.bb6.i.i, %sw.bb12.i.i
+  %retval.0.i = phi ptr [ %call20.i.i, %sw.bb12.i.i ], [ %call11.i.i, %sw.bb6.i.i ]
   %cmp1 = icmp eq ptr %retval.0.i, null
   br i1 %cmp1, label %return, label %if.end4
 
-if.end4:                                          ; preds = %sw.default.i.i.i, %if.end.i.i, %sw.default.i, %uriParseAuthorityA.exit
-  %retval.0.i64 = phi ptr [ %retval.0.i, %uriParseAuthorityA.exit ], [ %call.i.i, %sw.default.i.i.i ], [ %call.i, %if.end.i.i ], [ %add.ptr, %sw.default.i ]
-  %cmp.not19.i = icmp ult ptr %retval.0.i64, %afterLast
+if.end4.sink.split:                               ; preds = %if.end.i.i.i, %sw.bb.i.i.i, %sw.bb.i.i, %sw.default.i
+  %.sink92 = phi i64 [ 32, %sw.default.i ], [ 80, %sw.bb.i.i ], [ 80, %sw.bb.i.i.i ], [ 80, %if.end.i.i.i ]
+  %add.ptr.i.i.sink = phi ptr [ %31, %sw.default.i ], [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %if.end.i.i.i ]
+  %.sink91 = phi i64 [ 40, %sw.default.i ], [ 88, %sw.bb.i.i ], [ 88, %sw.bb.i.i.i ], [ 88, %if.end.i.i.i ]
+  %retval.0.i.i.i.sink = phi ptr [ %31, %sw.default.i ], [ %afterLast, %sw.bb.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ], [ %afterLast, %sw.bb.i.i.i ]
+  %retval.0.i60.ph = phi ptr [ %add.ptr, %sw.default.i ], [ %afterLast, %sw.bb.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ], [ %afterLast, %sw.bb.i.i.i ]
+  %32 = load ptr, ptr %state, align 8
+  %portText.i.i = getelementptr inbounds i8, ptr %32, i64 %.sink92
+  store ptr %add.ptr.i.i.sink, ptr %portText.i.i, align 8
+  %33 = load ptr, ptr %state, align 8
+  %afterLast9.i.i = getelementptr inbounds i8, ptr %33, i64 %.sink91
+  store ptr %retval.0.i.i.i.sink, ptr %afterLast9.i.i, align 8
+  br label %if.end4
+
+if.end4:                                          ; preds = %if.end4.sink.split, %sw.default.i.i.i, %if.end.i.i, %uriParseAuthorityA.exit
+  %retval.0.i60 = phi ptr [ %retval.0.i, %uriParseAuthorityA.exit ], [ %call.i.i, %sw.default.i.i.i ], [ %call.i, %if.end.i.i ], [ %retval.0.i60.ph, %if.end4.sink.split ]
+  %cmp.not19.i = icmp ult ptr %retval.0.i60, %afterLast
   br i1 %cmp.not19.i, label %if.end.lr.ph.i, label %uriParsePathAbsEmptyA.exit
 
 if.end.lr.ph.i:                                   ; preds = %if.end4
   %calloc.i.i = getelementptr inbounds i8, ptr %memory, i64 8
-  %36 = load ptr, ptr @uriSafeToPointToA, align 8
+  %34 = load ptr, ptr @uriSafeToPointToA, align 8
   br label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.end8.i26, %if.end.lr.ph.i
-  %first.tr20.i = phi ptr [ %retval.0.i64, %if.end.lr.ph.i ], [ %call.i22, %if.end8.i26 ]
-  %37 = load i8, ptr %first.tr20.i, align 1
-  %cond.i = icmp eq i8 %37, 47
+  %first.tr20.i = phi ptr [ %retval.0.i60, %if.end.lr.ph.i ], [ %call.i22, %if.end8.i26 ]
+  %35 = load i8, ptr %first.tr20.i, align 1
+  %cond.i = icmp eq i8 %35, 47
   br i1 %cond.i, label %sw.bb.i20, label %uriParsePathAbsEmptyA.exit
 
 sw.bb.i20:                                        ; preds = %if.end.i19
   %add.ptr.i21 = getelementptr inbounds i8, ptr %first.tr20.i, i64 1
-  %call.i22 = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef nonnull %add.ptr.i21, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i22 = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %add.ptr.i21, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1.i = icmp eq ptr %call.i22, null
   br i1 %cmp1.i, label %uriParsePathAbsEmptyA.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %sw.bb.i20
-  %38 = load ptr, ptr %calloc.i.i, align 8
-  %call.i.i23 = tail call ptr %38(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
+  %36 = load ptr, ptr %calloc.i.i, align 8
+  %call.i.i23 = tail call ptr %36(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
   %cmp.i.i = icmp eq ptr %call.i.i23, null
   br i1 %cmp.i.i, label %if.then7.i, label %if.end.i.i24
 
 if.end.i.i24:                                     ; preds = %if.end4.i
   %cmp1.i.i25 = icmp eq ptr %add.ptr.i21, %call.i22
-  %spec.select.i.i = select i1 %cmp1.i.i25, ptr %36, ptr %add.ptr.i21
-  %spec.select16.i.i = select i1 %cmp1.i.i25, ptr %36, ptr %call.i22
+  %spec.select.i.i = select i1 %cmp1.i.i25, ptr %34, ptr %add.ptr.i21
+  %spec.select16.i.i = select i1 %cmp1.i.i25, ptr %34, ptr %call.i22
   store ptr %spec.select.i.i, ptr %call.i.i23, align 8
-  %39 = getelementptr inbounds i8, ptr %call.i.i23, i64 8
-  store ptr %spec.select16.i.i, ptr %39, align 8
-  %40 = load ptr, ptr %state, align 8
-  %pathHead.i.i = getelementptr inbounds i8, ptr %40, i64 96
-  %41 = load ptr, ptr %pathHead.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %41, null
+  %37 = getelementptr inbounds i8, ptr %call.i.i23, i64 8
+  store ptr %spec.select16.i.i, ptr %37, align 8
+  %38 = load ptr, ptr %state, align 8
+  %pathHead.i.i = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = load ptr, ptr %pathHead.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %39, null
   br i1 %cmp11.i.i, label %if.end8.i26, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.end.i.i24
-  %pathTail18.i.i = getelementptr inbounds i8, ptr %40, i64 104
-  %42 = load ptr, ptr %pathTail18.i.i, align 8
-  %next.i.i = getelementptr inbounds i8, ptr %42, i64 16
+  %pathTail18.i.i = getelementptr inbounds i8, ptr %38, i64 104
+  %40 = load ptr, ptr %pathTail18.i.i, align 8
+  %next.i.i = getelementptr inbounds i8, ptr %40, i64 16
   br label %if.end8.i26
 
 if.then7.i:                                       ; preds = %if.end4.i
-  %43 = load ptr, ptr %state, align 8
-  %call.i16.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %43, ptr noundef nonnull %memory)
+  %41 = load ptr, ptr %state, align 8
+  %call.i16.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %41, ptr noundef nonnull %memory)
   %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4171,24 +4169,24 @@ if.then7.i:                                       ; preds = %if.end4.i
 if.end8.i26:                                      ; preds = %if.else16.i.i, %if.end.i.i24
   %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i.i24 ]
   store ptr %call.i.i23, ptr %pathHead.sink.i.i, align 8
-  %44 = load ptr, ptr %state, align 8
-  %pathTail.i.i = getelementptr inbounds i8, ptr %44, i64 104
+  %42 = load ptr, ptr %state, align 8
+  %pathTail.i.i = getelementptr inbounds i8, ptr %42, i64 104
   store ptr %call.i.i23, ptr %pathTail.i.i, align 8
   %cmp.not.i27 = icmp ult ptr %call.i22, %afterLast
   br i1 %cmp.not.i27, label %if.end.i19, label %uriParsePathAbsEmptyA.exit
 
-uriParsePathAbsEmptyA.exit:                       ; preds = %if.end.i19, %sw.bb.i20, %if.end8.i26, %if.end4, %if.then7.i
-  %retval.0.i18 = phi ptr [ null, %if.then7.i ], [ %afterLast, %if.end4 ], [ %first.tr20.i, %if.end.i19 ], [ null, %sw.bb.i20 ], [ %afterLast, %if.end8.i26 ]
-  %45 = load ptr, ptr %state, align 8
-  tail call void @uriFixEmptyTrailSegmentA(ptr noundef %45, ptr noundef %memory) #6
+uriParsePathAbsEmptyA.exit:                       ; preds = %if.end.i19, %sw.bb.i20, %if.end8.i26, %if.then.i, %if.end8.i, %if.then23.i.i.i, %if.end.i.i26.i, %if.end4, %if.then7.i
+  %retval.0.i18 = phi ptr [ null, %if.then7.i ], [ %afterLast, %if.end4 ], [ %afterLast, %if.end.i.i26.i ], [ %afterLast, %if.then23.i.i.i ], [ %afterLast, %if.end8.i ], [ %afterLast, %if.then.i ], [ %first.tr20.i, %if.end.i19 ], [ null, %sw.bb.i20 ], [ %afterLast, %if.end8.i26 ]
+  %43 = load ptr, ptr %state, align 8
+  tail call void @uriFixEmptyTrailSegmentA(ptr noundef %43, ptr noundef %memory) #6
   br label %return
 
 if.end.i31:                                       ; preds = %if.end
   %state.val17 = load ptr, ptr %state, align 8
   %absolutePath.i28 = getelementptr inbounds i8, ptr %state.val17, i64 144
   store i32 1, ptr %absolutePath.i28, align 8
-  %46 = load i8, ptr %first, align 1
-  switch i8 %46, label %return [
+  %44 = load i8, ptr %first, align 1
+  switch i8 %44, label %return [
     i8 33, label %sw.bb.i32
     i8 36, label %sw.bb.i32
     i8 37, label %sw.bb.i32
@@ -4272,100 +4270,100 @@ if.end.i31:                                       ; preds = %if.end
   ]
 
 sw.bb.i32:                                        ; preds = %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31
-  %call.i.i33 = tail call fastcc ptr @uriParsePcharA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i.i33 = tail call fastcc ptr @uriParsePcharA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   %cmp.i.i34 = icmp eq ptr %call.i.i33, null
   br i1 %cmp.i.i34, label %return, label %uriParseSegmentNzA.exit.i
 
 uriParseSegmentNzA.exit.i:                        ; preds = %sw.bb.i32
-  %call1.i.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %call.i.i33, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call1.i.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %call.i.i33, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1.i35 = icmp eq ptr %call1.i.i, null
   br i1 %cmp1.i35, label %return, label %if.end4.i36
 
 if.end4.i36:                                      ; preds = %uriParseSegmentNzA.exit.i
   %calloc.i.i37 = getelementptr inbounds i8, ptr %memory, i64 8
-  %47 = load ptr, ptr %calloc.i.i37, align 8
-  %call.i16.i38 = tail call ptr %47(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
+  %45 = load ptr, ptr %calloc.i.i37, align 8
+  %call.i16.i38 = tail call ptr %45(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
   %cmp.i17.i = icmp eq ptr %call.i16.i38, null
   br i1 %cmp.i17.i, label %return.sink.split.i, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %if.end4.i36
   %cmp1.i.i39 = icmp eq ptr %first, %call1.i.i
-  %48 = load ptr, ptr @uriSafeToPointToA, align 8
-  %spec.select.i.i40 = select i1 %cmp1.i.i39, ptr %48, ptr %first
-  %spec.select16.i.i41 = select i1 %cmp1.i.i39, ptr %48, ptr %call1.i.i
+  %46 = load ptr, ptr @uriSafeToPointToA, align 8
+  %spec.select.i.i40 = select i1 %cmp1.i.i39, ptr %46, ptr %first
+  %spec.select16.i.i41 = select i1 %cmp1.i.i39, ptr %46, ptr %call1.i.i
   store ptr %spec.select.i.i40, ptr %call.i16.i38, align 8
-  %49 = getelementptr inbounds i8, ptr %call.i16.i38, i64 8
-  store ptr %spec.select16.i.i41, ptr %49, align 8
-  %50 = load ptr, ptr %state, align 8
-  %pathHead.i.i42 = getelementptr inbounds i8, ptr %50, i64 96
-  %51 = load ptr, ptr %pathHead.i.i42, align 8
-  %cmp11.i.i43 = icmp eq ptr %51, null
+  %47 = getelementptr inbounds i8, ptr %call.i16.i38, i64 8
+  store ptr %spec.select16.i.i41, ptr %47, align 8
+  %48 = load ptr, ptr %state, align 8
+  %pathHead.i.i42 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = load ptr, ptr %pathHead.i.i42, align 8
+  %cmp11.i.i43 = icmp eq ptr %49, null
   br i1 %cmp11.i.i43, label %if.end7.i, label %if.else16.i.i44
 
 if.else16.i.i44:                                  ; preds = %if.end.i18.i
-  %pathTail18.i.i45 = getelementptr inbounds i8, ptr %50, i64 104
-  %52 = load ptr, ptr %pathTail18.i.i45, align 8
-  %next.i.i46 = getelementptr inbounds i8, ptr %52, i64 16
+  %pathTail18.i.i45 = getelementptr inbounds i8, ptr %48, i64 104
+  %50 = load ptr, ptr %pathTail18.i.i45, align 8
+  %next.i.i46 = getelementptr inbounds i8, ptr %50, i64 16
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.else16.i.i44, %if.end.i18.i
   %pathHead.sink.i.i47 = phi ptr [ %next.i.i46, %if.else16.i.i44 ], [ %pathHead.i.i42, %if.end.i18.i ]
   store ptr %call.i16.i38, ptr %pathHead.sink.i.i47, align 8
-  %53 = load ptr, ptr %state, align 8
-  %pathTail.i.i48 = getelementptr inbounds i8, ptr %53, i64 104
+  %51 = load ptr, ptr %state, align 8
+  %pathTail.i.i48 = getelementptr inbounds i8, ptr %51, i64 104
   store ptr %call.i16.i38, ptr %pathTail.i.i48, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
   br i1 %cmp.not19.i.i, label %if.end.i22.i49, label %return
 
 if.end.i22.i49:                                   ; preds = %if.end7.i, %if.end8.i.i
   %first.tr20.i.i = phi ptr [ %call.i23.i, %if.end8.i.i ], [ %call1.i.i, %if.end7.i ]
-  %54 = load i8, ptr %first.tr20.i.i, align 1
-  %cond.i.i50 = icmp eq i8 %54, 47
+  %52 = load i8, ptr %first.tr20.i.i, align 1
+  %cond.i.i50 = icmp eq i8 %52, 47
   br i1 %cond.i.i50, label %sw.bb.i.i51, label %return
 
 sw.bb.i.i51:                                      ; preds = %if.end.i22.i49
   %add.ptr.i.i52 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 1
-  %call.i23.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i52, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
+  %call.i23.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %add.ptr.i.i52, ptr noundef %afterLast, ptr noundef nonnull %memory)
   %cmp1.i24.i = icmp eq ptr %call.i23.i, null
   br i1 %cmp1.i24.i, label %return, label %if.end4.i.i53
 
 if.end4.i.i53:                                    ; preds = %sw.bb.i.i51
-  %55 = load ptr, ptr %calloc.i.i37, align 8
-  %call.i.i.i = tail call ptr %55(ptr noundef nonnull %memory, i64 noundef 1, i64 noundef 32) #6
+  %53 = load ptr, ptr %calloc.i.i37, align 8
+  %call.i.i.i = tail call ptr %53(ptr noundef nonnull %memory, i64 noundef 1, i64 noundef 32) #6
   %cmp.i.i.i54 = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i54, label %return.sink.split.i, label %if.end.i.i.i55
 
 if.end.i.i.i55:                                   ; preds = %if.end4.i.i53
   %cmp1.i.i.i = icmp eq ptr %add.ptr.i.i52, %call.i23.i
-  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %add.ptr.i.i52
-  %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %call.i23.i
+  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %add.ptr.i.i52
+  %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %call.i23.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
-  %56 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  store ptr %spec.select16.i.i.i, ptr %56, align 8
-  %57 = load ptr, ptr %state, align 8
-  %pathHead.i.i.i = getelementptr inbounds i8, ptr %57, i64 96
-  %58 = load ptr, ptr %pathHead.i.i.i, align 8
-  %cmp11.i.i.i = icmp eq ptr %58, null
+  %54 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  store ptr %spec.select16.i.i.i, ptr %54, align 8
+  %55 = load ptr, ptr %state, align 8
+  %pathHead.i.i.i = getelementptr inbounds i8, ptr %55, i64 96
+  %56 = load ptr, ptr %pathHead.i.i.i, align 8
+  %cmp11.i.i.i = icmp eq ptr %56, null
   br i1 %cmp11.i.i.i, label %if.end8.i.i, label %if.else16.i.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.end.i.i.i55
-  %pathTail18.i.i.i = getelementptr inbounds i8, ptr %57, i64 104
-  %59 = load ptr, ptr %pathTail18.i.i.i, align 8
-  %next.i.i.i = getelementptr inbounds i8, ptr %59, i64 16
+  %pathTail18.i.i.i = getelementptr inbounds i8, ptr %55, i64 104
+  %57 = load ptr, ptr %pathTail18.i.i.i, align 8
+  %next.i.i.i = getelementptr inbounds i8, ptr %57, i64 16
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i55
   %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i55 ]
   store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
-  %60 = load ptr, ptr %state, align 8
-  %pathTail.i.i.i = getelementptr inbounds i8, ptr %60, i64 104
+  %58 = load ptr, ptr %state, align 8
+  %pathTail.i.i.i = getelementptr inbounds i8, ptr %58, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
   %cmp.not.i.i56 = icmp ult ptr %call.i23.i, %afterLast
   br i1 %cmp.not.i.i56, label %if.end.i22.i49, label %return
 
 return.sink.split.i:                              ; preds = %if.end4.i.i53, %if.end4.i36
-  %61 = load ptr, ptr %state, align 8
-  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %61, ptr noundef nonnull %memory)
+  %59 = load ptr, ptr %state, align 8
+  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %59, ptr noundef nonnull %memory)
   %errorPos.i.i.i57 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i57, align 8
   %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -4378,7 +4376,7 @@ return:                                           ; preds = %if.end8.i.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseUriTailA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseUriTailA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %return
@@ -4392,13 +4390,13 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %first, i64 1
-  %call = tail call fastcc ptr @uriParseQueryFragA(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParseQueryFragA(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %return.sink.split
 
 sw.bb10:                                          ; preds = %if.end
   %add.ptr12 = getelementptr inbounds i8, ptr %first, i64 1
-  %call13 = tail call fastcc ptr @uriParseQueryFragA(ptr noundef %state, ptr noundef nonnull %add.ptr12, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call13 = tail call fastcc ptr @uriParseQueryFragA(ptr noundef %state, ptr noundef %add.ptr12, ptr noundef %afterLast, ptr noundef %memory)
   %cmp14 = icmp eq ptr %call13, null
   br i1 %cmp14, label %return, label %if.end17
 
@@ -4419,7 +4417,7 @@ if.end.i:                                         ; preds = %if.end17
 
 sw.bb.i:                                          ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call13, i64 1
-  %call.i = tail call fastcc ptr @uriParseQueryFragA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i = tail call fastcc ptr @uriParseQueryFragA(ptr noundef %state, ptr noundef %add.ptr.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %return, label %return.sink.split
 
@@ -4440,7 +4438,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2A(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2A(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
@@ -4486,7 +4484,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseSegmentA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseSegmentA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -4581,7 +4579,7 @@ if.end:                                           ; preds = %tailrecurse
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call = tail call fastcc ptr @uriParsePcharA(ptr noundef %state, ptr noundef nonnull %first.tr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePcharA(ptr noundef %state, ptr noundef %first.tr, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %tailrecurse
 
@@ -4591,7 +4589,7 @@ return:                                           ; preds = %if.end, %sw.bb, %ta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentA(ptr nocapture noundef nonnull readonly %state, ptr noundef %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %calloc = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load ptr, ptr %calloc, align 8
@@ -4633,7 +4631,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not19 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not19, label %if.end.lr.ph, label %return
@@ -4651,7 +4649,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
 
 sw.bb:                                            ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %first.tr20, i64 1
-  %call = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end4
 
@@ -4704,7 +4702,7 @@ return:                                           ; preds = %if.end8, %sw.bb, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseHierPartA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseHierPartA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %return
@@ -4796,12 +4794,12 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call.i.i = tail call fastcc ptr @uriParsePcharA(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i.i = tail call fastcc ptr @uriParsePcharA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %return, label %uriParseSegmentNzA.exit.i
 
 uriParseSegmentNzA.exit.i:                        ; preds = %sw.bb
-  %call1.i.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef nonnull %call.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call1.i.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %call.i.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.i, label %return, label %if.else.i
 
@@ -4849,7 +4847,7 @@ if.end.i17.i:                                     ; preds = %if.end3.i, %if.end8
 
 sw.bb.i.i:                                        ; preds = %if.end.i17.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 1
-  %call.i18.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
+  %call.i18.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef %state, ptr noundef %add.ptr.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory)
   %cmp1.i19.i = icmp eq ptr %call.i18.i, null
   br i1 %cmp1.i19.i, label %return, label %if.end4.i.i
 
@@ -4898,7 +4896,7 @@ return.sink.split.i:                              ; preds = %if.end4.i.i, %if.el
 
 sw.bb1:                                           ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %first, i64 1
-  %call2 = tail call fastcc ptr @uriParsePartHelperTwoA(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call2 = tail call fastcc ptr @uriParsePartHelperTwoA(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 return:                                           ; preds = %if.end8.i.i, %sw.bb.i.i, %if.end.i17.i, %return.sink.split.i, %if.end3.i, %uriParseSegmentNzA.exit.i, %sw.bb, %if.end, %entry, %sw.bb1
@@ -4907,7 +4905,7 @@ return:                                           ; preds = %if.end8.i.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePcharA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePcharA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5007,7 +5005,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
@@ -5031,7 +5029,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 declare void @uriFixEmptyTrailSegmentA(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseIpLit2A(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseIpLit2A(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5076,7 +5074,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call = tail call fastcc ptr @uriParseIpFutureA(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParseIpFutureA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end4
 
@@ -5132,7 +5130,7 @@ if.then21:                                        ; preds = %sw.bb14
   br label %return
 
 if.end22:                                         ; preds = %sw.bb14
-  %call23 = tail call fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
+  %call23 = tail call fastcc ptr @uriParseIPv6address2A(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -5150,7 +5148,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseIpFutureA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseIpFutureA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5277,7 +5275,7 @@ if.end17:                                         ; preds = %if.end12
   store ptr %first, ptr %ipFuture, align 8
   %add.ptr21 = getelementptr inbounds i8, ptr %first.tr2.i, i64 1
   %cmp.not16.i = icmp ult ptr %add.ptr21, %afterLast
-  br i1 %cmp.not16.i, label %if.end.preheader.i, label %uriParseIpFutLoopA.exit.thread
+  br i1 %cmp.not16.i, label %if.end.preheader.i, label %uriParseIpFutLoopA.exit
 
 if.end.preheader.i:                               ; preds = %if.end17
   %afterLast20.i = ptrtoint ptr %afterLast to i64
@@ -5288,7 +5286,7 @@ if.end.preheader.i:                               ; preds = %if.end17
 if.end.i46:                                       ; preds = %if.end.i46.backedge, %if.end.preheader.i
   %7 = phi i8 [ %.pre.i, %if.end.preheader.i ], [ %8, %if.end.i46.backedge ]
   %first.tr17.i = phi ptr [ %add.ptr21, %if.end.preheader.i ], [ %add.ptr.i48, %if.end.i46.backedge ]
-  switch i8 %7, label %uriParseIpFutLoopA.exit.thread [
+  switch i8 %7, label %uriParseIpFutLoopA.exit [
     i8 33, label %sw.bb.i47
     i8 36, label %sw.bb.i47
     i8 38, label %sw.bb.i47
@@ -5460,7 +5458,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i47
 if.end.i46.backedge:                              ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
   br label %if.end.i46
 
-uriParseIpFutLoopA.exit.thread:                   ; preds = %if.end.i46, %if.end17
+uriParseIpFutLoopA.exit:                          ; preds = %if.end.i46, %if.end17
   %first.tr17.lcssa.sink.i = phi ptr [ %afterLast, %if.end17 ], [ %first.tr17.i, %if.end.i46 ]
   %9 = load ptr, ptr %state, align 8
   %call.i11.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory)
@@ -5470,14 +5468,14 @@ uriParseIpFutLoopA.exit.thread:                   ; preds = %if.end.i46, %if.end
   store i32 1, ptr %errorCode.i13.i, align 8
   br label %return
 
-if.end26:                                         ; preds = %sw.bb.i47, %if.end.i.i
-  %retval.0.i4560 = phi ptr [ %add.ptr.i48, %if.end.i.i ], [ %afterLast, %sw.bb.i47 ]
+if.end26:                                         ; preds = %if.end.i.i, %sw.bb.i47
+  %retval.0.i45.ph = phi ptr [ %afterLast, %sw.bb.i47 ], [ %add.ptr.i48, %if.end.i.i ]
   %10 = load ptr, ptr %state, align 8
   %afterLast29 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr %retval.0.i4560, ptr %afterLast29, align 8
+  store ptr %retval.0.i45.ph, ptr %afterLast29, align 8
   %11 = load ptr, ptr %state, align 8
   %afterLast33 = getelementptr inbounds i8, ptr %11, i64 72
-  store ptr %retval.0.i4560, ptr %afterLast33, align 8
+  store ptr %retval.0.i45.ph, ptr %afterLast33, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end3
@@ -5489,13 +5487,13 @@ sw.default:                                       ; preds = %if.end3
   store i32 1, ptr %errorCode.i52, align 8
   br label %return
 
-return:                                           ; preds = %uriParseIpFutLoopA.exit.thread, %sw.default, %if.end26, %if.then16, %if.then11, %if.then2, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %sw.default ], [ null, %if.then11 ], [ null, %if.then16 ], [ %retval.0.i4560, %if.end26 ], [ null, %uriParseIpFutLoopA.exit.thread ]
+return:                                           ; preds = %uriParseIpFutLoopA.exit, %sw.default, %if.end26, %if.then16, %if.then11, %if.then2, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %sw.default ], [ null, %if.then11 ], [ null, %if.then16 ], [ %retval.0.i45.ph, %if.end26 ], [ null, %uriParseIpFutLoopA.exit ]
   ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePctSubUnresA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePctSubUnresA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5593,7 +5591,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
@@ -5615,7 +5613,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseOwnPortUserInfoA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseOwnPortUserInfoA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not51 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not51, label %if.end2.preheader, label %if.then
@@ -5774,7 +5772,7 @@ sw.bb:                                            ; preds = %if.end2, %if.end2, 
   %portText = getelementptr inbounds i8, ptr %17, i64 80
   store ptr null, ptr %portText, align 8
   %add.ptr = getelementptr inbounds i8, ptr %first.tr52, i64 1
-  %call6 = tail call fastcc ptr @uriParseOwnUserInfoA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call6 = tail call fastcc ptr @uriParseOwnUserInfoA(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb7:                                           ; preds = %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2
@@ -5786,12 +5784,12 @@ sw.bb10:                                          ; preds = %if.end2
   %18 = load ptr, ptr %state, align 8
   %portText12 = getelementptr inbounds i8, ptr %18, i64 80
   store ptr null, ptr %portText12, align 8
-  %call14 = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef nonnull %state, ptr noundef nonnull %first.tr52, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call14 = tail call fastcc ptr @uriParsePctEncodedA(ptr noundef %state, ptr noundef %first.tr52, ptr noundef %afterLast, ptr noundef %memory)
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %return, label %if.end18
 
 if.end18:                                         ; preds = %sw.bb10
-  %call19 = tail call fastcc ptr @uriParseOwnUserInfoA(ptr noundef nonnull %state, ptr noundef nonnull %call14, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call19 = tail call fastcc ptr @uriParseOwnUserInfoA(ptr noundef %state, ptr noundef %call14, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb20:                                          ; preds = %if.end2
@@ -5808,11 +5806,11 @@ sw.bb20:                                          ; preds = %if.end2
   %22 = load ptr, ptr %state, align 8
   %hostText31 = getelementptr inbounds i8, ptr %22, i64 32
   store ptr %add.ptr29, ptr %hostText31, align 8
-  %call34 = tail call fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr29, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call34 = tail call fastcc ptr @uriParseOwnHostA(ptr noundef %state, ptr noundef %add.ptr29, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.default:                                       ; preds = %if.end2
-  %call35 = tail call fastcc i32 @uriOnExitOwnPortUserInfoA(ptr noundef %state, ptr noundef nonnull %first.tr52, ptr noundef %memory)
+  %call35 = tail call fastcc i32 @uriOnExitOwnPortUserInfoA(ptr noundef %state, ptr noundef %first.tr52, ptr noundef %memory)
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then37, label %return
 
@@ -5831,7 +5829,7 @@ return:                                           ; preds = %if.end.i, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseOwnHostA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5849,7 +5847,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %first, i64 1
-  %call = tail call fastcc ptr @uriParseIpLit2A(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParseIpLit2A(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end5
 
@@ -6025,12 +6023,12 @@ if.end2.i:                                        ; preds = %tailrecurse.i
   ]
 
 sw.bb.i19:                                        ; preds = %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i
-  %call3.i = tail call fastcc ptr @uriParsePctSubUnresA(ptr noundef %state, ptr noundef nonnull %first.tr.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call3.i = tail call fastcc ptr @uriParsePctSubUnresA(ptr noundef %state, ptr noundef %first.tr.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp4.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.i, label %return, label %tailrecurse.i
 
 sw.default.i:                                     ; preds = %if.end2.i
-  %call9.i = tail call fastcc i32 @uriOnExitOwnHost2A(ptr noundef %state, ptr noundef nonnull %first.tr.i, ptr noundef %memory)
+  %call9.i = tail call fastcc i32 @uriOnExitOwnHost2A(ptr noundef %state, ptr noundef %first.tr.i, ptr noundef %memory)
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.then11.i, label %if.end.i27.i
 
@@ -6081,7 +6079,7 @@ return:                                           ; preds = %sw.bb.i19, %uriPars
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds i8, ptr %0, i64 16
@@ -6132,7 +6130,7 @@ return:                                           ; preds = %if.end, %if.then23,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoA(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoA(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds i8, ptr %0, i64 16
@@ -6183,7 +6181,7 @@ return:                                           ; preds = %if.end, %if.then22,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseOwnUserInfoA(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseOwnUserInfoA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not32 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not32, label %if.end, label %if.then
@@ -6284,7 +6282,7 @@ if.end:                                           ; preds = %entry, %tailrecurse
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call = tail call fastcc ptr @uriParsePctSubUnresA(ptr noundef %state, ptr noundef nonnull %first.tr33, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePctSubUnresA(ptr noundef %state, ptr noundef %first.tr33, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %tailrecurse.backedge
 
@@ -6305,7 +6303,7 @@ sw.bb8:                                           ; preds = %if.end
   %3 = load ptr, ptr %state, align 8
   %hostText = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %add.ptr10, ptr %hostText, align 8
-  %call14 = tail call fastcc ptr @uriParseOwnHostA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr10, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call14 = tail call fastcc ptr @uriParseOwnHostA(ptr noundef %state, ptr noundef %add.ptr10, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -6323,7 +6321,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2A(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2A(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %afterLast = getelementptr inbounds i8, ptr %0, i64 40
@@ -6366,7 +6364,7 @@ return:                                           ; preds = %if.end, %if.then15,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseQueryFragA(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseQueryFragA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not14 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not14, label %if.end, label %return
@@ -6460,7 +6458,7 @@ if.end:                                           ; preds = %entry, %tailrecurse
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call = tail call fastcc ptr @uriParsePcharA(ptr noundef %state, ptr noundef nonnull %first.tr15, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePcharA(ptr noundef %state, ptr noundef %first.tr15, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %tailrecurse.backedge
 
@@ -6489,7 +6487,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @uriWriteQuadToDoubleByte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not71 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not71, label %if.end6, label %if.then
@@ -6630,7 +6628,7 @@ if.end6:                                          ; preds = %entry, %tailrecurse
   ]
 
 sw.bb:                                            ; preds = %if.end6
-  %call7 = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef nonnull %first.tr72, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call7 = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef %first.tr72, ptr noundef %afterLast, ptr noundef %memory)
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %return, label %tailrecurse.backedge
 
@@ -6646,7 +6644,7 @@ tailrecurse.backedge:                             ; preds = %sw.bb12, %sw.bb
 sw.bb14:                                          ; preds = %if.end6
   %12 = load ptr, ptr %state, align 8
   %13 = load ptr, ptr %12, align 8
-  %call18 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %13, ptr noundef nonnull %first.tr72, ptr noundef %memory)
+  %call18 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef %state, ptr noundef %13, ptr noundef %first.tr72, ptr noundef %memory)
   %tobool19.not = icmp eq i32 %call18, 0
   %14 = load ptr, ptr %state, align 8
   br i1 %tobool19.not, label %if.then20, label %if.end21
@@ -6662,12 +6660,12 @@ if.then20:                                        ; preds = %sw.bb14
 if.end21:                                         ; preds = %sw.bb14
   store ptr null, ptr %14, align 8
   %add.ptr25 = getelementptr inbounds i8, ptr %first.tr72, i64 4
-  %call26 = tail call fastcc ptr @uriParseSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr25, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call26 = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %add.ptr25, ptr noundef %afterLast, ptr noundef %memory)
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end21
-  %call31 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr25, ptr noundef nonnull %call26, ptr noundef %memory)
+  %call31 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef %state, ptr noundef nonnull %add.ptr25, ptr noundef %call26, ptr noundef %memory)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
@@ -6681,18 +6679,18 @@ if.then33:                                        ; preds = %if.end29
   br label %return
 
 if.end34:                                         ; preds = %if.end29
-  %call35 = tail call fastcc ptr @uriParseZeroMoreSlashSegsW(ptr noundef nonnull %state, ptr noundef nonnull %call26, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call35 = tail call fastcc ptr @uriParseZeroMoreSlashSegsW(ptr noundef %state, ptr noundef %call26, ptr noundef %afterLast, ptr noundef %memory)
   %cmp36 = icmp eq ptr %call35, null
   br i1 %cmp36, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.end34
-  %call39 = tail call fastcc ptr @uriParseUriTailW(ptr noundef nonnull %state, ptr noundef nonnull %call35, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call39 = tail call fastcc ptr @uriParseUriTailW(ptr noundef %state, ptr noundef %call35, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.default:                                       ; preds = %if.end6
   %16 = load ptr, ptr %state, align 8
   %17 = load ptr, ptr %16, align 8
-  %call43 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %first.tr72, ptr noundef %memory)
+  %call43 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef %state, ptr noundef %17, ptr noundef %first.tr72, ptr noundef %memory)
   %tobool44.not = icmp eq i32 %call43, 0
   %18 = load ptr, ptr %state, align 8
   br i1 %tobool44.not, label %if.then45, label %if.end46
@@ -6707,7 +6705,7 @@ if.then45:                                        ; preds = %sw.default
 
 if.end46:                                         ; preds = %sw.default
   store ptr null, ptr %18, align 8
-  %call50 = tail call fastcc ptr @uriParseUriTailW(ptr noundef nonnull %state, ptr noundef nonnull %first.tr72, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call50 = tail call fastcc ptr @uriParseUriTailW(ptr noundef %state, ptr noundef %first.tr72, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 return:                                           ; preds = %sw.bb, %if.end34, %if.end21, %if.end46, %if.then45, %if.end38, %if.then33, %if.then20, %if.end, %if.then2
@@ -6716,7 +6714,7 @@ return:                                           ; preds = %sw.bb, %if.end34, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePctEncodedW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePctEncodedW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6840,7 +6838,7 @@ return:                                           ; preds = %sw.default12, %sw.d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParsePartHelperTwoW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParsePartHelperTwoW(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6869,7 +6867,7 @@ if.then.i:                                        ; preds = %sw.bb
   %3 = load ptr, ptr %state, align 8
   %afterLast4.i = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %afterLast4.i, align 8
-  br label %uriParseAuthorityW.exit
+  br label %uriParsePathAbsEmptyW.exit
 
 if.end.i:                                         ; preds = %sw.bb
   %4 = load i32, ptr %add.ptr, align 4
@@ -6959,7 +6957,7 @@ if.end.i:                                         ; preds = %sw.bb
 
 sw.bb.i:                                          ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %first, i64 8
-  %call.i = tail call fastcc ptr @uriParseIpLit2W(ptr noundef %state, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i = tail call fastcc ptr @uriParseIpLit2W(ptr noundef %state, ptr noundef %add.ptr.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp5.i = icmp eq ptr %call.i, null
   br i1 %cmp5.i, label %return, label %if.end7.i
 
@@ -6968,7 +6966,7 @@ if.end7.i:                                        ; preds = %sw.bb.i
   %hostText10.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %add.ptr.i, ptr %hostText10.i, align 8
   %cmp.not.i.i = icmp ult ptr %call.i, %afterLast
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %uriParseAuthorityW.exit
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %uriParsePathAbsEmptyW.exit
 
 if.end.i.i:                                       ; preds = %if.end7.i
   %6 = load i32, ptr %call.i, align 4
@@ -6978,41 +6976,31 @@ if.end.i.i:                                       ; preds = %if.end7.i
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 4
   %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
-  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %uriParsePortW.exit.i.i
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end3.sink.split
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i, %sw.bb.i.i.i
   %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
   %7 = load i32, ptr %first.tr2.i.i.i, align 4
   %.off.i.i.i = add i32 %7, -48
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 10
-  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %uriParsePortW.exit.i.i
+  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end3.sink.split
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 4
   %cmp.not.i.i.i = icmp ult ptr %add.ptr.i.i.i, %afterLast
-  br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %uriParsePortW.exit.i.i
-
-uriParsePortW.exit.i.i:                           ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
-  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
-  %8 = load ptr, ptr %state, align 8
-  %portText.i.i = getelementptr inbounds i8, ptr %8, i64 80
-  store ptr %add.ptr.i.i, ptr %portText.i.i, align 8
-  %9 = load ptr, ptr %state, align 8
-  %afterLast8.i.i = getelementptr inbounds i8, ptr %9, i64 88
-  store ptr %retval.0.i.i.i, ptr %afterLast8.i.i, align 8
-  br label %uriParseAuthorityW.exit
+  br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end3.sink.split
 
 if.end.preheader.i.i:                             ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
-  %10 = load ptr, ptr %state, align 8
-  %userInfo.i = getelementptr inbounds i8, ptr %10, i64 16
+  %8 = load ptr, ptr %state, align 8
+  %userInfo.i = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %add.ptr, ptr %userInfo.i, align 8
   %.pre.i.i = load i32, ptr %add.ptr, align 4
   br label %if.end.i22.i
 
 if.end.i22.i:                                     ; preds = %if.end.i22.i.backedge, %if.end.preheader.i.i
-  %11 = phi i32 [ %.pre.i.i, %if.end.preheader.i.i ], [ %26, %if.end.i22.i.backedge ]
+  %9 = phi i32 [ %.pre.i.i, %if.end.preheader.i.i ], [ %24, %if.end.i22.i.backedge ]
   %first.tr53.i.i = phi ptr [ %add.ptr, %if.end.preheader.i.i ], [ %call.i.i, %if.end.i22.i.backedge ]
-  switch i32 %11, label %sw.default.i.i [
+  switch i32 %9, label %sw.default.i.i [
     i32 33, label %sw.bb.i25.i
     i32 36, label %sw.bb.i25.i
     i32 37, label %sw.bb.i25.i
@@ -7096,7 +7084,7 @@ if.end.i22.i:                                     ; preds = %if.end.i22.i.backed
   ]
 
 sw.bb.i25.i:                                      ; preds = %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i
-  %call.i.i = tail call fastcc ptr @uriParsePctSubUnresW(ptr noundef %state, ptr noundef nonnull %first.tr53.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i.i = tail call fastcc ptr @uriParsePctSubUnresW(ptr noundef %state, ptr noundef %first.tr53.i.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %return, label %if.end3.i.i
 
@@ -7105,51 +7093,51 @@ if.end3.i.i:                                      ; preds = %sw.bb.i25.i
   br i1 %cmp.not.i.i26.i, label %if.end2.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end3.i.i
+  %10 = load ptr, ptr %state, align 8
+  %userInfo.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load ptr, ptr %userInfo.i.i.i, align 8
+  %hostText.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr %11, ptr %hostText.i.i.i, align 8
   %12 = load ptr, ptr %state, align 8
-  %userInfo.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load ptr, ptr %userInfo.i.i.i, align 8
-  %hostText.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr %13, ptr %hostText.i.i.i, align 8
-  %14 = load ptr, ptr %state, align 8
-  %userInfo5.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
+  %userInfo5.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr null, ptr %userInfo5.i.i.i, align 8
-  %15 = load ptr, ptr %state, align 8
-  %afterLast.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %13 = load ptr, ptr %state, align 8
+  %afterLast.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
   store ptr %call.i.i, ptr %afterLast.i.i.i, align 8
-  %16 = load ptr, ptr %memory, align 8
-  %call.i39.i.i = tail call ptr %16(ptr noundef nonnull %memory, i64 noundef 4) #6
-  %17 = load ptr, ptr %state, align 8
-  %hostData.i.i.i = getelementptr inbounds i8, ptr %17, i64 48
+  %14 = load ptr, ptr %memory, align 8
+  %call.i39.i.i = tail call ptr %14(ptr noundef nonnull %memory, i64 noundef 4) #6
+  %15 = load ptr, ptr %state, align 8
+  %hostData.i.i.i = getelementptr inbounds i8, ptr %15, i64 48
   store ptr %call.i39.i.i, ptr %hostData.i.i.i, align 8
-  %18 = load ptr, ptr %state, align 8
-  %hostData11.i.i.i = getelementptr inbounds i8, ptr %18, i64 48
-  %19 = load ptr, ptr %hostData11.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %19, null
+  %16 = load ptr, ptr %state, align 8
+  %hostData11.i.i.i = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = load ptr, ptr %hostData11.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.end.i.i27.i
 
 if.end.i.i27.i:                                   ; preds = %if.then.i.i.i
-  %hostText17.i.i.i = getelementptr inbounds i8, ptr %18, i64 32
-  %20 = load ptr, ptr %hostText17.i.i.i, align 8
-  %afterLast21.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
-  %21 = load ptr, ptr %afterLast21.i.i.i, align 8
-  %call22.i.i.i = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %19, ptr noundef %20, ptr noundef %21) #6
+  %hostText17.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = load ptr, ptr %hostText17.i.i.i, align 8
+  %afterLast21.i.i.i = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = load ptr, ptr %afterLast21.i.i.i, align 8
+  %call22.i.i.i = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %17, ptr noundef %18, ptr noundef %19) #6
   %tobool.not.i40.i.i = icmp eq i32 %call22.i.i.i, 0
-  br i1 %tobool.not.i40.i.i, label %uriParseAuthorityW.exit, label %if.then23.i.i.i
+  br i1 %tobool.not.i40.i.i, label %uriParsePathAbsEmptyW.exit, label %if.then23.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.end.i.i27.i
   %free.i.i.i = getelementptr inbounds i8, ptr %memory, i64 32
-  %22 = load ptr, ptr %free.i.i.i, align 8
+  %20 = load ptr, ptr %free.i.i.i, align 8
+  %21 = load ptr, ptr %state, align 8
+  %hostData25.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = load ptr, ptr %hostData25.i.i.i, align 8
+  tail call void %20(ptr noundef nonnull %memory, ptr noundef %22) #6
   %23 = load ptr, ptr %state, align 8
-  %hostData25.i.i.i = getelementptr inbounds i8, ptr %23, i64 48
-  %24 = load ptr, ptr %hostData25.i.i.i, align 8
-  tail call void %22(ptr noundef nonnull %memory, ptr noundef %24) #6
-  %25 = load ptr, ptr %state, align 8
-  %hostData28.i.i.i = getelementptr inbounds i8, ptr %25, i64 48
+  %hostData28.i.i.i = getelementptr inbounds i8, ptr %23, i64 48
   store ptr null, ptr %hostData28.i.i.i, align 8
-  br label %uriParseAuthorityW.exit
+  br label %uriParsePathAbsEmptyW.exit
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call.i36.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %18, ptr noundef nonnull %memory)
+  %call.i36.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %16, ptr noundef nonnull %memory)
   %errorPos.i37.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i37.i.i, align 8
   %errorCode.i38.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7157,8 +7145,8 @@ if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %return
 
 if.end2.i.i.i:                                    ; preds = %if.end3.i.i
-  %26 = load i32, ptr %call.i.i, align 4
-  switch i32 %26, label %sw.default.i.i.i [
+  %24 = load i32, ptr %call.i.i, align 4
+  switch i32 %24, label %sw.default.i.i.i [
     i32 33, label %if.end.i22.i.backedge
     i32 36, label %if.end.i22.i.backedge
     i32 37, label %if.end.i22.i.backedge
@@ -7245,13 +7233,13 @@ if.end.i22.i.backedge:                            ; preds = %if.end2.i.i.i, %if.
   br label %if.end.i22.i
 
 sw.default.i.i.i:                                 ; preds = %if.end2.i.i.i
-  %call4.i.i.i = tail call fastcc i32 @uriOnExitOwnHostUserInfoW(ptr noundef %state, ptr noundef nonnull %call.i.i, ptr noundef %memory)
+  %call4.i.i.i = tail call fastcc i32 @uriOnExitOwnHostUserInfoW(ptr noundef %state, ptr noundef %call.i.i, ptr noundef %memory)
   %tobool5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %tobool5.not.i.i.i, label %if.then6.i.i.i, label %if.end3
 
 if.then6.i.i.i:                                   ; preds = %sw.default.i.i.i
-  %27 = load ptr, ptr %state, align 8
-  %call.i34.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %27, ptr noundef %memory)
+  %25 = load ptr, ptr %state, align 8
+  %call.i34.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %25, ptr noundef %memory)
   %errorPos.i.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i, align 8
   %errorCode.i35.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7259,30 +7247,30 @@ if.then6.i.i.i:                                   ; preds = %sw.default.i.i.i
   br label %return
 
 sw.bb5.i.i:                                       ; preds = %if.end.i22.i
-  %28 = load ptr, ptr %state, align 8
-  %afterLast6.i.i = getelementptr inbounds i8, ptr %28, i64 40
+  %26 = load ptr, ptr %state, align 8
+  %afterLast6.i.i = getelementptr inbounds i8, ptr %26, i64 40
   store ptr %first.tr53.i.i, ptr %afterLast6.i.i, align 8
   %add.ptr.i23.i = getelementptr inbounds i8, ptr %first.tr53.i.i, i64 4
-  %29 = load ptr, ptr %state, align 8
-  %portText.i24.i = getelementptr inbounds i8, ptr %29, i64 80
+  %27 = load ptr, ptr %state, align 8
+  %portText.i24.i = getelementptr inbounds i8, ptr %27, i64 80
   store ptr %add.ptr.i23.i, ptr %portText.i24.i, align 8
-  %call10.i.i = tail call fastcc ptr @uriParseOwnPortUserInfoW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i23.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call10.i.i = tail call fastcc ptr @uriParseOwnPortUserInfoW(ptr noundef %state, ptr noundef %add.ptr.i23.i, ptr noundef %afterLast, ptr noundef %memory)
   br label %uriParseAuthorityW.exit
 
 sw.bb11.i.i:                                      ; preds = %if.end.i22.i
-  %30 = load ptr, ptr %state, align 8
-  %afterLast13.i.i = getelementptr inbounds i8, ptr %30, i64 24
+  %28 = load ptr, ptr %state, align 8
+  %afterLast13.i.i = getelementptr inbounds i8, ptr %28, i64 24
   store ptr %first.tr53.i.i, ptr %afterLast13.i.i, align 8
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %first.tr53.i.i, i64 4
-  %31 = load ptr, ptr %state, align 8
-  %hostText16.i.i = getelementptr inbounds i8, ptr %31, i64 32
+  %29 = load ptr, ptr %state, align 8
+  %hostText16.i.i = getelementptr inbounds i8, ptr %29, i64 32
   store ptr %add.ptr14.i.i, ptr %hostText16.i.i, align 8
-  %call19.i.i = tail call fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr14.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call19.i.i = tail call fastcc ptr @uriParseOwnHostW(ptr noundef %state, ptr noundef %add.ptr14.i.i, ptr noundef %afterLast, ptr noundef %memory)
   br label %uriParseAuthorityW.exit
 
 sw.default.i.i:                                   ; preds = %if.end.i22.i
-  %32 = load ptr, ptr %state, align 8
-  %call.i31.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %32, ptr noundef %memory)
+  %30 = load ptr, ptr %state, align 8
+  %call.i31.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %30, ptr noundef %memory)
   %errorPos1.i32.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.tr53.i.i, ptr %errorPos1.i32.i.i, align 8
   %errorCode.i33.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7290,70 +7278,78 @@ sw.default.i.i:                                   ; preds = %if.end.i22.i
   br label %return
 
 sw.default.i:                                     ; preds = %if.end.i
-  %33 = load ptr, ptr @uriSafeToPointToW, align 8
-  %34 = load ptr, ptr %state, align 8
-  %hostText18.i = getelementptr inbounds i8, ptr %34, i64 32
-  store ptr %33, ptr %hostText18.i, align 8
-  %35 = load ptr, ptr %state, align 8
-  %afterLast22.i = getelementptr inbounds i8, ptr %35, i64 40
-  store ptr %33, ptr %afterLast22.i, align 8
-  br label %if.end3
+  %31 = load ptr, ptr @uriSafeToPointToW, align 8
+  br label %if.end3.sink.split
 
-uriParseAuthorityW.exit:                          ; preds = %if.then.i, %if.end7.i, %uriParsePortW.exit.i.i, %if.end.i.i27.i, %if.then23.i.i.i, %sw.bb5.i.i, %sw.bb11.i.i
-  %retval.0.i = phi ptr [ %afterLast, %if.then.i ], [ %retval.0.i.i.i, %uriParsePortW.exit.i.i ], [ %afterLast, %if.end7.i ], [ %call19.i.i, %sw.bb11.i.i ], [ %call10.i.i, %sw.bb5.i.i ], [ %afterLast, %if.then23.i.i.i ], [ %afterLast, %if.end.i.i27.i ]
+uriParseAuthorityW.exit:                          ; preds = %sw.bb5.i.i, %sw.bb11.i.i
+  %retval.0.i = phi ptr [ %call19.i.i, %sw.bb11.i.i ], [ %call10.i.i, %sw.bb5.i.i ]
   %cmp1 = icmp eq ptr %retval.0.i, null
   br i1 %cmp1, label %return, label %if.end3
 
-if.end3:                                          ; preds = %sw.default.i.i.i, %if.end.i.i, %sw.default.i, %uriParseAuthorityW.exit
-  %retval.0.i64 = phi ptr [ %retval.0.i, %uriParseAuthorityW.exit ], [ %call.i.i, %sw.default.i.i.i ], [ %call.i, %if.end.i.i ], [ %add.ptr, %sw.default.i ]
-  %cmp.not19.i = icmp ult ptr %retval.0.i64, %afterLast
+if.end3.sink.split:                               ; preds = %if.end.i.i.i, %sw.bb.i.i.i, %sw.bb.i.i, %sw.default.i
+  %.sink92 = phi i64 [ 32, %sw.default.i ], [ 80, %sw.bb.i.i ], [ 80, %sw.bb.i.i.i ], [ 80, %if.end.i.i.i ]
+  %add.ptr.i.i.sink = phi ptr [ %31, %sw.default.i ], [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %if.end.i.i.i ]
+  %.sink91 = phi i64 [ 40, %sw.default.i ], [ 88, %sw.bb.i.i ], [ 88, %sw.bb.i.i.i ], [ 88, %if.end.i.i.i ]
+  %retval.0.i.i.i.sink = phi ptr [ %31, %sw.default.i ], [ %afterLast, %sw.bb.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ], [ %afterLast, %sw.bb.i.i.i ]
+  %retval.0.i60.ph = phi ptr [ %add.ptr, %sw.default.i ], [ %afterLast, %sw.bb.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ], [ %afterLast, %sw.bb.i.i.i ]
+  %32 = load ptr, ptr %state, align 8
+  %portText.i.i = getelementptr inbounds i8, ptr %32, i64 %.sink92
+  store ptr %add.ptr.i.i.sink, ptr %portText.i.i, align 8
+  %33 = load ptr, ptr %state, align 8
+  %afterLast8.i.i = getelementptr inbounds i8, ptr %33, i64 %.sink91
+  store ptr %retval.0.i.i.i.sink, ptr %afterLast8.i.i, align 8
+  br label %if.end3
+
+if.end3:                                          ; preds = %if.end3.sink.split, %sw.default.i.i.i, %if.end.i.i, %uriParseAuthorityW.exit
+  %retval.0.i60 = phi ptr [ %retval.0.i, %uriParseAuthorityW.exit ], [ %call.i.i, %sw.default.i.i.i ], [ %call.i, %if.end.i.i ], [ %retval.0.i60.ph, %if.end3.sink.split ]
+  %cmp.not19.i = icmp ult ptr %retval.0.i60, %afterLast
   br i1 %cmp.not19.i, label %if.end.lr.ph.i, label %uriParsePathAbsEmptyW.exit
 
 if.end.lr.ph.i:                                   ; preds = %if.end3
   %calloc.i.i = getelementptr inbounds i8, ptr %memory, i64 8
-  %36 = load ptr, ptr @uriSafeToPointToW, align 8
+  %34 = load ptr, ptr @uriSafeToPointToW, align 8
   br label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.end7.i26, %if.end.lr.ph.i
-  %first.tr20.i = phi ptr [ %retval.0.i64, %if.end.lr.ph.i ], [ %call.i22, %if.end7.i26 ]
-  %37 = load i32, ptr %first.tr20.i, align 4
-  %cond.i = icmp eq i32 %37, 47
+  %first.tr20.i = phi ptr [ %retval.0.i60, %if.end.lr.ph.i ], [ %call.i22, %if.end7.i26 ]
+  %35 = load i32, ptr %first.tr20.i, align 4
+  %cond.i = icmp eq i32 %35, 47
   br i1 %cond.i, label %sw.bb.i20, label %uriParsePathAbsEmptyW.exit
 
 sw.bb.i20:                                        ; preds = %if.end.i19
   %add.ptr.i21 = getelementptr inbounds i8, ptr %first.tr20.i, i64 4
-  %call.i22 = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef nonnull %add.ptr.i21, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i22 = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %add.ptr.i21, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1.i = icmp eq ptr %call.i22, null
   br i1 %cmp1.i, label %uriParsePathAbsEmptyW.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %sw.bb.i20
-  %38 = load ptr, ptr %calloc.i.i, align 8
-  %call.i.i23 = tail call ptr %38(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
+  %36 = load ptr, ptr %calloc.i.i, align 8
+  %call.i.i23 = tail call ptr %36(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
   %cmp.i.i = icmp eq ptr %call.i.i23, null
   br i1 %cmp.i.i, label %if.then6.i, label %if.end.i.i24
 
 if.end.i.i24:                                     ; preds = %if.end3.i
   %cmp1.i.i25 = icmp eq ptr %add.ptr.i21, %call.i22
-  %spec.select.i.i = select i1 %cmp1.i.i25, ptr %36, ptr %add.ptr.i21
-  %spec.select16.i.i = select i1 %cmp1.i.i25, ptr %36, ptr %call.i22
+  %spec.select.i.i = select i1 %cmp1.i.i25, ptr %34, ptr %add.ptr.i21
+  %spec.select16.i.i = select i1 %cmp1.i.i25, ptr %34, ptr %call.i22
   store ptr %spec.select.i.i, ptr %call.i.i23, align 8
-  %39 = getelementptr inbounds i8, ptr %call.i.i23, i64 8
-  store ptr %spec.select16.i.i, ptr %39, align 8
-  %40 = load ptr, ptr %state, align 8
-  %pathHead.i.i = getelementptr inbounds i8, ptr %40, i64 96
-  %41 = load ptr, ptr %pathHead.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %41, null
+  %37 = getelementptr inbounds i8, ptr %call.i.i23, i64 8
+  store ptr %spec.select16.i.i, ptr %37, align 8
+  %38 = load ptr, ptr %state, align 8
+  %pathHead.i.i = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = load ptr, ptr %pathHead.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %39, null
   br i1 %cmp11.i.i, label %if.end7.i26, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.end.i.i24
-  %pathTail18.i.i = getelementptr inbounds i8, ptr %40, i64 104
-  %42 = load ptr, ptr %pathTail18.i.i, align 8
-  %next.i.i = getelementptr inbounds i8, ptr %42, i64 16
+  %pathTail18.i.i = getelementptr inbounds i8, ptr %38, i64 104
+  %40 = load ptr, ptr %pathTail18.i.i, align 8
+  %next.i.i = getelementptr inbounds i8, ptr %40, i64 16
   br label %if.end7.i26
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %43 = load ptr, ptr %state, align 8
-  %call.i16.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %43, ptr noundef nonnull %memory)
+  %41 = load ptr, ptr %state, align 8
+  %call.i16.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %41, ptr noundef nonnull %memory)
   %errorPos.i.i = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i, align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7363,24 +7359,24 @@ if.then6.i:                                       ; preds = %if.end3.i
 if.end7.i26:                                      ; preds = %if.else16.i.i, %if.end.i.i24
   %pathHead.sink.i.i = phi ptr [ %next.i.i, %if.else16.i.i ], [ %pathHead.i.i, %if.end.i.i24 ]
   store ptr %call.i.i23, ptr %pathHead.sink.i.i, align 8
-  %44 = load ptr, ptr %state, align 8
-  %pathTail.i.i = getelementptr inbounds i8, ptr %44, i64 104
+  %42 = load ptr, ptr %state, align 8
+  %pathTail.i.i = getelementptr inbounds i8, ptr %42, i64 104
   store ptr %call.i.i23, ptr %pathTail.i.i, align 8
   %cmp.not.i27 = icmp ult ptr %call.i22, %afterLast
   br i1 %cmp.not.i27, label %if.end.i19, label %uriParsePathAbsEmptyW.exit
 
-uriParsePathAbsEmptyW.exit:                       ; preds = %if.end.i19, %sw.bb.i20, %if.end7.i26, %if.end3, %if.then6.i
-  %retval.0.i18 = phi ptr [ null, %if.then6.i ], [ %afterLast, %if.end3 ], [ %first.tr20.i, %if.end.i19 ], [ null, %sw.bb.i20 ], [ %afterLast, %if.end7.i26 ]
-  %45 = load ptr, ptr %state, align 8
-  tail call void @uriFixEmptyTrailSegmentW(ptr noundef %45, ptr noundef %memory) #6
+uriParsePathAbsEmptyW.exit:                       ; preds = %if.end.i19, %sw.bb.i20, %if.end7.i26, %if.then.i, %if.end7.i, %if.then23.i.i.i, %if.end.i.i27.i, %if.end3, %if.then6.i
+  %retval.0.i18 = phi ptr [ null, %if.then6.i ], [ %afterLast, %if.end3 ], [ %afterLast, %if.end.i.i27.i ], [ %afterLast, %if.then23.i.i.i ], [ %afterLast, %if.end7.i ], [ %afterLast, %if.then.i ], [ %first.tr20.i, %if.end.i19 ], [ null, %sw.bb.i20 ], [ %afterLast, %if.end7.i26 ]
+  %43 = load ptr, ptr %state, align 8
+  tail call void @uriFixEmptyTrailSegmentW(ptr noundef %43, ptr noundef %memory) #6
   br label %return
 
 if.end.i31:                                       ; preds = %if.end
   %state.val17 = load ptr, ptr %state, align 8
   %absolutePath.i28 = getelementptr inbounds i8, ptr %state.val17, i64 144
   store i32 1, ptr %absolutePath.i28, align 8
-  %46 = load i32, ptr %first, align 4
-  switch i32 %46, label %return [
+  %44 = load i32, ptr %first, align 4
+  switch i32 %44, label %return [
     i32 33, label %sw.bb.i32
     i32 36, label %sw.bb.i32
     i32 37, label %sw.bb.i32
@@ -7464,100 +7460,100 @@ if.end.i31:                                       ; preds = %if.end
   ]
 
 sw.bb.i32:                                        ; preds = %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31
-  %call.i.i33 = tail call fastcc ptr @uriParsePcharW(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i.i33 = tail call fastcc ptr @uriParsePcharW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   %cmp.i.i34 = icmp eq ptr %call.i.i33, null
   br i1 %cmp.i.i34, label %return, label %uriParseSegmentNzW.exit.i
 
 uriParseSegmentNzW.exit.i:                        ; preds = %sw.bb.i32
-  %call1.i.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %call.i.i33, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call1.i.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %call.i.i33, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1.i35 = icmp eq ptr %call1.i.i, null
   br i1 %cmp1.i35, label %return, label %if.end3.i36
 
 if.end3.i36:                                      ; preds = %uriParseSegmentNzW.exit.i
   %calloc.i.i37 = getelementptr inbounds i8, ptr %memory, i64 8
-  %47 = load ptr, ptr %calloc.i.i37, align 8
-  %call.i16.i38 = tail call ptr %47(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
+  %45 = load ptr, ptr %calloc.i.i37, align 8
+  %call.i16.i38 = tail call ptr %45(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
   %cmp.i17.i = icmp eq ptr %call.i16.i38, null
   br i1 %cmp.i17.i, label %return.sink.split.i, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %if.end3.i36
   %cmp1.i.i39 = icmp eq ptr %first, %call1.i.i
-  %48 = load ptr, ptr @uriSafeToPointToW, align 8
-  %spec.select.i.i40 = select i1 %cmp1.i.i39, ptr %48, ptr %first
-  %spec.select16.i.i41 = select i1 %cmp1.i.i39, ptr %48, ptr %call1.i.i
+  %46 = load ptr, ptr @uriSafeToPointToW, align 8
+  %spec.select.i.i40 = select i1 %cmp1.i.i39, ptr %46, ptr %first
+  %spec.select16.i.i41 = select i1 %cmp1.i.i39, ptr %46, ptr %call1.i.i
   store ptr %spec.select.i.i40, ptr %call.i16.i38, align 8
-  %49 = getelementptr inbounds i8, ptr %call.i16.i38, i64 8
-  store ptr %spec.select16.i.i41, ptr %49, align 8
-  %50 = load ptr, ptr %state, align 8
-  %pathHead.i.i42 = getelementptr inbounds i8, ptr %50, i64 96
-  %51 = load ptr, ptr %pathHead.i.i42, align 8
-  %cmp11.i.i43 = icmp eq ptr %51, null
+  %47 = getelementptr inbounds i8, ptr %call.i16.i38, i64 8
+  store ptr %spec.select16.i.i41, ptr %47, align 8
+  %48 = load ptr, ptr %state, align 8
+  %pathHead.i.i42 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = load ptr, ptr %pathHead.i.i42, align 8
+  %cmp11.i.i43 = icmp eq ptr %49, null
   br i1 %cmp11.i.i43, label %if.end6.i, label %if.else16.i.i44
 
 if.else16.i.i44:                                  ; preds = %if.end.i18.i
-  %pathTail18.i.i45 = getelementptr inbounds i8, ptr %50, i64 104
-  %52 = load ptr, ptr %pathTail18.i.i45, align 8
-  %next.i.i46 = getelementptr inbounds i8, ptr %52, i64 16
+  %pathTail18.i.i45 = getelementptr inbounds i8, ptr %48, i64 104
+  %50 = load ptr, ptr %pathTail18.i.i45, align 8
+  %next.i.i46 = getelementptr inbounds i8, ptr %50, i64 16
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.else16.i.i44, %if.end.i18.i
   %pathHead.sink.i.i47 = phi ptr [ %next.i.i46, %if.else16.i.i44 ], [ %pathHead.i.i42, %if.end.i18.i ]
   store ptr %call.i16.i38, ptr %pathHead.sink.i.i47, align 8
-  %53 = load ptr, ptr %state, align 8
-  %pathTail.i.i48 = getelementptr inbounds i8, ptr %53, i64 104
+  %51 = load ptr, ptr %state, align 8
+  %pathTail.i.i48 = getelementptr inbounds i8, ptr %51, i64 104
   store ptr %call.i16.i38, ptr %pathTail.i.i48, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
   br i1 %cmp.not19.i.i, label %if.end.i22.i49, label %return
 
 if.end.i22.i49:                                   ; preds = %if.end6.i, %if.end7.i.i
   %first.tr20.i.i = phi ptr [ %call.i23.i, %if.end7.i.i ], [ %call1.i.i, %if.end6.i ]
-  %54 = load i32, ptr %first.tr20.i.i, align 4
-  %cond.i.i50 = icmp eq i32 %54, 47
+  %52 = load i32, ptr %first.tr20.i.i, align 4
+  %cond.i.i50 = icmp eq i32 %52, 47
   br i1 %cond.i.i50, label %sw.bb.i.i51, label %return
 
 sw.bb.i.i51:                                      ; preds = %if.end.i22.i49
   %add.ptr.i.i52 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 4
-  %call.i23.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i52, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
+  %call.i23.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %add.ptr.i.i52, ptr noundef %afterLast, ptr noundef nonnull %memory)
   %cmp1.i24.i = icmp eq ptr %call.i23.i, null
   br i1 %cmp1.i24.i, label %return, label %if.end3.i.i53
 
 if.end3.i.i53:                                    ; preds = %sw.bb.i.i51
-  %55 = load ptr, ptr %calloc.i.i37, align 8
-  %call.i.i.i = tail call ptr %55(ptr noundef nonnull %memory, i64 noundef 1, i64 noundef 32) #6
+  %53 = load ptr, ptr %calloc.i.i37, align 8
+  %call.i.i.i = tail call ptr %53(ptr noundef nonnull %memory, i64 noundef 1, i64 noundef 32) #6
   %cmp.i.i.i54 = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i54, label %return.sink.split.i, label %if.end.i.i.i55
 
 if.end.i.i.i55:                                   ; preds = %if.end3.i.i53
   %cmp1.i.i.i = icmp eq ptr %add.ptr.i.i52, %call.i23.i
-  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %add.ptr.i.i52
-  %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %call.i23.i
+  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %add.ptr.i.i52
+  %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %46, ptr %call.i23.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
-  %56 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  store ptr %spec.select16.i.i.i, ptr %56, align 8
-  %57 = load ptr, ptr %state, align 8
-  %pathHead.i.i.i = getelementptr inbounds i8, ptr %57, i64 96
-  %58 = load ptr, ptr %pathHead.i.i.i, align 8
-  %cmp11.i.i.i = icmp eq ptr %58, null
+  %54 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  store ptr %spec.select16.i.i.i, ptr %54, align 8
+  %55 = load ptr, ptr %state, align 8
+  %pathHead.i.i.i = getelementptr inbounds i8, ptr %55, i64 96
+  %56 = load ptr, ptr %pathHead.i.i.i, align 8
+  %cmp11.i.i.i = icmp eq ptr %56, null
   br i1 %cmp11.i.i.i, label %if.end7.i.i, label %if.else16.i.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.end.i.i.i55
-  %pathTail18.i.i.i = getelementptr inbounds i8, ptr %57, i64 104
-  %59 = load ptr, ptr %pathTail18.i.i.i, align 8
-  %next.i.i.i = getelementptr inbounds i8, ptr %59, i64 16
+  %pathTail18.i.i.i = getelementptr inbounds i8, ptr %55, i64 104
+  %57 = load ptr, ptr %pathTail18.i.i.i, align 8
+  %next.i.i.i = getelementptr inbounds i8, ptr %57, i64 16
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i55
   %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i55 ]
   store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
-  %60 = load ptr, ptr %state, align 8
-  %pathTail.i.i.i = getelementptr inbounds i8, ptr %60, i64 104
+  %58 = load ptr, ptr %state, align 8
+  %pathTail.i.i.i = getelementptr inbounds i8, ptr %58, i64 104
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
   %cmp.not.i.i56 = icmp ult ptr %call.i23.i, %afterLast
   br i1 %cmp.not.i.i56, label %if.end.i22.i49, label %return
 
 return.sink.split.i:                              ; preds = %if.end3.i.i53, %if.end3.i36
-  %61 = load ptr, ptr %state, align 8
-  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %61, ptr noundef nonnull %memory)
+  %59 = load ptr, ptr %state, align 8
+  %call.i16.i.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %59, ptr noundef nonnull %memory)
   %errorPos.i.i.i57 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr null, ptr %errorPos.i.i.i57, align 8
   %errorCode.i.i.i = getelementptr inbounds i8, ptr %state, i64 8
@@ -7570,7 +7566,7 @@ return:                                           ; preds = %if.end7.i.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseUriTailW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseUriTailW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %return
@@ -7584,13 +7580,13 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
-  %call = tail call fastcc ptr @uriParseQueryFragW(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParseQueryFragW(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %return.sink.split
 
 sw.bb9:                                           ; preds = %if.end
   %add.ptr11 = getelementptr inbounds i8, ptr %first, i64 4
-  %call12 = tail call fastcc ptr @uriParseQueryFragW(ptr noundef %state, ptr noundef nonnull %add.ptr11, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call12 = tail call fastcc ptr @uriParseQueryFragW(ptr noundef %state, ptr noundef %add.ptr11, ptr noundef %afterLast, ptr noundef %memory)
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %return, label %if.end15
 
@@ -7611,7 +7607,7 @@ if.end.i:                                         ; preds = %if.end15
 
 sw.bb.i:                                          ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call12, i64 4
-  %call.i = tail call fastcc ptr @uriParseQueryFragW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i = tail call fastcc ptr @uriParseQueryFragW(ptr noundef %state, ptr noundef %add.ptr.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %return, label %return.sink.split
 
@@ -7632,7 +7628,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
@@ -7678,7 +7674,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseSegmentW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseSegmentW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -7773,7 +7769,7 @@ if.end:                                           ; preds = %tailrecurse
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call = tail call fastcc ptr @uriParsePcharW(ptr noundef %state, ptr noundef nonnull %first.tr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePcharW(ptr noundef %state, ptr noundef %first.tr, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %tailrecurse
 
@@ -7783,7 +7779,7 @@ return:                                           ; preds = %if.end, %sw.bb, %ta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr nocapture noundef nonnull readonly %state, ptr noundef %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %calloc = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load ptr, ptr %calloc, align 8
@@ -7825,7 +7821,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not19 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not19, label %if.end.lr.ph, label %return
@@ -7843,7 +7839,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
 
 sw.bb:                                            ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %first.tr20, i64 4
-  %call = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end3
 
@@ -7896,7 +7892,7 @@ return:                                           ; preds = %if.end7, %sw.bb, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseHierPartW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseHierPartW(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %return
@@ -7988,12 +7984,12 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call.i.i = tail call fastcc ptr @uriParsePcharW(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call.i.i = tail call fastcc ptr @uriParsePcharW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %return, label %uriParseSegmentNzW.exit.i
 
 uriParseSegmentNzW.exit.i:                        ; preds = %sw.bb
-  %call1.i.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef nonnull %call.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call1.i.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %call.i.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.i, label %return, label %if.else.i
 
@@ -8041,7 +8037,7 @@ if.end.i17.i:                                     ; preds = %if.end3.i, %if.end7
 
 sw.bb.i.i:                                        ; preds = %if.end.i17.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 4
-  %call.i18.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
+  %call.i18.i = tail call fastcc ptr @uriParseSegmentW(ptr noundef %state, ptr noundef %add.ptr.i.i, ptr noundef %afterLast, ptr noundef nonnull %memory)
   %cmp1.i19.i = icmp eq ptr %call.i18.i, null
   br i1 %cmp1.i19.i, label %return, label %if.end3.i.i
 
@@ -8090,7 +8086,7 @@ return.sink.split.i:                              ; preds = %if.end3.i.i, %if.el
 
 sw.bb1:                                           ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
-  %call2 = tail call fastcc ptr @uriParsePartHelperTwoW(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call2 = tail call fastcc ptr @uriParsePartHelperTwoW(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 return:                                           ; preds = %if.end7.i.i, %sw.bb.i.i, %if.end.i17.i, %return.sink.split.i, %if.end3.i, %uriParseSegmentNzW.exit.i, %sw.bb, %if.end, %entry, %sw.bb1
@@ -8099,7 +8095,7 @@ return:                                           ; preds = %if.end7.i.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePcharW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePcharW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8199,7 +8195,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
@@ -8223,7 +8219,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 declare void @uriFixEmptyTrailSegmentW(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseIpLit2W(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseIpLit2W(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8268,7 +8264,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call = tail call fastcc ptr @uriParseIpFutureW(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParseIpFutureW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end3
 
@@ -8324,7 +8320,7 @@ if.then16:                                        ; preds = %sw.bb10
   br label %return
 
 if.end17:                                         ; preds = %sw.bb10
-  %call18 = tail call fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
+  %call18 = tail call fastcc ptr @uriParseIPv6address2W(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -8342,7 +8338,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseIpFutureW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseIpFutureW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8469,7 +8465,7 @@ if.end13:                                         ; preds = %if.end10
   store ptr %first, ptr %ipFuture, align 8
   %add.ptr17 = getelementptr inbounds i8, ptr %first.tr2.i, i64 4
   %cmp.not16.i = icmp ult ptr %add.ptr17, %afterLast
-  br i1 %cmp.not16.i, label %if.end.preheader.i, label %uriParseIpFutLoopW.exit.thread
+  br i1 %cmp.not16.i, label %if.end.preheader.i, label %uriParseIpFutLoopW.exit
 
 if.end.preheader.i:                               ; preds = %if.end13
   %.pre.i = load i32, ptr %add.ptr17, align 4
@@ -8478,7 +8474,7 @@ if.end.preheader.i:                               ; preds = %if.end13
 if.end.i46:                                       ; preds = %if.end.i46.backedge, %if.end.preheader.i
   %7 = phi i32 [ %.pre.i, %if.end.preheader.i ], [ %8, %if.end.i46.backedge ]
   %first.tr17.i = phi ptr [ %add.ptr17, %if.end.preheader.i ], [ %add.ptr.i48, %if.end.i46.backedge ]
-  switch i32 %7, label %uriParseIpFutLoopW.exit.thread [
+  switch i32 %7, label %uriParseIpFutLoopW.exit [
     i32 33, label %sw.bb.i47
     i32 36, label %sw.bb.i47
     i32 38, label %sw.bb.i47
@@ -8650,7 +8646,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i47
 if.end.i46.backedge:                              ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
   br label %if.end.i46
 
-uriParseIpFutLoopW.exit.thread:                   ; preds = %if.end.i46, %if.end13
+uriParseIpFutLoopW.exit:                          ; preds = %if.end.i46, %if.end13
   %first.tr17.lcssa.sink.i = phi ptr [ %afterLast, %if.end13 ], [ %first.tr17.i, %if.end.i46 ]
   %9 = load ptr, ptr %state, align 8
   %call.i11.i = tail call i32 @uriFreeUriMembersMmW(ptr noundef %9, ptr noundef %memory)
@@ -8660,14 +8656,14 @@ uriParseIpFutLoopW.exit.thread:                   ; preds = %if.end.i46, %if.end
   store i32 1, ptr %errorCode.i13.i, align 8
   br label %return
 
-if.end21:                                         ; preds = %sw.bb.i47, %if.end.i.i
-  %retval.0.i4559 = phi ptr [ %add.ptr.i48, %if.end.i.i ], [ %afterLast, %sw.bb.i47 ]
+if.end21:                                         ; preds = %if.end.i.i, %sw.bb.i47
+  %retval.0.i45.ph = phi ptr [ %afterLast, %sw.bb.i47 ], [ %add.ptr.i48, %if.end.i.i ]
   %10 = load ptr, ptr %state, align 8
   %afterLast24 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr %retval.0.i4559, ptr %afterLast24, align 8
+  store ptr %retval.0.i45.ph, ptr %afterLast24, align 8
   %11 = load ptr, ptr %state, align 8
   %afterLast28 = getelementptr inbounds i8, ptr %11, i64 72
-  store ptr %retval.0.i4559, ptr %afterLast28, align 8
+  store ptr %retval.0.i45.ph, ptr %afterLast28, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end3
@@ -8679,13 +8675,13 @@ sw.default:                                       ; preds = %if.end3
   store i32 1, ptr %errorCode.i51, align 8
   br label %return
 
-return:                                           ; preds = %uriParseIpFutLoopW.exit.thread, %sw.default, %if.end21, %if.then12, %if.then9, %if.then2, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %sw.default ], [ null, %if.then9 ], [ null, %if.then12 ], [ %retval.0.i4559, %if.end21 ], [ null, %uriParseIpFutLoopW.exit.thread ]
+return:                                           ; preds = %uriParseIpFutLoopW.exit, %sw.default, %if.end21, %if.then12, %if.then9, %if.then2, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %sw.default ], [ null, %if.then9 ], [ null, %if.then12 ], [ %retval.0.i45.ph, %if.end21 ], [ null, %uriParseIpFutLoopW.exit ]
   ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePctSubUnresW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePctSubUnresW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8783,7 +8779,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
@@ -8805,7 +8801,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseOwnPortUserInfoW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseOwnPortUserInfoW(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not51 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not51, label %if.end2, label %if.then
@@ -8957,7 +8953,7 @@ sw.bb:                                            ; preds = %if.end2, %if.end2, 
   %portText = getelementptr inbounds i8, ptr %16, i64 80
   store ptr null, ptr %portText, align 8
   %add.ptr = getelementptr inbounds i8, ptr %first.tr52, i64 4
-  %call6 = tail call fastcc ptr @uriParseOwnUserInfoW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call6 = tail call fastcc ptr @uriParseOwnUserInfoW(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb7:                                           ; preds = %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2
@@ -8969,12 +8965,12 @@ sw.bb10:                                          ; preds = %if.end2
   %17 = load ptr, ptr %state, align 8
   %portText12 = getelementptr inbounds i8, ptr %17, i64 80
   store ptr null, ptr %portText12, align 8
-  %call14 = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull %state, ptr noundef nonnull %first.tr52, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call14 = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %state, ptr noundef %first.tr52, ptr noundef %afterLast, ptr noundef %memory)
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %sw.bb10
-  %call18 = tail call fastcc ptr @uriParseOwnUserInfoW(ptr noundef nonnull %state, ptr noundef nonnull %call14, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call18 = tail call fastcc ptr @uriParseOwnUserInfoW(ptr noundef %state, ptr noundef %call14, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.bb19:                                          ; preds = %if.end2
@@ -8991,11 +8987,11 @@ sw.bb19:                                          ; preds = %if.end2
   %21 = load ptr, ptr %state, align 8
   %hostText30 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %add.ptr28, ptr %hostText30, align 8
-  %call33 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr28, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call33 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef %state, ptr noundef %add.ptr28, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.default:                                       ; preds = %if.end2
-  %call34 = tail call fastcc i32 @uriOnExitOwnPortUserInfoW(ptr noundef %state, ptr noundef nonnull %first.tr52, ptr noundef %memory)
+  %call34 = tail call fastcc i32 @uriOnExitOwnPortUserInfoW(ptr noundef %state, ptr noundef %first.tr52, ptr noundef %memory)
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then36, label %return
 
@@ -9014,7 +9010,7 @@ return:                                           ; preds = %if.end.i, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseOwnHostW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9032,7 +9028,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
-  %call = tail call fastcc ptr @uriParseIpLit2W(ptr noundef %state, ptr noundef nonnull %add.ptr, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParseIpLit2W(ptr noundef %state, ptr noundef %add.ptr, ptr noundef %afterLast, ptr noundef %memory)
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end4
 
@@ -9208,12 +9204,12 @@ if.end2.i:                                        ; preds = %tailrecurse.i
   ]
 
 sw.bb.i19:                                        ; preds = %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i
-  %call3.i = tail call fastcc ptr @uriParsePctSubUnresW(ptr noundef %state, ptr noundef nonnull %first.tr.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call3.i = tail call fastcc ptr @uriParsePctSubUnresW(ptr noundef %state, ptr noundef %first.tr.i, ptr noundef %afterLast, ptr noundef %memory)
   %cmp4.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.i, label %return, label %tailrecurse.i
 
 sw.default.i:                                     ; preds = %if.end2.i
-  %call8.i = tail call fastcc i32 @uriOnExitOwnHost2W(ptr noundef %state, ptr noundef nonnull %first.tr.i, ptr noundef %memory)
+  %call8.i = tail call fastcc i32 @uriOnExitOwnHost2W(ptr noundef %state, ptr noundef %first.tr.i, ptr noundef %memory)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end.i27.i
 
@@ -9264,7 +9260,7 @@ return:                                           ; preds = %sw.bb.i19, %uriPars
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds i8, ptr %0, i64 16
@@ -9315,7 +9311,7 @@ return:                                           ; preds = %if.end, %if.then23,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds i8, ptr %0, i64 16
@@ -9366,7 +9362,7 @@ return:                                           ; preds = %if.end, %if.then22,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseOwnUserInfoW(ptr noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseOwnUserInfoW(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not32 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not32, label %if.end, label %if.then
@@ -9467,7 +9463,7 @@ if.end:                                           ; preds = %entry, %tailrecurse
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call = tail call fastcc ptr @uriParsePctSubUnresW(ptr noundef %state, ptr noundef nonnull %first.tr33, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePctSubUnresW(ptr noundef %state, ptr noundef %first.tr33, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %tailrecurse.backedge
 
@@ -9488,7 +9484,7 @@ sw.bb7:                                           ; preds = %if.end
   %3 = load ptr, ptr %state, align 8
   %hostText = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %add.ptr9, ptr %hostText, align 8
-  %call13 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr9, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call13 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef %state, ptr noundef %add.ptr9, ptr noundef %afterLast, ptr noundef %memory)
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -9506,7 +9502,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr nocapture noundef readonly %state, ptr noundef %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %afterLast = getelementptr inbounds i8, ptr %0, i64 40
@@ -9549,7 +9545,7 @@ return:                                           ; preds = %if.end, %if.then15,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseQueryFragW(ptr nocapture noundef %state, ptr noundef %first, ptr noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseQueryFragW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not14 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not14, label %if.end, label %return
@@ -9643,7 +9639,7 @@ if.end:                                           ; preds = %entry, %tailrecurse
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %call = tail call fastcc ptr @uriParsePcharW(ptr noundef %state, ptr noundef nonnull %first.tr15, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %call = tail call fastcc ptr @uriParsePcharW(ptr noundef %state, ptr noundef %first.tr15, ptr noundef %afterLast, ptr noundef %memory)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %tailrecurse.backedge
 

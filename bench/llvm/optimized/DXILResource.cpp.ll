@@ -1473,13 +1473,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit47: ; pr
   %230 = load i8, ptr %229, align 8
   %231 = and i8 %230, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %232 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 1, ptr %232, align 8
-  %233 = zext nneg i8 %231 to i64
-  store i64 %233, ptr %12, align 8
+  %232 = zext nneg i8 %231 to i64
+  %233 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 1, ptr %233, align 8
+  store i64 %232, ptr %12, align 8
   %234 = call noundef ptr @_ZN4llvm8Constant15getIntegerValueEPNS_4TypeERKNS_5APIntE(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(12) %12) #21
   %235 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %234) #21
-  %236 = load i32, ptr %232, align 8
+  %236 = load i32, ptr %233, align 8
   %237 = icmp ugt i32 %236, 64
   br i1 %237, label %238, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit"
 
@@ -1517,13 +1517,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49: ; pr
   %253 = load i8, ptr %252, align 1
   %254 = and i8 %253, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %255 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 1, ptr %255, align 8
-  %256 = zext nneg i8 %254 to i64
-  store i64 %256, ptr %11, align 8
+  %255 = zext nneg i8 %254 to i64
+  %256 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 1, ptr %256, align 8
+  store i64 %255, ptr %11, align 8
   %257 = call noundef ptr @_ZN4llvm8Constant15getIntegerValueEPNS_4TypeERKNS_5APIntE(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(12) %11) #21
   %258 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %257) #21
-  %259 = load i32, ptr %255, align 8
+  %259 = load i32, ptr %256, align 8
   %260 = icmp ugt i32 %259, 64
   br i1 %260, label %261, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit50"
 
@@ -1561,13 +1561,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52: ; pr
   %276 = load i8, ptr %275, align 2
   %277 = and i8 %276, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %278 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %278, align 8
-  %279 = zext nneg i8 %277 to i64
-  store i64 %279, ptr %10, align 8
+  %278 = zext nneg i8 %277 to i64
+  %279 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 1, ptr %279, align 8
+  store i64 %278, ptr %10, align 8
   %280 = call noundef ptr @_ZN4llvm8Constant15getIntegerValueEPNS_4TypeERKNS_5APIntE(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(12) %10) #21
   %281 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %280) #21
-  %282 = load i32, ptr %278, align 8
+  %282 = load i32, ptr %279, align 8
   %283 = icmp ugt i32 %282, 64
   br i1 %283, label %284, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53"
 
@@ -6105,7 +6105,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_SH_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #13 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_SH_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 256204778801521549) %3) unnamed_addr #13 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64

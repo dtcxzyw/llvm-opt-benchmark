@@ -269,7 +269,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %fn.06 = phi ptr [ %fn.0, %while.body ], [ %fn.04, %entry ]
-  tail call fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef nonnull %fn.06, ptr noundef nonnull @.str.4)
+  tail call fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef %fn.06, ptr noundef nonnull @.str.4)
   %next = getelementptr inbounds i8, ptr %fn.06, i64 72
   %fn.0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %fn.0, null
@@ -280,7 +280,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr nocapture noundef %fdn, ptr noundef %reason) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr nocapture noundef nonnull %fdn, ptr noundef %reason) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
@@ -810,7 +810,7 @@ while.body:                                       ; preds = %if.end93, %if.end10
   %next98 = getelementptr inbounds i8, ptr %44, i64 72
   %45 = load ptr, ptr %next98, align 8
   store ptr %45, ptr %fds94, align 8
-  call fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef nonnull %44, ptr noundef nonnull @.str.27)
+  call fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef %44, ptr noundef nonnull @.str.27)
   %readable_registered100 = getelementptr inbounds i8, ptr %44, i64 88
   %46 = load i8, ptr %readable_registered100, align 8
   %tobool101 = trunc i8 %46 to i1
@@ -969,7 +969,7 @@ if.then9:                                         ; preds = %land.lhs.true
 
 while.body.i:                                     ; preds = %if.then9, %.noexc
   %fn.06.i = phi ptr [ %fn.0.i, %.noexc ], [ %fn.04.i, %if.then9 ]
-  invoke fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef nonnull %fn.06.i, ptr noundef nonnull @.str.4)
+  invoke fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef %fn.06.i, ptr noundef nonnull @.str.4)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %while.body.i
@@ -4587,7 +4587,7 @@ if.then7:                                         ; preds = %do.end4
 
 while.body.i:                                     ; preds = %if.then7, %.noexc
   %fn.06.i = phi ptr [ %fn.0.i, %.noexc ], [ %fn.04.i, %if.then7 ]
-  invoke fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef nonnull %fn.06.i, ptr noundef nonnull @.str.4)
+  invoke fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef %fn.06.i, ptr noundef nonnull @.str.4)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %while.body.i

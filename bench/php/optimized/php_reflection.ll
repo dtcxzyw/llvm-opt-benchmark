@@ -1107,7 +1107,7 @@ define hidden void @zim_ReflectionFunction___toString(ptr nocapture noundef read
 24:                                               ; preds = %.critedge
   %25 = getelementptr inbounds i8, ptr %10, i64 -16
   %26 = load ptr, ptr %25, align 8
-  call fastcc void @_function_string(ptr noundef nonnull %3, ptr noundef nonnull %12, ptr noundef %26, ptr noundef nonnull @.str.10)
+  call fastcc void @_function_string(ptr noundef %3, ptr noundef nonnull %12, ptr noundef %26, ptr noundef nonnull @.str.10)
   %27 = load ptr, ptr %3, align 8
   %.not116 = icmp eq ptr %27, null
   br i1 %.not116, label %76, label %28
@@ -1224,7 +1224,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_function_string(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load i8, ptr %1, align 8
@@ -1248,7 +1248,7 @@ define internal fastcc void @_function_string(ptr noundef %0, ptr nocapture noun
 .thread.sink.split:                               ; preds = %10, %7
   %.sink656 = phi ptr [ %9, %7 ], [ %12, %10 ]
   %13 = getelementptr inbounds i8, ptr %.sink656, i64 24
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %3, ptr noundef nonnull %13) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.104, ptr noundef %3, ptr noundef nonnull %13) #13
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %4, %7, %10
@@ -2073,7 +2073,7 @@ _function_closure_string.exit:                    ; preds = %._crit_edge.i, %362
   %.06780.i = phi ptr [ %390, %.lr.ph.i603 ], [ %431, %424 ]
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.128, ptr noundef nonnull %388) #13
   %416 = icmp ult i32 %.06681.i, %392
-  call fastcc void @_parameter_string(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %.06780.i, i32 noundef %.06681.i, i1 noundef zeroext %416)
+  call fastcc void @_parameter_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %.06780.i, i32 noundef %.06681.i, i1 noundef zeroext %416)
   %417 = load ptr, ptr %0, align 8
   %.not78.i = icmp eq ptr %417, null
   br i1 %.not78.i, label %423, label %418
@@ -3462,7 +3462,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getAttributes(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflect_attributes(i32 %.44.val, ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @reflect_attributes(i32 %.44.val, ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, 33) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -6614,7 +6614,7 @@ define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef rea
   %30 = getelementptr inbounds i8, ptr %12, i64 4
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
-  call fastcc void @_parameter_string(ptr noundef nonnull %3, ptr noundef %26, ptr noundef %28, i32 noundef %29, i1 noundef zeroext %32)
+  call fastcc void @_parameter_string(ptr noundef %3, ptr noundef %26, ptr noundef %28, i32 noundef %29, i1 noundef zeroext %32)
   %33 = load ptr, ptr %3, align 8
   %.not118 = icmp eq ptr %33, null
   br i1 %.not118, label %82, label %34
@@ -6724,10 +6724,10 @@ define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_parameter_string(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.142, i32 noundef %3) #13
+define internal fastcc void @_parameter_string(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.142, i32 noundef %3) #13
   %.str.144..str.143 = select i1 %4, ptr @.str.144, ptr @.str.143
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull %.str.144..str.143) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull %.str.144..str.143) #13
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 33554431
@@ -6931,7 +6931,7 @@ has_internal_arg_info.exit.thread:                ; preds = %96, %has_internal_a
 
 106:                                              ; preds = %has_internal_arg_info.exit.thread, %102
   %107 = phi ptr [ %103, %102 ], [ %105, %has_internal_arg_info.exit.thread ]
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.146, ptr noundef %107) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.146, ptr noundef %107) #13
   br i1 %4, label %get_default_from_recv.exit.thread, label %108
 
 108:                                              ; preds = %106
@@ -7135,7 +7135,7 @@ get_recv_op.exit.i:                               ; preds = %180
   %204 = load ptr, ptr %0, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 16
   store i64 %.1260, ptr %205, align 8
-  tail call fastcc void @format_default_value(ptr noundef nonnull %0, ptr noundef nonnull %190)
+  tail call fastcc void @format_default_value(ptr noundef %0, ptr noundef nonnull %190)
   br label %get_default_from_recv.exit.thread
 
 get_default_from_recv.exit.thread:                ; preds = %get_recv_op.exit.i, %199, %163, %148, %108, %106
@@ -10672,7 +10672,7 @@ define hidden void @zim_ReflectionMethod___toString(ptr nocapture noundef readon
 24:                                               ; preds = %.critedge
   %25 = getelementptr inbounds i8, ptr %10, i64 -16
   %26 = load ptr, ptr %25, align 8
-  call fastcc void @_function_string(ptr noundef nonnull %3, ptr noundef nonnull %12, ptr noundef %26, ptr noundef nonnull @.str.10)
+  call fastcc void @_function_string(ptr noundef %3, ptr noundef nonnull %12, ptr noundef %26, ptr noundef nonnull @.str.10)
   %27 = load ptr, ptr %3, align 8
   %.not116 = icmp eq ptr %27, null
   br i1 %.not116, label %76, label %28
@@ -10916,7 +10916,7 @@ define hidden void @zim_ReflectionMethod_invoke(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -13048,7 +13048,7 @@ define hidden void @zim_ReflectionClassConstant___toString(ptr nocapture noundef
 39:                                               ; preds = %24, %36
   %.0116 = phi ptr [ %38, %36 ], [ %30, %24 ]
   %40 = load ptr, ptr %.0116, align 8
-  call fastcc void @_class_const_string(ptr noundef nonnull %3, ptr noundef %40, ptr noundef nonnull %12, ptr noundef nonnull @.str.10)
+  call fastcc void @_class_const_string(ptr noundef %3, ptr noundef %40, ptr noundef nonnull %12, ptr noundef nonnull @.str.10)
   %41 = load ptr, ptr %3, align 8
   %.not126 = icmp eq ptr %41, null
   br i1 %.not126, label %90, label %42
@@ -13158,7 +13158,7 @@ define hidden void @zim_ReflectionClassConstant___toString(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_class_const_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_class_const_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 11
@@ -13211,12 +13211,12 @@ define internal fastcc void @_class_const_string(ptr noundef %0, ptr noundef %1,
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %34, i64 24
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %3, ptr noundef nonnull %36) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.104, ptr noundef %3, ptr noundef nonnull %36) #13
   br label %37
 
 37:                                               ; preds = %35, %30
   %38 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.156, ptr noundef %3, ptr noundef nonnull %19, ptr noundef %16, ptr noundef %32, ptr noundef nonnull %38) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.156, ptr noundef %3, ptr noundef nonnull %19, ptr noundef %16, ptr noundef %32, ptr noundef nonnull %38) #13
   %39 = load i8, ptr %5, align 8
   switch i8 %39, label %74 [
     i8 7, label %40
@@ -14291,7 +14291,7 @@ define hidden void @zim_ReflectionClass___construct(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
@@ -15037,8 +15037,8 @@ define hidden void @zim_ReflectionClass_getDefaultProperties(ptr nocapture nound
   br label %31
 
 30:                                               ; preds = %23
-  tail call fastcc void @add_class_vars(ptr noundef nonnull %11, i1 noundef zeroext true, ptr noundef nonnull %1)
-  tail call fastcc void @add_class_vars(ptr noundef nonnull %11, i1 noundef zeroext false, ptr noundef nonnull %1)
+  tail call fastcc void @add_class_vars(ptr noundef %11, i1 noundef zeroext true, ptr noundef nonnull %1)
+  tail call fastcc void @add_class_vars(ptr noundef %11, i1 noundef zeroext false, ptr noundef nonnull %1)
   br label %31
 
 31:                                               ; preds = %15, %30, %27, %20, %5
@@ -15046,7 +15046,7 @@ define hidden void @zim_ReflectionClass_getDefaultProperties(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_class_vars(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @add_class_vars(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
@@ -15175,7 +15175,7 @@ property_get_default.exit:                        ; preds = %36, %44, %46
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %74
-  %78 = call i32 @zval_update_constant_ex(ptr noundef nonnull %4, ptr noundef %0) #13
+  %78 = call i32 @zval_update_constant_ex(ptr noundef nonnull %4, ptr noundef nonnull %0) #13
   %.not51 = icmp eq i32 %78, 0
   br i1 %.not51, label %79, label %._crit_edge
 
@@ -15238,7 +15238,7 @@ define hidden void @zim_ReflectionClass___toString(ptr nocapture noundef readonl
 
 24:                                               ; preds = %.critedge
   %25 = getelementptr inbounds i8, ptr %10, i64 -40
-  call fastcc void @_class_string(ptr noundef nonnull %3, ptr noundef nonnull %12, ptr noundef nonnull %25, ptr noundef nonnull @.str.10)
+  call fastcc void @_class_string(ptr noundef %3, ptr noundef nonnull %12, ptr noundef nonnull %25, ptr noundef nonnull @.str.10)
   %26 = load ptr, ptr %3, align 8
   %.not116 = icmp eq ptr %26, null
   br i1 %.not116, label %75, label %27
@@ -15348,7 +15348,7 @@ define hidden void @zim_ReflectionClass___toString(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_class_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.smart_str, align 8
   %6 = alloca %struct.smart_str, align 8
   %7 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.160, ptr noundef %3) #13
@@ -15359,7 +15359,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.161, ptr noundef %3, ptr noundef nonnull %11) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.161, ptr noundef %3, ptr noundef nonnull %11) #13
   %12 = load ptr, ptr %0, align 8
   %.not501 = icmp eq ptr %12, null
   br i1 %.not501, label %19, label %13
@@ -15402,7 +15402,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.162, ptr noundef %3) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.162, ptr noundef %3) #13
   br label %38
 
 33:                                               ; preds = %28, %27
@@ -15414,14 +15414,14 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   %.not505 = icmp eq i32 %37, 0
   %spec.select = select i1 %.not505, ptr @.str.163, ptr @.str.165
   %.0467 = select i1 %.not504, ptr %spec.select, ptr @.str.164
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.166, ptr noundef %3, ptr noundef nonnull %.0467) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.166, ptr noundef %3, ptr noundef nonnull %.0467) #13
   br label %38
 
 38:                                               ; preds = %33, %32
   %39 = load i8, ptr %1, align 8
   %40 = icmp eq i8 %39, 2
   %41 = select i1 %40, ptr @.str.108, ptr @.str.109
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull %41) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull %41) #13
   %42 = load i8, ptr %1, align 8
   %43 = icmp eq i8 %42, 1
   br i1 %43, label %44, label %50
@@ -15435,18 +15435,18 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %46, i64 32
   %49 = load ptr, ptr %48, align 8
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.111, ptr noundef %49) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.111, ptr noundef %49) #13
   br label %50
 
 50:                                               ; preds = %47, %44, %38
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.116) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.116) #13
   %51 = getelementptr inbounds i8, ptr %1, i64 392
   %52 = load ptr, ptr %51, align 8
   %.not507 = icmp eq ptr %52, null
   br i1 %.not507, label %54, label %53
 
 53:                                               ; preds = %50
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.167) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.167) #13
   br label %54
 
 54:                                               ; preds = %53, %50
@@ -15467,7 +15467,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not510, label %63, label %62
 
 62:                                               ; preds = %60
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.117) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.117) #13
   %.pre629 = load i32, ptr %55, align 4
   br label %63
 
@@ -15478,7 +15478,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not511, label %67, label %66
 
 66:                                               ; preds = %63
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.118) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.118) #13
   %.pre630 = load i32, ptr %55, align 4
   br label %67
 
@@ -15489,16 +15489,16 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not512, label %71, label %70
 
 70:                                               ; preds = %67
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.170) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.170) #13
   br label %71
 
 71:                                               ; preds = %67, %70, %58, %54
   %.str.169.sink = phi ptr [ @.str.168, %54 ], [ @.str.169, %58 ], [ @.str.171, %70 ], [ @.str.171, %67 ]
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull %.str.169.sink) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull %.str.169.sink) #13
   %72 = getelementptr inbounds i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 24
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.172, ptr noundef nonnull %74) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.172, ptr noundef nonnull %74) #13
   %75 = getelementptr inbounds i8, ptr %1, i64 16
   %76 = load ptr, ptr %75, align 8
   %.not513 = icmp eq ptr %76, null
@@ -15508,7 +15508,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   %78 = getelementptr inbounds i8, ptr %76, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 24
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.173, ptr noundef nonnull %80) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.173, ptr noundef nonnull %80) #13
   br label %81
 
 81:                                               ; preds = %77, %71
@@ -15531,7 +15531,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 24
   %.str.174..str.173 = select i1 %.not515, ptr @.str.174, ptr @.str.173
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull %.str.174..str.173, ptr noundef nonnull %94) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull %.str.174..str.173, ptr noundef nonnull %94) #13
   %95 = load i32, ptr %82, align 8
   %96 = icmp ugt i32 %95, 1
   br i1 %96, label %.lr.ph, label %.loopexit585
@@ -15548,7 +15548,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   %102 = getelementptr inbounds i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 24
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.175, ptr noundef nonnull %104) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.175, ptr noundef nonnull %104) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = load i32, ptr %82, align 8
   %106 = zext i32 %105 to i64
@@ -15556,7 +15556,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %107, label %98, label %.loopexit585
 
 .loopexit585:                                     ; preds = %98, %84, %81
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.176) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.176) #13
   %108 = load i8, ptr %1, align 8
   %109 = icmp eq i8 %108, 2
   br i1 %109, label %110, label %118
@@ -15569,15 +15569,15 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   %115 = load i32, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %1, i64 508
   %117 = load i32, ptr %116, align 4
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.177, ptr noundef %3, ptr noundef nonnull %113, i32 noundef %115, i32 noundef %117) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.177, ptr noundef %3, ptr noundef nonnull %113, i32 noundef %115, i32 noundef %117) #13
   br label %118
 
 118:                                              ; preds = %110, %.loopexit585
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.135) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.135) #13
   %119 = getelementptr inbounds i8, ptr %1, i64 176
   %120 = getelementptr inbounds i8, ptr %1, i64 204
   %121 = load i32, ptr %120, align 4
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.178, ptr noundef %3, i32 noundef %121) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.178, ptr noundef %3, i32 noundef %121) #13
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %123, label %.loopexit584
 
@@ -15682,7 +15682,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not521, label %.loopexit584, label %150
 
 .loopexit584:                                     ; preds = %172, %139, %118
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
   %174 = getelementptr inbounds i8, ptr %1, i64 120
   %175 = getelementptr inbounds i8, ptr %1, i64 148
   %176 = load i32, ptr %175, align 4
@@ -15745,7 +15745,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not523, label %._crit_edge, label %.lr.ph594
 
 ._crit_edge:                                      ; preds = %204
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.180, ptr noundef %3, i32 noundef %.2460) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.180, ptr noundef %3, i32 noundef %.2460) #13
   %206 = icmp sgt i32 %.2460, 0
   br i1 %206, label %207, label %.loopexit583
 
@@ -15801,13 +15801,13 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not525, label %.loopexit583, label %215
 
 .loopexit583.sink.split:                          ; preds = %178, %.loopexit584
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.180, ptr noundef %3, i32 noundef 0) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.180, ptr noundef %3, i32 noundef 0) #13
   br label %.loopexit583
 
 .loopexit583:                                     ; preds = %231, %.loopexit583.sink.split, %207, %._crit_edge
   %.0458576 = phi i32 [ %.2460, %._crit_edge ], [ %.2460, %207 ], [ 0, %.loopexit583.sink.split ], [ %.2460, %231 ]
   %.0464575 = phi i32 [ %.2466, %._crit_edge ], [ %.2466, %207 ], [ 0, %.loopexit583.sink.split ], [ %.2466, %231 ]
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
   %233 = getelementptr inbounds i8, ptr %1, i64 92
   %234 = load i32, ptr %233, align 4
   %235 = icmp sgt i32 %234, 0
@@ -15866,7 +15866,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not527, label %._crit_edge605, label %.lr.ph604
 
 ._crit_edge605:                                   ; preds = %263
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.181, ptr noundef %3, i32 noundef %.2463) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.181, ptr noundef %3, i32 noundef %.2463) #13
   %265 = icmp sgt i32 %.2463, 0
   br i1 %265, label %266, label %293
 
@@ -15913,7 +15913,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %289, label %290, label %291
 
 290:                                              ; preds = %286, %283
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.135) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.135) #13
   tail call fastcc void @_function_string(ptr noundef %0, ptr noundef nonnull %279, ptr noundef %1, ptr noundef nonnull %273)
   br label %291
 
@@ -15923,21 +15923,21 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not529, label %.loopexit582, label %274
 
 .sink.split:                                      ; preds = %236, %.loopexit583
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.181, ptr noundef %3, i32 noundef 0) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.181, ptr noundef %3, i32 noundef 0) #13
   br label %293
 
 293:                                              ; preds = %.sink.split, %._crit_edge605
   %.0461580 = phi i32 [ %.2463, %._crit_edge605 ], [ 0, %.sink.split ]
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.135) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.135) #13
   br label %.loopexit582
 
 .loopexit582:                                     ; preds = %291, %266, %293
   %.0461579 = phi i32 [ %.0461580, %293 ], [ %.2463, %266 ], [ %.2463, %291 ]
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
   %294 = load i32, ptr %175, align 4
   %295 = add i32 %.0464575, %.0458576
   %296 = sub i32 %294, %295
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.182, ptr noundef %3, i32 noundef %296) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.182, ptr noundef %3, i32 noundef %296) #13
   %297 = icmp sgt i32 %296, 0
   br i1 %297, label %298, label %.loopexit581
 
@@ -15996,7 +15996,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not531, label %.loopexit581, label %309
 
 .loopexit581:                                     ; preds = %325, %298, %.loopexit582
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
   br i1 %.not503, label %421, label %327
 
 327:                                              ; preds = %.loopexit581
@@ -16117,7 +16117,7 @@ _property_string.exit:                            ; preds = %371, %376
 
 .loopexit:                                        ; preds = %383, %341, %338, %331
   %.0456 = phi i32 [ 0, %338 ], [ 0, %331 ], [ 0, %341 ], [ %.2, %383 ]
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.183, ptr noundef %3, i32 noundef %.0456) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.183, ptr noundef %3, i32 noundef %.0456) #13
   %385 = load ptr, ptr %5, align 8
   %.not536 = icmp eq ptr %385, null
   br i1 %.not536, label %406, label %386
@@ -16164,7 +16164,7 @@ _property_string.exit:                            ; preds = %371, %376
   br label %406
 
 406:                                              ; preds = %399, %386, %.loopexit
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
   %407 = load ptr, ptr %5, align 8
   %.not540 = icmp eq ptr %407, null
   br i1 %.not540, label %419, label %408
@@ -16314,7 +16314,7 @@ is_closure_invoke.exit.thread:                    ; preds = %460, %455, %465, %i
   %481 = load ptr, ptr %6, align 8
   %482 = getelementptr inbounds i8, ptr %481, i64 16
   store i64 %.1, ptr %482, align 8
-  call fastcc void @_function_string(ptr noundef nonnull %6, ptr noundef nonnull %.0451, ptr noundef %1, ptr noundef nonnull %436)
+  call fastcc void @_function_string(ptr noundef %6, ptr noundef nonnull %.0451, ptr noundef %1, ptr noundef nonnull %436)
   %483 = add nsw i32 %.3622, 1
   %.not.i572 = icmp eq ptr %.0, null
   br i1 %.not.i572, label %_free_function.exit, label %484
@@ -16368,7 +16368,7 @@ _free_function.exit:                              ; preds = %503, %502, %484, %4
 
 ._crit_edge626:                                   ; preds = %_free_function.exit, %425
   %.3.lcssa = phi i32 [ 0, %425 ], [ %.4, %_free_function.exit ]
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.184, ptr noundef %3, i32 noundef %.3.lcssa) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.184, ptr noundef %3, i32 noundef %.3.lcssa) #13
   %505 = load ptr, ptr %6, align 8
   %.not544 = icmp eq ptr %505, null
   br i1 %.not544, label %526, label %506
@@ -16419,7 +16419,7 @@ _free_function.exit:                              ; preds = %503, %502, %484, %4
   br i1 %.not548, label %527, label %528
 
 527:                                              ; preds = %526
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.135) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.135) #13
   br label %528
 
 528:                                              ; preds = %527, %526
@@ -16457,12 +16457,12 @@ _free_function.exit:                              ; preds = %503, %502, %484, %4
   br label %544
 
 543:                                              ; preds = %421
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.185, ptr noundef %3) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.185, ptr noundef %3) #13
   br label %544
 
 544:                                              ; preds = %543, %541
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.134, ptr noundef %3) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.134, ptr noundef %3) #13
   %545 = getelementptr inbounds i8, ptr %7, i64 4
   %546 = load i32, ptr %545, align 4
   %547 = and i32 %546, 64
@@ -18428,7 +18428,7 @@ reflection_property_factory.exit160:              ; preds = %130, %143
   br i1 %223, label %224, label %.thread163
 
 224:                                              ; preds = %220, %215
-  call fastcc void @reflection_property_factory_str(ptr noundef nonnull %171, ptr noundef nonnull %170, i64 noundef %169, ptr noundef nonnull %216, ptr noundef %1)
+  call fastcc void @reflection_property_factory_str(ptr noundef %171, ptr noundef %170, i64 noundef %169, ptr noundef %216, ptr noundef %1)
   br label %230
 
 .thread163:                                       ; preds = %.critedge, %220, %147
@@ -18449,7 +18449,7 @@ reflection_property_factory.exit160:              ; preds = %130, %143
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflection_property_factory_str(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @reflection_property_factory_str(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = and i64 %2, -8
   %7 = add i64 %6, 32
   %8 = tail call noalias ptr @_emalloc(i64 noundef %7) #14
@@ -18461,7 +18461,7 @@ define internal fastcc void @reflection_property_factory_str(ptr noundef %0, ptr
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds [1 x i8], ptr %12, i64 0, i64 %2
   store i8 0, ptr %13, align 1
   %14 = load ptr, ptr @reflection_property_ptr, align 8
@@ -18521,63 +18521,55 @@ define internal fastcc void @reflection_property_factory_str(ptr noundef %0, ptr
   %47 = icmp sgt i32 %46, 1
   tail call void @llvm.assume(i1 %47)
   %48 = getelementptr inbounds i8, ptr %42, i64 56
-  %.not42.i = icmp eq ptr %3, null
-  br i1 %.not42.i, label %52, label %49
+  %49 = getelementptr inbounds i8, ptr %3, i64 32
+  %50 = load ptr, ptr %49, align 8
+  %.in.i = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = load ptr, ptr %.in.i, align 8
+  store ptr %51, ptr %48, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = and i32 %53, 64
+  %.not43.i = icmp eq i32 %54, 0
+  br i1 %.not43.i, label %55, label %reflection_property_factory.exit
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %3, i64 32
-  %51 = load ptr, ptr %50, align 8
-  br label %52
-
-52:                                               ; preds = %49, %40
-  %.pn.i = phi ptr [ %51, %49 ], [ %0, %40 ]
-  %.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
-  %53 = load ptr, ptr %.in.i, align 8
-  store ptr %53, ptr %48, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
-  %55 = load i32, ptr %54, align 4
-  %56 = and i32 %55, 64
-  %.not43.i = icmp eq i32 %56, 0
-  br i1 %.not43.i, label %57, label %reflection_property_factory.exit
-
-57:                                               ; preds = %52
-  %58 = load i32, ptr %53, align 4
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %53, align 4
+55:                                               ; preds = %40
+  %56 = load i32, ptr %51, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %51, align 4
   br label %reflection_property_factory.exit
 
-reflection_property_factory.exit:                 ; preds = %52, %57
-  %.sink44.i = phi i32 [ 262, %57 ], [ 6, %52 ]
-  %60 = getelementptr inbounds i8, ptr %42, i64 64
-  store i32 %.sink44.i, ptr %60, align 8
-  %61 = load i32, ptr %9, align 4
-  %62 = and i32 %61, 64
-  %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %63, label %72
+reflection_property_factory.exit:                 ; preds = %40, %55
+  %.sink44.i = phi i32 [ 262, %55 ], [ 6, %40 ]
+  %58 = getelementptr inbounds i8, ptr %42, i64 64
+  store i32 %.sink44.i, ptr %58, align 8
+  %59 = load i32, ptr %9, align 4
+  %60 = and i32 %59, 64
+  %.not = icmp eq i32 %60, 0
+  br i1 %.not, label %61, label %70
 
-63:                                               ; preds = %reflection_property_factory.exit
-  %64 = load i32, ptr %8, align 4
-  %65 = icmp ne i32 %64, 0
-  tail call void @llvm.assume(i1 %65)
-  %66 = add i32 %64, -1
-  store i32 %66, ptr %8, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %72
+61:                                               ; preds = %reflection_property_factory.exit
+  %62 = load i32, ptr %8, align 4
+  %63 = icmp ne i32 %62, 0
+  tail call void @llvm.assume(i1 %63)
+  %64 = add i32 %62, -1
+  store i32 %64, ptr %8, align 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %70
 
-68:                                               ; preds = %63
-  %69 = and i32 %61, 128
-  %.not69 = icmp eq i32 %69, 0
-  br i1 %.not69, label %71, label %70
+66:                                               ; preds = %61
+  %67 = and i32 %59, 128
+  %.not69 = icmp eq i32 %67, 0
+  br i1 %.not69, label %69, label %68
 
-70:                                               ; preds = %68
+68:                                               ; preds = %66
   tail call void @free(ptr noundef nonnull %8) #13
-  br label %72
+  br label %70
 
-71:                                               ; preds = %68
+69:                                               ; preds = %66
   tail call void @_efree(ptr noundef nonnull %8) #13
-  br label %72
+  br label %70
 
-72:                                               ; preds = %63, %71, %70, %reflection_property_factory.exit
+70:                                               ; preds = %61, %69, %68, %reflection_property_factory.exit
   ret void
 }
 
@@ -22587,7 +22579,7 @@ define hidden void @zim_ReflectionProperty___toString(ptr nocapture noundef read
   %26 = getelementptr inbounds i8, ptr %12, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  call fastcc void @_property_string(ptr noundef nonnull %3, ptr noundef %25, ptr noundef nonnull %28, ptr noundef nonnull @.str.10)
+  call fastcc void @_property_string(ptr noundef %3, ptr noundef %25, ptr noundef nonnull %28, ptr noundef nonnull @.str.10)
   %29 = load ptr, ptr %3, align 8
   %.not116 = icmp eq ptr %29, null
   br i1 %.not116, label %78, label %30
@@ -22697,7 +22689,7 @@ define hidden void @zim_ReflectionProperty___toString(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_property_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_property_string(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
@@ -22712,16 +22704,16 @@ define internal fastcc void @_property_string(ptr noundef %0, ptr noundef readon
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 24
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %3, ptr noundef nonnull %11) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.104, ptr noundef %3, ptr noundef nonnull %11) #13
   br label %13
 
 12:                                               ; preds = %4
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.186, ptr noundef %3) #13
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.187, ptr noundef %2) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.186, ptr noundef %3) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.187, ptr noundef %2) #13
   br label %200
 
 13:                                               ; preds = %7, %10
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.186, ptr noundef %3) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.186, ptr noundef %3) #13
   %14 = getelementptr inbounds i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 7
@@ -23027,7 +23019,7 @@ define internal fastcc void @_property_string(ptr noundef %0, ptr noundef readon
 
 157:                                              ; preds = %153, %152
   %158 = phi ptr [ %.pre327, %153 ], [ %2, %152 ]
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.146, ptr noundef %158) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.146, ptr noundef %158) #13
   %159 = getelementptr inbounds i8, ptr %1, i64 32
   %160 = load ptr, ptr %159, align 8
   %161 = load i32, ptr %14, align 4
@@ -23098,7 +23090,7 @@ property_get_default.exit:                        ; preds = %164, %172, %174
   %198 = load ptr, ptr %0, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 16
   store i64 %.1260, ptr %199, align 8
-  call fastcc void @format_default_value(ptr noundef nonnull %0, ptr noundef nonnull %.011.i)
+  call fastcc void @format_default_value(ptr noundef %0, ptr noundef nonnull %.011.i)
   br label %200
 
 200:                                              ; preds = %193, %property_get_default.exit, %12
@@ -25942,7 +25934,7 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
   br i1 %.not541.i, label %._crit_edge25.i, label %.lr.ph24.i
 
 .thread78.i:                                      ; preds = %408, %407
-  call fastcc void @_function_string(ptr noundef nonnull %6, ptr noundef nonnull %400, ptr noundef null, ptr noundef nonnull @.str.200)
+  call fastcc void @_function_string(ptr noundef %6, ptr noundef nonnull %400, ptr noundef null, ptr noundef nonnull @.str.200)
   %411 = getelementptr inbounds i8, ptr %.046222.i, i64 32
   %.not54180.i = icmp eq ptr %411, %392
   br i1 %.not54180.i, label %._crit_edge25.thread82.i, label %.lr.ph24.outer.i
@@ -26025,7 +26017,7 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
 
 454:                                              ; preds = %450
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.135) #13
-  call fastcc void @_class_string(ptr noundef nonnull %5, ptr noundef nonnull %431, ptr noundef null, ptr noundef nonnull %423)
+  call fastcc void @_class_string(ptr noundef %5, ptr noundef nonnull %431, ptr noundef null, ptr noundef nonnull %423)
   %455 = add nsw i32 %.0228.i, 1
   br label %_extension_class_string.exit.i
 
@@ -26885,7 +26877,7 @@ define hidden void @zim_ReflectionExtension_getClasses(ptr nocapture noundef rea
   %36 = getelementptr inbounds i8, ptr %.030, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %.030, align 8
-  tail call fastcc void @add_extension_class(ptr noundef %38, ptr noundef %37, ptr noundef nonnull %1, ptr noundef nonnull %9, i1 noundef zeroext true)
+  tail call fastcc void @add_extension_class(ptr noundef %38, ptr noundef %37, ptr noundef nonnull %1, ptr noundef %9, i1 noundef zeroext true)
   br label %39
 
 39:                                               ; preds = %.lr.ph, %35
@@ -26904,7 +26896,7 @@ define hidden void @zim_ReflectionExtension_getClasses(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_extension_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @add_extension_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = load i8, ptr %0, align 8
   %8 = icmp eq i8 %7, 1
@@ -28597,7 +28589,7 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
   %113 = phi ptr [ %.pre458, %105 ], [ %80, %.lr.ph ]
   %114 = getelementptr inbounds i8, ptr %113, i64 32
   %115 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %114, i64 0, i64 %indvars.iv, i32 1
-  call fastcc void @format_default_value(ptr noundef nonnull %3, ptr noundef nonnull %115)
+  call fastcc void @format_default_value(ptr noundef %3, ptr noundef nonnull %115)
   %116 = load ptr, ptr %3, align 8
   %.not439 = icmp eq ptr %116, null
   br i1 %.not439, label %122, label %117
@@ -28801,7 +28793,7 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
 declare void @smart_str_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_default_value(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @format_default_value(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -28809,7 +28801,7 @@ define internal fastcc void @format_default_value(ptr noundef %0, ptr noundef %1
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void @smart_str_append_scalar(ptr noundef %0, ptr noundef nonnull %1, i64 noundef -1) #13
+  tail call void @smart_str_append_scalar(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef -1) #13
   br label %333
 
 8:                                                ; preds = %2
@@ -29001,7 +28993,7 @@ define internal fastcc void @format_default_value(ptr noundef %0, ptr noundef %1
   br label %100
 
 100:                                              ; preds = %93, %84
-  call fastcc void @format_default_value(ptr noundef nonnull %0, ptr noundef nonnull %.0388502.us)
+  call fastcc void @format_default_value(ptr noundef %0, ptr noundef nonnull %.0388502.us)
   br label %101
 
 101:                                              ; preds = %100, %.lr.ph504.split.us
@@ -29255,7 +29247,7 @@ define internal fastcc void @format_default_value(ptr noundef %0, ptr noundef %1
   %214 = load ptr, ptr %0, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 16
   store i64 %.1418, ptr %215, align 8
-  call fastcc void @format_default_value(ptr noundef nonnull %0, ptr noundef %.0388502)
+  call fastcc void @format_default_value(ptr noundef %0, ptr noundef %.0388502)
   br label %216
 
 216:                                              ; preds = %115, %209
@@ -30088,7 +30080,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %170 = load ptr, ptr %3, align 8
   %171 = getelementptr inbounds i8, ptr %14, i64 24
   %172 = load ptr, ptr %171, align 8
-  %173 = call fastcc i32 @call_attribute_constructor(ptr noundef nonnull %166, ptr noundef nonnull %30, ptr noundef %170, ptr noundef %.0, i32 noundef %.0132, ptr noundef %.0130, ptr noundef %172)
+  %173 = call fastcc i32 @call_attribute_constructor(ptr noundef nonnull %166, ptr noundef %30, ptr noundef %170, ptr noundef %.0, i32 noundef %.0132, ptr noundef %.0130, ptr noundef %172)
   %174 = icmp eq i32 %173, -1
   br i1 %174, label %175, label %187
 
@@ -30180,7 +30172,7 @@ define internal fastcc void @attribute_ctor_cleanup(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %union._zend_function, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 256
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4

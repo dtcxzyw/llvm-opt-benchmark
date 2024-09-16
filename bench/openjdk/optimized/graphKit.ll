@@ -16612,7 +16612,7 @@ _ZN4Node8init_reqEjPS_.exit289:                   ; preds = %862, %868, %879
 declare noundef i32 @_ZN7Compile20static_subtype_checkEPK12TypeKlassPtrS2_b(ptr noundef nonnull align 8 dereferenceable(2316), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25gen_subtype_check_compareP4NodeS0_S0_N8BoolTest4maskEfR8PhaseGVN9BasicType(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(2400) %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL25gen_subtype_check_compareP4NodeS0_S0_N8BoolTest4maskEfR8PhaseGVN9BasicType(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(2400) %5, i8 noundef zeroext range(i8 10, 16) %6) unnamed_addr #0 {
   switch i8 %6, label %54 [
     i8 10, label %8
     i8 15, label %31

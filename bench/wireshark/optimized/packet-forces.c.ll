@@ -446,7 +446,7 @@ declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -501,16 +501,16 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   %44 = tail call ptr @val_to_str(i32 noundef %43, ptr noundef nonnull @message_type_vals, ptr noundef nonnull @.str.145) #4
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.144, ptr noundef %44, i32 noundef %30) #4
   %45 = load i32, ptr @hf_forces_sid, align 4
-  %46 = add nuw nsw i32 %3, 4
+  %46 = or disjoint i32 %3, 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #4
   %48 = load i32, ptr @hf_forces_did, align 4
-  %49 = add nuw nsw i32 %3, 8
+  %49 = or disjoint i32 %3, 8
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %48, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0) #4
   %51 = load i32, ptr @hf_forces_correlator, align 4
-  %52 = add nuw nsw i32 %3, 12
+  %52 = or disjoint i32 %3, 12
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %51, ptr noundef %0, i32 noundef %52, i32 noundef 8, i32 noundef 0) #4
   %54 = load i32, ptr @hf_forces_flags, align 4
-  %55 = add nuw nsw i32 %3, 20
+  %55 = or disjoint i32 %3, 20
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #4
   store ptr %56, ptr %9, align 8
   %57 = load i32, ptr @ett_forces_flags, align 4
@@ -529,7 +529,7 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %69, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #4
   %71 = load i32, ptr @hf_forces_flags_tp, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %71, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #4
-  %73 = add nuw nsw i32 %3, 24
+  %73 = or disjoint i32 %3, 24
   %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73) #4
   %75 = icmp sgt i32 %74, 3
   br i1 %75, label %.lr.ph, label %.loopexit
@@ -608,7 +608,7 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   %126 = add i32 %.0148, 12
   %127 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %126) #4
   %128 = icmp sgt i32 %127, 4
-  %129 = icmp ugt i16 %99, 4
+  %129 = icmp ugt i32 %117, 12
   %130 = and i1 %129, %128
   br i1 %130, label %.lr.ph.i, label %dissect_lfbselecttlv.exit
 

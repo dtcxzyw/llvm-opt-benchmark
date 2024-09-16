@@ -1873,7 +1873,7 @@ define internal void @"_ZN4core3ptr59drop_in_place$LT$$RF$regex_automata..meta..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc3bef7e0551384cfE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc3bef7e0551384cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !32, !noundef !9
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -2868,7 +2868,7 @@ define hidden void @_ZN7globset9Candidate3new17hfd86c9be558f09cfE(ptr noalias no
 
 11:                                               ; preds = %17, %12
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %13, %12 ]
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc3bef7e0551384cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #19
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc3bef7e0551384cfE"(ptr noalias noundef align 8 dereferenceable(24) %8) #19
           to label %24 unwind label %22
 
 12:                                               ; preds = %3
@@ -2902,7 +2902,7 @@ define hidden void @_ZN7globset9Candidate3new17hfd86c9be558f09cfE(ptr noalias no
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc3bef7e0551384cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #19
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hc3bef7e0551384cfE"(ptr noalias noundef align 8 dereferenceable(24) %6) #19
           to label %11 unwind label %22
 
 .thread9:                                         ; preds = %16

@@ -1674,7 +1674,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -28, 1) i32 @__alloc_contig_try_harder(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @__alloc_contig_try_harder(ptr nocapture noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.list_head, align 8
   %6 = alloca %struct.list_head, align 8
   %7 = alloca i64, align 8

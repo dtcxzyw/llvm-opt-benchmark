@@ -91,7 +91,7 @@ return:                                           ; preds = %if.else, %if.then
 declare void @fill_zlib_filefunc64_32_def_from_filefunc32(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @unzOpenInternal(ptr noundef %path, ptr noundef readonly %pzlib_filefunc64_32_def, i32 noundef %is64bitOpenFunction) unnamed_addr #2 {
+define internal fastcc noundef ptr @unzOpenInternal(ptr noundef %path, ptr noundef readonly %pzlib_filefunc64_32_def, i32 noundef range(i32 0, 2) %is64bitOpenFunction) unnamed_addr #2 {
 entry:
   %c.i7.i224 = alloca i8, align 1
   %c.i.i225 = alloca i8, align 1
@@ -236,12 +236,12 @@ if.end63.i:                                       ; preds = %for.end.i.us
   br i1 %cmp65.not.i, label %if.end68.i, label %unz64local_SearchCentralDir64.exit.thread
 
 if.end68.i:                                       ; preds = %if.end63.i
-  %call69.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef nonnull %call, ptr noundef nonnull %uL.i)
+  %call69.i = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef nonnull %call, ptr noundef %uL.i)
   %cmp70.not.i = icmp eq i32 %call69.i, 0
   br i1 %cmp70.not.i, label %if.end73.i, label %unz64local_SearchCentralDir64.exit.thread
 
 if.end73.i:                                       ; preds = %if.end68.i
-  %call74.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef nonnull %call, ptr noundef nonnull %uL.i)
+  %call74.i = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef nonnull %call, ptr noundef %uL.i)
   %cmp75.not.i = icmp eq i32 %call74.i, 0
   %8 = load i64, ptr %uL.i, align 8
   %cmp79.not.i = icmp eq i64 %8, 0
@@ -249,12 +249,12 @@ if.end73.i:                                       ; preds = %if.end68.i
   br i1 %or.cond.i, label %if.end82.i, label %unz64local_SearchCentralDir64.exit.thread
 
 if.end82.i:                                       ; preds = %if.end73.i
-  %call83.i = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef nonnull %call, ptr noundef nonnull %relativeOffset.i)
+  %call83.i = call fastcc i32 @unz64local_getLong64(ptr noundef %us, ptr noundef nonnull %call, ptr noundef %relativeOffset.i)
   %cmp84.not.i = icmp eq i32 %call83.i, 0
   br i1 %cmp84.not.i, label %if.end87.i, label %unz64local_SearchCentralDir64.exit.thread
 
 if.end87.i:                                       ; preds = %if.end82.i
-  %call88.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef nonnull %call, ptr noundef nonnull %uL.i)
+  %call88.i = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef nonnull %call, ptr noundef %uL.i)
   %cmp89.not.i = icmp eq i32 %call88.i, 0
   %9 = load i64, ptr %uL.i, align 8
   %cmp93.not.i = icmp eq i64 %9, 1
@@ -268,7 +268,7 @@ if.end96.i:                                       ; preds = %if.end87.i
   br i1 %cmp98.not.i, label %if.end101.i, label %unz64local_SearchCentralDir64.exit.thread
 
 if.end101.i:                                      ; preds = %if.end96.i
-  %call102.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef nonnull %call, ptr noundef nonnull %uL.i)
+  %call102.i = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef nonnull %call, ptr noundef %uL.i)
   %cmp103.not.i = icmp eq i32 %call102.i, 0
   %11 = load i64, ptr %uL.i, align 8
   %cmp107.not.i = icmp eq i64 %11, 101075792
@@ -293,10 +293,10 @@ if.then13:                                        ; preds = %unz64local_SearchCe
   %call16 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %12, i64 noundef %10, i32 noundef 0) #14
   %cmp17.not = icmp ne i64 %call16, 0
   %13 = load ptr, ptr %filestream, align 8
-  %call22 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %13, ptr noundef nonnull %uL)
+  %call22 = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef %13, ptr noundef %uL)
   %cmp23.not = icmp ne i32 %call22, 0
   %14 = load ptr, ptr %filestream, align 8
-  %call28 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %14, ptr noundef nonnull %uL64)
+  %call28 = call fastcc i32 @unz64local_getLong64(ptr noundef %us, ptr noundef %14, ptr noundef %uL64)
   %cmp29.not = icmp ne i32 %call28, 0
   %15 = select i1 %cmp29.not, i1 true, i1 %cmp23.not
   %narrow315 = select i1 %15, i1 true, i1 %cmp17.not
@@ -402,17 +402,17 @@ unz64local_getShort.exit51:                       ; preds = %if.then.i32
 unz64local_getShort.exit51.thread267:             ; preds = %unz64local_getByte.exit.i27, %unz64local_getShort.exit51, %40
   %41 = phi i32 [ %28, %40 ], [ -1, %unz64local_getShort.exit51 ], [ -1, %unz64local_getByte.exit.i27 ]
   %42 = load ptr, ptr %filestream, align 8
-  %call46 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %42, ptr noundef nonnull %number_disk)
+  %call46 = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef %42, ptr noundef %number_disk)
   %cmp47.not = icmp eq i32 %call46, 0
   %43 = load ptr, ptr %filestream, align 8
-  %call52 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %43, ptr noundef nonnull %number_disk_with_CD)
+  %call52 = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef %43, ptr noundef %number_disk_with_CD)
   %cmp53.not = icmp eq i32 %call52, 0
   %44 = load ptr, ptr %filestream, align 8
   %gi = getelementptr inbounds i8, ptr %us, i64 104
-  %call58 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %44, ptr noundef nonnull %gi)
+  %call58 = call fastcc i32 @unz64local_getLong64(ptr noundef %us, ptr noundef %44, ptr noundef %gi)
   %cmp59.not = icmp eq i32 %call58, 0
   %45 = load ptr, ptr %filestream, align 8
-  %call64 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %45, ptr noundef nonnull %number_entry_CD)
+  %call64 = call fastcc i32 @unz64local_getLong64(ptr noundef %us, ptr noundef %45, ptr noundef %number_entry_CD)
   %cmp65.not = icmp eq i32 %call64, 0
   %46 = select i1 %cmp65.not, i1 %cmp59.not, i1 false
   %47 = select i1 %46, i1 %cmp53.not, i1 false
@@ -430,11 +430,11 @@ unz64local_getShort.exit51.thread267:             ; preds = %unz64local_getByte.
   %err.9 = select i1 %or.cond1, i32 -103, i32 %err.8
   %53 = load ptr, ptr %filestream, align 8
   %size_central_dir = getelementptr inbounds i8, ptr %us, i64 160
-  %call78 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %53, ptr noundef nonnull %size_central_dir)
+  %call78 = call fastcc i32 @unz64local_getLong64(ptr noundef %us, ptr noundef %53, ptr noundef %size_central_dir)
   %cmp79.not = icmp eq i32 %call78, 0
   %54 = load ptr, ptr %filestream, align 8
   %offset_central_dir = getelementptr inbounds i8, ptr %us, i64 168
-  %call84 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %54, ptr noundef nonnull %offset_central_dir)
+  %call84 = call fastcc i32 @unz64local_getLong64(ptr noundef %us, ptr noundef %54, ptr noundef %offset_central_dir)
   %cmp85.not = icmp eq i32 %call84, 0
   %55 = select i1 %cmp85.not, i1 %cmp79.not, i1 false
   %err.11 = select i1 %55, i32 %err.9, i32 -1
@@ -544,7 +544,7 @@ unz64local_SearchCentralDir.exit.thread:          ; preds = %unz64local_SearchCe
   %call99 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %66, i64 noundef %retval.0.i54272, i32 noundef 0) #14
   %cmp100.not = icmp eq i64 %call99, 0
   %67 = load ptr, ptr %filestream, align 8
-  %call105 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %67, ptr noundef nonnull %uL)
+  %call105 = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef %67, ptr noundef %uL)
   %cmp106.not = icmp eq i32 %call105, 0
   %68 = select i1 %cmp106.not, i1 %cmp100.not, i1 false
   %err.15 = select i1 %68, i32 %65, i32 -1
@@ -806,13 +806,13 @@ unz64local_getShort.exit223:                      ; preds = %if.then.i204
   %or.cond3 = select i1 %or.cond2, i1 true, i1 %cmp141
   %err.20 = select i1 %or.cond3, i32 -103, i32 %133
   %135 = load ptr, ptr %filestream, align 8
-  %call146 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %135, ptr noundef nonnull %uL)
+  %call146 = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef %135, ptr noundef %uL)
   %cmp147.not = icmp eq i32 %call146, 0
   %136 = load i64, ptr %uL, align 8
   %size_central_dir150 = getelementptr inbounds i8, ptr %us, i64 160
   store i64 %136, ptr %size_central_dir150, align 8
   %137 = load ptr, ptr %filestream, align 8
-  %call153 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %137, ptr noundef nonnull %uL)
+  %call153 = call fastcc i32 @unz64local_getLong(ptr noundef %us, ptr noundef %137, ptr noundef %uL)
   %cmp154.not = icmp eq i32 %call153, 0
   %138 = select i1 %cmp154.not, i1 %cmp147.not, i1 false
   %err.22 = select i1 %138, i32 %err.20, i32 -1
@@ -1179,7 +1179,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %3 = load ptr, ptr %filestream, align 8
-  %call8 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %3, ptr noundef nonnull %uMagic)
+  %call8 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %3, ptr noundef %uMagic)
   %cmp9.not = icmp eq i32 %call8, 0
   br i1 %cmp9.not, label %if.else, label %if.end15
 
@@ -1466,7 +1466,7 @@ unz64local_getShort.exit220:                      ; preds = %if.then.i201
   %72 = phi i32 [ %55, %70 ], [ -1, %unz64local_getShort.exit220 ], [ -1, %unz64local_getShort.exit220.thread456 ]
   %73 = load ptr, ptr %filestream, align 8
   %dosDate = getelementptr inbounds i8, ptr %file_info, i64 32
-  %call42 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %73, ptr noundef nonnull %dosDate)
+  %call42 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %73, ptr noundef %dosDate)
   %cmp43.not = icmp eq i32 %call42, 0
   %74 = load i64, ptr %dosDate, align 8
   %tmu_date = getelementptr inbounds i8, ptr %file_info, i64 112
@@ -1497,16 +1497,16 @@ unz64local_getShort.exit220:                      ; preds = %if.then.i201
   store i32 %conv13.i, ptr %tmu_date, align 8
   %83 = load ptr, ptr %filestream, align 8
   %crc = getelementptr inbounds i8, ptr %file_info, i64 40
-  %call49 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %83, ptr noundef nonnull %crc)
+  %call49 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %83, ptr noundef %crc)
   %cmp50.not = icmp eq i32 %call49, 0
   %84 = load ptr, ptr %filestream, align 8
-  %call55 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %84, ptr noundef nonnull %uL)
+  %call55 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %84, ptr noundef %uL)
   %cmp56.not = icmp eq i32 %call55, 0
   %85 = load i64, ptr %uL, align 8
   %compressed_size = getelementptr inbounds i8, ptr %file_info, i64 48
   store i64 %85, ptr %compressed_size, align 8
   %86 = load ptr, ptr %filestream, align 8
-  %call61 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %86, ptr noundef nonnull %uL)
+  %call61 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %86, ptr noundef %uL)
   %cmp62.not = icmp eq i32 %call61, 0
   %87 = select i1 %cmp62.not, i1 %cmp56.not, i1 false
   %88 = select i1 %87, i1 %cmp50.not, i1 false
@@ -1857,10 +1857,10 @@ unz64local_getShort.exit375:                      ; preds = %if.then.i356
   %175 = phi i32 [ %158, %173 ], [ -1, %unz64local_getShort.exit375 ], [ -1, %unz64local_getShort.exit375.thread481 ]
   %176 = load ptr, ptr %filestream, align 8
   %external_fa = getelementptr inbounds i8, ptr %file_info, i64 104
-  %call97 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %176, ptr noundef nonnull %external_fa)
+  %call97 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %176, ptr noundef %external_fa)
   %cmp98.not = icmp eq i32 %call97, 0
   %177 = load ptr, ptr %filestream, align 8
-  %call103 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %177, ptr noundef nonnull %uL)
+  %call103 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %177, ptr noundef %uL)
   %cmp104.not = icmp eq i32 %call103, 0
   %178 = select i1 %cmp104.not, i1 %cmp98.not, i1 false
   %err.16 = select i1 %178, i32 %175, i32 -1
@@ -2107,7 +2107,7 @@ if.then211:                                       ; preds = %unz64local_getShort
 
 if.then214:                                       ; preds = %if.then211
   %223 = load ptr, ptr %filestream, align 8
-  %call218 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %file, ptr noundef %223, ptr noundef nonnull %uncompressed_size)
+  %call218 = call fastcc i32 @unz64local_getLong64(ptr noundef %file, ptr noundef %223, ptr noundef %uncompressed_size)
   %cmp219.not = icmp eq i32 %call218, 0
   %spec.select121 = select i1 %cmp219.not, i32 %221, i32 -1
   br label %if.end222
@@ -2120,7 +2120,7 @@ if.end222:                                        ; preds = %if.then214, %if.the
 
 if.then225:                                       ; preds = %if.end222
   %225 = load ptr, ptr %filestream, align 8
-  %call229 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %file, ptr noundef %225, ptr noundef nonnull %compressed_size)
+  %call229 = call fastcc i32 @unz64local_getLong64(ptr noundef %file, ptr noundef %225, ptr noundef %compressed_size)
   %cmp230.not = icmp eq i32 %call229, 0
   %spec.select122 = select i1 %cmp230.not, i32 %err.27, i32 -1
   br label %if.end233
@@ -2133,7 +2133,7 @@ if.end233:                                        ; preds = %if.then225, %if.end
 
 if.then236:                                       ; preds = %if.end233
   %227 = load ptr, ptr %filestream, align 8
-  %call240 = call fastcc i32 @unz64local_getLong64(ptr noundef %file, ptr noundef %227, ptr noundef nonnull %file_info_internal)
+  %call240 = call fastcc i32 @unz64local_getLong64(ptr noundef %file, ptr noundef %227, ptr noundef %file_info_internal)
   %cmp241.not = icmp eq i32 %call240, 0
   %spec.select123 = select i1 %cmp241.not, i32 %err.28, i32 -1
   br label %if.end244
@@ -2146,7 +2146,7 @@ if.end244:                                        ; preds = %if.then236, %if.end
 
 if.then247:                                       ; preds = %if.end244
   %229 = load ptr, ptr %filestream, align 8
-  %call250 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %229, ptr noundef nonnull %uL1)
+  %call250 = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %229, ptr noundef %uL1)
   %cmp251.not = icmp eq i32 %call250, 0
   %spec.select124 = select i1 %cmp251.not, i32 %err.29, i32 -1
   br label %if.end262
@@ -2191,7 +2191,7 @@ if.end278:                                        ; preds = %if.then269, %if.the
 
 if.then280:                                       ; preds = %if.end278
   %233 = load ptr, ptr %filestream, align 8
-  %call283 = call i64 @call_zseek64(ptr noundef %file, ptr noundef %233, i64 noundef %lSeek.3, i32 noundef 1) #14
+  %call283 = call i64 @call_zseek64(ptr noundef nonnull %file, ptr noundef %233, i64 noundef %lSeek.3, i32 noundef 1) #14
   %cmp284 = icmp ne i64 %call283, 0
   %.126 = sext i1 %cmp284 to i32
   br label %if.end288
@@ -2717,7 +2717,7 @@ unz64local_CheckCurrentFileCoherencyHeader.exit.thread: ; preds = %if.end8
 
 if.then2.i:                                       ; preds = %if.end8
   %7 = load ptr, ptr %filestream.i, align 8
-  %call5.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %7, ptr noundef nonnull %uMagic.i)
+  %call5.i = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %7, ptr noundef %uMagic.i)
   %cmp6.not.i65 = icmp eq i32 %call5.i, 0
   %8 = load i64, ptr %uMagic.i, align 8
   %cmp8.not.i = icmp eq i64 %8, 67324752
@@ -2934,9 +2934,9 @@ if.then49.i:                                      ; preds = %land.lhs.true37.i
 if.end50.i:                                       ; preds = %if.then49.i, %land.lhs.true37.i, %land.lhs.true37.i, %land.lhs.true37.i, %land.lhs.true.i68, %if.else30.i, %unz64local_getShort.exit116.i, %unz64local_getShort.exit116.thread195.i
   %err.4.i = phi i32 [ -103, %if.then49.i ], [ 0, %land.lhs.true37.i ], [ 0, %land.lhs.true37.i ], [ 0, %land.lhs.true37.i ], [ -1, %unz64local_getShort.exit116.thread195.i ], [ -103, %land.lhs.true.i68 ], [ -1, %unz64local_getShort.exit116.i ], [ %40, %if.else30.i ]
   %57 = load ptr, ptr %filestream.i, align 8
-  %call53.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %57, ptr noundef nonnull %uData.i)
+  %call53.i = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %57, ptr noundef %uData.i)
   %58 = load ptr, ptr %filestream.i, align 8
-  %call59.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %58, ptr noundef nonnull %uData.i)
+  %call59.i = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %58, ptr noundef %uData.i)
   %cmp60.not.i = icmp eq i32 %call59.i, 0
   br i1 %cmp60.not.i, label %if.else62.i, label %if.end71.i
 
@@ -2962,7 +2962,7 @@ land.lhs.true67.i:                                ; preds = %land.lhs.true64.i
 if.end71.i:                                       ; preds = %land.lhs.true67.i, %land.lhs.true64.i, %if.else62.i, %if.end50.i
   %err.6.i = phi i32 [ 0, %land.lhs.true64.i ], [ %spec.select49.i, %if.else62.i ], [ -1, %if.end50.i ], [ %spec.select50.i, %land.lhs.true67.i ]
   %61 = load ptr, ptr %filestream.i, align 8
-  %call74.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %61, ptr noundef nonnull %uData.i)
+  %call74.i = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %61, ptr noundef %uData.i)
   %cmp75.not.i = icmp eq i32 %call74.i, 0
   br i1 %cmp75.not.i, label %if.else77.i, label %if.end89.i
 
@@ -2988,7 +2988,7 @@ land.lhs.true84.i:                                ; preds = %land.lhs.true81.i
 if.end89.i:                                       ; preds = %land.lhs.true84.i, %land.lhs.true81.i, %if.else77.i, %if.end71.i
   %err.7.i = phi i32 [ 0, %land.lhs.true81.i ], [ %err.6.i, %if.else77.i ], [ -1, %if.end71.i ], [ %spec.select51.i, %land.lhs.true84.i ]
   %64 = load ptr, ptr %filestream.i, align 8
-  %call92.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %64, ptr noundef nonnull %uData.i)
+  %call92.i = call fastcc i32 @unz64local_getLong(ptr noundef %file, ptr noundef %64, ptr noundef %uData.i)
   %cmp93.not.i = icmp eq i32 %call92.i, 0
   br i1 %cmp93.not.i, label %if.else95.i, label %if.end107.i
 
@@ -3933,7 +3933,7 @@ declare void @fill_fopen64_filefunc(ptr noundef) local_unnamed_addr #3
 declare ptr @call_zopen64(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong(ptr nocapture noundef readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef writeonly %pX) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong(ptr nocapture noundef nonnull readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef nonnull writeonly %pX) unnamed_addr #2 {
 entry:
   %c.i43 = alloca i8, align 1
   %c.i29 = alloca i8, align 1
@@ -4069,7 +4069,7 @@ if.end16.thread:                                  ; preds = %if.end16, %unz64loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong64(ptr nocapture noundef readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef writeonly %pX) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong64(ptr nocapture noundef nonnull readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef nonnull writeonly %pX) unnamed_addr #2 {
 entry:
   %c.i115 = alloca i8, align 1
   %c.i101 = alloca i8, align 1

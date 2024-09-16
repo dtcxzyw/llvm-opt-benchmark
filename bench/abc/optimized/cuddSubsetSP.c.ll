@@ -511,7 +511,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
 170:                                              ; preds = %169, %168
   %171 = load ptr, ptr %128, align 8
   call void @st__free_table(ptr noundef %171) #8
-  %172 = call i32 @st__foreach(ptr noundef %39, ptr noundef nonnull @stPathTableDdFree, ptr noundef %0) #8
+  %172 = call i32 @st__foreach(ptr noundef nonnull %39, ptr noundef nonnull @stPathTableDdFree, ptr noundef %0) #8
   call void @free(ptr noundef nonnull %124) #8
   br label %177
 
@@ -637,7 +637,7 @@ declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -650,7 +650,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %14, label %289, label %15
 
 15:                                               ; preds = %5
-  %16 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %7) #8
+  %16 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef nonnull %7) #8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %22
 
@@ -722,7 +722,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %58, label %289, label %83
 
 59:                                               ; preds = %31
-  %60 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %43, ptr noundef nonnull %6) #8
+  %60 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %43, ptr noundef nonnull %6) #8
   %.not223 = icmp eq i32 %60, 0
   br i1 %.not223, label %61, label %66
 
@@ -813,7 +813,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br label %127
 
 103:                                              ; preds = %83
-  %104 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %85, ptr noundef nonnull %8) #8
+  %104 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %85, ptr noundef nonnull %8) #8
   %.not230 = icmp eq i32 %104, 0
   br i1 %.not230, label %105, label %110
 
@@ -1378,29 +1378,25 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
 declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %.not19 = icmp eq i32 %4, 0
-  br i1 %.not19, label %._crit_edge.thread, label %.lr.ph
-
-.lr.ph:                                           ; preds = %5
   %7 = add i32 %3, 1
   br label %8
 
 .loopexit:                                        ; preds = %28
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge, label %8
+  br i1 %.not, label %143, label %8
 
-8:                                                ; preds = %.lr.ph, %.loopexit
-  %.023 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
-  %.07922 = phi i32 [ %1, %.lr.ph ], [ %spec.select117, %.loopexit ]
-  %.08221 = phi i32 [ %2, %.lr.ph ], [ %19, %.loopexit ]
-  %.08420 = phi i32 [ %4, %.lr.ph ], [ %9, %.loopexit ]
-  %9 = add nsw i32 %.08420, -1
-  %10 = icmp eq i32 %.08221, 2048
-  %spec.select = select i1 %10, i32 0, i32 %.08221
+8:                                                ; preds = %5, %.loopexit
+  %.022 = phi i32 [ 0, %5 ], [ %.1, %.loopexit ]
+  %.07921 = phi i32 [ %1, %5 ], [ %spec.select117, %.loopexit ]
+  %.08220 = phi i32 [ %2, %5 ], [ %19, %.loopexit ]
+  %.08419 = phi i32 [ %4, %5 ], [ %9, %.loopexit ]
+  %9 = add nsw i32 %.08419, -1
+  %10 = icmp eq i32 %.08220, 2048
+  %spec.select = select i1 %10, i32 0, i32 %.08220
   %11 = zext i1 %10 to i32
-  %spec.select117 = add nsw i32 %.07922, %11
+  %spec.select117 = add nsw i32 %.07921, %11
   %12 = load ptr, ptr @queuePages, align 8
   %13 = sext i32 %spec.select117 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -1421,7 +1417,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 
 28:                                               ; preds = %141, %8
   %.075 = phi i32 [ 2, %8 ], [ %142, %141 ]
-  %.1 = phi i32 [ %.023, %8 ], [ %.2, %141 ]
+  %.1 = phi i32 [ %.022, %8 ], [ %.2, %141 ]
   switch i32 %.075, label %29 [
     i32 0, label %.loopexit
     i32 2, label %30
@@ -1461,18 +1457,18 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 
 .preheader:                                       ; preds = %41
   %42 = load i32, ptr @queuePage, align 4
-  %.not11044 = icmp slt i32 %42, 0
-  %.pre84 = load ptr, ptr @queuePages, align 8
-  br i1 %.not11044, label %._crit_edge47, label %.lr.ph46
+  %.not11039 = icmp slt i32 %42, 0
+  %.pre79 = load ptr, ptr @queuePages, align 8
+  br i1 %.not11039, label %._crit_edge42, label %.lr.ph41
 
-.lr.ph46:                                         ; preds = %.preheader
+.lr.ph41:                                         ; preds = %.preheader
   %43 = add nuw i32 %42, 1
-  %wide.trip.count79 = zext i32 %43 to i64
+  %wide.trip.count74 = zext i32 %43 to i64
   br label %44
 
-44:                                               ; preds = %.lr.ph46, %48
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next77, %48 ]
-  %45 = getelementptr inbounds ptr, ptr %.pre84, i64 %indvars.iv76
+44:                                               ; preds = %.lr.ph41, %48
+  %indvars.iv71 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next72, %48 ]
+  %45 = getelementptr inbounds ptr, ptr %.pre79, i64 %indvars.iv71
   %46 = load ptr, ptr %45, align 8
   %.not112 = icmp eq ptr %46, null
   br i1 %.not112, label %48, label %47
@@ -1483,22 +1479,22 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br label %48
 
 48:                                               ; preds = %47, %44
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge47.thread, label %44, !llvm.loop !16
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
+  br i1 %exitcond75.not, label %._crit_edge42.thread, label %44, !llvm.loop !16
 
-._crit_edge47:                                    ; preds = %.preheader
-  %.not111 = icmp eq ptr %.pre84, null
-  br i1 %.not111, label %49, label %._crit_edge47.thread
+._crit_edge42:                                    ; preds = %.preheader
+  %.not111 = icmp eq ptr %.pre79, null
+  br i1 %.not111, label %49, label %._crit_edge42.thread
 
-._crit_edge47.thread:                             ; preds = %48, %._crit_edge47
-  call void @free(ptr noundef nonnull %.pre84) #8
+._crit_edge42.thread:                             ; preds = %48, %._crit_edge42
+  call void @free(ptr noundef nonnull %.pre79) #8
   store ptr null, ptr @queuePages, align 8
   br label %49
 
-49:                                               ; preds = %._crit_edge47, %._crit_edge47.thread
+49:                                               ; preds = %._crit_edge42, %._crit_edge42.thread
   call void @st__free_table(ptr noundef %0) #8
-  br label %._crit_edge.thread
+  br label %145
 
 50:                                               ; preds = %41
   %51 = load ptr, ptr @currentNodeDistPage, align 8
@@ -1541,18 +1537,18 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 70:                                               ; preds = %66
   store i1 true, ptr @memOut, align 4
   %71 = load i32, ptr @nodeDistPage, align 4
-  %.not10434 = icmp slt i32 %71, 0
-  %.pre82 = load ptr, ptr @nodeDistPages, align 8
-  br i1 %.not10434, label %._crit_edge38, label %.lr.ph37
+  %.not10429 = icmp slt i32 %71, 0
+  %.pre77 = load ptr, ptr @nodeDistPages, align 8
+  br i1 %.not10429, label %._crit_edge33, label %.lr.ph32
 
-.lr.ph37:                                         ; preds = %70
+.lr.ph32:                                         ; preds = %70
   %72 = add nuw i32 %71, 1
-  %wide.trip.count69 = zext i32 %72 to i64
+  %wide.trip.count64 = zext i32 %72 to i64
   br label %73
 
-73:                                               ; preds = %.lr.ph37, %77
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next67, %77 ]
-  %74 = getelementptr inbounds ptr, ptr %.pre82, i64 %indvars.iv66
+73:                                               ; preds = %.lr.ph32, %77
+  %indvars.iv61 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next62, %77 ]
+  %74 = getelementptr inbounds ptr, ptr %.pre77, i64 %indvars.iv61
   %75 = load ptr, ptr %74, align 8
   %.not109 = icmp eq ptr %75, null
   br i1 %.not109, label %77, label %76
@@ -1563,33 +1559,33 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br label %77
 
 77:                                               ; preds = %76, %73
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge38.thread, label %73, !llvm.loop !17
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %._crit_edge33.thread, label %73, !llvm.loop !17
 
-._crit_edge38:                                    ; preds = %70
-  %.not105 = icmp eq ptr %.pre82, null
-  br i1 %.not105, label %78, label %._crit_edge38.thread
+._crit_edge33:                                    ; preds = %70
+  %.not105 = icmp eq ptr %.pre77, null
+  br i1 %.not105, label %78, label %._crit_edge33.thread
 
-._crit_edge38.thread:                             ; preds = %77, %._crit_edge38
-  call void @free(ptr noundef nonnull %.pre82) #8
+._crit_edge33.thread:                             ; preds = %77, %._crit_edge33
+  call void @free(ptr noundef nonnull %.pre77) #8
   store ptr null, ptr @nodeDistPages, align 8
   br label %78
 
-78:                                               ; preds = %._crit_edge38, %._crit_edge38.thread
+78:                                               ; preds = %._crit_edge33, %._crit_edge33.thread
   %79 = load i32, ptr @queuePage, align 4
-  %.not10639 = icmp slt i32 %79, 0
-  %.pre83 = load ptr, ptr @queuePages, align 8
-  br i1 %.not10639, label %._crit_edge43, label %.lr.ph42
+  %.not10634 = icmp slt i32 %79, 0
+  %.pre78 = load ptr, ptr @queuePages, align 8
+  br i1 %.not10634, label %._crit_edge38, label %.lr.ph37
 
-.lr.ph42:                                         ; preds = %78
+.lr.ph37:                                         ; preds = %78
   %80 = add nuw i32 %79, 1
-  %wide.trip.count74 = zext i32 %80 to i64
+  %wide.trip.count69 = zext i32 %80 to i64
   br label %81
 
-81:                                               ; preds = %.lr.ph42, %85
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next72, %85 ]
-  %82 = getelementptr inbounds ptr, ptr %.pre83, i64 %indvars.iv71
+81:                                               ; preds = %.lr.ph37, %85
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next67, %85 ]
+  %82 = getelementptr inbounds ptr, ptr %.pre78, i64 %indvars.iv66
   %83 = load ptr, ptr %82, align 8
   %.not108 = icmp eq ptr %83, null
   br i1 %.not108, label %85, label %84
@@ -1600,22 +1596,22 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br label %85
 
 85:                                               ; preds = %84, %81
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %._crit_edge43.thread, label %81, !llvm.loop !18
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
+  br i1 %exitcond70.not, label %._crit_edge38.thread, label %81, !llvm.loop !18
 
-._crit_edge43:                                    ; preds = %78
-  %.not107 = icmp eq ptr %.pre83, null
-  br i1 %.not107, label %86, label %._crit_edge43.thread
+._crit_edge38:                                    ; preds = %78
+  %.not107 = icmp eq ptr %.pre78, null
+  br i1 %.not107, label %86, label %._crit_edge38.thread
 
-._crit_edge43.thread:                             ; preds = %85, %._crit_edge43
-  call void @free(ptr noundef nonnull %.pre83) #8
+._crit_edge38.thread:                             ; preds = %85, %._crit_edge38
+  call void @free(ptr noundef nonnull %.pre78) #8
   store ptr null, ptr @queuePages, align 8
   br label %86
 
-86:                                               ; preds = %._crit_edge43, %._crit_edge43.thread
+86:                                               ; preds = %._crit_edge38, %._crit_edge38.thread
   call void @st__free_table(ptr noundef %0) #8
-  br label %._crit_edge.thread
+  br label %145
 
 87:                                               ; preds = %66
   %88 = load i32, ptr @queuePageIndex, align 4
@@ -1632,18 +1628,18 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 
 .preheader1:                                      ; preds = %91
   %92 = load i32, ptr @nodeDistPage, align 4
-  %.not10130 = icmp slt i32 %92, 0
-  %.pre81 = load ptr, ptr @nodeDistPages, align 8
-  br i1 %.not10130, label %._crit_edge33, label %.lr.ph32
+  %.not10125 = icmp slt i32 %92, 0
+  %.pre76 = load ptr, ptr @nodeDistPages, align 8
+  br i1 %.not10125, label %._crit_edge28, label %.lr.ph27
 
-.lr.ph32:                                         ; preds = %.preheader1
+.lr.ph27:                                         ; preds = %.preheader1
   %93 = add nuw i32 %92, 1
-  %wide.trip.count64 = zext i32 %93 to i64
+  %wide.trip.count59 = zext i32 %93 to i64
   br label %94
 
-94:                                               ; preds = %.lr.ph32, %98
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next62, %98 ]
-  %95 = getelementptr inbounds ptr, ptr %.pre81, i64 %indvars.iv61
+94:                                               ; preds = %.lr.ph27, %98
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next57, %98 ]
+  %95 = getelementptr inbounds ptr, ptr %.pre76, i64 %indvars.iv56
   %96 = load ptr, ptr %95, align 8
   %.not103 = icmp eq ptr %96, null
   br i1 %.not103, label %98, label %97
@@ -1654,22 +1650,22 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br label %98
 
 98:                                               ; preds = %97, %94
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %._crit_edge33.thread, label %94, !llvm.loop !19
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %._crit_edge28.thread, label %94, !llvm.loop !19
 
-._crit_edge33:                                    ; preds = %.preheader1
-  %.not102 = icmp eq ptr %.pre81, null
-  br i1 %.not102, label %99, label %._crit_edge33.thread
+._crit_edge28:                                    ; preds = %.preheader1
+  %.not102 = icmp eq ptr %.pre76, null
+  br i1 %.not102, label %99, label %._crit_edge28.thread
 
-._crit_edge33.thread:                             ; preds = %98, %._crit_edge33
-  call void @free(ptr noundef nonnull %.pre81) #8
+._crit_edge28.thread:                             ; preds = %98, %._crit_edge28
+  call void @free(ptr noundef nonnull %.pre76) #8
   store ptr null, ptr @nodeDistPages, align 8
   br label %99
 
-99:                                               ; preds = %._crit_edge33, %._crit_edge33.thread
+99:                                               ; preds = %._crit_edge28, %._crit_edge28.thread
   call void @st__free_table(ptr noundef %0) #8
-  br label %._crit_edge.thread
+  br label %145
 
 100:                                              ; preds = %91
   %101 = load ptr, ptr @currentQueuePage, align 8
@@ -1714,17 +1710,17 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 
 .preheader2:                                      ; preds = %120
   %121 = load i32, ptr @nodeDistPage, align 4
-  %.not11426 = icmp slt i32 %121, 0
+  %.not11423 = icmp slt i32 %121, 0
   %.pre = load ptr, ptr @nodeDistPages, align 8
-  br i1 %.not11426, label %._crit_edge29, label %.lr.ph28
+  br i1 %.not11423, label %._crit_edge, label %.lr.ph
 
-.lr.ph28:                                         ; preds = %.preheader2
+.lr.ph:                                           ; preds = %.preheader2
   %122 = add nuw i32 %121, 1
   %wide.trip.count = zext i32 %122 to i64
   br label %123
 
-123:                                              ; preds = %.lr.ph28, %127
-  %indvars.iv = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next, %127 ]
+123:                                              ; preds = %.lr.ph, %127
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %127 ]
   %124 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8
   %.not116 = icmp eq ptr %125, null
@@ -1738,20 +1734,20 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
 127:                                              ; preds = %126, %123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge29.thread, label %123, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.thread, label %123, !llvm.loop !20
 
-._crit_edge29:                                    ; preds = %.preheader2
+._crit_edge:                                      ; preds = %.preheader2
   %.not115 = icmp eq ptr %.pre, null
-  br i1 %.not115, label %128, label %._crit_edge29.thread
+  br i1 %.not115, label %128, label %._crit_edge.thread
 
-._crit_edge29.thread:                             ; preds = %127, %._crit_edge29
+._crit_edge.thread:                               ; preds = %127, %._crit_edge
   call void @free(ptr noundef nonnull %.pre) #8
   store ptr null, ptr @nodeDistPages, align 8
   br label %128
 
-128:                                              ; preds = %._crit_edge29, %._crit_edge29.thread
+128:                                              ; preds = %._crit_edge, %._crit_edge.thread
   call void @st__free_table(ptr noundef %0) #8
-  br label %._crit_edge.thread
+  br label %145
 
 129:                                              ; preds = %120
   %130 = load ptr, ptr @currentQueuePage, align 8
@@ -1782,16 +1778,15 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   %142 = add nsw i32 %.075, -1
   br label %28, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %.loopexit
+143:                                              ; preds = %.loopexit
   %.not97 = icmp eq i32 %.1, 0
-  br i1 %.not97, label %._crit_edge.thread, label %143
+  br i1 %.not97, label %145, label %144
 
-143:                                              ; preds = %._crit_edge
-  %144 = add nsw i32 %3, 1
-  call fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %spec.select117, i32 noundef %19, i32 noundef %144, i32 noundef %.1)
-  br label %._crit_edge.thread
+144:                                              ; preds = %143
+  call fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %spec.select117, i32 noundef %19, i32 noundef %7, i32 noundef %.1)
+  br label %145
 
-._crit_edge.thread:                               ; preds = %5, %._crit_edge, %143, %128, %99, %86, %49
+145:                                              ; preds = %143, %144, %128, %99, %86, %49
   ret void
 }
 

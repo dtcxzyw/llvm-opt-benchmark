@@ -2027,7 +2027,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i17.i.i: ; preds = %.prehea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPPKSt4pairIPKN4llvm8FunctionESt6vectorIjSaIjEEElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_25PhysicalRegisterUsageInfo5printERNS1_11raw_ostreamEPKNS1_6ModuleEE3$_0EEEvT_T0_SO_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPPKSt4pairIPKN4llvm8FunctionESt6vectorIjSaIjEEElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_25PhysicalRegisterUsageInfo5printERNS1_11raw_ostreamEPKNS1_6ModuleEE3$_0EEEvT_T0_SO_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

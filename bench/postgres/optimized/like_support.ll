@@ -35,7 +35,7 @@ define dso_local i64 @textlike_support(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @like_regex_support(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @like_regex_support(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %is_funcclause.exit.thread [
     i32 442, label %4
@@ -449,7 +449,7 @@ define dso_local noundef i64 @icnlikejoinsel(ptr nocapture noundef readnone %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 5) %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %struct.VariableStatData, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
@@ -557,7 +557,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 
 66:                                               ; preds = %56, %53
   %.061 = phi double [ %65, %56 ], [ 0.000000e+00, %53 ]
-  %67 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %22, i32 noundef %6, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %67 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %22, i32 noundef %6, i32 noundef %5, ptr noundef %12, ptr noundef nonnull %13)
   %68 = load ptr, ptr %12, align 8
   %.not76 = icmp eq ptr %68, null
   br i1 %.not76, label %73, label %69
@@ -603,7 +603,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
-  %89 = call fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %.058, i32 noundef %.062, i32 noundef %.063, i32 noundef %5, ptr noundef %68)
+  %89 = call fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef %9, i32 noundef %.058, i32 noundef %.062, i32 noundef %.063, i32 noundef %5, ptr noundef %68)
   br label %90
 
 90:                                               ; preds = %86, %88
@@ -690,7 +690,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 5) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.FmgrInfo, align 8
   %9 = load i32, ptr %1, align 4
@@ -713,7 +713,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
 
 .split:                                           ; preds = %16, %15
   %.sink = phi i32 [ 0, %15 ], [ %3, %16 ]
-  %18 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.sink, ptr noundef nonnull %7, ptr noundef null)
+  %18 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.sink, ptr noundef %7, ptr noundef null)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %61, label %20
 
@@ -810,7 +810,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
 55:                                               ; preds = %51
   %56 = tail call i32 @get_opcode(i32 noundef %.167) #11
   call void @fmgr_info(i32 noundef %56, ptr noundef nonnull %8) #11
-  %57 = call fastcc ptr @make_greater_string(ptr noundef nonnull %29, ptr noundef nonnull %8, i32 noundef %5)
+  %57 = call fastcc ptr @make_greater_string(ptr noundef nonnull %29, ptr noundef %8, i32 noundef %5)
   %.not75 = icmp eq ptr %57, null
   br i1 %.not75, label %61, label %58
 
@@ -827,8 +827,8 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
 declare zeroext i1 @get_restriction_variable(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
-  switch i32 %1, label %default.unreachable [
+define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 5) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #0 {
+  switch i32 %1, label %default.unreachable31 [
     i32 0, label %6
     i32 1, label %8
     i32 2, label %10
@@ -881,7 +881,7 @@ define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr nocapture n
   store double 1.000000e+00, ptr %4, align 8
   br label %36
 
-default.unreachable:                              ; preds = %5
+default.unreachable31:                            ; preds = %5
   unreachable
 
 36:                                               ; preds = %14, %35, %12, %10, %8, %6
@@ -898,7 +898,7 @@ declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare double @histogram_selectivity(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 98, 1956) %2, i32 noundef range(i32 255, 1958) %3, i32 noundef range(i32 257, 1961) %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = alloca %struct.FmgrInfo, align 8
   %9 = tail call i32 @get_opcode(i32 noundef %4) #11
   call void @fmgr_info(i32 noundef %9, ptr noundef nonnull %8) #11
@@ -906,14 +906,14 @@ define internal fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef %1
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef %1, i32 noundef %4, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %5, i64 noundef %11, i32 noundef %13) #11
+  %14 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %5, i64 noundef %11, i32 noundef %13) #11
   %15 = fcmp olt double %14, 0.000000e+00
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %7
   %17 = call i32 @get_opcode(i32 noundef %3) #11
   call void @fmgr_info(i32 noundef %17, ptr noundef nonnull %8) #11
-  %18 = call fastcc ptr @make_greater_string(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %5)
+  %18 = call fastcc ptr @make_greater_string(ptr noundef nonnull %6, ptr noundef %8, i32 noundef %5)
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %27, label %19
 
@@ -922,7 +922,7 @@ define internal fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef %1
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %5, i64 noundef %21, i32 noundef %23) #11
+  %24 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %5, i64 noundef %21, i32 noundef %23) #11
   %25 = fadd double %14, %24
   %26 = fadd double %25, -1.000000e+00
   br label %27
@@ -930,7 +930,7 @@ define internal fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef %1
 27:                                               ; preds = %19, %16
   %.029 = phi double [ %26, %19 ], [ %14, %16 ]
   %28 = load i64, ptr %10, align 8
-  %29 = call double @var_eq_const(ptr noundef %1, i32 noundef %2, i32 noundef %5, i64 noundef %28, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %29 = call double @var_eq_const(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %5, i64 noundef %28, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #11
   %30 = fcmp ogt double %.029, %29
   %31 = select i1 %30, double %.029, double %29
   br label %32
@@ -948,7 +948,7 @@ declare double @mcv_selectivity(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @pg_database_encoding_max_length() #11
@@ -1425,7 +1425,7 @@ like_selectivity.exit:                            ; preds = %190, %197, %200, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @regex_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @regex_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
@@ -1646,7 +1646,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @string_to_const(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @string_to_const(ptr noundef %0, i32 noundef range(i32 18, 17) %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 19
   br i1 %3, label %string_to_datum.exit.thread, label %string_to_datum.exit
 
@@ -1894,7 +1894,7 @@ declare void @check_stack_depth() local_unnamed_addr #2
 declare double @ineq_histogram_selectivity(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 17
@@ -2079,7 +2079,7 @@ select.unfold:                                    ; preds = %15, %22, %25
   %101 = tail call ptr @makeConst(i32 noundef 17, i32 noundef -1, i32 noundef 0, i32 noundef -1, i64 noundef %100, i1 noundef zeroext false, i1 noundef zeroext false) #11
   %102 = getelementptr inbounds i8, ptr %101, i64 24
   %103 = load i64, ptr %102, align 8
-  %104 = tail call i64 @FunctionCall2Coll(ptr noundef %1, i32 noundef %2, i64 noundef %85, i64 noundef %103) #11
+  %104 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %1, i32 noundef %2, i64 noundef %85, i64 noundef %103) #11
   %.not126.us.us = icmp eq i64 %104, 0
   br i1 %.not126.us.us, label %105, label %.split.us.thread
 
@@ -2108,7 +2108,7 @@ select.unfold:                                    ; preds = %15, %22, %25
   %118 = tail call fastcc ptr @string_to_const(ptr noundef %.192, i32 noundef %5)
   %119 = getelementptr inbounds i8, ptr %118, i64 24
   %120 = load i64, ptr %119, align 8
-  %121 = tail call i64 @FunctionCall2Coll(ptr noundef %1, i32 noundef %2, i64 noundef %.095.ph, i64 noundef %120) #11
+  %121 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %1, i32 noundef %2, i64 noundef %.095.ph, i64 noundef %120) #11
   %.not126 = icmp eq i64 %121, 0
   br i1 %.not126, label %122, label %.split.us
 

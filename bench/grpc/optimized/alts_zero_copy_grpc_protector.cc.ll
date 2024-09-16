@@ -43,7 +43,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::unique_ptr") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %key_factory)
   %record_protocol = getelementptr inbounds i8, ptr %call, i64 8
-  %call5 = invoke fastcc noundef i32 @_ZL32create_alts_grpc_record_protocolSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEbbbbPP25alts_grpc_record_protocol(ptr noundef nonnull %agg.tmp, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext true, i1 noundef zeroext %enable_extra_copy, ptr noundef nonnull %record_protocol)
+  %call5 = invoke fastcc noundef i32 @_ZL32create_alts_grpc_record_protocolSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEbbbbPP25alts_grpc_record_protocol(ptr noundef %agg.tmp, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext true, i1 noundef zeroext %enable_extra_copy, ptr noundef nonnull %record_protocol)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -69,7 +69,7 @@ if.then7:                                         ; preds = %_ZNSt10unique_ptrIN
   %3 = load ptr, ptr %vfn10, align 8
   call void %3(ptr nonnull sret(%"class.std::unique_ptr") align 8 %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(8) %key_factory)
   %unrecord_protocol = getelementptr inbounds i8, ptr %call, i64 16
-  %call16 = invoke fastcc noundef i32 @_ZL32create_alts_grpc_record_protocolSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEbbbbPP25alts_grpc_record_protocol(ptr noundef nonnull %agg.tmp8, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext false, i1 noundef zeroext %enable_extra_copy, ptr noundef nonnull %unrecord_protocol)
+  %call16 = invoke fastcc noundef i32 @_ZL32create_alts_grpc_record_protocolSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEbbbbPP25alts_grpc_record_protocol(ptr noundef %agg.tmp8, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext false, i1 noundef zeroext %enable_extra_copy, ptr noundef nonnull %unrecord_protocol)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %if.then7
@@ -174,7 +174,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL32create_alts_grpc_record_protocolSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEbbbbPP25alts_grpc_record_protocol(ptr nocapture noundef %key, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect, i1 noundef zeroext %enable_extra_copy, ptr noundef %record_protocol) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL32create_alts_grpc_record_protocolSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEbbbbPP25alts_grpc_record_protocol(ptr nocapture noundef nonnull %key, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect, i1 noundef zeroext %enable_extra_copy, ptr noundef %record_protocol) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %crypter = alloca ptr, align 8
   %error_details = alloca ptr, align 8

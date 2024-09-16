@@ -168,7 +168,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @node_distinct_coloring(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, double noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #4 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 33) %1) unnamed_addr #4 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -459,7 +459,7 @@ define dso_local void @plot_dot_map(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %37
 
 37:                                               ; preds = %34, %.thread67
-  call fastcc void @plot_dot_polygons(ptr noundef nonnull %19, double noundef -1.000000e+00, ptr noundef null, ptr noundef %4, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %15)
+  call fastcc void @plot_dot_polygons(ptr noundef %19, double noundef -1.000000e+00, ptr noundef null, ptr noundef %4, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %15)
   br label %38
 
 38:                                               ; preds = %.thread, %37, %34
@@ -467,11 +467,11 @@ define dso_local void @plot_dot_map(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %38
-  call fastcc void @plot_dot_polygons(ptr noundef nonnull %19, double noundef %6, ptr noundef %7, ptr noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @plot_dot_polygons(ptr noundef %19, double noundef %6, ptr noundef %7, ptr noundef %5, ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %41
 
 41:                                               ; preds = %40, %38
-  %42 = call fastcc ptr @agxbuse(ptr noundef nonnull %19)
+  %42 = call fastcc ptr @agxbuse(ptr noundef %19)
   br i1 %.not, label %45, label %plot_dot_edges.exit.thread71
 
 plot_dot_edges.exit.thread71:                     ; preds = %41
@@ -609,7 +609,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plot_dot_polygons(ptr nocapture noundef %0, double noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @plot_dot_polygons(ptr nocapture noundef nonnull %0, double noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef %9) unnamed_addr #0 {
 agxbput.exit:
   %10 = alloca %struct.agxbuf, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 24
@@ -625,7 +625,7 @@ agxbput.exit:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %20, i8 0, i64 22, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.27, i64 9, i1 false)
   store i8 9, ptr %19, align 1
-  %21 = call fastcc ptr @agxbuse(ptr noundef nonnull %10)
+  %21 = call fastcc ptr @agxbuse(ptr noundef %10)
   %22 = icmp sgt i32 %17, 0
   br i1 %22, label %.lr.ph.preheader, label %._crit_edge
 
@@ -929,7 +929,7 @@ agxbfree.exit:                                    ; preds = %._crit_edge142, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @agxbuse(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @agxbuse(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %2, align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -4335,7 +4335,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 declare void @rgb2hex(float noundef, float noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dot_one_poly(ptr nocapture noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @dot_one_poly(ptr nocapture noundef nonnull %0, double noundef %1, i32 noundef range(i32 -1, 2) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %9, label %dot_polygon.exit
 
@@ -4388,7 +4388,7 @@ dot_polygon.exit:                                 ; preds = %.lr.ph.i, %7
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef range(i64 1, 9) %3) unnamed_addr #0 {
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 %2)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
   br i1 %mul.ov, label %5, label %8
@@ -4439,7 +4439,7 @@ gv_realloc.exit:                                  ; preds = %12, %19, %21
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)

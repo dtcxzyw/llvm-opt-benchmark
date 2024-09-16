@@ -1694,7 +1694,7 @@ declare i32 @opt_provider(i32 noundef) local_unnamed_addr #2
 declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @list_type(i32 noundef %ft, i32 noundef %one) unnamed_addr #0 {
+define internal fastcc void @list_type(i32 noundef range(i32 1, 4) %ft, i32 noundef range(i32 0, 2) %one) unnamed_addr #0 {
 entry:
   %dc = alloca %struct.DISPLAY_COLUMNS, align 8
   store i64 0, ptr %dc, align 8

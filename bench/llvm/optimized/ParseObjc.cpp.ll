@@ -9708,7 +9708,7 @@ _ZN5clanglsIbEENSt9enable_ifIXsr3std7is_sameIT_bEE5valueERKNS_19StreamingDiagnos
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL36diagnoseRedundantPropertyNullabilityRN5clang6ParserERNS_12ObjCDeclSpecENS_15NullabilityKindENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i8 noundef zeroext %2, i32 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL36diagnoseRedundantPropertyNullabilityRN5clang6ParserERNS_12ObjCDeclSpecENS_15NullabilityKindENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i8 noundef zeroext range(i8 0, 3) %2, i32 %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -9718,7 +9718,7 @@ define internal fastcc void @_ZL36diagnoseRedundantPropertyNullabilityRN5clang6P
   %11 = trunc i32 %10 to i8
   %12 = and i8 %11, 3
   %13 = icmp eq i8 %12, %2
-  %.sroa.033.0.insert.ext = zext i8 %2 to i16
+  %.sroa.033.0.insert.ext = zext nneg i8 %2 to i16
   %.sroa.033.0.insert.insert = or disjoint i16 %.sroa.033.0.insert.ext, 256
   br i1 %13, label %14, label %42
 

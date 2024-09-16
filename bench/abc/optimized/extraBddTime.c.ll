@@ -684,7 +684,7 @@ define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr nou
   br i1 %cond.i, label %extraTransferPermuteTime.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %3, i32 noundef %4)
+  %12 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, ptr noundef %3, i32 noundef %4)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %20, label %13
 
@@ -795,7 +795,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #1
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extraTransferPermuteRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @extraTransferPermuteRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -815,7 +815,7 @@ define internal fastcc ptr @extraTransferPermuteRecurTime(ptr noundef %0, ptr no
   br label %102
 
 20:                                               ; preds = %5
-  %21 = call i32 @st__lookup(ptr noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %7) #5
+  %21 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull %7) #5
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %27, label %22
 
@@ -942,7 +942,7 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %phi.call) #5
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %65) #5
   %93 = load ptr, ptr %7, align 8
-  %94 = call i32 @st__add_direct(ptr noundef %2, ptr noundef nonnull %12, ptr noundef %93) #5
+  %94 = call i32 @st__add_direct(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef %93) #5
   %95 = icmp eq i32 %94, -10000
   %96 = load ptr, ptr %7, align 8
   br i1 %95, label %97, label %98

@@ -772,7 +772,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call1 = tail call fastcc noundef ptr @_ZL30measurementTypeBundleForLocalePKcS0_P10UErrorCode(ptr noundef %localeID, ptr noundef nonnull @.str.10, ptr noundef nonnull %status)
+  %call1 = tail call fastcc noundef ptr @_ZL30measurementTypeBundleForLocalePKcS0_P10UErrorCode(ptr noundef %localeID, ptr noundef nonnull @.str.10, ptr noundef %status)
   %call2 = tail call i32 @ures_getInt_75(ptr noundef %call1, ptr noundef nonnull %status)
   %1 = load i32, ptr %status, align 4
   %cmp.i7 = icmp sgt i32 %1, 0
@@ -786,17 +786,17 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL30measurementTypeBundleForLocalePKcS0_P10UErrorCode(ptr noundef %localeID, ptr noundef %measurementType, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL30measurementTypeBundleForLocalePKcS0_P10UErrorCode(ptr noundef %localeID, ptr noundef %measurementType, ptr noundef nonnull %status) unnamed_addr #1 {
 entry:
   %region = alloca [4 x i8], align 1
-  %call = call i32 @ulocimp_getRegionForSupplementalData_75(ptr noundef %localeID, i8 noundef signext 1, ptr noundef nonnull %region, i32 noundef 4, ptr noundef %status)
-  %call1 = call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %status)
-  %call2 = call ptr @ures_getByKey_75(ptr noundef %call1, ptr noundef nonnull @.str.17, ptr noundef %call1, ptr noundef %status)
+  %call = call i32 @ulocimp_getRegionForSupplementalData_75(ptr noundef %localeID, i8 noundef signext 1, ptr noundef nonnull %region, i32 noundef 4, ptr noundef nonnull %status)
+  %call1 = call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %status)
+  %call2 = call ptr @ures_getByKey_75(ptr noundef %call1, ptr noundef nonnull @.str.17, ptr noundef %call1, ptr noundef nonnull %status)
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %if.end16, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call4 = call ptr @ures_getByKey_75(ptr noundef nonnull %call1, ptr noundef nonnull %region, ptr noundef null, ptr noundef %status)
+  %call4 = call ptr @ures_getByKey_75(ptr noundef nonnull %call1, ptr noundef nonnull %region, ptr noundef null, ptr noundef nonnull %status)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %if.end, label %if.then6
@@ -854,7 +854,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call1 = tail call fastcc noundef ptr @_ZL30measurementTypeBundleForLocalePKcS0_P10UErrorCode(ptr noundef %localeID, ptr noundef nonnull @.str.11, ptr noundef nonnull %status)
+  %call1 = tail call fastcc noundef ptr @_ZL30measurementTypeBundleForLocalePKcS0_P10UErrorCode(ptr noundef %localeID, ptr noundef nonnull @.str.11, ptr noundef %status)
   %call2 = call ptr @ures_getIntVector_75(ptr noundef %call1, ptr noundef nonnull %len, ptr noundef nonnull %status)
   %1 = load i32, ptr %status, align 4
   %cmp.i8 = icmp sgt i32 %1, 0

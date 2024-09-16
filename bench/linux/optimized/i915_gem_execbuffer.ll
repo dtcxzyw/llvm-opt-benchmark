@@ -3812,7 +3812,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @eb_capture_stage(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @eb_requests_create(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @eb_requests_create(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 -1, -2147483648) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 244
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -5541,7 +5541,7 @@ declare void @llvm.write_register.i64(metadata, i64) #8
 declare dso_local ptr @drm_syncobj_find(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @drm_syncobj_fence_get(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc ptr @drm_syncobj_fence_get(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   tail call void @__rcu_read_lock() #13
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
@@ -5620,8 +5620,8 @@ define internal fastcc ptr @drm_syncobj_fence_get(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @drm_syncobj_put(ptr noundef %0) unnamed_addr #5 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #13, !srcloc !15
+define internal fastcc void @drm_syncobj_put(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #13, !srcloc !15
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
 
@@ -5630,12 +5630,12 @@ define internal fastcc void @drm_syncobj_put(ptr noundef %0) unnamed_addr #5 ali
   br i1 %5, label %.thread, label %6, !prof !11
 
 6:                                                ; preds = %4
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 3) #13
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 3) #13
   br label %.thread
 
 7:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
-  tail call void @drm_syncobj_free(ptr noundef %0) #13
+  tail call void @drm_syncobj_free(ptr noundef nonnull %0) #13
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %7
@@ -5720,8 +5720,8 @@ declare dso_local ptr @radix_tree_lookup(ptr noundef, i64 noundef) local_unnamed
 declare dso_local i32 @intel_pxp_key_check(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @i915_gem_object_put(ptr noundef %0) unnamed_addr #5 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #13, !srcloc !15
+define internal fastcc void @i915_gem_object_put(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #13, !srcloc !15
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
 
@@ -5730,12 +5730,12 @@ define internal fastcc void @i915_gem_object_put(ptr noundef %0) unnamed_addr #5
   br i1 %5, label %.thread, label %6, !prof !11
 
 6:                                                ; preds = %4
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 3) #13
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 3) #13
   br label %.thread
 
 7:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
-  tail call void @drm_gem_object_free(ptr noundef %0) #13
+  tail call void @drm_gem_object_free(ptr noundef nonnull %0) #13
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %7

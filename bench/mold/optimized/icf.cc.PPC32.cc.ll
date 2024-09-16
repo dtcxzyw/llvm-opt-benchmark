@@ -3752,7 +3752,7 @@ if.then2.i.i606:                                  ; preds = %if.then.i.i553
   store i64 %.sroa.speculated.i.i.i, ptr %my_index.i2.i.i, align 8
   %my_item.i4.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 16
   store ptr null, ptr %my_item.i4.i.i, align 8
-  call fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EvSH_SH_T0_(ptr noundef nonnull %agg.tmp.i.i531, ptr noundef nonnull %agg.tmp3.i.i)
+  call fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EvSH_SH_T0_(ptr noundef %agg.tmp.i.i531, ptr noundef %agg.tmp3.i.i)
   br label %_ZN3tbb6detail2d113parallel_sortINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS1_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEvSH_SH_RKT0_.exit.i
 
 if.else.i.i555:                                   ; preds = %if.then.i.i553
@@ -9199,12 +9199,12 @@ if.then6.i.i.i:                                   ; preds = %if.end5.i.i.i
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 16
   %conv6.i.i.i.i = zext i8 %4 to i64
   %shl7.i.i.i.i = shl nuw nsw i64 %conv6.i.i.i.i, 24
+  %or.i.i.i.i = or disjoint i64 %shl7.i.i.i.i, %shl.i.i.i.i
   %conv8.i.i.i.i = zext i8 %6 to i64
+  %or10.i.i.i.i = or disjoint i64 %or.i.i.i.i, %conv8.i.i.i.i
   %shl12.i.i.i.i = shl nuw nsw i64 %str.coerce0, 8
-  %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %shl12.i.i.i.i
-  %or10.i.i.i.i = or disjoint i64 %or.i.i.i.i, %shl7.i.i.i.i
-  %conv16.i.i.i.i = or disjoint i64 %or10.i.i.i.i, %conv8.i.i.i.i
-  %xor17.i.i.i.i = xor i64 %conv16.i.i.i.i, 2267503259
+  %or13.i.i.i.i = or disjoint i64 %or10.i.i.i.i, %shl12.i.i.i.i
+  %xor17.i.i.i.i = xor i64 %or13.i.i.i.i, 2267503259
   %mul.i.i25.i.i.i = mul i64 %xor17.i.i.i.i, -4417276706812531889
   %shr1.i.i.i.i.i = lshr i64 %mul.i.i25.i.i.i, 29
   %xor2.i.i26.i.i.i = xor i64 %shr1.i.i.i.i.i, %mul.i.i25.i.i.i
@@ -9392,6 +9392,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !165
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
+  %conv.i.i.i = trunc nuw nsw i64 %str.coerce0 to i32
+  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %str.coerce0
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %add.ptr13.val.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 1, !alias.scope !164
@@ -9410,14 +9412,11 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %mul.i.i41.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
   %shr.i4.i.i42.i.i = lshr i64 %mul.i.i41.i.i, 32
   %xor.i5.i.i43.i.i = xor i64 %shr.i4.i.i42.i.i, %mul.i.i41.i.i
-  %cmp203.i.i.i = icmp ugt i64 %str.coerce0, 143
-  br i1 %cmp203.i.i.i, label %for.body21.preheader.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i
+  %cmp203.not.i.i.i = icmp eq i32 %div25.i.i.i, 8
+  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.preheader.i.i.i
 
 for.body21.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %conv.i.i.i = trunc nuw i64 %str.coerce0 to i32
-  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
-  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div25.i.i.i, i32 9)
-  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %div25.i.i.i to i64
   br label %for.body21.i.i.i
 
 for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %for.body21.preheader.i.i.i
@@ -24013,7 +24012,7 @@ return:                                           ; preds = %_ZN3tbb6detail2d113
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EvSH_SH_T0_(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last) unnamed_addr #21 {
+define internal fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EvSH_SH_T0_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #21 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.tbb::detail::d1::vector_iterator.616", align 8
   %agg.tmp.i.i = alloca %"class.tbb::detail::d1::vector_iterator.616", align 8
@@ -24055,7 +24054,7 @@ if.then.i:                                        ; preds = %entry
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 true)
   %sub.i7.i = shl nuw nsw i64 %6, 1
   %mul.i = xor i64 %sub.i7.i, 126
-  call fastcc void @_ZSt16__introsort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_T1_(ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i, i64 noundef %mul.i)
+  call fastcc void @_ZSt16__introsort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_T1_(ptr noundef %agg.tmp.i, ptr noundef %agg.tmp1.i, i64 noundef %mul.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp6.i.i)
@@ -24075,7 +24074,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store i64 %add.i.i.i, ptr %my_index.i.i.i.i, align 8, !alias.scope !364
   %my_item.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 16
   store ptr null, ptr %my_item.i.i.i.i, align 8, !alias.scope !364
-  call fastcc void @_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp1.i.i)
+  call fastcc void @_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_(ptr noundef %agg.tmp.i.i, ptr noundef %agg.tmp1.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i)
   %cmp3.i.i12.i.i.i = icmp ne i64 %add.i.i.i, %4
   %.not.i13.i.i.i = or i1 %cmp.i.i11.i.fr.i.i, %cmp3.i.i12.i.i.i
@@ -24244,7 +24243,7 @@ for.body.i.i.i:                                   ; preds = %for.body.lr.ph.i.i.
   store ptr %0, ptr %agg.tmp.i.i.i, align 8
   store i64 %__i.sroa.3.014.i.i.i, ptr %my_index.i1.i.i.i, align 8
   store ptr null, ptr %my_item.i3.i.i.i, align 8
-  call fastcc void @_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_(ptr noundef nonnull %agg.tmp.i.i.i)
+  call fastcc void @_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_(ptr noundef %agg.tmp.i.i.i)
   %inc.i.i.i.i = add i64 %__i.sroa.3.014.i.i.i, 1
   %cmp3.i.i.i.not.i.i = icmp eq i64 %inc.i.i.i.i, %4
   br i1 %cmp3.i.i.i.not.i.i, label %_ZSt26__unguarded_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_.exit.i.i, label %for.body.i.i.i, !llvm.loop !367
@@ -24264,7 +24263,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   store i64 %4, ptr %my_index.i17.i.i, align 8
   %my_item.i19.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i, i64 16
   store ptr %5, ptr %my_item.i19.i.i, align 8
-  call fastcc void @_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_(ptr noundef nonnull %agg.tmp6.i.i, ptr noundef nonnull %agg.tmp7.i.i)
+  call fastcc void @_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_(ptr noundef %agg.tmp6.i.i, ptr noundef %agg.tmp7.i.i)
   br label %_ZSt22__final_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_.exit.i
 
 _ZSt22__final_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_.exit.i: ; preds = %if.else.i.i, %_ZSt26__unguarded_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_.exit.i.i
@@ -24281,7 +24280,7 @@ _ZSt6__sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @_ZSt16__introsort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_T1_(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit) unnamed_addr #21 {
+define internal fastcc void @_ZSt16__introsort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_T1_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit) unnamed_addr #21 {
 entry:
   %agg.tmp.i.i17.i = alloca %"class.tbb::detail::d1::vector_iterator.616", align 8
   %agg.tmp.i.i.i = alloca %"class.tbb::detail::d1::vector_iterator.616", align 8
@@ -24343,7 +24342,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSe
   store ptr %4, ptr %agg.tmp.i.i.i, align 8
   store i64 %2, ptr %my_index.i10.i.i.i, align 8
   store ptr %5, ptr %my_item.i11.i.i.i, align 8
-  call fastcc void @_ZSt13__adjust_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_SP_T1_T2_(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.i104, ptr noundef %11)
+  call fastcc void @_ZSt13__adjust_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_SP_T1_T2_(ptr noundef %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.i104, ptr noundef %11)
   %cmp4.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   br i1 %cmp4.i.i.i, label %_ZSt11__make_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_RT0_.exit.i.i, label %if.end6.split.i.i.i
 
@@ -24429,7 +24428,7 @@ _ZSt10__pop_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mol
   store i64 %2, ptr %my_index.i27.i.i20.i, align 8
   store ptr null, ptr %my_item.i28.i.i21.i, align 8
   %sub.i.i.i34.us.i = sub nsw i64 %dec.i.i22.us.i, %2
-  call fastcc void @_ZSt13__adjust_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_SP_T1_T2_(ptr noundef nonnull %agg.tmp.i.i17.i, i64 noundef 0, i64 noundef %sub.i.i.i34.us.i, ptr noundef %28)
+  call fastcc void @_ZSt13__adjust_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_SP_T1_T2_(ptr noundef %agg.tmp.i.i17.i, i64 noundef 0, i64 noundef %sub.i.i.i34.us.i, ptr noundef %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i17.i)
   %cmp.i.us.i = icmp sgt i64 %sub.i.i.i34.us.i, 1
   br i1 %cmp.i.us.i, label %while.body.i.us.i, label %while.end, !llvm.loop !369
@@ -24488,7 +24487,7 @@ _ZSt10__pop_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mol
   store i64 %2, ptr %my_index.i27.i.i20.i, align 8
   store ptr %5, ptr %my_item.i28.i.i21.i, align 8
   %sub.i.i.i34.i = sub nsw i64 %dec.i.i22.i, %2
-  call fastcc void @_ZSt13__adjust_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_SP_T1_T2_(ptr noundef nonnull %agg.tmp.i.i17.i, i64 noundef 0, i64 noundef %sub.i.i.i34.i, ptr noundef %40)
+  call fastcc void @_ZSt13__adjust_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_SP_T1_T2_(ptr noundef %agg.tmp.i.i17.i, i64 noundef 0, i64 noundef %sub.i.i.i34.i, ptr noundef %40)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i17.i)
   %cmp.i.i = icmp sgt i64 %sub.i.i.i34.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !369
@@ -24938,7 +24937,7 @@ _ZSt27__unguarded_partition_pivotIN3tbb6detail2d115vector_iteratorINS2_17concurr
   store i64 %145, ptr %my_index.i64, align 8
   %146 = load ptr, ptr %my_item4.i21, align 8
   store ptr %146, ptr %my_item.i66, align 8
-  call fastcc void @_ZSt16__introsort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_T1_(ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp9, i64 noundef %dec)
+  call fastcc void @_ZSt16__introsort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_T1_(ptr noundef %agg.tmp8, ptr noundef %agg.tmp9, i64 noundef %dec)
   store ptr %41, ptr %__last, align 8
   store i64 %.us-phi, ptr %my_index.i, align 8
   store ptr null, ptr %my_item4.i21, align 8
@@ -24952,7 +24951,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @_ZSt13__adjust_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_SP_T1_T2_(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #22 {
+define internal fastcc void @_ZSt13__adjust_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EElSA_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_SP_T1_T2_(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #22 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -25178,7 +25177,7 @@ _ZSt11__push_heapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last) unnamed_addr #22 {
+define internal fastcc void @_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_SK_T0_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #22 {
 entry:
   %agg.tmp10 = alloca %"class.tbb::detail::d1::vector_iterator.616", align 8
   %0 = load ptr, ptr %__first, align 8
@@ -25340,7 +25339,7 @@ if.else:                                          ; preds = %_ZN9__gnu_cxx5__ops
   store ptr %0, ptr %agg.tmp10, align 8
   store i64 %__i.sroa.7.064, ptr %my_index.i39, align 8
   store ptr null, ptr %my_item.i41, align 8
-  call fastcc void @_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_(ptr noundef nonnull %agg.tmp10)
+  call fastcc void @_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_(ptr noundef %agg.tmp10)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_5PPC32EEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit38, %if.else
@@ -25357,7 +25356,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_(ptr nocapture noundef %__last) unnamed_addr #22 {
+define internal fastcc void @_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EEEvSK_T0_(ptr nocapture noundef nonnull %__last) unnamed_addr #22 {
 entry:
   %my_item.i = getelementptr inbounds i8, ptr %__last, i64 16
   %0 = load ptr, ptr %my_item.i, align 8
@@ -25740,7 +25739,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   store i64 %add.i.i.i.i.i.i.i.i.i, ptr %my_index.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !410
   %my_item.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i.i.i.i.i, i64 16
   store ptr null, ptr %my_item.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !410
-  call fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EvSH_SH_T0_(ptr noundef nonnull %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i.i.i)
+  call fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EvSH_SH_T0_(ptr noundef %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef %agg.tmp2.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i.i.i.i.i.i)
   br label %_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINSB_5PPC32EEENS1_23cache_aligned_allocatorISF_EEEESF_EEZNSB_L18print_icf_sectionsISD_EEvRNSB_7ContextIT_EEEUlSF_SF_E_EENS1_15quick_sort_bodyISJ_SP_EEKNS1_16auto_partitionerEEESQ_EEvRSM_RT0_RNS1_14execution_dataE.exit
@@ -25958,7 +25957,7 @@ if.end18.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   store ptr %54, ptr %agg.tmp2.i.i.i.i.i.i35.i.i, align 8, !alias.scope !414
   store i64 %add.i.i.i.i.i.i.i42.i.i, ptr %my_index.i.i.i.i.i.i.i.i43.i.i, align 8, !alias.scope !414
   store ptr null, ptr %my_item.i.i.i.i.i.i.i.i44.i.i, align 8, !alias.scope !414
-  call fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EvSH_SH_T0_(ptr noundef nonnull %agg.tmp.i.i.i.i.i.i34.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i35.i.i)
+  call fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_5PPC32EEENS2_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_EvSH_SH_T0_(ptr noundef %agg.tmp.i.i.i.i.i.i34.i.i, ptr noundef %agg.tmp2.i.i.i.i.i.i35.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i34.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i.i.i.i35.i.i)
   %dec.i46.i.i = add i8 %range_pool.val7.pr.i.i, -1
@@ -28480,9 +28479,6 @@ declare i8 @llvm.umax.i8(i8, i8) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

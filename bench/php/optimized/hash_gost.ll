@@ -134,7 +134,7 @@ define void @PHP_GOSTUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, i
   br i1 %exitcond.not.i, label %GostTransform.exit, label %39
 
 GostTransform.exit:                               ; preds = %39
-  call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %71
 
@@ -194,7 +194,7 @@ GostTransform.exit:                               ; preds = %39
   br i1 %exitcond.not.i54, label %GostTransform.exit55, label %75
 
 GostTransform.exit55:                             ; preds = %75
-  call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %107 = add i64 %73, 32
   %.not47 = icmp ugt i64 %107, %2
@@ -281,7 +281,7 @@ define void @PHP_GOSTFinal(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   br i1 %exitcond.not.i, label %GostTransform.exit, label %9
 
 GostTransform.exit:                               ; preds = %9
-  call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef nonnull %3)
+  call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %41
 
@@ -289,10 +289,10 @@ GostTransform.exit:                               ; preds = %9
   %42 = getelementptr inbounds i8, ptr %1, i64 64
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %4, align 16
-  call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef nonnull %4)
+  call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %4)
   %44 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 32, i1 false)
-  call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef nonnull %4)
+  call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %4)
   br label %45
 
 45:                                               ; preds = %41, %45
@@ -332,7 +332,7 @@ GostTransform.exit:                               ; preds = %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
   %3 = alloca [8 x i32], align 16
   %.sroa.0181.0.copyload = load i32, ptr %0, align 8
   %.sroa.10187.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4

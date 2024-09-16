@@ -609,12 +609,12 @@ define hidden void @av1_gen_inv_stage_range(ptr nocapture noundef writeonly %0, 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_4x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [48 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 5, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 5, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @inv_txfm2d_add_facade(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6) unnamed_addr #5 {
+define internal fastcc void @inv_txfm2d_add_facade(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef nonnull %3, i8 noundef zeroext %4, i8 noundef zeroext range(i8 0, 19) %5, i32 noundef %6) unnamed_addr #5 {
 set_flip_cfg.exit.i:
   %7 = alloca [12 x i8], align 1
   %8 = alloca [12 x i8], align 1
@@ -632,7 +632,7 @@ set_flip_cfg.exit.i:
   %14 = load i8, ptr %13, align 1
   %15 = getelementptr inbounds [16 x i8], ptr @htx_tab, i64 0, i64 %12
   %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %5 to i64
+  %17 = zext nneg i8 %5 to i64
   %18 = getelementptr inbounds [19 x ptr], ptr @av1_inv_txfm_shift_ls, i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds [19 x i32], ptr @tx_size_wide_log2, i64 0, i64 %17
@@ -1073,63 +1073,63 @@ inv_txfm2d_add_c.exit:                            ; preds = %.loopexit.i
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_8x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [48 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 6, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 6, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_8x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [160 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 7, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 7, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_16x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [160 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 8, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 8, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_16x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [576 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 9, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 9, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_32x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [576 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 10, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 10, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_4x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [24 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 0, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 0, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_8x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [80 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 1, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 1, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_16x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [288 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 2, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 2, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_32x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [1088 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 3, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 3, i32 noundef %4)
   ret void
 }
 
@@ -1155,7 +1155,7 @@ define hidden void @av1_inv_txfm2d_add_64x64_c(ptr nocapture noundef readonly %0
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %6, i64 8192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %13, i8 0, i64 8192, i1 false)
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, i8 noundef zeroext %3, i8 noundef zeroext 4, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef %7, i8 noundef zeroext %3, i8 noundef zeroext 4, i32 noundef %4)
   ret void
 }
 
@@ -1179,7 +1179,7 @@ define hidden void @av1_inv_txfm2d_add_64x32_c(ptr nocapture noundef readonly %0
   br i1 %exitcond.not, label %12, label %8, !llvm.loop !20
 
 12:                                               ; preds = %8
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, i8 noundef zeroext %3, i8 noundef zeroext 12, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef %7, i8 noundef zeroext %3, i8 noundef zeroext 12, i32 noundef %4)
   ret void
 }
 
@@ -1190,7 +1190,7 @@ define hidden void @av1_inv_txfm2d_add_32x64_c(ptr nocapture noundef readonly %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %6, ptr noundef nonnull align 4 dereferenceable(4096) %0, i64 4096, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 4096
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %8, i8 0, i64 4096, i1 false)
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, i8 noundef zeroext %3, i8 noundef zeroext 11, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef %7, i8 noundef zeroext %3, i8 noundef zeroext 11, i32 noundef %4)
   ret void
 }
 
@@ -1201,7 +1201,7 @@ define hidden void @av1_inv_txfm2d_add_16x64_c(ptr nocapture noundef readonly %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %6, ptr noundef nonnull align 4 dereferenceable(2048) %0, i64 2048, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 2048
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %8, i8 0, i64 2048, i1 false)
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, i8 noundef zeroext %3, i8 noundef zeroext 17, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef %7, i8 noundef zeroext %3, i8 noundef zeroext 17, i32 noundef %4)
   ret void
 }
 
@@ -1225,35 +1225,35 @@ define hidden void @av1_inv_txfm2d_add_64x16_c(ptr nocapture noundef readonly %0
   br i1 %exitcond.not, label %12, label %8, !llvm.loop !21
 
 12:                                               ; preds = %8
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, i8 noundef zeroext %3, i8 noundef zeroext 18, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef %7, i8 noundef zeroext %3, i8 noundef zeroext 18, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_4x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [96 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 13, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 13, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_16x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [96 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 14, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 14, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_8x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [320 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 15, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 15, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_inv_txfm2d_add_32x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [320 x i32], align 32
-  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i8 noundef zeroext %3, i8 noundef zeroext 16, i32 noundef %4)
+  call fastcc void @inv_txfm2d_add_facade(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, i8 noundef zeroext %3, i8 noundef zeroext 16, i32 noundef %4)
   ret void
 }
 

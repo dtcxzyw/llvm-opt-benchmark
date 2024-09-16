@@ -883,7 +883,7 @@ proto_item_set_generated.exit366:                 ; preds = %120, %117, %114, %p
   %133 = getelementptr inbounds i8, ptr %.0309461, i64 32
   %134 = getelementptr inbounds i8, ptr %.0309461, i64 56
   %135 = load i16, ptr %134, align 8
-  %136 = tail call ptr @address_to_str(ptr noundef %128, ptr noundef %.0309461) #6
+  %136 = tail call ptr @address_to_str(ptr noundef %128, ptr noundef nonnull %.0309461) #6
   %137 = zext i16 %130 to i32
   %138 = tail call ptr @address_to_str(ptr noundef %128, ptr noundef nonnull %133) #6
   %139 = zext i16 %135 to i32
@@ -1062,8 +1062,8 @@ dissect_lbtrm_data.exit:                          ; preds = %184, %203
   %251 = tail call ptr @proto_tree_add_item(ptr noundef %232, i32 noundef %249, ptr noundef %0, i32 noundef 12, i32 noundef %250, i32 noundef 0) #6
   %252 = load i32, ptr @ett_lbtrm_nak_list, align 4
   %253 = tail call ptr @proto_item_add_subtree(ptr noundef %251, i32 noundef %252) #6
-  %.not31.i = icmp eq i16 %233, 0
-  br i1 %.not31.i, label %dissect_lbtrm_nak.exit, label %.lr.ph.i.i
+  %.not26.i.i = icmp eq i16 %233, 0
+  br i1 %.not26.i.i, label %dissect_lbtrm_nak.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %241, %261
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %261 ], [ 0, %241 ]
@@ -1142,8 +1142,8 @@ dissect_lbtrm_nak.exit:                           ; preds = %241, %dissect_lbtrm
   %298 = tail call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %296, ptr noundef %0, i32 noundef 16, i32 noundef %297, i32 noundef 0) #6
   %299 = load i32, ptr @ett_lbtrm_ncf_list, align 4
   %300 = tail call ptr @proto_item_add_subtree(ptr noundef %298, i32 noundef %299) #6
-  %.not46.i = icmp eq i16 %270, 0
-  br i1 %.not46.i, label %dissect_lbtrm_ncf.exit, label %.lr.ph.i.i371
+  %.not27.i.i = icmp eq i16 %270, 0
+  br i1 %.not27.i.i, label %dissect_lbtrm_ncf.exit, label %.lr.ph.i.i371
 
 .lr.ph.i.i371:                                    ; preds = %._crit_edge.i, %309
   %indvars.iv.i.i372 = phi i64 [ %indvars.iv.next.i.i374, %309 ], [ 0, %._crit_edge.i ]

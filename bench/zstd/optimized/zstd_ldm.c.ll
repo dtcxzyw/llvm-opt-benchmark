@@ -150,7 +150,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 0, ptr %numSplits, align 4
   %sub.ptr.rhs.cast = ptrtoint ptr %ip.addr.029 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = call fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull %hashState, ptr noundef %ip.addr.029, i64 noundef %sub.ptr.sub, ptr noundef nonnull %splitIndices, ptr noundef nonnull %numSplits)
+  %call = call fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef %hashState, ptr noundef %ip.addr.029, i64 noundef %sub.ptr.sub, ptr noundef nonnull %splitIndices, ptr noundef %numSplits)
   %9 = load i32, ptr %numSplits, align 4
   %cmp326.not = icmp eq i32 %9, 0
   br i1 %cmp326.not, label %for.end, label %for.body.preheader
@@ -213,7 +213,7 @@ while.end:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr nocapture noundef %state, ptr nocapture noundef readonly %data, i64 noundef %size, ptr nocapture noundef writeonly %splits, ptr nocapture noundef %numSplits) unnamed_addr #3 {
+define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr nocapture noundef nonnull %state, ptr nocapture noundef readonly %data, i64 noundef %size, ptr nocapture noundef writeonly %splits, ptr nocapture noundef nonnull %numSplits) unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %state, align 8
   %stopMask = getelementptr inbounds i8, ptr %state, i64 8
@@ -602,7 +602,7 @@ while.body.i:                                     ; preds = %for.end212.i, %whil
   store i32 0, ptr %numSplits.i, align 4
   %sub.ptr.rhs.cast39.i = ptrtoint ptr %ip.0256.i to i64
   %sub.ptr.sub40.i = sub i64 %sub.ptr.lhs.cast38.i, %sub.ptr.rhs.cast39.i
-  %call41.i = call fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull %hashState.i, ptr noundef %ip.0256.i, i64 noundef %sub.ptr.sub40.i, ptr noundef nonnull %splitIndices.i, ptr noundef nonnull %numSplits.i)
+  %call41.i = call fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef %hashState.i, ptr noundef %ip.0256.i, i64 noundef %sub.ptr.sub40.i, ptr noundef nonnull %splitIndices.i, ptr noundef %numSplits.i)
   %24 = load i32, ptr %numSplits.i, align 4
   %cmp42237.not.i = icmp eq i32 %24, 0
   br i1 %cmp42237.not.i, label %for.end212.i, label %for.body.lr.ph.i

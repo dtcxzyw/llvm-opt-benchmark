@@ -528,7 +528,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef range(i32 1, 25) %5, ptr nocapture noundef writeonly %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [20 x i8], align 16
@@ -602,10 +602,10 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr nocapture nou
   br i1 %.not6084, label %.preheader66.lr.ph, label %.loopexit64
 
 .preheader66.lr.ph:                               ; preds = %.loopexit69
-  %45 = trunc i32 %1 to i8
+  %45 = trunc nuw nsw i32 %1 to i8
   %46 = select i1 %21, i64 64, i64 128
   %47 = icmp ugt i32 %3, 1
-  %48 = zext i32 %5 to i64
+  %48 = zext nneg i32 %5 to i64
   br label %.preheader66
 
 .loopexit:                                        ; preds = %89

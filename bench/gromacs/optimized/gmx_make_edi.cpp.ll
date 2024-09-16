@@ -1359,7 +1359,7 @@ _ZL16read_eigenvaluesPKiPKcPfbfi.exit:            ; preds = %._crit_edge57.i
   %451 = load ptr, ptr %25, align 8
   %452 = load i32, ptr %21, align 4
   %453 = load ptr, ptr %24, align 8
-  invoke fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef nonnull %254, ptr noundef %73, ptr noundef %77, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 72), i32 noundef %450, ptr noundef %451, i32 noundef %452, ptr noundef %453)
+  invoke fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef %254, ptr noundef %73, ptr noundef %77, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 72), i32 noundef %450, ptr noundef %451, i32 noundef %452, ptr noundef %453)
           to label %456 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 454:                                              ; preds = %442
@@ -1381,7 +1381,7 @@ _ZL16read_eigenvaluesPKiPKcPfbfi.exit:            ; preds = %._crit_edge57.i
   %461 = load ptr, ptr %25, align 8
   %462 = load i32, ptr %21, align 4
   %463 = load ptr, ptr %24, align 8
-  invoke fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef nonnull %254, ptr noundef %73, ptr noundef %79, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 96), i32 noundef %460, ptr noundef %461, i32 noundef %462, ptr noundef %463)
+  invoke fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef %254, ptr noundef %73, ptr noundef %79, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i64 96), i32 noundef %460, ptr noundef %461, i32 noundef %462, ptr noundef %463)
           to label %466 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 464:                                              ; preds = %458
@@ -1943,7 +1943,7 @@ declare noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef, i32 noundef,
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.t_topology, align 8
   %11 = alloca [3 x [3 x float]], align 16
@@ -1996,7 +1996,7 @@ _ZL13read_conffilePKcPPA3_f.exit:                 ; preds = %20, %23
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.184, i32 noundef %29, ptr noundef %2)
-  call void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %16)
+  call void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %16)
   %31 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %31, %29
   br i1 %.not, label %37, label %32

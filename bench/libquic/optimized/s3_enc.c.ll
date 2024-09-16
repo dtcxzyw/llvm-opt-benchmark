@@ -389,7 +389,7 @@ declare ptr @EVP_sha1() local_unnamed_addr #1
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl3_handshake_mac(ptr nocapture noundef readonly %ssl, i32 noundef %md_nid, ptr noundef %sender, i64 noundef %sender_len, ptr noundef %p) unnamed_addr #0 {
+define internal fastcc i32 @ssl3_handshake_mac(ptr nocapture noundef readonly %ssl, i32 noundef %md_nid, ptr noundef %sender, i64 noundef range(i64 0, 5) %sender_len, ptr noundef %p) unnamed_addr #0 {
 entry:
   %ret = alloca i32, align 4
   %i = alloca i32, align 4

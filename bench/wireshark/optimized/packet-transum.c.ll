@@ -990,7 +990,7 @@ set_proto_values.exit:                            ; preds = %.lr.ph.i, %204, %33
   br i1 %.not.i.i26, label %354, label %353
 
 353:                                              ; preds = %351
-  call fastcc void @update_rrpd_list_entry(ptr noundef nonnull %352, ptr noundef nonnull %349)
+  call fastcc void @update_rrpd_list_entry(ptr noundef %352, ptr noundef nonnull %349)
   br label %update_rrpd_rte_data.exit
 
 354:                                              ; preds = %351
@@ -1118,7 +1118,7 @@ find_temp_rsp_rrpd.exit.i.i:                      ; preds = %412
   br i1 %.not48.i.i, label %update_rrpd_rte_data.exit, label %425
 
 425:                                              ; preds = %find_temp_rsp_rrpd.exit.i.i
-  call fastcc void @update_rrpd_list_entry(ptr noundef nonnull %424, ptr noundef nonnull %407)
+  call fastcc void @update_rrpd_list_entry(ptr noundef %424, ptr noundef nonnull %407)
   %426 = load ptr, ptr @temp_rsp_rrpd_list, align 8
   call void @wmem_list_remove(ptr noundef %426, ptr noundef nonnull %407) #6
   br label %update_rrpd_rte_data.exit
@@ -1129,7 +1129,7 @@ find_temp_rsp_rrpd.exit.i.i:                      ; preds = %412
   br i1 %.not47.i.i, label %update_rrpd_rte_data.exit, label %428
 
 428:                                              ; preds = %.loopexit59.i.i
-  call fastcc void @update_rrpd_list_entry(ptr noundef nonnull %427, ptr noundef nonnull %349)
+  call fastcc void @update_rrpd_list_entry(ptr noundef %427, ptr noundef nonnull %349)
   br label %update_rrpd_rte_data.exit
 
 429:                                              ; preds = %398
@@ -1183,7 +1183,7 @@ find_temp_rsp_rrpd.exit54.i.i:                    ; preds = %438
   br i1 %.not45.i.i, label %455, label %454
 
 454:                                              ; preds = %452
-  call fastcc void @update_rrpd_list_entry(ptr noundef nonnull %453, ptr noundef nonnull %349)
+  call fastcc void @update_rrpd_list_entry(ptr noundef %453, ptr noundef nonnull %349)
   br label %update_rrpd_rte_data.exit
 
 455:                                              ; preds = %452
@@ -1206,7 +1206,7 @@ find_temp_rsp_rrpd.exit54.i.i:                    ; preds = %438
   br i1 %.not41.i.i, label %update_rrpd_rte_data.exit, label %465
 
 465:                                              ; preds = %463
-  call fastcc void @update_rrpd_list_entry(ptr noundef nonnull %464, ptr noundef nonnull %349)
+  call fastcc void @update_rrpd_list_entry(ptr noundef %464, ptr noundef nonnull %349)
   br label %update_rrpd_rte_data.exit
 
 466:                                              ; preds = %393
@@ -1215,7 +1215,7 @@ find_temp_rsp_rrpd.exit54.i.i:                    ; preds = %438
   br i1 %.not39.i.i, label %update_rrpd_rte_data.exit, label %468
 
 468:                                              ; preds = %466
-  call fastcc void @update_rrpd_list_entry(ptr noundef nonnull %467, ptr noundef nonnull %349)
+  call fastcc void @update_rrpd_list_entry(ptr noundef %467, ptr noundef nonnull %349)
   br label %update_rrpd_rte_data.exit
 
 update_rrpd_rte_data.exit:                        ; preds = %353, %append_to_rrpd_list.exit.i.i, %find_temp_rsp_rrpd.exit.i.i, %425, %.loopexit59.i.i, %428, %find_temp_rsp_rrpd.exit54.i.i, %454, %455, %459, %463, %465, %466, %468
@@ -2062,7 +2062,7 @@ find_latest_rrpd_dcerpc.exit:                     ; preds = %286, %273, %256, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_rrpd_list_entry(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @update_rrpd_list_entry(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr @output_rrpd, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8

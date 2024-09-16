@@ -488,7 +488,7 @@ parse_manifest_file.exit:                         ; preds = %manifest_files_crea
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %171 = load ptr, ptr %70, align 8
-  call fastcc void @verify_backup_directory(ptr noundef nonnull %9, ptr noundef null, ptr noundef %171)
+  call fastcc void @verify_backup_directory(ptr noundef %9, ptr noundef null, ptr noundef %171)
   %172 = load ptr, ptr %9, align 8
   %173 = load i64, ptr %172, align 8
   %.not16.i.i = icmp eq i64 %173, 0
@@ -603,7 +603,7 @@ should_ignore_relpath.exit.i.backedge:            ; preds = %._crit_edge.i.i, %.
   br i1 %.not.not.i.i, label %.loopexit.i, label %.lr.ph29.i.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %203, %.critedge.i.i
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.49, ptr noundef %205)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.49, ptr noundef %205)
   %.pre.pre.i = load ptr, ptr %9, align 8
   br label %should_ignore_relpath.exit.i.outer, !llvm.loop !9
 
@@ -762,7 +762,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %278, label %279, label %280
 
 279:                                              ; preds = %.loopexit.i73
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.34, ptr noundef %276)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.34, ptr noundef %276)
   br label %verify_file_checksum.exit.i
 
 280:                                              ; preds = %.loopexit.i73
@@ -778,7 +778,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %286, label %.lr.ph.i18.i, label %._crit_edge.i16.i
 
 287:                                              ; preds = %280
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.52, ptr noundef %276)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.52, ptr noundef %276)
   %288 = call i32 @close(i32 noundef %277) #16
   br label %verify_file_checksum.exit.i
 
@@ -791,7 +791,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %292, label %293, label %295
 
 293:                                              ; preds = %.lr.ph.i18.i
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.53, ptr noundef %276)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.53, ptr noundef %276)
   %294 = call i32 @close(i32 noundef %277) #16
   br label %verify_file_checksum.exit.i
 
@@ -813,7 +813,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %302, label %303, label %.thread.i.i
 
 303:                                              ; preds = %._crit_edge.i16.i
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.36, ptr noundef %276)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.36, ptr noundef %276)
   %304 = call i32 @close(i32 noundef %277) #16
   %.not.i17.i = icmp eq i32 %304, 0
   br i1 %.not.i17.i, label %verify_file_checksum.exit.i, label %306
@@ -824,7 +824,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %.not49.i.i, label %.thread50.i.i, label %306
 
 306:                                              ; preds = %.thread.i.i, %303
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.54, ptr noundef %276)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.54, ptr noundef %276)
   br label %verify_file_checksum.exit.i
 
 .thread50.i.i:                                    ; preds = %.thread.i.i
@@ -834,7 +834,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %.not46.i.i, label %310, label %309
 
 309:                                              ; preds = %.thread50.i.i
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.55, ptr noundef %276, i64 noundef %308, i64 noundef %.0.lcssa.i.i)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.55, ptr noundef %276, i64 noundef %308, i64 noundef %.0.lcssa.i.i)
   br label %verify_file_checksum.exit.i
 
 310:                                              ; preds = %.thread50.i.i
@@ -843,7 +843,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %312, label %313, label %314
 
 313:                                              ; preds = %310
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.56, ptr noundef %276)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.56, ptr noundef %276)
   br label %verify_file_checksum.exit.i
 
 314:                                              ; preds = %310
@@ -853,7 +853,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %.not47.i.i, label %318, label %317
 
 317:                                              ; preds = %314
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.57, ptr noundef %276, i32 noundef %316, i32 noundef %311)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.57, ptr noundef %276, i32 noundef %316, i32 noundef %311)
   br label %verify_file_checksum.exit.i
 
 318:                                              ; preds = %314
@@ -865,7 +865,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   br i1 %.not48.i.i, label %verify_file_checksum.exit.i, label %322
 
 322:                                              ; preds = %318
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.58, ptr noundef %276)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.58, ptr noundef %276)
   br label %verify_file_checksum.exit.i
 
 verify_file_checksum.exit.i:                      ; preds = %322, %318, %317, %313, %309, %306, %303, %293, %287, %279
@@ -906,7 +906,7 @@ verify_backup_checksums.exit:                     ; preds = %231
 
 338:                                              ; preds = %.lr.ph.i
   %339 = load i32, ptr %.015.i, align 8
-  call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %9, ptr noundef nonnull @.str.60, i32 noundef %339)
+  call void (ptr, ptr, ...) @report_backup_error(ptr noundef %9, ptr noundef nonnull @.str.60, i32 noundef %339)
   br label %340
 
 340:                                              ; preds = %338, %.lr.ph.i
@@ -1000,7 +1000,7 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verify_backup_directory(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @verify_backup_directory(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = tail call ptr @opendir(ptr noundef %2)
   %6 = icmp eq ptr %5, null
@@ -1177,7 +1177,7 @@ define internal fastcc void @verify_backup_directory(ptr noundef %0, ptr noundef
   br i1 %75, label %manifest_files_lookup.exit, label %65
 
 .loopexit:                                        ; preds = %65, %53
-  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, ptr noundef %.0)
+  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef %.0)
   br label %verify_backup_file.exit
 
 manifest_files_lookup.exit:                       ; preds = %.lr.ph.i.i
@@ -1190,7 +1190,7 @@ manifest_files_lookup.exit:                       ; preds = %.lr.ph.i.i
   br i1 %.not29.i, label %82, label %80
 
 80:                                               ; preds = %manifest_files_lookup.exit
-  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %.0, i64 noundef %79, i64 noundef %78)
+  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef %.0, i64 noundef %79, i64 noundef %78)
   %81 = getelementptr inbounds i8, ptr %71, i64 41
   store i8 1, ptr %81, align 1
   br label %82
@@ -1642,7 +1642,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @report_backup_error(ptr nocapture noundef %0, ptr noalias noundef %1, ...) unnamed_addr #0 {
+define internal void @report_backup_error(ptr nocapture noundef nonnull %0, ptr noalias noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @pg_log_generic_v(i32 noundef 4, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16

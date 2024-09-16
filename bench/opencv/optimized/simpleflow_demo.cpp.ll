@@ -488,7 +488,7 @@ _ZL3runiPPc.exit:                                 ; preds = %._crit_edge.us.i.i,
   br label %259
 
 174:                                              ; preds = %165
-  %175 = invoke fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FILERN2cv3MatE(ptr noundef nonnull %167, ptr noundef nonnull align 8 dereferenceable(96) %3)
+  %175 = invoke fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FILERN2cv3MatE(ptr noundef %167, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %176 unwind label %172
 
 176:                                              ; preds = %174
@@ -515,7 +515,7 @@ _ZL3runiPPc.exit:                                 ; preds = %._crit_edge.us.i.i,
   unreachable
 
 189:                                              ; preds = %180
-  %190 = invoke fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FILERN2cv3MatE(ptr noundef nonnull %184, ptr noundef nonnull align 8 dereferenceable(96) %4)
+  %190 = invoke fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FILERN2cv3MatE(ptr noundef %184, ptr noundef nonnull align 8 dereferenceable(96) %4)
           to label %191 unwind label %172
 
 191:                                              ; preds = %189
@@ -744,7 +744,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FILERN2cv3MatE(ptr nocapture noundef %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FILERN2cv3MatE(ptr nocapture noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca [5 x i8], align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -752,7 +752,7 @@ define internal fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FIL
   %7 = alloca i32, align 4
   %8 = alloca %"class.cv::MatExpr", align 8
   %9 = alloca %"class.cv::Vec", align 8
-  %10 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 4, ptr noundef %0)
+  %10 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %0)
   %11 = icmp ult i64 %10, 4
   br i1 %11, label %12, label %.critedge.thread
 
@@ -775,12 +775,12 @@ define internal fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FIL
   br label %48
 
 .critedge.thread:                                 ; preds = %2, %.critedge
-  %16 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef %0)
+  %16 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %0)
   %.not = icmp eq i64 %16, 1
   br i1 %.not, label %17, label %.loopexit
 
 17:                                               ; preds = %.critedge.thread
-  %18 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef %0)
+  %18 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %0)
   %.not27 = icmp eq i64 %18, 1
   br i1 %.not27, label %19, label %.loopexit
 
@@ -824,12 +824,12 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %19
 34:                                               ; preds = %.preheader.us, %38
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %38 ]
   store i64 0, ptr %9, align 8
-  %35 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 4, i64 noundef 1, ptr noundef %0)
+  %35 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %0)
   %.not30.us = icmp eq i64 %35, 1
   br i1 %.not30.us, label %36, label %.loopexit
 
 36:                                               ; preds = %34
-  %37 = call i64 @fread(ptr noundef nonnull %31, i64 noundef 4, i64 noundef 1, ptr noundef %0)
+  %37 = call i64 @fread(ptr noundef nonnull %31, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %0)
   %.not31.us = icmp eq i64 %37, 1
   br i1 %.not31.us, label %38, label %.loopexit
 

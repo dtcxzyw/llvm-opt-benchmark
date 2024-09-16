@@ -8272,7 +8272,7 @@ invoke.cont49:                                    ; preds = %invoke.cont19, %ini
   store <2 x float> %retval.sroa.0.4.vec.insert.i26, ptr %ra, align 8
   %57 = getelementptr inbounds i8, ptr %ra, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i27, ptr %57, align 8
-  call fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp52, float noundef 1.000000e+00, float noundef %1, float noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %m_invInertiaTensorWorld.i, ptr noundef nonnull align 4 dereferenceable(16) %ra)
+  call fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp52, float noundef 1.000000e+00, float noundef %1, float noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %m_invInertiaTensorWorld.i, ptr noundef nonnull align 4 dereferenceable(16) %ra)
   %m_c0 = getelementptr inbounds i8, ptr %c, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_c0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp52, i64 16, i1 false)
   %arrayidx5.i30 = getelementptr inbounds i8, ptr %ref.tmp52, i64 16
@@ -8713,7 +8713,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias nocapture writeonly align 4 %agg.result, float noundef %dt, float noundef %ima, float noundef %imb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iwi, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r) unnamed_addr #13 {
+define internal fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias nocapture nonnull writeonly align 4 %agg.result, float noundef %dt, float noundef %ima, float noundef %imb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iwi, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r) unnamed_addr #13 {
 entry:
   %ref.tmp2 = alloca %class.btMatrix3x3, align 4
   %ref.tmp3 = alloca %class.btMatrix3x3, align 4
@@ -8727,7 +8727,7 @@ entry:
   %ref.tmp7.sroa.3.0.arrayidx.i7.sroa_idx.i4 = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp3.sroa.3.0.arrayidx.i.sroa_idx.i3, i8 0, i64 16, i1 false), !alias.scope !79
   store float %ima, ptr %ref.tmp7.sroa.3.0.arrayidx.i7.sroa_idx.i4, align 4, !alias.scope !79
-  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp4, float noundef %imb, ptr noundef nonnull align 4 dereferenceable(48) %iwi, ptr noundef nonnull align 4 dereferenceable(16) %r)
+  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp4, float noundef %imb, ptr noundef nonnull align 4 dereferenceable(48) %iwi, ptr noundef nonnull align 4 dereferenceable(16) %r)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   br label %for.body.i
 
@@ -10265,7 +10265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL12OuterProductPKfS0_S0_S0_S0_S0_i(ptr noalias nocapture writeonly align 4 %agg.result, ptr nocapture noundef readonly %v1, ptr nocapture noundef readonly %v2, ptr nocapture noundef readonly %v3, ptr nocapture noundef readonly %u1, ptr nocapture noundef readonly %u2, ptr nocapture noundef readonly %u3, i32 noundef %ndof) unnamed_addr #15 {
+define internal fastcc void @_ZL12OuterProductPKfS0_S0_S0_S0_S0_i(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr nocapture noundef nonnull readonly %v1, ptr nocapture noundef nonnull readonly %v2, ptr nocapture noundef nonnull readonly %v3, ptr nocapture noundef nonnull readonly %u1, ptr nocapture noundef nonnull readonly %u2, ptr nocapture noundef nonnull readonly %u3, i32 noundef range(i32 -2147483642, -2147483648) %ndof) unnamed_addr #15 {
 entry:
   %cmp5.i = icmp sgt i32 %ndof, 0
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZL3DotPKfS0_i.exit116
@@ -27573,7 +27573,7 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %m_inverseMass.i = getelementptr inbounds i8, ptr %16, i64 452
   %38 = load float, ptr %m_inverseMass.i, align 4
   %m_invInertiaTensorWorld.i = getelementptr inbounds i8, ptr %16, i64 372
-  call fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp20, float noundef %35, float noundef %37, float noundef %38, ptr noundef nonnull align 4 dereferenceable(48) %m_invInertiaTensorWorld.i, ptr noundef nonnull align 4 dereferenceable(16) %ra)
+  call fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp20, float noundef %35, float noundef %37, float noundef %38, ptr noundef nonnull align 4 dereferenceable(48) %m_invInertiaTensorWorld.i, ptr noundef nonnull align 4 dereferenceable(16) %ra)
   %m_c025 = getelementptr inbounds i8, ptr %arrayidx.i56, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_c025, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp20, i64 16, i1 false)
   %arrayidx7.i66 = getelementptr inbounds i8, ptr %arrayidx.i56, i64 52
@@ -34243,7 +34243,7 @@ _ZNK10btSoftBody4Body15invWorldInertiaEv.exit137: ; preds = %_ZNK10btSoftBody4Bo
   %m_invwi.i131 = getelementptr inbounds i8, ptr %97, i64 216
   %spec.select.i132 = select i1 %tobool12.not.i130, ptr @_ZZNK10btSoftBody4Body15invWorldInertiaEvE3iwi, ptr %m_invwi.i131
   %retval.0.i133 = select i1 %tobool10.not.i128, ptr %spec.select.i132, ptr %m_invInertiaTensorWorld.i.i129
-  call fastcc void @_ZL13ImpulseMatrixfRK11btMatrix3x3RK9btVector3fS1_S4_(ptr noalias nonnull align 4 %ref.tmp45, float noundef %retval.0.i106, ptr noundef nonnull align 4 dereferenceable(48) %retval.0.i111, ptr noundef nonnull align 4 dereferenceable(16) %m_rpos, float noundef %retval.0.i120, ptr noundef nonnull align 4 dereferenceable(48) %retval.0.i133, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14)
+  call fastcc void @_ZL13ImpulseMatrixfRK11btMatrix3x3RK9btVector3fS1_S4_(ptr noalias align 4 %ref.tmp45, float noundef %retval.0.i106, ptr noundef nonnull align 4 dereferenceable(48) %retval.0.i111, ptr noundef nonnull align 4 dereferenceable(16) %m_rpos, float noundef %retval.0.i120, ptr noundef nonnull align 4 dereferenceable(48) %retval.0.i133, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14)
   %m_massmatrix = getelementptr inbounds i8, ptr %this, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_massmatrix, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp45, i64 16, i1 false)
   %arrayidx5.i138 = getelementptr inbounds i8, ptr %ref.tmp45, i64 16
@@ -34328,13 +34328,13 @@ if.end:                                           ; preds = %_ZNK10btSoftBody4Bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL13ImpulseMatrixfRK11btMatrix3x3RK9btVector3fS1_S4_(ptr noalias nocapture writeonly align 4 %agg.result, float noundef %ima, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iia, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ra, float noundef %imb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iib, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rb) unnamed_addr #13 {
+define internal fastcc void @_ZL13ImpulseMatrixfRK11btMatrix3x3RK9btVector3fS1_S4_(ptr noalias nocapture nonnull writeonly align 4 %agg.result, float noundef %ima, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iia, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ra, float noundef %imb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iib, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rb) unnamed_addr #13 {
 entry:
   %ref.tmp = alloca %class.btMatrix3x3, align 4
   %ref.tmp1 = alloca %class.btMatrix3x3, align 4
   %ref.tmp2 = alloca %class.btMatrix3x3, align 4
-  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp1, float noundef %ima, ptr noundef nonnull align 4 dereferenceable(48) %iia, ptr noundef nonnull align 4 dereferenceable(16) %ra)
-  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp2, float noundef %imb, ptr noundef nonnull align 4 dereferenceable(48) %iib, ptr noundef nonnull align 4 dereferenceable(16) %rb)
+  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp1, float noundef %ima, ptr noundef nonnull align 4 dereferenceable(48) %iia, ptr noundef nonnull align 4 dereferenceable(16) %ra)
+  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp2, float noundef %imb, ptr noundef nonnull align 4 dereferenceable(48) %iib, ptr noundef nonnull align 4 dereferenceable(16) %rb)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
   br label %for.body.i
 
@@ -43154,7 +43154,7 @@ entry:
 declare void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nocapture writeonly align 4 %agg.result, float noundef %im, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iwi, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r) unnamed_addr #13 {
+define internal fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nocapture nonnull writeonly align 4 %agg.result, float noundef %im, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iwi, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r) unnamed_addr #13 {
 entry:
   %ref.tmp = alloca %class.btMatrix3x3, align 4
   %ref.tmp1 = alloca %class.btMatrix3x3, align 4
@@ -46456,7 +46456,7 @@ invoke.cont79:                                    ; preds = %init.end.invoke.con
   %mul = fmul float %41, %44
   %m_node = getelementptr inbounds i8, ptr %c, i64 64
   store ptr %n, ptr %m_node, align 8
-  call fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp86, float noundef %32, float noundef %4, float noundef %cond99799, ptr noundef nonnull align 4 dereferenceable(48) %spec.select, ptr noundef nonnull align 4 dereferenceable(16) %ra)
+  call fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp86, float noundef %32, float noundef %4, float noundef %cond99799, ptr noundef nonnull align 4 dereferenceable(48) %spec.select, ptr noundef nonnull align 4 dereferenceable(16) %ra)
   %m_c0 = getelementptr inbounds i8, ptr %c, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_c0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp86, i64 16, i1 false)
   %arrayidx5.i77 = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
@@ -48160,7 +48160,7 @@ _ZNK10btSoftBody4Body15invWorldInertiaEv.exit240: ; preds = %_ZNK10btSoftBody4Bo
   %m_invwi.i234 = getelementptr inbounds i8, ptr %116, i64 216
   %spec.select.i235 = select i1 %tobool12.not.i233, ptr @_ZZNK10btSoftBody4Body15invWorldInertiaEvE3iwi, ptr %m_invwi.i234
   %retval.0.i236 = select i1 %tobool10.not.i231, ptr %spec.select.i235, ptr %m_invInertiaTensorWorld.i.i232
-  call fastcc void @_ZL13ImpulseMatrixfRK11btMatrix3x3RK9btVector3fS1_S4_(ptr noalias nonnull align 4 %ref.tmp51, float noundef %retval.0.i209, ptr noundef nonnull align 4 dereferenceable(48) %retval.0.i214, ptr noundef nonnull align 4 dereferenceable(16) %m_rpos, float noundef %retval.0.i223, ptr noundef nonnull align 4 dereferenceable(48) %retval.0.i236, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx41)
+  call fastcc void @_ZL13ImpulseMatrixfRK11btMatrix3x3RK9btVector3fS1_S4_(ptr noalias align 4 %ref.tmp51, float noundef %retval.0.i209, ptr noundef nonnull align 4 dereferenceable(48) %retval.0.i214, ptr noundef nonnull align 4 dereferenceable(16) %m_rpos, float noundef %retval.0.i223, ptr noundef nonnull align 4 dereferenceable(48) %retval.0.i236, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx41)
   %m_massmatrix = getelementptr inbounds i8, ptr %joint, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_massmatrix, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp51, i64 16, i1 false)
   %arrayidx5.i241 = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
@@ -48765,7 +48765,7 @@ init.end:                                         ; preds = %invoke.cont62, %ini
   br i1 %tobool72, label %if.then73, label %if.else
 
 if.then73:                                        ; preds = %init.end
-  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp74, float noundef %cond10, ptr noundef nonnull align 4 dereferenceable(48) %spec.select, ptr noundef nonnull align 4 dereferenceable(16) %ra)
+  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp74, float noundef %cond10, ptr noundef nonnull align 4 dereferenceable(48) %spec.select, ptr noundef nonnull align 4 dereferenceable(16) %ra)
   %m_c0 = getelementptr inbounds i8, ptr %c, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_c0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp74, i64 16, i1 false)
   %arrayidx5.i42 = getelementptr inbounds i8, ptr %ref.tmp74, i64 16
@@ -48784,7 +48784,7 @@ lpad:                                             ; preds = %if.then12, %if.end1
 if.else:                                          ; preds = %init.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp3.i, float noundef %cond10, ptr noundef nonnull readonly align 4 dereferenceable(48) %spec.select, ptr noundef nonnull readonly align 4 dereferenceable(16) %ra), !noalias !535
+  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp3.i, float noundef %cond10, ptr noundef nonnull readonly align 4 dereferenceable(48) %spec.select, ptr noundef nonnull readonly align 4 dereferenceable(16) %ra), !noalias !535
   call void @llvm.experimental.noalias.scope.decl(metadata !538)
   br label %for.body.i.i
 
@@ -49168,7 +49168,7 @@ invoke.cont140:                                   ; preds = %invoke.cont108
   br i1 %tobool143, label %if.then144, label %if.else148
 
 if.then144:                                       ; preds = %invoke.cont140
-  call fastcc void @_ZL12OuterProductPKfS0_S0_S0_S0_S0_i(ptr noalias nonnull align 4 %ref.tmp145, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %126, ptr noundef nonnull %127, ptr noundef nonnull %128, i32 noundef %add139)
+  call fastcc void @_ZL12OuterProductPKfS0_S0_S0_S0_S0_i(ptr noalias align 4 %ref.tmp145, ptr noundef %123, ptr noundef %124, ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %add139)
   br label %invoke.cont161
 
 lpad104:                                          ; preds = %invoke.cont170, %invoke.cont167, %invoke.cont163, %invoke.cont162, %invoke.cont161, %invoke.cont154, %if.else148, %invoke.cont108, %invoke.cont105, %if.then90
@@ -49180,7 +49180,7 @@ lpad104:                                          ; preds = %invoke.cont170, %in
   br label %ehcleanup186
 
 if.else148:                                       ; preds = %invoke.cont140
-  call fastcc void @_ZL12OuterProductPKfS0_S0_S0_S0_S0_i(ptr noalias nonnull align 4 %ref.tmp152, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %126, ptr noundef nonnull %127, ptr noundef nonnull %128, i32 noundef %add139)
+  call fastcc void @_ZL12OuterProductPKfS0_S0_S0_S0_S0_i(ptr noalias align 4 %ref.tmp152, ptr noundef %123, ptr noundef %124, ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %add139)
   invoke void @_ZplRK11btMatrix3x3S1_(ptr nonnull sret(%class.btMatrix3x3) align 4 %ref.tmp150, ptr noundef nonnull align 4 dereferenceable(48) %m_effectiveMass_inv, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp152)
           to label %invoke.cont154 unwind label %lpad104
 
@@ -49910,7 +49910,7 @@ init.end:                                         ; preds = %invoke.cont93, %ini
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %ra, align 8
   %42 = getelementptr inbounds i8, ptr %ra, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %42, align 8
-  call fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp106, float noundef 1.000000e+00, float noundef %27, float noundef %cond22, ptr noundef nonnull align 4 dereferenceable(48) %spec.select, ptr noundef nonnull align 4 dereferenceable(16) %ra)
+  call fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias align 4 %ref.tmp106, float noundef 1.000000e+00, float noundef %27, float noundef %cond22, ptr noundef nonnull align 4 dereferenceable(48) %spec.select, ptr noundef nonnull align 4 dereferenceable(16) %ra)
   %m_c0 = getelementptr inbounds i8, ptr %c, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_c0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp106, i64 16, i1 false)
   %arrayidx5.i40 = getelementptr inbounds i8, ptr %ref.tmp106, i64 16

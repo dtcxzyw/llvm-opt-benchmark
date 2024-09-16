@@ -3300,7 +3300,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %187, label %186, label %185
 
 924:                                              ; preds = %195
-  %925 = call fastcc noundef i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he660cfc03ec9fe95E"(ptr noundef nonnull align 8 %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !range !129
+  %925 = call fastcc noundef i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he660cfc03ec9fe95E"(ptr noundef nonnull align 8 %184, ptr noalias noundef align 8 dereferenceable(8) %2), !range !129
   %926 = icmp eq i8 %925, 3
   br i1 %926, label %923, label %927
 
@@ -3448,7 +3448,7 @@ default.unreachable:                              ; preds = %83, %67
   unreachable
 
 73:                                               ; preds = %67, %69
-  %74 = invoke fastcc noundef i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he660cfc03ec9fe95E"(ptr noundef nonnull align 8 %26, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %74 = invoke fastcc noundef i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he660cfc03ec9fe95E"(ptr noundef nonnull align 8 %26, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %77 unwind label %75, !range !129
 
 common.resume:                                    ; preds = %94, %102, %107, %.body85.i, %218, %229, %231, %240, %75
@@ -4562,7 +4562,7 @@ define hidden noundef range(i32 0, -1) i32 @_ZN4core3ops8function6FnOnce9call_on
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$ockam_core..error..Error$GT$$GT$17hb4b16c527937b402E"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$ockam_core..error..Error$GT$$GT$17hb4b16c527937b402E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !567, !noundef !4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5
@@ -4640,7 +4640,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr212dro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h32a9ce1a5b4a2471E"(ptr noalias noundef align 1 dereferenceable(3) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h32a9ce1a5b4a2471E"(ptr noalias noundef nonnull align 1 dereferenceable(3) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !range !197, !noundef !4
   %cond = icmp eq i8 %2, 0
   br i1 %cond, label %3, label %"_ZN4core3ptr89drop_in_place$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$GT$17h1fb6b677e3ac1660E.exit"
@@ -8603,7 +8603,7 @@ define hidden void @"_ZN5tokio3net4unix6stream10UnixStream7connect28_$u7b$$u7b$c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he660cfc03ec9fe95E"(ptr nocapture noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17he660cfc03ec9fe95E"(ptr nocapture noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr, ptr }, align 8
   %4 = alloca { i8, i8 }, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -9190,7 +9190,7 @@ define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm
 34:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h522acbf7e1e77539E.exit"
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h32a9ce1a5b4a2471E"(ptr noalias noundef nonnull align 1 dereferenceable(3) %4) #22
+  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h32a9ce1a5b4a2471E"(ptr noalias noundef align 1 dereferenceable(3) %4) #22
           to label %33 unwind label %36
 
 36:                                               ; preds = %34
@@ -9458,7 +9458,7 @@ define hidden void @_ZN19ockam_transport_uds6router6handle15UdsRouterHandle12res
 20:                                               ; preds = %7
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$ockam_core..error..Error$GT$$GT$17hb4b16c527937b402E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %4) #22
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$ockam_core..error..Error$GT$$GT$17hb4b16c527937b402E"(ptr noalias noundef align 8 dereferenceable(120) %4) #22
           to label %.thread unwind label %22
 
 22:                                               ; preds = %20

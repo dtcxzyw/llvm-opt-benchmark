@@ -2900,7 +2900,7 @@ define ptr @cloneG(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   %13 = tail call i32 @copyAttr(ptr noundef nonnull %0, ptr noundef nonnull %11)
-  tail call fastcc void @cloneGraph(ptr noundef nonnull %11, ptr noundef nonnull %0)
+  tail call fastcc void @cloneGraph(ptr noundef %11, ptr noundef nonnull %0)
   br label %14
 
 14:                                               ; preds = %12, %8
@@ -2908,7 +2908,7 @@ define ptr @cloneG(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cloneGraph(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cloneGraph(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @Dtoset, align 8
   %4 = tail call ptr @dtopen(ptr noundef nonnull @edgepair, ptr noundef %3) #24
   %5 = tail call i32 @agnedges(ptr noundef %1) #24
@@ -2921,7 +2921,7 @@ define internal fastcc void @cloneGraph(ptr noundef %0, ptr noundef %1) unnamed_
 
 .lr.ph:                                           ; preds = %2, %14
   %.05874 = phi ptr [ %15, %14 ], [ %9, %2 ]
-  %10 = tail call ptr @copy(ptr noundef %0, ptr noundef nonnull %.05874)
+  %10 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05874)
   %.not70 = icmp eq ptr %10, null
   br i1 %.not70, label %11, label %14
 
@@ -2951,7 +2951,7 @@ define internal fastcc void @cloneGraph(ptr noundef %0, ptr noundef %1) unnamed_
 .lr.ph79:                                         ; preds = %.lr.ph85, %43
   %.177 = phi ptr [ %47, %43 ], [ %.083, %.lr.ph85 ]
   %.05776 = phi ptr [ %49, %43 ], [ %17, %.lr.ph85 ]
-  %18 = tail call ptr @copy(ptr noundef %0, ptr noundef nonnull %.05776)
+  %18 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05776)
   %.not67 = icmp eq ptr %18, null
   br i1 %.not67, label %19, label %43
 
@@ -3014,7 +3014,7 @@ define internal fastcc void @cloneGraph(ptr noundef %0, ptr noundef %1) unnamed_
 
 .lr.ph90:                                         ; preds = %._crit_edge86, %56
   %.06088 = phi ptr [ %57, %56 ], [ %51, %._crit_edge86 ]
-  %52 = tail call fastcc ptr @cloneSubg(ptr noundef %0, ptr noundef nonnull %.06088, ptr noundef %4)
+  %52 = tail call fastcc ptr @cloneSubg(ptr noundef %0, ptr noundef %.06088, ptr noundef %4)
   %.not65 = icmp eq ptr %52, null
   br i1 %.not65, label %53, label %56
 
@@ -3087,7 +3087,7 @@ define ptr @cloneO(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 23:                                               ; preds = %22
   %24 = tail call i32 @copyAttr(ptr noundef nonnull %1, ptr noundef nonnull %.1)
-  tail call fastcc void @cloneGraph(ptr noundef nonnull %.1, ptr noundef nonnull %1)
+  tail call fastcc void @cloneGraph(ptr noundef %.1, ptr noundef nonnull %1)
   br label %47
 
 25:                                               ; preds = %8, %8
@@ -3728,7 +3728,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.l
   br i1 %.not.i, label %23, label %22
 
 22:                                               ; preds = %agxbsizeof.exit.i
-  call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %3, i64 noundef 1)
   %.val.i15.pre.i = load i8, ptr %14, align 1
   br label %23
 
@@ -3785,7 +3785,7 @@ agxbsizeof.exit.i20:                              ; preds = %._crit_edge
   br i1 %.not.i23, label %46, label %45
 
 45:                                               ; preds = %agxbsizeof.exit.i20
-  call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %3, i64 noundef 1)
   %.val.i15.pre.i24 = load i8, ptr %39, align 1
   br label %46
 
@@ -3827,7 +3827,7 @@ agxbputc.exit27:                                  ; preds = %52, %47, %._crit_ed
   br i1 %.not.i.i28, label %64, label %63
 
 63:                                               ; preds = %agxbputc.exit27
-  call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %3, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %57, align 1
   br label %64
 
@@ -4281,7 +4281,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbputc.exit.i, %a
   br i1 %.not.i.i, label %130, label %129
 
 129:                                              ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %12, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %12, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %120, align 1
   br label %130
 
@@ -4336,7 +4336,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %agxbsizeof.exit.i.i
   br i1 %.not.i.i124.i, label %148, label %147
 
 147:                                              ; preds = %agxbsizeof.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %12, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %12, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %144, align 1
   br label %148
 
@@ -4380,7 +4380,7 @@ agxbuse.exit.i.thread:                            ; preds = %agxbputc.exit.i.i
   br i1 %160, label %161, label %agxbfree.exit133.i
 
 161:                                              ; preds = %agxbuse.exit.i.thread, %agxbuse.exit.i
-  %.val.i4.pr.i210.i247 = phi i1 [ false, %agxbuse.exit.i.thread ], [ true, %agxbuse.exit.i ]
+  %.val.i4.pr.i211.i247 = phi i1 [ false, %agxbuse.exit.i.thread ], [ true, %agxbuse.exit.i ]
   %162 = load double, ptr %4, align 8
   %163 = call double @llvm.minnum.f64(double %162, double 1.000000e+00)
   %164 = call double @llvm.maxnum.f64(double %163, double 0.000000e+00)
@@ -4635,7 +4635,7 @@ hsv2rgb.exit132.i:                                ; preds = %277, %276, %275, %2
   %.sroa.63.0 = phi double [ 0.000000e+00, %hsv2rgb.exit132.i ], [ 0.000000e+00, %hsv2rgb.exit128.i ], [ 0.000000e+00, %hsv2rgb.exit.i ], [ %170, %161 ]
   %.sroa.67.0 = phi double [ 0.000000e+00, %hsv2rgb.exit132.i ], [ 0.000000e+00, %hsv2rgb.exit128.i ], [ 0.000000e+00, %hsv2rgb.exit.i ], [ %173, %161 ]
   %.sroa.0.0 = phi double [ %285, %hsv2rgb.exit132.i ], [ %255, %hsv2rgb.exit128.i ], [ %213, %hsv2rgb.exit.i ], [ %164, %161 ]
-  br i1 %.val.i4.pr.i210.i247, label %292, label %398
+  br i1 %.val.i4.pr.i211.i247, label %292, label %398
 
 292:                                              ; preds = %291
   %.val122.i = load ptr, ptr %12, align 8
@@ -4956,11 +4956,11 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   %.sroa.67.1.ph267 = phi double [ %.sroa.67.1.ph.ph, %.thread260 ], [ %.sroa.67.0, %398 ]
   %.sroa.63.1.ph266 = phi double [ %.sroa.63.1.ph.ph, %.thread260 ], [ %.sroa.63.0, %398 ]
   %.sroa.51.1.ph265 = phi double [ %.sroa.51.1.ph.ph, %.thread260 ], [ %.sroa.51.0, %398 ]
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %13, ptr noundef nonnull @.str.33, double noundef %.sroa.0.1.ph268, double noundef %.sroa.51.1.ph265, double noundef %.sroa.63.1.ph266)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.33, double noundef %.sroa.0.1.ph268, double noundef %.sroa.51.1.ph265, double noundef %.sroa.63.1.ph266)
   br i1 %.not20, label %agxbsizeof.exit.i.i26, label %400
 
 400:                                              ; preds = %399
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %13, ptr noundef nonnull @.str.34, double noundef %.sroa.67.1.ph267)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.34, double noundef %.sroa.67.1.ph267)
   br label %agxbsizeof.exit.i.i26
 
 401:                                              ; preds = %.thread271, %398
@@ -4972,12 +4972,12 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   %405 = and i32 %404, 255
   %406 = lshr i32 %.sroa.0.0.extract.trunc, 16
   %407 = and i32 %406, 255
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %13, ptr noundef nonnull @.str.35, i32 noundef %403, i32 noundef %405, i32 noundef %407)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.35, i32 noundef %403, i32 noundef %405, i32 noundef %407)
   br i1 %.not20, label %agxbsizeof.exit.i.i26, label %408
 
 408:                                              ; preds = %401
   %409 = lshr i32 %.sroa.0.0.extract.trunc, 24
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %13, ptr noundef nonnull @.str.36, i32 noundef %409)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.36, i32 noundef %409)
   br label %agxbsizeof.exit.i.i26
 
 410:                                              ; preds = %.thread279, %398
@@ -4990,7 +4990,7 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   %415 = lshr i32 %.sroa.0.0.extract.trunc110, 16
   %416 = and i32 %415, 255
   %417 = lshr i32 %.sroa.0.0.extract.trunc110, 24
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %13, ptr noundef nonnull @.str.37, i32 noundef %412, i32 noundef %414, i32 noundef %416, i32 noundef %417)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.37, i32 noundef %412, i32 noundef %414, i32 noundef %416, i32 noundef %417)
   br label %agxbsizeof.exit.i.i26
 
 agxbsizeof.exit.i.i26:                            ; preds = %.thread288, %398, %401, %408, %399, %400, %410
@@ -5008,7 +5008,7 @@ agxbsizeof.exit.i.i26:                            ; preds = %.thread288, %398, %
   br i1 %.not.i.i29, label %425, label %424
 
 424:                                              ; preds = %agxbsizeof.exit.i.i26
-  call fastcc void @agxbmore(ptr noundef nonnull %13, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %13, i64 noundef 1)
   %.val.i15.pre.i.i30 = load i8, ptr %418, align 1
   br label %425
 
@@ -5064,7 +5064,7 @@ agxbfree.exit:                                    ; preds = %439, %agxbuse.exit,
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -5107,7 +5107,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -5199,44 +5199,44 @@ declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agfstsubg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cloneSubg(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @cloneSubg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = tail call ptr @copy(ptr noundef %0, ptr noundef %1)
+  %5 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @agfstnode(ptr noundef %1) #24
+  %7 = tail call ptr @agfstnode(ptr noundef nonnull %1) #24
   %.not6481 = icmp eq ptr %7, null
   br i1 %.not6481, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %13
   %.05982 = phi ptr [ %15, %13 ], [ %7, %6 ]
   %8 = tail call ptr @agnameof(ptr noundef nonnull %.05982) #24
-  %9 = tail call ptr @agnode(ptr noundef %0, ptr noundef %8, i32 noundef 0) #24
+  %9 = tail call ptr @agnode(ptr noundef nonnull %0, ptr noundef %8, i32 noundef 0) #24
   %.not72 = icmp eq ptr %9, null
   br i1 %.not72, label %10, label %13
 
 10:                                               ; preds = %.lr.ph
   %11 = tail call ptr @agnameof(ptr noundef nonnull %.05982) #24
-  %12 = tail call ptr @agnameof(ptr noundef %0) #24
+  %12 = tail call ptr @agnameof(ptr noundef nonnull %0) #24
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.42, ptr noundef %11, ptr noundef %12) #24
   br label %.loopexit
 
 13:                                               ; preds = %.lr.ph
   %14 = tail call ptr @agsubnode(ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef 1) #24
-  %15 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.05982) #24
+  %15 = tail call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.05982) #24
   %.not64 = icmp eq ptr %15, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %13, %6
-  %16 = tail call ptr @agfstnode(ptr noundef %1) #24
+  %16 = tail call ptr @agfstnode(ptr noundef nonnull %1) #24
   %.not6588 = icmp eq ptr %16, null
   br i1 %.not6588, label %._crit_edge92, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %._crit_edge, %._crit_edge87
   %.189 = phi ptr [ %48, %._crit_edge87 ], [ %16, %._crit_edge ]
-  %17 = call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.189) #24
+  %17 = call ptr @agfstout(ptr noundef nonnull %1, ptr noundef nonnull %.189) #24
   %.not6883 = icmp eq ptr %17, null
   br i1 %.not6883, label %._crit_edge87, label %.lr.ph86
 
@@ -5283,7 +5283,7 @@ mapEdge.exit:                                     ; preds = %.lr.ph86
   %39 = getelementptr inbounds i8, ptr %38, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @agnameof(ptr noundef %40) #24
-  %42 = call ptr @agnameof(ptr noundef %0) #24
+  %42 = call ptr @agnameof(ptr noundef nonnull %0) #24
   br i1 %.not70, label %44, label %43
 
 43:                                               ; preds = %.loopexit75
@@ -5296,29 +5296,29 @@ mapEdge.exit:                                     ; preds = %.lr.ph86
 
 45:                                               ; preds = %mapEdge.exit
   %46 = call ptr @agsubedge(ptr noundef nonnull %5, ptr noundef nonnull %21, i32 noundef 1) #24
-  %47 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.05884) #24
+  %47 = call ptr @agnxtout(ptr noundef nonnull %1, ptr noundef nonnull %.05884) #24
   %.not68 = icmp eq ptr %47, null
   br i1 %.not68, label %._crit_edge87, label %.lr.ph86
 
 ._crit_edge87:                                    ; preds = %45, %.lr.ph91
-  %48 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.189) #24
+  %48 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.189) #24
   %.not65 = icmp eq ptr %48, null
   br i1 %.not65, label %._crit_edge92, label %.lr.ph91
 
 ._crit_edge92:                                    ; preds = %._crit_edge87, %._crit_edge
-  %49 = call ptr @agfstsubg(ptr noundef %1) #24
+  %49 = call ptr @agfstsubg(ptr noundef nonnull %1) #24
   %.not6693 = icmp eq ptr %49, null
   br i1 %.not6693, label %.loopexit, label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %._crit_edge92, %54
   %.05794 = phi ptr [ %55, %54 ], [ %49, %._crit_edge92 ]
-  %50 = call fastcc ptr @cloneSubg(ptr noundef nonnull %5, ptr noundef nonnull %.05794, ptr noundef %2)
+  %50 = call fastcc ptr @cloneSubg(ptr noundef %5, ptr noundef %.05794, ptr noundef %2)
   %.not67 = icmp eq ptr %50, null
   br i1 %.not67, label %51, label %54
 
 51:                                               ; preds = %.lr.ph96
   %52 = call ptr @agnameof(ptr noundef nonnull %.05794) #24
-  %53 = call ptr @agnameof(ptr noundef %1) #24
+  %53 = call ptr @agnameof(ptr noundef nonnull %1) #24
   call void (ptr, ...) @exerror(ptr noundef nonnull @.str.41, ptr noundef %52, ptr noundef %53) #24
   br label %.loopexit
 
@@ -5390,7 +5390,7 @@ declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -5435,7 +5435,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #31
   %26 = icmp eq ptr %25, null

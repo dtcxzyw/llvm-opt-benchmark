@@ -563,7 +563,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 204:                                              ; preds = %.lr.ph.i136.i
   store i8 0, ptr %201, align 1
-  %205 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0108.i, ptr noundef %.03346.i.i, i32 noundef %151, ptr noundef %.0106.i, ptr noundef nonnull %1)
+  %205 = call fastcc i32 @regex_parse_value_range(ptr noundef readonly %.0108.i, ptr noundef %.03346.i.i, i32 noundef %151, ptr noundef %.0106.i, ptr noundef %1)
   switch i32 %205, label %206 [
     i32 0, label %208
     i32 -2, label %regex_parse_value_ranges.exit.i
@@ -609,7 +609,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %222
 
 222:                                              ; preds = %221, %216, %214
-  %223 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0108.i, ptr noundef %.033.lcssa.i.i, i32 noundef %151, ptr noundef %.0106.i, ptr noundef nonnull %1)
+  %223 = call fastcc i32 @regex_parse_value_range(ptr noundef readonly %.0108.i, ptr noundef %.033.lcssa.i.i, i32 noundef %151, ptr noundef %.0106.i, ptr noundef %1)
   switch i32 %223, label %224 [
     i32 0, label %226
     i32 -2, label %regex_parse_value_ranges.exit.i
@@ -830,7 +830,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [132 x i8], align 16
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
@@ -984,7 +984,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nocapt
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge108
-  %69 = call i32 @PMIx_Argv_append_nosize(ptr noundef %4, ptr noundef nonnull %57) #13
+  %69 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull %57) #13
   %70 = add i64 %.3110, 1
   %.not83 = icmp ugt i64 %70, %.067.ph
   br i1 %.not83, label %._crit_edge112, label %61, !llvm.loop !17

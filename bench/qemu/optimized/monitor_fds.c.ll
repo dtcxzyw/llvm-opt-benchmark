@@ -285,7 +285,7 @@ land.rhs:                                         ; preds = %entry, %land.rhs
   %mon_fdset.04 = phi ptr [ %3, %land.rhs ], [ %2, %entry ]
   %next = getelementptr inbounds i8, ptr %mon_fdset.04, i64 24
   %3 = load ptr, ptr %next, align 8
-  tail call fastcc void @monitor_fdset_cleanup(ptr noundef nonnull %mon_fdset.04)
+  tail call fastcc void @monitor_fdset_cleanup(ptr noundef %mon_fdset.04)
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %land.rhs, !llvm.loop !9
 
@@ -295,7 +295,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @monitor_fdset_cleanup(ptr noundef %mon_fdset) unnamed_addr #0 {
+define internal fastcc void @monitor_fdset_cleanup(ptr noundef nonnull %mon_fdset) unnamed_addr #0 {
 entry:
   %fds = getelementptr inbounds i8, ptr %mon_fdset, i64 8
   %0 = load ptr, ptr %fds, align 8
@@ -652,7 +652,7 @@ for.end:                                          ; preds = %for.body4, %for.inc
   br i1 %has_fd, label %if.then24, label %if.end18
 
 if.end18:                                         ; preds = %for.end.thread, %for.end
-  tail call fastcc void @monitor_fdset_cleanup(ptr noundef nonnull %mon_fdset.020)
+  tail call fastcc void @monitor_fdset_cleanup(ptr noundef %mon_fdset.020)
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 for.inc19:                                        ; preds = %for.body
@@ -949,7 +949,7 @@ if.end.i:                                         ; preds = %if.then8.i, %if.the
   br i1 %cmp24.i, label %if.then25.i, label %monitor_fdset_dup_fd_find_remove.exit
 
 if.then25.i:                                      ; preds = %if.end.i
-  tail call fastcc void @monitor_fdset_cleanup(ptr noundef nonnull %mon_fdset.023.i)
+  tail call fastcc void @monitor_fdset_cleanup(ptr noundef %mon_fdset.023.i)
   br label %monitor_fdset_dup_fd_find_remove.exit
 
 for.inc.i:                                        ; preds = %for.body4.i

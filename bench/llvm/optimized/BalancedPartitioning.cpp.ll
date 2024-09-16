@@ -1359,7 +1359,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i.i.i.i:     ; preds = %52, %47
 
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit9.i.i.i.i:    ; preds = %57, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %.sroa.027.0..sroa.012.1.i.i.i.i, i64 noundef %.08.i.i.i.i, i64 noundef %36, ptr noundef nonnull %11)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %.sroa.027.0..sroa.012.1.i.i.i.i, i64 noundef %.08.i.i.i.i, i64 noundef %36, ptr noundef %11)
   %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #22
   %60 = load ptr, ptr %44, align 8
   %61 = icmp eq ptr %60, %45
@@ -1443,7 +1443,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i9.i.i.i:    ; preds = %85, %81
 
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit2.i.i.i.i:    ; preds = %92, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i9.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %.sroa.027.0..sroa.012.1.i.i.i.i, i64 noundef 0, i64 noundef %36, ptr noundef nonnull %9)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %.sroa.027.0..sroa.012.1.i.i.i.i, i64 noundef 0, i64 noundef %36, ptr noundef %9)
   %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #22
   %95 = load ptr, ptr %75, align 8
   %96 = icmp eq ptr %95, %76
@@ -9612,7 +9612,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i.i.i:       ; preds = %37, %32
 
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit9.i.i.i:      ; preds = %42, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %23, ptr noundef nonnull %8)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %23, ptr noundef %8)
   %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
   %45 = load ptr, ptr %29, align 8
   %46 = icmp eq ptr %45, %30
@@ -9688,7 +9688,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i:           ; preds = %65, %.lr.ph.i9.i
 
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit2.i:          ; preds = %75, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %72, ptr noundef nonnull %6)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %72, ptr noundef %6)
   %77 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #22
   %78 = load ptr, ptr %58, align 8
   %79 = icmp eq ptr %78, %59
@@ -9827,7 +9827,7 @@ _ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning6bisectENS2_14iterator_rangeIS8_EEjjjRSt8optionalINSB_12BPThreadPoolEEE3$_1EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::BPFunctionNode", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -12366,7 +12366,7 @@ declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #9
 declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::BPFunctionNode", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

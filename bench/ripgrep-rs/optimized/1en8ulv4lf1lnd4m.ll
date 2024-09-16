@@ -246,7 +246,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$grep_printer..color..Color
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0de1340d45b078faE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0de1340d45b078faE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
@@ -1651,7 +1651,7 @@ default.unreachable:                              ; preds = %51
           to label %146 unwind label %144
 
 74:                                               ; preds = %66
-  invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0de1340d45b078faE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0de1340d45b078faE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %10, ptr noalias nocapture noundef align 8 dereferenceable(32) %9)
           to label %75 unwind label %72
 
 75:                                               ; preds = %74
@@ -1766,7 +1766,7 @@ default.unreachable:                              ; preds = %51
           to label %112 unwind label %72
 
 112:                                              ; preds = %106
-  invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0de1340d45b078faE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0de1340d45b078faE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %8, ptr noalias nocapture noundef align 8 dereferenceable(32) %7)
           to label %113 unwind label %72
 
 113:                                              ; preds = %112

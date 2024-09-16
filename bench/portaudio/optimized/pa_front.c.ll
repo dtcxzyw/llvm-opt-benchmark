@@ -864,7 +864,7 @@ define i32 @Pa_IsFormatSupported(ptr noundef %0, ptr noundef %1, double noundef 
   br i1 %.not, label %47, label %10
 
 10:                                               ; preds = %3
-  %11 = call fastcc i32 @ValidateOpenStreamParameters(ptr noundef %0, ptr noundef %1, double noundef %2, i64 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %11 = call fastcc i32 @ValidateOpenStreamParameters(ptr noundef %0, ptr noundef %1, double noundef %2, i64 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %.not25 = icmp eq i32 %11, 0
   br i1 %.not25, label %12, label %47
 
@@ -933,7 +933,7 @@ define i32 @Pa_IsFormatSupported(ptr noundef %0, ptr noundef %1, double noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly %0, ptr noundef readonly %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #6 {
+define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly %0, ptr noundef readonly %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #6 {
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
   %or.cond = and i1 %10, %11
@@ -1280,7 +1280,7 @@ define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef %1, ptr noundef %2, double
   br i1 %16, label %59, label %17
 
 17:                                               ; preds = %15
-  %18 = call fastcc i32 @ValidateOpenStreamParameters(ptr noundef %1, ptr noundef %2, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %18 = call fastcc i32 @ValidateOpenStreamParameters(ptr noundef %1, ptr noundef %2, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %.not38 = icmp eq i32 %18, 0
   br i1 %.not38, label %19, label %59
 

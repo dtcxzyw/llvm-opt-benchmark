@@ -1152,7 +1152,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit: ; preds = %._crit_edg
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit37
 
 94:                                               ; preds = %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit
-  invoke fastcc void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind noalias nonnull writable align 8 %17)
+  invoke fastcc void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind noalias writable align 8 %17)
           to label %95 unwind label %.loopexit.split-lp50
 
 95:                                               ; preds = %94
@@ -1258,7 +1258,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg11MessageSink13println_errorIJNS_3m
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.50", align 8
   %3 = alloca %"struct.vcpkg::LocalizedString", align 8
   %4 = alloca %"class.std::vector.94", align 8
@@ -1672,7 +1672,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_38__invokeERKN5vcpkg10VcpkgPathsE"(pt
 define internal void @"_ZN12_GLOBAL__N_13$_48__invokeERKN5vcpkg10VcpkgPathsE"(ptr nocapture nonnull readnone align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::LocalizedString", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call fastcc void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind noalias nonnull writable align 8 %2)
+  call fastcc void @_ZN12_GLOBAL__N_111help_topicsEv(ptr dead_on_unwind noalias writable align 8 %2)
   %3 = call { ptr, i64 } @_ZNK5vcpkg15LocalizedStringcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1

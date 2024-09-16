@@ -146,7 +146,7 @@ define dso_local range(i32 0, 32) i32 @Curl_url_set_authority(ptr nocapture noun
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %6 = load ptr, ptr %0, align 8
   %7 = icmp ne ptr %6, null
-  %8 = call fastcc i32 @parse_authority(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %5, i32 noundef %2, ptr noundef nonnull %4, i1 noundef zeroext %7)
+  %8 = call fastcc i32 @parse_authority(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %5, i32 noundef %2, ptr noundef %4, i1 noundef zeroext %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
 
@@ -170,7 +170,7 @@ define dso_local range(i32 0, 32) i32 @Curl_url_set_authority(ptr nocapture noun
 declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 32) i32 @parse_authority(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32) i32 @parse_authority(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca [4 x i64], align 16
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -298,7 +298,7 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
   %.04448 = phi i64 [ %30, %parse_hostname_login.exit.thread ], [ 0, %parse_hostname_login.exit ]
   %64 = getelementptr inbounds i8, ptr %1, i64 %.04448
   %65 = sub i64 %2, %.04448
-  %66 = call i32 @Curl_dyn_addn(ptr noundef %4, ptr noundef %64, i64 noundef %65) #10
+  %66 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef %64, i64 noundef %65) #10
   %.not30 = icmp eq i32 %66, 0
   br i1 %.not30, label %70, label %67
 
@@ -309,7 +309,7 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
 
 70:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %71 = call ptr @Curl_dyn_ptr(ptr noundef %4) #10
+  %71 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #10
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %72, 91
   br i1 %73, label %74, label %79
@@ -337,7 +337,7 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
   %81 = ptrtoint ptr %.02643.i to i64
   %82 = ptrtoint ptr %71 to i64
   %83 = sub i64 %81, %82
-  %84 = call i32 @Curl_dyn_setlen(ptr noundef %4, i64 noundef %83) #10
+  %84 = call i32 @Curl_dyn_setlen(ptr noundef nonnull %4, i64 noundef %83) #10
   %85 = getelementptr inbounds i8, ptr %.02643.i, i64 1
   %86 = load i8, ptr %85, align 1
   %.not35.i35 = icmp eq i8 %86, 0
@@ -381,14 +381,14 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
 
 .thread.i38:                                      ; preds = %87, %76, %79, %96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %102 = call i64 @Curl_dyn_len(ptr noundef %4) #10
+  %102 = call i64 @Curl_dyn_len(ptr noundef nonnull %4) #10
   %.not32 = icmp eq i64 %102, 0
   br i1 %.not32, label %193, label %103
 
 103:                                              ; preds = %.thread.i38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %104 = call ptr @Curl_dyn_ptr(ptr noundef %4) #10
+  %104 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 91
@@ -443,7 +443,7 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
   ]
 
 123:                                              ; preds = %122
-  call void @Curl_dyn_reset(ptr noundef %4) #10
+  call void @Curl_dyn_reset(ptr noundef nonnull %4) #10
   %124 = load i64, ptr %7, align 16
   %125 = lshr i64 %124, 24
   %126 = trunc i64 %125 to i32
@@ -453,7 +453,7 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
   %130 = lshr i32 %127, 8
   %131 = and i32 %130, 255
   %132 = and i32 %127, 255
-  %133 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %126, i32 noundef %129, i32 noundef %131, i32 noundef %132) #10
+  %133 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef %126, i32 noundef %129, i32 noundef %131, i32 noundef %132) #10
   br label %182
 
 134:                                              ; preds = %122
@@ -466,14 +466,14 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
   br i1 %or.cond.i43, label %.loopexit, label %140
 
 140:                                              ; preds = %134
-  call void @Curl_dyn_reset(ptr noundef %4) #10
+  call void @Curl_dyn_reset(ptr noundef nonnull %4) #10
   %141 = trunc nuw i64 %135 to i32
   %142 = trunc nuw i64 %138 to i32
   %143 = lshr i32 %142, 16
   %144 = lshr i32 %142, 8
   %145 = and i32 %144, 255
   %146 = and i32 %142, 255
-  %147 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %141, i32 noundef %143, i32 noundef %145, i32 noundef %146) #10
+  %147 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef %141, i32 noundef %143, i32 noundef %145, i32 noundef %146) #10
   br label %182
 
 148:                                              ; preds = %122
@@ -490,13 +490,13 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
   br i1 %or.cond8.i, label %.loopexit, label %157
 
 157:                                              ; preds = %148
-  call void @Curl_dyn_reset(ptr noundef %4) #10
+  call void @Curl_dyn_reset(ptr noundef nonnull %4) #10
   %158 = trunc nuw i64 %149 to i32
   %159 = trunc nuw i64 %152 to i32
   %160 = trunc nuw i64 %155 to i32
   %161 = lshr i32 %160, 8
   %162 = and i32 %160, 255
-  %163 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %158, i32 noundef %159, i32 noundef %161, i32 noundef %162) #10
+  %163 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef %158, i32 noundef %159, i32 noundef %161, i32 noundef %162) #10
   br label %182
 
 164:                                              ; preds = %122
@@ -517,12 +517,12 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
   br i1 %or.cond17.i, label %.loopexit, label %176
 
 176:                                              ; preds = %164
-  call void @Curl_dyn_reset(ptr noundef %4) #10
+  call void @Curl_dyn_reset(ptr noundef nonnull %4) #10
   %177 = trunc nuw i64 %165 to i32
   %178 = trunc nuw i64 %168 to i32
   %179 = trunc nuw i64 %171 to i32
   %180 = trunc nuw i64 %174 to i32
-  %181 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %177, i32 noundef %178, i32 noundef %179, i32 noundef %180) #10
+  %181 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef %177, i32 noundef %178, i32 noundef %179, i32 noundef %180) #10
   br label %182
 
 182:                                              ; preds = %176, %157, %140, %123
@@ -539,8 +539,8 @@ ipv4_normalize.exit.thread52:                     ; preds = %122, %182
 183:                                              ; preds = %103
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %184 = call ptr @Curl_dyn_ptr(ptr noundef %4) #10
-  %185 = call i64 @Curl_dyn_len(ptr noundef %4) #10
+  %184 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #10
+  %185 = call i64 @Curl_dyn_len(ptr noundef nonnull %4) #10
   %186 = call fastcc i32 @ipv6_parse(ptr noundef nonnull %0, ptr noundef %184, i64 noundef %185)
   br label %193
 
@@ -552,8 +552,8 @@ ipv4_normalize.exit.thread52:                     ; preds = %122, %182
   br i1 %.not33, label %188, label %193
 
 188:                                              ; preds = %.loopexit
-  %189 = call ptr @Curl_dyn_ptr(ptr noundef %4) #10
-  %190 = call i64 @Curl_dyn_len(ptr noundef %4) #10
+  %189 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #10
+  %190 = call i64 @Curl_dyn_len(ptr noundef nonnull %4) #10
   %191 = call fastcc i32 @hostname_check(ptr noundef %0, ptr noundef %189, i64 noundef %190)
   br label %193
 
@@ -1282,7 +1282,7 @@ define dso_local range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly %0, i32
   call void @Curl_dyn_init(ptr noundef nonnull %10, i64 noundef 8000000) #10
   %209 = load ptr, ptr %2, align 8
   %210 = icmp eq i32 %1, 8
-  %211 = call fastcc i32 @urlencode_str(ptr noundef nonnull %10, ptr noundef %209, i64 noundef %.0157, i1 noundef zeroext true, i1 noundef zeroext %210)
+  %211 = call fastcc i32 @urlencode_str(ptr noundef %10, ptr noundef %209, i64 noundef %.0157, i1 noundef zeroext true, i1 noundef zeroext %210)
   %.not242 = icmp eq i32 %211, 0
   br i1 %.not242, label %212, label %.thread281
 
@@ -1387,7 +1387,7 @@ declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 32) i32 @urlencode_str(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32) i32 @urlencode_str(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [3 x i8], align 1
   %7 = xor i1 %4, true
   br i1 %3, label %22, label %8
@@ -1441,7 +1441,7 @@ find_host_sep.exit:                               ; preds = %16, %17
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25
-  %28 = call i32 @Curl_dyn_addn(ptr noundef %0, ptr noundef %.03964, i64 noundef 1) #10
+  %28 = call i32 @Curl_dyn_addn(ptr noundef nonnull %0, ptr noundef %.03964, i64 noundef 1) #10
   %.not51 = icmp eq i32 %28, 0
   br i1 %.not51, label %61, label %29
 
@@ -1461,11 +1461,11 @@ find_host_sep.exit:                               ; preds = %16, %17
   br i1 %.04063, label %35, label %37
 
 35:                                               ; preds = %34
-  %36 = call i32 @Curl_dyn_addn(ptr noundef %0, ptr noundef nonnull @.str.20, i64 noundef 3) #10
+  %36 = call i32 @Curl_dyn_addn(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i64 noundef 3) #10
   br label %39
 
 37:                                               ; preds = %34
-  %38 = call i32 @Curl_dyn_addn(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef 1) #10
+  %38 = call i32 @Curl_dyn_addn(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i64 noundef 1) #10
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -1504,12 +1504,12 @@ switch.early.test.thread:                         ; preds = %switch.early.test
   %53 = getelementptr inbounds [17 x i8], ptr @hexdigits, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   store i8 %54, ptr %24, align 1
-  %55 = call i32 @Curl_dyn_addn(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 3) #10
+  %55 = call i32 @Curl_dyn_addn(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 3) #10
   br label %57
 
 switch.early.test.thread.thread:                  ; preds = %32, %switch.early.test, %switch.early.test, %43, %switch.early.test.thread
   %.257 = phi i1 [ %.04063, %switch.early.test ], [ %.04063, %switch.early.test ], [ %.04063, %43 ], [ %.04063, %switch.early.test.thread ], [ false, %32 ]
-  %56 = call i32 @Curl_dyn_addn(ptr noundef %0, ptr noundef nonnull %.03964, i64 noundef 1) #10
+  %56 = call i32 @Curl_dyn_addn(ptr noundef nonnull %0, ptr noundef nonnull %.03964, i64 noundef 1) #10
   br label %57
 
 57:                                               ; preds = %switch.early.test.thread.thread, %46
@@ -1804,12 +1804,12 @@ define dso_local range(i32 0, 32) i32 @curl_url_set(ptr noundef %0, i32 noundef 
   br i1 %.not228, label %130, label %128
 
 128:                                              ; preds = %126, %122
-  %129 = call fastcc i32 @parseurl_and_replace(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef %3)
+  %129 = call fastcc i32 @parseurl_and_replace(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %3)
   br label %.loopexit298
 
 130:                                              ; preds = %126
   %131 = load ptr, ptr %6, align 8
-  %132 = call fastcc i32 @concat_url(ptr noundef %131, ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %132 = call fastcc i32 @concat_url(ptr noundef %131, ptr noundef %2, ptr noundef %7)
   %133 = load ptr, ptr @Curl_cfree, align 8
   %134 = load ptr, ptr %6, align 8
   call void %133(ptr noundef %134) #10
@@ -1823,7 +1823,7 @@ define dso_local range(i32 0, 32) i32 @curl_url_set(ptr noundef %0, i32 noundef 
 
 138:                                              ; preds = %130
   %139 = load ptr, ptr %7, align 8
-  %140 = call fastcc i32 @parseurl_and_replace(ptr noundef %139, ptr noundef nonnull %0, i32 noundef %3)
+  %140 = call fastcc i32 @parseurl_and_replace(ptr noundef %139, ptr noundef %0, i32 noundef %3)
   %141 = load ptr, ptr @Curl_cfree, align 8
   call void %141(ptr noundef %139) #10
   br label %.loopexit298
@@ -2203,7 +2203,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 32) i32 @parseurl_and_replace(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32) i32 @parseurl_and_replace(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [41 x i8], align 16
   %5 = alloca %struct.dynbuf, align 8
   %6 = alloca %struct.dynbuf, align 8
@@ -2504,7 +2504,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
   br i1 %.not219.i, label %152, label %131
 
 131:                                              ; preds = %123
-  %132 = call fastcc i32 @parse_authority(ptr noundef nonnull %10, ptr noundef nonnull %.0167272.i, i64 noundef %126, i32 noundef %2, ptr noundef nonnull %5, i1 noundef zeroext %125)
+  %132 = call fastcc i32 @parse_authority(ptr noundef nonnull %10, ptr noundef nonnull %.0167272.i, i64 noundef %126, i32 noundef %2, ptr noundef %5, i1 noundef zeroext %125)
   %.not222.i = icmp eq i32 %132, 0
   br i1 %.not222.i, label %133, label %parseurl.exit
 
@@ -2588,7 +2588,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
   call void @Curl_dyn_init(ptr noundef nonnull %6, i64 noundef 8000000) #10
   %166 = getelementptr inbounds i8, ptr %156, i64 1
   %167 = add i64 %161, -1
-  %168 = call fastcc i32 @urlencode_str(ptr noundef nonnull %6, ptr noundef nonnull %166, i64 noundef %167, i1 noundef zeroext true, i1 noundef zeroext false)
+  %168 = call fastcc i32 @urlencode_str(ptr noundef %6, ptr noundef nonnull %166, i64 noundef %167, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not233.i = icmp eq i32 %168, 0
   br i1 %.not233.i, label %169, label %parseurl.exit
 
@@ -2633,7 +2633,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
   call void @Curl_dyn_init(ptr noundef nonnull %7, i64 noundef 8000000) #10
   %189 = getelementptr inbounds i8, ptr %178, i64 1
   %190 = add i64 %183, -1
-  %191 = call fastcc i32 @urlencode_str(ptr noundef nonnull %7, ptr noundef nonnull %189, i64 noundef %190, i1 noundef zeroext true, i1 noundef zeroext true)
+  %191 = call fastcc i32 @urlencode_str(ptr noundef %7, ptr noundef nonnull %189, i64 noundef %190, i1 noundef zeroext true, i1 noundef zeroext true)
   %.not239.i = icmp eq i32 %191, 0
   br i1 %.not239.i, label %192, label %parseurl.exit
 
@@ -2672,7 +2672,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
 
 207:                                              ; preds = %205
   call void @Curl_dyn_init(ptr noundef nonnull %8, i64 noundef 8000000) #10
-  %208 = call fastcc i32 @urlencode_str(ptr noundef nonnull %8, ptr noundef %.1.i, i64 noundef %.3164.i, i1 noundef zeroext true, i1 noundef zeroext false)
+  %208 = call fastcc i32 @urlencode_str(ptr noundef %8, ptr noundef %.1.i, i64 noundef %.3164.i, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not242.i = icmp eq i32 %208, 0
   br i1 %.not242.i, label %209, label %parseurl.exit
 
@@ -2717,7 +2717,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
   br i1 %.not246.i, label %226, label %261
 
 226:                                              ; preds = %223
-  %227 = call fastcc i32 @dedotdotify(ptr noundef %.3.i, i64 noundef %.4.i, ptr noundef nonnull %9)
+  %227 = call fastcc i32 @dedotdotify(ptr noundef %.3.i, i64 noundef %.4.i, ptr noundef %9)
   %.not247.i = icmp eq i32 %227, 0
   br i1 %.not247.i, label %228, label %parseurl.exit
 
@@ -2840,7 +2840,7 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %50, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.dynbuf, align 8
   store ptr null, ptr %2, align 8
   %5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.21) #11
@@ -3010,7 +3010,7 @@ define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef %1, ptr nocap
 
 67:                                               ; preds = %65, %57, %61, %64
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.265) #11
-  %69 = call fastcc i32 @urlencode_str(ptr noundef nonnull %4, ptr noundef nonnull %.265, i64 noundef %68, i1 noundef zeroext %55, i1 noundef zeroext false)
+  %69 = call fastcc i32 @urlencode_str(ptr noundef %4, ptr noundef nonnull %.265, i64 noundef %68, i1 noundef zeroext %55, i1 noundef zeroext false)
   %.not94 = icmp eq i32 %69, 0
   br i1 %.not94, label %73, label %70
 
@@ -3191,10 +3191,10 @@ sub_0:                                            ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 32) i32 @urldecode_host(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32) i32 @urldecode_host(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  %4 = tail call ptr @Curl_dyn_ptr(ptr noundef %0) #10
+  %4 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %0) #10
   %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 37) #11
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %6
@@ -3205,10 +3205,10 @@ define internal fastcc range(i32 0, 32) i32 @urldecode_host(ptr noundef %0) unna
   br i1 %.not10, label %8, label %17
 
 8:                                                ; preds = %6
-  call void @Curl_dyn_reset(ptr noundef %0) #10
+  call void @Curl_dyn_reset(ptr noundef nonnull %0) #10
   %9 = load ptr, ptr %3, align 8
   %10 = load i64, ptr %2, align 8
-  %11 = call i32 @Curl_dyn_addn(ptr noundef %0, ptr noundef %9, i64 noundef %10) #10
+  %11 = call i32 @Curl_dyn_addn(ptr noundef nonnull %0, ptr noundef %9, i64 noundef %10) #10
   %12 = load ptr, ptr @Curl_cfree, align 8
   %13 = load ptr, ptr %3, align 8
   call void %12(ptr noundef %13) #10
@@ -3264,10 +3264,10 @@ declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dedotdotify(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dedotdotify(ptr noundef readonly %0, i64 noundef range(i64 2, 0) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   store ptr null, ptr %2, align 8
-  %5 = tail call ptr @memchr(ptr noundef %0, i32 noundef 46, i64 noundef %1) #11
+  %5 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46, i64 noundef %1) #11
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %107, label %6
 

@@ -866,7 +866,7 @@ CopyMultiInsertInfoSetupBuffer.exit:              ; preds = %312, %317
   br i1 %or.cond368, label %326, label %325
 
 325:                                              ; preds = %.thread364
-  call fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull %4, ptr noundef nonnull %286, ptr noundef nonnull %5)
+  call fastcc void @CopyMultiInsertInfoFlush(ptr noundef %4, ptr noundef nonnull %286, ptr noundef %5)
   br label %326
 
 326:                                              ; preds = %.thread364, %325, %.thread363, %CopyMultiInsertInfoSetupBuffer.exit
@@ -1079,7 +1079,7 @@ CopyMultiInsertInfoNextFreeSlot.exit354:          ; preds = %346, %355
   br i1 %spec.select.i, label %437, label %.backedge.backedge
 
 437:                                              ; preds = %416
-  call fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull %4, ptr noundef nonnull %.1, ptr noundef nonnull %5)
+  call fastcc void @CopyMultiInsertInfoFlush(ptr noundef %4, ptr noundef nonnull %.1, ptr noundef %5)
   br label %.backedge.backedge
 
 438:                                              ; preds = %414
@@ -1140,7 +1140,7 @@ CopyMultiInsertInfoNextFreeSlot.exit354:          ; preds = %346, %355
   br i1 %or.cond370, label %469, label %468
 
 468:                                              ; preds = %466
-  call fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %5)
+  call fastcc void @CopyMultiInsertInfoFlush(ptr noundef %4, ptr noundef null, ptr noundef %5)
   br label %469
 
 469:                                              ; preds = %468, %466
@@ -1368,7 +1368,7 @@ declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 declare ptr @ExecFindPartition(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CopyMultiInsertInfoFlush(ptr nocapture noundef %0, ptr noundef readnone %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @CopyMultiInsertInfoFlush(ptr nocapture noundef nonnull %0, ptr noundef readnone %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4

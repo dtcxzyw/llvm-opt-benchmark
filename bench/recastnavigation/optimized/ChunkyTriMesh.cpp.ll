@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
 ._crit_edge:                                      ; preds = %68, %5
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
-  call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %17, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %23, ptr noundef %1)
+  call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %31, i32 noundef 0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %17, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %23, ptr noundef %1)
   call void @_ZdaPv(ptr noundef nonnull %31) #9
   %69 = load i32, ptr %7, align 4
   %70 = getelementptr inbounds i8, ptr %4, i64 8
@@ -153,7 +153,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #1
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #3 {
+define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #3 {
   %11 = sub nsw i32 %2, %1
   %12 = load i32, ptr %4, align 4
   %.not = icmp slt i32 %12, %6
@@ -365,8 +365,8 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93:    ; preds = %109, %81
   tail call void @qsort(ptr noundef nonnull %19, i64 noundef %118, i64 noundef 20, ptr noundef nonnull %_ZL12compareItemYPKvS0_._ZL12compareItemXPKvS0_)
   %119 = sdiv i32 %11, 2
   %120 = add nsw i32 %119, %1
-  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %120, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
-  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef nonnull %0, i32 noundef %120, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
+  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %1, i32 noundef %120, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
+  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %120, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
   %121 = load i32, ptr %4, align 4
   %.neg = sub nsw i32 %12, %121
   %122 = getelementptr inbounds i8, ptr %16, i64 16

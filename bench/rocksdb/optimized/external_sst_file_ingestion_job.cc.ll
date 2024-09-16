@@ -1167,7 +1167,7 @@ if.then.i.i144:                                   ; preds = %invoke.cont78
   %51 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 true)
   %sub.i2.i.i = shl nuw nsw i64 %51, 1
   %mul.i.i = xor i64 %sub.i2.i.i, 126
-  invoke fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_T1_"(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp2.i.i, i64 noundef %mul.i.i, ptr nonnull readonly %ucmp)
+  invoke fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_T1_"(ptr noundef %agg.tmp.i.i, ptr noundef %agg.tmp2.i.i, i64 noundef %mul.i.i, ptr nonnull readonly %ucmp)
           to label %.noexc146 unwind label %lpad81.loopexit.split-lp
 
 .noexc146:                                        ; preds = %if.then.i.i144
@@ -1185,7 +1185,7 @@ invoke.cont.i.i.i:                                ; preds = %.noexc146
   store ptr %sorted_files, ptr %agg.tmp2.i.i.i, align 8, !alias.scope !9
   %index_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store i64 16, ptr %index_.i.i.i.i.i, align 8, !alias.scope !9
-  invoke fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_"(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i, ptr nonnull readonly %ucmp)
+  invoke fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_"(ptr noundef %agg.tmp.i.i.i, ptr noundef %agg.tmp2.i.i.i, ptr nonnull readonly %ucmp)
           to label %.noexc147 unwind label %lpad81.loopexit.split-lp
 
 .noexc147:                                        ; preds = %invoke.cont.i.i.i
@@ -1197,7 +1197,7 @@ invoke.cont7.i.i.i.i:                             ; preds = %.noexc148, %.noexc1
   %__i.sroa.2.06.i.i.i.i = phi i64 [ 16, %.noexc147 ], [ %inc.i.i.i.i.i, %.noexc148 ]
   store ptr %sorted_files, ptr %agg.tmp.i.i.i.i, align 8
   store i64 %__i.sroa.2.06.i.i.i.i, ptr %__i.sroa.2.0.agg.tmp.sroa_idx.i.i.i.i, align 8
-  invoke fastcc void @"_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_"(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr nonnull readonly %ucmp)
+  invoke fastcc void @"_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_"(ptr noundef %agg.tmp.i.i.i.i, ptr nonnull readonly %ucmp)
           to label %.noexc148 unwind label %lpad81.loopexit
 
 .noexc148:                                        ; preds = %invoke.cont7.i.i.i.i
@@ -1216,7 +1216,7 @@ if.else.i.i.i:                                    ; preds = %.noexc146
   store ptr %sorted_files, ptr %agg.tmp18.i.i.i, align 8
   %agg.tmp11.sroa.2.0.agg.tmp18.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp18.i.i.i, i64 8
   store i64 %50, ptr %agg.tmp11.sroa.2.0.agg.tmp18.i.sroa_idx.i.i, align 8
-  invoke fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_"(ptr noundef nonnull %agg.tmp17.i.i.i, ptr noundef nonnull %agg.tmp18.i.i.i, ptr nonnull readonly %ucmp)
+  invoke fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_"(ptr noundef %agg.tmp17.i.i.i, ptr noundef %agg.tmp18.i.i.i, ptr nonnull readonly %ucmp)
           to label %invoke.cont16.i.i unwind label %lpad81.loopexit.split-lp
 
 invoke.cont16.i.i:                                ; preds = %if.else.i.i.i, %invoke.cont14.i.i.i
@@ -17645,7 +17645,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_T1_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i13.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp1.i.i.i14.i.i = alloca %"class.rocksdb::Slice", align 8
@@ -17730,7 +17730,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %20 = load ptr, ptr %retval.0.i.i.i39.i.i, align 8
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i.i, align 8
   store i64 %agg.tmp.sroa.4.0.copyload.fr.i55, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %div12.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef %20, ptr readonly %__comp.coerce)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef %agg.tmp.i.i.i, i64 noundef %div12.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef %20, ptr readonly %__comp.coerce)
   %cmp7.i40.i.i = icmp ult i64 %sub.i.i.i, 2
   br i1 %cmp7.i40.i.i, label %while.body.lr.ph.i.i, label %if.end9.split.i.i.i
 
@@ -17748,7 +17748,7 @@ if.end9.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.e
   %24 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i.i, align 8
   store i64 %agg.tmp.sroa.4.0.copyload.fr.i55, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %dec.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef %24, ptr readonly %__comp.coerce)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef %agg.tmp.i.i.i, i64 noundef %dec.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef %24, ptr readonly %__comp.coerce)
   %cmp7.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp7.i.i.i, label %while.body.lr.ph.i.i, label %if.end9.split.i.i.i, !llvm.loop !128
 
@@ -17781,7 +17781,7 @@ while.body.i.us.i:                                ; preds = %while.body.lr.ph.i.
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i5.i, align 8
   store i64 %agg.tmp.sroa.4.0.copyload.fr.i55, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i7.i, align 8
   %sub.i.i.i21.us.i = sub i64 %dec.i.i8.us.i, %agg.tmp.sroa.4.0.copyload.fr.i55
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i5.i, i64 noundef 0, i64 noundef %sub.i.i.i21.us.i, ptr noundef %29, ptr readonly %__comp.coerce)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef %agg.tmp.i.i5.i, i64 noundef 0, i64 noundef %sub.i.i.i21.us.i, ptr noundef %29, ptr readonly %__comp.coerce)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i5.i)
   %cmp.i.us.i = icmp sgt i64 %sub.i.i.i21.us.i, 1
   br i1 %cmp.i.us.i, label %while.body.i.us.i, label %while.end, !llvm.loop !129
@@ -17806,7 +17806,7 @@ while.body.i.i:                                   ; preds = %while.body.lr.ph.i.
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i5.i, align 8
   store i64 %agg.tmp.sroa.4.0.copyload.fr.i55, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i7.i, align 8
   %sub.i.i.i21.i = sub i64 %dec.i.i8.i, %agg.tmp.sroa.4.0.copyload.fr.i55
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i5.i, i64 noundef 0, i64 noundef %sub.i.i.i21.i, ptr noundef %34, ptr readonly %__comp.coerce)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef %agg.tmp.i.i5.i, i64 noundef 0, i64 noundef %sub.i.i.i21.i, ptr noundef %34, ptr readonly %__comp.coerce)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i5.i)
   %cmp.i.i = icmp sgt i64 %sub.i.i.i21.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !129
@@ -18184,7 +18184,7 @@ invoke.cont14:                                    ; preds = %while.end15.i.i
   store ptr %agg.tmp8.sroa.0.0.copyload, ptr %agg.tmp15, align 8
   store i64 %agg.tmp14.sroa.4.1.i, ptr %__cut.sroa.3.0.agg.tmp15.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(16) %__last, i64 16, i1 false)
-  call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_T1_"(ptr noundef nonnull %agg.tmp15, ptr noundef nonnull %agg.tmp16, i64 noundef %dec, ptr nonnull %__comp.coerce)
+  call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_T1_"(ptr noundef %agg.tmp15, ptr noundef %agg.tmp16, i64 noundef %dec, ptr nonnull %__comp.coerce)
   store ptr %agg.tmp8.sroa.0.0.copyload, ptr %__last, align 8
   store i64 %agg.tmp14.sroa.4.1.i, ptr %index_.i, align 8
   %108 = load i64, ptr %index_2.i, align 8
@@ -18198,7 +18198,7 @@ while.end:                                        ; preds = %invoke.cont14, %whi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp1.i.i.i.i = alloca %"class.rocksdb::Slice", align 8
@@ -18404,7 +18404,7 @@ invoke.cont39:                                    ; preds = %invoke.cont10.i, %l
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last, ptr nocapture readonly %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_SU_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr nocapture readonly %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp1.i.i.i = alloca %"class.rocksdb::Slice", align 8
@@ -18535,7 +18535,7 @@ invoke.cont18:                                    ; preds = %invoke.cont18.loope
 invoke.cont26:                                    ; preds = %for.body
   store ptr %2, ptr %agg.tmp20, align 8
   store i64 %__i.sroa.6.034, ptr %__i.sroa.6.0.agg.tmp20.sroa_idx, align 8
-  call fastcc void @"_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_"(ptr noundef nonnull %agg.tmp20, ptr nonnull %__comp.coerce)
+  call fastcc void @"_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_"(ptr noundef %agg.tmp20, ptr nonnull %__comp.coerce)
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont26, %invoke.cont18
@@ -18549,7 +18549,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_"(ptr nocapture noundef %__last, ptr nocapture readonly %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_"(ptr nocapture noundef nonnull %__last, ptr nocapture readonly %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp1.i.i.i = alloca %"class.rocksdb::Slice", align 8

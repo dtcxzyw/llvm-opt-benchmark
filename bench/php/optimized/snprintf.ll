@@ -54,12 +54,12 @@ define noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef %1, i1 nou
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = call fastcc noundef ptr @__cvt(double noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull %9, ptr noundef %5, i32 noundef 1)
+  %13 = call fastcc noundef ptr @__cvt(double noundef %1, i32 noundef %spec.store.select, ptr noundef %9, ptr noundef %5, i32 noundef 1)
   br label %17
 
 14:                                               ; preds = %8
   %15 = add nsw i32 %spec.store.select, 1
-  %16 = call fastcc noundef ptr @__cvt(double noundef %1, i32 noundef %15, ptr noundef nonnull %9, ptr noundef %5, i32 noundef 0)
+  %16 = call fastcc noundef ptr @__cvt(double noundef %1, i32 noundef %15, ptr noundef %9, ptr noundef %5, i32 noundef 0)
   br label %17
 
 17:                                               ; preds = %14, %12
@@ -2289,7 +2289,7 @@ define i32 @ap_php_asprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_a
 declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @__cvt(double noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @__cvt(double noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %.0.in.p = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %.0.in = add nuw i32 %.0.in.p, 1
@@ -2298,7 +2298,7 @@ define internal fastcc noundef ptr @__cvt(double noundef %0, i32 noundef %1, ptr
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %5
-  %9 = sub nuw nsw i32 1, %4
+  %9 = xor i32 %4, 1
   store i32 %9, ptr %2, align 4
   store i8 0, ptr %3, align 1
   %.not48 = icmp eq i32 %1, 0
@@ -2315,8 +2315,8 @@ define internal fastcc noundef ptr @__cvt(double noundef %0, i32 noundef %1, ptr
   br i1 %.not48, label %49, label %38
 
 15:                                               ; preds = %5
-  %16 = add nuw nsw i32 %4, 2
-  %17 = call ptr @zend_dtoa(double noundef %0, i32 noundef %16, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6) #19
+  %16 = or disjoint i32 %4, 2
+  %17 = call ptr @zend_dtoa(double noundef %0, i32 noundef %16, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %6) #19
   %18 = load i32, ptr %2, align 4
   %19 = icmp eq i32 %18, 9999
   br i1 %19, label %20, label %25

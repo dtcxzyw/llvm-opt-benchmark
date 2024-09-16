@@ -8887,7 +8887,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4, %16
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit32: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit, %22
   %27 = phi ptr [ %26, %22 ], [ null, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit ]
-  call fastcc void @_ZN4LuauL23findSeteqCounterexampleERNS_17DifferEnvironmentERKSt6vectorIPKNS_4TypeESaIS5_EES9_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %27)
+  call fastcc void @_ZN4LuauL23findSeteqCounterexampleERNS_17DifferEnvironmentERKSt6vectorIPKNS_4TypeESaIS5_EES9_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %27)
   %28 = getelementptr inbounds i8, ptr %5, i64 8
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
@@ -9199,7 +9199,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4, %16
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit32: ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit, %22
   %27 = phi ptr [ %26, %22 ], [ null, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit ]
-  call fastcc void @_ZN4LuauL23findSeteqCounterexampleERNS_17DifferEnvironmentERKSt6vectorIPKNS_4TypeESaIS5_EES9_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %27)
+  call fastcc void @_ZN4LuauL23findSeteqCounterexampleERNS_17DifferEnvironmentERKSt6vectorIPKNS_4TypeESaIS5_EES9_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %27)
   %28 = getelementptr inbounds i8, ptr %5, i64 8
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
@@ -10162,7 +10162,7 @@ _ZN4Luau16DiffPathNodeLeafaSEOS0_.exit8:          ; preds = %54, %.thread.i.i.i.
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL7diffTpiERNS_17DifferEnvironmentENS_9DiffError4KindEPKNS_11TypePackVarES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(312) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL7diffTpiERNS_17DifferEnvironmentENS_9DiffError4KindEPKNS_11TypePackVarES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(312) %1, i32 noundef range(i32 5, 7) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.Luau::DiffError", align 8
@@ -11980,7 +11980,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_S4_ES5_IKS4_S4_ENS0_16Item
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL23findSeteqCounterexampleERNS_17DifferEnvironmentERKSt6vectorIPKNS_4TypeESaIS5_EES9_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL23findSeteqCounterexampleERNS_17DifferEnvironmentERKSt6vectorIPKNS_4TypeESaIS5_EES9_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::__detail::_AllocNode", align 8
   %6 = alloca %"class.std::unordered_set.174", align 8
   %7 = alloca i64, align 8

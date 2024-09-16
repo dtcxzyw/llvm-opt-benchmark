@@ -9626,7 +9626,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZN7Matcher10is_vis
   %77 = load ptr, ptr %34, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call fastcc noundef zeroext i1 @_ZL11clone_shiftP4NodeP7MatcherRNS1_6MStackER9VectorSet(ptr noundef %79, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %80 = tail call fastcc noundef zeroext i1 @_ZL11clone_shiftP4NodeP7MatcherRNS1_6MStackER9VectorSet(ptr noundef %79, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br i1 %80, label %89, label %81
 
 81:                                               ; preds = %_ZN9VectorSet3setEj.exit
@@ -9754,7 +9754,7 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit58: ; preds = %_ZN7Matcher6MS
   br label %.sink.split
 
 132:                                              ; preds = %4
-  %133 = tail call fastcc noundef zeroext i1 @_ZL11clone_shiftP4NodeP7MatcherRNS1_6MStackER9VectorSet(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %133 = tail call fastcc noundef zeroext i1 @_ZL11clone_shiftP4NodeP7MatcherRNS1_6MStackER9VectorSet(ptr noundef nonnull %8, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br i1 %133, label %134, label %167
 
 134:                                              ; preds = %132
@@ -9856,7 +9856,7 @@ define linkonce_odr hidden void @_ZN9VectorSet3setEj(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL11clone_shiftP4NodeP7MatcherRNS1_6MStackER9VectorSet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL11clone_shiftP4NodeP7MatcherRNS1_6MStackER9VectorSet(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(52) %0) #23
@@ -64102,7 +64102,7 @@ define hidden void @_ZN13ReplI_immNode13eval_constantEP7Compile(ptr noundef nonn
 declare void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8, ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL14vreplicate_immIlEP13GrowableArrayI6jvalueE9BasicTypeT_i(i8 noundef zeroext %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL14vreplicate_immIlEP13GrowableArrayI6jvalueE9BasicTypeT_i(i8 noundef zeroext %0, i64 noundef %1, i32 noundef range(i32 -8, 9) %2) unnamed_addr #3 {
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #23
   %5 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %2, i32 noundef 8) #23
   store i32 0, ptr %4, align 4
@@ -65034,46 +65034,46 @@ define hidden void @_ZN13ReplF_immNode13eval_constantEP7Compile(ptr noundef nonn
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, i8 0, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 0, ptr %21, align 8
-  br label %.lr.ph.i
+  br label %22
 
-.lr.ph.i:                                         ; preds = %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i, %2
-  %.013.i = phi i32 [ %38, %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i ], [ 0, %2 ]
-  %22 = load i32, ptr %15, align 8
-  %23 = load i32, ptr %17, align 4
-  %24 = icmp eq i32 %22, %23
-  br i1 %24, label %25, label %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i
+22:                                               ; preds = %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i, %2
+  %.013.i = phi i32 [ 0, %2 ], [ %39, %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i ]
+  %23 = load i32, ptr %15, align 8
+  %24 = load i32, ptr %17, align 4
+  %25 = icmp eq i32 %23, %24
+  br i1 %25, label %26, label %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = add nsw i32 %22, 1
-  %27 = icmp sgt i32 %22, -1
-  %28 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %26)
-  %29 = icmp ult i32 %28, 2
-  %or.cond.i.i.i.i.i = select i1 %27, i1 %29, i1 false
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
-  %31 = sub nuw nsw i32 32, %30
-  %32 = shl nuw i32 1, %31
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %26, i32 %32
+26:                                               ; preds = %22
+  %27 = add nsw i32 %23, 1
+  %28 = icmp sgt i32 %23, -1
+  %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
+  %30 = icmp ult i32 %29, 2
+  %or.cond.i.i.i.i.i = select i1 %28, i1 %30, i1 false
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
+  %32 = sub nuw nsw i32 32, %31
+  %33 = shl nuw i32 1, %32
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %27, i32 %33
   tail call void @_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %15, align 8
   br label %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i
 
-_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i: ; preds = %25, %.lr.ph.i
-  %33 = phi i32 [ %.pre.i.i, %25 ], [ %22, %.lr.ph.i ]
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %15, align 8
-  %35 = load ptr, ptr %18, align 8
-  %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds %union.jvalue, ptr %35, i64 %36
-  store float %11, ptr %37, align 8
-  %38 = add nuw nsw i32 %.013.i, 1
-  %exitcond.not.i = icmp eq i32 %38, %14
-  br i1 %exitcond.not.i, label %_ZL14vreplicate_immIfEP13GrowableArrayI6jvalueE9BasicTypeT_i.exit, label %.lr.ph.i, !llvm.loop !12
+_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i: ; preds = %26, %22
+  %34 = phi i32 [ %.pre.i.i, %26 ], [ %23, %22 ]
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %15, align 8
+  %36 = load ptr, ptr %18, align 8
+  %37 = sext i32 %34 to i64
+  %38 = getelementptr inbounds %union.jvalue, ptr %36, i64 %37
+  store float %11, ptr %38, align 8
+  %39 = add nuw nsw i32 %.013.i, 1
+  %exitcond.not.i = icmp eq i32 %39, %14
+  br i1 %exitcond.not.i, label %_ZL14vreplicate_immIfEP13GrowableArrayI6jvalueE9BasicTypeT_i.exit, label %22, !llvm.loop !12
 
 _ZL14vreplicate_immIfEP13GrowableArrayI6jvalueE9BasicTypeT_i.exit: ; preds = %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i
-  %39 = getelementptr inbounds i8, ptr %5, i64 632
-  call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind nonnull writable sret(%"class.ConstantTable::Constant") align 8 %3, ptr noundef nonnull align 8 dereferenceable(36) %39, ptr noundef nonnull %0, i8 noundef zeroext 6, ptr noundef nonnull %15) #23
-  %40 = getelementptr inbounds i8, ptr %0, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %40, ptr noundef nonnull align 8 dereferenceable(25) %3, i64 25, i1 false)
+  %40 = getelementptr inbounds i8, ptr %5, i64 632
+  call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind nonnull writable sret(%"class.ConstantTable::Constant") align 8 %3, ptr noundef nonnull align 8 dereferenceable(36) %40, ptr noundef nonnull %0, i8 noundef zeroext 6, ptr noundef nonnull %15) #23
+  %41 = getelementptr inbounds i8, ptr %0, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %41, ptr noundef nonnull align 8 dereferenceable(25) %3, i64 25, i1 false)
   ret void
 }
 
@@ -113682,14 +113682,14 @@ define hidden void @_ZNK10xLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %spec.select.i.i22 = select i1 %or.cond.i.i21, i32 %73, i32 -1
   %74 = getelementptr inbounds i8, ptr %0, i64 52
   %75 = load i8, ptr %74, align 4
-  call fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 %spec.select.i.i22, i8 noundef zeroext %75)
+  call fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5, i32 %spec.select.i.i22, i8 noundef zeroext %75)
   ret void
 }
 
 declare void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %3, i8 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 %3, i8 noundef zeroext %4) unnamed_addr #3 {
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.IntelJccErratumAlignment, align 8
@@ -113705,7 +113705,7 @@ define internal fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Add
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #23
-  %17 = call noundef ptr @_ZN18XLoadBarrierStubC26createEPK8MachNode7Address8RegisterS4_h(ptr noundef %1, ptr noundef nonnull %7, i32 %3, i32 -1, i8 noundef zeroext %4) #23
+  %17 = call noundef ptr @_ZN18XLoadBarrierStubC26createEPK8MachNode7Address8RegisterS4_h(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 %3, i32 -1, i8 noundef zeroext %4) #23
   call void @_ZN24IntelJccErratumAlignmentC1EP14MacroAssembleri(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %0, i32 noundef 10) #23
   store i32 15, ptr %9, align 8
   %18 = getelementptr inbounds i8, ptr %9, i64 4
@@ -113787,12 +113787,12 @@ define hidden void @_ZNK24xCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %24) #23
   %or.cond.i.i14 = icmp ult i32 %40, 32
   %spec.select.i.i15 = select i1 %or.cond.i.i14, i32 %40, i32 -1
-  tail call fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8RegisterS4_S4_(ptr noundef %1, ptr noundef nonnull %0, i32 %spec.select.i.i, i32 %spec.select.i.i13, i32 %spec.select.i.i15)
+  tail call fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8RegisterS4_S4_(ptr noundef %1, ptr noundef %0, i32 %spec.select.i.i, i32 %spec.select.i.i13, i32 %spec.select.i.i15)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8RegisterS4_S4_(ptr noundef %0, ptr noundef %1, i32 %2, i32 %3, i32 %4) unnamed_addr #3 {
+define internal fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8RegisterS4_S4_(ptr noundef %0, ptr noundef nonnull %1, i32 %2, i32 %3, i32 %4) unnamed_addr #3 {
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.IntelJccErratumAlignment, align 8
@@ -113962,7 +113962,7 @@ define hidden void @_ZNK20xCompareAndSwapPNode4emitEP17C2_MacroAssemblerP13Phase
   %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %24) #23
   %or.cond.i.i27 = icmp ult i32 %40, 32
   %spec.select.i.i28 = select i1 %or.cond.i.i27, i32 %40, i32 -1
-  tail call fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8RegisterS4_S4_(ptr noundef %1, ptr noundef nonnull %0, i32 %spec.select.i.i, i32 %spec.select.i.i26, i32 %spec.select.i.i28)
+  tail call fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8RegisterS4_S4_(ptr noundef %1, ptr noundef %0, i32 %spec.select.i.i, i32 %spec.select.i.i26, i32 %spec.select.i.i28)
   %41 = getelementptr inbounds i8, ptr %0, i64 52
   %42 = load i8, ptr %41, align 4
   %.not = icmp eq i8 %42, 0
@@ -114052,7 +114052,7 @@ define hidden void @_ZNK22xCompareAndSwapP_0Node4emitEP17C2_MacroAssemblerP13Pha
   %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %24) #23
   %or.cond.i.i27 = icmp ult i32 %40, 32
   %spec.select.i.i28 = select i1 %or.cond.i.i27, i32 %40, i32 -1
-  tail call fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8RegisterS4_S4_(ptr noundef %1, ptr noundef nonnull %0, i32 %spec.select.i.i, i32 %spec.select.i.i26, i32 %spec.select.i.i28)
+  tail call fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8RegisterS4_S4_(ptr noundef %1, ptr noundef %0, i32 %spec.select.i.i, i32 %spec.select.i.i26, i32 %spec.select.i.i28)
   %41 = getelementptr inbounds i8, ptr %0, i64 52
   %42 = load i8, ptr %41, align 4
   %.not = icmp eq i8 %42, 0
@@ -114168,7 +114168,7 @@ define hidden void @_ZNK10xXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %spec.select.i.i16 = select i1 %or.cond.i.i15, i32 %44, i32 -1
   %45 = getelementptr inbounds i8, ptr %0, i64 52
   %46 = load i8, ptr %45, align 4
-  call fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %6, i32 %spec.select.i.i16, i8 noundef zeroext %46)
+  call fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_h(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %6, i32 %spec.select.i.i16, i8 noundef zeroext %46)
   ret void
 }
 
@@ -114467,7 +114467,7 @@ define hidden void @_ZNK11zStorePNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   %55 = call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %19) #23
   %or.cond.i.i24 = icmp ult i32 %55, 32
   %spec.select.i.i25 = select i1 %or.cond.i.i24, i32 %55, i32 -1
-  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %4, i32 %spec.select.i.i, i32 %spec.select.i.i25, i1 noundef zeroext false)
+  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef %0, ptr noundef %4, i32 %spec.select.i.i, i32 %spec.select.i.i25, i1 noundef zeroext false)
   %56 = load ptr, ptr %6, align 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 104
@@ -114506,7 +114506,7 @@ define hidden void @_ZNK11zStorePNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 %4, i1 noundef zeroext %5) unnamed_addr #3 {
+define internal fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 %3, i32 %4, i1 noundef zeroext %5) unnamed_addr #3 {
   %7 = alloca %class.RelocationHolder, align 8
   %8 = alloca %class.RelocationHolder, align 8
   %9 = alloca %class.Address, align 8
@@ -114644,7 +114644,7 @@ define hidden void @_ZNK15zStorePNullNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   %51 = call noundef i32 %50(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %20) #23
   %or.cond.i.i = icmp ult i32 %51, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %51, i32 -1
-  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %4, i32 -1, i32 %spec.select.i.i, i1 noundef zeroext false)
+  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef %0, ptr noundef %4, i32 -1, i32 %spec.select.i.i, i1 noundef zeroext false)
   %52 = load ptr, ptr %7, align 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 104
@@ -114780,7 +114780,7 @@ define hidden void @_ZNK24zCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   %76 = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %30) #23
   %or.cond.i.i47 = icmp ult i32 %76, 32
   %spec.select.i.i48 = select i1 %or.cond.i.i47, i32 %76, i32 -1
-  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %8, i32 %spec.select.i.i46, i32 %spec.select.i.i48, i1 noundef zeroext true)
+  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef %0, ptr noundef %8, i32 %spec.select.i.i46, i32 %spec.select.i.i48, i1 noundef zeroext true)
   %77 = load ptr, ptr %17, align 8
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 40
@@ -114934,7 +114934,7 @@ define hidden void @_ZNK20zCompareAndSwapPNode4emitEP17C2_MacroAssemblerP13Phase
   %66 = call noundef i32 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %30) #23
   %or.cond.i.i41 = icmp ult i32 %66, 32
   %spec.select.i.i42 = select i1 %or.cond.i.i41, i32 %66, i32 -1
-  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %7, i32 %spec.select.i.i40, i32 %spec.select.i.i42, i1 noundef zeroext true)
+  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef %0, ptr noundef %7, i32 %spec.select.i.i40, i32 %spec.select.i.i42, i1 noundef zeroext true)
   %67 = load ptr, ptr %17, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 40
@@ -115090,7 +115090,7 @@ define hidden void @_ZNK22zCompareAndSwapP_0Node4emitEP17C2_MacroAssemblerP13Pha
   %66 = call noundef i32 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %30) #23
   %or.cond.i.i41 = icmp ult i32 %66, 32
   %spec.select.i.i42 = select i1 %or.cond.i.i41, i32 %66, i32 -1
-  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %7, i32 %spec.select.i.i40, i32 %spec.select.i.i42, i1 noundef zeroext true)
+  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef %0, ptr noundef %7, i32 %spec.select.i.i40, i32 %spec.select.i.i42, i1 noundef zeroext true)
   %67 = load ptr, ptr %17, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 40
@@ -115238,7 +115238,7 @@ define hidden void @_ZNK10zXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %58 = call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %22) #23
   %or.cond.i.i38 = icmp ult i32 %58, 32
   %spec.select.i.i39 = select i1 %or.cond.i.i38, i32 %58, i32 -1
-  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %7, i32 %spec.select.i.i37, i32 %spec.select.i.i39, i1 noundef zeroext true)
+  call fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Address8RegisterS5_b(ptr noundef %1, ptr noundef %0, ptr noundef %7, i32 %spec.select.i.i37, i32 %spec.select.i.i39, i1 noundef zeroext true)
   %59 = load ptr, ptr %16, align 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 40

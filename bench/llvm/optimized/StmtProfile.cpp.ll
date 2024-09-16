@@ -6499,7 +6499,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit:
   br i1 %.not9.i, label %11, label %10
 
 10:                                               ; preds = %.lr.ph
-  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %9)
+  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %9)
   br label %11
 
 11:                                               ; preds = %10, %.lr.ph
@@ -6554,7 +6554,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %2
   br i1 %.not9.i, label %12, label %11
 
 11:                                               ; preds = %.lr.ph
-  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %10)
+  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10)
   br label %12
 
 12:                                               ; preds = %11, %.lr.ph
@@ -8459,7 +8459,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %2
   br i1 %.not9, label %12, label %11
 
 11:                                               ; preds = %.lr.ph
-  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %10)
+  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10)
   br label %12
 
 12:                                               ; preds = %.lr.ph, %11
@@ -8472,7 +8472,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit [
@@ -8536,7 +8536,7 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   ]
 
 5:                                                ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAffinityClauseEPKN5clang17OMPAffinityClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAffinityClauseEPKN5clang17OMPAffinityClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 6:                                                ; preds = %2
@@ -8551,11 +8551,11 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 11:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPAlignedClauseEPKN5clang16OMPAlignedClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPAlignedClauseEPKN5clang16OMPAlignedClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 12:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAllocateClauseEPKN5clang17OMPAllocateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAllocateClauseEPKN5clang17OMPAllocateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 13:                                               ; preds = %2
@@ -8581,15 +8581,15 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 23:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPCopyprivateClauseEPKN5clang20OMPCopyprivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPCopyprivateClauseEPKN5clang20OMPCopyprivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 24:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPCopyinClauseEPKN5clang15OMPCopyinClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPCopyinClauseEPKN5clang15OMPCopyinClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 25:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPDependClauseEPKN5clang15OMPDependClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPDependClauseEPKN5clang15OMPDependClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 26:                                               ; preds = %2
@@ -8637,43 +8637,43 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 46:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPDistScheduleClauseEPKN5clang21OMPDistScheduleClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPDistScheduleClauseEPKN5clang21OMPDistScheduleClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 47:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPDoacrossClauseEPKN5clang17OMPDoacrossClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPDoacrossClauseEPKN5clang17OMPDoacrossClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 48:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPExclusiveClauseEPKN5clang18OMPExclusiveClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPExclusiveClauseEPKN5clang18OMPExclusiveClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 49:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPFilterClauseEPKN5clang15OMPFilterClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPFilterClauseEPKN5clang15OMPFilterClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 50:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFinalClauseEPKN5clang14OMPFinalClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFinalClauseEPKN5clang14OMPFinalClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 51:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPFirstprivateClauseEPKN5clang21OMPFirstprivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPFirstprivateClauseEPKN5clang21OMPFirstprivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 52:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFlushClauseEPKN5clang14OMPFlushClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFlushClauseEPKN5clang14OMPFlushClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 53:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPFromClauseEPKN5clang13OMPFromClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPFromClauseEPKN5clang13OMPFromClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 54:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPGrainsizeClauseEPKN5clang18OMPGrainsizeClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPGrainsizeClauseEPKN5clang18OMPGrainsizeClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 55:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPHasDeviceAddrClauseEPKN5clang22OMPHasDeviceAddrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPHasDeviceAddrClauseEPKN5clang22OMPHasDeviceAddrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 56:                                               ; preds = %2
@@ -8688,35 +8688,35 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 61:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPIfClauseEPKN5clang11OMPIfClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPIfClauseEPKN5clang11OMPIfClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 62:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPInReductionClauseEPKN5clang20OMPInReductionClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPInReductionClauseEPKN5clang20OMPInReductionClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 63:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPInclusiveClauseEPKN5clang18OMPInclusiveClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPInclusiveClauseEPKN5clang18OMPInclusiveClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 64:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPInitClauseEPKN5clang13OMPInitClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPInitClauseEPKN5clang13OMPInitClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 65:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPIsDevicePtrClauseEPKN5clang20OMPIsDevicePtrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPIsDevicePtrClauseEPKN5clang20OMPIsDevicePtrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 66:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPLastprivateClauseEPKN5clang20OMPLastprivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPLastprivateClauseEPKN5clang20OMPLastprivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 67:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPLinearClauseEPKN5clang15OMPLinearClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPLinearClauseEPKN5clang15OMPLinearClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 68:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler17VisitOMPMapClauseEPKN5clang12OMPMapClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler17VisitOMPMapClauseEPKN5clang12OMPMapClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 69:                                               ; preds = %2
@@ -8731,31 +8731,31 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 74:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPNocontextClauseEPKN5clang18OMPNocontextClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPNocontextClauseEPKN5clang18OMPNocontextClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 75:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPNontemporalClauseEPKN5clang20OMPNontemporalClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPNontemporalClauseEPKN5clang20OMPNontemporalClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 76:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler24VisitOMPNovariantsClauseEPKN5clang19OMPNovariantsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler24VisitOMPNovariantsClauseEPKN5clang19OMPNovariantsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 77:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTasksClauseEPKN5clang17OMPNumTasksClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTasksClauseEPKN5clang17OMPNumTasksClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 78:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTeamsClauseEPKN5clang17OMPNumTeamsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTeamsClauseEPKN5clang17OMPNumTeamsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 79:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler24VisitOMPNumThreadsClauseEPKN5clang19OMPNumThreadsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler24VisitOMPNumThreadsClauseEPKN5clang19OMPNumThreadsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 80:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPXDynCGroupMemClauseEPKN5clang22OMPXDynCGroupMemClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPXDynCGroupMemClauseEPKN5clang22OMPXDynCGroupMemClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 81:                                               ; preds = %2
@@ -8781,15 +8781,15 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 91:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPPriorityClauseEPKN5clang17OMPPriorityClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPPriorityClauseEPKN5clang17OMPPriorityClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 92:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPPrivateClauseEPKN5clang16OMPPrivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPPrivateClauseEPKN5clang16OMPPrivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 93:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPReductionClauseEPKN5clang18OMPReductionClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPReductionClauseEPKN5clang18OMPReductionClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 94:                                               ; preds = %2
@@ -8804,11 +8804,11 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 99:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPScheduleClauseEPKN5clang17OMPScheduleClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPScheduleClauseEPKN5clang17OMPScheduleClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 100:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPSharedClauseEPKN5clang15OMPSharedClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPSharedClauseEPKN5clang15OMPSharedClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 101:                                              ; preds = %2
@@ -8823,19 +8823,19 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 106:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPSizesClauseEPKN5clang14OMPSizesClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPSizesClauseEPKN5clang14OMPSizesClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 107:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPTaskReductionClauseEPKN5clang22OMPTaskReductionClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPTaskReductionClauseEPKN5clang22OMPTaskReductionClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 108:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPThreadLimitClauseEPKN5clang20OMPThreadLimitClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPThreadLimitClauseEPKN5clang20OMPThreadLimitClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 109:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPToClauseEPKN5clang11OMPToClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPToClauseEPKN5clang11OMPToClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 110:                                              ; preds = %2
@@ -8850,15 +8850,15 @@ define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OM
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 115:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPUseDeviceAddrClauseEPKN5clang22OMPUseDeviceAddrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPUseDeviceAddrClauseEPKN5clang22OMPUseDeviceAddrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 116:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPUseDevicePtrClauseEPKN5clang21OMPUseDevicePtrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPUseDevicePtrClauseEPKN5clang21OMPUseDevicePtrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 117:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler28VisitOMPUsesAllocatorsClauseEPKN5clang23OMPUsesAllocatorsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler28VisitOMPUsesAllocatorsClauseEPKN5clang23OMPUsesAllocatorsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit
 
 _ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignClauseE.exit: ; preds = %113, %110, %104, %101, %97, %94, %89, %86, %84, %81, %72, %69, %59, %56, %44, %41, %39, %36, %34, %31, %29, %26, %21, %18, %16, %13, %9, %6, %117, %116, %115, %109, %108, %107, %106, %100, %99, %93, %92, %91, %80, %79, %78, %77, %76, %75, %74, %68, %67, %66, %65, %64, %63, %62, %61, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %25, %24, %23, %12, %11, %5, %2
@@ -8866,7 +8866,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPAlignClauseEPKN5clang14OMPAlignCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAffinityClauseEPKN5clang17OMPAffinityClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAffinityClauseEPKN5clang17OMPAffinityClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %.ptr = getelementptr inbounds i8, ptr %1, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
@@ -8906,7 +8906,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAffin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPAlignedClauseEPKN5clang16OMPAlignedClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPAlignedClauseEPKN5clang16OMPAlignedClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %.ptr = getelementptr inbounds i8, ptr %1, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
@@ -8955,7 +8955,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPAlignedCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAllocateClauseEPKN5clang17OMPAllocateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPAllocateClauseEPKN5clang17OMPAllocateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9001,7 +9001,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPAllocateCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPCopyprivateClauseEPKN5clang20OMPCopyprivateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPCopyprivateClauseEPKN5clang20OMPCopyprivateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9117,7 +9117,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPCopyprivat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPCopyinClauseEPKN5clang15OMPCopyinClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPCopyinClauseEPKN5clang15OMPCopyinClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9233,7 +9233,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPCopyinClau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPDependClauseEPKN5clang15OMPDependClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPDependClauseEPKN5clang15OMPDependClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9268,7 +9268,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPDependClau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPDistScheduleClauseEPKN5clang21OMPDistScheduleClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPDistScheduleClauseEPKN5clang21OMPDistScheduleClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -9295,7 +9295,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPDoacrossClauseEPKN5clang17OMPDoacrossClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPDoacrossClauseEPKN5clang17OMPDoacrossClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9330,7 +9330,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang17OMPDoacrossCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPExclusiveClauseEPKN5clang18OMPExclusiveClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPExclusiveClauseEPKN5clang18OMPExclusiveClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9365,7 +9365,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPExclusiveC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPFilterClauseEPKN5clang15OMPFilterClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPFilterClauseEPKN5clang15OMPFilterClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -9392,7 +9392,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFinalClauseEPKN5clang14OMPFinalClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFinalClauseEPKN5clang14OMPFinalClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -9419,7 +9419,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPFirstprivateClauseEPKN5clang21OMPFirstprivateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPFirstprivateClauseEPKN5clang21OMPFirstprivateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9518,7 +9518,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFlushClauseEPKN5clang14OMPFlushClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPFlushClauseEPKN5clang14OMPFlushClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9553,7 +9553,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang14OMPFlushClaus
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPFromClauseEPKN5clang13OMPFromClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPFromClauseEPKN5clang13OMPFromClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9588,7 +9588,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPFromClause
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPGrainsizeClauseEPKN5clang18OMPGrainsizeClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPGrainsizeClauseEPKN5clang18OMPGrainsizeClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -9615,7 +9615,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPHasDeviceAddrClauseEPKN5clang22OMPHasDeviceAddrClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPHasDeviceAddrClauseEPKN5clang22OMPHasDeviceAddrClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9650,7 +9650,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPHasDeviceA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPIfClauseEPKN5clang11OMPIfClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPIfClauseEPKN5clang11OMPIfClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -9677,7 +9677,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPInReductionClauseEPKN5clang20OMPInReductionClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPInReductionClauseEPKN5clang20OMPInReductionClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
@@ -9888,7 +9888,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPInclusiveClauseEPKN5clang18OMPInclusiveClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPInclusiveClauseEPKN5clang18OMPInclusiveClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9923,7 +9923,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang18OMPInclusiveC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPInitClauseEPKN5clang13OMPInitClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPInitClauseEPKN5clang13OMPInitClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9958,7 +9958,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang13OMPInitClause
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPIsDevicePtrClauseEPKN5clang20OMPIsDevicePtrClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPIsDevicePtrClauseEPKN5clang20OMPIsDevicePtrClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -9993,7 +9993,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang20OMPIsDevicePt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPLastprivateClauseEPKN5clang20OMPLastprivateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPLastprivateClauseEPKN5clang20OMPLastprivateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -10134,7 +10134,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPLinearClauseEPKN5clang15OMPLinearClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPLinearClauseEPKN5clang15OMPLinearClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %.ptr.ptr.ptr.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
@@ -10338,7 +10338,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler17VisitOMPMapClauseEPKN5clang12OMPMapClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler17VisitOMPMapClauseEPKN5clang12OMPMapClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -10373,7 +10373,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang12OMPMapClauseE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPNocontextClauseEPKN5clang18OMPNocontextClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPNocontextClauseEPKN5clang18OMPNocontextClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -10400,7 +10400,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPNontemporalClauseEPKN5clang20OMPNontemporalClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPNontemporalClauseEPKN5clang20OMPNontemporalClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.clang::ConstStmtIterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4
@@ -10496,7 +10496,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler24VisitOMPNovariantsClauseEPKN5clang19OMPNovariantsClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler24VisitOMPNovariantsClauseEPKN5clang19OMPNovariantsClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -10523,7 +10523,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTasksClauseEPKN5clang17OMPNumTasksClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTasksClauseEPKN5clang17OMPNumTasksClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -10550,7 +10550,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTeamsClauseEPKN5clang17OMPNumTeamsClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPNumTeamsClauseEPKN5clang17OMPNumTeamsClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -10596,7 +10596,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler24VisitOMPNumThreadsClauseEPKN5clang19OMPNumThreadsClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler24VisitOMPNumThreadsClauseEPKN5clang19OMPNumThreadsClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -10623,7 +10623,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPXDynCGroupMemClauseEPKN5clang22OMPXDynCGroupMemClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPXDynCGroupMemClauseEPKN5clang22OMPXDynCGroupMemClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -10650,7 +10650,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPPriorityClauseEPKN5clang17OMPPriorityClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPPriorityClauseEPKN5clang17OMPPriorityClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -10677,7 +10677,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPPrivateClauseEPKN5clang16OMPPrivateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler21VisitOMPPrivateClauseEPKN5clang16OMPPrivateClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -10738,7 +10738,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang16OMPPrivateCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPReductionClauseEPKN5clang18OMPReductionClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler23VisitOMPReductionClauseEPKN5clang18OMPReductionClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
@@ -11018,7 +11018,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPScheduleClauseEPKN5clang17OMPScheduleClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler22VisitOMPScheduleClauseEPKN5clang17OMPScheduleClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -11045,7 +11045,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPSharedClauseEPKN5clang15OMPSharedClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler20VisitOMPSharedClauseEPKN5clang15OMPSharedClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -11080,7 +11080,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang15OMPSharedClau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPSizesClauseEPKN5clang14OMPSizesClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPSizesClauseEPKN5clang14OMPSizesClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -11115,7 +11115,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler19VisitOMPSizes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPTaskReductionClauseEPKN5clang22OMPTaskReductionClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPTaskReductionClauseEPKN5clang22OMPTaskReductionClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
@@ -11296,7 +11296,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPThreadLimitClauseEPKN5clang20OMPThreadLimitClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler25VisitOMPThreadLimitClauseEPKN5clang20OMPThreadLimitClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -11342,7 +11342,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler24VistOMPClauseWithPreInitEPKN5clang20OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPToClauseEPKN5clang11OMPToClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler16VisitOMPToClauseEPKN5clang11OMPToClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -11377,7 +11377,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang11OMPToClauseEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPUseDeviceAddrClauseEPKN5clang22OMPUseDeviceAddrClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler27VisitOMPUseDeviceAddrClauseEPKN5clang22OMPUseDeviceAddrClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -11412,7 +11412,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang22OMPUseDeviceA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPUseDevicePtrClauseEPKN5clang21OMPUseDevicePtrClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler26VisitOMPUseDevicePtrClauseEPKN5clang21OMPUseDevicePtrClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -11447,7 +11447,7 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler18VisitOMPClauseListIKN5clang21OMPUseDeviceP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler28VisitOMPUsesAllocatorsClauseEPKN5clang23OMPUsesAllocatorsClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117OMPClauseProfiler28VisitOMPUsesAllocatorsClauseEPKN5clang23OMPUsesAllocatorsClauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.clang::OMPUsesAllocatorsClause::Data", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8

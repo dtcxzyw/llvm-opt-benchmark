@@ -2044,7 +2044,7 @@ return:                                           ; preds = %if.then101, %if.end
 declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @crl_extension_match(ptr noundef %a, ptr noundef %b, i32 noundef %nid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @crl_extension_match(ptr noundef %a, ptr noundef %b, i32 noundef range(i32 90, 771) %nid) unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_CRL_get_ext_by_NID(ptr noundef %a, i32 noundef %nid, i32 noundef -1) #14
   %cmp = icmp sgt i32 %call, -1
@@ -2856,7 +2856,7 @@ if.else.i:                                        ; preds = %while.body.i
   %9 = load i32, ptr %current_reasons.i, align 4
   store i32 %9, ptr %reasons.i.i, align 4
   %10 = load ptr, ptr %crls.i.i, align 8
-  %call1.i.i = call fastcc i32 @get_crl_sk(ptr noundef nonnull %ctx, ptr noundef nonnull %crl.i.i, ptr noundef nonnull %dcrl.i.i, ptr noundef nonnull %issuer.i.i, ptr noundef nonnull %crl_score.i.i, ptr noundef nonnull %reasons.i.i, ptr noundef %10)
+  %call1.i.i = call fastcc i32 @get_crl_sk(ptr noundef nonnull %ctx, ptr noundef %crl.i.i, ptr noundef %dcrl.i.i, ptr noundef %issuer.i.i, ptr noundef %crl_score.i.i, ptr noundef %reasons.i.i, ptr noundef %10)
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %done.i.i
 
@@ -2870,7 +2870,7 @@ if.end.i.i:                                       ; preds = %if.else.i
   br i1 %or.cond.i.i, label %if.then9.i.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %call7.i.i = call fastcc i32 @get_crl_sk(ptr noundef nonnull %ctx, ptr noundef nonnull %crl.i.i, ptr noundef nonnull %dcrl.i.i, ptr noundef nonnull %issuer.i.i, ptr noundef nonnull %crl_score.i.i, ptr noundef nonnull %reasons.i.i, ptr noundef %call2.i.i)
+  %call7.i.i = call fastcc i32 @get_crl_sk(ptr noundef nonnull %ctx, ptr noundef %crl.i.i, ptr noundef %dcrl.i.i, ptr noundef %issuer.i.i, ptr noundef %crl_score.i.i, ptr noundef %reasons.i.i, ptr noundef %call2.i.i)
   call void @sk_pop_free(ptr noundef %call2.i.i, ptr noundef nonnull @X509_CRL_free) #14
   br label %done.i.i
 
@@ -3754,7 +3754,7 @@ declare i32 @X509_check_issued(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_crl_sk(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %pcrl, ptr nocapture noundef %pdcrl, ptr nocapture noundef writeonly %pissuer, ptr nocapture noundef %pscore, ptr nocapture noundef %preasons, ptr noundef %crls) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_crl_sk(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull %pcrl, ptr nocapture noundef nonnull %pdcrl, ptr nocapture noundef nonnull writeonly %pissuer, ptr nocapture noundef nonnull %pscore, ptr nocapture noundef nonnull %preasons, ptr noundef %crls) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pscore, align 4
   %current_cert = getelementptr inbounds i8, ptr %ctx, i64 192

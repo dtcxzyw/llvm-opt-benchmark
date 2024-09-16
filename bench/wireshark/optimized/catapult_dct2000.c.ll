@@ -485,7 +485,7 @@ read_new_line.exit:                               ; preds = %26
 
 51:                                               ; preds = %48, %thread-pre-split.thread.i, %thread-pre-split.i, %33
   %.2.ph = phi i32 [ %36, %33 ], [ 0, %thread-pre-split.i ], [ %.1, %thread-pre-split.thread.i ], [ %49, %48 ]
-  %52 = call fastcc i32 @parse_line(ptr noundef nonnull @catapult_dct2000_read.linebuff, i32 noundef %.2.ph, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %14, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  %52 = call fastcc i32 @parse_line(ptr noundef nonnull @catapult_dct2000_read.linebuff, i32 noundef %.2.ph, ptr noundef %12, ptr noundef %13, ptr noundef %8, ptr noundef %9, ptr noundef %7, ptr noundef %14, ptr noundef %10, ptr noundef %11, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22)
   %.not25 = icmp eq i32 %52, 0
   br i1 %.not25, label %26, label %53
 
@@ -493,7 +493,7 @@ read_new_line.exit:                               ; preds = %26
   %54 = load i32, ptr %12, align 4
   %55 = load i32, ptr %13, align 4
   %56 = sdiv i32 %55, 100
-  call fastcc void @write_timestamp_string(ptr noundef nonnull %23, i32 noundef %54, i32 noundef %56)
+  call fastcc void @write_timestamp_string(ptr noundef %23, i32 noundef %54, i32 noundef %56)
   store i64 %28, ptr %5, align 8
   %57 = load i64, ptr %7, align 8
   %58 = load i32, ptr %10, align 4
@@ -501,7 +501,7 @@ read_new_line.exit:                               ; preds = %26
   %60 = load i8, ptr %19, align 1
   %61 = load i32, ptr %15, align 4
   %62 = load i32, ptr %14, align 4
-  %63 = call fastcc i32 @process_parsed_line(ptr noundef nonnull %0, ptr noundef %25, ptr noundef %1, ptr noundef %2, i64 noundef %28, ptr noundef nonnull @catapult_dct2000_read.linebuff, i64 noundef %57, i32 noundef %54, i32 noundef %55, ptr noundef nonnull %23, i32 noundef %58, i32 noundef %59, ptr noundef nonnull %18, i8 noundef zeroext %60, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %17, i32 noundef %61, i32 noundef %62, ptr noundef %3, ptr noundef %4)
+  %63 = call fastcc i32 @process_parsed_line(ptr noundef nonnull %0, ptr noundef %25, ptr noundef %1, ptr noundef %2, i64 noundef %28, ptr noundef nonnull @catapult_dct2000_read.linebuff, i64 noundef %57, i32 noundef %54, i32 noundef %55, ptr noundef %23, i32 noundef %58, i32 noundef %59, ptr noundef %18, i8 noundef zeroext %60, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %17, i32 noundef %61, i32 noundef %62, ptr noundef %3, ptr noundef %4)
   %.not26 = icmp eq i32 %63, 0
   br i1 %.not26, label %87, label %64
 
@@ -636,7 +636,7 @@ read_new_line.exit:                               ; preds = %31
 
 56:                                               ; preds = %53, %thread-pre-split.thread.i, %thread-pre-split.i, %36
   %.1.ph = phi i32 [ %39, %36 ], [ 0, %thread-pre-split.i ], [ %.023, %thread-pre-split.thread.i ], [ %54, %53 ]
-  %57 = call fastcc i32 @parse_line(ptr noundef nonnull @catapult_dct2000_seek_read.linebuff, i32 noundef %.1.ph, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %22, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  %57 = call fastcc i32 @parse_line(ptr noundef nonnull @catapult_dct2000_seek_read.linebuff, i32 noundef %.1.ph, ptr noundef %20, ptr noundef %21, ptr noundef %8, ptr noundef %9, ptr noundef %7, ptr noundef %22, ptr noundef %18, ptr noundef %19, ptr noundef %16, ptr noundef %17, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   %.not19 = icmp eq i32 %57, 0
   br i1 %.not19, label %70, label %58
 
@@ -644,14 +644,14 @@ read_new_line.exit:                               ; preds = %31
   %59 = load i32, ptr %20, align 4
   %60 = load i32, ptr %21, align 4
   %61 = sdiv i32 %60, 100
-  call fastcc void @write_timestamp_string(ptr noundef nonnull %23, i32 noundef %59, i32 noundef %61)
+  call fastcc void @write_timestamp_string(ptr noundef %23, i32 noundef %59, i32 noundef %61)
   %62 = load i64, ptr %7, align 8
   %63 = load i32, ptr %18, align 4
   %64 = load i32, ptr %19, align 4
   %65 = load i8, ptr %12, align 1
   %66 = load i32, ptr %16, align 4
   %67 = load i32, ptr %22, align 4
-  %68 = call fastcc i32 @process_parsed_line(ptr noundef nonnull %0, ptr noundef %25, ptr noundef %2, ptr noundef %3, i64 noundef %1, ptr noundef nonnull @catapult_dct2000_seek_read.linebuff, i64 noundef %62, i32 noundef %59, i32 noundef %60, ptr noundef nonnull %23, i32 noundef %63, i32 noundef %64, ptr noundef nonnull %11, i8 noundef zeroext %65, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %10, i32 noundef %66, i32 noundef %67, ptr noundef nonnull %4, ptr noundef %5)
+  %68 = call fastcc i32 @process_parsed_line(ptr noundef nonnull %0, ptr noundef %25, ptr noundef %2, ptr noundef %3, i64 noundef %1, ptr noundef nonnull @catapult_dct2000_seek_read.linebuff, i64 noundef %62, i32 noundef %59, i32 noundef %60, ptr noundef %23, i32 noundef %63, i32 noundef %64, ptr noundef %11, i8 noundef zeroext %65, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %10, i32 noundef %66, i32 noundef %67, ptr noundef nonnull %4, ptr noundef %5)
   %.not20 = icmp eq i32 %68, 0
   br i1 %.not20, label %73, label %69
 
@@ -719,7 +719,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef writeonly %12, ptr nocapture noundef writeonly %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr nocapture noundef writeonly %17) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9, ptr nocapture noundef nonnull %10, ptr nocapture noundef nonnull %11, ptr nocapture noundef nonnull writeonly %12, ptr nocapture noundef nonnull writeonly %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr nocapture noundef nonnull writeonly %17) unnamed_addr #0 {
   %19 = alloca [3 x i8], align 1
   %20 = alloca i32, align 4
   %21 = alloca [17 x i8], align 16
@@ -757,7 +757,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef rea
 
 33:                                               ; preds = %29
   %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %35 = tail call i64 @g_strlcpy(ptr noundef %15, ptr noundef nonnull @.str.3, i64 noundef 64) #17
+  %35 = tail call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, i64 noundef 64) #17
   store i32 1, ptr %10, align 4
   br label %.critedge.thread
 
@@ -881,7 +881,7 @@ switch.early.test:                                ; preds = %36
 
 .thread730:                                       ; preds = %.critedge3.thread.thread723, %76
   %82 = phi i32 [ %74, %76 ], [ %75, %.critedge3.thread.thread723 ]
-  %83 = call zeroext i1 @ws_strtou8(ptr noundef nonnull %19, ptr noundef null, ptr noundef %14) #17
+  %83 = call zeroext i1 @ws_strtou8(ptr noundef nonnull %19, ptr noundef null, ptr noundef nonnull %14) #17
   br i1 %83, label %84, label %.critedge25
 
 84:                                               ; preds = %.thread730, %79
@@ -1686,7 +1686,7 @@ sub_1475:                                         ; preds = %sub_0474
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @write_timestamp_string(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc void @write_timestamp_string(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef range(i32 -21474836, 21474837) %2) unnamed_addr #5 {
   %4 = icmp slt i32 %1, 10
   br i1 %4, label %5, label %9
 
@@ -1882,7 +1882,7 @@ define internal fastcc void @write_timestamp_string(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_parsed_line(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12, i8 noundef zeroext %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr nocapture noundef readonly %17, i32 noundef %18, i32 noundef %19, ptr nocapture noundef writeonly %20, ptr nocapture noundef writeonly %21) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_parsed_line(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %9, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %12, i8 noundef zeroext %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr nocapture noundef nonnull readonly %17, i32 noundef %18, i32 noundef %19, ptr nocapture noundef writeonly %20, ptr nocapture noundef writeonly %21) unnamed_addr #0 {
   store i32 0, ptr %2, align 8
   %23 = tail call ptr @wtap_block_create(i32 noundef 5) #17
   %24 = getelementptr inbounds i8, ptr %2, i64 232
@@ -1955,7 +1955,7 @@ define internal fastcc range(i32 0, 2) i32 @process_parsed_line(ptr noundef %0, 
   %68 = getelementptr inbounds i8, ptr %3, i64 16
   %69 = load i64, ptr %68, align 8
   %70 = getelementptr i8, ptr %67, i64 %69
-  %71 = tail call i64 @g_strlcpy(ptr noundef %70, ptr noundef %12, i64 noundef 65) #17
+  %71 = tail call i64 @g_strlcpy(ptr noundef %70, ptr noundef nonnull %12, i64 noundef 65) #17
   %72 = trunc i64 %71 to i32
   %73 = shl i64 %71, 32
   %sext = add i64 %73, 4294967296
@@ -1965,25 +1965,25 @@ define internal fastcc range(i32 0, 2) i32 @process_parsed_line(ptr noundef %0, 
   %sext105 = add i64 %73, 8589934592
   %76 = ashr exact i64 %sext105, 32
   %77 = getelementptr i8, ptr %70, i64 %76
-  %78 = tail call i64 @g_strlcpy(ptr noundef %77, ptr noundef %9, i64 noundef 22) #17
+  %78 = tail call i64 @g_strlcpy(ptr noundef %77, ptr noundef nonnull %9, i64 noundef 22) #17
   %79 = trunc i64 %78 to i32
   %80 = add i32 %72, 3
   %81 = add i32 %80, %79
   %82 = sext i32 %81 to i64
   %83 = getelementptr i8, ptr %70, i64 %82
-  %84 = tail call i64 @g_strlcpy(ptr noundef %83, ptr noundef %14, i64 noundef 65) #17
+  %84 = tail call i64 @g_strlcpy(ptr noundef %83, ptr noundef nonnull %14, i64 noundef 65) #17
   %85 = trunc i64 %84 to i32
   %86 = add i32 %85, 1
   %87 = add i32 %86, %81
   %88 = sext i32 %87 to i64
   %89 = getelementptr i8, ptr %70, i64 %88
-  %90 = tail call i64 @g_strlcpy(ptr noundef %89, ptr noundef %15, i64 noundef 17) #17
+  %90 = tail call i64 @g_strlcpy(ptr noundef %89, ptr noundef nonnull %15, i64 noundef 17) #17
   %91 = trunc i64 %90 to i32
   %92 = add i32 %91, 1
   %93 = add i32 %92, %87
   %94 = sext i32 %93 to i64
   %95 = getelementptr i8, ptr %70, i64 %94
-  %96 = tail call i64 @g_strlcpy(ptr noundef %95, ptr noundef %16, i64 noundef 257) #17
+  %96 = tail call i64 @g_strlcpy(ptr noundef %95, ptr noundef nonnull %16, i64 noundef 257) #17
   %97 = trunc i64 %96 to i32
   %98 = add i32 %97, 1
   %99 = add i32 %98, %93
@@ -2410,7 +2410,7 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
   %81 = trunc i64 %80 to i32
   %82 = sub i32 %73, %76
   %83 = sdiv i32 %82, 100000
-  call fastcc void @write_timestamp_string(ptr noundef nonnull %6, i32 noundef %81, i32 noundef %83)
+  call fastcc void @write_timestamp_string(ptr noundef %6, i32 noundef %81, i32 noundef %83)
   br label %92
 
 84:                                               ; preds = %.critedge2
@@ -2422,7 +2422,7 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
   %.neg = sdiv i32 %76, -100000
   %90 = add nsw i32 %89, %.neg
   %91 = urem i32 %90, 10000
-  call fastcc void @write_timestamp_string(ptr noundef nonnull %6, i32 noundef %87, i32 noundef %91)
+  call fastcc void @write_timestamp_string(ptr noundef %6, i32 noundef %87, i32 noundef %91)
   br label %92
 
 92:                                               ; preds = %84, %79

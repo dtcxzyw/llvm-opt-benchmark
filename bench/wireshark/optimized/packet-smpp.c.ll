@@ -1967,7 +1967,7 @@ define internal fastcc void @bind_receiver_resp(ptr noundef %0, ptr noundef %1, 
 smpp_handle_string.exit:                          ; preds = %3, %8
   %10 = add i32 %6, 16
   store i32 %10, ptr %4, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null)
   ret void
 }
 
@@ -1990,7 +1990,7 @@ smpp_handle_string.exit:                          ; preds = %3, %8
   %12 = load i32, ptr @hf_smpp_final_date_r, align 4
   %13 = getelementptr i8, ptr %2, i64 408
   %.val = load ptr, ptr %13, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %11, i32 noundef %12, ptr noundef nonnull %4)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %11, i32 noundef %12, ptr noundef %4)
   %14 = load i32, ptr @hf_smpp_message_state, align 4
   %15 = load i32, ptr %4, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef 0) #9
@@ -2015,7 +2015,7 @@ define internal fastcc void @submit_sm_resp(ptr noundef %0, ptr noundef %1, ptr 
 smpp_handle_string.exit:                          ; preds = %3, %8
   %10 = add i32 %6, 16
   store i32 %10, ptr %4, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null)
   ret void
 }
 
@@ -2075,7 +2075,7 @@ smpp_handle_string.exit.i:                        ; preds = %27, %.lr.ph.i
 smpp_handle_dlist_resp.exit:                      ; preds = %smpp_handle_string.exit.i, %smpp_handle_string.exit
   %.025.lcssa.i = phi i32 [ %11, %smpp_handle_string.exit ], [ %32, %smpp_handle_string.exit.i ]
   store i32 %.025.lcssa.i, ptr %4, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null)
   ret void
 }
 
@@ -2094,7 +2094,7 @@ define internal fastcc void @data_sm_resp(ptr noundef %0, ptr noundef %1, ptr no
 smpp_handle_string.exit:                          ; preds = %3, %8
   %10 = add i32 %6, 16
   store i32 %10, ptr %4, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null)
   ret void
 }
 
@@ -2113,7 +2113,7 @@ define internal fastcc void @query_broadcast_sm_resp(ptr noundef %0, ptr noundef
 smpp_handle_string.exit:                          ; preds = %3, %8
   %10 = add i32 %6, 16
   store i32 %10, ptr %4, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null)
   ret void
 }
 
@@ -2268,7 +2268,7 @@ smpp_handle_string_return.exit66:                 ; preds = %smpp_handle_string_
   %67 = load i32, ptr @hf_smpp_schedule_delivery_time, align 4
   %68 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %6)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %67, i32 noundef %68, ptr noundef %6)
   %.pre = load i32, ptr %6, align 4
   br label %73
 
@@ -2289,7 +2289,7 @@ smpp_handle_string_return.exit66:                 ; preds = %smpp_handle_string_
   %77 = load i32, ptr @hf_smpp_validity_period, align 4
   %78 = load i32, ptr @hf_smpp_validity_period_r, align 4
   %.val62 = load ptr, ptr %10, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val62, i32 noundef %77, i32 noundef %78, ptr noundef nonnull %6)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val62, i32 noundef %77, i32 noundef %78, ptr noundef %6)
   %.pre67 = load i32, ptr %6, align 4
   br label %83
 
@@ -2333,13 +2333,13 @@ smpp_handle_string_return.exit66:                 ; preds = %smpp_handle_string_
   br label %105
 
 105:                                              ; preds = %98, %83
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull %7)
   %106 = load ptr, ptr %7, align 8
   %.not61 = icmp eq ptr %106, null
   br i1 %.not61, label %108, label %107
 
 107:                                              ; preds = %105
-  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef nonnull %106, ptr noundef nonnull %2, ptr noundef %34, ptr noundef %48)
+  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef %106, ptr noundef nonnull %2, ptr noundef %34, ptr noundef %48)
   br label %108
 
 108:                                              ; preds = %107, %105
@@ -2416,7 +2416,7 @@ smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string.
   %40 = load i32, ptr @hf_smpp_schedule_delivery_time, align 4
   %41 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %.val = load ptr, ptr %9, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %40, i32 noundef %41, ptr noundef nonnull %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %40, i32 noundef %41, ptr noundef %5)
   %.pre = load i32, ptr %5, align 4
   br label %46
 
@@ -2437,7 +2437,7 @@ smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string.
   %50 = load i32, ptr @hf_smpp_validity_period, align 4
   %51 = load i32, ptr @hf_smpp_validity_period_r, align 4
   %.val42 = load ptr, ptr %9, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val42, i32 noundef %50, i32 noundef %51, ptr noundef nonnull %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val42, i32 noundef %50, i32 noundef %51, ptr noundef %5)
   %.pre44 = load i32, ptr %5, align 4
   br label %56
 
@@ -2477,13 +2477,13 @@ smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string.
   %74 = phi i32 [ %.pre45, %68 ], [ 0, %56 ]
   %75 = add i32 %63, %74
   store i32 %75, ptr %5, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %6)
   %76 = load ptr, ptr %6, align 8
   %.not41 = icmp eq ptr %76, null
   br i1 %.not41, label %78, label %77
 
 77:                                               ; preds = %73
-  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef nonnull %76, ptr noundef nonnull %2, ptr noundef %31, ptr noundef nonnull @.str.923)
+  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef %76, ptr noundef nonnull %2, ptr noundef %31, ptr noundef nonnull @.str.923)
   br label %78
 
 78:                                               ; preds = %77, %73
@@ -2728,7 +2728,7 @@ smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_st
   %83 = load i32, ptr @hf_smpp_schedule_delivery_time, align 4
   %84 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %.val = load ptr, ptr %9, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %83, i32 noundef %84, ptr noundef nonnull %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %83, i32 noundef %84, ptr noundef %5)
   %.pre = load i32, ptr %5, align 4
   br label %89
 
@@ -2749,7 +2749,7 @@ smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_st
   %93 = load i32, ptr @hf_smpp_validity_period, align 4
   %94 = load i32, ptr @hf_smpp_validity_period_r, align 4
   %.val56 = load ptr, ptr %9, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val56, i32 noundef %93, i32 noundef %94, ptr noundef nonnull %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val56, i32 noundef %93, i32 noundef %94, ptr noundef %5)
   %.pre59 = load i32, ptr %5, align 4
   br label %99
 
@@ -2793,13 +2793,13 @@ smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_st
   %120 = phi i32 [ %.pre60, %114 ], [ 0, %99 ]
   %121 = add i32 %111, %120
   store i32 %121, ptr %5, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef nonnull %6)
   %122 = load ptr, ptr %6, align 8
   %.not55 = icmp eq ptr %122, null
   br i1 %.not55, label %124, label %123
 
 123:                                              ; preds = %119
-  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef nonnull %122, ptr noundef %2, ptr noundef %33, ptr noundef nonnull @.str.923)
+  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef %122, ptr noundef %2, ptr noundef %33, ptr noundef nonnull @.str.923)
   br label %124
 
 124:                                              ; preds = %123, %119
@@ -2843,7 +2843,7 @@ smpp_handle_string.exit:                          ; preds = %3, %12
 smpp_handle_string.exit15:                        ; preds = %smpp_handle_string.exit, %24
   %26 = add i32 %20, %22
   store i32 %26, ptr %4, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null)
   ret void
 }
 
@@ -2944,13 +2944,13 @@ smpp_handle_string_return.exit35:                 ; preds = %smpp_handle_string_
   store i32 %57, ptr %6, align 4
   %58 = getelementptr inbounds i8, ptr %.0.i, i64 4
   call void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %58)
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull %7)
   %59 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %61, label %60
 
 60:                                               ; preds = %smpp_handle_string_return.exit35
-  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef nonnull %59, ptr noundef nonnull %2, ptr noundef %32, ptr noundef %46)
+  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef %59, ptr noundef nonnull %2, ptr noundef %32, ptr noundef %46)
   br label %61
 
 61:                                               ; preds = %60, %smpp_handle_string_return.exit35
@@ -3044,7 +3044,7 @@ smpp_handle_string.exit:                          ; preds = %smpp_handle_string_
   %50 = load i32, ptr @hf_smpp_schedule_delivery_time, align 4
   %51 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %.val = load ptr, ptr %8, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %50, i32 noundef %51, ptr noundef nonnull %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %50, i32 noundef %51, ptr noundef %5)
   %.pre = load i32, ptr %5, align 4
   br label %56
 
@@ -3065,7 +3065,7 @@ smpp_handle_string.exit:                          ; preds = %smpp_handle_string_
   %60 = load i32, ptr @hf_smpp_validity_period, align 4
   %61 = load i32, ptr @hf_smpp_validity_period_r, align 4
   %.val41 = load ptr, ptr %8, align 8
-  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val41, i32 noundef %60, i32 noundef %61, ptr noundef nonnull %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val41, i32 noundef %60, i32 noundef %61, ptr noundef %5)
   %.pre43 = load i32, ptr %5, align 4
   br label %66
 
@@ -3088,13 +3088,13 @@ smpp_handle_string.exit:                          ; preds = %smpp_handle_string_
   %74 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %72, ptr noundef %1, i32 noundef %73, i32 noundef 1, i32 noundef 0) #9
   %75 = add i32 %73, 1
   store i32 %75, ptr %5, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %7)
   %76 = load ptr, ptr %7, align 8
   %.not40 = icmp eq ptr %76, null
   br i1 %.not40, label %78, label %77
 
 77:                                               ; preds = %66
-  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef nonnull %76, ptr noundef nonnull %2, ptr noundef %32, ptr noundef nonnull @.str.923)
+  call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef %76, ptr noundef nonnull %2, ptr noundef %32, ptr noundef nonnull @.str.923)
   br label %78
 
 78:                                               ; preds = %77, %66
@@ -3133,7 +3133,7 @@ smpp_handle_string.exit:                          ; preds = %3, %8
 smpp_handle_string.exit11:                        ; preds = %smpp_handle_string.exit, %20
   %22 = add i32 %16, %18
   store i32 %22, ptr %4, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null)
   ret void
 }
 
@@ -3185,7 +3185,7 @@ smpp_handle_string.exit:                          ; preds = %smpp_handle_string_
 smpp_handle_string.exit13:                        ; preds = %smpp_handle_string.exit, %28
   %30 = add i32 %24, %26
   store i32 %30, ptr %4, align 4
-  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null)
   ret void
 }
 
@@ -3371,7 +3371,7 @@ declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @export_pdu_create_common_tags(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %6) #9
   %8 = icmp sgt i32 %7, 0
@@ -3981,7 +3981,7 @@ define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr
   %327 = load i32, ptr @hf_smpp_broadcast_end_time, align 4
   %328 = load i32, ptr @hf_smpp_broadcast_end_time_r, align 4
   %.val = load ptr, ptr %19, align 8
-  tail call fastcc void @smpp_handle_time(ptr noundef %34, ptr noundef %1, ptr %.val, i32 noundef %327, i32 noundef %328, ptr noundef nonnull %3)
+  tail call fastcc void @smpp_handle_time(ptr noundef %34, ptr noundef %1, ptr %.val, i32 noundef %327, i32 noundef %328, ptr noundef %3)
   br label %437
 
 329:                                              ; preds = %20
@@ -4329,7 +4329,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.408.val, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.408.val, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.tm, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.nstime_t, align 8
@@ -4522,7 +4522,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_smpp, align 4
@@ -4542,13 +4542,13 @@ get_smpp_data.exit:                               ; preds = %5, %10
   %.0.i = phi ptr [ %9, %5 ], [ %12, %10 ]
   %15 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %1) #9
+  %17 = tail call i32 @tvb_reported_length(ptr noundef nonnull %1) #9
   %18 = load i32, ptr %.0.i, align 8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.thread, label %19
 
 19:                                               ; preds = %get_smpp_data.exit
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 0) #9
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef 0) #9
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %21, 1
   %.pr = load i32, ptr %.0.i, align 8
@@ -4594,7 +4594,7 @@ get_smpp_data.exit:                               ; preds = %5, %10
   store ptr null, ptr %45, align 8
   %46 = load ptr, ptr @gsm_sms_handle, align 8
   %47 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %0) #9
-  %48 = tail call i32 @call_dissector_with_data(ptr noundef %46, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %47, ptr noundef nonnull %.0.i) #9
+  %48 = tail call i32 @call_dissector_with_data(ptr noundef %46, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %47, ptr noundef nonnull %.0.i) #9
   store i32 %27, ptr %26, align 8
   store i32 %29, ptr %28, align 4
   store ptr %31, ptr %30, align 8
@@ -4631,13 +4631,13 @@ get_smpp_data.exit:                               ; preds = %5, %10
   %61 = sdiv i32 %60, 7
   %62 = load i32, ptr @hf_smpp_short_message, align 4
   %63 = add nuw nsw i32 %54, %57
-  %64 = tail call ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef %63, i32 noundef %61) #9
+  %64 = tail call ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i32 noundef %62, ptr noundef nonnull %1, i32 noundef %63, i32 noundef %61) #9
   br label %69
 
 65:                                               ; preds = %49, %51
   %66 = load i32, ptr @hf_smpp_short_message, align 4
   %67 = sub i32 %17, %.050
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef %1, i32 noundef %.050, i32 noundef %67, i32 noundef %16) #9
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %1, i32 noundef %.050, i32 noundef %67, i32 noundef %16) #9
   br label %69
 
 69:                                               ; preds = %49, %53, %65

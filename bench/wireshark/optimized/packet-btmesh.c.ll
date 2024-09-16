@@ -5284,7 +5284,7 @@ define internal zeroext i1 @uat_btmesh_record_update_cb(ptr nocapture noundef %0
   br i1 %.not.i.i, label %37, label %create_master_security_keys.exit.thread
 
 37:                                               ; preds = %35
-  %38 = call fastcc i32 @s1(ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %38 = call fastcc i32 @s1(ptr noundef %11, ptr noundef %12)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %create_master_security_keys.exit.thread, label %40
 
@@ -5491,7 +5491,7 @@ create_master_security_keys.exit:                 ; preds = %96
   br i1 %.not.i, label %122, label %k4.exit.thread
 
 122:                                              ; preds = %121
-  %123 = call fastcc i32 @s1(ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %123 = call fastcc i32 @s1(ptr noundef %4, ptr noundef %6)
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %k4.exit.thread, label %125
 
@@ -5867,7 +5867,7 @@ define internal zeroext i1 @uat_btmesh_label_uuid_record_update_cb(ptr nocapture
   br i1 %.not.i, label %19, label %label_uuid_hash.exit.thread
 
 19:                                               ; preds = %18
-  %20 = call fastcc i32 @s1(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %20 = call fastcc i32 @s1(ptr noundef %4, ptr noundef %5)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %label_uuid_hash.exit.thread, label %22
 
@@ -6111,7 +6111,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
 
 105:                                              ; preds = %84
   %106 = load i32, ptr %7, align 4
-  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, i32 noundef %106)
+  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, i32 noundef %106)
   br label %dissect_btmesh_transport_pdu.exit
 
 107:                                              ; preds = %84
@@ -6194,7 +6194,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
 
 152:                                              ; preds = %150
   %153 = load i32, ptr %7, align 4
-  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef nonnull %151, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 0, i32 noundef %153)
+  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef %151, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 0, i32 noundef %153)
   %154 = load ptr, ptr %23, align 8
   call void @col_append_str(ptr noundef %154, i32 noundef 25, ptr noundef nonnull @.str.2183) #16
   br label %dissect_btmesh_transport_pdu.exit
@@ -6230,7 +6230,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   br label %dissect_btmesh_transport_pdu.exit
 
 175:                                              ; preds = %159
-  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, i32 noundef %160)
+  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, i32 noundef %160)
   br label %dissect_btmesh_transport_pdu.exit
 
 176:                                              ; preds = %66
@@ -6285,7 +6285,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   call void @proto_item_set_len(ptr noundef %213, i32 noundef 1) #16
   %214 = getelementptr inbounds i8, ptr %37, i64 48
   store i32 4, ptr %214, align 4
-  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, ptr noundef nonnull %37)
+  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, ptr noundef nonnull %37)
   br label %dissect_btmesh_transport_pdu.exit
 
 215:                                              ; preds = %191
@@ -6372,7 +6372,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %262 = select i1 %.not200.i, i32 4, i32 8
   %263 = getelementptr inbounds i8, ptr %37, i64 48
   store i32 %262, ptr %263, align 4
-  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %259, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 0, ptr noundef nonnull %37)
+  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef %259, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 0, ptr noundef nonnull %37)
   %264 = load ptr, ptr %23, align 8
   call void @col_append_str(ptr noundef %264, i32 noundef 25, ptr noundef nonnull @.str.2183) #16
   br label %dissect_btmesh_transport_pdu.exit
@@ -6390,7 +6390,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   call void @proto_item_set_len(ptr noundef %270, i32 noundef 1) #16
   %271 = getelementptr inbounds i8, ptr %37, i64 48
   store i32 4, ptr %271, align 4
-  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, ptr noundef nonnull %37)
+  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, ptr noundef nonnull %37)
   br label %dissect_btmesh_transport_pdu.exit
 
 dissect_btmesh_transport_pdu.exit:                ; preds = %105, %134, %143, %144, %146, %152, %155, %162, %175, %212, %242, %251, %252, %254, %260, %265, %269
@@ -6460,7 +6460,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483647) i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 17) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %87, label %6
 
@@ -6491,13 +6491,13 @@ define internal fastcc range(i32 -1, -2147483647) i32 @compute_ascii_key(ptr noc
 20:                                               ; preds = %17, %17
   %21 = and i32 %8, 1
   %.not80 = icmp eq i32 %21, 0
-  %22 = add i32 %8, -2
+  %22 = add nsw i32 %8, -2
   %23 = lshr i32 %22, 1
   br i1 %.not80, label %40, label %24
 
 24:                                               ; preds = %20
-  %25 = add nuw i32 %23, 2
-  %26 = zext i32 %25 to i64
+  %25 = add nuw nsw i32 %23, 2
+  %26 = zext nneg i32 %25 to i64
   %27 = tail call noalias ptr @g_malloc(i64 noundef %26) #19
   store ptr %27, ptr %0, align 8
   %28 = getelementptr i8, ptr %1, i64 2
@@ -6517,14 +6517,14 @@ define internal fastcc range(i32 -1, -2147483647) i32 @compute_ascii_key(ptr noc
   br label %87
 
 37:                                               ; preds = %24
-  %38 = add nuw i32 %23, 1
+  %38 = add nuw nsw i32 %23, 1
   %39 = trunc i32 %30 to i8
   store i8 %39, ptr %27, align 1
   br label %44
 
 40:                                               ; preds = %20
-  %41 = add nuw i32 %23, 1
-  %42 = zext i32 %41 to i64
+  %41 = add nuw nsw i32 %23, 1
+  %42 = zext nneg i32 %41 to i64
   %43 = tail call noalias ptr @g_malloc(i64 noundef %42) #19
   store ptr %43, ptr %0, align 8
   br label %44
@@ -6534,7 +6534,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @compute_ascii_key(ptr noc
   %.173 = phi i32 [ %38, %37 ], [ %23, %40 ]
   %.069 = phi i32 [ 3, %37 ], [ 2, %40 ]
   %.0 = phi i32 [ 1, %37 ], [ 0, %40 ]
-  %46 = add i32 %8, -1
+  %46 = add nsw i32 %8, -1
   %47 = icmp ult i32 %.069, %46
   br i1 %47, label %.lr.ph, label %._crit_edge
 
@@ -6629,7 +6629,7 @@ declare i32 @g_ascii_xdigit_value(i8 noundef signext) local_unnamed_addr #11
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @s1(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @s1(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [16 x i8], align 16
@@ -6651,7 +6651,7 @@ define internal fastcc range(i32 0, 2) i32 @s1(ptr noundef %0, ptr noundef %1) u
   br label %19
 
 12:                                               ; preds = %7
-  %13 = call i32 @gcry_mac_write(ptr noundef %10, ptr noundef %0, i64 noundef 4) #16
+  %13 = call i32 @gcry_mac_write(ptr noundef %10, ptr noundef nonnull %0, i64 noundef 4) #16
   %.not8 = icmp eq i32 %13, 0
   %14 = load ptr, ptr %3, align 8
   br i1 %.not8, label %16, label %15
@@ -6661,7 +6661,7 @@ define internal fastcc range(i32 0, 2) i32 @s1(ptr noundef %0, ptr noundef %1) u
   br label %19
 
 16:                                               ; preds = %12
-  %17 = call i32 @gcry_mac_read(ptr noundef %14, ptr noundef %1, ptr noundef nonnull %4) #16
+  %17 = call i32 @gcry_mac_read(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull %4) #16
   %.not9 = icmp eq i32 %17, 0
   %18 = load ptr, ptr %3, align 8
   call void @gcry_mac_close(ptr noundef %18) #16
@@ -6696,14 +6696,14 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_btmesh_transport_control_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_btmesh_transport_control_message(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @val_to_str_const(i32 noundef %4, ptr noundef nonnull @btmesh_ctrl_opcode_vals, ptr noundef nonnull @.str.2185) #16
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1929, ptr noundef %8) #16
   %9 = load i32, ptr @ett_btmesh_transp_ctrl_msg, align 4
   %10 = tail call ptr @val_to_str_const(i32 noundef %4, ptr noundef nonnull @btmesh_ctrl_opcode_vals, ptr noundef nonnull @.str.1774) #16
-  %11 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.2188, ptr noundef %10) #16
+  %11 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.2188, ptr noundef %10) #16
   switch i32 %4, label %110 [
     i32 1, label %12
     i32 2, label %17
@@ -6719,126 +6719,126 @@ define internal fastcc void @dissect_btmesh_transport_control_message(ptr nounde
 
 12:                                               ; preds = %5
   %13 = load i32, ptr @hf_btmesh_cntr_padding, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %13, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %15 = load i32, ptr @hf_btmesh_cntr_fsn, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   br label %114
 
 17:                                               ; preds = %5
   %18 = load i32, ptr @hf_btmesh_cntr_key_refresh_flag, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %20 = load i32, ptr @hf_btmesh_cntr_iv_update_flag, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %20, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %20, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %22 = load i32, ptr @hf_btmesh_cntr_flags_rfu, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %22, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %24 = add nuw nsw i32 %3, 1
   %25 = load i32, ptr @hf_btmesh_cntr_iv_index, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #16
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef nonnull %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #16
   %27 = add nuw nsw i32 %3, 5
   %28 = load i32, ptr @hf_btmesh_cntr_md, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #16
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %28, ptr noundef nonnull %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #16
   br label %114
 
 30:                                               ; preds = %5
   %31 = load i32, ptr @hf_btmesh_cntr_criteria_rfu, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %31, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %33 = load i32, ptr @hf_btmesh_cntr_criteria_rssifactor, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %33, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %33, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %35 = load i32, ptr @hf_btmesh_cntr_criteria_receivewindowfactor, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %37 = load i32, ptr @hf_btmesh_cntr_criteria_minqueuesizelog, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %39 = add nuw nsw i32 %3, 1
   %40 = load i32, ptr @hf_btmesh_cntr_receivedelay, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0) #16
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %40, ptr noundef nonnull %0, i32 noundef %39, i32 noundef 1, i32 noundef 0) #16
   %42 = add nuw nsw i32 %3, 2
   %43 = load i32, ptr @hf_btmesh_cntr_polltimeout, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 3, i32 noundef 0) #16
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %43, ptr noundef nonnull %0, i32 noundef %42, i32 noundef 3, i32 noundef 0) #16
   %45 = add nuw nsw i32 %3, 5
   %46 = load i32, ptr @hf_btmesh_cntr_previousaddress, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef 0) #16
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %46, ptr noundef nonnull %0, i32 noundef %45, i32 noundef 2, i32 noundef 0) #16
   %48 = add nuw nsw i32 %3, 7
   %49 = load i32, ptr @hf_btmesh_cntr_numelements, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef 0) #16
-  %51 = add nuw nsw i32 %3, 8
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %49, ptr noundef nonnull %0, i32 noundef %48, i32 noundef 1, i32 noundef 0) #16
+  %51 = or disjoint i32 %3, 8
   %52 = load i32, ptr @hf_btmesh_cntr_lpncounter, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef 0) #16
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %52, ptr noundef nonnull %0, i32 noundef %51, i32 noundef 1, i32 noundef 0) #16
   br label %114
 
 54:                                               ; preds = %5
   %55 = load i32, ptr @hf_btmesh_cntr_receivewindow, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %55, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %55, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %57 = add nuw nsw i32 %3, 1
   %58 = load i32, ptr @hf_btmesh_cntr_queuesize, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #16
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %58, ptr noundef nonnull %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #16
   %60 = add nuw nsw i32 %3, 2
   %61 = load i32, ptr @hf_btmesh_cntr_subscriptionlistsize, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0) #16
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %61, ptr noundef nonnull %0, i32 noundef %60, i32 noundef 1, i32 noundef 0) #16
   %63 = add nuw nsw i32 %3, 3
   %64 = load i32, ptr @hf_btmesh_cntr_rssi, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #16
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %64, ptr noundef nonnull %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #16
   %66 = add nuw nsw i32 %3, 4
   %67 = load i32, ptr @hf_btmesh_cntr_friendcounter, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 1, i32 noundef 0) #16
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %67, ptr noundef nonnull %0, i32 noundef %66, i32 noundef 1, i32 noundef 0) #16
   br label %114
 
 69:                                               ; preds = %5
   %70 = load i32, ptr @hf_btmesh_cntr_lpnaddress, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %70, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %70, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %72 = add nuw nsw i32 %3, 2
   %73 = load i32, ptr @hf_btmesh_cntr_lpncounter, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0) #16
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %73, ptr noundef nonnull %0, i32 noundef %72, i32 noundef 1, i32 noundef 0) #16
   br label %114
 
 75:                                               ; preds = %5
   %76 = load i32, ptr @hf_btmesh_cntr_lpnaddress, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %76, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %76, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %78 = add nuw nsw i32 %3, 2
   %79 = load i32, ptr @hf_btmesh_cntr_lpncounter, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef 0) #16
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %79, ptr noundef nonnull %0, i32 noundef %78, i32 noundef 1, i32 noundef 0) #16
   br label %114
 
 81:                                               ; preds = %5
   %82 = load i32, ptr @hf_btmesh_cntr_transactionnumber, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %82, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %82, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %84 = add nuw nsw i32 %3, 1
-  %85 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_not_decoded_yet, ptr noundef %0, i32 noundef %84, i32 noundef -1) #16
+  %85 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_not_decoded_yet, ptr noundef nonnull %0, i32 noundef %84, i32 noundef -1) #16
   br label %114
 
 86:                                               ; preds = %5
   %87 = load i32, ptr @hf_btmesh_cntr_transactionnumber, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %87, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %87, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %89 = add nuw nsw i32 %3, 1
-  %90 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_not_decoded_yet, ptr noundef %0, i32 noundef %89, i32 noundef -1) #16
+  %90 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_not_decoded_yet, ptr noundef nonnull %0, i32 noundef %89, i32 noundef -1) #16
   br label %114
 
 91:                                               ; preds = %5
   %92 = load i32, ptr @hf_btmesh_cntr_transactionnumber, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %92, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %92, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   br label %114
 
 94:                                               ; preds = %5
   %95 = load i32, ptr @hf_btmesh_cntr_heartbeat_rfu, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %95, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %95, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %97 = load i32, ptr @hf_btmesh_cntr_init_ttl, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %97, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %97, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #16
   %99 = add nuw nsw i32 %3, 1
   %100 = load i32, ptr @hf_btmesh_cntr_feature_relay, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %100, ptr noundef nonnull %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
   %102 = load i32, ptr @hf_btmesh_cntr_feature_proxy, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %102, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %102, ptr noundef nonnull %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
   %104 = load i32, ptr @hf_btmesh_cntr_feature_friend, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %104, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %104, ptr noundef nonnull %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
   %106 = load i32, ptr @hf_btmesh_cntr_feature_low_power, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %106, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %106, ptr noundef nonnull %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
   %108 = load i32, ptr @hf_btmesh_cntr_feature_rfu, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %108, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %108, ptr noundef nonnull %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #16
   br label %114
 
 110:                                              ; preds = %5
   %111 = load i32, ptr @hf_btmesh_cntr_unknown_payload, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %111, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #16
-  %113 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_not_decoded_yet, ptr noundef %0, i32 noundef %3, i32 noundef -1) #16
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %111, ptr noundef nonnull %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #16
+  %113 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_not_decoded_yet, ptr noundef nonnull %0, i32 noundef %3, i32 noundef -1) #16
   br label %114
 
 114:                                              ; preds = %110, %94, %91, %86, %81, %75, %69, %54, %30, %17, %12
@@ -6866,11 +6866,11 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_btmesh_transport_access_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
-  %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #16
+define internal fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, ptr nocapture noundef %4) unnamed_addr #0 {
+  %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3) #16
   %7 = load i32, ptr @ett_btmesh_upper_transp_acc_pdu, align 4
-  %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.2190) #16
-  %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #16
+  %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.2190) #16
+  %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3) #16
   %10 = getelementptr inbounds i8, ptr %4, i64 48
   %11 = load i32, ptr %10, align 4
   %12 = sub i32 %9, %11
@@ -7191,7 +7191,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   br i1 %170, label %.lr.ph116.split.i, label %btmesh_access_find_key_and_decrypt.exit, !llvm.loop !13
 
 .loopexit107.sink.split.i:                        ; preds = %93, %67, %163, %156, %138
-  %171 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %16, i32 noundef %12, i32 noundef %12) #16
+  %171 = tail call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef %16, i32 noundef %12, i32 noundef %12) #16
   br label %btmesh_access_find_key_and_decrypt.exit
 
 btmesh_access_find_key_and_decrypt.exit:          ; preds = %167, %.loopexit.us.i, %5, %102, %.loopexit107.sink.split.i
@@ -7199,12 +7199,12 @@ btmesh_access_find_key_and_decrypt.exit:          ; preds = %167, %.loopexit.us.
   %172 = load i32, ptr @hf_btmesh_enc_access_pld, align 4
   %173 = load i32, ptr %10, align 4
   %174 = sub i32 %6, %173
-  %175 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %172, ptr noundef %0, i32 noundef %3, i32 noundef %174, i32 noundef 0) #16
+  %175 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %172, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %174, i32 noundef 0) #16
   %176 = load i32, ptr %10, align 4
   %177 = add i32 %6, %3
   %178 = sub i32 %177, %176
   %179 = load i32, ptr @hf_btmesh_transtmic, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %179, ptr noundef %0, i32 noundef %178, i32 noundef %176, i32 noundef 0) #16
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %179, ptr noundef nonnull %0, i32 noundef %178, i32 noundef %176, i32 noundef 0) #16
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %186, label %181
 
@@ -7214,7 +7214,7 @@ btmesh_access_find_key_and_decrypt.exit:          ; preds = %167, %.loopexit.us.
   %183 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef -1, i32 noundef %182, ptr noundef null, ptr noundef nonnull @.str.2192) #16
   %184 = load i32, ptr @hf_btmesh_decrypted_access, align 4
   %185 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %.0.i, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @dissect_btmesh_model_layer(ptr noundef %.0.i, ptr noundef %1, ptr noundef %2)
   br label %186
 
 186:                                              ; preds = %181, %btmesh_access_find_key_and_decrypt.exit
@@ -7228,7 +7228,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca [13 x i8], align 1
   %8 = alloca ptr, align 8
   %9 = alloca [3 x i64], align 16
@@ -7343,7 +7343,7 @@ define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef %0, i
 
 73:                                               ; preds = %64, %62
   %74 = load ptr, ptr %8, align 8
-  %75 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %3) #16
+  %75 = call ptr @tvb_get_ptr(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %3) #16
   %76 = call i32 @gcry_cipher_decrypt(ptr noundef %74, ptr noundef %2, i64 noundef %49, ptr noundef %75, i64 noundef %49) #16
   %.not43 = icmp eq i32 %76, 0
   br i1 %.not43, label %79, label %77
@@ -7370,7 +7370,7 @@ define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef %0, i
 89:                                               ; preds = %79
   %90 = add nuw i32 %3, %1
   %91 = load i32, ptr %12, align 4
-  %92 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %90, i32 noundef %91) #16
+  %92 = call ptr @tvb_get_ptr(ptr noundef nonnull %0, i32 noundef %90, i32 noundef %91) #16
   %93 = load i32, ptr %12, align 4
   %94 = sext i32 %93 to i64
   %bcmp = call i32 @bcmp(ptr %83, ptr %92, i64 %94)
@@ -7388,15 +7388,15 @@ declare i32 @gcry_cipher_authenticate(ptr noundef, ptr noundef, i64 noundef) loc
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %2) #16
   %9 = load i32, ptr @ett_btmesh_model_layer, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.2193) #16
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #16
+  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef 0, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.2193) #16
+  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef 0) #16
   %12 = zext i8 %11 to i32
   store i32 %12, ptr %4, align 4
   %.not = icmp sgt i8 %11, -1
@@ -7409,11 +7409,11 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 15:                                               ; preds = %13
   %16 = load i32, ptr @hf_btmesh_model_layer_vendor_opcode, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
-  %18 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef -2147483648) #16
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %16, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
+  %18 = tail call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef 1, i32 noundef -2147483648) #16
   %19 = load i32, ptr @hf_btmesh_model_layer_vendor, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #16
-  %21 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #16
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef nonnull %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #16
+  %21 = tail call ptr @tvb_new_subset_remaining(ptr noundef nonnull %0, i32 noundef 0) #16
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.2194) #16
@@ -7426,7 +7426,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 29:                                               ; preds = %13
   %30 = load i32, ptr @hf_btmesh_model_layer_opcode, align 4
-  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #16
+  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %30, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #16
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %4, align 4
@@ -7437,7 +7437,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 36:                                               ; preds = %3
   %37 = load i32, ptr @hf_btmesh_model_layer_opcode, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %37, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @btmesh_models_opcode_vals, ptr noundef nonnull @.str.2195) #16
@@ -7733,61 +7733,61 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   ]
 
 .preheader3997:                                   ; preds = %42
-  %44 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %44 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph4002, label %.loopexit3981
 
 46:                                               ; preds = %42
   %47 = load i32, ptr @hf_btmesh_config_appkey_add_netkeyindexandappkeyindex, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %47, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %48 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %47, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %49 = load i32, ptr @ett_btmesh_config_model_netapp_index, align 4
   %50 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49) #16
   %51 = load i32, ptr @hf_btmesh_config_appkey_add_netkeyindexandappkeyindex_net, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %52 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %53 = load i32, ptr @hf_btmesh_config_appkey_add_netkeyindexandappkeyindex_app, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %53, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %54 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %53, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %55 = add nuw nsw i32 %.03971, 3
   %56 = load i32, ptr @hf_btmesh_config_appkey_add_appkey, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 16, i32 noundef 0) #16
+  %57 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %56, ptr noundef nonnull %0, i32 noundef %55, i32 noundef 16, i32 noundef 0) #16
   %58 = add nuw nsw i32 %.03971, 19
   br label %.loopexit3981
 
 59:                                               ; preds = %42
   %60 = load i32, ptr @hf_btmesh_config_appkey_update_netkeyindexandappkeyindex, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %60, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %61 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %60, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %62 = load i32, ptr @ett_btmesh_config_model_netapp_index, align 4
   %63 = call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62) #16
   %64 = load i32, ptr @hf_btmesh_config_appkey_update_netkeyindexandappkeyindex_net, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %65 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %66 = load i32, ptr @hf_btmesh_config_appkey_update_netkeyindexandappkeyindex_app, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %66, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %66, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %68 = add nuw nsw i32 %.03971, 3
   %69 = load i32, ptr @hf_btmesh_config_appkey_update_appkey, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 16, i32 noundef 0) #16
+  %70 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %69, ptr noundef nonnull %0, i32 noundef %68, i32 noundef 16, i32 noundef 0) #16
   %71 = add nuw nsw i32 %.03971, 19
   br label %.loopexit3981
 
 72:                                               ; preds = %42
   %73 = load i32, ptr @hf_btmesh_config_composition_data_status_page, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %73, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %74 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %73, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %75 = add nuw nsw i32 %.03971, 1
   %76 = load i32, ptr @hf_btmesh_config_composition_data_status_cid, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 2, i32 noundef -2147483648) #16
+  %77 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %76, ptr noundef nonnull %0, i32 noundef %75, i32 noundef 2, i32 noundef -2147483648) #16
   %78 = add nuw nsw i32 %.03971, 3
   %79 = load i32, ptr @hf_btmesh_config_composition_data_status_pid, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 2, i32 noundef -2147483648) #16
+  %80 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %79, ptr noundef nonnull %0, i32 noundef %78, i32 noundef 2, i32 noundef -2147483648) #16
   %81 = add nuw nsw i32 %.03971, 5
   %82 = load i32, ptr @hf_btmesh_config_composition_data_status_vid, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 2, i32 noundef -2147483648) #16
+  %83 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %82, ptr noundef nonnull %0, i32 noundef %81, i32 noundef 2, i32 noundef -2147483648) #16
   %84 = add nuw nsw i32 %.03971, 7
   %85 = load i32, ptr @hf_btmesh_config_composition_data_status_crpl, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 2, i32 noundef -2147483648) #16
+  %86 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %85, ptr noundef nonnull %0, i32 noundef %84, i32 noundef 2, i32 noundef -2147483648) #16
   %87 = add nuw nsw i32 %.03971, 9
   %88 = load i32, ptr @hf_btmesh_config_composition_data_status_features, align 4
   %89 = load i32, ptr @ett_btmesh_config_composition_data_status_features, align 4
-  %90 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %10, ptr noundef %0, i32 noundef %87, i32 noundef %88, i32 noundef %89, ptr noundef nonnull @config_composition_data_status_features_headers, i32 noundef -2147483648, i32 noundef 1) #16
+  %90 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %87, i32 noundef %88, i32 noundef %89, ptr noundef nonnull @config_composition_data_status_features_headers, i32 noundef -2147483648, i32 noundef 1) #16
   %91 = add nuw nsw i32 %.03971, 11
-  %92 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %91) #16
+  %92 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %91) #16
   %93 = icmp sgt i32 %92, 2
   br i1 %93, label %.lr.ph4055, label %.loopexit3981
 
@@ -7795,37 +7795,37 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %.039704054 = phi i32 [ %129, %.loopexit ], [ 1, %72 ]
   %.24053 = phi i32 [ %.5, %.loopexit ], [ %91, %72 ]
   %94 = add i32 %.24053, 2
-  %95 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %94) #16
+  %95 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %94) #16
   %96 = zext i8 %95 to i32
   %97 = add i32 %.24053, 3
-  %98 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %97) #16
+  %98 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %97) #16
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %96, 1
   %101 = add nuw nsw i32 %100, 4
   %102 = shl nuw nsw i32 %99, 2
   %103 = add nuw nsw i32 %101, %102
   %104 = load i32, ptr @ett_btmesh_config_model_element, align 4
-  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.24053, i32 noundef %103, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.2196, i32 noundef %.039704054) #16
+  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.24053, i32 noundef %103, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.2196, i32 noundef %.039704054) #16
   %106 = load i32, ptr @hf_btmesh_config_composition_data_status_loc, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %0, i32 noundef %.24053, i32 noundef 2, i32 noundef -2147483648) #16
+  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef nonnull %0, i32 noundef %.24053, i32 noundef 2, i32 noundef -2147483648) #16
   %108 = load i32, ptr @hf_btmesh_config_composition_data_status_nums, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %108, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef -2147483648) #16
+  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %108, ptr noundef nonnull %0, i32 noundef %94, i32 noundef 1, i32 noundef -2147483648) #16
   %110 = load i32, ptr @hf_btmesh_config_composition_data_status_numv, align 4
-  %111 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %110, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef -2147483648) #16
+  %111 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %110, ptr noundef nonnull %0, i32 noundef %97, i32 noundef 1, i32 noundef -2147483648) #16
   %112 = add i32 %.24053, 4
   %.not3976 = icmp eq i8 %95, 0
   br i1 %.not3976, label %.loopexit3980, label %113
 
 113:                                              ; preds = %.lr.ph4055
   %114 = load i32, ptr @ett_btmesh_config_model_model, align 4
-  %115 = call ptr @proto_tree_add_subtree(ptr noundef %105, ptr noundef %0, i32 noundef %112, i32 noundef %100, i32 noundef %114, ptr noundef null, ptr noundef nonnull @.str.2197) #16
+  %115 = call ptr @proto_tree_add_subtree(ptr noundef %105, ptr noundef nonnull %0, i32 noundef %112, i32 noundef %100, i32 noundef %114, ptr noundef null, ptr noundef nonnull @.str.2197) #16
   br label %116
 
 116:                                              ; preds = %113, %116
   %.04050 = phi i32 [ 0, %113 ], [ %120, %116 ]
   %.44049 = phi i32 [ %112, %113 ], [ %119, %116 ]
   %117 = load i32, ptr @hf_btmesh_config_composition_data_status_sig_model, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef %0, i32 noundef %.44049, i32 noundef 2, i32 noundef -2147483648) #16
+  %118 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef nonnull %0, i32 noundef %.44049, i32 noundef 2, i32 noundef -2147483648) #16
   %119 = add i32 %.44049, 2
   %120 = add nuw nsw i32 %.04050, 1
   %exitcond.not = icmp eq i32 %120, %96
@@ -7838,14 +7838,14 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 121:                                              ; preds = %.loopexit3980
   %122 = load i32, ptr @ett_btmesh_config_model_vendor, align 4
-  %123 = call ptr @proto_tree_add_subtree(ptr noundef %105, ptr noundef %0, i32 noundef %.3, i32 noundef %102, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.2198) #16
+  %123 = call ptr @proto_tree_add_subtree(ptr noundef %105, ptr noundef nonnull %0, i32 noundef %.3, i32 noundef %102, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.2198) #16
   br label %124
 
 124:                                              ; preds = %121, %124
   %.14052 = phi i32 [ 0, %121 ], [ %128, %124 ]
   %.64051 = phi i32 [ %.3, %121 ], [ %127, %124 ]
   %125 = load i32, ptr @hf_btmesh_config_composition_data_status_vendor_model, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %125, ptr noundef %0, i32 noundef %.64051, i32 noundef 4, i32 noundef -2147483648) #16
+  %126 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %125, ptr noundef nonnull %0, i32 noundef %.64051, i32 noundef 4, i32 noundef -2147483648) #16
   %127 = add i32 %.64051, 4
   %128 = add nuw nsw i32 %.14052, 1
   %exitcond4088.not = icmp eq i32 %128, %99
@@ -7854,2365 +7854,2365 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 .loopexit:                                        ; preds = %124, %.loopexit3980
   %.5 = phi i32 [ %.3, %.loopexit3980 ], [ %127, %124 ]
   %129 = add i32 %.039704054, 1
-  %130 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5) #16
+  %130 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.5) #16
   %131 = icmp sgt i32 %130, 2
   br i1 %131, label %.lr.ph4055, label %.loopexit3981, !llvm.loop !17
 
 132:                                              ; preds = %42
   %133 = load i32, ptr @hf_btmesh_config_model_publication_set_elementaddress, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %133, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %134 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %133, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %135 = add nuw nsw i32 %.03971, 2
   %136 = load i32, ptr @hf_btmesh_config_model_publication_set_publishaddress, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %136, ptr noundef %0, i32 noundef %135, i32 noundef 2, i32 noundef -2147483648) #16
+  %137 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %136, ptr noundef nonnull %0, i32 noundef %135, i32 noundef 2, i32 noundef -2147483648) #16
   %138 = or disjoint i32 %.03971, 4
   %139 = load i32, ptr @hf_btmesh_config_model_publication_set_appkey, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %139, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #16
+  %140 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %139, ptr noundef nonnull %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #16
   %141 = load i32, ptr @ett_btmesh_config_model_pub_app_index, align 4
   %142 = call ptr @proto_item_add_subtree(ptr noundef %140, i32 noundef %141) #16
   %143 = load i32, ptr @hf_btmesh_config_model_publication_set_appkeyindex, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %143, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #16
+  %144 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %143, ptr noundef nonnull %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #16
   %145 = load i32, ptr @hf_btmesh_config_model_publication_set_credentialflag, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %145, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #16
+  %146 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %145, ptr noundef nonnull %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #16
   %147 = load i32, ptr @hf_btmesh_config_model_publication_set_rfu, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %147, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #16
+  %148 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %147, ptr noundef nonnull %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #16
   %149 = add nuw nsw i32 %.03971, 6
   %150 = load i32, ptr @hf_btmesh_config_model_publication_set_publishttl, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %150, ptr noundef %0, i32 noundef %149, i32 noundef 1, i32 noundef -2147483648) #16
+  %151 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %150, ptr noundef nonnull %0, i32 noundef %149, i32 noundef 1, i32 noundef -2147483648) #16
   %152 = add nuw nsw i32 %.03971, 7
   %153 = load i32, ptr @hf_btmesh_config_model_publication_set_publishperiod, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %153, ptr noundef %0, i32 noundef %152, i32 noundef 1, i32 noundef -2147483648) #16
+  %154 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %153, ptr noundef nonnull %0, i32 noundef %152, i32 noundef 1, i32 noundef -2147483648) #16
   %155 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %156 = call ptr @proto_item_add_subtree(ptr noundef %154, i32 noundef %155) #16
   %157 = load i32, ptr @hf_btmesh_config_model_publication_set_publishperiod_steps, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %0, i32 noundef %152, i32 noundef 1, i32 noundef -2147483648) #16
+  %158 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef nonnull %0, i32 noundef %152, i32 noundef 1, i32 noundef -2147483648) #16
   %159 = load i32, ptr @hf_btmesh_config_model_publication_set_publishperiod_resolution, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %159, ptr noundef %0, i32 noundef %152, i32 noundef 1, i32 noundef -2147483648) #16
+  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %159, ptr noundef nonnull %0, i32 noundef %152, i32 noundef 1, i32 noundef -2147483648) #16
   %161 = or disjoint i32 %.03971, 8
   %162 = load i32, ptr @hf_btmesh_config_model_publication_set_publishretransmit, align 4
-  %163 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648) #16
+  %163 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %162, ptr noundef nonnull %0, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648) #16
   %164 = load i32, ptr @ett_btmesh_config_model_publishretransmit, align 4
   %165 = call ptr @proto_item_add_subtree(ptr noundef %163, i32 noundef %164) #16
   %166 = load i32, ptr @hf_btmesh_config_model_publication_set_publishretransmit_count, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648) #16
+  %167 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef nonnull %0, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648) #16
   %168 = load i32, ptr @hf_btmesh_config_model_publication_set_publishretransmit_intervalsteps, align 4
-  %169 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %168, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648) #16
+  %169 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %168, ptr noundef nonnull %0, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648) #16
   %170 = add nuw nsw i32 %.03971, 9
-  %171 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %170) #16
+  %171 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %170) #16
   %172 = icmp sgt i32 %171, 2
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %132
   %174 = load i32, ptr @hf_btmesh_config_model_publication_set_vendormodelidentifier, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %174, ptr noundef %0, i32 noundef %170, i32 noundef 4, i32 noundef -2147483648) #16
+  %175 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %174, ptr noundef nonnull %0, i32 noundef %170, i32 noundef 4, i32 noundef -2147483648) #16
   %176 = add nuw nsw i32 %.03971, 13
   br label %.loopexit3981
 
 177:                                              ; preds = %132
   %178 = load i32, ptr @hf_btmesh_config_model_publication_set_modelidentifier, align 4
-  %179 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %178, ptr noundef %0, i32 noundef %170, i32 noundef 2, i32 noundef -2147483648) #16
+  %179 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %178, ptr noundef nonnull %0, i32 noundef %170, i32 noundef 2, i32 noundef -2147483648) #16
   %180 = add nuw nsw i32 %.03971, 11
   br label %.loopexit3981
 
 181:                                              ; preds = %42
   %182 = load i32, ptr @hf_btmesh_health_current_status_test_id, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %182, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %183 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %182, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %184 = add nuw nsw i32 %.03971, 1
   %185 = load i32, ptr @hf_btmesh_health_current_status_company_id, align 4
-  %186 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %185, ptr noundef %0, i32 noundef %184, i32 noundef 2, i32 noundef -2147483648) #16
+  %186 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %185, ptr noundef nonnull %0, i32 noundef %184, i32 noundef 2, i32 noundef -2147483648) #16
   %187 = add nuw nsw i32 %.03971, 3
-  %188 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %187) #16
+  %188 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %187) #16
   %189 = load i32, ptr @ett_btmesh_config_model_fault_array, align 4
-  %190 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %187, i32 noundef %188, i32 noundef %189, ptr noundef null, ptr noundef nonnull @.str.2199) #16
-  %191 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %187) #16
+  %190 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %187, i32 noundef %188, i32 noundef %189, ptr noundef null, ptr noundef nonnull @.str.2199) #16
+  %191 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %187) #16
   %192 = icmp sgt i32 %191, 0
   br i1 %192, label %.lr.ph4047, label %.loopexit3981
 
 .lr.ph4047:                                       ; preds = %181, %.lr.ph4047
   %.74046 = phi i32 [ %195, %.lr.ph4047 ], [ %187, %181 ]
   %193 = load i32, ptr @hf_btmesh_health_current_status_fault, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef %0, i32 noundef %.74046, i32 noundef 1, i32 noundef -2147483648) #16
+  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef nonnull %0, i32 noundef %.74046, i32 noundef 1, i32 noundef -2147483648) #16
   %195 = add i32 %.74046, 1
-  %196 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %195) #16
+  %196 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %195) #16
   %197 = icmp sgt i32 %196, 0
   br i1 %197, label %.lr.ph4047, label %.loopexit3981, !llvm.loop !18
 
 198:                                              ; preds = %42
   %199 = load i32, ptr @hf_btmesh_health_fault_status_test_id, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %199, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %200 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %199, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %201 = add nuw nsw i32 %.03971, 1
   %202 = load i32, ptr @hf_btmesh_health_fault_status_company_id, align 4
-  %203 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %202, ptr noundef %0, i32 noundef %201, i32 noundef 2, i32 noundef -2147483648) #16
+  %203 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %202, ptr noundef nonnull %0, i32 noundef %201, i32 noundef 2, i32 noundef -2147483648) #16
   %204 = add nuw nsw i32 %.03971, 3
-  %205 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %204) #16
+  %205 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %204) #16
   %206 = load i32, ptr @ett_btmesh_config_model_fault_array, align 4
-  %207 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %204, i32 noundef %205, i32 noundef %206, ptr noundef null, ptr noundef nonnull @.str.2199) #16
-  %208 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %204) #16
+  %207 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %204, i32 noundef %205, i32 noundef %206, ptr noundef null, ptr noundef nonnull @.str.2199) #16
+  %208 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %204) #16
   %209 = icmp sgt i32 %208, 0
   br i1 %209, label %.lr.ph4044, label %.loopexit3981
 
 .lr.ph4044:                                       ; preds = %198, %.lr.ph4044
   %.84043 = phi i32 [ %212, %.lr.ph4044 ], [ %204, %198 ]
   %210 = load i32, ptr @hf_btmesh_health_fault_status_fault, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %210, ptr noundef %0, i32 noundef %.84043, i32 noundef 1, i32 noundef -2147483648) #16
+  %211 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %210, ptr noundef nonnull %0, i32 noundef %.84043, i32 noundef 1, i32 noundef -2147483648) #16
   %212 = add i32 %.84043, 1
-  %213 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %212) #16
+  %213 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %212) #16
   %214 = icmp sgt i32 %213, 0
   br i1 %214, label %.lr.ph4044, label %.loopexit3981, !llvm.loop !19
 
 215:                                              ; preds = %42
   %216 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_status, align 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %216, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %217 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %216, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %218 = add nuw nsw i32 %.03971, 1
   %219 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_destination, align 4
-  %220 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %219, ptr noundef %0, i32 noundef %218, i32 noundef 2, i32 noundef -2147483648) #16
+  %220 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %219, ptr noundef nonnull %0, i32 noundef %218, i32 noundef 2, i32 noundef -2147483648) #16
   %221 = add nuw nsw i32 %.03971, 3
   %222 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_countlog, align 4
-  %223 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %222, ptr noundef %0, i32 noundef %221, i32 noundef 1, i32 noundef -2147483648) #16
+  %223 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %222, ptr noundef nonnull %0, i32 noundef %221, i32 noundef 1, i32 noundef -2147483648) #16
   %224 = or disjoint i32 %.03971, 4
   %225 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_periodlog, align 4
-  %226 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %225, ptr noundef %0, i32 noundef %224, i32 noundef 1, i32 noundef -2147483648) #16
+  %226 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %225, ptr noundef nonnull %0, i32 noundef %224, i32 noundef 1, i32 noundef -2147483648) #16
   %227 = add nuw nsw i32 %.03971, 5
   %228 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_ttl, align 4
-  %229 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %228, ptr noundef %0, i32 noundef %227, i32 noundef 1, i32 noundef -2147483648) #16
+  %229 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %228, ptr noundef nonnull %0, i32 noundef %227, i32 noundef 1, i32 noundef -2147483648) #16
   %230 = add nuw nsw i32 %.03971, 6
   %231 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_features, align 4
   %232 = load i32, ptr @ett_btmesh_config_heartbeat_publication_status_features, align 4
-  %233 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %10, ptr noundef %0, i32 noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef nonnull @config_heartbeat_publication_status_features_headers, i32 noundef -2147483648, i32 noundef 1) #16
+  %233 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef nonnull @config_heartbeat_publication_status_features_headers, i32 noundef -2147483648, i32 noundef 1) #16
   %234 = or disjoint i32 %.03971, 8
   %235 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_netkeyindex, align 4
-  %236 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648) #16
+  %236 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %235, ptr noundef nonnull %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648) #16
   %237 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %238 = call ptr @proto_item_add_subtree(ptr noundef %236, i32 noundef %237) #16
   %239 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_netkeyindex_idx, align 4
-  %240 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %239, ptr noundef %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648) #16
+  %240 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %239, ptr noundef nonnull %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648) #16
   %241 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_netkeyindex_rfu, align 4
-  %242 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %241, ptr noundef %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648) #16
+  %242 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %241, ptr noundef nonnull %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648) #16
   %243 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 244:                                              ; preds = %42
   %245 = load i32, ptr @hf_btmesh_config_appkey_delete_netkeyindexandappkeyindex, align 4
-  %246 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %245, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %246 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %245, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %247 = load i32, ptr @ett_btmesh_config_model_netapp_index, align 4
   %248 = call ptr @proto_item_add_subtree(ptr noundef %246, i32 noundef %247) #16
   %249 = load i32, ptr @hf_btmesh_config_appkey_delete_netkeyindexandappkeyindex_net, align 4
-  %250 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %250 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %251 = load i32, ptr @hf_btmesh_config_appkey_delete_netkeyindexandappkeyindex_app, align 4
-  %252 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %251, ptr noundef %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
+  %252 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %251, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 3, i32 noundef -2147483648) #16
   %253 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 254:                                              ; preds = %42
   %255 = load i32, ptr @hf_btmesh_config_appkey_get_netkeyindex, align 4
-  %256 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %255, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %256 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %255, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %257 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %258 = call ptr @proto_item_add_subtree(ptr noundef %256, i32 noundef %257) #16
   %259 = load i32, ptr @hf_btmesh_config_appkey_get_netkeyindex_idx, align 4
-  %260 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %260 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %261 = load i32, ptr @hf_btmesh_config_appkey_get_netkeyindex_rfu, align 4
-  %262 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %261, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %262 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %261, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %263 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 264:                                              ; preds = %42
   %265 = load i32, ptr @hf_btmesh_config_appkey_list_status, align 4
-  %266 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %265, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %266 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %265, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %267 = add nuw nsw i32 %.03971, 1
   %268 = load i32, ptr @hf_btmesh_config_appkey_list_netkeyindex, align 4
-  %269 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %268, ptr noundef %0, i32 noundef %267, i32 noundef 2, i32 noundef -2147483648) #16
+  %269 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %268, ptr noundef nonnull %0, i32 noundef %267, i32 noundef 2, i32 noundef -2147483648) #16
   %270 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %271 = call ptr @proto_item_add_subtree(ptr noundef %269, i32 noundef %270) #16
   %272 = load i32, ptr @hf_btmesh_config_appkey_list_netkeyindex_idx, align 4
-  %273 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %272, ptr noundef %0, i32 noundef %267, i32 noundef 2, i32 noundef -2147483648) #16
+  %273 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %272, ptr noundef nonnull %0, i32 noundef %267, i32 noundef 2, i32 noundef -2147483648) #16
   %274 = load i32, ptr @hf_btmesh_config_appkey_list_netkeyindex_rfu, align 4
-  %275 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %274, ptr noundef %0, i32 noundef %267, i32 noundef 2, i32 noundef -2147483648) #16
+  %275 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %274, ptr noundef nonnull %0, i32 noundef %267, i32 noundef 2, i32 noundef -2147483648) #16
   %276 = add nuw nsw i32 %.03971, 3
-  %277 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %276) #16
+  %277 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %276) #16
   %278 = load i32, ptr @ett_btmesh_config_model_appkey_list, align 4
-  %279 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %276, i32 noundef %277, i32 noundef %278, ptr noundef null, ptr noundef nonnull @.str.2200) #16
-  %280 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %276) #16
+  %279 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %276, i32 noundef %277, i32 noundef %278, ptr noundef null, ptr noundef nonnull @.str.2200) #16
+  %280 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %276) #16
   %281 = icmp sgt i32 %280, 1
   br i1 %281, label %.lr.ph4041, label %.loopexit3981
 
 .lr.ph4041:                                       ; preds = %264, %303
   %.94040 = phi i32 [ %304, %303 ], [ %276, %264 ]
-  %282 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.94040) #16
+  %282 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.94040) #16
   %283 = icmp sgt i32 %282, 2
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %.lr.ph4041
-  %285 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.94040, i32 noundef -2147483648) #16
+  %285 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef -2147483648) #16
   %286 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
   %287 = and i32 %285, 4095
-  %288 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %286, ptr noundef %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %287) #16
+  %288 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %286, ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %287) #16
   %289 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
   %290 = add i32 %.94040, 1
   %291 = lshr i32 %285, 12
   %292 = and i32 %291, 4095
-  %293 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %289, ptr noundef %0, i32 noundef %290, i32 noundef 2, i32 noundef %292) #16
+  %293 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %289, ptr noundef nonnull %0, i32 noundef %290, i32 noundef 2, i32 noundef %292) #16
   br label %303
 
 294:                                              ; preds = %.lr.ph4041
-  %295 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.94040, i32 noundef -2147483648) #16
+  %295 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef -2147483648) #16
   %296 = zext i16 %295 to i32
   %297 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
   %298 = and i32 %296, 4095
-  %299 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %297, ptr noundef %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %298) #16
+  %299 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %297, ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %298) #16
   %300 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex_rfu, align 4
   %301 = lshr i32 %296, 12
-  %302 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %300, ptr noundef %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %301) #16
+  %302 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %300, ptr noundef nonnull %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %301) #16
   br label %303
 
 303:                                              ; preds = %294, %284
   %.sink = phi i32 [ 2, %294 ], [ 3, %284 ]
   %304 = add i32 %.94040, %.sink
-  %305 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %304) #16
+  %305 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %304) #16
   %306 = icmp sgt i32 %305, 1
   br i1 %306, label %.lr.ph4041, label %.loopexit3981, !llvm.loop !20
 
 307:                                              ; preds = %42
   %308 = load i32, ptr @hf_btmesh_config_appkey_status_status, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %308, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %309 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %308, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %310 = add nuw nsw i32 %.03971, 1
   %311 = load i32, ptr @hf_btmesh_config_appkey_status_netkeyindexandappkeyindex, align 4
-  %312 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %311, ptr noundef %0, i32 noundef %310, i32 noundef 3, i32 noundef -2147483648) #16
+  %312 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %311, ptr noundef nonnull %0, i32 noundef %310, i32 noundef 3, i32 noundef -2147483648) #16
   %313 = load i32, ptr @ett_btmesh_config_model_netapp_index, align 4
   %314 = call ptr @proto_item_add_subtree(ptr noundef %312, i32 noundef %313) #16
   %315 = load i32, ptr @hf_btmesh_config_appkey_status_netkeyindexandappkeyindex_net, align 4
-  %316 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %315, ptr noundef %0, i32 noundef %310, i32 noundef 3, i32 noundef -2147483648) #16
+  %316 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %315, ptr noundef nonnull %0, i32 noundef %310, i32 noundef 3, i32 noundef -2147483648) #16
   %317 = load i32, ptr @hf_btmesh_config_appkey_status_netkeyindexandappkeyindex_app, align 4
-  %318 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %317, ptr noundef %0, i32 noundef %310, i32 noundef 3, i32 noundef -2147483648) #16
+  %318 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %317, ptr noundef nonnull %0, i32 noundef %310, i32 noundef 3, i32 noundef -2147483648) #16
   %319 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 320:                                              ; preds = %42
   %321 = load i32, ptr @hf_btmesh_health_attention_set_attention, align 4
-  %322 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %321, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %322 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %321, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %323 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 324:                                              ; preds = %42
   %325 = load i32, ptr @hf_btmesh_health_attention_set_unacknowledged_attention, align 4
-  %326 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %325, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %326 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %325, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %327 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 328:                                              ; preds = %42
   %329 = load i32, ptr @hf_btmesh_health_attention_status_attention, align 4
-  %330 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %329, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %330 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %329, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %331 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 332:                                              ; preds = %42
   %333 = load i32, ptr @hf_btmesh_config_composition_data_get_page, align 4
-  %334 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %333, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %334 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %333, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %335 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 336:                                              ; preds = %42
   %337 = load i32, ptr @hf_btmesh_config_beacon_set_beacon, align 4
-  %338 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %337, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %338 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %337, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %339 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 340:                                              ; preds = %42
   %341 = load i32, ptr @hf_btmesh_config_beacon_status_beacon, align 4
-  %342 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %341, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %342 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %341, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %343 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 344:                                              ; preds = %42
   %345 = load i32, ptr @hf_btmesh_config_default_ttl_set_ttl, align 4
-  %346 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %345, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %346 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %345, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %347 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 348:                                              ; preds = %42
   %349 = load i32, ptr @hf_btmesh_config_default_ttl_status_ttl, align 4
-  %350 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %349, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %350 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %349, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %351 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 352:                                              ; preds = %42
   %353 = load i32, ptr @hf_btmesh_config_friend_set_friend, align 4
-  %354 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %353, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %354 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %353, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %355 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 356:                                              ; preds = %42
   %357 = load i32, ptr @hf_btmesh_config_friend_status_friend, align 4
-  %358 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %357, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %358 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %357, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %359 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 360:                                              ; preds = %42
   %361 = load i32, ptr @hf_btmesh_config_gatt_proxy_set_gattproxy, align 4
-  %362 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %361, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %362 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %361, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %363 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 364:                                              ; preds = %42
   %365 = load i32, ptr @hf_btmesh_config_gatt_proxy_status_gattproxy, align 4
-  %366 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %365, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %366 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %365, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %367 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 368:                                              ; preds = %42
   %369 = load i32, ptr @hf_btmesh_config_key_refresh_phase_get_netkeyindex, align 4
-  %370 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %369, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %370 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %369, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %371 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %372 = call ptr @proto_item_add_subtree(ptr noundef %370, i32 noundef %371) #16
   %373 = load i32, ptr @hf_btmesh_config_key_refresh_phase_get_netkeyindex_idx, align 4
-  %374 = call ptr @proto_tree_add_item(ptr noundef %372, i32 noundef %373, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %374 = call ptr @proto_tree_add_item(ptr noundef %372, i32 noundef %373, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %375 = load i32, ptr @hf_btmesh_config_key_refresh_phase_get_netkeyindex_rfu, align 4
-  %376 = call ptr @proto_tree_add_item(ptr noundef %372, i32 noundef %375, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %376 = call ptr @proto_tree_add_item(ptr noundef %372, i32 noundef %375, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %377 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 378:                                              ; preds = %42
   %379 = load i32, ptr @hf_btmesh_config_key_refresh_phase_set_netkeyindex, align 4
-  %380 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %379, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %380 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %379, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %381 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %382 = call ptr @proto_item_add_subtree(ptr noundef %380, i32 noundef %381) #16
   %383 = load i32, ptr @hf_btmesh_config_key_refresh_phase_set_netkeyindex_idx, align 4
-  %384 = call ptr @proto_tree_add_item(ptr noundef %382, i32 noundef %383, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %384 = call ptr @proto_tree_add_item(ptr noundef %382, i32 noundef %383, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %385 = load i32, ptr @hf_btmesh_config_key_refresh_phase_set_netkeyindex_rfu, align 4
-  %386 = call ptr @proto_tree_add_item(ptr noundef %382, i32 noundef %385, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %386 = call ptr @proto_tree_add_item(ptr noundef %382, i32 noundef %385, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %387 = add nuw nsw i32 %.03971, 2
   %388 = load i32, ptr @hf_btmesh_config_key_refresh_phase_set_transition, align 4
-  %389 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %388, ptr noundef %0, i32 noundef %387, i32 noundef 1, i32 noundef -2147483648) #16
+  %389 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %388, ptr noundef nonnull %0, i32 noundef %387, i32 noundef 1, i32 noundef -2147483648) #16
   %390 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 391:                                              ; preds = %42
   %392 = load i32, ptr @hf_btmesh_config_key_refresh_phase_status_status, align 4
-  %393 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %392, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %393 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %392, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %394 = add nuw nsw i32 %.03971, 1
   %395 = load i32, ptr @hf_btmesh_config_key_refresh_phase_status_netkeyindex, align 4
-  %396 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %395, ptr noundef %0, i32 noundef %394, i32 noundef 2, i32 noundef -2147483648) #16
+  %396 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %395, ptr noundef nonnull %0, i32 noundef %394, i32 noundef 2, i32 noundef -2147483648) #16
   %397 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %398 = call ptr @proto_item_add_subtree(ptr noundef %396, i32 noundef %397) #16
   %399 = load i32, ptr @hf_btmesh_config_key_refresh_phase_status_netkeyindex_idx, align 4
-  %400 = call ptr @proto_tree_add_item(ptr noundef %398, i32 noundef %399, ptr noundef %0, i32 noundef %394, i32 noundef 2, i32 noundef -2147483648) #16
+  %400 = call ptr @proto_tree_add_item(ptr noundef %398, i32 noundef %399, ptr noundef nonnull %0, i32 noundef %394, i32 noundef 2, i32 noundef -2147483648) #16
   %401 = load i32, ptr @hf_btmesh_config_key_refresh_phase_status_netkeyindex_rfu, align 4
-  %402 = call ptr @proto_tree_add_item(ptr noundef %398, i32 noundef %401, ptr noundef %0, i32 noundef %394, i32 noundef 2, i32 noundef -2147483648) #16
+  %402 = call ptr @proto_tree_add_item(ptr noundef %398, i32 noundef %401, ptr noundef nonnull %0, i32 noundef %394, i32 noundef 2, i32 noundef -2147483648) #16
   %403 = add nuw nsw i32 %.03971, 3
   %404 = load i32, ptr @hf_btmesh_config_key_refresh_phase_status_phase, align 4
-  %405 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %404, ptr noundef %0, i32 noundef %403, i32 noundef 1, i32 noundef -2147483648) #16
+  %405 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %404, ptr noundef nonnull %0, i32 noundef %403, i32 noundef 1, i32 noundef -2147483648) #16
   %406 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 407:                                              ; preds = %42
   %408 = load i32, ptr @hf_btmesh_config_model_publication_get_elementaddress, align 4
-  %409 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %408, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %409 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %408, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %410 = add nuw nsw i32 %.03971, 2
-  %411 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %410) #16
+  %411 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %410) #16
   %412 = icmp sgt i32 %411, 2
   br i1 %412, label %413, label %417
 
 413:                                              ; preds = %407
   %414 = load i32, ptr @hf_btmesh_config_model_publication_get_vendormodelidentifier, align 4
-  %415 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %414, ptr noundef %0, i32 noundef %410, i32 noundef 4, i32 noundef -2147483648) #16
+  %415 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %414, ptr noundef nonnull %0, i32 noundef %410, i32 noundef 4, i32 noundef -2147483648) #16
   %416 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 417:                                              ; preds = %407
   %418 = load i32, ptr @hf_btmesh_config_model_publication_get_modelidentifier, align 4
-  %419 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %418, ptr noundef %0, i32 noundef %410, i32 noundef 2, i32 noundef -2147483648) #16
+  %419 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %418, ptr noundef nonnull %0, i32 noundef %410, i32 noundef 2, i32 noundef -2147483648) #16
   %420 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 421:                                              ; preds = %42
   %422 = load i32, ptr @hf_btmesh_config_model_publication_status_status, align 4
-  %423 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %422, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %423 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %422, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %424 = add nuw nsw i32 %.03971, 1
   %425 = load i32, ptr @hf_btmesh_config_model_publication_status_elementaddress, align 4
-  %426 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %425, ptr noundef %0, i32 noundef %424, i32 noundef 2, i32 noundef -2147483648) #16
+  %426 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %425, ptr noundef nonnull %0, i32 noundef %424, i32 noundef 2, i32 noundef -2147483648) #16
   %427 = add nuw nsw i32 %.03971, 3
   %428 = load i32, ptr @hf_btmesh_config_model_publication_status_publishaddress, align 4
-  %429 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %428, ptr noundef %0, i32 noundef %427, i32 noundef 2, i32 noundef -2147483648) #16
+  %429 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %428, ptr noundef nonnull %0, i32 noundef %427, i32 noundef 2, i32 noundef -2147483648) #16
   %430 = add nuw nsw i32 %.03971, 5
   %431 = load i32, ptr @hf_btmesh_config_model_publication_status_appkey, align 4
-  %432 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %431, ptr noundef %0, i32 noundef %430, i32 noundef 2, i32 noundef -2147483648) #16
+  %432 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %431, ptr noundef nonnull %0, i32 noundef %430, i32 noundef 2, i32 noundef -2147483648) #16
   %433 = load i32, ptr @ett_btmesh_config_model_pub_app_index, align 4
   %434 = call ptr @proto_item_add_subtree(ptr noundef %432, i32 noundef %433) #16
   %435 = load i32, ptr @hf_btmesh_config_model_publication_status_appkeyindex, align 4
-  %436 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %435, ptr noundef %0, i32 noundef %430, i32 noundef 2, i32 noundef -2147483648) #16
+  %436 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %435, ptr noundef nonnull %0, i32 noundef %430, i32 noundef 2, i32 noundef -2147483648) #16
   %437 = load i32, ptr @hf_btmesh_config_model_publication_status_credentialflag, align 4
-  %438 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %437, ptr noundef %0, i32 noundef %430, i32 noundef 2, i32 noundef -2147483648) #16
+  %438 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %437, ptr noundef nonnull %0, i32 noundef %430, i32 noundef 2, i32 noundef -2147483648) #16
   %439 = load i32, ptr @hf_btmesh_config_model_publication_status_rfu, align 4
-  %440 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %439, ptr noundef %0, i32 noundef %430, i32 noundef 2, i32 noundef -2147483648) #16
+  %440 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %439, ptr noundef nonnull %0, i32 noundef %430, i32 noundef 2, i32 noundef -2147483648) #16
   %441 = add nuw nsw i32 %.03971, 7
   %442 = load i32, ptr @hf_btmesh_config_model_publication_status_publishttl, align 4
-  %443 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %442, ptr noundef %0, i32 noundef %441, i32 noundef 1, i32 noundef -2147483648) #16
+  %443 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %442, ptr noundef nonnull %0, i32 noundef %441, i32 noundef 1, i32 noundef -2147483648) #16
   %444 = or disjoint i32 %.03971, 8
   %445 = load i32, ptr @hf_btmesh_config_model_publication_status_publishperiod, align 4
-  %446 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %445, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef -2147483648) #16
+  %446 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %445, ptr noundef nonnull %0, i32 noundef %444, i32 noundef 1, i32 noundef -2147483648) #16
   %447 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %448 = call ptr @proto_item_add_subtree(ptr noundef %446, i32 noundef %447) #16
   %449 = load i32, ptr @hf_btmesh_config_model_publication_status_publishperiod_steps, align 4
-  %450 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %449, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef -2147483648) #16
+  %450 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %449, ptr noundef nonnull %0, i32 noundef %444, i32 noundef 1, i32 noundef -2147483648) #16
   %451 = load i32, ptr @hf_btmesh_config_model_publication_status_publishperiod_resolution, align 4
-  %452 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %451, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef -2147483648) #16
+  %452 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %451, ptr noundef nonnull %0, i32 noundef %444, i32 noundef 1, i32 noundef -2147483648) #16
   %453 = add nuw nsw i32 %.03971, 9
   %454 = load i32, ptr @hf_btmesh_config_model_publication_status_publishretransmit, align 4
-  %455 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %454, ptr noundef %0, i32 noundef %453, i32 noundef 1, i32 noundef -2147483648) #16
+  %455 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %454, ptr noundef nonnull %0, i32 noundef %453, i32 noundef 1, i32 noundef -2147483648) #16
   %456 = load i32, ptr @ett_btmesh_config_model_publishretransmit, align 4
   %457 = call ptr @proto_item_add_subtree(ptr noundef %455, i32 noundef %456) #16
   %458 = load i32, ptr @hf_btmesh_config_model_publication_status_publishretransmit_count, align 4
-  %459 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %458, ptr noundef %0, i32 noundef %453, i32 noundef 1, i32 noundef -2147483648) #16
+  %459 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %458, ptr noundef nonnull %0, i32 noundef %453, i32 noundef 1, i32 noundef -2147483648) #16
   %460 = load i32, ptr @hf_btmesh_config_model_publication_status_publishretransmit_intervalsteps, align 4
-  %461 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %460, ptr noundef %0, i32 noundef %453, i32 noundef 1, i32 noundef -2147483648) #16
+  %461 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %460, ptr noundef nonnull %0, i32 noundef %453, i32 noundef 1, i32 noundef -2147483648) #16
   %462 = add nuw nsw i32 %.03971, 10
-  %463 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %462) #16
+  %463 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %462) #16
   %464 = icmp sgt i32 %463, 2
   br i1 %464, label %465, label %469
 
 465:                                              ; preds = %421
   %466 = load i32, ptr @hf_btmesh_config_model_publication_status_vendormodelidentifier, align 4
-  %467 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %466, ptr noundef %0, i32 noundef %462, i32 noundef 4, i32 noundef -2147483648) #16
+  %467 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %466, ptr noundef nonnull %0, i32 noundef %462, i32 noundef 4, i32 noundef -2147483648) #16
   %468 = add nuw nsw i32 %.03971, 14
   br label %.loopexit3981
 
 469:                                              ; preds = %421
   %470 = load i32, ptr @hf_btmesh_config_model_publication_status_modelidentifier, align 4
-  %471 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %470, ptr noundef %0, i32 noundef %462, i32 noundef 2, i32 noundef -2147483648) #16
+  %471 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %470, ptr noundef nonnull %0, i32 noundef %462, i32 noundef 2, i32 noundef -2147483648) #16
   %472 = or disjoint i32 %.03971, 12
   br label %.loopexit3981
 
 473:                                              ; preds = %42
   %474 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_elementaddress, align 4
-  %475 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %474, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %475 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %474, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %476 = add nuw nsw i32 %.03971, 2
   %477 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_publishaddress, align 4
-  %478 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %477, ptr noundef %0, i32 noundef %476, i32 noundef 16, i32 noundef 0) #16
+  %478 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %477, ptr noundef nonnull %0, i32 noundef %476, i32 noundef 16, i32 noundef 0) #16
   %479 = add nuw nsw i32 %.03971, 18
   %480 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_appkey, align 4
-  %481 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %480, ptr noundef %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #16
+  %481 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %480, ptr noundef nonnull %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #16
   %482 = load i32, ptr @ett_btmesh_config_model_pub_app_index, align 4
   %483 = call ptr @proto_item_add_subtree(ptr noundef %481, i32 noundef %482) #16
   %484 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_appkeyindex, align 4
-  %485 = call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %484, ptr noundef %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #16
+  %485 = call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %484, ptr noundef nonnull %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #16
   %486 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_credentialflag, align 4
-  %487 = call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %486, ptr noundef %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #16
+  %487 = call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %486, ptr noundef nonnull %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #16
   %488 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_rfu, align 4
-  %489 = call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %488, ptr noundef %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #16
+  %489 = call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %488, ptr noundef nonnull %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #16
   %490 = or disjoint i32 %.03971, 20
   %491 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_publishttl, align 4
-  %492 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %491, ptr noundef %0, i32 noundef %490, i32 noundef 1, i32 noundef -2147483648) #16
+  %492 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %491, ptr noundef nonnull %0, i32 noundef %490, i32 noundef 1, i32 noundef -2147483648) #16
   %493 = add nuw nsw i32 %.03971, 21
   %494 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_publishperiod, align 4
-  %495 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %494, ptr noundef %0, i32 noundef %493, i32 noundef 1, i32 noundef -2147483648) #16
+  %495 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %494, ptr noundef nonnull %0, i32 noundef %493, i32 noundef 1, i32 noundef -2147483648) #16
   %496 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %497 = call ptr @proto_item_add_subtree(ptr noundef %495, i32 noundef %496) #16
   %498 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_publishperiod_steps, align 4
-  %499 = call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %498, ptr noundef %0, i32 noundef %493, i32 noundef 1, i32 noundef -2147483648) #16
+  %499 = call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %498, ptr noundef nonnull %0, i32 noundef %493, i32 noundef 1, i32 noundef -2147483648) #16
   %500 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_publishperiod_resolution, align 4
-  %501 = call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %500, ptr noundef %0, i32 noundef %493, i32 noundef 1, i32 noundef -2147483648) #16
+  %501 = call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %500, ptr noundef nonnull %0, i32 noundef %493, i32 noundef 1, i32 noundef -2147483648) #16
   %502 = add nuw nsw i32 %.03971, 22
   %503 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_publishretransmit, align 4
-  %504 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %503, ptr noundef %0, i32 noundef %502, i32 noundef 1, i32 noundef -2147483648) #16
+  %504 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %503, ptr noundef nonnull %0, i32 noundef %502, i32 noundef 1, i32 noundef -2147483648) #16
   %505 = load i32, ptr @ett_btmesh_config_model_publishretransmit, align 4
   %506 = call ptr @proto_item_add_subtree(ptr noundef %504, i32 noundef %505) #16
   %507 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_publishretransmit_count, align 4
-  %508 = call ptr @proto_tree_add_item(ptr noundef %506, i32 noundef %507, ptr noundef %0, i32 noundef %502, i32 noundef 1, i32 noundef -2147483648) #16
+  %508 = call ptr @proto_tree_add_item(ptr noundef %506, i32 noundef %507, ptr noundef nonnull %0, i32 noundef %502, i32 noundef 1, i32 noundef -2147483648) #16
   %509 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_publishretransmit_intervalsteps, align 4
-  %510 = call ptr @proto_tree_add_item(ptr noundef %506, i32 noundef %509, ptr noundef %0, i32 noundef %502, i32 noundef 1, i32 noundef -2147483648) #16
+  %510 = call ptr @proto_tree_add_item(ptr noundef %506, i32 noundef %509, ptr noundef nonnull %0, i32 noundef %502, i32 noundef 1, i32 noundef -2147483648) #16
   %511 = add nuw nsw i32 %.03971, 23
-  %512 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %511) #16
+  %512 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %511) #16
   %513 = icmp sgt i32 %512, 2
   br i1 %513, label %514, label %518
 
 514:                                              ; preds = %473
   %515 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_vendormodelidentifier, align 4
-  %516 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %515, ptr noundef %0, i32 noundef %511, i32 noundef 4, i32 noundef -2147483648) #16
+  %516 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %515, ptr noundef nonnull %0, i32 noundef %511, i32 noundef 4, i32 noundef -2147483648) #16
   %517 = add nuw nsw i32 %.03971, 27
   br label %.loopexit3981
 
 518:                                              ; preds = %473
   %519 = load i32, ptr @hf_btmesh_config_model_publication_virtual_address_set_modelidentifier, align 4
-  %520 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %519, ptr noundef %0, i32 noundef %511, i32 noundef 2, i32 noundef -2147483648) #16
+  %520 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %519, ptr noundef nonnull %0, i32 noundef %511, i32 noundef 2, i32 noundef -2147483648) #16
   %521 = add nuw nsw i32 %.03971, 25
   br label %.loopexit3981
 
 522:                                              ; preds = %42
   %523 = load i32, ptr @hf_btmesh_config_model_subscription_add_elementaddress, align 4
-  %524 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %523, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %524 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %523, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %525 = add nuw nsw i32 %.03971, 2
   %526 = load i32, ptr @hf_btmesh_config_model_subscription_add_address, align 4
-  %527 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %526, ptr noundef %0, i32 noundef %525, i32 noundef 2, i32 noundef -2147483648) #16
+  %527 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %526, ptr noundef nonnull %0, i32 noundef %525, i32 noundef 2, i32 noundef -2147483648) #16
   %528 = or disjoint i32 %.03971, 4
-  %529 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %528) #16
+  %529 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %528) #16
   %530 = icmp sgt i32 %529, 2
   br i1 %530, label %531, label %535
 
 531:                                              ; preds = %522
   %532 = load i32, ptr @hf_btmesh_config_model_subscription_add_vendormodelidentifier, align 4
-  %533 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %532, ptr noundef %0, i32 noundef %528, i32 noundef 4, i32 noundef -2147483648) #16
+  %533 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %532, ptr noundef nonnull %0, i32 noundef %528, i32 noundef 4, i32 noundef -2147483648) #16
   %534 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 535:                                              ; preds = %522
   %536 = load i32, ptr @hf_btmesh_config_model_subscription_add_modelidentifier, align 4
-  %537 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %536, ptr noundef %0, i32 noundef %528, i32 noundef 2, i32 noundef -2147483648) #16
+  %537 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %536, ptr noundef nonnull %0, i32 noundef %528, i32 noundef 2, i32 noundef -2147483648) #16
   %538 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 539:                                              ; preds = %42
   %540 = load i32, ptr @hf_btmesh_config_model_subscription_delete_elementaddress, align 4
-  %541 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %540, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %541 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %540, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %542 = add nuw nsw i32 %.03971, 2
   %543 = load i32, ptr @hf_btmesh_config_model_subscription_delete_address, align 4
-  %544 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %543, ptr noundef %0, i32 noundef %542, i32 noundef 2, i32 noundef -2147483648) #16
+  %544 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %543, ptr noundef nonnull %0, i32 noundef %542, i32 noundef 2, i32 noundef -2147483648) #16
   %545 = or disjoint i32 %.03971, 4
-  %546 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %545) #16
+  %546 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %545) #16
   %547 = icmp sgt i32 %546, 2
   br i1 %547, label %548, label %552
 
 548:                                              ; preds = %539
   %549 = load i32, ptr @hf_btmesh_config_model_subscription_delete_vendormodelidentifier, align 4
-  %550 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %549, ptr noundef %0, i32 noundef %545, i32 noundef 4, i32 noundef -2147483648) #16
+  %550 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %549, ptr noundef nonnull %0, i32 noundef %545, i32 noundef 4, i32 noundef -2147483648) #16
   %551 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 552:                                              ; preds = %539
   %553 = load i32, ptr @hf_btmesh_config_model_subscription_delete_modelidentifier, align 4
-  %554 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %553, ptr noundef %0, i32 noundef %545, i32 noundef 2, i32 noundef -2147483648) #16
+  %554 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %553, ptr noundef nonnull %0, i32 noundef %545, i32 noundef 2, i32 noundef -2147483648) #16
   %555 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 556:                                              ; preds = %42
   %557 = load i32, ptr @hf_btmesh_config_model_subscription_delete_all_elementaddress, align 4
-  %558 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %557, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %558 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %557, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %559 = add nuw nsw i32 %.03971, 2
-  %560 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %559) #16
+  %560 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %559) #16
   %561 = icmp sgt i32 %560, 2
   br i1 %561, label %562, label %566
 
 562:                                              ; preds = %556
   %563 = load i32, ptr @hf_btmesh_config_model_subscription_delete_all_vendormodelidentifier, align 4
-  %564 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %563, ptr noundef %0, i32 noundef %559, i32 noundef 4, i32 noundef -2147483648) #16
+  %564 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %563, ptr noundef nonnull %0, i32 noundef %559, i32 noundef 4, i32 noundef -2147483648) #16
   %565 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 566:                                              ; preds = %556
   %567 = load i32, ptr @hf_btmesh_config_model_subscription_delete_all_modelidentifier, align 4
-  %568 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %567, ptr noundef %0, i32 noundef %559, i32 noundef 2, i32 noundef -2147483648) #16
+  %568 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %567, ptr noundef nonnull %0, i32 noundef %559, i32 noundef 2, i32 noundef -2147483648) #16
   %569 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 570:                                              ; preds = %42
   %571 = load i32, ptr @hf_btmesh_config_model_subscription_overwrite_elementaddress, align 4
-  %572 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %571, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %572 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %571, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %573 = add nuw nsw i32 %.03971, 2
   %574 = load i32, ptr @hf_btmesh_config_model_subscription_overwrite_address, align 4
-  %575 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %574, ptr noundef %0, i32 noundef %573, i32 noundef 2, i32 noundef -2147483648) #16
+  %575 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %574, ptr noundef nonnull %0, i32 noundef %573, i32 noundef 2, i32 noundef -2147483648) #16
   %576 = or disjoint i32 %.03971, 4
-  %577 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %576) #16
+  %577 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %576) #16
   %578 = icmp sgt i32 %577, 2
   br i1 %578, label %579, label %583
 
 579:                                              ; preds = %570
   %580 = load i32, ptr @hf_btmesh_config_model_subscription_overwrite_vendormodelidentifier, align 4
-  %581 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %580, ptr noundef %0, i32 noundef %576, i32 noundef 4, i32 noundef -2147483648) #16
+  %581 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %580, ptr noundef nonnull %0, i32 noundef %576, i32 noundef 4, i32 noundef -2147483648) #16
   %582 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 583:                                              ; preds = %570
   %584 = load i32, ptr @hf_btmesh_config_model_subscription_overwrite_modelidentifier, align 4
-  %585 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %584, ptr noundef %0, i32 noundef %576, i32 noundef 2, i32 noundef -2147483648) #16
+  %585 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %584, ptr noundef nonnull %0, i32 noundef %576, i32 noundef 2, i32 noundef -2147483648) #16
   %586 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 587:                                              ; preds = %42
   %588 = load i32, ptr @hf_btmesh_config_model_subscription_status_status, align 4
-  %589 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %588, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %589 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %588, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %590 = add nuw nsw i32 %.03971, 1
   %591 = load i32, ptr @hf_btmesh_config_model_subscription_status_elementaddress, align 4
-  %592 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %591, ptr noundef %0, i32 noundef %590, i32 noundef 2, i32 noundef -2147483648) #16
+  %592 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %591, ptr noundef nonnull %0, i32 noundef %590, i32 noundef 2, i32 noundef -2147483648) #16
   %593 = add nuw nsw i32 %.03971, 3
   %594 = load i32, ptr @hf_btmesh_config_model_subscription_status_address, align 4
-  %595 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %594, ptr noundef %0, i32 noundef %593, i32 noundef 2, i32 noundef -2147483648) #16
+  %595 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %594, ptr noundef nonnull %0, i32 noundef %593, i32 noundef 2, i32 noundef -2147483648) #16
   %596 = add nuw nsw i32 %.03971, 5
-  %597 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %596) #16
+  %597 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %596) #16
   %598 = icmp sgt i32 %597, 2
   br i1 %598, label %599, label %603
 
 599:                                              ; preds = %587
   %600 = load i32, ptr @hf_btmesh_config_model_subscription_status_vendormodelidentifier, align 4
-  %601 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %600, ptr noundef %0, i32 noundef %596, i32 noundef 4, i32 noundef -2147483648) #16
+  %601 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %600, ptr noundef nonnull %0, i32 noundef %596, i32 noundef 4, i32 noundef -2147483648) #16
   %602 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 603:                                              ; preds = %587
   %604 = load i32, ptr @hf_btmesh_config_model_subscription_status_modelidentifier, align 4
-  %605 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %604, ptr noundef %0, i32 noundef %596, i32 noundef 2, i32 noundef -2147483648) #16
+  %605 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %604, ptr noundef nonnull %0, i32 noundef %596, i32 noundef 2, i32 noundef -2147483648) #16
   %606 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 607:                                              ; preds = %42
   %608 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_add_elementaddress, align 4
-  %609 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %608, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %609 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %608, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %610 = add nuw nsw i32 %.03971, 2
   %611 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_add_label, align 4
-  %612 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %611, ptr noundef %0, i32 noundef %610, i32 noundef 16, i32 noundef 0) #16
+  %612 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %611, ptr noundef nonnull %0, i32 noundef %610, i32 noundef 16, i32 noundef 0) #16
   %613 = add nuw nsw i32 %.03971, 18
-  %614 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %613) #16
+  %614 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %613) #16
   %615 = icmp sgt i32 %614, 2
   br i1 %615, label %616, label %620
 
 616:                                              ; preds = %607
   %617 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_add_vendormodelidentifier, align 4
-  %618 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %617, ptr noundef %0, i32 noundef %613, i32 noundef 4, i32 noundef -2147483648) #16
+  %618 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %617, ptr noundef nonnull %0, i32 noundef %613, i32 noundef 4, i32 noundef -2147483648) #16
   %619 = add nuw nsw i32 %.03971, 22
   br label %.loopexit3981
 
 620:                                              ; preds = %607
   %621 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_add_modelidentifier, align 4
-  %622 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %621, ptr noundef %0, i32 noundef %613, i32 noundef 2, i32 noundef -2147483648) #16
+  %622 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %621, ptr noundef nonnull %0, i32 noundef %613, i32 noundef 2, i32 noundef -2147483648) #16
   %623 = or disjoint i32 %.03971, 20
   br label %.loopexit3981
 
 624:                                              ; preds = %42
   %625 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_delete_elementaddress, align 4
-  %626 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %625, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %626 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %625, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %627 = add nuw nsw i32 %.03971, 2
   %628 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_delete_label, align 4
-  %629 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %628, ptr noundef %0, i32 noundef %627, i32 noundef 16, i32 noundef 0) #16
+  %629 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %628, ptr noundef nonnull %0, i32 noundef %627, i32 noundef 16, i32 noundef 0) #16
   %630 = add nuw nsw i32 %.03971, 18
-  %631 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %630) #16
+  %631 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %630) #16
   %632 = icmp sgt i32 %631, 2
   br i1 %632, label %633, label %637
 
 633:                                              ; preds = %624
   %634 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_delete_vendormodelidentifier, align 4
-  %635 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %634, ptr noundef %0, i32 noundef %630, i32 noundef 4, i32 noundef -2147483648) #16
+  %635 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %634, ptr noundef nonnull %0, i32 noundef %630, i32 noundef 4, i32 noundef -2147483648) #16
   %636 = add nuw nsw i32 %.03971, 22
   br label %.loopexit3981
 
 637:                                              ; preds = %624
   %638 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_delete_modelidentifier, align 4
-  %639 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %638, ptr noundef %0, i32 noundef %630, i32 noundef 2, i32 noundef -2147483648) #16
+  %639 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %638, ptr noundef nonnull %0, i32 noundef %630, i32 noundef 2, i32 noundef -2147483648) #16
   %640 = or disjoint i32 %.03971, 20
   br label %.loopexit3981
 
 641:                                              ; preds = %42
   %642 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_overwrite_elementaddress, align 4
-  %643 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %642, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %643 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %642, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %644 = add nuw nsw i32 %.03971, 2
   %645 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_overwrite_label, align 4
-  %646 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %645, ptr noundef %0, i32 noundef %644, i32 noundef 16, i32 noundef 0) #16
+  %646 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %645, ptr noundef nonnull %0, i32 noundef %644, i32 noundef 16, i32 noundef 0) #16
   %647 = add nuw nsw i32 %.03971, 18
-  %648 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %647) #16
+  %648 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %647) #16
   %649 = icmp sgt i32 %648, 2
   br i1 %649, label %650, label %654
 
 650:                                              ; preds = %641
   %651 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_overwrite_vendormodelidentifier, align 4
-  %652 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %651, ptr noundef %0, i32 noundef %647, i32 noundef 4, i32 noundef -2147483648) #16
+  %652 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %651, ptr noundef nonnull %0, i32 noundef %647, i32 noundef 4, i32 noundef -2147483648) #16
   %653 = add nuw nsw i32 %.03971, 22
   br label %.loopexit3981
 
 654:                                              ; preds = %641
   %655 = load i32, ptr @hf_btmesh_config_model_subscription_virtual_address_overwrite_modelidentifier, align 4
-  %656 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %655, ptr noundef %0, i32 noundef %647, i32 noundef 2, i32 noundef -2147483648) #16
+  %656 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %655, ptr noundef nonnull %0, i32 noundef %647, i32 noundef 2, i32 noundef -2147483648) #16
   %657 = or disjoint i32 %.03971, 20
   br label %.loopexit3981
 
 658:                                              ; preds = %42
   %659 = load i32, ptr @hf_btmesh_config_network_transmit_set_networktransmit, align 4
-  %660 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %659, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %660 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %659, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %661 = load i32, ptr @ett_btmesh_config_model_network_transmit, align 4
   %662 = call ptr @proto_item_add_subtree(ptr noundef %660, i32 noundef %661) #16
   %663 = load i32, ptr @hf_btmesh_config_network_transmit_set_networktransmit_count, align 4
-  %664 = call ptr @proto_tree_add_item(ptr noundef %662, i32 noundef %663, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %664 = call ptr @proto_tree_add_item(ptr noundef %662, i32 noundef %663, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %665 = load i32, ptr @hf_btmesh_config_network_transmit_set_networktransmit_intervalsteps, align 4
-  %666 = call ptr @proto_tree_add_item(ptr noundef %662, i32 noundef %665, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %666 = call ptr @proto_tree_add_item(ptr noundef %662, i32 noundef %665, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %667 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 668:                                              ; preds = %42
   %669 = load i32, ptr @hf_btmesh_config_network_transmit_status_networktransmit, align 4
-  %670 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %669, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %670 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %669, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %671 = load i32, ptr @ett_btmesh_config_model_network_transmit, align 4
   %672 = call ptr @proto_item_add_subtree(ptr noundef %670, i32 noundef %671) #16
   %673 = load i32, ptr @hf_btmesh_config_network_transmit_status_networktransmit_count, align 4
-  %674 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %673, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %674 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %673, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %675 = load i32, ptr @hf_btmesh_config_network_transmit_status_networktransmit_intervalsteps, align 4
-  %676 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %675, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %676 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %675, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %677 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 678:                                              ; preds = %42
   %679 = load i32, ptr @hf_btmesh_config_relay_set_relay, align 4
-  %680 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %679, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %680 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %679, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %681 = add nuw nsw i32 %.03971, 1
   %682 = load i32, ptr @hf_btmesh_config_relay_set_relayretransmit, align 4
-  %683 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %682, ptr noundef %0, i32 noundef %681, i32 noundef 1, i32 noundef -2147483648) #16
+  %683 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %682, ptr noundef nonnull %0, i32 noundef %681, i32 noundef 1, i32 noundef -2147483648) #16
   %684 = load i32, ptr @ett_btmesh_config_model_relayretransmit, align 4
   %685 = call ptr @proto_item_add_subtree(ptr noundef %683, i32 noundef %684) #16
   %686 = load i32, ptr @hf_btmesh_config_relay_set_relayretransmit_count, align 4
-  %687 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %686, ptr noundef %0, i32 noundef %681, i32 noundef 1, i32 noundef -2147483648) #16
+  %687 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %686, ptr noundef nonnull %0, i32 noundef %681, i32 noundef 1, i32 noundef -2147483648) #16
   %688 = load i32, ptr @hf_btmesh_config_relay_set_relayretransmit_intervalsteps, align 4
-  %689 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %688, ptr noundef %0, i32 noundef %681, i32 noundef 1, i32 noundef -2147483648) #16
+  %689 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %688, ptr noundef nonnull %0, i32 noundef %681, i32 noundef 1, i32 noundef -2147483648) #16
   %690 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 691:                                              ; preds = %42
   %692 = load i32, ptr @hf_btmesh_config_relay_status_relay, align 4
-  %693 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %692, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %693 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %692, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %694 = add nuw nsw i32 %.03971, 1
   %695 = load i32, ptr @hf_btmesh_config_relay_status_relayretransmit, align 4
-  %696 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %695, ptr noundef %0, i32 noundef %694, i32 noundef 1, i32 noundef -2147483648) #16
+  %696 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %695, ptr noundef nonnull %0, i32 noundef %694, i32 noundef 1, i32 noundef -2147483648) #16
   %697 = load i32, ptr @ett_btmesh_config_model_relayretransmit, align 4
   %698 = call ptr @proto_item_add_subtree(ptr noundef %696, i32 noundef %697) #16
   %699 = load i32, ptr @hf_btmesh_config_relay_status_relayretransmit_count, align 4
-  %700 = call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %699, ptr noundef %0, i32 noundef %694, i32 noundef 1, i32 noundef -2147483648) #16
+  %700 = call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %699, ptr noundef nonnull %0, i32 noundef %694, i32 noundef 1, i32 noundef -2147483648) #16
   %701 = load i32, ptr @hf_btmesh_config_relay_status_relayretransmit_intervalsteps, align 4
-  %702 = call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %701, ptr noundef %0, i32 noundef %694, i32 noundef 1, i32 noundef -2147483648) #16
+  %702 = call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %701, ptr noundef nonnull %0, i32 noundef %694, i32 noundef 1, i32 noundef -2147483648) #16
   %703 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 704:                                              ; preds = %42
   %705 = load i32, ptr @hf_btmesh_config_sig_model_subscription_get_elementaddress, align 4
-  %706 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %705, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %706 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %705, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %707 = add nuw nsw i32 %.03971, 2
   %708 = load i32, ptr @hf_btmesh_config_sig_model_subscription_get_modelidentifier, align 4
-  %709 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %708, ptr noundef %0, i32 noundef %707, i32 noundef 2, i32 noundef -2147483648) #16
+  %709 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %708, ptr noundef nonnull %0, i32 noundef %707, i32 noundef 2, i32 noundef -2147483648) #16
   %710 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 711:                                              ; preds = %42
   %712 = load i32, ptr @hf_btmesh_config_sig_model_subscription_list_status, align 4
-  %713 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %712, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %713 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %712, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %714 = add nuw nsw i32 %.03971, 1
   %715 = load i32, ptr @hf_btmesh_config_sig_model_subscription_list_elementaddress, align 4
-  %716 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %715, ptr noundef %0, i32 noundef %714, i32 noundef 2, i32 noundef -2147483648) #16
+  %716 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %715, ptr noundef nonnull %0, i32 noundef %714, i32 noundef 2, i32 noundef -2147483648) #16
   %717 = add nuw nsw i32 %.03971, 3
   %718 = load i32, ptr @hf_btmesh_config_sig_model_subscription_list_modelidentifier, align 4
-  %719 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %718, ptr noundef %0, i32 noundef %717, i32 noundef 2, i32 noundef -2147483648) #16
+  %719 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %718, ptr noundef nonnull %0, i32 noundef %717, i32 noundef 2, i32 noundef -2147483648) #16
   %720 = add nuw nsw i32 %.03971, 5
-  %721 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %720) #16
+  %721 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %720) #16
   %722 = load i32, ptr @ett_btmesh_config_model_addresses, align 4
-  %723 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %720, i32 noundef %721, i32 noundef %722, ptr noundef null, ptr noundef nonnull @.str.2201) #16
-  %724 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %720) #16
+  %723 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %720, i32 noundef %721, i32 noundef %722, ptr noundef null, ptr noundef nonnull @.str.2201) #16
+  %724 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %720) #16
   %725 = icmp sgt i32 %724, 1
   br i1 %725, label %.lr.ph4038, label %.loopexit3981
 
 .lr.ph4038:                                       ; preds = %711, %.lr.ph4038
   %.114037 = phi i32 [ %728, %.lr.ph4038 ], [ %720, %711 ]
   %726 = load i32, ptr @hf_btmesh_config_sig_model_subscription_list_address, align 4
-  %727 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %726, ptr noundef %0, i32 noundef %.114037, i32 noundef 2, i32 noundef -2147483648) #16
+  %727 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %726, ptr noundef nonnull %0, i32 noundef %.114037, i32 noundef 2, i32 noundef -2147483648) #16
   %728 = add i32 %.114037, 2
-  %729 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %728) #16
+  %729 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %728) #16
   %730 = icmp sgt i32 %729, 1
   br i1 %730, label %.lr.ph4038, label %.loopexit3981, !llvm.loop !21
 
 731:                                              ; preds = %42
   %732 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_get_elementaddress, align 4
-  %733 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %732, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %733 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %732, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %734 = add nuw nsw i32 %.03971, 2
   %735 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_get_modelidentifier, align 4
-  %736 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %735, ptr noundef %0, i32 noundef %734, i32 noundef 4, i32 noundef -2147483648) #16
+  %736 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %735, ptr noundef nonnull %0, i32 noundef %734, i32 noundef 4, i32 noundef -2147483648) #16
   %737 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 738:                                              ; preds = %42
   %739 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_list_status, align 4
-  %740 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %739, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %740 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %739, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %741 = add nuw nsw i32 %.03971, 1
   %742 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_list_elementaddress, align 4
-  %743 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %742, ptr noundef %0, i32 noundef %741, i32 noundef 2, i32 noundef -2147483648) #16
+  %743 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %742, ptr noundef nonnull %0, i32 noundef %741, i32 noundef 2, i32 noundef -2147483648) #16
   %744 = add nuw nsw i32 %.03971, 3
   %745 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_list_modelidentifier, align 4
-  %746 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %745, ptr noundef %0, i32 noundef %744, i32 noundef 4, i32 noundef -2147483648) #16
+  %746 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %745, ptr noundef nonnull %0, i32 noundef %744, i32 noundef 4, i32 noundef -2147483648) #16
   %747 = add nuw nsw i32 %.03971, 7
-  %748 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %747) #16
+  %748 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %747) #16
   %749 = load i32, ptr @ett_btmesh_config_model_addresses, align 4
-  %750 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %747, i32 noundef %748, i32 noundef %749, ptr noundef null, ptr noundef nonnull @.str.2201) #16
-  %751 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %747) #16
+  %750 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %747, i32 noundef %748, i32 noundef %749, ptr noundef null, ptr noundef nonnull @.str.2201) #16
+  %751 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %747) #16
   %752 = icmp sgt i32 %751, 1
   br i1 %752, label %.lr.ph4035, label %.loopexit3981
 
 .lr.ph4035:                                       ; preds = %738, %.lr.ph4035
   %.124034 = phi i32 [ %755, %.lr.ph4035 ], [ %747, %738 ]
   %753 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_list_address, align 4
-  %754 = call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %753, ptr noundef %0, i32 noundef %.124034, i32 noundef 2, i32 noundef -2147483648) #16
+  %754 = call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %753, ptr noundef nonnull %0, i32 noundef %.124034, i32 noundef 2, i32 noundef -2147483648) #16
   %755 = add i32 %.124034, 2
-  %756 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %755) #16
+  %756 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %755) #16
   %757 = icmp sgt i32 %756, 1
   br i1 %757, label %.lr.ph4035, label %.loopexit3981, !llvm.loop !22
 
 758:                                              ; preds = %42
   %759 = load i32, ptr @hf_btmesh_config_low_power_node_polltimeout_get_lpnaddress, align 4
-  %760 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %759, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %760 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %759, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %761 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 762:                                              ; preds = %42
   %763 = load i32, ptr @hf_btmesh_config_low_power_node_polltimeout_status_lpnaddress, align 4
-  %764 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %763, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %764 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %763, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %765 = add nuw nsw i32 %.03971, 2
   %766 = load i32, ptr @hf_btmesh_config_low_power_node_polltimeout_status_polltimeout, align 4
-  %767 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %766, ptr noundef %0, i32 noundef %765, i32 noundef 3, i32 noundef -2147483648) #16
+  %767 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %766, ptr noundef nonnull %0, i32 noundef %765, i32 noundef 3, i32 noundef -2147483648) #16
   %768 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 769:                                              ; preds = %42
   %770 = load i32, ptr @hf_btmesh_health_fault_clear_company_id, align 4
-  %771 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %770, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %771 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %770, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %772 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 773:                                              ; preds = %42
   %774 = load i32, ptr @hf_btmesh_health_fault_clear_unacknowledged_company_id, align 4
-  %775 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %774, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %775 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %774, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %776 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 777:                                              ; preds = %42
   %778 = load i32, ptr @hf_btmesh_health_fault_get_company_id, align 4
-  %779 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %778, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %779 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %778, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %780 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 781:                                              ; preds = %42
   %782 = load i32, ptr @hf_btmesh_health_fault_test_test_id, align 4
-  %783 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %782, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %783 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %782, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %784 = add nuw nsw i32 %.03971, 1
   %785 = load i32, ptr @hf_btmesh_health_fault_test_company_id, align 4
-  %786 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %785, ptr noundef %0, i32 noundef %784, i32 noundef 2, i32 noundef -2147483648) #16
+  %786 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %785, ptr noundef nonnull %0, i32 noundef %784, i32 noundef 2, i32 noundef -2147483648) #16
   %787 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 788:                                              ; preds = %42
   %789 = load i32, ptr @hf_btmesh_health_fault_test_unacknowledged_test_id, align 4
-  %790 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %789, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %790 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %789, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %791 = add nuw nsw i32 %.03971, 1
   %792 = load i32, ptr @hf_btmesh_health_fault_test_unacknowledged_company_id, align 4
-  %793 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %792, ptr noundef %0, i32 noundef %791, i32 noundef 2, i32 noundef -2147483648) #16
+  %793 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %792, ptr noundef nonnull %0, i32 noundef %791, i32 noundef 2, i32 noundef -2147483648) #16
   %794 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 795:                                              ; preds = %42
   %796 = load i32, ptr @hf_btmesh_health_period_set_fast_period_divisor, align 4
-  %797 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %796, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %797 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %796, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %798 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 799:                                              ; preds = %42
   %800 = load i32, ptr @hf_btmesh_health_period_set_unacknowledged_fast_period_divisor, align 4
-  %801 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %800, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %801 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %800, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %802 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 803:                                              ; preds = %42
   %804 = load i32, ptr @hf_btmesh_health_period_status_fast_period_divisor, align 4
-  %805 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %804, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %805 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %804, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %806 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 807:                                              ; preds = %42
   %808 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_destination, align 4
-  %809 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %808, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %809 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %808, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %810 = add nuw nsw i32 %.03971, 2
   %811 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_countlog, align 4
-  %812 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %811, ptr noundef %0, i32 noundef %810, i32 noundef 1, i32 noundef -2147483648) #16
+  %812 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %811, ptr noundef nonnull %0, i32 noundef %810, i32 noundef 1, i32 noundef -2147483648) #16
   %813 = add nuw nsw i32 %.03971, 3
   %814 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_periodlog, align 4
-  %815 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %814, ptr noundef %0, i32 noundef %813, i32 noundef 1, i32 noundef -2147483648) #16
+  %815 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %814, ptr noundef nonnull %0, i32 noundef %813, i32 noundef 1, i32 noundef -2147483648) #16
   %816 = or disjoint i32 %.03971, 4
   %817 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_ttl, align 4
-  %818 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %817, ptr noundef %0, i32 noundef %816, i32 noundef 1, i32 noundef -2147483648) #16
+  %818 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %817, ptr noundef nonnull %0, i32 noundef %816, i32 noundef 1, i32 noundef -2147483648) #16
   %819 = add nuw nsw i32 %.03971, 5
   %820 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_features, align 4
   %821 = load i32, ptr @ett_btmesh_config_heartbeat_publication_set_features, align 4
-  %822 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %10, ptr noundef %0, i32 noundef %819, i32 noundef %820, i32 noundef %821, ptr noundef nonnull @config_heartbeat_publication_set_features_headers, i32 noundef -2147483648, i32 noundef 1) #16
+  %822 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %819, i32 noundef %820, i32 noundef %821, ptr noundef nonnull @config_heartbeat_publication_set_features_headers, i32 noundef -2147483648, i32 noundef 1) #16
   %823 = add nuw nsw i32 %.03971, 7
   %824 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_netkeyindex, align 4
-  %825 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %824, ptr noundef %0, i32 noundef %823, i32 noundef 2, i32 noundef -2147483648) #16
+  %825 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %824, ptr noundef nonnull %0, i32 noundef %823, i32 noundef 2, i32 noundef -2147483648) #16
   %826 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %827 = call ptr @proto_item_add_subtree(ptr noundef %825, i32 noundef %826) #16
   %828 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_netkeyindex_idx, align 4
-  %829 = call ptr @proto_tree_add_item(ptr noundef %827, i32 noundef %828, ptr noundef %0, i32 noundef %823, i32 noundef 2, i32 noundef -2147483648) #16
+  %829 = call ptr @proto_tree_add_item(ptr noundef %827, i32 noundef %828, ptr noundef nonnull %0, i32 noundef %823, i32 noundef 2, i32 noundef -2147483648) #16
   %830 = load i32, ptr @hf_btmesh_config_heartbeat_publication_set_netkeyindex_rfu, align 4
-  %831 = call ptr @proto_tree_add_item(ptr noundef %827, i32 noundef %830, ptr noundef %0, i32 noundef %823, i32 noundef 2, i32 noundef -2147483648) #16
+  %831 = call ptr @proto_tree_add_item(ptr noundef %827, i32 noundef %830, ptr noundef nonnull %0, i32 noundef %823, i32 noundef 2, i32 noundef -2147483648) #16
   %832 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 833:                                              ; preds = %42
   %834 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_set_source, align 4
-  %835 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %834, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %835 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %834, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %836 = add nuw nsw i32 %.03971, 2
   %837 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_set_destination, align 4
-  %838 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %837, ptr noundef %0, i32 noundef %836, i32 noundef 2, i32 noundef -2147483648) #16
+  %838 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %837, ptr noundef nonnull %0, i32 noundef %836, i32 noundef 2, i32 noundef -2147483648) #16
   %839 = or disjoint i32 %.03971, 4
   %840 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_set_periodlog, align 4
-  %841 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %840, ptr noundef %0, i32 noundef %839, i32 noundef 1, i32 noundef -2147483648) #16
+  %841 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %840, ptr noundef nonnull %0, i32 noundef %839, i32 noundef 1, i32 noundef -2147483648) #16
   %842 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 843:                                              ; preds = %42
   %844 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_status, align 4
-  %845 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %844, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %845 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %844, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %846 = add nuw nsw i32 %.03971, 1
   %847 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_source, align 4
-  %848 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %847, ptr noundef %0, i32 noundef %846, i32 noundef 2, i32 noundef -2147483648) #16
+  %848 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %847, ptr noundef nonnull %0, i32 noundef %846, i32 noundef 2, i32 noundef -2147483648) #16
   %849 = add nuw nsw i32 %.03971, 3
   %850 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_destination, align 4
-  %851 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %850, ptr noundef %0, i32 noundef %849, i32 noundef 2, i32 noundef -2147483648) #16
+  %851 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %850, ptr noundef nonnull %0, i32 noundef %849, i32 noundef 2, i32 noundef -2147483648) #16
   %852 = add nuw nsw i32 %.03971, 5
   %853 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_periodlog, align 4
-  %854 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %853, ptr noundef %0, i32 noundef %852, i32 noundef 1, i32 noundef -2147483648) #16
+  %854 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %853, ptr noundef nonnull %0, i32 noundef %852, i32 noundef 1, i32 noundef -2147483648) #16
   %855 = add nuw nsw i32 %.03971, 6
   %856 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_countlog, align 4
-  %857 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %856, ptr noundef %0, i32 noundef %855, i32 noundef 1, i32 noundef -2147483648) #16
+  %857 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %856, ptr noundef nonnull %0, i32 noundef %855, i32 noundef 1, i32 noundef -2147483648) #16
   %858 = add nuw nsw i32 %.03971, 7
   %859 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_minhops, align 4
-  %860 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %859, ptr noundef %0, i32 noundef %858, i32 noundef 1, i32 noundef -2147483648) #16
+  %860 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %859, ptr noundef nonnull %0, i32 noundef %858, i32 noundef 1, i32 noundef -2147483648) #16
   %861 = or disjoint i32 %.03971, 8
   %862 = load i32, ptr @hf_btmesh_config_heartbeat_subscription_status_maxhops, align 4
-  %863 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %862, ptr noundef %0, i32 noundef %861, i32 noundef 1, i32 noundef -2147483648) #16
+  %863 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %862, ptr noundef nonnull %0, i32 noundef %861, i32 noundef 1, i32 noundef -2147483648) #16
   %864 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 865:                                              ; preds = %42
   %866 = load i32, ptr @hf_btmesh_config_model_app_bind_elementaddress, align 4
-  %867 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %866, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %867 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %866, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %868 = add nuw nsw i32 %.03971, 2
   %869 = load i32, ptr @hf_btmesh_config_model_app_bind_appkeyindex, align 4
-  %870 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %869, ptr noundef %0, i32 noundef %868, i32 noundef 2, i32 noundef -2147483648) #16
+  %870 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %869, ptr noundef nonnull %0, i32 noundef %868, i32 noundef 2, i32 noundef -2147483648) #16
   %871 = load i32, ptr @ett_btmesh_config_model_app_index, align 4
   %872 = call ptr @proto_item_add_subtree(ptr noundef %870, i32 noundef %871) #16
   %873 = load i32, ptr @hf_btmesh_config_model_app_bind_appkeyindex_idx, align 4
-  %874 = call ptr @proto_tree_add_item(ptr noundef %872, i32 noundef %873, ptr noundef %0, i32 noundef %868, i32 noundef 2, i32 noundef -2147483648) #16
+  %874 = call ptr @proto_tree_add_item(ptr noundef %872, i32 noundef %873, ptr noundef nonnull %0, i32 noundef %868, i32 noundef 2, i32 noundef -2147483648) #16
   %875 = load i32, ptr @hf_btmesh_config_model_app_bind_appkeyindex_rfu, align 4
-  %876 = call ptr @proto_tree_add_item(ptr noundef %872, i32 noundef %875, ptr noundef %0, i32 noundef %868, i32 noundef 2, i32 noundef -2147483648) #16
+  %876 = call ptr @proto_tree_add_item(ptr noundef %872, i32 noundef %875, ptr noundef nonnull %0, i32 noundef %868, i32 noundef 2, i32 noundef -2147483648) #16
   %877 = or disjoint i32 %.03971, 4
-  %878 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %877) #16
+  %878 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %877) #16
   %879 = icmp sgt i32 %878, 2
   br i1 %879, label %880, label %884
 
 880:                                              ; preds = %865
   %881 = load i32, ptr @hf_btmesh_config_model_app_bind_vendormodelidentifier, align 4
-  %882 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %881, ptr noundef %0, i32 noundef %877, i32 noundef 4, i32 noundef -2147483648) #16
+  %882 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %881, ptr noundef nonnull %0, i32 noundef %877, i32 noundef 4, i32 noundef -2147483648) #16
   %883 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 884:                                              ; preds = %865
   %885 = load i32, ptr @hf_btmesh_config_model_app_bind_modelidentifier, align 4
-  %886 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %885, ptr noundef %0, i32 noundef %877, i32 noundef 2, i32 noundef -2147483648) #16
+  %886 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %885, ptr noundef nonnull %0, i32 noundef %877, i32 noundef 2, i32 noundef -2147483648) #16
   %887 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 888:                                              ; preds = %42
   %889 = load i32, ptr @hf_btmesh_config_model_app_status_status, align 4
-  %890 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %889, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %890 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %889, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %891 = add nuw nsw i32 %.03971, 1
   %892 = load i32, ptr @hf_btmesh_config_model_app_status_elementaddress, align 4
-  %893 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %892, ptr noundef %0, i32 noundef %891, i32 noundef 2, i32 noundef -2147483648) #16
+  %893 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %892, ptr noundef nonnull %0, i32 noundef %891, i32 noundef 2, i32 noundef -2147483648) #16
   %894 = add nuw nsw i32 %.03971, 3
   %895 = load i32, ptr @hf_btmesh_config_model_app_status_appkeyindex, align 4
-  %896 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %895, ptr noundef %0, i32 noundef %894, i32 noundef 2, i32 noundef -2147483648) #16
+  %896 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %895, ptr noundef nonnull %0, i32 noundef %894, i32 noundef 2, i32 noundef -2147483648) #16
   %897 = load i32, ptr @ett_btmesh_config_model_app_index, align 4
   %898 = call ptr @proto_item_add_subtree(ptr noundef %896, i32 noundef %897) #16
   %899 = load i32, ptr @hf_btmesh_config_model_app_status_appkeyindex_idx, align 4
-  %900 = call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %899, ptr noundef %0, i32 noundef %894, i32 noundef 2, i32 noundef -2147483648) #16
+  %900 = call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %899, ptr noundef nonnull %0, i32 noundef %894, i32 noundef 2, i32 noundef -2147483648) #16
   %901 = load i32, ptr @hf_btmesh_config_model_app_status_appkeyindex_rfu, align 4
-  %902 = call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %901, ptr noundef %0, i32 noundef %894, i32 noundef 2, i32 noundef -2147483648) #16
+  %902 = call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %901, ptr noundef nonnull %0, i32 noundef %894, i32 noundef 2, i32 noundef -2147483648) #16
   %903 = add nuw nsw i32 %.03971, 5
-  %904 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %903) #16
+  %904 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %903) #16
   %905 = icmp sgt i32 %904, 2
   br i1 %905, label %906, label %910
 
 906:                                              ; preds = %888
   %907 = load i32, ptr @hf_btmesh_config_model_app_status_vendormodelidentifier, align 4
-  %908 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %907, ptr noundef %0, i32 noundef %903, i32 noundef 4, i32 noundef -2147483648) #16
+  %908 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %907, ptr noundef nonnull %0, i32 noundef %903, i32 noundef 4, i32 noundef -2147483648) #16
   %909 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 910:                                              ; preds = %888
   %911 = load i32, ptr @hf_btmesh_config_model_app_status_modelidentifier, align 4
-  %912 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %911, ptr noundef %0, i32 noundef %903, i32 noundef 2, i32 noundef -2147483648) #16
+  %912 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %911, ptr noundef nonnull %0, i32 noundef %903, i32 noundef 2, i32 noundef -2147483648) #16
   %913 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 914:                                              ; preds = %42
   %915 = load i32, ptr @hf_btmesh_config_model_app_unbind_elementaddress, align 4
-  %916 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %915, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %916 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %915, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %917 = add nuw nsw i32 %.03971, 2
   %918 = load i32, ptr @hf_btmesh_config_model_app_unbind_appkeyindex, align 4
-  %919 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %918, ptr noundef %0, i32 noundef %917, i32 noundef 2, i32 noundef -2147483648) #16
+  %919 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %918, ptr noundef nonnull %0, i32 noundef %917, i32 noundef 2, i32 noundef -2147483648) #16
   %920 = load i32, ptr @ett_btmesh_config_model_app_index, align 4
   %921 = call ptr @proto_item_add_subtree(ptr noundef %919, i32 noundef %920) #16
   %922 = load i32, ptr @hf_btmesh_config_model_app_unbind_appkeyindex_idx, align 4
-  %923 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %922, ptr noundef %0, i32 noundef %917, i32 noundef 2, i32 noundef -2147483648) #16
+  %923 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %922, ptr noundef nonnull %0, i32 noundef %917, i32 noundef 2, i32 noundef -2147483648) #16
   %924 = load i32, ptr @hf_btmesh_config_model_app_unbind_appkeyindex_rfu, align 4
-  %925 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %924, ptr noundef %0, i32 noundef %917, i32 noundef 2, i32 noundef -2147483648) #16
+  %925 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %924, ptr noundef nonnull %0, i32 noundef %917, i32 noundef 2, i32 noundef -2147483648) #16
   %926 = or disjoint i32 %.03971, 4
-  %927 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %926) #16
+  %927 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %926) #16
   %928 = icmp sgt i32 %927, 2
   br i1 %928, label %929, label %933
 
 929:                                              ; preds = %914
   %930 = load i32, ptr @hf_btmesh_config_model_app_unbind_vendormodelidentifier, align 4
-  %931 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %930, ptr noundef %0, i32 noundef %926, i32 noundef 4, i32 noundef -2147483648) #16
+  %931 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %930, ptr noundef nonnull %0, i32 noundef %926, i32 noundef 4, i32 noundef -2147483648) #16
   %932 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 933:                                              ; preds = %914
   %934 = load i32, ptr @hf_btmesh_config_model_app_unbind_modelidentifier, align 4
-  %935 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %934, ptr noundef %0, i32 noundef %926, i32 noundef 2, i32 noundef -2147483648) #16
+  %935 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %934, ptr noundef nonnull %0, i32 noundef %926, i32 noundef 2, i32 noundef -2147483648) #16
   %936 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 937:                                              ; preds = %42
   %938 = load i32, ptr @hf_btmesh_config_netkey_add_netkeyindex, align 4
-  %939 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %938, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %939 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %938, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %940 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %941 = call ptr @proto_item_add_subtree(ptr noundef %939, i32 noundef %940) #16
   %942 = load i32, ptr @hf_btmesh_config_netkey_add_netkeyindex_idx, align 4
-  %943 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %942, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %943 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %942, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %944 = load i32, ptr @hf_btmesh_config_netkey_add_netkeyindex_rfu, align 4
-  %945 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %944, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %945 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %944, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %946 = add nuw nsw i32 %.03971, 2
   %947 = load i32, ptr @hf_btmesh_config_netkey_add_netkey, align 4
-  %948 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %947, ptr noundef %0, i32 noundef %946, i32 noundef 16, i32 noundef 0) #16
+  %948 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %947, ptr noundef nonnull %0, i32 noundef %946, i32 noundef 16, i32 noundef 0) #16
   %949 = add nuw nsw i32 %.03971, 18
   br label %.loopexit3981
 
 950:                                              ; preds = %42
   %951 = load i32, ptr @hf_btmesh_config_netkey_delete_netkeyindex, align 4
-  %952 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %951, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %952 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %951, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %953 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %954 = call ptr @proto_item_add_subtree(ptr noundef %952, i32 noundef %953) #16
   %955 = load i32, ptr @hf_btmesh_config_netkey_delete_netkeyindex_idx, align 4
-  %956 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %955, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %956 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %955, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %957 = load i32, ptr @hf_btmesh_config_netkey_delete_netkeyindex_rfu, align 4
-  %958 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %957, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %958 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %957, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %959 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 960:                                              ; preds = %42
-  %961 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %961 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %962 = load i32, ptr @ett_btmesh_config_model_netkey_list, align 4
-  %963 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %.03971, i32 noundef %961, i32 noundef %962, ptr noundef null, ptr noundef nonnull @.str.2202) #16
-  %964 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %963 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %961, i32 noundef %962, ptr noundef null, ptr noundef nonnull @.str.2202) #16
+  %964 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %965 = icmp sgt i32 %964, 1
   br i1 %965, label %.lr.ph4032, label %.loopexit3981
 
 .lr.ph4032:                                       ; preds = %960, %987
   %.134031 = phi i32 [ %988, %987 ], [ %.03971, %960 ]
-  %966 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.134031) #16
+  %966 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.134031) #16
   %967 = icmp sgt i32 %966, 2
   br i1 %967, label %968, label %978
 
 968:                                              ; preds = %.lr.ph4032
-  %969 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.134031, i32 noundef -2147483648) #16
+  %969 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef -2147483648) #16
   %970 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
   %971 = and i32 %969, 4095
-  %972 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %970, ptr noundef %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %971) #16
+  %972 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %970, ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %971) #16
   %973 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
   %974 = add i32 %.134031, 1
   %975 = lshr i32 %969, 12
   %976 = and i32 %975, 4095
-  %977 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %973, ptr noundef %0, i32 noundef %974, i32 noundef 2, i32 noundef %976) #16
+  %977 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %973, ptr noundef nonnull %0, i32 noundef %974, i32 noundef 2, i32 noundef %976) #16
   br label %987
 
 978:                                              ; preds = %.lr.ph4032
-  %979 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.134031, i32 noundef -2147483648) #16
+  %979 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef -2147483648) #16
   %980 = zext i16 %979 to i32
   %981 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
   %982 = and i32 %980, 4095
-  %983 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %981, ptr noundef %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %982) #16
+  %983 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %981, ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %982) #16
   %984 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex_rfu, align 4
   %985 = lshr i32 %980, 12
-  %986 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %984, ptr noundef %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %985) #16
+  %986 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %984, ptr noundef nonnull %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %985) #16
   br label %987
 
 987:                                              ; preds = %978, %968
   %.sink4120 = phi i32 [ 2, %978 ], [ 3, %968 ]
   %988 = add i32 %.134031, %.sink4120
-  %989 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %988) #16
+  %989 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %988) #16
   %990 = icmp sgt i32 %989, 1
   br i1 %990, label %.lr.ph4032, label %.loopexit3981, !llvm.loop !23
 
 991:                                              ; preds = %42
   %992 = load i32, ptr @hf_btmesh_config_netkey_status_status, align 4
-  %993 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %992, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %993 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %992, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %994 = add nuw nsw i32 %.03971, 1
   %995 = load i32, ptr @hf_btmesh_config_netkey_status_netkeyindex, align 4
-  %996 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %995, ptr noundef %0, i32 noundef %994, i32 noundef 2, i32 noundef -2147483648) #16
+  %996 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %995, ptr noundef nonnull %0, i32 noundef %994, i32 noundef 2, i32 noundef -2147483648) #16
   %997 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %998 = call ptr @proto_item_add_subtree(ptr noundef %996, i32 noundef %997) #16
   %999 = load i32, ptr @hf_btmesh_config_netkey_status_netkeyindex_idx, align 4
-  %1000 = call ptr @proto_tree_add_item(ptr noundef %998, i32 noundef %999, ptr noundef %0, i32 noundef %994, i32 noundef 2, i32 noundef -2147483648) #16
+  %1000 = call ptr @proto_tree_add_item(ptr noundef %998, i32 noundef %999, ptr noundef nonnull %0, i32 noundef %994, i32 noundef 2, i32 noundef -2147483648) #16
   %1001 = load i32, ptr @hf_btmesh_config_netkey_status_netkeyindex_rfu, align 4
-  %1002 = call ptr @proto_tree_add_item(ptr noundef %998, i32 noundef %1001, ptr noundef %0, i32 noundef %994, i32 noundef 2, i32 noundef -2147483648) #16
+  %1002 = call ptr @proto_tree_add_item(ptr noundef %998, i32 noundef %1001, ptr noundef nonnull %0, i32 noundef %994, i32 noundef 2, i32 noundef -2147483648) #16
   %1003 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 1004:                                             ; preds = %42
   %1005 = load i32, ptr @hf_btmesh_config_netkey_update_netkeyindex, align 4
-  %1006 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1005, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1006 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1005, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1007 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %1008 = call ptr @proto_item_add_subtree(ptr noundef %1006, i32 noundef %1007) #16
   %1009 = load i32, ptr @hf_btmesh_config_netkey_update_netkeyindex_idx, align 4
-  %1010 = call ptr @proto_tree_add_item(ptr noundef %1008, i32 noundef %1009, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1010 = call ptr @proto_tree_add_item(ptr noundef %1008, i32 noundef %1009, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1011 = load i32, ptr @hf_btmesh_config_netkey_update_netkeyindex_rfu, align 4
-  %1012 = call ptr @proto_tree_add_item(ptr noundef %1008, i32 noundef %1011, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1012 = call ptr @proto_tree_add_item(ptr noundef %1008, i32 noundef %1011, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1013 = add nuw nsw i32 %.03971, 2
   %1014 = load i32, ptr @hf_btmesh_config_netkey_update_netkey, align 4
-  %1015 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1014, ptr noundef %0, i32 noundef %1013, i32 noundef 16, i32 noundef 0) #16
+  %1015 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1014, ptr noundef nonnull %0, i32 noundef %1013, i32 noundef 16, i32 noundef 0) #16
   %1016 = add nuw nsw i32 %.03971, 18
   br label %.loopexit3981
 
 1017:                                             ; preds = %42
   %1018 = load i32, ptr @hf_btmesh_config_node_identity_get_netkeyindex, align 4
-  %1019 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1018, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1019 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1018, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1020 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %1021 = call ptr @proto_item_add_subtree(ptr noundef %1019, i32 noundef %1020) #16
   %1022 = load i32, ptr @hf_btmesh_config_node_identity_get_netkeyindex_idx, align 4
-  %1023 = call ptr @proto_tree_add_item(ptr noundef %1021, i32 noundef %1022, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1023 = call ptr @proto_tree_add_item(ptr noundef %1021, i32 noundef %1022, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1024 = load i32, ptr @hf_btmesh_config_node_identity_get_netkeyindex_rfu, align 4
-  %1025 = call ptr @proto_tree_add_item(ptr noundef %1021, i32 noundef %1024, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1025 = call ptr @proto_tree_add_item(ptr noundef %1021, i32 noundef %1024, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1026 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1027:                                             ; preds = %42
   %1028 = load i32, ptr @hf_btmesh_config_node_identity_set_netkeyindex, align 4
-  %1029 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1028, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1029 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1028, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1030 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %1031 = call ptr @proto_item_add_subtree(ptr noundef %1029, i32 noundef %1030) #16
   %1032 = load i32, ptr @hf_btmesh_config_node_identity_set_netkeyindex_idx, align 4
-  %1033 = call ptr @proto_tree_add_item(ptr noundef %1031, i32 noundef %1032, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1033 = call ptr @proto_tree_add_item(ptr noundef %1031, i32 noundef %1032, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1034 = load i32, ptr @hf_btmesh_config_node_identity_set_netkeyindex_rfu, align 4
-  %1035 = call ptr @proto_tree_add_item(ptr noundef %1031, i32 noundef %1034, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1035 = call ptr @proto_tree_add_item(ptr noundef %1031, i32 noundef %1034, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1036 = add nuw nsw i32 %.03971, 2
   %1037 = load i32, ptr @hf_btmesh_config_node_identity_set_identity, align 4
-  %1038 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1037, ptr noundef %0, i32 noundef %1036, i32 noundef 1, i32 noundef -2147483648) #16
+  %1038 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1037, ptr noundef nonnull %0, i32 noundef %1036, i32 noundef 1, i32 noundef -2147483648) #16
   %1039 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 1040:                                             ; preds = %42
   %1041 = load i32, ptr @hf_btmesh_config_node_identity_status_status, align 4
-  %1042 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1041, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1042 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1041, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1043 = add nuw nsw i32 %.03971, 1
   %1044 = load i32, ptr @hf_btmesh_config_node_identity_status_netkeyindex, align 4
-  %1045 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1044, ptr noundef %0, i32 noundef %1043, i32 noundef 2, i32 noundef -2147483648) #16
+  %1045 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1044, ptr noundef nonnull %0, i32 noundef %1043, i32 noundef 2, i32 noundef -2147483648) #16
   %1046 = load i32, ptr @ett_btmesh_config_model_net_index, align 4
   %1047 = call ptr @proto_item_add_subtree(ptr noundef %1045, i32 noundef %1046) #16
   %1048 = load i32, ptr @hf_btmesh_config_node_identity_status_netkeyindex_idx, align 4
-  %1049 = call ptr @proto_tree_add_item(ptr noundef %1047, i32 noundef %1048, ptr noundef %0, i32 noundef %1043, i32 noundef 2, i32 noundef -2147483648) #16
+  %1049 = call ptr @proto_tree_add_item(ptr noundef %1047, i32 noundef %1048, ptr noundef nonnull %0, i32 noundef %1043, i32 noundef 2, i32 noundef -2147483648) #16
   %1050 = load i32, ptr @hf_btmesh_config_node_identity_status_netkeyindex_rfu, align 4
-  %1051 = call ptr @proto_tree_add_item(ptr noundef %1047, i32 noundef %1050, ptr noundef %0, i32 noundef %1043, i32 noundef 2, i32 noundef -2147483648) #16
+  %1051 = call ptr @proto_tree_add_item(ptr noundef %1047, i32 noundef %1050, ptr noundef nonnull %0, i32 noundef %1043, i32 noundef 2, i32 noundef -2147483648) #16
   %1052 = add nuw nsw i32 %.03971, 3
   %1053 = load i32, ptr @hf_btmesh_config_node_identity_status_identity, align 4
-  %1054 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1053, ptr noundef %0, i32 noundef %1052, i32 noundef 1, i32 noundef -2147483648) #16
+  %1054 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1053, ptr noundef nonnull %0, i32 noundef %1052, i32 noundef 1, i32 noundef -2147483648) #16
   %1055 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 1056:                                             ; preds = %42
   %1057 = load i32, ptr @hf_btmesh_config_sig_model_app_get_elementaddress, align 4
-  %1058 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1057, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1058 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1057, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1059 = add nuw nsw i32 %.03971, 2
   %1060 = load i32, ptr @hf_btmesh_config_sig_model_app_get_modelidentifier, align 4
-  %1061 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1060, ptr noundef %0, i32 noundef %1059, i32 noundef 2, i32 noundef -2147483648) #16
+  %1061 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1060, ptr noundef nonnull %0, i32 noundef %1059, i32 noundef 2, i32 noundef -2147483648) #16
   %1062 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 1063:                                             ; preds = %42
   %1064 = load i32, ptr @hf_btmesh_config_sig_model_app_list_status, align 4
-  %1065 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1064, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1065 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1064, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1066 = add nuw nsw i32 %.03971, 1
   %1067 = load i32, ptr @hf_btmesh_config_sig_model_app_list_elementaddress, align 4
-  %1068 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1067, ptr noundef %0, i32 noundef %1066, i32 noundef 2, i32 noundef -2147483648) #16
+  %1068 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1067, ptr noundef nonnull %0, i32 noundef %1066, i32 noundef 2, i32 noundef -2147483648) #16
   %1069 = add nuw nsw i32 %.03971, 3
   %1070 = load i32, ptr @hf_btmesh_config_sig_model_app_list_modelidentifier, align 4
-  %1071 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1070, ptr noundef %0, i32 noundef %1069, i32 noundef 2, i32 noundef -2147483648) #16
+  %1071 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1070, ptr noundef nonnull %0, i32 noundef %1069, i32 noundef 2, i32 noundef -2147483648) #16
   %1072 = add nuw nsw i32 %.03971, 5
-  %1073 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1072) #16
+  %1073 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1072) #16
   %1074 = load i32, ptr @ett_btmesh_config_model_appkey_list, align 4
-  %1075 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %1072, i32 noundef %1073, i32 noundef %1074, ptr noundef null, ptr noundef nonnull @.str.2200) #16
-  %1076 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1072) #16
+  %1075 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %1072, i32 noundef %1073, i32 noundef %1074, ptr noundef null, ptr noundef nonnull @.str.2200) #16
+  %1076 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1072) #16
   %1077 = icmp sgt i32 %1076, 1
   br i1 %1077, label %.lr.ph4029, label %.loopexit3981
 
 .lr.ph4029:                                       ; preds = %1063, %1099
   %.154028 = phi i32 [ %1100, %1099 ], [ %1072, %1063 ]
-  %1078 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.154028) #16
+  %1078 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.154028) #16
   %1079 = icmp sgt i32 %1078, 2
   br i1 %1079, label %1080, label %1090
 
 1080:                                             ; preds = %.lr.ph4029
-  %1081 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.154028, i32 noundef -2147483648) #16
+  %1081 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef -2147483648) #16
   %1082 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
   %1083 = and i32 %1081, 4095
-  %1084 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1082, ptr noundef %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1083) #16
+  %1084 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1082, ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1083) #16
   %1085 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
   %1086 = add i32 %.154028, 1
   %1087 = lshr i32 %1081, 12
   %1088 = and i32 %1087, 4095
-  %1089 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1085, ptr noundef %0, i32 noundef %1086, i32 noundef 2, i32 noundef %1088) #16
+  %1089 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1085, ptr noundef nonnull %0, i32 noundef %1086, i32 noundef 2, i32 noundef %1088) #16
   br label %1099
 
 1090:                                             ; preds = %.lr.ph4029
-  %1091 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.154028, i32 noundef -2147483648) #16
+  %1091 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef -2147483648) #16
   %1092 = zext i16 %1091 to i32
   %1093 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
   %1094 = and i32 %1092, 4095
-  %1095 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1093, ptr noundef %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1094) #16
+  %1095 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1093, ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1094) #16
   %1096 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex_rfu, align 4
   %1097 = lshr i32 %1092, 12
-  %1098 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1096, ptr noundef %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1097) #16
+  %1098 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1096, ptr noundef nonnull %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1097) #16
   br label %1099
 
 1099:                                             ; preds = %1090, %1080
   %.sink4121 = phi i32 [ 2, %1090 ], [ 3, %1080 ]
   %1100 = add i32 %.154028, %.sink4121
-  %1101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1100) #16
+  %1101 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1100) #16
   %1102 = icmp sgt i32 %1101, 1
   br i1 %1102, label %.lr.ph4029, label %.loopexit3981, !llvm.loop !24
 
 1103:                                             ; preds = %42
   %1104 = load i32, ptr @hf_btmesh_config_vendor_model_app_get_elementaddress, align 4
-  %1105 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1104, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1105 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1104, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1106 = add nuw nsw i32 %.03971, 2
   %1107 = load i32, ptr @hf_btmesh_config_vendor_model_app_get_modelidentifier, align 4
-  %1108 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1107, ptr noundef %0, i32 noundef %1106, i32 noundef 2, i32 noundef -2147483648) #16
+  %1108 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1107, ptr noundef nonnull %0, i32 noundef %1106, i32 noundef 2, i32 noundef -2147483648) #16
   %1109 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 1110:                                             ; preds = %42
   %1111 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_status, align 4
-  %1112 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1111, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1112 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1111, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1113 = add nuw nsw i32 %.03971, 1
   %1114 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_elementaddress, align 4
-  %1115 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1114, ptr noundef %0, i32 noundef %1113, i32 noundef 2, i32 noundef -2147483648) #16
+  %1115 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1114, ptr noundef nonnull %0, i32 noundef %1113, i32 noundef 2, i32 noundef -2147483648) #16
   %1116 = add nuw nsw i32 %.03971, 3
   %1117 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_modelidentifier, align 4
-  %1118 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1117, ptr noundef %0, i32 noundef %1116, i32 noundef 2, i32 noundef -2147483648) #16
+  %1118 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1117, ptr noundef nonnull %0, i32 noundef %1116, i32 noundef 2, i32 noundef -2147483648) #16
   %1119 = add nuw nsw i32 %.03971, 7
-  %1120 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1119) #16
+  %1120 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1119) #16
   %1121 = load i32, ptr @ett_btmesh_config_model_appkey_list, align 4
-  %1122 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %1119, i32 noundef %1120, i32 noundef %1121, ptr noundef null, ptr noundef nonnull @.str.2200) #16
-  %1123 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1119) #16
+  %1122 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %1119, i32 noundef %1120, i32 noundef %1121, ptr noundef null, ptr noundef nonnull @.str.2200) #16
+  %1123 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1119) #16
   %1124 = icmp sgt i32 %1123, 1
   br i1 %1124, label %.lr.ph4026, label %.loopexit3981
 
 .lr.ph4026:                                       ; preds = %1110, %1146
   %.174025 = phi i32 [ %1147, %1146 ], [ %1119, %1110 ]
-  %1125 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.174025) #16
+  %1125 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.174025) #16
   %1126 = icmp sgt i32 %1125, 2
   br i1 %1126, label %1127, label %1137
 
 1127:                                             ; preds = %.lr.ph4026
-  %1128 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.174025, i32 noundef -2147483648) #16
+  %1128 = call i32 @tvb_get_guint24(ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef -2147483648) #16
   %1129 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
   %1130 = and i32 %1128, 4095
-  %1131 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1129, ptr noundef %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1130) #16
+  %1131 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1129, ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1130) #16
   %1132 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
   %1133 = add i32 %.174025, 1
   %1134 = lshr i32 %1128, 12
   %1135 = and i32 %1134, 4095
-  %1136 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1132, ptr noundef %0, i32 noundef %1133, i32 noundef 2, i32 noundef %1135) #16
+  %1136 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1132, ptr noundef nonnull %0, i32 noundef %1133, i32 noundef 2, i32 noundef %1135) #16
   br label %1146
 
 1137:                                             ; preds = %.lr.ph4026
-  %1138 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.174025, i32 noundef -2147483648) #16
+  %1138 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef -2147483648) #16
   %1139 = zext i16 %1138 to i32
   %1140 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
   %1141 = and i32 %1139, 4095
-  %1142 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1140, ptr noundef %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1141) #16
+  %1142 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1140, ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1141) #16
   %1143 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex_rfu, align 4
   %1144 = lshr i32 %1139, 12
-  %1145 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1143, ptr noundef %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1144) #16
+  %1145 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1143, ptr noundef nonnull %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1144) #16
   br label %1146
 
 1146:                                             ; preds = %1137, %1127
   %.sink4122 = phi i32 [ 2, %1137 ], [ 3, %1127 ]
   %1147 = add i32 %.174025, %.sink4122
-  %1148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1147) #16
+  %1148 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1147) #16
   %1149 = icmp sgt i32 %1148, 1
   br i1 %1149, label %.lr.ph4026, label %.loopexit3981, !llvm.loop !25
 
 1150:                                             ; preds = %42
   %1151 = load i32, ptr @hf_btmesh_generic_location_global_status_global_latitude, align 4
-  %1152 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1151, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1152 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1151, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1153 = or disjoint i32 %.03971, 4
   %1154 = load i32, ptr @hf_btmesh_generic_location_global_status_global_longitude, align 4
-  %1155 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1154, ptr noundef %0, i32 noundef %1153, i32 noundef 4, i32 noundef -2147483648) #16
+  %1155 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1154, ptr noundef nonnull %0, i32 noundef %1153, i32 noundef 4, i32 noundef -2147483648) #16
   %1156 = or disjoint i32 %.03971, 8
   %1157 = load i32, ptr @hf_btmesh_generic_location_global_status_global_altitude, align 4
-  %1158 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1157, ptr noundef %0, i32 noundef %1156, i32 noundef 2, i32 noundef -2147483648) #16
+  %1158 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1157, ptr noundef nonnull %0, i32 noundef %1156, i32 noundef 2, i32 noundef -2147483648) #16
   %1159 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 1160:                                             ; preds = %42
   %1161 = load i32, ptr @hf_btmesh_generic_location_global_set_global_latitude, align 4
-  %1162 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1161, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1162 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1161, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1163 = or disjoint i32 %.03971, 4
   %1164 = load i32, ptr @hf_btmesh_generic_location_global_set_global_longitude, align 4
-  %1165 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1164, ptr noundef %0, i32 noundef %1163, i32 noundef 4, i32 noundef -2147483648) #16
+  %1165 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1164, ptr noundef nonnull %0, i32 noundef %1163, i32 noundef 4, i32 noundef -2147483648) #16
   %1166 = or disjoint i32 %.03971, 8
   %1167 = load i32, ptr @hf_btmesh_generic_location_global_set_global_altitude, align 4
-  %1168 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1167, ptr noundef %0, i32 noundef %1166, i32 noundef 2, i32 noundef -2147483648) #16
+  %1168 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1167, ptr noundef nonnull %0, i32 noundef %1166, i32 noundef 2, i32 noundef -2147483648) #16
   %1169 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 1170:                                             ; preds = %42
   %1171 = load i32, ptr @hf_btmesh_generic_location_global_set_unacknowledged_global_latitude, align 4
-  %1172 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1171, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1172 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1171, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1173 = or disjoint i32 %.03971, 4
   %1174 = load i32, ptr @hf_btmesh_generic_location_global_set_unacknowledged_global_longitude, align 4
-  %1175 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1174, ptr noundef %0, i32 noundef %1173, i32 noundef 4, i32 noundef -2147483648) #16
+  %1175 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1174, ptr noundef nonnull %0, i32 noundef %1173, i32 noundef 4, i32 noundef -2147483648) #16
   %1176 = or disjoint i32 %.03971, 8
   %1177 = load i32, ptr @hf_btmesh_generic_location_global_set_unacknowledged_global_altitude, align 4
-  %1178 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1177, ptr noundef %0, i32 noundef %1176, i32 noundef 2, i32 noundef -2147483648) #16
+  %1178 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1177, ptr noundef nonnull %0, i32 noundef %1176, i32 noundef 2, i32 noundef -2147483648) #16
   %1179 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 1180:                                             ; preds = %42
   %1181 = load i32, ptr @hf_btmesh_generic_onoff_set_onoff, align 4
-  %1182 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1181, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1182 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1181, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1183 = add nuw nsw i32 %.03971, 1
   %1184 = load i32, ptr @hf_btmesh_generic_onoff_set_tid, align 4
-  %1185 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1184, ptr noundef %0, i32 noundef %1183, i32 noundef 1, i32 noundef -2147483648) #16
+  %1185 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1184, ptr noundef nonnull %0, i32 noundef %1183, i32 noundef 1, i32 noundef -2147483648) #16
   %1186 = add nuw nsw i32 %.03971, 2
-  %1187 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1186) #16
+  %1187 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1186) #16
   %1188 = icmp sgt i32 %1187, 0
   br i1 %1188, label %1189, label %.loopexit3981
 
 1189:                                             ; preds = %1180
   %1190 = load i32, ptr @hf_btmesh_generic_onoff_set_transition_time, align 4
-  %1191 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1190, ptr noundef %0, i32 noundef %1186, i32 noundef 1, i32 noundef -2147483648) #16
+  %1191 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1190, ptr noundef nonnull %0, i32 noundef %1186, i32 noundef 1, i32 noundef -2147483648) #16
   %1192 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1193 = call ptr @proto_item_add_subtree(ptr noundef %1191, i32 noundef %1192) #16
   %1194 = load i32, ptr @hf_btmesh_generic_onoff_set_transition_time_steps, align 4
-  %1195 = call ptr @proto_tree_add_item(ptr noundef %1193, i32 noundef %1194, ptr noundef %0, i32 noundef %1186, i32 noundef 1, i32 noundef -2147483648) #16
+  %1195 = call ptr @proto_tree_add_item(ptr noundef %1193, i32 noundef %1194, ptr noundef nonnull %0, i32 noundef %1186, i32 noundef 1, i32 noundef -2147483648) #16
   %1196 = load i32, ptr @hf_btmesh_generic_onoff_set_transition_time_resolution, align 4
-  %1197 = call ptr @proto_tree_add_item(ptr noundef %1193, i32 noundef %1196, ptr noundef %0, i32 noundef %1186, i32 noundef 1, i32 noundef -2147483648) #16
+  %1197 = call ptr @proto_tree_add_item(ptr noundef %1193, i32 noundef %1196, ptr noundef nonnull %0, i32 noundef %1186, i32 noundef 1, i32 noundef -2147483648) #16
   %1198 = add nuw nsw i32 %.03971, 3
   %1199 = load i32, ptr @hf_btmesh_generic_onoff_set_delay, align 4
-  %1200 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1199, ptr noundef %0, i32 noundef %1198, i32 noundef 1, i32 noundef -2147483648) #16
+  %1200 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1199, ptr noundef nonnull %0, i32 noundef %1198, i32 noundef 1, i32 noundef -2147483648) #16
   %1201 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 1202:                                             ; preds = %42
   %1203 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_onoff, align 4
-  %1204 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1203, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1204 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1203, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1205 = add nuw nsw i32 %.03971, 1
   %1206 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_tid, align 4
-  %1207 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1206, ptr noundef %0, i32 noundef %1205, i32 noundef 1, i32 noundef -2147483648) #16
+  %1207 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1206, ptr noundef nonnull %0, i32 noundef %1205, i32 noundef 1, i32 noundef -2147483648) #16
   %1208 = add nuw nsw i32 %.03971, 2
-  %1209 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1208) #16
+  %1209 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1208) #16
   %1210 = icmp sgt i32 %1209, 0
   br i1 %1210, label %1211, label %.loopexit3981
 
 1211:                                             ; preds = %1202
   %1212 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_transition_time, align 4
-  %1213 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1212, ptr noundef %0, i32 noundef %1208, i32 noundef 1, i32 noundef -2147483648) #16
+  %1213 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1212, ptr noundef nonnull %0, i32 noundef %1208, i32 noundef 1, i32 noundef -2147483648) #16
   %1214 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1215 = call ptr @proto_item_add_subtree(ptr noundef %1213, i32 noundef %1214) #16
   %1216 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_transition_time_steps, align 4
-  %1217 = call ptr @proto_tree_add_item(ptr noundef %1215, i32 noundef %1216, ptr noundef %0, i32 noundef %1208, i32 noundef 1, i32 noundef -2147483648) #16
+  %1217 = call ptr @proto_tree_add_item(ptr noundef %1215, i32 noundef %1216, ptr noundef nonnull %0, i32 noundef %1208, i32 noundef 1, i32 noundef -2147483648) #16
   %1218 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_transition_time_resolution, align 4
-  %1219 = call ptr @proto_tree_add_item(ptr noundef %1215, i32 noundef %1218, ptr noundef %0, i32 noundef %1208, i32 noundef 1, i32 noundef -2147483648) #16
+  %1219 = call ptr @proto_tree_add_item(ptr noundef %1215, i32 noundef %1218, ptr noundef nonnull %0, i32 noundef %1208, i32 noundef 1, i32 noundef -2147483648) #16
   %1220 = add nuw nsw i32 %.03971, 3
   %1221 = load i32, ptr @hf_btmesh_generic_onoff_set_unacknowledged_delay, align 4
-  %1222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1221, ptr noundef %0, i32 noundef %1220, i32 noundef 1, i32 noundef -2147483648) #16
+  %1222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1221, ptr noundef nonnull %0, i32 noundef %1220, i32 noundef 1, i32 noundef -2147483648) #16
   %1223 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 1224:                                             ; preds = %42
   %1225 = load i32, ptr @hf_btmesh_generic_onoff_status_present_onoff, align 4
-  %1226 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1225, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1226 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1225, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1227 = add nuw nsw i32 %.03971, 1
-  %1228 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1227) #16
+  %1228 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1227) #16
   %1229 = icmp sgt i32 %1228, 0
   br i1 %1229, label %1230, label %.loopexit3981
 
 1230:                                             ; preds = %1224
   %1231 = load i32, ptr @hf_btmesh_generic_onoff_status_target_onoff, align 4
-  %1232 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1231, ptr noundef %0, i32 noundef %1227, i32 noundef 1, i32 noundef -2147483648) #16
+  %1232 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1231, ptr noundef nonnull %0, i32 noundef %1227, i32 noundef 1, i32 noundef -2147483648) #16
   %1233 = add nuw nsw i32 %.03971, 2
   %1234 = load i32, ptr @hf_btmesh_generic_onoff_status_remaining_time, align 4
-  %1235 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1234, ptr noundef %0, i32 noundef %1233, i32 noundef 1, i32 noundef -2147483648) #16
+  %1235 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1234, ptr noundef nonnull %0, i32 noundef %1233, i32 noundef 1, i32 noundef -2147483648) #16
   %1236 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1237 = call ptr @proto_item_add_subtree(ptr noundef %1235, i32 noundef %1236) #16
   %1238 = load i32, ptr @hf_btmesh_generic_onoff_status_remaining_time_steps, align 4
-  %1239 = call ptr @proto_tree_add_item(ptr noundef %1237, i32 noundef %1238, ptr noundef %0, i32 noundef %1233, i32 noundef 1, i32 noundef -2147483648) #16
+  %1239 = call ptr @proto_tree_add_item(ptr noundef %1237, i32 noundef %1238, ptr noundef nonnull %0, i32 noundef %1233, i32 noundef 1, i32 noundef -2147483648) #16
   %1240 = load i32, ptr @hf_btmesh_generic_onoff_status_remaining_time_resolution, align 4
-  %1241 = call ptr @proto_tree_add_item(ptr noundef %1237, i32 noundef %1240, ptr noundef %0, i32 noundef %1233, i32 noundef 1, i32 noundef -2147483648) #16
+  %1241 = call ptr @proto_tree_add_item(ptr noundef %1237, i32 noundef %1240, ptr noundef nonnull %0, i32 noundef %1233, i32 noundef 1, i32 noundef -2147483648) #16
   %1242 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 1243:                                             ; preds = %42
   %1244 = load i32, ptr @hf_btmesh_generic_level_set_level, align 4
-  %1245 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1244, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1245 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1244, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1246 = add nuw nsw i32 %.03971, 2
   %1247 = load i32, ptr @hf_btmesh_generic_level_set_tid, align 4
-  %1248 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1247, ptr noundef %0, i32 noundef %1246, i32 noundef 1, i32 noundef -2147483648) #16
+  %1248 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1247, ptr noundef nonnull %0, i32 noundef %1246, i32 noundef 1, i32 noundef -2147483648) #16
   %1249 = add nuw nsw i32 %.03971, 3
-  %1250 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1249) #16
+  %1250 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1249) #16
   %1251 = icmp sgt i32 %1250, 0
   br i1 %1251, label %1252, label %.loopexit3981
 
 1252:                                             ; preds = %1243
   %1253 = load i32, ptr @hf_btmesh_generic_level_set_transition_time, align 4
-  %1254 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1253, ptr noundef %0, i32 noundef %1249, i32 noundef 1, i32 noundef -2147483648) #16
+  %1254 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1253, ptr noundef nonnull %0, i32 noundef %1249, i32 noundef 1, i32 noundef -2147483648) #16
   %1255 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1256 = call ptr @proto_item_add_subtree(ptr noundef %1254, i32 noundef %1255) #16
   %1257 = load i32, ptr @hf_btmesh_generic_level_set_transition_time_steps, align 4
-  %1258 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1257, ptr noundef %0, i32 noundef %1249, i32 noundef 1, i32 noundef -2147483648) #16
+  %1258 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1257, ptr noundef nonnull %0, i32 noundef %1249, i32 noundef 1, i32 noundef -2147483648) #16
   %1259 = load i32, ptr @hf_btmesh_generic_level_set_transition_time_resolution, align 4
-  %1260 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1259, ptr noundef %0, i32 noundef %1249, i32 noundef 1, i32 noundef -2147483648) #16
+  %1260 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1259, ptr noundef nonnull %0, i32 noundef %1249, i32 noundef 1, i32 noundef -2147483648) #16
   %1261 = or disjoint i32 %.03971, 4
   %1262 = load i32, ptr @hf_btmesh_generic_level_set_delay, align 4
-  %1263 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1262, ptr noundef %0, i32 noundef %1261, i32 noundef 1, i32 noundef -2147483648) #16
+  %1263 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1262, ptr noundef nonnull %0, i32 noundef %1261, i32 noundef 1, i32 noundef -2147483648) #16
   %1264 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1265:                                             ; preds = %42
   %1266 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_level, align 4
-  %1267 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1266, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1267 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1266, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1268 = add nuw nsw i32 %.03971, 2
   %1269 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_tid, align 4
-  %1270 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1269, ptr noundef %0, i32 noundef %1268, i32 noundef 1, i32 noundef -2147483648) #16
+  %1270 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1269, ptr noundef nonnull %0, i32 noundef %1268, i32 noundef 1, i32 noundef -2147483648) #16
   %1271 = add nuw nsw i32 %.03971, 3
-  %1272 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1271) #16
+  %1272 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1271) #16
   %1273 = icmp sgt i32 %1272, 0
   br i1 %1273, label %1274, label %.loopexit3981
 
 1274:                                             ; preds = %1265
   %1275 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_transition_time, align 4
-  %1276 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1275, ptr noundef %0, i32 noundef %1271, i32 noundef 1, i32 noundef -2147483648) #16
+  %1276 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1275, ptr noundef nonnull %0, i32 noundef %1271, i32 noundef 1, i32 noundef -2147483648) #16
   %1277 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1278 = call ptr @proto_item_add_subtree(ptr noundef %1276, i32 noundef %1277) #16
   %1279 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_transition_time_steps, align 4
-  %1280 = call ptr @proto_tree_add_item(ptr noundef %1278, i32 noundef %1279, ptr noundef %0, i32 noundef %1271, i32 noundef 1, i32 noundef -2147483648) #16
+  %1280 = call ptr @proto_tree_add_item(ptr noundef %1278, i32 noundef %1279, ptr noundef nonnull %0, i32 noundef %1271, i32 noundef 1, i32 noundef -2147483648) #16
   %1281 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_transition_time_resolution, align 4
-  %1282 = call ptr @proto_tree_add_item(ptr noundef %1278, i32 noundef %1281, ptr noundef %0, i32 noundef %1271, i32 noundef 1, i32 noundef -2147483648) #16
+  %1282 = call ptr @proto_tree_add_item(ptr noundef %1278, i32 noundef %1281, ptr noundef nonnull %0, i32 noundef %1271, i32 noundef 1, i32 noundef -2147483648) #16
   %1283 = or disjoint i32 %.03971, 4
   %1284 = load i32, ptr @hf_btmesh_generic_level_set_unacknowledged_delay, align 4
-  %1285 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1284, ptr noundef %0, i32 noundef %1283, i32 noundef 1, i32 noundef -2147483648) #16
+  %1285 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1284, ptr noundef nonnull %0, i32 noundef %1283, i32 noundef 1, i32 noundef -2147483648) #16
   %1286 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1287:                                             ; preds = %42
   %1288 = load i32, ptr @hf_btmesh_generic_level_status_present_level, align 4
-  %1289 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1288, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1289 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1288, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1290 = add nuw nsw i32 %.03971, 2
-  %1291 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1290) #16
+  %1291 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1290) #16
   %1292 = icmp sgt i32 %1291, 0
   br i1 %1292, label %1293, label %.loopexit3981
 
 1293:                                             ; preds = %1287
   %1294 = load i32, ptr @hf_btmesh_generic_level_status_target_level, align 4
-  %1295 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1294, ptr noundef %0, i32 noundef %1290, i32 noundef 2, i32 noundef -2147483648) #16
+  %1295 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1294, ptr noundef nonnull %0, i32 noundef %1290, i32 noundef 2, i32 noundef -2147483648) #16
   %1296 = or disjoint i32 %.03971, 4
   %1297 = load i32, ptr @hf_btmesh_generic_level_status_remaining_time, align 4
-  %1298 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1297, ptr noundef %0, i32 noundef %1296, i32 noundef 1, i32 noundef -2147483648) #16
+  %1298 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1297, ptr noundef nonnull %0, i32 noundef %1296, i32 noundef 1, i32 noundef -2147483648) #16
   %1299 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1300 = call ptr @proto_item_add_subtree(ptr noundef %1298, i32 noundef %1299) #16
   %1301 = load i32, ptr @hf_btmesh_generic_level_status_remaining_time_steps, align 4
-  %1302 = call ptr @proto_tree_add_item(ptr noundef %1300, i32 noundef %1301, ptr noundef %0, i32 noundef %1296, i32 noundef 1, i32 noundef -2147483648) #16
+  %1302 = call ptr @proto_tree_add_item(ptr noundef %1300, i32 noundef %1301, ptr noundef nonnull %0, i32 noundef %1296, i32 noundef 1, i32 noundef -2147483648) #16
   %1303 = load i32, ptr @hf_btmesh_generic_level_status_remaining_time_resolution, align 4
-  %1304 = call ptr @proto_tree_add_item(ptr noundef %1300, i32 noundef %1303, ptr noundef %0, i32 noundef %1296, i32 noundef 1, i32 noundef -2147483648) #16
+  %1304 = call ptr @proto_tree_add_item(ptr noundef %1300, i32 noundef %1303, ptr noundef nonnull %0, i32 noundef %1296, i32 noundef 1, i32 noundef -2147483648) #16
   %1305 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1306:                                             ; preds = %42
   %1307 = load i32, ptr @hf_btmesh_generic_delta_set_delta_level, align 4
-  %1308 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1307, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1308 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1307, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1309 = or disjoint i32 %.03971, 4
   %1310 = load i32, ptr @hf_btmesh_generic_delta_set_tid, align 4
-  %1311 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1310, ptr noundef %0, i32 noundef %1309, i32 noundef 1, i32 noundef -2147483648) #16
+  %1311 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1310, ptr noundef nonnull %0, i32 noundef %1309, i32 noundef 1, i32 noundef -2147483648) #16
   %1312 = add nuw nsw i32 %.03971, 5
-  %1313 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1312) #16
+  %1313 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1312) #16
   %1314 = icmp sgt i32 %1313, 0
   br i1 %1314, label %1315, label %.loopexit3981
 
 1315:                                             ; preds = %1306
   %1316 = load i32, ptr @hf_btmesh_generic_delta_set_transition_time, align 4
-  %1317 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1316, ptr noundef %0, i32 noundef %1312, i32 noundef 1, i32 noundef -2147483648) #16
+  %1317 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1316, ptr noundef nonnull %0, i32 noundef %1312, i32 noundef 1, i32 noundef -2147483648) #16
   %1318 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1319 = call ptr @proto_item_add_subtree(ptr noundef %1317, i32 noundef %1318) #16
   %1320 = load i32, ptr @hf_btmesh_generic_delta_set_transition_time_steps, align 4
-  %1321 = call ptr @proto_tree_add_item(ptr noundef %1319, i32 noundef %1320, ptr noundef %0, i32 noundef %1312, i32 noundef 1, i32 noundef -2147483648) #16
+  %1321 = call ptr @proto_tree_add_item(ptr noundef %1319, i32 noundef %1320, ptr noundef nonnull %0, i32 noundef %1312, i32 noundef 1, i32 noundef -2147483648) #16
   %1322 = load i32, ptr @hf_btmesh_generic_delta_set_transition_time_resolution, align 4
-  %1323 = call ptr @proto_tree_add_item(ptr noundef %1319, i32 noundef %1322, ptr noundef %0, i32 noundef %1312, i32 noundef 1, i32 noundef -2147483648) #16
+  %1323 = call ptr @proto_tree_add_item(ptr noundef %1319, i32 noundef %1322, ptr noundef nonnull %0, i32 noundef %1312, i32 noundef 1, i32 noundef -2147483648) #16
   %1324 = add nuw nsw i32 %.03971, 6
   %1325 = load i32, ptr @hf_btmesh_generic_delta_set_delay, align 4
-  %1326 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1325, ptr noundef %0, i32 noundef %1324, i32 noundef 1, i32 noundef -2147483648) #16
+  %1326 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1325, ptr noundef nonnull %0, i32 noundef %1324, i32 noundef 1, i32 noundef -2147483648) #16
   %1327 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 1328:                                             ; preds = %42
   %1329 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_delta_level, align 4
-  %1330 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1329, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1330 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1329, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1331 = or disjoint i32 %.03971, 4
   %1332 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_tid, align 4
-  %1333 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1332, ptr noundef %0, i32 noundef %1331, i32 noundef 1, i32 noundef -2147483648) #16
+  %1333 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1332, ptr noundef nonnull %0, i32 noundef %1331, i32 noundef 1, i32 noundef -2147483648) #16
   %1334 = add nuw nsw i32 %.03971, 5
-  %1335 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1334) #16
+  %1335 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1334) #16
   %1336 = icmp sgt i32 %1335, 0
   br i1 %1336, label %1337, label %.loopexit3981
 
 1337:                                             ; preds = %1328
   %1338 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_transition_time, align 4
-  %1339 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1338, ptr noundef %0, i32 noundef %1334, i32 noundef 1, i32 noundef -2147483648) #16
+  %1339 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1338, ptr noundef nonnull %0, i32 noundef %1334, i32 noundef 1, i32 noundef -2147483648) #16
   %1340 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1341 = call ptr @proto_item_add_subtree(ptr noundef %1339, i32 noundef %1340) #16
   %1342 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_transition_time_steps, align 4
-  %1343 = call ptr @proto_tree_add_item(ptr noundef %1341, i32 noundef %1342, ptr noundef %0, i32 noundef %1334, i32 noundef 1, i32 noundef -2147483648) #16
+  %1343 = call ptr @proto_tree_add_item(ptr noundef %1341, i32 noundef %1342, ptr noundef nonnull %0, i32 noundef %1334, i32 noundef 1, i32 noundef -2147483648) #16
   %1344 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_transition_time_resolution, align 4
-  %1345 = call ptr @proto_tree_add_item(ptr noundef %1341, i32 noundef %1344, ptr noundef %0, i32 noundef %1334, i32 noundef 1, i32 noundef -2147483648) #16
+  %1345 = call ptr @proto_tree_add_item(ptr noundef %1341, i32 noundef %1344, ptr noundef nonnull %0, i32 noundef %1334, i32 noundef 1, i32 noundef -2147483648) #16
   %1346 = add nuw nsw i32 %.03971, 6
   %1347 = load i32, ptr @hf_btmesh_generic_delta_set_unacknowledged_delay, align 4
-  %1348 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1347, ptr noundef %0, i32 noundef %1346, i32 noundef 1, i32 noundef -2147483648) #16
+  %1348 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1347, ptr noundef nonnull %0, i32 noundef %1346, i32 noundef 1, i32 noundef -2147483648) #16
   %1349 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 1350:                                             ; preds = %42
   %1351 = load i32, ptr @hf_btmesh_generic_move_set_delta_level, align 4
-  %1352 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1351, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1352 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1351, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1353 = add nuw nsw i32 %.03971, 2
   %1354 = load i32, ptr @hf_btmesh_generic_move_set_tid, align 4
-  %1355 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1354, ptr noundef %0, i32 noundef %1353, i32 noundef 1, i32 noundef -2147483648) #16
+  %1355 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1354, ptr noundef nonnull %0, i32 noundef %1353, i32 noundef 1, i32 noundef -2147483648) #16
   %1356 = add nuw nsw i32 %.03971, 3
-  %1357 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1356) #16
+  %1357 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1356) #16
   %1358 = icmp sgt i32 %1357, 0
   br i1 %1358, label %1359, label %.loopexit3981
 
 1359:                                             ; preds = %1350
   %1360 = load i32, ptr @hf_btmesh_generic_move_set_transition_time, align 4
-  %1361 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1360, ptr noundef %0, i32 noundef %1356, i32 noundef 1, i32 noundef -2147483648) #16
+  %1361 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1360, ptr noundef nonnull %0, i32 noundef %1356, i32 noundef 1, i32 noundef -2147483648) #16
   %1362 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1363 = call ptr @proto_item_add_subtree(ptr noundef %1361, i32 noundef %1362) #16
   %1364 = load i32, ptr @hf_btmesh_generic_move_set_transition_time_steps, align 4
-  %1365 = call ptr @proto_tree_add_item(ptr noundef %1363, i32 noundef %1364, ptr noundef %0, i32 noundef %1356, i32 noundef 1, i32 noundef -2147483648) #16
+  %1365 = call ptr @proto_tree_add_item(ptr noundef %1363, i32 noundef %1364, ptr noundef nonnull %0, i32 noundef %1356, i32 noundef 1, i32 noundef -2147483648) #16
   %1366 = load i32, ptr @hf_btmesh_generic_move_set_transition_time_resolution, align 4
-  %1367 = call ptr @proto_tree_add_item(ptr noundef %1363, i32 noundef %1366, ptr noundef %0, i32 noundef %1356, i32 noundef 1, i32 noundef -2147483648) #16
+  %1367 = call ptr @proto_tree_add_item(ptr noundef %1363, i32 noundef %1366, ptr noundef nonnull %0, i32 noundef %1356, i32 noundef 1, i32 noundef -2147483648) #16
   %1368 = or disjoint i32 %.03971, 4
   %1369 = load i32, ptr @hf_btmesh_generic_move_set_delay, align 4
-  %1370 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1369, ptr noundef %0, i32 noundef %1368, i32 noundef 1, i32 noundef -2147483648) #16
+  %1370 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1369, ptr noundef nonnull %0, i32 noundef %1368, i32 noundef 1, i32 noundef -2147483648) #16
   %1371 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1372:                                             ; preds = %42
   %1373 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_delta_level, align 4
-  %1374 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1373, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1374 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1373, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1375 = add nuw nsw i32 %.03971, 2
   %1376 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_tid, align 4
-  %1377 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1376, ptr noundef %0, i32 noundef %1375, i32 noundef 1, i32 noundef -2147483648) #16
+  %1377 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1376, ptr noundef nonnull %0, i32 noundef %1375, i32 noundef 1, i32 noundef -2147483648) #16
   %1378 = add nuw nsw i32 %.03971, 3
-  %1379 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1378) #16
+  %1379 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1378) #16
   %1380 = icmp sgt i32 %1379, 0
   br i1 %1380, label %1381, label %.loopexit3981
 
 1381:                                             ; preds = %1372
   %1382 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_transition_time, align 4
-  %1383 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1382, ptr noundef %0, i32 noundef %1378, i32 noundef 1, i32 noundef -2147483648) #16
+  %1383 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1382, ptr noundef nonnull %0, i32 noundef %1378, i32 noundef 1, i32 noundef -2147483648) #16
   %1384 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1385 = call ptr @proto_item_add_subtree(ptr noundef %1383, i32 noundef %1384) #16
   %1386 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_transition_time_steps, align 4
-  %1387 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1386, ptr noundef %0, i32 noundef %1378, i32 noundef 1, i32 noundef -2147483648) #16
+  %1387 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1386, ptr noundef nonnull %0, i32 noundef %1378, i32 noundef 1, i32 noundef -2147483648) #16
   %1388 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_transition_time_resolution, align 4
-  %1389 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1388, ptr noundef %0, i32 noundef %1378, i32 noundef 1, i32 noundef -2147483648) #16
+  %1389 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1388, ptr noundef nonnull %0, i32 noundef %1378, i32 noundef 1, i32 noundef -2147483648) #16
   %1390 = or disjoint i32 %.03971, 4
   %1391 = load i32, ptr @hf_btmesh_generic_move_set_unacknowledged_delay, align 4
-  %1392 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1391, ptr noundef %0, i32 noundef %1390, i32 noundef 1, i32 noundef -2147483648) #16
+  %1392 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1391, ptr noundef nonnull %0, i32 noundef %1390, i32 noundef 1, i32 noundef -2147483648) #16
   %1393 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1394:                                             ; preds = %42
   %1395 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_transition_time, align 4
-  %1396 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1395, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1396 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1395, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1397 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1398 = call ptr @proto_item_add_subtree(ptr noundef %1396, i32 noundef %1397) #16
   %1399 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_transition_time_steps, align 4
-  %1400 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1399, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1400 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1399, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1401 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_transition_time_resolution, align 4
-  %1402 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1401, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1402 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1401, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1403 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 1404:                                             ; preds = %42
   %1405 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_unacknowledged_transition_time, align 4
-  %1406 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1405, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1406 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1405, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1407 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1408 = call ptr @proto_item_add_subtree(ptr noundef %1406, i32 noundef %1407) #16
   %1409 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_unacknowledged_transition_time_steps, align 4
-  %1410 = call ptr @proto_tree_add_item(ptr noundef %1408, i32 noundef %1409, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1410 = call ptr @proto_tree_add_item(ptr noundef %1408, i32 noundef %1409, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1411 = load i32, ptr @hf_btmesh_generic_default_transition_time_set_unacknowledged_transition_time_resolution, align 4
-  %1412 = call ptr @proto_tree_add_item(ptr noundef %1408, i32 noundef %1411, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1412 = call ptr @proto_tree_add_item(ptr noundef %1408, i32 noundef %1411, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1413 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 1414:                                             ; preds = %42
   %1415 = load i32, ptr @hf_btmesh_generic_default_transition_time_status_transition_time, align 4
-  %1416 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1415, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1416 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1415, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1417 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1418 = call ptr @proto_item_add_subtree(ptr noundef %1416, i32 noundef %1417) #16
   %1419 = load i32, ptr @hf_btmesh_generic_default_transition_time_status_transition_time_steps, align 4
-  %1420 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1419, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1420 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1419, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1421 = load i32, ptr @hf_btmesh_generic_default_transition_time_status_transition_time_resolution, align 4
-  %1422 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1421, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1422 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1421, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1423 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 1424:                                             ; preds = %42
   %1425 = load i32, ptr @hf_btmesh_generic_onpowerup_status_onpowerup, align 4
-  %1426 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1425, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1426 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1425, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1427 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 1428:                                             ; preds = %42
   %1429 = load i32, ptr @hf_btmesh_generic_onpowerup_set_onpowerup, align 4
-  %1430 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1429, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1430 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1429, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1431 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 1432:                                             ; preds = %42
   %1433 = load i32, ptr @hf_btmesh_generic_onpowerup_set_unacknowledged_onpowerup, align 4
-  %1434 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1433, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1434 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1433, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1435 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 1436:                                             ; preds = %42
   %1437 = load i32, ptr @hf_btmesh_generic_power_level_set_power, align 4
-  %1438 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1437, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1438 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1437, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1439 = add nuw nsw i32 %.03971, 2
   %1440 = load i32, ptr @hf_btmesh_generic_power_level_set_tid, align 4
-  %1441 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1440, ptr noundef %0, i32 noundef %1439, i32 noundef 1, i32 noundef -2147483648) #16
+  %1441 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1440, ptr noundef nonnull %0, i32 noundef %1439, i32 noundef 1, i32 noundef -2147483648) #16
   %1442 = add nuw nsw i32 %.03971, 3
-  %1443 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1442) #16
+  %1443 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1442) #16
   %1444 = icmp sgt i32 %1443, 0
   br i1 %1444, label %1445, label %.loopexit3981
 
 1445:                                             ; preds = %1436
   %1446 = load i32, ptr @hf_btmesh_generic_power_level_set_transition_time, align 4
-  %1447 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1446, ptr noundef %0, i32 noundef %1442, i32 noundef 1, i32 noundef -2147483648) #16
+  %1447 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1446, ptr noundef nonnull %0, i32 noundef %1442, i32 noundef 1, i32 noundef -2147483648) #16
   %1448 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1449 = call ptr @proto_item_add_subtree(ptr noundef %1447, i32 noundef %1448) #16
   %1450 = load i32, ptr @hf_btmesh_generic_power_level_set_transition_time_steps, align 4
-  %1451 = call ptr @proto_tree_add_item(ptr noundef %1449, i32 noundef %1450, ptr noundef %0, i32 noundef %1442, i32 noundef 1, i32 noundef -2147483648) #16
+  %1451 = call ptr @proto_tree_add_item(ptr noundef %1449, i32 noundef %1450, ptr noundef nonnull %0, i32 noundef %1442, i32 noundef 1, i32 noundef -2147483648) #16
   %1452 = load i32, ptr @hf_btmesh_generic_power_level_set_transition_time_resolution, align 4
-  %1453 = call ptr @proto_tree_add_item(ptr noundef %1449, i32 noundef %1452, ptr noundef %0, i32 noundef %1442, i32 noundef 1, i32 noundef -2147483648) #16
+  %1453 = call ptr @proto_tree_add_item(ptr noundef %1449, i32 noundef %1452, ptr noundef nonnull %0, i32 noundef %1442, i32 noundef 1, i32 noundef -2147483648) #16
   %1454 = or disjoint i32 %.03971, 4
   %1455 = load i32, ptr @hf_btmesh_generic_power_level_set_delay, align 4
-  %1456 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1455, ptr noundef %0, i32 noundef %1454, i32 noundef 1, i32 noundef -2147483648) #16
+  %1456 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1455, ptr noundef nonnull %0, i32 noundef %1454, i32 noundef 1, i32 noundef -2147483648) #16
   %1457 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1458:                                             ; preds = %42
   %1459 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_power, align 4
-  %1460 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1459, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1460 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1459, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1461 = add nuw nsw i32 %.03971, 2
   %1462 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_tid, align 4
-  %1463 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1462, ptr noundef %0, i32 noundef %1461, i32 noundef 1, i32 noundef -2147483648) #16
+  %1463 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1462, ptr noundef nonnull %0, i32 noundef %1461, i32 noundef 1, i32 noundef -2147483648) #16
   %1464 = add nuw nsw i32 %.03971, 3
-  %1465 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1464) #16
+  %1465 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1464) #16
   %1466 = icmp sgt i32 %1465, 0
   br i1 %1466, label %1467, label %.loopexit3981
 
 1467:                                             ; preds = %1458
   %1468 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_transition_time, align 4
-  %1469 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1468, ptr noundef %0, i32 noundef %1464, i32 noundef 1, i32 noundef -2147483648) #16
+  %1469 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1468, ptr noundef nonnull %0, i32 noundef %1464, i32 noundef 1, i32 noundef -2147483648) #16
   %1470 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1471 = call ptr @proto_item_add_subtree(ptr noundef %1469, i32 noundef %1470) #16
   %1472 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_transition_time_steps, align 4
-  %1473 = call ptr @proto_tree_add_item(ptr noundef %1471, i32 noundef %1472, ptr noundef %0, i32 noundef %1464, i32 noundef 1, i32 noundef -2147483648) #16
+  %1473 = call ptr @proto_tree_add_item(ptr noundef %1471, i32 noundef %1472, ptr noundef nonnull %0, i32 noundef %1464, i32 noundef 1, i32 noundef -2147483648) #16
   %1474 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_transition_time_resolution, align 4
-  %1475 = call ptr @proto_tree_add_item(ptr noundef %1471, i32 noundef %1474, ptr noundef %0, i32 noundef %1464, i32 noundef 1, i32 noundef -2147483648) #16
+  %1475 = call ptr @proto_tree_add_item(ptr noundef %1471, i32 noundef %1474, ptr noundef nonnull %0, i32 noundef %1464, i32 noundef 1, i32 noundef -2147483648) #16
   %1476 = or disjoint i32 %.03971, 4
   %1477 = load i32, ptr @hf_btmesh_generic_power_level_set_unacknowledged_delay, align 4
-  %1478 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1477, ptr noundef %0, i32 noundef %1476, i32 noundef 1, i32 noundef -2147483648) #16
+  %1478 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1477, ptr noundef nonnull %0, i32 noundef %1476, i32 noundef 1, i32 noundef -2147483648) #16
   %1479 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1480:                                             ; preds = %42
   %1481 = load i32, ptr @hf_btmesh_generic_power_level_status_present_power, align 4
-  %1482 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1481, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1482 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1481, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1483 = add nuw nsw i32 %.03971, 2
-  %1484 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1483) #16
+  %1484 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1483) #16
   %1485 = icmp sgt i32 %1484, 0
   br i1 %1485, label %1486, label %.loopexit3981
 
 1486:                                             ; preds = %1480
   %1487 = load i32, ptr @hf_btmesh_generic_power_level_status_target_power, align 4
-  %1488 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1487, ptr noundef %0, i32 noundef %1483, i32 noundef 2, i32 noundef -2147483648) #16
+  %1488 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1487, ptr noundef nonnull %0, i32 noundef %1483, i32 noundef 2, i32 noundef -2147483648) #16
   %1489 = or disjoint i32 %.03971, 4
   %1490 = load i32, ptr @hf_btmesh_generic_power_level_status_remaining_time, align 4
-  %1491 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1490, ptr noundef %0, i32 noundef %1489, i32 noundef 1, i32 noundef -2147483648) #16
+  %1491 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1490, ptr noundef nonnull %0, i32 noundef %1489, i32 noundef 1, i32 noundef -2147483648) #16
   %1492 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1493 = call ptr @proto_item_add_subtree(ptr noundef %1491, i32 noundef %1492) #16
   %1494 = load i32, ptr @hf_btmesh_generic_power_level_status_remaining_time_steps, align 4
-  %1495 = call ptr @proto_tree_add_item(ptr noundef %1493, i32 noundef %1494, ptr noundef %0, i32 noundef %1489, i32 noundef 1, i32 noundef -2147483648) #16
+  %1495 = call ptr @proto_tree_add_item(ptr noundef %1493, i32 noundef %1494, ptr noundef nonnull %0, i32 noundef %1489, i32 noundef 1, i32 noundef -2147483648) #16
   %1496 = load i32, ptr @hf_btmesh_generic_power_level_status_remaining_time_resolution, align 4
-  %1497 = call ptr @proto_tree_add_item(ptr noundef %1493, i32 noundef %1496, ptr noundef %0, i32 noundef %1489, i32 noundef 1, i32 noundef -2147483648) #16
+  %1497 = call ptr @proto_tree_add_item(ptr noundef %1493, i32 noundef %1496, ptr noundef nonnull %0, i32 noundef %1489, i32 noundef 1, i32 noundef -2147483648) #16
   %1498 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1499:                                             ; preds = %42
   %1500 = load i32, ptr @hf_btmesh_generic_power_last_status_power, align 4
-  %1501 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1500, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1501 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1500, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1502 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1503:                                             ; preds = %42
   %1504 = load i32, ptr @hf_btmesh_generic_power_default_status_power, align 4
-  %1505 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1504, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1505 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1504, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1506 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1507:                                             ; preds = %42
   %1508 = load i32, ptr @hf_btmesh_generic_power_range_status_status_code, align 4
-  %1509 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1508, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1509 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1508, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1510 = add nuw nsw i32 %.03971, 1
   %1511 = load i32, ptr @hf_btmesh_generic_power_range_status_range_min, align 4
-  %1512 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1511, ptr noundef %0, i32 noundef %1510, i32 noundef 2, i32 noundef -2147483648) #16
+  %1512 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1511, ptr noundef nonnull %0, i32 noundef %1510, i32 noundef 2, i32 noundef -2147483648) #16
   %1513 = add nuw nsw i32 %.03971, 3
   %1514 = load i32, ptr @hf_btmesh_generic_power_range_status_range_max, align 4
-  %1515 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1514, ptr noundef %0, i32 noundef %1513, i32 noundef 2, i32 noundef -2147483648) #16
+  %1515 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1514, ptr noundef nonnull %0, i32 noundef %1513, i32 noundef 2, i32 noundef -2147483648) #16
   %1516 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1517:                                             ; preds = %42
   %1518 = load i32, ptr @hf_btmesh_generic_power_default_set_power, align 4
-  %1519 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1518, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1519 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1518, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1520 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1521:                                             ; preds = %42
   %1522 = load i32, ptr @hf_btmesh_generic_power_default_set_unacknowledged_power, align 4
-  %1523 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1522, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1523 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1522, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1524 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1525:                                             ; preds = %42
   %1526 = load i32, ptr @hf_btmesh_generic_power_range_set_range_min, align 4
-  %1527 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1526, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1527 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1526, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1528 = add nuw nsw i32 %.03971, 2
   %1529 = load i32, ptr @hf_btmesh_generic_power_range_set_range_max, align 4
-  %1530 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1529, ptr noundef %0, i32 noundef %1528, i32 noundef 2, i32 noundef -2147483648) #16
+  %1530 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1529, ptr noundef nonnull %0, i32 noundef %1528, i32 noundef 2, i32 noundef -2147483648) #16
   %1531 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 1532:                                             ; preds = %42
   %1533 = load i32, ptr @hf_btmesh_generic_power_range_set_unacknowledged_range_min, align 4
-  %1534 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1533, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1534 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1533, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1535 = add nuw nsw i32 %.03971, 2
   %1536 = load i32, ptr @hf_btmesh_generic_power_range_set_unacknowledged_range_max, align 4
-  %1537 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1536, ptr noundef %0, i32 noundef %1535, i32 noundef 2, i32 noundef -2147483648) #16
+  %1537 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1536, ptr noundef nonnull %0, i32 noundef %1535, i32 noundef 2, i32 noundef -2147483648) #16
   %1538 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 1539:                                             ; preds = %42
   %1540 = load i32, ptr @hf_btmesh_generic_battery_status_battery_level, align 4
-  %1541 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1540, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1541 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1540, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1542 = add nuw nsw i32 %.03971, 1
   %1543 = load i32, ptr @hf_btmesh_generic_battery_status_time_to_discharge, align 4
-  %1544 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1543, ptr noundef %0, i32 noundef %1542, i32 noundef 3, i32 noundef -2147483648) #16
+  %1544 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1543, ptr noundef nonnull %0, i32 noundef %1542, i32 noundef 3, i32 noundef -2147483648) #16
   %1545 = or disjoint i32 %.03971, 4
   %1546 = load i32, ptr @hf_btmesh_generic_battery_status_time_to_charge, align 4
-  %1547 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1546, ptr noundef %0, i32 noundef %1545, i32 noundef 3, i32 noundef -2147483648) #16
+  %1547 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1546, ptr noundef nonnull %0, i32 noundef %1545, i32 noundef 3, i32 noundef -2147483648) #16
   %1548 = add nuw nsw i32 %.03971, 7
   %1549 = load i32, ptr @hf_btmesh_generic_battery_status_flags_presence, align 4
-  %1550 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1549, ptr noundef %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
+  %1550 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1549, ptr noundef nonnull %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
   %1551 = load i32, ptr @hf_btmesh_generic_battery_status_flags_indicator, align 4
-  %1552 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1551, ptr noundef %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
+  %1552 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1551, ptr noundef nonnull %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
   %1553 = load i32, ptr @hf_btmesh_generic_battery_status_flags_charging, align 4
-  %1554 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1553, ptr noundef %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
+  %1554 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1553, ptr noundef nonnull %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
   %1555 = load i32, ptr @hf_btmesh_generic_battery_status_flags_serviceability, align 4
-  %1556 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1555, ptr noundef %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
+  %1556 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1555, ptr noundef nonnull %0, i32 noundef %1548, i32 noundef 1, i32 noundef -2147483648) #16
   %1557 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 1558:                                             ; preds = %42
   %1559 = load i32, ptr @hf_btmesh_generic_location_local_status_local_north, align 4
-  %1560 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1559, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1560 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1559, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1561 = add nuw nsw i32 %.03971, 2
   %1562 = load i32, ptr @hf_btmesh_generic_location_local_status_local_east, align 4
-  %1563 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1562, ptr noundef %0, i32 noundef %1561, i32 noundef 2, i32 noundef -2147483648) #16
+  %1563 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1562, ptr noundef nonnull %0, i32 noundef %1561, i32 noundef 2, i32 noundef -2147483648) #16
   %1564 = or disjoint i32 %.03971, 4
   %1565 = load i32, ptr @hf_btmesh_generic_location_local_status_local_altitude, align 4
-  %1566 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1565, ptr noundef %0, i32 noundef %1564, i32 noundef 2, i32 noundef -2147483648) #16
+  %1566 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1565, ptr noundef nonnull %0, i32 noundef %1564, i32 noundef 2, i32 noundef -2147483648) #16
   %1567 = add nuw nsw i32 %.03971, 6
   %1568 = load i32, ptr @hf_btmesh_generic_location_local_status_floor_number, align 4
-  %1569 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1568, ptr noundef %0, i32 noundef %1567, i32 noundef 1, i32 noundef -2147483648) #16
+  %1569 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1568, ptr noundef nonnull %0, i32 noundef %1567, i32 noundef 1, i32 noundef -2147483648) #16
   %1570 = add nuw nsw i32 %.03971, 7
   %1571 = load i32, ptr @hf_btmesh_generic_location_local_status_uncertainty_stationary, align 4
-  %1572 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1571, ptr noundef %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
+  %1572 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1571, ptr noundef nonnull %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
   %1573 = load i32, ptr @hf_btmesh_generic_location_local_status_uncertainty_rfu, align 4
-  %1574 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1573, ptr noundef %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
+  %1574 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1573, ptr noundef nonnull %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
   %1575 = load i32, ptr @hf_btmesh_generic_location_local_status_uncertainty_update_time, align 4
-  %1576 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1575, ptr noundef %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
+  %1576 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1575, ptr noundef nonnull %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
   %1577 = load i32, ptr @hf_btmesh_generic_location_local_status_uncertainty_precision, align 4
-  %1578 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1577, ptr noundef %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
+  %1578 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1577, ptr noundef nonnull %0, i32 noundef %1570, i32 noundef 2, i32 noundef -2147483648) #16
   %1579 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 1580:                                             ; preds = %42
   %1581 = load i32, ptr @hf_btmesh_generic_location_local_set_local_north, align 4
-  %1582 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1581, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1582 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1581, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1583 = add nuw nsw i32 %.03971, 2
   %1584 = load i32, ptr @hf_btmesh_generic_location_local_set_local_east, align 4
-  %1585 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1584, ptr noundef %0, i32 noundef %1583, i32 noundef 2, i32 noundef -2147483648) #16
+  %1585 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1584, ptr noundef nonnull %0, i32 noundef %1583, i32 noundef 2, i32 noundef -2147483648) #16
   %1586 = or disjoint i32 %.03971, 4
   %1587 = load i32, ptr @hf_btmesh_generic_location_local_set_local_altitude, align 4
-  %1588 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1587, ptr noundef %0, i32 noundef %1586, i32 noundef 2, i32 noundef -2147483648) #16
+  %1588 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1587, ptr noundef nonnull %0, i32 noundef %1586, i32 noundef 2, i32 noundef -2147483648) #16
   %1589 = add nuw nsw i32 %.03971, 6
   %1590 = load i32, ptr @hf_btmesh_generic_location_local_set_floor_number, align 4
-  %1591 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1590, ptr noundef %0, i32 noundef %1589, i32 noundef 1, i32 noundef -2147483648) #16
+  %1591 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1590, ptr noundef nonnull %0, i32 noundef %1589, i32 noundef 1, i32 noundef -2147483648) #16
   %1592 = add nuw nsw i32 %.03971, 7
   %1593 = load i32, ptr @hf_btmesh_generic_location_local_set_uncertainty_stationary, align 4
-  %1594 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1593, ptr noundef %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
+  %1594 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1593, ptr noundef nonnull %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
   %1595 = load i32, ptr @hf_btmesh_generic_location_local_set_uncertainty_rfu, align 4
-  %1596 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1595, ptr noundef %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
+  %1596 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1595, ptr noundef nonnull %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
   %1597 = load i32, ptr @hf_btmesh_generic_location_local_set_uncertainty_update_time, align 4
-  %1598 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1597, ptr noundef %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
+  %1598 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1597, ptr noundef nonnull %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
   %1599 = load i32, ptr @hf_btmesh_generic_location_local_set_uncertainty_precision, align 4
-  %1600 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1599, ptr noundef %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
+  %1600 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1599, ptr noundef nonnull %0, i32 noundef %1592, i32 noundef 2, i32 noundef -2147483648) #16
   %1601 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 1602:                                             ; preds = %42
   %1603 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_local_north, align 4
-  %1604 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1603, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1604 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1603, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1605 = add nuw nsw i32 %.03971, 2
   %1606 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_local_east, align 4
-  %1607 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1606, ptr noundef %0, i32 noundef %1605, i32 noundef 2, i32 noundef -2147483648) #16
+  %1607 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1606, ptr noundef nonnull %0, i32 noundef %1605, i32 noundef 2, i32 noundef -2147483648) #16
   %1608 = or disjoint i32 %.03971, 4
   %1609 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_local_altitude, align 4
-  %1610 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1609, ptr noundef %0, i32 noundef %1608, i32 noundef 2, i32 noundef -2147483648) #16
+  %1610 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1609, ptr noundef nonnull %0, i32 noundef %1608, i32 noundef 2, i32 noundef -2147483648) #16
   %1611 = add nuw nsw i32 %.03971, 6
   %1612 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_floor_number, align 4
-  %1613 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1612, ptr noundef %0, i32 noundef %1611, i32 noundef 1, i32 noundef -2147483648) #16
+  %1613 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1612, ptr noundef nonnull %0, i32 noundef %1611, i32 noundef 1, i32 noundef -2147483648) #16
   %1614 = add nuw nsw i32 %.03971, 7
   %1615 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_uncertainty_stationary, align 4
-  %1616 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1615, ptr noundef %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
+  %1616 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1615, ptr noundef nonnull %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
   %1617 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_uncertainty_rfu, align 4
-  %1618 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1617, ptr noundef %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
+  %1618 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1617, ptr noundef nonnull %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
   %1619 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_uncertainty_update_time, align 4
-  %1620 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1619, ptr noundef %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
+  %1620 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1619, ptr noundef nonnull %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
   %1621 = load i32, ptr @hf_btmesh_generic_location_local_set_unacknowledged_uncertainty_precision, align 4
-  %1622 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1621, ptr noundef %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
+  %1622 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1621, ptr noundef nonnull %0, i32 noundef %1614, i32 noundef 2, i32 noundef -2147483648) #16
   %1623 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 1624:                                             ; preds = %42
   %1625 = load i32, ptr @hf_btmesh_scene_status_status_code, align 4
-  %1626 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1625, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1626 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1625, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1627 = add nuw nsw i32 %.03971, 1
   %1628 = load i32, ptr @hf_btmesh_scene_status_current_scene, align 4
-  %1629 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1628, ptr noundef %0, i32 noundef %1627, i32 noundef 2, i32 noundef -2147483648) #16
+  %1629 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1628, ptr noundef nonnull %0, i32 noundef %1627, i32 noundef 2, i32 noundef -2147483648) #16
   %1630 = add nuw nsw i32 %.03971, 3
-  %1631 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1630) #16
+  %1631 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1630) #16
   %1632 = icmp sgt i32 %1631, 0
   br i1 %1632, label %1633, label %.loopexit3981
 
 1633:                                             ; preds = %1624
   %1634 = load i32, ptr @hf_btmesh_scene_status_target_scene, align 4
-  %1635 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1634, ptr noundef %0, i32 noundef %1630, i32 noundef 2, i32 noundef -2147483648) #16
+  %1635 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1634, ptr noundef nonnull %0, i32 noundef %1630, i32 noundef 2, i32 noundef -2147483648) #16
   %1636 = add nuw nsw i32 %.03971, 5
   %1637 = load i32, ptr @hf_btmesh_scene_status_remaining_time, align 4
-  %1638 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1637, ptr noundef %0, i32 noundef %1636, i32 noundef 1, i32 noundef -2147483648) #16
+  %1638 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1637, ptr noundef nonnull %0, i32 noundef %1636, i32 noundef 1, i32 noundef -2147483648) #16
   %1639 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1640 = call ptr @proto_item_add_subtree(ptr noundef %1638, i32 noundef %1639) #16
   %1641 = load i32, ptr @hf_btmesh_scene_status_remaining_time_steps, align 4
-  %1642 = call ptr @proto_tree_add_item(ptr noundef %1640, i32 noundef %1641, ptr noundef %0, i32 noundef %1636, i32 noundef 1, i32 noundef -2147483648) #16
+  %1642 = call ptr @proto_tree_add_item(ptr noundef %1640, i32 noundef %1641, ptr noundef nonnull %0, i32 noundef %1636, i32 noundef 1, i32 noundef -2147483648) #16
   %1643 = load i32, ptr @hf_btmesh_scene_status_remaining_time_resolution, align 4
-  %1644 = call ptr @proto_tree_add_item(ptr noundef %1640, i32 noundef %1643, ptr noundef %0, i32 noundef %1636, i32 noundef 1, i32 noundef -2147483648) #16
+  %1644 = call ptr @proto_tree_add_item(ptr noundef %1640, i32 noundef %1643, ptr noundef nonnull %0, i32 noundef %1636, i32 noundef 1, i32 noundef -2147483648) #16
   %1645 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 1646:                                             ; preds = %42
   %1647 = load i32, ptr @hf_btmesh_scene_recall_scene_number, align 4
-  %1648 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1647, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1648 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1647, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1649 = add nuw nsw i32 %.03971, 2
   %1650 = load i32, ptr @hf_btmesh_scene_recall_tid, align 4
-  %1651 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1650, ptr noundef %0, i32 noundef %1649, i32 noundef 1, i32 noundef -2147483648) #16
+  %1651 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1650, ptr noundef nonnull %0, i32 noundef %1649, i32 noundef 1, i32 noundef -2147483648) #16
   %1652 = add nuw nsw i32 %.03971, 3
-  %1653 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1652) #16
+  %1653 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1652) #16
   %1654 = icmp sgt i32 %1653, 0
   br i1 %1654, label %1655, label %.loopexit3981
 
 1655:                                             ; preds = %1646
   %1656 = load i32, ptr @hf_btmesh_scene_recall_transition_time, align 4
-  %1657 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1656, ptr noundef %0, i32 noundef %1652, i32 noundef 1, i32 noundef -2147483648) #16
+  %1657 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1656, ptr noundef nonnull %0, i32 noundef %1652, i32 noundef 1, i32 noundef -2147483648) #16
   %1658 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1659 = call ptr @proto_item_add_subtree(ptr noundef %1657, i32 noundef %1658) #16
   %1660 = load i32, ptr @hf_btmesh_scene_recall_transition_time_steps, align 4
-  %1661 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1660, ptr noundef %0, i32 noundef %1652, i32 noundef 1, i32 noundef -2147483648) #16
+  %1661 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1660, ptr noundef nonnull %0, i32 noundef %1652, i32 noundef 1, i32 noundef -2147483648) #16
   %1662 = load i32, ptr @hf_btmesh_scene_recall_transition_time_resolution, align 4
-  %1663 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1662, ptr noundef %0, i32 noundef %1652, i32 noundef 1, i32 noundef -2147483648) #16
+  %1663 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1662, ptr noundef nonnull %0, i32 noundef %1652, i32 noundef 1, i32 noundef -2147483648) #16
   %1664 = or disjoint i32 %.03971, 4
   %1665 = load i32, ptr @hf_btmesh_scene_recall_delay, align 4
-  %1666 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1665, ptr noundef %0, i32 noundef %1664, i32 noundef 1, i32 noundef -2147483648) #16
+  %1666 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1665, ptr noundef nonnull %0, i32 noundef %1664, i32 noundef 1, i32 noundef -2147483648) #16
   %1667 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1668:                                             ; preds = %42
   %1669 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_scene_number, align 4
-  %1670 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1669, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1670 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1669, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1671 = add nuw nsw i32 %.03971, 2
   %1672 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_tid, align 4
-  %1673 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1672, ptr noundef %0, i32 noundef %1671, i32 noundef 1, i32 noundef -2147483648) #16
+  %1673 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1672, ptr noundef nonnull %0, i32 noundef %1671, i32 noundef 1, i32 noundef -2147483648) #16
   %1674 = add nuw nsw i32 %.03971, 3
-  %1675 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1674) #16
+  %1675 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1674) #16
   %1676 = icmp sgt i32 %1675, 0
   br i1 %1676, label %1677, label %.loopexit3981
 
 1677:                                             ; preds = %1668
   %1678 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_transition_time, align 4
-  %1679 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1678, ptr noundef %0, i32 noundef %1674, i32 noundef 1, i32 noundef -2147483648) #16
+  %1679 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1678, ptr noundef nonnull %0, i32 noundef %1674, i32 noundef 1, i32 noundef -2147483648) #16
   %1680 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1681 = call ptr @proto_item_add_subtree(ptr noundef %1679, i32 noundef %1680) #16
   %1682 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_transition_time_steps, align 4
-  %1683 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1682, ptr noundef %0, i32 noundef %1674, i32 noundef 1, i32 noundef -2147483648) #16
+  %1683 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1682, ptr noundef nonnull %0, i32 noundef %1674, i32 noundef 1, i32 noundef -2147483648) #16
   %1684 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_transition_time_resolution, align 4
-  %1685 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1684, ptr noundef %0, i32 noundef %1674, i32 noundef 1, i32 noundef -2147483648) #16
+  %1685 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1684, ptr noundef nonnull %0, i32 noundef %1674, i32 noundef 1, i32 noundef -2147483648) #16
   %1686 = or disjoint i32 %.03971, 4
   %1687 = load i32, ptr @hf_btmesh_scene_recall_unacknowledged_delay, align 4
-  %1688 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1687, ptr noundef %0, i32 noundef %1686, i32 noundef 1, i32 noundef -2147483648) #16
+  %1688 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1687, ptr noundef nonnull %0, i32 noundef %1686, i32 noundef 1, i32 noundef -2147483648) #16
   %1689 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 1690:                                             ; preds = %42
   %1691 = load i32, ptr @hf_btmesh_scene_register_status_status_code, align 4
-  %1692 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1691, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1692 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1691, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1693 = add nuw nsw i32 %.03971, 1
   %1694 = load i32, ptr @hf_btmesh_scene_register_status_current_scene, align 4
-  %1695 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1694, ptr noundef %0, i32 noundef %1693, i32 noundef 2, i32 noundef -2147483648) #16
+  %1695 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1694, ptr noundef nonnull %0, i32 noundef %1693, i32 noundef 2, i32 noundef -2147483648) #16
   %1696 = add nuw nsw i32 %.03971, 3
-  %1697 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1696) #16
+  %1697 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1696) #16
   %1698 = load i32, ptr @ett_btmesh_scene_register_status_scenes, align 4
-  %1699 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %1696, i32 noundef %1697, i32 noundef %1698, ptr noundef null, ptr noundef nonnull @.str.2203) #16
-  %1700 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1696) #16
+  %1699 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %1696, i32 noundef %1697, i32 noundef %1698, ptr noundef null, ptr noundef nonnull @.str.2203) #16
+  %1700 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1696) #16
   %1701 = icmp sgt i32 %1700, 1
   br i1 %1701, label %.lr.ph4023, label %.loopexit3981
 
 .lr.ph4023:                                       ; preds = %1690, %.lr.ph4023
   %.194022 = phi i32 [ %1704, %.lr.ph4023 ], [ %1696, %1690 ]
   %1702 = load i32, ptr @hf_btmesh_scene_register_status_scene, align 4
-  %1703 = call ptr @proto_tree_add_item(ptr noundef %1699, i32 noundef %1702, ptr noundef %0, i32 noundef %.194022, i32 noundef 2, i32 noundef -2147483648) #16
+  %1703 = call ptr @proto_tree_add_item(ptr noundef %1699, i32 noundef %1702, ptr noundef nonnull %0, i32 noundef %.194022, i32 noundef 2, i32 noundef -2147483648) #16
   %1704 = add i32 %.194022, 2
-  %1705 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1704) #16
+  %1705 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1704) #16
   %1706 = icmp sgt i32 %1705, 1
   br i1 %1706, label %.lr.ph4023, label %.loopexit3981, !llvm.loop !26
 
 1707:                                             ; preds = %42
   %1708 = load i32, ptr @hf_btmesh_scene_store_scene_number, align 4
-  %1709 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1708, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1709 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1708, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1710 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1711:                                             ; preds = %42
   %1712 = load i32, ptr @hf_btmesh_scene_store_unacknowledged_scene_number, align 4
-  %1713 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1712, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1713 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1712, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1714 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1715:                                             ; preds = %42
   %1716 = load i32, ptr @hf_btmesh_scene_delete_scene_number, align 4
-  %1717 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1716, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1717 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1716, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1718 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1719:                                             ; preds = %42
   %1720 = load i32, ptr @hf_btmesh_scene_delete_unacknowledged_scene_number, align 4
-  %1721 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1720, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %1721 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1720, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %1722 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 1723:                                             ; preds = %42
   %1724 = load i32, ptr @hf_btmesh_time_set_tai_seconds, align 4
-  %1725 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1724, ptr noundef %0, i32 noundef %.03971, i32 noundef 5, i32 noundef -2147483648) #16
+  %1725 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1724, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 5, i32 noundef -2147483648) #16
   %1726 = add nuw nsw i32 %.03971, 5
   %1727 = load i32, ptr @hf_btmesh_time_set_subsecond, align 4
-  %1728 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1727, ptr noundef %0, i32 noundef %1726, i32 noundef 1, i32 noundef -2147483648) #16
+  %1728 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1727, ptr noundef nonnull %0, i32 noundef %1726, i32 noundef 1, i32 noundef -2147483648) #16
   %1729 = add nuw nsw i32 %.03971, 6
   %1730 = load i32, ptr @hf_btmesh_time_set_uncertainty, align 4
-  %1731 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1730, ptr noundef %0, i32 noundef %1729, i32 noundef 1, i32 noundef -2147483648) #16
+  %1731 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1730, ptr noundef nonnull %0, i32 noundef %1729, i32 noundef 1, i32 noundef -2147483648) #16
   %1732 = add nuw nsw i32 %.03971, 7
   %1733 = load i32, ptr @hf_btmesh_time_set_time_authority, align 4
-  %1734 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1733, ptr noundef %0, i32 noundef %1732, i32 noundef 1, i32 noundef -2147483648) #16
+  %1734 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1733, ptr noundef nonnull %0, i32 noundef %1732, i32 noundef 1, i32 noundef -2147483648) #16
   %1735 = load i32, ptr @hf_btmesh_time_set_tai_utc_delta, align 4
-  %1736 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1735, ptr noundef %0, i32 noundef %1732, i32 noundef 2, i32 noundef -2147483648) #16
+  %1736 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1735, ptr noundef nonnull %0, i32 noundef %1732, i32 noundef 2, i32 noundef -2147483648) #16
   %1737 = add nuw nsw i32 %.03971, 9
   %1738 = load i32, ptr @hf_btmesh_time_set_time_zone_offset, align 4
-  %1739 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1738, ptr noundef %0, i32 noundef %1737, i32 noundef 1, i32 noundef -2147483648) #16
+  %1739 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1738, ptr noundef nonnull %0, i32 noundef %1737, i32 noundef 1, i32 noundef -2147483648) #16
   %1740 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 1741:                                             ; preds = %42
   %1742 = load i32, ptr @hf_btmesh_time_status_tai_seconds, align 4
-  %1743 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1742, ptr noundef %0, i32 noundef %.03971, i32 noundef 5, i32 noundef -2147483648) #16
+  %1743 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1742, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 5, i32 noundef -2147483648) #16
   %1744 = add nuw nsw i32 %.03971, 5
-  %1745 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1744) #16
+  %1745 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1744) #16
   %1746 = icmp sgt i32 %1745, 0
   br i1 %1746, label %1747, label %.loopexit3981
 
 1747:                                             ; preds = %1741
   %1748 = load i32, ptr @hf_btmesh_time_status_subsecond, align 4
-  %1749 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1748, ptr noundef %0, i32 noundef %1744, i32 noundef 1, i32 noundef -2147483648) #16
+  %1749 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1748, ptr noundef nonnull %0, i32 noundef %1744, i32 noundef 1, i32 noundef -2147483648) #16
   %1750 = add nuw nsw i32 %.03971, 6
   %1751 = load i32, ptr @hf_btmesh_time_status_uncertainty, align 4
-  %1752 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1751, ptr noundef %0, i32 noundef %1750, i32 noundef 1, i32 noundef -2147483648) #16
+  %1752 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1751, ptr noundef nonnull %0, i32 noundef %1750, i32 noundef 1, i32 noundef -2147483648) #16
   %1753 = add nuw nsw i32 %.03971, 7
   %1754 = load i32, ptr @hf_btmesh_time_status_time_authority, align 4
-  %1755 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1754, ptr noundef %0, i32 noundef %1753, i32 noundef 1, i32 noundef -2147483648) #16
+  %1755 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1754, ptr noundef nonnull %0, i32 noundef %1753, i32 noundef 1, i32 noundef -2147483648) #16
   %1756 = load i32, ptr @hf_btmesh_time_status_tai_utc_delta, align 4
-  %1757 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1756, ptr noundef %0, i32 noundef %1753, i32 noundef 2, i32 noundef -2147483648) #16
+  %1757 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1756, ptr noundef nonnull %0, i32 noundef %1753, i32 noundef 2, i32 noundef -2147483648) #16
   %1758 = add nuw nsw i32 %.03971, 9
   %1759 = load i32, ptr @hf_btmesh_time_status_time_zone_offset, align 4
-  %1760 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1759, ptr noundef %0, i32 noundef %1758, i32 noundef 1, i32 noundef -2147483648) #16
+  %1760 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1759, ptr noundef nonnull %0, i32 noundef %1758, i32 noundef 1, i32 noundef -2147483648) #16
   %1761 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 1762:                                             ; preds = %42
   %1763 = load i32, ptr @hf_btmesh_scheduler_action_status_index, align 4
-  %1764 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1763, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1764 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1763, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1765 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_year, align 4
-  %1766 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1765, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1766 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1765, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1767 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_month, align 4
-  %1768 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1767, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1768 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1767, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1769 = load i32, ptr @ett_btmesh_scheduler_model_month, align 4
   %1770 = call ptr @proto_item_add_subtree(ptr noundef %1768, i32 noundef %1769) #16
   %1771 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_january, align 4
-  %1772 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1771, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1772 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1771, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1773 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_february, align 4
-  %1774 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1773, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1774 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1773, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1775 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_march, align 4
-  %1776 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1775, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1776 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1775, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1777 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_april, align 4
-  %1778 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1777, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1778 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1777, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1779 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_may, align 4
-  %1780 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1779, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1780 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1779, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1781 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_june, align 4
-  %1782 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1781, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1782 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1781, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1783 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_july, align 4
-  %1784 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1783, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1784 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1783, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1785 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_august, align 4
-  %1786 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1785, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1786 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1785, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1787 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_september, align 4
-  %1788 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1787, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1788 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1787, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1789 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_october, align 4
-  %1790 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1789, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1790 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1789, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1791 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_november, align 4
-  %1792 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1791, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1792 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1791, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1793 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_december, align 4
-  %1794 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1793, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1794 = call ptr @proto_tree_add_item(ptr noundef %1770, i32 noundef %1793, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1795 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_day, align 4
-  %1796 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1795, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1796 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1795, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1797 = add nuw nsw i32 %.03971, 3
   %1798 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_hour, align 4
-  %1799 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1798, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1799 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1798, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1800 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_minute, align 4
-  %1801 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1800, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1801 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1800, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1802 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_second, align 4
-  %1803 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1802, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1803 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1802, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1804 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_day_of_week, align 4
-  %1805 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1804, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1805 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1804, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1806 = load i32, ptr @ett_btmesh_scheduler_model_day_of_week, align 4
   %1807 = call ptr @proto_item_add_subtree(ptr noundef %1805, i32 noundef %1806) #16
   %1808 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_monday, align 4
-  %1809 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1808, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1809 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1808, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1810 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_tuesday, align 4
-  %1811 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1810, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1811 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1810, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1812 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_wednesday, align 4
-  %1813 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1812, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1813 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1812, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1814 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_thursday, align 4
-  %1815 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1814, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1815 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1814, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1816 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_friday, align 4
-  %1817 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1816, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1817 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1816, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1818 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_saturday, align 4
-  %1819 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1818, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1819 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1818, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1820 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_sunday, align 4
-  %1821 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1820, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1821 = call ptr @proto_tree_add_item(ptr noundef %1807, i32 noundef %1820, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1822 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_action, align 4
-  %1823 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1822, ptr noundef %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
+  %1823 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1822, ptr noundef nonnull %0, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648) #16
   %1824 = add nuw nsw i32 %.03971, 7
   %1825 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_transition_time, align 4
-  %1826 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1825, ptr noundef %0, i32 noundef %1824, i32 noundef 1, i32 noundef -2147483648) #16
+  %1826 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1825, ptr noundef nonnull %0, i32 noundef %1824, i32 noundef 1, i32 noundef -2147483648) #16
   %1827 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1828 = call ptr @proto_item_add_subtree(ptr noundef %1826, i32 noundef %1827) #16
   %1829 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_transition_time_steps, align 4
-  %1830 = call ptr @proto_tree_add_item(ptr noundef %1828, i32 noundef %1829, ptr noundef %0, i32 noundef %1824, i32 noundef 1, i32 noundef -2147483648) #16
+  %1830 = call ptr @proto_tree_add_item(ptr noundef %1828, i32 noundef %1829, ptr noundef nonnull %0, i32 noundef %1824, i32 noundef 1, i32 noundef -2147483648) #16
   %1831 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_transition_time_resolution, align 4
-  %1832 = call ptr @proto_tree_add_item(ptr noundef %1828, i32 noundef %1831, ptr noundef %0, i32 noundef %1824, i32 noundef 1, i32 noundef -2147483648) #16
+  %1832 = call ptr @proto_tree_add_item(ptr noundef %1828, i32 noundef %1831, ptr noundef nonnull %0, i32 noundef %1824, i32 noundef 1, i32 noundef -2147483648) #16
   %1833 = or disjoint i32 %.03971, 8
   %1834 = load i32, ptr @hf_btmesh_scheduler_action_status_schedule_register_scene_number, align 4
-  %1835 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1834, ptr noundef %0, i32 noundef %1833, i32 noundef 2, i32 noundef -2147483648) #16
+  %1835 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1834, ptr noundef nonnull %0, i32 noundef %1833, i32 noundef 2, i32 noundef -2147483648) #16
   %1836 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 1837:                                             ; preds = %42
   %1838 = load i32, ptr @hf_btmesh_scheduler_action_set_index, align 4
-  %1839 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1838, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1839 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1838, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1840 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_year, align 4
-  %1841 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1840, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1841 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1840, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1842 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_month, align 4
-  %1843 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1842, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1843 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1842, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1844 = load i32, ptr @ett_btmesh_scheduler_model_month, align 4
   %1845 = call ptr @proto_item_add_subtree(ptr noundef %1843, i32 noundef %1844) #16
   %1846 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_january, align 4
-  %1847 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1846, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1847 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1846, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1848 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_february, align 4
-  %1849 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1848, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1849 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1848, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1850 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_march, align 4
-  %1851 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1850, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1851 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1850, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1852 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_april, align 4
-  %1853 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1852, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1853 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1852, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1854 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_may, align 4
-  %1855 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1854, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1855 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1854, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1856 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_june, align 4
-  %1857 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1856, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1857 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1856, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1858 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_july, align 4
-  %1859 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1858, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1859 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1858, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1860 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_august, align 4
-  %1861 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1860, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1861 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1860, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1862 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_september, align 4
-  %1863 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1862, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1863 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1862, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1864 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_october, align 4
-  %1865 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1864, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1865 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1864, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1866 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_november, align 4
-  %1867 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1866, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1867 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1866, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1868 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_december, align 4
-  %1869 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1868, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1869 = call ptr @proto_tree_add_item(ptr noundef %1845, i32 noundef %1868, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1870 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_day, align 4
-  %1871 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1870, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1871 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1870, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1872 = add nuw nsw i32 %.03971, 3
   %1873 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_hour, align 4
-  %1874 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1873, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1874 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1873, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1875 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_minute, align 4
-  %1876 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1875, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1876 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1875, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1877 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_second, align 4
-  %1878 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1877, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1878 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1877, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1879 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_day_of_week, align 4
-  %1880 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1879, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1880 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1879, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1881 = load i32, ptr @ett_btmesh_scheduler_model_day_of_week, align 4
   %1882 = call ptr @proto_item_add_subtree(ptr noundef %1880, i32 noundef %1881) #16
   %1883 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_monday, align 4
-  %1884 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1883, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1884 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1883, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1885 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_tuesday, align 4
-  %1886 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1885, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1886 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1885, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1887 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_wednesday, align 4
-  %1888 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1887, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1888 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1887, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1889 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_thursday, align 4
-  %1890 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1889, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1890 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1889, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1891 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_friday, align 4
-  %1892 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1891, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1892 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1891, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1893 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_saturday, align 4
-  %1894 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1893, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1894 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1893, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1895 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_sunday, align 4
-  %1896 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1895, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1896 = call ptr @proto_tree_add_item(ptr noundef %1882, i32 noundef %1895, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1897 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_action, align 4
-  %1898 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1897, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
+  %1898 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1897, ptr noundef nonnull %0, i32 noundef %1872, i32 noundef 4, i32 noundef -2147483648) #16
   %1899 = add nuw nsw i32 %.03971, 7
   %1900 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_transition_time, align 4
-  %1901 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1900, ptr noundef %0, i32 noundef %1899, i32 noundef 1, i32 noundef -2147483648) #16
+  %1901 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1900, ptr noundef nonnull %0, i32 noundef %1899, i32 noundef 1, i32 noundef -2147483648) #16
   %1902 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1903 = call ptr @proto_item_add_subtree(ptr noundef %1901, i32 noundef %1902) #16
   %1904 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_transition_time_steps, align 4
-  %1905 = call ptr @proto_tree_add_item(ptr noundef %1903, i32 noundef %1904, ptr noundef %0, i32 noundef %1899, i32 noundef 1, i32 noundef -2147483648) #16
+  %1905 = call ptr @proto_tree_add_item(ptr noundef %1903, i32 noundef %1904, ptr noundef nonnull %0, i32 noundef %1899, i32 noundef 1, i32 noundef -2147483648) #16
   %1906 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_transition_time_resolution, align 4
-  %1907 = call ptr @proto_tree_add_item(ptr noundef %1903, i32 noundef %1906, ptr noundef %0, i32 noundef %1899, i32 noundef 1, i32 noundef -2147483648) #16
+  %1907 = call ptr @proto_tree_add_item(ptr noundef %1903, i32 noundef %1906, ptr noundef nonnull %0, i32 noundef %1899, i32 noundef 1, i32 noundef -2147483648) #16
   %1908 = or disjoint i32 %.03971, 8
   %1909 = load i32, ptr @hf_btmesh_scheduler_action_set_schedule_register_scene_number, align 4
-  %1910 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1909, ptr noundef %0, i32 noundef %1908, i32 noundef 2, i32 noundef -2147483648) #16
+  %1910 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1909, ptr noundef nonnull %0, i32 noundef %1908, i32 noundef 2, i32 noundef -2147483648) #16
   %1911 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 1912:                                             ; preds = %42
   %1913 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_index, align 4
-  %1914 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1913, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1914 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1913, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1915 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_year, align 4
-  %1916 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1915, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1916 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1915, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1917 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_month, align 4
-  %1918 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1917, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1918 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1917, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1919 = load i32, ptr @ett_btmesh_scheduler_model_month, align 4
   %1920 = call ptr @proto_item_add_subtree(ptr noundef %1918, i32 noundef %1919) #16
   %1921 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_january, align 4
-  %1922 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1921, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1922 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1921, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1923 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_february, align 4
-  %1924 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1923, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1924 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1923, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1925 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_march, align 4
-  %1926 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1925, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1926 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1925, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1927 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_april, align 4
-  %1928 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1927, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1928 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1927, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1929 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_may, align 4
-  %1930 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1929, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1930 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1929, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1931 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_june, align 4
-  %1932 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1931, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1932 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1931, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1933 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_july, align 4
-  %1934 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1933, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1934 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1933, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1935 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_august, align 4
-  %1936 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1935, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1936 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1935, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1937 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_september, align 4
-  %1938 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1937, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1938 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1937, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1939 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_october, align 4
-  %1940 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1939, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1940 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1939, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1941 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_november, align 4
-  %1942 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1941, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1942 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1941, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1943 = load i32, ptr @hf_btmesh_scheduler_schedule_register_month_december, align 4
-  %1944 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1943, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1944 = call ptr @proto_tree_add_item(ptr noundef %1920, i32 noundef %1943, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1945 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_day, align 4
-  %1946 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1945, ptr noundef %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
+  %1946 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1945, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 4, i32 noundef -2147483648) #16
   %1947 = add nuw nsw i32 %.03971, 3
   %1948 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_hour, align 4
-  %1949 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1948, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1949 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1948, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1950 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_minute, align 4
-  %1951 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1950, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1951 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1950, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1952 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_second, align 4
-  %1953 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1952, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1953 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1952, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1954 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_day_of_week, align 4
-  %1955 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1954, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1955 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1954, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1956 = load i32, ptr @ett_btmesh_scheduler_model_day_of_week, align 4
   %1957 = call ptr @proto_item_add_subtree(ptr noundef %1955, i32 noundef %1956) #16
   %1958 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_monday, align 4
-  %1959 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1958, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1959 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1958, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1960 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_tuesday, align 4
-  %1961 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1960, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1961 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1960, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1962 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_wednesday, align 4
-  %1963 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1962, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1963 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1962, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1964 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_thursday, align 4
-  %1965 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1964, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1965 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1964, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1966 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_friday, align 4
-  %1967 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1966, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1967 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1966, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1968 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_saturday, align 4
-  %1969 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1968, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1969 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1968, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1970 = load i32, ptr @hf_btmesh_scheduler_schedule_register_day_of_week_sunday, align 4
-  %1971 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1970, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1971 = call ptr @proto_tree_add_item(ptr noundef %1957, i32 noundef %1970, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1972 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_action, align 4
-  %1973 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1972, ptr noundef %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
+  %1973 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1972, ptr noundef nonnull %0, i32 noundef %1947, i32 noundef 4, i32 noundef -2147483648) #16
   %1974 = add nuw nsw i32 %.03971, 7
   %1975 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_transition_time, align 4
-  %1976 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1975, ptr noundef %0, i32 noundef %1974, i32 noundef 1, i32 noundef -2147483648) #16
+  %1976 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1975, ptr noundef nonnull %0, i32 noundef %1974, i32 noundef 1, i32 noundef -2147483648) #16
   %1977 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %1978 = call ptr @proto_item_add_subtree(ptr noundef %1976, i32 noundef %1977) #16
   %1979 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_transition_time_steps, align 4
-  %1980 = call ptr @proto_tree_add_item(ptr noundef %1978, i32 noundef %1979, ptr noundef %0, i32 noundef %1974, i32 noundef 1, i32 noundef -2147483648) #16
+  %1980 = call ptr @proto_tree_add_item(ptr noundef %1978, i32 noundef %1979, ptr noundef nonnull %0, i32 noundef %1974, i32 noundef 1, i32 noundef -2147483648) #16
   %1981 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_transition_time_resolution, align 4
-  %1982 = call ptr @proto_tree_add_item(ptr noundef %1978, i32 noundef %1981, ptr noundef %0, i32 noundef %1974, i32 noundef 1, i32 noundef -2147483648) #16
+  %1982 = call ptr @proto_tree_add_item(ptr noundef %1978, i32 noundef %1981, ptr noundef nonnull %0, i32 noundef %1974, i32 noundef 1, i32 noundef -2147483648) #16
   %1983 = or disjoint i32 %.03971, 8
   %1984 = load i32, ptr @hf_btmesh_scheduler_action_set_unacknowledged_schedule_register_scene_number, align 4
-  %1985 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1984, ptr noundef %0, i32 noundef %1983, i32 noundef 2, i32 noundef -2147483648) #16
+  %1985 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1984, ptr noundef nonnull %0, i32 noundef %1983, i32 noundef 2, i32 noundef -2147483648) #16
   %1986 = add nuw nsw i32 %.03971, 10
   br label %.loopexit3981
 
 1987:                                             ; preds = %42
   %1988 = load i32, ptr @hf_btmesh_time_role_set_time_role, align 4
-  %1989 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1988, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1989 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1988, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1990 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 1991:                                             ; preds = %42
   %1992 = load i32, ptr @hf_btmesh_time_role_status_time_role, align 4
-  %1993 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1992, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1993 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1992, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1994 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 1995:                                             ; preds = %42
   %1996 = load i32, ptr @hf_btmesh_time_zone_set_time_zone_offset_new, align 4
-  %1997 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1996, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %1997 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1996, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %1998 = add nuw nsw i32 %.03971, 1
   %1999 = load i32, ptr @hf_btmesh_time_zone_set_tai_of_zone_change, align 4
-  %2000 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1999, ptr noundef %0, i32 noundef %1998, i32 noundef 5, i32 noundef -2147483648) #16
+  %2000 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %1999, ptr noundef nonnull %0, i32 noundef %1998, i32 noundef 5, i32 noundef -2147483648) #16
   %2001 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2002:                                             ; preds = %42
   %2003 = load i32, ptr @hf_btmesh_time_zone_status_time_zone_offset_current, align 4
-  %2004 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2003, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2004 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2003, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2005 = add nuw nsw i32 %.03971, 1
   %2006 = load i32, ptr @hf_btmesh_time_zone_status_time_zone_offset_new, align 4
-  %2007 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2006, ptr noundef %0, i32 noundef %2005, i32 noundef 1, i32 noundef -2147483648) #16
+  %2007 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2006, ptr noundef nonnull %0, i32 noundef %2005, i32 noundef 1, i32 noundef -2147483648) #16
   %2008 = add nuw nsw i32 %.03971, 2
   %2009 = load i32, ptr @hf_btmesh_time_zone_status_tai_of_zone_change, align 4
-  %2010 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2009, ptr noundef %0, i32 noundef %2008, i32 noundef 5, i32 noundef -2147483648) #16
+  %2010 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2009, ptr noundef nonnull %0, i32 noundef %2008, i32 noundef 5, i32 noundef -2147483648) #16
   %2011 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 2012:                                             ; preds = %42
   %2013 = load i32, ptr @hf_btmesh_tai_utc_delta_set_tai_utc_delta_new, align 4
-  %2014 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2013, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2014 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2013, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2015 = load i32, ptr @hf_btmesh_tai_utc_delta_set_padding, align 4
-  %2016 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2015, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2016 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2015, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2017 = add nuw nsw i32 %.03971, 2
   %2018 = load i32, ptr @hf_btmesh_tai_utc_delta_set_tai_of_delta_change, align 4
-  %2019 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2018, ptr noundef %0, i32 noundef %2017, i32 noundef 5, i32 noundef -2147483648) #16
+  %2019 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2018, ptr noundef nonnull %0, i32 noundef %2017, i32 noundef 5, i32 noundef -2147483648) #16
   %2020 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 2021:                                             ; preds = %42
   %2022 = load i32, ptr @hf_btmesh_tai_utc_delta_status_tai_utc_delta_current, align 4
-  %2023 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2022, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2023 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2022, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2024 = load i32, ptr @hf_btmesh_tai_utc_delta_status_padding_1, align 4
-  %2025 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2024, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2025 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2024, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2026 = add nuw nsw i32 %.03971, 2
   %2027 = load i32, ptr @hf_btmesh_tai_utc_delta_status_tai_utc_delta_new, align 4
-  %2028 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2027, ptr noundef %0, i32 noundef %2026, i32 noundef 2, i32 noundef -2147483648) #16
+  %2028 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2027, ptr noundef nonnull %0, i32 noundef %2026, i32 noundef 2, i32 noundef -2147483648) #16
   %2029 = load i32, ptr @hf_btmesh_tai_utc_delta_status_padding_2, align 4
-  %2030 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2029, ptr noundef %0, i32 noundef %2026, i32 noundef 2, i32 noundef -2147483648) #16
+  %2030 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2029, ptr noundef nonnull %0, i32 noundef %2026, i32 noundef 2, i32 noundef -2147483648) #16
   %2031 = or disjoint i32 %.03971, 4
   %2032 = load i32, ptr @hf_btmesh_tai_utc_delta_status_tai_of_delta_change, align 4
-  %2033 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2032, ptr noundef %0, i32 noundef %2031, i32 noundef 5, i32 noundef -2147483648) #16
+  %2033 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2032, ptr noundef nonnull %0, i32 noundef %2031, i32 noundef 5, i32 noundef -2147483648) #16
   %2034 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2035:                                             ; preds = %42
   %2036 = load i32, ptr @hf_btmesh_scheduler_action_get_index, align 4
-  %2037 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2036, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2037 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2036, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2038 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 2039:                                             ; preds = %42
   %2040 = load i32, ptr @hf_btmesh_scheduler_status_schedules, align 4
-  %2041 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2040, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2041 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2040, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2042 = load i32, ptr @ett_btmesh_scheduler_schedules, align 4
   %2043 = call ptr @proto_item_add_subtree(ptr noundef %2041, i32 noundef %2042) #16
   %2044 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_0, align 4
-  %2045 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2044, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2045 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2044, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2046 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_1, align 4
-  %2047 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2046, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2047 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2046, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2048 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_2, align 4
-  %2049 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2048, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2049 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2048, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2050 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_3, align 4
-  %2051 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2050, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2051 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2050, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2052 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_4, align 4
-  %2053 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2052, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2053 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2052, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2054 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_5, align 4
-  %2055 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2054, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2055 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2054, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2056 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_6, align 4
-  %2057 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2056, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2057 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2056, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2058 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_7, align 4
-  %2059 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2058, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2059 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2058, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2060 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_8, align 4
-  %2061 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2060, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2061 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2060, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2062 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_9, align 4
-  %2063 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2062, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2063 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2062, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2064 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_10, align 4
-  %2065 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2064, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2065 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2064, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2066 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_11, align 4
-  %2067 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2066, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2067 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2066, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2068 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_12, align 4
-  %2069 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2068, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2069 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2068, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2070 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_13, align 4
-  %2071 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2070, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2071 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2070, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2072 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_14, align 4
-  %2073 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2072, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2073 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2072, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2074 = load i32, ptr @hf_btmesh_scheduler_status_schedules_schedule_15, align 4
-  %2075 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2074, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2075 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2074, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2076 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 2077:                                             ; preds = %42
   %2078 = load i32, ptr @hf_btmesh_light_lc_property_set_light_lc_property_id, align 4
-  %2079 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2078, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %2080 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %2079 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2078, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2080 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %2081 = add nuw nsw i32 %.03971, 2
   %2082 = load i32, ptr @hf_btmesh_light_lc_property_set_light_lc_property_value, align 4
   %2083 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %2082, ptr noundef %0, i32 noundef %2081, i16 noundef zeroext %2080, i32 noundef -1)
@@ -10222,8 +10222,8 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 2086:                                             ; preds = %42
   %2087 = load i32, ptr @hf_btmesh_light_lc_property_set_unacknowledged_light_lc_property_id, align 4
-  %2088 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2087, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %2089 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %2088 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2087, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2089 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %2090 = add nuw nsw i32 %.03971, 2
   %2091 = load i32, ptr @hf_btmesh_light_lc_property_set_unacknowledged_light_lc_property_value, align 4
   %2092 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %2091, ptr noundef %0, i32 noundef %2090, i16 noundef zeroext %2089, i32 noundef -1)
@@ -10233,8 +10233,8 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 2095:                                             ; preds = %42
   %2096 = load i32, ptr @hf_btmesh_light_lc_property_status_light_lc_property_id, align 4
-  %2097 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2096, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %2098 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %2097 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2096, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2098 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %2099 = add nuw nsw i32 %.03971, 2
   %2100 = load i32, ptr @hf_btmesh_light_lc_property_status_light_lc_property_value, align 4
   %2101 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %2100, ptr noundef %0, i32 noundef %2099, i16 noundef zeroext %2098, i32 noundef -1)
@@ -10244,1174 +10244,1174 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 2104:                                             ; preds = %42
   %2105 = load i32, ptr @hf_btmesh_light_lightness_set_lightness, align 4
-  %2106 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2105, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2106 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2105, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2107 = add nuw nsw i32 %.03971, 2
   %2108 = load i32, ptr @hf_btmesh_light_lightness_set_tid, align 4
-  %2109 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2108, ptr noundef %0, i32 noundef %2107, i32 noundef 1, i32 noundef -2147483648) #16
+  %2109 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2108, ptr noundef nonnull %0, i32 noundef %2107, i32 noundef 1, i32 noundef -2147483648) #16
   %2110 = add nuw nsw i32 %.03971, 3
-  %2111 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2110) #16
+  %2111 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2110) #16
   %2112 = icmp sgt i32 %2111, 0
   br i1 %2112, label %2113, label %.loopexit3981
 
 2113:                                             ; preds = %2104
   %2114 = load i32, ptr @hf_btmesh_light_lightness_set_transition_time, align 4
-  %2115 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2114, ptr noundef %0, i32 noundef %2110, i32 noundef 1, i32 noundef -2147483648) #16
+  %2115 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2114, ptr noundef nonnull %0, i32 noundef %2110, i32 noundef 1, i32 noundef -2147483648) #16
   %2116 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2117 = call ptr @proto_item_add_subtree(ptr noundef %2115, i32 noundef %2116) #16
   %2118 = load i32, ptr @hf_btmesh_light_lightness_set_transition_time_steps, align 4
-  %2119 = call ptr @proto_tree_add_item(ptr noundef %2117, i32 noundef %2118, ptr noundef %0, i32 noundef %2110, i32 noundef 1, i32 noundef -2147483648) #16
+  %2119 = call ptr @proto_tree_add_item(ptr noundef %2117, i32 noundef %2118, ptr noundef nonnull %0, i32 noundef %2110, i32 noundef 1, i32 noundef -2147483648) #16
   %2120 = load i32, ptr @hf_btmesh_light_lightness_set_transition_time_resolution, align 4
-  %2121 = call ptr @proto_tree_add_item(ptr noundef %2117, i32 noundef %2120, ptr noundef %0, i32 noundef %2110, i32 noundef 1, i32 noundef -2147483648) #16
+  %2121 = call ptr @proto_tree_add_item(ptr noundef %2117, i32 noundef %2120, ptr noundef nonnull %0, i32 noundef %2110, i32 noundef 1, i32 noundef -2147483648) #16
   %2122 = or disjoint i32 %.03971, 4
   %2123 = load i32, ptr @hf_btmesh_light_lightness_set_delay, align 4
-  %2124 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2123, ptr noundef %0, i32 noundef %2122, i32 noundef 1, i32 noundef -2147483648) #16
+  %2124 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2123, ptr noundef nonnull %0, i32 noundef %2122, i32 noundef 1, i32 noundef -2147483648) #16
   %2125 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2126:                                             ; preds = %42
   %2127 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_lightness, align 4
-  %2128 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2127, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2128 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2127, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2129 = add nuw nsw i32 %.03971, 2
   %2130 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_tid, align 4
-  %2131 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2130, ptr noundef %0, i32 noundef %2129, i32 noundef 1, i32 noundef -2147483648) #16
+  %2131 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2130, ptr noundef nonnull %0, i32 noundef %2129, i32 noundef 1, i32 noundef -2147483648) #16
   %2132 = add nuw nsw i32 %.03971, 3
-  %2133 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2132) #16
+  %2133 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2132) #16
   %2134 = icmp sgt i32 %2133, 0
   br i1 %2134, label %2135, label %.loopexit3981
 
 2135:                                             ; preds = %2126
   %2136 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_transition_time, align 4
-  %2137 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2136, ptr noundef %0, i32 noundef %2132, i32 noundef 1, i32 noundef -2147483648) #16
+  %2137 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2136, ptr noundef nonnull %0, i32 noundef %2132, i32 noundef 1, i32 noundef -2147483648) #16
   %2138 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2139 = call ptr @proto_item_add_subtree(ptr noundef %2137, i32 noundef %2138) #16
   %2140 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_transition_time_steps, align 4
-  %2141 = call ptr @proto_tree_add_item(ptr noundef %2139, i32 noundef %2140, ptr noundef %0, i32 noundef %2132, i32 noundef 1, i32 noundef -2147483648) #16
+  %2141 = call ptr @proto_tree_add_item(ptr noundef %2139, i32 noundef %2140, ptr noundef nonnull %0, i32 noundef %2132, i32 noundef 1, i32 noundef -2147483648) #16
   %2142 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_transition_time_resolution, align 4
-  %2143 = call ptr @proto_tree_add_item(ptr noundef %2139, i32 noundef %2142, ptr noundef %0, i32 noundef %2132, i32 noundef 1, i32 noundef -2147483648) #16
+  %2143 = call ptr @proto_tree_add_item(ptr noundef %2139, i32 noundef %2142, ptr noundef nonnull %0, i32 noundef %2132, i32 noundef 1, i32 noundef -2147483648) #16
   %2144 = or disjoint i32 %.03971, 4
   %2145 = load i32, ptr @hf_btmesh_light_lightness_set_unacknowledged_delay, align 4
-  %2146 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2145, ptr noundef %0, i32 noundef %2144, i32 noundef 1, i32 noundef -2147483648) #16
+  %2146 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2145, ptr noundef nonnull %0, i32 noundef %2144, i32 noundef 1, i32 noundef -2147483648) #16
   %2147 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2148:                                             ; preds = %42
   %2149 = load i32, ptr @hf_btmesh_light_lightness_status_present_lightness, align 4
-  %2150 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2149, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2150 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2149, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2151 = add nuw nsw i32 %.03971, 2
-  %2152 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2151) #16
+  %2152 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2151) #16
   %2153 = icmp sgt i32 %2152, 0
   br i1 %2153, label %2154, label %.loopexit3981
 
 2154:                                             ; preds = %2148
   %2155 = load i32, ptr @hf_btmesh_light_lightness_status_target_lightness, align 4
-  %2156 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2155, ptr noundef %0, i32 noundef %2151, i32 noundef 2, i32 noundef -2147483648) #16
+  %2156 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2155, ptr noundef nonnull %0, i32 noundef %2151, i32 noundef 2, i32 noundef -2147483648) #16
   %2157 = or disjoint i32 %.03971, 4
   %2158 = load i32, ptr @hf_btmesh_light_lightness_status_remaining_time, align 4
-  %2159 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2158, ptr noundef %0, i32 noundef %2157, i32 noundef 1, i32 noundef -2147483648) #16
+  %2159 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2158, ptr noundef nonnull %0, i32 noundef %2157, i32 noundef 1, i32 noundef -2147483648) #16
   %2160 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2161 = call ptr @proto_item_add_subtree(ptr noundef %2159, i32 noundef %2160) #16
   %2162 = load i32, ptr @hf_btmesh_light_lightness_status_remaining_time_steps, align 4
-  %2163 = call ptr @proto_tree_add_item(ptr noundef %2161, i32 noundef %2162, ptr noundef %0, i32 noundef %2157, i32 noundef 1, i32 noundef -2147483648) #16
+  %2163 = call ptr @proto_tree_add_item(ptr noundef %2161, i32 noundef %2162, ptr noundef nonnull %0, i32 noundef %2157, i32 noundef 1, i32 noundef -2147483648) #16
   %2164 = load i32, ptr @hf_btmesh_light_lightness_status_remaining_time_resolution, align 4
-  %2165 = call ptr @proto_tree_add_item(ptr noundef %2161, i32 noundef %2164, ptr noundef %0, i32 noundef %2157, i32 noundef 1, i32 noundef -2147483648) #16
+  %2165 = call ptr @proto_tree_add_item(ptr noundef %2161, i32 noundef %2164, ptr noundef nonnull %0, i32 noundef %2157, i32 noundef 1, i32 noundef -2147483648) #16
   %2166 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2167:                                             ; preds = %42
   %2168 = load i32, ptr @hf_btmesh_light_lightness_linear_set_lightness, align 4
-  %2169 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2168, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2169 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2168, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2170 = add nuw nsw i32 %.03971, 2
   %2171 = load i32, ptr @hf_btmesh_light_lightness_linear_set_tid, align 4
-  %2172 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2171, ptr noundef %0, i32 noundef %2170, i32 noundef 1, i32 noundef -2147483648) #16
+  %2172 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2171, ptr noundef nonnull %0, i32 noundef %2170, i32 noundef 1, i32 noundef -2147483648) #16
   %2173 = add nuw nsw i32 %.03971, 3
-  %2174 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2173) #16
+  %2174 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2173) #16
   %2175 = icmp sgt i32 %2174, 0
   br i1 %2175, label %2176, label %.loopexit3981
 
 2176:                                             ; preds = %2167
   %2177 = load i32, ptr @hf_btmesh_light_lightness_linear_set_transition_time, align 4
-  %2178 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2177, ptr noundef %0, i32 noundef %2173, i32 noundef 1, i32 noundef -2147483648) #16
+  %2178 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2177, ptr noundef nonnull %0, i32 noundef %2173, i32 noundef 1, i32 noundef -2147483648) #16
   %2179 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2180 = call ptr @proto_item_add_subtree(ptr noundef %2178, i32 noundef %2179) #16
   %2181 = load i32, ptr @hf_btmesh_light_lightness_linear_set_transition_time_steps, align 4
-  %2182 = call ptr @proto_tree_add_item(ptr noundef %2180, i32 noundef %2181, ptr noundef %0, i32 noundef %2173, i32 noundef 1, i32 noundef -2147483648) #16
+  %2182 = call ptr @proto_tree_add_item(ptr noundef %2180, i32 noundef %2181, ptr noundef nonnull %0, i32 noundef %2173, i32 noundef 1, i32 noundef -2147483648) #16
   %2183 = load i32, ptr @hf_btmesh_light_lightness_linear_set_transition_time_resolution, align 4
-  %2184 = call ptr @proto_tree_add_item(ptr noundef %2180, i32 noundef %2183, ptr noundef %0, i32 noundef %2173, i32 noundef 1, i32 noundef -2147483648) #16
+  %2184 = call ptr @proto_tree_add_item(ptr noundef %2180, i32 noundef %2183, ptr noundef nonnull %0, i32 noundef %2173, i32 noundef 1, i32 noundef -2147483648) #16
   %2185 = or disjoint i32 %.03971, 4
   %2186 = load i32, ptr @hf_btmesh_light_lightness_linear_set_delay, align 4
-  %2187 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2186, ptr noundef %0, i32 noundef %2185, i32 noundef 1, i32 noundef -2147483648) #16
+  %2187 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2186, ptr noundef nonnull %0, i32 noundef %2185, i32 noundef 1, i32 noundef -2147483648) #16
   %2188 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2189:                                             ; preds = %42
   %2190 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_lightness, align 4
-  %2191 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2190, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2191 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2190, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2192 = add nuw nsw i32 %.03971, 2
   %2193 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_tid, align 4
-  %2194 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2193, ptr noundef %0, i32 noundef %2192, i32 noundef 1, i32 noundef -2147483648) #16
+  %2194 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2193, ptr noundef nonnull %0, i32 noundef %2192, i32 noundef 1, i32 noundef -2147483648) #16
   %2195 = add nuw nsw i32 %.03971, 3
-  %2196 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2195) #16
+  %2196 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2195) #16
   %2197 = icmp sgt i32 %2196, 0
   br i1 %2197, label %2198, label %.loopexit3981
 
 2198:                                             ; preds = %2189
   %2199 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_transition_time, align 4
-  %2200 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2199, ptr noundef %0, i32 noundef %2195, i32 noundef 1, i32 noundef -2147483648) #16
+  %2200 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2199, ptr noundef nonnull %0, i32 noundef %2195, i32 noundef 1, i32 noundef -2147483648) #16
   %2201 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2202 = call ptr @proto_item_add_subtree(ptr noundef %2200, i32 noundef %2201) #16
   %2203 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_transition_time_steps, align 4
-  %2204 = call ptr @proto_tree_add_item(ptr noundef %2202, i32 noundef %2203, ptr noundef %0, i32 noundef %2195, i32 noundef 1, i32 noundef -2147483648) #16
+  %2204 = call ptr @proto_tree_add_item(ptr noundef %2202, i32 noundef %2203, ptr noundef nonnull %0, i32 noundef %2195, i32 noundef 1, i32 noundef -2147483648) #16
   %2205 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_transition_time_resolution, align 4
-  %2206 = call ptr @proto_tree_add_item(ptr noundef %2202, i32 noundef %2205, ptr noundef %0, i32 noundef %2195, i32 noundef 1, i32 noundef -2147483648) #16
+  %2206 = call ptr @proto_tree_add_item(ptr noundef %2202, i32 noundef %2205, ptr noundef nonnull %0, i32 noundef %2195, i32 noundef 1, i32 noundef -2147483648) #16
   %2207 = or disjoint i32 %.03971, 4
   %2208 = load i32, ptr @hf_btmesh_light_lightness_linear_set_unacknowledged_delay, align 4
-  %2209 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2208, ptr noundef %0, i32 noundef %2207, i32 noundef 1, i32 noundef -2147483648) #16
+  %2209 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2208, ptr noundef nonnull %0, i32 noundef %2207, i32 noundef 1, i32 noundef -2147483648) #16
   %2210 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2211:                                             ; preds = %42
   %2212 = load i32, ptr @hf_btmesh_light_lightness_linear_status_present_lightness, align 4
-  %2213 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2212, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2213 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2212, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2214 = add nuw nsw i32 %.03971, 2
-  %2215 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2214) #16
+  %2215 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2214) #16
   %2216 = icmp sgt i32 %2215, 0
   br i1 %2216, label %2217, label %.loopexit3981
 
 2217:                                             ; preds = %2211
   %2218 = load i32, ptr @hf_btmesh_light_lightness_linear_status_target_lightness, align 4
-  %2219 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2218, ptr noundef %0, i32 noundef %2214, i32 noundef 2, i32 noundef -2147483648) #16
+  %2219 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2218, ptr noundef nonnull %0, i32 noundef %2214, i32 noundef 2, i32 noundef -2147483648) #16
   %2220 = or disjoint i32 %.03971, 4
   %2221 = load i32, ptr @hf_btmesh_light_lightness_linear_status_remaining_time, align 4
-  %2222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2221, ptr noundef %0, i32 noundef %2220, i32 noundef 1, i32 noundef -2147483648) #16
+  %2222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2221, ptr noundef nonnull %0, i32 noundef %2220, i32 noundef 1, i32 noundef -2147483648) #16
   %2223 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2224 = call ptr @proto_item_add_subtree(ptr noundef %2222, i32 noundef %2223) #16
   %2225 = load i32, ptr @hf_btmesh_light_lightness_linear_status_remaining_time_steps, align 4
-  %2226 = call ptr @proto_tree_add_item(ptr noundef %2224, i32 noundef %2225, ptr noundef %0, i32 noundef %2220, i32 noundef 1, i32 noundef -2147483648) #16
+  %2226 = call ptr @proto_tree_add_item(ptr noundef %2224, i32 noundef %2225, ptr noundef nonnull %0, i32 noundef %2220, i32 noundef 1, i32 noundef -2147483648) #16
   %2227 = load i32, ptr @hf_btmesh_light_lightness_linear_status_remaining_time_resolution, align 4
-  %2228 = call ptr @proto_tree_add_item(ptr noundef %2224, i32 noundef %2227, ptr noundef %0, i32 noundef %2220, i32 noundef 1, i32 noundef -2147483648) #16
+  %2228 = call ptr @proto_tree_add_item(ptr noundef %2224, i32 noundef %2227, ptr noundef nonnull %0, i32 noundef %2220, i32 noundef 1, i32 noundef -2147483648) #16
   %2229 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2230:                                             ; preds = %42
   %2231 = load i32, ptr @hf_btmesh_light_lightness_last_status_lightness, align 4
-  %2232 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2231, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2232 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2231, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2233 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 2234:                                             ; preds = %42
   %2235 = load i32, ptr @hf_btmesh_light_lightness_default_status_lightness, align 4
-  %2236 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2235, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2236 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2235, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2237 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 2238:                                             ; preds = %42
   %2239 = load i32, ptr @hf_btmesh_light_lightness_range_status_status_code, align 4
-  %2240 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2239, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2240 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2239, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2241 = add nuw nsw i32 %.03971, 1
   %2242 = load i32, ptr @hf_btmesh_light_lightness_range_status_range_min, align 4
-  %2243 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2242, ptr noundef %0, i32 noundef %2241, i32 noundef 2, i32 noundef -2147483648) #16
+  %2243 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2242, ptr noundef nonnull %0, i32 noundef %2241, i32 noundef 2, i32 noundef -2147483648) #16
   %2244 = add nuw nsw i32 %.03971, 3
   %2245 = load i32, ptr @hf_btmesh_light_lightness_range_status_range_max, align 4
-  %2246 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2245, ptr noundef %0, i32 noundef %2244, i32 noundef 2, i32 noundef -2147483648) #16
+  %2246 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2245, ptr noundef nonnull %0, i32 noundef %2244, i32 noundef 2, i32 noundef -2147483648) #16
   %2247 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2248:                                             ; preds = %42
   %2249 = load i32, ptr @hf_btmesh_light_lightness_default_set_lightness, align 4
-  %2250 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2249, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2250 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2249, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2251 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 2252:                                             ; preds = %42
   %2253 = load i32, ptr @hf_btmesh_light_lightness_default_set_unacknowledged_lightness, align 4
-  %2254 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2253, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2254 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2253, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2255 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 2256:                                             ; preds = %42
   %2257 = load i32, ptr @hf_btmesh_light_lightness_range_set_range_min, align 4
-  %2258 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2257, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2258 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2257, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2259 = add nuw nsw i32 %.03971, 2
   %2260 = load i32, ptr @hf_btmesh_light_lightness_range_set_range_max, align 4
-  %2261 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2260, ptr noundef %0, i32 noundef %2259, i32 noundef 2, i32 noundef -2147483648) #16
+  %2261 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2260, ptr noundef nonnull %0, i32 noundef %2259, i32 noundef 2, i32 noundef -2147483648) #16
   %2262 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 2263:                                             ; preds = %42
   %2264 = load i32, ptr @hf_btmesh_light_lightness_range_set_unacknowledged_range_min, align 4
-  %2265 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2264, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2265 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2264, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2266 = add nuw nsw i32 %.03971, 2
   %2267 = load i32, ptr @hf_btmesh_light_lightness_range_set_unacknowledged_range_max, align 4
-  %2268 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2267, ptr noundef %0, i32 noundef %2266, i32 noundef 2, i32 noundef -2147483648) #16
+  %2268 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2267, ptr noundef nonnull %0, i32 noundef %2266, i32 noundef 2, i32 noundef -2147483648) #16
   %2269 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 2270:                                             ; preds = %42
   %2271 = load i32, ptr @hf_btmesh_light_ctl_set_ctl_lightness, align 4
-  %2272 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2271, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2272 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2271, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2273 = add nuw nsw i32 %.03971, 2
   %2274 = load i32, ptr @hf_btmesh_light_ctl_set_ctl_temperature, align 4
-  %2275 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2274, ptr noundef %0, i32 noundef %2273, i32 noundef 2, i32 noundef -2147483648) #16
+  %2275 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2274, ptr noundef nonnull %0, i32 noundef %2273, i32 noundef 2, i32 noundef -2147483648) #16
   %2276 = or disjoint i32 %.03971, 4
   %2277 = load i32, ptr @hf_btmesh_light_ctl_set_ctl_delta_uv, align 4
-  %2278 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2277, ptr noundef %0, i32 noundef %2276, i32 noundef 2, i32 noundef -2147483648) #16
+  %2278 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2277, ptr noundef nonnull %0, i32 noundef %2276, i32 noundef 2, i32 noundef -2147483648) #16
   %2279 = add nuw nsw i32 %.03971, 6
   %2280 = load i32, ptr @hf_btmesh_light_ctl_set_tid, align 4
-  %2281 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2280, ptr noundef %0, i32 noundef %2279, i32 noundef 1, i32 noundef -2147483648) #16
+  %2281 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2280, ptr noundef nonnull %0, i32 noundef %2279, i32 noundef 1, i32 noundef -2147483648) #16
   %2282 = add nuw nsw i32 %.03971, 7
-  %2283 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2282) #16
+  %2283 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2282) #16
   %2284 = icmp sgt i32 %2283, 0
   br i1 %2284, label %2285, label %.loopexit3981
 
 2285:                                             ; preds = %2270
   %2286 = load i32, ptr @hf_btmesh_light_ctl_set_transition_time, align 4
-  %2287 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2286, ptr noundef %0, i32 noundef %2282, i32 noundef 1, i32 noundef -2147483648) #16
+  %2287 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2286, ptr noundef nonnull %0, i32 noundef %2282, i32 noundef 1, i32 noundef -2147483648) #16
   %2288 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2289 = call ptr @proto_item_add_subtree(ptr noundef %2287, i32 noundef %2288) #16
   %2290 = load i32, ptr @hf_btmesh_light_ctl_set_transition_time_steps, align 4
-  %2291 = call ptr @proto_tree_add_item(ptr noundef %2289, i32 noundef %2290, ptr noundef %0, i32 noundef %2282, i32 noundef 1, i32 noundef -2147483648) #16
+  %2291 = call ptr @proto_tree_add_item(ptr noundef %2289, i32 noundef %2290, ptr noundef nonnull %0, i32 noundef %2282, i32 noundef 1, i32 noundef -2147483648) #16
   %2292 = load i32, ptr @hf_btmesh_light_ctl_set_transition_time_resolution, align 4
-  %2293 = call ptr @proto_tree_add_item(ptr noundef %2289, i32 noundef %2292, ptr noundef %0, i32 noundef %2282, i32 noundef 1, i32 noundef -2147483648) #16
+  %2293 = call ptr @proto_tree_add_item(ptr noundef %2289, i32 noundef %2292, ptr noundef nonnull %0, i32 noundef %2282, i32 noundef 1, i32 noundef -2147483648) #16
   %2294 = or disjoint i32 %.03971, 8
   %2295 = load i32, ptr @hf_btmesh_light_ctl_set_delay, align 4
-  %2296 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2295, ptr noundef %0, i32 noundef %2294, i32 noundef 1, i32 noundef -2147483648) #16
+  %2296 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2295, ptr noundef nonnull %0, i32 noundef %2294, i32 noundef 1, i32 noundef -2147483648) #16
   %2297 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2298:                                             ; preds = %42
   %2299 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_ctl_lightness, align 4
-  %2300 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2299, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2300 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2299, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2301 = add nuw nsw i32 %.03971, 2
   %2302 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_ctl_temperature, align 4
-  %2303 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2302, ptr noundef %0, i32 noundef %2301, i32 noundef 2, i32 noundef -2147483648) #16
+  %2303 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2302, ptr noundef nonnull %0, i32 noundef %2301, i32 noundef 2, i32 noundef -2147483648) #16
   %2304 = or disjoint i32 %.03971, 4
   %2305 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_ctl_delta_uv, align 4
-  %2306 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2305, ptr noundef %0, i32 noundef %2304, i32 noundef 2, i32 noundef -2147483648) #16
+  %2306 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2305, ptr noundef nonnull %0, i32 noundef %2304, i32 noundef 2, i32 noundef -2147483648) #16
   %2307 = add nuw nsw i32 %.03971, 6
   %2308 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_tid, align 4
-  %2309 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2308, ptr noundef %0, i32 noundef %2307, i32 noundef 1, i32 noundef -2147483648) #16
+  %2309 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2308, ptr noundef nonnull %0, i32 noundef %2307, i32 noundef 1, i32 noundef -2147483648) #16
   %2310 = add nuw nsw i32 %.03971, 7
-  %2311 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2310) #16
+  %2311 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2310) #16
   %2312 = icmp sgt i32 %2311, 0
   br i1 %2312, label %2313, label %.loopexit3981
 
 2313:                                             ; preds = %2298
   %2314 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_transition_time, align 4
-  %2315 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2314, ptr noundef %0, i32 noundef %2310, i32 noundef 1, i32 noundef -2147483648) #16
+  %2315 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2314, ptr noundef nonnull %0, i32 noundef %2310, i32 noundef 1, i32 noundef -2147483648) #16
   %2316 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2317 = call ptr @proto_item_add_subtree(ptr noundef %2315, i32 noundef %2316) #16
   %2318 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_transition_time_steps, align 4
-  %2319 = call ptr @proto_tree_add_item(ptr noundef %2317, i32 noundef %2318, ptr noundef %0, i32 noundef %2310, i32 noundef 1, i32 noundef -2147483648) #16
+  %2319 = call ptr @proto_tree_add_item(ptr noundef %2317, i32 noundef %2318, ptr noundef nonnull %0, i32 noundef %2310, i32 noundef 1, i32 noundef -2147483648) #16
   %2320 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_transition_time_resolution, align 4
-  %2321 = call ptr @proto_tree_add_item(ptr noundef %2317, i32 noundef %2320, ptr noundef %0, i32 noundef %2310, i32 noundef 1, i32 noundef -2147483648) #16
+  %2321 = call ptr @proto_tree_add_item(ptr noundef %2317, i32 noundef %2320, ptr noundef nonnull %0, i32 noundef %2310, i32 noundef 1, i32 noundef -2147483648) #16
   %2322 = or disjoint i32 %.03971, 8
   %2323 = load i32, ptr @hf_btmesh_light_ctl_set_unacknowledged_delay, align 4
-  %2324 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2323, ptr noundef %0, i32 noundef %2322, i32 noundef 1, i32 noundef -2147483648) #16
+  %2324 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2323, ptr noundef nonnull %0, i32 noundef %2322, i32 noundef 1, i32 noundef -2147483648) #16
   %2325 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2326:                                             ; preds = %42
   %2327 = load i32, ptr @hf_btmesh_light_ctl_status_present_ctl_lightness, align 4
-  %2328 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2327, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2328 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2327, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2329 = add nuw nsw i32 %.03971, 2
   %2330 = load i32, ptr @hf_btmesh_light_ctl_status_present_ctl_temperature, align 4
-  %2331 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2330, ptr noundef %0, i32 noundef %2329, i32 noundef 2, i32 noundef -2147483648) #16
+  %2331 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2330, ptr noundef nonnull %0, i32 noundef %2329, i32 noundef 2, i32 noundef -2147483648) #16
   %2332 = or disjoint i32 %.03971, 4
-  %2333 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2332) #16
+  %2333 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2332) #16
   %2334 = icmp sgt i32 %2333, 0
   br i1 %2334, label %2335, label %.loopexit3981
 
 2335:                                             ; preds = %2326
   %2336 = load i32, ptr @hf_btmesh_light_ctl_status_target_ctl_lightness, align 4
-  %2337 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2336, ptr noundef %0, i32 noundef %2332, i32 noundef 2, i32 noundef -2147483648) #16
+  %2337 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2336, ptr noundef nonnull %0, i32 noundef %2332, i32 noundef 2, i32 noundef -2147483648) #16
   %2338 = add nuw nsw i32 %.03971, 6
   %2339 = load i32, ptr @hf_btmesh_light_ctl_status_target_ctl_temperature, align 4
-  %2340 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2339, ptr noundef %0, i32 noundef %2338, i32 noundef 2, i32 noundef -2147483648) #16
+  %2340 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2339, ptr noundef nonnull %0, i32 noundef %2338, i32 noundef 2, i32 noundef -2147483648) #16
   %2341 = or disjoint i32 %.03971, 8
   %2342 = load i32, ptr @hf_btmesh_light_ctl_status_remaining_time, align 4
-  %2343 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2342, ptr noundef %0, i32 noundef %2341, i32 noundef 1, i32 noundef -2147483648) #16
+  %2343 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2342, ptr noundef nonnull %0, i32 noundef %2341, i32 noundef 1, i32 noundef -2147483648) #16
   %2344 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2345 = call ptr @proto_item_add_subtree(ptr noundef %2343, i32 noundef %2344) #16
   %2346 = load i32, ptr @hf_btmesh_light_ctl_status_remaining_time_steps, align 4
-  %2347 = call ptr @proto_tree_add_item(ptr noundef %2345, i32 noundef %2346, ptr noundef %0, i32 noundef %2341, i32 noundef 1, i32 noundef -2147483648) #16
+  %2347 = call ptr @proto_tree_add_item(ptr noundef %2345, i32 noundef %2346, ptr noundef nonnull %0, i32 noundef %2341, i32 noundef 1, i32 noundef -2147483648) #16
   %2348 = load i32, ptr @hf_btmesh_light_ctl_status_remaining_time_resolution, align 4
-  %2349 = call ptr @proto_tree_add_item(ptr noundef %2345, i32 noundef %2348, ptr noundef %0, i32 noundef %2341, i32 noundef 1, i32 noundef -2147483648) #16
+  %2349 = call ptr @proto_tree_add_item(ptr noundef %2345, i32 noundef %2348, ptr noundef nonnull %0, i32 noundef %2341, i32 noundef 1, i32 noundef -2147483648) #16
   %2350 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2351:                                             ; preds = %42
   %2352 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_status_status_code, align 4
-  %2353 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2352, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2353 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2352, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2354 = add nuw nsw i32 %.03971, 1
   %2355 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_status_range_min, align 4
-  %2356 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2355, ptr noundef %0, i32 noundef %2354, i32 noundef 2, i32 noundef -2147483648) #16
+  %2356 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2355, ptr noundef nonnull %0, i32 noundef %2354, i32 noundef 2, i32 noundef -2147483648) #16
   %2357 = add nuw nsw i32 %.03971, 3
   %2358 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_status_range_max, align 4
-  %2359 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2358, ptr noundef %0, i32 noundef %2357, i32 noundef 2, i32 noundef -2147483648) #16
+  %2359 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2358, ptr noundef nonnull %0, i32 noundef %2357, i32 noundef 2, i32 noundef -2147483648) #16
   %2360 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2361:                                             ; preds = %42
   %2362 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_ctl_temperature, align 4
-  %2363 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2362, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2363 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2362, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2364 = add nuw nsw i32 %.03971, 2
   %2365 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_ctl_delta_uv, align 4
-  %2366 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2365, ptr noundef %0, i32 noundef %2364, i32 noundef 2, i32 noundef -2147483648) #16
+  %2366 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2365, ptr noundef nonnull %0, i32 noundef %2364, i32 noundef 2, i32 noundef -2147483648) #16
   %2367 = or disjoint i32 %.03971, 4
   %2368 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_tid, align 4
-  %2369 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2368, ptr noundef %0, i32 noundef %2367, i32 noundef 1, i32 noundef -2147483648) #16
+  %2369 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2368, ptr noundef nonnull %0, i32 noundef %2367, i32 noundef 1, i32 noundef -2147483648) #16
   %2370 = add nuw nsw i32 %.03971, 5
-  %2371 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2370) #16
+  %2371 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2370) #16
   %2372 = icmp sgt i32 %2371, 0
   br i1 %2372, label %2373, label %.loopexit3981
 
 2373:                                             ; preds = %2361
   %2374 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_transition_time, align 4
-  %2375 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2374, ptr noundef %0, i32 noundef %2370, i32 noundef 1, i32 noundef -2147483648) #16
+  %2375 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2374, ptr noundef nonnull %0, i32 noundef %2370, i32 noundef 1, i32 noundef -2147483648) #16
   %2376 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2377 = call ptr @proto_item_add_subtree(ptr noundef %2375, i32 noundef %2376) #16
   %2378 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_transition_time_steps, align 4
-  %2379 = call ptr @proto_tree_add_item(ptr noundef %2377, i32 noundef %2378, ptr noundef %0, i32 noundef %2370, i32 noundef 1, i32 noundef -2147483648) #16
+  %2379 = call ptr @proto_tree_add_item(ptr noundef %2377, i32 noundef %2378, ptr noundef nonnull %0, i32 noundef %2370, i32 noundef 1, i32 noundef -2147483648) #16
   %2380 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_transition_time_resolution, align 4
-  %2381 = call ptr @proto_tree_add_item(ptr noundef %2377, i32 noundef %2380, ptr noundef %0, i32 noundef %2370, i32 noundef 1, i32 noundef -2147483648) #16
+  %2381 = call ptr @proto_tree_add_item(ptr noundef %2377, i32 noundef %2380, ptr noundef nonnull %0, i32 noundef %2370, i32 noundef 1, i32 noundef -2147483648) #16
   %2382 = add nuw nsw i32 %.03971, 6
   %2383 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_delay, align 4
-  %2384 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2383, ptr noundef %0, i32 noundef %2382, i32 noundef 1, i32 noundef -2147483648) #16
+  %2384 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2383, ptr noundef nonnull %0, i32 noundef %2382, i32 noundef 1, i32 noundef -2147483648) #16
   %2385 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 2386:                                             ; preds = %42
   %2387 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_ctl_temperature, align 4
-  %2388 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2387, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2388 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2387, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2389 = add nuw nsw i32 %.03971, 2
   %2390 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_ctl_delta_uv, align 4
-  %2391 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2390, ptr noundef %0, i32 noundef %2389, i32 noundef 2, i32 noundef -2147483648) #16
+  %2391 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2390, ptr noundef nonnull %0, i32 noundef %2389, i32 noundef 2, i32 noundef -2147483648) #16
   %2392 = or disjoint i32 %.03971, 4
   %2393 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_tid, align 4
-  %2394 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2393, ptr noundef %0, i32 noundef %2392, i32 noundef 1, i32 noundef -2147483648) #16
+  %2394 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2393, ptr noundef nonnull %0, i32 noundef %2392, i32 noundef 1, i32 noundef -2147483648) #16
   %2395 = add nuw nsw i32 %.03971, 5
-  %2396 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2395) #16
+  %2396 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2395) #16
   %2397 = icmp sgt i32 %2396, 0
   br i1 %2397, label %2398, label %.loopexit3981
 
 2398:                                             ; preds = %2386
   %2399 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_transition_time, align 4
-  %2400 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2399, ptr noundef %0, i32 noundef %2395, i32 noundef 1, i32 noundef -2147483648) #16
+  %2400 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2399, ptr noundef nonnull %0, i32 noundef %2395, i32 noundef 1, i32 noundef -2147483648) #16
   %2401 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2402 = call ptr @proto_item_add_subtree(ptr noundef %2400, i32 noundef %2401) #16
   %2403 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_transition_time_steps, align 4
-  %2404 = call ptr @proto_tree_add_item(ptr noundef %2402, i32 noundef %2403, ptr noundef %0, i32 noundef %2395, i32 noundef 1, i32 noundef -2147483648) #16
+  %2404 = call ptr @proto_tree_add_item(ptr noundef %2402, i32 noundef %2403, ptr noundef nonnull %0, i32 noundef %2395, i32 noundef 1, i32 noundef -2147483648) #16
   %2405 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_transition_time_resolution, align 4
-  %2406 = call ptr @proto_tree_add_item(ptr noundef %2402, i32 noundef %2405, ptr noundef %0, i32 noundef %2395, i32 noundef 1, i32 noundef -2147483648) #16
+  %2406 = call ptr @proto_tree_add_item(ptr noundef %2402, i32 noundef %2405, ptr noundef nonnull %0, i32 noundef %2395, i32 noundef 1, i32 noundef -2147483648) #16
   %2407 = add nuw nsw i32 %.03971, 6
   %2408 = load i32, ptr @hf_btmesh_light_ctl_temperature_set_unacknowledged_delay, align 4
-  %2409 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2408, ptr noundef %0, i32 noundef %2407, i32 noundef 1, i32 noundef -2147483648) #16
+  %2409 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2408, ptr noundef nonnull %0, i32 noundef %2407, i32 noundef 1, i32 noundef -2147483648) #16
   %2410 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 2411:                                             ; preds = %42
   %2412 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_present_ctl_temperature, align 4
-  %2413 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2412, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2413 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2412, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2414 = add nuw nsw i32 %.03971, 2
   %2415 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_present_ctl_delta_uv, align 4
-  %2416 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2415, ptr noundef %0, i32 noundef %2414, i32 noundef 2, i32 noundef -2147483648) #16
+  %2416 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2415, ptr noundef nonnull %0, i32 noundef %2414, i32 noundef 2, i32 noundef -2147483648) #16
   %2417 = or disjoint i32 %.03971, 4
-  %2418 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2417) #16
+  %2418 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2417) #16
   %2419 = icmp sgt i32 %2418, 0
   br i1 %2419, label %2420, label %.loopexit3981
 
 2420:                                             ; preds = %2411
   %2421 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_target_ctl_temperature, align 4
-  %2422 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2421, ptr noundef %0, i32 noundef %2417, i32 noundef 2, i32 noundef -2147483648) #16
+  %2422 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2421, ptr noundef nonnull %0, i32 noundef %2417, i32 noundef 2, i32 noundef -2147483648) #16
   %2423 = add nuw nsw i32 %.03971, 6
   %2424 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_target_ctl_delta_uv, align 4
-  %2425 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2424, ptr noundef %0, i32 noundef %2423, i32 noundef 2, i32 noundef -2147483648) #16
+  %2425 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2424, ptr noundef nonnull %0, i32 noundef %2423, i32 noundef 2, i32 noundef -2147483648) #16
   %2426 = or disjoint i32 %.03971, 8
   %2427 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_remaining_time, align 4
-  %2428 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2427, ptr noundef %0, i32 noundef %2426, i32 noundef 1, i32 noundef -2147483648) #16
+  %2428 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2427, ptr noundef nonnull %0, i32 noundef %2426, i32 noundef 1, i32 noundef -2147483648) #16
   %2429 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2430 = call ptr @proto_item_add_subtree(ptr noundef %2428, i32 noundef %2429) #16
   %2431 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_remaining_time_steps, align 4
-  %2432 = call ptr @proto_tree_add_item(ptr noundef %2430, i32 noundef %2431, ptr noundef %0, i32 noundef %2426, i32 noundef 1, i32 noundef -2147483648) #16
+  %2432 = call ptr @proto_tree_add_item(ptr noundef %2430, i32 noundef %2431, ptr noundef nonnull %0, i32 noundef %2426, i32 noundef 1, i32 noundef -2147483648) #16
   %2433 = load i32, ptr @hf_btmesh_light_ctl_temperature_status_remaining_time_resolution, align 4
-  %2434 = call ptr @proto_tree_add_item(ptr noundef %2430, i32 noundef %2433, ptr noundef %0, i32 noundef %2426, i32 noundef 1, i32 noundef -2147483648) #16
+  %2434 = call ptr @proto_tree_add_item(ptr noundef %2430, i32 noundef %2433, ptr noundef nonnull %0, i32 noundef %2426, i32 noundef 1, i32 noundef -2147483648) #16
   %2435 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2436:                                             ; preds = %42
   %2437 = load i32, ptr @hf_btmesh_light_ctl_default_status_lightness, align 4
-  %2438 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2437, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2438 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2437, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2439 = add nuw nsw i32 %.03971, 2
   %2440 = load i32, ptr @hf_btmesh_light_ctl_default_status_temperature, align 4
-  %2441 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2440, ptr noundef %0, i32 noundef %2439, i32 noundef 2, i32 noundef -2147483648) #16
+  %2441 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2440, ptr noundef nonnull %0, i32 noundef %2439, i32 noundef 2, i32 noundef -2147483648) #16
   %2442 = or disjoint i32 %.03971, 4
   %2443 = load i32, ptr @hf_btmesh_light_ctl_default_status_delta_uv, align 4
-  %2444 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2443, ptr noundef %0, i32 noundef %2442, i32 noundef 2, i32 noundef -2147483648) #16
+  %2444 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2443, ptr noundef nonnull %0, i32 noundef %2442, i32 noundef 2, i32 noundef -2147483648) #16
   %2445 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2446:                                             ; preds = %42
   %2447 = load i32, ptr @hf_btmesh_light_ctl_default_set_lightness, align 4
-  %2448 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2447, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2448 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2447, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2449 = add nuw nsw i32 %.03971, 2
   %2450 = load i32, ptr @hf_btmesh_light_ctl_default_set_temperature, align 4
-  %2451 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2450, ptr noundef %0, i32 noundef %2449, i32 noundef 2, i32 noundef -2147483648) #16
+  %2451 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2450, ptr noundef nonnull %0, i32 noundef %2449, i32 noundef 2, i32 noundef -2147483648) #16
   %2452 = or disjoint i32 %.03971, 4
   %2453 = load i32, ptr @hf_btmesh_light_ctl_default_set_delta_uv, align 4
-  %2454 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2453, ptr noundef %0, i32 noundef %2452, i32 noundef 2, i32 noundef -2147483648) #16
+  %2454 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2453, ptr noundef nonnull %0, i32 noundef %2452, i32 noundef 2, i32 noundef -2147483648) #16
   %2455 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2456:                                             ; preds = %42
   %2457 = load i32, ptr @hf_btmesh_light_ctl_default_set_unacknowledged_lightness, align 4
-  %2458 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2457, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2458 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2457, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2459 = add nuw nsw i32 %.03971, 2
   %2460 = load i32, ptr @hf_btmesh_light_ctl_default_set_unacknowledged_temperature, align 4
-  %2461 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2460, ptr noundef %0, i32 noundef %2459, i32 noundef 2, i32 noundef -2147483648) #16
+  %2461 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2460, ptr noundef nonnull %0, i32 noundef %2459, i32 noundef 2, i32 noundef -2147483648) #16
   %2462 = or disjoint i32 %.03971, 4
   %2463 = load i32, ptr @hf_btmesh_light_ctl_default_set_unacknowledged_delta_uv, align 4
-  %2464 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2463, ptr noundef %0, i32 noundef %2462, i32 noundef 2, i32 noundef -2147483648) #16
+  %2464 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2463, ptr noundef nonnull %0, i32 noundef %2462, i32 noundef 2, i32 noundef -2147483648) #16
   %2465 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2466:                                             ; preds = %42
   %2467 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_set_range_min, align 4
-  %2468 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2467, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2468 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2467, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2469 = add nuw nsw i32 %.03971, 2
   %2470 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_set_range_max, align 4
-  %2471 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2470, ptr noundef %0, i32 noundef %2469, i32 noundef 2, i32 noundef -2147483648) #16
+  %2471 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2470, ptr noundef nonnull %0, i32 noundef %2469, i32 noundef 2, i32 noundef -2147483648) #16
   %2472 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 2473:                                             ; preds = %42
   %2474 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_set_unacknowledged_range_min, align 4
-  %2475 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2474, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2475 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2474, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2476 = add nuw nsw i32 %.03971, 2
   %2477 = load i32, ptr @hf_btmesh_light_ctl_temperature_range_set_unacknowledged_range_max, align 4
-  %2478 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2477, ptr noundef %0, i32 noundef %2476, i32 noundef 2, i32 noundef -2147483648) #16
+  %2478 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2477, ptr noundef nonnull %0, i32 noundef %2476, i32 noundef 2, i32 noundef -2147483648) #16
   %2479 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 2480:                                             ; preds = %42
   %2481 = load i32, ptr @hf_btmesh_light_hsl_hue_set_hue, align 4
-  %2482 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2481, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2482 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2481, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2483 = add nuw nsw i32 %.03971, 2
   %2484 = load i32, ptr @hf_btmesh_light_hsl_hue_set_tid, align 4
-  %2485 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2484, ptr noundef %0, i32 noundef %2483, i32 noundef 1, i32 noundef -2147483648) #16
+  %2485 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2484, ptr noundef nonnull %0, i32 noundef %2483, i32 noundef 1, i32 noundef -2147483648) #16
   %2486 = add nuw nsw i32 %.03971, 3
-  %2487 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2486) #16
+  %2487 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2486) #16
   %2488 = icmp sgt i32 %2487, 0
   br i1 %2488, label %2489, label %.loopexit3981
 
 2489:                                             ; preds = %2480
   %2490 = load i32, ptr @hf_btmesh_light_hsl_hue_set_transition_time, align 4
-  %2491 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2490, ptr noundef %0, i32 noundef %2486, i32 noundef 1, i32 noundef -2147483648) #16
+  %2491 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2490, ptr noundef nonnull %0, i32 noundef %2486, i32 noundef 1, i32 noundef -2147483648) #16
   %2492 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2493 = call ptr @proto_item_add_subtree(ptr noundef %2491, i32 noundef %2492) #16
   %2494 = load i32, ptr @hf_btmesh_light_hsl_hue_set_transition_time_steps, align 4
-  %2495 = call ptr @proto_tree_add_item(ptr noundef %2493, i32 noundef %2494, ptr noundef %0, i32 noundef %2486, i32 noundef 1, i32 noundef -2147483648) #16
+  %2495 = call ptr @proto_tree_add_item(ptr noundef %2493, i32 noundef %2494, ptr noundef nonnull %0, i32 noundef %2486, i32 noundef 1, i32 noundef -2147483648) #16
   %2496 = load i32, ptr @hf_btmesh_light_hsl_hue_set_transition_time_resolution, align 4
-  %2497 = call ptr @proto_tree_add_item(ptr noundef %2493, i32 noundef %2496, ptr noundef %0, i32 noundef %2486, i32 noundef 1, i32 noundef -2147483648) #16
+  %2497 = call ptr @proto_tree_add_item(ptr noundef %2493, i32 noundef %2496, ptr noundef nonnull %0, i32 noundef %2486, i32 noundef 1, i32 noundef -2147483648) #16
   %2498 = or disjoint i32 %.03971, 4
   %2499 = load i32, ptr @hf_btmesh_light_hsl_hue_set_delay, align 4
-  %2500 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2499, ptr noundef %0, i32 noundef %2498, i32 noundef 1, i32 noundef -2147483648) #16
+  %2500 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2499, ptr noundef nonnull %0, i32 noundef %2498, i32 noundef 1, i32 noundef -2147483648) #16
   %2501 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2502:                                             ; preds = %42
   %2503 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_hue, align 4
-  %2504 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2503, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2504 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2503, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2505 = add nuw nsw i32 %.03971, 2
   %2506 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_tid, align 4
-  %2507 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2506, ptr noundef %0, i32 noundef %2505, i32 noundef 1, i32 noundef -2147483648) #16
+  %2507 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2506, ptr noundef nonnull %0, i32 noundef %2505, i32 noundef 1, i32 noundef -2147483648) #16
   %2508 = add nuw nsw i32 %.03971, 3
-  %2509 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2508) #16
+  %2509 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2508) #16
   %2510 = icmp sgt i32 %2509, 0
   br i1 %2510, label %2511, label %.loopexit3981
 
 2511:                                             ; preds = %2502
   %2512 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_transition_time, align 4
-  %2513 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2512, ptr noundef %0, i32 noundef %2508, i32 noundef 1, i32 noundef -2147483648) #16
+  %2513 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2512, ptr noundef nonnull %0, i32 noundef %2508, i32 noundef 1, i32 noundef -2147483648) #16
   %2514 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2515 = call ptr @proto_item_add_subtree(ptr noundef %2513, i32 noundef %2514) #16
   %2516 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_transition_time_steps, align 4
-  %2517 = call ptr @proto_tree_add_item(ptr noundef %2515, i32 noundef %2516, ptr noundef %0, i32 noundef %2508, i32 noundef 1, i32 noundef -2147483648) #16
+  %2517 = call ptr @proto_tree_add_item(ptr noundef %2515, i32 noundef %2516, ptr noundef nonnull %0, i32 noundef %2508, i32 noundef 1, i32 noundef -2147483648) #16
   %2518 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_transition_time_resolution, align 4
-  %2519 = call ptr @proto_tree_add_item(ptr noundef %2515, i32 noundef %2518, ptr noundef %0, i32 noundef %2508, i32 noundef 1, i32 noundef -2147483648) #16
+  %2519 = call ptr @proto_tree_add_item(ptr noundef %2515, i32 noundef %2518, ptr noundef nonnull %0, i32 noundef %2508, i32 noundef 1, i32 noundef -2147483648) #16
   %2520 = or disjoint i32 %.03971, 4
   %2521 = load i32, ptr @hf_btmesh_light_hsl_hue_set_unacknowledged_delay, align 4
-  %2522 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2521, ptr noundef %0, i32 noundef %2520, i32 noundef 1, i32 noundef -2147483648) #16
+  %2522 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2521, ptr noundef nonnull %0, i32 noundef %2520, i32 noundef 1, i32 noundef -2147483648) #16
   %2523 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2524:                                             ; preds = %42
   %2525 = load i32, ptr @hf_btmesh_light_hsl_hue_status_present_hue, align 4
-  %2526 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2525, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2526 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2525, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2527 = add nuw nsw i32 %.03971, 2
-  %2528 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2527) #16
+  %2528 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2527) #16
   %2529 = icmp sgt i32 %2528, 0
   br i1 %2529, label %2530, label %.loopexit3981
 
 2530:                                             ; preds = %2524
   %2531 = load i32, ptr @hf_btmesh_light_hsl_hue_status_target_hue, align 4
-  %2532 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2531, ptr noundef %0, i32 noundef %2527, i32 noundef 2, i32 noundef -2147483648) #16
+  %2532 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2531, ptr noundef nonnull %0, i32 noundef %2527, i32 noundef 2, i32 noundef -2147483648) #16
   %2533 = or disjoint i32 %.03971, 4
   %2534 = load i32, ptr @hf_btmesh_light_hsl_hue_status_remaining_time, align 4
-  %2535 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2534, ptr noundef %0, i32 noundef %2533, i32 noundef 1, i32 noundef -2147483648) #16
+  %2535 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2534, ptr noundef nonnull %0, i32 noundef %2533, i32 noundef 1, i32 noundef -2147483648) #16
   %2536 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2537 = call ptr @proto_item_add_subtree(ptr noundef %2535, i32 noundef %2536) #16
   %2538 = load i32, ptr @hf_btmesh_light_hsl_hue_status_remaining_time_steps, align 4
-  %2539 = call ptr @proto_tree_add_item(ptr noundef %2537, i32 noundef %2538, ptr noundef %0, i32 noundef %2533, i32 noundef 1, i32 noundef -2147483648) #16
+  %2539 = call ptr @proto_tree_add_item(ptr noundef %2537, i32 noundef %2538, ptr noundef nonnull %0, i32 noundef %2533, i32 noundef 1, i32 noundef -2147483648) #16
   %2540 = load i32, ptr @hf_btmesh_light_hsl_hue_status_remaining_time_resolution, align 4
-  %2541 = call ptr @proto_tree_add_item(ptr noundef %2537, i32 noundef %2540, ptr noundef %0, i32 noundef %2533, i32 noundef 1, i32 noundef -2147483648) #16
+  %2541 = call ptr @proto_tree_add_item(ptr noundef %2537, i32 noundef %2540, ptr noundef nonnull %0, i32 noundef %2533, i32 noundef 1, i32 noundef -2147483648) #16
   %2542 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2543:                                             ; preds = %42
   %2544 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_saturation, align 4
-  %2545 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2544, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2545 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2544, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2546 = add nuw nsw i32 %.03971, 2
   %2547 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_tid, align 4
-  %2548 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2547, ptr noundef %0, i32 noundef %2546, i32 noundef 1, i32 noundef -2147483648) #16
+  %2548 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2547, ptr noundef nonnull %0, i32 noundef %2546, i32 noundef 1, i32 noundef -2147483648) #16
   %2549 = add nuw nsw i32 %.03971, 3
-  %2550 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2549) #16
+  %2550 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2549) #16
   %2551 = icmp sgt i32 %2550, 0
   br i1 %2551, label %2552, label %.loopexit3981
 
 2552:                                             ; preds = %2543
   %2553 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_transition_time, align 4
-  %2554 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2553, ptr noundef %0, i32 noundef %2549, i32 noundef 1, i32 noundef -2147483648) #16
+  %2554 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2553, ptr noundef nonnull %0, i32 noundef %2549, i32 noundef 1, i32 noundef -2147483648) #16
   %2555 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2556 = call ptr @proto_item_add_subtree(ptr noundef %2554, i32 noundef %2555) #16
   %2557 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_transition_time_steps, align 4
-  %2558 = call ptr @proto_tree_add_item(ptr noundef %2556, i32 noundef %2557, ptr noundef %0, i32 noundef %2549, i32 noundef 1, i32 noundef -2147483648) #16
+  %2558 = call ptr @proto_tree_add_item(ptr noundef %2556, i32 noundef %2557, ptr noundef nonnull %0, i32 noundef %2549, i32 noundef 1, i32 noundef -2147483648) #16
   %2559 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_transition_time_resolution, align 4
-  %2560 = call ptr @proto_tree_add_item(ptr noundef %2556, i32 noundef %2559, ptr noundef %0, i32 noundef %2549, i32 noundef 1, i32 noundef -2147483648) #16
+  %2560 = call ptr @proto_tree_add_item(ptr noundef %2556, i32 noundef %2559, ptr noundef nonnull %0, i32 noundef %2549, i32 noundef 1, i32 noundef -2147483648) #16
   %2561 = or disjoint i32 %.03971, 4
   %2562 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_delay, align 4
-  %2563 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2562, ptr noundef %0, i32 noundef %2561, i32 noundef 1, i32 noundef -2147483648) #16
+  %2563 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2562, ptr noundef nonnull %0, i32 noundef %2561, i32 noundef 1, i32 noundef -2147483648) #16
   %2564 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2565:                                             ; preds = %42
   %2566 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_saturation, align 4
-  %2567 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2566, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2567 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2566, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2568 = add nuw nsw i32 %.03971, 2
   %2569 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_tid, align 4
-  %2570 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2569, ptr noundef %0, i32 noundef %2568, i32 noundef 1, i32 noundef -2147483648) #16
+  %2570 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2569, ptr noundef nonnull %0, i32 noundef %2568, i32 noundef 1, i32 noundef -2147483648) #16
   %2571 = add nuw nsw i32 %.03971, 3
-  %2572 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2571) #16
+  %2572 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2571) #16
   %2573 = icmp sgt i32 %2572, 0
   br i1 %2573, label %2574, label %.loopexit3981
 
 2574:                                             ; preds = %2565
   %2575 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_transition_time, align 4
-  %2576 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2575, ptr noundef %0, i32 noundef %2571, i32 noundef 1, i32 noundef -2147483648) #16
+  %2576 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2575, ptr noundef nonnull %0, i32 noundef %2571, i32 noundef 1, i32 noundef -2147483648) #16
   %2577 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2578 = call ptr @proto_item_add_subtree(ptr noundef %2576, i32 noundef %2577) #16
   %2579 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_transition_time_steps, align 4
-  %2580 = call ptr @proto_tree_add_item(ptr noundef %2578, i32 noundef %2579, ptr noundef %0, i32 noundef %2571, i32 noundef 1, i32 noundef -2147483648) #16
+  %2580 = call ptr @proto_tree_add_item(ptr noundef %2578, i32 noundef %2579, ptr noundef nonnull %0, i32 noundef %2571, i32 noundef 1, i32 noundef -2147483648) #16
   %2581 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_transition_time_resolution, align 4
-  %2582 = call ptr @proto_tree_add_item(ptr noundef %2578, i32 noundef %2581, ptr noundef %0, i32 noundef %2571, i32 noundef 1, i32 noundef -2147483648) #16
+  %2582 = call ptr @proto_tree_add_item(ptr noundef %2578, i32 noundef %2581, ptr noundef nonnull %0, i32 noundef %2571, i32 noundef 1, i32 noundef -2147483648) #16
   %2583 = or disjoint i32 %.03971, 4
   %2584 = load i32, ptr @hf_btmesh_light_hsl_saturation_set_unacknowledged_delay, align 4
-  %2585 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2584, ptr noundef %0, i32 noundef %2583, i32 noundef 1, i32 noundef -2147483648) #16
+  %2585 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2584, ptr noundef nonnull %0, i32 noundef %2583, i32 noundef 1, i32 noundef -2147483648) #16
   %2586 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2587:                                             ; preds = %42
   %2588 = load i32, ptr @hf_btmesh_light_hsl_saturation_status_present_saturation, align 4
-  %2589 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2588, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2589 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2588, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2590 = add nuw nsw i32 %.03971, 2
-  %2591 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2590) #16
+  %2591 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2590) #16
   %2592 = icmp sgt i32 %2591, 0
   br i1 %2592, label %2593, label %.loopexit3981
 
 2593:                                             ; preds = %2587
   %2594 = load i32, ptr @hf_btmesh_light_hsl_saturation_status_target_saturation, align 4
-  %2595 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2594, ptr noundef %0, i32 noundef %2590, i32 noundef 2, i32 noundef -2147483648) #16
+  %2595 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2594, ptr noundef nonnull %0, i32 noundef %2590, i32 noundef 2, i32 noundef -2147483648) #16
   %2596 = or disjoint i32 %.03971, 4
   %2597 = load i32, ptr @hf_btmesh_light_hsl_saturation_status_remaining_time, align 4
-  %2598 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2597, ptr noundef %0, i32 noundef %2596, i32 noundef 1, i32 noundef -2147483648) #16
+  %2598 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2597, ptr noundef nonnull %0, i32 noundef %2596, i32 noundef 1, i32 noundef -2147483648) #16
   %2599 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2600 = call ptr @proto_item_add_subtree(ptr noundef %2598, i32 noundef %2599) #16
   %2601 = load i32, ptr @hf_btmesh_light_hsl_saturation_status_remaining_time_steps, align 4
-  %2602 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2601, ptr noundef %0, i32 noundef %2596, i32 noundef 1, i32 noundef -2147483648) #16
+  %2602 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2601, ptr noundef nonnull %0, i32 noundef %2596, i32 noundef 1, i32 noundef -2147483648) #16
   %2603 = load i32, ptr @hf_btmesh_light_hsl_saturation_status_remaining_time_resolution, align 4
-  %2604 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2603, ptr noundef %0, i32 noundef %2596, i32 noundef 1, i32 noundef -2147483648) #16
+  %2604 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2603, ptr noundef nonnull %0, i32 noundef %2596, i32 noundef 1, i32 noundef -2147483648) #16
   %2605 = add nuw nsw i32 %.03971, 5
   br label %.loopexit3981
 
 2606:                                             ; preds = %42
   %2607 = load i32, ptr @hf_btmesh_light_hsl_set_hsl_lightness, align 4
-  %2608 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2607, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2608 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2607, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2609 = add nuw nsw i32 %.03971, 2
   %2610 = load i32, ptr @hf_btmesh_light_hsl_set_hsl_hue, align 4
-  %2611 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2610, ptr noundef %0, i32 noundef %2609, i32 noundef 2, i32 noundef -2147483648) #16
+  %2611 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2610, ptr noundef nonnull %0, i32 noundef %2609, i32 noundef 2, i32 noundef -2147483648) #16
   %2612 = or disjoint i32 %.03971, 4
   %2613 = load i32, ptr @hf_btmesh_light_hsl_set_hsl_saturation, align 4
-  %2614 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2613, ptr noundef %0, i32 noundef %2612, i32 noundef 2, i32 noundef -2147483648) #16
+  %2614 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2613, ptr noundef nonnull %0, i32 noundef %2612, i32 noundef 2, i32 noundef -2147483648) #16
   %2615 = add nuw nsw i32 %.03971, 6
   %2616 = load i32, ptr @hf_btmesh_light_hsl_set_tid, align 4
-  %2617 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2616, ptr noundef %0, i32 noundef %2615, i32 noundef 1, i32 noundef -2147483648) #16
+  %2617 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2616, ptr noundef nonnull %0, i32 noundef %2615, i32 noundef 1, i32 noundef -2147483648) #16
   %2618 = add nuw nsw i32 %.03971, 7
-  %2619 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2618) #16
+  %2619 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2618) #16
   %2620 = icmp sgt i32 %2619, 0
   br i1 %2620, label %2621, label %.loopexit3981
 
 2621:                                             ; preds = %2606
   %2622 = load i32, ptr @hf_btmesh_light_hsl_set_transition_time, align 4
-  %2623 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2622, ptr noundef %0, i32 noundef %2618, i32 noundef 1, i32 noundef -2147483648) #16
+  %2623 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2622, ptr noundef nonnull %0, i32 noundef %2618, i32 noundef 1, i32 noundef -2147483648) #16
   %2624 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2625 = call ptr @proto_item_add_subtree(ptr noundef %2623, i32 noundef %2624) #16
   %2626 = load i32, ptr @hf_btmesh_light_hsl_set_transition_time_steps, align 4
-  %2627 = call ptr @proto_tree_add_item(ptr noundef %2625, i32 noundef %2626, ptr noundef %0, i32 noundef %2618, i32 noundef 1, i32 noundef -2147483648) #16
+  %2627 = call ptr @proto_tree_add_item(ptr noundef %2625, i32 noundef %2626, ptr noundef nonnull %0, i32 noundef %2618, i32 noundef 1, i32 noundef -2147483648) #16
   %2628 = load i32, ptr @hf_btmesh_light_hsl_set_transition_time_resolution, align 4
-  %2629 = call ptr @proto_tree_add_item(ptr noundef %2625, i32 noundef %2628, ptr noundef %0, i32 noundef %2618, i32 noundef 1, i32 noundef -2147483648) #16
+  %2629 = call ptr @proto_tree_add_item(ptr noundef %2625, i32 noundef %2628, ptr noundef nonnull %0, i32 noundef %2618, i32 noundef 1, i32 noundef -2147483648) #16
   %2630 = or disjoint i32 %.03971, 8
   %2631 = load i32, ptr @hf_btmesh_light_hsl_set_delay, align 4
-  %2632 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2631, ptr noundef %0, i32 noundef %2630, i32 noundef 1, i32 noundef -2147483648) #16
+  %2632 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2631, ptr noundef nonnull %0, i32 noundef %2630, i32 noundef 1, i32 noundef -2147483648) #16
   %2633 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2634:                                             ; preds = %42
   %2635 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_hsl_lightness, align 4
-  %2636 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2635, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2636 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2635, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2637 = add nuw nsw i32 %.03971, 2
   %2638 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_hsl_hue, align 4
-  %2639 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2638, ptr noundef %0, i32 noundef %2637, i32 noundef 2, i32 noundef -2147483648) #16
+  %2639 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2638, ptr noundef nonnull %0, i32 noundef %2637, i32 noundef 2, i32 noundef -2147483648) #16
   %2640 = or disjoint i32 %.03971, 4
   %2641 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_hsl_saturation, align 4
-  %2642 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2641, ptr noundef %0, i32 noundef %2640, i32 noundef 2, i32 noundef -2147483648) #16
+  %2642 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2641, ptr noundef nonnull %0, i32 noundef %2640, i32 noundef 2, i32 noundef -2147483648) #16
   %2643 = add nuw nsw i32 %.03971, 6
   %2644 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_tid, align 4
-  %2645 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2644, ptr noundef %0, i32 noundef %2643, i32 noundef 1, i32 noundef -2147483648) #16
+  %2645 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2644, ptr noundef nonnull %0, i32 noundef %2643, i32 noundef 1, i32 noundef -2147483648) #16
   %2646 = add nuw nsw i32 %.03971, 7
-  %2647 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2646) #16
+  %2647 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2646) #16
   %2648 = icmp sgt i32 %2647, 0
   br i1 %2648, label %2649, label %.loopexit3981
 
 2649:                                             ; preds = %2634
   %2650 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_transition_time, align 4
-  %2651 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2650, ptr noundef %0, i32 noundef %2646, i32 noundef 1, i32 noundef -2147483648) #16
+  %2651 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2650, ptr noundef nonnull %0, i32 noundef %2646, i32 noundef 1, i32 noundef -2147483648) #16
   %2652 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2653 = call ptr @proto_item_add_subtree(ptr noundef %2651, i32 noundef %2652) #16
   %2654 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_transition_time_steps, align 4
-  %2655 = call ptr @proto_tree_add_item(ptr noundef %2653, i32 noundef %2654, ptr noundef %0, i32 noundef %2646, i32 noundef 1, i32 noundef -2147483648) #16
+  %2655 = call ptr @proto_tree_add_item(ptr noundef %2653, i32 noundef %2654, ptr noundef nonnull %0, i32 noundef %2646, i32 noundef 1, i32 noundef -2147483648) #16
   %2656 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_transition_time_resolution, align 4
-  %2657 = call ptr @proto_tree_add_item(ptr noundef %2653, i32 noundef %2656, ptr noundef %0, i32 noundef %2646, i32 noundef 1, i32 noundef -2147483648) #16
+  %2657 = call ptr @proto_tree_add_item(ptr noundef %2653, i32 noundef %2656, ptr noundef nonnull %0, i32 noundef %2646, i32 noundef 1, i32 noundef -2147483648) #16
   %2658 = or disjoint i32 %.03971, 8
   %2659 = load i32, ptr @hf_btmesh_light_hsl_set_unacknowledged_delay, align 4
-  %2660 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2659, ptr noundef %0, i32 noundef %2658, i32 noundef 1, i32 noundef -2147483648) #16
+  %2660 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2659, ptr noundef nonnull %0, i32 noundef %2658, i32 noundef 1, i32 noundef -2147483648) #16
   %2661 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2662:                                             ; preds = %42
   %2663 = load i32, ptr @hf_btmesh_light_hsl_status_hsl_lightness, align 4
-  %2664 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2663, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2664 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2663, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2665 = add nuw nsw i32 %.03971, 2
   %2666 = load i32, ptr @hf_btmesh_light_hsl_status_hsl_hue, align 4
-  %2667 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2666, ptr noundef %0, i32 noundef %2665, i32 noundef 2, i32 noundef -2147483648) #16
+  %2667 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2666, ptr noundef nonnull %0, i32 noundef %2665, i32 noundef 2, i32 noundef -2147483648) #16
   %2668 = or disjoint i32 %.03971, 4
   %2669 = load i32, ptr @hf_btmesh_light_hsl_status_hsl_saturation, align 4
-  %2670 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2669, ptr noundef %0, i32 noundef %2668, i32 noundef 2, i32 noundef -2147483648) #16
+  %2670 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2669, ptr noundef nonnull %0, i32 noundef %2668, i32 noundef 2, i32 noundef -2147483648) #16
   %2671 = add nuw nsw i32 %.03971, 6
-  %2672 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2671) #16
+  %2672 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2671) #16
   %2673 = icmp sgt i32 %2672, 0
   br i1 %2673, label %2674, label %.loopexit3981
 
 2674:                                             ; preds = %2662
   %2675 = load i32, ptr @hf_btmesh_light_hsl_status_remaining_time, align 4
-  %2676 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2675, ptr noundef %0, i32 noundef %2671, i32 noundef 1, i32 noundef -2147483648) #16
+  %2676 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2675, ptr noundef nonnull %0, i32 noundef %2671, i32 noundef 1, i32 noundef -2147483648) #16
   %2677 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2678 = call ptr @proto_item_add_subtree(ptr noundef %2676, i32 noundef %2677) #16
   %2679 = load i32, ptr @hf_btmesh_light_hsl_status_remaining_time_steps, align 4
-  %2680 = call ptr @proto_tree_add_item(ptr noundef %2678, i32 noundef %2679, ptr noundef %0, i32 noundef %2671, i32 noundef 1, i32 noundef -2147483648) #16
+  %2680 = call ptr @proto_tree_add_item(ptr noundef %2678, i32 noundef %2679, ptr noundef nonnull %0, i32 noundef %2671, i32 noundef 1, i32 noundef -2147483648) #16
   %2681 = load i32, ptr @hf_btmesh_light_hsl_status_remaining_time_resolution, align 4
-  %2682 = call ptr @proto_tree_add_item(ptr noundef %2678, i32 noundef %2681, ptr noundef %0, i32 noundef %2671, i32 noundef 1, i32 noundef -2147483648) #16
+  %2682 = call ptr @proto_tree_add_item(ptr noundef %2678, i32 noundef %2681, ptr noundef nonnull %0, i32 noundef %2671, i32 noundef 1, i32 noundef -2147483648) #16
   %2683 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 2684:                                             ; preds = %42
   %2685 = load i32, ptr @hf_btmesh_light_hsl_target_status_hsl_lightness_target, align 4
-  %2686 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2685, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2686 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2685, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2687 = add nuw nsw i32 %.03971, 2
   %2688 = load i32, ptr @hf_btmesh_light_hsl_target_status_hsl_hue_target, align 4
-  %2689 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2688, ptr noundef %0, i32 noundef %2687, i32 noundef 2, i32 noundef -2147483648) #16
+  %2689 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2688, ptr noundef nonnull %0, i32 noundef %2687, i32 noundef 2, i32 noundef -2147483648) #16
   %2690 = or disjoint i32 %.03971, 4
   %2691 = load i32, ptr @hf_btmesh_light_hsl_target_status_hsl_saturation_target, align 4
-  %2692 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2691, ptr noundef %0, i32 noundef %2690, i32 noundef 2, i32 noundef -2147483648) #16
+  %2692 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2691, ptr noundef nonnull %0, i32 noundef %2690, i32 noundef 2, i32 noundef -2147483648) #16
   %2693 = add nuw nsw i32 %.03971, 6
-  %2694 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2693) #16
+  %2694 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2693) #16
   %2695 = icmp sgt i32 %2694, 0
   br i1 %2695, label %2696, label %.loopexit3981
 
 2696:                                             ; preds = %2684
   %2697 = load i32, ptr @hf_btmesh_light_hsl_target_status_remaining_time, align 4
-  %2698 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2697, ptr noundef %0, i32 noundef %2693, i32 noundef 1, i32 noundef -2147483648) #16
+  %2698 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2697, ptr noundef nonnull %0, i32 noundef %2693, i32 noundef 1, i32 noundef -2147483648) #16
   %2699 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2700 = call ptr @proto_item_add_subtree(ptr noundef %2698, i32 noundef %2699) #16
   %2701 = load i32, ptr @hf_btmesh_light_hsl_target_status_remaining_time_steps, align 4
-  %2702 = call ptr @proto_tree_add_item(ptr noundef %2700, i32 noundef %2701, ptr noundef %0, i32 noundef %2693, i32 noundef 1, i32 noundef -2147483648) #16
+  %2702 = call ptr @proto_tree_add_item(ptr noundef %2700, i32 noundef %2701, ptr noundef nonnull %0, i32 noundef %2693, i32 noundef 1, i32 noundef -2147483648) #16
   %2703 = load i32, ptr @hf_btmesh_light_hsl_target_status_remaining_time_resolution, align 4
-  %2704 = call ptr @proto_tree_add_item(ptr noundef %2700, i32 noundef %2703, ptr noundef %0, i32 noundef %2693, i32 noundef 1, i32 noundef -2147483648) #16
+  %2704 = call ptr @proto_tree_add_item(ptr noundef %2700, i32 noundef %2703, ptr noundef nonnull %0, i32 noundef %2693, i32 noundef 1, i32 noundef -2147483648) #16
   %2705 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 2706:                                             ; preds = %42
   %2707 = load i32, ptr @hf_btmesh_light_hsl_default_status_lightness, align 4
-  %2708 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2707, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2708 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2707, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2709 = add nuw nsw i32 %.03971, 2
   %2710 = load i32, ptr @hf_btmesh_light_hsl_default_status_hue, align 4
-  %2711 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2710, ptr noundef %0, i32 noundef %2709, i32 noundef 2, i32 noundef -2147483648) #16
+  %2711 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2710, ptr noundef nonnull %0, i32 noundef %2709, i32 noundef 2, i32 noundef -2147483648) #16
   %2712 = or disjoint i32 %.03971, 4
   %2713 = load i32, ptr @hf_btmesh_light_hsl_default_status_saturation, align 4
-  %2714 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2713, ptr noundef %0, i32 noundef %2712, i32 noundef 2, i32 noundef -2147483648) #16
+  %2714 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2713, ptr noundef nonnull %0, i32 noundef %2712, i32 noundef 2, i32 noundef -2147483648) #16
   %2715 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2716:                                             ; preds = %42
   %2717 = load i32, ptr @hf_btmesh_light_hsl_range_status_status_code, align 4
-  %2718 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2717, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2718 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2717, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2719 = add nuw nsw i32 %.03971, 1
   %2720 = load i32, ptr @hf_btmesh_light_hsl_range_status_hue_range_min, align 4
-  %2721 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2720, ptr noundef %0, i32 noundef %2719, i32 noundef 2, i32 noundef -2147483648) #16
+  %2721 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2720, ptr noundef nonnull %0, i32 noundef %2719, i32 noundef 2, i32 noundef -2147483648) #16
   %2722 = add nuw nsw i32 %.03971, 3
   %2723 = load i32, ptr @hf_btmesh_light_hsl_range_status_hue_range_max, align 4
-  %2724 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2723, ptr noundef %0, i32 noundef %2722, i32 noundef 2, i32 noundef -2147483648) #16
+  %2724 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2723, ptr noundef nonnull %0, i32 noundef %2722, i32 noundef 2, i32 noundef -2147483648) #16
   %2725 = add nuw nsw i32 %.03971, 5
   %2726 = load i32, ptr @hf_btmesh_light_hsl_range_status_saturation_range_min, align 4
-  %2727 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2726, ptr noundef %0, i32 noundef %2725, i32 noundef 2, i32 noundef -2147483648) #16
+  %2727 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2726, ptr noundef nonnull %0, i32 noundef %2725, i32 noundef 2, i32 noundef -2147483648) #16
   %2728 = add nuw nsw i32 %.03971, 7
   %2729 = load i32, ptr @hf_btmesh_light_hsl_range_status_saturation_range_max, align 4
-  %2730 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2729, ptr noundef %0, i32 noundef %2728, i32 noundef 2, i32 noundef -2147483648) #16
+  %2730 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2729, ptr noundef nonnull %0, i32 noundef %2728, i32 noundef 2, i32 noundef -2147483648) #16
   %2731 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2732:                                             ; preds = %42
   %2733 = load i32, ptr @hf_btmesh_light_hsl_default_set_lightness, align 4
-  %2734 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2733, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2734 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2733, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2735 = add nuw nsw i32 %.03971, 2
   %2736 = load i32, ptr @hf_btmesh_light_hsl_default_set_hue, align 4
-  %2737 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2736, ptr noundef %0, i32 noundef %2735, i32 noundef 2, i32 noundef -2147483648) #16
+  %2737 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2736, ptr noundef nonnull %0, i32 noundef %2735, i32 noundef 2, i32 noundef -2147483648) #16
   %2738 = or disjoint i32 %.03971, 4
   %2739 = load i32, ptr @hf_btmesh_light_hsl_default_set_saturation, align 4
-  %2740 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2739, ptr noundef %0, i32 noundef %2738, i32 noundef 2, i32 noundef -2147483648) #16
+  %2740 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2739, ptr noundef nonnull %0, i32 noundef %2738, i32 noundef 2, i32 noundef -2147483648) #16
   %2741 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2742:                                             ; preds = %42
   %2743 = load i32, ptr @hf_btmesh_light_hsl_default_set_unacknowledged_lightness, align 4
-  %2744 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2743, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2744 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2743, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2745 = add nuw nsw i32 %.03971, 2
   %2746 = load i32, ptr @hf_btmesh_light_hsl_default_set_unacknowledged_hue, align 4
-  %2747 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2746, ptr noundef %0, i32 noundef %2745, i32 noundef 2, i32 noundef -2147483648) #16
+  %2747 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2746, ptr noundef nonnull %0, i32 noundef %2745, i32 noundef 2, i32 noundef -2147483648) #16
   %2748 = or disjoint i32 %.03971, 4
   %2749 = load i32, ptr @hf_btmesh_light_hsl_default_set_unacknowledged_saturation, align 4
-  %2750 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2749, ptr noundef %0, i32 noundef %2748, i32 noundef 2, i32 noundef -2147483648) #16
+  %2750 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2749, ptr noundef nonnull %0, i32 noundef %2748, i32 noundef 2, i32 noundef -2147483648) #16
   %2751 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2752:                                             ; preds = %42
   %2753 = load i32, ptr @hf_btmesh_light_hsl_range_set_hue_range_min, align 4
-  %2754 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2753, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2754 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2753, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2755 = add nuw nsw i32 %.03971, 2
   %2756 = load i32, ptr @hf_btmesh_light_hsl_range_set_hue_range_max, align 4
-  %2757 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2756, ptr noundef %0, i32 noundef %2755, i32 noundef 2, i32 noundef -2147483648) #16
+  %2757 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2756, ptr noundef nonnull %0, i32 noundef %2755, i32 noundef 2, i32 noundef -2147483648) #16
   %2758 = or disjoint i32 %.03971, 4
   %2759 = load i32, ptr @hf_btmesh_light_hsl_range_set_saturation_range_min, align 4
-  %2760 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2759, ptr noundef %0, i32 noundef %2758, i32 noundef 2, i32 noundef -2147483648) #16
+  %2760 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2759, ptr noundef nonnull %0, i32 noundef %2758, i32 noundef 2, i32 noundef -2147483648) #16
   %2761 = add nuw nsw i32 %.03971, 6
   %2762 = load i32, ptr @hf_btmesh_light_hsl_range_set_saturation_range_max, align 4
-  %2763 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2762, ptr noundef %0, i32 noundef %2761, i32 noundef 2, i32 noundef -2147483648) #16
+  %2763 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2762, ptr noundef nonnull %0, i32 noundef %2761, i32 noundef 2, i32 noundef -2147483648) #16
   %2764 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 2765:                                             ; preds = %42
   %2766 = load i32, ptr @hf_btmesh_light_hsl_range_set_unacknowledged_hue_range_min, align 4
-  %2767 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2766, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2767 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2766, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2768 = add nuw nsw i32 %.03971, 2
   %2769 = load i32, ptr @hf_btmesh_light_hsl_range_set_unacknowledged_hue_range_max, align 4
-  %2770 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2769, ptr noundef %0, i32 noundef %2768, i32 noundef 2, i32 noundef -2147483648) #16
+  %2770 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2769, ptr noundef nonnull %0, i32 noundef %2768, i32 noundef 2, i32 noundef -2147483648) #16
   %2771 = or disjoint i32 %.03971, 4
   %2772 = load i32, ptr @hf_btmesh_light_hsl_range_set_unacknowledged_saturation_range_min, align 4
-  %2773 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2772, ptr noundef %0, i32 noundef %2771, i32 noundef 2, i32 noundef -2147483648) #16
+  %2773 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2772, ptr noundef nonnull %0, i32 noundef %2771, i32 noundef 2, i32 noundef -2147483648) #16
   %2774 = add nuw nsw i32 %.03971, 6
   %2775 = load i32, ptr @hf_btmesh_light_hsl_range_set_unacknowledged_saturation_range_max, align 4
-  %2776 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2775, ptr noundef %0, i32 noundef %2774, i32 noundef 2, i32 noundef -2147483648) #16
+  %2776 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2775, ptr noundef nonnull %0, i32 noundef %2774, i32 noundef 2, i32 noundef -2147483648) #16
   %2777 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 2778:                                             ; preds = %42
   %2779 = load i32, ptr @hf_btmesh_light_xyl_set_xyl_lightness, align 4
-  %2780 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2779, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2780 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2779, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2781 = add nuw nsw i32 %.03971, 2
   %2782 = load i32, ptr @hf_btmesh_light_xyl_set_xyl_x, align 4
-  %2783 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2782, ptr noundef %0, i32 noundef %2781, i32 noundef 2, i32 noundef -2147483648) #16
+  %2783 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2782, ptr noundef nonnull %0, i32 noundef %2781, i32 noundef 2, i32 noundef -2147483648) #16
   %2784 = or disjoint i32 %.03971, 4
   %2785 = load i32, ptr @hf_btmesh_light_xyl_set_xyl_y, align 4
-  %2786 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2785, ptr noundef %0, i32 noundef %2784, i32 noundef 2, i32 noundef -2147483648) #16
+  %2786 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2785, ptr noundef nonnull %0, i32 noundef %2784, i32 noundef 2, i32 noundef -2147483648) #16
   %2787 = add nuw nsw i32 %.03971, 6
   %2788 = load i32, ptr @hf_btmesh_light_xyl_set_tid, align 4
-  %2789 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2788, ptr noundef %0, i32 noundef %2787, i32 noundef 1, i32 noundef -2147483648) #16
+  %2789 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2788, ptr noundef nonnull %0, i32 noundef %2787, i32 noundef 1, i32 noundef -2147483648) #16
   %2790 = add nuw nsw i32 %.03971, 7
-  %2791 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2790) #16
+  %2791 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2790) #16
   %2792 = icmp sgt i32 %2791, 0
   br i1 %2792, label %2793, label %.loopexit3981
 
 2793:                                             ; preds = %2778
   %2794 = load i32, ptr @hf_btmesh_light_xyl_set_transition_time, align 4
-  %2795 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2794, ptr noundef %0, i32 noundef %2790, i32 noundef 1, i32 noundef -2147483648) #16
+  %2795 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2794, ptr noundef nonnull %0, i32 noundef %2790, i32 noundef 1, i32 noundef -2147483648) #16
   %2796 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2797 = call ptr @proto_item_add_subtree(ptr noundef %2795, i32 noundef %2796) #16
   %2798 = load i32, ptr @hf_btmesh_light_xyl_set_transition_time_steps, align 4
-  %2799 = call ptr @proto_tree_add_item(ptr noundef %2797, i32 noundef %2798, ptr noundef %0, i32 noundef %2790, i32 noundef 1, i32 noundef -2147483648) #16
+  %2799 = call ptr @proto_tree_add_item(ptr noundef %2797, i32 noundef %2798, ptr noundef nonnull %0, i32 noundef %2790, i32 noundef 1, i32 noundef -2147483648) #16
   %2800 = load i32, ptr @hf_btmesh_light_xyl_set_transition_time_resolution, align 4
-  %2801 = call ptr @proto_tree_add_item(ptr noundef %2797, i32 noundef %2800, ptr noundef %0, i32 noundef %2790, i32 noundef 1, i32 noundef -2147483648) #16
+  %2801 = call ptr @proto_tree_add_item(ptr noundef %2797, i32 noundef %2800, ptr noundef nonnull %0, i32 noundef %2790, i32 noundef 1, i32 noundef -2147483648) #16
   %2802 = or disjoint i32 %.03971, 8
   %2803 = load i32, ptr @hf_btmesh_light_xyl_set_delay, align 4
-  %2804 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2803, ptr noundef %0, i32 noundef %2802, i32 noundef 1, i32 noundef -2147483648) #16
+  %2804 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2803, ptr noundef nonnull %0, i32 noundef %2802, i32 noundef 1, i32 noundef -2147483648) #16
   %2805 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2806:                                             ; preds = %42
   %2807 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_xyl_lightness, align 4
-  %2808 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2807, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2808 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2807, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2809 = add nuw nsw i32 %.03971, 2
   %2810 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_xyl_x, align 4
-  %2811 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2810, ptr noundef %0, i32 noundef %2809, i32 noundef 2, i32 noundef -2147483648) #16
+  %2811 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2810, ptr noundef nonnull %0, i32 noundef %2809, i32 noundef 2, i32 noundef -2147483648) #16
   %2812 = or disjoint i32 %.03971, 4
   %2813 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_xyl_y, align 4
-  %2814 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2813, ptr noundef %0, i32 noundef %2812, i32 noundef 2, i32 noundef -2147483648) #16
+  %2814 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2813, ptr noundef nonnull %0, i32 noundef %2812, i32 noundef 2, i32 noundef -2147483648) #16
   %2815 = add nuw nsw i32 %.03971, 6
   %2816 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_tid, align 4
-  %2817 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2816, ptr noundef %0, i32 noundef %2815, i32 noundef 1, i32 noundef -2147483648) #16
+  %2817 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2816, ptr noundef nonnull %0, i32 noundef %2815, i32 noundef 1, i32 noundef -2147483648) #16
   %2818 = add nuw nsw i32 %.03971, 7
-  %2819 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2818) #16
+  %2819 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2818) #16
   %2820 = icmp sgt i32 %2819, 0
   br i1 %2820, label %2821, label %.loopexit3981
 
 2821:                                             ; preds = %2806
   %2822 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_transition_time, align 4
-  %2823 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2822, ptr noundef %0, i32 noundef %2818, i32 noundef 1, i32 noundef -2147483648) #16
+  %2823 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2822, ptr noundef nonnull %0, i32 noundef %2818, i32 noundef 1, i32 noundef -2147483648) #16
   %2824 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2825 = call ptr @proto_item_add_subtree(ptr noundef %2823, i32 noundef %2824) #16
   %2826 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_transition_time_steps, align 4
-  %2827 = call ptr @proto_tree_add_item(ptr noundef %2825, i32 noundef %2826, ptr noundef %0, i32 noundef %2818, i32 noundef 1, i32 noundef -2147483648) #16
+  %2827 = call ptr @proto_tree_add_item(ptr noundef %2825, i32 noundef %2826, ptr noundef nonnull %0, i32 noundef %2818, i32 noundef 1, i32 noundef -2147483648) #16
   %2828 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_transition_time_resolution, align 4
-  %2829 = call ptr @proto_tree_add_item(ptr noundef %2825, i32 noundef %2828, ptr noundef %0, i32 noundef %2818, i32 noundef 1, i32 noundef -2147483648) #16
+  %2829 = call ptr @proto_tree_add_item(ptr noundef %2825, i32 noundef %2828, ptr noundef nonnull %0, i32 noundef %2818, i32 noundef 1, i32 noundef -2147483648) #16
   %2830 = or disjoint i32 %.03971, 8
   %2831 = load i32, ptr @hf_btmesh_light_xyl_set_unacknowledged_delay, align 4
-  %2832 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2831, ptr noundef %0, i32 noundef %2830, i32 noundef 1, i32 noundef -2147483648) #16
+  %2832 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2831, ptr noundef nonnull %0, i32 noundef %2830, i32 noundef 1, i32 noundef -2147483648) #16
   %2833 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2834:                                             ; preds = %42
   %2835 = load i32, ptr @hf_btmesh_light_xyl_status_xyl_lightness, align 4
-  %2836 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2835, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2836 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2835, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2837 = add nuw nsw i32 %.03971, 2
   %2838 = load i32, ptr @hf_btmesh_light_xyl_status_xyl_x, align 4
-  %2839 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2838, ptr noundef %0, i32 noundef %2837, i32 noundef 2, i32 noundef -2147483648) #16
+  %2839 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2838, ptr noundef nonnull %0, i32 noundef %2837, i32 noundef 2, i32 noundef -2147483648) #16
   %2840 = or disjoint i32 %.03971, 4
   %2841 = load i32, ptr @hf_btmesh_light_xyl_status_xyl_y, align 4
-  %2842 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2841, ptr noundef %0, i32 noundef %2840, i32 noundef 2, i32 noundef -2147483648) #16
+  %2842 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2841, ptr noundef nonnull %0, i32 noundef %2840, i32 noundef 2, i32 noundef -2147483648) #16
   %2843 = add nuw nsw i32 %.03971, 6
-  %2844 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2843) #16
+  %2844 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2843) #16
   %2845 = icmp sgt i32 %2844, 0
   br i1 %2845, label %2846, label %.loopexit3981
 
 2846:                                             ; preds = %2834
   %2847 = load i32, ptr @hf_btmesh_light_xyl_status_remaining_time, align 4
-  %2848 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2847, ptr noundef %0, i32 noundef %2843, i32 noundef 1, i32 noundef -2147483648) #16
+  %2848 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2847, ptr noundef nonnull %0, i32 noundef %2843, i32 noundef 1, i32 noundef -2147483648) #16
   %2849 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2850 = call ptr @proto_item_add_subtree(ptr noundef %2848, i32 noundef %2849) #16
   %2851 = load i32, ptr @hf_btmesh_light_xyl_status_remaining_time_steps, align 4
-  %2852 = call ptr @proto_tree_add_item(ptr noundef %2850, i32 noundef %2851, ptr noundef %0, i32 noundef %2843, i32 noundef 1, i32 noundef -2147483648) #16
+  %2852 = call ptr @proto_tree_add_item(ptr noundef %2850, i32 noundef %2851, ptr noundef nonnull %0, i32 noundef %2843, i32 noundef 1, i32 noundef -2147483648) #16
   %2853 = load i32, ptr @hf_btmesh_light_xyl_status_remaining_time_resolution, align 4
-  %2854 = call ptr @proto_tree_add_item(ptr noundef %2850, i32 noundef %2853, ptr noundef %0, i32 noundef %2843, i32 noundef 1, i32 noundef -2147483648) #16
+  %2854 = call ptr @proto_tree_add_item(ptr noundef %2850, i32 noundef %2853, ptr noundef nonnull %0, i32 noundef %2843, i32 noundef 1, i32 noundef -2147483648) #16
   %2855 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 2856:                                             ; preds = %42
   %2857 = load i32, ptr @hf_btmesh_light_xyl_target_status_target_xyl_lightness, align 4
-  %2858 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2857, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2858 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2857, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2859 = add nuw nsw i32 %.03971, 2
   %2860 = load i32, ptr @hf_btmesh_light_xyl_target_status_target_xyl_x, align 4
-  %2861 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2860, ptr noundef %0, i32 noundef %2859, i32 noundef 2, i32 noundef -2147483648) #16
+  %2861 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2860, ptr noundef nonnull %0, i32 noundef %2859, i32 noundef 2, i32 noundef -2147483648) #16
   %2862 = or disjoint i32 %.03971, 4
   %2863 = load i32, ptr @hf_btmesh_light_xyl_target_status_target_xyl_y, align 4
-  %2864 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2863, ptr noundef %0, i32 noundef %2862, i32 noundef 2, i32 noundef -2147483648) #16
+  %2864 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2863, ptr noundef nonnull %0, i32 noundef %2862, i32 noundef 2, i32 noundef -2147483648) #16
   %2865 = add nuw nsw i32 %.03971, 6
-  %2866 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2865) #16
+  %2866 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2865) #16
   %2867 = icmp sgt i32 %2866, 0
   br i1 %2867, label %2868, label %.loopexit3981
 
 2868:                                             ; preds = %2856
   %2869 = load i32, ptr @hf_btmesh_light_xyl_target_status_remaining_time, align 4
-  %2870 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2869, ptr noundef %0, i32 noundef %2865, i32 noundef 1, i32 noundef -2147483648) #16
+  %2870 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2869, ptr noundef nonnull %0, i32 noundef %2865, i32 noundef 1, i32 noundef -2147483648) #16
   %2871 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2872 = call ptr @proto_item_add_subtree(ptr noundef %2870, i32 noundef %2871) #16
   %2873 = load i32, ptr @hf_btmesh_light_xyl_target_status_remaining_time_steps, align 4
-  %2874 = call ptr @proto_tree_add_item(ptr noundef %2872, i32 noundef %2873, ptr noundef %0, i32 noundef %2865, i32 noundef 1, i32 noundef -2147483648) #16
+  %2874 = call ptr @proto_tree_add_item(ptr noundef %2872, i32 noundef %2873, ptr noundef nonnull %0, i32 noundef %2865, i32 noundef 1, i32 noundef -2147483648) #16
   %2875 = load i32, ptr @hf_btmesh_light_xyl_target_status_remaining_time_resolution, align 4
-  %2876 = call ptr @proto_tree_add_item(ptr noundef %2872, i32 noundef %2875, ptr noundef %0, i32 noundef %2865, i32 noundef 1, i32 noundef -2147483648) #16
+  %2876 = call ptr @proto_tree_add_item(ptr noundef %2872, i32 noundef %2875, ptr noundef nonnull %0, i32 noundef %2865, i32 noundef 1, i32 noundef -2147483648) #16
   %2877 = add nuw nsw i32 %.03971, 7
   br label %.loopexit3981
 
 2878:                                             ; preds = %42
   %2879 = load i32, ptr @hf_btmesh_light_xyl_default_status_lightness, align 4
-  %2880 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2879, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2880 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2879, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2881 = add nuw nsw i32 %.03971, 2
   %2882 = load i32, ptr @hf_btmesh_light_xyl_default_status_xyl_x, align 4
-  %2883 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2882, ptr noundef %0, i32 noundef %2881, i32 noundef 2, i32 noundef -2147483648) #16
+  %2883 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2882, ptr noundef nonnull %0, i32 noundef %2881, i32 noundef 2, i32 noundef -2147483648) #16
   %2884 = or disjoint i32 %.03971, 4
   %2885 = load i32, ptr @hf_btmesh_light_xyl_default_status_xyl_y, align 4
-  %2886 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2885, ptr noundef %0, i32 noundef %2884, i32 noundef 2, i32 noundef -2147483648) #16
+  %2886 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2885, ptr noundef nonnull %0, i32 noundef %2884, i32 noundef 2, i32 noundef -2147483648) #16
   %2887 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2888:                                             ; preds = %42
   %2889 = load i32, ptr @hf_btmesh_light_xyl_range_status_status_code, align 4
-  %2890 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2889, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2890 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2889, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2891 = add nuw nsw i32 %.03971, 1
   %2892 = load i32, ptr @hf_btmesh_light_xyl_range_status_xyl_x_range_min, align 4
-  %2893 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2892, ptr noundef %0, i32 noundef %2891, i32 noundef 2, i32 noundef -2147483648) #16
+  %2893 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2892, ptr noundef nonnull %0, i32 noundef %2891, i32 noundef 2, i32 noundef -2147483648) #16
   %2894 = add nuw nsw i32 %.03971, 3
   %2895 = load i32, ptr @hf_btmesh_light_xyl_range_status_xyl_x_range_max, align 4
-  %2896 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2895, ptr noundef %0, i32 noundef %2894, i32 noundef 2, i32 noundef -2147483648) #16
+  %2896 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2895, ptr noundef nonnull %0, i32 noundef %2894, i32 noundef 2, i32 noundef -2147483648) #16
   %2897 = add nuw nsw i32 %.03971, 5
   %2898 = load i32, ptr @hf_btmesh_light_xyl_range_status_xyl_y_range_min, align 4
-  %2899 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2898, ptr noundef %0, i32 noundef %2897, i32 noundef 2, i32 noundef -2147483648) #16
+  %2899 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2898, ptr noundef nonnull %0, i32 noundef %2897, i32 noundef 2, i32 noundef -2147483648) #16
   %2900 = add nuw nsw i32 %.03971, 7
   %2901 = load i32, ptr @hf_btmesh_light_xyl_range_status_xyl_y_range_max, align 4
-  %2902 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2901, ptr noundef %0, i32 noundef %2900, i32 noundef 2, i32 noundef -2147483648) #16
+  %2902 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2901, ptr noundef nonnull %0, i32 noundef %2900, i32 noundef 2, i32 noundef -2147483648) #16
   %2903 = add nuw nsw i32 %.03971, 9
   br label %.loopexit3981
 
 2904:                                             ; preds = %42
   %2905 = load i32, ptr @hf_btmesh_light_xyl_default_set_lightness, align 4
-  %2906 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2905, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2906 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2905, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2907 = add nuw nsw i32 %.03971, 2
   %2908 = load i32, ptr @hf_btmesh_light_xyl_default_set_xyl_x, align 4
-  %2909 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2908, ptr noundef %0, i32 noundef %2907, i32 noundef 2, i32 noundef -2147483648) #16
+  %2909 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2908, ptr noundef nonnull %0, i32 noundef %2907, i32 noundef 2, i32 noundef -2147483648) #16
   %2910 = or disjoint i32 %.03971, 4
   %2911 = load i32, ptr @hf_btmesh_light_xyl_default_set_xyl_y, align 4
-  %2912 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2911, ptr noundef %0, i32 noundef %2910, i32 noundef 2, i32 noundef -2147483648) #16
+  %2912 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2911, ptr noundef nonnull %0, i32 noundef %2910, i32 noundef 2, i32 noundef -2147483648) #16
   %2913 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2914:                                             ; preds = %42
   %2915 = load i32, ptr @hf_btmesh_light_xyl_default_set_unacknowledged_lightness, align 4
-  %2916 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2915, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2916 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2915, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2917 = add nuw nsw i32 %.03971, 2
   %2918 = load i32, ptr @hf_btmesh_light_xyl_default_set_unacknowledged_xyl_x, align 4
-  %2919 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2918, ptr noundef %0, i32 noundef %2917, i32 noundef 2, i32 noundef -2147483648) #16
+  %2919 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2918, ptr noundef nonnull %0, i32 noundef %2917, i32 noundef 2, i32 noundef -2147483648) #16
   %2920 = or disjoint i32 %.03971, 4
   %2921 = load i32, ptr @hf_btmesh_light_xyl_default_set_unacknowledged_xyl_y, align 4
-  %2922 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2921, ptr noundef %0, i32 noundef %2920, i32 noundef 2, i32 noundef -2147483648) #16
+  %2922 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2921, ptr noundef nonnull %0, i32 noundef %2920, i32 noundef 2, i32 noundef -2147483648) #16
   %2923 = add nuw nsw i32 %.03971, 6
   br label %.loopexit3981
 
 2924:                                             ; preds = %42
   %2925 = load i32, ptr @hf_btmesh_light_xyl_range_set_xyl_x_range_min, align 4
-  %2926 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2925, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2926 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2925, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2927 = add nuw nsw i32 %.03971, 2
   %2928 = load i32, ptr @hf_btmesh_light_xyl_range_set_xyl_x_range_max, align 4
-  %2929 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2928, ptr noundef %0, i32 noundef %2927, i32 noundef 2, i32 noundef -2147483648) #16
+  %2929 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2928, ptr noundef nonnull %0, i32 noundef %2927, i32 noundef 2, i32 noundef -2147483648) #16
   %2930 = or disjoint i32 %.03971, 4
   %2931 = load i32, ptr @hf_btmesh_light_xyl_range_set_xyl_y_range_min, align 4
-  %2932 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2931, ptr noundef %0, i32 noundef %2930, i32 noundef 2, i32 noundef -2147483648) #16
+  %2932 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2931, ptr noundef nonnull %0, i32 noundef %2930, i32 noundef 2, i32 noundef -2147483648) #16
   %2933 = add nuw nsw i32 %.03971, 6
   %2934 = load i32, ptr @hf_btmesh_light_xyl_range_set_xyl_y_range_max, align 4
-  %2935 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2934, ptr noundef %0, i32 noundef %2933, i32 noundef 2, i32 noundef -2147483648) #16
+  %2935 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2934, ptr noundef nonnull %0, i32 noundef %2933, i32 noundef 2, i32 noundef -2147483648) #16
   %2936 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 2937:                                             ; preds = %42
   %2938 = load i32, ptr @hf_btmesh_light_xyl_range_set_unacknowledged_xyl_x_range_min, align 4
-  %2939 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2938, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %2939 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2938, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %2940 = add nuw nsw i32 %.03971, 2
   %2941 = load i32, ptr @hf_btmesh_light_xyl_range_set_unacknowledged_xyl_x_range_max, align 4
-  %2942 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2941, ptr noundef %0, i32 noundef %2940, i32 noundef 2, i32 noundef -2147483648) #16
+  %2942 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2941, ptr noundef nonnull %0, i32 noundef %2940, i32 noundef 2, i32 noundef -2147483648) #16
   %2943 = or disjoint i32 %.03971, 4
   %2944 = load i32, ptr @hf_btmesh_light_xyl_range_set_unacknowledged_xyl_y_range_min, align 4
-  %2945 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2944, ptr noundef %0, i32 noundef %2943, i32 noundef 2, i32 noundef -2147483648) #16
+  %2945 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2944, ptr noundef nonnull %0, i32 noundef %2943, i32 noundef 2, i32 noundef -2147483648) #16
   %2946 = add nuw nsw i32 %.03971, 6
   %2947 = load i32, ptr @hf_btmesh_light_xyl_range_set_unacknowledged_xyl_y_range_max, align 4
-  %2948 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2947, ptr noundef %0, i32 noundef %2946, i32 noundef 2, i32 noundef -2147483648) #16
+  %2948 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2947, ptr noundef nonnull %0, i32 noundef %2946, i32 noundef 2, i32 noundef -2147483648) #16
   %2949 = or disjoint i32 %.03971, 8
   br label %.loopexit3981
 
 2950:                                             ; preds = %42
   %2951 = load i32, ptr @hf_btmesh_light_lc_mode_set_mode, align 4
-  %2952 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2951, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2952 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2951, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2953 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 2954:                                             ; preds = %42
   %2955 = load i32, ptr @hf_btmesh_light_lc_mode_set_unacknowledged_mode, align 4
-  %2956 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2955, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2956 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2955, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2957 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 2958:                                             ; preds = %42
   %2959 = load i32, ptr @hf_btmesh_light_lc_mode_status_mode, align 4
-  %2960 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2959, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2960 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2959, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2961 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 2962:                                             ; preds = %42
   %2963 = load i32, ptr @hf_btmesh_light_lc_om_set_mode, align 4
-  %2964 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2963, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2964 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2963, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2965 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 2966:                                             ; preds = %42
   %2967 = load i32, ptr @hf_btmesh_light_lc_om_set_unacknowledged_mode, align 4
-  %2968 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2967, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2968 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2967, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2969 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 2970:                                             ; preds = %42
   %2971 = load i32, ptr @hf_btmesh_light_lc_om_status_mode, align 4
-  %2972 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2971, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2972 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2971, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2973 = add nuw nsw i32 %.03971, 1
   br label %.loopexit3981
 
 2974:                                             ; preds = %42
   %2975 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_light_onoff, align 4
-  %2976 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2975, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2976 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2975, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2977 = add nuw nsw i32 %.03971, 1
   %2978 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_tid, align 4
-  %2979 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2978, ptr noundef %0, i32 noundef %2977, i32 noundef 1, i32 noundef -2147483648) #16
+  %2979 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2978, ptr noundef nonnull %0, i32 noundef %2977, i32 noundef 1, i32 noundef -2147483648) #16
   %2980 = add nuw nsw i32 %.03971, 2
-  %2981 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2980) #16
+  %2981 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2980) #16
   %2982 = icmp sgt i32 %2981, 0
   br i1 %2982, label %2983, label %.loopexit3981
 
 2983:                                             ; preds = %2974
   %2984 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_transition_time, align 4
-  %2985 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2984, ptr noundef %0, i32 noundef %2980, i32 noundef 1, i32 noundef -2147483648) #16
+  %2985 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2984, ptr noundef nonnull %0, i32 noundef %2980, i32 noundef 1, i32 noundef -2147483648) #16
   %2986 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %2987 = call ptr @proto_item_add_subtree(ptr noundef %2985, i32 noundef %2986) #16
   %2988 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_transition_time_steps, align 4
-  %2989 = call ptr @proto_tree_add_item(ptr noundef %2987, i32 noundef %2988, ptr noundef %0, i32 noundef %2980, i32 noundef 1, i32 noundef -2147483648) #16
+  %2989 = call ptr @proto_tree_add_item(ptr noundef %2987, i32 noundef %2988, ptr noundef nonnull %0, i32 noundef %2980, i32 noundef 1, i32 noundef -2147483648) #16
   %2990 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_transition_time_resolution, align 4
-  %2991 = call ptr @proto_tree_add_item(ptr noundef %2987, i32 noundef %2990, ptr noundef %0, i32 noundef %2980, i32 noundef 1, i32 noundef -2147483648) #16
+  %2991 = call ptr @proto_tree_add_item(ptr noundef %2987, i32 noundef %2990, ptr noundef nonnull %0, i32 noundef %2980, i32 noundef 1, i32 noundef -2147483648) #16
   %2992 = add nuw nsw i32 %.03971, 3
   %2993 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_delay, align 4
-  %2994 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2993, ptr noundef %0, i32 noundef %2992, i32 noundef 1, i32 noundef -2147483648) #16
+  %2994 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2993, ptr noundef nonnull %0, i32 noundef %2992, i32 noundef 1, i32 noundef -2147483648) #16
   %2995 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 2996:                                             ; preds = %42
   %2997 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_light_onoff, align 4
-  %2998 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2997, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %2998 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %2997, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %2999 = add nuw nsw i32 %.03971, 1
   %3000 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_tid, align 4
-  %3001 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3000, ptr noundef %0, i32 noundef %2999, i32 noundef 1, i32 noundef -2147483648) #16
+  %3001 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3000, ptr noundef nonnull %0, i32 noundef %2999, i32 noundef 1, i32 noundef -2147483648) #16
   %3002 = add nuw nsw i32 %.03971, 2
-  %3003 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3002) #16
+  %3003 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3002) #16
   %3004 = icmp sgt i32 %3003, 0
   br i1 %3004, label %3005, label %.loopexit3981
 
 3005:                                             ; preds = %2996
   %3006 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_transition_time, align 4
-  %3007 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3006, ptr noundef %0, i32 noundef %3002, i32 noundef 1, i32 noundef -2147483648) #16
+  %3007 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3006, ptr noundef nonnull %0, i32 noundef %3002, i32 noundef 1, i32 noundef -2147483648) #16
   %3008 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %3009 = call ptr @proto_item_add_subtree(ptr noundef %3007, i32 noundef %3008) #16
   %3010 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_transition_time_steps, align 4
-  %3011 = call ptr @proto_tree_add_item(ptr noundef %3009, i32 noundef %3010, ptr noundef %0, i32 noundef %3002, i32 noundef 1, i32 noundef -2147483648) #16
+  %3011 = call ptr @proto_tree_add_item(ptr noundef %3009, i32 noundef %3010, ptr noundef nonnull %0, i32 noundef %3002, i32 noundef 1, i32 noundef -2147483648) #16
   %3012 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_transition_time_resolution, align 4
-  %3013 = call ptr @proto_tree_add_item(ptr noundef %3009, i32 noundef %3012, ptr noundef %0, i32 noundef %3002, i32 noundef 1, i32 noundef -2147483648) #16
+  %3013 = call ptr @proto_tree_add_item(ptr noundef %3009, i32 noundef %3012, ptr noundef nonnull %0, i32 noundef %3002, i32 noundef 1, i32 noundef -2147483648) #16
   %3014 = add nuw nsw i32 %.03971, 3
   %3015 = load i32, ptr @hf_btmesh_light_lc_light_onoff_set_unacknowledged_delay, align 4
-  %3016 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3015, ptr noundef %0, i32 noundef %3014, i32 noundef 1, i32 noundef -2147483648) #16
+  %3016 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3015, ptr noundef nonnull %0, i32 noundef %3014, i32 noundef 1, i32 noundef -2147483648) #16
   %3017 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 3018:                                             ; preds = %42
   %3019 = load i32, ptr @hf_btmesh_light_lc_light_onoff_status_present_light_onoff, align 4
-  %3020 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3019, ptr noundef %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
+  %3020 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3019, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 1, i32 noundef -2147483648) #16
   %3021 = add nuw nsw i32 %.03971, 1
-  %3022 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3021) #16
+  %3022 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3021) #16
   %3023 = icmp sgt i32 %3022, 0
   br i1 %3023, label %3024, label %.loopexit3981
 
 3024:                                             ; preds = %3018
   %3025 = load i32, ptr @hf_btmesh_light_lc_light_onoff_status_target_light_onoff, align 4
-  %3026 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3025, ptr noundef %0, i32 noundef %3021, i32 noundef 1, i32 noundef -2147483648) #16
+  %3026 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3025, ptr noundef nonnull %0, i32 noundef %3021, i32 noundef 1, i32 noundef -2147483648) #16
   %3027 = add nuw nsw i32 %.03971, 2
   %3028 = load i32, ptr @hf_btmesh_light_lc_light_onoff_status_remaining_time, align 4
-  %3029 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3028, ptr noundef %0, i32 noundef %3027, i32 noundef 1, i32 noundef -2147483648) #16
+  %3029 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3028, ptr noundef nonnull %0, i32 noundef %3027, i32 noundef 1, i32 noundef -2147483648) #16
   %3030 = load i32, ptr @ett_btmesh_config_model_publishperiod, align 4
   %3031 = call ptr @proto_item_add_subtree(ptr noundef %3029, i32 noundef %3030) #16
   %3032 = load i32, ptr @hf_btmesh_light_lc_light_onoff_status_remaining_time_steps, align 4
-  %3033 = call ptr @proto_tree_add_item(ptr noundef %3031, i32 noundef %3032, ptr noundef %0, i32 noundef %3027, i32 noundef 1, i32 noundef -2147483648) #16
+  %3033 = call ptr @proto_tree_add_item(ptr noundef %3031, i32 noundef %3032, ptr noundef nonnull %0, i32 noundef %3027, i32 noundef 1, i32 noundef -2147483648) #16
   %3034 = load i32, ptr @hf_btmesh_light_lc_light_onoff_status_remaining_time_resolution, align 4
-  %3035 = call ptr @proto_tree_add_item(ptr noundef %3031, i32 noundef %3034, ptr noundef %0, i32 noundef %3027, i32 noundef 1, i32 noundef -2147483648) #16
+  %3035 = call ptr @proto_tree_add_item(ptr noundef %3031, i32 noundef %3034, ptr noundef nonnull %0, i32 noundef %3027, i32 noundef 1, i32 noundef -2147483648) #16
   %3036 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 3037:                                             ; preds = %42
   %3038 = load i32, ptr @hf_btmesh_light_lc_property_get_light_lc_property_id, align 4
-  %3039 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3038, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3039 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3038, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3040 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 3041:                                             ; preds = %42
-  %3042 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3042 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3043 = load i32, ptr @ett_btmesh_manufacturer_property_ids, align 4
-  %3044 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %.03971, i32 noundef %3042, i32 noundef %3043, ptr noundef null, ptr noundef nonnull @.str.2204) #16
-  %3045 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3044 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %3042, i32 noundef %3043, ptr noundef null, ptr noundef nonnull @.str.2204) #16
+  %3045 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3046 = icmp sgt i32 %3045, 1
   br i1 %3046, label %.lr.ph4020, label %.loopexit3981
 
 .lr.ph4020:                                       ; preds = %3041, %.lr.ph4020
   %.204019 = phi i32 [ %3049, %.lr.ph4020 ], [ %.03971, %3041 ]
   %3047 = load i32, ptr @hf_btmesh_generic_manufacturer_properties_status_manufacturer_property_id, align 4
-  %3048 = call ptr @proto_tree_add_item(ptr noundef %3044, i32 noundef %3047, ptr noundef %0, i32 noundef %.204019, i32 noundef 2, i32 noundef -2147483648) #16
+  %3048 = call ptr @proto_tree_add_item(ptr noundef %3044, i32 noundef %3047, ptr noundef nonnull %0, i32 noundef %.204019, i32 noundef 2, i32 noundef -2147483648) #16
   %3049 = add i32 %.204019, 2
-  %3050 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3049) #16
+  %3050 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3049) #16
   %3051 = icmp sgt i32 %3050, 1
   br i1 %3051, label %.lr.ph4020, label %.loopexit3981, !llvm.loop !27
 
 3052:                                             ; preds = %42
   %3053 = load i32, ptr @hf_btmesh_generic_manufacturer_property_get_manufacturer_property_id, align 4
-  %3054 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3053, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3054 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3053, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3055 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 3056:                                             ; preds = %42
   %3057 = load i32, ptr @hf_btmesh_generic_manufacturer_property_set_manufacturer_property_id, align 4
-  %3058 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3057, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3058 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3057, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3059 = add nuw nsw i32 %.03971, 2
   %3060 = load i32, ptr @hf_btmesh_generic_manufacturer_property_set_manufacturer_user_access, align 4
-  %3061 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3060, ptr noundef %0, i32 noundef %3059, i32 noundef 1, i32 noundef -2147483648) #16
+  %3061 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3060, ptr noundef nonnull %0, i32 noundef %3059, i32 noundef 1, i32 noundef -2147483648) #16
   %3062 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 3063:                                             ; preds = %42
   %3064 = load i32, ptr @hf_btmesh_generic_manufacturer_property_set_unacknowledged_manufacturer_property_id, align 4
-  %3065 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3064, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3065 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3064, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3066 = add nuw nsw i32 %.03971, 2
   %3067 = load i32, ptr @hf_btmesh_generic_manufacturer_property_set_unacknowledged_manufacturer_user_access, align 4
-  %3068 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3067, ptr noundef %0, i32 noundef %3066, i32 noundef 1, i32 noundef -2147483648) #16
+  %3068 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3067, ptr noundef nonnull %0, i32 noundef %3066, i32 noundef 1, i32 noundef -2147483648) #16
   %3069 = add nuw nsw i32 %.03971, 3
   br label %.loopexit3981
 
 3070:                                             ; preds = %42
   %3071 = load i32, ptr @hf_btmesh_generic_manufacturer_property_status_manufacturer_property_id, align 4
-  %3072 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3071, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3073 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3072 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3071, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3073 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3074 = add nuw nsw i32 %.03971, 2
-  %3075 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3074) #16
+  %3075 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3074) #16
   %3076 = icmp sgt i32 %3075, 0
   br i1 %3076, label %3077, label %.loopexit3981
 
 3077:                                             ; preds = %3070
   %3078 = load i32, ptr @hf_btmesh_generic_manufacturer_property_status_manufacturer_user_access, align 4
-  %3079 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3078, ptr noundef %0, i32 noundef %3074, i32 noundef 1, i32 noundef -2147483648) #16
+  %3079 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3078, ptr noundef nonnull %0, i32 noundef %3074, i32 noundef 1, i32 noundef -2147483648) #16
   %3080 = add nuw nsw i32 %.03971, 3
   %3081 = load i32, ptr @hf_btmesh_generic_manufacturer_property_status_manufacturer_property_value, align 4
   %3082 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3081, ptr noundef %0, i32 noundef %3080, i16 noundef zeroext %3073, i32 noundef -1)
@@ -11420,35 +11420,35 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br label %.loopexit3981
 
 3085:                                             ; preds = %42
-  %3086 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3086 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3087 = load i32, ptr @ett_btmesh_admin_property_ids, align 4
-  %3088 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %.03971, i32 noundef %3086, i32 noundef %3087, ptr noundef null, ptr noundef nonnull @.str.2205) #16
-  %3089 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3088 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %3086, i32 noundef %3087, ptr noundef null, ptr noundef nonnull @.str.2205) #16
+  %3089 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3090 = icmp sgt i32 %3089, 1
   br i1 %3090, label %.lr.ph4017, label %.loopexit3981
 
 .lr.ph4017:                                       ; preds = %3085, %.lr.ph4017
   %.214016 = phi i32 [ %3093, %.lr.ph4017 ], [ %.03971, %3085 ]
   %3091 = load i32, ptr @hf_btmesh_generic_admin_properties_status_admin_property_id, align 4
-  %3092 = call ptr @proto_tree_add_item(ptr noundef %3088, i32 noundef %3091, ptr noundef %0, i32 noundef %.214016, i32 noundef 2, i32 noundef -2147483648) #16
+  %3092 = call ptr @proto_tree_add_item(ptr noundef %3088, i32 noundef %3091, ptr noundef nonnull %0, i32 noundef %.214016, i32 noundef 2, i32 noundef -2147483648) #16
   %3093 = add i32 %.214016, 2
-  %3094 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3093) #16
+  %3094 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3093) #16
   %3095 = icmp sgt i32 %3094, 1
   br i1 %3095, label %.lr.ph4017, label %.loopexit3981, !llvm.loop !28
 
 3096:                                             ; preds = %42
   %3097 = load i32, ptr @hf_btmesh_generic_admin_property_get_admin_property_id, align 4
-  %3098 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3097, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3098 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3097, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3099 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 3100:                                             ; preds = %42
   %3101 = load i32, ptr @hf_btmesh_generic_admin_property_set_admin_property_id, align 4
-  %3102 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3101, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3103 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3102 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3101, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3103 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3104 = add nuw nsw i32 %.03971, 2
   %3105 = load i32, ptr @hf_btmesh_generic_admin_property_set_admin_user_access, align 4
-  %3106 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3105, ptr noundef %0, i32 noundef %3104, i32 noundef 1, i32 noundef -2147483648) #16
+  %3106 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3105, ptr noundef nonnull %0, i32 noundef %3104, i32 noundef 1, i32 noundef -2147483648) #16
   %3107 = add nuw nsw i32 %.03971, 3
   %3108 = load i32, ptr @hf_btmesh_generic_admin_property_set_admin_property_value, align 4
   %3109 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3108, ptr noundef %0, i32 noundef %3107, i16 noundef zeroext %3103, i32 noundef -1)
@@ -11458,11 +11458,11 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3112:                                             ; preds = %42
   %3113 = load i32, ptr @hf_btmesh_generic_admin_property_set_unacknowledged_admin_property_id, align 4
-  %3114 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3113, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3115 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3114 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3113, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3115 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3116 = add nuw nsw i32 %.03971, 2
   %3117 = load i32, ptr @hf_btmesh_generic_admin_property_set_unacknowledged_admin_user_access, align 4
-  %3118 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3117, ptr noundef %0, i32 noundef %3116, i32 noundef 1, i32 noundef -2147483648) #16
+  %3118 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3117, ptr noundef nonnull %0, i32 noundef %3116, i32 noundef 1, i32 noundef -2147483648) #16
   %3119 = add nuw nsw i32 %.03971, 3
   %3120 = load i32, ptr @hf_btmesh_generic_admin_property_set_unacknowledged_admin_property_value, align 4
   %3121 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3120, ptr noundef %0, i32 noundef %3119, i16 noundef zeroext %3115, i32 noundef -1)
@@ -11472,16 +11472,16 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3124:                                             ; preds = %42
   %3125 = load i32, ptr @hf_btmesh_generic_admin_property_status_admin_property_id, align 4
-  %3126 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3125, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3127 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3126 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3125, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3127 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3128 = add nuw nsw i32 %.03971, 2
-  %3129 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3128) #16
+  %3129 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3128) #16
   %3130 = icmp sgt i32 %3129, 0
   br i1 %3130, label %3131, label %.loopexit3981
 
 3131:                                             ; preds = %3124
   %3132 = load i32, ptr @hf_btmesh_generic_admin_property_status_admin_user_access, align 4
-  %3133 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3132, ptr noundef %0, i32 noundef %3128, i32 noundef 1, i32 noundef -2147483648) #16
+  %3133 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3132, ptr noundef nonnull %0, i32 noundef %3128, i32 noundef 1, i32 noundef -2147483648) #16
   %3134 = add nuw nsw i32 %.03971, 3
   %3135 = load i32, ptr @hf_btmesh_generic_admin_property_status_admin_property_value, align 4
   %3136 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3135, ptr noundef %0, i32 noundef %3134, i16 noundef zeroext %3127, i32 noundef -1)
@@ -11490,32 +11490,32 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br label %.loopexit3981
 
 3139:                                             ; preds = %42
-  %3140 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3140 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3141 = load i32, ptr @ett_btmesh_user_property_ids, align 4
-  %3142 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %.03971, i32 noundef %3140, i32 noundef %3141, ptr noundef null, ptr noundef nonnull @.str.2206) #16
-  %3143 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3142 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %3140, i32 noundef %3141, ptr noundef null, ptr noundef nonnull @.str.2206) #16
+  %3143 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3144 = icmp sgt i32 %3143, 1
   br i1 %3144, label %.lr.ph4014, label %.loopexit3981
 
 .lr.ph4014:                                       ; preds = %3139, %.lr.ph4014
   %.224013 = phi i32 [ %3147, %.lr.ph4014 ], [ %.03971, %3139 ]
   %3145 = load i32, ptr @hf_btmesh_generic_user_properties_status_user_property_id, align 4
-  %3146 = call ptr @proto_tree_add_item(ptr noundef %3142, i32 noundef %3145, ptr noundef %0, i32 noundef %.224013, i32 noundef 2, i32 noundef -2147483648) #16
+  %3146 = call ptr @proto_tree_add_item(ptr noundef %3142, i32 noundef %3145, ptr noundef nonnull %0, i32 noundef %.224013, i32 noundef 2, i32 noundef -2147483648) #16
   %3147 = add i32 %.224013, 2
-  %3148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3147) #16
+  %3148 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3147) #16
   %3149 = icmp sgt i32 %3148, 1
   br i1 %3149, label %.lr.ph4014, label %.loopexit3981, !llvm.loop !29
 
 3150:                                             ; preds = %42
   %3151 = load i32, ptr @hf_btmesh_generic_user_property_get_user_property_id, align 4
-  %3152 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3151, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3152 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3151, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3153 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 3154:                                             ; preds = %42
   %3155 = load i32, ptr @hf_btmesh_generic_user_property_set_user_property_id, align 4
-  %3156 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3155, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3157 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3156 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3155, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3157 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3158 = add nuw nsw i32 %.03971, 2
   %3159 = load i32, ptr @hf_btmesh_generic_user_property_set_user_property_value, align 4
   %3160 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3159, ptr noundef %0, i32 noundef %3158, i16 noundef zeroext %3157, i32 noundef -1)
@@ -11525,8 +11525,8 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3163:                                             ; preds = %42
   %3164 = load i32, ptr @hf_btmesh_generic_user_property_set_unacknowledged_user_property_id, align 4
-  %3165 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3164, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3166 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3165 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3164, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3166 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3167 = add nuw nsw i32 %.03971, 2
   %3168 = load i32, ptr @hf_btmesh_generic_user_property_set_unacknowledged_user_property_value, align 4
   %3169 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3168, ptr noundef %0, i32 noundef %3167, i16 noundef zeroext %3166, i32 noundef -1)
@@ -11536,16 +11536,16 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3172:                                             ; preds = %42
   %3173 = load i32, ptr @hf_btmesh_generic_user_property_status_user_property_id, align 4
-  %3174 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3173, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3175 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3174 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3173, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3175 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3176 = add nuw nsw i32 %.03971, 2
-  %3177 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3176) #16
+  %3177 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3176) #16
   %3178 = icmp sgt i32 %3177, 0
   br i1 %3178, label %3179, label %.loopexit3981
 
 3179:                                             ; preds = %3172
   %3180 = load i32, ptr @hf_btmesh_generic_user_property_status_user_access, align 4
-  %3181 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3180, ptr noundef %0, i32 noundef %3176, i32 noundef 1, i32 noundef -2147483648) #16
+  %3181 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3180, ptr noundef nonnull %0, i32 noundef %3176, i32 noundef 1, i32 noundef -2147483648) #16
   %3182 = add nuw nsw i32 %.03971, 3
   %3183 = load i32, ptr @hf_btmesh_generic_user_property_status_user_property_value, align 4
   %3184 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3183, ptr noundef %0, i32 noundef %3182, i16 noundef zeroext %3175, i32 noundef -1)
@@ -11555,93 +11555,93 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3187:                                             ; preds = %42
   %3188 = load i32, ptr @hf_btmesh_generic_client_properties_get_client_property_id, align 4
-  %3189 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3188, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3189 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3188, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3190 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 3191:                                             ; preds = %42
-  %3192 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3192 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3193 = load i32, ptr @ett_btmesh_generic_client_property_ids, align 4
-  %3194 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %.03971, i32 noundef %3192, i32 noundef %3193, ptr noundef null, ptr noundef nonnull @.str.2207) #16
-  %3195 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3194 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef %3192, i32 noundef %3193, ptr noundef null, ptr noundef nonnull @.str.2207) #16
+  %3195 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3196 = icmp sgt i32 %3195, 1
   br i1 %3196, label %.lr.ph4011, label %.loopexit3981
 
 .lr.ph4011:                                       ; preds = %3191, %.lr.ph4011
   %.234010 = phi i32 [ %3199, %.lr.ph4011 ], [ %.03971, %3191 ]
   %3197 = load i32, ptr @hf_btmesh_generic_client_properties_status_client_property_id, align 4
-  %3198 = call ptr @proto_tree_add_item(ptr noundef %3194, i32 noundef %3197, ptr noundef %0, i32 noundef %.234010, i32 noundef 2, i32 noundef -2147483648) #16
+  %3198 = call ptr @proto_tree_add_item(ptr noundef %3194, i32 noundef %3197, ptr noundef nonnull %0, i32 noundef %.234010, i32 noundef 2, i32 noundef -2147483648) #16
   %3199 = add i32 %.234010, 2
-  %3200 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3199) #16
+  %3200 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3199) #16
   %3201 = icmp sgt i32 %3200, 1
   br i1 %3201, label %.lr.ph4011, label %.loopexit3981, !llvm.loop !30
 
 3202:                                             ; preds = %42
-  %3203 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3203 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3204 = icmp sgt i32 %3203, 1
   br i1 %3204, label %3205, label %.loopexit3981
 
 3205:                                             ; preds = %3202
   %3206 = load i32, ptr @hf_btmesh_sensor_descriptor_get_property_id, align 4
-  %3207 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3206, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3207 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3206, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3208 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 3209:                                             ; preds = %42
-  %3210 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3210 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3211 = icmp eq i32 %3210, 2
   br i1 %3211, label %3214, label %.preheader
 
 .preheader:                                       ; preds = %3209
-  %3212 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3212 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3213 = icmp sgt i32 %3212, 0
   br i1 %3213, label %.lr.ph4008, label %.loopexit3981
 
 3214:                                             ; preds = %3209
   %3215 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_property_id, align 4
-  %3216 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3215, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3216 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3215, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3217 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 .lr.ph4008:                                       ; preds = %.preheader, %.lr.ph4008
   %.244007 = phi i32 [ %3234, %.lr.ph4008 ], [ %.03971, %.preheader ]
   %3218 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_property_id, align 4
-  %3219 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3218, ptr noundef %0, i32 noundef %.244007, i32 noundef 2, i32 noundef -2147483648) #16
+  %3219 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3218, ptr noundef nonnull %0, i32 noundef %.244007, i32 noundef 2, i32 noundef -2147483648) #16
   %3220 = add i32 %.244007, 2
   %3221 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_positive_tolerance, align 4
-  %3222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3221, ptr noundef %0, i32 noundef %3220, i32 noundef 3, i32 noundef -2147483648) #16
+  %3222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3221, ptr noundef nonnull %0, i32 noundef %3220, i32 noundef 3, i32 noundef -2147483648) #16
   %3223 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_negative_tolerance, align 4
-  %3224 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3223, ptr noundef %0, i32 noundef %3220, i32 noundef 3, i32 noundef -2147483648) #16
+  %3224 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3223, ptr noundef nonnull %0, i32 noundef %3220, i32 noundef 3, i32 noundef -2147483648) #16
   %3225 = add i32 %.244007, 5
   %3226 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_sampling_function, align 4
-  %3227 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3226, ptr noundef %0, i32 noundef %3225, i32 noundef 1, i32 noundef -2147483648) #16
+  %3227 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3226, ptr noundef nonnull %0, i32 noundef %3225, i32 noundef 1, i32 noundef -2147483648) #16
   %3228 = add i32 %.244007, 6
   %3229 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_measurement_period, align 4
-  %3230 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3229, ptr noundef %0, i32 noundef %3228, i32 noundef 1, i32 noundef -2147483648) #16
+  %3230 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3229, ptr noundef nonnull %0, i32 noundef %3228, i32 noundef 1, i32 noundef -2147483648) #16
   %3231 = add i32 %.244007, 7
   %3232 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_update_interval, align 4
-  %3233 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3232, ptr noundef %0, i32 noundef %3231, i32 noundef 1, i32 noundef -2147483648) #16
+  %3233 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3232, ptr noundef nonnull %0, i32 noundef %3231, i32 noundef 1, i32 noundef -2147483648) #16
   %3234 = add i32 %.244007, 8
-  %3235 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3234) #16
+  %3235 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3234) #16
   %3236 = icmp sgt i32 %3235, 0
   br i1 %3236, label %.lr.ph4008, label %.loopexit3981, !llvm.loop !31
 
 3237:                                             ; preds = %42
   %3238 = load i32, ptr @hf_btmesh_sensor_cadence_get_property_id, align 4
-  %3239 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3238, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3239 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3238, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3240 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 3241:                                             ; preds = %42
   %3242 = load i32, ptr @hf_btmesh_sensor_cadence_set_property_id, align 4
-  %3243 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3242, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3244 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3243 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3242, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3244 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3245 = add nuw nsw i32 %.03971, 2
   %3246 = load i32, ptr @hf_btmesh_sensor_cadence_set_fast_cadence_period_divisor, align 4
-  %3247 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3246, ptr noundef %0, i32 noundef %3245, i32 noundef 1, i32 noundef -2147483648) #16
+  %3247 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3246, ptr noundef nonnull %0, i32 noundef %3245, i32 noundef 1, i32 noundef -2147483648) #16
   %3248 = load i32, ptr @hf_btmesh_sensor_cadence_set_status_trigger_type, align 4
-  %3249 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3248, ptr noundef %0, i32 noundef %3245, i32 noundef 1, i32 noundef -2147483648) #16
-  %3250 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3245) #16
+  %3249 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3248, ptr noundef nonnull %0, i32 noundef %3245, i32 noundef 1, i32 noundef -2147483648) #16
+  %3250 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %3245) #16
   %3251 = lshr i8 %3250, 7
   %3252 = add nuw nsw i32 %.03971, 3
   %3253 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3252, i16 noundef zeroext %3244, i8 noundef zeroext %3251, ptr noundef nonnull @sensor_cadence_set_hfs)
@@ -11650,14 +11650,14 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3255:                                             ; preds = %42
   %3256 = load i32, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_property_id, align 4
-  %3257 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3256, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3258 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3257 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3256, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3258 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3259 = add nuw nsw i32 %.03971, 2
   %3260 = load i32, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_fast_cadence_period_divisor, align 4
-  %3261 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3260, ptr noundef %0, i32 noundef %3259, i32 noundef 1, i32 noundef -2147483648) #16
+  %3261 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3260, ptr noundef nonnull %0, i32 noundef %3259, i32 noundef 1, i32 noundef -2147483648) #16
   %3262 = load i32, ptr @hf_btmesh_sensor_cadence_set_unacknowledged_status_trigger_type, align 4
-  %3263 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3262, ptr noundef %0, i32 noundef %3259, i32 noundef 1, i32 noundef -2147483648) #16
-  %3264 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3259) #16
+  %3263 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3262, ptr noundef nonnull %0, i32 noundef %3259, i32 noundef 1, i32 noundef -2147483648) #16
+  %3264 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %3259) #16
   %3265 = lshr i8 %3264, 7
   %3266 = add nuw nsw i32 %.03971, 3
   %3267 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3266, i16 noundef zeroext %3258, i8 noundef zeroext %3265, ptr noundef nonnull @sensor_cadence_set_unacknowledged_hfs)
@@ -11666,14 +11666,14 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3269:                                             ; preds = %42
   %3270 = load i32, ptr @hf_btmesh_sensor_cadence_status_property_id, align 4
-  %3271 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3270, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3272 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3271 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3270, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3272 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3273 = add nuw nsw i32 %.03971, 2
   %3274 = load i32, ptr @hf_btmesh_sensor_cadence_status_fast_cadence_period_divisor, align 4
-  %3275 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3274, ptr noundef %0, i32 noundef %3273, i32 noundef 1, i32 noundef -2147483648) #16
+  %3275 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3274, ptr noundef nonnull %0, i32 noundef %3273, i32 noundef 1, i32 noundef -2147483648) #16
   %3276 = load i32, ptr @hf_btmesh_sensor_cadence_status_status_trigger_type, align 4
-  %3277 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3276, ptr noundef %0, i32 noundef %3273, i32 noundef 1, i32 noundef -2147483648) #16
-  %3278 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3273) #16
+  %3277 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3276, ptr noundef nonnull %0, i32 noundef %3273, i32 noundef 1, i32 noundef -2147483648) #16
+  %3278 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %3273) #16
   %3279 = lshr i8 %3278, 7
   %3280 = add nuw nsw i32 %.03971, 3
   %3281 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3280, i16 noundef zeroext %3272, i8 noundef zeroext %3279, ptr noundef nonnull @sensor_cadence_status_hfs)
@@ -11682,51 +11682,51 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3283:                                             ; preds = %42
   %3284 = load i32, ptr @hf_btmesh_sensor_settings_get_sensor_property_id, align 4
-  %3285 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3284, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3285 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3284, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3286 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 3287:                                             ; preds = %42
   %3288 = load i32, ptr @hf_btmesh_sensor_settings_status_sensor_property_id, align 4
-  %3289 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3288, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3289 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3288, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3290 = add nuw nsw i32 %.03971, 2
-  %3291 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3290) #16
+  %3291 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3290) #16
   %3292 = icmp sgt i32 %3291, 0
   br i1 %3292, label %3293, label %.loopexit3981
 
 3293:                                             ; preds = %3287
-  %3294 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3290) #16
+  %3294 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3290) #16
   %3295 = load i32, ptr @ett_btmesh_sensor_setting_property_ids, align 4
-  %3296 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %0, i32 noundef %3290, i32 noundef %3294, i32 noundef %3295, ptr noundef null, ptr noundef nonnull @.str.2208) #16
-  %3297 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3290) #16
+  %3296 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef nonnull %0, i32 noundef %3290, i32 noundef %3294, i32 noundef %3295, ptr noundef null, ptr noundef nonnull @.str.2208) #16
+  %3297 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3290) #16
   %3298 = icmp sgt i32 %3297, 1
   br i1 %3298, label %.lr.ph4005, label %.loopexit3981
 
 .lr.ph4005:                                       ; preds = %3293, %.lr.ph4005
   %.254004 = phi i32 [ %3301, %.lr.ph4005 ], [ %3290, %3293 ]
   %3299 = load i32, ptr @hf_btmesh_sensor_settings_status_sensor_setting_property_id, align 4
-  %3300 = call ptr @proto_tree_add_item(ptr noundef %3296, i32 noundef %3299, ptr noundef %0, i32 noundef %.254004, i32 noundef 2, i32 noundef -2147483648) #16
+  %3300 = call ptr @proto_tree_add_item(ptr noundef %3296, i32 noundef %3299, ptr noundef nonnull %0, i32 noundef %.254004, i32 noundef 2, i32 noundef -2147483648) #16
   %3301 = add i32 %.254004, 2
-  %3302 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3301) #16
+  %3302 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3301) #16
   %3303 = icmp sgt i32 %3302, 1
   br i1 %3303, label %.lr.ph4005, label %.loopexit3981, !llvm.loop !32
 
 3304:                                             ; preds = %42
   %3305 = load i32, ptr @hf_btmesh_sensor_setting_get_sensor_property_id, align 4
-  %3306 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3305, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3306 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3305, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3307 = add nuw nsw i32 %.03971, 2
   %3308 = load i32, ptr @hf_btmesh_sensor_setting_get_sensor_setting_property_id, align 4
-  %3309 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3308, ptr noundef %0, i32 noundef %3307, i32 noundef 2, i32 noundef -2147483648) #16
+  %3309 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3308, ptr noundef nonnull %0, i32 noundef %3307, i32 noundef 2, i32 noundef -2147483648) #16
   %3310 = or disjoint i32 %.03971, 4
   br label %.loopexit3981
 
 3311:                                             ; preds = %42
   %3312 = load i32, ptr @hf_btmesh_sensor_setting_set_sensor_property_id, align 4
-  %3313 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3312, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3313 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3312, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3314 = add nuw nsw i32 %.03971, 2
   %3315 = load i32, ptr @hf_btmesh_sensor_setting_set_sensor_setting_property_id, align 4
-  %3316 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3315, ptr noundef %0, i32 noundef %3314, i32 noundef 2, i32 noundef -2147483648) #16
-  %3317 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %3314, i32 noundef -2147483648) #16
+  %3316 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3315, ptr noundef nonnull %0, i32 noundef %3314, i32 noundef 2, i32 noundef -2147483648) #16
+  %3317 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %3314, i32 noundef -2147483648) #16
   %3318 = or disjoint i32 %.03971, 4
   %3319 = load i32, ptr @hf_btmesh_sensor_setting_set_sensor_setting_raw, align 4
   %3320 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3319, ptr noundef %0, i32 noundef %3318, i16 noundef zeroext %3317, i32 noundef -1)
@@ -11736,11 +11736,11 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3323:                                             ; preds = %42
   %3324 = load i32, ptr @hf_btmesh_sensor_setting_set_unacknowledged_sensor_property_id, align 4
-  %3325 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3324, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3325 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3324, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3326 = add nuw nsw i32 %.03971, 2
   %3327 = load i32, ptr @hf_btmesh_sensor_setting_set_unacknowledged_sensor_setting_property_id, align 4
-  %3328 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3327, ptr noundef %0, i32 noundef %3326, i32 noundef 2, i32 noundef -2147483648) #16
-  %3329 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %3326, i32 noundef -2147483648) #16
+  %3328 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3327, ptr noundef nonnull %0, i32 noundef %3326, i32 noundef 2, i32 noundef -2147483648) #16
+  %3329 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %3326, i32 noundef -2147483648) #16
   %3330 = or disjoint i32 %.03971, 4
   %3331 = load i32, ptr @hf_btmesh_sensor_setting_set_unacknowledged_sensor_setting_raw, align 4
   %3332 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3331, ptr noundef %0, i32 noundef %3330, i16 noundef zeroext %3329, i32 noundef -1)
@@ -11750,19 +11750,19 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3335:                                             ; preds = %42
   %3336 = load i32, ptr @hf_btmesh_sensor_setting_status_sensor_property_id, align 4
-  %3337 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3336, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3337 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3336, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3338 = add nuw nsw i32 %.03971, 2
   %3339 = load i32, ptr @hf_btmesh_sensor_setting_status_sensor_setting_property_id, align 4
-  %3340 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3339, ptr noundef %0, i32 noundef %3338, i32 noundef 2, i32 noundef -2147483648) #16
-  %3341 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %3338, i32 noundef -2147483648) #16
+  %3340 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3339, ptr noundef nonnull %0, i32 noundef %3338, i32 noundef 2, i32 noundef -2147483648) #16
+  %3341 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %3338, i32 noundef -2147483648) #16
   %3342 = or disjoint i32 %.03971, 4
-  %3343 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3342) #16
+  %3343 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3342) #16
   %3344 = icmp sgt i32 %3343, 0
   br i1 %3344, label %3345, label %.loopexit3981
 
 3345:                                             ; preds = %3335
   %3346 = load i32, ptr @hf_btmesh_sensor_setting_status_sensor_setting_access, align 4
-  %3347 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3346, ptr noundef %0, i32 noundef %3342, i32 noundef 1, i32 noundef -2147483648) #16
+  %3347 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3346, ptr noundef nonnull %0, i32 noundef %3342, i32 noundef 1, i32 noundef -2147483648) #16
   %3348 = add nuw nsw i32 %.03971, 5
   %3349 = load i32, ptr @hf_btmesh_sensor_setting_status_sensor_setting_raw, align 4
   %3350 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3349, ptr noundef %0, i32 noundef %3348, i16 noundef zeroext %3341, i32 noundef -1)
@@ -11771,32 +11771,32 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br label %.loopexit3981
 
 3353:                                             ; preds = %42
-  %3354 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3354 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3355 = icmp sgt i32 %3354, 0
   br i1 %3355, label %3356, label %.loopexit3981
 
 3356:                                             ; preds = %3353
   %3357 = load i32, ptr @hf_btmesh_sensor_get_property_id, align 4
-  %3358 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3357, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3358 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3357, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
   %3359 = add nuw nsw i32 %.03971, 2
   br label %.loopexit3981
 
 .lr.ph4002:                                       ; preds = %.preheader3997, %3371
   %.264001 = phi i32 [ %3381, %3371 ], [ %.03971, %.preheader3997 ]
   %3360 = load i32, ptr @hf_btmesh_sensor_status_mpid_format, align 4
-  %3361 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3360, ptr noundef %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #16
+  %3361 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3360, ptr noundef nonnull %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #16
   %3362 = load i32, ptr %5, align 4
   %3363 = icmp eq i32 %3362, 0
   br i1 %3363, label %3364, label %3367
 
 3364:                                             ; preds = %.lr.ph4002
   %3365 = load i32, ptr @hf_btmesh_sensor_status_mpid_format_a_length, align 4
-  %3366 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3365, ptr noundef %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
+  %3366 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3365, ptr noundef nonnull %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
   br label %3371
 
 3367:                                             ; preds = %.lr.ph4002
   %3368 = load i32, ptr @hf_btmesh_sensor_status_mpid_format_b_length, align 4
-  %3369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3368, ptr noundef %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
+  %3369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3368, ptr noundef nonnull %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
   %3370 = add i32 %.264001, 1
   br label %3371
 
@@ -11805,7 +11805,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %.sink4125 = phi i32 [ %3370, %3367 ], [ %.264001, %3364 ]
   %.sink4123 = phi i32 [ 3, %3367 ], [ 2, %3364 ]
   %3372 = load i32, ptr %hf_btmesh_sensor_status_mpid_format_b_property_id.sink, align 4
-  %3373 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3372, ptr noundef %0, i32 noundef %.sink4125, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %6) #16
+  %3373 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3372, ptr noundef nonnull %0, i32 noundef %.sink4125, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %6) #16
   %3374 = add i32 %.264001, %.sink4123
   %3375 = load i32, ptr @hf_btmesh_sensor_status_raw_value, align 4
   %3376 = load i32, ptr %6, align 4
@@ -11814,14 +11814,14 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3379 = call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %10, i32 noundef %3375, ptr noundef %0, i32 noundef %3374, i16 noundef zeroext %3377, i32 noundef %3378)
   %3380 = zext i16 %3379 to i32
   %3381 = add i32 %3374, %3380
-  %3382 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3381) #16
+  %3382 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3381) #16
   %3383 = icmp sgt i32 %3382, 0
   br i1 %3383, label %.lr.ph4002, label %.loopexit3981, !llvm.loop !33
 
 3384:                                             ; preds = %42
   %3385 = load i32, ptr @hf_btmesh_sensor_column_get_property_id, align 4
-  %3386 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3385, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3387 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3386 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3385, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3387 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3388 = add nuw nsw i32 %.03971, 2
   %3389 = call fastcc i32 @dissect_columns_raw_value(ptr noundef %10, ptr noundef %0, i32 noundef %3388, i16 noundef zeroext %3387, ptr noundef nonnull @sensor_column_get_hfs)
   %3390 = add i32 %3389, %3388
@@ -11829,8 +11829,8 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3391:                                             ; preds = %42
   %3392 = load i32, ptr @hf_btmesh_sensor_column_status_property_id, align 4
-  %3393 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3392, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3394 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3393 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3392, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3394 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3395 = add nuw nsw i32 %.03971, 2
   %3396 = call fastcc i32 @dissect_property_raw_value_entry(ptr noundef %10, ptr noundef %0, i32 noundef %3395, i16 noundef zeroext %3394, ptr noundef nonnull @sensor_column_status_hfs)
   %3397 = add i32 %3396, %3395
@@ -11838,10 +11838,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3398:                                             ; preds = %42
   %3399 = load i32, ptr @hf_btmesh_sensor_series_get_property_id, align 4
-  %3400 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3399, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3401 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3400 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3399, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3401 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3402 = add nuw nsw i32 %.03971, 2
-  %3403 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3402) #16
+  %3403 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3402) #16
   %3404 = icmp sgt i32 %3403, 0
   br i1 %3404, label %3405, label %.loopexit3981
 
@@ -11852,10 +11852,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 3408:                                             ; preds = %42
   %3409 = load i32, ptr @hf_btmesh_sensor_series_status_property_id, align 4
-  %3410 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3409, ptr noundef %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
-  %3411 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.03971, i32 noundef -2147483648) #16
+  %3410 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3409, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef 2, i32 noundef -2147483648) #16
+  %3411 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -2147483648) #16
   %3412 = add nuw nsw i32 %.03971, 2
-  %3413 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3412) #16
+  %3413 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3412) #16
   %3414 = icmp sgt i32 %3413, 0
   br i1 %3414, label %.lr.ph, label %.loopexit3981
 
@@ -11863,30 +11863,30 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %.284000 = phi i32 [ %3416, %.lr.ph ], [ %3412, %3408 ]
   %3415 = call fastcc i32 @dissect_property_raw_value_entry(ptr noundef %10, ptr noundef %0, i32 noundef %.284000, i16 noundef zeroext %3411, ptr noundef nonnull @sensor_series_status_hfs)
   %3416 = add i32 %3415, %.284000
-  %3417 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3416) #16
+  %3417 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3416) #16
   %3418 = icmp sgt i32 %3417, 0
   br i1 %3418, label %.lr.ph, label %.loopexit3981, !llvm.loop !34
 
 3419:                                             ; preds = %42
-  %3420 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3420 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %.not3978 = icmp eq i32 %3420, 0
   br i1 %.not3978, label %.loopexit3981, label %3421
 
 3421:                                             ; preds = %3419
   %3422 = load i32, ptr @hf_btmesh_model_layer_parameters, align 4
-  %3423 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3422, ptr noundef %0, i32 noundef %.03971, i32 noundef -1, i32 noundef 0) #16
-  %3424 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
+  %3423 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3422, ptr noundef nonnull %0, i32 noundef %.03971, i32 noundef -1, i32 noundef 0) #16
+  %3424 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.03971) #16
   %3425 = add i32 %3424, %.03971
   br label %.loopexit3981
 
 .loopexit3981:                                    ; preds = %.lr.ph, %3371, %.lr.ph4005, %.lr.ph4008, %.lr.ph4011, %.lr.ph4014, %.lr.ph4017, %.lr.ph4020, %.lr.ph4023, %1146, %1099, %987, %.lr.ph4035, %.lr.ph4038, %303, %.lr.ph4044, %.lr.ph4047, %.loopexit, %3408, %.preheader3997, %3293, %.preheader, %3191, %3139, %3085, %3041, %1690, %1110, %1063, %960, %738, %711, %264, %198, %181, %72, %3419, %3421, %3398, %3405, %3353, %3356, %3335, %3345, %3287, %3214, %3202, %3205, %3172, %3179, %42, %3124, %3131, %42, %3070, %3077, %42, %3018, %3024, %2996, %3005, %2974, %2983, %42, %42, %42, %42, %42, %2856, %2868, %42, %2834, %2846, %2806, %2821, %2778, %2793, %42, %42, %42, %2684, %2696, %42, %2662, %2674, %2634, %2649, %2606, %2621, %2587, %2593, %2565, %2574, %2543, %2552, %42, %2524, %2530, %2502, %2511, %2480, %2489, %42, %42, %42, %2411, %2420, %2386, %2398, %2361, %2373, %42, %42, %2326, %2335, %2298, %2313, %2270, %2285, %42, %42, %42, %42, %2211, %2217, %2189, %2198, %2167, %2176, %42, %2148, %2154, %2126, %2135, %2104, %2113, %42, %42, %42, %42, %42, %42, %1741, %1747, %42, %1668, %1677, %1646, %1655, %42, %1624, %1633, %42, %42, %42, %42, %42, %42, %1480, %1486, %1458, %1467, %1436, %1445, %42, %42, %42, %1372, %1381, %1350, %1359, %1328, %1337, %1306, %1315, %1287, %1293, %1265, %1274, %1243, %1252, %42, %1224, %1230, %1202, %1211, %1180, %1189, %42, %42, %42, %42, %929, %933, %906, %910, %880, %884, %42, %42, %42, %42, %42, %650, %654, %633, %637, %616, %620, %599, %603, %579, %583, %562, %566, %548, %552, %531, %535, %514, %518, %465, %469, %413, %417, %42, %42, %42, %42, %42, %173, %177, %3391, %3384, %3323, %3311, %3304, %3283, %3269, %3255, %3241, %3237, %3187, %3163, %3154, %3150, %3112, %3100, %3096, %3063, %3056, %3052, %3037, %2970, %2966, %2962, %2958, %2954, %2950, %2937, %2924, %2914, %2904, %2888, %2878, %2765, %2752, %2742, %2732, %2716, %2706, %2473, %2466, %2456, %2446, %2436, %2351, %2263, %2256, %2252, %2248, %2238, %2234, %2230, %2095, %2086, %2077, %2039, %2035, %2021, %2012, %2002, %1995, %1991, %1987, %1912, %1837, %1762, %1723, %1719, %1715, %1711, %1707, %1602, %1580, %1558, %1539, %1532, %1525, %1521, %1517, %1507, %1503, %1499, %1432, %1428, %1424, %1414, %1404, %1394, %1170, %1160, %1150, %1103, %1056, %1040, %1027, %1017, %1004, %991, %950, %937, %843, %833, %807, %803, %799, %795, %788, %781, %777, %773, %769, %762, %758, %731, %704, %691, %678, %668, %658, %391, %378, %368, %364, %360, %356, %352, %348, %344, %340, %336, %332, %328, %324, %320, %307, %254, %244, %215, %59, %46
   %.13972 = phi i32 [ %3425, %3421 ], [ %.03971, %3419 ], [ %3407, %3405 ], [ %3402, %3398 ], [ %3397, %3391 ], [ %3390, %3384 ], [ %3359, %3356 ], [ %.03971, %3353 ], [ %3352, %3345 ], [ %3342, %3335 ], [ %3334, %3323 ], [ %3322, %3311 ], [ %3310, %3304 ], [ %3290, %3287 ], [ %3286, %3283 ], [ %3282, %3269 ], [ %3268, %3255 ], [ %3254, %3241 ], [ %3240, %3237 ], [ %3217, %3214 ], [ %3208, %3205 ], [ %.03971, %3202 ], [ %3190, %3187 ], [ %3186, %3179 ], [ %3176, %3172 ], [ %3171, %3163 ], [ %3162, %3154 ], [ %3153, %3150 ], [ %3138, %3131 ], [ %3128, %3124 ], [ %3123, %3112 ], [ %3111, %3100 ], [ %3099, %3096 ], [ %3084, %3077 ], [ %3074, %3070 ], [ %3069, %3063 ], [ %3062, %3056 ], [ %3055, %3052 ], [ %3040, %3037 ], [ %3036, %3024 ], [ %3021, %3018 ], [ %3017, %3005 ], [ %3002, %2996 ], [ %2995, %2983 ], [ %2980, %2974 ], [ %2973, %2970 ], [ %2969, %2966 ], [ %2965, %2962 ], [ %2961, %2958 ], [ %2957, %2954 ], [ %2953, %2950 ], [ %2949, %2937 ], [ %2936, %2924 ], [ %2923, %2914 ], [ %2913, %2904 ], [ %2903, %2888 ], [ %2887, %2878 ], [ %2877, %2868 ], [ %2865, %2856 ], [ %2855, %2846 ], [ %2843, %2834 ], [ %2833, %2821 ], [ %2818, %2806 ], [ %2805, %2793 ], [ %2790, %2778 ], [ %2777, %2765 ], [ %2764, %2752 ], [ %2751, %2742 ], [ %2741, %2732 ], [ %2731, %2716 ], [ %2715, %2706 ], [ %2705, %2696 ], [ %2693, %2684 ], [ %2683, %2674 ], [ %2671, %2662 ], [ %2661, %2649 ], [ %2646, %2634 ], [ %2633, %2621 ], [ %2618, %2606 ], [ %2605, %2593 ], [ %2590, %2587 ], [ %2586, %2574 ], [ %2571, %2565 ], [ %2564, %2552 ], [ %2549, %2543 ], [ %2542, %2530 ], [ %2527, %2524 ], [ %2523, %2511 ], [ %2508, %2502 ], [ %2501, %2489 ], [ %2486, %2480 ], [ %2479, %2473 ], [ %2472, %2466 ], [ %2465, %2456 ], [ %2455, %2446 ], [ %2445, %2436 ], [ %2435, %2420 ], [ %2417, %2411 ], [ %2410, %2398 ], [ %2395, %2386 ], [ %2385, %2373 ], [ %2370, %2361 ], [ %2360, %2351 ], [ %2350, %2335 ], [ %2332, %2326 ], [ %2325, %2313 ], [ %2310, %2298 ], [ %2297, %2285 ], [ %2282, %2270 ], [ %2269, %2263 ], [ %2262, %2256 ], [ %2255, %2252 ], [ %2251, %2248 ], [ %2247, %2238 ], [ %2237, %2234 ], [ %2233, %2230 ], [ %2229, %2217 ], [ %2214, %2211 ], [ %2210, %2198 ], [ %2195, %2189 ], [ %2188, %2176 ], [ %2173, %2167 ], [ %2166, %2154 ], [ %2151, %2148 ], [ %2147, %2135 ], [ %2132, %2126 ], [ %2125, %2113 ], [ %2110, %2104 ], [ %2103, %2095 ], [ %2094, %2086 ], [ %2085, %2077 ], [ %2076, %2039 ], [ %2038, %2035 ], [ %2034, %2021 ], [ %2020, %2012 ], [ %2011, %2002 ], [ %2001, %1995 ], [ %1994, %1991 ], [ %1990, %1987 ], [ %1986, %1912 ], [ %1911, %1837 ], [ %1836, %1762 ], [ %1761, %1747 ], [ %1744, %1741 ], [ %1740, %1723 ], [ %1722, %1719 ], [ %1718, %1715 ], [ %1714, %1711 ], [ %1710, %1707 ], [ %1689, %1677 ], [ %1674, %1668 ], [ %1667, %1655 ], [ %1652, %1646 ], [ %1645, %1633 ], [ %1630, %1624 ], [ %1623, %1602 ], [ %1601, %1580 ], [ %1579, %1558 ], [ %1557, %1539 ], [ %1538, %1532 ], [ %1531, %1525 ], [ %1524, %1521 ], [ %1520, %1517 ], [ %1516, %1507 ], [ %1506, %1503 ], [ %1502, %1499 ], [ %1498, %1486 ], [ %1483, %1480 ], [ %1479, %1467 ], [ %1464, %1458 ], [ %1457, %1445 ], [ %1442, %1436 ], [ %1435, %1432 ], [ %1431, %1428 ], [ %1427, %1424 ], [ %1423, %1414 ], [ %1413, %1404 ], [ %1403, %1394 ], [ %1393, %1381 ], [ %1378, %1372 ], [ %1371, %1359 ], [ %1356, %1350 ], [ %1349, %1337 ], [ %1334, %1328 ], [ %1327, %1315 ], [ %1312, %1306 ], [ %1305, %1293 ], [ %1290, %1287 ], [ %1286, %1274 ], [ %1271, %1265 ], [ %1264, %1252 ], [ %1249, %1243 ], [ %1242, %1230 ], [ %1227, %1224 ], [ %1223, %1211 ], [ %1208, %1202 ], [ %1201, %1189 ], [ %1186, %1180 ], [ %1179, %1170 ], [ %1169, %1160 ], [ %1159, %1150 ], [ %1109, %1103 ], [ %1062, %1056 ], [ %1055, %1040 ], [ %1039, %1027 ], [ %1026, %1017 ], [ %1016, %1004 ], [ %1003, %991 ], [ %959, %950 ], [ %949, %937 ], [ %932, %929 ], [ %936, %933 ], [ %909, %906 ], [ %913, %910 ], [ %883, %880 ], [ %887, %884 ], [ %864, %843 ], [ %842, %833 ], [ %832, %807 ], [ %806, %803 ], [ %802, %799 ], [ %798, %795 ], [ %794, %788 ], [ %787, %781 ], [ %780, %777 ], [ %776, %773 ], [ %772, %769 ], [ %768, %762 ], [ %761, %758 ], [ %737, %731 ], [ %710, %704 ], [ %703, %691 ], [ %690, %678 ], [ %677, %668 ], [ %667, %658 ], [ %653, %650 ], [ %657, %654 ], [ %636, %633 ], [ %640, %637 ], [ %619, %616 ], [ %623, %620 ], [ %602, %599 ], [ %606, %603 ], [ %582, %579 ], [ %586, %583 ], [ %565, %562 ], [ %569, %566 ], [ %551, %548 ], [ %555, %552 ], [ %534, %531 ], [ %538, %535 ], [ %517, %514 ], [ %521, %518 ], [ %468, %465 ], [ %472, %469 ], [ %416, %413 ], [ %420, %417 ], [ %406, %391 ], [ %390, %378 ], [ %377, %368 ], [ %367, %364 ], [ %363, %360 ], [ %359, %356 ], [ %355, %352 ], [ %351, %348 ], [ %347, %344 ], [ %343, %340 ], [ %339, %336 ], [ %335, %332 ], [ %331, %328 ], [ %327, %324 ], [ %323, %320 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %319, %307 ], [ %263, %254 ], [ %253, %244 ], [ %243, %215 ], [ %176, %173 ], [ %180, %177 ], [ %71, %59 ], [ %58, %46 ], [ %91, %72 ], [ %187, %181 ], [ %204, %198 ], [ %276, %264 ], [ %720, %711 ], [ %747, %738 ], [ %.03971, %960 ], [ %1072, %1063 ], [ %1119, %1110 ], [ %1696, %1690 ], [ %.03971, %3041 ], [ %.03971, %3085 ], [ %.03971, %3139 ], [ %.03971, %3191 ], [ %.03971, %.preheader ], [ %3290, %3293 ], [ %.03971, %.preheader3997 ], [ %3412, %3408 ], [ %.5, %.loopexit ], [ %195, %.lr.ph4047 ], [ %212, %.lr.ph4044 ], [ %304, %303 ], [ %728, %.lr.ph4038 ], [ %755, %.lr.ph4035 ], [ %988, %987 ], [ %1100, %1099 ], [ %1147, %1146 ], [ %1704, %.lr.ph4023 ], [ %3049, %.lr.ph4020 ], [ %3093, %.lr.ph4017 ], [ %3147, %.lr.ph4014 ], [ %3199, %.lr.ph4011 ], [ %3234, %.lr.ph4008 ], [ %3301, %.lr.ph4005 ], [ %3381, %3371 ], [ %3416, %.lr.ph ]
-  %3426 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.13972) #16
+  %3426 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.13972) #16
   %.not3979 = icmp eq i32 %3426, 0
   br i1 %.not3979, label %3429, label %3427
 
 3427:                                             ; preds = %.loopexit3981
-  %3428 = call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_btmesh_unknown_payload, ptr noundef %0, i32 noundef %.13972, i32 noundef -1) #16
+  %3428 = call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_btmesh_unknown_payload, ptr noundef nonnull %0, i32 noundef %.13972, i32 noundef -1) #16
   br label %3429
 
 3429:                                             ; preds = %3427, %.loopexit3981
@@ -11908,12 +11908,12 @@ declare i32 @tvb_get_guint24(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i32 %5, -1
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %3) #16
+  %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %2, i32 noundef %3) #16
   br label %10
 
 10:                                               ; preds = %6, %8
@@ -11965,17 +11965,17 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %find_characteristic
   %29 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %25, i32 1
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %31, i32 noundef 0) #16
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %31, i32 noundef 0) #16
   tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %28)
   br label %38
 
 33:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.030, i32 noundef 0) #16
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %.030, i32 noundef 0) #16
   %35 = trunc i32 %.030 to i16
   br label %38
 
 find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %22
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.030, i32 noundef 0) #16
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %.030, i32 noundef 0) #16
   %37 = trunc i32 %.030 to i16
   br label %38
 
@@ -11985,7 +11985,7 @@ find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 262144) i32 @dissect_sensor_cadence(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i8 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 262144) i32 @dissect_sensor_cadence(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 4, 7) %2, i16 noundef zeroext %3, i8 noundef zeroext range(i8 0, 2) %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = icmp eq i8 %4, 0
   %8 = icmp eq i16 %3, -1
   br i1 %7, label %9, label %29
@@ -12081,7 +12081,7 @@ find_btmesh_property_length.exit101:              ; preds = %find_characteristic
   br i1 %48, label %find_btmesh_property_length.exit101.thread, label %.thread
 
 find_btmesh_property_length.exit101.thread:       ; preds = %.lr.ph.i89, %40, %find_btmesh_property_length.exit101
-  %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
   %50 = add i32 %49, -5
   %51 = and i32 %50, 1
   %52 = icmp eq i32 %51, 0
@@ -12090,7 +12090,7 @@ find_btmesh_property_length.exit101.thread:       ; preds = %.lr.ph.i89, %40, %f
   br label %.thread
 
 find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %find_btmesh_property_length.exit
-  %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
   %55 = add i32 %54, -1
   %56 = and i32 %55, 3
   %57 = icmp eq i32 %56, 0
@@ -12117,7 +12117,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %70 = getelementptr inbounds i8, ptr %5, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %71, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %72, ptr noundef %1, i32 noundef %69, i32 noundef 1, i32 noundef -2147483648) #16
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %72, ptr noundef nonnull %1, i32 noundef %69, i32 noundef 1, i32 noundef -2147483648) #16
   %74 = add nuw nsw i32 %69, 1
   %.not86 = icmp eq i32 %.0108, -1
   br i1 %.not86, label %86, label %75
@@ -12139,7 +12139,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %87 = getelementptr inbounds i8, ptr %5, i64 40
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %88, align 4
-  %90 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %74) #16
+  %90 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %74) #16
   %91 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %89, ptr noundef %1, i32 noundef %74, i16 noundef zeroext %3, i32 noundef %90)
   br label %98
 
@@ -12147,7 +12147,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %93 = getelementptr inbounds i8, ptr %5, i64 40
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %94, align 4
-  %96 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %96 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
   %97 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %95, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %96)
   br label %98
 
@@ -12161,7 +12161,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = icmp eq i16 %3, -1
   br i1 %6, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
 
@@ -12203,7 +12203,7 @@ find_characteristic_id.exit.i:                    ; preds = %17, %find_character
 
 find_btmesh_property_characteristic_idx.exit:     ; preds = %.lr.ph.i, %17, %.split.loop.exit.i.i
   %.0.i = phi i32 [ %20, %.split.loop.exit.i.i ], [ -1, %17 ], [ -1, %.lr.ph.i ]
-  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
@@ -12302,7 +12302,7 @@ find_characteristic_idx.exit:                     ; preds = %56
 75:                                               ; preds = %71
   %76 = load ptr, ptr %4, align 8
   %77 = load i32, ptr %76, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %77, ptr noundef %1, i32 noundef %2, i32 noundef %67, i32 noundef 0) #16
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %77, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %67, i32 noundef 0) #16
   tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %62)
   %79 = add nuw nsw i32 %2, %67
   %80 = load ptr, ptr %22, align 8
@@ -12311,7 +12311,7 @@ find_characteristic_idx.exit:                     ; preds = %56
 
 81:                                               ; preds = %75
   %82 = load i32, ptr %80, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %82, ptr noundef %1, i32 noundef %79, i32 noundef %67, i32 noundef 0) #16
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %82, ptr noundef nonnull %1, i32 noundef %79, i32 noundef %67, i32 noundef 0) #16
   tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %79, i32 noundef %62)
   %84 = add nuw nsw i32 %79, %67
   br label %94
@@ -12320,7 +12320,7 @@ find_column_properties_idx.exit.thread:           ; preds = %50, %59, %find_char
   %.171.ph = phi i32 [ %67, %68 ], [ %67, %71 ], [ %spec.select, %find_btmesh_property_characteristic_idx.exit ], [ %spec.select, %find_characteristic_idx.exit ], [ %spec.select, %59 ], [ %spec.select, %50 ]
   %85 = load ptr, ptr %4, align 8
   %86 = load i32, ptr %85, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %86, ptr noundef %1, i32 noundef %2, i32 noundef %.171.ph, i32 noundef 0) #16
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %86, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.171.ph, i32 noundef 0) #16
   %88 = add i32 %.171.ph, %2
   %89 = load ptr, ptr %22, align 8
   %.not87 = icmp eq ptr %89, null
@@ -12328,7 +12328,7 @@ find_column_properties_idx.exit.thread:           ; preds = %50, %59, %find_char
 
 90:                                               ; preds = %find_column_properties_idx.exit.thread
   %91 = load i32, ptr %89, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %91, ptr noundef %1, i32 noundef %88, i32 noundef %.171.ph, i32 noundef 0) #16
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %1, i32 noundef %88, i32 noundef %.171.ph, i32 noundef 0) #16
   %93 = add i32 %88, %.171.ph
   br label %94
 
@@ -12339,7 +12339,7 @@ find_column_properties_idx.exit.thread:           ; preds = %50, %59, %find_char
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_property_raw_value_entry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_property_raw_value_entry(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = icmp eq i16 %3, -1
   br i1 %6, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
 
@@ -12376,11 +12376,11 @@ find_characteristic_id.exit.i:                    ; preds = %17, %find_character
   br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !36
 
 find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %17
-  %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
   br label %find_column_properties_idx.exit.thread
 
 find_btmesh_property_characteristic_idx.exit:     ; preds = %find_characteristic_id.exit.i
-  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
   %sext = shl i64 %indvars.iv.i.i, 32
   %22 = ashr exact i64 %sext, 32
   %23 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %22, i32 3
@@ -12461,13 +12461,13 @@ find_characteristic_idx.exit:                     ; preds = %45
 64:                                               ; preds = %60
   %65 = load ptr, ptr %4, align 8
   %66 = load i32, ptr %65, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef %1, i32 noundef %2, i32 noundef %56, i32 noundef 0) #16
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %56, i32 noundef 0) #16
   tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %51)
   %68 = add i32 %2, %56
   %69 = getelementptr inbounds i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %70, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef %68, i32 noundef %56, i32 noundef 0) #16
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef nonnull %1, i32 noundef %68, i32 noundef %56, i32 noundef 0) #16
   tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %68, i32 noundef %51)
   %73 = add i32 %68, %56
   %74 = getelementptr inbounds i8, ptr %42, i64 4
@@ -12514,7 +12514,7 @@ find_characteristic_idx.exit102:                  ; preds = %76
   %96 = getelementptr inbounds i8, ptr %4, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr %97, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %98, ptr noundef %1, i32 noundef %73, i32 noundef %87, i32 noundef 0) #16
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %98, ptr noundef nonnull %1, i32 noundef %73, i32 noundef %87, i32 noundef 0) #16
   tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %82)
   %100 = add i32 %73, %87
   br label %112
@@ -12523,9 +12523,9 @@ find_characteristic_idx.exit102.thread:           ; preds = %79, %91, %88, %find
   %101 = getelementptr inbounds i8, ptr %4, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %102, align 4
-  %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %73) #16
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %103, ptr noundef %1, i32 noundef %73, i32 noundef %104, i32 noundef 0) #16
-  %106 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %73) #16
+  %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %73) #16
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %103, ptr noundef nonnull %1, i32 noundef %73, i32 noundef %104, i32 noundef 0) #16
+  %106 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %73) #16
   %107 = add i32 %106, %73
   br label %112
 
@@ -12533,7 +12533,7 @@ find_column_properties_idx.exit.thread:           ; preds = %38, %48, %find_char
   %.077.ph = phi i32 [ %56, %57 ], [ %56, %60 ], [ %20, %find_btmesh_property_characteristic_idx.exit.thread ], [ %21, %find_characteristic_idx.exit ], [ %21, %48 ], [ %21, %38 ]
   %108 = load ptr, ptr %4, align 8
   %109 = load i32, ptr %108, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %109, ptr noundef %1, i32 noundef %2, i32 noundef %.077.ph, i32 noundef 0) #16
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %109, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.077.ph, i32 noundef 0) #16
   %111 = add i32 %.077.ph, %2
   br label %112
 
@@ -12544,7 +12544,7 @@ find_column_properties_idx.exit.thread:           ; preds = %38, %48, %find_char
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_btmesh_property_idx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_btmesh_property_idx(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #0 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %proto_item_set_generated.exit, label %6
 
@@ -12571,7 +12571,7 @@ define internal fastcc void @dissect_btmesh_property_idx(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %19, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %2, i32 noundef %11, i32 noundef -2147483648) #16
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef nonnull %0, i32 noundef %2, i32 noundef %11, i32 noundef -2147483648) #16
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %24
 
@@ -12682,7 +12682,7 @@ find_characteristic_idx.exit69:                   ; preds = %60
 78:                                               ; preds = %75
   %79 = load i32, ptr %52, align 4
   %80 = zext i16 %48 to i32
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %79, ptr noundef %0, i32 noundef %2, i32 noundef %80, i32 noundef -2147483648) #16
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %79, ptr noundef nonnull %0, i32 noundef %2, i32 noundef %80, i32 noundef -2147483648) #16
   %.not.i70 = icmp eq ptr %81, null
   br i1 %.not.i70, label %proto_item_set_generated.exit72, label %82
 
@@ -12702,7 +12702,7 @@ find_characteristic_idx.exit69:                   ; preds = %60
 proto_item_set_generated.exit72:                  ; preds = %78, %82, %85
   %89 = load i32, ptr %52, align 4
   %90 = add i32 %2, %80
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef %80, i32 noundef -2147483648) #16
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %89, ptr noundef nonnull %0, i32 noundef %90, i32 noundef %80, i32 noundef -2147483648) #16
   %.not.i73 = icmp eq ptr %91, null
   br i1 %.not.i73, label %proto_item_set_generated.exit75, label %92
 
@@ -12725,7 +12725,7 @@ proto_item_set_generated.exit75:                  ; preds = %proto_item_set_gene
   %101 = zext i16 %99 to i32
   %102 = add i32 %2, %101
   %103 = zext i16 %69 to i32
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %100, ptr noundef %0, i32 noundef %102, i32 noundef %103, i32 noundef -2147483648) #16
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %100, ptr noundef nonnull %0, i32 noundef %102, i32 noundef %103, i32 noundef -2147483648) #16
   %.not.i76 = icmp eq ptr %104, null
   br i1 %.not.i76, label %proto_item_set_generated.exit, label %105
 

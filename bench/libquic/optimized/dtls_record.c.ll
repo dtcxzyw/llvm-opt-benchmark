@@ -165,7 +165,7 @@ if.then56:                                        ; preds = %if.end53
 if.end57:                                         ; preds = %if.end53
   %19 = load ptr, ptr %d1, align 8
   %bitmap59 = getelementptr inbounds i8, ptr %19, i64 280
-  call fastcc void @dtls1_bitmap_record(ptr noundef nonnull %bitmap59, ptr noundef nonnull %sequence)
+  call fastcc void @dtls1_bitmap_record(ptr noundef nonnull %bitmap59, ptr noundef %sequence)
   %20 = load i8, ptr %type, align 1
   store i8 %20, ptr %out_type, align 1
   %21 = load i64, ptr %plaintext_len, align 8
@@ -201,7 +201,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dtls1_bitmap_record(ptr nocapture noundef %bitmap, ptr nocapture noundef readonly %seq_num) unnamed_addr #2 {
+define internal fastcc void @dtls1_bitmap_record(ptr nocapture noundef %bitmap, ptr nocapture noundef nonnull readonly %seq_num) unnamed_addr #2 {
 entry:
   br label %for.body.i
 

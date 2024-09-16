@@ -1071,30 +1071,30 @@ _ZN4llvm11raw_ostreamlsEPKc.exit77:               ; preds = %288, %290
 _ZN4llvm11raw_ostreamlsEPKc.exit80:               ; preds = %301, %303
   %.0.i.i79 = phi ptr [ %302, %301 ], [ %295, %303 ]
   %306 = load i32, ptr %247, align 8
-  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.21, i32 noundef %246, i32 noundef %306, ptr noundef nonnull @.str.22, i1 noundef zeroext true)
+  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.21, i32 noundef %246, i32 noundef %306, ptr noundef nonnull @.str.22, i1 noundef zeroext true)
   %307 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %308 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %309 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i79, ptr noundef %307, i64 noundef %308) #18
   %310 = load i32, ptr %249, align 4
-  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.23, i32 noundef %.0.lcssa, i32 noundef %310, ptr noundef nonnull @.str.24, i1 noundef zeroext true)
+  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.23, i32 noundef %.0.lcssa, i32 noundef %310, ptr noundef nonnull @.str.24, i1 noundef zeroext true)
   %311 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %312 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %313 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %309, ptr noundef %311, i64 noundef %312) #18
   %314 = load i32, ptr %249, align 4
-  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.25, i32 noundef %.032.lcssa, i32 noundef %314, ptr noundef nonnull @.str.24, i1 noundef zeroext false)
+  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.25, i32 noundef %.032.lcssa, i32 noundef %314, ptr noundef nonnull @.str.24, i1 noundef zeroext false)
   %315 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   %316 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   %317 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %313, ptr noundef %315, i64 noundef %316) #18
   %318 = load i32, ptr %249, align 4
-  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.26, i32 noundef %252, i32 noundef %318, ptr noundef nonnull @.str.24, i1 noundef zeroext true)
+  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.26, i32 noundef %252, i32 noundef %318, ptr noundef nonnull @.str.24, i1 noundef zeroext true)
   %319 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   %320 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   %321 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %317, ptr noundef %319, i64 noundef %320) #18
-  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.27, i32 noundef %.029.lcssa, i32 noundef %251, ptr noundef nonnull @.str.28, i1 noundef zeroext true)
+  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.27, i32 noundef %.029.lcssa, i32 noundef %251, ptr noundef nonnull @.str.28, i1 noundef zeroext true)
   %322 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %323 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %324 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %321, ptr noundef %322, i64 noundef %323) #18
-  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.29, i32 noundef %.035.lcssa, i32 noundef %251, ptr noundef nonnull @.str.28, i1 noundef zeroext true)
+  call fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.29, i32 noundef %.035.lcssa, i32 noundef %251, ptr noundef nonnull @.str.28, i1 noundef zeroext true)
   %325 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   %326 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   %327 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %324, ptr noundef %325, i64 noundef %326) #18
@@ -1535,7 +1535,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %.not = icmp eq i32 %3, 0
   %8 = sitofp i32 %2 to double
@@ -1561,7 +1561,7 @@ define internal fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwi
   br label %24
 
 24:                                               ; preds = %22, %6
-  call void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %7) #18
+  call void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %7) #18
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #18
   ret void
 }

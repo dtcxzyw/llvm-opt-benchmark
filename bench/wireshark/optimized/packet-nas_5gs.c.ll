@@ -8341,7 +8341,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @dissect_nas_5gs_mm_cag_information_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @dissect_nas_5gs_mm_cag_information_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %.not46 = icmp eq i32 %4, 0
@@ -8619,7 +8619,7 @@ declare ptr @abs_time_to_str_ex(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 8) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

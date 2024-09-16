@@ -867,7 +867,7 @@ define dso_local i32 @register_nexthop_notifier(ptr noundef %0, ptr noundef %1, 
 declare dso_local void @rtnl_lock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 32770, 2) i32 @nexthops_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 32770, 2) i32 @nexthops_dump(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.nh_notifier_info, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 584
   %7 = tail call ptr @rb_first(ptr noundef %6) #13
@@ -5070,7 +5070,7 @@ __remove_nexthop_fib.exit:                        ; preds = %38, %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 32770, 2) i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 32770, 2) i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.nh_notifier_info, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
   store ptr %0, ptr %5, align 8
@@ -5170,7 +5170,7 @@ define internal fastcc range(i32 32770, 2) i32 @call_nexthop_notifiers(ptr nound
 declare dso_local void @rb_erase(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nexthop_notify(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @nexthop_notify(i32 noundef range(i32 104, 106) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6
@@ -5455,7 +5455,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local i32 @blocking_notifier_call_chain(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -90, 1) i32 @nh_fill_node(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -90, 1) i32 @nh_fill_node(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 104, 106) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
@@ -6797,7 +6797,7 @@ define internal fastcc range(i32 32770, 2) i32 @__call_nexthop_res_bucket_notifi
 declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @nh_fill_res_bucket(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @nh_fill_res_bucket(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 257) %6) unnamed_addr #0 align 16 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
@@ -7165,7 +7165,7 @@ declare dso_local void @rt_cache_flush(ptr noundef) local_unnamed_addr #2
 declare dso_local void @fib_nhc_update_mtu(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext range(i16 0, 2) %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i16, ptr %6, align 2
@@ -7326,117 +7326,116 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   %102 = icmp eq ptr %101, null
   br i1 %102, label %._crit_edge, label %.lr.ph.us
 
-.split29.us:                                      ; preds = %159, %96
-  %103 = icmp eq i16 %2, 1
-  br i1 %103, label %.split30.us, label %.split30
+.split29.us:                                      ; preds = %158, %96
+  %.not = icmp eq i16 %2, 0
+  br i1 %.not, label %.split30.us, label %.split30
 
-.split30.us:                                      ; preds = %.split29.us, %109
-  %104 = phi i64 [ %110, %109 ], [ 4, %.split29.us ]
-  %105 = getelementptr ptr, ptr %1, i64 %104
-  %106 = load ptr, ptr %105, align 8
-  %107 = icmp eq ptr %106, null
-  %108 = trunc i64 %104 to i32
-  %.off = add i32 %108, -11
-  %switch = icmp ult i32 %.off, 2
-  %or.cond = or i1 %107, %switch
-  br i1 %or.cond, label %109, label %.split32.us
+.split30.us:                                      ; preds = %.split29.us, %108
+  %103 = phi i64 [ %109, %108 ], [ 4, %.split29.us ]
+  %104 = getelementptr ptr, ptr %1, i64 %103
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, null
+  %107 = and i64 %103, 4294967295
+  %cond = icmp eq i64 %107, 11
+  %or.cond = or i1 %106, %cond
+  br i1 %or.cond, label %108, label %.split32.us
 
-109:                                              ; preds = %.split30.us
-  %110 = add nuw nsw i64 %104, 1
-  %111 = icmp eq i64 %110, 13
-  br i1 %111, label %.thread15, label %.split30.us, !llvm.loop !126
+108:                                              ; preds = %.split30.us
+  %109 = add nuw nsw i64 %103, 1
+  %110 = icmp eq i64 %109, 13
+  br i1 %110, label %.thread15, label %.split30.us, !llvm.loop !126
 
-.split:                                           ; preds = %55, %159
-  %112 = phi i64 [ %161, %159 ], [ 0, %55 ]
-  %113 = phi i8 [ %160, %159 ], [ 0, %55 ]
-  %114 = getelementptr %struct.nexthop_grp, ptr %18, i64 %112
-  %115 = load i32, ptr %114, align 4
-  %116 = load volatile ptr, ptr %59, align 8
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %._crit_edge, label %.lr.ph
+.split:                                           ; preds = %55, %158
+  %111 = phi i64 [ %160, %158 ], [ 0, %55 ]
+  %112 = phi i8 [ %159, %158 ], [ 0, %55 ]
+  %113 = getelementptr %struct.nexthop_grp, ptr %18, i64 %111
+  %114 = load i32, ptr %113, align 4
+  %115 = load volatile ptr, ptr %59, align 8
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.split, %124
-  %118 = phi ptr [ %126, %124 ], [ %116, %.split ]
-  %119 = getelementptr inbounds i8, ptr %118, i64 96
-  %120 = load i32, ptr %119, align 8
-  %121 = icmp ugt i32 %120, %115
-  br i1 %121, label %124, label %122
+.lr.ph:                                           ; preds = %.split, %123
+  %117 = phi ptr [ %125, %123 ], [ %115, %.split ]
+  %118 = getelementptr inbounds i8, ptr %117, i64 96
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp ugt i32 %119, %114
+  br i1 %120, label %123, label %121
 
-122:                                              ; preds = %.lr.ph
-  %123 = icmp ult i32 %120, %115
-  br i1 %123, label %124, label %128
+121:                                              ; preds = %.lr.ph
+  %122 = icmp ult i32 %119, %114
+  br i1 %122, label %123, label %127
 
-124:                                              ; preds = %122, %.lr.ph
-  %.sink60 = phi i64 [ 16, %.lr.ph ], [ 8, %122 ]
-  %125 = getelementptr inbounds i8, ptr %118, i64 %.sink60
-  %126 = load volatile ptr, ptr %125, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %._crit_edge, label %.lr.ph
+123:                                              ; preds = %121, %.lr.ph
+  %.sink60 = phi i64 [ 16, %.lr.ph ], [ 8, %121 ]
+  %124 = getelementptr inbounds i8, ptr %117, i64 %.sink60
+  %125 = load volatile ptr, ptr %124, align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.split, %124, %.split.us, %99
+._crit_edge:                                      ; preds = %.split, %123, %.split.us, %99
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.30) #13
   br i1 %60, label %.thread15, label %.thread15.sink.split
 
-128:                                              ; preds = %122
-  %129 = getelementptr inbounds i8, ptr %118, i64 102
-  %130 = load i8, ptr %129, align 2, !range !5, !noundef !6
-  %131 = icmp eq i8 %130, 0
-  %132 = getelementptr inbounds i8, ptr %118, i64 128
-  %133 = load ptr, ptr %132, align 8
-  br i1 %131, label %142, label %134
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds i8, ptr %117, i64 102
+  %129 = load i8, ptr %128, align 2, !range !5, !noundef !6
+  %130 = icmp eq i8 %129, 0
+  %131 = getelementptr inbounds i8, ptr %117, i64 128
+  %132 = load ptr, ptr %131, align 8
+  br i1 %130, label %141, label %133
 
-134:                                              ; preds = %128
-  %135 = getelementptr inbounds i8, ptr %133, i64 11
-  %136 = load i8, ptr %135, align 1, !range !5, !noundef !6
-  %137 = icmp eq i8 %136, 0
-  br i1 %137, label %138, label %.split21.us
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds i8, ptr %132, i64 11
+  %135 = load i8, ptr %134, align 1, !range !5, !noundef !6
+  %136 = icmp eq i8 %135, 0
+  br i1 %136, label %137, label %.split21.us
 
-.split21.us:                                      ; preds = %134, %79
+.split21.us:                                      ; preds = %133, %79
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_group_nh.__msg) #13
   br i1 %60, label %.thread15, label %.thread15.sink.split
 
-138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %133, i64 12
-  %140 = load i8, ptr %139, align 4, !range !5, !noundef !6
-  %141 = icmp eq i8 %140, 0
-  br i1 %141, label %147, label %.split23.us
+137:                                              ; preds = %133
+  %138 = getelementptr inbounds i8, ptr %132, i64 12
+  %139 = load i8, ptr %138, align 4, !range !5, !noundef !6
+  %140 = icmp eq i8 %139, 0
+  br i1 %140, label %146, label %.split23.us
 
-.split23.us:                                      ; preds = %138, %83
+.split23.us:                                      ; preds = %137, %83
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_group_nh.__msg.33) #13
   br i1 %60, label %.thread15, label %.thread15.sink.split
 
-142:                                              ; preds = %128
-  %143 = getelementptr inbounds i8, ptr %133, i64 25
-  %144 = load i8, ptr %143, align 1, !range !5, !noundef !6
-  %145 = icmp eq i8 %144, 0
-  %146 = or i1 %61, %145
-  br i1 %146, label %147, label %.split25.us
+141:                                              ; preds = %127
+  %142 = getelementptr inbounds i8, ptr %132, i64 25
+  %143 = load i8, ptr %142, align 1, !range !5, !noundef !6
+  %144 = icmp eq i8 %143, 0
+  %145 = or i1 %61, %144
+  br i1 %145, label %146, label %.split25.us
 
-.split25.us:                                      ; preds = %142, %87
+.split25.us:                                      ; preds = %141, %87
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_group_nh.__msg.34) #13
   br i1 %60, label %.thread15, label %.thread15.sink.split
 
-147:                                              ; preds = %142, %138
-  %148 = getelementptr inbounds i8, ptr %133, i64 26
-  %149 = load i8, ptr %148, align 2, !range !5, !noundef !6
-  %150 = icmp eq i8 %149, 0
-  br i1 %150, label %151, label %152
+146:                                              ; preds = %141, %137
+  %147 = getelementptr inbounds i8, ptr %132, i64 26
+  %148 = load i8, ptr %147, align 2, !range !5, !noundef !6
+  %149 = icmp eq i8 %148, 0
+  br i1 %149, label %150, label %151
 
-151:                                              ; preds = %147
+150:                                              ; preds = %146
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_fdb_group.__msg) #13
   br i1 %60, label %.thread15, label %.thread15.sink.split
 
-152:                                              ; preds = %147
-  %153 = icmp eq i8 %113, 0
-  %154 = getelementptr inbounds i8, ptr %133, i64 24
-  %155 = load i8, ptr %154, align 8
-  br i1 %153, label %159, label %156
+151:                                              ; preds = %146
+  %152 = icmp eq i8 %112, 0
+  %153 = getelementptr inbounds i8, ptr %132, i64 24
+  %154 = load i8, ptr %153, align 8
+  br i1 %152, label %158, label %155
 
-156:                                              ; preds = %152
-  %157 = icmp eq i8 %113, %155
-  br i1 %157, label %159, label %158
+155:                                              ; preds = %151
+  %156 = icmp eq i8 %112, %154
+  br i1 %156, label %158, label %157
 
-158:                                              ; preds = %156
+157:                                              ; preds = %155
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_fdb_group.__msg.35) #13
   br i1 %60, label %.thread15, label %.thread15.sink.split
 
@@ -7444,39 +7443,40 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.31) #13
   br i1 %60, label %.thread15, label %.thread15.sink.split
 
-159:                                              ; preds = %152, %156
-  %160 = phi i8 [ %113, %156 ], [ %155, %152 ]
-  %161 = add nuw nsw i64 %112, 1
-  %162 = icmp eq i64 %161, %17
-  br i1 %162, label %.split29.us, label %.split, !llvm.loop !125
+158:                                              ; preds = %151, %155
+  %159 = phi i8 [ %112, %155 ], [ %154, %151 ]
+  %160 = add nuw nsw i64 %111, 1
+  %161 = icmp eq i64 %160, %17
+  br i1 %161, label %.split29.us, label %.split, !llvm.loop !125
 
-.split30:                                         ; preds = %.split29.us, %168
-  %163 = phi i64 [ %169, %168 ], [ 4, %.split29.us ]
-  %164 = getelementptr ptr, ptr %1, i64 %163
-  %165 = load ptr, ptr %164, align 8
-  %166 = icmp eq ptr %165, null
-  %167 = and i64 %163, 4294967295
-  %cond = icmp eq i64 %167, 11
-  %or.cond33 = or i1 %166, %cond
-  br i1 %or.cond33, label %168, label %.split32.us
+.split30:                                         ; preds = %.split29.us, %167
+  %162 = phi i64 [ %168, %167 ], [ 4, %.split29.us ]
+  %163 = getelementptr ptr, ptr %1, i64 %162
+  %164 = load ptr, ptr %163, align 8
+  %165 = icmp eq ptr %164, null
+  %166 = trunc i64 %162 to i32
+  %.off = add i32 %166, -11
+  %switch = icmp ult i32 %.off, 2
+  %or.cond33 = or i1 %165, %switch
+  br i1 %or.cond33, label %167, label %.split32.us
 
 .split32.us:                                      ; preds = %.split30, %.split30.us
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.32) #13
   br i1 %60, label %.thread15, label %.thread15.sink.split
 
-168:                                              ; preds = %.split30
-  %169 = add nuw nsw i64 %163, 1
-  %170 = icmp eq i64 %169, 13
-  br i1 %170, label %.thread15, label %.split30, !llvm.loop !126
+167:                                              ; preds = %.split30
+  %168 = add nuw nsw i64 %162, 1
+  %169 = icmp eq i64 %168, 13
+  br i1 %169, label %.thread15, label %.split30, !llvm.loop !126
 
-.thread15.sink.split:                             ; preds = %14, %32, %38, %53, %._crit_edge, %.split27.us, %.split32.us, %151, %158, %.split25.us, %.split23.us, %.split21.us
-  %.sink61 = phi ptr [ @valid_group_nh.__msg, %.split21.us ], [ @valid_group_nh.__msg.33, %.split23.us ], [ @valid_group_nh.__msg.34, %.split25.us ], [ @nh_check_attr_fdb_group.__msg, %151 ], [ @nh_check_attr_fdb_group.__msg.35, %158 ], [ @nh_check_attr_group.__msg, %14 ], [ @nh_check_attr_group.__msg.27, %32 ], [ @nh_check_attr_group.__msg.28, %38 ], [ @nh_check_attr_group.__msg.29, %53 ], [ @nh_check_attr_group.__msg.30, %._crit_edge ], [ @nh_check_attr_group.__msg.31, %.split27.us ], [ @nh_check_attr_group.__msg.32, %.split32.us ]
+.thread15.sink.split:                             ; preds = %14, %32, %38, %53, %._crit_edge, %.split27.us, %.split32.us, %150, %157, %.split25.us, %.split23.us, %.split21.us
+  %.sink61 = phi ptr [ @valid_group_nh.__msg, %.split21.us ], [ @valid_group_nh.__msg.33, %.split23.us ], [ @valid_group_nh.__msg.34, %.split25.us ], [ @nh_check_attr_fdb_group.__msg, %150 ], [ @nh_check_attr_fdb_group.__msg.35, %157 ], [ @nh_check_attr_group.__msg, %14 ], [ @nh_check_attr_group.__msg.27, %32 ], [ @nh_check_attr_group.__msg.28, %38 ], [ @nh_check_attr_group.__msg.29, %53 ], [ @nh_check_attr_group.__msg.30, %._crit_edge ], [ @nh_check_attr_group.__msg.31, %.split27.us ], [ @nh_check_attr_group.__msg.32, %.split32.us ]
   store ptr %.sink61, ptr %3, align 8
   br label %.thread15
 
-.thread15:                                        ; preds = %168, %109, %.thread15.sink.split, %158, %151, %.split25.us, %.split21.us, %.split23.us, %.split32.us, %.split27.us, %._crit_edge, %53, %38, %32, %14
-  %171 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split32.us ], [ -22, %.split27.us ], [ -22, %._crit_edge ], [ -22, %.split23.us ], [ -22, %.split21.us ], [ -22, %.split25.us ], [ -22, %151 ], [ -22, %158 ], [ -22, %.thread15.sink.split ], [ 0, %109 ], [ 0, %168 ]
-  ret i32 %171
+.thread15:                                        ; preds = %167, %108, %.thread15.sink.split, %157, %150, %.split25.us, %.split21.us, %.split23.us, %.split32.us, %.split27.us, %._crit_edge, %53, %38, %32, %14
+  %170 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split32.us ], [ -22, %.split27.us ], [ -22, %._crit_edge ], [ -22, %.split23.us ], [ -22, %.split21.us ], [ -22, %.split25.us ], [ -22, %150 ], [ -22, %157 ], [ -22, %.thread15.sink.split ], [ 0, %108 ], [ 0, %167 ]
+  ret i32 %170
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7648,7 +7648,7 @@ declare dso_local i32 @fib_info_update_nhc_saddr(ptr noundef, ptr noundef, i8 no
 declare dso_local void @rb_insert_color(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 102
   %6 = load i8, ptr %5, align 2, !range !5, !noundef !6
   %7 = icmp eq i8 %6, 0
@@ -7797,7 +7797,7 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr nound
   br i1 %95, label %.loopexit10, label %.preheader9, !llvm.loop !133
 
 .loopexit10:                                      ; preds = %.preheader9, %85
-  %96 = tail call fastcc i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef %3)
+  %96 = tail call fastcc i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %3)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %.loopexit10, %51, %47, %43, %11, %10, %8
@@ -7806,7 +7806,7 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nh_rt_cache_flush(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @nh_rt_cache_flush(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -7884,7 +7884,7 @@ define internal fastcc void @nh_rt_cache_flush(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single_notify(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single_notify(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull readnone %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %1, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 11

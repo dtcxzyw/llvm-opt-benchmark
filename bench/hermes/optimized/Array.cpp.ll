@@ -6307,7 +6307,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL13indexOfHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp, i1 noundef zeroext false)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL13indexOfHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp, i1 noundef zeroext false)
   ret { i32, i64 } %call
 }
 
@@ -6320,7 +6320,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL13indexOfHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp, i1 noundef zeroext true)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL13indexOfHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp, i1 noundef zeroext true)
   ret { i32, i64 } %call
 }
 
@@ -6333,7 +6333,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL15everySomeHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp, i1 noundef zeroext true)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL15everySomeHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp, i1 noundef zeroext true)
   ret { i32, i64 } %call
 }
 
@@ -6346,7 +6346,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL15everySomeHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp, i1 noundef zeroext false)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL15everySomeHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp, i1 noundef zeroext false)
   ret { i32, i64 } %call
 }
 
@@ -7297,7 +7297,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL10findHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL10findHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp)
   ret { i32, i64 } %call
 }
 
@@ -7310,7 +7310,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL10findHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL10findHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp)
   ret { i32, i64 } %call
 }
 
@@ -7323,7 +7323,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL12reduceHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp, i1 noundef zeroext false)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL12reduceHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp, i1 noundef zeroext false)
   ret { i32, i64 } %call
 }
 
@@ -7336,7 +7336,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL12reduceHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp, i1 noundef zeroext true)
+  %call = call fastcc { i32, i64 } @_ZN6hermes2vmL12reduceHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp, i1 noundef zeroext true)
   ret { i32, i64 } %call
 }
 
@@ -10311,7 +10311,7 @@ declare i32 @_ZN6hermes2vm8JSObject14deleteComputedENS0_6HandleIS1_EERNS0_7Runti
 declare noundef i32 @_ZN6hermes2vm8JSObject21getComputedDescriptorENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEERNS0_13MutableHandleIS1_EERNS8_INS0_8SymbolIDEEERNS0_26ComputedPropertyDescriptorE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, i64 } @_ZN6hermes2vmL13indexOfHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args, i1 noundef zeroext %reverse) unnamed_addr #0 {
+define internal fastcc { i32, i64 } @_ZN6hermes2vmL13indexOfHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %args, i1 noundef zeroext %reverse) unnamed_addr #0 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %tmpPropNameStorage = alloca %"class.hermes::vm::MutableHandle.183", align 8
@@ -10662,7 +10662,7 @@ cleanup:                                          ; preds = %if.end175, %if.end1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, i64 } @_ZN6hermes2vmL15everySomeHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args, i1 noundef zeroext %every) unnamed_addr #0 {
+define internal fastcc { i32, i64 } @_ZN6hermes2vmL15everySomeHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %args, i1 noundef zeroext %every) unnamed_addr #0 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -10970,7 +10970,7 @@ declare { i32, i64 } @_ZN6hermes2vm8Callable12executeCall3ENS0_6HandleIS1_EERNS0
 declare noundef zeroext i1 @_ZN6hermes2vm9toBooleanENS0_11HermesValueE(i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, i64 } @_ZN6hermes2vmL10findHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, i1 noundef zeroext %reverse, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) unnamed_addr #0 {
+define internal fastcc { i32, i64 } @_ZN6hermes2vmL10findHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, i1 noundef zeroext %reverse, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %args) unnamed_addr #0 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -11258,7 +11258,7 @@ cleanup:                                          ; preds = %for.body, %if.end79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, i64 } @_ZN6hermes2vmL12reduceHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args, i1 noundef zeroext %reverse) unnamed_addr #0 {
+define internal fastcc { i32, i64 } @_ZN6hermes2vmL12reduceHelperERNS0_7RuntimeENS0_10NativeArgsEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %args, i1 noundef zeroext %reverse) unnamed_addr #0 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8

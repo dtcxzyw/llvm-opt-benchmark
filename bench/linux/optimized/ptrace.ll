@@ -272,7 +272,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef range(i64 -17179869184, 17179869177) %1) unnamed_addr #4 align 16 {
   %3 = add nsw i64 %1, -136
   %4 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 61)
   switch i64 %4, label %76 [
@@ -410,7 +410,7 @@ define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef %1) unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @ptrace_get_debugreg(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc i64 @ptrace_get_debugreg(ptr nocapture noundef readonly %0, i32 noundef range(i32 -79, 10) %1) unnamed_addr #4 align 16 {
   %3 = icmp slt i32 %1, 4
   br i1 %3, label %4, label %17
 
@@ -460,7 +460,7 @@ declare i64 @llvm.read_register.i64(metadata) #6
 declare void @llvm.write_register.i64(metadata, i64) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @putreg(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @putreg(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef %2) unnamed_addr #4 align 16 {
   %4 = add nsw i64 %1, -136
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
   switch i64 %5, label %76 [
@@ -623,7 +623,7 @@ set_segment_reg.exit:                             ; preds = %38, %36, %28, %26, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef range(i32 -79, 1073741824) %1, i64 noundef %2) unnamed_addr #4 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.perf_event_attr, align 8

@@ -321,7 +321,7 @@ resolve_class_name.exit.i:                        ; preds = %.sink.split.i.i, %5
   br i1 %.not22.i, label %67, label %65
 
 65:                                               ; preds = %resolve_class_name.exit.i
-  %66 = call fastcc zeroext i1 @unlinked_instanceof(ptr noundef %0, ptr noundef nonnull %64)
+  %66 = call fastcc zeroext i1 @unlinked_instanceof(ptr noundef %0, ptr noundef %64)
   br i1 %66, label %.loopexit93, label %67
 
 67:                                               ; preds = %65, %resolve_class_name.exit.i, %39
@@ -456,7 +456,7 @@ get_class_from_type.exit:                         ; preds = %114, %120
 
 get_class_from_type.exit.thread:                  ; preds = %117, %120, %114, %get_class_from_type.exit
   %.0.i7688 = phi ptr [ %124, %get_class_from_type.exit ], [ %100, %117 ], [ %100, %120 ], [ %113, %114 ]
-  %125 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef nonnull %.0.i7688, ptr noundef %3, ptr %4, i32 %5)
+  %125 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %.0.i7688, ptr noundef %3, ptr %4, i32 %5)
   br label %126
 
 126:                                              ; preds = %get_class_from_type.exit.thread, %101
@@ -8260,7 +8260,7 @@ get_class_from_type.exit.thread:                  ; preds = %43, %46, %40, %get_
   br i1 %.not55, label %get_class_from_type.exit.thread88, label %52
 
 52:                                               ; preds = %get_class_from_type.exit.thread
-  call fastcc void @track_class_dependency(ptr noundef nonnull %51, ptr noundef nonnull %.0.i87)
+  call fastcc void @track_class_dependency(ptr noundef %51, ptr noundef nonnull %.0.i87)
   br label %.loopexit
 
 get_class_from_type.exit.thread88:                ; preds = %26, %get_class_from_type.exit.thread, %get_class_from_type.exit
@@ -8595,12 +8595,12 @@ lookup_class_ex.exit:                             ; preds = %168, %172, %179, %1
   br i1 %or.cond.i, label %213, label %lookup_class_ex.exit.thread
 
 213:                                              ; preds = %lookup_class_ex.exit
-  %214 = call fastcc zeroext i1 @unlinked_instanceof(ptr noundef nonnull %.043.i, ptr noundef nonnull %.1.i)
+  %214 = call fastcc zeroext i1 @unlinked_instanceof(ptr noundef nonnull %.043.i, ptr noundef %.1.i)
   br i1 %214, label %215, label %lookup_class_ex.exit.thread
 
 215:                                              ; preds = %213
-  call fastcc void @track_class_dependency(ptr noundef nonnull %.043.i, ptr noundef nonnull %.0.i.i)
-  call fastcc void @track_class_dependency(ptr noundef nonnull %.1.i, ptr noundef nonnull %.0.i6293)
+  call fastcc void @track_class_dependency(ptr noundef %.043.i, ptr noundef nonnull %.0.i.i)
+  call fastcc void @track_class_dependency(ptr noundef %.1.i, ptr noundef nonnull %.0.i6293)
   br label %zend_is_intersection_subtype_of_class.exit
 
 lookup_class_ex.exit.thread:                      ; preds = %185, %207, %201, %213, %lookup_class_ex.exit
@@ -8647,7 +8647,7 @@ get_class_from_type.exit71.thread94:              ; preds = %86, %225, %get_clas
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 3) i32 @zend_is_class_subtype_of_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, i32 %4) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 3) i32 @zend_is_class_subtype_of_type(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr %3, i32 %4) unnamed_addr #2 {
   %6 = alloca %struct.zend_type, align 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8657,12 +8657,12 @@ define internal fastcc range(i32 -1, 3) i32 @zend_is_class_subtype_of_type(ptr n
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = tail call fastcc ptr @lookup_class_ex(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
+  %10 = tail call fastcc ptr @lookup_class_ex(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext false)
   %.not61 = icmp eq ptr %10, null
   br i1 %.not61, label %12, label %11
 
 11:                                               ; preds = %9
-  tail call fastcc void @track_class_dependency(ptr noundef nonnull %10, ptr noundef %1)
+  tail call fastcc void @track_class_dependency(ptr noundef %10, ptr noundef nonnull %1)
   br label %.loopexit
 
 12:                                               ; preds = %9, %5
@@ -8810,12 +8810,12 @@ resolve_class_name.exit:                          ; preds = %50, %53, %56, %.sin
   br label %81
 
 77:                                               ; preds = %72
-  %78 = call fastcc zeroext i1 @unlinked_instanceof(ptr noundef nonnull %.4, ptr noundef nonnull %73)
+  %78 = call fastcc zeroext i1 @unlinked_instanceof(ptr noundef nonnull %.4, ptr noundef %73)
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
-  call fastcc void @track_class_dependency(ptr noundef nonnull %.4, ptr noundef nonnull %1)
-  call fastcc void @track_class_dependency(ptr noundef nonnull %73, ptr noundef nonnull %.0.i)
+  call fastcc void @track_class_dependency(ptr noundef %.4, ptr noundef nonnull %1)
+  call fastcc void @track_class_dependency(ptr noundef %73, ptr noundef nonnull %.0.i)
   br i1 %.not62, label %.loopexit, label %81
 
 80:                                               ; preds = %77
@@ -8946,7 +8946,7 @@ resolve_class_name.exit:                          ; preds = %36, %39, %42, %.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @unlinked_instanceof(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @unlinked_instanceof(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %4
 
@@ -8958,7 +8958,7 @@ define internal fastcc zeroext i1 @unlinked_instanceof(ptr noundef %0, ptr nound
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call zeroext i1 @instanceof_function_slow(ptr noundef nonnull %0, ptr noundef %1) #16
+  %9 = tail call zeroext i1 @instanceof_function_slow(ptr noundef nonnull %0, ptr noundef nonnull %1) #16
   br label %.loopexit
 
 10:                                               ; preds = %4
@@ -9204,7 +9204,7 @@ declare ptr @zend_hash_add_empty_element(ptr noundef, ptr noundef) local_unnamed
 declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @track_class_dependency(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @track_class_dependency(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -10077,7 +10077,7 @@ add_compatibility_obligation.exit:                ; preds = %22, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_incompatible_method_error(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @emit_incompatible_method_error(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 3, 2) %4) unnamed_addr #2 {
   %6 = tail call fastcc ptr @zend_get_function_declaration(ptr noundef %2, ptr noundef %3)
   %7 = tail call fastcc ptr @zend_get_function_declaration(ptr noundef %0, ptr noundef %1)
   switch i32 %4, label %63 [
@@ -10450,7 +10450,7 @@ define internal fastcc ptr @zend_get_function_declaration(ptr nocapture noundef 
 129:                                              ; preds = %.lr.ph1078, %522
   %.08501076 = phi ptr [ %118, %.lr.ph1078 ], [ %523, %522 ]
   %.08541075 = phi i32 [ 0, %.lr.ph1078 ], [ %505, %522 ]
-  call fastcc void @zend_append_type_hint(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %.08501076, i1 noundef zeroext false)
+  call fastcc void @zend_append_type_hint(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %.08501076, i1 noundef zeroext false)
   %130 = getelementptr inbounds i8, ptr %.08501076, i64 16
   %131 = load i32, ptr %130, align 8
   %132 = and i32 %131, 100663296
@@ -11352,7 +11352,7 @@ define internal fastcc ptr @zend_get_function_declaration(ptr nocapture noundef 
   store i64 %540, ptr %549, align 8
   %550 = load ptr, ptr %117, align 8
   %551 = getelementptr inbounds i8, ptr %550, i64 -32
-  call fastcc void @zend_append_type_hint(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %551, i1 noundef zeroext true)
+  call fastcc void @zend_append_type_hint(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %551, i1 noundef zeroext true)
   %.pre1171 = load ptr, ptr %3, align 8
   %.not1004 = icmp eq ptr %.pre1171, null
   br i1 %.not1004, label %557, label %.thread1184
@@ -11380,7 +11380,7 @@ declare ptr @zend_get_attribute_str(ptr noundef, ptr noundef, i64 noundef) local
 declare void @zend_exception_uncaught_error(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_append_type_hint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc void @zend_append_type_hint(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 33554431
@@ -11699,7 +11699,7 @@ zend_traits_check_private_final_inheritance.exit: ; preds = %31, %45, %48
   %49 = load ptr, ptr %15, align 8
   %50 = call ptr @zend_string_tolower_ex(ptr noundef %49, i1 noundef zeroext false) #16
   %51 = load ptr, ptr %15, align 8
-  call fastcc void @zend_add_trait_method(ptr noundef %2, ptr noundef %51, ptr noundef %50, ptr noundef nonnull %6)
+  call fastcc void @zend_add_trait_method(ptr noundef %2, ptr noundef %51, ptr noundef %50, ptr noundef %6)
   %52 = getelementptr inbounds i8, ptr %50, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 64
@@ -11842,7 +11842,7 @@ zend_traits_check_private_final_inheritance.exit: ; preds = %31, %45, %48
 zend_traits_check_private_final_inheritance.exit96: ; preds = %.loopexit, %115, %118
   %119 = getelementptr inbounds i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8
-  call fastcc void @zend_add_trait_method(ptr noundef %2, ptr noundef %120, ptr noundef %0, ptr noundef nonnull %6)
+  call fastcc void @zend_add_trait_method(ptr noundef %2, ptr noundef %120, ptr noundef %0, ptr noundef %6)
   br label %121
 
 121:                                              ; preds = %zend_traits_check_private_final_inheritance.exit96, %64
@@ -11850,7 +11850,7 @@ zend_traits_check_private_final_inheritance.exit96: ; preds = %.loopexit, %115, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = tail call ptr @zend_hash_find(ptr noundef nonnull %6, ptr noundef %2) #16
@@ -12298,7 +12298,7 @@ declare void @function_add_ref(ptr noundef) local_unnamed_addr #7
 declare void @zend_add_magic_method(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_first_constant_definition(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #2 {
+define internal fastcc ptr @find_first_constant_definition(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #2 {
   %6 = icmp eq ptr %4, %0
   %7 = icmp ne i64 %2, 0
   %or.cond = and i1 %6, %7
@@ -12323,7 +12323,7 @@ define internal fastcc ptr @find_first_constant_definition(ptr noundef readnone 
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph, %10
-  %17 = add nuw i64 %.018, 1
+  %17 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %17, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
@@ -12343,7 +12343,7 @@ declare zeroext i1 @zend_is_identical(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_first_property_definition(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #2 {
+define internal fastcc ptr @find_first_property_definition(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #2 {
   %6 = icmp eq ptr %4, %0
   %7 = icmp ne i64 %2, 0
   %or.cond = and i1 %6, %7
@@ -12368,7 +12368,7 @@ define internal fastcc ptr @find_first_property_definition(ptr noundef readnone 
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph, %10
-  %17 = add nuw i64 %.018, 1
+  %17 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %17, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 

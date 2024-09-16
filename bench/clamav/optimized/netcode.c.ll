@@ -659,7 +659,7 @@ define dso_local range(i32 0, 2) i32 @islocalnet_name(ptr noundef %0) local_unna
   br i1 %.not, label %islocalnet.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = call fastcc i32 @resolve(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %6 = call fastcc i32 @resolve(ptr noundef %0, ptr noundef %3, ptr noundef %2)
   %.not2 = icmp eq i32 %6, 0
   br i1 %.not2, label %9, label %7
 
@@ -737,7 +737,7 @@ islocalnet.exit:                                  ; preds = %51, %44, %9, %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.addrinfo, align 8
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -1053,7 +1053,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %14, i64 40
   %19 = getelementptr inbounds i8, ptr %14, i64 8
-  %20 = tail call fastcc i32 @resolve(ptr noundef %spec.store.select, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  %20 = tail call fastcc i32 @resolve(ptr noundef %spec.store.select, ptr noundef %18, ptr noundef %19)
   %.not48.i = icmp eq i32 %20, 0
   br i1 %.not48.i, label %22, label %21
 

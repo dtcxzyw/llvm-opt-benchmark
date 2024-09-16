@@ -613,7 +613,7 @@ common.resume:                                    ; preds = %13, %26, %31
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17h274c2844cf5250c0E(ptr readonly %.0.val, i64 %.8.val, ptr noalias noundef readonly align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17h274c2844cf5250c0E(ptr readonly %.0.val, i64 %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { ptr, i64 }, align 8
@@ -2109,7 +2109,7 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   %193 = load i64, ptr %192, align 8, !noundef !7
   %.val = load ptr, ptr %15, align 8
   %.val308 = load i64, ptr %106, align 8
-  %194 = invoke fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17h274c2844cf5250c0E(ptr %.val, i64 %.val308, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %11, i64 noundef %193)
+  %194 = invoke fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17h274c2844cf5250c0E(ptr %.val, i64 %.val308, ptr noalias noundef readonly align 8 dereferenceable(40) %11, i64 noundef %193)
           to label %198 unwind label %196
 
 195:                                              ; preds = %200, %222, %196

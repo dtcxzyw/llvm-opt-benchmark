@@ -259,7 +259,7 @@ define i32 @ompi_attr_create_keyval(i32 noundef %0, ptr %1, ptr %2, ptr noundef 
 
 12:                                               ; preds = %10, %7
   store ptr %4, ptr %8, align 8
-  %13 = call fastcc i32 @ompi_attr_create_keyval_impl(i32 noundef %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef nonnull %8, i32 noundef %5, ptr noundef %6)
+  %13 = call fastcc i32 @ompi_attr_create_keyval_impl(i32 noundef %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef %8, i32 noundef %5, ptr noundef %6)
   %.not15 = icmp eq i32 %13, 0
   %brmerge = or i1 %.not, %.not15
   br i1 %brmerge, label %15, label %14
@@ -276,7 +276,7 @@ define i32 @ompi_attr_create_keyval(i32 noundef %0, ptr %1, ptr %2, ptr noundef 
 declare i32 @ompi_mpi_instance_retain() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_attr_create_keyval_impl(i32 noundef %0, ptr %1, ptr %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @ompi_attr_create_keyval_impl(i32 noundef %0, ptr %1, ptr %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_attribute_keyval_t_class, i64 56), align 8
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #14
   %10 = load i32, ptr @opal_class_init_epoch, align 4
@@ -429,7 +429,7 @@ define i32 @ompi_attr_create_keyval_fint(i32 noundef %0, ptr %1, ptr %2, ptr nou
 10:                                               ; preds = %7
   store i32 %4, ptr %8, align 8
   %11 = or i32 %5, 4
-  %12 = call fastcc i32 @ompi_attr_create_keyval_impl(i32 noundef %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef nonnull %8, i32 noundef %11, ptr noundef %6)
+  %12 = call fastcc i32 @ompi_attr_create_keyval_impl(i32 noundef %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef %8, i32 noundef %11, ptr noundef %6)
   br label %13
 
 13:                                               ; preds = %7, %10
@@ -446,7 +446,7 @@ define i32 @ompi_attr_create_keyval_aint(i32 noundef %0, ptr %1, ptr %2, ptr nou
 
 10:                                               ; preds = %7
   store i64 %4, ptr %8, align 8
-  %11 = call fastcc i32 @ompi_attr_create_keyval_impl(i32 noundef %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef nonnull %8, i32 noundef %5, ptr noundef %6)
+  %11 = call fastcc i32 @ompi_attr_create_keyval_impl(i32 noundef %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef %8, i32 noundef %5, ptr noundef %6)
   br label %12
 
 12:                                               ; preds = %7, %10

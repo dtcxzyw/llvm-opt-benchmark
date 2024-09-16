@@ -238,7 +238,7 @@ if.end13:                                         ; preds = %if.end11
   br i1 %cmp15.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end13
-  %call19 = call fastcc ptr @lcidm_conn_new_lcid(ptr noundef nonnull %lcidm, ptr noundef nonnull %call, ptr noundef nonnull %initial_odcid)
+  %call19 = call fastcc ptr @lcidm_conn_new_lcid(ptr noundef nonnull %lcidm, ptr noundef %call, ptr noundef nonnull %initial_odcid)
   %cmp20 = icmp eq ptr %call19, null
   br i1 %cmp20, label %return, label %if.end23
 
@@ -316,7 +316,7 @@ return:                                           ; preds = %if.end, %if.then16,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lcidm_conn_new_lcid(ptr nocapture noundef readonly %lcidm, ptr noundef %conn, ptr nocapture noundef readonly %lcid) unnamed_addr #0 {
+define internal fastcc ptr @lcidm_conn_new_lcid(ptr nocapture noundef readonly %lcidm, ptr noundef nonnull %conn, ptr nocapture noundef readonly %lcid) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %lcid, align 1
   %cmp = icmp ugt i8 %0, 20
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, i32 noundef %type, ptr noundef %lcid_out, ptr noundef writeonly %seq_num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, i32 noundef range(i32 1, 3) %type, ptr noundef %lcid_out, ptr noundef writeonly %seq_num) unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   %call = tail call fastcc ptr @lcidm_upsert_conn(ptr noundef %lcidm, ptr noundef %opaque)
@@ -440,7 +440,7 @@ if.end12:                                         ; preds = %if.end.i.i
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !6
 
 do.end:                                           ; preds = %if.end12
-  %call15 = call fastcc ptr @lcidm_conn_new_lcid(ptr noundef nonnull %lcidm, ptr noundef nonnull %call, ptr noundef nonnull %lcid_out)
+  %call15 = call fastcc ptr @lcidm_conn_new_lcid(ptr noundef nonnull %lcidm, ptr noundef %call, ptr noundef nonnull %lcid_out)
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %return, label %if.end18
 
@@ -451,9 +451,8 @@ if.end18:                                         ; preds = %do.end
   %type21 = getelementptr inbounds i8, ptr %call15, i64 40
   %5 = trunc nuw nsw i32 %type to i8
   %bf.load = load i8, ptr %type21, align 8
-  %bf.value = and i8 %5, 3
   %bf.clear = and i8 %bf.load, -4
-  %bf.set = or disjoint i8 %bf.clear, %bf.value
+  %bf.set = or disjoint i8 %bf.clear, %5
   store i8 %bf.set, ptr %type21, align 8
   %cmp22.not = icmp eq ptr %seq_num, null
   br i1 %cmp22.not, label %if.end25, label %if.then23
@@ -783,7 +782,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end6
-  %call12 = call fastcc ptr @lcidm_conn_new_lcid(ptr noundef nonnull %lcidm, ptr noundef nonnull %call, ptr noundef nonnull %lcid)
+  %call12 = call fastcc ptr @lcidm_conn_new_lcid(ptr noundef nonnull %lcidm, ptr noundef %call, ptr noundef nonnull %lcid)
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %return, label %if.end16
 

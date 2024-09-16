@@ -386,7 +386,7 @@ land.rhs.i:                                       ; preds = %for.end42, %land.rh
   %q.06.i = phi ptr [ %15, %land.rhs.i ], [ %14, %for.end42 ]
   %next.i = getelementptr inbounds i8, ptr %q.06.i, i64 8
   %15 = load ptr, ptr %next.i, align 8
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i, ptr noundef null)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i, ptr noundef null)
   %tobool3.not.i = icmp eq ptr %15, null
   br i1 %tobool3.not.i, label %ehci_queues_rip_all.exit, label %land.rhs.i, !llvm.loop !8
 
@@ -400,7 +400,7 @@ land.rhs.i37:                                     ; preds = %ehci_queues_rip_all
   %q.06.i38 = phi ptr [ %17, %land.rhs.i37 ], [ %16, %ehci_queues_rip_all.exit ]
   %next.i39 = getelementptr inbounds i8, ptr %q.06.i38, i64 8
   %17 = load ptr, ptr %next.i39, align 8
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i38, ptr noundef nonnull @.str.36)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i38, ptr noundef nonnull @.str.36)
   %tobool3.not.i40 = icmp eq ptr %17, null
   br i1 %tobool3.not.i40, label %ehci_queues_rip_all.exit41, label %land.rhs.i37, !llvm.loop !8
 
@@ -898,7 +898,7 @@ land.rhs.i.i:                                     ; preds = %if.then9.i, %land.r
   %q.06.i.i = phi ptr [ %33, %land.rhs.i.i ], [ %32, %if.then9.i ]
   %next.i.i = getelementptr inbounds i8, ptr %q.06.i.i, i64 8
   %33 = load ptr, ptr %next.i.i, align 8
-  call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i.i, ptr noundef null)
+  call fastcc void @ehci_free_queue(ptr noundef %q.06.i.i, ptr noundef null)
   %tobool3.not.i.i = icmp eq ptr %33, null
   br i1 %tobool3.not.i.i, label %ehci_queues_rip_all.exit.i, label %land.rhs.i.i, !llvm.loop !8
 
@@ -916,7 +916,7 @@ if.end13.i:                                       ; preds = %if.end10.i
   %and15.i = lshr i32 %29, 1
   %shr.i90 = and i32 %and15.i, 4092
   %or.i91 = or disjoint i32 %and11.i, %shr.i90
-  %call16.i = call fastcc i32 @get_dwords(ptr noundef nonnull %opaque, i32 noundef %or.i91, ptr noundef nonnull %entry1.i, i32 noundef 1)
+  %call16.i = call fastcc i32 @get_dwords(ptr noundef nonnull %opaque, i32 noundef %or.i91, ptr noundef %entry1.i, i32 noundef 1)
   %cmp17.i = icmp slt i32 %call16.i, 0
   br i1 %cmp17.i, label %ehci_advance_periodic_state.exit, label %if.end19.i
 
@@ -957,7 +957,7 @@ if.end.i.i:                                       ; preds = %land.rhs.i21.i
   br i1 %cmp.i.i, label %for.inc.i.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
-  call fastcc void @ehci_free_queue(ptr noundef nonnull %q.013.i.i, ptr noundef null)
+  call fastcc void @ehci_free_queue(ptr noundef %q.013.i.i, ptr noundef null)
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end11.i.i, %if.end.i.i, %if.then.i.i
@@ -1203,7 +1203,7 @@ land.rhs.i:                                       ; preds = %if.then2, %for.inc.
   br i1 %tobool2.not.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.rhs.i
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.02.i, ptr noundef null)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.02.i, ptr noundef null)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i
@@ -1283,7 +1283,7 @@ land.rhs.i:                                       ; preds = %if.end6, %land.rhs.
   %q.06.i = phi ptr [ %9, %land.rhs.i ], [ %8, %if.end6 ]
   %next.i = getelementptr inbounds i8, ptr %q.06.i, i64 8
   %9 = load ptr, ptr %next.i, align 8
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i, ptr noundef null)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i, ptr noundef null)
   %tobool3.not.i = icmp eq ptr %9, null
   br i1 %tobool3.not.i, label %ehci_queues_rip_all.exit, label %land.rhs.i, !llvm.loop !8
 
@@ -1297,7 +1297,7 @@ land.rhs.i20:                                     ; preds = %ehci_queues_rip_all
   %q.06.i21 = phi ptr [ %11, %land.rhs.i20 ], [ %10, %ehci_queues_rip_all.exit ]
   %next.i22 = getelementptr inbounds i8, ptr %q.06.i21, i64 8
   %11 = load ptr, ptr %next.i22, align 8
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i21, ptr noundef nonnull @.str.36)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i21, ptr noundef nonnull @.str.36)
   %tobool3.not.i23 = icmp eq ptr %11, null
   br i1 %tobool3.not.i23, label %ehci_queues_rip_all.exit24, label %land.rhs.i20, !llvm.loop !8
 
@@ -1419,7 +1419,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ehci_free_queue(ptr noundef %q, ptr noundef %warn) unnamed_addr #0 {
+define internal fastcc void @ehci_free_queue(ptr noundef nonnull %q, ptr noundef %warn) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1632,12 +1632,12 @@ if.then:                                          ; preds = %land.lhs.true
   %qhaddr.i = getelementptr inbounds i8, ptr %.pre, i64 96
   %3 = load i32, ptr %qhaddr.i, align 8
   %and.i = and i32 %3, -32
-  %call.i = call fastcc i32 @get_dwords(ptr noundef %2, i32 noundef %and.i, ptr noundef nonnull %qh.i, i32 noundef 12)
+  %call.i = call fastcc i32 @get_dwords(ptr noundef %2, i32 noundef %and.i, ptr noundef %qh.i, i32 noundef 12)
   %4 = load ptr, ptr %.pre, align 8
   %qtdaddr.i = getelementptr inbounds i8, ptr %.pre, i64 100
   %5 = load i32, ptr %qtdaddr.i, align 4
   %and2.i = and i32 %5, -32
-  %call3.i = call fastcc i32 @get_dwords(ptr noundef %4, i32 noundef %and2.i, ptr noundef nonnull %qtd.i, i32 noundef 8)
+  %call3.i = call fastcc i32 @get_dwords(ptr noundef %4, i32 noundef %and2.i, ptr noundef %qtd.i, i32 noundef 8)
   %epchar.i = getelementptr inbounds i8, ptr %qh.i, i64 4
   %6 = load i32, ptr %epchar.i, align 4
   %and.i40 = and i32 %6, 127
@@ -1930,17 +1930,13 @@ declare void @usb_packet_unmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qemu_sglist_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 17) i32 @get_dwords(ptr nocapture noundef %ehci, i32 noundef %addr, ptr noundef %buf, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 17) i32 @get_dwords(ptr nocapture noundef %ehci, i32 noundef %addr, ptr noundef nonnull %buf, i32 noundef range(i32 1, 17) %num) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %as = getelementptr inbounds i8, ptr %ehci, i64 480
   %0 = load ptr, ptr %as, align 16
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %for.cond.preheader
-
-for.cond.preheader:                               ; preds = %entry
-  %cmp20 = icmp sgt i32 %num, 0
-  br i1 %cmp20, label %for.body, label %return
+  br i1 %tobool.not, label %if.then, label %for.body
 
 if.then:                                          ; preds = %entry
   %usbsts.i = getelementptr inbounds i8, ptr %ehci, i64 1352
@@ -1988,23 +1984,23 @@ trace_usb_ehci_dma_error.exit:                    ; preds = %if.then, %land.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.023 = phi i32 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %buf.addr.022 = phi ptr [ %incdec.ptr, %for.body ], [ %buf, %for.cond.preheader ]
-  %addr.addr.021 = phi i32 [ %add, %for.body ], [ %addr, %for.cond.preheader ]
+for.body:                                         ; preds = %entry, %for.body
+  %i.022 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
+  %buf.addr.021 = phi ptr [ %incdec.ptr, %for.body ], [ %buf, %entry ]
+  %addr.addr.020 = phi i32 [ %add, %for.body ], [ %addr, %entry ]
   %10 = load ptr, ptr %as, align 16
-  %conv = zext i32 %addr.addr.021 to i64
+  %conv = zext i32 %addr.addr.020 to i64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   fence seq_cst
-  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef %10, i64 noundef %conv, i32 1, ptr noundef %buf.addr.022, i64 noundef 4, i1 noundef zeroext false) #17
-  %inc = add nuw nsw i32 %i.023, 1
-  %incdec.ptr = getelementptr i8, ptr %buf.addr.022, i64 4
-  %add = add i32 %addr.addr.021, 4
+  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef %10, i64 noundef %conv, i32 1, ptr noundef %buf.addr.021, i64 noundef 4, i1 noundef zeroext false) #17
+  %inc = add nuw nsw i32 %i.022, 1
+  %incdec.ptr = getelementptr i8, ptr %buf.addr.021, i64 4
+  %add = add i32 %addr.addr.020, 4
   %exitcond.not = icmp eq i32 %inc, %num
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !16
 
-return:                                           ; preds = %for.body, %for.cond.preheader, %trace_usb_ehci_dma_error.exit
-  %retval.0 = phi i32 [ -1, %trace_usb_ehci_dma_error.exit ], [ %num, %for.cond.preheader ], [ %num, %for.body ]
+return:                                           ; preds = %for.body, %trace_usb_ehci_dma_error.exit
+  %retval.0 = phi i32 [ -1, %trace_usb_ehci_dma_error.exit ], [ %num, %for.body ]
   ret i32 %retval.0
 }
 
@@ -2542,18 +2538,14 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @put_dwords(ptr nocapture noundef %ehci, i32 noundef %addr, ptr nocapture noundef readonly %buf, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc void @put_dwords(ptr nocapture noundef %ehci, i32 noundef range(i32 0, -19) %addr, ptr nocapture noundef readonly %buf, i32 noundef range(i32 1, 17) %num) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tmp = alloca i32, align 4
   %as = getelementptr inbounds i8, ptr %ehci, i64 480
   %0 = load ptr, ptr %as, align 16
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %for.cond.preheader
-
-for.cond.preheader:                               ; preds = %entry
-  %cmp18 = icmp sgt i32 %num, 0
-  br i1 %cmp18, label %for.body, label %return
+  br i1 %tobool.not, label %if.then, label %for.body
 
 if.then:                                          ; preds = %entry
   %usbsts.i = getelementptr inbounds i8, ptr %ehci, i64 1352
@@ -2601,29 +2593,29 @@ trace_usb_ehci_dma_error.exit:                    ; preds = %if.then, %land.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.021 = phi i32 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %buf.addr.020 = phi ptr [ %incdec.ptr, %for.body ], [ %buf, %for.cond.preheader ]
-  %addr.addr.019 = phi i32 [ %add, %for.body ], [ %addr, %for.cond.preheader ]
-  %10 = load i32, ptr %buf.addr.020, align 4
+for.body:                                         ; preds = %entry, %for.body
+  %i.020 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
+  %buf.addr.019 = phi ptr [ %incdec.ptr, %for.body ], [ %buf, %entry ]
+  %addr.addr.018 = phi i32 [ %add, %for.body ], [ %addr, %entry ]
+  %10 = load i32, ptr %buf.addr.019, align 4
   store i32 %10, ptr %tmp, align 4
   %11 = load ptr, ptr %as, align 16
-  %conv = zext i32 %addr.addr.019 to i64
+  %conv = zext i32 %addr.addr.018 to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   fence seq_cst
   %call.i.i.i = call i32 @address_space_rw(ptr noundef %11, i64 noundef %conv, i32 1, ptr noundef nonnull %tmp, i64 noundef 4, i1 noundef zeroext true) #17
-  %inc = add nuw nsw i32 %i.021, 1
-  %incdec.ptr = getelementptr i8, ptr %buf.addr.020, i64 4
-  %add = add i32 %addr.addr.019, 4
+  %inc = add nuw nsw i32 %i.020, 1
+  %incdec.ptr = getelementptr i8, ptr %buf.addr.019, i64 4
+  %add = add i32 %addr.addr.018, 4
   %exitcond.not = icmp eq i32 %inc, %num
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
 
-return:                                           ; preds = %for.body, %for.cond.preheader, %trace_usb_ehci_dma_error.exit
+return:                                           ; preds = %for.body, %trace_usb_ehci_dma_error.exit
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ehci_trace_qtd(ptr noundef %q, i64 noundef %addr, ptr nocapture noundef readonly %qtd) unnamed_addr #0 {
+define internal fastcc void @ehci_trace_qtd(ptr noundef %q, i64 noundef range(i64 0, 4294967265) %addr, ptr nocapture noundef readonly %qtd) unnamed_addr #0 {
 entry:
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i13 = alloca %struct.timeval, align 8
@@ -2759,7 +2751,7 @@ trace_usb_ehci_qtd_bits.exit:                     ; preds = %trace_usb_ehci_qtd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ehci_trace_usbsts(i32 noundef %mask, i32 noundef %state) unnamed_addr #0 {
+define internal fastcc void @ehci_trace_usbsts(i32 noundef range(i32 0, 32769) %mask, i32 noundef range(i32 0, 2) %state) unnamed_addr #0 {
 entry:
   %_now.i.i139 = alloca %struct.timeval, align 8
   %_now.i.i124 = alloca %struct.timeval, align 8
@@ -3149,8 +3141,7 @@ trace_usb_ehci_usbsts.exit138:                    ; preds = %if.then31, %land.lh
   br label %if.end32
 
 if.end32:                                         ; preds = %trace_usb_ehci_usbsts.exit138, %if.end28
-  %and33 = and i32 %mask, 32768
-  %tobool34.not = icmp eq i32 %and33, 0
+  %tobool34.not = icmp ult i32 %mask, 32768
   br i1 %tobool34.not, label %if.end36, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
@@ -3484,7 +3475,7 @@ land.rhs.i:                                       ; preds = %if.end, %for.inc.i
   br i1 %cmp.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %land.rhs.i
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i, ptr noundef null)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i, ptr noundef null)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %land.rhs.i
@@ -3512,7 +3503,7 @@ land.rhs.i18:                                     ; preds = %ehci_queues_rip_dev
   br i1 %cmp.not.i22, label %if.end.i25, label %for.inc.i23
 
 if.end.i25:                                       ; preds = %land.rhs.i18
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i19, ptr noundef null)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i19, ptr noundef null)
   br label %for.inc.i23
 
 for.inc.i23:                                      ; preds = %if.end.i25, %land.rhs.i18
@@ -3577,7 +3568,7 @@ land.rhs.i:                                       ; preds = %if.end, %for.inc.i
   br i1 %cmp.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %land.rhs.i
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i, ptr noundef null)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i, ptr noundef null)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %land.rhs.i
@@ -3600,7 +3591,7 @@ land.rhs.i11:                                     ; preds = %ehci_queues_rip_dev
   br i1 %cmp.not.i15, label %if.end.i18, label %for.inc.i16
 
 if.end.i18:                                       ; preds = %land.rhs.i11
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i12, ptr noundef null)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i12, ptr noundef null)
   br label %for.inc.i16
 
 for.inc.i16:                                      ; preds = %if.end.i18, %land.rhs.i11
@@ -3889,7 +3880,7 @@ land.rhs.i:                                       ; preds = %if.then4, %land.rhs
   %q.06.i = phi ptr [ %7, %land.rhs.i ], [ %6, %if.then4 ]
   %next.i = getelementptr inbounds i8, ptr %q.06.i, i64 8
   %7 = load ptr, ptr %next.i, align 8
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.06.i, ptr noundef nonnull @.str.36)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.06.i, ptr noundef nonnull @.str.36)
   %tobool3.not.i = icmp eq ptr %7, null
   br i1 %tobool3.not.i, label %ehci_queues_rip_all.exit, label %land.rhs.i, !llvm.loop !8
 
@@ -3934,7 +3925,7 @@ land.rhs.i18:                                     ; preds = %if.then12, %for.inc
   br i1 %tobool2.not.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.rhs.i18
-  tail call fastcc void @ehci_free_queue(ptr noundef nonnull %q.02.i, ptr noundef null)
+  tail call fastcc void @ehci_free_queue(ptr noundef %q.02.i, ptr noundef null)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i18
@@ -3998,7 +3989,7 @@ sw.epilog:                                        ; preds = %if.end9, %trace_usb
 declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ehci_advance_state(ptr noundef %ehci, i32 noundef %async) unnamed_addr #0 {
+define internal fastcc void @ehci_advance_state(ptr noundef %ehci, i32 noundef range(i32 0, 2) %async) unnamed_addr #0 {
 entry:
   %_now.i.i.i201 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -4121,7 +4112,7 @@ if.end.i.i:                                       ; preds = %land.rhs.i.i
   br i1 %cmp.i.i, label %for.inc.i.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
-  call fastcc void @ehci_free_queue(ptr noundef nonnull %q.013.i.i, ptr noundef null)
+  call fastcc void @ehci_free_queue(ptr noundef %q.013.i.i, ptr noundef null)
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end11.i.i, %if.end.i.i, %if.then.i.i
@@ -4174,7 +4165,7 @@ if.end.i36.i:                                     ; preds = %land.rhs.i27.i
   br i1 %cmp.i39.i, label %for.inc.i34.i, label %if.end11.i40.i
 
 if.end11.i40.i:                                   ; preds = %if.end.i36.i
-  call fastcc void @ehci_free_queue(ptr noundef nonnull %q.013.i28.i, ptr noundef nonnull @.str.138)
+  call fastcc void @ehci_free_queue(ptr noundef %q.013.i28.i, ptr noundef nonnull @.str.138)
   br label %for.inc.i34.i
 
 for.inc.i34.i:                                    ; preds = %if.end11.i40.i, %if.end.i36.i, %if.then.i32.i
@@ -4188,13 +4179,13 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %entry1.049.i = phi i32 [ %19, %if.end12.i ], [ %1, %for.body.i.preheader ]
   %i.048.i = phi i32 [ %inc.i, %if.end12.i ], [ 0, %for.body.i.preheader ]
   %and.i = and i32 %entry1.049.i, -32
-  %call.i = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i, ptr noundef nonnull %qh.i, i32 noundef 12)
+  %call.i = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i, ptr noundef %qh.i, i32 noundef 12)
   %cmp2.i = icmp slt i32 %call.i, 0
   br i1 %cmp2.i, label %ehci_state_waitlisthead.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %for.body.i
   %conv.i = zext i32 %and.i to i64
-  call fastcc void @ehci_trace_qh(ptr noundef null, i64 noundef %conv.i, ptr noundef nonnull %qh.i)
+  call fastcc void @ehci_trace_qh(ptr noundef null, i64 noundef %conv.i, ptr noundef %qh.i)
   %18 = load i32, ptr %epchar.i, align 4
   %and6.i = and i32 %18, 32768
   %tobool7.not.i = icmp eq i32 %and6.i, 0
@@ -4376,7 +4367,7 @@ if.end7.i:                                        ; preds = %if.end.i52
   %qhaddr.i = getelementptr inbounds i8, ptr %q.0.i, i64 96
   %34 = load i32, ptr %qhaddr.i, align 8
   %and.i54 = and i32 %34, -32
-  %call8.i = call fastcc i32 @get_dwords(ptr noundef %ehci, i32 noundef %and.i54, ptr noundef nonnull %qh.i43, i32 noundef 12)
+  %call8.i = call fastcc i32 @get_dwords(ptr noundef %ehci, i32 noundef %and.i54, ptr noundef %qh.i43, i32 noundef 12)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %ehci_state_fetchqh.exit.thread, label %if.end11.i
 
@@ -4384,7 +4375,7 @@ if.end11.i:                                       ; preds = %if.end7.i
   %35 = load i32, ptr %qhaddr.i, align 8
   %and13.i = and i32 %35, -32
   %conv.i55 = zext i32 %and13.i to i64
-  call fastcc void @ehci_trace_qh(ptr noundef nonnull %q.0.i, i64 noundef %conv.i55, ptr noundef nonnull %qh.i43)
+  call fastcc void @ehci_trace_qh(ptr noundef nonnull %q.0.i, i64 noundef %conv.i55, ptr noundef %qh.i43)
   %36 = load i32, ptr %epchar.i.i, align 4
   %and.i.i56 = and i32 %36, 127
   %epchar5.i.i = getelementptr inbounds i8, ptr %q.0.i, i64 52
@@ -4647,7 +4638,7 @@ if.else.i62:                                      ; preds = %sw.bb11
 if.end.i63:                                       ; preds = %sw.bb11
   %cond.i.i65 = load i32, ptr %cond.in.i.i101, align 4
   %and.i66 = and i32 %cond.i.i65, -32
-  %call2.i = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i66, ptr noundef nonnull %itd.i, i32 noundef 16)
+  %call2.i = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i66, ptr noundef %itd.i, i32 noundef 16)
   %cmp.i = icmp slt i32 %call2.i, 0
   br i1 %cmp.i, label %ehci_state_fetchitd.exit, label %if.end4.i67
 
@@ -4964,7 +4955,7 @@ if.else.i99:                                      ; preds = %sw.bb13
 if.end.i100:                                      ; preds = %sw.bb13
   %cond.i.i102 = load i32, ptr %cond.in.i.i101, align 4
   %and.i103 = and i32 %cond.i.i102, -32
-  %call2.i104 = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i103, ptr noundef nonnull %sitd.i, i32 noundef 7)
+  %call2.i104 = call fastcc i32 @get_dwords(ptr noundef nonnull %ehci, i32 noundef %and.i103, ptr noundef %sitd.i, i32 noundef 7)
   %cmp.i105 = icmp slt i32 %call2.i104, 0
   br i1 %cmp.i105, label %ehci_state_fetchsitd.exit, label %if.end4.i106
 
@@ -5085,28 +5076,28 @@ if.end26:                                         ; preds = %sw.bb22
   %and.i130 = and i32 %121, -32
   %122 = load ptr, ptr %q.0, align 8
   %add.i = or disjoint i32 %and.i130, 8
-  %call.i132 = call fastcc i32 @get_dwords(ptr noundef %122, i32 noundef %add.i, ptr noundef nonnull %token.i131, i32 noundef 1)
+  %call.i132 = call fastcc i32 @get_dwords(ptr noundef %122, i32 noundef %add.i, ptr noundef %token.i131, i32 noundef 1)
   %cmp.i133 = icmp slt i32 %call.i132, 0
   br i1 %cmp.i133, label %ehci_state_fetchqtd.exit, label %if.end.i134
 
 if.end.i134:                                      ; preds = %if.end26
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !25
   %123 = load ptr, ptr %q.0, align 8
-  %call3.i = call fastcc i32 @get_dwords(ptr noundef %123, i32 noundef %and.i130, ptr noundef nonnull %qtd.i, i32 noundef 1)
+  %call3.i = call fastcc i32 @get_dwords(ptr noundef %123, i32 noundef %and.i130, ptr noundef %qtd.i, i32 noundef 1)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %ehci_state_fetchqtd.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i134
   %124 = load ptr, ptr %q.0, align 8
   %add6.i = or disjoint i32 %and.i130, 4
-  %call7.i = call fastcc i32 @get_dwords(ptr noundef %124, i32 noundef %add6.i, ptr noundef nonnull %altnext.i, i32 noundef 1)
+  %call7.i = call fastcc i32 @get_dwords(ptr noundef %124, i32 noundef %add6.i, ptr noundef %altnext.i, i32 noundef 1)
   %cmp8.i135 = icmp slt i32 %call7.i, 0
   br i1 %cmp8.i135, label %ehci_state_fetchqtd.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false.i
   %125 = load ptr, ptr %q.0, align 8
   %add11.i = or disjoint i32 %and.i130, 12
-  %call12.i = call fastcc i32 @get_dwords(ptr noundef %125, i32 noundef %add11.i, ptr noundef nonnull %bufptr.i, i32 noundef 5)
+  %call12.i = call fastcc i32 @get_dwords(ptr noundef %125, i32 noundef %add11.i, ptr noundef %bufptr.i, i32 noundef 5)
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %ehci_state_fetchqtd.exit, label %if.end15.i
 
@@ -5215,7 +5206,7 @@ ehci_trace_guest_bug.exit.i143:                   ; preds = %if.else.i.i.i.i151,
 if.else.i164:                                     ; preds = %ehci_verify_qtd.exit.i
   %qtd29.i = getelementptr inbounds i8, ptr %127, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %qtd29.i, ptr noundef nonnull align 4 dereferenceable(32) %qtd.i, i64 32, i1 false)
-  call fastcc void @ehci_qh_do_overlay(ptr noundef nonnull %q.0)
+  call fastcc void @ehci_qh_do_overlay(ptr noundef %q.0)
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.else.i164, %ehci_trace_guest_bug.exit.i143, %if.then22.i, %if.end15.i
@@ -5391,7 +5382,7 @@ if.else4.i:                                       ; preds = %if.end.i181
   unreachable
 
 if.end5.i:                                        ; preds = %if.end.i181
-  call fastcc void @ehci_qh_do_overlay(ptr noundef nonnull %q.0)
+  call fastcc void @ehci_qh_do_overlay(ptr noundef %q.0)
   %async.i185 = getelementptr inbounds i8, ptr %q.0, i64 40
   %170 = load i32, ptr %async.i185, align 8
   %tobool.not.i186 = icmp eq i32 %170, 0
@@ -5568,7 +5559,7 @@ do.end69:                                         ; preds = %do.cond, %do.cond.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ehci_trace_qh(ptr noundef %q, i64 noundef %addr, ptr nocapture noundef readonly %qh) unnamed_addr #0 {
+define internal fastcc void @ehci_trace_qh(ptr noundef %q, i64 noundef range(i64 0, 4294967265) %addr, ptr nocapture noundef nonnull readonly %qh) unnamed_addr #0 {
 entry:
   %_now.i.i29 = alloca %struct.timeval, align 8
   %_now.i.i15 = alloca %struct.timeval, align 8
@@ -5726,7 +5717,7 @@ declare void @usb_handle_packet(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ehci_qh_do_overlay(ptr nocapture noundef %q) unnamed_addr #0 {
+define internal fastcc void @ehci_qh_do_overlay(ptr nocapture noundef nonnull %q) unnamed_addr #0 {
 entry:
   %packets = getelementptr inbounds i8, ptr %q, i64 120
   %0 = load ptr, ptr %packets, align 8
@@ -5873,7 +5864,7 @@ for.body:                                         ; preds = %if.end, %for.cond4
 for.end:                                          ; preds = %for.cond4, %if.end
   %5 = load ptr, ptr %1, align 8
   %and10 = and i32 %3, -32
-  %call = call fastcc i32 @get_dwords(ptr noundef %5, i32 noundef %and10, ptr noundef nonnull %qtd, i32 noundef 8)
+  %call = call fastcc i32 @get_dwords(ptr noundef %5, i32 noundef %and10, ptr noundef %qtd, i32 noundef 8)
   %cmp11 = icmp slt i32 %call, 0
   br i1 %cmp11, label %return, label %if.end13
 

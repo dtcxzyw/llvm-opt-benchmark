@@ -1383,7 +1383,7 @@ _ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EE13AssertNotNu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL20ReplaceGroupBindingsERNS_16LogicalAggregateENS_10unique_ptrINS_10ExpressionESt14default_deleteIS3_ELb1EEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %proj, ptr noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL20ReplaceGroupBindingsERNS_16LogicalAggregateENS_10unique_ptrINS_10ExpressionESt14default_deleteIS3_ELb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %proj, ptr noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function.346", align 8
   %call = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %expr)
@@ -1403,7 +1403,7 @@ if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %call4, align 8, !tbaa !47
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.109") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %call4)
+  tail call void %2(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.109") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %call4)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -9001,7 +9001,7 @@ return:                                           ; preds = %_ZNSt14_Function_ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL25ReplaceProjectionBindingsERNS_17LogicalProjectionENS_10unique_ptrINS_10ExpressionESt14default_deleteIS3_ELb1EEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %proj, ptr noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL25ReplaceProjectionBindingsERNS_17LogicalProjectionENS_10unique_ptrINS_10ExpressionESt14default_deleteIS3_ELb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %proj, ptr noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function.346", align 8
   %call = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %expr)
@@ -9021,7 +9021,7 @@ if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %call4, align 8, !tbaa !47
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.109") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %call4)
+  tail call void %2(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.109") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %call4)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -11566,7 +11566,7 @@ _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_14FilterPushdown6FilterESt14default
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21ReplaceColRefWithNullENS_10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEERSt13unordered_setImSt4hashImESt8equal_toImESaImEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull %expr, ptr noundef nonnull align 8 dereferenceable(56) %right_bindings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21ReplaceColRefWithNullENS_10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEERSt13unordered_setImSt4hashImESt8equal_toImESaImEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull %expr, ptr noundef nonnull align 8 dereferenceable(56) %right_bindings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8
   %ref.tmp12 = alloca %"class.duckdb::Value", align 8

@@ -797,7 +797,7 @@ define hidden void @log_node_full(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br label %15
 
 12:                                               ; preds = %8
-  %13 = tail call fastcc ptr @sprint_node(ptr noundef nonnull %4)
+  %13 = tail call fastcc ptr @sprint_node(ptr noundef %4)
   %14 = sext i32 %2 to i64
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_write_always_full(ptr noundef nonnull @.str.41, i32 noundef %0, ptr noundef %1, i64 noundef %14, ptr noundef %3, ptr noundef nonnull @.str.43, ptr noundef %5, ptr noundef %13) #13
   tail call void @g_free(ptr noundef %13) #13
@@ -812,7 +812,7 @@ declare zeroext i1 @ws_log_msg_is_active(ptr noundef, i32 noundef) local_unnamed
 declare void @ws_log_write_always_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sprint_node(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @sprint_node(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_strbuf_new(ptr noundef null, ptr noundef null) #13
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %2, ptr noundef nonnull @.str.49) #13
   %3 = load ptr, ptr %0, align 8
@@ -867,7 +867,7 @@ define hidden void @log_test_full(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = call fastcc ptr @sprint_node(ptr noundef nonnull %16)
+  %18 = call fastcc ptr @sprint_node(ptr noundef %16)
   br label %19
 
 19:                                               ; preds = %17, %15
@@ -877,7 +877,7 @@ define hidden void @log_test_full(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not22, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = call fastcc ptr @sprint_node(ptr noundef nonnull %20)
+  %22 = call fastcc ptr @sprint_node(ptr noundef %20)
   br label %23
 
 23:                                               ; preds = %21, %19

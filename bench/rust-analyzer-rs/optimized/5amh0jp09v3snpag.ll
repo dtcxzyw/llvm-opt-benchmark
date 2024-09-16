@@ -330,7 +330,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$salsa..runtime..RuntimeId$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #3 {
+define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !45, !noundef !4
   %switch = icmp ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %3
@@ -404,7 +404,7 @@ define internal void @"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$sals
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$salsa..runtime..RevisionGuard$GT$$GT$17h7cd9efcfd611cb04E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$salsa..runtime..RevisionGuard$GT$$GT$17h7cd9efcfd611cb04E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr50drop_in_place$LT$salsa..runtime..RevisionGuard$GT$17h0a6beb50ddc35cbeE.exit", label %4
@@ -763,7 +763,7 @@ define void @"_ZN66_$LT$salsa..runtime..Runtime$u20$as$u20$core..default..Defaul
   unreachable
 
 .body:                                            ; preds = %17
-  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$salsa..runtime..RevisionGuard$GT$$GT$17h7cd9efcfd611cb04E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #25
+  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$salsa..runtime..RevisionGuard$GT$$GT$17h7cd9efcfd611cb04E"(ptr noalias noundef align 8 dereferenceable(8) %5) #25
           to label %27 unwind label %25
 
 22:                                               ; preds = %"_ZN70_$LT$salsa..runtime..SharedState$u20$as$u20$core..default..Default$GT$7default17h61769761268f0281E.exit.i"
@@ -920,7 +920,7 @@ _ZN5salsa7runtime13RevisionGuard3new17hf40ed5e1df2f438dE.exit: ; preds = %19
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$salsa..runtime..RevisionGuard$GT$$GT$17h7cd9efcfd611cb04E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3) #25
+  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$salsa..runtime..RevisionGuard$GT$$GT$17h7cd9efcfd611cb04E"(ptr noalias noundef align 8 dereferenceable(8) %3) #25
           to label %44 unwind label %39
 
 43:                                               ; preds = %34
@@ -1688,7 +1688,7 @@ define void @_ZN5salsa7runtime7Runtime26unblock_queries_blocked_on17h72a9cef459b
 27:                                               ; preds = %11
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #25
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %5) #25
           to label %.thread unwind label %25
 }
 

@@ -206,14 +206,14 @@ if.then10:                                        ; preds = %if.then5
   br i1 %cmp15, label %for.body.i, label %return
 
 for.body.i:                                       ; preds = %if.then10, %if.then.i
-  %s1.addr.08.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %str, %if.then10 ]
-  %n.addr.07.i = phi i64 [ %dec.i, %if.then.i ], [ %len, %if.then10 ]
-  %s2.addr.06.i = phi ptr [ %incdec.ptr1.i, %if.then.i ], [ %10, %if.then10 ]
-  %14 = load i8, ptr %s1.addr.08.i, align 1
+  %s1.addr.07.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %str, %if.then10 ]
+  %n.addr.06.i = phi i64 [ %dec.i, %if.then.i ], [ %len, %if.then10 ]
+  %s2.addr.05.i = phi ptr [ %incdec.ptr1.i, %if.then.i ], [ %10, %if.then10 ]
+  %14 = load i8, ptr %s1.addr.07.i, align 1
   %idxprom.i13 = zext i8 %14 to i64
   %arrayidx.i14 = getelementptr inbounds [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom.i13
   %15 = load i8, ptr %arrayidx.i14, align 1
-  %16 = load i8, ptr %s2.addr.06.i, align 1
+  %16 = load i8, ptr %s2.addr.05.i, align 1
   %idxprom2.i = zext i8 %16 to i64
   %arrayidx3.i15 = getelementptr inbounds [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom2.i
   %17 = load i8, ptr %arrayidx3.i15, align 1
@@ -221,9 +221,9 @@ for.body.i:                                       ; preds = %if.then10, %if.then
   br i1 %cmp5.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %for.body.i
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %s2.addr.06.i, i64 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.08.i, i64 1
-  %dec.i = add nsw i64 %n.addr.07.i, -1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %s2.addr.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.07.i, i64 1
+  %dec.i = add nsw i64 %n.addr.06.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !4
 
@@ -325,14 +325,14 @@ if.then10.i:                                      ; preds = %if.then5.i
   br i1 %cmp15.i, label %for.body.i.i, label %cond.end
 
 for.body.i.i:                                     ; preds = %if.then10.i, %if.then.i.i
-  %s1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %name, %if.then10.i ]
-  %n.addr.07.i.i = phi i64 [ %dec.i.i, %if.then.i.i ], [ %len, %if.then10.i ]
-  %s2.addr.06.i.i = phi ptr [ %incdec.ptr1.i.i, %if.then.i.i ], [ %10, %if.then10.i ]
-  %14 = load i8, ptr %s1.addr.08.i.i, align 1
+  %s1.addr.07.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %name, %if.then10.i ]
+  %n.addr.06.i.i = phi i64 [ %dec.i.i, %if.then.i.i ], [ %len, %if.then10.i ]
+  %s2.addr.05.i.i = phi ptr [ %incdec.ptr1.i.i, %if.then.i.i ], [ %10, %if.then10.i ]
+  %14 = load i8, ptr %s1.addr.07.i.i, align 1
   %idxprom.i13.i = zext i8 %14 to i64
   %arrayidx.i14.i = getelementptr inbounds [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom.i13.i
   %15 = load i8, ptr %arrayidx.i14.i, align 1
-  %16 = load i8, ptr %s2.addr.06.i.i, align 1
+  %16 = load i8, ptr %s2.addr.05.i.i, align 1
   %idxprom2.i.i = zext i8 %16 to i64
   %arrayidx3.i15.i = getelementptr inbounds [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom2.i.i
   %17 = load i8, ptr %arrayidx3.i15.i, align 1
@@ -340,9 +340,9 @@ for.body.i.i:                                     ; preds = %if.then10.i, %if.th
   br i1 %cmp5.i.i, label %if.then.i.i, label %cond.end
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %s2.addr.06.i.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s1.addr.08.i.i, i64 1
-  %dec.i.i = add nsw i64 %n.addr.07.i.i, -1
+  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %s2.addr.05.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s1.addr.07.i.i, i64 1
+  %dec.i.i = add nsw i64 %n.addr.06.i.i, -1
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.not.i.i, label %cond.false, label %for.body.i.i, !llvm.loop !4
 

@@ -322,7 +322,7 @@ uv__spawn_and_init_child.exit.thread:             ; preds = %._crit_edge
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %87
-  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef nonnull %.096171, i32 noundef %75)
+  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef %.096171, i32 noundef %75)
   unreachable
 
 91:                                               ; preds = %87
@@ -745,7 +745,7 @@ declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @fork() local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @uv__process_child_init(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc void @uv__process_child_init(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #7 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

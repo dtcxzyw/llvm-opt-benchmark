@@ -46959,7 +46959,7 @@ if.end109:                                        ; preds = %if.end109.critedge,
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_7Catalog13GetAllSchemasERNS3_13ClientContextEE3$_0EEEvT_SI_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #27 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_7Catalog13GetAllSchemasERNS3_13ClientContextEE3$_0EEEvT_SI_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #27 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.lhs.cast.i34 = ptrtoint ptr %__last.coerce to i64
@@ -47375,7 +47375,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit4
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_7Catalog13GetAllSchemasERNS3_13ClientContextEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce) unnamed_addr #29 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_7Catalog13GetAllSchemasERNS3_13ClientContextEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %__len, ptr %__value.coerce) unnamed_addr #29 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

@@ -291,7 +291,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntFree.exit.lo
   %60 = sext i32 %.val72 to i64
   tail call void @qsort(ptr noundef %.val73, i64 noundef %60, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare2) #15
   %61 = add nsw i32 %.val72, -1
-  %62 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 %61)
+  %62 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %1, i32 %61)
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %.val73, i64 %63
   %65 = load i32, ptr %64, align 4

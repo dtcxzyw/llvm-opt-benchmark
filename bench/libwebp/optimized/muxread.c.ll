@@ -279,7 +279,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %67
   br i1 %.not91, label %97, label %.loopexit
 
 97:                                               ; preds = %95
-  %98 = call fastcc i32 @MuxImageParse(ptr noundef nonnull %5, i32 noundef %1, ptr noundef nonnull %47)
+  %98 = call fastcc i32 @MuxImageParse(ptr noundef %5, i32 noundef %1, ptr noundef %47)
   %.not92 = icmp eq i32 %98, 0
   br i1 %.not92, label %.loopexit, label %99
 
@@ -390,7 +390,7 @@ declare i32 @ChunkSetHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @MuxImagePush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.WebPData, align 8
   %5 = alloca %struct.WebPChunk, align 8
   %6 = alloca ptr, align 8
@@ -418,7 +418,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr nocapture noundef 
   br i1 %.not, label %21, label %.loopexit
 
 21:                                               ; preds = %18
-  %22 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef %2) #6
+  %22 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %2) #6
   %.not38 = icmp eq i32 %22, 1
   br i1 %.not38, label %23, label %.loopexit
 
@@ -577,7 +577,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly %0, ptr n
   br i1 %or.cond3, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call fastcc i32 @MuxGetCanvasInfo(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
+  %8 = tail call fastcc i32 @MuxGetCanvasInfo(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
   br label %9
 
 9:                                                ; preds = %3, %7
@@ -586,7 +586,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noundef nonnull readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @kChunks, align 16
@@ -712,7 +712,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetFeatures(ptr noundef readonly %0, ptr nou
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc i32 @MuxGetCanvasInfo(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %1)
+  %6 = tail call fastcc i32 @MuxGetCanvasInfo(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %1)
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -745,7 +745,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly %0, ptr nounde
   br i1 %.not22, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call fastcc i32 @MuxGet(ptr noundef nonnull %0, i32 noundef %8, ptr noundef nonnull %2)
+  %14 = tail call fastcc i32 @MuxGet(ptr noundef %0, i32 noundef %8, ptr noundef %2)
   br label %IsWPI.exit
 
 15:                                               ; preds = %12
@@ -769,7 +769,7 @@ IsWPI.exit:                                       ; preds = %7, %7, %7, %15, %3,
 declare i32 @ChunkGetIndexFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 10, 9) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   switch i32 %1, label %30 [
     i32 0, label %4
@@ -873,7 +873,7 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %22 = call i32 @ChunkGetIdFromTag(i32 noundef %21) #6
   %23 = getelementptr inbounds i8, ptr %2, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = call fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
+  %24 = call fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef %2)
   br label %MuxGetFrameInternal.exit
 
 25:                                               ; preds = %9
@@ -941,7 +941,7 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %74 = call i32 @ChunkGetIdFromTag(i32 noundef %73) #6
   %75 = getelementptr inbounds i8, ptr %2, i64 28
   store i32 %74, ptr %75, align 4
-  %76 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
+  %76 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef %2)
   br label %MuxGetFrameInternal.exit
 
 MuxGetFrameInternal.exit:                         ; preds = %35, %29, %25, %7, %3, %13
@@ -1083,7 +1083,7 @@ declare ptr @WebPNewInternal(i32 noundef) local_unnamed_addr #1
 declare i32 @ChunkAssignData(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

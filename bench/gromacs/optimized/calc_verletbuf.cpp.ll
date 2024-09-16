@@ -855,7 +855,7 @@ define noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifR
   %73 = getelementptr inbounds i8, ptr %2, i64 396
   %74 = load i32, ptr %73, align 4
   %75 = icmp ne i32 %74, 0
-  call fastcc void @_ZL24getVerletBufferAtomtypesRK10gmx_mtop_tbb(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(768) %0, i1 noundef zeroext %72, i1 noundef zeroext %75)
+  call fastcc void @_ZL24getVerletBufferAtomtypesRK10gmx_mtop_tbb(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(768) %0, i1 noundef zeroext %72, i1 noundef zeroext %75)
   %76 = load ptr, ptr @debug, align 8
   %.not105 = icmp eq ptr %76, null
   br i1 %.not105, label %91, label %77
@@ -881,7 +881,7 @@ define noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifR
   %93 = getelementptr inbounds i8, ptr %0, i64 64
   %94 = load double, ptr %93, align 8
   %95 = fptrunc double %94 to float
-  invoke fastcc void @_ZL17getVdwDerivativesRK10t_inputrecf(ptr dead_on_unwind noalias nonnull writable align 4 %18, ptr noundef nonnull align 8 dereferenceable(856) %2, float noundef %95)
+  invoke fastcc void @_ZL17getVdwDerivativesRK10t_inputrecf(ptr dead_on_unwind noalias writable align 4 %18, ptr noundef nonnull align 8 dereferenceable(856) %2, float noundef %95)
           to label %96 unwind label %.loopexit.split-lp
 
 96:                                               ; preds = %91
@@ -1231,7 +1231,7 @@ _ZL20displacementVarianceRK10t_inputrecff.exit:   ; preds = %216, %._crit_edge.i
   %291 = select i1 %290, float %289, float %288
   %292 = fadd float %291, %287
   %293 = load i32, ptr %277, align 8
-  %294 = call fastcc noundef float @_ZL11energyDriftN3gmx8ArrayRefIK17VerletbufAtomtypeEEPK14gmx_ffparams_tfRK17pot_derivatives_tS9_S9_fffif(ptr nonnull %246, ptr nonnull %252, ptr noundef nonnull %92, float noundef %.015.i, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %97, ptr noundef nonnull align 4 dereferenceable(16) %19, float noundef %288, float noundef %289, float noundef %292, i32 noundef %293, float noundef %1)
+  %294 = call fastcc noundef float @_ZL11energyDriftN3gmx8ArrayRefIK17VerletbufAtomtypeEEPK14gmx_ffparams_tfRK17pot_derivatives_tS9_S9_fffif(ptr nonnull %246, ptr nonnull %252, ptr noundef %92, float noundef %.015.i, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %97, ptr noundef nonnull align 4 dereferenceable(16) %19, float noundef %288, float noundef %289, float noundef %292, i32 noundef %293, float noundef %1)
   %295 = load i32, ptr %7, align 4
   %.sroa.speculated124 = call i32 @llvm.smin.i32(i32 %295, i32 4)
   %296 = invoke fastcc noundef float @_ZL12surface_fraciff(i32 noundef %.sroa.speculated124, float noundef %66, float noundef %292)
@@ -1410,7 +1410,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare double @cbrt(double noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24getVerletBufferAtomtypesRK10gmx_mtop_tbb(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24getVerletBufferAtomtypesRK10gmx_mtop_tbb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.196", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -2283,7 +2283,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
-  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(2256) %215, i32 noundef 2)
+  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(2256) %215, i32 noundef 2)
           to label %.noexc157 unwind label %.loopexit.split-lp237
 
 .noexc157:                                        ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
@@ -3107,7 +3107,7 @@ _ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EED2Ev.exit165: ; preds = 
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17getVdwDerivativesRK10t_inputrecf(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %1, float noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17getVdwDerivativesRK10t_inputrecf(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %1, float noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -3347,7 +3347,7 @@ define internal fastcc void @_ZL17getVdwDerivativesRK10t_inputrecf(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef float @_ZL11energyDriftN3gmx8ArrayRefIK17VerletbufAtomtypeEEPK14gmx_ffparams_tfRK17pot_derivatives_tS9_S9_fffif(ptr %0, ptr %1, ptr nocapture noundef readonly %2, float noundef %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %6, float noundef %7, float noundef %8, float noundef %9, i32 noundef %10, float noundef %11) unnamed_addr #2 {
+define internal fastcc noundef float @_ZL11energyDriftN3gmx8ArrayRefIK17VerletbufAtomtypeEEPK14gmx_ffparams_tfRK17pot_derivatives_tS9_S9_fffif(ptr %0, ptr %1, ptr nocapture noundef nonnull readonly %2, float noundef %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %6, float noundef %7, float noundef %8, float noundef %9, i32 noundef %10, float noundef %11) unnamed_addr #2 {
   %13 = alloca %struct.pot_derivatives_t, align 4
   %14 = alloca %struct.pot_derivatives_t, align 4
   %15 = fcmp oeq float %3, 0.000000e+00
@@ -3534,7 +3534,7 @@ _ZL15get_atom_sigma2fRK33AtomNonbondedAndKineticPropertiesPfS2_.exit82: ; preds 
   %158 = load i16, ptr %41, align 4
   %159 = sitofp i16 %158 to float
   %160 = fcmp olt float %157, %159
-  %161 = call fastcc noundef float @_ZL19energyDriftAtomPairbbffffPK17pot_derivatives_t(i1 noundef zeroext %160, i1 noundef zeroext %93, float noundef %126, float noundef %.096, float noundef %.097, float noundef %31, ptr noundef nonnull %13)
+  %161 = call fastcc noundef float @_ZL19energyDriftAtomPairbbffffPK17pot_derivatives_t(i1 noundef zeroext %160, i1 noundef zeroext %93, float noundef %126, float noundef %.096, float noundef %.097, float noundef %31, ptr noundef %13)
   %162 = load float, ptr %6, align 4
   %163 = load float, ptr %82, align 4
   %164 = load i16, ptr %83, align 4
@@ -3570,7 +3570,7 @@ _ZL15get_atom_sigma2fRK33AtomNonbondedAndKineticPropertiesPfS2_.exit82: ; preds 
   %190 = load i16, ptr %86, align 4
   %191 = sitofp i16 %190 to float
   %192 = fcmp olt float %189, %191
-  %193 = call fastcc noundef float @_ZL19energyDriftAtomPairbbffffPK17pot_derivatives_t(i1 noundef zeroext %186, i1 noundef zeroext %192, float noundef %126, float noundef %.096, float noundef %.097, float noundef %37, ptr noundef nonnull %14)
+  %193 = call fastcc noundef float @_ZL19energyDriftAtomPairbbffffPK17pot_derivatives_t(i1 noundef zeroext %186, i1 noundef zeroext %192, float noundef %126, float noundef %.096, float noundef %.097, float noundef %37, ptr noundef %14)
   %194 = fadd float %161, %193
   %195 = icmp eq i64 %.07798, %.076100
   %196 = load i32, ptr %84, align 4
@@ -3856,7 +3856,7 @@ _ZL20displacementVarianceRK10t_inputrecff.exit:   ; preds = %68, %._crit_edge.i,
   %.015.i = phi float [ %69, %68 ], [ %78, %._crit_edge.i ], [ %83, %79 ]
   %84 = load float, ptr %49, align 4
   %85 = load float, ptr %50, align 8
-  %86 = call fastcc noundef float @_ZL11energyDriftN3gmx8ArrayRefIK17VerletbufAtomtypeEEPK14gmx_ffparams_tfRK17pot_derivatives_tS9_S9_fffif(ptr %0, ptr %48, ptr noundef nonnull %2, float noundef %.015.i, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %15, float noundef %84, float noundef %85, float noundef %8, i32 noundef %10, float noundef %11)
+  %86 = call fastcc noundef float @_ZL11energyDriftN3gmx8ArrayRefIK17VerletbufAtomtypeEEPK14gmx_ffparams_tfRK17pot_derivatives_tS9_S9_fffif(ptr %0, ptr %48, ptr noundef %2, float noundef %.015.i, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %15, float noundef %84, float noundef %85, float noundef %8, i32 noundef %10, float noundef %11)
   %87 = icmp eq i32 %.sroa.speculated68, 0
   %88 = icmp sle i32 %33, %storemerge82
   %or.cond50 = or i1 %88, %87
@@ -3987,7 +3987,7 @@ _ZNSt10_HashtableI33AtomNonbondedAndKineticPropertiesSt4pairIKS0_iESaIS3_ENSt8__
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, i32 noundef range(i32 2, 5) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4589,7 +4589,7 @@ declare noundef float @_Z17calc_ewaldcoeff_qff(float noundef, float noundef) loc
 declare float @erfcf(float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef float @_ZL19energyDriftAtomPairbbffffPK17pot_derivatives_t(i1 noundef zeroext %0, i1 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #2 {
+define internal fastcc noundef float @_ZL19energyDriftAtomPairbbffffPK17pot_derivatives_t(i1 noundef zeroext %0, i1 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #2 {
   %8 = fmul float %5, %5
   %9 = fmul float %2, 2.000000e+00
   %10 = fmul float %9, 8.000000e+00
@@ -4839,11 +4839,11 @@ define noundef float @_Z25verletBufferPressureErrorRK10gmx_mtop_tfRK10t_inputrec
   %43 = getelementptr inbounds i8, ptr %2, i64 396
   %44 = load i32, ptr %43, align 4
   %45 = icmp ne i32 %44, 0
-  call fastcc void @_ZL24getVerletBufferAtomtypesRK10gmx_mtop_tbb(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(768) %0, i1 noundef zeroext %42, i1 noundef zeroext %45)
+  call fastcc void @_ZL24getVerletBufferAtomtypesRK10gmx_mtop_tbb(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(768) %0, i1 noundef zeroext %42, i1 noundef zeroext %45)
   %46 = getelementptr inbounds i8, ptr %0, i64 64
   %47 = load double, ptr %46, align 8
   %48 = fptrunc double %47 to float
-  invoke fastcc void @_ZL17getVdwDerivativesRK10t_inputrecf(ptr dead_on_unwind noalias nonnull writable align 4 %12, ptr noundef nonnull align 8 dereferenceable(856) %2, float noundef %48)
+  invoke fastcc void @_ZL17getVdwDerivativesRK10t_inputrecf(ptr dead_on_unwind noalias writable align 4 %12, ptr noundef nonnull align 8 dereferenceable(856) %2, float noundef %48)
           to label %49 unwind label %63
 
 49:                                               ; preds = %36
@@ -4951,7 +4951,7 @@ define noundef float @_Z30minCellSizeForAtomDisplacementRK10gmx_mtop_tRK10t_inpu
   %39 = getelementptr inbounds i8, ptr %1, i64 396
   %40 = load i32, ptr %39, align 4
   %41 = icmp ne i32 %40, 0
-  call fastcc void @_ZL24getVerletBufferAtomtypesRK10gmx_mtop_tbb(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(768) %0, i1 noundef zeroext %38, i1 noundef zeroext %41)
+  call fastcc void @_ZL24getVerletBufferAtomtypesRK10gmx_mtop_tbb(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(768) %0, i1 noundef zeroext %38, i1 noundef zeroext %41)
   %42 = getelementptr inbounds i8, ptr %1, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = sitofp i32 %43 to double

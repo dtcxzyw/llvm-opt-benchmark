@@ -892,7 +892,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef %blocking, i32 noundef %raise) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef range(i32 0, 2) %blocking, i32 noundef range(i32 0, 2) %raise) unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %cmp = icmp slt i64 %size, 0
@@ -913,38 +913,37 @@ if.end2:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.end2
   %.b.i = load i1, ptr @py_getrandom.getrandom_works, align 4
-  br i1 %.b.i, label %if.end12, label %while.body.lr.ph.lr.ph.i
+  br i1 %.b.i, label %if.end12, label %if.end.i
 
-while.body.lr.ph.lr.ph.i:                         ; preds = %if.end5
-  %tobool1.not.i = icmp eq i32 %blocking, 0
-  %cond.i = zext i1 %tobool1.not.i to i32
+if.end.i:                                         ; preds = %if.end5
+  %cond.i = xor i32 %blocking, 1
   %call.i = tail call ptr @__errno_location() #7
   %tobool4.not.i = icmp eq i32 %raise, 0
   %1 = or i32 %raise, %blocking
   %.not.i = icmp eq i32 %1, 0
-  br i1 %tobool4.not.i, label %while.body.lr.ph.lr.ph.split.us.i, label %while.body.lr.ph.lr.ph.split.i
+  br i1 %tobool4.not.i, label %if.end.split.split.us.i, label %if.end.split.split.i
 
-while.body.lr.ph.lr.ph.split.us.i:                ; preds = %while.body.lr.ph.lr.ph.i
+if.end.split.split.us.i:                          ; preds = %if.end.i
   br i1 %.not.i, label %while.body.lr.ph.split.us.split.split.split.us.us.i, label %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i
 
 if.end40.split.us.split.us.us.us.i:               ; preds = %while.body.us.us.us.us.us.i, %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i
   %.us-phi142.us.us.i = phi i64 [ %call8.us.us.us161.us.us.i, %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i ], [ %call8.us.us.us.us.us.i, %while.body.us.us.us.us.us.i ]
-  %add.ptr.us.us.i = getelementptr i8, ptr %dest.0.ph173.us.us.i, i64 %.us-phi142.us.us.i
-  %sub.us.us.i = sub nsw i64 %size.addr.0.ph165.us.us.i, %.us-phi142.us.us.i
+  %add.ptr.us.us.i = getelementptr i8, ptr %dest.0.ph172.us.us.i, i64 %.us-phi142.us.us.i
+  %sub.us.us.i = sub nsw i64 %size.addr.0.ph164.us.us.i, %.us-phi142.us.us.i
   %cmp.us.us.i = icmp sgt i64 %sub.us.us.i, 0
   br i1 %cmp.us.us.i, label %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i, label %return, !llvm.loop !5
 
-while.body.lr.ph.split.us.split.split.us.split.us.us.us.i: ; preds = %while.body.lr.ph.lr.ph.split.us.i, %if.end40.split.us.split.us.us.us.i
-  %dest.0.ph173.us.us.i = phi ptr [ %add.ptr.us.us.i, %if.end40.split.us.split.us.us.us.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.us.i ]
-  %size.addr.0.ph165.us.us.i = phi i64 [ %sub.us.us.i, %if.end40.split.us.split.us.us.us.i ], [ %size, %while.body.lr.ph.lr.ph.split.us.i ]
+while.body.lr.ph.split.us.split.split.us.split.us.us.us.i: ; preds = %if.end.split.split.us.i, %if.end40.split.us.split.us.us.us.i
+  %dest.0.ph172.us.us.i = phi ptr [ %add.ptr.us.us.i, %if.end40.split.us.split.us.us.us.i ], [ %buffer, %if.end.split.split.us.i ]
+  %size.addr.0.ph164.us.us.i = phi i64 [ %sub.us.us.i, %if.end40.split.us.split.us.us.us.i ], [ %size, %if.end.split.split.us.i ]
   store i32 0, ptr %call.i, align 4
-  %call8.us.us.us161.us.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.us.us.i, i64 noundef %size.addr.0.ph165.us.us.i, i32 noundef %cond.i) #6
+  %call8.us.us.us161.us.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph172.us.us.i, i64 noundef %size.addr.0.ph164.us.us.i, i32 noundef %cond.i) #6
   %cmp10.us.us.us162.us.us.i = icmp slt i64 %call8.us.us.us161.us.us.i, 0
   br i1 %cmp10.us.us.us162.us.us.i, label %if.then11.us.us.us.us.us.i, label %if.end40.split.us.split.us.us.us.i
 
 while.body.us.us.us.us.us.i:                      ; preds = %if.then11.us.us.us.us.us.i
   store i32 0, ptr %call.i, align 4
-  %call8.us.us.us.us.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.us.us.i, i64 noundef %size.addr.0.ph165.us.us.i, i32 noundef %cond.i) #6
+  %call8.us.us.us.us.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph172.us.us.i, i64 noundef %size.addr.0.ph164.us.us.i, i32 noundef %cond.i) #6
   %cmp10.us.us.us.us.us.i = icmp slt i64 %call8.us.us.us.us.us.i, 0
   br i1 %cmp10.us.us.us.us.us.i, label %if.then11.us.us.us.us.us.i, label %if.end40.split.us.split.us.us.us.i
 
@@ -956,26 +955,26 @@ if.then11.us.us.us.us.us.i:                       ; preds = %while.body.lr.ph.sp
     i32 4, label %while.body.us.us.us.us.us.i
   ]
 
-if.end40.split.us.split.us189.i:                  ; preds = %while.body.us.us109.us.i, %while.body.lr.ph.split.us.split.split.split.us.us.i
+if.end40.split.us.split.us187.i:                  ; preds = %while.body.us.us109.us.i, %while.body.lr.ph.split.us.split.split.split.us.us.i
   %.us-phi118.us.i = phi i64 [ %call8.us.us110139.us.i, %while.body.lr.ph.split.us.split.split.split.us.us.i ], [ %call8.us.us110.us.i, %while.body.us.us109.us.i ]
-  %add.ptr.us.i = getelementptr i8, ptr %dest.0.ph173.us.i, i64 %.us-phi118.us.i
-  %sub.us.i = sub nsw i64 %size.addr.0.ph165.us.i, %.us-phi118.us.i
+  %add.ptr.us.i = getelementptr i8, ptr %dest.0.ph172.us.i, i64 %.us-phi118.us.i
+  %sub.us.i = sub nsw i64 %size.addr.0.ph164.us.i, %.us-phi118.us.i
   %cmp.us.i = icmp sgt i64 %sub.us.i, 0
   br i1 %cmp.us.i, label %while.body.lr.ph.split.us.split.split.split.us.us.i, label %return, !llvm.loop !5
 
-while.body.lr.ph.split.us.split.split.split.us.us.i: ; preds = %while.body.lr.ph.lr.ph.split.us.i, %if.end40.split.us.split.us189.i
-  %dest.0.ph173.us.i = phi ptr [ %add.ptr.us.i, %if.end40.split.us.split.us189.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.us.i ]
-  %size.addr.0.ph165.us.i = phi i64 [ %sub.us.i, %if.end40.split.us.split.us189.i ], [ %size, %while.body.lr.ph.lr.ph.split.us.i ]
+while.body.lr.ph.split.us.split.split.split.us.us.i: ; preds = %if.end.split.split.us.i, %if.end40.split.us.split.us187.i
+  %dest.0.ph172.us.i = phi ptr [ %add.ptr.us.i, %if.end40.split.us.split.us187.i ], [ %buffer, %if.end.split.split.us.i ]
+  %size.addr.0.ph164.us.i = phi i64 [ %sub.us.i, %if.end40.split.us.split.us187.i ], [ %size, %if.end.split.split.us.i ]
   store i32 0, ptr %call.i, align 4
-  %call8.us.us110139.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.us.i, i64 noundef %size.addr.0.ph165.us.i, i32 noundef %cond.i) #6
+  %call8.us.us110139.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph172.us.i, i64 noundef %size.addr.0.ph164.us.i, i32 noundef %cond.i) #6
   %cmp10.us.us111140.us.i = icmp slt i64 %call8.us.us110139.us.i, 0
-  br i1 %cmp10.us.us111140.us.i, label %if.then11.us.us112.us.i, label %if.end40.split.us.split.us189.i
+  br i1 %cmp10.us.us111140.us.i, label %if.then11.us.us112.us.i, label %if.end40.split.us.split.us187.i
 
 while.body.us.us109.us.i:                         ; preds = %if.then11.us.us112.us.i
   store i32 0, ptr %call.i, align 4
-  %call8.us.us110.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.us.i, i64 noundef %size.addr.0.ph165.us.i, i32 noundef %cond.i) #6
+  %call8.us.us110.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph172.us.i, i64 noundef %size.addr.0.ph164.us.i, i32 noundef %cond.i) #6
   %cmp10.us.us111.us.i = icmp slt i64 %call8.us.us110.us.i, 0
-  br i1 %cmp10.us.us111.us.i, label %if.then11.us.us112.us.i, label %if.end40.split.us.split.us189.i
+  br i1 %cmp10.us.us111.us.i, label %if.then11.us.us112.us.i, label %if.end40.split.us.split.us187.i
 
 if.then11.us.us112.us.i:                          ; preds = %while.body.lr.ph.split.us.split.split.split.us.us.i, %while.body.us.us109.us.i
   %3 = load i32, ptr %call.i, align 4
@@ -986,22 +985,22 @@ if.then11.us.us112.us.i:                          ; preds = %while.body.lr.ph.sp
     i32 4, label %while.body.us.us109.us.i
   ]
 
-while.body.lr.ph.lr.ph.split.i:                   ; preds = %while.body.lr.ph.lr.ph.i
+if.end.split.split.i:                             ; preds = %if.end.i
   br i1 %.not.i, label %while.body.lr.ph.split.split.split.us.i, label %while.body.lr.ph.split.split.us.split.us.us.i
 
 if.end40.split.split.us.us.i:                     ; preds = %while.body.us27.us.us.i, %while.body.lr.ph.split.split.us.split.us.us.i
   %.us-phi85.us.i = phi i64 [ %call7.us.us103.us.i, %while.body.lr.ph.split.split.us.split.us.us.i ], [ %call7.us.us.us.i, %while.body.us27.us.us.i ]
-  %add.ptr.us203.i = getelementptr i8, ptr %dest.0.ph173.us201.i, i64 %.us-phi85.us.i
-  %sub.us204.i = sub nsw i64 %size.addr.0.ph165.us202.i, %.us-phi85.us.i
-  %cmp.us205.i = icmp sgt i64 %sub.us204.i, 0
-  br i1 %cmp.us205.i, label %while.body.lr.ph.split.split.us.split.us.us.i, label %return, !llvm.loop !5
+  %add.ptr.us201.i = getelementptr i8, ptr %dest.0.ph172.us199.i, i64 %.us-phi85.us.i
+  %sub.us202.i = sub nsw i64 %size.addr.0.ph164.us200.i, %.us-phi85.us.i
+  %cmp.us203.i = icmp sgt i64 %sub.us202.i, 0
+  br i1 %cmp.us203.i, label %while.body.lr.ph.split.split.us.split.us.us.i, label %return, !llvm.loop !5
 
-while.body.lr.ph.split.split.us.split.us.us.i:    ; preds = %while.body.lr.ph.lr.ph.split.i, %if.end40.split.split.us.us.i
-  %dest.0.ph173.us201.i = phi ptr [ %add.ptr.us203.i, %if.end40.split.split.us.us.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.i ]
-  %size.addr.0.ph165.us202.i = phi i64 [ %sub.us204.i, %if.end40.split.split.us.us.i ], [ %size, %while.body.lr.ph.lr.ph.split.i ]
+while.body.lr.ph.split.split.us.split.us.us.i:    ; preds = %if.end.split.split.i, %if.end40.split.split.us.us.i
+  %dest.0.ph172.us199.i = phi ptr [ %add.ptr.us201.i, %if.end40.split.split.us.us.i ], [ %buffer, %if.end.split.split.i ]
+  %size.addr.0.ph164.us200.i = phi i64 [ %sub.us202.i, %if.end40.split.split.us.us.i ], [ %size, %if.end.split.split.i ]
   store i32 0, ptr %call.i, align 4
   %call6.us.us102.us.i = tail call ptr @PyEval_SaveThread() #6
-  %call7.us.us103.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.us201.i, i64 noundef %size.addr.0.ph165.us202.i, i32 noundef %cond.i) #6
+  %call7.us.us103.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph172.us199.i, i64 noundef %size.addr.0.ph164.us200.i, i32 noundef %cond.i) #6
   tail call void @PyEval_RestoreThread(ptr noundef %call6.us.us102.us.i) #6
   %cmp10.us28.us104.us.i = icmp slt i64 %call7.us.us103.us.i, 0
   br i1 %cmp10.us28.us104.us.i, label %if.then11.us29.us.us.i, label %if.end40.split.split.us.us.i
@@ -1009,7 +1008,7 @@ while.body.lr.ph.split.split.us.split.us.us.i:    ; preds = %while.body.lr.ph.lr
 while.body.us27.us.us.i:                          ; preds = %if.then27.us35.us.us.i
   store i32 0, ptr %call.i, align 4
   %call6.us.us.us.i = tail call ptr @PyEval_SaveThread() #6
-  %call7.us.us.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.us201.i, i64 noundef %size.addr.0.ph165.us202.i, i32 noundef %cond.i) #6
+  %call7.us.us.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph172.us199.i, i64 noundef %size.addr.0.ph164.us200.i, i32 noundef %cond.i) #6
   tail call void @PyEval_RestoreThread(ptr noundef %call6.us.us.us.i) #6
   %cmp10.us28.us.us.i = icmp slt i64 %call7.us.us.us.i, 0
   br i1 %cmp10.us28.us.us.i, label %if.then11.us29.us.us.i, label %if.end40.split.split.us.us.i
@@ -1027,12 +1026,12 @@ if.then27.us35.us.us.i:                           ; preds = %if.then11.us29.us.u
   %tobool31.not.us37.us.us.i = icmp eq i32 %call30.us36.us.us.i, 0
   br i1 %tobool31.not.us37.us.us.i, label %while.body.us27.us.us.i, label %return
 
-while.body.lr.ph.split.split.split.us.i:          ; preds = %while.body.lr.ph.lr.ph.split.i, %if.end40.split.split.i
-  %dest.0.ph173.i = phi ptr [ %add.ptr.i, %if.end40.split.split.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.i ]
-  %size.addr.0.ph165.i = phi i64 [ %sub.i, %if.end40.split.split.i ], [ %size, %while.body.lr.ph.lr.ph.split.i ]
+while.body.lr.ph.split.split.split.us.i:          ; preds = %if.end.split.split.i, %if.end40.split.split.i
+  %dest.0.ph172.i = phi ptr [ %add.ptr.i, %if.end40.split.split.i ], [ %buffer, %if.end.split.split.i ]
+  %size.addr.0.ph164.i = phi i64 [ %sub.i, %if.end40.split.split.i ], [ %size, %if.end.split.split.i ]
   store i32 0, ptr %call.i, align 4
   %call6.us4881.i = tail call ptr @PyEval_SaveThread() #6
-  %call7.us4982.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.i, i64 noundef %size.addr.0.ph165.i, i32 noundef %cond.i) #6
+  %call7.us4982.i = tail call i64 @getrandom(ptr noundef %dest.0.ph172.i, i64 noundef %size.addr.0.ph164.i, i32 noundef %cond.i) #6
   tail call void @PyEval_RestoreThread(ptr noundef %call6.us4881.i) #6
   %cmp10.us5083.i = icmp slt i64 %call7.us4982.i, 0
   br i1 %cmp10.us5083.i, label %if.then11.us51.i, label %if.end40.split.split.i
@@ -1040,7 +1039,7 @@ while.body.lr.ph.split.split.split.us.i:          ; preds = %while.body.lr.ph.lr
 while.body.us47.i:                                ; preds = %if.then27.us56.i
   store i32 0, ptr %call.i, align 4
   %call6.us48.i = tail call ptr @PyEval_SaveThread() #6
-  %call7.us49.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.i, i64 noundef %size.addr.0.ph165.i, i32 noundef %cond.i) #6
+  %call7.us49.i = tail call i64 @getrandom(ptr noundef %dest.0.ph172.i, i64 noundef %size.addr.0.ph164.i, i32 noundef %cond.i) #6
   tail call void @PyEval_RestoreThread(ptr noundef %call6.us48.i) #6
   %cmp10.us50.i = icmp slt i64 %call7.us49.i, 0
   br i1 %cmp10.us50.i, label %if.then11.us51.i, label %if.end40.split.split.i
@@ -1070,8 +1069,8 @@ if.then37.i:                                      ; preds = %if.then11.us29.us.u
 
 if.end40.split.split.i:                           ; preds = %while.body.us47.i, %while.body.lr.ph.split.split.split.us.i
   %.us-phi61.i = phi i64 [ %call7.us4982.i, %while.body.lr.ph.split.split.split.us.i ], [ %call7.us49.i, %while.body.us47.i ]
-  %add.ptr.i = getelementptr i8, ptr %dest.0.ph173.i, i64 %.us-phi61.i
-  %sub.i = sub nsw i64 %size.addr.0.ph165.i, %.us-phi61.i
+  %add.ptr.i = getelementptr i8, ptr %dest.0.ph172.i, i64 %.us-phi61.i
+  %sub.i = sub nsw i64 %size.addr.0.ph164.i, %.us-phi61.i
   %cmp.i = icmp sgt i64 %sub.i, 0
   br i1 %cmp.i, label %while.body.lr.ph.split.split.split.us.i, label %return, !llvm.loop !5
 
@@ -1193,12 +1192,12 @@ if.else51.i:                                      ; preds = %if.end12
   br i1 %cmp53.i, label %dev_urandom.exit, label %do.body57.preheader.i
 
 do.body57.preheader.i:                            ; preds = %if.else51.i, %if.end67.i
-  %buffer.addr.134.i = phi ptr [ %add.ptr68.i, %if.end67.i ], [ %buffer, %if.else51.i ]
-  %size.addr.133.i = phi i64 [ %sub69.i, %if.end67.i ], [ %size, %if.else51.i ]
+  %buffer.addr.133.i = phi ptr [ %add.ptr68.i, %if.end67.i ], [ %buffer, %if.else51.i ]
+  %size.addr.132.i = phi i64 [ %sub69.i, %if.end67.i ], [ %size, %if.else51.i ]
   br label %do.body57.i
 
 do.body57.i:                                      ; preds = %land.rhs.i, %do.body57.preheader.i
-  %call58.i = tail call i64 @read(i32 noundef %call52.i, ptr noundef %buffer.addr.134.i, i64 noundef %size.addr.133.i) #6
+  %call58.i = tail call i64 @read(i32 noundef %call52.i, ptr noundef %buffer.addr.133.i, i64 noundef %size.addr.132.i) #6
   %cmp60.i = icmp slt i64 %call58.i, 0
   br i1 %cmp60.i, label %land.rhs.i, label %do.end63.i
 
@@ -1217,8 +1216,8 @@ if.then65.i:                                      ; preds = %do.end63.i, %land.r
   br label %dev_urandom.exit
 
 if.end67.i:                                       ; preds = %do.end63.i
-  %add.ptr68.i = getelementptr i8, ptr %buffer.addr.134.i, i64 %call58.i
-  %sub69.i = sub nsw i64 %size.addr.133.i, %call58.i
+  %add.ptr68.i = getelementptr i8, ptr %buffer.addr.133.i, i64 %call58.i
+  %sub69.i = sub nsw i64 %size.addr.132.i, %call58.i
   %cmp56.i = icmp sgt i64 %sub69.i, 0
   br i1 %cmp56.i, label %do.body57.preheader.i, label %while.end.i, !llvm.loop !9
 
@@ -1231,8 +1230,8 @@ dev_urandom.exit:                                 ; preds = %do.body.i, %if.end4
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   br label %return
 
-return:                                           ; preds = %if.end40.split.split.us.us.i, %if.then27.us35.us.us.i, %if.end40.split.split.i, %if.then27.us56.i, %if.end40.split.us.split.us.us.us.i, %if.then11.us.us.us.us.us.i, %if.end40.split.us.split.us189.i, %if.then11.us.us112.us.i, %if.then37.i, %if.end2, %if.then, %if.then1, %dev_urandom.exit
-  %retval.0 = phi i32 [ %retval.0.i9, %dev_urandom.exit ], [ -1, %if.then1 ], [ -1, %if.then ], [ 0, %if.end2 ], [ -1, %if.then37.i ], [ -1, %if.then11.us.us112.us.i ], [ 0, %if.end40.split.us.split.us189.i ], [ -1, %if.then11.us.us.us.us.us.i ], [ 0, %if.end40.split.us.split.us.us.us.i ], [ -1, %if.then27.us56.i ], [ 0, %if.end40.split.split.i ], [ -1, %if.then27.us35.us.us.i ], [ 0, %if.end40.split.split.us.us.i ]
+return:                                           ; preds = %if.end40.split.split.us.us.i, %if.then27.us35.us.us.i, %if.end40.split.split.i, %if.then27.us56.i, %if.end40.split.us.split.us.us.us.i, %if.then11.us.us.us.us.us.i, %if.end40.split.us.split.us187.i, %if.then11.us.us112.us.i, %if.then37.i, %if.end2, %if.then, %if.then1, %dev_urandom.exit
+  %retval.0 = phi i32 [ %retval.0.i9, %dev_urandom.exit ], [ -1, %if.then1 ], [ -1, %if.then ], [ 0, %if.end2 ], [ -1, %if.then37.i ], [ -1, %if.then11.us.us112.us.i ], [ 0, %if.end40.split.us.split.us187.i ], [ -1, %if.then11.us.us.us.us.us.i ], [ 0, %if.end40.split.us.split.us.us.us.i ], [ -1, %if.then27.us56.i ], [ 0, %if.end40.split.split.i ], [ -1, %if.then27.us35.us.us.i ], [ 0, %if.end40.split.split.us.us.i ]
   ret i32 %retval.0
 }
 

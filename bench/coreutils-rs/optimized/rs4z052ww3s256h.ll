@@ -295,7 +295,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$std..path..Path$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr readonly %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr readonly %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { ptr, [3 x i64] }, align 8
@@ -396,7 +396,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %25
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr nonnull %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nonnull %.0.val) unnamed_addr #0 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { ptr, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
@@ -677,7 +677,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
 _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread: ; preds = %67
   %96 = load i64, ptr %38, align 8, !alias.scope !142, !noalias !145, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29), !noalias !145
-  call fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %29, ptr nonnull %.val116), !noalias !145
+  call fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %29, ptr nonnull %.val116), !noalias !145
   %97 = load i32, ptr %29, align 8, !range !148, !noalias !145, !noundef !4
   %98 = icmp eq i32 %97, 8
   br i1 %98, label %99, label %105
@@ -843,7 +843,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   store i64 %.sroa.4.0.copyload.i.i.i130, ptr %55, align 8, !alias.scope !134, !noalias !130
   %155 = load i64, ptr %38, align 8, !alias.scope !203, !noalias !206, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22), !noalias !206
-  call fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %22, ptr nonnull %.val116), !noalias !206
+  call fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %22, ptr nonnull %.val116), !noalias !206
   %156 = load i32, ptr %22, align 8, !range !148, !noalias !206, !noundef !4
   %157 = icmp eq i32 %156, 8
   br i1 %157, label %158, label %164
@@ -1105,7 +1105,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
 237:                                              ; preds = %228
   %238 = load i64, ptr %38, align 8, !alias.scope !313, !noalias !206, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !206
-  call fastcc void @_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %21, ptr %.val116), !noalias !206
+  call fastcc void @_ZN6uu_env15variable_parser14VariableParser8skip_one17h29c27d6f1663bc5aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %21, ptr %.val116), !noalias !206
   %239 = load i32, ptr %21, align 8, !range !148, !noalias !206, !noundef !4
   %240 = icmp eq i32 %239, 8
   br i1 %240, label %276, label %254

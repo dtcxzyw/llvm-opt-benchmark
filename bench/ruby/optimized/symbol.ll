@@ -751,7 +751,7 @@ rb_vm_lock_leave.exit:                            ; preds = %60, %58, %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @intern_str(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @intern_str(i64 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1795,7 +1795,7 @@ declare i64 @rb_enc_associate(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_fstring(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @dsymbol_alloc(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @dsymbol_alloc(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 -1, 16) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %7 = load ptr, ptr %6, align 8
@@ -3663,7 +3663,7 @@ declare i32 @rb_enc_dummy_p(ptr noundef) local_unnamed_addr #12
 declare i32 @rb_enc_precise_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @get_id_serial_entry(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @get_id_serial_entry(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -3678,7 +3678,7 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %5
   %7 = freeze i32 %6
   %8 = add i32 %0, -1
   %or.cond.not = icmp ult i32 %8, %7
-  br i1 %or.cond.not, label %9, label %34
+  br i1 %or.cond.not, label %9, label %33
 
 9:                                                ; preds = %rb_vm_lock_enter.exit
   %10 = lshr i32 %0, 9
@@ -3703,35 +3703,34 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %5
 rb_array_len.exit:                                ; preds = %16, %19
   %.0.i = phi i64 [ %18, %16 ], [ %21, %19 ]
   %22 = icmp ugt i64 %.0.i, %11
-  br i1 %22, label %23, label %34
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %rb_array_len.exit
   %24 = call i64 @rb_ary_entry(i64 noundef %12, i64 noundef %11) #20
   %25 = icmp eq i64 %24, 4
-  br i1 %25, label %34, label %26
+  br i1 %25, label %33, label %26
 
 26:                                               ; preds = %23
   %27 = shl i32 %0, 1
   %28 = and i32 %27, 1022
-  %29 = zext nneg i32 %28 to i64
-  %30 = zext nneg i32 %1 to i64
-  %31 = add nuw nsw i64 %29, %30
-  %32 = call i64 @rb_ary_entry(i64 noundef %24, i64 noundef %31) #20
-  %33 = icmp eq i64 %32, 4
-  %spec.store.select = select i1 %33, i64 0, i64 %32
-  br label %34
+  %29 = or disjoint i32 %28, %1
+  %30 = zext nneg i32 %29 to i64
+  %31 = call i64 @rb_ary_entry(i64 noundef %24, i64 noundef %30) #20
+  %32 = icmp eq i64 %31, 4
+  %spec.store.select = select i1 %32, i64 0, i64 %31
+  br label %33
 
-34:                                               ; preds = %26, %rb_array_len.exit, %23, %rb_vm_lock_enter.exit
+33:                                               ; preds = %26, %rb_array_len.exit, %23, %rb_vm_lock_enter.exit
   %.0 = phi i64 [ 0, %23 ], [ %spec.store.select, %26 ], [ 0, %rb_array_len.exit ], [ 0, %rb_vm_lock_enter.exit ]
-  %35 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i17 = icmp eq ptr %35, null
-  br i1 %.not.i.i17, label %36, label %rb_vm_lock_leave.exit
+  %34 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i17 = icmp eq ptr %34, null
+  br i1 %.not.i.i17, label %35, label %rb_vm_lock_leave.exit
 
-36:                                               ; preds = %34
+35:                                               ; preds = %33
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #18
   br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %34, %36
+rb_vm_lock_leave.exit:                            ; preds = %33, %35
   ret i64 %.0
 }
 

@@ -2264,7 +2264,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %555, %_ZL6ignorePKc
 
 588:                                              ; preds = %585
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %507)
+  call fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %507)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %589 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %590 = icmp sgt i32 %589, 3
@@ -2832,7 +2832,7 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %803, %810
   %875 = load i32, ptr @tests, align 4
   %876 = add nsw i32 %875, 1
   store i32 %876, ptr @tests, align 4
-  call fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef %507)
+  call fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef %507)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30080), ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   %877 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30080), align 8
   %878 = fcmp oeq double %877, 0x7FF0000000000000
@@ -3843,7 +3843,7 @@ define internal fastcc void @_ZL12ffio_destroyP4ffio(ptr nocapture noundef %0) u
 declare ptr @proj_destroy(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define internal noundef range(i32 -4, 4) i32 @_ZL6errmsgiPKcz(i32 noundef returned %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #15 {
+define internal noundef range(i32 -4, 4) i32 @_ZL6errmsgiPKcz(i32 noundef returned range(i32 -4, 4) %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #15 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @stdout, align 8
@@ -4300,7 +4300,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare ptr @proj_create_crs_to_crs(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #10 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %union.PJ_COORD, align 8
@@ -4378,7 +4378,7 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias writ
   br label %44
 
 38:                                               ; preds = %35
-  call void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %0)
+  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %0)
   br label %44
 
 39:                                               ; preds = %32

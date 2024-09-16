@@ -455,7 +455,7 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.thread.thread
 
 32:                                               ; preds = %21
-  %33 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %11)
+  %33 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef %8, ptr noundef %6, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %9, ptr noundef %11)
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %39
 
@@ -745,7 +745,7 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr noundef %8, ptr nocapture noundef %9) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr noundef nonnull %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca %struct.H5B_cache_ud_t, align 8
   %12 = alloca [3 x double], align 16
   %13 = alloca %struct.H5B_cache_ud_t, align 8
@@ -873,7 +873,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %94 = load i64, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %89, i64 %94
   %96 = getelementptr inbounds i8, ptr %15, i64 8
-  %97 = call i32 %86(ptr noundef %0, i64 noundef %88, ptr noundef %92, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %95, ptr noundef nonnull %8, ptr noundef nonnull %96) #6
+  %97 = call i32 %86(ptr noundef %0, i64 noundef %88, ptr noundef %92, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %95, ptr noundef nonnull %8, ptr noundef nonnull %96) #6
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %99, label %345
 
@@ -922,7 +922,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %127 = getelementptr inbounds i8, ptr %124, i64 8
   %128 = load i64, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %122, i64 %128
-  %130 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef %126, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %129, ptr noundef nonnull %8, ptr noundef nonnull %15)
+  %130 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef %126, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %129, ptr noundef %8, ptr noundef %15)
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %132, label %345
 
@@ -954,7 +954,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %147, i64 %153
   %155 = getelementptr inbounds i8, ptr %15, i64 8
-  %156 = call i32 %142(ptr noundef %0, i64 noundef %145, ptr noundef %151, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %154, ptr noundef nonnull %8, ptr noundef nonnull %155) #6
+  %156 = call i32 %142(ptr noundef %0, i64 noundef %145, ptr noundef %151, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %154, ptr noundef nonnull %8, ptr noundef nonnull %155) #6
   %157 = icmp slt i32 %156, 0
   br i1 %157, label %158, label %345
 
@@ -973,7 +973,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %168 = getelementptr inbounds i8, ptr %164, i64 %167
   %169 = getelementptr inbounds i8, ptr %2, i64 8
   %170 = load i64, ptr %169, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %168, i64 %170, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %168, i64 %170, i1 false)
   %171 = getelementptr inbounds i8, ptr %2, i64 24
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %163, align 8
@@ -981,7 +981,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %175 = load i64, ptr %174, align 8
   %176 = getelementptr inbounds i8, ptr %173, i64 %175
   %177 = getelementptr inbounds i8, ptr %15, i64 8
-  %178 = call i32 %172(ptr noundef %0, i32 noundef 1, ptr noundef %176, ptr noundef %6, ptr noundef %5, ptr noundef nonnull %177) #6
+  %178 = call i32 %172(ptr noundef %0, i32 noundef 1, ptr noundef %176, ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %177) #6
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %180, label %.sink.split
 
@@ -1036,7 +1036,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %213 = getelementptr inbounds i64, ptr %208, i64 %212
   %214 = load i64, ptr %213, align 8
   %215 = getelementptr inbounds i8, ptr %206, i64 %214
-  %216 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef %211, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %215, ptr noundef nonnull %8, ptr noundef nonnull %15)
+  %216 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef %211, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %215, ptr noundef %8, ptr noundef %15)
   %217 = icmp slt i32 %216, 0
   br i1 %217, label %218, label %345
 
@@ -1073,7 +1073,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %244 = load i64, ptr %243, align 8
   %245 = getelementptr inbounds i8, ptr %236, i64 %244
   %246 = getelementptr inbounds i8, ptr %15, i64 8
-  %247 = call i32 %229(ptr noundef %0, i64 noundef %234, ptr noundef %241, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %245, ptr noundef nonnull %8, ptr noundef nonnull %246) #6
+  %247 = call i32 %229(ptr noundef %0, i64 noundef %234, ptr noundef %241, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %245, ptr noundef nonnull %8, ptr noundef nonnull %246) #6
   %248 = icmp slt i32 %247, 0
   br i1 %248, label %249, label %345
 
@@ -1094,7 +1094,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %261 = getelementptr inbounds i8, ptr %255, i64 %260
   %262 = getelementptr inbounds i8, ptr %2, i64 8
   %263 = load i64, ptr %262, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %261, i64 %263, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %261, i64 %263, i1 false)
   %264 = getelementptr inbounds i8, ptr %2, i64 24
   %265 = load ptr, ptr %264, align 8
   %266 = load ptr, ptr %254, align 8
@@ -1103,7 +1103,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %269 = load i64, ptr %268, align 8
   %270 = getelementptr inbounds i8, ptr %266, i64 %269
   %271 = getelementptr inbounds i8, ptr %15, i64 8
-  %272 = call i32 %265(ptr noundef %0, i32 noundef 2, ptr noundef %5, ptr noundef %6, ptr noundef %270, ptr noundef nonnull %271) #6
+  %272 = call i32 %265(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %270, ptr noundef nonnull %271) #6
   %273 = icmp slt i32 %272, 0
   br i1 %273, label %274, label %278
 
@@ -1163,7 +1163,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %310 = getelementptr inbounds i64, ptr %305, i64 %309
   %311 = load i64, ptr %310, align 8
   %312 = getelementptr inbounds i8, ptr %303, i64 %311
-  %313 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef %308, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %312, ptr noundef nonnull %8, ptr noundef nonnull %15)
+  %313 = call fastcc i32 @H5B__insert_helper(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %2, ptr noundef %308, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %312, ptr noundef %8, ptr noundef %15)
   %314 = icmp slt i32 %313, 0
   br i1 %314, label %315, label %345
 
@@ -1193,7 +1193,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %336 = load i64, ptr %335, align 8
   %337 = getelementptr inbounds i8, ptr %328, i64 %336
   %338 = getelementptr inbounds i8, ptr %15, i64 8
-  %339 = call i32 %321(ptr noundef %0, i64 noundef %326, ptr noundef %333, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %337, ptr noundef nonnull %8, ptr noundef nonnull %338) #6
+  %339 = call i32 %321(ptr noundef %0, i64 noundef %326, ptr noundef %333, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %337, ptr noundef nonnull %8, ptr noundef nonnull %338) #6
   %340 = icmp slt i32 %339, 0
   br i1 %340, label %341, label %345
 
@@ -1579,7 +1579,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %584 = load ptr, ptr %567, align 8
   %585 = getelementptr inbounds i8, ptr %584, i64 8
   %586 = load i64, ptr %585, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %576, ptr readonly align 1 %5, i64 %586, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %576, ptr nonnull readonly align 1 %5, i64 %586, i1 false)
   %587 = icmp eq i32 %.0257, 2
   br i1 %587, label %H5B__insert_child.exit, label %588
 
@@ -1601,7 +1601,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   %599 = load ptr, ptr %567, align 8
   %600 = getelementptr inbounds i8, ptr %599, i64 8
   %601 = load i64, ptr %600, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %576, ptr readonly align 1 %5, i64 %601, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %576, ptr nonnull readonly align 1 %5, i64 %601, i1 false)
   %602 = icmp eq i32 %.0257, 2
   %spec.select.i288 = select i1 %602, i32 %572, i32 %.2263
   %603 = getelementptr inbounds i8, ptr %.0, i64 288
@@ -1644,7 +1644,7 @@ H5B__insert_child.exit:                           ; preds = %583, %588, %595
   %627 = getelementptr inbounds i8, ptr %623, i64 %626
   %628 = getelementptr inbounds i8, ptr %2, i64 8
   %629 = load i64, ptr %628, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %627, i64 %629, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %627, i64 %629, i1 false)
   br label %630
 
 630:                                              ; preds = %619, %621, %546, %341, %315, %297, %281, %274, %249, %218, %200, %180, %158, %132, %116, %99, %73, %21
@@ -1831,7 +1831,7 @@ define range(i32 -1, 1) i32 @H5B_remove(ptr noundef %0, ptr noundef %1, i64 noun
   %8 = alloca i8, align 1
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
-  %9 = call fastcc i32 @H5B__remove_helper(ptr noundef %0, i64 noundef %2, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %9 = call fastcc i32 @H5B__remove_helper(ptr noundef %0, i64 noundef %2, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %7, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %8)
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %15
 
@@ -1847,7 +1847,7 @@ define range(i32 -1, 1) i32 @H5B_remove(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef nonnull %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca %struct.H5B_cache_ud_t, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -1984,7 +1984,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %104 = getelementptr inbounds i64, ptr %98, i64 %103
   %105 = load i64, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %96, i64 %105
-  %107 = call i32 %88(ptr noundef %0, i64 noundef %94, ptr noundef %101, ptr noundef %5, ptr noundef %6, ptr noundef %106, ptr noundef %8) #6
+  %107 = call i32 %88(ptr noundef %0, i64 noundef %94, ptr noundef %101, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %106, ptr noundef nonnull %8) #6
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %109, label %114
 
@@ -2768,7 +2768,7 @@ define i32 @H5B_get_info(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nou
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = call fastcc i32 @H5B__get_info_helper(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %7)
+  %9 = call fastcc i32 @H5B__get_info_helper(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %7)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %.sink.split, label %11
 
@@ -2795,7 +2795,7 @@ define i32 @H5B_get_info(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5B__get_info_helper(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5B__get_info_helper(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.H5B_cache_ud_t, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -2888,7 +2888,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5B__get_info_helper(ptr noundef %0
   br i1 %.not56, label %.thread, label %65
 
 65:                                               ; preds = %64
-  %66 = call fastcc i32 @H5B__get_info_helper(ptr noundef %0, ptr noundef %1, i64 noundef %31, ptr noundef nonnull %3)
+  %66 = call fastcc i32 @H5B__get_info_helper(ptr noundef %0, ptr noundef %1, i64 noundef %31, ptr noundef %3)
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %.thread
 

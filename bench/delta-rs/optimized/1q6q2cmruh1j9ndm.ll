@@ -429,7 +429,7 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$core..result..Result$LT$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_mount..file..LocalFileSystemError$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h68bff83245412d4eE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_mount..file..LocalFileSystemError$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h68bff83245412d4eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !66, !noundef !12
   %.not = icmp eq i32 %2, 8
   br i1 %.not, label %"_ZN4core3ptr172drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_mount..file..LocalFileSystemError$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h62cc6b5c2955e277E.llvm.1572246609963143282.exit", label %3
@@ -2879,7 +2879,7 @@ common.resume:                                    ; preds = %.thread, %38
 
 .thread:                                          ; preds = %42, %.thread23
   %.pn22 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread23 ], [ %43, %42 ]
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_mount..file..LocalFileSystemError$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h68bff83245412d4eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6) #21
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_mount..file..LocalFileSystemError$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h68bff83245412d4eE"(ptr noalias noundef align 8 dereferenceable(64) %6) #21
           to label %common.resume unwind label %47
 }
 

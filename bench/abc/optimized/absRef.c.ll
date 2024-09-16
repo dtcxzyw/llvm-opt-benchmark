@@ -955,7 +955,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %78, %Gia_ObjIsRo.ex
   %162 = load i32, ptr %144, align 4
   %163 = lshr i32 %162, 4
   %164 = and i32 %163, 16777215
-  %165 = tail call i32 @llvm.umax.i32(i32 %161, i32 %164)
+  %165 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 %161, i32 %164)
   %166 = shl nuw nsw i32 %165, 4
   %167 = and i32 %157, -268435441
   %168 = or disjoint i32 %166, %167
@@ -984,7 +984,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %78, %Gia_ObjIsRo.ex
   %184 = and i32 %183, 16777215
   %185 = lshr i32 %175, 4
   %186 = and i32 %185, 16777215
-  %187 = tail call i32 @llvm.umin.i32(i32 %184, i32 %186)
+  %187 = tail call range(i32 0, 16777216) i32 @llvm.umin.i32(i32 %184, i32 %186)
   %188 = shl nuw nsw i32 %187, 4
   %189 = and i32 %153, -268435442
   %190 = or disjoint i32 %188, %189
@@ -2634,10 +2634,10 @@ declare void @llvm.va_end.p0(ptr) #15
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #17

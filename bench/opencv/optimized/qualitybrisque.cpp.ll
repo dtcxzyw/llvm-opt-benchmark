@@ -489,7 +489,7 @@ define void @_ZN2cv7quality14QualityBRISQUE7computeERKNS_11_InputArrayE(ptr dead
   %9 = alloca %"class.cv::Mat", align 8
   %10 = alloca %"class.cv::Mat", align 8
   call void @_ZN2cv7quality13quality_utils11extract_matINS_3MatEEET_RKNS_11_InputArrayEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1)
-  invoke fastcc void @_ZN12_GLOBAL__N_111mat_convertERKN2cv3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(96) %9)
+  invoke fastcc void @_ZN12_GLOBAL__N_111mat_convertERKN2cv3MatE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %11 unwind label %53
 
 11:                                               ; preds = %3
@@ -507,7 +507,7 @@ define void @_ZN2cv7quality14QualityBRISQUE7computeERKNS_11_InputArrayE(ptr dead
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6), !noalias !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !4
-  invoke fastcc void @_ZN12_GLOBAL__N_121ComputeBrisqueFeatureERKN2cv3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %9)
+  invoke fastcc void @_ZN12_GLOBAL__N_121ComputeBrisqueFeatureERKN2cv3MatE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %13
@@ -1393,12 +1393,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %41, %44
   br label %_ZNK2cv11_InputArray6getMatEi.exit29
 
 _ZNK2cv11_InputArray6getMatEi.exit29:             ; preds = %60, %63
-  invoke fastcc void @_ZN12_GLOBAL__N_111mat_convertERKN2cv3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(96) %11)
+  invoke fastcc void @_ZN12_GLOBAL__N_111mat_convertERKN2cv3MatE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(96) %11)
           to label %64 unwind label %82
 
 64:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit29
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #21
-  invoke fastcc void @_ZN12_GLOBAL__N_121ComputeBrisqueFeatureERKN2cv3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %10)
+  invoke fastcc void @_ZN12_GLOBAL__N_121ComputeBrisqueFeatureERKN2cv3MatE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %65 unwind label %84
 
 65:                                               ; preds = %64
@@ -1568,7 +1568,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121ComputeBrisqueFeatureERKN2cv3MatE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121ComputeBrisqueFeatureERKN2cv3MatE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .preheader181:
   %2 = alloca %"class.cv::Mat", align 8
   %3 = alloca %"class.cv::Mat", align 8

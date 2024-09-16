@@ -976,7 +976,7 @@ if.then118:                                       ; preds = %if.end116
   br label %if.end122
 
 if.else119:                                       ; preds = %if.end116
-  call fastcc void @show_resolve_info(ptr noundef nonnull %data, ptr noundef nonnull %call111)
+  call fastcc void @show_resolve_info(ptr noundef nonnull %data, ptr noundef %call111)
   br label %if.end122
 
 if.end122:                                        ; preds = %if.end99, %if.then93, %if.else119, %if.then118, %if.end27
@@ -1051,7 +1051,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call fastcc void @show_resolve_info(ptr noundef nonnull %data, ptr noundef nonnull %2)
+  tail call fastcc void @show_resolve_info(ptr noundef nonnull %data, ptr noundef %2)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
@@ -1061,7 +1061,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 declare void @Curl_freeaddrinfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_resolve_info(ptr noundef %data, ptr noundef %dns) unnamed_addr #0 {
+define internal fastcc void @show_resolve_info(ptr noundef %data, ptr noundef nonnull %dns) unnamed_addr #0 {
 entry:
   %in.i = alloca %struct.in_addr, align 4
   %in6.i = alloca %struct.in6_addr, align 4

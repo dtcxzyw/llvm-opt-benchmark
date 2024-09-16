@@ -1167,7 +1167,7 @@ hwloc_disc_component_find.exit:                   ; preds = %55
   br i1 %.not125, label %72, label %66
 
 66:                                               ; preds = %.loopexit137
-  tail call fastcc void @hwloc_disc_component_try_enable(ptr noundef nonnull %0, ptr noundef nonnull %.01726.i, i32 noundef 1, i32 noundef %.090)
+  tail call fastcc void @hwloc_disc_component_try_enable(ptr noundef nonnull %0, ptr noundef %.01726.i, i32 noundef 1, i32 noundef %.090)
   br label %72
 
 .loopexit138:                                     ; preds = %53, %48
@@ -1361,7 +1361,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_disc_component_try_enable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @hwloc_disc_component_try_enable(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 836

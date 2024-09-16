@@ -24917,7 +24917,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit11.i.i.i:   ; preds = %64, %62, %._crit_ed
   %66 = getelementptr inbounds i8, ptr %65, i64 %54
   store i8 0, ptr %66, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef %7)
   %67 = load ptr, ptr %29, align 8
   %68 = icmp eq ptr %67, %28
   br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i.i.i
@@ -25149,7 +25149,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit5.i:        ; preds = %151, %149, %._crit_
   %153 = getelementptr inbounds i8, ptr %152, i64 %141
   store i8 0, ptr %153, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef %5)
   %154 = load ptr, ptr %83, align 8
   %155 = icmp eq ptr %154, %82
   br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i
@@ -25449,7 +25449,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_T0_SM_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_0EEEvT_T0_SM_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #4 {
   %5 = alloca %"struct.glslang::TVarLivePair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -27093,7 +27093,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit11.i.i.i:   ; preds = %64, %62, %._crit_ed
   %66 = getelementptr inbounds i8, ptr %65, i64 %54
   store i8 0, ptr %66, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef %7)
   %67 = load ptr, ptr %29, align 8
   %68 = icmp eq ptr %67, %28
   br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i.i.i
@@ -27325,7 +27325,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit5.i:        ; preds = %151, %149, %._crit_
   %153 = getelementptr inbounds i8, ptr %152, i64 %141
   store i8 0, ptr %153, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef %5)
   %154 = load ptr, ptr %83, align 8
   %155 = icmp eq ptr %154, %82
   br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i
@@ -27625,7 +27625,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_T0_SM_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_1EEEvT_T0_SM_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #4 {
   %5 = alloca %"struct.glslang::TVarLivePair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -28882,7 +28882,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit11.i.i.i:   ; preds = %64, %62, %._crit_ed
   %66 = getelementptr inbounds i8, ptr %65, i64 %54
   store i8 0, ptr %66, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef %7)
   %67 = load ptr, ptr %29, align 8
   %68 = icmp eq ptr %67, %28
   br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i.i.i
@@ -29114,7 +29114,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit5.i:        ; preds = %151, %149, %._crit_
   %153 = getelementptr inbounds i8, ptr %152, i64 %141
   store i8 0, ptr %153, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef %5)
   %154 = load ptr, ptr %83, align 8
   %155 = icmp eq ptr %154, %82
   br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i
@@ -29414,7 +29414,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_T0_SM_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_9TIoMapper8addStageE11EShLanguageRNS2_13TIntermediateER9TInfoSinkPNS2_14TIoMapResolverEE3$_2EEEvT_T0_SM_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #4 {
   %5 = alloca %"struct.glslang::TVarLivePair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -30909,7 +30909,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit11.i.i.i:   ; preds = %64, %62, %._crit_ed
   %66 = getelementptr inbounds i8, ptr %65, i64 %54
   store i8 0, ptr %66, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef %7)
   %67 = load ptr, ptr %29, align 8
   %68 = icmp eq ptr %67, %28
   br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i.i.i
@@ -31141,7 +31141,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit5.i:        ; preds = %151, %149, %._crit_
   %153 = getelementptr inbounds i8, ptr %152, i64 %141
   store i8 0, ptr %153, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef %5)
   %154 = load ptr, ptr %83, align 8
   %155 = icmp eq ptr %154, %82
   br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i
@@ -31441,7 +31441,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_1EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #4 {
   %5 = alloca %"struct.glslang::TVarLivePair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -32698,7 +32698,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit11.i.i.i:   ; preds = %64, %62, %._crit_ed
   %66 = getelementptr inbounds i8, ptr %65, i64 %54
   store i8 0, ptr %66, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef %7)
   %67 = load ptr, ptr %29, align 8
   %68 = icmp eq ptr %67, %28
   br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i.i.i
@@ -32930,7 +32930,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit5.i:        ; preds = %151, %149, %._crit_
   %153 = getelementptr inbounds i8, ptr %152, i64 %141
   store i8 0, ptr %153, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef %5)
   %154 = load ptr, ptr %83, align 8
   %155 = icmp eq ptr %154, %82
   br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i
@@ -33230,7 +33230,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_3EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #4 {
   %5 = alloca %"struct.glslang::TVarLivePair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -34489,7 +34489,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit11.i.i.i:   ; preds = %66, %64, %._crit_ed
   %68 = getelementptr inbounds i8, ptr %67, i64 %56
   store i8 0, ptr %68, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %23, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %23, ptr noundef %7)
   %69 = load ptr, ptr %31, align 8
   %70 = icmp eq ptr %69, %30
   br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i.i.i
@@ -34721,7 +34721,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit5.i:        ; preds = %153, %151, %._crit_
   %155 = getelementptr inbounds i8, ptr %154, i64 %143
   store i8 0, ptr %155, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(48) %81, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %140, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %140, ptr noundef %5)
   %156 = load ptr, ptr %85, align 8
   %157 = icmp eq ptr %156, %84
   br i1 %157, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i
@@ -35196,7 +35196,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_6EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #4 {
   %5 = alloca %"struct.glslang::TVarLivePair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -36533,7 +36533,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit11.i.i.i:   ; preds = %64, %62, %._crit_ed
   %66 = getelementptr inbounds i8, ptr %65, i64 %54
   store i8 0, ptr %66, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %21, ptr noundef %7)
   %67 = load ptr, ptr %29, align 8
   %68 = icmp eq ptr %67, %28
   br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i.i.i
@@ -36765,7 +36765,7 @@ _ZN7glslang12TVarLivePairC2ERKS0_.exit5.i:        ; preds = %151, %149, %._crit_
   %153 = getelementptr inbounds i8, ptr %152, i64 %141
   store i8 0, ptr %153, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %138, ptr noundef %5)
   %154 = load ptr, ptr %83, align 8
   %155 = icmp eq ptr %154, %82
   br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZN7glslang12TVarLivePairD2Ev.exit.i
@@ -37065,7 +37065,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7glslang12TVarLivePairESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_13TGlslIoMapper5doMapEPNS2_14TIoMapResolverER9TInfoSinkE3$_7EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #4 {
   %5 = alloca %"struct.glslang::TVarLivePair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

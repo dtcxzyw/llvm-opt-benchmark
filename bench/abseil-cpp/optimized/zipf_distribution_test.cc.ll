@@ -1020,7 +1020,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_18ZipfTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %code_location) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_18ZipfTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
@@ -1291,7 +1291,7 @@ if.end25:                                         ; preds = %_ZNSt6vectorIPN7tes
 define internal void @_ZN12_GLOBAL__N_132gtest_AllZipfTest_EvalGenerator_Ev(ptr noalias sret(%"class.testing::internal::ParamGenerator") align 8 %agg.result) #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.80", align 8
-  call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias nonnull align 8 %ref.tmp)
+  call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias align 8 %ref.tmp)
   %0 = load ptr, ptr %ref.tmp, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !7
@@ -1332,7 +1332,7 @@ entry:
   br i1 %call.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias nonnull align 8 %ref.tmp1)
+  call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias align 8 %ref.tmp1)
   %0 = load ptr, ptr %ref.tmp1, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !10
@@ -4935,7 +4935,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal1
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca [15 x %"class.absl::zipf_distribution<unsigned long>::param_type"], align 8
   call void @_ZN4absl17zipf_distributionImE10param_typeC2Emdd(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8, i64 noundef -1, double noundef 2.000000e+00, double noundef 1.000000e+00)
@@ -52134,7 +52134,7 @@ invoke.cont.i.i12:                                ; preds = %.noexc.i.i11
 invoke.cont4.i.i:                                 ; preds = %invoke.cont.i.i12
   %line.i.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i.i5, i64 32
   store i32 222, ptr %line.i.i.i14, align 8
-  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_18ZipfTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef nonnull %agg.tmp.i.i5)
+  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_18ZipfTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef %agg.tmp.i.i5)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont4.i.i
@@ -52574,7 +52574,7 @@ invoke.cont.i44:                                  ; preds = %.noexc.i42
 invoke.cont4.i47:                                 ; preds = %invoke.cont.i44
   %line.i.i48 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 347, ptr %line.i.i48, align 8
-  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_18ZipfTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef nonnull %agg.tmp.i)
+  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_18ZipfTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef %agg.tmp.i)
           to label %invoke.cont6.i unwind label %lpad5.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont4.i47

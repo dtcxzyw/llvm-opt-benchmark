@@ -296,8 +296,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_big5(ptr nocapture nound
 
 24:                                               ; preds = %11
   %25 = urem i32 %13, 20172
-  %.zext = zext nneg i32 %25 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_big5, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %25 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_big5, i64 12), i64 %.zext.i
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -491,8 +491,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_euc_jp(ptr nocapture nou
   %60 = icmp eq i32 %13, 8722
   %spec.store.select = select i1 %60, i32 65293, i32 %13
   %61 = urem i32 %spec.store.select, 9253
-  %.zext = zext nneg i32 %61 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_jis0208, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %61 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_jis0208, i64 12), i64 %.zext.i
   br label %62
 
 62:                                               ; preds = %65, %59
@@ -610,8 +610,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_euc_kr(ptr nocapture nou
 
 24:                                               ; preds = %11
   %25 = urem i32 %13, 28041
-  %.zext = zext nneg i32 %25 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_euc_kr, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %25 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_euc_kr, i64 12), i64 %.zext.i
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -772,8 +772,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_gbk(ptr nocapture nounde
 
 48:                                               ; preds = %24
   %49 = urem i32 %13, 19950
-  %.zext = zext nneg i32 %49 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_gb18030, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %49 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_gb18030, i64 12), i64 %.zext.i
   br label %50
 
 50:                                               ; preds = %53, %48
@@ -904,8 +904,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_ibm866(ptr nocapture nou
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 344
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_ibm866, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_ibm866, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1207,8 +1207,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
 118:                                              ; preds = %114, %110
   %.1 = phi i32 [ %117, %114 ], [ %spec.store.select, %110 ]
   %119 = urem i32 %.1, 9253
-  %.zext = zext nneg i32 %119 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_jis0208, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %119 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_jis0208, i64 12), i64 %.zext.i
   br label %120
 
 120:                                              ; preds = %123, %118
@@ -1385,8 +1385,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_10(ptr nocaptur
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_10, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_10, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1495,8 +1495,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_13(ptr nocaptur
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 345
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_13, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_13, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1605,8 +1605,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_14(ptr nocaptur
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 407
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_14, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_14, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1715,8 +1715,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_15(ptr nocaptur
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 344
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_15, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_15, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1825,8 +1825,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_16(ptr nocaptur
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 413
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_16, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_16, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -1935,8 +1935,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_2(ptr nocapture
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 368
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_2, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_2, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2045,8 +2045,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_3(ptr nocapture
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_3, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_3, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2155,8 +2155,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_4(ptr nocapture
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_4, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_4, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2265,8 +2265,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_5(ptr nocapture
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_5, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_5, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2375,8 +2375,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_6(ptr nocapture
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_6, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_6, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2485,8 +2485,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_7(ptr nocapture
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 344
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_7, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_7, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2595,8 +2595,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_8(ptr nocapture
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 347
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_8, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_8, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2705,8 +2705,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_8_i(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 347
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_8, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_iso_8859_8, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2815,8 +2815,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_koi8_r(ptr nocapture nou
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 486
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_koi8_r, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_koi8_r, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -2925,8 +2925,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_koi8_u(ptr nocapture nou
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 380
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_koi8_u, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_koi8_u, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -3429,8 +3429,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_gb18030(ptr nocapture no
 
 41:                                               ; preds = %24
   %42 = urem i32 %13, 19950
-  %.zext = zext nneg i32 %42 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_gb18030, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %42 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_gb18030, i64 12), i64 %.zext.i
   br label %43
 
 43:                                               ; preds = %46, %41
@@ -3560,8 +3560,8 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %80, %.thread.i
   %115 = getelementptr inbounds i8, ptr %113, i64 %76
   store i8 %112, ptr %115, align 1
   %116 = urem i32 %.0.i58, 12600
-  %.lhs.trunc62 = trunc nuw nsw i32 %116 to i16
-  %117 = udiv i16 %.lhs.trunc62, 1260
+  %.lhs.trunc = trunc nuw nsw i32 %116 to i16
+  %117 = udiv i16 %.lhs.trunc, 1260
   %118 = trunc nuw nsw i16 %117 to i8
   %119 = or disjoint i8 %118, 48
   %120 = load ptr, ptr %9, align 8
@@ -3570,7 +3570,7 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %80, %.thread.i
   store i64 %122, ptr %4, align 8
   %123 = getelementptr inbounds i8, ptr %120, i64 %121
   store i8 %119, ptr %123, align 1
-  %124 = urem i16 %.lhs.trunc62, 1260
+  %124 = urem i16 %.lhs.trunc, 1260
   %125 = udiv i16 %124, 10
   %126 = trunc nuw nsw i16 %125 to i8
   %127 = add nuw nsw i8 %126, -127
@@ -3640,8 +3640,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_macintosh(ptr nocapture 
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_macintosh, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_macintosh, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -3756,8 +3756,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1250(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 432
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1250, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1250, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -3866,8 +3866,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1251(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 362
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1251, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1251, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -3976,8 +3976,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1252(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 373
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1252, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1252, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4086,8 +4086,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1253(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 354
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1253, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1253, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4196,8 +4196,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1254(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 354
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1254, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1254, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4306,8 +4306,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1255(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 467
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1255, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1255, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4416,8 +4416,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1256(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 343
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1256, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1256, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4526,8 +4526,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1257(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 355
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1257, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1257, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4636,8 +4636,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1258(ptr nocaptu
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 405
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1258, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_1258, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4746,8 +4746,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_874(ptr nocaptur
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 359
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_874, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_windows_874, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -4856,8 +4856,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_x_mac_cyrillic(ptr nocap
 
 23:                                               ; preds = %11
   %24 = urem i32 %12, 373
-  %.zext = zext nneg i32 %24 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_x_mac_cyrillic, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %24 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_single_hash_x_mac_cyrillic, i64 12), i64 %.zext.i
   br label %25
 
 25:                                               ; preds = %28, %23
@@ -5270,8 +5270,8 @@ define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_big5_single(ptr no
 
 10:                                               ; preds = %4
   %11 = urem i32 %3, 20172
-  %.zext = zext nneg i32 %11 to i64
-  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_big5, i64 %.zext
+  %.zext.i = zext nneg i32 %11 to i64
+  %12 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_big5, i64 %.zext.i
   %13 = getelementptr inbounds i8, ptr %12, i64 12
   br label %14
 
@@ -5385,8 +5385,8 @@ define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_euc_jp_single(ptr 
   %29 = icmp eq i32 %3, 8722
   %spec.store.select = select i1 %29, i32 65293, i32 %3
   %30 = urem i32 %spec.store.select, 9253
-  %.zext = zext nneg i32 %30 to i64
-  %31 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_jis0208, i64 %.zext
+  %.zext.i = zext nneg i32 %30 to i64
+  %31 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_jis0208, i64 %.zext.i
   %32 = getelementptr inbounds i8, ptr %31, i64 12
   br label %33
 
@@ -5444,8 +5444,8 @@ define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_euc_kr_single(ptr 
 
 12:                                               ; preds = %8
   %13 = urem i32 %3, 28041
-  %.zext = zext nneg i32 %13 to i64
-  %14 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_euc_kr, i64 %.zext
+  %.zext.i = zext nneg i32 %13 to i64
+  %14 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_euc_kr, i64 %.zext.i
   %15 = getelementptr inbounds i8, ptr %14, i64 12
   br label %16
 
@@ -5519,8 +5519,8 @@ define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_gbk_single(ptr noc
 
 14:                                               ; preds = %10
   %15 = urem i32 %3, 19950
-  %.zext = zext nneg i32 %15 to i64
-  %16 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_gb18030, i64 %.zext
+  %.zext.i = zext nneg i32 %15 to i64
+  %16 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_gb18030, i64 %.zext.i
   %17 = getelementptr inbounds i8, ptr %16, i64 12
   br label %18
 
@@ -5587,8 +5587,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_ibm866_single(ptr 
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 344
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_ibm866, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_ibm866, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -5817,8 +5817,8 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
 92:                                               ; preds = %88, %84
   %.1 = phi i32 [ %91, %88 ], [ %spec.store.select, %84 ]
   %93 = urem i32 %.1, 9253
-  %.zext = zext nneg i32 %93 to i64
-  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_jis0208, i64 12), i64 %.zext
+  %.zext.i = zext nneg i32 %93 to i64
+  %gep = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr getelementptr inbounds (i8, ptr @lxb_encoding_multi_hash_jis0208, i64 12), i64 %.zext.i
   br label %94
 
 94:                                               ; preds = %97, %92
@@ -5931,8 +5931,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_10_single
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 343
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_10, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_10, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -5976,8 +5976,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_13_single
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 345
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_13, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_13, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6021,8 +6021,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_14_single
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 407
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_14, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_14, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6066,8 +6066,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_15_single
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 344
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_15, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_15, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6111,8 +6111,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_16_single
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 413
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_16, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_16, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6156,8 +6156,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_2_single(
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 368
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_2, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_2, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6201,8 +6201,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_3_single(
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 343
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_3, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_3, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6246,8 +6246,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_4_single(
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 343
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_4, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_4, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6291,8 +6291,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_5_single(
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 343
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_5, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_5, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6336,8 +6336,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_6_single(
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 343
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_6, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_6, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6381,8 +6381,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_7_single(
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 344
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_7, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_7, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6426,8 +6426,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_8_single(
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 347
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_8, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_8, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6471,8 +6471,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_iso_8859_8_i_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 347
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_8, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_iso_8859_8, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6516,8 +6516,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_koi8_r_single(ptr 
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 486
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_koi8_r, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_koi8_r, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6561,8 +6561,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_koi8_u_single(ptr 
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 380
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_koi8_u, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_koi8_u, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -6862,8 +6862,8 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_gb18030_single(ptr
 
 12:                                               ; preds = %10
   %13 = urem i32 %3, 19950
-  %.zext = zext nneg i32 %13 to i64
-  %14 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_gb18030, i64 %.zext
+  %.zext.i = zext nneg i32 %13 to i64
+  %14 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_gb18030, i64 %.zext.i
   %15 = getelementptr inbounds i8, ptr %14, i64 12
   br label %16
 
@@ -6986,15 +6986,15 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %47, %.thread.i
   store ptr %80, ptr %1, align 8
   store i8 %79, ptr %44, align 1
   %81 = urem i32 %.0.i31, 12600
-  %.lhs.trunc35 = trunc nuw nsw i32 %81 to i16
-  %82 = udiv i16 %.lhs.trunc35, 1260
+  %.lhs.trunc = trunc nuw nsw i32 %81 to i16
+  %82 = udiv i16 %.lhs.trunc, 1260
   %83 = trunc nuw nsw i16 %82 to i8
   %84 = or disjoint i8 %83, 48
   %85 = load ptr, ptr %1, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 1
   store ptr %86, ptr %1, align 8
   store i8 %84, ptr %85, align 1
-  %87 = urem i16 %.lhs.trunc35, 1260
+  %87 = urem i16 %.lhs.trunc, 1260
   %88 = udiv i16 %87, 10
   %89 = trunc nuw nsw i16 %88 to i8
   %90 = add nuw nsw i8 %89, -127
@@ -7023,8 +7023,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_macintosh_single(p
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 343
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_macintosh, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_macintosh, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7076,8 +7076,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1250_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 432
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1250, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1250, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7121,8 +7121,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1251_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 362
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1251, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1251, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7166,8 +7166,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1252_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 373
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1252, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1252, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7211,8 +7211,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1253_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 354
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1253, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1253, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7256,8 +7256,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1254_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 354
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1254, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1254, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7301,8 +7301,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1255_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 467
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1255, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1255, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7346,8 +7346,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1256_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 343
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1256, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1256, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7391,8 +7391,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1257_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 355
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1257, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1257, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7436,8 +7436,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_1258_singl
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 405
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1258, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_1258, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7481,8 +7481,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_windows_874_single
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 359
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_874, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_windows_874, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 
@@ -7526,8 +7526,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_x_mac_cyrillic_sin
 
 6:                                                ; preds = %4
   %7 = urem i32 %3, 373
-  %.zext = zext nneg i32 %7 to i64
-  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_x_mac_cyrillic, i64 %.zext
+  %.zext.i = zext nneg i32 %7 to i64
+  %8 = getelementptr inbounds %struct.lexbor_shs_hash_t, ptr @lxb_encoding_single_hash_x_mac_cyrillic, i64 %.zext.i
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   br label %10
 

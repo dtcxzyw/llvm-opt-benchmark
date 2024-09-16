@@ -4251,7 +4251,7 @@ declare i32 @_PyInterpreterState_SetConfig(ptr noundef) local_unnamed_addr #1
 declare void @_PyPathConfig_ClearGlobal() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @check_edit_cost(ptr noundef %a, ptr noundef %b, i64 noundef %expected) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_edit_cost(ptr noundef %a, ptr noundef %b, i64 noundef range(i64 0, 13) %expected) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %a) #9
   %cmp = icmp eq ptr %call, null
@@ -4274,8 +4274,8 @@ if.then7:                                         ; preds = %if.end4
 
 while.cond:                                       ; preds = %if.end4, %while.body
   %max_edits.0 = phi i64 [ %div29, %while.body ], [ %expected, %if.end4 ]
-  %cmp10 = icmp sgt i64 %max_edits.0, 0
-  br i1 %cmp10, label %while.body, label %while.end
+  %cmp10.not = icmp eq i64 %max_edits.0, 0
+  br i1 %cmp10.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %div29 = lshr i64 %max_edits.0, 1
@@ -4349,7 +4349,7 @@ declare i64 @_Py_UTF8_Edit_Cost(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @check_bytes_find(ptr noundef %haystack0, ptr noundef %needle0, i32 noundef %offset, i64 noundef %expected) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_bytes_find(ptr noundef %haystack0, ptr noundef %needle0, i32 noundef range(i32 0, 7) %offset, i64 noundef range(i64 -1, 31) %expected) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %haystack0) #11
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %needle0) #11
@@ -4402,7 +4402,7 @@ return:                                           ; preds = %if.end16, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @check_bytes_find_large(i64 noundef %len_haystack, i64 noundef %len_needle, ptr noundef %needle) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_bytes_find_large(i64 noundef range(i64 2048, 32769) %len_haystack, i64 noundef range(i64 2, 17) %len_needle, ptr noundef %needle) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyMem_RawCalloc(i64 noundef %len_haystack, i64 noundef 1) #9
   %cmp = icmp eq ptr %call, null

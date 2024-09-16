@@ -254,7 +254,7 @@ SanitizeEncoderOptions.exit:                      ; preds = %57, %55, %49, %26, 
   br i1 %.not61, label %105, label %82
 
 82:                                               ; preds = %80
-  tail call fastcc void @WebPUtilClearPic(ptr noundef nonnull %69, ptr noundef null)
+  tail call fastcc void @WebPUtilClearPic(ptr noundef %69, ptr noundef null)
   %83 = getelementptr inbounds i8, ptr %11, i64 568
   store i32 1, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %11, i64 1104
@@ -314,7 +314,7 @@ declare i32 @WebPPictureAlloc(ptr noundef) local_unnamed_addr #2
 declare i32 @WebPPictureCopy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @WebPUtilClearPic(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @WebPUtilClearPic(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1) unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %32, label %3
 
@@ -547,7 +547,7 @@ define hidden range(i32 0, 2) i32 @WebPAnimEncoderRefineRect(ptr noundef readonl
   %58 = select i1 %56, i32 0, i32 %57
   %59 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %58, ptr %59, align 4
-  call fastcc void @MinimizeChangeRectangle(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %2, float noundef %3)
+  call fastcc void @MinimizeChangeRectangle(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %2, float noundef %3)
   %60 = load i32, ptr %9, align 4
   %61 = and i32 %60, 1
   %62 = load i32, ptr %53, align 4
@@ -570,7 +570,7 @@ define hidden range(i32 0, 2) i32 @WebPAnimEncoderRefineRect(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @MinimizeChangeRectangle(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #1 {
+define internal fastcc void @MinimizeChangeRectangle(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, i32 noundef %3, float noundef %4) unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   %6 = select i1 %.not, ptr @ComparePixelsLossy, ptr @ComparePixelsLossless
   %7 = fpext float %4 to double
@@ -830,7 +830,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
   br label %195
 
 24:                                               ; preds = %14
-  %25 = tail call fastcc i32 @IncreasePreviousDuration(ptr noundef nonnull %0, i32 noundef %17)
+  %25 = tail call fastcc i32 @IncreasePreviousDuration(ptr noundef %0, i32 noundef %17)
   %.not50 = icmp eq i32 %25, 0
   br i1 %.not50, label %195, label %26
 
@@ -843,7 +843,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %26
-  %33 = tail call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
+  %33 = tail call fastcc i32 @FlushFrames(ptr noundef %0)
   %.not51 = icmp eq i32 %33, 0
   br i1 %.not51, label %195, label %36
 
@@ -982,7 +982,7 @@ CopyCurrentCanvas.exit:                           ; preds = %76, %80
   br i1 %.not.i62, label %104, label %97
 
 97:                                               ; preds = %CopyCurrentCanvas.exit
-  %98 = call fastcc i32 @SetFrame(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, i32 noundef 1, ptr noundef %94, ptr noundef nonnull %5)
+  %98 = call fastcc i32 @SetFrame(ptr noundef %0, ptr noundef readonly %8, i32 noundef 1, ptr noundef %94, ptr noundef %5)
   %.not98.i = icmp eq i32 %98, 0
   br i1 %.not98.i, label %99, label %.thread.i
 
@@ -1005,7 +1005,7 @@ CopyCurrentCanvas.exit:                           ; preds = %76, %80
   %108 = getelementptr inbounds i8, ptr %0, i64 20
   %109 = load i32, ptr %108, align 4
   %.not87.not.i = icmp slt i32 %106, %109
-  %110 = call fastcc i32 @SetFrame(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, i32 noundef 0, ptr noundef %94, ptr noundef nonnull %5)
+  %110 = call fastcc i32 @SetFrame(ptr noundef %0, ptr noundef readonly %8, i32 noundef 0, ptr noundef %94, ptr noundef %5)
   %.not96.i = icmp eq i32 %110, 0
   br i1 %.not87.not.i, label %111, label %120
 
@@ -1039,7 +1039,7 @@ CopyCurrentCanvas.exit:                           ; preds = %76, %80
 123:                                              ; preds = %121
   %124 = getelementptr inbounds i8, ptr %0, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %124, i64 16, i1 false)
-  %125 = call fastcc i32 @SetFrame(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, i32 noundef 1, ptr noundef %94, ptr noundef nonnull %5)
+  %125 = call fastcc i32 @SetFrame(ptr noundef %0, ptr noundef readonly %8, i32 noundef 1, ptr noundef %94, ptr noundef %5)
   %.not90.i = icmp eq i32 %125, 0
   br i1 %.not90.i, label %126, label %.thread.i
 
@@ -1200,7 +1200,7 @@ CacheFrame.exit.thread:                           ; preds = %186, %167
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %192 = call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
+  %192 = call fastcc i32 @FlushFrames(ptr noundef %0)
   %.not66 = icmp eq i32 %192, 0
   store ptr null, ptr %77, align 8
   store i32 1, ptr %78, align 8
@@ -1217,7 +1217,7 @@ CacheFrame.exit.thread:                           ; preds = %186, %167
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca [28 x i8], align 16
   %4 = alloca %struct.WebPData, align 8
   %5 = alloca [72 x i8], align 16
@@ -1330,7 +1330,7 @@ WebPDataCopy.exit:                                ; preds = %40, %26, %47, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
   %2 = alloca %struct.EncodedFrame, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1120
   %4 = load i64, ptr %3, align 8
@@ -1533,7 +1533,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAssemble(ptr noundef %0, ptr noundef 
   %29 = uitofp i64 %28 to double
   %30 = fdiv double %27, %29
   %31 = fptosi double %30 to i32
-  %32 = tail call fastcc i32 @IncreasePreviousDuration(ptr noundef nonnull %0, i32 noundef %31)
+  %32 = tail call fastcc i32 @IncreasePreviousDuration(ptr noundef %0, i32 noundef %31)
   %.not45 = icmp eq i32 %32, 0
   br i1 %.not45, label %58, label %33
 
@@ -1542,7 +1542,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAssemble(ptr noundef %0, ptr noundef 
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 1120
   store i64 %35, ptr %36, align 8
-  %37 = tail call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
+  %37 = tail call fastcc i32 @FlushFrames(ptr noundef %0)
   %.not46 = icmp eq i32 %37, 0
   br i1 %.not46, label %58, label %38
 
@@ -1574,7 +1574,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAssemble(ptr noundef %0, ptr noundef 
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %50
-  %55 = tail call fastcc i32 @OptimizeSingleFrame(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %55 = tail call fastcc i32 @OptimizeSingleFrame(ptr noundef %0, ptr noundef %1)
   %.not50 = icmp eq i32 %55, 1
   br i1 %.not50, label %58, label %56
 
@@ -1595,7 +1595,7 @@ declare i32 @WebPMuxSetAnimationParams(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @WebPMuxAssemble(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @OptimizeSingleFrame(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @OptimizeSingleFrame(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca %struct.WebPPicture, align 8
   %4 = alloca %struct.WebPDecoderConfig, align 8
   %5 = alloca %struct.WebPMemoryWriter, align 8
@@ -1605,7 +1605,7 @@ define internal fastcc i32 @OptimizeSingleFrame(ptr noundef %0, ptr noundef %1) 
   %9 = alloca %struct.WebPMuxFrameInfo, align 8
   %10 = alloca %struct.WebPData, align 8
   %11 = alloca %struct.WebPData, align 8
-  %12 = tail call ptr @WebPMuxCreateInternal(ptr noundef %1, i32 noundef 0, i32 noundef 265) #14
+  %12 = tail call ptr @WebPMuxCreateInternal(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 265) #14
   %13 = icmp eq ptr %12, null
   br i1 %13, label %111, label %14
 
@@ -2015,7 +2015,7 @@ declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32
 declare void @WebPCopyPixels(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SetFrame(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc i32 @SetFrame(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 {
   %6 = alloca [4 x %struct.Candidate], align 16
   %7 = alloca %struct.SubFrameParams, align 8
   %8 = alloca %struct.SubFrameParams, align 8
@@ -2091,7 +2091,7 @@ SubFrameParamsInit.exit88:                        ; preds = %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
   %40 = getelementptr inbounds i8, ptr %10, i64 4
   %41 = load float, ptr %40, align 4
-  %42 = call fastcc i32 @GetSubRects(ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef %2, i32 noundef %18, float noundef %41, ptr noundef nonnull %7)
+  %42 = call fastcc i32 @GetSubRects(ptr noundef %12, ptr noundef %11, i32 noundef %2, i32 noundef %18, float noundef %41, ptr noundef %7)
   %.not67 = icmp eq i32 %42, 0
   br i1 %.not67, label %175, label %43
 
@@ -2177,7 +2177,7 @@ IsEmptyRect.exit.thread:                          ; preds = %51, %44
   br i1 %88, label %.lr.ph.us.i.i.i, label %DisposeFrameRectangle.exit, !llvm.loop !4
 
 DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %58, %.lr.ph18.i.i.i
-  %89 = call fastcc i32 @GetSubRects(ptr noundef nonnull %59, ptr noundef nonnull %11, i32 noundef %2, i32 noundef %18, float noundef %41, ptr noundef nonnull %8)
+  %89 = call fastcc i32 @GetSubRects(ptr noundef %59, ptr noundef %11, i32 noundef %2, i32 noundef %18, float noundef %41, ptr noundef %8)
   %.not70 = icmp eq i32 %89, 0
   br i1 %.not70, label %175, label %90
 
@@ -2234,7 +2234,7 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   br i1 %.not72, label %112, label %110
 
 110:                                              ; preds = %.thread100, %109
-  %111 = call fastcc i32 @GenerateCandidates(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %13, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %111 = call fastcc i32 @GenerateCandidates(ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef %13, i32 noundef %2, ptr noundef %7, ptr noundef %9, ptr noundef %10)
   %.not73 = icmp eq i32 %111, 0
   br i1 %.not73, label %112, label %175
 
@@ -2247,7 +2247,7 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   br label %152
 
 113:                                              ; preds = %.thread104, %112
-  %114 = call fastcc i32 @GenerateCandidates(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 1, i32 noundef %13, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %114 = call fastcc i32 @GenerateCandidates(ptr noundef %0, ptr noundef %6, i32 noundef 1, i32 noundef %13, i32 noundef %2, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %.not75 = icmp eq i32 %114, 0
   br i1 %.not75, label %.preheader, label %175
 
@@ -2423,7 +2423,7 @@ SubFrameParamsInit.exit.thread:                   ; preds = %33, %23, %SubFrameP
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GetSubRects(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @GetSubRects(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, float noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 12
@@ -2445,7 +2445,7 @@ define internal fastcc i32 @GetSubRects(ptr nocapture noundef readonly %0, ptr n
   br i1 %or.cond.i, label %20, label %21
 
 20:                                               ; preds = %6
-  tail call fastcc void @MinimizeChangeRectangle(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 1, float noundef %4)
+  tail call fastcc void @MinimizeChangeRectangle(ptr noundef readonly %0, ptr noundef %1, ptr noundef %7, i32 noundef 1, float noundef %4)
   %.pre = load i32, ptr %11, align 4
   br label %21
 
@@ -2490,7 +2490,7 @@ GetSubRect.exit.thread:                           ; preds = %IsEmptyRect.exit.th
   br i1 %or.cond.i, label %39, label %40
 
 39:                                               ; preds = %GetSubRect.exit.thread
-  tail call fastcc void @MinimizeChangeRectangle(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %36, i32 noundef 0, float noundef %4)
+  tail call fastcc void @MinimizeChangeRectangle(ptr noundef readonly %0, ptr noundef %1, ptr noundef %36, i32 noundef 0, float noundef %4)
   br label %40
 
 40:                                               ; preds = %39, %GetSubRect.exit.thread
@@ -2535,7 +2535,7 @@ GetSubRect.exit30:                                ; preds = %46, %IsEmptyRect.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GenerateCandidates(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) unnamed_addr #1 {
+define internal fastcc i32 @GenerateCandidates(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #1 {
   %9 = alloca %struct.WebPConfig, align 4
   %10 = alloca %struct.WebPConfig, align 4
   %11 = icmp eq i32 %2, 0
@@ -2927,7 +2927,7 @@ IncreaseTransparency.exit:                        ; preds = %._crit_edge.i, %168
   store i32 %233, ptr %234, align 4
   %235 = getelementptr inbounds i8, ptr %12, i64 56
   store i32 0, ptr %235, align 8
-  tail call void @WebPMemoryWriterInit(ptr noundef %12) #14
+  tail call void @WebPMemoryWriterInit(ptr noundef nonnull %12) #14
   %236 = load i32, ptr %10, align 4
   %237 = icmp eq i32 %236, 0
   %or.cond.i84 = and i1 %142, %237

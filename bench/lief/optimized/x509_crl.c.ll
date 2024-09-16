@@ -234,7 +234,7 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
 
 99:                                               ; preds = %95, %95, %95
   %100 = getelementptr inbounds i8, ptr %.1, i64 216
-  %101 = call fastcc i32 @x509_get_entries(ptr noundef nonnull %5, ptr noundef %49, ptr noundef nonnull %100)
+  %101 = call fastcc i32 @x509_get_entries(ptr noundef %5, ptr noundef %49, ptr noundef nonnull %100)
   %.not130 = icmp eq i32 %101, 0
   br i1 %.not130, label %103, label %102
 
@@ -249,7 +249,7 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds i8, ptr %.1, i64 320
-  %108 = call fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %5, ptr noundef %49, ptr noundef nonnull %107)
+  %108 = call fastcc i32 @x509_get_crl_ext(ptr noundef %5, ptr noundef %49, ptr noundef nonnull %107)
   %.not131 = icmp eq i32 %108, 0
   br i1 %.not131, label %110, label %109
 
@@ -449,7 +449,7 @@ declare i32 @mbedtls_x509_get_name(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @mbedtls_x509_get_time(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_get_entries(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @x509_get_entries(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -598,7 +598,7 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_get_crl_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8

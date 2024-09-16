@@ -7394,7 +7394,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i111:        ; preds = %_ZN2EA4StdC9Stopwat
   br i1 %tobool.not.i.i.i.i, label %_ZSt4fillIPccEvT_S1_RKT0_.exit.i, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i111
-  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 100, i64 %sub.ptr.sub.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %14, i8 100, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZSt4fillIPccEvT_S1_RKT0_.exit.i
 
 _ZSt4fillIPccEvT_S1_RKT0_.exit.i:                 ; preds = %if.then.i.i.i3.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i111
@@ -7402,7 +7402,7 @@ _ZSt4fillIPccEvT_S1_RKT0_.exit.i:                 ; preds = %if.then.i.i.i3.i, %
           to label %invoke.cont43 unwind label %_ZNSt6vectorIbSaIbEED2Ev.exit670
 
 invoke.cont43:                                    ; preds = %_ZSt4fillIPccEvT_S1_RKT0_.exit.i
-  %call.i113 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %14) #9
+  %call.i113 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %14) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %20 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i123 = icmp eq i32 %20, 1
@@ -7478,7 +7478,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i153:        ; preds = %_ZN2EA4StdC9Stopwat
   br i1 %tobool.not.i.i.i.i155, label %_ZSt4fillIPccEvT_S1_RKT0_.exit.i160, label %if.then.i.i.i3.i156
 
 if.then.i.i.i3.i156:                              ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i153
-  call void @llvm.memset.p0.i64(ptr align 1 %24, i8 100, i64 %sub.ptr.sub.i142, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 100, i64 %sub.ptr.sub.i142, i1 false)
   br label %_ZSt4fillIPccEvT_S1_RKT0_.exit.i160
 
 _ZSt4fillIPccEvT_S1_RKT0_.exit.i160:              ; preds = %if.then.i.i.i3.i156, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i153
@@ -7486,7 +7486,7 @@ _ZSt4fillIPccEvT_S1_RKT0_.exit.i160:              ; preds = %if.then.i.i.i3.i156
           to label %invoke.cont55 unwind label %_ZNSt6vectorIbSaIbEED2Ev.exit670.thread782.loopexit
 
 invoke.cont55:                                    ; preds = %_ZSt4fillIPccEvT_S1_RKT0_.exit.i160
-  %call.i161 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %24) #9
+  %call.i161 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %24) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %30 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i172 = icmp eq i32 %30, 1
@@ -11581,7 +11581,7 @@ invoke.cont392:                                   ; preds = %while.body.i.i.i.i7
   %255 = phi ptr [ %250, %while.cond1.preheader.i.i.i.i ], [ %252, %while.body3.i.i.i.i.preheader ], [ %254, %while.body.i.i.i.i786 ]
   store ptr %255, ptr %agg.tmp387, align 8, !alias.scope !197
   store ptr %eaListIntLarge, ptr %agg.tmp393, align 8, !alias.scope !201
-  invoke fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorIiPiRiEEEEvRN2EA4StdC9StopwatchET_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef nonnull %agg.tmp386, ptr noundef nonnull %agg.tmp387, ptr noundef nonnull %agg.tmp393)
+  invoke fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorIiPiRiEEEEvRN2EA4StdC9StopwatchET_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef %agg.tmp386, ptr noundef %agg.tmp387, ptr noundef %agg.tmp393)
           to label %invoke.cont394 unwind label %lpad302.loopexit
 
 invoke.cont394:                                   ; preds = %invoke.cont392
@@ -11755,7 +11755,7 @@ invoke.cont472:                                   ; preds = %while.body.i.i.i.i8
   %276 = phi ptr [ %271, %while.cond1.preheader.i.i.i.i872 ], [ %273, %while.body3.i.i.i.i876.preheader ], [ %275, %while.body.i.i.i.i885 ]
   store ptr %276, ptr %agg.tmp467, align 8, !alias.scope !207
   store ptr %eaListIntSmall, ptr %agg.tmp473, align 8, !alias.scope !210
-  invoke fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorIiPiRiEEEEvRN2EA4StdC9StopwatchET_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef nonnull %agg.tmp466, ptr noundef nonnull %agg.tmp467, ptr noundef nonnull %agg.tmp473)
+  invoke fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorIiPiRiEEEEvRN2EA4StdC9StopwatchET_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef %agg.tmp466, ptr noundef %agg.tmp467, ptr noundef %agg.tmp473)
           to label %invoke.cont474 unwind label %lpad302.loopexit
 
 invoke.cont474:                                   ; preds = %invoke.cont472
@@ -11965,7 +11965,7 @@ invoke.cont552:                                   ; preds = %while.body.i.i.i.i1
   %301 = phi ptr [ %296, %while.cond1.preheader.i.i.i.i997 ], [ %298, %while.body3.i.i.i.i1001.preheader ], [ %300, %while.body.i.i.i.i1009 ]
   store ptr %301, ptr %agg.tmp547, align 8, !alias.scope !217
   store ptr %eaListTOLarge, ptr %agg.tmp553, align 8, !alias.scope !221
-  invoke fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorI10TestObjectPS3_RS3_EEEEvRN2EA4StdC9StopwatchET_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef nonnull %agg.tmp546, ptr noundef nonnull %agg.tmp547, ptr noundef nonnull %agg.tmp553)
+  invoke fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorI10TestObjectPS3_RS3_EEEEvRN2EA4StdC9StopwatchET_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef %agg.tmp546, ptr noundef %agg.tmp547, ptr noundef %agg.tmp553)
           to label %invoke.cont554 unwind label %lpad302.loopexit
 
 invoke.cont554:                                   ; preds = %invoke.cont552
@@ -12199,7 +12199,7 @@ invoke.cont632:                                   ; preds = %while.body.i.i.i.i1
   %332 = phi ptr [ %327, %while.cond1.preheader.i.i.i.i1118 ], [ %329, %while.body3.i.i.i.i1122.preheader ], [ %331, %while.body.i.i.i.i1131 ]
   store ptr %332, ptr %agg.tmp627, align 8, !alias.scope !227
   store ptr %eaListTOSmall, ptr %agg.tmp633, align 8, !alias.scope !230
-  invoke fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorI10TestObjectPS3_RS3_EEEEvRN2EA4StdC9StopwatchET_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef nonnull %agg.tmp626, ptr noundef nonnull %agg.tmp627, ptr noundef nonnull %agg.tmp633)
+  invoke fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorI10TestObjectPS3_RS3_EEEEvRN2EA4StdC9StopwatchET_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef %agg.tmp626, ptr noundef %agg.tmp627, ptr noundef %agg.tmp633)
           to label %invoke.cont634 unwind label %lpad302.loopexit
 
 invoke.cont634:                                   ; preds = %invoke.cont632
@@ -13209,7 +13209,7 @@ _ZNSt3_V26rotateISt14_List_iteratorIiEEET_S3_S3_S3_.exit: ; preds = %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorIiPiRiEEEEvRN2EA4StdC9StopwatchET_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef readonly %first, ptr nocapture noundef readonly %middle, ptr nocapture noundef readonly %last) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorIiPiRiEEEEvRN2EA4StdC9StopwatchET_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef nonnull readonly %first, ptr nocapture noundef nonnull readonly %middle, ptr nocapture noundef nonnull readonly %last) unnamed_addr #0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -13358,7 +13358,7 @@ _ZN5eastl6rotateINS_12ListIteratorIiPiRiEEEET_S5_S5_S5_.exit: ; preds = %while.b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorI10TestObjectPS3_RS3_EEEEvRN2EA4StdC9StopwatchET_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef readonly %first, ptr nocapture noundef readonly %middle, ptr nocapture noundef readonly %last) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorI10TestObjectPS3_RS3_EEEEvRN2EA4StdC9StopwatchET_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef nonnull readonly %first, ptr nocapture noundef nonnull readonly %middle, ptr nocapture noundef nonnull readonly %last) unnamed_addr #0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.eastl::ListIterator", align 8
   %agg.tmp1.i.i = alloca %"struct.eastl::ListIterator", align 8

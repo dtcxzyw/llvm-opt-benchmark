@@ -316,12 +316,12 @@ define hidden range(i32 0, 2) i32 @avifPeekCompatibleFileType(ptr nocapture noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %13 = call ptr @avifROStreamCurrent(ptr noundef nonnull %2) #13
   %14 = load i64, ptr %4, align 8
-  %15 = call fastcc i32 @avifParseFileTypeBox(ptr noundef nonnull %5, ptr noundef %13, i64 noundef %14, ptr noundef null)
+  %15 = call fastcc i32 @avifParseFileTypeBox(ptr noundef %5, ptr noundef %13, i64 noundef %14, ptr noundef null)
   %.not4 = icmp eq i32 %15, 0
   br i1 %.not4, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = call fastcc i32 @avifFileTypeIsCompatible(ptr noundef nonnull %5)
+  %17 = call fastcc i32 @avifFileTypeIsCompatible(ptr noundef %5)
   br label %18
 
 18:                                               ; preds = %12, %1, %16
@@ -334,14 +334,14 @@ declare void @avifROStreamStart(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @avifROStreamReadBoxHeader(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @avifParseFileTypeBox(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @avifParseFileTypeBox(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.avifROStream, align 8
   %6 = alloca %struct.avifROData, align 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %7, align 8
   call void @avifROStreamStart(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull @.str.20) #13
-  %8 = call i32 @avifROStreamRead(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 4) #13
+  %8 = call i32 @avifROStreamRead(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef 4) #13
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %24, label %9
 
@@ -384,7 +384,7 @@ define internal fastcc range(i32 0, 2) i32 @avifParseFileTypeBox(ptr noundef %0,
 declare ptr @avifROStreamCurrent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @avifFileTypeIsCompatible(ptr nocapture noundef readonly %0) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @avifFileTypeIsCompatible(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %avifFileTypeHasBrand.exit, label %.preheader.i
@@ -479,7 +479,7 @@ define hidden void @avifDecoderDestroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @avifDecoderDataDestroy(ptr noundef nonnull %3)
+  tail call fastcc void @avifDecoderDataDestroy(ptr noundef %3)
   store ptr null, ptr %2, align 8
   br label %5
 
@@ -536,7 +536,7 @@ define hidden i32 @avifDecoderReset(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %9, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  tail call fastcc void @avifDecoderDataClearTiles(ptr noundef nonnull %9)
+  tail call fastcc void @avifDecoderDataClearTiles(ptr noundef %9)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not365 = icmp eq ptr %14, null
@@ -825,7 +825,7 @@ avifSampleTableGetCodecType.exit437._crit_edge.thread: ; preds = %avifSampleTabl
   %116 = load i32, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %68, i64 52
   %118 = load i32, ptr %117, align 4
-  %119 = tail call fastcc ptr @avifDecoderDataCreateTile(ptr noundef %9, i32 noundef %.1305, i32 noundef %116, i32 noundef %118, i8 noundef zeroext 0)
+  %119 = tail call fastcc ptr @avifDecoderDataCreateTile(ptr noundef nonnull %9, i32 noundef %.1305, i32 noundef %116, i32 noundef %118, i8 noundef zeroext 0)
   %.not394 = icmp eq ptr %119, null
   br i1 %.not394, label %avifMetaFindAlphaItem.exit, label %120
 
@@ -1005,7 +1005,7 @@ avifDecoderItemShouldBeSkipped.exit.thread.i:     ; preds = %206, %avifDecoderIt
 209:                                              ; preds = %206
   store ptr %195, ptr %3, align 16
   %210 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  %211 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef nonnull %195, i32 noundef 1, ptr noundef nonnull %210, ptr noundef nonnull %4)
+  %211 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef %195, i32 noundef 1, ptr noundef %210, ptr noundef %4)
   %.not372 = icmp eq i32 %211, 0
   br i1 %.not372, label %212, label %avifMetaFindAlphaItem.exit
 
@@ -1247,7 +1247,7 @@ avifDecoderItemIsAlphaAux.exit104.thread.i:       ; preds = %279, %avifDecoderIt
   br label %.thread.sink.split
 
 299:                                              ; preds = %._crit_edge132.i
-  %300 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef nonnull %215, i32 noundef %.074.lcssa.i, ptr noundef nonnull %216)
+  %300 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef nonnull %215, i32 noundef %.074.lcssa.i, ptr noundef %216)
   %.not83.i = icmp eq i32 %300, 0
   br i1 %.not83.i, label %.lr.ph137.preheader.i, label %301
 
@@ -1297,7 +1297,7 @@ avifDecoderItemIsAlphaAux.exit104.thread.i:       ; preds = %279, %avifDecoderIt
 318:                                              ; preds = %316
   %319 = getelementptr inbounds i8, ptr %9, i64 96
   %320 = getelementptr inbounds i8, ptr %4, i64 4
-  %321 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef nonnull %317, i32 noundef %.0495.ph, ptr noundef nonnull %319, ptr noundef nonnull %320)
+  %321 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef %317, i32 noundef %.0495.ph, ptr noundef %319, ptr noundef %320)
   %.not375 = icmp eq i32 %321, 0
   br i1 %.not375, label %.thread, label %avifMetaFindAlphaItem.exit
 
@@ -2571,7 +2571,7 @@ avifDecoderNearestKeyframe.exit:                  ; preds = %15
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %36, align 8
-  %51 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %50, i32 noundef %48, ptr noundef nonnull %4)
+  %51 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %50, i32 noundef %48, ptr noundef %4)
   %.not40 = icmp eq i32 %51, 0
   br i1 %.not40, label %52, label %avifDecoderItemMaxExtent.exit.thread
 
@@ -2808,7 +2808,7 @@ avifDecoderIsKeyframe.exit:                       ; preds = %.loopexit, %.lr.ph,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -2977,7 +2977,7 @@ define hidden i32 @avifDecoderParse(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %86, label %85
 
 85:                                               ; preds = %82
-  tail call fastcc void @avifDecoderDataDestroy(ptr noundef nonnull %84)
+  tail call fastcc void @avifDecoderDataDestroy(ptr noundef %84)
   store ptr null, ptr %83, align 8
   br label %86
 
@@ -3038,7 +3038,7 @@ avifMetaCreate.exit.thread.i:                     ; preds = %100, %92
   br i1 %.not10.i, label %107, label %108
 
 107:                                              ; preds = %104, %101, %avifMetaCreate.exit.thread.i
-  tail call fastcc void @avifDecoderDataDestroy(ptr noundef nonnull %90)
+  tail call fastcc void @avifDecoderDataDestroy(ptr noundef %90)
   br label %avifDecoderDataCreate.exit.thread
 
 avifDecoderDataCreate.exit.thread:                ; preds = %107, %avifDecoderCleanup.exit
@@ -3177,12 +3177,12 @@ avifDecoderDataCreate.exit.thread:                ; preds = %107, %avifDecoderCl
 178:                                              ; preds = %177
   %179 = load ptr, ptr %70, align 8
   %180 = load ptr, ptr %119, align 8
-  %181 = call fastcc i32 @avifParseFileTypeBox(ptr noundef nonnull %71, ptr noundef %179, i64 noundef %174, ptr noundef %180)
+  %181 = call fastcc i32 @avifParseFileTypeBox(ptr noundef %71, ptr noundef %179, i64 noundef %174, ptr noundef %180)
   %.not83.i = icmp eq i32 %181, 0
   br i1 %.not83.i, label %avifParse.exit.thread, label %182
 
 182:                                              ; preds = %178
-  %183 = call fastcc i32 @avifFileTypeIsCompatible(ptr noundef nonnull %71)
+  %183 = call fastcc i32 @avifFileTypeIsCompatible(ptr noundef %71)
   %.not84.i = icmp eq i32 %183, 0
   br i1 %.not84.i, label %avifParse.exit.thread, label %184
 
@@ -3760,7 +3760,7 @@ avifParseMediaHeaderBox.exit.i.i.i.i:             ; preds = %347, %337
   br i1 %.not16.i.i.i.i.i.i.i, label %388, label %389
 
 388:                                              ; preds = %385, %382, %379, %376, %373, %371
-  call fastcc void @avifSampleTableDestroy(ptr noundef nonnull %369)
+  call fastcc void @avifSampleTableDestroy(ptr noundef %369)
   br label %avifSampleTableCreate.exit.thread.i.i.i.i.i.i
 
 avifSampleTableCreate.exit.thread.i.i.i.i.i.i:    ; preds = %368, %388
@@ -4876,7 +4876,7 @@ declare void @avifDiagnosticsPrintf(ptr noundef, ptr noundef, ...) local_unnamed
 declare i32 @avifDimensionsTooLarge(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @avifDecoderDataClearTiles(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @avifDecoderDataClearTiles(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %.not44 = icmp eq i32 %3, 0
@@ -5083,7 +5083,7 @@ define internal fastcc i32 @avifDecoderFindMetadata(ptr noundef %0, ptr nocaptur
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %16, align 8
-  %43 = call fastcc i32 @avifDecoderItemRead(ptr noundef nonnull %27, ptr noundef %42, ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %21)
+  %43 = call fastcc i32 @avifDecoderItemRead(ptr noundef nonnull %27, ptr noundef %42, ptr noundef %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %21)
   %.not47 = icmp eq i32 %43, 0
   br i1 %.not47, label %44, label %.loopexit
 
@@ -5123,7 +5123,7 @@ define internal fastcc i32 @avifDecoderFindMetadata(ptr noundef %0, ptr nocaptur
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %16, align 8
-  %60 = call fastcc i32 @avifDecoderItemRead(ptr noundef nonnull %27, ptr noundef %59, ptr noundef nonnull %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %21)
+  %60 = call fastcc i32 @avifDecoderItemRead(ptr noundef nonnull %27, ptr noundef %59, ptr noundef %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %21)
   %.not55 = icmp eq i32 %60, 0
   br i1 %.not55, label %61, label %.loopexit
 
@@ -5575,7 +5575,7 @@ avifGetSampleCountOfChunk.exit92.thread:          ; preds = %avifGetSampleCountO
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifDecoderItemReadAndParse(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @avifDecoderItemReadAndParse(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.avifROStream, align 8
   %7 = alloca %struct.avifROData, align 8
   %8 = alloca i8, align 1
@@ -5601,7 +5601,7 @@ define internal fastcc i32 @avifDecoderItemReadAndParse(ptr nocapture noundef re
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 144
   %23 = load ptr, ptr %22, align 8
-  %24 = call fastcc i32 @avifDecoderItemRead(ptr noundef %1, ptr noundef %19, ptr noundef nonnull %14, i64 noundef 0, i64 noundef 0, ptr noundef %23)
+  %24 = call fastcc i32 @avifDecoderItemRead(ptr noundef nonnull %1, ptr noundef %19, ptr noundef %14, i64 noundef 0, i64 noundef 0, ptr noundef %23)
   %.not18 = icmp eq i32 %24, 0
   br i1 %.not18, label %25, label %108
 
@@ -5860,7 +5860,7 @@ define internal fastcc i32 @avifDecoderPrepareSample(ptr noundef %0, ptr noundef
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %21, i32 noundef %17, ptr noundef nonnull %4)
+  %22 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %21, i32 noundef %17, ptr noundef %4)
   %.not61 = icmp eq i32 %22, 0
   br i1 %.not61, label %23, label %66
 
@@ -5871,7 +5871,7 @@ define internal fastcc i32 @avifDecoderPrepareSample(ptr noundef %0, ptr noundef
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %30 = call fastcc i32 @avifDecoderItemRead(ptr noundef %26, ptr noundef %28, ptr noundef nonnull %5, i64 noundef %25, i64 noundef %.043, ptr noundef nonnull %29)
+  %30 = call fastcc i32 @avifDecoderItemRead(ptr noundef %26, ptr noundef %28, ptr noundef %5, i64 noundef %25, i64 noundef %.043, ptr noundef nonnull %29)
   %.not62 = icmp eq i32 %30, 0
   br i1 %.not62, label %31, label %66
 
@@ -7706,7 +7706,7 @@ declare i64 @avifROStreamRemainingBytes(ptr noundef) local_unnamed_addr #1
 declare i32 @avifROStreamSkip(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @avifDecoderDataDestroy(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @avifDecoderDataDestroy(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call fastcc void @avifMetaDestroy(ptr noundef %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7725,7 +7725,7 @@ define internal fastcc void @avifDecoderDataDestroy(ptr noundef %0) unnamed_addr
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %.lr.ph
-  tail call fastcc void @avifSampleTableDestroy(ptr noundef nonnull %9)
+  tail call fastcc void @avifSampleTableDestroy(ptr noundef %9)
   br label %11
 
 11:                                               ; preds = %10, %.lr.ph
@@ -7747,7 +7747,7 @@ define internal fastcc void @avifDecoderDataDestroy(ptr noundef %0) unnamed_addr
 
 ._crit_edge:                                      ; preds = %15, %1
   tail call void @avifArrayDestroy(ptr noundef nonnull %3) #13
-  tail call fastcc void @avifDecoderDataClearTiles(ptr noundef nonnull %0)
+  tail call fastcc void @avifDecoderDataClearTiles(ptr noundef %0)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @avifArrayDestroy(ptr noundef nonnull %19) #13
   tail call void @avifFree(ptr noundef nonnull %0) #13
@@ -7797,8 +7797,8 @@ define internal fastcc void @avifMetaDestroy(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @avifSampleTableDestroy(ptr noundef %0) unnamed_addr #0 {
-  tail call void @avifArrayDestroy(ptr noundef %0) #13
+define internal fastcc void @avifSampleTableDestroy(ptr noundef nonnull %0) unnamed_addr #0 {
+  tail call void @avifArrayDestroy(ptr noundef nonnull %0) #13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
@@ -8203,7 +8203,7 @@ avifCheckItemID.exit.i:                           ; preds = %176
   br label %avifParseItemLocationBox.exit.thread
 
 179:                                              ; preds = %176
-  %180 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %177, ptr noundef nonnull %63)
+  %180 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %177, ptr noundef %63)
   %.not60.i = icmp eq i32 %180, 0
   br i1 %.not60.i, label %181, label %avifParseItemLocationBox.exit.thread
 
@@ -8650,7 +8650,7 @@ avifCheckItemID.exit.i.i:                         ; preds = %331
   br label %avifParseItemPropertyAssociation.exit.thread.i
 
 336:                                              ; preds = %334
-  %337 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %332, ptr noundef nonnull %40)
+  %337 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %332, ptr noundef %40)
   %.not65.i.i = icmp eq i32 %337, 0
   br i1 %.not65.i.i, label %338, label %avifParseItemPropertyAssociation.exit.thread.i
 
@@ -9054,7 +9054,7 @@ avifCheckItemID.exit.i.i119:                      ; preds = %451
 
 464:                                              ; preds = %463, %461
   %465 = load i32, ptr %21, align 4
-  %466 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %465, ptr noundef nonnull %26)
+  %466 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %465, ptr noundef %26)
   %.not22.i.i = icmp eq i32 %466, 0
   br i1 %.not22.i.i, label %468, label %avifParseItemInfoEntry.exit.thread.i
 
@@ -9239,7 +9239,7 @@ avifCheckItemID.exit61.thread.i:                  ; preds = %508, %502
   br i1 %or.cond.i127, label %515, label %542
 
 515:                                              ; preds = %avifCheckItemID.exit61.thread.i
-  %516 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %512, ptr noundef nonnull %15)
+  %516 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %512, ptr noundef %15)
   %.not47.i = icmp eq i32 %516, 0
   br i1 %.not47.i, label %517, label %avifParseItemReferenceBox.exit.thread
 
@@ -9276,7 +9276,7 @@ avifCheckItemID.exit61.thread.i:                  ; preds = %508, %502
 
 530:                                              ; preds = %517
   %531 = load i32, ptr %13, align 4
-  %532 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %531, ptr noundef nonnull %16)
+  %532 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %531, ptr noundef %16)
   %.not55.i132 = icmp eq i32 %532, 0
   br i1 %.not55.i132, label %533, label %avifParseItemReferenceBox.exit.thread
 
@@ -9902,35 +9902,35 @@ avifParseImageMirrorProperty.exit:                ; preds = %192
 197:                                              ; preds = %49
   %198 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %199 = load i64, ptr %32, align 8
-  %200 = call fastcc i32 @avifParsePixelInformationProperty(ptr noundef nonnull %48, ptr noundef %198, i64 noundef %199, ptr noundef %4)
+  %200 = call fastcc i32 @avifParsePixelInformationProperty(ptr noundef %48, ptr noundef %198, i64 noundef %199, ptr noundef %4)
   %.not61 = icmp eq i32 %200, 0
   br i1 %.not61, label %.loopexit, label %217
 
 201:                                              ; preds = %49
   %202 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %203 = load i64, ptr %32, align 8
-  %204 = call fastcc i32 @avifParseOperatingPointSelectorProperty(ptr noundef nonnull %48, ptr noundef %202, i64 noundef %203, ptr noundef %4)
+  %204 = call fastcc i32 @avifParseOperatingPointSelectorProperty(ptr noundef %48, ptr noundef %202, i64 noundef %203, ptr noundef %4)
   %.not64 = icmp eq i32 %204, 0
   br i1 %.not64, label %.loopexit, label %217
 
 205:                                              ; preds = %49
   %206 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %207 = load i64, ptr %32, align 8
-  %208 = call fastcc i32 @avifParseLayerSelectorProperty(ptr noundef nonnull %48, ptr noundef %206, i64 noundef %207, ptr noundef %4)
+  %208 = call fastcc i32 @avifParseLayerSelectorProperty(ptr noundef %48, ptr noundef %206, i64 noundef %207, ptr noundef %4)
   %.not67 = icmp eq i32 %208, 0
   br i1 %.not67, label %.loopexit, label %217
 
 209:                                              ; preds = %49
   %210 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %211 = load i64, ptr %32, align 8
-  %212 = call fastcc i32 @avifParseAV1LayeredImageIndexingProperty(ptr noundef nonnull %48, ptr noundef %210, i64 noundef %211, ptr noundef %4)
+  %212 = call fastcc i32 @avifParseAV1LayeredImageIndexingProperty(ptr noundef %48, ptr noundef %210, i64 noundef %211, ptr noundef %4)
   %.not70 = icmp eq i32 %212, 0
   br i1 %.not70, label %.loopexit, label %217
 
 213:                                              ; preds = %49
   %214 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
   %215 = load i64, ptr %32, align 8
-  %216 = call fastcc i32 @avifParseContentLightLevelInformationBox(ptr noundef nonnull %48, ptr noundef %214, i64 noundef %215, ptr noundef %4)
+  %216 = call fastcc i32 @avifParseContentLightLevelInformationBox(ptr noundef %48, ptr noundef %214, i64 noundef %215, ptr noundef %4)
   %.not73 = icmp eq i32 %216, 0
   br i1 %.not73, label %.loopexit, label %217
 
@@ -9946,7 +9946,7 @@ avifParseImageMirrorProperty.exit:                ; preds = %192
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @avifParsePixelInformationProperty(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @avifParsePixelInformationProperty(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.avifROStream, align 8
   %6 = alloca %struct.avifROData, align 8
   store ptr %1, ptr %6, align 8
@@ -9998,7 +9998,7 @@ define internal fastcc range(i32 0, 2) i32 @avifParsePixelInformationProperty(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @avifParseOperatingPointSelectorProperty(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @avifParseOperatingPointSelectorProperty(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.avifROStream, align 8
   %6 = alloca %struct.avifROData, align 8
   store ptr %1, ptr %6, align 8
@@ -10026,7 +10026,7 @@ define internal fastcc range(i32 0, 2) i32 @avifParseOperatingPointSelectorPrope
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @avifParseLayerSelectorProperty(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @avifParseLayerSelectorProperty(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.avifROStream, align 8
   %6 = alloca %struct.avifROData, align 8
   store ptr %1, ptr %6, align 8
@@ -10055,7 +10055,7 @@ switch.lookup:                                    ; preds = %10, %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @avifParseAV1LayeredImageIndexingProperty(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @avifParseAV1LayeredImageIndexingProperty(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.avifROStream, align 8
   %6 = alloca %struct.avifROData, align 8
   %7 = alloca i8, align 1
@@ -10119,7 +10119,7 @@ define internal fastcc range(i32 0, 2) i32 @avifParseAV1LayeredImageIndexingProp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @avifParseContentLightLevelInformationBox(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @avifParseContentLightLevelInformationBox(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.avifROStream, align 8
   %6 = alloca %struct.avifROData, align 8
   store ptr %1, ptr %6, align 8
@@ -10149,7 +10149,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @avifROStreamReadU64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifParseChunkOffsetBox(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifParseChunkOffsetBox(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.avifROStream, align 8
   %7 = alloca %struct.avifROData, align 8
   %8 = alloca i32, align 4
@@ -10228,7 +10228,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @avifCodecDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifDecoderItemRead(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @avifDecoderItemRead(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.avifROData, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %9 = load ptr, ptr %8, align 8

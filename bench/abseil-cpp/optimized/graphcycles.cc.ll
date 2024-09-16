@@ -1033,8 +1033,8 @@ entry.if.end_crit_edge.i:                         ; preds = %_ZN4absl24synchroni
 
 if.then.i:                                        ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_14NodeC2Ev.exit
   %add.i = add i32 %17, 1
-  %cmp2.i.not.i = icmp eq i32 %17, -1
-  br i1 %cmp2.i.not.i, label %while.end.i.i, label %while.body.i.i
+  %cmp3.i.not.i = icmp eq i32 %17, -1
+  br i1 %cmp3.i.not.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then.i, %while.body.i.i
   %19 = phi i32 [ %mul.i.i, %while.body.i.i ], [ %17, %if.then.i ]
@@ -1054,16 +1054,16 @@ while.end.i.i:                                    ; preds = %while.cond.while.en
   %call.i.i = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %.lcssa.i.i, ptr noundef %22)
   %23 = load i32, ptr %size_.i, align 8
   %cmp.i.i.i = icmp eq i32 %23, 0
-  br i1 %cmp.i.i.i, label %_ZSt6copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_.exit.i.i, label %_ZSt8__copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_St26random_access_iterator_tag.exit.i.i.i
+  br i1 %cmp.i.i.i, label %_ZSt6copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_.exit.i.i, label %if.end.i.i.i
 
-_ZSt8__copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_St26random_access_iterator_tag.exit.i.i.i: ; preds = %while.end.i.i
+if.end.i.i.i:                                     ; preds = %while.end.i.i
   %24 = load ptr, ptr %16, align 8
   %idx.ext.i.i.i.i = zext i32 %23 to i64
   %add.ptr.idx.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %call.i.i, ptr readonly align 8 %24, i64 %add.ptr.idx.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i.i, ptr noundef nonnull readonly align 8 dereferenceable(1) %24, i64 %add.ptr.idx.i.i.i.i, i1 false)
   br label %_ZSt6copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_.exit.i.i
 
-_ZSt6copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_.exit.i.i: ; preds = %_ZSt8__copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_St26random_access_iterator_tag.exit.i.i.i, %while.end.i.i
+_ZSt6copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_.exit.i.i: ; preds = %if.end.i.i.i, %while.end.i.i
   %25 = load ptr, ptr %16, align 8
   %space_.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %cmp.not.i.i.i = icmp eq ptr %25, %space_.i.i.i

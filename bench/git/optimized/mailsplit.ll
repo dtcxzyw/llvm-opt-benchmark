@@ -269,7 +269,7 @@ land.lhs.true96:                                  ; preds = %while.body
   br i1 %cmp99, label %if.then101, label %if.end110
 
 if.then101:                                       ; preds = %land.lhs.true96
-  %call102 = call fastcc i32 @split_mbox(ptr noundef nonnull %15, ptr noundef %dir.2, i32 noundef %allow_bare.089160, i32 noundef %nr_prec.093158, i32 noundef %nr.2118)
+  %call102 = call fastcc i32 @split_mbox(ptr noundef %15, ptr noundef %dir.2, i32 noundef %allow_bare.089160, i32 noundef %nr_prec.093158, i32 noundef %nr.2118)
   %cmp103 = icmp slt i32 %call102, 0
   br i1 %cmp103, label %if.then105, label %while.cond.backedge
 
@@ -414,7 +414,7 @@ split_maildir.exit:                               ; preds = %if.end15.i, %popula
   br label %if.end124
 
 if.else122:                                       ; preds = %if.end117
-  %call123 = call fastcc i32 @split_mbox(ptr noundef nonnull %15, ptr noundef %dir.2, i32 noundef %allow_bare.089160, i32 noundef %nr_prec.093158, i32 noundef %nr.2118)
+  %call123 = call fastcc i32 @split_mbox(ptr noundef %15, ptr noundef %dir.2, i32 noundef %allow_bare.089160, i32 noundef %nr_prec.093158, i32 noundef %nr.2118)
   br label %if.end124
 
 if.end124:                                        ; preds = %if.else122, %split_maildir.exit
@@ -452,7 +452,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @die(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @split_mbox(ptr noundef %file, ptr noundef %dir, i32 noundef %allow_bare, i32 noundef %nr_prec, i32 noundef %skip) unnamed_addr #0 {
+define internal fastcc noundef i32 @split_mbox(ptr noundef nonnull %file, ptr noundef %dir, i32 noundef range(i32 0, 2) %allow_bare, i32 noundef range(i32 -2147483648, 10) %nr_prec, i32 noundef %skip) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %file, align 1
   %.not = icmp eq i8 %0, 45
@@ -608,7 +608,7 @@ declare i32 @strbuf_getwholeline(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @split_one(ptr noundef %mbox, ptr noundef %name, i32 noundef %allow_bare) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @split_one(ptr noundef %mbox, ptr noundef %name, i32 noundef range(i32 0, 2) %allow_bare) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @buf, i64 16), align 8
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @buf, i64 8), align 8

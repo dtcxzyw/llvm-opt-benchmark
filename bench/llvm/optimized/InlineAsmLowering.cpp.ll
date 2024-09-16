@@ -209,7 +209,7 @@ _ZN12_GLOBAL__N_110ExtraFlagsC2ERKN4llvm8CallBaseE.exit: ; preds = %_ZNK4llvm8Ca
   %.sroa.0427.0450 = phi ptr [ %75, %.lr.ph ], [ %266, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit ]
   call void @_ZN4llvm14TargetLowering14AsmOperandInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(130) %26, ptr noundef nonnull align 8 dereferenceable(130) %.sroa.0427.0450)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull %79, i64 noundef 1) #13
-  %85 = call fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m(ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(160) %26)
+  %85 = call fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(160) %26)
   %.val.i.i = load ptr, ptr %24, align 8
   %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #13
   %87 = getelementptr inbounds %"class.(anonymous namespace)::GISelAsmOperandInfo", ptr %.val.i.i, i64 %86
@@ -932,7 +932,7 @@ _ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit: ; p
   br i1 %.not246, label %._crit_edge468, label %.lr.ph467
 
 ._crit_edge468:                                   ; preds = %.lr.ph467, %453
-  %466 = call fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(160) %.0228470)
+  %466 = call fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(160) %.0228470)
   %.val.i.i264 = load ptr, ptr %27, align 8
   %467 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #13
   %468 = getelementptr inbounds %"class.(anonymous namespace)::GISelAsmOperandInfo", ptr %.val.i.i264, i64 %467

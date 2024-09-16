@@ -230,7 +230,7 @@ define internal void @"_ZN4core3ptr54drop_in_place$LT$$RF$parquet..format..Milli
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hdc1b08117d4a680bE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hdc1b08117d4a680bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -700,7 +700,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h86651e90e7be4f96E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h86651e90e7be4f96E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -878,7 +878,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h4e1342cf3c9912ecE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h4e1342cf3c9912ecE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -1056,7 +1056,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc70358ffae5c5e78E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc70358ffae5c5e78E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -1234,7 +1234,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h673fb79d213e0d10E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h673fb79d213e0d10E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -1412,7 +1412,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h8fa225114926fffaE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h8fa225114926fffaE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -1590,7 +1590,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h284685b3dc8e9fecE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h284685b3dc8e9fecE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -1983,7 +1983,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3fa25c929deaeee1E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3fa25c929deaeee1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -2376,7 +2376,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he9c938f77e42477bE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he9c938f77e42477bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -2554,7 +2554,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha03eaa1f74950421E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha03eaa1f74950421E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -2732,7 +2732,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc7791ead587e43f4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc7791ead587e43f4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { ptr, [2 x i64] }, align 8
@@ -4647,7 +4647,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %.sroa.0814.0949.i = phi ptr [ %719, %733 ], [ %697, %716 ]
   %719 = getelementptr inbounds i8, ptr %.sroa.0814.0949.i, i64 48
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %60), !noalias !927
-  invoke fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h284685b3dc8e9fecE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0814.0949.i, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h284685b3dc8e9fecE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %60, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.0814.0949.i, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %730 unwind label %.loopexit.split-lp.loopexit.i, !noalias !937
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7c39114a5ae283dE.exit.thread.i": ; preds = %733, %716
@@ -5019,7 +5019,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 825:                                              ; preds = %823
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45), !noalias !927
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %44), !noalias !927
-  invoke fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd5b550885ea4bf00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %791, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd5b550885ea4bf00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %44, ptr noalias noundef readonly align 8 dereferenceable(136) %791, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %826 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit, !noalias !928
 
 826:                                              ; preds = %825
@@ -5134,7 +5134,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %.sroa.0821.0950.i = phi ptr [ %859, %868 ], [ %816, %856 ]
   %859 = getelementptr inbounds i8, ptr %.sroa.0821.0950.i, i64 12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39), !noalias !927
-  invoke fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0a74a6d6cbcaea8bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %39, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.0821.0950.i, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0a74a6d6cbcaea8bE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %39, ptr noalias noundef readonly align 4 dereferenceable(12) %.sroa.0821.0950.i, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %865 unwind label %.loopexit.i, !noalias !937
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20429dac0610d11eE.exit.thread.i": ; preds = %868, %856
@@ -5978,7 +5978,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141), !noalias !761
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %140), !noalias !761
   %1101 = getelementptr inbounds i8, ptr %.sroa.0445.0543, i64 40
-  invoke fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hae69e7dbd13d89f9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1101, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hae69e7dbd13d89f9E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %140, ptr noalias noundef readonly align 8 dereferenceable(48) %1101, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %1102 unwind label %.loopexit527.loopexit, !noalias !928
 
 1102:                                             ; preds = %1100
@@ -6424,7 +6424,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %.sroa.0453.0547 = phi ptr [ %1227, %1243 ], [ %1201, %1224 ]
   %1227 = getelementptr inbounds i8, ptr %.sroa.0453.0547, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %185)
-  invoke fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h630a413f271d9ab7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %185, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.0453.0547, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h630a413f271d9ab7E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %185, ptr noalias noundef readonly align 4 dereferenceable(8) %.sroa.0453.0547, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %1240 unwind label %.loopexit
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9dd165d3016210bbE.exit.thread": ; preds = %1243, %1224
@@ -6867,7 +6867,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h289ca905ec441207E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h289ca905ec441207E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7193,7 +7193,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit118": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i115", %99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf82559156b31f39fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %15, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf82559156b31f39fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %15, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1)
           to label %121 unwind label %35
 
 121:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit118"
@@ -7301,7 +7301,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf82559156b31f39fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, i8 %.0.val, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf82559156b31f39fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -8439,7 +8439,7 @@ default.unreachable:                              ; preds = %69
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h8883aa150e18808bE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h8883aa150e18808bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -8617,7 +8617,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h045a820214d55de7E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h045a820214d55de7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [2 x i64] }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { ptr, [2 x i64] }, align 8
@@ -9790,7 +9790,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd5b550885ea4bf00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd5b550885ea4bf00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [2 x i64] }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { ptr, [2 x i64] }, align 8
@@ -10963,7 +10963,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h092910f17d315e3cE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h092910f17d315e3cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -12006,7 +12006,7 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h27cd40a957a9f83fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h27cd40a957a9f83fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -12511,7 +12511,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3d428e5652686f2cE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i32 %.0.val, i32 %.4.val, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3d428e5652686f2cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 %.0.val, i32 %.4.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -12944,7 +12944,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f9cf9d8f372b072E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f9cf9d8f372b072E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -13122,7 +13122,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN79_$LT$parquet..format..LogicalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc71b286fb3eac34cE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN79_$LT$parquet..format..LogicalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc71b286fb3eac34cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -13465,7 +13465,7 @@ default.unreachable697:                           ; preds = %96
 128:                                              ; preds = %126
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %77)
-  invoke fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h092910f17d315e3cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %77, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h092910f17d315e3cE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %77, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %129 unwind label %94
 
 129:                                              ; preds = %128
@@ -13581,7 +13581,7 @@ default.unreachable697:                           ; preds = %96
 161:                                              ; preds = %159
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73)
-  invoke fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h86651e90e7be4f96E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %73, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h86651e90e7be4f96E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %73, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %162 unwind label %94
 
 162:                                              ; preds = %161
@@ -13667,7 +13667,7 @@ default.unreachable697:                           ; preds = %96
 184:                                              ; preds = %182
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %69)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he9c938f77e42477bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %69, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he9c938f77e42477bE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %69, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %185 unwind label %94
 
 185:                                              ; preds = %184
@@ -13753,7 +13753,7 @@ default.unreachable697:                           ; preds = %96
 207:                                              ; preds = %205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %65)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h673fb79d213e0d10E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %65, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h673fb79d213e0d10E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %65, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %208 unwind label %94
 
 208:                                              ; preds = %207
@@ -13843,7 +13843,7 @@ default.unreachable697:                           ; preds = %96
   %.val = load i32, ptr %231, align 4
   %232 = getelementptr inbounds i8, ptr %1, i64 8
   %.val571 = load i32, ptr %232, align 4
-  invoke fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3d428e5652686f2cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %61, i32 %.val, i32 %.val571, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3d428e5652686f2cE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %61, i32 %.val, i32 %.val571, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %233 unwind label %94
 
 233:                                              ; preds = %230
@@ -13929,7 +13929,7 @@ default.unreachable697:                           ; preds = %96
 255:                                              ; preds = %253
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %57)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc70358ffae5c5e78E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %57, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc70358ffae5c5e78E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %57, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %256 unwind label %94
 
 256:                                              ; preds = %255
@@ -14019,7 +14019,7 @@ default.unreachable697:                           ; preds = %96
   %.val572 = load i8, ptr %279, align 1
   %280 = getelementptr inbounds i8, ptr %1, i64 2
   %.val573 = load i8, ptr %280, align 2
-  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h289ca905ec441207E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %53, i8 %.val572, i8 %.val573, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h289ca905ec441207E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %53, i8 %.val572, i8 %.val573, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %281 unwind label %94
 
 281:                                              ; preds = %278
@@ -14109,7 +14109,7 @@ default.unreachable697:                           ; preds = %96
   %.val574 = load i8, ptr %304, align 1
   %305 = getelementptr inbounds i8, ptr %1, i64 2
   %.val575 = load i8, ptr %305, align 2
-  invoke fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h97adff8cb627d5faE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %49, i8 %.val574, i8 %.val575, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h97adff8cb627d5faE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %49, i8 %.val574, i8 %.val575, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %306 unwind label %94
 
 306:                                              ; preds = %303
@@ -14199,7 +14199,7 @@ default.unreachable697:                           ; preds = %96
   %.val576 = load i8, ptr %329, align 1
   %330 = getelementptr inbounds i8, ptr %1, i64 2
   %.val577 = load i8, ptr %330, align 2
-  invoke fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hdc1b08117d4a680bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %45, i8 %.val576, i8 %.val577, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hdc1b08117d4a680bE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %45, i8 %.val576, i8 %.val577, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %331 unwind label %94
 
 331:                                              ; preds = %328
@@ -14285,7 +14285,7 @@ default.unreachable697:                           ; preds = %96
 353:                                              ; preds = %351
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha03eaa1f74950421E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %41, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha03eaa1f74950421E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %41, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %354 unwind label %94
 
 354:                                              ; preds = %353
@@ -14371,7 +14371,7 @@ default.unreachable697:                           ; preds = %96
 376:                                              ; preds = %374
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h8fa225114926fffaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %37, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h8fa225114926fffaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %37, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %377 unwind label %94
 
 377:                                              ; preds = %376
@@ -14457,7 +14457,7 @@ default.unreachable697:                           ; preds = %96
 399:                                              ; preds = %397
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h4e1342cf3c9912ecE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %33, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h4e1342cf3c9912ecE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %33, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %400 unwind label %94
 
 400:                                              ; preds = %399
@@ -14543,7 +14543,7 @@ default.unreachable697:                           ; preds = %96
 422:                                              ; preds = %420
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h8883aa150e18808bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %29, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h8883aa150e18808bE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %29, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %423 unwind label %94
 
 423:                                              ; preds = %422
@@ -14629,7 +14629,7 @@ default.unreachable697:                           ; preds = %96
 445:                                              ; preds = %443
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
-  invoke fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f9cf9d8f372b072E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %25, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f9cf9d8f372b072E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %25, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %446 unwind label %94
 
 446:                                              ; preds = %445
@@ -17394,7 +17394,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 597:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40), !noalias !3201
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39), !noalias !3201
-  invoke fastcc void @"_ZN79_$LT$parquet..format..LogicalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc71b286fb3eac34cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %39, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %565, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN79_$LT$parquet..format..LogicalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc71b286fb3eac34cE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %39, ptr noalias noundef readonly align 4 dereferenceable(12) %565, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %598 unwind label %.loopexit677.loopexit, !noalias !3434
 
 598:                                              ; preds = %597
@@ -17644,7 +17644,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %.sroa.0568.0685 = phi ptr [ %666, %849 ], [ %.val500, %663 ]
   %666 = getelementptr inbounds i8, ptr %.sroa.0568.0685, i64 104
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %110)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc7791ead587e43f4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %110, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %.sroa.0568.0685, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc7791ead587e43f4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %110, ptr noalias noundef readonly align 8 dereferenceable(104) %.sroa.0568.0685, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %846 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge688:                                   ; preds = %849, %663
@@ -17758,7 +17758,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %.sroa.0575.0689 = phi ptr [ %699, %715 ], [ %672, %696 ]
   %699 = getelementptr inbounds i8, ptr %.sroa.0575.0689, i64 48
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %105)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h284685b3dc8e9fecE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0575.0689, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h284685b3dc8e9fecE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %105, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.0575.0689, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %712 unwind label %.loopexit.split-lp.loopexit
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7c39114a5ae283dE.exit.thread": ; preds = %715, %696
@@ -18017,7 +18017,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %.sroa.5583.0.in690 = phi i64 [ %772, %781 ], [ %765, %770 ]
   %772 = add i64 %.sroa.5583.0.in690, -1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %96)
-  invoke fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h27cd40a957a9f83fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %96, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h27cd40a957a9f83fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %96, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %778 unwind label %.loopexit
 
 ._crit_edge693:                                   ; preds = %781, %770
@@ -18121,7 +18121,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 800:                                              ; preds = %798
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %92)
-  invoke fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf5b81630acd3f5cbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %92, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf5b81630acd3f5cbE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %92, ptr noalias noundef readonly align 8 dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %801 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 801:                                              ; preds = %800
@@ -18354,7 +18354,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h630a413f271d9ab7E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h630a413f271d9ab7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -18893,7 +18893,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h97adff8cb627d5faE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h97adff8cb627d5faE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -19219,7 +19219,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u2
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit118": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i115", %99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf82559156b31f39fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %15, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf82559156b31f39fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %15, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1)
           to label %121 unwind label %35
 
 121:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit118"
@@ -20398,7 +20398,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
   %.sroa.0814.0949 = phi ptr [ %358, %374 ], [ %333, %355 ]
   %358 = getelementptr inbounds i8, ptr %.sroa.0814.0949, i64 48
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %58)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3fa25c929deaeee1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0814.0949, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3fa25c929deaeee1E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %58, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.0814.0949, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %371 unwind label %.loopexit.split-lp.loopexit
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7c39114a5ae283dE.exit.thread": ; preds = %374, %355
@@ -20817,7 +20817,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 478:                                              ; preds = %476
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42)
-  invoke fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h045a820214d55de7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %438, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h045a820214d55de7E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %42, ptr noalias noundef readonly align 8 dereferenceable(136) %438, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %479 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 479:                                              ; preds = %478
@@ -20947,7 +20947,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
   %.sroa.0821.0950 = phi ptr [ %515, %524 ], [ %466, %512 ]
   %515 = getelementptr inbounds i8, ptr %.sroa.0821.0950, i64 12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
-  invoke fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h43b16cf87d1f117dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %37, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.0821.0950, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h43b16cf87d1f117dE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %37, ptr noalias noundef readonly align 4 dereferenceable(12) %.sroa.0821.0950, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %521 unwind label %.loopexit
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20429dac0610d11eE.exit.thread": ; preds = %524, %512
@@ -21301,7 +21301,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc4068e2f8c1786f0E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc4068e2f8c1786f0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -22710,7 +22710,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 311:                                              ; preds = %309
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %44)
-  invoke fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc4068e2f8c1786f0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %44, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hc4068e2f8c1786f0E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %44, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %312 unwind label %66
 
 312:                                              ; preds = %311
@@ -22797,7 +22797,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 333:                                              ; preds = %331
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40)
-  invoke fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h498ac0e09befa221E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %40, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h498ac0e09befa221E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %40, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %334 unwind label %66
 
 334:                                              ; preds = %333
@@ -22913,7 +22913,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0a74a6d6cbcaea8bE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0a74a6d6cbcaea8bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -23450,7 +23450,7 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h43b16cf87d1f117dE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h43b16cf87d1f117dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -23987,7 +23987,7 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf5b81630acd3f5cbE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf5b81630acd3f5cbE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -25773,7 +25773,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hae69e7dbd13d89f9E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hae69e7dbd13d89f9E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -26849,7 +26849,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h498ac0e09befa221E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h498ac0e09befa221E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8

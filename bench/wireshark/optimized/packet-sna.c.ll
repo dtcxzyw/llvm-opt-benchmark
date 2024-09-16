@@ -2399,7 +2399,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 258) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #5
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #5
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %7)

@@ -30,7 +30,7 @@ define dso_local i32 @archive_write_open_file(ptr noundef %0, ptr noundef %1) lo
   br label %archive_write_open_filename.exit
 
 9:                                                ; preds = %4
-  %10 = tail call fastcc i32 @open_filename(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1)
+  %10 = tail call fastcc i32 @open_filename(ptr noundef %0, i32 noundef 1, ptr noundef %1)
   br label %archive_write_open_filename.exit
 
 archive_write_open_filename.exit:                 ; preds = %7, %9
@@ -53,7 +53,7 @@ define dso_local i32 @archive_write_open_filename(ptr noundef %0, ptr noundef %1
   br label %11
 
 9:                                                ; preds = %4
-  %10 = tail call fastcc i32 @open_filename(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1)
+  %10 = tail call fastcc i32 @open_filename(ptr noundef %0, i32 noundef 1, ptr noundef %1)
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -64,7 +64,7 @@ define dso_local i32 @archive_write_open_filename(ptr noundef %0, ptr noundef %1
 declare i32 @archive_write_open_fd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @open_filename(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @open_filename(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -79,11 +79,11 @@ define internal fastcc i32 @open_filename(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @archive_mstring_copy_mbs(ptr noundef nonnull %8, ptr noundef %2) #7
+  %10 = tail call i32 @archive_mstring_copy_mbs(ptr noundef nonnull %8, ptr noundef nonnull %2) #7
   br label %13
 
 11:                                               ; preds = %7
-  %12 = tail call i32 @archive_mstring_copy_wcs(ptr noundef nonnull %8, ptr noundef %2) #7
+  %12 = tail call i32 @archive_mstring_copy_wcs(ptr noundef nonnull %8, ptr noundef nonnull %2) #7
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -105,11 +105,11 @@ define internal fastcc i32 @open_filename(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not, label %22, label %21
 
 21:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef %2) #7
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef nonnull %2) #7
   br label %25
 
 22:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.2, ptr noundef %2) #7
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #7
   br label %25
 
 23:                                               ; preds = %13
@@ -137,7 +137,7 @@ define dso_local i32 @archive_write_open_filename_w(ptr noundef %0, ptr noundef 
   br label %11
 
 9:                                                ; preds = %4
-  %10 = tail call fastcc i32 @open_filename(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1)
+  %10 = tail call fastcc i32 @open_filename(ptr noundef %0, i32 noundef 0, ptr noundef %1)
   br label %11
 
 11:                                               ; preds = %9, %7

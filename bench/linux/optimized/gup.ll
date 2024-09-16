@@ -2725,7 +2725,7 @@ define dso_local i64 @faultin_vma_page_range(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @check_vma_flags(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @check_vma_flags(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3771,7 +3771,7 @@ define dso_local i64 @get_user_pages_remote(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @is_valid_gup_args(ptr noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @is_valid_gup_args(ptr noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef range(i32 2, 2686977) %3) unnamed_addr #0 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = and i32 %5, 4128768
   %7 = icmp eq i32 %6, 0
@@ -4657,7 +4657,7 @@ define dso_local i32 @get_user_pages_fast_only(i64 noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.pmd_t, align 8
@@ -7325,7 +7325,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 sect
 declare dso_local ptr @vm_normal_page(ptr noundef, i64 noundef, i64) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal fastcc void @follow_pfn_pte(ptr noundef %0, i32 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc void @follow_pfn_pte(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #6 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = and i32 %1, 65536

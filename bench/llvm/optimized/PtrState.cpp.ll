@@ -1310,9 +1310,9 @@ _ZN4llvm7objcarcL18getreturnRVOperandERKNS_11InstructionENS0_11ARCInstKindE.exit
 declare noundef zeroext i1 @_ZN4llvm7objcarc6CanUseEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE(ptr noundef, ptr noundef, ptr noundef nonnull align 1, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm7objcarc16BottomUpPtrState18HandlePotentialUseEPNS_10BasicBlockEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindEENK3$_0clENS0_8SequenceE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm7objcarc16BottomUpPtrState18HandlePotentialUseEPNS_10BasicBlockEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindEENK3$_0clENS0_8SequenceE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 3, 5) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = trunc i32 %1 to i8
+  %4 = trunc nuw nsw i32 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %4, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

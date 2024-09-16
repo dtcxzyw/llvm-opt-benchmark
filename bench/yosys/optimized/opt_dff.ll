@@ -24310,7 +24310,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1925: ; preds = %5574, %5569
   store ptr %720, ptr %722, align 8
   store ptr %720, ptr %723, align 8
   store i64 0, ptr %724, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias nonnull writable align 8 %353, ptr noundef nonnull align 8 dereferenceable(296) %0, ptr %.sroa.030.0.copyload, i32 %.sroa.231.0.copyload, ptr %.sroa.029.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef nonnull %354)
+  invoke fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias writable align 8 %353, ptr noundef nonnull align 8 dereferenceable(296) %0, ptr %.sroa.030.0.copyload, i32 %.sroa.231.0.copyload, ptr %.sroa.029.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %354)
           to label %5583 unwind label %5602
 
 5583:                                             ; preds = %5581
@@ -34972,7 +34972,7 @@ _ZNSt8_Rb_treeISt3setISt4pairIN5Yosys5RTLIL6SigBitEbESt4lessIS5_ESaIS5_EES1_IKS9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef nonnull %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::SigBit, std::pair<const Yosys::RTLIL::SigBit, bool>, std::_Select1st<std::pair<const Yosys::RTLIL::SigBit, bool>>, std::less<Yosys::RTLIL::SigBit>>::_Alloc_node", align 8
   %9 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::SigBit, std::pair<const Yosys::RTLIL::SigBit, bool>, std::_Select1st<std::pair<const Yosys::RTLIL::SigBit, bool>>, std::less<Yosys::RTLIL::SigBit>>::_Alloc_node", align 8
   %10 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::SigBit, std::pair<const Yosys::RTLIL::SigBit, bool>, std::_Select1st<std::pair<const Yosys::RTLIL::SigBit, bool>>, std::less<Yosys::RTLIL::SigBit>>::_Alloc_node", align 8
@@ -35456,7 +35456,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitESt4pairIKS2_bESt10_Select1stIS5_ESt4lessIS2_
   br label %_ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit
 
 _ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit: ; preds = %238, %223
-  invoke fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %.sroa.028.0.copyload, i32 %.sroa.229.0.copyload, ptr %4, i32 %5, ptr noundef nonnull %21)
+  invoke fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %.sroa.028.0.copyload, i32 %.sroa.229.0.copyload, ptr %4, i32 %5, ptr noundef %21)
           to label %241 unwind label %342
 
 241:                                              ; preds = %_ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit
@@ -36193,7 +36193,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitESt4pairIKS2_bESt10_Select1stIS5_ESt4lessIS2_
   br label %_ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit250
 
 _ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit250: ; preds = %522, %512
-  invoke fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %.sroa.013.0.copyload, i32 %.sroa.214.0.copyload, ptr %4, i32 %5, ptr noundef nonnull %27)
+  invoke fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %.sroa.013.0.copyload, i32 %.sroa.214.0.copyload, ptr %4, i32 %5, ptr noundef %27)
           to label %524 unwind label %544
 
 524:                                              ; preds = %_ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit250
@@ -36551,7 +36551,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitESt4pairIKS2_bESt10_Select1stIS5_ESt4lessIS2_
   br label %_ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit308
 
 _ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit308: ; preds = %639, %624
-  invoke fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %.sroa.02.0.copyload, i32 %.sroa.23.0.copyload, ptr %4, i32 %5, ptr noundef nonnull %31)
+  invoke fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %.sroa.02.0.copyload, i32 %.sroa.23.0.copyload, ptr %4, i32 %5, ptr noundef %31)
           to label %641 unwind label %664
 
 641:                                              ; preds = %_ZNSt3mapIN5Yosys5RTLIL6SigBitEbSt4lessIS2_ESaISt4pairIKS2_bEEEC2ERKS9_.exit308

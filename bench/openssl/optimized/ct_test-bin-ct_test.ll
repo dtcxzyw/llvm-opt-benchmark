@@ -115,7 +115,7 @@ if.end:                                           ; preds = %entry
   store ptr @.str.15, ptr %issuer_file, align 8
   %expected_sct_count = getelementptr inbounds i8, ptr %call, i64 48
   store i32 0, ptr %expected_sct_count, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -151,7 +151,7 @@ if.end:                                           ; preds = %entry
   store ptr %0, ptr %sct_dir, align 8
   %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.47, ptr %sct_text_file, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %entry
   store ptr %0, ptr %sct_dir, align 8
   %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.50, ptr %sct_text_file, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -223,7 +223,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %expected_sct_count, align 8
   %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -259,7 +259,7 @@ if.end:                                           ; preds = %entry
   store i32 3, ptr %expected_sct_count, align 8
   %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -297,7 +297,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %expected_valid_sct_count, align 4
   %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
-  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
+  %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -331,7 +331,7 @@ if.end:                                           ; preds = %entry
   store ptr %0, ptr %sct_dir, align 8
   %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.51, ptr %sct_text_file, align 8
-  %call4 = call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
+  %call4 = call fastcc i32 @execute_cert_test(ptr noundef %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   call void @CTLOG_STORE_free(ptr noundef %1) #8
@@ -380,7 +380,7 @@ if.end11:                                         ; preds = %if.end5
   store ptr %1, ptr %sct_dir, align 8
   %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.51, ptr %sct_text_file, align 8
-  %call18 = call fastcc i32 @execute_cert_test(ptr noundef nonnull %call)
+  %call18 = call fastcc i32 @execute_cert_test(ptr noundef %call)
   %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %ctlog_store.i, align 8
   call void @CTLOG_STORE_free(ptr noundef %2) #8
@@ -491,7 +491,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_cert_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_cert_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
 entry:
   %actual_output.i68 = alloca ptr, align 8
   %actual_output.i = alloca ptr, align 8
@@ -713,7 +713,7 @@ for.end:                                          ; preds = %for.cond, %if.end40
   br i1 %tobool52.not, label %if.end64, label %if.then53
 
 if.then53:                                        ; preds = %for.end
-  %call54 = call fastcc i32 @assert_validity(ptr noundef nonnull %fixture, ptr noundef %call41, ptr noundef %call)
+  %call54 = call fastcc i32 @assert_validity(ptr noundef %fixture, ptr noundef %call41, ptr noundef %call)
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %end, label %if.end64
 
@@ -749,7 +749,7 @@ if.end74:                                         ; preds = %if.then67
 
 if.then79:                                        ; preds = %if.end74
   %15 = load ptr, ptr %scts, align 8
-  %call80 = call fastcc i32 @assert_validity(ptr noundef nonnull %fixture, ptr noundef %15, ptr noundef %call)
+  %call80 = call fastcc i32 @assert_validity(ptr noundef %fixture, ptr noundef %15, ptr noundef %call)
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %end, label %if.end84
 
@@ -861,7 +861,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @SCT_get_source(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @assert_validity(ptr nocapture noundef readonly %fixture, ptr noundef %scts, ptr noundef %policy_ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @assert_validity(ptr nocapture noundef nonnull readonly %fixture, ptr noundef %scts, ptr noundef %policy_ctx) unnamed_addr #0 {
 entry:
   %call = tail call i32 @SCT_LIST_validate(ptr noundef %scts, ptr noundef %policy_ctx) #8
   %call1 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.16, i32 noundef 190, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef 0) #8

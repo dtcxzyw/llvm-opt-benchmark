@@ -4458,7 +4458,7 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator19getCurrentPositi
 
 395:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator19getCurrentPositionsEPA3_f.exit, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator19getCurrentPositionsEPA3_f.exit
   %396 = load i32, ptr %30, align 8
-  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA3_fP5t_pbcPfS6_(i32 noundef %396, ptr noundef nonnull %17, ptr noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %15)
+  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA3_fP5t_pbcPfS6_(i32 noundef %396, ptr noundef %17, ptr noundef %3, ptr noundef %13, ptr noundef %15)
           to label %397 unwind label %.loopexit
 
 397:                                              ; preds = %395
@@ -4505,7 +4505,7 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator19getCurrentPositi
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator19getCurrentPositionsEPA3_f.exit79: ; preds = %.lr.ph.i73, %399
   %416 = load i32, ptr %32, align 4
-  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA3_fP5t_pbcPfS6_(i32 noundef %416, ptr noundef nonnull %17, ptr noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA3_fP5t_pbcPfS6_(i32 noundef %416, ptr noundef %17, ptr noundef %3, ptr noundef %14, ptr noundef %16)
           to label %462 unwind label %.loopexit
 
 417:                                              ; preds = %397
@@ -7569,7 +7569,7 @@ declare void @_ZN3gmx18AnalysisDataHandle13selectDataSetEi(ptr noundef nonnull a
 declare void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA3_fP5t_pbcPfS6_(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA3_fP5t_pbcPfS6_(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca [3 x float], align 4
   %7 = alloca [3 x float], align 4
   switch i32 %0, label %119 [
@@ -7583,7 +7583,7 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA
   br i1 %.not33, label %11, label %10
 
 10:                                               ; preds = %8
-  tail call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %3)
+  tail call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef nonnull %3)
   %.pre42 = load float, ptr %3, align 4
   br label %27
 
@@ -7641,9 +7641,9 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA
   br i1 %.not, label %50, label %48
 
 48:                                               ; preds = %46
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef %1, ptr noundef nonnull %6)
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %49 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %49, ptr noundef %1, ptr noundef nonnull %7)
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %49, ptr noundef nonnull %1, ptr noundef nonnull %7)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 4
   %.pre = load float, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert34 = getelementptr inbounds i8, ptr %7, i64 8

@@ -21105,7 +21105,7 @@ _ZN11StreamProxylsIRA47_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL24createInventoryCubeImagePN3irr5video6IImageES2_S2_(ptr noundef %top, ptr noundef %left, ptr noundef %right) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL24createInventoryCubeImagePN3irr5video6IImageES2_S2_(ptr noundef nonnull %top, ptr noundef nonnull %left, ptr noundef nonnull %right) unnamed_addr #3 {
 entry:
   %ref.tmp17 = alloca %"class.irr::core::dimension2d", align 4
   %ref.tmp21 = alloca %"class.irr::video::SColor", align 4
@@ -21270,7 +21270,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10apply_maskPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEE(ptr noundef %mask, ptr noundef %dst, i64 %size.coerce) unnamed_addr #3 {
+define internal fastcc void @_ZL10apply_maskPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEE(ptr noundef nonnull %mask, ptr noundef %dst, i64 %size.coerce) unnamed_addr #3 {
 entry:
   %dst_c = alloca %"class.irr::video::SColor", align 4
   %size.sroa.0.0.extract.trunc = trunc i64 %size.coerce to i32
@@ -21470,7 +21470,7 @@ for.cond.cleanup:                                 ; preds = %for.cond3.for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14apply_colorizePN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorEib(ptr noundef %dst, i64 %size.coerce, i32 %color.coerce, i32 noundef %ratio, i1 noundef zeroext %keep_alpha) unnamed_addr #3 {
+define internal fastcc void @_ZL14apply_colorizePN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorEib(ptr noundef %dst, i64 %size.coerce, i32 %color.coerce, i32 noundef range(i32 -1, 256) %ratio, i1 noundef zeroext %keep_alpha) unnamed_addr #3 {
 entry:
   %color = alloca %"class.irr::video::SColor", align 4
   %dst_c = alloca %"class.irr::video::SColor", align 4
@@ -21577,30 +21577,28 @@ if.else60:                                        ; preds = %entry
 
 for.cond77.preheader.lr.ph:                       ; preds = %if.else60
   %conv = uitofp nneg i32 %shr.i to float
-  %conv64 = sitofp i32 %ratio to float
+  %conv64 = uitofp nneg i32 %ratio to float
   %cond.in = select i1 %cmp, float %conv, float %conv64
   %cond = fdiv nsz float %cond.in, 2.550000e+02
   %cmp81154.not = icmp eq i32 %size.sroa.0.0.extract.trunc, 0
-  %cmp.i.i.i = fcmp nsz olt float %cond, 0.000000e+00
-  %5 = select i1 %cmp.i.i.i, float 0.000000e+00, float %cond
-  %cmp.i2.i.i = fcmp nsz olt float %5, 1.000000e+00
-  %6 = select i1 %cmp.i2.i.i, float %5, float 1.000000e+00
-  %sub.i = fsub nsz float 1.000000e+00, %6
+  %cmp.i2.i.i = fcmp nsz olt float %cond, 1.000000e+00
+  %5 = select i1 %cmp.i2.i.i, float %cond, float 1.000000e+00
+  %sub.i = fsub nsz float 1.000000e+00, %5
   br i1 %cmp81154.not, label %if.end104, label %for.cond77.preheader.us.preheader
 
 for.cond77.preheader.us.preheader:                ; preds = %for.cond77.preheader.lr.ph
-  %mul6.i.us = fmul nsz float %6, %conv
+  %mul6.i.us = fmul nsz float %5, %conv
   %shr.i34.i.us = lshr i32 %color.coerce, 16
   %and.i35.i.us = and i32 %shr.i34.i.us, 255
   %conv11.i.us = uitofp nneg i32 %and.i35.i.us to float
-  %mul12.i.us = fmul nsz float %6, %conv11.i.us
+  %mul12.i.us = fmul nsz float %5, %conv11.i.us
   %shr.i40.i.us = lshr i32 %color.coerce, 8
   %and.i41.i.us = and i32 %shr.i40.i.us, 255
   %conv17.i.us = uitofp nneg i32 %and.i41.i.us to float
-  %mul18.i.us = fmul nsz float %6, %conv17.i.us
+  %mul18.i.us = fmul nsz float %5, %conv17.i.us
   %and.i45.i.us = and i32 %color.coerce, 255
   %conv23.i.us = uitofp nneg i32 %and.i45.i.us to float
-  %mul24.i.us = fmul nsz float %6, %conv23.i.us
+  %mul24.i.us = fmul nsz float %5, %conv23.i.us
   br label %for.cond77.preheader.us
 
 for.cond77.preheader.us:                          ; preds = %for.cond77.for.cond.cleanup82_crit_edge.us, %for.cond77.preheader.us.preheader
@@ -21611,8 +21609,8 @@ for.body83.us:                                    ; preds = %for.inc98.us, %for.
   %x75.0155.us = phi i32 [ 0, %for.cond77.preheader.us ], [ %inc99.us, %for.inc98.us ]
   %vtable85.us = load ptr, ptr %dst, align 8, !tbaa !4
   %vfn86.us = getelementptr inbounds i8, ptr %vtable85.us, i64 16
-  %7 = load ptr, ptr %vfn86.us, align 8
-  %call87.us = call i32 %7(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x75.0155.us, i32 noundef %y66.0157.us)
+  %6 = load ptr, ptr %vfn86.us, align 8
+  %call87.us = call i32 %6(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x75.0155.us, i32 noundef %y66.0157.us)
   store i32 %call87.us, ptr %dst_c, align 4, !tbaa !37
   %cmp90.not.us = icmp ult i32 %call87.us, 16777216
   br i1 %cmp90.not.us, label %for.inc98.us, label %if.then91.us
@@ -21620,30 +21618,30 @@ for.body83.us:                                    ; preds = %for.inc98.us, %for.
 if.then91.us:                                     ; preds = %for.body83.us
   %shr.i151.us = lshr i32 %call87.us, 24
   %conv.i.us = uitofp nneg i32 %shr.i151.us to float
-  %8 = call nsz float @llvm.fmuladd.f32(float %conv.i.us, float %sub.i, float %mul6.i.us)
-  %add.i.i.i.us = fadd nsz float %8, 5.000000e-01
-  %9 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.us)
-  %conv.i.i.us = fptosi float %9 to i32
+  %7 = call nsz float @llvm.fmuladd.f32(float %conv.i.us, float %sub.i, float %mul6.i.us)
+  %add.i.i.i.us = fadd nsz float %7, 5.000000e-01
+  %8 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.us)
+  %conv.i.i.us = fptosi float %8 to i32
   %shr.i33.i.us = lshr i32 %call87.us, 16
   %and.i.i.us = and i32 %shr.i33.i.us, 255
   %conv9.i.us = uitofp nneg i32 %and.i.i.us to float
-  %10 = call nsz float @llvm.fmuladd.f32(float %conv9.i.us, float %sub.i, float %mul12.i.us)
-  %add.i.i36.i.us = fadd nsz float %10, 5.000000e-01
-  %11 = call nsz noundef float @llvm.floor.f32(float %add.i.i36.i.us)
-  %conv.i37.i.us = fptosi float %11 to i32
+  %9 = call nsz float @llvm.fmuladd.f32(float %conv9.i.us, float %sub.i, float %mul12.i.us)
+  %add.i.i36.i.us = fadd nsz float %9, 5.000000e-01
+  %10 = call nsz noundef float @llvm.floor.f32(float %add.i.i36.i.us)
+  %conv.i37.i.us = fptosi float %10 to i32
   %shr.i38.i.us = lshr i32 %call87.us, 8
   %and.i39.i.us = and i32 %shr.i38.i.us, 255
   %conv15.i.us = uitofp nneg i32 %and.i39.i.us to float
-  %12 = call nsz float @llvm.fmuladd.f32(float %conv15.i.us, float %sub.i, float %mul18.i.us)
-  %add.i.i42.i.us = fadd nsz float %12, 5.000000e-01
-  %13 = call nsz noundef float @llvm.floor.f32(float %add.i.i42.i.us)
-  %conv.i43.i.us = fptosi float %13 to i32
+  %11 = call nsz float @llvm.fmuladd.f32(float %conv15.i.us, float %sub.i, float %mul18.i.us)
+  %add.i.i42.i.us = fadd nsz float %11, 5.000000e-01
+  %12 = call nsz noundef float @llvm.floor.f32(float %add.i.i42.i.us)
+  %conv.i43.i.us = fptosi float %12 to i32
   %and.i44.i.us = and i32 %call87.us, 255
   %conv21.i.us = uitofp nneg i32 %and.i44.i.us to float
-  %14 = call nsz float @llvm.fmuladd.f32(float %conv21.i.us, float %sub.i, float %mul24.i.us)
-  %add.i.i46.i.us = fadd nsz float %14, 5.000000e-01
-  %15 = call nsz noundef float @llvm.floor.f32(float %add.i.i46.i.us)
-  %conv.i47.i.us = fptosi float %15 to i32
+  %13 = call nsz float @llvm.fmuladd.f32(float %conv21.i.us, float %sub.i, float %mul24.i.us)
+  %add.i.i46.i.us = fadd nsz float %13, 5.000000e-01
+  %14 = call nsz noundef float @llvm.floor.f32(float %add.i.i46.i.us)
+  %conv.i47.i.us = fptosi float %14 to i32
   %and.i48.i.us = shl i32 %conv.i.i.us, 24
   %and2.i.i.us = shl i32 %conv.i37.i.us, 16
   %shl3.i.i.us = and i32 %and2.i.i.us, 16711680
@@ -21656,8 +21654,8 @@ if.then91.us:                                     ; preds = %for.body83.us
   store i32 %or8.i.i.us, ptr %dst_c, align 4, !tbaa !37
   %vtable95.us = load ptr, ptr %dst, align 8, !tbaa !4
   %vfn96.us = getelementptr inbounds i8, ptr %vtable95.us, i64 24
-  %16 = load ptr, ptr %vfn96.us, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x75.0155.us, i32 noundef %y66.0157.us, ptr noundef nonnull align 4 dereferenceable(4) %dst_c, i1 noundef zeroext false)
+  %15 = load ptr, ptr %vfn96.us, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x75.0155.us, i32 noundef %y66.0157.us, ptr noundef nonnull align 4 dereferenceable(4) %dst_c, i1 noundef zeroext false)
   br label %for.inc98.us
 
 for.inc98.us:                                     ; preds = %if.then91.us, %for.body83.us
@@ -21736,32 +21734,27 @@ cond.end:                                         ; preds = %land.lhs.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20apply_hue_saturationPN3irr5video6IImageENS_4core8vector2dIjEES5_iiib(ptr noundef %dst, i64 %size.coerce, i32 noundef %hue, i32 noundef %saturation, i32 noundef %lightness, i1 noundef zeroext %colorize) unnamed_addr #3 {
+define internal fastcc void @_ZL20apply_hue_saturationPN3irr5video6IImageENS_4core8vector2dIjEES5_iiib(ptr noundef %dst, i64 %size.coerce, i32 noundef range(i32 -180, 361) %hue, i32 noundef range(i32 -100, 1001) %saturation, i32 noundef range(i32 -100, 101) %lightness, i1 noundef zeroext %colorize) unnamed_addr #3 {
 entry:
   %ref.tmp73 = alloca %"class.irr::video::SColor", align 4
   %size.sroa.0.0.extract.trunc = trunc i64 %size.coerce to i32
   %size.sroa.2.0.extract.shift = lshr i64 %size.coerce, 32
   %size.sroa.2.0.extract.trunc = trunc nuw i64 %size.sroa.2.0.extract.shift to i32
-  %0 = tail call i32 @llvm.smax.i32(i32 %saturation, i32 -100)
-  %1 = tail call noundef i32 @llvm.smin.i32(i32 %0, i32 1000)
-  %conv = sitofp i32 %1 to float
+  %conv = sitofp i32 %saturation to float
   %div = fdiv nsz float %conv, 1.000000e+02
-  %2 = tail call i32 @llvm.smax.i32(i32 %lightness, i32 -100)
-  %3 = tail call noundef i32 @llvm.smin.i32(i32 %2, i32 100)
-  %conv5 = sitofp i32 %3 to float
+  %conv5 = sitofp i32 %lightness to float
   %div6 = fdiv nsz float %conv5, 1.000000e+02
   br i1 %colorize, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv8 = sitofp i32 %saturation to float
-  %cmp.i.i = fcmp nsz olt float %conv8, 0.000000e+00
-  %4 = select i1 %cmp.i.i, float 0.000000e+00, float %conv8
-  %cmp.i2.i = fcmp nsz olt float %4, 1.000000e+02
-  %5 = select i1 %cmp.i2.i, float %4, float 1.000000e+02
+  %cmp.i.i = fcmp nsz olt float %conv, 0.000000e+00
+  %0 = select i1 %cmp.i.i, float 0.000000e+00, float %conv
+  %cmp.i2.i = fcmp nsz olt float %0, 1.000000e+02
+  %1 = select i1 %cmp.i2.i, float %0, float 1.000000e+02
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %hsl.sroa.9.0 = phi float [ %5, %if.then ], [ 0.000000e+00, %entry ]
+  %hsl.sroa.9.0 = phi float [ %1, %if.then ], [ 0.000000e+00, %entry ]
   %cmp144.not = icmp ult i64 %size.coerce, 4294967296
   br i1 %cmp144.not, label %for.cond.cleanup, label %for.cond14.preheader.lr.ph
 
@@ -21786,8 +21779,8 @@ for.body20.us:                                    ; preds = %_ZNK3irr5video9SCol
   %hsl.sroa.9.2140.us = phi float [ %hsl.sroa.9.1145.us, %for.cond14.preheader.us ], [ %hsl.sroa.9.4.us, %_ZNK3irr5video9SColorHSL5toRGBERNS0_7SColorfE.exit.us ]
   %vtable.us = load ptr, ptr %dst, align 8, !tbaa !4
   %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 16
-  %6 = load ptr, ptr %vfn.us, align 8
-  %call24.us = call i32 %6(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x.0142.us, i32 noundef %y.0147.us)
+  %2 = load ptr, ptr %vfn.us, align 8
+  %call24.us = call i32 %2(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x.0142.us, i32 noundef %y.0147.us)
   %shr.i.i.us = lshr i32 %call24.us, 16
   %and.i.i.us = and i32 %shr.i.i.us, 255
   %conv.i.us = uitofp nneg i32 %and.i.i.us to float
@@ -21815,8 +21808,8 @@ if.else33.us:                                     ; preds = %for.body20.us
   %add.i.us = fadd nsz float %.sroa.speculated106.i.us, %.sroa.speculated.i.us
   %mul.i112.us = fmul nsz float %add.i.us, 5.000000e+01
   %sub.i.i.us = fsub nsz float %.sroa.speculated106.i.us, %.sroa.speculated.i.us
-  %7 = call nsz noundef float @llvm.fabs.f32(float %sub.i.i.us)
-  %cmp.i96.i.us = fcmp nsz ugt float %7, 0x3EB0C6F7A0000000
+  %3 = call nsz noundef float @llvm.fabs.f32(float %sub.i.i.us)
+  %cmp.i96.i.us = fcmp nsz ugt float %3, 0x3EB0C6F7A0000000
   br i1 %cmp.i96.i.us, label %if.end.i.us, label %_ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us
 
 if.end.i.us:                                      ; preds = %if.else33.us
@@ -21827,8 +21820,8 @@ if.end.i.us:                                      ; preds = %if.else33.us
   %div.sink.i.us = fdiv nsz float %sub.i.i.us, %sub21.pn.i.us
   %mul26.i.us = fmul nsz float %div.sink.i.us, 1.000000e+02
   %sub.i97.i.us = fsub nsz float %.sroa.speculated106.i.us, %mul.i.us
-  %8 = call nsz noundef float @llvm.fabs.f32(float %sub.i97.i.us)
-  %cmp.i98.i.us = fcmp nsz ugt float %8, 0x3EB0C6F7A0000000
+  %4 = call nsz noundef float @llvm.fabs.f32(float %sub.i97.i.us)
+  %cmp.i98.i.us = fcmp nsz ugt float %4, 0x3EB0C6F7A0000000
   br i1 %cmp.i98.i.us, label %if.else36.i.us, label %if.then30.i.us
 
 if.then30.i.us:                                   ; preds = %if.end.i.us
@@ -21838,8 +21831,8 @@ if.then30.i.us:                                   ; preds = %if.end.i.us
 
 if.else36.i.us:                                   ; preds = %if.end.i.us
   %sub.i102.i.us = fsub nsz float %.sroa.speculated106.i.us, %mul4.i106.us
-  %9 = call nsz noundef float @llvm.fabs.f32(float %sub.i102.i.us)
-  %cmp.i103.i.us = fcmp nsz ugt float %9, 0x3EB0C6F7A0000000
+  %5 = call nsz noundef float @llvm.fabs.f32(float %sub.i102.i.us)
+  %cmp.i103.i.us = fcmp nsz ugt float %5, 0x3EB0C6F7A0000000
   br i1 %cmp.i103.i.us, label %if.else47.i.us, label %if.then40.i.us
 
 if.then40.i.us:                                   ; preds = %if.else36.i.us
@@ -21855,8 +21848,8 @@ if.else47.i.us:                                   ; preds = %if.else36.i.us
   br label %if.end55.i.us
 
 if.end55.i.us:                                    ; preds = %if.else47.i.us, %if.then40.i.us, %if.then30.i.us
-  %10 = phi float [ %add45.i.us, %if.then40.i.us ], [ %add52.i.us, %if.else47.i.us ], [ %div34.i.us, %if.then30.i.us ]
-  %mul57.i.us = fmul nsz float %10, 6.000000e+01
+  %6 = phi float [ %add45.i.us, %if.then40.i.us ], [ %add52.i.us, %if.else47.i.us ], [ %div34.i.us, %if.then30.i.us ]
+  %mul57.i.us = fmul nsz float %6, 6.000000e+01
   %cmp59107.i.us = fcmp nsz olt float %mul57.i.us, 0.000000e+00
   br i1 %cmp59107.i.us, label %while.body.i.us, label %_ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us
 
@@ -21871,13 +21864,13 @@ _ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us: ; preds = %while.body.i
   %hsl.sroa.9.3.us = phi float [ 0.000000e+00, %if.else33.us ], [ %mul26.i.us, %if.end55.i.us ], [ %mul26.i.us, %while.body.i.us ]
   %mul44.us = fmul nsz float %add42, %mul.i112.us
   %sub48.us = fsub nsz float 1.000000e+02, %mul.i112.us
-  %11 = call nsz float @llvm.fmuladd.f32(float %div6, float %sub48.us, float %mul.i112.us)
-  %hsl.sroa.18.0.us = select i1 %cmp40, float %mul44.us, float %11
+  %7 = call nsz float @llvm.fmuladd.f32(float %div6, float %sub48.us, float %mul.i112.us)
+  %hsl.sroa.18.0.us = select i1 %cmp40, float %mul44.us, float %7
   %mul54.us = fmul nsz float %add52, %hsl.sroa.9.3.us
   %cmp.i.i115.us = fcmp nsz olt float %mul54.us, 0.000000e+00
-  %12 = select i1 %cmp.i.i115.us, float 0.000000e+00, float %mul54.us
-  %cmp.i2.i116.us = fcmp nsz olt float %12, 1.000000e+02
-  %13 = select i1 %cmp.i2.i116.us, float %12, float 1.000000e+02
+  %8 = select i1 %cmp.i.i115.us, float 0.000000e+00, float %mul54.us
+  %cmp.i2.i116.us = fcmp nsz olt float %8, 1.000000e+02
+  %9 = select i1 %cmp.i2.i116.us, float %8, float 1.000000e+02
   br label %if.end60.us
 
 if.then22.us:                                     ; preds = %for.body20.us
@@ -21885,38 +21878,38 @@ if.then22.us:                                     ; preds = %for.body20.us
   %and.i8.i.us = and i32 %shr.i7.i.us, 255
   %conv3.i.us = uitofp nneg i32 %and.i8.i.us to float
   %mul4.i.us = fmul nsz float %conv3.i.us, 0x3FE2E147A0000000
-  %14 = call nsz float @llvm.fmuladd.f32(float %conv.i.us, float 0x3FD3333340000000, float %mul4.i.us)
-  %15 = call nsz noundef float @llvm.fmuladd.f32(float %conv6.i.us, float 0x3FBC28F5C0000000, float %14)
-  %div26.us = fdiv nsz float %15, 2.550000e+02
+  %10 = call nsz float @llvm.fmuladd.f32(float %conv.i.us, float 0x3FD3333340000000, float %mul4.i.us)
+  %11 = call nsz noundef float @llvm.fmuladd.f32(float %conv6.i.us, float 0x3FBC28F5C0000000, float %10)
+  %div26.us = fdiv nsz float %11, 2.550000e+02
   %mul.us = fmul nsz float %add42, %div26.us
-  %16 = call nsz float @llvm.fmuladd.f32(float %div26.us, float %sub, float %div6)
-  %lum.0.us = select i1 %cmp40, float %mul.us, float %16
+  %12 = call nsz float @llvm.fmuladd.f32(float %div26.us, float %sub, float %div6)
+  %lum.0.us = select i1 %cmp40, float %mul.us, float %12
   %mul32.us = fmul nsz float %lum.0.us, 1.000000e+02
   br label %if.end60.us
 
 if.end60.us:                                      ; preds = %if.then22.us, %_ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us
   %hsl.sroa.0.1.us = phi float [ 0.000000e+00, %if.then22.us ], [ %hsl.sroa.0.0.us, %_ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us ]
-  %hsl.sroa.9.4.us = phi float [ %hsl.sroa.9.2140.us, %if.then22.us ], [ %13, %_ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us ]
+  %hsl.sroa.9.4.us = phi float [ %hsl.sroa.9.2140.us, %if.then22.us ], [ %9, %_ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us ]
   %hsl.sroa.18.1.us = phi float [ %mul32.us, %if.then22.us ], [ %hsl.sroa.18.0.us, %_ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us ]
   %colorf.sroa.17.2.us = phi float [ %colorf.sroa.17.1141.us, %if.then22.us ], [ %mul10.i.us, %_ZN3irr5video9SColorHSL7fromRGBERKNS0_7SColorfE.exit.us ]
   %div.i.us = fdiv nsz float %hsl.sroa.18.1.us, 1.000000e+02
-  %17 = call nsz float @llvm.fabs.f32(float %hsl.sroa.9.4.us)
-  %cmp.i.i119.us = fcmp nsz ugt float %17, 0x3EB0C6F7A0000000
+  %13 = call nsz float @llvm.fabs.f32(float %hsl.sroa.9.4.us)
+  %cmp.i.i119.us = fcmp nsz ugt float %13, 0x3EB0C6F7A0000000
   br i1 %cmp.i.i119.us, label %if.end.i120.us, label %_ZNK3irr5video9SColorHSL5toRGBERNS0_7SColorfE.exit.us
 
 if.end.i120.us:                                   ; preds = %if.end60.us
   %add63.us = fadd nsz float %hsl.sroa.0.1.us, %conv62
-  %18 = frem nsz float %add63.us, 3.600000e+02
-  %cmp68.us = fcmp nsz olt float %18, 0.000000e+00
-  %add71.us = fadd nsz float %18, 3.600000e+02
-  %storemerge.us = select i1 %cmp68.us, float %add71.us, float %18
+  %14 = frem nsz float %add63.us, 3.600000e+02
+  %cmp68.us = fcmp nsz olt float %14, 0.000000e+00
+  %add71.us = fadd nsz float %14, 3.600000e+02
+  %storemerge.us = select i1 %cmp68.us, float %add71.us, float %14
   %cmp.i121.us = fcmp nsz ugt float %hsl.sroa.18.1.us, 5.000000e+01
   %sub.i.us = fsub nsz float 1.000000e+00, %div.i.us
   %sub.sink.i.us = select i1 %cmp.i121.us, float %sub.i.us, float %div.i.us
   %div7.i.us = fdiv nsz float %hsl.sroa.9.4.us, 1.000000e+02
-  %19 = call nsz float @llvm.fmuladd.f32(float %sub.sink.i.us, float %div7.i.us, float %div.i.us)
-  %neg.i.us = fneg nsz float %19
-  %20 = call nsz float @llvm.fmuladd.f32(float %div.i.us, float 2.000000e+00, float %neg.i.us)
+  %15 = call nsz float @llvm.fmuladd.f32(float %sub.sink.i.us, float %div7.i.us, float %div.i.us)
+  %neg.i.us = fneg nsz float %15
+  %16 = call nsz float @llvm.fmuladd.f32(float %div.i.us, float 2.000000e+00, float %neg.i.us)
   %div9.i.us = fdiv nsz float %storemerge.us, 3.600000e+02
   %add.i122.us = fadd nsz float %div9.i.us, 0x3FD5555560000000
   %cmp.i29.i.us = fcmp nsz olt float %add.i122.us, 0.000000e+00
@@ -21937,20 +21930,20 @@ if.else11.i.i.us:                                 ; preds = %if.else.i.i.us
   br i1 %cmp12.i.i.us, label %if.then13.i.i.us, label %_ZNK3irr5video9SColorHSL6toRGB1Efff.exit.i.us
 
 if.then13.i.i.us:                                 ; preds = %if.else11.i.i.us
-  %sub14.i.i.us = fsub nsz float %19, %20
+  %sub14.i.i.us = fsub nsz float %15, %16
   %sub15.i.i.us = fsub nsz float 0x3FE5555560000000, %rh.addr.1.i.i.us
   %mul16.i.i.us = fmul nsz float %sub14.i.i.us, %sub15.i.i.us
-  %21 = call nsz float @llvm.fmuladd.f32(float %mul16.i.i.us, float 6.000000e+00, float %20)
+  %17 = call nsz float @llvm.fmuladd.f32(float %mul16.i.i.us, float 6.000000e+00, float %16)
   br label %_ZNK3irr5video9SColorHSL6toRGB1Efff.exit.i.us
 
 if.then6.i.i.us:                                  ; preds = %if.end.i120.us
-  %sub7.i.i.us = fsub nsz float %19, %20
+  %sub7.i.i.us = fsub nsz float %15, %16
   %mul.i.i.us = fmul nsz float %sub7.i.i.us, %rh.addr.1.i.i.us
-  %22 = call nsz float @llvm.fmuladd.f32(float %mul.i.i.us, float 6.000000e+00, float %20)
+  %18 = call nsz float @llvm.fmuladd.f32(float %mul.i.i.us, float 6.000000e+00, float %16)
   br label %_ZNK3irr5video9SColorHSL6toRGB1Efff.exit.i.us
 
 _ZNK3irr5video9SColorHSL6toRGB1Efff.exit.i.us:    ; preds = %if.then6.i.i.us, %if.then13.i.i.us, %if.else11.i.i.us, %if.else.i.i.us
-  %rm1.addr.0.i.i.us = phi float [ %22, %if.then6.i.i.us ], [ %21, %if.then13.i.i.us ], [ %20, %if.else11.i.i.us ], [ %19, %if.else.i.i.us ]
+  %rm1.addr.0.i.i.us = phi float [ %18, %if.then6.i.i.us ], [ %17, %if.then13.i.i.us ], [ %16, %if.else11.i.i.us ], [ %15, %if.else.i.i.us ]
   %cmp.i30.i.us = fcmp nsz olt float %div9.i.us, 0.000000e+00
   %add.i31.i.us = fadd nsz float %div9.i.us, 1.000000e+00
   %rh.addr.0.i32.i.us = select i1 %cmp.i30.i.us, float %add.i31.i.us, float %div9.i.us
@@ -21969,20 +21962,20 @@ if.else11.i39.i.us:                               ; preds = %if.else.i37.i.us
   br i1 %cmp12.i40.i.us, label %if.then13.i42.i.us, label %_ZNK3irr5video9SColorHSL6toRGB1Efff.exit49.i.us
 
 if.then13.i42.i.us:                               ; preds = %if.else11.i39.i.us
-  %sub14.i43.i.us = fsub nsz float %19, %20
+  %sub14.i43.i.us = fsub nsz float %15, %16
   %sub15.i44.i.us = fsub nsz float 0x3FE5555560000000, %rh.addr.1.i35.i.us
   %mul16.i45.i.us = fmul nsz float %sub14.i43.i.us, %sub15.i44.i.us
-  %23 = call nsz float @llvm.fmuladd.f32(float %mul16.i45.i.us, float 6.000000e+00, float %20)
+  %19 = call nsz float @llvm.fmuladd.f32(float %mul16.i45.i.us, float 6.000000e+00, float %16)
   br label %_ZNK3irr5video9SColorHSL6toRGB1Efff.exit49.i.us
 
 if.then6.i46.i.us:                                ; preds = %_ZNK3irr5video9SColorHSL6toRGB1Efff.exit.i.us
-  %sub7.i47.i.us = fsub nsz float %19, %20
+  %sub7.i47.i.us = fsub nsz float %15, %16
   %mul.i48.i.us = fmul nsz float %sub7.i47.i.us, %rh.addr.1.i35.i.us
-  %24 = call nsz float @llvm.fmuladd.f32(float %mul.i48.i.us, float 6.000000e+00, float %20)
+  %20 = call nsz float @llvm.fmuladd.f32(float %mul.i48.i.us, float 6.000000e+00, float %16)
   br label %_ZNK3irr5video9SColorHSL6toRGB1Efff.exit49.i.us
 
 _ZNK3irr5video9SColorHSL6toRGB1Efff.exit49.i.us:  ; preds = %if.then6.i46.i.us, %if.then13.i42.i.us, %if.else11.i39.i.us, %if.else.i37.i.us
-  %rm1.addr.0.i41.i.us = phi float [ %24, %if.then6.i46.i.us ], [ %23, %if.then13.i42.i.us ], [ %20, %if.else11.i39.i.us ], [ %19, %if.else.i37.i.us ]
+  %rm1.addr.0.i41.i.us = phi float [ %20, %if.then6.i46.i.us ], [ %19, %if.then13.i42.i.us ], [ %16, %if.else11.i39.i.us ], [ %15, %if.else.i37.i.us ]
   %sub12.i.us = fadd nsz float %div9.i.us, 0xBFD5555560000000
   %cmp.i50.i.us = fcmp nsz olt float %sub12.i.us, 0.000000e+00
   %add.i51.i.us = fadd nsz float %sub12.i.us, 1.000000e+00
@@ -22002,39 +21995,39 @@ if.else11.i59.i.us:                               ; preds = %if.else.i57.i.us
   br i1 %cmp12.i60.i.us, label %if.then13.i62.i.us, label %_ZNK3irr5video9SColorHSL5toRGBERNS0_7SColorfE.exit.us
 
 if.then13.i62.i.us:                               ; preds = %if.else11.i59.i.us
-  %sub14.i63.i.us = fsub nsz float %19, %20
+  %sub14.i63.i.us = fsub nsz float %15, %16
   %sub15.i64.i.us = fsub nsz float 0x3FE5555560000000, %rh.addr.1.i55.i.us
   %mul16.i65.i.us = fmul nsz float %sub14.i63.i.us, %sub15.i64.i.us
-  %25 = call nsz float @llvm.fmuladd.f32(float %mul16.i65.i.us, float 6.000000e+00, float %20)
+  %21 = call nsz float @llvm.fmuladd.f32(float %mul16.i65.i.us, float 6.000000e+00, float %16)
   br label %_ZNK3irr5video9SColorHSL5toRGBERNS0_7SColorfE.exit.us
 
 if.then6.i66.i.us:                                ; preds = %_ZNK3irr5video9SColorHSL6toRGB1Efff.exit49.i.us
-  %sub7.i67.i.us = fsub nsz float %19, %20
+  %sub7.i67.i.us = fsub nsz float %15, %16
   %mul.i68.i.us = fmul nsz float %sub7.i67.i.us, %rh.addr.1.i55.i.us
-  %26 = call nsz float @llvm.fmuladd.f32(float %mul.i68.i.us, float 6.000000e+00, float %20)
+  %22 = call nsz float @llvm.fmuladd.f32(float %mul.i68.i.us, float 6.000000e+00, float %16)
   br label %_ZNK3irr5video9SColorHSL5toRGBERNS0_7SColorfE.exit.us
 
 _ZNK3irr5video9SColorHSL5toRGBERNS0_7SColorfE.exit.us: ; preds = %if.then6.i66.i.us, %if.then13.i62.i.us, %if.else11.i59.i.us, %if.else.i57.i.us, %if.end60.us
   %rm1.addr.0.i.sink.i.us = phi float [ %div.i.us, %if.end60.us ], [ %rm1.addr.0.i.i.us, %if.then6.i66.i.us ], [ %rm1.addr.0.i.i.us, %if.else.i57.i.us ], [ %rm1.addr.0.i.i.us, %if.else11.i59.i.us ], [ %rm1.addr.0.i.i.us, %if.then13.i62.i.us ]
   %rm1.addr.0.i41.sink.i.us = phi float [ %div.i.us, %if.end60.us ], [ %rm1.addr.0.i41.i.us, %if.then6.i66.i.us ], [ %rm1.addr.0.i41.i.us, %if.else.i57.i.us ], [ %rm1.addr.0.i41.i.us, %if.else11.i59.i.us ], [ %rm1.addr.0.i41.i.us, %if.then13.i62.i.us ]
-  %rm1.addr.0.i61.sink.i.us = phi float [ %div.i.us, %if.end60.us ], [ %26, %if.then6.i66.i.us ], [ %19, %if.else.i57.i.us ], [ %20, %if.else11.i59.i.us ], [ %25, %if.then13.i62.i.us ]
+  %rm1.addr.0.i61.sink.i.us = phi float [ %div.i.us, %if.end60.us ], [ %22, %if.then6.i66.i.us ], [ %15, %if.else.i57.i.us ], [ %16, %if.else11.i59.i.us ], [ %21, %if.then13.i62.i.us ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp73) #15
   %mul.i125.us = fmul nsz float %colorf.sroa.17.2.us, 2.550000e+02
   %add.i.i.i.us = fadd nsz float %mul.i125.us, 5.000000e-01
-  %27 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.us)
-  %conv.i.i.us = fptosi float %27 to i32
+  %23 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.us)
+  %conv.i.i.us = fptosi float %23 to i32
   %mul2.i.us = fmul nsz float %rm1.addr.0.i.sink.i.us, 2.550000e+02
   %add.i.i8.i.us = fadd nsz float %mul2.i.us, 5.000000e-01
-  %28 = call nsz noundef float @llvm.floor.f32(float %add.i.i8.i.us)
-  %conv.i9.i.us = fptosi float %28 to i32
+  %24 = call nsz noundef float @llvm.floor.f32(float %add.i.i8.i.us)
+  %conv.i9.i.us = fptosi float %24 to i32
   %mul4.i127.us = fmul nsz float %rm1.addr.0.i41.sink.i.us, 2.550000e+02
   %add.i.i10.i.us = fadd nsz float %mul4.i127.us, 5.000000e-01
-  %29 = call nsz noundef float @llvm.floor.f32(float %add.i.i10.i.us)
-  %conv.i11.i.us = fptosi float %29 to i32
+  %25 = call nsz noundef float @llvm.floor.f32(float %add.i.i10.i.us)
+  %conv.i11.i.us = fptosi float %25 to i32
   %mul6.i.us = fmul nsz float %rm1.addr.0.i61.sink.i.us, 2.550000e+02
   %add.i.i12.i.us = fadd nsz float %mul6.i.us, 5.000000e-01
-  %30 = call nsz noundef float @llvm.floor.f32(float %add.i.i12.i.us)
-  %conv.i13.i.us = fptosi float %30 to i32
+  %26 = call nsz noundef float @llvm.floor.f32(float %add.i.i12.i.us)
+  %conv.i13.i.us = fptosi float %26 to i32
   %and.i.i129.us = shl i32 %conv.i.i.us, 24
   %and2.i.i.us = shl i32 %conv.i9.i.us, 16
   %shl3.i.i.us = and i32 %and2.i.i.us, 16711680
@@ -22047,8 +22040,8 @@ _ZNK3irr5video9SColorHSL5toRGBERNS0_7SColorfE.exit.us: ; preds = %if.then6.i66.i
   store i32 %or8.i.i.us, ptr %ref.tmp73, align 4
   %vtable76.us = load ptr, ptr %dst, align 8, !tbaa !4
   %vfn77.us = getelementptr inbounds i8, ptr %vtable76.us, i64 24
-  %31 = load ptr, ptr %vfn77.us, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x.0142.us, i32 noundef %y.0147.us, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp73, i1 noundef zeroext false)
+  %27 = load ptr, ptr %vfn77.us, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x.0142.us, i32 noundef %y.0147.us, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp73, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp73) #15
   %inc.us = add nuw i32 %x.0142.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %size.sroa.0.0.extract.trunc
@@ -22200,26 +22193,21 @@ for.cond.cleanup:                                 ; preds = %for.cond15.for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25apply_brightness_contrastPN3irr5video6IImageENS_4core8vector2dIjEES5_ii(ptr noundef %dst, i64 %size.coerce, i32 noundef %brightness, i32 noundef %contrast) unnamed_addr #3 {
+define internal fastcc void @_ZL25apply_brightness_contrastPN3irr5video6IImageENS_4core8vector2dIjEES5_ii(ptr noundef %dst, i64 %size.coerce, i32 noundef range(i32 -127, 128) %brightness, i32 noundef range(i32 -127, 128) %contrast) unnamed_addr #3 {
 entry:
   %dst_c = alloca %"class.irr::video::SColor", align 4
   %size.sroa.0.0.extract.trunc = trunc i64 %size.coerce to i32
   %size.sroa.2.0.extract.shift = lshr i64 %size.coerce, 32
   %size.sroa.2.0.extract.trunc = trunc nuw i64 %size.sroa.2.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dst_c) #15
-  %0 = tail call i32 @llvm.smax.i32(i32 %contrast, i32 -127)
-  %1 = tail call noundef i32 @llvm.smin.i32(i32 %0, i32 127)
-  %conv = sitofp i32 %1 to double
+  %conv = sitofp i32 %contrast to double
   %div = fmul nsz double %conv, 7.812500e-03
-  %2 = tail call i32 @llvm.smax.i32(i32 %brightness, i32 -127)
-  %3 = tail call noundef i32 @llvm.smin.i32(i32 %2, i32 127)
-  %conv5 = sitofp i32 %3 to double
+  %conv5 = sitofp i32 %brightness to double
   %div6 = fdiv nsz double %conv5, 1.270000e+02
-  %conv7 = sitofp i32 %brightness to double
-  %mul = fmul nsz double %conv7, 1.275000e+02
+  %mul = fmul nsz double %conv5, 1.275000e+02
   %div8 = fdiv nsz double %mul, 1.270000e+02
-  %4 = tail call nsz double @llvm.fabs.f64(double %div6)
-  %sub = fsub nsz double 1.000000e+00, %4
+  %0 = tail call nsz double @llvm.fabs.f64(double %div6)
+  %sub = fsub nsz double 1.000000e+00, %0
   %call9 = tail call nsz double @atan(double noundef %sub) #33
   %cmp = fcmp nsz ugt double %div, 0.000000e+00
   %sub11 = fsub nsz double 0x3FF921FB54442D18, %call9
@@ -22232,17 +22220,17 @@ entry:
   br i1 %cmp14, label %cond.false18, label %cond.true15
 
 cond.true15:                                      ; preds = %entry
-  %5 = tail call nsz double @llvm.fmuladd.f64(double %fneg19, double 1.275000e+02, double 1.275000e+02)
-  %add17 = fadd nsz double %div8, %5
+  %1 = tail call nsz double @llvm.fmuladd.f64(double %fneg19, double 1.275000e+02, double 1.275000e+02)
+  %add17 = fadd nsz double %div8, %1
   br label %cond.end22
 
 cond.false18:                                     ; preds = %entry
   %sub20 = fsub nsz double 1.275000e+02, %div8
-  %6 = tail call nsz double @llvm.fmuladd.f64(double %fneg19, double %sub20, double 1.275000e+02)
+  %2 = tail call nsz double @llvm.fmuladd.f64(double %fneg19, double %sub20, double 1.275000e+02)
   br label %cond.end22
 
 cond.end22:                                       ; preds = %cond.false18, %cond.true15
-  %cond23 = phi nsz double [ %add17, %cond.true15 ], [ %6, %cond.false18 ]
+  %cond23 = phi nsz double [ %add17, %cond.true15 ], [ %2, %cond.false18 ]
   %add24 = fadd nsz double %cond23, 5.000000e-01
   %cmp28100.not = icmp ult i64 %size.coerce, 4294967296
   %cmp3398.not = icmp eq i32 %size.sroa.0.0.extract.trunc, 0
@@ -22257,39 +22245,39 @@ for.body35.us:                                    ; preds = %for.body35.us, %for
   %x.099.us = phi i32 [ 0, %for.cond29.preheader.us ], [ %inc.us, %for.body35.us ]
   %vtable.us = load ptr, ptr %dst, align 8, !tbaa !4
   %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 16
-  %7 = load ptr, ptr %vfn.us, align 8
-  %call37.us = call i32 %7(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x.099.us, i32 noundef %y.0101.us)
+  %3 = load ptr, ptr %vfn.us, align 8
+  %call37.us = call i32 %3(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x.099.us, i32 noundef %y.0101.us)
   %shr.i.us = and i32 %call37.us, -16777216
   %shr.i92.us = lshr i32 %call37.us, 16
   %and.i.us = and i32 %shr.i92.us, 255
   %conv41.us = uitofp nneg i32 %and.i.us to double
-  %8 = call nsz double @llvm.fmuladd.f64(double %call13, double %conv41.us, double %add24)
-  %conv43.us = fptosi double %8 to i32
-  %9 = call i32 @llvm.smax.i32(i32 %conv43.us, i32 0)
-  %10 = call i32 @llvm.umin.i32(i32 %9, i32 255)
+  %4 = call nsz double @llvm.fmuladd.f64(double %call13, double %conv41.us, double %add24)
+  %conv43.us = fptosi double %4 to i32
+  %5 = call i32 @llvm.smax.i32(i32 %conv43.us, i32 0)
+  %6 = call i32 @llvm.umin.i32(i32 %5, i32 255)
   %shr.i93.us = lshr i32 %call37.us, 8
   %and.i94.us = and i32 %shr.i93.us, 255
   %conv49.us = uitofp nneg i32 %and.i94.us to double
-  %11 = call nsz double @llvm.fmuladd.f64(double %call13, double %conv49.us, double %add24)
-  %conv51.us = fptosi double %11 to i32
-  %12 = call i32 @llvm.smax.i32(i32 %conv51.us, i32 0)
-  %13 = call i32 @llvm.umin.i32(i32 %12, i32 255)
+  %7 = call nsz double @llvm.fmuladd.f64(double %call13, double %conv49.us, double %add24)
+  %conv51.us = fptosi double %7 to i32
+  %8 = call i32 @llvm.smax.i32(i32 %conv51.us, i32 0)
+  %9 = call i32 @llvm.umin.i32(i32 %8, i32 255)
   %and.i95.us = and i32 %call37.us, 255
   %conv57.us = uitofp nneg i32 %and.i95.us to double
-  %14 = call nsz double @llvm.fmuladd.f64(double %call13, double %conv57.us, double %add24)
-  %conv59.us = fptosi double %14 to i32
-  %15 = call i32 @llvm.smax.i32(i32 %conv59.us, i32 0)
-  %16 = call i32 @llvm.umin.i32(i32 %15, i32 255)
-  %and2.i.us = shl nuw nsw i32 %10, 16
+  %10 = call nsz double @llvm.fmuladd.f64(double %call13, double %conv57.us, double %add24)
+  %conv59.us = fptosi double %10 to i32
+  %11 = call i32 @llvm.smax.i32(i32 %conv59.us, i32 0)
+  %12 = call i32 @llvm.umin.i32(i32 %11, i32 255)
+  %and2.i.us = shl nuw nsw i32 %6, 16
   %or.i.us = or disjoint i32 %and2.i.us, %shr.i.us
-  %and4.i.us = shl nuw nsw i32 %13, 8
+  %and4.i.us = shl nuw nsw i32 %9, 8
   %or6.i.us = or disjoint i32 %or.i.us, %and4.i.us
-  %or8.i.us = or disjoint i32 %or6.i.us, %16
+  %or8.i.us = or disjoint i32 %or6.i.us, %12
   store i32 %or8.i.us, ptr %dst_c, align 4, !tbaa !212
   %vtable63.us = load ptr, ptr %dst, align 8, !tbaa !4
   %vfn64.us = getelementptr inbounds i8, ptr %vtable63.us, i64 24
-  %17 = load ptr, ptr %vfn64.us, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x.099.us, i32 noundef %y.0101.us, ptr noundef nonnull align 4 dereferenceable(4) %dst_c, i1 noundef zeroext false)
+  %13 = load ptr, ptr %vfn64.us, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(50) %dst, i32 noundef %x.099.us, i32 noundef %y.0101.us, ptr noundef nonnull align 4 dereferenceable(4) %dst_c, i1 noundef zeroext false)
   %inc.us = add nuw i32 %x.099.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %size.sroa.0.0.extract.trunc
   br i1 %exitcond.not, label %for.cond29.for.cond.cleanup34_crit_edge.us, label %for.body35.us, !llvm.loop !329
@@ -25542,7 +25530,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZL24createInventoryCubeImagePN3irr5video6IImageES2_S2_ENK3$_2clES2_fssssssSt16initializer_listINS_4core8vector2dIsEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, ptr noundef %image, float noundef %shade_factor, i16 noundef signext %xv, i16 noundef signext %x1, i16 noundef signext %yu, i16 noundef signext %yv, i16 noundef signext %y1, ptr readonly %offsets.0.val, i64 %offsets.8.val) unnamed_addr #13 align 2 {
+define internal fastcc void @"_ZZL24createInventoryCubeImagePN3irr5video6IImageES2_S2_ENK3$_2clES2_fssssssSt16initializer_listINS_4core8vector2dIsEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, ptr noundef nonnull %image, float noundef %shade_factor, i16 noundef signext range(i16 -4, 1) %xv, i16 noundef signext range(i16 0, 257) %x1, i16 noundef signext range(i16 -2, 3) %yu, i16 noundef signext range(i16 2, 6) %yv, i16 noundef signext range(i16 0, 255) %y1, ptr nonnull readonly %offsets.0.val, i64 range(i64 16, 21) %offsets.8.val) unnamed_addr #13 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.irr::core::dimension2d", align 4
   %mul = fmul nsz float %shade_factor, 2.560000e+02

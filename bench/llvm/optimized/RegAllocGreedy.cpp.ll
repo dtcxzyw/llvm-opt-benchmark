@@ -14131,7 +14131,7 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit: ; preds = %47
   br i1 %148, label %149, label %276
 
 149:                                              ; preds = %.critedge2
-  %150 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPKNS_17MachineMemOperandELj2EEEZNS_8RAGreedy12computeStatsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull %17)
+  %150 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPKNS_17MachineMemOperandELj2EEEZNS_8RAGreedy12computeStatsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %17)
   br i1 %150, label %151, label %276
 
 151:                                              ; preds = %149
@@ -14449,7 +14449,7 @@ _ZN4llvm16SmallSetIteratorIjLj16ESt4lessIjEEppEv.exit: ; preds = %272, %274
   br i1 %282, label %283, label %_ZN4llvm8SmallSetIjLj16ESt4lessIjEED2Ev.exit61
 
 283:                                              ; preds = %276
-  %284 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPKNS_17MachineMemOperandELj2EEEZNS_8RAGreedy12computeStatsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull %17)
+  %284 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPKNS_17MachineMemOperandELj2EEEZNS_8RAGreedy12computeStatsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %17)
   br i1 %284, label %285, label %_ZN4llvm8SmallSetIjLj16ESt4lessIjEED2Ev.exit61
 
 285:                                              ; preds = %283
@@ -14553,7 +14553,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPKNS_17MachineMemOperandELj2EEEZNS_8RAGreedy12computeStatsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPKNS_17MachineMemOperandELj2EEEZNS_8RAGreedy12computeStatsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %.idx3 = shl nsw i64 %4, 3

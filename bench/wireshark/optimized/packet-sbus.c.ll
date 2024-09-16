@@ -2168,32 +2168,33 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   br i1 %927, label %.lr.ph1198, label %._crit_edge
 
 .lr.ph1198:                                       ; preds = %.thread1138, %.lr.ph1198
-  %.151197 = phi i32 [ %936, %.lr.ph1198 ], [ 0, %.thread1138 ]
-  %.010991196 = phi i32 [ %935, %.lr.ph1198 ], [ 0, %.thread1138 ]
+  %.151197 = phi i32 [ %938, %.lr.ph1198 ], [ 0, %.thread1138 ]
+  %.010991196 = phi i32 [ %937, %.lr.ph1198 ], [ 0, %.thread1138 ]
   %928 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.151197) #4
-  %929 = lshr i32 %.010991196, 8
-  %.tr = trunc i32 %929 to i8
-  %.narrow = xor i8 %928, %.tr
-  %930 = zext i8 %.narrow to i64
-  %931 = getelementptr [256 x i32], ptr @crc_table, i64 0, i64 %930
-  %932 = load i32, ptr %931, align 4
-  %933 = shl i32 %.010991196, 8
-  %934 = and i32 %933, 65280
-  %935 = xor i32 %932, %934
-  %936 = add nuw nsw i32 %.151197, 1
-  %exitcond1223.not = icmp eq i32 %936, %926
+  %929 = zext i8 %928 to i32
+  %930 = lshr i32 %.010991196, 8
+  %.masked.i = and i32 %930, 255
+  %931 = xor i32 %.masked.i, %929
+  %932 = zext nneg i32 %931 to i64
+  %933 = getelementptr [256 x i32], ptr @crc_table, i64 0, i64 %932
+  %934 = load i32, ptr %933, align 4
+  %935 = shl i32 %.010991196, 8
+  %936 = and i32 %935, 65280
+  %937 = xor i32 %934, %936
+  %938 = add nuw nsw i32 %.151197, 1
+  %exitcond1223.not = icmp eq i32 %938, %926
   br i1 %exitcond1223.not, label %._crit_edge, label %.lr.ph1198, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph1198, %.thread1138
-  %.01099.lcssa = phi i32 [ 0, %.thread1138 ], [ %935, %.lr.ph1198 ]
-  %937 = load i32, ptr @hf_sbus_crc, align 4
-  %938 = load i32, ptr @hf_sbus_crc_status, align 4
-  %939 = call ptr @proto_tree_add_checksum(ptr noundef %227, ptr noundef %0, i32 noundef %.131096, i32 noundef %937, i32 noundef %938, ptr noundef nonnull @ei_sbus_crc_bad, ptr noundef %1, i32 noundef %.01099.lcssa, i32 noundef 0, i32 noundef 1) #4
-  %940 = add i32 %.131096, 2
+  %.01099.lcssa = phi i32 [ 0, %.thread1138 ], [ %937, %.lr.ph1198 ]
+  %939 = load i32, ptr @hf_sbus_crc, align 4
+  %940 = load i32, ptr @hf_sbus_crc_status, align 4
+  %941 = call ptr @proto_tree_add_checksum(ptr noundef %227, ptr noundef %0, i32 noundef %.131096, i32 noundef %939, i32 noundef %940, ptr noundef nonnull @ei_sbus_crc_bad, ptr noundef %1, i32 noundef %.01099.lcssa, i32 noundef 0, i32 noundef 1) #4
+  %942 = add i32 %.131096, 2
   br label %is_sbus_pdu.exit.thread
 
 is_sbus_pdu.exit.thread:                          ; preds = %20, %17, %14, %12, %9, %4, %222, %._crit_edge, %is_sbus_pdu.exit
-  %.01073 = phi i32 [ 0, %is_sbus_pdu.exit ], [ %940, %._crit_edge ], [ 0, %222 ], [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %14 ], [ 0, %17 ], [ 0, %20 ]
+  %.01073 = phi i32 [ 0, %is_sbus_pdu.exit ], [ %942, %._crit_edge ], [ 0, %222 ], [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %14 ], [ 0, %17 ], [ 0, %20 ]
   ret i32 %.01073
 }
 
@@ -2258,20 +2259,21 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_media_access_to_tree(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  switch i32 %0, label %.loopexit [
-    i32 0, label %5
-    i32 6, label %5
-    i32 7, label %5
-    i32 2, label %11
-    i32 3, label %11
-    i32 5, label %11
-    i32 10, label %17
-    i32 14, label %17
-    i32 15, label %17
-    i32 11, label %38
-    i32 13, label %38
-    i32 150, label %73
+define internal fastcc i32 @add_media_access_to_tree(i32 noundef range(i32 0, 256) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483646, 269) %3) unnamed_addr #0 {
+  %trunc = trunc nuw i32 %0 to i8
+  switch i8 %trunc, label %.loopexit [
+    i8 0, label %5
+    i8 6, label %5
+    i8 7, label %5
+    i8 2, label %11
+    i8 3, label %11
+    i8 5, label %11
+    i8 10, label %17
+    i8 14, label %17
+    i8 15, label %17
+    i8 11, label %38
+    i8 13, label %38
+    i8 -106, label %73
   ]
 
 5:                                                ; preds = %4, %4, %4
@@ -2315,7 +2317,7 @@ define internal fastcc i32 @add_media_access_to_tree(i32 noundef %0, ptr noundef
   %.0114124 = phi i32 [ %36, %.lr.ph126 ], [ %.sext, %17 ]
   %33 = load i32, ptr @hf_sbus_data_rtc, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %33, ptr noundef %1, i32 noundef %.1113125, i32 noundef 4, i32 noundef 0) #4
-  %35 = add i32 %.1113125, 4
+  %35 = add nsw i32 %.1113125, 4
   %36 = add nsw i32 %.0114124, -1
   %37 = icmp ugt i32 %.0114124, 1
   br i1 %37, label %.lr.ph126, label %.loopexit, !llvm.loop !22
@@ -2368,7 +2370,7 @@ define internal fastcc i32 @add_media_access_to_tree(i32 noundef %0, ptr noundef
 67:                                               ; preds = %61
   %68 = load i32, ptr @hf_sbus_data_iof, align 4
   %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %57, i32 noundef %68, ptr noundef %1, i32 noundef %.2123, i32 noundef 1, i32 noundef %spec.select, ptr noundef nonnull @.str.432, i32 noundef %spec.select) #4
-  %70 = add i32 %.2123, 1
+  %70 = add nsw i32 %.2123, 1
   %71 = add nsw i32 %.1115122, -1
   %72 = icmp sgt i32 %.1115122, 1
   br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !24
@@ -2410,77 +2412,78 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_media_response_to_tree(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
-  switch i32 %0, label %.loopexit [
-    i32 0, label %6
-    i32 6, label %6
-    i32 7, label %6
-    i32 30, label %6
-    i32 31, label %6
-    i32 161, label %6
-    i32 150, label %6
-    i32 2, label %16
-    i32 3, label %16
-    i32 5, label %16
+define internal fastcc noundef i32 @add_media_response_to_tree(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+  %trunc = trunc nuw i32 %0 to i8
+  switch i8 %trunc, label %.loopexit [
+    i8 0, label %6
+    i8 6, label %6
+    i8 7, label %6
+    i8 30, label %6
+    i8 31, label %6
+    i8 -95, label %6
+    i8 -106, label %6
+    i8 2, label %15
+    i8 3, label %15
+    i8 5, label %15
   ]
 
 6:                                                ; preds = %5, %5, %5, %5, %5, %5, %5
   %7 = shl nuw nsw i32 %1, 2
   %8 = load i32, ptr @ett_sbus_data, align 4
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %2, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str.375) #4
-  %10 = icmp sgt i32 %1, 0
-  br i1 %10, label %.lr.ph51, label %.loopexit
+  %.not54 = icmp eq i32 %1, 0
+  br i1 %.not54, label %.loopexit, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %6, %.lr.ph51
-  %.13850 = phi i32 [ %13, %.lr.ph51 ], [ %4, %6 ]
-  %.04049 = phi i32 [ %14, %.lr.ph51 ], [ %1, %6 ]
-  %11 = load i32, ptr @hf_sbus_data_rtc, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %2, i32 noundef %.13850, i32 noundef 4, i32 noundef 0) #4
-  %13 = add i32 %.13850, 4
-  %14 = add nsw i32 %.04049, -1
-  %15 = icmp ugt i32 %.04049, 1
-  br i1 %15, label %.lr.ph51, label %.loopexit, !llvm.loop !25
+  %.13850 = phi i32 [ %12, %.lr.ph51 ], [ %4, %6 ]
+  %.04049 = phi i32 [ %13, %.lr.ph51 ], [ %1, %6 ]
+  %10 = load i32, ptr @hf_sbus_data_rtc, align 4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %2, i32 noundef %.13850, i32 noundef 4, i32 noundef 0) #4
+  %12 = add i32 %.13850, 4
+  %13 = add nsw i32 %.04049, -1
+  %14 = icmp ugt i32 %.04049, 1
+  br i1 %14, label %.lr.ph51, label %.loopexit, !llvm.loop !25
 
-16:                                               ; preds = %5, %5, %5
-  %17 = add nuw nsw i32 %1, 7
-  %18 = lshr i32 %17, 3
-  %19 = load i32, ptr @ett_sbus_data, align 4
-  %20 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %2, i32 noundef %4, i32 noundef %18, i32 noundef %19, ptr noundef null, ptr noundef nonnull @.str.375) #4
+15:                                               ; preds = %5, %5, %5
+  %16 = add nuw nsw i32 %1, 7
+  %17 = lshr i32 %16, 3
+  %18 = load i32, ptr @ett_sbus_data, align 4
+  %19 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %2, i32 noundef %4, i32 noundef %17, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.375) #4
   %.not53 = icmp eq i32 %1, 0
   br i1 %.not53, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16, %29
-  %.248 = phi i32 [ %32, %29 ], [ %4, %16 ]
-  %.14147 = phi i32 [ %33, %29 ], [ %18, %16 ]
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.248) #4
-  %22 = zext i8 %21 to i32
-  br label %23
+.lr.ph:                                           ; preds = %15, %28
+  %.248 = phi i32 [ %31, %28 ], [ %4, %15 ]
+  %.14147 = phi i32 [ %32, %28 ], [ %17, %15 ]
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.248) #4
+  %21 = zext i8 %20 to i32
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %23
-  %.046 = phi i32 [ 1, %.lr.ph ], [ %27, %23 ]
-  %.03545 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %23 ]
-  %.03644 = phi i32 [ 1, %.lr.ph ], [ %26, %23 ]
-  %.03943 = phi i32 [ 0, %.lr.ph ], [ %28, %23 ]
-  %24 = and i32 %.03644, %22
-  %.not = icmp eq i32 %24, 0
-  %25 = select i1 %.not, i32 0, i32 %.046
-  %spec.select = add i32 %25, %.03545
-  %26 = shl i32 %.03644, 1
-  %27 = mul i32 %.046, 10
-  %28 = add nuw nsw i32 %.03943, 1
-  %exitcond.not = icmp eq i32 %28, 8
-  br i1 %exitcond.not, label %29, label %23, !llvm.loop !26
+22:                                               ; preds = %.lr.ph, %22
+  %.046 = phi i32 [ 1, %.lr.ph ], [ %26, %22 ]
+  %.03545 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %22 ]
+  %.03644 = phi i32 [ 1, %.lr.ph ], [ %25, %22 ]
+  %.03943 = phi i32 [ 0, %.lr.ph ], [ %27, %22 ]
+  %23 = and i32 %.03644, %21
+  %.not = icmp eq i32 %23, 0
+  %24 = select i1 %.not, i32 0, i32 %.046
+  %spec.select = add i32 %24, %.03545
+  %25 = shl i32 %.03644, 1
+  %26 = mul i32 %.046, 10
+  %27 = add nuw nsw i32 %.03943, 1
+  %exitcond.not = icmp eq i32 %27, 8
+  br i1 %exitcond.not, label %28, label %22, !llvm.loop !26
 
-29:                                               ; preds = %23
-  %30 = load i32, ptr @hf_sbus_data_iof, align 4
-  %31 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %20, i32 noundef %30, ptr noundef %2, i32 noundef %.248, i32 noundef 1, i32 noundef %spec.select, ptr noundef nonnull @.str.432, i32 noundef %spec.select) #4
-  %32 = add i32 %.248, 1
-  %33 = add nsw i32 %.14147, -1
-  %34 = icmp sgt i32 %.14147, 1
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !27
+28:                                               ; preds = %22
+  %29 = load i32, ptr @hf_sbus_data_iof, align 4
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %29, ptr noundef %2, i32 noundef %.248, i32 noundef 1, i32 noundef %spec.select, ptr noundef nonnull @.str.432, i32 noundef %spec.select) #4
+  %31 = add i32 %.248, 1
+  %32 = add nsw i32 %.14147, -1
+  %33 = icmp sgt i32 %.14147, 1
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %29, %.lr.ph51, %16, %6, %5
-  %.037 = phi i32 [ %4, %5 ], [ %4, %6 ], [ %4, %16 ], [ %13, %.lr.ph51 ], [ %32, %29 ]
+.loopexit:                                        ; preds = %28, %.lr.ph51, %15, %6, %5
+  %.037 = phi i32 [ %4, %5 ], [ %4, %6 ], [ %4, %15 ], [ %12, %.lr.ph51 ], [ %31, %28 ]
   ret i32 %.037
 }
 

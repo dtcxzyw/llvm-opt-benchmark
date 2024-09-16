@@ -1430,7 +1430,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br i1 %210, label %211, label %216
 
 211:                                              ; preds = %202
-  %212 = call i32 @dlclose(ptr noundef %93) #13
+  %212 = call i32 @dlclose(ptr noundef nonnull %93) #13
   %213 = load ptr, ptr %0, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 1360
   %215 = load ptr, ptr %214, align 8
@@ -1447,7 +1447,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
 
 221:                                              ; preds = %216
   call void %102(ptr noundef nonnull %203) #13
-  %222 = call i32 @dlclose(ptr noundef %93) #13
+  %222 = call i32 @dlclose(ptr noundef nonnull %93) #13
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 1360
   %225 = load ptr, ptr %224, align 8
@@ -1501,7 +1501,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
 245:                                              ; preds = %244, %243
   call void %102(ptr noundef nonnull %203) #13
   call void %105(ptr noundef nonnull %219) #13
-  %246 = call i32 @dlclose(ptr noundef %93) #13
+  %246 = call i32 @dlclose(ptr noundef nonnull %93) #13
   %247 = load ptr, ptr %0, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 1360
   %249 = load ptr, ptr %248, align 8
@@ -1581,7 +1581,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br label %274
 
 274:                                              ; preds = %272, %271
-  %275 = call i32 @dlclose(ptr noundef %93) #13
+  %275 = call i32 @dlclose(ptr noundef nonnull %93) #13
   %276 = load ptr, ptr %0, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 1360
   %278 = load ptr, ptr %277, align 8
@@ -1664,7 +1664,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   call void @free(ptr noundef %232) #13
   call void %102(ptr noundef nonnull %203) #13
   call void %105(ptr noundef nonnull %219) #13
-  %312 = call i32 @dlclose(ptr noundef %93) #13
+  %312 = call i32 @dlclose(ptr noundef nonnull %93) #13
   %313 = load ptr, ptr %0, align 8
   %314 = getelementptr inbounds i8, ptr %313, i64 1360
   %315 = load ptr, ptr %314, align 8
@@ -1865,7 +1865,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %419 = getelementptr inbounds i8, ptr %418, i64 1360
   %420 = load ptr, ptr %419, align 8
   call void %420(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %169) #13
-  %421 = call i32 @dlclose(ptr noundef %93) #13
+  %421 = call i32 @dlclose(ptr noundef nonnull %93) #13
   br label %422
 
 422:                                              ; preds = %311, %274, %245, %221, %211, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %14, %6, %._crit_edge576, %172, %154, %123

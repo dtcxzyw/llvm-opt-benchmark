@@ -253,7 +253,7 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::function", align 8
   %ref.tmp = alloca %class.anon, align 8
-  call fastcc void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_110signaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_110signaturesEv(ptr noalias align 8 %agg.tmp)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont unwind label %lpad
 
@@ -456,7 +456,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 declare noundef zeroext i1 @_ZN8facebook5velox4exec22registerWindowFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10shared_ptrINS1_17FunctionSignatureEESaISD_EESt8functionIFSt10unique_ptrINS1_14WindowFunctionESt14default_deleteISI_EERKSA_INS1_17WindowFunctionArgESaISM_EERKSB_IKNS0_4TypeEEbPNS0_6memory10MemoryPoolEPNS0_19HashStringAllocatorERKNS0_4core11QueryConfigEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_110signaturesEv(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_110signaturesEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [3 x %"class.std::shared_ptr"], align 8
   %ref.tmp1 = alloca %"class.facebook::velox::exec::FunctionSignatureBuilder", align 8
@@ -1414,7 +1414,7 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::function", align 8
   %ref.tmp = alloca %class.anon.3, align 8
-  call fastcc void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_110signaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_110signaturesEv(ptr noalias align 8 %agg.tmp)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont unwind label %lpad
 

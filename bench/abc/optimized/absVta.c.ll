@@ -920,7 +920,7 @@ define void @Vta_ManCollectNodes_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %13 = load i32, ptr %1, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %14
-  call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %4, ptr noundef %5)
   %16 = load ptr, ptr %4, align 8
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %18, label %17
@@ -1019,7 +1019,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Vta_ObjPreds(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #7 {
+define internal fastcc void @Vta_ObjPreds(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #7 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   %.val25 = load i64, ptr %2, align 4
@@ -1364,7 +1364,7 @@ define void @Vta_ManSatVerify(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not33, label %Gia_ObjIsRo.exit.thread, label %37
 
 37:                                               ; preds = %33
-  call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %32, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %32, ptr noundef %2, ptr noundef %3)
   %.pre = load i32, ptr %4, align 8
   br label %Gia_ObjIsRo.exit.thread
 
@@ -1869,7 +1869,7 @@ Vec_PtrPush.exit471:                              ; preds = %.Vec_PtrGrow.exit11
   br label %214
 
 190:                                              ; preds = %Gia_ObjIsPi.exit.thread
-  call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %101, ptr noundef nonnull %106, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @Vta_ObjPreds(ptr noundef nonnull %0, ptr noundef nonnull %101, ptr noundef nonnull %106, ptr noundef %3, ptr noundef %4)
   %191 = load ptr, ptr %3, align 8
   %.not381 = icmp eq ptr %191, null
   br i1 %.not381, label %202, label %192
@@ -2187,7 +2187,7 @@ Vga_ManFind.exit486:                              ; preds = %328, %332, %Vga_Man
   %342 = getelementptr inbounds i8, ptr %335, i64 12
   %343 = load i32, ptr %342, align 4
   %344 = and i32 %343, 268435455
-  %345 = tail call i32 @llvm.umax.i32(i32 %341, i32 %344)
+  %345 = tail call range(i32 0, 268435456) i32 @llvm.umax.i32(i32 %341, i32 %344)
   %346 = and i32 %284, -268435456
   %347 = or disjoint i32 %345, %346
   br label %.critedge12.sink.split
@@ -3195,9 +3195,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %103 = getelementptr inbounds i8, ptr %8, i64 8
   %104 = call i32 @sat_solver2_addclause(ptr noundef %88, ptr noundef nonnull %8, ptr noundef nonnull %103, i32 noundef %19) #27
   store i32 %99, ptr %8, align 4
-  %sh.diff86 = lshr i64 %91, 3
-  %tr.sh.diff87 = trunc i64 %sh.diff86 to i32
-  %105 = and i32 %tr.sh.diff87, -2
+  %sh.diff84 = lshr i64 %91, 3
+  %tr.sh.diff85 = trunc i64 %sh.diff84 to i32
+  %105 = and i32 %tr.sh.diff85, -2
   %106 = or disjoint i32 %105, %97
   store i32 %106, ptr %102, align 4
   %107 = call i32 @sat_solver2_addclause(ptr noundef %88, ptr noundef nonnull %8, ptr noundef nonnull %103, i32 noundef %19) #27
@@ -3223,12 +3223,12 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
   %117 = getelementptr i8, ptr %61, i64 16
   %.val.i = load i32, ptr %117, align 8
   %118 = getelementptr i8, ptr %61, i64 64
-  %.val3.i80 = load ptr, ptr %118, align 8
-  %119 = getelementptr i8, ptr %.val3.i80, i64 4
+  %.val3.i79 = load ptr, ptr %118, align 8
+  %119 = getelementptr i8, ptr %.val3.i79, i64 4
   %.val3.val.i = load i32, ptr %119, align 4
   %120 = sub nsw i32 %.val3.val.i, %.val.i
-  %.not88 = icmp slt i32 %116, %120
-  br i1 %.not88, label %Gia_ObjIsRo.exit.thread, label %121
+  %.not86 = icmp slt i32 %116, %120
+  br i1 %.not86, label %Gia_ObjIsRo.exit.thread, label %121
 
 121:                                              ; preds = %Gia_ObjIsRo.exit
   %122 = icmp eq i32 %2, 0
@@ -3254,15 +3254,15 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
   %135 = shl nsw i32 %19, 1
   %136 = or disjoint i32 %135, 1
   store i32 %136, ptr %7, align 4
-  %sh.diff91 = lshr i64 %134, 3
-  %tr.sh.diff92 = trunc i64 %sh.diff91 to i32
-  %137 = and i32 %tr.sh.diff92, -2
+  %sh.diff89 = lshr i64 %134, 3
+  %tr.sh.diff90 = trunc i64 %sh.diff89 to i32
+  %137 = and i32 %tr.sh.diff90, -2
   %138 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %137, ptr %138, align 4
   %139 = getelementptr inbounds i8, ptr %7, i64 8
   %140 = call i32 @sat_solver2_addclause(ptr noundef %131, ptr noundef nonnull %7, ptr noundef nonnull %139, i32 noundef %19) #27
   store i32 %136, ptr %7, align 4
-  %141 = or i32 %tr.sh.diff92, 1
+  %141 = or i32 %tr.sh.diff90, 1
   store i32 %141, ptr %138, align 4
   %142 = call i32 @sat_solver2_addclause(ptr noundef %131, ptr noundef nonnull %7, ptr noundef nonnull %139, i32 noundef %19) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -3296,8 +3296,8 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
   %159 = load i32, ptr %158, align 4
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val6.i, i64 %160
-  %.val3.i81 = load i64, ptr %161, align 4
-  %162 = trunc i64 %.val3.i81 to i32
+  %.val3.i80 = load i64, ptr %161, align 4
+  %162 = trunc i64 %.val3.i80 to i32
   %163 = and i32 %162, 536870911
   %164 = sub nsw i32 %159, %163
   %165 = add nsw i32 %2, -1
@@ -3315,9 +3315,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %175 = shl nsw i32 %19, 1
   store i32 %175, ptr %5, align 4
-  %sh.diff89 = lshr i64 %171, 3
-  %tr.sh.diff90 = trunc i64 %sh.diff89 to i32
-  %176 = and i32 %tr.sh.diff90, -2
+  %sh.diff87 = lshr i64 %171, 3
+  %tr.sh.diff88 = trunc i64 %sh.diff87 to i32
+  %176 = and i32 %tr.sh.diff88, -2
   %177 = or disjoint i32 %176, %174
   %178 = xor i32 %177, 1
   %179 = getelementptr inbounds i8, ptr %5, i64 4
@@ -3333,8 +3333,8 @@ Gia_ObjIsRo.exit:                                 ; preds = %112
 
 Gia_ObjIsRo.exit.thread:                          ; preds = %112, %Gia_ObjIsRo.exit
   %184 = and i64 %.val69, 2305843005455597567
-  %narrow.i83.not = icmp eq i64 %184, 2305843005455597567
-  br i1 %narrow.i83.not, label %185, label %192
+  %narrow.i81.not = icmp eq i64 %184, 2305843005455597567
+  br i1 %narrow.i81.not, label %185, label %192
 
 185:                                              ; preds = %Gia_ObjIsRo.exit.thread
   %186 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7037,6 +7037,9 @@ declare void @llvm.va_end.p0(ptr) #19
 declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #20
 
 ; Function Attrs: nofree nounwind
@@ -7053,9 +7056,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20

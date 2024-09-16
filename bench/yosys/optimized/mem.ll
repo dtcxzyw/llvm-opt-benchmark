@@ -16596,7 +16596,7 @@ define void @_ZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleE(ptr dead_on_unwi
   %31 = getelementptr inbounds i8, ptr %22, i64 8
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %18, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %1, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(168) %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %1, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %33 unwind label %50
 
 33:                                               ; preds = %30
@@ -16881,7 +16881,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit39:              ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %spec.select, label %156, label %160
 
 156:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit39
-  invoke fastcc void @_ZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %86)
+  invoke fastcc void @_ZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %86)
           to label %157 unwind label %82
 
 157:                                              ; preds = %156
@@ -17654,7 +17654,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit73: ; preds = %.body34, %139, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.81", align 8
   %6 = alloca %"struct.Yosys::MemRd", align 8
   %7 = alloca %"struct.Yosys::RTLIL::Const", align 8
@@ -22687,7 +22687,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %1, %6, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.Yosys::RTLIL::Const", align 8
@@ -27463,7 +27463,7 @@ _ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleENS0_6MemoryEEEbPT_PT0_.exit: ; pred
   br i1 %38, label %39, label %49
 
 39:                                               ; preds = %_ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleENS0_6MemoryEEEbPT_PT0_.exit
-  invoke fastcc void @_ZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %1, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(168) %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %1, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %40 unwind label %45
 
 40:                                               ; preds = %39
@@ -27745,7 +27745,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit35:              ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %spec.select, label %152, label %158
 
 152:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit35
-  invoke fastcc void @_ZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %82)
+  invoke fastcc void @_ZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %82)
           to label %153 unwind label %154
 
 153:                                              ; preds = %152
@@ -63712,7 +63712,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %138, ptr %70, align 8
   store ptr %140, ptr %71, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %17, ptr noundef nonnull %7)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %17, ptr noundef %7)
           to label %141 unwind label %143
 
 141:                                              ; preds = %72
@@ -64035,7 +64035,7 @@ common.resume:                                    ; preds = %322, %324, %143
   %321 = load ptr, ptr %180, align 8
   store ptr %321, ptr %216, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %290, ptr noundef nonnull %5)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %290, ptr noundef %5)
           to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.exit" unwind label %324
 
 322:                                              ; preds = %.lr.ph.i9.i
@@ -64168,7 +64168,7 @@ common.resume:                                    ; preds = %322, %324, %143
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.290", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -66881,7 +66881,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
           to label %_ZNSt4pairIiN5Yosys7MemInitEEC2EOS2_.exit.i.i.i unwind label %47
 
 _ZNSt4pairIiN5Yosys7MemInitEEC2EOS2_.exit.i.i.i:  ; preds = %28
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %17, ptr noundef nonnull %7)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %17, ptr noundef %7)
           to label %33 unwind label %49
 
 33:                                               ; preds = %_ZNSt4pairIiN5Yosys7MemInitEEC2EOS2_.exit.i.i.i
@@ -67032,7 +67032,7 @@ _ZNSt4pairIiN5Yosys7MemInitEEC2EOS2_.exit.i:      ; preds = %_ZNSt4pairIiN5Yosys
   %85 = ptrtoint ptr %66 to i64
   %86 = sub i64 %85, %8
   %87 = sdiv exact i64 %86, 176
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %87, ptr noundef nonnull %5)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %87, ptr noundef %5)
           to label %88 unwind label %103
 
 88:                                               ; preds = %_ZNSt4pairIiN5Yosys7MemInitEEC2EOS2_.exit.i
@@ -67219,7 +67219,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i12.i:          ; preds = %98, %_ZN5Yosys5RTLI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.304", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

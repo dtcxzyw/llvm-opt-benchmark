@@ -3259,7 +3259,7 @@ if.then25:                                        ; preds = %if.then21
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.then25
-  tail call fastcc void @handle_callback(ptr noundef nonnull %.pr73, ptr noundef nonnull %12)
+  tail call fastcc void @handle_callback(ptr noundef nonnull %.pr73, ptr noundef %12)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %if.then25
@@ -3421,14 +3421,14 @@ if.end63:                                         ; preds = %_PyObject_GET_WEAKR
 declare ptr @PyErr_GetRaisedException() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @handle_callback(ptr noundef %ref, ptr noundef %callback) unnamed_addr #1 {
+define internal fastcc void @handle_callback(ptr noundef %ref, ptr noundef nonnull %callback) unnamed_addr #1 {
 entry:
-  %call = tail call ptr @PyObject_CallOneArg(ptr noundef %callback, ptr noundef %ref) #7
+  %call = tail call ptr @PyObject_CallOneArg(ptr noundef nonnull %callback, ptr noundef %ref) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @PyErr_WriteUnraisable(ptr noundef %callback) #7
+  tail call void @PyErr_WriteUnraisable(ptr noundef nonnull %callback) #7
   br label %if.end
 
 if.else:                                          ; preds = %entry

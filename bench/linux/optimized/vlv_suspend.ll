@@ -809,7 +809,7 @@ define dso_local void @vlv_suspend_cleanup(ptr nocapture noundef %0) local_unnam
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr noundef %0, i32 noundef range(i32 1, 161) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 @ktime_get_raw() #7
   %5 = add i64 %4, 3000000
   %6 = tail call i32 @__SCT__might_resched() #7

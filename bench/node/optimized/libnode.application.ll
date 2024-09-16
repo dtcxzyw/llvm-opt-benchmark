@@ -1402,7 +1402,7 @@ if.then31:                                        ; preds = %sw.bb
 if.end35:                                         ; preds = %if.then31, %sw.bb
   %20 = ptrtoint ptr %packet.sroa.0.2 to i64
   store i64 %20, ptr %agg.tmp36, align 8
-  call fastcc void @"_ZZN4node4quic7Session11Application15SendPendingDataEvENK3$_0clINS_17BaseObjectPtrImplINS0_6PacketELb0EEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %congestionLimited, ptr noundef nonnull %agg.tmp36)
+  call fastcc void @"_ZZN4node4quic7Session11Application15SendPendingDataEvENK3$_0clINS_17BaseObjectPtrImplINS0_6PacketELb0EEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %congestionLimited, ptr noundef %agg.tmp36)
   %21 = load ptr, ptr %agg.tmp36, align 8
   %cmp.not.i20 = icmp eq ptr %21, null
   br i1 %cmp.not.i20, label %cleanup, label %if.then.i21
@@ -1435,7 +1435,7 @@ if.then46:                                        ; preds = %if.then43
 if.end50:                                         ; preds = %if.then46, %if.then43
   %27 = ptrtoint ptr %packet.sroa.0.2 to i64
   store i64 %27, ptr %agg.tmp51, align 8
-  call fastcc void @"_ZZN4node4quic7Session11Application15SendPendingDataEvENK3$_0clINS_17BaseObjectPtrImplINS0_6PacketELb0EEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %congestionLimited, ptr noundef nonnull %agg.tmp51)
+  call fastcc void @"_ZZN4node4quic7Session11Application15SendPendingDataEvENK3$_0clINS_17BaseObjectPtrImplINS0_6PacketELb0EEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %congestionLimited, ptr noundef %agg.tmp51)
   %28 = load ptr, ptr %agg.tmp51, align 8
   %cmp.not.i24 = icmp eq ptr %28, null
   br i1 %cmp.not.i24, label %cleanup, label %if.then.i25
@@ -1693,7 +1693,7 @@ do.end5:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4node4quic7Session11Application15SendPendingDataEvENK3$_0clINS_17BaseObjectPtrImplINS0_6PacketELb0EEEEEDaT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef %packet) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN4node4quic7Session11Application15SendPendingDataEvENK3$_0clINS_17BaseObjectPtrImplINS0_6PacketELb0EEEEEDaT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull %packet) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.node::BaseObjectPtrImpl.114", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8

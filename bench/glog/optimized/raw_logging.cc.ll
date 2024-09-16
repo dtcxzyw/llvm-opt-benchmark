@@ -366,7 +366,7 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %44, %
 
 61:                                               ; preds = %_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit
   %62 = sext i8 %40 to i32
-  call void (ptr, ptr, ptr, ...) @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef %62, ptr noundef nonnull %24, ptr noundef %60, i32 noundef %2)
+  call void (ptr, ptr, ptr, ...) @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str, i32 noundef %62, ptr noundef nonnull %24, ptr noundef %60, i32 noundef %2)
   %63 = load ptr, ptr %8, align 8
   %64 = load i64, ptr %9, align 8
   call void @llvm.va_start.p0(ptr nonnull %10)
@@ -400,7 +400,7 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %44, %
 77:                                               ; preds = %61, %67, %70
   %.str.2.sink = phi ptr [ @.str.1, %70 ], [ @.str.2, %67 ], [ @.str.2, %61 ]
   call void @llvm.va_end.p0(ptr nonnull %10)
-  call void (ptr, ptr, ptr, ...) @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %.str.2.sink)
+  call void (ptr, ptr, ptr, ...) @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %.str.2.sink)
   %78 = load ptr, ptr @stderr, align 8
   %79 = call i32 @fileno(ptr noundef %78) #16
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
@@ -442,7 +442,7 @@ declare void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonn
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8), i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #4 {
+define internal void @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #4 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8

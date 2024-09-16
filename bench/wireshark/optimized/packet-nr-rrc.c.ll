@@ -65366,7 +65366,7 @@ nr_rrc_get_private_data.exit:                     ; preds = %9, %13
   %49 = load ptr, ptr %21, align 8
   %50 = ptrtoint ptr %45 to i64
   %51 = trunc i64 %50 to i8
-  call fastcc void @dissect_nr_rrc_warningMessageSegment(ptr noundef nonnull %40, ptr noundef %37, ptr noundef %49, i8 noundef zeroext %51)
+  call fastcc void @dissect_nr_rrc_warningMessageSegment(ptr noundef %40, ptr noundef %37, ptr noundef %49, i8 noundef zeroext %51)
   br label %52
 
 52:                                               ; preds = %nr_rrc_get_private_data.exit, %48, %5
@@ -65432,11 +65432,11 @@ declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nr_rrc_warningMessageSegment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #11
+define internal fastcc void @dissect_nr_rrc_warningMessageSegment(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef 0) #11
   %6 = load i32, ptr @hf_nr_rrc_warningMessageSegment_nb_pages, align 4
   %7 = zext i8 %5 to i32
-  %8 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %7) #11
+  %8 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %6, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef %7) #11
   %9 = icmp ugt i8 %5, 15
   br i1 %9, label %.thread, label %11
 
@@ -65458,9 +65458,9 @@ define internal fastcc void @dissect_nr_rrc_warningMessageSegment(ptr noundef %0
   %.035 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %28 ]
   %.03034 = phi i32 [ 1, %.lr.ph ], [ %29, %28 ]
   %16 = add nuw nsw i32 %.03034, 82
-  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #11
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %16) #11
   %18 = zext i8 %17 to i32
-  %19 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.03034, i32 noundef %18) #11
+  %19 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %0, i32 noundef %.03034, i32 noundef %18) #11
   %20 = tail call ptr @dissect_cbs_data(i8 noundef zeroext %3, ptr noundef %19, ptr noundef %1, ptr noundef %2, i32 noundef 0) #11
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge37, label %21
@@ -65475,7 +65475,7 @@ define internal fastcc void @dissect_nr_rrc_warningMessageSegment(ptr noundef %0
   %24 = tail call ptr @tvb_get_string_enc(ptr noundef %22, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %23, i32 noundef 2) #11
   %25 = load i32, ptr @hf_nr_rrc_warningMessageSegment_decoded_page, align 4
   %26 = add nuw nsw i32 %.035, 1
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %25, ptr noundef %0, i32 noundef %.03034, i32 noundef 83, ptr noundef %24, ptr noundef nonnull @.str.18242, i32 noundef %26, ptr noundef %24) #11
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %25, ptr noundef nonnull %0, i32 noundef %.03034, i32 noundef 83, ptr noundef %24, ptr noundef nonnull @.str.18242, i32 noundef %26, ptr noundef %24) #11
   br label %28
 
 28:                                               ; preds = %._crit_edge37, %21
@@ -65716,7 +65716,7 @@ nr_rrc_get_private_data.exit:                     ; preds = %9, %13
   %49 = load ptr, ptr %21, align 8
   %50 = ptrtoint ptr %45 to i64
   %51 = trunc i64 %50 to i8
-  call fastcc void @dissect_nr_rrc_warningMessageSegment(ptr noundef nonnull %40, ptr noundef %37, ptr noundef %49, i8 noundef zeroext %51)
+  call fastcc void @dissect_nr_rrc_warningMessageSegment(ptr noundef %40, ptr noundef %37, ptr noundef %49, i8 noundef zeroext %51)
   br label %52
 
 52:                                               ; preds = %nr_rrc_get_private_data.exit, %48, %5

@@ -2613,7 +2613,7 @@ default.unreachable:                              ; preds = %4
   br i1 %or.cond17.i, label %dissect_general_info.exit, label %118
 
 118:                                              ; preds = %115
-  %119 = call fastcc i32 @parse_MAD_Common(ptr noundef null, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %119 = call fastcc i32 @parse_MAD_Common(ptr noundef null, ptr noundef %0, ptr noundef %5, ptr noundef %6)
   %.not73.i = icmp eq i32 %119, 0
   br i1 %.not73.i, label %dissect_general_info.exit, label %120
 
@@ -2951,7 +2951,7 @@ define internal i32 @dissect_eth_over_ib(ptr noundef %0, ptr noundef %1, ptr nou
 declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.infinibandinfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
@@ -3277,157 +3277,157 @@ default.unreachable419:                           ; preds = %23
   unreachable
 
 203:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
   %204 = add i16 %160, -12
   %205 = zext i16 %204 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %205, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %205, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 206:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
   %207 = add i16 %160, -28
   %208 = zext i16 %207 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %208, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %208, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 209:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   %210 = add i16 %160, -16
   %211 = zext i16 %210 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %211, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %211, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 212:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
+  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   %213 = add i16 %160, -32
   %214 = zext i16 %213 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %214, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %214, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 215:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
   br label %.thread415
 
 216:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %1)
   %217 = add i16 %160, -8
   %218 = zext i16 %217 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %218, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %218, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 219:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   %220 = add i16 %160, -4
   %221 = zext i16 %220 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %221, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %221, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 222:                                              ; preds = %120
-  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1)
+  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %1)
   br label %.thread415
 
 223:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1)
-  call fastcc void @parse_ATOMICACKETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %1)
+  call fastcc void @parse_ATOMICACKETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   br label %.thread415
 
 224:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_ATOMICETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_ATOMICETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   br label %.thread415
 
 225:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
   br label %.thread415
 
 226:                                              ; preds = %120
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
   %227 = add i16 %160, -8
   %228 = zext i16 %227 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %228, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %228, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 229:                                              ; preds = %120
   %230 = zext i16 %160 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %230, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %230, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 231:                                              ; preds = %120
-  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   %232 = add i16 %160, -4
   %233 = zext i16 %232 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %233, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %233, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 234:                                              ; preds = %120
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
+  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   %235 = add i16 %160, -20
   %236 = zext i16 %235 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %236, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %236, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 237:                                              ; preds = %120
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
   %238 = add i16 %160, -16
   %239 = zext i16 %238 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %239, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %239, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 240:                                              ; preds = %120
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
   %241 = add i16 %160, -16
   %242 = zext i16 %241 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %242, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %242, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 243:                                              ; preds = %120
-  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1)
+  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %1)
   %244 = add i16 %160, -4
   %245 = zext i16 %244 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %245, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %245, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 246:                                              ; preds = %120
-  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1)
+  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %1)
   br label %.thread415
 
 247:                                              ; preds = %120
-  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1)
-  call fastcc void @parse_ATOMICACKETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %1)
+  call fastcc void @parse_ATOMICACKETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   br label %.thread415
 
 248:                                              ; preds = %120
-  call fastcc void @parse_ATOMICETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_ATOMICETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   br label %.thread415
 
 249:                                              ; preds = %120
-  call fastcc void @parse_IETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_IETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   %250 = add i16 %160, -4
   %251 = zext i16 %250 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %251, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %251, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 252:                                              ; preds = %120
-  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_DETH(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   %253 = add i16 %160, -12
   %254 = zext i16 %253 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %254, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %254, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 255:                                              ; preds = %120
@@ -3435,30 +3435,30 @@ default.unreachable419:                           ; preds = %23
   store i32 %256, ptr %5, align 4
   %257 = add i16 %160, -16
   %258 = zext i16 %257 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %258, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %258, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 259:                                              ; preds = %120
-  call fastcc void @parse_FETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @parse_FETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
   br label %.thread415
 
 260:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_FETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_FETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
   br label %.thread415
 
 261:                                              ; preds = %120
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef %5, ptr noundef %6)
   %262 = add i16 %160, -20
   %263 = zext i16 %262 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %263, i32 noundef %.0395409, ptr noundef %2)
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %0, ptr noundef %5, i32 noundef %263, i32 noundef %.0395409, ptr noundef %2)
   br label %.thread415
 
 264:                                              ; preds = %120
-  call fastcc void @parse_VENDOR(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_VENDOR(ptr noundef %16, ptr noundef %0, ptr noundef %5)
   br label %.thread415
 
 .thread415:                                       ; preds = %67, %163, %parse_RWH.exit, %203, %206, %209, %212, %215, %216, %219, %222, %223, %224, %225, %226, %229, %231, %234, %237, %240, %243, %246, %247, %248, %249, %252, %255, %259, %260, %261, %264
@@ -3544,223 +3544,223 @@ define internal fastcc range(i32 -1, 27) i32 @find_next_header_sequence(i8 %.8.v
 
 4:                                                ; preds = %0
   %5 = zext i8 %.8.val to i32
-  br label %.lr.ph.i
+  br label %7
 
-6:                                                ; preds = %.lr.ph.i
+6:                                                ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 13
-  br i1 %exitcond.not.i, label %.lr.ph.i42, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %.preheader43, label %7, !llvm.loop !4
 
-.lr.ph.i:                                         ; preds = %6, %4
+7:                                                ; preds = %6, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr i32, ptr @opCode_PAYLD, i64 %indvars.iv.i
-  %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, %5
-  br i1 %9, label %contains.exit, label %6
+  %8 = getelementptr i32, ptr @opCode_PAYLD, i64 %indvars.iv.i
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, %5
+  br i1 %10, label %contains.exit, label %6
 
-10:                                               ; preds = %.lr.ph.i42
-  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
-  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 6
-  br i1 %exitcond.not.i45, label %.lr.ph.i48, label %.lr.ph.i42, !llvm.loop !4
+11:                                               ; preds = %.preheader43
+  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
+  %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 6
+  br i1 %exitcond.not.i44, label %.preheader41, label %.preheader43, !llvm.loop !4
 
-.lr.ph.i42:                                       ; preds = %6, %10
-  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %10 ], [ 0, %6 ]
-  %11 = getelementptr i32, ptr @opCode_IMMDT_PAYLD, i64 %indvars.iv.i43
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, %5
-  br i1 %13, label %contains.exit, label %10
+.preheader43:                                     ; preds = %6, %11
+  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %11 ], [ 0, %6 ]
+  %12 = getelementptr i32, ptr @opCode_IMMDT_PAYLD, i64 %indvars.iv.i42
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, %5
+  br i1 %14, label %contains.exit, label %11
 
-14:                                               ; preds = %.lr.ph.i48
-  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
-  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 6
-  br i1 %exitcond.not.i51, label %.lr.ph.i54, label %.lr.ph.i48, !llvm.loop !4
+15:                                               ; preds = %.preheader41
+  %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
+  %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 6
+  br i1 %exitcond.not.i49, label %.preheader39, label %.preheader41, !llvm.loop !4
 
-.lr.ph.i48:                                       ; preds = %10, %14
-  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i50, %14 ], [ 0, %10 ]
-  %15 = getelementptr i32, ptr @opCode_RDETH_DETH_PAYLD, i64 %indvars.iv.i49
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, %5
-  br i1 %17, label %contains.exit, label %14
+.preheader41:                                     ; preds = %11, %15
+  %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %15 ], [ 0, %11 ]
+  %16 = getelementptr i32, ptr @opCode_RDETH_DETH_PAYLD, i64 %indvars.iv.i47
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %17, %5
+  br i1 %18, label %contains.exit, label %15
 
-18:                                               ; preds = %.lr.ph.i54
-  %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
-  %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 4
-  br i1 %exitcond.not.i57, label %.lr.ph.i60, label %.lr.ph.i54, !llvm.loop !4
+19:                                               ; preds = %.preheader39
+  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
+  %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, 4
+  br i1 %exitcond.not.i54, label %.preheader37, label %.preheader39, !llvm.loop !4
 
-.lr.ph.i54:                                       ; preds = %14, %18
-  %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i56, %18 ], [ 0, %14 ]
-  %19 = getelementptr i32, ptr @opCode_RETH_PAYLD, i64 %indvars.iv.i55
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, %5
-  br i1 %21, label %contains.exit, label %18
+.preheader39:                                     ; preds = %15, %19
+  %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %19 ], [ 0, %15 ]
+  %20 = getelementptr i32, ptr @opCode_RETH_PAYLD, i64 %indvars.iv.i52
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, %5
+  br i1 %22, label %contains.exit, label %19
 
-22:                                               ; preds = %.lr.ph.i60
-  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
-  %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 3
-  br i1 %exitcond.not.i63, label %.lr.ph.i66, label %.lr.ph.i60, !llvm.loop !4
+23:                                               ; preds = %.preheader37
+  %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
+  %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, 3
+  br i1 %exitcond.not.i59, label %.preheader35, label %.preheader37, !llvm.loop !4
 
-.lr.ph.i60:                                       ; preds = %18, %22
-  %indvars.iv.i61 = phi i64 [ %indvars.iv.next.i62, %22 ], [ 0, %18 ]
-  %23 = getelementptr i32, ptr @opCode_RDETH_AETH_PAYLD, i64 %indvars.iv.i61
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, %5
-  br i1 %25, label %contains.exit, label %22
+.preheader37:                                     ; preds = %19, %23
+  %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i58, %23 ], [ 0, %19 ]
+  %24 = getelementptr i32, ptr @opCode_RDETH_AETH_PAYLD, i64 %indvars.iv.i57
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %25, %5
+  br i1 %26, label %contains.exit, label %23
 
-26:                                               ; preds = %.lr.ph.i66
+27:                                               ; preds = %.preheader35
+  %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
+  %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 3
+  br i1 %exitcond.not.i64, label %.preheader33, label %.preheader35, !llvm.loop !4
+
+.preheader35:                                     ; preds = %23, %27
+  %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %27 ], [ 0, %23 ]
+  %28 = getelementptr i32, ptr @opCode_AETH_PAYLD, i64 %indvars.iv.i62
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %29, %5
+  br i1 %30, label %contains.exit, label %27
+
+31:                                               ; preds = %.preheader33
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 3
-  br i1 %exitcond.not.i69, label %.lr.ph.i72, label %.lr.ph.i66, !llvm.loop !4
+  br i1 %exitcond.not.i69, label %.preheader31, label %.preheader33, !llvm.loop !4
 
-.lr.ph.i66:                                       ; preds = %22, %26
-  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i68, %26 ], [ 0, %22 ]
-  %27 = getelementptr i32, ptr @opCode_AETH_PAYLD, i64 %indvars.iv.i67
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %28, %5
-  br i1 %29, label %contains.exit, label %26
+.preheader33:                                     ; preds = %27, %31
+  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i68, %31 ], [ 0, %27 ]
+  %32 = getelementptr i32, ptr @opCode_RDETH_DETH_IMMDT_PAYLD, i64 %indvars.iv.i67
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, %5
+  br i1 %34, label %contains.exit, label %31
 
-30:                                               ; preds = %.lr.ph.i72
-  %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
-  %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, 3
-  br i1 %exitcond.not.i75, label %.lr.ph.i78, label %.lr.ph.i72, !llvm.loop !4
+35:                                               ; preds = %.preheader31
+  %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
+  %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, 2
+  br i1 %exitcond.not.i74, label %.preheader29, label %.preheader31, !llvm.loop !4
 
-.lr.ph.i72:                                       ; preds = %26, %30
-  %indvars.iv.i73 = phi i64 [ %indvars.iv.next.i74, %30 ], [ 0, %26 ]
-  %31 = getelementptr i32, ptr @opCode_RDETH_DETH_IMMDT_PAYLD, i64 %indvars.iv.i73
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, %5
-  br i1 %33, label %contains.exit, label %30
+.preheader31:                                     ; preds = %31, %35
+  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %35 ], [ 0, %31 ]
+  %36 = getelementptr i32, ptr @opCode_RETH_IMMDT_PAYLD, i64 %indvars.iv.i72
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %37, %5
+  br i1 %38, label %contains.exit, label %35
 
-34:                                               ; preds = %.lr.ph.i78
-  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
-  %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, 2
-  br i1 %exitcond.not.i81, label %.lr.ph.i84, label %.lr.ph.i78, !llvm.loop !4
+39:                                               ; preds = %.preheader29
+  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
+  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 2
+  br i1 %exitcond.not.i79, label %.preheader27, label %.preheader29, !llvm.loop !4
 
-.lr.ph.i78:                                       ; preds = %30, %34
-  %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %34 ], [ 0, %30 ]
-  %35 = getelementptr i32, ptr @opCode_RETH_IMMDT_PAYLD, i64 %indvars.iv.i79
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, %5
-  br i1 %37, label %contains.exit, label %34
+.preheader29:                                     ; preds = %35, %39
+  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i78, %39 ], [ 0, %35 ]
+  %40 = getelementptr i32, ptr @opCode_RDETH_DETH_RETH_PAYLD, i64 %indvars.iv.i77
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %41, %5
+  br i1 %42, label %contains.exit, label %39
 
-38:                                               ; preds = %.lr.ph.i84
-  %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
-  %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, 2
-  br i1 %exitcond.not.i87, label %.lr.ph.i90, label %.lr.ph.i84, !llvm.loop !4
+43:                                               ; preds = %.preheader27
+  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
+  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 2
+  br i1 %exitcond.not.i84, label %.preheader25, label %.preheader27, !llvm.loop !4
 
-.lr.ph.i84:                                       ; preds = %34, %38
-  %indvars.iv.i85 = phi i64 [ %indvars.iv.next.i86, %38 ], [ 0, %34 ]
-  %39 = getelementptr i32, ptr @opCode_RDETH_DETH_RETH_PAYLD, i64 %indvars.iv.i85
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp eq i32 %40, %5
-  br i1 %41, label %contains.exit, label %38
+.preheader27:                                     ; preds = %39, %43
+  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %43 ], [ 0, %39 ]
+  %44 = getelementptr i32, ptr @opCode_ATOMICETH, i64 %indvars.iv.i82
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %45, %5
+  br i1 %46, label %contains.exit, label %43
 
-42:                                               ; preds = %.lr.ph.i90
-  %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
-  %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 2
-  br i1 %exitcond.not.i93, label %.lr.ph.i96, label %.lr.ph.i90, !llvm.loop !4
+47:                                               ; preds = %.preheader25
+  %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
+  %exitcond.not.i89 = icmp eq i64 %indvars.iv.next.i88, 2
+  br i1 %exitcond.not.i89, label %.preheader, label %.preheader25, !llvm.loop !4
 
-.lr.ph.i90:                                       ; preds = %38, %42
-  %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i92, %42 ], [ 0, %38 ]
-  %43 = getelementptr i32, ptr @opCode_ATOMICETH, i64 %indvars.iv.i91
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, %5
-  br i1 %45, label %contains.exit, label %42
+.preheader25:                                     ; preds = %43, %47
+  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %47 ], [ 0, %43 ]
+  %48 = getelementptr i32, ptr @opCode_IETH_PAYLD, i64 %indvars.iv.i87
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, %5
+  br i1 %50, label %contains.exit, label %47
 
-46:                                               ; preds = %.lr.ph.i96
-  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
-  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, 2
-  br i1 %exitcond.not.i99, label %.lr.ph.i102, label %.lr.ph.i96, !llvm.loop !4
+51:                                               ; preds = %.preheader
+  %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
+  %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, 2
+  br i1 %exitcond.not.i94, label %55, label %.preheader, !llvm.loop !4
 
-.lr.ph.i96:                                       ; preds = %42, %46
-  %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i98, %46 ], [ 0, %42 ]
-  %47 = getelementptr i32, ptr @opCode_IETH_PAYLD, i64 %indvars.iv.i97
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, %5
-  br i1 %49, label %contains.exit, label %46
+.preheader:                                       ; preds = %47, %51
+  %indvars.iv.i92 = phi i64 [ %indvars.iv.next.i93, %51 ], [ 0, %47 ]
+  %52 = getelementptr i32, ptr @opCode_RDETH_DETH_ATOMICETH, i64 %indvars.iv.i92
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %53, %5
+  br i1 %54, label %contains.exit, label %51
 
-50:                                               ; preds = %.lr.ph.i102
-  %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
-  %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, 2
-  br i1 %exitcond.not.i105, label %54, label %.lr.ph.i102, !llvm.loop !4
-
-.lr.ph.i102:                                      ; preds = %46, %50
-  %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i104, %50 ], [ 0, %46 ]
-  %51 = getelementptr i32, ptr @opCode_RDETH_DETH_ATOMICETH, i64 %indvars.iv.i103
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %52, %5
-  br i1 %53, label %contains.exit, label %50
-
-54:                                               ; preds = %50
-  switch i8 %.8.val, label %69 [
+55:                                               ; preds = %51
+  switch i8 %.8.val, label %70 [
     i8 17, label %contains.exit
-    i8 12, label %55
-    i8 18, label %56
-    i8 78, label %57
-    i8 81, label %58
-    i8 82, label %59
-    i8 75, label %60
-    i8 76, label %61
-    i8 85, label %62
-    i8 100, label %63
-    i8 101, label %64
-    i8 28, label %65
-    i8 92, label %66
-    i8 29, label %67
-    i8 93, label %68
+    i8 12, label %56
+    i8 18, label %57
+    i8 78, label %58
+    i8 81, label %59
+    i8 82, label %60
+    i8 75, label %61
+    i8 76, label %62
+    i8 85, label %63
+    i8 100, label %64
+    i8 101, label %65
+    i8 28, label %66
+    i8 92, label %67
+    i8 29, label %68
+    i8 93, label %69
   ]
 
-55:                                               ; preds = %54
+56:                                               ; preds = %55
   br label %contains.exit
 
-56:                                               ; preds = %54
+57:                                               ; preds = %55
   br label %contains.exit
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   br label %contains.exit
 
-58:                                               ; preds = %54
+59:                                               ; preds = %55
   br label %contains.exit
 
-59:                                               ; preds = %54
+60:                                               ; preds = %55
   br label %contains.exit
 
-60:                                               ; preds = %54
+61:                                               ; preds = %55
   br label %contains.exit
 
-61:                                               ; preds = %54
+62:                                               ; preds = %55
   br label %contains.exit
 
-62:                                               ; preds = %54
+63:                                               ; preds = %55
   br label %contains.exit
 
-63:                                               ; preds = %54
+64:                                               ; preds = %55
   br label %contains.exit
 
-64:                                               ; preds = %54
+65:                                               ; preds = %55
   br label %contains.exit
 
-65:                                               ; preds = %54
+66:                                               ; preds = %55
   br label %contains.exit
 
-66:                                               ; preds = %54
+67:                                               ; preds = %55
   br label %contains.exit
 
-67:                                               ; preds = %54
+68:                                               ; preds = %55
   br label %contains.exit
 
-68:                                               ; preds = %54
+69:                                               ; preds = %55
   br label %contains.exit
 
-69:                                               ; preds = %54
+70:                                               ; preds = %55
   br label %contains.exit
 
-contains.exit:                                    ; preds = %.lr.ph.i, %.lr.ph.i42, %.lr.ph.i48, %.lr.ph.i54, %.lr.ph.i60, %.lr.ph.i66, %.lr.ph.i72, %.lr.ph.i78, %.lr.ph.i84, %.lr.ph.i90, %.lr.ph.i96, %.lr.ph.i102, %54, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %2
-  %.0 = phi i32 [ %3, %2 ], [ 17, %55 ], [ 20, %56 ], [ 6, %57 ], [ 7, %58 ], [ 8, %59 ], [ 3, %60 ], [ 4, %61 ], [ 10, %62 ], [ 11, %63 ], [ 12, %64 ], [ 24, %65 ], [ 25, %66 ], [ 15, %67 ], [ 26, %68 ], [ -1, %69 ], [ 19, %54 ], [ 9, %.lr.ph.i102 ], [ 22, %.lr.ph.i96 ], [ 21, %.lr.ph.i90 ], [ 1, %.lr.ph.i84 ], [ 16, %.lr.ph.i78 ], [ 2, %.lr.ph.i72 ], [ 18, %.lr.ph.i66 ], [ 5, %.lr.ph.i60 ], [ 15, %.lr.ph.i54 ], [ 0, %.lr.ph.i48 ], [ 14, %.lr.ph.i42 ], [ 13, %.lr.ph.i ]
+contains.exit:                                    ; preds = %7, %.preheader43, %.preheader41, %.preheader39, %.preheader37, %.preheader35, %.preheader33, %.preheader31, %.preheader29, %.preheader27, %.preheader25, %.preheader, %55, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %2
+  %.0 = phi i32 [ %3, %2 ], [ 17, %56 ], [ 20, %57 ], [ 6, %58 ], [ 7, %59 ], [ 8, %60 ], [ 3, %61 ], [ 4, %62 ], [ 10, %63 ], [ 11, %64 ], [ 12, %65 ], [ 24, %66 ], [ 25, %67 ], [ 15, %68 ], [ 26, %69 ], [ -1, %70 ], [ 19, %55 ], [ 9, %.preheader ], [ 22, %.preheader25 ], [ 21, %.preheader27 ], [ 1, %.preheader29 ], [ 16, %.preheader31 ], [ 2, %.preheader33 ], [ 18, %.preheader35 ], [ 5, %.preheader37 ], [ 15, %.preheader39 ], [ 0, %.preheader41 ], [ 14, %.preheader43 ], [ 13, %7 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RDETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_RDETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @hf_infiniband_RDETH, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %4, i32 noundef 4, i32 noundef 0) #11
@@ -3778,7 +3778,7 @@ define internal fastcc void @parse_RDETH(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr @hf_infiniband_DETH, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %2, i32 noundef %5, i32 noundef 8, i32 noundef 0) #11
@@ -3802,7 +3802,7 @@ define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_PAYLOAD(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @parse_PAYLOAD(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 0, 65536) %5, i32 noundef range(i32 4, 7) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.MAD_Data, align 8
   %10 = alloca %struct.MAD_Data, align 8
   %11 = alloca %struct.MAD_Data, align 8
@@ -3851,7 +3851,7 @@ define internal fastcc void @parse_PAYLOAD(ptr noundef %0, ptr noundef %1, ptr n
   %35 = load ptr, ptr %34, align 8
   tail call void @col_set_str(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.1295) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11)
-  %36 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %11)
+  %36 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %11)
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %parse_VENDOR_MANAGEMENT.exit, label %37
 
@@ -3878,7 +3878,7 @@ parse_VENDOR_MANAGEMENT.exit:                     ; preds = %33, %37
   %46 = load ptr, ptr %45, align 8
   tail call void @col_set_str(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.1296) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10)
-  %47 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %10)
+  %47 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %10)
   %.not.i128 = icmp eq i32 %47, 0
   br i1 %.not.i128, label %parse_APPLICATION_MANAGEMENT.exit, label %48
 
@@ -3912,7 +3912,7 @@ parse_APPLICATION_MANAGEMENT.exit:                ; preds = %44, %48
   %60 = load ptr, ptr %59, align 8
   tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.1297) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9)
-  %61 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %61 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %9)
   %.not.i129 = icmp eq i32 %61, 0
   br i1 %.not.i129, label %parse_RESERVED_MANAGEMENT.exit, label %62
 
@@ -3942,44 +3942,44 @@ parse_RESERVED_MANAGEMENT.exit:                   ; preds = %58, %62
   ]
 
 68:                                               ; preds = %67
-  call fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %12)
+  call fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %12)
   br label %110
 
 69:                                               ; preds = %67
-  call fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %12)
+  call fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %12)
   br label %110
 
 70:                                               ; preds = %67
-  call fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %12)
+  call fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %12)
   br label %110
 
 71:                                               ; preds = %67
-  call fastcc void @parse_PERF(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %12)
+  call fastcc void @parse_PERF(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %1, ptr noundef %12)
   br label %110
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8
   tail call void @col_set_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.1298) #11
-  call fastcc void @parse_BM(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12)
+  call fastcc void @parse_BM(ptr noundef %0, ptr noundef %3, ptr noundef %12)
   br label %110
 
 75:                                               ; preds = %67
   %76 = getelementptr inbounds i8, ptr %1, i64 8
   %77 = load ptr, ptr %76, align 8
   tail call void @col_set_str(ptr noundef %77, i32 noundef 25, ptr noundef nonnull @.str.1299) #11
-  call fastcc void @parse_DEV_MGT(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12)
+  call fastcc void @parse_DEV_MGT(ptr noundef %0, ptr noundef %3, ptr noundef %12)
   br label %110
 
 78:                                               ; preds = %67
-  call fastcc void @parse_COM_MGT(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %12, ptr noundef %7)
+  call fastcc void @parse_COM_MGT(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %12, ptr noundef %7)
   br label %110
 
 79:                                               ; preds = %67
   %80 = getelementptr inbounds i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8
   tail call void @col_set_str(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.1300) #11
-  call fastcc void @parse_SNMP(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12)
+  call fastcc void @parse_SNMP(ptr noundef %0, ptr noundef %3, ptr noundef %12)
   br label %110
 
 82:                                               ; preds = %24
@@ -4061,7 +4061,7 @@ update_sport.exit:                                ; preds = %82, %87, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @parse_RETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @hf_infiniband_RETH, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %5, i32 noundef 16, i32 noundef 0) #11
@@ -4085,7 +4085,7 @@ define internal fastcc void @parse_RETH(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @hf_infiniband_IMMDT, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %4, i32 noundef 4, i32 noundef 0) #11
@@ -4100,7 +4100,7 @@ define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_AETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @parse_AETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr @hf_infiniband_AETH, align 4
@@ -4167,7 +4167,7 @@ default.unreachable40:                            ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @hf_infiniband_AtomicAckETH, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %4, i32 noundef 8, i32 noundef 0) #11
@@ -4182,7 +4182,7 @@ define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @hf_infiniband_AtomicETH, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %4, i32 noundef 28, i32 noundef 0) #11
@@ -4206,7 +4206,7 @@ define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_IETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_IETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @hf_infiniband_IETH, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %4, i32 noundef 4, i32 noundef 0) #11
@@ -4221,7 +4221,7 @@ define internal fastcc void @parse_IETH(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_FETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_FETH(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @hf_infiniband_FETH, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %4, i32 noundef 4, i32 noundef 0) #11
@@ -4241,7 +4241,7 @@ define internal fastcc void @parse_FETH(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_VENDOR(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_VENDOR(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @hf_infiniband_vendor, align 4
@@ -4280,10 +4280,10 @@ declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.MAD_Data, align 8
   %6 = alloca i32, align 4
-  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %35, label %8
 
@@ -4319,7 +4319,7 @@ define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr nocapture
   %30 = load ptr, ptr %24, align 8
   call void @col_append_str(ptr noundef %30, i32 noundef 25, ptr noundef %29) #11
   %.val24 = load i16, ptr %26, align 8
-  call fastcc void @parse_SUBM_Attribute(ptr noundef %14, ptr noundef %2, ptr noundef nonnull %6, i16 %.val24)
+  call fastcc void @parse_SUBM_Attribute(ptr noundef %14, ptr noundef %2, ptr noundef %6, i16 %.val24)
   %31 = load i32, ptr @hf_infiniband_reserved, align 4
   %32 = load i32, ptr %6, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %31, ptr noundef %2, i32 noundef %32, i32 noundef 128, i32 noundef 0) #11
@@ -4332,10 +4332,10 @@ define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.MAD_Data, align 8
   %6 = alloca i32, align 4
-  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %55, label %8
 
@@ -4388,7 +4388,7 @@ define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nocap
   %47 = add i32 %9, 40
   store i32 %47, ptr %6, align 4
   %.val38 = load i16, ptr %20, align 8
-  call fastcc void @parse_SUBM_Attribute(ptr noundef %14, ptr noundef %2, ptr noundef nonnull %6, i16 %.val38)
+  call fastcc void @parse_SUBM_Attribute(ptr noundef %14, ptr noundef %2, ptr noundef %6, i16 %.val38)
   %48 = load i32, ptr @hf_infiniband_initial_path, align 4
   %49 = load i32, ptr %6, align 4
   %50 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %48, ptr noundef %2, i32 noundef %49, i32 noundef 64, i32 noundef 0) #11
@@ -4404,10 +4404,10 @@ define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.MAD_Data, align 8
   %6 = alloca i32, align 4
-  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %482, label %8
 
@@ -4744,7 +4744,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 202:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_SLtoVLMappingTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @parse_SLtoVLMappingTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
   br label %parse_SUBA_Attribute.exit
 
 203:                                              ; preds = %parse_RID.exit.i
@@ -4752,15 +4752,15 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 204:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_LinearForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @parse_LinearForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
   br label %parse_SUBA_Attribute.exit
 
 205:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_RandomForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @parse_RandomForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
   br label %parse_SUBA_Attribute.exit
 
 206:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_MulticastForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @parse_MulticastForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
   br label %parse_SUBA_Attribute.exit
 
 207:                                              ; preds = %parse_RID.exit.i
@@ -4841,7 +4841,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 252:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_P_KeyTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @parse_P_KeyTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
   br label %parse_SUBA_Attribute.exit
 
 253:                                              ; preds = %parse_RID.exit.i
@@ -4910,7 +4910,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 313:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_VLArbitrationTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @parse_VLArbitrationTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
   br label %parse_SUBA_Attribute.exit
 
 314:                                              ; preds = %parse_RID.exit.i
@@ -5130,9 +5130,9 @@ parse_SUBA_Attribute.exit:                        ; preds = %.lr.ph5.i.i, %.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.MAD_Data, align 8
-  %6 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5)
+  %6 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %5)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %138, label %7
 
@@ -5297,9 +5297,9 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_BM(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_BM(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.MAD_Data, align 8
-  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -5317,9 +5317,9 @@ define internal fastcc void @parse_BM(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_DEV_MGT(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_DEV_MGT(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.MAD_Data, align 8
-  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -5337,7 +5337,7 @@ define internal fastcc void @parse_DEV_MGT(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_COM_MGT(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @parse_COM_MGT(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
@@ -5356,7 +5356,7 @@ define internal fastcc void @parse_COM_MGT(ptr noundef %0, ptr noundef %1, ptr n
   %21 = alloca %struct.MAD_Data, align 8
   %22 = alloca %struct.infinibandinfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
-  %23 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %21)
+  %23 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %21)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %611, label %24
 
@@ -6279,9 +6279,9 @@ parse_CM_DRsp.exit:                               ; preds = %try_connection_diss
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_SNMP(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_SNMP(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.MAD_Data, align 8
-  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -6303,7 +6303,7 @@ declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @dissector_try_payload_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %5, i32 noundef 256) #11
   %.not = icmp eq i32 %6, 0
@@ -6387,7 +6387,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_SUBM_Attribute(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 %.16.val) unnamed_addr #0 {
+define internal fastcc void @parse_SUBM_Attribute(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i16 %.16.val) unnamed_addr #0 {
   %4 = load i32, ptr @hf_infiniband_smp_data, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 64, i32 noundef 0) #11
@@ -6465,27 +6465,27 @@ define internal fastcc void @parse_SUBM_Attribute(ptr noundef %0, ptr noundef %1
   br label %parse_NodeDescription.exit
 
 25:                                               ; preds = %3
-  tail call fastcc void @parse_P_KeyTable(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @parse_P_KeyTable(ptr noundef %10, ptr noundef %1, ptr noundef %2)
   br label %parse_NodeDescription.exit
 
 26:                                               ; preds = %3
-  tail call fastcc void @parse_SLtoVLMappingTable(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @parse_SLtoVLMappingTable(ptr noundef %10, ptr noundef %1, ptr noundef %2)
   br label %parse_NodeDescription.exit
 
 27:                                               ; preds = %3
-  tail call fastcc void @parse_VLArbitrationTable(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @parse_VLArbitrationTable(ptr noundef %10, ptr noundef %1, ptr noundef %2)
   br label %parse_NodeDescription.exit
 
 28:                                               ; preds = %3
-  tail call fastcc void @parse_LinearForwardingTable(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @parse_LinearForwardingTable(ptr noundef %10, ptr noundef %1, ptr noundef %2)
   br label %parse_NodeDescription.exit
 
 29:                                               ; preds = %3
-  tail call fastcc void @parse_RandomForwardingTable(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @parse_RandomForwardingTable(ptr noundef %10, ptr noundef %1, ptr noundef %2)
   br label %parse_NodeDescription.exit
 
 30:                                               ; preds = %3
-  tail call fastcc void @parse_MulticastForwardingTable(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @parse_MulticastForwardingTable(ptr noundef %10, ptr noundef %1, ptr noundef %2)
   br label %parse_NodeDescription.exit
 
 31:                                               ; preds = %3
@@ -7206,7 +7206,7 @@ define internal fastcc void @parse_PortInfo(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -7238,7 +7238,7 @@ define internal fastcc void @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_SLtoVLMappingTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @parse_SLtoVLMappingTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -7270,7 +7270,7 @@ define internal fastcc void @parse_SLtoVLMappingTable(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_VLArbitrationTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @parse_VLArbitrationTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -7303,7 +7303,7 @@ define internal fastcc void @parse_VLArbitrationTable(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_LinearForwardingTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @parse_LinearForwardingTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -7332,7 +7332,7 @@ define internal fastcc void @parse_LinearForwardingTable(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RandomForwardingTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @parse_RandomForwardingTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -7372,7 +7372,7 @@ define internal fastcc void @parse_RandomForwardingTable(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_MulticastForwardingTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @parse_MulticastForwardingTable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 

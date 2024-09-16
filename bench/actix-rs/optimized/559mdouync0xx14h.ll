@@ -1353,7 +1353,7 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19brotli_decompressor6decode14WrapRingBuffer17h2489b1f1bf521fd1E(ptr noalias nocapture noundef align 8 dereferenceable(2592) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN19brotli_decompressor6decode14WrapRingBuffer17h2489b1f1bf521fd1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(2592) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1438,7 +1438,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode14WrapRingBuffer17h2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i32 -7, 3) i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef %0, i32 noundef %1, ptr noalias noundef nonnull align 2 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef writeonly align 4 dereferenceable_or_null(4) %5, ptr noalias noundef align 8 dereferenceable(2592) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i32 -7, 3) i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef %0, i32 noundef %1, ptr noalias noundef nonnull align 2 %2, i64 noundef %3, i64 noundef range(i64 -2147483648, 4294967296) %4, ptr noalias nocapture noundef writeonly align 4 dereferenceable_or_null(4) %5, ptr noalias noundef nonnull align 8 dereferenceable(2592) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8) unnamed_addr #1 personality ptr @rust_eh_personality {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -2119,7 +2119,7 @@ _ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h117518c5aac4f147E.e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1, ptr noalias noundef writeonly align 1 %2, i64 %3, ptr noalias nocapture noundef align 8 dereferenceable(8) %4, ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %5, i1 noundef zeroext %6, ptr noalias nocapture noundef align 8 dereferenceable(2592) %7) unnamed_addr #1 {
+define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull writeonly align 1 %2, i64 %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, i1 noundef zeroext %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(2592) %7) unnamed_addr #1 {
   %9 = getelementptr inbounds i8, ptr %7, i64 2168
   %10 = load i32, ptr %9, align 8, !noundef !15
   %11 = getelementptr inbounds i8, ptr %7, i64 2184
@@ -2139,7 +2139,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17h
   %22 = getelementptr inbounds i8, ptr %7, i64 2208
   %23 = load i32, ptr %22, align 8, !noundef !15
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %39, label %25
+  br i1 %24, label %54, label %25
 
 25:                                               ; preds = %8
   %26 = getelementptr inbounds i8, ptr %7, i64 2188
@@ -2149,13 +2149,13 @@ define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17h
   %30 = getelementptr inbounds i8, ptr %7, i64 1776
   %.val = load ptr, ptr %30, align 8, !nonnull !15, !align !55, !noundef !15
   %31 = getelementptr inbounds i8, ptr %7, i64 1784
-  %.val17 = load i64, ptr %31, align 8, !noundef !15
+  %.val16 = load i64, ptr %31, align 8, !noundef !15
   %32 = add i64 %29, %spec.store.select
   %33 = icmp ugt i64 %29, %32
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %25
-  %35 = icmp ugt i64 %32, %.val17
+  %35 = icmp ugt i64 %32, %.val16
   br i1 %35, label %37, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit"
 
 36:                                               ; preds = %25
@@ -2163,108 +2163,102 @@ define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17h
   unreachable
 
 37:                                               ; preds = %34
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %32, i64 noundef %.val17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.21) #23, !noalias !316
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %32, i64 noundef %.val16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.21) #23, !noalias !316
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit": ; preds = %34
   %38 = getelementptr inbounds i8, ptr %.val, i64 %29
-  %.not = icmp eq ptr %2, null
-  %.pre = load i64, ptr %4, align 8
-  %.pre18 = add i64 %.pre, %spec.store.select
-  br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit._crit_edge", label %42
-
-39:                                               ; preds = %8
-  store i32 -9, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.24, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %41, align 8
-  br label %70
+  %39 = load i64, ptr %4, align 8, !noundef !15
+  %40 = add i64 %39, %spec.store.select
+  %41 = icmp ugt i64 %39, %40
+  br i1 %41, label %44, label %42
 
 42:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit"
-  %43 = icmp ugt i64 %.pre, %.pre18
-  br i1 %43, label %46, label %44
+  %43 = icmp ugt i64 %40, %3
+  br i1 %43, label %45, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h979bfd3072612463E.exit"
 
-44:                                               ; preds = %42
-  %45 = icmp ugt i64 %.pre18, %3
-  br i1 %45, label %47, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h979bfd3072612463E.exit"
-
-46:                                               ; preds = %42
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %.pre, i64 noundef %.pre18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.22) #23, !noalias !319
+44:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit"
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.22) #23, !noalias !319
   unreachable
 
-47:                                               ; preds = %44
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %.pre18, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.22) #23, !noalias !319
+45:                                               ; preds = %42
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %40, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.22) #23, !noalias !319
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h979bfd3072612463E.exit": ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %2, i64 %.pre
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %38, i64 %spec.store.select, i1 false), !alias.scope !322, !noalias !326
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit._crit_edge"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h979bfd3072612463E.exit": ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %2, i64 %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %38, i64 %spec.store.select, i1 false), !alias.scope !322, !noalias !326
+  store i64 %40, ptr %4, align 8
+  %47 = sub i64 %21, %spec.store.select
+  store i64 %47, ptr %1, align 8
+  %48 = add i64 %spec.store.select, %19
+  store i64 %48, ptr %18, align 8
+  store i64 %48, ptr %5, align 8
+  %49 = icmp ult i64 %21, %20
+  %50 = getelementptr inbounds i8, ptr %7, i64 2284
+  %51 = load i32, ptr %50, align 4, !noundef !15
+  %52 = and i32 %51, 31
+  %53 = shl nuw i32 1, %52
+  br i1 %49, label %59, label %57
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit._crit_edge": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h979bfd3072612463E.exit"
-  store i64 %.pre18, ptr %4, align 8
-  %49 = sub i64 %21, %spec.store.select
-  store i64 %49, ptr %1, align 8
-  %50 = add i64 %19, %spec.store.select
-  store i64 %50, ptr %18, align 8
-  store i64 %50, ptr %5, align 8
-  %51 = icmp ult i64 %21, %20
-  %52 = getelementptr inbounds i8, ptr %7, i64 2284
-  %53 = load i32, ptr %52, align 4, !noundef !15
-  %54 = and i32 %53, 31
-  %55 = shl nuw i32 1, %54
-  %56 = icmp eq i32 %12, %55
-  br i1 %51, label %58, label %57
+54:                                               ; preds = %8
+  store i32 -9, ptr %0, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.24, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %56, align 8
+  br label %72
 
-57:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit._crit_edge"
-  %.not16 = icmp sge i32 %10, %12
-  %or.cond.not = and i1 %.not16, %56
-  br i1 %or.cond.not, label %64, label %61
+57:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h979bfd3072612463E.exit"
+  %58 = icmp ne i32 %12, %53
+  %.not = icmp slt i32 %10, %12
+  %or.cond = or i1 %.not, %58
+  br i1 %or.cond, label %63, label %66
 
-58:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit._crit_edge"
-  %brmerge = or i1 %6, %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %brmerge, label %72, label %71
+59:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h979bfd3072612463E.exit"
+  %60 = icmp eq i32 %12, %53
+  %brmerge = or i1 %6, %60
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %brmerge, label %74, label %73
 
-61:                                               ; preds = %57, %64
+63:                                               ; preds = %57, %66
   store i32 1, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %38, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %spec.store.select, ptr %63, align 8
-  br label %70
+  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %38, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %spec.store.select, ptr %65, align 8
+  br label %72
 
-64:                                               ; preds = %57
-  %65 = sub i32 %10, %12
-  store i32 %65, ptr %9, align 8
-  %66 = add i64 %14, 1
-  store i64 %66, ptr %13, align 8
-  %67 = getelementptr inbounds i8, ptr %7, i64 2585
-  %68 = icmp ne i32 %10, %12
-  %69 = zext i1 %68 to i8
-  store i8 %69, ptr %67, align 1
-  br label %61
+66:                                               ; preds = %57
+  %67 = sub i32 %10, %12
+  store i32 %67, ptr %9, align 8
+  %68 = add i64 %14, 1
+  store i64 %68, ptr %13, align 8
+  %69 = getelementptr inbounds i8, ptr %7, i64 2585
+  %70 = icmp ne i32 %10, %12
+  %71 = zext i1 %70 to i8
+  store i8 %71, ptr %69, align 1
+  br label %63
 
-70:                                               ; preds = %71, %72, %61, %39
+72:                                               ; preds = %73, %74, %63, %54
   ret void
 
-71:                                               ; preds = %58
+73:                                               ; preds = %59
   store i32 1, ptr %0, align 8
-  store ptr %38, ptr %59, align 8
-  store i64 %spec.store.select, ptr %60, align 8
-  br label %70
+  store ptr %38, ptr %61, align 8
+  store i64 %spec.store.select, ptr %62, align 8
+  br label %72
 
-72:                                               ; preds = %58
+74:                                               ; preds = %59
   store i32 3, ptr %0, align 8
-  store ptr @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.24, ptr %59, align 8
-  store i64 0, ptr %60, align 8
-  br label %70
+  store ptr @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.24, ptr %61, align 8
+  store i64 0, ptr %62, align 8
+  br label %72
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i32 -31, 4) i32 @_ZN19brotli_decompressor6decode16DecodeContextMap17h0955b893c1e64808E(i64 noundef %0, i1 noundef zeroext %1, ptr noalias noundef align 8 dereferenceable(2592) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i32 -31, 4) i32 @_ZN19brotli_decompressor6decode16DecodeContextMap17h0955b893c1e64808E(i64 noundef range(i64 0, 274877906881) %0, i1 noundef zeroext %1, ptr noalias noundef nonnull align 8 dereferenceable(2592) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -2543,7 +2537,7 @@ default.unreachable:                              ; preds = %.backedge.i
   %118 = load i32, ptr %17, align 4, !alias.scope !329, !noalias !339, !noundef !15
   %119 = load i32, ptr %54, align 4, !alias.scope !332, !noalias !335, !noundef !15
   %120 = add i32 %119, %118
-  %121 = invoke fastcc noundef i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef %120, i32 noundef %120, ptr noalias noundef nonnull align 2 %116, i64 noundef %117, i64 noundef 0, ptr noalias noundef align 4 dereferenceable_or_null(4) null, ptr noalias noundef nonnull align 8 dereferenceable(2592) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  %121 = invoke fastcc noundef i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef %120, i32 noundef %120, ptr noalias noundef nonnull align 2 %116, i64 noundef %117, i64 noundef 0, ptr noalias noundef align 4 dereferenceable_or_null(4) null, ptr noalias noundef align 8 dereferenceable(2592) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
           to label %122 unwind label %107, !range !357, !noalias !358
 
 122:                                              ; preds = %.noexc7
@@ -2877,7 +2871,7 @@ _ZN19brotli_decompressor6decode21DecodeContextMapInner17h584224a8678bcffaE.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i32 -3, 3) i32 @_ZN19brotli_decompressor6decode21DecodeMetaBlockLength17hd483427be3f41f6fE(ptr noalias noundef align 8 dereferenceable(2592) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef range(i32 -3, 3) i32 @_ZN19brotli_decompressor6decode21DecodeMetaBlockLength17hd483427be3f41f6fE(ptr noalias noundef nonnull align 8 dereferenceable(2592) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -3095,7 +3089,7 @@ default.unreachable55:                            ; preds = %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN19brotli_decompressor6decode22BrotliDecompressStream17h38a75467a19de364E(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(8) %4, ptr noalias nocapture noundef align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %6, i64 noundef %7, ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %8, ptr noalias noundef align 8 dereferenceable(2592) %9) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 4) i32 @_ZN19brotli_decompressor6decode22BrotliDecompressStream17h38a75467a19de364E(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(8) %4, ptr noalias nocapture noundef align 8 dereferenceable(8) %5, ptr noalias nocapture noundef nonnull writeonly align 1 %6, i64 noundef %7, ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %8, ptr noalias noundef align 8 dereferenceable(2592) %9) unnamed_addr #1 personality ptr @rust_eh_personality {
   %11 = alloca { { i64, ptr, {} }, i64 }, align 8
   %12 = alloca { { i64, ptr, {} }, i64 }, align 8
   %13 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -3702,7 +3696,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.preheader201
 
 291:                                              ; preds = %.preheader201
-  %292 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode21DecodeMetaBlockLength17hd483427be3f41f6fE(ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
+  %292 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode21DecodeMetaBlockLength17hd483427be3f41f6fE(ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
   %293 = icmp eq i32 %292, 1
   br i1 %293, label %430, label %.backedge205.backedge
 
@@ -3768,18 +3762,18 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   br label %.backedge205.backedge
 
 316:                                              ; preds = %.preheader201, %.preheader201, %.preheader201, %.preheader201
-  %317 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode23ProcessCommandsInternal17h0c2a7a0011443c1cE(i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
+  %317 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode23ProcessCommandsInternal17h0c2a7a0011443c1cE(i1 noundef zeroext false, ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
   %318 = icmp eq i32 %317, 2
   br i1 %318, label %475, label %.backedge205.backedge
 
 319:                                              ; preds = %.preheader201
-  %320 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode29CopyUncompressedBlockToOutput17h52e7ab84be2de4a0E(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 1 %6, i64 noundef %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
+  %320 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode29CopyUncompressedBlockToOutput17h52e7ab84be2de4a0E(ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 1 %6, i64 noundef %7, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 8 dereferenceable(8) %8, ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
   %321 = icmp eq i32 %320, 1
   br i1 %321, label %477, label %.backedge205.backedge
 
 322:                                              ; preds = %.preheader201, %.preheader201, %.preheader201
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
-  call fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %29, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 1 %6, i64 %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9)
+  call fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %29, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias noundef align 1 %6, i64 %7, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 8 dereferenceable(8) %8, i1 noundef zeroext false, ptr noalias noundef align 8 dereferenceable(2592) %9)
   %323 = load i32, ptr %29, align 8, !range !357, !noundef !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   %324 = icmp eq i32 %323, 1
@@ -3831,7 +3825,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   %348 = load i32, ptr %92, align 8, !noundef !15
   %349 = zext i32 %348 to i64
   %350 = shl nuw nsw i64 %349, 6
-  %351 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode16DecodeContextMap17h0955b893c1e64808E(i64 noundef %350, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
+  %351 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode16DecodeContextMap17h0955b893c1e64808E(i64 noundef %350, i1 noundef zeroext false, ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
   %352 = icmp eq i32 %351, 1
   br i1 %352, label %617, label %.backedge205.backedge
 
@@ -3849,7 +3843,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
 
 362:                                              ; preds = %.preheader201
   %363 = load i32, ptr %91, align 8, !noundef !15
-  %364 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode22HuffmanTreeGroupDecode17h9605ab92bb341428E(i32 noundef %363, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
+  %364 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode22HuffmanTreeGroupDecode17h9605ab92bb341428E(i32 noundef %363, ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
   %365 = icmp eq i32 %364, 1
   br i1 %365, label %703, label %.backedge205.backedge
 
@@ -4044,7 +4038,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   br i1 %444, label %445, label %447
 
 445:                                              ; preds = %443
-  %446 = call fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24BrotliAllocateRingBuffer17hd5af616b62464600E(ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
+  %446 = call fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24BrotliAllocateRingBuffer17hd5af616b62464600E(ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
   br i1 %446, label %447, label %.backedge205.backedge
 
 447:                                              ; preds = %445, %443
@@ -4124,7 +4118,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   br label %.preheader201.backedge
 
 475:                                              ; preds = %316
-  %476 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode23ProcessCommandsInternal17h0c2a7a0011443c1cE(i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
+  %476 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode23ProcessCommandsInternal17h0c2a7a0011443c1cE(i1 noundef zeroext true, ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
   br label %.backedge205.backedge
 
 477:                                              ; preds = %319
@@ -4205,7 +4199,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   br label %.preheader201.backedge
 
 508:                                              ; preds = %322
-  call fastcc void @_ZN19brotli_decompressor6decode14WrapRingBuffer17h2489b1f1bf521fd1E(ptr noalias noundef nonnull align 8 dereferenceable(2592) %9)
+  call fastcc void @_ZN19brotli_decompressor6decode14WrapRingBuffer17h2489b1f1bf521fd1E(ptr noalias noundef align 8 dereferenceable(2592) %9)
   %509 = load i32, ptr %163, align 8, !noundef !15
   %510 = load i32, ptr %151, align 4, !noundef !15
   %511 = and i32 %510, 31
@@ -4323,7 +4317,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   %563 = load i32, ptr %562, align 4, !noundef !15
   %564 = add i32 %563, 2
   %565 = zext i32 %561 to i64
-  %566 = invoke fastcc noundef i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef %564, i32 noundef %564, ptr noalias noundef nonnull align 2 %337, i64 noundef %338, i64 noundef %565, ptr noalias noundef align 4 dereferenceable_or_null(4) null, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
+  %566 = invoke fastcc noundef i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef %564, i32 noundef %564, ptr noalias noundef nonnull align 2 %337, i64 noundef %338, i64 noundef %565, ptr noalias noundef align 4 dereferenceable_or_null(4) null, ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
           to label %567 unwind label %.loopexit203, !range !357
 
 567:                                              ; preds = %560
@@ -4380,7 +4374,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   store i64 %581, ptr %98, align 8
   %584 = mul i32 %577, 1080
   %585 = sext i32 %584 to i64
-  %586 = invoke fastcc noundef i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef 26, i32 noundef 26, ptr noalias noundef nonnull align 2 %582, i64 noundef %583, i64 noundef %585, ptr noalias noundef align 4 dereferenceable_or_null(4) null, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
+  %586 = invoke fastcc noundef i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef 26, i32 noundef 26, ptr noalias noundef nonnull align 2 %582, i64 noundef %583, i64 noundef %585, ptr noalias noundef align 4 dereferenceable_or_null(4) null, ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
           to label %587 unwind label %594, !range !357
 
 587:                                              ; preds = %576
@@ -4418,7 +4412,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   %601 = call { i1, i32 } @_ZN19brotli_decompressor6decode24SafeReadBlockLengthIndex17h7e22ce5ca3a429d7E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %162, i32 noundef %598, ptr noalias noundef nonnull readonly align 2 %600, i64 noundef %599, ptr noalias noundef nonnull align 8 dereferenceable(24) %103, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
   %602 = extractvalue { i1, i32 } %601, 0
   %603 = extractvalue { i1, i32 } %601, 1
-  %604 = call fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode28SafeReadBlockLengthFromIndex17h8e2696518e72c35bE(ptr noalias noundef nonnull align 8 dereferenceable(88) %101, ptr noalias noundef nonnull align 8 dereferenceable(24) %103, ptr noalias noundef nonnull align 4 dereferenceable(4) %31, i1 noundef zeroext %602, i32 noundef %603, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
+  %604 = call fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode28SafeReadBlockLengthFromIndex17h8e2696518e72c35bE(ptr noalias noundef align 8 dereferenceable(88) %101, ptr noalias noundef align 8 dereferenceable(24) %103, ptr noalias noundef align 4 dereferenceable(4) %31, i1 noundef zeroext %602, i32 noundef %603, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1)
   br i1 %604, label %606, label %610
 
 605:                                              ; preds = %342
@@ -4580,7 +4574,7 @@ _ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h0db8834a816abf
   %684 = load i32, ptr %80, align 8, !noundef !15
   %685 = zext i32 %684 to i64
   %686 = shl nuw nsw i64 %685, 2
-  %687 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode16DecodeContextMap17h0955b893c1e64808E(i64 noundef %686, i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
+  %687 = call fastcc noundef i32 @_ZN19brotli_decompressor6decode16DecodeContextMap17h0955b893c1e64808E(i64 noundef %686, i1 noundef zeroext true, ptr noalias noundef align 8 dereferenceable(2592) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.046.1, i64 noundef %.sroa.21.1), !range !357
   %688 = icmp eq i32 %687, 1
   br i1 %688, label %689, label %.backedge205.backedge
 
@@ -4623,7 +4617,7 @@ _ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h0db8834a816abf
   br i1 %706, label %707, label %.backedge205.backedge
 
 707:                                              ; preds = %703
-  call fastcc void @_ZN19brotli_decompressor6decode22PrepareLiteralDecoding17hff7325fa55386c62E(ptr noalias noundef nonnull align 8 dereferenceable(2592) %9)
+  call fastcc void @_ZN19brotli_decompressor6decode22PrepareLiteralDecoding17hff7325fa55386c62E(ptr noalias noundef align 8 dereferenceable(2592) %9)
   store i64 0, ptr %159, align 8
   store i16 0, ptr %160, align 8
   store i8 7, ptr %76, align 2
@@ -4631,7 +4625,7 @@ _ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h0db8834a816abf
 
 708:                                              ; preds = %366
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
-  call fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %28, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 1 %6, i64 %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9)
+  call fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %28, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias noundef align 1 %6, i64 %7, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 8 dereferenceable(8) %8, i1 noundef zeroext true, ptr noalias noundef align 8 dereferenceable(2592) %9)
   %709 = load i32, ptr %28, align 8, !range !357, !noundef !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   %710 = icmp eq i32 %709, 1
@@ -4661,7 +4655,7 @@ _ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h0db8834a816abf
 
 718:                                              ; preds = %713
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
-  call fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %35, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 1 %6, i64 %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(2592) %9)
+  call fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %35, ptr noalias noundef align 8 dereferenceable(8) %4, ptr noalias noundef align 1 %6, i64 %7, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 8 dereferenceable(8) %8, i1 noundef zeroext true, ptr noalias noundef align 8 dereferenceable(2592) %9)
   %719 = load i32, ptr %35, align 8, !range !357, !noundef !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   %720 = icmp slt i32 %719, 0
@@ -4850,7 +4844,7 @@ _ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h0db8834a816abf
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6decode22HuffmanTreeGroupDecode17h9605ab92bb341428E(i32 noundef %0, ptr noalias noundef align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6decode22HuffmanTreeGroupDecode17h9605ab92bb341428E(i32 noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -5066,7 +5060,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   store i32 0, ptr %17, align 4
   %105 = zext i32 %103 to i64
-  %106 = invoke fastcc noundef i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef %101, i32 noundef %100, ptr noalias noundef nonnull align 2 %.sroa.0.1, i64 noundef %.sroa.15.1, i64 noundef %105, ptr noalias noundef nonnull align 4 dereferenceable_or_null(4) %17, ptr noalias noundef nonnull align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  %106 = invoke fastcc noundef i32 @_ZN19brotli_decompressor6decode15ReadHuffmanCode17h426d954bb5e692d9E(i32 noundef %101, i32 noundef %100, ptr noalias noundef nonnull align 2 %.sroa.0.1, i64 noundef %.sroa.15.1, i64 noundef %105, ptr noalias noundef nonnull align 4 dereferenceable_or_null(4) %17, ptr noalias noundef align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %107 unwind label %.loopexit, !range !357
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd71cfdd590b2a58E.exit.thread": ; preds = %109, %96, %116
@@ -5353,7 +5347,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19brotli_decompressor6decode22PrepareLiteralDecoding17hff7325fa55386c62E(ptr noalias nocapture noundef align 8 dereferenceable(2592) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN19brotli_decompressor6decode22PrepareLiteralDecoding17hff7325fa55386c62E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(2592) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2108
   %3 = load i32, ptr %2, align 4, !noundef !15
   %4 = zext i32 %3 to i64
@@ -5417,7 +5411,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode22PrepareLiteralDeco
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6decode23ProcessCommandsInternal17h0c2a7a0011443c1cE(i1 noundef zeroext %0, ptr noalias noundef align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6decode23ProcessCommandsInternal17h0c2a7a0011443c1cE(i1 noundef zeroext %0, ptr noalias noundef nonnull align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -6458,7 +6452,7 @@ _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.ex
   br label %.loopexit1306
 
 502:                                              ; preds = %191
-  %503 = invoke fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24DecodeBlockTypeAndLength17h5fb9eb99c3a82482E(i1 noundef zeroext %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %149, ptr noalias noundef nonnull align 8 dereferenceable(24) %39, i32 noundef 1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  %503 = invoke fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24DecodeBlockTypeAndLength17h5fb9eb99c3a82482E(i1 noundef zeroext %0, ptr noalias noundef align 8 dereferenceable(88) %149, ptr noalias noundef align 8 dereferenceable(24) %39, i32 noundef 1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %.noexc241 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc241:                                        ; preds = %502
@@ -6576,7 +6570,7 @@ _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.ex
   br i1 %553, label %554, label %560
 
 554:                                              ; preds = %551
-  %555 = invoke fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode32DecodeLiteralBlockSwitchInternal17ha6a6ad2b52811b9eE(i1 noundef zeroext %0, ptr noalias noundef nonnull align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  %555 = invoke fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode32DecodeLiteralBlockSwitchInternal17ha6a6ad2b52811b9eE(i1 noundef zeroext %0, ptr noalias noundef align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %556 unwind label %.loopexit
 
 556:                                              ; preds = %554
@@ -6789,7 +6783,7 @@ _ZN19brotli_decompressor6decode12DecodeSymbol17h3607ad250f015206E.exit: ; preds 
   br i1 %672, label %673, label %686
 
 673:                                              ; preds = %670
-  %674 = invoke fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode32DecodeLiteralBlockSwitchInternal17ha6a6ad2b52811b9eE(i1 noundef zeroext %0, ptr noalias noundef nonnull align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  %674 = invoke fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode32DecodeLiteralBlockSwitchInternal17ha6a6ad2b52811b9eE(i1 noundef zeroext %0, ptr noalias noundef align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %675 unwind label %.loopexit.split-lp.loopexit
 
 675:                                              ; preds = %673
@@ -6942,7 +6936,7 @@ _ZN19brotli_decompressor6decode12DecodeSymbol17h3607ad250f015206E.exit: ; preds 
   br label %_ZN19brotli_decompressor6decode20ReadDistanceInternal17hcda1ab026d34a64bE.exit.thread
 
 738:                                              ; preds = %727
-  %739 = invoke fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24DecodeBlockTypeAndLength17h5fb9eb99c3a82482E(i1 noundef zeroext %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %149, ptr noalias noundef nonnull align 8 dereferenceable(24) %39, i32 noundef 2, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  %739 = invoke fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24DecodeBlockTypeAndLength17h5fb9eb99c3a82482E(i1 noundef zeroext %0, ptr noalias noundef align 8 dereferenceable(88) %149, ptr noalias noundef align 8 dereferenceable(24) %39, i32 noundef 2, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %.noexc245 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc245:                                        ; preds = %738
@@ -8269,7 +8263,7 @@ thread-pre-split:                                 ; preds = %1125, %1140, %_ZN19
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24BrotliAllocateRingBuffer17hd5af616b62464600E(ptr noalias noundef align 8 dereferenceable(2592) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24BrotliAllocateRingBuffer17hd5af616b62464600E(ptr noalias noundef nonnull align 8 dereferenceable(2592) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 2318
@@ -8532,7 +8526,7 @@ define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24Brot
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24DecodeBlockTypeAndLength17h5fb9eb99c3a82482E(i1 noundef zeroext %0, ptr noalias noundef align 8 dereferenceable(88) %1, ptr noalias noundef align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24DecodeBlockTypeAndLength17h5fb9eb99c3a82482E(i1 noundef zeroext %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef range(i32 0, 3) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = zext nneg i32 %3 to i64
@@ -8834,7 +8828,7 @@ _ZN19brotli_decompressor6decode28SafeReadBlockLengthFromIndex17h8e2696518e72c35b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode28SafeReadBlockLengthFromIndex17h8e2696518e72c35bE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(88) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %2, i1 noundef zeroext %3, i32 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode28SafeReadBlockLengthFromIndex17h8e2696518e72c35bE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, i1 noundef zeroext %3, i32 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   br i1 %3, label %9, label %13
 
@@ -8883,7 +8877,7 @@ define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode28Safe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i32 -31, 4) i32 @_ZN19brotli_decompressor6decode29CopyUncompressedBlockToOutput17h52e7ab84be2de4a0E(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3, ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %4, ptr noalias noundef align 8 dereferenceable(2592) %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc noundef range(i32 -31, 4) i32 @_ZN19brotli_decompressor6decode29CopyUncompressedBlockToOutput17h52e7ab84be2de4a0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull writeonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 dereferenceable(2592) %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca { i32, [1 x i32], { ptr, i64 } }, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 2587
   %11 = getelementptr inbounds i8, ptr %5, i64 1888
@@ -8914,7 +8908,7 @@ define internal fastcc noundef range(i32 -31, 4) i32 @_ZN19brotli_decompressor6d
 
 28:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 1 %1, i64 %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(2592) %5)
+  call fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17hd46c1b4b218eebaeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef align 1 %1, i64 %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef align 8 dereferenceable(8) %4, i1 noundef zeroext false, ptr noalias noundef align 8 dereferenceable(2592) %5)
   %29 = load i32, ptr %9, align 8, !range !357, !noundef !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %30 = icmp eq i32 %29, 1
@@ -8982,10 +8976,10 @@ define internal fastcc noundef range(i32 -31, 4) i32 @_ZN19brotli_decompressor6d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode32DecodeLiteralBlockSwitchInternal17ha6a6ad2b52811b9eE(i1 noundef zeroext %0, ptr noalias noundef align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode32DecodeLiteralBlockSwitchInternal17ha6a6ad2b52811b9eE(i1 noundef zeroext %0, ptr noalias noundef nonnull align 8 dereferenceable(2592) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %1, i64 2072
   %6 = getelementptr inbounds i8, ptr %1, i64 1872
-  %7 = tail call fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24DecodeBlockTypeAndLength17h5fb9eb99c3a82482E(i1 noundef zeroext %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  %7 = tail call fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24DecodeBlockTypeAndLength17h5fb9eb99c3a82482E(i1 noundef zeroext %0, ptr noalias noundef align 8 dereferenceable(88) %5, ptr noalias noundef align 8 dereferenceable(24) %6, i32 noundef 0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   br i1 %7, label %8, label %44
 
 8:                                                ; preds = %4
@@ -9162,7 +9156,7 @@ define hidden noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
-define internal fastcc noundef range(i16 0, -32768) i16 @_ZN4http6header3map15hash_elem_using17h1a0993500a30d8abE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #3 {
+define internal fastcc noundef range(i16 0, -32768) i16 @_ZN4http6header3map15hash_elem_using17h1a0993500a30d8abE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -9201,7 +9195,7 @@ define internal fastcc noundef range(i16 0, -32768) i16 @_ZN4http6header3map15ha
   %21 = zext i1 %20 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !1207
   store i64 %21, ptr %6, align 8, !noalias !1207
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1207
   %22 = icmp eq ptr %19, null
   %23 = getelementptr i8, ptr %1, i64 8
@@ -9212,7 +9206,7 @@ define internal fastcc noundef range(i16 0, -32768) i16 @_ZN4http6header3map15ha
   %26 = zext nneg i8 %25 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1213
   store i64 %26, ptr %5, align 8, !noalias !1213
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1213
   br label %"_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..hash..Hash$GT$4hash17hdb5363e194728959E.exit"
 
@@ -9220,7 +9214,7 @@ define internal fastcc noundef range(i16 0, -32768) i16 @_ZN4http6header3map15ha
   %.val.i.i = load ptr, ptr %23, align 8, !noalias !1202, !noundef !15
   %28 = getelementptr i8, ptr %1, i64 16
   %.val2.i.i = load i64, ptr %28, align 8, !noalias !1202, !noundef !15
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val2.i.i)
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val2.i.i)
   br label %"_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..hash..Hash$GT$4hash17hdb5363e194728959E.exit"
 
 "_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..hash..Hash$GT$4hash17hdb5363e194728959E.exit": ; preds = %24, %27
@@ -9381,7 +9375,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMap$LT$T$GT
   %12 = alloca { { ptr, [3 x i64] } }, align 8
   %13 = alloca { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, align 8
   %14 = alloca { { ptr, [3 x i64] } }, align 8
-  %15 = invoke fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h4e31830d8da4d94aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  %15 = invoke fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h4e31830d8da4d94aE"(ptr noalias noundef align 8 dereferenceable(96) %0)
           to label %16 unwind label %.loopexit.split-lp
 
 16:                                               ; preds = %3
@@ -9422,7 +9416,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMap$LT$T$GT
   %31 = zext i1 %30 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1263
   store i64 %31, ptr %9, align 8, !noalias !1263
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 8), !noalias !1253
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 8), !noalias !1253
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !1263
   %32 = icmp eq ptr %29, null
   %33 = getelementptr i8, ptr %1, i64 8
@@ -9433,7 +9427,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMap$LT$T$GT
   %36 = zext nneg i8 %35 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !1268
   store i64 %36, ptr %8, align 8, !noalias !1268
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 8), !noalias !1253
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 8), !noalias !1253
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !1268
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h8f61e394bc860bddE.exit.i"
 
@@ -9441,7 +9435,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMap$LT$T$GT
   %.val.i.i.i.i = load ptr, ptr %33, align 8, !noalias !1256, !noundef !15
   %38 = getelementptr i8, ptr %1, i64 16
   %.val2.i.i.i.i = load i64, ptr %38, align 8, !noalias !1256, !noundef !15
-  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i, i64 noundef %.val2.i.i.i.i), !noalias !1253
+  call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i, i64 noundef %.val2.i.i.i.i), !noalias !1253
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h8f61e394bc860bddE.exit.i"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h8f61e394bc860bddE.exit.i": ; preds = %37, %34
@@ -9865,7 +9859,7 @@ _ZN4http6header3map12append_value17hee05c08292a4f442E.exit: ; preds = %"_ZN5allo
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %258 = load i64, ptr %139, align 8, !alias.scope !1364, !noalias !1367, !noundef !15
-  %259 = call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i16 noundef %131, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13)
+  %259 = call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef align 8 dereferenceable(96) %0, i16 noundef %131, ptr noalias nocapture noundef align 8 dereferenceable(32) %14, ptr noalias nocapture noundef align 8 dereferenceable(40) %13)
   br i1 %259, label %279, label %260
 
 260:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17ha0f3599308db859eE.exit"
@@ -9934,7 +9928,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17ha0f3599308db859eE.exit76": ; preds = %280
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %282 = call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i16 noundef %131, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %11)
+  %282 = call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef align 8 dereferenceable(96) %0, i16 noundef %131, ptr noalias nocapture noundef align 8 dereferenceable(32) %12, ptr noalias nocapture noundef align 8 dereferenceable(40) %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   br i1 %282, label %292, label %283
@@ -10024,14 +10018,14 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h3946
   %9 = alloca { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, align 8
   %10 = alloca { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, align 8
   %11 = alloca { { ptr, [3 x i64] } }, align 8
-  %12 = invoke fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h4e31830d8da4d94aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1)
+  %12 = invoke fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h4e31830d8da4d94aE"(ptr noalias noundef align 8 dereferenceable(96) %1)
           to label %13 unwind label %.loopexit.split-lp
 
 13:                                               ; preds = %4
   br i1 %12, label %274, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call fastcc noundef i16 @_ZN4http6header3map15hash_elem_using17h1a0993500a30d8abE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %2)
+  %15 = tail call fastcc noundef i16 @_ZN4http6header3map15hash_elem_using17h1a0993500a30d8abE(ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %2)
   %16 = getelementptr inbounds i8, ptr %1, i64 88
   %17 = load i16, ptr %16, align 8, !noundef !15
   %18 = and i16 %17, %15
@@ -10526,7 +10520,7 @@ _ZN4http6header3map18remove_extra_value17h3a3ea2da7e461603E.exit.i.i: ; preds = 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %227 = load i64, ptr %22, align 8, !alias.scope !1478, !noalias !1481, !noundef !15
-  %228 = call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1, i16 noundef %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10)
+  %228 = call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef align 8 dereferenceable(96) %1, i16 noundef %15, ptr noalias nocapture noundef align 8 dereferenceable(32) %11, ptr noalias nocapture noundef align 8 dereferenceable(40) %10)
   br i1 %228, label %248, label %229
 
 229:                                              ; preds = %.noexc72
@@ -10603,7 +10597,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %253 = call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1, i16 noundef %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  %253 = call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef align 8 dereferenceable(96) %1, i16 noundef %15, ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br i1 %253, label %257, label %254
@@ -10761,7 +10755,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h4e31830d8da4d94aE"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h4e31830d8da4d94aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -10800,7 +10794,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
 28:                                               ; preds = %12
   store i64 0, ptr %0, align 8
   %29 = shl i64 %11, 1
-  %30 = tail call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$8try_grow17h1b4efcda9008ca06E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %29)
+  %30 = tail call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$8try_grow17h1b4efcda9008ca06E"(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %29)
   br i1 %30, label %128, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h85ce05ab85ce1963E.exit"
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
@@ -10826,7 +10820,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %42 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 104
   %43 = add nuw nsw i64 %.sroa.7.046.i, 1
   %44 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 64
-  %45 = tail call fastcc noundef i16 @_ZN4http6header3map15hash_elem_using17h1a0993500a30d8abE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %44)
+  %45 = tail call fastcc noundef i16 @_ZN4http6header3map15hash_elem_using17h1a0993500a30d8abE(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %44)
   %46 = and i16 %45, %37
   %47 = zext nneg i16 %46 to i64
   %48 = getelementptr inbounds i8, ptr %.sroa.0.047.i, i64 96
@@ -10977,7 +10971,7 @@ common.resume:                                    ; preds = %94, %.body
 
 104:                                              ; preds = %85
   %105 = shl i64 %11, 1
-  %106 = tail call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$8try_grow17h1b4efcda9008ca06E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %105)
+  %106 = tail call fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$8try_grow17h1b4efcda9008ca06E"(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %105)
   br i1 %106, label %128, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h85ce05ab85ce1963E.exit"
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17h42fb54177819dce5E.exit": ; preds = %102, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h0d5c504d5315768eE.exit"
@@ -11052,7 +11046,7 @@ common.resume:                                    ; preds = %94, %.body
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef align 8 dereferenceable(96) %0, i16 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17h94256f5b024124f3E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i16 noundef range(i16 0, -32768) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8, !noundef !15
@@ -11224,7 +11218,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$6insert17h06e2f9e515
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$8try_grow17h1b4efcda9008ca06E"(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$8try_grow17h1b4efcda9008ca06E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = icmp ugt i64 %1, 32768
@@ -11721,7 +11715,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$http..header..name..HeaderName$u20$
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1676)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1679)
   %4 = getelementptr inbounds i8, ptr %0, i64 48

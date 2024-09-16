@@ -3415,7 +3415,7 @@ ehcleanup107:                                     ; preds = %lpad103, %lpad95
 
 invoke.cont110:                                   ; preds = %_ZNSt3mapIN9grpc_core18EndpointAddressSetESt10unique_ptrINS0_12_GLOBAL__N_18RingHash16RingHashEndpointENS0_16OrphanableDeleteEESt4lessIS1_ESaISt4pairIKS1_S7_EEEaSEOSE_.exit
   store i64 0, ptr %agg.tmp109, align 8, !alias.scope !50
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_18RingHash39UpdateAggregatedConnectivityStateLockedEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(153) %this, i1 noundef zeroext false, ptr noundef nonnull %agg.tmp109)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_18RingHash39UpdateAggregatedConnectivityStateLockedEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(153) %this, i1 noundef zeroext false, ptr noundef %agg.tmp109)
           to label %invoke.cont112 unwind label %lpad111
 
 invoke.cont112:                                   ; preds = %invoke.cont110
@@ -4308,7 +4308,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_18RingHash39UpdateAggregatedConnectivityStateLockedEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(153) %this, i1 noundef zeroext %entered_transient_failure, ptr noundef %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_18RingHash39UpdateAggregatedConnectivityStateLockedEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(153) %this, i1 noundef zeroext %entered_transient_failure, ptr noundef nonnull %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp17.i.i = alloca %"struct.grpc_core::(anonymous namespace)::RingHash::RingHashEndpoint::EndpointInfo", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -12858,7 +12858,7 @@ if.then.i.i13.i:                                  ; preds = %_ZN9grpc_core13RefC
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i:     ; preds = %if.then.i.i13.i, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEaSEOS3_.exit.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_18RingHash39UpdateAggregatedConnectivityStateLockedEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(153) %ring_hash_25.val.i, i1 noundef zeroext %10, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_18RingHash39UpdateAggregatedConnectivityStateLockedEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(153) %ring_hash_25.val.i, i1 noundef zeroext %10, ptr noundef %agg.tmp.i)
           to label %invoke.cont28.i unwind label %lpad27.i
 
 invoke.cont28.i:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i

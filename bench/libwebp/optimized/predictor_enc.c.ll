@@ -656,7 +656,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %52 = trunc i32 %44 to i24
   %.sroa.0.0.insert.ext111.us = and i24 %52, 255
   %.sroa.0.0.insert.insert113.us = or disjoint i24 %.sroa.4.0.insert.insert117.us, %.sroa.0.0.insert.ext111.us
-  %53 = call fastcc i24 @GetBestColorTransformForTile(i32 noundef %37, i32 noundef %26, i32 noundef %2, i24 %.sroa.0122.0.insert.insert128.us, i24 %.sroa.0.0.insert.insert113.us, i32 noundef %3, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %4)
+  %53 = call fastcc i24 @GetBestColorTransformForTile(i32 noundef %37, i32 noundef %26, i32 noundef %2, i24 %.sroa.0122.0.insert.insert128.us, i24 %.sroa.0.0.insert.insert113.us, i32 noundef %3, i32 noundef %0, i32 noundef %1, ptr noundef %11, ptr noundef %12, ptr noundef %4)
   %extract.t221 = trunc i24 %53 to i8
   %extract224 = lshr i24 %53, 8
   %extract.t225 = trunc nuw i24 %extract224 to i16
@@ -678,7 +678,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %.sroa.4.0.insert.insert.us = or disjoint i24 %.sroa.4.0.insert.shift.us, %.sroa.6.0.insert.shift.us
   %.sroa.0.0.insert.ext.us = zext i8 %.sroa.0.1173.us to i24
   %.sroa.0.0.insert.insert.us = or disjoint i24 %.sroa.4.0.insert.insert.us, %.sroa.0.0.insert.ext.us
-  %54 = call fastcc i24 @GetBestColorTransformForTile(i32 noundef %37, i32 noundef 0, i32 noundef %2, i24 %.sroa.0122.0.insert.insert125.us, i24 %.sroa.0.0.insert.insert.us, i32 noundef %3, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %4)
+  %54 = call fastcc i24 @GetBestColorTransformForTile(i32 noundef %37, i32 noundef 0, i32 noundef %2, i24 %.sroa.0122.0.insert.insert125.us, i24 %.sroa.0.0.insert.insert.us, i32 noundef %3, i32 noundef %0, i32 noundef %1, ptr noundef %11, ptr noundef %12, ptr noundef %4)
   %extract.t220 = trunc i24 %54 to i8
   %extract222 = lshr i24 %54, 8
   %extract.t223 = trunc nuw i24 %extract222 to i16
@@ -863,7 +863,7 @@ CopyTileWithColorTransform.exit.us:               ; preds = %67, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i24 @GetBestColorTransformForTile(i32 noundef %0, i32 noundef %1, i32 noundef %2, i24 %3, i24 %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc i24 @GetBestColorTransformForTile(i32 noundef %0, i32 noundef %1, i32 noundef %2, i24 %3, i24 %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %10) unnamed_addr #0 {
   %12 = alloca [256 x i32], align 16
   %13 = alloca [256 x i32], align 16
   %14 = alloca [256 x i32], align 16
@@ -887,7 +887,7 @@ define internal fastcc i24 @GetBestColorTransformForTile(i32 noundef %0, i32 nou
   %30 = load ptr, ptr @VP8LCollectColorRedTransforms, align 8
   call void %30(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef 0, ptr noundef nonnull %15) #8
   %31 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8
-  %32 = call float %31(ptr noundef nonnull %15, ptr noundef %8) #8
+  %32 = call float %31(ptr noundef nonnull %15, ptr noundef nonnull %8) #8
   %33 = load i32, ptr %15, align 16
   %34 = uitofp i32 %33 to float
   %35 = fmul float %34, 3.000000e+00
@@ -955,7 +955,7 @@ GetPredictionCostCrossColorRed.exit.i:            ; preds = %36
   %68 = load ptr, ptr @VP8LCollectColorRedTransforms, align 8
   call void %68(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef %67, ptr noundef nonnull %14) #8
   %69 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8
-  %70 = call float %69(ptr noundef nonnull %14, ptr noundef %8) #8
+  %70 = call float %69(ptr noundef nonnull %14, ptr noundef nonnull %8) #8
   %71 = load i32, ptr %14, align 16
   %72 = uitofp i32 %71 to float
   %73 = fmul float %72, 3.000000e+00
@@ -1017,7 +1017,7 @@ GetBestGreenToRed.exit:                           ; preds = %GetPredictionCostCr
   %99 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8
   call void %99(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %13) #8
   %100 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8
-  %101 = call float %100(ptr noundef nonnull %13, ptr noundef %9) #8
+  %101 = call float %100(ptr noundef nonnull %13, ptr noundef nonnull %9) #8
   %102 = load i32, ptr %13, align 16
   %103 = uitofp i32 %102 to float
   %104 = fmul float %103, 3.000000e+00
@@ -1113,7 +1113,7 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
   %155 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8
   call void %155(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef %149, i32 noundef %154, ptr noundef nonnull %12) #8
   %156 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8
-  %157 = call float %156(ptr noundef nonnull %12, ptr noundef %9) #8
+  %157 = call float %156(ptr noundef nonnull %12, ptr noundef nonnull %9) #8
   %158 = load i32, ptr %12, align 16
   %159 = uitofp i32 %158 to float
   %160 = fmul float %159, 3.000000e+00
@@ -1306,8 +1306,8 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %83 = and i32 %.033, 255
   %84 = sub nsw i32 %82, %83
   %85 = tail call i32 @llvm.abs.i32(i32 %84, i1 true)
-  %86 = tail call i32 @llvm.umax.i32(i32 %69, i32 %75)
-  %87 = tail call i32 @llvm.umax.i32(i32 %81, i32 %85)
+  %86 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %69, i32 %75)
+  %87 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %81, i32 %85)
   %88 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %86, i32 %87)
   %89 = lshr i32 %.032, 24
   %90 = sub nsw i32 %66, %89
@@ -1323,8 +1323,8 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %100 = and i32 %.032, 255
   %101 = sub nsw i32 %82, %100
   %102 = tail call i32 @llvm.abs.i32(i32 %101, i1 true)
-  %103 = tail call i32 @llvm.umax.i32(i32 %91, i32 %95)
-  %104 = tail call i32 @llvm.umax.i32(i32 %99, i32 %102)
+  %103 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %91, i32 %95)
+  %104 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %99, i32 %102)
   %105 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %103, i32 %104)
   %106 = lshr i32 %.13135, 24
   %107 = sub nsw i32 %66, %106
@@ -1340,8 +1340,8 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %117 = and i32 %.13135, 255
   %118 = sub nsw i32 %82, %117
   %119 = tail call i32 @llvm.abs.i32(i32 %118, i1 true)
-  %120 = tail call i32 @llvm.umax.i32(i32 %108, i32 %112)
-  %121 = tail call i32 @llvm.umax.i32(i32 %116, i32 %119)
+  %120 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %108, i32 %112)
+  %121 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %116, i32 %119)
   %122 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %120, i32 %121)
   %123 = lshr i32 %.2, 24
   %124 = sub nsw i32 %66, %123
@@ -1357,11 +1357,11 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %134 = and i32 %.2, 255
   %135 = sub nsw i32 %82, %134
   %136 = tail call i32 @llvm.abs.i32(i32 %135, i1 true)
-  %137 = tail call i32 @llvm.umax.i32(i32 %125, i32 %129)
-  %138 = tail call i32 @llvm.umax.i32(i32 %133, i32 %136)
+  %137 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %125, i32 %129)
+  %138 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %133, i32 %136)
   %139 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %137, i32 %138)
-  %140 = tail call i32 @llvm.umax.i32(i32 %88, i32 %105)
-  %141 = tail call i32 @llvm.umax.i32(i32 %122, i32 %139)
+  %140 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %88, i32 %105)
+  %141 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %122, i32 %139)
   %142 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %140, i32 %141)
   %143 = trunc nuw i32 %142 to i8
   %144 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
@@ -1374,7 +1374,7 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) unnamed_addr #0 {
+define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 -2147483648, 256) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) unnamed_addr #0 {
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %35, label %14
 

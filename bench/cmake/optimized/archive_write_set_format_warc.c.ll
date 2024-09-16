@@ -157,7 +157,7 @@ define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef 
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %12, ptr %14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %15 = call fastcc i64 @_popul_ehdr(ptr noundef nonnull %3, ptr noundef nonnull byval(%struct.warc_essential_hdr_t) align 8 %4)
+  %15 = call fastcc i64 @_popul_ehdr(ptr noundef %3, ptr noundef nonnull byval(%struct.warc_essential_hdr_t) align 8 %4)
   %16 = icmp sgt i64 %15, -1
   br i1 %16, label %17, label %24
 
@@ -212,7 +212,7 @@ define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef 
   %45 = getelementptr inbounds i8, ptr %5, i64 48
   store i64 %44, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %46 = call fastcc i64 @_popul_ehdr(ptr noundef nonnull %3, ptr noundef nonnull byval(%struct.warc_essential_hdr_t) align 8 %5)
+  %46 = call fastcc i64 @_popul_ehdr(ptr noundef %3, ptr noundef nonnull byval(%struct.warc_essential_hdr_t) align 8 %5)
   %47 = icmp slt i64 %46, 0
   br i1 %47, label %48, label %49
 
@@ -304,7 +304,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.warc_essential_hdr_t) align 8 %1) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef nonnull %0, ptr nocapture noundef readonly byval(%struct.warc_essential_hdr_t) align 8 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca [100 x i8], align 16
@@ -321,11 +321,11 @@ define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef %0, ptr n
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %14, align 8
-  %15 = tail call ptr @archive_strncat(ptr noundef %0, ptr noundef nonnull @_popul_ehdr._ver, i64 noundef 10) #14
+  %15 = tail call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull @_popul_ehdr._ver, i64 noundef 10) #14
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds [9 x ptr], ptr @_popul_ehdr._typ, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %18) #14
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %18) #14
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null

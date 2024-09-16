@@ -937,7 +937,7 @@ define internal fastcc void @Vec_WecPush(ptr nocapture noundef %0, i32 noundef %
 6:                                                ; preds = %3
   %7 = add nsw i32 %1, 1
   %8 = shl nsw i32 %5, 1
-  %9 = tail call noundef i32 @llvm.smax.i32(i32 %8, i32 %7)
+  %9 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %8, i32 %7)
   %10 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %10, %9
   br i1 %.not.i, label %11, label %Vec_WecGrow.exit
@@ -1431,7 +1431,7 @@ define void @Fxch_SCHashTablePrint(ptr noundef %0) local_unnamed_addr #10 {
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntAppendSkip(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @Vec_IntAppendSkip(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 65536) %2) unnamed_addr #2 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val9 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val9, 0
@@ -1441,7 +1441,7 @@ define internal fastcc void @Vec_IntAppendSkip(ptr nocapture noundef %0, ptr noc
   %6 = getelementptr i8, ptr %1, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = zext i32 %2 to i64
+  %8 = zext nneg i32 %2 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %41

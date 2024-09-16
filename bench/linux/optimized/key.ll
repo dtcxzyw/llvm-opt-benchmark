@@ -1955,7 +1955,7 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 declare dso_local ptr @find_key_to_update(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @key_ref_put(ptr noundef %0) unnamed_addr #11 align 16 {
+define internal fastcc void @key_ref_put(ptr noundef nonnull %0) unnamed_addr #11 align 16 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
@@ -1989,7 +1989,7 @@ define internal fastcc void @key_ref_put(ptr noundef %0) unnamed_addr #11 align 
 declare dso_local i32 @wait_for_key_construction(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @__key_update(ptr noundef %0, ptr noundef %1) unnamed_addr #11 align 16 {
+define internal fastcc ptr @__key_update(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #11 align 16 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -1997,7 +1997,7 @@ define internal fastcc ptr @__key_update(ptr noundef %0, ptr noundef %1) unnamed
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @key_task_permission(ptr noundef %0, ptr noundef %9, i32 noundef 3) #12
+  %10 = tail call i32 @key_task_permission(ptr noundef nonnull %0, ptr noundef %9, i32 noundef 3) #12
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %30, label %12
 

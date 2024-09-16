@@ -3619,7 +3619,7 @@ _ZN4llvm5APIntC2ERKS0_.exit._crit_edge:           ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntC2ERKS0_.exit48
 
 _ZN4llvm5APIntC2ERKS0_.exit48:                    ; preds = %100, %102
-  %103 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124ConstantAggregateBuilder7addBitsEN4llvm5APIntEmb(ptr noundef nonnull align 8 dereferenceable(561) %5, ptr noundef nonnull %7, i64 noundef 0)
+  %103 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124ConstantAggregateBuilder7addBitsEN4llvm5APIntEmb(ptr noundef nonnull align 8 dereferenceable(561) %5, ptr noundef %7, i64 noundef 0)
   %104 = load i32, ptr %97, align 8
   %105 = icmp ugt i32 %104, 64
   br i1 %105, label %106, label %_ZN4llvm5APIntD2Ev.exit
@@ -3699,7 +3699,7 @@ declare noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(
 declare noundef zeroext i1 @_ZN5clang7CodeGen12CodeGenTypes30typeRequiresSplitIntoByteArrayENS_8QualTypeEPN4llvm4TypeE(ptr noundef nonnull align 8 dereferenceable(240), i64, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124ConstantAggregateBuilder7addBitsEN4llvm5APIntEmb(ptr noundef nonnull align 8 dereferenceable(561) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124ConstantAggregateBuilder7addBitsEN4llvm5APIntEmb(ptr noundef nonnull align 8 dereferenceable(561) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
@@ -11854,7 +11854,7 @@ _ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit: ; preds = %.lr.ph.i4
   br label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread117
 
 320:                                              ; preds = %281
-  %321 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ConstStructBuilder14AppendBitFieldEPKN5clang9FieldDeclEmPN4llvm8ConstantEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.097.0148, i64 noundef %288, ptr noundef nonnull %280)
+  %321 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ConstStructBuilder14AppendBitFieldEPKN5clang9FieldDeclEmPN4llvm8ConstantEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.097.0148, i64 noundef %288, ptr noundef %280)
   br i1 %321, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread117, label %_ZN5clang7CodeGen15ConstantEmitter28tryEmitConstantSignedPointerEPN4llvm8ConstantENS_20PointerAuthQualifierE.exit.thread
 
 _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread117: ; preds = %317, %310, %_ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit, %312, %296, %196, %320, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %215, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit
@@ -12101,7 +12101,7 @@ declare ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 d
 declare noundef zeroext i1 @_ZN5clang7CodeGen21isEmptyFieldForLayoutERKNS_10ASTContextEPKNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ConstStructBuilder14AppendBitFieldEPKN5clang9FieldDeclEmPN4llvm8ConstantEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ConstStructBuilder14AppendBitFieldEPKN5clang9FieldDeclEmPN4llvm8ConstantEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -12284,19 +12284,19 @@ _ZN4llvm5APIntD2Ev.exit26:                        ; preds = %104, %101, %98
   %107 = load i32, ptr %106, align 8
   store i32 %107, ptr %86, align 8
   store i32 0, ptr %106, align 8
-  %.pre35 = load i32, ptr %84, align 8
-  %.pre36 = lshr i32 %.pre35, 16
-  %.pre37 = and i32 %.pre36, 32767
+  %.pre34 = load i32, ptr %84, align 8
+  %.pre35 = lshr i32 %.pre34, 16
+  %.pre36 = and i32 %.pre35, 32767
   br label %108
 
 108:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit26, %_ZN4llvm5APIntC2ERKS0_.exit
-  %.pre-phi38 = phi i32 [ %.pre37, %_ZN4llvm5APIntD2Ev.exit26 ], [ %96, %_ZN4llvm5APIntC2ERKS0_.exit ]
+  %.pre-phi37 = phi i32 [ %.pre36, %_ZN4llvm5APIntD2Ev.exit26 ], [ %96, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %109 = phi i32 [ %107, %_ZN4llvm5APIntD2Ev.exit26 ], [ %93, %_ZN4llvm5APIntC2ERKS0_.exit ]
-  %110 = icmp ult i32 %.pre-phi38, %109
+  %110 = icmp ult i32 %.pre-phi37, %109
   br i1 %110, label %111, label %121
 
 111:                                              ; preds = %108
-  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %8, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %.pre-phi38) #20
+  call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %8, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %.pre-phi37) #20
   %112 = load i32, ptr %86, align 8
   %113 = icmp ult i32 %112, 65
   br i1 %113, label %_ZN4llvm5APIntD2Ev.exit28, label %114
@@ -12345,7 +12345,7 @@ _ZN4llvm5APIntC2ERKS0_.exit29:                    ; preds = %127, %129
   %.sroa.0.0.copyload = load i64, ptr %133, align 8
   %134 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23096) %132, i64 %.sroa.0.0.copyload) #20
   %135 = add i64 %134, %2
-  %136 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124ConstantAggregateBuilder7addBitsEN4llvm5APIntEmb(ptr noundef nonnull align 8 dereferenceable(561) %124, ptr noundef nonnull %9, i64 noundef %135)
+  %136 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124ConstantAggregateBuilder7addBitsEN4llvm5APIntEmb(ptr noundef nonnull align 8 dereferenceable(561) %124, ptr noundef %9, i64 noundef %135)
   %137 = load i32, ptr %125, align 8
   %138 = icmp ugt i32 %137, 64
   br i1 %138, label %139, label %_ZN4llvm5APIntD2Ev.exit30
@@ -16094,7 +16094,7 @@ _ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit: ; preds = %.lr.ph.i4
   br label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread97
 
 220:                                              ; preds = %182
-  %221 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ConstStructBuilder14AppendBitFieldEPKN5clang9FieldDeclEmPN4llvm8ConstantEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.091.0130, i64 noundef %188, ptr noundef nonnull %181)
+  %221 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ConstStructBuilder14AppendBitFieldEPKN5clang9FieldDeclEmPN4llvm8ConstantEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.091.0130, i64 noundef %188, ptr noundef %181)
   br i1 %221, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread97, label %_ZN5clang7CodeGen15ConstantEmitter23tryEmitPrivateForMemoryEPKNS_4ExprENS_8QualTypeE.exit.thread
 
 _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread97: ; preds = %217, %210, %_ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit, %212, %196, %45, %220, %86, %_ZN4llvm15isa_and_nonnullIJN5clang10NoInitExprEEPKNS1_4ExprEEEbRKT0_.exit, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit, %120

@@ -789,7 +789,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open(ptr noundef %0, p
   %9 = getelementptr inbounds i8, ptr %0, i64 192
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
-  %12 = tail call fastcc ptr @tree_reopen(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %11)
+  %12 = tail call fastcc ptr @tree_reopen(ptr noundef %7, ptr noundef %1, i32 noundef %11)
   br label %27
 
 13:                                               ; preds = %5
@@ -807,7 +807,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open(ptr noundef %0, p
   %23 = tail call ptr @archive_string_ensure(ptr noundef nonnull %22, i64 noundef 31) #17
   %24 = getelementptr inbounds i8, ptr %18, i64 480
   store i8 %15, ptr %24, align 8
-  %25 = tail call fastcc ptr @tree_reopen(ptr noundef nonnull %18, ptr noundef %1, i32 noundef %21)
+  %25 = tail call fastcc ptr @tree_reopen(ptr noundef %18, ptr noundef %1, i32 noundef %21)
   br label %27
 
 26:                                               ; preds = %13
@@ -874,7 +874,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open_w(ptr noundef %0,
   %20 = getelementptr inbounds i8, ptr %0, i64 192
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 1
-  %23 = call fastcc ptr @tree_reopen(ptr noundef nonnull %18, ptr noundef %16, i32 noundef %22)
+  %23 = call fastcc ptr @tree_reopen(ptr noundef %18, ptr noundef %16, i32 noundef %22)
   br label %38
 
 24:                                               ; preds = %15
@@ -892,7 +892,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open_w(ptr noundef %0,
   %34 = call ptr @archive_string_ensure(ptr noundef nonnull %33, i64 noundef 31) #17
   %35 = getelementptr inbounds i8, ptr %29, i64 480
   store i8 %26, ptr %35, align 8
-  %36 = call fastcc ptr @tree_reopen(ptr noundef nonnull %29, ptr noundef %16, i32 noundef %32)
+  %36 = call fastcc ptr @tree_reopen(ptr noundef %29, ptr noundef %16, i32 noundef %32)
   br label %38
 
 37:                                               ; preds = %24
@@ -3648,7 +3648,7 @@ declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @tree_reopen(ptr noundef returned %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @tree_reopen(ptr noundef nonnull returned %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = select i1 %.not, i32 256, i32 384

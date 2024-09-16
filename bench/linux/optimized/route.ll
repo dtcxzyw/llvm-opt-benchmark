@@ -1120,7 +1120,7 @@ define dso_local range(i32 0, -2147483648) i32 @rt6_multipath_hash(ptr nocapture
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = trunc i64 %41 to i32
-  %43 = call fastcc ptr @skb_header_pointer(ptr noundef nonnull %2, i32 noundef %42, i32 noundef 8, ptr noundef nonnull %8)
+  %43 = call fastcc ptr @skb_header_pointer(ptr noundef %2, i32 noundef %42, i32 noundef 8, ptr noundef nonnull %8)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %select.unfold.i, label %45
 
@@ -1142,7 +1142,7 @@ define dso_local range(i32 0, -2147483648) i32 @rt6_multipath_hash(ptr nocapture
   %58 = sub i64 %56, %57
   %59 = trunc i64 %58 to i32
   %60 = add i32 %59, 8
-  %61 = call fastcc ptr @skb_header_pointer(ptr noundef nonnull %2, i32 noundef %60, i32 noundef 40, ptr noundef nonnull %7)
+  %61 = call fastcc ptr @skb_header_pointer(ptr noundef %2, i32 noundef %60, i32 noundef 40, ptr noundef nonnull %7)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %select.unfold.i, label %.thread.i
 
@@ -1372,7 +1372,7 @@ ip6_multipath_l3_keys.exit:                       ; preds = %70, %72
   %178 = ptrtoint ptr %176 to i64
   %179 = sub i64 %177, %178
   %180 = trunc i64 %179 to i32
-  %181 = call fastcc ptr @skb_header_pointer(ptr noundef nonnull %2, i32 noundef %180, i32 noundef 8, ptr noundef nonnull %6)
+  %181 = call fastcc ptr @skb_header_pointer(ptr noundef %2, i32 noundef %180, i32 noundef 8, ptr noundef nonnull %6)
   %182 = icmp eq ptr %181, null
   br i1 %182, label %select.unfold.i36, label %183
 
@@ -1394,7 +1394,7 @@ ip6_multipath_l3_keys.exit:                       ; preds = %70, %72
   %196 = sub i64 %194, %195
   %197 = trunc i64 %196 to i32
   %198 = add i32 %197, 8
-  %199 = call fastcc ptr @skb_header_pointer(ptr noundef nonnull %2, i32 noundef %198, i32 noundef 40, ptr noundef nonnull %5)
+  %199 = call fastcc ptr @skb_header_pointer(ptr noundef %2, i32 noundef %198, i32 noundef 40, ptr noundef nonnull %5)
   %200 = icmp eq ptr %199, null
   br i1 %200, label %select.unfold.i36, label %.thread.i37
 
@@ -12530,7 +12530,7 @@ declare dso_local i32 @ipv6_chk_addr(ptr noundef, ptr noundef, ptr noundef, i32 
 declare dso_local zeroext i1 @rcuref_get_slowpath(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ip6_rt_copy_init(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc void @ip6_rt_copy_init(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -12761,7 +12761,7 @@ define internal noundef i32 @ip6_pkt_discard(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ip6_pkt_drop(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @ip6_pkt_drop(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, i32 noundef range(i32 9, 16) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, -2
@@ -13373,7 +13373,7 @@ define internal noundef range(i32 0, 2) i32 @rt6_nh_find_match(ptr noundef %0, p
 declare dso_local void @__local_bh_enable_ip(i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @skb_header_pointer(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #4 align 16 {
+define internal fastcc ptr @skb_header_pointer(ptr noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 8, 41) %2, ptr noundef %3) unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 116
@@ -13391,7 +13391,7 @@ define internal fastcc ptr @skb_header_pointer(ptr noundef %0, i32 noundef %1, i
   br label %21
 
 17:                                               ; preds = %4
-  %18 = tail call i32 @skb_copy_bits(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %2) #22
+  %18 = tail call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %3, i32 noundef %2) #22
   %19 = icmp slt i32 %18, 0
   %20 = select i1 %19, ptr null, ptr %3, !prof !10
   br label %21
@@ -13619,7 +13619,7 @@ define internal ptr @ip6_dst_neigh_lookup(ptr noundef %0, ptr noundef %1, ptr no
 declare dso_local i32 @ipv4_mtu(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rt6_do_update_pmtu(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @rt6_do_update_pmtu(ptr noundef %0, i32 noundef range(i32 1280, 0) %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 272
   %5 = load ptr, ptr %4, align 8
@@ -13760,7 +13760,7 @@ define internal noundef range(i32 0, 2) i32 @fib6_nh_find_match(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @rt6_insert_exception(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @rt6_insert_exception(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 272
@@ -14063,7 +14063,7 @@ declare dso_local i32 @__ipv6_addr_type(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @ipv6_chk_addr_and_flags(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @ip6_nh_lookup_table(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ip6_nh_lookup_table(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 0) %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca %struct.flowi6, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #22
   %8 = getelementptr inbounds i8, ptr %1, i64 16
@@ -14087,9 +14087,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ip6_nh_lookup_table(ptr no
   %19 = load i64, ptr %18, align 8
   %20 = or i64 %19, %17
   %21 = icmp eq i64 %20, 0
-  %22 = or i32 %4, 4
+  %22 = or disjoint i32 %4, 4
   %23 = select i1 %21, i32 %4, i32 %22
-  %24 = or i32 %23, 64
+  %24 = or disjoint i32 %23, 64
   %25 = load i32, ptr %8, align 8
   %26 = call i32 @fib6_table_lookup(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %25, ptr noundef nonnull %7, ptr noundef %5, i32 noundef %24)
   %27 = getelementptr inbounds i8, ptr %5, i64 8
@@ -14136,7 +14136,7 @@ declare dso_local ptr @ip_fib_metrics_init(ptr noundef, ptr noundef, i32 noundef
 declare dso_local i64 @clock_t_to_jiffies(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @nexthop_get(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc zeroext i1 @nexthop_get(ptr noundef nonnull %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -14237,7 +14237,7 @@ declare dso_local void @ndisc_update(ptr noundef, ptr noundef, ptr noundef, i8 n
 declare dso_local i32 @call_netevent_notifiers(i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @neigh_release(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @neigh_release(ptr noundef nonnull %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #22, !srcloc !35
   %4 = icmp eq i32 %3, 1
@@ -14253,7 +14253,7 @@ define internal fastcc void @neigh_release(ptr noundef %0) unnamed_addr #4 align
 
 8:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !36
-  tail call void @neigh_destroy(ptr noundef %0) #22
+  tail call void @neigh_destroy(ptr noundef nonnull %0) #22
   br label %.thread
 
 .thread:                                          ; preds = %5, %7, %8
@@ -14381,7 +14381,7 @@ define internal fastcc range(i32 -22, 1) i32 @ip6_del_cached_rt(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 136
   %5 = getelementptr inbounds i8, ptr %1, i64 144
@@ -14471,7 +14471,7 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef %0, ptr noundef %1
   %62 = phi i32 [ %60, %58 ], [ 0, %55 ]
   %63 = getelementptr inbounds i8, ptr %1, i64 152
   %64 = load i32, ptr %63, align 8
-  %65 = call fastcc i32 @rt6_fill_node(ptr noundef %6, ptr noundef nonnull %53, ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 25, i32 noundef %64, i32 noundef %62, i32 noundef 0)
+  %65 = call fastcc i32 @rt6_fill_node(ptr noundef %6, ptr noundef nonnull %53, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 25, i32 noundef %64, i32 noundef %62, i32 noundef 0)
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %68
 
@@ -14513,7 +14513,7 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef %0, ptr noundef %1
 
 90:                                               ; preds = %82
   %91 = load i32, ptr %13, align 8
-  %92 = call i32 @call_fib6_multipath_entry_notifiers(ptr noundef %6, i32 noundef 3, ptr noundef %0, i32 noundef %91, ptr noundef null) #22
+  %92 = call i32 @call_fib6_multipath_entry_notifiers(ptr noundef %6, i32 noundef 3, ptr noundef nonnull %0, i32 noundef %91, ptr noundef null) #22
   br label %93
 
 93:                                               ; preds = %90, %88, %72
@@ -14538,7 +14538,7 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef %0, ptr noundef %1
 
 .thread:                                          ; preds = %98, %93, %16, %10
   %106 = phi ptr [ null, %16 ], [ null, %10 ], [ %73, %93 ], [ %73, %98 ]
-  %107 = call i32 @fib6_del(ptr noundef %0, ptr noundef %4) #22
+  %107 = call i32 @fib6_del(ptr noundef nonnull %0, ptr noundef %4) #22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.thread

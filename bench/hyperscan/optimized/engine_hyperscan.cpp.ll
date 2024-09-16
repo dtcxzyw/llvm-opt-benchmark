@@ -3136,7 +3136,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 declare noundef ptr @_Z12loadDatabasePKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10dbFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef %mode) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10dbFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef range(i32 1, 5) %mode) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__c.addr.i59.i = alloca i8, align 1
   %__c.addr.i.i = alloca i8, align 1

@@ -1209,7 +1209,7 @@ sw.bb42:                                          ; preds = %if.end19, %if.end19
   br i1 %or.cond2, label %if.else51, label %if.then48
 
 if.then48:                                        ; preds = %sw.bb42
-  %call.i = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull readonly %key, i32 noundef %mul, ptr noundef nonnull %ks52)
+  %call.i = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef readonly %key, i32 noundef %mul, ptr noundef nonnull %ks52)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.end54, label %if.end.i
 
@@ -1323,7 +1323,7 @@ for.inc91.i:                                      ; preds = %for.body50.i
   br i1 %cmp46.i, label %for.body47.i, label %if.end54, !llvm.loop !7
 
 if.else51:                                        ; preds = %sw.bb42
-  %call53 = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef nonnull %ks52)
+  %call53 = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef %key, i32 noundef %mul, ptr noundef nonnull %ks52)
   br label %if.end54
 
 if.end54:                                         ; preds = %for.inc91.i, %for.cond44.preheader.i, %if.end.i, %if.then48, %if.else51
@@ -1388,7 +1388,7 @@ declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nocapture noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) unnamed_addr #7 {
+define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nocapture noundef nonnull readonly %userKey, i32 noundef %bits, ptr noundef %key) unnamed_addr #7 {
 entry:
   %tobool1.not = icmp eq ptr %key, null
   br i1 %tobool1.not, label %return, label %if.end

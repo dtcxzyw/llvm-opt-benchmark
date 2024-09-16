@@ -16833,7 +16833,7 @@ return:                                           ; preds = %if.end26.i.i, %land
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %maxOutputSize, i64 noundef %prefixSize) unnamed_addr #1 {
+define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %maxOutputSize, i64 noundef range(i64 -2147483648, 2147483648) %prefixSize) unnamed_addr #1 {
 entry:
   %idx.neg = sub nsw i64 0, %prefixSize
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 %idx.neg

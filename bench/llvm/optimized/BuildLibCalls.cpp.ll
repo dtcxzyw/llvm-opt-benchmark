@@ -2196,7 +2196,7 @@ define internal fastcc noundef zeroext i1 @_ZL13setWillReturnRN4llvm8FunctionE(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17setDoesNotCaptureRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17setDoesNotCaptureRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef 24) #7
   br i1 %3, label %5, label %4
 
@@ -2210,7 +2210,7 @@ define internal fastcc noundef zeroext i1 @_ZL17setDoesNotCaptureRN4llvm8Functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18setOnlyReadsMemoryRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL18setOnlyReadsMemoryRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef 49) #7
   br i1 %3, label %5, label %4
 
@@ -2238,7 +2238,7 @@ define internal fastcc noundef zeroext i1 @_ZL14setReturnedArgRN4llvm8FunctionEj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15setDoesNotAliasRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL15setDoesNotAliasRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef 21) #7
   br i1 %3, label %5, label %4
 
@@ -2252,7 +2252,7 @@ define internal fastcc noundef zeroext i1 @_ZL15setDoesNotAliasRN4llvm8FunctionE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19setOnlyWritesMemoryRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19setOnlyWritesMemoryRN4llvm8FunctionEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZNK4llvm8Function17hasParamAttributeEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef 74) #7
   br i1 %3, label %5, label %4
 
@@ -2388,7 +2388,7 @@ define internal fastcc noundef zeroext i1 @_ZL20setAlignedAllocParamRN4llvm8Func
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL12setAllocSizeRN4llvm8FunctionEjSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i64 %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12setAllocSizeRN4llvm8FunctionEjSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef range(i32 0, 2) %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.std::optional.83", align 8
   store i64 %2, ptr %4, align 8
   %5 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 84) #7
@@ -3196,14 +3196,14 @@ define dso_local noundef ptr @_ZN4llvm10emitStrLenEPNS_5ValueERNS_13IRBuilderBas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11emitLibCallN4llvm7LibFuncEPNS_4TypeENS_8ArrayRefIS2_EENS3_IPNS_5ValueEEERNS_13IRBuilderBaseEPKNS_17TargetLibraryInfoEb(i32 noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL11emitLibCallN4llvm7LibFuncEPNS_4TypeENS_8ArrayRefIS2_EENS3_IPNS_5ValueEEERNS_13IRBuilderBaseEPKNS_17TargetLibraryInfoEb(i32 noundef range(i32 186, 498) %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align 8 dereferenceable(80) %12) #7
   %14 = tail call { ptr, i64 } @_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE(ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef %0)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %16 = zext i32 %0 to i64
+  %16 = zext nneg i32 %0 to i64
   %17 = lshr i64 %16, 6
   %18 = getelementptr inbounds [8 x i64], ptr %15, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
@@ -3220,7 +3220,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.i: ; preds = %9
   %26 = getelementptr inbounds [126 x i8], ptr %23, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = shl i32 %0, 1
+  %29 = shl nuw nsw i32 %0, 1
   %30 = and i32 %29, 6
   %31 = shl nuw nsw i32 3, %30
   %32 = and i32 %31, %28

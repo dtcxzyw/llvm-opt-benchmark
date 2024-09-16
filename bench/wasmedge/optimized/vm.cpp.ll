@@ -9875,7 +9875,7 @@ define void @_ZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pat
   store ptr %28, ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS19_IKSJ_Lm18446744073709551615EEEE3$_1E9_M_invokeERKSt9_Any_dataSW_", ptr %30, align 8
   store ptr @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS19_IKSJ_Lm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS1G_St18_Manager_operation", ptr %27, align 8
-  invoke fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISM_EENS_7ErrCodeEEEEC2ESt8functionIFSQ_RSt10unique_ptrINS_3AST6ModuleESt14default_deleteISV_EEEESS_IFSQ_RST_INSU_9Component9ComponentESW_IS13_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  invoke fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISM_EENS_7ErrCodeEEEEC2ESt8functionIFSQ_RSt10unique_ptrINS_3AST6ModuleESt14default_deleteISV_EEEESS_IFSQ_RST_INSU_9Component9ComponentESW_IS13_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef %11, ptr noundef %12)
           to label %31 unwind label %73
 
 31:                                               ; preds = %29
@@ -10091,7 +10091,7 @@ _ZNSt8functionIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonD
 declare void @_ZN8WasmEdge6Loader6Loader13parseWasmUnitERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind writable sret(%"class.cxx20::expected.525") align 8, ptr noundef nonnull align 8 dereferenceable(360), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISM_EENS_7ErrCodeEEEEC2ESt8functionIFSQ_RSt10unique_ptrINS_3AST6ModuleESt14default_deleteISV_EEEESS_IFSQ_RST_INSU_9Component9ComponentESW_IS13_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISM_EENS_7ErrCodeEEEEC2ESt8functionIFSQ_RSt10unique_ptrINS_3AST6ModuleESt14default_deleteISV_EEEESS_IFSQ_RST_INSU_9Component9ComponentESW_IS13_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -10340,7 +10340,7 @@ define void @_ZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm184467440737
   store ptr %29, ptr %13, align 8
   store ptr @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS10_IKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1E9_M_invokeERKSt9_Any_dataSW_", ptr %31, align 8
   store ptr @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS10_IKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS1D_St18_Manager_operation", ptr %28, align 8
-  invoke fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISM_EENS_7ErrCodeEEEEC2ESt8functionIFSQ_RSt10unique_ptrINS_3AST6ModuleESt14default_deleteISV_EEEESS_IFSQ_RST_INSU_9Component9ComponentESW_IS13_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  invoke fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISM_EENS_7ErrCodeEEEEC2ESt8functionIFSQ_RSt10unique_ptrINS_3AST6ModuleESt14default_deleteISV_EEEESS_IFSQ_RST_INSU_9Component9ComponentESW_IS13_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %12, ptr noundef %13)
           to label %32 unwind label %74
 
 32:                                               ; preds = %30
@@ -13325,7 +13325,7 @@ define void @_ZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathE(
   store i64 %19, ptr %7, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS4_EEEZNS1_2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_1E9_M_invokeERKSt9_Any_dataS8_", ptr %21, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS4_EEEZNS1_2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_1E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %20, align 8
-  invoke fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIvEC2ESt8functionIFvRSt10unique_ptrINS_3AST6ModuleESt14default_deleteIS7_EEEES4_IFvRS5_INS6_9Component9ComponentES8_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIvEC2ESt8functionIFvRSt10unique_ptrINS_3AST6ModuleESt14default_deleteIS7_EEEES4_IFvRS5_INS6_9Component9ComponentES8_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %6, ptr noundef %7)
           to label %23 unwind label %63
 
 23:                                               ; preds = %15
@@ -13525,7 +13525,7 @@ _ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9Component
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIvEC2ESt8functionIFvRSt10unique_ptrINS_3AST6ModuleESt14default_deleteIS7_EEEES4_IFvRS5_INS6_9Component9ComponentES8_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIvEC2ESt8functionIFvRSt10unique_ptrINS_3AST6ModuleESt14default_deleteIS7_EEEES4_IFvRS5_INS6_9Component9ComponentES8_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -13706,7 +13706,7 @@ define void @_ZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm184467440737095
   store i64 %20, ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS4_EEEZNS1_2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_1E9_M_invokeERKSt9_Any_dataS8_", ptr %22, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS4_EEEZNS1_2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %21, align 8
-  invoke fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIvEC2ESt8functionIFvRSt10unique_ptrINS_3AST6ModuleESt14default_deleteIS7_EEEES4_IFvRS5_INS6_9Component9ComponentES8_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  invoke fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIvEC2ESt8functionIFvRSt10unique_ptrINS_3AST6ModuleESt14default_deleteIS7_EEEES4_IFvRS5_INS6_9Component9ComponentES8_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %7, ptr noundef %8)
           to label %24 unwind label %64
 
 24:                                               ; preds = %16

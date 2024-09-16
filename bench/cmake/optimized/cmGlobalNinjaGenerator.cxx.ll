@@ -15284,7 +15284,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 .invoke:                                          ; preds = %74, %77
   %75 = phi ptr [ %3, %77 ], [ %4, %74 ]
   %76 = load ptr, ptr %64, align 8
-  invoke fastcc void @"_ZZN22cmGlobalNinjaGenerator19AppendTargetDependsEPK17cmGeneratorTargetRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKS9_SE_20cmNinjaTargetDependsENK3$_0clEPS_S2_SC_SE_"(ptr noundef nonnull %0, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(32) %75)
+  invoke fastcc void @"_ZZN22cmGlobalNinjaGenerator19AppendTargetDependsEPK17cmGeneratorTargetRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKS9_SE_20cmNinjaTargetDependsENK3$_0clEPS_S2_SC_SE_"(ptr noundef %0, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(32) %75)
           to label %78 unwind label %.loopexit
 
 77:                                               ; preds = %69
@@ -15378,7 +15378,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN17cmGlobalGenerator2
 declare noundef zeroext i1 @_ZNK17cmGeneratorTarget15IsInBuildSystemEv(ptr noundef nonnull align 8 dereferenceable(2728)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN22cmGlobalNinjaGenerator19AppendTargetDependsEPK17cmGeneratorTargetRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKS9_SE_20cmNinjaTargetDependsENK3$_0clEPS_S2_SC_SE_"(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN22cmGlobalNinjaGenerator19AppendTargetDependsEPK17cmGeneratorTargetRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKS9_SE_20cmNinjaTargetDependsENK3$_0clEPS_S2_SC_SE_"(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::vector", align 8
@@ -23942,7 +23942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit133: ;
   br i1 %196, label %197, label %203
 
 197:                                              ; preds = %193
-  invoke fastcc void @_ZN12_GLOBAL__N_133cmcmd_cmake_ninja_depends_fortranERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_133cmcmd_cmake_ninja_depends_fortranERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %198 unwind label %201
 
 198:                                              ; preds = %197
@@ -24134,7 +24134,7 @@ _ZZ8cmStrCatIRA42_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEES8_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_133cmcmd_cmake_ninja_depends_fortranERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_133cmcmd_cmake_ninja_depends_fortranERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair.1104"], align 8
   %5 = alloca [2 x %"struct.std::pair.1104"], align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -28747,7 +28747,7 @@ _ZN4Json6ReaderD2Ev.exit370:                      ; preds = %_ZNSt11_Deque_baseI
   br i1 %.not.i.i372, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN22cmGlobalNinjaGenerator15WriteDyndepFileERKS5_S8_S8_S8_S8_RKSt6vectorIS5_SaIS5_EES8_SD_SD_S8_S8_RK21cmCxxModuleExportInfoE19AvailableModuleInfoSt4lessIS5_ESaISt4pairIS7_SH_EEEC2ERKSN_.exit, label %1192
 
 1192:                                             ; preds = %1186
-  %1193 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i371, ptr noundef nonnull %1187)
+  %1193 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i371, ptr noundef %1187)
           to label %.noexc.i.i unwind label %1242
 
 .noexc.i.i:                                       ; preds = %1192, %.noexc.i.i
@@ -38184,7 +38184,7 @@ _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EED2Ev.exit: ; preds = %_ZNSt5d
 declare noundef zeroext i1 @_ZNK4Json5Value8isMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE13_M_clone_nodeILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_RT0_(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
@@ -38194,7 +38194,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  %8 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %6, ptr noundef nonnull %3)
+  %8 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %6, ptr noundef %3)
           to label %9 unwind label %.loopexit.split-lp
 
 9:                                                ; preds = %7
@@ -38243,7 +38243,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br i1 %.not32, label %25, label %21
 
 21:                                               ; preds = %16
-  %22 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %20, ptr noundef nonnull %15)
+  %22 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %20, ptr noundef %15)
           to label %23 unwind label %.loopexit
 
 23:                                               ; preds = %21
@@ -47947,7 +47947,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalINSt7_
   br i1 %.not.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN22cmGlobalNinjaGenerator15WriteDyndepFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_RKSt6vectorIS7_SaIS7_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE3$_2E15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i", label %15
 
 15:                                               ; preds = %7
-  %16 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i.i.i.i, ptr noundef nonnull %9)
+  %16 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN22cmGlobalNinjaGenerator15WriteDyndepFileERS7_S9_S9_S9_S9_RKSt6vectorIS5_SaIS5_EES9_SE_SE_S9_S9_RK21cmCxxModuleExportInfoE19AvailableModuleInfoESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE7_M_copyILb0ENSP_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISJ_ESU_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i.i.i.i, ptr noundef %9)
           to label %.noexc.i.i.i.i.i.i unwind label %25
 
 .noexc.i.i.i.i.i.i:                               ; preds = %15, %.noexc.i.i.i.i.i.i

@@ -608,7 +608,7 @@ list_head.exit.split:                             ; preds = %list_head.exit, %14
   %112 = load ptr, ptr %101, align 8
   %113 = load ptr, ptr %107, align 8
   %114 = load ptr, ptr %4, align 8
-  call fastcc void @get_range_key_properties(ptr noundef nonnull %9, i32 noundef %indvars310, ptr noundef %112, ptr noundef %113, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @get_range_key_properties(ptr noundef nonnull %9, i32 noundef %indvars310, ptr noundef %112, ptr noundef %113, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %115 = load ptr, ptr %6, align 8
   %116 = icmp ne ptr %115, null
   %117 = load ptr, ptr %7, align 8
@@ -3597,7 +3597,7 @@ fix_merged_indexes.exit.i:                        ; preds = %457, %.lr.ph56.i.i,
   br label %461
 
 461:                                              ; preds = %fix_merged_indexes.exit.i, %418
-  call fastcc void @generate_matching_part_pairs(ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %.5259.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @generate_matching_part_pairs(ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef %13, ptr noundef %14, i32 noundef %.5259.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %462 = load i32, ptr %16, align 8
   %463 = trunc i32 %462 to i8
   %464 = tail call fastcc ptr @build_merged_partition_bounds(i8 noundef signext %463, ptr noundef %.0129.ph.i.ph, ptr noundef null, ptr noundef %.0127.ph.i.ph, i32 noundef %.0252.i, i32 noundef %.4.i)
@@ -5385,7 +5385,7 @@ merge_default_partitions.exit.i24:                ; preds = %1171, %1170, %1169,
   br i1 %1172, label %1173, label %merge_range_bounds.exit
 
 1173:                                             ; preds = %merge_default_partitions.exit.i24
-  call fastcc void @generate_matching_part_pairs(ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %.4474.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @generate_matching_part_pairs(ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef %9, ptr noundef %10, i32 noundef %.4474.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %1174 = load i32, ptr %16, align 8
   %1175 = trunc i32 %1174 to i8
   %1176 = tail call fastcc ptr @build_merged_partition_bounds(i8 noundef signext %1175, ptr noundef %.0459.lcssa.i, ptr noundef %.0456.lcssa.i, ptr noundef %.0453.lcssa.i, i32 noundef -1, i32 noundef %.4466.i)
@@ -7584,7 +7584,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_matching_part_pairs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @generate_matching_part_pairs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %8 = load i32, ptr %2, align 8
   %9 = load i32, ptr %3, align 8
   %10 = sext i32 %4 to i64
@@ -7874,7 +7874,7 @@ declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 declare ptr @makeFuncExpr(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_partition_op_expr(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @make_partition_op_expr(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext range(i16 1, 6) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
@@ -8219,7 +8219,7 @@ list_head.exit:                                   ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_range_key_properties(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @get_range_key_properties(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64

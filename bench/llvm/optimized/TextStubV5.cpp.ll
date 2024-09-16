@@ -552,7 +552,7 @@ _ZN4llvm5ErrorD2Ev.exit.sink.split.i:             ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %10), !noalias !10
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11), !noalias !10
   %57 = call noundef ptr @_ZN4llvm4json6Object9getObjectENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i, ptr nonnull @.str.6, i64 12) #17
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser20parseToInterfaceFileEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %57)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser20parseToInterfaceFileEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %57)
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %59 = load i8, ptr %58, align 8
   %60 = trunc i8 %59 to i1
@@ -608,7 +608,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i17: ;
   %79 = load i16, ptr %4, align 8, !noalias !38
   %80 = icmp eq i16 %79, 7
   %spec.select.i.i = select i1 %80, ptr %74, ptr null
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser20parseToInterfaceFileEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %spec.select.i.i), !noalias !38
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser20parseToInterfaceFileEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %spec.select.i.i), !noalias !38
   %81 = load i8, ptr %75, align 8, !noalias !38
   %82 = trunc i8 %81 to i1
   %83 = load i64, ptr %5, align 8, !noalias !38
@@ -988,7 +988,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef ptr @_ZN4llvm4json6Object9getObjectENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser20parseToInterfaceFileEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser20parseToInterfaceFileEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca [3 x %"class.llvm::StringRef"], align 8
   %5 = alloca i32, align 4
@@ -1200,7 +1200,7 @@ _ZNSt8functionIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EEC2IMS5_KFS
   store ptr @_ZNSt17_Function_handlerIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EMS5_KFS3_S2_EE9_M_invokeERKSt9_Any_dataOS7_OS2_, ptr %92, align 8, !noalias !57
   store ptr @_ZNSt17_Function_handlerIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EMS5_KFS3_S2_EE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %93, align 8, !noalias !57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false), !noalias !57
-  call fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRefES2_EENS1_8ExpectedIT0_EENS_6TBDKeyEPKNS1_4json6ObjectESt8functionIFSt8optionalIT_ESA_S2_EESB_IFSC_IS4_ESD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %36, i64 noundef 5, ptr noundef nonnull %106, ptr noundef nonnull %37, ptr noundef nonnull %38), !noalias !57
+  call fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRefES2_EENS1_8ExpectedIT0_EENS_6TBDKeyEPKNS1_4json6ObjectESt8functionIFSt8optionalIT_ESA_S2_EESB_IFSC_IS4_ESD_EE(ptr dead_on_unwind noalias writable align 8 %36, i64 noundef 5, ptr noundef %106, ptr noundef %37, ptr noundef %38), !noalias !57
   %121 = load ptr, ptr %94, align 8, !noalias !57
   %.not.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFSt8optionalIN4llvm9StringRefEES2_EED2Ev.exit.i, label %122
@@ -1662,7 +1662,7 @@ _ZNSt8functionIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EEC2IMS5_KFS
   store ptr @_ZNSt17_Function_handlerIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EMS5_KFS3_S2_EE9_M_invokeERKSt9_Any_dataOS7_OS2_, ptr %274, align 8, !noalias !121
   store ptr @_ZNSt17_Function_handlerIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EMS5_KFS3_S2_EE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %275, align 8, !noalias !121
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false), !noalias !121
-  call fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRefES2_EENS1_8ExpectedIT0_EENS_6TBDKeyEPKNS1_4json6ObjectESt8functionIFSt8optionalIT_ESA_S2_EESB_IFSC_IS4_ESD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %51, i64 noundef 21, ptr noundef nonnull %273, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  call fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRefES2_EENS1_8ExpectedIT0_EENS_6TBDKeyEPKNS1_4json6ObjectESt8functionIFSt8optionalIT_ESA_S2_EESB_IFSC_IS4_ESD_EE(ptr dead_on_unwind noalias writable align 8 %51, i64 noundef 21, ptr noundef %273, ptr noundef %21, ptr noundef %22)
   %276 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %277 = load ptr, ptr %276, align 8, !noalias !121
   %.not.i.i.i164 = icmp eq ptr %277, null
@@ -1706,7 +1706,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i171: 
   %.sroa.0108.0.copyload = load ptr, ptr %51, align 8
   %.sroa.2109.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 8
   %.sroa.2109.0.copyload = load i64, ptr %.sroa.2109.0..sroa_idx, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getPackedVersionEPKN4llvm4json6ObjectENS_6TBDKeyE(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef %1, i64 noundef 10)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getPackedVersionEPKN4llvm4json6ObjectENS_6TBDKeyE(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef %1, i64 noundef 10)
   %292 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %293 = load i8, ptr %292, align 8
   %294 = trunc i8 %293 to i1
@@ -1725,7 +1725,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i174: 
 
 300:                                              ; preds = %291
   %.sroa.0107.0.copyload = load i32, ptr %52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getPackedVersionEPKN4llvm4json6ObjectENS_6TBDKeyE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef %1, i64 noundef 11)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getPackedVersionEPKN4llvm4json6ObjectENS_6TBDKeyE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef %1, i64 noundef 11)
   %301 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %302 = load i8, ptr %301, align 8
   %303 = trunc i8 %302 to i1
@@ -1938,7 +1938,7 @@ _ZN4llvm5ErrorD2Ev.exit.i194:                     ; preds = %359
   %375 = getelementptr inbounds nuw i8, ptr %355, i64 8
   store ptr %5, ptr %8, align 8, !noalias !189
   %376 = ptrtoint ptr %8 to i64
-  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 noundef 8, ptr noundef nonnull %375, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser8getFlagsEPKNS_4json6ObjectEE3$_0EEvlS1_", i64 %376)
+  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias writable align 8 %7, i64 noundef 8, ptr noundef %375, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser8getFlagsEPKNS_4json6ObjectEE3$_0EEvlS1_", i64 %376)
   %377 = load ptr, ptr %7, align 8, !noalias !189
   %.not18.i198 = icmp eq ptr %377, null
   br i1 %.not18.i198, label %378, label %_ZN4llvm8ExpectedI8TBDFlagsED2Ev.exit.thread354
@@ -1953,7 +1953,7 @@ _ZN4llvm5ErrorD2Ev.exit.i194:                     ; preds = %359
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser18getUmbrellaSectionB5cxx11EPKN4llvm4json6ObjectERKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %54, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %50)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser18getUmbrellaSectionB5cxx11EPKN4llvm4json6ObjectERKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %50)
   %381 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %382 = load i8, ptr %381, align 8
   %383 = trunc i8 %382 to i1
@@ -1973,7 +1973,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i203: 
 
 389:                                              ; preds = %380
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm11SmallVectorINS6_5MachO6TargetELj5EEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 8 dereferenceable(48) %54)
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef %1, i64 noundef 17, i64 noundef 18, ptr noundef nonnull align 8 dereferenceable(136) %50)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef %1, i64 noundef 17, i64 noundef 18, ptr noundef nonnull align 8 dereferenceable(136) %50)
   %390 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %391 = load i8, ptr %390, align 8
   %392 = trunc i8 %391 to i1
@@ -1992,7 +1992,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i206: 
 
 398:                                              ; preds = %389
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm11SmallVectorINS6_5MachO6TargetELj5EEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(48) %56)
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %58, ptr noundef %1, i64 noundef 19, i64 noundef 20, ptr noundef nonnull align 8 dereferenceable(136) %50)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %58, ptr noundef %1, i64 noundef 19, i64 noundef 20, ptr noundef nonnull align 8 dereferenceable(136) %50)
   %399 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %400 = load i8, ptr %399, align 8
   %401 = trunc i8 %400 to i1
@@ -2055,7 +2055,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i210: 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm11SmallVectorINS6_5MachO6TargetELj5EEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2EOSH_.exit: ; preds = %411, %425
   %.sink.i.i.i.i = phi ptr [ %429, %425 ], [ %422, %411 ]
   store i64 0, ptr %.sink.i.i.i.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef %1, i64 noundef 33, i64 noundef 34, ptr noundef nonnull align 8 dereferenceable(136) %50)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef %1, i64 noundef 33, i64 noundef 34, ptr noundef nonnull align 8 dereferenceable(136) %50)
   %430 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %431 = load i8, ptr %430, align 8
   %432 = trunc i8 %431 to i1
@@ -2118,7 +2118,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i214: 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm11SmallVectorINS6_5MachO6TargetELj5EEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2EOSH_.exit219: ; preds = %442, %456
   %.sink.i.i.i.i218 = phi ptr [ %460, %456 ], [ %453, %442 ]
   store i64 0, ptr %.sink.i.i.i.i218, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %62, ptr noundef %1, i64 noundef 22, ptr noundef nonnull align 8 dereferenceable(136) %50)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %62, ptr noundef %1, i64 noundef 22, ptr noundef nonnull align 8 dereferenceable(136) %50)
   %461 = getelementptr inbounds i8, ptr %62, i64 176
   %.val150 = load i8, ptr %461, align 8
   %462 = trunc i8 %.val150 to i1
@@ -2137,7 +2137,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i221: 
 
 468:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm11SmallVectorINS6_5MachO6TargetELj5EEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2EOSH_.exit219
   call fastcc void @_ZN4llvm11SmallVectorISt4pairINS0_INS_5MachO6TargetELj5EEESt6vectorIN12_GLOBAL__N_110JSONSymbolESaIS7_EEELj1EEC2EOSB_(ptr noundef nonnull align 8 dereferenceable(176) %63, ptr noundef nonnull align 8 dereferenceable(176) %62)
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef %1, i64 noundef 23, ptr noundef nonnull align 8 dereferenceable(136) %50)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef %1, i64 noundef 23, ptr noundef nonnull align 8 dereferenceable(136) %50)
   %469 = getelementptr inbounds i8, ptr %64, i64 176
   %.val151 = load i8, ptr %469, align 8
   %470 = trunc i8 %.val151 to i1
@@ -2156,7 +2156,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i224: 
 
 476:                                              ; preds = %468
   call fastcc void @_ZN4llvm11SmallVectorISt4pairINS0_INS_5MachO6TargetELj5EEESt6vectorIN12_GLOBAL__N_110JSONSymbolESaIS7_EEELj1EEC2EOSB_(ptr noundef nonnull align 8 dereferenceable(176) %65, ptr noundef nonnull align 8 dereferenceable(176) %64)
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef %1, i64 noundef 24, ptr noundef nonnull align 8 dereferenceable(136) %50)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef %1, i64 noundef 24, ptr noundef nonnull align 8 dereferenceable(136) %50)
   %477 = getelementptr inbounds i8, ptr %66, i64 176
   %.val152 = load i8, ptr %477, align 8
   %478 = trunc i8 %.val152 to i1
@@ -2666,7 +2666,7 @@ define dso_local void @_ZN4llvm5MachO28serializeInterfaceFileToJSONERNS_11raw_os
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, i8 0, i64 20, i1 false), !noalias !245
-  call fastcc void @_ZN12_GLOBAL__N_111serializeIFEPKN4llvm5MachO13InterfaceFileE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %2), !noalias !245
+  call fastcc void @_ZN12_GLOBAL__N_111serializeIFEPKN4llvm5MachO13InterfaceFileE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %2), !noalias !245
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %23 = load i8, ptr %22, align 8, !noalias !245
   %24 = trunc i8 %23 to i1
@@ -2738,7 +2738,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
 52:                                               ; preds = %_ZN4llvm8ExpectedINS_4json6ObjectEED2Ev.exit.i, %.lr.ph.i
   %.sroa.019.023.i = phi ptr [ %43, %.lr.ph.i ], [ %83, %_ZN4llvm8ExpectedINS_4json6ObjectEED2Ev.exit.i ]
   %53 = load ptr, ptr %.sroa.019.023.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111serializeIFEPKN4llvm5MachO13InterfaceFileE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %53)
+  call fastcc void @_ZN12_GLOBAL__N_111serializeIFEPKN4llvm5MachO13InterfaceFileE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %53)
   %54 = load i8, ptr %46, align 8, !alias.scope !245
   %55 = trunc i8 %54 to i1
   br i1 %55, label %.critedge9.i, label %.critedge.i
@@ -3332,7 +3332,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser16getPackedVersionEPKN4llvm4json6ObjectENS_6TBDKeyE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser16getPackedVersionEPKN4llvm4json6ObjectENS_6TBDKeyE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull %1, i64 noundef range(i64 10, 12) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::MachO::PackedVersion", align 4
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca [3 x %"class.llvm::StringRef"], align 8
@@ -3517,7 +3517,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %73, %39, %_ZN4llvm5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser18getUmbrellaSectionB5cxx11EPKN4llvm4json6ObjectERKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser18getUmbrellaSectionB5cxx11EPKN4llvm4json6ObjectERKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::tuple.219", align 8
   %5 = alloca %"class.std::tuple.222", align 1
   %6 = alloca %"class.std::allocator", align 1
@@ -3658,7 +3658,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %.loopexit
 
 73:                                               ; preds = %56
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser10getTargetsEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull %45)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser10getTargetsEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %45)
   %74 = load i8, ptr %46, align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %89
@@ -3712,7 +3712,7 @@ _ZNSt8functionIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EEC2IMS5_KFS
   store ptr @_ZNSt17_Function_handlerIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EMS5_KFS3_S2_EE9_M_invokeERKSt9_Any_dataOS7_OS2_, ptr %47, align 8
   store ptr @_ZNSt17_Function_handlerIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EMS5_KFS3_S2_EE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %48, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRefES2_EENS1_8ExpectedIT0_EENS_6TBDKeyEPKNS1_4json6ObjectESt8functionIFSt8optionalIT_ESA_S2_EESB_IFSC_IS4_ESD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef 16, ptr noundef nonnull %45, ptr noundef nonnull %19, ptr noundef nonnull %20)
+  call fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRefES2_EENS1_8ExpectedIT0_EENS_6TBDKeyEPKNS1_4json6ObjectESt8functionIFSt8optionalIT_ESA_S2_EESB_IFSC_IS4_ESD_EE(ptr dead_on_unwind noalias writable align 8 %18, i64 noundef 16, ptr noundef %45, ptr noundef %19, ptr noundef %20)
   %91 = load ptr, ptr %49, align 8
   %.not.i.i = icmp eq ptr %91, null
   br i1 %.not.i.i, label %_ZNSt8functionIFSt8optionalIN4llvm9StringRefEES2_EED2Ev.exit, label %92
@@ -3988,7 +3988,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(136) %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKN4llvm4json6ObjectENS_6TBDKeyES6_RKNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i64 noundef range(i64 17, 34) %2, i64 noundef range(i64 18, 35) %3, ptr noundef nonnull align 8 dereferenceable(136) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %class.anon.199, align 1
@@ -4073,7 +4073,7 @@ _ZN4llvm8ExpectedINS_11SmallVectorINS_5MachO6TargetELj5EEEED2Ev.exit.thread: ; p
   br label %83
 
 48:                                               ; preds = %46
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser10getTargetsEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %40)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser10getTargetsEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %40)
   %49 = load i8, ptr %41, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %64
@@ -4124,7 +4124,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %60, %_ZN4llvm8Expec
 66:                                               ; preds = %64, %_ZN4llvm5ErrorD2Ev.exit
   store ptr %10, ptr %15, align 8
   store ptr %11, ptr %42, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %14, i64 noundef %3, ptr noundef nonnull %40, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKNS_4json6ObjectENS5_6TBDKeyESB_RKNS_11SmallVectorINS_5MachO6TargetELj5EEEE3$_0EEvlS1_", i64 %43)
+  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias writable align 8 %14, i64 noundef %3, ptr noundef %40, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11EPKNS_4json6ObjectENS5_6TBDKeyESB_RKNS_11SmallVectorINS_5MachO6TargetELj5EEEE3$_0EEvlS1_", i64 %43)
   %67 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %67, null
   br i1 %.not29, label %_ZN4llvm5ErrorD2Ev.exit15, label %68
@@ -4245,7 +4245,7 @@ _ZN4llvm11SmallVectorINS_5MachO6TargetELj5EED2Ev.exit: ; preds = %.loopexit, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(136) %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN4llvm4json6ObjectENS_6TBDKeyERNS1_11SmallVectorINS1_5MachO6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i64 noundef range(i64 22, 25) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca [3 x %"class.llvm::StringRef"], align 8
   %7 = alloca i64, align 8
@@ -4328,7 +4328,7 @@ _ZN4llvm8ExpectedINS_11SmallVectorINS_5MachO6TargetELj5EEEED2Ev.exit.thread: ; p
   br label %158
 
 50:                                               ; preds = %48
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser10getTargetsEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %33)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser10getTargetsEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %33)
   %51 = load i8, ptr %34, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %66
@@ -4554,7 +4554,7 @@ _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %_ZNSt6vectorIN12_GL
   br i1 %125, label %138, label %_ZN4llvm5ErrorD2Ev.exit46
 
 138:                                              ; preds = %137
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKN4llvm4json6ObjectERNS1_11SmallVectorISt4pairINS6_INS1_5MachO6TargetELj5EEESt6vectorINS_10JSONSymbolESaISC_EEELj1EEENS8_11SymbolFlagsE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(176) %12, i8 noundef zeroext %45)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKN4llvm4json6ObjectERNS1_11SmallVectorISt4pairINS6_INS1_5MachO6TargetELj5EEESt6vectorINS_10JSONSymbolESaISC_EEELj1EEENS8_11SymbolFlagsE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(176) %12, i8 noundef zeroext %45)
   %139 = load ptr, ptr %18, align 8
   %.not75 = icmp eq ptr %139, null
   br i1 %.not75, label %_ZN4llvm5ErrorD2Ev.exit46, label %_ZN4llvm5ErrorD2Ev.exit45
@@ -4572,7 +4572,7 @@ _ZN4llvm5ErrorD2Ev.exit46:                        ; preds = %138, %137
   br i1 %126, label %142, label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
 142:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit46
-  call fastcc void @_ZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKN4llvm4json6ObjectERNS1_11SmallVectorISt4pairINS6_INS1_5MachO6TargetELj5EEESt6vectorINS_10JSONSymbolESaISC_EEELj1EEENS8_11SymbolFlagsE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull %124, ptr noundef nonnull align 8 dereferenceable(176) %12, i8 noundef zeroext %46)
+  call fastcc void @_ZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKN4llvm4json6ObjectERNS1_11SmallVectorISt4pairINS6_INS1_5MachO6TargetELj5EEESt6vectorINS_10JSONSymbolESaISC_EEELj1EEENS8_11SymbolFlagsE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %124, ptr noundef nonnull align 8 dereferenceable(176) %12, i8 noundef zeroext %46)
   %143 = load ptr, ptr %19, align 8
   %.not76 = icmp eq ptr %143, null
   br i1 %.not76, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit47
@@ -5249,7 +5249,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; pre
 declare noundef ptr @_ZNK4llvm4json6Object8getArrayENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRefES2_EENS1_8ExpectedIT0_EENS_6TBDKeyEPKNS1_4json6ObjectESt8functionIFSt8optionalIT_ESA_S2_EESB_IFSC_IS4_ESD_EE(ptr dead_on_unwind noalias nocapture writable align 8 %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRefES2_EENS1_8ExpectedIT0_EENS_6TBDKeyEPKNS1_4json6ObjectESt8functionIFSt8optionalIT_ESA_S2_EESB_IFSC_IS4_ESD_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, i64 noundef range(i64 5, 22) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [3 x %"class.llvm::StringRef"], align 8
   %8 = alloca %"class.llvm::StringRef", align 8
@@ -5756,7 +5756,7 @@ _ZSt4copyIPKN4llvm5MachO6TargetEPS2_ET0_T_S7_S6_.exit31: ; preds = %20, %19, %15
 declare i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(4), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef range(i64 8, 35) %1, ptr noundef nonnull %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [3 x %"class.llvm::StringRef"], align 8
   %8 = alloca %"class.llvm::SmallString", align 8
@@ -5901,7 +5901,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i23.i:          ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser10getTargetsEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser10getTargetsEPKN4llvm4json6ObjectE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca [3 x %"class.llvm::StringRef"], align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -7141,7 +7141,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm11SmallVecto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKN4llvm4json6ObjectERNS1_11SmallVectorISt4pairINS6_INS1_5MachO6TargetELj5EEESt6vectorINS_10JSONSymbolESaISC_EEELj1EEENS8_11SymbolFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(176) %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKN4llvm4json6ObjectERNS1_11SmallVectorISt4pairINS6_INS1_5MachO6TargetELj5EEESt6vectorINS_10JSONSymbolESaISC_EEELj1EEENS8_11SymbolFlagsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(176) %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %class.anon.228, align 8
@@ -7160,7 +7160,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110StubParser25collectSymbolsFromSe
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %18, align 8
   %19 = ptrtoint ptr %7 to i64
-  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %6, i64 noundef 29, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_0EEvlS1_", i64 %19)
+  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias writable align 8 %6, i64 noundef 29, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_0EEvlS1_", i64 %19)
   %20 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit16
@@ -7170,7 +7170,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %5, ptr %21, align 8
   %22 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef 30, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_1EEvlS1_", i64 %22)
+  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias writable align 8 %8, i64 noundef 30, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_1EEvlS1_", i64 %22)
   %23 = load ptr, ptr %8, align 8
   %.not29 = icmp eq ptr %23, null
   br i1 %.not29, label %_ZN4llvm5ErrorD2Ev.exit12, label %_ZN4llvm5ErrorD2Ev.exit16
@@ -7180,7 +7180,7 @@ _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %5, ptr %24, align 8
   %25 = ptrtoint ptr %11 to i64
-  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef 31, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_2EEvlS1_", i64 %25)
+  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias writable align 8 %10, i64 noundef 31, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_2EEvlS1_", i64 %25)
   %26 = load ptr, ptr %10, align 8
   %.not30 = icmp eq ptr %26, null
   br i1 %.not30, label %_ZN4llvm5ErrorD2Ev.exit13, label %_ZN4llvm5ErrorD2Ev.exit16
@@ -7190,7 +7190,7 @@ _ZN4llvm5ErrorD2Ev.exit13:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %5, ptr %27, align 8
   %28 = ptrtoint ptr %13 to i64
-  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef 32, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_3EEvlS1_", i64 %28)
+  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias writable align 8 %12, i64 noundef 32, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_3EEvlS1_", i64 %28)
   %29 = load ptr, ptr %12, align 8
   %.not31 = icmp eq ptr %29, null
   br i1 %.not31, label %_ZN4llvm5ErrorD2Ev.exit14, label %_ZN4llvm5ErrorD2Ev.exit16
@@ -7205,7 +7205,7 @@ _ZN4llvm5ErrorD2Ev.exit14:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 %33, ptr %34, align 8
   %35 = ptrtoint ptr %15 to i64
-  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %14, i64 noundef 27, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_4EEvlS1_", i64 %35)
+  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias writable align 8 %14, i64 noundef 27, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_4EEvlS1_", i64 %35)
   %36 = load ptr, ptr %14, align 8
   %.not33 = icmp eq ptr %36, null
   br i1 %.not33, label %_ZN4llvm5ErrorD2Ev.exit15, label %_ZN4llvm5ErrorD2Ev.exit16
@@ -7216,7 +7216,7 @@ _ZN4llvm5ErrorD2Ev.exit15:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %38 = load i8, ptr %5, align 1
   store i8 %38, ptr %37, align 8
   %39 = ptrtoint ptr %17 to i64
-  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef 28, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_5EEvlS1_", i64 %39)
+  call fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4llvm4json6ObjectENS1_12function_refIFvNS1_9StringRefEEEEb(ptr dead_on_unwind noalias writable align 8 %16, i64 noundef 28, ptr noundef %1, ptr nonnull @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN12_GLOBAL__N_110StubParser25collectSymbolsFromSegmentEPKNS_4json6ObjectERNS_11SmallVectorISt4pairINSB_INS_5MachO6TargetELj5EEESt6vectorINS5_10JSONSymbolESaISH_EEELj1EEENSD_11SymbolFlagsEE3$_5EEvlS1_", i64 %39)
   %40 = load ptr, ptr %16, align 8
   br label %_ZN4llvm5ErrorD2Ev.exit16
 
@@ -8056,7 +8056,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111serializeIFEPKN4llvm5MachO13InterfaceFileE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111serializeIFEPKN4llvm5MachO13InterfaceFileE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::iterator_range.385", align 8
   %4 = alloca %"class.std::function.269", align 8
   %5 = alloca %"class.llvm::iterator_range.385", align 8
@@ -8182,7 +8182,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   br label %79
 
 79:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit.i, %74
-  call fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 4 dereferenceable(24) %26)
+  call fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 4 dereferenceable(24) %26)
   call void @_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull %32)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr nonnull @.str.10, i64 6)
   %80 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %33) #17
@@ -8674,11 +8674,11 @@ _ZN12_GLOBAL__N_114serializeFlagsEPKN4llvm5MachO13InterfaceFileE.exit: ; preds =
   %248 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 7, ptr noundef nonnull align 8 dereferenceable(24) %40)
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.sroa.0.0.copyload.i38 = load i32, ptr %249, align 8
-  call fastcc void @_ZN12_GLOBAL__N_115serializeScalarIN4llvm5MachO13PackedVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_4json5ArrayENS_6TBDKeyET_SD_(ptr dead_on_unwind noalias nonnull writable align 8 %41, i32 %.sroa.0.0.copyload.i38, i32 65536)
+  call fastcc void @_ZN12_GLOBAL__N_115serializeScalarIN4llvm5MachO13PackedVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_4json5ArrayENS_6TBDKeyET_SD_(ptr dead_on_unwind noalias writable align 8 %41, i32 %.sroa.0.0.copyload.i38, i32 65536)
   %250 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 10, ptr noundef nonnull align 8 dereferenceable(24) %41)
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %.sroa.0.0.copyload.i39 = load i32, ptr %251, align 4
-  call fastcc void @_ZN12_GLOBAL__N_115serializeScalarIN4llvm5MachO13PackedVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_4json5ArrayENS_6TBDKeyET_SD_(ptr dead_on_unwind noalias nonnull writable align 8 %42, i32 %.sroa.0.0.copyload.i39, i32 65536)
+  call fastcc void @_ZN12_GLOBAL__N_115serializeScalarIN4llvm5MachO13PackedVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_4json5ArrayENS_6TBDKeyET_SD_(ptr dead_on_unwind noalias writable align 8 %42, i32 %.sroa.0.0.copyload.i39, i32 65536)
   %252 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 11, ptr noundef nonnull align 8 dereferenceable(24) %42)
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %254 = load i8, ptr %253, align 8
@@ -8743,25 +8743,25 @@ _ZN12_GLOBAL__N_115serializeScalarIhlEEN4llvm4json5ArrayENS_6TBDKeyET_S5_.exit: 
   %.val = load ptr, ptr %271, align 8
   %272 = getelementptr i8, ptr %1, i64 432
   %.val17 = load ptr, ptr %272, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIN4llvm5MachO6TargetES6_ESaISC_EEEENS9_4json5ArrayENS_6TBDKeyERKT0_RKNS9_11SmallVectorISB_Lj5EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %44, i64 noundef 34, ptr %.val, ptr %.val17, ptr noundef nonnull align 8 dereferenceable(136) %35, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIN4llvm5MachO6TargetES6_ESaISC_EEEENS9_4json5ArrayENS_6TBDKeyERKT0_RKNS9_11SmallVectorISB_Lj5EEEb(ptr dead_on_unwind noalias writable align 8 %44, i64 noundef 34, ptr %.val, ptr %.val17, ptr noundef nonnull align 8 dereferenceable(136) %35, i1 noundef zeroext true)
   %273 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 33, ptr noundef nonnull align 8 dereferenceable(24) %44)
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %.val18 = load ptr, ptr %274, align 8
   %275 = getelementptr i8, ptr %1, i64 336
   %.val19 = load ptr, ptr %275, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIN4llvm5MachO6TargetES6_ESaISC_EEEENS9_4json5ArrayENS_6TBDKeyERKT0_RKNS9_11SmallVectorISB_Lj5EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %45, i64 noundef 16, ptr %.val18, ptr %.val19, ptr noundef nonnull align 8 dereferenceable(136) %35, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIN4llvm5MachO6TargetES6_ESaISC_EEEENS9_4json5ArrayENS_6TBDKeyERKT0_RKNS9_11SmallVectorISB_Lj5EEEb(ptr dead_on_unwind noalias writable align 8 %45, i64 noundef 16, ptr %.val18, ptr %.val19, ptr noundef nonnull align 8 dereferenceable(136) %35, i1 noundef zeroext false)
   %276 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 15, ptr noundef nonnull align 8 dereferenceable(24) %45)
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %.val20 = load ptr, ptr %277, align 8
   %278 = getelementptr i8, ptr %1, i64 360
   %.val21 = load ptr, ptr %278, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114serializeFieldENS_6TBDKeyERKSt6vectorIN4llvm5MachO16InterfaceFileRefESaIS4_EERKNS2_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %46, i64 noundef 18, ptr %.val20, ptr %.val21, ptr noundef nonnull align 8 dereferenceable(136) %35)
+  call fastcc void @_ZN12_GLOBAL__N_114serializeFieldENS_6TBDKeyERKSt6vectorIN4llvm5MachO16InterfaceFileRefESaIS4_EERKNS2_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %46, i64 noundef 18, ptr %.val20, ptr %.val21, ptr noundef nonnull align 8 dereferenceable(136) %35)
   %279 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 17, ptr noundef nonnull align 8 dereferenceable(24) %46)
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %.val22 = load ptr, ptr %280, align 8
   %281 = getelementptr i8, ptr %1, i64 384
   %.val23 = load ptr, ptr %281, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114serializeFieldENS_6TBDKeyERKSt6vectorIN4llvm5MachO16InterfaceFileRefESaIS4_EERKNS2_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %47, i64 noundef 20, ptr %.val22, ptr %.val23, ptr noundef nonnull align 8 dereferenceable(136) %35)
+  call fastcc void @_ZN12_GLOBAL__N_114serializeFieldENS_6TBDKeyERKSt6vectorIN4llvm5MachO16InterfaceFileRefESaIS4_EERKNS2_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %47, i64 noundef 20, ptr %.val22, ptr %.val23, ptr noundef nonnull align 8 dereferenceable(136) %35)
   %282 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 19, ptr noundef nonnull align 8 dereferenceable(24) %47)
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %284 = load ptr, ptr %283, align 8, !noalias !575
@@ -8833,7 +8833,7 @@ _ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i: ; preds = %.critedge
 _ZNK4llvm5MachO13InterfaceFile7exportsEv.exit:    ; preds = %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i, %303
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !575
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !575
-  call fastcc void @_ZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(136) %35)
+  call fastcc void @_ZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(136) %35)
   %305 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %306 = load ptr, ptr %305, align 8
   %.not.i.i.i.i.i47 = icmp eq ptr %306, null
@@ -8926,7 +8926,7 @@ _ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i54: ; preds = %.crited
 _ZNK4llvm5MachO13InterfaceFile9reexportsEv.exit:  ; preds = %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i54, %335
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !585
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !585
-  call fastcc void @_ZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(136) %35)
+  call fastcc void @_ZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(136) %35)
   %337 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %338 = load ptr, ptr %337, align 8
   %.not.i.i.i.i.i64 = icmp eq ptr %338, null
@@ -9024,7 +9024,7 @@ _ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i74: ; preds = %.crited
 _ZNK4llvm5MachO13InterfaceFile10undefinedsEv.exit: ; preds = %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i74, %370
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !594
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !594
-  call fastcc void @_ZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull %53, ptr noundef nonnull align 8 dereferenceable(136) %35)
+  call fastcc void @_ZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(136) %35)
   %372 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %373 = load ptr, ptr %372, align 8
   %.not.i.i.i.i.i84 = icmp eq ptr %373, null
@@ -9527,7 +9527,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %_ZN4llvm4json9Objec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValuesIN4llvm4json5ArrayEEEbRNS2_6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 2, 34) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::ObjectKey", align 8
   %6 = load ptr, ptr %2, align 8
@@ -9648,7 +9648,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %._crit_edge, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115serializeScalarIN4llvm5MachO13PackedVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_4json5ArrayENS_6TBDKeyET_SD_(ptr dead_on_unwind noalias writable align 8 %0, i32 %1, i32 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115serializeScalarIN4llvm5MachO13PackedVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_4json5ArrayENS_6TBDKeyET_SD_(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %1, i32 %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::MachO::PackedVersion", align 4
@@ -9715,7 +9715,7 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit: ; preds = %_ZN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIN4llvm5MachO6TargetES6_ESaISC_EEEENS9_4json5ArrayENS_6TBDKeyERKT0_RKNS9_11SmallVectorISB_Lj5EEEb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %1, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIN4llvm5MachO6TargetES6_ESaISC_EEEENS9_4json5ArrayENS_6TBDKeyERKT0_RKNS9_11SmallVectorISB_Lj5EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef range(i64 16, 35) %1, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::_Rb_tree<llvm::MachO::Target, llvm::MachO::Target, std::_Identity<llvm::MachO::Target>, std::less<llvm::MachO::Target>>::_Alloc_node", align 8
   %6 = alloca %"class.llvm::json::Object", align 8
   %7 = alloca %"class.llvm::json::Value", align 8
@@ -9876,7 +9876,7 @@ _ZNSt8_Rb_treeIN4llvm5MachO6TargetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE7_M_c
   br label %_ZNSt3setIN4llvm5MachO6TargetESt4lessIS2_ESaIS2_EEC2ERKS6_.exit
 
 _ZNSt3setIN4llvm5MachO6TargetESt4lessIS2_ESaIS2_EEC2ERKS6_.exit: ; preds = %52, %_ZNSt8_Rb_treeIN4llvm5MachO6TargetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE7_M_copyERKS8_.exit.i.i
-  call fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  call fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(136) %2)
   %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES6_St4lessIS8_ESaISt4pairIKS8_S6_EEEixEOS8_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
   %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %53) #17
   %68 = load ptr, ptr %15, align 8
@@ -10092,7 +10092,7 @@ _ZNSt8_Rb_treeIN4llvm5MachO6TargetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE7_M_c
   br label %_ZNSt3setIN4llvm5MachO6TargetESt4lessIS2_ESaIS2_EEC2ERKS6_.exit33
 
 _ZNSt3setIN4llvm5MachO6TargetESt4lessIS2_ESaIS2_EEC2ERKS6_.exit33: ; preds = %126, %_ZNSt8_Rb_treeIN4llvm5MachO6TargetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE7_M_copyERKS8_.exit.i.i32
-  call fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  call fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(136) %2)
   %140 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixEOS8_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8
@@ -10162,7 +10162,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldENS_6TBDKeyERKSt6vectorIN4llvm5MachO16InterfaceFileRefESaIS4_EERKNS2_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %1, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldENS_6TBDKeyERKSt6vectorIN4llvm5MachO16InterfaceFileRefESaIS4_EERKNS2_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef range(i64 18, 21) %1, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::map.308", align 8
   %6 = alloca %"class.llvm::SmallVector.18", align 8
@@ -10226,7 +10226,7 @@ _ZN4llvm11SmallVectorINS_5MachO6TargetELj5EEC2ERKS3_.exit: ; preds = %20, %28
 
 .lr.ph.i:                                         ; preds = %33, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i
   %.0911.i = phi ptr [ %67, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i ], [ %34, %33 ]
-  call fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 4 dereferenceable(24) %.0911.i)
+  call fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 4 dereferenceable(24) %.0911.i)
   %37 = load ptr, ptr %17, align 8
   %38 = load ptr, ptr %18, align 8, !alias.scope !616
   %.not.i.i = icmp eq ptr %37, %38
@@ -10379,7 +10379,7 @@ _ZN4llvm11SmallVectorINS_5MachO6TargetELj5EED2Ev.exit11: ; preds = %_ZN4llvm11Sm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 {
   %4 = alloca %"struct.std::_Rb_tree<llvm::MachO::Target, llvm::MachO::Target, std::_Identity<llvm::MachO::Target>, std::less<llvm::MachO::Target>>::_Alloc_node", align 8
   %5 = alloca %"class.std::map.356", align 8
   %6 = alloca %"class.llvm::filter_iterator_impl", align 8
@@ -10558,7 +10558,7 @@ _ZNSt8_Rb_treeIN4llvm5MachO6TargetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE7_M_c
   br label %_ZNSt3setIN4llvm5MachO6TargetESt4lessIS2_ESaIS2_EEC2ERKS6_.exit
 
 _ZNSt3setIN4llvm5MachO6TargetESt4lessIS2_ESaIS2_EEC2ERKS6_.exit: ; preds = %68, %_ZNSt8_Rb_treeIN4llvm5MachO6TargetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE7_M_copyERKS8_.exit.i.i
-  call fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  call fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(136) %2)
   %88 = load ptr, ptr %48, align 8
   call void @_ZNSt8_Rb_treeIN4llvm5MachO6TargetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %88)
   %89 = getelementptr inbounds nuw i8, ptr %71, i64 153
@@ -10752,7 +10752,7 @@ define linkonce_odr hidden void @_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10803,7 +10803,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %.critedge9, %.crite
   store i8 2, ptr %22, align 8, !alias.scope !629
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 4, ptr %23, align 1, !alias.scope !629
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %7) #17
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %7) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   ret void
 }
@@ -12216,7 +12216,7 @@ _ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5MachO6TargetESt4lessIS4_ESaIS4_EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EET_RKNS2_11SmallVectorIS4_Lj5EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -12240,7 +12240,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116serializeTargetsISt3setIN4llvm5M
 15:                                               ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %23, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 32
-  call fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 4 dereferenceable(24) %16)
+  call fastcc void @_ZN12_GLOBAL__N_115getFormattedStrB5cxx11ERKN4llvm5MachO6TargetE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 4 dereferenceable(24) %16)
   %17 = load ptr, ptr %13, align 8
   %18 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %17, %18
@@ -12397,7 +12397,7 @@ _ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122serializeAttrToTargetsISt3mapISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESA_St4lessISA_ESaISt4pairIKSA_SA_EEEEEN4llvm4json5ArrayERT_NS_6TBDKeyE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122serializeAttrToTargetsISt3mapISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESA_St4lessISA_ESaISt4pairIKSA_SA_EEEEEN4llvm4json5ArrayERT_NS_6TBDKeyE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef range(i64 16, 35) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15991,7 +15991,7 @@ _ZNSt8_Rb_treeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
 
 .loopexit.i:                                      ; preds = %225, %.lr.ph.i.i.i.i.i.i.i.i.i.i11, %.critedge.i.i.i.i.i.i.i.i.i.i, %_ZNSt8_Rb_treeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4pairIKS8_N12_GLOBAL__N_112SymbolFieldsEESt10_Select1stISD_ESt4lessIS8_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERSA_.exit.thread10.i
   %232 = phi i1 [ true, %_ZNSt8_Rb_treeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4pairIKS8_N12_GLOBAL__N_112SymbolFieldsEESt10_Select1stISD_ESt4lessIS8_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERSA_.exit.thread10.i ], [ %231, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %224, %.lr.ph.i.i.i.i.i.i.i.i.i.i11 ], [ %224, %225 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %232, ptr noundef nonnull %57, ptr noundef %.sroa.12.0.i17.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %232, ptr noundef nonnull %57, ptr noundef nonnull %.sroa.12.0.i17.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   %233 = getelementptr inbounds i8, ptr %0, i64 40
   %234 = load i64, ptr %233, align 8
   %235 = add i64 %234, 1
@@ -16157,7 +16157,7 @@ _ZN4llvm20filter_iterator_baseINS_5MachO9SymbolSet21const_symbol_iteratorESt8fun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEEENK3$_1clERNS0_4json6ObjectENS_6TBDKeyERNS_12SymbolFields11SymbolTypesE"(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_116serializeSymbolsEN4llvm14iterator_rangeINS0_20filter_iterator_implINS0_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS3_6SymbolEEESt20forward_iterator_tagEEEERKNS0_11SmallVectorINS3_6TargetELj5EEEENK3$_1clERNS0_4json6ObjectENS_6TBDKeyERNS_12SymbolFields11SymbolTypesE"(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 25, 27) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::ObjectKey", align 8
   %6 = alloca %"class.llvm::json::Object", align 8
@@ -16526,7 +16526,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit10: ; preds = %_ZNSt6vectorIN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120insertNonEmptyValuesISt6vectorIN4llvm9StringRefESaIS3_EEEEbRNS2_4json6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120insertNonEmptyValuesISt6vectorIN4llvm9StringRefESaIS3_EEEEbRNS2_4json6ObjectENS_6TBDKeyEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 27, 33) %1, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.llvm::json::Array", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::ObjectKey", align 8

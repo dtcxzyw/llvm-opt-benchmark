@@ -6589,13 +6589,13 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 declare void @dt_dev_clear_scharr_mask(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3, ptr noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3, ptr noundef nonnull readonly %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 1, 4) %6) unnamed_addr #1 {
   %8 = alloca [3 x [3 x [8 x i16]]], align 16
   %9 = alloca [2 x [6 x float]], align 16
   %10 = alloca [5 x i8], align 1
   %11 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #27
-  %12 = icmp sgt i32 %6, 1
+  %12 = icmp ugt i32 %6, 1
   %13 = zext i1 %12 to i32
   %14 = shl nuw nsw i32 4, %13
   %15 = select i1 %12, i64 2083776, i64 1131200
@@ -9907,7 +9907,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 3) %6) unnamed_addr #1 {
   %8 = ptrtoint ptr %0 to i64
   %9 = alloca [4 x float], align 16
   %10 = alloca [4 x i8], align 4
@@ -21718,7 +21718,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @demosaic_ppg(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, float noundef %5) unnamed_addr #1 {
+define internal fastcc void @demosaic_ppg(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, float noundef %5) unnamed_addr #1 {
   %7 = alloca [9 x float], align 16
   %8 = alloca [8 x float], align 16
   %9 = alloca [4 x float], align 16
@@ -23326,7 +23326,7 @@ declare void @dt_iop_clip_and_zoom_demosaic_third_size_xtrans_f(ptr noundef, ptr
 declare void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @color_smoothing(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #11 {
+define internal fastcc void @color_smoothing(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #11 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !51
   %6 = icmp sgt i32 %2, 0
@@ -25740,7 +25740,7 @@ declare float @llvm.maxnum.f32(float, float) #20
 declare void @dt_iop_image_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @rcd_ppg_border(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #22 {
+define internal fastcc void @rcd_ppg_border(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 4, 10) %5) unnamed_addr #22 {
   %7 = alloca [8 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = add nuw nsw i32 %5, 3

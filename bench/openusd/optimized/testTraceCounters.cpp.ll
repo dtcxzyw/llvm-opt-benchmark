@@ -436,7 +436,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit85: ; preds = %136, %140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(24) @constinit.12, i64 24, i1 false)
   %151 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %149, ptr %151, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %17)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %17)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit287
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %148
@@ -475,7 +475,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit88: ; preds = %_ZNSt6vecto
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %160, ptr noundef nonnull align 8 dereferenceable(24) @constinit.13, i64 24, i1 false)
   %166 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %164, ptr %166, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %19)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %19)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit96 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit292
 
 _ZNSt6vectorIdSaIdEED2Ev.exit96:                  ; preds = %163
@@ -514,7 +514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit98: ; preds = %_ZNSt6vecto
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %175, ptr noundef nonnull align 8 dereferenceable(24) @constinit.14, i64 24, i1 false)
   %181 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %179, ptr %181, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %21)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %21)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit106 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit297
 
 _ZNSt6vectorIdSaIdEED2Ev.exit106:                 ; preds = %178
@@ -553,7 +553,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit108: ; preds = %_ZNSt6vect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %190, ptr noundef nonnull align 8 dereferenceable(24) @constinit.15, i64 24, i1 false)
   %196 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %194, ptr %196, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %23)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %23)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit116 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit302
 
 _ZNSt6vectorIdSaIdEED2Ev.exit116:                 ; preds = %193
@@ -905,7 +905,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit148: ; preds = %329, %333
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %338, ptr noundef nonnull align 8 dereferenceable(48) @constinit.8, i64 48, i1 false)
   %344 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %342, ptr %344, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %35)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %35)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit156 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit327
 
 _ZNSt6vectorIdSaIdEED2Ev.exit156:                 ; preds = %341
@@ -944,7 +944,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit158: ; preds = %_ZNSt6vect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %353, ptr noundef nonnull align 8 dereferenceable(48) @constinit.9, i64 48, i1 false)
   %359 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %357, ptr %359, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %37)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %37)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit166 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit332
 
 _ZNSt6vectorIdSaIdEED2Ev.exit166:                 ; preds = %356
@@ -983,7 +983,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit168: ; preds = %_ZNSt6vect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %368, ptr noundef nonnull align 8 dereferenceable(48) @constinit.10, i64 48, i1 false)
   %374 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %372, ptr %374, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %39)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %39)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit176 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit337
 
 _ZNSt6vectorIdSaIdEED2Ev.exit176:                 ; preds = %371
@@ -1022,7 +1022,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit178: ; preds = %_ZNSt6vect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %383, ptr noundef nonnull align 8 dereferenceable(48) @constinit.11, i64 48, i1 false)
   %389 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %387, ptr %389, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %41)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %41)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit186 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit342
 
 _ZNSt6vectorIdSaIdEED2Ev.exit186:                 ; preds = %386
@@ -1061,7 +1061,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit188: ; preds = %_ZNSt6vect
   store double 1.000000e+00, ptr %398, align 8
   %404 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %402, ptr %404, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %43)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %43)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit196 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit347
 
 _ZNSt6vectorIdSaIdEED2Ev.exit196:                 ; preds = %401
@@ -1337,7 +1337,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit228: ; preds = %493, %497
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %502, ptr noundef nonnull align 8 dereferenceable(24) @constinit.12, i64 24, i1 false)
   %508 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %506, ptr %508, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %53)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef %53)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit236 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit368
 
 _ZNSt6vectorIdSaIdEED2Ev.exit236:                 ; preds = %505
@@ -1376,7 +1376,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit238: ; preds = %_ZNSt6vect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %517, ptr noundef nonnull align 8 dereferenceable(24) @constinit.13, i64 24, i1 false)
   %523 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %521, ptr %523, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull %55)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %55)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit246 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit373
 
 _ZNSt6vectorIdSaIdEED2Ev.exit246:                 ; preds = %520
@@ -1415,7 +1415,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit248: ; preds = %_ZNSt6vect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %532, ptr noundef nonnull align 8 dereferenceable(24) @constinit.14, i64 24, i1 false)
   %538 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %536, ptr %538, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %57)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %57)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit256 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit378
 
 _ZNSt6vectorIdSaIdEED2Ev.exit256:                 ; preds = %535
@@ -1454,7 +1454,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit258: ; preds = %_ZNSt6vect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %547, ptr noundef nonnull align 8 dereferenceable(24) @constinit.15, i64 24, i1 false)
   %553 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %551, ptr %553, align 8
-  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull %59)
+  invoke fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %59)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit266 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit383
 
 _ZNSt6vectorIdSaIdEED2Ev.exit266:                 ; preds = %550
@@ -3606,7 +3606,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13TraceReporterEED2Ev.exit52:
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL25TestTimelineCounterValuesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIdSaIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8

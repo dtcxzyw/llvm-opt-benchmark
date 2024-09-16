@@ -636,7 +636,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   br i1 %tobool125.not.i, label %for.cond.i, label %fail.i
 
 for.end.i:                                        ; preds = %for.cond.i
-  %call128.i = call fastcc i32 @qemu_vfio_pci_read_config(ptr noundef %call, ptr noundef nonnull %pci_cmd.i)
+  %call128.i = call fastcc i32 @qemu_vfio_pci_read_config(ptr noundef %call, ptr noundef %pci_cmd.i)
   %tobool129.not.i = icmp eq i32 %call128.i, 0
   br i1 %tobool129.not.i, label %if.end131.i, label %fail.i
 
@@ -644,7 +644,7 @@ if.end131.i:                                      ; preds = %for.end.i
   %36 = load i16, ptr %pci_cmd.i, align 2
   %37 = or i16 %36, 4
   store i16 %37, ptr %pci_cmd.i, align 2
-  %call134.i = call fastcc i32 @qemu_vfio_pci_write_config(ptr noundef %call, ptr noundef nonnull %pci_cmd.i)
+  %call134.i = call fastcc i32 @qemu_vfio_pci_write_config(ptr noundef %call, ptr noundef %pci_cmd.i)
   %tobool135.not.i = icmp eq i32 %call134.i, 0
   br i1 %tobool135.not.i, label %qemu_vfio_init_pci.exit.thread, label %fail.i
 
@@ -785,7 +785,7 @@ trace_qemu_vfio_dma_map.exit.then:                ; preds = %trace_qemu_vfio_dma
 trace_qemu_vfio_dma_map.exit.cont:                ; preds = %trace_qemu_vfio_dma_map.exit, %trace_qemu_vfio_dma_map.exit.then
   %x.val2.i = phi ptr [ %x.val2.i.then.val, %trace_qemu_vfio_dma_map.exit.then ], [ @qemu_mutex_lock, %trace_qemu_vfio_dma_map.exit ]
   tail call void %x.val2.i(ptr noundef %s) #16
-  %call11 = call fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef %host, ptr noundef nonnull %index)
+  %call11 = call fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef %host, ptr noundef %index)
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %if.else16, label %if.then13
 
@@ -1142,7 +1142,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef %host, ptr nocapture noundef writeonly %index) unnamed_addr #0 {
+define internal fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef %host, ptr nocapture noundef nonnull writeonly %index) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %mappings = getelementptr inbounds i8, ptr %s, i64 360
@@ -1596,7 +1596,7 @@ trace_qemu_vfio_dma_unmap.exit.then:              ; preds = %trace_qemu_vfio_dma
 trace_qemu_vfio_dma_unmap.exit.cont:              ; preds = %trace_qemu_vfio_dma_unmap.exit, %trace_qemu_vfio_dma_unmap.exit.then
   %x.val2.i = phi ptr [ %x.val2.i.then.val, %trace_qemu_vfio_dma_unmap.exit.then ], [ @qemu_mutex_lock, %trace_qemu_vfio_dma_unmap.exit ]
   tail call void %x.val2.i(ptr noundef %s) #16
-  %call4 = call fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef nonnull %host, ptr noundef nonnull %index)
+  %call4 = call fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef nonnull %host, ptr noundef %index)
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %glib_autoptr_cleanup_QemuLockable.exit.cont10, label %if.end7
 
@@ -1896,7 +1896,7 @@ cleanup:                                          ; preds = %trace_qemu_vfio_reg
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_vfio_pci_read_config(ptr nocapture noundef readonly %s, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc i32 @qemu_vfio_pci_read_config(ptr nocapture noundef readonly %s, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = getelementptr inbounds i8, ptr %s, i64 128
@@ -1928,11 +1928,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %buf, i32 noundef 4, i32 noundef 2, i64 noundef %0, i64 noundef %1) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %buf, i32 noundef 4, i32 noundef 2, i64 noundef %0, i64 noundef %1) #16
   br label %trace_qemu_vfio_pci_read_config.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef %buf, i32 noundef 4, i32 noundef 2, i64 noundef %0, i64 noundef %1) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef nonnull %buf, i32 noundef 4, i32 noundef 2, i64 noundef %0, i64 noundef %1) #16
   br label %trace_qemu_vfio_pci_read_config.exit
 
 trace_qemu_vfio_pci_read_config.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1954,7 +1954,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %9 = load i32, ptr %device, align 8
   %10 = load i64, ptr %offset, align 8
   %add11 = add i64 %10, 4
-  %call = tail call i64 @pread64(i32 noundef %9, ptr noundef %buf, i64 noundef 2, i64 noundef %add11) #16
+  %call = tail call i64 @pread64(i32 noundef %9, ptr noundef nonnull %buf, i64 noundef 2, i64 noundef %add11) #16
   %cmp12 = icmp eq i64 %call, -1
   br i1 %cmp12, label %land.rhs, label %do.end
 
@@ -1985,7 +1985,7 @@ cond.end:                                         ; preds = %do.end, %cond.false
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_vfio_pci_write_config(ptr nocapture noundef readonly %s, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc i32 @qemu_vfio_pci_write_config(ptr nocapture noundef readonly %s, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = getelementptr inbounds i8, ptr %s, i64 128
@@ -2017,11 +2017,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %buf, i32 noundef 4, i32 noundef 2, i64 noundef %0, i64 noundef %1) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %buf, i32 noundef 4, i32 noundef 2, i64 noundef %0, i64 noundef %1) #16
   br label %trace_qemu_vfio_pci_write_config.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef %buf, i32 noundef 4, i32 noundef 2, i64 noundef %0, i64 noundef %1) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef nonnull %buf, i32 noundef 4, i32 noundef 2, i64 noundef %0, i64 noundef %1) #16
   br label %trace_qemu_vfio_pci_write_config.exit
 
 trace_qemu_vfio_pci_write_config.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2043,7 +2043,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %9 = load i32, ptr %device, align 8
   %10 = load i64, ptr %offset, align 8
   %add11 = add i64 %10, 4
-  %call = tail call i64 @pwrite64(i32 noundef %9, ptr noundef %buf, i64 noundef 2, i64 noundef %add11) #16
+  %call = tail call i64 @pwrite64(i32 noundef %9, ptr noundef nonnull %buf, i64 noundef 2, i64 noundef %add11) #16
   %cmp12 = icmp eq i64 %call, -1
   br i1 %cmp12, label %land.rhs, label %do.end
 

@@ -1540,7 +1540,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 28, 36) i32 @dissect_usb_com_get_ntb_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 28, 36) i32 @dissect_usb_com_get_ntb_params(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_usb_com_get_ntb_params_length, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #8
   %6 = add nuw nsw i32 %2, 2
@@ -1550,7 +1550,7 @@ define internal fastcc range(i32 28, 36) i32 @dissect_usb_com_get_ntb_params(ptr
   %10 = add nuw nsw i32 %2, 4
   %11 = load i32, ptr @hf_usb_com_get_ntb_params_ntb_in_max_size, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef -2147483648) #8
-  %13 = add nuw nsw i32 %2, 8
+  %13 = or disjoint i32 %2, 8
   %14 = load i32, ptr @hf_usb_com_get_ntb_params_ndp_in_divisor, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 2, i32 noundef -2147483648) #8
   %16 = add nuw nsw i32 %2, 10
@@ -1562,7 +1562,7 @@ define internal fastcc range(i32 28, 36) i32 @dissect_usb_com_get_ntb_params(ptr
   %22 = add nuw nsw i32 %2, 14
   %23 = load i32, ptr @hf_usb_com_get_ntb_params_reserved, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef -2147483648) #8
-  %25 = add nuw nsw i32 %2, 16
+  %25 = or disjoint i32 %2, 16
   %26 = load i32, ptr @hf_usb_com_get_ntb_params_ntb_out_max_size, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef -2147483648) #8
   %28 = add nuw nsw i32 %2, 20
@@ -1571,7 +1571,7 @@ define internal fastcc range(i32 28, 36) i32 @dissect_usb_com_get_ntb_params(ptr
   %31 = add nuw nsw i32 %2, 22
   %32 = load i32, ptr @hf_usb_com_get_ntb_params_ndp_out_payload_remainder, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef -2147483648) #8
-  %34 = add nuw nsw i32 %2, 24
+  %34 = or disjoint i32 %2, 24
   %35 = load i32, ptr @hf_usb_com_get_ntb_params_ndp_out_alignment, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef -2147483648) #8
   %37 = add nuw nsw i32 %2, 26
@@ -1582,7 +1582,7 @@ define internal fastcc range(i32 28, 36) i32 @dissect_usb_com_get_ntb_params(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 4, 0) i32 @dissect_usb_com_ntb_input_size(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 4, 16) i32 @dissect_usb_com_ntb_input_size(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   %5 = load i32, ptr @hf_usb_com_set_ntb_input_size_ntb_in_max_size, align 4
   %6 = load i32, ptr @hf_usb_com_get_ntb_input_size_ntb_in_max_size, align 4
@@ -1603,7 +1603,7 @@ define internal fastcc range(i32 4, 0) i32 @dissect_usb_com_ntb_input_size(ptr n
   %19 = load i32, ptr @hf_usb_com_get_ntb_input_size_reserved, align 4
   %20 = select i1 %.not, i32 %19, i32 %18
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef -2147483648) #8
-  %22 = add nuw nsw i32 %2, 8
+  %22 = or disjoint i32 %2, 8
   br label %23
 
 23:                                               ; preds = %12, %4

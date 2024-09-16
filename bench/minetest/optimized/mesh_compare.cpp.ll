@@ -122,7 +122,7 @@ _ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit7: ; preds = %
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16canonicalizeMeshRKSt6vectorIN3irr5video9S3DVertexESaIS2_EERKS_ItSaItEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr %vertices.0.val, ptr %vertices.8.val, ptr %indices.0.val, ptr %indices.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16canonicalizeMeshRKSt6vectorIN3irr5video9S3DVertexESaIS2_EERKS_ItSaItEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr %vertices.0.val, ptr %vertices.8.val, ptr %indices.0.val, ptr %indices.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4.sroa.0.i = alloca [3 x %"struct.irr::video::S3DVertex"], align 8
   %ref.tmp = alloca %"struct.std::array.25", align 4
@@ -1376,7 +1376,7 @@ _ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqual
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12sortTriangleSt5arrayIN3irr5video9S3DVertexELm3EE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %agg.result, ptr noundef nonnull byval(%"struct.std::array.25") align 8 %t) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12sortTriangleSt5arrayIN3irr5video9S3DVertexELm3EE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %agg.result, ptr noundef nonnull byval(%"struct.std::array.25") align 8 %t) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %t, i64 36
   %call2 = call noundef zeroext i1 @_ZNK3irr5video9S3DVertexltERKS1_(ptr noundef nonnull align 4 dereferenceable(36) %t, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i)

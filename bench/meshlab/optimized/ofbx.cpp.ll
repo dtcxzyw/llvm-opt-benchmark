@@ -2967,7 +2967,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %56 = load double, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %15, i64 112
   store double %56, ptr %57, align 8
-  call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %42)
+  call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %42)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !27
   %.val.i8 = load ptr, ptr %39, align 8, !noalias !27
@@ -2975,7 +2975,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.val.i9 = load ptr, ptr %58, align 8, !noalias !27
   call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr %.val.val.i9, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 0)
+  call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !30
   %.val.i10 = load ptr, ptr %39, align 8, !noalias !30
@@ -2997,7 +2997,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %68 = load double, ptr %67, align 8, !noalias !33
   %69 = fneg double %68
   store double %69, ptr %66, align 8, !alias.scope !33
-  call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 5)
+  call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !36
@@ -3510,7 +3510,7 @@ define void @_ZNK4ofbx6Object15getLocalScalingEv(ptr dead_on_unwind noalias noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #15 {
+define internal fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #15 {
   %4 = alloca %"struct.ofbx::Matrix", align 8
   %5 = alloca %"struct.ofbx::Matrix", align 8
   %6 = alloca %"struct.ofbx::Matrix", align 8
@@ -5090,7 +5090,7 @@ define noundef ptr @_ZN4ofbx4loadEPKhi(ptr nocapture noundef readonly %0, i32 no
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   %56 = load i32, ptr %55, align 1
-  %57 = invoke fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef nonnull %18, i32 noundef %56)
+  %57 = invoke fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef %18, i32 noundef %56)
           to label %.noexc7 unwind label %_ZNSt10unique_ptrIN4ofbx5SceneESt14default_deleteIS1_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc7:                                          ; preds = %.noexc
@@ -5100,7 +5100,7 @@ define noundef ptr @_ZN4ofbx4loadEPKhi(ptr nocapture noundef readonly %0, i32 no
 
 60:                                               ; preds = %.lr.ph.i
   %61 = load i32, ptr %55, align 1
-  %62 = invoke fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef nonnull %18, i32 noundef %61)
+  %62 = invoke fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef %18, i32 noundef %61)
           to label %.noexc8 unwind label %_ZNSt10unique_ptrIN4ofbx5SceneESt14default_deleteIS1_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc8:                                          ; preds = %60
@@ -5210,7 +5210,7 @@ define noundef ptr @_ZN4ofbx4loadEPKhi(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not.i.i.i, label %_ZN4ofbxL8skipLineEPNS_6CursorE.exit.i, label %.lr.ph.i.i.i, !llvm.loop !161
 
 97:                                               ; preds = %.lr.ph25.i
-  %98 = invoke fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr noundef nonnull %17)
+  %98 = invoke fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr noundef %17)
           to label %.noexc15 unwind label %_ZNSt10unique_ptrIN4ofbx5SceneESt14default_deleteIS1_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc15:                                         ; preds = %97
@@ -8103,7 +8103,7 @@ _ZNK4ofbx8DataView8toStringILi128EEEvRAT__c.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %274, i8 0, i64 272, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %275 = load ptr, ptr %227, align 8
-  %276 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL18parseDoubleVecDataINS_4Vec3EEEbRNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %275, ptr noundef nonnull %9)
+  %276 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL18parseDoubleVecDataINS_4Vec3EEEbRNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %275, ptr noundef %9)
           to label %277 unwind label %279
 
 277:                                              ; preds = %273
@@ -8121,7 +8121,7 @@ _ZNK4ofbx8DataView8toStringILi128EEEvRAT__c.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
 281:                                              ; preds = %277
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %282 = load ptr, ptr %243, align 8
-  %283 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %282, ptr noundef nonnull %10)
+  %283 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %282, ptr noundef %10)
           to label %284 unwind label %286
 
 284:                                              ; preds = %281
@@ -8590,7 +8590,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit216.i:               ; preds = %440
   br i1 %.not115.i, label %.critedge128.i, label %464
 
 464:                                              ; preds = %461
-  %465 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %463, ptr noundef nonnull %12)
+  %465 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %463, ptr noundef %12)
           to label %466 unwind label %.loopexit.split-lp424.i.loopexit
 
 466:                                              ; preds = %464
@@ -9109,7 +9109,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i: ; preds = %_ZNK4ofbx8DataView
   br i1 %.not41.i.i, label %.thread31.i.i, label %652
 
 652:                                              ; preds = %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i
-  %653 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %651, ptr noundef nonnull %15)
+  %653 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %651, ptr noundef %15)
           to label %.noexc238.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc238.i:                                      ; preds = %652
@@ -9417,7 +9417,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %781, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %782
 
 782:                                              ; preds = %777
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %746, ptr nonnull align 1 %761, i64 %778, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %746, ptr nonnull align 1 %761, i64 %778, i1 false)
   br label %.sink.split.i
 
 783:                                              ; preds = %.noexc243.i
@@ -9532,7 +9532,7 @@ _ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_.exit.i.i.i.i.i.i: ; preds = %.crite
 
 821:                                              ; preds = %714
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %822 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIfEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %660, ptr noundef nonnull %8)
+  %822 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIfEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %660, ptr noundef %8)
           to label %823 unwind label %824
 
 823:                                              ; preds = %821
@@ -10259,7 +10259,7 @@ _ZNK4ofbx8DataViewneEPKc.exit.backedge.i:         ; preds = %.lr.ph.i.i282.i, %.
   br i1 %.not118.i, label %1127, label %1118
 
 1118:                                             ; preds = %1116
-  %1119 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1115, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %1119 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1115, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef %16, ptr noundef %17, ptr noundef %18)
           to label %1120 unwind label %1121
 
 1120:                                             ; preds = %1118
@@ -10286,7 +10286,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit292.i:               ; preds = %1124, %1121
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 1127:                                             ; preds = %1116
-  %1128 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1115, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %1128 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1115, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef %16, ptr noundef %17, ptr noundef %18)
           to label %1129 unwind label %1121
 
 1129:                                             ; preds = %1127
@@ -10334,7 +10334,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EED2Ev.exit297.i:  ; preds = %1142, %_ZNSt6vector
 1144:                                             ; preds = %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EED2Ev.exit297.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  %1145 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1143, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  %1145 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1143, ptr noundef %19, ptr noundef %20, ptr noundef %21)
           to label %1146 unwind label %1148
 
 1146:                                             ; preds = %1144
@@ -10409,7 +10409,7 @@ _ZNSt6vectorIN4ofbx4Vec4ESaIS1_EED2Ev.exit304.i:  ; preds = %1166, %_ZNSt6vector
 1169:                                             ; preds = %1167
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %1170 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1168, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24)
+  %1170 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1168, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %22, ptr noundef %23, ptr noundef %24)
           to label %1171 unwind label %1173
 
 1171:                                             ; preds = %1169
@@ -13169,7 +13169,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #22
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = trunc i32 %1 to i16
   %4 = icmp ugt i16 %3, 7499
   %5 = load ptr, ptr %0, align 8
@@ -13513,7 +13513,7 @@ _ZN4ofbx8PropertyD0Ev.exit.i:                     ; preds = %_ZN4ofbxL4readIjEEN
 
 .lr.ph115:                                        ; preds = %130, %139
   %.0113 = phi ptr [ %141, %139 ], [ %55, %130 ]
-  %135 = tail call fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef nonnull %0, i32 noundef %1)
+  %135 = tail call fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef %0, i32 noundef %1)
   %136 = extractvalue { ptr, i8 } %135, 1
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %138, label %139
@@ -14444,7 +14444,7 @@ _ZN4ofbxL17parseTextArrayRawIfEEbRKNS_8PropertyEPT_i.exit: ; preds = %_ZN4ofbx10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr nocapture noundef %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr nocapture noundef nonnull %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -15225,7 +15225,7 @@ _ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit122:  ; preds = %_ZN4ofbxL8skipLineE
   br i1 %.not51, label %321, label %280
 
 280:                                              ; preds = %.lr.ph243
-  %281 = tail call fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr noundef nonnull %0)
+  %281 = tail call fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr noundef %0)
   %282 = extractvalue { ptr, i8 } %281, 0
   %283 = extractvalue { ptr, i8 } %281, 1
   %284 = trunc nuw i8 %283 to i1
@@ -16157,7 +16157,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit:       ; preds = %_ZNK4ofbx8DataViewe
   br i1 %.not35, label %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.thread, label %27
 
 27:                                               ; preds = %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit
-  %28 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %2)
+  %28 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef %2)
           to label %29 unwind label %30
 
 29:                                               ; preds = %27
@@ -17007,7 +17007,7 @@ _ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Sel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL18parseDoubleVecDataINS_4Vec3EEEbRNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL18parseDoubleVecDataINS_4Vec3EEEbRNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.mz_stream_s, align 8
   %4 = alloca %"class.std::vector.126", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -17145,7 +17145,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %78, label %_ZN4ofbxL16parseBinaryArrayINS_4Vec3EEEbRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exit, label %79
 
 79:                                               ; preds = %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr nonnull align 1 %58, i64 %75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %58, i64 %75, i1 false)
   br label %_ZN4ofbxL16parseBinaryArrayINS_4Vec3EEEbRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exit
 
 80:                                               ; preds = %62
@@ -17251,7 +17251,7 @@ _ZN4ofbx10fromStringINS_4Vec3EEEPKcS3_S3_PT_.exit.i.i.i: ; preds = %.critedge.i.
 
 121:                                              ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %122 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIfEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %4)
+  %122 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIfEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
           to label %123 unwind label %124
 
 123:                                              ; preds = %121
@@ -17361,7 +17361,7 @@ _ZN4ofbxL16parseBinaryArrayINS_4Vec3EEEbRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIiEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -18247,7 +18247,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit:                    ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #8 {
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not10.i = icmp eq ptr %8, null
@@ -19110,7 +19110,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EED2Ev.exit19:     ; preds = %87, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.ofbx::Vec4", align 8
   %6 = alloca %struct.mz_stream_s, align 8
   %7 = alloca %"class.std::vector.126", align 8
@@ -19739,7 +19739,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %251, label %_ZN4ofbxL18parseDoubleVecDataINS_4Vec4EEEbRNS_8PropertyEPSt6vectorIT_SaIS5_EE.exit, label %252
 
 252:                                              ; preds = %247
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %216, ptr nonnull align 1 %231, i64 %248, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %216, ptr nonnull align 1 %231, i64 %248, i1 false)
   br label %_ZN4ofbxL18parseDoubleVecDataINS_4Vec4EEEbRNS_8PropertyEPSt6vectorIT_SaIS5_EE.exit
 
 253:                                              ; preds = %235
@@ -19846,7 +19846,7 @@ _ZN4ofbx10fromStringINS_4Vec4EEEPKcS3_S3_PT_.exit.i.i.i.i: ; preds = %.critedge.
 
 294:                                              ; preds = %183
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %295 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIfEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %127, ptr noundef nonnull %7)
+  %295 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIfEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %127, ptr noundef %7)
           to label %296 unwind label %297
 
 296:                                              ; preds = %294
@@ -20648,7 +20648,7 @@ common.ret1:                                      ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL14parseTextArrayINS_4Vec3EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef %1) unnamed_addr #8 {
+define internal fastcc void @_ZN4ofbxL14parseTextArrayINS_4Vec3EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull %1) unnamed_addr #8 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -20787,7 +20787,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE9push_backERKS1_.exit: ; preds = %26, %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIfEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL16parseBinaryArrayIfEEbRKNS_8PropertyEPSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -22689,7 +22689,7 @@ define linkonce_odr void @_ZNK4ofbx8MeshImpl18getGeometricMatrixEv(ptr dead_on_u
   %28 = fpext float %27 to double
   %29 = getelementptr inbounds i8, ptr %9, i64 80
   store double %28, ptr %29, align 8
-  call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 0)
+  call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 0)
   %30 = load double, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %10, i64 96
   store double %30, ptr %31, align 8

@@ -2051,7 +2051,7 @@ define internal i32 @dissect_dhcpv6_bulk_leasequery_pdu(ptr noundef %0, ptr noun
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.061 = phi i32 [ %40, %.lr.ph ], [ 6, %24 ]
   %38 = load i32, ptr @proto_dhcpv6_bulk_leasequery, align 4
-  %39 = call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %34, i32 noundef %.061, i32 noundef %36, ptr noundef nonnull %5, i32 noundef %38, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %6, i8 noundef zeroext %17)
+  %39 = call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %34, i32 noundef %.061, i32 noundef %36, ptr noundef %5, i32 noundef %38, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %6, i8 noundef zeroext %17)
   %40 = add nuw nsw i32 %39, %.061
   %41 = icmp ult i32 %40, %36
   %42 = load i32, ptr %5, align 4
@@ -2087,7 +2087,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, ptr nocapture noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
@@ -4411,23 +4411,22 @@ define internal fastcc void @dhcpv6_domain(ptr noundef %0, ptr noundef %1, i32 n
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 129) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = add nuw nsw i32 %3, 7
   %8 = lshr i32 %7, 3
-  %9 = and i32 %8, 31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %13, label %10
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %12, label %9
 
-10:                                               ; preds = %5
-  %11 = zext nneg i32 %9 to i64
-  %12 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, i64 noundef %11) #6
-  br label %13
+9:                                                ; preds = %5
+  %10 = zext nneg i32 %8 to i64
+  %11 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, i64 noundef %10) #6
+  br label %12
 
-13:                                               ; preds = %10, %5
-  %14 = call ptr @proto_tree_add_ipv6(ptr noundef %4, i32 noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %9, ptr noundef nonnull %6) #6
-  ret i32 %9
+12:                                               ; preds = %9, %5
+  %13 = call ptr @proto_tree_add_ipv6(ptr noundef %4, i32 noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %8, ptr noundef nonnull %6) #6
+  ret i32 %8
 }
 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -4581,7 +4580,7 @@ define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph:                                           ; preds = %83, %.lr.ph
   %.180 = phi i32 [ %88, %.lr.ph ], [ %84, %83 ]
   %86 = load i32, ptr @proto_dhcpv6, align 4
-  %87 = call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %.06073, i32 noundef %.180, i32 noundef %4, ptr noundef nonnull %7, i32 noundef %86, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %5, i8 noundef zeroext %8)
+  %87 = call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %.06073, i32 noundef %.180, i32 noundef %4, ptr noundef %7, i32 noundef %86, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %5, i8 noundef zeroext %8)
   %88 = add i32 %87, %.180
   %89 = icmp slt i32 %88, %4
   %90 = load i32, ptr %7, align 4

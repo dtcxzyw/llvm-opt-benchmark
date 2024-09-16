@@ -628,7 +628,7 @@ define dso_local i32 @acpi_install_gpe_handler(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
   %8 = icmp ne ptr %4, null
   %9 = and i32 %2, -9

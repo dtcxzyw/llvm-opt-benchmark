@@ -1379,7 +1379,7 @@ _ZN3Map16getBlockNoCreateEN3irr4core8vector3dIsEE.exit: ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZL17set_node_in_blockPK14NodeDefManagerP8MapBlockN3irr4core8vector3dIsEE7MapNode(ptr nocapture noundef readonly %nodedef, ptr nocapture noundef %block, i48 %relpos.coerce, i32 %n.coerce) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17set_node_in_blockPK14NodeDefManagerP8MapBlockN3irr4core8vector3dIsEE7MapNode(ptr nocapture noundef readonly %nodedef, ptr nocapture noundef nonnull %block, i48 %relpos.coerce, i32 %n.coerce) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %blockpos = alloca %"class.irr::core::vector3d", align 8
   %p = alloca %"class.irr::core::vector3d", align 8

@@ -6526,7 +6526,7 @@ set_tm_yday.exit:                                 ; preds = %81, %83
   br label %98
 
 98:                                               ; preds = %set_tm_yday.exit, %78
-  %99 = call fastcc { i64, ptr } @tm2jv(ptr noundef nonnull %6)
+  %99 = call fastcc { i64, ptr } @tm2jv(ptr noundef %6)
   %100 = extractvalue { i64, ptr } %99, 0
   %101 = extractvalue { i64, ptr } %99, 1
   %102 = load i8, ptr %22, align 1
@@ -6606,7 +6606,7 @@ define internal { i64, ptr } @f_strftime(ptr nocapture noundef readnone %0, i64 
 29:                                               ; preds = %22, %9
   %.sroa.030.0 = phi i64 [ %11, %9 ], [ %1, %22 ]
   %.sroa.10.0 = phi ptr [ %12, %9 ], [ %2, %22 ]
-  %30 = call fastcc i32 @jv2tm(i64 %.sroa.030.0, ptr %.sroa.10.0, ptr noundef nonnull %6)
+  %30 = call fastcc i32 @jv2tm(i64 %.sroa.030.0, ptr %.sroa.10.0, ptr noundef %6)
   %.not46 = icmp eq i32 %30, 0
   br i1 %.not46, label %31, label %36
 
@@ -6689,7 +6689,7 @@ define internal { i64, ptr } @f_strflocaltime(ptr nocapture noundef readnone %0,
 27:                                               ; preds = %20, %9
   %.sroa.028.0 = phi i64 [ %11, %9 ], [ %1, %20 ]
   %.sroa.8.0 = phi ptr [ %12, %9 ], [ %2, %20 ]
-  %28 = call fastcc i32 @jv2tm(i64 %.sroa.028.0, ptr %.sroa.8.0, ptr noundef nonnull %6)
+  %28 = call fastcc i32 @jv2tm(i64 %.sroa.028.0, ptr %.sroa.8.0, ptr noundef %6)
   %.not41 = icmp eq i32 %28, 0
   br i1 %.not41, label %29, label %34
 
@@ -6760,7 +6760,7 @@ define internal { i64, ptr } @f_mktime(ptr nocapture readnone %0, i64 %1, ptr %2
   br label %44
 
 22:                                               ; preds = %11
-  %23 = call fastcc i32 @jv2tm(i64 %1, ptr %2, ptr noundef nonnull %4)
+  %23 = call fastcc i32 @jv2tm(i64 %1, ptr %2, ptr noundef %4)
   %.not23 = icmp eq i32 %23, 0
   br i1 %.not23, label %24, label %29
 
@@ -6836,7 +6836,7 @@ define internal { i64, ptr } @f_gmtime(ptr nocapture readnone %0, i64 %1, ptr %2
   br label %40
 
 22:                                               ; preds = %12
-  %23 = call fastcc { i64, ptr } @tm2jv(ptr noundef nonnull %15)
+  %23 = call fastcc { i64, ptr } @tm2jv(ptr noundef %15)
   %24 = extractvalue { i64, ptr } %23, 0
   %25 = extractvalue { i64, ptr } %23, 1
   %26 = call { i64, ptr } @jv_copy(i64 %24, ptr %25) #14
@@ -6894,7 +6894,7 @@ define internal { i64, ptr } @f_localtime(ptr nocapture readnone %0, i64 %1, ptr
   br label %40
 
 22:                                               ; preds = %12
-  %23 = call fastcc { i64, ptr } @tm2jv(ptr noundef nonnull %15)
+  %23 = call fastcc { i64, ptr } @tm2jv(ptr noundef %15)
   %24 = extractvalue { i64, ptr } %23, 0
   %25 = extractvalue { i64, ptr } %23, 1
   %26 = call { i64, ptr } @jv_copy(i64 %24, ptr %25) #14
@@ -7211,7 +7211,7 @@ declare { i64, ptr } @jv_sort(i64, ptr, i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_group(i64, ptr, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
@@ -7239,7 +7239,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11)
   %24 = extractvalue { i64, ptr } %23, 0
   %25 = extractvalue { i64, ptr } %23, 1
-  br label %123
+  br label %120
 
 26:                                               ; preds = %5
   %27 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -7263,7 +7263,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9)
   %39 = extractvalue { i64, ptr } %38, 0
   %40 = extractvalue { i64, ptr } %38, 1
-  br label %123
+  br label %120
 
 41:                                               ; preds = %26
   %42 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
@@ -7294,7 +7294,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7)
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
-  br label %123
+  br label %120
 
 63:                                               ; preds = %41
   %64 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
@@ -7310,7 +7310,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %70 = tail call { i64, ptr } @jv_null() #14
   %71 = extractvalue { i64, ptr } %70, 0
   %72 = extractvalue { i64, ptr } %70, 1
-  br label %123
+  br label %120
 
 73:                                               ; preds = %63
   %74 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
@@ -7332,72 +7332,68 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %90 = icmp sgt i32 %89, 1
   br i1 %90, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %73
-  %91 = icmp ne i32 %4, 1
-  br label %92
+.lr.ph:                                           ; preds = %73, %113
+  %.sroa.8.180 = phi ptr [ %.sroa.8.2, %113 ], [ %79, %73 ]
+  %.sroa.072.179 = phi i64 [ %.sroa.072.2, %113 ], [ %78, %73 ]
+  %.sroa.5.078 = phi ptr [ %.sroa.5.1, %113 ], [ %85, %73 ]
+  %.sroa.020.077 = phi i64 [ %.sroa.020.1, %113 ], [ %84, %73 ]
+  %.076 = phi i32 [ %114, %113 ], [ 1, %73 ]
+  %91 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
+  %92 = extractvalue { i64, ptr } %91, 0
+  %93 = extractvalue { i64, ptr } %91, 1
+  %94 = tail call { i64, ptr } @jv_array_get(i64 %92, ptr %93, i32 noundef %.076) #14
+  %95 = extractvalue { i64, ptr } %94, 0
+  %96 = extractvalue { i64, ptr } %94, 1
+  %97 = tail call { i64, ptr } @jv_copy(i64 %95, ptr %96) #14
+  %98 = extractvalue { i64, ptr } %97, 0
+  %99 = extractvalue { i64, ptr } %97, 1
+  %100 = tail call { i64, ptr } @jv_copy(i64 %.sroa.020.077, ptr %.sroa.5.078) #14
+  %101 = extractvalue { i64, ptr } %100, 0
+  %102 = extractvalue { i64, ptr } %100, 1
+  %103 = tail call i32 @jv_cmp(i64 %98, ptr %99, i64 %101, ptr %102) #14
+  %.lobit = lshr i32 %103, 31
+  %104 = icmp eq i32 %.lobit, %4
+  br i1 %104, label %105, label %112
 
-92:                                               ; preds = %.lr.ph, %116
-  %.sroa.8.180 = phi ptr [ %79, %.lr.ph ], [ %.sroa.8.2, %116 ]
-  %.sroa.072.179 = phi i64 [ %78, %.lr.ph ], [ %.sroa.072.2, %116 ]
-  %.sroa.5.078 = phi ptr [ %85, %.lr.ph ], [ %.sroa.5.1, %116 ]
-  %.sroa.020.077 = phi i64 [ %84, %.lr.ph ], [ %.sroa.020.1, %116 ]
-  %.076 = phi i32 [ 1, %.lr.ph ], [ %117, %116 ]
-  %93 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
-  %94 = extractvalue { i64, ptr } %93, 0
-  %95 = extractvalue { i64, ptr } %93, 1
-  %96 = tail call { i64, ptr } @jv_array_get(i64 %94, ptr %95, i32 noundef %.076) #14
-  %97 = extractvalue { i64, ptr } %96, 0
-  %98 = extractvalue { i64, ptr } %96, 1
-  %99 = tail call { i64, ptr } @jv_copy(i64 %97, ptr %98) #14
-  %100 = extractvalue { i64, ptr } %99, 0
-  %101 = extractvalue { i64, ptr } %99, 1
-  %102 = tail call { i64, ptr } @jv_copy(i64 %.sroa.020.077, ptr %.sroa.5.078) #14
-  %103 = extractvalue { i64, ptr } %102, 0
-  %104 = extractvalue { i64, ptr } %102, 1
-  %105 = tail call i32 @jv_cmp(i64 %100, ptr %101, i64 %103, ptr %104) #14
-  %106 = icmp slt i32 %105, 0
-  %107 = xor i1 %91, %106
-  br i1 %107, label %108, label %115
-
-108:                                              ; preds = %92
+105:                                              ; preds = %.lr.ph
   tail call void @jv_free(i64 %.sroa.020.077, ptr %.sroa.5.078) #14
   tail call void @jv_free(i64 %.sroa.072.179, ptr %.sroa.8.180) #14
-  %109 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %106 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %107 = extractvalue { i64, ptr } %106, 0
+  %108 = extractvalue { i64, ptr } %106, 1
+  %109 = tail call { i64, ptr } @jv_array_get(i64 %107, ptr %108, i32 noundef %.076) #14
   %110 = extractvalue { i64, ptr } %109, 0
   %111 = extractvalue { i64, ptr } %109, 1
-  %112 = tail call { i64, ptr } @jv_array_get(i64 %110, ptr %111, i32 noundef %.076) #14
-  %113 = extractvalue { i64, ptr } %112, 0
-  %114 = extractvalue { i64, ptr } %112, 1
-  br label %116
+  br label %113
 
-115:                                              ; preds = %92
-  tail call void @jv_free(i64 %97, ptr %98) #14
-  br label %116
+112:                                              ; preds = %.lr.ph
+  tail call void @jv_free(i64 %95, ptr %96) #14
+  br label %113
 
-116:                                              ; preds = %108, %115
-  %.sroa.020.1 = phi i64 [ %97, %108 ], [ %.sroa.020.077, %115 ]
-  %.sroa.5.1 = phi ptr [ %98, %108 ], [ %.sroa.5.078, %115 ]
-  %.sroa.072.2 = phi i64 [ %113, %108 ], [ %.sroa.072.179, %115 ]
-  %.sroa.8.2 = phi ptr [ %114, %108 ], [ %.sroa.8.180, %115 ]
-  %117 = add nuw nsw i32 %.076, 1
-  %118 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
-  %119 = extractvalue { i64, ptr } %118, 0
-  %120 = extractvalue { i64, ptr } %118, 1
-  %121 = tail call i32 @jv_array_length(i64 %119, ptr %120) #14
-  %122 = icmp slt i32 %117, %121
-  br i1 %122, label %92, label %._crit_edge, !llvm.loop !27
+113:                                              ; preds = %105, %112
+  %.sroa.020.1 = phi i64 [ %95, %105 ], [ %.sroa.020.077, %112 ]
+  %.sroa.5.1 = phi ptr [ %96, %105 ], [ %.sroa.5.078, %112 ]
+  %.sroa.072.2 = phi i64 [ %110, %105 ], [ %.sroa.072.179, %112 ]
+  %.sroa.8.2 = phi ptr [ %111, %105 ], [ %.sroa.8.180, %112 ]
+  %114 = add nuw nsw i32 %.076, 1
+  %115 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %116 = extractvalue { i64, ptr } %115, 0
+  %117 = extractvalue { i64, ptr } %115, 1
+  %118 = tail call i32 @jv_array_length(i64 %116, ptr %117) #14
+  %119 = icmp slt i32 %114, %118
+  br i1 %119, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %116, %73
-  %.sroa.020.0.lcssa = phi i64 [ %84, %73 ], [ %.sroa.020.1, %116 ]
-  %.sroa.5.0.lcssa = phi ptr [ %85, %73 ], [ %.sroa.5.1, %116 ]
-  %.sroa.072.1.lcssa = phi i64 [ %78, %73 ], [ %.sroa.072.2, %116 ]
-  %.sroa.8.1.lcssa = phi ptr [ %79, %73 ], [ %.sroa.8.2, %116 ]
+._crit_edge:                                      ; preds = %113, %73
+  %.sroa.020.0.lcssa = phi i64 [ %84, %73 ], [ %.sroa.020.1, %113 ]
+  %.sroa.5.0.lcssa = phi ptr [ %85, %73 ], [ %.sroa.5.1, %113 ]
+  %.sroa.072.1.lcssa = phi i64 [ %78, %73 ], [ %.sroa.072.2, %113 ]
+  %.sroa.8.1.lcssa = phi ptr [ %79, %73 ], [ %.sroa.8.2, %113 ]
   tail call void @jv_free(i64 %0, ptr %1) #14
   tail call void @jv_free(i64 %2, ptr %3) #14
   tail call void @jv_free(i64 %.sroa.020.0.lcssa, ptr %.sroa.5.0.lcssa) #14
-  br label %123
+  br label %120
 
-123:                                              ; preds = %._crit_edge, %69, %50, %28, %13
+120:                                              ; preds = %._crit_edge, %69, %50, %28, %13
   %.sroa.072.0 = phi i64 [ %24, %13 ], [ %39, %28 ], [ %61, %50 ], [ %71, %69 ], [ %.sroa.072.1.lcssa, %._crit_edge ]
   %.sroa.8.0 = phi ptr [ %25, %13 ], [ %40, %28 ], [ %62, %50 ], [ %72, %69 ], [ %.sroa.8.1.lcssa, %._crit_edge ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.072.0, 0
@@ -7625,7 +7621,7 @@ declare ptr @strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, ptr } @tm2jv(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc { i64, ptr } @tm2jv(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = tail call { i64, ptr } @jv_array() #14
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
@@ -7706,7 +7702,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr nocapture noundef readonly %0) un
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   %4 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %5 = extractvalue { i64, ptr } %4, 0

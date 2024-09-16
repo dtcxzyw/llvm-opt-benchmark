@@ -260,7 +260,7 @@ lpad1:                                            ; preds = %lpad1.loopexit.spli
 if.end:                                           ; preds = %while.body
   %2 = load ptr, ptr %buf, align 8
   %conv = sext i32 %1 to i64
-  %call4 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_16Parser10ParseChunkESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS7_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %parser, i64 %conv, ptr %2, ptr noundef nonnull %local_error)
+  %call4 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_16Parser10ParseChunkESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS7_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %parser, i64 %conv, ptr %2, ptr noundef %local_error)
           to label %invoke.cont3 unwind label %lpad1.loopexit
 
 invoke.cont3:                                     ; preds = %if.end
@@ -318,7 +318,7 @@ while.end:                                        ; preds = %invoke.cont2
   br i1 %call.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.end
-  %call2.i9 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_16Parser10ParseChunkESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS7_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %parser, i64 1, ptr nonnull @.str.8, ptr noundef nonnull %local_error)
+  %call2.i9 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_16Parser10ParseChunkESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS7_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %parser, i64 1, ptr nonnull @.str.8, ptr noundef %local_error)
           to label %call2.i.noexc unwind label %lpad1.loopexit.split-lp
 
 call2.i.noexc:                                    ; preds = %land.lhs.true.i
@@ -396,7 +396,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_16Parser10ParseChunkESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS7_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %chunk.coerce0, ptr %chunk.coerce1, ptr noundef %out_error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_16Parser10ParseChunkESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS7_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %chunk.coerce0, ptr %chunk.coerce1, ptr noundef nonnull %out_error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i10 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -516,7 +516,7 @@ land.lhs.true:                                    ; preds = %_ZN6google8protobuf
   %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %16 = load ptr, ptr %vfn, align 8
-  %call15 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 %13, ptr %14, ptr noundef %out_error)
+  %call15 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 %13, ptr %14, ptr noundef nonnull %out_error)
   br i1 %call15, label %if.end22, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true

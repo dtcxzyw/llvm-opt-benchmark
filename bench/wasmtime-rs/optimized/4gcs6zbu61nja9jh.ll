@@ -328,10 +328,10 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
   %13 = load i32, ptr %12, align 4, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 160
   %15 = load i64, ptr %14, align 8, !noundef !14
-  %16 = icmp ugt i64 %15, 4294967295
+  %16 = icmp ult i64 %15, 4294967296
   %17 = trunc nuw i64 %15 to i32
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %16, label %18, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf9bea7e77cb3773eE.exit"
+  br i1 %16, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf9bea7e77cb3773eE.exit", label %18
 
 18:                                               ; preds = %2
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.492294c038c93200376e988bc5c46dd0.19, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.9) #19

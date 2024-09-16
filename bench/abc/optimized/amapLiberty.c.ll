@@ -2726,7 +2726,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipSpaces(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef %3) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipSpaces(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #11 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = icmp ult ptr %5, %2
@@ -2861,7 +2861,7 @@ define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @Amap_LibertyNewItem(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #12 {
+define internal fastcc ptr @Amap_LibertyNewItem(ptr nocapture noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32

@@ -712,7 +712,7 @@ declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @disable_bits(i32 noundef %flags, i32 noundef %bits) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @disable_bits(i32 noundef range(i32 0, 3) %flags, i32 noundef range(i32 8, 11) %bits) unnamed_addr #0 {
 entry:
   %t = alloca %struct.termios, align 4
   %call = tail call i32 @save_term(i32 noundef %flags)

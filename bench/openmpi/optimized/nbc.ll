@@ -259,94 +259,94 @@ define range(i32 -2, 1) i32 @NBC_Sched_op(ptr noundef %0, i8 noundef signext %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @nbc_schedule_round_append(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc range(i32 -2, 1) i32 @nbc_schedule_round_append(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65) %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load volatile i32, ptr %5, align 8
-  br i1 %3, label %7, label %18
+  br i1 %3, label %7, label %17
 
 7:                                                ; preds = %4
-  %8 = add i32 %2, 5
-  %9 = load volatile i32, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = add nsw i32 %8, %9
-  %13 = sext i32 %12 to i64
-  %14 = tail call ptr @realloc(ptr noundef %11, i64 noundef %13) #18
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+  %narrow = add nuw nsw i32 %2, 5
+  %8 = load volatile i32, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = add nsw i32 %narrow, %8
+  %12 = sext i32 %11 to i64
+  %13 = tail call ptr @realloc(ptr noundef %10, i64 noundef %12) #18
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %7
+  tail call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.19)
+  br label %nbc_schedule_grow.exit
 
 16:                                               ; preds = %7
+  store ptr %13, ptr %9, align 8
+  br label %27
+
+17:                                               ; preds = %4
+  %18 = load volatile i32, ptr %5, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = add nsw i32 %18, %2
+  %22 = sext i32 %21 to i64
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #18
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %17
   tail call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.19)
   br label %nbc_schedule_grow.exit
 
-17:                                               ; preds = %7
-  store ptr %14, ptr %10, align 8
-  br label %28
+26:                                               ; preds = %17
+  store ptr %23, ptr %19, align 8
+  br label %27
 
-18:                                               ; preds = %4
-  %19 = load volatile i32, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = add nsw i32 %19, %2
-  %23 = sext i32 %22 to i64
-  %24 = tail call ptr @realloc(ptr noundef %21, i64 noundef %23) #18
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %18
-  tail call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.19)
-  br label %nbc_schedule_grow.exit
-
-27:                                               ; preds = %18
-  store ptr %24, ptr %20, align 8
-  br label %28
-
-28:                                               ; preds = %17, %27
-  %29 = phi ptr [ %14, %17 ], [ %24, %27 ]
+27:                                               ; preds = %16, %26
+  %28 = phi ptr [ %13, %16 ], [ %23, %26 ]
   %.not31 = icmp eq i32 %2, 0
-  br i1 %.not31, label %41, label %30
+  br i1 %.not31, label %40, label %29
 
-30:                                               ; preds = %28
-  %31 = sext i32 %6 to i64
-  %32 = getelementptr inbounds i8, ptr %29, i64 %31
-  %33 = zext nneg i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %1, i64 %33, i1 false)
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
-  %35 = load volatile i32, ptr %34, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %29, i64 %36
-  %.0.copyload.i = load i32, ptr %37, align 1
-  %38 = add nsw i32 %.0.copyload.i, 1
-  store i32 %38, ptr %37, align 1
-  %39 = load volatile i32, ptr %5, align 8
-  %40 = add nsw i32 %39, %2
-  store volatile i32 %40, ptr %5, align 8
-  br label %41
+29:                                               ; preds = %27
+  %30 = sext i32 %6 to i64
+  %31 = getelementptr inbounds i8, ptr %28, i64 %30
+  %32 = zext nneg i32 %2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %1, i64 %32, i1 false)
+  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = load volatile i32, ptr %33, align 4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i8, ptr %28, i64 %35
+  %.0.copyload.i = load i32, ptr %36, align 1
+  %37 = add nsw i32 %.0.copyload.i, 1
+  store i32 %37, ptr %36, align 1
+  %38 = load volatile i32, ptr %5, align 8
+  %39 = add nsw i32 %38, %2
+  store volatile i32 %39, ptr %5, align 8
+  br label %40
 
-41:                                               ; preds = %30, %28
-  br i1 %3, label %42, label %nbc_schedule_grow.exit
+40:                                               ; preds = %29, %27
+  br i1 %3, label %41, label %nbc_schedule_grow.exit
 
-42:                                               ; preds = %41
-  %43 = add nsw i32 %6, %2
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %29, i64 %44
-  store i8 1, ptr %45, align 1
-  %46 = sext i32 %6 to i64
-  %47 = getelementptr inbounds i8, ptr %29, i64 %46
-  %48 = zext nneg i32 %2 to i64
-  %49 = getelementptr inbounds i8, ptr %47, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i32 0, ptr %50, align 1
-  %51 = add nsw i32 %43, 1
-  %52 = getelementptr inbounds i8, ptr %0, i64 20
-  store volatile i32 %51, ptr %52, align 4
-  %53 = load volatile i32, ptr %5, align 8
-  %54 = add nsw i32 %53, 5
-  store volatile i32 %54, ptr %5, align 8
+41:                                               ; preds = %40
+  %42 = add nsw i32 %6, %2
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %28, i64 %43
+  store i8 1, ptr %44, align 1
+  %45 = sext i32 %6 to i64
+  %46 = getelementptr inbounds i8, ptr %28, i64 %45
+  %47 = zext nneg i32 %2 to i64
+  %48 = getelementptr inbounds i8, ptr %46, i64 %47
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i32 0, ptr %49, align 1
+  %50 = add nsw i32 %42, 1
+  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  store volatile i32 %50, ptr %51, align 4
+  %52 = load volatile i32, ptr %5, align 8
+  %53 = add nsw i32 %52, 5
+  store volatile i32 %53, ptr %5, align 8
   br label %nbc_schedule_grow.exit
 
-nbc_schedule_grow.exit:                           ; preds = %16, %26, %41, %42
-  %.0 = phi i32 [ 0, %42 ], [ 0, %41 ], [ -2, %16 ], [ -2, %26 ]
+nbc_schedule_grow.exit:                           ; preds = %15, %25, %40, %41
+  %.0 = phi i32 [ 0, %41 ], [ 0, %40 ], [ -2, %15 ], [ -2, %25 ]
   ret i32 %.0
 }
 

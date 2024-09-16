@@ -321,7 +321,7 @@ lpad:                                             ; preds = %if.end, %if.then
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEEaSEOS2_.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEEC2ERKS2_.exit
   %prim.val = load ptr, ptr %prim, align 8
   %prim.val3 = load ptr, ptr %_M_refcount.i.i, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp3, ptr %prim.val, ptr %prim.val3)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp3, ptr %prim.val, ptr %prim.val3)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.end
@@ -658,7 +658,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataELN9__gnu_cxx12_
 declare void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec9push_backERKSt10shared_ptrINS_2OpEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
@@ -2091,7 +2091,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %2 = load ptr, ptr %ref.tmp, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData5cloneEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %p, ptr noundef nonnull align 8 dereferenceable(192) %2)
           to label %invoke.cont unwind label %lpad
@@ -2174,7 +2174,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; pr
   %p.val = load ptr, ptr %p, align 8
   %14 = getelementptr inbounds i8, ptr %p, i64 8
   %p.val3 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp2, ptr %p.val, ptr %p.val3)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp2, ptr %p.val, ptr %p.val3)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit unwind label %lpad3
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
@@ -2330,7 +2330,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
@@ -2569,12 +2569,12 @@ if.end:                                           ; preds = %if.then.i.i, %if.el
   %call2.val = load ptr, ptr %6, align 8, !noalias !22
   %7 = getelementptr i8, ptr %2, i64 16
   %call2.val1 = load ptr, ptr %7, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %primOpData, ptr %call2.val, ptr %call2.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %primOpData, ptr %call2.val, ptr %call2.val1)
   %8 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %8, align 8, !noalias !22
   %9 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %9, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %10 = load ptr, ptr %ref.tmp, align 8
   %call4 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull align 8 dereferenceable(192) %10, ptr noundef nonnull align 8 dereferenceable(16) %primOpData)
           to label %invoke.cont unwind label %lpad
@@ -2884,7 +2884,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val4 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
   %2 = load ptr, ptr %ref.tmp2, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
@@ -3222,7 +3222,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %data, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %data, ptr %this.val, ptr %this.val1)
   invoke void @_ZN19OpenColorIO_v2_4dev33GetGradingPrimaryGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_20GradingPrimaryOpDataEE(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %invoke.cont unwind label %lpad
 
@@ -3318,7 +3318,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %call2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(192) %2) #14
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -3410,7 +3410,7 @@ if.end:                                           ; preds = %entry
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %call2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(192) %2) #14
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -3538,7 +3538,7 @@ if.end6:                                          ; preds = %if.end
   %this.val = load ptr, ptr %3, align 8, !noalias !22
   %4 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %4, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %5 = load ptr, ptr %ref.tmp, align 8
   tail call void @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData18getDynamicPropertyEv(ptr sret(%"class.std::shared_ptr.51") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %5) #14
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -4190,7 +4190,7 @@ entry:
   %this.val = load ptr, ptr %1, align 8, !noalias !22
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %2, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nonnull align 8 %data, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %data, ptr %this.val, ptr %this.val1)
   invoke void @_ZN19OpenColorIO_v2_4dev28GetGradingPrimaryCPURendererERSt10shared_ptrIKNS_20GradingPrimaryOpDataEE(ptr sret(%"class.std::shared_ptr.54") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %invoke.cont unwind label %lpad
 
@@ -4282,7 +4282,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i = icmp eq ptr %this.16.val, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit, label %if.then.i.i.i.i.i

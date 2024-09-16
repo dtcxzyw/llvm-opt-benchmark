@@ -3443,7 +3443,7 @@ sw.bb.i.i.i.i:                                    ; preds = %if.else.i.i.i
   %3 = load ptr, ptr %bcProvider_.i.i.i.i.i, align 8
   %functionId.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %4 = load i32, ptr %functionId.i.i.i.i, align 8
-  call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef %3, i32 noundef %4)
+  call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef %3, i32 noundef %4)
   %call4.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #14
   %call5.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i.i.i, ptr noundef nonnull @.str.35) #14
@@ -3695,7 +3695,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias align 8 %agg.result, ptr noundef %bcProvider, i32 noundef %funcId) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias nonnull align 8 %agg.result, ptr noundef %bcProvider, i32 noundef %funcId) unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.36", align 1
   %functionHeaders_.i = getelementptr inbounds i8, ptr %bcProvider, i64 296
@@ -4365,7 +4365,7 @@ sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   store ptr %frameName.i.i.i, ptr %OS.i.i.i.i, align 8
   %functionId.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %10 = load i32, ptr %functionId.i.i.i, align 8
-  call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias nonnull align 8 %ref.tmp7.i.i.i, ptr noundef %9, i32 noundef %10)
+  call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias align 8 %ref.tmp7.i.i.i, ptr noundef %9, i32 noundef %10)
   %call.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i.i.i) #14
   %call2.i43.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i.i.i) #14
   %call3.i.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %os.i.i.i, ptr noundef %call.i.i.i.i, i64 noundef %call2.i43.i.i.i) #14

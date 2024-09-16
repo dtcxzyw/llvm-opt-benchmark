@@ -369,7 +369,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare void @show_help_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @usage(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @usage(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %.not = icmp eq i32 %0, 0

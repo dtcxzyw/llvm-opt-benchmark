@@ -92,7 +92,7 @@ strTo16.exit31:                                   ; preds = %strTo16.exit, %18
 
 29:                                               ; preds = %27
   store i32 0, ptr %5, align 4
-  %30 = call fastcc i32 @AddMLUBlock(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %5, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i30)
+  %30 = call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef 4, ptr noundef %5, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i30)
   br label %43
 
 31:                                               ; preds = %27
@@ -118,7 +118,7 @@ strTo16.exit31:                                   ; preds = %strTo16.exit, %18
 
 39:                                               ; preds = %.preheader
   %40 = shl i32 %7, 2
-  %41 = tail call fastcc i32 @AddMLUBlock(ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull %33, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i30)
+  %41 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %40, ptr noundef %33, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i30)
   %42 = load ptr, ptr %0, align 8
   tail call void @_cmsFree(ptr noundef %42, ptr noundef nonnull %33) #13
   br label %43
@@ -132,7 +132,7 @@ strTo16.exit31:                                   ; preds = %strTo16.exit, %18
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AddMLUBlock(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AddMLUBlock(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -238,7 +238,7 @@ GrowMLUpool.exit:                                 ; preds = %45
   %55 = zext i32 %.lcssa51 to i64
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   %57 = zext i32 %1 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %56, ptr align 4 %2, i64 %57, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 4 %2, i64 %57, i1 false)
   %58 = load i32, ptr %35, align 4
   %59 = add i32 %58, %1
   store i32 %59, ptr %35, align 4
@@ -316,7 +316,7 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
 
 28:                                               ; preds = %25
   store i32 0, ptr %5, align 4
-  %29 = call fastcc i32 @AddMLUBlock(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %5, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
+  %29 = call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef 4, ptr noundef %5, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
   br label %94
 
 .lr.ph.i:                                         ; preds = %25, %49
@@ -449,7 +449,7 @@ decodeUTF8.exit:                                  ; preds = %49
 
 decodeUTF8.exit41:                                ; preds = %89, %59
   %91 = shl i32 %spec.select, 2
-  %92 = tail call fastcc i32 @AddMLUBlock(ptr noundef nonnull %0, i32 noundef %91, ptr noundef nonnull %57, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
+  %92 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %91, ptr noundef %57, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
   %93 = load ptr, ptr %0, align 8
   tail call void @_cmsFree(ptr noundef %93, ptr noundef nonnull %57) #13
   br label %94
@@ -511,7 +511,7 @@ mywcslen.exit:                                    ; preds = %.preheader
   %31 = and i32 %30, -4
   %32 = icmp eq i32 %31, 0
   %spec.store.select = select i1 %32, i32 4, i32 %31
-  %33 = tail call fastcc i32 @AddMLUBlock(ptr noundef nonnull %0, i32 noundef %spec.store.select, ptr noundef nonnull %3, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i13)
+  %33 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %spec.store.select, ptr noundef %3, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i13)
   br label %34
 
 34:                                               ; preds = %strTo16.exit14, %mywcslen.exit
@@ -954,7 +954,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
 
 60:                                               ; preds = %_cmsMLUgetWide.exit
   %61 = lshr i32 %.029, 2
-  %62 = tail call fastcc i32 @encodeUTF8(ptr noundef null, ptr noundef nonnull %58, i32 noundef %61, i32 noundef %4)
+  %62 = tail call fastcc i32 @encodeUTF8(ptr noundef null, ptr noundef %58, i32 noundef %61, i32 noundef %4)
   %63 = icmp eq ptr %3, null
   br i1 %63, label %64, label %66
 
@@ -971,7 +971,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   %70 = icmp ult i32 %4, %69
   %71 = add i32 %4, -1
   %spec.select = select i1 %70, i32 %71, i32 %62
-  %72 = tail call fastcc i32 @encodeUTF8(ptr noundef nonnull %3, ptr noundef nonnull %58, i32 noundef %61, i32 noundef %4)
+  %72 = tail call fastcc i32 @encodeUTF8(ptr noundef nonnull %3, ptr noundef %58, i32 noundef %61, i32 noundef %4)
   %73 = zext i32 %spec.select to i64
   %74 = getelementptr inbounds i8, ptr %3, i64 %73
   store i8 0, ptr %74, align 1
@@ -984,7 +984,7 @@ _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 1073741824) %2, i32 noundef %3) unnamed_addr #6 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp ne i32 %5, 0
   %7 = icmp ne i32 %2, 0

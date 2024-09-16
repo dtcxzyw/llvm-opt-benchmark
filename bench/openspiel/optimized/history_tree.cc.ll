@@ -2162,7 +2162,7 @@ define void @_ZN10open_spiel10algorithms11HistoryTreeC2ESt10unique_ptrINS_5State
   %8 = load i64, ptr %1, align 8
   store i64 %8, ptr %5, align 8
   store ptr null, ptr %1, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124RecursivelyBuildGameTreeESt10unique_ptrINS_5StateESt14default_deleteIS3_EEiPN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11HistoryNodeENS8_18container_internal10StringHashENSI_12StringHashEq2EqESaISt4pairIKSF_SH_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124RecursivelyBuildGameTreeESt10unique_ptrINS_5StateESt14default_deleteIS3_EEiPN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11HistoryNodeENS8_18container_internal10StringHashENSI_12StringHashEq2EqESaISt4pairIKSF_SH_EEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %5, i32 noundef %2, ptr noundef %6)
           to label %9 unwind label %16
 
 9:                                                ; preds = %3
@@ -2215,7 +2215,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit7: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124RecursivelyBuildGameTreeESt10unique_ptrINS_5StateESt14default_deleteIS3_EEiPN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11HistoryNodeENS8_18container_internal10StringHashENSI_12StringHashEq2EqESaISt4pairIKSF_SH_EEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124RecursivelyBuildGameTreeESt10unique_ptrINS_5StateESt14default_deleteIS3_EEiPN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11HistoryNodeENS8_18container_internal10StringHashENSI_12StringHashEq2EqESaISt4pairIKSF_SH_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -2476,7 +2476,7 @@ _ZNK10open_spiel5State5ChildEl.exit:              ; preds = %.noexc53
   %114 = fadd double %.037109, %113
   store i64 %112, ptr %13, align 8
   store ptr null, ptr %9, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124RecursivelyBuildGameTreeESt10unique_ptrINS_5StateESt14default_deleteIS3_EEiPN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11HistoryNodeENS8_18container_internal10StringHashENSI_12StringHashEq2EqESaISt4pairIKSF_SH_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %13, i32 noundef %2, ptr noundef nonnull %3)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124RecursivelyBuildGameTreeESt10unique_ptrINS_5StateESt14default_deleteIS3_EEiPN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11HistoryNodeENS8_18container_internal10StringHashENSI_12StringHashEq2EqESaISt4pairIKSF_SH_EEEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %13, i32 noundef %2, ptr noundef %3)
           to label %115 unwind label %129
 
 115:                                              ; preds = %111
@@ -2678,7 +2678,7 @@ _ZNK10open_spiel5State5ChildEl.exit76:            ; preds = %.noexc73
   %189 = load i64, ptr %20, align 8
   store i64 %189, ptr %23, align 8
   store ptr null, ptr %20, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124RecursivelyBuildGameTreeESt10unique_ptrINS_5StateESt14default_deleteIS3_EEiPN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11HistoryNodeENS8_18container_internal10StringHashENSI_12StringHashEq2EqESaISt4pairIKSF_SH_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull %23, i32 noundef %2, ptr noundef nonnull %3)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124RecursivelyBuildGameTreeESt10unique_ptrINS_5StateESt14default_deleteIS3_EEiPN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11HistoryNodeENS8_18container_internal10StringHashENSI_12StringHashEq2EqESaISt4pairIKSF_SH_EEEE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %23, i32 noundef %2, ptr noundef %3)
           to label %190 unwind label %204
 
 190:                                              ; preds = %_ZNK10open_spiel5State5ChildEl.exit76

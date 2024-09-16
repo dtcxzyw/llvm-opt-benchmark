@@ -1515,7 +1515,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 3) %3) unnamed_addr #0 {
   %5 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %6 = alloca i32, align 4
   %7 = alloca [3 x %struct._wmem_tree_key_t], align 16
@@ -1726,7 +1726,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   %132 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 0, i32 noundef 0) #12
   %133 = load i32, ptr @ett_sgeonw_hdr, align 4
   %134 = call ptr @proto_item_add_subtree(ptr noundef %132, i32 noundef %133) #12
-  %135 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %134)
+  %135 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %1, ptr noundef %134)
   %.not14.i = icmp eq i32 %135, 0
   %.pre29.i = load i32, ptr %13, align 4
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph16.i
@@ -1808,7 +1808,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   br label %.loopexit7.i
 
 183:                                              ; preds = %137
-  %184 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %142)
+  %184 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142)
   %185 = load i32, ptr %13, align 4
   %186 = sub i32 %184, %138
   %187 = add i32 %186, %185
@@ -1845,15 +1845,15 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
 
 200:                                              ; preds = %194
   %201 = load i32, ptr @hf_sgeonw_app_id, align 4
-  %202 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %142, i32 noundef %201, ptr noundef nonnull %14)
+  %202 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142, i32 noundef %201, ptr noundef nonnull %14)
   br label %.loopexit7.i
 
 203:                                              ; preds = %137
-  %204 = call fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %142, i8 noundef zeroext %110)
+  %204 = call fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142, i8 noundef zeroext %110)
   br label %.loopexit7.i
 
 205:                                              ; preds = %137
-  %206 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %142)
+  %206 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142)
   %207 = load i32, ptr %13, align 4
   %208 = sub i32 %206, %138
   %209 = add i32 %208, %207
@@ -1883,7 +1883,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   br i1 %cond.i.i, label %220, label %228
 
 220:                                              ; preds = %.lr.ph.i
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %142)
+  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142)
   %221 = load i32, ptr @hf_sgeonw_encrypted_key, align 4
   %222 = load i32, ptr %13, align 4
   %223 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %221, ptr noundef %0, i32 noundef %222, i32 noundef 16, i32 noundef 0) #12
@@ -1895,7 +1895,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   br label %dissect_sec_recipient_info.exit.i
 
 228:                                              ; preds = %.lr.ph.i
-  %229 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %142)
+  %229 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142)
   %230 = load i32, ptr @hf_sgeonw_opaque, align 4
   %231 = load i32, ptr %13, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %230, ptr noundef %0, i32 noundef %231, i32 noundef %229, i32 noundef 0) #12
@@ -1934,7 +1934,7 @@ dissect_sec_recipient_info.exit.i:                ; preds = %228, %220
   br label %dissect_sec_encryption_parameters.exit.i
 
 250:                                              ; preds = %236
-  %251 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %240)
+  %251 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %240)
   %252 = load i32, ptr @hf_sgeonw_opaque, align 4
   %253 = load i32, ptr %13, align 4
   %254 = call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %252, ptr noundef %0, i32 noundef %253, i32 noundef %251, i32 noundef 0) #12
@@ -1950,7 +1950,7 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %250, %247
   br label %.loopexit7.i
 
 257:                                              ; preds = %137
-  %258 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %142)
+  %258 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142)
   %259 = load i32, ptr %13, align 4
   %260 = sub i32 %258, %138
   %261 = add i32 %260, %259
@@ -1983,7 +1983,7 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %250, %247
   br i1 %123, label %276, label %284
 
 276:                                              ; preds = %._crit_edge.i
-  %277 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %275)
+  %277 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %275)
   %.not15417.i = icmp eq i32 %277, 0
   %.pre31.i = load i32, ptr %13, align 4
   br i1 %.not15417.i, label %.loopexit.i, label %.lr.ph20.i
@@ -1996,14 +1996,14 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %250, %247
 .lr.ph20.i:                                       ; preds = %276, %278
   %280 = phi i32 [ %281, %278 ], [ %.pre31.i, %276 ]
   %.118.i = phi i32 [ %279, %278 ], [ %277, %276 ]
-  call fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %275)
+  call fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %275)
   %281 = load i32, ptr %13, align 4
   %282 = sub i32 %281, %280
   %283 = icmp ult i32 %.118.i, %282
   br i1 %283, label %dissect_secured_message.exit, label %278
 
 284:                                              ; preds = %._crit_edge.i
-  call fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %275)
+  call fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %275)
   %.pre30.i = load i32, ptr %13, align 4
   br label %.loopexit.i
 
@@ -2015,7 +2015,7 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %250, %247
   %288 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %286, ptr noundef %0, i32 noundef %287, i32 noundef 0, i32 noundef 0) #12
   %289 = load i32, ptr @ett_sgeonw_hdr, align 4
   %290 = call ptr @proto_item_add_subtree(ptr noundef %288, i32 noundef %289) #12
-  %291 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %290)
+  %291 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %290)
   %.not15521.i = icmp eq i32 %291, 0
   %.pre33.i = load i32, ptr %13, align 4
   br i1 %.not15521.i, label %._crit_edge25.i, label %.lr.ph24.i
@@ -2038,12 +2038,12 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %250, %247
   br i1 %cond.i, label %303, label %304
 
 303:                                              ; preds = %.lr.ph24.i
-  call fastcc void @dissect_sec_signature(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %296)
+  call fastcc void @dissect_sec_signature(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %296)
   %.pre32.i = load i32, ptr %13, align 4
   br label %311
 
 304:                                              ; preds = %.lr.ph24.i
-  %305 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %296)
+  %305 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %296)
   %306 = load i32, ptr @hf_sgeonw_opaque, align 4
   %307 = load i32, ptr %13, align 4
   %308 = call ptr @proto_tree_add_item(ptr noundef %296, i32 noundef %306, ptr noundef %0, i32 noundef %307, i32 noundef %305, i32 noundef 0) #12
@@ -3405,7 +3405,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #12
   %7 = zext i8 %6 to i32
@@ -3469,7 +3469,7 @@ define internal fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr nocapture no
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = load i32, ptr %1, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #12
   %9 = zext i8 %8 to i64
@@ -3565,7 +3565,7 @@ define internal fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr %1, align 4
   tail call void @increment_dissection_depth(ptr noundef %2) #12
   %7 = load i32, ptr %1, align 4
@@ -3613,13 +3613,13 @@ define internal fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef 
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %32, ptr noundef %0, i32 noundef %25, i32 noundef 0, i32 noundef 0) #12
   %34 = load i32, ptr @ett_sgeonw_field, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #12
-  %36 = tail call fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %35, i8 noundef zeroext %4)
+  %36 = tail call fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %35, i8 noundef zeroext %4)
   %37 = load i32, ptr %1, align 4
   tail call void @proto_item_set_end(ptr noundef %33, ptr noundef %0, i32 noundef %37) #12
   br label %.loopexit
 
 38:                                               ; preds = %16
-  %39 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %20)
+  %39 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %20)
   %.not76 = icmp eq i32 %39, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph
 
@@ -3630,7 +3630,7 @@ define internal fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef 
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 0, i32 noundef 0) #12
   %43 = load i32, ptr @ett_sgeonw_field, align 4
   %44 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43) #12
-  %45 = tail call fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %44, i8 noundef zeroext %4)
+  %45 = tail call fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %44, i8 noundef zeroext %4)
   %46 = load i32, ptr %1, align 4
   tail call void @proto_item_set_end(ptr noundef %42, ptr noundef %0, i32 noundef %46) #12
   %47 = sub i32 %.077, %45
@@ -3650,7 +3650,7 @@ define internal fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 57:                                               ; preds = %16
-  %58 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %20)
+  %58 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %20)
   %59 = load i32, ptr @hf_sgeonw_opaque, align 4
   %60 = load i32, ptr %1, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef %58, i32 noundef 0) #12
@@ -3672,7 +3672,7 @@ define internal fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #12
   %7 = icmp eq i8 %6, 3
@@ -3706,7 +3706,7 @@ define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr nocapture n
   ]
 
 24:                                               ; preds = %14, %14
-  %25 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %18)
+  %25 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18)
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %42, label %26
 
@@ -3720,14 +3720,14 @@ define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr nocapture n
   br label %42
 
 32:                                               ; preds = %14, %14
-  %33 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %18)
+  %33 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18)
   %34 = load i32, ptr @hf_sgeonw_opaque, align 4
   %35 = load i32, ptr %1, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef %33, i32 noundef 0) #12
   br label %42
 
 37:                                               ; preds = %14
-  %38 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %18)
+  %38 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18)
   %39 = load i32, ptr @hf_sgeonw_opaque, align 4
   %40 = load i32, ptr %1, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef %38, i32 noundef 0) #12
@@ -3746,7 +3746,7 @@ define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sec_signature(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sec_signature(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 4
   %7 = load i32, ptr @hf_sgeonw_signature, align 4
@@ -3764,11 +3764,11 @@ define internal fastcc void @dissect_sec_signature(ptr noundef %0, ptr nocapture
   br i1 %cond, label %17, label %18
 
 17:                                               ; preds = %4
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10)
+  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10)
   br label %20
 
 18:                                               ; preds = %4
-  %19 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10)
+  %19 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10)
   br label %20
 
 20:                                               ; preds = %18, %17
@@ -3795,7 +3795,7 @@ declare ptr @val64_to_str_const(i64 noundef, ptr noundef, ptr noundef) local_unn
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3812,13 +3812,13 @@ define internal fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef 
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %5
-  %19 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %19 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   store i32 %19, ptr %11, align 4
   %.not58 = icmp eq i32 %19, 0
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %20 = call fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 1)
+  %20 = call fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 1)
   %21 = load i32, ptr %11, align 4
   %22 = sub i32 %21, %20
   store i32 %22, ptr %11, align 4
@@ -3826,7 +3826,7 @@ define internal fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef 
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 23:                                               ; preds = %5
-  %24 = call fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4)
+  %24 = call fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %23
@@ -3841,7 +3841,7 @@ define internal fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef 
   %33 = load i32, ptr %1, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr %1, align 4
-  %35 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %29)
+  %35 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %29)
   %36 = load i32, ptr @hf_sgeonw_opaque, align 4
   %37 = load i32, ptr %1, align 4
   %38 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef %35, i32 noundef 0) #12
@@ -3857,7 +3857,7 @@ dissect_sec_subject_info.exit:                    ; preds = %.loopexit, %40
   %43 = add i32 %42, %35
   store i32 %43, ptr %1, align 4
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %43) #12
-  %44 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %44 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   store i32 %44, ptr %11, align 4
   %.not5059 = icmp eq i32 %44, 0
   br i1 %.not5059, label %._crit_edge, label %.lr.ph60.preheader
@@ -3912,7 +3912,7 @@ dissect_sec_subject_info.exit:                    ; preds = %.loopexit, %40
   ]
 
 69:                                               ; preds = %58
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %62)
+  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %62)
   br label %dissect_sec_publickey.exit.i
 
 70:                                               ; preds = %58
@@ -3921,11 +3921,11 @@ dissect_sec_subject_info.exit:                    ; preds = %.loopexit, %40
   %73 = load i32, ptr %1, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %1, align 4
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %62)
+  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %62)
   br label %dissect_sec_publickey.exit.i
 
 75:                                               ; preds = %58
-  %76 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %62)
+  %76 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %62)
   %77 = load i32, ptr @hf_sgeonw_opaque, align 4
   %78 = load i32, ptr %1, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef %76, i32 noundef 0) #12
@@ -3960,11 +3960,11 @@ dissect_sec_publickey.exit.i:                     ; preds = %75, %70, %69
   br label %.loopexit.i
 
 99:                                               ; preds = %.lr.ph60
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49)
+  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   br label %.loopexit.i
 
 100:                                              ; preds = %.lr.ph60
-  %101 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49)
+  %101 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   store i32 %101, ptr %10, align 4
   %.not116125.i = icmp eq i32 %101, 0
   br i1 %.not116125.i, label %.loopexit.i, label %.lr.ph126.i
@@ -3977,7 +3977,7 @@ dissect_sec_publickey.exit.i:                     ; preds = %75, %70, %69
 
 .lr.ph126.i:                                      ; preds = %100, %102
   %104 = load i32, ptr @hf_sgeonw_app_id, align 4
-  %105 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49, i32 noundef %104, ptr noundef null)
+  %105 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49, i32 noundef %104, ptr noundef null)
   %106 = load i32, ptr %10, align 4
   %107 = icmp ult i32 %106, %105
   br i1 %107, label %108, label %102
@@ -3987,7 +3987,7 @@ dissect_sec_publickey.exit.i:                     ; preds = %75, %70, %69
   br label %dissect_sec_subject_attributes.exit
 
 110:                                              ; preds = %.lr.ph60
-  %111 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49)
+  %111 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   store i32 %111, ptr %10, align 4
   %.not114123.i = icmp eq i32 %111, 0
   br i1 %.not114123.i, label %.loopexit.i, label %.lr.ph124.preheader.i
@@ -4006,8 +4006,8 @@ dissect_sec_publickey.exit.i:                     ; preds = %75, %70, %69
   %114 = phi i32 [ %.pre131.i, %.lr.ph124.preheader.i ], [ %133, %112 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %115 = load i32, ptr @hf_sgeonw_app_id, align 4
-  %116 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49, i32 noundef %115, ptr noundef nonnull %8)
-  %117 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49)
+  %116 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49, i32 noundef %115, ptr noundef nonnull %8)
+  %117 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   %118 = load i32, ptr @hf_sgeonw_opaque, align 4
   %119 = load i32, ptr %1, align 4
   %120 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %118, ptr noundef %0, i32 noundef %119, i32 noundef %117, i32 noundef 0) #12
@@ -4043,7 +4043,7 @@ dissect_sec_itsaidssp.exit.i:                     ; preds = %124, %122
   br label %dissect_sec_subject_attributes.exit
 
 139:                                              ; preds = %.lr.ph60
-  %140 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49)
+  %140 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   store i32 %140, ptr %10, align 4
   %.not112121.i = icmp eq i32 %140, 0
   br i1 %.not112121.i, label %.loopexit.i, label %.lr.ph122.preheader.i
@@ -4061,7 +4061,7 @@ dissect_sec_itsaidssp.exit.i:                     ; preds = %124, %122
 .lr.ph122.i:                                      ; preds = %141, %.lr.ph122.preheader.i
   %143 = phi i32 [ %.pre130.i, %.lr.ph122.preheader.i ], [ %150, %141 ]
   %144 = load i32, ptr @hf_sgeonw_app_id, align 4
-  %145 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49, i32 noundef %144, ptr noundef null)
+  %145 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49, i32 noundef %144, ptr noundef null)
   %146 = load i32, ptr @hf_sgeonw_priority, align 4
   %147 = load i32, ptr %1, align 4
   %148 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef 0) #12
@@ -4078,7 +4078,7 @@ dissect_sec_itsaidssp.exit.i:                     ; preds = %124, %122
   br label %dissect_sec_subject_attributes.exit
 
 156:                                              ; preds = %.lr.ph60
-  %157 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49)
+  %157 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   store i32 %157, ptr %10, align 4
   %.not120.i = icmp eq i32 %157, 0
   br i1 %.not120.i, label %.loopexit.i, label %.lr.ph.preheader.i
@@ -4096,14 +4096,14 @@ dissect_sec_itsaidssp.exit.i:                     ; preds = %124, %122
 .lr.ph.i:                                         ; preds = %158, %.lr.ph.preheader.i
   %160 = phi i32 [ %.pre.i, %.lr.ph.preheader.i ], [ %176, %158 ]
   %161 = load i32, ptr @hf_sgeonw_app_id, align 4
-  %162 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49, i32 noundef %161, ptr noundef null)
+  %162 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49, i32 noundef %161, ptr noundef null)
   %163 = load i32, ptr @hf_sgeonw_priority, align 4
   %164 = load i32, ptr %1, align 4
   %165 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %163, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #12
   %166 = load i32, ptr %1, align 4
   %167 = add i32 %166, 1
   store i32 %167, ptr %1, align 4
-  %168 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49)
+  %168 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   %169 = load i32, ptr @hf_sgeonw_opaque, align 4
   %170 = load i32, ptr %1, align 4
   %171 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %169, ptr noundef %0, i32 noundef %170, i32 noundef %168, i32 noundef 0) #12
@@ -4128,7 +4128,7 @@ dissect_sec_itsaidpriorityssp.exit.i:             ; preds = %173, %.lr.ph.i
   br label %dissect_sec_subject_attributes.exit
 
 182:                                              ; preds = %.lr.ph60
-  %183 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %49)
+  %183 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   %184 = load i32, ptr @hf_sgeonw_opaque, align 4
   %185 = load i32, ptr %1, align 4
   %186 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %184, ptr noundef %0, i32 noundef %185, i32 noundef %183, i32 noundef 0) #12
@@ -4153,7 +4153,7 @@ dissect_sec_subject_attributes.exit:              ; preds = %108, %137, %154, %1
   br i1 %.not50, label %._crit_edge, label %.lr.ph60, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %dissect_sec_subject_attributes.exit, %dissect_sec_subject_info.exit
-  %192 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %192 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   store i32 %192, ptr %11, align 4
   %.not5261 = icmp eq i32 %192, 0
   br i1 %.not5261, label %._crit_edge64, label %.lr.ph63.preheader
@@ -4275,7 +4275,7 @@ dissect_sec_subject_attributes.exit:              ; preds = %108, %137, %154, %1
   br label %dissect_sec_geographicregion.exit.i
 
 266:                                              ; preds = %230
-  %267 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %267 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not19.i.i.i = icmp eq i32 %267, 0
   %.pn.pre.i.i.i = load i32, ptr %1, align 4
   br i1 %.not19.i.i.i, label %dissect_sec_geographicregion.exit.i, label %.lr.ph.i.i.i
@@ -4306,12 +4306,12 @@ dissect_sec_subject_attributes.exit:              ; preds = %108, %137, %154, %1
   %285 = add i32 %284, 3
   store i32 %285, ptr %1, align 4
   %286 = load i32, ptr @hf_sgeonw_local_region, align 4
-  %287 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %286, ptr noundef null)
+  %287 = call fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %286, ptr noundef null)
   %.pre.pre.i = load i32, ptr %1, align 4
   br label %dissect_sec_geographicregion.exit.i
 
 288:                                              ; preds = %230
-  %289 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %289 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %290 = load i32, ptr @hf_sgeonw_opaque, align 4
   %291 = load i32, ptr %1, align 4
   %292 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %290, ptr noundef %0, i32 noundef %291, i32 noundef %289, i32 noundef 0) #12
@@ -4326,7 +4326,7 @@ dissect_sec_geographicregion.exit.i:              ; preds = %.lr.ph.i.i.i, %288,
   br label %dissect_sec_validity_restrictions.exit
 
 296:                                              ; preds = %.lr.ph63
-  %297 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %297 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %298 = load i32, ptr @hf_sgeonw_opaque, align 4
   %299 = load i32, ptr %1, align 4
   %300 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %298, ptr noundef %0, i32 noundef %299, i32 noundef %297, i32 noundef 0) #12
@@ -4346,7 +4346,7 @@ dissect_sec_validity_restrictions.exit:           ; preds = %199, %204, %213, %d
   br i1 %.not52, label %._crit_edge64, label %.lr.ph63, !llvm.loop !20
 
 ._crit_edge64:                                    ; preds = %dissect_sec_validity_restrictions.exit, %._crit_edge
-  call fastcc void @dissect_sec_signature(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_sec_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %306 = load i32, ptr %1, align 4
   %307 = sub i32 %306, %12
   ret i32 %307
@@ -4355,7 +4355,7 @@ dissect_sec_validity_restrictions.exit:           ; preds = %199, %204, %213, %d
 declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 4
   %7 = load i32, ptr @hf_sgeonw_eccpoint, align 4
@@ -4386,7 +4386,7 @@ define internal fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr nocapture 
   br label %.sink.split
 
 24:                                               ; preds = %4
-  %25 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10)
+  %25 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10)
   %26 = load i32, ptr @hf_sgeonw_opaque, align 4
   %27 = load i32, ptr %1, align 4
   %28 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef %25, i32 noundef 0) #12

@@ -5182,7 +5182,7 @@ define internal fastcc noalias noundef ptr @Vec_IntAlloc(i32 noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFill(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFill(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %4, %1
   br i1 %.not.i, label %5, label %Vec_IntGrow.exit
@@ -5512,7 +5512,7 @@ define void @Abc_FrameUpdateGia(ptr nocapture noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @enable_dbg_outs, align 4
   %.not = icmp eq i32 %4, 0
@@ -6284,7 +6284,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintExdc(ptr noundef %0, i32 no
 
 5:                                                ; preds = %.outer, %5
   %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.585) #28
-  switch i32 %6, label %61 [
+  switch i32 %6, label %63 [
     i32 -1, label %9
     i32 115, label %5
     i32 100, label %7
@@ -6300,7 +6300,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintExdc(ptr noundef %0, i32 no
 
 11:                                               ; preds = %9
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.568)
-  br label %63
+  br label %65
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %4, i64 328
@@ -6310,16 +6310,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintExdc(ptr noundef %0, i32 no
 
 16:                                               ; preds = %12
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.586)
-  br label %63
+  br label %65
 
 17:                                               ; preds = %12
   %.not33 = icmp eq i32 %.0.ph, 0
-  br i1 %.not33, label %59, label %18
+  br i1 %.not33, label %61, label %18
 
 18:                                               ; preds = %17
   %.val = load i32, ptr %14, align 8
   %.not = icmp eq i32 %.val, 3
-  br i1 %.not, label %37, label %19
+  br i1 %.not, label %38, label %19
 
 19:                                               ; preds = %18
   %20 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %14, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
@@ -6341,77 +6341,77 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintExdc(ptr noundef %0, i32 no
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %23, i64 20
   %.val.i = load i32, ptr %30, align 4
-  %31 = ptrtoint ptr %29 to i64
-  %32 = lshr i32 %.val.i, 10
-  %.lobit.i = and i32 %32, 1
-  %33 = zext nneg i32 %.lobit.i to i64
-  %34 = xor i64 %33, %31
-  %35 = inttoptr i64 %34 to ptr
-  %36 = tail call double @Abc_NtkSpacePercentage(ptr noundef %35) #28
+  %31 = lshr i32 %.val.i, 10
+  %32 = and i32 %31, 1
+  %33 = ptrtoint ptr %29 to i64
+  %34 = zext nneg i32 %32 to i64
+  %35 = xor i64 %34, %33
+  %36 = inttoptr i64 %35 to ptr
+  %37 = tail call double @Abc_NtkSpacePercentage(ptr noundef %36) #28
   tail call void @Abc_NtkDelete(ptr noundef %20) #28
-  br label %54
+  br label %56
 
-37:                                               ; preds = %18
-  %38 = getelementptr i8, ptr %14, i64 48
-  %.val37 = load ptr, ptr %38, align 8
-  %39 = getelementptr i8, ptr %.val37, i64 8
-  %.val37.val = load ptr, ptr %39, align 8
-  %40 = load ptr, ptr %.val37.val, align 8
-  %.val2.i38 = load ptr, ptr %40, align 8
-  %41 = getelementptr i8, ptr %40, i64 32
-  %.val3.i39 = load ptr, ptr %41, align 8
-  %42 = getelementptr i8, ptr %.val2.i38, i64 32
-  %.val2.val.i40 = load ptr, ptr %42, align 8
+38:                                               ; preds = %18
+  %39 = getelementptr i8, ptr %14, i64 48
+  %.val37 = load ptr, ptr %39, align 8
+  %40 = getelementptr i8, ptr %.val37, i64 8
+  %.val37.val = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %.val37.val, align 8
+  %.val2.i38 = load ptr, ptr %41, align 8
+  %42 = getelementptr i8, ptr %41, i64 32
+  %.val3.i39 = load ptr, ptr %42, align 8
+  %43 = getelementptr i8, ptr %.val2.i38, i64 32
+  %.val2.val.i40 = load ptr, ptr %43, align 8
   %.val3.val.i41 = load i32, ptr %.val3.i39, align 4
-  %43 = getelementptr i8, ptr %.val2.val.i40, i64 8
-  %.val2.val.val.i42 = load ptr, ptr %43, align 8
-  %44 = sext i32 %.val3.val.i41 to i64
-  %45 = getelementptr inbounds ptr, ptr %.val2.val.val.i42, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr i8, ptr %40, i64 20
-  %.val.i43 = load i32, ptr %47, align 4
-  %48 = ptrtoint ptr %46 to i64
+  %44 = getelementptr i8, ptr %.val2.val.i40, i64 8
+  %.val2.val.val.i42 = load ptr, ptr %44, align 8
+  %45 = sext i32 %.val3.val.i41 to i64
+  %46 = getelementptr inbounds ptr, ptr %.val2.val.val.i42, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr i8, ptr %41, i64 20
+  %.val.i43 = load i32, ptr %48, align 4
   %49 = lshr i32 %.val.i43, 10
-  %.lobit.i44 = and i32 %49, 1
-  %50 = zext nneg i32 %.lobit.i44 to i64
-  %51 = xor i64 %50, %48
-  %52 = inttoptr i64 %51 to ptr
-  %53 = tail call double @Abc_NtkSpacePercentage(ptr noundef %52) #28
-  br label %54
+  %50 = and i32 %49, 1
+  %51 = ptrtoint ptr %47 to i64
+  %52 = zext nneg i32 %50 to i64
+  %53 = xor i64 %52, %51
+  %54 = inttoptr i64 %53 to ptr
+  %55 = tail call double @Abc_NtkSpacePercentage(ptr noundef %54) #28
+  br label %56
 
-54:                                               ; preds = %37, %19
-  %.029 = phi double [ %53, %37 ], [ %36, %19 ]
+56:                                               ; preds = %38, %19
+  %.029 = phi double [ %55, %38 ], [ %37, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.587)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.588)
-  %55 = fcmp ogt double %.029, 5.000000e-02
-  %56 = fcmp olt double %.029, 9.995000e+01
-  %or.cond = and i1 %55, %56
-  %57 = fcmp ogt double %.029, 5.000000e-06
-  %58 = fcmp olt double %.029, 0x4058FFFFEB074A77
-  %or.cond3 = and i1 %57, %58
+  %57 = fcmp ogt double %.029, 5.000000e-02
+  %58 = fcmp olt double %.029, 9.995000e+01
+  %or.cond = and i1 %57, %58
+  %59 = fcmp ogt double %.029, 5.000000e-06
+  %60 = fcmp olt double %.029, 0x4058FFFFEB074A77
+  %or.cond3 = and i1 %59, %60
   %.str.590..str.591 = select i1 %or.cond3, ptr @.str.590, ptr @.str.591
   %.str.590.sink = select i1 %or.cond, ptr @.str.589, ptr %.str.590..str.591
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.590.sink, double noundef %.029)
-  br label %59
+  br label %61
 
-59:                                               ; preds = %17, %54
-  %.str.593.sink = phi ptr [ @.str.592, %54 ], [ @.str.593, %17 ]
+61:                                               ; preds = %17, %56
+  %.str.593.sink = phi ptr [ @.str.592, %56 ], [ @.str.593, %17 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.593.sink)
-  %60 = load ptr, ptr %13, align 8
-  tail call void @Abc_NtkPrintStats(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
-  br label %63
+  %62 = load ptr, ptr %13, align 8
+  tail call void @Abc_NtkPrintStats(ptr noundef %62, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
+  br label %65
 
-61:                                               ; preds = %5
+63:                                               ; preds = %5
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.594)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.595)
   %.not35 = icmp eq i32 %.0.ph, 0
-  %62 = select i1 %.not35, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.596, ptr noundef nonnull %62)
+  %64 = select i1 %.not35, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.596, ptr noundef nonnull %64)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.584)
-  br label %63
+  br label %65
 
-63:                                               ; preds = %61, %59, %16, %11
-  %.026 = phi i32 [ 1, %61 ], [ 1, %11 ], [ 1, %16 ], [ 0, %59 ]
+65:                                               ; preds = %63, %61, %16, %11
+  %.026 = phi i32 [ 1, %63 ], [ 1, %11 ], [ 1, %16 ], [ 0, %61 ]
   ret i32 %.026
 }
 
@@ -12986,7 +12986,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLogicPush(ptr noundef %0, i32 no
 
 24:                                               ; preds = %22
   %25 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef nonnull %4) #28
-  %26 = tail call noundef i32 @llvm.smax.i32(i32 %.021.ph, i32 %25)
+  %26 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.021.ph, i32 %25)
   %27 = tail call i32 @Abc_NtkToSop(ptr noundef nonnull %4, i32 noundef -1, i32 noundef 1000000000) #28
   %28 = tail call ptr @Abc_NtkOptPush(ptr noundef nonnull %4, i32 noundef %26, i32 noundef %.020) #28
   tail call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef %28) #28
@@ -62180,7 +62180,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
   br i1 %.not213, label %267, label %261
 
 261:                                              ; preds = %258
-  %262 = call fastcc ptr @Vec_WrdDup(ptr noundef nonnull %260)
+  %262 = call fastcc ptr @Vec_WrdDup(ptr noundef %260)
   %263 = getelementptr inbounds i8, ptr %.0167, i64 848
   store ptr %262, ptr %263, align 8
   %264 = getelementptr inbounds i8, ptr %236, i64 816
@@ -87871,7 +87871,7 @@ declare void @Abc_NtkTimeSetArrival(ptr noundef, i32 noundef, float noundef, flo
 declare void @Abc_NtkTimeSetRequired(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -89388,7 +89388,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdDup(ptr nocapture noundef readonly %0) unnamed_addr #20 {
+define internal fastcc noalias noundef ptr @Vec_WrdDup(ptr nocapture noundef nonnull readonly %0) unnamed_addr #20 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -89617,9 +89617,9 @@ declare ptr @Gia_ManDupCones(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Vec_IntStartRange(i32 noundef %0, i32 noundef %1) unnamed_addr #18 {
+define internal fastcc noalias noundef ptr @Vec_IntStartRange(i32 noundef range(i32 0, -2147483648) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #18 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
-  %4 = add i32 %1, -1
+  %4 = add nsw i32 %1, -1
   %or.cond.i = icmp ult i32 %4, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %1
   %5 = getelementptr inbounds i8, ptr %3, i64 4
@@ -89628,8 +89628,8 @@ define internal fastcc noalias noundef ptr @Vec_IntStartRange(i32 noundef %0, i3
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = sext i32 %spec.store.select.i to i64
-  %8 = shl nsw i64 %7, 2
+  %7 = zext nneg i32 %spec.store.select.i to i64
+  %8 = shl nuw nsw i64 %7, 2
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #29
   br label %Vec_IntAlloc.exit
 
@@ -89638,24 +89638,24 @@ Vec_IntAlloc.exit:                                ; preds = %2, %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %10, ptr %11, align 8
   store i32 %1, ptr %5, align 4
-  %12 = icmp sgt i32 %1, 0
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Vec_IntAlloc.exit
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %13
+  br label %12
 
-13:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
-  %15 = trunc i64 %indvars.iv to i32
-  %16 = add i32 %0, %15
-  store i32 %16, ptr %14, align 4
+12:                                               ; preds = %.lr.ph, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %14 = trunc i64 %indvars.iv to i32
+  %15 = add i32 %0, %14
+  store i32 %15, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !531
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !531
 
-._crit_edge:                                      ; preds = %13, %Vec_IntAlloc.exit
+._crit_edge:                                      ; preds = %12, %Vec_IntAlloc.exit
   ret ptr %3
 }
 

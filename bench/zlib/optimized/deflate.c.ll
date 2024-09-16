@@ -3900,7 +3900,7 @@ return:                                           ; preds = %land.lhs.true362, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %s, i32 noundef %flush) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %s, i32 noundef range(i32 0, 6) %flush) unnamed_addr #0 {
 entry:
   %lookahead = getelementptr inbounds i8, ptr %s, i64 180
   %match_length = getelementptr inbounds i8, ptr %s, i64 160
@@ -4211,7 +4211,7 @@ return:                                           ; preds = %flush_pending.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %s, i32 noundef %flush) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %s, i32 noundef range(i32 0, 6) %flush) unnamed_addr #0 {
 entry:
   %lookahead = getelementptr inbounds i8, ptr %s, i64 180
   %match_length156 = getelementptr inbounds i8, ptr %s, i64 160
@@ -6106,7 +6106,7 @@ return:                                           ; preds = %if.end253, %flush_p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @longest_match(ptr nocapture noundef %s, i32 noundef %cur_match) unnamed_addr #8 {
+define internal fastcc i32 @longest_match(ptr nocapture noundef %s, i32 noundef range(i32 1, 65536) %cur_match) unnamed_addr #8 {
 entry:
   %max_chain_length = getelementptr inbounds i8, ptr %s, i64 188
   %0 = load i32, ptr %max_chain_length, align 4

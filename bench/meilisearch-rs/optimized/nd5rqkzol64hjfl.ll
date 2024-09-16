@@ -735,7 +735,7 @@ _ZN4core3ops8function6FnOnce9call_once17h97e7e6d832835524E.exit.i: ; preds = %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E(i64 noundef range(i64 0, 25) %0, i64 noundef range(i64 1, 9) %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %4, label %6
 
@@ -2171,7 +2171,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
   %.val = load i64, ptr %61, align 8, !noundef !4
   %62 = getelementptr inbounds i8, ptr %1, i64 32
   %.val48 = load i32, ptr %62, align 8, !noundef !4
-  invoke fastcc void @_ZN16meilisearch_auth5store13HeedAuthStore27delete_key_from_inverted_db17h3278dd8a3248b3b0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %30, i64 %.val, i32 %.val48, ptr noalias noundef nonnull align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 1 dereferenceable(16) %34)
+  invoke fastcc void @_ZN16meilisearch_auth5store13HeedAuthStore27delete_key_from_inverted_db17h3278dd8a3248b3b0E(ptr noalias nocapture noundef align 8 dereferenceable(32) %30, i64 %.val, i32 %.val48, ptr noalias noundef align 8 dereferenceable(24) %33, ptr noalias noundef readonly align 1 dereferenceable(16) %34)
           to label %72 unwind label %55
 
 63:                                               ; preds = %57
@@ -3609,7 +3609,7 @@ common.resume:                                    ; preds = %.body.thread, %60, 
   %.val = load i64, ptr %35, align 8, !noundef !4
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %.val31 = load i32, ptr %36, align 8, !noundef !4
-  invoke fastcc void @_ZN16meilisearch_auth5store13HeedAuthStore27delete_key_from_inverted_db17h3278dd8a3248b3b0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9, i64 %.val, i32 %.val31, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 dereferenceable(16) %2)
+  invoke fastcc void @_ZN16meilisearch_auth5store13HeedAuthStore27delete_key_from_inverted_db17h3278dd8a3248b3b0E(ptr noalias nocapture noundef align 8 dereferenceable(32) %9, i64 %.val, i32 %.val31, ptr noalias noundef align 8 dereferenceable(24) %12, ptr noalias noundef readonly align 1 dereferenceable(16) %2)
           to label %46 unwind label %.body.thread59
 
 37:                                               ; preds = %29
@@ -5724,7 +5724,7 @@ common.resume:                                    ; preds = %.body, %122, %126, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16meilisearch_auth5store13HeedAuthStore27delete_key_from_inverted_db17h3278dd8a3248b3b0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(32) %0, i64 %.24.val, i32 %.32.val, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 1 dereferenceable(16) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16meilisearch_auth5store13HeedAuthStore27delete_key_from_inverted_db17h3278dd8a3248b3b0E(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, i64 %.24.val, i32 %.32.val, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 dereferenceable(16) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8

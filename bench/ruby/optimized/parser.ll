@@ -621,7 +621,7 @@ define internal i64 @cParser_parse(i64 noundef %0) #0 {
   br i1 %22, label %.loopexit99, label %.thread
 
 .loopexit107:                                     ; preds = %.preheader106, %.preheader106, %.preheader106, %.preheader106, %.preheader106, %.preheader106, %.preheader106, %.preheader106, %.preheader106, %19
-  %23 = call fastcc ptr @JSON_parse_value(ptr noundef nonnull %3, ptr noundef nonnull %.0, ptr noundef nonnull %12, ptr noundef nonnull %2, i32 noundef 0)
+  %23 = call fastcc ptr @JSON_parse_value(ptr noundef nonnull %3, ptr noundef nonnull %.0, ptr noundef nonnull %12, ptr noundef %2, i32 noundef 0)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit93, label %25
 
@@ -897,7 +897,7 @@ declare i64 @rb_str_conv_enc(i64 noundef, ptr noundef, ptr noundef) local_unname
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JSON_parse_value(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @JSON_parse_value(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = icmp eq ptr %1, %2
   br i1 %7, label %.loopexit, label %.preheader255
@@ -1926,7 +1926,7 @@ JSON_parse_integer.exit:                          ; preds = %JSON_parse_float.ex
 declare void @rb_enc_raise(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
   %6 = icmp eq ptr %1, %2
@@ -2132,7 +2132,7 @@ define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef %0, ptr noun
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %2 to i64
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2214,7 +2214,7 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
 
 .preheader154:                                    ; preds = %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %35
   store i64 4, ptr %7, align 8
-  %37 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %4)
+  %37 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %2, ptr noundef %7, i32 noundef %4)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit, label %.lr.ph274
 
@@ -2312,7 +2312,7 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
 
 .backedge157:                                     ; preds = %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %69
   store i64 4, ptr %7, align 8
-  %71 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %63, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %4)
+  %71 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %63, ptr noundef %2, ptr noundef %7, i32 noundef %4)
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.loopexit, label %.lr.ph274
 
@@ -2501,7 +2501,7 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   store i64 4, ptr %6, align 8
@@ -2566,7 +2566,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
 .preheader258:                                    ; preds = %.lr.ph328
   %33 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 1, ptr %33, align 8
-  %34 = call fastcc ptr @JSON_parse_string(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %2, ptr noundef nonnull %6)
+  %34 = call fastcc ptr @JSON_parse_string(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %2, ptr noundef %6)
   store i32 0, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread, label %.lr.ph358
@@ -2578,7 +2578,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
 
 .loopexit247:                                     ; preds = %.lr.ph354
   store i32 1, ptr %33, align 8
-  %38 = call fastcc ptr @JSON_parse_string(ptr noundef %0, ptr noundef nonnull %109, ptr noundef %2, ptr noundef nonnull %6)
+  %38 = call fastcc ptr @JSON_parse_string(ptr noundef %0, ptr noundef nonnull %109, ptr noundef %2, ptr noundef %6)
   store i32 0, ptr %33, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %.lr.ph358
@@ -2712,7 +2712,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
 
 .loopexit254:                                     ; preds = %.lr.ph341, %.lr.ph341, %.lr.ph341, %.lr.ph341, %.lr.ph341, %.lr.ph341, %.lr.ph341, %.lr.ph341, %.lr.ph341, %78
   store i64 4, ptr %7, align 8
-  %82 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %72, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %4)
+  %82 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %72, ptr noundef %2, ptr noundef %7, i32 noundef %4)
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.thread, label %84
 
@@ -3067,7 +3067,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
 declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @json_string_unescape(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @json_string_unescape(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -3361,7 +3361,7 @@ unescape_unicode.exit:                            ; preds = %68
   %.280101107115 = phi ptr [ %145, %.thread103.thread112 ], [ %69, %.thread103 ]
   %172 = lshr i64 %.072102106116, 18
   %173 = trunc nuw nsw i64 %172 to i8
-  %174 = or i8 %173, -16
+  %174 = or disjoint i8 %173, -16
   store i8 %174, ptr %5, align 1
   %175 = lshr i64 %.072102106116, 12
   %176 = trunc i64 %175 to i8

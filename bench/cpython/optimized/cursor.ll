@@ -941,7 +941,7 @@ if.then36.i170:                                   ; preds = %if.else.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %pos.0.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %type_start.0.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call39.i = call fastcc ptr @_pysqlite_get_converter(ptr noundef %106, ptr noundef nonnull %type_start.0.i, i64 noundef %sub.ptr.sub.i)
+  %call39.i = call fastcc ptr @_pysqlite_get_converter(ptr noundef %106, ptr noundef %type_start.0.i, i64 noundef %sub.ptr.sub.i)
   %tobool40.not.i = icmp eq ptr %call39.i, null
   br i1 %tobool40.not.i, label %land.lhs.true41.i, label %if.end109.i
 
@@ -1005,7 +1005,7 @@ if.then81.i:                                      ; preds = %for.cond70.i, %for.
   %sub.ptr.lhs.cast85.i = ptrtoint ptr %pos.1.i to i64
   %sub.ptr.rhs.cast86.i = ptrtoint ptr %call67.i to i64
   %sub.ptr.sub87.i = sub i64 %sub.ptr.lhs.cast85.i, %sub.ptr.rhs.cast86.i
-  %call88.i = call fastcc ptr @_pysqlite_get_converter(ptr noundef %116, ptr noundef nonnull %call67.i, i64 noundef %sub.ptr.sub87.i)
+  %call88.i = call fastcc ptr @_pysqlite_get_converter(ptr noundef %116, ptr noundef %call67.i, i64 noundef %sub.ptr.sub87.i)
   %tobool89.not.i = icmp eq ptr %call88.i, null
   br i1 %tobool89.not.i, label %land.lhs.true90.i, label %if.end109.i
 
@@ -1781,10 +1781,10 @@ declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 nounde
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pysqlite_get_converter(ptr nocapture noundef readonly %state, ptr noundef %keystr, i64 noundef %keylen) unnamed_addr #0 {
+define internal fastcc ptr @_pysqlite_get_converter(ptr nocapture noundef readonly %state, ptr noundef nonnull %keystr, i64 noundef %keylen) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
-  %call = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef %keystr, i64 noundef %keylen) #7
+  %call = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %keystr, i64 noundef %keylen) #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 

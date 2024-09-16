@@ -316,7 +316,7 @@ define range(i32 0, 2) i32 @opal_generic_simple_unpack_checksum(ptr noundef %0, 
   br label %78
 
 50:                                               ; preds = %48
-  call fastcc void @opal_unpack_partial_predefined(ptr noundef nonnull %0, ptr noundef nonnull %.0146172, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  call fastcc void @opal_unpack_partial_predefined(ptr noundef nonnull %0, ptr noundef nonnull %.0146172, ptr noundef %5, ptr noundef %7, ptr noundef %6, ptr noundef %8)
   %51 = load i64, ptr %5, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %53, label %75
@@ -501,7 +501,7 @@ unpack_partial_blocklen.exit.thread162:           ; preds = %unpack_partial_bloc
 157:                                              ; preds = %.lr.ph, %180
   %.4141170 = phi i32 [ %.1138, %.lr.ph ], [ %163, %180 ]
   %.4150169 = phi ptr [ %.1147, %.lr.ph ], [ %165, %180 ]
-  call fastcc void @unpack_predefined_data(ptr noundef %0, ptr noundef nonnull %.4150169, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  call fastcc void @unpack_predefined_data(ptr noundef %0, ptr noundef nonnull %.4150169, ptr noundef %5, ptr noundef %7, ptr noundef %6, ptr noundef %8)
   %158 = load i64, ptr %5, align 8
   %.not158 = icmp eq i64 %158, 0
   br i1 %.not158, label %159, label %unpack_partial_blocklen.exit.thread
@@ -799,7 +799,7 @@ unpack_partial_blocklen.exit.thread:              ; preds = %157, %unpack_partia
 318:                                              ; preds = %unpack_partial_blocklen.exit.thread
   %319 = load ptr, ptr %6, align 8
   store ptr %319, ptr %9, align 8
-  call fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr noundef nonnull %.2148, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8)
+  call fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr noundef nonnull %.2148, ptr noundef %5, ptr noundef %7, ptr noundef %9, ptr noundef %8)
   %.pre198 = load i64, ptr %8, align 8
   br label %320
 
@@ -872,7 +872,7 @@ unpack_partial_blocklen.exit.thread:              ; preds = %157, %unpack_partia
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x i8], align 16
   %9 = alloca ptr, align 8
@@ -953,7 +953,7 @@ define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr 
   %54 = getelementptr inbounds i8, ptr %0, i64 264
   %55 = load ptr, ptr %54, align 8
   %56 = call ptr %55(ptr noundef nonnull %7, ptr noundef %18, i64 noundef %25, ptr noundef %0) #7
-  call fastcc void @unpack_predefined_data(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  call fastcc void @unpack_predefined_data(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %12, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %57 = load i16, ptr %19, align 2
   %58 = zext i16 %57 to i64
   %59 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %58
@@ -1058,7 +1058,7 @@ define internal fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
@@ -7165,7 +7165,7 @@ unpack_predefined_heterogeneous.exit:             ; preds = %76, %.loopexit.i, %
 
 163:                                              ; preds = %160
   store ptr %162, ptr %9, align 8
-  call fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr noundef nonnull %.2108, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8)
+  call fastcc void @opal_unpack_partial_predefined(ptr noundef %0, ptr noundef nonnull %.2108, ptr noundef %6, ptr noundef %7, ptr noundef %9, ptr noundef %8)
   %.pre180 = load i64, ptr %8, align 8
   br label %.loopexit
 

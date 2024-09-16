@@ -242,20 +242,20 @@ define noundef ptr @tj3Init(i32 noundef %0) local_unnamed_addr #0 {
   ]
 
 19:                                               ; preds = %10
-  %20 = tail call fastcc ptr @_tjInitCompress(ptr noundef nonnull %calloc)
+  %20 = tail call fastcc ptr @_tjInitCompress(ptr noundef %calloc)
   br label %27
 
 21:                                               ; preds = %10
-  %22 = tail call fastcc ptr @_tjInitDecompress(ptr noundef nonnull %calloc)
+  %22 = tail call fastcc ptr @_tjInitDecompress(ptr noundef %calloc)
   br label %27
 
 23:                                               ; preds = %10
-  %24 = tail call fastcc ptr @_tjInitCompress(ptr noundef nonnull %calloc)
+  %24 = tail call fastcc ptr @_tjInitCompress(ptr noundef %calloc)
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc ptr @_tjInitDecompress(ptr noundef nonnull %calloc)
+  %26 = tail call fastcc ptr @_tjInitDecompress(ptr noundef %calloc)
   br label %27
 
 default.unreachable:                              ; preds = %10
@@ -282,7 +282,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_tjInitCompress(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_tjInitCompress(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr @_tjInitCompress.buffer, ptr %2, align 8
@@ -328,7 +328,7 @@ define internal fastcc noundef ptr @_tjInitCompress(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_tjInitDecompress(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_tjInitDecompress(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1152
   %3 = call ptr @jpeg_std_error(ptr noundef nonnull %2) #26
   %4 = getelementptr inbounds i8, ptr %0, i64 520
@@ -1517,7 +1517,7 @@ define noundef ptr @tjInitCompress() local_unnamed_addr #0 {
   store i32 1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %13, align 8
-  %14 = tail call fastcc ptr @_tjInitCompress(ptr noundef nonnull %calloc.i)
+  %14 = tail call fastcc ptr @_tjInitCompress(ptr noundef %calloc.i)
   br label %tj3Init.exit
 
 tj3Init.exit:                                     ; preds = %2, %5
@@ -2327,7 +2327,7 @@ define range(i32 -1, 1) i32 @tj3Compress8(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %4, ptr %80, align 4
   %81 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 8, ptr %81, align 8
-  call fastcc void @setCompDefaults(ptr noundef nonnull %0, i32 noundef %5)
+  call fastcc void @setCompDefaults(ptr noundef %0, i32 noundef %5)
   %82 = getelementptr inbounds i8, ptr %0, i64 1748
   %83 = load i32, ptr %82, align 4
   %.not117 = icmp eq i32 %83, 0
@@ -2442,7 +2442,7 @@ define range(i32 -1, 1) i32 @tj3Compress8(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setCompDefaults(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @setCompDefaults(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
@@ -2452,7 +2452,7 @@ define internal fastcc void @setCompDefaults(ptr noundef %0, i32 noundef %1) unn
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %8, ptr %9, align 8
-  tail call void @jpeg_set_defaults(ptr noundef %0) #26
+  tail call void @jpeg_set_defaults(ptr noundef nonnull %0) #26
   %10 = getelementptr inbounds i8, ptr %0, i64 1812
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 280
@@ -2747,7 +2747,7 @@ define range(i32 -1, 1) i32 @tj3Decompress8(ptr noundef %0, ptr noundef %1, i64 
   br label %61
 
 61:                                               ; preds = %59, %55
-  %62 = call fastcc i32 @getSubsamp(ptr noundef nonnull %14)
+  %62 = call fastcc i32 @getSubsamp(ptr noundef %14)
   %63 = getelementptr inbounds i8, ptr %0, i64 1756
   store i32 %62, ptr %63, align 4
   %64 = getelementptr inbounds i8, ptr %0, i64 568
@@ -3278,7 +3278,7 @@ tj3Init.exit:                                     ; preds = %33
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %44, align 8
-  %45 = call fastcc ptr @_tjInitCompress(ptr noundef nonnull %calloc.i)
+  %45 = call fastcc ptr @_tjInitCompress(ptr noundef %calloc.i)
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread181, label %47
 
@@ -3704,7 +3704,7 @@ tj3Init.exit:                                     ; preds = %25
   store i32 1, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %36, align 8
-  %37 = call fastcc ptr @_tjInitDecompress(ptr noundef nonnull %calloc.i)
+  %37 = call fastcc ptr @_tjInitDecompress(ptr noundef %calloc.i)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %150, label %39
 
@@ -4049,7 +4049,7 @@ define range(i32 -1, 1) i32 @tj3Compress12(ptr noundef %0, ptr noundef %1, i32 n
   store i32 %4, ptr %80, align 4
   %81 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 12, ptr %81, align 8
-  call fastcc void @setCompDefaults(ptr noundef nonnull %0, i32 noundef %5)
+  call fastcc void @setCompDefaults(ptr noundef %0, i32 noundef %5)
   %82 = getelementptr inbounds i8, ptr %0, i64 1748
   %83 = load i32, ptr %82, align 4
   %.not117 = icmp eq i32 %83, 0
@@ -4262,7 +4262,7 @@ define range(i32 -1, 1) i32 @tj3Decompress12(ptr noundef %0, ptr noundef %1, i64
   br label %61
 
 61:                                               ; preds = %59, %55
-  %62 = call fastcc i32 @getSubsamp(ptr noundef nonnull %14)
+  %62 = call fastcc i32 @getSubsamp(ptr noundef %14)
   %63 = getelementptr inbounds i8, ptr %0, i64 1756
   store i32 %62, ptr %63, align 4
   %64 = getelementptr inbounds i8, ptr %0, i64 568
@@ -4742,7 +4742,7 @@ tj3Init.exit:                                     ; preds = %33
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %44, align 8
-  %45 = call fastcc ptr @_tjInitCompress(ptr noundef nonnull %calloc.i)
+  %45 = call fastcc ptr @_tjInitCompress(ptr noundef %calloc.i)
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread181, label %47
 
@@ -5151,7 +5151,7 @@ tj3Init.exit:                                     ; preds = %25
   store i32 1, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %36, align 8
-  %37 = call fastcc ptr @_tjInitDecompress(ptr noundef nonnull %calloc.i)
+  %37 = call fastcc ptr @_tjInitDecompress(ptr noundef %calloc.i)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %151, label %39
 
@@ -5489,7 +5489,7 @@ define range(i32 -1, 1) i32 @tj3Compress16(ptr noundef %0, ptr noundef %1, i32 n
   store i32 %4, ptr %80, align 4
   %81 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 16, ptr %81, align 8
-  call fastcc void @setCompDefaults(ptr noundef nonnull %0, i32 noundef %5)
+  call fastcc void @setCompDefaults(ptr noundef %0, i32 noundef %5)
   %82 = getelementptr inbounds i8, ptr %0, i64 1748
   %83 = load i32, ptr %82, align 4
   %.not117 = icmp eq i32 %83, 0
@@ -5700,7 +5700,7 @@ define range(i32 -1, 1) i32 @tj3Decompress16(ptr noundef %0, ptr noundef %1, i64
   br label %59
 
 59:                                               ; preds = %57, %53
-  %60 = call fastcc i32 @getSubsamp(ptr noundef nonnull %12)
+  %60 = call fastcc i32 @getSubsamp(ptr noundef %12)
   %61 = getelementptr inbounds i8, ptr %0, i64 1756
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds i8, ptr %0, i64 568
@@ -6011,7 +6011,7 @@ tj3Init.exit:                                     ; preds = %33
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %44, align 8
-  %45 = call fastcc ptr @_tjInitCompress(ptr noundef nonnull %calloc.i)
+  %45 = call fastcc ptr @_tjInitCompress(ptr noundef %calloc.i)
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread181, label %47
 
@@ -6420,7 +6420,7 @@ tj3Init.exit:                                     ; preds = %25
   store i32 1, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %36, align 8
-  %37 = call fastcc ptr @_tjInitDecompress(ptr noundef nonnull %calloc.i)
+  %37 = call fastcc ptr @_tjInitDecompress(ptr noundef %calloc.i)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %151, label %39
 
@@ -6983,7 +6983,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
   store i32 %4, ptr %83, align 4
   %84 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 8, ptr %84, align 8
-  call fastcc void @setCompDefaults(ptr noundef nonnull %0, i32 noundef %5)
+  call fastcc void @setCompDefaults(ptr noundef %0, i32 noundef %5)
   %85 = getelementptr inbounds i8, ptr %0, i64 36
   %86 = load i32, ptr %85, align 4
   %.not254 = icmp eq i32 %86, 100
@@ -8087,7 +8087,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 87:                                               ; preds = %84, %78
   %.1218 = phi i32 [ 0, %84 ], [ 1, %78 ]
   call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %.1218) #26
-  call fastcc void @setCompDefaults(ptr noundef nonnull %0, i32 noundef 0)
+  call fastcc void @setCompDefaults(ptr noundef %0, i32 noundef 0)
   %88 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 1, ptr %88, align 8
   call void @jpeg_start_compress(ptr noundef nonnull %0, i32 noundef 1) #26
@@ -9047,7 +9047,7 @@ define noundef ptr @tjInitDecompress() local_unnamed_addr #0 {
   store i32 1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %13, align 8
-  %14 = tail call fastcc ptr @_tjInitDecompress(ptr noundef nonnull %calloc.i)
+  %14 = tail call fastcc ptr @_tjInitDecompress(ptr noundef %calloc.i)
   br label %tj3Init.exit
 
 tj3Init.exit:                                     ; preds = %2, %5
@@ -9096,7 +9096,7 @@ define range(i32 -1, 1) i32 @tj3DecompressHeader(ptr noundef %0, ptr noundef %1,
   br i1 %23, label %84, label %24
 
 24:                                               ; preds = %21
-  %25 = call fastcc i32 @getSubsamp(ptr noundef nonnull %8)
+  %25 = call fastcc i32 @getSubsamp(ptr noundef %8)
   %26 = getelementptr inbounds i8, ptr %0, i64 1756
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 568
@@ -9969,7 +9969,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   store i32 0, ptr %92, align 4
   %93 = getelementptr inbounds i8, ptr %0, i64 1048
   store i32 63, ptr %93, align 8
-  call fastcc void @setDecodeDefaults(ptr noundef nonnull %0)
+  call fastcc void @setDecodeDefaults(ptr noundef %0)
   %94 = getelementptr inbounds i8, ptr %0, i64 1104
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
@@ -10378,7 +10378,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setDecodeDefaults(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @setDecodeDefaults(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   store i32 1, ptr %3, align 8
@@ -11035,7 +11035,7 @@ define range(i32 -1, 1) i32 @tj3DecompressToYUVPlanes8(ptr noundef %0, ptr nound
   br label %65
 
 65:                                               ; preds = %63, %59
-  %66 = call fastcc i32 @getSubsamp(ptr noundef nonnull %21)
+  %66 = call fastcc i32 @getSubsamp(ptr noundef %21)
   %67 = getelementptr inbounds i8, ptr %0, i64 1756
   store i32 %66, ptr %67, align 4
   %68 = getelementptr inbounds i8, ptr %0, i64 568
@@ -11910,7 +11910,7 @@ define range(i32 -1, 1) i32 @tj3DecompressToYUV8(ptr noundef %0, ptr noundef %1,
   br label %30
 
 30:                                               ; preds = %28, %24
-  %31 = call fastcc i32 @getSubsamp(ptr noundef nonnull %12)
+  %31 = call fastcc i32 @getSubsamp(ptr noundef %12)
   %32 = getelementptr inbounds i8, ptr %0, i64 1756
   store i32 %31, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 568
@@ -12389,12 +12389,12 @@ define noundef ptr @tjInitTransform() local_unnamed_addr #0 {
   store i32 1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %13, align 8
-  %14 = tail call fastcc ptr @_tjInitCompress(ptr noundef nonnull %calloc.i)
+  %14 = tail call fastcc ptr @_tjInitCompress(ptr noundef %calloc.i)
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %tj3Init.exit, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call fastcc ptr @_tjInitDecompress(ptr noundef nonnull %calloc.i)
+  %16 = tail call fastcc ptr @_tjInitDecompress(ptr noundef %calloc.i)
   br label %tj3Init.exit
 
 tj3Init.exit:                                     ; preds = %2, %5, %15
@@ -12651,7 +12651,7 @@ define range(i32 -1, 1) i32 @tj3Transform(ptr noundef %0, ptr noundef %1, i64 no
   br label %306
 
 .lr.ph352.preheader:                              ; preds = %121, %124
-  %139 = call fastcc i32 @getSubsamp(ptr noundef nonnull %13)
+  %139 = call fastcc i32 @getSubsamp(ptr noundef %13)
   %140 = getelementptr inbounds i8, ptr %0, i64 1756
   store i32 %139, ptr %140, align 4
   br label %.lr.ph352
@@ -13047,7 +13047,7 @@ split:                                            ; preds = %166, %._crit_edge40
 declare void @jcopy_markers_setup(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @getSubsamp(ptr nocapture noundef readonly %0) unnamed_addr #19 {
+define internal fastcc i32 @getSubsamp(ptr nocapture noundef nonnull readonly %0) unnamed_addr #19 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -13359,7 +13359,7 @@ define range(i32 -1, 1) i32 @tjTransform(ptr noundef %0, ptr noundef %1, i64 nou
 36:                                               ; preds = %33
   call void @jpeg_mem_src_tj(ptr noundef nonnull %13, ptr noundef %1, i64 noundef %2) #26
   %37 = call i32 @jpeg_read_header(ptr noundef nonnull %13, i32 noundef 1) #26
-  %38 = call fastcc i32 @getSubsamp(ptr noundef nonnull %13)
+  %38 = call fastcc i32 @getSubsamp(ptr noundef %13)
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %40, label %45
 
@@ -13490,7 +13490,7 @@ tj3Init.exit:                                     ; preds = %6
   store i32 1, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %17, align 8
-  %18 = tail call fastcc ptr @_tjInitCompress(ptr noundef nonnull %calloc.i)
+  %18 = tail call fastcc ptr @_tjInitCompress(ptr noundef %calloc.i)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %47, label %20
 
@@ -13591,7 +13591,7 @@ tj3Init.exit:                                     ; preds = %7
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %calloc.i, i64 1832
   store i64 4294967297, ptr %18, align 8
-  %19 = tail call fastcc ptr @_tjInitDecompress(ptr noundef nonnull %calloc.i)
+  %19 = tail call fastcc ptr @_tjInitDecompress(ptr noundef %calloc.i)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %45, label %21
 

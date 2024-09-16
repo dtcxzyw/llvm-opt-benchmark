@@ -29,13 +29,13 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @zend_accel_error(i32 noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = sext i32 %0 to i64
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 96), align 8
@@ -107,7 +107,7 @@ define internal fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr nocapt
   br label %36
 
 36:                                               ; preds = %34, %32, %30, %28, %26, %23
-  %37 = call i32 @vfprintf(ptr noundef %.0, ptr noundef %1, ptr noundef %2) #11
+  %37 = call i32 @vfprintf(ptr noundef %.0, ptr noundef %1, ptr noundef nonnull %2) #11
   %fputc = call i32 @fputc(i32 10, ptr %.0)
   %38 = call i32 @fflush(ptr noundef %.0)
   %39 = load ptr, ptr @stderr, align 8
@@ -142,7 +142,7 @@ define hidden void @zend_accel_error_noreturn(i32 noundef %0, ptr nocapture noun
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = icmp ult i32 %0, 2
   call void @llvm.assume(i1 %4)
-  call fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @abort() #13
   unreachable

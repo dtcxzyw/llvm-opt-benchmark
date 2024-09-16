@@ -1774,7 +1774,7 @@ define dso_local void @hrtimer_interrupt(ptr nocapture noundef writeonly %0) loc
 declare dso_local void @raise_softirq_irqoff(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__hrtimer_run_queues(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #5 align 16 {
+define internal fastcc void @__hrtimer_run_queues(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 15, 241) %3) unnamed_addr #5 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8

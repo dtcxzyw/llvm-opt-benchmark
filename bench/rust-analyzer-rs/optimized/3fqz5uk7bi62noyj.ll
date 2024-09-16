@@ -1604,7 +1604,7 @@ define hidden { i32, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !578)
   %3 = load i64, ptr %0, align 8, !range !290, !alias.scope !578, !noundef !4
@@ -4052,7 +4052,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 67:                                               ; preds = %64
   %68 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26) #35
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef align 8 dereferenceable(32) %26) #35
           to label %88 unwind label %86, !noalias !1203
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h77e4aa5ac9d2ff0dE.exit.i.i.i.i.i.i.i": ; preds = %64
@@ -4121,7 +4121,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   unreachable
 
 88:                                               ; preds = %67
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #35
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef align 8 dereferenceable(32) %10) #35
           to label %.body.i.i unwind label %86, !noalias !1203
 
 .loopexit15:                                      ; preds = %63
@@ -4136,7 +4136,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 89:                                               ; preds = %.loopexit.split-lp16, %.loopexit15
   %lpad.phi19 = phi { ptr, i32 } [ %lpad.loopexit17, %.loopexit15 ], [ %lpad.loopexit.split-lp18, %.loopexit.split-lp16 ]
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #35
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef align 8 dereferenceable(32) %9) #35
           to label %.body.i.i unwind label %90, !noalias !1173
 
 90:                                               ; preds = %89
@@ -4163,7 +4163,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 93:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #35
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$la_arena..Idx$LT$base_db..input..CrateData$GT$$RP$$GT$17h34daafdef9bcf2beE"(ptr noalias noundef align 8 dereferenceable(32) %11) #35
           to label %.body.i.i unwind label %94, !noalias !1177
 
 94:                                               ; preds = %93

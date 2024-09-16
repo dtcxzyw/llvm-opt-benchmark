@@ -46,7 +46,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %7

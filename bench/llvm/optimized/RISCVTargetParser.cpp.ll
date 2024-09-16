@@ -1122,36 +1122,35 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEj
   %.rhs.trunc = trunc nuw i32 %12 to i8
   %15 = udiv i8 8, %.rhs.trunc
   %.zext = zext nneg i8 %15 to i32
-  br label %_ZN4llvm13isPowerOf2_32Ej.exit.i
+  br label %18
 
 16:                                               ; preds = %3
   %17 = lshr i32 %12, 3
-  br label %_ZN4llvm13isPowerOf2_32Ej.exit.i
+  br label %18
 
-_ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %14, %16
-  %18 = phi i32 [ %.zext, %14 ], [ %17, %16 ]
-  %19 = tail call range(i32 1, 30) i32 @llvm.ctpop.i32(i32 %18)
-  %20 = icmp ult i32 %19, 2
-  %21 = icmp ult i32 %18, 9
-  %or.cond.i = and i1 %21, %20
-  %22 = icmp ne i32 %18, 1
-  %23 = or i1 %13, %22
-  %or.cond = and i1 %23, %or.cond.i
-  br i1 %or.cond, label %24, label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
+18:                                               ; preds = %16, %14
+  %19 = phi i32 [ %.zext, %14 ], [ %17, %16 ]
+  %20 = tail call range(i32 1, 30) i32 @llvm.ctpop.i32(i32 %19)
+  %21 = icmp ult i32 %20, 2
+  %22 = icmp ult i32 %19, 9
+  %or.cond.i = and i1 %22, %21
+  %23 = icmp ne i32 %19, 1
+  %24 = or i1 %13, %23
+  %or.cond = and i1 %24, %or.cond.i
+  br i1 %or.cond, label %25, label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
 
-24:                                               ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit.i
-  %25 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 false)
-  %26 = sub nuw nsw i32 31, %25
-  %27 = add nuw nsw i32 %25, 233
-  %28 = select i1 %13, i32 %26, i32 %27
-  %29 = trunc nuw nsw i32 %28 to i16
-  %30 = and i16 %29, 255
+25:                                               ; preds = %18
+  %26 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %27 = xor i32 %26, 31
+  %28 = sub nuw nsw i32 8, %27
+  %29 = select i1 %13, i32 %27, i32 %28
+  %30 = trunc nuw nsw i32 %29 to i16
   br label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
 
-_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread: ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit.i, %24
-  %.sroa.0.0 = phi i16 [ %30, %24 ], [ 0, %_ZN4llvm13isPowerOf2_32Ej.exit.i ]
-  %.sroa.2.0 = phi i16 [ 256, %24 ], [ 0, %_ZN4llvm13isPowerOf2_32Ej.exit.i ]
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.2.0, %.sroa.0.0
+_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread: ; preds = %18, %25
+  %.sroa.0.0 = phi i16 [ %30, %25 ], [ 0, %18 ]
+  %.sroa.2.0 = phi i16 [ 256, %25 ], [ 0, %18 ]
+  %.sroa.0.0.insert.insert = or i16 %.sroa.2.0, %.sroa.0.0
   ret i16 %.sroa.0.0.insert.insert
 }
 

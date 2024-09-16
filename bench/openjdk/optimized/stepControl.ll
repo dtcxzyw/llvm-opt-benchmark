@@ -301,7 +301,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 118:                                              ; preds = %115
   tail call void @createLocalRefSpace(ptr noundef %0, i32 noundef 1) #4
-  %119 = call fastcc i32 @getFrameLocation(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %119 = call fastcc i32 @getFrameLocation(ptr noundef %1, ptr noundef %7, ptr noundef %6, ptr noundef %5)
   %120 = load ptr, ptr %6, align 8
   %121 = call zeroext i8 @isMethodObsolete(ptr noundef %120) #4
   %.not73 = icmp eq i8 %121, 0
@@ -760,7 +760,7 @@ declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #1
 declare void @createLocalRefSpace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getFrameLocation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @getFrameLocation(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
   store i64 -1, ptr %3, align 8

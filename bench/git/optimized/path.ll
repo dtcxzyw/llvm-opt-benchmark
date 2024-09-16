@@ -280,14 +280,14 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_submodule_path.git_submodule_dir, i64 24, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %args)
-  call fastcc void @do_git_path(ptr noundef %repo, ptr noundef null, ptr noundef nonnull %path, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_path(ptr noundef %repo, ptr noundef null, ptr noundef nonnull %path, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %call = call ptr @strbuf_detach(ptr noundef nonnull %path, ptr noundef null) #26
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_git_path(ptr nocapture noundef readonly %repo, ptr noundef readonly %wt, ptr noundef %buf, ptr noundef %fmt, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc void @do_git_path(ptr nocapture noundef readonly %repo, ptr noundef readonly %wt, ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %wt, null
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
@@ -361,7 +361,7 @@ strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
 
 if.end:                                           ; preds = %strbuf_addch.exit, %land.lhs.true, %strbuf_worktree_gitdir.exit
   %12 = phi i64 [ %.pre22, %strbuf_addch.exit ], [ %3, %land.lhs.true ], [ 0, %strbuf_worktree_gitdir.exit ]
-  tail call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef %args) #26
+  tail call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %args) #26
   br i1 %tobool.not.i, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
@@ -587,7 +587,7 @@ define dso_local void @strbuf_repo_git_path(ptr noundef %sb, ptr nocapture nound
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  call fastcc void @do_git_path(ptr noundef %repo, ptr noundef null, ptr noundef %sb, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_path(ptr noundef %repo, ptr noundef null, ptr noundef %sb, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
@@ -610,7 +610,7 @@ if.then4.i:                                       ; preds = %entry
 strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   call void @llvm.va_start.p0(ptr nonnull %args)
   %1 = load ptr, ptr @the_repository, align 8
-  call fastcc void @do_git_path(ptr noundef %1, ptr noundef null, ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_path(ptr noundef %1, ptr noundef null, ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %2 = load ptr, ptr %buf.i, align 8
   ret ptr %2
@@ -622,7 +622,7 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load ptr, ptr @the_repository, align 8
-  call fastcc void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef %sb, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef %sb, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
@@ -651,7 +651,7 @@ if.then4.i.i:                                     ; preds = %entry
 get_pathname.exit:                                ; preds = %entry, %if.then4.i.i
   call void @llvm.va_start.p0(ptr nonnull %args)
   %3 = load ptr, ptr @the_repository, align 8
-  call fastcc void @do_git_path(ptr noundef %3, ptr noundef null, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_path(ptr noundef %3, ptr noundef null, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %4 = load ptr, ptr %buf.i.i, align 8
   ret ptr %4
@@ -665,7 +665,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_submodule_path.git_submodule_dir, i64 24, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load ptr, ptr @the_repository, align 8
-  call fastcc void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef nonnull %path, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_path(ptr noundef %0, ptr noundef null, ptr noundef nonnull %path, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %call = call ptr @strbuf_detach(ptr noundef nonnull %path, ptr noundef null) #26
   ret ptr %call
@@ -805,7 +805,7 @@ if.then4.i.i:                                     ; preds = %entry
 get_pathname.exit:                                ; preds = %entry, %if.then4.i.i
   call void @llvm.va_start.p0(ptr nonnull %args)
   %3 = load ptr, ptr @the_repository, align 8
-  call fastcc void @do_git_path(ptr noundef %3, ptr noundef %wt, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_path(ptr noundef %3, ptr noundef %wt, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %4 = load ptr, ptr %buf.i.i, align 8
   ret ptr %4
@@ -825,7 +825,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
   %repo.val = load ptr, ptr %worktree, align 8
-  call fastcc void @do_worktree_path(ptr %repo.val, ptr noundef nonnull %path, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_worktree_path(ptr %repo.val, ptr noundef nonnull %path, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %call = call ptr @strbuf_detach(ptr noundef nonnull %path, ptr noundef null) #26
   br label %return
@@ -836,7 +836,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_worktree_path(ptr %repo.128.val, ptr noundef %buf, ptr noundef %fmt, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc void @do_worktree_path(ptr %repo.128.val, ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %repo.128.val) #28
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %repo.128.val, i64 noundef %call.i) #26
@@ -883,7 +883,7 @@ strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %strbuf_addch.exit, %land.lhs.true, %entry
-  tail call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef %args) #26
+  tail call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %args) #26
   %buf.i7 = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load ptr, ptr %buf.i7, align 8
   %scevgep.i.i = getelementptr i8, ptr %9, i64 2
@@ -938,7 +938,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
   %repo.val = load ptr, ptr %worktree, align 8
-  call fastcc void @do_worktree_path(ptr %repo.val, ptr noundef %sb, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_worktree_path(ptr %repo.val, ptr noundef %sb, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   br label %return
 
@@ -953,7 +953,7 @@ entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_submodule_path.git_submodule_dir, i64 24, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %args)
-  %call = call fastcc i32 @do_submodule_path(ptr noundef nonnull %buf, ptr noundef %path, ptr noundef %fmt, ptr noundef nonnull %args)
+  %call = call fastcc i32 @do_submodule_path(ptr noundef nonnull %buf, ptr noundef %path, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -972,7 +972,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_submodule_path(ptr noundef %buf, ptr noundef %path, ptr noundef %fmt, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc i32 @do_submodule_path(ptr noundef %buf, ptr noundef %path, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %git_submodule_common_dir = alloca %struct.strbuf, align 8
   %git_submodule_dir = alloca %struct.strbuf, align 8
@@ -1027,7 +1027,7 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %if.th
 
 strbuf_complete.exit:                             ; preds = %if.end, %land.lhs.true.i, %strbuf_addch.exit.i
   call void @strbuf_addbuf(ptr noundef %buf, ptr noundef nonnull %git_submodule_dir) #26
-  call void @strbuf_vaddf(ptr noundef %buf, ptr noundef %fmt, ptr noundef %args) #26
+  call void @strbuf_vaddf(ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %args) #26
   %buf1 = getelementptr inbounds i8, ptr %git_submodule_dir, i64 16
   %9 = load ptr, ptr %buf1, align 8
   %call2 = call i32 @get_common_dir_noenv(ptr noundef nonnull %git_submodule_common_dir, ptr noundef %9) #26
@@ -1092,7 +1092,7 @@ define dso_local i32 @strbuf_git_path_submodule(ptr noundef %buf, ptr noundef %p
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  %call = call fastcc i32 @do_submodule_path(ptr noundef %buf, ptr noundef %path, ptr noundef %fmt, ptr noundef nonnull %args)
+  %call = call fastcc i32 @do_submodule_path(ptr noundef %buf, ptr noundef %path, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %call
 }
@@ -1123,14 +1123,14 @@ get_pathname.exit:                                ; preds = %entry, %if.then4.i.
   %3 = load ptr, ptr @the_repository, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %4, align 8
-  call fastcc void @do_git_common_path(ptr %.val, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_common_path(ptr %.val, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %5 = load ptr, ptr %buf.i.i, align 8
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_git_common_path(ptr %repo.8.val, ptr noundef %buf, ptr noundef %fmt, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc void @do_git_common_path(ptr %repo.8.val, ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %repo.8.val) #28
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %repo.8.val, i64 noundef %call.i) #26
@@ -1177,7 +1177,7 @@ strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %strbuf_addch.exit, %land.lhs.true, %entry
-  tail call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef %args) #26
+  tail call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %args) #26
   %buf.i7 = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load ptr, ptr %buf.i7, align 8
   %scevgep.i.i = getelementptr i8, ptr %9, i64 2
@@ -1227,7 +1227,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = getelementptr i8, ptr %repo, i64 8
   %repo.val = load ptr, ptr %0, align 8
-  call fastcc void @do_git_common_path(ptr %repo.val, ptr noundef %sb, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @do_git_common_path(ptr %repo.val, ptr noundef %sb, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
@@ -3274,8 +3274,8 @@ if.else76.i:                                      ; preds = %if.else58.i
   br i1 %or.cond35.i, label %if.else85.i, label %is_ntfs_dot_generic.exit
 
 if.else85.i:                                      ; preds = %if.else76.i
-  %idxprom.i.i = zext nneg i8 %5 to i64
-  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i
+  %conv.i.i = zext nneg i8 %5 to i64
+  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   %10 = shl i8 %9, 3
   %11 = and i8 %10, 32

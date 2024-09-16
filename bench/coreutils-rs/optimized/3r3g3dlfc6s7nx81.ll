@@ -329,7 +329,7 @@ define void @_ZN8uu_tsort5Graph3new17hb66edeb479f9bfefE(ptr noalias nocapture no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN8uu_tsort5Graph9init_node17he5758c583dbd4d5dE(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN8uu_tsort5Graph9init_node17he5758c583dbd4d5dE(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, ptr, { ptr, [2 x i64] }, {}, {} }, align 8
@@ -532,7 +532,7 @@ _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit: ; preds = %17
   br label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread
 
 _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread: ; preds = %5, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit
-  tail call fastcc void @_ZN8uu_tsort5Graph9init_node17he5758c583dbd4d5dE(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  tail call fastcc void @_ZN8uu_tsort5Graph9init_node17he5758c583dbd4d5dE(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   br label %20
 
 20:                                               ; preds = %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread51, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit.thread
@@ -561,7 +561,7 @@ _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39: ; preds = %22
   br label %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread
 
 _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread: ; preds = %20, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39
-  tail call fastcc void @_ZN8uu_tsort5Graph9init_node17he5758c583dbd4d5dE(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  tail call fastcc void @_ZN8uu_tsort5Graph9init_node17he5758c583dbd4d5dE(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br label %25
 
 25:                                               ; preds = %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread54, %_ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread

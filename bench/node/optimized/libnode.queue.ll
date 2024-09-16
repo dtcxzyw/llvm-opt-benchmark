@@ -2550,7 +2550,7 @@ do.body15:                                        ; preds = %do.body9
   unreachable
 
 do.end20:                                         ; preds = %do.body9
-  call fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl18DequeuePendingPullEv(ptr noalias nonnull align 8 %pending, ptr noundef nonnull align 8 dereferenceable(168) %this)
+  call fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl18DequeuePendingPullEv(ptr noalias align 8 %pending, ptr noundef nonnull align 8 dereferenceable(168) %this)
   %entry_ = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %entry_, align 8
   %handle_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -3742,7 +3742,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullD2Ev.exit
-  call fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl18DequeuePendingPullEv(ptr noalias nonnull align 8 %pending, ptr noundef nonnull align 8 dereferenceable(168) %this)
+  call fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl18DequeuePendingPullEv(ptr noalias align 8 %pending, ptr noundef nonnull align 8 dereferenceable(168) %this)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl13DrainAndCloseEvEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl13DrainAndCloseEvEUlmE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i, align 8
@@ -3877,7 +3877,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl18DequeuePendingPullEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl18DequeuePendingPullEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %pending_pulls_.val = load ptr, ptr %0, align 8

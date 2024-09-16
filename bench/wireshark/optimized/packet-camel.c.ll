@@ -2800,7 +2800,7 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 2, 10) %4) unnamed_addr #0 {
   %6 = alloca %struct.camelsrt_call_info_key_t, align 4
   %7 = load i32, ptr %3, align 8
   store i32 %7, ptr %6, align 4
@@ -3040,7 +3040,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %123, %120, %11
 declare void @tcapsrt_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 2, 10) %4) unnamed_addr #0 {
   %6 = alloca %struct.camelsrt_call_info_key_t, align 4
   %7 = alloca %struct.nstime_t, align 8
   %8 = load i32, ptr %3, align 8
@@ -3216,7 +3216,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
   br i1 %.not.i88, label %camelsrt_display_DeltaTime.exit, label %97
 
 97:                                               ; preds = %proto_item_set_generated.exit
-  switch i32 %.0, label %default.unreachable.i [
+  switch i32 %.0, label %default.unreachable [
     i32 2, label %98
     i32 3, label %104
     i32 4, label %104
@@ -3299,12 +3299,12 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
   %.not5.i37.i = icmp eq ptr %133, null
   br i1 %.not5.i37.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
 
-default.unreachable.i:                            ; preds = %97
+default.unreachable:                              ; preds = %97
   unreachable
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %131, %125, %119, %113, %107, %101
-  %.sink41.i = phi ptr [ %103, %101 ], [ %109, %107 ], [ %115, %113 ], [ %121, %119 ], [ %127, %125 ], [ %133, %131 ]
-  %134 = getelementptr inbounds i8, ptr %.sink41.i, i64 28
+  %.sink42.i = phi ptr [ %103, %101 ], [ %109, %107 ], [ %115, %113 ], [ %121, %119 ], [ %127, %125 ], [ %133, %131 ]
+  %134 = getelementptr inbounds i8, ptr %.sink42.i, i64 28
   %135 = load i32, ptr %134, align 4
   %136 = or i32 %135, 2
   store i32 %136, ptr %134, align 4
@@ -3928,7 +3928,7 @@ declare void @stat_tap_set_field_data(ptr noundef, i32 noundef, i32 noundef, ptr
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_camel_all(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_camel_all(i32 noundef range(i32 1, 5) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) unnamed_addr #0 {
   %8 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %4) #8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
@@ -5658,11 +5658,11 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %7 = alloca [20 x i8], align 16
   %8 = alloca [20 x i8], align 16
   %.sink.sroa.gep = getelementptr inbounds i8, ptr %8, i64 7
-  %.sink.sroa.gep35 = getelementptr inbounds i8, ptr %8, i64 5
+  %.sink.sroa.gep34 = getelementptr inbounds i8, ptr %8, i64 5
   br label %9
 
 9:                                                ; preds = %6, %9
-  %indvars.iv26 = phi i64 [ 0, %6 ], [ %indvars.iv.next27, %9 ]
+  %indvars.iv25 = phi i64 [ 0, %6 ], [ %indvars.iv.next26, %9 ]
   %indvars.iv = phi i32 [ 0, %6 ], [ %indvars.iv.next, %9 ]
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %indvars.iv) #8
   %11 = load i32, ptr @hf_digit, align 4
@@ -5674,110 +5674,112 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %15, ptr noundef %1, i32 noundef %indvars.iv, i32 noundef 1, i32 noundef %16) #8
   %18 = icmp ult i32 %13, 10
   %19 = trunc nuw nsw i32 %13 to i8
-  %.0.v.i = select i1 %18, i8 48, i8 55
-  %.0.i = add nuw nsw i8 %.0.v.i, %19
-  %20 = getelementptr [20 x i8], ptr %8, i64 0, i64 %indvars.iv26
-  store i8 %.0.i, ptr %20, align 2
-  %21 = or disjoint i64 %indvars.iv26, 1
-  %22 = icmp ult i8 %10, -96
-  %23 = trunc nuw nsw i32 %16 to i8
-  %.0.v.i22 = select i1 %22, i8 48, i8 55
-  %.0.i23 = add nuw nsw i8 %.0.v.i22, %23
-  %24 = getelementptr [20 x i8], ptr %8, i64 0, i64 %21
-  store i8 %.0.i23, ptr %24, align 1
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 2
+  %20 = or disjoint i8 %19, 48
+  %21 = add nuw nsw i8 %19, 55
+  %.0.i = select i1 %18, i8 %20, i8 %21
+  %22 = getelementptr [20 x i8], ptr %8, i64 0, i64 %indvars.iv25
+  store i8 %.0.i, ptr %22, align 2
+  %23 = or disjoint i64 %indvars.iv25, 1
+  %24 = icmp ult i8 %10, -96
+  %25 = trunc nuw nsw i32 %16 to i8
+  %26 = or disjoint i8 %25, 48
+  %27 = add nuw nsw i8 %25, 55
+  %.0.i22 = select i1 %24, i8 %26, i8 %27
+  %28 = getelementptr [20 x i8], ptr %8, i64 0, i64 %23
+  store i8 %.0.i22, ptr %28, align 1
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 2
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %25, label %9, !llvm.loop !9
+  br i1 %exitcond.not, label %29, label %9, !llvm.loop !9
 
-25:                                               ; preds = %9
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  %27 = load i8, ptr %26, align 8
-  store i8 %27, ptr %7, align 16
-  %28 = getelementptr inbounds i8, ptr %8, i64 9
-  %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %29, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %7, i64 2
-  store i8 58, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %8, i64 10
-  %33 = load i8, ptr %32, align 2
-  %34 = getelementptr inbounds i8, ptr %7, i64 3
+29:                                               ; preds = %9
+  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = load i8, ptr %30, align 8
+  store i8 %31, ptr %7, align 16
+  %32 = getelementptr inbounds i8, ptr %8, i64 9
+  %33 = load i8, ptr %32, align 1
+  %34 = getelementptr inbounds i8, ptr %7, i64 1
   store i8 %33, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %8, i64 11
-  %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %7, i64 4
-  store i8 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %7, i64 5
-  store i8 58, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %8, i64 12
-  %40 = load i8, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %7, i64 6
-  store i8 %40, ptr %41, align 2
-  %42 = getelementptr inbounds i8, ptr %8, i64 13
-  %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %7, i64 7
-  store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %7, i64 8
-  store i8 59, ptr %45, align 8
-  %46 = load i32, ptr @date_format, align 4
-  %47 = icmp eq i32 %46, 1
-  br i1 %47, label %48, label %55
+  %35 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 58, ptr %35, align 2
+  %36 = getelementptr inbounds i8, ptr %8, i64 10
+  %37 = load i8, ptr %36, align 2
+  %38 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 %37, ptr %38, align 1
+  %39 = getelementptr inbounds i8, ptr %8, i64 11
+  %40 = load i8, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %7, i64 4
+  store i8 %40, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %7, i64 5
+  store i8 58, ptr %42, align 1
+  %43 = getelementptr inbounds i8, ptr %8, i64 12
+  %44 = load i8, ptr %43, align 4
+  %45 = getelementptr inbounds i8, ptr %7, i64 6
+  store i8 %44, ptr %45, align 2
+  %46 = getelementptr inbounds i8, ptr %8, i64 13
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds i8, ptr %7, i64 7
+  store i8 %47, ptr %48, align 1
+  %49 = getelementptr inbounds i8, ptr %7, i64 8
+  store i8 59, ptr %49, align 8
+  %50 = load i32, ptr @date_format, align 4
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %52, label %59
 
-48:                                               ; preds = %25
-  %49 = getelementptr inbounds i8, ptr %8, i64 6
-  %50 = load i8, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %8, i64 7
-  %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %8, i64 4
-  %54 = load i8, ptr %53, align 4
-  br label %62
+52:                                               ; preds = %29
+  %53 = getelementptr inbounds i8, ptr %8, i64 6
+  %54 = load i8, ptr %53, align 2
+  %55 = getelementptr inbounds i8, ptr %8, i64 7
+  %56 = load i8, ptr %55, align 1
+  %57 = getelementptr inbounds i8, ptr %8, i64 4
+  %58 = load i8, ptr %57, align 4
+  br label %66
 
-55:                                               ; preds = %25
-  %56 = getelementptr inbounds i8, ptr %8, i64 4
-  %57 = load i8, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %8, i64 5
-  %59 = load i8, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %8, i64 6
-  %61 = load i8, ptr %60, align 2
-  br label %62
+59:                                               ; preds = %29
+  %60 = getelementptr inbounds i8, ptr %8, i64 4
+  %61 = load i8, ptr %60, align 4
+  %62 = getelementptr inbounds i8, ptr %8, i64 5
+  %63 = load i8, ptr %62, align 1
+  %64 = getelementptr inbounds i8, ptr %8, i64 6
+  %65 = load i8, ptr %64, align 2
+  br label %66
 
-62:                                               ; preds = %55, %48
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %55 ], [ %.sink.sroa.gep35, %48 ]
-  %.sink33 = phi i8 [ %57, %55 ], [ %50, %48 ]
-  %.sink32 = phi i8 [ %59, %55 ], [ %52, %48 ]
-  %.sink31 = phi i8 [ %61, %55 ], [ %54, %48 ]
-  %63 = load i8, ptr %.sink.sroa.phi, align 1
-  %64 = getelementptr inbounds i8, ptr %7, i64 9
-  store i8 %.sink33, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %7, i64 10
-  store i8 %.sink32, ptr %65, align 2
-  %66 = getelementptr inbounds i8, ptr %7, i64 11
-  store i8 47, ptr %66, align 1
-  %67 = getelementptr inbounds i8, ptr %7, i64 12
-  store i8 %.sink31, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %7, i64 13
-  store i8 %63, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %7, i64 14
-  store i8 47, ptr %69, align 2
-  %70 = load i8, ptr %8, align 16
-  %71 = getelementptr inbounds i8, ptr %7, i64 15
-  store i8 %70, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %8, i64 1
-  %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %7, i64 16
-  store i8 %73, ptr %74, align 16
-  %75 = getelementptr inbounds i8, ptr %8, i64 2
-  %76 = load i8, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %7, i64 17
-  store i8 %76, ptr %77, align 1
-  %78 = getelementptr inbounds i8, ptr %8, i64 3
-  %79 = load i8, ptr %78, align 1
-  %80 = getelementptr inbounds i8, ptr %7, i64 18
-  store i8 %79, ptr %80, align 2
-  %81 = getelementptr inbounds i8, ptr %7, i64 19
-  store i8 0, ptr %81, align 1
-  %82 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %7) #8
+66:                                               ; preds = %59, %52
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %59 ], [ %.sink.sroa.gep34, %52 ]
+  %.sink32 = phi i8 [ %61, %59 ], [ %54, %52 ]
+  %.sink31 = phi i8 [ %63, %59 ], [ %56, %52 ]
+  %.sink30 = phi i8 [ %65, %59 ], [ %58, %52 ]
+  %67 = load i8, ptr %.sink.sroa.phi, align 1
+  %68 = getelementptr inbounds i8, ptr %7, i64 9
+  store i8 %.sink32, ptr %68, align 1
+  %69 = getelementptr inbounds i8, ptr %7, i64 10
+  store i8 %.sink31, ptr %69, align 2
+  %70 = getelementptr inbounds i8, ptr %7, i64 11
+  store i8 47, ptr %70, align 1
+  %71 = getelementptr inbounds i8, ptr %7, i64 12
+  store i8 %.sink30, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %7, i64 13
+  store i8 %67, ptr %72, align 1
+  %73 = getelementptr inbounds i8, ptr %7, i64 14
+  store i8 47, ptr %73, align 2
+  %74 = load i8, ptr %8, align 16
+  %75 = getelementptr inbounds i8, ptr %7, i64 15
+  store i8 %74, ptr %75, align 1
+  %76 = getelementptr inbounds i8, ptr %8, i64 1
+  %77 = load i8, ptr %76, align 1
+  %78 = getelementptr inbounds i8, ptr %7, i64 16
+  store i8 %77, ptr %78, align 16
+  %79 = getelementptr inbounds i8, ptr %8, i64 2
+  %80 = load i8, ptr %79, align 2
+  %81 = getelementptr inbounds i8, ptr %7, i64 17
+  store i8 %80, ptr %81, align 1
+  %82 = getelementptr inbounds i8, ptr %8, i64 3
+  %83 = load i8, ptr %82, align 1
+  %84 = getelementptr inbounds i8, ptr %7, i64 18
+  store i8 %83, ptr %84, align 2
+  %85 = getelementptr inbounds i8, ptr %7, i64 19
+  store i8 0, ptr %85, align 1
+  %86 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %7) #8
   ret i32 7
 }
 

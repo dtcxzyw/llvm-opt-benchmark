@@ -269,7 +269,7 @@ Extra_ArrayAlloc.exit:                            ; preds = %13, %Extra_Factoria
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Extra_ArrayAlloc.exit
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %9, i32 noundef %.0.lcssa.i, i32 noundef %0, ptr noundef nonnull %2)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %9, i32 noundef %.0.lcssa.i, i32 noundef %0, ptr noundef %2)
   ret ptr %9
 }
 
@@ -308,7 +308,7 @@ define noundef ptr @Extra_ArrayAlloc(i32 noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Extra_Permutations_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #7 {
+define internal fastcc void @Extra_Permutations_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #7 {
   %5 = icmp eq i32 %2, 1
   br i1 %5, label %6, label %9
 
@@ -364,7 +364,7 @@ define internal fastcc void @Extra_Permutations_rec(ptr nocapture noundef readon
   br i1 %exitcond55.not, label %._crit_edge.us, label %24, !llvm.loop !13
 
 ._crit_edge.us:                                   ; preds = %24
-  tail call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %23, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %3)
+  tail call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %23, i32 noundef %10, i32 noundef %11, ptr noundef %3)
   %28 = load i8, ptr %19, align 1
   %29 = load i8, ptr %14, align 1
   store i8 %29, ptr %19, align 1
@@ -383,7 +383,7 @@ define internal fastcc void @Extra_Permutations_rec(ptr nocapture noundef readon
   %33 = sub nsw i64 %13, %indvars.iv
   %34 = mul nsw i64 %33, %16
   %35 = getelementptr inbounds ptr, ptr %0, i64 %34
-  tail call fastcc void @Extra_Permutations_rec(ptr noundef %35, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %3)
+  tail call fastcc void @Extra_Permutations_rec(ptr noundef %35, i32 noundef %10, i32 noundef %11, ptr noundef %3)
   %36 = load i8, ptr %31, align 1
   %37 = load i8, ptr %14, align 1
   store i8 %37, ptr %31, align 1
@@ -874,7 +874,7 @@ Extra_ArrayAlloc.exit.i:                          ; preds = %20, %Extra_Factoria
   br i1 %exitcond.not.i21, label %Extra_Permutations.exit, label %.lr.ph.i20, !llvm.loop !12
 
 Extra_Permutations.exit:                          ; preds = %.lr.ph.i20, %Extra_ArrayAlloc.exit.i
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %16, i32 noundef %.0.lcssa.i.i, i32 noundef %1, ptr noundef nonnull %4)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %16, i32 noundef %.0.lcssa.i.i, i32 noundef %1, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4)
   br label %.sink.split
 
@@ -961,7 +961,7 @@ Extra_ArrayAlloc.exit.i36:                        ; preds = %44, %Extra_Factoria
   br i1 %exitcond.not.i42, label %Extra_Permutations.exit48, label %.lr.ph.i39, !llvm.loop !12
 
 Extra_Permutations.exit48:                        ; preds = %.lr.ph.i39, %Extra_ArrayAlloc.exit.i36
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %40, i32 noundef %.0.lcssa.i.i35, i32 noundef %1, ptr noundef nonnull %3)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %40, i32 noundef %.0.lcssa.i.i35, i32 noundef %1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3)
   br label %.sink.split
 
@@ -1080,7 +1080,7 @@ Extra_ArrayAlloc.exit.i:                          ; preds = %20, %Extra_Factoria
   br i1 %exitcond.not.i29, label %Extra_Permutations.exit, label %.lr.ph.i28, !llvm.loop !12
 
 Extra_Permutations.exit:                          ; preds = %.lr.ph.i28, %Extra_ArrayAlloc.exit.i
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %16, i32 noundef %.0.lcssa.i.i, i32 noundef %1, ptr noundef nonnull %4)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %16, i32 noundef %.0.lcssa.i.i, i32 noundef %1, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4)
   br label %.sink.split
 
@@ -1167,7 +1167,7 @@ Extra_ArrayAlloc.exit.i44:                        ; preds = %44, %Extra_Factoria
   br i1 %exitcond.not.i50, label %Extra_Permutations.exit56, label %.lr.ph.i47, !llvm.loop !12
 
 Extra_Permutations.exit56:                        ; preds = %.lr.ph.i47, %Extra_ArrayAlloc.exit.i44
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %40, i32 noundef %.0.lcssa.i.i43, i32 noundef %1, ptr noundef nonnull %3)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %40, i32 noundef %.0.lcssa.i.i43, i32 noundef %1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3)
   br label %.sink.split
 
@@ -1430,7 +1430,7 @@ Extra_ArrayAlloc.exit.i:                          ; preds = %20, %Extra_Factoria
   br i1 %exitcond.not.i45, label %Extra_Permutations.exit, label %.lr.ph.i44, !llvm.loop !12
 
 Extra_Permutations.exit:                          ; preds = %.lr.ph.i44, %Extra_ArrayAlloc.exit.i
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %16, i32 noundef %.0.lcssa.i.i, i32 noundef %1, ptr noundef nonnull %4)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %16, i32 noundef %.0.lcssa.i.i, i32 noundef %1, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4)
   br label %.sink.split
 
@@ -1517,7 +1517,7 @@ Extra_ArrayAlloc.exit.i60:                        ; preds = %44, %Extra_Factoria
   br i1 %exitcond.not.i66, label %Extra_Permutations.exit72, label %.lr.ph.i63, !llvm.loop !12
 
 Extra_Permutations.exit72:                        ; preds = %.lr.ph.i63, %Extra_ArrayAlloc.exit.i60
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %40, i32 noundef %.0.lcssa.i.i59, i32 noundef %1, ptr noundef nonnull %3)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %40, i32 noundef %.0.lcssa.i.i59, i32 noundef %1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3)
   br label %.sink.split
 
@@ -1875,7 +1875,7 @@ define void @Extra_Truth4VarNPN(ptr noundef writeonly %0, ptr noundef writeonly 
   br i1 %exitcond.not.i, label %Extra_Permutations.exit, label %.lr.ph.i, !llvm.loop !12
 
 Extra_Permutations.exit:                          ; preds = %.lr.ph.i
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %5, i32 noundef 24, i32 noundef 4, ptr noundef nonnull %4)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %5, i32 noundef 24, i32 noundef 4, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4)
   br label %15
 

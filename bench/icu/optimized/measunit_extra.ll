@@ -2255,7 +2255,7 @@ if.else:                                          ; preds = %entry
   %1 = load ptr, ptr %agg.tmp, align 8
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %3 = load i32, ptr %2, align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias nonnull align 8 %ref.tmp2, ptr %1, i32 %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias align 8 %ref.tmp2, ptr %1, i32 %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   invoke fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser5parseER10UErrorCode(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(57) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
@@ -2904,7 +2904,7 @@ _ZN6icu_7510MemoryPoolINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.end.i,
 define void @_ZN6icu_7515MeasureUnitImpl13forIdentifierENS_11StringPieceER10UErrorCode(ptr noalias sret(%"class.icu_75::MeasureUnitImpl") align 8 %agg.result, ptr %identifier.coerce0, i32 %identifier.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::(anonymous namespace)::Parser", align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias nonnull align 8 %ref.tmp, ptr %identifier.coerce0, i32 %identifier.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias align 8 %ref.tmp, ptr %identifier.coerce0, i32 %identifier.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   invoke fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser5parseER10UErrorCode(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(57) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
@@ -2922,7 +2922,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias align 8 %agg.result, ptr %source.coerce0, i32 %source.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias nonnull align 8 %agg.result, ptr %source.coerce0, i32 %source.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3509,7 +3509,7 @@ if.else:                                          ; preds = %entry
   %1 = load ptr, ptr %agg.tmp, align 8
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %3 = load i32, ptr %2, align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias nonnull align 8 %ref.tmp, ptr %1, i32 %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias align 8 %ref.tmp, ptr %1, i32 %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   invoke fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser5parseER10UErrorCode(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(57) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
@@ -3726,7 +3726,7 @@ define void @_ZN6icu_7511MeasureUnit13forIdentifierENS_11StringPieceER10UErrorCo
 entry:
   %ref.tmp = alloca %"class.icu_75::MeasureUnitImpl", align 8
   %ref.tmp1 = alloca %"class.icu_75::(anonymous namespace)::Parser", align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias nonnull align 8 %ref.tmp1, ptr %identifier.coerce0, i32 %identifier.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser4fromENS_11StringPieceER10UErrorCode(ptr noalias align 8 %ref.tmp1, ptr %identifier.coerce0, i32 %identifier.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   invoke fastcc void @_ZN6icu_7512_GLOBAL__N_16Parser5parseER10UErrorCode(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(57) %ref.tmp1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 

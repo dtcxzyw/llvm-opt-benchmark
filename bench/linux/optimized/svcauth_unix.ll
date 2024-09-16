@@ -248,7 +248,7 @@ define dso_local void @svcauth_unix_info_release(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @cache_put(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @cache_put(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 3
@@ -861,8 +861,8 @@ define internal fastcc ptr @__ip_map_lookup(ptr noundef %0, ptr noundef %1, ptr 
 declare dso_local i32 @cache_check(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @refcount_dec_and_test(ptr noundef %0) unnamed_addr #3 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #19, !srcloc !8
+define internal fastcc noundef zeroext i1 @refcount_dec_and_test(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #19, !srcloc !8
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %5
 
@@ -875,7 +875,7 @@ define internal fastcc noundef zeroext i1 @refcount_dec_and_test(ptr noundef %0)
   br i1 %6, label %8, label %7, !prof !9
 
 7:                                                ; preds = %5
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 3) #19
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 3) #19
   br label %8
 
 8:                                                ; preds = %7, %5, %4
@@ -2333,7 +2333,7 @@ declare dso_local i32 @sunrpc_cache_pipe_upcall(ptr noundef, ptr noundef) local_
 declare dso_local i64 @rpc_pton(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @__ip_map_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__ip_map_update(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.ip_map, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false), !annotation !11
@@ -2364,7 +2364,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__ip_map_update(ptr nounde
   %23 = trunc i64 %13 to i32
   %24 = xor i32 %22, %23
   %25 = lshr i32 %24, 24
-  %26 = call ptr @sunrpc_cache_update(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %25) #19
+  %26 = call ptr @sunrpc_cache_update(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1, i32 noundef %25) #19
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %28
 

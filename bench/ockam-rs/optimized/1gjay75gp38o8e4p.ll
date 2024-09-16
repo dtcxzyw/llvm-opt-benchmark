@@ -500,7 +500,7 @@ select.unfold:                                    ; preds = %10, %"_ZN4core6resu
   store i64 0, ptr %3, align 8
   %.sroa.6.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.6.sroa.5.0..sroa_idx, align 8
-  %16 = call fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$6insert17h909714dd9df9f3a5E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  %16 = call fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$6insert17h909714dd9df9f3a5E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3)
   br label %"_ZN12thread_local20ThreadLocal$LT$T$GT$9get_inner17h41f845ed68f6deebE.exit"
 
 "_ZN12thread_local20ThreadLocal$LT$T$GT$9get_inner17h41f845ed68f6deebE.exit": ; preds = %10, %select.unfold
@@ -550,7 +550,7 @@ select.unfold.i:                                  ; preds = %10, %"_ZN4core6resu
   store i64 0, ptr %3, align 8
   %.sroa.6.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.6.sroa.5.0..sroa_idx.i, align 8
-  %16 = call fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$6insert17h909714dd9df9f3a5E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  %16 = call fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$6insert17h909714dd9df9f3a5E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3)
   br label %"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17hada67a476772fde7E.llvm.1214941078669613289.exit"
 
 "_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17hada67a476772fde7E.llvm.1214941078669613289.exit": ; preds = %10, %select.unfold.i
@@ -561,7 +561,7 @@ select.unfold.i:                                  ; preds = %10, %"_ZN4core6resu
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$6insert17h909714dd9df9f3a5E"(ptr nocapture noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$6insert17h909714dd9df9f3a5E"(ptr nocapture noundef nonnull align 8 %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { { ptr, i64 }, i64 }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8

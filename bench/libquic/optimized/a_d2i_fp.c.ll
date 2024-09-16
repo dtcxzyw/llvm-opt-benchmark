@@ -26,7 +26,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   store ptr null, ptr %b.i, align 8
-  %call.i = call fastcc i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i)
+  %call.i = call fastcc i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef %b.i)
   %cmp.i = icmp slt i32 %call.i, 0
   %.pre.i = load ptr, ptr %b.i, align 8
   br i1 %cmp.i, label %err.i, label %err.thread.i
@@ -74,7 +74,7 @@ entry:
   %b = alloca ptr, align 8
   %p = alloca ptr, align 8
   store ptr null, ptr %b, align 8
-  %call = call fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef nonnull %b)
+  %call = call fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef %b)
   %cmp = icmp slt i32 %call, 0
   %.pre = load ptr, ptr %b, align 8
   br i1 %cmp, label %err, label %err.thread
@@ -104,7 +104,7 @@ if.end5:                                          ; preds = %if.then4, %err
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %in, ptr nocapture noundef writeonly %pb) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %in, ptr nocapture noundef nonnull writeonly %pb) unnamed_addr #0 {
 entry:
   %c = alloca %struct.asn1_const_ctx_st, align 8
   %call = tail call ptr @BUF_MEM_new() #4
@@ -363,7 +363,7 @@ entry:
   %b = alloca ptr, align 8
   %p = alloca ptr, align 8
   store ptr null, ptr %b, align 8
-  %call = call fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef nonnull %b)
+  %call = call fastcc i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef %b)
   %cmp = icmp slt i32 %call, 0
   %.pre = load ptr, ptr %b, align 8
   br i1 %cmp, label %err, label %err.thread
@@ -411,7 +411,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   store ptr null, ptr %b.i, align 8
-  %call.i = call fastcc i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i)
+  %call.i = call fastcc i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef %b.i)
   %cmp.i = icmp slt i32 %call.i, 0
   %.pre.i = load ptr, ptr %b.i, align 8
   br i1 %cmp.i, label %err.i, label %err.thread.i

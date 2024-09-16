@@ -6597,7 +6597,7 @@ _ZN12_GLOBAL__N_112ValueTracker13getNextSourceEv.exit: ; preds = %_ZN12_GLOBAL__
   br i1 %416, label %417, label %_ZN12_GLOBAL__N_118ValueTrackerResultD2Ev.exit
 
 417:                                              ; preds = %_ZN12_GLOBAL__N_112ValueTracker13getNextSourceEv.exit
-  call fastcc void @_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %2, i32 %.sroa.089.0, i32 %.sroa.11.0)
+  call fastcc void @_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %2, i32 %.sroa.089.0, i32 %.sroa.11.0)
   %418 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #20
   %419 = trunc i64 %418 to i32
   %420 = icmp sgt i32 %419, 0
@@ -7066,7 +7066,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121UncoalescableRewriter20Re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 %.0.val, i32 %.4.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 %.0.val, i32 %.4.val) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 1
   %.not.i.i.i.i.i = icmp eq i32 %4, 0
@@ -7771,7 +7771,7 @@ define internal fastcc i64 @_ZL12getNewSourcePN4llvm19MachineRegisterInfoEPKNS_1
   %.sroa.4.0.us = phi i32 [ %.sroa.4.1.us, %_ZN12_GLOBAL__N_118ValueTrackerResultD2Ev.exit.us ], [ %.sroa.2.0.extract.trunc, %5 ]
   %.sroa.038.0.us = phi i32 [ %.sroa.038.1.us, %_ZN12_GLOBAL__N_118ValueTrackerResultD2Ev.exit.us ], [ undef, %5 ]
   %.sroa.439.0.us = phi i32 [ %.sroa.439.1.us, %_ZN12_GLOBAL__N_118ValueTrackerResultD2Ev.exit.us ], [ undef, %5 ]
-  call fastcc void @_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 %.sroa.037.0.us, i32 %.sroa.4.0.us)
+  call fastcc void @_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 %.sroa.037.0.us, i32 %.sroa.4.0.us)
   %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
   %24 = trunc i64 %23 to i32
   %25 = icmp sgt i32 %24, 0
@@ -7994,7 +7994,7 @@ default.unreachable:                              ; preds = %_ZN12_GLOBAL__N_118
   %.sroa.4.0 = phi i32 [ %.sroa.4.1, %_ZN12_GLOBAL__N_118ValueTrackerResultD2Ev.exit ], [ %.sroa.2.0.extract.trunc, %5 ]
   %.sroa.038.0 = phi i32 [ %.sroa.038.1, %_ZN12_GLOBAL__N_118ValueTrackerResultD2Ev.exit ], [ undef, %5 ]
   %.sroa.439.0 = phi i32 [ %.sroa.439.1, %_ZN12_GLOBAL__N_118ValueTrackerResultD2Ev.exit ], [ undef, %5 ]
-  call fastcc void @_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 %.sroa.037.0, i32 %.sroa.4.0)
+  call fastcc void @_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 %.sroa.037.0, i32 %.sroa.4.0)
   %108 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
   %109 = trunc i64 %108 to i32
   %110 = icmp sgt i32 %109, 0

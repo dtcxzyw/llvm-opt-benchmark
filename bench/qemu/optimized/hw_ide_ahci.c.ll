@@ -3731,7 +3731,7 @@ declare void @address_space_unmap(ptr noundef, ptr noundef, i64 noundef, i1 noun
 declare ptr @address_space_map(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ahci_trigger_irq(ptr noundef %s, ptr nocapture noundef %d, i32 noundef %irqbit) unnamed_addr #0 {
+define internal fastcc void @ahci_trigger_irq(ptr noundef %s, ptr nocapture noundef %d, i32 noundef range(i32 0, 31) %irqbit) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %shl = shl nuw nsw i32 1, %irqbit
@@ -3786,18 +3786,14 @@ trace_ahci_trigger_irq.exit:                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @ahci_pretty_buffer_fis(ptr nocapture noundef readonly %fis, i32 noundef %cmd_len) unnamed_addr #0 {
+define internal fastcc ptr @ahci_pretty_buffer_fis(ptr nocapture noundef readonly %fis, i32 noundef range(i32 16, 129) %cmd_len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.114) #12
-  %cmp8 = icmp sgt i32 %cmd_len, 0
-  br i1 %cmp8, label %for.body.preheader, label %for.end
-
-for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %cmd_len to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %if.end
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end ]
+for.body:                                         ; preds = %entry, %if.end
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %if.end ]
   %0 = trunc nuw nsw i64 %indvars.iv to i32
   %and = and i32 %0, 15
   %cmp1 = icmp eq i32 %and, 0
@@ -3816,7 +3812,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
-for.end:                                          ; preds = %if.end, %entry
+for.end:                                          ; preds = %if.end
   %len.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, 1
@@ -3900,7 +3896,7 @@ _nocheck__trace_handle_reg_h2d_fis_dump.exit:     ; preds = %entry, %land.lhs.tr
 declare void @ide_bus_exec_cmd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @ahci_populate_sglist(ptr noundef %ad, ptr noundef %sglist, ptr nocapture noundef readonly %cmd, i64 noundef %limit, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ahci_populate_sglist(ptr noundef %ad, ptr noundef %sglist, ptr nocapture noundef readonly %cmd, i64 noundef range(i64 -2147483648, 2199023255041) %limit, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %_now.i.i111 = alloca %struct.timeval, align 8
   %_now.i.i97 = alloca %struct.timeval, align 8
@@ -5433,7 +5429,7 @@ declare void @ide_bus_reset(ptr noundef) local_unnamed_addr #1
 declare void @blk_aio_cancel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ahci_set_signature(ptr nocapture noundef %ad, i32 noundef %sig) unnamed_addr #0 {
+define internal fastcc void @ahci_set_signature(ptr nocapture noundef %ad, i32 noundef range(i32 -351010559, 258) %sig) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %shr = lshr i32 %sig, 24

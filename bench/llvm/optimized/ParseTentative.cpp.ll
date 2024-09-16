@@ -4480,7 +4480,7 @@ define internal void @_ZN12_GLOBAL__N_117TentativeParseCCCD2Ev(ptr nocapture non
 declare noundef ptr @_ZN5clang6Parser24takeTemplateIdAnnotationERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(2936), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPbENK3$_0clEPNS_20TemplateIdAnnotationEi"(ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPbENK3$_0clEPNS_20TemplateIdAnnotationEi"(ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 6
@@ -4502,7 +4502,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang6Parser25isCXXDeclarationS
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2928
   %17 = load i64, ptr %16, align 8
-  %18 = zext i32 %1 to i64
+  %18 = zext nneg i32 %1 to i64
   %19 = add i64 %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 2888
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #9
@@ -4553,7 +4553,7 @@ _ZN5clang6Parser17GetLookAheadTokenEj.exit:       ; preds = %11, %23, %28
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2928
   %45 = load i64, ptr %44, align 8
-  %46 = zext i32 %1 to i64
+  %46 = zext nneg i32 %1 to i64
   %47 = add i64 %45, %46
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 2888
   %49 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #9

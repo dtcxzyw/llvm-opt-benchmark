@@ -1001,7 +1001,7 @@ getMethodClass.exit:                              ; preds = %18, %26, %29
   store ptr %3, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %4, ptr %33, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %7)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %7)
   %34 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %34) #6
   %35 = load i32, ptr @active_callbacks, align 4
@@ -1141,7 +1141,7 @@ getMethodClass.exit:                              ; preds = %18, %26, %29
   store ptr %3, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %4, ptr %33, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %7)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %7)
   %34 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %34) #6
   %35 = load i32, ptr @active_callbacks, align 4
@@ -1283,7 +1283,7 @@ getMethodClass.exit:                              ; preds = %19, %27, %30
   store ptr %.0.i, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %3, ptr %33, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %7)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %7)
   %34 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %34) #6
   %35 = load i32, ptr @active_callbacks, align 4
@@ -1456,7 +1456,7 @@ getMethodClass.exit17:                            ; preds = %getMethodClass.exit
   store ptr %6, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %11, i64 72
   store i64 %7, ptr %49, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %11)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %11)
   %50 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %50) #6
   %51 = load i32, ptr @active_callbacks, align 4
@@ -1565,7 +1565,7 @@ define internal void @cbThreadStart(ptr nocapture readnone %0, ptr noundef %1, p
   store i32 5, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %19, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %4)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %20 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %20) #6
   %21 = load i32, ptr @active_callbacks, align 4
@@ -1674,7 +1674,7 @@ define internal void @cbThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr
   store i32 6, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %19, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %4)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %20 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %20) #6
   %21 = load i32, ptr @active_callbacks, align 4
@@ -1785,7 +1785,7 @@ define internal void @cbClassPrepare(ptr nocapture readnone %0, ptr noundef %1, 
   store ptr %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %3, ptr %21, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %5)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %5)
   %22 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %22) #6
   %23 = load i32, ptr @active_callbacks, align 4
@@ -1896,7 +1896,7 @@ define internal void @cbClassLoad(ptr nocapture readnone %0, ptr noundef %1, ptr
   store ptr %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %3, ptr %21, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %5)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %5)
   %22 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %22) #6
   %23 = load i32, ptr @active_callbacks, align 4
@@ -2042,7 +2042,7 @@ getMethodClass.exit:                              ; preds = %21, %29, %32
   store ptr %6, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %10, i64 64
   store ptr %7, ptr %39, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %10)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %10)
   %40 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %40) #6
   %41 = load i32, ptr @active_callbacks, align 4
@@ -2192,7 +2192,7 @@ getMethodClass.exit:                              ; preds = %23, %31, %34
   store i8 %8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %12, i64 80
   store i64 %9, ptr %43, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %12)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %12)
   %44 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %44) #6
   %45 = load i32, ptr @active_callbacks, align 4
@@ -2334,7 +2334,7 @@ getMethodClass.exit:                              ; preds = %19, %27, %30
   store i64 %4, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %8, i64 48
   store ptr %5, ptr %35, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %8)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %8)
   %36 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %36) #6
   %37 = load i32, ptr @active_callbacks, align 4
@@ -2472,7 +2472,7 @@ getMethodClass.exit:                              ; preds = %17, %25, %28
   store ptr %.0.i, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %3, ptr %31, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %6)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %6)
   %32 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %32) #6
   %33 = load i32, ptr @active_callbacks, align 4
@@ -2616,7 +2616,7 @@ getMethodClass.exit:                              ; preds = %20, %28, %31
   store ptr %3, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %8, i64 56
   store i64 %5, ptr %35, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %8)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %8)
   %36 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %36) #6
   %37 = load i32, ptr @active_callbacks, align 4
@@ -2794,7 +2794,7 @@ getMethodClass.exit:                              ; preds = %38, %46, %49
   br label %54
 
 54:                                               ; preds = %52, %getMethodClass.exit
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %6)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %6)
   %55 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %55) #6
   %56 = load i32, ptr @active_callbacks, align 4
@@ -2972,7 +2972,7 @@ getMethodClass.exit:                              ; preds = %38, %46, %49
   br label %54
 
 54:                                               ; preds = %52, %getMethodClass.exit
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %6)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %6)
   %55 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %55) #6
   %56 = load i32, ptr @active_callbacks, align 4
@@ -3141,7 +3141,7 @@ getObjectClass.exit:                              ; preds = %19, %30
   %.sink = phi i64 [ %51, %50 ], [ -1, %42 ]
   %55 = getelementptr inbounds i8, ptr %6, i64 40
   store i64 %.sink, ptr %55, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %6)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %6)
   %56 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %56) #6
   %57 = load i32, ptr @active_callbacks, align 4
@@ -3310,7 +3310,7 @@ getObjectClass.exit:                              ; preds = %19, %30
   %.sink = phi i64 [ %51, %50 ], [ -1, %42 ]
   %55 = getelementptr inbounds i8, ptr %6, i64 40
   store i64 %.sink, ptr %55, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %6)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %6)
   %56 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %56) #6
   %57 = load i32, ptr @active_callbacks, align 4
@@ -3419,7 +3419,7 @@ define internal void @cbVMInit(ptr nocapture readnone %0, ptr noundef %1, ptr no
   store i32 19, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %19, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %4)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %20 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %20) #6
   %21 = load i32, ptr @active_callbacks, align 4
@@ -3563,7 +3563,7 @@ define internal void @cbVMDeath(ptr nocapture readnone %0, ptr noundef %1) #0 {
   tail call void @debugMonitorExit(ptr noundef %37) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false)
   store i32 20, ptr %3, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %3)
   %38 = load ptr, ptr @callbackBlock, align 8
   call void @debugMonitorExit(ptr noundef %38) #6
   call void @commandLoop_sync() #6
@@ -3678,7 +3678,7 @@ define internal void @cbVThreadStart(ptr nocapture readnone %0, ptr noundef %1, 
   store i32 5, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %26, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %4)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %27 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %27) #6
   %28 = load i32, ptr @active_callbacks, align 4
@@ -3806,7 +3806,7 @@ define internal void @cbVThreadEnd(ptr nocapture readnone %0, ptr noundef %1, pt
   store i32 6, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %26, align 8
-  call fastcc void @event_callback(ptr noundef %1, ptr noundef nonnull %4)
+  call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %27 = load ptr, ptr @callbackLock, align 8
   call void @debugMonitorEnter(ptr noundef %27) #6
   %28 = load i32, ptr @active_callbacks, align 4
@@ -4148,7 +4148,7 @@ define hidden ptr @eventHandler_createPermanentInternal(i32 noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @createInternal(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc ptr @createInternal(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i8 noundef zeroext range(i8 0, 2) %6) unnamed_addr #0 {
   %8 = icmp ne ptr %2, null
   %9 = zext i1 %8 to i32
   %10 = icmp ne ptr %3, null
@@ -4274,7 +4274,7 @@ define hidden i32 @eventHandler_installExternal(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @installHandler(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc i32 @installHandler(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %33, label %5
 
@@ -4381,7 +4381,7 @@ declare void @threadControl_saveCLEInfo(ptr noundef, ptr noundef, i32 noundef, p
 declare i32 @eventFilterRestricted_deinstall(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @event_callback(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1

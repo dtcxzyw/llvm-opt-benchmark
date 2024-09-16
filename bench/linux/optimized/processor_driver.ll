@@ -207,7 +207,7 @@ declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_add
 declare dso_local void @cpu_hotplug_disable() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__acpi_processor_start(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @__acpi_processor_start(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -249,19 +249,19 @@ define internal fastcc i32 @__acpi_processor_start(ptr noundef %0) unnamed_addr 
   br label %26
 
 26:                                               ; preds = %24, %19
-  %27 = tail call i32 @acpi_processor_thermal_init(ptr noundef nonnull %3, ptr noundef %0) #4
+  %27 = tail call i32 @acpi_processor_thermal_init(ptr noundef nonnull %3, ptr noundef nonnull %0) #4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @acpi_install_notify_handler(ptr noundef %31, i32 noundef 2, ptr noundef nonnull @acpi_processor_notify, ptr noundef %0) #4
+  %32 = tail call i32 @acpi_install_notify_handler(ptr noundef %31, i32 noundef 2, ptr noundef nonnull @acpi_processor_notify, ptr noundef nonnull %0) #4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %29
-  tail call void @acpi_processor_thermal_exit(ptr noundef nonnull %3, ptr noundef %0) #4
+  tail call void @acpi_processor_thermal_exit(ptr noundef nonnull %3, ptr noundef nonnull %0) #4
   br label %35
 
 35:                                               ; preds = %34, %26

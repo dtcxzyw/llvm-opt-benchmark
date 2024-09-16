@@ -400,7 +400,7 @@ define internal zeroext i1 @uat_esp_sa_record_update_cb(ptr nocapture noundef %0
   br i1 %.not22, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %3, ptr noundef nonnull %12, ptr noundef %1)
+  %14 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %3, ptr noundef %12, ptr noundef %1)
   br label %16
 
 15:                                               ; preds = %10
@@ -420,7 +420,7 @@ define internal zeroext i1 @uat_esp_sa_record_update_cb(ptr nocapture noundef %0
   br i1 %.not23, label %24, label %22
 
 22:                                               ; preds = %16
-  %23 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %18, ptr noundef nonnull %21, ptr noundef %1)
+  %23 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %18, ptr noundef %21, ptr noundef %1)
   br label %25
 
 24:                                               ; preds = %16
@@ -3016,7 +3016,7 @@ declare i32 @find_tap_id(ptr noundef) local_unnamed_addr #3
 declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %5 = trunc i64 %4 to i32
   %6 = icmp ugt i32 %5, 2
@@ -3174,7 +3174,7 @@ define internal fastcc i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noun
   br label %85
 
 .thread:                                          ; preds = %7, %10, %80, %77, %75
-  %84 = tail call noalias ptr @g_strdup(ptr noundef %1) #17
+  %84 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #17
   store ptr %84, ptr %0, align 8
   br label %85
 
@@ -3323,29 +3323,29 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @filter_address_match(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @filter_address_match(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = alloca [33 x i8], align 16
   %5 = alloca [33 x i8], align 16
   %6 = icmp eq i32 %2, 1
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = call fastcc i32 @get_full_ipv4_addr(ptr noundef nonnull %4, ptr noundef %0)
+  %8 = call fastcc i32 @get_full_ipv4_addr(ptr noundef %4, ptr noundef %0)
   %.not27 = icmp eq i32 %8, 0
   br i1 %.not27, label %.loopexit, label %9
 
 9:                                                ; preds = %7
-  %10 = call fastcc i32 @get_full_ipv4_addr(ptr noundef nonnull %5, ptr noundef %1)
+  %10 = call fastcc i32 @get_full_ipv4_addr(ptr noundef %5, ptr noundef %1)
   %.not28 = icmp eq i32 %10, 0
   br i1 %.not28, label %.loopexit, label %15
 
 11:                                               ; preds = %3
-  %12 = call fastcc i32 @get_full_ipv6_addr(ptr noundef nonnull %4, ptr noundef %0)
+  %12 = call fastcc i32 @get_full_ipv6_addr(ptr noundef %4, ptr noundef %0)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %.loopexit
 
 13:                                               ; preds = %11
-  %14 = call fastcc i32 @get_full_ipv6_addr(ptr noundef nonnull %5, ptr noundef %1)
+  %14 = call fastcc i32 @get_full_ipv6_addr(ptr noundef %5, ptr noundef %1)
   %.not26 = icmp eq i32 %14, 0
   br i1 %.not26, label %15, label %.loopexit
 
@@ -3403,7 +3403,7 @@ define internal fastcc range(i32 0, 2) i32 @filter_address_match(ptr noundef %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_full_ipv4_addr(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @get_full_ipv4_addr(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #11 {
   %3 = alloca [4 x i8], align 1
   %4 = alloca [4 x i8], align 1
   %5 = alloca i32, align 4
@@ -3672,7 +3672,7 @@ define internal fastcc range(i32 0, 2) i32 @get_full_ipv4_addr(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_full_ipv6_addr(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @get_full_ipv6_addr(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [33 x i8], align 16
   %4 = alloca [33 x i8], align 16
   %5 = alloca i32, align 4
@@ -3723,7 +3723,7 @@ define internal fastcc i32 @get_full_ipv6_addr(ptr nocapture noundef %0, ptr nou
   br label %86
 
 24:                                               ; preds = %20, %17
-  %25 = call fastcc i32 @get_ipv6_suffix(ptr noundef nonnull %3, ptr noundef nonnull %1)
+  %25 = call fastcc i32 @get_ipv6_suffix(ptr noundef %3, ptr noundef nonnull %1)
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   %27 = trunc i64 %26 to i32
   %28 = icmp slt i32 %27, 32
@@ -3735,7 +3735,7 @@ define internal fastcc i32 @get_full_ipv6_addr(ptr nocapture noundef %0, ptr nou
   %32 = sext i32 %25 to i64
   %33 = sub i64 %31, %32
   %34 = call noalias ptr @wmem_strndup(ptr noundef %30, ptr noundef nonnull %1, i64 noundef %33) #17
-  %35 = call fastcc i32 @get_ipv6_suffix(ptr noundef nonnull %4, ptr noundef %34)
+  %35 = call fastcc i32 @get_ipv6_suffix(ptr noundef %4, ptr noundef %34)
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
   %37 = trunc i64 %36 to i32
   %sext = shl i64 %36, 32
@@ -3849,7 +3849,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @get_ipv6_suffix(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #12 {
+define internal fastcc i32 @get_ipv6_suffix(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #12 {
   %3 = alloca [33 x i8], align 16
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %5 = trunc i64 %4 to i32

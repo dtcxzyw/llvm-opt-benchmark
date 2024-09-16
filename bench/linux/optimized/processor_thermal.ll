@@ -495,7 +495,7 @@ declare dso_local void @cpufreq_cpu_put(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @acpi_processor_set_throttling(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 align 16 {
   %3 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !11, !noundef !12
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.thread11, label %5

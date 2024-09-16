@@ -423,7 +423,7 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %.408.val, i64 noundef 241) #2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %7

@@ -464,7 +464,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   br i1 %exitcond.not, label %19, label %16
 
 19:                                               ; preds = %16
-  call fastcc void @des_setkey(ptr noundef nonnull %8, ptr noundef nonnull %2)
+  call fastcc void @des_setkey(ptr noundef %8, ptr noundef nonnull %2)
   %20 = load i8, ptr %1, align 1
   switch i8 %20, label %122 [
     i8 95, label %.preheader112
@@ -597,7 +597,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   %94 = zext i8 %93 to i32
   %95 = shl nuw i32 %94, 24
   %96 = or disjoint i32 %92, %95
-  call fastcc void @do_des(i32 noundef %82, i32 noundef %96, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %2)
+  call fastcc void @do_des(i32 noundef %82, i32 noundef %96, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2)
   %97 = load i32, ptr %4, align 4
   %98 = lshr i32 %97, 24
   %99 = trunc nuw i32 %98 to i8
@@ -646,7 +646,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
 
 .critedge:                                        ; preds = %.lr.ph, %114
   %.3.lcssa.ph = phi ptr [ %.3123, %.lr.ph ], [ %115, %114 ]
-  call fastcc void @des_setkey(ptr noundef nonnull %8, ptr noundef nonnull %2)
+  call fastcc void @des_setkey(ptr noundef %8, ptr noundef nonnull %2)
   %119 = load i8, ptr %.3.lcssa.ph, align 1
   %.not92 = icmp eq i8 %119, 0
   br i1 %.not92, label %._crit_edge, label %65
@@ -726,7 +726,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   br label %setup_salt.exit
 
 setup_salt.exit:                                  ; preds = %140, %151
-  call fastcc void @do_des(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.187, ptr noundef nonnull %2)
+  call fastcc void @do_des(i32 noundef 0, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %.187, ptr noundef nonnull %2)
   %153 = load i32, ptr %6, align 4
   %154 = lshr i32 %153, 8
   %155 = lshr i32 %153, 26
@@ -815,7 +815,7 @@ ascii_is_unsafe.exit.thread:                      ; preds = %.preheader112, %.pr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @des_setkey(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @des_setkey(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -1043,7 +1043,7 @@ define internal fastcc void @des_setkey(ptr nocapture noundef readonly %0, ptr n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @do_des(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
+define internal fastcc void @do_des(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
   %7 = icmp sgt i32 %4, 0
   %.082.v = select i1 %7, i64 12, i64 140
   %.082 = getelementptr inbounds i8, ptr %5, i64 %.082.v
@@ -1117,30 +1117,26 @@ define internal fastcc void @do_des(i32 noundef %0, i32 noundef %1, ptr nocaptur
   %73 = or i32 %70, %72
   %74 = getelementptr inbounds i8, ptr %5, i64 4
   %75 = load i32, ptr %74, align 4
-  %.not94 = icmp eq i32 %4, 0
-  br i1 %.not94, label %._crit_edge, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %6
-  %.076 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
+  %spec.select = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   br label %.preheader
 
-.loopexit:                                        ; preds = %77
+select.unfold.loopexit:                           ; preds = %77
   %76 = add nsw i32 %.in, -1
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %._crit_edge, label %.preheader
+  br i1 %.not, label %148, label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %.loopexit
-  %.in = phi i32 [ %76, %.loopexit ], [ %.076, %.preheader.preheader ]
-  %.07796 = phi i32 [ %147, %.loopexit ], [ %50, %.preheader.preheader ]
-  %.08595 = phi i32 [ %.18689, %.loopexit ], [ %73, %.preheader.preheader ]
+.preheader:                                       ; preds = %6, %select.unfold.loopexit
+  %.in = phi i32 [ %spec.select, %6 ], [ %76, %select.unfold.loopexit ]
+  %.07795 = phi i32 [ %50, %6 ], [ %147, %select.unfold.loopexit ]
+  %.08594 = phi i32 [ %73, %6 ], [ %.18689, %select.unfold.loopexit ]
   br label %77
 
 77:                                               ; preds = %.preheader, %77
   %.093 = phi i32 [ 16, %.preheader ], [ %78, %77 ]
-  %.17892 = phi i32 [ %.07796, %.preheader ], [ %.18689, %77 ]
+  %.17892 = phi i32 [ %.07795, %.preheader ], [ %.18689, %77 ]
   %.08391 = phi ptr [ %.081, %.preheader ], [ %112, %77 ]
   %.08490 = phi ptr [ %.082, %.preheader ], [ %108, %77 ]
-  %.18689 = phi i32 [ %.08595, %.preheader ], [ %147, %77 ]
+  %.18689 = phi i32 [ %.08594, %.preheader ], [ %147, %77 ]
   %78 = add nsw i32 %.093, -1
   %79 = shl i32 %.18689, 23
   %80 = and i32 %79, 8388608
@@ -1212,79 +1208,77 @@ define internal fastcc void @do_des(i32 noundef %0, i32 noundef %1, ptr nocaptur
   %146 = or i32 %138, %145
   %147 = xor i32 %146, %.17892
   %.not88 = icmp eq i32 %78, 0
-  br i1 %.not88, label %.loopexit, label %77
+  br i1 %.not88, label %select.unfold.loopexit, label %77
 
-._crit_edge:                                      ; preds = %.loopexit, %6
-  %.085.lcssa = phi i32 [ %73, %6 ], [ %.18689, %.loopexit ]
-  %.077.lcssa = phi i32 [ %50, %6 ], [ %147, %.loopexit ]
-  %148 = lshr i32 %.077.lcssa, 24
-  %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds [256 x i32], ptr @fp_maskl, i64 0, i64 %149
-  %151 = load i32, ptr %150, align 4
-  %152 = lshr i32 %.077.lcssa, 16
-  %153 = and i32 %152, 255
-  %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 1024), i64 0, i64 %154
-  %156 = load i32, ptr %155, align 4
-  %157 = or i32 %156, %151
-  %158 = lshr i32 %.077.lcssa, 8
-  %159 = and i32 %158, 255
-  %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 2048), i64 0, i64 %160
-  %162 = load i32, ptr %161, align 4
-  %163 = or i32 %157, %162
-  %164 = and i32 %.077.lcssa, 255
-  %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 3072), i64 0, i64 %165
-  %167 = load i32, ptr %166, align 4
-  %168 = or i32 %163, %167
-  %169 = lshr i32 %.085.lcssa, 24
-  %170 = zext nneg i32 %169 to i64
-  %171 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 4096), i64 0, i64 %170
-  %172 = load i32, ptr %171, align 4
-  %173 = or i32 %168, %172
-  %174 = lshr i32 %.085.lcssa, 16
-  %175 = and i32 %174, 255
-  %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 5120), i64 0, i64 %176
-  %178 = load i32, ptr %177, align 4
-  %179 = or i32 %173, %178
-  %180 = lshr i32 %.085.lcssa, 8
-  %181 = and i32 %180, 255
-  %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 6144), i64 0, i64 %182
-  %184 = load i32, ptr %183, align 4
-  %185 = or i32 %179, %184
-  %186 = and i32 %.085.lcssa, 255
-  %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 7168), i64 0, i64 %187
-  %189 = load i32, ptr %188, align 4
-  %190 = or i32 %185, %189
-  store i32 %190, ptr %2, align 4
-  %191 = getelementptr inbounds [256 x i32], ptr @fp_maskr, i64 0, i64 %149
-  %192 = load i32, ptr %191, align 4
-  %193 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 1024), i64 0, i64 %154
-  %194 = load i32, ptr %193, align 4
-  %195 = or i32 %194, %192
-  %196 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 2048), i64 0, i64 %160
-  %197 = load i32, ptr %196, align 4
-  %198 = or i32 %195, %197
-  %199 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 3072), i64 0, i64 %165
-  %200 = load i32, ptr %199, align 4
-  %201 = or i32 %198, %200
-  %202 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 4096), i64 0, i64 %170
-  %203 = load i32, ptr %202, align 4
-  %204 = or i32 %201, %203
-  %205 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 5120), i64 0, i64 %176
-  %206 = load i32, ptr %205, align 4
-  %207 = or i32 %204, %206
-  %208 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 6144), i64 0, i64 %182
-  %209 = load i32, ptr %208, align 4
-  %210 = or i32 %207, %209
-  %211 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 7168), i64 0, i64 %187
-  %212 = load i32, ptr %211, align 4
-  %213 = or i32 %210, %212
-  store i32 %213, ptr %3, align 4
+148:                                              ; preds = %select.unfold.loopexit
+  %149 = lshr i32 %147, 24
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds [256 x i32], ptr @fp_maskl, i64 0, i64 %150
+  %152 = load i32, ptr %151, align 4
+  %153 = lshr i32 %147, 16
+  %154 = and i32 %153, 255
+  %155 = zext nneg i32 %154 to i64
+  %156 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 1024), i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4
+  %158 = or i32 %157, %152
+  %159 = lshr i32 %147, 8
+  %160 = and i32 %159, 255
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 2048), i64 0, i64 %161
+  %163 = load i32, ptr %162, align 4
+  %164 = or i32 %158, %163
+  %165 = and i32 %147, 255
+  %166 = zext nneg i32 %165 to i64
+  %167 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 3072), i64 0, i64 %166
+  %168 = load i32, ptr %167, align 4
+  %169 = or i32 %164, %168
+  %170 = lshr i32 %.18689, 24
+  %171 = zext nneg i32 %170 to i64
+  %172 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 4096), i64 0, i64 %171
+  %173 = load i32, ptr %172, align 4
+  %174 = or i32 %169, %173
+  %175 = lshr i32 %.18689, 16
+  %176 = and i32 %175, 255
+  %177 = zext nneg i32 %176 to i64
+  %178 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 5120), i64 0, i64 %177
+  %179 = load i32, ptr %178, align 4
+  %180 = or i32 %174, %179
+  %181 = lshr i32 %.18689, 8
+  %182 = and i32 %181, 255
+  %183 = zext nneg i32 %182 to i64
+  %184 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 6144), i64 0, i64 %183
+  %185 = load i32, ptr %184, align 4
+  %186 = or i32 %180, %185
+  %187 = and i32 %.18689, 255
+  %188 = zext nneg i32 %187 to i64
+  %189 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskl, i64 7168), i64 0, i64 %188
+  %190 = load i32, ptr %189, align 4
+  %191 = or i32 %186, %190
+  store i32 %191, ptr %2, align 4
+  %192 = getelementptr inbounds [256 x i32], ptr @fp_maskr, i64 0, i64 %150
+  %193 = load i32, ptr %192, align 4
+  %194 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 1024), i64 0, i64 %155
+  %195 = load i32, ptr %194, align 4
+  %196 = or i32 %195, %193
+  %197 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 2048), i64 0, i64 %161
+  %198 = load i32, ptr %197, align 4
+  %199 = or i32 %196, %198
+  %200 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 3072), i64 0, i64 %166
+  %201 = load i32, ptr %200, align 4
+  %202 = or i32 %199, %201
+  %203 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 4096), i64 0, i64 %171
+  %204 = load i32, ptr %203, align 4
+  %205 = or i32 %202, %204
+  %206 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 5120), i64 0, i64 %177
+  %207 = load i32, ptr %206, align 4
+  %208 = or i32 %205, %207
+  %209 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 6144), i64 0, i64 %183
+  %210 = load i32, ptr %209, align 4
+  %211 = or i32 %208, %210
+  %212 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @fp_maskr, i64 7168), i64 0, i64 %188
+  %213 = load i32, ptr %212, align 4
+  %214 = or i32 %211, %213
+  store i32 %214, ptr %3, align 4
   ret void
 }
 

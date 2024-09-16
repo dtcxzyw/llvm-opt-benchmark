@@ -74,7 +74,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintMinterm(ptr nocapture noundef %0, ptr n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call fastcc void @zdd_print_minterm_aux(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
+  tail call fastcc void @zdd_print_minterm_aux(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %7)
   tail call void @free(ptr noundef nonnull %7) #11
   br label %13
 
@@ -87,7 +87,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintMinterm(ptr nocapture noundef %0, ptr n
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @zdd_print_minterm_aux(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #2 {
+define internal fastcc void @zdd_print_minterm_aux(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 320
   %6 = getelementptr inbounds i8, ptr %0, i64 336
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -256,7 +256,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr nocapture noundef %0, ptr nou
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call fastcc void @zddPrintCoverAux(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %9)
+  tail call fastcc void @zddPrintCoverAux(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %9)
   tail call void @free(ptr noundef nonnull %9) #11
   br label %15
 
@@ -266,7 +266,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @zddPrintCoverAux(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #2 {
+define internal fastcc void @zddPrintCoverAux(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 320
   %6 = getelementptr inbounds i8, ptr %0, i64 336
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -436,7 +436,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i
   br i1 %25, label %cuddZddP.exit.thread, label %cuddZddP.exit
 
 cuddZddP.exit:                                    ; preds = %23
-  %26 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %24)
+  %26 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24)
   tail call void @st__free_table(ptr noundef nonnull %24) #11
   %27 = load ptr, ptr %19, align 8
   %28 = tail call i32 @fputc(i32 noundef 10, ptr noundef %27)
@@ -481,7 +481,7 @@ cuddZddP.exit.thread:                             ; preds = %23, %cuddZddP.exit
   br i1 %exitcond.not.i, label %Cudd_zddPrintMinterm.exit, label %.lr.ph.i, !llvm.loop !4
 
 Cudd_zddPrintMinterm.exit:                        ; preds = %.lr.ph.i, %.preheader.i
-  tail call fastcc void @zdd_print_minterm_aux(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %37)
+  tail call fastcc void @zdd_print_minterm_aux(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %37)
   tail call void @free(ptr noundef nonnull %37) #11
   br label %43
 
@@ -525,7 +525,7 @@ define range(i32 0, 2) i32 @cuddZddP(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %6 = tail call fastcc i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   tail call void @st__free_table(ptr noundef nonnull %3) #11
   %7 = getelementptr inbounds i8, ptr %0, i64 608
   %8 = load ptr, ptr %7, align 8
@@ -1625,7 +1625,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @st__free_table(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, null
@@ -1648,12 +1648,12 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 19:                                               ; preds = %7
-  %20 = tail call i32 @st__lookup(ptr noundef %2, ptr noundef nonnull %1, ptr noundef null) #11
+  %20 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #11
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %70, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @st__insert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef null) #11
+  %23 = tail call i32 @st__insert(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #11
   %24 = icmp eq i32 %23, -10000
   br i1 %24, label %70, label %25
 

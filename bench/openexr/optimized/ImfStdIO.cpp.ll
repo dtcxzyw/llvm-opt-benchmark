@@ -241,7 +241,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_110checkErrorERSil(ptr noundef nonnull align 8 dereferenceable(16) %is, i64 noundef %expected) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_110checkErrorERSil(ptr noundef nonnull align 8 dereferenceable(16) %is, i64 noundef range(i64 -2147483648, 2147483648) %expected) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %vtable = load ptr, ptr %is, align 8

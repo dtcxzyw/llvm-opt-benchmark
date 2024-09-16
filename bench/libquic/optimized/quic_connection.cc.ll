@@ -551,7 +551,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev
   %send_alarm_ = getelementptr inbounds i8, ptr %this, i64 2352
   %28 = load ptr, ptr %alarm_factory_, align 8
   store ptr %this, ptr %ref.tmp69, align 8
-  invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nonnull align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp69)
+  invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp69)
           to label %invoke.cont71 unwind label %lpad70
 
 invoke.cont71:                                    ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit
@@ -598,7 +598,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit: ; p
   %resume_writes_alarm_ = getelementptr inbounds i8, ptr %this, i64 2360
   %35 = load ptr, ptr %alarm_factory_, align 8
   store ptr %this, ptr %ref.tmp85, align 8
-  invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nonnull align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85)
+  invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit
@@ -1887,7 +1887,7 @@ declare void @_ZN3net25QuicReceivedPacketManagerC1EPNS_19QuicConnectionStatsE(pt
 declare void @_ZN3net22QuicSentEntropyManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1028) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1028) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp9 = alloca %"class.logging::LogMessage", align 8
   %offset_ = getelementptr inbounds i8, ptr %this, i64 1024

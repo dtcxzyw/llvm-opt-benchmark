@@ -456,8 +456,8 @@ define dso_local void @eventfs_remove_dir(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @eventfs_remove_rec(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = icmp sgt i32 %1, 3
+define internal fastcc void @eventfs_remove_rec(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 align 16 {
+  %3 = icmp ugt i32 %1, 3
   br i1 %3, label %4, label %5, !prof !8
 
 4:                                                ; preds = %2

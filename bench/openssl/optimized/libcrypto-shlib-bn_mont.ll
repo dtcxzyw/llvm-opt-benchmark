@@ -95,7 +95,7 @@ if.else:                                          ; preds = %if.end29
   br i1 %tobool37.not, label %err, label %if.end40
 
 if.end40:                                         ; preds = %if.else, %if.then31
-  %call41 = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %r, ptr noundef nonnull %call26, ptr noundef nonnull %mont)
+  %call41 = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %r, ptr noundef %call26, ptr noundef nonnull %mont)
   br label %err
 
 err:                                              ; preds = %if.end40, %if.else, %if.then31, %if.end25
@@ -123,7 +123,7 @@ declare i32 @bn_sqr_fixed_top(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @bn_mul_fixed_top(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef %r, ptr nocapture noundef readonly %mont) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %r, ptr nocapture noundef readonly %mont) unnamed_addr #0 {
 entry:
   %N = getelementptr inbounds i8, ptr %mont, i64 32
   %top = getelementptr inbounds i8, ptr %mont, i64 40
@@ -138,7 +138,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %mul = shl nsw i32 %0, 1
-  %call = tail call ptr @bn_wexpand(ptr noundef %r, i32 noundef %mul) #4
+  %call = tail call ptr @bn_wexpand(ptr noundef nonnull %r, i32 noundef %mul) #4
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end4
 
@@ -269,7 +269,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %bn_from_mont_fixed_top.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %call.i, ptr noundef readonly %mont)
+  %call3.i = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef %call.i, ptr noundef readonly %mont)
   br label %bn_from_mont_fixed_top.exit
 
 bn_from_mont_fixed_top.exit:                      ; preds = %entry, %land.lhs.true.i, %if.then.i
@@ -293,7 +293,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call3 = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %call, ptr noundef %mont)
+  %call3 = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef %call, ptr noundef %mont)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry

@@ -204,7 +204,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc i32 @mac_key_fromdata(ptr noundef nonnull %keydata, ptr noundef %params)
+  %call3 = tail call fastcc i32 @mac_key_fromdata(ptr noundef %keydata, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then2
@@ -350,7 +350,7 @@ entry:
   br i1 %or.cond2, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
-  %call4 = tail call fastcc i32 @mac_key_fromdata(ptr noundef nonnull %keydata, ptr noundef %params)
+  %call4 = tail call fastcc i32 @mac_key_fromdata(ptr noundef %keydata, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %entry, %if.end3
@@ -867,7 +867,7 @@ declare ptr @ENGINE_get_id(ptr noundef) local_unnamed_addr #1
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mac_key_fromdata(ptr noundef %key, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mac_key_fromdata(ptr noundef nonnull %key, ptr noundef %params) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #6
   %cmp.not = icmp eq ptr %call, null

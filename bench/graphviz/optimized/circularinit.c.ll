@@ -597,7 +597,7 @@ declare void @gv_cleanup_node(ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0, i64 noundef range(i64 4, 65) %1) unnamed_addr #3 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 

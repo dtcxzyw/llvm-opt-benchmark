@@ -901,7 +901,7 @@ define internal fastcc ptr @__dentry_kill(ptr noundef %0) unnamed_addr #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @retain_dentry(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc noundef zeroext i1 @retain_dentry(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !33
   %2 = load volatile i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -925,7 +925,7 @@ define internal fastcc noundef zeroext i1 @retain_dentry(ptr noundef %0) unnamed
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 32
-  %18 = tail call i32 %17(ptr noundef %0) #17
+  %18 = tail call i32 %17(ptr noundef nonnull %0) #17
   %19 = icmp eq i32 %18, 0
   %20 = and i64 %7, 128
   %21 = icmp eq i64 %20, 0
@@ -943,7 +943,7 @@ define internal fastcc noundef zeroext i1 @retain_dentry(ptr noundef %0) unnamed
   br i1 %28, label %29, label %30, !prof !10
 
 29:                                               ; preds = %26
-  tail call fastcc void @d_lru_add(ptr noundef %0)
+  tail call fastcc void @d_lru_add(ptr noundef nonnull %0)
   br label %36
 
 30:                                               ; preds = %26
@@ -3107,7 +3107,7 @@ define dso_local void @d_instantiate(ptr noundef %0, ptr noundef %1) #1 align 16
 declare dso_local void @security_d_instantiate(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__d_instantiate(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @__d_instantiate(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 align 16 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, -4096
   %5 = icmp eq i16 %4, 16384
@@ -6349,7 +6349,7 @@ declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -116, 1) i32 @__d_unalias(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -116, 1) i32 @__d_unalias(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6358,7 +6358,7 @@ define internal fastcc noundef range(i32 -116, 1) i32 @__d_unalias(ptr noundef %
   br i1 %7, label %.thread3, label %8
 
 .thread3:                                         ; preds = %2
-  tail call fastcc void @__d_move(ptr noundef %1, ptr noundef %0, i1 noundef zeroext false)
+  tail call fastcc void @__d_move(ptr noundef nonnull %1, ptr noundef %0, i1 noundef zeroext false)
   br label %.thread.thread
 
 8:                                                ; preds = %2
@@ -6385,7 +6385,7 @@ define internal fastcc noundef range(i32 -116, 1) i32 @__d_unalias(ptr noundef %
   %25 = getelementptr inbounds i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 160
-  tail call fastcc void @__d_move(ptr noundef %1, ptr noundef %0, i1 noundef zeroext false)
+  tail call fastcc void @__d_move(ptr noundef nonnull %1, ptr noundef %0, i1 noundef zeroext false)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
 

@@ -4118,7 +4118,7 @@ common.ret:                                       ; preds = %53, %12
 .body11:                                          ; preds = %70, %74, %86
   %eh.lpad-body12 = phi { ptr, i32 } [ %87, %86 ], [ %71, %70 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$GT$17h72fd8bd26f97d065E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %8) #24
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$GT$17h72fd8bd26f97d065E"(ptr noalias noundef align 8 dereferenceable(96) %8) #24
           to label %31 unwind label %88
 
 "_ZN4core3ptr51drop_in_place$LT$object_store..GetResultPayload$GT$17hb6c72fb47c48c027E.exit": ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7af57d42fb952001E.exit.i", %"_ZN4core3ptr220drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hab85087a8768b65bE.exit.i"
@@ -5847,15 +5847,15 @@ common.ret:                                       ; preds = %729, %86, %37
   %458 = load i64, ptr %457, align 8, !range !343, !noalias !972, !noundef !9
   %459 = getelementptr inbounds i8, ptr %1, i64 536
   %460 = load i64, ptr %459, align 8, !noalias !972
-  %switch.i.i.i = icmp eq i64 %458, 0
-  br i1 %switch.i.i.i, label %461, label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h736351ca1e2fa4f3E.exit.i.i"
+  %trunc.i.i.i = trunc nuw i64 %458 to i1
+  br i1 %trunc.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h736351ca1e2fa4f3E.exit.i.i", label %461
 
 461:                                              ; preds = %455
   %462 = getelementptr i8, ptr %1, i64 560
-  %.val.i.i22.i = load i64, ptr %462, align 8, !noalias !972, !noundef !9
+  %.val.i.i21.i = load i64, ptr %462, align 8, !noalias !972, !noundef !9
   %463 = getelementptr i8, ptr %1, i64 744
   %.val1.i.i.i = load i64, ptr %463, align 8, !noalias !972, !noundef !9
-  %464 = add i64 %.val1.i.i.i, %.val.i.i22.i
+  %464 = add i64 %.val1.i.i.i, %.val.i.i21.i
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h736351ca1e2fa4f3E.exit.i.i"
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h1d52bc23863ba8f0E.exit68.i.i": ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17ha8539c175b8895a6E.exit.i.i"
@@ -5919,20 +5919,20 @@ common.ret:                                       ; preds = %729, %86, %37
 
 497:                                              ; preds = %488
   %498 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd95e675b7178b236E.llvm.2594273214132776583"(ptr noalias noundef nonnull align 8 dereferenceable(16) %425, i64 noundef 0, i64 noundef %.val28.i.i)
-          to label %.noexc.i21.i unwind label %501, !noalias !1009
+          to label %.noexc.i22.i unwind label %501, !noalias !1009
 
-.noexc.i21.i:                                     ; preds = %497
+.noexc.i22.i:                                     ; preds = %497
   %499 = extractvalue { i64, i64 } %498, 0
   %500 = extractvalue { i64, i64 } %498, 1
   invoke void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.2594273214132776583(i64 noundef %499, i64 %500)
           to label %.noexc36.i.i unwind label %501, !noalias !1009
 
-.noexc36.i.i:                                     ; preds = %.noexc.i21.i
+.noexc36.i.i:                                     ; preds = %.noexc.i22.i
   %.pre.i.i.i.i = load i64, ptr %492, align 8, !alias.scope !1071, !noalias !1076
   %.pre146.i.i = load ptr, ptr %491, align 8, !alias.scope !1071, !noalias !1076
   br label %503
 
-501:                                              ; preds = %.noexc.i21.i, %497
+501:                                              ; preds = %.noexc.i22.i, %497
   %502 = landingpad { ptr, i32 }
           cleanup
   br label %525
@@ -9141,7 +9141,7 @@ define internal void @"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -10052,7 +10052,7 @@ common.resume:                                    ; preds = %20, %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$GT$17h72fd8bd26f97d065E"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$object_store..ObjectMeta$C$object_store..Error$GT$$GT$17h72fd8bd26f97d065E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !678, !noundef !9
   %.not = icmp eq i64 %2, -9223372036854775808
   br i1 %.not, label %4, label %3
@@ -10063,7 +10063,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Resul
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
+  tail call fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %5)
   br label %6
 
 6:                                                ; preds = %4, %3

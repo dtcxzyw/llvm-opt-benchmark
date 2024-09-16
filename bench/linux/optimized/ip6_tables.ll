@@ -947,7 +947,7 @@ cleanup_entry.exit11:                             ; preds = %.loopexit.i8, %156
 declare dso_local ptr @xt_alloc_table_info(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.xt_mtdtor_param, align 8
   %6 = alloca %struct.xt_tgdtor_param, align 8
   %7 = alloca %struct.xt_mtdtor_param, align 8
@@ -1147,7 +1147,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef %1, ptr 
 137:                                              ; preds = %.loopexit67
   %138 = getelementptr inbounds i8, ptr %3, i64 32
   %139 = load i32, ptr %138, align 8
-  %140 = tail call i32 @xt_check_table_hooks(ptr noundef %1, i32 noundef %139) #14
+  %140 = tail call i32 @xt_check_table_hooks(ptr noundef nonnull %1, i32 noundef %139) #14
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %.thread
 
@@ -2669,7 +2669,7 @@ define internal i32 @do_ip6t_get_ctl(ptr nocapture noundef readonly %0, i32 noun
 declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.xt_mtdtor_param, align 8
   %8 = alloca %struct.xt_tgdtor_param, align 8
   %9 = alloca i32, align 4
@@ -2701,7 +2701,7 @@ define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 nou
   br label %177
 
 23:                                               ; preds = %18
-  %24 = call ptr @xt_replace_table(ptr noundef %13, i32 noundef %4, ptr noundef %3, ptr noundef nonnull %9) #14
+  %24 = call ptr @xt_replace_table(ptr noundef %13, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull %9) #14
   %25 = icmp eq ptr %24, null
   br i1 %25, label %177, label %26
 

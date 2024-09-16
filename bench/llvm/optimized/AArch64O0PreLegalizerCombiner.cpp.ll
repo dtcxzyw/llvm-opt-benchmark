@@ -596,7 +596,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %26
   %31 = getelementptr inbounds i8, ptr %27, i64 1
   %32 = add i64 %28, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr nonnull %31, i64 %32)
+  call fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr nonnull %31, i64 %32)
   %33 = load i8, ptr %22, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %_ZN12_GLOBAL__N_143AArch64O0PreLegalizerCombinerImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.thread19.i
@@ -629,7 +629,7 @@ _ZN12_GLOBAL__N_143AArch64O0PreLegalizerCombinerImplRuleConfig14setRuleEnabledEN
 
 .critedge.i:                                      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr %27, i64 %28)
+  call fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %2, ptr %27, i64 %28)
   %41 = load i8, ptr %24, align 8
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_143AArch64O0PreLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.thread20.i
@@ -1645,7 +1645,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

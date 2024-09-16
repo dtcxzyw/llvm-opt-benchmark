@@ -767,12 +767,12 @@ if.then25.i:                                      ; preds = %for.end.i
 
 if.end27.i:                                       ; preds = %for.end.i
   store i8 0, ptr %p.0.i, align 1
-  %call30.i = call ptr @OPENSSL_LH_insert(ptr noundef %addexts.4, ptr noundef nonnull %call5.i) #10
+  %call30.i = call ptr @OPENSSL_LH_insert(ptr noundef nonnull %addexts.4, ptr noundef nonnull %call5.i) #10
   %cmp31.not.i = icmp eq ptr %call30.i, null
   br i1 %cmp31.not.i, label %if.else.i, label %duplicated.exit
 
 if.else.i:                                        ; preds = %if.end27.i
-  %call36.i = call i32 @OPENSSL_LH_error(ptr noundef %addexts.4) #10
+  %call36.i = call i32 @OPENSSL_LH_error(ptr noundef nonnull %addexts.4) #10
   %tobool37.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool37.not.i, label %lor.lhs.false186, label %if.then38.i
 
@@ -1112,7 +1112,7 @@ if.then351:                                       ; preds = %if.then348
   br label %if.end352
 
 if.end352:                                        ; preds = %if.then351, %if.then348
-  %call353 = call fastcc ptr @set_keygen_ctx(ptr noundef %keyalg.0, ptr noundef nonnull %keyalgstr, ptr noundef nonnull %newkey_len, ptr noundef %gen_eng.0)
+  %call353 = call fastcc ptr @set_keygen_ctx(ptr noundef %keyalg.0, ptr noundef %keyalgstr, ptr noundef %newkey_len, ptr noundef %gen_eng.0)
   %cmp354 = icmp eq ptr %call353, null
   br i1 %cmp354, label %if.then918, label %if.end356
 
@@ -1457,7 +1457,7 @@ if.then554:                                       ; preds = %if.end551
 if.end561:                                        ; preds = %if.then554
   %lnot = xor i1 %tobool202, true
   %lnot.ext = zext i1 %lnot to i32
-  %call563 = call fastcc i32 @make_REQ(ptr noundef nonnull %call557, ptr noundef %pkey.2332, ptr noundef %fsubj.1, i32 noundef %lnot.ext, i64 noundef %chtype.2)
+  %call563 = call fastcc i32 @make_REQ(ptr noundef %call557, ptr noundef %pkey.2332, ptr noundef %fsubj.1, i32 noundef %lnot.ext, i64 noundef %chtype.2)
   %tobool564.not = icmp eq i32 %call563, 0
   br i1 %tobool564.not, label %if.then565, label %if.end568
 
@@ -2170,7 +2170,7 @@ declare void @app_RAND_load_conf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @app_conf_try_number(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_keygen_ctx(ptr noundef %gstr, ptr nocapture noundef %pkeytype, ptr nocapture noundef %pkeylen, ptr noundef %keygen_engine) unnamed_addr #0 {
+define internal fastcc ptr @set_keygen_ctx(ptr noundef %gstr, ptr nocapture noundef nonnull %pkeytype, ptr nocapture noundef nonnull %pkeylen, ptr noundef %keygen_engine) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %bits = alloca i64, align 8
@@ -2504,7 +2504,7 @@ declare ptr @app_get0_libctx() local_unnamed_addr #1
 declare ptr @app_get0_propq() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @make_REQ(ptr noundef %req, ptr noundef %pkey, ptr noundef %fsubj, i32 noundef %attribs, i64 noundef %chtype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @make_REQ(ptr noundef nonnull %req, ptr noundef %pkey, ptr noundef %fsubj, i32 noundef range(i32 0, 2) %attribs, i64 noundef range(i64 4096, 4098) %chtype) unnamed_addr #0 {
 entry:
   %buf.i172.i = alloca [1024 x i8], align 16
   %buf.i.i = alloca [1024 x i8], align 16
@@ -2574,7 +2574,7 @@ if.then17:                                        ; preds = %if.then14
 
 if.end20:                                         ; preds = %if.then14, %if.end11
   %attr_sk.0 = phi ptr [ %call15, %if.then14 ], [ null, %if.end11 ]
-  %call21 = tail call i32 @X509_REQ_set_version(ptr noundef %req, i64 noundef 0) #10
+  %call21 = tail call i32 @X509_REQ_set_version(ptr noundef nonnull %req, i64 noundef 0) #10
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %err, label %if.end23
 
@@ -2583,14 +2583,14 @@ if.end23:                                         ; preds = %if.end20
   br i1 %cmp24.not, label %if.else, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  %call26 = tail call i32 @X509_REQ_set_subject_name(ptr noundef %req, ptr noundef nonnull %fsubj) #10
+  %call26 = tail call i32 @X509_REQ_set_subject_name(ptr noundef nonnull %req, ptr noundef nonnull %fsubj) #10
   br label %if.end33
 
 if.else:                                          ; preds = %if.end23
   br i1 %tobool27.not, label %if.else30, label %if.then28
 
 if.then28:                                        ; preds = %if.else
-  %call.i = tail call ptr @X509_REQ_get_subject_name(ptr noundef %req) #10
+  %call.i = tail call ptr @X509_REQ_get_subject_name(ptr noundef nonnull %req) #10
   %call226.i = tail call i32 @OPENSSL_sk_num(ptr noundef %dn_sk.0) #10
   %cmp27.i = icmp sgt i32 %call226.i, 0
   br i1 %cmp27.i, label %for.body.lr.ph.i, label %for.end34.i
@@ -2682,7 +2682,7 @@ for.body47.i:                                     ; preds = %for.cond42.i, %for.
   %22 = load ptr, ptr %name50.i, align 8
   %value52.i = getelementptr inbounds i8, ptr %call49.i, i64 16
   %23 = load ptr, ptr %value52.i, align 8
-  %call53.i = tail call i32 @X509_REQ_add1_attr_by_txt(ptr noundef %req, ptr noundef %22, i32 noundef %conv51.i, ptr noundef %23, i32 noundef -1) #10
+  %call53.i = tail call i32 @X509_REQ_add1_attr_by_txt(ptr noundef nonnull %req, ptr noundef %22, i32 noundef %conv51.i, ptr noundef %23, i32 noundef -1) #10
   %tobool54.not.i = icmp eq i32 %call53.i, 0
   br i1 %tobool54.not.i, label %err, label %for.cond42.i
 
@@ -2690,7 +2690,7 @@ if.else30:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n_min.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n_max.i)
-  %call.i20 = tail call ptr @X509_REQ_get_subject_name(ptr noundef %req) #10
+  %call.i20 = tail call ptr @X509_REQ_get_subject_name(ptr noundef nonnull %req) #10
   %.b53.i = load i1, ptr @batch, align 4
   br i1 %.b53.i, label %if.end.i, label %if.then.i21
 
@@ -2915,7 +2915,7 @@ if.end104.i:                                      ; preds = %if.then103.i, %if.e
   %53 = load i64, ptr %n_min.i, align 8
   %conv106.i = trunc i64 %53 to i32
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i.i)
-  %call.i124.i = call fastcc i32 @build_data(ptr noundef %52, ptr noundef nonnull %spec.store.select.i, ptr noundef %call78.i, i32 noundef %conv106.i, i32 noundef %conv107.i, ptr noundef nonnull %buf.i.i, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222)
+  %call.i124.i = call fastcc i32 @build_data(ptr noundef %52, ptr noundef nonnull %spec.store.select.i, ptr noundef %call78.i, i32 noundef %conv106.i, i32 noundef %conv107.i, ptr noundef %buf.i.i, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222)
   %or.cond.i.i = icmp ult i32 %call.i124.i, 2
   br i1 %or.cond.i.i, label %add_DN_object.exit.i, label %if.end.i125.i
 
@@ -3074,12 +3074,12 @@ if.end189.i:                                      ; preds = %if.then188.i, %if.e
   %72 = load i64, ptr %n_min.i, align 8
   %conv191.i = trunc i64 %72 to i32
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i172.i)
-  %call.i173.i = call fastcc i32 @build_data(ptr noundef %71, ptr noundef nonnull %spec.store.select2.i, ptr noundef %call169.i, i32 noundef %conv191.i, i32 noundef %conv192.i, ptr noundef nonnull %buf.i172.i, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.228)
+  %call.i173.i = call fastcc i32 @build_data(ptr noundef %71, ptr noundef nonnull %spec.store.select2.i, ptr noundef %call169.i, i32 noundef %conv191.i, i32 noundef %conv192.i, ptr noundef %buf.i172.i, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.228)
   %or.cond.i174.i = icmp ult i32 %call.i173.i, 2
   br i1 %or.cond.i174.i, label %add_attribute_object.exit.i, label %if.end.i175.i
 
 if.end.i175.i:                                    ; preds = %if.end189.i
-  %call3.i177.i = call i32 @X509_REQ_add1_attr_by_NID(ptr noundef %req, i32 noundef %call147.i, i32 noundef %conv.i176.i115, ptr noundef nonnull %buf.i172.i, i32 noundef -1) #10
+  %call3.i177.i = call i32 @X509_REQ_add1_attr_by_NID(ptr noundef nonnull %req, i32 noundef %call147.i, i32 noundef %conv.i176.i115, ptr noundef nonnull %buf.i172.i, i32 noundef -1) #10
   %tobool.not.i178.i = icmp eq i32 %call3.i177.i, 0
   br i1 %tobool.not.i178.i, label %add_attribute_object.exit.thread.i, label %add_attribute_object.exit.i
 
@@ -3116,7 +3116,7 @@ if.end33:                                         ; preds = %prompt_info.exit, %
   br i1 %tobool34.not, label %err, label %if.end36
 
 if.end36:                                         ; preds = %for.cond42.i, %for.cond42.preheader.i, %if.end39.i, %if.end33
-  %call37 = call i32 @X509_REQ_set_pubkey(ptr noundef %req, ptr noundef %pkey) #10
+  %call37 = call i32 @X509_REQ_set_pubkey(ptr noundef nonnull %req, ptr noundef %pkey) #10
   %tobool38.not = icmp ne i32 %call37, 0
   %spec.select19 = zext i1 %tobool38.not to i32
   br label %err
@@ -3268,7 +3268,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @build_data(ptr noundef %text, ptr noundef %def, ptr noundef %value, i32 noundef %n_min, i32 noundef %n_max, ptr noundef %buf, ptr noundef %desc1, ptr noundef %desc2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @build_data(ptr noundef %text, ptr noundef %def, ptr noundef %value, i32 noundef %n_min, i32 noundef %n_max, ptr noundef nonnull %buf, ptr noundef %desc1, ptr noundef %desc2) unnamed_addr #0 {
 entry:
   %.b24.pr = load i1, ptr @batch, align 4
   %cmp = icmp ne ptr %value, null
@@ -3300,7 +3300,7 @@ join.exit.thread:                                 ; preds = %if.then3
   br label %return
 
 if.end8:                                          ; preds = %if.then3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 1 %value, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr nonnull align 1 %value, i64 %call.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %call.i
   store i16 10, ptr %add.ptr.i, align 1
   %4 = load ptr, ptr @bio_err, align 8

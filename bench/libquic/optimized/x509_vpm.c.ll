@@ -35,7 +35,7 @@ if.end4:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call, i8 0, i64 56, i1 false)
   %id = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %calloc, ptr %id, align 8
-  tail call fastcc void @x509_verify_param_zero(ptr noundef nonnull %call)
+  tail call fastcc void @x509_verify_param_zero(ptr noundef %call)
   br label %return
 
 return:                                           ; preds = %entry, %if.end4, %if.then3
@@ -53,7 +53,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x509_verify_param_zero(ptr nocapture noundef %param) unnamed_addr #0 {
+define internal fastcc void @x509_verify_param_zero(ptr nocapture noundef nonnull %param) unnamed_addr #0 {
 entry:
   store ptr null, ptr %param, align 8
   %inh_flags = getelementptr inbounds i8, ptr %param, i64 16
@@ -126,7 +126,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call fastcc void @x509_verify_param_zero(ptr noundef nonnull %param)
+  tail call fastcc void @x509_verify_param_zero(ptr noundef %param)
   %id = getelementptr inbounds i8, ptr %param, i64 56
   %0 = load ptr, ptr %id, align 8
   tail call void @free(ptr noundef %0) #15
@@ -886,7 +886,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr nocapture noundef %id, i32 noundef %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr nocapture noundef %id, i32 noundef range(i32 0, 2) %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -1075,7 +1075,7 @@ if.then5:                                         ; preds = %if.else
   br i1 %cmp.i, label %X509_VERIFY_PARAM_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5
-  call fastcc void @x509_verify_param_zero(ptr noundef nonnull %call6)
+  call fastcc void @x509_verify_param_zero(ptr noundef %call6)
   %id.i = getelementptr inbounds i8, ptr %call6, i64 56
   %2 = load ptr, ptr %id.i, align 8
   call void @free(ptr noundef %2) #15

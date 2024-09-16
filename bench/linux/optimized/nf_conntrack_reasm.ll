@@ -889,8 +889,8 @@ declare dso_local i32 @inet_frag_queue_insert(ptr noundef, ptr noundef, i32 noun
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @nf_ct_frag6_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
-  tail call void @inet_frag_kill(ptr noundef %0) #11
+define internal fastcc noundef range(i32 -22, 1) i32 @nf_ct_frag6_reasm(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+  tail call void @inet_frag_kill(ptr noundef nonnull %0) #11
   %5 = getelementptr inbounds i8, ptr %0, i64 182
   %6 = load i8, ptr %5, align 2
   %7 = zext i8 %6 to i64
@@ -900,7 +900,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nf_ct_frag6_reasm(ptr noun
   br i1 %10, label %103, label %11, !prof !8
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @inet_frag_reasm_prepare(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
+  %12 = tail call ptr @inet_frag_reasm_prepare(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #11
   %13 = icmp eq ptr %12, null
   br i1 %13, label %103, label %14
 
@@ -958,7 +958,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nf_ct_frag6_reasm(ptr noun
   %58 = sub i64 %56, %57
   %59 = trunc i64 %58 to i16
   store i16 %59, ptr %33, align 2
-  tail call void @inet_frag_reasm_finish(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %12, i1 noundef zeroext false) #11
+  tail call void @inet_frag_reasm_finish(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12, i1 noundef zeroext false) #11
   %60 = load i8, ptr %48, align 8
   %61 = or i8 %60, 8
   store i8 %61, ptr %48, align 8
@@ -1017,7 +1017,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nf_ct_frag6_reasm(ptr noun
   br label %104
 
 103:                                              ; preds = %14, %11, %4
-  tail call void @inet_frag_kill(ptr noundef %0) #11
+  tail call void @inet_frag_kill(ptr noundef nonnull %0) #11
   br label %104
 
 104:                                              ; preds = %103, %101

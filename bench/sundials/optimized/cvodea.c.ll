@@ -4871,7 +4871,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153.us.us, label %151, label %149
 
 149:                                              ; preds = %.split222.us.split.us
-  %150 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133178)
+  %150 = tail call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.0133178)
   %.not154.us.us = icmp eq i32 %150, 0
   br i1 %.not154.us.us, label %151, label %.critedge163
 
@@ -4882,7 +4882,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153.us.us, label %154, label %152
 
 152:                                              ; preds = %.split222.us.split.split.us
-  %153 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133178)
+  %153 = tail call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.0133178)
   %.not154.us.us234 = icmp eq i32 %153, 0
   br i1 %.not154.us.us234, label %154, label %.critedge163
 
@@ -4896,7 +4896,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153, label %.lr.ph214.preheader, label %156
 
 156:                                              ; preds = %.split222
-  %157 = call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.1134)
+  %157 = call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.1134)
   %.not154 = icmp eq i32 %157, 0
   br i1 %.not154, label %.lr.ph214.preheader, label %.critedge163
 
@@ -4991,7 +4991,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -106, 1) i32 @CVAdataStore(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -106, 1) i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2672
   %5 = load ptr, ptr %4, align 8
@@ -5561,7 +5561,7 @@ CVAckpntGet.exit:                                 ; preds = %._crit_edge285.i, %
   %323 = phi double [ %.pre, %315 ], [ %335, %327 ]
   %.033 = phi i64 [ 1, %315 ], [ %334, %327 ]
   %324 = load ptr, ptr %321, align 8
-  %325 = call i32 @CVode(ptr noundef %0, double noundef %323, ptr noundef %324, ptr noundef nonnull %3, i32 noundef 2) #9
+  %325 = call i32 @CVode(ptr noundef nonnull %0, double noundef %323, ptr noundef %324, ptr noundef nonnull %3, i32 noundef 2) #9
   %326 = icmp slt i32 %325, 0
   br i1 %326, label %CVAckpntGet.exit.thread, label %327
 
@@ -5572,7 +5572,7 @@ CVAckpntGet.exit:                                 ; preds = %._crit_edge285.i, %
   store double %328, ptr %330, align 8
   %331 = load ptr, ptr %305, align 8
   %332 = load ptr, ptr %329, align 8
-  %333 = call i32 %331(ptr noundef %0, ptr noundef %332) #9
+  %333 = call i32 %331(ptr noundef nonnull %0, ptr noundef %332) #9
   %334 = add nuw nsw i64 %.033, 1
   %335 = load double, ptr %320, align 8
   %336 = load double, ptr %3, align 8

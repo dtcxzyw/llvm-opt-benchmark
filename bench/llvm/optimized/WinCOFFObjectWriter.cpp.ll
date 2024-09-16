@@ -415,7 +415,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEPN12_GLOBAL__N_110COFFSymbolE
   br i1 %.not48, label %107, label %101
 
 101:                                              ; preds = %98
-  %102 = call fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %100)
+  %102 = call fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %100)
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 112
   %104 = load ptr, ptr %103, align 8
   %.not49 = icmp eq ptr %104, null
@@ -774,7 +774,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_110COFFSymbolESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -871,7 +871,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %36, %40
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   %4 = icmp eq i64 %1, %3
   br i1 %4, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE10resizeImplILb0EEEvm.exit, label %5
@@ -907,8 +907,8 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE7reserveEm.exit.i: ; preds 
 .lr.ph.preheader.i:                               ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE7reserveEm.exit.i
   %.val13.i = ptrtoint ptr %.val.i to i64
   %.val.i14.i = ptrtoint ptr %.val.i.i to i64
-  %18 = mul nsw i64 %1, 24
-  %19 = add i64 %18, -24
+  %18 = mul nuw nsw i64 %1, 24
+  %19 = add nsw i64 %18, -24
   %20 = sub i64 %19, %.val.i14.i
   %21 = add i64 %20, %.val13.i
   %.neg.i = mul i64 %15, -24
@@ -1064,7 +1064,7 @@ _ZL12isDwoSectionRKN4llvm9MCSectionE.exit:        ; preds = %58
 
 .thread:                                          ; preds = %58, %12, %3, %_ZNK4llvm8MCSymbol11getFragmentEb.exit, %_ZL12isDwoSectionRKN4llvm9MCSectionE.exit, %.loopexit
   %.0102 = phi ptr [ %53, %_ZL12isDwoSectionRKN4llvm9MCSectionE.exit ], [ %53, %.loopexit ], [ null, %_ZNK4llvm8MCSymbol11getFragmentEb.exit ], [ null, %3 ], [ null, %12 ], [ %53, %58 ]
-  %64 = tail call fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %2)
+  %64 = tail call fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %2)
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, 15393162788864
@@ -1122,7 +1122,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread11.i: ; preds = %_ZNK4llvm8MCSymbol
   br i1 %.not14.i, label %_ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit.thread, label %_ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit
 
 _ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit: ; preds = %83, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.i, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread11.i
-  %95 = tail call fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %81)
+  %95 = tail call fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %81)
   %.not51 = icmp eq ptr %95, null
   br i1 %.not51, label %_ZN4llvm13WinCOFFWriter15getLinkedSymbolERKNS_8MCSymbolE.exit.thread, label %220
 

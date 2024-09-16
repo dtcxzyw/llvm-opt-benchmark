@@ -76776,7 +76776,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndicators(ptr noundef %0, i3
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef nonnull %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -76934,73 +76934,73 @@ define internal i32 @dissect_lte_rrc_InterRAT_BandInfo(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef %0, ptr %.24.val) unnamed_addr #1 {
+define internal fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
   %2 = load i32, ptr @ett_lte_rrc_featureGroupIndicators, align 4
   %3 = tail call ptr @proto_item_add_subtree(ptr noundef %.24.val, i32 noundef %2) #11
   %4 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_1, align 4
-  %5 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
+  %5 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
   %6 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_2, align 4
-  %7 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #11
+  %7 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %6, ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #11
   %8 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_3, align 4
-  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #11
+  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %8, ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #11
   %10 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_4, align 4
-  %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #11
+  %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %10, ptr noundef nonnull %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #11
   %12 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_5, align 4
-  %13 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #11
+  %13 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %12, ptr noundef nonnull %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #11
   %14 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_6, align 4
-  %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #11
+  %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %14, ptr noundef nonnull %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #11
   %16 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_7, align 4
-  %17 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #11
+  %17 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %16, ptr noundef nonnull %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #11
   %18 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_8, align 4
-  %19 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %18, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
+  %19 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %18, ptr noundef nonnull %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
   %20 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_9, align 4
-  %21 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #11
+  %21 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %20, ptr noundef nonnull %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #11
   %22 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_10, align 4
-  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #11
+  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %22, ptr noundef nonnull %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #11
   %24 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_11, align 4
-  %25 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %24, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #11
+  %25 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %24, ptr noundef nonnull %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #11
   %26 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_12, align 4
-  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #11
+  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %26, ptr noundef nonnull %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #11
   %28 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_13, align 4
-  %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #11
+  %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %28, ptr noundef nonnull %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #11
   %30 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_14, align 4
-  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #11
+  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %30, ptr noundef nonnull %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #11
   %32 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_15, align 4
-  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %32, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #11
+  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %32, ptr noundef nonnull %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #11
   %34 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_16, align 4
-  %35 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #11
+  %35 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %34, ptr noundef nonnull %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #11
   %36 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_17, align 4
-  %37 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %36, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #11
+  %37 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %36, ptr noundef nonnull %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #11
   %38 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_18, align 4
-  %39 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %38, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #11
+  %39 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %38, ptr noundef nonnull %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #11
   %40 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_19, align 4
-  %41 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #11
+  %41 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %40, ptr noundef nonnull %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #11
   %42 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_20, align 4
-  %43 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #11
+  %43 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %42, ptr noundef nonnull %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #11
   %44 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_21, align 4
-  %45 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #11
+  %45 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %44, ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #11
   %46 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_22, align 4
-  %47 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %46, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #11
+  %47 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %46, ptr noundef nonnull %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #11
   %48 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_23, align 4
-  %49 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %48, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0) #11
+  %49 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %48, ptr noundef nonnull %0, i32 noundef 22, i32 noundef 1, i32 noundef 0) #11
   %50 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_24, align 4
-  %51 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #11
+  %51 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %50, ptr noundef nonnull %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #11
   %52 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_25, align 4
-  %53 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %52, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #11
+  %53 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %52, ptr noundef nonnull %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #11
   %54 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_26, align 4
-  %55 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #11
+  %55 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %54, ptr noundef nonnull %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #11
   %56 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_27, align 4
-  %57 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %56, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #11
+  %57 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %56, ptr noundef nonnull %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #11
   %58 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_28, align 4
-  %59 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %58, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #11
+  %59 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %58, ptr noundef nonnull %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #11
   %60 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_29, align 4
-  %61 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %60, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #11
+  %61 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %60, ptr noundef nonnull %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #11
   %62 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_30, align 4
-  %63 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef 29, i32 noundef 1, i32 noundef 0) #11
+  %63 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %62, ptr noundef nonnull %0, i32 noundef 29, i32 noundef 1, i32 noundef 0) #11
   %64 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_31, align 4
-  %65 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %64, ptr noundef %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #11
+  %65 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %64, ptr noundef nonnull %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #11
   %66 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_32, align 4
-  %67 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #11
+  %67 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %66, ptr noundef nonnull %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #11
   ret void
 }
 
@@ -77358,7 +77358,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndRel9Add_r9(ptr noundef %0,
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef nonnull %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -77380,73 +77380,73 @@ define internal i32 @dissect_lte_rrc_UE_EUTRA_Capability_v9c0_IEs(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef %0, ptr %.24.val) unnamed_addr #1 {
+define internal fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
   %2 = load i32, ptr @ett_lte_rrc_featureGroupIndRel9Add, align 4
   %3 = tail call ptr @proto_item_add_subtree(ptr noundef %.24.val, i32 noundef %2) #11
   %4 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_33, align 4
-  %5 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
+  %5 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
   %6 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_34, align 4
-  %7 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #11
+  %7 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %6, ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #11
   %8 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_35, align 4
-  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #11
+  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %8, ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #11
   %10 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_36, align 4
-  %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #11
+  %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %10, ptr noundef nonnull %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #11
   %12 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_37, align 4
-  %13 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #11
+  %13 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %12, ptr noundef nonnull %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #11
   %14 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_38, align 4
-  %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #11
+  %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %14, ptr noundef nonnull %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #11
   %16 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_39, align 4
-  %17 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #11
+  %17 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %16, ptr noundef nonnull %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #11
   %18 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_40, align 4
-  %19 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %18, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
+  %19 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %18, ptr noundef nonnull %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
   %20 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_41, align 4
-  %21 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #11
+  %21 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %20, ptr noundef nonnull %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #11
   %22 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_42, align 4
-  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #11
+  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %22, ptr noundef nonnull %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #11
   %24 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_43, align 4
-  %25 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %24, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #11
+  %25 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %24, ptr noundef nonnull %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #11
   %26 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_44, align 4
-  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #11
+  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %26, ptr noundef nonnull %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #11
   %28 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_45, align 4
-  %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #11
+  %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %28, ptr noundef nonnull %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #11
   %30 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_46, align 4
-  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #11
+  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %30, ptr noundef nonnull %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #11
   %32 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_47, align 4
-  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %32, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #11
+  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %32, ptr noundef nonnull %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #11
   %34 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_48, align 4
-  %35 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #11
+  %35 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %34, ptr noundef nonnull %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #11
   %36 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_49, align 4
-  %37 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %36, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #11
+  %37 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %36, ptr noundef nonnull %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #11
   %38 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_50, align 4
-  %39 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %38, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #11
+  %39 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %38, ptr noundef nonnull %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #11
   %40 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_51, align 4
-  %41 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #11
+  %41 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %40, ptr noundef nonnull %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #11
   %42 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_52, align 4
-  %43 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #11
+  %43 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %42, ptr noundef nonnull %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #11
   %44 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_53, align 4
-  %45 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #11
+  %45 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %44, ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #11
   %46 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_54, align 4
-  %47 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %46, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #11
+  %47 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %46, ptr noundef nonnull %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #11
   %48 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_55, align 4
-  %49 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %48, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0) #11
+  %49 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %48, ptr noundef nonnull %0, i32 noundef 22, i32 noundef 1, i32 noundef 0) #11
   %50 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_56, align 4
-  %51 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #11
+  %51 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %50, ptr noundef nonnull %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #11
   %52 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_57, align 4
-  %53 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %52, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #11
+  %53 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %52, ptr noundef nonnull %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #11
   %54 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_58, align 4
-  %55 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #11
+  %55 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %54, ptr noundef nonnull %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #11
   %56 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_59, align 4
-  %57 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %56, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #11
+  %57 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %56, ptr noundef nonnull %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #11
   %58 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_60, align 4
-  %59 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %58, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #11
+  %59 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %58, ptr noundef nonnull %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #11
   %60 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_61, align 4
-  %61 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %60, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #11
+  %61 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %60, ptr noundef nonnull %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #11
   %62 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_62, align 4
-  %63 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef 29, i32 noundef 1, i32 noundef 0) #11
+  %63 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %62, ptr noundef nonnull %0, i32 noundef 29, i32 noundef 1, i32 noundef 0) #11
   %64 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_63, align 4
-  %65 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %64, ptr noundef %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #11
+  %65 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %64, ptr noundef nonnull %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #11
   %66 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_64, align 4
-  %67 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #11
+  %67 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %66, ptr noundef nonnull %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #11
   ret void
 }
 
@@ -77462,7 +77462,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndicators_r9(ptr noundef %0,
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef nonnull %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -77481,7 +77481,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndRel9Add_r9_01(ptr noundef 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef nonnull %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -78530,7 +78530,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndRel10_r10(ptr noundef %0, 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef nonnull %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -78759,73 +78759,73 @@ define internal i32 @dissect_lte_rrc_BandCombinationListEUTRA_r10(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef %0, ptr %.24.val) unnamed_addr #1 {
+define internal fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
   %2 = load i32, ptr @ett_lte_rrc_featureGroupIndRel10, align 4
   %3 = tail call ptr @proto_item_add_subtree(ptr noundef %.24.val, i32 noundef %2) #11
   %4 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_101, align 4
-  %5 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
+  %5 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
   %6 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_102, align 4
-  %7 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #11
+  %7 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %6, ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #11
   %8 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_103, align 4
-  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #11
+  %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %8, ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #11
   %10 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_104, align 4
-  %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #11
+  %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %10, ptr noundef nonnull %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #11
   %12 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_105, align 4
-  %13 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #11
+  %13 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %12, ptr noundef nonnull %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #11
   %14 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_106, align 4
-  %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #11
+  %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %14, ptr noundef nonnull %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #11
   %16 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_107, align 4
-  %17 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #11
+  %17 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %16, ptr noundef nonnull %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #11
   %18 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_108, align 4
-  %19 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %18, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
+  %19 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %18, ptr noundef nonnull %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
   %20 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_109, align 4
-  %21 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #11
+  %21 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %20, ptr noundef nonnull %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #11
   %22 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_110, align 4
-  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #11
+  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %22, ptr noundef nonnull %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #11
   %24 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_111, align 4
-  %25 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %24, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #11
+  %25 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %24, ptr noundef nonnull %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #11
   %26 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_112, align 4
-  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #11
+  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %26, ptr noundef nonnull %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #11
   %28 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_113, align 4
-  %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #11
+  %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %28, ptr noundef nonnull %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #11
   %30 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_114, align 4
-  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #11
+  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %30, ptr noundef nonnull %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #11
   %32 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_115, align 4
-  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %32, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #11
+  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %32, ptr noundef nonnull %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #11
   %34 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_116, align 4
-  %35 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #11
+  %35 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %34, ptr noundef nonnull %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #11
   %36 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_117, align 4
-  %37 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %36, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #11
+  %37 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %36, ptr noundef nonnull %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #11
   %38 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_118, align 4
-  %39 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %38, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #11
+  %39 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %38, ptr noundef nonnull %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #11
   %40 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_119, align 4
-  %41 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #11
+  %41 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %40, ptr noundef nonnull %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #11
   %42 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_120, align 4
-  %43 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #11
+  %43 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %42, ptr noundef nonnull %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #11
   %44 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_121, align 4
-  %45 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #11
+  %45 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %44, ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #11
   %46 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_122, align 4
-  %47 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %46, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #11
+  %47 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %46, ptr noundef nonnull %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #11
   %48 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_123, align 4
-  %49 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %48, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0) #11
+  %49 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %48, ptr noundef nonnull %0, i32 noundef 22, i32 noundef 1, i32 noundef 0) #11
   %50 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_124, align 4
-  %51 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #11
+  %51 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %50, ptr noundef nonnull %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #11
   %52 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_125, align 4
-  %53 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %52, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #11
+  %53 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %52, ptr noundef nonnull %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #11
   %54 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_126, align 4
-  %55 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #11
+  %55 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %54, ptr noundef nonnull %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #11
   %56 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_127, align 4
-  %57 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %56, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #11
+  %57 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %56, ptr noundef nonnull %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #11
   %58 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_128, align 4
-  %59 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %58, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #11
+  %59 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %58, ptr noundef nonnull %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #11
   %60 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_129, align 4
-  %61 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %60, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #11
+  %61 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %60, ptr noundef nonnull %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #11
   %62 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_130, align 4
-  %63 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef 29, i32 noundef 1, i32 noundef 0) #11
+  %63 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %62, ptr noundef nonnull %0, i32 noundef 29, i32 noundef 1, i32 noundef 0) #11
   %64 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_131, align 4
-  %65 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %64, ptr noundef %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #11
+  %65 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %64, ptr noundef nonnull %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #11
   %66 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_132, align 4
-  %67 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #11
+  %67 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %66, ptr noundef nonnull %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #11
   ret void
 }
 
@@ -78886,7 +78886,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndRel10_v1060(ptr noundef %0
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef nonnull %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -90000,7 +90000,7 @@ private_data_get_message_identifier.exit30:       ; preds = %private_data_get_wa
   %55 = load ptr, ptr %10, align 8
   %56 = ptrtoint ptr %51 to i64
   %57 = trunc i64 %56 to i8
-  call fastcc void @dissect_lte_rrc_warningMessageSegment(ptr noundef nonnull %39, ptr noundef %36, ptr noundef %55, i8 noundef zeroext %57)
+  call fastcc void @dissect_lte_rrc_warningMessageSegment(ptr noundef %39, ptr noundef %36, ptr noundef %55, i8 noundef zeroext %57)
   br label %58
 
 58:                                               ; preds = %private_data_get_message_identifier.exit30, %54, %5
@@ -90061,11 +90061,11 @@ declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lte_rrc_warningMessageSegment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #11
+define internal fastcc void @dissect_lte_rrc_warningMessageSegment(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef 0) #11
   %6 = load i32, ptr @hf_lte_rrc_warningMessageSegment_nb_pages, align 4
   %7 = zext i8 %5 to i32
-  %8 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %7) #11
+  %8 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %6, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef %7) #11
   %9 = icmp ugt i8 %5, 15
   br i1 %9, label %.thread, label %11
 
@@ -90087,9 +90087,9 @@ define internal fastcc void @dissect_lte_rrc_warningMessageSegment(ptr noundef %
   %.035 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %28 ]
   %.03034 = phi i32 [ 1, %.lr.ph ], [ %29, %28 ]
   %16 = add nuw nsw i32 %.03034, 82
-  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #11
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %16) #11
   %18 = zext i8 %17 to i32
-  %19 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.03034, i32 noundef %18) #11
+  %19 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %0, i32 noundef %.03034, i32 noundef %18) #11
   %20 = tail call ptr @dissect_cbs_data(i8 noundef zeroext %3, ptr noundef %19, ptr noundef %1, ptr noundef %2, i32 noundef 0) #11
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge37, label %21
@@ -90104,7 +90104,7 @@ define internal fastcc void @dissect_lte_rrc_warningMessageSegment(ptr noundef %
   %24 = tail call ptr @tvb_get_string_enc(ptr noundef %22, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %23, i32 noundef 2) #11
   %25 = load i32, ptr @hf_lte_rrc_warningMessageSegment_decoded_page, align 4
   %26 = add nuw nsw i32 %.035, 1
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %25, ptr noundef %0, i32 noundef %.03034, i32 noundef 83, ptr noundef %24, ptr noundef nonnull @.str.20841, i32 noundef %26, ptr noundef %24) #11
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %25, ptr noundef nonnull %0, i32 noundef %.03034, i32 noundef 83, ptr noundef %24, ptr noundef nonnull @.str.20841, i32 noundef %26, ptr noundef %24) #11
   br label %28
 
 28:                                               ; preds = %._crit_edge37, %21
@@ -90378,7 +90378,7 @@ private_data_get_message_identifier.exit30:       ; preds = %private_data_get_wa
   %55 = load ptr, ptr %10, align 8
   %56 = ptrtoint ptr %51 to i64
   %57 = trunc i64 %56 to i8
-  call fastcc void @dissect_lte_rrc_warningMessageSegment(ptr noundef nonnull %39, ptr noundef %36, ptr noundef %55, i8 noundef zeroext %57)
+  call fastcc void @dissect_lte_rrc_warningMessageSegment(ptr noundef %39, ptr noundef %36, ptr noundef %55, i8 noundef zeroext %57)
   br label %58
 
 58:                                               ; preds = %private_data_get_message_identifier.exit30, %54, %5

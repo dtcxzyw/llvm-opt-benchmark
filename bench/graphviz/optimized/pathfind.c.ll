@@ -31,7 +31,7 @@ define ptr @pathfind(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %.not, label %34, label %10
 
 10:                                               ; preds = %9
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull %2)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull %2)
   %11 = getelementptr inbounds i8, ptr %4, i64 31
   %.val.i = load i8, ptr %11, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -59,7 +59,7 @@ agxbsizeof.exit.i.i:                              ; preds = %10
   br i1 %.not.i7.i, label %.thread.i, label %23
 
 23:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %11, align 1
   %.not.i16.i.i = icmp eq i8 %.val.i15.pre.i.i, -1
   br i1 %.not.i16.i.i, label %..thread_crit_edge.i, label %24
@@ -113,7 +113,7 @@ agxbsizeof.exit.i.i87:                            ; preds = %36
   %.not46 = icmp eq ptr %38, null
   %39 = getelementptr inbounds i8, ptr %38, i64 1
   %spec.select53 = select i1 %.not46, ptr %1, ptr %39
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.select53, ptr noundef nonnull %0)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.select53, ptr noundef nonnull %0)
   %40 = getelementptr inbounds i8, ptr %4, i64 31
   %.val.i.i.i84 = load i8, ptr %40, align 1
   %.not.i.i.i85 = icmp eq i8 %.val.i.i.i84, -1
@@ -128,7 +128,7 @@ agxbsizeof.exit.i.i87:                            ; preds = %36
   br i1 %.not.i.i90, label %47, label %46
 
 46:                                               ; preds = %agxbsizeof.exit.i.i87
-  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
   %.val.i15.pre.i.i91 = load i8, ptr %40, align 1
   br label %47
 
@@ -184,8 +184,8 @@ agxbuse.exit99:                                   ; preds = %agxbclear.exit.thre
   br i1 %.not48, label %70, label %64
 
 64:                                               ; preds = %63
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %spec.select53, ptr noundef nonnull %0, ptr noundef nonnull %spec.select)
-  %65 = call fastcc ptr @agxbuse(ptr noundef nonnull %4)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %spec.select53, ptr noundef nonnull %0, ptr noundef nonnull %spec.select)
+  %65 = call fastcc ptr @agxbuse(ptr noundef %4)
   %66 = call ptr @pathpath(ptr noundef %65) #15
   %.not49 = icmp eq ptr %66, null
   br i1 %.not49, label %70, label %67
@@ -226,7 +226,7 @@ declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_u
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -269,7 +269,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -330,7 +330,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare ptr @pathpath(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @agxbuse(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @agxbuse(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %2, align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -354,7 +354,7 @@ agxbsizeof.exit.i:                                ; preds = %4, %agxblen.exit.i
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %agxbsizeof.exit.i
-  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef 1)
   %.val.i15.pre.i = load i8, ptr %2, align 1
   br label %10
 
@@ -411,7 +411,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -456,7 +456,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #20
   %26 = icmp eq ptr %25, null

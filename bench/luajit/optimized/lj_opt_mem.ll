@@ -292,7 +292,7 @@ return:                                           ; preds = %entry, %fwd_aload_r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fwd_ahload(ptr noundef %J, i32 noundef %xref) unnamed_addr #1 {
+define internal fastcc i32 @fwd_ahload(ptr noundef %J, i32 noundef range(i32 0, 65536) %xref) unnamed_addr #1 {
 entry:
   %keyv = alloca %union.TValue, align 8
   %ir = getelementptr inbounds i8, ptr %J, i64 32

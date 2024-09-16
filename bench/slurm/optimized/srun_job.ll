@@ -2329,7 +2329,7 @@ _copy_job_resp.exit:                              ; preds = %.lr.ph.i, %69
 
 92:                                               ; preds = %86, %91, %.lr.ph371
   %.1183 = phi i32 [ %88, %91 ], [ %88, %86 ], [ %.0182364, %.lr.ph371 ]
-  tail call fastcc void @_print_job_information(ptr noundef nonnull %84)
+  tail call fastcc void @_print_job_information(ptr noundef %84)
   %93 = tail call ptr @get_next_opt(i32 noundef -2) #16
   %94 = tail call ptr @get_next_opt(i32 noundef %.1190362) #16
   %.not247342 = icmp eq ptr %94, null
@@ -2467,7 +2467,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   br label %151
 
 151:                                              ; preds = %147, %145
-  tail call fastcc void @_set_env_vars(ptr noundef nonnull %84, i32 noundef %.2188343)
+  tail call fastcc void @_set_env_vars(ptr noundef %84, i32 noundef %.2188343)
   %152 = load ptr, ptr %98, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 188
   %154 = load i32, ptr %153, align 4
@@ -2710,9 +2710,9 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   br i1 %.not233, label %._crit_edge384.loopexit, label %254
 
 254:                                              ; preds = %252
-  call fastcc void @_print_job_information(ptr noundef nonnull %247)
+  call fastcc void @_print_job_information(ptr noundef %247)
   %255 = add nsw i32 %.2191380, 1
-  call fastcc void @_set_env_vars(ptr noundef nonnull %247, i32 noundef %255)
+  call fastcc void @_set_env_vars(ptr noundef %247, i32 noundef %255)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %256 = load ptr, ptr %247, align 8
   %.not.i264 = icmp eq ptr %256, null
@@ -3074,8 +3074,8 @@ _set_step_opts.exit:                              ; preds = %396, %400
   store i8 1, ptr %1, align 1
   %414 = getelementptr inbounds i8, ptr %410, i64 8
   %415 = load i32, ptr %414, align 8
-  tail call fastcc void @_print_job_information(ptr noundef nonnull %410)
-  tail call fastcc void @_set_env_vars(ptr noundef nonnull %410, i32 noundef -1)
+  tail call fastcc void @_print_job_information(ptr noundef %410)
+  tail call fastcc void @_set_env_vars(ptr noundef %410, i32 noundef -1)
   %416 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 24), align 8
   %417 = getelementptr inbounds i8, ptr %416, i64 188
   %418 = load i32, ptr %417, align 4
@@ -3397,7 +3397,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @slurm_setup_remote_working_cluster(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_job_information(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_print_job_information(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 364), align 4
@@ -3470,7 +3470,7 @@ declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @bit_fmt_hexmask(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_env_vars(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_set_env_vars(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

@@ -1912,7 +1912,7 @@ do.body:                                          ; preds = %if.end
   br i1 %or.cond, label %if.then24, label %if.end35
 
 if.then24:                                        ; preds = %do.body
-  call void (ptr, i32, ...) @_ZL4ncatPcjz(ptr noundef nonnull %buffer, i32 poison, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.11, ptr noundef nonnull %script.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %country.i, ptr noundef null)
+  call void (ptr, i32, ...) @_ZL4ncatPcjz(ptr noundef %buffer, i32 poison, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.11, ptr noundef nonnull %script.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %country.i, ptr noundef null)
   %call29 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522LocaleDisplayNamesImpl12localeIdNameEPKcRNS_13UnicodeStringEb(ptr noundef nonnull align 8 dereferenceable(1206) %this, ptr noundef nonnull %buffer, ptr noundef nonnull align 8 dereferenceable(64) %resultName, i1 noundef zeroext false)
           to label %invoke.cont28 unwind label %lpad
 
@@ -1926,7 +1926,7 @@ if.end35:                                         ; preds = %do.body
   br i1 %cmp13, label %if.then37, label %if.end49
 
 if.then37:                                        ; preds = %invoke.cont28, %if.end35
-  call void (ptr, i32, ...) @_ZL4ncatPcjz(ptr noundef nonnull %buffer, i32 poison, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.11, ptr noundef nonnull %script.i, ptr noundef null)
+  call void (ptr, i32, ...) @_ZL4ncatPcjz(ptr noundef %buffer, i32 poison, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.11, ptr noundef nonnull %script.i, ptr noundef null)
   %call43 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522LocaleDisplayNamesImpl12localeIdNameEPKcRNS_13UnicodeStringEb(ptr noundef nonnull align 8 dereferenceable(1206) %this, ptr noundef nonnull %buffer, ptr noundef nonnull align 8 dereferenceable(64) %resultName, i1 noundef zeroext false)
           to label %invoke.cont42 unwind label %lpad
 
@@ -1941,7 +1941,7 @@ if.end49:                                         ; preds = %if.end35
   br i1 %cmp15, label %if.then51, label %if.then71
 
 if.then51:                                        ; preds = %invoke.cont42, %if.end49
-  call void (ptr, i32, ...) @_ZL4ncatPcjz(ptr noundef nonnull %buffer, i32 poison, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.11, ptr noundef nonnull %country.i, ptr noundef null)
+  call void (ptr, i32, ...) @_ZL4ncatPcjz(ptr noundef %buffer, i32 poison, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.11, ptr noundef nonnull %country.i, ptr noundef null)
   %call57 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522LocaleDisplayNamesImpl12localeIdNameEPKcRNS_13UnicodeStringEb(ptr noundef nonnull align 8 dereferenceable(1206) %this, ptr noundef nonnull %buffer, ptr noundef nonnull align 8 dereferenceable(64) %resultName, i1 noundef zeroext false)
           to label %invoke.cont56 unwind label %lpad
 
@@ -2642,7 +2642,7 @@ return:                                           ; preds = %cleanup245, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define internal void @_ZL4ncatPcjz(ptr nocapture noundef writeonly %buffer, i32 %buflen, ...) unnamed_addr #15 {
+define internal void @_ZL4ncatPcjz(ptr nocapture noundef nonnull writeonly %buffer, i32 %buflen, ...) unnamed_addr #15 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)

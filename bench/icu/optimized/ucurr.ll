@@ -1972,14 +1972,14 @@ invoke.cont:                                      ; preds = %if.end5
   store i32 0, ptr %partialMatchLen, align 4
   store i32 0, ptr %max, align 4
   store i32 -1, ptr %matchIndex, align 4
-  call fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsiPiS4_S4_(ptr noundef %3, i32 noundef %2, ptr noundef nonnull %upperText, i32 noundef %call14, ptr noundef nonnull %partialMatchLen, ptr noundef nonnull %max, ptr noundef nonnull %matchIndex)
+  call fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsiPiS4_S4_(ptr noundef %3, i32 noundef %2, ptr noundef %upperText, i32 noundef %call14, ptr noundef nonnull %partialMatchLen, ptr noundef %max, ptr noundef %matchIndex)
   store i32 0, ptr %maxInSymbol, align 4
   store i32 -1, ptr %matchIndexInSymbol, align 4
   %cmp16.not = icmp eq i8 %type, 1
   br i1 %cmp16.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %invoke.cont
-  call fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsiPiS4_S4_(ptr noundef %5, i32 noundef %4, ptr noundef nonnull %inputText, i32 noundef %call14, ptr noundef nonnull %partialMatchLen, ptr noundef nonnull %maxInSymbol, ptr noundef nonnull %matchIndexInSymbol)
+  call fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsiPiS4_S4_(ptr noundef %5, i32 noundef %4, ptr noundef %inputText, i32 noundef %call14, ptr noundef nonnull %partialMatchLen, ptr noundef %maxInSymbol, ptr noundef %matchIndexInSymbol)
   %.pre = load i32, ptr %maxInSymbol, align 4
   br label %if.end19
 
@@ -3109,7 +3109,7 @@ return:                                           ; preds = %if.end12, %if.end67
 declare i32 @u_strToUpper_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsiPiS4_S4_(ptr nocapture noundef readonly %currencyNames, i32 noundef %total_currency_count, ptr nocapture noundef readonly %text, i32 noundef %textLen, ptr nocapture noundef %partialMatchLen, ptr nocapture noundef %maxMatchLen, ptr nocapture noundef writeonly %maxMatchIndex) unnamed_addr #9 {
+define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsiPiS4_S4_(ptr nocapture noundef readonly %currencyNames, i32 noundef %total_currency_count, ptr nocapture noundef nonnull readonly %text, i32 noundef %textLen, ptr nocapture noundef %partialMatchLen, ptr nocapture noundef nonnull %maxMatchLen, ptr nocapture noundef nonnull writeonly %maxMatchIndex) unnamed_addr #9 {
 entry:
   store i32 -1, ptr %maxMatchIndex, align 4
   store i32 0, ptr %maxMatchLen, align 4
@@ -3317,7 +3317,7 @@ land.lhs.true3.i:                                 ; preds = %for.body.i
   %25 = load ptr, ptr %currencyName.i20, align 8
   %conv.i = sext i32 %23 to i64
   %mul.i = shl nsw i64 %conv.i, 1
-  %bcmp.i = tail call i32 @bcmp(ptr %25, ptr readonly %text, i64 %mul.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %25, ptr nonnull readonly %text, i64 %mul.i)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %if.then.i22, label %if.else.i21
 

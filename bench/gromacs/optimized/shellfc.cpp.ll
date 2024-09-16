@@ -863,7 +863,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit235:       ; preds = %208, %212
   %231 = ptrtoint ptr %214 to i64
   %232 = sub i64 %230, %231
   %233 = getelementptr inbounds i8, ptr %214, i64 %232
-  call fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(ptr noundef nonnull %0, ptr nonnull %214, ptr %233)
+  call fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(ptr noundef %0, ptr nonnull %214, ptr %233)
   br label %234
 
 234:                                              ; preds = %228, %227
@@ -1167,7 +1167,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit235:       ; preds = %208, %212
   %384 = ptrtoint ptr %369 to i64
   %385 = sub i64 %383, %384
   %386 = getelementptr inbounds i8, ptr %369, i64 %385
-  call fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(ptr noundef nonnull %380, ptr %369, ptr %386)
+  call fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(ptr noundef %380, ptr %369, ptr %386)
   br label %387
 
 387:                                              ; preds = %381, %._crit_edge390
@@ -1555,9 +1555,9 @@ declare noundef i32 @_ZNK9AtomProxy16globalAtomNumberEv(ptr noundef nonnull alig
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN12AtomIteratorppEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(ptr nocapture noundef %0, ptr readonly %1, ptr readnone %2) unnamed_addr #13 {
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 11, i64 1, ptr %0)
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #25
+define internal fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(ptr nocapture noundef nonnull %0, ptr readonly %1, ptr readnone %2) unnamed_addr #13 {
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 11, i64 1, ptr nonnull %0)
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #25
   %.not21 = icmp eq ptr %1, %2
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -1571,7 +1571,7 @@ define internal fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(pt
   %11 = fdiv double 1.000000e+00, %10
   %12 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %7, double noundef %11, i32 noundef %13) #25
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i32 noundef %7, double noundef %11, i32 noundef %13) #25
   %15 = load i32, ptr %.sroa.0.022, align 4
   switch i32 %15, label %26 [
     i32 2, label %16
@@ -1581,7 +1581,7 @@ define internal fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(pt
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %18) #25
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, i32 noundef %18) #25
   br label %27
 
 20:                                               ; preds = %.lr.ph
@@ -1589,11 +1589,11 @@ define internal fastcc void @_ZL8pr_shellP8_IO_FILEN3gmx8ArrayRefIK7t_shellEE(pt
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 16
   %24 = load i32, ptr %23, align 4
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %22, i32 noundef %24) #25
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, i32 noundef %22, i32 noundef %24) #25
   br label %27
 
 26:                                               ; preds = %.lr.ph
-  %fputc = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
   br label %27
 
 27:                                               ; preds = %16, %26, %20
@@ -3291,7 +3291,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.body, %309
   %375 = getelementptr inbounds i8, ptr %368, i64 %374
   store ptr %375, ptr %369, align 8
   %.val363 = load ptr, ptr %95, align 8
-  invoke fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK10t_inputrecPK9t_commrecilRK9t_mdatomsiNS1_19ArrayRefWithPaddingINS1_11BasicVectorIfEEEENS1_8ArrayRefISF_EESG_SI_SI_PA3_KfNSH_ISJ_EEPf(ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %6, ptr %.val363, i32 noundef %343, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(648) %22, i32 noundef %68, ptr noundef nonnull %53, i64 %359, ptr noundef nonnull %54, i64 %366, ptr noundef nonnull byval(%"class.gmx::ArrayRef.282") align 8 %55, ptr noundef %17, i64 %338, ptr noundef nonnull %40)
+  invoke fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK10t_inputrecPK9t_commrecilRK9t_mdatomsiNS1_19ArrayRefWithPaddingINS1_11BasicVectorIfEEEENS1_8ArrayRefISF_EESG_SI_SI_PA3_KfNSH_ISJ_EEPf(ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %6, ptr %.val363, i32 noundef %343, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(648) %22, i32 noundef %68, ptr noundef %53, i64 %359, ptr noundef %54, i64 %366, ptr noundef nonnull byval(%"class.gmx::ArrayRef.282") align 8 %55, ptr noundef %17, i64 %338, ptr noundef %40)
           to label %.preheader646 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .preheader646:                                    ; preds = %342
@@ -3683,7 +3683,7 @@ _ZL10print_epotP8_IO_FILEliffif.exit:             ; preds = %487, %493
   store ptr %597, ptr %534, align 8
   %598 = ptrtoint ptr %558 to i64
   %.val367 = load ptr, ptr %95, align 8
-  invoke fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK10t_inputrecPK9t_commrecilRK9t_mdatomsiNS1_19ArrayRefWithPaddingINS1_11BasicVectorIfEEEENS1_8ArrayRefISF_EESG_SI_SI_PA3_KfNSH_ISJ_EEPf(ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %6, ptr %.val367, i32 noundef %571, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(648) %22, i32 noundef %68, ptr noundef nonnull %57, i64 %530, ptr noundef nonnull %58, i64 %591, ptr noundef nonnull byval(%"class.gmx::ArrayRef.282") align 8 %59, ptr noundef %17, i64 %598, ptr noundef nonnull %40)
+  invoke fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK10t_inputrecPK9t_commrecilRK9t_mdatomsiNS1_19ArrayRefWithPaddingINS1_11BasicVectorIfEEEENS1_8ArrayRefISF_EESG_SI_SI_PA3_KfNSH_ISJ_EEPf(ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %6, ptr %.val367, i32 noundef %571, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(648) %22, i32 noundef %68, ptr noundef %57, i64 %530, ptr noundef %58, i64 %591, ptr noundef nonnull byval(%"class.gmx::ArrayRef.282") align 8 %59, ptr noundef %17, i64 %598, ptr noundef %40)
           to label %599 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 599:                                              ; preds = %570
@@ -4017,7 +4017,7 @@ _ZL12shell_pos_sdN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EES4_NS0_I7t_shel
   %787 = getelementptr inbounds i8, ptr %782, i64 %786
   store ptr %787, ptr %548, align 8
   %.val371 = load ptr, ptr %95, align 8
-  invoke fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK10t_inputrecPK9t_commrecilRK9t_mdatomsiNS1_19ArrayRefWithPaddingINS1_11BasicVectorIfEEEENS1_8ArrayRefISF_EESG_SI_SI_PA3_KfNSH_ISJ_EEPf(ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %6, ptr %.val371, i32 noundef %768, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(648) %22, i32 noundef %68, ptr noundef nonnull %64, i64 %530, ptr noundef nonnull %65, i64 %781, ptr noundef nonnull byval(%"class.gmx::ArrayRef.282") align 8 %66, ptr noundef %17, i64 %751, ptr noundef nonnull %40)
+  invoke fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK10t_inputrecPK9t_commrecilRK9t_mdatomsiNS1_19ArrayRefWithPaddingINS1_11BasicVectorIfEEEENS1_8ArrayRefISF_EESG_SI_SI_PA3_KfNSH_ISJ_EEPf(ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %6, ptr %.val371, i32 noundef %768, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(648) %22, i32 noundef %68, ptr noundef %64, i64 %530, ptr noundef %65, i64 %781, ptr noundef nonnull byval(%"class.gmx::ArrayRef.282") align 8 %66, ptr noundef %17, i64 %751, ptr noundef %40)
           to label %788 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 788:                                              ; preds = %767
@@ -4624,7 +4624,7 @@ declare void @_Z8pr_rvecsP8_IO_FILEiPKcPA3_Kfi(ptr noundef, i32 noundef, ptr nou
 declare void @_Z8do_forceP8_IO_FILEPK9t_commrecPK14gmx_multisim_tRK10t_inputrecRKN3gmx18MDModulesNotifiersEPNSA_3AwhEP10gmx_enfrotPNSA_10ImdSessionEP6pull_tlP6t_nrnbP13gmx_wallcyclePK14gmx_localtop_tPA3_KfNSA_19ArrayRefWithPaddingINSA_11BasicVectorIfEEEENSA_8ArrayRefISY_EEPK9history_tPNSA_16ForceBuffersViewEPA3_fPK9t_mdatomsP14gmx_enerdata_tNS10_IST_EEP10t_forcerecRKNSA_21MdrunScheduleWorkloadEPNSA_19VirtualSitesHandlerEPfdP9gmx_edsamP24CpuPpLongRangeNonbondedsRK22DDBalanceRegionHandler(ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(856), ptr noundef nonnull align 1, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef byval(%"class.gmx::ArrayRef.282") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef byval(%"class.gmx::ArrayRef.401") align 8, ptr noundef, ptr noundef nonnull align 1 dereferenceable(52), ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK10t_inputrecPK9t_commrecilRK9t_mdatomsiNS1_19ArrayRefWithPaddingINS1_11BasicVectorIfEEEENS1_8ArrayRefISF_EESG_SI_SI_PA3_KfNSH_ISJ_EEPf(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr readnone %.96.val, i32 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(648) %5, i32 noundef %6, ptr nocapture noundef readonly %7, i64 %.0.val, ptr nocapture noundef readonly %8, i64 %.0.val1, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.282") align 8 %9, ptr noundef %10, i64 %.0.val3, ptr noundef %11) unnamed_addr #4 {
+define internal fastcc void @_ZL9init_adirP13gmx_shellfc_tPN3gmx11ConstraintsEPK10t_inputrecPK9t_commrecilRK9t_mdatomsiNS1_19ArrayRefWithPaddingINS1_11BasicVectorIfEEEENS1_8ArrayRefISF_EESG_SI_SI_PA3_KfNSH_ISJ_EEPf(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr readnone %.96.val, i32 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(648) %5, i32 noundef %6, ptr nocapture noundef nonnull readonly %7, i64 %.0.val, ptr nocapture noundef nonnull readonly %8, i64 %.0.val1, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.282") align 8 %9, ptr noundef %10, i64 %.0.val3, ptr noundef nonnull %11) unnamed_addr #4 {
   %13 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %14 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %15 = alloca %"class.gmx::ArrayRef.282", align 8

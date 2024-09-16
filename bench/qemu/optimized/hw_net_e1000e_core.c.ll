@@ -2027,7 +2027,7 @@ e1000e_write_lgcy_rx_descr.exit.i.i:              ; preds = %if.end.i231.i
   store i16 %214, ptr %middle.i.i.i, align 8
   store i16 0, ptr %csum.i.i.i, align 2
   %cmp.i.i.i126 = icmp ne ptr %cond95.i, null
-  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp.i.i.i126, ptr noundef nonnull readonly %rss_info, ptr noundef nonnull %rss.i.i.i, ptr noundef nonnull %mrq.i.i.i, ptr noundef nonnull %status_flags.i.i.i, ptr noundef nonnull %ip_id.i.i.i, ptr noundef nonnull %vlan.i.i.i)
+  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp.i.i.i126, ptr noundef readonly %rss_info, ptr noundef %rss.i.i.i, ptr noundef %mrq.i.i.i, ptr noundef %status_flags.i.i.i, ptr noundef %ip_id.i.i.i, ptr noundef %vlan.i.i.i)
   %216 = load i32, ptr %status_flags.i.i.i, align 4
   %shr.i.i.i = lshr i32 %216, 24
   %conv.i.i233.i = trunc nuw i32 %shr.i.i.i to i8
@@ -2052,7 +2052,7 @@ if.then4.i.i:                                     ; preds = %if.else2.i.i
   store i16 %218, ptr %length0.i.i.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %length.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx15.i.i.i, i64 6, i1 false)
   %cmp5.i.i.i = icmp ne ptr %cond95.i, null
-  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp5.i.i.i, ptr noundef nonnull readonly %rss_info, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %desc.i, ptr noundef nonnull %middle.i.i.i, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %vlan.i.i.i)
+  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp5.i.i.i, ptr noundef readonly %rss_info, ptr noundef %hi_dword.i.i.i, ptr noundef %desc.i, ptr noundef %middle.i.i.i, ptr noundef %hi_dword.i.i.i, ptr noundef %vlan.i.i.i)
   store i16 %conv11.i.i214.i, ptr %upper13.i.i.i, align 8
   %219 = load i16, ptr %arrayidx15.i.i.i, align 2
   %220 = load i16, ptr %arrayidx16.i.i.i, align 2
@@ -2112,7 +2112,7 @@ if.end9.i.i:                                      ; preds = %if.else5.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc.i, i8 0, i64 16, i1 false)
   store i16 %228, ptr %length0.i.i.i, align 4
   %cmp.i17.i.i = icmp ne ptr %cond95.i, null
-  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp.i17.i.i, ptr noundef nonnull readonly %rss_info, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %desc.i, ptr noundef nonnull %middle.i.i.i, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %vlan.i.i.i)
+  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp.i17.i.i, ptr noundef readonly %rss_info, ptr noundef %hi_dword.i.i.i, ptr noundef %desc.i, ptr noundef %middle.i.i.i, ptr noundef %hi_dword.i.i.i, ptr noundef %vlan.i.i.i)
   br label %e1000e_write_rx_descr.exit.i
 
 e1000e_write_rx_descr.exit.i:                     ; preds = %if.end9.i.i, %e1000e_write_ps_rx_descr.exit.i.i, %e1000e_write_lgcy_rx_descr.exit.i.i
@@ -4198,7 +4198,7 @@ declare i64 @net_rx_pkt_get_l4_hdr_offset(ptr noundef) local_unnamed_addr #1
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_build_rx_metadata(ptr nocapture noundef readonly %core, ptr noundef %pkt, i1 noundef zeroext %is_eop, ptr nocapture noundef readonly %rss_info, ptr nocapture noundef %rss, ptr nocapture noundef writeonly %mrq, ptr nocapture noundef %status_flags, ptr nocapture noundef writeonly %ip_id, ptr nocapture noundef writeonly %vlan_tag) unnamed_addr #0 {
+define internal fastcc void @e1000e_build_rx_metadata(ptr nocapture noundef readonly %core, ptr noundef %pkt, i1 noundef zeroext %is_eop, ptr nocapture noundef nonnull readonly %rss_info, ptr nocapture noundef nonnull %rss, ptr nocapture noundef nonnull writeonly %mrq, ptr nocapture noundef nonnull %status_flags, ptr nocapture noundef nonnull writeonly %ip_id, ptr nocapture noundef nonnull writeonly %vlan_tag) unnamed_addr #0 {
 entry:
   %_now.i.i177 = alloca %struct.timeval, align 8
   %_now.i.i163 = alloca %struct.timeval, align 8
@@ -5123,7 +5123,7 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_raise_interrupts(ptr nocapture noundef %core, i64 noundef %index, i32 noundef %causes) unnamed_addr #0 {
+define internal fastcc void @e1000e_raise_interrupts(ptr nocapture noundef %core, i64 noundef range(i64 48, 53) %index, i32 noundef %causes) unnamed_addr #0 {
 entry:
   %_now.i.i60 = alloca %struct.timeval, align 8
   %_now.i.i44 = alloca %struct.timeval, align 8
@@ -5139,8 +5139,8 @@ entry:
   %arrayidx2 = getelementptr i8, ptr %core, i64 192
   %2 = load i32, ptr %arrayidx2, align 8
   %and = and i32 %2, %1
-  %index.tr = trunc i64 %index to i32
-  %conv = shl i32 %index.tr, 2
+  %index.tr = trunc nuw nsw i64 %index to i32
+  %conv = shl nuw nsw i32 %index.tr, 2
   %arrayidx4 = getelementptr [32768 x i32], ptr %core, i64 0, i64 %index
   %3 = load i32, ptr %arrayidx4, align 4
   %or = or i32 %3, %causes
@@ -5496,7 +5496,7 @@ e1000x_inc_reg_if_not_full.exit:                  ; preds = %trace_e1000e_irq_le
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_msix_notify_one(ptr nocapture noundef %core, i32 noundef %cause, i32 noundef %int_cfg) unnamed_addr #0 {
+define internal fastcc void @e1000e_msix_notify_one(ptr nocapture noundef %core, i32 noundef range(i32 1048576, 16777217) %cause, i32 noundef %int_cfg) unnamed_addr #0 {
 entry:
   %_now.i.i64 = alloca %struct.timeval, align 8
   %_now.i.i50 = alloca %struct.timeval, align 8
@@ -6680,9 +6680,8 @@ if.then17.i:                                      ; preds = %if.end14.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %and22.i = and i32 %val, 16777216
-  %tobool23.not.i = icmp eq i32 %and22.i, 0
-  br i1 %tobool23.not.i, label %if.end, label %if.then24.i
+  %tobool23.not.i = icmp ult i32 %and, 16777216
+  br i1 %tobool23.not.i, label %if.end12, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.end21.i
   %arrayidx26.i = getelementptr i8, ptr %core, i64 228
@@ -6691,7 +6690,7 @@ if.then24.i:                                      ; preds = %if.end21.i
   tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull readonly %core, i32 noundef 16777216, i32 noundef %shr27.i)
   br label %if.end
 
-if.end:                                           ; preds = %if.then24.i, %if.end21.i, %land.lhs.true4, %land.lhs.true, %entry
+if.end:                                           ; preds = %if.then24.i, %land.lhs.true4, %land.lhs.true, %entry
   %cmp = icmp eq i32 %and, 32998103
   br i1 %cmp, label %land.lhs.true6, label %if.end12
 
@@ -6772,7 +6771,7 @@ for.inc.i:                                        ; preds = %if.then5.i, %for.bo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %if.end12, label %for.body.i, !llvm.loop !21
 
-if.end12:                                         ; preds = %for.inc.i, %land.lhs.true6, %if.end
+if.end12:                                         ; preds = %for.inc.i, %if.end21.i, %land.lhs.true6, %if.end
   tail call fastcc void @e1000e_raise_interrupts(ptr noundef %core, i64 noundef 52, i32 noundef %and)
   ret void
 }
@@ -7112,7 +7111,7 @@ if.then:                                          ; preds = %entry
   %tx.i = getelementptr inbounds i8, ptr %core, i64 131688
   %tx4.i = getelementptr inbounds i8, ptr %txr, i64 8
   store ptr %tx.i, ptr %tx4.i, align 8
-  call fastcc void @e1000e_start_xmit(ptr noundef nonnull %core, ptr noundef nonnull %txr)
+  call fastcc void @e1000e_start_xmit(ptr noundef nonnull %core, ptr noundef %txr)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -7127,7 +7126,7 @@ if.then8:                                         ; preds = %if.end
   %arrayidx3.i = getelementptr i8, ptr %core, i64 131720
   %tx4.i8 = getelementptr inbounds i8, ptr %txr, i64 8
   store ptr %arrayidx3.i, ptr %tx4.i8, align 8
-  call fastcc void @e1000e_start_xmit(ptr noundef nonnull %core, ptr noundef nonnull %txr)
+  call fastcc void @e1000e_start_xmit(ptr noundef nonnull %core, ptr noundef %txr)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end
@@ -7506,7 +7505,7 @@ e1000e_tx_ring_init.exit:                         ; preds = %if.then
   %arrayidx3.i = getelementptr [2 x %struct.e1000e_tx], ptr %tx.i, i64 0, i64 %conv.i
   %tx4.i = getelementptr inbounds i8, ptr %txr, i64 8
   store ptr %arrayidx3.i, ptr %tx4.i, align 8
-  call fastcc void @e1000e_start_xmit(ptr noundef nonnull %core, ptr noundef nonnull %txr)
+  call fastcc void @e1000e_start_xmit(ptr noundef nonnull %core, ptr noundef %txr)
   br label %if.end
 
 if.end:                                           ; preds = %e1000e_tx_ring_init.exit, %entry
@@ -8049,13 +8048,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_lower_interrupts(ptr nocapture noundef %core, i64 noundef %index, i32 noundef %causes) unnamed_addr #0 {
+define internal fastcc void @e1000e_lower_interrupts(ptr nocapture noundef %core, i64 noundef range(i64 48, 53) %index, i32 noundef %causes) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %index.tr = trunc i64 %index to i32
-  %conv = shl i32 %index.tr, 2
+  %index.tr = trunc nuw nsw i64 %index to i32
+  %conv = shl nuw nsw i32 %index.tr, 2
   %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 %index
   %0 = load i32, ptr %arrayidx, align 4
   %not = xor i32 %causes, -1
@@ -8200,7 +8199,7 @@ if.end:                                           ; preds = %e1000e_lower_legacy
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_msix_clear_one(ptr nocapture noundef readonly %core, i32 noundef %cause, i32 noundef %int_cfg) unnamed_addr #0 {
+define internal fastcc void @e1000e_msix_clear_one(ptr nocapture noundef readonly %core, i32 noundef range(i32 1048576, 16777217) %cause, i32 noundef %int_cfg) unnamed_addr #0 {
 entry:
   %_now.i.i23 = alloca %struct.timeval, align 8
   %_now.i.i9 = alloca %struct.timeval, align 8
@@ -8499,7 +8498,7 @@ trace_e1000e_irq_msix_notify_postponed_vec.exit:  ; preds = %entry, %land.lhs.tr
 declare i32 @e1000x_rxbufsize(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_start_xmit(ptr noundef %core, ptr nocapture noundef readonly %txr) unnamed_addr #0 {
+define internal fastcc void @e1000e_start_xmit(ptr noundef %core, ptr nocapture noundef nonnull readonly %txr) unnamed_addr #0 {
 entry:
   %_now.i.i.i54.i = alloca %struct.timeval, align 8
   %_now.i.i.i37.i = alloca %struct.timeval, align 8
@@ -8554,7 +8553,7 @@ e1000e_ring_empty.exit.lr.ph:                     ; preds = %while.cond.preheade
   %arrayidx.i11.i.i = getelementptr i8, ptr %core, i64 16628
   %arrayidx.i21.i.i = getelementptr i8, ptr %core, i64 16512
   %arrayidx.i26.i.i = getelementptr i8, ptr %core, i64 16528
-  %arrayidx2.i28.i.i = getelementptr i8, ptr %core, i64 16532
+  %arrayidx2.i27.i.i = getelementptr i8, ptr %core, i64 16532
   %arrayidx.i51 = getelementptr i8, ptr %core, i64 228
   br label %e1000e_ring_empty.exit
 
@@ -9018,12 +9017,12 @@ if.then.i23.i.i:                                  ; preds = %sw.epilog.i.i
 
 e1000e_on_tx_done_update_stats.exit.i:            ; preds = %if.then.i23.i.i, %sw.epilog.i.i
   %92 = load i64, ptr %arrayidx.i26.i.i, align 4
-  %.add5.i33.i.i = call i64 @llvm.uadd.sat.i64(i64 %92, i64 %conv4.i.i.i)
-  %conv9.i34.i.i = trunc i64 %.add5.i33.i.i to i32
-  store i32 %conv9.i34.i.i, ptr %arrayidx.i26.i.i, align 4
-  %shr.i35.i.i = lshr i64 %.add5.i33.i.i, 32
-  %conv12.i36.i.i = trunc nuw i64 %shr.i35.i.i to i32
-  store i32 %conv12.i36.i.i, ptr %arrayidx2.i28.i.i, align 4
+  %.add5.i29.i.i = call i64 @llvm.uadd.sat.i64(i64 %92, i64 %conv4.i.i.i)
+  %conv9.i30.i.i = trunc i64 %.add5.i29.i.i to i32
+  store i32 %conv9.i30.i.i, ptr %arrayidx.i26.i.i, align 4
+  %shr.i31.i.i = lshr i64 %.add5.i29.i.i, 32
+  %conv12.i32.i.i = trunc nuw i64 %shr.i31.i.i to i32
+  store i32 %conv12.i32.i.i, ptr %arrayidx2.i27.i.i, align 4
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %e1000e_on_tx_done_update_stats.exit.i, %e1000e_tx_pkt_send.exit.i, %if.then7.i.i, %if.then8.i.i.i, %if.then.i.i.i, %land.lhs.true.i, %if.then24.i

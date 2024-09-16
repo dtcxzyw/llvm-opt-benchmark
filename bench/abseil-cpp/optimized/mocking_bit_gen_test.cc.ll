@@ -82377,7 +82377,7 @@ invoke.cont:                                      ; preds = %.noexc.i
   store ptr @_ZN4absl9BitGenRef8MockCallINS_13MockingBitGenEEEbmPKvPvS5_, ptr %mock_call_.i, align 8
   %generate_impl_fn_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @_ZN4absl9BitGenRef6ImplFnINS_13MockingBitGenEEEmm, ptr %generate_impl_fn_.i, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull byval(%"class.absl::BitGenRef") align 8 %agg.tmp)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias align 8 %ref.tmp, ptr noundef nonnull byval(%"class.absl::BitGenRef") align 8 %agg.tmp)
           to label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit unwind label %lpad2
 
 _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %invoke.cont
@@ -82674,7 +82674,7 @@ _ZN7testing7MatcherIN4absl23IntervalClosedClosedTagEED2Ev.exit: ; preds = %_ZN7t
   store ptr @_ZN4absl9BitGenRef8MockCallINS_13MockingBitGenEEEbmPKvPvS5_, ptr %mock_call_.i52, align 8
   %generate_impl_fn_.i53 = getelementptr inbounds i8, ptr %agg.tmp66, i64 16
   store ptr @_ZN4absl9BitGenRef6ImplFnINS_13MockingBitGenEEEmm, ptr %generate_impl_fn_.i53, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias nonnull align 8 %ref.tmp65, ptr noundef nonnull byval(%"class.absl::BitGenRef") align 8 %agg.tmp66)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias align 8 %ref.tmp65, ptr noundef nonnull byval(%"class.absl::BitGenRef") align 8 %agg.tmp66)
           to label %invoke.cont68 unwind label %lpad2
 
 invoke.cont68:                                    ; preds = %_ZN7testing7MatcherIN4absl23IntervalClosedClosedTagEED2Ev.exit
@@ -82943,7 +82943,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit114:                 ; preds = %lpad.i, %ehcleanup1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.absl::BitGenRef") align 8 %gen_ref) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.absl::BitGenRef") align 8 %gen_ref) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arg_tuple.i.i.i = alloca %"class.std::tuple.682", align 4
   %result.i.i.i = alloca i32, align 4

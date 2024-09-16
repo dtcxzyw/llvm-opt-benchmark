@@ -167,7 +167,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef range(i64 -1, -9223372036854775808) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %3) #2
   %.not47 = icmp eq i32 %7, 0
   br i1 %.not47, label %.loopexit, label %.lr.ph

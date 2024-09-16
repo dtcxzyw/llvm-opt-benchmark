@@ -129,12 +129,12 @@ if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i
   %shl.i37.i.i.i = shl nuw nsw i32 %conv.i.i.i.i, 16
   %conv3.i.i.i.i = zext i8 %2 to i32
   %shl4.i.i.i.i = shl nuw i32 %conv3.i.i.i.i, 24
+  %or.i.i.i.i = or disjoint i32 %shl4.i.i.i.i, %shl.i37.i.i.i
   %conv5.i38.i.i.i = zext i8 %4 to i32
+  %or7.i.i.i.i = or disjoint i32 %or.i.i.i.i, %conv5.i38.i.i.i
   %conv8.i.i.i.i = trunc nuw nsw i64 %size to i32
   %shl9.i.i.i.i = shl nuw nsw i32 %conv8.i.i.i.i, 8
-  %or.i.i.i.i = or disjoint i32 %shl.i37.i.i.i, %shl9.i.i.i.i
-  %or7.i.i.i.i = or disjoint i32 %or.i.i.i.i, %shl4.i.i.i.i
-  %or10.i.i.i.i = or disjoint i32 %or7.i.i.i.i, %conv5.i38.i.i.i
+  %or10.i.i.i.i = or disjoint i32 %or7.i.i.i.i, %shl9.i.i.i.i
   %or7.i.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %or10.i.i.i.i)
   %5 = tail call i32 @llvm.fshl.i32(i32 %or7.i.i.i.i.i, i32 %or7.i.i.i.i.i, i32 13)
   %xor2210.i.i.i.i = xor i32 %or10.i.i.i.i, -2027464037
@@ -385,6 +385,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !4
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
+  %conv.i.i.i = trunc nuw nsw i64 %size to i32
+  %div36.i.i.i = lshr i32 %conv.i.i.i, 5
   %shr.i.i.i59.i.i = lshr i64 %xor.i.i47.i.i, 37
   %xor.i.i43.i60.i.i = xor i64 %shr.i.i.i59.i.i, %xor.i.i47.i.i
   %mul.i.i61.i.i = mul i64 %xor.i.i43.i60.i.i, 1609587791953885689
@@ -395,14 +397,11 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %mul.i46.i.i.i = mul i64 %xor.i.i45.i.i.i, 1609587791953885689
   %shr.i4.i47.i.i.i = lshr i64 %mul.i46.i.i.i, 32
   %xor.i5.i48.i.i.i = xor i64 %shr.i4.i47.i.i.i, %mul.i46.i.i.i
-  %cmp164.i.i.i = icmp ugt i64 %size, 159
-  br i1 %cmp164.i.i.i, label %for.body17.preheader.i.i.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i
+  %cmp164.not.i.i.i = icmp eq i32 %div36.i.i.i, 4
+  br i1 %cmp164.not.i.i.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i, label %for.body17.preheader.i.i.i
 
 for.body17.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %conv.i.i.i = trunc nuw i64 %size to i32
-  %div36.i.i.i = lshr i32 %conv.i.i.i, 5
-  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div36.i.i.i, i32 5)
-  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %div36.i.i.i to i64
   br label %for.body17.i.i.i
 
 for.body17.i.i.i:                                 ; preds = %for.body17.i.i.i, %for.body17.preheader.i.i.i
@@ -411,13 +410,13 @@ for.body17.i.i.i:                                 ; preds = %for.body17.i.i.i, %
   %acc.sroa.0.16.i.i.i = phi i64 [ %xor.i5.i.i63.i.i, %for.body17.preheader.i.i.i ], [ %xor.i61.i.i.i, %for.body17.i.i.i ]
   %19 = shl nsw i64 %indvars.iv11.i.i.i, 5
   %add.ptr22.i.i.i = getelementptr inbounds i8, ptr %array, i64 %19
-  %add.ptr26.i67.i.i = getelementptr inbounds i8, ptr %add.ptr22.i.i.i, i64 16
+  %add.ptr26.i64.i.i = getelementptr inbounds i8, ptr %add.ptr22.i.i.i, i64 16
   %20 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 3), i64 %19
   %add.ptr30.i.i.i = getelementptr i8, ptr %20, i64 -128
   %add.ptr22.val.i.i.i = load i64, ptr %add.ptr22.i.i.i, align 1
   %21 = getelementptr i8, ptr %add.ptr22.i.i.i, i64 8
   %add.ptr22.val39.i.i.i = load i64, ptr %21, align 1
-  %add.ptr26.val.i.i.i = load i64, ptr %add.ptr26.i67.i.i, align 1
+  %add.ptr26.val.i.i.i = load i64, ptr %add.ptr26.i64.i.i, align 1
   %22 = getelementptr i8, ptr %add.ptr22.i.i.i, i64 24
   %add.ptr26.val40.i.i.i = load i64, ptr %22, align 1
   %secret.val.i49.i.i.i = load i64, ptr %add.ptr30.i.i.i, align 1
@@ -487,14 +486,14 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i:    ; preds = %for.body17.i.i.i, %
   %add8.i97.i.i.i = add i64 %acc.sroa.11.1.lcssa.i.i.i, %xor.i.i22.i96.i.i.i
   %add12.i98.i.i.i = add i64 %add.ptr38.val41.i.i.i, %add.ptr38.val.i.i.i
   %xor14.i99.i.i.i = xor i64 %add8.i97.i.i.i, %add12.i98.i.i.i
-  %add.i64.i.i = add i64 %xor14.i99.i.i.i, %xor.i88.i.i.i
+  %add.i65.i.i = add i64 %xor14.i99.i.i.i, %xor.i88.i.i.i
   %mul50.i.i.i = mul i64 %xor.i88.i.i.i, -7046029288634856825
   %mul52.i.i.i = mul i64 %xor14.i99.i.i.i, -8796714831421723037
   %mul55.i.i.i = mul i64 %size, -4417276706812531889
   %add53.i.i.i = add i64 %mul50.i.i.i, %mul55.i.i.i
   %add56.i.i.i = add i64 %add53.i.i.i, %mul52.i.i.i
-  %shr.i.i102.i.i.i = lshr i64 %add.i64.i.i, 37
-  %xor.i.i103.i.i.i = xor i64 %shr.i.i102.i.i.i, %add.i64.i.i
+  %shr.i.i102.i.i.i = lshr i64 %add.i65.i.i, 37
+  %xor.i.i103.i.i.i = xor i64 %shr.i.i102.i.i.i, %add.i65.i.i
   %mul.i104.i.i.i = mul i64 %xor.i.i103.i.i.i, 1609587791953885689
   %shr.i4.i105.i.i.i = lshr i64 %mul.i104.i.i.i, 32
   %xor.i5.i106.i.i.i = xor i64 %shr.i4.i105.i.i.i, %mul.i104.i.i.i
@@ -803,9 +802,6 @@ declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8

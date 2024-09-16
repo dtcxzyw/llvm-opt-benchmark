@@ -1641,7 +1641,7 @@ if.end:                                           ; preds = %lor.lhs.false.i, %_
   %variables_ = getelementptr inbounds i8, ptr %this, i64 24
   call void @_ZN6google8protobuf2io7Printer8WithVarsIRN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %variables_)
   %ordered_fields_ = getelementptr inbounds i8, ptr %this, i64 88
-  invoke fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias nonnull align 8 %field_num_to_entry_table, ptr noundef nonnull align 8 dereferenceable(24) %ordered_fields_)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias align 8 %field_num_to_entry_table, ptr noundef nonnull align 8 dereferenceable(24) %ordered_fields_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -2315,7 +2315,7 @@ lpad:                                             ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %field_descriptors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %field_descriptors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp33 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp48 = alloca %"struct.google::protobuf::compiler::cpp::SkipEntryBlock", align 8
@@ -2963,7 +2963,7 @@ lpad14:                                           ; preds = %invoke.cont13, %if.
 
 if.end:                                           ; preds = %invoke.cont20, %invoke.cont17
   %ordered_fields_ = getelementptr inbounds i8, ptr %this, i64 88
-  invoke fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias nonnull align 8 %field_num_to_entry_table, ptr noundef nonnull align 8 dereferenceable(24) %ordered_fields_)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias align 8 %field_num_to_entry_table, ptr noundef nonnull align 8 dereferenceable(24) %ordered_fields_)
           to label %invoke.cont22 unwind label %lpad14
 
 invoke.cont22:                                    ; preds = %if.end

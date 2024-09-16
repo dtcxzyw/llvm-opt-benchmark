@@ -1452,10 +1452,10 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.sroa.025.057 = phi ptr [ %44, %.lr.ph ], [ %39, %_ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_iteratorINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EES4_EEEET_SG_.exit ]
   %40 = load ptr, ptr %.sroa.025.057, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 3280
-  call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr nonnull %3)
+  call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr %3)
   %42 = load ptr, ptr %.sroa.025.057, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 3240
-  call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr nonnull %3)
+  call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr %3)
   %44 = getelementptr inbounds i8, ptr %.sroa.025.057, i64 8
   %.not = icmp eq ptr %44, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -2318,7 +2318,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24

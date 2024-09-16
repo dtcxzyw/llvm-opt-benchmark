@@ -1494,7 +1494,7 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
   br i1 %.not56, label %118, label %122
 
 118:                                              ; preds = %102
-  %119 = call fastcc i32 @_check_hash(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %.042)
+  %119 = call fastcc i32 @_check_hash(ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %0, ptr noundef %.042)
   %.not57 = icmp eq i32 %119, 0
   br i1 %.not57, label %120, label %122
 
@@ -1628,7 +1628,7 @@ declare void @auth_g_destroy(ptr noundef) local_unnamed_addr #3
 declare void @auth_g_get_ids(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.slurm_hash_t, align 1
@@ -2309,7 +2309,7 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
   br i1 %.not107, label %168, label %172
 
 168:                                              ; preds = %153
-  %169 = call fastcc i32 @_check_hash(ptr noundef nonnull %74, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %.075)
+  %169 = call fastcc i32 @_check_hash(ptr noundef nonnull %74, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %.075)
   %.not108 = icmp eq i32 %169, 0
   br i1 %.not108, label %170, label %172
 
@@ -3229,7 +3229,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   br i1 %.not117, label %234, label %238
 
 234:                                              ; preds = %219
-  %235 = call fastcc i32 @_check_hash(ptr noundef nonnull %41, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef %.089)
+  %235 = call fastcc i32 @_check_hash(ptr noundef nonnull %41, ptr noundef %6, ptr noundef nonnull %2, ptr noundef %.089)
   %.not118 = icmp eq i32 %235, 0
   br i1 %.not118, label %236, label %238
 

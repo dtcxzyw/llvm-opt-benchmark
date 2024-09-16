@@ -62,7 +62,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond1, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %call = tail call fastcc i32 @Sha256Update(ptr noundef nonnull %sha256, ptr noundef %data, i32 noundef %len)
+  %call = tail call fastcc i32 @Sha256Update(ptr noundef %sha256, ptr noundef %data, i32 noundef %len)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end7
@@ -71,7 +71,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -173, 1) i32 @Sha256Update(ptr noundef %sha256, ptr noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc range(i32 -173, 1) i32 @Sha256Update(ptr noundef nonnull %sha256, ptr noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
 entry:
   %cmp1 = icmp eq ptr %data, null
   %cmp2 = icmp ne i32 %len, 0
@@ -151,7 +151,7 @@ for.body9.i:                                      ; preds = %if.then21, %for.bod
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
-  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   store i32 0, ptr %buffLen, align 16
   br label %if.end33
 
@@ -164,58 +164,58 @@ if.end33:                                         ; preds = %if.then13, %ByteRev
 while.body.preheader:                             ; preds = %if.end33
   %7 = ptrtoint ptr %buffer to i64
   %8 = and i64 %7, 3
-  %or.cond.i47 = icmp eq i64 %8, 0
-  br i1 %or.cond.i47, label %while.body.us, label %while.body
+  %or.cond.i46 = icmp eq i64 %8, 0
+  br i1 %or.cond.i46, label %while.body.us, label %while.body
 
-while.body.us:                                    ; preds = %while.body.preheader, %ByteReverseWords.exit65.loopexit.us
-  %len.addr.1.us = phi i32 [ %sub39.us, %ByteReverseWords.exit65.loopexit.us ], [ %len.addr.0, %while.body.preheader ]
-  %data.addr.1.us = phi ptr [ %add.ptr38.us, %ByteReverseWords.exit65.loopexit.us ], [ %data.addr.0, %while.body.preheader ]
+while.body.us:                                    ; preds = %while.body.preheader, %ByteReverseWords.exit64.loopexit.us
+  %len.addr.1.us = phi i32 [ %sub39.us, %ByteReverseWords.exit64.loopexit.us ], [ %len.addr.0, %while.body.preheader ]
+  %data.addr.1.us = phi ptr [ %add.ptr38.us, %ByteReverseWords.exit64.loopexit.us ], [ %data.addr.0, %while.body.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %buffer, ptr noundef nonnull align 1 dereferenceable(64) %data.addr.1.us, i64 64, i1 false)
   %add.ptr38.us = getelementptr inbounds i8, ptr %data.addr.1.us, i64 64
-  br label %for.body.i58.us
+  br label %for.body.i57.us
 
-for.body.i58.us:                                  ; preds = %while.body.us, %for.body.i58.us
-  %indvars.iv24.i59.us = phi i64 [ %indvars.iv.next25.i63.us, %for.body.i58.us ], [ 0, %while.body.us ]
-  %arrayidx.i60.us = getelementptr inbounds i32, ptr %buffer, i64 %indvars.iv24.i59.us
-  %9 = load i32, ptr %arrayidx.i60.us, align 4
-  %or.i.i61.us = tail call noundef i32 @llvm.bswap.i32(i32 %9)
-  store i32 %or.i.i61.us, ptr %arrayidx.i60.us, align 4
-  %indvars.iv.next25.i63.us = add nuw nsw i64 %indvars.iv24.i59.us, 1
-  %exitcond.not.i64.us = icmp eq i64 %indvars.iv.next25.i63.us, 16
-  br i1 %exitcond.not.i64.us, label %ByteReverseWords.exit65.loopexit.us, label %for.body.i58.us, !llvm.loop !4
+for.body.i57.us:                                  ; preds = %while.body.us, %for.body.i57.us
+  %indvars.iv24.i58.us = phi i64 [ %indvars.iv.next25.i62.us, %for.body.i57.us ], [ 0, %while.body.us ]
+  %arrayidx.i59.us = getelementptr inbounds i32, ptr %buffer, i64 %indvars.iv24.i58.us
+  %9 = load i32, ptr %arrayidx.i59.us, align 4
+  %or.i.i60.us = tail call noundef i32 @llvm.bswap.i32(i32 %9)
+  store i32 %or.i.i60.us, ptr %arrayidx.i59.us, align 4
+  %indvars.iv.next25.i62.us = add nuw nsw i64 %indvars.iv24.i58.us, 1
+  %exitcond.not.i63.us = icmp eq i64 %indvars.iv.next25.i62.us, 16
+  br i1 %exitcond.not.i63.us, label %ByteReverseWords.exit64.loopexit.us, label %for.body.i57.us, !llvm.loop !4
 
-ByteReverseWords.exit65.loopexit.us:              ; preds = %for.body.i58.us
+ByteReverseWords.exit64.loopexit.us:              ; preds = %for.body.i57.us
   %sub39.us = add i32 %len.addr.1.us, -64
-  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   %cmp34.us = icmp ugt i32 %sub39.us, 63
   br i1 %cmp34.us, label %while.body.us, label %while.end, !llvm.loop !7
 
-while.body:                                       ; preds = %while.body.preheader, %ByteReverseWords.exit65.loopexit66
-  %len.addr.1 = phi i32 [ %sub39, %ByteReverseWords.exit65.loopexit66 ], [ %len.addr.0, %while.body.preheader ]
-  %data.addr.1 = phi ptr [ %add.ptr38, %ByteReverseWords.exit65.loopexit66 ], [ %data.addr.0, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %ByteReverseWords.exit64.loopexit65
+  %len.addr.1 = phi i32 [ %sub39, %ByteReverseWords.exit64.loopexit65 ], [ %len.addr.0, %while.body.preheader ]
+  %data.addr.1 = phi ptr [ %add.ptr38, %ByteReverseWords.exit64.loopexit65 ], [ %data.addr.0, %while.body.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %buffer, ptr noundef nonnull align 1 dereferenceable(64) %data.addr.1, i64 64, i1 false)
   %add.ptr38 = getelementptr inbounds i8, ptr %data.addr.1, i64 64
-  br label %for.body9.i49
+  br label %for.body9.i48
 
-for.body9.i49:                                    ; preds = %while.body, %for.body9.i49
-  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i55, %for.body9.i49 ], [ 0, %while.body ]
-  %add.ptr.i51 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv.i50
-  %scratch.0.copyload.i52 = load i32, ptr %add.ptr.i51, align 1
-  %or.i16.i53 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i52)
-  store i32 %or.i16.i53, ptr %add.ptr.i51, align 1
-  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i50, 4
-  %cmp8.i56 = icmp ult i64 %indvars.iv.i50, 60
-  br i1 %cmp8.i56, label %for.body9.i49, label %ByteReverseWords.exit65.loopexit66, !llvm.loop !6
+for.body9.i48:                                    ; preds = %while.body, %for.body9.i48
+  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i54, %for.body9.i48 ], [ 0, %while.body ]
+  %add.ptr.i50 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv.i49
+  %scratch.0.copyload.i51 = load i32, ptr %add.ptr.i50, align 1
+  %or.i16.i52 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i51)
+  store i32 %or.i16.i52, ptr %add.ptr.i50, align 1
+  %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i49, 4
+  %cmp8.i55 = icmp ult i64 %indvars.iv.i49, 60
+  br i1 %cmp8.i55, label %for.body9.i48, label %ByteReverseWords.exit64.loopexit65, !llvm.loop !6
 
-ByteReverseWords.exit65.loopexit66:               ; preds = %for.body9.i49
+ByteReverseWords.exit64.loopexit65:               ; preds = %for.body9.i48
   %sub39 = add i32 %len.addr.1, -64
-  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   %cmp34 = icmp ugt i32 %sub39, 63
   br i1 %cmp34, label %while.body, label %while.end, !llvm.loop !7
 
-while.end:                                        ; preds = %ByteReverseWords.exit65.loopexit66, %ByteReverseWords.exit65.loopexit.us, %if.end33
-  %len.addr.2 = phi i32 [ %len.addr.0, %if.end33 ], [ %sub39.us, %ByteReverseWords.exit65.loopexit.us ], [ %sub39, %ByteReverseWords.exit65.loopexit66 ]
-  %data.addr.2 = phi ptr [ %data.addr.0, %if.end33 ], [ %add.ptr38.us, %ByteReverseWords.exit65.loopexit.us ], [ %add.ptr38, %ByteReverseWords.exit65.loopexit66 ]
+while.end:                                        ; preds = %ByteReverseWords.exit64.loopexit65, %ByteReverseWords.exit64.loopexit.us, %if.end33
+  %len.addr.2 = phi i32 [ %len.addr.0, %if.end33 ], [ %sub39.us, %ByteReverseWords.exit64.loopexit.us ], [ %sub39, %ByteReverseWords.exit64.loopexit65 ]
+  %data.addr.2 = phi ptr [ %data.addr.0, %if.end33 ], [ %add.ptr38.us, %ByteReverseWords.exit64.loopexit.us ], [ %add.ptr38, %ByteReverseWords.exit64.loopexit65 ]
   %cmp48.not = icmp eq i32 %len.addr.2, 0
   br i1 %cmp48.not, label %return, label %if.then50
 
@@ -288,7 +288,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @Sha256Final(ptr noundef nonnull %sha256)
+  %call = tail call fastcc i32 @Sha256Final(ptr noundef %sha256)
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -349,7 +349,7 @@ return:                                           ; preds = %if.end, %entry, %By
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -192, 1) i32 @Sha256Final(ptr noundef %sha256) unnamed_addr #1 {
+define internal fastcc range(i32 -192, 1) i32 @Sha256Final(ptr noundef nonnull %sha256) unnamed_addr #1 {
 entry:
   %buffLen = getelementptr inbounds i8, ptr %sha256, i64 96
   %0 = load i32, ptr %buffLen, align 16
@@ -405,7 +405,7 @@ for.body9.i:                                      ; preds = %if.then7, %for.body
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
-  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   store i32 0, ptr %buffLen, align 16
   br label %if.end24
 
@@ -455,7 +455,7 @@ ByteReverseWords.exit52:                          ; preds = %for.body9.i36, %for
   %arrayidx42 = getelementptr inbounds i8, ptr %sha256, i64 92
   %10 = load i32, ptr %loLen, align 4
   store i32 %10, ptr %arrayidx42, align 1
-  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   br label %return
 
 return:                                           ; preds = %entry, %ByteReverseWords.exit52
@@ -513,7 +513,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @Sha256Update(ptr noundef nonnull %sha224, ptr noundef %data, i32 noundef %len)
+  %call = tail call fastcc i32 @Sha256Update(ptr noundef %sha224, ptr noundef %data, i32 noundef %len)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -530,7 +530,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @Sha256Final(ptr noundef nonnull %sha224)
+  %call = tail call fastcc i32 @Sha256Final(ptr noundef %sha224)
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -783,7 +783,7 @@ entry:
 
 if.end.i5:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha224, ptr noundef nonnull readonly align 16 dereferenceable(128) %sha224, i64 128, i1 false)
-  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha224)
+  %call.i = call fastcc i32 @Sha256Final(ptr noundef %tmpSha224)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
 
@@ -847,7 +847,7 @@ entry:
 
 if.end.i5:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha256, ptr noundef nonnull readonly align 16 dereferenceable(128) %sha256, i64 128, i1 false)
-  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha256)
+  %call.i = call fastcc i32 @Sha256Final(ptr noundef %tmpSha256)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
 
@@ -904,7 +904,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Transform_Sha256(ptr nocapture noundef %sha256, ptr nocapture noundef readonly %data) unnamed_addr #1 {
+define internal fastcc void @Transform_Sha256(ptr nocapture noundef nonnull %sha256, ptr nocapture noundef nonnull readonly %data) unnamed_addr #1 {
 entry:
   %S = alloca [8 x i32], align 16
   %W = alloca [64 x i32], align 16
@@ -938,8 +938,8 @@ for.body15:                                       ; preds = %entry, %for.body15
   %arrayidx17 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %1
   %2 = load i32, ptr %arrayidx17, align 4
   %or.i = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 15)
-  %or.i66 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 13)
-  %xor = xor i32 %or.i, %or.i66
+  %or.i64 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 13)
+  %xor = xor i32 %or.i, %or.i64
   %shr = lshr i32 %2, 10
   %xor25 = xor i32 %xor, %shr
   %3 = add nsw i64 %indvars.iv, -7
@@ -949,9 +949,9 @@ for.body15:                                       ; preds = %entry, %for.body15
   %5 = add nsw i64 %indvars.iv, -15
   %arrayidx31 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %5
   %6 = load i32, ptr %arrayidx31, align 4
-  %or.i69 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 25)
-  %or.i72 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 14)
-  %xor37 = xor i32 %or.i69, %or.i72
+  %or.i65 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 25)
+  %or.i66 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 14)
+  %xor37 = xor i32 %or.i65, %or.i66
   %shr42 = lshr i32 %6, 3
   %xor43 = xor i32 %xor37, %shr42
   %add44 = add i32 %add, %0
@@ -974,52 +974,52 @@ for.cond443.preheader:                            ; preds = %for.body56
   br label %for.body445
 
 for.body56:                                       ; preds = %for.cond54.preheader, %for.body56
-  %indvars.iv238 = phi i64 [ 0, %for.cond54.preheader ], [ %indvars.iv.next239, %for.body56 ]
+  %indvars.iv136 = phi i64 [ 0, %for.cond54.preheader ], [ %indvars.iv.next137, %for.body56 ]
   %7 = phi i32 [ %arrayidx57.promoted, %for.cond54.preheader ], [ %add293, %for.body56 ]
   %8 = phi i32 [ %arrayidx58.promoted, %for.cond54.preheader ], [ %add437, %for.body56 ]
   %9 = phi i32 [ %arrayidx67.promoted, %for.cond54.preheader ], [ %add341, %for.body56 ]
   %10 = phi i32 [ %arrayidx69.promoted, %for.cond54.preheader ], [ %add389, %for.body56 ]
-  %add438223227 = phi i32 [ %S.promoted, %for.cond54.preheader ], [ %add438, %for.body56 ]
+  %add438121125 = phi i32 [ %S.promoted, %for.cond54.preheader ], [ %add438, %for.body56 ]
   %11 = phi i32 [ %arrayidx92.promoted, %for.cond54.preheader ], [ %add390, %for.body56 ]
   %12 = phi i32 [ %arrayidx93.promoted, %for.cond54.preheader ], [ %add342, %for.body56 ]
   %13 = phi i32 [ %arrayidx100.promoted, %for.cond54.preheader ], [ %add294, %for.body56 ]
-  %or.i75 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 26)
-  %or.i78 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 21)
-  %xor62 = xor i32 %or.i75, %or.i78
-  %or.i81 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 7)
-  %xor65 = xor i32 %xor62, %or.i81
+  %or.i67 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 26)
+  %or.i68 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 21)
+  %xor62 = xor i32 %or.i67, %or.i68
+  %or.i69 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 7)
+  %xor65 = xor i32 %xor62, %or.i69
   %add66 = add i32 %xor65, %7
   %xor71 = xor i32 %10, %9
   %and72 = and i32 %xor71, %8
   %xor73 = xor i32 %and72, %9
-  %arrayidx77 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %indvars.iv238
+  %arrayidx77 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %indvars.iv136
   %14 = load i32, ptr %arrayidx77, align 32
-  %arrayidx81 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %indvars.iv238
+  %arrayidx81 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %indvars.iv136
   %15 = load i32, ptr %arrayidx81, align 16
   %add74 = add i32 %add66, %14
   %add78 = add i32 %add74, %15
   %add82 = add i32 %add78, %xor73
-  %or.i84 = tail call i32 @llvm.fshl.i32(i32 %add438223227, i32 %add438223227, i32 30)
-  %or.i87 = tail call i32 @llvm.fshl.i32(i32 %add438223227, i32 %add438223227, i32 19)
-  %xor87 = xor i32 %or.i84, %or.i87
-  %or.i90 = tail call i32 @llvm.fshl.i32(i32 %add438223227, i32 %add438223227, i32 10)
-  %xor90 = xor i32 %xor87, %or.i90
-  %or = or i32 %11, %add438223227
+  %or.i70 = tail call i32 @llvm.fshl.i32(i32 %add438121125, i32 %add438121125, i32 30)
+  %or.i71 = tail call i32 @llvm.fshl.i32(i32 %add438121125, i32 %add438121125, i32 19)
+  %xor87 = xor i32 %or.i70, %or.i71
+  %or.i72 = tail call i32 @llvm.fshl.i32(i32 %add438121125, i32 %add438121125, i32 10)
+  %xor90 = xor i32 %xor87, %or.i72
+  %or = or i32 %11, %add438121125
   %and94 = and i32 %or, %12
-  %and97 = and i32 %11, %add438223227
+  %and97 = and i32 %11, %add438121125
   %or98 = or i32 %and94, %and97
   %add101 = add i32 %13, %add82
   %add99 = add i32 %add82, %xor90
   %add102 = add i32 %add99, %or98
-  %or.i93 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 26)
-  %or.i96 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 21)
-  %xor109 = xor i32 %or.i93, %or.i96
-  %or.i99 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 7)
-  %xor112 = xor i32 %xor109, %or.i99
+  %or.i73 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 26)
+  %or.i74 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 21)
+  %xor109 = xor i32 %or.i73, %or.i74
+  %or.i75 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 7)
+  %xor112 = xor i32 %xor109, %or.i75
   %xor118 = xor i32 %10, %8
   %and119 = and i32 %add101, %xor118
   %xor120 = xor i32 %and119, %10
-  %16 = or disjoint i64 %indvars.iv238, 1
+  %16 = or disjoint i64 %indvars.iv136, 1
   %arrayidx124 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %16
   %17 = load i32, ptr %arrayidx124, align 4
   %arrayidx128 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %16
@@ -1028,27 +1028,27 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add121 = add i32 %add113, %17
   %add125 = add i32 %add121, %xor112
   %add129 = add i32 %add125, %18
-  %or.i102 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 30)
-  %or.i105 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 19)
-  %xor134 = xor i32 %or.i102, %or.i105
-  %or.i108 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 10)
-  %xor137 = xor i32 %xor134, %or.i108
-  %or140 = or i32 %add102, %add438223227
+  %or.i76 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 30)
+  %or.i77 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 19)
+  %xor134 = xor i32 %or.i76, %or.i77
+  %or.i78 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 10)
+  %xor137 = xor i32 %xor134, %or.i78
+  %or140 = or i32 %add102, %add438121125
   %and142 = and i32 %or140, %11
-  %and145 = and i32 %add102, %add438223227
+  %and145 = and i32 %add102, %add438121125
   %or146 = or i32 %and142, %and145
   %add147 = add i32 %xor137, %or146
   %add149 = add i32 %add129, %12
   %add150 = add i32 %add147, %add129
-  %or.i111 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 26)
-  %or.i114 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 21)
-  %xor157 = xor i32 %or.i111, %or.i114
-  %or.i117 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 7)
-  %xor160 = xor i32 %xor157, %or.i117
+  %or.i79 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 26)
+  %or.i80 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 21)
+  %xor157 = xor i32 %or.i79, %or.i80
+  %or.i81 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 7)
+  %xor160 = xor i32 %xor157, %or.i81
   %xor166 = xor i32 %add101, %8
   %and167 = and i32 %add149, %xor166
   %xor168 = xor i32 %and167, %8
-  %19 = or disjoint i64 %indvars.iv238, 2
+  %19 = or disjoint i64 %indvars.iv136, 2
   %arrayidx172 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %19
   %20 = load i32, ptr %arrayidx172, align 8
   %arrayidx176 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %19
@@ -1057,27 +1057,27 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add169 = add i32 %add161, %21
   %add173 = add i32 %add169, %xor168
   %add177 = add i32 %add173, %xor160
-  %or.i120 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 30)
-  %or.i123 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 19)
-  %xor182 = xor i32 %or.i120, %or.i123
-  %or.i126 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 10)
-  %xor185 = xor i32 %xor182, %or.i126
+  %or.i82 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 30)
+  %or.i83 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 19)
+  %xor182 = xor i32 %or.i82, %or.i83
+  %or.i84 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 10)
+  %xor185 = xor i32 %xor182, %or.i84
   %or188 = or i32 %add150, %add102
-  %and190 = and i32 %or188, %add438223227
+  %and190 = and i32 %or188, %add438121125
   %and193 = and i32 %add150, %add102
   %or194 = or i32 %and190, %and193
   %add195 = add i32 %xor185, %or194
   %add197 = add i32 %add177, %11
   %add198 = add i32 %add195, %add177
-  %or.i129 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 26)
-  %or.i132 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 21)
-  %xor205 = xor i32 %or.i129, %or.i132
-  %or.i135 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 7)
-  %xor208 = xor i32 %xor205, %or.i135
+  %or.i85 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 26)
+  %or.i86 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 21)
+  %xor205 = xor i32 %or.i85, %or.i86
+  %or.i87 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 7)
+  %xor208 = xor i32 %xor205, %or.i87
   %xor214 = xor i32 %add149, %add101
   %and215 = and i32 %add197, %xor214
   %xor216 = xor i32 %and215, %add101
-  %22 = or disjoint i64 %indvars.iv238, 3
+  %22 = or disjoint i64 %indvars.iv136, 3
   %arrayidx220 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %22
   %23 = load i32, ptr %arrayidx220, align 4
   %arrayidx224 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %22
@@ -1086,27 +1086,27 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add217 = add i32 %add209, %24
   %add221 = add i32 %add217, %xor216
   %add225 = add i32 %add221, %xor208
-  %or.i138 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 30)
-  %or.i141 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 19)
-  %xor230 = xor i32 %or.i138, %or.i141
-  %or.i144 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 10)
-  %xor233 = xor i32 %xor230, %or.i144
+  %or.i88 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 30)
+  %or.i89 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 19)
+  %xor230 = xor i32 %or.i88, %or.i89
+  %or.i90 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 10)
+  %xor233 = xor i32 %xor230, %or.i90
   %or236 = or i32 %add198, %add150
   %and238 = and i32 %or236, %add102
   %and241 = and i32 %add198, %add150
   %or242 = or i32 %and238, %and241
   %add243 = add i32 %xor233, %or242
-  %add245 = add i32 %add225, %add438223227
+  %add245 = add i32 %add225, %add438121125
   %add246 = add i32 %add243, %add225
-  %or.i147 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 26)
-  %or.i150 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 21)
-  %xor253 = xor i32 %or.i147, %or.i150
-  %or.i153 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 7)
-  %xor256 = xor i32 %xor253, %or.i153
+  %or.i91 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 26)
+  %or.i92 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 21)
+  %xor253 = xor i32 %or.i91, %or.i92
+  %or.i93 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 7)
+  %xor256 = xor i32 %xor253, %or.i93
   %xor262 = xor i32 %add197, %add149
   %and263 = and i32 %add245, %xor262
   %xor264 = xor i32 %and263, %add149
-  %25 = or disjoint i64 %indvars.iv238, 4
+  %25 = or disjoint i64 %indvars.iv136, 4
   %arrayidx268 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %25
   %26 = load i32, ptr %arrayidx268, align 16
   %arrayidx272 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %25
@@ -1115,11 +1115,11 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add265 = add i32 %add257, %27
   %add269 = add i32 %add265, %xor264
   %add273 = add i32 %add269, %xor256
-  %or.i156 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 30)
-  %or.i159 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 19)
-  %xor278 = xor i32 %or.i156, %or.i159
-  %or.i162 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 10)
-  %xor281 = xor i32 %xor278, %or.i162
+  %or.i94 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 30)
+  %or.i95 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 19)
+  %xor278 = xor i32 %or.i94, %or.i95
+  %or.i96 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 10)
+  %xor281 = xor i32 %xor278, %or.i96
   %or284 = or i32 %add246, %add198
   %and286 = and i32 %or284, %add150
   %and289 = and i32 %add246, %add198
@@ -1127,15 +1127,15 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add291 = add i32 %xor281, %or290
   %add293 = add i32 %add273, %add102
   %add294 = add i32 %add291, %add273
-  %or.i165 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 26)
-  %or.i168 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 21)
-  %xor301 = xor i32 %or.i165, %or.i168
-  %or.i171 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 7)
-  %xor304 = xor i32 %xor301, %or.i171
+  %or.i97 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 26)
+  %or.i98 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 21)
+  %xor301 = xor i32 %or.i97, %or.i98
+  %or.i99 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 7)
+  %xor304 = xor i32 %xor301, %or.i99
   %xor310 = xor i32 %add245, %add197
   %and311 = and i32 %add293, %xor310
   %xor312 = xor i32 %and311, %add197
-  %28 = or disjoint i64 %indvars.iv238, 5
+  %28 = or disjoint i64 %indvars.iv136, 5
   %arrayidx316 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %28
   %29 = load i32, ptr %arrayidx316, align 4
   %arrayidx320 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %28
@@ -1144,11 +1144,11 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add313 = add i32 %add305, %30
   %add317 = add i32 %add313, %xor312
   %add321 = add i32 %add317, %xor304
-  %or.i174 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 30)
-  %or.i177 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 19)
-  %xor326 = xor i32 %or.i174, %or.i177
-  %or.i180 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 10)
-  %xor329 = xor i32 %xor326, %or.i180
+  %or.i100 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 30)
+  %or.i101 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 19)
+  %xor326 = xor i32 %or.i100, %or.i101
+  %or.i102 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 10)
+  %xor329 = xor i32 %xor326, %or.i102
   %or332 = or i32 %add294, %add246
   %and334 = and i32 %or332, %add198
   %and337 = and i32 %add294, %add246
@@ -1156,15 +1156,15 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add339 = add i32 %xor329, %or338
   %add341 = add i32 %add321, %add150
   %add342 = add i32 %add339, %add321
-  %or.i183 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 26)
-  %or.i186 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 21)
-  %xor349 = xor i32 %or.i183, %or.i186
-  %or.i189 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 7)
-  %xor352 = xor i32 %xor349, %or.i189
+  %or.i103 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 26)
+  %or.i104 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 21)
+  %xor349 = xor i32 %or.i103, %or.i104
+  %or.i105 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 7)
+  %xor352 = xor i32 %xor349, %or.i105
   %xor358 = xor i32 %add293, %add245
   %and359 = and i32 %add341, %xor358
   %xor360 = xor i32 %and359, %add245
-  %31 = or disjoint i64 %indvars.iv238, 6
+  %31 = or disjoint i64 %indvars.iv136, 6
   %arrayidx364 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %31
   %32 = load i32, ptr %arrayidx364, align 8
   %arrayidx368 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %31
@@ -1173,11 +1173,11 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add361 = add i32 %add353, %33
   %add365 = add i32 %add361, %xor360
   %add369 = add i32 %add365, %xor352
-  %or.i192 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 30)
-  %or.i195 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 19)
-  %xor374 = xor i32 %or.i192, %or.i195
-  %or.i198 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 10)
-  %xor377 = xor i32 %xor374, %or.i198
+  %or.i106 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 30)
+  %or.i107 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 19)
+  %xor374 = xor i32 %or.i106, %or.i107
+  %or.i108 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 10)
+  %xor377 = xor i32 %xor374, %or.i108
   %or380 = or i32 %add342, %add294
   %and382 = and i32 %or380, %add246
   %and385 = and i32 %add342, %add294
@@ -1185,15 +1185,15 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add387 = add i32 %xor377, %or386
   %add389 = add i32 %add369, %add198
   %add390 = add i32 %add387, %add369
-  %or.i201 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 26)
-  %or.i204 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 21)
-  %xor397 = xor i32 %or.i201, %or.i204
-  %or.i207 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 7)
-  %xor400 = xor i32 %xor397, %or.i207
+  %or.i109 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 26)
+  %or.i110 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 21)
+  %xor397 = xor i32 %or.i109, %or.i110
+  %or.i111 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 7)
+  %xor400 = xor i32 %xor397, %or.i111
   %xor406 = xor i32 %add341, %add293
   %and407 = and i32 %add389, %xor406
   %xor408 = xor i32 %and407, %add293
-  %34 = or disjoint i64 %indvars.iv238, 7
+  %34 = or disjoint i64 %indvars.iv136, 7
   %arrayidx412 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %34
   %35 = load i32, ptr %arrayidx412, align 4
   %arrayidx416 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %34
@@ -1202,11 +1202,11 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add409 = add i32 %add401, %36
   %add413 = add i32 %add409, %xor408
   %add417 = add i32 %add413, %xor400
-  %or.i210 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 30)
-  %or.i213 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 19)
-  %xor422 = xor i32 %or.i210, %or.i213
-  %or.i216 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 10)
-  %xor425 = xor i32 %xor422, %or.i216
+  %or.i112 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 30)
+  %or.i113 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 19)
+  %xor422 = xor i32 %or.i112, %or.i113
+  %or.i114 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 10)
+  %xor425 = xor i32 %xor422, %or.i114
   %or428 = or i32 %add390, %add342
   %and430 = and i32 %or428, %add294
   %and433 = and i32 %add390, %add342
@@ -1214,21 +1214,21 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add435 = add i32 %xor425, %or434
   %add437 = add i32 %add417, %add246
   %add438 = add i32 %add435, %add417
-  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 8
-  %cmp55 = icmp ult i64 %indvars.iv238, 56
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 8
+  %cmp55 = icmp ult i64 %indvars.iv136, 56
   br i1 %cmp55, label %for.body56, label %for.cond443.preheader, !llvm.loop !12
 
 for.body445:                                      ; preds = %for.cond443.preheader, %for.body445
-  %indvars.iv248 = phi i64 [ 0, %for.cond443.preheader ], [ %indvars.iv.next249, %for.body445 ]
-  %arrayidx447 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 %indvars.iv248
+  %indvars.iv146 = phi i64 [ 0, %for.cond443.preheader ], [ %indvars.iv.next147, %for.body445 ]
+  %arrayidx447 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 %indvars.iv146
   %37 = load i32, ptr %arrayidx447, align 4
-  %arrayidx450 = getelementptr inbounds [8 x i32], ptr %sha256, i64 0, i64 %indvars.iv248
+  %arrayidx450 = getelementptr inbounds [8 x i32], ptr %sha256, i64 0, i64 %indvars.iv146
   %38 = load i32, ptr %arrayidx450, align 4
   %add451 = add i32 %38, %37
   store i32 %add451, ptr %arrayidx450, align 4
-  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %exitcond251.not = icmp eq i64 %indvars.iv.next249, 8
-  br i1 %exitcond251.not, label %for.end454, label %for.body445, !llvm.loop !13
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond149.not = icmp eq i64 %indvars.iv.next147, 8
+  br i1 %exitcond149.not, label %for.end454, label %for.body445, !llvm.loop !13
 
 for.end454:                                       ; preds = %for.body445
   ret void

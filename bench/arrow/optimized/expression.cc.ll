@@ -3046,7 +3046,7 @@ _ZN5arrow7compute11CallNotNullERKNS0_10ExpressionE.exit: ; preds = %entry, %_ZSt
 if.then18:                                        ; preds = %_ZN5arrow7compute11CallNotNullERKNS0_10ExpressionE.exit
   %5 = load i32, ptr %call16, align 4
   call void @_ZN5arrow7compute10Comparison5GetOpB5cxx11ENS1_4typeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, i32 noundef %5)
-  invoke fastcc void @"_ZZNK5arrow7compute10Expression8ToStringB5cxx11EvENK3$_0clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %binary, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @"_ZZNK5arrow7compute10Expression8ToStringB5cxx11EvENK3$_0clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %binary, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then18
@@ -3080,7 +3080,7 @@ if.then25:                                        ; preds = %_ZNSt11char_traitsI
   %sub = add i64 %call28, -7
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %op, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, i64 noundef %sub)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(32) %op) #27
-  invoke fastcc void @"_ZZNK5arrow7compute10Expression8ToStringB5cxx11EvENK3$_0clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %binary, ptr noundef nonnull %agg.tmp30)
+  invoke fastcc void @"_ZZNK5arrow7compute10Expression8ToStringB5cxx11EvENK3$_0clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %binary, ptr noundef %agg.tmp30)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %if.then25
@@ -3719,7 +3719,7 @@ ehcleanup:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK5arrow7compute10Expression8ToStringB5cxx11EvENK3$_0clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %op) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK5arrow7compute10Expression8ToStringB5cxx11EvENK3$_0clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull %op) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5280,7 +5280,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %5 = load ptr, ptr %in, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_8DataTypeEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_8DataTypeEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef %exec_context)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -5367,7 +5367,7 @@ lpad:                                             ; preds = %_ZN5arrow7compute10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_8DataTypeEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr nocapture noundef %expr, ptr noundef nonnull align 8 dereferenceable(72) %in, ptr noundef %exec_context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_8DataTypeEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr, ptr noundef nonnull align 8 dereferenceable(72) %in, ptr noundef %exec_context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_context1 = alloca %"class.arrow::compute::ExecContext", align 8
   %agg.tmp = alloca %"class.arrow::compute::Expression", align 8
@@ -5396,7 +5396,7 @@ if.then:                                          ; preds = %entry
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_8DataTypeEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(72) %in, ptr noundef nonnull %exec_context1)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_8DataTypeEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(72) %in, ptr noundef nonnull %exec_context1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -5925,7 +5925,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr null, ptr %_M_refcount4.i.i.i172, align 8
   store ptr %80, ptr %_M_refcount.i.i.i171, align 8
   store ptr null, ptr %__begin3.sroa.0.0286, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_8DataTypeEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp82, ptr noundef nonnull %agg.tmp83, ptr noundef nonnull align 8 dereferenceable(72) %in, ptr noundef nonnull %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_8DataTypeEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp82, ptr noundef %agg.tmp83, ptr noundef nonnull align 8 dereferenceable(72) %in, ptr noundef nonnull %exec_context)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %for.body
@@ -6166,7 +6166,7 @@ for.end:                                          ; preds = %for.inc, %_ZSt6get_
   store ptr null, ptr %_M_refcount4.i.i.i.i274, align 8
   store ptr %120, ptr %_M_refcount.i.i.i.i273, align 8
   store ptr null, ptr %owned_type3.i.i, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp104, i1 noundef zeroext true, ptr noundef nonnull %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp104, i1 noundef zeroext true, ptr noundef nonnull %exec_context)
           to label %invoke.cont106 unwind label %lpad105
 
 invoke.cont106:                                   ; preds = %for.end
@@ -6306,7 +6306,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_6SchemaEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %in_schema, ptr noundef %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_6SchemaEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %in_schema, ptr noundef %exec_context)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -6393,7 +6393,7 @@ lpad:                                             ; preds = %_ZN5arrow7compute10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_6SchemaEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr nocapture noundef %expr, ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef %exec_context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_6SchemaEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr, ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef %exec_context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_context1 = alloca %"class.arrow::compute::ExecContext", align 8
   %agg.tmp = alloca %"class.arrow::compute::Expression", align 8
@@ -6422,7 +6422,7 @@ if.then:                                          ; preds = %entry
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_6SchemaEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull %exec_context1)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_6SchemaEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull %exec_context1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -6951,7 +6951,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr null, ptr %_M_refcount4.i.i.i172, align 8
   store ptr %80, ptr %_M_refcount.i.i.i171, align 8
   store ptr null, ptr %__begin3.sroa.0.0286, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_6SchemaEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp78, ptr noundef nonnull %agg.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_18BindImplINS_6SchemaEEENS_6ResultINS0_10ExpressionEEES5_RKT_PNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp78, ptr noundef %agg.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %in, ptr noundef nonnull %exec_context)
           to label %invoke.cont81 unwind label %lpad80
 
 invoke.cont81:                                    ; preds = %for.body
@@ -7192,7 +7192,7 @@ for.end:                                          ; preds = %for.inc, %_ZSt6get_
   store ptr null, ptr %_M_refcount4.i.i.i.i274, align 8
   store ptr %120, ptr %_M_refcount.i.i.i.i273, align 8
   store ptr null, ptr %owned_type3.i.i, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp100, i1 noundef zeroext true, ptr noundef nonnull %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp100, i1 noundef zeroext true, ptr noundef nonnull %exec_context)
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %for.end
@@ -9789,11 +9789,11 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %known_values, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_127GuaranteeConjunctionMembersERKNS0_10ExpressionE(ptr noalias nonnull align 8 %conjunction_members, ptr noundef nonnull align 8 dereferenceable(16) %guaranteed_true_predicate)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_127GuaranteeConjunctionMembersERKNS0_10ExpressionE(ptr noalias align 8 %conjunction_members, ptr noundef nonnull align 8 dereferenceable(16) %guaranteed_true_predicate)
           to label %do.body unwind label %lpad
 
 do.body:                                          ; preds = %entry
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorINS0_10ExpressionESaIS3_EEPNS0_16KnownFieldValuesE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %conjunction_members, ptr noundef nonnull %known_values)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorINS0_10ExpressionESaIS3_EEPNS0_16KnownFieldValuesE(ptr noalias align 8 %ref.tmp, ptr noundef %conjunction_members, ptr noundef %known_values)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad1
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -14538,7 +14538,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %13, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -14761,7 +14761,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow7compute10ExpressionD2Ev.exit91:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %modified_arguments = alloca %"class.std::vector", align 8
@@ -14844,7 +14844,7 @@ if.else.i.i.i.i.i.i101:                           ; preds = %if.then.i.i.i.i97
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i99, %if.else.i.i.i.i.i.i101
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull %agg.tmp15)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef %agg.tmp15)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -15321,7 +15321,7 @@ _ZNSt6vectorIN5arrow7compute10ExpressionESaIS2_EE14_M_move_assignEOS4_St17integr
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %_ZNSt6vectorIN5arrow7compute10ExpressionESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit
-  invoke fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull %agg.tmp53)
+  invoke fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef %agg.tmp53)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont56
@@ -15433,7 +15433,7 @@ if.end63:                                         ; preds = %if.end12, %for.end
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %100, ptr %_M_refcount.i.i.i242, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull %agg.tmp64)
+  invoke fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef %agg.tmp64)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %if.end63
@@ -15627,7 +15627,7 @@ cleanup70:                                        ; preds = %if.then.i.i.i, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_127GuaranteeConjunctionMembersERKNS0_10ExpressionE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %guaranteed_true_predicate) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_127GuaranteeConjunctionMembersERKNS0_10ExpressionE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %guaranteed_true_predicate) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.arrow::compute::Expression"], align 8
   %ref.tmp10 = alloca %"struct.arrow::compute::FlattenedAssociativeChain", align 8
@@ -15924,7 +15924,7 @@ eh.resume:                                        ; preds = %lpad.body, %lpad12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorINS0_10ExpressionESaIS3_EEPNS0_16KnownFieldValuesE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef %conjunction_members, ptr noundef %known_values) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorINS0_10ExpressionESaIS3_EEPNS0_16KnownFieldValuesE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %conjunction_members, ptr noundef nonnull %known_values) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %ref.tmp1 = alloca %class.anon.457, align 8
@@ -16728,7 +16728,7 @@ if.end:                                           ; preds = %entry
   store ptr %13, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %expr, align 8
   store ptr %known_values, ptr %ref.tmp1, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -16815,7 +16815,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pre) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pre) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i272.i = alloca %class.anon.362, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i268.i = alloca %class.anon.362, align 1
@@ -18350,7 +18350,7 @@ if.else.i.i.i.i.i.i103:                           ; preds = %if.then.i.i.i.i98
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i101, %if.else.i.i.i.i.i.i103
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %pre)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %pre)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -19203,7 +19203,7 @@ if.end4:                                          ; preds = %if.end
   store ptr %AlreadyCanonicalized, ptr %ref.tmp6, align 8
   %28 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr %exec_context, ptr %28, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.end4
@@ -19299,7 +19299,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pre) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pre) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %agg.tmp = alloca %"class.arrow::compute::Expression", align 8
@@ -19318,7 +19318,7 @@ entry:
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @"_ZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_"(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %pre, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @"_ZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_"(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %pre, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -19561,7 +19561,7 @@ if.else.i.i.i.i.i.i64:                            ; preds = %if.then.i.i.i.i60
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i62, %if.else.i.i.i.i.i.i64
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %pre)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %pre)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -20232,11 +20232,11 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %known_values, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_127GuaranteeConjunctionMembersERKNS0_10ExpressionE(ptr noalias nonnull align 8 %conjunction_members, ptr noundef nonnull align 8 dereferenceable(16) %guaranteed_true_predicate)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_127GuaranteeConjunctionMembersERKNS0_10ExpressionE(ptr noalias align 8 %conjunction_members, ptr noundef nonnull align 8 dereferenceable(16) %guaranteed_true_predicate)
           to label %do.body unwind label %lpad
 
 do.body:                                          ; preds = %entry
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorINS0_10ExpressionESaIS3_EEPNS0_16KnownFieldValuesE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %conjunction_members, ptr noundef nonnull %known_values)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorINS0_10ExpressionESaIS3_EEPNS0_16KnownFieldValuesE(ptr noalias align 8 %ref.tmp, ptr noundef %conjunction_members, ptr noundef %known_values)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad1
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -20536,7 +20536,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN5arrow7compute10ExpressionD2Ev.exit145:        ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %invoke.cont29
   store ptr %expr, ptr %CanonicalizeAndFoldConstants, align 8
-  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(8) %CanonicalizeAndFoldConstants)
+  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_0clEv"(ptr noalias align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(8) %CanonicalizeAndFoldConstants)
           to label %_ZN5arrow6StatusD2Ev.exit181 unwind label %lpad16.loopexit.split-lp
 
 _ZN5arrow6StatusD2Ev.exit181:                     ; preds = %_ZN5arrow7compute10ExpressionD2Ev.exit145
@@ -20846,7 +20846,7 @@ if.then63:                                        ; preds = %if.end21.i49.i, %ca
   store ptr %84, ptr %_M_refcount.i.i.i262, align 8
   store ptr null, ptr %expr, align 8
   store ptr %inequality, ptr %ref.tmp67, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp64, ptr noundef nonnull %agg.tmp65, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %ref.tmp64, ptr noundef %agg.tmp65, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %if.then63
@@ -21028,7 +21028,7 @@ if.end8.sink.split.i.i.i.i.i.i324:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow7compute10ExpressionaSEOS1_.exit333
 
 _ZN5arrow7compute10ExpressionaSEOS1_.exit333:     ; preds = %if.end86, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i311, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i321, %if.end8.sink.split.i.i.i.i.i.i324
-  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(8) %CanonicalizeAndFoldConstants)
+  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_0clEv"(ptr noalias align 8 %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(8) %CanonicalizeAndFoldConstants)
           to label %_ZN5arrow6StatusD2Ev.exit370 unwind label %lpad91
 
 _ZN5arrow6StatusD2Ev.exit370:                     ; preds = %_ZN5arrow7compute10ExpressionaSEOS1_.exit333
@@ -21270,7 +21270,7 @@ if.end.i457:                                      ; preds = %_ZN5arrow7compute11
   store ptr %139, ptr %_M_refcount.i.i.i.i, align 8, !noalias !345
   store ptr null, ptr %agg.tmp122, align 8, !noalias !345
   store ptr %retval.0.i.i, ptr %ref.tmp1.i, align 8, !noalias !345
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp121, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias align 8 %ref.tmp121, ptr noundef %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i457
@@ -21528,7 +21528,7 @@ if.end8.sink.split.i.i.i.i.i.i549:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow7compute10ExpressionaSEOS1_.exit558
 
 _ZN5arrow7compute10ExpressionaSEOS1_.exit558:     ; preds = %if.end145, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i536, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i546, %if.end8.sink.split.i.i.i.i.i.i549
-  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp149, ptr noundef nonnull align 8 dereferenceable(8) %CanonicalizeAndFoldConstants)
+  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_0clEv"(ptr noalias align 8 %ref.tmp149, ptr noundef nonnull align 8 dereferenceable(8) %CanonicalizeAndFoldConstants)
           to label %_ZN5arrow6StatusD2Ev.exit595 unwind label %lpad150
 
 _ZN5arrow6StatusD2Ev.exit595:                     ; preds = %_ZN5arrow7compute10ExpressionaSEOS1_.exit558
@@ -21861,7 +21861,7 @@ ehcleanup185:                                     ; preds = %ehcleanup183, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_0clEv"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_0clEv"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %agg.tmp = alloca %"class.arrow::compute::Expression", align 8
@@ -22356,7 +22356,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %post_call) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %post_call) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow7compute10ExpressionD2Ev.exit91:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %modified_arguments = alloca %"class.std::vector", align 8
@@ -22439,7 +22439,7 @@ if.else.i.i.i.i.i.i101:                           ; preds = %if.then.i.i.i.i97
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i99, %if.else.i.i.i.i.i.i101
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %post_call)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %ref.tmp14, ptr noundef %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %post_call)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -22916,7 +22916,7 @@ _ZNSt6vectorIN5arrow7compute10ExpressionESaIS2_EE14_M_move_assignEOS4_St17integr
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %_ZNSt6vectorIN5arrow7compute10ExpressionESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit
-  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_2clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %post_call, ptr noundef nonnull %agg.tmp53)
+  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_2clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %post_call, ptr noundef %agg.tmp53)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont56
@@ -23028,7 +23028,7 @@ if.end63:                                         ; preds = %if.end12, %for.end
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %100, ptr %_M_refcount.i.i.i242, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_2clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %post_call, ptr noundef nonnull %agg.tmp64)
+  invoke fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_2clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %post_call, ptr noundef %agg.tmp64)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %if.end63
@@ -23497,7 +23497,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %13, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %src, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -23584,7 +23584,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp8.i = alloca %"struct.arrow::compute::Expression::Parameter", align 8
   %agg.tmp10.i = alloca %"class.arrow::FieldPath", align 8
@@ -24076,7 +24076,7 @@ if.else.i.i.i.i.i.i112:                           ; preds = %if.then.i.i.i.i108
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i110, %if.else.i.i.i.i.i.i112
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull %agg.tmp15)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef %agg.tmp15)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -24783,7 +24783,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow16KeyValueMetadataE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp26.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp27.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp30.i)
-  invoke fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_05VisitES3_"(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %ToRecordBatch, ptr noundef nonnull readonly align 8 dereferenceable(16) %expr)
+  invoke fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_05VisitES3_"(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %ToRecordBatch, ptr noundef nonnull readonly align 8 dereferenceable(16) %expr)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_0C2Ev.exit"
@@ -28535,7 +28535,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %invoke.cont, label %if.end26
 
 invoke.cont:                                      ; preds = %if.end
-  call fastcc void @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch9GetScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %call10)
+  call fastcc void @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch9GetScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %call10)
   %22 = load ptr, ptr %ref.tmp14, align 8
   %cmp.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i, label %invoke.cont22, label %if.then19
@@ -28659,7 +28659,7 @@ if.end26:                                         ; preds = %if.end
   br i1 %cmp.i61, label %if.then28, label %if.end78
 
 if.then28:                                        ; preds = %if.end26
-  %call29 = call fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %call10, ptr noundef nonnull %size)
+  %call29 = call fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %call10, ptr noundef %size)
   br i1 %call29, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %if.then28
@@ -29417,7 +29417,7 @@ invoke.cont116:                                   ; preds = %if.then114
           to label %invoke.cont120 unwind label %lpad96.loopexit.split-lp
 
 invoke.cont120:                                   ; preds = %invoke.cont116
-  invoke fastcc void @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch9GetScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %call121)
+  invoke fastcc void @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch9GetScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %call121)
           to label %invoke.cont125 unwind label %lpad96.loopexit.split-lp
 
 invoke.cont125:                                   ; preds = %invoke.cont120
@@ -43312,7 +43312,7 @@ lpad4:                                            ; preds = %cond.false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %post_call) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %post_call) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow7compute10ExpressionD2Ev.exit91:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %modified_arguments = alloca %"class.std::vector", align 8
@@ -43395,7 +43395,7 @@ if.else.i.i.i.i.i.i101:                           ; preds = %if.then.i.i.i.i97
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i99, %if.else.i.i.i.i.i.i101
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %post_call)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias align 8 %ref.tmp14, ptr noundef %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %post_call)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -43872,7 +43872,7 @@ _ZNSt6vectorIN5arrow7compute10ExpressionESaIS2_EE14_M_move_assignEOS4_St17integr
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %_ZNSt6vectorIN5arrow7compute10ExpressionESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit
-  invoke fastcc void @"_ZZN5arrow7compute12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS2_4CallEENK3$_1clES2_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %post_call, ptr noundef nonnull %agg.tmp53)
+  invoke fastcc void @"_ZZN5arrow7compute12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS2_4CallEENK3$_1clES2_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %post_call, ptr noundef %agg.tmp53)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont56
@@ -43984,7 +43984,7 @@ if.end63:                                         ; preds = %if.end12, %for.end
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %100, ptr %_M_refcount.i.i.i242, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @"_ZZN5arrow7compute12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS2_4CallEENK3$_1clES2_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %post_call, ptr noundef nonnull %agg.tmp64)
+  invoke fastcc void @"_ZZN5arrow7compute12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS2_4CallEENK3$_1clES2_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %post_call, ptr noundef %agg.tmp64)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %if.end63
@@ -44393,7 +44393,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS2_4CallEENK3$_1clES2_z"(ptr noalias nocapture writeonly sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS2_4CallEENK3$_1clES2_z"(ptr noalias nocapture nonnull writeonly sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::compute::Expression", align 8
   %ref.tmp11 = alloca i8, align 1
@@ -44633,7 +44633,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @_ZN5arrow16KeyValueMetadataC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_05VisitES3_"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_05VisitES3_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.499", align 8
   %value = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44673,12 +44673,12 @@ if.then:                                          ; preds = %_ZSt6get_ifIN5arrow
   br i1 %cond.i, label %_ZNK5arrow5Datum6scalarEv.exit, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  tail call void @_ZN5arrow6Status8FromArgsIJRA37_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(37) @.str.56)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA37_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(37) @.str.56)
   br label %return
 
 _ZNK5arrow5Datum6scalarEv.exit:                   ; preds = %if.then
   %3 = load ptr, ptr %0, align 8
-  call fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_09AddScalarB5cxx11ERKNS_6ScalarE"(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(41) %3)
+  call fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_09AddScalarB5cxx11ERKNS_6ScalarE"(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(41) %3)
   %4 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %invoke.cont14, label %cond.false.i
@@ -44856,7 +44856,7 @@ for.cond:                                         ; preds = %_ZN5arrow6StatusD2E
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont41, %for.cond
   %__begin3.sroa.0.0118 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %19, %invoke.cont41 ]
-  call fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_05VisitES3_"(ptr noalias nonnull align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__begin3.sroa.0.0118)
+  call fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_05VisitES3_"(ptr noalias align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__begin3.sroa.0.0118)
   call void @llvm.experimental.noalias.scope.decl(metadata !558)
   %21 = load ptr, ptr %ref.tmp51, align 8, !noalias !558
   store ptr %21, ptr %agg.result, align 8, !alias.scope !558
@@ -44927,7 +44927,7 @@ invoke.cont84:                                    ; preds = %if.then66
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !567
   store ptr %29, ptr %_M_refcount.i.i.i.i97, align 8, !alias.scope !567
   store ptr null, ptr %storage_.i.i96, align 8, !noalias !567
-  invoke fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_09AddScalarB5cxx11ERKNS_6ScalarE"(ptr noalias nonnull align 8 %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(41) %28)
+  invoke fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_09AddScalarB5cxx11ERKNS_6ScalarE"(ptr noalias align 8 %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(41) %28)
           to label %invoke.cont88 unwind label %lpad87
 
 invoke.cont88:                                    ; preds = %invoke.cont84
@@ -45592,7 +45592,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5FieldEESaIS3_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_09AddScalarB5cxx11ERKNS_6ScalarE"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(41) %scalar) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_09AddScalarB5cxx11ERKNS_6ScalarE"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(41) %scalar) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.arrow::Result.187", align 8
   %array = alloca %"class.std::shared_ptr.191", align 8
@@ -45844,7 +45844,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_013VisitFieldRefERKNS_8FieldRefE"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %ref) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_013VisitFieldRefERKNS_8FieldRefE"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %ref) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -46043,7 +46043,7 @@ for.cond:                                         ; preds = %_ZN5arrow6StatusD2E
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8FieldRef11nested_refsEv.exit66, %for.cond
   %__begin4.sroa.0.0157 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %10, %_ZNK5arrow8FieldRef11nested_refsEv.exit66 ]
-  call fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_013VisitFieldRefERKNS_8FieldRefE"(ptr noalias nonnull align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %__begin4.sroa.0.0157)
+  call fastcc void @"_ZZN5arrow7compute9SerializeERKNS0_10ExpressionEEN3$_013VisitFieldRefERKNS_8FieldRefE"(ptr noalias align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %__begin4.sroa.0.0157)
   call void @llvm.experimental.noalias.scope.decl(metadata !582)
   %12 = load ptr, ptr %ref.tmp18, align 8, !noalias !582
   store ptr %12, ptr %agg.result, align 8, !alias.scope !582
@@ -46121,7 +46121,7 @@ if.else.i.i.i.i112:                               ; preds = %if.then.i.i.i108
   unreachable
 
 if.then30:                                        ; preds = %_ZNK5arrow8FieldRef6IsNameEv.exit.i
-  tail call void @_ZN5arrow6Status8FromArgsIJRA37_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(37) @.str.63)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA37_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(37) @.str.63)
   br label %return
 
 if.end31:                                         ; preds = %cond.true.i106
@@ -47124,13 +47124,13 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow16KeyValueMet
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow16KeyValueMetadata5valueB5cxx11El(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch9GetScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch9GetScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %column_index = alloca i32, align 4
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp4 = alloca %"class.arrow::Status", align 8
   %ref.tmp6 = alloca %"class.std::shared_ptr.191", align 8
-  %call = call fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %i, ptr noundef nonnull %column_index)
+  %call = call fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %i, ptr noundef %column_index)
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -47322,7 +47322,7 @@ if.end5:                                          ; preds = %if.end
   %28 = load ptr, ptr %vfn, align 8
   call void %28(ptr nonnull sret(%"class.std::shared_ptr.191") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef %27)
   %29 = load ptr, ptr %ref.tmp6, align 8
-  invoke void @_ZNK5arrow5Array9GetScalarEl(ptr sret(%"class.arrow::Result.207") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0)
+  invoke void @_ZNK5arrow5Array9GetScalarEl(ptr nonnull sret(%"class.arrow::Result.207") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end5
@@ -47479,7 +47479,7 @@ _ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit:      ; preds = %invoke.cont3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.arrow::internal::StringConverter", align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #27
@@ -47504,7 +47504,7 @@ invoke.cont.i:                                    ; preds = %init.check.i
   br label %_ZN5arrow8internal10ParseValueINS_9Int32TypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit
 
 _ZN5arrow8internal10ParseValueINS_9Int32TypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
-  %call.i = call noundef zeroext i1 @_ZN5arrow8internal31StringToSignedIntConverterMixinINS_9Int32TypeEE7ConvertERKS2_PKcmPi(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) @_ZZN5arrow8internal10ParseValueINS_9Int32TypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeEE4type, ptr noundef %call, i64 noundef %call2, ptr noundef %value)
+  %call.i = call noundef zeroext i1 @_ZN5arrow8internal31StringToSignedIntConverterMixinINS_9Int32TypeEE7ConvertERKS2_PKcmPi(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) @_ZZN5arrow8internal10ParseValueINS_9Int32TypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeEE4type, ptr noundef %call, i64 noundef %call2, ptr noundef nonnull %value)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   ret i1 %call.i
 }
@@ -51595,7 +51595,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef %call, i1 noundef zeroext %insert_implicit_casts, ptr noundef %exec_context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %call, i1 noundef zeroext %insert_implicit_casts, ptr noundef %exec_context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i714 = alloca %"class.std::__shared_ptr.7", align 8
   %__args.addr.i = alloca ptr, align 8
@@ -55188,7 +55188,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit602: ; preds = %_ZN5arrow10TypeHold
   store ptr null, ptr %_M_refcount4.i.i.i.i611, align 8
   store ptr %543, ptr %_M_refcount.i.i.i.i610, align 8
   store ptr null, ptr %owned_type3.i.i609, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp154, ptr noundef nonnull %agg.tmp155, i1 noundef zeroext false, ptr noundef %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp154, ptr noundef %agg.tmp155, i1 noundef zeroext false, ptr noundef %exec_context)
           to label %invoke.cont157 unwind label %lpad156
 
 invoke.cont157:                                   ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit602
@@ -59683,7 +59683,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr noalias sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr noalias sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef nonnull %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i47 = alloca %class.anon.362, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i = alloca %class.anon.362, align 1
@@ -61776,7 +61776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i.i.i.i.i.i.i.i204 = alloca %"struct.std::__detail::_AllocNode.740", align 8
   %ref.tmp.i92 = alloca %"class.std::vector.220", align 8
@@ -63066,7 +63066,7 @@ if.end.i:                                         ; preds = %_ZNSt6vectorIN5arro
   store ptr null, ptr %_M_refcount.i.i.i.i, align 8, !noalias !958
   store ptr %165, ptr %_M_refcount.i.i.i.i30.i, align 8, !noalias !958
   store ptr null, ptr %owned_type.i.i, align 8, !noalias !958
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp65, ptr noundef nonnull %agg.tmp6.i, i1 noundef zeroext false, ptr noundef %118)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp65, ptr noundef %agg.tmp6.i, i1 noundef zeroext false, ptr noundef %118)
           to label %invoke.cont68 unwind label %lpad7.i116
 
 lpad7.i116:                                       ; preds = %if.end.i
@@ -63635,7 +63635,7 @@ invoke.cont135:                                   ; preds = %_ZN5arrow7compute10
 invoke.cont139:                                   ; preds = %invoke.cont135
   %242 = getelementptr inbounds i8, ptr %this, i64 8
   %243 = load ptr, ptr %242, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp138, i1 noundef zeroext false, ptr noundef %243)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef %agg.tmp138, i1 noundef zeroext false, ptr noundef %243)
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %invoke.cont139
@@ -69606,7 +69606,7 @@ return:                                           ; preds = %if.then22, %if.then
 declare noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature13MatchesInputsERKSt6vectorINS_10TypeHolderESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_2clES1_z"(ptr noalias sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute21SimplifyWithGuaranteeENS0_10ExpressionERKS1_ENK3$_2clES1_z"(ptr noalias nonnull sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::compute::Expression", align 8
   %ref.tmp22.i = alloca i8, align 1
@@ -70660,7 +70660,7 @@ eh.resume:                                        ; preds = %arraydestroy.body6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5arrow7compute12_GLOBAL__N_110Inequality13simplified_toERKNS0_10ExpressionEb(ptr noalias align 8 %agg.result, i8 %this.24.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bound_target, i1 noundef zeroext %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5arrow7compute12_GLOBAL__N_110Inequality13simplified_toERKNS0_10ExpressionEb(ptr noalias nonnull align 8 %agg.result, i8 %this.24.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bound_target, i1 noundef zeroext %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr = alloca i8, align 1
   %ref.tmp = alloca %"class.arrow::compute::Expression", align 8
@@ -70871,7 +70871,7 @@ _ZN5arrow7compute10ExpressionD2Ev.exit44:         ; preds = %arraydestroy.body.p
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8
   store ptr %31, ptr %_M_refcount.i.i.i.i, align 8
   store ptr null, ptr %owned_type3.i.i, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp15, ptr noundef nonnull %agg.tmp16, i1 noundef zeroext false, ptr noundef nonnull %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp15, ptr noundef %agg.tmp16, i1 noundef zeroext false, ptr noundef nonnull %exec_context)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZN5arrow7compute10ExpressionD2Ev.exit44
@@ -71083,7 +71083,7 @@ _ZN5arrow7compute10ExpressionD2Ev.exit89:         ; preds = %arraydestroy.body46
   store ptr null, ptr %_M_refcount4.i.i.i.i117, align 8
   store ptr %63, ptr %_M_refcount.i.i.i.i116, align 8
   store ptr null, ptr %owned_type3.i.i115, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp57, i1 noundef zeroext false, ptr noundef nonnull %exec_context)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_116BindNonRecursiveENS0_10Expression4CallEbPNS0_11ExecContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef %agg.tmp57, i1 noundef zeroext false, ptr noundef nonnull %exec_context)
           to label %cleanup unwind label %lpad58
 
 lpad31:                                           ; preds = %if.end29

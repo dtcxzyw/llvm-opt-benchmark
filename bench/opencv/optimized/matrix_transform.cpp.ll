@@ -1672,14 +1672,14 @@ declare void @_ZNK2cv11_InputArray6copyToERKNS_12_OutputArrayE(ptr noundef nonnu
 declare void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i64, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL9flipHorizEPKhmPhmNS_5Size_IiEEm(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i64 %4, i64 noundef %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL9flipHorizEPKhmPhmNS_5Size_IiEEm(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i64 %4, i64 noundef range(i64 0, 7681) %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::AutoBuffer.23", align 8
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.5.0.extract.shift = lshr i64 %4, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %8 = add nsw i32 %.sroa.0.0.extract.trunc, 1
   %9 = sdiv i32 %8, 2
-  %10 = trunc i64 %5 to i32
+  %10 = trunc nuw nsw i64 %5 to i32
   %11 = mul i32 %9, %10
   %sext = shl i64 %4, 32
   %12 = ashr exact i64 %sext, 32
@@ -1693,7 +1693,7 @@ define internal fastcc void @_ZN2cvL9flipHorizEPKhmPhmNS_5Size_IiEEm(ptr nocaptu
 
 16:                                               ; preds = %6
   %17 = icmp ugt i64 %13, 4611686018427387903
-  %18 = shl nuw i64 %13, 2
+  %18 = shl nuw nsw i64 %13, 2
   %19 = select i1 %17, i64 -1, i64 %18
   %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
   store ptr %20, ptr %7, align 8
@@ -1715,15 +1715,15 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %6, %16
   %23 = xor i64 %indvars.iv, -1
   %24 = add i64 %4, %23
   %25 = mul i64 %5, %24
-  %26 = mul nsw i64 %5, %indvars.iv
-  %27 = getelementptr i32, ptr %21, i64 %26
+  %26 = mul nuw nsw i64 %5, %indvars.iv
+  %27 = getelementptr inbounds i32, ptr %21, i64 %26
   br label %28
 
 28:                                               ; preds = %.preheader41.us, %28
   %.03542.us = phi i64 [ 0, %.preheader41.us ], [ %32, %28 ]
   %29 = add i64 %.03542.us, %25
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr i32, ptr %27, i64 %.03542.us
+  %31 = getelementptr inbounds i32, ptr %27, i64 %.03542.us
   store i32 %30, ptr %31, align 4
   %32 = add nuw nsw i64 %.03542.us, 1
   %exitcond.not = icmp eq i64 %32, %5

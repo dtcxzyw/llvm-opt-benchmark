@@ -10891,7 +10891,7 @@ declare dso_local ptr @get_governor_parent_kobj(ptr noundef) local_unnamed_addr 
 declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sugov_kthread_stop(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @sugov_kthread_stop(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 505
   %4 = load i8, ptr %3, align 1, !range !43, !noundef !44
@@ -12120,7 +12120,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cpu_attach_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @cpu_attach_domain(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 64) %2) unnamed_addr #0 align 16 {
   %4 = zext nneg i32 %2 to i64
   %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -12690,7 +12690,7 @@ destroy_sched_domain.exit:                        ; preds = %.loopexit.i, %29, %
 declare dso_local void @static_key_slow_dec_cpuslocked(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @membarrier_private_expedited(i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @membarrier_private_expedited(i32 noundef range(i32 0, 3) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #42
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #47, !srcloc !80
@@ -12699,7 +12699,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @membarrier_private_expedite
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 136
   %9 = load volatile i32, ptr %8, align 4
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable13 [
     i32 1, label %10
     i32 2, label %13
     i32 0, label %16
@@ -12715,7 +12715,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @membarrier_private_expedite
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %92, label %19
 
-default.unreachable:                              ; preds = %2
+default.unreachable13:                            ; preds = %2
   unreachable
 
 16:                                               ; preds = %2
@@ -13049,7 +13049,7 @@ define internal void @ipi_rseq(ptr nocapture readnone %0) #0 align 16 {
 declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr noundef %0, i64 noundef %1) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr noundef %0, i64 noundef range(i64 0, 344) %1) unnamed_addr #3 section ".init.text" align 16 {
   %3 = alloca [1 x %struct.cpumask], align 8
   %4 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #42
@@ -13066,7 +13066,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
 
 11:                                               ; preds = %7
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59) #44
-  br label %99
+  br label %96
 
 13:                                               ; preds = %7, %2
   store i64 0, ptr %3, align 8, !annotation !27
@@ -13077,7 +13077,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
 
 17:                                               ; preds = %13
   %18 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.60) #44
-  br label %99
+  br label %96
 
 19:                                               ; preds = %13
   %20 = load i64, ptr @__cpu_possible_mask, align 8
@@ -13088,7 +13088,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
   %24 = load i64, ptr @__cpu_present_mask, align 8
   %25 = and i64 %24, %23
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %39
+  br i1 %26, label %27, label %38
 
 27:                                               ; preds = %19
   %28 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #43, !srcloc !298
@@ -13099,122 +13099,119 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %31) #42, !srcloc !152
   %32 = load i64, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %36, label %.thread14
+  br i1 %33, label %35, label %.thread14
 
 .thread14:                                        ; preds = %27
-  %34 = and i64 %1, 511
-  %35 = load i64, ptr %4, align 8
+  %34 = load i64, ptr %4, align 8
   br label %.preheader12
 
-36:                                               ; preds = %27
-  %37 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #43, !srcloc !300
-  %38 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, i32 noundef %37) #44
-  br label %39
+35:                                               ; preds = %27
+  %36 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #43, !srcloc !300
+  %37 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, i32 noundef %36) #44
+  br label %38
 
-39:                                               ; preds = %36, %19
+38:                                               ; preds = %35, %19
   %.pr = load i64, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
-  %40 = icmp eq i64 %.pr, 0
-  %41 = and i64 %1, 511
-  %42 = load i64, ptr %4, align 8
-  br i1 %40, label %.preheader, label %.preheader12
+  %39 = icmp eq i64 %.pr, 0
+  %40 = load i64, ptr %4, align 8
+  br i1 %39, label %.preheader, label %.preheader12
 
-.preheader12:                                     ; preds = %.thread14, %39
-  %43 = phi i64 [ %35, %.thread14 ], [ %42, %39 ]
-  %44 = phi i64 [ %34, %.thread14 ], [ %41, %39 ]
-  %45 = phi i64 [ %32, %.thread14 ], [ %.pr, %39 ]
-  br label %60
+.preheader12:                                     ; preds = %.thread14, %38
+  %41 = phi i64 [ %34, %.thread14 ], [ %40, %38 ]
+  %42 = phi i64 [ %32, %.thread14 ], [ %.pr, %38 ]
+  br label %57
 
-.preheader:                                       ; preds = %39, %54
-  %46 = phi i64 [ %58, %54 ], [ 0, %39 ]
-  %47 = shl nsw i64 -1, %46
-  %48 = and i64 %47, %41
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %.thread, label %50
+.preheader:                                       ; preds = %38, %51
+  %43 = phi i64 [ %55, %51 ], [ 0, %38 ]
+  %44 = shl nsw i64 -1, %43
+  %45 = and i64 %44, %1
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %.thread, label %47
 
-50:                                               ; preds = %.preheader
-  %51 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %48) #43, !srcloc !46
-  %52 = trunc i64 %51 to i32
-  %53 = icmp ult i32 %52, 9
-  br i1 %53, label %54, label %.thread
+47:                                               ; preds = %.preheader
+  %48 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %45) #43, !srcloc !46
+  %49 = trunc i64 %48 to i32
+  %50 = icmp ult i32 %49, 9
+  br i1 %50, label %51, label %.thread
 
-54:                                               ; preds = %50
-  %55 = and i64 %51, 15
-  %56 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %55
-  store i64 %42, ptr %56, align 8
-  %57 = add nuw nsw i64 %51, 1
-  %58 = and i64 %57, 31
-  %59 = icmp ult i64 %58, 9
-  br i1 %59, label %.preheader, label %.thread, !prof !51, !llvm.loop !301
+51:                                               ; preds = %47
+  %52 = and i64 %48, 15
+  %53 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %52
+  store i64 %40, ptr %53, align 8
+  %54 = add nuw nsw i64 %48, 1
+  %55 = and i64 %54, 31
+  %56 = icmp ult i64 %55, 9
+  br i1 %56, label %.preheader, label %.thread, !prof !51, !llvm.loop !301
 
-60:                                               ; preds = %.preheader12, %73
-  %61 = phi i64 [ %78, %73 ], [ 0, %.preheader12 ]
-  %62 = and i64 %61, 4294967295
-  %63 = icmp ult i64 %62, 9
-  br i1 %63, label %64, label %.thread7, !prof !18
+57:                                               ; preds = %.preheader12, %70
+  %58 = phi i64 [ %75, %70 ], [ 0, %.preheader12 ]
+  %59 = and i64 %58, 4294967295
+  %60 = icmp ult i64 %59, 9
+  br i1 %60, label %61, label %.thread7, !prof !18
 
-64:                                               ; preds = %60
-  %65 = shl nsw i64 -1, %62
-  %66 = and i64 %44, %65
-  %67 = and i64 %66, %45
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %.thread7, label %69
+61:                                               ; preds = %57
+  %62 = shl nsw i64 -1, %59
+  %63 = and i64 %1, %62
+  %64 = and i64 %63, %42
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %.thread7, label %66
 
-69:                                               ; preds = %64
-  %70 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %67) #43, !srcloc !46
-  %71 = trunc i64 %70 to i32
-  %72 = icmp ugt i32 %71, 8
-  br i1 %72, label %.thread7, label %73
+66:                                               ; preds = %61
+  %67 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %64) #43, !srcloc !46
+  %68 = trunc i64 %67 to i32
+  %69 = icmp ugt i32 %68, 8
+  br i1 %69, label %.thread7, label %70
 
-73:                                               ; preds = %69
-  %74 = and i64 %70, 15
-  %75 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %74
-  %76 = load i64, ptr %75, align 8
-  %77 = icmp eq i64 %43, %76
-  %78 = add nuw nsw i64 %70, 1
-  br i1 %77, label %60, label %.thread10, !llvm.loop !302
+70:                                               ; preds = %66
+  %71 = and i64 %67, 15
+  %72 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %71
+  %73 = load i64, ptr %72, align 8
+  %74 = icmp eq i64 %41, %73
+  %75 = add nuw nsw i64 %67, 1
+  br i1 %74, label %57, label %.thread10, !llvm.loop !302
 
-.thread10:                                        ; preds = %73
-  %79 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62) #44
-  br label %99
+.thread10:                                        ; preds = %70
+  %76 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62) #44
+  br label %96
 
-.thread7:                                         ; preds = %64, %60, %69
-  %80 = xor i64 %45, -1
-  br label %81
+.thread7:                                         ; preds = %61, %57, %66
+  %77 = xor i64 %42, -1
+  br label %78
 
-81:                                               ; preds = %.thread7, %91
-  %82 = phi i64 [ 0, %.thread7 ], [ %95, %91 ]
-  %83 = shl nsw i64 -1, %82
-  %84 = and i64 %83, %80
-  %85 = and i64 %84, %44
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %.thread, label %87
+78:                                               ; preds = %.thread7, %88
+  %79 = phi i64 [ 0, %.thread7 ], [ %92, %88 ]
+  %80 = shl nsw i64 -1, %79
+  %81 = and i64 %80, %77
+  %82 = and i64 %81, %1
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %.thread, label %84
 
-87:                                               ; preds = %81
-  %88 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %85) #43, !srcloc !46
-  %89 = trunc i64 %88 to i32
-  %90 = icmp ult i32 %89, 9
-  br i1 %90, label %91, label %.thread
+84:                                               ; preds = %78
+  %85 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %82) #43, !srcloc !46
+  %86 = trunc i64 %85 to i32
+  %87 = icmp ult i32 %86, 9
+  br i1 %87, label %88, label %.thread
 
-91:                                               ; preds = %87
-  %92 = and i64 %88, 15
-  %93 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %92
-  store i64 %43, ptr %93, align 8
-  %94 = add nuw nsw i64 %88, 1
-  %95 = and i64 %94, 31
-  %96 = icmp ult i64 %95, 9
-  br i1 %96, label %81, label %.thread, !prof !51, !llvm.loop !303
+88:                                               ; preds = %84
+  %89 = and i64 %85, 15
+  %90 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %89
+  store i64 %41, ptr %90, align 8
+  %91 = add nuw nsw i64 %85, 1
+  %92 = and i64 %91, 31
+  %93 = icmp ult i64 %92, 9
+  br i1 %93, label %78, label %.thread, !prof !51, !llvm.loop !303
 
-.thread:                                          ; preds = %87, %81, %91, %.preheader, %54, %50
-  %97 = load i64, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
-  %98 = or i64 %97, %1
-  store i64 %98, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
-  br label %99
+.thread:                                          ; preds = %84, %78, %88, %.preheader, %51, %47
+  %94 = load i64, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
+  %95 = or i64 %94, %1
+  store i64 %95, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
+  br label %96
 
-99:                                               ; preds = %.thread10, %.thread, %17, %11
-  %100 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 1, %.thread ], [ 0, %.thread10 ]
+96:                                               ; preds = %.thread10, %.thread, %17, %11
+  %97 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 1, %.thread ], [ 0, %.thread10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #42
-  ret i32 %100
+  ret i32 %97
 }
 
 ; Function Attrs: null_pointer_is_valid

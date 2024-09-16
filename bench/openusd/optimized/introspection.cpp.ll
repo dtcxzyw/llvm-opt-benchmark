@@ -2430,7 +2430,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7
 
 320:                                              ; preds = %317, %314, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !24
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_UpdateCountsHelperERKNS_7UsdPrimEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEPmSF_SF_SF_SF_SF_SF_SF_SF_PSt13unordered_mapINS_7TfTokenEmNSH_11HashFunctorESt8equal_toISH_ESaISt4pairIKSH_mEEE(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %22, ptr noundef nonnull %12, ptr noundef nonnull %16, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_UpdateCountsHelperERKNS_7UsdPrimEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEPmSF_SF_SF_SF_SF_SF_SF_SF_PSt13unordered_mapINS_7TfTokenEmNSH_11HashFunctorESt8equal_toISH_ESaISt4pairIKSH_mEEE(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef %22, ptr noundef %12, ptr noundef %16, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21)
           to label %321 unwind label %352
 
 321:                                              ; preds = %320
@@ -2942,7 +2942,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7
 
 559:                                              ; preds = %558, %555, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i122
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !36
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_UpdateCountsHelperERKNS_7UsdPrimEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEPmSF_SF_SF_SF_SF_SF_SF_SF_PSt13unordered_mapINS_7TfTokenEmNSH_11HashFunctorESt8equal_toISH_ESaISt4pairIKSH_mEEE(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull %22, ptr noundef nonnull %12, ptr noundef nonnull %28, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_UpdateCountsHelperERKNS_7UsdPrimEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEPmSF_SF_SF_SF_SF_SF_SF_SF_PSt13unordered_mapINS_7TfTokenEmNSH_11HashFunctorESt8equal_toISH_ESaISt4pairIKSH_mEEE(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef %22, ptr noundef %12, ptr noundef %28, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33)
           to label %560 unwind label %591
 
 560:                                              ; preds = %559
@@ -5190,7 +5190,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerE
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage11TraverseAllEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrimRange") align 8, ptr noundef nonnull align 8 dereferenceable(1282)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_UpdateCountsHelperERKNS_7UsdPrimEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEPmSF_SF_SF_SF_SF_SF_SF_SF_PSt13unordered_mapINS_7TfTokenEmNSH_11HashFunctorESt8equal_toISH_ESaISt4pairIKSH_mEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr noundef %11) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_UpdateCountsHelperERKNS_7UsdPrimEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEPmSF_SF_SF_SF_SF_SF_SF_SF_PSt13unordered_mapINS_7TfTokenEmNSH_11HashFunctorESt8equal_toISH_ESaISt4pairIKSH_mEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9, ptr nocapture noundef nonnull %10, ptr noundef nonnull %11) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %13 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %14 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdModelAPI", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8

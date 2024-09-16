@@ -643,7 +643,7 @@ _ZNSt6vectorI25cmExpandedCommandArgumentSaIS0_EEC2ISt14_List_iteratorIS0_EvEET_S
           to label %34 unwind label %50
 
 34:                                               ; preds = %_ZNSt6vectorI25cmExpandedCommandArgumentSaIS0_EEC2ISt14_List_iteratorIS0_EvEET_S6_RKS1_.exit
-  invoke fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %7, i1 noundef zeroext %33)
+  invoke fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %33)
           to label %35 unwind label %50
 
 35:                                               ; preds = %34
@@ -2713,7 +2713,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN10cmPolicies22GetRequiredPolicyErrorB5cxx11ENS_8PolicyIDE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %0, i1 noundef zeroext %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = select i1 %1, i8 49, i8 48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
@@ -2787,7 +2787,7 @@ _ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EED2Ev.exit: ; preds = %_ZS
 define linkonce_odr dso_local void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_18CurrentAndNextIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr %2, ptr %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.cmExpandedCommandArgument, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %6, i1 noundef zeroext %1)
+  call fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %1)
   invoke void @_ZN25cmExpandedCommandArgumentC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull %6, i1 noundef zeroext true)
           to label %7 unwind label %18
 
@@ -2924,7 +2924,7 @@ declare noundef ptr @_ZNK10cmMakefile7GetTestERKNSt7__cxx1112basic_stringIcSt11c
 define linkonce_odr dso_local void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_21CurrentAndTwoMoreIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.cmExpandedCommandArgument, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %5, i1 noundef zeroext %1)
+  call fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %5, i1 noundef zeroext %1)
   invoke void @_ZN25cmExpandedCommandArgumentC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull %5, i1 noundef zeroext true)
           to label %6 unwind label %20
 
@@ -2968,7 +2968,7 @@ declare void @_ZN10cmMakefile12StoreMatchesERN5cmsys17RegularExpressionE(ptr nou
 define linkonce_odr dso_local void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.cmExpandedCommandArgument, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %5, i1 noundef zeroext %1)
+  call fastcc void @_ZN12_GLOBAL__N_111bool2stringB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %5, i1 noundef zeroext %1)
   invoke void @_ZN25cmExpandedCommandArgumentC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull %5, i1 noundef zeroext true)
           to label %6 unwind label %25
 

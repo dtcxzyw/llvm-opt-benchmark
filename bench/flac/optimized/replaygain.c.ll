@@ -662,7 +662,7 @@ entry:
   %chain = alloca ptr, align 8
   %block = alloca ptr, align 8
   store ptr null, ptr %block, align 8
-  %call = call fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef nonnull %chain, ptr noundef nonnull %block)
+  %call = call fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef %chain, ptr noundef %block)
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %return
 
@@ -687,7 +687,7 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr nocapture noundef %chain, ptr nocapture noundef %block) unnamed_addr #0 {
+define internal fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr nocapture noundef nonnull %chain, ptr nocapture noundef nonnull %block) unnamed_addr #0 {
 entry:
   %call = tail call ptr @FLAC__metadata_chain_new() #15
   store ptr %call, ptr %chain, align 8
@@ -821,7 +821,7 @@ entry:
   %chain = alloca ptr, align 8
   %block = alloca ptr, align 8
   store ptr null, ptr %block, align 8
-  %call = call fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef nonnull %chain, ptr noundef nonnull %block)
+  %call = call fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef %chain, ptr noundef %block)
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %return
 
@@ -858,7 +858,7 @@ entry:
   %chain = alloca ptr, align 8
   %block = alloca ptr, align 8
   store ptr null, ptr %block, align 8
-  %call = call fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef nonnull %chain, ptr noundef nonnull %block)
+  %call = call fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef %chain, ptr noundef %block)
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %return
 
@@ -904,7 +904,7 @@ entry:
   %chain = alloca ptr, align 8
   %block = alloca ptr, align 8
   store ptr null, ptr %block, align 8
-  %call = call fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef nonnull %chain, ptr noundef nonnull %block)
+  %call = call fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr noundef %chain, ptr noundef %block)
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %return
 

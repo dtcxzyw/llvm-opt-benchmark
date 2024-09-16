@@ -90,7 +90,7 @@ stream_read_bit.exit47.i:                         ; preds = %29, %._crit_edge.i4
   %42 = getelementptr inbounds i8, ptr %0, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, -2
-  %45 = call fastcc i32 @rev_decode_block_int64_4(ptr noundef %38, i32 noundef %41, i32 noundef %44, ptr noundef nonnull %5)
+  %45 = call fastcc i32 @rev_decode_block_int64_4(ptr noundef %38, i32 noundef %41, i32 noundef %44, ptr noundef %5)
   br label %46
 
 46:                                               ; preds = %52, %39
@@ -141,12 +141,12 @@ rev_inv_reinterpret_double.exit.i:                ; preds = %52
   br label %stream_read_bits.exit.i
 
 stream_read_bits.exit.i:                          ; preds = %69, %59
-  %.sink.i = phi i64 [ %66, %59 ], [ %70, %69 ]
-  %storemerge.i = phi i64 [ %68, %59 ], [ %71, %69 ]
-  %.0.i.in.i = phi i64 [ %65, %59 ], [ %56, %69 ]
-  store i64 %.sink.i, ptr %38, align 8
-  store i64 %storemerge.i, ptr %55, align 8
-  %72 = trunc i64 %.0.i.in.i to i32
+  %.sink28.i.i = phi i64 [ %65, %59 ], [ %56, %69 ]
+  %.sink27.i.i = phi i64 [ %66, %59 ], [ %70, %69 ]
+  %.sink.i.i = phi i64 [ %68, %59 ], [ %71, %69 ]
+  store i64 %.sink27.i.i, ptr %38, align 8
+  store i64 %.sink.i.i, ptr %55, align 8
+  %72 = trunc i64 %.sink28.i.i to i32
   %73 = and i32 %72, 2047
   %74 = load ptr, ptr %9, align 8
   %75 = load i32, ptr %0, align 8
@@ -154,10 +154,10 @@ stream_read_bits.exit.i:                          ; preds = %69, %59
   %77 = getelementptr inbounds i8, ptr %0, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, -13
-  %80 = call fastcc i32 @rev_decode_block_int64_4(ptr noundef %74, i32 noundef %76, i32 noundef %79, ptr noundef nonnull %5)
+  %80 = call fastcc i32 @rev_decode_block_int64_4(ptr noundef %74, i32 noundef %76, i32 noundef %79, ptr noundef %5)
   %81 = add i32 %80, 13
-  %.not.i49.i = icmp eq i32 %73, 0
-  br i1 %.not.i49.i, label %.preheader.preheader.i.i, label %82
+  %.not.i48.i = icmp eq i32 %73, 0
+  br i1 %.not.i48.i, label %.preheader.preheader.i.i, label %82
 
 .preheader.preheader.i.i:                         ; preds = %stream_read_bits.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %1, i8 0, i64 2048, i1 false)
@@ -201,8 +201,8 @@ stream_read_bits.exit.i:                          ; preds = %69, %59
   %108 = lshr i64 %106, 6
   %109 = getelementptr inbounds i64, ptr %99, i64 %108
   store ptr %109, ptr %96, align 8
-  %.not.i.i50.i = icmp eq i64 %107, 0
-  br i1 %.not.i.i50.i, label %stream_skip.exit.i, label %110
+  %.not.i.i49.i = icmp eq i64 %107, 0
+  br i1 %.not.i.i49.i, label %stream_skip.exit.i, label %110
 
 110:                                              ; preds = %92
   %111 = getelementptr inbounds i8, ptr %109, i64 8
@@ -290,12 +290,12 @@ stream_read_bit.exit.i8:                          ; preds = %121, %._crit_edge.i
   br label %stream_read_bits.exit.i11
 
 stream_read_bits.exit.i11:                        ; preds = %148, %138
-  %.sink.i12 = phi i64 [ %145, %138 ], [ %149, %148 ]
-  %storemerge.i13 = phi i64 [ %147, %138 ], [ %150, %148 ]
-  %.0.i.in.i14 = phi i64 [ %144, %138 ], [ %135, %148 ]
-  store i64 %.sink.i12, ptr %133, align 8
-  store i64 %storemerge.i13, ptr %134, align 8
-  %151 = trunc i64 %.0.i.in.i14 to i32
+  %.sink28.i.i12 = phi i64 [ %144, %138 ], [ %135, %148 ]
+  %.sink27.i.i13 = phi i64 [ %145, %138 ], [ %149, %148 ]
+  %.sink.i.i14 = phi i64 [ %147, %138 ], [ %150, %148 ]
+  store i64 %.sink27.i.i13, ptr %133, align 8
+  store i64 %.sink.i.i14, ptr %134, align 8
+  %151 = trunc i64 %.sink28.i.i12 to i32
   %152 = and i32 %151, 2047
   %153 = add nsw i32 %152, -1023
   %154 = getelementptr inbounds i8, ptr %0, i64 8
@@ -313,7 +313,7 @@ stream_read_bits.exit.i11:                        ; preds = %148, %138
   %165 = load i32, ptr %164, align 4
   %166 = add i32 %165, -12
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
-  %167 = call fastcc i32 @decode_ints_uint64(ptr noundef %161, i32 noundef %166, i32 noundef %160, ptr noundef nonnull %3)
+  %167 = call fastcc i32 @decode_ints_uint64(ptr noundef %161, i32 noundef %166, i32 noundef %160, ptr noundef %3)
   %168 = icmp ult i32 %167, %163
   br i1 %168, label %169, label %192
 
@@ -355,7 +355,7 @@ stream_skip.exit.i.i:                             ; preds = %186, %169
   br label %192
 
 192:                                              ; preds = %stream_skip.exit.i.i, %stream_read_bits.exit.i11
-  %.0.i32.i = phi i32 [ %163, %stream_skip.exit.i.i ], [ %167, %stream_read_bits.exit.i11 ]
+  %.0.i.i = phi i32 [ %163, %stream_skip.exit.i.i ], [ %167, %stream_read_bits.exit.i11 ]
   br label %193
 
 193:                                              ; preds = %193, %192
@@ -609,16 +609,16 @@ decode_block_int64_4.exit.i:                      ; preds = %306
 309:                                              ; preds = %309, %decode_block_int64_4.exit.i
   %.05.i.i = phi i32 [ 256, %decode_block_int64_4.exit.i ], [ %315, %309 ]
   %.04.i.i = phi ptr [ %1, %decode_block_int64_4.exit.i ], [ %314, %309 ]
-  %.0.i33.i = phi ptr [ %4, %decode_block_int64_4.exit.i ], [ %310, %309 ]
-  %310 = getelementptr inbounds i8, ptr %.0.i33.i, i64 8
-  %311 = load i64, ptr %.0.i33.i, align 8
+  %.0.i31.i = phi ptr [ %4, %decode_block_int64_4.exit.i ], [ %310, %309 ]
+  %310 = getelementptr inbounds i8, ptr %.0.i31.i, i64 8
+  %311 = load i64, ptr %.0.i31.i, align 8
   %312 = sitofp i64 %311 to double
   %313 = fmul double %308, %312
   %314 = getelementptr inbounds i8, ptr %.04.i.i, i64 8
   store double %313, ptr %.04.i.i, align 8
   %315 = add nsw i32 %.05.i.i, -1
-  %.not.i34.i = icmp eq i32 %315, 0
-  br i1 %.not.i34.i, label %inv_cast_double.exit.loopexit.i, label %309
+  %.not.i32.i = icmp eq i32 %315, 0
+  br i1 %.not.i32.i, label %inv_cast_double.exit.loopexit.i, label %309
 
 316:                                              ; preds = %.preheader.preheader.i18
   %317 = load ptr, ptr %9, align 8
@@ -639,8 +639,8 @@ decode_block_int64_4.exit.i:                      ; preds = %306
   %332 = lshr i64 %330, 6
   %333 = getelementptr inbounds i64, ptr %323, i64 %332
   store ptr %333, ptr %320, align 8
-  %.not.i.i35.i = icmp eq i64 %331, 0
-  br i1 %.not.i.i35.i, label %stream_skip.exit.i19, label %334
+  %.not.i.i33.i = icmp eq i64 %331, 0
+  br i1 %.not.i.i33.i, label %stream_skip.exit.i19, label %334
 
 334:                                              ; preds = %316
   %335 = getelementptr inbounds i8, ptr %333, i64 8
@@ -660,7 +660,7 @@ stream_skip.exit.i19:                             ; preds = %334, %316
   br label %decode_block_double_4.exit
 
 inv_cast_double.exit.loopexit.i:                  ; preds = %309
-  %341 = add i32 %.0.i32.i, 12
+  %341 = add i32 %.0.i.i, 12
   br label %decode_block_double_4.exit
 
 decode_block_double_4.exit:                       ; preds = %.preheader.preheader.i18, %stream_skip.exit.i19, %inv_cast_double.exit.loopexit.i
@@ -675,7 +675,7 @@ decode_block_double_4.exit:                       ; preds = %.preheader.preheade
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @rev_decode_block_int64_4(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @rev_decode_block_int64_4(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = alloca [256 x i64], align 256
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -702,16 +702,16 @@ define internal fastcc i32 @rev_decode_block_int64_4(ptr nocapture noundef %0, i
   br label %stream_read_bits.exit
 
 stream_read_bits.exit:                            ; preds = %10, %20
-  %.sink = phi i64 [ %17, %10 ], [ %21, %20 ]
-  %storemerge = phi i64 [ %19, %10 ], [ %22, %20 ]
-  %.0.i.in = phi i64 [ %16, %10 ], [ %7, %20 ]
-  store i64 %.sink, ptr %0, align 8
-  store i64 %storemerge, ptr %6, align 8
-  %23 = trunc i64 %.0.i.in to i32
+  %.sink28.i = phi i64 [ %16, %10 ], [ %7, %20 ]
+  %.sink27.i = phi i64 [ %17, %10 ], [ %21, %20 ]
+  %.sink.i = phi i64 [ %19, %10 ], [ %22, %20 ]
+  store i64 %.sink27.i, ptr %0, align 8
+  store i64 %.sink.i, ptr %6, align 8
+  %23 = trunc i64 %.sink28.i to i32
   %24 = and i32 %23, 63
   %25 = add nuw nsw i32 %24, 1
   %26 = add i32 %2, -6
-  %27 = call fastcc i32 @decode_ints_uint64(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %25, ptr noundef nonnull %5)
+  %27 = call fastcc i32 @decode_ints_uint64(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %25, ptr noundef %5)
   %28 = add i32 %27, 6
   %29 = icmp ult i32 %28, %1
   br i1 %29, label %30, label %52
@@ -759,7 +759,7 @@ stream_skip.exit:                                 ; preds = %30, %47
 53:                                               ; preds = %53, %52
   %.04.i = phi ptr [ %5, %52 ], [ %54, %53 ]
   %.03.i = phi ptr [ @perm_4, %52 ], [ %58, %53 ]
-  %.0.i16 = phi i32 [ 256, %52 ], [ %62, %53 ]
+  %.0.i = phi i32 [ 256, %52 ], [ %62, %53 ]
   %54 = getelementptr inbounds i8, ptr %.04.i, i64 8
   %55 = load i64, ptr %.04.i, align 8
   %56 = xor i64 %55, -6148914691236517206
@@ -769,9 +769,9 @@ stream_skip.exit:                                 ; preds = %30, %47
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds i64, ptr %3, i64 %60
   store i64 %57, ptr %61, align 8
-  %62 = add nsw i32 %.0.i16, -1
-  %.not.i17 = icmp eq i32 %62, 0
-  br i1 %.not.i17, label %.preheader57.i, label %53
+  %62 = add nsw i32 %.0.i, -1
+  %.not.i = icmp eq i32 %62, 0
+  br i1 %.not.i, label %.preheader57.i, label %53
 
 .preheader57.i:                                   ; preds = %53, %78
   %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %78 ], [ 0, %53 ]
@@ -959,7 +959,7 @@ rev_inv_xform_int64_4.exit:                       ; preds = %126
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @decode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @decode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = shl i32 %2, 8
   %6 = or disjoint i32 %5, 255
   %.not = icmp ugt i32 %6, %1

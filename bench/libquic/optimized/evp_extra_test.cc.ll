@@ -120,7 +120,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %md_ctx.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sig_len.i)
-  call fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias nonnull align 8 %pkey.i)
+  call fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias align 8 %pkey.i)
   invoke void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -415,7 +415,7 @@ if.then:                                          ; preds = %_ZL22TestEVP_Digest
 if.end:                                           ; preds = %_ZL22TestEVP_DigestSignInitv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %md_ctx.i2)
-  call fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias nonnull align 8 %pkey.i1)
+  call fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias align 8 %pkey.i1)
   invoke void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i2)
           to label %invoke.cont.i6 unwind label %lpad.i3
 
@@ -521,7 +521,7 @@ if.end5:                                          ; preds = %_ZL24TestEVP_Digest
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sig_len.i15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out_len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ctx.i)
-  call fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias nonnull align 8 %pkey.i14)
+  call fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias align 8 %pkey.i14)
   %32 = load ptr, ptr %pkey.i14, align 8
   %cmp.i.not.i16 = icmp eq ptr %32, null
   br i1 %cmp.i.not.i16, label %_ZL17TestVerifyRecoverv.exit.thread, label %if.end.i17
@@ -1395,7 +1395,7 @@ declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #1
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %rsa = alloca %"class.std::unique_ptr.2", align 8
   %pkey = alloca %"class.std::unique_ptr", align 8
@@ -1620,7 +1620,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL19TestValidPrivateKeyPKhmi(ptr noundef %input, i64 noundef %input_len, i32 noundef %expected_id) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL19TestValidPrivateKeyPKhmi(ptr noundef %input, i64 noundef range(i64 121, 859) %input_len, i32 noundef range(i32 6, 409) %expected_id) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca ptr, align 8
   %pkey = alloca %"class.std::unique_ptr", align 8

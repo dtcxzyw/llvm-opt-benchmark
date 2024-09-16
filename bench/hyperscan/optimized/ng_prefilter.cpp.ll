@@ -2350,7 +2350,7 @@ if.then.i.i.i35.i.i.i:                            ; preds = %.noexc.i.i.i
 
 invoke.cont.i.i.i36:                              ; preds = %if.then.i.i.i35.i.i.i, %.noexc.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i52.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %reach.i.i.i.i, i64 41, i1 false)
-  invoke fastcc void @_ZSt13__adjust_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_T2_(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %add12.i.i.i.i, ptr noundef nonnull %agg.tmp3.i.i.i)
+  invoke fastcc void @_ZSt13__adjust_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_T2_(ptr noundef %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %add12.i.i.i.i, ptr noundef %agg.tmp3.i.i.i)
           to label %invoke.cont6.i.i.i unwind label %lpad5.i.i.i
 
 invoke.cont6.i.i.i:                               ; preds = %invoke.cont.i.i.i36
@@ -3110,7 +3110,7 @@ invoke.cont.i.i79:                                ; preds = %if.then.i.i.i10.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i27.i.i, ptr noundef nonnull align 8 dereferenceable(41) %reach.i.i.i, i64 41, i1 false)
   %add12.i.i.i81 = add nsw i64 %add.i.i.i.i12.i, %sub.ptr.div11.i.i.i76
   %sub.i.i82 = add nsw i64 %add12.i.i.i81, %mul.i.i.i72
-  call fastcc void @_ZSt11__push_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_RT2_(ptr noundef nonnull %agg.tmp1.i.i, i64 noundef %sub.i.i82, i64 noundef 0, ptr noundef nonnull %agg.tmp3.i.i)
+  call fastcc void @_ZSt11__push_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_RT2_(ptr noundef %agg.tmp1.i.i, i64 noundef %sub.i.i82, i64 noundef 0, ptr noundef %agg.tmp3.i.i)
   %375 = load ptr, ptr %vertices.i7.i.i, align 8
   %tobool.not.i.i.i31.i.i = icmp eq ptr %375, null
   br i1 %tobool.not.i.i.i31.i.i, label %_ZN3ue212_GLOBAL__N_110RegionInfoD2Ev.exit.i.i, label %if.then.i.i.i32.i.i
@@ -4852,7 +4852,7 @@ if.then.i.i.i31.i.i.i:                            ; preds = %.noexc.i.i.i361
 
 invoke.cont.i.i.i362:                             ; preds = %if.then.i.i.i31.i.i.i, %.noexc.i.i.i361
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i48.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %reach.i.i.i.i341, i64 41, i1 false)
-  invoke fastcc void @_ZSt13__adjust_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_T2_(ptr noundef nonnull %agg.tmp.i.i.i276, i64 noundef 0, i64 noundef %add12.i.i.i.i357, ptr noundef nonnull %agg.tmp5.i.i.i)
+  invoke fastcc void @_ZSt13__adjust_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_T2_(ptr noundef %agg.tmp.i.i.i276, i64 noundef 0, i64 noundef %add12.i.i.i.i357, ptr noundef %agg.tmp5.i.i.i)
           to label %invoke.cont8.i.i.i unwind label %lpad7.i.i.i
 
 invoke.cont8.i.i.i:                               ; preds = %invoke.cont.i.i.i362
@@ -6180,7 +6180,7 @@ unreachable:                                      ; preds = %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_T2_(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_T2_(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i.i194 = alloca { ptr, i64 }, align 8
   %__tmp.sroa.0.i.i.i.i.i167 = alloca { ptr, i64 }, align 8
@@ -6630,7 +6630,7 @@ _ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit:    ; preds = %if.end21, %if.then.
   %reach.i213 = getelementptr inbounds i8, ptr %agg.tmp23, i64 88
   %reach4.i214 = getelementptr inbounds i8, ptr %__value, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i213, ptr noundef nonnull align 8 dereferenceable(41) %reach4.i214, i64 41, i1 false)
-  call fastcc void @_ZSt11__push_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_RT2_(ptr noundef nonnull %agg.tmp22, i64 noundef %__holeIndex.addr.1, i64 noundef %__holeIndex, ptr noundef nonnull %agg.tmp23)
+  call fastcc void @_ZSt11__push_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_RT2_(ptr noundef %agg.tmp22, i64 noundef %__holeIndex.addr.1, i64 noundef %__holeIndex, ptr noundef %agg.tmp23)
   %52 = load ptr, ptr %vertices.i195, align 8
   %tobool.not.i.i.i216 = icmp eq ptr %52, null
   br i1 %tobool.not.i.i.i216, label %_ZN3ue212_GLOBAL__N_110RegionInfoD2Ev.exit, label %if.then.i.i.i217
@@ -6666,7 +6666,7 @@ _ZN3ue212_GLOBAL__N_110RegionInfoD2Ev.exit:       ; preds = %_ZN3ue212_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11__push_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_RT2_(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__topIndex, ptr nocapture noundef %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11__push_heapISt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS3_PS3_ElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS2_19RegionInfoQueueCompEEEEvT_T0_SD_T1_RT2_(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__topIndex, ptr nocapture noundef nonnull %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i.i97 = alloca { ptr, i64 }, align 8
   %__tmp.sroa.0.i.i.i.i.i = alloca { ptr, i64 }, align 8

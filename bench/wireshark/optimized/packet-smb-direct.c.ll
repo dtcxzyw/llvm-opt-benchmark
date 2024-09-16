@@ -399,7 +399,7 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %7 = getelementptr inbounds i8, ptr %1, i64 8

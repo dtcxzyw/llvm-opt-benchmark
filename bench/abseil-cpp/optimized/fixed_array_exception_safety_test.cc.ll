@@ -10611,11 +10611,11 @@ invoke.cont:                                      ; preds = %entry
   %ref.tmp5.val = load i64, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp5, i64 112
   %ref.tmp5.val15 = load ptr, ptr %1, align 8
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, i64 %ref.tmp5.val, ptr %ref.tmp5.val15)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, i64 %ref.tmp5.val, ptr %ref.tmp5.val15)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_v"(ptr noalias nonnull align 8 %gtest_ar_, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp4)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_v"(ptr noalias align 8 %gtest_ar_, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp4)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -10843,11 +10843,11 @@ invoke.cont37:                                    ; preds = %_ZN7testing15Assert
   %ref.tmp33.val = load i64, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %ref.tmp33, i64 112
   %ref.tmp33.val16 = load ptr, ptr %34, align 8
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias nonnull align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, i64 %ref.tmp33.val, ptr %ref.tmp33.val16)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, i64 %ref.tmp33.val, ptr %ref.tmp33.val16)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_v"(ptr noalias nonnull align 8 %gtest_ar_31, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp32)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_v"(ptr noalias align 8 %gtest_ar_31, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp32)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont39
@@ -11262,7 +11262,7 @@ lpad.body:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %t.104.val, ptr %t.112.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %t.104.val, ptr %t.112.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.16", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.16", align 1
@@ -11381,7 +11381,7 @@ eh.resume:                                        ; preds = %lpad3, %lpad.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_v"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_v"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i = alloca %"class.std::allocator.16", align 1
   %ref.tmp.i.i = alloca %"class.testing::exceptions_internal::ExceptionSafetyTest", align 8
@@ -11441,7 +11441,7 @@ _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !99
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvEEC2IRKNS3_19exceptions_internal14DefaultFactoryIS8_EEvEEOT_.exit.i.i
-  invoke void @_ZNK7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEE4TestEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i)
+  invoke void @_ZNK7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEE4TestEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont.i.i
@@ -12970,11 +12970,11 @@ lpad.i:                                           ; preds = %invoke.cont6.i
   br label %ehcleanup14
 
 invoke.cont9:                                     ; preds = %invoke.cont6.i
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorISB_LNS_9AllocSpecE0EEEEEEEE16WithInitialValueISF_EENS1_INS0_14DefaultFactoryIT_EES6_JSI_EEERKSM_"(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp5)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorISB_LNS_9AllocSpecE0EEEEEEEE16WithInitialValueISF_EENS1_INS0_14DefaultFactoryIT_EES6_JSI_EEERKSM_"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp5)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_v"(ptr noalias nonnull align 8 %gtest_ar_, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp4)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_v"(ptr noalias align 8 %gtest_ar_, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp4)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -13338,11 +13338,11 @@ lpad.i47:                                         ; preds = %invoke.cont6.i43
   br label %ehcleanup47
 
 invoke.cont40:                                    ; preds = %invoke.cont6.i43
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorISB_LNS_9AllocSpecE0EEEEEEEE16WithInitialValueISF_EENS1_INS0_14DefaultFactoryIT_EES6_JSI_EEERKSM_"(ptr noalias nonnull align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp34)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorISB_LNS_9AllocSpecE0EEEEEEEE16WithInitialValueISF_EENS1_INS0_14DefaultFactoryIT_EES6_JSI_EEERKSM_"(ptr noalias align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp34)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %invoke.cont40
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_v"(ptr noalias nonnull align 8 %gtest_ar_32, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp33)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_v"(ptr noalias align 8 %gtest_ar_32, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp33)
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont42
@@ -13852,7 +13852,7 @@ lpad.body:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorISB_LNS_9AllocSpecE0EEEEEEEE16WithInitialValueISF_EENS1_INS0_14DefaultFactoryIT_EES6_JSI_EEERKSM_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(136) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorISB_LNS_9AllocSpecE0EEEEEEEE16WithInitialValueISF_EENS1_INS0_14DefaultFactoryIT_EES6_JSI_EEERKSM_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(136) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::exceptions_internal::DefaultFactory.141", align 8
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %t)
@@ -13918,7 +13918,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_v"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_v"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.testing::exceptions_internal::ExceptionSafetyTest.142", align 8
   %ref.tmp3.i.i = alloca %"class.std::function.143", align 8
@@ -13958,7 +13958,7 @@ _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !148
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvEEC2IRKNS3_19exceptions_internal14DefaultFactoryISA_EEvEEOT_.exit.i.i
-  invoke void @_ZNK7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEE4TestEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i)
+  invoke void @_ZNK7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEE4TestEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont.i.i

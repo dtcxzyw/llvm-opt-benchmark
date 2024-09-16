@@ -1627,7 +1627,7 @@ entry:
 declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_packet_state_fault(i32 noundef %bus, ptr noundef %port, i32 noundef %ep, ptr noundef %p, ptr noundef %o, ptr noundef %n) unnamed_addr #1 {
+define internal fastcc void @trace_usb_packet_state_fault(i32 noundef %bus, ptr noundef %port, i32 noundef range(i32 0, 256) %ep, ptr noundef %p, ptr noundef %o, ptr noundef %n) unnamed_addr #1 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)

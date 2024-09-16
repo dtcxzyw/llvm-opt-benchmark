@@ -1402,7 +1402,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_logical_channel(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @init_logical_channel(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.circuit_chain_key, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %1, ptr %6, align 8
@@ -1617,7 +1617,7 @@ declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef,
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
   tail call void @increment_dissection_depth(ptr noundef %1) #12
   %.not73 = icmp eq ptr %5, null
@@ -1641,7 +1641,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   br i1 %17, label %19, label %.lr.ph
 
 19:                                               ; preds = %18
-  %20 = tail call fastcc i32 @mux_element_sublist_size(ptr noundef %1, ptr noundef nonnull %14)
+  %20 = tail call fastcc i32 @mux_element_sublist_size(ptr noundef %1, ptr noundef %14)
   %21 = add i32 %.05974, %20
   %.not6569 = icmp ugt i32 %21, %11
   br i1 %.not6569, label %.loopexit, label %.lr.ph71
@@ -1700,7 +1700,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @mux_element_sublist_size(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @mux_element_sublist_size(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @increment_dissection_depth(ptr noundef %0) #12
@@ -1722,7 +1722,7 @@ define internal fastcc range(i32 1, 0) i32 @mux_element_sublist_size(ptr noundef
   br i1 %.not16, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = tail call fastcc i32 @mux_element_sublist_size(ptr noundef %0, ptr noundef nonnull %5)
+  %10 = tail call fastcc i32 @mux_element_sublist_size(ptr noundef %0, ptr noundef %5)
   %11 = mul i32 %10, %8
   br label %12
 
@@ -1748,7 +1748,7 @@ define internal fastcc range(i32 1, 0) i32 @mux_element_sublist_size(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mux_sdu_fragment(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_mux_sdu_fragment(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.circuit_chain_key, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -1905,8 +1905,7 @@ find_h223_lc_params.exit:                         ; preds = %66, %69
 88:                                               ; preds = %84
   %89 = load i32, ptr %44, align 4
   %.0..0..0..0.59 = load volatile ptr, ptr %11, align 8
-  %.not75 = icmp eq i32 %6, 0
-  %90 = zext i1 %.not75 to i32
+  %90 = xor i32 %6, 1
   %91 = call ptr @stream_add_frag(ptr noundef %.064, i32 noundef %89, i32 noundef %2, ptr noundef %.0..0..0..0.59, ptr noundef nonnull %1, i32 noundef %90) #12
   br label %92
 

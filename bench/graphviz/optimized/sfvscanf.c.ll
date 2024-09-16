@@ -1619,7 +1619,7 @@ gv_isspace.exit822:                               ; preds = %.preheader892
   br i1 %675, label %.preheader896, label %.critedge70
 
 677:                                              ; preds = %646
-  %678 = call fastcc ptr @setclass(ptr noundef %.13, ptr noundef nonnull %6)
+  %678 = call fastcc ptr @setclass(ptr noundef %.13, ptr noundef %6)
   %smin1158 = call i32 @llvm.smin.i32(i32 %.3651, i32 1)
   %679 = add i32 %smin1158, -1
   br label %680
@@ -1736,7 +1736,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1
   %5 = icmp ne i8 %4, 94

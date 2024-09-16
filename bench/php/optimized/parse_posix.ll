@@ -173,7 +173,7 @@ timelib_posix_str_dtor.exit:                      ; preds = %43, %46
   br label %166
 
 47:                                               ; preds = %read_description.exit
-  %48 = call fastcc i64 @read_offset(ptr noundef nonnull %2)
+  %48 = call fastcc i64 @read_offset(ptr noundef %2)
   %49 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %48, ptr %49, align 8
   %50 = icmp eq i64 %48, -9999999
@@ -354,7 +354,7 @@ timelib_posix_str_dtor.exit54:                    ; preds = %112, %115
   ]
 
 118:                                              ; preds = %116
-  %119 = call fastcc i64 @read_offset(ptr noundef nonnull %2)
+  %119 = call fastcc i64 @read_offset(ptr noundef %2)
   store i64 %119, ptr %69, align 8
   %120 = icmp eq i64 %119, -9999999
   br i1 %120, label %121, label %._crit_edge
@@ -453,7 +453,7 @@ timelib_posix_str_dtor.exit64:                    ; preds = %144, %147
 148:                                              ; preds = %133
   %149 = getelementptr inbounds i8, ptr %135, i64 1
   store ptr %149, ptr %2, align 8
-  %150 = call fastcc ptr @read_transition_spec(ptr noundef nonnull %2)
+  %150 = call fastcc ptr @read_transition_spec(ptr noundef %2)
   %151 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %150, ptr %151, align 8
   %.not33 = icmp eq ptr %150, null
@@ -476,7 +476,7 @@ timelib_posix_str_dtor.exit64:                    ; preds = %144, %147
 157:                                              ; preds = %153
   %158 = getelementptr inbounds i8, ptr %154, i64 1
   store ptr %158, ptr %2, align 8
-  %159 = call fastcc ptr @read_transition_spec(ptr noundef nonnull %2)
+  %159 = call fastcc ptr @read_transition_spec(ptr noundef %2)
   %160 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %159, ptr %160, align 8
   %.not35 = icmp eq ptr %159, null
@@ -505,7 +505,7 @@ timelib_posix_str_dtor.exit64:                    ; preds = %144, %147
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @read_offset(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc i64 @read_offset(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %read_sign.exit [
@@ -714,7 +714,7 @@ read_number.exit57:                               ; preds = %read_number.exit57.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_transition_spec(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_transition_spec(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 77
@@ -987,7 +987,7 @@ read_trans_spec_mwd.exit:                         ; preds = %read_number.exit44.
 101:                                              ; preds = %read_trans_spec_mwd.exit
   %102 = getelementptr inbounds i8, ptr %98, i64 1
   store ptr %102, ptr %0, align 8
-  %103 = tail call fastcc i64 @read_offset(ptr noundef nonnull %0)
+  %103 = tail call fastcc i64 @read_offset(ptr noundef %0)
   %104 = trunc i64 %103 to i32
   %105 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %104, ptr %105, align 4

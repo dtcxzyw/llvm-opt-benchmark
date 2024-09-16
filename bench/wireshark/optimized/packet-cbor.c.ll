@@ -263,7 +263,7 @@ define internal i32 @dissect_cbor(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %8 = load i32, ptr @ett_cbor, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
-  %10 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef nonnull %5)
+  %10 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef %5)
   %11 = load i32, ptr %5, align 4
   call void @proto_item_set_len(ptr noundef %7, i32 noundef %11) #6
   %12 = load i32, ptr %5, align 4
@@ -288,7 +288,7 @@ define internal i32 @dissect_cborseq(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef nonnull %5)
+  %15 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef %5)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %10, !llvm.loop !4
 
@@ -317,7 +317,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -511,11 +511,11 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   br label %dissect_cbor_negative_integer.exit
 
 111:                                              ; preds = %4
-  %112 = tail call fastcc i32 @dissect_cbor_byte_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i8 noundef zeroext %12)
+  %112 = tail call fastcc i32 @dissect_cbor_byte_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %12)
   br label %dissect_cbor_negative_integer.exit
 
 113:                                              ; preds = %4
-  %114 = tail call fastcc i32 @dissect_cbor_text_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i8 noundef zeroext %12)
+  %114 = tail call fastcc i32 @dissect_cbor_text_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %12)
   br label %dissect_cbor_negative_integer.exit
 
 115:                                              ; preds = %4
@@ -595,7 +595,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
 
 .lr.ph57.split.us:                                ; preds = %148, %150
   %.057.i55.us = phi i64 [ %151, %150 ], [ 0, %148 ]
-  %149 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %120, ptr noundef nonnull %3)
+  %149 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %120, ptr noundef %3)
   %.not60.i.us = icmp eq i32 %149, 0
   br i1 %.not60.i.us, label %dissect_cbor_array.exit, label %150
 
@@ -639,7 +639,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   br label %._crit_edge58
 
 174:                                              ; preds = %.lr.ph57.split
-  %175 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %120, ptr noundef nonnull %3)
+  %175 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %120, ptr noundef %3)
   %.not60.i = icmp eq i32 %175, 0
   br i1 %.not60.i, label %dissect_cbor_array.exit, label %154
 
@@ -745,7 +745,7 @@ dissect_cbor_array.exit:                          ; preds = %174, %.lr.ph57.spli
 
 .lr.ph.split.us:                                  ; preds = %214, %216
   %.061.i54.us = phi i64 [ %217, %216 ], [ 0, %214 ]
-  %215 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3)
+  %215 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3)
   %.not64.i.us = icmp eq i32 %215, 0
   br i1 %.not64.i.us, label %dissect_cbor_map.exit, label %220
 
@@ -756,7 +756,7 @@ dissect_cbor_array.exit:                          ; preds = %174, %.lr.ph57.spli
   br i1 %219, label %.lr.ph.split.us, label %234, !llvm.loop !7
 
 220:                                              ; preds = %.lr.ph.split.us
-  %221 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3)
+  %221 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3)
   %.not65.i.us = icmp eq i32 %221, 0
   br i1 %.not65.i.us, label %dissect_cbor_map.exit, label %216
 
@@ -774,16 +774,16 @@ dissect_cbor_array.exit:                          ; preds = %174, %.lr.ph57.spli
   br i1 %228, label %.thread53, label %230
 
 .thread53:                                        ; preds = %.lr.ph.split
-  %229 = tail call fastcc i32 @dissect_cbor_float_simple_data(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3, i8 noundef zeroext 31)
+  %229 = tail call fastcc i32 @dissect_cbor_float_simple_data(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3, i8 noundef zeroext 31)
   br label %._crit_edge
 
 230:                                              ; preds = %.lr.ph.split
-  %231 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3)
+  %231 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3)
   %.not64.i = icmp eq i32 %231, 0
   br i1 %.not64.i, label %dissect_cbor_map.exit, label %232
 
 232:                                              ; preds = %230
-  %233 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3)
+  %233 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3)
   %.not65.i = icmp eq i32 %233, 0
   br i1 %.not65.i, label %dissect_cbor_map.exit, label %222
 
@@ -883,7 +883,7 @@ switch.lookup110:                                 ; preds = %265
   br label %279
 
 279:                                              ; preds = %switch.lookup110, %269
-  %280 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %251, ptr noundef nonnull %3)
+  %280 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %251, ptr noundef %3)
   %.not.i50 = icmp eq i32 %280, 0
   br i1 %.not.i50, label %281, label %283
 
@@ -909,7 +909,7 @@ dissect_cbor_tag.exit:                            ; preds = %271, %281, %283
   br label %dissect_cbor_negative_integer.exit
 
 289:                                              ; preds = %4
-  %290 = tail call fastcc i32 @dissect_cbor_float_simple_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i8 noundef zeroext %12)
+  %290 = tail call fastcc i32 @dissect_cbor_float_simple_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %12)
   br label %dissect_cbor_negative_integer.exit
 
 default.unreachable64:                            ; preds = %4
@@ -925,7 +925,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_cbor_byte_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_cbor_byte_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i8 noundef zeroext range(i8 0, 32) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = load i32, ptr @hf_cbor_item_byte_string, align 4
   %8 = load i32, ptr %3, align 4
@@ -1035,7 +1035,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_byte_string(ptr noundef
   %69 = add nuw nsw i32 %63, 1
   tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %68, i32 noundef %69) #6
   %70 = and i8 %39, 31
-  %71 = tail call fastcc i32 @dissect_cbor_byte_string(ptr noundef %0, ptr noundef %1, ptr noundef %36, ptr noundef nonnull %3, i8 noundef zeroext %70)
+  %71 = tail call fastcc i32 @dissect_cbor_byte_string(ptr noundef %0, ptr noundef %1, ptr noundef %36, ptr noundef %3, i8 noundef zeroext %70)
   %72 = load i32, ptr @proto_cbor, align 4
   tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %72, i32 noundef %63) #6
   %.not89 = icmp eq i32 %71, 0
@@ -1095,7 +1095,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_byte_string(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_cbor_text_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_cbor_text_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i8 noundef zeroext range(i8 0, 32) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   store ptr null, ptr %6, align 8
@@ -1208,7 +1208,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_text_string(ptr noundef
   %70 = add nuw nsw i32 %64, 1
   tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %69, i32 noundef %70) #6
   %71 = and i8 %40, 31
-  %72 = tail call fastcc i32 @dissect_cbor_text_string(ptr noundef %0, ptr noundef %1, ptr noundef %37, ptr noundef nonnull %3, i8 noundef zeroext %71)
+  %72 = tail call fastcc i32 @dissect_cbor_text_string(ptr noundef %0, ptr noundef %1, ptr noundef %37, ptr noundef %3, i8 noundef zeroext %71)
   %73 = load i32, ptr @proto_cbor, align 4
   tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %73, i32 noundef %64) #6
   %.not90 = icmp eq i32 %72, 0
@@ -1269,7 +1269,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_text_string(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_cbor_float_simple_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_cbor_float_simple_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i8 noundef zeroext range(i8 0, 32) %4) unnamed_addr #0 {
   %6 = alloca [6 x i8], align 1
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_cbor_item_float_simple, align 4

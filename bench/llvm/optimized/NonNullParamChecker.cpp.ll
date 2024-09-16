@@ -1517,14 +1517,14 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit103.i: ; pred
 
 _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %369
   %370 = add i32 %295, 1
-  call fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker24genReportNullAttrNonNullEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprEj(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %366, ptr noundef %.054.i, i32 noundef %370)
+  call fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker24genReportNullAttrNonNullEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprEj(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %366, ptr noundef %.054.i, i32 noundef %370)
   br label %.sink.split.i
 
 371:                                              ; preds = %369
   br i1 %280, label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit111.i, label %373
 
 _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit111.i: ; preds = %371
-  call fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker31genReportReferenceToNullPointerEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %366, ptr noundef %.054.i)
+  call fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker31genReportReferenceToNullPointerEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %366, ptr noundef %.054.i)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit111.i, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i
@@ -1839,7 +1839,7 @@ declare ptr @_ZNK5clang4ento6nonloc11CompoundVal5beginEv(ptr noundef nonnull ali
 declare void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind writable sret(%"struct.std::pair.198") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr, i8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker24genReportNullAttrNonNullEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprEj(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker24genReportNullAttrNonNullEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %7 = alloca %"class.llvm::SmallString", align 8
   %8 = alloca %"class.llvm::raw_svector_ostream", align 8
@@ -1961,14 +1961,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %56, %58
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %66, i8 0, i64 28, i1 false), !noalias !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %67, i8 0, i64 17, i1 false), !noalias !32
-  call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1016) %63, ptr noundef nonnull align 8 dereferenceable(97) %62, ptr %64, i64 %65, ptr %64, i64 %65, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %6, ptr noundef null) #16, !noalias !32
+  call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1016) %63, ptr noundef nonnull align 8 dereferenceable(97) %62, ptr %64, i64 %65, ptr %64, i64 %65, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %6, ptr noundef null) #16, !noalias !32
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !32
   store ptr %63, ptr %0, align 8, !alias.scope !32
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %70, label %68
 
 68:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9
-  %69 = call noundef zeroext i1 @_ZN5clang4ento11bugreporter20trackExpressionValueEPKNS0_12ExplodedNodeEPKNS_4ExprERNS0_22PathSensitiveBugReportENS1_15TrackingOptionsE(ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(1016) %63, i64 4294967296) #16
+  %69 = call noundef zeroext i1 @_ZN5clang4ento11bugreporter20trackExpressionValueEPKNS0_12ExplodedNodeEPKNS_4ExprERNS0_22PathSensitiveBugReportENS1_15TrackingOptionsE(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(1016) %63, i64 4294967296) #16
   br label %70
 
 70:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9, %68
@@ -1987,7 +1987,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %70, %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker31genReportReferenceToNullPointerEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker31genReportReferenceToNullPointerEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -1999,7 +1999,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker31genReportR
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %8, i8 0, i64 28, i1 false), !noalias !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %9, i8 0, i64 17, i1 false), !noalias !35
-  tail call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1016) %7, ptr noundef nonnull align 8 dereferenceable(97) %6, ptr nonnull @.str.10, i64 33, ptr nonnull @.str.10, i64 33, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %5, ptr noundef null) #16, !noalias !35
+  tail call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1016) %7, ptr noundef nonnull align 8 dereferenceable(97) %6, ptr nonnull @.str.10, i64 33, ptr nonnull @.str.10, i64 33, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %5, ptr noundef null) #16, !noalias !35
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !35
   store ptr %7, ptr %0, align 8, !alias.scope !35
   %.not = icmp eq ptr %3, null
@@ -2009,7 +2009,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker31genReportR
   %11 = tail call noundef ptr @_ZN5clang4ento11bugreporter12getDerefExprEPKNS_4StmtE(ptr noundef nonnull %3) #16
   %.not9 = icmp eq ptr %11, null
   %spec.select = select i1 %.not9, ptr %3, ptr %11
-  %12 = tail call noundef zeroext i1 @_ZN5clang4ento11bugreporter20trackExpressionValueEPKNS0_12ExplodedNodeEPKNS_4ExprERNS0_22PathSensitiveBugReportENS1_15TrackingOptionsE(ptr noundef %2, ptr noundef nonnull %spec.select, ptr noundef nonnull align 8 dereferenceable(1016) %7, i64 4294967296) #16
+  %12 = tail call noundef zeroext i1 @_ZN5clang4ento11bugreporter20trackExpressionValueEPKNS0_12ExplodedNodeEPKNS_4ExprERNS0_22PathSensitiveBugReportENS1_15TrackingOptionsE(ptr noundef nonnull %2, ptr noundef nonnull %spec.select, ptr noundef nonnull align 8 dereferenceable(1016) %7, i64 4294967296) #16
   br label %13
 
 13:                                               ; preds = %4, %10

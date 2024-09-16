@@ -11112,7 +11112,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %39, %57, %70, %_ZNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %75, ptr %4, align 8
   store ptr null, ptr %8, align 8
-  %76 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116AddCustomCommandER16cmLocalGenerator15cmCommandOriginSt10unique_ptrI15cmCustomCommandSt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext %2)
+  %76 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116AddCustomCommandER16cmLocalGenerator15cmCommandOriginSt10unique_ptrI15cmCustomCommandSt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef 1, ptr noundef %4, i1 noundef zeroext %2)
           to label %77 unwind label %.body12
 
 77:                                               ; preds = %_ZN19cmListFileBacktraceD2Ev.exit
@@ -11159,7 +11159,7 @@ define dso_local noundef ptr @_ZN6detail24AddCustomCommandToOutputER16cmLocalGen
   %6 = load i64, ptr %2, align 8
   store i64 %6, ptr %5, align 8
   store ptr null, ptr %2, align 8
-  %7 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116AddCustomCommandER16cmLocalGenerator15cmCommandOriginSt10unique_ptrI15cmCustomCommandSt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %3)
+  %7 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116AddCustomCommandER16cmLocalGenerator15cmCommandOriginSt10unique_ptrI15cmCustomCommandSt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef %1, ptr noundef %5, i1 noundef zeroext %3)
           to label %8 unwind label %10
 
 8:                                                ; preds = %4
@@ -11446,7 +11446,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %14, %22, %25
   %46 = load i64, ptr %3, align 8
   store i64 %46, ptr %9, align 8
   store ptr null, ptr %3, align 8
-  %47 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116AddCustomCommandER16cmLocalGenerator15cmCommandOriginSt10unique_ptrI15cmCustomCommandSt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef %1, ptr noundef nonnull %9, i1 noundef zeroext false)
+  %47 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116AddCustomCommandER16cmLocalGenerator15cmCommandOriginSt10unique_ptrI15cmCustomCommandSt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef %1, ptr noundef %9, i1 noundef zeroext false)
           to label %48 unwind label %55
 
 48:                                               ; preds = %45
@@ -29452,7 +29452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   %325 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %323) #24
   %326 = extractvalue { i64, ptr } %325, 0
   %327 = extractvalue { i64, ptr } %325, 1
-  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 %326, ptr %327)
+  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 %326, ptr %327)
           to label %328 unwind label %.loopexit.split-lp
 
 328:                                              ; preds = %324
@@ -29486,7 +29486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   %341 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #24
   %342 = extractvalue { i64, ptr } %341, 0
   %343 = extractvalue { i64, ptr } %341, 1
-  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 %342, ptr %343)
+  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 %342, ptr %343)
           to label %344 unwind label %458
 
 344:                                              ; preds = %340
@@ -29496,7 +29496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   %347 = getelementptr inbounds i8, ptr %34, i64 24
   %348 = extractvalue { i64, ptr } %345, 1
   store ptr %348, ptr %347, align 8
-  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 2, ptr nonnull @.str.293)
+  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 2, ptr nonnull @.str.293)
           to label %349 unwind label %460
 
 349:                                              ; preds = %344
@@ -29510,7 +29510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   %355 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #24
   %356 = extractvalue { i64, ptr } %355, 0
   %357 = extractvalue { i64, ptr } %355, 1
-  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 %356, ptr %357)
+  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 %356, ptr %357)
           to label %358 unwind label %462
 
 358:                                              ; preds = %349
@@ -29572,7 +29572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   %382 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #24
   %383 = extractvalue { i64, ptr } %382, 0
   %384 = extractvalue { i64, ptr } %382, 1
-  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 %383, ptr %384)
+  invoke fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 %383, ptr %384)
           to label %385 unwind label %472
 
 385:                                              ; preds = %381
@@ -30268,7 +30268,7 @@ declare void @_ZN12cmSourceFile11SetPropertyERKNSt7__cxx1112basic_stringIcSt11ch
 declare void @_Z23cmMakeSingleCommandLineSt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind writable sret(%class.cmCustomCommandLines) align 8, ptr, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %2, ptr %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_P17cmGeneratorTargetS7_S9_RKSt6vectorIS5_SaIS5_EEENK3$_0clB5cxx11ESt17basic_string_viewIcS3_E"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %2, ptr %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca [5 x %"struct.std::pair.1080"], align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -30317,7 +30317,7 @@ define internal fastcc void @"_ZZN16cmLocalGenerator17CopyPchCompilePdbERKNSt7__
   store ptr @.str.230, ptr %.sroa.2.0..sroa_idx.i39.i, align 8, !alias.scope !1065, !noalias !1053
   %29 = getelementptr inbounds i8, ptr %6, i64 112
   store ptr null, ptr %29, align 8, !alias.scope !1065, !noalias !1053
-  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %6, i64 5)
+  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %6, i64 5)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6)
   br label %40
 
@@ -38294,7 +38294,7 @@ declare void @_ZN8cmTarget17AddPreLinkCommandEO15cmCustomCommand(ptr noundef non
 declare void @_ZN8cmTarget19AddPostBuildCommandEO15cmCustomCommand(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(316)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116AddCustomCommandER16cmLocalGenerator15cmCommandOriginSt10unique_ptrI15cmCustomCommandSt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116AddCustomCommandER16cmLocalGenerator15cmCommandOriginSt10unique_ptrI15cmCustomCommandSt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(824) %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x %"struct.std::pair.1080"], align 8
   %6 = alloca [3 x %"struct.std::pair.1080"], align 8
   %7 = alloca %class.cmStateDirectory, align 8

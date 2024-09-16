@@ -484,8 +484,8 @@ dissect_vuze_dht_request_header.exit:             ; preds = %87, %82, %77, %51, 
   %108 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %11, i32 noundef %107, ptr noundef %0, i32 noundef %105, i32 noundef 0, ptr noundef nonnull @.str.178, i32 noundef %106) #3
   %109 = load i32, ptr @ett_vuze_dht_keys, align 4
   %110 = tail call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109) #3
-  %.not.i = icmp eq i8 %104, 0
-  br i1 %.not.i, label %dissect_vuze_dht_keys.exit.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i8 %104, 0
+  br i1 %.not.i.i, label %dissect_vuze_dht_keys.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %101
   %111 = getelementptr inbounds i8, ptr %1, i64 408
@@ -525,16 +525,16 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   %135 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %11, i32 noundef %134, ptr noundef %0, i32 noundef %132, i32 noundef 0, ptr noundef nonnull @.str.180, i32 noundef %133) #3
   %136 = load i32, ptr @ett_vuze_dht_value_groups, align 4
   %137 = tail call ptr @proto_item_add_subtree(ptr noundef %135, i32 noundef %136) #3
-  %.not30.i = icmp eq i8 %131, 0
-  br i1 %.not30.i, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i28.i
+  %.not.i28.i = icmp eq i8 %131, 0
+  br i1 %.not.i28.i, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i29.i
 
-.lr.ph.i28.i:                                     ; preds = %dissect_vuze_dht_keys.exit.i, %.lr.ph.i28.i
-  %.015.i.i = phi i32 [ %139, %.lr.ph.i28.i ], [ 0, %dissect_vuze_dht_keys.exit.i ]
-  %.01314.i.i = phi i32 [ %138, %.lr.ph.i28.i ], [ %132, %dissect_vuze_dht_keys.exit.i ]
+.lr.ph.i29.i:                                     ; preds = %dissect_vuze_dht_keys.exit.i, %.lr.ph.i29.i
+  %.015.i.i = phi i32 [ %139, %.lr.ph.i29.i ], [ 0, %dissect_vuze_dht_keys.exit.i ]
+  %.01314.i.i = phi i32 [ %138, %.lr.ph.i29.i ], [ %132, %dissect_vuze_dht_keys.exit.i ]
   %138 = tail call fastcc i32 @dissect_vuze_dht_value_group(ptr noundef %0, ptr noundef readonly %1, ptr noundef %137, i32 noundef %.01314.i.i, i32 noundef %.090)
   %139 = add nuw nsw i32 %.015.i.i, 1
-  %exitcond.not.i29.i = icmp eq i32 %139, %133
-  br i1 %exitcond.not.i29.i, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i28.i, !llvm.loop !6
+  %exitcond.not.i30.i = icmp eq i32 %139, %133
+  br i1 %exitcond.not.i30.i, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i29.i, !llvm.loop !6
 
 140:                                              ; preds = %dissect_vuze_dht_request_header.exit
   %141 = icmp ugt i8 %.090.in, 5
@@ -587,8 +587,8 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   %176 = load i32, ptr @hf_vuze_dht_node_type, align 4
   %177 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %176, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef 0) #3
   %178 = add i32 %.0, 8
-  %.not.i62 = icmp eq i8 %.090.in, 12
-  br i1 %.not.i62, label %.thread37.i, label %179
+  %.not.i = icmp eq i8 %.090.in, 12
+  br i1 %.not.i, label %.thread37.i, label %179
 
 179:                                              ; preds = %175
   %180 = load i32, ptr @hf_vuze_dht_size, align 4
@@ -616,16 +616,16 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   %192 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %11, i32 noundef %191, ptr noundef %0, i32 noundef %190, i32 noundef 0, ptr noundef nonnull @.str.185, i32 noundef %189) #3
   %193 = load i32, ptr @ett_vuze_dht_contacts, align 4
   %194 = tail call ptr @proto_item_add_subtree(ptr noundef %192, i32 noundef %193) #3
-  %.not42.i = icmp eq i16 %188, 0
-  br i1 %.not42.i, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i.i57
+  %.not.i.i57 = icmp eq i16 %188, 0
+  br i1 %.not.i.i57, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i.i58
 
-.lr.ph.i.i57:                                     ; preds = %.thread40.i, %.lr.ph.i.i57
-  %.014.i.i58 = phi i32 [ %196, %.lr.ph.i.i57 ], [ 0, %.thread40.i ]
-  %.01213.i.i59 = phi i32 [ %195, %.lr.ph.i.i57 ], [ %190, %.thread40.i ]
-  %195 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef readonly %1, ptr noundef %194, i32 noundef %.01213.i.i59)
-  %196 = add nuw nsw i32 %.014.i.i58, 1
-  %exitcond.not.i.i60 = icmp eq i32 %196, %189
-  br i1 %exitcond.not.i.i60, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i.i57, !llvm.loop !7
+.lr.ph.i.i58:                                     ; preds = %.thread40.i, %.lr.ph.i.i58
+  %.014.i.i59 = phi i32 [ %196, %.lr.ph.i.i58 ], [ 0, %.thread40.i ]
+  %.01213.i.i60 = phi i32 [ %195, %.lr.ph.i.i58 ], [ %190, %.thread40.i ]
+  %195 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef readonly %1, ptr noundef %194, i32 noundef %.01213.i.i60)
+  %196 = add nuw nsw i32 %.014.i.i59, 1
+  %exitcond.not.i.i61 = icmp eq i32 %196, %189
+  br i1 %exitcond.not.i.i61, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i.i58, !llvm.loop !7
 
 197:                                              ; preds = %dissect_vuze_dht_request_header.exit
   %198 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #3
@@ -682,8 +682,8 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   %238 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %11, i32 noundef %237, ptr noundef %0, i32 noundef %236, i32 noundef 0, ptr noundef nonnull @.str.185, i32 noundef %235) #3
   %239 = load i32, ptr @ett_vuze_dht_contacts, align 4
   %240 = tail call ptr @proto_item_add_subtree(ptr noundef %238, i32 noundef %239) #3
-  %.not42.i65 = icmp eq i16 %234, 0
-  br i1 %.not42.i65, label %dissect_vuze_dht_contacts.exit.i, label %.lr.ph.i.i66
+  %.not.i.i65 = icmp eq i16 %234, 0
+  br i1 %.not.i.i65, label %dissect_vuze_dht_contacts.exit.i, label %.lr.ph.i.i66
 
 .lr.ph.i.i66:                                     ; preds = %231, %.lr.ph.i.i66
   %.014.i.i67 = phi i32 [ %242, %.lr.ph.i.i66 ], [ 0, %231 ]
@@ -775,8 +775,8 @@ dissect_vuze_dht_contacts.exit.i:                 ; preds = %.lr.ph.i.i66, %231
   %297 = add i32 %294, %293
   br label %dissect_vuze_dht_reply_ping.exit
 
-dissect_vuze_dht_reply_ping.exit:                 ; preds = %.lr.ph.i.i57, %.lr.ph.i28.i, %261, %259, %252, %250, %226, %.thread40.i, %161, %151, %142, %140, %dissect_vuze_dht_keys.exit.i, %93, %91, %dissect_vuze_dht_request_header.exit, %278, %197
-  %.1 = phi i32 [ %.0, %dissect_vuze_dht_request_header.exit ], [ %219, %197 ], [ %297, %278 ], [ %94, %93 ], [ %.0, %91 ], [ %132, %dissect_vuze_dht_keys.exit.i ], [ %150, %142 ], [ %.0, %140 ], [ %167, %161 ], [ %159, %151 ], [ %190, %.thread40.i ], [ %251, %250 ], [ %230, %226 ], [ %258, %252 ], [ %277, %261 ], [ %260, %259 ], [ %138, %.lr.ph.i28.i ], [ %195, %.lr.ph.i.i57 ]
+dissect_vuze_dht_reply_ping.exit:                 ; preds = %.lr.ph.i.i58, %.lr.ph.i29.i, %261, %259, %252, %250, %226, %.thread40.i, %161, %151, %142, %140, %dissect_vuze_dht_keys.exit.i, %93, %91, %dissect_vuze_dht_request_header.exit, %278, %197
+  %.1 = phi i32 [ %.0, %dissect_vuze_dht_request_header.exit ], [ %219, %197 ], [ %297, %278 ], [ %94, %93 ], [ %.0, %91 ], [ %132, %dissect_vuze_dht_keys.exit.i ], [ %150, %142 ], [ %.0, %140 ], [ %167, %161 ], [ %159, %151 ], [ %190, %.thread40.i ], [ %251, %250 ], [ %230, %226 ], [ %258, %252 ], [ %277, %261 ], [ %260, %259 ], [ %138, %.lr.ph.i29.i ], [ %195, %.lr.ph.i.i58 ]
   ret i32 %.1
 }
 
@@ -878,8 +878,8 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = icmp sgt i32 %4, 14
+define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 10, -2147483648) %4) unnamed_addr #0 {
+  %6 = icmp ugt i32 %4, 14
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %5

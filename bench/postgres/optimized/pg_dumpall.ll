@@ -1062,7 +1062,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 .thread:                                          ; preds = %257, %259, %254
   %.090 = phi ptr [ %255, %254 ], [ %261, %259 ], [ %258, %257 ]
-  call fastcc void @expand_dbname_patterns(ptr noundef nonnull %.090)
+  call fastcc void @expand_dbname_patterns(ptr noundef %.090)
   %264 = load ptr, ptr @filename, align 8
   %.not142 = icmp eq ptr %264, null
   br i1 %.not142, label %269, label %265
@@ -1111,7 +1111,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   %281 = call ptr @fmtId(ptr noundef nonnull %.0104) #14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %280, ptr noundef nonnull @.str.109, ptr noundef %281) #14
   %282 = load ptr, ptr %280, align 8
-  call fastcc void @executeCommand(ptr noundef nonnull %.090, ptr noundef %282)
+  call fastcc void @executeCommand(ptr noundef %.090, ptr noundef %282)
   call void @destroyPQExpBuffer(ptr noundef nonnull %280) #14
   br label %283
 
@@ -1121,7 +1121,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %.not147, label %286, label %285
 
 285:                                              ; preds = %283
-  call fastcc void @executeCommand(ptr noundef nonnull %.090, ptr noundef nonnull @.str.110)
+  call fastcc void @executeCommand(ptr noundef %.090, ptr noundef nonnull @.str.110)
   br label %286
 
 286:                                              ; preds = %285, %283
@@ -1169,7 +1169,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %309, label %311, label %310
 
 310:                                              ; preds = %308
-  call fastcc void @dropDBs(ptr noundef nonnull %.090)
+  call fastcc void @dropDBs(ptr noundef %.090)
   br label %311
 
 311:                                              ; preds = %307, %310, %308
@@ -1179,7 +1179,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %or.cond, label %315, label %314
 
 314:                                              ; preds = %311
-  call fastcc void @dropTablespaces(ptr noundef nonnull %.090)
+  call fastcc void @dropTablespaces(ptr noundef %.090)
   br label %315
 
 315:                                              ; preds = %314, %311
@@ -1187,7 +1187,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %316, label %.thread243, label %.thread245
 
 .thread245:                                       ; preds = %315
-  call fastcc void @dropRoles(ptr noundef nonnull %.090)
+  call fastcc void @dropRoles(ptr noundef %.090)
   br label %318
 
 317:                                              ; preds = %306
@@ -1195,8 +1195,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %.pre237, label %.thread243, label %318
 
 318:                                              ; preds = %.thread245, %317
-  call fastcc void @dumpRoles(ptr noundef nonnull %.090)
-  call fastcc void @dumpRoleMembership(ptr noundef nonnull %.090)
+  call fastcc void @dumpRoles(ptr noundef %.090)
+  call fastcc void @dumpRoleMembership(ptr noundef %.090)
   %319 = load i32, ptr @server_version, align 4
   %320 = icmp sgt i32 %319, 149999
   br i1 %320, label %321, label %.thread243
@@ -1206,7 +1206,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %.b115150, label %.thread243, label %322
 
 322:                                              ; preds = %321
-  call fastcc void @dumpRoleGUCPrivs(ptr noundef nonnull %.090)
+  call fastcc void @dumpRoleGUCPrivs(ptr noundef %.090)
   br label %.thread243
 
 .thread243:                                       ; preds = %315, %318, %321, %322, %317
@@ -1216,7 +1216,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %or.cond3, label %326, label %325
 
 325:                                              ; preds = %.thread243
-  call fastcc void @dumpTablespaces(ptr noundef nonnull %.090)
+  call fastcc void @dumpTablespaces(ptr noundef %.090)
   br label %326
 
 326:                                              ; preds = %.thread243, %325, %303
@@ -1228,7 +1228,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %328, label %330, label %329
 
 329:                                              ; preds = %327
-  call fastcc void @dumpDatabases(ptr noundef nonnull %.090)
+  call fastcc void @dumpDatabases(ptr noundef %.090)
   br label %330
 
 330:                                              ; preds = %326, %329, %327
@@ -1370,7 +1370,7 @@ declare void @simple_string_list_append(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #3 {
+define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 3) %5, i1 noundef zeroext %6) unnamed_addr #3 {
   %8 = alloca ptr, align 8
   %9 = icmp ne i32 %5, 2
   %10 = load ptr, ptr @connectDatabase.password, align 8
@@ -1723,7 +1723,7 @@ constructConnStr.exit:                            ; preds = %132, %112
   unreachable
 
 148:                                              ; preds = %144, %141
-  %149 = call fastcc ptr @executeQuery(ptr noundef nonnull %94, ptr noundef nonnull @.str.310)
+  %149 = call fastcc ptr @executeQuery(ptr noundef %94, ptr noundef nonnull @.str.310)
   call void @PQclear(ptr noundef nonnull %149) #14
   br label %150
 
@@ -1733,7 +1733,7 @@ constructConnStr.exit:                            ; preds = %132, %112
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_dbname_patterns(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @expand_dbname_patterns(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @database_exclude_patterns, align 8
   %4 = icmp eq ptr %3, null
@@ -1749,14 +1749,14 @@ define internal fastcc void @expand_dbname_patterns(ptr noundef %0) unnamed_addr
   %.0204 = phi ptr [ %.020, %._crit_edge ], [ %.0202, %5 ]
   call void @appendPQExpBufferStr(ptr noundef %6, ptr noundef nonnull @.str.282) #14
   %7 = getelementptr inbounds i8, ptr %.0204, i64 9
-  %8 = call zeroext i1 @processSQLNamePattern(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.283, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #14
+  %8 = call zeroext i1 @processSQLNamePattern(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.283, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #14
   %9 = load i32, ptr %2, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %.lr.ph6
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.284, ptr noundef nonnull %7) #14
-  call void @PQfinish(ptr noundef %0) #14
+  call void @PQfinish(ptr noundef nonnull %0) #14
   call void @exit(i32 noundef 1) #17
   unreachable
 
@@ -1805,9 +1805,9 @@ declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare ptr @fmtId(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @executeCommand(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @executeCommand(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 {
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.187, ptr noundef %1) #14
-  %3 = tail call ptr @PQexec(ptr noundef %0, ptr noundef %1) #14
+  %3 = tail call ptr @PQexec(ptr noundef nonnull %0, ptr noundef %1) #14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -1817,10 +1817,10 @@ define internal fastcc void @executeCommand(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not9, label %8, label %6
 
 6:                                                ; preds = %4, %2
-  %7 = tail call ptr @PQerrorMessage(ptr noundef %0) #14
+  %7 = tail call ptr @PQerrorMessage(ptr noundef nonnull %0) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef %7) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.189, ptr noundef %1) #14
-  tail call void @PQfinish(ptr noundef %0) #14
+  tail call void @PQfinish(ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
@@ -1856,7 +1856,7 @@ define internal fastcc void @dumpTimestamp(ptr noundef %0) unnamed_addr #3 {
 declare ptr @pg_encoding_to_char(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dropDBs(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @dropDBs(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.278)
   %3 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %4 = icmp sgt i32 %3, 0
@@ -1912,7 +1912,7 @@ define internal fastcc void @dropDBs(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dropTablespaces(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @dropTablespaces(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.263)
   %3 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %4 = icmp sgt i32 %3, 0
@@ -1950,7 +1950,7 @@ define internal fastcc void @dropTablespaces(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dropRoles(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @dropRoles(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = tail call ptr @createPQExpBuffer() #14
   %3 = load i32, ptr @server_version, align 4
   %4 = icmp sgt i32 %3, 90599
@@ -1996,7 +1996,7 @@ define internal fastcc void @dropRoles(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpRoles(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @dumpRoles(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = tail call ptr @createPQExpBuffer() #14
   %3 = load i32, ptr @server_version, align 4
   %4 = icmp sgt i32 %3, 90599
@@ -2245,7 +2245,7 @@ sub_1169:                                         ; preds = %sub_0168
 98:                                               ; preds = %93
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.231) #14
   %99 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %16) #14
-  tail call void @appendStringLiteralConn(ptr noundef nonnull %2, ptr noundef %99, ptr noundef %0) #14
+  tail call void @appendStringLiteralConn(ptr noundef nonnull %2, ptr noundef %99, ptr noundef nonnull %0) #14
   br label %100
 
 100:                                              ; preds = %98, %93
@@ -2273,7 +2273,7 @@ sub_1169:                                         ; preds = %sub_0168
   %109 = tail call ptr @fmtId(ptr noundef nonnull %33) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.234, ptr noundef %109) #14
   %110 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %20) #14
-  tail call void @appendStringLiteralConn(ptr noundef nonnull %2, ptr noundef %110, ptr noundef %0) #14
+  tail call void @appendStringLiteralConn(ptr noundef nonnull %2, ptr noundef %110, ptr noundef nonnull %0) #14
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.233) #14
   br label %111
 
@@ -2287,7 +2287,7 @@ sub_1169:                                         ; preds = %sub_0168
   tail call void @buildShSecLabelQuery(ptr noundef nonnull @.str.82, i32 noundef %32, ptr noundef %114) #14
   %115 = load ptr, ptr %114, align 8
   %116 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %115)
-  tail call void @emitShSecLabels(ptr noundef %0, ptr noundef nonnull %116, ptr noundef nonnull %2, ptr noundef nonnull @.str.235, ptr noundef nonnull %33) #14
+  tail call void @emitShSecLabels(ptr noundef nonnull %0, ptr noundef nonnull %116, ptr noundef nonnull %2, ptr noundef nonnull @.str.235, ptr noundef nonnull %33) #14
   tail call void @PQclear(ptr noundef nonnull %116) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %114) #14
   br label %117
@@ -2324,7 +2324,7 @@ sub_1169:                                         ; preds = %sub_0168
   %133 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.1173, i32 noundef %9) #14
   %134 = tail call ptr @createPQExpBuffer() #14
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %134, ptr noundef nonnull @.str.237, ptr noundef nonnull @role_catalog) #14
-  tail call void @appendStringLiteralConn(ptr noundef %134, ptr noundef %133, ptr noundef %0) #14
+  tail call void @appendStringLiteralConn(ptr noundef %134, ptr noundef %133, ptr noundef nonnull %0) #14
   tail call void @appendPQExpBufferChar(ptr noundef %134, i8 noundef signext 41) #14
   %135 = load ptr, ptr %134, align 8
   %136 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %135)
@@ -2346,7 +2346,7 @@ sub_1169:                                         ; preds = %sub_0168
   %.020.i = phi i32 [ %149, %.lr.ph.i ], [ 0, %142 ]
   tail call void @resetPQExpBuffer(ptr noundef nonnull %134) #14
   %145 = tail call ptr @PQgetvalue(ptr noundef nonnull %136, i32 noundef %.020.i, i32 noundef 0) #14
-  tail call void @makeAlterConfigCommand(ptr noundef %0, ptr noundef %145, ptr noundef nonnull @.str.235, ptr noundef %133, ptr noundef null, ptr noundef null, ptr noundef nonnull %134) #14
+  tail call void @makeAlterConfigCommand(ptr noundef nonnull %0, ptr noundef %145, ptr noundef nonnull @.str.235, ptr noundef %133, ptr noundef null, ptr noundef null, ptr noundef nonnull %134) #14
   %146 = load ptr, ptr @OPF, align 8
   %147 = load ptr, ptr %134, align 8
   %148 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %146, ptr noundef nonnull @.str.80, ptr noundef %147) #14
@@ -2372,10 +2372,10 @@ dumpUserConfig.exit:                              ; preds = %.lr.ph.i, %142
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpRoleMembership(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @dumpRoleMembership(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = tail call ptr @createPQExpBuffer() #14
   %3 = tail call ptr @createPQExpBuffer() #14
-  %4 = tail call i32 @PQserverVersion(ptr noundef %0) #14
+  %4 = tail call i32 @PQserverVersion(ptr noundef nonnull %0) #14
   %5 = icmp sgt i32 %4, 159999
   %6 = load i32, ptr @server_version, align 4
   %7 = icmp sgt i32 %6, 159999
@@ -2940,7 +2940,7 @@ rolename_lookup.exit.thread.us:                   ; preds = %108, %287, %90, %.p
 
 .split.us:                                        ; preds = %.lr.ph153.split.us, %.preheader.us161
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.245, ptr noundef %30) #14
-  tail call void @PQfinish(ptr noundef %0) #14
+  tail call void @PQfinish(ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
@@ -2980,7 +2980,7 @@ rolename_lookup.exit.thread.us:                   ; preds = %108, %287, %90, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpRoleGUCPrivs(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @dumpRoleGUCPrivs(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.259)
   %3 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %4 = icmp sgt i32 %3, 0
@@ -3011,7 +3011,7 @@ define internal fastcc void @dumpRoleGUCPrivs(ptr noundef %0) unnamed_addr #3 {
 
 20:                                               ; preds = %.lr.ph
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.262, ptr noundef %14, ptr noundef %12) #14
-  tail call void @PQfinish(ptr noundef %0) #14
+  tail call void @PQfinish(ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
@@ -3034,7 +3034,7 @@ define internal fastcc void @dumpRoleGUCPrivs(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.266)
   %3 = tail call i32 @PQntuples(ptr noundef nonnull %2) #14
   %4 = icmp sgt i32 %3, 0
@@ -3082,7 +3082,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
   %28 = load i8, ptr %17, align 1
   %29 = icmp eq i8 %28, 47
   %..str.120 = select i1 %29, ptr %17, ptr @.str.120
-  tail call void @appendStringLiteralConn(ptr noundef %11, ptr noundef nonnull %..str.120, ptr noundef %0) #14
+  tail call void @appendStringLiteralConn(ptr noundef %11, ptr noundef nonnull %..str.120, ptr noundef nonnull %0) #14
   tail call void @appendPQExpBufferStr(ptr noundef %11, ptr noundef nonnull @.str.233) #14
   %.not68 = icmp eq ptr %20, null
   br i1 %.not68, label %33, label %30
@@ -3107,7 +3107,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
 
 37:                                               ; preds = %34
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.275, ptr noundef %18, ptr noundef %15) #14
-  tail call void @PQfinish(ptr noundef %0) #14
+  tail call void @PQfinish(ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
@@ -3125,7 +3125,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
 
 44:                                               ; preds = %42
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %11, ptr noundef nonnull @.str.276, ptr noundef %23) #14
-  tail call void @appendStringLiteralConn(ptr noundef %11, ptr noundef nonnull %21, ptr noundef %0) #14
+  tail call void @appendStringLiteralConn(ptr noundef %11, ptr noundef nonnull %21, ptr noundef nonnull %0) #14
   tail call void @appendPQExpBufferStr(ptr noundef %11, ptr noundef nonnull @.str.233) #14
   br label %45
 
@@ -3139,7 +3139,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
   tail call void @buildShSecLabelQuery(ptr noundef nonnull @.str.277, i32 noundef %14, ptr noundef %48) #14
   %49 = load ptr, ptr %48, align 8
   %50 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %49)
-  tail call void @emitShSecLabels(ptr noundef %0, ptr noundef nonnull %50, ptr noundef %11, ptr noundef nonnull @.str.274, ptr noundef %15) #14
+  tail call void @emitShSecLabels(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef %11, ptr noundef nonnull @.str.274, ptr noundef %15) #14
   tail call void @PQclear(ptr noundef nonnull %50) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %48) #14
   br label %51
@@ -3163,7 +3163,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = tail call fastcc ptr @executeQuery(ptr noundef %0, ptr noundef nonnull @.str.285)
@@ -3303,9 +3303,9 @@ declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 declare void @printfPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @executeQuery(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc nonnull ptr @executeQuery(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 {
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.187, ptr noundef %1) #14
-  %3 = tail call ptr @PQexec(ptr noundef %0, ptr noundef %1) #14
+  %3 = tail call ptr @PQexec(ptr noundef nonnull %0, ptr noundef %1) #14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -3315,10 +3315,10 @@ define internal fastcc nonnull ptr @executeQuery(ptr noundef %0, ptr noundef %1)
   br i1 %.not9, label %8, label %6
 
 6:                                                ; preds = %4, %2
-  %7 = tail call ptr @PQerrorMessage(ptr noundef %0) #14
+  %7 = tail call ptr @PQerrorMessage(ptr noundef nonnull %0) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef %7) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.189, ptr noundef %1) #14
-  tail call void @PQfinish(ptr noundef %0) #14
+  tail call void @PQfinish(ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 

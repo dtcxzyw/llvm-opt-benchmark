@@ -877,7 +877,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly %0, i16 noundef zeroext %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly %0, i16 noundef zeroext range(i16 1, 0) %1) unnamed_addr #3 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -943,47 +943,43 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly %0, i1
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %30, null
-  br i1 %48, label %.thread, label %65
+  br i1 %48, label %.thread, label %64
 
 .thread:                                          ; preds = %44, %.loopexit, %2, %47
-  switch i16 %1, label %64 [
+  switch i16 %1, label %63 [
     i16 2, label %49
     i16 0, label %49
-    i16 10, label %57
+    i16 10, label %56
   ]
 
 49:                                               ; preds = %.thread, %.thread
   %50 = load volatile ptr, ptr @netlbl_domhsh_def_ipv4, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %56, label %52
+  br i1 %51, label %63, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %50, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %65
+  br i1 %55, label %63, label %64
 
-56:                                               ; preds = %52, %49
-  %cond = icmp eq i16 %1, 0
-  br i1 %cond, label %57, label %64
+56:                                               ; preds = %.thread
+  %57 = load volatile ptr, ptr @netlbl_domhsh_def_ipv6, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %63, label %59
 
-57:                                               ; preds = %56, %.thread
-  %58 = load volatile ptr, ptr @netlbl_domhsh_def_ipv6, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %64, label %60
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds i8, ptr %57, i64 28
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %64
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %58, i64 28
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %65
+63:                                               ; preds = %49, %52, %59, %56, %.thread
+  br label %64
 
-64:                                               ; preds = %56, %60, %57, %.thread
-  br label %65
-
-65:                                               ; preds = %64, %60, %52, %47
-  %66 = phi ptr [ null, %64 ], [ %30, %47 ], [ %50, %52 ], [ %58, %60 ]
-  ret ptr %66
+64:                                               ; preds = %63, %59, %52, %47
+  %65 = phi ptr [ null, %63 ], [ %30, %47 ], [ %50, %52 ], [ %57, %59 ]
+  ret ptr %65
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

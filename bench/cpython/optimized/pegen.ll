@@ -900,7 +900,7 @@ return:                                           ; preds = %entry, %if.end16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #1 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -1514,7 +1514,7 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp.i30, label %if.then.i34, label %if.end.i31
 
 if.then.i34:                                      ; preds = %if.end11
-  %call1.i = tail call fastcc ptr @parsenumber_raw(ptr noundef nonnull %call1)
+  %call1.i = tail call fastcc ptr @parsenumber_raw(ptr noundef %call1)
   br label %parsenumber.exit
 
 if.end.i31:                                       ; preds = %if.end11
@@ -1549,7 +1549,7 @@ for.inc.i:                                        ; preds = %if.then10.i, %for.c
 
 for.end.i:                                        ; preds = %for.cond.i
   store i8 0, ptr %end.0.i, align 1
-  %call13.i = tail call fastcc ptr @parsenumber_raw(ptr noundef nonnull %call3.i)
+  %call13.i = tail call fastcc ptr @parsenumber_raw(ptr noundef %call3.i)
   tail call void @PyMem_Free(ptr noundef nonnull %call3.i) #12
   br label %parsenumber.exit
 
@@ -2232,7 +2232,7 @@ declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnam
 declare ptr @_PyAST_Name(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parsenumber_raw(ptr noundef %s) unnamed_addr #1 {
+define internal fastcc ptr @parsenumber_raw(ptr noundef nonnull %s) unnamed_addr #1 {
 entry:
   %end = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13

@@ -579,7 +579,7 @@ declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext %type, ptr noundef %provkey, ptr noundef %params) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext range(i8 1, 3) %type, ptr noundef %provkey, ptr noundef %params) unnamed_addr #1 {
 entry:
   %dup = alloca i32, align 4
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 383, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12

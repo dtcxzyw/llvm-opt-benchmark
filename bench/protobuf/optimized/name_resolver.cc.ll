@@ -786,7 +786,7 @@ define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetCla
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !10
   %file_.i.i = getelementptr inbounds i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8, !noalias !10
@@ -816,7 +816,7 @@ _ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEbb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor, i1 noundef zeroext %immutable, i1 noundef zeroext %kotlin) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %file_.i = getelementptr inbounds i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i, align 8
@@ -842,7 +842,7 @@ lpad:                                             ; preds = %invoke.cont8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %descriptor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %descriptor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -907,7 +907,7 @@ define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetCla
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !13
   %file_.i.i = getelementptr inbounds i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8, !noalias !13
@@ -937,7 +937,7 @@ _ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEbb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor, i1 noundef zeroext %immutable, i1 noundef zeroext %kotlin) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %file_.i = getelementptr inbounds i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i, align 8
@@ -963,7 +963,7 @@ lpad:                                             ; preds = %invoke.cont8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %descriptor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %descriptor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -981,7 +981,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 invoke.cont4:                                     ; preds = %entry
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull %0)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull %0)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
   %2 = extractvalue { i64, ptr } %call.i, 0
   store i64 %2, ptr %ref.tmp, align 8
@@ -999,7 +999,7 @@ invoke.cont4:                                     ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %9 = extractvalue { i64, ptr } %call.i5, 1
   store ptr %9, ptr %8, align 8
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5)
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -1021,7 +1021,7 @@ define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetCla
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias align 8 %ref.tmp.i, ptr noundef readonly %descriptor)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !16
   %file_.i.i = getelementptr inbounds i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8, !noalias !16
@@ -1051,7 +1051,7 @@ _ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_17ServiceDescriptorEbb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor, i1 noundef zeroext %immutable, i1 noundef zeroext %kotlin) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %file_.i = getelementptr inbounds i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i, align 8
@@ -1077,7 +1077,7 @@ lpad:                                             ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %descriptor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %descriptor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp7 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
@@ -1294,7 +1294,7 @@ entry:
   %containing_type_.i = getelementptr inbounds i8, ptr %descriptor, i64 32
   %0 = load ptr, ptr %containing_type_.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef readonly %0)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias align 8 %ref.tmp.i, ptr noundef readonly %0)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !19
   %file_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %file_.i.i, align 8, !noalias !19
@@ -1411,7 +1411,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8compiler4java17IsForbiddenKotlin
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver25GetJavaImmutableClassNameB5cxx11EPKNS0_10DescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -1435,7 +1435,7 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver25GetJavaImmutableClassNameB5cxx11EPKNS0_14EnumDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -1459,7 +1459,7 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver25GetJavaImmutableClassNameB5cxx11EPKNS0_17ServiceDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -1483,7 +1483,7 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver28GetKotlinExtensionsClassNameB5cxx11EPKNS0_10DescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_129ClassNameWithoutPackageKotlinB5cxx11EPKNS0_10DescriptorE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_129ClassNameWithoutPackageKotlinB5cxx11EPKNS0_10DescriptorE(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -1575,7 +1575,7 @@ entry:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp20 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp22 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_129ClassNameWithoutPackageKotlinB5cxx11EPKNS0_10DescriptorE(ptr noalias nonnull align 8 %name_without_package, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_129ClassNameWithoutPackageKotlinB5cxx11EPKNS0_10DescriptorE(ptr noalias align 8 %name_without_package, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %name_without_package) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -1694,7 +1694,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver23GetJavaMutableClassNameB5cxx11EPKNS0_10DescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -1718,7 +1718,7 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver23GetJavaMutableClassNameB5cxx11EPKNS0_14EnumDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_14EnumDescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -1742,7 +1742,7 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver23GetJavaMutableClassNameB5cxx11EPKNS0_17ServiceDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %descriptor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %descriptor)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_17ServiceDescriptorEb(ptr noalias align 8 %ref.tmp, ptr noundef %descriptor)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -1873,7 +1873,7 @@ invoke.cont6:                                     ; preds = %_ZN6google8protobuf
 
 invoke.cont15:                                    ; preds = %invoke.cont6
   %call.i7 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #18
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull %descriptor)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_123ClassNameWithoutPackageB5cxx11EPKNS0_10DescriptorEb(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull %descriptor)
           to label %invoke.cont18 unwind label %lpad12
 
 invoke.cont18:                                    ; preds = %invoke.cont15

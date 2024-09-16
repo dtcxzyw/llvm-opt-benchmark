@@ -1443,7 +1443,7 @@ encode_one_block_simd.exit:                       ; preds = %172
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds [4 x ptr], ptr %137, i64 0, i64 %217
   %219 = load ptr, ptr %218, align 8
-  %220 = call fastcc i32 @encode_one_block(ptr noundef nonnull %5, ptr noundef %207, i32 noundef %209, ptr noundef %214, ptr noundef %219)
+  %220 = call fastcc i32 @encode_one_block(ptr noundef %5, ptr noundef %207, i32 noundef %209, ptr noundef %214, ptr noundef %219)
   %.not58 = icmp eq i32 %220, 0
   br i1 %.not58, label %emit_restart.exit.thread, label %221
 
@@ -1653,7 +1653,7 @@ declare i32 @jsimd_can_huff_encode_one_block() local_unnamed_addr #3
 declare ptr @jpeg_alloc_huff_table(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [512 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8

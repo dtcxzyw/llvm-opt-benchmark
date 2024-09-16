@@ -4781,7 +4781,7 @@ while.body.i.i.i:                                 ; preds = %_ZN3opt4softD2Ev.ex
   store ptr %5, ptr %m_ptr.i13.i.i.i40.i.i.i, align 8
   store ptr null, ptr %m_ptr.i13.i.i.i.i.i.i, align 8
   store i32 %6, ptr %value.i42.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i112, ptr noundef nonnull %agg.tmp.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i112, ptr noundef %agg.tmp.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %while.body.i.i.i
@@ -4954,7 +4954,7 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   store ptr %31, ptr %m_ptr.i13.i.i.i34.i, align 8
   store ptr null, ptr %m_ptr.i13.i.i.i.i, align 8
   store i32 %32, ptr %value.i36.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i, ptr noundef %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %while.body.i.i
@@ -5715,7 +5715,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %__first, i64 noundef range(i64 0, 82351536043346212) %__holeIndex, i64 noundef range(i64 -164703072086692425, 164703072086692426) %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.opt::soft", align 8
   %sub = add nsw i64 %__len, -1

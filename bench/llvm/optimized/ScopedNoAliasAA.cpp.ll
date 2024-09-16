@@ -316,7 +316,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i
   store i32 16, ptr %64, align 8
   store i32 0, ptr %65, align 4
   store i32 0, ptr %66, align 8
-  call fastcc void @_ZL17collectMDInDomainPKN4llvm6MDNodeES2_RNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull %1, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(28) %6)
+  call fastcc void @_ZL17collectMDInDomainPKN4llvm6MDNodeES2_RNS_15SmallPtrSetImplIS2_EE(ptr noundef %1, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(28) %6)
   %74 = load i32, ptr %65, align 4
   %75 = load i32, ptr %66, align 8
   %76 = icmp eq i32 %74, %75
@@ -328,7 +328,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i
   store i32 16, ptr %69, align 8
   store i32 0, ptr %70, align 4
   store i32 0, ptr %71, align 8
-  call fastcc void @_ZL17collectMDInDomainPKN4llvm6MDNodeES2_RNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull %2, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(28) %7)
+  call fastcc void @_ZL17collectMDInDomainPKN4llvm6MDNodeES2_RNS_15SmallPtrSetImplIS2_EE(ptr noundef %2, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(28) %7)
   %78 = call noundef zeroext i1 @_ZN4llvm13set_is_subsetINS_11SmallPtrSetIPKNS_6MDNodeELj16EEES5_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(160) %7)
   %. = zext i1 %78 to i32
   %79 = load ptr, ptr %68, align 8
@@ -702,7 +702,7 @@ _ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17collectMDInDomainPKN4llvm6MDNodeES2_RNS_15SmallPtrSetImplIS2_EE(ptr noundef %0, ptr noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17collectMDInDomainPKN4llvm6MDNodeES2_RNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull %0, ptr noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::AliasScopeNode", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = load i64, ptr %5, align 8

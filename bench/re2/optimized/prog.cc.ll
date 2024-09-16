@@ -505,7 +505,7 @@ entry:
 if.then:                                          ; preds = %entry
   %start_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %start_, align 8
-  tail call fastcc void @_ZN3re2L21FlattenedProgToStringB5cxx11EPNS_4ProgEi(ptr noalias align 8 %agg.result, ptr noundef nonnull %this, i32 noundef %1)
+  tail call fastcc void @_ZN3re2L21FlattenedProgToStringB5cxx11EPNS_4ProgEi(ptr noalias align 8 %agg.result, ptr noundef %this, i32 noundef %1)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -561,7 +561,7 @@ if.then5.i.i.i:                                   ; preds = %_ZN3re210SparseSetT
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then5.i.i.i, %_ZN3re210SparseSetTIvEC2Ei.exit
-  invoke fastcc void @_ZN3re2L12ProgToStringB5cxx11EPNS_4ProgEPNS_10SparseSetTIvEE(ptr noalias align 8 %agg.result, ptr noundef nonnull %this, ptr noundef nonnull %q)
+  invoke fastcc void @_ZN3re2L12ProgToStringB5cxx11EPNS_4ProgEPNS_10SparseSetTIvEE(ptr noalias align 8 %agg.result, ptr noundef %this, ptr noundef %q)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -593,7 +593,7 @@ return:                                           ; preds = %if.then.i.i3.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3re2L21FlattenedProgToStringB5cxx11EPNS_4ProgEi(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %prog, i32 noundef %start) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3re2L21FlattenedProgToStringB5cxx11EPNS_4ProgEi(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %prog, i32 noundef %start) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i13 = alloca [2 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i = alloca [2 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
@@ -725,7 +725,7 @@ ehcleanup26:                                      ; preds = %ehcleanup25, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3re2L12ProgToStringB5cxx11EPNS_4ProgEPNS_10SparseSetTIvEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %prog, ptr nocapture noundef %q) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3re2L12ProgToStringB5cxx11EPNS_4ProgEPNS_10SparseSetTIvEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %prog, ptr nocapture noundef nonnull %q) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -941,7 +941,7 @@ entry:
 if.then:                                          ; preds = %entry
   %start_unanchored_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %start_unanchored_, align 4
-  tail call fastcc void @_ZN3re2L21FlattenedProgToStringB5cxx11EPNS_4ProgEi(ptr noalias align 8 %agg.result, ptr noundef nonnull %this, i32 noundef %1)
+  tail call fastcc void @_ZN3re2L21FlattenedProgToStringB5cxx11EPNS_4ProgEi(ptr noalias align 8 %agg.result, ptr noundef %this, i32 noundef %1)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -997,7 +997,7 @@ if.then5.i.i.i:                                   ; preds = %_ZN3re210SparseSetT
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then5.i.i.i, %_ZN3re210SparseSetTIvEC2Ei.exit
-  invoke fastcc void @_ZN3re2L12ProgToStringB5cxx11EPNS_4ProgEPNS_10SparseSetTIvEE(ptr noalias align 8 %agg.result, ptr noundef nonnull %this, ptr noundef nonnull %q)
+  invoke fastcc void @_ZN3re2L12ProgToStringB5cxx11EPNS_4ProgEPNS_10SparseSetTIvEE(ptr noalias align 8 %agg.result, ptr noundef %this, ptr noundef %q)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont

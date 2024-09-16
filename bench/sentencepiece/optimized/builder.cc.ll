@@ -13384,7 +13384,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit51: ; preds = %_ZN13
   br i1 %120, label %121, label %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread177
 
 121:                                              ; preds = %111
-  invoke fastcc void @_ZN13sentencepiece10normalizer12_GLOBAL__N_19NormalizeERKSt3mapISt6vectorIjSaIjEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEERS9_i(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %112, i32 noundef %110)
+  invoke fastcc void @_ZN13sentencepiece10normalizer12_GLOBAL__N_19NormalizeERKSt3mapISt6vectorIjSaIjEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEERS9_i(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %112, i32 noundef %110)
           to label %122 unwind label %.loopexit.split-lp.loopexit
 
 122:                                              ; preds = %121
@@ -13681,7 +13681,7 @@ _ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread177: ; preds = %185, %.thread, %
 235:                                              ; preds = %.lr.ph229, %275
   %.sroa.0137.0227 = phi ptr [ %231, %.lr.ph229 ], [ %276, %275 ]
   %236 = getelementptr inbounds i8, ptr %.sroa.0137.0227, i64 32
-  invoke fastcc void @_ZN13sentencepiece10normalizer12_GLOBAL__N_19NormalizeERKSt3mapISt6vectorIjSaIjEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEERS9_i(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %236, i32 noundef %232)
+  invoke fastcc void @_ZN13sentencepiece10normalizer12_GLOBAL__N_19NormalizeERKSt3mapISt6vectorIjSaIjEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEERS9_i(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %236, i32 noundef %232)
           to label %237 unwind label %.loopexit
 
 237:                                              ; preds = %235
@@ -13870,7 +13870,7 @@ _ZNSt3mapISt6vectorIjSaIjEES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN13sentencepiece10normalizer12_GLOBAL__N_19NormalizeERKSt3mapISt6vectorIjSaIjEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEERS9_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN13sentencepiece10normalizer12_GLOBAL__N_19NormalizeERKSt3mapISt6vectorIjSaIjEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEERS9_i(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.sentencepiece::error::Die", align 1
   %6 = icmp slt i32 %3, 1
   br i1 %6, label %7, label %.critedge
@@ -14205,7 +14205,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
   %134 = load ptr, ptr %133, align 8
-  %135 = invoke ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKjSt20back_insert_iteratorISt6vectorIjSaIjEEEEET0_T_SB_SA_(ptr noundef %132, ptr noundef %134, ptr %0)
+  %135 = invoke ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKjSt20back_insert_iteratorISt6vectorIjSaIjEEEEET0_T_SB_SA_(ptr noundef %132, ptr noundef %134, ptr nonnull %0)
           to label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEESt20back_insert_iteratorIS6_EET0_T_SB_SA_.exit unwind label %.loopexit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEESt20back_insert_iteratorIS6_EET0_T_SB_SA_.exit: ; preds = %130

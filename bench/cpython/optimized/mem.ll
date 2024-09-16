@@ -621,7 +621,7 @@ declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @PyObject_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @test_setallocators(i32 noundef %domain) unnamed_addr #0 {
+define internal fastcc noundef ptr @test_setallocators(i32 noundef range(i32 0, 3) %domain) unnamed_addr #0 {
 entry:
   %hook = alloca %struct.alloc_hook_t, align 8
   %alloc = alloca %struct.PyMemAllocatorEx, align 8
@@ -639,7 +639,7 @@ entry:
   call void @PyMem_SetAllocator(i32 noundef %domain, ptr noundef nonnull %alloc) #4
   %ctx2 = getelementptr inbounds i8, ptr %hook, i64 88
   store ptr null, ptr %ctx2, align 8
-  switch i32 %domain, label %default.unreachable [
+  switch i32 %domain, label %default.unreachable34 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
     i32 2, label %sw.bb5
@@ -657,7 +657,7 @@ sw.bb5:                                           ; preds = %entry
   %call6 = call ptr @PyObject_Malloc(i64 noundef 42) #4
   br label %sw.epilog
 
-default.unreachable:                              ; preds = %if.end67, %if.end46, %if.end34, %if.end14, %entry
+default.unreachable34:                            ; preds = %if.end67, %if.end46, %if.end34, %if.end14, %entry
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb5, %sw.bb3, %sw.bb
@@ -678,7 +678,7 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp12.not, label %if.end14, label %fail
 
 if.end14:                                         ; preds = %if.end10
-  switch i32 %domain, label %default.unreachable [
+  switch i32 %domain, label %default.unreachable34 [
     i32 0, label %sw.bb15
     i32 1, label %sw.bb17
     i32 2, label %sw.bb19
@@ -718,7 +718,7 @@ if.end29:                                         ; preds = %if.end25
   br i1 %or.cond, label %if.end34, label %fail
 
 if.end34:                                         ; preds = %if.end29
-  switch i32 %domain, label %default.unreachable [
+  switch i32 %domain, label %default.unreachable34 [
     i32 0, label %sw.bb35
     i32 1, label %sw.bb36
     i32 2, label %sw.bb37
@@ -749,7 +749,7 @@ if.end42:                                         ; preds = %sw.epilog38
   br i1 %cmp44.not, label %if.end46, label %fail
 
 if.end46:                                         ; preds = %if.end42
-  switch i32 %domain, label %default.unreachable [
+  switch i32 %domain, label %default.unreachable34 [
     i32 0, label %sw.bb47
     i32 1, label %sw.bb49
     i32 2, label %sw.bb51
@@ -790,7 +790,7 @@ if.end61:                                         ; preds = %if.end57
 
 if.end67:                                         ; preds = %if.end61
   store ptr null, ptr %free_ptr, align 8
-  switch i32 %domain, label %default.unreachable [
+  switch i32 %domain, label %default.unreachable34 [
     i32 0, label %sw.bb69
     i32 1, label %sw.bb70
     i32 2, label %sw.bb71

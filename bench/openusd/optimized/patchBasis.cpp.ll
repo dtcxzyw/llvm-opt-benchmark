@@ -98,7 +98,7 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %.not.i, label %19, label %18
 
 18:                                               ; preds = %17
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %4)
   br label %19
 
 19:                                               ; preds = %18, %17
@@ -108,8 +108,8 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %or.cond.i, label %22, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 22:                                               ; preds = %19
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %5)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %5)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %6)
   %23 = icmp ne ptr %7, null
   %24 = icmp ne ptr %8, null
   %or.cond3.i = and i1 %23, %24
@@ -118,9 +118,9 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %or.cond5.i, label %26, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 26:                                               ; preds = %22
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %7)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %8)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %9)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %7)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %8)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 27:                                               ; preds = %10
@@ -133,7 +133,7 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %.not.i74, label %31, label %30
 
 30:                                               ; preds = %29
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %4)
   br label %31
 
 31:                                               ; preds = %30, %29
@@ -143,8 +143,8 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %or.cond.i75, label %34, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 34:                                               ; preds = %31
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %5)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %5)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %6)
   %35 = icmp ne ptr %7, null
   %36 = icmp ne ptr %8, null
   %or.cond3.i76 = and i1 %35, %36
@@ -153,9 +153,9 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %or.cond5.i77, label %38, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 38:                                               ; preds = %34
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %7)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %8)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef nonnull %9)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %7)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %8)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %14, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 39:                                               ; preds = %10
@@ -591,7 +591,7 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal21EvalBasisB
   br i1 %.not, label %37, label %36
 
 36:                                               ; preds = %8
-  call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128evalBoxSplineTriDerivWeightsIfEEvPKT_iiPS5_(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2)
+  call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128evalBoxSplineTriDerivWeightsIfEEvPKT_iiPS5_(ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef %2)
   br label %37
 
 37:                                               ; preds = %36, %8
@@ -1756,7 +1756,7 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal19EvalBasisG
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
   %3 = and i32 %0, 1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit62, label %.preheader61
@@ -1859,7 +1859,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128evalBoxSplineTriDerivWeightsIfEEvPKT_iiPS5_(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #3 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128evalBoxSplineTriDerivWeightsIfEEvPKT_iiPS5_(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull writeonly %3) unnamed_addr #3 {
   %5 = add nuw nsw i32 %2, %1
   switch i32 %5, label %785 [
     i32 0, label %6
@@ -2741,7 +2741,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull %1) unnamed_addr #3 {
   %3 = lshr i32 %0, 3
   %4 = and i32 %3, 3
   %5 = and i32 %0, 7
@@ -3284,7 +3284,7 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %.not.i, label %19, label %18
 
 18:                                               ; preds = %17
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %4)
   br label %19
 
 19:                                               ; preds = %18, %17
@@ -3294,8 +3294,8 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %or.cond.i, label %22, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 22:                                               ; preds = %19
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %5)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %5)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %6)
   %23 = icmp ne ptr %7, null
   %24 = icmp ne ptr %8, null
   %or.cond3.i = and i1 %23, %24
@@ -3304,9 +3304,9 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %or.cond5.i, label %26, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 26:                                               ; preds = %22
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %7)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %8)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %9)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %7)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %8)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 27:                                               ; preds = %10
@@ -3319,7 +3319,7 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %.not.i74, label %31, label %30
 
 30:                                               ; preds = %29
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %4)
   br label %31
 
 31:                                               ; preds = %30, %29
@@ -3329,8 +3329,8 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %or.cond.i75, label %34, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 34:                                               ; preds = %31
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %5)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %5)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %6)
   %35 = icmp ne ptr %7, null
   %36 = icmp ne ptr %8, null
   %or.cond3.i76 = and i1 %35, %36
@@ -3339,9 +3339,9 @@ define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal28EvaluatePatchB
   br i1 %or.cond5.i77, label %38, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 38:                                               ; preds = %34
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %7)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %8)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef nonnull %9)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %7)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %8)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %14, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 39:                                               ; preds = %10
@@ -3765,7 +3765,7 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal21EvalBasisB
   br i1 %.not, label %37, label %36
 
 36:                                               ; preds = %8
-  call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128evalBoxSplineTriDerivWeightsIdEEvPKT_iiPS5_(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2)
+  call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128evalBoxSplineTriDerivWeightsIdEEvPKT_iiPS5_(ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef %2)
   br label %37
 
 37:                                               ; preds = %36, %8
@@ -4920,7 +4920,7 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal19EvalBasisG
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
   %3 = and i32 %0, 1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit62, label %.preheader61
@@ -5023,7 +5023,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128evalBoxSplineTriDerivWeightsIdEEvPKT_iiPS5_(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #3 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128evalBoxSplineTriDerivWeightsIdEEvPKT_iiPS5_(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull writeonly %3) unnamed_addr #3 {
   %5 = add nuw nsw i32 %2, %1
   switch i32 %5, label %789 [
     i32 0, label %6
@@ -5909,7 +5909,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull %1) unnamed_addr #3 {
   %3 = lshr i32 %0, 3
   %4 = and i32 %3, 3
   %5 = and i32 %0, 7

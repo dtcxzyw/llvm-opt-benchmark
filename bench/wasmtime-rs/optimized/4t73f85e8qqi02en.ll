@@ -285,7 +285,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.i: ; preds = %13
   %20 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %5, align 8, !alias.scope !75, !noalias !94
-  invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE"(ptr noalias noundef nonnull align 16 dereferenceable(32) %4) #27
+  invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE"(ptr noalias noundef align 16 dereferenceable(32) %4) #27
           to label %common.resume unwind label %21, !noalias !94
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread36: ; preds = %18
@@ -385,7 +385,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.i1: ; preds = %3
   %48 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %34, align 8, !alias.scope !109, !noalias !106
-  invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE"(ptr noalias noundef nonnull align 16 dereferenceable(32) %3) #27
+  invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE"(ptr noalias noundef align 16 dereferenceable(32) %3) #27
           to label %common.resume unwind label %49, !noalias !106
 
 "_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$17h4a547b0f4db03b14E.exit.i4": ; preds = %45
@@ -4066,7 +4066,7 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE"(ptr noalias noundef align 16 dereferenceable(32) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE"(ptr noalias noundef nonnull align 16 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 16, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr60drop_in_place$LT$clap_builder..util..any_value..AnyValue$GT$17h4c11ad03bb77eabcE.exit", label %4

@@ -421,7 +421,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$$GT$$GT$17h22211966169db7acE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$$GT$$GT$17h22211966169db7acE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !56, !noundef !4
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -517,7 +517,7 @@ define internal void @"_ZN4core3ptr68drop_in_place$LT$$RF$rustls_pki_types..serv
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h59668705a5f139f5E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h59668705a5f139f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !82, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -5443,7 +5443,7 @@ define void @_ZN6rustls12key_log_file10KeyLogFile3new17h4b4393e81e62403eE(ptr no
 
 16:                                               ; preds = %33, %17
   %.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %34, %33 ]
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h59668705a5f139f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #38
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h59668705a5f139f5E"(ptr noalias noundef align 8 dereferenceable(24) %10) #38
           to label %57 unwind label %55, !noalias !734
 
 17:                                               ; preds = %38, %35, %13
@@ -6507,14 +6507,14 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %37, %.noe
   ret i1 %.0.in
 
 53:                                               ; preds = %46
-  call fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$$GT$$GT$17h22211966169db7acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$$GT$$GT$17h22211966169db7acE"(ptr noalias noundef align 8 dereferenceable(24) %7)
   br label %52
 
 54:                                               ; preds = %55, %41
   resume { ptr, i32 } %.pn
 
 55:                                               ; preds = %41
-  invoke fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$$GT$$GT$17h22211966169db7acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #38
+  invoke fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$$GT$$GT$17h22211966169db7acE"(ptr noalias noundef align 8 dereferenceable(24) %7) #38
           to label %54 unwind label %49
 }
 

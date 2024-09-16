@@ -1418,10 +1418,11 @@ dissect_tecmp_control_msg.exit:                   ; preds = %74, %78, %._crit_ed
   call fastcc void @add_device_id_text(ptr noundef %164, i16 noundef zeroext %166)
   %167 = load i32, ptr @hf_tecmp_payload_status_sn, align 4
   %168 = call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %167, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef 0) #4
-  switch i32 %73, label %413 [
-    i32 1, label %169
-    i32 2, label %276
-    i32 4, label %379
+  %trunc.i = trunc nuw i32 %73 to i8
+  switch i8 %trunc.i, label %413 [
+    i8 1, label %169
+    i8 2, label %276
+    i8 4, label %379
   ]
 
 169:                                              ; preds = %143
@@ -3174,7 +3175,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4, i16 noundef zeroext %5, i32 noundef range(i32 0, 2) %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
   %11 = alloca %struct.nstime_t, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -3268,10 +3269,11 @@ proto_item_set_hidden.exit:                       ; preds = %32, %48, %51
   br label %61
 
 61:                                               ; preds = %59, %proto_item_set_hidden.exit
+  %trunc = trunc nuw i32 %4 to i8
   %62 = load i32, ptr @hf_tecmp_payload_data_flags, align 4
-  switch i32 %4, label %99 [
-    i32 3, label %63
-    i32 10, label %83
+  switch i8 %trunc, label %99 [
+    i8 3, label %63
+    i8 10, label %83
   ]
 
 63:                                               ; preds = %61

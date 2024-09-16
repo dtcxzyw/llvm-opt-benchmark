@@ -369,13 +369,13 @@ define hidden void @av1_cdef_frame(ptr noundef %0, ptr nocapture noundef readonl
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv16.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next17.i, %._crit_edge.us.i ]
-  %invariant.gep.i.idx = shl i64 %indvars.iv16.i, 4
-  %invariant.gep.i = getelementptr i8, ptr %95, i64 %invariant.gep.i.idx
+  %invariant.gep.i.idx = shl nsw i64 %indvars.iv16.i, 4
+  %invariant.gep.i = getelementptr inbounds i8, ptr %95, i64 %invariant.gep.i.idx
   br label %98
 
 98:                                               ; preds = %98, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %98 ]
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds i16, ptr %invariant.gep.i, i64 %indvars.iv.i
   store i16 30000, ptr %gep.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -589,12 +589,12 @@ av1_cdef_compute_sb_list.exit:                    ; preds = %._crit_edge.us.i338
 .preheader.us.i341:                               ; preds = %._crit_edge.us.i348, %.preheader.us.preheader.i339
   %indvars.iv16.i342 = phi i64 [ 0, %.preheader.us.preheader.i339 ], [ %indvars.iv.next17.i349, %._crit_edge.us.i348 ]
   %invariant.gep.i343.idx = mul nuw nsw i64 %indvars.iv16.i342, 288
-  %invariant.gep.i343 = getelementptr i8, ptr %204, i64 %invariant.gep.i343.idx
+  %invariant.gep.i343 = getelementptr inbounds i8, ptr %204, i64 %invariant.gep.i343.idx
   br label %207
 
 207:                                              ; preds = %207, %.preheader.us.i341
   %indvars.iv.i344 = phi i64 [ 0, %.preheader.us.i341 ], [ %indvars.iv.next.i346, %207 ]
-  %gep.i345 = getelementptr i16, ptr %invariant.gep.i343, i64 %indvars.iv.i344
+  %gep.i345 = getelementptr inbounds i16, ptr %invariant.gep.i343, i64 %indvars.iv.i344
   store i16 30000, ptr %gep.i345, align 2
   %indvars.iv.next.i346 = add nuw nsw i64 %indvars.iv.i344, 1
   %exitcond.not.i347 = icmp eq i64 %indvars.iv.next.i346, 8
@@ -624,12 +624,12 @@ fill_rect.exit351:                                ; preds = %._crit_edge.us.i348
 .preheader.us.i355:                               ; preds = %._crit_edge.us.i362, %.preheader.us.preheader.i353
   %indvars.iv16.i356 = phi i64 [ 0, %.preheader.us.preheader.i353 ], [ %indvars.iv.next17.i363, %._crit_edge.us.i362 ]
   %invariant.gep.i357.idx = mul nuw nsw i64 %indvars.iv16.i356, 288
-  %invariant.gep.i357 = getelementptr i8, ptr %212, i64 %invariant.gep.i357.idx
+  %invariant.gep.i357 = getelementptr inbounds i8, ptr %212, i64 %invariant.gep.i357.idx
   br label %215
 
 215:                                              ; preds = %215, %.preheader.us.i355
   %indvars.iv.i358 = phi i64 [ 0, %.preheader.us.i355 ], [ %indvars.iv.next.i360, %215 ]
-  %gep.i359 = getelementptr i16, ptr %invariant.gep.i357, i64 %indvars.iv.i358
+  %gep.i359 = getelementptr inbounds i16, ptr %invariant.gep.i357, i64 %indvars.iv.i358
   store i16 30000, ptr %gep.i359, align 2
   %indvars.iv.next.i360 = add nuw nsw i64 %indvars.iv.i358, 1
   %exitcond.not.i361 = icmp eq i64 %indvars.iv.next.i360, %wide.trip.count.i354
@@ -864,14 +864,14 @@ copy_sb8_16.exit.thread:                          ; preds = %224
   %287 = mul nsw i64 %indvars.iv20.i, %53
   %invariant.gep.i403 = getelementptr i16, ptr %285, i64 %287
   %invariant.gep25.i.idx = mul nuw nsw i64 %indvars.iv20.i, 288
-  %invariant.gep25.i = getelementptr i8, ptr %66, i64 %invariant.gep25.i.idx
+  %invariant.gep25.i = getelementptr inbounds i8, ptr %66, i64 %invariant.gep25.i.idx
   br label %288
 
 288:                                              ; preds = %288, %.preheader.us.i402
   %indvars.iv.i404 = phi i64 [ 0, %.preheader.us.i402 ], [ %indvars.iv.next.i406, %288 ]
   %gep.i405 = getelementptr i16, ptr %invariant.gep.i403, i64 %indvars.iv.i404
   %289 = load i16, ptr %gep.i405, align 2
-  %gep26.i = getelementptr i16, ptr %invariant.gep25.i, i64 %indvars.iv.i404
+  %gep26.i = getelementptr inbounds i16, ptr %invariant.gep25.i, i64 %indvars.iv.i404
   store i16 %289, ptr %gep26.i, align 2
   %indvars.iv.next.i406 = add nuw nsw i64 %indvars.iv.i404, 1
   %exitcond.not.i407 = icmp eq i64 %indvars.iv.next.i406, %wide.trip.count.i401
@@ -893,12 +893,12 @@ copy_sb8_16.exit.thread:                          ; preds = %224
 .preheader.us.i412:                               ; preds = %._crit_edge.us.i419, %.preheader.us.preheader.i410
   %indvars.iv16.i413 = phi i64 [ 0, %.preheader.us.preheader.i410 ], [ %indvars.iv.next17.i420, %._crit_edge.us.i419 ]
   %invariant.gep.i414.idx = mul nuw nsw i64 %indvars.iv16.i413, 288
-  %invariant.gep.i414 = getelementptr i8, ptr %66, i64 %invariant.gep.i414.idx
+  %invariant.gep.i414 = getelementptr inbounds i8, ptr %66, i64 %invariant.gep.i414.idx
   br label %292
 
 292:                                              ; preds = %292, %.preheader.us.i412
   %indvars.iv.i415 = phi i64 [ 0, %.preheader.us.i412 ], [ %indvars.iv.next.i417, %292 ]
-  %gep.i416 = getelementptr i16, ptr %invariant.gep.i414, i64 %indvars.iv.i415
+  %gep.i416 = getelementptr inbounds i16, ptr %invariant.gep.i414, i64 %indvars.iv.i415
   store i16 30000, ptr %gep.i416, align 2
   %indvars.iv.next.i417 = add nuw nsw i64 %indvars.iv.i415, 1
   %exitcond.not.i418 = icmp eq i64 %indvars.iv.next.i417, %wide.trip.count.i411
@@ -1029,14 +1029,14 @@ copy_sb8_16.exit398.thread:                       ; preds = %257
   %333 = mul nsw i64 %indvars.iv20.i453, %53
   %invariant.gep.i454 = getelementptr i16, ptr %332, i64 %333
   %invariant.gep25.i455.idx = mul nuw nsw i64 %indvars.iv20.i453, 288
-  %invariant.gep25.i455 = getelementptr i8, ptr %4, i64 %invariant.gep25.i455.idx
+  %invariant.gep25.i455 = getelementptr inbounds i8, ptr %4, i64 %invariant.gep25.i455.idx
   br label %334
 
 334:                                              ; preds = %334, %.preheader.us.i452
   %indvars.iv.i456 = phi i64 [ 0, %.preheader.us.i452 ], [ %indvars.iv.next.i459, %334 ]
   %gep.i457 = getelementptr i16, ptr %invariant.gep.i454, i64 %indvars.iv.i456
   %335 = load i16, ptr %gep.i457, align 2
-  %gep26.i458 = getelementptr i16, ptr %invariant.gep25.i455, i64 %indvars.iv.i456
+  %gep26.i458 = getelementptr inbounds i16, ptr %invariant.gep25.i455, i64 %indvars.iv.i456
   store i16 %335, ptr %gep26.i458, align 2
   %indvars.iv.next.i459 = add nuw nsw i64 %indvars.iv.i456, 1
   %exitcond.not.i460 = icmp eq i64 %indvars.iv.next.i459, 8
@@ -1050,12 +1050,12 @@ copy_sb8_16.exit398.thread:                       ; preds = %257
 .preheader.us.i466:                               ; preds = %326, %._crit_edge.us.i473
   %indvars.iv16.i467 = phi i64 [ %indvars.iv.next17.i474, %._crit_edge.us.i473 ], [ 0, %326 ]
   %invariant.gep.i468.idx = mul nuw nsw i64 %indvars.iv16.i467, 288
-  %invariant.gep.i468 = getelementptr i8, ptr %4, i64 %invariant.gep.i468.idx
+  %invariant.gep.i468 = getelementptr inbounds i8, ptr %4, i64 %invariant.gep.i468.idx
   br label %336
 
 336:                                              ; preds = %336, %.preheader.us.i466
   %indvars.iv.i469 = phi i64 [ 0, %.preheader.us.i466 ], [ %indvars.iv.next.i471, %336 ]
-  %gep.i470 = getelementptr i16, ptr %invariant.gep.i468, i64 %indvars.iv.i469
+  %gep.i470 = getelementptr inbounds i16, ptr %invariant.gep.i468, i64 %indvars.iv.i469
   store i16 30000, ptr %gep.i470, align 2
   %indvars.iv.next.i471 = add nuw nsw i64 %indvars.iv.i469, 1
   %exitcond.not.i472 = icmp eq i64 %indvars.iv.next.i471, 8
@@ -1160,14 +1160,14 @@ copy_sb8_16.exit450:                              ; preds = %._crit_edge.us.i473
   %372 = mul nsw i64 %indvars.iv20.i507, %53
   %invariant.gep.i508 = getelementptr i16, ptr %371, i64 %372
   %invariant.gep25.i509.idx = mul nuw nsw i64 %indvars.iv20.i507, 288
-  %invariant.gep25.i509 = getelementptr i8, ptr %339, i64 %invariant.gep25.i509.idx
+  %invariant.gep25.i509 = getelementptr inbounds i8, ptr %339, i64 %invariant.gep25.i509.idx
   br label %373
 
 373:                                              ; preds = %373, %.preheader.us.i506
   %indvars.iv.i510 = phi i64 [ 0, %.preheader.us.i506 ], [ %indvars.iv.next.i513, %373 ]
   %gep.i511 = getelementptr i16, ptr %invariant.gep.i508, i64 %indvars.iv.i510
   %374 = load i16, ptr %gep.i511, align 2
-  %gep26.i512 = getelementptr i16, ptr %invariant.gep25.i509, i64 %indvars.iv.i510
+  %gep26.i512 = getelementptr inbounds i16, ptr %invariant.gep25.i509, i64 %indvars.iv.i510
   store i16 %374, ptr %gep26.i512, align 2
   %indvars.iv.next.i513 = add nuw nsw i64 %indvars.iv.i510, 1
   %exitcond.not.i514 = icmp eq i64 %indvars.iv.next.i513, 8
@@ -1181,12 +1181,12 @@ copy_sb8_16.exit450:                              ; preds = %._crit_edge.us.i473
 .preheader.us.i520:                               ; preds = %365, %._crit_edge.us.i527
   %indvars.iv16.i521 = phi i64 [ %indvars.iv.next17.i528, %._crit_edge.us.i527 ], [ 0, %365 ]
   %invariant.gep.i522.idx = mul nuw nsw i64 %indvars.iv16.i521, 288
-  %invariant.gep.i522 = getelementptr i8, ptr %339, i64 %invariant.gep.i522.idx
+  %invariant.gep.i522 = getelementptr inbounds i8, ptr %339, i64 %invariant.gep.i522.idx
   br label %375
 
 375:                                              ; preds = %375, %.preheader.us.i520
   %indvars.iv.i523 = phi i64 [ 0, %.preheader.us.i520 ], [ %indvars.iv.next.i525, %375 ]
-  %gep.i524 = getelementptr i16, ptr %invariant.gep.i522, i64 %indvars.iv.i523
+  %gep.i524 = getelementptr inbounds i16, ptr %invariant.gep.i522, i64 %indvars.iv.i523
   store i16 30000, ptr %gep.i524, align 2
   %indvars.iv.next.i525 = add nuw nsw i64 %indvars.iv.i523, 1
   %exitcond.not.i526 = icmp eq i64 %indvars.iv.next.i525, 8
@@ -1216,14 +1216,14 @@ copy_sb8_16.exit504:                              ; preds = %._crit_edge.us.i527
   %invariant.gep.i535.idx = shl i64 %indvars.iv20.i534, 4
   %invariant.gep.i535 = getelementptr i8, ptr %.pre, i64 %invariant.gep.i535.idx
   %invariant.gep25.i536.idx = mul nuw nsw i64 %indvars.iv20.i534, 288
-  %invariant.gep25.i536 = getelementptr i8, ptr %4, i64 %invariant.gep25.i536.idx
+  %invariant.gep25.i536 = getelementptr inbounds i8, ptr %4, i64 %invariant.gep25.i536.idx
   br label %379
 
 379:                                              ; preds = %379, %.preheader.us.i533
   %indvars.iv.i537 = phi i64 [ 0, %.preheader.us.i533 ], [ %indvars.iv.next.i540, %379 ]
   %gep.i538 = getelementptr i16, ptr %invariant.gep.i535, i64 %indvars.iv.i537
   %380 = load i16, ptr %gep.i538, align 2
-  %gep26.i539 = getelementptr i16, ptr %invariant.gep25.i536, i64 %indvars.iv.i537
+  %gep26.i539 = getelementptr inbounds i16, ptr %invariant.gep25.i536, i64 %indvars.iv.i537
   store i16 %380, ptr %gep26.i539, align 2
   %indvars.iv.next.i540 = add nuw nsw i64 %indvars.iv.i537, 1
   %exitcond.not.i541 = icmp eq i64 %indvars.iv.next.i540, 8
@@ -1249,15 +1249,15 @@ copy_rect.exit545:                                ; preds = %._crit_edge.us.i542
   %indvars.iv20.i550 = phi i64 [ 0, %.preheader.us.preheader.i547 ], [ %indvars.iv.next21.i559, %._crit_edge.us.i558 ]
   %invariant.gep.i551.idx = mul nuw nsw i64 %indvars.iv20.i550, 288
   %invariant.gep.i551 = getelementptr i8, ptr %382, i64 %invariant.gep.i551.idx
-  %invariant.gep25.i552.idx = shl i64 %indvars.iv20.i550, 4
-  %invariant.gep25.i552 = getelementptr i8, ptr %.pre, i64 %invariant.gep25.i552.idx
+  %invariant.gep25.i552.idx = shl nsw i64 %indvars.iv20.i550, 4
+  %invariant.gep25.i552 = getelementptr inbounds i8, ptr %.pre, i64 %invariant.gep25.i552.idx
   br label %385
 
 385:                                              ; preds = %385, %.preheader.us.i549
   %indvars.iv.i553 = phi i64 [ 0, %.preheader.us.i549 ], [ %indvars.iv.next.i556, %385 ]
   %gep.i554 = getelementptr i16, ptr %invariant.gep.i551, i64 %indvars.iv.i553
   %386 = load i16, ptr %gep.i554, align 2
-  %gep26.i555 = getelementptr i16, ptr %invariant.gep25.i552, i64 %indvars.iv.i553
+  %gep26.i555 = getelementptr inbounds i16, ptr %invariant.gep25.i552, i64 %indvars.iv.i553
   store i16 %386, ptr %gep26.i555, align 2
   %indvars.iv.next.i556 = add nuw nsw i64 %indvars.iv.i553, 1
   %exitcond.not.i557 = icmp eq i64 %indvars.iv.next.i556, 8
@@ -1376,12 +1376,12 @@ copy_sb8_16.exit593:                              ; preds = %._crit_edge.us.i.i5
 .preheader.us.i597:                               ; preds = %._crit_edge.us.i604, %.preheader.us.preheader.i595
   %indvars.iv16.i598 = phi i64 [ 0, %.preheader.us.preheader.i595 ], [ %indvars.iv.next17.i605, %._crit_edge.us.i604 ]
   %invariant.gep.i599.idx = mul nuw nsw i64 %indvars.iv16.i598, 288
-  %invariant.gep.i599 = getelementptr i8, ptr %4, i64 %invariant.gep.i599.idx
+  %invariant.gep.i599 = getelementptr inbounds i8, ptr %4, i64 %invariant.gep.i599.idx
   br label %423
 
 423:                                              ; preds = %423, %.preheader.us.i597
   %indvars.iv.i600 = phi i64 [ 0, %.preheader.us.i597 ], [ %indvars.iv.next.i602, %423 ]
-  %gep.i601 = getelementptr i16, ptr %invariant.gep.i599, i64 %indvars.iv.i600
+  %gep.i601 = getelementptr inbounds i16, ptr %invariant.gep.i599, i64 %indvars.iv.i600
   store i16 30000, ptr %gep.i601, align 2
   %indvars.iv.next.i602 = add nuw nsw i64 %indvars.iv.i600, 1
   %exitcond.not.i603 = icmp eq i64 %indvars.iv.next.i602, %wide.trip.count.i596
@@ -1405,12 +1405,12 @@ fill_rect.exit607:                                ; preds = %._crit_edge.us.i604
 .preheader.us.i611:                               ; preds = %._crit_edge.us.i618, %.preheader.us.preheader.i609
   %indvars.iv16.i612 = phi i64 [ 0, %.preheader.us.preheader.i609 ], [ %indvars.iv.next17.i619, %._crit_edge.us.i618 ]
   %invariant.gep.i613.idx = mul nuw nsw i64 %indvars.iv16.i612, 288
-  %invariant.gep.i613 = getelementptr i8, ptr %4, i64 %invariant.gep.i613.idx
+  %invariant.gep.i613 = getelementptr inbounds i8, ptr %4, i64 %invariant.gep.i613.idx
   br label %426
 
 426:                                              ; preds = %426, %.preheader.us.i611
   %indvars.iv.i614 = phi i64 [ 0, %.preheader.us.i611 ], [ %indvars.iv.next.i616, %426 ]
-  %gep.i615 = getelementptr i16, ptr %invariant.gep.i613, i64 %indvars.iv.i614
+  %gep.i615 = getelementptr inbounds i16, ptr %invariant.gep.i613, i64 %indvars.iv.i614
   store i16 30000, ptr %gep.i615, align 2
   %indvars.iv.next.i616 = add nuw nsw i64 %indvars.iv.i614, 1
   %exitcond.not.i617 = icmp eq i64 %indvars.iv.next.i616, 8
@@ -1439,12 +1439,12 @@ fill_rect.exit621:                                ; preds = %._crit_edge.us.i618
 .preheader.us.i625:                               ; preds = %._crit_edge.us.i632, %.preheader.us.preheader.i623
   %indvars.iv16.i626 = phi i64 [ 0, %.preheader.us.preheader.i623 ], [ %indvars.iv.next17.i633, %._crit_edge.us.i632 ]
   %invariant.gep.i627.idx = mul nuw nsw i64 %indvars.iv16.i626, 288
-  %invariant.gep.i627 = getelementptr i8, ptr %431, i64 %invariant.gep.i627.idx
+  %invariant.gep.i627 = getelementptr inbounds i8, ptr %431, i64 %invariant.gep.i627.idx
   br label %433
 
 433:                                              ; preds = %433, %.preheader.us.i625
   %indvars.iv.i628 = phi i64 [ 0, %.preheader.us.i625 ], [ %indvars.iv.next.i630, %433 ]
-  %gep.i629 = getelementptr i16, ptr %invariant.gep.i627, i64 %indvars.iv.i628
+  %gep.i629 = getelementptr inbounds i16, ptr %invariant.gep.i627, i64 %indvars.iv.i628
   store i16 30000, ptr %gep.i629, align 2
   %indvars.iv.next.i630 = add nuw nsw i64 %indvars.iv.i628, 1
   %exitcond.not.i631 = icmp eq i64 %indvars.iv.next.i630, %wide.trip.count.i624
@@ -1471,12 +1471,12 @@ fill_rect.exit635:                                ; preds = %._crit_edge.us.i632
 .preheader.us.i639:                               ; preds = %._crit_edge.us.i646, %.preheader.us.preheader.i637
   %indvars.iv16.i640 = phi i64 [ 0, %.preheader.us.preheader.i637 ], [ %indvars.iv.next17.i647, %._crit_edge.us.i646 ]
   %invariant.gep.i641.idx = mul nuw nsw i64 %indvars.iv16.i640, 288
-  %invariant.gep.i641 = getelementptr i8, ptr %436, i64 %invariant.gep.i641.idx
+  %invariant.gep.i641 = getelementptr inbounds i8, ptr %436, i64 %invariant.gep.i641.idx
   br label %438
 
 438:                                              ; preds = %438, %.preheader.us.i639
   %indvars.iv.i642 = phi i64 [ 0, %.preheader.us.i639 ], [ %indvars.iv.next.i644, %438 ]
-  %gep.i643 = getelementptr i16, ptr %invariant.gep.i641, i64 %indvars.iv.i642
+  %gep.i643 = getelementptr inbounds i16, ptr %invariant.gep.i641, i64 %indvars.iv.i642
   store i16 30000, ptr %gep.i643, align 2
   %indvars.iv.next.i644 = add nuw nsw i64 %indvars.iv.i642, 1
   %exitcond.not.i645 = icmp eq i64 %indvars.iv.next.i644, 8

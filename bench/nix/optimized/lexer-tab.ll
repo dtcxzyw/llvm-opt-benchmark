@@ -1774,7 +1774,7 @@ _ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm.exit554: ; preds = %505, %475
   tail call fastcc void @_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm(ptr noundef %517, ptr noundef %518, i64 noundef %520)
   %521 = load ptr, ptr %95, align 8
   %522 = getelementptr inbounds i8, ptr %521, i64 2
-  call fastcc void @_ZN3nixL11unescapeStrERNS_11SymbolTableEPcm(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %522)
+  call fastcc void @_ZN3nixL11unescapeStrERNS_11SymbolTableEPcm(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull %522)
   %523 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %523, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   br label %.loopexit622
@@ -2973,7 +2973,7 @@ _ZL14yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit: ; preds = %45, %.thread.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc void @_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #6 {
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %4, ptr %5, align 4
@@ -3781,7 +3781,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #13
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13yy_push_stateiPv(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #10 {
+define internal fastcc void @_ZL13yy_push_stateiPv(i32 noundef range(i32 1, 7) %0, ptr nocapture noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -3871,7 +3871,7 @@ define internal fastcc void @_ZL12yy_pop_statePv(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3nixL11unescapeStrERNS_11SymbolTableEPcm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @_ZN3nixL11unescapeStrERNS_11SymbolTableEPcm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #6 {
   br label %3
 
 3:                                                ; preds = %18, %2

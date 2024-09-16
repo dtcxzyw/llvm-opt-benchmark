@@ -1055,7 +1055,7 @@ _ZN12_GLOBAL__N_111TempPCHFile6createEN4llvm9StringRefE.exit.thread: ; preds = %
   %87 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #21, !noalias !22
   %88 = getelementptr inbounds i8, ptr %84, i64 %87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull %84, ptr noundef nonnull %88), !noalias !22
-  call fastcc void @_ZN12_GLOBAL__N_111TempPCHFileC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull %19), !noalias !22
+  call fastcc void @_ZN12_GLOBAL__N_111TempPCHFileC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef %19), !noalias !22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21, !noalias !22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #21, !noalias !22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
@@ -1151,7 +1151,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit.i:         ; preds = %113, %96, %92
 
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %121, %120
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18), !noalias !22
-  call fastcc void @_ZN12_GLOBAL__N_111TempPCHFileC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull %30), !noalias !22
+  call fastcc void @_ZN12_GLOBAL__N_111TempPCHFileC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef %30), !noalias !22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #21, !noalias !22
   br label %122
 
@@ -4328,7 +4328,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %25, %26
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit: ; preds = %48, %51
-  call fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %23, i64 %24, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr %23, i64 %24, ptr noundef %12, ptr noundef %13)
   %54 = load ptr, ptr %11, align 8
   %55 = load ptr, ptr %2, align 8
   store ptr %55, ptr %11, align 8
@@ -4462,7 +4462,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; pr
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26
 
 _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26: ; preds = %94, %109
-  call fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr nonnull @.str.11, i64 42, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  call fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr nonnull @.str.11, i64 42, ptr noundef %18, ptr noundef %19)
   %112 = load ptr, ptr %17, align 8
   %113 = load ptr, ptr %2, align 8
   store ptr %113, ptr %17, align 8
@@ -4534,7 +4534,7 @@ declare void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind writable sret
 declare void @_ZN4llvm3vfs10FileSystem16getBufferForFileERKNS_5TwineElbb(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr.724") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(34), i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::unique_ptr.364", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

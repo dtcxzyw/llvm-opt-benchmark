@@ -3321,10 +3321,10 @@ sw.epilog118.sink.split.i.i:                      ; preds = %sw.bb100.i.i, %sw.b
   store i64 %or.i.i.i194.i.i, ptr %this.val.i.i187.i.i, align 8
   %incdec.ptr.i.i.i195.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 8
   %conv3.i.i196.i.i = and i64 %sub.ptr.div.i.i.i191.i.i, 4294967295
-  %or.i4.i.i197.i.i = or disjoint i64 %conv3.i.i196.i.i, %.sink.i.i
-  store i64 %or.i4.i.i197.i.i, ptr %incdec.ptr.i.i.i195.i.i, align 8
-  %incdec.ptr.i5.i.i198.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i198.i.i, ptr %builder.i, align 8
+  %or.i5.i.i197.i.i = or disjoint i64 %conv3.i.i196.i.i, %.sink.i.i
+  store i64 %or.i5.i.i197.i.i, ptr %incdec.ptr.i.i.i195.i.i, align 8
+  %incdec.ptr.i6.i.i198.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i198.i.i, ptr %builder.i, align 8
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default112.i.i, %sw.epilog118.sink.split.i.i, %if.end152.i.i
@@ -3403,8 +3403,8 @@ scope_end.i.i:                                    ; preds = %array_continue.i.i,
   %conv15.i.i330.i.i = zext nneg i32 %cond.i.i322.i.i to i64
   %shl.i.i331.i.i = shl nuw nsw i64 %conv15.i.i330.i.i, 32
   %or.i.i332.i.i = or disjoint i64 %conv14.i.i329.i.i, %shl.i.i331.i.i
-  %or.i11.i.i333.i.i = or disjoint i64 %or.i.i332.i.i, %.sink355.i.i
-  store i64 %or.i11.i.i333.i.i, ptr %arrayidx.i9.i.i324.i.i, align 8
+  %or.i13.i.i333.i.i = or disjoint i64 %or.i.i332.i.i, %.sink355.i.i
+  store i64 %or.i13.i.i333.i.i, ptr %arrayidx.i9.i.i324.i.i, align 8
   %dec.i.i = add i32 %iter.sroa.54.3.i, -1
   %cmp150.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp150.i.i, label %document_end.i.i, label %if.end152.i.i
@@ -3508,10 +3508,10 @@ sw.epilog220.sink.split.i.i:                      ; preds = %sw.bb202.i.i, %sw.b
   store i64 %or.i.i.i299.i.i, ptr %this.val.i.i292.i.i, align 8
   %incdec.ptr.i.i.i300.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 8
   %conv3.i.i301.i.i = and i64 %sub.ptr.div.i.i.i296.i.i, 4294967295
-  %or.i4.i.i302.i.i = or disjoint i64 %conv3.i.i301.i.i, %.sink377.i.i
-  store i64 %or.i4.i.i302.i.i, ptr %incdec.ptr.i.i.i300.i.i, align 8
-  %incdec.ptr.i5.i.i303.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i303.i.i, ptr %builder.i, align 8
+  %or.i5.i.i302.i.i = or disjoint i64 %conv3.i.i301.i.i, %.sink377.i.i
+  store i64 %or.i5.i.i302.i.i, ptr %incdec.ptr.i.i.i300.i.i, align 8
+  %incdec.ptr.i6.i.i303.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i303.i.i, ptr %builder.i, align 8
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default214.i.i, %sw.epilog220.sink.split.i.i, %if.end152.i.i
@@ -3543,13 +3543,13 @@ document_end.sink.split.i.i:                      ; preds = %sw.bb29.i.i, %sw.bb
   store i64 %or.i.i.i123.i.i, ptr %incdec.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i124.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %conv3.i.i125.i.i = and i64 %sub.ptr.div.i.i.i120.i.i, 4294967295
-  %or.i4.i.i126.i.i = or disjoint i64 %conv3.i.i125.i.i, %.sink385.i.i
-  store i64 %or.i4.i.i126.i.i, ptr %incdec.ptr.i.i.i124.i.i, align 8
-  %incdec.ptr.i5.i.i127.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %or.i5.i.i126.i.i = or disjoint i64 %conv3.i.i125.i.i, %.sink385.i.i
+  store i64 %or.i5.i.i126.i.i, ptr %incdec.ptr.i.i.i124.i.i, align 8
+  %incdec.ptr.i6.i.i127.i.i = getelementptr inbounds i8, ptr %2, i64 24
   br label %document_end.i.i
 
 document_end.i.i:                                 ; preds = %document_end.sink.split.i.i, %scope_end.i.i, %sw.default.i.document_end.i_crit_edge.i
-  %59 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i5.i.i127.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i318.i.i, %scope_end.i.i ]
+  %59 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i6.i.i127.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i318.i.i, %scope_end.i.i ]
   %iter.sroa.8.9.i = phi ptr [ %incdec.ptr.i.i.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i113.i.i, %document_end.sink.split.i.i ], [ %iter.sroa.8.4.i, %scope_end.i.i ]
   store i64 8214565720323784704, ptr %59, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
@@ -3783,10 +3783,10 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   store i64 %or.i.i.i178.i.i, ptr %this.val.i.i171.i.i, align 8
   %incdec.ptr.i.i.i179.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 8
   %conv3.i.i180.i.i = and i64 %sub.ptr.div.i.i.i175.i.i, 4294967295
-  %or.i4.i.i181.i.i = or disjoint i64 %conv3.i.i180.i.i, %.sink.i.i
-  store i64 %or.i4.i.i181.i.i, ptr %incdec.ptr.i.i.i179.i.i, align 8
-  %incdec.ptr.i5.i.i182.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i182.i.i, ptr %builder.i, align 8
+  %or.i5.i.i181.i.i = or disjoint i64 %conv3.i.i180.i.i, %.sink.i.i
+  store i64 %or.i5.i.i181.i.i, ptr %incdec.ptr.i.i.i179.i.i, align 8
+  %incdec.ptr.i6.i.i182.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i182.i.i, ptr %builder.i, align 8
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default97.i.i, %sw.epilog103.sink.split.i.i, %if.end137.i.i
@@ -3865,8 +3865,8 @@ scope_end.i.i:                                    ; preds = %array_continue.i.i,
   %conv15.i.i314.i.i = zext nneg i32 %cond.i.i306.i.i to i64
   %shl.i.i315.i.i = shl nuw nsw i64 %conv15.i.i314.i.i, 32
   %or.i.i316.i.i = or disjoint i64 %conv14.i.i313.i.i, %shl.i.i315.i.i
-  %or.i11.i.i317.i.i = or disjoint i64 %or.i.i316.i.i, %.sink335.i.i
-  store i64 %or.i11.i.i317.i.i, ptr %arrayidx.i9.i.i308.i.i, align 8
+  %or.i13.i.i317.i.i = or disjoint i64 %or.i.i316.i.i, %.sink335.i.i
+  store i64 %or.i13.i.i317.i.i, ptr %arrayidx.i9.i.i308.i.i, align 8
   %dec.i.i = add i32 %iter.sroa.54.3.i, -1
   %cmp135.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp135.i.i, label %document_end.i.i, label %if.end137.i.i
@@ -3970,10 +3970,10 @@ sw.epilog203.sink.split.i.i:                      ; preds = %sw.bb185.i.i, %sw.b
   store i64 %or.i.i.i283.i.i, ptr %this.val.i.i276.i.i, align 8
   %incdec.ptr.i.i.i284.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 8
   %conv3.i.i285.i.i = and i64 %sub.ptr.div.i.i.i280.i.i, 4294967295
-  %or.i4.i.i286.i.i = or disjoint i64 %conv3.i.i285.i.i, %.sink357.i.i
-  store i64 %or.i4.i.i286.i.i, ptr %incdec.ptr.i.i.i284.i.i, align 8
-  %incdec.ptr.i5.i.i287.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i287.i.i, ptr %builder.i, align 8
+  %or.i5.i.i286.i.i = or disjoint i64 %conv3.i.i285.i.i, %.sink357.i.i
+  store i64 %or.i5.i.i286.i.i, ptr %incdec.ptr.i.i.i284.i.i, align 8
+  %incdec.ptr.i6.i.i287.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i287.i.i, ptr %builder.i, align 8
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default197.i.i, %sw.epilog203.sink.split.i.i, %if.end137.i.i
@@ -4005,13 +4005,13 @@ document_end.sink.split.i.i:                      ; preds = %sw.bb16.i.i, %sw.bb
   store i64 %or.i.i.i107.i.i, ptr %incdec.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i108.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %conv3.i.i109.i.i = and i64 %sub.ptr.div.i.i.i104.i.i, 4294967295
-  %or.i4.i.i110.i.i = or disjoint i64 %conv3.i.i109.i.i, %.sink365.i.i
-  store i64 %or.i4.i.i110.i.i, ptr %incdec.ptr.i.i.i108.i.i, align 8
-  %incdec.ptr.i5.i.i111.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %or.i5.i.i110.i.i = or disjoint i64 %conv3.i.i109.i.i, %.sink365.i.i
+  store i64 %or.i5.i.i110.i.i, ptr %incdec.ptr.i.i.i108.i.i, align 8
+  %incdec.ptr.i6.i.i111.i.i = getelementptr inbounds i8, ptr %3, i64 24
   br label %document_end.i.i
 
 document_end.i.i:                                 ; preds = %document_end.sink.split.i.i, %scope_end.i.i, %sw.default.i.document_end.i_crit_edge.i
-  %56 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i5.i.i111.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i302.i.i, %scope_end.i.i ]
+  %56 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i6.i.i111.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i302.i.i, %scope_end.i.i ]
   %iter.sroa.8.9.i = phi ptr [ %incdec.ptr.i.i.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i97.i.i, %document_end.sink.split.i.i ], [ %iter.sroa.8.4.i, %scope_end.i.i ]
   store i64 8214565720323784704, ptr %56, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 8
@@ -5317,10 +5317,10 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   store i64 %or.i.i.i194.i.i, ptr %this.val.i.i187.i.i, align 8
   %incdec.ptr.i.i.i195.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 8
   %conv3.i.i196.i.i = and i64 %sub.ptr.div.i.i.i191.i.i, 4294967295
-  %or.i4.i.i197.i.i = or disjoint i64 %conv3.i.i196.i.i, %.sink.i.i
-  store i64 %or.i4.i.i197.i.i, ptr %incdec.ptr.i.i.i195.i.i, align 8
-  %incdec.ptr.i5.i.i198.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i198.i.i, ptr %builder.i, align 8
+  %or.i5.i.i197.i.i = or disjoint i64 %conv3.i.i196.i.i, %.sink.i.i
+  store i64 %or.i5.i.i197.i.i, ptr %incdec.ptr.i.i.i195.i.i, align 8
+  %incdec.ptr.i6.i.i198.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i198.i.i, ptr %builder.i, align 8
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default111.i.i, %sw.epilog117.sink.split.i.i, %if.end151.i.i
@@ -5399,8 +5399,8 @@ scope_end.i.i:                                    ; preds = %array_continue.i.i,
   %conv15.i.i330.i.i = zext nneg i32 %cond.i.i322.i.i to i64
   %shl.i.i331.i.i = shl nuw nsw i64 %conv15.i.i330.i.i, 32
   %or.i.i332.i.i = or disjoint i64 %conv14.i.i329.i.i, %shl.i.i331.i.i
-  %or.i11.i.i333.i.i = or disjoint i64 %or.i.i332.i.i, %.sink355.i.i
-  store i64 %or.i11.i.i333.i.i, ptr %arrayidx.i9.i.i324.i.i, align 8
+  %or.i13.i.i333.i.i = or disjoint i64 %or.i.i332.i.i, %.sink355.i.i
+  store i64 %or.i13.i.i333.i.i, ptr %arrayidx.i9.i.i324.i.i, align 8
   %dec.i.i = add i32 %iter.sroa.54.3.i, -1
   %cmp149.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp149.i.i, label %document_end.i.i, label %if.end151.i.i
@@ -5504,10 +5504,10 @@ sw.epilog217.sink.split.i.i:                      ; preds = %sw.bb199.i.i, %sw.b
   store i64 %or.i.i.i299.i.i, ptr %this.val.i.i292.i.i, align 8
   %incdec.ptr.i.i.i300.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 8
   %conv3.i.i301.i.i = and i64 %sub.ptr.div.i.i.i296.i.i, 4294967295
-  %or.i4.i.i302.i.i = or disjoint i64 %conv3.i.i301.i.i, %.sink377.i.i
-  store i64 %or.i4.i.i302.i.i, ptr %incdec.ptr.i.i.i300.i.i, align 8
-  %incdec.ptr.i5.i.i303.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i303.i.i, ptr %builder.i, align 8
+  %or.i5.i.i302.i.i = or disjoint i64 %conv3.i.i301.i.i, %.sink377.i.i
+  store i64 %or.i5.i.i302.i.i, ptr %incdec.ptr.i.i.i300.i.i, align 8
+  %incdec.ptr.i6.i.i303.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i303.i.i, ptr %builder.i, align 8
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default211.i.i, %sw.epilog217.sink.split.i.i, %if.end151.i.i
@@ -5539,13 +5539,13 @@ document_end.sink.split.i.i:                      ; preds = %sw.bb29.i.i, %sw.bb
   store i64 %or.i.i.i123.i.i, ptr %incdec.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i124.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %conv3.i.i125.i.i = and i64 %sub.ptr.div.i.i.i120.i.i, 4294967295
-  %or.i4.i.i126.i.i = or disjoint i64 %conv3.i.i125.i.i, %.sink385.i.i
-  store i64 %or.i4.i.i126.i.i, ptr %incdec.ptr.i.i.i124.i.i, align 8
-  %incdec.ptr.i5.i.i127.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %or.i5.i.i126.i.i = or disjoint i64 %conv3.i.i125.i.i, %.sink385.i.i
+  store i64 %or.i5.i.i126.i.i, ptr %incdec.ptr.i.i.i124.i.i, align 8
+  %incdec.ptr.i6.i.i127.i.i = getelementptr inbounds i8, ptr %2, i64 24
   br label %document_end.i.i
 
 document_end.i.i:                                 ; preds = %document_end.sink.split.i.i, %scope_end.i.i, %sw.default.i.document_end.i_crit_edge.i
-  %59 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i5.i.i127.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i318.i.i, %scope_end.i.i ]
+  %59 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i6.i.i127.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i318.i.i, %scope_end.i.i ]
   %iter.sroa.8.9.i = phi ptr [ %incdec.ptr.i.i.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i113.i.i, %document_end.sink.split.i.i ], [ %iter.sroa.8.4.i, %scope_end.i.i ]
   store i64 8214565720323784704, ptr %59, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
@@ -5779,10 +5779,10 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   store i64 %or.i.i.i178.i.i, ptr %this.val.i.i171.i.i, align 8
   %incdec.ptr.i.i.i179.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 8
   %conv3.i.i180.i.i = and i64 %sub.ptr.div.i.i.i175.i.i, 4294967295
-  %or.i4.i.i181.i.i = or disjoint i64 %conv3.i.i180.i.i, %.sink.i.i
-  store i64 %or.i4.i.i181.i.i, ptr %incdec.ptr.i.i.i179.i.i, align 8
-  %incdec.ptr.i5.i.i182.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i182.i.i, ptr %builder.i, align 8
+  %or.i5.i.i181.i.i = or disjoint i64 %conv3.i.i180.i.i, %.sink.i.i
+  store i64 %or.i5.i.i181.i.i, ptr %incdec.ptr.i.i.i179.i.i, align 8
+  %incdec.ptr.i6.i.i182.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i182.i.i, ptr %builder.i, align 8
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default97.i.i, %sw.epilog103.sink.split.i.i, %if.end137.i.i
@@ -5861,8 +5861,8 @@ scope_end.i.i:                                    ; preds = %array_continue.i.i,
   %conv15.i.i314.i.i = zext nneg i32 %cond.i.i306.i.i to i64
   %shl.i.i315.i.i = shl nuw nsw i64 %conv15.i.i314.i.i, 32
   %or.i.i316.i.i = or disjoint i64 %conv14.i.i313.i.i, %shl.i.i315.i.i
-  %or.i11.i.i317.i.i = or disjoint i64 %or.i.i316.i.i, %.sink335.i.i
-  store i64 %or.i11.i.i317.i.i, ptr %arrayidx.i9.i.i308.i.i, align 8
+  %or.i13.i.i317.i.i = or disjoint i64 %or.i.i316.i.i, %.sink335.i.i
+  store i64 %or.i13.i.i317.i.i, ptr %arrayidx.i9.i.i308.i.i, align 8
   %dec.i.i = add i32 %iter.sroa.54.3.i, -1
   %cmp135.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp135.i.i, label %document_end.i.i, label %if.end137.i.i
@@ -5966,10 +5966,10 @@ sw.epilog203.sink.split.i.i:                      ; preds = %sw.bb185.i.i, %sw.b
   store i64 %or.i.i.i283.i.i, ptr %this.val.i.i276.i.i, align 8
   %incdec.ptr.i.i.i284.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 8
   %conv3.i.i285.i.i = and i64 %sub.ptr.div.i.i.i280.i.i, 4294967295
-  %or.i4.i.i286.i.i = or disjoint i64 %conv3.i.i285.i.i, %.sink357.i.i
-  store i64 %or.i4.i.i286.i.i, ptr %incdec.ptr.i.i.i284.i.i, align 8
-  %incdec.ptr.i5.i.i287.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i287.i.i, ptr %builder.i, align 8
+  %or.i5.i.i286.i.i = or disjoint i64 %conv3.i.i285.i.i, %.sink357.i.i
+  store i64 %or.i5.i.i286.i.i, ptr %incdec.ptr.i.i.i284.i.i, align 8
+  %incdec.ptr.i6.i.i287.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i287.i.i, ptr %builder.i, align 8
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default197.i.i, %sw.epilog203.sink.split.i.i, %if.end137.i.i
@@ -6001,13 +6001,13 @@ document_end.sink.split.i.i:                      ; preds = %sw.bb16.i.i, %sw.bb
   store i64 %or.i.i.i107.i.i, ptr %incdec.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i108.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %conv3.i.i109.i.i = and i64 %sub.ptr.div.i.i.i104.i.i, 4294967295
-  %or.i4.i.i110.i.i = or disjoint i64 %conv3.i.i109.i.i, %.sink365.i.i
-  store i64 %or.i4.i.i110.i.i, ptr %incdec.ptr.i.i.i108.i.i, align 8
-  %incdec.ptr.i5.i.i111.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %or.i5.i.i110.i.i = or disjoint i64 %conv3.i.i109.i.i, %.sink365.i.i
+  store i64 %or.i5.i.i110.i.i, ptr %incdec.ptr.i.i.i108.i.i, align 8
+  %incdec.ptr.i6.i.i111.i.i = getelementptr inbounds i8, ptr %3, i64 24
   br label %document_end.i.i
 
 document_end.i.i:                                 ; preds = %document_end.sink.split.i.i, %scope_end.i.i, %sw.default.i.document_end.i_crit_edge.i
-  %56 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i5.i.i111.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i302.i.i, %scope_end.i.i ]
+  %56 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i6.i.i111.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i302.i.i, %scope_end.i.i ]
   %iter.sroa.8.9.i = phi ptr [ %incdec.ptr.i.i.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i97.i.i, %document_end.sink.split.i.i ], [ %iter.sroa.8.4.i, %scope_end.i.i ]
   store i64 8214565720323784704, ptr %56, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 8
@@ -7519,10 +7519,10 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   store i64 %or.i.i.i194.i.i, ptr %this.val.i.i187.i.i, align 8
   %incdec.ptr.i.i.i195.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 8
   %conv3.i.i196.i.i = and i64 %sub.ptr.div.i.i.i191.i.i, 4294967295
-  %or.i4.i.i197.i.i = or disjoint i64 %conv3.i.i196.i.i, %.sink.i.i
-  store i64 %or.i4.i.i197.i.i, ptr %incdec.ptr.i.i.i195.i.i, align 8
-  %incdec.ptr.i5.i.i198.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i198.i.i, ptr %builder.i, align 8
+  %or.i5.i.i197.i.i = or disjoint i64 %conv3.i.i196.i.i, %.sink.i.i
+  store i64 %or.i5.i.i197.i.i, ptr %incdec.ptr.i.i.i195.i.i, align 8
+  %incdec.ptr.i6.i.i198.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i198.i.i, ptr %builder.i, align 8
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default111.i.i, %sw.epilog117.sink.split.i.i, %if.end151.i.i
@@ -7601,8 +7601,8 @@ scope_end.i.i:                                    ; preds = %array_continue.i.i,
   %conv15.i.i330.i.i = zext nneg i32 %cond.i.i322.i.i to i64
   %shl.i.i331.i.i = shl nuw nsw i64 %conv15.i.i330.i.i, 32
   %or.i.i332.i.i = or disjoint i64 %conv14.i.i329.i.i, %shl.i.i331.i.i
-  %or.i11.i.i333.i.i = or disjoint i64 %or.i.i332.i.i, %.sink355.i.i
-  store i64 %or.i11.i.i333.i.i, ptr %arrayidx.i9.i.i324.i.i, align 8
+  %or.i13.i.i333.i.i = or disjoint i64 %or.i.i332.i.i, %.sink355.i.i
+  store i64 %or.i13.i.i333.i.i, ptr %arrayidx.i9.i.i324.i.i, align 8
   %dec.i.i = add i32 %iter.sroa.54.3.i, -1
   %cmp149.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp149.i.i, label %document_end.i.i, label %if.end151.i.i
@@ -7706,10 +7706,10 @@ sw.epilog217.sink.split.i.i:                      ; preds = %sw.bb199.i.i, %sw.b
   store i64 %or.i.i.i299.i.i, ptr %this.val.i.i292.i.i, align 8
   %incdec.ptr.i.i.i300.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 8
   %conv3.i.i301.i.i = and i64 %sub.ptr.div.i.i.i296.i.i, 4294967295
-  %or.i4.i.i302.i.i = or disjoint i64 %conv3.i.i301.i.i, %.sink377.i.i
-  store i64 %or.i4.i.i302.i.i, ptr %incdec.ptr.i.i.i300.i.i, align 8
-  %incdec.ptr.i5.i.i303.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i303.i.i, ptr %builder.i, align 8
+  %or.i5.i.i302.i.i = or disjoint i64 %conv3.i.i301.i.i, %.sink377.i.i
+  store i64 %or.i5.i.i302.i.i, ptr %incdec.ptr.i.i.i300.i.i, align 8
+  %incdec.ptr.i6.i.i303.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i303.i.i, ptr %builder.i, align 8
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default211.i.i, %sw.epilog217.sink.split.i.i, %if.end151.i.i
@@ -7741,13 +7741,13 @@ document_end.sink.split.i.i:                      ; preds = %sw.bb29.i.i, %sw.bb
   store i64 %or.i.i.i123.i.i, ptr %incdec.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i124.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %conv3.i.i125.i.i = and i64 %sub.ptr.div.i.i.i120.i.i, 4294967295
-  %or.i4.i.i126.i.i = or disjoint i64 %conv3.i.i125.i.i, %.sink385.i.i
-  store i64 %or.i4.i.i126.i.i, ptr %incdec.ptr.i.i.i124.i.i, align 8
-  %incdec.ptr.i5.i.i127.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %or.i5.i.i126.i.i = or disjoint i64 %conv3.i.i125.i.i, %.sink385.i.i
+  store i64 %or.i5.i.i126.i.i, ptr %incdec.ptr.i.i.i124.i.i, align 8
+  %incdec.ptr.i6.i.i127.i.i = getelementptr inbounds i8, ptr %2, i64 24
   br label %document_end.i.i
 
 document_end.i.i:                                 ; preds = %document_end.sink.split.i.i, %scope_end.i.i, %sw.default.i.document_end.i_crit_edge.i
-  %59 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i5.i.i127.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i318.i.i, %scope_end.i.i ]
+  %59 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i6.i.i127.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i318.i.i, %scope_end.i.i ]
   %iter.sroa.8.9.i = phi ptr [ %incdec.ptr.i.i.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i113.i.i, %document_end.sink.split.i.i ], [ %iter.sroa.8.4.i, %scope_end.i.i ]
   store i64 8214565720323784704, ptr %59, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
@@ -7981,10 +7981,10 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   store i64 %or.i.i.i178.i.i, ptr %this.val.i.i171.i.i, align 8
   %incdec.ptr.i.i.i179.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 8
   %conv3.i.i180.i.i = and i64 %sub.ptr.div.i.i.i175.i.i, 4294967295
-  %or.i4.i.i181.i.i = or disjoint i64 %conv3.i.i180.i.i, %.sink.i.i
-  store i64 %or.i4.i.i181.i.i, ptr %incdec.ptr.i.i.i179.i.i, align 8
-  %incdec.ptr.i5.i.i182.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i182.i.i, ptr %builder.i, align 8
+  %or.i5.i.i181.i.i = or disjoint i64 %conv3.i.i180.i.i, %.sink.i.i
+  store i64 %or.i5.i.i181.i.i, ptr %incdec.ptr.i.i.i179.i.i, align 8
+  %incdec.ptr.i6.i.i182.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i182.i.i, ptr %builder.i, align 8
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default97.i.i, %sw.epilog103.sink.split.i.i, %if.end137.i.i
@@ -8063,8 +8063,8 @@ scope_end.i.i:                                    ; preds = %array_continue.i.i,
   %conv15.i.i314.i.i = zext nneg i32 %cond.i.i306.i.i to i64
   %shl.i.i315.i.i = shl nuw nsw i64 %conv15.i.i314.i.i, 32
   %or.i.i316.i.i = or disjoint i64 %conv14.i.i313.i.i, %shl.i.i315.i.i
-  %or.i11.i.i317.i.i = or disjoint i64 %or.i.i316.i.i, %.sink335.i.i
-  store i64 %or.i11.i.i317.i.i, ptr %arrayidx.i9.i.i308.i.i, align 8
+  %or.i13.i.i317.i.i = or disjoint i64 %or.i.i316.i.i, %.sink335.i.i
+  store i64 %or.i13.i.i317.i.i, ptr %arrayidx.i9.i.i308.i.i, align 8
   %dec.i.i = add i32 %iter.sroa.54.3.i, -1
   %cmp135.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp135.i.i, label %document_end.i.i, label %if.end137.i.i
@@ -8168,10 +8168,10 @@ sw.epilog203.sink.split.i.i:                      ; preds = %sw.bb185.i.i, %sw.b
   store i64 %or.i.i.i283.i.i, ptr %this.val.i.i276.i.i, align 8
   %incdec.ptr.i.i.i284.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 8
   %conv3.i.i285.i.i = and i64 %sub.ptr.div.i.i.i280.i.i, 4294967295
-  %or.i4.i.i286.i.i = or disjoint i64 %conv3.i.i285.i.i, %.sink357.i.i
-  store i64 %or.i4.i.i286.i.i, ptr %incdec.ptr.i.i.i284.i.i, align 8
-  %incdec.ptr.i5.i.i287.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i287.i.i, ptr %builder.i, align 8
+  %or.i5.i.i286.i.i = or disjoint i64 %conv3.i.i285.i.i, %.sink357.i.i
+  store i64 %or.i5.i.i286.i.i, ptr %incdec.ptr.i.i.i284.i.i, align 8
+  %incdec.ptr.i6.i.i287.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i287.i.i, ptr %builder.i, align 8
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default197.i.i, %sw.epilog203.sink.split.i.i, %if.end137.i.i
@@ -8203,13 +8203,13 @@ document_end.sink.split.i.i:                      ; preds = %sw.bb16.i.i, %sw.bb
   store i64 %or.i.i.i107.i.i, ptr %incdec.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i108.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %conv3.i.i109.i.i = and i64 %sub.ptr.div.i.i.i104.i.i, 4294967295
-  %or.i4.i.i110.i.i = or disjoint i64 %conv3.i.i109.i.i, %.sink365.i.i
-  store i64 %or.i4.i.i110.i.i, ptr %incdec.ptr.i.i.i108.i.i, align 8
-  %incdec.ptr.i5.i.i111.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %or.i5.i.i110.i.i = or disjoint i64 %conv3.i.i109.i.i, %.sink365.i.i
+  store i64 %or.i5.i.i110.i.i, ptr %incdec.ptr.i.i.i108.i.i, align 8
+  %incdec.ptr.i6.i.i111.i.i = getelementptr inbounds i8, ptr %3, i64 24
   br label %document_end.i.i
 
 document_end.i.i:                                 ; preds = %document_end.sink.split.i.i, %scope_end.i.i, %sw.default.i.document_end.i_crit_edge.i
-  %56 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i5.i.i111.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i302.i.i, %scope_end.i.i ]
+  %56 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i6.i.i111.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i302.i.i, %scope_end.i.i ]
   %iter.sroa.8.9.i = phi ptr [ %incdec.ptr.i.i.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i97.i.i, %document_end.sink.split.i.i ], [ %iter.sroa.8.4.i, %scope_end.i.i ]
   store i64 8214565720323784704, ptr %56, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 8
@@ -10072,10 +10072,10 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   store i64 %or.i.i.i194.i.i, ptr %this.val.i.i187.i.i, align 8
   %incdec.ptr.i.i.i195.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 8
   %conv3.i.i196.i.i = and i64 %sub.ptr.div.i.i.i191.i.i, 4294967295
-  %or.i4.i.i197.i.i = or disjoint i64 %conv3.i.i196.i.i, %.sink.i.i
-  store i64 %or.i4.i.i197.i.i, ptr %incdec.ptr.i.i.i195.i.i, align 8
-  %incdec.ptr.i5.i.i198.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i198.i.i, ptr %builder.i, align 8
+  %or.i5.i.i197.i.i = or disjoint i64 %conv3.i.i196.i.i, %.sink.i.i
+  store i64 %or.i5.i.i197.i.i, ptr %incdec.ptr.i.i.i195.i.i, align 8
+  %incdec.ptr.i6.i.i198.i.i = getelementptr inbounds i8, ptr %this.val.i.i187.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i198.i.i, ptr %builder.i, align 8
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default111.i.i, %sw.epilog117.sink.split.i.i, %if.end151.i.i
@@ -10154,8 +10154,8 @@ scope_end.i.i:                                    ; preds = %array_continue.i.i,
   %conv15.i.i330.i.i = zext nneg i32 %cond.i.i322.i.i to i64
   %shl.i.i331.i.i = shl nuw nsw i64 %conv15.i.i330.i.i, 32
   %or.i.i332.i.i = or disjoint i64 %conv14.i.i329.i.i, %shl.i.i331.i.i
-  %or.i11.i.i333.i.i = or disjoint i64 %or.i.i332.i.i, %.sink355.i.i
-  store i64 %or.i11.i.i333.i.i, ptr %arrayidx.i9.i.i324.i.i, align 8
+  %or.i13.i.i333.i.i = or disjoint i64 %or.i.i332.i.i, %.sink355.i.i
+  store i64 %or.i13.i.i333.i.i, ptr %arrayidx.i9.i.i324.i.i, align 8
   %dec.i.i = add i32 %iter.sroa.54.3.i, -1
   %cmp149.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp149.i.i, label %document_end.i.i, label %if.end151.i.i
@@ -10259,10 +10259,10 @@ sw.epilog217.sink.split.i.i:                      ; preds = %sw.bb199.i.i, %sw.b
   store i64 %or.i.i.i299.i.i, ptr %this.val.i.i292.i.i, align 8
   %incdec.ptr.i.i.i300.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 8
   %conv3.i.i301.i.i = and i64 %sub.ptr.div.i.i.i296.i.i, 4294967295
-  %or.i4.i.i302.i.i = or disjoint i64 %conv3.i.i301.i.i, %.sink377.i.i
-  store i64 %or.i4.i.i302.i.i, ptr %incdec.ptr.i.i.i300.i.i, align 8
-  %incdec.ptr.i5.i.i303.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i303.i.i, ptr %builder.i, align 8
+  %or.i5.i.i302.i.i = or disjoint i64 %conv3.i.i301.i.i, %.sink377.i.i
+  store i64 %or.i5.i.i302.i.i, ptr %incdec.ptr.i.i.i300.i.i, align 8
+  %incdec.ptr.i6.i.i303.i.i = getelementptr inbounds i8, ptr %this.val.i.i292.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i303.i.i, ptr %builder.i, align 8
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default211.i.i, %sw.epilog217.sink.split.i.i, %if.end151.i.i
@@ -10294,13 +10294,13 @@ document_end.sink.split.i.i:                      ; preds = %sw.bb29.i.i, %sw.bb
   store i64 %or.i.i.i123.i.i, ptr %incdec.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i124.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %conv3.i.i125.i.i = and i64 %sub.ptr.div.i.i.i120.i.i, 4294967295
-  %or.i4.i.i126.i.i = or disjoint i64 %conv3.i.i125.i.i, %.sink385.i.i
-  store i64 %or.i4.i.i126.i.i, ptr %incdec.ptr.i.i.i124.i.i, align 8
-  %incdec.ptr.i5.i.i127.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %or.i5.i.i126.i.i = or disjoint i64 %conv3.i.i125.i.i, %.sink385.i.i
+  store i64 %or.i5.i.i126.i.i, ptr %incdec.ptr.i.i.i124.i.i, align 8
+  %incdec.ptr.i6.i.i127.i.i = getelementptr inbounds i8, ptr %2, i64 24
   br label %document_end.i.i
 
 document_end.i.i:                                 ; preds = %document_end.sink.split.i.i, %scope_end.i.i, %sw.default.i.document_end.i_crit_edge.i
-  %59 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i5.i.i127.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i318.i.i, %scope_end.i.i ]
+  %59 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i6.i.i127.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i318.i.i, %scope_end.i.i ]
   %iter.sroa.8.9.i = phi ptr [ %incdec.ptr.i.i.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i113.i.i, %document_end.sink.split.i.i ], [ %iter.sroa.8.4.i, %scope_end.i.i ]
   store i64 8214565720323784704, ptr %59, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
@@ -10534,10 +10534,10 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   store i64 %or.i.i.i178.i.i, ptr %this.val.i.i171.i.i, align 8
   %incdec.ptr.i.i.i179.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 8
   %conv3.i.i180.i.i = and i64 %sub.ptr.div.i.i.i175.i.i, 4294967295
-  %or.i4.i.i181.i.i = or disjoint i64 %conv3.i.i180.i.i, %.sink.i.i
-  store i64 %or.i4.i.i181.i.i, ptr %incdec.ptr.i.i.i179.i.i, align 8
-  %incdec.ptr.i5.i.i182.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i182.i.i, ptr %builder.i, align 8
+  %or.i5.i.i181.i.i = or disjoint i64 %conv3.i.i180.i.i, %.sink.i.i
+  store i64 %or.i5.i.i181.i.i, ptr %incdec.ptr.i.i.i179.i.i, align 8
+  %incdec.ptr.i6.i.i182.i.i = getelementptr inbounds i8, ptr %this.val.i.i171.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i182.i.i, ptr %builder.i, align 8
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default97.i.i, %sw.epilog103.sink.split.i.i, %if.end137.i.i
@@ -10616,8 +10616,8 @@ scope_end.i.i:                                    ; preds = %array_continue.i.i,
   %conv15.i.i314.i.i = zext nneg i32 %cond.i.i306.i.i to i64
   %shl.i.i315.i.i = shl nuw nsw i64 %conv15.i.i314.i.i, 32
   %or.i.i316.i.i = or disjoint i64 %conv14.i.i313.i.i, %shl.i.i315.i.i
-  %or.i11.i.i317.i.i = or disjoint i64 %or.i.i316.i.i, %.sink335.i.i
-  store i64 %or.i11.i.i317.i.i, ptr %arrayidx.i9.i.i308.i.i, align 8
+  %or.i13.i.i317.i.i = or disjoint i64 %or.i.i316.i.i, %.sink335.i.i
+  store i64 %or.i13.i.i317.i.i, ptr %arrayidx.i9.i.i308.i.i, align 8
   %dec.i.i = add i32 %iter.sroa.54.3.i, -1
   %cmp135.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp135.i.i, label %document_end.i.i, label %if.end137.i.i
@@ -10721,10 +10721,10 @@ sw.epilog203.sink.split.i.i:                      ; preds = %sw.bb185.i.i, %sw.b
   store i64 %or.i.i.i283.i.i, ptr %this.val.i.i276.i.i, align 8
   %incdec.ptr.i.i.i284.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 8
   %conv3.i.i285.i.i = and i64 %sub.ptr.div.i.i.i280.i.i, 4294967295
-  %or.i4.i.i286.i.i = or disjoint i64 %conv3.i.i285.i.i, %.sink357.i.i
-  store i64 %or.i4.i.i286.i.i, ptr %incdec.ptr.i.i.i284.i.i, align 8
-  %incdec.ptr.i5.i.i287.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 16
-  store ptr %incdec.ptr.i5.i.i287.i.i, ptr %builder.i, align 8
+  %or.i5.i.i286.i.i = or disjoint i64 %conv3.i.i285.i.i, %.sink357.i.i
+  store i64 %or.i5.i.i286.i.i, ptr %incdec.ptr.i.i.i284.i.i, align 8
+  %incdec.ptr.i6.i.i287.i.i = getelementptr inbounds i8, ptr %this.val.i.i276.i.i, i64 16
+  store ptr %incdec.ptr.i6.i.i287.i.i, ptr %builder.i, align 8
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default197.i.i, %sw.epilog203.sink.split.i.i, %if.end137.i.i
@@ -10756,13 +10756,13 @@ document_end.sink.split.i.i:                      ; preds = %sw.bb16.i.i, %sw.bb
   store i64 %or.i.i.i107.i.i, ptr %incdec.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i108.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %conv3.i.i109.i.i = and i64 %sub.ptr.div.i.i.i104.i.i, 4294967295
-  %or.i4.i.i110.i.i = or disjoint i64 %conv3.i.i109.i.i, %.sink365.i.i
-  store i64 %or.i4.i.i110.i.i, ptr %incdec.ptr.i.i.i108.i.i, align 8
-  %incdec.ptr.i5.i.i111.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %or.i5.i.i110.i.i = or disjoint i64 %conv3.i.i109.i.i, %.sink365.i.i
+  store i64 %or.i5.i.i110.i.i, ptr %incdec.ptr.i.i.i108.i.i, align 8
+  %incdec.ptr.i6.i.i111.i.i = getelementptr inbounds i8, ptr %3, i64 24
   br label %document_end.i.i
 
 document_end.i.i:                                 ; preds = %document_end.sink.split.i.i, %scope_end.i.i, %sw.default.i.document_end.i_crit_edge.i
-  %56 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i5.i.i111.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i302.i.i, %scope_end.i.i ]
+  %56 = phi ptr [ %.pre.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i6.i.i111.i.i, %document_end.sink.split.i.i ], [ %incdec.ptr.i.i.i302.i.i, %scope_end.i.i ]
   %iter.sroa.8.9.i = phi ptr [ %incdec.ptr.i.i.i, %sw.default.i.document_end.i_crit_edge.i ], [ %incdec.ptr.i97.i.i, %document_end.sink.split.i.i ], [ %iter.sroa.8.4.i, %scope_end.i.i ]
   store i64 8214565720323784704, ptr %56, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 8
@@ -13906,7 +13906,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %shr.i.i47.i = ashr i64 %mul14.i.i.i, 16
   %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %i.1.i, i1 true)
   %shl.i.i.i = shl i64 %i.1.i, %26
-  %27 = trunc i64 %exponent.1.i to i32
+  %27 = trunc nsw i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %27, 1
   %mul18.i.i.i = add nsw i32 %conv17.i.i.i, 684
   %idxprom.i.i.i = zext nneg i32 %mul18.i.i.i to i64
@@ -13964,7 +13964,7 @@ if.end55.i.i.i:                                   ; preds = %if.then48.i.i.i
   %add60.i.i.i = add nuw nsw i64 %and59.i.i.i, %shr58.i.i.i
   %shr61.i.i.i = lshr i64 %add60.i.i.i, 1
   %cmp62.i.i.i = icmp ugt i64 %add60.i.i.i, 9007199254740991
-  %and.i.i.i52.i = and i64 %shr61.i.i.i, 9218868437227405311
+  %and.i.i.i52.i = and i64 %shr61.i.i.i, 13510798882111487
   %shl.i.i.i.i = select i1 %cmp62.i.i.i, i64 4503599627370496, i64 0
   %shl1.i.i.i.i = select i1 %cmp.i, i64 -9223372036854775808, i64 0
   %or.i.i.i.i = or disjoint i64 %and.i.i.i52.i, %shl1.i.i.i.i
@@ -13995,11 +13995,11 @@ if.end67.i.i.i:                                   ; preds = %if.end35.i.i.i
 
 if.end101.i.i.i:                                  ; preds = %if.end67.i.i.i
   %shr90.i.i.i = lshr i64 %add89.i.i.i, 1
-  %34 = and i64 %shr90.i.i.i, 9218868437227405311
-  %and95.i.i.i = select i1 %cmp91.i.i.i, i64 0, i64 %34
+  %34 = and i64 %shr90.i.i.i, 13510798882111487
+  %and.i76.i.i.i = select i1 %cmp91.i.i.i, i64 0, i64 %34
   %shl.i77.i.i.i = shl nuw nsw i64 %spec.select66.i.i.i, 52
   %shl1.i79.i.i.i = select i1 %cmp.i, i64 -9223372036854775808, i64 0
-  %or.i78.i.i.i = or disjoint i64 %and95.i.i.i, %shl1.i79.i.i.i
+  %or.i78.i.i.i = or disjoint i64 %and.i76.i.i.i, %shl1.i79.i.i.i
   %or2.i80.i.i.i = or i64 %or.i78.i.i.i, %shl.i77.i.i.i
   %35 = bitcast i64 %or2.i80.i.i.i to double
   br label %if.end20.i.i
@@ -15923,7 +15923,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %shr.i.i48.i = ashr i64 %mul14.i.i.i, 16
   %27 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %i.1.i, i1 true)
   %shl.i.i.i = shl i64 %i.1.i, %27
-  %28 = trunc i64 %exponent.1.i to i32
+  %28 = trunc nsw i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1
   %mul18.i.i.i = add nsw i32 %conv17.i.i.i, 684
   %idxprom.i.i.i = zext nneg i32 %mul18.i.i.i to i64
@@ -15981,7 +15981,7 @@ if.end55.i.i.i:                                   ; preds = %if.then48.i.i.i
   %add60.i.i.i = add nuw nsw i64 %and59.i.i.i, %shr58.i.i.i
   %shr61.i.i.i = lshr i64 %add60.i.i.i, 1
   %cmp62.i.i.i = icmp ugt i64 %add60.i.i.i, 9007199254740991
-  %and.i.i.i.i = and i64 %shr61.i.i.i, 9218868437227405311
+  %and.i.i.i.i = and i64 %shr61.i.i.i, 13510798882111487
   %shl.i.i.i.i = select i1 %cmp62.i.i.i, i64 4503599627370496, i64 0
   %shl1.i.i.i.i = select i1 %cmp.i, i64 -9223372036854775808, i64 0
   %or.i.i.i.i = or disjoint i64 %and.i.i.i.i, %shl1.i.i.i.i
@@ -16012,11 +16012,11 @@ if.end67.i.i.i:                                   ; preds = %if.end35.i.i.i
 
 if.end101.i.i.i:                                  ; preds = %if.end67.i.i.i
   %shr90.i.i.i = lshr i64 %add89.i.i.i, 1
-  %35 = and i64 %shr90.i.i.i, 9218868437227405311
-  %and95.i.i.i = select i1 %cmp91.i.i.i, i64 0, i64 %35
+  %35 = and i64 %shr90.i.i.i, 13510798882111487
+  %and.i77.i.i.i = select i1 %cmp91.i.i.i, i64 0, i64 %35
   %shl.i78.i.i.i = shl nuw nsw i64 %spec.select66.i.i.i, 52
   %shl1.i80.i.i.i = select i1 %cmp.i, i64 -9223372036854775808, i64 0
-  %or.i79.i.i.i = or disjoint i64 %and95.i.i.i, %shl1.i80.i.i.i
+  %or.i79.i.i.i = or disjoint i64 %and.i77.i.i.i, %shl1.i80.i.i.i
   %or2.i81.i.i.i = or i64 %or.i79.i.i.i, %shl.i78.i.i.i
   %36 = bitcast i64 %or2.i81.i.i.i to double
   br label %if.end20.i.i
@@ -17284,7 +17284,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %shr.i.i48.i = ashr i64 %mul14.i.i.i, 16
   %27 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %i.1.i, i1 true)
   %shl.i.i.i = shl i64 %i.1.i, %27
-  %28 = trunc i64 %exponent.1.i to i32
+  %28 = trunc nsw i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1
   %mul18.i.i.i = add nsw i32 %conv17.i.i.i, 684
   %idxprom.i.i.i = zext nneg i32 %mul18.i.i.i to i64
@@ -17342,7 +17342,7 @@ if.end55.i.i.i:                                   ; preds = %if.then48.i.i.i
   %add60.i.i.i = add nuw nsw i64 %and59.i.i.i, %shr58.i.i.i
   %shr61.i.i.i = lshr i64 %add60.i.i.i, 1
   %cmp62.i.i.i = icmp ugt i64 %add60.i.i.i, 9007199254740991
-  %and.i.i.i.i = and i64 %shr61.i.i.i, 9218868437227405311
+  %and.i.i.i.i = and i64 %shr61.i.i.i, 13510798882111487
   %shl.i.i.i.i = select i1 %cmp62.i.i.i, i64 4503599627370496, i64 0
   %shl1.i.i.i.i = select i1 %cmp.i, i64 -9223372036854775808, i64 0
   %or.i.i.i.i = or disjoint i64 %and.i.i.i.i, %shl1.i.i.i.i
@@ -17373,11 +17373,11 @@ if.end67.i.i.i:                                   ; preds = %if.end35.i.i.i
 
 if.end101.i.i.i:                                  ; preds = %if.end67.i.i.i
   %shr90.i.i.i = lshr i64 %add89.i.i.i, 1
-  %35 = and i64 %shr90.i.i.i, 9218868437227405311
-  %and95.i.i.i = select i1 %cmp91.i.i.i, i64 0, i64 %35
+  %35 = and i64 %shr90.i.i.i, 13510798882111487
+  %and.i77.i.i.i = select i1 %cmp91.i.i.i, i64 0, i64 %35
   %shl.i78.i.i.i = shl nuw nsw i64 %spec.select66.i.i.i, 52
   %shl1.i80.i.i.i = select i1 %cmp.i, i64 -9223372036854775808, i64 0
-  %or.i79.i.i.i = or disjoint i64 %and95.i.i.i, %shl1.i80.i.i.i
+  %or.i79.i.i.i = or disjoint i64 %and.i77.i.i.i, %shl1.i80.i.i.i
   %or2.i81.i.i.i = or i64 %or.i79.i.i.i, %shl.i78.i.i.i
   %36 = bitcast i64 %or2.i81.i.i.i to double
   br label %if.end20.i.i
@@ -18838,7 +18838,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %shr.i.i48.i = ashr i64 %mul14.i.i.i, 16
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %i.1.i, i1 true)
   %shl.i.i.i = shl i64 %i.1.i, %27
-  %28 = trunc i64 %exponent.1.i to i32
+  %28 = trunc nsw i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1
   %mul18.i.i.i = add nsw i32 %conv17.i.i.i, 684
   %idxprom.i.i.i = zext nneg i32 %mul18.i.i.i to i64
@@ -18896,7 +18896,7 @@ if.end55.i.i.i:                                   ; preds = %if.then48.i.i.i
   %add60.i.i.i = add nuw nsw i64 %and59.i.i.i, %shr58.i.i.i
   %shr61.i.i.i = lshr i64 %add60.i.i.i, 1
   %cmp62.i.i.i = icmp ugt i64 %add60.i.i.i, 9007199254740991
-  %and.i.i.i.i = and i64 %shr61.i.i.i, 9218868437227405311
+  %and.i.i.i.i = and i64 %shr61.i.i.i, 13510798882111487
   %shl.i.i.i.i = select i1 %cmp62.i.i.i, i64 4503599627370496, i64 0
   %shl1.i.i.i.i = select i1 %cmp.i, i64 -9223372036854775808, i64 0
   %or.i.i.i.i = or disjoint i64 %and.i.i.i.i, %shl1.i.i.i.i
@@ -18927,11 +18927,11 @@ if.end67.i.i.i:                                   ; preds = %if.end35.i.i.i
 
 if.end101.i.i.i:                                  ; preds = %if.end67.i.i.i
   %shr90.i.i.i = lshr i64 %add89.i.i.i, 1
-  %35 = and i64 %shr90.i.i.i, 9218868437227405311
-  %and95.i.i.i = select i1 %cmp91.i.i.i, i64 0, i64 %35
+  %35 = and i64 %shr90.i.i.i, 13510798882111487
+  %and.i76.i.i.i = select i1 %cmp91.i.i.i, i64 0, i64 %35
   %shl.i77.i.i.i = shl nuw nsw i64 %spec.select66.i.i.i, 52
   %shl1.i79.i.i.i = select i1 %cmp.i, i64 -9223372036854775808, i64 0
-  %or.i78.i.i.i = or disjoint i64 %and95.i.i.i, %shl1.i79.i.i.i
+  %or.i78.i.i.i = or disjoint i64 %and.i76.i.i.i, %shl1.i79.i.i.i
   %or2.i80.i.i.i = or i64 %or.i78.i.i.i, %shl.i77.i.i.i
   %36 = bitcast i64 %or2.i80.i.i.i to double
   br label %if.end20.i.i

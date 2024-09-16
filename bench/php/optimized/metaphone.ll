@@ -440,7 +440,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %201 = load i8, ptr %200, align 1
   %.not38124004.i = icmp eq i8 %201, 0
   %.not38134005.i = icmp ult i64 %198, %.03698.i
-  %or.cond39464006.i = or i1 %.not38134005.i, %.not38124004.i
+  %or.cond39464006.i = select i1 %.not38124004.i, i1 true, i1 %.not38134005.i
   br i1 %or.cond39464006.i, label %.critedge.i, label %.lr.ph4011.i
 
 .lr.ph4011.i:                                     ; preds = %.critedge3945.i, %1553

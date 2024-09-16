@@ -1634,7 +1634,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13Ga
   store ptr @.str.158, ptr %7, align 8
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 29, ptr %122, align 8
-  call fastcc void @_ZN10open_spiel12_GLOBAL__N_119ListValidParametersERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %98)
+  call fastcc void @_ZN10open_spiel12_GLOBAL__N_119ListValidParametersERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %98)
   call void @_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   invoke void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %123 unwind label %125
@@ -7147,7 +7147,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   store i32 %.018148, ptr %11, align 4
   store i32 -1, ptr %12, align 4
   store i32 488, ptr %14, align 4
-  invoke fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA24_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA14_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 1 dereferenceable(24) @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  invoke fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA24_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA14_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 1 dereferenceable(24) @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %119 unwind label %.loopexit.split-lp
 
 119:                                              ; preds = %118
@@ -7178,7 +7178,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   store i32 %.018148, ptr %15, align 4
   store i32 0, ptr %16, align 4
   store i32 491, ptr %18, align 4
-  invoke fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA21_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA11_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 1 dereferenceable(21) @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 1 dereferenceable(11) @.str.71, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  invoke fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA21_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA11_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 1 dereferenceable(21) @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 1 dereferenceable(11) @.str.71, ptr noundef nonnull align 4 dereferenceable(4) %16)
           to label %131 unwind label %.loopexit.split-lp
 
 131:                                              ; preds = %130
@@ -7209,7 +7209,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   store i32 %.018148, ptr %19, align 4
   store i32 1, ptr %20, align 4
   store i32 494, ptr %22, align 4
-  invoke fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA21_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA11_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 1 dereferenceable(21) @.str.72, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 1 dereferenceable(11) @.str.73, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  invoke fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA21_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA11_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 1 dereferenceable(21) @.str.72, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 1 dereferenceable(11) @.str.73, ptr noundef nonnull align 4 dereferenceable(4) %20)
           to label %143 unwind label %.loopexit.split-lp
 
 143:                                              ; preds = %142
@@ -7233,7 +7233,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   store i32 -1, ptr %23, align 4
   store i32 -1, ptr %24, align 4
   store i32 497, ptr %26, align 4
-  invoke fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA24_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA14_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 1 dereferenceable(24) @.str.74, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  invoke fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA24_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA14_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 1 dereferenceable(24) @.str.74, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
           to label %149 unwind label %.loopexit.split-lp
 
 149:                                              ; preds = %148
@@ -7540,7 +7540,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA24_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA14_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA24_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA14_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6)
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.16)
@@ -7586,7 +7586,7 @@ define internal fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_
           to label %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA118_cJRA2_KciSB_RA24_S9_RA13_S9_RA4_S9_RZNS_23DeserializeGameAndStateERKNS2_12basic_stringIcS5_S6_EEE7SectionRA14_S9_SN_EEEvRT_RKT0_DpOT1_.exit unwind label %18
 
 _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA118_cJRA2_KciSB_RA24_S9_RA13_S9_RA4_S9_RZNS_23DeserializeGameAndStateERKNS2_12basic_stringIcS5_S6_EEE7SectionRA14_S9_SN_EEEvRT_RKT0_DpOT1_.exit: ; preds = %.noexc18
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %6)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %6)
           to label %17 unwind label %18
 
 17:                                               ; preds = %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA118_cJRA2_KciSB_RA24_S9_RA13_S9_RA4_S9_RZNS_23DeserializeGameAndStateERKNS2_12basic_stringIcS5_S6_EEE7SectionRA14_S9_SN_EEEvRT_RKT0_DpOT1_.exit
@@ -7601,7 +7601,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA21_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA11_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(21) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(11) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iS6_RA21_S2_RA13_S2_RA4_S2_RZNS_23DeserializeGameAndStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7SectionRA11_S2_SM_EEESI_DpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(21) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(11) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7)
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.16)
@@ -7647,7 +7647,7 @@ define internal fastcc void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_
           to label %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA118_cJRA2_KciSB_RA21_S9_RA13_S9_RA4_S9_RZNS_23DeserializeGameAndStateERKNS2_12basic_stringIcS5_S6_EEE7SectionRA11_S9_SN_EEEvRT_RKT0_DpOT1_.exit unwind label %19
 
 _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA118_cJRA2_KciSB_RA21_S9_RA13_S9_RA4_S9_RZNS_23DeserializeGameAndStateERKNS2_12basic_stringIcS5_S6_EEE7SectionRA11_S9_SN_EEEvRT_RKT0_DpOT1_.exit: ; preds = %.noexc18
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %7)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %18 unwind label %19
 
 18:                                               ; preds = %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA118_cJRA2_KciSB_RA21_S9_RA13_S9_RA4_S9_RZNS_23DeserializeGameAndStateERKNS2_12basic_stringIcS5_S6_EEE7SectionRA11_S9_SN_EEEvRT_RKT0_DpOT1_.exit
@@ -15287,7 +15287,7 @@ declare void @llvm.trap() #15
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_119ListValidParametersERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_119ListValidParametersERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.10", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 40
@@ -15401,7 +15401,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %_ZNSt6vectorINSt7__
   %37 = phi ptr [ %28, %.noexc10._ZN4absl7debian211string_viewC2EPKc.exit_crit_edge ], [ %28, %._crit_edge ], [ %18, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit ]
   %38 = phi ptr [ %.pre22, %.noexc10._ZN4absl7debian211string_viewC2EPKc.exit_crit_edge ], [ %.pre, %._crit_edge ], [ %14, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit ]
   %39 = load ptr, ptr %37, align 8, !noalias !156
-  invoke void @_ZN4absl7debian216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_NS0_11string_viewENS1_11NoFormatterE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %38, ptr %39, ptr nonnull @.str.148, i64 2)
+  invoke void @_ZN4absl7debian216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_NS0_11string_viewENS1_11NoFormatterE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %38, ptr %39, ptr nonnull @.str.148, i64 2)
           to label %_ZN4absl7debian27StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_RKT_NS0_11string_viewE.exit unwind label %.loopexit.split-lp
 
 _ZN4absl7debian27StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_RKT_NS0_11string_viewE.exit: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit

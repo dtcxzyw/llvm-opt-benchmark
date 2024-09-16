@@ -1010,7 +1010,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %invoke.cont1
 
 invoke.cont1:                                     ; preds = %if.then.i.i, %if.then, %if.then.thread
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(4592) %arg, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(4592) %arg, ptr noundef %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont1
@@ -1100,7 +1100,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull align 8 dereferenceable(4592) %this, ptr nocapture noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull align 8 dereferenceable(4592) %this, ptr nocapture noundef nonnull %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::ChannelArgs", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1532,7 +1532,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %if.then, %if.then.thread
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(4592) %arg, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(4592) %arg, ptr noundef %agg.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1659,7 +1659,7 @@ if.then.i.i59:                                    ; preds = %if.then27
   br label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %if.then.i.i59, %if.then27
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(4592) %arg, ptr noundef nonnull %agg.tmp28)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(4592) %arg, ptr noundef %agg.tmp28)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -1937,7 +1937,7 @@ if.then.i.i82:                                    ; preds = %_ZNSt6vectorIN4absl
   br label %invoke.cont126
 
 invoke.cont126:                                   ; preds = %if.then.i.i82, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(4592) %arg, ptr noundef nonnull %agg.tmp125)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121HttpConnectHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(4592) %arg, ptr noundef %agg.tmp125)
           to label %invoke.cont128 unwind label %lpad127
 
 invoke.cont128:                                   ; preds = %invoke.cont126

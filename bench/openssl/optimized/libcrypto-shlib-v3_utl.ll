@@ -242,7 +242,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.end6.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %call2 = tail call fastcc ptr @bignum_to_string(ptr noundef nonnull %call)
+  %call2 = tail call fastcc ptr @bignum_to_string(ptr noundef %call)
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.end6.sink.split, label %if.end6
 
@@ -273,18 +273,18 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @bignum_to_string(ptr noundef %bn) unnamed_addr #0 {
+define internal fastcc ptr @bignum_to_string(ptr noundef nonnull %bn) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @BN_num_bits(ptr noundef %bn) #13
+  %call = tail call i32 @BN_num_bits(ptr noundef nonnull %bn) #13
   %cmp = icmp slt i32 %call, 128
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @BN_bn2dec(ptr noundef %bn) #13
+  %call1 = tail call ptr @BN_bn2dec(ptr noundef nonnull %bn) #13
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @BN_bn2hex(ptr noundef %bn) #13
+  %call2 = tail call ptr @BN_bn2hex(ptr noundef nonnull %bn) #13
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %return, label %if.end5
 
@@ -338,7 +338,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.end6.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %call2 = tail call fastcc ptr @bignum_to_string(ptr noundef nonnull %call)
+  %call2 = tail call fastcc ptr @bignum_to_string(ptr noundef %call)
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.end6.sink.split, label %if.end6
 
@@ -495,7 +495,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %i2s_ASN1_INTEGER.exit.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %call2.i = tail call fastcc ptr @bignum_to_string(ptr noundef nonnull %call.i)
+  %call2.i = tail call fastcc ptr @bignum_to_string(ptr noundef %call.i)
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %i2s_ASN1_INTEGER.exit.thread, label %X509V3_add_value.exit
 
@@ -1093,7 +1093,7 @@ for.cond.preheader:                               ; preds = %while.cond
 while.body:                                       ; preds = %while.cond
   %call1 = tail call ptr @X509_NAME_get_entry(ptr noundef %name, i32 noundef %call) #13
   %call2 = tail call ptr @X509_NAME_ENTRY_get_data(ptr noundef %call1) #13
-  %call3 = call fastcc i32 @append_ia5(ptr noundef nonnull %ret, ptr noundef %call2)
+  %call3 = call fastcc i32 @append_ia5(ptr noundef %ret, ptr noundef %call2)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %while.cond, !llvm.loop !8
 
@@ -1107,7 +1107,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.end11:                                         ; preds = %for.body
   %d = getelementptr inbounds i8, ptr %call8, i64 8
   %1 = load ptr, ptr %d, align 8
-  %call12 = call fastcc i32 @append_ia5(ptr noundef nonnull %ret, ptr noundef %1)
+  %call12 = call fastcc i32 @append_ia5(ptr noundef %ret, ptr noundef %1)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %for.inc
 
@@ -1162,7 +1162,7 @@ if.then7:                                         ; preds = %for.body
 if.then9:                                         ; preds = %if.then7
   %d = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %d, align 8
-  %call11 = call fastcc i32 @append_ia5(ptr noundef nonnull %ret, ptr noundef %3)
+  %call11 = call fastcc i32 @append_ia5(ptr noundef %ret, ptr noundef %3)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %for.end.loopexit, label %for.inc
 
@@ -1193,7 +1193,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @append_ia5(ptr nocapture noundef %sk, ptr nocapture noundef readonly %email) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @append_ia5(ptr nocapture noundef nonnull %sk, ptr nocapture noundef readonly %email) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %email, i64 4
   %0 = load i32, ptr %type, align 4
@@ -1348,7 +1348,7 @@ land.lhs.true:                                    ; preds = %if.end7
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end7
   %chklen.addr.1 = phi i64 [ %chklen.addr.0, %if.end7 ], [ %spec.select, %land.lhs.true ]
-  %call14 = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen.addr.1, i32 noundef %flags, i32 noundef 2, ptr noundef %peername)
+  %call14 = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen.addr.1, i32 noundef %flags, i32 noundef 2, ptr noundef %peername)
   br label %return
 
 return:                                           ; preds = %if.else, %entry, %if.end13
@@ -1360,7 +1360,7 @@ return:                                           ; preds = %if.else, %entry, %i
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef %check_type, ptr noundef %peername) unnamed_addr #0 {
+define internal fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef range(i32 1, 8) %check_type, ptr noundef %peername) unnamed_addr #0 {
 entry:
   %astr.i49 = alloca ptr, align 8
   %astr.i = alloca ptr, align 8
@@ -1490,7 +1490,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 if.end40.i:                                       ; preds = %if.end.i
   %11 = load ptr, ptr %astr.i, align 8
   %conv41.i = zext nneg i32 %call36.i to i64
-  %call42.i = call i32 %equal.0(ptr noundef %11, i64 noundef %conv41.i, ptr noundef %chk, i64 noundef %chklen.addr.0, i32 noundef %flags.addr.0) #13, !callees !12
+  %call42.i = call i32 %equal.0(ptr noundef %11, i64 noundef %conv41.i, ptr noundef nonnull %chk, i64 noundef %chklen.addr.0, i32 noundef %flags.addr.0) #13, !callees !12
   %cmp43.i = icmp sgt i32 %call42.i, 0
   %or.cond1.i = and i1 %cmp46.i, %cmp43.i
   %12 = load ptr, ptr %astr.i, align 8
@@ -1588,7 +1588,7 @@ if.end.i54.us:                                    ; preds = %lor.lhs.false.i52.u
 if.end40.i57.us:                                  ; preds = %if.end.i54.us
   %16 = load ptr, ptr %astr.i49, align 8
   %conv41.i58.us = zext nneg i32 %call36.i55.us to i64
-  %call42.i59.us = call i32 %equal.0(ptr noundef %16, i64 noundef %conv41.i58.us, ptr noundef %chk, i64 noundef %chklen.addr.0, i32 noundef %flags.addr.0) #13, !callees !12
+  %call42.i59.us = call i32 %equal.0(ptr noundef %16, i64 noundef %conv41.i58.us, ptr noundef nonnull %chk, i64 noundef %chklen.addr.0, i32 noundef %flags.addr.0) #13, !callees !12
   %17 = load ptr, ptr %astr.i49, align 8
   call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 871) #13
   br label %do_check_string.exit69.us
@@ -1627,7 +1627,7 @@ if.end.i54:                                       ; preds = %lor.lhs.false.i52
 if.end40.i57:                                     ; preds = %if.end.i54
   %20 = load ptr, ptr %astr.i49, align 8
   %conv41.i58 = zext nneg i32 %call36.i55 to i64
-  %call42.i59 = call i32 %equal.0(ptr noundef %20, i64 noundef %conv41.i58, ptr noundef %chk, i64 noundef %chklen.addr.0, i32 noundef %flags.addr.0) #13, !callees !12
+  %call42.i59 = call i32 %equal.0(ptr noundef %20, i64 noundef %conv41.i58, ptr noundef nonnull %chk, i64 noundef %chklen.addr.0, i32 noundef %flags.addr.0) #13, !callees !12
   %cmp43.i60 = icmp sgt i32 %call42.i59, 0
   br i1 %cmp43.i60, label %if.then48.i65, label %if.end55.i63
 
@@ -1701,7 +1701,7 @@ land.lhs.true:                                    ; preds = %if.end7
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end7
   %chklen.addr.1 = phi i64 [ %chklen.addr.0, %if.end7 ], [ %spec.select, %land.lhs.true ]
-  %call14 = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen.addr.1, i32 noundef %flags, i32 noundef 1, ptr noundef null)
+  %call14 = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen.addr.1, i32 noundef %flags, i32 noundef 1, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.else, %entry, %if.end13
@@ -1716,7 +1716,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef 7, ptr noundef null)
+  %call = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef 7, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1738,7 +1738,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %conv = zext nneg i32 %call to i64
-  %call6 = call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %ipout, i64 noundef %conv, i32 noundef %flags, i32 noundef 7, ptr noundef null)
+  %call6 = call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %ipout, i64 noundef %conv, i32 noundef %flags, i32 noundef 7, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
@@ -2843,7 +2843,7 @@ return:                                           ; preds = %skip_prefix.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef %cmp_type, ptr nocapture noundef readonly %equal, i32 noundef %flags, ptr noundef %b, i64 noundef %blen, ptr noundef writeonly %peername) unnamed_addr #0 {
+define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef range(i32 -1, 23) %cmp_type, ptr nocapture noundef readonly %equal, i32 noundef %flags, ptr noundef nonnull %b, i64 noundef %blen, ptr noundef writeonly %peername) unnamed_addr #0 {
 entry:
   %astr = alloca ptr, align 8
   %data = getelementptr inbounds i8, ptr %a, i64 8
@@ -2872,7 +2872,7 @@ if.end5:                                          ; preds = %if.then2
 
 if.then7:                                         ; preds = %if.end5
   %conv = sext i32 %1 to i64
-  %call = tail call i32 %equal(ptr noundef nonnull %0, i64 noundef %conv, ptr noundef %b, i64 noundef %blen, i32 noundef %flags) #13, !callees !12
+  %call = tail call i32 %equal(ptr noundef nonnull %0, i64 noundef %conv, ptr noundef nonnull %b, i64 noundef %blen, i32 noundef %flags) #13, !callees !12
   br label %if.end19
 
 if.else:                                          ; preds = %if.end5
@@ -2881,7 +2881,7 @@ if.else:                                          ; preds = %if.end5
   br i1 %cmp12, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else
-  %bcmp = tail call i32 @bcmp(ptr nonnull %0, ptr %b, i64 %blen)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %b, i64 %blen)
   %tobool16.not = icmp eq i32 %bcmp, 0
   %spec.select = zext i1 %tobool16.not to i32
   br label %if.end19
@@ -2911,7 +2911,7 @@ if.else35:                                        ; preds = %if.end
 if.end40:                                         ; preds = %if.else35
   %5 = load ptr, ptr %astr, align 8
   %conv41 = zext nneg i32 %call36 to i64
-  %call42 = call i32 %equal(ptr noundef %5, i64 noundef %conv41, ptr noundef %b, i64 noundef %blen, i32 noundef %flags) #13, !callees !12
+  %call42 = call i32 %equal(ptr noundef %5, i64 noundef %conv41, ptr noundef nonnull %b, i64 noundef %blen, i32 noundef %flags) #13, !callees !12
   %cmp43 = icmp sgt i32 %call42, 0
   %cmp46 = icmp ne ptr %peername, null
   %or.cond1 = and i1 %cmp46, %cmp43
@@ -2990,7 +2990,7 @@ if.end12:                                         ; preds = %if.else, %if.then4
 
 if.else13:                                        ; preds = %if.end
   %cmp14 = icmp sgt i32 %len, 4
-  br i1 %cmp14, label %if.then15, label %while.cond.preheader.i
+  br i1 %cmp14, label %if.then15, label %if.else27
 
 if.then15:                                        ; preds = %if.else13
   %cmp17 = icmp sgt i32 %0, 12
@@ -3084,28 +3084,28 @@ if.end25:                                         ; preds = %lor.lhs.false19.if.
   store i32 %add, ptr %total, align 4
   br label %return
 
-while.cond.preheader.i:                           ; preds = %if.else13
+if.else27:                                        ; preds = %if.else13
   %idx.ext31 = sext i32 %0 to i64
   %add.ptr32 = getelementptr inbounds i8, ptr %usr, i64 %idx.ext31
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end3.i
-  %dec12.in.i = phi i32 [ %dec12.i, %if.end3.i ], [ %len, %while.cond.preheader.i ]
-  %num.011.i = phi i32 [ %or.i, %if.end3.i ], [ 0, %while.cond.preheader.i ]
-  %in.addr.010.i = phi ptr [ %incdec.ptr.i, %if.end3.i ], [ %elem, %while.cond.preheader.i ]
-  %18 = load i8, ptr %in.addr.010.i, align 1
+while.body.i:                                     ; preds = %if.else27, %if.end3.i
+  %dec11.in.i = phi i32 [ %dec11.i, %if.end3.i ], [ %len, %if.else27 ]
+  %num.010.i = phi i32 [ %or.i, %if.end3.i ], [ 0, %if.else27 ]
+  %in.addr.09.i = phi ptr [ %incdec.ptr.i, %if.end3.i ], [ %elem, %if.else27 ]
+  %18 = load i8, ptr %in.addr.09.i, align 1
   %call.i20 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %18) #13
   %cmp1.i = icmp slt i32 %call.i20, 0
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %while.body.i
-  %dec12.i = add nsw i32 %dec12.in.i, -1
-  %shl.i = shl i32 %num.011.i, 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %in.addr.010.i, i64 1
+  %dec11.i = add nsw i32 %dec11.in.i, -1
+  %shl.i = shl i32 %num.010.i, 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %in.addr.09.i, i64 1
   %sext.i = shl i32 %call.i20, 24
   %conv4.i = ashr exact i32 %sext.i, 24
   %or.i = or i32 %conv4.i, %shl.i
-  %tobool.not.i21 = icmp eq i32 %dec12.i, 0
+  %tobool.not.i21 = icmp eq i32 %dec11.i, 0
   br i1 %tobool.not.i21, label %if.end36, label %while.body.i, !llvm.loop !22
 
 if.end36:                                         ; preds = %if.end3.i

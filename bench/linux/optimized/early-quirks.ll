@@ -67,7 +67,7 @@ define dso_local void @early_quirks() local_unnamed_addr #0 section ".init.text"
 declare dso_local i32 @early_pci_allowed() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @early_pci_scan_bus(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @early_pci_scan_bus(i32 noundef range(i32 0, 256) %0) unnamed_addr #0 section ".init.text" align 16 {
   br label %2
 
 2:                                                ; preds = %11, %1
@@ -93,7 +93,7 @@ define internal fastcc void @early_pci_scan_bus(i32 noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = trunc nuw i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8
@@ -178,7 +178,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef %0, i32
 59:                                               ; preds = %.loopexit
   %60 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 25) #4
   %61 = zext i8 %60 to i32
-  %62 = icmp slt i32 %0, %61
+  %62 = icmp ult i32 %0, %61
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %59

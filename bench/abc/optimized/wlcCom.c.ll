@@ -2250,7 +2250,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
 159:                                              ; preds = %152, %149
   %160 = call ptr @Wlc_NtkBitBlast(ptr noundef nonnull %.val, ptr noundef nonnull %4) #16
   %161 = getelementptr inbounds i8, ptr %4, i64 72
-  call fastcc void @Vec_IntFreeP(ptr noundef nonnull %161)
+  call fastcc void @Vec_IntFreeP(ptr noundef %161)
   %162 = icmp eq ptr %160, null
   br i1 %162, label %163, label %164
 
@@ -3562,7 +3562,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @enable_dbg_outs, align 4
   %.not = icmp eq i32 %4, 0
@@ -3717,7 +3717,7 @@ declare ptr @Wlc_NtkCollectAddMult(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @Wlc_NtkBitBlast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef %0) unnamed_addr #9 {
+define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4

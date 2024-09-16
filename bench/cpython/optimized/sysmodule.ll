@@ -1758,7 +1758,7 @@ entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
   %0 = load ptr, ptr @stderr, align 8
-  call fastcc void @sys_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59112), ptr noundef %0, ptr noundef %format, ptr noundef nonnull %va)
+  call fastcc void @sys_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59112), ptr noundef %0, ptr noundef %format, ptr noundef %va)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
@@ -1770,13 +1770,13 @@ define hidden range(i32 -1, 1) i32 @_PySys_Audit(ptr noundef %tstate, ptr nounde
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
-  %call = call fastcc i32 @sys_audit_tstate(ptr noundef %tstate, ptr noundef %event, ptr noundef %argFormat, ptr noundef nonnull %vargs)
+  %call = call fastcc i32 @sys_audit_tstate(ptr noundef %tstate, ptr noundef %event, ptr noundef %argFormat, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @sys_audit_tstate(ptr noundef %ts, ptr noundef %event, ptr noundef %argFormat, ptr noundef %vargs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @sys_audit_tstate(ptr noundef %ts, ptr noundef %event, ptr noundef %argFormat, ptr noundef nonnull %vargs) unnamed_addr #0 {
 entry:
   %o = alloca ptr, align 8
   %args = alloca [2 x ptr], align 16
@@ -1814,7 +1814,7 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
-  %call9 = tail call ptr @Py_VaBuildValue(ptr noundef nonnull %argFormat, ptr noundef %vargs) #15
+  %call9 = tail call ptr @Py_VaBuildValue(ptr noundef nonnull %argFormat, ptr noundef nonnull %vargs) #15
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.else78, label %land.lhs.true11
 
@@ -2175,7 +2175,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %vargs)
-  %call2 = call fastcc i32 @sys_audit_tstate(ptr noundef %1, ptr noundef %event, ptr noundef %argFormat, ptr noundef nonnull %vargs)
+  %call2 = call fastcc i32 @sys_audit_tstate(ptr noundef %1, ptr noundef %event, ptr noundef %argFormat, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 %call2
 }
@@ -3830,7 +3830,7 @@ if.then203:                                       ; preds = %if.then200, %_PyErr
   br label %return
 
 if.end205:                                        ; preds = %if.end197
-  %call206 = tail call fastcc i32 @set_flags_from_config(ptr noundef nonnull %0, ptr noundef nonnull %call198)
+  %call206 = tail call fastcc i32 @set_flags_from_config(ptr noundef nonnull %0, ptr noundef %call198)
   %cmp207 = icmp slt i32 %call206, 0
   br i1 %cmp207, label %return, label %do.body210
 
@@ -4041,7 +4041,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 declare ptr @_Py_GetStdlibDir() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_flags_from_config(ptr noundef %interp, ptr noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_flags_from_config(ptr noundef %interp, ptr noundef nonnull %flags) unnamed_addr #0 {
 entry:
   %runtime = getelementptr inbounds i8, ptr %interp, i64 976
   %0 = load ptr, ptr %runtime, align 8
@@ -4054,7 +4054,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call4 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 0) #15
+  %call4 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 0) #15
   %cmp.not.i = icmp eq ptr %call4, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
 
@@ -4075,7 +4075,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end, %if.then.i, %if.end.i.i, %if.then1.i.i
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 0, ptr noundef nonnull %call2) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 0, ptr noundef nonnull %call2) #15
   %inspect = getelementptr inbounds i8, ptr %call, i64 188
   %4 = load i32, ptr %inspect, align 4
   %conv7 = sext i32 %4 to i64
@@ -4084,7 +4084,7 @@ Py_XDECREF.exit:                                  ; preds = %if.end, %if.then.i,
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %Py_XDECREF.exit
-  %call13 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 1) #15
+  %call13 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 1) #15
   %cmp.not.i125 = icmp eq ptr %call13, null
   br i1 %cmp.not.i125, label %Py_XDECREF.exit132, label %if.then.i126
 
@@ -4105,7 +4105,7 @@ if.then1.i.i131:                                  ; preds = %if.end.i.i128
   br label %Py_XDECREF.exit132
 
 Py_XDECREF.exit132:                               ; preds = %if.end12, %if.then.i126, %if.end.i.i128, %if.then1.i.i131
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 1, ptr noundef nonnull %call8) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 1, ptr noundef nonnull %call8) #15
   %interactive = getelementptr inbounds i8, ptr %call, i64 192
   %7 = load i32, ptr %interactive, align 8
   %conv18 = sext i32 %7 to i64
@@ -4114,7 +4114,7 @@ Py_XDECREF.exit132:                               ; preds = %if.end12, %if.then.
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %Py_XDECREF.exit132
-  %call24 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 2) #15
+  %call24 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 2) #15
   %cmp.not.i133 = icmp eq ptr %call24, null
   br i1 %cmp.not.i133, label %Py_XDECREF.exit140, label %if.then.i134
 
@@ -4135,7 +4135,7 @@ if.then1.i.i139:                                  ; preds = %if.end.i.i136
   br label %Py_XDECREF.exit140
 
 Py_XDECREF.exit140:                               ; preds = %if.end23, %if.then.i134, %if.end.i.i136, %if.then1.i.i139
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 2, ptr noundef nonnull %call19) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 2, ptr noundef nonnull %call19) #15
   %optimization_level = getelementptr inbounds i8, ptr %call, i64 196
   %10 = load i32, ptr %optimization_level, align 4
   %conv29 = sext i32 %10 to i64
@@ -4144,7 +4144,7 @@ Py_XDECREF.exit140:                               ; preds = %if.end23, %if.then.
   br i1 %cmp31, label %return, label %if.end34
 
 if.end34:                                         ; preds = %Py_XDECREF.exit140
-  %call35 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 3) #15
+  %call35 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 3) #15
   %cmp.not.i141 = icmp eq ptr %call35, null
   br i1 %cmp.not.i141, label %Py_XDECREF.exit148, label %if.then.i142
 
@@ -4165,7 +4165,7 @@ if.then1.i.i147:                                  ; preds = %if.end.i.i144
   br label %Py_XDECREF.exit148
 
 Py_XDECREF.exit148:                               ; preds = %if.end34, %if.then.i142, %if.end.i.i144, %if.then1.i.i147
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 3, ptr noundef nonnull %call30) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 3, ptr noundef nonnull %call30) #15
   %write_bytecode = getelementptr inbounds i8, ptr %call, i64 204
   %13 = load i32, ptr %write_bytecode, align 4
   %tobool.not = icmp eq i32 %13, 0
@@ -4175,7 +4175,7 @@ Py_XDECREF.exit148:                               ; preds = %if.end34, %if.then.
   br i1 %cmp42, label %return, label %if.end45
 
 if.end45:                                         ; preds = %Py_XDECREF.exit148
-  %call46 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 4) #15
+  %call46 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 4) #15
   %cmp.not.i149 = icmp eq ptr %call46, null
   br i1 %cmp.not.i149, label %Py_XDECREF.exit156, label %if.then.i150
 
@@ -4196,7 +4196,7 @@ if.then1.i.i155:                                  ; preds = %if.end.i.i152
   br label %Py_XDECREF.exit156
 
 Py_XDECREF.exit156:                               ; preds = %if.end45, %if.then.i150, %if.end.i.i152, %if.then1.i.i155
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 4, ptr noundef nonnull %call41) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 4, ptr noundef nonnull %call41) #15
   %user_site_directory = getelementptr inbounds i8, ptr %call, i64 216
   %16 = load i32, ptr %user_site_directory, align 8
   %tobool51.not = icmp eq i32 %16, 0
@@ -4206,7 +4206,7 @@ Py_XDECREF.exit156:                               ; preds = %if.end45, %if.then.
   br i1 %cmp56, label %return, label %if.end59
 
 if.end59:                                         ; preds = %Py_XDECREF.exit156
-  %call60 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 5) #15
+  %call60 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 5) #15
   %cmp.not.i157 = icmp eq ptr %call60, null
   br i1 %cmp.not.i157, label %Py_XDECREF.exit164, label %if.then.i158
 
@@ -4227,7 +4227,7 @@ if.then1.i.i163:                                  ; preds = %if.end.i.i160
   br label %Py_XDECREF.exit164
 
 Py_XDECREF.exit164:                               ; preds = %if.end59, %if.then.i158, %if.end.i.i160, %if.then1.i.i163
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 5, ptr noundef nonnull %call55) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 5, ptr noundef nonnull %call55) #15
   %site_import = getelementptr inbounds i8, ptr %call, i64 176
   %19 = load i32, ptr %site_import, align 8
   %tobool65.not = icmp eq i32 %19, 0
@@ -4237,7 +4237,7 @@ Py_XDECREF.exit164:                               ; preds = %if.end59, %if.then.
   br i1 %cmp70, label %return, label %if.end73
 
 if.end73:                                         ; preds = %Py_XDECREF.exit164
-  %call74 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 6) #15
+  %call74 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 6) #15
   %cmp.not.i165 = icmp eq ptr %call74, null
   br i1 %cmp.not.i165, label %Py_XDECREF.exit172, label %if.then.i166
 
@@ -4258,7 +4258,7 @@ if.then1.i.i171:                                  ; preds = %if.end.i.i168
   br label %Py_XDECREF.exit172
 
 Py_XDECREF.exit172:                               ; preds = %if.end73, %if.then.i166, %if.end.i.i168, %if.then1.i.i171
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 6, ptr noundef nonnull %call69) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 6, ptr noundef nonnull %call69) #15
   %use_environment = getelementptr inbounds i8, ptr %call, i64 8
   %22 = load i32, ptr %use_environment, align 8
   %tobool79.not = icmp eq i32 %22, 0
@@ -4268,7 +4268,7 @@ Py_XDECREF.exit172:                               ; preds = %if.end73, %if.then.
   br i1 %cmp84, label %return, label %if.end87
 
 if.end87:                                         ; preds = %Py_XDECREF.exit172
-  %call88 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 7) #15
+  %call88 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 7) #15
   %cmp.not.i173 = icmp eq ptr %call88, null
   br i1 %cmp.not.i173, label %Py_XDECREF.exit180, label %if.then.i174
 
@@ -4289,7 +4289,7 @@ if.then1.i.i179:                                  ; preds = %if.end.i.i176
   br label %Py_XDECREF.exit180
 
 Py_XDECREF.exit180:                               ; preds = %if.end87, %if.then.i174, %if.end.i.i176, %if.then1.i.i179
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 7, ptr noundef nonnull %call83) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 7, ptr noundef nonnull %call83) #15
   %verbose = getelementptr inbounds i8, ptr %call, i64 208
   %25 = load i32, ptr %verbose, align 8
   %conv93 = sext i32 %25 to i64
@@ -4298,9 +4298,9 @@ Py_XDECREF.exit180:                               ; preds = %if.end87, %if.then.
   br i1 %cmp95, label %return, label %if.end98
 
 if.end98:                                         ; preds = %Py_XDECREF.exit180
-  %call99 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 8) #15
+  %call99 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 8) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call99)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 8, ptr noundef nonnull %call94) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 8, ptr noundef nonnull %call94) #15
   %bytes_warning = getelementptr inbounds i8, ptr %call, i64 180
   %26 = load i32, ptr %bytes_warning, align 4
   %conv104 = sext i32 %26 to i64
@@ -4309,9 +4309,9 @@ if.end98:                                         ; preds = %Py_XDECREF.exit180
   br i1 %cmp106, label %return, label %if.end109
 
 if.end109:                                        ; preds = %if.end98
-  %call110 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 9) #15
+  %call110 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 9) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call110)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 9, ptr noundef nonnull %call105) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 9, ptr noundef nonnull %call105) #15
   %quiet = getelementptr inbounds i8, ptr %call, i64 212
   %27 = load i32, ptr %quiet, align 4
   %conv115 = sext i32 %27 to i64
@@ -4320,9 +4320,9 @@ if.end109:                                        ; preds = %if.end98
   br i1 %cmp117, label %return, label %if.end120
 
 if.end120:                                        ; preds = %if.end109
-  %call121 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 10) #15
+  %call121 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 10) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call121)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 10, ptr noundef nonnull %call116) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 10, ptr noundef nonnull %call116) #15
   %use_hash_seed = getelementptr inbounds i8, ptr %call, i64 20
   %28 = load i32, ptr %use_hash_seed, align 4
   %cmp126 = icmp eq i32 %28, 0
@@ -4342,9 +4342,9 @@ lor.end:                                          ; preds = %lor.rhs, %if.end120
   br i1 %cmp132, label %return, label %if.end135
 
 if.end135:                                        ; preds = %lor.end
-  %call136 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 11) #15
+  %call136 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 11) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call136)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 11, ptr noundef nonnull %call131) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 11, ptr noundef nonnull %call131) #15
   %isolated = getelementptr inbounds i8, ptr %call, i64 4
   %31 = load i32, ptr %isolated, align 4
   %conv141 = sext i32 %31 to i64
@@ -4353,9 +4353,9 @@ if.end135:                                        ; preds = %lor.end
   br i1 %cmp143, label %return, label %if.end146
 
 if.end146:                                        ; preds = %if.end135
-  %call147 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 12) #15
+  %call147 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 12) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call147)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 12, ptr noundef nonnull %call142) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 12, ptr noundef nonnull %call142) #15
   %dev_mode = getelementptr inbounds i8, ptr %call, i64 12
   %32 = load i32, ptr %dev_mode, align 4
   %conv152 = sext i32 %32 to i64
@@ -4364,9 +4364,9 @@ if.end146:                                        ; preds = %if.end135
   br i1 %cmp154, label %return, label %if.end157
 
 if.end157:                                        ; preds = %if.end146
-  %call158 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 13) #15
+  %call158 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 13) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call158)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 13, ptr noundef nonnull %call153) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 13, ptr noundef nonnull %call153) #15
   %utf8_mode = getelementptr inbounds i8, ptr %0, i64 3564
   %33 = load i32, ptr %utf8_mode, align 4
   %conv163 = sext i32 %33 to i64
@@ -4375,9 +4375,9 @@ if.end157:                                        ; preds = %if.end146
   br i1 %cmp165, label %return, label %if.end168
 
 if.end168:                                        ; preds = %if.end157
-  %call169 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 14) #15
+  %call169 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 14) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call169)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 14, ptr noundef nonnull %call164) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 14, ptr noundef nonnull %call164) #15
   %warn_default_encoding = getelementptr inbounds i8, ptr %call, i64 184
   %34 = load i32, ptr %warn_default_encoding, align 8
   %conv174 = sext i32 %34 to i64
@@ -4386,9 +4386,9 @@ if.end168:                                        ; preds = %if.end157
   br i1 %cmp176, label %return, label %if.end179
 
 if.end179:                                        ; preds = %if.end168
-  %call180 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 15) #15
+  %call180 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 15) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call180)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 15, ptr noundef nonnull %call175) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 15, ptr noundef nonnull %call175) #15
   %safe_path = getelementptr inbounds i8, ptr %call, i64 260
   %35 = load i32, ptr %safe_path, align 4
   %conv185 = sext i32 %35 to i64
@@ -4397,9 +4397,9 @@ if.end179:                                        ; preds = %if.end168
   br i1 %cmp187, label %return, label %if.end190
 
 if.end190:                                        ; preds = %if.end179
-  %call191 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 16) #15
+  %call191 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 16) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call191)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 16, ptr noundef nonnull %call186) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 16, ptr noundef nonnull %call186) #15
   %int_max_str_digits = getelementptr inbounds i8, ptr %call, i64 264
   %36 = load i32, ptr %int_max_str_digits, align 8
   %conv196 = sext i32 %36 to i64
@@ -4408,9 +4408,9 @@ if.end190:                                        ; preds = %if.end179
   br i1 %cmp198, label %return, label %if.end201
 
 if.end201:                                        ; preds = %if.end190
-  %call202 = tail call ptr @PyStructSequence_GetItem(ptr noundef %flags, i64 noundef 17) #15
+  %call202 = tail call ptr @PyStructSequence_GetItem(ptr noundef nonnull %flags, i64 noundef 17) #15
   tail call fastcc void @Py_XDECREF(ptr noundef %call202)
-  tail call void @PyStructSequence_SetItem(ptr noundef %flags, i64 noundef 17, ptr noundef nonnull %call197) #15
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %flags, i64 noundef 17, ptr noundef nonnull %call197) #15
   br label %return
 
 return:                                           ; preds = %if.end190, %if.end179, %if.end168, %if.end157, %if.end146, %if.end135, %lor.end, %if.end109, %if.end98, %Py_XDECREF.exit180, %Py_XDECREF.exit172, %Py_XDECREF.exit164, %Py_XDECREF.exit156, %Py_XDECREF.exit148, %Py_XDECREF.exit140, %Py_XDECREF.exit132, %Py_XDECREF.exit, %entry, %if.end201
@@ -5099,7 +5099,7 @@ Py_DECREF.exit399.i:                              ; preds = %if.then1.i397.i, %i
   br i1 %cmp237.i, label %if.then27, label %do.body241.i
 
 do.body241.i:                                     ; preds = %Py_DECREF.exit399.i
-  %call243.i = tail call fastcc ptr @make_impl_info(ptr noundef nonnull %call230.i), !noalias !18
+  %call243.i = tail call fastcc ptr @make_impl_info(ptr noundef %call230.i), !noalias !18
   %cmp244.i = icmp eq ptr %call243.i, null
   br i1 %cmp244.i, label %if.then27, label %if.end246.i
 
@@ -5533,15 +5533,15 @@ entry:
   %conv.i = select i1 %or.cond, i64 1, i64 %2
   %call.i = tail call ptr @PyList_New(i64 noundef %conv.i) #15
   %cmp.i19 = icmp eq ptr %call.i, null
-  br i1 %cmp.i19, label %if.then4, label %for.body.lr.ph.i
+  br i1 %cmp.i19, label %if.then4, label %for.cond.preheader.i
 
-for.body.lr.ph.i:                                 ; preds = %entry
+for.cond.preheader.i:                             ; preds = %entry
   %3 = getelementptr i8, ptr %call.i, i64 24
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.end9.i, %for.body.lr.ph.i
-  %i.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end9.i ]
-  %arrayidx.i = getelementptr ptr, ptr %spec.select, i64 %i.012.i
+for.body.i:                                       ; preds = %if.end9.i, %for.cond.preheader.i
+  %i.011.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %if.end9.i ]
+  %arrayidx.i = getelementptr ptr, ptr %spec.select, i64 %i.011.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call5.i = tail call ptr @PyUnicode_FromWideChar(ptr noundef %4, i64 noundef -1) #15
   %cmp6.i = icmp eq ptr %call5.i, null
@@ -5565,9 +5565,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end9.i:                                        ; preds = %for.body.i
   %call.val.i = load ptr, ptr %3, align 8
-  %arrayidx.i.i = getelementptr ptr, ptr %call.val.i, i64 %i.012.i
+  %arrayidx.i.i = getelementptr ptr, ptr %call.val.i, i64 %i.011.i
   store ptr %call5.i, ptr %arrayidx.i.i, align 8
-  %inc.i = add nuw nsw i64 %i.012.i, 1
+  %inc.i = add nuw nsw i64 %i.011.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv.i
   br i1 %exitcond.not.i, label %cond.true.i, label %for.body.i, !llvm.loop !22
 
@@ -5745,13 +5745,13 @@ entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
   %0 = load ptr, ptr @stdout, align 8
-  call fastcc void @sys_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59208), ptr noundef %0, ptr noundef %format, ptr noundef nonnull %va)
+  call fastcc void @sys_write(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59208), ptr noundef %0, ptr noundef %format, ptr noundef %va)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sys_write(ptr noundef %key, ptr nocapture noundef %fp, ptr noundef %format, ptr noundef %va) unnamed_addr #0 {
+define internal fastcc void @sys_write(ptr noundef %key, ptr nocapture noundef %fp, ptr noundef %format, ptr noundef nonnull %va) unnamed_addr #0 {
 entry:
   %args.i.i.i12 = alloca [2 x ptr], align 16
   %args.i.i.i = alloca [2 x ptr], align 16
@@ -5767,14 +5767,14 @@ entry:
   br i1 %cmp.i, label %_PySys_GetAttr.exit.thread, label %_PySys_GetAttr.exit
 
 _PySys_GetAttr.exit.thread:                       ; preds = %entry
-  %call337 = call i32 @PyOS_vsnprintf(ptr noundef nonnull %buffer, i64 noundef 1001, ptr noundef %format, ptr noundef %va) #15
+  %call337 = call i32 @PyOS_vsnprintf(ptr noundef nonnull %buffer, i64 noundef 1001, ptr noundef %format, ptr noundef nonnull %va) #15
   br label %if.end
 
 _PySys_GetAttr.exit:                              ; preds = %entry
   %call.i = tail call ptr @_PyErr_GetRaisedException(ptr noundef nonnull %1) #15
   %call1.i = tail call ptr @_PyDict_GetItemWithError(ptr noundef nonnull %3, ptr noundef %key) #15
   tail call void @_PyErr_SetRaisedException(ptr noundef nonnull %1, ptr noundef %call.i) #15
-  %call3 = call i32 @PyOS_vsnprintf(ptr noundef nonnull %buffer, i64 noundef 1001, ptr noundef %format, ptr noundef %va) #15
+  %call3 = call i32 @PyOS_vsnprintf(ptr noundef nonnull %buffer, i64 noundef 1001, ptr noundef %format, ptr noundef nonnull %va) #15
   %cmp.i8 = icmp eq ptr %call1.i, null
   br i1 %cmp.i8, label %if.end, label %if.end.i9
 
@@ -5910,13 +5910,13 @@ entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
   %0 = load ptr, ptr @stdout, align 8
-  call fastcc void @sys_format(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59208), ptr noundef %0, ptr noundef %format, ptr noundef nonnull %va)
+  call fastcc void @sys_format(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59208), ptr noundef %0, ptr noundef %format, ptr noundef %va)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sys_format(ptr noundef %key, ptr nocapture noundef %fp, ptr noundef %format, ptr noundef %va) unnamed_addr #0 {
+define internal fastcc void @sys_format(ptr noundef %key, ptr nocapture noundef %fp, ptr noundef %format, ptr noundef nonnull %va) unnamed_addr #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -5933,12 +5933,12 @@ _PySys_GetAttr.exit:                              ; preds = %entry
   %call.i = tail call ptr @_PyErr_GetRaisedException(ptr noundef nonnull %1) #15
   %call1.i = tail call ptr @_PyDict_GetItemWithError(ptr noundef nonnull %3, ptr noundef %key) #15
   tail call void @_PyErr_SetRaisedException(ptr noundef nonnull %1, ptr noundef %call.i) #15
-  %call3 = tail call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef %va) #15
+  %call3 = tail call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %va) #15
   %cmp.not = icmp eq ptr %call3, null
   br i1 %cmp.not, label %if.end12, label %if.then
 
 _PySys_GetAttr.exit.thread:                       ; preds = %entry
-  %call316 = tail call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef %va) #15
+  %call316 = tail call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %va) #15
   %cmp.not17 = icmp eq ptr %call316, null
   br i1 %cmp.not17, label %if.end12, label %if.then6
 
@@ -6011,7 +6011,7 @@ entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
   %0 = load ptr, ptr @stderr, align 8
-  call fastcc void @sys_format(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59112), ptr noundef %0, ptr noundef %format, ptr noundef nonnull %va)
+  call fastcc void @sys_format(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59112), ptr noundef %0, ptr noundef %format, ptr noundef %va)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
@@ -8741,7 +8741,7 @@ return:                                           ; preds = %if.end, %_PyErr_Occ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_impl_info(ptr noundef %version_info) unnamed_addr #0 {
+define internal fastcc ptr @make_impl_info(ptr noundef nonnull %version_info) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyDict_New() #15
   %cmp = icmp eq ptr %call, null
@@ -8802,7 +8802,7 @@ Py_DECREF.exit76:                                 ; preds = %if.end12, %if.then1
   br i1 %cmp14, label %if.then39, label %if.end16
 
 if.end16:                                         ; preds = %Py_DECREF.exit76
-  %call17 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call, ptr noundef nonnull @.str.141, ptr noundef %version_info) #15
+  %call17 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call, ptr noundef nonnull @.str.141, ptr noundef nonnull %version_info) #15
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %if.then39, label %if.end20
 
@@ -8901,7 +8901,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @set_flags_from_config(ptr noundef %interp, ptr noundef nonnull %call)
+  %call1 = tail call fastcc i32 @set_flags_from_config(ptr noundef %interp, ptr noundef %call)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %return
 

@@ -169,7 +169,7 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br label %.split93.us
 
 73:                                               ; preds = %._crit_edge
-  %74 = tail call fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr noundef %1, double noundef %ldexp.fr, ptr noundef nonnull %66)
+  %74 = tail call fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr noundef %1, double noundef %ldexp.fr, ptr noundef %66)
   %75 = fcmp oeq double %4, %74
   br i1 %75, label %76, label %78
 
@@ -307,7 +307,7 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nocap
   br i1 %44, label %25, label %._crit_edge55, !llvm.loop !8
 
 ._crit_edge55:                                    ; preds = %43, %.preheader
-  %45 = tail call fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef nonnull %20, i32 noundef %.042.lcssa, double noundef %2, i32 noundef 0)
+  %45 = tail call fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %20, i32 noundef %.042.lcssa, double noundef %2, i32 noundef 0)
   %.not49 = icmp eq ptr %45, null
   br i1 %.not49, label %53, label %46
 
@@ -354,7 +354,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #3
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, -2
@@ -371,7 +371,7 @@ define internal fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr nound
   br label %48
 
 15:                                               ; preds = %4
-  %16 = call i32 @st__lookup(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %5) #7
+  %16 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %20, label %17
 
@@ -418,7 +418,7 @@ define internal fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr nound
 43:                                               ; preds = %38
   %44 = fadd double %29, %36
   store double %44, ptr %39, align 8
-  %45 = call i32 @st__insert(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %39) #7
+  %45 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %39) #7
   %46 = icmp eq i32 %45, -10000
   br i1 %46, label %47, label %48
 
@@ -930,7 +930,7 @@ declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, double noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %2) #7

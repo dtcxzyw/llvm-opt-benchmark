@@ -4213,7 +4213,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN32pxrInternal_v0_24__
   store ptr %9, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 0, ptr %13, align 8
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL40_valueFactories_Tf_StaticDataFactoryImplEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull %8)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL40_valueFactories_Tf_StaticDataFactoryImplEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef %8)
   %14 = ptrtoint ptr %8 to i64
   %15 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E, i64 0, i64 %14 seq_cst seq_cst, align 8
   %16 = extractvalue { i64, i1 } %15, 1
@@ -4308,7 +4308,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
   store ptr %46, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %45, i64 40
   store i64 0, ptr %50, align 8
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL40_valueFactories_Tf_StaticDataFactoryImplEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull %45)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL40_valueFactories_Tf_StaticDataFactoryImplEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef %45)
   %51 = ptrtoint ptr %45 to i64
   %52 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E, i64 0, i64 %51 seq_cst seq_cst, align 8
   %53 = extractvalue { i64, i1 } %52, 1
@@ -4431,7 +4431,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32px
   store ptr %5, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 0, ptr %9, align 8
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL40_valueFactories_Tf_StaticDataFactoryImplEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull %4)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL40_valueFactories_Tf_StaticDataFactoryImplEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef %4)
   %10 = ptrtoint ptr %4 to i64
   %11 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E, i64 0, i64 %10 seq_cst seq_cst, align 8
   %12 = extractvalue { i64, i1 } %11, 1
@@ -5622,7 +5622,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL40_valueFactories_Tf_StaticDataFactoryImplEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL40_valueFactories_Tf_StaticDataFactoryImplEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %2 = alloca %"class.std::function", align 8
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::_MakeFactoryMap", align 8

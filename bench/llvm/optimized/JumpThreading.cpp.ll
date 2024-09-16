@@ -2023,7 +2023,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit197:    ; preds = %193, %204
   br i1 %.not168, label %213, label %211
 
 211:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit197
-  %212 = tail call fastcc noundef zeroext i1 @_ZL19replaceFoldableUsesPN4llvm11InstructionEPNS_5ValueEPNS_10BasicBlockE(ptr noundef nonnull %.0137, ptr noundef nonnull %210, ptr noundef nonnull %1)
+  %212 = tail call fastcc noundef zeroext i1 @_ZL19replaceFoldableUsesPN4llvm11InstructionEPNS_5ValueEPNS_10BasicBlockE(ptr noundef %.0137, ptr noundef nonnull %210, ptr noundef nonnull %1)
   br i1 %212, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit, label %213
 
 213:                                              ; preds = %211, %_ZN4llvm10BasicBlock13getTerminatorEv.exit197
@@ -2100,7 +2100,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit208:    ; preds = %242
   br i1 %250, label %251, label %.critedge4
 
 251:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit208
-  tail call fastcc void @_ZL32updatePredecessorProfileMetadataPN4llvm7PHINodeEPNS_10BasicBlockE(ptr noundef nonnull %.1, ptr noundef nonnull %1)
+  tail call fastcc void @_ZL32updatePredecessorProfileMetadataPN4llvm7PHINodeEPNS_10BasicBlockE(ptr noundef %.1, ptr noundef nonnull %1)
   br label %.critedge4
 
 .critedge4:                                       ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit208, %251, %242, %.thread
@@ -6765,7 +6765,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
   ]
 
 251:                                              ; preds = %250
-  %252 = call fastcc noundef zeroext i1 @_ZL19replaceFoldableUsesPN4llvm11InstructionEPNS_5ValueEPNS_10BasicBlockE(ptr noundef nonnull %1, ptr noundef nonnull %.0110.lcssa, ptr noundef nonnull %2)
+  %252 = call fastcc noundef zeroext i1 @_ZL19replaceFoldableUsesPN4llvm11InstructionEPNS_5ValueEPNS_10BasicBlockE(ptr noundef %1, ptr noundef nonnull %.0110.lcssa, ptr noundef nonnull %2)
   br label %253
 
 253:                                              ; preds = %250, %250, %248, %251, %239
@@ -7658,7 +7658,7 @@ _ZN4llvm11SmallVectorISt4pairIPNS_8ConstantEPNS_10BasicBlockEELj8EED2Ev.exit: ; 
 declare noundef ptr @_ZN4llvm13LazyValueInfo14getPredicateAtENS_7CmpInst9PredicateEPNS_5ValueEPNS_8ConstantEPNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19replaceFoldableUsesPN4llvm11InstructionEPNS_5ValueEPNS_10BasicBlockE(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19replaceFoldableUsesPN4llvm11InstructionEPNS_5ValueEPNS_10BasicBlockE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %2
@@ -7718,7 +7718,7 @@ _ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_deta
 
 .lr.ph:                                           ; preds = %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit
   %.sroa.041.058 = phi ptr [ %.sroa.041.2, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit ], [ %.sroa.01.1.i.i, %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit ]
-  tail call void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.041.058, ptr noundef %0, ptr noundef %1, i1 noundef zeroext true) #19
+  tail call void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.041.058, ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext true) #19
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.041.058, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not1.i.i.i = icmp eq ptr %27, %20
@@ -7751,7 +7751,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implIN
   br i1 %35, label %36, label %._crit_edge65
 
 36:                                               ; preds = %34
-  %37 = tail call noundef zeroext i1 @_ZN4llvm4User17replaceUsesOfWithEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %0, ptr noundef %1) #19
+  %37 = tail call noundef zeroext i1 @_ZN4llvm4User17replaceUsesOfWithEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %0, ptr noundef %1) #19
   %38 = or i1 %.161, %37
   %.sroa.048.0 = load ptr, ptr %.sroa.048.062, align 8
   %.not = icmp eq ptr %.sroa.048.0, %11
@@ -9212,7 +9212,7 @@ _ZN4llvm14BatchAAResultsD2Ev.exit:                ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32updatePredecessorProfileMetadataPN4llvm7PHINodeEPNS_10BasicBlockE(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL32updatePredecessorProfileMetadataPN4llvm7PHINodeEPNS_10BasicBlockE(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   %2 = alloca %"class.llvm::SmallPtrSet.186", align 8
   %3 = alloca i64, align 8
@@ -13984,7 +13984,7 @@ _ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_deta
 
 .lr.ph.i:                                         ; preds = %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit.i
   %.sroa.09.020.i = phi ptr [ %.sroa.09.2.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit.i ], [ %.sroa.01.1.i.i.i, %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit.i ]
-  call fastcc void @"_ZZN4llvm17JumpThreadingPass17cloneInstructionsERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS4_NS_3sys10SmartMutexILb0EEEEEEENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESJ_PSH_SK_ENK3$_2clEPNS_17DbgVariableRecordE"(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %.sroa.09.020.i)
+  call fastcc void @"_ZZN4llvm17JumpThreadingPass17cloneInstructionsERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS4_NS_3sys10SmartMutexILb0EEEEEEENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESJ_PSH_SK_ENK3$_2clEPNS_17DbgVariableRecordE"(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %.sroa.09.020.i)
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 8
   %177 = load ptr, ptr %176, align 8
   %.not1.i.i.i.i = icmp eq ptr %177, %170
@@ -14419,7 +14419,7 @@ _ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_deta
 
 .lr.ph169:                                        ; preds = %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit
   %.sroa.0100.0168 = phi ptr [ %.sroa.0100.2, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit ], [ %.sroa.01.1.i.i, %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit ]
-  call fastcc void @"_ZZN4llvm17JumpThreadingPass17cloneInstructionsERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS4_NS_3sys10SmartMutexILb0EEEEEEENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESJ_PSH_SK_ENK3$_2clEPNS_17DbgVariableRecordE"(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %.sroa.0100.0168)
+  call fastcc void @"_ZZN4llvm17JumpThreadingPass17cloneInstructionsERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS4_NS_3sys10SmartMutexILb0EEEEEEENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESJ_PSH_SK_ENK3$_2clEPNS_17DbgVariableRecordE"(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %.sroa.0100.0168)
   %371 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0168, i64 8
   %372 = load ptr, ptr %371, align 8
   %.not1.i.i.i = icmp eq ptr %372, %365
@@ -14486,7 +14486,7 @@ declare noundef ptr @_ZN4llvm10BasicBlock12createMarkerENS_21ilist_iterator_w_bi
 declare { ptr, ptr } @_ZN4llvm9DbgMarker18cloneDebugInfoFromEPS0_St8optionalINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr, i8, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm17JumpThreadingPass17cloneInstructionsERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS4_NS_3sys10SmartMutexILb0EEEEEEENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESJ_PSH_SK_ENK3$_2clEPNS_17DbgVariableRecordE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm17JumpThreadingPass17cloneInstructionsERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS4_NS_3sys10SmartMutexILb0EEEEEEENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESJ_PSH_SK_ENK3$_2clEPNS_17DbgVariableRecordE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallSet.497", align 8
   %4 = alloca %"class.llvm::iterator_range.545", align 8
   %5 = alloca %"struct.std::pair.516", align 8

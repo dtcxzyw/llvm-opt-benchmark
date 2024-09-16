@@ -15298,7 +15298,7 @@ declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #15
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL19setupCuboidVerticesRKN3irr4core8aabbox3dIfEEPKfP8TileSpeci(ptr dead_on_unwind noalias writable align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %box, ptr nocapture noundef readonly %txc, ptr nocapture noundef readonly %tiles, i32 noundef %tilecount) unnamed_addr #11 {
+define internal fastcc void @_ZL19setupCuboidVerticesRKN3irr4core8aabbox3dIfEEPKfP8TileSpeci(ptr dead_on_unwind noalias nonnull writable align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %box, ptr nocapture noundef nonnull readonly %txc, ptr nocapture noundef readonly %tiles, i32 noundef %tilecount) unnamed_addr #11 {
 entry:
   %min.sroa.27.0.MinEdge.sroa_idx = getelementptr inbounds i8, ptr %box, i64 8
   %min.sroa.27.0.copyload = load float, ptr %min.sroa.27.0.MinEdge.sroa_idx, align 4, !tbaa !49

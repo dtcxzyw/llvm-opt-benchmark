@@ -475,7 +475,7 @@ define hidden void @hwloc_ps_pidcmd(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @__const.hwloc_ps_pidcmd.envs)
+  tail call fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 noundef 4, ptr noundef @__const.hwloc_ps_pidcmd.envs)
   br label %27
 
 6:                                                ; preds = %2
@@ -486,7 +486,7 @@ define hidden void @hwloc_ps_pidcmd(ptr noundef %0, ptr noundef %1) local_unname
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   store ptr %9, ptr %3, align 8
-  call fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3)
+  call fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 noundef 1, ptr noundef %3)
   br label %27
 
 10:                                               ; preds = %6
@@ -531,7 +531,7 @@ define hidden void @hwloc_ps_pidcmd(ptr noundef %0, ptr noundef %1) local_unname
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #12 {
+define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 noundef range(i32 1, 5) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #12 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [65536 x i8], align 16
   %6 = load i64, ptr %0, align 8
@@ -552,14 +552,12 @@ define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 nounde
   %14 = add i64 %10, 1
   %15 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %14
   store i8 0, ptr %15, align 1
-  %.not21 = icmp eq i32 %1, 0
   %16 = load i8, ptr %5, align 16
   %.not14.i = icmp eq i8 %16, 0
-  %or.cond = select i1 %.not21, i1 true, i1 %.not14.i
-  br i1 %or.cond, label %.loopexit18, label %.lr.ph.i.preheader.preheader
+  br i1 %.not14.i, label %.loopexit18, label %.lr.ph.i.preheader.preheader
 
 .lr.ph.i.preheader.preheader:                     ; preds = %12
-  %wide.trip.count = zext i32 %1 to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %.loopexit

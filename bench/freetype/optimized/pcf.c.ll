@@ -815,7 +815,7 @@ define internal noundef i32 @pcf_property_get(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @pcf_load_font(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 4) i32 @pcf_load_font(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.PCF_Compressed_MetricRec_, align 1
   %6 = alloca i32, align 4
@@ -2096,7 +2096,7 @@ declare i32 @FT_Stream_OpenBzip2(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare hidden i32 @FT_CMap_New(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 2, 257) %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 376
   %6 = getelementptr inbounds i8, ptr %1, i64 368

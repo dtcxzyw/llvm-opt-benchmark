@@ -124,7 +124,7 @@ do.body46.tail:                                   ; preds = %sub_174
 
 if.end52:                                         ; preds = %do.body46.tail
   %add.ptr53 = getelementptr i8, ptr %str.addr.020.i, i64 4
-  %call57 = call fastcc ptr @decode_decimal(ptr noundef %add.ptr53, ptr noundef nonnull %dec_x56)
+  %call57 = call fastcc ptr @decode_decimal(ptr noundef %add.ptr53, ptr noundef %dec_x56)
   %cmp58 = icmp eq ptr %call57, null
   %18 = load i64, ptr %dec_x56, align 8
   %cmp61 = icmp ugt i64 %18, 4294967295
@@ -153,7 +153,7 @@ if.end64.tail:                                    ; preds = %sub_178
 
 if.end78:                                         ; preds = %if.end64.tail
   %add.ptr79 = getelementptr i8, ptr %call57, i64 3
-  %call83 = call fastcc ptr @decode_decimal(ptr noundef %add.ptr79, ptr noundef nonnull %dec_x82)
+  %call83 = call fastcc ptr @decode_decimal(ptr noundef %add.ptr79, ptr noundef %dec_x82)
   %cmp84 = icmp eq ptr %call83, null
   %25 = load i64, ptr %dec_x82, align 8
   %cmp87 = icmp ugt i64 %25, 4294967295
@@ -182,7 +182,7 @@ if.end90.tail:                                    ; preds = %sub_182
 
 if.end104:                                        ; preds = %if.end90.tail
   %add.ptr105 = getelementptr i8, ptr %call83, i64 3
-  %call109 = call fastcc ptr @decode_decimal(ptr noundef %add.ptr105, ptr noundef nonnull %dec_x108)
+  %call109 = call fastcc ptr @decode_decimal(ptr noundef %add.ptr105, ptr noundef %dec_x108)
   %cmp110 = icmp eq ptr %call109, null
   %32 = load i64, ptr %dec_x108, align 8
   %cmp113 = icmp ugt i64 %32, 4294967295
@@ -255,7 +255,7 @@ return:                                           ; preds = %if.end7.i, %if.end.
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly %str, ptr nocapture noundef writeonly %v) unnamed_addr #2 {
+define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly %str, ptr nocapture noundef nonnull writeonly %v) unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %str, align 1
   %1 = add i8 %0, -58

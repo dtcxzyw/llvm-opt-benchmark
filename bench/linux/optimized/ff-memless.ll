@@ -856,7 +856,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 declare dso_local i64 @__msecs_to_jiffies(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @apply_envelope(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @apply_envelope(ptr nocapture noundef readonly %0, i32 noundef range(i32 -32768, 32769) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load volatile i64, ptr @jiffies, align 64
   %6 = load i16, ptr %2, align 2

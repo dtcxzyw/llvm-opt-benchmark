@@ -126,7 +126,7 @@ declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #2 {
   tail call void @exit(i32 noundef %0) #11
   unreachable
 }

@@ -14810,7 +14810,7 @@ _ZNKSt3mapImN2cv5gimpl10ConstValueESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit.
   %134 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %67)
-  call fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_110mkDataNodeERN3ade5GraphERKNS_5gimpl4DataE(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0219.0390)
+  call fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_110mkDataNodeERN3ade5GraphERKNS_5gimpl4DataE(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0219.0390)
   store i64 %98, ptr %67, align 8, !noalias !105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %99, i8 0, i64 184, i1 false), !noalias !105
   invoke void @_ZN3ade7details16checkUniqueNamesIJN2cv5gimpl8NodeTypeENS3_5InputENS3_6OutputENS3_2OpENS3_4DataENS3_10ConstValueENS3_6IslandENS3_8ProtocolENS3_17OriginalInputMetaENS3_10OutputMetaENS3_7JournalENS_6passes19TopologicalSortDataENS3_17DataObjectCounterENS3_11IslandModelENS3_14ActiveBackendsENS3_18CustomMetaFunctionENS3_9StreamingENS3_12DeserializedENS3_13HasIntrinsicsENS3_10DesyncPathENS3_10DesyncEdgeENS3_14DesynchronizedENS3_11CompileArgsEEEEvv()
@@ -15001,7 +15001,7 @@ _ZN2cv4gapi4s11n12_GLOBAL__N_115mkConstDataNodeERN3ade5GraphERKNS_5gimpl4DataERK
   br i1 %210, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit.sink.split, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit
 
 211:                                              ; preds = %103
-  call fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_110mkDataNodeERN3ade5GraphERKNS_5gimpl4DataE(ptr dead_on_unwind noalias nonnull writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0219.0390)
+  call fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_110mkDataNodeERN3ade5GraphERKNS_5gimpl4DataE(ptr dead_on_unwind noalias writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0219.0390)
   %212 = load ptr, ptr %95, align 8
   %.not.i.i.i.i33 = icmp eq ptr %212, null
   br i1 %.not.i.i.i.i33, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit, label %213
@@ -20267,7 +20267,7 @@ _ZNSt8weak_ptrIN3ade4NodeEED2Ev.exit:             ; preds = %1, %12, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_110mkDataNodeERN3ade5GraphERKNS_5gimpl4DataE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(112) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_110mkDataNodeERN3ade5GraphERKNS_5gimpl4DataE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(112) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle", align 8
   %6 = alloca %"class.std::unique_ptr.229", align 8
@@ -20285,7 +20285,7 @@ define internal fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_110mkDataNodeERN3ade5G
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %13 = load i64, ptr %10, align 8, !noalias !236
   %14 = inttoptr i64 %13 to ptr
-  call void @_ZN3ade5Graph10createNodeEv(ptr dead_on_unwind writable sret(%"class.ade::Handle") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %14)
+  call void @_ZN3ade5Graph10createNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %15 = load i64, ptr %10, align 8, !noalias !239
   %16 = inttoptr i64 %15 to ptr

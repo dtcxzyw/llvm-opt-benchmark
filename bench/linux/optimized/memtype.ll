@@ -1115,7 +1115,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare dso_local i32 @follow_phys(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @reserve_pfn_range(i64 noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc i32 @reserve_pfn_range(i64 noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 align 16 {
   %5 = alloca %struct.pagerange_state, align 8
   %6 = alloca i32, align 4
   %7 = load i64, ptr %2, align 8
@@ -1613,7 +1613,7 @@ declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef
 declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: write)
-define internal fastcc noundef range(i32 0, 6) i32 @pat_get_cache_mode(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 6) i32 @pat_get_cache_mode(i32 noundef range(i32 0, 8) %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 section ".init.text" align 16 {
   switch i32 %0, label %8 [
     i32 0, label %9
     i32 1, label %3

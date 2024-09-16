@@ -17062,7 +17062,7 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
   %154 = getelementptr inbounds i8, ptr %.0.i2232, i64 64
   %155 = load double, ptr %154, align 8
   %156 = fsub double %3, %155
-  %157 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.040.0.i, double %156, ptr noundef nonnull %.0.i2232, i1 noundef zeroext true)
+  %157 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.040.0.i, double %156, ptr noundef %.0.i2232, i1 noundef zeroext true)
   %158 = extractvalue { double, double } %157, 0
   %159 = extractvalue { double, double } %157, 1
   %160 = load ptr, ptr %.0.i2232, align 8
@@ -17104,7 +17104,7 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
   %.sroa.058.0.i = phi double [ %176, %175 ], [ %.sroa.058.2.i, %242 ]
   %.sroa.17.0.i = phi double [ %177, %175 ], [ %.sroa.17.2.i, %242 ]
   %.0.i18 = phi ptr [ %.0.i2232, %175 ], [ %.1.i, %242 ]
-  %179 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.058.0.i, double %.sroa.17.0.i, ptr noundef nonnull %.0.i18, i1 noundef zeroext true)
+  %179 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.058.0.i, double %.sroa.17.0.i, ptr noundef %.0.i18, i1 noundef zeroext true)
   %180 = extractvalue { double, double } %179, 0
   %181 = extractvalue { double, double } %179, 1
   %182 = load ptr, ptr %.0.i18, align 8
@@ -17365,7 +17365,7 @@ define hidden { double, double } @_ZN5osgeo4proj14pj_hgrid_valueEP8PJconstsRKSt6
   %43 = getelementptr inbounds i8, ptr %8, i64 64
   %44 = load double, ptr %43, align 8
   %45 = fsub double %3, %44
-  %46 = call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.0.0, double %45, ptr noundef nonnull %8, i1 noundef zeroext false)
+  %46 = call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.0.0, double %45, ptr noundef %8, i1 noundef zeroext false)
   %47 = load ptr, ptr %8, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
@@ -17412,7 +17412,7 @@ define hidden { double, double } @_ZN5osgeo4proj14pj_hgrid_valueEP8PJconstsRKSt6
 declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %0, double %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %0, double %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   %7 = alloca float, align 4

@@ -5507,7 +5507,7 @@ land.lhs.true11:                                  ; preds = %land.lhs.true
 if.then19:                                        ; preds = %land.lhs.true11
   %digitsType = getelementptr inbounds i8, ptr %andRule.0279, i64 36
   %9 = load i32, ptr %digitsType, align 4
-  call fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %9)
+  call fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias align 8 %ref.tmp, i32 noundef %9)
   %10 = load i16, ptr %fUnion.i.i.i86, align 8
   %cmp.i.i.i87 = icmp slt i16 %10, 0
   %11 = ashr i16 %10, 5
@@ -5626,7 +5626,7 @@ lpad41:                                           ; preds = %if.end
 if.else45:                                        ; preds = %land.lhs.true, %while.body8
   %digitsType47 = getelementptr inbounds i8, ptr %andRule.0279, i64 36
   %34 = load i32, ptr %digitsType47, align 4
-  call fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias nonnull align 8 %ref.tmp46, i32 noundef %34)
+  call fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias align 8 %ref.tmp46, i32 noundef %34)
   %35 = load i16, ptr %fUnion.i.i.i117, align 8
   %cmp.i.i.i118 = icmp slt i16 %35, 0
   %36 = ashr i16 %35, 5
@@ -7123,7 +7123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias align 8 %agg.result, i32 noundef %tok) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias nonnull align 8 %agg.result, i32 noundef %tok) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i20 = alloca i16, align 2
   %srcChar.addr.i17 = alloca i16, align 2

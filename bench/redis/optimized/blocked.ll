@@ -1252,7 +1252,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @signalKeyAsReadyLogic(ptr noundef %db, ptr noundef %key, i32 noundef %type, i32 noundef %deleted) unnamed_addr #0 {
+define internal fastcc void @signalKeyAsReadyLogic(ptr noundef %db, ptr noundef %key, i32 noundef %type, i32 noundef range(i32 0, 2) %deleted) unnamed_addr #0 {
 entry:
   %existing = alloca ptr, align 8
   %switch.tableidx = add i32 %type, -1
@@ -1631,7 +1631,7 @@ declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #1
 declare ptr @dictNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @releaseBlockedEntry(ptr noundef %c, ptr noundef %de, i32 noundef %remove_key) unnamed_addr #0 {
+define internal fastcc void @releaseBlockedEntry(ptr noundef %c, ptr noundef %de, i32 noundef range(i32 0, 2) %remove_key) unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetKey(ptr noundef %de) #6
   %call1 = tail call ptr @dictGetVal(ptr noundef %de) #6

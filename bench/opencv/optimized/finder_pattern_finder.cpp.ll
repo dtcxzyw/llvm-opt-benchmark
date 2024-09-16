@@ -12682,7 +12682,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef nonnull %5)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.thread.i.i.i
@@ -12843,7 +12843,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i: ; preds = %63, %.l
 
 91:                                               ; preds = %87, %83
   store ptr %62, ptr %4, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %86, ptr noundef nonnull %4)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %86, ptr noundef %4)
           to label %92 unwind label %110
 
 92:                                               ; preds = %91
@@ -13928,7 +13928,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit14: ; preds = %_ZN5zxing3R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -15043,7 +15043,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -15204,7 +15204,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
 
 90:                                               ; preds = %86, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i
   store ptr %62, ptr %4, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef nonnull %4)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef %4)
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
@@ -16289,7 +16289,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -17369,7 +17369,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa239, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa239, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -17530,7 +17530,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
 
 90:                                               ; preds = %86, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i
   store ptr %62, ptr %4, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef nonnull %4)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef %4)
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
@@ -18661,7 +18661,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit: ; preds = %6, %2
 
 15:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, %11
   store ptr %10, ptr %4, align 8
-  %16 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %16 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef %3, ptr noundef %4)
           to label %17 unwind label %36
 
 17:                                               ; preds = %15
@@ -18750,7 +18750,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit13: ; preds = %_ZN5zxing3RefIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.zxing::Ref.21", align 8
   %6 = alloca %"class.zxing::Ref.21", align 8
   %7 = add nsw i64 %2, -1
@@ -18910,7 +18910,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i: ; preds = %72, %.lr.
 
 79:                                               ; preds = %76, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i.i
   store ptr %63, ptr %6, align 8
-  %80 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %80 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef %5, ptr noundef %6)
           to label %81 unwind label %99
 
 81:                                               ; preds = %79
@@ -19112,7 +19112,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31: ; preds = %.body, %163, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %5 = load ptr, ptr %1, align 8
@@ -19365,7 +19365,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i: ; preds = %11, %10
 
 19:                                               ; preds = %15, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.i
   store ptr %14, ptr %3, align 8
-  %20 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %20 = invoke fastcc noundef zeroext i1 @_ZN5zxing6qrcode12_GLOBAL__N_115BestComparator2clENS_3RefINS0_13FinderPatternEEES5_(ptr noundef %2, ptr noundef %3)
           to label %21 unwind label %39
 
 21:                                               ; preds = %19
@@ -19605,7 +19605,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -19766,7 +19766,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
 
 90:                                               ; preds = %86, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i
   store ptr %62, ptr %4, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef nonnull %4)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef %4)
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
@@ -20851,7 +20851,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -21626,7 +21626,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %22, %19
   store ptr %21, ptr %7, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef nonnull %7, float %3)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef %7, float %3)
           to label %26 unwind label %44
 
 26:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -21787,7 +21787,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %81, %76, %7
 
 92:                                               ; preds = %88, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i
   store ptr %64, ptr %5, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %87, ptr noundef nonnull %5, float %3)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %87, ptr noundef %5, float %3)
           to label %93 unwind label %111
 
 93:                                               ; preds = %92
@@ -22889,7 +22889,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, float %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3, float %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.83", align 4
   store float %4, ptr %6, align 4
   %7 = add nsw i64 %2, -1
@@ -23675,7 +23675,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa204, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa204, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -23836,7 +23836,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
 
 90:                                               ; preds = %86, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i
   store ptr %62, ptr %4, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef nonnull %4)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef %4)
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
@@ -24951,7 +24951,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -25745,7 +25745,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa204, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa204, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -25906,7 +25906,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
 
 90:                                               ; preds = %86, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i
   store ptr %62, ptr %4, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef nonnull %4)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef %4)
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
@@ -27021,7 +27021,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -27816,7 +27816,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %22, %19
   store ptr %21, ptr %7, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef nonnull %7, float %3)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef %7, float %3)
           to label %26 unwind label %44
 
 26:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -27977,7 +27977,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %81, %76, %7
 
 92:                                               ; preds = %88, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i
   store ptr %64, ptr %5, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %87, ptr noundef nonnull %5, float %3)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %87, ptr noundef %5, float %3)
           to label %93 unwind label %111
 
 93:                                               ; preds = %92
@@ -29163,7 +29163,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19: ; preds = %_ZN5zxing3RefIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, float %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3, float %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.92", align 4
   store float %4, ptr %6, align 4
   %7 = add nsw i64 %2, -1
@@ -30005,7 +30005,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa152, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -30166,7 +30166,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i: ; preds = %79, %74, %7
 
 90:                                               ; preds = %86, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i
   store ptr %62, ptr %4, align 8
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef nonnull %4)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef %4)
           to label %91 unwind label %109
 
 91:                                               ; preds = %90
@@ -31335,7 +31335,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19: ; preds = %_ZN5zxing3RefIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

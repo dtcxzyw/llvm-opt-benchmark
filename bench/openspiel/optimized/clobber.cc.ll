@@ -3027,7 +3027,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23, %25
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel7clobber12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %36
   %40 = load i32, ptr %39, align 4
-  invoke fastcc void @_ZN10open_spiel7clobber12_GLOBAL__N_111ColumnLabelB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %8, i32 noundef %33)
+  invoke fastcc void @_ZN10open_spiel7clobber12_GLOBAL__N_111ColumnLabelB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %8, i32 noundef %33)
           to label %41 unwind label %80
 
 41:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -3061,7 +3061,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit22: ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %51, ptr %54, align 8
-  invoke fastcc void @_ZN10open_spiel7clobber12_GLOBAL__N_111ColumnLabelB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 noundef %42)
+  invoke fastcc void @_ZN10open_spiel7clobber12_GLOBAL__N_111ColumnLabelB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %42)
           to label %55 unwind label %82
 
 55:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit22
@@ -3178,7 +3178,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit27:                  ; preds = %69, %71
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel7clobber12_GLOBAL__N_111ColumnLabelB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel7clobber12_GLOBAL__N_111ColumnLabelB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -4024,7 +4024,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 125:                                              ; preds = %.lr.ph64, %131
   %.063 = phi i32 [ 0, %.lr.ph64 ], [ %132, %131 ]
-  invoke fastcc void @_ZN10open_spiel7clobber12_GLOBAL__N_111ColumnLabelB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %20, i32 noundef %.063)
+  invoke fastcc void @_ZN10open_spiel7clobber12_GLOBAL__N_111ColumnLabelB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %20, i32 noundef %.063)
           to label %126 unwind label %.loopexit
 
 126:                                              ; preds = %125

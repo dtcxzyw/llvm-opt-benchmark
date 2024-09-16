@@ -1440,12 +1440,12 @@ define void @Bac_ManWriteBacInt(ptr nocapture noundef %0, ptr nocapture noundef 
   %.val29 = load ptr, ptr %1, align 8
   %4 = tail call ptr (...) @Extra_TimeStamp() #21
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %.val29, ptr noundef %4) #21
-  call fastcc void @Vec_StrPrintStr(ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @Vec_StrPrintStr(ptr noundef %0, ptr noundef %3)
   %.val30 = load ptr, ptr %1, align 8
   %6 = getelementptr i8, ptr %1, i64 36
   %.val27 = load i32, ptr %6, align 4
   %7 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %.val30, i32 noundef %.val27) #21
-  call fastcc void @Vec_StrPrintStr(ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @Vec_StrPrintStr(ptr noundef %0, ptr noundef %3)
   %.val2638 = load i32, ptr %6, align 4
   %.not39 = icmp slt i32 %.val2638, 1
   br i1 %.not39, label %.critedge2, label %Bac_ManNtk.exit.lr.ph
@@ -1482,7 +1482,7 @@ Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.
   %.val28 = load i32, ptr %19, align 4
   %20 = sdiv i32 %.val28, 3
   %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %15, i32 noundef %.val33, i32 noundef %.val34, i32 noundef %.val, i32 noundef %20) #21
-  call fastcc void @Vec_StrPrintStr(ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @Vec_StrPrintStr(ptr noundef %0, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val26 = load i32, ptr %6, align 4
   %22 = sext i32 %.val26 to i64
@@ -1510,7 +1510,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0

@@ -293,7 +293,7 @@ define internal range(i32 -1, 49) i32 @archive_read_format_iso9660_bid(ptr nound
   br i1 %.not32, label %95, label %isJolietSVD.exit.thread
 
 95:                                               ; preds = %93
-  %96 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef nonnull readonly %.02667)
+  %96 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef readonly %.02667)
   %.not.i40 = icmp eq i32 %96, 0
   br i1 %.not.i40, label %isJolietSVD.exit.thread, label %97
 
@@ -450,7 +450,7 @@ isBootRecord.exit:                                ; preds = %isJolietSVD.exit.th
   br i1 %.not39.i, label %isPVD.exit, label %.thread
 
 .thread:                                          ; preds = %isJolietSVD.exit.thread, %isBootRecord.exit, %122, %125, %128, %130, %132, %135, %139, %142, %146, %166, %168, %170
-  %173 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef nonnull %.02667)
+  %173 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef %.02667)
   %.not36 = icmp eq i32 %173, 0
   br i1 %.not36, label %174, label %isPVD.exit
 
@@ -504,7 +504,7 @@ isVolumePartition.exit:                           ; preds = %185
   br i1 %.not13.i.not, label %isPVD.exit, label %isVolumePartition.exit.thread
 
 isVolumePartition.exit.thread:                    ; preds = %181, %185, %178, %175, %174, %isVolumePartition.exit
-  %205 = call fastcc i32 @isVDSetTerminator(ptr noundef nonnull %8, ptr noundef nonnull %.02667)
+  %205 = call fastcc i32 @isVDSetTerminator(ptr noundef nonnull %8, ptr noundef %.02667)
   %.not38 = icmp eq i32 %205, 0
   br i1 %.not38, label %.loopexit, label %213
 
@@ -690,7 +690,7 @@ define internal i32 @archive_read_format_iso9660_read_header(ptr noundef %0, ptr
   store i8 0, ptr %19, align 2
   %42 = load i32, ptr %34, align 4
   %43 = zext i32 %42 to i64
-  %44 = tail call fastcc ptr @parse_file_info(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %37, i64 noundef %43)
+  %44 = tail call fastcc ptr @parse_file_info(ptr noundef nonnull %0, ptr noundef null, ptr noundef %37, i64 noundef %43)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %choose_volume.exit.thread, label %46
 
@@ -741,7 +741,7 @@ define internal i32 @archive_read_format_iso9660_read_header(ptr noundef %0, ptr
   store i8 0, ptr %19, align 2
   %70 = load i32, ptr %63, align 4
   %71 = zext i32 %70 to i64
-  %72 = tail call fastcc ptr @parse_file_info(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %66, i64 noundef %71)
+  %72 = tail call fastcc ptr @parse_file_info(ptr noundef nonnull %0, ptr noundef null, ptr noundef %66, i64 noundef %71)
   %73 = icmp eq ptr %72, null
   br i1 %73, label %choose_volume.exit.thread, label %.critedge.sink.split.i
 
@@ -756,7 +756,7 @@ define internal i32 @archive_read_format_iso9660_read_header(ptr noundef %0, ptr
   %74 = getelementptr inbounds i8, ptr %7, i64 112
   %75 = getelementptr inbounds i8, ptr %.064.i, i64 48
   %76 = load i64, ptr %75, align 8
-  %77 = tail call fastcc i32 @heap_add_entry(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull %.064.i, i64 noundef %76)
+  %77 = tail call fastcc i32 @heap_add_entry(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef %.064.i, i64 noundef %76)
   %.not78.i = icmp eq i32 %77, 0
   br i1 %.not78.i, label %78, label %choose_volume.exit.thread
 
@@ -1280,7 +1280,7 @@ rede_add_entry.exit157.i.i:                       ; preds = %221
 317:                                              ; preds = %315, %311
   %318 = ptrtoint ptr %.0103133.i.i.i to i64
   %319 = sub i64 %304, %318
-  %320 = tail call fastcc ptr @parse_file_info(ptr noundef %0, ptr noundef nonnull %99, ptr noundef nonnull %.0103133.i.i.i, i64 noundef %319)
+  %320 = tail call fastcc ptr @parse_file_info(ptr noundef %0, ptr noundef nonnull %99, ptr noundef %.0103133.i.i.i, i64 noundef %319)
   %321 = icmp eq ptr %320, null
   br i1 %321, label %322, label %324
 
@@ -1343,7 +1343,7 @@ rede_add_entry.exit157.i.i:                       ; preds = %221
 
 353:                                              ; preds = %343
   %354 = load i64, ptr %344, align 8
-  %355 = tail call fastcc i32 @heap_add_entry(ptr noundef %0, ptr noundef nonnull %298, ptr noundef nonnull %320, i64 noundef %354)
+  %355 = tail call fastcc i32 @heap_add_entry(ptr noundef %0, ptr noundef nonnull %298, ptr noundef %320, i64 noundef %354)
   %.not125.i.i.i = icmp eq i32 %355, 0
   br i1 %.not125.i.i.i, label %366, label %next_cache_entry.exit.thread.i
 
@@ -1361,7 +1361,7 @@ rede_add_entry.exit157.i.i:                       ; preds = %221
 362:                                              ; preds = %328, %324
   %363 = getelementptr inbounds i8, ptr %320, i64 48
   %364 = load i64, ptr %363, align 8
-  %365 = tail call fastcc i32 @heap_add_entry(ptr noundef %0, ptr noundef nonnull %298, ptr noundef nonnull %320, i64 noundef %364)
+  %365 = tail call fastcc i32 @heap_add_entry(ptr noundef %0, ptr noundef nonnull %298, ptr noundef %320, i64 noundef %364)
   %.not123.i.i.i = icmp eq i32 %365, 0
   br i1 %.not123.i.i.i, label %366, label %next_cache_entry.exit.thread.i
 
@@ -2835,7 +2835,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 49) i32 @isSVD(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 49) i32 @isSVD(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #6 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %3, 2
   br i1 %.not, label %4, label %48
@@ -2924,7 +2924,7 @@ define internal fastcc range(i32 0, 49) i32 @isSVD(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @isVDSetTerminator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @isVDSetTerminator(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #6 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %3, -1
   br i1 %.not, label %4, label %10
@@ -3140,7 +3140,7 @@ declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #1
 declare i64 @__archive_read_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -3686,7 +3686,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @heap_add_entry(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @heap_add_entry(ptr noundef %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3777,8 +3777,8 @@ define internal fastcc range(i32 -30, 1) i32 @heap_add_entry(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @toi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #12 {
-  %3 = icmp sgt i32 %1, 1
+define internal fastcc i32 @toi(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 5) %1) unnamed_addr #12 {
+  %3 = icmp ugt i32 %1, 1
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   br i1 %3, label %6, label %common.ret8
@@ -4148,7 +4148,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
 
 175:                                              ; preds = %174, %172
   store i8 0, ptr %56, align 8
-  %176 = icmp ult i8 %76, 5
+  %176 = icmp eq i32 %82, 0
   br i1 %176, label %parse_rockridge_NM1.exit, label %177
 
 177:                                              ; preds = %175
@@ -4301,7 +4301,7 @@ parse_rockridge_NM1.exit:                         ; preds = %175, %177, %179, %1
 
 248:                                              ; preds = %247, %244
   store i8 0, ptr %46, align 8
-  %249 = icmp ult i8 %76, 5
+  %249 = icmp eq i32 %82, 0
   br i1 %249, label %parse_rockridge_SL1.exit, label %250
 
 250:                                              ; preds = %248
@@ -4419,7 +4419,7 @@ parse_rockridge_SL1.exit:                         ; preds = %257, %264, %270, %2
   br i1 %or.cond19, label %301, label %register_CE.exit
 
 301:                                              ; preds = %298
-  %302 = icmp ult i8 %76, 5
+  %302 = icmp eq i32 %82, 0
   br i1 %302, label %parse_rockridge_TF1.exit, label %303
 
 303:                                              ; preds = %301

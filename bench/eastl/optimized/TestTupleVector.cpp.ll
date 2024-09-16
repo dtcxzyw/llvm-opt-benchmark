@@ -900,23 +900,23 @@ _ZN5eastl12tuple_vectorIJiEED2Ev.exit:            ; preds = %invoke.cont212
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i.i563) #12
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i538) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec, i8 0, i64 64, i1 false)
-  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nonnull align 8 %tmp217, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
+  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias align 8 %tmp217, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
           to label %invoke.cont219 unwind label %lpad218
 
 invoke.cont219:                                   ; preds = %_ZN5eastl12tuple_vectorIJiEED2Ev.exit
-  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nonnull align 8 %tmp220, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
+  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias align 8 %tmp220, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
           to label %invoke.cont221 unwind label %lpad218
 
 invoke.cont221:                                   ; preds = %invoke.cont219
-  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nonnull align 8 %tmp222, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
+  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias align 8 %tmp222, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
           to label %invoke.cont223 unwind label %lpad218
 
 invoke.cont223:                                   ; preds = %invoke.cont221
-  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nonnull align 8 %tmp224, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
+  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias align 8 %tmp224, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
           to label %invoke.cont225 unwind label %lpad218
 
 invoke.cont225:                                   ; preds = %invoke.cont223
-  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nonnull align 8 %tmp226, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
+  invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias align 8 %tmp226, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
           to label %invoke.cont227 unwind label %lpad218
 
 invoke.cont227:                                   ; preds = %invoke.cont225
@@ -19502,7 +19502,7 @@ declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNumElements = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumElements, align 8

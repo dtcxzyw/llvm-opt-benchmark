@@ -2265,7 +2265,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetSampler
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveParameterINS_7TfTokenEEET_RKSt3mapIS1_NS_7VtValueESt4lessIS1_ESaISt4pairIKS1_S4_EEERKPKNS_13SdrShaderNodeERS8_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveParameterINS_7TfTokenEEET_RKSt3mapIS1_NS_7VtValueESt4lessIS1_ESaISt4pairIKS1_S4_EEERKPKNS_13SdrShaderNodeERS8_RKS2_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %20 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
           to label %21 unwind label %32
 
@@ -2376,7 +2376,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveMinSamplerParameterERKNS_7TfToke
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 80
   %84 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveParameterINS_7TfTokenEEET_RKSt3mapIS1_NS_7VtValueESt4lessIS1_ESaISt4pairIKS1_S4_EEERKPKNS_13SdrShaderNodeERS8_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(8) %85)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveParameterINS_7TfTokenEEET_RKSt3mapIS1_NS_7VtValueESt4lessIS1_ESaISt4pairIKS1_S4_EEERKPKNS_13SdrShaderNodeERS8_RKS2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(8) %85)
   %86 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
           to label %87 unwind label %97
 
@@ -4110,7 +4110,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZN32pxrInternal_v0_24__pxrR
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %9 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveParameterINS_7TfTokenEEET_RKSt3mapIS1_NS_7VtValueESt4lessIS1_ESaISt4pairIKS1_S4_EEERKPKNS_13SdrShaderNodeERS8_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveParameterINS_7TfTokenEEET_RKSt3mapIS1_NS_7VtValueESt4lessIS1_ESaISt4pairIKS1_S4_EEERKPKNS_13SdrShaderNodeERS8_RKS2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %10)
   %11 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()
           to label %12 unwind label %23
 
@@ -5490,7 +5490,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__19HdSamplerParametersC1ENS_6HdWrapES1_S1_NS_11HdMinFilterENS_11HdMagFilterENS_13HdBorderColorEbNS_17HdCompareFunctionE(ptr noundef nonnull align 4 dereferenceable(32), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveParameterINS_7TfTokenEEET_RKSt3mapIS1_NS_7VtValueESt4lessIS1_ESaISt4pairIKS1_S4_EEERKPKNS_13SdrShaderNodeERS8_RKS2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveParameterINS_7TfTokenEEET_RKSt3mapIS1_NS_7VtValueESt4lessIS1_ESaISt4pairIKS1_S4_EEERKPKNS_13SdrShaderNodeERS8_RKS2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = tail call ptr @_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_7VtValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE4findERS3_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %.not33 = icmp eq ptr %6, %7

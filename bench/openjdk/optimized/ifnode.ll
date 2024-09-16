@@ -4952,7 +4952,7 @@ _ZL13idealize_testP8PhaseGVNP6IfNode.exit:        ; preds = %_ZN4NodenwEm.exit55
   %223 = load i8, ptr %222, align 8
   %224 = trunc i8 %223 to i1
   %..i = select i1 %224, ptr %1, ptr null
-  %225 = tail call fastcc noundef ptr @_ZL8split_ifP6IfNodeP12PhaseIterGVN(ptr noundef nonnull %0, ptr noundef %..i)
+  %225 = tail call fastcc noundef ptr @_ZL8split_ifP6IfNodeP12PhaseIterGVN(ptr noundef %0, ptr noundef %..i)
   %.not13 = icmp eq ptr %225, null
   %. = select i1 %.not13, ptr inttoptr (i64 -1 to ptr), ptr %225
   br label %226
@@ -4965,7 +4965,7 @@ _ZL13idealize_testP8PhaseGVNP6IfNode.exit:        ; preds = %_ZN4NodenwEm.exit55
 declare noundef zeroext i1 @_ZN4Node18remove_dead_regionEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL8split_ifP6IfNodeP12PhaseIterGVN(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL8split_ifP6IfNodeP12PhaseIterGVN(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -7720,7 +7720,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 declare noundef zeroext i1 @_ZNK7Compile26allow_range_check_smearingEv(ptr noundef nonnull align 8 dereferenceable(2316)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8

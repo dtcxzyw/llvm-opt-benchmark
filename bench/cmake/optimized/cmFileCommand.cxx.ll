@@ -3820,7 +3820,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
 853:                                              ; preds = %852, %851
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #24
   %854 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %106) #24
-  %855 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 10007, ptr noundef %854)
+  %855 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 10007, ptr noundef %854)
           to label %856 unwind label %872
 
 856:                                              ; preds = %853
@@ -3903,7 +3903,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
 ._crit_edge860:                                   ; preds = %878, %839
   %881 = icmp eq ptr %.sroa.0614.0.lcssa, null
   %spec.select.i.i = select i1 %881, ptr @_ZN7cmValue5EmptyB5cxx11E, ptr %.sroa.0614.0.lcssa
-  invoke void @_Z15cmCurlSetCAInfoPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %112, ptr noundef %690, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
+  invoke void @_Z15cmCurlSetCAInfoPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %112, ptr noundef nonnull %690, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
           to label %882 unwind label %.loopexit.split-lp716
 
 882:                                              ; preds = %._crit_edge860
@@ -3927,7 +3927,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
 890:                                              ; preds = %889
   %891 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %113) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #24
-  invoke void @_Z20cmCurlSetNETRCOptionPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %114, ptr noundef %690, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke void @_Z20cmCurlSetNETRCOptionPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %114, ptr noundef nonnull %690, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %892 unwind label %887
 
 892:                                              ; preds = %890
@@ -3949,7 +3949,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false)
   %900 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   %. = select i1 %900, ptr null, ptr %83
-  %901 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 10001, ptr noundef %.)
+  %901 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 10001, ptr noundef %.)
           to label %902 unwind label %911
 
 902:                                              ; preds = %899
@@ -3993,7 +3993,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   br label %1151
 
 917:                                              ; preds = %902
-  %918 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 10095, ptr noundef nonnull %115)
+  %918 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 10095, ptr noundef nonnull %115)
           to label %919 unwind label %911
 
 919:                                              ; preds = %917
@@ -4032,7 +4032,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   br label %1151
 
 932:                                              ; preds = %919
-  %933 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 52, i64 noundef 1)
+  %933 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 52, i64 noundef 1)
           to label %934 unwind label %911
 
 934:                                              ; preds = %932
@@ -4075,7 +4075,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   br i1 %948, label %964, label %949
 
 949:                                              ; preds = %947
-  %950 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 41, i32 noundef 1)
+  %950 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 41, i32 noundef 1)
           to label %951 unwind label %911
 
 951:                                              ; preds = %949
@@ -4118,7 +4118,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   br i1 %965, label %966, label %981
 
 966:                                              ; preds = %964
-  %967 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 13, i64 noundef %.0255.lcssa)
+  %967 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 13, i64 noundef %.0255.lcssa)
           to label %968 unwind label %911
 
 968:                                              ; preds = %966
@@ -4161,23 +4161,23 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   br i1 %982, label %983, label %987
 
 983:                                              ; preds = %981
-  %984 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 19, i32 noundef 1)
+  %984 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 19, i32 noundef 1)
           to label %985 unwind label %911
 
 985:                                              ; preds = %983
-  %986 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 20, i64 noundef %.0257.lcssa)
+  %986 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 20, i64 noundef %.0257.lcssa)
           to label %987 unwind label %911
 
 987:                                              ; preds = %985, %981
   %988 = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118cURLProgressHelperC2EP10cmMakefilePKc(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr noundef nonnull %988, ptr noundef nonnull @.str.126)
+  invoke fastcc void @_ZN12_GLOBAL__N_118cURLProgressHelperC2EP10cmMakefilePKc(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr noundef %988, ptr noundef nonnull @.str.126)
           to label %989 unwind label %911
 
 989:                                              ; preds = %987
   br i1 %.0262.lcssa, label %990, label %1035
 
 990:                                              ; preds = %989
-  %991 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 43, i32 noundef 0)
+  %991 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 43, i32 noundef 0)
           to label %992 unwind label %.loopexit.split-lp
 
 992:                                              ; preds = %990
@@ -4227,7 +4227,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   br label %1149
 
 1005:                                             ; preds = %992
-  %1006 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 20219, ptr noundef nonnull @_ZN12_GLOBAL__N_130cmFileDownloadProgressCallbackEPvllll)
+  %1006 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 20219, ptr noundef nonnull @_ZN12_GLOBAL__N_130cmFileDownloadProgressCallbackEPvllll)
           to label %1007 unwind label %.loopexit.split-lp
 
 1007:                                             ; preds = %1005
@@ -4266,7 +4266,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   br label %1149
 
 1020:                                             ; preds = %1007
-  %1021 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 10057, ptr noundef nonnull %126)
+  %1021 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 10057, ptr noundef nonnull %126)
           to label %1022 unwind label %.loopexit.split-lp
 
 1022:                                             ; preds = %1020
@@ -4310,7 +4310,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
 
 1037:                                             ; preds = %1035
   %1038 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #24
-  %1039 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 10005, ptr noundef %1038)
+  %1039 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 10005, ptr noundef %1038)
           to label %1040 unwind label %.loopexit.split-lp
 
 1040:                                             ; preds = %1037
@@ -4369,11 +4369,11 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
 
 ._crit_edge866:                                   ; preds = %1059, %1053
   %.0261.lcssa = phi ptr [ null, %1053 ], [ %1058, %1059 ]
-  %1061 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %690, i32 noundef 10023, ptr noundef %.0261.lcssa)
+  %1061 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %690, i32 noundef 10023, ptr noundef %.0261.lcssa)
           to label %1062 unwind label %.loopexit.split-lp
 
 1062:                                             ; preds = %._crit_edge866
-  %1063 = invoke i32 @curl_easy_perform(ptr noundef %690)
+  %1063 = invoke i32 @curl_easy_perform(ptr noundef nonnull %690)
           to label %1064 unwind label %.loopexit.split-lp
 
 1064:                                             ; preds = %1062
@@ -4381,7 +4381,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
           to label %1065 unwind label %.loopexit.split-lp
 
 1065:                                             ; preds = %1064
-  invoke void @curl_easy_cleanup(ptr noundef %690)
+  invoke void @curl_easy_cleanup(ptr noundef nonnull %690)
           to label %1066 unwind label %.loopexit.split-lp
 
 1066:                                             ; preds = %1065
@@ -6732,7 +6732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit389: ;
 
 698:                                              ; preds = %696, %692
   %699 = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118cURLProgressHelperC2EP10cmMakefilePKc(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull %699, ptr noundef nonnull @.str.178)
+  invoke fastcc void @_ZN12_GLOBAL__N_118cURLProgressHelperC2EP10cmMakefilePKc(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef %699, ptr noundef nonnull @.str.178)
           to label %700 unwind label %622
 
 700:                                              ; preds = %698
@@ -7033,11 +7033,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit389: ;
 
 ._crit_edge616:                                   ; preds = %810, %804
   %.0197.lcssa = phi ptr [ null, %804 ], [ %809, %810 ]
-  %812 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %448, i32 noundef 10023, ptr noundef %.0197.lcssa)
+  %812 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %448, i32 noundef 10023, ptr noundef %.0197.lcssa)
           to label %813 unwind label %.loopexit.split-lp
 
 813:                                              ; preds = %._crit_edge616
-  %814 = invoke i32 @curl_easy_perform(ptr noundef %448)
+  %814 = invoke i32 @curl_easy_perform(ptr noundef nonnull %448)
           to label %815 unwind label %.loopexit.split-lp
 
 815:                                              ; preds = %813
@@ -7045,7 +7045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit389: ;
           to label %816 unwind label %.loopexit.split-lp
 
 816:                                              ; preds = %815
-  invoke void @curl_easy_cleanup(ptr noundef %448)
+  invoke void @curl_easy_cleanup(ptr noundef nonnull %448)
           to label %817 unwind label %.loopexit.split-lp
 
 817:                                              ; preds = %816
@@ -22356,7 +22356,7 @@ declare void @_ZN5cmsys11SystemTools9UpperCaseERKNSt7__cxx1112basic_stringIcSt11
 declare void @_Z20cmCurlSetNETRCOptionPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118cURLProgressHelperC2EP10cmMakefilePKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118cURLProgressHelperC2EP10cmMakefilePKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   store i64 -1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -24010,7 +24010,7 @@ _ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_117HandleReadCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_117HandleReadCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 0, 33) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -27991,7 +27991,7 @@ _ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIZN12_GLOBAL__N_112Hand
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_114HandleCopyFileERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_114HandleCopyFileERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 0, 2) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -28922,7 +28922,7 @@ declare noundef zeroext i1 @_ZN13cmSystemTools10CheckRPathERKNSt7__cxx1112basic_
 declare noundef zeroext i1 @_ZN13cmSystemTools11RemoveRPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_Pb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_120HandleReadElfCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_120HandleReadElfCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 0, 65) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -30568,7 +30568,7 @@ declare i64 @_ZN5cmsys11SystemTools5TouchERKNSt7__cxx1112basic_stringIcSt11char_
 declare void @_ZNK11cmTimestamp20FileModificationTimeEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_121HandleGenerateCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIS7_EEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_121HandleGenerateCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIS7_EEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 48, 249) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -30622,7 +30622,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEED2Ev.exit6: ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_121HandleGenerateCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_121HandleGenerateCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 288, 290) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -31919,7 +31919,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEED2Ev.exit6: ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_123HandleCreateLinkCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_123HandleCreateLinkCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 32, 34) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -32145,7 +32145,7 @@ declare noundef ptr @_ZNK10cmMakefile8GetStateEv(ptr noundef nonnull align 8 der
 declare noundef i32 @_ZNK7cmState7GetModeEv(ptr noundef nonnull align 8 dereferenceable(705)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_135HandleGetRuntimeDependenciesCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_135HandleGetRuntimeDependenciesCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 48, 177) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -32199,7 +32199,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEED2Ev.exit6: ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_135HandleGetRuntimeDependenciesCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIN14ArgumentParser10MaybeEmptyIS9_EEEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_135HandleGetRuntimeDependenciesCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIN14ArgumentParser10MaybeEmptyIS9_EEEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 208, 449) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -33595,7 +33595,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_122HandleConfigureCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIS7_EEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_122HandleConfigureCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIS7_EEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 48, 89) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -33649,7 +33649,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEED2Ev.exit6: ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_122HandleConfigureCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_122HandleConfigureCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 128, 130) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -34020,7 +34020,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_126HandleArchiveCreateCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_126HandleArchiveCreateCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 48, 145) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -35348,7 +35348,7 @@ declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) local_unnamed_addr 
 declare ptr @__errno_location() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_127HandleArchiveExtractCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_127HandleArchiveExtractCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIS7_EERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 48, 89) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -35402,7 +35402,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEED2Ev.exit6: ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_127HandleArchiveExtractCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_127HandleArchiveExtractCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 80, 145) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -36612,7 +36612,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_122HandleChmodCommandImplERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEbR17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS9_EEEEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_122HandleChmodCommandImplERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEbR17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS9_EEEEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 48, 113) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.238", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24

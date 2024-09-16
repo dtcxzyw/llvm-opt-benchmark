@@ -263,7 +263,7 @@ _ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE.exit: ; preds 
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE.exit
-  %30 = call fastcc { ptr, i8 } @_ZN5clang4entoL28getConstantArrayElementCountERNS0_11SValBuilderEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(412) %2, ptr noundef nonnull %9)
+  %30 = call fastcc { ptr, i8 } @_ZN5clang4entoL28getConstantArrayElementCountERNS0_11SValBuilderEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(412) %2, ptr noundef %9)
   br label %45
 
 31:                                               ; preds = %_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE.exit
@@ -612,7 +612,7 @@ _ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE.exit: ; preds 
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %_ZN5clang4ento16getElementExtentENS_8QualTypeERNS0_11SValBuilderE.exit
-  %38 = call fastcc { ptr, i8 } @_ZN5clang4entoL28getConstantArrayElementCountERNS0_11SValBuilderEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(412) %17, ptr noundef nonnull %11)
+  %38 = call fastcc { ptr, i8 } @_ZN5clang4entoL28getConstantArrayElementCountERNS0_11SValBuilderEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(412) %17, ptr noundef %11)
   %.fca.0.extract12 = extractvalue { ptr, i8 } %38, 0
   %.fca.1.extract13 = extractvalue { ptr, i8 } %38, 1
   br label %53

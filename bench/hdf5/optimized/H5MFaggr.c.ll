@@ -77,7 +77,7 @@ define i64 @H5MF_aggr_vfd_alloc(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 5, 4) %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   store i64 -1, ptr %6, align 8
@@ -1043,7 +1043,7 @@ H5MF__aggr_free.exit25:                           ; preds = %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5MF__aggr_free(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5MF__aggr_free(ptr noundef %0, i32 noundef range(i32 0, 4) %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24

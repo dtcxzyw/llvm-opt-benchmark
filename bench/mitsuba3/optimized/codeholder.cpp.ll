@@ -61,7 +61,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1010CodeHolderD2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6asmjit9_abi_1_10L24CodeHolder_resetInternalEPNS0_10CodeHolderENS0_11ResetPolicyE(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN6asmjit9_abi_1_10L24CodeHolder_resetInternalEPNS0_10CodeHolderENS0_11ResetPolicyE(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load i32, ptr %4, align 8, !tbaa !38
@@ -3093,7 +3093,7 @@ define dso_local noundef range(i32 0, 68) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 68) i32 @_ZN6asmjit9_abi_1_10L29CodeHolder_evaluateExpressionEPNS0_10CodeHolderEPNS0_10ExpressionEPm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 68) i32 @_ZN6asmjit9_abi_1_10L29CodeHolder_evaluateExpressionEPNS0_10CodeHolderEPNS0_10ExpressionEPm(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #8 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8

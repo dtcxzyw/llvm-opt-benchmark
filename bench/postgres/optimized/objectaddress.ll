@@ -3447,7 +3447,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %24
-  call fastcc void @getRelationDescription(ptr noundef nonnull %3, i32 noundef %29, i1 noundef zeroext %1)
+  call fastcc void @getRelationDescription(ptr noundef %3, i32 noundef %29, i1 noundef zeroext %1)
   br label %780
 
 31:                                               ; preds = %24
@@ -3459,7 +3459,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
 34:                                               ; preds = %31
   call void @initStringInfo(ptr noundef nonnull %4) #9
   %35 = load i32, ptr %28, align 4
-  call fastcc void @getRelationDescription(ptr noundef nonnull %4, i32 noundef %35, i1 noundef zeroext %1)
+  call fastcc void @getRelationDescription(ptr noundef %4, i32 noundef %35, i1 noundef zeroext %1)
   %36 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.23, ptr noundef nonnull %33, ptr noundef %36) #9
   %37 = load ptr, ptr %4, align 8
@@ -3611,7 +3611,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
 121:                                              ; preds = %112
   call void @initStringInfo(ptr noundef nonnull %6) #9
   %122 = load i32, ptr %119, align 4
-  call fastcc void @getRelationDescription(ptr noundef nonnull %6, i32 noundef %122, i1 noundef zeroext false)
+  call fastcc void @getRelationDescription(ptr noundef %6, i32 noundef %122, i1 noundef zeroext false)
   %123 = getelementptr inbounds i8, ptr %118, i64 4
   %124 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef nonnull %123, ptr noundef %124) #9
@@ -3806,7 +3806,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
 227:                                              ; preds = %2
   %228 = getelementptr inbounds i8, ptr %0, i64 4
   %229 = load i32, ptr %228, align 4
-  call fastcc void @getOpFamilyDescription(ptr noundef nonnull %3, i32 noundef %229, i1 noundef zeroext %1)
+  call fastcc void @getOpFamilyDescription(ptr noundef %3, i32 noundef %229, i1 noundef zeroext %1)
   br label %780
 
 230:                                              ; preds = %2
@@ -3877,7 +3877,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
   call void @initStringInfo(ptr noundef nonnull %9) #9
   %268 = getelementptr inbounds i8, ptr %267, i64 4
   %269 = load i32, ptr %268, align 4
-  call fastcc void @getOpFamilyDescription(ptr noundef nonnull %9, i32 noundef %269, i1 noundef zeroext false)
+  call fastcc void @getOpFamilyDescription(ptr noundef %9, i32 noundef %269, i1 noundef zeroext false)
   %270 = getelementptr inbounds i8, ptr %267, i64 16
   %271 = load i16, ptr %270, align 4
   %272 = sext i16 %271 to i32
@@ -3935,7 +3935,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
   call void @initStringInfo(ptr noundef nonnull %11) #9
   %304 = getelementptr inbounds i8, ptr %303, i64 4
   %305 = load i32, ptr %304, align 4
-  call fastcc void @getOpFamilyDescription(ptr noundef nonnull %11, i32 noundef %305, i1 noundef zeroext false)
+  call fastcc void @getOpFamilyDescription(ptr noundef %11, i32 noundef %305, i1 noundef zeroext false)
   %306 = getelementptr inbounds i8, ptr %303, i64 16
   %307 = load i16, ptr %306, align 4
   %308 = sext i16 %307 to i32
@@ -3993,7 +3993,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
   call void @initStringInfo(ptr noundef nonnull %13) #9
   %340 = getelementptr inbounds i8, ptr %339, i64 68
   %341 = load i32, ptr %340, align 4
-  call fastcc void @getRelationDescription(ptr noundef nonnull %13, i32 noundef %341, i1 noundef zeroext false)
+  call fastcc void @getRelationDescription(ptr noundef %13, i32 noundef %341, i1 noundef zeroext false)
   %342 = getelementptr inbounds i8, ptr %339, i64 4
   %343 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.49, ptr noundef nonnull %342, ptr noundef %343) #9
@@ -4040,7 +4040,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
   call void @initStringInfo(ptr noundef nonnull %15) #9
   %365 = getelementptr inbounds i8, ptr %364, i64 4
   %366 = load i32, ptr %365, align 4
-  call fastcc void @getRelationDescription(ptr noundef nonnull %15, i32 noundef %366, i1 noundef zeroext false)
+  call fastcc void @getRelationDescription(ptr noundef %15, i32 noundef %366, i1 noundef zeroext false)
   %367 = getelementptr inbounds i8, ptr %364, i64 12
   %368 = load ptr, ptr %15, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.51, ptr noundef nonnull %367, ptr noundef %368) #9
@@ -4710,7 +4710,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
   call void @initStringInfo(ptr noundef nonnull %19) #9
   %713 = getelementptr inbounds i8, ptr %712, i64 68
   %714 = load i32, ptr %713, align 4
-  call fastcc void @getRelationDescription(ptr noundef nonnull %19, i32 noundef %714, i1 noundef zeroext false)
+  call fastcc void @getRelationDescription(ptr noundef %19, i32 noundef %714, i1 noundef zeroext false)
   %715 = getelementptr inbounds i8, ptr %712, i64 4
   %716 = load ptr, ptr %19, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.95, ptr noundef nonnull %715, ptr noundef %716) #9
@@ -4732,7 +4732,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
   br label %780
 
 723:                                              ; preds = %2
-  %724 = call fastcc zeroext i1 @getPublicationSchemaInfo(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  %724 = call fastcc zeroext i1 @getPublicationSchemaInfo(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %20, ptr noundef %21)
   br i1 %724, label %725, label %780
 
 725:                                              ; preds = %723
@@ -4775,7 +4775,7 @@ define dso_local ptr @getObjectDescription(ptr noundef %0, i1 noundef zeroext %1
   call void @initStringInfo(ptr noundef nonnull %22) #9
   %748 = getelementptr inbounds i8, ptr %744, i64 8
   %749 = load i32, ptr %748, align 4
-  call fastcc void @getRelationDescription(ptr noundef nonnull %22, i32 noundef %749, i1 noundef zeroext false)
+  call fastcc void @getRelationDescription(ptr noundef %22, i32 noundef %749, i1 noundef zeroext false)
   %750 = load ptr, ptr %22, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.99, ptr noundef %750, ptr noundef %747) #9
   %751 = load ptr, ptr %22, align 8
@@ -4844,7 +4844,7 @@ declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 declare i32 @getObjectClass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getRelationDescription(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @getRelationDescription(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = zext i32 %1 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %4) #9
   %.not = icmp eq ptr %5, null
@@ -4921,7 +4921,7 @@ define internal fastcc void @getRelationDescription(ptr noundef %0, i32 noundef 
 
 35:                                               ; preds = %22, %22, %34, %33, %32, %31, %30, %29, %28, %27
   %.str.238.sink = phi ptr [ @.str.238, %34 ], [ @.str.237, %33 ], [ @.str.236, %32 ], [ @.str.235, %31 ], [ @.str.234, %30 ], [ @.str.233, %29 ], [ @.str.232, %28 ], [ @.str.231, %27 ], [ @.str.230, %22 ], [ @.str.230, %22 ]
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull %.str.238.sink, ptr noundef %24) #9
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %.str.238.sink, ptr noundef %24) #9
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #9
   br label %36
 
@@ -4960,7 +4960,7 @@ declare ptr @format_operator_extended(i32 noundef, i16 noundef zeroext) local_un
 declare zeroext i1 @OpclassIsVisible(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getOpFamilyDescription(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @getOpFamilyDescription(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = zext i32 %1 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %4) #9
   %.not = icmp eq ptr %5, null
@@ -5019,7 +5019,7 @@ define internal fastcc void @getOpFamilyDescription(ptr noundef %0, i32 noundef 
   %38 = getelementptr inbounds i8, ptr %16, i64 8
   %39 = tail call ptr @quote_qualified_identifier(ptr noundef %.0, ptr noundef nonnull %38) #9
   %40 = getelementptr inbounds i8, ptr %31, i64 4
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.240, ptr noundef %39, ptr noundef nonnull %40) #9
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.240, ptr noundef %39, ptr noundef nonnull %40) #9
   tail call void @ReleaseSysCache(ptr noundef nonnull %20) #9
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #9
   br label %41
@@ -5057,7 +5057,7 @@ declare ptr @get_extension_name(i32 noundef) local_unnamed_addr #1
 declare ptr @get_publication_name(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @getPublicationSchemaInfo(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @getPublicationSchemaInfo(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -5325,7 +5325,7 @@ get_object_attnum_namespace.exit:                 ; preds = %47, %57
   %64 = sext i16 %62 to i32
   %65 = getelementptr inbounds i8, ptr %26, i64 64
   %66 = load ptr, ptr %65, align 8
-  %67 = call fastcc i64 @heap_getattr(ptr noundef nonnull %44, i32 noundef %64, ptr noundef %66, ptr noundef nonnull %6)
+  %67 = call fastcc i64 @heap_getattr(ptr noundef %44, i32 noundef %64, ptr noundef %66, ptr noundef %6)
   %68 = load i8, ptr %6, align 1
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %73
@@ -5397,7 +5397,7 @@ get_object_attnum_name.exit:                      ; preds = %get_object_namensp_
   %97 = sext i16 %95 to i32
   %98 = getelementptr inbounds i8, ptr %26, i64 64
   %99 = load ptr, ptr %98, align 8
-  %100 = call fastcc i64 @heap_getattr(ptr noundef nonnull %44, i32 noundef %97, ptr noundef %99, ptr noundef nonnull %6)
+  %100 = call fastcc i64 @heap_getattr(ptr noundef %44, i32 noundef %97, ptr noundef %99, ptr noundef %6)
   %101 = load i8, ptr %6, align 1
   %102 = trunc i8 %101 to i1
   br i1 %102, label %103, label %106
@@ -5485,7 +5485,7 @@ get_object_attnum_name.exit:                      ; preds = %get_object_namensp_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %75
 
@@ -5500,7 +5500,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #9
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #9
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -5602,7 +5602,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
-  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #9
+  %76 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #9
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, %51, %48, %45, %42, %75, %14
@@ -6187,11 +6187,11 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
 
 28:                                               ; preds = %24
   %29 = load i32, ptr %22, align 4
-  call fastcc void @getRelationIdentity(ptr noundef nonnull %5, i32 noundef %29, ptr noundef %1, i1 noundef zeroext %3)
+  call fastcc void @getRelationIdentity(ptr noundef %5, i32 noundef %29, ptr noundef %1, i1 noundef zeroext %3)
   br i1 %.not, label %34, label %30
 
 .thread:                                          ; preds = %19
-  call fastcc void @getRelationIdentity(ptr noundef nonnull %5, i32 noundef %23, ptr noundef %1, i1 noundef zeroext %3)
+  call fastcc void @getRelationIdentity(ptr noundef %5, i32 noundef %23, ptr noundef %1, i1 noundef zeroext %3)
   br label %.thread672
 
 30:                                               ; preds = %28
@@ -6377,7 +6377,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
   %134 = call ptr @quote_identifier(ptr noundef nonnull %133) #9
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.145, ptr noundef %134) #9
   %135 = load i32, ptr %130, align 4
-  call fastcc void @getRelationIdentity(ptr noundef nonnull %5, i32 noundef %135, ptr noundef %1, i1 noundef zeroext false)
+  call fastcc void @getRelationIdentity(ptr noundef %5, i32 noundef %135, ptr noundef %1, i1 noundef zeroext false)
   br i1 %.not, label %147, label %.sink.split
 
 136:                                              ; preds = %123
@@ -6627,7 +6627,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
 270:                                              ; preds = %17
   %271 = getelementptr inbounds i8, ptr %0, i64 4
   %272 = load i32, ptr %271, align 4
-  call fastcc void @getOpFamilyIdentity(ptr noundef nonnull %5, i32 noundef %272, ptr noundef %1, i1 noundef zeroext %3)
+  call fastcc void @getOpFamilyIdentity(ptr noundef %5, i32 noundef %272, ptr noundef %1, i1 noundef zeroext %3)
   br label %.thread672
 
 273:                                              ; preds = %17
@@ -6690,7 +6690,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
   call void @initStringInfo(ptr noundef nonnull %9) #9
   %305 = getelementptr inbounds i8, ptr %304, i64 4
   %306 = load i32, ptr %305, align 4
-  call fastcc void @getOpFamilyIdentity(ptr noundef nonnull %9, i32 noundef %306, ptr noundef %1, i1 noundef zeroext false)
+  call fastcc void @getOpFamilyIdentity(ptr noundef %9, i32 noundef %306, ptr noundef %1, i1 noundef zeroext false)
   %307 = getelementptr inbounds i8, ptr %304, i64 8
   %308 = load i32, ptr %307, align 4
   %309 = call ptr @format_type_be_qualified(i32 noundef %308) #9
@@ -6755,7 +6755,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
   call void @initStringInfo(ptr noundef nonnull %11) #9
   %346 = getelementptr inbounds i8, ptr %345, i64 4
   %347 = load i32, ptr %346, align 4
-  call fastcc void @getOpFamilyIdentity(ptr noundef nonnull %11, i32 noundef %347, ptr noundef %1, i1 noundef zeroext false)
+  call fastcc void @getOpFamilyIdentity(ptr noundef %11, i32 noundef %347, ptr noundef %1, i1 noundef zeroext false)
   %348 = getelementptr inbounds i8, ptr %345, i64 8
   %349 = load i32, ptr %348, align 4
   %350 = call ptr @format_type_be_qualified(i32 noundef %349) #9
@@ -6819,7 +6819,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.145, ptr noundef %386) #9
   %387 = getelementptr inbounds i8, ptr %384, i64 68
   %388 = load i32, ptr %387, align 4
-  call fastcc void @getRelationIdentity(ptr noundef nonnull %5, i32 noundef %388, ptr noundef %1, i1 noundef zeroext false)
+  call fastcc void @getRelationIdentity(ptr noundef %5, i32 noundef %388, ptr noundef %1, i1 noundef zeroext false)
   br i1 %.not, label %393, label %389
 
 389:                                              ; preds = %378
@@ -6864,7 +6864,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.145, ptr noundef %412) #9
   %413 = getelementptr inbounds i8, ptr %410, i64 4
   %414 = load i32, ptr %413, align 4
-  call fastcc void @getRelationIdentity(ptr noundef nonnull %5, i32 noundef %414, ptr noundef %1, i1 noundef zeroext false)
+  call fastcc void @getRelationIdentity(ptr noundef %5, i32 noundef %414, ptr noundef %1, i1 noundef zeroext false)
   br i1 %.not, label %419, label %415
 
 415:                                              ; preds = %404
@@ -7589,7 +7589,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.145, ptr noundef %804) #9
   %805 = getelementptr inbounds i8, ptr %802, i64 68
   %806 = load i32, ptr %805, align 4
-  call fastcc void @getRelationIdentity(ptr noundef nonnull %5, i32 noundef %806, ptr noundef %1, i1 noundef zeroext false)
+  call fastcc void @getRelationIdentity(ptr noundef %5, i32 noundef %806, ptr noundef %1, i1 noundef zeroext false)
   br i1 %.not, label %811, label %807
 
 807:                                              ; preds = %796
@@ -7621,7 +7621,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread672
 
 820:                                              ; preds = %17
-  %821 = call fastcc zeroext i1 @getPublicationSchemaInfo(ptr noundef %0, i1 noundef zeroext %3, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  %821 = call fastcc zeroext i1 @getPublicationSchemaInfo(ptr noundef %0, i1 noundef zeroext %3, ptr noundef %14, ptr noundef %15)
   br i1 %821, label %822, label %.thread672
 
 822:                                              ; preds = %820
@@ -7683,7 +7683,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
   %851 = call ptr @get_publication_name(i32 noundef %850, i1 noundef zeroext false) #9
   %852 = getelementptr inbounds i8, ptr %848, i64 8
   %853 = load i32, ptr %852, align 4
-  call fastcc void @getRelationIdentity(ptr noundef nonnull %5, i32 noundef %853, ptr noundef %1, i1 noundef zeroext false)
+  call fastcc void @getRelationIdentity(ptr noundef %5, i32 noundef %853, ptr noundef %1, i1 noundef zeroext false)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.166, ptr noundef %851) #9
   %.not629 = icmp eq ptr %2, null
   br i1 %.not629, label %856, label %854
@@ -7887,7 +7887,7 @@ declare ptr @construct_empty_array(i32 noundef) local_unnamed_addr #1
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getRelationIdentity(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @getRelationIdentity(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5) #9
   %.not = icmp eq ptr %6, null
@@ -7923,7 +7923,7 @@ define internal fastcc void @getRelationIdentity(ptr noundef %0, i32 noundef %1,
   %22 = tail call ptr @get_namespace_name_or_temp(i32 noundef %21) #9
   %23 = getelementptr inbounds i8, ptr %19, i64 4
   %24 = tail call ptr @quote_qualified_identifier(ptr noundef %22, ptr noundef nonnull %23) #9
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef %24) #9
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %24) #9
   %.not19 = icmp eq ptr %2, null
   br i1 %.not19, label %28, label %25
 
@@ -7958,7 +7958,7 @@ declare void @format_operator_parts(i32 noundef, ptr noundef, ptr noundef, i1 no
 declare ptr @list_make3_impl(i32 noundef, ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getOpFamilyIdentity(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @getOpFamilyIdentity(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %5) #9
   %.not = icmp eq ptr %6, null
@@ -8009,7 +8009,7 @@ define internal fastcc void @getOpFamilyIdentity(ptr noundef %0, i32 noundef %1,
   %36 = getelementptr inbounds i8, ptr %17, i64 8
   %37 = tail call ptr @quote_qualified_identifier(ptr noundef %35, ptr noundef nonnull %36) #9
   %38 = getelementptr inbounds i8, ptr %32, i64 4
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.150, ptr noundef %37, ptr noundef nonnull %38) #9
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.150, ptr noundef %37, ptr noundef nonnull %38) #9
   %.not27 = icmp eq ptr %2, null
   br i1 %.not27, label %44, label %39
 

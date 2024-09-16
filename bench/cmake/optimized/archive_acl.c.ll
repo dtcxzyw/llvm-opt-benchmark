@@ -1011,7 +1011,7 @@ switch.early.test.i:                              ; preds = %150
   ]
 
 .thread.i:                                        ; preds = %162, %162
-  call fastcc void @append_id_w(ptr noundef nonnull %6, i32 noundef %.077.i)
+  call fastcc void @append_id_w(ptr noundef %6, i32 noundef %.077.i)
   %163 = and i32 %115, 15360
   %164 = icmp eq i32 %163, 0
   %spec.select.i = select i1 %164, i32 -1, i32 %.077.i
@@ -1195,7 +1195,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %235 = getelementptr inbounds i8, ptr %233, i64 4
   store ptr %235, ptr %6, align 8
   store i32 58, ptr %233, align 4
-  call fastcc void @append_id_w(ptr noundef nonnull %6, i32 noundef %.3123.i)
+  call fastcc void @append_id_w(ptr noundef %6, i32 noundef %.3123.i)
   br label %append_entry_w.exit88
 
 append_entry_w.exit88:                            ; preds = %232, %234
@@ -1251,7 +1251,7 @@ archive_acl_text_want_type.exit.thread93:         ; preds = %9, %248, %249, %22,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64 @archive_acl_text_len(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64 @archive_acl_text_len(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 15361) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -1873,7 +1873,7 @@ switch.early.test.i:                              ; preds = %138
   ]
 
 .thread.i:                                        ; preds = %149, %149
-  call fastcc void @append_id(ptr noundef nonnull %7, i32 noundef %.077.i)
+  call fastcc void @append_id(ptr noundef %7, i32 noundef %.077.i)
   %150 = and i32 %112, 15360
   %151 = icmp eq i32 %150, 0
   %spec.select.i = select i1 %151, i32 -1, i32 %.077.i
@@ -2064,7 +2064,7 @@ switch.early.test.i:                              ; preds = %138
   %223 = getelementptr inbounds i8, ptr %221, i64 1
   store ptr %223, ptr %7, align 8
   store i8 58, ptr %221, align 1
-  call fastcc void @append_id(ptr noundef nonnull %7, i32 noundef %.3123.i)
+  call fastcc void @append_id(ptr noundef %7, i32 noundef %.3123.i)
   br label %append_entry.exit86
 
 append_entry.exit86:                              ; preds = %220, %222
@@ -3910,7 +3910,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @wcscpy(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @append_id_w(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #13 {
+define internal fastcc void @append_id_w(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #13 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = icmp sgt i32 %1, 9
   br i1 %3, label %4, label %6
@@ -3936,7 +3936,7 @@ define internal fastcc void @append_id_w(ptr nocapture noundef %0, i32 noundef %
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #14
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @append_id(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #13 {
+define internal fastcc void @append_id(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #13 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = icmp sgt i32 %1, 9
   br i1 %3, label %4, label %6

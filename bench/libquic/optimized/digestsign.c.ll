@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef %is_verify) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef range(i32 0, 2) %is_verify) unnamed_addr #0 {
 entry:
   %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx1, align 8

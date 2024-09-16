@@ -3401,7 +3401,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 16
   store ptr %56, ptr %.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h0970f18ae226afeeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %29)
+  call fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h0970f18ae226afeeE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26)
@@ -3687,7 +3687,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit176
   store i64 1, ptr %.sroa.442.0..sroa_idx, align 8
   %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %165, ptr %.sroa.543.0..sroa_idx, align 8
-  call fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h7568a8b5ff909ce2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16)
+  call fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h7568a8b5ff909ce2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
@@ -3944,7 +3944,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 16
   store ptr %56, ptr %.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17hc5231acb2336e3e7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %29)
+  call fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17hc5231acb2336e3e7E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26)
@@ -4230,7 +4230,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit176
   store i64 1, ptr %.sroa.442.0..sroa_idx, align 8
   %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %165, ptr %.sroa.543.0..sroa_idx, align 8
-  call fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h36413c99ea282302E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16)
+  call fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h36413c99ea282302E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
@@ -4239,7 +4239,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit176
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h0970f18ae226afeeE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h0970f18ae226afeeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -4292,7 +4292,7 @@ define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h36413c99ea282302E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h36413c99ea282302E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -4345,7 +4345,7 @@ define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h7568a8b5ff909ce2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17h7568a8b5ff909ce2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -4398,7 +4398,7 @@ define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17hc5231acb2336e3e7E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN2h25proto8settings8Settings13recv_settings28_$u7b$$u7b$closure$u7d$$u7d$17hc5231acb2336e3e7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -4724,7 +4724,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 1, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %64, ptr %.sroa.515.0..sroa_idx, align 8
-  call fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h2523f72e37c06b3bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %34)
+  call fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h2523f72e37c06b3bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32)
@@ -5216,7 +5216,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit196
   store i64 1, ptr %.sroa.458.0..sroa_idx, align 8
   %.sroa.559.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %211, ptr %.sroa.559.0..sroa_idx, align 8
-  call fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h9e0536abca3d419fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21)
+  call fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h9e0536abca3d419fE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
@@ -5503,7 +5503,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 1, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %64, ptr %.sroa.515.0..sroa_idx, align 8
-  call fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h39334b39596a2f60E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %34)
+  call fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h39334b39596a2f60E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32)
@@ -5995,7 +5995,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit196
   store i64 1, ptr %.sroa.458.0..sroa_idx, align 8
   %.sroa.559.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %211, ptr %.sroa.559.0..sroa_idx, align 8
-  call fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h46307637326d81eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21)
+  call fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h46307637326d81eaE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
@@ -6009,7 +6009,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit196
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h2523f72e37c06b3bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h2523f72e37c06b3bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -6062,7 +6062,7 @@ define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h39334b39596a2f60E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h39334b39596a2f60E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -6115,7 +6115,7 @@ define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h46307637326d81eaE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h46307637326d81eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -6168,7 +6168,7 @@ define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h9e0536abca3d419fE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u7b$closure$u7d$$u7d$17h9e0536abca3d419fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8

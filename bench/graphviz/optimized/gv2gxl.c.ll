@@ -112,13 +112,13 @@ define dso_local void @gv_to_gxl(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %20 = getelementptr inbounds i8, ptr %3, i64 41
   store i8 %19, ptr %20, align 1, !alias.scope !5
   tail call void @aginit(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 24, i32 noundef 1) #20
-  call fastcc void @iterateHdr(ptr noundef nonnull %3, ptr noundef %0)
-  call fastcc void @iterateBody(ptr noundef nonnull %3, ptr noundef %0)
+  call fastcc void @iterateHdr(ptr noundef %3, ptr noundef %0)
+  call fastcc void @iterateBody(ptr noundef %3, ptr noundef %0)
   store i32 0, ptr @Level, align 4
   %21 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 44, i64 1, ptr %1)
   %22 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 6, i64 1, ptr %1)
-  call fastcc void @writeHdr(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
-  call fastcc void @writeBody(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
+  call fastcc void @writeHdr(ptr noundef %3, ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
+  call fastcc void @writeBody(ptr noundef %3, ptr noundef %0, ptr noundef %1)
   %23 = load i32, ptr @Level, align 4
   %.not1.i.i = icmp eq i32 %23, 0
   br i1 %.not1.i.i, label %writeTrl.exit, label %.lr.ph.i.i
@@ -150,7 +150,7 @@ writeTrl.exit:                                    ; preds = %.lr.ph.i.i, %2
 declare void @aginit(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @iterateHdr(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @iterateHdr(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.namev_t, align 8
   %4 = alloca %struct.agxbuf, align 8
   %5 = tail call ptr @agnameof(ptr noundef %1) #20
@@ -205,7 +205,7 @@ switch.early.test.i:                              ; preds = %17
   %28 = icmp ult i32 %27, -26
   %29 = add nsw i32 %25, -58
   %30 = icmp ult i32 %29, -10
-  %.not35.i = and i1 %30, %28
+  %.not35.i = select i1 %28, i1 %30, i1 false
   %31 = freeze i1 %.not35.i
   br i1 %31, label %switch.early.test31.i, label %.backedge.i
 
@@ -236,7 +236,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %agxbuse.exit.i, %le
   %37 = load i32, ptr @createGraphId.graphIdCounter, align 4
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr @createGraphId.graphIdCounter, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i32 noundef %37)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef %37)
   %.val.i.i.i.i = load i8, ptr %34, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
   %39 = load i64, ptr %35, align 8
@@ -248,7 +248,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %agxbuse.exit.i, %le
   br i1 %.not.i.i.i, label %43, label %42
 
 42:                                               ; preds = %agxbsizeof.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %34, align 1
   br label %43
 
@@ -335,7 +335,7 @@ createGraphId.exit:                               ; preds = %60, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @iterateBody(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @iterateBody(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.namev_t, align 8
   %4 = tail call ptr @agfstsubg(ptr noundef %1) #20
   %.not.i52 = icmp eq ptr %4, null
@@ -425,7 +425,7 @@ switch.early.test.i:                              ; preds = %26
   %37 = icmp ult i32 %36, -26
   %38 = add nsw i32 %34, -58
   %39 = icmp ult i32 %38, -10
-  %.not35.i = and i1 %39, %37
+  %.not35.i = select i1 %37, i1 %39, i1 false
   %40 = freeze i1 %.not35.i
   br i1 %40, label %switch.early.test31.i, label %.backedge.i
 
@@ -548,7 +548,7 @@ writeEdgeTest.exit:                               ; preds = %.lr.ph.i43, %addid.
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writeHdr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @writeHdr(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.namev_t, align 8
   %6 = alloca %struct.agxbuf, align 8
   %7 = load i32, ptr @Level, align 4
@@ -575,7 +575,7 @@ define internal fastcc void @writeHdr(ptr nocapture noundef %0, ptr noundef %1, 
 
 agxbsizeof.exit.i.i:                              ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, ptr noundef %14)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.11, ptr noundef %14)
   %20 = getelementptr inbounds i8, ptr %6, i64 31
   %.val.i.i.i = load i8, ptr %20, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -590,7 +590,7 @@ agxbsizeof.exit.i.i:                              ; preds = %18
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %20, align 1
   br label %27
 
@@ -672,7 +672,7 @@ switch.early.test.i:                              ; preds = %46
   %57 = icmp ult i32 %56, -26
   %58 = add nsw i32 %54, -58
   %59 = icmp ult i32 %58, -10
-  %.not35.i = and i1 %59, %57
+  %.not35.i = select i1 %57, i1 %59, i1 false
   %60 = freeze i1 %.not35.i
   br i1 %60, label %switch.early.test31.i, label %.backedge.i
 
@@ -934,7 +934,7 @@ writeDicts.exit:                                  ; preds = %146, %148
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writeBody(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @writeBody(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = tail call ptr @agfstsubg(ptr noundef %1) #20
   %.not.i73 = icmp eq ptr %5, null
@@ -1072,7 +1072,7 @@ tabover.exit41.i:                                 ; preds = %.lr.ph.i38.i, %tabo
   br i1 %.not47.i, label %62, label %63
 
 62:                                               ; preds = %58
-  call fastcc void @writeNondefaultAttr(ptr noundef nonnull %.02780, ptr noundef %2, ptr noundef %28)
+  call fastcc void @writeNondefaultAttr(ptr noundef %.02780, ptr noundef %2, ptr noundef %28)
   br label %63
 
 63:                                               ; preds = %62, %58
@@ -1293,7 +1293,7 @@ nodeID.exit.i.i:                                  ; preds = %157, %146
 nodeID.exit22.i.i:                                ; preds = %170, %nodeID.exit.i.i
   %.0.i.i21.i.i = phi ptr [ %172, %170 ], [ null, %nodeID.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.61, ptr noundef %.0.i.i21.i.i, ptr noundef nonnull @.str.62, ptr noundef %.0.i.i.i.i)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.61, ptr noundef %.0.i.i21.i.i, ptr noundef nonnull @.str.62, ptr noundef %.0.i.i.i.i)
   %.val.i.i.i.i.i = load i8, ptr %14, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
   %173 = load i64, ptr %15, align 8
@@ -1415,7 +1415,7 @@ agxbuse.exit.i.i:                                 ; preds = %208, %agxbclear.exi
 agxbsizeof.exit.i.i27.i.i:                        ; preds = %agxbuse.exit.i.i, %agxbuse.exit39.i.i
   %.041.i.i = phi i32 [ %214, %agxbuse.exit39.i.i ], [ 1, %agxbuse.exit.i.i ]
   %214 = add nuw nsw i32 %.041.i.i, 1
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i21.i.i, ptr noundef nonnull @.str.62, ptr noundef %.0.i.i.i.i, i32 noundef %.041.i.i)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.63, ptr noundef %.0.i.i21.i.i, ptr noundef nonnull @.str.62, ptr noundef %.0.i.i.i.i, i32 noundef %.041.i.i)
   %.val.i.i.i24.i.i = load i8, ptr %14, align 1
   %.not.i.i.i25.i.i = icmp eq i8 %.val.i.i.i24.i.i, -1
   %215 = load i64, ptr %15, align 8
@@ -1626,8 +1626,8 @@ tabover.exit14.i:                                 ; preds = %.lr.ph.i11.i, %tabo
   br label %printHref.exit
 
 printHref.exit:                                   ; preds = %279, %282, %tabover.exit14.i
-  call fastcc void @writePort(ptr noundef nonnull %.076, ptr noundef %2, ptr noundef nonnull @.str.13)
-  call fastcc void @writePort(ptr noundef nonnull %.076, ptr noundef %2, ptr noundef nonnull @.str.14)
+  call fastcc void @writePort(ptr noundef %.076, ptr noundef %2, ptr noundef nonnull @.str.13)
+  call fastcc void @writePort(ptr noundef %.076, ptr noundef %2, ptr noundef nonnull @.str.14)
   %.val.i41 = load i8, ptr %11, align 8
   %.val42.i = load i32, ptr %.076, align 8
   %296 = lshr i32 %.val42.i, 3
@@ -1637,7 +1637,7 @@ printHref.exit:                                   ; preds = %279, %282, %tabover
   br i1 %.not53.i, label %299, label %300
 
 299:                                              ; preds = %printHref.exit
-  call fastcc void @writeNondefaultAttr(ptr noundef nonnull %.076, ptr noundef %2, ptr noundef %76)
+  call fastcc void @writeNondefaultAttr(ptr noundef %.076, ptr noundef %2, ptr noundef %76)
   br label %writeEdgeName.exit
 
 300:                                              ; preds = %printHref.exit
@@ -1871,7 +1871,7 @@ gv_strdup.exit:                                   ; preds = %gv_alloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1914,7 +1914,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -1970,7 +1970,7 @@ vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -2015,7 +2015,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #21
   %26 = icmp eq ptr %25, null
@@ -2071,7 +2071,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbuse.exit, %1
   %6 = load i32, ptr @createNodeId.nodeIdCounter, align 4
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr @createNodeId.nodeIdCounter, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.8, i32 noundef %6)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.8, i32 noundef %6)
   %.val.i.i.i = load i8, ptr %3, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   %8 = load i64, ptr %4, align 8
@@ -2083,7 +2083,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbuse.exit, %1
   br i1 %.not.i.i, label %12, label %11
 
 11:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %2, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %3, align 1
   br label %12
 
@@ -2496,14 +2496,14 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare ptr @agidnode(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writeNondefaultAttr(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @writeNondefaultAttr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 2
   %switch.not = icmp eq i32 %5, 0
   br i1 %switch.not, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call fastcc void @writeEdgeName(ptr noundef nonnull %0, ptr noundef %1)
+  tail call fastcc void @writeEdgeName(ptr noundef %0, ptr noundef %1)
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -2774,8 +2774,8 @@ tabover.exit124:                                  ; preds = %.lr.ph.i121, %tabov
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writeEdgeName(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @agnameof(ptr noundef %0) #20
+define internal fastcc void @writeEdgeName(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call ptr @agnameof(ptr noundef nonnull %0) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %23, label %5
 
@@ -2837,8 +2837,8 @@ declare ptr @agattrrec(ptr noundef) local_unnamed_addr #1
 declare i32 @aghtmlstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writePort(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call ptr @agget(ptr noundef %0, ptr noundef %2) #20
+define internal fastcc void @writePort(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+  %4 = tail call ptr @agget(ptr noundef nonnull %0, ptr noundef %2) #20
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %24, label %5
 

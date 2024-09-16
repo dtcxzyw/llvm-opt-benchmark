@@ -146,7 +146,7 @@ define dso_local void @ZSTD_ldm_fillHashTable(ptr nocapture noundef %0, ptr noun
   store i32 0, ptr %6, align 4
   %34 = ptrtoint ptr %.043 to i64
   %35 = sub i64 %25, %34
-  %36 = call fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull %5, ptr noundef %.043, i64 noundef %35, ptr noundef nonnull %15, ptr noundef nonnull %6)
+  %36 = call fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef %5, ptr noundef %.043, i64 noundef %35, ptr noundef nonnull %15, ptr noundef %6)
   %37 = load i32, ptr %6, align 4
   %.not47 = icmp eq i32 %37, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph.preheader
@@ -209,7 +209,7 @@ define dso_local void @ZSTD_ldm_fillHashTable(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) unnamed_addr #3 {
+define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #3 {
   %6 = load i64, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
@@ -595,7 +595,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   store i32 0, ptr %7, align 4
   %124 = ptrtoint ptr %.0201293.i to i64
   %125 = sub i64 %115, %124
-  %126 = call fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull %6, ptr noundef %.0201293.i, i64 noundef %125, ptr noundef nonnull %29, ptr noundef nonnull %7)
+  %126 = call fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef %6, ptr noundef %.0201293.i, i64 noundef %125, ptr noundef nonnull %29, ptr noundef %7)
   %127 = load i32, ptr %7, align 4
   %.not297.i = icmp eq i32 %127, 0
   br i1 %.not297.i, label %.loopexit.i, label %.lr.ph.i58

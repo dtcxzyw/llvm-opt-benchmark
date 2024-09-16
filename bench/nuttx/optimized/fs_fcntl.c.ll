@@ -9,13 +9,13 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @file_fcntl(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -283,7 +283,7 @@ define range(i32 -1, -2147483648) i32 @fcntl(i32 noundef %0, i32 noundef %1, ...
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = call fastcc i32 @file_vfcntl(ptr noundef %8, i32 noundef %1, ptr noundef nonnull %4)
+  %9 = call fastcc i32 @file_vfcntl(ptr noundef %8, i32 noundef %1, ptr noundef %4)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %.thread, label %13
 

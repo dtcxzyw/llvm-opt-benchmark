@@ -543,7 +543,7 @@ Saig_ObjIsLo.exit92:                              ; preds = %58
 
 .critedge2.thread:                                ; preds = %92
   %puts68 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  call fastcc void @Vec_PtrFreeP(ptr noundef nonnull %5)
+  call fastcc void @Vec_PtrFreeP(ptr noundef %5)
   tail call fastcc void @Vec_PtrFree(ptr noundef nonnull %85)
   br label %107
 
@@ -572,7 +572,7 @@ Saig_ObjIsLo.exit92:                              ; preds = %58
 
 Vec_PtrFind.exit.thread:                          ; preds = %103, %94
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  call fastcc void @Vec_PtrFreeP(ptr noundef nonnull %5)
+  call fastcc void @Vec_PtrFreeP(ptr noundef %5)
   tail call fastcc void @Vec_PtrFree(ptr noundef nonnull %85)
   br label %.critedge2
 
@@ -660,7 +660,7 @@ define internal fastcc void @Vec_PtrFree(ptr nocapture noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrFreeP(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_PtrFreeP(ptr nocapture noundef nonnull %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4

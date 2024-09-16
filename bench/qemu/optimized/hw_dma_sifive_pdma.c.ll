@@ -484,8 +484,8 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %or.cond62.i, label %if.then49.i, label %if.end57.i
 
 if.then49.i:                                      ; preds = %lor.lhs.false.i, %if.end.i, %if.end.thread.i
-  %value.addr.087.i = phi i32 [ %conv7, %if.end.thread.i ], [ %value.addr.0.i, %lor.lhs.false.i ], [ %value.addr.0.i, %if.end.i ]
-  %7 = and i32 %value.addr.087.i, -3
+  %value.addr.082.i = phi i32 [ %conv7, %if.end.thread.i ], [ %value.addr.0.i, %lor.lhs.false.i ], [ %value.addr.0.i, %if.end.i ]
+  %7 = and i32 %value.addr.082.i, -3
   store i32 %7, ptr %arrayidx.i, align 8
   br label %sw.epilog
 
@@ -527,8 +527,8 @@ sw.bb78.i:                                        ; preds = %sw.bb6
   %10 = load i64, ptr %next_bytes82.i, align 8
   %and.i63.i = and i64 %10, 4294967295
   %conv83.i = shl i64 %value, 32
-  %or.i65.i = or disjoint i64 %and.i63.i, %conv83.i
-  store i64 %or.i65.i, ptr %next_bytes82.i, align 8
+  %or.i64.i = or disjoint i64 %and.i63.i, %conv83.i
+  store i64 %or.i64.i, ptr %next_bytes82.i, align 8
   br label %sw.epilog
 
 sw.bb89.i:                                        ; preds = %sw.bb6
@@ -537,9 +537,9 @@ sw.bb89.i:                                        ; preds = %sw.bb6
   %next_dst93.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan90.i, i64 0, i64 %idxprom91.i, i32 3
   %11 = load i64, ptr %next_dst93.i, align 8
   %conv94.i = and i64 %value, 4294967295
-  %and.i66.i = and i64 %11, -4294967296
-  %or.i69.i = or disjoint i64 %and.i66.i, %conv94.i
-  store i64 %or.i69.i, ptr %next_dst93.i, align 8
+  %and.i65.i = and i64 %11, -4294967296
+  %or.i67.i = or disjoint i64 %and.i65.i, %conv94.i
+  store i64 %or.i67.i, ptr %next_dst93.i, align 8
   br label %sw.epilog
 
 sw.bb100.i:                                       ; preds = %sw.bb6
@@ -547,10 +547,10 @@ sw.bb100.i:                                       ; preds = %sw.bb6
   %idxprom102.i = zext nneg i32 %conv to i64
   %next_dst104.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan101.i, i64 0, i64 %idxprom102.i, i32 3
   %12 = load i64, ptr %next_dst104.i, align 8
-  %and.i70.i = and i64 %12, 4294967295
+  %and.i68.i = and i64 %12, 4294967295
   %conv105.i = shl i64 %value, 32
-  %or.i73.i = or disjoint i64 %and.i70.i, %conv105.i
-  store i64 %or.i73.i, ptr %next_dst104.i, align 8
+  %or.i70.i = or disjoint i64 %and.i68.i, %conv105.i
+  store i64 %or.i70.i, ptr %next_dst104.i, align 8
   br label %sw.epilog
 
 sw.bb111.i:                                       ; preds = %sw.bb6
@@ -559,9 +559,9 @@ sw.bb111.i:                                       ; preds = %sw.bb6
   %next_src115.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan112.i, i64 0, i64 %idxprom113.i, i32 4
   %13 = load i64, ptr %next_src115.i, align 8
   %conv116.i = and i64 %value, 4294967295
-  %and.i74.i = and i64 %13, -4294967296
-  %or.i77.i = or disjoint i64 %and.i74.i, %conv116.i
-  store i64 %or.i77.i, ptr %next_src115.i, align 8
+  %and.i71.i = and i64 %13, -4294967296
+  %or.i73.i = or disjoint i64 %and.i71.i, %conv116.i
+  store i64 %or.i73.i, ptr %next_src115.i, align 8
   br label %sw.epilog
 
 sw.bb122.i:                                       ; preds = %sw.bb6
@@ -569,16 +569,16 @@ sw.bb122.i:                                       ; preds = %sw.bb6
   %idxprom124.i = zext nneg i32 %conv to i64
   %next_src126.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan123.i, i64 0, i64 %idxprom124.i, i32 4
   %14 = load i64, ptr %next_src126.i, align 8
-  %and.i78.i = and i64 %14, 4294967295
+  %and.i74.i = and i64 %14, 4294967295
   %conv127.i = shl i64 %value, 32
-  %or.i81.i = or disjoint i64 %and.i78.i, %conv127.i
-  store i64 %or.i81.i, ptr %next_src126.i, align 8
+  %or.i76.i = or disjoint i64 %and.i74.i, %conv127.i
+  store i64 %or.i76.i, ptr %next_src126.i, align 8
   br label %sw.epilog
 
 do.body.i16:                                      ; preds = %sw.bb6
   %15 = load i32, ptr @qemu_loglevel, align 4
-  %and.i82.i = and i32 %15, 2048
-  %cmp.i.not.i17 = icmp eq i32 %and.i82.i, 0
+  %and.i77.i = and i32 %15, 2048
+  %cmp.i.not.i17 = icmp eq i32 %and.i77.i, 0
   br i1 %cmp.i.not.i17, label %sw.epilog, label %if.then139.i
 
 if.then139.i:                                     ; preds = %do.body.i16
@@ -602,7 +602,7 @@ sw.epilog:                                        ; preds = %if.then139.i, %do.b
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sifive_pdma_run(ptr nocapture noundef %s, i32 noundef %ch) unnamed_addr #0 {
+define internal fastcc void @sifive_pdma_run(ptr nocapture noundef %s, i32 noundef range(i32 0, 4) %ch) unnamed_addr #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %chan = getelementptr inbounds i8, ptr %s, i64 1152
@@ -725,7 +725,7 @@ return:                                           ; preds = %error, %done
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sifive_pdma_update_irq(ptr nocapture noundef %s, i32 noundef %ch) unnamed_addr #0 {
+define internal fastcc void @sifive_pdma_update_irq(ptr nocapture noundef %s, i32 noundef range(i32 0, 4) %ch) unnamed_addr #0 {
 entry:
   %chan = getelementptr inbounds i8, ptr %s, i64 1152
   %idxprom = zext nneg i32 %ch to i64

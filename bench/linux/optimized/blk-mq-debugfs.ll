@@ -1656,7 +1656,7 @@ declare dso_local void @sbitmap_bitmap_show(ptr noundef, ptr noundef) local_unna
 declare dso_local i32 @mutex_lock_interruptible(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_mq_debugfs_tags_show(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @blk_mq_debugfs_tags_show(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = load i32, ptr %1, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.112, i32 noundef %3) #9
   %4 = getelementptr inbounds i8, ptr %1, i64 4

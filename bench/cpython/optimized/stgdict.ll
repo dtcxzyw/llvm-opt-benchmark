@@ -2859,7 +2859,7 @@ if.end30:                                         ; preds = %if.end25
   %18 = load i64, ptr %index, align 8
   %offset = getelementptr inbounds i8, ptr %call22, i64 16
   %19 = load i64, ptr %offset, align 8
-  %call31 = call fastcc i32 @MakeFields(ptr noundef %type, ptr noundef nonnull %call22, i64 noundef %18, i64 noundef %19)
+  %call31 = call fastcc i32 @MakeFields(ptr noundef %type, ptr noundef %call22, i64 noundef %18, i64 noundef %19)
   %cmp32 = icmp eq i32 %call31, -1
   %20 = load i64, ptr %call22, align 8
   %21 = and i64 %20, 2147483648
@@ -2986,7 +2986,7 @@ declare ptr @PySequence_Fast(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @MakeFields(ptr noundef %type, ptr nocapture noundef readonly %descr, i64 noundef %index, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @MakeFields(ptr noundef %type, ptr nocapture noundef nonnull readonly %descr, i64 noundef %index, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %fname = alloca ptr, align 8
   %ftype = alloca ptr, align 8
@@ -3139,7 +3139,7 @@ if.then33:                                        ; preds = %if.end31
   %offset35 = getelementptr inbounds i8, ptr %call24, i64 16
   %23 = load i64, ptr %offset35, align 8
   %add36 = add i64 %23, %offset
-  %call37 = call fastcc i32 @MakeFields(ptr noundef %type, ptr noundef nonnull %call24, i64 noundef %add, i64 noundef %add36)
+  %call37 = call fastcc i32 @MakeFields(ptr noundef %type, ptr noundef %call24, i64 noundef %add, i64 noundef %add36)
   %24 = load i64, ptr %call24, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i199.not = icmp eq i64 %25, 0

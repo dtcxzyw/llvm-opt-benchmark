@@ -336,7 +336,7 @@ _ZN5vcpkg4Json5ArrayD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPN5vc
 
 81:                                               ; preds = %75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr %72, i64 %73, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %23)
+  invoke fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr %72, i64 %73, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %23)
           to label %82 unwind label %102
 
 82:                                               ; preds = %81
@@ -498,7 +498,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4p
 
 134:                                              ; preds = %128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr null, i64 0, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %30)
+  invoke fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr null, i64 0, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %30)
           to label %135 unwind label %151
 
 135:                                              ; preds = %134
@@ -637,7 +637,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit275:                ; preds = %_ZSt8_DestroyIPSt4p
           to label %183 unwind label %196
 
 183:                                              ; preds = %182
-  invoke fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr %178, i64 %179, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %32)
+  invoke fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr %178, i64 %179, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %32)
           to label %184 unwind label %198
 
 184:                                              ; preds = %183
@@ -782,7 +782,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit286:                ; preds = %_ZSt8_DestroyIPSt4p
 
 234:                                              ; preds = %233
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %40) #15
-  invoke fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr %229, i64 %230, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %39)
+  invoke fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr %229, i64 %230, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %39)
           to label %235 unwind label %251
 
 235:                                              ; preds = %234
@@ -1482,7 +1482,7 @@ _ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.thread: ; preds = %36, %36, %36, %3
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json5Array9push_backEONS0_6ObjectE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"struct.vcpkg::StringView") align 8 %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"struct.vcpkg::StringView") align 8 %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"struct.vcpkg::StringView", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2534,7 +2534,7 @@ _ZN5vcpkg4Json6Object6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
           to label %277 unwind label %.loopexit.split-lp602.loopexit.split-lp
 
 277:                                              ; preds = %275
-  invoke fastcc void @_ZL16conclude_licenseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %100, ptr noundef nonnull align 8 dereferenceable(32) %101)
+  invoke fastcc void @_ZL16conclude_licenseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %100, ptr noundef nonnull align 8 dereferenceable(32) %101)
           to label %278 unwind label %303
 
 278:                                              ; preds = %277
@@ -3044,7 +3044,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit287:                ; preds = %_ZSt8_DestroyIPSt4p
           to label %412 unwind label %.loopexit.split-lp602.loopexit.split-lp
 
 412:                                              ; preds = %411
-  invoke fastcc void @_ZL16conclude_licenseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(32) %110)
+  invoke fastcc void @_ZL16conclude_licenseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(32) %110)
           to label %413 unwind label %571
 
 413:                                              ; preds = %412
@@ -4028,7 +4028,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg11PackageSpec
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16conclude_licenseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16conclude_licenseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.7", align 1
   %4 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   br i1 %4, label %5, label %11

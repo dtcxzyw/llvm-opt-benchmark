@@ -141,21 +141,21 @@ lor.lhs.false:                                    ; preds = %sw.bb9, %if.end
 sw.bb21:                                          ; preds = %while.cond
   tail call void @CRYPTO_free(ptr noundef %cipher.0, ptr noundef nonnull @.str.31, i32 noundef 111) #4
   %call22 = tail call ptr @opt_arg() #4
-  %call23 = call fastcc ptr @alloc_kdf_algorithm_name(ptr noundef nonnull %opts, ptr noundef nonnull @.str.6, ptr noundef %call22)
+  %call23 = call fastcc ptr @alloc_kdf_algorithm_name(ptr noundef %opts, ptr noundef nonnull @.str.6, ptr noundef %call22)
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %opthelp, label %while.cond.backedge
 
 sw.bb28:                                          ; preds = %while.cond
   tail call void @CRYPTO_free(ptr noundef %digest.0, ptr noundef nonnull @.str.31, i32 noundef 117) #4
   %call29 = tail call ptr @opt_arg() #4
-  %call30 = call fastcc ptr @alloc_kdf_algorithm_name(ptr noundef nonnull %opts, ptr noundef nonnull @.str.8, ptr noundef %call29)
+  %call30 = call fastcc ptr @alloc_kdf_algorithm_name(ptr noundef %opts, ptr noundef nonnull @.str.8, ptr noundef %call29)
   %cmp31 = icmp eq ptr %call30, null
   br i1 %cmp31, label %opthelp, label %while.cond.backedge
 
 sw.bb35:                                          ; preds = %while.cond
   tail call void @CRYPTO_free(ptr noundef %mac.0, ptr noundef nonnull @.str.31, i32 noundef 123) #4
   %call36 = tail call ptr @opt_arg() #4
-  %call37 = call fastcc ptr @alloc_kdf_algorithm_name(ptr noundef nonnull %opts, ptr noundef nonnull @.str.10, ptr noundef %call36)
+  %call37 = call fastcc ptr @alloc_kdf_algorithm_name(ptr noundef %opts, ptr noundef nonnull @.str.10, ptr noundef %call36)
   %cmp38 = icmp eq ptr %call37, null
   br i1 %cmp38, label %opthelp, label %while.cond.backedge
 
@@ -327,7 +327,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @alloc_kdf_algorithm_name(ptr nocapture noundef %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc noundef ptr @alloc_kdf_algorithm_name(ptr nocapture noundef nonnull %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #5
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #5

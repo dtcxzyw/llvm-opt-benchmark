@@ -1168,7 +1168,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare zeroext i16 @curlx_ultous(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @altsvc_createid(ptr noundef %srchost, ptr noundef %dsthost, i32 noundef %srcalpnid, i32 noundef %dstalpnid, i32 noundef %srcport, i32 noundef %dstport) unnamed_addr #1 {
+define internal fastcc ptr @altsvc_createid(ptr noundef %srchost, ptr noundef %dsthost, i32 noundef %srcalpnid, i32 noundef range(i32 1, 0) %dstalpnid, i32 noundef %srcport, i32 noundef %dstport) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 72) #12

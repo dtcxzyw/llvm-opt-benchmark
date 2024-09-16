@@ -508,7 +508,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_exec_tb.exit:                               ; preds = %cpu_exec_enter.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call16 = call fastcc ptr @cpu_tb_exec(ptr noundef nonnull %cpu, ptr noundef %tb.0, ptr noundef nonnull %tb_exit)
+  %call16 = call fastcc ptr @cpu_tb_exec(ptr noundef nonnull %cpu, ptr noundef %tb.0, ptr noundef %tb_exit)
   %call.i.i21 = call ptr @object_get_class(ptr noundef nonnull %cpu) #12
   %call1.i.i22 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i21, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #12
   %tcg_ops.i23 = getelementptr inbounds i8, ptr %call1.i.i22, i64 328
@@ -583,7 +583,7 @@ declare ptr @tb_gen_code(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32
 declare void @mmap_unlock() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr nocapture noundef readonly %itb, ptr nocapture noundef %tb_exit) unnamed_addr #2 {
+define internal fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr nocapture noundef readonly %itb, ptr nocapture noundef nonnull %tb_exit) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add.ptr.i = getelementptr i8, ptr %cpu, i64 10176
@@ -1573,7 +1573,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 
 trace_exec_tb.exit.i.i:                           ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end43.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %call.i.i = call fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr noundef %tb.0.i, ptr noundef nonnull %tb_exit.i)
+  %call.i.i = call fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr noundef %tb.0.i, ptr noundef %tb_exit.i)
   %81 = load i32, ptr %tb_exit.i, align 4
   %cmp.not.i49.i = icmp eq i32 %81, 3
   br i1 %cmp.not.i49.i, label %if.end.i51.i, label %while.cond1.i.backedge

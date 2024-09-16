@@ -948,7 +948,7 @@ if.end3:                                          ; preds = %if.end
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %name, align 8
-  %call5 = call fastcc i32 @setipaddr(ptr noundef %self.val, ptr noundef %1, ptr noundef nonnull %addrbuf, i64 noundef 16, i32 noundef 2)
+  %call5 = call fastcc i32 @setipaddr(ptr noundef %self.val, ptr noundef %1, ptr noundef %addrbuf, i64 noundef 16, i32 noundef 2)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %finally, label %if.end8
 
@@ -1006,7 +1006,7 @@ if.end3:                                          ; preds = %if.end
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %name, align 8
-  %call5 = call fastcc i32 @setipaddr(ptr noundef %self.val, ptr noundef %1, ptr noundef nonnull %addr, i64 noundef 128, i32 noundef 2)
+  %call5 = call fastcc i32 @setipaddr(ptr noundef %self.val, ptr noundef %1, ptr noundef %addr, i64 noundef 128, i32 noundef 2)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %finally, label %if.end8
 
@@ -1018,7 +1018,7 @@ if.end8:                                          ; preds = %if.end3
   %3 = load ptr, ptr %h, align 8
   %4 = load i16, ptr %addr, align 8
   %conv11 = zext i16 %4 to i32
-  %call12 = call fastcc ptr @gethost_common(ptr noundef %self.val, ptr noundef %3, ptr noundef nonnull %addr, i32 noundef %conv11)
+  %call12 = call fastcc ptr @gethost_common(ptr noundef %self.val, ptr noundef %3, ptr noundef %addr, i32 noundef %conv11)
   br label %finally
 
 finally:                                          ; preds = %if.end3, %if.end, %if.end8
@@ -1056,7 +1056,7 @@ if.end3:                                          ; preds = %if.end
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %ip_num, align 8
-  %call5 = call fastcc i32 @setipaddr(ptr noundef %self.val, ptr noundef %1, ptr noundef nonnull %addr, i64 noundef 128, i32 noundef 0)
+  %call5 = call fastcc i32 @setipaddr(ptr noundef %self.val, ptr noundef %1, ptr noundef %addr, i64 noundef 128, i32 noundef 0)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %finally, label %if.end8
 
@@ -1083,7 +1083,7 @@ sw.epilog:                                        ; preds = %if.end8, %sw.bb9
   %call12 = call i32 @gethostbyaddr_r(ptr noundef nonnull %.sink.sroa.phi, i32 noundef %al.0, i32 noundef %conv, ptr noundef nonnull %hp_allocated, ptr noundef nonnull %buf, i64 noundef 16383, ptr noundef nonnull %h, ptr noundef nonnull %errnop) #12
   call void @PyEval_RestoreThread(ptr noundef %call10) #12
   %4 = load ptr, ptr %h, align 8
-  %call13 = call fastcc ptr @gethost_common(ptr noundef %self.val, ptr noundef %4, ptr noundef nonnull %addr, i32 noundef %conv)
+  %call13 = call fastcc ptr @gethost_common(ptr noundef %self.val, ptr noundef %4, ptr noundef %addr, i32 noundef %conv)
   br label %finally
 
 finally:                                          ; preds = %if.end3, %if.end, %sw.epilog, %sw.default
@@ -2860,7 +2860,7 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr nocapture noundef readonly %state, ptr noundef %name, ptr noundef %addr_ret, i64 noundef %addr_ret_size, i32 noundef %af) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr nocapture noundef readonly %state, ptr noundef %name, ptr noundef nonnull %addr_ret, i64 noundef range(i64 16, 129) %addr_ret_size, i32 noundef range(i32 0, 11) %af) unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %res = alloca ptr, align 8
@@ -2971,7 +2971,7 @@ lor.lhs.false:                                    ; preds = %if.end17
   br i1 %cmp22, label %if.then24, label %if.end31
 
 if.then24:                                        ; preds = %lor.lhs.false, %if.end17
-  %13 = and i32 %af, -3
+  %13 = and i32 %af, 13
   %or.cond.not = icmp eq i32 %13, 0
   br i1 %or.cond.not, label %if.end30, label %if.then29
 
@@ -3112,7 +3112,7 @@ declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_gaierror(ptr nocapture noundef readonly %state, i32 noundef %error) unnamed_addr #0 {
+define internal fastcc void @set_gaierror(ptr nocapture noundef readonly %state, i32 noundef range(i32 1, 0) %error) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %error, -11
   br i1 %cmp, label %if.then, label %if.end
@@ -3195,9 +3195,9 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare i32 @gethostbyname_r(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gethost_common(ptr nocapture noundef readonly %state, ptr noundef readonly %h, ptr nocapture noundef writeonly %addr, i32 noundef %af) unnamed_addr #0 {
+define internal fastcc ptr @gethost_common(ptr nocapture noundef readonly %state, ptr noundef readonly %h, ptr nocapture noundef nonnull writeonly %addr, i32 noundef range(i32 0, 65536) %af) unnamed_addr #0 {
 entry:
-  %buf.i45 = alloca [46 x i8], align 16
+  %buf.i46 = alloca [46 x i8], align 16
   %buf.i = alloca [16 x i8], align 16
   %sin = alloca %struct.sockaddr_in, align 4
   %sin6 = alloca %struct.sockaddr_in6, align 4
@@ -3252,7 +3252,7 @@ if.end6:                                          ; preds = %if.end
 if.end17:                                         ; preds = %if.end6
   %call18 = tail call ptr @PyList_New(i64 noundef 0) #12
   %cmp19 = icmp eq ptr %call18, null
-  br i1 %cmp19, label %if.then.i55, label %if.end21
+  br i1 %cmp19, label %if.then.i56, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
   %h_aliases = getelementptr inbounds i8, ptr %h, i64 8
@@ -3261,22 +3261,22 @@ if.end21:                                         ; preds = %if.end17
   br i1 %tobool.not, label %if.end35, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end21
-  %host_alias.0.copyload84 = load ptr, ptr %6, align 8
-  %cmp2485 = icmp eq ptr %host_alias.0.copyload84, null
-  br i1 %cmp2485, label %if.end35, label %if.end26
+  %host_alias.0.copyload85 = load ptr, ptr %6, align 8
+  %cmp2486 = icmp eq ptr %host_alias.0.copyload85, null
+  br i1 %cmp2486, label %if.end35, label %if.end26
 
 for.cond:                                         ; preds = %Py_DECREF.exit87
-  %incdec.ptr = getelementptr i8, ptr %pch.086, i64 8
+  %incdec.ptr = getelementptr i8, ptr %pch.087, i64 8
   %host_alias.0.copyload = load ptr, ptr %incdec.ptr, align 8
   %cmp24 = icmp eq ptr %host_alias.0.copyload, null
   br i1 %cmp24, label %if.end35, label %if.end26
 
 if.end26:                                         ; preds = %for.cond.preheader, %for.cond
-  %host_alias.0.copyload87 = phi ptr [ %host_alias.0.copyload, %for.cond ], [ %host_alias.0.copyload84, %for.cond.preheader ]
-  %pch.086 = phi ptr [ %incdec.ptr, %for.cond ], [ %6, %for.cond.preheader ]
-  %call27 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %host_alias.0.copyload87) #12
+  %host_alias.0.copyload88 = phi ptr [ %host_alias.0.copyload, %for.cond ], [ %host_alias.0.copyload85, %for.cond.preheader ]
+  %pch.087 = phi ptr [ %incdec.ptr, %for.cond ], [ %6, %for.cond.preheader ]
+  %call27 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %host_alias.0.copyload88) #12
   %cmp28 = icmp eq ptr %call27, null
-  br i1 %cmp28, label %if.then.i55, label %if.end30
+  br i1 %cmp28, label %if.then.i56, label %if.end30
 
 if.end30:                                         ; preds = %if.end26
   %call31 = tail call i32 @PyList_Append(ptr noundef nonnull %call14, ptr noundef nonnull %call27) #12
@@ -3297,56 +3297,56 @@ if.then1.i85:                                     ; preds = %if.end.i82
 
 Py_DECREF.exit87:                                 ; preds = %if.end30, %if.then1.i85, %if.end.i82
   %tobool32.not = icmp eq i32 %call31, 0
-  br i1 %tobool32.not, label %for.cond, label %if.then.i55
+  br i1 %tobool32.not, label %for.cond, label %if.then.i56
 
 if.end35:                                         ; preds = %for.cond, %for.cond.preheader, %if.end21
   %h_addr_list = getelementptr inbounds i8, ptr %h, i64 24
   %9 = load ptr, ptr %h_addr_list, align 8
-  %host_address.0.copyload88 = load ptr, ptr %9, align 8
-  %cmp3889 = icmp eq ptr %host_address.0.copyload88, null
-  br i1 %cmp3889, label %for.end72, label %if.end40.lr.ph
+  %host_address.0.copyload89 = load ptr, ptr %9, align 8
+  %cmp3890 = icmp eq ptr %host_address.0.copyload89, null
+  br i1 %cmp3890, label %for.end72, label %if.end40.lr.ph
 
 if.end40.lr.ph:                                   ; preds = %if.end35
-  %conv51 = trunc nuw i32 %af to i16
+  %trunc39 = trunc nuw i32 %af to i16
   %sin6_addr = getelementptr inbounds i8, ptr %sin6, i64 8
   %sin_addr = getelementptr inbounds i8, ptr %sin, i64 4
-  switch i32 %af, label %sw.default [
-    i32 2, label %if.end40.us
-    i32 10, label %if.end40
+  switch i16 %trunc39, label %sw.default [
+    i16 2, label %if.end40.us
+    i16 10, label %if.end40
   ]
 
 if.end40.us:                                      ; preds = %if.end40.lr.ph, %for.cond36.us
-  %host_address.0.copyload91.us = phi ptr [ %host_address.0.copyload.us, %for.cond36.us ], [ %host_address.0.copyload88, %if.end40.lr.ph ]
-  %pch.190.us = phi ptr [ %incdec.ptr71.us, %for.cond36.us ], [ %9, %if.end40.lr.ph ]
+  %host_address.0.copyload92.us = phi ptr [ %host_address.0.copyload.us, %for.cond36.us ], [ %host_address.0.copyload89, %if.end40.lr.ph ]
+  %pch.191.us = phi ptr [ %incdec.ptr71.us, %for.cond36.us ], [ %9, %if.end40.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin, i8 0, i64 16, i1 false)
-  store i16 %conv51, ptr %sin, align 4
-  %10 = load i32, ptr %host_address.0.copyload91.us, align 1
+  store i16 2, ptr %sin, align 4
+  %10 = load i32, ptr %host_address.0.copyload92.us, align 1
   store i32 %10, ptr %sin_addr, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
-  %call.i40.us = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr, ptr noundef nonnull %buf.i, i32 noundef 16) #12
-  %cmp.i41.us = icmp eq ptr %call.i40.us, null
-  br i1 %cmp.i41.us, label %if.then.i43.us, label %if.end.i42.us
+  %call.i41.us = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr, ptr noundef nonnull %buf.i, i32 noundef 16) #12
+  %cmp.i42.us = icmp eq ptr %call.i41.us, null
+  br i1 %cmp.i42.us, label %if.then.i44.us, label %if.end.i43.us
 
 for.cond36.us:                                    ; preds = %Py_DECREF.exit.us
-  %incdec.ptr71.us = getelementptr i8, ptr %pch.190.us, i64 8
+  %incdec.ptr71.us = getelementptr i8, ptr %pch.191.us, i64 8
   %host_address.0.copyload.us = load ptr, ptr %incdec.ptr71.us, align 8
   %cmp38.us = icmp eq ptr %host_address.0.copyload.us, null
   br i1 %cmp38.us, label %for.end72, label %if.end40.us
 
-if.end.i42.us:                                    ; preds = %if.end40.us
+if.end.i43.us:                                    ; preds = %if.end40.us
   %call3.i.us = call ptr @PyUnicode_FromString(ptr noundef nonnull %buf.i) #12
   br label %make_ipv4_addr.exit.us
 
-if.then.i43.us:                                   ; preds = %if.end40.us
+if.then.i44.us:                                   ; preds = %if.end40.us
   %11 = load ptr, ptr @PyExc_OSError, align 8
-  %call1.i44.us = call ptr @PyErr_SetFromErrno(ptr noundef %11) #12
+  %call1.i45.us = call ptr @PyErr_SetFromErrno(ptr noundef %11) #12
   br label %make_ipv4_addr.exit.us
 
-make_ipv4_addr.exit.us:                           ; preds = %if.then.i43.us, %if.end.i42.us
-  %retval.0.i.us = phi ptr [ null, %if.then.i43.us ], [ %call3.i.us, %if.end.i42.us ]
+make_ipv4_addr.exit.us:                           ; preds = %if.then.i44.us, %if.end.i43.us
+  %retval.0.i.us = phi ptr [ null, %if.then.i44.us ], [ %call3.i.us, %if.end.i43.us ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
   %12 = load ptr, ptr %h_addr_list, align 8
-  %cmp44.us = icmp eq ptr %pch.190.us, %12
+  %cmp44.us = icmp eq ptr %pch.191.us, %12
   br i1 %cmp44.us, label %if.then48.us, label %sw.epilog61.us
 
 if.then48.us:                                     ; preds = %make_ipv4_addr.exit.us
@@ -3355,7 +3355,7 @@ if.then48.us:                                     ; preds = %make_ipv4_addr.exit
 
 sw.epilog61.us:                                   ; preds = %if.then48.us, %make_ipv4_addr.exit.us
   %cmp62.us = icmp eq ptr %retval.0.i.us, null
-  br i1 %cmp62.us, label %if.then.i55, label %if.end65.us
+  br i1 %cmp62.us, label %if.then.i56, label %if.end65.us
 
 if.end65.us:                                      ; preds = %sw.epilog61.us
   %call66.us = call i32 @PyList_Append(ptr noundef nonnull %call18, ptr noundef nonnull %retval.0.i.us) #12
@@ -3376,39 +3376,39 @@ if.then1.i.us:                                    ; preds = %if.end.i.us
 
 Py_DECREF.exit.us:                                ; preds = %if.then1.i.us, %if.end.i.us, %if.end65.us
   %tobool67.not.us = icmp eq i32 %call66.us, 0
-  br i1 %tobool67.not.us, label %for.cond36.us, label %if.then.i55
+  br i1 %tobool67.not.us, label %for.cond36.us, label %if.then.i56
 
 for.cond36:                                       ; preds = %Py_DECREF.exit
-  %incdec.ptr71 = getelementptr i8, ptr %pch.190, i64 8
+  %incdec.ptr71 = getelementptr i8, ptr %pch.191, i64 8
   %host_address.0.copyload = load ptr, ptr %incdec.ptr71, align 8
   %cmp38 = icmp eq ptr %host_address.0.copyload, null
   br i1 %cmp38, label %for.end72, label %if.end40
 
 if.end40:                                         ; preds = %if.end40.lr.ph, %for.cond36
-  %host_address.0.copyload91 = phi ptr [ %host_address.0.copyload, %for.cond36 ], [ %host_address.0.copyload88, %if.end40.lr.ph ]
-  %pch.190 = phi ptr [ %incdec.ptr71, %for.cond36 ], [ %9, %if.end40.lr.ph ]
+  %host_address.0.copyload92 = phi ptr [ %host_address.0.copyload, %for.cond36 ], [ %host_address.0.copyload89, %if.end40.lr.ph ]
+  %pch.191 = phi ptr [ %incdec.ptr71, %for.cond36 ], [ %9, %if.end40.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %sin6, i8 0, i64 28, i1 false)
-  store i16 %conv51, ptr %sin6, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, ptr noundef nonnull align 1 dereferenceable(16) %host_address.0.copyload91, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %buf.i45)
-  %call.i46 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr, ptr noundef nonnull %buf.i45, i32 noundef 46) #12
-  %cmp.i47 = icmp eq ptr %call.i46, null
-  br i1 %cmp.i47, label %if.then.i51, label %if.end.i48
+  store i16 10, ptr %sin6, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, ptr noundef nonnull align 1 dereferenceable(16) %host_address.0.copyload92, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %buf.i46)
+  %call.i47 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr, ptr noundef nonnull %buf.i46, i32 noundef 46) #12
+  %cmp.i48 = icmp eq ptr %call.i47, null
+  br i1 %cmp.i48, label %if.then.i52, label %if.end.i49
 
-if.then.i51:                                      ; preds = %if.end40
+if.then.i52:                                      ; preds = %if.end40
   %15 = load ptr, ptr @PyExc_OSError, align 8
-  %call1.i52 = call ptr @PyErr_SetFromErrno(ptr noundef %15) #12
+  %call1.i53 = call ptr @PyErr_SetFromErrno(ptr noundef %15) #12
   br label %make_ipv6_addr.exit
 
-if.end.i48:                                       ; preds = %if.end40
-  %call3.i49 = call ptr @PyUnicode_FromString(ptr noundef nonnull %buf.i45) #12
+if.end.i49:                                       ; preds = %if.end40
+  %call3.i50 = call ptr @PyUnicode_FromString(ptr noundef nonnull %buf.i46) #12
   br label %make_ipv6_addr.exit
 
-make_ipv6_addr.exit:                              ; preds = %if.then.i51, %if.end.i48
-  %retval.0.i50 = phi ptr [ null, %if.then.i51 ], [ %call3.i49, %if.end.i48 ]
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %buf.i45)
+make_ipv6_addr.exit:                              ; preds = %if.then.i52, %if.end.i49
+  %retval.0.i51 = phi ptr [ null, %if.then.i52 ], [ %call3.i50, %if.end.i49 ]
+  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %buf.i46)
   %16 = load ptr, ptr %h_addr_list, align 8
-  %cmp54 = icmp eq ptr %pch.190, %16
+  %cmp54 = icmp eq ptr %pch.191, %16
   br i1 %cmp54, label %if.then59, label %sw.epilog61
 
 if.then59:                                        ; preds = %make_ipv6_addr.exit
@@ -3421,79 +3421,79 @@ sw.default:                                       ; preds = %if.end40.lr.ph
   br label %return
 
 sw.epilog61:                                      ; preds = %make_ipv6_addr.exit, %if.then59
-  %cmp62 = icmp eq ptr %retval.0.i50, null
-  br i1 %cmp62, label %if.then.i55, label %if.end65
+  %cmp62 = icmp eq ptr %retval.0.i51, null
+  br i1 %cmp62, label %if.then.i56, label %if.end65
 
 if.end65:                                         ; preds = %sw.epilog61
-  %call66 = call i32 @PyList_Append(ptr noundef nonnull %call18, ptr noundef nonnull %retval.0.i50) #12
-  %18 = load i64, ptr %retval.0.i50, align 8
+  %call66 = call i32 @PyList_Append(ptr noundef nonnull %call18, ptr noundef nonnull %retval.0.i51) #12
+  %18 = load i64, ptr %retval.0.i51, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i92.not = icmp eq i64 %19, 0
   br i1 %cmp.i92.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.end65
   %dec.i = add i64 %18, -1
-  store i64 %dec.i, ptr %retval.0.i50, align 8
+  store i64 %dec.i, ptr %retval.0.i51, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i50) #12
+  call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i51) #12
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end65, %if.then1.i, %if.end.i
   %tobool67.not = icmp eq i32 %call66, 0
-  br i1 %tobool67.not, label %for.cond36, label %if.then.i55
+  br i1 %tobool67.not, label %for.cond36, label %if.then.i56
 
 for.end72:                                        ; preds = %for.cond36, %for.cond36.us, %if.end35
   %20 = load ptr, ptr %h, align 8
-  %call.i53 = call ptr @PyUnicode_FromString(ptr noundef %20) #12
-  %cmp74 = icmp eq ptr %call.i53, null
-  br i1 %cmp74, label %if.then.i55, label %if.end77
+  %call.i54 = call ptr @PyUnicode_FromString(ptr noundef %20) #12
+  %cmp74 = icmp eq ptr %call.i54, null
+  br i1 %cmp74, label %if.then.i56, label %if.end77
 
 if.end77:                                         ; preds = %for.end72
-  %call78 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.42, ptr noundef nonnull %call.i53, ptr noundef nonnull %call14, ptr noundef nonnull %call18) #12
-  br label %if.then.i55
+  %call78 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.42, ptr noundef nonnull %call.i54, ptr noundef nonnull %call14, ptr noundef nonnull %call18) #12
+  br label %if.then.i56
 
-if.then.i55:                                      ; preds = %if.end26, %Py_DECREF.exit87, %Py_DECREF.exit, %sw.epilog61, %Py_DECREF.exit.us, %sw.epilog61.us, %if.end77, %for.end72, %if.end17
-  %rtn_tuple.078 = phi ptr [ null, %if.end17 ], [ null, %for.end72 ], [ %call78, %if.end77 ], [ null, %sw.epilog61.us ], [ null, %Py_DECREF.exit.us ], [ null, %sw.epilog61 ], [ null, %Py_DECREF.exit ], [ null, %Py_DECREF.exit87 ], [ null, %if.end26 ]
+if.then.i56:                                      ; preds = %if.end26, %Py_DECREF.exit87, %Py_DECREF.exit, %sw.epilog61, %Py_DECREF.exit.us, %sw.epilog61.us, %if.end77, %for.end72, %if.end17
+  %rtn_tuple.079 = phi ptr [ null, %if.end17 ], [ null, %for.end72 ], [ %call78, %if.end77 ], [ null, %sw.epilog61.us ], [ null, %Py_DECREF.exit.us ], [ null, %sw.epilog61 ], [ null, %Py_DECREF.exit ], [ null, %Py_DECREF.exit87 ], [ null, %if.end26 ]
   %21 = load i64, ptr %call14, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i2.not.i = icmp eq i64 %22, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i57, label %Py_XDECREF.exit
+  br i1 %cmp.i2.not.i, label %if.end.i.i58, label %Py_XDECREF.exit
 
-if.end.i.i57:                                     ; preds = %if.then.i55
-  %dec.i.i58 = add i64 %21, -1
-  store i64 %dec.i.i58, ptr %call14, align 8
-  %cmp.i.i59 = icmp eq i64 %dec.i.i58, 0
-  br i1 %cmp.i.i59, label %if.then1.i.i60, label %Py_XDECREF.exit
+if.end.i.i58:                                     ; preds = %if.then.i56
+  %dec.i.i59 = add i64 %21, -1
+  store i64 %dec.i.i59, ptr %call14, align 8
+  %cmp.i.i60 = icmp eq i64 %dec.i.i59, 0
+  br i1 %cmp.i.i60, label %if.then1.i.i61, label %Py_XDECREF.exit
 
-if.then1.i.i60:                                   ; preds = %if.end.i.i57
+if.then1.i.i61:                                   ; preds = %if.end.i.i58
   call void @_Py_Dealloc(ptr noundef nonnull %call14) #12
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %if.then.i55, %if.end.i.i57, %if.then1.i.i60
-  %cmp.not.i61 = icmp eq ptr %call18, null
-  br i1 %cmp.not.i61, label %return, label %if.then.i62
+Py_XDECREF.exit:                                  ; preds = %if.then.i56, %if.end.i.i58, %if.then1.i.i61
+  %cmp.not.i62 = icmp eq ptr %call18, null
+  br i1 %cmp.not.i62, label %return, label %if.then.i63
 
-if.then.i62:                                      ; preds = %Py_XDECREF.exit
+if.then.i63:                                      ; preds = %Py_XDECREF.exit
   %23 = load i64, ptr %call18, align 8
   %24 = and i64 %23, 2147483648
-  %cmp.i2.not.i63 = icmp eq i64 %24, 0
-  br i1 %cmp.i2.not.i63, label %if.end.i.i65, label %return
+  %cmp.i2.not.i64 = icmp eq i64 %24, 0
+  br i1 %cmp.i2.not.i64, label %if.end.i.i66, label %return
 
-if.end.i.i65:                                     ; preds = %if.then.i62
-  %dec.i.i66 = add i64 %23, -1
-  store i64 %dec.i.i66, ptr %call18, align 8
-  %cmp.i.i67 = icmp eq i64 %dec.i.i66, 0
-  br i1 %cmp.i.i67, label %if.then1.i.i68, label %return
+if.end.i.i66:                                     ; preds = %if.then.i63
+  %dec.i.i67 = add i64 %23, -1
+  store i64 %dec.i.i67, ptr %call18, align 8
+  %cmp.i.i68 = icmp eq i64 %dec.i.i67, 0
+  br i1 %cmp.i.i68, label %if.then1.i.i69, label %return
 
-if.then1.i.i68:                                   ; preds = %if.end.i.i65
+if.then1.i.i69:                                   ; preds = %if.end.i.i66
   call void @_Py_Dealloc(ptr noundef nonnull %call18) #12
   br label %return
 
-return:                                           ; preds = %if.end6, %if.then1.i.i68, %if.end.i.i65, %if.then.i62, %Py_XDECREF.exit, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.then, %sw.default, %if.then3
-  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %sw.default ], [ null, %if.then ], [ null, %if.then.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ %rtn_tuple.078, %Py_XDECREF.exit ], [ %rtn_tuple.078, %if.then.i62 ], [ %rtn_tuple.078, %if.end.i.i65 ], [ %rtn_tuple.078, %if.then1.i.i68 ], [ null, %if.end6 ]
+return:                                           ; preds = %if.end6, %if.then1.i.i69, %if.end.i.i66, %if.then.i63, %Py_XDECREF.exit, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.then, %sw.default, %if.then3
+  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %sw.default ], [ null, %if.then ], [ null, %if.then.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ %rtn_tuple.079, %Py_XDECREF.exit ], [ %rtn_tuple.079, %if.then.i63 ], [ %rtn_tuple.079, %if.end.i.i66 ], [ %rtn_tuple.079, %if.then1.i.i69 ], [ null, %if.end6 ]
   ret ptr %retval.0
 }
 
@@ -3709,7 +3709,7 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @makesockaddr(i32 noundef %sockfd, ptr noundef %addr, i64 noundef %addrlen, i32 noundef %proto) unnamed_addr #0 {
+define internal fastcc ptr @makesockaddr(i32 noundef %sockfd, ptr noundef %addr, i64 noundef range(i64 0, 4294967296) %addrlen, i32 noundef %proto) unnamed_addr #0 {
 entry:
   %buf.i87 = alloca [46 x i8], align 16
   %buf.i = alloca [16 x i8], align 16
@@ -6860,7 +6860,7 @@ entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
   %ctx = alloca %struct.sock_accept, align 8
-  %call = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef nonnull %addrlen)
+  %call = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef %addrlen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -6967,7 +6967,7 @@ define internal ptr @sock_bind(ptr noundef %s, ptr noundef %addro) #0 {
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
-  %call = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef %addro, ptr noundef nonnull %addrbuf, ptr noundef nonnull %addrlen, ptr noundef nonnull @.str.520)
+  %call = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef %addro, ptr noundef %addrbuf, ptr noundef %addrlen, ptr noundef nonnull @.str.520)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -7035,7 +7035,7 @@ define internal ptr @sock_connect(ptr noundef %s, ptr noundef %addro) #0 {
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
-  %call = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef %addro, ptr noundef nonnull %addrbuf, ptr noundef nonnull %addrlen, ptr noundef nonnull @.str.521)
+  %call = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef %addro, ptr noundef %addrbuf, ptr noundef %addrlen, ptr noundef nonnull @.str.521)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -7046,7 +7046,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %0 = load i32, ptr %addrlen, align 4
-  %call4 = call fastcc i32 @internal_connect(ptr noundef %s, ptr noundef nonnull %addrbuf, i32 noundef %0, i32 noundef 1)
+  %call4 = call fastcc i32 @internal_connect(ptr noundef %s, ptr noundef %addrbuf, i32 noundef %0, i32 noundef 1)
   %cmp5 = icmp slt i32 %call4, 0
   %._Py_NoneStruct = select i1 %cmp5, ptr null, ptr @_Py_NoneStruct
   br label %return
@@ -7061,7 +7061,7 @@ define internal ptr @sock_connect_ex(ptr noundef %s, ptr noundef %addro) #0 {
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
-  %call = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef %addro, ptr noundef nonnull %addrbuf, ptr noundef nonnull %addrlen, ptr noundef nonnull @.str.522)
+  %call = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef %addro, ptr noundef %addrbuf, ptr noundef %addrlen, ptr noundef nonnull @.str.522)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -7072,7 +7072,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %0 = load i32, ptr %addrlen, align 4
-  %call4 = call fastcc i32 @internal_connect(ptr noundef %s, ptr noundef nonnull %addrbuf, i32 noundef %0, i32 noundef 0)
+  %call4 = call fastcc i32 @internal_connect(ptr noundef %s, ptr noundef %addrbuf, i32 noundef %0, i32 noundef 0)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %return, label %if.end7
 
@@ -7112,7 +7112,7 @@ define internal ptr @sock_getpeername(ptr nocapture noundef readonly %s, ptr noc
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
-  %call = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef nonnull %addrlen)
+  %call = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef %addrlen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -7153,7 +7153,7 @@ define internal ptr @sock_getsockname(ptr nocapture noundef readonly %s, ptr noc
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
-  %call = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef nonnull %addrlen)
+  %call = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef %addrlen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -7594,7 +7594,7 @@ if.end6:                                          ; preds = %if.end2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addrlen.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ctx.i)
-  %call.i = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef nonnull %addrlen.i)
+  %call.i = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef %addrlen.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %sock_recvfrom_guts.exit.thread, label %if.end.i
 
@@ -7763,7 +7763,7 @@ if.end9:                                          ; preds = %if.else, %if.then5
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addrlen.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ctx.i)
-  %call.i = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef nonnull %addrlen.i)
+  %call.i = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef %addrlen.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then12.thread, label %if.end.i
 
@@ -8020,7 +8020,7 @@ sw.default:                                       ; preds = %entry
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
   %1 = load ptr, ptr %addro, align 8
-  %call8 = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef %1, ptr noundef nonnull %addrbuf, ptr noundef nonnull %addrlen, ptr noundef nonnull @.str.535)
+  %call8 = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef %1, ptr noundef %addrbuf, ptr noundef %addrlen, ptr noundef nonnull @.str.535)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end11
 
@@ -8558,7 +8558,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %call4 = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef nonnull %0, ptr noundef nonnull %addrbuf, ptr noundef nonnull %addrlen, ptr noundef nonnull @.str.544)
+  %call4 = call fastcc i32 @getsockaddrarg(ptr noundef %s, ptr noundef nonnull %0, ptr noundef %addrbuf, ptr noundef %addrlen, ptr noundef nonnull @.str.544)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %finally.thread, label %if.end7
 
@@ -8582,7 +8582,7 @@ if.else:                                          ; preds = %if.end
 
 if.end16:                                         ; preds = %if.else, %if.end11
   %3 = load ptr, ptr %data_arg, align 8
-  %call17 = call fastcc i32 @sock_sendmsg_iovec(ptr noundef %3, ptr noundef nonnull %msg, ptr noundef nonnull %databufs, ptr noundef nonnull %ndatabufs)
+  %call17 = call fastcc i32 @sock_sendmsg_iovec(ptr noundef %3, ptr noundef %msg, ptr noundef %databufs, ptr noundef %ndatabufs)
   %cmp18 = icmp eq i32 %call17, -1
   br i1 %cmp18, label %finally.thread, label %if.end20
 
@@ -8998,7 +8998,7 @@ if.end37:                                         ; preds = %if.end22
   br i1 %cmp38.not, label %if.end44, label %if.then39
 
 if.then39:                                        ; preds = %if.end37
-  %call40 = call fastcc i32 @sock_sendmsg_iovec(ptr noundef nonnull %8, ptr noundef nonnull %msg, ptr noundef nonnull %databufs, ptr noundef nonnull %ndatabufs)
+  %call40 = call fastcc i32 @sock_sendmsg_iovec(ptr noundef nonnull %8, ptr noundef %msg, ptr noundef %databufs, ptr noundef %ndatabufs)
   %cmp41 = icmp eq i32 %call40, -1
   br i1 %cmp41, label %finally, label %if.then39.if.end44_crit_edge
 
@@ -9142,7 +9142,7 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @getsockaddrlen(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %len_ret) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @getsockaddrlen(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull writeonly %len_ret) unnamed_addr #0 {
 entry:
   %sock_family = getelementptr inbounds i8, ptr %s, i64 20
   %0 = load i32, ptr %sock_family, align 4
@@ -9312,7 +9312,7 @@ if.end24:                                         ; preds = %if.end14.if.end24_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef %writing, ptr nocapture noundef readonly %sock_func, ptr noundef %data, i32 noundef %connect, ptr noundef writeonly %err, i64 noundef %timeout) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef range(i32 0, 2) %writing, ptr nocapture noundef readonly %sock_func, ptr noundef %data, i32 noundef range(i32 0, 2) %connect, ptr noundef writeonly %err, i64 noundef %timeout) unnamed_addr #0 {
 entry:
   %pollfd.i30 = alloca %struct.pollfd, align 4
   %pollfd.i = alloca %struct.pollfd, align 4
@@ -9611,7 +9611,7 @@ declare i32 @accept4(i32 noundef, ptr, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @accept(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @getsockaddrarg(ptr nocapture noundef readonly %s, ptr noundef %args, ptr noundef %addrbuf, ptr nocapture noundef writeonly %len_ret, ptr noundef %caller) unnamed_addr #0 {
+define internal fastcc noundef i32 @getsockaddrarg(ptr nocapture noundef readonly %s, ptr noundef %args, ptr noundef nonnull %addrbuf, ptr nocapture noundef nonnull writeonly %len_ret, ptr noundef %caller) unnamed_addr #0 {
 entry:
   %path = alloca %struct.Py_buffer, align 8
   %pid = alloca i32, align 4
@@ -10093,7 +10093,7 @@ if.then170:                                       ; preds = %sw.bb166
 if.end172:                                        ; preds = %sw.bb166
   %72 = load ptr, ptr %straddr, align 8
   %l2_bdaddr = getelementptr inbounds i8, ptr %addrbuf, i64 4
-  %call173 = call fastcc i32 @setbdaddr(ptr noundef %72, ptr noundef nonnull %l2_bdaddr)
+  %call173 = call fastcc i32 @setbdaddr(ptr noundef %72, ptr noundef %l2_bdaddr)
   %cmp174 = icmp slt i32 %call173, 0
   br i1 %cmp174, label %return, label %if.end177
 
@@ -10116,7 +10116,7 @@ if.then183:                                       ; preds = %sw.bb178
 if.end185:                                        ; preds = %sw.bb178
   %74 = load ptr, ptr %straddr179, align 8
   %rc_bdaddr = getelementptr inbounds i8, ptr %addrbuf, i64 2
-  %call186 = call fastcc i32 @setbdaddr(ptr noundef %74, ptr noundef nonnull %rc_bdaddr)
+  %call186 = call fastcc i32 @setbdaddr(ptr noundef %74, ptr noundef %rc_bdaddr)
   %cmp187 = icmp slt i32 %call186, 0
   br i1 %cmp187, label %return, label %if.end190
 
@@ -10158,7 +10158,7 @@ if.then204:                                       ; preds = %sw.bb198
 if.end206:                                        ; preds = %sw.bb198
   %ob_sval.i = getelementptr inbounds i8, ptr %args, i64 32
   %sco_bdaddr = getelementptr inbounds i8, ptr %addrbuf, i64 2
-  %call208 = tail call fastcc i32 @setbdaddr(ptr noundef nonnull %ob_sval.i, ptr noundef nonnull %sco_bdaddr)
+  %call208 = tail call fastcc i32 @setbdaddr(ptr noundef nonnull %ob_sval.i, ptr noundef %sco_bdaddr)
   %cmp209 = icmp slt i32 %call208, 0
   br i1 %cmp209, label %return, label %if.end212
 
@@ -10934,7 +10934,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 7) i32 @setbdaddr(ptr nocapture noundef readonly %name, ptr nocapture noundef writeonly %bdaddr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 7) i32 @setbdaddr(ptr nocapture noundef readonly %name, ptr nocapture noundef nonnull writeonly %bdaddr) unnamed_addr #0 {
 entry:
   %b0 = alloca i32, align 4
   %b1 = alloca i32, align 4
@@ -11007,13 +11007,13 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @internal_connect(ptr noundef %s, ptr noundef %addr, i32 noundef %addrlen, i32 noundef %raise) unnamed_addr #0 {
+define internal fastcc i32 @internal_connect(ptr noundef %s, ptr noundef nonnull %addr, i32 noundef %addrlen, i32 noundef range(i32 0, 2) %raise) unnamed_addr #0 {
 entry:
   %err = alloca i32, align 4
   %call = tail call ptr @PyEval_SaveThread() #12
   %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
-  %call1 = tail call i32 @connect(i32 noundef %0, ptr %addr, i32 noundef %addrlen) #12
+  %call1 = tail call i32 @connect(i32 noundef %0, ptr nonnull %addr, i32 noundef %addrlen) #12
   tail call void @PyEval_RestoreThread(ptr noundef %call) #12
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -11241,7 +11241,7 @@ entry:
   %ctx = alloca %struct.sock_recvmsg, align 8
   %0 = getelementptr inbounds i8, ptr %msg, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 48, i1 false)
-  %call = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef nonnull %addrbuflen)
+  %call = call fastcc i32 @getsockaddrlen(ptr noundef %s, ptr noundef %addrbuflen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -11614,7 +11614,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %data_arg, ptr nocapture noundef writeonly %msg, ptr nocapture noundef writeonly %databufsout, ptr nocapture noundef writeonly %ndatabufsout) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %data_arg, ptr nocapture noundef nonnull writeonly %msg, ptr nocapture noundef nonnull writeonly %databufsout, ptr nocapture noundef nonnull writeonly %ndatabufsout) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PySequence_Fast(ptr noundef %data_arg, ptr noundef nonnull @.str.638) #12
   %cmp = icmp eq ptr %call, null

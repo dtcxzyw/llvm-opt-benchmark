@@ -240,7 +240,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end37:                                         ; preds = %while.end
-  %call38 = call fastcc ptr @mkpwent(ptr noundef %module, ptr noundef nonnull %3)
+  %call38 = call fastcc ptr @mkpwent(ptr noundef %module, ptr noundef %3)
   call void @PyMem_RawFree(ptr noundef %buf.1) #4
   br label %return
 
@@ -338,7 +338,7 @@ if.else.i:                                        ; preds = %if.then27.i
   br label %out.i
 
 if.end33.i:                                       ; preds = %while.end.i
-  %call34.i = call fastcc ptr @mkpwent(ptr noundef %module, ptr noundef nonnull %4)
+  %call34.i = call fastcc ptr @mkpwent(ptr noundef %module, ptr noundef %4)
   br label %out.i
 
 out.i:                                            ; preds = %if.end33.i, %if.else.i, %if.then29.i, %if.end.i
@@ -387,7 +387,7 @@ if.end.i:                                         ; preds = %entry
 
 while.body.i:                                     ; preds = %if.end.i, %Py_DECREF.exit.i
   %call115.i = phi ptr [ %call1.i, %Py_DECREF.exit.i ], [ %call113.i, %if.end.i ]
-  %call3.i = tail call fastcc ptr @mkpwent(ptr noundef %module, ptr noundef nonnull %call115.i)
+  %call3.i = tail call fastcc ptr @mkpwent(ptr noundef %module, ptr noundef %call115.i)
   %cmp4.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.i, label %if.then7.i, label %lor.lhs.false.i
 
@@ -480,7 +480,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare ptr @_PyLong_FromUid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mkpwent(ptr noundef %module, ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc ptr @mkpwent(ptr noundef %module, ptr nocapture noundef nonnull readonly %p) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %0 = load ptr, ptr %call.i, align 8

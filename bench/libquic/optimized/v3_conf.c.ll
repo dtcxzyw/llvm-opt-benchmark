@@ -105,7 +105,7 @@ return:                                           ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @v3_generic_extension(ptr noundef %ext, ptr noundef %value, i32 noundef %crit, i32 noundef %gen_type, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc ptr @v3_generic_extension(ptr noundef %ext, ptr noundef %value, i32 noundef range(i32 0, 2) %crit, i32 noundef range(i32 1, 0) %gen_type, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %ext_der.i = alloca ptr, align 8
   %ext_len = alloca i64, align 8
@@ -195,7 +195,7 @@ if.end18:                                         ; preds = %if.then17, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_ext_nconf(ptr noundef %conf, ptr noundef %ctx, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc ptr @do_ext_nconf(ptr noundef %conf, ptr noundef %ctx, i32 noundef %ext_nid, i32 noundef range(i32 0, 2) %crit, ptr noundef %value) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %ext_nid, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -306,7 +306,7 @@ if.else47:                                        ; preds = %if.else35
 
 if.end51:                                         ; preds = %if.then29, %if.end41, %if.end23
   %ext_struc.0 = phi ptr [ %call18, %if.end23 ], [ %call31, %if.then29 ], [ %call43, %if.end41 ]
-  %call52 = tail call fastcc ptr @do_ext_i2d(ptr noundef nonnull %call, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef nonnull %ext_struc.0)
+  %call52 = tail call fastcc ptr @do_ext_i2d(ptr noundef %call, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef nonnull %ext_struc.0)
   %it = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load ptr, ptr %it, align 8
   %tobool53.not = icmp eq ptr %8, null
@@ -430,7 +430,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc ptr @do_ext_i2d(ptr noundef nonnull %call, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef %ext_struc)
+  %call1 = tail call fastcc ptr @do_ext_i2d(ptr noundef %call, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef %ext_struc)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -441,7 +441,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @X509V3_EXT_get_nid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_ext_i2d(ptr nocapture noundef readonly %method, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef %ext_struc) unnamed_addr #0 {
+define internal fastcc ptr @do_ext_i2d(ptr nocapture noundef nonnull readonly %method, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef %ext_struc) unnamed_addr #0 {
 entry:
   %ext_der = alloca ptr, align 8
   %p = alloca ptr, align 8

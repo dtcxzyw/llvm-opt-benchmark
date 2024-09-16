@@ -31104,7 +31104,7 @@ if.then13.i.i335:                                 ; preds = %if.else.i.i333
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %if.else.i.i333, %if.then.i.i337, %if.then13.i.i335
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias nonnull align 8 %ref.tmp74, i32 noundef 5, i32 noundef 104, ptr noundef nonnull %agg.tmp75, ptr noundef nonnull %agg.tmp77)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias align 8 %ref.tmp74, i32 noundef 5, i32 noundef 104, ptr noundef %agg.tmp75, ptr noundef %agg.tmp77)
           to label %invoke.cont81 unwind label %lpad80
 
 invoke.cont81:                                    ; preds = %invoke.cont79
@@ -36599,7 +36599,7 @@ ehcleanup750:                                     ; preds = %ehcleanup749, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias align 8 %agg.result, i32 noundef %litk, i32 noundef %shk, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 5, 114) %litk, i32 noundef range(i32 103, 106) %shk, ptr nocapture noundef nonnull readonly %s, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i27 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i28 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -36964,11 +36964,11 @@ invoke.cont53:                                    ; preds = %for.end
   br i1 %cmp55, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont53
-  invoke void @_ZNK4cvc58internal11NodeBuilderixEi(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb, i32 noundef 0)
+  invoke void @_ZNK4cvc58internal11NodeBuilderixEi(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb, i32 noundef 0)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 if.end:                                           ; preds = %invoke.cont53
-  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb)
+  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.end, %if.then
@@ -38254,7 +38254,7 @@ if.then13.i.i389:                                 ; preds = %if.else.i.i387
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %if.else.i.i387, %if.then.i.i391, %if.then13.i.i389
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias nonnull align 8 %ref.tmp84, i32 noundef 5, i32 noundef 103, ptr noundef nonnull %agg.tmp85, ptr noundef nonnull %agg.tmp87)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias align 8 %ref.tmp84, i32 noundef 5, i32 noundef 103, ptr noundef %agg.tmp85, ptr noundef %agg.tmp87)
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %invoke.cont89
@@ -45129,7 +45129,7 @@ if.then13.i.i315:                                 ; preds = %if.else.i.i313
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %if.else.i.i313, %if.then.i.i317, %if.then13.i.i315
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias nonnull align 8 %ref.tmp74, i32 noundef 5, i32 noundef 105, ptr noundef nonnull %agg.tmp75, ptr noundef nonnull %agg.tmp77)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias align 8 %ref.tmp74, i32 noundef 5, i32 noundef 105, ptr noundef %agg.tmp75, ptr noundef %agg.tmp77)
           to label %invoke.cont81 unwind label %lpad80
 
 invoke.cont81:                                    ; preds = %invoke.cont79
@@ -46304,7 +46304,7 @@ if.then13.i.i747:                                 ; preds = %if.else.i.i745
           to label %invoke.cont189 unwind label %lpad188
 
 invoke.cont189:                                   ; preds = %if.else.i.i745, %if.then.i.i749, %if.then13.i.i747
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias nonnull align 8 %ref.tmp184, i32 noundef 108, i32 noundef 105, ptr noundef nonnull %agg.tmp185, ptr noundef nonnull %agg.tmp187)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias align 8 %ref.tmp184, i32 noundef 108, i32 noundef 105, ptr noundef %agg.tmp185, ptr noundef %agg.tmp187)
           to label %invoke.cont191 unwind label %lpad190
 
 invoke.cont191:                                   ; preds = %invoke.cont189
@@ -46877,7 +46877,7 @@ if.then13.i.i968:                                 ; preds = %if.else.i.i966
           to label %invoke.cont254 unwind label %lpad253
 
 invoke.cont254:                                   ; preds = %if.else.i.i966, %if.then.i.i970, %if.then13.i.i968
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias nonnull align 8 %ref.tmp249, i32 noundef 109, i32 noundef 105, ptr noundef nonnull %agg.tmp250, ptr noundef nonnull %agg.tmp252)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias align 8 %ref.tmp249, i32 noundef 109, i32 noundef 105, ptr noundef %agg.tmp250, ptr noundef %agg.tmp252)
           to label %invoke.cont256 unwind label %lpad255
 
 invoke.cont256:                                   ; preds = %invoke.cont254
@@ -48216,7 +48216,7 @@ if.then13.i.i1449:                                ; preds = %if.else.i.i1447
           to label %invoke.cont414 unwind label %lpad413
 
 invoke.cont414:                                   ; preds = %if.else.i.i1447, %if.then.i.i1451, %if.then13.i.i1449
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias nonnull align 8 %ref.tmp409, i32 noundef 112, i32 noundef 105, ptr noundef nonnull %agg.tmp410, ptr noundef nonnull %agg.tmp412)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias align 8 %ref.tmp409, i32 noundef 112, i32 noundef 105, ptr noundef %agg.tmp410, ptr noundef %agg.tmp412)
           to label %invoke.cont416 unwind label %lpad415
 
 invoke.cont416:                                   ; preds = %invoke.cont414
@@ -49124,7 +49124,7 @@ if.then13.i.i1774:                                ; preds = %if.else.i.i1772
           to label %invoke.cont523 unwind label %lpad522
 
 invoke.cont523:                                   ; preds = %if.else.i.i1772, %if.then.i.i1776, %if.then13.i.i1774
-  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias nonnull align 8 %ref.tmp518, i32 noundef 113, i32 noundef 105, ptr noundef nonnull %agg.tmp519, ptr noundef nonnull %agg.tmp521)
+  invoke fastcc void @_ZN4cvc58internal6theory11quantifiers5utils12_GLOBAL__N_114defaultShiftICENS0_4kind6Kind_tES6_NS0_12NodeTemplateILb1EEES8_(ptr noalias align 8 %ref.tmp518, i32 noundef 113, i32 noundef 105, ptr noundef %agg.tmp519, ptr noundef %agg.tmp521)
           to label %invoke.cont525 unwind label %lpad524
 
 invoke.cont525:                                   ; preds = %invoke.cont523

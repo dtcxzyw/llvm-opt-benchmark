@@ -1387,7 +1387,7 @@ define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr nocaptur
 8:                                                ; preds = %7, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.011.0.copyload82 = load i64, ptr %9, align 8
-  %10 = call fastcc zeroext i1 @parse_param_path(ptr noundef %0, ptr noundef nonnull %6)
+  %10 = call fastcc zeroext i1 @parse_param_path(ptr noundef %0, ptr noundef %6)
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
@@ -1583,7 +1583,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
 
 107:                                              ; preds = %102, %101
   %.sroa.011.0.copyload = load i64, ptr %9, align 8
-  %108 = call fastcc zeroext i1 @parse_param_path(ptr noundef nonnull %0, ptr noundef nonnull %6)
+  %108 = call fastcc zeroext i1 @parse_param_path(ptr noundef nonnull %0, ptr noundef %6)
   br i1 %108, label %13, label %.loopexit
 
 .loopexit:                                        ; preds = %107, %25, %50, %61, %89, %98, %8, %20, %105
@@ -1592,7 +1592,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #1 {
   store ptr null, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   br label %4
@@ -6255,7 +6255,7 @@ define internal ptr @parse_ct_call(ptr noundef %0, ptr nocapture readnone %1) #1
 
 .critedge:                                        ; preds = %.critedge39, %18
   store ptr null, ptr %3, align 8
-  %24 = call fastcc zeroext i1 @parse_param_path(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %24 = call fastcc zeroext i1 @parse_param_path(ptr noundef nonnull %0, ptr noundef %3)
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %.critedge

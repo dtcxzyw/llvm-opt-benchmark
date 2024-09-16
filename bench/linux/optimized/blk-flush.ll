@@ -399,7 +399,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare dso_local void @blk_mq_end_request(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_flush_complete_seq(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #1 align 16 {
+define internal fastcc void @blk_flush_complete_seq(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483647) %2, i8 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 4

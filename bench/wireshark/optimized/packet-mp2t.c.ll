@@ -1808,7 +1808,7 @@ define internal fastcc range(i32 -1, 65542) i32 @mp2t_get_packet_length(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
+define internal fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca %struct.except_stacknode, align 8
@@ -1821,7 +1821,7 @@ define internal fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %1
   %18 = load i32, ptr @proto_mp2t, align 4
   %19 = call ptr @p_get_proto_data(ptr noundef %17, ptr noundef %2, i32 noundef %18, i32 noundef 1) #9
   %.not = icmp eq i32 %7, 0
-  %20 = zext i1 %.not to i32
+  %20 = xor i32 %7, 1
   %21 = call ptr @fragment_add_check(ptr noundef nonnull @mp2t_reassembly_table, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef %19, i32 noundef %5, i32 noundef %6, i32 noundef %20) #9
   br i1 %.not, label %22, label %proto_item_set_generated.exit
 

@@ -346,7 +346,7 @@ wait_on_slots.exit:                               ; preds = %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @connect_slot(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @connect_slot(ptr nocapture noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %5

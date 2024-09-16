@@ -1146,7 +1146,7 @@ default.unreachable8:                             ; preds = %2
 
 ; Function Attrs: noreturn nonlazybind uwtable
 define hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h1fcb82157fb79c1fE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #8 {
-  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h7df6da9df75f23dfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) #25
+  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h7df6da9df75f23dfE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) #25
   unreachable
 }
 
@@ -1227,7 +1227,7 @@ define hidden { i8, i8 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4a
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h7df6da9df75f23dfE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h7df6da9df75f23dfE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !253, !noundef !4
@@ -1243,7 +1243,7 @@ define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$17h0cba389df96994d6E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$17h0cba389df96994d6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1922,7 +1922,7 @@ common.resume:                                    ; preds = %15, %.body20
 95:                                               ; preds = %97, %57
   %.pn5 = phi { ptr, i32 } [ %98, %97 ], [ %.pn2.pn, %57 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 112
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #26
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef align 8 dereferenceable(8) %96) #26
           to label %99 unwind label %91
 
 97:                                               ; preds = %48
@@ -2329,7 +2329,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h047a437b8f23690cE"(ptr noalias noundef align 1 dereferenceable(3) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h047a437b8f23690cE"(ptr noalias noundef nonnull align 1 dereferenceable(3) %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1, !range !344, !noundef !4
   %cond = icmp eq i8 %2, 0
   br i1 %cond, label %3, label %"_ZN4core3ptr89drop_in_place$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$GT$17h79bfff2f7ee6ca51E.exit"
@@ -2470,7 +2470,7 @@ common.ret:                                       ; preds = %1, %12
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17ha49316212817f29fE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17ha49316212817f29fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !533, !noundef !4
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3645,7 +3645,7 @@ define internal void @"_ZN4core3ptr86drop_in_place$LT$tracing_core..field..Displ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
   %2 = load ptr, ptr %0, align 8, !alias.scope !737, !nonnull !4, !noundef !4
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !737
@@ -4025,7 +4025,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
 44:                                               ; preds = %46, %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$17h0cba389df96994d6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4) #26
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$17h0cba389df96994d6E"(ptr noalias noundef align 8 dereferenceable(64) %4) #26
           to label %53 unwind label %51
 
 46:                                               ; preds = %37
@@ -4082,7 +4082,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
 65:                                               ; preds = %67, %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$17h0cba389df96994d6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6) #26
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$17h0cba389df96994d6E"(ptr noalias noundef align 8 dereferenceable(64) %6) #26
           to label %53 unwind label %51
 
 67:                                               ; preds = %58
@@ -4550,7 +4550,7 @@ define hidden i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm
 34:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf8297daf9111ac07E.exit"
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h047a437b8f23690cE"(ptr noalias noundef nonnull align 1 dereferenceable(3) %4) #26
+  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..task..poll..Poll$LT$tokio..runtime..coop..RestoreOnPending$GT$$C$std..thread..local..AccessError$GT$$GT$17h047a437b8f23690cE"(ptr noalias noundef align 1 dereferenceable(3) %4) #26
           to label %33 unwind label %36
 
 36:                                               ; preds = %34
@@ -5614,7 +5614,7 @@ define hidden noundef zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i8 } @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$10close_hard28_$u7b$$u7b$closure$u7d$$u7d$17hc7d417c92f101735E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i8 } @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$10close_hard28_$u7b$$u7b$closure$u7d$$u7d$17hc7d417c92f101735E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [5 x i64] }, align 8
   %4 = alloca { { i32, i32 }, { ptr, ptr, ptr }, i64 }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
@@ -5775,7 +5775,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr83drop
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$5close28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1577387dd01a30adE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #9 {
+define internal fastcc void @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$5close28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1577387dd01a30adE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -5829,7 +5829,7 @@ define internal fastcc void @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9294e84ccdb4dedcE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #9 {
+define internal fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9294e84ccdb4dedcE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -5883,7 +5883,7 @@ define internal fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9d38c1e14c7f0f50E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #9 {
+define internal fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9d38c1e14c7f0f50E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -7880,7 +7880,7 @@ common.ret:                                       ; preds = %2040, %1335, %1170,
   store i64 2, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !1285
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %91, i64 16
   store ptr %717, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !1285
-  invoke fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9294e84ccdb4dedcE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %91)
+  invoke fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9294e84ccdb4dedcE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %91)
           to label %740 unwind label %738, !noalias !1297
 
 738:                                              ; preds = %736
@@ -8029,7 +8029,7 @@ common.ret:                                       ; preds = %2040, %1335, %1170,
   %792 = phi ptr [ %603, %741 ], [ %555, %567 ]
   %793 = phi ptr [ %604, %741 ], [ %554, %567 ]
   %794 = getelementptr inbounds i8, ptr %1, i64 408
-  %795 = invoke fastcc { ptr, i8 } @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$10close_hard28_$u7b$$u7b$closure$u7d$$u7d$17hc7d417c92f101735E"(ptr noundef nonnull align 8 %794, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %795 = invoke fastcc { ptr, i8 } @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$10close_hard28_$u7b$$u7b$closure$u7d$$u7d$17hc7d417c92f101735E"(ptr noundef nonnull align 8 %794, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %798 unwind label %796, !noalias !1297
 
 796:                                              ; preds = %791
@@ -8511,7 +8511,7 @@ common.ret:                                       ; preds = %2040, %1335, %1170,
   store i64 2, ptr %.sroa.12412.0..sroa_idx.i, align 8, !noalias !1285
   %.sroa.13413.0..sroa_idx.i = getelementptr inbounds i8, ptr %75, i64 16
   store ptr %932, ptr %.sroa.13413.0..sroa_idx.i, align 8, !noalias !1285
-  invoke fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9d38c1e14c7f0f50E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %75)
+  invoke fastcc void @"_ZN9sqlx_core4pool5inner15check_idle_conn28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9d38c1e14c7f0f50E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %75)
           to label %955 unwind label %953, !noalias !1297
 
 953:                                              ; preds = %951
@@ -9042,7 +9042,7 @@ common.ret:                                       ; preds = %2040, %1335, %1170,
   store i64 2, ptr %.sroa.12.0..sroa_idx.i.i, align 8, !noalias !1450
   %.sroa.13.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %56, i64 16
   store ptr %1092, ptr %.sroa.13.0..sroa_idx.i.i, align 8, !noalias !1450
-  invoke fastcc void @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$5close28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1577387dd01a30adE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %56)
+  invoke fastcc void @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$5close28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1577387dd01a30adE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %56)
           to label %1115 unwind label %1113, !noalias !1297
 
 1113:                                             ; preds = %1111
@@ -9147,7 +9147,7 @@ common.ret:                                       ; preds = %2040, %1335, %1170,
   %1143 = phi ptr [ %814, %956 ], [ %555, %568 ]
   %1144 = phi ptr [ %815, %956 ], [ %554, %568 ]
   %1145 = getelementptr inbounds i8, ptr %1, i64 408
-  %1146 = invoke fastcc { ptr, i8 } @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$10close_hard28_$u7b$$u7b$closure$u7d$$u7d$17hc7d417c92f101735E"(ptr noundef nonnull align 8 %1145, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %1146 = invoke fastcc { ptr, i8 } @"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Idle$LT$DB$GT$$GT$10close_hard28_$u7b$$u7b$closure$u7d$$u7d$17hc7d417c92f101735E"(ptr noundef nonnull align 8 %1145, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %1149 unwind label %1147, !noalias !1297
 
 1147:                                             ; preds = %1142
@@ -9582,7 +9582,7 @@ common.ret:                                       ; preds = %2040, %1335, %1170,
 .body:                                            ; preds = %.body.i, %153, %1247, %1222, %1228, %1328, %1332
   %.pn114.pn = phi { ptr, i32 } [ %.pn109.pn, %1332 ], [ %1329, %1328 ], [ %1229, %1228 ], [ %1223, %1222 ], [ %.pn101.pn.pn.pn, %1247 ], [ %154, %153 ], [ %.pn14.pn.i, %.body.i ]
   %1286 = getelementptr inbounds i8, ptr %1, i64 120
-  invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17ha49316212817f29fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1286) #26
+  invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17ha49316212817f29fE"(ptr noalias noundef align 8 dereferenceable(24) %1286) #26
           to label %.body135 unwind label %1186
 
 1287:                                             ; preds = %1230
@@ -11682,7 +11682,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   %2005 = phi ptr [ %1622, %1620 ], [ %1463, %1461 ], [ %1398, %1522 ], [ %1420, %1470 ]
   %.pn208.pn.pn.pn.i = phi { ptr, i32 } [ %.pn208.pn.pn.i, %1620 ], [ %.pn203.pn.i, %1461 ], [ %1523, %1522 ], [ %1471, %1470 ]
   %2006 = getelementptr inbounds i8, ptr %1, i64 224
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2006) #26
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17hfe1271a83ab51756E"(ptr noalias noundef align 8 dereferenceable(8) %2006) #26
           to label %.body258.i unwind label %1684, !noalias !1592
 
 2007:                                             ; preds = %.noexc248.i

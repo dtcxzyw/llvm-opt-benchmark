@@ -8411,7 +8411,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef i64 @_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L15NextValFunctionINS_25NextSequenceValueOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tEE_SA_lEET1_T0_RNS_12ValidityMaskEmPv(i64 %input.coerce0, ptr %input.coerce1, ptr nocapture noundef readonly %dataptr) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L15NextValFunctionINS_25NextSequenceValueOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tEE_SA_lEET1_T0_RNS_12ValidityMaskEmPv(i64 %input.coerce0, ptr %input.coerce1, ptr nocapture noundef nonnull readonly %dataptr) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %value.i = alloca %"struct.duckdb::string_t", align 8
@@ -8966,7 +8966,7 @@ unreachable:                                      ; preds = %invoke.cont3
 declare void @_ZN6duckdb17SequenceExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef i64 @_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L15NextValFunctionINS_28CurrentSequenceValueOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tEE_SA_lEET1_T0_RNS_12ValidityMaskEmPv(i64 %input.coerce0, ptr %input.coerce1, ptr nocapture noundef readonly %dataptr) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L15NextValFunctionINS_28CurrentSequenceValueOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tEE_SA_lEET1_T0_RNS_12ValidityMaskEmPv(i64 %input.coerce0, ptr %input.coerce1, ptr nocapture noundef nonnull readonly %dataptr) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %value.i = alloca %"struct.duckdb::string_t", align 8

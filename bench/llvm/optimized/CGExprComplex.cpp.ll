@@ -588,22 +588,22 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen15CodeGenFunction23EmitPromotedC
   ]
 
 23:                                               ; preds = %19
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull %16, i64 %2)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull %16, i64 %2)
   %24 = call { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull align 8 dereferenceable(44) %6)
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12EmitPromotedEPKN5clang4ExprENS1_8QualTypeE.exit
 
 25:                                               ; preds = %19
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull %16, i64 %2)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull %16, i64 %2)
   %26 = call { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull align 8 dereferenceable(44) %7)
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12EmitPromotedEPKN5clang4ExprENS1_8QualTypeE.exit
 
 27:                                               ; preds = %19
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull %16, i64 %2)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull %16, i64 %2)
   %28 = call { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull align 8 dereferenceable(44) %8)
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12EmitPromotedEPKN5clang4ExprENS1_8QualTypeE.exit
 
 29:                                               ; preds = %19
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull %16, i64 %2)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull %16, i64 %2)
   %30 = call { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %10, ptr noundef nonnull align 8 dereferenceable(44) %9)
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12EmitPromotedEPKN5clang4ExprENS1_8QualTypeE.exit
 
@@ -2239,7 +2239,7 @@ _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit22: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %1, ptr nocapture noundef readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %1, ptr nocapture noundef readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -4481,7 +4481,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter21EmitRangeReductionDivEPN4llvm5ValueES3_S3
   br label %471
 
 .thread173:                                       ; preds = %89, %93
-  %434 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16EmitAlgebraicDivEPN4llvm5ValueES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %62, ptr noundef %.0, ptr noundef %66, ptr noundef nonnull %68)
+  %434 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16EmitAlgebraicDivEPN4llvm5ValueES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %62, ptr noundef %.0, ptr noundef %66, ptr noundef %68)
   %435 = extractvalue { ptr, ptr } %434, 0
   %436 = extractvalue { ptr, ptr } %434, 1
   br label %471
@@ -6260,7 +6260,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
 declare noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16EmitAlgebraicDivEPN4llvm5ValueES3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16EmitAlgebraicDivEPN4llvm5ValueES3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -6280,7 +6280,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16Emit
   %21 = load ptr, ptr %17, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i16 257, ptr %22, align 8
-  %23 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateFMulEPNS_5ValueES2_RKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef %2, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef null)
+  %23 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateFMulEPNS_5ValueES2_RKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef null)
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i16 257, ptr %25, align 8
@@ -6292,7 +6292,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16Emit
   %30 = load ptr, ptr %17, align 8
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i16 257, ptr %31, align 8
-  %32 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateFMulEPNS_5ValueES2_RKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef %4, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef null)
+  %32 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateFMulEPNS_5ValueES2_RKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef null)
   %33 = load ptr, ptr %17, align 8
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i16 257, ptr %34, align 8
@@ -6304,7 +6304,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16Emit
   %39 = load ptr, ptr %17, align 8
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i16 257, ptr %40, align 8
-  %41 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateFMulEPNS_5ValueES2_RKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %39, ptr noundef %1, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef null)
+  %41 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateFMulEPNS_5ValueES2_RKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %39, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef null)
   %42 = load ptr, ptr %17, align 8
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i16 257, ptr %43, align 8
@@ -8785,7 +8785,7 @@ _ZNK5clang14BinaryOperator28getStoredFPFeaturesOrDefaultEv.exit: ; preds = %2, %
   %12 = and i32 %4, 16515072
   %13 = icmp eq i32 %12, 786432
   %14 = tail call fastcc i64 @_ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(19) %0, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext %13)
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 %14)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 %14)
   %15 = call { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull align 8 dereferenceable(44) %3)
   %.not.i.i = icmp ult i64 %14, 16
   br i1 %.not.i.i, label %21, label %16
@@ -8826,7 +8826,7 @@ _ZNK5clang14BinaryOperator28getStoredFPFeaturesOrDefaultEv.exit: ; preds = %2, %
   %12 = and i32 %4, 16515072
   %13 = icmp eq i32 %12, 786432
   %14 = tail call fastcc i64 @_ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(19) %0, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext %13)
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 %14)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 %14)
   %15 = call { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull align 8 dereferenceable(44) %3)
   %.not.i.i = icmp ult i64 %14, 16
   br i1 %.not.i.i, label %21, label %16
@@ -8907,7 +8907,7 @@ _ZNK5clang14BinaryOperator28getStoredFPFeaturesOrDefaultEv.exit: ; preds = %2, %
   %12 = and i32 %4, 16515072
   %13 = icmp eq i32 %12, 786432
   %14 = tail call fastcc i64 @_ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(19) %0, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext %13)
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 %14)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 %14)
   %15 = call { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull align 8 dereferenceable(44) %3)
   %.not.i.i = icmp ult i64 %14, 16
   br i1 %.not.i.i, label %21, label %16
@@ -8948,7 +8948,7 @@ _ZNK5clang14BinaryOperator28getStoredFPFeaturesOrDefaultEv.exit: ; preds = %2, %
   %12 = and i32 %4, 16515072
   %13 = icmp eq i32 %12, 786432
   %14 = tail call fastcc i64 @_ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(19) %0, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.copyload.i, i1 noundef zeroext %13)
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 %14)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 %14)
   %15 = call { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull align 8 dereferenceable(44) %3)
   %.not.i.i = icmp ult i64 %14, 16
   br i1 %.not.i.i, label %21, label %16

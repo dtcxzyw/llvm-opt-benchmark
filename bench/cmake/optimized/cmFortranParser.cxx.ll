@@ -516,7 +516,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   ]
 
 217:                                              ; preds = %215
-  %218 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr %.0281350, ptr nonnull %.0219.ptr357, i32 %216)
+  %218 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr %.0281350, ptr nonnull %.0219.ptr357, i32 %216)
   switch i32 %218, label %229 [
     i32 0, label %219
     i32 -1, label %220
@@ -540,7 +540,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br i1 %.not256, label %228, label %225
 
 225:                                              ; preds = %222
-  %226 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %224, ptr nonnull %.0219.ptr357, i32 %216)
+  %226 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr nonnull %224, ptr nonnull %.0219.ptr357, i32 %216)
   %227 = icmp eq i32 %226, -2
   br label %229
 
@@ -740,7 +740,7 @@ declare void @_Z24cmFortranParser_RuleElseP17cmFortranParser_s(ptr noundef) loca
 declare void @_Z25cmFortranParser_RuleEndifP17cmFortranParser_s(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #3 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %3

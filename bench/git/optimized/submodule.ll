@@ -1266,7 +1266,7 @@ entry:
   store ptr null, ptr %right, align 8
   store ptr null, ptr %merge_bases, align 8
   %call = tail call fastcc ptr @open_submodule(ptr noundef %path)
-  call fastcc void @show_submodule_header(ptr noundef %o, ptr noundef %path, ptr noundef %one, ptr noundef %two, i32 noundef %dirty_submodule, ptr noundef %call, ptr noundef nonnull %left, ptr noundef nonnull %right, ptr noundef nonnull %merge_bases)
+  call fastcc void @show_submodule_header(ptr noundef %o, ptr noundef %path, ptr noundef %one, ptr noundef %two, i32 noundef %dirty_submodule, ptr noundef %call, ptr noundef %left, ptr noundef %right, ptr noundef %merge_bases)
   %1 = load ptr, ptr %left, align 8
   %tobool = icmp ne ptr %1, null
   %2 = load ptr, ptr %right, align 8
@@ -1454,7 +1454,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_submodule_header(ptr noundef %o, ptr noundef %path, ptr noundef %one, ptr noundef %two, i32 noundef %dirty_submodule, ptr noundef %sub, ptr nocapture noundef %left, ptr nocapture noundef %right, ptr nocapture noundef writeonly %merge_bases) unnamed_addr #0 {
+define internal fastcc void @show_submodule_header(ptr noundef %o, ptr noundef %path, ptr noundef %one, ptr noundef %two, i32 noundef %dirty_submodule, ptr noundef %sub, ptr nocapture noundef nonnull %left, ptr nocapture noundef nonnull %right, ptr nocapture noundef nonnull writeonly %merge_bases) unnamed_addr #0 {
 entry:
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
@@ -1777,7 +1777,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %call = tail call fastcc ptr @open_submodule(ptr noundef %path)
-  call fastcc void @show_submodule_header(ptr noundef %o, ptr noundef %path, ptr noundef %one, ptr noundef %two, i32 noundef %dirty_submodule, ptr noundef %call, ptr noundef nonnull %left, ptr noundef nonnull %right, ptr noundef nonnull %merge_bases)
+  call fastcc void @show_submodule_header(ptr noundef %o, ptr noundef %path, ptr noundef %one, ptr noundef %two, i32 noundef %dirty_submodule, ptr noundef %call, ptr noundef %left, ptr noundef %right, ptr noundef %merge_bases)
   %3 = load ptr, ptr %left, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %lor.lhs.false, label %lor.lhs.false5
@@ -2057,7 +2057,7 @@ entry:
   %call1 = call i32 @oid_array_for_each_unique(ptr noundef %commits, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %argv) #14
   %call2 = call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull @.str.45) #14
   %call3 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %argv, ptr noundef nonnull @.str.46, ptr noundef %remotes_name) #14
-  call fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef nonnull %submodules, ptr noundef nonnull %argv)
+  call fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef %submodules, ptr noundef %argv)
   %1 = load ptr, ptr %submodules, align 8
   %tobool.not20 = icmp eq ptr %1, null
   br i1 %tobool.not20, label %free_submodules_data.exit, label %land.rhs.lr.ph
@@ -2108,7 +2108,7 @@ if.end13:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %call.i = call ptr @null_oid() #14
-  %call1.i = call fastcc i32 @submodule_has_commits(ptr noundef %r, ptr noundef nonnull %path.0, ptr noundef %call.i, ptr noundef nonnull %new_commits)
+  %call1.i = call fastcc i32 @submodule_has_commits(ptr noundef %r, ptr noundef %path.0, ptr noundef %call.i, ptr noundef nonnull %new_commits)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %submodule_needs_pushing.exit.thread, label %if.end.i
 
@@ -2221,7 +2221,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef %changed, ptr nocapture noundef readonly %argv) unnamed_addr #0 {
+define internal fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef nonnull %changed, ptr nocapture noundef nonnull readonly %argv) unnamed_addr #0 {
 entry:
   %rev = alloca %struct.rev_info, align 8
   %s_r_opt = alloca %struct.setup_revision_opt, align 8
@@ -2636,7 +2636,7 @@ if.then6:                                         ; preds = %is_null_oid.exit
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %is_null_oid.exit
-  call fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef nonnull %subs, ptr noundef nonnull %args)
+  call fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef %subs, ptr noundef %args)
   %nr = getelementptr inbounds i8, ptr %subs, i64 8
   %5 = load i64, ptr %nr, align 8
   %conv = trunc i64 %5 to i32
@@ -2783,7 +2783,7 @@ if.end.i:                                         ; preds = %repo_has_absorbed_s
   %call4.i = call i32 @oid_array_for_each_unique(ptr noundef nonnull @ref_tips_after_fetch, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %argv.i) #14
   %call5.i = call ptr @strvec_push(ptr noundef nonnull %argv.i, ptr noundef nonnull @.str.45) #14
   %call6.i = call i32 @oid_array_for_each_unique(ptr noundef nonnull @ref_tips_before_fetch, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %argv.i) #14
-  call fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef nonnull %changed_submodule_names, ptr noundef nonnull %argv.i)
+  call fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef %changed_submodule_names, ptr noundef %argv.i)
   %7 = load ptr, ptr %changed_submodule_names, align 8
   %tobool7.not22.i = icmp eq ptr %7, null
   br i1 %tobool7.not22.i, label %for.end.i, label %land.rhs.lr.ph.i
@@ -2826,7 +2826,7 @@ if.end16.i:                                       ; preds = %if.else.i, %if.then
 if.end19.i:                                       ; preds = %if.end16.i
   %call20.i = call ptr @null_oid() #14
   %new_commits.i = getelementptr inbounds i8, ptr %9, i64 16
-  %call21.i = call fastcc i32 @submodule_has_commits(ptr noundef %r, ptr noundef nonnull %path.0.i, ptr noundef %call20.i, ptr noundef nonnull %new_commits.i)
+  %call21.i = call fastcc i32 @submodule_has_commits(ptr noundef %r, ptr noundef %path.0.i, ptr noundef %call20.i, ptr noundef nonnull %new_commits.i)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %for.inc.i, label %if.then23.i
 
@@ -4846,7 +4846,7 @@ declare void @reset_revision_walk() local_unnamed_addr #1
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @submodule_has_commits(ptr noundef %r, ptr noundef %path, ptr noundef %super_oid, ptr noundef %commits) unnamed_addr #0 {
+define internal fastcc i32 @submodule_has_commits(ptr noundef %r, ptr noundef nonnull %path, ptr noundef %super_oid, ptr noundef %commits) unnamed_addr #0 {
 entry:
   %has_commit = alloca %struct.has_commit_data, align 8
   %cp = alloca %struct.child_process, align 8

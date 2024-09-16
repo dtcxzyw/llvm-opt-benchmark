@@ -1376,7 +1376,7 @@ define hidden void @_ZN40Symbolize_SymbolizeStackConsumption_Test8TestBodyEv(ptr
   %16 = alloca i32, align 4
   %17 = alloca %"class.testing::Message", align 8
   %18 = alloca %"class.testing::internal::AssertHelper", align 8
-  %19 = call fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr noundef nonnull @nonstatic_func, ptr noundef nonnull %2)
+  %19 = call fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr noundef nonnull @nonstatic_func, ptr noundef %2)
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.27, ptr noundef %19)
   %20 = load i8, ptr %3, align 8
   %21 = trunc i8 %20 to i1
@@ -1572,7 +1572,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit46:          ; preds = %79, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i45
   store ptr null, ptr %80, align 8
-  %82 = call fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr noundef nonnull @_ZL11static_funcv, ptr noundef nonnull %2)
+  %82 = call fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr noundef nonnull @_ZL11static_funcv, ptr noundef %2)
   %.not = icmp eq ptr %82, null
   br i1 %.not, label %83, label %.critedge
 
@@ -1826,7 +1826,7 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %155, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

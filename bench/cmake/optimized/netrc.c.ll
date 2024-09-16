@@ -55,7 +55,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %0, ptr nocap
   br label %.thread
 
 21:                                               ; preds = %.thread30
-  %22 = call fastcc i32 @parsenetrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %18)
+  %22 = call fastcc i32 @parsenetrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18)
   %23 = load ptr, ptr @Curl_cfree, align 8
   call void %23(ptr noundef nonnull %18) #4
   %24 = load ptr, ptr @Curl_cfree, align 8
@@ -63,7 +63,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %0, ptr nocap
   br label %.thread
 
 25:                                               ; preds = %4
-  %26 = tail call fastcc i32 @parsenetrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
+  %26 = tail call fastcc i32 @parsenetrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %.thread
 
 .thread:                                          ; preds = %10, %21, %25, %19
@@ -81,7 +81,7 @@ declare i32 @geteuid() local_unnamed_addr #2
 declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
@@ -95,7 +95,7 @@ define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr noca
 
 11:                                               ; preds = %8, %4
   %12 = phi i1 [ false, %4 ], [ %10, %8 ]
-  %13 = tail call noalias ptr @fopen64(ptr noundef %3, ptr noundef nonnull @.str.3)
+  %13 = tail call noalias ptr @fopen64(ptr noundef nonnull %3, ptr noundef nonnull @.str.3)
   %.not160 = icmp eq ptr %13, null
   br i1 %.not160, label %122, label %.outer212.split.preheader
 

@@ -458,7 +458,7 @@ define internal void @"_ZN4core3ptr54drop_in_place$LT$$RF$alloc..borrow..Cow$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h1a3e2965a550fd93E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h1a3e2965a550fd93E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -630,7 +630,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$$RF$tracing_error..backtra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17hd84a3959dabe2153E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17hd84a3959dabe2153E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 {
   tail call void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7b1562932771ed17E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   ret void
 }
@@ -783,7 +783,7 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17ha6d4d67b10ed92f4E(i64 no
   ret void
 
 13:                                               ; preds = %.lr.ph
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0143, i64 %.099141)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umin.i64(i64 %.0143, i64 %.099141)
   %14 = icmp ult i64 %.0.sroa.speculated.i, 9
   br i1 %14, label %29, label %18
 
@@ -2503,7 +2503,7 @@ _ZN10ockam_core5error5inner12trace_config11TraceConfig3get17h1fbbb7a2607cc0b3E.e
 48:                                               ; preds = %47
   %49 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17hd84a3959dabe2153E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %21) #31
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17hd84a3959dabe2153E"(ptr noalias noundef align 8 dereferenceable(40) %21) #31
           to label %.body unwind label %50
 
 50:                                               ; preds = %48
@@ -2639,7 +2639,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit35:  ; preds = %68
 84:                                               ; preds = %83
   %85 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h1a3e2965a550fd93E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12) #31
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h1a3e2965a550fd93E"(ptr noalias noundef align 8 dereferenceable(72) %12) #31
           to label %.thread unwind label %86
 
 86:                                               ; preds = %84
@@ -2805,7 +2805,7 @@ define void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h1a3e2965a550fd93E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %10) #31
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h1a3e2965a550fd93E"(ptr noalias noundef align 8 dereferenceable(72) %10) #31
           to label %common.resume unwind label %32
 
 common.resume:                                    ; preds = %18, %30

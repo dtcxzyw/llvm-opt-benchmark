@@ -843,7 +843,7 @@ declare hidden void @lj_err_argt(ptr noundef, i32 noundef, i32 noundef) local_un
 declare hidden ptr @lj_cdata_index(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ffi_index_meta(ptr noundef %L, ptr noundef %cts, ptr noundef %ct, i32 noundef %mm) unnamed_addr #0 {
+define internal fastcc i32 @ffi_index_meta(ptr noundef %L, ptr noundef %cts, ptr noundef %ct, i32 noundef range(i32 0, 2) %mm) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cts, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %ct to i64
@@ -1366,7 +1366,7 @@ declare hidden ptr @lj_ctype_repr_int64(ptr noundef, i64 noundef, i32 noundef) l
 declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ffi_pairs(ptr noundef %L, i32 noundef %mm) unnamed_addr #0 {
+define internal fastcc i32 @ffi_pairs(ptr noundef %L, i32 noundef range(i32 20, 22) %mm) unnamed_addr #0 {
 entry:
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref.i, align 8

@@ -6477,7 +6477,7 @@ if.end91:                                         ; preds = %invoke.cont88, %if.
   ]
 
 sw.bb95:                                          ; preds = %if.end91
-  invoke fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116WeightedTargetLb14WeightedPickerEJSt6vectorISt4pairImNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEESaISA_EEEEENS6_IT_EEDpOT0_(ptr noalias nonnull align 8 %ref.tmp96, ptr noundef nonnull align 8 dereferenceable(24) %ready_picker_list)
+  invoke fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116WeightedTargetLb14WeightedPickerEJSt6vectorISt4pairImNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEESaISA_EEEEENS6_IT_EEDpOT0_(ptr noalias align 8 %ref.tmp96, ptr noundef nonnull align 8 dereferenceable(24) %ready_picker_list)
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %sw.bb95
@@ -6544,7 +6544,7 @@ default.unreachable:                              ; preds = %if.end91
   unreachable
 
 sw.default109:                                    ; preds = %if.end91
-  invoke fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116WeightedTargetLb14WeightedPickerEJSt6vectorISt4pairImNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEESaISA_EEEEENS6_IT_EEDpOT0_(ptr noalias nonnull align 8 %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(24) %tf_picker_list)
+  invoke fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116WeightedTargetLb14WeightedPickerEJSt6vectorISt4pairImNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEESaISA_EEEEENS6_IT_EEDpOT0_(ptr noalias align 8 %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(24) %tf_picker_list)
           to label %invoke.cont111 unwind label %lpad97
 
 invoke.cont111:                                   ; preds = %sw.default109
@@ -10205,7 +10205,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN9grpc_core19Load
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116WeightedTargetLb14WeightedPickerEJSt6vectorISt4pairImNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEESaISA_EEEEENS6_IT_EEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116WeightedTargetLb14WeightedPickerEJSt6vectorISt4pairImNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEESaISA_EEEEENS6_IT_EEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %seeder.i.i.i = alloca %"class.absl::lts_20230802::random_internal::RandenPoolSeedSeq", align 1
   %agg.tmp = alloca %"class.std::vector.343", align 8

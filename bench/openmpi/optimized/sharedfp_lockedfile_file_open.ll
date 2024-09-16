@@ -228,7 +228,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %26, %34, %47, %49
   br label %136
 
 108:                                              ; preds = %103
-  %109 = call fastcc i32 @opal_best_effort_write(i32 noundef %104, ptr noundef nonnull %9)
+  %109 = call fastcc i32 @opal_best_effort_write(i32 noundef %104, ptr noundef %9)
   %.not100 = icmp eq i32 %109, 0
   br i1 %.not100, label %112, label %110
 
@@ -319,14 +319,14 @@ declare noalias ptr @opal_os_path(i32 noundef, ...) local_unnamed_addr #2
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @opal_best_effort_write(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 1) i32 @opal_best_effort_write(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %2, %12
   %.01317 = phi i64 [ 0, %2 ], [ %13, %12 ]
   %4 = getelementptr inbounds i8, ptr %1, i64 %.01317
   %5 = sub i64 8, %.01317
-  %6 = tail call i64 @write(i32 noundef %0, ptr noundef %4, i64 noundef %5) #11
+  %6 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef %5) #11
   %7 = icmp slt i64 %6, 0
   br i1 %7, label %8, label %11
 

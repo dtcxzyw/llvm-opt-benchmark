@@ -609,7 +609,8 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @_ZTVN4llvm14ConstantFolderE = external unnamed_addr constant { [22 x ptr] }, align 8
 @_ZTVN4llvm24IRBuilderDefaultInserterE = external unnamed_addr constant { [5 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_AArch64TargetTransformInfo.cpp, ptr null }]
-@switch.table._ZL21instCombineSVECntEltsRN4llvm12InstCombinerERNS_13IntrinsicInstEj = private unnamed_addr constant [13 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 32, i32 64, i32 128, i32 256], align 4
+@switch.table._ZL18instCombineSVELastRN4llvm12InstCombinerERNS_13IntrinsicInstE = private unnamed_addr constant [13 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 32, i32 64, i32 128, i32 256], align 4
+@switch.table._ZL21instCombineSVECntEltsRN4llvm12InstCombinerERNS_13IntrinsicInstEj = private unnamed_addr constant [9 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
@@ -8277,7 +8278,7 @@ _ZL32instCombineSVEAllOrNoActiveUnaryRN4llvm12InstCombinerERNS_13IntrinsicInstE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i8 } @_ZL32instCombineSVENoActiveUnaryEraseRN4llvm12InstCombinerERNS_13IntrinsicInstEi(ptr noundef nonnull align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc { ptr, i8 } @_ZL32instCombineSVENoActiveUnaryEraseRN4llvm12InstCombinerERNS_13IntrinsicInstEi(ptr noundef nonnull align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
@@ -8285,7 +8286,7 @@ define internal fastcc { ptr, i8 } @_ZL32instCombineSVENoActiveUnaryEraseRN4llvm
   %8 = zext nneg i32 %7 to i64
   %9 = sub nsw i64 0, %8
   %10 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %9
-  %11 = zext i32 %2 to i64
+  %11 = zext nneg i32 %2 to i64
   %12 = getelementptr inbounds %"class.llvm::Use", ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   store ptr null, ptr %4, align 8
@@ -10660,7 +10661,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_5ValueEEEDcPT0_.exit: ; preds = %_ZN4llv
 
 switch.lookup:                                    ; preds = %200
   %215 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZL21instCombineSVECntEltsRN4llvm12InstCombinerERNS_13IntrinsicInstEj, i64 0, i64 %215
+  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZL18instCombineSVELastRN4llvm12InstCombinerERNS_13IntrinsicInstE, i64 0, i64 %215
   %switch.load = load i32, ptr %switch.gep, align 4
   %not. = xor i1 %32, true
   %216 = sext i1 %not. to i32
@@ -10876,7 +10877,7 @@ _ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i8 } @_ZL21instCombineSVECntEltsRN4llvm12InstCombinerERNS_13IntrinsicInstEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc { ptr, i8 } @_ZL21instCombineSVECntEltsRN4llvm12InstCombinerERNS_13IntrinsicInstEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef range(i32 2, 17) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
@@ -10971,12 +10972,12 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i: ; 
 56:                                               ; preds = %3
   %57 = trunc i64 %.0.i.i to i32
   %switch.tableidx = add i32 %57, -1
-  %58 = icmp ult i32 %switch.tableidx, 13
+  %58 = icmp ult i32 %switch.tableidx, 9
   br i1 %58, label %switch.lookup, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
 switch.lookup:                                    ; preds = %56
   %59 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZL21instCombineSVECntEltsRN4llvm12InstCombinerERNS_13IntrinsicInstEj, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZL21instCombineSVECntEltsRN4llvm12InstCombinerERNS_13IntrinsicInstEj, i64 0, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not19 = icmp ult i32 %2, %switch.load
   br i1 %.not19, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit, label %60
@@ -11497,7 +11498,7 @@ _ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i8 } @_ZL27instCombineSVEAllOrNoActiveRN4llvm12InstCombinerERNS_13IntrinsicInstEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc { ptr, i8 } @_ZL27instCombineSVEAllOrNoActiveRN4llvm12InstCombinerERNS_13IntrinsicInstEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef range(i32 1068, 1826) %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::PatternMatch::match_combine_and.462", align 8
   %5 = alloca [1 x ptr], align 8
   %6 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty", align 8

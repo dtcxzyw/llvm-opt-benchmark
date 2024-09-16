@@ -601,7 +601,7 @@ declare i64 @lua_objlen(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @g_read(ptr noundef %L, ptr noundef %f, i32 noundef %first) unnamed_addr #0 {
+define internal fastcc i32 @g_read(ptr noundef %L, ptr noundef %f, i32 noundef range(i32 1, 3) %first) unnamed_addr #0 {
 entry:
   %b.i80 = alloca %struct.luaL_Buffer, align 8
   %d.i = alloca double, align 8
@@ -764,7 +764,7 @@ cleanup:                                          ; preds = %lor.end
 
 for.inc:                                          ; preds = %read_chars.exit97, %sw.bb21, %read_number.exit, %read_chars.exit, %cond.true
   %success.3 = phi i32 [ %conv.i, %cond.true ], [ %lor.ext.i, %read_chars.exit ], [ %retval.0.i, %read_number.exit ], [ %call22, %sw.bb21 ], [ 1, %read_chars.exit97 ]
-  %inc = add nsw i32 %n.0109, 1
+  %inc = add nuw nsw i32 %n.0109, 1
   %dec = add nsw i32 %dec110, -1
   %tobool = icmp ne i32 %dec110, 0
   %tobool3 = icmp ne i32 %success.3, 0
@@ -848,7 +848,7 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
 declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 1, 4) i32 @g_write(ptr noundef %L, ptr nocapture noundef %f, i32 noundef %arg) unnamed_addr #0 {
+define internal fastcc noundef range(i32 1, 4) i32 @g_write(ptr noundef %L, ptr nocapture noundef %f, i32 noundef range(i32 1, 3) %arg) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %call = tail call i32 @lua_gettop(ptr noundef %L) #9
@@ -902,7 +902,7 @@ for.inc:                                          ; preds = %land.end11, %land.r
 for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
   %nargs.028.be = phi i32 [ %nargs.0, %for.inc ], [ %nargs.04, %for.inc.thread ]
   %status.026.be = phi i32 [ %status.1, %for.inc ], [ 0, %for.inc.thread ]
-  %arg.addr.027.be = add nsw i32 %arg.addr.027, 1
+  %arg.addr.027.be = add nuw nsw i32 %arg.addr.027, 1
   br label %for.body, !llvm.loop !21
 
 for.inc.thread:                                   ; preds = %if.then
@@ -1235,7 +1235,7 @@ getiofile.exit:                                   ; preds = %entry.split, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @g_iofile(ptr noundef %L, i32 noundef %f, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
+define internal fastcc void @g_iofile(ptr noundef %L, i32 noundef range(i32 1, 3) %f, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #9
   %cmp = icmp slt i32 %call, 1

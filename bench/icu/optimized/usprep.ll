@@ -732,7 +732,7 @@ if.end19:                                         ; preds = %invoke.cont
   %fCapacity.i = getelementptr inbounds i8, ptr %s1, i64 16
   %4 = load i32, ptr %fCapacity.i, align 8
   %cond.i = select i1 %tobool.not.i, i32 %4, i32 27
-  %call23 = invoke fastcc noundef i32 @_ZL10usprep_mapPK18UStringPrepProfilePKDsiPDsiiP11UParseErrorP10UErrorCode(ptr noundef nonnull %profile, ptr noundef %src, i32 noundef %srcLength.addr.0, ptr noundef nonnull %call16, i32 noundef %cond.i, i32 noundef %options, ptr noundef %parseError, ptr noundef nonnull %status)
+  %call23 = invoke fastcc noundef i32 @_ZL10usprep_mapPK18UStringPrepProfilePKDsiPDsiiP11UParseErrorP10UErrorCode(ptr noundef %profile, ptr noundef %src, i32 noundef %srcLength.addr.0, ptr noundef %call16, i32 noundef %cond.i, i32 noundef %options, ptr noundef %parseError, ptr noundef nonnull %status)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %if.end19
@@ -766,7 +766,7 @@ if.end36:                                         ; preds = %invoke.cont32
   %tobool.not.i109 = icmp eq i16 %8, 0
   %9 = load i32, ptr %fCapacity.i, align 8
   %cond.i111 = select i1 %tobool.not.i109, i32 %9, i32 27
-  %call40 = invoke fastcc noundef i32 @_ZL10usprep_mapPK18UStringPrepProfilePKDsiPDsiiP11UParseErrorP10UErrorCode(ptr noundef nonnull %profile, ptr noundef %src, i32 noundef %srcLength.addr.0, ptr noundef nonnull %call33, i32 noundef %cond.i111, i32 noundef %options, ptr noundef %parseError, ptr noundef nonnull %status)
+  %call40 = invoke fastcc noundef i32 @_ZL10usprep_mapPK18UStringPrepProfilePKDsiPDsiiP11UParseErrorP10UErrorCode(ptr noundef %profile, ptr noundef %src, i32 noundef %srcLength.addr.0, ptr noundef %call33, i32 noundef %cond.i111, i32 noundef %options, ptr noundef %parseError, ptr noundef nonnull %status)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %if.end36
@@ -1143,7 +1143,7 @@ declare noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull a
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL10usprep_mapPK18UStringPrepProfilePKDsiPDsiiP11UParseErrorP10UErrorCode(ptr nocapture noundef readonly %profile, ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %parseError, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL10usprep_mapPK18UStringPrepProfilePKDsiPDsiiP11UParseErrorP10UErrorCode(ptr nocapture noundef nonnull readonly %profile, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %parseError, ptr noundef %status) unnamed_addr #0 {
 entry:
   %conv = and i32 %options, 1
   %initialValue81 = getelementptr inbounds i8, ptr %profile, i64 96
@@ -1481,7 +1481,7 @@ for.cond.outer.backedge:                          ; preds = %for.cond.outer.back
   br label %for.cond.outer, !llvm.loop !7
 
 for.end179:                                       ; preds = %for.cond
-  %call180 = tail call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %destIndex.0.ph, ptr noundef %status)
+  %call180 = tail call i32 @u_terminateUChars_75(ptr noundef nonnull %dest, i32 noundef %destCapacity, i32 noundef %destIndex.0.ph, ptr noundef %status)
   br label %return
 
 return:                                           ; preds = %for.end179, %uprv_syntaxError_75.exit

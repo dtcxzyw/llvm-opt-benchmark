@@ -4202,7 +4202,7 @@ binary_op.exit:                                   ; preds = %entry, %Py_DECREF.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @binary_op(ptr noundef %v, ptr noundef %w, i32 noundef %op_slot, ptr noundef %op_name) unnamed_addr #0 {
+define internal fastcc ptr @binary_op(ptr noundef %v, ptr noundef %w, i32 noundef range(i32 8, 273) %op_slot, ptr noundef %op_name) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @binary_op1(ptr noundef %v, ptr noundef %w, i32 noundef %op_slot)
   %cmp = icmp eq ptr %call, @_Py_NotImplementedStruct
@@ -4537,7 +4537,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @binary_op1(ptr noundef %v, ptr noundef %w, i32 noundef %op_slot) unnamed_addr #0 {
+define internal fastcc ptr @binary_op1(ptr noundef %v, ptr noundef %w, i32 noundef range(i32 0, 273) %op_slot) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val37 = load ptr, ptr %0, align 8
@@ -5180,7 +5180,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @binary_iop(ptr noundef %v, ptr noundef %w, i32 noundef %iop_slot, i32 noundef %op_slot, ptr noundef %op_name) unnamed_addr #0 {
+define internal fastcc ptr @binary_iop(ptr noundef %v, ptr noundef %w, i32 noundef range(i32 160, 281) %iop_slot, i32 noundef range(i32 8, 273) %op_slot, ptr noundef %op_name) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val.i = load ptr, ptr %0, align 8
@@ -9151,7 +9151,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49584))
+  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49584))
   br label %return
 
 return:                                           ; preds = %if.then.i, %_PyErr_Occurred.exit.i, %if.end4, %if.then2
@@ -9162,7 +9162,7 @@ return:                                           ; preds = %if.then.i, %_PyErr_
 declare ptr @PyDict_Keys(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @method_output_as_list(ptr noundef %o, ptr noundef %meth) unnamed_addr #0 {
+define internal fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef %meth) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -9331,7 +9331,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49128))
+  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49128))
   br label %return
 
 return:                                           ; preds = %if.then.i, %_PyErr_Occurred.exit.i, %if.end4, %if.then2
@@ -9377,7 +9377,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 61640))
+  %call5 = tail call fastcc ptr @method_output_as_list(ptr noundef %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 61640))
   br label %return
 
 return:                                           ; preds = %if.then.i, %_PyErr_Occurred.exit.i, %if.end4, %if.then2

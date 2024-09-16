@@ -98,7 +98,7 @@ if.end:                                           ; preds = %entry
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define internal fastcc void @error_exit(i32 noundef %err, ptr noundef %msg) unnamed_addr #3 {
+define internal fastcc void @error_exit(i32 noundef range(i32 1, 0) %err, ptr noundef %msg) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call ptr @strerror(i32 noundef %err) #21
@@ -701,12 +701,12 @@ if.then.i:                                        ; preds = %entry
   br label %compute_abs_deadline.exit
 
 compute_abs_deadline.exit:                        ; preds = %entry, %if.then.i
-  %call = call fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef %cond, ptr noundef %mutex, ptr noundef nonnull %ts, ptr noundef %file, i32 noundef %line)
+  %call = call fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef %cond, ptr noundef %mutex, ptr noundef %ts, ptr noundef %file, i32 noundef %line)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef %cond, ptr noundef %mutex, ptr noundef %ts, ptr noundef %file, i32 noundef %line) unnamed_addr #1 {
+define internal fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef %cond, ptr noundef %mutex, ptr noundef nonnull %ts, ptr noundef %file, i32 noundef %line) unnamed_addr #1 {
 entry:
   %_now.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -754,7 +754,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qemu_mutex_unlock.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call = tail call i32 @pthread_cond_timedwait(ptr noundef nonnull %cond, ptr noundef %mutex, ptr noundef %ts) #21
+  %call = tail call i32 @pthread_cond_timedwait(ptr noundef nonnull %cond, ptr noundef %mutex, ptr noundef nonnull %ts) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i9)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i10 = icmp ne i32 %7, 0
@@ -1002,7 +1002,7 @@ while.cond1:                                      ; preds = %while.body2
   br i1 %cmp, label %while.body2, label %if.then9, !llvm.loop !5
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %while.cond1
-  %call = call fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef nonnull %cond, ptr noundef nonnull %sem, ptr noundef nonnull %ts, ptr noundef nonnull @.str.1, i32 noundef 297)
+  %call = call fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef nonnull %cond, ptr noundef nonnull %sem, ptr noundef %ts, ptr noundef nonnull @.str.1, i32 noundef 297)
   br i1 %call, label %while.cond1, label %if.end11, !llvm.loop !5
 
 if.then9:                                         ; preds = %while.cond1, %compute_abs_deadline.exit

@@ -921,7 +921,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecx_key_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_key_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -929,12 +929,12 @@ entry:
   %1 = load ptr, ptr %ameth, align 8
   %2 = load i32, ptr %1, align 8
   %call = tail call ptr @OBJ_nid2ln(i32 noundef %2) #7
-  %cmp = icmp eq i32 %op, 1
-  %cmp2 = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.else
+  %cmp.not = icmp eq i32 %op, 0
+  %cmp34 = icmp eq ptr %0, null
+  br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 %cmp2, label %if.then4, label %lor.lhs.false
+  br i1 %cmp34, label %if.then4, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %privkey = getelementptr inbounds i8, ptr %0, i64 80
@@ -979,7 +979,7 @@ cond.end:                                         ; preds = %if.end16, %if.end16
   br i1 %cmp30, label %return, label %if.end48
 
 if.else:                                          ; preds = %entry
-  br i1 %cmp2, label %if.then36, label %if.end42
+  br i1 %cmp34, label %if.then36, label %if.end42
 
 if.then36:                                        ; preds = %if.else
   %call37 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.13, i32 noundef %indent, ptr noundef nonnull @.str.10) #7
@@ -1055,7 +1055,7 @@ declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #5
 declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef %keytype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_generic_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef range(i32 1034, 1089) %keytype) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %vpctx) #7
   %libctx = getelementptr inbounds i8, ptr %vpctx, i64 8
@@ -1154,7 +1154,7 @@ define internal range(i32 0, 2) i32 @pkey_ecx_derive25519(ptr nocapture noundef 
 entry:
   %privkey = alloca ptr, align 8
   %pubkey = alloca ptr, align 8
-  %call = call fastcc i32 @validate_ecx_derive(ptr noundef %ctx, ptr noundef nonnull %privkey, ptr noundef nonnull %pubkey)
+  %call = call fastcc i32 @validate_ecx_derive(ptr noundef %ctx, ptr noundef %privkey, ptr noundef %pubkey)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
@@ -1187,7 +1187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_ecx_derive(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %privkey, ptr nocapture noundef writeonly %pubkey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_ecx_derive(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull writeonly %privkey, ptr nocapture noundef nonnull writeonly %pubkey) unnamed_addr #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey, align 8
@@ -1255,7 +1255,7 @@ define internal range(i32 0, 2) i32 @pkey_ecx_derive448(ptr nocapture noundef re
 entry:
   %privkey = alloca ptr, align 8
   %pubkey = alloca ptr, align 8
-  %call = call fastcc i32 @validate_ecx_derive(ptr noundef %ctx, ptr noundef nonnull %privkey, ptr noundef nonnull %pubkey)
+  %call = call fastcc i32 @validate_ecx_derive(ptr noundef %ctx, ptr noundef %privkey, ptr noundef %pubkey)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 

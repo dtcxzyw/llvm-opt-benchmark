@@ -20023,7 +20023,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %36, ptr %29, align 8
   store ptr %38, ptr %30, align 8
   store ptr %40, ptr %31, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm6RecordENS3_10OpcodeInfoEESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZL19processSTIPredicateRNS3_20STIPredicateFunctionERKNS3_8DenseMapIS6_jNS3_12DenseMapInfoIS6_vEENS3_6detail12DenseMapPairIS6_jEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa45, ptr noundef nonnull %9, ptr %3, ptr %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm6RecordENS3_10OpcodeInfoEESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZL19processSTIPredicateRNS3_20STIPredicateFunctionERKNS3_8DenseMapIS6_jNS3_12DenseMapInfoIS6_vEENS3_6detail12DenseMapPairIS6_jEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa45, ptr noundef %9, ptr %3, ptr %4)
   %41 = load ptr, ptr %29, align 8
   %42 = load ptr, ptr %30, align 8
   %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, %42
@@ -20122,7 +20122,7 @@ _ZNSt4pairIPKN4llvm6RecordENS0_10OpcodeInfoEED2Ev.exit19.i.i.i: ; preds = %59, %
   store ptr %72, ptr %66, align 8
   store ptr %74, ptr %67, align 8
   store ptr %76, ptr %68, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm6RecordENS3_10OpcodeInfoEESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZL19processSTIPredicateRNS3_20STIPredicateFunctionERKNS3_8DenseMapIS6_jNS3_12DenseMapInfoIS6_vEENS3_6detail12DenseMapPairIS6_jEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %83, ptr noundef nonnull %6, ptr %3, ptr %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm6RecordENS3_10OpcodeInfoEESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZL19processSTIPredicateRNS3_20STIPredicateFunctionERKNS3_8DenseMapIS6_jNS3_12DenseMapInfoIS6_vEENS3_6detail12DenseMapPairIS6_jEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %83, ptr noundef %6, ptr %3, ptr %4)
   %84 = load ptr, ptr %66, align 8
   %85 = load ptr, ptr %67, align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %84, %85
@@ -20408,7 +20408,7 @@ _ZSt8_DestroyIPN4llvm13PredicateInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm6RecordENS3_10OpcodeInfoEESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZL19processSTIPredicateRNS3_20STIPredicateFunctionERKNS3_8DenseMapIS6_jNS3_12DenseMapInfoIS6_vEENS3_6detail12DenseMapPairIS6_jEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr %4, ptr %5) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm6RecordENS3_10OpcodeInfoEESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZL19processSTIPredicateRNS3_20STIPredicateFunctionERKNS3_8DenseMapIS6_jNS3_12DenseMapInfoIS6_vEENS3_6detail12DenseMapPairIS6_jEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3, ptr %4, ptr %5) unnamed_addr #0 {
   %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %8 = alloca %"struct.std::pair.287", align 8
   store ptr %4, ptr %7, align 8

@@ -2972,7 +2972,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare i32 @color_fprintf_ln(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_modified_files(ptr noundef %r, i32 noundef %filter, ptr noundef %files, ptr noundef %ps, ptr noundef writeonly %unmerged_count, ptr noundef writeonly %binary_count) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_modified_files(ptr noundef %r, i32 noundef range(i32 0, 3) %filter, ptr noundef %files, ptr noundef %ps, ptr noundef writeonly %unmerged_count, ptr noundef writeonly %binary_count) unnamed_addr #0 {
 entry:
   %head_oid = alloca %struct.object_id, align 4
   %s = alloca %struct.collection_status, align 8

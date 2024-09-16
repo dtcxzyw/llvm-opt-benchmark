@@ -1557,7 +1557,7 @@ define dso_local ptr @__xdp_build_skb_from_frame(ptr nocapture noundef %0, ptr n
 declare dso_local ptr @build_skb_around(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #9 align 16 {
+define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #9 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 188

@@ -7170,7 +7170,7 @@ define void @_ZN3nix62rapidCheck_propImpl_parseShebangContent_prop_round_trip_si
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
-  call fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, i64 %20, ptr %18)
+  call fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %2, i64 %20, ptr %18)
   %21 = load ptr, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load i64, ptr %22, align 8
@@ -7409,7 +7409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %0, i64 %1, ptr nocapture readonly %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr nocapture readonly %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -8667,7 +8667,7 @@ define void @_ZN3nix59rapidCheck_propImpl_parseShebangContent_prop_round_trip_tw
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
-  call fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i64 %30, ptr %28)
+  call fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %6, i64 %30, ptr %28)
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.76)
           to label %31 unwind label %130
 
@@ -8675,7 +8675,7 @@ define void @_ZN3nix59rapidCheck_propImpl_parseShebangContent_prop_round_trip_tw
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8
-  invoke fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 %34, ptr %32)
+  invoke fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %7, i64 %34, ptr %32)
           to label %35 unwind label %132
 
 35:                                               ; preds = %31

@@ -1886,7 +1886,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds i16, ptr %82, i64 %85
   %87 = getelementptr inbounds [2 x [64 x i16]], ptr %76, i64 0, i64 %79
-  call fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef nonnull %86, ptr noundef nonnull %15, i32 noundef %21, ptr noundef %87)
+  call fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef %86, ptr noundef %15, i32 noundef %21, ptr noundef %87)
   %88 = icmp ugt i32 %.0143289.us, %22
   %89 = zext i1 %88 to i64
   %90 = add nuw nsw i64 %79, %89
@@ -2090,7 +2090,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
   %220 = getelementptr inbounds [2 x [256 x i32]], ptr %219, i64 0, i64 %211
   %221 = load ptr, ptr %130, align 8
   %222 = getelementptr inbounds [2 x [64 x i16]], ptr %221, i64 0, i64 %211
-  call fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef nonnull %218, ptr noundef nonnull %15, i32 noundef %21, ptr noundef %222)
+  call fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef %218, ptr noundef %15, i32 noundef %21, ptr noundef %222)
   %223 = icmp ugt i32 %.1144295.us, %22
   %224 = zext i1 %223 to i64
   %225 = add nuw nsw i64 %211, %224
@@ -4175,7 +4175,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #15 {
+define internal fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 8, 17) %2, ptr nocapture noundef readonly %3) unnamed_addr #15 {
   %5 = alloca [64 x i32], align 16
   %6 = zext nneg i32 %2 to i64
   br label %7

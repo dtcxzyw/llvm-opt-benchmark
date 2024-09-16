@@ -1465,14 +1465,14 @@ define ptr @decrypt_any(ptr nocapture noundef readonly %0, i32 noundef %1, ptr n
 
 58:                                               ; preds = %50
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.52) #23
-  call fastcc void @aes_256cbc_decrypt(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %49, ptr noundef nonnull %6, i32 noundef %spec.store.select, i32 noundef 1)
+  call fastcc void @aes_256cbc_decrypt(ptr noundef nonnull %2, ptr noundef %3, ptr noundef %49, ptr noundef nonnull %6, i32 noundef %spec.store.select, i32 noundef 1)
   br label %66
 
 59:                                               ; preds = %50
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53) #23
   %60 = load ptr, ptr %13, align 8
   %61 = load i32, ptr %17, align 8
-  call fastcc void @aes_256cbc_decrypt(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %49, ptr noundef %60, i32 noundef %61, i32 noundef 1)
+  call fastcc void @aes_256cbc_decrypt(ptr noundef nonnull %2, ptr noundef %3, ptr noundef %49, ptr noundef %60, i32 noundef %61, i32 noundef 1)
   br label %66
 
 62:                                               ; preds = %50
@@ -1510,7 +1510,7 @@ declare zeroext i1 @arc4_init(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare void @arc4_apply(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @aes_256cbc_decrypt(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @aes_256cbc_decrypt(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca [60 x i32], align 16
   %8 = alloca [16 x i8], align 16
   %9 = icmp eq ptr %0, null
@@ -1577,7 +1577,7 @@ define internal fastcc void @aes_256cbc_decrypt(ptr noundef %0, ptr nocapture no
   %.180 = phi ptr [ %35, %33 ], [ %.061, %.lr.ph.preheader ]
   %.06379 = phi ptr [ %34, %33 ], [ %2, %.lr.ph.preheader ]
   %.16578 = phi i64 [ %36, %33 ], [ %.064, %.lr.ph.preheader ]
-  call void @rijndaelDecrypt(ptr noundef nonnull %7, i32 noundef %25, ptr noundef nonnull %.180, ptr noundef %.06379) #23
+  call void @rijndaelDecrypt(ptr noundef nonnull %7, i32 noundef %25, ptr noundef nonnull %.180, ptr noundef nonnull %.06379) #23
   br label %27
 
 27:                                               ; preds = %.lr.ph, %27
@@ -1911,12 +1911,12 @@ define i32 @pdf_extract_obj(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   %131 = tail call ptr @cli_memstr(ptr noundef %77, i64 noundef %84, ptr noundef nonnull @.str.70, i64 noundef 5) #23
   %.not363 = icmp ne ptr %131, null
   %spec.select385 = zext i1 %.not363 to i32
-  %132 = call fastcc ptr @pdf_getdict(ptr noundef %77, ptr noundef nonnull %8, ptr noundef nonnull @.str.71)
+  %132 = call fastcc ptr @pdf_getdict(ptr noundef %77, ptr noundef %8, ptr noundef nonnull @.str.71)
   %.not364 = icmp eq ptr %132, null
   br i1 %.not364, label %133, label %135
 
 133:                                              ; preds = %130
-  %134 = call fastcc ptr @pdf_getdict(ptr noundef %77, ptr noundef nonnull %8, ptr noundef nonnull @.str.73)
+  %134 = call fastcc ptr @pdf_getdict(ptr noundef %77, ptr noundef %8, ptr noundef nonnull @.str.73)
   %.not365 = icmp eq ptr %134, null
   br i1 %.not365, label %.thread, label %135
 
@@ -1993,7 +1993,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %135
   %170 = sub i64 %169, %81
   %171 = trunc i64 %170 to i32
   store i32 %171, ptr %8, align 4
-  %172 = call fastcc ptr @pdf_getdict(ptr noundef %77, ptr noundef nonnull %8, ptr noundef nonnull @.str.76)
+  %172 = call fastcc ptr @pdf_getdict(ptr noundef %77, ptr noundef %8, ptr noundef nonnull @.str.76)
   %.not367 = icmp eq ptr %172, null
   br i1 %.not367, label %215, label %173
 
@@ -2443,7 +2443,7 @@ filter_writen.exit:                               ; preds = %336, %341
   %385 = getelementptr inbounds i8, ptr %382, i64 %384
   %386 = getelementptr i8, ptr %0, i64 80
   %.val392 = load ptr, ptr %386, align 8
-  %387 = call fastcc i64 @filter_writen(ptr %.val392, i32 noundef %49, ptr noundef %385, i64 noundef %378, ptr noundef nonnull %5)
+  %387 = call fastcc i64 @filter_writen(ptr %.val392, i32 noundef %49, ptr noundef %385, i64 noundef %378, ptr noundef %5)
   %.not346 = icmp eq i64 %387, %378
   br i1 %.not346, label %.critedge.thread403, label %388
 
@@ -2459,7 +2459,7 @@ filter_writen.exit:                               ; preds = %336, %341
   %394 = getelementptr inbounds i8, ptr %391, i64 %393
   %395 = getelementptr i8, ptr %0, i64 80
   %.val393 = load ptr, ptr %395, align 8
-  %396 = call fastcc i64 @filter_writen(ptr %.val393, i32 noundef %49, ptr noundef %394, i64 noundef %375, ptr noundef nonnull %5)
+  %396 = call fastcc i64 @filter_writen(ptr %.val393, i32 noundef %49, ptr noundef %394, i64 noundef %375, ptr noundef %5)
   %.not345 = icmp eq i64 %396, %375
   br i1 %.not345, label %.critedge.thread403, label %397
 
@@ -2576,7 +2576,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @find_length(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @find_length(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   %6 = icmp ult i64 %3, 8
@@ -2796,7 +2796,7 @@ define internal fastcc i64 @find_length(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pdf_getdict(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @pdf_getdict(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %7
@@ -2889,7 +2889,7 @@ define internal fastcc i32 @pdf_readint(ptr noundef %0, i32 noundef %1, ptr noun
   %5 = alloca i64, align 8
   store i32 %1, ptr %4, align 4
   store i64 0, ptr %5, align 8
-  %6 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
+  %6 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef %4, ptr noundef %2)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
 
@@ -2936,7 +2936,7 @@ define internal fastcc ptr @pdf_readstring(ptr noundef %0, i32 noundef %1, ptr n
   br label %11
 
 11:                                               ; preds = %10, %9
-  %12 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %2)
+  %12 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef %7, ptr noundef %2)
   %13 = icmp eq ptr %12, null
   %14 = load i32, ptr %7, align 4
   %15 = icmp slt i32 %14, 1
@@ -3261,7 +3261,7 @@ declare ptr @cli_jsonarray(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @cli_jsonint_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @filter_writen(ptr %.80.val, i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @filter_writen(ptr %.80.val, i32 noundef range(i32 0, -2147483648) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i64, ptr %3, align 8
   %6 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.212, ptr noundef %.80.val, i64 noundef %5, i64 noundef 0, i64 noundef 0) #23
   %.not = icmp eq i32 %6, 0
@@ -3395,7 +3395,7 @@ declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #15
 declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @run_pdf_hooks(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @run_pdf_hooks(ptr noundef %0, i32 noundef range(i32 1, 5) %1, i32 noundef range(i32 -1, -2147483648) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %35, label %5
 
@@ -3459,7 +3459,7 @@ define internal fastcc i32 @run_pdf_hooks(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pdf_scan_contents(i32 noundef %0, ptr nocapture noundef readonly %1, i32 %.16.val) unnamed_addr #0 {
+define internal fastcc i32 @pdf_scan_contents(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef readonly %1, i32 %.16.val) unnamed_addr #0 {
   %3 = alloca %struct.text_norm_state, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [8192 x i8], align 16
@@ -3508,7 +3508,7 @@ define internal fastcc i32 @pdf_scan_contents(i32 noundef %0, ptr nocapture noun
   br i1 %27, label %46, label %28
 
 28:                                               ; preds = %25
-  %29 = call ptr @memchr(ptr noundef nonnull %.0.i, i32 noundef 10, i64 noundef %.026.i) #27
+  %29 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.0.i, i32 noundef 10, i64 noundef %.026.i) #27
   %.not30.i = icmp eq ptr %29, null
   br i1 %.not30.i, label %process.exit, label %30
 
@@ -4245,7 +4245,7 @@ pdfobj_flag.exit.i:                               ; preds = %324, %320, %315
   br i1 %.not55.i, label %331, label %330
 
 330:                                              ; preds = %pdfobj_flag.exit.i
-  call void %329(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %291) #23
+  call void %329(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %291) #23
   br label %331
 
 331:                                              ; preds = %330, %pdfobj_flag.exit.i
@@ -4331,7 +4331,7 @@ pdfobj_flag.exit:                                 ; preds = %361, %365
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 %257, ptr %3, align 4
   store i64 0, ptr %4, align 8
-  %369 = call fastcc ptr @pdf_getdict(ptr noundef nonnull %.ptr, ptr noundef nonnull %3, ptr noundef nonnull @.str.112)
+  %369 = call fastcc ptr @pdf_getdict(ptr noundef nonnull %.ptr, ptr noundef %3, ptr noundef nonnull @.str.112)
   %370 = icmp eq ptr %369, null
   br i1 %370, label %pdf_readint.exit.thread, label %371
 
@@ -4369,7 +4369,7 @@ pdf_readint.exit:                                 ; preds = %371
   %384 = getelementptr inbounds i8, ptr %383, i64 %spec.store.select
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.113, i64 noundef %spec.store.select, i64 noundef %376) #23
   %385 = sub nsw i64 %376, %spec.store.select
-  call fastcc void @pdf_parse_trailer(ptr noundef nonnull %0, ptr noundef %384, i64 noundef %385)
+  call fastcc void @pdf_parse_trailer(ptr noundef %0, ptr noundef %384, i64 noundef %385)
   %386 = load ptr, ptr %260, align 8
   %.not359 = icmp eq ptr %386, null
   br i1 %.not359, label %pdfobj_flag.exit395, label %387
@@ -4539,7 +4539,7 @@ pdfobj_flag.exit398:                              ; preds = %402, %398, %397, %3
   %465 = and i64 %422, 72057594037927935
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.118, ptr noundef nonnull %5, i64 noundef %465, i64 noundef %458) #23
   %466 = trunc i64 %459 to i32
-  %467 = call ptr @find_obj(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %466)
+  %467 = call ptr @find_obj(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %466)
   %.not370 = icmp eq ptr %467, null
   br i1 %.not370, label %480, label %468
 
@@ -4574,7 +4574,7 @@ pdfobj_flag.exit398:                              ; preds = %402, %398, %397, %3
   br label %481
 
 480:                                              ; preds = %464
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 9)
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 9)
   br label %481
 
 481:                                              ; preds = %pdfobj_flag.exit398, %407, %457, %461, %480, %472, %440, %.critedge11, %397
@@ -4677,7 +4677,7 @@ switch.early.test:                                ; preds = %494
 declare i32 @cli_hex2str_to(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pdf_parse_trailer(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @pdf_parse_trailer(ptr nocapture noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = tail call ptr @cli_memstr(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.223, i64 noundef 8) #23
@@ -4857,7 +4857,7 @@ define i32 @parse_enc_method(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   br i1 %.not21, label %23, label %8
 
 8:                                                ; preds = %6
-  %9 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %2)
+  %9 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %2)
   %.not22 = icmp eq ptr %9, null
   br i1 %.not22, label %23, label %10
 
@@ -4912,7 +4912,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define internal fastcc ptr @pdf_readval(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
-  %5 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
+  %5 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef %4, ptr noundef %2)
   %6 = icmp eq ptr %5, null
   %7 = load i32, ptr %4, align 4
   %8 = icmp slt i32 %7, 1
@@ -5188,7 +5188,7 @@ find_obj.exit:                                    ; preds = %32, %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i32 %68, ptr %8, align 4
   store i64 0, ptr %9, align 8
-  %69 = call fastcc ptr @pdf_getdict(ptr noundef nonnull %62, ptr noundef nonnull %8, ptr noundef nonnull @.str.80)
+  %69 = call fastcc ptr @pdf_getdict(ptr noundef nonnull %62, ptr noundef %8, ptr noundef nonnull @.str.80)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %pdf_readint.exit.thread, label %71
 
@@ -5217,7 +5217,7 @@ pdf_readint.exit:                                 ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i32 %49, ptr %6, align 4
   store i64 0, ptr %7, align 8
-  %78 = call fastcc ptr @pdf_getdict(ptr noundef %57, ptr noundef nonnull %6, ptr noundef nonnull @.str.80)
+  %78 = call fastcc ptr @pdf_getdict(ptr noundef %57, ptr noundef %6, ptr noundef nonnull @.str.80)
   %79 = icmp eq ptr %78, null
   br i1 %79, label %pdf_readint.exit199, label %80
 
@@ -5255,7 +5255,7 @@ pdf_readint.exit199:                              ; preds = %77, %80, %._crit_ed
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i32 %49, ptr %4, align 4
   store i64 0, ptr %5, align 8
-  %90 = call fastcc ptr @pdf_getdict(ptr noundef %57, ptr noundef nonnull %4, ptr noundef nonnull @.str.133)
+  %90 = call fastcc ptr @pdf_getdict(ptr noundef %57, ptr noundef %4, ptr noundef nonnull @.str.133)
   %91 = icmp eq ptr %90, null
   br i1 %91, label %pdf_readint.exit203.thread, label %92
 
@@ -5297,7 +5297,7 @@ pdf_readint.exit203:                              ; preds = %92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %49, ptr %2, align 4
   store i64 0, ptr %3, align 8
-  %103 = call fastcc ptr @pdf_getdict(ptr noundef %57, ptr noundef nonnull %2, ptr noundef nonnull @.str.136)
+  %103 = call fastcc ptr @pdf_getdict(ptr noundef %57, ptr noundef %2, ptr noundef nonnull @.str.136)
   %104 = icmp eq ptr %103, null
   br i1 %104, label %pdf_readint.exit207, label %105
 
@@ -5352,7 +5352,7 @@ pdf_readint.exit207:                              ; preds = %102, %105, %._crit_
   %124 = call fastcc ptr @pdf_readval(ptr noundef %57, i32 noundef %49, ptr noundef nonnull @.str.140)
   %125 = call fastcc ptr @pdf_readval(ptr noundef %57, i32 noundef %49, ptr noundef nonnull @.str.141)
   store i32 %49, ptr %10, align 4
-  %126 = call fastcc ptr @pdf_getdict(ptr noundef %57, ptr noundef nonnull %10, ptr noundef nonnull @.str.142)
+  %126 = call fastcc ptr @pdf_getdict(ptr noundef %57, ptr noundef %10, ptr noundef nonnull @.str.142)
   %127 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %126, ptr %127, align 8
   %128 = load i32, ptr %10, align 4
@@ -5521,14 +5521,14 @@ pdf_readint.exit207:                              ; preds = %102, %105, %._crit_
   br label %191
 
 186:                                              ; preds = %.loopexit
-  call fastcc void @check_owner_password(ptr noundef nonnull %0, i32 noundef %96, ptr noundef nonnull %158, ptr noundef nonnull %171, ptr noundef %.1156220, i64 noundef %.0154221)
+  call fastcc void @check_owner_password(ptr noundef nonnull %0, i32 noundef %96, ptr noundef %158, ptr noundef %171, ptr noundef %.1156220, i64 noundef %.0154221)
   %187 = getelementptr inbounds i8, ptr %0, i64 120
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %186
-  call fastcc void @check_user_password(ptr noundef nonnull %0, i32 noundef %96, ptr noundef nonnull %158, ptr noundef nonnull %171, i32 noundef %110, i32 noundef %.0143227, ptr noundef %.1152222, i64 noundef %.0150223, i32 noundef %157)
+  call fastcc void @check_user_password(ptr noundef nonnull %0, i32 noundef %96, ptr noundef %158, ptr noundef %171, i32 noundef %110, i32 noundef %.0143227, ptr noundef %.1152222, i64 noundef %.0150223, i32 noundef %157)
   br label %191
 
 .critedge:                                        ; preds = %.thread
@@ -5564,7 +5564,7 @@ pdf_readint.exit207:                              ; preds = %102, %105, %._crit_
 define internal fastcc range(i32 0, 2) i32 @pdf_readbool(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.138)
+  %4 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef %3, ptr noundef nonnull @.str.138)
   %5 = icmp eq ptr %4, null
   %6 = load i32, ptr %3, align 4
   %7 = icmp slt i32 %6, 5
@@ -5607,7 +5607,7 @@ define internal fastcc void @dbg_printhex(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_owner_password(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc void @check_owner_password(ptr nocapture noundef %0, i32 noundef range(i32 2, 7) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
@@ -5617,7 +5617,7 @@ define internal fastcc void @check_owner_password(ptr nocapture noundef %0, i32 
   br i1 %.not.i, label %dbg_printhex.exit30, label %dbg_printhex.exit
 
 dbg_printhex.exit:                                ; preds = %6
-  %11 = tail call ptr @cli_str2hex(ptr noundef %3, i32 noundef 32) #23
+  %11 = tail call ptr @cli_str2hex(ptr noundef nonnull %3, i32 noundef 32) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.300, ptr noundef %11) #23
   tail call void @free(ptr noundef %11) #23
   %.pr = load i8, ptr @cli_debug_flag, align 1
@@ -5625,7 +5625,7 @@ dbg_printhex.exit:                                ; preds = %6
   br i1 %.not.i29, label %dbg_printhex.exit30, label %12
 
 12:                                               ; preds = %dbg_printhex.exit
-  %13 = tail call ptr @cli_str2hex(ptr noundef %2, i32 noundef 32) #23
+  %13 = tail call ptr @cli_str2hex(ptr noundef nonnull %2, i32 noundef 32) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.301, ptr noundef %13) #23
   tail call void @free(ptr noundef %13) #23
   br label %dbg_printhex.exit30
@@ -5648,7 +5648,7 @@ dbg_printhex.exit30:                              ; preds = %6, %dbg_printhex.ex
   br i1 %.not.i31, label %dbg_printhex.exit32, label %19
 
 19:                                               ; preds = %17
-  %20 = trunc i64 %5 to i32
+  %20 = trunc nuw i64 %5 to i32
   %21 = tail call ptr @cli_str2hex(ptr noundef nonnull %4, i32 noundef %20) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.303, ptr noundef %21) #23
   tail call void @free(ptr noundef %21) #23
@@ -5657,7 +5657,7 @@ dbg_printhex.exit30:                              ; preds = %6, %dbg_printhex.ex
 dbg_printhex.exit32:                              ; preds = %17, %19
   %22 = getelementptr inbounds i8, ptr %2, i64 32
   %.val = load i64, ptr %22, align 1
-  call fastcc void @compute_hash_r6(i64 %.val, ptr noundef nonnull %9, ptr noundef %3)
+  call fastcc void @compute_hash_r6(i64 %.val, ptr noundef %9, ptr noundef nonnull %3)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %2, ptr noundef nonnull dereferenceable(32) %9, i64 32)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %24, label %23
@@ -5669,7 +5669,7 @@ dbg_printhex.exit32:                              ; preds = %17, %19
 24:                                               ; preds = %dbg_printhex.exit32
   %25 = getelementptr inbounds i8, ptr %2, i64 40
   %.val28 = load i64, ptr %25, align 1
-  call fastcc void @compute_hash_r6(i64 %.val28, ptr noundef nonnull %8, ptr noundef %3)
+  call fastcc void @compute_hash_r6(i64 %.val28, ptr noundef %8, ptr noundef nonnull %3)
   %.not26 = icmp eq i64 %5, 32
   br i1 %.not26, label %27, label %26
 
@@ -5691,7 +5691,7 @@ dbg_printhex.exit32:                              ; preds = %17, %19
   br label %42
 
 32:                                               ; preds = %27
-  call fastcc void @aes_256cbc_decrypt(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %29, ptr noundef nonnull %8, i32 noundef 32, i32 noundef 0)
+  call fastcc void @aes_256cbc_decrypt(ptr noundef nonnull %4, ptr noundef %7, ptr noundef %29, ptr noundef nonnull %8, i32 noundef 32, i32 noundef 0)
   %33 = load i8, ptr @cli_debug_flag, align 1
   %.not.i33 = icmp eq i8 %33, 0
   br i1 %.not.i33, label %dbg_printhex.exit34, label %34
@@ -5725,7 +5725,7 @@ dbg_printhex.exit34:                              ; preds = %32, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_user_password(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @check_user_password(ptr nocapture noundef %0, i32 noundef range(i32 2, 7) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, i64 noundef range(i64 0, 4294967296) %7, i32 noundef range(i32 40, 0) %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca [16 x i8], align 16
   %12 = alloca [32 x i8], align 16
@@ -5739,7 +5739,7 @@ define internal fastcc void @check_user_password(ptr nocapture noundef %0, i32 n
   br i1 %.not.i, label %dbg_printhex.exit129, label %dbg_printhex.exit
 
 dbg_printhex.exit:                                ; preds = %9
-  %18 = tail call ptr @cli_str2hex(ptr noundef %3, i32 noundef 32) #23
+  %18 = tail call ptr @cli_str2hex(ptr noundef nonnull %3, i32 noundef 32) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.300, ptr noundef %18) #23
   tail call void @free(ptr noundef %18) #23
   %.pr = load i8, ptr @cli_debug_flag, align 1
@@ -5747,13 +5747,13 @@ dbg_printhex.exit:                                ; preds = %9
   br i1 %.not.i128, label %dbg_printhex.exit129, label %19
 
 19:                                               ; preds = %dbg_printhex.exit
-  %20 = tail call ptr @cli_str2hex(ptr noundef %2, i32 noundef 32) #23
+  %20 = tail call ptr @cli_str2hex(ptr noundef nonnull %2, i32 noundef 32) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.301, ptr noundef %20) #23
   tail call void @free(ptr noundef %20) #23
   br label %dbg_printhex.exit129
 
 dbg_printhex.exit129:                             ; preds = %9, %dbg_printhex.exit, %19
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable160 [
     i32 2, label %21
     i32 3, label %21
     i32 4, label %21
@@ -5986,7 +5986,7 @@ dbg_printhex.exit137:                             ; preds = %100, %104
   br label %.loopexit
 
 115:                                              ; preds = %110
-  call fastcc void @aes_256cbc_decrypt(ptr noundef %6, ptr noundef nonnull %10, ptr noundef nonnull %112, ptr noundef nonnull %14, i32 noundef 32, i32 noundef 0)
+  call fastcc void @aes_256cbc_decrypt(ptr noundef %6, ptr noundef %10, ptr noundef %112, ptr noundef nonnull %14, i32 noundef 32, i32 noundef 0)
   %116 = load i8, ptr @cli_debug_flag, align 1
   %.not.i138 = icmp eq i8 %116, 0
   br i1 %.not.i138, label %.critedge126, label %117
@@ -6013,7 +6013,7 @@ dbg_printhex.exit137:                             ; preds = %100, %104
   br i1 %.not.i140, label %dbg_printhex.exit141, label %126
 
 126:                                              ; preds = %124
-  %127 = trunc i64 %7 to i32
+  %127 = trunc nuw i64 %7 to i32
   %128 = tail call ptr @cli_str2hex(ptr noundef nonnull %6, i32 noundef %127) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.327, ptr noundef %128) #23
   tail call void @free(ptr noundef %128) #23
@@ -6022,7 +6022,7 @@ dbg_printhex.exit137:                             ; preds = %100, %104
 dbg_printhex.exit141:                             ; preds = %124, %126
   %129 = getelementptr inbounds i8, ptr %3, i64 32
   %.val = load i64, ptr %129, align 1
-  call fastcc void @compute_hash_r6(i64 %.val, ptr noundef nonnull %16, ptr noundef null)
+  call fastcc void @compute_hash_r6(i64 %.val, ptr noundef %16, ptr noundef null)
   %bcmp145 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %3, ptr noundef nonnull dereferenceable(32) %16, i64 32)
   %.not = icmp eq i32 %bcmp145, 0
   br i1 %.not, label %131, label %130
@@ -6034,7 +6034,7 @@ dbg_printhex.exit141:                             ; preds = %124, %126
 131:                                              ; preds = %dbg_printhex.exit141
   %132 = getelementptr inbounds i8, ptr %3, i64 40
   %.val127 = load i64, ptr %132, align 1
-  call fastcc void @compute_hash_r6(i64 %.val127, ptr noundef nonnull %15, ptr noundef null)
+  call fastcc void @compute_hash_r6(i64 %.val127, ptr noundef %15, ptr noundef null)
   %.not110 = icmp eq i64 %7, 32
   br i1 %.not110, label %134, label %133
 
@@ -6056,13 +6056,13 @@ dbg_printhex.exit141:                             ; preds = %124, %126
   br label %.loopexit
 
 139:                                              ; preds = %134
-  call fastcc void @aes_256cbc_decrypt(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %136, ptr noundef nonnull %15, i32 noundef 32, i32 noundef 0)
+  call fastcc void @aes_256cbc_decrypt(ptr noundef nonnull %6, ptr noundef %10, ptr noundef %136, ptr noundef nonnull %15, i32 noundef 32, i32 noundef 0)
   %140 = load ptr, ptr %137, align 8
   %141 = load i32, ptr %135, align 8
   call fastcc void @dbg_printhex(ptr noundef nonnull @.str.325, ptr noundef %140, i32 noundef %141)
   br label %.critedge126
 
-default.unreachable:                              ; preds = %dbg_printhex.exit129
+default.unreachable160:                           ; preds = %dbg_printhex.exit129
   unreachable
 
 142:                                              ; preds = %68, %66
@@ -6401,7 +6401,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 ._crit_edge241:                                   ; preds = %.lr.ph237
   %102 = ptrtoint ptr %75 to i64
-  call fastcc void @pdf_parse_trailer(ptr noundef nonnull %4, ptr noundef nonnull %75, i64 noundef %73)
+  call fastcc void @pdf_parse_trailer(ptr noundef %4, ptr noundef nonnull %75, i64 noundef %73)
   %103 = getelementptr inbounds i8, ptr %.1168235, i64 9
   %104 = icmp ult ptr %103, %78
   br i1 %104, label %.lr.ph245, label %.critedge
@@ -6462,7 +6462,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 129:                                              ; preds = %123
   %130 = getelementptr inbounds i8, ptr %128, i64 %spec.store.select4
-  %131 = call fastcc i32 @xrefCheck(ptr noundef nonnull %128, ptr noundef nonnull %130)
+  %131 = call fastcc i32 @xrefCheck(ptr noundef %128, ptr noundef %130)
   %132 = icmp eq i32 %131, -1
   br i1 %132, label %133, label %137
 
@@ -8126,7 +8126,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare i32 @cli_jsonstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @xrefCheck(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @xrefCheck(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #0 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph.preheader, label %.critedge
 
@@ -9365,7 +9365,7 @@ declare void @pdf_free_array(ptr noundef) local_unnamed_addr #1
 declare ptr @cli_str2hex(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [44 x i32], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [15360 x i8], align 16

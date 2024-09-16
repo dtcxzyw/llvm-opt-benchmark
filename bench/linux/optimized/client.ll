@@ -1339,7 +1339,7 @@ define dso_local range(i32 -2147483648, 1) i32 @nfs_probe_server(ptr noundef %0,
 declare dso_local ptr @nfs_alloc_fattr() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.nfs_fsinfo, align 8
   %5 = alloca %struct.nfs_pathconf, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #13
@@ -1760,7 +1760,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %260 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %260, align 8, !annotation !19
   store ptr %2, ptr %5, align 8
-  call void @nfs_fattr_init(ptr noundef %2) #13
+  call void @nfs_fattr_init(ptr noundef nonnull %2) #13
   %261 = load ptr, ptr %8, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 248
   %263 = load ptr, ptr %262, align 8
@@ -2550,7 +2550,7 @@ define dso_local ptr @nfs_create_server(ptr nocapture noundef readonly %0) #0 al
   %237 = getelementptr inbounds i8, ptr %7, i64 688
   store ptr @nfs_destroy_server, ptr %237, align 8
   %238 = call ptr @nlmclnt_rpc_clnt(ptr noundef %233) #13
-  call void @nfs_sysfs_link_rpc_client(ptr noundef %7, ptr noundef %238, ptr noundef null) #13
+  call void @nfs_sysfs_link_rpc_client(ptr noundef nonnull %7, ptr noundef %238, ptr noundef null) #13
   br label %nfs_start_lockd.exit.thread
 
 nfs_start_lockd.exit.thread:                      ; preds = %235, %183

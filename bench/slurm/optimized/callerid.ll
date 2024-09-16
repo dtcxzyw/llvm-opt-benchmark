@@ -154,7 +154,7 @@ define range(i32 -1, 1) i32 @callerid_find_inode_by_conn(ptr noundef byval(%stru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 2, 11) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [47 x i8], align 16
   %7 = alloca [47 x i8], align 16
   %8 = alloca [1024 x i8], align 16

@@ -663,7 +663,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 234:                                              ; preds = %237, %233
   %.345.i.i = phi i8 [ 0, %233 ], [ %.042.i.i, %237 ]
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias nonnull align 8 %12, ptr nonnull align 8 %215, ptr nonnull align 8 %88, i64 %89, ptr nonnull align 8 %77, i64 %79)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias align 8 %12, ptr align 8 %215, ptr align 8 %88, i64 %89, ptr align 8 %77, i64 %79)
           to label %241 unwind label %227
 
 235:                                              ; preds = %312, %311, %285, %268, %258, %248, %229
@@ -790,7 +790,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 278:                                              ; preds = %288, %277
   %.039.i.i = phi i8 [ 0, %288 ], [ 1, %277 ]
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias nonnull align 8 %4, ptr nonnull align 8 %271, ptr nonnull align 8 %88, i64 %89, ptr nonnull align 8 %77, i64 %79)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias align 8 %4, ptr align 8 %271, ptr align 8 %88, i64 %89, ptr align 8 %77, i64 %79)
           to label %295 unwind label %283
 
 279:                                              ; preds = %277
@@ -1427,7 +1427,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, i64 %3, ptr align 8 %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2, i64 %3, ptr nonnull align 8 %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca { ptr, ptr, {} }, align 8

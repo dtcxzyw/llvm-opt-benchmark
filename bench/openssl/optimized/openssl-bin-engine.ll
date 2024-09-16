@@ -273,7 +273,7 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
 if.then85:                                        ; preds = %for.body79
   %call86 = call ptr @ENGINE_get_name(ptr noundef nonnull %call82) #7
   %call87 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.30, ptr noundef %call81, ptr noundef %call86) #7
-  call fastcc void @util_do_cmds(ptr noundef nonnull %call82, ptr noundef %call1, ptr noundef %call3)
+  call fastcc void @util_do_cmds(ptr noundef %call82, ptr noundef %call1, ptr noundef %call3)
   %call88 = call ptr @ENGINE_get_id(ptr noundef nonnull %call82) #7
   %call89 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call88, ptr noundef nonnull dereferenceable(1) %call81) #8
   %cmp90.not = icmp eq i32 %call89, 0
@@ -360,12 +360,12 @@ for.body139:                                      ; preds = %for.body139.prehead
   br i1 %tobool143.not, label %end, label %for.cond136
 
 skip_ciphers:                                     ; preds = %for.cond136, %if.end134, %if.end129
-  %call149 = call ptr @ENGINE_get_digests(ptr noundef %call82) #7
+  %call149 = call ptr @ENGINE_get_digests(ptr noundef nonnull %call82) #7
   %cmp150 = icmp eq ptr %call149, null
   br i1 %cmp150, label %skip_digests, label %if.end153
 
 if.end153:                                        ; preds = %skip_ciphers
-  %call154 = call i32 %call149(ptr noundef %call82, ptr noundef null, ptr noundef nonnull %nids, i32 noundef 0) #7
+  %call154 = call i32 %call149(ptr noundef nonnull %call82, ptr noundef null, ptr noundef nonnull %nids, i32 noundef 0) #7
   %cmp156126 = icmp sgt i32 %call154, 0
   br i1 %cmp156126, label %for.body158.preheader, label %skip_digests
 
@@ -389,12 +389,12 @@ for.body158:                                      ; preds = %for.body158.prehead
   br i1 %tobool163.not, label %end, label %for.cond155
 
 skip_digests:                                     ; preds = %for.cond155, %if.end153, %skip_ciphers
-  %call169 = call ptr @ENGINE_get_pkey_meths(ptr noundef %call82) #7
+  %call169 = call ptr @ENGINE_get_pkey_meths(ptr noundef nonnull %call82) #7
   %cmp170 = icmp eq ptr %call169, null
   br i1 %cmp170, label %skip_pmeths, label %if.end173
 
 if.end173:                                        ; preds = %skip_digests
-  %call174 = call i32 %call169(ptr noundef %call82, ptr noundef null, ptr noundef nonnull %nids, i32 noundef 0) #7
+  %call174 = call i32 %call169(ptr noundef nonnull %call82, ptr noundef null, ptr noundef nonnull %nids, i32 noundef 0) #7
   %cmp176128 = icmp sgt i32 %call174, 0
   br i1 %cmp176128, label %for.body178.preheader, label %skip_pmeths
 
@@ -452,14 +452,14 @@ if.end205:                                        ; preds = %if.end204, %if.end9
 
 if.then207:                                       ; preds = %if.end205
   %call208 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.27) #7
-  %call209 = call i32 @ENGINE_init(ptr noundef %call82) #7
+  %call209 = call i32 @ENGINE_init(ptr noundef nonnull %call82) #7
   %tobool210.not = icmp eq i32 %call209, 0
   br i1 %tobool210.not, label %if.else, label %if.then211
 
 if.then211:                                       ; preds = %if.then207
   %call212 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.39) #7
   call fastcc void @util_do_cmds(ptr noundef %call82, ptr noundef %call2, ptr noundef %call3)
-  %call213 = call i32 @ENGINE_finish(ptr noundef %call82) #7
+  %call213 = call i32 @ENGINE_finish(ptr noundef nonnull %call82) #7
   br label %if.end219
 
 if.else:                                          ; preds = %if.then207
@@ -479,12 +479,12 @@ if.end219:                                        ; preds = %if.then211, %if.end
   br i1 %cmp220, label %land.lhs.true222, label %if.end226
 
 land.lhs.true222:                                 ; preds = %if.end219
-  %call.i = call i32 @ENGINE_ctrl(ptr noundef %call82, i32 noundef 10, i64 noundef 0, ptr noundef null, ptr noundef null) #7
+  %call.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 10, i64 noundef 0, ptr noundef null, ptr noundef null) #7
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end226, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true222
-  %call1.i = call i32 @ENGINE_ctrl(ptr noundef %call82, i32 noundef 11, i64 noundef 0, ptr noundef null, ptr noundef null) #7
+  %call1.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 11, i64 noundef 0, ptr noundef null, ptr noundef null) #7
   %cmp.i = icmp slt i32 %call1.i, 1
   br i1 %cmp.i, label %if.end226, label %if.end.i
 
@@ -497,7 +497,7 @@ do.body.i:                                        ; preds = %if.end.i, %if.end86
   %num.0.i = phi i32 [ %call88.i, %if.end86.i ], [ %call1.i, %if.end.i ]
   %xpos.0.i = phi i32 [ %xpos.1.i, %if.end86.i ], [ 0, %if.end.i ]
   %conv.i = zext nneg i32 %num.0.i to i64
-  %call6.i = call i32 @ENGINE_ctrl(ptr noundef %call82, i32 noundef 18, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
+  %call6.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 18, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
   %cmp7.i = icmp slt i32 %call6.i, 0
   br i1 %cmp7.i, label %end.critedge, label %if.end10.i
 
@@ -508,7 +508,7 @@ if.end10.i:                                       ; preds = %do.body.i
   br i1 %or.cond.i, label %if.then15.i, label %if.end86.i
 
 if.then15.i:                                      ; preds = %if.end10.i
-  %call17.i = call i32 @ENGINE_ctrl(ptr noundef %call82, i32 noundef 14, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
+  %call17.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 14, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
   %cmp18.i = icmp slt i32 %call17.i, 1
   br i1 %cmp18.i, label %end.critedge, label %if.end21.i
 
@@ -516,12 +516,12 @@ if.end21.i:                                       ; preds = %if.then15.i
   %add.i = add nuw nsw i32 %call17.i, 1
   %conv22.i = zext nneg i32 %add.i to i64
   %call23.i = call ptr @app_malloc(i64 noundef %conv22.i, ptr noundef nonnull @.str.48) #7
-  %call25.i = call i32 @ENGINE_ctrl(ptr noundef %call82, i32 noundef 15, i64 noundef %conv.i, ptr noundef %call23.i, ptr noundef null) #7
+  %call25.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 15, i64 noundef %conv.i, ptr noundef %call23.i, ptr noundef null) #7
   %cmp26.i = icmp slt i32 %call25.i, 1
   br i1 %cmp26.i, label %end.critedge, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end21.i
-  %call31.i = call i32 @ENGINE_ctrl(ptr noundef %call82, i32 noundef 16, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
+  %call31.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 16, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
   %cmp32.i = icmp slt i32 %call31.i, 0
   br i1 %cmp32.i, label %end.critedge, label %if.end35.i
 
@@ -533,7 +533,7 @@ if.then38.i:                                      ; preds = %if.end35.i
   %add39.i = add nuw nsw i32 %call31.i, 1
   %conv40.i = zext nneg i32 %add39.i to i64
   %call41.i = call ptr @app_malloc(i64 noundef %conv40.i, ptr noundef nonnull @.str.49) #7
-  %call43.i = call i32 @ENGINE_ctrl(ptr noundef %call82, i32 noundef 17, i64 noundef %conv.i, ptr noundef %call41.i, ptr noundef null) #7
+  %call43.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 17, i64 noundef %conv.i, ptr noundef %call41.i, ptr noundef null) #7
   %cmp44.i = icmp slt i32 %call43.i, 1
   br i1 %cmp44.i, label %end.critedge, label %if.end48.i
 
@@ -681,7 +681,7 @@ if.end86.i:                                       ; preds = %util_flags.exit.i, 
   %xpos.1.i = phi i32 [ %add73.i, %if.end71.i ], [ %xpos.0.i, %if.end10.i ], [ 0, %util_flags.exit.i ], [ 0, %if.else74.i ]
   call void @CRYPTO_free(ptr noundef %name.2.i, ptr noundef nonnull @.str.37, i32 noundef 222) #7
   call void @CRYPTO_free(ptr noundef %desc.2.i, ptr noundef nonnull @.str.37, i32 noundef 224) #7
-  %call88.i = call i32 @ENGINE_ctrl(ptr noundef %call82, i32 noundef 12, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
+  %call88.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 12, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
   %cmp89.i = icmp sgt i32 %call88.i, 0
   br i1 %cmp89.i, label %do.body.i, label %do.end.i, !llvm.loop !13
 
@@ -700,7 +700,7 @@ util_verbose.exit:                                ; preds = %do.end.i, %if.then9
   br label %if.end226
 
 if.end226:                                        ; preds = %util_verbose.exit, %land.lhs.true222, %lor.lhs.false.i, %if.end219
-  %call227 = call i32 @ENGINE_free(ptr noundef %call82) #7
+  %call227 = call i32 @ENGINE_free(ptr noundef nonnull %call82) #7
   br label %for.inc235
 
 if.else228:                                       ; preds = %for.body79
@@ -771,7 +771,7 @@ declare ptr @ENGINE_by_id(ptr noundef) local_unnamed_addr #1
 declare ptr @ENGINE_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @util_do_cmds(ptr noundef %e, ptr noundef %cmds, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc void @util_do_cmds(ptr noundef nonnull %e, ptr noundef nonnull %cmds, ptr noundef %out) unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %cmds) #7
@@ -794,7 +794,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %for.body
-  %call9 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef %e, ptr noundef %call5, ptr noundef null, i32 noundef 0) #7
+  %call9 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e, ptr noundef %call5, ptr noundef null, i32 noundef 0) #7
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %if.else34, label %if.then32
 
@@ -817,7 +817,7 @@ if.end30:                                         ; preds = %if.else
   %arrayidx = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %strchr, i64 1
-  %call26 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef %e, ptr noundef nonnull %buf, ptr noundef nonnull %incdec.ptr, i32 noundef 0) #7
+  %call26 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e, ptr noundef nonnull %buf, ptr noundef nonnull %incdec.ptr, i32 noundef 0) #7
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.else34, label %if.then32
 

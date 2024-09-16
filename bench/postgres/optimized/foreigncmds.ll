@@ -337,7 +337,7 @@ define dso_local { i64, i32 } @AlterForeignDataWrapperOwner(ptr noundef %0, i32 
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4
-  tail call fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
   tail call void @heap_freetuple(ptr noundef nonnull %5) #8
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #8
   %.sroa.212.0.insert.ext = zext i32 %17 to i64
@@ -353,7 +353,7 @@ declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [7 x i64], align 16
   %5 = alloca [7 x i8], align 1
   %6 = alloca [7 x i8], align 1
@@ -407,7 +407,7 @@ define internal fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %
   store i64 %34, ptr %35, align 16
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = call fastcc i64 @heap_getattr(ptr noundef nonnull %1, i32 noundef 6, ptr noundef %37, ptr noundef nonnull %7)
+  %38 = call fastcc i64 @heap_getattr(ptr noundef %1, i32 noundef 6, ptr noundef %37, ptr noundef %7)
   %39 = load i8, ptr %7, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %49, label %41
@@ -468,7 +468,7 @@ define dso_local void @AlterForeignDataWrapperOwner_oid(i32 noundef %0, i32 noun
   unreachable
 
 10:                                               ; preds = %2
-  tail call fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
   tail call void @heap_freetuple(ptr noundef nonnull %5) #8
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #8
   ret void
@@ -498,7 +498,7 @@ define dso_local { i64, i32 } @AlterForeignServerOwner(ptr noundef %0, i32 nound
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4
-  tail call fastcc void @AlterForeignServerOwner_internal(ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @AlterForeignServerOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
   tail call void @heap_freetuple(ptr noundef nonnull %5) #8
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #8
   %.sroa.212.0.insert.ext = zext i32 %17 to i64
@@ -510,7 +510,7 @@ define dso_local { i64, i32 } @AlterForeignServerOwner(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AlterForeignServerOwner_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @AlterForeignServerOwner_internal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [8 x i64], align 16
   %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
@@ -566,7 +566,7 @@ define internal fastcc void @AlterForeignServerOwner_internal(ptr noundef %0, pt
   store i64 %35, ptr %36, align 16
   %37 = getelementptr inbounds i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
-  %39 = call fastcc i64 @heap_getattr(ptr noundef nonnull %1, i32 noundef 7, ptr noundef %38, ptr noundef nonnull %7)
+  %39 = call fastcc i64 @heap_getattr(ptr noundef %1, i32 noundef 7, ptr noundef %38, ptr noundef %7)
   %40 = load i8, ptr %7, align 1
   %41 = trunc i8 %40 to i1
   br i1 %41, label %50, label %42
@@ -623,7 +623,7 @@ define dso_local void @AlterForeignServerOwner_oid(i32 noundef %0, i32 noundef %
   unreachable
 
 10:                                               ; preds = %2
-  tail call fastcc void @AlterForeignServerOwner_internal(ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @AlterForeignServerOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
   tail call void @heap_freetuple(ptr noundef nonnull %5) #8
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #8
   ret void
@@ -688,7 +688,7 @@ define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noca
   store i64 %38, ptr %39, align 16
   %40 = getelementptr inbounds i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
-  call fastcc void @parse_func_options(ptr noundef %0, ptr noundef %41, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  call fastcc void @parse_func_options(ptr noundef %0, ptr noundef %41, ptr noundef %6, ptr noundef %8, ptr noundef %7, ptr noundef %9)
   %42 = load i32, ptr %8, align 4
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %4, i64 24
@@ -789,7 +789,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @namein(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca [2 x i32], align 4
   store i8 0, ptr %2, align 1
   store i8 0, ptr %4, align 1
@@ -978,7 +978,7 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, i8 0, i64 7, i1 false)
   %40 = getelementptr inbounds i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
-  call fastcc void @parse_func_options(ptr noundef %0, ptr noundef %41, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %11)
+  call fastcc void @parse_func_options(ptr noundef %0, ptr noundef %41, ptr noundef %8, ptr noundef %10, ptr noundef %9, ptr noundef %11)
   %42 = load i8, ptr %8, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %52
@@ -2257,18 +2257,18 @@ declare i64 @makeArrayResult(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 6, 8) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 18
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp sgt i32 %1, %10
+  %11 = icmp ugt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #8
+  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #8
   br label %fastgetattr.exit
 
 14:                                               ; preds = %4
@@ -2348,26 +2348,25 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 59:                                               ; preds = %14
-  %60 = add nsw i32 %1, 7
+  %60 = add nsw i32 %1, -1
   %61 = getelementptr inbounds i8, ptr %15, i64 23
   %.val.i = load i8, ptr %61, align 1
   %62 = zext i8 %.val.i to i32
-  %63 = and i32 %60, 7
-  %64 = shl nuw nsw i32 1, %63
-  %65 = and i32 %64, %62
-  %.not.i.i = icmp eq i32 %65, 0
-  br i1 %.not.i.i, label %66, label %67
+  %63 = shl nuw nsw i32 1, %60
+  %64 = and i32 %63, %62
+  %.not.i.i = icmp eq i32 %64, 0
+  br i1 %.not.i.i, label %65, label %66
 
-66:                                               ; preds = %59
+65:                                               ; preds = %59
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-67:                                               ; preds = %59
-  %68 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
+66:                                               ; preds = %59
+  %67 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %67, %66, %57, %55, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %66 ], [ %68, %67 ], [ %58, %57 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %56, %55 ]
+fastgetattr.exit:                                 ; preds = %66, %65, %57, %55, %49, %46, %43, %40, %12
+  %.0 = phi i64 [ %13, %12 ], [ 0, %65 ], [ %67, %66 ], [ %58, %57 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %56, %55 ]
   ret i64 %.0
 }
 

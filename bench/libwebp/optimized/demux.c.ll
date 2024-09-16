@@ -773,7 +773,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef %1, i3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %0, ptr %7, align 8
-  %8 = tail call fastcc i32 @SetChunk(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3)
+  %8 = tail call fastcc i32 @SetChunk(ptr noundef %1, i32 noundef %2, ptr noundef %3)
   br label %9
 
 9:                                                ; preds = %4, %6
@@ -782,7 +782,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -880,7 +880,7 @@ define range(i32 0, 2) i32 @WebPDemuxNextChunk(ptr noundef %0) local_unnamed_add
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
   %6 = load i32, ptr %0, align 8
   %7 = add nsw i32 %6, 1
-  %8 = tail call fastcc i32 @SetChunk(ptr noundef nonnull %5, i32 noundef %7, ptr noundef nonnull %0)
+  %8 = tail call fastcc i32 @SetChunk(ptr noundef nonnull %5, i32 noundef %7, ptr noundef %0)
   br label %9
 
 9:                                                ; preds = %1, %2
@@ -903,7 +903,7 @@ define range(i32 0, 2) i32 @WebPDemuxPrevChunk(ptr noundef %0) local_unnamed_add
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = add nsw i32 %3, -1
-  %10 = tail call fastcc i32 @SetChunk(ptr noundef nonnull %8, i32 noundef %9, ptr noundef nonnull %0)
+  %10 = tail call fastcc i32 @SetChunk(ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0)
   br label %11
 
 11:                                               ; preds = %1, %2, %5
@@ -1370,7 +1370,7 @@ CheckFrameBounds.exit.thread:                     ; preds = %CheckFrameBounds.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -2147483647, -2147483648) %0, i32 noundef range(i32 -16, -24) %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %.val77 = load i64, ptr %2, align 8
   %6 = getelementptr i8, ptr %2, i64 8

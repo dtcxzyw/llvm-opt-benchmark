@@ -1220,7 +1220,7 @@ define noalias noundef ptr @Aig_ManLevelize(ptr nocapture noundef readonly %0) l
   %16 = lshr i64 %15, 32
   %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 16777215
-  %19 = tail call range(i32 0, 16777216) i32 @llvm.smax.i32(i32 %.011.i, i32 %18)
+  %19 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 %.011.i, i32 %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Aig_ManLevelNum.exit.loopexit, label %7, !llvm.loop !14
@@ -1232,33 +1232,33 @@ Aig_ManLevelNum.exit.loopexit:                    ; preds = %7
 Aig_ManLevelNum.exit:                             ; preds = %Aig_ManLevelNum.exit.loopexit, %1
   %.0.lcssa.i = phi i32 [ 1, %1 ], [ %20, %Aig_ManLevelNum.exit.loopexit ]
   %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %22 = tail call i32 @llvm.umax.i32(i32 %.0.lcssa.i, i32 8)
-  store i32 %22, ptr %21, align 8
+  %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %.0.lcssa.i, i32 8)
+  store i32 %spec.store.select.i.i, ptr %21, align 8
+  %22 = shl nuw nsw i32 %spec.store.select.i.i, 3
   %23 = zext nneg i32 %22 to i64
-  %24 = shl nuw nsw i64 %23, 3
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %25, ptr %26, align 8
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #16
+  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %24, ptr %25, align 8
   %wide.trip.count.i13 = zext nneg i32 %.0.lcssa.i to i64
-  br label %.lr.ph.i14
+  br label %26
 
-.lr.ph.i14:                                       ; preds = %.lr.ph.i14, %Aig_ManLevelNum.exit
-  %indvars.iv.i15 = phi i64 [ 0, %Aig_ManLevelNum.exit ], [ %indvars.iv.next.i16, %.lr.ph.i14 ]
+26:                                               ; preds = %26, %Aig_ManLevelNum.exit
+  %indvars.iv.i14 = phi i64 [ 0, %Aig_ManLevelNum.exit ], [ %indvars.iv.next.i15, %26 ]
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i15
+  %27 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.i14
   store ptr %calloc.i, ptr %27, align 8
-  %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
-  %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, %wide.trip.count.i13
-  br i1 %exitcond.not.i17, label %Vec_VecStart.exit, label %.lr.ph.i14, !llvm.loop !15
+  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
+  %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, %wide.trip.count.i13
+  br i1 %exitcond.not.i16, label %Vec_VecStart.exit, label %26, !llvm.loop !15
 
-Vec_VecStart.exit:                                ; preds = %.lr.ph.i14
+Vec_VecStart.exit:                                ; preds = %26
   %28 = getelementptr inbounds i8, ptr %21, i64 4
   store i32 %.0.lcssa.i, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 4
-  %.val24 = load i32, ptr %31, align 4
-  %32 = icmp sgt i32 %.val24, 0
+  %.val23 = load i32, ptr %31, align 4
+  %32 = icmp sgt i32 %.val23, 0
   br i1 %32, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Vec_VecStart.exit, %96
@@ -1280,7 +1280,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i14
   %44 = load i32, ptr %28, align 4
   %45 = add nuw nsw i32 %43, 1
   %.not.i = icmp sgt i32 %44, %43
-  %.val.i23.pre27 = load ptr, ptr %26, align 8
+  %.val.i22.pre26 = load ptr, ptr %25, align 8
   br i1 %.not.i, label %61, label %46
 
 46:                                               ; preds = %38
@@ -1289,13 +1289,13 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i14
   br i1 %.not.i.not.i, label %Vec_PtrGrow.exit.i, label %48
 
 48:                                               ; preds = %46
-  %.not9.i.i = icmp eq ptr %.val.i23.pre27, null
+  %.not9.i.i = icmp eq ptr %.val.i22.pre26, null
   %49 = shl nuw nsw i32 %45, 3
   %50 = zext nneg i32 %49 to i64
   br i1 %.not9.i.i, label %53, label %51
 
 51:                                               ; preds = %48
-  %52 = tail call ptr @realloc(ptr noundef nonnull %.val.i23.pre27, i64 noundef %50) #15
+  %52 = tail call ptr @realloc(ptr noundef nonnull %.val.i22.pre26, i64 noundef %50) #15
   br label %55
 
 53:                                               ; preds = %48
@@ -1304,34 +1304,34 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i14
 
 55:                                               ; preds = %53, %51
   %56 = phi ptr [ %52, %51 ], [ %54, %53 ]
-  store ptr %56, ptr %26, align 8
+  store ptr %56, ptr %25, align 8
   store i32 %45, ptr %21, align 8
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %55, %46
-  %57 = phi ptr [ %56, %55 ], [ %.val.i23.pre27, %46 ]
+  %57 = phi ptr [ %56, %55 ], [ %.val.i22.pre26, %46 ]
   %58 = sext i32 %44 to i64
   br label %59
 
 59:                                               ; preds = %59, %Vec_PtrGrow.exit.i
-  %indvars.iv.i19 = phi i64 [ %58, %Vec_PtrGrow.exit.i ], [ %indvars.iv.next.i21, %59 ]
-  %calloc.i20 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %60 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.i19
-  store ptr %calloc.i20, ptr %60, align 8
-  %indvars.iv.next.i21 = add nsw i64 %indvars.iv.i19, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i21 to i32
-  %exitcond.not.i22 = icmp eq i32 %45, %lftr.wideiv.i
-  br i1 %exitcond.not.i22, label %._crit_edge.i.loopexit, label %59, !llvm.loop !16
+  %indvars.iv.i18 = phi i64 [ %58, %Vec_PtrGrow.exit.i ], [ %indvars.iv.next.i20, %59 ]
+  %calloc.i19 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %60 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.i18
+  store ptr %calloc.i19, ptr %60, align 8
+  %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i18, 1
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i20 to i32
+  %exitcond.not.i21 = icmp eq i32 %45, %lftr.wideiv.i
+  br i1 %exitcond.not.i21, label %._crit_edge.i.loopexit, label %59, !llvm.loop !16
 
 ._crit_edge.i.loopexit:                           ; preds = %59
   store i32 %45, ptr %28, align 4
-  %.val.i23.pre = load ptr, ptr %26, align 8
+  %.val.i22.pre = load ptr, ptr %25, align 8
   br label %61
 
 61:                                               ; preds = %._crit_edge.i.loopexit, %38
-  %.val.i23 = phi ptr [ %.val.i23.pre, %._crit_edge.i.loopexit ], [ %.val.i23.pre27, %38 ]
+  %.val.i22 = phi ptr [ %.val.i22.pre, %._crit_edge.i.loopexit ], [ %.val.i22.pre26, %38 ]
   %62 = and i64 %41, 16777215
-  %63 = getelementptr inbounds ptr, ptr %.val.i23, i64 %62
+  %63 = getelementptr inbounds ptr, ptr %.val.i22, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
@@ -1445,7 +1445,7 @@ define range(i32 0, 16777216) i32 @Aig_ManLevelNum(ptr nocapture noundef readonl
   %16 = lshr i64 %15, 32
   %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 16777215
-  %19 = tail call range(i32 0, 16777216) i32 @llvm.smax.i32(i32 %.011, i32 %18)
+  %19 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 %.011, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !14
@@ -3485,13 +3485,13 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13

@@ -4555,7 +4555,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
 
 139:                                              ; preds = %137
   %140 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN4absl8internal12_GLOBAL__N_19PrintHelpB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %140)
+  invoke fastcc void @_ZN4absl8internal12_GLOBAL__N_19PrintHelpB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %140)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %139
@@ -4586,7 +4586,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit34:   ; preds = %_ZNKSt8functionIFvR
 
 150:                                              ; preds = %._crit_edge
   %151 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN4absl8internal12_GLOBAL__N_19PrintHelpB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %151)
+  invoke fastcc void @_ZN4absl8internal12_GLOBAL__N_19PrintHelpB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %151)
           to label %152 unwind label %.loopexit.split-lp
 
 152:                                              ; preds = %150
@@ -4669,7 +4669,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl8internal12_GLOBAL__N_19PrintHelpB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl8internal12_GLOBAL__N_19PrintHelpB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::shared_ptr", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
@@ -4897,7 +4897,7 @@ _ZNSt10shared_ptrIN4absl8internal8FlagFuncEED2Ev.exit: ; preds = %68, %86, %99, 
           to label %110 unwind label %105
 
 110:                                              ; preds = %._crit_edge
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %111 unwind label %105
 
 111:                                              ; preds = %110

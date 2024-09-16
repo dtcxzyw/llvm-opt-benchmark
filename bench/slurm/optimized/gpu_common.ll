@@ -464,10 +464,10 @@ define void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr nocapture noundef wri
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  call fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %3)
+  call fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %3)
   %14 = tail call ptr @slurm_get_gpu_freq_def() #8
   store ptr %14, ptr %13, align 8
-  call fastcc void @_parse_gpu_freq2(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3)
+  call fastcc void @_parse_gpu_freq2(ptr noundef %14, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %3)
   call void @slurm_xfree(ptr noundef nonnull %13) #8
   %15 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %15, 0
@@ -523,7 +523,7 @@ define void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
@@ -556,7 +556,7 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   br i1 %.not30, label %18, label %27
 
 18:                                               ; preds = %15
-  %19 = call fastcc i32 @_xlate_freq_code(ptr noundef nonnull %16)
+  %19 = call fastcc i32 @_xlate_freq_code(ptr noundef %16)
   store i32 %19, ptr %3, align 4
   %.not31 = icmp eq i32 %19, 0
   br i1 %.not31, label %20, label %43
@@ -596,7 +596,7 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   br label %43
 
 34:                                               ; preds = %31
-  %35 = call fastcc i32 @_xlate_freq_code(ptr noundef nonnull %.034)
+  %35 = call fastcc i32 @_xlate_freq_code(ptr noundef %.034)
   store i32 %35, ptr %1, align 4
   %.not28 = icmp eq i32 %35, 0
   br i1 %.not28, label %36, label %43
@@ -651,7 +651,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare i32 @slurm_xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -4, 1) i32 @_xlate_freq_code(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -4, 1) i32 @_xlate_freq_code(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %2, 0
   %3 = add i8 %2, -48

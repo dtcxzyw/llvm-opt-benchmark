@@ -650,7 +650,7 @@ RescalePlane.exit71:                              ; preds = %.loopexit89
   %130 = add nsw i32 %129, 1
   %131 = ashr i32 %130, 1
   %132 = load i32, ptr %109, align 4
-  %133 = call fastcc i32 @RescalePlane(ptr noundef %122, i32 noundef %96, i32 noundef %98, i32 noundef %123, ptr noundef %125, i32 noundef %128, i32 noundef %131, i32 noundef %132, ptr noundef nonnull %36, i32 noundef 1)
+  %133 = call fastcc i32 @RescalePlane(ptr noundef %122, i32 noundef %96, i32 noundef %98, i32 noundef %123, ptr noundef %125, i32 noundef %128, i32 noundef %131, i32 noundef %132, ptr noundef %36, i32 noundef 1)
   %.not57 = icmp eq i32 %133, 0
   br i1 %.not57, label %134, label %136
 
@@ -760,9 +760,9 @@ declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @WebPInitAlphaProcessing() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @RescalePlane(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @RescalePlane(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8, i32 noundef range(i32 1, 5) %9) unnamed_addr #0 {
   %11 = alloca %struct.WebPRescaler, align 8
-  %12 = call i32 @WebPRescalerInit(ptr noundef nonnull %11, i32 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %9, ptr noundef %8) #5
+  %12 = call i32 @WebPRescalerInit(ptr noundef nonnull %11, i32 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %9, ptr noundef nonnull %8) #5
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.loopexit, label %.preheader
 

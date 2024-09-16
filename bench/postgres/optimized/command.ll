@@ -5009,7 +5009,7 @@ strip_lineno_from_objdesc.exit:                   ; preds = %60
 
 .thread50:                                        ; preds = %48, %.critedge2.i, %54, %.critedge.i, %31, %34, %64, %12
   %.0.i.ph52 = phi i32 [ -1, %12 ], [ -1, %.critedge2.i ], [ -1, %54 ], [ -1, %.critedge.i ], [ -1, %31 ], [ -1, %34 ], [ %62, %64 ], [ -1, %48 ]
-  %65 = call fastcc zeroext i1 @lookup_object_oid(i32 noundef %11, ptr noundef nonnull %8, ptr noundef nonnull %5)
+  %65 = call fastcc zeroext i1 @lookup_object_oid(i32 noundef %11, ptr noundef %8, ptr noundef %5)
   br i1 %65, label %66, label %97
 
 66:                                               ; preds = %.thread50
@@ -6874,7 +6874,7 @@ pset_quoted_string.exit:                          ; preds = %110
 pset_value_string.exit:                           ; preds = %11, %18, %pset_quoted_string.exit.i, %43, %pset_quoted_string.exit69.i, %72, %80, %_align2string.exit.i, %96, %pset_quoted_string.exit, %123, %131, %138, %144, %150, %160, %162, %169, %171, %176, %184, %190, %196, %204, %206, %208, %210, %214
   %.0.i = phi ptr [ %14, %11 ], [ %20, %18 ], [ %28, %pset_quoted_string.exit.i ], [ %48, %43 ], [ %57, %pset_quoted_string.exit69.i ], [ %76, %72 ], [ %84, %80 ], [ %92, %_align2string.exit.i ], [ %99, %96 ], [ %108, %pset_quoted_string.exit ], [ %127, %123 ], [ %134, %131 ], [ %140, %138 ], [ %146, %144 ], [ %154, %150 ], [ %180, %176 ], [ %186, %184 ], [ %192, %190 ], [ %198, %196 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ %213, %210 ], [ %215, %214 ], [ %161, %160 ], [ %163, %162 ], [ %170, %169 ], [ %172, %171 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %216 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.245, ptr noundef %8, ptr noundef %.0.i) #17
+  %216 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.245, ptr noundef nonnull %8, ptr noundef %.0.i) #17
   call void @free(ptr noundef %.0.i) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not18 = icmp eq i64 %indvars.iv.next, 22
@@ -7142,7 +7142,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_sf_sv(ptr noundef %0, i
   br label %66
 
 14:                                               ; preds = %6
-  %15 = call fastcc zeroext i1 @lookup_object_oid(i32 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %5)
+  %15 = call fastcc zeroext i1 @lookup_object_oid(i32 noundef %8, ptr noundef %10, ptr noundef %5)
   br i1 %15, label %16, label %66
 
 16:                                               ; preds = %14
@@ -8841,13 +8841,13 @@ declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #10
 declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @lookup_object_oid(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @lookup_object_oid(i32 noundef range(i32 0, 2) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call ptr @createPQExpBuffer() #17
-  %switch = icmp eq i32 %0, 0
+  %trunc = trunc nuw i32 %0 to i1
   tail call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef nonnull @.str.203) #17
   %5 = load ptr, ptr @pset, align 8
-  tail call void @appendStringLiteralConn(ptr noundef %4, ptr noundef %1, ptr noundef %5) #17
-  br i1 %switch, label %6, label %9
+  tail call void @appendStringLiteralConn(ptr noundef %4, ptr noundef nonnull %1, ptr noundef %5) #17
+  br i1 %trunc, label %9, label %6
 
 6:                                                ; preds = %3
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 40) #18
@@ -8925,13 +8925,13 @@ echo_hidden_command.exit:                         ; preds = %22, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef range(i32 0, 2) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @createPQExpBuffer() #17
-  %switch = icmp eq i32 %0, 0
+  %trunc = trunc nuw i32 %0 to i1
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %6 = icmp sgt i32 %5, 90399
   %.str.213..str.214 = select i1 %6, ptr @.str.213, ptr @.str.214
-  %.str.213.sink = select i1 %switch, ptr @.str.212, ptr %.str.213..str.214
+  %.str.213.sink = select i1 %trunc, ptr %.str.213..str.214, ptr @.str.212
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %4, ptr noundef nonnull %.str.213.sink, i32 noundef %1) #17
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 408), align 8
@@ -8977,7 +8977,7 @@ define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef %0,
 30:                                               ; preds = %27
   tail call void @resetPQExpBuffer(ptr noundef %2) #17
   %31 = tail call ptr @PQgetvalue(ptr noundef %24, i32 noundef 0, i32 noundef 0) #17
-  br i1 %switch, label %32, label %33
+  br i1 %trunc, label %33, label %32
 
 32:                                               ; preds = %30
   tail call void @appendPQExpBufferStr(ptr noundef %2, ptr noundef %31) #17
@@ -9035,8 +9035,8 @@ define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef %0,
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %2, ptr noundef nonnull @.str.221, ptr noundef %36) #17
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   %56 = load i64, ptr %55, align 8
-  %.not60 = icmp eq i64 %56, 0
-  br i1 %.not60, label %66, label %57
+  %.not61 = icmp eq i64 %56, 0
+  br i1 %.not61, label %66, label %57
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %2, align 8
@@ -9054,13 +9054,13 @@ define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef %0,
   br label %66
 
 66:                                               ; preds = %63, %57, %54
-  %.not61 = icmp eq ptr %38, null
-  br i1 %.not61, label %70, label %67
+  %.not62 = icmp eq ptr %38, null
+  br i1 %.not62, label %70, label %67
 
 67:                                               ; preds = %66
   %68 = load i8, ptr %38, align 1
-  %.not62 = icmp eq i8 %68, 0
-  br i1 %.not62, label %70, label %69
+  %.not63 = icmp eq i8 %68, 0
+  br i1 %.not63, label %70, label %69
 
 69:                                               ; preds = %67
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.222, ptr noundef nonnull %38) #17
@@ -9070,16 +9070,16 @@ define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef %0,
   %.055 = phi i1 [ %.2, %69 ], [ %.2, %67 ], [ %.2, %66 ], [ true, %32 ]
   %71 = getelementptr inbounds i8, ptr %2, i64 8
   %72 = load i64, ptr %71, align 8
-  %.not63 = icmp eq i64 %72, 0
-  br i1 %.not63, label %80, label %73
+  %.not64 = icmp eq i64 %72, 0
+  br i1 %.not64, label %80, label %73
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %2, align 8
   %75 = getelementptr i8, ptr %74, i64 %72
   %76 = getelementptr i8, ptr %75, i64 -1
   %77 = load i8, ptr %76, align 1
-  %.not64 = icmp eq i8 %77, 10
-  br i1 %.not64, label %80, label %78
+  %.not65 = icmp eq i8 %77, 10
+  br i1 %.not65, label %80, label %78
 
 78:                                               ; preds = %73
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %2, i8 noundef signext 10) #17

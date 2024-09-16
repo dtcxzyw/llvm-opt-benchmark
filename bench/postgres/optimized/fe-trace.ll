@@ -383,7 +383,7 @@ pqTraceOutputA.exit:                              ; preds = %71, %73
   br i1 %132, label %134, label %133
 
 133:                                              ; preds = %.lr.ph49.i
-  call fastcc void @pqTraceOutputNchar(ptr noundef %91, i32 noundef %130, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @pqTraceOutputNchar(ptr noundef %91, i32 noundef %130, ptr noundef nonnull %1, ptr noundef %6)
   br label %134
 
 134:                                              ; preds = %133, %.lr.ph49.i
@@ -536,7 +536,7 @@ pqTraceOutputC.exit:                              ; preds = %158, %174
   br i1 %223, label %225, label %224
 
 224:                                              ; preds = %.lr.ph.i97
-  call fastcc void @pqTraceOutputNchar(ptr noundef %185, i32 noundef %221, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @pqTraceOutputNchar(ptr noundef %185, i32 noundef %221, ptr noundef nonnull %1, ptr noundef %6)
   br label %225
 
 225:                                              ; preds = %224, %.lr.ph.i97
@@ -568,7 +568,7 @@ pqTraceOutputC.exit:                              ; preds = %158, %174
   br label %pqTraceOutputB.exit
 
 244:                                              ; preds = %227
-  call fastcc void @pqTraceOutputNR(ptr noundef %229, ptr noundef nonnull @.str.38, ptr noundef nonnull %1, ptr noundef nonnull %6, i1 noundef zeroext %32)
+  call fastcc void @pqTraceOutputNR(ptr noundef %229, ptr noundef nonnull @.str.38, ptr noundef nonnull %1, ptr noundef %6, i1 noundef zeroext %32)
   br label %pqTraceOutputB.exit
 
 245:                                              ; preds = %50
@@ -669,7 +669,7 @@ pqTraceOutputInt32.exit.i:                        ; preds = %266, %264
   br i1 %297, label %299, label %298
 
 298:                                              ; preds = %.lr.ph40.i
-  call fastcc void @pqTraceOutputNchar(ptr noundef %258, i32 noundef %295, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @pqTraceOutputNchar(ptr noundef %258, i32 noundef %295, ptr noundef nonnull %1, ptr noundef %6)
   br label %299
 
 299:                                              ; preds = %298, %.lr.ph40.i
@@ -745,7 +745,7 @@ pqTraceOutputF.exit:                              ; preds = %299, %._crit_edge.i
   br i1 %2, label %344, label %343
 
 343:                                              ; preds = %340
-  call fastcc void @pqTraceOutputH(ptr noundef %342, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @pqTraceOutputH(ptr noundef %342, ptr noundef nonnull %1, ptr noundef %6)
   br label %pqTraceOutputB.exit
 
 344:                                              ; preds = %340
@@ -800,7 +800,7 @@ pqTraceOutputF.exit:                              ; preds = %299, %._crit_edge.i
 376:                                              ; preds = %50
   %377 = getelementptr inbounds i8, ptr %0, i64 312
   %378 = load ptr, ptr %377, align 8
-  call fastcc void @pqTraceOutputNR(ptr noundef %378, ptr noundef nonnull @.str.12, ptr noundef nonnull %1, ptr noundef nonnull %6, i1 noundef zeroext %32)
+  call fastcc void @pqTraceOutputNR(ptr noundef %378, ptr noundef nonnull @.str.12, ptr noundef nonnull %1, ptr noundef %6, i1 noundef zeroext %32)
   br label %pqTraceOutputB.exit
 
 379:                                              ; preds = %50
@@ -899,7 +899,7 @@ pqTraceOutputInt32.exit.i122:                     ; preds = %.lr.ph.i121, %pqTra
   br i1 %2, label %441, label %440
 
 440:                                              ; preds = %437
-  call fastcc void @pqTraceOutputS(ptr noundef %439, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @pqTraceOutputS(ptr noundef %439, ptr noundef nonnull %1, ptr noundef %6)
   br label %pqTraceOutputB.exit
 
 441:                                              ; preds = %437
@@ -1091,7 +1091,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %504, %502
   br i1 %.not.i146, label %pqTraceOutputB.exit, label %554
 
 554:                                              ; preds = %544
-  call fastcc void @pqTraceOutputNchar(ptr noundef %546, i32 noundef %552, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @pqTraceOutputNchar(ptr noundef %546, i32 noundef %552, ptr noundef nonnull %1, ptr noundef %6)
   br label %pqTraceOutputB.exit
 
 555:                                              ; preds = %50
@@ -1192,7 +1192,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputH(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputH(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 {
   %4 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.42) #11
   %5 = load i32, ptr %2, align 4
   %6 = sext i32 %5 to i64
@@ -1246,7 +1246,7 @@ define internal fastcc void @pqTraceOutputH(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputNR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputNR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1) #11
   %7 = tail call ptr @__ctype_b_loc() #13
   %8 = load i32, ptr %3, align 4
@@ -1362,7 +1362,7 @@ pqTraceOutputString.exit:                         ; preds = %.lr.ph, %pqTraceOut
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputS(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputS(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 {
   %4 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.47) #11
   %5 = load i32, ptr %2, align 4
   %6 = sext i32 %5 to i64
@@ -1472,7 +1472,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef range(i32 0, -1) %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = load i32, ptr %3, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %2, i64 %6

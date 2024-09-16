@@ -938,7 +938,7 @@ parse_basebackup_options.exit:                    ; preds = %._crit_edge431.i, %
 
 390:                                              ; preds = %382
   store ptr %6, ptr @PG_exception_stack, align 8
-  call fastcc void @perform_base_backup(ptr noundef nonnull %4, ptr noundef %386, ptr noundef %.016)
+  call fastcc void @perform_base_backup(ptr noundef %4, ptr noundef %386, ptr noundef %.016)
   store ptr %387, ptr @PG_exception_stack, align 8
   store ptr %388, ptr @error_context_stack, align 8
   %391 = load ptr, ptr %386, align 8
@@ -995,7 +995,7 @@ declare ptr @bbsink_progress_new(ptr noundef, i1 noundef zeroext) local_unnamed_
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @perform_base_backup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @perform_base_backup(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1164,7 +1164,7 @@ define internal fastcc void @perform_base_backup(ptr nocapture noundef readonly 
   %106 = load ptr, ptr %105, align 8
   call void %106(ptr noundef nonnull %1, ptr noundef nonnull @.str.39) #18
   %107 = call ptr @build_backup_content(ptr noundef %33, i1 noundef zeroext false) #18
-  call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull @.str.40, ptr noundef %107, ptr noundef nonnull %11)
+  call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull @.str.40, ptr noundef %107, ptr noundef %11)
   call void @pfree(ptr noundef %107) #18
   %108 = load i8, ptr %92, align 4
   %109 = trunc i8 %108 to i1
@@ -1172,7 +1172,7 @@ define internal fastcc void @perform_base_backup(ptr nocapture noundef readonly 
 
 110:                                              ; preds = %103
   %111 = load ptr, ptr %34, align 8
-  call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, ptr noundef %111, ptr noundef nonnull %11)
+  call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, ptr noundef %111, ptr noundef %11)
   br label %112
 
 112:                                              ; preds = %110, %103
@@ -1192,7 +1192,7 @@ define internal fastcc void @perform_base_backup(ptr nocapture noundef readonly 
   unreachable
 
 120:                                              ; preds = %112
-  %121 = call fastcc zeroext i1 @sendFile(ptr noundef nonnull %1, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %121 = call fastcc zeroext i1 @sendFile(ptr noundef nonnull %1, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41, ptr noundef %13, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %131
 
 122:                                              ; preds = %.lr.ph353
@@ -1403,7 +1403,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %188, %IsXLogFileNam
 235:                                              ; preds = %220
   %236 = load i32, ptr %44, align 8
   %237 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %19, i32 noundef %236, i64 noundef %166, i32 noundef %237)
+  call fastcc void @XLogFileName(ptr noundef %19, i32 noundef %236, i64 noundef %166, i32 noundef %237)
   %238 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %238)
   %239 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %19) #18
@@ -1446,7 +1446,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %188, %IsXLogFileNam
 259:                                              ; preds = %.lr.ph265
   %260 = load i32, ptr %18, align 4
   %261 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %20, i32 noundef %260, i64 noundef %246, i32 noundef %261)
+  call fastcc void @XLogFileName(ptr noundef %20, i32 noundef %260, i64 noundef %246, i32 noundef %261)
   %262 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %262)
   %263 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %20) #18
@@ -1472,7 +1472,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %188, %IsXLogFileNam
 
 267:                                              ; preds = %._crit_edge266.thread, %._crit_edge266
   %268 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %21, i32 noundef %156, i64 noundef %177, i32 noundef %268)
+  call fastcc void @XLogFileName(ptr noundef %21, i32 noundef %156, i64 noundef %177, i32 noundef %268)
   %269 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %269)
   %270 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %21) #18
@@ -1558,7 +1558,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %188, %IsXLogFileNam
   unreachable
 
 314:                                              ; preds = %305
-  call fastcc void @_tarWriteHeader(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %15, i1 noundef zeroext false)
+  call fastcc void @_tarWriteHeader(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef null, ptr noundef %15, i1 noundef zeroext false)
   %.pre = load i32, ptr @wal_segment_size, align 4
   br label %315
 
@@ -1627,7 +1627,7 @@ split:                                            ; preds = %329, %basebackup_re
 343:                                              ; preds = %split
   %344 = call i32 @CloseTransientFile(i32 noundef %290) #18
   %345 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.111, ptr noundef %278, ptr noundef nonnull @.str.50) #18
-  call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull @.str.51, ptr noundef nonnull %11)
+  call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull @.str.51, ptr noundef %11)
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %346 = load i32, ptr %233, align 4
   %347 = sext i32 %346 to i64
@@ -1653,9 +1653,9 @@ split:                                            ; preds = %329, %basebackup_re
   unreachable
 
 356:                                              ; preds = %.lr.ph276
-  %357 = call fastcc zeroext i1 @sendFile(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %15, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %357 = call fastcc zeroext i1 @sendFile(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef %15, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %358 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.111, ptr noundef %350, ptr noundef nonnull @.str.50) #18
-  call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull @.str.51, ptr noundef nonnull %11)
+  call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull @.str.51, ptr noundef %11)
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %359 = load i32, ptr %271, align 4
   %360 = sext i32 %359 to i64
@@ -2071,7 +2071,7 @@ sub_1194:                                         ; preds = %.tail
   br label %153
 
 153:                                              ; preds = %150, %146
-  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %gep, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext %3)
+  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %gep, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
   %154 = add i64 %.0132223, 512
   br label %.backedge
 
@@ -2093,9 +2093,9 @@ sub_1194:                                         ; preds = %.tail
   br label %convert_link_to_directory.exit182
 
 convert_link_to_directory.exit182:                ; preds = %157, %161
-  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %gep, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext %3)
-  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.73, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext %3)
-  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext %3)
+  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %gep, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
+  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.73, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
+  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
   %164 = add i64 %.0132223, 1536
   br label %.backedge
 
@@ -2138,7 +2138,7 @@ convert_link_to_directory.exit182:                ; preds = %157, %161
 184:                                              ; preds = %177
   %185 = getelementptr [1024 x i8], ptr %16, i64 0, i64 %178
   store i8 0, ptr %185, align 1
-  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %gep, ptr noundef nonnull %16, ptr noundef nonnull %11, i1 noundef zeroext %3)
+  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %gep, ptr noundef nonnull %16, ptr noundef %11, i1 noundef zeroext %3)
   %186 = add i64 %.0132223, 512
   br label %.backedge
 
@@ -2151,7 +2151,7 @@ convert_link_to_directory.exit182:                ; preds = %157, %161
   ]
 
 189:                                              ; preds = %187
-  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %gep, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext %3)
+  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %gep, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
   %190 = add i64 %.0132223, 512
   br i1 %.not170, label %.thread189, label %.lr.ph
 
@@ -2248,7 +2248,7 @@ convert_link_to_directory.exit182:                ; preds = %157, %161
   %229 = load i32, ptr %14, align 4
   %230 = load i32, ptr %17, align 4
   %231 = load i32, ptr %18, align 4
-  %232 = call fastcc zeroext i1 @sendFile(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.0129, ptr noundef nonnull %11, i1 noundef zeroext true, i32 noundef %.0145, i32 noundef %7, i32 noundef %228, i32 noundef %229, ptr noundef %6, i32 noundef %230, ptr noundef %.0128, i32 noundef %231)
+  %232 = call fastcc zeroext i1 @sendFile(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.0129, ptr noundef %11, i1 noundef zeroext true, i32 noundef %.0145, i32 noundef %7, i32 noundef %228, i32 noundef %229, ptr noundef %6, i32 noundef %230, ptr noundef %.0128, i32 noundef %231)
   br i1 %232, label %.critedge180, label %.backedge
 
 .critedge180:                                     ; preds = %226, %227
@@ -2306,7 +2306,7 @@ define internal fastcc i64 @sendTablespace(ptr noundef %0, ptr noundef %1, i32 n
   unreachable
 
 18:                                               ; preds = %6
-  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef nonnull %8, i1 noundef zeroext %3)
+  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef %8, i1 noundef zeroext %3)
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %20 = trunc i64 %19 to i32
   %21 = call fastcc i64 @sendDir(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %20, i1 noundef zeroext %3, ptr noundef null, i1 noundef zeroext true, ptr noundef %4, i32 noundef %2, ptr noundef %5)
@@ -2321,7 +2321,7 @@ define internal fastcc i64 @sendTablespace(ptr noundef %0, ptr noundef %1, i32 n
 declare ptr @build_backup_content(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.pg_checksum_context, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2356,7 +2356,7 @@ define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1,
   %25 = ashr exact i64 %sext, 32
   %26 = getelementptr inbounds i8, ptr %5, i64 48
   store i64 %25, ptr %26, align 8
-  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext false)
+  call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %5, i1 noundef zeroext false)
   %27 = call i32 @pg_checksum_update(ptr noundef nonnull %6, ptr noundef %2, i64 noundef %25) #18
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %32, label %.preheader
@@ -2448,7 +2448,7 @@ define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1,
   br label %_tarWritePadding.exit
 
 _tarWritePadding.exit:                            ; preds = %._crit_edge, %.loopexit.i
-  call void @AddFileToBackupManifest(ptr noundef %3, i32 noundef 0, ptr noundef %1, i64 noundef %25, i64 noundef %21, ptr noundef nonnull %6) #18
+  call void @AddFileToBackupManifest(ptr noundef nonnull %3, i32 noundef 0, ptr noundef %1, i64 noundef %25, i64 noundef %21, ptr noundef nonnull %6) #18
   ret void
 }
 
@@ -2460,7 +2460,7 @@ declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef
 declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sendFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef readonly %11, i32 noundef %12) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sendFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef readonly %11, i32 noundef %12) unnamed_addr #0 {
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
@@ -2754,7 +2754,7 @@ push_to_sink.exit144.thread:                      ; preds = %132, %135, %push_to
   %154 = sub i64 %152, %.1
   %155 = add i32 %.0105, %147
   %156 = trunc nuw i8 %.1109 to i1
-  %157 = call fastcc i64 @read_file_data_into_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %27, i64 noundef %.1, i64 noundef %154, i32 noundef %155, i1 noundef zeroext %156, ptr noundef nonnull %16)
+  %157 = call fastcc i64 @read_file_data_into_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %27, i64 noundef %.1, i64 noundef %154, i32 noundef %155, i1 noundef zeroext %156, ptr noundef %16)
   br label %170
 
 158:                                              ; preds = %150
@@ -2770,7 +2770,7 @@ push_to_sink.exit144.thread:                      ; preds = %132, %135, %push_to
   %165 = zext i32 %164 to i64
   %166 = add i32 %163, %147
   %167 = trunc nuw i8 %.1109 to i1
-  %168 = call fastcc i64 @read_file_data_into_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %27, i64 noundef %165, i64 noundef 8192, i32 noundef %166, i1 noundef zeroext %167, ptr noundef nonnull %16)
+  %168 = call fastcc i64 @read_file_data_into_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %27, i64 noundef %165, i64 noundef 8192, i32 noundef %166, i1 noundef zeroext %167, ptr noundef %16)
   %169 = icmp slt i64 %168, 8192
   br i1 %169, label %193, label %170
 
@@ -2987,14 +2987,14 @@ declare void @cancel_before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_a
 declare void @basebackup_progress_transfer_wal() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @XLogFileName(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = sext i32 %3 to i64
   %6 = udiv i64 4294967296, %5
   %7 = udiv i64 %2, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %2, %6
   %10 = trunc nuw i64 %9 to i32
-  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %0, i64 noundef 64, ptr noundef nonnull @.str.103, i32 noundef %1, i32 noundef %8, i32 noundef %10) #18
+  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %0, i64 noundef 64, ptr noundef nonnull @.str.103, i32 noundef %1, i32 noundef %8, i32 noundef %10) #18
   ret void
 }
 
@@ -3029,7 +3029,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %33, label %6
 
 6:                                                ; preds = %5
@@ -3085,7 +3085,7 @@ define internal fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, -9223372036854775808) i64 @basebackup_read_file(i32 noundef %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i64 0, -9223372036854775808) i64 @basebackup_read_file(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772160, ptr %7, align 4
   %8 = tail call i64 @pread(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #18
@@ -3186,7 +3186,7 @@ declare void @AddFileToBackupManifest(ptr noundef, i32 noundef, ptr noundef, i64
 declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @read_file_data_into_buffer(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @read_file_data_into_buffer(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16

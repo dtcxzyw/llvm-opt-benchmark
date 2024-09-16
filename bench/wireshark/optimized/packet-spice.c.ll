@@ -2046,7 +2046,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %371 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %370) #4
   %372 = add i32 %.8535, 10
   %373 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %372) #4
-  call fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %369, ptr noundef nonnull readonly %.0434, i32 noundef 1, i16 noundef zeroext %371, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.8535)
+  call fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %369, ptr noundef nonnull readonly %.0434, i32 noundef 1, i16 noundef zeroext %371, ptr noundef %7, ptr noundef %8, i32 noundef %.8535)
   br label %dissect_spice_mini_data_header.exit.i
 
 dissect_spice_mini_data_header.exit.i:            ; preds = %365, %356, %348
@@ -2578,61 +2578,61 @@ dissect_spice_link_common_header.exit:            ; preds = %10, %5, %4
   %37 = load i32, ptr @hf_caps_offset, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef -2147483648) #4
   %.not66 = icmp eq i32 %25, 0
-  br i1 %.not66, label %51, label %.lr.ph.i
+  br i1 %.not66, label %52, label %39
 
-.lr.ph.i:                                         ; preds = %24
-  %39 = shl i32 %25, 2
-  %40 = load i32, ptr @ett_link_caps, align 4
-  %41 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 34, i32 noundef %39, i32 noundef %40, ptr noundef null, ptr noundef nonnull @.str.699, i32 noundef %39) #4
-  %42 = getelementptr inbounds i8, ptr %3, i64 12
-  %43 = getelementptr inbounds i8, ptr %3, i64 32
-  br label %.lr.ph.split.i
+39:                                               ; preds = %24
+  %40 = shl i32 %25, 2
+  %41 = load i32, ptr @ett_link_caps, align 4
+  %42 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 34, i32 noundef %40, i32 noundef %41, ptr noundef null, ptr noundef nonnull @.str.699, i32 noundef %40) #4
+  %43 = getelementptr inbounds i8, ptr %3, i64 12
+  %44 = getelementptr inbounds i8, ptr %3, i64 32
+  br label %.split.i
 
-.lr.ph.split.i:                                   ; preds = %48, %.lr.ph.i
-  %.028.i = phi i32 [ %.1.i, %48 ], [ 34, %.lr.ph.i ]
-  %.02327.i = phi i32 [ %49, %48 ], [ 0, %.lr.ph.i ]
-  %44 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.028.i) #4
+.split.i:                                         ; preds = %49, %39
+  %.028.i = phi i32 [ %.1.i, %49 ], [ 34, %39 ]
+  %.02327.i = phi i32 [ %50, %49 ], [ 0, %39 ]
+  %45 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.028.i) #4
   %cond.i = icmp eq i32 %.02327.i, 0
-  br i1 %cond.i, label %.thread.i, label %46
+  br i1 %cond.i, label %.thread.i, label %47
 
-.thread.i:                                        ; preds = %.lr.ph.split.i
-  store i32 %44, ptr %42, align 4
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %41, ptr noundef %0, i32 noundef %.028.i, i32 noundef 4, ptr noundef nonnull @dissect_spice_common_capabilities.caps, i32 noundef -2147483648) #4
-  %45 = and i32 %44, 8
-  %.not2425.i = icmp eq i32 %45, 0
-  br i1 %.not2425.i, label %48, label %.thread26.i
+.thread.i:                                        ; preds = %.split.i
+  store i32 %45, ptr %43, align 4
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %42, ptr noundef %0, i32 noundef %.028.i, i32 noundef 4, ptr noundef nonnull @dissect_spice_common_capabilities.caps, i32 noundef -2147483648) #4
+  %46 = and i32 %45, 8
+  %.not2425.i = icmp eq i32 %46, 0
+  br i1 %.not2425.i, label %49, label %.thread26.i
 
 .thread26.i:                                      ; preds = %.thread.i
-  store i32 1, ptr %43, align 4
-  br label %48
+  store i32 1, ptr %44, align 4
+  br label %49
 
-46:                                               ; preds = %.lr.ph.split.i
-  %47 = tail call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_spice_common_cap_unknown, ptr noundef %0, i32 noundef %.028.i, i32 noundef 4) #4
-  br label %48
+47:                                               ; preds = %.split.i
+  %48 = tail call ptr @proto_tree_add_expert(ptr noundef %42, ptr noundef %1, ptr noundef nonnull @ei_spice_common_cap_unknown, ptr noundef %0, i32 noundef %.028.i, i32 noundef 4) #4
+  br label %49
 
-48:                                               ; preds = %46, %.thread26.i, %.thread.i
+49:                                               ; preds = %47, %.thread26.i, %.thread.i
   %.1.i = add i32 %.028.i, 4
-  %49 = add nuw i32 %.02327.i, 1
-  %exitcond.not.i = icmp eq i32 %49, %25
-  br i1 %exitcond.not.i, label %dissect_spice_common_capabilities.exit, label %.lr.ph.split.i, !llvm.loop !10
+  %50 = add nuw i32 %.02327.i, 1
+  %exitcond.not.i = icmp eq i32 %50, %25
+  br i1 %exitcond.not.i, label %dissect_spice_common_capabilities.exit, label %.split.i, !llvm.loop !10
 
-dissect_spice_common_capabilities.exit:           ; preds = %48
-  %50 = add i32 %39, 34
-  br label %51
+dissect_spice_common_capabilities.exit:           ; preds = %49
+  %51 = add i32 %40, 34
+  br label %52
 
-51:                                               ; preds = %dissect_spice_common_capabilities.exit, %24
-  %.0 = phi i32 [ %50, %dissect_spice_common_capabilities.exit ], [ 34, %24 ]
+52:                                               ; preds = %dissect_spice_common_capabilities.exit, %24
+  %.0 = phi i32 [ %51, %dissect_spice_common_capabilities.exit ], [ 34, %24 ]
   %.not67 = icmp eq i32 %26, 0
-  br i1 %.not67, label %56, label %52
+  br i1 %.not67, label %57, label %53
 
-52:                                               ; preds = %51
-  %53 = shl i32 %26, 2
-  %54 = load i32, ptr @ett_link_caps, align 4
-  %55 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef %53, i32 noundef %54, ptr noundef null, ptr noundef nonnull @.str.700, i32 noundef %53) #4
-  tail call fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %55, i32 noundef %.0, i32 noundef %26, ptr noundef %3)
-  br label %56
+53:                                               ; preds = %52
+  %54 = shl i32 %26, 2
+  %55 = load i32, ptr @ett_link_caps, align 4
+  %56 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef %54, i32 noundef %55, ptr noundef null, ptr noundef nonnull @.str.700, i32 noundef %54) #4
+  tail call fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %56, i32 noundef %.0, i32 noundef %26, ptr noundef %3)
+  br label %57
 
-56:                                               ; preds = %52, %51
+57:                                               ; preds = %53, %52
   ret void
 }
 
@@ -2677,61 +2677,61 @@ dissect_spice_link_common_header.exit:            ; preds = %5, %10
   %29 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 182) #4
   %30 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 186) #4
   %.not55 = icmp eq i32 %29, 0
-  br i1 %.not55, label %45, label %.lr.ph.i
+  br i1 %.not55, label %46, label %31
 
-.lr.ph.i:                                         ; preds = %.critedge
-  %31 = shl i32 %29, 2
-  %32 = load i32, ptr @ett_link_caps, align 4
-  %33 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 194, i32 noundef %31, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.701, i32 noundef %31) #4
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
-  %35 = getelementptr inbounds i8, ptr %3, i64 36
-  br label %.lr.ph.split.us.i
+31:                                               ; preds = %.critedge
+  %32 = shl i32 %29, 2
+  %33 = load i32, ptr @ett_link_caps, align 4
+  %34 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 194, i32 noundef %32, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.701, i32 noundef %32) #4
+  %35 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds i8, ptr %3, i64 36
+  br label %.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %42, %.lr.ph.i
-  %.028.us.i = phi i32 [ %.1.us.i, %42 ], [ 194, %.lr.ph.i ]
-  %.02327.us.i = phi i32 [ %43, %42 ], [ 0, %.lr.ph.i ]
-  %36 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.028.us.i) #4
+.split.us.i:                                      ; preds = %43, %31
+  %.028.us.i = phi i32 [ %.1.us.i, %43 ], [ 194, %31 ]
+  %.02327.us.i = phi i32 [ %44, %43 ], [ 0, %31 ]
+  %37 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.028.us.i) #4
   %cond.us.i = icmp eq i32 %.02327.us.i, 0
-  br i1 %cond.us.i, label %39, label %37
+  br i1 %cond.us.i, label %40, label %38
 
-37:                                               ; preds = %.lr.ph.split.us.i
-  %38 = tail call ptr @proto_tree_add_expert(ptr noundef %33, ptr noundef %1, ptr noundef nonnull @ei_spice_common_cap_unknown, ptr noundef %0, i32 noundef %.028.us.i, i32 noundef 4) #4
-  br label %42
+38:                                               ; preds = %.split.us.i
+  %39 = tail call ptr @proto_tree_add_expert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull @ei_spice_common_cap_unknown, ptr noundef %0, i32 noundef %.028.us.i, i32 noundef 4) #4
+  br label %43
 
-39:                                               ; preds = %.lr.ph.split.us.i
-  store i32 %36, ptr %34, align 4
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %33, ptr noundef %0, i32 noundef %.028.us.i, i32 noundef 4, ptr noundef nonnull @dissect_spice_common_capabilities.caps, i32 noundef -2147483648) #4
-  %40 = and i32 %36, 8
-  %.not24.us.i = icmp eq i32 %40, 0
-  br i1 %.not24.us.i, label %42, label %41
+40:                                               ; preds = %.split.us.i
+  store i32 %37, ptr %35, align 4
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %34, ptr noundef %0, i32 noundef %.028.us.i, i32 noundef 4, ptr noundef nonnull @dissect_spice_common_capabilities.caps, i32 noundef -2147483648) #4
+  %41 = and i32 %37, 8
+  %.not24.us.i = icmp eq i32 %41, 0
+  br i1 %.not24.us.i, label %43, label %42
 
-41:                                               ; preds = %39
-  store i32 1, ptr %35, align 4
-  br label %42
+42:                                               ; preds = %40
+  store i32 1, ptr %36, align 4
+  br label %43
 
-42:                                               ; preds = %41, %39, %37
+43:                                               ; preds = %42, %40, %38
   %.1.us.i = add i32 %.028.us.i, 4
-  %43 = add nuw i32 %.02327.us.i, 1
-  %exitcond31.not.i = icmp eq i32 %43, %29
-  br i1 %exitcond31.not.i, label %dissect_spice_common_capabilities.exit, label %.lr.ph.split.us.i, !llvm.loop !10
+  %44 = add nuw i32 %.02327.us.i, 1
+  %exitcond32.not.i = icmp eq i32 %44, %29
+  br i1 %exitcond32.not.i, label %dissect_spice_common_capabilities.exit, label %.split.us.i, !llvm.loop !10
 
-dissect_spice_common_capabilities.exit:           ; preds = %42
-  %44 = add i32 %31, 194
-  br label %45
+dissect_spice_common_capabilities.exit:           ; preds = %43
+  %45 = add i32 %32, 194
+  br label %46
 
-45:                                               ; preds = %dissect_spice_common_capabilities.exit, %.critedge
-  %.0 = phi i32 [ %44, %dissect_spice_common_capabilities.exit ], [ 194, %.critedge ]
+46:                                               ; preds = %dissect_spice_common_capabilities.exit, %.critedge
+  %.0 = phi i32 [ %45, %dissect_spice_common_capabilities.exit ], [ 194, %.critedge ]
   %.not56 = icmp eq i32 %30, 0
-  br i1 %.not56, label %50, label %46
+  br i1 %.not56, label %51, label %47
 
-46:                                               ; preds = %45
-  %47 = shl i32 %30, 2
-  %48 = load i32, ptr @ett_link_caps, align 4
-  %49 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef %47, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.702, i32 noundef %47) #4
-  tail call fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %49, i32 noundef %.0, i32 noundef %30, ptr noundef %3)
-  br label %50
+47:                                               ; preds = %46
+  %48 = shl i32 %30, 2
+  %49 = load i32, ptr @ett_link_caps, align 4
+  %50 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef %48, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.702, i32 noundef %48) #4
+  tail call fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %50, i32 noundef %.0, i32 noundef %30, ptr noundef %3)
+  br label %51
 
-50:                                               ; preds = %46, %45
+51:                                               ; preds = %47, %46
   ret void
 }
 
@@ -2812,7 +2812,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %48 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %0, i32 noundef %4, i32 noundef 18, i32 noundef 0) #4
   %49 = load i32, ptr @ett_data, align 4
   %50 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49) #4
-  call fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %50, ptr noundef nonnull %3, i32 noundef 0, i16 noundef zeroext %40, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %4)
+  call fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %50, ptr noundef nonnull %3, i32 noundef 0, i16 noundef zeroext %40, ptr noundef %9, ptr noundef %10, i32 noundef %4)
   br label %51
 
 51:                                               ; preds = %38, %dissect_spice_mini_data_header.exit
@@ -3872,21 +3872,17 @@ dissect_spice_common_server_messages.exit:        ; preds = %102, %81, %76, %68,
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca [5 x ptr], align 16
   %8 = alloca [5 x ptr], align 16
   %9 = alloca [16 x ptr], align 16
   %10 = alloca [4 x ptr], align 16
-  %.not41 = icmp eq i32 %4, 0
-  br i1 %.not41, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %6
   %11 = getelementptr inbounds i8, ptr %5, i64 30
   br label %12
 
-12:                                               ; preds = %.lr.ph, %30
-  %.036 = phi i32 [ 0, %.lr.ph ], [ %32, %30 ]
-  %.03035 = phi i32 [ %3, %.lr.ph ], [ %31, %30 ]
+12:                                               ; preds = %6, %30
+  %.036 = phi i32 [ 0, %6 ], [ %32, %30 ]
+  %.03035 = phi i32 [ %3, %6 ], [ %31, %30 ]
   %13 = load i8, ptr %11, align 2
   switch i8 %13, label %28 [
     i8 5, label %14
@@ -3953,7 +3949,7 @@ define internal fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr
   %exitcond.not = icmp eq i32 %32, %4
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !16
 
-.loopexit:                                        ; preds = %30, %14, %16, %18, %26, %6, %28
+.loopexit:                                        ; preds = %26, %18, %16, %14, %30, %28
   ret void
 }
 
@@ -3967,7 +3963,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, i16 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, i32 noundef %7) unnamed_addr #0 {
   %9 = add i32 %7, 14
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %9) #4
   store i32 %10, ptr %6, align 4
@@ -3999,7 +3995,7 @@ define internal fastcc void @dissect_spice_data_header(ptr noundef %0, ptr nound
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_message_type_string(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @get_message_type_string(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = zext i16 %0 to i32
   %5 = icmp ult i16 %0, 101
   br i1 %5, label %6, label %11
@@ -4990,7 +4986,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ImageLZ_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_ImageLZ_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = add i32 %4, %2
   %7 = load i32, ptr @hf_spice_lz_magic, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #4

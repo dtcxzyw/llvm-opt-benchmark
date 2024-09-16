@@ -3466,7 +3466,7 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i184,
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call fastcc void @_ZL24findOperandDecoderMethodB5cxx11PN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %1163), !noalias !96
+  call fastcc void @_ZL24findOperandDecoderMethodB5cxx11PN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %1163), !noalias !96
   %1164 = getelementptr inbounds nuw i8, ptr %1163, i64 168
   %1165 = load ptr, ptr %1164, align 8, !noalias !96
   %1166 = call noundef ptr @_ZN4llvm10StringInit3getERNS_12RecordKeeperENS_9StringRefENS0_12StringFormatE(ptr noundef nonnull align 8 dereferenceable(232) %1165, ptr nonnull @.str.49, i64 18, i32 noundef 0) #20, !noalias !96
@@ -3534,7 +3534,7 @@ _ZN12_GLOBAL__N_111OperandInfoD2Ev.exit.i.i:      ; preds = %1185, %_Z9getOpInfo
 
 1190:                                             ; preds = %1156, %.lr.ph154.i.i
   %1191 = load ptr, ptr %.sroa.0127.0152.i.i, align 8
-  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %1191)
+  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %1191)
   call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_111OperandInfoESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(72) %16)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %823) #20
   %.val.i81.i.i = load ptr, ptr %16, align 8
@@ -3943,11 +3943,11 @@ _Z22parseVarLenInstOperandRKN4llvm6RecordERSt6vectorIN12_GLOBAL__N_111OperandInf
 
 1362:                                             ; preds = %1358
   %1363 = call noundef ptr @_ZNK4llvm6Record13getValueAsDagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1360, ptr nonnull @.str.53, i64 13) #20
-  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull %1360)
+  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull %1360)
   br i1 %.not.i181, label %1403, label %1364
 
 .thread.i182:                                     ; preds = %1358
-  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull %1360)
+  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull %1360)
   br i1 %.not.i181, label %.thread127.i, label %1364
 
 1364:                                             ; preds = %.thread.i182, %1362
@@ -4066,7 +4066,7 @@ _ZNK4llvm7DagInit13getArgNameStrEj.exit201.i:     ; preds = %1392, %1386
   %1394 = load ptr, ptr %.sroa.03.0186.i, align 8
   %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 24
   %1396 = load ptr, ptr %1395, align 8
-  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef %1396)
+  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %1396)
   call fastcc void @_ZL19addOneOperandFieldsRKN4llvm6RecordERKNS_8BitsInitERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_St4lessISC_ESaISt4pairIKSC_SC_EEENS_9StringRefERN12_GLOBAL__N_111OperandInfoE(ptr noundef nonnull align 8 dereferenceable(192) %899, ptr noundef nonnull align 8 dereferenceable(40) %932, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr %.sroa.0.0.i197.i, i64 %.sroa.4.0.i198.i, ptr noundef nonnull align 8 dereferenceable(72) %33)
   call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_111OperandInfoESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(72) %33)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %793) #20
@@ -4107,7 +4107,7 @@ _ZN12_GLOBAL__N_111OperandInfoD2Ev.exit205.i:     ; preds = %1397, %_ZNK4llvm7Da
   %1412 = load ptr, ptr %1411, align 8
   %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 24
   %1414 = load ptr, ptr %1413, align 8
-  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef %1414)
+  call fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef %1414)
   %1415 = load ptr, ptr %27, align 8
   %1416 = load ptr, ptr %796, align 8
   %1417 = load ptr, ptr %34, align 8
@@ -12373,10 +12373,10 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_Z9getOpInfoPN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZL24findOperandDecoderMethodB5cxx11PN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %1)
+  call fastcc void @_ZL24findOperandDecoderMethodB5cxx11PN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = call noundef ptr @_ZN4llvm10StringInit3getERNS_12RecordKeeperENS_9StringRefENS0_12StringFormatE(ptr noundef nonnull align 8 dereferenceable(232) %6, ptr nonnull @.str.49, i64 18, i32 noundef 0) #20
@@ -13375,7 +13375,7 @@ declare i64 @_ZN4llvm14CGIOperandList16ParseOperandNameENS_9StringRefEb(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24findOperandDecoderMethodB5cxx11PN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL24findOperandDecoderMethodB5cxx11PN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca %"class.std::allocator.46", align 1
   %5 = alloca %"class.std::allocator.46", align 1

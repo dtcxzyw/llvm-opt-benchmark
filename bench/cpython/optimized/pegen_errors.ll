@@ -487,7 +487,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr nocapture noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr nocapture noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)

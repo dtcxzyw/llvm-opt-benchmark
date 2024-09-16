@@ -54683,7 +54683,7 @@ while.body.i.i.i:                                 ; preds = %_ZN4llvh6detail12De
   store ptr %2, ptr %table.i.i.i12.i.i.i, align 8
   store ptr %3, ptr %_M_finish.i.i.i.i.i.i.i14.i.i.i, align 8
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i16.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i13, ptr noundef nonnull %agg.tmp.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i13, ptr noundef %agg.tmp.i.i.i)
   %5 = load ptr, ptr %table.i.i.i12.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoEED2Ev.exit22.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -54736,7 +54736,7 @@ while.body.i.i:                                   ; preds = %"_ZSt10__pop_heapIP
   store ptr %7, ptr %table.i.i.i12.i.i8.i, align 8
   store ptr %8, ptr %_M_finish.i.i.i.i.i.i.i14.i.i9.i, align 8
   store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i16.i.i10.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i.i18.i, ptr noundef nonnull %agg.tmp.i.i3.i)
+  call fastcc void @"_ZSt13__adjust_heapIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i.i18.i, ptr noundef %agg.tmp.i.i3.i)
   %14 = load ptr, ptr %table.i.i.i12.i.i8.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i19.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i19.i, label %"_ZSt10__pop_heapIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_SG_SG_RT0_.exit.i21.i", label %if.then.i.i.i.i.i.i.i.i20.i
@@ -55016,7 +55016,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %__first, i64 noundef range(i64 0, 96076792050570581) %__holeIndex, i64 noundef range(i64 -192153584101141162, 192153584101141163) %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #0 {
 entry:
   %agg.tmp.sroa.5 = alloca [12 x i8], align 4
   %sub = add nsw i64 %__len, -1

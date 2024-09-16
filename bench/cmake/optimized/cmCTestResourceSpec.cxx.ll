@@ -563,7 +563,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %1, %4
 declare void @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind writable sret(%"class.std::function.0") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull returned align 8 dereferenceable(65) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull returned align 8 dereferenceable(65) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 range(i64 0, 5) %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member", align 8
   %6 = alloca %"class.std::function.2", align 8
   %7 = alloca %class.anon.102, align 8
@@ -12671,7 +12671,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %43, %45
   unreachable
 
 _ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit.i: ; preds = %73, %__cxx_global_var_init.4.exit
-  %84 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull align 8 dereferenceable(65) %29, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 0, ptr noundef nonnull %32)
+  %84 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull align 8 dereferenceable(65) %29, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 0, ptr noundef %32)
           to label %85 unwind label %246
 
 85:                                               ; preds = %_ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit.i
@@ -12715,7 +12715,7 @@ _ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit.i: ; preds = %73
   unreachable
 
 _ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit12.i: ; preds = %92, %85
-  %103 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull align 8 dereferenceable(65) %29, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 4, ptr noundef nonnull %34)
+  %103 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull align 8 dereferenceable(65) %29, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 4, ptr noundef %34)
           to label %104 unwind label %248
 
 104:                                              ; preds = %_ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit12.i

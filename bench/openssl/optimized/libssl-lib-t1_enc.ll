@@ -388,7 +388,7 @@ declare i32 @ssl3_digest_cached_records(ptr noundef, i32 noundef) local_unnamed_
 declare i32 @ssl_handshake_hash(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_PRF(ptr noundef %s, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len, ptr noundef %seed4, i64 noundef %seed4_len, ptr noundef %sec, i64 noundef %slen, ptr noundef %out, i64 noundef %olen, i32 noundef %fatal) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_PRF(ptr noundef %s, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef range(i64 0, 33) %seed3_len, ptr noundef %seed4, i64 noundef range(i64 0, 33) %seed4_len, ptr noundef %sec, i64 noundef %slen, ptr noundef %out, i64 noundef %olen, i32 noundef range(i32 0, 2) %fatal) unnamed_addr #0 {
 entry:
   %params = alloca [8 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8

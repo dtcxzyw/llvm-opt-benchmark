@@ -359,37 +359,37 @@ if.then8:                                         ; preds = %if.end6
 
 if.end9:                                          ; preds = %if.end6
   %cmp11.not = icmp ult i32 %variant, 4
-  %cmp41144.not = icmp eq i64 %bin_len, 0
+  %cmp41140.not = icmp eq i64 %bin_len, 0
   br i1 %cmp11.not, label %while.cond40.preheader, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end9
-  br i1 %cmp41144.not, label %if.end76, label %while.body
+  br i1 %cmp41140.not, label %if.end76, label %while.body
 
 while.cond40.preheader:                           ; preds = %if.end9
-  br i1 %cmp41144.not, label %if.end76, label %while.body43
+  br i1 %cmp41140.not, label %if.end76, label %while.body43
 
 while.cond.loopexit:                              ; preds = %while.body19
-  %inc = add nuw i64 %bin_pos.0137, 1
+  %inc = add nuw i64 %bin_pos.0133, 1
   %exitcond.not = icmp eq i64 %inc, %bin_len
   br i1 %exitcond.not, label %while.end26, label %while.body, !llvm.loop !8
 
 while.body:                                       ; preds = %while.cond.preheader, %while.cond.loopexit
-  %acc.0139 = phi i32 [ %add14, %while.cond.loopexit ], [ 0, %while.cond.preheader ]
-  %acc_len.0138 = phi i64 [ %sub20, %while.cond.loopexit ], [ 0, %while.cond.preheader ]
-  %bin_pos.0137 = phi i64 [ %inc, %while.cond.loopexit ], [ 0, %while.cond.preheader ]
-  %b64_pos.0136 = phi i64 [ %inc24, %while.cond.loopexit ], [ 0, %while.cond.preheader ]
-  %shl = shl i32 %acc.0139, 8
-  %arrayidx = getelementptr i8, ptr %bin, i64 %bin_pos.0137
+  %acc.0135 = phi i32 [ %add14, %while.cond.loopexit ], [ 0, %while.cond.preheader ]
+  %acc_len.0134 = phi i64 [ %sub20, %while.cond.loopexit ], [ 0, %while.cond.preheader ]
+  %bin_pos.0133 = phi i64 [ %inc, %while.cond.loopexit ], [ 0, %while.cond.preheader ]
+  %b64_pos.0132 = phi i64 [ %inc24, %while.cond.loopexit ], [ 0, %while.cond.preheader ]
+  %shl = shl i32 %acc.0135, 8
+  %arrayidx = getelementptr i8, ptr %bin, i64 %bin_pos.0133
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %add14 = or disjoint i32 %shl, %conv
-  %add15 = or disjoint i64 %acc_len.0138, 8
+  %add15 = or disjoint i64 %acc_len.0134, 8
   br label %while.body19
 
 while.body19:                                     ; preds = %while.body, %while.body19
-  %acc_len.1134 = phi i64 [ %add15, %while.body ], [ %sub20, %while.body19 ]
-  %b64_pos.1133 = phi i64 [ %b64_pos.0136, %while.body ], [ %inc24, %while.body19 ]
-  %sub20 = add i64 %acc_len.1134, -6
+  %acc_len.1130 = phi i64 [ %add15, %while.body ], [ %sub20, %while.body19 ]
+  %b64_pos.1129 = phi i64 [ %b64_pos.0132, %while.body ], [ %inc24, %while.body19 ]
+  %sub20 = add i64 %acc_len.1130, -6
   %sh_prom = trunc i64 %sub20 to i32
   %shr21 = lshr i32 %add14, %sh_prom
   %and22 = and i32 %shr21, 63
@@ -403,6 +403,7 @@ while.body19:                                     ; preds = %while.body, %while.
   %add9.i = add nuw nsw i32 %and22, 71
   %1 = and i32 %add9.i, %xor.i
   %and10.i = and i32 %1, %shr6.i
+  %or.i = or i32 %and10.i, %and1.i
   %xor14.i = xor i32 %shr6.i, -1
   %sub15.i = add nuw nsw i32 %and22, 65474
   %shr16.i = lshr i32 %sub15.i, 8
@@ -418,13 +419,12 @@ while.body19:                                     ; preds = %while.body, %while.
   %shr31.i = lshr i32 %xor29.neg.i, 8
   %xor33.i = and i32 %shr31.i, 95
   %and34.i = xor i32 %xor33.i, 95
-  %or.i = or i32 %and34.i, %and1.i
-  %or21.i = or i32 %or.i, %and20.i
-  %or28.i = or i32 %or21.i, %and27.i
-  %or35.i = or i32 %or28.i, %and10.i
+  %or21.i = or i32 %or.i, %and34.i
+  %or28.i = or i32 %or21.i, %and20.i
+  %or35.i = or i32 %or28.i, %and27.i
   %conv23 = trunc i32 %or35.i to i8
-  %inc24 = add i64 %b64_pos.1133, 1
-  %arrayidx25 = getelementptr i8, ptr %b64, i64 %b64_pos.1133
+  %inc24 = add i64 %b64_pos.1129, 1
+  %arrayidx25 = getelementptr i8, ptr %b64, i64 %b64_pos.1129
   store i8 %conv23, ptr %arrayidx25, align 1
   %cmp17 = icmp ugt i64 %sub20, 5
   br i1 %cmp17, label %while.body19, label %while.cond.loopexit, !llvm.loop !9
@@ -434,62 +434,62 @@ while.end26:                                      ; preds = %while.cond.loopexit
   br i1 %cmp27.not, label %if.end76, label %if.end76.sink.split
 
 while.cond40.loopexit:                            ; preds = %while.body53
-  %inc45 = add nuw i64 %bin_pos.1146, 1
-  %exitcond155.not = icmp eq i64 %inc45, %bin_len
-  br i1 %exitcond155.not, label %while.end63, label %while.body43, !llvm.loop !10
+  %inc45 = add nuw i64 %bin_pos.1142, 1
+  %exitcond151.not = icmp eq i64 %inc45, %bin_len
+  br i1 %exitcond151.not, label %while.end63, label %while.body43, !llvm.loop !10
 
 while.body43:                                     ; preds = %while.cond40.preheader, %while.cond40.loopexit
-  %acc.1148 = phi i32 [ %add48, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
-  %acc_len.2147 = phi i64 [ %sub54, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
-  %bin_pos.1146 = phi i64 [ %inc45, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
-  %b64_pos.3145 = phi i64 [ %inc60, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
-  %shl44 = shl i32 %acc.1148, 8
-  %arrayidx46 = getelementptr i8, ptr %bin, i64 %bin_pos.1146
+  %acc.1144 = phi i32 [ %add48, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
+  %acc_len.2143 = phi i64 [ %sub54, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
+  %bin_pos.1142 = phi i64 [ %inc45, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
+  %b64_pos.3141 = phi i64 [ %inc60, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
+  %shl44 = shl i32 %acc.1144, 8
+  %arrayidx46 = getelementptr i8, ptr %bin, i64 %bin_pos.1142
   %3 = load i8, ptr %arrayidx46, align 1
   %conv47 = zext i8 %3 to i32
   %add48 = or disjoint i32 %shl44, %conv47
-  %add49 = or disjoint i64 %acc_len.2147, 8
+  %add49 = or disjoint i64 %acc_len.2143, 8
   br label %while.body53
 
 while.body53:                                     ; preds = %while.body43, %while.body53
-  %acc_len.3143 = phi i64 [ %add49, %while.body43 ], [ %sub54, %while.body53 ]
-  %b64_pos.4142 = phi i64 [ %b64_pos.3145, %while.body43 ], [ %inc60, %while.body53 ]
-  %sub54 = add i64 %acc_len.3143, -6
+  %acc_len.3139 = phi i64 [ %add49, %while.body43 ], [ %sub54, %while.body53 ]
+  %b64_pos.4138 = phi i64 [ %b64_pos.3141, %while.body43 ], [ %inc60, %while.body53 ]
+  %sub54 = add i64 %acc_len.3139, -6
   %sh_prom55 = trunc i64 %sub54 to i32
   %shr56 = lshr i32 %add48, %sh_prom55
   %and57 = and i32 %shr56, 63
-  %sub.i75 = add nuw nsw i32 %and57, 65510
-  %shr.i76 = lshr i32 %sub.i75, 8
-  %add.i78 = add nuw nsw i32 %and57, 65
-  %and1.i79 = and i32 %shr.i76, %add.i78
-  %xor.i80 = xor i32 %shr.i76, -1
-  %sub5.i81 = add nuw nsw i32 %and57, 65484
-  %shr6.i82 = lshr i32 %sub5.i81, 8
-  %add9.i84 = add nuw nsw i32 %and57, 71
-  %4 = and i32 %add9.i84, %xor.i80
-  %and10.i85 = and i32 %4, %shr6.i82
-  %xor14.i86 = xor i32 %shr6.i82, -1
-  %sub15.i87 = add nuw nsw i32 %and57, 65474
-  %shr16.i88 = lshr i32 %sub15.i87, 8
-  %add19.i89 = add nuw nsw i32 %and57, 252
-  %and18.i90 = and i32 %shr16.i88, %add19.i89
-  %and20.i91 = and i32 %and18.i90, %xor14.i86
+  %sub.i73 = add nuw nsw i32 %and57, 65510
+  %shr.i74 = lshr i32 %sub.i73, 8
+  %add.i75 = add nuw nsw i32 %and57, 65
+  %and1.i76 = and i32 %shr.i74, %add.i75
+  %xor.i77 = xor i32 %shr.i74, -1
+  %sub5.i78 = add nuw nsw i32 %and57, 65484
+  %shr6.i79 = lshr i32 %sub5.i78, 8
+  %add9.i81 = add nuw nsw i32 %and57, 71
+  %4 = and i32 %add9.i81, %xor.i77
+  %and10.i82 = and i32 %4, %shr6.i79
+  %or.i83 = or i32 %and10.i82, %and1.i76
+  %xor14.i84 = xor i32 %shr6.i79, -1
+  %sub15.i85 = add nuw nsw i32 %and57, 65474
+  %shr16.i86 = lshr i32 %sub15.i85, 8
+  %add19.i87 = add nuw nsw i32 %and57, 252
+  %and18.i88 = and i32 %shr16.i86, %add19.i87
+  %and20.i89 = and i32 %and18.i88, %xor14.i84
   %5 = xor i32 %and57, 16321
-  %xor22.neg.i92 = add nuw nsw i32 %5, 1
-  %shr24.i93 = lshr i32 %xor22.neg.i92, 8
-  %xor26.i94 = and i32 %shr24.i93, 43
-  %and27.i95 = xor i32 %xor26.i94, 43
-  %xor29.neg.i96 = add nuw nsw i32 %and57, 16321
-  %shr31.i97 = lshr i32 %xor29.neg.i96, 8
-  %xor33.i98 = and i32 %shr31.i97, 47
-  %and34.i99 = xor i32 %xor33.i98, 47
-  %or.i100 = or i32 %and34.i99, %and1.i79
-  %or21.i101 = or i32 %or.i100, %and20.i91
-  %or28.i102 = or i32 %or21.i101, %and27.i95
-  %or35.i103 = or i32 %or28.i102, %and10.i85
-  %conv59 = trunc i32 %or35.i103 to i8
-  %inc60 = add i64 %b64_pos.4142, 1
-  %arrayidx61 = getelementptr i8, ptr %b64, i64 %b64_pos.4142
+  %xor22.neg.i90 = add nuw nsw i32 %5, 1
+  %shr24.i91 = lshr i32 %xor22.neg.i90, 8
+  %xor26.i92 = and i32 %shr24.i91, 43
+  %and27.i93 = xor i32 %xor26.i92, 43
+  %xor29.neg.i94 = add nuw nsw i32 %and57, 16321
+  %shr31.i95 = lshr i32 %xor29.neg.i94, 8
+  %xor33.i96 = and i32 %shr31.i95, 47
+  %and34.i97 = xor i32 %xor33.i96, 47
+  %or21.i98 = or i32 %or.i83, %and34.i97
+  %or28.i99 = or i32 %or21.i98, %and20.i89
+  %or35.i100 = or i32 %or28.i99, %and27.i93
+  %conv59 = trunc i32 %or35.i100 to i8
+  %inc60 = add i64 %b64_pos.4138, 1
+  %arrayidx61 = getelementptr i8, ptr %b64, i64 %b64_pos.4138
   store i8 %conv59, ptr %arrayidx61, align 1
   %cmp51 = icmp ugt i64 %sub54, 5
   br i1 %cmp51, label %while.body53, label %while.cond40.loopexit, !llvm.loop !11
@@ -501,53 +501,53 @@ while.end63:                                      ; preds = %while.cond40.loopex
 if.end76.sink.split:                              ; preds = %while.end63, %while.end26
   %sub54.lcssa.lcssa.sink = phi i64 [ %sub20, %while.end26 ], [ %sub54, %while.end63 ]
   %add48.lcssa.sink = phi i32 [ %add14, %while.end26 ], [ %add48, %while.end63 ]
-  %.sink169 = phi i32 [ 45, %while.end26 ], [ 43, %while.end63 ]
-  %.sink167 = phi i32 [ 32705, %while.end26 ], [ 16321, %while.end63 ]
-  %.sink166 = phi i32 [ 95, %while.end26 ], [ 47, %while.end63 ]
-  %inc60.lcssa.lcssa.sink165 = phi i64 [ %inc24, %while.end26 ], [ %inc60, %while.end63 ]
+  %.sink165 = phi i32 [ 45, %while.end26 ], [ 43, %while.end63 ]
+  %.sink163 = phi i32 [ 32705, %while.end26 ], [ 16321, %while.end63 ]
+  %.sink162 = phi i32 [ 95, %while.end26 ], [ 47, %while.end63 ]
+  %inc60.lcssa.lcssa.sink161 = phi i64 [ %inc24, %while.end26 ], [ %inc60, %while.end63 ]
   %6 = trunc nuw i64 %sub54.lcssa.lcssa.sink to i32
   %sh_prom68 = sub nuw nsw i32 6, %6
   %shl69 = shl i32 %add48.lcssa.sink, %sh_prom68
   %and70 = and i32 %shl69, 63
-  %sub.i104 = add nuw nsw i32 %and70, 65510
-  %shr.i105 = lshr i32 %sub.i104, 8
-  %add.i107 = add nuw nsw i32 %and70, 65
-  %and1.i108 = and i32 %shr.i105, %add.i107
-  %xor.i109 = xor i32 %shr.i105, -1
-  %sub5.i110 = add nuw nsw i32 %and70, 65484
-  %shr6.i111 = lshr i32 %sub5.i110, 8
-  %add9.i113 = add nuw nsw i32 %and70, 71
-  %7 = and i32 %add9.i113, %xor.i109
-  %and10.i114 = and i32 %7, %shr6.i111
-  %xor14.i115 = xor i32 %shr6.i111, -1
-  %sub15.i116 = add nuw nsw i32 %and70, 65474
-  %shr16.i117 = lshr i32 %sub15.i116, 8
-  %add19.i118 = add nuw nsw i32 %and70, 252
-  %and18.i119 = and i32 %shr16.i117, %add19.i118
-  %and20.i120 = and i32 %and18.i119, %xor14.i115
+  %sub.i101 = add nuw nsw i32 %and70, 65510
+  %shr.i102 = lshr i32 %sub.i101, 8
+  %add.i103 = add nuw nsw i32 %and70, 65
+  %and1.i104 = and i32 %shr.i102, %add.i103
+  %xor.i105 = xor i32 %shr.i102, -1
+  %sub5.i106 = add nuw nsw i32 %and70, 65484
+  %shr6.i107 = lshr i32 %sub5.i106, 8
+  %add9.i109 = add nuw nsw i32 %and70, 71
+  %7 = and i32 %add9.i109, %xor.i105
+  %and10.i110 = and i32 %7, %shr6.i107
+  %or.i111 = or i32 %and10.i110, %and1.i104
+  %xor14.i112 = xor i32 %shr6.i107, -1
+  %sub15.i113 = add nuw nsw i32 %and70, 65474
+  %shr16.i114 = lshr i32 %sub15.i113, 8
+  %add19.i115 = add nuw nsw i32 %and70, 252
+  %and18.i116 = and i32 %shr16.i114, %add19.i115
+  %and20.i117 = and i32 %and18.i116, %xor14.i112
   %8 = xor i32 %and70, 16321
-  %xor22.neg.i121 = add nuw nsw i32 %8, 1
-  %shr24.i122 = lshr i32 %xor22.neg.i121, 8
-  %xor26.i123182 = xor i32 %shr24.i122, -1
-  %and27.i124 = and i32 %.sink169, %xor26.i123182
-  %xor29.neg.i125 = add nuw nsw i32 %and70, %.sink167
-  %shr31.i126 = lshr i32 %xor29.neg.i125, 8
-  %xor33.i127183 = xor i32 %shr31.i126, -1
-  %and34.i128 = and i32 %.sink166, %xor33.i127183
-  %or.i129 = or i32 %and34.i128, %and1.i108
-  %or21.i130 = or i32 %or.i129, %and20.i120
-  %or28.i131 = or i32 %or21.i130, %and27.i124
-  %or35.i132 = or i32 %or28.i131, %and10.i114
-  %conv72 = trunc i32 %or35.i132 to i8
-  %inc73 = add i64 %inc60.lcssa.lcssa.sink165, 1
-  %arrayidx74 = getelementptr i8, ptr %b64, i64 %inc60.lcssa.lcssa.sink165
+  %xor22.neg.i118 = add nuw nsw i32 %8, 1
+  %shr24.i119 = lshr i32 %xor22.neg.i118, 8
+  %xor26.i120178 = xor i32 %shr24.i119, -1
+  %and27.i121 = and i32 %.sink165, %xor26.i120178
+  %xor29.neg.i122 = add nuw nsw i32 %and70, %.sink163
+  %shr31.i123 = lshr i32 %xor29.neg.i122, 8
+  %xor33.i124179 = xor i32 %shr31.i123, -1
+  %and34.i125 = and i32 %.sink162, %xor33.i124179
+  %or21.i126 = or i32 %or.i111, %and34.i125
+  %or28.i127 = or i32 %or21.i126, %and20.i117
+  %or35.i128 = or i32 %or28.i127, %and27.i121
+  %conv72 = trunc i32 %or35.i128 to i8
+  %inc73 = add i64 %inc60.lcssa.lcssa.sink161, 1
+  %arrayidx74 = getelementptr i8, ptr %b64, i64 %inc60.lcssa.lcssa.sink161
   store i8 %conv72, ptr %arrayidx74, align 1
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end76.sink.split, %while.cond40.preheader, %while.cond.preheader, %while.end63, %while.end26
   %b64_pos.2 = phi i64 [ %inc24, %while.end26 ], [ %inc60, %while.end63 ], [ 0, %while.cond.preheader ], [ 0, %while.cond40.preheader ], [ %inc73, %if.end76.sink.split ]
-  %cmp78152 = icmp ult i64 %b64_pos.2, %b64_len.0
-  br i1 %cmp78152, label %while.body80.preheader, label %do.body.preheader
+  %cmp78148 = icmp ult i64 %b64_pos.2, %b64_len.0
+  br i1 %cmp78148, label %while.body80.preheader, label %do.body.preheader
 
 while.body80.preheader:                           ; preds = %if.end76
   %scevgep = getelementptr i8, ptr %b64, i64 %b64_pos.2
@@ -557,11 +557,11 @@ while.body80.preheader:                           ; preds = %if.end76
 
 do.body.preheader:                                ; preds = %while.body80.preheader, %if.end76
   %b64_pos.5.lcssa = phi i64 [ %b64_pos.2, %if.end76 ], [ %b64_len.0, %while.body80.preheader ]
-  %scevgep156 = getelementptr i8, ptr %b64, i64 %b64_pos.5.lcssa
+  %scevgep152 = getelementptr i8, ptr %b64, i64 %b64_pos.5.lcssa
   %10 = add i64 %b64_pos.5.lcssa, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %b64_maxlen, i64 %10)
   %11 = sub i64 %umax, %b64_pos.5.lcssa
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep156, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep152, i8 0, i64 %11, i1 false)
   ret ptr %b64
 }
 

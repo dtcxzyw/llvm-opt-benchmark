@@ -909,7 +909,7 @@ have_createdb_privilege.exit.thread:              ; preds = %285, %have_createdb
   call void @check_can_set_role(i32 noundef %305, i32 noundef %.0312) #15
   %.not405 = icmp eq ptr %.03569449631016103810871109115611801225125112931325, null
   %spec.store.select = select i1 %.not405, ptr @.str.30, ptr %.03569449631016103810871109115611801225125112931325
-  %306 = call fastcc zeroext i1 @get_db_info(ptr noundef nonnull %spec.store.select, i32 noundef 5, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  %306 = call fastcc zeroext i1 @get_db_info(ptr noundef nonnull %spec.store.select, i32 noundef 5, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
   br i1 %306, label %311, label %307
 
 307:                                              ; preds = %have_createdb_privilege.exit.thread
@@ -2082,7 +2082,7 @@ define dso_local zeroext i1 @have_createdb_privilege() local_unnamed_addr #0 {
 declare void @check_can_set_role(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @get_db_info(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef writeonly %11, ptr noundef writeonly %12, ptr noundef writeonly %13, ptr noundef writeonly %14, ptr noundef writeonly %15, ptr noundef writeonly %16) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @get_db_info(ptr noundef %0, i32 noundef range(i32 5, 9) %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef writeonly %11, ptr noundef writeonly %12, ptr noundef writeonly %13, ptr noundef writeonly %14, ptr noundef writeonly %15, ptr noundef writeonly %16) unnamed_addr #0 {
   %18 = alloca %struct.ScanKeyData, align 8
   %19 = alloca i8, align 1
   %20 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 1) #15
@@ -2659,7 +2659,7 @@ define dso_local void @dropdb(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #15
-  %11 = call fastcc zeroext i1 @get_db_info(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %11 = call fastcc zeroext i1 @get_db_info(ptr noundef %0, i32 noundef 8, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %3
@@ -3019,7 +3019,7 @@ define dso_local { i64, i32 } @RenameDatabase(ptr noundef %0, ptr noundef %1) lo
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #15
-  %7 = call fastcc zeroext i1 @get_db_info(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %7 = call fastcc zeroext i1 @get_db_info(ptr noundef %0, i32 noundef 8, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %2
@@ -3556,7 +3556,7 @@ define internal fastcc void @movedb(ptr noundef %0, ptr noundef %1) unnamed_addr
   %13 = alloca %struct.xl_dbase_create_file_copy_rec, align 4
   %14 = alloca %struct.xl_dbase_drop_rec, align 4
   %15 = call ptr @table_open(i32 noundef 1262, i32 noundef 3) #15
-  %16 = call fastcc zeroext i1 @get_db_info(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %16 = call fastcc zeroext i1 @get_db_info(ptr noundef %0, i32 noundef 8, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %2
@@ -3883,7 +3883,7 @@ define dso_local { i64, i32 } @AlterDatabaseRefreshColl(ptr nocapture noundef re
 30:                                               ; preds = %28, %18
   %31 = getelementptr inbounds i8, ptr %7, i64 64
   %32 = load ptr, ptr %31, align 8
-  %33 = call fastcc i64 @heap_getattr(ptr noundef nonnull %12, i32 noundef 17, ptr noundef %32, ptr noundef nonnull %3)
+  %33 = call fastcc i64 @heap_getattr(ptr noundef %12, i32 noundef 17, ptr noundef %32, ptr noundef %3)
   %34 = load i8, ptr %3, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %39, label %36
@@ -3900,7 +3900,7 @@ define dso_local { i64, i32 } @AlterDatabaseRefreshColl(ptr nocapture noundef re
   %43 = icmp eq i8 %42, 105
   %44 = select i1 %43, i32 15, i32 13
   %45 = load ptr, ptr %31, align 8
-  %46 = call fastcc i64 @heap_getattr(ptr noundef nonnull %12, i32 noundef %44, ptr noundef %45, ptr noundef nonnull %3)
+  %46 = call fastcc i64 @heap_getattr(ptr noundef %12, i32 noundef %44, ptr noundef %45, ptr noundef %3)
   %47 = load i8, ptr %3, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %52
@@ -3995,18 +3995,18 @@ define dso_local { i64, i32 } @AlterDatabaseRefreshColl(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 13, 19) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 18
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp sgt i32 %1, %10
+  %11 = icmp ugt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #15
+  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #15
   br label %fastgetattr.exit
 
 14:                                               ; preds = %4
@@ -4234,7 +4234,7 @@ have_createdb_privilege.exit.thread:              ; preds = %30, %have_createdb_
   store i64 %50, ptr %51, align 16
   %52 = getelementptr inbounds i8, ptr %8, i64 64
   %53 = load ptr, ptr %52, align 8
-  %54 = call fastcc i64 @heap_getattr(ptr noundef nonnull %11, i32 noundef 18, ptr noundef %53, ptr noundef nonnull %7)
+  %54 = call fastcc i64 @heap_getattr(ptr noundef %11, i32 noundef 18, ptr noundef %53, ptr noundef %7)
   %55 = load i8, ptr %7, align 1
   %56 = trunc i8 %55 to i1
   br i1 %56, label %65, label %57

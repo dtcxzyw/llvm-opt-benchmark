@@ -688,7 +688,7 @@ entry:
   %filename = getelementptr inbounds i8, ptr %bprm, i64 1080
   %0 = load ptr, ptr %filename, align 8
   %src = getelementptr inbounds i8, ptr %bprm, i64 1024
-  call fastcc void @load_elf_image(ptr noundef %0, ptr noundef nonnull %src, ptr noundef %info, ptr noundef nonnull %ehdr, ptr noundef nonnull %elf_interpreter)
+  call fastcc void @load_elf_image(ptr noundef %0, ptr noundef nonnull %src, ptr noundef %info, ptr noundef %ehdr, ptr noundef nonnull %elf_interpreter)
   %1 = load i64, ptr @guest_stack_size, align 8
   %spec.store.select.i = call i64 @llvm.umax.i64(i64 %1, i64 131072)
   %call.i.i = tail call i32 @getpagesize() #19
@@ -802,7 +802,7 @@ load_elf_interp.exit:                             ; preds = %if.end.i
   store ptr %bprm, ptr %src.i, align 8
   %cache_size.i = getelementptr inbounds i8, ptr %src.i, i64 8
   store i32 %conv.i, ptr %cache_size.i, align 8
-  call fastcc void @load_elf_image(ptr noundef nonnull %17, ptr noundef nonnull %src.i, ptr noundef nonnull %interp_info, ptr noundef nonnull %ehdr.i, ptr noundef null)
+  call fastcc void @load_elf_image(ptr noundef nonnull %17, ptr noundef nonnull %src.i, ptr noundef nonnull %interp_info, ptr noundef %ehdr.i, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ehdr.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
@@ -849,7 +849,7 @@ if.then39:                                        ; preds = %if.end, %if.then34,
   store ptr @vdso_image, ptr %src.i52, align 8
   %cache_size.i54 = getelementptr inbounds i8, ptr %src.i52, i64 8
   store i32 3856, ptr %cache_size.i54, align 8
-  call fastcc void @load_elf_image(ptr noundef nonnull @.str.26, ptr noundef nonnull %src.i52, ptr noundef nonnull %vdso_info, ptr noundef nonnull %ehdr.i53, ptr noundef null)
+  call fastcc void @load_elf_image(ptr noundef nonnull @.str.26, ptr noundef nonnull %src.i52, ptr noundef nonnull %vdso_info, ptr noundef %ehdr.i53, ptr noundef null)
   %load_addr1.i = getelementptr inbounds i8, ptr %vdso_info, i64 8
   %27 = load i64, ptr %load_addr1.i, align 8
   %28 = load i64, ptr %vdso_info, align 8
@@ -1466,11 +1466,11 @@ return:                                           ; preds = %create_elf_tables.e
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @load_elf_image(ptr noundef %image_name, ptr noundef %src, ptr nocapture noundef %info, ptr noundef %ehdr, ptr noundef %pinterp_name) unnamed_addr #1 {
+define internal fastcc void @load_elf_image(ptr noundef %image_name, ptr noundef %src, ptr nocapture noundef %info, ptr noundef nonnull %ehdr, ptr noundef %pinterp_name) unnamed_addr #1 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %call = call zeroext i1 @imgsrc_read(ptr noundef %ehdr, i64 noundef 0, i64 noundef 64, ptr noundef %src, ptr noundef nonnull %err) #20
+  %call = call zeroext i1 @imgsrc_read(ptr noundef nonnull %ehdr, i64 noundef 0, i64 noundef 64, ptr noundef %src, ptr noundef nonnull %err) #20
   br i1 %call, label %if.end, label %exit_errmsg
 
 if.end:                                           ; preds = %entry

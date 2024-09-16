@@ -1063,7 +1063,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit69: ; preds = %_ZN4
   call void @_ZNK4llvm3opt7ArgList10addAllArgsERNS_11SmallVectorIPKcLj16EEENS_8ArrayRefINS0_12OptSpecifierEEE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(144) %31, ptr nonnull %35, i64 2) #15
   call void @_ZNK5clang6driver9ToolChain18AddFilePathLibArgsERKN4llvm3opt7ArgListERNS2_11SmallVectorIPKcLj16EEE(ptr noundef nonnull align 8 dereferenceable(2168) %58, ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(144) %31) #15
   call void @_ZN5clang6driver5tools15AddLinkerInputsERKNS0_9ToolChainERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNS5_3opt7ArgListERNS6_IPKcLj16EEERKNS0_9JobActionE(ptr noundef nonnull align 8 dereferenceable(2168) %58, ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(144) %31, ptr noundef nonnull align 8 dereferenceable(88) %2) #15
-  call fastcc void @_ZL8getLEHLQB5cxx11RKN4llvm3opt7ArgListE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(176) %5)
+  call fastcc void @_ZL8getLEHLQB5cxx11RKN4llvm3opt7ArgListE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(176) %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28)
   %243 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 noundef 2859), !noalias !19
   %.not.i70 = icmp eq ptr %243, null
@@ -1659,7 +1659,7 @@ declare void @_ZNK5clang6driver9ToolChain18AddFilePathLibArgsERKN4llvm3opt7ArgLi
 declare void @_ZN5clang6driver5tools15AddLinkerInputsERKNS0_9ToolChainERKN4llvm11SmallVectorINS0_9InputInfoELj4EEERKNS5_3opt7ArgListERNS6_IPKcLj16EEERKNS0_9JobActionE(ptr noundef nonnull align 8 dereferenceable(2168), ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL8getLEHLQB5cxx11RKN4llvm3opt7ArgListE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL8getLEHLQB5cxx11RKN4llvm3opt7ArgListE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 2860)
@@ -1806,7 +1806,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %_ZN4llvm9StringRefC
   br label %_ZL11getClangHLQB5cxx11RKN4llvm3opt7ArgListE.exit
 
 _ZN4llvm9StringRefC2EPKc.exit.thread.i:           ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i, %49, %47
-  call fastcc void @_ZL8getLEHLQB5cxx11RKN4llvm3opt7ArgListE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(176) %1)
+  call fastcc void @_ZL8getLEHLQB5cxx11RKN4llvm3opt7ArgListE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(176) %1)
   br label %_ZL11getClangHLQB5cxx11RKN4llvm3opt7ArgListE.exit
 
 _ZL11getClangHLQB5cxx11RKN4llvm3opt7ArgListE.exit: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.thread.i

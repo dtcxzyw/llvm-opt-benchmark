@@ -410,7 +410,7 @@ bitVectorFree.exit45:                             ; preds = %bitVectorFree.exit4
   br label %emptyClauseSet.exit
 
 55:                                               ; preds = %46
-  %56 = tail call fastcc ptr @ddFindTwoLiteralClausesRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %24)
+  %56 = tail call fastcc ptr @ddFindTwoLiteralClausesRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24)
   %57 = tail call ptr @st__init_gen(ptr noundef nonnull %24) #11
   %58 = call i32 @st__gen(ptr noundef %57, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %.not58 = icmp eq i32 %58, 0
@@ -561,9 +561,9 @@ declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ddFindTwoLiteralClausesRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @ddFindTwoLiteralClausesRecur(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = call i32 @st__lookup(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #11
+  %5 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -865,7 +865,7 @@ emptyClauseSet.exit:                              ; preds = %63, %67, %68
 
 151:                                              ; preds = %115, %108, %130, %136, %145, %51, %84, %emptyClauseSet.exit
   %152 = load ptr, ptr %4, align 8
-  %153 = call i32 @st__add_direct(ptr noundef %2, ptr noundef %1, ptr noundef %152) #11
+  %153 = call i32 @st__add_direct(ptr noundef nonnull %2, ptr noundef %1, ptr noundef %152) #11
   %154 = icmp eq i32 %153, -10000
   %155 = load ptr, ptr %4, align 8
   br i1 %154, label %156, label %emptyClauseSet.exit117.thread
@@ -2417,7 +2417,7 @@ beforep.exit466.thread36:                         ; preds = %566, %562, %beforep
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc noalias noundef ptr @computeClausesWithUniverse(ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef %0, i16 noundef signext %1) unnamed_addr #8 {
+define internal fastcc noalias noundef ptr @computeClausesWithUniverse(ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef %0, i16 noundef signext range(i16 0, 2) %1) unnamed_addr #8 {
   %3 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread.thread, label %tlcInfoAlloc.exit
@@ -2567,8 +2567,8 @@ bitVectorRead.exit:                               ; preds = %.lr.ph, %bitVectorR
   %96 = getelementptr inbounds i64, ptr %calloc.i, i64 %95
   %97 = load i64, ptr %96, align 8
   %98 = and i64 %97, %94
-  %99 = sext i16 %1 to i64
-  %100 = shl i64 %99, %92
+  %99 = zext nneg i16 %1 to i64
+  %100 = shl nuw nsw i64 %99, %92
   %101 = or i64 %98, %100
   %102 = getelementptr inbounds i32, ptr %16, i64 %.lcssa
   store i32 2147483647, ptr %102, align 4

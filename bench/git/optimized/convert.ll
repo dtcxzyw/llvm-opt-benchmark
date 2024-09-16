@@ -69,7 +69,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [46 x i8] c"cannot feed the input to external filter '%s'\00", align 1
 @.str.37 = private unnamed_addr constant [31 x i8] c"external filter '%s' failed %d\00", align 1
 @subprocess_map_initialized = internal unnamed_addr global i1 false, align 4
-@.str.38 = private unnamed_addr constant [23 x i8] c"unexpected filter type\00", align 1
 @.str.39 = private unnamed_addr constant [12 x i8] c"command=%s\0A\00", align 1
 @.str.40 = private unnamed_addr constant [39 x i8] c"path name too long for external filter\00", align 1
 @.str.41 = private unnamed_addr constant [13 x i8] c"pathname=%s\0A\00", align 1
@@ -907,7 +906,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @apply_filter(ptr noundef %path, ptr noundef %src, i64 noundef %len, i32 noundef %fd, ptr noundef %dst, ptr noundef readonly %drv, i32 noundef %wanted_capability, ptr noundef %meta, ptr noundef %dco) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @apply_filter(ptr noundef %path, ptr noundef %src, i64 noundef %len, i32 noundef %fd, ptr noundef %dst, ptr noundef readonly %drv, i32 noundef range(i32 1, 3) %wanted_capability, ptr noundef %meta, ptr noundef %dco) unnamed_addr #0 {
 entry:
   %_swap_buffer.i.i22 = alloca [24 x i8], align 16
   %nbuf.i23 = alloca %struct.strbuf, align 8
@@ -941,8 +940,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %tobool7.not, label %if.else, label %land.lhs.true22
 
 if.else:                                          ; preds = %land.lhs.true6, %land.lhs.true, %if.end3
-  %and10 = and i32 %wanted_capability, 2
-  %tobool11.not = icmp eq i32 %and10, 0
+  %tobool11.not = icmp ult i32 %wanted_capability, 2
   %process26.phi.trans.insert = getelementptr inbounds i8, ptr %drv, i64 32
   %.pre = load ptr, ptr %process26.phi.trans.insert, align 8
   %tobool27.not = icmp eq ptr %.pre, null
@@ -958,8 +956,8 @@ if.end20:                                         ; preds = %land.lhs.true12
   br i1 %tobool21.not, label %return, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %land.lhs.true6, %if.end20
-  %cmd.044 = phi ptr [ %2, %if.end20 ], [ %1, %land.lhs.true6 ]
-  %3 = load i8, ptr %cmd.044, align 1
+  %cmd.041 = phi ptr [ %2, %if.end20 ], [ %1, %land.lhs.true6 ]
+  %3 = load i8, ptr %cmd.041, align 1
   %tobool23.not = icmp eq i8 %3, 0
   br i1 %tobool23.not, label %return, label %if.then24
 
@@ -981,7 +979,7 @@ if.then24:                                        ; preds = %land.lhs.true22
   %fd2.i = getelementptr inbounds i8, ptr %params.i, i64 16
   store i32 %fd, ptr %fd2.i, align 8
   %cmd3.i = getelementptr inbounds i8, ptr %params.i, i64 24
-  store ptr %cmd.044, ptr %cmd3.i, align 8
+  store ptr %cmd.041, ptr %cmd3.i, align 8
   %path4.i = getelementptr inbounds i8, ptr %params.i, i64 32
   store ptr %path, ptr %path4.i, align 8
   %call.i = call i32 @fflush(ptr noundef null)
@@ -1006,7 +1004,7 @@ if.end3.i.i:                                      ; preds = %if.then8.i
 
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.then8.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.32, %if.then8.i ]
-  %call10.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i, ptr noundef nonnull %cmd.044) #21
+  %call10.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i, ptr noundef nonnull %cmd.041) #21
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %_.exit.i, %if.end.i
@@ -1031,7 +1029,7 @@ if.end20.i:                                       ; preds = %if.end12.i
 
 if.end20.thread.i:                                ; preds = %if.end3.i6.i, %if.then16.i
   %retval.0.i8.i = phi ptr [ %call.i7.i, %if.end3.i6.i ], [ @.str.32, %if.then16.i ]
-  %call18.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i8.i, ptr noundef nonnull %cmd.044) #21
+  %call18.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i8.i, ptr noundef nonnull %cmd.041) #21
   %call2119.i = call i32 @finish_async(ptr noundef nonnull %async.i) #21
   %tobool22.not20.i = icmp eq i32 %call2119.i, 0
   br i1 %tobool22.not20.i, label %if.end30.i, label %if.then23.i
@@ -1047,7 +1045,7 @@ if.end3.i11.i:                                    ; preds = %if.then23.i
 
 if.end27.thread.i:                                ; preds = %if.end3.i11.i, %if.then23.i
   %retval.0.i13.i = phi ptr [ %call.i12.i, %if.end3.i11.i ], [ @.str.23, %if.then23.i ]
-  %call25.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i13.i, ptr noundef nonnull %cmd.044) #21
+  %call25.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i13.i, ptr noundef nonnull %cmd.041) #21
   br label %if.end30.i
 
 if.end27.i:                                       ; preds = %if.end20.i
@@ -1087,7 +1085,7 @@ if.then32:                                        ; preds = %land.lhs.true28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nbuf.i23, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_encoding.trace, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filter_status.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_encoding.trace, i64 24, i1 false)
   %.b.i = load i1, ptr @subprocess_map_initialized, align 4
-  br i1 %.b.i, label %if.end.i37, label %if.end.thread.i
+  br i1 %.b.i, label %if.end.i34, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %if.then32
   store i1 true, ptr @subprocess_map_initialized, align 4
@@ -1095,13 +1093,13 @@ if.end.thread.i:                                  ; preds = %if.then32
   %call257.i = tail call i32 @fflush(ptr noundef null)
   br label %if.then4.i
 
-if.end.i37:                                       ; preds = %if.then32
-  %call.i38 = tail call ptr @subprocess_find_entry(ptr noundef nonnull @subprocess_map, ptr noundef nonnull %.pre) #21
+if.end.i34:                                       ; preds = %if.then32
+  %call.i35 = tail call ptr @subprocess_find_entry(ptr noundef nonnull @subprocess_map, ptr noundef nonnull %.pre) #21
   %call2.i = tail call i32 @fflush(ptr noundef null)
-  %tobool3.not.i = icmp eq ptr %call.i38, null
+  %tobool3.not.i = icmp eq ptr %call.i35, null
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end10.i
 
-if.then4.i:                                       ; preds = %if.end.i37, %if.end.thread.i
+if.then4.i:                                       ; preds = %if.end.i34, %if.end.thread.i
   %call5.i24 = tail call ptr @xmalloc(i64 noundef 152) #21
   %supported_capabilities.i = getelementptr inbounds i8, ptr %call5.i24, i64 144
   store i32 0, ptr %supported_capabilities.i, align 8
@@ -1113,8 +1111,8 @@ if.then8.i25:                                     ; preds = %if.then4.i
   tail call void @free(ptr noundef nonnull %call5.i24) #21
   br label %apply_multi_file_filter.exit
 
-if.end10.i:                                       ; preds = %if.then4.i, %if.end.i37
-  %entry1.1.i = phi ptr [ %call.i38, %if.end.i37 ], [ %call5.i24, %if.then4.i ]
+if.end10.i:                                       ; preds = %if.then4.i, %if.end.i34
+  %entry1.1.i = phi ptr [ %call.i35, %if.end.i34 ], [ %call5.i24, %if.then4.i ]
   %supported_capabilities13.i = getelementptr inbounds i8, ptr %entry1.1.i, i64 144
   %11 = load i32, ptr %supported_capabilities13.i, align 8
   %and.i = and i32 %11, %wanted_capability
@@ -1122,20 +1120,7 @@ if.end10.i:                                       ; preds = %if.then4.i, %if.end
   br i1 %tobool14.not.i, label %apply_multi_file_filter.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end10.i
-  br i1 %tobool4.not, label %if.else20.i, label %if.end27.i27
-
-if.else20.i:                                      ; preds = %if.end16.i
-  %and21.i = and i32 %wanted_capability, 2
-  %tobool22.not.i35 = icmp eq i32 %and21.i, 0
-  br i1 %tobool22.not.i35, label %if.else24.i, label %if.end27.i27
-
-if.else24.i:                                      ; preds = %if.else20.i
-  %call25.i36 = tail call fastcc ptr @_(ptr noundef nonnull @.str.38)
-  tail call void (ptr, ...) @die(ptr noundef %call25.i36) #23
-  unreachable
-
-if.end27.i27:                                     ; preds = %if.else20.i, %if.end16.i
-  %filter_type.0.i = phi ptr [ @.str.25, %if.end16.i ], [ @.str.24, %if.else20.i ]
+  %filter_type.0.i = select i1 %tobool4.not, ptr @.str.24, ptr @.str.25
   %call28.i = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
   %in.i = getelementptr inbounds i8, ptr %entry1.1.i, i64 104
   %12 = load i32, ptr %in.i, align 8
@@ -1143,23 +1128,23 @@ if.end27.i27:                                     ; preds = %if.else20.i, %if.en
   %tobool30.not.i = icmp eq i32 %call29.i, 0
   br i1 %tobool30.not.i, label %if.end32.i, label %done.thread.i
 
-if.end32.i:                                       ; preds = %if.end27.i27
+if.end32.i:                                       ; preds = %if.end16.i
   %call33.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #22
-  %cmp.i28 = icmp ugt i64 %call33.i, 65506
-  br i1 %cmp.i28, label %if.then35.i, label %if.end39.i
+  %cmp.i27 = icmp ugt i64 %call33.i, 65506
+  br i1 %cmp.i27, label %if.then35.i, label %if.end39.i
 
 if.then35.i:                                      ; preds = %if.end32.i
   %13 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i30 = icmp eq i32 %13, 0
-  br i1 %tobool1.not.i.i30, label %_.exit.i33, label %if.end3.i.i31
+  %tobool1.not.i.i29 = icmp eq i32 %13, 0
+  br i1 %tobool1.not.i.i29, label %_.exit.i32, label %if.end3.i.i30
 
-if.end3.i.i31:                                    ; preds = %if.then35.i
-  %call.i.i32 = tail call ptr @gettext(ptr noundef nonnull @.str.40) #21
-  br label %_.exit.i33
+if.end3.i.i30:                                    ; preds = %if.then35.i
+  %call.i.i31 = tail call ptr @gettext(ptr noundef nonnull @.str.40) #21
+  br label %_.exit.i32
 
-_.exit.i33:                                       ; preds = %if.end3.i.i31, %if.then35.i
-  %retval.0.i.i34 = phi ptr [ %call.i.i32, %if.end3.i.i31 ], [ @.str.40, %if.then35.i ]
-  %call37.i = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i34) #21
+_.exit.i32:                                       ; preds = %if.end3.i.i30, %if.then35.i
+  %retval.0.i.i33 = phi ptr [ %call.i.i31, %if.end3.i.i30 ], [ @.str.40, %if.then35.i ]
+  %call37.i = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i33) #21
   br label %done.thread.i
 
 if.end39.i:                                       ; preds = %if.end32.i
@@ -1185,7 +1170,7 @@ if.then47.i:                                      ; preds = %land.lhs.true.i
 
 land.lhs.true56.i:                                ; preds = %if.then47.i, %land.lhs.true.i
   %treeish.i = getelementptr inbounds i8, ptr %meta, i64 8
-  %call57.i = tail call fastcc i32 @is_null_oid(ptr noundef nonnull %treeish.i)
+  %call57.i = tail call fastcc i32 @is_null_oid(ptr noundef %treeish.i)
   %tobool58.not.i = icmp eq i32 %call57.i, 0
   br i1 %tobool58.not.i, label %if.then59.i, label %land.lhs.true69.i
 
@@ -1198,7 +1183,7 @@ if.then59.i:                                      ; preds = %land.lhs.true56.i
 
 land.lhs.true69.i:                                ; preds = %if.then59.i, %land.lhs.true56.i
   %blob.i = getelementptr inbounds i8, ptr %meta, i64 44
-  %call70.i = tail call fastcc i32 @is_null_oid(ptr noundef nonnull %blob.i)
+  %call70.i = tail call fastcc i32 @is_null_oid(ptr noundef %blob.i)
   %tobool71.not.i = icmp eq i32 %call70.i, 0
   br i1 %tobool71.not.i, label %if.then72.i, label %if.end80.i
 
@@ -1260,8 +1245,8 @@ if.end112.i:                                      ; preds = %if.end109.i
   br i1 %tobool115.not.i, label %if.end117.i, label %done.thread.i
 
 if.end117.i:                                      ; preds = %if.end112.i
-  %out.i29 = getelementptr inbounds i8, ptr %entry1.1.i, i64 108
-  %25 = load i32, ptr %out.i29, align 4
+  %out.i28 = getelementptr inbounds i8, ptr %entry1.1.i, i64 108
+  %25 = load i32, ptr %out.i28, align 4
   %call118.i = call i32 @subprocess_read_status(i32 noundef %25, ptr noundef nonnull %filter_status.i) #21
   %tobool119.not.i = icmp eq i32 %call118.i, 0
   br i1 %tobool119.not.i, label %if.end121.i, label %done.thread.i
@@ -1290,7 +1275,7 @@ if.else129.i:                                     ; preds = %land.lhs.true123.i,
   br i1 %tobool132.not.i, label %if.end134.i, label %done.thread.i
 
 if.end134.i:                                      ; preds = %if.else129.i
-  %26 = load i32, ptr %out.i29, align 4
+  %26 = load i32, ptr %out.i28, align 4
   %call136.i = call i64 @read_packetized_to_strbuf(i32 noundef %26, ptr noundef nonnull %nbuf.i23, i32 noundef 1) #21
   %cmp137.i = icmp slt i64 %call136.i, 0
   %call136.lobit.i = lshr i64 %call136.i, 63
@@ -1298,7 +1283,7 @@ if.end134.i:                                      ; preds = %if.else129.i
   br i1 %cmp137.i, label %done.i, label %if.end141.i
 
 if.end141.i:                                      ; preds = %if.end134.i
-  %27 = load i32, ptr %out.i29, align 4
+  %27 = load i32, ptr %out.i28, align 4
   %call143.i = call i32 @subprocess_read_status(i32 noundef %27, ptr noundef nonnull %filter_status.i) #21
   %tobool144.not.i = icmp eq i32 %call143.i, 0
   br i1 %tobool144.not.i, label %if.end146.i, label %done.thread.i
@@ -1308,7 +1293,7 @@ if.end146.i:                                      ; preds = %if.end141.i
   %call148.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(8) @.str.4) #22
   br label %done.i
 
-done.thread.i:                                    ; preds = %if.end141.i, %if.else129.i, %if.end117.i, %if.end112.i, %if.end109.i, %if.end95.i, %if.then89.i, %if.then72.i, %if.then59.i, %if.then47.i, %if.end39.i, %_.exit.i33, %if.end27.i27
+done.thread.i:                                    ; preds = %if.end141.i, %if.else129.i, %if.end117.i, %if.end112.i, %if.end109.i, %if.end95.i, %if.then89.i, %if.then72.i, %if.then59.i, %if.then47.i, %if.end39.i, %_.exit.i32, %if.end16.i
   %call15060.i = call i32 @sigchain_pop(i32 noundef 13) #21
   br label %if.then152.i
 
@@ -1539,15 +1524,15 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
   %1 = load i8, ptr %str.addr.0.i.i, align 1
-  %idxprom.i.i.i = zext i8 %1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
+  %conv.i.i.i = zext i8 %1 to i64
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
   %3 = shl i8 %2, 3
   %4 = and i8 %3, 32
   %spec.select.i1.i.i = or i8 %4, %1
   %prefix.addr.0.add.i.i = add nuw nsw i64 %prefix.addr.0.idx.i.i, 1
-  %idxprom.i3.i.i = zext i8 %0 to i64
-  %arrayidx.i4.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i3.i.i
+  %conv.i3.i.i = zext i8 %0 to i64
+  %arrayidx.i4.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i3.i.i
   %5 = load i8, ptr %arrayidx.i4.i.i, align 1
   %6 = shl i8 %5, 3
   %7 = and i8 %6, 32
@@ -1676,7 +1661,7 @@ if.end19:                                         ; preds = %if.end10
   br i1 %tobool20.not, label %if.end39, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %if.end19
-  %call22 = call fastcc i32 @check_roundtrip(ptr noundef nonnull %enc)
+  %call22 = call fastcc i32 @check_roundtrip(ptr noundef %enc)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end39, label %if.then24
 
@@ -2393,7 +2378,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @convert_to_working_tree_ca_internal(ptr nocapture noundef readonly %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, i32 noundef %normalizing, ptr noundef %meta, ptr noundef %dco) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @convert_to_working_tree_ca_internal(ptr nocapture noundef readonly %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, i32 noundef range(i32 0, 2) %normalizing, ptr noundef %meta, ptr noundef %dco) unnamed_addr #0 {
 entry:
   %dst_len.i = alloca i64, align 8
   %oid.i = alloca %struct.object_id, align 4
@@ -3643,7 +3628,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_null_oid(ptr nocapture noundef readonly %oid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_null_oid(ptr nocapture noundef nonnull readonly %oid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @null_oid() #21
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
@@ -3749,10 +3734,10 @@ do.end:                                           ; preds = %for.end, %if.then
 declare ptr @reencode_string_len(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @check_roundtrip(ptr noundef readonly %enc_name) unnamed_addr #14 {
+define internal fastcc range(i32 0, 2) i32 @check_roundtrip(ptr noundef nonnull readonly %enc_name) unnamed_addr #14 {
 entry:
   %0 = load ptr, ptr @check_roundtrip_encoding, align 8
-  %call = tail call ptr @strcasestr(ptr noundef %0, ptr noundef %enc_name) #22
+  %call = tail call ptr @strcasestr(ptr noundef %0, ptr noundef nonnull %enc_name) #22
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 

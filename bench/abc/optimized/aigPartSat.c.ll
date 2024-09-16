@@ -1904,10 +1904,10 @@ Aig_ObjFaninId0.exit:                             ; preds = %149, %153
   %.val137 = load ptr, ptr %129, align 8
   %160 = getelementptr inbounds i32, ptr %.val137, i64 %159
   %161 = load i32, ptr %160, align 4
-  %162 = shl nsw i32 %161, 1
-  %163 = trunc i64 %.pre175 to i32
-  %164 = and i32 %163, 1
-  %165 = or disjoint i32 %162, %164
+  %162 = trunc i64 %.pre175 to i32
+  %163 = and i32 %162, 1
+  %164 = shl nsw i32 %161, 1
+  %165 = or disjoint i32 %164, %163
   store i32 %165, ptr %7, align 4
   br i1 %.not113, label %175, label %166
 
@@ -1953,11 +1953,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %149, %153
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds i32, ptr %.val135, i64 %188
   %190 = load i32, ptr %189, align 4
-  %191 = shl nsw i32 %190, 1
-  %192 = trunc i64 %183 to i32
-  %193 = lshr i32 %192, 4
-  %194 = and i32 %193, 1
-  %195 = or disjoint i32 %191, %194
+  %191 = trunc i64 %183 to i32
+  %192 = lshr i32 %191, 4
+  %193 = and i32 %192, 1
+  %194 = shl nsw i32 %190, 1
+  %195 = or disjoint i32 %194, %193
   store i32 %195, ptr %7, align 4
   %196 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %148) #17
   %.not112 = icmp eq i32 %196, 0

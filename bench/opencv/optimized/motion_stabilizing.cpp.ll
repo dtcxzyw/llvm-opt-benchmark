@@ -1199,7 +1199,7 @@ define void @_ZN2cv9videostab25ensureInclusionConstraintERKNS_3MatENS_5Size_IiEE
   %73 = fadd float %63, 0.000000e+00
   %74 = getelementptr inbounds i8, ptr %8, i64 32
   store float %73, ptr %74, align 16
-  %75 = call fastcc noundef zeroext i1 @_ZN2cv9videostabL12isGoodMotionEPKfffff(ptr noundef nonnull %8, float noundef %35, float noundef %36, float noundef %38, float noundef %40)
+  %75 = call fastcc noundef zeroext i1 @_ZN2cv9videostabL12isGoodMotionEPKfffff(ptr noundef %8, float noundef %35, float noundef %36, float noundef %38, float noundef %40)
   br i1 %75, label %76, label %.preheader
 
 76:                                               ; preds = %34
@@ -1230,7 +1230,7 @@ define void @_ZN2cv9videostab25ensureInclusionConstraintERKNS_3MatENS_5Size_IiEE
   store float %87, ptr %72, align 4
   %88 = call float @llvm.fmuladd.f32(float %63, float %79, float %78)
   store float %88, ptr %74, align 16
-  %89 = call fastcc noundef zeroext i1 @_ZN2cv9videostabL12isGoodMotionEPKfffff(ptr noundef nonnull %8, float noundef %35, float noundef %36, float noundef %38, float noundef %40)
+  %89 = call fastcc noundef zeroext i1 @_ZN2cv9videostabL12isGoodMotionEPKfffff(ptr noundef %8, float noundef %35, float noundef %36, float noundef %38, float noundef %40)
   %.036. = select i1 %89, float %.03667, float %78
   %..0 = select i1 %89, float %78, float %.068
   %90 = fsub float %..0, %.036.
@@ -1358,7 +1358,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %126, %129
 declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN2cv9videostabL12isGoodMotionEPKfffff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @_ZN2cv9videostabL12isGoodMotionEPKfffff(ptr nocapture noundef nonnull readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
 .preheader:
   %5 = alloca [4 x %"class.cv::Point_"], align 16
   %6 = alloca [4 x %"class.cv::Point_"], align 16

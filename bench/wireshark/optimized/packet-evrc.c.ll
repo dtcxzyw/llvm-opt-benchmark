@@ -346,7 +346,7 @@ declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef range(i32 0, 6) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [32 x i8], align 16
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 34, ptr noundef nonnull @.str.43) #3
@@ -361,7 +361,7 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   store ptr %9, ptr %4, align 8
   %10 = load i32, ptr @ett_evrc, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #3
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable20 [
     i32 5, label %12
     i32 0, label %35
     i32 1, label %39
@@ -411,7 +411,7 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %or.cond153.not = and i1 %or.cond, %.not150
   br i1 %or.cond153.not, label %.lr.ph7, label %.critedge.loopexit, !llvm.loop !4
 
-default.unreachable:                              ; preds = %6
+default.unreachable20:                            ; preds = %6
   unreachable
 
 35:                                               ; preds = %6
@@ -479,10 +479,10 @@ default.unreachable:                              ; preds = %6
   %76 = icmp ult i8 %74, 80
   %77 = lshr i8 %74, 1
   %78 = and i8 %77, 120
-  %switch.shiftamt29 = zext nneg i8 %78 to i40
-  %switch.downshift30 = lshr i40 94657380864, %switch.shiftamt29
-  %switch.masked31 = trunc i40 %switch.downshift30 to i8
-  %.0.i154 = select i1 %76, i8 %switch.masked31, i8 0
+  %switch.shiftamt30 = zext nneg i8 %78 to i40
+  %switch.downshift31 = lshr i40 94657380864, %switch.shiftamt30
+  %switch.masked32 = trunc i40 %switch.downshift31 to i8
+  %.0.i154 = select i1 %76, i8 %switch.masked32, i8 0
   %79 = zext i8 %.01391 to i64
   %80 = getelementptr [32 x i8], ptr %5, i64 0, i64 %79
   store i8 %.0.i154, ptr %80, align 1
@@ -495,10 +495,10 @@ evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   %83 = and i8 %74, 15
   %84 = icmp ult i8 %83, 5
   %85 = shl nuw nsw i8 %83, 3
-  %switch.shiftamt34 = zext nneg i8 %85 to i40
-  %switch.downshift35 = lshr i40 94657380864, %switch.shiftamt34
-  %switch.masked36 = trunc i40 %switch.downshift35 to i8
-  %.0.i156 = select i1 %84, i8 %switch.masked36, i8 0
+  %switch.shiftamt35 = zext nneg i8 %85 to i40
+  %switch.downshift36 = lshr i40 94657380864, %switch.shiftamt35
+  %switch.masked37 = trunc i40 %switch.downshift36 to i8
+  %.0.i156 = select i1 %84, i8 %switch.masked37, i8 0
   %86 = zext i8 %81 to i64
   %87 = getelementptr [32 x i8], ptr %5, i64 0, i64 %86
   store i8 %.0.i156, ptr %87, align 1

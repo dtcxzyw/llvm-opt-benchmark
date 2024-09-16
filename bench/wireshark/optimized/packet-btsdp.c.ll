@@ -1773,7 +1773,7 @@ define internal noundef i32 @dissect_btsdp(ptr noundef %0, ptr noundef %1, ptr n
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %89, ptr noundef %0, i32 noundef 5, i32 noundef 0, i32 noundef 0) #7
   %91 = load i32, ptr @ett_btsdp_service_search_pattern, align 4
   %92 = tail call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #7
-  %93 = call fastcc i32 @dissect_data_element(ptr noundef %92, ptr noundef nonnull %48, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 5)
+  %93 = call fastcc i32 @dissect_data_element(ptr noundef %92, ptr noundef %48, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 5)
   %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #7
   %95 = and i8 %94, 7
   switch i8 %95, label %default.unreachable [
@@ -1838,7 +1838,7 @@ get_type_length.exit.i:                           ; preds = %108, %105, %102, %1
   %.056.i = phi i32 [ %.022.i.i, %.lr.ph.i ], [ %145, %144 ]
   %.05355.i = phi i32 [ %110, %.lr.ph.i ], [ %146, %144 ]
   store ptr null, ptr %50, align 8
-  %115 = call fastcc i32 @dissect_sdp_type(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.056.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef nonnull %50)
+  %115 = call fastcc i32 @dissect_sdp_type(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.056.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %50)
   %116 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.056.i) #7
   %117 = add i32 %.056.i, 1
   %118 = and i8 %116, 7
@@ -1889,7 +1889,7 @@ get_type_length.exit.i:                           ; preds = %108, %105, %102, %1
 get_type_length.exit49.i:                         ; preds = %133, %129, %125, %124, %123, %122, %119, %114
   %.022.i47.i = phi i32 [ %117, %114 ], [ %117, %119 ], [ %117, %122 ], [ %117, %123 ], [ %117, %124 ], [ %128, %125 ], [ %132, %129 ], [ %135, %133 ]
   %136 = phi i32 [ 2, %114 ], [ %121, %119 ], [ 4, %122 ], [ 8, %123 ], [ 16, %124 ], [ %127, %125 ], [ %131, %129 ], [ %spec.select.i46.i, %133 ]
-  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.022.i47.i, i32 noundef %136, ptr noundef nonnull %51)
+  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.022.i47.i, i32 noundef %136, ptr noundef %51)
   br i1 %.not44.i, label %138, label %137
 
 137:                                              ; preds = %get_type_length.exit49.i
@@ -2333,10 +2333,10 @@ get_uuids.exit.i:                                 ; preds = %311
   br label %dissect_sdp_service_attribute_request.exit
 
 dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._crit_edge.thread.i.i
-  %330 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef 11, ptr noundef %1, ptr noundef nonnull %35)
+  %330 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef 11, ptr noundef %1, ptr noundef %35)
   %331 = add i32 %330, 11
   %332 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %331, i32 noundef %332, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %331, i32 noundef %332, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef readonly %3)
   %333 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef %1, i32 noundef %331)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %35)
@@ -2355,7 +2355,7 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._cri
   %338 = zext i16 %337 to i32
   %339 = add nuw nsw i32 %338, 7
   %340 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %339, i32 noundef %340, i32 noundef 0, i32 noundef 7, i32 noundef %338, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %339, i32 noundef %340, i32 noundef 0, i32 noundef 7, i32 noundef %338, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %25, ptr noundef readonly %3)
   %341 = load i32, ptr %23, align 4
   %.not.i75 = icmp eq i32 %341, 0
   br i1 %.not.i75, label %342, label %.thread.i76
@@ -2528,7 +2528,7 @@ get_uuids.exit.i85:                               ; preds = %384
   br i1 %or.cond.i84, label %409, label %407
 
 407:                                              ; preds = %403
-  %408 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef nonnull %26, ptr noundef nonnull readonly %3)
+  %408 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef %26, ptr noundef readonly %3)
   br label %412
 
 409:                                              ; preds = %403, %.thread.i76
@@ -2593,7 +2593,7 @@ proto_item_set_generated.exit.i79:                ; preds = %437, %434, %422
 
 442:                                              ; preds = %proto_item_set_generated.exit.i79
   %443 = load ptr, ptr %24, align 8
-  %444 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %433, ptr noundef %443, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %26, ptr noundef readonly %3)
+  %444 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %433, ptr noundef %443, i32 noundef 0, ptr noundef %1, ptr noundef %26, ptr noundef readonly %3)
   br label %dissect_sdp_service_attribute_response.exit
 
 dissect_sdp_service_attribute_response.exit:      ; preds = %416, %proto_item_set_generated.exit.i79, %442
@@ -2636,7 +2636,7 @@ dissect_sdp_service_attribute_response.exit:      ; preds = %416, %proto_item_se
   %459 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %458, ptr noundef %0, i32 noundef 5, i32 noundef 0, i32 noundef 0) #7
   %460 = load i32, ptr @ett_btsdp_attribute, align 4
   %461 = tail call ptr @proto_item_add_subtree(ptr noundef %459, i32 noundef %460) #7
-  %462 = call fastcc i32 @dissect_data_element(ptr noundef %461, ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 5)
+  %462 = call fastcc i32 @dissect_data_element(ptr noundef %461, ptr noundef %10, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 5)
   %463 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #7
   %464 = and i8 %463, 7
   switch i8 %464, label %default.unreachable [
@@ -2698,7 +2698,7 @@ get_type_length.exit.i100:                        ; preds = %477, %474, %471, %4
   %.062.i = phi i32 [ %.022.i.i101, %.lr.ph.i102 ], [ %512, %511 ]
   %.05961.i = phi i32 [ %479, %.lr.ph.i102 ], [ %513, %511 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %13, i8 0, i64 20, i1 false)
-  %484 = call fastcc i32 @dissect_sdp_type(ptr noundef %482, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.062.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef nonnull %11)
+  %484 = call fastcc i32 @dissect_sdp_type(ptr noundef %482, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.062.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %11)
   %485 = load ptr, ptr %11, align 8
   %486 = call ptr @wmem_strbuf_get_str(ptr noundef %485) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %459, ptr noundef nonnull @.str.1091, ptr noundef %486) #7
@@ -2755,7 +2755,7 @@ get_type_length.exit.i100:                        ; preds = %477, %474, %471, %4
 get_type_length.exit55.i:                         ; preds = %506, %502, %498, %497, %496, %495, %492, %483
   %.022.i53.i = phi i32 [ %490, %483 ], [ %490, %492 ], [ %490, %495 ], [ %490, %496 ], [ %490, %497 ], [ %501, %498 ], [ %505, %502 ], [ %508, %506 ]
   %509 = phi i32 [ 2, %483 ], [ %494, %492 ], [ 4, %495 ], [ 8, %496 ], [ 16, %497 ], [ %500, %498 ], [ %504, %502 ], [ %spec.select.i52.i, %506 ]
-  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.022.i53.i, i32 noundef %509, ptr noundef nonnull %13)
+  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.022.i53.i, i32 noundef %509, ptr noundef %13)
   br i1 %.not50.i, label %511, label %510
 
 510:                                              ; preds = %get_type_length.exit55.i
@@ -2824,7 +2824,7 @@ get_type_length.exit55.i:                         ; preds = %506, %502, %498, %4
 
 dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %._crit_edge.thread.i.i117
   %531 = add i32 %.0.lcssa.i104, 2
-  %532 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef %531, ptr noundef %1, ptr noundef nonnull %14)
+  %532 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef %531, ptr noundef %1, ptr noundef %14)
   %533 = add i32 %532, %531
   %534 = zext i16 %72 to i32
   call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %533, i32 noundef %534, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef readonly %3)
@@ -2849,7 +2849,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %.
   %540 = zext i16 %539 to i32
   %541 = add nuw nsw i32 %540, 7
   %542 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %541, i32 noundef %542, i32 noundef 0, i32 noundef 7, i32 noundef %540, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %541, i32 noundef %542, i32 noundef 0, i32 noundef 7, i32 noundef %540, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null, ptr noundef readonly %3)
   %543 = getelementptr inbounds i8, ptr %1, i64 408
   %544 = load ptr, ptr %543, align 8
   %545 = load ptr, ptr %8, align 8
@@ -2908,7 +2908,7 @@ get_specified_uuid.exit.i:                        ; preds = %._crit_edge.thread.
   br i1 %or.cond.i128, label %562, label %561
 
 561:                                              ; preds = %get_specified_uuid.exit.i
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %540, ptr noundef nonnull %9, ptr noundef readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %540, ptr noundef %9, ptr noundef readonly %3)
   br label %565
 
 562:                                              ; preds = %get_specified_uuid.exit.i
@@ -2974,7 +2974,7 @@ proto_item_set_generated.exit.i132:               ; preds = %590, %587, %575
 595:                                              ; preds = %proto_item_set_generated.exit.i132
   %596 = load ptr, ptr %7, align 8
   %597 = call i32 @tvb_reported_length(ptr noundef %596) #7
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %586, ptr noundef %596, i32 noundef 0, ptr noundef %1, i32 noundef %597, ptr noundef nonnull %9, ptr noundef readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %586, ptr noundef %596, i32 noundef 0, ptr noundef %1, i32 noundef %597, ptr noundef %9, ptr noundef readonly %3)
   br label %dissect_sdp_service_search_attribute_response.exit
 
 dissect_sdp_service_search_attribute_response.exit: ; preds = %569, %proto_item_set_generated.exit.i132, %595
@@ -3043,7 +3043,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_data_element(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_data_element(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #7
   %7 = add i32 %4, 1
   %8 = and i8 %6, 7
@@ -3159,7 +3159,7 @@ get_type_length.exit:                             ; preds = %5, %9, %12, %13, %1
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sdp_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef writeonly %9) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #1 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -3177,7 +3177,7 @@ define internal fastcc i32 @dissect_sdp_type(ptr noundef %0, ptr noundef %1, ptr
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #7
   %25 = lshr i8 %24, 3
   %26 = and i8 %24, 7
-  %27 = call fastcc i32 @dissect_data_element(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %27 = call fastcc i32 @dissect_data_element(ptr noundef %0, ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #7
   %29 = add i32 %3, 1
   %30 = and i8 %28, 7
@@ -3465,7 +3465,7 @@ get_type_length.exit:                             ; preds = %10, %31, %34, %35, 
 .lr.ph157:                                        ; preds = %.preheader113, %get_type_length.exit1646
   %.01480156 = phi i32 [ %185, %get_type_length.exit1646 ], [ %.022.i, %.preheader113 ]
   %156 = load ptr, ptr %12, align 8
-  %157 = call fastcc i32 @dissect_data_element(ptr noundef %156, ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i32 noundef %.01480156)
+  %157 = call fastcc i32 @dissect_data_element(ptr noundef %156, ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %.01480156)
   %158 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.01480156) #7
   %159 = add i32 %.01480156, 1
   %160 = and i8 %158, 7
@@ -4161,13 +4161,13 @@ get_type_length.exit1651:                         ; preds = %542, %546, %549, %5
   %566 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %564, i32 noundef %565, ptr noundef %2, i32 noundef %.022.i1649, i32 noundef %563, ptr noundef nonnull @.str.939, i32 noundef %.01489151) #7
   %567 = load i32, ptr @ett_btsdp_supported_features, align 4
   %568 = call ptr @proto_item_add_subtree(ptr noundef %566, i32 noundef %567) #7
-  %569 = call fastcc i32 @dissect_data_element(ptr noundef %568, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %.11481152)
+  %569 = call fastcc i32 @dissect_data_element(ptr noundef %568, ptr noundef %13, ptr noundef %1, ptr noundef %2, i32 noundef %.11481152)
   %570 = load ptr, ptr %13, align 8
   %571 = load i32, ptr @hf_hdp_supported_features_data_mdep_id, align 4
   %572 = call ptr @proto_tree_add_item(ptr noundef %570, i32 noundef %571, ptr noundef %2, i32 noundef %.022.i1649, i32 noundef 0, i32 noundef 0) #7
   %573 = load i32, ptr @ett_btsdp_supported_features_mdep_id, align 4
   %574 = call ptr @proto_item_add_subtree(ptr noundef %572, i32 noundef %573) #7
-  %575 = call fastcc i32 @dissect_data_element(ptr noundef %574, ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1649)
+  %575 = call fastcc i32 @dissect_data_element(ptr noundef %574, ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1649)
   %576 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.022.i1649) #7
   %577 = add i32 %.022.i1649, 1
   %578 = and i8 %576, 7
@@ -4232,7 +4232,7 @@ get_type_length.exit1656:                         ; preds = %get_type_length.exi
   %606 = call ptr @proto_tree_add_item(ptr noundef %570, i32 noundef %605, ptr noundef %2, i32 noundef %604, i32 noundef 0, i32 noundef 0) #7
   %607 = load i32, ptr @ett_btsdp_supported_features_mdep_data_type, align 4
   %608 = call ptr @proto_item_add_subtree(ptr noundef %606, i32 noundef %607) #7
-  %609 = call fastcc i32 @dissect_data_element(ptr noundef %608, ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i32 noundef %604)
+  %609 = call fastcc i32 @dissect_data_element(ptr noundef %608, ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %604)
   %610 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %604) #7
   %611 = add i32 %604, 1
   %612 = and i8 %610, 7
@@ -4299,7 +4299,7 @@ get_type_length.exit1661:                         ; preds = %get_type_length.exi
   %640 = call ptr @proto_tree_add_item(ptr noundef %570, i32 noundef %639, ptr noundef %2, i32 noundef %638, i32 noundef 0, i32 noundef 0) #7
   %641 = load i32, ptr @ett_btsdp_supported_features_mdep_role, align 4
   %642 = call ptr @proto_item_add_subtree(ptr noundef %640, i32 noundef %641) #7
-  %643 = call fastcc i32 @dissect_data_element(ptr noundef %642, ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i32 noundef %638)
+  %643 = call fastcc i32 @dissect_data_element(ptr noundef %642, ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %638)
   %644 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %638) #7
   %645 = add i32 %638, 1
   %646 = and i8 %644, 7
@@ -4373,7 +4373,7 @@ get_type_length.exit1666:                         ; preds = %get_type_length.exi
   %679 = call ptr @proto_tree_add_item(ptr noundef %570, i32 noundef %678, ptr noundef %2, i32 noundef %674, i32 noundef %563, i32 noundef 0) #7
   %680 = load i32, ptr @ett_btsdp_supported_features_mdep_description, align 4
   %681 = call ptr @proto_item_add_subtree(ptr noundef %679, i32 noundef %680) #7
-  %682 = call fastcc i32 @dissect_data_element(ptr noundef %681, ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i32 noundef %674)
+  %682 = call fastcc i32 @dissect_data_element(ptr noundef %681, ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %674)
   %683 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %674) #7
   %684 = add i32 %674, 1
   %685 = and i8 %683, 7
@@ -4625,7 +4625,7 @@ get_type_length.exit1671:                         ; preds = %677, %686, %689, %6
 .lr.ph143:                                        ; preds = %.preheader117, %get_type_length.exit1676
   %.21482142 = phi i32 [ %851, %get_type_length.exit1676 ], [ %.022.i, %.preheader117 ]
   %822 = load ptr, ptr %12, align 8
-  %823 = call fastcc i32 @dissect_data_element(ptr noundef %822, ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i32 noundef %.21482142)
+  %823 = call fastcc i32 @dissect_data_element(ptr noundef %822, ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %.21482142)
   %824 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.21482142) #7
   %825 = add i32 %.21482142, 1
   %826 = and i8 %824, 7
@@ -4922,7 +4922,7 @@ get_type_length.exit1676:                         ; preds = %.lr.ph143, %827, %8
   %993 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %991, i32 noundef %992, ptr noundef %2, i32 noundef %.3139, i32 noundef %48, ptr noundef nonnull @.str.961, i32 noundef %.11490138) #7
   %994 = load i32, ptr @ett_btsdp_data_element, align 4
   %995 = tail call ptr @proto_item_add_subtree(ptr noundef %993, i32 noundef %994) #7
-  %996 = call fastcc i32 @dissect_data_element(ptr noundef %995, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %.3139)
+  %996 = call fastcc i32 @dissect_data_element(ptr noundef %995, ptr noundef %13, ptr noundef %1, ptr noundef %2, i32 noundef %.3139)
   %997 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.3139) #7
   %998 = add i32 %.3139, 1
   %999 = and i8 %997, 7
@@ -4955,7 +4955,7 @@ get_type_length.exit1676:                         ; preds = %.lr.ph143, %827, %8
 get_type_length.exit1681:                         ; preds = %.lr.ph140, %.lr.ph140, %.lr.ph140, %.lr.ph140, %.lr.ph140, %1000, %1003, %1006
   %.022.i1679 = phi i32 [ %998, %.lr.ph140 ], [ %1002, %1000 ], [ %1005, %1003 ], [ %1008, %1006 ], [ %998, %.lr.ph140 ], [ %998, %.lr.ph140 ], [ %998, %.lr.ph140 ], [ %998, %.lr.ph140 ]
   %1009 = load ptr, ptr %13, align 8
-  %1010 = call fastcc i32 @dissect_data_element(ptr noundef %1009, ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1679)
+  %1010 = call fastcc i32 @dissect_data_element(ptr noundef %1009, ptr noundef %14, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1679)
   %1011 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.022.i1679) #7
   %1012 = add i32 %.022.i1679, 1
   %1013 = and i8 %1011, 7
@@ -5016,7 +5016,7 @@ get_type_length.exit1686:                         ; preds = %get_type_length.exi
   %1038 = tail call ptr @val_to_str_const(i32 noundef %1036, ptr noundef nonnull @descriptor_list_type_vals, ptr noundef nonnull @.str.872) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %993, ptr noundef nonnull @.str.943, ptr noundef %1038) #7
   %1039 = add i32 %1031, %.022.i1684
-  %1040 = call fastcc i32 @dissect_data_element(ptr noundef %1009, ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2, i32 noundef %1039)
+  %1040 = call fastcc i32 @dissect_data_element(ptr noundef %1009, ptr noundef %14, ptr noundef %1, ptr noundef %2, i32 noundef %1039)
   %1041 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %1039) #7
   %1042 = add i32 %1039, 1
   %1043 = and i8 %1041, 7
@@ -5089,7 +5089,7 @@ get_type_length.exit1691:                         ; preds = %get_type_length.exi
   %1072 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1070, i32 noundef %1071, ptr noundef %2, i32 noundef %.4132, i32 noundef %48, ptr noundef nonnull @.str.964, i32 noundef %.21491131) #7
   %1073 = load i32, ptr @ett_btsdp_data_element, align 4
   %1074 = tail call ptr @proto_item_add_subtree(ptr noundef %1072, i32 noundef %1073) #7
-  %1075 = call fastcc i32 @dissect_data_element(ptr noundef %1074, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %.4132)
+  %1075 = call fastcc i32 @dissect_data_element(ptr noundef %1074, ptr noundef %13, ptr noundef %1, ptr noundef %2, i32 noundef %.4132)
   %1076 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.4132) #7
   %1077 = add i32 %.4132, 1
   %1078 = and i8 %1076, 7
@@ -5122,7 +5122,7 @@ get_type_length.exit1691:                         ; preds = %get_type_length.exi
 get_type_length.exit1696:                         ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %1079, %1082, %1085
   %.022.i1694 = phi i32 [ %1077, %.lr.ph ], [ %1081, %1079 ], [ %1084, %1082 ], [ %1087, %1085 ], [ %1077, %.lr.ph ], [ %1077, %.lr.ph ], [ %1077, %.lr.ph ], [ %1077, %.lr.ph ]
   %1088 = load ptr, ptr %13, align 8
-  %1089 = call fastcc i32 @dissect_data_element(ptr noundef %1088, ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1694)
+  %1089 = call fastcc i32 @dissect_data_element(ptr noundef %1088, ptr noundef %14, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1694)
   %1090 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.022.i1694) #7
   %1091 = add i32 %.022.i1694, 1
   %1092 = and i8 %1090, 7
@@ -5183,7 +5183,7 @@ get_type_length.exit1701:                         ; preds = %get_type_length.exi
   %1116 = load i32, ptr @hf_sdp_lang_id, align 4
   %1117 = tail call ptr @proto_tree_add_item(ptr noundef %1115, i32 noundef %1116, ptr noundef %2, i32 noundef %.022.i1699, i32 noundef %1110, i32 noundef 0) #7
   %1118 = add i32 %1110, %.022.i1699
-  %1119 = call fastcc i32 @dissect_data_element(ptr noundef %1088, ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2, i32 noundef %1118)
+  %1119 = call fastcc i32 @dissect_data_element(ptr noundef %1088, ptr noundef %14, ptr noundef %1, ptr noundef %2, i32 noundef %1118)
   %1120 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %1118) #7
   %1121 = add i32 %1118, 1
   %1122 = and i8 %1120, 7
@@ -6006,7 +6006,7 @@ get_type_length.exit1706:                         ; preds = %get_type_length.exi
 .lr.ph187:                                        ; preds = %.preheader, %1643
   %.5186 = phi i32 [ %1640, %1643 ], [ %.022.i, %.preheader ]
   %1614 = load ptr, ptr %12, align 8
-  %1615 = call fastcc i32 @dissect_data_element(ptr noundef %1614, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.5186)
+  %1615 = call fastcc i32 @dissect_data_element(ptr noundef %1614, ptr noundef %11, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.5186)
   %1616 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.5186) #7
   %1617 = add i32 %.5186, 1
   %1618 = and i8 %1616, 7
@@ -6058,7 +6058,7 @@ get_type_length.exit1711:                         ; preds = %.lr.ph187, %1619, %
   %.022.i1709 = phi i32 [ %1617, %.lr.ph187 ], [ %1617, %1619 ], [ %1617, %1622 ], [ %1617, %1623 ], [ %1617, %1624 ], [ %1628, %1625 ], [ %1632, %1629 ], [ %1635, %1633 ]
   %1636 = phi i32 [ 2, %.lr.ph187 ], [ %1621, %1619 ], [ 4, %1622 ], [ 8, %1623 ], [ 16, %1624 ], [ %1627, %1625 ], [ %1631, %1629 ], [ %spec.select.i1708, %1633 ]
   %1637 = load ptr, ptr %11, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1637, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1709, i32 noundef %1636, ptr noundef nonnull %16)
+  call fastcc void @dissect_uuid(ptr noundef %1637, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1709, i32 noundef %1636, ptr noundef %16)
   %1638 = load ptr, ptr %21, align 8
   %1639 = call ptr @print_bluetooth_uuid(ptr noundef %1638, ptr noundef nonnull %16) #7
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef %1639) #7
@@ -6081,7 +6081,7 @@ get_type_length.exit1711:                         ; preds = %.lr.ph187, %1619, %
 
 1649:                                             ; preds = %1608
   %1650 = load ptr, ptr %12, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1650, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, ptr noundef nonnull %16)
+  call fastcc void @dissect_uuid(ptr noundef %1650, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, ptr noundef %16)
   %1651 = load ptr, ptr %21, align 8
   %1652 = call ptr @print_bluetooth_uuid(ptr noundef %1651, ptr noundef nonnull %16) #7
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef %1652) #7
@@ -6090,13 +6090,13 @@ get_type_length.exit1711:                         ; preds = %.lr.ph187, %1619, %
 1653:                                             ; preds = %1608
   store i32 0, ptr %17, align 4
   %1654 = load ptr, ptr %12, align 8
-  call fastcc void @dissect_protocol_descriptor_list(ptr noundef %1654, ptr noundef %2, ptr noundef nonnull %1, i32 noundef %.022.i, i32 noundef %48, ptr noundef %23, ptr noundef %8, ptr noundef nonnull %17)
+  call fastcc void @dissect_protocol_descriptor_list(ptr noundef %1654, ptr noundef %2, ptr noundef nonnull %1, i32 noundef %.022.i, i32 noundef %48, ptr noundef %23, ptr noundef %8, ptr noundef %17)
   br label %.thread98
 
 .lr.ph185:                                        ; preds = %.preheader106, %1684
   %.6184 = phi i32 [ %1681, %1684 ], [ %.022.i, %.preheader106 ]
   %1655 = load ptr, ptr %12, align 8
-  %1656 = call fastcc i32 @dissect_data_element(ptr noundef %1655, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.6184)
+  %1656 = call fastcc i32 @dissect_data_element(ptr noundef %1655, ptr noundef %11, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.6184)
   %1657 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.6184) #7
   %1658 = add i32 %.6184, 1
   %1659 = and i8 %1657, 7
@@ -6148,7 +6148,7 @@ get_type_length.exit1716:                         ; preds = %.lr.ph185, %1660, %
   %.022.i1714 = phi i32 [ %1658, %.lr.ph185 ], [ %1658, %1660 ], [ %1658, %1663 ], [ %1658, %1664 ], [ %1658, %1665 ], [ %1669, %1666 ], [ %1673, %1670 ], [ %1676, %1674 ]
   %1677 = phi i32 [ 2, %.lr.ph185 ], [ %1662, %1660 ], [ 4, %1663 ], [ 8, %1664 ], [ 16, %1665 ], [ %1668, %1666 ], [ %1672, %1670 ], [ %spec.select.i1713, %1674 ]
   %1678 = load ptr, ptr %11, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1678, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1714, i32 noundef %1677, ptr noundef nonnull %16)
+  call fastcc void @dissect_uuid(ptr noundef %1678, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1714, i32 noundef %1677, ptr noundef %16)
   %1679 = load ptr, ptr %21, align 8
   %1680 = call ptr @print_bluetooth_uuid(ptr noundef %1679, ptr noundef nonnull %16) #7
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef %1680) #7
@@ -6170,7 +6170,7 @@ get_type_length.exit1716:                         ; preds = %.lr.ph185, %1660, %
   %1687 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1685, i32 noundef %1686, ptr noundef %2, i32 noundef %.7181, i32 noundef %48, ptr noundef nonnull @.str.964, i32 noundef %.31492180) #7
   %1688 = load i32, ptr @ett_btsdp_data_element, align 4
   %1689 = call ptr @proto_item_add_subtree(ptr noundef %1687, i32 noundef %1688) #7
-  %1690 = call fastcc i32 @dissect_data_element(ptr noundef %1689, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.7181)
+  %1690 = call fastcc i32 @dissect_data_element(ptr noundef %1689, ptr noundef %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.7181)
   %1691 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.7181) #7
   %1692 = add i32 %.7181, 1
   %1693 = and i8 %1691, 7
@@ -6230,7 +6230,7 @@ get_type_length.exit1721:                         ; preds = %.lr.ph182, %1694, %
   %1717 = load ptr, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1687, ptr noundef nonnull @.str.1012, ptr noundef %1717) #7
   %1718 = add i32 %1711, %.022.i1719
-  %1719 = call fastcc i32 @dissect_data_element(ptr noundef %1689, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %1718)
+  %1719 = call fastcc i32 @dissect_data_element(ptr noundef %1689, ptr noundef %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %1718)
   %1720 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %1718) #7
   %1721 = add i32 %1718, 1
   %1722 = and i8 %1720, 7
@@ -6291,7 +6291,7 @@ get_type_length.exit1726:                         ; preds = %get_type_length.exi
   %1746 = load i32, ptr @hf_sdp_lang_encoding, align 4
   %1747 = call ptr @proto_tree_add_item(ptr noundef %1745, i32 noundef %1746, ptr noundef %2, i32 noundef %.022.i1724, i32 noundef 2, i32 noundef 0) #7
   %1748 = add i32 %1740, %.022.i1724
-  %1749 = call fastcc i32 @dissect_data_element(ptr noundef %1689, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %1748)
+  %1749 = call fastcc i32 @dissect_data_element(ptr noundef %1689, ptr noundef %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %1748)
   %1750 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %1748) #7
   %1751 = add i32 %1748, 1
   %1752 = and i8 %1750, 7
@@ -6430,13 +6430,13 @@ get_type_length.exit1736:                         ; preds = %.lr.ph173, %1795, %
   %.022.i1734 = phi i32 [ %1793, %.lr.ph173 ], [ %1793, %1795 ], [ %1793, %1798 ], [ %1793, %1799 ], [ %1793, %1800 ], [ %1804, %1801 ], [ %1808, %1805 ], [ %1811, %1809 ]
   %1812 = phi i32 [ 2, %.lr.ph173 ], [ %1797, %1795 ], [ 4, %1798 ], [ 8, %1799 ], [ 16, %1800 ], [ %1803, %1801 ], [ %1807, %1805 ], [ %spec.select.i1733, %1809 ]
   %1813 = load ptr, ptr %12, align 8
-  %1814 = call fastcc i32 @dissect_data_element(ptr noundef %1813, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.8172)
+  %1814 = call fastcc i32 @dissect_data_element(ptr noundef %1813, ptr noundef %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.8172)
   %1815 = load ptr, ptr %13, align 8
   %1816 = load i32, ptr @hf_profile_descriptor_list, align 4
   %1817 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1815, i32 noundef %1816, ptr noundef %2, i32 noundef %.022.i1734, i32 noundef %1812, ptr noundef nonnull @.str.1017, i32 noundef %.01487171) #7
   %1818 = load i32, ptr @ett_btsdp_data_element, align 4
   %1819 = call ptr @proto_item_add_subtree(ptr noundef %1817, i32 noundef %1818) #7
-  %1820 = call fastcc i32 @dissect_data_element(ptr noundef %1819, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1734)
+  %1820 = call fastcc i32 @dissect_data_element(ptr noundef %1819, ptr noundef %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1734)
   %1821 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.022.i1734) #7
   %1822 = add i32 %.022.i1734, 1
   %1823 = and i8 %1821, 7
@@ -6488,13 +6488,13 @@ get_type_length.exit1741:                         ; preds = %get_type_length.exi
   %.022.i1739 = phi i32 [ %1822, %get_type_length.exit1736 ], [ %1822, %1824 ], [ %1822, %1827 ], [ %1822, %1828 ], [ %1822, %1829 ], [ %1833, %1830 ], [ %1837, %1834 ], [ %1840, %1838 ]
   %1841 = phi i32 [ 2, %get_type_length.exit1736 ], [ %1826, %1824 ], [ 4, %1827 ], [ 8, %1828 ], [ 16, %1829 ], [ %1832, %1830 ], [ %1836, %1834 ], [ %spec.select.i1738, %1838 ]
   %1842 = load ptr, ptr %13, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1842, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1739, i32 noundef %1841, ptr noundef nonnull %16)
+  call fastcc void @dissect_uuid(ptr noundef %1842, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1739, i32 noundef %1841, ptr noundef %16)
   %1843 = load ptr, ptr %21, align 8
   %1844 = call ptr @print_bluetooth_uuid(ptr noundef %1843, ptr noundef nonnull %16) #7
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef %1844) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1817, ptr noundef nonnull @.str.943, ptr noundef %1844) #7
   %1845 = add i32 %1841, %.022.i1739
-  %1846 = call fastcc i32 @dissect_data_element(ptr noundef %1819, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %1845)
+  %1846 = call fastcc i32 @dissect_data_element(ptr noundef %1819, ptr noundef %13, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %1845)
   %1847 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %1845) #7
   %1848 = add i32 %1845, 1
   %1849 = and i8 %1847, 7
@@ -6650,7 +6650,7 @@ get_type_length.exit1751:                         ; preds = %.lr.ph164, %1902, %
   %.022.i1749 = phi i32 [ %1900, %.lr.ph164 ], [ %1900, %1902 ], [ %1900, %1905 ], [ %1900, %1906 ], [ %1900, %1907 ], [ %1911, %1908 ], [ %1915, %1912 ], [ %1918, %1916 ]
   %1919 = phi i32 [ 2, %.lr.ph164 ], [ %1904, %1902 ], [ 4, %1905 ], [ 8, %1906 ], [ 16, %1907 ], [ %1910, %1908 ], [ %1914, %1912 ], [ %spec.select.i1748, %1916 ]
   %1920 = load ptr, ptr %12, align 8
-  %1921 = call fastcc i32 @dissect_data_element(ptr noundef %1920, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %.9163)
+  %1921 = call fastcc i32 @dissect_data_element(ptr noundef %1920, ptr noundef %13, ptr noundef %1, ptr noundef %2, i32 noundef %.9163)
   %1922 = load ptr, ptr %13, align 8
   %1923 = load i32, ptr @hf_profile_descriptor_list, align 4
   %1924 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1922, i32 noundef %1923, ptr noundef %2, i32 noundef %.022.i1749, i32 noundef %1919, ptr noundef nonnull @.str.1020, i32 noundef %.11488162) #7
@@ -6706,7 +6706,7 @@ get_type_length.exit1756:                         ; preds = %get_type_length.exi
   %.022.i1754 = phi i32 [ %1900, %get_type_length.exit1751 ], [ %1900, %1929 ], [ %1900, %1932 ], [ %1900, %1933 ], [ %1900, %1934 ], [ %1938, %1935 ], [ %1942, %1939 ], [ %1945, %1943 ]
   %1946 = phi i32 [ 2, %get_type_length.exit1751 ], [ %1931, %1929 ], [ 4, %1932 ], [ 8, %1933 ], [ 16, %1934 ], [ %1937, %1935 ], [ %1941, %1939 ], [ %spec.select.i1753, %1943 ]
   tail call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.963) #7
-  call fastcc void @dissect_protocol_descriptor_list(ptr noundef %1926, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i1754, i32 noundef %1946, ptr noundef %23, ptr noundef %8, ptr noundef nonnull %17)
+  call fastcc void @dissect_protocol_descriptor_list(ptr noundef %1926, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i1754, i32 noundef %1946, ptr noundef %23, ptr noundef %8, ptr noundef %17)
   %1947 = add i32 %1946, %.022.i1754
   tail call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.1021) #7
   %1948 = add i32 %.11488162, 1
@@ -6821,7 +6821,7 @@ get_int_by_size.exit:                             ; preds = %1986, %1987, %1990,
 
 1998:                                             ; preds = %1969
   %1999 = load ptr, ptr %12, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1999, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, ptr noundef nonnull %16)
+  call fastcc void @dissect_uuid(ptr noundef %1999, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, ptr noundef %16)
   %2000 = load ptr, ptr %21, align 8
   %2001 = call ptr @print_bluetooth_uuid(ptr noundef %2000, ptr noundef nonnull %16) #7
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %23, ptr noundef nonnull @.str.943, ptr noundef %2001) #7
@@ -6874,7 +6874,7 @@ get_int_by_size.exit:                             ; preds = %1986, %1987, %1990,
   br label %2028
 
 2028:                                             ; preds = %.lr.ph191, %2027
-  %2029 = call fastcc i32 @dissect_sdp_type(ptr noundef %2026, ptr noundef %1, ptr noundef %2018, i32 noundef %.0190, i32 noundef %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef nonnull %20)
+  %2029 = call fastcc i32 @dissect_sdp_type(ptr noundef %2026, ptr noundef %1, ptr noundef %2018, i32 noundef %.0190, i32 noundef %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %20)
   %2030 = icmp slt i32 %2029, 1
   br i1 %2030, label %._crit_edge, label %2031
 
@@ -6906,7 +6906,7 @@ get_int_by_size.exit:                             ; preds = %1986, %1987, %1990,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc void @dissect_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = alloca %struct._uuid_t, align 2
   %8 = alloca %struct._uuid_t, align 2
   switch i32 %4, label %39 [
@@ -7006,7 +7006,7 @@ declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #0
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef readonly %13) unnamed_addr #1 {
+define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef range(i32 0, 65536) %6, i32 noundef range(i32 0, 3) %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef nonnull readonly %13) unnamed_addr #1 {
   %15 = alloca [12 x %struct._wmem_tree_key_t], align 16
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -8018,7 +8018,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_channel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @save_channel(ptr nocapture noundef readonly %0, i32 noundef range(i32 3, 257) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca [10 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -8142,7 +8142,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @print_bluetooth_uuid(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_protocol_descriptor_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7) unnamed_addr #1 {
+define internal fastcc void @dissect_protocol_descriptor_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #1 {
   %9 = alloca [10 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -8288,13 +8288,13 @@ get_type_length.exit:                             ; preds = %82, %90, %93, %94, 
   %108 = sub i32 %.022.i, %.0159251
   %109 = add i32 %108, %107
   call void @proto_item_set_len(ptr noundef %84, i32 noundef %109) #7
-  %110 = call fastcc i32 @dissect_data_element(ptr noundef %86, ptr noundef nonnull %29, ptr noundef %2, ptr noundef %1, i32 noundef %.0159251)
+  %110 = call fastcc i32 @dissect_data_element(ptr noundef %86, ptr noundef %29, ptr noundef %2, ptr noundef %1, i32 noundef %.0159251)
   %111 = load ptr, ptr %29, align 8
   %112 = load i32, ptr @hf_sdp_protocol, align 4
   %113 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %112, ptr noundef %1, i32 noundef %.022.i, i32 noundef %107, i32 noundef 0) #7
   %114 = load i32, ptr @ett_btsdp_supported_features_mdep_id, align 4
   %115 = call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #7
-  %116 = call fastcc i32 @dissect_data_element(ptr noundef %115, ptr noundef nonnull %29, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i)
+  %116 = call fastcc i32 @dissect_data_element(ptr noundef %115, ptr noundef %29, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i)
   %117 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.022.i) #7
   %118 = add i32 %.022.i, 1
   %119 = and i8 %117, 7
@@ -8346,7 +8346,7 @@ get_type_length.exit174:                          ; preds = %get_type_length.exi
   %.022.i172 = phi i32 [ %118, %get_type_length.exit ], [ %118, %120 ], [ %118, %123 ], [ %118, %124 ], [ %118, %125 ], [ %129, %126 ], [ %133, %130 ], [ %136, %134 ]
   %137 = phi i32 [ 2, %get_type_length.exit ], [ %122, %120 ], [ 4, %123 ], [ 8, %124 ], [ 16, %125 ], [ %128, %126 ], [ %132, %130 ], [ %spec.select.i171, %134 ]
   %138 = load ptr, ptr %29, align 8
-  call fastcc void @dissect_uuid(ptr noundef %138, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i172, i32 noundef %137, ptr noundef nonnull %31)
+  call fastcc void @dissect_uuid(ptr noundef %138, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i172, i32 noundef %137, ptr noundef %31)
   %139 = load ptr, ptr %33, align 8
   %140 = call ptr @print_bluetooth_uuid(ptr noundef %139, ptr noundef nonnull %31) #7
   call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %140) #7
@@ -8358,7 +8358,7 @@ get_type_length.exit174:                          ; preds = %get_type_length.exi
   br i1 %143, label %144, label %299
 
 144:                                              ; preds = %get_type_length.exit174
-  %145 = call fastcc i32 @dissect_data_element(ptr noundef %115, ptr noundef nonnull %29, ptr noundef nonnull %2, ptr noundef %1, i32 noundef %141)
+  %145 = call fastcc i32 @dissect_data_element(ptr noundef %115, ptr noundef %29, ptr noundef nonnull %2, ptr noundef %1, i32 noundef %141)
   %146 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %141) #7
   %147 = add i32 %141, 1
   %148 = and i8 %146, 7
@@ -8677,7 +8677,7 @@ get_int_by_size.exit:                             ; preds = %144, %152, %get_typ
 
 256:                                              ; preds = %250
   %257 = add i32 %.022.i177216, %174
-  %258 = call fastcc i32 @dissect_data_element(ptr noundef %115, ptr noundef nonnull %29, ptr noundef nonnull %2, ptr noundef %1, i32 noundef %257)
+  %258 = call fastcc i32 @dissect_data_element(ptr noundef %115, ptr noundef %29, ptr noundef nonnull %2, ptr noundef %1, i32 noundef %257)
   %259 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %257) #7
   %260 = add i32 %257, 1
   %261 = and i8 %259, 7
@@ -8787,7 +8787,7 @@ get_int_by_size.exit186:                          ; preds = %256, %265, %get_typ
 
 .lr.ph246:                                        ; preds = %299, %366
   %.2164244 = phi i32 [ %367, %366 ], [ %.0162, %299 ]
-  %301 = call fastcc i32 @dissect_data_element(ptr noundef %115, ptr noundef nonnull %29, ptr noundef %2, ptr noundef %1, i32 noundef %.2164244)
+  %301 = call fastcc i32 @dissect_data_element(ptr noundef %115, ptr noundef %29, ptr noundef %2, ptr noundef %1, i32 noundef %.2164244)
   %302 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2164244) #7
   %303 = add i32 %.2164244, 1
   %304 = and i8 %302, 7
@@ -8853,7 +8853,7 @@ get_type_length.exit191:                          ; preds = %.lr.ph246, %305, %3
 
 327:                                              ; preds = %365, %.lr.ph
   %.0243 = phi i32 [ %.022.i189, %.lr.ph ], [ %362, %365 ]
-  %328 = call fastcc i32 @dissect_data_element(ptr noundef %326, ptr noundef nonnull %30, ptr noundef %2, ptr noundef %1, i32 noundef %.0243)
+  %328 = call fastcc i32 @dissect_data_element(ptr noundef %326, ptr noundef %30, ptr noundef %2, ptr noundef %1, i32 noundef %.0243)
   %329 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0243) #7
   %330 = add i32 %.0243, 1
   %331 = and i8 %329, 7
@@ -9012,13 +9012,13 @@ declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_attribute_id_list, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 0) #7
   %9 = load i32, ptr @ett_btsdp_attribute_idlist, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #7
-  %11 = call fastcc i32 @dissect_data_element(ptr noundef %10, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %1, i32 noundef %2)
+  %11 = call fastcc i32 @dissect_data_element(ptr noundef %10, ptr noundef %6, ptr noundef %3, ptr noundef %1, i32 noundef %2)
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #7
   %13 = add i32 %2, 1
   %14 = and i8 %12, 7
@@ -9106,7 +9106,7 @@ declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed
 declare ptr @print_numeric_bluetooth_uuid(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sdp_service_attribute(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i16 %.0.val, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_service_attribute(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i16 %.0.val, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   store ptr null, ptr %10, align 8
@@ -9353,7 +9353,7 @@ define internal fastcc i32 @dissect_sdp_service_attribute(ptr noundef %0, ptr no
   br i1 %99, label %100, label %119
 
 100:                                              ; preds = %98
-  %101 = call fastcc i32 @dissect_data_element(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %3, ptr noundef %1, i32 noundef %2)
+  %101 = call fastcc i32 @dissect_data_element(ptr noundef %0, ptr noundef %9, ptr noundef %3, ptr noundef %1, i32 noundef %2)
   %102 = load ptr, ptr %9, align 8
   %103 = load i32, ptr @hf_attribute_id_range, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef 0) #7
@@ -9381,7 +9381,7 @@ define internal fastcc i32 @dissect_sdp_service_attribute(ptr noundef %0, ptr no
   %121 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %.010228, i32 noundef %120, ptr noundef %1, i32 noundef %2, i32 noundef 3, ptr noundef nonnull @.str.1083, ptr noundef %.0111) #7
   %122 = load i32, ptr @ett_btsdp_attribute_id, align 4
   %123 = tail call ptr @proto_item_add_subtree(ptr noundef %121, i32 noundef %122) #7
-  %124 = call fastcc i32 @dissect_data_element(ptr noundef %123, ptr noundef nonnull %9, ptr noundef %3, ptr noundef %1, i32 noundef %2)
+  %124 = call fastcc i32 @dissect_data_element(ptr noundef %123, ptr noundef %9, ptr noundef %3, ptr noundef %1, i32 noundef %2)
   %125 = load ptr, ptr %9, align 8
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %.1107, ptr noundef %1, i32 noundef %12, i32 noundef 2, i32 noundef 0) #7
   br i1 %.not, label %127, label %161
@@ -9393,7 +9393,7 @@ define internal fastcc i32 @dissect_sdp_service_attribute(ptr noundef %0, ptr no
   %131 = load i32, ptr @ett_btsdp_attribute_value, align 4
   %132 = tail call ptr @proto_item_add_subtree(ptr noundef %130, i32 noundef %131) #7
   %133 = zext i16 %13 to i32
-  %134 = call fastcc i32 @dissect_sdp_type(ptr noundef %132, ptr noundef %3, ptr noundef %1, i32 noundef %124, i32 noundef %133, i16 %.0.val, i32 noundef %.011011, i32 noundef %.010914, i32 noundef %.010817, ptr noundef %5, ptr noundef nonnull %10)
+  %134 = call fastcc i32 @dissect_sdp_type(ptr noundef %132, ptr noundef %3, ptr noundef %1, i32 noundef %124, i32 noundef %133, i16 %.0.val, i32 noundef %.011011, i32 noundef %.010914, i32 noundef %.010817, ptr noundef %5, ptr noundef %10)
   %135 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %124) #7
   %136 = add i32 %124, 1
   %137 = and i8 %135, 7
@@ -9473,14 +9473,13 @@ get_type_length.exit:                             ; preds = %127, %138, %141, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65536) i32 @findUintAttribute(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
-  %5 = icmp sgt i32 %2, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+define internal fastcc range(i32 0, 65536) i32 @findUintAttribute(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, i32 noundef range(i32 513, 770) %3) unnamed_addr #1 {
+  br label %5
 
-.lr.ph:                                           ; preds = %4, %55
-  %.028 = phi i32 [ %.1, %55 ], [ 0, %4 ]
-  %.01627 = phi i32 [ %57, %55 ], [ 0, %4 ]
-  %.01726 = phi i32 [ %56, %55 ], [ %1, %4 ]
+5:                                                ; preds = %4, %55
+  %.028 = phi i32 [ 0, %4 ], [ %.1, %55 ]
+  %.01627 = phi i32 [ 0, %4 ], [ %57, %55 ]
+  %.01726 = phi i32 [ %1, %4 ], [ %56, %55 ]
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01726) #7
   %7 = add i32 %.01726, 1
   %8 = and i8 %6, 7
@@ -9495,45 +9494,45 @@ define internal fastcc range(i32 0, 65536) i32 @findUintAttribute(ptr noundef %0
     i8 7, label %23
   ]
 
-9:                                                ; preds = %.lr.ph
+9:                                                ; preds = %5
   %10 = icmp ugt i8 %6, 7
   %11 = zext i1 %10 to i32
   br label %get_type_length.exit
 
-12:                                               ; preds = %.lr.ph
+12:                                               ; preds = %5
   br label %get_type_length.exit
 
-13:                                               ; preds = %.lr.ph
+13:                                               ; preds = %5
   br label %get_type_length.exit
 
-14:                                               ; preds = %.lr.ph
+14:                                               ; preds = %5
   br label %get_type_length.exit
 
-15:                                               ; preds = %.lr.ph
+15:                                               ; preds = %5
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #7
   %17 = zext i8 %16 to i32
   %18 = add i32 %.01726, 2
   br label %get_type_length.exit
 
-19:                                               ; preds = %.lr.ph
+19:                                               ; preds = %5
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #7
   %21 = zext i16 %20 to i32
   %22 = add i32 %.01726, 3
   br label %get_type_length.exit
 
-default.unreachable:                              ; preds = %get_type_length.exit, %.lr.ph
+default.unreachable:                              ; preds = %get_type_length.exit, %5
   unreachable
 
-23:                                               ; preds = %.lr.ph
+23:                                               ; preds = %5
   %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7) #7
   %.fr.i = freeze i32 %24
   %25 = add i32 %.01726, 5
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.fr.i, i32 0)
   br label %get_type_length.exit
 
-get_type_length.exit:                             ; preds = %.lr.ph, %9, %12, %13, %14, %15, %19, %23
-  %.022.i = phi i32 [ %7, %.lr.ph ], [ %7, %9 ], [ %7, %12 ], [ %7, %13 ], [ %7, %14 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
-  %26 = phi i32 [ 2, %.lr.ph ], [ %11, %9 ], [ 4, %12 ], [ 8, %13 ], [ 16, %14 ], [ %17, %15 ], [ %21, %19 ], [ %spec.select.i, %23 ]
+get_type_length.exit:                             ; preds = %5, %9, %12, %13, %14, %15, %19, %23
+  %.022.i = phi i32 [ %7, %5 ], [ %7, %9 ], [ %7, %12 ], [ %7, %13 ], [ %7, %14 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
+  %26 = phi i32 [ 2, %5 ], [ %11, %9 ], [ 4, %12 ], [ 8, %13 ], [ 16, %14 ], [ %17, %15 ], [ %21, %19 ], [ %spec.select.i, %23 ]
   %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.022.i) #7
   %28 = add i32 %26, %.022.i
   %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %28) #7
@@ -9600,17 +9599,16 @@ get_type_length.exit22:                           ; preds = %get_type_length.exi
   %56 = add i32 %49, %.022.i20
   %57 = add nuw nsw i32 %.01627, 1
   %exitcond.not = icmp eq i32 %57, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %58, label %5, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %55, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %55 ]
-  ret i32 %.0.lcssa
+58:                                               ; preds = %55
+  ret i32 %.1
 }
 
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct._uuid_t, align 8
   %9 = alloca [10 x %struct._wmem_tree_key_t], align 16
@@ -9687,7 +9685,7 @@ get_type_length.exit:                             ; preds = %6, %26, %29, %30, %
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef %2, i32 noundef %46, i32 noundef 0) #7
   %48 = load i32, ptr @ett_btsdp_attribute, align 4
   %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #7
-  %50 = call fastcc i32 @dissect_data_element(ptr noundef %49, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %2)
+  %50 = call fastcc i32 @dissect_data_element(ptr noundef %49, ptr noundef %7, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %2)
   %51 = icmp slt i32 %45, %43
   br i1 %51, label %.lr.ph132, label %._crit_edge
 
@@ -9855,7 +9853,7 @@ get_type_length.exit113:                          ; preds = %get_type_length.exi
 get_type_length.exit118:                          ; preds = %101, %104, %107, %108, %109, %110, %113, %116
   %.022.i116 = phi i32 [ %97, %101 ], [ %97, %104 ], [ %97, %107 ], [ %97, %108 ], [ %97, %109 ], [ %100, %110 ], [ %99, %113 ], [ %98, %116 ]
   %118 = phi i32 [ 2, %101 ], [ %106, %104 ], [ 4, %107 ], [ 8, %108 ], [ 16, %109 ], [ %112, %110 ], [ %115, %113 ], [ %spec.select.i115, %116 ]
-  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef %3, ptr noundef %1, i32 noundef %.022.i116, i32 noundef %118, ptr noundef nonnull %8)
+  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef %3, ptr noundef %1, i32 noundef %.022.i116, i32 noundef %118, ptr noundef %8)
   call void @wmem_array_append(ptr noundef %22, ptr noundef nonnull %8, i32 noundef 1) #7
   %119 = add i32 %118, %.022.i116
   %.not103 = icmp sgt i32 %119, %.022.i111
@@ -10111,10 +10109,10 @@ get_specified_uuid.exit:                          ; preds = %.thread.i, %._crit_
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) unnamed_addr #1 {
+define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #7
-  %10 = add i32 %2, 1
+  %10 = add nuw nsw i32 %2, 1
   %11 = and i8 %9, 7
   switch i8 %11, label %default.unreachable [
     i8 0, label %get_type_length.exit
@@ -10129,12 +10127,12 @@ define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr nounde
 
 12:                                               ; preds = %7
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %10) #7
-  %14 = add i32 %2, 2
+  %14 = add nuw nsw i32 %2, 2
   br label %get_type_length.exit
 
 15:                                               ; preds = %7
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %10) #7
-  %17 = add i32 %2, 3
+  %17 = add nuw nsw i32 %2, 3
   br label %get_type_length.exit
 
 default.unreachable:                              ; preds = %7
@@ -10142,7 +10140,7 @@ default.unreachable:                              ; preds = %7
 
 18:                                               ; preds = %7
   %19 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %10) #7
-  %20 = add i32 %2, 5
+  %20 = add nuw nsw i32 %2, 5
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %7, %7, %7, %7, %7, %12, %15, %18
@@ -10151,8 +10149,8 @@ get_type_length.exit:                             ; preds = %7, %7, %7, %7, %7, 
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef 0) #7
   %23 = load i32, ptr @ett_btsdp_attribute, align 4
   %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23) #7
-  %25 = call fastcc i32 @dissect_data_element(ptr noundef %24, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %1, i32 noundef %2)
-  %26 = sub i32 %.022.i, %2
+  %25 = call fastcc i32 @dissect_data_element(ptr noundef %24, ptr noundef %8, ptr noundef %3, ptr noundef %1, i32 noundef %2)
+  %26 = sub nsw i32 %.022.i, %2
   %27 = icmp slt i32 %26, %4
   br i1 %27, label %.lr.ph, label %._crit_edge
 

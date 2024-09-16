@@ -1133,7 +1133,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %c, ptr noundef %url, i32 noundef %allow_partial_url, i32 noundef %quiet) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %c, ptr noundef %url, i32 noundef range(i32 0, 2) %allow_partial_url, i32 noundef %quiet) unnamed_addr #2 {
 entry:
   %protocol.i = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load ptr, ptr %protocol.i, align 8
@@ -1696,7 +1696,7 @@ declare i32 @finish_command(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @credential_ask_one(ptr noundef %what, ptr nocapture noundef readonly %c, i32 noundef %flags) unnamed_addr #2 {
+define internal fastcc ptr @credential_ask_one(ptr noundef %what, ptr nocapture noundef readonly %c, i32 noundef range(i32 1, 4) %flags) unnamed_addr #2 {
 entry:
   %desc = alloca %struct.strbuf, align 8
   %prompt = alloca %struct.strbuf, align 8

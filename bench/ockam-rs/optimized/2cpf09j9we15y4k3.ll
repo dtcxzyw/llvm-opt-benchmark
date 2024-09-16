@@ -3133,7 +3133,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$17haf2f479f8f679957E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$17haf2f479f8f679957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -3302,7 +3302,7 @@ define internal fastcc void @"_ZN4core3ptr175drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -3358,7 +3358,7 @@ define internal fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -3392,7 +3392,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$alloc..string..String$GT$$GT$17h8817b34fb6fe214dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$alloc..string..String$GT$$GT$17h8817b34fb6fe214dE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1013)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1013
@@ -5045,7 +5045,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   unreachable
 
 .body:                                            ; preds = %43
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$alloc..string..String$GT$$GT$17h8817b34fb6fe214dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #29
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$alloc..string..String$GT$$GT$17h8817b34fb6fe214dE"(ptr noalias noundef align 8 dereferenceable(24) %5) #29
           to label %64 unwind label %62
 
 "_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17ha01e6a8905b57cb4E.exit.loopexit": ; preds = %"_ZN4core3ptr145drop_in_place$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..NodeNameRow$GT$17h2a9afb90415d04d9E.exit.i.i"
@@ -5788,7 +5788,7 @@ define hidden noundef i64 @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [7 x i64] }, align 8
   %.sroa.326 = alloca { { ptr, i64 }, i64 }, align 8
@@ -5898,7 +5898,7 @@ define internal fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$mini
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$17haf2f479f8f679957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #29
+  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$17haf2f479f8f679957E"(ptr noalias noundef align 8 dereferenceable(32) %6) #29
           to label %.body unwind label %35
 
 35:                                               ; preds = %33
@@ -7929,7 +7929,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %278, %267, %241, %218, %206
   %.pn1152.pn = phi { ptr, i32 } [ %.pn1152, %206 ], [ %.pn1152, %218 ], [ %242, %241 ], [ %.pn1150, %267 ], [ %.pn1150, %278 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1375, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1376, %.loopexit.split-lp.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %107) #29
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %107) #29
           to label %284 unwind label %215
 
 .loopexit:                                        ; preds = %224, %248, %249, %253
@@ -8118,7 +8118,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 212:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %103)
   store ptr null, ptr %103, align 8
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %103)
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %103)
           to label %217 unwind label %209
 
 213:                                              ; preds = %211, %217
@@ -8245,7 +8245,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 241:                                              ; preds = %244, %243, %240
   %242 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %95) #29
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %95) #29
           to label %.loopexit.split-lp unwind label %215
 
 243:                                              ; preds = %240
@@ -8261,7 +8261,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %93)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %94, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %94)
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %95)
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %95)
           to label %246 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 246:                                              ; preds = %245
@@ -8270,7 +8270,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   br label %247
 
 247:                                              ; preds = %174, %237, %223, %213, %283, %274, %230, %246
-  call fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %107)
+  call fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %107)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %107)
   br label %800
 
@@ -8321,7 +8321,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 261:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha0ffaec16d68749dE.exit1186.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha0ffaec16d68749dE.exit1186"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %99)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false)
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %107)
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %107)
           to label %266 unwind label %264
 
 262:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha0ffaec16d68749dE.exit1186"
@@ -8357,7 +8357,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 273:                                              ; preds = %272
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %98)
   store ptr null, ptr %98, align 8
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %98)
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %98)
           to label %277 unwind label %270
 
 274:                                              ; preds = %272, %277
@@ -9099,7 +9099,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 
 .loopexit.split-lp1386:                           ; preds = %.loopexit1385, %.loopexit.split-lp1386.loopexit.split-lp, %.loopexit.split-lp1386.loopexit, %572, %561, %535, %512, %502
   %.pn1134.pn = phi { ptr, i32 } [ %.pn1134, %502 ], [ %.pn1134, %512 ], [ %536, %535 ], [ %.pn1132, %561 ], [ %.pn1132, %572 ], [ %lpad.loopexit1387, %.loopexit1385 ], [ %lpad.loopexit1390, %.loopexit.split-lp1386.loopexit ], [ %lpad.loopexit.split-lp1391, %.loopexit.split-lp1386.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %61) #29
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %61) #29
           to label %284 unwind label %215
 
 .loopexit1385:                                    ; preds = %518, %542, %543, %547
@@ -9288,7 +9288,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 508:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57)
   store ptr null, ptr %57, align 8
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57)
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %57)
           to label %511 unwind label %505
 
 509:                                              ; preds = %507, %511
@@ -9409,7 +9409,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 535:                                              ; preds = %538, %537, %534
   %536 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #29
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %49) #29
           to label %.loopexit.split-lp1386 unwind label %215
 
 537:                                              ; preds = %534
@@ -9425,7 +9425,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %47)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %48, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48)
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49)
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %49)
           to label %540 unwind label %.loopexit.split-lp1386.loopexit.split-lp
 
 540:                                              ; preds = %539
@@ -9434,7 +9434,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   br label %541
 
 541:                                              ; preds = %470, %531, %517, %509, %577, %568, %524, %540
-  call fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %61)
+  call fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %61)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
   br label %800
 
@@ -9485,7 +9485,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 555:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha0ffaec16d68749dE.exit1198.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha0ffaec16d68749dE.exit1198"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %469, i64 24, i1 false)
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %61)
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %61)
           to label %560 unwind label %558
 
 556:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha0ffaec16d68749dE.exit1198"
@@ -9521,7 +9521,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 567:                                              ; preds = %566
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52)
   store ptr null, ptr %52, align 8
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %52)
           to label %571 unwind label %564
 
 568:                                              ; preds = %566, %571
@@ -9561,7 +9561,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 
 .loopexit.split-lp1395:                           ; preds = %.loopexit1394, %.loopexit.split-lp1395.loopexit.split-lp, %.loopexit.split-lp1395.loopexit, %683, %672, %654, %631, %621
   %.pn1126.pn = phi { ptr, i32 } [ %.pn1126, %621 ], [ %.pn1126, %631 ], [ %655, %654 ], [ %.pn1124, %672 ], [ %.pn1124, %683 ], [ %lpad.loopexit1396, %.loopexit1394 ], [ %lpad.loopexit1399, %.loopexit.split-lp1395.loopexit ], [ %lpad.loopexit.split-lp1400, %.loopexit.split-lp1395.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45) #29
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %45) #29
           to label %284 unwind label %215
 
 .loopexit1394:                                    ; preds = %637, %661, %662
@@ -9636,7 +9636,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 
 597:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %43)
-  invoke fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %43, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2)
+  invoke fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %43, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2)
           to label %599 unwind label %.loopexit.split-lp1395.loopexit
 
 598:                                              ; preds = %593
@@ -9736,7 +9736,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 627:                                              ; preds = %626
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
   store ptr null, ptr %41, align 8
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41)
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %41)
           to label %630 unwind label %624
 
 628:                                              ; preds = %626, %630
@@ -9857,7 +9857,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 654:                                              ; preds = %657, %656, %653
   %655 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #29
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %33) #29
           to label %.loopexit.split-lp1395 unwind label %215
 
 656:                                              ; preds = %653
@@ -9873,7 +9873,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %32, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33)
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %33)
           to label %659 unwind label %.loopexit.split-lp1395.loopexit.split-lp
 
 659:                                              ; preds = %658
@@ -9882,13 +9882,13 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   br label %660
 
 660:                                              ; preds = %592, %650, %636, %628, %688, %679, %643, %659
-  call fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45)
+  call fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %45)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
   br label %800
 
 661:                                              ; preds = %.critedge1177
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %38)
-  invoke fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %38, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2)
+  invoke fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %38, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2)
           to label %663 unwind label %.loopexit1394
 
 662:                                              ; preds = %.critedge1177
@@ -9904,7 +9904,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 666:                                              ; preds = %663
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %591, i64 24, i1 false)
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45)
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %45)
           to label %671 unwind label %669
 
 667:                                              ; preds = %663
@@ -9940,7 +9940,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 678:                                              ; preds = %677
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   store ptr null, ptr %36, align 8
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36)
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %36)
           to label %682 unwind label %675
 
 679:                                              ; preds = %677, %682
@@ -9980,7 +9980,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 
 .loopexit.split-lp1404:                           ; preds = %.loopexit1403, %.loopexit.split-lp1404.loopexit.split-lp, %.loopexit.split-lp1404.loopexit, %794, %783, %765, %742, %732
   %.pn1118.pn = phi { ptr, i32 } [ %.pn1118, %732 ], [ %.pn1118, %742 ], [ %766, %765 ], [ %.pn, %783 ], [ %.pn, %794 ], [ %lpad.loopexit1405, %.loopexit1403 ], [ %lpad.loopexit1408, %.loopexit.split-lp1404.loopexit ], [ %lpad.loopexit.split-lp1409, %.loopexit.split-lp1404.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #29
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %29) #29
           to label %284 unwind label %215
 
 .loopexit1403:                                    ; preds = %748, %772, %773
@@ -10055,7 +10055,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 
 708:                                              ; preds = %704
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27)
-  invoke fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %27, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2)
+  invoke fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %27, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2)
           to label %710 unwind label %.loopexit.split-lp1404.loopexit
 
 709:                                              ; preds = %704
@@ -10155,7 +10155,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 738:                                              ; preds = %737
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   store ptr null, ptr %25, align 8
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %25)
           to label %741 unwind label %735
 
 739:                                              ; preds = %737, %741
@@ -10276,7 +10276,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 765:                                              ; preds = %768, %767, %764
   %766 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #29
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %17) #29
           to label %.loopexit.split-lp1404 unwind label %215
 
 767:                                              ; preds = %764
@@ -10292,7 +10292,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %17)
           to label %770 unwind label %.loopexit.split-lp1404.loopexit.split-lp
 
 770:                                              ; preds = %769
@@ -10301,13 +10301,13 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   br label %771
 
 771:                                              ; preds = %703, %761, %747, %739, %799, %790, %754, %770
-  call fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29)
+  call fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   br label %800
 
 772:                                              ; preds = %.critedge1181
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
-  invoke fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %22, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2)
+  invoke fastcc void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$minicbor..decode..Decode$LT$C$GT$$GT$6decode17h59ffba61d95c663dE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %22, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 1 %2)
           to label %774 unwind label %.loopexit1403
 
 773:                                              ; preds = %.critedge1181
@@ -10323,7 +10323,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 777:                                              ; preds = %774
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %702, i64 24, i1 false)
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29)
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %29)
           to label %782 unwind label %780
 
 778:                                              ; preds = %774
@@ -10359,7 +10359,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
 789:                                              ; preds = %788
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   store ptr null, ptr %20, align 8
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %20)
           to label %793 unwind label %786
 
 790:                                              ; preds = %788, %793

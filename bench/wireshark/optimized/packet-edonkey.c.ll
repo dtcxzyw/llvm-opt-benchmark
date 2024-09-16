@@ -950,7 +950,7 @@ define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr nou
 42:                                               ; preds = %39
   %43 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #7
   %.045.i = tail call i32 @llvm.smin.i32(i32 %37, i32 %43)
-  %44 = icmp slt i32 %.045.i, 1
+  %44 = icmp slt i32 %43, 1
   br i1 %44, label %dissect_emule_udp_message.exit, label %45
 
 45:                                               ; preds = %42
@@ -2338,16 +2338,15 @@ dissect_edonkey_list.exit:                        ; preds = %.lr.ph.i, %3
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_edonkey_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_edonkey_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, 5) %4, ptr noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   switch i32 %4, label %28 [
-    i32 -1, label %9
+    i32 2, label %12
     i32 1, label %9
     i32 4, label %15
-    i32 2, label %12
   ]
 
-9:                                                ; preds = %7, %7
+9:                                                ; preds = %7
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #7
   %11 = zext i8 %10 to i32
   br label %17
@@ -3039,10 +3038,10 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 2) #7
   %.0187 = tail call i32 @llvm.smin.i32(i32 %3, i32 %6)
-  %7 = icmp slt i32 %.0187, 1
+  %7 = icmp slt i32 %6, 1
   br i1 %7, label %136, label %8
 
 8:                                                ; preds = %5
@@ -3273,7 +3272,7 @@ define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3541,13 +3540,13 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
 140:                                              ; preds = %proto_item_set_hidden.exit
   %141 = load i32, ptr @hf_kademlia_ip, align 4
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %141, ptr noundef %1, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #7
-  %143 = add i32 %3, 4
+  %143 = or disjoint i32 %3, 4
   br label %254
 
 144:                                              ; preds = %proto_item_set_hidden.exit
   %145 = load i32, ptr @hf_kademlia_tcp_port, align 4
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %145, ptr noundef %1, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648) #7
-  %147 = add i32 %3, 2
+  %147 = add nuw nsw i32 %3, 2
   br label %254
 
 148:                                              ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
@@ -3684,8 +3683,8 @@ dissect_edonkey_list.exit322:                     ; preds = %.lr.ph.i317, %199
   br i1 %.not329, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %214
-  %218 = add i32 %3, 3
-  %invariant.op = add i32 %3, 4
+  %218 = add nuw nsw i32 %3, 3
+  %invariant.op = or disjoint i32 %3, 4
   br label %219
 
 219:                                              ; preds = %.lr.ph, %246

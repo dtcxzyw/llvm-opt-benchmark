@@ -1783,9 +1783,9 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
 
 148:                                              ; preds = %147
   %149 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %144) #6
-  call fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %144, i32 noundef %31, ptr noundef nonnull %14)
+  call fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %144, i32 noundef %31, ptr noundef %14)
   %150 = add nsw i32 %144, 3
-  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %150, i32 noundef %31, i8 noundef zeroext %149, ptr noundef nonnull %14)
+  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %150, i32 noundef %31, i8 noundef zeroext %149, ptr noundef %14)
   br i1 %24, label %151, label %dissect_cip_safety_data.exit
 
 151:                                              ; preds = %148
@@ -1807,9 +1807,9 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
   %.in158.i = add nsw i32 %.in158.v.i, %19
   %158 = ashr exact i32 %.in158.i, 1
   %159 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %158) #6
-  call fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %158, i32 noundef %31, ptr noundef nonnull %14)
+  call fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %158, i32 noundef %31, ptr noundef %14)
   %160 = add nsw i32 %.in158.i, 5
-  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %160, i32 noundef %31, i8 noundef zeroext %159, ptr noundef nonnull %14)
+  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %160, i32 noundef %31, i8 noundef zeroext %159, ptr noundef %14)
   br i1 %24, label %161, label %dissect_cip_safety_data.exit
 
 161:                                              ; preds = %157
@@ -1846,7 +1846,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
   br i1 %145, label %177, label %174
 
 174:                                              ; preds = %173
-  call fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef nonnull %14, ptr noundef %.0.i)
+  call fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef %14, ptr noundef %.0.i)
   br i1 %24, label %175, label %dissect_cip_safety_data.exit
 
 175:                                              ; preds = %174
@@ -1864,7 +1864,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
   br label %dissect_cip_safety_data.exit
 
 181:                                              ; preds = %177
-  call fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef nonnull %14, ptr noundef %.0.i)
+  call fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef %14, ptr noundef %.0.i)
   br i1 %24, label %182, label %dissect_cip_safety_data.exit
 
 182:                                              ; preds = %181
@@ -2520,7 +2520,7 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #2 {
+define internal fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #2 {
   %7 = alloca i8, align 1
   %8 = alloca [8 x i8], align 2
   %9 = alloca i8, align 1
@@ -2639,7 +2639,7 @@ compute_crc_s2_data.exit:                         ; preds = %.lr.ph.i, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_base_format_time_stamp_section(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef readonly %6) unnamed_addr #2 {
+define internal fastcc void @dissect_base_format_time_stamp_section(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -3, 2147483645) %3, i32 noundef range(i32 0, 2) %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #2 {
   %8 = alloca i8, align 1
   %9 = alloca i16, align 2
   %10 = alloca [8 x i8], align 2
@@ -2710,7 +2710,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_base_format_time_correction_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @dissect_base_format_time_correction_message(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -3, 2147483644) %2) unnamed_addr #2 {
   %4 = load i32, ptr @hf_cip_safety_message_encoding, align 4
   %5 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 7) #6
   %.not.i = icmp eq ptr %5, null
@@ -2746,7 +2746,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #2 {
+define internal fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -4, 1073741820) %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #2 {
   %7 = alloca i8, align 1
   %8 = alloca [8 x i8], align 2
   %9 = alloca i8, align 1
@@ -2961,7 +2961,7 @@ define internal fastcc ptr @get_timestamp_packet_data(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6) unnamed_addr #2 {
+define internal fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull readonly %5, ptr noundef readonly %6) unnamed_addr #2 {
   %8 = alloca i16, align 2
   %9 = alloca i8, align 1
   %10 = alloca i16, align 2
@@ -3050,7 +3050,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extended_format_time_correction_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @dissect_extended_format_time_correction_message(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -4, -5) %2) unnamed_addr #2 {
   %4 = load i32, ptr @hf_cip_safety_message_encoding, align 4
   %5 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 8) #6
   %.not.i = icmp eq ptr %5, null
@@ -3089,7 +3089,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6) unnamed_addr #2 {
+define internal fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull readonly %5, ptr noundef readonly %6) unnamed_addr #2 {
   %8 = alloca i16, align 2
   %9 = alloca i8, align 1
   %10 = alloca i16, align 2
@@ -3288,7 +3288,7 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 declare zeroext i16 @crc16_0x080F_seed(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @validate_crc_s5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #2 {
+define internal fastcc void @validate_crc_s5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #2 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %24, label %9
 
@@ -3347,7 +3347,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @expert_get_summary(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mode_byte(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @dissect_mode_byte(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -6, 2147483642) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #6
   %6 = load i32, ptr @hf_cipsafety_mode_byte, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef -2147483648) #6

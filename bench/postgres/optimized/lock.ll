@@ -1404,7 +1404,7 @@ define internal fastcc void @GrantLockLocal(ptr noundef %0, ptr noundef %1) unna
 declare void @LogAccessExclusiveLockPrepare() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #7 {
   %3 = load ptr, ptr @MyProc, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 768
   %5 = load i64, ptr %4, align 8
@@ -2492,7 +2492,7 @@ UnGrantLock.exit:                                 ; preds = %151, %169
 declare void @ResourceOwnerForgetLock(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @FastPathUnGrantRelationLock(i32 noundef %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc zeroext i1 @FastPathUnGrantRelationLock(i32 noundef %0, i32 noundef range(i32 -2147483648, 4) %1) unnamed_addr #7 {
   store i32 0, ptr @FastPathLocalUseCount, align 4
   %3 = load ptr, ptr @MyProc, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 776

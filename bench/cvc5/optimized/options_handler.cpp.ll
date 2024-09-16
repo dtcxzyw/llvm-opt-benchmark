@@ -2013,7 +2013,7 @@ invoke.cont48:                                    ; preds = %invoke.cont45
   %call46.val = load ptr, ptr %call46, align 8
   %34 = getelementptr inbounds i8, ptr %call46, i64 8
   %call46.val18 = load ptr, ptr %34, align 8
-  invoke fastcc void @_ZN4cvc58internal7options12_GLOBAL__N_111suggestTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_SD_(ptr noalias nonnull align 8 %ref.tmp43, ptr %call46.val, ptr %call46.val18, ptr noundef nonnull %agg.tmp47, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp49)
+  invoke fastcc void @_ZN4cvc58internal7options12_GLOBAL__N_111suggestTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_SD_(ptr noalias align 8 %ref.tmp43, ptr %call46.val, ptr %call46.val18, ptr noundef %agg.tmp47, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp49)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont48
@@ -2270,7 +2270,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal7options12_GLOBAL__N_111suggestTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_SD_(ptr noalias align 8 %agg.result, ptr %validTags.0.val, ptr %validTags.8.val, ptr noundef %inputTag, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %additionalTags) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal7options12_GLOBAL__N_111suggestTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_SD_(ptr noalias nonnull align 8 %agg.result, ptr %validTags.0.val, ptr %validTags.8.val, ptr noundef nonnull %inputTag, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %additionalTags) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %didYouMean = alloca %"class.cvc5::internal::DidYouMean", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %didYouMean, i8 0, i64 24, i1 false)
@@ -2292,7 +2292,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  invoke void @_ZN4cvc58internal10DidYouMean16getMatchAsStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %didYouMean, ptr noundef nonnull align 8 dereferenceable(32) %inputTag)
+  invoke void @_ZN4cvc58internal10DidYouMean16getMatchAsStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %didYouMean, ptr noundef nonnull align 8 dereferenceable(32) %inputTag)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont1
@@ -2726,7 +2726,7 @@ invoke.cont:                                      ; preds = %if.end
 invoke.cont2:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   call void @_ZN4cvc58internal13Configuration16getVersionStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp)
-  invoke fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull @.str.21, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull @.str.21, ptr noundef %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont2
@@ -2736,7 +2736,7 @@ invoke.cont5:                                     ; preds = %invoke.cont2
 
 if.then7:                                         ; preds = %invoke.cont5
   call void @_ZN4cvc58internal13Configuration10getGitInfoB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp8)
-  invoke fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull @.str.22, ptr noundef nonnull %agg.tmp8)
+  invoke fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull @.str.22, ptr noundef %agg.tmp8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.then7
@@ -2782,7 +2782,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
           to label %invoke.cont20 unwind label %lpad14
 
 invoke.cont20:                                    ; preds = %invoke.cont17
-  invoke fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull @.str.23, ptr noundef nonnull %agg.tmp19)
+  invoke fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull @.str.23, ptr noundef %agg.tmp19)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -2979,7 +2979,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad9, 
 declare void @_ZN4cvc58internal13Configuration5aboutB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %str, ptr noundef %config) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %str, ptr noundef nonnull %config) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
@@ -3098,7 +3098,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %str, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN4cvc58internal7optionsL12print_configEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %str, ptr noundef %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont

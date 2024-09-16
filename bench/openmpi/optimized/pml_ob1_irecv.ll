@@ -484,7 +484,7 @@ ompi_request_cancel.exit:                         ; preds = %68, %71
   %77 = load ptr, ptr @mca_pml_ob1_recvreq, align 8
   %78 = icmp ne ptr %77, null
   %79 = select i1 %76, i1 true, i1 %78
-  tail call fastcc void @mca_pml_ob1_recv_request_fini(ptr noundef nonnull %.1)
+  tail call fastcc void @mca_pml_ob1_recv_request_fini(ptr noundef %.1)
   br i1 %79, label %80, label %109
 
 80:                                               ; preds = %73
@@ -812,7 +812,7 @@ opal_thread_compare_exchange_strong_ptr.exit13:   ; preds = %53, %46, %.opal_thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_recv_request_fini(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @mca_pml_ob1_recv_request_fini(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store volatile i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104

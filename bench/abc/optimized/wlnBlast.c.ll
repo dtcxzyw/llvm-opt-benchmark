@@ -1802,42 +1802,42 @@ Vec_IntPush.exit659:                              ; preds = %.Vec_IntGrow.exit10
   %736 = and i1 %734, %735
   %737 = add nsw i32 %1, -63
   %738 = icmp ult i32 %737, 2
-  switch i32 %1, label %740 [
-    i32 65, label %739
-    i32 63, label %739
+  %739 = zext i1 %738 to i32
+  switch i32 %1, label %741 [
+    i32 65, label %740
+    i32 63, label %740
   ]
 
-739:                                              ; preds = %733, %733
+740:                                              ; preds = %733, %733
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %402, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %402, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  br label %740
+  br label %741
 
-740:                                              ; preds = %733, %739
-  %741 = getelementptr i8, ptr %3, i64 8
-  %.val505 = load ptr, ptr %741, align 8
-  %742 = getelementptr i8, ptr %3, i64 24
-  %.val506 = load ptr, ptr %742, align 8
+741:                                              ; preds = %733, %740
+  %742 = getelementptr i8, ptr %3, i64 8
+  %.val505 = load ptr, ptr %742, align 8
+  %743 = getelementptr i8, ptr %3, i64 24
+  %.val506 = load ptr, ptr %743, align 8
   %.val467 = load i32, ptr %404, align 4
-  br i1 %736, label %743, label %745
+  br i1 %736, label %744, label %746
 
-743:                                              ; preds = %740
-  %744 = tail call i32 @Wlc_BlastLessSigned(ptr noundef %0, ptr noundef %.val505, ptr noundef %.val506, i32 noundef %.val467) #9
-  br label %747
+744:                                              ; preds = %741
+  %745 = tail call i32 @Wlc_BlastLessSigned(ptr noundef %0, ptr noundef %.val505, ptr noundef %.val506, i32 noundef %.val467) #9
+  br label %748
 
-745:                                              ; preds = %740
-  %746 = tail call i32 @Wlc_BlastLess(ptr noundef %0, ptr noundef %.val505, ptr noundef %.val506, i32 noundef %.val467) #9
-  br label %747
+746:                                              ; preds = %741
+  %747 = tail call i32 @Wlc_BlastLess(ptr noundef %0, ptr noundef %.val505, ptr noundef %.val506, i32 noundef %.val467) #9
+  br label %748
 
-747:                                              ; preds = %745, %743
-  %.1434 = phi i32 [ %744, %743 ], [ %746, %745 ]
-  %748 = zext i1 %738 to i32
-  %749 = xor i32 %.1434, %748
+748:                                              ; preds = %746, %744
+  %.1434 = phi i32 [ %745, %744 ], [ %747, %746 ]
+  %749 = xor i32 %.1434, %739
   tail call fastcc void @Vec_IntFill(ptr noundef nonnull %403, i32 noundef %749)
   %750 = icmp sgt i32 %4, 1
   br i1 %750, label %.lr.ph738, label %.critedge
 
-.lr.ph738:                                        ; preds = %747
+.lr.ph738:                                        ; preds = %748
   %751 = getelementptr inbounds i8, ptr %3, i64 52
   %.phi.trans.insert.i661 = getelementptr inbounds i8, ptr %3, i64 56
   br label %752
@@ -2424,7 +2424,7 @@ Vec_IntPush.exit694:                              ; preds = %.Vec_IntGrow.exit10
   %exitcond.not = icmp eq i64 %indvars.iv.next777, %909
   br i1 %exitcond.not, label %.critedge, label %910, !llvm.loop !24
 
-.critedge:                                        ; preds = %Vec_IntPush.exit694, %Vec_IntPush.exit673, %Vec_IntPush.exit624, %Vec_IntPush.exit613, %Vec_IntPush.exit666, %Vec_IntPush.exit659, %Vec_IntPush.exit598, %Vec_IntPush.exit589, %Vec_IntPush.exit575, %Vec_IntPush.exit561, %Vec_IntPush.exit547, %Vec_IntPush.exit533, %Vec_IntPush.exit, %899, %854, %Vec_IntFill.exit617, %Vec_IntFill.exit606, %747, %.critedge13, %Vec_IntFill.exit, %Vec_IntPush.exit582, %Vec_IntPush.exit568, %Vec_IntPush.exit554, %Vec_IntPush.exit540, %.preheader695, %.preheader, %846, %853, %7, %10, %844, %830, %832, %848, %805, %795, %.critedge10, %.critedge8, %.critedge6, %.critedge4, %87
+.critedge:                                        ; preds = %Vec_IntPush.exit694, %Vec_IntPush.exit673, %Vec_IntPush.exit624, %Vec_IntPush.exit613, %Vec_IntPush.exit666, %Vec_IntPush.exit659, %Vec_IntPush.exit598, %Vec_IntPush.exit589, %Vec_IntPush.exit575, %Vec_IntPush.exit561, %Vec_IntPush.exit547, %Vec_IntPush.exit533, %Vec_IntPush.exit, %899, %854, %Vec_IntFill.exit617, %Vec_IntFill.exit606, %748, %.critedge13, %Vec_IntFill.exit, %Vec_IntPush.exit582, %Vec_IntPush.exit568, %Vec_IntPush.exit554, %Vec_IntPush.exit540, %.preheader695, %.preheader, %846, %853, %7, %10, %844, %830, %832, %848, %805, %795, %.critedge10, %.critedge8, %.critedge6, %.critedge4, %87
   ret void
 }
 

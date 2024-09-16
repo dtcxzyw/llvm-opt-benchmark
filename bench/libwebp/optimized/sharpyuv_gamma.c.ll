@@ -110,7 +110,6 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
 14:                                               ; preds = %5
   %.neg.i = add nsw i32 %1, -10
   %15 = lshr i32 %7, %.neg.i
-  %.not.i = icmp eq i32 %.neg.i, 0
   %16 = shl i32 %15, %.neg.i
   %17 = sub i32 %7, %16
   %18 = zext nneg i32 %15 to i64
@@ -120,9 +119,10 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   %22 = load i32, ptr %21, align 4
   %23 = sub i32 %22, %20
   %24 = mul i32 %23, %17
+  %.not.i.i = icmp eq i32 %.neg.i, 0
   %25 = add nsw i32 %1, -11
   %26 = shl nuw i32 1, %25
-  %27 = select i1 %.not.i, i32 0, i32 %26
+  %27 = select i1 %.not.i.i, i32 0, i32 %26
   %28 = add i32 %24, %27
   %29 = lshr i32 %28, %.neg.i
   %30 = add i32 %29, %20

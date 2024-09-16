@@ -77,46 +77,46 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
-  %j.086.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr i8, ptr %ix0, i64 %j.086.i
+  %j.064.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
+  %arrayidx.i = getelementptr i8, ptr %ix0, i64 %j.064.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = and i8 %0, 15
-  %arrayidx2.i = getelementptr [4 x [4 x i8]], ptr %of.i, i64 0, i64 %j.086.i
+  %arrayidx2.i = getelementptr [4 x [4 x i8]], ptr %of.i, i64 0, i64 %j.064.i
   store i8 %1, ptr %arrayidx2.i, align 4
-  %arrayidx4.i = getelementptr i8, ptr %ix1, i64 %j.086.i
+  %arrayidx4.i = getelementptr i8, ptr %ix1, i64 %j.064.i
   %2 = load i8, ptr %arrayidx4.i, align 1
   %3 = and i8 %2, 15
   %arrayidx9.i = getelementptr i8, ptr %arrayidx2.i, i64 1
   store i8 %3, ptr %arrayidx9.i, align 1
-  %arrayidx10.i = getelementptr i8, ptr %ix2, i64 %j.086.i
+  %arrayidx10.i = getelementptr i8, ptr %ix2, i64 %j.064.i
   %4 = load i8, ptr %arrayidx10.i, align 1
   %5 = and i8 %4, 15
   %arrayidx15.i = getelementptr i8, ptr %arrayidx2.i, i64 2
   store i8 %5, ptr %arrayidx15.i, align 2
-  %arrayidx16.i = getelementptr i8, ptr %ix3, i64 %j.086.i
+  %arrayidx16.i = getelementptr i8, ptr %ix3, i64 %j.064.i
   %6 = load i8, ptr %arrayidx16.i, align 1
   %7 = and i8 %6, 15
   %arrayidx21.i = getelementptr i8, ptr %arrayidx2.i, i64 3
   store i8 %7, ptr %arrayidx21.i, align 1
-  %inc.i = add nuw nsw i64 %j.086.i, 1
+  %inc.i = add nuw nsw i64 %j.064.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %for.cond26.preheader.i, label %for.body.i, !llvm.loop !4
 
 for.cond26.preheader.i:                           ; preds = %for.body.i, %for.inc67.i
-  %i.088.i = phi i64 [ %inc68.i, %for.inc67.i ], [ 0, %for.body.i ]
-  %mul.i = shl nuw nsw i64 %i.088.i, 4
+  %i.066.i = phi i64 [ %inc68.i, %for.inc67.i ], [ 0, %for.body.i ]
+  %mul.i = shl nuw nsw i64 %i.066.i, 4
   br label %for.body29.i
 
 for.body29.i:                                     ; preds = %for.body29.i, %for.cond26.preheader.i
-  %j.187.i = phi i64 [ 0, %for.cond26.preheader.i ], [ %inc65.i, %for.body29.i ]
-  %arrayidx30.i = getelementptr [4 x [4 x i8]], ptr %of.i, i64 0, i64 %j.187.i
+  %j.165.i = phi i64 [ 0, %for.cond26.preheader.i ], [ %inc65.i, %for.body29.i ]
+  %arrayidx30.i = getelementptr [4 x [4 x i8]], ptr %of.i, i64 0, i64 %j.165.i
   %8 = load i8, ptr %arrayidx30.i, align 4
   %conv32.i = zext i8 %8 to i64
   %or.i = or i64 %mul.i, %conv32.i
   %arrayidx33.i = getelementptr i32, ptr @_aes_lut, i64 %or.i
   %9 = load i32, ptr %arrayidx33.i, align 4
-  %arrayidx34.i = getelementptr [4 x [4 x [16 x i32]]], ptr %t.i, i64 0, i64 %j.187.i
-  %arrayidx36.i = getelementptr [16 x i32], ptr %arrayidx34.i, i64 0, i64 %i.088.i
+  %arrayidx34.i = getelementptr [4 x [4 x [16 x i32]]], ptr %t.i, i64 0, i64 %j.165.i
+  %arrayidx36.i = getelementptr [16 x i32], ptr %arrayidx34.i, i64 0, i64 %i.066.i
   store i32 %9, ptr %arrayidx36.i, align 4
   %arrayidx39.i = getelementptr i8, ptr %arrayidx30.i, i64 1
   %10 = load i8, ptr %arrayidx39.i, align 1
@@ -125,7 +125,7 @@ for.body29.i:                                     ; preds = %for.body29.i, %for.
   %arrayidx42.i = getelementptr i32, ptr @_aes_lut, i64 %or41.i
   %11 = load i32, ptr %arrayidx42.i, align 4
   %arrayidx44.i = getelementptr i8, ptr %arrayidx34.i, i64 64
-  %arrayidx45.i = getelementptr [16 x i32], ptr %arrayidx44.i, i64 0, i64 %i.088.i
+  %arrayidx45.i = getelementptr [16 x i32], ptr %arrayidx44.i, i64 0, i64 %i.066.i
   store i32 %11, ptr %arrayidx45.i, align 4
   %arrayidx48.i = getelementptr i8, ptr %arrayidx30.i, i64 2
   %12 = load i8, ptr %arrayidx48.i, align 2
@@ -134,7 +134,7 @@ for.body29.i:                                     ; preds = %for.body29.i, %for.
   %arrayidx51.i = getelementptr i32, ptr @_aes_lut, i64 %or50.i
   %13 = load i32, ptr %arrayidx51.i, align 4
   %arrayidx53.i = getelementptr i8, ptr %arrayidx34.i, i64 128
-  %arrayidx54.i = getelementptr [16 x i32], ptr %arrayidx53.i, i64 0, i64 %i.088.i
+  %arrayidx54.i = getelementptr [16 x i32], ptr %arrayidx53.i, i64 0, i64 %i.066.i
   store i32 %13, ptr %arrayidx54.i, align 4
   %arrayidx57.i = getelementptr i8, ptr %arrayidx30.i, i64 3
   %14 = load i8, ptr %arrayidx57.i, align 1
@@ -143,16 +143,16 @@ for.body29.i:                                     ; preds = %for.body29.i, %for.
   %arrayidx60.i = getelementptr i32, ptr @_aes_lut, i64 %or59.i
   %15 = load i32, ptr %arrayidx60.i, align 4
   %arrayidx62.i = getelementptr i8, ptr %arrayidx34.i, i64 192
-  %arrayidx63.i = getelementptr [16 x i32], ptr %arrayidx62.i, i64 0, i64 %i.088.i
+  %arrayidx63.i = getelementptr [16 x i32], ptr %arrayidx62.i, i64 0, i64 %i.066.i
   store i32 %15, ptr %arrayidx63.i, align 4
-  %inc65.i = add nuw nsw i64 %j.187.i, 1
-  %exitcond89.not.i = icmp eq i64 %inc65.i, 4
-  br i1 %exitcond89.not.i, label %for.inc67.i, label %for.body29.i, !llvm.loop !6
+  %inc65.i = add nuw nsw i64 %j.165.i, 1
+  %exitcond67.not.i = icmp eq i64 %inc65.i, 4
+  br i1 %exitcond67.not.i, label %for.inc67.i, label %for.body29.i, !llvm.loop !6
 
 for.inc67.i:                                      ; preds = %for.body29.i
-  %inc68.i = add nuw nsw i64 %i.088.i, 1
-  %exitcond90.not.i = icmp eq i64 %inc68.i, 16
-  br i1 %exitcond90.not.i, label %_encrypt.exit, label %for.cond26.preheader.i, !llvm.loop !7
+  %inc68.i = add nuw nsw i64 %i.066.i, 1
+  %exitcond68.not.i = icmp eq i64 %inc68.i, 16
+  br i1 %exitcond68.not.i, label %_encrypt.exit, label %for.cond26.preheader.i, !llvm.loop !7
 
 _encrypt.exit:                                    ; preds = %for.inc67.i
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t.i) #3, !srcloc !8
@@ -165,21 +165,21 @@ _encrypt.exit:                                    ; preds = %for.inc67.i
   %idxprom80.i = and i64 %18, 15
   %arrayidx81.i = getelementptr [16 x i32], ptr %arrayidx76.i, i64 0, i64 %idxprom80.i
   %19 = load i32, ptr %arrayidx81.i, align 4
-  %or.i.i = call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 8)
+  %or.i.i = call noundef i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 8)
   %xor.i = xor i32 %or.i.i, %17
   %arrayidx84.i = getelementptr inbounds i8, ptr %t.i, i64 128
   %20 = lshr i64 %block.coerce1, 20
   %idxprom88.i = and i64 %20, 15
   %arrayidx89.i = getelementptr [16 x i32], ptr %arrayidx84.i, i64 0, i64 %idxprom88.i
   %21 = load i32, ptr %arrayidx89.i, align 4
-  %or.i55.i = call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 16)
-  %xor92.i = xor i32 %xor.i, %or.i55.i
+  %or.i53.i = call noundef i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 16)
+  %xor92.i = xor i32 %xor.i, %or.i53.i
   %arrayidx94.i = getelementptr inbounds i8, ptr %t.i, i64 192
   %idxprom98.i = lshr i64 %block.coerce1, 60
   %arrayidx99.i = getelementptr [16 x i32], ptr %arrayidx94.i, i64 0, i64 %idxprom98.i
   %22 = load i32, ptr %arrayidx99.i, align 4
-  %or.i58.i = call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 24)
-  %xor102.i = xor i32 %xor92.i, %or.i58.i
+  %or.i54.i = call noundef i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 24)
+  %xor102.i = xor i32 %xor92.i, %or.i54.i
   %arrayidx103.i = getelementptr inbounds i8, ptr %t.i, i64 256
   %23 = lshr i64 %block.coerce0, 36
   %idxprom108.i = and i64 %23, 15
@@ -190,22 +190,22 @@ _encrypt.exit:                                    ; preds = %for.inc67.i
   %idxprom115.i = and i64 %25, 15
   %arrayidx116.i = getelementptr [16 x i32], ptr %arrayidx111.i, i64 0, i64 %idxprom115.i
   %26 = load i32, ptr %arrayidx116.i, align 4
-  %or.i61.i = call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 8)
-  %xor119.i = xor i32 %or.i61.i, %24
+  %or.i55.i = call noundef i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 8)
+  %xor119.i = xor i32 %or.i55.i, %24
   %arrayidx121.i = getelementptr inbounds i8, ptr %t.i, i64 384
   %27 = lshr i64 %block.coerce1, 52
   %idxprom125.i = and i64 %27, 15
   %arrayidx126.i = getelementptr [16 x i32], ptr %arrayidx121.i, i64 0, i64 %idxprom125.i
   %28 = load i32, ptr %arrayidx126.i, align 4
-  %or.i64.i = call i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 16)
-  %xor129.i = xor i32 %xor119.i, %or.i64.i
+  %or.i56.i = call noundef i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 16)
+  %xor129.i = xor i32 %xor119.i, %or.i56.i
   %arrayidx131.i = getelementptr inbounds i8, ptr %t.i, i64 448
   %29 = lshr i64 %block.coerce0, 28
   %idxprom135.i = and i64 %29, 15
   %arrayidx136.i = getelementptr [16 x i32], ptr %arrayidx131.i, i64 0, i64 %idxprom135.i
   %30 = load i32, ptr %arrayidx136.i, align 4
-  %or.i67.i = call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 24)
-  %xor139.i = xor i32 %xor129.i, %or.i67.i
+  %or.i57.i = call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 24)
+  %xor139.i = xor i32 %xor129.i, %or.i57.i
   %arrayidx140.i = getelementptr inbounds i8, ptr %t.i, i64 512
   %31 = lshr i64 %block.coerce1, 4
   %idxprom145.i = and i64 %31, 15
@@ -216,21 +216,21 @@ _encrypt.exit:                                    ; preds = %for.inc67.i
   %idxprom152.i = and i64 %33, 15
   %arrayidx153.i = getelementptr [16 x i32], ptr %arrayidx148.i, i64 0, i64 %idxprom152.i
   %34 = load i32, ptr %arrayidx153.i, align 4
-  %or.i70.i = call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 8)
-  %xor156.i = xor i32 %or.i70.i, %32
+  %or.i58.i = call noundef i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 8)
+  %xor156.i = xor i32 %or.i58.i, %32
   %arrayidx158.i = getelementptr inbounds i8, ptr %t.i, i64 640
   %35 = lshr i64 %block.coerce0, 20
   %idxprom162.i = and i64 %35, 15
   %arrayidx163.i = getelementptr [16 x i32], ptr %arrayidx158.i, i64 0, i64 %idxprom162.i
   %36 = load i32, ptr %arrayidx163.i, align 4
-  %or.i73.i = call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 16)
-  %xor166.i = xor i32 %xor156.i, %or.i73.i
+  %or.i59.i = call noundef i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 16)
+  %xor166.i = xor i32 %xor156.i, %or.i59.i
   %arrayidx168.i = getelementptr inbounds i8, ptr %t.i, i64 704
   %idxprom172.i = lshr i64 %block.coerce0, 60
   %arrayidx173.i = getelementptr [16 x i32], ptr %arrayidx168.i, i64 0, i64 %idxprom172.i
   %37 = load i32, ptr %arrayidx173.i, align 4
-  %or.i76.i = call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 24)
-  %xor176.i = xor i32 %xor166.i, %or.i76.i
+  %or.i60.i = call noundef i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 24)
+  %xor176.i = xor i32 %xor166.i, %or.i60.i
   %arrayidx177.i = getelementptr inbounds i8, ptr %t.i, i64 768
   %38 = lshr i64 %block.coerce1, 36
   %idxprom182.i = and i64 %38, 15
@@ -241,22 +241,22 @@ _encrypt.exit:                                    ; preds = %for.inc67.i
   %idxprom189.i = and i64 %40, 15
   %arrayidx190.i = getelementptr [16 x i32], ptr %arrayidx185.i, i64 0, i64 %idxprom189.i
   %41 = load i32, ptr %arrayidx190.i, align 4
-  %or.i79.i = call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 8)
-  %xor193.i = xor i32 %or.i79.i, %39
+  %or.i61.i = call noundef i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 8)
+  %xor193.i = xor i32 %or.i61.i, %39
   %arrayidx195.i = getelementptr inbounds i8, ptr %t.i, i64 896
   %42 = lshr i64 %block.coerce0, 52
   %idxprom199.i = and i64 %42, 15
   %arrayidx200.i = getelementptr [16 x i32], ptr %arrayidx195.i, i64 0, i64 %idxprom199.i
   %43 = load i32, ptr %arrayidx200.i, align 4
-  %or.i82.i = call i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 16)
-  %xor203.i = xor i32 %xor193.i, %or.i82.i
+  %or.i62.i = call noundef i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 16)
+  %xor203.i = xor i32 %xor193.i, %or.i62.i
   %arrayidx205.i = getelementptr inbounds i8, ptr %t.i, i64 960
   %44 = lshr i64 %block.coerce1, 28
   %idxprom209.i = and i64 %44, 15
   %arrayidx210.i = getelementptr [16 x i32], ptr %arrayidx205.i, i64 0, i64 %idxprom209.i
   %45 = load i32, ptr %arrayidx210.i, align 4
-  %or.i85.i = call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 24)
-  %xor213.i = xor i32 %xor203.i, %or.i85.i
+  %or.i63.i = call noundef i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 24)
+  %xor213.i = xor i32 %xor203.i, %or.i63.i
   %retval.sroa.2.0.insert.ext.i = zext i32 %xor139.i to i64
   %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
   %retval.sroa.0.0.insert.ext.i = zext i32 %xor102.i to i64

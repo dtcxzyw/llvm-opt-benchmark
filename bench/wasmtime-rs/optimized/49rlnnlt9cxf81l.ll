@@ -1044,7 +1044,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$core..array..TryFromSliceErr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$gimli..write..line..LineString$GT$17h6093827512dd8abcE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$gimli..write..line..LineString$GT$17h6093827512dd8abcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !107, !noundef !4
   %4 = icmp sgt i64 %3, -9223372036854775807
@@ -1173,7 +1173,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$$RF$gimli..common..DebugSt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gimli..write..line..LineString$GT$$GT$17hdebed70e7c856959E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gimli..write..line..LineString$GT$$GT$17hdebed70e7c856959E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !116, !noundef !4
   %switch = icmp slt i64 %3, -9223372036854775805
@@ -1387,7 +1387,7 @@ define hidden void @"_ZN59_$LT$usize$u20$as$u20$gimli..read..reader..ReaderOffse
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h16f734676594f1b2E"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h16f734676594f1b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
@@ -1412,7 +1412,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h16f73467659
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec24c2180e88664E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec24c2180e88664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
@@ -1437,7 +1437,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec24c2180e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h65b4d47b92d73419E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h65b4d47b92d73419E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
@@ -2098,7 +2098,7 @@ define hidden void @"_ZN5gimli4read2op27Operation$LT$R$C$Offset$GT$5parse17h163f
 
 147:                                              ; preds = %37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
-  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %24, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef %.sroa.4.0.extract.trunc)
+  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef align 8 dereferenceable(16) %24, ptr noalias noundef align 8 dereferenceable(16) %1, i8 noundef %.sroa.4.0.extract.trunc)
   %148 = load i8, ptr %24, align 8, !range !126, !noundef !4
   %149 = icmp eq i8 %148, 75
   %.sroa.4506.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -3105,7 +3105,7 @@ define hidden void @"_ZN5gimli4read2op27Operation$LT$R$C$Offset$GT$5parse17h163f
 
 401:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
-  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef %.sroa.4.0.extract.trunc)
+  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef align 8 dereferenceable(16) %19, ptr noalias noundef align 8 dereferenceable(16) %1, i8 noundef %.sroa.4.0.extract.trunc)
   %402 = load i8, ptr %19, align 8, !range !126, !noundef !4
   %403 = icmp eq i8 %402, 75
   br i1 %403, label %412, label %415
@@ -3651,21 +3651,21 @@ define hidden void @"_ZN5gimli4read2op27Operation$LT$R$C$Offset$GT$5parse17h163f
 
 539:                                              ; preds = %530
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h0145dd275bf9c5a9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  call fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h0145dd275bf9c5a9E(ptr noalias nocapture noundef align 8 dereferenceable(16) %7, ptr noalias noundef align 8 dereferenceable(16) %1)
   %540 = load i8, ptr %7, align 8, !range !126, !noundef !4
   %541 = icmp eq i8 %540, 75
   br i1 %541, label %550, label %553
 
 542:                                              ; preds = %530
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h0145dd275bf9c5a9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  call fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h0145dd275bf9c5a9E(ptr noalias nocapture noundef align 8 dereferenceable(16) %6, ptr noalias noundef align 8 dereferenceable(16) %1)
   %543 = load i8, ptr %6, align 8, !range !126, !noundef !4
   %544 = icmp eq i8 %543, 75
   br i1 %544, label %555, label %558
 
 545:                                              ; preds = %530
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h0145dd275bf9c5a9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  call fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h0145dd275bf9c5a9E(ptr noalias nocapture noundef align 8 dereferenceable(16) %5, ptr noalias noundef align 8 dereferenceable(16) %1)
   %546 = load i8, ptr %5, align 8, !range !126, !noundef !4
   %547 = icmp eq i8 %546, 75
   br i1 %547, label %560, label %563
@@ -3790,7 +3790,7 @@ define hidden void @"_ZN5gimli4read2op27Operation$LT$R$C$Offset$GT$5parse17h163f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707dcE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(16) %1, i32 %2, ptr noalias noundef nonnull readonly align 2 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707dcE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 range(i32 327680, 393216) %2, ptr noalias noundef nonnull readonly align 2 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [16 x i8], align 16
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = getelementptr inbounds { i16, i16 }, ptr %3, i64 %4
@@ -3819,7 +3819,7 @@ define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %13 = getelementptr inbounds i8, ptr %.sroa.0.0433, i64 2
   %14 = load i16, ptr %13, align 2, !noundef !4
-  call fastcc void @_ZN5gimli4read4line15parse_attribute17h6060de7f417e10e0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 %2, i16 noundef %14)
+  call fastcc void @_ZN5gimli4read4line15parse_attribute17h6060de7f417e10e0E(ptr noalias nocapture noundef align 8 dereferenceable(24) %7, ptr noalias noundef align 8 dereferenceable(16) %1, i32 %2, i16 noundef %14)
   %15 = load i64, ptr %7, align 8, !range !632, !noundef !4
   %16 = icmp eq i64 %15, 46
   %.sroa.0383.0.copyload = load i64, ptr %.sroa.442.0..sroa_idx, align 8
@@ -4001,7 +4001,7 @@ define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5gimli4read4line15FileEntryFormat5parse17h6acbd219f976ffeeE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5gimli4read4line15FileEntryFormat5parse17h6acbd219f976ffeeE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %.sroa.471 = alloca [12 x i8], align 4
@@ -4254,7 +4254,7 @@ _ZN5gimli4read6reader6Reader16read_uleb128_u1617hf0268d9e81c4a6e0E.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5gimli4read4line15parse_attribute17h6060de7f417e10e0E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(16) %1, i32 %2, i16 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5gimli4read4line15parse_attribute17h6060de7f417e10e0E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 range(i32 327680, 393216) %2, i16 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %.sroa.4.i.i.i829 = alloca [15 x i8], align 8
   %.sroa.5.i.i831 = alloca [7 x i8], align 4
@@ -6123,7 +6123,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
 
 179:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !1341
-  invoke fastcc void @_ZN5gimli4read4line15FileEntryFormat5parse17h6acbd219f976ffeeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
+  invoke fastcc void @_ZN5gimli4read4line15FileEntryFormat5parse17h6acbd219f976ffeeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %20, ptr noalias noundef align 8 dereferenceable(16) %24)
           to label %186 unwind label %.loopexit.split-lp989.i, !noalias !1342
 
 180:                                              ; preds = %171
@@ -6236,7 +6236,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !1341
   %203 = load ptr, ptr %.sroa.2188.0..sroa_idx.i, align 8, !noalias !1341, !nonnull !4, !noundef !4
   %204 = load i64, ptr %.sroa.7184.i.sroa.6.0..sroa.2188.0..sroa_idx.i.sroa_idx, align 8, !noalias !1341, !noundef !4
-  invoke fastcc void @_ZN5gimli4read4line18parse_directory_v517h0a7af1f90b806338E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 8 dereferenceable(16) %24, i32 %.sroa.0484.0.insert.insert.i, ptr noalias noundef nonnull readonly align 2 %203, i64 noundef %204)
+  invoke fastcc void @_ZN5gimli4read4line18parse_directory_v517h0a7af1f90b806338E(ptr noalias nocapture noundef align 8 dereferenceable(24) %18, ptr noalias noundef align 8 dereferenceable(16) %24, i32 %.sroa.0484.0.insert.insert.i, ptr noalias noundef nonnull readonly align 2 %203, i64 noundef %204)
           to label %207 unwind label %.loopexit988.i, !noalias !1342
 
 .thread950.i:                                     ; preds = %212, %225
@@ -6262,7 +6262,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
   store i64 %208, ptr %17, align 8, !noalias !1341
   store i64 %.sroa.7208.i.sroa.0.0.copyload133, ptr %.sroa.7208.0..sroa_idx209.i, align 8, !noalias !1341
   store i64 %.sroa.7208.i.sroa.6.0.copyload136, ptr %.sroa.7208.i.sroa.6.0..sroa.7208.0..sroa_idx209.i.sroa_idx, align 8, !noalias !1341
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec24c2180e88664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %17)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec24c2180e88664E"(ptr noalias noundef align 8 dereferenceable(24) %22, ptr noalias nocapture noundef align 8 dereferenceable(24) %17)
           to label %212 unwind label %.loopexit988.i, !noalias !1342
 
 211:                                              ; preds = %207
@@ -6340,7 +6340,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
   store ptr %.val.i1017.i, ptr %183, align 8, !noalias !1341
   store i64 %.012.i.i.i.i, ptr %184, align 8, !noalias !1341
   store i64 31, ptr %21, align 8, !noalias !1341
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec24c2180e88664E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec24c2180e88664E"(ptr noalias noundef align 8 dereferenceable(24) %22, ptr noalias nocapture noundef align 8 dereferenceable(24) %21)
           to label %233 unwind label %223, !noalias !1342
 
 233:                                              ; preds = %232
@@ -6354,7 +6354,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
 236:                                              ; preds = %.thread950.i, %.thread950.thread.i
   %.sroa.0.01071.i = phi ptr [ null, %.thread950.thread.i ], [ %.sroa.0.0.i, %.thread950.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !1341
-  invoke fastcc void @_ZN5gimli4read4line15FileEntryFormat5parse17h6acbd219f976ffeeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
+  invoke fastcc void @_ZN5gimli4read4line15FileEntryFormat5parse17h6acbd219f976ffeeE(ptr noalias nocapture noundef align 8 dereferenceable(24) %12, ptr noalias noundef align 8 dereferenceable(16) %24)
           to label %242 unwind label %.loopexit.split-lp.i, !noalias !1342
 
 237:                                              ; preds = %.thread950.i
@@ -6467,7 +6467,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !1341
   %257 = load ptr, ptr %.sroa.2248.0..sroa_idx.i, align 8, !noalias !1341, !nonnull !4, !noundef !4
   %258 = load i64, ptr %.sroa.7244.i.sroa.6.0..sroa.2248.0..sroa_idx.i.sroa_idx, align 8, !noalias !1341, !noundef !4
-  invoke fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707dcE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %24, i32 %.sroa.0487.0.insert.insert.i, ptr noalias noundef nonnull readonly align 2 %257, i64 noundef %258)
+  invoke fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707dcE(ptr noalias nocapture noundef align 8 dereferenceable(64) %10, ptr noalias noundef align 8 dereferenceable(16) %24, i32 %.sroa.0487.0.insert.insert.i, ptr noalias noundef nonnull readonly align 2 %257, i64 noundef %258)
           to label %259 unwind label %.loopexit984.i, !noalias !1342
 
 259:                                              ; preds = %255
@@ -6483,7 +6483,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
   store i64 %260, ptr %9, align 8, !noalias !1341
   store i64 %.sroa.7268.i.sroa.0.0.copyload148, ptr %.sroa.7268.0..sroa_idx269.i, align 8, !noalias !1341
   store i64 %.sroa.7268.i.sroa.6.0.copyload151, ptr %.sroa.7268.i.sroa.6.0..sroa.7268.0..sroa_idx269.i.sroa_idx, align 8, !noalias !1341
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h65b4d47b92d73419E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h65b4d47b92d73419E"(ptr noalias noundef align 8 dereferenceable(24) %15, ptr noalias nocapture noundef align 8 dereferenceable(64) %9)
           to label %264 unwind label %.loopexit984.i, !noalias !1342
 
 263:                                              ; preds = %259
@@ -6559,7 +6559,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
 
 284:                                              ; preds = %277
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14), !noalias !1341
-  invoke fastcc void @"_ZN5gimli4read4line27FileEntry$LT$R$C$Offset$GT$5parse17h7b105fa53fe155f4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %14, ptr noalias noundef nonnull align 8 dereferenceable(16) %24, ptr noalias noundef nonnull readonly align 1 %.val.i6091026.i, i64 noundef %.012.i.i.i612.i)
+  invoke fastcc void @"_ZN5gimli4read4line27FileEntry$LT$R$C$Offset$GT$5parse17h7b105fa53fe155f4E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %14, ptr noalias noundef align 8 dereferenceable(16) %24, ptr noalias noundef nonnull readonly align 1 %.val.i6091026.i, i64 noundef %.012.i.i.i612.i)
           to label %285 unwind label %275, !noalias !1342
 
 285:                                              ; preds = %284
@@ -6575,7 +6575,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
   store i64 %286, ptr %13, align 8, !noalias !1341
   store i64 %.sroa.7235.i.sroa.0.0.copyload138, ptr %.sroa.7235.0..sroa_idx236.i, align 8, !noalias !1341
   store i64 %.sroa.7235.i.sroa.6.0.copyload141, ptr %.sroa.7235.i.sroa.6.0..sroa.7235.0..sroa_idx236.i.sroa_idx, align 8, !noalias !1341
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h65b4d47b92d73419E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %13)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h65b4d47b92d73419E"(ptr noalias noundef align 8 dereferenceable(24) %15, ptr noalias nocapture noundef align 8 dereferenceable(64) %13)
           to label %290 unwind label %275, !noalias !1342
 
 289:                                              ; preds = %285
@@ -6774,7 +6774,7 @@ _ZN5gimli4read6reader6Reader11read_length17h95d157978acb49bcE.exit.i: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5gimli4read4line18parse_directory_v517h0a7af1f90b806338E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(16) %1, i32 %2, ptr noalias noundef nonnull readonly align 2 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5gimli4read4line18parse_directory_v517h0a7af1f90b806338E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 range(i32 327680, 393216) %2, ptr noalias noundef nonnull readonly align 2 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [2 x i64] }, align 8
   %.sroa.7 = alloca [2 x i64], align 8
   %.sroa.6 = alloca [2 x i64], align 8
@@ -6797,7 +6797,7 @@ define internal fastcc void @_ZN5gimli4read4line18parse_directory_v517h0a7af1f90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %12 = getelementptr inbounds i8, ptr %.sroa.0.034, i64 2
   %13 = load i16, ptr %12, align 2, !noundef !4
-  call fastcc void @_ZN5gimli4read4line15parse_attribute17h6060de7f417e10e0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 %2, i16 noundef %13)
+  call fastcc void @_ZN5gimli4read4line15parse_attribute17h6060de7f417e10e0E(ptr noalias nocapture noundef align 8 dereferenceable(24) %6, ptr noalias noundef align 8 dereferenceable(16) %1, i32 %2, i16 noundef %13)
   %14 = load i64, ptr %6, align 8, !range !632, !noundef !4
   %15 = icmp eq i64 %14, 46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.423.0..sroa_idx, i64 16, i1 false)
@@ -6839,7 +6839,7 @@ define internal fastcc void @_ZN5gimli4read4line18parse_directory_v517h0a7af1f90
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5gimli4read4line27FileEntry$LT$R$C$Offset$GT$5parse17h7b105fa53fe155f4E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5gimli4read4line27FileEntry$LT$R$C$Offset$GT$5parse17h7b105fa53fe155f4E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { i8, [15 x i8] }, align 8
@@ -8643,7 +8643,7 @@ _ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE.exit1658: ; preds 
 
 .critedge:                                        ; preds = %543, %540, %540, %540, %540, %540, %540, %540, %540, %540, %540, %540, %540, %540
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef 4)
+  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef align 8 dereferenceable(16) %16, ptr noalias noundef align 8 dereferenceable(16) %1, i8 noundef 4)
   %545 = load i8, ptr %16, align 8, !range !126, !noundef !4
   %546 = icmp eq i8 %545, 75
   br i1 %546, label %551, label %554
@@ -9154,14 +9154,14 @@ _ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE.exit1658: ; preds 
 
 661:                                              ; preds = %256
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  call fastcc void @_ZN5gimli4read6reader6Reader17read_sized_offset17h5274219317423800E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef %.sroa.011.0.extract.trunc)
+  call fastcc void @_ZN5gimli4read6reader6Reader17read_sized_offset17h5274219317423800E(ptr noalias nocapture noundef align 8 dereferenceable(16) %15, ptr noalias noundef align 8 dereferenceable(16) %1, i8 noundef %.sroa.011.0.extract.trunc)
   %662 = load i8, ptr %15, align 8, !range !126, !noundef !4
   %663 = icmp eq i8 %662, 75
   br i1 %663, label %667, label %670
 
 664:                                              ; preds = %256
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef %.sroa.4.0.extract.trunc)
+  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef align 8 dereferenceable(16) %14, ptr noalias noundef align 8 dereferenceable(16) %1, i8 noundef %.sroa.4.0.extract.trunc)
   %665 = load i8, ptr %14, align 8, !range !126, !noundef !4
   %666 = icmp eq i8 %665, 75
   br i1 %666, label %673, label %676
@@ -10052,7 +10052,7 @@ _ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE.exit: ; preds = %6
   store i64 %87, ptr %45, align 8, !alias.scope !2834, !noalias !2837
   %89 = load i8, ptr %81, align 1, !alias.scope !2843, !noalias !2847
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i8 noundef %.sroa.19.sroa.0.0)
+  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef align 8 dereferenceable(16) %7, ptr noalias noundef align 8 dereferenceable(16) %8, i8 noundef %.sroa.19.sroa.0.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2849)
   %90 = load i8, ptr %7, align 8, !range !126, !alias.scope !2852, !noundef !4
   %91 = icmp eq i8 %90, 75
@@ -10244,7 +10244,7 @@ _ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE.exit: ; preds = %6
   %135 = load i64, ptr %114, align 1, !alias.scope !2964, !noalias !2968
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.4.i324)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i8 noundef %.sroa.19.sroa.0.0)
+  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef align 8 dereferenceable(16) %6, ptr noalias noundef align 8 dereferenceable(16) %8, i8 noundef %.sroa.19.sroa.0.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2970)
   %136 = load i8, ptr %6, align 8, !range !126, !alias.scope !2973, !noundef !4
   %137 = icmp eq i8 %136, 75
@@ -10359,7 +10359,7 @@ _ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE.exit: ; preds = %6
   %167 = load i64, ptr %129, align 1, !alias.scope !2995, !noalias !2999
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.4.i347)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i8 noundef %.sroa.19.sroa.0.0)
+  call fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef align 8 dereferenceable(16) %5, ptr noalias noundef align 8 dereferenceable(16) %8, i8 noundef %.sroa.19.sroa.0.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3001)
   %168 = load i8, ptr %5, align 8, !range !126, !alias.scope !3004, !noundef !4
   %169 = icmp eq i8 %168, 75
@@ -10481,7 +10481,7 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   ]
 
 "_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread": ; preds = %113, %108, %106, %104, %96, %257, %54, %47, %10, %5, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit", %335, %234, %170, %168, %166, %164, %162, %160, %146, %119, %117, %115, %75, %63, %52, %175, %172, %157, %154, %151, %148, %143, %140, %136, %132, %128, %125, %110, %101, %98, %93, %89, %85, %81, %72, %68, %65, %56, %49, %44, %40, %36, %33, %7, %2
-  tail call fastcc void @"_ZN90_$LT$gimli..read..unit..AttributeValue$LT$R$C$Offset$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf7edd45f894337b1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  tail call fastcc void @"_ZN90_$LT$gimli..read..unit..AttributeValue$LT$R$C$Offset$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf7edd45f894337b1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   br label %182
 
 5:                                                ; preds = %2
@@ -10493,7 +10493,7 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   ]
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %8 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %9 = extractvalue { i1, i8 } %8, 0
   br i1 %9, label %187, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
@@ -10550,19 +10550,19 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   br i1 %35, label %194, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 36:                                               ; preds = %2
-  %37 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %37 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %38 = extractvalue { i64, i64 } %37, 0
   %39 = icmp eq i64 %38, 1
   br i1 %39, label %198, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 40:                                               ; preds = %2
-  %41 = tail call fastcc { i16, i16 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$9u16_value17h23a3e1d22a2acfaaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %41 = tail call fastcc { i16, i16 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$9u16_value17h23a3e1d22a2acfaaE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %42 = extractvalue { i16, i16 } %41, 0
   %43 = icmp eq i16 %42, 1
   br i1 %43, label %201, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 44:                                               ; preds = %2
-  %45 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %45 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %46 = extractvalue { i1, i8 } %45, 0
   br i1 %46, label %204, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
@@ -10575,7 +10575,7 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   ]
 
 49:                                               ; preds = %2
-  %50 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %50 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %51 = extractvalue { i1, i8 } %50, 0
   br i1 %51, label %214, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
@@ -10600,7 +10600,7 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   br i1 %58, label %227, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 59:                                               ; preds = %2
-  %60 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %60 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %61 = extractvalue { i64, i64 } %60, 0
   %62 = icmp eq i64 %61, 1
   br i1 %62, label %231, label %234
@@ -10613,18 +10613,18 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   ]
 
 65:                                               ; preds = %2
-  %66 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %66 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %67 = extractvalue { i1, i8 } %66, 0
   br i1 %67, label %242, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 68:                                               ; preds = %2
-  %69 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %69 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %70 = extractvalue { i64, i64 } %69, 0
   %71 = icmp eq i64 %70, 1
   br i1 %71, label %245, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 72:                                               ; preds = %2
-  %73 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %73 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %74 = extractvalue { i1, i8 } %73, 0
   br i1 %74, label %248, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
@@ -10636,31 +10636,31 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   ]
 
 77:                                               ; preds = %2
-  %78 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %78 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %79 = extractvalue { i64, i64 } %78, 0
   %80 = icmp eq i64 %79, 1
   br i1 %80, label %254, label %257
 
 81:                                               ; preds = %2
-  %82 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %82 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %83 = extractvalue { i64, i64 } %82, 0
   %84 = icmp eq i64 %83, 1
   br i1 %84, label %266, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 85:                                               ; preds = %2
-  %86 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %86 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %87 = extractvalue { i64, i64 } %86, 0
   %88 = icmp eq i64 %87, 1
   br i1 %88, label %269, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 89:                                               ; preds = %2
-  %90 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %90 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %91 = extractvalue { i64, i64 } %90, 0
   %92 = icmp eq i64 %91, 1
   br i1 %92, label %272, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 93:                                               ; preds = %2
-  %94 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %94 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %95 = extractvalue { i1, i8 } %94, 0
   br i1 %95, label %275, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
@@ -10673,7 +10673,7 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   ]
 
 98:                                               ; preds = %2
-  %99 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %99 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %100 = extractvalue { i1, i8 } %99, 0
   br i1 %100, label %285, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
@@ -10707,7 +10707,7 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   ]
 
 110:                                              ; preds = %2
-  %111 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %111 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %112 = extractvalue { i1, i8 } %111, 0
   br i1 %112, label %313, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
@@ -10741,7 +10741,7 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   ]
 
 121:                                              ; preds = %2
-  %122 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %122 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %123 = extractvalue { i64, i64 } %122, 0
   %124 = icmp eq i64 %123, 1
   br i1 %124, label %332, label %335
@@ -10752,30 +10752,30 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   br i1 %127, label %340, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 128:                                              ; preds = %2
-  %129 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %129 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %130 = extractvalue { i64, i64 } %129, 0
   %131 = icmp eq i64 %130, 1
   br i1 %131, label %344, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 132:                                              ; preds = %2
-  %133 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %133 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %134 = extractvalue { i64, i64 } %133, 0
   %135 = icmp eq i64 %134, 1
   br i1 %135, label %347, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 136:                                              ; preds = %2
-  %137 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %137 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %138 = extractvalue { i64, i64 } %137, 0
   %139 = icmp eq i64 %138, 1
   br i1 %139, label %350, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 140:                                              ; preds = %2
-  %141 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %141 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %142 = extractvalue { i1, i8 } %141, 0
   br i1 %142, label %353, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 143:                                              ; preds = %2
-  %144 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %144 = tail call fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %145 = extractvalue { i1, i8 } %144, 0
   br i1 %145, label %356, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
@@ -10854,7 +10854,7 @@ define hidden void @"_ZN5gimli4read4unit18Attribute$LT$R$GT$5value17h71c0400e2a5
   br i1 %174, label %396, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
 
 175:                                              ; preds = %2
-  %176 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %176 = tail call fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias noundef readonly align 8 dereferenceable(24) %1)
   %177 = extractvalue { i64, i64 } %176, 0
   %178 = icmp eq i64 %177, 1
   br i1 %178, label %400, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$13exprloc_value17h97668e0a13cde314E.exit225.thread"
@@ -12913,7 +12913,7 @@ _ZN5gimli4read6reader6Reader12read_uleb12817hd5eeb575a80e5ebbE.exit181.i: ; pred
   br label %350
 
 343:                                              ; preds = %_ZN5gimli4read6reader6Reader12read_uleb12817hd5eeb575a80e5ebbE.exit181.i
-  %344 = call fastcc noundef align 8 dereferenceable_or_null(112) ptr @_ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %304, i64 noundef %339), !noalias !3368
+  %344 = call fastcc noundef align 8 dereferenceable_or_null(112) ptr @_ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE(ptr noalias noundef readonly align 8 dereferenceable(48) %304, i64 noundef %339), !noalias !3368
   %.not.i136.i = icmp eq ptr %344, null
   br i1 %.not.i136.i, label %350, label %.thread595.i
 
@@ -13166,7 +13166,7 @@ define hidden void @"_ZN5gimli4read4unit28UnitHeader$LT$R$C$Offset$GT$17entries_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
+define internal fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
   %2 = load i64, ptr %0, align 8, !range !58, !noundef !4
   switch i64 %2, label %25 [
     i64 2, label %3
@@ -13221,7 +13221,7 @@ define internal fastcc { i64, i64 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
+define internal fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$8u8_value17h3b7dc3295be6e2fdE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
   %2 = load i64, ptr %0, align 8, !range !58, !alias.scope !3397, !noundef !4
   switch i64 %2, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" [
     i64 2, label %3
@@ -13279,7 +13279,7 @@ define internal fastcc { i1, i8 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$O
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal fastcc { i16, i16 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$9u16_value17h23a3e1d22a2acfaaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
+define internal fastcc { i16, i16 } @"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$9u16_value17h23a3e1d22a2acfaaE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
   %2 = load i64, ptr %0, align 8, !range !58, !alias.scope !3400, !noundef !4
   switch i64 %2, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" [
     i64 2, label %3
@@ -13551,7 +13551,7 @@ define hidden void @"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offse
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(112) ptr @_ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef align 8 dereferenceable_or_null(112) ptr @_ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #3 {
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
@@ -13604,7 +13604,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(112) ptr @_ZN5gim
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, i8 noundef %2) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1, i8 noundef %2) unnamed_addr #12 personality ptr @rust_eh_personality {
   %.sroa.4.i.i = alloca [15 x i8], align 8
   %.sroa.512.i.sroa.4 = alloca [7 x i8], align 1
   %.sroa.5.i = alloca [7 x i8], align 4
@@ -14188,7 +14188,7 @@ define hidden void @_ZN5gimli4read6reader6Reader16read_uleb128_u1617hf0268d9e81c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h0145dd275bf9c5a9E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #4 {
+define internal fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h0145dd275bf9c5a9E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 {
   %3 = alloca { i8, [15 x i8] }, align 8
   %.sroa.8 = alloca [6 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3689
@@ -14271,7 +14271,7 @@ define internal fastcc void @_ZN5gimli4read6reader6Reader16read_uleb128_u3217h01
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN5gimli4read6reader6Reader17read_sized_offset17h5274219317423800E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, i8 noundef %2) unnamed_addr #8 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5gimli4read6reader6Reader17read_sized_offset17h5274219317423800E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1, i8 noundef %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %.sroa.4.i = alloca [15 x i8], align 8
   %.sroa.553 = alloca [7 x i8], align 4
   %.sroa.536 = alloca [7 x i8], align 2
@@ -14773,7 +14773,7 @@ define hidden void @_ZN5gimli4read6reader6Reader9read_word17h3b3983e54968a644E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i32 %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #4 {
+define internal fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #4 {
   %6 = tail call noundef i64 @_ZN5gimli5write2op10Expression4size17h062611d9ad35957fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i32 %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3)
   %7 = icmp ult i32 %2, 327680
   br i1 %7, label %12, label %8
@@ -15096,7 +15096,7 @@ default.unreachable603:                           ; preds = %.lr.ph
 106:                                              ; preds = %85
   %107 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 32
   %108 = load i64, ptr %23, align 8, !alias.scope !4049, !noundef !4
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h16f734676594f1b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %108)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h16f734676594f1b2E"(ptr noalias noundef align 8 dereferenceable(24) %9, i64 noundef %108)
           to label %109 unwind label %.loopexit.split-lp.loopexit
 
 109:                                              ; preds = %106
@@ -15372,7 +15372,7 @@ default.unreachable603:                           ; preds = %.lr.ph
 
 211:                                              ; preds = %209
   %212 = getelementptr inbounds i8, ptr %.sroa.0525.0573, i64 24
-  %213 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %212)
+  %213 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %212)
           to label %216 unwind label %.loopexit
 
 214:                                              ; preds = %209
@@ -15513,7 +15513,7 @@ default.unreachable603:                           ; preds = %.lr.ph
 
 260:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit513"
   %261 = getelementptr inbounds i8, ptr %.sroa.0525.0573, i64 8
-  %262 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %261)
+  %262 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %261)
           to label %265 unwind label %.loopexit
 
 263:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit513"
@@ -15614,7 +15614,7 @@ default.unreachable603:                           ; preds = %.lr.ph
 
 296:                                              ; preds = %294
   %297 = getelementptr inbounds i8, ptr %.sroa.0525.0573, i64 16
-  %298 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %297)
+  %298 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %297)
           to label %301 unwind label %.loopexit
 
 299:                                              ; preds = %294
@@ -15649,7 +15649,7 @@ default.unreachable603:                           ; preds = %.lr.ph
   %310 = add i64 %309, 1
   store i64 %310, ptr %23, align 8, !alias.scope !4113, !noalias !4122
   %311 = getelementptr inbounds i8, ptr %.sroa.0525.0573, i64 8
-  %312 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %311)
+  %312 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %311)
           to label %313 unwind label %.loopexit
 
 313:                                              ; preds = %305
@@ -16063,7 +16063,7 @@ default.unreachable499:                           ; preds = %.lr.ph
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds i8, ptr %.sroa.0316.0463, i64 24
-  %127 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %126)
+  %127 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %126)
           to label %130 unwind label %.loopexit
 
 128:                                              ; preds = %123
@@ -16207,7 +16207,7 @@ default.unreachable499:                           ; preds = %.lr.ph
 
 170:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit290"
   %171 = getelementptr inbounds i8, ptr %.sroa.0316.0463, i64 8
-  %172 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %171)
+  %172 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %171)
           to label %175 unwind label %.loopexit
 
 173:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit290"
@@ -16357,7 +16357,7 @@ default.unreachable499:                           ; preds = %.lr.ph
 
 220:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit315"
   %221 = getelementptr inbounds i8, ptr %.sroa.0316.0463, i64 16
-  %222 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %221)
+  %222 = invoke fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i32 %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %221)
           to label %225 unwind label %.loopexit
 
 223:                                              ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit315"
@@ -16456,7 +16456,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$gimli..endianity..LittleEndian$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZN90_$LT$gimli..read..unit..AttributeValue$LT$R$C$Offset$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf7edd45f894337b1E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
+define internal fastcc void @"_ZN90_$LT$gimli..read..unit..AttributeValue$LT$R$C$Offset$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf7edd45f894337b1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = load i64, ptr %1, align 8, !range !58, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   switch i64 %3, label %default.unreachable19 [
@@ -17862,7 +17862,7 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform12line_program18clone
   store ptr %359, ptr %31, align 8, !alias.scope !4510, !noalias !4513
   store i64 %358, ptr %267, align 8, !alias.scope !4510, !noalias !4513
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29), !noalias !4463
-  invoke fastcc void @"_ZN5gimli4read4line27FileEntry$LT$R$C$Offset$GT$5parse17h7b105fa53fe155f4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %29, ptr noalias noundef nonnull align 8 dereferenceable(16) %31, ptr noalias noundef nonnull readonly align 1 %325, i64 noundef %.012.i.i.i.i.i)
+  invoke fastcc void @"_ZN5gimli4read4line27FileEntry$LT$R$C$Offset$GT$5parse17h7b105fa53fe155f4E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %29, ptr noalias noundef align 8 dereferenceable(16) %31, ptr noalias noundef nonnull readonly align 1 %325, i64 noundef %.012.i.i.i.i.i)
           to label %.noexc445 unwind label %.thread630.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc445:                                        ; preds = %354
@@ -20158,7 +20158,7 @@ default.unreachable:                              ; preds = %875
 "_ZN4core3ptr153drop_in_place$LT$gimli..read..line..IncompleteLineProgram$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17h9fe885c6c47af607E.exit508.thread": ; preds = %1069, %1035, %.thread608, %"_ZN4core3ptr153drop_in_place$LT$gimli..read..line..IncompleteLineProgram$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17h9fe885c6c47af607E.exit508"
   %.pn387.pn612 = phi { ptr, i32 } [ %175, %.thread608 ], [ %.pn387.pn, %"_ZN4core3ptr153drop_in_place$LT$gimli..read..line..IncompleteLineProgram$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17h9fe885c6c47af607E.exit508" ], [ %1036, %1035 ], [ %1036, %1069 ]
   %.4315611 = phi i8 [ 1, %.thread608 ], [ %.4315, %"_ZN4core3ptr153drop_in_place$LT$gimli..read..line..IncompleteLineProgram$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17h9fe885c6c47af607E.exit508" ], [ 1, %1035 ], [ 1, %1069 ]
-  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$gimli..write..line..LineString$GT$17h6093827512dd8abcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %69) #28
+  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$gimli..write..line..LineString$GT$17h6093827512dd8abcE"(ptr noalias noundef align 8 dereferenceable(24) %69) #28
           to label %113 unwind label %857
 
 .critedge:                                        ; preds = %129, %118
@@ -20196,7 +20196,7 @@ default.unreachable:                              ; preds = %875
   br label %1081
 
 1080:                                             ; preds = %113
-  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gimli..write..line..LineString$GT$$GT$17hdebed70e7c856959E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %71) #28
+  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gimli..write..line..LineString$GT$$GT$17hdebed70e7c856959E"(ptr noalias noundef align 8 dereferenceable(24) %71) #28
           to label %1083 unwind label %857
 
 1081:                                             ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gimli..write..line..LineString$GT$$GT$17hdebed70e7c856959E.exit512", %96

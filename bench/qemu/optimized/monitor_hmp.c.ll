@@ -229,7 +229,7 @@ if.end.i:                                         ; preds = %while.end.i
   br i1 %exitcond.i, label %for.body.preheader.i.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = call fastcc i32 @get_str(ptr noundef nonnull %buf.i, ptr noundef nonnull %p.i)
+  %call8.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %for.cond.preheader.i.i, label %if.end12.i
 
@@ -553,7 +553,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_handle_hmp_command.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call = call fastcc ptr @monitor_parse_command(ptr noundef %mon, ptr noundef %cmdline, ptr noundef nonnull %cmdline.addr, ptr noundef nonnull @hmp_cmds)
+  %call = call fastcc ptr @monitor_parse_command(ptr noundef %mon, ptr noundef %cmdline, ptr noundef %cmdline.addr, ptr noundef nonnull @hmp_cmds)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -704,7 +704,7 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %typestr.1.i = phi ptr [ %incdec.ptr10.i, %if.then9.i ], [ %incdec.ptr.i, %while.end.i ]
-  %call17.i = call fastcc i32 @get_str(ptr noundef nonnull %buf.i, ptr noundef nonnull %p.i)
+  %call17.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %if.then20.i, label %if.end28.i
 
@@ -765,7 +765,7 @@ while.end48.i:                                    ; preds = %while.cond38.i
   br i1 %tobool49.not.i, label %sw.epilog495.i, label %if.end51.i
 
 if.end51.i:                                       ; preds = %while.end48.i
-  %call53.i = call fastcc i32 @get_str(ptr noundef nonnull %buf.i, ptr noundef nonnull %p.i)
+  %call53.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp54.i = icmp slt i32 %call53.i, 0
   br i1 %cmp54.i, label %fail.i, label %if.end57.i
 
@@ -987,7 +987,7 @@ if.end202.i:                                      ; preds = %if.end202.loopexit.
 
 if.end204.i:                                      ; preds = %if.end202.i, %while.end163.i
   %typestr.3.i = phi ptr [ %incdec.ptr203.i, %if.end202.i ], [ %incdec.ptr.i, %while.end163.i ]
-  %call205.i = call fastcc i32 @get_expr(ptr noundef %mon, ptr noundef nonnull %val.i, ptr noundef nonnull %p.i)
+  %call205.i = call fastcc i32 @get_expr(ptr noundef %mon, ptr noundef %val.i, ptr noundef %p.i)
   %tobool206.not.i = icmp eq i32 %call205.i, 0
   br i1 %tobool206.not.i, label %if.end208.i, label %fail.i
 
@@ -1288,7 +1288,7 @@ while.cond427.i:                                  ; preds = %if.else420.i, %whil
   br i1 %tobool434.not.i, label %while.end437.i, label %while.cond427.i, !llvm.loop !24
 
 while.end437.i:                                   ; preds = %while.cond427.i
-  %call439.i = call fastcc i32 @get_str(ptr noundef nonnull %buf.i, ptr noundef nonnull %p.i)
+  %call439.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp440.i = icmp slt i32 %call439.i, 0
   br i1 %cmp440.i, label %if.then442.i, label %if.end446.i
 
@@ -1596,7 +1596,7 @@ return:                                           ; preds = %if.then5.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @monitor_parse_command(ptr noundef %hmp_mon, ptr noundef %cmdp_start, ptr nocapture noundef %cmdp, ptr noundef readonly %table) unnamed_addr #0 {
+define internal fastcc ptr @monitor_parse_command(ptr noundef %hmp_mon, ptr noundef %cmdp_start, ptr nocapture noundef nonnull %cmdp, ptr noundef readonly %table) unnamed_addr #0 {
 entry:
   %cmdname = alloca [256 x i8], align 16
   %0 = load ptr, ptr %cmdp, align 8
@@ -1722,7 +1722,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp21.not, label %return, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call25 = call fastcc ptr @monitor_parse_command(ptr noundef %hmp_mon, ptr noundef %cmdp_start, ptr noundef nonnull %cmdp, ptr noundef nonnull %16)
+  %call25 = call fastcc ptr @monitor_parse_command(ptr noundef %hmp_mon, ptr noundef %cmdp_start, ptr noundef %cmdp, ptr noundef nonnull %16)
   br label %return
 
 return:                                           ; preds = %while.end.i, %while.end, %land.lhs.true, %if.then23, %if.then8, %if.then4
@@ -1908,7 +1908,7 @@ if.end.i:                                         ; preds = %while.end.i
   br i1 %exitcond.i, label %for.body.preheader.i.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = call fastcc i32 @get_str(ptr noundef nonnull %buf.i, ptr noundef nonnull %p.i)
+  %call8.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %for.cond.preheader.i.i, label %if.end12.i
 
@@ -2451,7 +2451,7 @@ declare i32 @monitor_suspend(ptr noundef) local_unnamed_addr #1
 declare void @monitor_resume(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_str(ptr noundef %buf, ptr nocapture noundef %pp) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @get_str(ptr noundef nonnull %buf, ptr nocapture noundef nonnull %pp) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %call = tail call ptr @__ctype_b_loc() #21
@@ -2637,7 +2637,7 @@ declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 declare void @qdict_put_int(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_expr(ptr noundef %mon, ptr nocapture noundef writeonly %pval, ptr nocapture noundef %pp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_expr(ptr noundef %mon, ptr nocapture noundef nonnull writeonly %pval, ptr nocapture noundef nonnull %pp) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   store ptr %0, ptr @pch, align 8

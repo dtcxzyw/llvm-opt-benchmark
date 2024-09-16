@@ -837,7 +837,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mon_text_event(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @mon_text_event(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 67, 84) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.timespec64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !5

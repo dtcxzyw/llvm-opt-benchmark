@@ -18794,7 +18794,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.e
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit15.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit15.i.i.i: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit.thread.i.i.i
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_15SdfPropertySpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119_SortByNameThenTypeEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa131, ptr noundef nonnull %14)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_15SdfPropertySpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119_SortByNameThenTypeEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa131, ptr noundef %14)
           to label %32 unwind label %34
 
 32:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit15.i.i.i
@@ -18854,7 +18854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEaSERKS2_.e
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit6.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit6.i: ; preds = %46, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEaSERKS2_.exit.i
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_15SdfPropertySpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119_SortByNameThenTypeEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %44, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_15SdfPropertySpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119_SortByNameThenTypeEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %44, ptr noundef %5)
           to label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_15SdfPropertySpecEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119_SortByNameThenTypeEEEEvT_SG_SG_RT0_.exit unwind label %50
 
 48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit.i
@@ -19143,7 +19143,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrRe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_15SdfPropertySpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119_SortByNameThenTypeEEEEvT_T0_SH_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_15SdfPropertySpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119_SortByNameThenTypeEEEEvT_T0_SH_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfHandle.233", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -21785,7 +21785,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.ex
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit15.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit15.i.i.i: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit.thread.i.i.i
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_14SdfVariantSpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_L19Sdf_WriteVariantSetERKNS2_17SdfVariantSetSpecERNS2_14Sdf_TextOutputEmE3$_0EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa131, ptr noundef nonnull %14)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_14SdfVariantSpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_L19Sdf_WriteVariantSetERKNS2_17SdfVariantSetSpecERNS2_14Sdf_TextOutputEmE3$_0EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa131, ptr noundef %14)
           to label %32 unwind label %34
 
 32:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit15.i.i.i
@@ -21845,7 +21845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEaSERKS2_.ex
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit6.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit6.i: ; preds = %46, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEaSERKS2_.exit.i
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_14SdfVariantSpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_L19Sdf_WriteVariantSetERKNS2_17SdfVariantSetSpecERNS2_14Sdf_TextOutputEmE3$_0EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %44, ptr noundef nonnull %5)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_14SdfVariantSpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_L19Sdf_WriteVariantSetERKNS2_17SdfVariantSetSpecERNS2_14Sdf_TextOutputEmE3$_0EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %44, ptr noundef %5)
           to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_14SdfVariantSpecEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19Sdf_WriteVariantSetERKNS2_17SdfVariantSetSpecERNS2_14Sdf_TextOutputEmE3$_0EEEvT_SK_SK_RT0_.exit" unwind label %50
 
 48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit.i
@@ -22134,7 +22134,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_14SdfVariantSpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_L19Sdf_WriteVariantSetERKNS2_17SdfVariantSetSpecERNS2_14Sdf_TextOutputEmE3$_0EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS2_14SdfVariantSpecEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_L19Sdf_WriteVariantSetERKNS2_17SdfVariantSetSpecERNS2_14Sdf_TextOutputEmE3$_0EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfHandle.262", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

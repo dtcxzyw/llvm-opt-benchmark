@@ -3683,7 +3683,7 @@ declare void @bus_cold_reset(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @get_cmd(ptr noundef %s, i32 noundef %maxlen) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 33) i32 @get_cmd(ptr noundef %s, i32 noundef range(i32 1, 33) %maxlen) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %n.i = alloca i32, align 4
@@ -3718,7 +3718,7 @@ if.then3:                                         ; preds = %if.end
   %shl7.i = shl nuw nsw i32 %conv6.i, 16
   %or8.i = or disjoint i32 %shl7.i, %5
   %cond = tail call i32 @llvm.umin.i32(i32 %or8.i, i32 %maxlen)
-  %cmp5 = icmp eq i32 %cond, 0
+  %cmp5 = icmp eq i32 %or8.i, 0
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then3
@@ -3811,11 +3811,11 @@ esp_raise_drq.exit:                               ; preds = %if.end27, %land.lhs
 if.else30:                                        ; preds = %if.end
   %fifo = getelementptr inbounds i8, ptr %s, i64 224
   %call31 = tail call i32 @fifo8_num_used(ptr noundef nonnull %fifo) #10
-  %cond38 = tail call i32 @llvm.umin.i32(i32 %call31, i32 %maxlen)
-  %cmp39 = icmp eq i32 %cond38, 0
+  %cmp39 = icmp eq i32 %call31, 0
   br i1 %cmp39, label %return, label %esp_fifo_pop_buf.exit
 
 esp_fifo_pop_buf.exit:                            ; preds = %if.else30
+  %cond38 = tail call i32 @llvm.umin.i32(i32 %call31, i32 %maxlen)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i)
   %call.i39 = call ptr @fifo8_pop_buf(ptr noundef nonnull %fifo, i32 noundef %cond38, ptr noundef nonnull %n.i) #10
   %.pre.i = load i32, ptr %n.i, align 4

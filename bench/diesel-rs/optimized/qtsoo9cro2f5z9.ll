@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.cc5e832eb5e3bc15900b9c93a2d37709.12 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.cc5e832eb5e3bc15900b9c93a2d37709.10, [8 x i8] c"\16\00\00\00\00\00\00\00", ptr @anon.cc5e832eb5e3bc15900b9c93a2d37709.11, [8 x i8] c"\0C\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = add i64 %3, 9223372036854775807
@@ -132,7 +132,7 @@ common.resume:                                    ; preds = %36, %27
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef align 8 dereferenceable(232) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !36, !noundef !5
   %3 = add nsw i64 %2, -39
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
@@ -199,7 +199,7 @@ common.resume:                                    ; preds = %15, %7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef align 8 dereferenceable(176) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -669,7 +669,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   br i1 %.not.i43, label %.thread60, label %59
 
 59:                                               ; preds = %56
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %12)
           to label %.thread58 unwind label %46
 
 .thread58:                                        ; preds = %59
@@ -748,7 +748,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
           to label %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit" unwind label %74
 
 73:                                               ; preds = %68
-  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %13)
+  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef align 8 dereferenceable(232) %13)
   br label %88
 
 74:                                               ; preds = %71
@@ -769,7 +769,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
           to label %86 unwind label %83
 
 82:                                               ; preds = %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit"
-  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %13)
+  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef align 8 dereferenceable(176) %13)
   br label %88
 
 83:                                               ; preds = %80
@@ -788,12 +788,12 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %13, i64 32
-  call fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %90)
+  call fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %90)
   br label %88
 
 91:                                               ; preds = %83
   %92 = getelementptr inbounds i8, ptr %13, i64 32
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %92) #9
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %92) #9
           to label %114 unwind label %93
 
 93:                                               ; preds = %103, %112, %110, %108, %105, %100, %97, %95, %91
@@ -808,7 +808,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
           to label %98 unwind label %93
 
 97:                                               ; preds = %74
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %13) #9
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef align 8 dereferenceable(176) %13) #9
           to label %114 unwind label %93
 
 98:                                               ; preds = %95
@@ -817,7 +817,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds i8, ptr %13, i64 32
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %101) #9
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %101) #9
           to label %114 unwind label %93
 
 102:                                              ; preds = %88, %.loopexit
@@ -829,7 +829,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
           to label %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit49" unwind label %93
 
 105:                                              ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %13) #9
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef align 8 dereferenceable(232) %13) #9
           to label %114 unwind label %93
 
 "_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit49": ; preds = %103
@@ -843,7 +843,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
           to label %111 unwind label %93
 
 110:                                              ; preds = %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit49"
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %13) #9
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef align 8 dereferenceable(176) %13) #9
           to label %114 unwind label %93
 
 111:                                              ; preds = %108
@@ -851,7 +851,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
 
 112:                                              ; preds = %111
   %113 = getelementptr inbounds i8, ptr %13, i64 32
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %113) #9
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %113) #9
           to label %114 unwind label %93
 
 114:                                              ; preds = %83, %91, %97, %98, %100, %105, %110, %111, %112
@@ -989,7 +989,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   br i1 %.not.i43, label %60, label %59
 
 59:                                               ; preds = %56
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %12)
           to label %.thread58 unwind label %46
 
 .thread58:                                        ; preds = %59
@@ -1069,7 +1069,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
           to label %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit" unwind label %75
 
 74:                                               ; preds = %69
-  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %13)
+  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef align 8 dereferenceable(232) %13)
   br label %89
 
 75:                                               ; preds = %72
@@ -1090,7 +1090,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
           to label %87 unwind label %84
 
 83:                                               ; preds = %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit"
-  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %13)
+  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef align 8 dereferenceable(176) %13)
   br label %89
 
 84:                                               ; preds = %81
@@ -1109,12 +1109,12 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds i8, ptr %13, i64 32
-  call fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91)
+  call fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %91)
   br label %89
 
 92:                                               ; preds = %84
   %93 = getelementptr inbounds i8, ptr %13, i64 32
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #9
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %93) #9
           to label %115 unwind label %94
 
 94:                                               ; preds = %104, %113, %111, %109, %106, %101, %98, %96, %92
@@ -1129,7 +1129,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
           to label %99 unwind label %94
 
 98:                                               ; preds = %75
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %13) #9
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef align 8 dereferenceable(176) %13) #9
           to label %115 unwind label %94
 
 99:                                               ; preds = %96
@@ -1138,7 +1138,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds i8, ptr %13, i64 32
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %102) #9
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %102) #9
           to label %115 unwind label %94
 
 103:                                              ; preds = %89, %.loopexit
@@ -1150,7 +1150,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
           to label %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit49" unwind label %94
 
 106:                                              ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %13) #9
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef align 8 dereferenceable(232) %13) #9
           to label %115 unwind label %94
 
 "_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit49": ; preds = %104
@@ -1164,7 +1164,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
           to label %112 unwind label %94
 
 111:                                              ; preds = %"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h1dd18c3cba829080E.exit49"
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %13) #9
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E"(ptr noalias noundef align 8 dereferenceable(176) %13) #9
           to label %115 unwind label %94
 
 112:                                              ; preds = %109
@@ -1172,7 +1172,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
 
 113:                                              ; preds = %112
   %114 = getelementptr inbounds i8, ptr %13, i64 32
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %114) #9
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h045822a88b2f35a9E"(ptr noalias noundef align 8 dereferenceable(24) %114) #9
           to label %115 unwind label %94
 
 115:                                              ; preds = %84, %92, %98, %99, %101, %106, %111, %112, %113

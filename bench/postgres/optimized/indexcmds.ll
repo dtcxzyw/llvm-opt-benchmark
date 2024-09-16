@@ -4074,7 +4074,7 @@ define dso_local void @ExecReindex(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %79, label %81, label %82
 
 81:                                               ; preds = %69
-  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %76, ptr noundef nonnull readonly %8, i1 noundef zeroext %2)
+  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %76, ptr noundef readonly %8, i1 noundef zeroext %2)
   br label %ReindexIndex.exit
 
 82:                                               ; preds = %69
@@ -4085,7 +4085,7 @@ define dso_local void @ExecReindex(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %or.cond.i, label %86, label %88
 
 86:                                               ; preds = %82
-  %87 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %76, ptr noundef nonnull readonly %8)
+  %87 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %76, ptr noundef readonly %8)
   br label %ReindexIndex.exit
 
 88:                                               ; preds = %82
@@ -4113,7 +4113,7 @@ ReindexIndex.exit:                                ; preds = %81, %86, %88
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %90
-  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %95, ptr noundef nonnull readonly %8, i1 noundef zeroext %2)
+  call fastcc void @ReindexPartitions(ptr noundef nonnull %1, i32 noundef %95, ptr noundef readonly %8, i1 noundef zeroext %2)
   br label %ReindexTable.exit
 
 99:                                               ; preds = %90
@@ -4125,7 +4125,7 @@ ReindexIndex.exit:                                ; preds = %81, %86, %88
   br i1 %.not21.i, label %110, label %102
 
 102:                                              ; preds = %100
-  %103 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %95, ptr noundef nonnull readonly %8)
+  %103 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef nonnull %1, i32 noundef %95, ptr noundef readonly %8)
   br i1 %103, label %ReindexTable.exit, label %104
 
 104:                                              ; preds = %102
@@ -4415,7 +4415,7 @@ ReindexMultipleTables.exit:                       ; preds = %.backedge.i, %164
   %241 = load ptr, ptr %240, align 8
   call void %241(ptr noundef nonnull %167) #12
   call void @table_close(ptr noundef %166, i32 noundef 1) #12
-  call fastcc void @ReindexMultipleInternal(ptr noundef %1, ptr noundef %.058.lcssa.i, ptr noundef nonnull readonly %8)
+  call fastcc void @ReindexMultipleInternal(ptr noundef %1, ptr noundef %.058.lcssa.i, ptr noundef readonly %8)
   call void @MemoryContextDelete(ptr noundef %165) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   br label %246
@@ -4569,7 +4569,7 @@ define internal void @RangeVarCallbackForReindexIndex(ptr nocapture noundef read
 declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReindexPartitions(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @ReindexPartitions(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = alloca %struct.ReindexErrorInfo, align 8
   %7 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #12
@@ -4646,7 +4646,7 @@ define internal fastcc void @ReindexPartitions(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.PGRUsage, align 8
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i64], align 16
@@ -5721,7 +5721,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReindexMultipleInternal(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @ReindexMultipleInternal(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.ReindexParams, align 8
   %5 = alloca %struct.ReindexParams, align 8
   %6 = alloca %struct.ReindexParams, align 8
@@ -5786,7 +5786,7 @@ define internal fastcc void @ReindexMultipleInternal(ptr noundef %0, ptr noundef
   %36 = trunc i64 %35 to i32
   %37 = or i32 %36, 4
   store i32 %37, ptr %4, align 8
-  %38 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %4)
+  %38 = call fastcc zeroext i1 @ReindexRelationConcurrently(ptr noundef %0, i32 noundef %14, ptr noundef %4)
   %39 = call zeroext i1 @ActiveSnapshotSet() #12
   br i1 %39, label %.sink.split47, label %58
 

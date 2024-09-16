@@ -564,7 +564,7 @@ get_column_info.exit:                             ; preds = %18, %get_byte_lengt
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   %42 = load i32, ptr @hf_etch_version, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %42, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #9
-  call fastcc void @read_struct(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %37, i32 noundef 0)
+  call fastcc void @read_struct(ptr noundef %5, ptr noundef %0, ptr noundef %37, i32 noundef 0)
   br label %.thread
 
 .thread:                                          ; preds = %4, %32, %31
@@ -591,7 +591,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_struct(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @read_struct(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_etch_struct, align 4
   %6 = load i32, ptr %0, align 4
   %7 = tail call i32 @tvb_captured_length(ptr noundef %1) #9
@@ -616,9 +616,9 @@ define internal fastcc void @read_struct(ptr nocapture noundef %0, ptr noundef %
 
 21:                                               ; preds = %13, %4
   %22 = load i32, ptr @hf_etch_value, align 4
-  %23 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12, i32 noundef %22)
+  %23 = tail call fastcc i32 @read_value(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %22)
   %24 = load i32, ptr @hf_etch_length, align 4
-  %25 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12, i32 noundef %24)
+  %25 = tail call fastcc i32 @read_value(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %24)
   %.not25 = icmp eq i32 %25, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -636,7 +636,7 @@ define internal fastcc void @read_struct(ptr nocapture noundef %0, ptr noundef %
   %34 = load i32, ptr @ett_etch_key, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #9
   %36 = load i32, ptr @hf_etch_value, align 4
-  %37 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %35, i32 noundef %36)
+  %37 = tail call fastcc i32 @read_value(ptr noundef %0, ptr noundef %1, ptr noundef %35, i32 noundef %36)
   %.b.i = load i1, ptr @gbl_have_symbol, align 4
   br i1 %.b.i, label %38, label %read_key_value.exit
 
@@ -653,7 +653,7 @@ read_key_value.exit:                              ; preds = %.lr.ph, %38
   %44 = load i32, ptr @ett_etch_value, align 4
   %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #9
   %46 = load i32, ptr @hf_etch_value, align 4
-  %47 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %45, i32 noundef %46)
+  %47 = tail call fastcc i32 @read_value(ptr noundef %0, ptr noundef %1, ptr noundef %45, i32 noundef %46)
   %48 = add nuw nsw i32 %.024, 1
   %exitcond.not = icmp eq i32 %48, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -679,7 +679,7 @@ declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @read_value(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @read_value(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #9
   %or.cond = icmp sgt i8 %6, -65
@@ -709,7 +709,7 @@ define internal fastcc range(i32 0, 256) i32 @read_value(ptr nocapture noundef %
   ]
 
 14:                                               ; preds = %13
-  tail call fastcc void @read_struct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
+  tail call fastcc void @read_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   br label %150
 
 15:                                               ; preds = %13
@@ -755,14 +755,14 @@ read_array_type.exit:                             ; preds = %15, %32
   %46 = load i32, ptr %0, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %0, align 4
-  %48 = tail call fastcc i32 @read_length(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %48 = tail call fastcc i32 @read_length(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph, label %read_array.exit
 
 .lr.ph:                                           ; preds = %read_array_type.exit, %.lr.ph
   %.0.i55 = phi i32 [ %52, %.lr.ph ], [ %48, %read_array_type.exit ]
   %50 = load i32, ptr @hf_etch_value, align 4
-  %51 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %50)
+  %51 = tail call fastcc i32 @read_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %50)
   %52 = add nsw i32 %.0.i55, -1
   %53 = icmp ugt i32 %.0.i55, 1
   br i1 %53, label %.lr.ph, label %read_array.exit, !llvm.loop !10
@@ -787,7 +787,7 @@ read_array.exit:                                  ; preds = %.lr.ph, %read_array
   %67 = load i32, ptr %0, align 4
   %68 = add i32 %67, 1
   store i32 %68, ptr %0, align 4
-  %69 = tail call fastcc i32 @read_length(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %69 = tail call fastcc i32 @read_length(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %70 = load i32, ptr @hf_etch_string, align 4
   %71 = load i32, ptr %0, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %70, ptr noundef %1, i32 noundef %71, i32 noundef %69, i32 noundef 0) #9
@@ -798,7 +798,7 @@ read_array.exit:                                  ; preds = %.lr.ph, %read_array
 
 75:                                               ; preds = %13
   %76 = load i32, ptr @hf_etch_float, align 4
-  tail call fastcc void @read_number(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %76, i8 noundef zeroext -120)
+  tail call fastcc void @read_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %76, i8 noundef zeroext -120)
   br label %150
 
 read_number.exit:                                 ; preds = %13
@@ -843,7 +843,7 @@ read_number.exit57:                               ; preds = %13
 
 105:                                              ; preds = %13
   %106 = load i32, ptr @hf_etch_int, align 4
-  tail call fastcc void @read_number(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %106, i8 noundef zeroext -122)
+  tail call fastcc void @read_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %106, i8 noundef zeroext -122)
   br label %150
 
 read_number.exit59:                               ; preds = %13
@@ -895,7 +895,7 @@ read_number.exit61:                               ; preds = %13
   %141 = load i32, ptr %0, align 4
   %142 = add i32 %141, 1
   store i32 %142, ptr %0, align 4
-  %143 = tail call fastcc i32 @read_length(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %143 = tail call fastcc i32 @read_length(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %144 = load i32, ptr @hf_etch_bytes, align 4
   %145 = load i32, ptr %0, align 4
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %144, ptr noundef %1, i32 noundef %145, i32 noundef %143, i32 noundef 0) #9
@@ -905,7 +905,7 @@ read_number.exit61:                               ; preds = %13
   br label %150
 
 149:                                              ; preds = %13
-  tail call fastcc void @read_number(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %6)
+  tail call fastcc void @read_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %6)
   br label %150
 
 150:                                              ; preds = %14, %read_array.exit, %61, %75, %read_number.exit, %read_number.exit57, %105, %read_number.exit59, %read_number.exit61, %135, %149, %7
@@ -914,7 +914,7 @@ read_number.exit61:                               ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_number(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @read_number(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr %0, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %6) #9
   %8 = load i32, ptr @hf_etch_typecode, align 4
@@ -985,7 +985,7 @@ get_byte_length.exit:                             ; preds = %5, %28, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_length(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @read_length(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %4) #9
   %or.cond = icmp sgt i8 %5, -65

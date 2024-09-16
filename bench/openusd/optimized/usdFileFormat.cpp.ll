@@ -823,7 +823,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdUsdFileFormat8InitDataER
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetFileFormatForArgumentsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetFileFormatForArgumentsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -978,7 +978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIKNS_13SdfFileFormatEED2Ev.exit10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetFileFormatForArgumentsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetFileFormatForArgumentsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -1156,7 +1156,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_39UsdUsdaFileFormatToken
   %77 = phi ptr [ %66, %64 ], [ %76, %74 ], [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_39UsdUsdaFileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i10 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfFileFormat8FindByIdERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfFileFormat8FindByIdERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %77)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8, !alias.scope !8
   %.not.i.i.i.i.i.i = icmp eq ptr %79, null
@@ -1277,7 +1277,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_39UsdUsdcFileFormatToken
   %128 = phi ptr [ %117, %115 ], [ %127, %125 ], [ %119, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_39UsdUsdcFileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfFileFormat8FindByIdERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %128)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfFileFormat8FindByIdERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %128)
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %130 = load ptr, ptr %129, align 8, !alias.scope !11
   %.not.i.i.i.i.i.i16 = icmp eq ptr %130, null
@@ -1937,7 +1937,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdUsdFileFormat17_InitDeta
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetFileFormatForArgumentsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetFileFormatForArgumentsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -4222,7 +4222,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdUsdFileFor
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetFileFormatForArgumentsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetFileFormatForArgumentsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null

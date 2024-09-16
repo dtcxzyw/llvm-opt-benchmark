@@ -340,7 +340,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr n
   %7 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val15) #19
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %3)
+  %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef %3)
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %._crit_edge, label %11
 
@@ -520,7 +520,7 @@ sunTimerStructFree.exit:                          ; preds = %58, %59
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #7 {
+define internal fastcc range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -631,7 +631,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %7 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val) #19
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %3)
+  %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef %3)
   %.not11 = icmp eq i32 %10, 0
   br i1 %.not11, label %38, label %11
 
@@ -773,7 +773,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %4)
+  %8 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %7, ptr noundef %1, ptr noundef %4)
   %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %9, label %13
 

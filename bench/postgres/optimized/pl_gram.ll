@@ -2134,7 +2134,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   %950 = load i32, ptr %949, align 8
   %951 = getelementptr i8, ptr %.2902, i64 -4
   %952 = load i32, ptr %951, align 4
-  %953 = call fastcc ptr @make_scalar_list1(ptr noundef %948, ptr noundef nonnull %946, i32 noundef %950, i32 noundef %952)
+  %953 = call fastcc ptr @make_scalar_list1(ptr noundef %948, ptr noundef %946, i32 noundef %950, i32 noundef %952)
   %954 = getelementptr inbounds i8, ptr %930, i64 24
   store ptr %953, ptr %954, align 8
   br label %962
@@ -2391,7 +2391,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   %1104 = load i32, ptr %1103, align 8
   %1105 = getelementptr i8, ptr %.2902, i64 -4
   %1106 = load i32, ptr %1105, align 4
-  %1107 = call fastcc ptr @make_scalar_list1(ptr noundef %1102, ptr noundef nonnull %1100, i32 noundef %1104, i32 noundef %1106)
+  %1107 = call fastcc ptr @make_scalar_list1(ptr noundef %1102, ptr noundef %1100, i32 noundef %1104, i32 noundef %1106)
   %1108 = getelementptr inbounds i8, ptr %1084, i64 24
   store ptr %1107, ptr %1108, align 8
   br label %1116
@@ -4238,7 +4238,7 @@ declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 declare void @plpgsql_push_back_token(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_sql_construct(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc ptr @read_sql_construct(i32 noundef range(i32 44, 385) %0, i32 noundef range(i32 0, 382) %1, i32 noundef range(i32 0, 382) %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
   %11 = alloca %struct.sql_error_callback_arg, align 4
   %12 = alloca %struct.ErrorContextCallback, align 8
   %13 = alloca %struct.StringInfoData, align 8
@@ -4528,7 +4528,7 @@ tailrecurse:                                      ; preds = %16, %2
 declare ptr @plpgsql_getdiag_kindname(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @tok_is_keyword(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @tok_is_keyword(i32 noundef %0, i32 noundef range(i32 280, 384) %1, ptr nocapture noundef readonly %2) unnamed_addr #6 {
   %4 = icmp eq i32 %0, %1
   br i1 %4, label %16, label %5
 
@@ -4706,8 +4706,8 @@ list_length.exit.thread:                          ; preds = %4, %24, %list_lengt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @make_scalar_list1(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  tail call fastcc void @check_assignable(ptr noundef %1, i32 noundef %3)
+define internal fastcc noundef ptr @make_scalar_list1(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+  tail call fastcc void @check_assignable(ptr noundef nonnull %1, i32 noundef %3)
   %5 = tail call ptr @palloc0(i64 noundef 64) #12
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -4735,7 +4735,7 @@ define internal fastcc noundef ptr @make_scalar_list1(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_cursor_args(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @read_cursor_args(ptr nocapture noundef readonly %0, i32 noundef range(i32 59, 337) %1) unnamed_addr #0 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -5747,7 +5747,7 @@ list_length.exit17:                               ; preds = %list_length.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef range(i32 275, 338) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.sql_error_callback_arg, align 4
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = alloca %struct.StringInfoData, align 8
@@ -6285,7 +6285,7 @@ tok_is_keyword.exit55:                            ; preds = %26, %17, %.thread83
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
-  call fastcc void @complete_direction(ptr noundef nonnull %2, ptr noundef nonnull %1)
+  call fastcc void @complete_direction(ptr noundef nonnull %2, ptr noundef %1)
   br label %tok_is_keyword.exit.thread
 
 50:                                               ; preds = %47
@@ -6294,7 +6294,7 @@ tok_is_keyword.exit55:                            ; preds = %26, %17, %.thread83
 
 52:                                               ; preds = %50
   store i32 1, ptr %8, align 4
-  call fastcc void @complete_direction(ptr noundef nonnull %2, ptr noundef nonnull %1)
+  call fastcc void @complete_direction(ptr noundef nonnull %2, ptr noundef %1)
   br label %tok_is_keyword.exit.thread
 
 53:                                               ; preds = %50
@@ -6401,7 +6401,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @complete_direction(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @complete_direction(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @plpgsql_yylex() #12
   switch i32 %3, label %7 [
     i32 0, label %4

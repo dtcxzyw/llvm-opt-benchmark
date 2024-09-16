@@ -579,7 +579,7 @@ dissect_dbus_header.exit.thread:                  ; preds = %35, %53, %100, %126
   %130 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @.str.157, ptr %130, align 8
   %131 = load i32, ptr @ett_dbus_header_field_array, align 4
-  %132 = call fastcc ptr @reader_next(ptr noundef nonnull %9, i32 noundef -1, i32 noundef %131, ptr noundef nonnull %10)
+  %132 = call fastcc ptr @reader_next(ptr noundef %9, i32 noundef -1, i32 noundef %131, ptr noundef %10)
   %.not.i14 = icmp eq ptr %132, null
   br i1 %.not.i14, label %dissect_dbus_header_fields.exit.thread, label %133
 
@@ -606,13 +606,13 @@ dissect_dbus_header.exit.thread:                  ; preds = %35, %53, %100, %126
 
 147:                                              ; preds = %144
   %148 = load i32, ptr @ett_dbus_header_field, align 4
-  %149 = call fastcc ptr @reader_next(ptr noundef nonnull %.0111.i, i32 noundef -1, i32 noundef %148, ptr noundef nonnull %10)
+  %149 = call fastcc ptr @reader_next(ptr noundef %.0111.i, i32 noundef -1, i32 noundef %148, ptr noundef %10)
   %.not144.i = icmp eq ptr %149, null
   br i1 %.not144.i, label %dissect_dbus_header_fields.exit.thread, label %150
 
 150:                                              ; preds = %147
   %151 = load i32, ptr @hf_dbus_field_code, align 4
-  %152 = call fastcc ptr @reader_next(ptr noundef nonnull %149, i32 noundef %151, i32 noundef -1, ptr noundef nonnull %10)
+  %152 = call fastcc ptr @reader_next(ptr noundef %149, i32 noundef %151, i32 noundef -1, ptr noundef %10)
   %.not145.i = icmp eq ptr %152, null
   br i1 %.not145.i, label %dissect_dbus_header_fields.exit.thread, label %153
 
@@ -647,7 +647,7 @@ dissect_dbus_header.exit.thread:                  ; preds = %35, %53, %100, %126
   br i1 %.not.i.i, label %dissect_dbus_header_fields.exit.thread, label %.lr.ph.i.i, !llvm.loop !4
 
 169:                                              ; preds = %153
-  %170 = call fastcc ptr @reader_next(ptr noundef nonnull %152, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
+  %170 = call fastcc ptr @reader_next(ptr noundef %152, i32 noundef -1, i32 noundef -1, ptr noundef %10)
   %.not146.i = icmp eq ptr %170, null
   br i1 %.not146.i, label %dissect_dbus_header_fields.exit.thread, label %171
 
@@ -704,7 +704,7 @@ switch.lookup:                                    ; preds = %171
 
 187:                                              ; preds = %186
   %188 = load i32, ptr @hf_dbus_path, align 4
-  %189 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %188, i32 noundef -1, ptr noundef nonnull %10)
+  %189 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %188, i32 noundef -1, ptr noundef %10)
   %.not162.i = icmp eq ptr %189, null
   br i1 %.not162.i, label %dissect_dbus_header_fields.exit.thread, label %190
 
@@ -715,7 +715,7 @@ switch.lookup:                                    ; preds = %171
 
 192:                                              ; preds = %186
   %193 = load i32, ptr @hf_dbus_interface, align 4
-  %194 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %193, i32 noundef -1, ptr noundef nonnull %10)
+  %194 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %193, i32 noundef -1, ptr noundef %10)
   %.not160.i = icmp eq ptr %194, null
   br i1 %.not160.i, label %dissect_dbus_header_fields.exit.thread, label %195
 
@@ -786,7 +786,7 @@ is_dbus_interface_valid.exit.thread.i:            ; preds = %is_dbus_interface_v
 
 224:                                              ; preds = %186
   %225 = load i32, ptr @hf_dbus_member, align 4
-  %226 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %225, i32 noundef -1, ptr noundef nonnull %10)
+  %226 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %225, i32 noundef -1, ptr noundef %10)
   %.not158.i = icmp eq ptr %226, null
   br i1 %.not158.i, label %dissect_dbus_header_fields.exit.thread, label %227
 
@@ -855,7 +855,7 @@ is_dbus_member_name_valid.exit.thread.i:          ; preds = %is_dbus_member_name
 
 258:                                              ; preds = %186
   %259 = load i32, ptr @hf_dbus_error_name, align 4
-  %260 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %259, i32 noundef -1, ptr noundef nonnull %10)
+  %260 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %259, i32 noundef -1, ptr noundef %10)
   %.not156.i = icmp eq ptr %260, null
   br i1 %.not156.i, label %dissect_dbus_header_fields.exit.thread, label %261
 
@@ -926,7 +926,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
 
 290:                                              ; preds = %186
   %291 = load i32, ptr @hf_dbus_destination, align 4
-  %292 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %291, i32 noundef -1, ptr noundef nonnull %10)
+  %292 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %291, i32 noundef -1, ptr noundef %10)
   %.not154.i = icmp eq ptr %292, null
   br i1 %.not154.i, label %dissect_dbus_header_fields.exit.thread, label %293
 
@@ -963,7 +963,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
 
 309:                                              ; preds = %186
   %310 = load i32, ptr @hf_dbus_sender, align 4
-  %311 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %310, i32 noundef -1, ptr noundef nonnull %10)
+  %311 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %310, i32 noundef -1, ptr noundef %10)
   %.not152.i = icmp eq ptr %311, null
   br i1 %.not152.i, label %dissect_dbus_header_fields.exit.thread, label %312
 
@@ -1000,7 +1000,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
 
 328:                                              ; preds = %186
   %329 = load i32, ptr @hf_dbus_signature, align 4
-  %330 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %329, i32 noundef -1, ptr noundef nonnull %10)
+  %330 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %329, i32 noundef -1, ptr noundef %10)
   %.not151.i = icmp eq ptr %330, null
   br i1 %.not151.i, label %dissect_dbus_header_fields.exit.thread, label %331
 
@@ -1011,7 +1011,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
 
 333:                                              ; preds = %186
   %334 = load i32, ptr @hf_dbus_reply_serial, align 4
-  %335 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %334, i32 noundef -1, ptr noundef nonnull %10)
+  %335 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %334, i32 noundef -1, ptr noundef %10)
   %.not150.i = icmp eq ptr %335, null
   br i1 %.not150.i, label %dissect_dbus_header_fields.exit.thread, label %336
 
@@ -1030,7 +1030,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
 
 341:                                              ; preds = %186
   %342 = load i32, ptr @hf_dbus_unix_fds, align 4
-  %343 = call fastcc ptr @reader_next(ptr noundef nonnull %170, i32 noundef %342, i32 noundef -1, ptr noundef nonnull %10)
+  %343 = call fastcc ptr @reader_next(ptr noundef %170, i32 noundef %342, i32 noundef -1, ptr noundef %10)
   %.not149.i = icmp eq ptr %343, null
   br i1 %.not149.i, label %dissect_dbus_header_fields.exit.thread, label %344
 
@@ -1041,7 +1041,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
 
 .preheader.i:                                     ; preds = %171, %347
   %.2.i = phi ptr [ %346, %347 ], [ %170, %171 ]
-  %346 = call fastcc ptr @reader_next(ptr noundef nonnull %.2.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
+  %346 = call fastcc ptr @reader_next(ptr noundef %.2.i, i32 noundef -1, i32 noundef -1, ptr noundef %10)
   %.not163.i = icmp eq ptr %346, null
   br i1 %.not163.i, label %dissect_dbus_header_fields.exit.thread, label %347
 
@@ -1053,7 +1053,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
 
 .loopexit.i:                                      ; preds = %347, %344, %336, %331, %317, %298, %is_dbus_interface_valid.exit196.i, %is_dbus_member_name_valid.exit.i, %is_dbus_interface_valid.exit.i, %190
   %.1.i = phi ptr [ %343, %344 ], [ %335, %336 ], [ %330, %331 ], [ %311, %317 ], [ %292, %298 ], [ %260, %is_dbus_interface_valid.exit196.i ], [ %226, %is_dbus_member_name_valid.exit.i ], [ %194, %is_dbus_interface_valid.exit.i ], [ %189, %190 ], [ %346, %347 ]
-  %351 = call fastcc ptr @reader_next(ptr noundef nonnull %.1.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
+  %351 = call fastcc ptr @reader_next(ptr noundef %.1.i, i32 noundef -1, i32 noundef -1, ptr noundef %10)
   %.not164.i = icmp eq ptr %351, null
   br i1 %.not164.i, label %dissect_dbus_header_fields.exit.thread, label %144, !llvm.loop !9
 
@@ -1210,7 +1210,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
 
 432:                                              ; preds = %407
   %433 = load ptr, ptr %138, align 8
-  call fastcc void @update_unique_name_map(ptr noundef nonnull %403, ptr noundef %433)
+  call fastcc void @update_unique_name_map(ptr noundef %403, ptr noundef %433)
   br label %434
 
 434:                                              ; preds = %432, %407, %404, %396, %386, %379
@@ -1459,7 +1459,7 @@ add_conversation.exit.i:                          ; preds = %proto_item_set_gene
 
 564:                                              ; preds = %add_conversation.exit.i
   %565 = call ptr @proto_item_get_subtree(ptr noundef %135) #9
-  call fastcc void @resolve_unique_name(ptr noundef nonnull %16, ptr noundef %565)
+  call fastcc void @resolve_unique_name(ptr noundef %16, ptr noundef %565)
   br label %566
 
 566:                                              ; preds = %564, %add_conversation.exit.i
@@ -1590,7 +1590,7 @@ reader_is_finished.exit.i.i:                      ; preds = %618
   br i1 %.not.i.i20, label %dissect_dbus_signature.exit.i, label %reader_is_finished.exit.thread.i.i
 
 reader_is_finished.exit.thread.i.i:               ; preds = %reader_is_finished.exit.i.i, %618
-  %625 = call fastcc ptr @reader_next(ptr noundef nonnull %.0.i.i17, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %6)
+  %625 = call fastcc ptr @reader_next(ptr noundef %.0.i.i17, i32 noundef -1, i32 noundef -1, ptr noundef %6)
   %.not7.i.i = icmp eq ptr %625, null
   br i1 %.not7.i.i, label %dissect_dbus_signature.exit.i, label %618, !llvm.loop !10
 
@@ -1685,7 +1685,7 @@ declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @reader_next(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1723,7 +1723,7 @@ define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noun
   %15 = select i1 %.not334, i32 %14, i32 %1
   %16 = getelementptr inbounds i8, ptr %10, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = tail call ptr @ptvcursor_add_ret_uint(ptr noundef %13, i32 noundef %15, i32 noundef 1, i32 noundef %17, ptr noundef %3) #9
+  %18 = tail call ptr @ptvcursor_add_ret_uint(ptr noundef %13, i32 noundef %15, i32 noundef 1, i32 noundef %17, ptr noundef nonnull %3) #9
   %19 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %18, ptr %19, align 8
   br label %322
@@ -1740,7 +1740,7 @@ define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noun
   %28 = select i1 %.not333, i32 %27, i32 %1
   %29 = getelementptr inbounds i8, ptr %10, i64 16
   %30 = load i32, ptr %29, align 8
-  %31 = tail call ptr @ptvcursor_add_ret_boolean(ptr noundef %26, i32 noundef %28, i32 noundef 4, i32 noundef %30, ptr noundef %3) #9
+  %31 = tail call ptr @ptvcursor_add_ret_boolean(ptr noundef %26, i32 noundef %28, i32 noundef 4, i32 noundef %30, ptr noundef nonnull %3) #9
   %32 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %31, ptr %32, align 8
   %33 = icmp ugt i8 %25, 1
@@ -1759,7 +1759,7 @@ define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noun
   %40 = select i1 %.not332, i32 %39, i32 %1
   %41 = getelementptr inbounds i8, ptr %10, i64 16
   %42 = load i32, ptr %41, align 8
-  %43 = tail call ptr @ptvcursor_add_ret_int(ptr noundef %38, i32 noundef %40, i32 noundef 2, i32 noundef %42, ptr noundef %3) #9
+  %43 = tail call ptr @ptvcursor_add_ret_int(ptr noundef %38, i32 noundef %40, i32 noundef 2, i32 noundef %42, ptr noundef nonnull %3) #9
   %44 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %43, ptr %44, align 8
   br label %322
@@ -1771,7 +1771,7 @@ define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noun
   %48 = select i1 %.not331, i32 %47, i32 %1
   %49 = getelementptr inbounds i8, ptr %10, i64 16
   %50 = load i32, ptr %49, align 8
-  %51 = tail call ptr @ptvcursor_add_ret_uint(ptr noundef %46, i32 noundef %48, i32 noundef 2, i32 noundef %50, ptr noundef %3) #9
+  %51 = tail call ptr @ptvcursor_add_ret_uint(ptr noundef %46, i32 noundef %48, i32 noundef 2, i32 noundef %50, ptr noundef nonnull %3) #9
   %52 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %51, ptr %52, align 8
   br label %322
@@ -1783,7 +1783,7 @@ define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noun
   %56 = select i1 %.not330, i32 %55, i32 %1
   %57 = getelementptr inbounds i8, ptr %10, i64 16
   %58 = load i32, ptr %57, align 8
-  %59 = tail call ptr @ptvcursor_add_ret_int(ptr noundef %54, i32 noundef %56, i32 noundef 4, i32 noundef %58, ptr noundef %3) #9
+  %59 = tail call ptr @ptvcursor_add_ret_int(ptr noundef %54, i32 noundef %56, i32 noundef 4, i32 noundef %58, ptr noundef nonnull %3) #9
   %60 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %59, ptr %60, align 8
   br label %322
@@ -1795,7 +1795,7 @@ define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noun
   %64 = select i1 %.not329, i32 %63, i32 %1
   %65 = getelementptr inbounds i8, ptr %10, i64 16
   %66 = load i32, ptr %65, align 8
-  %67 = tail call ptr @ptvcursor_add_ret_uint(ptr noundef %62, i32 noundef %64, i32 noundef 4, i32 noundef %66, ptr noundef %3) #9
+  %67 = tail call ptr @ptvcursor_add_ret_uint(ptr noundef %62, i32 noundef %64, i32 noundef 4, i32 noundef %66, ptr noundef nonnull %3) #9
   %68 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %67, ptr %68, align 8
   br label %322
@@ -1974,7 +1974,7 @@ is_dbus_object_path_valid.exit.thread363:         ; preds = %129, %is_dbus_objec
   %.val355 = load ptr, ptr %156, align 8
   %157 = getelementptr i8, ptr %.val355, i64 408
   %.val355.val = load ptr, ptr %157, align 8
-  %158 = tail call fastcc i32 @is_dbus_signature_valid(ptr noundef nonnull %154, ptr %.val355.val)
+  %158 = tail call fastcc i32 @is_dbus_signature_valid(ptr noundef %154, ptr %.val355.val)
   %.not319 = icmp eq i32 %158, 0
   br i1 %.not319, label %159, label %163
 
@@ -2172,7 +2172,7 @@ add_uint.exit:                                    ; preds = %175, %180
   %.val356 = load ptr, ptr %251, align 8
   %252 = getelementptr i8, ptr %.val356, i64 408
   %.val356.val = load ptr, ptr %252, align 8
-  %253 = tail call fastcc i32 @is_dbus_signature_valid(ptr noundef nonnull %249, ptr %.val356.val)
+  %253 = tail call fastcc i32 @is_dbus_signature_valid(ptr noundef %249, ptr %.val356.val)
   %.not307 = icmp eq i32 %253, 0
   br i1 %.not307, label %277, label %254
 
@@ -2339,7 +2339,7 @@ is_basic_type.exit359:                            ; preds = %282, %switch.lookup
   %316 = select i1 %.not, i32 %315, i32 %1
   %317 = getelementptr inbounds i8, ptr %10, i64 16
   %318 = load i32, ptr %317, align 8
-  %319 = tail call ptr @ptvcursor_add_ret_uint(ptr noundef %314, i32 noundef %316, i32 noundef 4, i32 noundef %318, ptr noundef %3) #9
+  %319 = tail call ptr @ptvcursor_add_ret_uint(ptr noundef %314, i32 noundef %316, i32 noundef 4, i32 noundef %318, ptr noundef nonnull %3) #9
   %320 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %319, ptr %320, align 8
   br label %322
@@ -2702,7 +2702,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @proto_item_get_subtree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_unique_name(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @resolve_unique_name(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %3) #9
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2911,7 +2911,7 @@ declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_dbus_string(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @add_dbus_string(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %5) #9
@@ -2952,7 +2952,7 @@ define internal fastcc ptr @add_dbus_string(ptr nocapture noundef %0, i32 nounde
 declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid(ptr noundef readonly %0, ptr %.8.val.408.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid(ptr noundef nonnull readonly %0, ptr %.8.val.408.val) unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_list_new(ptr noundef %.8.val.408.val) #9
   %3 = load i8, ptr %0, align 1
   %.not3 = icmp eq i8 %3, 0
@@ -3201,7 +3201,7 @@ declare void @conversation_set_conv_addr_port_endpoints(ptr noundef, ptr noundef
 declare i32 @conversation_pt_to_endpoint_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_unique_name_map(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @update_unique_name_map(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @dbus_resolve_names, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.thread14, label %4

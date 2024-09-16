@@ -522,7 +522,7 @@ if.then2.i:                                       ; preds = %if.else.i
   br label %chunk_read.exit
 
 if.else5.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.016, ptr nonnull align 1 %arrayidx.i, i64 %len.addr.015, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %buf.addr.016, ptr noundef nonnull align 1 dereferenceable(1) %arrayidx.i, i64 %len.addr.015, i1 false)
   %3 = load i64, ptr %r_offset.i, align 8
   %add.i = add i64 %3, %len.addr.015
   store i64 %add.i, ptr %r_offset.i, align 8

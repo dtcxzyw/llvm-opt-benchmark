@@ -1312,7 +1312,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %37
   %.pre545 = load ptr, ptr %.phi.trans.insert, align 8
   %48 = getelementptr %struct.pmix_info, ptr %.pre545, i64 %.0296516, i32 2, i32 1
   %.val = load ptr, ptr %48, align 8
-  call fastcc void @_get_attrs(ptr noundef nonnull %4, ptr %.val, ptr noundef nonnull @client_attrs)
+  call fastcc void @_get_attrs(ptr noundef %4, ptr %.val, ptr noundef nonnull @client_attrs)
   br label %49
 
 49:                                               ; preds = %._crit_edge543, %pmix_obj_run_constructors.exit
@@ -1336,7 +1336,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %37
 57:                                               ; preds = %._crit_edge546, %49
   %58 = phi ptr [ %.pre549, %._crit_edge546 ], [ null, %49 ]
   %59 = getelementptr inbounds %struct.pmix_info, ptr %58, i64 %.0296516
-  call fastcc void @_get_fns(ptr noundef nonnull %4, ptr noundef %59, ptr noundef nonnull @client_attrs)
+  call fastcc void @_get_fns(ptr noundef %4, ptr noundef %59, ptr noundef nonnull @client_attrs)
   br label %60
 
 60:                                               ; preds = %57, %54
@@ -1370,7 +1370,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %37
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr %struct.pmix_info, ptr %78, i64 %.0296516, i32 2, i32 1
   %.val365 = load ptr, ptr %79, align 8
-  call fastcc void @_get_attrs(ptr noundef nonnull %4, ptr %.val365, ptr noundef nonnull @server_attrs)
+  call fastcc void @_get_attrs(ptr noundef %4, ptr %.val365, ptr noundef nonnull @server_attrs)
   br label %123
 
 .lr.ph536:                                        ; preds = %.preheader, %113
@@ -1491,7 +1491,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i369, %99
   %140 = getelementptr inbounds %struct.pmix_query, ptr %139, i64 %.0297518, i32 1
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds %struct.pmix_info, ptr %141, i64 %.0296516
-  call fastcc void @_get_fns(ptr noundef nonnull %4, ptr noundef %142, ptr noundef nonnull @server_attrs)
+  call fastcc void @_get_fns(ptr noundef %4, ptr noundef %142, ptr noundef nonnull @server_attrs)
   br label %186
 
 .lr.ph534:                                        ; preds = %.preheader487, %176
@@ -1608,7 +1608,7 @@ pmix_obj_run_destructors.exit384:                 ; preds = %.lr.ph.i381, %162
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr %struct.pmix_info, ptr %202, i64 %.0296516, i32 2, i32 1
   %.val366 = load ptr, ptr %203, align 8
-  call fastcc void @_get_attrs(ptr noundef nonnull %4, ptr %.val366, ptr noundef nonnull @tool_attrs)
+  call fastcc void @_get_attrs(ptr noundef %4, ptr %.val366, ptr noundef nonnull @tool_attrs)
   br label %204
 
 204:                                              ; preds = %194, %199, %191
@@ -1636,7 +1636,7 @@ pmix_obj_run_destructors.exit384:                 ; preds = %.lr.ph.i381, %162
   %219 = getelementptr inbounds %struct.pmix_query, ptr %218, i64 %.0297518, i32 1
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds %struct.pmix_info, ptr %220, i64 %.0296516
-  call fastcc void @_get_fns(ptr noundef nonnull %4, ptr noundef %221, ptr noundef nonnull @tool_attrs)
+  call fastcc void @_get_fns(ptr noundef %4, ptr noundef %221, ptr noundef nonnull @tool_attrs)
   br label %222
 
 222:                                              ; preds = %212, %217, %209
@@ -1670,7 +1670,7 @@ pmix_obj_run_destructors.exit384:                 ; preds = %.lr.ph.i381, %162
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr %struct.pmix_info, ptr %240, i64 %.0296516, i32 2, i32 1
   %.val367 = load ptr, ptr %241, align 8
-  call fastcc void @_get_attrs(ptr noundef nonnull %4, ptr %.val367, ptr noundef nonnull @host_attrs)
+  call fastcc void @_get_attrs(ptr noundef %4, ptr %.val367, ptr noundef nonnull @host_attrs)
   br label %285
 
 .lr.ph532:                                        ; preds = %.preheader489, %275
@@ -1791,7 +1791,7 @@ pmix_obj_run_destructors.exit397:                 ; preds = %.lr.ph.i394, %261
   %302 = getelementptr inbounds %struct.pmix_query, ptr %301, i64 %.0297518, i32 1
   %303 = load ptr, ptr %302, align 8
   %304 = getelementptr inbounds %struct.pmix_info, ptr %303, i64 %.0296516
-  call fastcc void @_get_fns(ptr noundef nonnull %4, ptr noundef %304, ptr noundef nonnull @host_attrs)
+  call fastcc void @_get_fns(ptr noundef %4, ptr noundef %304, ptr noundef nonnull @host_attrs)
   br label %348
 
 .lr.ph530:                                        ; preds = %.preheader491, %338
@@ -2680,7 +2680,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare zeroext i1 @PMIx_Check_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_attrs(ptr noundef %0, ptr %.528.val, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_get_attrs(ptr noundef nonnull %0, ptr %.528.val, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @PMIx_Argv_split(ptr noundef %.528.val, i32 noundef 44) #17
   %4 = getelementptr inbounds i8, ptr %1, i64 120
   %5 = getelementptr inbounds i8, ptr %1, i64 240
@@ -2993,7 +2993,7 @@ pmix_attributes_lookup_term.exit:                 ; preds = %.lr.ph.i80, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_fns(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_get_fns(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 120

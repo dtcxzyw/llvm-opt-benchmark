@@ -994,7 +994,7 @@ bad_domain.exit:                                  ; preds = %170, %174
   %286 = load ptr, ptr %34, align 8
   call void %285(ptr noundef %286) #12
   %287 = load ptr, ptr @Curl_cfree, align 8
-  call void %287(ptr noundef %17) #12
+  call void %287(ptr noundef nonnull %17) #12
   br label %627
 
 288:                                              ; preds = %275
@@ -1317,7 +1317,7 @@ sanitize_cookie_path.exit615:                     ; preds = %338, %.thread.i613,
   %430 = load ptr, ptr %429, align 8
   call void %428(ptr noundef %430) #12
   %431 = load ptr, ptr @Curl_cfree, align 8
-  call void %431(ptr noundef %17) #12
+  call void %431(ptr noundef nonnull %17) #12
   br label %627
 
 432:                                              ; preds = %412, %288
@@ -1334,7 +1334,7 @@ sanitize_cookie_path.exit615:                     ; preds = %338, %.thread.i613,
   br i1 %439, label %441, label %440
 
 440:                                              ; preds = %436
-  call fastcc void @freecookie(ptr noundef nonnull %17)
+  call fastcc void @freecookie(ptr noundef %17)
   br label %627
 
 441:                                              ; preds = %436, %432
@@ -1372,7 +1372,7 @@ sub_0:                                            ; preds = %447
   br i1 %457, label %.tail.thread, label %458
 
 .tail.thread:                                     ; preds = %sub_0, %454, %.tail, %447, %443
-  call fastcc void @freecookie(ptr noundef nonnull %17)
+  call fastcc void @freecookie(ptr noundef %17)
   br label %627
 
 458:                                              ; preds = %454, %441
@@ -1394,7 +1394,7 @@ sub_0:                                            ; preds = %447
   br i1 %.not539, label %469, label %470
 
 469:                                              ; preds = %466
-  call fastcc void @freecookie(ptr noundef nonnull %17)
+  call fastcc void @freecookie(ptr noundef %17)
   br label %627
 
 470:                                              ; preds = %466, %462, %458
@@ -1523,7 +1523,7 @@ sub_0:                                            ; preds = %447
   br label %531
 
 531:                                              ; preds = %523, %524, %528
-  call fastcc void @freecookie(ptr noundef nonnull %17)
+  call fastcc void @freecookie(ptr noundef %17)
   br label %627
 
 .critedge595:                                     ; preds = %497, %496, %509, %499, %500, %503, %505, %521, %487
@@ -1619,7 +1619,7 @@ sub_0:                                            ; preds = %447
   br i1 %571, label %572, label %.thread636
 
 572:                                              ; preds = %568
-  call fastcc void @freecookie(ptr noundef nonnull %17)
+  call fastcc void @freecookie(ptr noundef %17)
   br label %627
 
 .thread636:                                       ; preds = %557, %563, %568, %565, %532, %.critedge595
@@ -1746,7 +1746,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freecookie(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @freecookie(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr @Curl_cfree, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -1768,7 +1768,7 @@ define internal fastcc void @freecookie(ptr noundef %0) unnamed_addr #0 {
   %16 = load ptr, ptr %15, align 8
   tail call void %14(ptr noundef %16) #12
   %17 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %17(ptr noundef %0) #12
+  tail call void %17(ptr noundef nonnull %0) #12
   ret void
 }
 

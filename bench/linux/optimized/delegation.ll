@@ -615,7 +615,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @nfs_set_cache_invalid(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nfs_free_delegation(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @nfs_free_delegation(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 5, ptr elementtype(i64) %2) #12, !srcloc !24
   %4 = icmp ult i8 %3, 2
@@ -673,7 +673,7 @@ define internal fastcc void @nfs_free_delegation(ptr noundef %0) unnamed_addr #0
 30:                                               ; preds = %29, %25, %21
   store ptr null, ptr %22, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @kvfree_call_rcu(ptr noundef %31, ptr noundef %0) #12
+  tail call void @kvfree_call_rcu(ptr noundef %31, ptr noundef nonnull %0) #12
   br label %.thread
 
 .thread:                                          ; preds = %18, %20, %30
@@ -1131,7 +1131,7 @@ define dso_local i32 @nfs4_inode_return_delegation(ptr noundef %0) local_unnamed
 declare dso_local i32 @nfs_wb_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs_end_delegation_return(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nfs_end_delegation_return(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 872

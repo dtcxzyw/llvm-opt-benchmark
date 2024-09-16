@@ -355,7 +355,7 @@ _ZN5ZXingL18ThresholdSharpenedENS_5RangeINS_10StrideIterIPKhEEEEiRSt6vectorIhSaI
   %.sroa.031.0.lcssa.i35.sink = phi ptr [ %.sroa.031.047.i, %81 ], [ %.sroa.031.047.i23, %99 ], [ %.sroa.031.0.i, %.lr.ph.i13 ], [ %.sroa.031.0.i31, %112 ]
   %125 = load i8, ptr %.sroa.034.0.lcssa.i34.sink, align 1
   %126 = zext i8 %125 to i32
-  %.not4.i36 = icmp sgt i32 %72, %126
+  %.not4.i36 = icmp uge i32 %73, %126
   %127 = sext i1 %.not4.i36 to i8
   store i8 %127, ptr %.sroa.031.0.lcssa.i35.sink, align 1
   %128 = load ptr, ptr %80, align 8

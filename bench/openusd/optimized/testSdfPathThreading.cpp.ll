@@ -7933,7 +7933,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit: ; preds = %94, %107
   br label %248
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %125, %112, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread, %88
-  invoke fastcc void @_ZL15_MakeRandomPathRKN32pxrInternal_v0_24__pxrReserved__7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 4 %4, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  invoke fastcc void @_ZL15_MakeRandomPathRKN32pxrInternal_v0_24__pxrReserved__7SdfPathE(ptr dead_on_unwind noalias writable align 4 %4, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %131 unwind label %129
 
 131:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
@@ -43784,7 +43784,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15_MakeRandomPathRKN32pxrInternal_v0_24__pxrReserved__7SdfPathE(ptr dead_on_unwind noalias writable align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15_MakeRandomPathRKN32pxrInternal_v0_24__pxrReserved__7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
@@ -43834,7 +43834,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %2, %20
   br i1 %36, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
 
 37:                                               ; preds = %35
-  invoke fastcc void @_ZL19_MakeRandomPrimPathv(ptr dead_on_unwind noalias nonnull writable align 4 %4)
+  invoke fastcc void @_ZL19_MakeRandomPrimPathv(ptr dead_on_unwind noalias writable align 4 %4)
           to label %38 unwind label %79
 
 38:                                               ; preds = %37
@@ -44345,7 +44345,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit90: ; preds = %256, %258, 
   ]
 
 300:                                              ; preds = %297
-  invoke fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unwind noalias nonnull writable align 4 %9)
+  invoke fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unwind noalias writable align 4 %9)
           to label %301 unwind label %79
 
 301:                                              ; preds = %300
@@ -44435,7 +44435,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit96: ; preds = %303, %305, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit81
 
 345:                                              ; preds = %297
-  invoke fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unwind noalias nonnull writable align 4 %11)
+  invoke fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unwind noalias writable align 4 %11)
           to label %346 unwind label %79
 
 346:                                              ; preds = %345
@@ -44760,7 +44760,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit113: ; preds = %459, %461,
   br label %519
 
 516:                                              ; preds = %500
-  invoke fastcc void @_ZL19_GetRandomNameTokenv(ptr dead_on_unwind noalias nonnull writable align 8 %16)
+  invoke fastcc void @_ZL19_GetRandomNameTokenv(ptr dead_on_unwind noalias writable align 8 %16)
           to label %517 unwind label %79
 
 517:                                              ; preds = %516
@@ -44849,7 +44849,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit113: ; preds = %459, %461,
   br label %564
 
 561:                                              ; preds = %545
-  invoke fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unwind noalias nonnull writable align 4 %18)
+  invoke fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unwind noalias writable align 4 %18)
           to label %562 unwind label %79
 
 562:                                              ; preds = %561
@@ -44969,7 +44969,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
   %12 = phi ptr [ %6, %4 ], [ %56, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i ]
   %.015.i.i.i = phi i64 [ 0, %4 ], [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i ]
   %13 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath16AbsoluteRootPathEv()
-  call fastcc void @_ZL15_MakeRandomPathRKN32pxrInternal_v0_24__pxrReserved__7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 4 %1, ptr noundef nonnull align 4 dereferenceable(8) %13)
+  call fastcc void @_ZL15_MakeRandomPathRKN32pxrInternal_v0_24__pxrReserved__7SdfPathE(ptr dead_on_unwind noalias writable align 4 %1, ptr noundef nonnull align 4 dereferenceable(8) %13)
   %14 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %12, i64 %.015.i.i.i
   %15 = load i32, ptr %1, align 4
   store i32 0, ptr %1, align 4
@@ -45268,7 +45268,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ExpressionPathNodeD1Ev(
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode25_RemovePathTokenFromTableEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19_MakeRandomPrimPathv(ptr dead_on_unwind noalias writable align 4 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19_MakeRandomPrimPathv(ptr dead_on_unwind noalias nonnull writable align 4 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %4 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath16AbsoluteRootPathEv()
@@ -45473,7 +45473,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath10IsPr
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath22AppendVariantSelectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19_GetRandomNameTokenv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19_GetRandomNameTokenv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
   %3 = tail call i32 @rand() #29
   %4 = sext i32 %3 to i64
@@ -45519,10 +45519,10 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath18IsPr
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath12AppendTargetERKS0_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unwind noalias writable align 4 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unwind noalias nonnull writable align 4 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
-  call fastcc void @_ZL19_MakeRandomPrimPathv(ptr dead_on_unwind noalias nonnull writable align 4 %2)
+  call fastcc void @_ZL19_MakeRandomPrimPathv(ptr dead_on_unwind noalias writable align 4 %2)
   %4 = call i32 @rand() #29
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -45588,7 +45588,7 @@ define internal fastcc void @_ZL29_MakeRandomPrimOrPropertyPathv(ptr dead_on_unw
   br label %_ZL19_GetRandomNameTokenv.exit
 
 _ZL19_GetRandomNameTokenv.exit:                   ; preds = %41, %36, %.noexc6
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %46 unwind label %74
 
 42:                                               ; preds = %8, %6

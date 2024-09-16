@@ -1157,7 +1157,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit350:       ; preds = %401, %404
   %410 = load i8, ptr @_ZZ8gmx_trajiPPcE4bMol, align 1
   %411 = trunc i8 %410 to i1
   %412 = load ptr, ptr %42, align 8
-  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %400, i32 noundef %405, i32 noundef %406, ptr noundef %407, ptr noundef %303, i1 noundef zeroext %409, i1 noundef zeroext %411, ptr noundef nonnull %32, ptr noundef %412)
+  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %400, i32 noundef %405, i32 noundef %406, ptr noundef %407, ptr noundef %303, i1 noundef zeroext %409, i1 noundef zeroext %411, ptr noundef %32, ptr noundef %412)
           to label %417 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.lr.ph660, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit467
@@ -1311,7 +1311,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit359:       ; preds = %443, %446
   %452 = load i8, ptr @_ZZ8gmx_trajiPPcE4bMol, align 1
   %453 = trunc i8 %452 to i1
   %454 = load ptr, ptr %42, align 8
-  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %442, i32 noundef %447, i32 noundef %448, ptr noundef %449, ptr noundef %303, i1 noundef zeroext %451, i1 noundef zeroext %453, ptr noundef nonnull %32, ptr noundef %454)
+  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %442, i32 noundef %447, i32 noundef %448, ptr noundef %449, ptr noundef %303, i1 noundef zeroext %451, i1 noundef zeroext %453, ptr noundef %32, ptr noundef %454)
           to label %459 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 455:                                              ; preds = %.noexc353, %434
@@ -1393,7 +1393,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit366:       ; preds = %470, %473
   %479 = load i8, ptr @_ZZ8gmx_trajiPPcE4bMol, align 1
   %480 = trunc i8 %479 to i1
   %481 = load ptr, ptr %42, align 8
-  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %469, i32 noundef %474, i32 noundef %475, ptr noundef %476, ptr noundef %303, i1 noundef zeroext %478, i1 noundef zeroext %480, ptr noundef nonnull %32, ptr noundef %481)
+  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %469, i32 noundef %474, i32 noundef %475, ptr noundef %476, ptr noundef %303, i1 noundef zeroext %478, i1 noundef zeroext %480, ptr noundef %32, ptr noundef %481)
           to label %486 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 482:                                              ; preds = %.noexc360, %464
@@ -1556,7 +1556,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit380:       ; preds = %520, %523
   %529 = load i8, ptr @_ZZ8gmx_trajiPPcE4bMol, align 1
   %530 = trunc i8 %529 to i1
   %531 = load ptr, ptr %42, align 8
-  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %519, i32 noundef %524, i32 noundef %525, ptr noundef %526, ptr noundef %303, i1 noundef zeroext %528, i1 noundef zeroext %530, ptr noundef nonnull %33, ptr noundef %531)
+  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %519, i32 noundef %524, i32 noundef %525, ptr noundef %526, ptr noundef %303, i1 noundef zeroext %528, i1 noundef zeroext %530, ptr noundef %33, ptr noundef %531)
           to label %536 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 532:                                              ; preds = %.noexc374, %514
@@ -1645,7 +1645,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit387:       ; preds = %550, %553
   %559 = load i8, ptr @_ZZ8gmx_trajiPPcE4bMol, align 1
   %560 = trunc i8 %559 to i1
   %561 = load ptr, ptr %42, align 8
-  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %549, i32 noundef %554, i32 noundef %555, ptr noundef %556, ptr noundef %303, i1 noundef zeroext %558, i1 noundef zeroext %560, ptr noundef nonnull %33, ptr noundef %561)
+  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %549, i32 noundef %554, i32 noundef %555, ptr noundef %556, ptr noundef %303, i1 noundef zeroext %558, i1 noundef zeroext %560, ptr noundef %33, ptr noundef %561)
           to label %566 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 562:                                              ; preds = %.noexc381, %544
@@ -1734,7 +1734,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit394:       ; preds = %580, %583
   %589 = load i8, ptr @_ZZ8gmx_trajiPPcE4bMol, align 1
   %590 = trunc i8 %589 to i1
   %591 = load ptr, ptr %42, align 8
-  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %579, i32 noundef %584, i32 noundef %585, ptr noundef %586, ptr noundef %303, i1 noundef zeroext %588, i1 noundef zeroext %590, ptr noundef nonnull %33, ptr noundef %591)
+  invoke fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %579, i32 noundef %584, i32 noundef %585, ptr noundef %586, ptr noundef %303, i1 noundef zeroext %588, i1 noundef zeroext %590, ptr noundef %33, ptr noundef %591)
           to label %596 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 592:                                              ; preds = %.noexc388, %574
@@ -2266,7 +2266,7 @@ _ZL12update_histoiPKiPA3_fPiPS3_f.exit:           ; preds = %._crit_edge46.i, %.
   %837 = load i8, ptr @_ZZ8gmx_trajiPPcE4bCom, align 1
   %838 = trunc i8 %837 to i1
   %839 = load i32, ptr @_ZZ8gmx_trajiPPcE7ngroups, align 4
-  invoke fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr noundef %.0215, float noundef %697, ptr noundef %836, ptr noundef %.0568, i1 noundef zeroext %838, i32 noundef %839, ptr noundef %.0577, ptr noundef %.0570, ptr noundef nonnull %32, ptr noundef nonnull %34)
+  invoke fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr noundef %.0215, float noundef %697, ptr noundef %836, ptr noundef %.0568, i1 noundef zeroext %838, i32 noundef %839, ptr noundef %.0577, ptr noundef %.0570, ptr noundef %32, ptr noundef %34)
           to label %840 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 840:                                              ; preds = %835, %832, %_ZL12update_histoiPKiPA3_fPiPS3_f.exit
@@ -2414,7 +2414,7 @@ _ZL11write_trx_xP11t_trxstatusPK10t_trxframePfbiPiPS5_.exit: ; preds = %899, %.l
   %909 = load i8, ptr @_ZZ8gmx_trajiPPcE4bCom, align 1
   %910 = trunc i8 %909 to i1
   %911 = load i32, ptr @_ZZ8gmx_trajiPPcE7ngroups, align 4
-  invoke fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr noundef %.0216, float noundef %697, ptr noundef %908, ptr noundef %.0568, i1 noundef zeroext %910, i32 noundef %911, ptr noundef %.0577, ptr noundef %.0570, ptr noundef nonnull %32, ptr noundef nonnull %34)
+  invoke fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr noundef %.0216, float noundef %697, ptr noundef %908, ptr noundef %.0568, i1 noundef zeroext %910, i32 noundef %911, ptr noundef %.0577, ptr noundef %.0570, ptr noundef %32, ptr noundef %34)
           to label %912 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 912:                                              ; preds = %907, %904, %903
@@ -2430,7 +2430,7 @@ _ZL11write_trx_xP11t_trxstatusPK10t_trxframePfbiPiPS5_.exit: ; preds = %899, %.l
   %918 = load i8, ptr @_ZZ8gmx_trajiPPcE4bCom, align 1
   %919 = trunc i8 %918 to i1
   %920 = load i32, ptr @_ZZ8gmx_trajiPPcE7ngroups, align 4
-  invoke fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr noundef %.0217, float noundef %697, ptr noundef %917, ptr noundef null, i1 noundef zeroext %919, i32 noundef %920, ptr noundef %.0577, ptr noundef %.0570, ptr noundef nonnull %32, ptr noundef nonnull %34)
+  invoke fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr noundef %.0217, float noundef %697, ptr noundef %917, ptr noundef null, i1 noundef zeroext %919, i32 noundef %920, ptr noundef %.0577, ptr noundef %.0570, ptr noundef %32, ptr noundef %34)
           to label %921 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 921:                                              ; preds = %916, %913, %912
@@ -3440,7 +3440,7 @@ _ZL11print_histoPKciPifPK16gmx_output_env_t.exit: ; preds = %._crit_edge.i451
   %1399 = load ptr, ptr %.0570, align 8
   %1400 = load float, ptr @_ZZ8gmx_trajiPPcE5scale, align 4
   %1401 = load ptr, ptr %42, align 8
-  invoke fastcc void @_ZL14write_pdb_bfacPKcS0_S0_P7t_atoms7PbcTypePA3_fiPiiS5_iS5_PKbfPK16gmx_output_env_t(ptr noundef %1393, ptr noundef %1395, ptr noundef nonnull @.str.128, ptr noundef nonnull %310, i32 noundef %1397, ptr noundef nonnull %30, i32 noundef %1398, ptr noundef %1399, i32 noundef %.1247, ptr noundef %.0581, i32 noundef %.1251, ptr noundef %.0583, ptr noundef nonnull %32, float noundef %1400, ptr noundef %1401)
+  invoke fastcc void @_ZL14write_pdb_bfacPKcS0_S0_P7t_atoms7PbcTypePA3_fiPiiS5_iS5_PKbfPK16gmx_output_env_t(ptr noundef %1393, ptr noundef %1395, ptr noundef nonnull @.str.128, ptr noundef %310, i32 noundef %1397, ptr noundef %30, i32 noundef %1398, ptr noundef %1399, i32 noundef %.1247, ptr noundef %.0581, i32 noundef %.1251, ptr noundef %.0583, ptr noundef %32, float noundef %1400, ptr noundef %1401)
           to label %1402 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1402:                                             ; preds = %1396, %.loopexit589
@@ -3460,7 +3460,7 @@ _ZL11print_histoPKciPifPK16gmx_output_env_t.exit: ; preds = %._crit_edge.i451
   %1410 = load ptr, ptr %.0570, align 8
   %1411 = load float, ptr @_ZZ8gmx_trajiPPcE5scale, align 4
   %1412 = load ptr, ptr %42, align 8
-  invoke fastcc void @_ZL14write_pdb_bfacPKcS0_S0_P7t_atoms7PbcTypePA3_fiPiiS5_iS5_PKbfPK16gmx_output_env_t(ptr noundef %1404, ptr noundef %1406, ptr noundef nonnull @.str.129, ptr noundef nonnull %310, i32 noundef %1408, ptr noundef nonnull %30, i32 noundef %1409, ptr noundef %1410, i32 noundef %.1247, ptr noundef %.0581, i32 noundef %.1249, ptr noundef %.0582, ptr noundef nonnull %32, float noundef %1411, ptr noundef %1412)
+  invoke fastcc void @_ZL14write_pdb_bfacPKcS0_S0_P7t_atoms7PbcTypePA3_fiPiiS5_iS5_PKbfPK16gmx_output_env_t(ptr noundef %1404, ptr noundef %1406, ptr noundef nonnull @.str.129, ptr noundef %310, i32 noundef %1408, ptr noundef %30, i32 noundef %1409, ptr noundef %1410, i32 noundef %.1247, ptr noundef %.0581, i32 noundef %.1249, ptr noundef %.0582, ptr noundef %32, float noundef %1411, ptr noundef %1412)
           to label %1413 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1413:                                             ; preds = %1407, %1402
@@ -3846,7 +3846,7 @@ declare noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx111
 declare noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr nocapture noundef readonly %7, ptr noundef %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11make_legendP8_IO_FILEiiPiPPcbbPKbPK16gmx_output_env_t(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr nocapture noundef nonnull readonly %7, ptr noundef %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::vector", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4199,7 +4199,7 @@ declare noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr noundef
 declare void @_Z15gmx_rmpbc_trxfrP9gmx_rmpbcP10t_trxframe(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr nocapture noundef %0, float noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9) unnamed_addr #0 {
+define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr nocapture noundef %0, float noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef nonnull readonly %8, ptr nocapture noundef nonnull readonly %9) unnamed_addr #0 {
   %11 = load atomic i8, ptr @_ZGVZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKcE3xav acquire, align 8
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %17, !prof !17
@@ -4265,7 +4265,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %43 = tail call noundef float @llvm.fmuladd.f32(float %42, float %42, float %40)
   %sqrt.i.us.i = tail call noundef float @llvm.sqrt.f32(float %43)
   %44 = fpext float %sqrt.i.us.i to double
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %44) #22
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull readonly %9, double noundef %44) #22
   br label %46
 
 46:                                               ; preds = %34, %31
@@ -4284,7 +4284,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %52 = getelementptr inbounds [3 x float], ptr %26, i64 %indvars.iv38.i, i64 %indvars.iv34.i
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %54) #22
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull readonly %9, double noundef %54) #22
   br label %56
 
 56:                                               ; preds = %51, %47
@@ -4327,7 +4327,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %76 = tail call noundef float @llvm.fmuladd.f32(float %75, float %75, float %73)
   %sqrt.i.us.i28 = tail call noundef float @llvm.sqrt.f32(float %76)
   %77 = fpext float %sqrt.i.us.i28 to double
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %77) #22
+  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull readonly %9, double noundef %77) #22
   br label %79
 
 79:                                               ; preds = %67, %64
@@ -4346,7 +4346,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %85 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv38.i22, i64 %indvars.iv34.i23
   %86 = load float, ptr %85, align 4
   %87 = fpext float %86 to double
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %87) #22
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull readonly %9, double noundef %87) #22
   br label %89
 
 89:                                               ; preds = %84, %80
@@ -4372,7 +4372,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %98 = getelementptr inbounds [3 x float], ptr %2, i64 %92, i64 %indvars.iv.i
   %99 = load float, ptr %98, align 4
   %100 = fpext float %99 to double
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %100) #22
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull readonly %9, double noundef %100) #22
   br label %102
 
 102:                                              ; preds = %97, %93
@@ -4397,7 +4397,7 @@ define internal fastcc void @_ZL10print_dataP8_IO_FILEfPA3_fPfbiPiPS4_PbPKc(ptr 
   %115 = tail call noundef float @llvm.fmuladd.f32(float %114, float %114, float %112)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %115)
   %116 = fpext float %sqrt.i.i to double
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef readonly %9, double noundef %116) #22
+  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull readonly %9, double noundef %116) #22
   br label %118
 
 118:                                              ; preds = %106, %103
@@ -4422,7 +4422,7 @@ declare void @_Z9close_trxP11t_trxstatus(ptr noundef) local_unnamed_addr #4
 declare void @_Z9xvgrcloseP8_IO_FILE(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL14write_pdb_bfacPKcS0_S0_P7t_atoms7PbcTypePA3_fiPiiS5_iS5_PKbfPK16gmx_output_env_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr nocapture noundef %11, ptr nocapture noundef readonly %12, float noundef %13, ptr noundef %14) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14write_pdb_bfacPKcS0_S0_P7t_atoms7PbcTypePA3_fiPiiS5_iS5_PKbfPK16gmx_output_env_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr nocapture noundef %11, ptr nocapture noundef nonnull readonly %12, float noundef %13, ptr noundef %14) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -4812,7 +4812,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %66, %69
 
 .loopexit:                                        ; preds = %174, %167, %.preheader159, %.preheader158
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(8) %16, i8 noundef zeroext 2)
-  invoke void @_Z22write_sto_conf_indexedRKNSt10filesystem7__cxx114pathEPKcPK7t_atomsPA3_KfSB_7PbcTypeSB_iPi(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %9, ptr noundef null, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7)
+  invoke void @_Z22write_sto_conf_indexedRKNSt10filesystem7__cxx114pathEPKcPK7t_atomsPA3_KfSB_7PbcTypeSB_iPi(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %9, ptr noundef null, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef %7)
           to label %183 unwind label %187
 
 183:                                              ; preds = %.loopexit

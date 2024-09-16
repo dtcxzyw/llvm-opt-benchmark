@@ -1544,7 +1544,7 @@ define hidden void @"_ZN4core3ptr335drop_in_place$LT$alloc..vec..Vec$LT$parquet.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$thrift..errors..Error$GT$17hec68839bc111af21E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$thrift..errors..Error$GT$17hec68839bc111af21E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -2235,7 +2235,7 @@ define hidden void @_ZN7parquet12bloom_filter4Sbbf5write17hdbcdb53584b3c115E(ptr
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$thrift..errors..Error$GT$17hec68839bc111af21E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14) #29
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$thrift..errors..Error$GT$17hec68839bc111af21E"(ptr noalias noundef align 8 dereferenceable(40) %14) #29
           to label %.body unwind label %34, !noalias !574
 
 34:                                               ; preds = %32
@@ -2248,7 +2248,7 @@ define hidden void @_ZN7parquet12bloom_filter4Sbbf5write17hdbcdb53584b3c115E(ptr
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !562
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !558
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !575
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$thrift..errors..Error$GT$17hec68839bc111af21E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14)
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$thrift..errors..Error$GT$17hec68839bc111af21E"(ptr noalias noundef align 8 dereferenceable(40) %14)
           to label %40 unwind label %.loopexit.split-lp
 
 36:                                               ; preds = %27

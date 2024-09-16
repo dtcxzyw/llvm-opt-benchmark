@@ -3874,7 +3874,7 @@ flush_pending.exit272:                            ; preds = %347, %363, %381
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 180
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -4184,7 +4184,7 @@ flush_pending.exit61:                             ; preds = %159, %175, %193
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 180
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = icmp eq i32 %1, 0
@@ -6075,7 +6075,7 @@ flush_pending.exit193:                            ; preds = %408, %423, %441
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef range(i32 1, 65536) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 188
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 96

@@ -1731,7 +1731,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @qemu_send_packet_async_with_flags(ptr noundef %sender, i32 noundef %flags, ptr noundef %buf, i32 noundef %size, ptr noundef %sent_cb) unnamed_addr #0 {
+define internal fastcc i64 @qemu_send_packet_async_with_flags(ptr noundef %sender, i32 noundef range(i32 0, 2) %flags, ptr noundef %buf, i32 noundef %size, ptr noundef %sent_cb) unnamed_addr #0 {
 entry:
   %iov.i21 = alloca %struct.iovec, align 8
   %iov.i = alloca %struct.iovec, align 8

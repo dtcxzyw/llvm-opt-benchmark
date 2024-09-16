@@ -5841,7 +5841,7 @@ _ZN5clang4ento22PathSensitiveBugReport10addVisitorINS0_10TagVisitorEJEEEvDpOT0_.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25), !noalias !123
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento18BugReporterContextE, i64 16), ptr %41, align 8, !noalias !123
   store ptr %1, ptr %337, align 8, !noalias !123
-  call fastcc void @_ZL27generateVisitorsDiagnosticsPN5clang4ento22PathSensitiveBugReportEPKNS0_12ExplodedNodeERNS0_18BugReporterContextE(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull %468, ptr noundef %469, ptr noundef nonnull align 8 dereferenceable(16) %41), !noalias !123
+  call fastcc void @_ZL27generateVisitorsDiagnosticsPN5clang4ento22PathSensitiveBugReportEPKNS0_12ExplodedNodeERNS0_18BugReporterContextE(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull %468, ptr noundef %469, ptr noundef nonnull align 8 dereferenceable(16) %41), !noalias !123
   %490 = getelementptr inbounds nuw i8, ptr %468, i64 704
   %491 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %490) #26, !noalias !123
   %492 = getelementptr inbounds i8, ptr %468, i64 824
@@ -5921,7 +5921,7 @@ _ZNKSt14default_deleteIN5clang4ento18BugReporterVisitorEEclEPS2_.exit.i.i40.i: ;
 _ZN5clang4ento22PathSensitiveBugReport10addVisitorINS0_19Z3CrosscheckVisitorEJRNS3_8Z3ResultERKNS_15AnalyzerOptionsEEEEvDpOT0_.exit.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento18BugReporterVisitorEEclEPS2_.exit.i.i40.i, %_ZN5clang4ento22PathSensitiveBugReport13clearVisitorsEv.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24), !noalias !123
   %526 = load ptr, ptr %336, align 8, !noalias !123
-  call fastcc void @_ZL27generateVisitorsDiagnosticsPN5clang4ento22PathSensitiveBugReportEPKNS0_12ExplodedNodeERNS0_18BugReporterContextE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull %468, ptr noundef %526, ptr noundef nonnull align 8 dereferenceable(16) %41), !noalias !123
+  call fastcc void @_ZL27generateVisitorsDiagnosticsPN5clang4ento22PathSensitiveBugReportEPKNS0_12ExplodedNodeERNS0_18BugReporterContextE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull %468, ptr noundef %526, ptr noundef nonnull align 8 dereferenceable(16) %41), !noalias !123
   %527 = load ptr, ptr %44, align 8, !noalias !123
   %.not.i41.i = icmp eq ptr %527, null
   br i1 %.not.i41.i, label %_ZNSt10unique_ptrIN4llvm8DenseMapIPKN5clang4ento12ExplodedNodeESt6vectorISt10shared_ptrINS3_19PathDiagnosticPieceEESaISA_EENS0_12DenseMapInfoIS6_vEENS0_6detail12DenseMapPairIS6_SC_EEEESt14default_deleteISI_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm8DenseMapIPKN5clang4ento12ExplodedNodeESt6vectorISt10shared_ptrINS3_19PathDiagnosticPieceEESaISA_EENS0_12DenseMapInfoIS6_vEENS0_6detail12DenseMapPairIS6_SC_EEEEEclEPSI_.exit.i.i
@@ -6146,7 +6146,7 @@ _ZN12_GLOBAL__N_121PathDiagnosticBuilder15findValidReportERN4llvm8ArrayRefIPN5cl
   store ptr %606, ptr %569, align 8, !noalias !162
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %570, ptr noundef nonnull %571, i64 noundef 6) #26, !noalias !162
   %.val.i.i = load ptr, ptr %569, align 8, !noalias !162
-  call fastcc void @_ZL32generateEmptyDiagnosticForReportPKN5clang4ento22PathSensitiveBugReportERKNS_13SourceManagerEPKNS_4DeclE(ptr dead_on_unwind noalias nonnull writable align 8 %572, ptr noundef %597, ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, ptr noundef %595), !noalias !162
+  call fastcc void @_ZL32generateEmptyDiagnosticForReportPKN5clang4ento22PathSensitiveBugReportERKNS_13SourceManagerEPKNS_4DeclE(ptr dead_on_unwind noalias writable align 8 %572, ptr noundef %597, ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, ptr noundef %595), !noalias !162
   %.sroa.1.0.copyload.i.i.i = load i64, ptr %.sroa.1.0..sroa_idx.i.i.i.i, align 8, !noalias !162
   %607 = load ptr, ptr %572, align 8, !noalias !162
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 344
@@ -6261,7 +6261,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstructC2EPKN5clang4ento22PathDiagnosticConsu
   %676 = getelementptr inbounds i8, ptr %675, i64 32
   %677 = load ptr, ptr %676, align 8, !noalias !162
   %678 = call noundef nonnull align 8 dereferenceable(696) ptr %677(ptr noundef nonnull align 8 dereferenceable(8) %674) #26, !noalias !162
-  call fastcc void @_ZL32generateEmptyDiagnosticForReportPKN5clang4ento22PathSensitiveBugReportERKNS_13SourceManagerEPKNS_4DeclE(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef %671, ptr noundef nonnull align 8 dereferenceable(696) %678, ptr noundef %595)
+  call fastcc void @_ZL32generateEmptyDiagnosticForReportPKN5clang4ento22PathSensitiveBugReportERKNS_13SourceManagerEPKNS_4DeclE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef %671, ptr noundef nonnull align 8 dereferenceable(696) %678, ptr noundef %595)
   br label %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit139.i
 
 679:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstructC2EPKN5clang4ento22PathDiagnosticConsumerEPKNS2_12ExplodedNodeEPKNS2_22PathSensitiveBugReportEPKNS1_4DeclE.exit.i
@@ -10822,7 +10822,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 declare void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27generateVisitorsDiagnosticsPN5clang4ento22PathSensitiveBugReportEPKNS0_12ExplodedNodeERNS0_18BugReporterContextE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #3 {
+define internal fastcc void @_ZL27generateVisitorsDiagnosticsPN5clang4ento22PathSensitiveBugReportEPKNS0_12ExplodedNodeERNS0_18BugReporterContextE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #3 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -12970,7 +12970,7 @@ _ZSt14__partial_sortIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12Expl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_T2_(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr %3, ptr %4, ptr nocapture readonly %5) unnamed_addr #18 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_T2_(ptr nocapture noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, ptr %4, ptr nocapture readonly %5) unnamed_addr #18 {
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
   %9 = icmp slt i64 %1, %8
@@ -15180,7 +15180,7 @@ _ZN12_GLOBAL__N_121PathDiagnosticBuilderD2Ev.exit: ; preds = %_ZNSt10unique_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32generateEmptyDiagnosticForReportPKN5clang4ento22PathSensitiveBugReportERKNS_13SourceManagerEPKNS_4DeclE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc void @_ZL32generateEmptyDiagnosticForReportPKN5clang4ento22PathSensitiveBugReportERKNS_13SourceManagerEPKNS_4DeclE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef %3) unnamed_addr #3 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -16589,7 +16589,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i: ; preds = %5
   %.val.val.i.i = load i64, ptr %575, align 8, !noalias !316
   %576 = and i64 %.val.val.i.i, -8
   %577 = inttoptr i64 %576 to ptr
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull %557, ptr noundef %577, i1 noundef zeroext false), !noalias !316
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull %557, ptr noundef %577, i1 noundef zeroext false), !noalias !316
   %578 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %579 = load ptr, ptr %578, align 8, !noalias !316
   %580 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -16943,7 +16943,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36.i.i:           ; preds = %732, %730
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit44.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit44.i.i:           ; preds = %750, %748
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull readonly align 8 dereferenceable(168) %1), !noalias !325
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull readonly align 8 dereferenceable(168) %1), !noalias !325
   %.sroa.047.0.copyload49.i.i = load i32, ptr %27, align 8, !noalias !325
   %.sroa.4.0..sroa_idx51.i.i = getelementptr inbounds i8, ptr %27, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.4.i.i, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.4.0..sroa_idx51.i.i, i64 28, i1 false), !noalias !325
@@ -17034,7 +17034,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit108.i: ; preds = %
   %777 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store ptr %34, ptr %777, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef null, i64 noundef 0, i32 noundef 0) #26
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
   %778 = getelementptr inbounds i8, ptr %1, i64 160
   %.val85.i = load ptr, ptr %778, align 8
   %779 = getelementptr inbounds nuw i8, ptr %.val85.i, i64 344
@@ -17176,7 +17176,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %825, %823
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit127.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit127.i:            ; preds = %849, %847, %842, %840
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
   %852 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %853 = load ptr, ptr %852, align 8
   %.not75.i = icmp eq ptr %853, null
@@ -17188,7 +17188,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit127.i:            ; preds = %849, %847, %842, %8
   %.val93.val.i = load i64, ptr %855, align 8
   %856 = and i64 %.val93.val.i, -8
   %857 = inttoptr i64 %856 to ptr
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull %853, ptr noundef %857, i1 noundef zeroext false)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull %853, ptr noundef %857, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %39, ptr noundef nonnull align 8 dereferenceable(60) %40, i64 60, i1 false)
   br label %858
 
@@ -17517,7 +17517,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39.i.i:           ; preds = %998, %996
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %.sroa.796.i.i, ptr noundef nonnull align 4 dereferenceable(21) %.sroa.796.0..sroa_idx98.i.i, i64 21, i1 false), !noalias !346
   %.sroa.8101.0..sroa_idx103.i.i = getelementptr inbounds i8, ptr %12, i64 57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8101.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8101.0..sroa_idx103.i.i, i64 3, i1 false), !noalias !346
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1), !noalias !346
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1), !noalias !346
   %.sroa.069.0.copyload71.i.i = load i32, ptr %13, align 8, !noalias !346
   br label %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i
 
@@ -17627,7 +17627,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52.i.i:           ; preds = %1051, %1049
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %.sroa.796.i.i, ptr noundef nonnull align 4 dereferenceable(21) %.sroa.796.0..sroa_idx99.i.i, i64 21, i1 false), !noalias !346
   %.sroa.8101.0..sroa_idx104.i.i = getelementptr inbounds i8, ptr %14, i64 57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8101.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8101.0..sroa_idx104.i.i, i64 3, i1 false), !noalias !346
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1), !noalias !346
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1), !noalias !346
   %.sroa.069.0.copyload72.i.i = load i32, ptr %15, align 8, !noalias !346
   br label %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i
 
@@ -17789,7 +17789,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i: ; preds = %
   store ptr %41, ptr %1124, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef null, i64 noundef 0, i32 noundef 0) #26
   %1125 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull @.str.33)
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
   %1126 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %1127 = load ptr, ptr %1126, align 8
   %.not74.i = icmp eq ptr %1127, null
@@ -17801,7 +17801,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i: ; preds = %
   %.val92.val.i = load i64, ptr %1129, align 8
   %1130 = and i64 %.val92.val.i, -8
   %1131 = inttoptr i64 %1130 to ptr
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull %1127, ptr noundef %1131, i1 noundef zeroext false)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull %1127, ptr noundef %1131, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %43, ptr noundef nonnull align 8 dereferenceable(60) %44, i64 60, i1 false)
   br label %1132
 
@@ -17827,7 +17827,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i: ; preds = %
   br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
 
 1140:                                             ; preds = %1114
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
   %1141 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %1142 = load ptr, ptr %1141, align 8
   %.not73.i = icmp eq ptr %1142, null
@@ -17839,7 +17839,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i: ; preds = %
   %.val91.val.i = load i64, ptr %1144, align 8
   %1145 = and i64 %.val91.val.i, -8
   %1146 = inttoptr i64 %1145 to ptr
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull %1142, ptr noundef %1146, i1 noundef zeroext false)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull %1142, ptr noundef %1146, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %47, ptr noundef nonnull align 8 dereferenceable(60) %48, i64 60, i1 false)
   br label %1147
 
@@ -17944,7 +17944,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit180.i: 
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit183.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit183.i:            ; preds = %1198, %1196
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
   %1201 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %1202 = load ptr, ptr %1201, align 8
   %.not72.i = icmp eq ptr %1202, null
@@ -17956,7 +17956,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit183.i:            ; preds = %1198, %1196
   %.val90.val.i = load i64, ptr %1204, align 8
   %1205 = and i64 %.val90.val.i, -8
   %1206 = inttoptr i64 %1205 to ptr
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull %1202, ptr noundef %1206, i1 noundef zeroext false)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull %1202, ptr noundef %1206, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %51, ptr noundef nonnull align 8 dereferenceable(60) %52, i64 60, i1 false)
   br label %1207
 
@@ -18023,7 +18023,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit199.i: 
   br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
 
 1239:                                             ; preds = %1176
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
   %1240 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %1241 = load ptr, ptr %1240, align 8
   %.not71.i = icmp eq ptr %1241, null
@@ -18035,7 +18035,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit199.i: 
   %.val89.val.i = load i64, ptr %1243, align 8
   %1244 = and i64 %.val89.val.i, -8
   %1245 = inttoptr i64 %1244 to ptr
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %54, ptr noundef nonnull %1241, ptr noundef %1245, i1 noundef zeroext false)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull %1241, ptr noundef %1245, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %53, ptr noundef nonnull align 8 dereferenceable(60) %54, i64 60, i1 false)
   br label %1246
 
@@ -18097,7 +18097,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit215.i: 
   br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
 
 1275:                                             ; preds = %552
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
   %1276 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %1277 = load ptr, ptr %1276, align 8
   %.not70.i = icmp eq ptr %1277, null
@@ -18109,7 +18109,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit215.i: 
   %.val88.val.i = load i64, ptr %1279, align 8
   %1280 = and i64 %.val88.val.i, -8
   %1281 = inttoptr i64 %1280 to ptr
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull %1277, ptr noundef %1281, i1 noundef zeroext false)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull %1277, ptr noundef %1281, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %55, ptr noundef nonnull align 8 dereferenceable(60) %56, i64 60, i1 false)
   br label %1282
 
@@ -20131,7 +20131,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4ento22PathDiagnosticLocationELb1EE9pus
   %369 = add i64 %368, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %369) #26
   %370 = load ptr, ptr %331, align 8
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %370, ptr noundef nonnull %37, i1 noundef zeroext true)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %370, ptr noundef nonnull %37, i1 noundef zeroext true)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %7, ptr noundef nonnull align 8 dereferenceable(60) %8, i64 60, i1 false)
   %371 = load ptr, ptr %332, align 8
   %.not75.i = icmp eq ptr %371, null
@@ -20145,7 +20145,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4ento22PathDiagnosticLocationELb1EE9pus
   %.sroa.263.0.copyload91.i = load ptr, ptr %.sroa.263.0..sroa_idx90.i, align 8
   %.not.i92.i = icmp eq ptr %.sroa.263.0.copyload91.i, null
   %.0.i93.i = select i1 %.not.i92.i, ptr null, ptr %.sroa.161.0.copyload89.i
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %.0.i93.i, ptr noundef nonnull %37, i1 noundef zeroext true)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %.0.i93.i, ptr noundef nonnull %37, i1 noundef zeroext true)
   %373 = load ptr, ptr %334, align 8
   %.not7694.i = icmp eq ptr %373, null
   br i1 %.not7694.i, label %.loopexit.i, label %.lr.ph97.i
@@ -20306,7 +20306,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i: ; p
   %.sroa.263.0.copyload.i = load ptr, ptr %.sroa.263.0..sroa_idx.i, align 8
   %.not.i.i196 = icmp eq ptr %.sroa.263.0.copyload.i, null
   %.0.i.i197 = select i1 %.not.i.i196, ptr null, ptr %.sroa.161.0.copyload.i
-  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %.0.i.i197, ptr noundef nonnull %37, i1 noundef zeroext true)
+  call fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %.0.i.i197, ptr noundef nonnull %37, i1 noundef zeroext true)
   %431 = load ptr, ptr %334, align 8
   %.not76.i = icmp eq ptr %431, null
   br i1 %.not76.i, label %.loopexit.i, label %375, !llvm.loop !423
@@ -24631,7 +24631,7 @@ _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEEC2ISaIvEJRNS1_22PathDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -24657,7 +24657,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18Executio
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %16, %14, %4
-  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(168) %3)
+  call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(168) %3)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
@@ -24981,7 +24981,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %2, %12, %14, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode25getNextStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.val) #26
@@ -25042,7 +25042,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18Executio
   %39 = getelementptr inbounds i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef nonnull align 8 dereferenceable(696) ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %37) #26
-  tail call void @_ZN5clang4ento22PathDiagnosticLocation13createDeclEndEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %0, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(696) %41) #26
+  tail call void @_ZN5clang4ento22PathDiagnosticLocation13createDeclEndEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %0, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(696) %41) #26
   br label %42
 
 42:                                               ; preds = %30, %6
@@ -25050,7 +25050,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18Executio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
+define internal fastcc void @_ZL24getEnclosingStmtLocationPKN5clang4StmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %8
 

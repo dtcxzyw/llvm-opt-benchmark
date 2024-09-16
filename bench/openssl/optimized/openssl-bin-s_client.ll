@@ -1167,22 +1167,22 @@ sw.bb124:                                         ; preds = %if.end119
 
 sw.bb126:                                         ; preds = %if.end119
   %call127 = call ptr @opt_arg() #16
-  call fastcc void @freeandcopy(ptr noundef nonnull %host, ptr noundef %call127)
+  call fastcc void @freeandcopy(ptr noundef %host, ptr noundef %call127)
   br label %sw.epilog485
 
 sw.bb128:                                         ; preds = %if.end119
   %call129 = call ptr @opt_arg() #16
-  call fastcc void @freeandcopy(ptr noundef nonnull %port, ptr noundef %call129)
+  call fastcc void @freeandcopy(ptr noundef %port, ptr noundef %call129)
   br label %sw.epilog485
 
 sw.bb130:                                         ; preds = %if.end119
   %call131 = call ptr @opt_arg() #16
-  call fastcc void @freeandcopy(ptr noundef nonnull %connectstr, ptr noundef %call131)
+  call fastcc void @freeandcopy(ptr noundef %connectstr, ptr noundef %call131)
   br label %sw.epilog485
 
 sw.bb132:                                         ; preds = %if.end119
   %call133 = call ptr @opt_arg() #16
-  call fastcc void @freeandcopy(ptr noundef nonnull %bindstr, ptr noundef %call133)
+  call fastcc void @freeandcopy(ptr noundef %bindstr, ptr noundef %call133)
   br label %sw.epilog485
 
 sw.bb134:                                         ; preds = %if.end119
@@ -1199,7 +1199,7 @@ sw.bb138:                                         ; preds = %if.end119
 
 sw.bb140:                                         ; preds = %if.end119
   %call141 = call ptr @opt_arg() #16
-  call fastcc void @freeandcopy(ptr noundef nonnull %host, ptr noundef %call141)
+  call fastcc void @freeandcopy(ptr noundef %host, ptr noundef %call141)
   br label %sw.epilog485
 
 sw.bb142:                                         ; preds = %if.end119, %if.end119
@@ -2018,7 +2018,7 @@ if.then492:                                       ; preds = %if.then489
 if.end494:                                        ; preds = %if.then489
   %call495 = call ptr @opt_rest() #16
   %58 = load ptr, ptr %call495, align 8
-  call fastcc void @freeandcopy(ptr noundef nonnull %connectstr, ptr noundef %58)
+  call fastcc void @freeandcopy(ptr noundef %connectstr, ptr noundef %58)
   br label %if.end500
 
 if.else:                                          ; preds = %while.end
@@ -2998,7 +2998,7 @@ if.then1062:                                      ; preds = %if.then1059
   br i1 %cmp1063, label %land.lhs.true1075, label %lor.lhs.false1065
 
 lor.lhs.false1065:                                ; preds = %if.then1062
-  %call1066 = call fastcc i32 @is_dNS_name(ptr noundef nonnull %164)
+  %call1066 = call fastcc i32 @is_dNS_name(ptr noundef %164)
   %tobool1067.not = icmp eq i32 %call1066, 0
   br i1 %tobool1067.not, label %if.end1081, label %land.lhs.true1075
 
@@ -3042,7 +3042,7 @@ if.then1093:                                      ; preds = %if.end1090
   br label %if.then2501
 
 if.end1095:                                       ; preds = %if.end1090
-  %call1096 = call fastcc i32 @tlsa_import_rrset(ptr noundef nonnull %call1001, ptr noundef nonnull %dane_tlsa_rrset.1.lcssa)
+  %call1096 = call fastcc i32 @tlsa_import_rrset(ptr noundef %call1001, ptr noundef %dane_tlsa_rrset.1.lcssa)
   %cmp1097.not.not = icmp eq i32 %call1096, 0
   br i1 %cmp1097.not.not, label %if.then1099, label %if.end1101
 
@@ -4410,7 +4410,7 @@ if.end2050:                                       ; preds = %if.end2041.thread, 
   br i1 %tobool2051.not, label %do.body2053, label %if.end2079
 
 do.body2053:                                      ; preds = %if.end2050, %do.cond2062
-  %call2054 = call fastcc i32 @user_data_process(ptr noundef nonnull %user_data, ptr noundef nonnull %cbuf_len, ptr noundef nonnull %cbuf_off)
+  %call2054 = call fastcc i32 @user_data_process(ptr noundef %user_data, ptr noundef %cbuf_len, ptr noundef %cbuf_off)
   switch i32 %call2054, label %sw.default2055 [
     i32 1, label %shut
     i32 2, label %re_start
@@ -5020,7 +5020,7 @@ if.then2501:                                      ; preds = %land.lhs.true1157, 
 
 if.then2504:                                      ; preds = %if.then2501
   %367 = load ptr, ptr @bio_c_out, align 8
-  call fastcc void @print_stuff(ptr noundef %367, ptr noundef nonnull %call1001, i32 noundef 1)
+  call fastcc void @print_stuff(ptr noundef %367, ptr noundef %call1001, i32 noundef 1)
   br label %if.end2505
 
 if.end2505:                                       ; preds = %if.then2504, %if.then2501
@@ -5123,7 +5123,7 @@ declare i32 @opt_next() local_unnamed_addr #1
 declare void @opt_help(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeandcopy(ptr nocapture noundef %dest, ptr noundef %source) unnamed_addr #0 {
+define internal fastcc void @freeandcopy(ptr nocapture noundef nonnull %dest, ptr noundef %source) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dest, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.394, i32 noundef 805) #16
@@ -5681,7 +5681,7 @@ declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #1
 declare i64 @SSL_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr nocapture noundef readonly %host) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr nocapture noundef nonnull readonly %host) unnamed_addr #7 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %host) #17
   %cmp32.not = icmp eq i64 %call, 0
@@ -5781,7 +5781,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare i32 @SSL_dane_enable(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tlsa_import_rrset(ptr noundef %con, ptr noundef %rrset) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tlsa_import_rrset(ptr noundef nonnull %con, ptr noundef nonnull %rrset) unnamed_addr #0 {
 entry:
   %cp.i = alloca ptr, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %rrset) #16
@@ -5824,7 +5824,7 @@ for.end.i:                                        ; preds = %for.inc.i
   %7 = load i8, ptr @tlsa_import_rr.selector, align 1
   %8 = load i8, ptr @tlsa_import_rr.mtype, align 1
   %9 = load ptr, ptr @tlsa_import_rr.data, align 8
-  %call3.i = call i32 @SSL_dane_tlsa_add(ptr noundef %con, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr noundef %9, i64 noundef %call.i) #16
+  %call3.i = call i32 @SSL_dane_tlsa_add(ptr noundef nonnull %con, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr noundef %9, i64 noundef %call.i) #16
   %10 = load ptr, ptr @tlsa_import_rr.data, align 8
   call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str.394, i32 noundef 444) #16
   %cmp4.i = icmp eq i32 %call3.i, 0
@@ -6015,7 +6015,7 @@ declare ptr @ASN1_generate_nconf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ldap_ExtendedResponse_parse(ptr noundef %buf, i64 noundef %rem) unnamed_addr #0 {
+define internal fastcc i32 @ldap_ExtendedResponse_parse(ptr noundef %buf, i64 noundef range(i64 0, 2147483648) %rem) unnamed_addr #0 {
 entry:
   %cur = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -6137,20 +6137,20 @@ declare i32 @SSL_get_key_update_type(ptr noundef) local_unnamed_addr #1
 declare void @print_ssl_summary(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_stuff(ptr noundef %bio, ptr noundef %s, i32 noundef %full) unnamed_addr #0 {
+define internal fastcc void @print_stuff(ptr noundef %bio, ptr noundef nonnull %s, i32 noundef range(i32 0, 2) %full) unnamed_addr #0 {
 entry:
   %proto = alloca ptr, align 8
   %proto_len = alloca i32, align 4
   %proto179 = alloca ptr, align 8
   %proto_len180 = alloca i32, align 4
-  %call = tail call i32 @SSL_version(ptr noundef %s) #16
+  %call = tail call i32 @SSL_version(ptr noundef nonnull %s) #16
   %cmp = icmp eq i32 %call, 772
-  %call1 = tail call ptr @SSL_get_SSL_CTX(ptr noundef %s) #16
+  %call1 = tail call ptr @SSL_get_SSL_CTX(ptr noundef nonnull %s) #16
   %tobool.not = icmp eq i32 %full, 0
   br i1 %tobool.not, label %if.end140, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call ptr @SSL_get_peer_cert_chain(ptr noundef %s) #16
+  %call2 = tail call ptr @SSL_get_peer_cert_chain(ptr noundef nonnull %s) #16
   %cmp3.not = icmp ne ptr %call2, null
   br i1 %cmp3.not, label %if.then5, label %if.end56
 
@@ -6216,7 +6216,7 @@ for.inc:                                          ; preds = %if.end, %if.then51
 
 if.end56:                                         ; preds = %for.inc, %if.then5, %if.then
   %call57 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.570) #16
-  %call58 = tail call ptr @SSL_get0_peer_certificate(ptr noundef %s) #16
+  %call58 = tail call ptr @SSL_get0_peer_certificate(ptr noundef nonnull %s) #16
   %cmp59.not = icmp eq ptr %call58, null
   br i1 %cmp59.not, label %if.else, label %if.then61
 
@@ -6239,7 +6239,7 @@ if.else:                                          ; preds = %if.end56
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else, %if.end67
-  %call70 = tail call i32 @SSL_get_negotiated_client_cert_type(ptr noundef %s) #16
+  %call70 = tail call i32 @SSL_get_negotiated_client_cert_type(ptr noundef nonnull %s) #16
   %cmp71 = icmp eq i32 %call70, 2
   br i1 %cmp71, label %if.then73, label %if.end75
 
@@ -6248,7 +6248,7 @@ if.then73:                                        ; preds = %if.end69
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then73, %if.end69
-  %call76 = tail call i32 @SSL_get_negotiated_server_cert_type(ptr noundef %s) #16
+  %call76 = tail call i32 @SSL_get_negotiated_server_cert_type(ptr noundef nonnull %s) #16
   %cmp77 = icmp eq i32 %call76, 2
   br i1 %cmp77, label %if.then79, label %if.end81
 
@@ -6261,7 +6261,7 @@ if.end81:                                         ; preds = %if.then79, %if.end7
   br i1 %.b139, label %if.then83, label %if.end93
 
 if.then83:                                        ; preds = %if.end81
-  %call84 = tail call ptr @SSL_get0_peer_rpk(ptr noundef %s) #16
+  %call84 = tail call ptr @SSL_get0_peer_rpk(ptr noundef nonnull %s) #16
   %cmp85.not = icmp eq ptr %call84, null
   br i1 %cmp85.not, label %if.else90, label %if.then87
 
@@ -6275,23 +6275,23 @@ if.else90:                                        ; preds = %if.then83
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then87, %if.else90, %if.end81
-  tail call void @print_ca_names(ptr noundef %bio, ptr noundef %s) #16
-  %call94 = tail call i32 @ssl_print_sigalgs(ptr noundef %bio, ptr noundef %s) #16
-  %call95 = tail call i32 @ssl_print_tmp_key(ptr noundef %bio, ptr noundef %s) #16
+  tail call void @print_ca_names(ptr noundef %bio, ptr noundef nonnull %s) #16
+  %call94 = tail call i32 @ssl_print_sigalgs(ptr noundef %bio, ptr noundef nonnull %s) #16
+  %call95 = tail call i32 @ssl_print_tmp_key(ptr noundef %bio, ptr noundef nonnull %s) #16
   br i1 %cmp59.not, label %if.end134, label %land.lhs.true98
 
 land.lhs.true98:                                  ; preds = %if.end93
-  %call99 = tail call i32 @SSL_session_reused(ptr noundef %s) #16
+  %call99 = tail call i32 @SSL_session_reused(ptr noundef nonnull %s) #16
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %land.lhs.true101, label %if.end134
 
 land.lhs.true101:                                 ; preds = %land.lhs.true98
-  %call102 = tail call i32 @SSL_ct_is_enabled(ptr noundef %s) #16
+  %call102 = tail call i32 @SSL_ct_is_enabled(ptr noundef nonnull %s) #16
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %if.end134, label %if.then104
 
 if.then104:                                       ; preds = %land.lhs.true101
-  %call105 = tail call ptr @SSL_get0_peer_scts(ptr noundef %s) #16
+  %call105 = tail call ptr @SSL_get0_peer_scts(ptr noundef nonnull %s) #16
   %cmp106.not = icmp eq ptr %call105, null
   br i1 %cmp106.not, label %cond.end.thread, label %cond.end
 
@@ -6334,21 +6334,21 @@ for.end131:                                       ; preds = %for.inc129
   br label %if.end134
 
 if.end134:                                        ; preds = %cond.end.thread, %cond.end, %for.end131, %land.lhs.true101, %land.lhs.true98, %if.end93
-  %call135 = tail call ptr @SSL_get_rbio(ptr noundef %s) #16
+  %call135 = tail call ptr @SSL_get_rbio(ptr noundef nonnull %s) #16
   %call136 = tail call i64 @BIO_number_read(ptr noundef %call135) #16
-  %call137 = tail call ptr @SSL_get_wbio(ptr noundef %s) #16
+  %call137 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %s) #16
   %call138 = tail call i64 @BIO_number_written(ptr noundef %call137) #16
   %call139 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.594, i64 noundef %call136, i64 noundef %call138) #16
   br label %if.end140
 
 if.end140:                                        ; preds = %if.end134, %entry
   %peer.0 = phi ptr [ %call58, %if.end134 ], [ null, %entry ]
-  tail call void @print_verify_detail(ptr noundef %s, ptr noundef %bio) #16
-  %call141 = tail call i32 @SSL_session_reused(ptr noundef %s) #16
+  tail call void @print_verify_detail(ptr noundef nonnull %s, ptr noundef %bio) #16
+  %call141 = tail call i32 @SSL_session_reused(ptr noundef nonnull %s) #16
   %tobool142.not = icmp eq i32 %call141, 0
   %cond143 = select i1 %tobool142.not, ptr @.str.596, ptr @.str.595
   %call144 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull %cond143) #16
-  %call145 = tail call ptr @SSL_get_current_cipher(ptr noundef %s) #16
+  %call145 = tail call ptr @SSL_get_current_cipher(ptr noundef nonnull %s) #16
   %call146 = tail call ptr @SSL_CIPHER_get_version(ptr noundef %call145) #16
   %call147 = tail call ptr @SSL_CIPHER_get_name(ptr noundef %call145) #16
   %call148 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.597, ptr noundef %call146, ptr noundef %call147) #16
@@ -6362,9 +6362,9 @@ if.then151:                                       ; preds = %if.end140
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then151, %if.end140
-  tail call void @ssl_print_secure_renegotiation_notes(ptr noundef %bio, ptr noundef %s) #16
-  %call156 = tail call ptr @SSL_get_current_compression(ptr noundef %s) #16
-  %call157 = tail call ptr @SSL_get_current_expansion(ptr noundef %s) #16
+  tail call void @ssl_print_secure_renegotiation_notes(ptr noundef %bio, ptr noundef nonnull %s) #16
+  %call156 = tail call ptr @SSL_get_current_compression(ptr noundef nonnull %s) #16
+  %call157 = tail call ptr @SSL_get_current_expansion(ptr noundef nonnull %s) #16
   %tobool158.not = icmp eq ptr %call156, null
   br i1 %tobool158.not, label %cond.end162, label %cond.true159
 
@@ -6390,7 +6390,7 @@ cond.end169:                                      ; preds = %cond.end162, %cond.
   br i1 %cmp172.not, label %if.end178, label %if.then174
 
 if.then174:                                       ; preds = %cond.end169
-  call void @SSL_get0_next_proto_negotiated(ptr noundef %s, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #16
+  call void @SSL_get0_next_proto_negotiated(ptr noundef nonnull %s, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #16
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @next_proto, i64 16), align 8
   %call175 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.602, i32 noundef %1) #16
   %2 = load ptr, ptr %proto, align 8
@@ -6400,7 +6400,7 @@ if.then174:                                       ; preds = %cond.end169
   br label %if.end178
 
 if.end178:                                        ; preds = %if.then174, %cond.end169
-  call void @SSL_get0_alpn_selected(ptr noundef %s, ptr noundef nonnull %proto179, ptr noundef nonnull %proto_len180) #16
+  call void @SSL_get0_alpn_selected(ptr noundef nonnull %s, ptr noundef nonnull %proto179, ptr noundef nonnull %proto_len180) #16
   %4 = load i32, ptr %proto_len180, align 4
   %cmp181.not = icmp eq i32 %4, 0
   br i1 %cmp181.not, label %if.else187, label %if.then183
@@ -6418,7 +6418,7 @@ if.else187:                                       ; preds = %if.end178
   br label %if.end189
 
 if.end189:                                        ; preds = %if.else187, %if.then183
-  %call190 = call ptr @SSL_get_selected_srtp_profile(ptr noundef %s) #16
+  %call190 = call ptr @SSL_get_selected_srtp_profile(ptr noundef nonnull %s) #16
   %tobool191.not = icmp eq ptr %call190, null
   br i1 %tobool191.not, label %if.end194, label %if.then192
 
@@ -6431,7 +6431,7 @@ if.end194:                                        ; preds = %if.then192, %if.end
   br i1 %cmp, label %if.then196, label %if.else206
 
 if.then196:                                       ; preds = %if.end194
-  %call197 = call i32 @SSL_get_early_data_status(ptr noundef %s) #16
+  %call197 = call i32 @SSL_get_early_data_status(ptr noundef nonnull %s) #16
   %8 = icmp ult i32 %call197, 3
   br i1 %8, label %switch.lookup, label %sw.epilog
 
@@ -6443,18 +6443,18 @@ switch.lookup:                                    ; preds = %if.then196
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then196, %switch.lookup
-  %call203 = call i64 @SSL_get_verify_result(ptr noundef %s) #16
+  %call203 = call i64 @SSL_get_verify_result(ptr noundef nonnull %s) #16
   %call204 = call ptr @X509_verify_cert_error_string(i64 noundef %call203) #16
   %call205 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.609, i64 noundef %call203, ptr noundef %call204) #16
   br label %if.end209
 
 if.else206:                                       ; preds = %if.end194
-  %call207 = call ptr @SSL_get_session(ptr noundef %s) #16
+  %call207 = call ptr @SSL_get_session(ptr noundef nonnull %s) #16
   %call208 = call i32 @SSL_SESSION_print(ptr noundef %bio, ptr noundef %call207) #16
   br label %if.end209
 
 if.end209:                                        ; preds = %if.else206, %sw.epilog
-  %call210 = call ptr @SSL_get_session(ptr noundef %s) #16
+  %call210 = call ptr @SSL_get_session(ptr noundef nonnull %s) #16
   %cmp211 = icmp ne ptr %call210, null
   %10 = load ptr, ptr @keymatexportlabel, align 8
   %cmp214 = icmp ne ptr %10, null
@@ -6474,7 +6474,7 @@ if.then216:                                       ; preds = %if.end209
   %conv222 = sext i32 %14 to i64
   %15 = load ptr, ptr @keymatexportlabel, align 8
   %call223 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #17
-  %call224 = call i32 @SSL_export_keying_material(ptr noundef %s, ptr noundef %call221, i64 noundef %conv222, ptr noundef %15, i64 noundef %call223, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  %call224 = call i32 @SSL_export_keying_material(ptr noundef nonnull %s, ptr noundef %call221, i64 noundef %conv222, ptr noundef %15, i64 noundef %call223, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %cmp225 = icmp slt i32 %call224, 1
   br i1 %cmp225, label %if.end241, label %if.else229
 
@@ -6511,7 +6511,7 @@ if.end242:                                        ; preds = %if.end241, %if.end2
 declare void @do_ssl_shutdown(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr nocapture noundef %user_data, ptr nocapture noundef writeonly %len, ptr nocapture noundef writeonly %off) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr nocapture noundef nonnull %user_data, ptr nocapture noundef nonnull writeonly %len, ptr nocapture noundef nonnull writeonly %off) unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %buf, align 8
@@ -6739,7 +6739,7 @@ if.then108:                                       ; preds = %if.end105
 if.else110:                                       ; preds = %if.else99, %if.then93, %if.end105
   %cmd.1110 = phi i32 [ %cmd.0, %if.end105 ], [ 4, %if.then93 ], [ 3, %if.else99 ]
   %arg_start.1109 = phi ptr [ %arg_start.0, %if.end105 ], [ %spec.store.select, %if.then93 ], [ %arg_start.0, %if.else99 ]
-  %call111 = tail call fastcc i32 @user_data_execute(ptr noundef nonnull %user_data, i32 noundef %cmd.1110, ptr noundef %arg_start.1109)
+  %call111 = tail call fastcc i32 @user_data_execute(ptr noundef %user_data, i32 noundef %cmd.1110, ptr noundef %arg_start.1109)
   %cmp112 = icmp eq i32 %call111, 0
   br i1 %cmp112, label %if.then114, label %if.end117
 
@@ -7190,9 +7190,9 @@ declare void @OCSP_RESPONSE_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr nocapture noundef %user_data, i32 noundef %cmd, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr nocapture noundef nonnull %user_data, i32 noundef range(i32 0, 6) %cmd, ptr noundef %arg) unnamed_addr #0 {
 entry:
-  switch i32 %cmd, label %default.unreachable [
+  switch i32 %cmd, label %default.unreachable10 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb20
     i32 2, label %sw.bb22
@@ -7307,7 +7307,7 @@ if.end58:                                         ; preds = %sw.bb53
   store i32 1, ptr %isfin, align 4
   br label %return
 
-default.unreachable:                              ; preds = %entry
+default.unreachable10:                            ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb53, %if.end46, %sw.bb29

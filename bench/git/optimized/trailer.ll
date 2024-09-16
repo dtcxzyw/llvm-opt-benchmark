@@ -1000,7 +1000,7 @@ sw.bb2.i.i.i:                                     ; preds = %if.end17.i.i
 
 sw.bb3.i.i.i:                                     ; preds = %if.end17.i.i
   call fastcc void @apply_item_command(ptr noundef %pos.025.i.i, ptr noundef nonnull %pos.023.i)
-  %call.i18.i.i = call fastcc i32 @check_if_different(ptr noundef %pos.025.i.i, ptr noundef nonnull %pos.023.i, i32 noundef 1, ptr noundef nonnull readnone %head)
+  %call.i18.i.i = call fastcc i32 @check_if_different(ptr noundef %pos.025.i.i, ptr noundef nonnull %pos.023.i, i32 noundef 1, ptr noundef readnone %head)
   %tobool.not.i19.i.i = icmp eq i32 %call.i18.i.i, 0
   br i1 %tobool.not.i19.i.i, label %if.else.i.i.i, label %if.then.i.i.i86
 
@@ -1031,7 +1031,7 @@ if.else.i.i.i:                                    ; preds = %sw.bb3.i.i.i
 
 sw.bb4.i.i.i:                                     ; preds = %if.end17.i.i
   call fastcc void @apply_item_command(ptr noundef %pos.025.i.i, ptr noundef nonnull %pos.023.i)
-  %call5.i.i.i = call fastcc i32 @check_if_different(ptr noundef %cond22.i.i, ptr noundef nonnull %pos.023.i, i32 noundef 0, ptr noundef nonnull readnone %head)
+  %call5.i.i.i = call fastcc i32 @check_if_different(ptr noundef %cond22.i.i, ptr noundef nonnull %pos.023.i, i32 noundef 0, ptr noundef readnone %head)
   %tobool6.not.i.i.i = icmp eq i32 %call5.i.i.i, 0
   br i1 %tobool6.not.i.i.i, label %if.else8.i.i.i, label %if.then7.i.i.i
 
@@ -2504,7 +2504,7 @@ return:                                           ; preds = %while.cond, %strbuf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_trailer(ptr noundef %tok, ptr noundef %val, ptr noundef writeonly %conf, ptr noundef %trailer, i64 noundef %separator_pos) unnamed_addr #2 {
+define internal fastcc void @parse_trailer(ptr noundef %tok, ptr noundef %val, ptr noundef writeonly %conf, ptr noundef %trailer, i64 noundef range(i64 1, 0) %separator_pos) unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i64 %separator_pos, -1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -3594,7 +3594,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @check_if_different(ptr nocapture noundef readonly %in_tok, ptr nocapture noundef readonly %arg_tok, i32 noundef %check_all, ptr noundef readnone %head) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @check_if_different(ptr nocapture noundef readonly %in_tok, ptr nocapture noundef readonly %arg_tok, i32 noundef range(i32 0, 2) %check_all, ptr noundef nonnull readnone %head) unnamed_addr #10 {
 entry:
   %where1 = getelementptr inbounds i8, ptr %arg_tok, i64 64
   %0 = load i32, ptr %where1, align 8

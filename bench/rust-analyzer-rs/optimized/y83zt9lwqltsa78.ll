@@ -113,7 +113,7 @@ define void @_ZN9text_edit8TextEdit6insert17h26db5085530635f0E(ptr noalias nocap
   store i32 %1, ptr %7, align 8, !alias.scope !24, !noalias !29
   %8 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 %1, ptr %8, align 4, !alias.scope !24, !noalias !29
-  invoke fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias nocapture noundef align 8 dereferenceable(32) %4)
           to label %9 unwind label %10
 
 9:                                                ; preds = %3
@@ -163,7 +163,7 @@ define void @_ZN9text_edit8TextEdit6delete17hb5b4707918a244f6E(ptr noalias nocap
   store i32 %1, ptr %7, align 8, !alias.scope !45, !noalias !46
   %8 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 %2, ptr %8, align 4, !alias.scope !45, !noalias !46
-  invoke fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef align 8 dereferenceable(24) %6, ptr noalias nocapture noundef align 8 dereferenceable(32) %4)
           to label %9 unwind label %10
 
 9:                                                ; preds = %3
@@ -208,7 +208,7 @@ define void @_ZN9text_edit8TextEdit7replace17hb9deb285689c9e84E(ptr noalias noca
   store i32 %1, ptr %8, align 8, !alias.scope !54, !noalias !57
   %9 = getelementptr inbounds i8, ptr %5, i64 28
   store i32 %2, ptr %9, align 4, !alias.scope !54, !noalias !57
-  invoke fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef align 8 dereferenceable(24) %7, ptr noalias nocapture noundef align 8 dereferenceable(32) %5)
           to label %10 unwind label %11
 
 10:                                               ; preds = %4
@@ -279,9 +279,9 @@ define void @_ZN9text_edit8TextEdit5apply17hfac62dd931182d45E(ptr noalias nocapt
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %.val21 = load i64, ptr %10, align 8, !noundef !16
-  %11 = icmp ugt i64 %.val21, 4294967295
+  %11 = icmp ult i64 %.val21, 4294967296
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %11, label %12, label %.lr.ph.preheader
+  br i1 %11, label %.lr.ph.preheader, label %12
 
 12:                                               ; preds = %9
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.029e50a0f95560398ef8371eaa9f16fa.0, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.5) #19
@@ -327,9 +327,9 @@ define void @_ZN9text_edit8TextEdit5apply17hfac62dd931182d45E(ptr noalias nocapt
   %30 = phi i32 [ %41, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24" ], [ %13, %.lr.ph.preheader ]
   %31 = getelementptr i8, ptr %.sroa.0.034, i64 16
   %.val20 = load i64, ptr %31, align 8, !noundef !16
-  %32 = icmp ugt i64 %.val20, 4294967295
+  %32 = icmp ult i64 %.val20, 4294967296
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %32, label %33, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24"
+  br i1 %32, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit24", label %33
 
 33:                                               ; preds = %.lr.ph
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.029e50a0f95560398ef8371eaa9f16fa.0, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.5) #19
@@ -368,9 +368,9 @@ define void @_ZN9text_edit8TextEdit5apply17hfac62dd931182d45E(ptr noalias nocapt
 ._crit_edge39:                                    ; preds = %.lr.ph38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %.val = load i64, ptr %10, align 8, !noundef !16
-  %50 = icmp ugt i64 %.val, 4294967295
+  %50 = icmp ult i64 %.val, 4294967296
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %50, label %51, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit26"
+  br i1 %50, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit26", label %51
 
 51:                                               ; preds = %._crit_edge39
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.029e50a0f95560398ef8371eaa9f16fa.0, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.5) #19
@@ -559,9 +559,9 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
 15:                                               ; preds = %13
   %16 = getelementptr i8, ptr %.sroa.0.02429, i64 16
   %.val = load i64, ptr %16, align 8, !noundef !16
-  %17 = icmp ugt i64 %.val, 4294967295
+  %17 = icmp ult i64 %.val, 4294967296
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %17, label %18, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit"
+  br i1 %17, label %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit", label %18
 
 18:                                               ; preds = %15
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.029e50a0f95560398ef8371eaa9f16fa.0, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.029e50a0f95560398ef8371eaa9f16fa.5) #19
@@ -632,7 +632,7 @@ define void @_ZN9text_edit15TextEditBuilder7replace17hbbbfdcd4e9630fa4E(ptr noal
   store i32 %1, ptr %6, align 8, !alias.scope !116, !noalias !111
   %7 = getelementptr inbounds i8, ptr %5, i64 28
   store i32 %2, ptr %7, align 4, !alias.scope !116, !noalias !111
-  call fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5)
+  call fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
 }
@@ -651,7 +651,7 @@ define void @_ZN9text_edit15TextEditBuilder6delete17h7e6036ff60eeff5dE(ptr noali
   store i32 %1, ptr %5, align 8, !alias.scope !124, !noalias !117
   %6 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 %2, ptr %6, align 4, !alias.scope !124, !noalias !117
-  call fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 }
@@ -667,7 +667,7 @@ define void @_ZN9text_edit15TextEditBuilder6insert17h0cde9210e5156f02E(ptr noali
   store i32 %1, ptr %5, align 8, !alias.scope !134, !noalias !135
   %6 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 %1, ptr %6, align 4, !alias.scope !134, !noalias !135
-  call fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 }
@@ -789,7 +789,7 @@ define noundef zeroext i1 @_ZN9text_edit15TextEditBuilder18invalidates_offset17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931d3c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { ptr, ptr, {} }, { ptr, i64 }, i64, i64, i64 }, align 8
   %5 = alloca ptr, align 8

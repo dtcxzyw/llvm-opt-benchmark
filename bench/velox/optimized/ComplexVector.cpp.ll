@@ -20191,7 +20191,7 @@ if.end50:                                         ; preds = %if.else15.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef %__step_size, ptr nocapture readonly %__comp.coerce) unnamed_addr #0 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %__step_size, ptr nocapture readonly %__comp.coerce) unnamed_addr #0 {
 entry:
   %mul = shl nsw i64 %__step_size, 1
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
@@ -20663,7 +20663,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_T2_"(ptr nocapture noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_T2_"(ptr nocapture noundef %__first, i64 noundef range(i64 0, 1152921504606846975) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

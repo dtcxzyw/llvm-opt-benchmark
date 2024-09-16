@@ -2060,13 +2060,13 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i.i)
-  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.7), !noalias !98
-  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull @.str.8), !noalias !98
-  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull @.str.9), !noalias !98
-  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull @.str.10), !noalias !98
-  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull @.str.11), !noalias !98
-  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull @.str.12), !noalias !98
-  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull @.str.13), !noalias !98
+  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.7), !noalias !98
+  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull @.str.8), !noalias !98
+  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull @.str.9), !noalias !98
+  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull @.str.10), !noalias !98
+  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull @.str.11), !noalias !98
+  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull @.str.12), !noalias !98
+  call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull @.str.13), !noalias !98
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %43 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !noalias !104
   store i32 %43, ptr %29, align 8, !alias.scope !101, !noalias !98
@@ -3346,7 +3346,7 @@ _ZNK12_GLOBAL__N_121PointerSortingChecker16checkASTCodeBodyEPKN5clang4DeclERNS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #3 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1115", align 8
   %.sroa.02 = alloca [12 x i8], align 8

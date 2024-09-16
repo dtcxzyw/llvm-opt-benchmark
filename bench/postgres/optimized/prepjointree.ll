@@ -214,7 +214,7 @@ define dso_local void @pull_up_sublinks(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
-  %7 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2)
+  %7 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %6, ptr noundef %2)
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 57
   br i1 %9, label %13, label %10
@@ -233,7 +233,7 @@ define dso_local void @pull_up_sublinks(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -282,7 +282,7 @@ define internal fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, pt
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %26, ptr noundef nonnull %5)
+  %27 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %26, ptr noundef %5)
   %28 = tail call ptr @lappend(ptr noundef %.0556876, ptr noundef %27) #7
   %29 = load ptr, ptr %5, align 8
   %30 = tail call ptr @bms_join(ptr noundef %.0566777, ptr noundef %29) #7
@@ -312,11 +312,11 @@ define internal fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, pt
   store ptr %41, ptr %8, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %6)
+  %44 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %43, ptr noundef %6)
   store ptr %44, ptr %42, align 8
   %45 = getelementptr inbounds i8, ptr %41, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %7)
+  %47 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %46, ptr noundef %7)
   store ptr %47, ptr %45, align 8
   %48 = getelementptr inbounds i8, ptr %41, i64 4
   %49 = load i32, ptr %48, align 4
@@ -831,7 +831,7 @@ pull_up_simple_values.exit:                       ; preds = %._crit_edge.i, %175
   %182 = tail call ptr @palloc0(i64 noundef %181) #7
   %183 = getelementptr inbounds i8, ptr %8, i64 48
   store ptr %182, ptr %183, align 8
-  call fastcc void @perform_pullup_replace_vars(ptr noundef %0, ptr noundef nonnull %8, ptr noundef null)
+  call fastcc void @perform_pullup_replace_vars(ptr noundef %0, ptr noundef %8, ptr noundef null)
   %184 = call noundef ptr @palloc0(i64 noundef 216) #7
   store i32 93, ptr %184, align 4
   %185 = getelementptr inbounds i8, ptr %184, i64 4
@@ -945,7 +945,7 @@ list_length.exit31.i:                             ; preds = %226, %214
   br label %240
 
 240:                                              ; preds = %239, %236
-  call fastcc void @perform_pullup_replace_vars(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %3)
+  call fastcc void @perform_pullup_replace_vars(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %3)
   store i32 8, ptr %25, align 4
   store ptr null, ptr %198, align 8
   %241 = getelementptr inbounds i8, ptr %24, i64 200
@@ -1356,7 +1356,7 @@ define dso_local void @reduce_outer_joins(ptr noundef %0) local_unnamed_addr #0 
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
-  call fastcc void @reduce_outer_joins_pass2(ptr noundef %20, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
+  call fastcc void @reduce_outer_joins_pass2(ptr noundef %20, ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
   %21 = load ptr, ptr %2, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %30, label %23
@@ -1543,7 +1543,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reduce_outer_joins_pass2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @reduce_outer_joins_pass2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %11
 
@@ -1859,7 +1859,7 @@ define dso_local void @remove_useless_result_rtes(ptr noundef %0) local_unnamed_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
-  %7 = call fastcc ptr @remove_useless_results_recurse(ptr noundef %0, ptr noundef %6, ptr noundef null, ptr noundef nonnull %2)
+  %7 = call fastcc ptr @remove_useless_results_recurse(ptr noundef %0, ptr noundef %6, ptr noundef null, ptr noundef %2)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 80
   store ptr %7, ptr %9, align 8
@@ -1932,7 +1932,7 @@ define dso_local void @remove_useless_result_rtes(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @remove_useless_results_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @remove_useless_results_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.find_dependent_phvs_context, align 8
   %6 = load i32, ptr %1, align 4
   switch i32 %6, label %239 [
@@ -2619,7 +2619,7 @@ common.ret170:                                    ; preds = %10, %._crit_edge, %
   store ptr %16, ptr %2, align 8
   %20 = getelementptr inbounds i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %7)
+  %22 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %21, ptr noundef %7)
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %16, i64 48
   %24 = load ptr, ptr %23, align 8
@@ -2644,7 +2644,7 @@ common.ret170:                                    ; preds = %10, %._crit_edge, %
   store ptr %29, ptr %4, align 8
   %33 = getelementptr inbounds i8, ptr %29, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %34, ptr noundef nonnull %7)
+  %35 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %34, ptr noundef %7)
   store ptr %35, ptr %33, align 8
   %36 = getelementptr inbounds i8, ptr %29, i64 48
   %37 = load ptr, ptr %36, align 8
@@ -2665,7 +2665,7 @@ common.ret170:                                    ; preds = %10, %._crit_edge, %
   store ptr %41, ptr %2, align 8
   %45 = getelementptr inbounds i8, ptr %41, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %7)
+  %47 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %46, ptr noundef %7)
   store ptr %47, ptr %45, align 8
   %48 = getelementptr inbounds i8, ptr %41, i64 48
   %49 = load ptr, ptr %48, align 8
@@ -2690,7 +2690,7 @@ common.ret170:                                    ; preds = %10, %._crit_edge, %
   store ptr %54, ptr %4, align 8
   %58 = getelementptr inbounds i8, ptr %54, i64 24
   %59 = load ptr, ptr %58, align 8
-  %60 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %59, ptr noundef nonnull %7)
+  %60 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %59, ptr noundef %7)
   store ptr %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %54, i64 48
   %62 = load ptr, ptr %61, align 8
@@ -2739,7 +2739,7 @@ is_notclause.exit:                                ; preds = %10
   store ptr %78, ptr %2, align 8
   %82 = getelementptr inbounds i8, ptr %78, i64 24
   %83 = load ptr, ptr %82, align 8
-  %84 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %83, ptr noundef nonnull %8)
+  %84 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %83, ptr noundef %8)
   store ptr %84, ptr %82, align 8
   %85 = getelementptr inbounds i8, ptr %78, i64 48
   %86 = load ptr, ptr %85, align 8
@@ -2764,7 +2764,7 @@ is_notclause.exit:                                ; preds = %10
   store ptr %91, ptr %4, align 8
   %95 = getelementptr inbounds i8, ptr %91, i64 24
   %96 = load ptr, ptr %95, align 8
-  %97 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %96, ptr noundef nonnull %8)
+  %97 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef %96, ptr noundef %8)
   store ptr %97, ptr %95, align 8
   %98 = getelementptr inbounds i8, ptr %91, i64 48
   %99 = load ptr, ptr %98, align 8
@@ -3053,7 +3053,7 @@ define internal fastcc ptr @pull_up_simple_subquery(ptr noundef %0, ptr noundef 
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 80
   %47 = load ptr, ptr %46, align 8
-  %48 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef nonnull %17, ptr noundef %47, ptr noundef nonnull %8)
+  %48 = call fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef nonnull %17, ptr noundef %47, ptr noundef %8)
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 57
   br i1 %50, label %pull_up_sublinks.exit, label %51
@@ -3277,7 +3277,7 @@ list_length.exit127:                              ; preds = %136, %143
   br label %157
 
 157:                                              ; preds = %156, %153
-  call fastcc void @perform_pullup_replace_vars(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %4)
+  call fastcc void @perform_pullup_replace_vars(ptr noundef %0, ptr noundef %9, ptr noundef %4)
   %158 = load i8, ptr %129, align 8
   %159 = trunc i8 %158 to i1
   br i1 %159, label %160, label %.thread
@@ -3602,7 +3602,7 @@ declare void @OffsetVarNodes(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare void @IncrementVarSublevelsUp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %2, null
@@ -3619,7 +3619,7 @@ define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef r
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @replace_rte_variables(ptr noundef %11, i32 noundef %13, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %15) #7
+  %16 = tail call ptr @replace_rte_variables(ptr noundef %11, i32 noundef %13, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %15) #7
   store ptr %16, ptr %10, align 8
   store i8 %9, ptr %7, align 4
   br label %.thread102
@@ -3631,13 +3631,13 @@ define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef r
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @replace_rte_variables(ptr noundef %19, i32 noundef %21, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %23) #7
+  %24 = tail call ptr @replace_rte_variables(ptr noundef %19, i32 noundef %21, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %23) #7
   store ptr %24, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %5, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %20, align 8
   %28 = load ptr, ptr %22, align 8
-  %29 = tail call ptr @replace_rte_variables(ptr noundef %26, i32 noundef %27, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %28) #7
+  %29 = tail call ptr @replace_rte_variables(ptr noundef %26, i32 noundef %27, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %28) #7
   store ptr %29, ptr %25, align 8
   %30 = getelementptr inbounds i8, ptr %5, i64 168
   %31 = load ptr, ptr %30, align 8
@@ -3665,7 +3665,7 @@ define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef r
 42:                                               ; preds = %.lr.ph108
   %43 = load i32, ptr %20, align 8
   %44 = load ptr, ptr %22, align 8
-  %45 = tail call ptr @replace_rte_variables(ptr noundef nonnull %41, i32 noundef %43, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %44) #7
+  %45 = tail call ptr @replace_rte_variables(ptr noundef nonnull %41, i32 noundef %43, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %44) #7
   store ptr %45, ptr %40, align 8
   %.pre = load i32, ptr %32, align 4
   br label %46
@@ -3688,7 +3688,7 @@ define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef r
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %20, align 8
   %56 = load ptr, ptr %22, align 8
-  %57 = tail call ptr @replace_rte_variables(ptr noundef %54, i32 noundef %55, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %56) #7
+  %57 = tail call ptr @replace_rte_variables(ptr noundef %54, i32 noundef %55, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %56) #7
   %58 = load ptr, ptr %50, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 32
   store ptr %57, ptr %59, align 8
@@ -3697,7 +3697,7 @@ define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef r
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %20, align 8
   %64 = load ptr, ptr %22, align 8
-  %65 = tail call ptr @replace_rte_variables(ptr noundef %62, i32 noundef %63, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %64) #7
+  %65 = tail call ptr @replace_rte_variables(ptr noundef %62, i32 noundef %63, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %64) #7
   %66 = load ptr, ptr %50, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 40
   store ptr %65, ptr %67, align 8
@@ -3728,13 +3728,13 @@ define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef r
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %20, align 8
   %81 = load ptr, ptr %22, align 8
-  %82 = tail call ptr @replace_rte_variables(ptr noundef %79, i32 noundef %80, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %81) #7
+  %82 = tail call ptr @replace_rte_variables(ptr noundef %79, i32 noundef %80, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %81) #7
   store ptr %82, ptr %78, align 8
   %83 = getelementptr inbounds i8, ptr %77, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = load i32, ptr %20, align 8
   %86 = load ptr, ptr %22, align 8
-  %87 = tail call ptr @replace_rte_variables(ptr noundef %84, i32 noundef %85, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %86) #7
+  %87 = tail call ptr @replace_rte_variables(ptr noundef %84, i32 noundef %85, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %86) #7
   store ptr %87, ptr %83, align 8
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %88 = load i32, ptr %71, align 4
@@ -3750,7 +3750,7 @@ define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef r
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %20, align 8
   %95 = load ptr, ptr %22, align 8
-  %96 = tail call ptr @replace_rte_variables(ptr noundef %93, i32 noundef %94, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %95) #7
+  %96 = tail call ptr @replace_rte_variables(ptr noundef %93, i32 noundef %94, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %95) #7
   store ptr %96, ptr %92, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 256
   %98 = load ptr, ptr %97, align 8
@@ -3810,7 +3810,7 @@ define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef r
   %129 = load ptr, ptr %128, align 8
   %130 = load i32, ptr %20, align 8
   %131 = load ptr, ptr %22, align 8
-  %132 = tail call ptr @replace_rte_variables(ptr noundef %129, i32 noundef %130, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %131) #7
+  %132 = tail call ptr @replace_rte_variables(ptr noundef %129, i32 noundef %130, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %131) #7
   store ptr %132, ptr %128, align 8
   %.pre135 = load i32, ptr %116, align 4
   br label %133
@@ -3831,7 +3831,7 @@ declare void @CombineRangeTables(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @replace_vars_in_jointree(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @replace_vars_in_jointree(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %100, label %4
 
@@ -3954,7 +3954,7 @@ define internal fastcc void @replace_vars_in_jointree(ptr noundef %0, ptr nounde
   %72 = load i32, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %1, i64 32
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call ptr @replace_rte_variables(ptr noundef %70, i32 noundef %72, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef %1, ptr noundef %74) #7
+  %75 = tail call ptr @replace_rte_variables(ptr noundef %70, i32 noundef %72, i32 noundef 0, ptr noundef nonnull @pullup_replace_vars_callback, ptr noundef nonnull %1, ptr noundef %74) #7
   store ptr %75, ptr %69, align 8
   br label %100
 
@@ -4381,7 +4381,7 @@ declare ptr @find_nonnullable_vars(ptr noundef) local_unnamed_addr #1
 declare ptr @mbms_overlap_sets(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @find_dependent_phvs_in_jointree(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @find_dependent_phvs_in_jointree(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 {
   %4 = alloca %struct.find_dependent_phvs_context, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

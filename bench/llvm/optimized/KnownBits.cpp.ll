@@ -10929,7 +10929,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %28, %26
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit3
 
 _ZN4llvm9KnownBitsC2ERKS0_.exit3:                 ; preds = %35, %37
-  call fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext true)
   %38 = load i32, ptr %31, align 8
   %39 = icmp ugt i32 %38, 64
   br i1 %39, label %40, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -10990,7 +10990,7 @@ _ZN4llvm9KnownBitsD2Ev.exit5:                     ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -11371,7 +11371,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %28, %26
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit3
 
 _ZN4llvm9KnownBitsC2ERKS0_.exit3:                 ; preds = %35, %37
-  call fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
   %38 = load i32, ptr %31, align 8
   %39 = icmp ugt i32 %38, 64
   br i1 %39, label %40, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -11507,7 +11507,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %28, %26
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit3
 
 _ZN4llvm9KnownBitsC2ERKS0_.exit3:                 ; preds = %35, %37
-  call fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true, i1 noundef zeroext true)
+  call fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %4, ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext true)
   %38 = load i32, ptr %31, align 8
   %39 = icmp ugt i32 %38, 64
   br i1 %39, label %40, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -11643,7 +11643,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %28, %26
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit3
 
 _ZN4llvm9KnownBitsC2ERKS0_.exit3:                 ; preds = %35, %37
-  call fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %4, ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext false)
   %38 = load i32, ptr %31, align 8
   %39 = icmp ugt i32 %38, 64
   br i1 %39, label %40, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -13592,7 +13592,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i87:                  ; preds = %484, %482
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit
 
 _ZN4llvm9KnownBitsC2ERKS0_.exit:                  ; preds = %489, %491
-  call fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3)
+  call fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3)
   %492 = load i32, ptr %52, align 8
   %493 = icmp ult i32 %492, 65
   br i1 %493, label %_ZN4llvm5APIntaSEOS0_.exit.i88, label %494
@@ -14010,7 +14010,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i13:                  ; preds = %155, %152
   br label %_ZN4llvm9KnownBitsC2ERKS0_.exit
 
 _ZN4llvm9KnownBitsC2ERKS0_.exit:                  ; preds = %161, %163
-  call fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3)
+  call fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3)
   %164 = load i32, ptr %13, align 8
   %165 = icmp ult i32 %164, 65
   br i1 %165, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %166
@@ -14209,7 +14209,7 @@ _ZN4llvm5APInt6negateEv.exit:                     ; preds = %_ZN4llvm5APInt15cle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %12, label %6
 
 6:                                                ; preds = %5

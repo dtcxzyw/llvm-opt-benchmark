@@ -143,8 +143,8 @@ if.end:                                           ; preds = %entry
   store i64 %2, ptr %time, align 8
   %3 = load ptr, ptr %qpacket, align 8
   %bf.load2 = load i32, ptr %3, align 8
-  %trunc = trunc i32 %bf.load2 to i8
-  %switch.tableidx = add i8 %trunc, -1
+  %trunc.i = trunc i32 %bf.load2 to i8
+  %switch.tableidx = add i8 %trunc.i, -1
   %4 = icmp ult i8 %switch.tableidx, 5
   br i1 %4, label %switch.hole_check, label %if.end22
 
@@ -177,8 +177,8 @@ lor.lhs.false:                                    ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %was_minimal.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %frame_type.i)
   %9 = sext i32 %switch.load to i64
-  %switch.gep313 = getelementptr inbounds [4 x i32], ptr @switch.table.ossl_quic_handle_frames.23, i64 0, i64 %9
-  %switch.load314 = load i32, ptr %switch.gep313, align 4
+  %switch.gep314 = getelementptr inbounds [4 x i32], ptr @switch.table.ossl_quic_handle_frames.23, i64 0, i64 %9
+  %switch.load315 = load i32, ptr %switch.gep314, align 4
   %cmp.i17 = icmp eq i64 %7, 0
   br i1 %cmp.i17, label %if.then.i, label %while.cond.preheader.i
 
@@ -187,7 +187,7 @@ while.cond.preheader.i:                           ; preds = %lor.lhs.false
   %bf.clear.i = and i32 %bf.load.i, 255
   %msg_callback.i = getelementptr inbounds i8, ptr %ch, i64 1112
   %cmp190.not.i = icmp eq i32 %bf.clear.i, 5
-  %trunc.i = trunc i32 %bf.load.i to i8
+  %trunc.i18 = trunc i32 %bf.load.i to i8
   %cfq.i.i = getelementptr inbounds i8, ptr %ch, i64 272
   %max_local_streams_uni.i.i = getelementptr inbounds i8, ptr %ch, i64 1432
   %qsm12.i.i = getelementptr inbounds i8, ptr %ch, i64 888
@@ -247,7 +247,7 @@ if.then12.i:                                      ; preds = %if.end10.i
   br label %if.then20.sink.split
 
 if.end13.i:                                       ; preds = %if.end10.i
-  switch i64 %12, label %sw.default.i19 [
+  switch i64 %12, label %sw.default.i20 [
     i64 0, label %sw.epilog.i
     i64 2, label %sw.epilog.i
     i64 3, label %sw.epilog.i
@@ -255,13 +255,13 @@ if.end13.i:                                       ; preds = %if.end10.i
     i64 29, label %sw.epilog.i
   ]
 
-sw.default.i19:                                   ; preds = %if.end13.i
+sw.default.i20:                                   ; preds = %if.end13.i
   %bf.load14.i = load i8, ptr %pkt_space, align 8
   %bf.set.i = or i8 %bf.load14.i, 4
   store i8 %bf.set.i, ptr %pkt_space, align 8
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.default.i19, %if.end13.i, %if.end13.i, %if.end13.i, %if.end13.i, %if.end13.i
+sw.epilog.i:                                      ; preds = %sw.default.i20, %if.end13.i, %if.end13.i, %if.end13.i, %if.end13.i, %if.end13.i
   switch i64 %12, label %sw.default197.i [
     i64 1, label %sw.bb16.i
     i64 0, label %sw.bb21.i
@@ -395,7 +395,7 @@ if.then31.i.i:                                    ; preds = %land.lhs.true27.i.i
 
 if.end32.i.i:                                     ; preds = %land.lhs.true27.i.i, %lor.lhs.false23.i.i, %if.end17.i.i
   %28 = load ptr, ptr %ackm.i.i, align 8
-  %call34.i.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %28, ptr noundef nonnull %ack.i.i, i32 noundef %switch.load314, i64 %2) #3
+  %call34.i.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %28, ptr noundef nonnull %ack.i.i, i32 noundef %switch.load315, i64 %2) #3
   %tobool35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %tobool35.not.i.i, label %malformed.i.i, label %depack_do_frame_ack.exit.i
 
@@ -417,7 +417,7 @@ depack_do_frame_ack.exit.i:                       ; preds = %if.end32.i.i
   br label %sw.epilog198.i
 
 sw.bb35.i:                                        ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then38.i [
+  switch i8 %trunc.i18, label %if.then38.i [
     i8 5, label %if.end39.i
     i8 2, label %if.end39.i
   ]
@@ -440,7 +440,7 @@ if.then.i151.i:                                   ; preds = %if.end39.i
 
 if.end.i147.i:                                    ; preds = %if.end39.i
   %30 = load i64, ptr %frame_data.i.i, align 8
-  %call1.i.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %30, i64 noundef 4, ptr noundef nonnull %stream.i.i)
+  %call1.i.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %30, i64 noundef 4, ptr noundef %stream.i.i)
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %depack_do_frame_reset_stream.exit.thread.i, label %if.end4.i.i
 
@@ -499,7 +499,7 @@ depack_do_frame_reset_stream.exit.i:              ; preds = %if.end20.i.i, %if.e
   br label %sw.epilog198.i
 
 sw.bb44.i:                                        ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then48.i [
+  switch i8 %trunc.i18, label %if.then48.i [
     i8 5, label %if.end49.i
     i8 2, label %if.end49.i
   ]
@@ -522,7 +522,7 @@ if.then.i169.i:                                   ; preds = %if.end49.i
 
 if.end.i156.i:                                    ; preds = %if.end49.i
   %37 = load i64, ptr %frame_data.i152.i, align 8
-  %call1.i157.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %37, i64 noundef 5, ptr noundef nonnull %stream.i153.i)
+  %call1.i157.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %37, i64 noundef 5, ptr noundef %stream.i153.i)
   %tobool2.not.i158.i = icmp eq i32 %call1.i157.i, 0
   br i1 %tobool2.not.i158.i, label %depack_do_frame_stop_sending.exit.thread.i, label %if.end4.i159.i
 
@@ -679,7 +679,7 @@ depack_do_frame_new_token.exit.i:                 ; preds = %if.end.i185.i
   br label %sw.epilog198.i
 
 sw.bb70.i:                                        ; preds = %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i
-  switch i8 %trunc.i, label %if.then74.i [
+  switch i8 %trunc.i18, label %if.then74.i [
     i8 5, label %if.end75.i
     i8 2, label %if.end75.i
   ]
@@ -704,7 +704,7 @@ if.then.i222.i:                                   ; preds = %if.end75.i
 
 if.end.i193.i:                                    ; preds = %if.end75.i
   %50 = load i64, ptr %frame_data.i189.i, align 8
-  %call1.i194.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %50, i64 noundef %12, ptr noundef nonnull %stream.i190.i)
+  %call1.i194.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %50, i64 noundef %12, ptr noundef %stream.i190.i)
   %tobool2.not.i195.i = icmp eq i32 %call1.i194.i, 0
   br i1 %tobool2.not.i195.i, label %depack_do_frame_stream.exit.thread.i, label %if.end4.i196.i
 
@@ -863,7 +863,7 @@ depack_do_frame_stream.exit.i:                    ; preds = %if.end85.i.i, %if.e
   br label %sw.epilog198.i
 
 sw.bb80.i:                                        ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then84.i [
+  switch i8 %trunc.i18, label %if.then84.i [
     i8 5, label %if.end85.i
     i8 2, label %if.end85.i
   ]
@@ -892,7 +892,7 @@ depack_do_frame_max_data.exit.i:                  ; preds = %if.end85.i
   br label %sw.epilog198.i
 
 sw.bb90.i:                                        ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then94.i [
+  switch i8 %trunc.i18, label %if.then94.i [
     i8 5, label %if.end95.i
     i8 2, label %if.end95.i
   ]
@@ -917,7 +917,7 @@ if.then.i246.i:                                   ; preds = %if.end95.i
 
 if.end.i233.i:                                    ; preds = %if.end95.i
   %71 = load i64, ptr %stream_id.i.i, align 8
-  %call1.i234.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %71, i64 noundef 17, ptr noundef nonnull %stream.i230.i)
+  %call1.i234.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %71, i64 noundef 17, ptr noundef %stream.i230.i)
   %tobool2.not.i235.i = icmp eq i32 %call1.i234.i, 0
   br i1 %tobool2.not.i235.i, label %depack_do_frame_max_stream_data.exit.thread.i, label %if.end4.i236.i
 
@@ -957,7 +957,7 @@ depack_do_frame_max_stream_data.exit.i:           ; preds = %if.end10.i241.i, %i
   br label %sw.epilog198.i
 
 sw.bb100.i:                                       ; preds = %sw.epilog.i, %sw.epilog.i
-  switch i8 %trunc.i, label %if.then104.i [
+  switch i8 %trunc.i18, label %if.then104.i [
     i8 5, label %if.end105.i
     i8 2, label %if.end105.i
   ]
@@ -1017,7 +1017,7 @@ depack_do_frame_max_streams.exit.i:               ; preds = %depack_do_frame_max
   br label %sw.epilog198.i
 
 sw.bb110.i:                                       ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then114.i [
+  switch i8 %trunc.i18, label %if.then114.i [
     i8 5, label %if.end115.i
     i8 2, label %if.end115.i
   ]
@@ -1043,7 +1043,7 @@ depack_do_frame_data_blocked.exit.i:              ; preds = %if.end115.i
   br label %sw.epilog198.i
 
 sw.bb120.i:                                       ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then124.i [
+  switch i8 %trunc.i18, label %if.then124.i [
     i8 5, label %if.end125.i
     i8 2, label %if.end125.i
   ]
@@ -1068,7 +1068,7 @@ if.then.i279.i:                                   ; preds = %if.end125.i
 
 if.end.i269.i:                                    ; preds = %if.end125.i
   %79 = load i64, ptr %stream_id.i264.i, align 8
-  %call1.i270.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %79, i64 noundef 21, ptr noundef nonnull %stream.i266.i)
+  %call1.i270.i = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %79, i64 noundef 21, ptr noundef %stream.i266.i)
   %tobool2.not.i271.i = icmp eq i32 %call1.i270.i, 0
   br i1 %tobool2.not.i271.i, label %depack_do_frame_stream_data_blocked.exit.thread.i, label %if.end4.i272.i
 
@@ -1101,7 +1101,7 @@ depack_do_frame_stream_data_blocked.exit.i:       ; preds = %if.end6.i274.i, %if
   br label %sw.epilog198.i
 
 sw.bb130.i:                                       ; preds = %sw.epilog.i, %sw.epilog.i
-  switch i8 %trunc.i, label %if.then134.i [
+  switch i8 %trunc.i18, label %if.then134.i [
     i8 5, label %if.end135.i
     i8 2, label %if.end135.i
   ]
@@ -1139,7 +1139,7 @@ depack_do_frame_streams_blocked.exit.i:           ; preds = %if.end.i283.i
   br label %sw.epilog198.i
 
 sw.bb140.i:                                       ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then144.i [
+  switch i8 %trunc.i18, label %if.then144.i [
     i8 5, label %if.end145.i
     i8 2, label %if.end145.i
   ]
@@ -1165,7 +1165,7 @@ depack_do_frame_new_conn_id.exit.i:               ; preds = %if.end145.i
   br label %sw.epilog198.i
 
 sw.bb150.i:                                       ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then154.i [
+  switch i8 %trunc.i18, label %if.then154.i [
     i8 5, label %if.end155.i
     i8 2, label %if.end155.i
   ]
@@ -1203,7 +1203,7 @@ depack_do_frame_retire_conn_id.exit.i:            ; preds = %if.end.i296.i
   br label %sw.epilog198.i
 
 sw.bb160.i:                                       ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then164.i [
+  switch i8 %trunc.i18, label %if.then164.i [
     i8 5, label %if.end165.i
     i8 2, label %if.end165.i
   ]
@@ -1290,7 +1290,7 @@ depack_do_frame_path_response.exit.i:             ; preds = %if.end173.i
   br label %sw.epilog198.i
 
 sw.bb178.i:                                       ; preds = %sw.epilog.i
-  switch i8 %trunc.i, label %if.then182.i [
+  switch i8 %trunc.i18, label %if.then182.i [
     i8 5, label %sw.bb184.i
     i8 2, label %sw.bb184.i
   ]
@@ -1391,8 +1391,8 @@ if.then20:                                        ; preds = %if.then20.sink.spli
   br label %if.end22
 
 if.end22:                                         ; preds = %switch.hole_check, %if.end, %entry, %if.then20
-  %cmp2334 = phi i32 [ %cmp23.ph, %if.then20 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %switch.hole_check ]
-  ret i32 %cmp2334
+  %cmp2335 = phi i32 [ %cmp23.ph, %if.then20 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %switch.hole_check ]
+  ret i32 %cmp2335
 }
 
 declare i32 @ossl_ackm_on_rx_packet(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1420,7 +1420,7 @@ declare i32 @ossl_ackm_on_rx_ack_frame(ptr noundef, ptr noundef, i32 noundef, i6
 declare i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %stream_id, i64 noundef %frame_type, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %stream_id, i64 noundef %frame_type, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
 entry:
   %qsm = getelementptr inbounds i8, ptr %ch, i64 888
   %call = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef nonnull %qsm, i64 noundef %stream_id) #3

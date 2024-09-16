@@ -656,7 +656,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$alloc..boxed..Box$LT$crossb
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -878,7 +878,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$$RF$core..alloc..layout..L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i8, ptr %0, align 8, !range !173, !noundef !4
@@ -15481,7 +15481,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
 38:                                               ; preds = %94, %90, %88, %67, %63, %61, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17h42ea5bb42326e51fE.exit.i", %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17h42ea5bb42326e51fE.exit.thread.i", %31, %27, %25, %147, %144, %140, %136, %131, %128, %124, %122, %113, %109, %104, %100, %82, %77, %73, %.thread92, %42
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22) #35
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %22) #35
           to label %154 unwind label %152
 
 40:                                               ; preds = %27, %31
@@ -15501,7 +15501,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %43, ptr %44, align 8
   store i64 12, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %21)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %21)
           to label %47 unwind label %38
 
 45:                                               ; preds = %40
@@ -15514,7 +15514,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   br label %46
 
 46:                                               ; preds = %146, %139, %130, %123, %112, %103, %85, %76, %57, %45
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %22)
   br label %151
 
 47:                                               ; preds = %42
@@ -15559,7 +15559,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   %56 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %55, ptr %56, align 8
   store i64 12, ptr %19, align 8
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %19)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %19)
           to label %59 unwind label %38
 
 57:                                               ; preds = %.noexc37
@@ -15623,7 +15623,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %74, ptr %75, align 8
   store i64 12, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %18)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %18)
           to label %77 unwind label %38
 
 76:                                               ; preds = %71
@@ -15654,7 +15654,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %84, ptr %81, align 8
   store i64 12, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %16)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %16)
           to label %86 unwind label %38
 
 85:                                               ; preds = %78
@@ -15715,7 +15715,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %101, ptr %102, align 8
   store i64 12, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %14)
           to label %104 unwind label %38
 
 103:                                              ; preds = %98
@@ -15746,7 +15746,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %111, ptr %108, align 8
   store i64 12, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %12)
           to label %113 unwind label %38
 
 112:                                              ; preds = %105
@@ -15786,7 +15786,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %.thread107, %120
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %10)
           to label %124 unwind label %38
 
 123:                                              ; preds = %120
@@ -15808,7 +15808,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   %129 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %125, ptr %129, align 8
   store i64 12, ptr %8, align 8
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %8)
           to label %131 unwind label %38
 
 130:                                              ; preds = %126
@@ -15836,7 +15836,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %137, ptr %138, align 8
   store i64 12, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %7)
           to label %140 unwind label %38
 
 139:                                              ; preds = %132
@@ -15862,7 +15862,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   %145 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %141, ptr %145, align 8
   store i64 12, ptr %5, align 8
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %5)
           to label %147 unwind label %38
 
 146:                                              ; preds = %142
@@ -15880,7 +15880,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   %150 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %148, ptr %150, align 8
   store i64 12, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %22)
   br label %151
 
 151:                                              ; preds = %35, %46, %149
@@ -15982,7 +15982,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
 41:                                               ; preds = %97, %93, %91, %70, %66, %64, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17h42ea5bb42326e51fE.exit.i", %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17h42ea5bb42326e51fE.exit.thread.i", %33, %29, %27, %150, %147, %143, %139, %134, %131, %127, %125, %116, %112, %107, %103, %85, %80, %76, %.thread88, %45
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23) #35
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %23) #35
           to label %157 unwind label %155
 
 43:                                               ; preds = %29, %33
@@ -16002,7 +16002,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %46, ptr %47, align 8
   store i64 12, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %21)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %21)
           to label %50 unwind label %41
 
 48:                                               ; preds = %43
@@ -16015,7 +16015,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   br label %49
 
 49:                                               ; preds = %149, %142, %133, %126, %115, %106, %88, %79, %60, %48
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %23)
   br label %154
 
 50:                                               ; preds = %45
@@ -16060,7 +16060,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   %59 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %58, ptr %59, align 8
   store i64 12, ptr %19, align 8
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %19)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %19)
           to label %62 unwind label %41
 
 60:                                               ; preds = %.noexc37
@@ -16124,7 +16124,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %77, ptr %78, align 8
   store i64 12, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %18)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %18)
           to label %80 unwind label %41
 
 79:                                               ; preds = %74
@@ -16155,7 +16155,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %87, ptr %84, align 8
   store i64 12, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %16)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %16)
           to label %89 unwind label %41
 
 88:                                               ; preds = %81
@@ -16216,7 +16216,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %104, ptr %105, align 8
   store i64 12, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %14)
           to label %107 unwind label %41
 
 106:                                              ; preds = %101
@@ -16247,7 +16247,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %114, ptr %111, align 8
   store i64 12, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %12)
           to label %116 unwind label %41
 
 115:                                              ; preds = %108
@@ -16287,7 +16287,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %.thread103, %123
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %10)
           to label %127 unwind label %41
 
 126:                                              ; preds = %123
@@ -16309,7 +16309,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   %132 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %128, ptr %132, align 8
   store i64 12, ptr %8, align 8
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %8)
           to label %134 unwind label %41
 
 133:                                              ; preds = %129
@@ -16337,7 +16337,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   store ptr %140, ptr %141, align 8
   store i64 12, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %7)
           to label %143 unwind label %41
 
 142:                                              ; preds = %135
@@ -16363,7 +16363,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   %148 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %144, ptr %148, align 8
   store i64 12, ptr %5, align 8
-  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
+  invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$tokenizers..decoders..DecoderWrapper$C$serde_json..error..Error$GT$$GT$17h66cdc6ffd78b9ec8E"(ptr noalias noundef align 8 dereferenceable(64) %5)
           to label %150 unwind label %41
 
 149:                                              ; preds = %145
@@ -16381,7 +16381,7 @@ define hidden void @"_ZN10tokenizers8decoders1_89_$LT$impl$u20$serde..de..Deseri
   %153 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %151, ptr %153, align 8
   store i64 12, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %23)
   br label %154
 
 154:                                              ; preds = %37, %49, %152

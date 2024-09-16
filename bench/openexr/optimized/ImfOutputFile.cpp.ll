@@ -2462,7 +2462,7 @@ for.body:                                         ; preds = %if.then12, %for.inc
 invoke.cont40:                                    ; preds = %for.body
   %16 = load ptr, ptr %_data, align 8
   %add43 = add nsw i32 %i.0117, %div
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %call41, ptr noundef nonnull %taskGroup, ptr noundef %16, i32 noundef %add43, i32 noundef %12, i32 noundef %add)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %call41, ptr noundef %taskGroup, ptr noundef %16, i32 noundef %add43, i32 noundef %12, i32 noundef %add)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont40
@@ -2548,7 +2548,7 @@ for.body83:                                       ; preds = %if.else, %for.inc91
 invoke.cont84:                                    ; preds = %for.body83
   %22 = load ptr, ptr %_data, align 8
   %sub87 = sub nsw i32 %div, %i80.0116
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %call85, ptr noundef nonnull %taskGroup, ptr noundef %22, i32 noundef %sub87, i32 noundef %add65, i32 noundef %12)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %call85, ptr noundef %taskGroup, ptr noundef %22, i32 noundef %sub87, i32 noundef %add65, i32 noundef %12)
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %invoke.cont84
@@ -2782,7 +2782,7 @@ if.end137:                                        ; preds = %invoke.cont134
 
 invoke.cont141:                                   ; preds = %if.end137
   %66 = load ptr, ptr %_data, align 8
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %call142, ptr noundef nonnull %taskGroup, ptr noundef %66, i32 noundef %nextCompressBuffer.1.ph128, i32 noundef %scanLineMin.0, i32 noundef %scanLineMax.0)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %call142, ptr noundef %taskGroup, ptr noundef %66, i32 noundef %nextCompressBuffer.1.ph128, i32 noundef %scanLineMin.0, i32 noundef %scanLineMax.0)
           to label %invoke.cont145 unwind label %lpad144
 
 invoke.cont145:                                   ; preds = %invoke.cont141
@@ -2967,9 +2967,9 @@ declare void @_ZN13IlmThread_3_29TaskGroupC1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN13IlmThread_3_210ThreadPool13addGlobalTaskEPNS_4TaskE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %group, ptr noundef %ofd, i32 noundef %number, i32 noundef %scanLineMin, i32 noundef %scanLineMax) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %group, ptr noundef %ofd, i32 noundef %number, i32 noundef %scanLineMin, i32 noundef %scanLineMax) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13IlmThread_3_24TaskC2EPNS_9TaskGroupE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %group)
+  tail call void @_ZN13IlmThread_3_24TaskC2EPNS_9TaskGroupE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %group)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i64 16), ptr %this, align 8
   %_ofd = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %ofd, ptr %_ofd, align 8

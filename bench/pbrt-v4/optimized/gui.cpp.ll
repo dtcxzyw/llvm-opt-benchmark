@@ -356,7 +356,7 @@ if.end11:                                         ; preds = %if.else, %if.then8
 declare void @glfwSetWindowShouldClose(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt3GUI16keyboardCallbackEP10GLFWwindowiiiiENK3$_0clEic"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %k, i8 noundef signext %ch) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt3GUI16keyboardCallbackEP10GLFWwindowiiiiENK3$_0clEic"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef range(i32 45, 266) %k, i8 noundef signext range(i8 45, 120) %ch) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %0, align 8

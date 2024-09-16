@@ -353,7 +353,7 @@ if.then18:                                        ; preds = %if.end15
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end15
-  %cmp45.i = icmp sgt i32 %retval.0.i8893, 1
+  %cmp45.i = icmp ugt i32 %retval.0.i8893, 1
   br i1 %cmp45.i, label %for.body.i37, label %if.end25
 
 for.body.i37:                                     ; preds = %if.end19, %for.inc.i47
@@ -1048,16 +1048,15 @@ declare i32 @luaL_loadbuffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @docall(ptr noundef %L, i32 noundef %narg, i32 noundef %clear) unnamed_addr #0 {
+define internal fastcc i32 @docall(ptr noundef %L, i32 noundef %narg, i32 noundef range(i32 0, 2) %clear) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #9
   %sub = sub nsw i32 %call, %narg
   tail call void @lua_pushcclosure(ptr noundef %L, ptr noundef nonnull @traceback, i32 noundef 0) #9
   tail call void @lua_insert(ptr noundef %L, i32 noundef %sub) #9
   %call1 = tail call ptr @signal(i32 noundef 2, ptr noundef nonnull @laction) #9
-  %tobool.not = icmp eq i32 %clear, 0
-  %cond = sext i1 %tobool.not to i32
-  %call2 = tail call i32 @lua_pcall(ptr noundef %L, i32 noundef %narg, i32 noundef %cond, i32 noundef %sub) #9
+  %sext = add nsw i32 %clear, -1
+  %call2 = tail call i32 @lua_pcall(ptr noundef %L, i32 noundef %narg, i32 noundef %sext, i32 noundef %sub) #9
   %call3 = tail call ptr @signal(i32 noundef 2, ptr noundef null) #9
   tail call void @lua_remove(ptr noundef %L, i32 noundef %sub) #9
   %cmp.not = icmp eq i32 %call2, 0

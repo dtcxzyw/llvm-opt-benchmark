@@ -3956,7 +3956,7 @@ declare dso_local ptr @alloc_etherdev_mqs(i32 noundef, i32 noundef, i32 noundef)
 declare dso_local ptr @pci_ioremap_bar(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @dma_set_mask_and_coherent(ptr noundef %0, i64 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc i32 @dma_set_mask_and_coherent(ptr noundef %0, i64 noundef range(i64 -1, 4294967296) %1) unnamed_addr #6 align 16 {
   %3 = tail call i32 @dma_set_mask(ptr noundef %0, i64 noundef %1) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
@@ -10031,7 +10031,7 @@ define internal void @e1000_alloc_rx_buffers(ptr nocapture noundef %0, ptr nocap
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @e1000_tbi_should_accept(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 align 16 {
+define internal fastcc noundef zeroext i1 @e1000_tbi_should_accept(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4) unnamed_addr #4 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1431
   %7 = load i8, ptr %6, align 1, !range !12, !noundef !13
   %8 = icmp eq i8 %7, 0
@@ -10093,7 +10093,7 @@ define internal fastcc noundef zeroext i1 @e1000_tbi_should_accept(ptr noundef %
   %48 = getelementptr inbounds i8, ptr %0, i64 1696
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, 2147483648
-  %51 = zext i32 %42 to i64
+  %51 = zext nneg i32 %42 to i64
   %52 = add i64 %49, %51
   store i64 %52, ptr %48, align 8
   %53 = icmp ne i64 %50, 0
@@ -10152,13 +10152,14 @@ define internal fastcc noundef zeroext i1 @e1000_tbi_should_accept(ptr noundef %
   br label %89
 
 89:                                               ; preds = %87, %83, %79
-  switch i32 %3, label %106 [
-    i32 65, label %94
-    i32 128, label %90
-    i32 256, label %91
-    i32 512, label %92
-    i32 1024, label %93
-    i32 1523, label %100
+  %trunc = trunc nuw i32 %3 to i16
+  switch i16 %trunc, label %106 [
+    i16 65, label %94
+    i16 128, label %90
+    i16 256, label %91
+    i16 512, label %92
+    i16 1024, label %93
+    i16 1523, label %100
   ]
 
 90:                                               ; preds = %89

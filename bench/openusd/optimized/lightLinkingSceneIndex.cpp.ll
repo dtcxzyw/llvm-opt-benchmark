@@ -1474,7 +1474,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_48HdsiLigh
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_48HdsiLightLinkingSceneIndexTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit: ; preds = %24, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_48HdsiLightLinkingSceneIndexTokens_StaticTokenTypeEE3NewEv.exit.i.i.i, %7
   %27 = phi ptr [ %16, %7 ], [ %26, %24 ], [ %18, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_48HdsiLightLinkingSceneIndexTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
   %.val = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetPrimTypesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L16LIGHT_PRIM_TYPESE)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetPrimTypesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIS6_EE(ptr dead_on_unwind noalias writable align 8 %14, ptr %.val, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L16LIGHT_PRIM_TYPESE)
           to label %28 unwind label %63
 
 28:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_48HdsiLightLinkingSceneIndexTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
@@ -1515,7 +1515,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_48HdsiLightLinkingSceneI
   %42 = phi ptr [ %31, %28 ], [ %41, %39 ], [ %33, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_48HdsiLightLinkingSceneIndexTokens_StaticTokenTypeEE3NewEv.exit.i.i.i16 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.val13 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetPrimTypesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr %.val13, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L23LIGHT_FILTER_PRIM_TYPESE)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetPrimTypesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIS6_EE(ptr dead_on_unwind noalias writable align 8 %29, ptr %.val13, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L23LIGHT_FILTER_PRIM_TYPESE)
           to label %44 unwind label %65
 
 44:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_48HdsiLightLinkingSceneIndexTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit20
@@ -1556,7 +1556,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_48HdsiLightLinkingSceneI
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %.val14 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetPrimTypesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %58, ptr %.val14, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L19GEOMETRY_PRIM_TYPESE)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetPrimTypesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIS6_EE(ptr dead_on_unwind noalias writable align 8 %58, ptr %.val14, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L19GEOMETRY_PRIM_TYPESE)
           to label %60 unwind label %67
 
 60:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_48HdsiLightLinkingSceneIndexTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit26
@@ -1607,7 +1607,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_48HdsiLightLinkingSceneI
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetPrimTypesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIS6_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetPrimTypesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.137", align 8
   %5 = alloca %"class.std::shared_ptr.140", align 8
   %.not = icmp eq ptr %.0.val, null
@@ -1745,7 +1745,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   %65 = load ptr, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
-  invoke void %67(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %63, float noundef 0.000000e+00)
+  invoke void %67(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %63, float noundef 0.000000e+00)
           to label %70 unwind label %68
 
 68:                                               ; preds = %64

@@ -2643,7 +2643,7 @@ declare i32 @g_source_attach(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @qemu_chr_be_can_write(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @tcp_chr_recv(ptr noundef %chr, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @tcp_chr_recv(ptr noundef %chr, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %len) unnamed_addr #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
   %msgfds = alloca ptr, align 8

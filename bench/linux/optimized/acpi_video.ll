@@ -1686,7 +1686,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   store volatile ptr %140, ptr %140, align 8
   %141 = getelementptr inbounds i8, ptr %18, i64 40
   store volatile ptr %140, ptr %141, align 8
-  tail call fastcc void @acpi_video_device_enumerate(ptr noundef nonnull %18)
+  tail call fastcc void @acpi_video_device_enumerate(ptr noundef %18)
   %142 = tail call i32 @acpi_dev_for_each_child(ptr noundef %0, ptr noundef nonnull @acpi_video_bus_get_one_device, ptr noundef nonnull %18) #18
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %178
@@ -1895,7 +1895,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @acpi_device_fix_up_power_children(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @mutex_lock(ptr noundef %3) #18
@@ -1960,7 +1960,7 @@ define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef %0) unnamed_
 declare dso_local i32 @__acpi_video_get_backlight_type(i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_video_bus_add_notify_handler(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_video_bus_add_notify_handler(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = tail call ptr @input_allocate_device() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %2, ptr %3, align 8
@@ -2211,7 +2211,7 @@ define internal void @acpi_video_bus_notify(ptr nocapture readnone %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @mutex_lock(ptr noundef %2) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2273,7 +2273,7 @@ define internal fastcc void @acpi_video_bus_remove_notify_handler(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_video_bus_unregister_backlight(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !range !13, !noundef !14
   %4 = icmp eq i8 %3, 0
@@ -2362,7 +2362,7 @@ declare dso_local ptr @acpi_get_pci_dev(ptr noundef) local_unnamed_addr #2
 declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_video_device_enumerate(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_video_device_enumerate(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   store i64 -1, ptr %2, align 8

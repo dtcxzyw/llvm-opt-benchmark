@@ -70,7 +70,7 @@ define range(i32 -1, 1) i32 @tres_freq_verify_cmdline(ptr noundef %0) local_unna
   br i1 %.not20.i, label %24, label %28
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = call fastcc i32 @_test_val(ptr noundef nonnull %.01432.i)
+  %25 = call fastcc i32 @_test_val(ptr noundef %.01432.i)
   %.not21.i = icmp eq i32 %25, 0
   br i1 %.not21.i, label %.thread.i, label %26
 
@@ -87,7 +87,7 @@ define range(i32 -1, 1) i32 @tres_freq_verify_cmdline(ptr noundef %0) local_unna
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %23, i64 1
-  %32 = call fastcc i32 @_test_val(ptr noundef nonnull %31)
+  %32 = call fastcc i32 @_test_val(ptr noundef %31)
   %.not24.i = icmp eq i32 %32, 0
   br i1 %.not24.i, label %.thread.i, label %_valid_gpu_freq.exit.thread20
 
@@ -137,7 +137,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @_test_val(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @_test_val(ptr noundef nonnull %0) unnamed_addr #4 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = load i8, ptr %0, align 1

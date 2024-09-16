@@ -3062,11 +3062,11 @@ _ZNK7oopDesc5klassEv.exit44:                      ; preds = %_ZNK7oopDesc11is_in
   br i1 %142, label %145, label %147
 
 145:                                              ; preds = %_ZNK7oopDesc5klassEv.exit44
-  %146 = call fastcc noundef i32 @_ZL49invoke_primitive_field_callback_for_static_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %121, ptr noundef %144)
+  %146 = call fastcc noundef i32 @_ZL49invoke_primitive_field_callback_for_static_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_(ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %121, ptr noundef %144)
   br label %149
 
 147:                                              ; preds = %_ZNK7oopDesc5klassEv.exit44
-  %148 = call fastcc noundef i32 @_ZL51invoke_primitive_field_callback_for_instance_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %121, ptr noundef %144)
+  %148 = call fastcc noundef i32 @_ZL51invoke_primitive_field_callback_for_instance_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_(ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %121, ptr noundef %144)
   br label %149
 
 149:                                              ; preds = %147, %145
@@ -3115,7 +3115,7 @@ _ZNK7oopDesc5klassEv.exit47:                      ; preds = %158, %168
 172:                                              ; preds = %_ZNK7oopDesc5klassEv.exit47
   %173 = getelementptr inbounds i8, ptr %0, i64 40
   %174 = load ptr, ptr %173, align 8
-  %175 = call fastcc noundef i32 @_ZL28invoke_string_value_callbackPFillPlPKtiPvEP15CallbackWrapperP7oopDescS2_(ptr noundef nonnull %154, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef %174)
+  %175 = call fastcc noundef i32 @_ZL28invoke_string_value_callbackPFillPlPKtiPvEP15CallbackWrapperP7oopDescS2_(ptr noundef nonnull %154, ptr noundef %3, ptr noundef nonnull %1, ptr noundef %174)
   %176 = and i32 %175, 32768
   %.not60 = icmp eq i32 %176, 0
   br i1 %.not60, label %_ZN31IterateThroughHeapObjectClosure21check_flags_for_abortEi.exit48, label %_ZN31IterateThroughHeapObjectClosure21check_flags_for_abortEi.exit48.sink.split
@@ -3157,7 +3157,7 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %182, %192
 197:                                              ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit
   %198 = getelementptr inbounds i8, ptr %0, i64 40
   %199 = load ptr, ptr %198, align 8
-  %200 = call fastcc noundef i32 @_ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15CallbackWrapperP7oopDescS3_(ptr noundef nonnull %178, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef %199)
+  %200 = call fastcc noundef i32 @_ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15CallbackWrapperP7oopDescS3_(ptr noundef nonnull %178, ptr noundef %3, ptr noundef nonnull %1, ptr noundef %199)
   %201 = and i32 %200, 32768
   %.not61 = icmp eq i32 %201, 0
   br i1 %.not61, label %_ZN31IterateThroughHeapObjectClosure21check_flags_for_abortEi.exit48, label %_ZN31IterateThroughHeapObjectClosure21check_flags_for_abortEi.exit48.sink.split
@@ -3188,7 +3188,7 @@ _ZN15CallbackWrapperD2Ev.exit:                    ; preds = %_ZNK7oopDesc5klassE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL49invoke_primitive_field_callback_for_static_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL49invoke_primitive_field_callback_for_static_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %6 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %5) #14
   %7 = icmp eq ptr %6, null
@@ -3465,7 +3465,7 @@ _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL51invoke_primitive_field_callback_for_instance_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL51invoke_primitive_field_callback_for_instance_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call noundef ptr @_ZN24JvmtiCachedClassFieldMap26get_map_of_instance_fieldsEP7oopDesc(ptr noundef %1)
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 4
@@ -3625,7 +3625,7 @@ _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL28invoke_string_value_callbackPFillPlPKtiPvEP15CallbackWrapperP7oopDescS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL28invoke_string_value_callbackPFillPlPKtiPvEP15CallbackWrapperP7oopDescS2_(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %6 = sext i32 %5 to i64
   %7 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -3740,7 +3740,7 @@ _ZN16java_lang_String6lengthEP7oopDesc.exit:      ; preds = %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15CallbackWrapperP7oopDescS3_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15CallbackWrapperP7oopDescS3_(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -14402,7 +14402,7 @@ _ZL26is_filtered_by_heap_filterlli.exit:          ; preds = %41, %39
   %44 = getelementptr inbounds i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr @_ZN15CallbackInvoker10_user_dataE, align 8
-  %47 = call fastcc noundef i32 @_ZL28invoke_string_value_callbackPFillPlPKtiPvEP15CallbackWrapperP7oopDescS2_(ptr noundef %45, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %46)
+  %47 = call fastcc noundef i32 @_ZL28invoke_string_value_callbackPFillPlPKtiPvEP15CallbackWrapperP7oopDescS2_(ptr noundef %45, ptr noundef %2, ptr noundef %0, ptr noundef %46)
   %48 = and i32 %47, 32768
   %.not = icmp eq i32 %48, 0
   %.pre = load i64, ptr %21, align 8

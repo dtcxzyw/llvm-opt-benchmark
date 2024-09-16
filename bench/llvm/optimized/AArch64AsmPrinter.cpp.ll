@@ -18325,7 +18325,7 @@ declare { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnul
 declare void @_ZN4llvm10AsmPrinter8emitNopsEj(ptr noundef nonnull align 8 dereferenceable(785), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitSledERKN4llvm12MachineInstrENS1_10AsmPrinter8SledKindE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i8 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitSledERKN4llvm12MachineInstrENS1_10AsmPrinter8SledKindE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::MCInstBuilder", align 8
   %6 = alloca %"class.llvm::MCInstBuilder", align 8
@@ -19703,7 +19703,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %23, %22, %20, %_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter18printAsmRegInClassERKN4llvm14MachineOperandEPKNS1_19TargetRegisterClassEjRNS1_11raw_ostreamE(ptr %.920.val, i32 %.4.val, ptr nocapture readonly %.0.val.0.val, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter18printAsmRegInClassERKN4llvm14MachineOperandEPKNS1_19TargetRegisterClassEjRNS1_11raw_ostreamE(ptr %.920.val, i32 %.4.val, ptr nocapture readonly %.0.val.0.val, i32 noundef range(i32 0, 3) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %.920.val, i64 936
   %4 = getelementptr inbounds i8, ptr %.920.val, i64 1032
   %5 = load ptr, ptr %4, align 8

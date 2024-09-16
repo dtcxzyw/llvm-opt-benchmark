@@ -678,7 +678,7 @@ BufferGetPage.exit83:                             ; preds = %BufferGetPage.exit8
   %82 = icmp eq i32 %.066, %47
   %83 = and i1 %82, %not.
   %.1 = select i1 %83, i1 true, i1 %.065
-  call fastcc void @processPendingPage(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %.063, i16 noundef zeroext 1)
+  call fastcc void @processPendingPage(ptr noundef %9, ptr noundef %10, ptr noundef %.063, i16 noundef zeroext 1)
   call void @vacuum_delay_point() #9
   %84 = getelementptr inbounds i8, ptr %.063, i64 16
   %85 = load i16, ptr %84, align 4
@@ -741,7 +741,7 @@ BufferGetPage.exit83:                             ; preds = %BufferGetPage.exit8
 114:                                              ; preds = %._crit_edge
   call void @ginInitBA(ptr noundef nonnull %9) #9
   %narrow = add nuw nsw i16 %.0.i, 1
-  call fastcc void @processPendingPage(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.063, i16 noundef zeroext %narrow)
+  call fastcc void @processPendingPage(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %.063, i16 noundef zeroext %narrow)
   call void @ginBeginBAScan(ptr noundef nonnull %9) #9
   %115 = call ptr @ginGetBAEntry(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #9
   %.not7691 = icmp eq ptr %115, null
@@ -1289,7 +1289,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare void @ginInitBA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @processPendingPage(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @processPendingPage(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i16 noundef zeroext range(i16 1, 16379) %3) unnamed_addr #0 {
   %5 = alloca %struct.ItemPointerData, align 2
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1400,7 +1400,7 @@ addDatum.exit:                                    ; preds = %35, %41
   %63 = load ptr, ptr %1, align 8
   %64 = getelementptr inbounds i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8
-  call void @ginInsertBAEntries(ptr noundef %0, ptr noundef nonnull %5, i16 noundef zeroext %.032.lcssa, ptr noundef %63, ptr noundef %65, i32 noundef %62) #9
+  call void @ginInsertBAEntries(ptr noundef nonnull %0, ptr noundef nonnull %5, i16 noundef zeroext %.032.lcssa, ptr noundef %63, ptr noundef %65, i32 noundef %62) #9
   ret void
 }
 

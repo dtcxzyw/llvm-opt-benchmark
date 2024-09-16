@@ -352,7 +352,7 @@ default.unreachable:                              ; preds = %54
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_multirange_io_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @get_multirange_io_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
   %6 = alloca i8, align 1

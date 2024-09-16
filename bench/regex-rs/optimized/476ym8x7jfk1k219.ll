@@ -31,7 +31,7 @@ define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h8bf
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 65
   %3 = load i8, ptr %2, align 1, !range !4, !alias.scope !5, !noundef !14
   %4 = trunc nuw i8 %3 to i1
@@ -446,7 +446,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
   %36 = alloca { { { i64, ptr }, i64 } }, align 8
   %37 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { ptr, i64 }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %37)
-  call fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17h690a5c5f6c2dcab8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
+  call fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17h690a5c5f6c2dcab8E(ptr noalias nocapture noundef align 8 dereferenceable(72) %37, ptr noalias noundef readonly align 8 dereferenceable(40) %0)
   %38 = load ptr, ptr %0, align 8, !nonnull !14, !align !24, !noundef !14
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8, !noundef !14
@@ -558,7 +558,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
 68:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16)
-  invoke fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17h690a5c5f6c2dcab8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
+  invoke fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17h690a5c5f6c2dcab8E(ptr noalias nocapture noundef align 8 dereferenceable(72) %16, ptr noalias noundef readonly align 8 dereferenceable(40) %0)
           to label %69 unwind label %50
 
 69:                                               ; preds = %68
@@ -1109,7 +1109,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
   %36 = alloca { { { i64, ptr }, i64 } }, align 8
   %37 = alloca { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { ptr, i64 }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %37)
-  call fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17hb673a9f533ceb446E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
+  call fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17hb673a9f533ceb446E(ptr noalias nocapture noundef align 8 dereferenceable(72) %37, ptr noalias noundef readonly align 8 dereferenceable(40) %0)
   %38 = load ptr, ptr %0, align 8, !nonnull !14, !align !24, !noundef !14
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8, !noundef !14
@@ -1221,7 +1221,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
 68:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16)
-  invoke fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17hb673a9f533ceb446E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
+  invoke fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17hb673a9f533ceb446E(ptr noalias nocapture noundef align 8 dereferenceable(72) %16, ptr noalias noundef readonly align 8 dereferenceable(40) %0)
           to label %69 unwind label %50
 
 69:                                               ; preds = %68
@@ -1735,7 +1735,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %202
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17h690a5c5f6c2dcab8E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17h690a5c5f6c2dcab8E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
@@ -1775,7 +1775,7 @@ define internal fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17h690
   store i8 0, ptr %.sroa.01.sroa.12.0..sroa_idx, align 8
   %.sroa.01.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 65
   store i8 0, ptr %.sroa.01.sroa.13.0..sroa_idx, align 1
-  %19 = call fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %14)
+  %19 = call fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef align 8 dereferenceable(72) %14)
   store i64 %19, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
   %.not.i = icmp eq i64 %18, 0
@@ -1983,7 +1983,7 @@ common.resume:                                    ; preds = %71, %59, %63, %35
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17hb673a9f533ceb446E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17hb673a9f533ceb446E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
@@ -2023,7 +2023,7 @@ define internal fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17hb67
   store i8 0, ptr %.sroa.01.sroa.12.0..sroa_idx, align 8
   %.sroa.01.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 65
   store i8 0, ptr %.sroa.01.sroa.13.0..sroa_idx, align 1
-  %19 = call fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %14)
+  %19 = call fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef align 8 dereferenceable(72) %14)
   store i64 %19, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
   %.not.i = icmp eq i64 %18, 0

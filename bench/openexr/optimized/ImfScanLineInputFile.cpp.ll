@@ -5010,7 +5010,7 @@ unreachable:                                      ; preds = %invoke.cont164
 declare void @_ZN13IlmThread_3_24TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZNK7Imf_3_212_GLOBAL__N_117LineBufferTaskIIF15getWritePointerIN9Imath_3_24halfEEEviRPtRmS7_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %y, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outWritePointerRight, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPixelsToCopySSE, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPixelsToCopyNormal, i32 noundef %channelBank) unnamed_addr #19 align 2 {
+define internal fastcc void @_ZNK7Imf_3_212_GLOBAL__N_117LineBufferTaskIIF15getWritePointerIN9Imath_3_24halfEEEviRPtRmS7_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %y, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outWritePointerRight, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPixelsToCopySSE, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPixelsToCopyNormal, i32 noundef range(i32 0, 2) %channelBank) unnamed_addr #19 align 2 {
 entry:
   %_ifd = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_ifd, align 8
@@ -5023,8 +5023,8 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %div16 = lshr i64 %sub.ptr.div.i, 1
-  %cmp5 = icmp eq i32 %channelBank, 1
-  %spec.select75 = select i1 %cmp5, i64 %div16, i64 0
+  %cmp5.not = icmp eq i32 %channelBank, 0
+  %spec.select75 = select i1 %cmp5.not, i64 0, i64 %div16
   %add.ptr.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::sliceOptimizationData", ptr %optimizationData.val, i64 %spec.select75
   %ySampling = getelementptr inbounds i8, ptr %add.ptr.i, i64 52
   %2 = load i32, ptr %ySampling, align 4

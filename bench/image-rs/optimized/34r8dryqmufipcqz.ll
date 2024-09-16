@@ -2246,7 +2246,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h2938fa28a2c532d4E"(ptr noalias noundef readonly align 8 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h2938fa28a2c532d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8, !alias.scope !565, !noalias !570, !noundef !19
@@ -2317,7 +2317,7 @@ define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specifi
   br i1 %36, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit.thread": ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit5", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit"
-  %37 = tail call fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h540699ede043440aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h540699ede043440aE"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1)
   br label %38
 
 38:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit.thread"
@@ -2326,7 +2326,7 @@ define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specifi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h540699ede043440aE"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h540699ede043440aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !alias.scope !584, !noalias !589, !noundef !19
   %5 = icmp ugt i64 %4, 24
@@ -5205,7 +5205,7 @@ define hidden noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6ato
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader17h89a6c153625f33b3E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(296) %0, ptr noalias noundef readonly align 8 dereferenceable(168) %1, ptr noalias noundef readonly align 8 dereferenceable(352) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader17h89a6c153625f33b3E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(296) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i8, [31 x i8] }, i64 }, align 8
   %5 = alloca { { i8, [31 x i8] }, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -13245,7 +13245,7 @@ define hidden void @"_ZN179_$LT$exr..image..read..specific_channels..CollectPixe
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %6)
-  call fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader17h89a6c153625f33b3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(296) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2)
+  call fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader17h89a6c153625f33b3E"(ptr noalias nocapture noundef align 8 dereferenceable(296) %6, ptr noalias noundef readonly align 8 dereferenceable(168) %1, ptr noalias noundef readonly align 8 dereferenceable(352) %2)
   %12 = load i8, ptr %6, align 8, !range !632, !noundef !19
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %18, label %16
@@ -13321,7 +13321,7 @@ define hidden void @"_ZN179_$LT$exr..image..read..specific_channels..CollectPixe
 37:                                               ; preds = %21
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef nonnull align 8 dereferenceable(256) %5) #25
+  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef align 8 dereferenceable(256) %5) #25
           to label %.thread26 unwind label %44
 
 39:                                               ; preds = %21
@@ -13337,7 +13337,7 @@ define hidden void @"_ZN179_$LT$exr..image..read..specific_channels..CollectPixe
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.011.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(296) %7, i64 296, i1 false)
   %.sroa.512.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 320
   store ptr %42, ptr %.sroa.512.0..sroa_idx, align 8
-  call fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef nonnull align 8 dereferenceable(256) %5)
+  call fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef align 8 dereferenceable(256) %5)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %7)
   br label %43
@@ -13376,7 +13376,7 @@ define hidden void @"_ZN179_$LT$exr..image..read..specific_channels..CollectPixe
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %6)
-  call fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader17h89a6c153625f33b3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(296) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2)
+  call fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader17h89a6c153625f33b3E"(ptr noalias nocapture noundef align 8 dereferenceable(296) %6, ptr noalias noundef readonly align 8 dereferenceable(168) %1, ptr noalias noundef readonly align 8 dereferenceable(352) %2)
   %12 = load i8, ptr %6, align 8, !range !632, !noundef !19
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %18, label %16
@@ -13452,7 +13452,7 @@ define hidden void @"_ZN179_$LT$exr..image..read..specific_channels..CollectPixe
 37:                                               ; preds = %21
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef nonnull align 8 dereferenceable(256) %5) #25
+  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef align 8 dereferenceable(256) %5) #25
           to label %.thread26 unwind label %44
 
 39:                                               ; preds = %21
@@ -13468,7 +13468,7 @@ define hidden void @"_ZN179_$LT$exr..image..read..specific_channels..CollectPixe
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.011.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(296) %7, i64 296, i1 false)
   %.sroa.512.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 320
   store ptr %42, ptr %.sroa.512.0..sroa_idx, align 8
-  call fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef nonnull align 8 dereferenceable(256) %5)
+  call fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef align 8 dereferenceable(256) %5)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %7)
   br label %43
@@ -15242,7 +15242,7 @@ define internal void @_ZN3exr5image15ignore_progress17hb5c1a8d35b026d89E(double 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8optional17hbc46d487deeae31aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(168) %0, ptr noalias nocapture noundef align 8 dereferenceable(120) %1, float noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8optional17hbc46d487deeae31aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %1, float noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca { { { i8, [31 x i8] }, i64 } }, align 8
@@ -15338,7 +15338,7 @@ define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecific
   br i1 %41, label %"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h894549eaca5aeeefE.exit.thread", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit.i", %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit5.i"
-  %42 = invoke fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h2938fa28a2c532d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %6)
+  %42 = invoke fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h2938fa28a2c532d4E"(ptr noalias noundef readonly align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %6)
           to label %"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h894549eaca5aeeefE.exit" unwind label %43
 
 43:                                               ; preds = %.invoke, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit.thread.i", %30, %15, %"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h894549eaca5aeeefE.exit.thread"
@@ -15391,7 +15391,7 @@ define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecific
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h0cf7f16a7aa28a57E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h0cf7f16a7aa28a57E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { { i8, [31 x i8] }, i64 } }, align 8
@@ -15410,7 +15410,7 @@ define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecific
   br label %6
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd06422e26c8f8c4E.exit": ; preds = %2
-  %9 = invoke fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h540699ede043440aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
+  %9 = invoke fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h540699ede043440aE"(ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %5)
           to label %12 unwind label %10
 
 10:                                               ; preds = %15, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd06422e26c8f8c4E.exit"
@@ -15461,7 +15461,7 @@ define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecific
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h7de7e48292b77e26E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(120) %0, ptr noalias nocapture noundef align 8 dereferenceable(80) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h7de7e48292b77e26E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { { i8, [31 x i8] }, i64 } }, align 8
@@ -15480,7 +15480,7 @@ define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecific
   br label %6
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd06422e26c8f8c4E.exit": ; preds = %2
-  %9 = invoke fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h2938fa28a2c532d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
+  %9 = invoke fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$Inner$C$Sample$GT$$u20$as$u20$exr..image..CheckDuplicates$GT$16already_contains17h2938fa28a2c532d4E"(ptr noalias noundef readonly align 8 dereferenceable(80) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %5)
           to label %12 unwind label %10
 
 10:                                               ; preds = %15, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd06422e26c8f8c4E.exit"
@@ -15590,7 +15590,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef align 8 dereferenceable(256) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..ChannelDescription$C$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$RP$$GT$17hd07b210328b2affbE"(ptr noalias noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { i64, ptr }, i64 }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -15771,7 +15771,7 @@ define internal fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..att
 79:                                               ; preds = %81, %54
   %.pn2 = phi { ptr, i32 } [ %82, %81 ], [ %.pn, %54 ]
   %80 = getelementptr inbounds i8, ptr %0, i64 192
-  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$GT$17h69522df29acd4d6dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %80) #25
+  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$GT$17h69522df29acd4d6dE"(ptr noalias noundef align 8 dereferenceable(64) %80) #25
           to label %108 unwind label %106
 
 81:                                               ; preds = %75, %64, %62
@@ -15946,7 +15946,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$std..io..error..Error$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i8, ptr %0, align 8, !range !4183, !noundef !19
@@ -16007,7 +16007,7 @@ define internal void @"_ZN4core3ptr54drop_in_place$LT$$RF$alloc..borrow..Cow$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$GT$17h69522df29acd4d6dE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$GT$17h69522df29acd4d6dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { i64, ptr }, i64 }, align 8
   %4 = load i8, ptr %0, align 8, !range !632, !noundef !19
@@ -18389,17 +18389,17 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
           to label %.noexc57 unwind label %168
 
 .noexc57:                                         ; preds = %129
-  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h0cf7f16a7aa28a57E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h0cf7f16a7aa28a57E(ptr noalias nocapture noundef align 8 dereferenceable(80) %8, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %.noexc58 unwind label %168
 
 .noexc58:                                         ; preds = %.noexc57
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !4735
-  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h7de7e48292b77e26E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %8)
+  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h7de7e48292b77e26E(ptr noalias nocapture noundef align 8 dereferenceable(120) %9, ptr noalias nocapture noundef align 8 dereferenceable(80) %8)
           to label %.noexc59 unwind label %168
 
 .noexc59:                                         ; preds = %.noexc58
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !4735
-  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8optional17hbc46d487deeae31aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %9, float noundef 1.000000e+00)
+  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8optional17hbc46d487deeae31aE(ptr noalias nocapture noundef align 8 dereferenceable(168) %10, ptr noalias nocapture noundef align 8 dereferenceable(120) %9, float noundef 1.000000e+00)
           to label %135 unwind label %168
 
 130:                                              ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
@@ -18786,17 +18786,17 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
           to label %.noexc57 unwind label %168
 
 .noexc57:                                         ; preds = %129
-  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h0cf7f16a7aa28a57E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
+  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h0cf7f16a7aa28a57E(ptr noalias nocapture noundef align 8 dereferenceable(80) %8, ptr noalias nocapture noundef align 8 dereferenceable(40) %7)
           to label %.noexc58 unwind label %168
 
 .noexc58:                                         ; preds = %.noexc57
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !4811
-  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h7de7e48292b77e26E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %8)
+  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8required17h7de7e48292b77e26E(ptr noalias nocapture noundef align 8 dereferenceable(120) %9, ptr noalias nocapture noundef align 8 dereferenceable(80) %8)
           to label %.noexc59 unwind label %168
 
 .noexc59:                                         ; preds = %.noexc58
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !4811
-  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8optional17hbc46d487deeae31aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %9, float noundef 1.000000e+00)
+  invoke fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecificChannel8optional17hbc46d487deeae31aE(ptr noalias nocapture noundef align 8 dereferenceable(168) %10, ptr noalias nocapture noundef align 8 dereferenceable(120) %9, float noundef 1.000000e+00)
           to label %135 unwind label %168
 
 130:                                              ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
@@ -19557,7 +19557,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.10740287948243559469.exit.i: ; pre
 127:                                              ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread.i
   %128 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #25
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef align 8 dereferenceable(32) %21) #25
           to label %common.resume.i unwind label %106, !noalias !4915
 
 _ZN5image6codecs7openexr12write_buffer17hd3761b9de5adaa1bE.exit: ; preds = %_ZN5image5error13EncodingError3new17h3bd8d82b52cc5fa8E.exit.i, %104, %105

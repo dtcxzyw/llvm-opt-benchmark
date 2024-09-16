@@ -7971,25 +7971,25 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2250
 
 2109:                                             ; preds = %1987
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %1960, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %1960, ptr noundef nonnull %1)
   %2110 = getelementptr inbounds i8, ptr %1962, i64 352
   call fastcc void @_ZN5faissL26write_LocalSearchQuantizerEPKNS_20LocalSearchQuantizerEPNS_8IOWriterE(ptr noundef nonnull %2110, ptr noundef nonnull %1)
   br label %2117
 
 2111:                                             ; preds = %2018
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %1960, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %1960, ptr noundef nonnull %1)
   %2112 = getelementptr inbounds i8, ptr %1963, i64 352
   call fastcc void @_ZN5faissL23write_ResidualQuantizerEPKNS_17ResidualQuantizerEPNS_8IOWriterE(ptr noundef nonnull %2112, ptr noundef nonnull %1)
   br label %2117
 
 2113:                                             ; preds = %2049
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %1960, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %1960, ptr noundef nonnull %1)
   %2114 = getelementptr inbounds i8, ptr %1964, i64 352
   call fastcc void @_ZN5faissL33write_ProductLocalSearchQuantizerEPKNS_27ProductLocalSearchQuantizerEPNS_8IOWriterE(ptr noundef nonnull %2114, ptr noundef nonnull %1)
   br label %2117
 
 2115:                                             ; preds = %2079
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %1960, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %1960, ptr noundef nonnull %1)
   %2116 = getelementptr inbounds i8, ptr %1965, i64 352
   call fastcc void @_ZN5faissL30write_ProductResidualQuantizerEPKNS_24ProductResidualQuantizerEPNS_8IOWriterE(ptr noundef nonnull %2116, ptr noundef nonnull %1)
   br label %2117
@@ -9361,7 +9361,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
 2860:                                             ; preds = %2830
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %2861 = getelementptr inbounds i8, ptr %2829, i64 72
-  call fastcc void @_ZN5faissL21write_ScalarQuantizerEPKNS_15ScalarQuantizerEPNS_8IOWriterE(ptr noundef nonnull %2861, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL21write_ScalarQuantizerEPKNS_15ScalarQuantizerEPNS_8IOWriterE(ptr noundef %2861, ptr noundef nonnull %1)
   %2862 = getelementptr inbounds i8, ptr %2829, i64 48
   %2863 = getelementptr inbounds i8, ptr %2829, i64 56
   %2864 = load ptr, ptr %2863, align 8
@@ -9948,7 +9948,7 @@ define void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, p
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2250
 
 3186:                                             ; preds = %3156
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3155, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %3155, ptr noundef nonnull %1)
   %3187 = getelementptr inbounds i8, ptr %3155, i64 288
   %3188 = load i64, ptr %3187, align 8
   %3189 = shl i64 %3188, 1
@@ -10196,7 +10196,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2250
 
 3314:                                             ; preds = %3284
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3283, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %3283, ptr noundef nonnull %1)
   %3315 = getelementptr inbounds i8, ptr %3283, i64 136
   %3316 = load ptr, ptr %3315, align 8
   call void @_ZN5faiss19write_InvertedListsEPKNS_13InvertedListsEPNS_8IOWriterE(ptr noundef %3316, ptr noundef nonnull %1)
@@ -10264,9 +10264,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2250
 
 3349:                                             ; preds = %3319
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3318, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %3318, ptr noundef nonnull %1)
   %3350 = getelementptr inbounds i8, ptr %3318, i64 264
-  call fastcc void @_ZN5faissL21write_ScalarQuantizerEPKNS_15ScalarQuantizerEPNS_8IOWriterE(ptr noundef nonnull %3350, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL21write_ScalarQuantizerEPKNS_15ScalarQuantizerEPNS_8IOWriterE(ptr noundef %3350, ptr noundef nonnull %1)
   %3351 = getelementptr inbounds i8, ptr %3318, i64 152
   %3352 = load ptr, ptr %1, align 8
   %3353 = load ptr, ptr %3352, align 8
@@ -10453,7 +10453,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2250
 
 3448:                                             ; preds = %3415
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3414, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %3414, ptr noundef nonnull %1)
   %3449 = getelementptr inbounds i8, ptr %3414, i64 152
   %3450 = load ptr, ptr %1, align 8
   %3451 = load ptr, ptr %3450, align 8
@@ -10713,7 +10713,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2250
 
 3582:                                             ; preds = %3552
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3551, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %3551, ptr noundef nonnull %1)
   %3583 = getelementptr inbounds i8, ptr %3551, i64 264
   %3584 = load ptr, ptr %3583, align 8
   call void @_ZN5faiss21write_VectorTransformEPKNS_15VectorTransformEPNS_8IOWriterE(ptr noundef %3584, ptr noundef nonnull %1)
@@ -11074,7 +11074,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2250
 
 3781:                                             ; preds = %3750
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %3749, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %3749, ptr noundef nonnull %1)
   %3782 = getelementptr inbounds i8, ptr %3749, i64 256
   %3783 = load ptr, ptr %1, align 8
   %3784 = load ptr, ptr %3783, align 8
@@ -12229,7 +12229,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4398:                                             ; preds = %4369
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4343, ptr noundef nonnull %1)
   %4399 = getelementptr inbounds i8, ptr %4343, i64 40
-  call fastcc void @_ZN5faissL10write_HNSWEPKNS_4HNSWEPNS_8IOWriterE(ptr noundef nonnull %4399, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL10write_HNSWEPKNS_4HNSWEPNS_8IOWriterE(ptr noundef %4399, ptr noundef nonnull %1)
   %4400 = getelementptr inbounds i8, ptr %4343, i64 5200
   %4401 = load ptr, ptr %4400, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %4401, ptr noundef nonnull %1)
@@ -12692,7 +12692,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 
 4637:                                             ; preds = %4607
   %4638 = getelementptr inbounds i8, ptr %4403, i64 40
-  call fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr noundef nonnull %4638, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr noundef %4638, ptr noundef nonnull %1)
   %4639 = getelementptr inbounds i8, ptr %4403, i64 5096
   %4640 = load ptr, ptr %4639, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %4640, ptr noundef nonnull %1)
@@ -12849,7 +12849,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
 4708:                                             ; preds = %4679
   call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %4642, ptr noundef nonnull %1)
   %4709 = getelementptr inbounds i8, ptr %4642, i64 40
-  call fastcc void @_ZN5faissL15write_NNDescentEPKNS_9NNDescentEPNS_8IOWriterE(ptr noundef nonnull %4709, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL15write_NNDescentEPKNS_9NNDescentEPNS_8IOWriterE(ptr noundef %4709, ptr noundef nonnull %1)
   %4710 = getelementptr inbounds i8, ptr %4642, i64 136
   %4711 = load ptr, ptr %4710, align 8
   call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %4711, ptr noundef nonnull %1)
@@ -13373,7 +13373,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %3274, %3276
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2250
 
 4993:                                             ; preds = %4963
-  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %4962, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %4962, ptr noundef nonnull %1)
   %4994 = getelementptr inbounds i8, ptr %4962, i64 256
   %4995 = load ptr, ptr %1, align 8
   %4996 = load ptr, ptr %4995, align 8
@@ -15023,10 +15023,10 @@ define internal fastcc void @_ZN5faissL33write_ProductLocalSearchQuantizerEPKNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @_ZN5faissL18write_index_headerEPKNS_5IndexEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
@@ -15131,7 +15131,7 @@ define internal fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IO
   %64 = load ptr, ptr %63, align 8
   tail call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterE(ptr noundef %64, ptr noundef nonnull %1)
   %65 = getelementptr inbounds i8, ptr %0, i64 168
-  tail call fastcc void @_ZN5faissL16write_direct_mapEPKNS_9DirectMapEPNS_8IOWriterE(ptr noundef nonnull %65, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5faissL16write_direct_mapEPKNS_9DirectMapEPNS_8IOWriterE(ptr noundef %65, ptr noundef nonnull %1)
   ret void
 
 66:                                               ; preds = %58, %60, %29, %31
@@ -15145,7 +15145,7 @@ define internal fastcc void @_ZN5faissL16write_ivf_headerEPKNS_8IndexIVFEPNS_8IO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL21write_ScalarQuantizerEPKNS_15ScalarQuantizerEPNS_8IOWriterE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL21write_ScalarQuantizerEPKNS_15ScalarQuantizerEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15571,7 +15571,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL10write_HNSWEPKNS_4HNSWEPNS_8IOWriterE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL10write_HNSWEPKNS_4HNSWEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16414,7 +16414,7 @@ define internal fastcc void @_ZN5faissL10write_HNSWEPKNS_4HNSWEPNS_8IOWriterE(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16431,7 +16431,7 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = load ptr, ptr %1, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %0, i64 noundef 4, i64 noundef 1)
+  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %0, i64 noundef 4, i64 noundef 1)
   %20 = icmp eq i64 %19, 1
   br i1 %20, label %44, label %21
 
@@ -17070,7 +17070,7 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL15write_NNDescentEPKNS_9NNDescentEPNS_8IOWriterE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL15write_NNDescentEPKNS_9NNDescentEPNS_8IOWriterE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17536,7 +17536,7 @@ define internal fastcc void @_ZN5faissL15write_NNDescentEPKNS_9NNDescentEPNS_8IO
 276:                                              ; preds = %247
   %277 = load ptr, ptr %1, align 8
   %278 = load ptr, ptr %277, align 8
-  %279 = tail call noundef i64 %278(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %0, i64 noundef 1, i64 noundef 1)
+  %279 = tail call noundef i64 %278(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %0, i64 noundef 1, i64 noundef 1)
   %280 = icmp eq i64 %279, 1
   br i1 %280, label %304, label %281
 
@@ -18613,7 +18613,7 @@ define internal fastcc void @_ZN5faissL30write_ProductAdditiveQuantizerEPKNS_24P
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL16write_direct_mapEPKNS_9DirectMapEPNS_8IOWriterE(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL16write_direct_mapEPKNS_9DirectMapEPNS_8IOWriterE(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i64, align 8
@@ -19509,7 +19509,7 @@ _ZN5faissL23write_binary_ivf_headerEPKNS_14IndexBinaryIVFEPNS_8IOWriterE.exit: ;
   %236 = load ptr, ptr %235, align 8
   call void @_ZN5faiss18write_index_binaryEPKNS_11IndexBinaryEPNS_8IOWriterE(ptr noundef %236, ptr noundef nonnull %1)
   %237 = getelementptr inbounds i8, ptr %143, i64 72
-  call fastcc void @_ZN5faissL16write_direct_mapEPKNS_9DirectMapEPNS_8IOWriterE(ptr noundef nonnull %237, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL16write_direct_mapEPKNS_9DirectMapEPNS_8IOWriterE(ptr noundef %237, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %238 = getelementptr inbounds i8, ptr %143, i64 32
@@ -19649,7 +19649,7 @@ _ZN5faissL23write_binary_ivf_headerEPKNS_14IndexBinaryIVFEPNS_8IOWriterE.exit: ;
 307:                                              ; preds = %277
   call fastcc void @_ZN5faissL25write_index_binary_headerEPKNS_11IndexBinaryEPNS_8IOWriterE(ptr noundef nonnull %276, ptr noundef nonnull %1)
   %308 = getelementptr inbounds i8, ptr %276, i64 32
-  call fastcc void @_ZN5faissL10write_HNSWEPKNS_4HNSWEPNS_8IOWriterE(ptr noundef nonnull %308, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL10write_HNSWEPKNS_4HNSWEPNS_8IOWriterE(ptr noundef %308, ptr noundef nonnull %1)
   %309 = getelementptr inbounds i8, ptr %276, i64 5192
   %310 = load ptr, ptr %309, align 8
   call void @_ZN5faiss18write_index_binaryEPKNS_11IndexBinaryEPNS_8IOWriterE(ptr noundef %310, ptr noundef nonnull %1)

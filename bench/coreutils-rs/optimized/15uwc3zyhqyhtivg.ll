@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3437c0ea0c69c886b18f1d60cac3c339.8.llvm.18091253327151059406 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$uu_csplit..csplit_error..CsplitError$GT$17h32d6a38d279f797dE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$uu_csplit..csplit_error..CsplitError$GT$17h32d6a38d279f797dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -239,7 +239,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$uu_csplit..csplit_e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcad0447e0b094afbE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcad0447e0b094afbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !15, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -670,7 +670,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h8f35cb274d7b4e1cE.exit: ; 
 144:                                              ; preds = %161, %155, %146, %141
   %145 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$uu_csplit..csplit_error..CsplitError$GT$17h32d6a38d279f797dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %22) #11
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$uu_csplit..csplit_error..CsplitError$GT$17h32d6a38d279f797dE"(ptr noalias noundef align 8 dereferenceable(40) %22) #11
           to label %165 unwind label %163
 
 146:                                              ; preds = %141
@@ -737,12 +737,12 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h8f35cb274d7b4e1cE.exit: ; 
 166:                                              ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha7dd12306f579b54E.exit26", %99, %102, %105, %119, %120, %129
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcad0447e0b094afbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #11
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcad0447e0b094afbE"(ptr noalias noundef align 8 dereferenceable(24) %24) #11
           to label %.thread81 unwind label %163
 
 .thread81:                                        ; preds = %166, %.thread
   %.pn61 = phi { ptr, i32 } [ %86, %.thread ], [ %lpad.thr_comm, %166 ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcad0447e0b094afbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #11
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcad0447e0b094afbE"(ptr noalias noundef align 8 dereferenceable(24) %25) #11
           to label %165 unwind label %163
 }
 

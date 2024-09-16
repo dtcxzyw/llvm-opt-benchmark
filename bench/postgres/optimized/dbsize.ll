@@ -84,7 +84,7 @@ define internal fastcc i64 @calculate_database_size(i32 noundef %0) unnamed_addr
 
 11:                                               ; preds = %9, %6, %1
   %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.7, i32 noundef %0) #9
-  %13 = call fastcc i64 @db_dir_size(ptr noundef nonnull %3)
+  %13 = call fastcc i64 @db_dir_size(ptr noundef %3)
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.8) #9
   %15 = call ptr @AllocateDir(ptr noundef nonnull %2) #9
   %16 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
@@ -138,7 +138,7 @@ sub_118:                                          ; preds = %.tail
 .outer:                                           ; preds = %sub_0, %sub_118, %.tail16
   %34 = getelementptr inbounds i8, ptr %19, i64 19
   %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.11, ptr noundef nonnull %34, ptr noundef nonnull @.str.12, i32 noundef %0) #9
-  %36 = call fastcc i64 @db_dir_size(ptr noundef nonnull %3)
+  %36 = call fastcc i64 @db_dir_size(ptr noundef %3)
   %37 = add i64 %36, %.0.ph23
   %38 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
   %.not1420 = icmp eq ptr %38, null
@@ -319,7 +319,7 @@ sub_128:                                          ; preds = %.tail
   br i1 %56, label %57, label %.outer
 
 57:                                               ; preds = %53
-  %58 = call fastcc i64 @db_dir_size(ptr noundef nonnull %3)
+  %58 = call fastcc i64 @db_dir_size(ptr noundef %3)
   %59 = add i64 %58, %.017.ph34
   br label %.outer
 
@@ -485,7 +485,7 @@ define dso_local i64 @pg_table_size(ptr nocapture noundef %0) local_unnamed_addr
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call fastcc i64 @calculate_table_size(ptr noundef nonnull %5)
+  %10 = tail call fastcc i64 @calculate_table_size(ptr noundef %5)
   tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #9
   br label %11
 
@@ -495,7 +495,7 @@ define dso_local i64 @pg_table_size(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @calculate_table_size(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc i64 @calculate_table_size(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -505,7 +505,7 @@ define internal fastcc i64 @calculate_table_size(ptr nocapture noundef readonly 
   %.014 = phi i32 [ 0, %1 ], [ %9, %5 ]
   %.0913 = phi i64 [ 0, %1 ], [ %8, %5 ]
   %6 = load i32, ptr %4, align 4
-  %7 = tail call fastcc i64 @calculate_relation_size(ptr noundef %0, i32 noundef %6, i32 noundef %.014)
+  %7 = tail call fastcc i64 @calculate_relation_size(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %.014)
   %8 = add i64 %7, %.0913
   %9 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %9, 4
@@ -662,7 +662,7 @@ define dso_local i64 @pg_indexes_size(ptr nocapture noundef %0) local_unnamed_ad
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call fastcc i64 @calculate_indexes_size(ptr noundef nonnull %5)
+  %10 = tail call fastcc i64 @calculate_indexes_size(ptr noundef %5)
   tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #9
   br label %11
 
@@ -672,7 +672,7 @@ define dso_local i64 @pg_indexes_size(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @calculate_indexes_size(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -808,8 +808,8 @@ define dso_local i64 @pg_total_relation_size(ptr nocapture noundef %0) local_unn
   br label %13
 
 9:                                                ; preds = %1
-  %10 = tail call fastcc i64 @calculate_table_size(ptr noundef nonnull %5)
-  %11 = tail call fastcc i64 @calculate_indexes_size(ptr noundef nonnull %5)
+  %10 = tail call fastcc i64 @calculate_table_size(ptr noundef %5)
+  %11 = tail call fastcc i64 @calculate_indexes_size(ptr noundef %5)
   %12 = add i64 %11, %10
   tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #9
   br label %13
@@ -1522,15 +1522,15 @@ declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @get_database_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @db_dir_size(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @db_dir_size(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [2048 x i8], align 16
   %3 = alloca %struct.stat, align 8
-  %4 = tail call ptr @AllocateDir(ptr noundef %0) #9
+  %4 = tail call ptr @AllocateDir(ptr noundef nonnull %0) #9
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %38, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = tail call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef %0) #9
+  %5 = tail call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #9
   %.not132022 = icmp eq ptr %5, null
   br i1 %.not132022, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
@@ -1578,12 +1578,12 @@ sub_117:                                          ; preds = %.tail
   br i1 %21, label %.backedge, label %.tail15.thread
 
 .backedge:                                        ; preds = %.tail, %.tail15, %26
-  %22 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef %0) #9
+  %22 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #9
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %.outer._crit_edge, label %8, !llvm.loop !18
 
 .tail15.thread:                                   ; preds = %sub_0, %sub_117, %.tail15
-  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.13, ptr noundef %0, ptr noundef nonnull %12) #9
+  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, ptr noundef nonnull %12) #9
   %24 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %.outer
@@ -1605,7 +1605,7 @@ sub_117:                                          ; preds = %.tail
 .outer:                                           ; preds = %.tail15.thread
   %34 = load i64, ptr %6, align 8
   %35 = add i64 %34, %.011.ph23
-  %36 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef %0) #9
+  %36 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #9
   %.not1320 = icmp eq ptr %36, null
   br i1 %.not1320, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
 

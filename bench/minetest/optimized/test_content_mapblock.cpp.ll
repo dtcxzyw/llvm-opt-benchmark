@@ -1542,7 +1542,7 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i16 @_ZN12_GLOBAL__N_111MockGameDef13addSimpleNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %name, i32 noundef %texture) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i16 @_ZN12_GLOBAL__N_111MockGameDef13addSimpleNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull %name, i32 noundef range(i32 13, 43) %texture) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %itemdef = alloca %struct.ItemDefinition, align 8
@@ -2044,7 +2044,7 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111MockGameDef17makeSingleNodeMMDEbb(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111MockGameDef17makeSingleNodeMMDEbb(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %voxel_area.i = alloca %class.VoxelArea, align 2
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !4
@@ -8011,7 +8011,7 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i16 @_ZN12_GLOBAL__N_111MockGameDef15addLiquidSourceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %name, i32 noundef %texture) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i16 @_ZN12_GLOBAL__N_111MockGameDef15addLiquidSourceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull %name, i32 noundef range(i32 13, 43) %texture) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %itemdef = alloca %struct.ItemDefinition, align 8

@@ -13297,7 +13297,7 @@ invoke.cont2433:                                  ; preds = %_ZNSt8functionIFbiN
 invoke.cont2436:                                  ; preds = %invoke.cont2433
   store ptr getelementptr inbounds (i8, ptr @_ZTVZL19DOCTEST_ANON_FUNC_7vE21CommaDecimalSeparator, i64 16), ptr %call2434, align 8
   %ref.tmp2431.val = load ptr, ptr %ref.tmp2431, align 8
-  invoke fastcc void @_ZNSt6localeC2IZL19DOCTEST_ANON_FUNC_7vE21CommaDecimalSeparatorEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2430, ptr %ref.tmp2431.val, ptr noundef nonnull %call2434)
+  invoke fastcc void @_ZNSt6localeC2IZL19DOCTEST_ANON_FUNC_7vE21CommaDecimalSeparatorEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2430, ptr %ref.tmp2431.val, ptr noundef %call2434)
           to label %invoke.cont2438 unwind label %lpad2432
 
 invoke.cont2438:                                  ; preds = %invoke.cont2436
@@ -13376,7 +13376,7 @@ invoke.cont2482:                                  ; preds = %invoke.cont2477
 invoke.cont2485:                                  ; preds = %invoke.cont2482
   store ptr getelementptr inbounds (i8, ptr @_ZTVZL19DOCTEST_ANON_FUNC_7vE21CommaDecimalSeparator, i64 16), ptr %call2483, align 8
   %ref.tmp2480.val = load ptr, ptr %ref.tmp2480, align 8
-  invoke fastcc void @_ZNSt6localeC2IZL19DOCTEST_ANON_FUNC_7vE21CommaDecimalSeparatorEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2479, ptr %ref.tmp2480.val, ptr noundef nonnull %call2483)
+  invoke fastcc void @_ZNSt6localeC2IZL19DOCTEST_ANON_FUNC_7vE21CommaDecimalSeparatorEERKS_PT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2479, ptr %ref.tmp2480.val, ptr noundef %call2483)
           to label %invoke.cont2487 unwind label %lpad2481
 
 invoke.cont2487:                                  ; preds = %invoke.cont2485
@@ -42684,7 +42684,7 @@ declare void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) u
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6localeC2IZL19DOCTEST_ANON_FUNC_7vE21CommaDecimalSeparatorEERKS_PT_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr %__other.0.val, ptr noundef %__f) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6localeC2IZL19DOCTEST_ANON_FUNC_7vE21CommaDecimalSeparatorEERKS_PT_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr %__other.0.val, ptr noundef nonnull %__f) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   invoke void @_ZNSt6locale5_ImplC1ERKS0_m(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %__other.0.val, i64 noundef 1)
@@ -42692,7 +42692,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %this, align 8
-  invoke void @_ZNSt6locale5_Impl16_M_install_facetEPKNS_2idEPKNS_5facetE(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull @_ZNSt7__cxx118numpunctIcE2idE, ptr noundef %__f)
+  invoke void @_ZNSt6locale5_Impl16_M_install_facetEPKNS_2idEPKNS_5facetE(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull @_ZNSt7__cxx118numpunctIcE2idE, ptr noundef nonnull %__f)
           to label %try.cont unwind label %lpad4
 
 lpad:                                             ; preds = %entry

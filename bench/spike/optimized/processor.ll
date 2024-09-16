@@ -2406,7 +2406,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt7__cxx1112basi
           to label %74 unwind label %84
 
 74:                                               ; preds = %73
-  %75 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %75 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %76 unwind label %86
 
 76:                                               ; preds = %74
@@ -2466,7 +2466,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
           to label %89 unwind label %84
 
 89:                                               ; preds = %88
-  %90 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %90 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %91 unwind label %96
 
 91:                                               ; preds = %89
@@ -2503,7 +2503,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
           to label %100 unwind label %84
 
 100:                                              ; preds = %99
-  %101 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %101 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %102 unwind label %107
 
 102:                                              ; preds = %100
@@ -135046,7 +135046,7 @@ define void @_ZN11processor_tD0Ev(ptr noundef nonnull align 8 dereferenceable(65
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i64, ptr %1, align 8
@@ -183075,7 +183075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 0, 67) i32 @_ZL3ctzm(i64 noundef %0) unnamed_addr #16 {
+define internal fastcc noundef range(i32 0, 67) i32 @_ZL3ctzm(i64 noundef range(i64 2, 0) %0) unnamed_addr #16 {
   %.mask = and i64 %0, 4294967295
   %2 = icmp eq i64 %.mask, 0
   %3 = lshr exact i64 %0, 32

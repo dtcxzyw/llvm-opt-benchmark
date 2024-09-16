@@ -6996,7 +6996,7 @@ test_dcm.exit.thread:                             ; preds = %10, %7, %4, %18, %t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dcm_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dcm_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7568,7 +7568,7 @@ dissect_dcm_pdv_header.exit.i.i.i:                ; preds = %256, %251
   br i1 %282, label %283, label %.thread.i.i.i
 
 283:                                              ; preds = %280
-  %284 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef nonnull %11)
+  %284 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef %11)
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 285:                                              ; preds = %263
@@ -7616,12 +7616,12 @@ dissect_dcm_pdv_header.exit.i.i.i:                ; preds = %256, %251
 306:                                              ; preds = %.thread.i.i.i, %285
   %307 = phi ptr [ %288, %.thread.i.i.i ], [ %286, %285 ]
   %308 = call i32 @tvb_captured_length(ptr noundef nonnull %307) #10
-  %309 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef nonnull %307, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef 0, i32 noundef %308, ptr noundef nonnull %11)
+  %309 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef nonnull %307, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef 0, i32 noundef %308, ptr noundef %11)
   %310 = add i32 %309, %258
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 311:                                              ; preds = %dissect_dcm_pdv_header.exit.i.i.i
-  %312 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef nonnull %11)
+  %312 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef %11)
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i: ; preds = %311, %306, %283
@@ -7735,7 +7735,7 @@ dissect_dcm_pdu_data.exit.i:                      ; preds = %320
   %360 = load ptr, ptr %347, align 8
   %361 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %359, ptr noundef nonnull @.str.359, ptr noundef %356, ptr noundef %360) #10
   %362 = sub i32 %59, %358
-  %363 = call fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef nonnull %.1.i.i, i32 noundef %358, i32 noundef %362)
+  %363 = call fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef %.1.i.i, i32 noundef %358, i32 noundef %362)
   br label %462
 
 364:                                              ; preds = %332
@@ -7768,7 +7768,7 @@ dissect_dcm_pdu_data.exit.i:                      ; preds = %320
   %389 = load ptr, ptr %376, align 8
   %390 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %388, ptr noundef nonnull @.str.360, ptr noundef %385, ptr noundef %389) #10
   %391 = sub i32 %59, %387
-  %392 = call fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef nonnull %.1.i.i, i32 noundef %387, i32 noundef %391)
+  %392 = call fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef %.1.i.i, i32 noundef %387, i32 noundef %391)
   br label %462
 
 393:                                              ; preds = %332
@@ -8014,7 +8014,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @fragment_add_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -8143,7 +8143,7 @@ dissect_dcm_tag_open.exit:                        ; preds = %62, %27, %30
 .lr.ph:                                           ; preds = %dissect_dcm_tag_open.exit, %.lr.ph
   %.0117 = phi i32 [ %79, %.lr.ph ], [ %.047.i, %dissect_dcm_tag_open.exit ]
   %.0115116 = phi i32 [ 0, %.lr.ph ], [ %.1, %dissect_dcm_tag_open.exit ]
-  %79 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %.0117, i32 noundef %12, i32 noundef %.0115116, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %79 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %.0117, i32 noundef %12, i32 noundef %.0115116, ptr noundef %10, ptr noundef %11)
   %80 = icmp ult i32 %79, %12
   br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
@@ -8507,13 +8507,13 @@ dcm_state_pctx_get.exit.i:                        ; preds = %200, %199
 253:                                              ; preds = %252
   %254 = getelementptr i8, ptr %1, i64 408
   %.val.i = load ptr, ptr %254, align 8
-  %255 = call fastcc ptr @dcm_export_create_header(ptr %.val.i, ptr noundef nonnull %9, ptr noundef %.084.i, ptr noundef %.0.i, ptr noundef nonnull %251)
+  %255 = call fastcc ptr @dcm_export_create_header(ptr %.val.i, ptr noundef %9, ptr noundef %.084.i, ptr noundef %.0.i, ptr noundef nonnull %251)
   br label %259
 
 256:                                              ; preds = %252, %249, %248
   %257 = getelementptr i8, ptr %1, i64 408
   %.val126.i = load ptr, ptr %257, align 8
-  %258 = call fastcc ptr @dcm_export_create_header(ptr %.val126.i, ptr noundef nonnull %9, ptr noundef %.084.i, ptr noundef %.0.i, ptr noundef null)
+  %258 = call fastcc ptr @dcm_export_create_header(ptr %.val126.i, ptr noundef %9, ptr noundef %.084.i, ptr noundef %.0.i, ptr noundef null)
   br label %259
 
 259:                                              ; preds = %256, %253, %242
@@ -8610,7 +8610,7 @@ declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
@@ -9297,7 +9297,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0492, %sub_1493
   br i1 %or.cond351, label %332, label %.critedge
 
 332:                                              ; preds = %329
-  %333 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %.0321, ptr noundef nonnull %3, i32 noundef %.7499, i32 noundef %5, i32 noundef 0, ptr noundef nonnull %13, ptr noundef nonnull %12)
+  %333 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %.0321, ptr noundef nonnull %3, i32 noundef %.7499, i32 noundef %5, i32 noundef 0, ptr noundef %13, ptr noundef %12)
   %334 = load ptr, ptr %13, align 8
   %335 = icmp ne ptr %334, null
   %336 = load i32, ptr @global_dcm_seq_subtree, align 4
@@ -9326,7 +9326,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0492, %sub_1493
 .lr.ph:                                           ; preds = %342, %353
   %.2498 = phi i32 [ %.3, %353 ], [ 1, %342 ]
   %.8497 = phi i32 [ %345, %353 ], [ %.6, %342 ]
-  %345 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %.0321, ptr noundef %3, i32 noundef %.8497, i32 noundef %343, i32 noundef 0, ptr noundef nonnull %13, ptr noundef nonnull %12)
+  %345 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %.0321, ptr noundef %3, i32 noundef %.8497, i32 noundef %343, i32 noundef 0, ptr noundef %13, ptr noundef %12)
   %346 = load ptr, ptr %13, align 8
   %347 = icmp ne ptr %346, null
   %348 = load i32, ptr @global_dcm_seq_subtree, align 4
@@ -9407,7 +9407,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0492, %sub_1493
   br label %.critedge
 
 387:                                              ; preds = %366
-  %388 = call fastcc i32 @dissect_dcm_tag_value(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.1308, ptr noundef nonnull %3, i32 noundef %.6, i16 noundef zeroext %.0316377, i16 noundef zeroext %.0315, i32 noundef %.0320, i32 noundef %.0317, ptr noundef nonnull %.0322392407, ptr noundef nonnull %11)
+  %388 = call fastcc i32 @dissect_dcm_tag_value(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.1308, ptr noundef nonnull %3, i32 noundef %.6, i16 noundef zeroext %.0316377, i16 noundef zeroext %.0315, i32 noundef %.0320, i32 noundef %.0317, ptr noundef nonnull %.0322392407, ptr noundef %11)
   %389 = icmp eq i16 %.0316377, 8
   %390 = icmp eq i16 %.0315, 22
   %or.cond26 = and i1 %389, %390
@@ -9515,7 +9515,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @dcm_tag_summary(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noalias ptr @dcm_tag_summary(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
   %.not = icmp eq i32 %6, 0
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   %10 = load ptr, ptr %9, align 8
@@ -9563,7 +9563,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_dcm_tag_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef %10) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_dcm_tag_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i32 noundef range(i32 1, 0) %7, i32 noundef range(i32 1, 0) %8, ptr nocapture noundef readonly %9, ptr nocapture noundef nonnull %10) unnamed_addr #0 {
 sub_0:
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -9703,8 +9703,8 @@ sub_0:
 
 sub_0337:                                         ; preds = %64, %74
   %80 = load i8, ptr %9, align 1
-  %.not426 = icmp eq i8 %80, 85
-  br i1 %.not426, label %.tail336, label %.tail336.thread
+  %.not421 = icmp eq i8 %80, 85
+  br i1 %.not421, label %.tail336, label %.tail336.thread
 
 .tail336:                                         ; preds = %sub_0337
   %81 = getelementptr inbounds i8, ptr %9, i64 1
@@ -9739,10 +9739,10 @@ sub_0337:                                         ; preds = %64, %74
   br label %100
 
 100:                                              ; preds = %.tail336.thread, %84, %95, %87
-  %.sink672 = phi ptr [ %99, %95 ], [ %92, %87 ], [ %71, %84 ], [ %71, %.tail336.thread ]
-  store ptr %.sink672, ptr %10, align 8
+  %.sink664 = phi ptr [ %99, %95 ], [ %92, %87 ], [ %71, %84 ], [ %71, %.tail336.thread ]
+  store ptr %.sink664, ptr %10, align 8
   %101 = load i32, ptr @hf_dcm_tag_value_str, align 4
-  %102 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %4, i32 noundef %8, ptr noundef %.sink672) #10
+  %102 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %4, i32 noundef %8, ptr noundef %.sink664) #10
   br label %288
 
 .tail340:                                         ; preds = %sub_0
@@ -9785,17 +9785,13 @@ sub_0337:                                         ; preds = %64, %74
   br i1 %123, label %.preheader, label %.tail380
 
 .preheader:                                       ; preds = %.tail356
-  %.not425 = icmp eq i32 %8, 0
-  br i1 %.not425, label %._crit_edge394.thread, label %.lr.ph393
-
-.lr.ph393:                                        ; preds = %.preheader
   %124 = add i32 %8, -1
   br label %125
 
-125:                                              ; preds = %.lr.ph393, %133
-  %.0263392 = phi i32 [ 0, %.lr.ph393 ], [ %134, %133 ]
-  %.0265391 = phi i32 [ 1, %.lr.ph393 ], [ %.1, %133 ]
-  %.0266390 = phi i32 [ 0, %.lr.ph393 ], [ %.1267, %133 ]
+125:                                              ; preds = %.preheader, %133
+  %.0263392 = phi i32 [ 0, %.preheader ], [ %134, %133 ]
+  %.0265391 = phi i32 [ 1, %.preheader ], [ %.1, %133 ]
+  %.0266390 = phi i32 [ 0, %.preheader ], [ %.1267, %133 ]
   %126 = add i32 %.0263392, %4
   %127 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %126) #10
   switch i8 %127, label %128 [
@@ -9821,27 +9817,26 @@ sub_0337:                                         ; preds = %64, %74
   %.1267 = phi i32 [ %.0266390, %125 ], [ %.0266390, %128 ], [ %.0266390, %125 ], [ %.0266390, %125 ], [ %..0266, %130 ]
   %.1 = phi i32 [ %.0265391, %125 ], [ %.0265391, %128 ], [ %.0265391, %125 ], [ %.0265391, %125 ], [ %.0265., %130 ]
   %134 = add nuw i32 %.0263392, 1
-  %exitcond427.not = icmp eq i32 %134, %8
-  br i1 %exitcond427.not, label %._crit_edge394, label %125, !llvm.loop !20
+  %exitcond422.not = icmp eq i32 %134, %8
+  br i1 %exitcond422.not, label %135, label %125, !llvm.loop !20
 
-._crit_edge394:                                   ; preds = %133
-  %135 = icmp eq i32 %.1, 0
-  %136 = icmp ne i32 %.1267, 0
-  %137 = sext i1 %136 to i32
-  br i1 %135, label %144, label %._crit_edge394.thread
+135:                                              ; preds = %133
+  %.not273 = icmp eq i32 %.1, 0
+  br i1 %.not273, label %144, label %136
 
-._crit_edge394.thread:                            ; preds = %.preheader, %._crit_edge394
-  %.0266.lcssa577 = phi i32 [ %137, %._crit_edge394 ], [ 0, %.preheader ]
-  %138 = getelementptr inbounds i8, ptr %1, i64 408
-  %139 = load ptr, ptr %138, align 8
-  %140 = add i32 %8, %.0266.lcssa577
-  %141 = tail call ptr @tvb_format_text(ptr noundef %139, ptr noundef %0, i32 noundef %4, i32 noundef %140) #10
+136:                                              ; preds = %135
+  %137 = getelementptr inbounds i8, ptr %1, i64 408
+  %138 = load ptr, ptr %137, align 8
+  %.not274 = icmp ne i32 %.1267, 0
+  %139 = sext i1 %.not274 to i32
+  %140 = add i32 %8, %139
+  %141 = tail call ptr @tvb_format_text(ptr noundef %138, ptr noundef %0, i32 noundef %4, i32 noundef %140) #10
   %142 = load i32, ptr @hf_dcm_tag_value_str, align 4
   %143 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef %4, i32 noundef %8, ptr noundef %141) #10
   store ptr %141, ptr %10, align 8
   br label %288
 
-144:                                              ; preds = %._crit_edge394
+144:                                              ; preds = %135
   %145 = load i32, ptr @hf_dcm_tag_value_byte, align 4
   %146 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %2, i32 noundef %145, ptr noundef %0, i32 noundef %4, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.303) #10
   %147 = getelementptr inbounds i8, ptr %1, i64 408
@@ -9860,8 +9855,8 @@ sub_0337:                                         ; preds = %64, %74
   %154 = icmp ult i32 %8, 5
   %155 = lshr i32 %8, 2
   %.0.i = select i1 %154, i32 1, i32 %155
-  %.not424 = icmp eq i32 %.0.i, 0
-  br i1 %.not424, label %._crit_edge, label %.lr.ph
+  %.not420 = icmp eq i32 %.0.i, 0
+  br i1 %.not420, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %153
   %156 = getelementptr inbounds i8, ptr %1, i64 408
@@ -10109,7 +10104,7 @@ sub_0337:                                         ; preds = %64, %74
   store ptr %287, ptr %10, align 8
   br label %288
 
-288:                                              ; preds = %115, %._crit_edge, %186, %206, %.tail384.thread, %279, %.thread.thread, %216, %196, %175, %._crit_edge394.thread, %144, %100
+288:                                              ; preds = %115, %._crit_edge, %186, %206, %.tail384.thread, %279, %.thread.thread, %216, %196, %175, %136, %144, %100
   %289 = add i32 %8, %4
   ret i32 %289
 }
@@ -10182,7 +10177,7 @@ define internal fastcc ptr @dcm_rsp2str(i16 noundef zeroext %0) unnamed_addr #0 
 declare ptr @g_strcanon(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dcm_export_create_header(ptr %.408.val, ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @dcm_export_create_header(ptr %.408.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = tail call noalias ptr @wmem_alloc0(ptr noundef %.408.val, i64 noundef 512) #10
   %6 = getelementptr i8, ptr %5, i64 128
   store i32 1296255300, ptr %6, align 1
@@ -10440,7 +10435,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -10483,7 +10478,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 28:                                               ; preds = %26
   %29 = load i32, ptr @ett_assoc_actx, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %.04751, ptr noundef nonnull @.str.386, i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @hf_dcm_actx, i32 noundef %29)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %.04751, ptr noundef nonnull @.str.386, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_actx, i32 noundef %29)
   br label %277
 
 30:                                               ; preds = %26
@@ -10540,7 +10535,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 52:                                               ; preds = %.lr.ph.i
   %53 = load i32, ptr @ett_assoc_info_uid, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.407, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_pdu_maxlen, i32 noundef %53)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.407, i32 noundef 3, ptr noundef %7, ptr noundef %10, ptr noundef nonnull @hf_dcm_pdu_maxlen, i32 noundef %53)
   %.not86.i = icmp eq i32 %.0831.i, 0
   br i1 %.not86.i, label %54, label %55
 
@@ -10555,7 +10550,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 57:                                               ; preds = %.lr.ph.i
   %58 = load i32, ptr @ett_assoc_info_uid, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.410, i32 noundef 2, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_info_uid, i32 noundef %58)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.410, i32 noundef 2, ptr noundef %8, ptr noundef %10, ptr noundef nonnull @hf_dcm_info_uid, i32 noundef %58)
   %.not85.i = icmp eq i32 %.0831.i, 0
   br i1 %.not85.i, label %59, label %60
 
@@ -10570,7 +10565,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 62:                                               ; preds = %.lr.ph.i
   %63 = load i32, ptr @ett_assoc_info_version, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.412, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_info_version, i32 noundef %63)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.412, i32 noundef 2, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_info_version, i32 noundef %63)
   %.not.i = icmp eq i32 %.0831.i, 0
   br i1 %.not.i, label %64, label %65
 
@@ -10905,7 +10900,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef readonly %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 1, 4) %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef readonly %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
@@ -10920,7 +10915,7 @@ define internal fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr nocaptur
   %20 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %19) #10
   %21 = load i32, ptr @hf_dcm_assoc_item_len, align 4
   %22 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %21, ptr noundef %0, i32 noundef %13, i32 noundef 2, i32 noundef %15) #10
-  switch i32 %5, label %default.unreachable [
+  switch i32 %5, label %default.unreachable1 [
     i32 1, label %23
     i32 2, label %42
     i32 3, label %51
@@ -10983,7 +10978,7 @@ define internal fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr nocaptur
   %58 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %57, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef 0) #10
   br label %59
 
-default.unreachable:                              ; preds = %10
+default.unreachable1:                             ; preds = %10
   unreachable
 
 59:                                               ; preds = %51, %42, %38
@@ -10991,7 +10986,7 @@ default.unreachable:                              ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcm_pctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_dcm_pctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, i32 noundef range(i32 1, 65536) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -11120,7 +11115,7 @@ switch.lookup:                                    ; preds = %50
 
 70:                                               ; preds = %.lr.ph.split.us
   %71 = load i32, ptr @ett_assoc_pctx_xfer, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022.us, ptr noundef nonnull @.str.397, i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @hf_dcm_pctx_xfer_syntax, i32 noundef %71)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022.us, ptr noundef nonnull @.str.397, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_pctx_xfer_syntax, i32 noundef %71)
   %72 = load ptr, ptr %11, align 8
   %73 = load ptr, ptr %12, align 8
   %74 = icmp eq ptr %72, null
@@ -11187,7 +11182,7 @@ dcm_set_syntax.exit.us:                           ; preds = %.sink.split.i.us, %
 
 106:                                              ; preds = %.lr.ph.split.us
   %107 = load i32, ptr @ett_assoc_pctx_abss, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022.us, ptr noundef nonnull @.str.396, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_pctx_abss_syntax, i32 noundef %107)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022.us, ptr noundef nonnull @.str.396, i32 noundef 1, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_pctx_abss_syntax, i32 noundef %107)
   %108 = add i32 %.0973.us, 1
   br label %109
 
@@ -11214,13 +11209,13 @@ dcm_set_syntax.exit.us:                           ; preds = %.sink.split.i.us, %
 
 115:                                              ; preds = %.lr.ph.split
   %116 = load i32, ptr @ett_assoc_pctx_abss, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022, ptr noundef nonnull @.str.396, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_pctx_abss_syntax, i32 noundef %116)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022, ptr noundef nonnull @.str.396, i32 noundef 1, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_pctx_abss_syntax, i32 noundef %116)
   %117 = add i32 %.0973, 1
   br label %120
 
 dcm_set_syntax.exit:                              ; preds = %.lr.ph.split
   %118 = load i32, ptr @ett_assoc_pctx_xfer, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022, ptr noundef nonnull @.str.397, i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @hf_dcm_pctx_xfer_syntax, i32 noundef %118)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022, ptr noundef nonnull @.str.397, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_pctx_xfer_syntax, i32 noundef %118)
   %119 = add i32 %.04, 1
   br label %120
 

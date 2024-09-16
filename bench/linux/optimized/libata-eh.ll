@@ -9189,7 +9189,7 @@ declare dso_local i64 @wait_for_completion_timeout(ptr noundef, i64 noundef) loc
 declare dso_local void @ata_dev_power_set_active(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds i8, ptr %4, i64 8256
   %6 = icmp eq ptr %5, %0
@@ -9229,7 +9229,7 @@ define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef %0, i32 noundef %
   br i1 %31, label %227, label %32
 
 32:                                               ; preds = %26, %24
-  %33 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #18
+  %33 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %0, i32 noundef 0) #18
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit16, label %35
 
@@ -9272,7 +9272,7 @@ define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef %0, i32 noundef %
   %61 = select i1 %58, ptr %60, ptr %39
   %62 = select i1 %47, i32 -2, i32 -4
   %63 = and i32 %62, %38
-  %64 = tail call ptr @ata_dev_next(ptr noundef nonnull %37, ptr noundef %0, i32 noundef 0) #18
+  %64 = tail call ptr @ata_dev_next(ptr noundef nonnull %37, ptr noundef nonnull %0, i32 noundef 0) #18
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit16, label %.split.us, !llvm.loop !173
 
@@ -9332,7 +9332,7 @@ define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef %0, i32 noundef %
   br label %183
 
 107:                                              ; preds = %83, %93
-  %108 = tail call ptr @ata_dev_next(ptr noundef nonnull %66, ptr noundef %0, i32 noundef 0) #18
+  %108 = tail call ptr @ata_dev_next(ptr noundef nonnull %66, ptr noundef nonnull %0, i32 noundef 0) #18
   %109 = icmp eq ptr %108, null
   br i1 %109, label %.loopexit16, label %.split, !llvm.loop !173
 
@@ -9347,7 +9347,7 @@ define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef %0, i32 noundef %
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 256
   %117 = load ptr, ptr %116, align 8
-  %118 = tail call i32 %117(ptr noundef %0, i32 noundef %1, i32 noundef %112) #18
+  %118 = tail call i32 %117(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %112) #18
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %131
 
@@ -9369,7 +9369,7 @@ define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef %0, i32 noundef %
   br label %131
 
 129:                                              ; preds = %.loopexit16
-  %130 = tail call i32 @sata_pmp_set_lpm(ptr noundef %0, i32 noundef %1, i32 noundef %112) #18
+  %130 = tail call i32 @sata_pmp_set_lpm(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %112) #18
   br label %131
 
 131:                                              ; preds = %129, %124, %113
@@ -9406,7 +9406,7 @@ define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef %0, i32 noundef %
   br label %146
 
 146:                                              ; preds = %144, %140, %139
-  %147 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #18
+  %147 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %0, i32 noundef 0) #18
   %148 = icmp eq ptr %147, null
   br i1 %148, label %.loopexit, label %149
 
@@ -9437,13 +9437,13 @@ define internal fastcc noundef i32 @ata_eh_set_lpm(ptr noundef %0, i32 noundef %
   br i1 %162, label %.split32.us, label %163
 
 163:                                              ; preds = %160, %155, %.split30.us, %.split30.us
-  %164 = tail call ptr @ata_dev_next(ptr noundef nonnull %152, ptr noundef %0, i32 noundef 0) #18
+  %164 = tail call ptr @ata_dev_next(ptr noundef nonnull %152, ptr noundef nonnull %0, i32 noundef 0) #18
   %165 = icmp eq ptr %164, null
   br i1 %165, label %.loopexit, label %.split30.us, !llvm.loop !174
 
 .split30:                                         ; preds = %149, %.split30
   %166 = phi ptr [ %167, %.split30 ], [ %147, %149 ]
-  %167 = tail call ptr @ata_dev_next(ptr noundef nonnull %166, ptr noundef %0, i32 noundef 0) #18
+  %167 = tail call ptr @ata_dev_next(ptr noundef nonnull %166, ptr noundef nonnull %0, i32 noundef 0) #18
   %168 = icmp eq ptr %167, null
   br i1 %168, label %.loopexit, label %.split30, !llvm.loop !174
 

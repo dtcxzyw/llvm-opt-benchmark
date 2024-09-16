@@ -2388,7 +2388,7 @@ define i32 @Cudd_MinHammingDist(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 7:                                                ; preds = %4
   %8 = tail call double @Cudd_ReadEpsilon(ptr noundef %0) #6
   tail call void @Cudd_SetEpsilon(ptr noundef %0, double noundef 0.000000e+00) #6
-  %9 = tail call fastcc i32 @cuddMinHammingDistRecur(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %3)
+  %9 = tail call fastcc i32 @cuddMinHammingDistRecur(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %3)
   tail call void @cuddHashTableQuit(ptr noundef nonnull %5) #6
   tail call void @Cudd_SetEpsilon(ptr noundef %0, double noundef %8) #6
   br label %10
@@ -2405,7 +2405,7 @@ declare double @Cudd_ReadEpsilon(ptr noundef) local_unnamed_addr #2
 declare void @Cudd_SetEpsilon(ptr noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq i32 %3, 0
@@ -2484,7 +2484,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
   %.1 = select i1 %58, ptr %.057, ptr %.056
-  %59 = tail call fastcc i32 @cuddMinHammingDistRecur(ptr noundef %.1, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
+  %59 = tail call fastcc i32 @cuddMinHammingDistRecur(ptr noundef %.1, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %60 = sitofp i32 %59 to double
   switch i32 %59, label %61 [
     i32 -1, label %85
@@ -2494,7 +2494,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
 61:                                               ; preds = %42
   %.158 = select i1 %58, ptr %.056, ptr %.057
   %62 = add nsw i32 %3, -1
-  %63 = tail call fastcc i32 @cuddMinHammingDistRecur(ptr noundef %.158, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %62)
+  %63 = tail call fastcc i32 @cuddMinHammingDistRecur(ptr noundef %.158, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %62)
   %64 = icmp eq i32 %63, -1
   br i1 %64, label %85, label %65
 
@@ -2909,7 +2909,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %147 = load i32, ptr %146, align 4
   %148 = add i32 %147, 1
   store i32 %148, ptr %146, align 4
-  %149 = call fastcc ptr @separateCube(ptr noundef nonnull %0, ptr noundef nonnull %139, ptr noundef nonnull %5)
+  %149 = call fastcc ptr @separateCube(ptr noundef nonnull %0, ptr noundef %139, ptr noundef %5)
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %152
 
@@ -2965,7 +2965,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %180 = load i32, ptr %179, align 4
   %181 = add i32 %180, 1
   store i32 %181, ptr %179, align 4
-  %182 = call fastcc ptr @separateCube(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef nonnull %6)
+  %182 = call fastcc ptr @separateCube(ptr noundef nonnull %0, ptr noundef %172, ptr noundef %6)
   %183 = icmp eq ptr %182, null
   br i1 %183, label %184, label %185
 
@@ -3039,7 +3039,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %222 = load i32, ptr %221, align 4
   %223 = add i32 %222, 1
   store i32 %223, ptr %221, align 4
-  %224 = call fastcc ptr @separateCube(ptr noundef nonnull %0, ptr noundef nonnull %214, ptr noundef nonnull %7)
+  %224 = call fastcc ptr @separateCube(ptr noundef nonnull %0, ptr noundef %214, ptr noundef %7)
   %225 = icmp eq ptr %224, null
   br i1 %225, label %226, label %227
 
@@ -3172,7 +3172,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -3246,7 +3246,7 @@ declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @cuddCacheInsert2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @createResult(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @createResult(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, double noundef %4) unnamed_addr #0 {
   %6 = icmp eq i32 %1, 2147483647
   br i1 %6, label %7, label %13
 

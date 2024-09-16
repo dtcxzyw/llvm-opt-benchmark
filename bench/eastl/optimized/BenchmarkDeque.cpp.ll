@@ -660,7 +660,7 @@ lpad26:                                           ; preds = %call.i.i.i.i.i.i.no
           cleanup
   br label %ehcleanup
 
-lpad28.loopexit:                                  ; preds = %_ZN5eastl5dequeIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE12emplace_backIJRKS2_EEEvDpOT_.exit.thread.i.i.i, %if.end.i14.i.i.i, %if.end.i51.i.i.i, %if.end.i140.i.i.i, %if.else.i1267, %if.else32.i1324, %if.else32.i1379, %if.else.i1432
+lpad28.loopexit:                                  ; preds = %_ZN5eastl5dequeIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE12emplace_backIJRKS2_EEEvDpOT_.exit.thread.i.i.i, %if.end.i14.i.i.i, %if.end.i51.i.i.i, %if.end.i140.i.i.i, %if.else.i1267, %if.else32.i1329, %if.else32.i1384, %if.else.i1432
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad28
@@ -986,8 +986,8 @@ if.then8.i.i.i160:                                ; preds = %if.else.i.i8.i152
   %add.i1031 = add nsw i64 %sub.ptr.div8.i1030, 1
   %mul.i1032 = shl i64 %add.i1031, 3
   %89 = load i64, ptr %mnPtrArraySize.i.i, align 8
-  %cmp20.not.i1052.not = icmp eq i64 %89, %add.i1031
-  br i1 %cmp20.not.i1052.not, label %if.else32.i, label %if.then21.i
+  %cmp20.not.i1052 = icmp eq i64 %89, %add.i1031
+  br i1 %cmp20.not.i1052, label %if.else32.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.then8.i.i.i160
   %sub9.i1034 = sub i64 %89, %add.i1031
@@ -1748,7 +1748,7 @@ _ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i:        ; preds = %for.end.loopexit.i.
   store ptr %185, ptr %_M_first.i1.i.i.i, align 8
   store ptr %186, ptr %_M_last.i3.i.i.i, align 8
   store ptr %187, ptr %_M_node.i5.i.i.i, align 8
-  call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS4_PS4_ElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, i64 noundef %i.0.lcssa.i.i.i)
+  call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS4_PS4_ElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef %agg.tmp.i.i.i, ptr noundef %agg.tmp1.i.i.i, i64 noundef %i.0.lcssa.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
   %cmp.i.i393 = icmp sgt i64 %add12.i.i.i388, 28
@@ -2254,7 +2254,7 @@ _ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i463:     ; preds = %for.end.loopexit.i.
   store ptr %235, ptr %mpBegin.i1.i.i.i, align 8
   store ptr %236, ptr %mpEnd.i3.i.i.i, align 8
   store ptr %237, ptr %mpCurrentArrayPtr.i5.i.i.i, align 8
-  call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS4_RS4_Lj128EEElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef nonnull %agg.tmp.i.i.i419, ptr noundef nonnull %agg.tmp1.i.i.i420, i64 noundef %i.0.lcssa.i.i.i464)
+  call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS4_RS4_Lj128EEElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef %agg.tmp.i.i.i419, ptr noundef %agg.tmp1.i.i.i420, i64 noundef %i.0.lcssa.i.i.i464)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i419)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i420)
   %cmp.i.i468 = icmp sgt i64 %add11.i.i.i454, 28
@@ -3989,40 +3989,40 @@ if.then.i1417:                                    ; preds = %if.then8.i.i.i.i
   br label %.noexc689
 
 if.else.i1432:                                    ; preds = %if.then8.i.i.i.i
-  %cond.i.i1435 = call noundef i64 @llvm.umax.i64(i64 %408, i64 1)
-  %add35.i1436 = add nsw i64 %408, 2
-  %add36.i1437 = add i64 %add35.i1436, %cond.i.i1435
-  %mul.i.i1438 = shl i64 %add36.i1437, 3
-  %call.i.i.i.i14391456 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i1438, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %call.i.i.i.i1439.noexc unwind label %lpad28.loopexit
+  %cond.i.i1440 = call noundef i64 @llvm.umax.i64(i64 %408, i64 1)
+  %add35.i1441 = add nsw i64 %408, 2
+  %add36.i1442 = add i64 %add35.i1441, %cond.i.i1440
+  %mul.i.i1443 = shl i64 %add36.i1442, 3
+  %call.i.i.i.i14441456 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i1443, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+          to label %call.i.i.i.i1444.noexc unwind label %lpad28.loopexit
 
-call.i.i.i.i1439.noexc:                           ; preds = %if.else.i1432
+call.i.i.i.i1444.noexc:                           ; preds = %if.else.i1432
   %409 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %410 = load ptr, ptr %eaDeque, align 8
-  %sub.ptr.lhs.cast41.i1440 = ptrtoint ptr %409 to i64
-  %sub.ptr.rhs.cast42.i1441 = ptrtoint ptr %410 to i64
-  %sub.ptr.sub43.i1442 = sub i64 %sub.ptr.lhs.cast41.i1440, %sub.ptr.rhs.cast42.i1441
-  %add.ptr45.i1443 = getelementptr inbounds i8, ptr %call.i.i.i.i14391456, i64 %sub.ptr.sub43.i1442
-  %tobool.not.i1445 = icmp eq ptr %410, null
-  br i1 %tobool.not.i1445, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1450, label %if.end52.i1446
+  %sub.ptr.lhs.cast41.i1445 = ptrtoint ptr %409 to i64
+  %sub.ptr.rhs.cast42.i1446 = ptrtoint ptr %410 to i64
+  %sub.ptr.sub43.i1447 = sub i64 %sub.ptr.lhs.cast41.i1445, %sub.ptr.rhs.cast42.i1446
+  %add.ptr45.i1448 = getelementptr inbounds i8, ptr %call.i.i.i.i14441456, i64 %sub.ptr.sub43.i1447
+  %tobool.not.i1450 = icmp eq ptr %410, null
+  br i1 %tobool.not.i1450, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1455, label %if.end52.i1451
 
-if.end52.i1446:                                   ; preds = %call.i.i.i.i1439.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr45.i1443, ptr align 8 %409, i64 %mul.i1413, i1 false)
-  %.pre.i1447 = load ptr, ptr %eaDeque, align 8
-  %tobool.not.i.i1448 = icmp eq ptr %.pre.i1447, null
-  br i1 %tobool.not.i.i1448, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1450, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1449
+if.end52.i1451:                                   ; preds = %call.i.i.i.i1444.noexc
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr45.i1448, ptr align 8 %409, i64 %mul.i1413, i1 false)
+  %.pre.i1452 = load ptr, ptr %eaDeque, align 8
+  %tobool.not.i.i1453 = icmp eq ptr %.pre.i1452, null
+  br i1 %tobool.not.i.i1453, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1455, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1454
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i1449: ; preds = %if.end52.i1446
-  call void @_ZdaPv(ptr noundef nonnull %.pre.i1447) #20
-  br label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1450
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i1454: ; preds = %if.end52.i1451
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i1452) #20
+  br label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1455
 
-_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1450: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1449, %if.end52.i1446, %call.i.i.i.i1439.noexc
-  store ptr %call.i.i.i.i14391456, ptr %eaDeque, align 8
-  store i64 %add36.i1437, ptr %mnPtrArraySize.i.i, align 8
+_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1455: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1454, %if.end52.i1451, %call.i.i.i.i1444.noexc
+  store ptr %call.i.i.i.i14441456, ptr %eaDeque, align 8
+  store i64 %add36.i1442, ptr %mnPtrArraySize.i.i, align 8
   br label %.noexc689
 
-.noexc689:                                        ; preds = %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1450, %if.then.i1417
-  %pPtrArrayBegin.0.i1423 = phi ptr [ %add.ptr.i1422, %if.then.i1417 ], [ %add.ptr45.i1443, %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1450 ]
+.noexc689:                                        ; preds = %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1455, %if.then.i1417
+  %pPtrArrayBegin.0.i1423 = phi ptr [ %add.ptr.i1422, %if.then.i1417 ], [ %add.ptr45.i1448, %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1455 ]
   store ptr %pPtrArrayBegin.0.i1423, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %411 = load ptr, ptr %pPtrArrayBegin.0.i1423, align 8
   store ptr %411, ptr %mpBegin.i.i.i.i, align 8
@@ -4108,54 +4108,54 @@ if.then8.i19.i.i.i:                               ; preds = %if.else.i12.i.i.i
   %add.i1357 = add nsw i64 %sub.ptr.div8.i1356, 1
   %mul.i1358 = shl i64 %add.i1357, 3
   %422 = load i64, ptr %mnPtrArraySize.i.i, align 8
-  %cmp20.not.i1378.not = icmp eq i64 %422, %add.i1357
-  br i1 %cmp20.not.i1378.not, label %if.else32.i1379, label %if.then21.i1396
+  %cmp20.not.i1378 = icmp eq i64 %422, %add.i1357
+  br i1 %cmp20.not.i1378, label %if.else32.i1384, label %if.then21.i1379
 
-if.then21.i1396:                                  ; preds = %if.then8.i19.i.i.i
+if.then21.i1379:                                  ; preds = %if.then8.i19.i.i.i
   %sub9.i1360 = sub i64 %422, %add.i1357
-  %cmp23.i1397 = icmp ugt i64 %sub9.i1360, 3
-  %div2226.i1398 = lshr i64 %sub9.i1360, 1
-  %spec.select29.i1399 = select i1 %cmp23.i1397, i64 %div2226.i1398, i64 1
-  %add.ptr29.i1400 = getelementptr inbounds ptr, ptr %402, i64 %spec.select29.i1399
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29.i1400, ptr align 8 %402, i64 %mul.i1358, i1 false)
+  %cmp23.i1380 = icmp ugt i64 %sub9.i1360, 3
+  %div2226.i1381 = lshr i64 %sub9.i1360, 1
+  %spec.select29.i1382 = select i1 %cmp23.i1380, i64 %div2226.i1381, i64 1
+  %add.ptr29.i1383 = getelementptr inbounds ptr, ptr %402, i64 %spec.select29.i1382
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29.i1383, ptr align 8 %402, i64 %mul.i1358, i1 false)
   br label %.noexc691
 
-if.else32.i1379:                                  ; preds = %if.then8.i19.i.i.i
-  %cond.i.i1380 = call noundef i64 @llvm.umax.i64(i64 %add.i1357, i64 1)
-  %add35.i1381 = add nsw i64 %sub.ptr.div8.i1356, 3
-  %add36.i1382 = add i64 %add35.i1381, %cond.i.i1380
-  %mul.i.i1383 = shl i64 %add36.i1382, 3
-  %call.i.i.i.i13841401 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i1383, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %call.i.i.i.i1384.noexc unwind label %lpad28.loopexit
+if.else32.i1384:                                  ; preds = %if.then8.i19.i.i.i
+  %cond.i.i1385 = call noundef i64 @llvm.umax.i64(i64 %add.i1357, i64 1)
+  %add35.i1386 = add nsw i64 %sub.ptr.div8.i1356, 3
+  %add36.i1387 = add i64 %add35.i1386, %cond.i.i1385
+  %mul.i.i1388 = shl i64 %add36.i1387, 3
+  %call.i.i.i.i13891401 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i1388, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+          to label %call.i.i.i.i1389.noexc unwind label %lpad28.loopexit
 
-call.i.i.i.i1384.noexc:                           ; preds = %if.else32.i1379
+call.i.i.i.i1389.noexc:                           ; preds = %if.else32.i1384
   %423 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %424 = load ptr, ptr %eaDeque, align 8
-  %sub.ptr.lhs.cast41.i1385 = ptrtoint ptr %423 to i64
-  %sub.ptr.rhs.cast42.i1386 = ptrtoint ptr %424 to i64
-  %sub.ptr.sub43.i1387 = sub i64 %sub.ptr.lhs.cast41.i1385, %sub.ptr.rhs.cast42.i1386
-  %add.ptr45.i1388 = getelementptr inbounds i8, ptr %call.i.i.i.i13841401, i64 %sub.ptr.sub43.i1387
-  %add.ptr47.i1389 = getelementptr inbounds i8, ptr %add.ptr45.i1388, i64 8
-  %tobool.not.i1390 = icmp eq ptr %424, null
-  br i1 %tobool.not.i1390, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1395, label %if.end52.i1391
+  %sub.ptr.lhs.cast41.i1390 = ptrtoint ptr %423 to i64
+  %sub.ptr.rhs.cast42.i1391 = ptrtoint ptr %424 to i64
+  %sub.ptr.sub43.i1392 = sub i64 %sub.ptr.lhs.cast41.i1390, %sub.ptr.rhs.cast42.i1391
+  %add.ptr45.i1393 = getelementptr inbounds i8, ptr %call.i.i.i.i13891401, i64 %sub.ptr.sub43.i1392
+  %add.ptr47.i1394 = getelementptr inbounds i8, ptr %add.ptr45.i1393, i64 8
+  %tobool.not.i1395 = icmp eq ptr %424, null
+  br i1 %tobool.not.i1395, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1400, label %if.end52.i1396
 
-if.end52.i1391:                                   ; preds = %call.i.i.i.i1384.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr47.i1389, ptr align 8 %423, i64 %mul.i1358, i1 false)
-  %.pre.i1392 = load ptr, ptr %eaDeque, align 8
-  %tobool.not.i.i1393 = icmp eq ptr %.pre.i1392, null
-  br i1 %tobool.not.i.i1393, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1395, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1394
+if.end52.i1396:                                   ; preds = %call.i.i.i.i1389.noexc
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr47.i1394, ptr align 8 %423, i64 %mul.i1358, i1 false)
+  %.pre.i1397 = load ptr, ptr %eaDeque, align 8
+  %tobool.not.i.i1398 = icmp eq ptr %.pre.i1397, null
+  br i1 %tobool.not.i.i1398, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1400, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1399
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i1394: ; preds = %if.end52.i1391
-  call void @_ZdaPv(ptr noundef nonnull %.pre.i1392) #20
-  br label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1395
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i1399: ; preds = %if.end52.i1396
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i1397) #20
+  br label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1400
 
-_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1395: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1394, %if.end52.i1391, %call.i.i.i.i1384.noexc
-  store ptr %call.i.i.i.i13841401, ptr %eaDeque, align 8
-  store i64 %add36.i1382, ptr %mnPtrArraySize.i.i, align 8
+_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1400: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1399, %if.end52.i1396, %call.i.i.i.i1389.noexc
+  store ptr %call.i.i.i.i13891401, ptr %eaDeque, align 8
+  store i64 %add36.i1387, ptr %mnPtrArraySize.i.i, align 8
   br label %.noexc691
 
-.noexc691:                                        ; preds = %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1395, %if.then21.i1396
-  %pPtrArrayBegin.0.i1368 = phi ptr [ %add.ptr29.i1400, %if.then21.i1396 ], [ %add.ptr47.i1389, %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1395 ]
+.noexc691:                                        ; preds = %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1400, %if.then21.i1379
+  %pPtrArrayBegin.0.i1368 = phi ptr [ %add.ptr29.i1383, %if.then21.i1379 ], [ %add.ptr47.i1394, %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1400 ]
   store ptr %pPtrArrayBegin.0.i1368, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %425 = load ptr, ptr %pPtrArrayBegin.0.i1368, align 8
   store ptr %425, ptr %mpBegin.i.i.i.i, align 8
@@ -4255,54 +4255,54 @@ if.then8.i58.i.i.i:                               ; preds = %if.else.i48.i.i.i
   %add.i1302 = add nsw i64 %sub.ptr.div8.i1301, 1
   %mul.i1303 = shl i64 %add.i1302, 3
   %440 = load i64, ptr %mnPtrArraySize.i.i, align 8
-  %cmp20.not.i1323.not = icmp eq i64 %440, %add.i1302
-  br i1 %cmp20.not.i1323.not, label %if.else32.i1324, label %if.then21.i1341
+  %cmp20.not.i1323 = icmp eq i64 %440, %add.i1302
+  br i1 %cmp20.not.i1323, label %if.else32.i1329, label %if.then21.i1324
 
-if.then21.i1341:                                  ; preds = %if.then8.i58.i.i.i
+if.then21.i1324:                                  ; preds = %if.then8.i58.i.i.i
   %sub9.i1305 = sub i64 %440, %add.i1302
-  %cmp23.i1342 = icmp ugt i64 %sub9.i1305, 3
-  %div2226.i1343 = lshr i64 %sub9.i1305, 1
-  %spec.select29.i1344 = select i1 %cmp23.i1342, i64 %div2226.i1343, i64 1
-  %add.ptr29.i1345 = getelementptr inbounds ptr, ptr %402, i64 %spec.select29.i1344
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29.i1345, ptr align 8 %402, i64 %mul.i1303, i1 false)
+  %cmp23.i1325 = icmp ugt i64 %sub9.i1305, 3
+  %div2226.i1326 = lshr i64 %sub9.i1305, 1
+  %spec.select29.i1327 = select i1 %cmp23.i1325, i64 %div2226.i1326, i64 1
+  %add.ptr29.i1328 = getelementptr inbounds ptr, ptr %402, i64 %spec.select29.i1327
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29.i1328, ptr align 8 %402, i64 %mul.i1303, i1 false)
   br label %.noexc693
 
-if.else32.i1324:                                  ; preds = %if.then8.i58.i.i.i
-  %cond.i.i1325 = call noundef i64 @llvm.umax.i64(i64 %add.i1302, i64 1)
-  %add35.i1326 = add nsw i64 %sub.ptr.div8.i1301, 3
-  %add36.i1327 = add i64 %add35.i1326, %cond.i.i1325
-  %mul.i.i1328 = shl i64 %add36.i1327, 3
-  %call.i.i.i.i13291346 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i1328, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %call.i.i.i.i1329.noexc unwind label %lpad28.loopexit
+if.else32.i1329:                                  ; preds = %if.then8.i58.i.i.i
+  %cond.i.i1330 = call noundef i64 @llvm.umax.i64(i64 %add.i1302, i64 1)
+  %add35.i1331 = add nsw i64 %sub.ptr.div8.i1301, 3
+  %add36.i1332 = add i64 %add35.i1331, %cond.i.i1330
+  %mul.i.i1333 = shl i64 %add36.i1332, 3
+  %call.i.i.i.i13341346 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i1333, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+          to label %call.i.i.i.i1334.noexc unwind label %lpad28.loopexit
 
-call.i.i.i.i1329.noexc:                           ; preds = %if.else32.i1324
+call.i.i.i.i1334.noexc:                           ; preds = %if.else32.i1329
   %441 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %442 = load ptr, ptr %eaDeque, align 8
-  %sub.ptr.lhs.cast41.i1330 = ptrtoint ptr %441 to i64
-  %sub.ptr.rhs.cast42.i1331 = ptrtoint ptr %442 to i64
-  %sub.ptr.sub43.i1332 = sub i64 %sub.ptr.lhs.cast41.i1330, %sub.ptr.rhs.cast42.i1331
-  %add.ptr45.i1333 = getelementptr inbounds i8, ptr %call.i.i.i.i13291346, i64 %sub.ptr.sub43.i1332
-  %add.ptr47.i1334 = getelementptr inbounds i8, ptr %add.ptr45.i1333, i64 8
-  %tobool.not.i1335 = icmp eq ptr %442, null
-  br i1 %tobool.not.i1335, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1340, label %if.end52.i1336
+  %sub.ptr.lhs.cast41.i1335 = ptrtoint ptr %441 to i64
+  %sub.ptr.rhs.cast42.i1336 = ptrtoint ptr %442 to i64
+  %sub.ptr.sub43.i1337 = sub i64 %sub.ptr.lhs.cast41.i1335, %sub.ptr.rhs.cast42.i1336
+  %add.ptr45.i1338 = getelementptr inbounds i8, ptr %call.i.i.i.i13341346, i64 %sub.ptr.sub43.i1337
+  %add.ptr47.i1339 = getelementptr inbounds i8, ptr %add.ptr45.i1338, i64 8
+  %tobool.not.i1340 = icmp eq ptr %442, null
+  br i1 %tobool.not.i1340, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1345, label %if.end52.i1341
 
-if.end52.i1336:                                   ; preds = %call.i.i.i.i1329.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr47.i1334, ptr align 8 %441, i64 %mul.i1303, i1 false)
-  %.pre.i1337 = load ptr, ptr %eaDeque, align 8
-  %tobool.not.i.i1338 = icmp eq ptr %.pre.i1337, null
-  br i1 %tobool.not.i.i1338, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1340, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1339
+if.end52.i1341:                                   ; preds = %call.i.i.i.i1334.noexc
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr47.i1339, ptr align 8 %441, i64 %mul.i1303, i1 false)
+  %.pre.i1342 = load ptr, ptr %eaDeque, align 8
+  %tobool.not.i.i1343 = icmp eq ptr %.pre.i1342, null
+  br i1 %tobool.not.i.i1343, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1345, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1344
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i1339: ; preds = %if.end52.i1336
-  call void @_ZdaPv(ptr noundef nonnull %.pre.i1337) #20
-  br label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1340
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i1344: ; preds = %if.end52.i1341
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i1342) #20
+  br label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1345
 
-_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1340: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1339, %if.end52.i1336, %call.i.i.i.i1329.noexc
-  store ptr %call.i.i.i.i13291346, ptr %eaDeque, align 8
-  store i64 %add36.i1327, ptr %mnPtrArraySize.i.i, align 8
+_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1345: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1344, %if.end52.i1341, %call.i.i.i.i1334.noexc
+  store ptr %call.i.i.i.i13341346, ptr %eaDeque, align 8
+  store i64 %add36.i1332, ptr %mnPtrArraySize.i.i, align 8
   br label %.noexc693
 
-.noexc693:                                        ; preds = %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1340, %if.then21.i1341
-  %pPtrArrayBegin.0.i1313 = phi ptr [ %add.ptr29.i1345, %if.then21.i1341 ], [ %add.ptr47.i1334, %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1340 ]
+.noexc693:                                        ; preds = %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1345, %if.then21.i1324
+  %pPtrArrayBegin.0.i1313 = phi ptr [ %add.ptr29.i1328, %if.then21.i1324 ], [ %add.ptr47.i1339, %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1345 ]
   store ptr %pPtrArrayBegin.0.i1313, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %443 = load ptr, ptr %pPtrArrayBegin.0.i1313, align 8
   store ptr %443, ptr %mpBegin.i.i.i.i, align 8
@@ -4542,40 +4542,40 @@ if.then.i1252:                                    ; preds = %if.then8.i139.i.i.i
   br label %.noexc695
 
 if.else.i1267:                                    ; preds = %if.then8.i139.i.i.i
-  %cond.i.i1270 = call noundef i64 @llvm.umax.i64(i64 %468, i64 1)
-  %add35.i1271 = add nsw i64 %468, 2
-  %add36.i1272 = add i64 %add35.i1271, %cond.i.i1270
-  %mul.i.i1273 = shl i64 %add36.i1272, 3
-  %call.i.i.i.i12741291 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i1273, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %call.i.i.i.i1274.noexc unwind label %lpad28.loopexit
+  %cond.i.i1275 = call noundef i64 @llvm.umax.i64(i64 %468, i64 1)
+  %add35.i1276 = add nsw i64 %468, 2
+  %add36.i1277 = add i64 %add35.i1276, %cond.i.i1275
+  %mul.i.i1278 = shl i64 %add36.i1277, 3
+  %call.i.i.i.i12791291 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i1278, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+          to label %call.i.i.i.i1279.noexc unwind label %lpad28.loopexit
 
-call.i.i.i.i1274.noexc:                           ; preds = %if.else.i1267
+call.i.i.i.i1279.noexc:                           ; preds = %if.else.i1267
   %469 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %470 = load ptr, ptr %eaDeque, align 8
-  %sub.ptr.lhs.cast41.i1275 = ptrtoint ptr %469 to i64
-  %sub.ptr.rhs.cast42.i1276 = ptrtoint ptr %470 to i64
-  %sub.ptr.sub43.i1277 = sub i64 %sub.ptr.lhs.cast41.i1275, %sub.ptr.rhs.cast42.i1276
-  %add.ptr45.i1278 = getelementptr inbounds i8, ptr %call.i.i.i.i12741291, i64 %sub.ptr.sub43.i1277
-  %tobool.not.i1280 = icmp eq ptr %470, null
-  br i1 %tobool.not.i1280, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1285, label %if.end52.i1281
+  %sub.ptr.lhs.cast41.i1280 = ptrtoint ptr %469 to i64
+  %sub.ptr.rhs.cast42.i1281 = ptrtoint ptr %470 to i64
+  %sub.ptr.sub43.i1282 = sub i64 %sub.ptr.lhs.cast41.i1280, %sub.ptr.rhs.cast42.i1281
+  %add.ptr45.i1283 = getelementptr inbounds i8, ptr %call.i.i.i.i12791291, i64 %sub.ptr.sub43.i1282
+  %tobool.not.i1285 = icmp eq ptr %470, null
+  br i1 %tobool.not.i1285, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1290, label %if.end52.i1286
 
-if.end52.i1281:                                   ; preds = %call.i.i.i.i1274.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr45.i1278, ptr align 8 %469, i64 %mul.i1248, i1 false)
-  %.pre.i1282 = load ptr, ptr %eaDeque, align 8
-  %tobool.not.i.i1283 = icmp eq ptr %.pre.i1282, null
-  br i1 %tobool.not.i.i1283, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1285, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1284
+if.end52.i1286:                                   ; preds = %call.i.i.i.i1279.noexc
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr45.i1283, ptr align 8 %469, i64 %mul.i1248, i1 false)
+  %.pre.i1287 = load ptr, ptr %eaDeque, align 8
+  %tobool.not.i.i1288 = icmp eq ptr %.pre.i1287, null
+  br i1 %tobool.not.i.i1288, label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1290, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1289
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i1284: ; preds = %if.end52.i1281
-  call void @_ZdaPv(ptr noundef nonnull %.pre.i1282) #20
-  br label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1285
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i1289: ; preds = %if.end52.i1286
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i1287) #20
+  br label %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1290
 
-_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1285: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1284, %if.end52.i1281, %call.i.i.i.i1274.noexc
-  store ptr %call.i.i.i.i12741291, ptr %eaDeque, align 8
-  store i64 %add36.i1272, ptr %mnPtrArraySize.i.i, align 8
+_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1290: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1289, %if.end52.i1286, %call.i.i.i.i1279.noexc
+  store ptr %call.i.i.i.i12791291, ptr %eaDeque, align 8
+  store i64 %add36.i1277, ptr %mnPtrArraySize.i.i, align 8
   br label %.noexc695
 
-.noexc695:                                        ; preds = %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1285, %if.then.i1252
-  %pPtrArrayBegin.0.i1258 = phi ptr [ %add.ptr.i1257, %if.then.i1252 ], [ %add.ptr45.i1278, %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1285 ]
+.noexc695:                                        ; preds = %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1290, %if.then.i1252
+  %pPtrArrayBegin.0.i1258 = phi ptr [ %add.ptr.i1257, %if.then.i1252 ], [ %add.ptr45.i1283, %_ZN5eastl9DequeBaseIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EE14DoFreePtrArrayEPPS2_m.exit.i1290 ]
   store ptr %pPtrArrayBegin.0.i1258, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %471 = load ptr, ptr %pPtrArrayBegin.0.i1258, align 8
   store ptr %471, ptr %mpBegin.i.i.i.i, align 8
@@ -6526,7 +6526,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS4_PS4_ElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr nocapture noundef readonly %first, ptr nocapture noundef %last, i64 noundef %kRecursionCount) unnamed_addr #13 {
+define internal fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS4_PS4_ElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr nocapture noundef nonnull readonly %first, ptr nocapture noundef nonnull %last, i64 noundef %kRecursionCount) unnamed_addr #13 {
 entry:
   %tempBottom.i.i.i = alloca %"struct.(anonymous namespace)::ValuePair", align 8
   %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
@@ -6855,7 +6855,7 @@ _ZN5eastl13get_partitionISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_E
   %31 = load ptr, ptr %_M_node.i, align 8
   store ptr %31, ptr %_M_node.i65, align 8
   %dec = add nsw i64 %kRecursionCount.addr.0, -1
-  call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS4_PS4_ElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef nonnull %agg.tmp15, ptr noundef nonnull %agg.tmp16, i64 noundef %dec)
+  call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS4_PS4_ElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef %agg.tmp15, ptr noundef %agg.tmp16, i64 noundef %dec)
   store ptr %agg.tmp.sroa.0.2.i, ptr %last, align 8
   store ptr %agg.tmp.sroa.8.3.i, ptr %_M_first.i, align 8
   store ptr %agg.tmp.sroa.12.3.i, ptr %_M_last4.i9, align 8
@@ -6924,7 +6924,7 @@ _ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit.i.i: ; pre
   store ptr %32, ptr %_M_first.i9.i.i, align 8
   store ptr %4, ptr %_M_last.i10.i.i, align 8
   store ptr %3, ptr %_M_node.i11.i.i, align 8
-  call fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef nonnull %agg.tmp.i.i, i64 noundef %shr.i.i, i64 noundef %add12.i, i64 noundef %shr.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
+  call fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef %agg.tmp.i.i, i64 noundef %shr.i.i, i64 noundef %add12.i, i64 noundef %shr.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
   %cmp5.not.i80.i = icmp ult i64 %sub.i.i, 2
   br i1 %cmp5.not.i80.i, label %for.body.i.i.preheader, label %do.body.split.i.i, !llvm.loop !314
 
@@ -6968,7 +6968,7 @@ _ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit40.i.i: ; p
   store ptr %32, ptr %_M_first.i9.i.i, align 8
   store ptr %4, ptr %_M_last.i10.i.i, align 8
   store ptr %3, ptr %_M_node.i11.i.i, align 8
-  call fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef nonnull %agg.tmp.i.i, i64 noundef %dec8.i.i, i64 noundef %add12.i, i64 noundef %dec8.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
+  call fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef %agg.tmp.i.i, i64 noundef %dec8.i.i, i64 noundef %add12.i, i64 noundef %dec8.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
   %cmp5.not.i.i = icmp eq i64 %dec8.i.i, 0
   br i1 %cmp5.not.i.i, label %for.body.i.i.preheader, label %do.body.split.i.i, !llvm.loop !314
 
@@ -7033,7 +7033,7 @@ _ZN5eastl8pop_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ENS2_9V
   store ptr %3, ptr %_M_node.i.i.i.i, align 8
   %add12.i.i.i.i = add i64 %mul.i.i62108.i, %sub.ptr.div11.i
   %sub.i10.i.i = add i64 %add12.i.i.i.i, %add.i.i.i.i.i.i
-  call fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef 0, i64 noundef %sub.i10.i.i, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %tempBottom.i.i.i)
+  call fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef %agg.tmp.i.i.i, i64 noundef 0, i64 noundef %sub.i10.i.i, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %tempBottom.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempBottom.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   %cmp.i.i.i96 = icmp eq ptr %agg.tmp17.sroa.0.0106.i, %agg.tmp17.sroa.4.0105.i
@@ -7071,7 +7071,7 @@ if.end:                                           ; preds = %_ZNSt15_Deque_itera
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr nocapture noundef readonly %first, i64 noundef %topPosition, i64 noundef %heapSize, i64 noundef %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %value) unnamed_addr #14 {
+define internal fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr nocapture noundef nonnull readonly %first, i64 noundef range(i64 0, 4611686018427387903) %topPosition, i64 noundef %heapSize, i64 noundef range(i64 0, 4611686018427387903) %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %value) unnamed_addr #14 {
 entry:
   %0 = load ptr, ptr %first, align 8
   %_M_first3.i = getelementptr inbounds i8, ptr %first, i64 8
@@ -7488,7 +7488,7 @@ _ZN5eastl16adjust_heap_implISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS4_RS4_Lj128EEElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr nocapture noundef readonly %first, ptr nocapture noundef %last, i64 noundef %kRecursionCount) unnamed_addr #13 {
+define internal fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS4_RS4_Lj128EEElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr nocapture noundef nonnull readonly %first, ptr nocapture noundef nonnull %last, i64 noundef %kRecursionCount) unnamed_addr #13 {
 entry:
   %tempBottom.i.i.i = alloca %"struct.(anonymous namespace)::ValuePair", align 8
   %agg.tmp.i.i.i = alloca %"struct.eastl::DequeIterator", align 8
@@ -7797,7 +7797,7 @@ _ZN5eastl13get_partitionINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj
   %34 = load ptr, ptr %mpCurrentArrayPtr.i, align 8
   store ptr %34, ptr %mpCurrentArrayPtr.i79, align 8
   %dec = add nsw i64 %kRecursionCount.addr.0185, -1
-  call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS4_RS4_Lj128EEElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef nonnull %agg.tmp15, ptr noundef nonnull %agg.tmp16, i64 noundef %dec)
+  call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS4_RS4_Lj128EEElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef %agg.tmp15, ptr noundef %agg.tmp16, i64 noundef %dec)
   store ptr %agg.tmp.sroa.0.2.i, ptr %last, align 8
   store ptr %agg.tmp.sroa.8.3.i, ptr %mpBegin.i, align 8
   store ptr %agg.tmp.sroa.12.3.i, ptr %mpEnd4.i9, align 8
@@ -7891,7 +7891,7 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit.i.i
   store ptr %39, ptr %mpBegin.i9.i.i, align 8
   store ptr %.lcssa163, ptr %mpEnd.i10.i.i, align 8
   store ptr %.lcssa164, ptr %mpCurrentArrayPtr.i11.i.i, align 8
-  call fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef nonnull %agg.tmp.i.i, i64 noundef %shr.i.i, i64 noundef %add11.i.i.i, i64 noundef %shr.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
+  call fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef %agg.tmp.i.i, i64 noundef %shr.i.i, i64 noundef %add11.i.i.i, i64 noundef %shr.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
   %cmp5.not.i75.i = icmp ult i64 %sub.i.i115, 2
   br i1 %cmp5.not.i75.i, label %for.body.i.i.preheader, label %do.body.split.i.i, !llvm.loop !369
 
@@ -7925,7 +7925,7 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit39.i
   store ptr %39, ptr %mpBegin.i9.i.i, align 8
   store ptr %.lcssa163, ptr %mpEnd.i10.i.i, align 8
   store ptr %.lcssa164, ptr %mpCurrentArrayPtr.i11.i.i, align 8
-  call fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef nonnull %agg.tmp.i.i, i64 noundef %dec8.i.i, i64 noundef %add11.i.i.i, i64 noundef %dec8.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
+  call fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef %agg.tmp.i.i, i64 noundef %dec8.i.i, i64 noundef %add11.i.i.i, i64 noundef %dec8.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
   %cmp5.not.i.i = icmp eq i64 %dec8.i.i, 0
   br i1 %cmp5.not.i.i, label %for.body.i.i.preheader, label %do.body.split.i.i, !llvm.loop !369
 
@@ -7976,7 +7976,7 @@ _ZN5eastl8pop_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEE
   store ptr %.lcssa163, ptr %mpEnd.i.i.i.i, align 8
   store ptr %.lcssa164, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   %sub.i10.i.reass.i = add i64 %invariant.op85.i152, %mul.i.i67100.i
-  call fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef 0, i64 noundef %sub.i10.i.reass.i, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %tempBottom.i.i.i)
+  call fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef %agg.tmp.i.i.i, i64 noundef 0, i64 noundef %sub.i10.i.reass.i, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %tempBottom.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempBottom.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   %cmp.i.i.i103 = icmp eq ptr %agg.tmp17.sroa.0.098.i, %agg.tmp17.sroa.4.097.i
@@ -8010,7 +8010,7 @@ if.end:                                           ; preds = %_ZN5eastl13DequeIte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr nocapture noundef readonly %first, i64 noundef %topPosition, i64 noundef %heapSize, i64 noundef %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %value) unnamed_addr #14 {
+define internal fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr nocapture noundef nonnull readonly %first, i64 noundef range(i64 0, 4611686018427387903) %topPosition, i64 noundef %heapSize, i64 noundef range(i64 0, 4611686018427387903) %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %value) unnamed_addr #14 {
 entry:
   %0 = load ptr, ptr %first, align 8
   %mpBegin3.i = getelementptr inbounds i8, ptr %first, i64 8

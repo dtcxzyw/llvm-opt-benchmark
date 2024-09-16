@@ -816,7 +816,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %14, %_ZN4llvm5Error
   %20 = load i64, ptr %.sroa.01.013.i.i, align 8, !noalias !5
   store i64 %20, ptr %5, align 8, !noalias !5
   store ptr null, ptr %.sroa.01.013.i.i, align 8, !noalias !5
-  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor19defaultErrorHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %5), !noalias !5
+  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor19defaultErrorHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %5), !noalias !5
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %4), !noalias !5
   %21 = load ptr, ptr %2, align 8, !noalias !5
   store ptr null, ptr %2, align 8, !noalias !5
@@ -864,7 +864,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i:                     ; preds = %34, %_ZNSt10unique_
 39:                                               ; preds = %9
   %40 = ptrtoint ptr %8 to i64
   store i64 %40, ptr %6, align 8, !noalias !5
-  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor19defaultErrorHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %6)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor19defaultErrorHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %6)
   %41 = load ptr, ptr %6, align 8, !noalias !5
   %.not.i9.i.i = icmp eq ptr %41, null
   br i1 %.not.i9.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i10.i.i
@@ -947,7 +947,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %14, %_ZN4llvm5Error
   %20 = load i64, ptr %.sroa.01.013.i.i, align 8, !noalias !8
   store i64 %20, ptr %5, align 8, !noalias !8
   store ptr null, ptr %.sroa.01.013.i.i, align 8, !noalias !8
-  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor21defaultWarningHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %5), !noalias !8
+  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor21defaultWarningHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %5), !noalias !8
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %4), !noalias !8
   %21 = load ptr, ptr %2, align 8, !noalias !8
   store ptr null, ptr %2, align 8, !noalias !8
@@ -995,7 +995,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i:                     ; preds = %34, %_ZNSt10unique_
 39:                                               ; preds = %9
   %40 = ptrtoint ptr %8 to i64
   store i64 %40, ptr %6, align 8, !noalias !8
-  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor21defaultWarningHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %6)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor21defaultWarningHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %6)
   %41 = load ptr, ptr %6, align 8, !noalias !8
   %.not.i9.i.i = icmp eq ptr %41, null
   br i1 %.not.i9.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i10.i.i
@@ -1748,7 +1748,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit32: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor19defaultErrorHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor19defaultErrorHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::WithColor", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr %1, align 8
@@ -1945,7 +1945,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor21defaultWarningHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_9WithColor21defaultWarningHandlerENS_5ErrorEE3$_0JEEES2_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS5_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::WithColor", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr %1, align 8

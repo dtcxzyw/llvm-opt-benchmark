@@ -363,7 +363,7 @@ invoke.cont10:
   %call = tail call ptr @__errno_location() #20
   store i32 33, ptr %call, align 4
   store i32 33, ptr %ref.tmp16, align 4
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 33, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 33, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont10
@@ -464,7 +464,7 @@ invoke.cont48:                                    ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   store i32 34, ptr %call, align 4
   store i32 34, ptr %ref.tmp54, align 4
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar34, i32 34, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp54)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar34, i32 34, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp54)
           to label %invoke.cont57 unwind label %lpad
 
 invoke.cont57:                                    ; preds = %invoke.cont48
@@ -564,7 +564,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont90:                                    ; preds = %if.end74, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i39
   store ptr null, ptr %message_.i37, align 8
   store i32 33, ptr %ref.tmp96, align 4
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar76, i32 33, ptr noundef nonnull @.str.5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp96)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar76, i32 33, ptr noundef nonnull @.str.5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp96)
           to label %invoke.cont100 unwind label %lpad
 
 invoke.cont100:                                   ; preds = %invoke.cont90
@@ -665,7 +665,7 @@ _ZN7testing15AssertionResultD2Ev.exit61:          ; preds = %if.end117, %_ZNKSt1
   store ptr null, ptr %message_.i58, align 8
   store i32 33, ptr %call, align 4
   store i32 33, ptr %ref.tmp138, align 4
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar120, i32 33, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp138)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar120, i32 33, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp138)
   %31 = load i8, ptr %gtest_ar120, align 8
   %tobool.i63 = trunc i8 %31 to i1
   br i1 %tobool.i63, label %if.end157, label %if.else145
@@ -790,7 +790,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, i32 %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 4 dereferenceable(4) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIN12_GLOBAL__N_112ErrnoPrinterEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 4 dereferenceable(4) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i34 = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -857,7 +857,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then

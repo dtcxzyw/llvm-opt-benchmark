@@ -62,7 +62,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch(ptr noundef readonly %
   br i1 %26, label %.preheader42, label %28, !llvm.loop !7
 
 28:                                               ; preds = %.preheader42
-  %29 = tail call fastcc i32 @pm(ptr noundef nonnull %.132, ptr noundef nonnull %.030, i32 noundef %.0)
+  %29 = tail call fastcc i32 @pm(ptr noundef %.132, ptr noundef %.030, i32 noundef %.0)
   br label %.loopexit
 
 30:                                               ; preds = %16
@@ -76,7 +76,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch(ptr noundef readonly %
   %33 = icmp eq i8 %32, 47
   %spec.select.idx = zext i1 %33 to i64
   %spec.select = getelementptr inbounds i8, ptr %.143, i64 %spec.select.idx
-  %34 = tail call fastcc i32 @pm(ptr noundef nonnull %.031, ptr noundef nonnull %spec.select, i32 noundef %.0)
+  %34 = tail call fastcc i32 @pm(ptr noundef %.031, ptr noundef %spec.select, i32 noundef %.0)
   %.not41 = icmp eq i32 %34, 0
   br i1 %.not41, label %35, label %.loopexit
 
@@ -86,7 +86,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch(ptr noundef readonly %
   br i1 %.not40, label %.loopexit, label %.preheader, !llvm.loop !8
 
 37:                                               ; preds = %30
-  %38 = tail call fastcc i32 @pm(ptr noundef nonnull %.031, ptr noundef nonnull %1, i32 noundef %.0)
+  %38 = tail call fastcc i32 @pm(ptr noundef %.031, ptr noundef %1, i32 noundef %.0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.preheader, %20, %14, %8, %10, %37, %28
@@ -95,7 +95,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch(ptr noundef readonly %
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @pm(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pm(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 46
   br i1 %5, label %6, label %pm_slashskip.exit
@@ -587,7 +587,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch_w(ptr noundef readonly
   br i1 %26, label %.preheader42, label %28, !llvm.loop !15
 
 28:                                               ; preds = %.preheader42
-  %29 = tail call fastcc i32 @pm_w(ptr noundef nonnull %.132, ptr noundef nonnull %.030, i32 noundef %.0)
+  %29 = tail call fastcc i32 @pm_w(ptr noundef %.132, ptr noundef %.030, i32 noundef %.0)
   br label %.loopexit
 
 30:                                               ; preds = %16
@@ -601,7 +601,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch_w(ptr noundef readonly
   %33 = icmp eq i32 %32, 47
   %spec.select.idx = select i1 %33, i64 4, i64 0
   %spec.select = getelementptr inbounds i8, ptr %.143, i64 %spec.select.idx
-  %34 = tail call fastcc i32 @pm_w(ptr noundef nonnull %.031, ptr noundef nonnull %spec.select, i32 noundef %.0)
+  %34 = tail call fastcc i32 @pm_w(ptr noundef %.031, ptr noundef %spec.select, i32 noundef %.0)
   %.not41 = icmp eq i32 %34, 0
   br i1 %.not41, label %35, label %.loopexit
 
@@ -611,7 +611,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch_w(ptr noundef readonly
   br i1 %.not40, label %.loopexit, label %.preheader, !llvm.loop !16
 
 37:                                               ; preds = %30
-  %38 = tail call fastcc i32 @pm_w(ptr noundef nonnull %.031, ptr noundef nonnull %1, i32 noundef %.0)
+  %38 = tail call fastcc i32 @pm_w(ptr noundef %.031, ptr noundef %1, i32 noundef %.0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.preheader, %20, %14, %8, %10, %37, %28
@@ -620,7 +620,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch_w(ptr noundef readonly
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @pm_w(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @pm_w(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 46
   br i1 %5, label %6, label %pm_slashskip_w.exit

@@ -2802,7 +2802,7 @@ for.body.i367:                                    ; preds = %for.body.i367, %for
   %mul.i.i = mul i32 %1, %conv.i.i369
   %idx.ext.i.i = zext i32 %mul.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %143, i64 %idx.ext.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.079.i, ptr readonly align 1 %add.ptr.i.i, i64 %conv2.i.i365, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %dst.079.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr.i.i, i64 %conv2.i.i365, i1 false)
   %add.ptr8.i370 = getelementptr inbounds i8, ptr %dst.079.i, i64 %idx.ext7.i366
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count93.i
@@ -2839,7 +2839,7 @@ for.body20.i377:                                  ; preds = %if.end.i386, %for.b
   br i1 %tobool.i.not.i385, label %if.then28.i388, label %if.end.i386
 
 if.then28.i388:                                   ; preds = %for.body20.i377
-  tail call void @llvm.memset.p0.i64(ptr align 1 %dst13.082.i, i8 -82, i64 %conv2.i.i365, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %dst13.082.i, i8 -82, i64 %conv2.i.i365, i1 false)
   br label %if.end.i386
 
 if.end.i386:                                      ; preds = %if.then28.i388, %for.body20.i377
@@ -2875,7 +2875,7 @@ for.body45.i336:                                  ; preds = %for.body45.i336, %f
   %mul.i53.i = mul i32 %1, %conv.i52.i
   %idx.ext.i54.i = zext i32 %mul.i53.i to i64
   %add.ptr.i55.i = getelementptr inbounds i8, ptr %143, i64 %idx.ext.i54.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr49.i340, ptr readonly align 1 %add.ptr.i55.i, i64 %conv2.i56.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr49.i340, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr.i55.i, i64 %conv2.i56.i, i1 false)
   %indvars.iv.next.i342 = add nuw nsw i64 %indvars.iv.i337, 1
   %exitcond.not.i343 = icmp eq i64 %indvars.iv.next.i342, %wide.trip.count.i335
   br i1 %exitcond.not.i343, label %for.end54.i344, label %for.body45.i336, !llvm.loop !81
@@ -2915,7 +2915,7 @@ if.then81.i355:                                   ; preds = %for.body69.i349
   %166 = load i32, ptr %arrayidx83.i356, align 4
   %idx.ext84.i357 = zext i32 %166 to i64
   %add.ptr85.i358 = getelementptr inbounds i8, ptr %add.ptr63.i347, i64 %idx.ext84.i357
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr85.i358, i8 -82, i64 %conv2.i56.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr85.i358, i8 -82, i64 %conv2.i56.i, i1 false)
   br label %for.inc87.i354
 
 for.inc87.i354:                                   ; preds = %if.then81.i355, %for.body69.i349

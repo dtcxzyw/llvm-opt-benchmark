@@ -271,7 +271,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$http..header..value..Inval
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4606276de2374af6E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4606276de2374af6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !44, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -703,7 +703,7 @@ define void @_ZN15actix_multipart4test36create_form_data_payload_and_headers17h0
   resume { ptr, i32 } %.pn192327
 
 .thread25:                                        ; preds = %51, %.thread21
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4606276de2374af6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #14
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4606276de2374af6E"(ptr noalias noundef align 8 dereferenceable(24) %3) #14
           to label %52 unwind label %39
 }
 

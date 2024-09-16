@@ -13095,7 +13095,7 @@ if.then.i.i:                                      ; preds = %if.then3
 _ZNK9grpc_core20DelegatingSubchannel18wrapped_subchannelEv.exit: ; preds = %if.then3, %if.then.i.i
   %3 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ null, %if.then3 ]
   store ptr %3, ptr %agg.tmp, align 8, !alias.scope !175
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_16GrpcLb28CacheDeletedSubchannelLockedENS_13RefCountedPtrINS_19SubchannelInterfaceEEE(ptr noundef nonnull align 8 dereferenceable(696) %lb_policy_.val, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_16GrpcLb28CacheDeletedSubchannelLockedENS_13RefCountedPtrINS_19SubchannelInterfaceEEE(ptr noundef nonnull align 8 dereferenceable(696) %lb_policy_.val, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK9grpc_core20DelegatingSubchannel18wrapped_subchannelEv.exit
@@ -13734,7 +13734,7 @@ _ZN9grpc_core20DelegatingSubchannelD2Ev.exit:     ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_16GrpcLb28CacheDeletedSubchannelLockedENS_13RefCountedPtrINS_19SubchannelInterfaceEEE(ptr noundef nonnull align 8 dereferenceable(696) %this, ptr noundef %subchannel) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_16GrpcLb28CacheDeletedSubchannelLockedENS_13RefCountedPtrINS_19SubchannelInterfaceEEE(ptr noundef nonnull align 8 dereferenceable(696) %this, ptr noundef nonnull %subchannel) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.511", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.514", align 1
@@ -15459,7 +15459,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNK9grpc_core20DelegatingSubchannel18wrapped_subchannelEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i
   %3 = phi ptr [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %if.then.i.i.i ]
   store ptr %3, ptr %agg.tmp.i.i.i, align 8, !alias.scope !204
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_16GrpcLb28CacheDeletedSubchannelLockedENS_13RefCountedPtrINS_19SubchannelInterfaceEEE(ptr noundef nonnull align 8 dereferenceable(696) %lb_policy_.val.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_16GrpcLb28CacheDeletedSubchannelLockedENS_13RefCountedPtrINS_19SubchannelInterfaceEEE(ptr noundef nonnull align 8 dereferenceable(696) %lb_policy_.val.i.i.i, ptr noundef %agg.tmp.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZNK9grpc_core20DelegatingSubchannel18wrapped_subchannelEv.exit.i.i.i
@@ -19456,7 +19456,7 @@ invoke.cont60.i.i.i.i:                            ; preds = %do.end.i.i.i.i
 
 if.then62.i.i.i.i:                                ; preds = %invoke.cont60.i.i.i.i
   %this.val32.i.i.i.i = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_16GrpcLb10Serverlist6AsTextB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp69.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %call.i43.i.i.i.i)
+  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_16GrpcLb10Serverlist6AsTextB5cxx11Ev(ptr noalias align 8 %ref.tmp69.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %call.i43.i.i.i.i)
           to label %invoke.cont71.i.i.i.i unwind label %ehcleanup.thread130.loopexit.split-lp.i.i.i.i
 
 invoke.cont71.i.i.i.i:                            ; preds = %if.then62.i.i.i.i
@@ -19934,7 +19934,7 @@ declare i32 @gpr_should_log(i32 noundef) local_unnamed_addr #0
 declare noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK9grpc_core12_GLOBAL__N_16GrpcLb10Serverlist6AsTextB5cxx11Ev(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK9grpc_core12_GLOBAL__N_16GrpcLb10Serverlist6AsTextB5cxx11Ev(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [3 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %entries = alloca %"class.std::vector.117", align 8
@@ -20134,7 +20134,7 @@ for.end.loopexit:                                 ; preds = %invoke.cont21
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %22 = phi ptr [ %.pre21, %for.end.loopexit ], [ null, %entry ]
   %23 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %entry ]
-  invoke void @_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_St17basic_string_viewIcS8_ENS1_11NoFormatterE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %23, ptr %22, i64 0, ptr nonnull @.str.21)
+  invoke void @_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_St17basic_string_viewIcS8_ENS1_11NoFormatterE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %23, ptr %22, i64 0, ptr nonnull @.str.21)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %for.end

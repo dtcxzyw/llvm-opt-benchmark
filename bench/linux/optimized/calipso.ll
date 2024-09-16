@@ -2562,14 +2562,14 @@ declare dso_local ptr @ipv6_renew_options(ptr noundef, ptr noundef, i32 noundef,
 declare dso_local ptr @ipv6_update_options(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   store i32 0, ptr %3, align 4, !annotation !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !21
-  %5 = call fastcc i32 @calipso_opt_find(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !29
+  %5 = call fastcc i32 @calipso_opt_find(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !29
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %56
 
@@ -2602,7 +2602,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noun
 
 26:                                               ; preds = %19
   %27 = zext i32 %13 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %0, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %0, i64 %27, i1 false)
   %28 = lshr i32 %20, 3
   %29 = getelementptr inbounds i8, ptr %24, i64 1
   %30 = load i8, ptr %29, align 1
@@ -2660,7 +2660,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc i32 @calipso_map_cache_hash(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #11 align 16 {
+define internal fastcc i32 @calipso_map_cache_hash(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #11 align 16 {
   %3 = add nuw nsw i32 %1, -559038737
   %4 = icmp ugt i32 %1, 12
   br i1 %4, label %.preheader, label %.loopexit

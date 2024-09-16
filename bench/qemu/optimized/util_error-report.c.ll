@@ -205,7 +205,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vreport(i32 noundef %type, ptr noundef %fmt, ptr noundef %ap) unnamed_addr #0 {
+define internal fastcc void @vreport(i32 noundef range(i32 0, 3) %type, ptr noundef %fmt, ptr noundef %ap) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @message_with_timestamp, align 1
   %tobool = trunc i8 %0 to i1

@@ -148,7 +148,7 @@ declare i64 @H5FDregister(ptr noundef) local_unnamed_addr #1
 define i32 @H5Pset_fapl_split(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5FD_multi_fapl_t, align 8
   %7 = tail call i32 @H5Eclear2(i64 noundef 0) #16
-  %8 = call fastcc i32 @H5FD_split_populate_config(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6)
+  %8 = call fastcc i32 @H5FD_split_populate_config(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %6)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %18
 
@@ -173,7 +173,7 @@ define i32 @H5Pset_fapl_split(i64 noundef %0, ptr noundef %1, i64 noundef %2, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [7 x ptr], align 16
   %7 = alloca [7 x i32], align 16
   %8 = alloca [7 x i64], align 16
@@ -407,7 +407,7 @@ define i32 @H5Pset_fapl_multi(i64 noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %36
 
 22:                                               ; preds = %10
-  %23 = call fastcc i32 @H5FD_multi_populate_config(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull %7)
+  %23 = call fastcc i32 @H5FD_multi_populate_config(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %7)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %33
 
@@ -434,7 +434,7 @@ define i32 @H5Pset_fapl_multi(i64 noundef %0, ptr noundef %1, ptr noundef %2, pt
 declare i32 @H5Pisa_class(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD_multi_populate_config(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD_multi_populate_config(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca [7 x i32], align 16
   %8 = alloca [7 x i64], align 16
   %9 = alloca [7 x ptr], align 16
@@ -723,7 +723,7 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_multi(i64 noundef %0, ptr noundef write
   br i1 %58, label %59, label %70
 
 59:                                               ; preds = %55, %54
-  %60 = call fastcc i32 @H5FD_multi_populate_config(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %7)
+  %60 = call fastcc i32 @H5FD_multi_populate_config(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, ptr noundef %7)
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %70
 
@@ -3357,7 +3357,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_delete(ptr noundef %0, i64 noun
   br i1 %.not28, label %32, label %43
 
 32:                                               ; preds = %30
-  %33 = call fastcc i32 @H5FD_split_populate_config(ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %4)
+  %33 = call fastcc i32 @H5FD_split_populate_config(ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %4)
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %54
 
@@ -3372,7 +3372,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_delete(ptr noundef %0, i64 noun
   br label %.loopexit
 
 43:                                               ; preds = %30, %28
-  %44 = call fastcc i32 @H5FD_multi_populate_config(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %4)
+  %44 = call fastcc i32 @H5FD_multi_populate_config(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, ptr noundef %4)
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %54
 

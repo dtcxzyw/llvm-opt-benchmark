@@ -92,7 +92,7 @@ if.else.i:                                        ; preds = %if.end9.i
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.else.i, %if.then14.i
-  %call23.i = call fastcc ptr @ZSTDMT_createJobsTable(ptr noundef nonnull %nbJobs.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
+  %call23.i = call fastcc ptr @ZSTDMT_createJobsTable(ptr noundef %nbJobs.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
   %jobs.i = getelementptr inbounds i8, ptr %retval.0.i44.i, i64 8
   store ptr %call23.i, ptr %jobs.i, align 8
   %3 = load i32, ptr %nbJobs.i, align 4
@@ -958,7 +958,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 
 ZSTDMT_freeJobsTable.exit.i.i:                    ; preds = %if.else.i.i.i.i, %if.then1.i.i.i.i, %if.then.i.i
   store i32 0, ptr %jobIDMask.i.i, align 8
-  %call.i.i = call fastcc ptr @ZSTDMT_createJobsTable(ptr noundef nonnull %nbJobs.i.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem.i.i)
+  %call.i.i = call fastcc ptr @ZSTDMT_createJobsTable(ptr noundef %nbJobs.i.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem.i.i)
   store ptr %call.i.i, ptr %jobs.i.i, align 8
   %cmp8.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp8.i.i, label %ZSTDMT_expandJobsTable.exit.i, label %if.end.i.i
@@ -2096,15 +2096,15 @@ if.then37.i:                                      ; preds = %if.then32.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then37.i
-  %pos.07.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then37.i ]
-  %hash.addr.06.i.i.i = phi i64 [ %add2.i.i.i, %for.body.i.i.i ], [ 0, %if.then37.i ]
-  %mul.i.i.i = mul i64 %hash.addr.06.i.i.i, -3523014627327384477
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr39.i, i64 %pos.07.i.i.i
+  %pos.06.i.i.i = phi i64 [ 0, %if.then37.i ], [ %inc.i.i.i, %for.body.i.i.i ]
+  %hash.addr.05.i.i.i = phi i64 [ 0, %if.then37.i ], [ %add2.i.i.i, %for.body.i.i.i ]
+  %mul.i.i.i = mul i64 %hash.addr.05.i.i.i, -3523014627327384477
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr39.i, i64 %pos.06.i.i.i
   %30 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i53 = zext i8 %30 to i64
   %add.i.i.i = add i64 %mul.i.i.i, 10
   %add2.i.i.i = add i64 %add.i.i.i, %conv.i.i.i53
-  %inc.i.i.i = add nuw nsw i64 %pos.07.i.i.i, 1
+  %inc.i.i.i = add nuw nsw i64 %pos.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 32
   br i1 %exitcond.not.i.i.i, label %if.end64.i, label %for.body.i.i.i, !llvm.loop !16
 
@@ -2116,28 +2116,28 @@ if.else.i:                                        ; preds = %if.then32.i
   br label %for.body.i.i42.i
 
 for.body.i.i42.i:                                 ; preds = %for.body.i.i42.i, %if.else.i
-  %pos.07.i.i43.i = phi i64 [ %inc.i.i50.i, %for.body.i.i42.i ], [ 0, %if.else.i ]
-  %hash.addr.06.i.i44.i = phi i64 [ %add2.i.i49.i, %for.body.i.i42.i ], [ 0, %if.else.i ]
-  %mul.i.i45.i = mul i64 %hash.addr.06.i.i44.i, -3523014627327384477
-  %arrayidx.i.i46.i = getelementptr inbounds i8, ptr %add.ptr45.i, i64 %pos.07.i.i43.i
+  %pos.06.i.i43.i = phi i64 [ 0, %if.else.i ], [ %inc.i.i50.i, %for.body.i.i42.i ]
+  %hash.addr.05.i.i44.i = phi i64 [ 0, %if.else.i ], [ %add2.i.i49.i, %for.body.i.i42.i ]
+  %mul.i.i45.i = mul i64 %hash.addr.05.i.i44.i, -3523014627327384477
+  %arrayidx.i.i46.i = getelementptr inbounds i8, ptr %add.ptr45.i, i64 %pos.06.i.i43.i
   %32 = load i8, ptr %arrayidx.i.i46.i, align 1
   %conv.i.i47.i = zext i8 %32 to i64
   %add.i.i48.i = add i64 %mul.i.i45.i, 10
   %add2.i.i49.i = add i64 %add.i.i48.i, %conv.i.i47.i
-  %inc.i.i50.i = add nuw nsw i64 %pos.07.i.i43.i, 1
-  %exitcond.not.i.i51.i = icmp eq i64 %pos.07.i.i43.i, %31
+  %inc.i.i50.i = add nuw nsw i64 %pos.06.i.i43.i, 1
+  %exitcond.not.i.i51.i = icmp eq i64 %pos.06.i.i43.i, %31
   br i1 %exitcond.not.i.i51.i, label %for.body.i.i50, label %for.body.i.i42.i, !llvm.loop !16
 
 for.body.i.i50:                                   ; preds = %for.body.i.i42.i, %for.body.i.i50
-  %pos.07.i.i = phi i64 [ %inc.i.i51, %for.body.i.i50 ], [ 0, %for.body.i.i42.i ]
-  %hash.addr.06.i.i = phi i64 [ %add2.i.i, %for.body.i.i50 ], [ %add2.i.i49.i, %for.body.i.i42.i ]
-  %mul.i.i = mul i64 %hash.addr.06.i.i, -3523014627327384477
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 %pos.07.i.i
+  %pos.06.i.i = phi i64 [ %inc.i.i51, %for.body.i.i50 ], [ 0, %for.body.i.i42.i ]
+  %hash.addr.05.i.i = phi i64 [ %add2.i.i, %for.body.i.i50 ], [ %add2.i.i49.i, %for.body.i.i42.i ]
+  %mul.i.i = mul i64 %hash.addr.05.i.i, -3523014627327384477
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 %pos.06.i.i
   %33 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %33 to i64
   %add.i.i = add i64 %mul.i.i, 10
   %add2.i.i = add i64 %add.i.i, %conv.i.i
-  %inc.i.i51 = add nuw nsw i64 %pos.07.i.i, 1
+  %inc.i.i51 = add nuw nsw i64 %pos.06.i.i, 1
   %exitcond.not.i.i52 = icmp eq i64 %inc.i.i51, %sub35.i
   br i1 %exitcond.not.i.i52, label %if.end64.i, label %for.body.i.i50, !llvm.loop !16
 
@@ -2147,60 +2147,60 @@ if.else50.i:                                      ; preds = %if.end28.i
   br label %for.body.i.i53.i
 
 for.body.i.i53.i:                                 ; preds = %for.body.i.i53.i, %if.else50.i
-  %pos.07.i.i54.i = phi i64 [ %inc.i.i61.i, %for.body.i.i53.i ], [ 0, %if.else50.i ]
-  %hash.addr.06.i.i55.i = phi i64 [ %add2.i.i60.i, %for.body.i.i53.i ], [ 0, %if.else50.i ]
-  %mul.i.i56.i = mul i64 %hash.addr.06.i.i55.i, -3523014627327384477
-  %arrayidx.i.i57.i = getelementptr inbounds i8, ptr %add.ptr57.i, i64 %pos.07.i.i54.i
+  %pos.06.i.i54.i = phi i64 [ 0, %if.else50.i ], [ %inc.i.i61.i, %for.body.i.i53.i ]
+  %hash.addr.05.i.i55.i = phi i64 [ 0, %if.else50.i ], [ %add2.i.i60.i, %for.body.i.i53.i ]
+  %mul.i.i56.i = mul i64 %hash.addr.05.i.i55.i, -3523014627327384477
+  %arrayidx.i.i57.i = getelementptr inbounds i8, ptr %add.ptr57.i, i64 %pos.06.i.i54.i
   %34 = load i8, ptr %arrayidx.i.i57.i, align 1
   %conv.i.i58.i = zext i8 %34 to i64
   %add.i.i59.i = add i64 %mul.i.i56.i, 10
   %add2.i.i60.i = add i64 %add.i.i59.i, %conv.i.i58.i
-  %inc.i.i61.i = add nuw nsw i64 %pos.07.i.i54.i, 1
+  %inc.i.i61.i = add nuw nsw i64 %pos.06.i.i54.i, 1
   %exitcond.not.i.i62.i = icmp eq i64 %inc.i.i61.i, 32
-  br i1 %exitcond.not.i.i62.i, label %ZSTD_rollingHash_compute.exit64.i, label %for.body.i.i53.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i62.i, label %ZSTD_rollingHash_compute.exit63.i, label %for.body.i.i53.i, !llvm.loop !16
 
-ZSTD_rollingHash_compute.exit64.i:                ; preds = %for.body.i.i53.i
+ZSTD_rollingHash_compute.exit63.i:                ; preds = %for.body.i.i53.i
   %and.i = and i64 %add2.i.i60.i, %26
   %cmp59.i = icmp eq i64 %and.i, %26
   br i1 %cmp59.i, label %findSynchronizationPoint.exit, label %if.end64.i
 
-if.end64.i:                                       ; preds = %for.body.i.i50, %for.body.i.i.i, %ZSTD_rollingHash_compute.exit64.i
-  %hash.0.i = phi i64 [ %add2.i.i60.i, %ZSTD_rollingHash_compute.exit64.i ], [ %add2.i.i.i, %for.body.i.i.i ], [ %add2.i.i, %for.body.i.i50 ]
-  %prev.0.i = phi ptr [ %add.ptr57.i, %ZSTD_rollingHash_compute.exit64.i ], [ %add.ptr39.i, %for.body.i.i.i ], [ %add.ptr44.i, %for.body.i.i50 ]
-  %pos4.0.i = phi i64 [ 0, %ZSTD_rollingHash_compute.exit64.i ], [ %sub35.i, %for.body.i.i.i ], [ %sub35.i, %for.body.i.i50 ]
-  %cmp6670.i = icmp ult i64 %pos4.0.i, %sub.sub6.i
-  br i1 %cmp6670.i, label %for.body.i, label %findSynchronizationPoint.exit
+if.end64.i:                                       ; preds = %for.body.i.i50, %for.body.i.i.i, %ZSTD_rollingHash_compute.exit63.i
+  %hash.0.i = phi i64 [ %add2.i.i60.i, %ZSTD_rollingHash_compute.exit63.i ], [ %add2.i.i.i, %for.body.i.i.i ], [ %add2.i.i, %for.body.i.i50 ]
+  %prev.0.i = phi ptr [ %add.ptr57.i, %ZSTD_rollingHash_compute.exit63.i ], [ %add.ptr39.i, %for.body.i.i.i ], [ %add.ptr44.i, %for.body.i.i50 ]
+  %pos4.0.i = phi i64 [ 0, %ZSTD_rollingHash_compute.exit63.i ], [ %sub35.i, %for.body.i.i.i ], [ %sub35.i, %for.body.i.i50 ]
+  %cmp6669.i = icmp ult i64 %pos4.0.i, %sub.sub6.i
+  br i1 %cmp6669.i, label %for.body.i, label %findSynchronizationPoint.exit
 
 for.body.i:                                       ; preds = %if.end64.i, %for.inc.i
-  %pos4.172.i = phi i64 [ %add82.i, %for.inc.i ], [ %pos4.0.i, %if.end64.i ]
-  %hash.171.i = phi i64 [ %add6.i.i, %for.inc.i ], [ %hash.0.i, %if.end64.i ]
-  %cmp67.i = icmp ult i64 %pos4.172.i, 32
-  %arrayidx.i = getelementptr inbounds i8, ptr %prev.0.i, i64 %pos4.172.i
-  %35 = getelementptr i8, ptr %add.ptr.i44, i64 %pos4.172.i
+  %pos4.171.i = phi i64 [ %add82.i, %for.inc.i ], [ %pos4.0.i, %if.end64.i ]
+  %hash.170.i = phi i64 [ %add6.i.i, %for.inc.i ], [ %hash.0.i, %if.end64.i ]
+  %cmp67.i = icmp ult i64 %pos4.171.i, 32
+  %arrayidx.i = getelementptr inbounds i8, ptr %prev.0.i, i64 %pos4.171.i
+  %35 = getelementptr i8, ptr %add.ptr.i44, i64 %pos4.171.i
   %arrayidx71.i = getelementptr i8, ptr %35, i64 -32
   %cond74.in.in.i = select i1 %cmp67.i, ptr %arrayidx.i, ptr %arrayidx71.i
   %cond74.in41.i = load i8, ptr %cond74.in.in.i, align 1
   %36 = load i8, ptr %35, align 1
-  %conv.i65.i = zext i8 %cond74.in41.i to i64
-  %add.i66.i = add nuw nsw i64 %conv.i65.i, 10
-  %mul.i67.i = mul i64 %add.i66.i, %25
-  %sub.i.i = sub i64 %hash.171.i, %mul.i67.i
+  %conv.i64.i = zext i8 %cond74.in41.i to i64
+  %add.i65.i = add nuw nsw i64 %conv.i64.i, 10
+  %mul.i66.i = mul i64 %add.i65.i, %25
+  %sub.i.i = sub i64 %hash.170.i, %mul.i66.i
   %mul2.i.i = mul i64 %sub.i.i, -3523014627327384477
   %conv3.i.i = zext i8 %36 to i64
   %add4.i.i = add nuw nsw i64 %conv3.i.i, 10
   %add6.i.i = add i64 %add4.i.i, %mul2.i.i
   %and78.i = and i64 %add6.i.i, %26
   %cmp79.i = icmp eq i64 %and78.i, %26
-  %add82.i = add i64 %pos4.172.i, 1
+  %add82.i = add i64 %pos4.171.i, 1
   br i1 %cmp79.i, label %findSynchronizationPoint.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %add82.i, %sub.sub6.i
   br i1 %exitcond.not.i, label %findSynchronizationPoint.exit, label %for.body.i, !llvm.loop !17
 
-findSynchronizationPoint.exit:                    ; preds = %for.inc.i, %for.body.i, %if.then19, %if.end.i49, %ZSTD_rollingHash_compute.exit64.i, %if.end64.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.sub6.i, %if.end.i49 ], [ %sub.sub6.i, %if.then19 ], [ 0, %ZSTD_rollingHash_compute.exit64.i ], [ %sub.sub6.i, %if.end64.i ], [ %sub.sub6.i, %for.inc.i ], [ %add82.i, %for.body.i ]
-  %tobool21 = phi i1 [ false, %if.end.i49 ], [ false, %if.then19 ], [ true, %ZSTD_rollingHash_compute.exit64.i ], [ false, %if.end64.i ], [ %cmp79.i, %for.body.i ], [ %cmp79.i, %for.inc.i ]
+findSynchronizationPoint.exit:                    ; preds = %for.inc.i, %for.body.i, %if.then19, %if.end.i49, %ZSTD_rollingHash_compute.exit63.i, %if.end64.i
+  %retval.sroa.0.0.i = phi i64 [ %sub.sub6.i, %if.end.i49 ], [ %sub.sub6.i, %if.then19 ], [ 0, %ZSTD_rollingHash_compute.exit63.i ], [ %sub.sub6.i, %if.end64.i ], [ %sub.sub6.i, %for.inc.i ], [ %add82.i, %for.body.i ]
+  %tobool21 = phi i1 [ false, %if.end.i49 ], [ false, %if.then19 ], [ true, %ZSTD_rollingHash_compute.exit63.i ], [ false, %if.end64.i ], [ %cmp79.i, %for.body.i ], [ %cmp79.i, %for.inc.i ]
   %or.cond1 = and i1 %cmp, %tobool21
   %spec.store.select = select i1 %or.cond1, i32 1, i32 %endOp
   %add.ptr = getelementptr inbounds i8, ptr %24, i64 %28
@@ -2803,7 +2803,7 @@ return:                                           ; preds = %ZSTDMT_flushProduce
 declare ptr @POOL_create_advanced(i64 noundef, i64 noundef, ptr noundef byval(%struct.ZSTD_customMem) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ZSTDMT_createJobsTable(ptr nocapture noundef %nbJobsPtr, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
+define internal fastcc noundef ptr @ZSTDMT_createJobsTable(ptr nocapture noundef nonnull %nbJobsPtr, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %nbJobsPtr, align 4
   %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %0, i1 true)

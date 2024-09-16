@@ -155,7 +155,7 @@ define internal fastcc noundef ptr @pci_mmconfig_alloc(i32 noundef %0, i32 nound
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @list_add_sorted(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @list_add_sorted(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = load volatile ptr, ptr @pci_mmcfg_list, align 8
   %3 = icmp eq ptr %2, @pci_mmcfg_list
   br i1 %3, label %.loopexit, label %4
@@ -427,7 +427,7 @@ define internal noundef range(i32 -22, 1) i32 @pci_parse_mcfg(ptr noundef readon
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @__pci_mmcfg_init(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @__pci_mmcfg_init(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 section ".init.text" align 16 {
   tail call fastcc void @pci_mmcfg_reject_broken(i32 noundef %0) #14
   %2 = load volatile ptr, ptr @pci_mmcfg_list, align 8
   %3 = icmp eq ptr %2, @pci_mmcfg_list
@@ -680,7 +680,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @pci_mmcfg_reserved(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 section ".ref.text" align 16 {
+define internal fastcc noundef zeroext i1 @pci_mmcfg_reserved(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 section ".ref.text" align 16 {
   %4 = alloca %struct.resource, align 8
   %5 = icmp ne i32 %2, 0
   %6 = load i32, ptr @acpi_disabled, align 4
@@ -1380,7 +1380,7 @@ define internal ptr @pci_mmcfg_nvidia_mcp55() #0 section ".init.text" align 16 {
 declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @acpi_mcfg_valid_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef zeroext i1 @acpi_mcfg_valid_entry(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i64, ptr %1, align 1
   %4 = icmp ult i64 %3, 4294967295
   br i1 %4, label %30, label %sub_0
@@ -1441,7 +1441,7 @@ sub_1:                                            ; preds = %sub_0
 declare dso_local i32 @dmi_get_bios_year() local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @pci_mmcfg_reject_broken(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @pci_mmcfg_reject_broken(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 section ".init.text" align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1

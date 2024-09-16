@@ -426,7 +426,7 @@ entry:
 declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pci_testdev_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc void @pci_testdev_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %addr, 0
   %current.i = getelementptr inbounds i8, ptr %opaque, i64 3160
@@ -475,43 +475,42 @@ pci_testdev_reset.exit:                           ; preds = %if.then, %pci_testd
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %pci_testdev_reset.exit
-  %conv = zext nneg i32 %type to i64
-  %mul = mul nuw nsw i64 %conv, 3
-  %add = add nuw nsw i64 %mul, %val
+  %narrow = mul nuw nsw i32 %type, 3
+  %9 = trunc nuw i64 %val to i32
+  %conv3 = add nuw nsw i32 %narrow, %9
   %tests = getelementptr inbounds i8, ptr %opaque, i64 3152
-  %9 = load ptr, ptr %tests, align 16
-  %idxprom = and i64 %add, 4294967295
-  %arrayidx = getelementptr %struct.IOTest, ptr %9, i64 %idxprom
+  %10 = load ptr, ptr %tests, align 16
+  %idxprom = zext nneg i32 %conv3 to i64
+  %arrayidx = getelementptr %struct.IOTest, ptr %10, i64 %idxprom
   %hdr.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %10 = load ptr, ptr %hdr.i, align 8
-  %count.i = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = load ptr, ptr %hdr.i, align 8
+  %count.i = getelementptr inbounds i8, ptr %11, i64 12
   store i32 0, ptr %count.i, align 4
   %hasnotifier.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
-  %11 = load i8, ptr %hasnotifier.i, align 4
-  %tobool.i = trunc i8 %11 to i1
+  %12 = load i8, ptr %hasnotifier.i, align 4
+  %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.end.i15, label %pci_testdev_start.exit
 
 if.end.i15:                                       ; preds = %if.end
   %notifier.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %call.i = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %notifier.i) #6
-  %12 = load ptr, ptr %arrayidx, align 8
-  %13 = load ptr, ptr %hdr.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %13, i64 4
-  %14 = load i32, ptr %offset.i, align 4
-  %conv.i = zext i32 %14 to i64
+  %13 = load ptr, ptr %arrayidx, align 8
+  %14 = load ptr, ptr %hdr.i, align 8
+  %offset.i = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = load i32, ptr %offset.i, align 4
+  %conv.i = zext i32 %15 to i64
   %size.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %15 = load i32, ptr %size.i, align 8
+  %16 = load i32, ptr %size.i, align 8
   %match_data.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
-  %16 = load i8, ptr %match_data.i, align 4
-  %tobool3.i = trunc i8 %16 to i1
-  %data.i = getelementptr inbounds i8, ptr %13, i64 8
-  %17 = load i8, ptr %data.i, align 4
-  %conv5.i = zext i8 %17 to i64
-  tail call void @memory_region_add_eventfd(ptr noundef %12, i64 noundef %conv.i, i32 noundef %15, i1 noundef zeroext %tobool3.i, i64 noundef %conv5.i, ptr noundef nonnull %notifier.i) #6
+  %17 = load i8, ptr %match_data.i, align 4
+  %tobool3.i = trunc i8 %17 to i1
+  %data.i = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = load i8, ptr %data.i, align 4
+  %conv5.i = zext i8 %18 to i64
+  tail call void @memory_region_add_eventfd(ptr noundef %13, i64 noundef %conv.i, i32 noundef %16, i1 noundef zeroext %tobool3.i, i64 noundef %conv5.i, ptr noundef nonnull %notifier.i) #6
   br label %pci_testdev_start.exit
 
 pci_testdev_start.exit:                           ; preds = %if.end, %if.end.i15
-  %conv3 = trunc nuw nsw i64 %add to i32
   store i32 %conv3, ptr %current.i, align 8
   br label %return
 
@@ -521,40 +520,40 @@ if.end8:                                          ; preds = %entry
 
 if.end13:                                         ; preds = %if.end8
   %tests14 = getelementptr inbounds i8, ptr %opaque, i64 3152
-  %18 = load ptr, ptr %tests14, align 16
+  %19 = load ptr, ptr %tests14, align 16
   %idxprom16 = zext nneg i32 %0 to i64
-  %arrayidx17 = getelementptr %struct.IOTest, ptr %18, i64 %idxprom16
+  %arrayidx17 = getelementptr %struct.IOTest, ptr %19, i64 %idxprom16
   %hdr = getelementptr inbounds i8, ptr %arrayidx17, i64 32
-  %19 = load ptr, ptr %hdr, align 8
-  %offset = getelementptr inbounds i8, ptr %19, i64 4
-  %20 = load i32, ptr %offset, align 4
-  %conv19 = zext i32 %20 to i64
+  %20 = load ptr, ptr %hdr, align 8
+  %offset = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = load i32, ptr %offset, align 4
+  %conv19 = zext i32 %21 to i64
   %cmp20.not = icmp eq i64 %addr, %conv19
   br i1 %cmp20.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end13
   %match_data = getelementptr inbounds i8, ptr %arrayidx17, i64 28
-  %21 = load i8, ptr %match_data, align 4
-  %tobool = trunc i8 %21 to i1
+  %22 = load i8, ptr %match_data, align 4
+  %tobool = trunc i8 %22 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end39
 
 land.lhs.true:                                    ; preds = %if.end23
   %size25 = getelementptr inbounds i8, ptr %arrayidx17, i64 24
-  %22 = load i32, ptr %size25, align 8
-  %cmp26.not = icmp eq i32 %22, %size
+  %23 = load i32, ptr %size25, align 8
+  %cmp26.not = icmp eq i32 %23, %size
   br i1 %cmp26.not, label %land.lhs.true33, label %return
 
 land.lhs.true33:                                  ; preds = %land.lhs.true
-  %data = getelementptr inbounds i8, ptr %19, i64 8
-  %23 = load i8, ptr %data, align 4
-  %conv35 = zext i8 %23 to i64
+  %data = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = load i8, ptr %data, align 4
+  %conv35 = zext i8 %24 to i64
   %cmp36.not = icmp eq i64 %val, %conv35
   br i1 %cmp36.not, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.end23, %land.lhs.true33
-  %count.i16 = getelementptr inbounds i8, ptr %19, i64 12
-  %24 = load i32, ptr %count.i16, align 4
-  %add.i = add i32 %24, 1
+  %count.i16 = getelementptr inbounds i8, ptr %20, i64 12
+  %25 = load i32, ptr %count.i16, align 4
+  %add.i = add i32 %25, 1
   store i32 %add.i, ptr %count.i16, align 4
   br label %return
 

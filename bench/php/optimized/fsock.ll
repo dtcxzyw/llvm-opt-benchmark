@@ -21,7 +21,7 @@ define hidden void @zif_fsockopen(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca double, align 8

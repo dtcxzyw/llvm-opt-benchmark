@@ -4347,7 +4347,7 @@ define internal fastcc void @_ZL17parse_annotationsPK12ConstantPoolPKhiP19Annota
   %16 = getelementptr inbounds i8, ptr %0, i64 60
   %17 = getelementptr inbounds i8, ptr %3, i64 4
   %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %invariant.gep99 = getelementptr inbounds i8, ptr %1, i64 2
+  %invariant.gep98 = getelementptr inbounds i8, ptr %1, i64 2
   br label %19
 
 19:                                               ; preds = %.lr.ph88, %.backedge
@@ -4359,8 +4359,8 @@ define internal fastcc void @_ZL17parse_annotationsPK12ConstantPoolPKhiP19Annota
 
 ._ZL15skip_annotationPKhii.exit_crit_edge:        ; preds = %19
   %.phi.trans.insert = zext i32 %.05687 to i64
-  %gep100 = getelementptr inbounds i8, ptr %invariant.gep99, i64 %.phi.trans.insert
-  %.0.i.i.i71.pre = load i16, ptr %gep100, align 1
+  %gep99 = getelementptr inbounds i8, ptr %invariant.gep98, i64 %.phi.trans.insert
+  %.0.i.i.i71.pre = load i16, ptr %gep99, align 1
   br label %_ZL15skip_annotationPKhii.exit
 
 21:                                               ; preds = %19
@@ -4368,224 +4368,226 @@ define internal fastcc void @_ZL17parse_annotationsPK12ConstantPoolPKhiP19Annota
   %23 = zext nneg i32 %22 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %23
   %.0.i.i.i.i = load i16, ptr %gep, align 1
-  %.not92 = icmp eq i16 %.0.i.i.i.i, 0
-  br i1 %.not92, label %_ZL15skip_annotationPKhii.exit, label %.lr.ph.preheader.i
+  %24 = icmp ne i16 %.0.i.i.i.i, 0
+  %25 = icmp ult i32 %22, %2
+  %26 = and i1 %25, %24
+  br i1 %26, label %.lr.ph.preheader.i, label %_ZL15skip_annotationPKhii.exit
 
 .lr.ph.preheader.i:                               ; preds = %21
-  %24 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i)
-  %25 = zext i16 %24 to i32
+  %27 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i)
+  %28 = zext i16 %27 to i32
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
-  %.in.i = phi i32 [ %27, %26 ], [ %25, %.lr.ph.preheader.i ]
-  %.01723.i = phi i32 [ %29, %26 ], [ %22, %.lr.ph.preheader.i ]
-  %.not22.i = icmp slt i32 %.01723.i, %15
-  br i1 %.not22.i, label %26, label %_ZL15skip_annotationPKhii.exit
+.lr.ph.i:                                         ; preds = %29, %.lr.ph.preheader.i
+  %.in.i = phi i32 [ %30, %29 ], [ %28, %.lr.ph.preheader.i ]
+  %.01723.i = phi i32 [ %32, %29 ], [ %22, %.lr.ph.preheader.i ]
+  %.not22.i = icmp ult i32 %.01723.i, %15
+  br i1 %.not22.i, label %29, label %_ZL15skip_annotationPKhii.exit
 
-26:                                               ; preds = %.lr.ph.i
-  %27 = add nsw i32 %.in.i, -1
-  %28 = add nuw nsw i32 %.01723.i, 2
-  %29 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %28)
-  %30 = icmp sgt i32 %.in.i, 1
-  %31 = icmp slt i32 %29, %2
-  %32 = and i1 %30, %31
-  br i1 %32, label %.lr.ph.i, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !19
+29:                                               ; preds = %.lr.ph.i
+  %30 = add nsw i32 %.in.i, -1
+  %31 = add nuw nsw i32 %.01723.i, 2
+  %32 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %31)
+  %33 = icmp sgt i32 %.in.i, 1
+  %34 = icmp ult i32 %32, %2
+  %35 = and i1 %33, %34
+  br i1 %35, label %.lr.ph.i, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !19
 
-_ZL15skip_annotationPKhii.exit:                   ; preds = %.lr.ph.i, %26, %._ZL15skip_annotationPKhii.exit_crit_edge, %21
-  %.0.i.i.i71 = phi i16 [ %.0.i.i.i71.pre, %._ZL15skip_annotationPKhii.exit_crit_edge ], [ 0, %21 ], [ %.0.i.i.i.i, %26 ], [ %.0.i.i.i.i, %.lr.ph.i ]
-  %.018.i = phi i32 [ %2, %._ZL15skip_annotationPKhii.exit_crit_edge ], [ %22, %21 ], [ %2, %.lr.ph.i ], [ %29, %26 ]
-  %33 = zext nneg i32 %.05687 to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 %33
-  %.0.i.i.i70 = load i16, ptr %34, align 1
-  %35 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i70)
-  %36 = zext i16 %35 to i32
-  %37 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i71)
-  %38 = load i32, ptr %16, align 4
-  %39 = icmp ne i16 %.0.i.i.i70, 0
-  %40 = icmp sgt i32 %38, %36
-  %41 = and i1 %39, %40
-  br i1 %41, label %42, label %.critedge
+_ZL15skip_annotationPKhii.exit:                   ; preds = %.lr.ph.i, %29, %._ZL15skip_annotationPKhii.exit_crit_edge, %21
+  %.0.i.i.i71 = phi i16 [ %.0.i.i.i71.pre, %._ZL15skip_annotationPKhii.exit_crit_edge ], [ %.0.i.i.i.i, %21 ], [ %.0.i.i.i.i, %29 ], [ %.0.i.i.i.i, %.lr.ph.i ]
+  %.018.i = phi i32 [ %2, %._ZL15skip_annotationPKhii.exit_crit_edge ], [ %22, %21 ], [ %2, %.lr.ph.i ], [ %32, %29 ]
+  %36 = zext nneg i32 %.05687 to i64
+  %37 = getelementptr inbounds i8, ptr %1, i64 %36
+  %.0.i.i.i70 = load i16, ptr %37, align 1
+  %38 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i70)
+  %39 = zext i16 %38 to i32
+  %40 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i71)
+  %41 = load i32, ptr %16, align 4
+  %42 = icmp ne i16 %.0.i.i.i70, 0
+  %43 = icmp sgt i32 %41, %39
+  %44 = and i1 %42, %43
+  br i1 %44, label %45, label %.critedge
 
-42:                                               ; preds = %_ZL15skip_annotationPKhii.exit
-  %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
-  %45 = zext i16 %35 to i64
-  %46 = getelementptr inbounds i8, ptr %44, i64 %45
-  %47 = load volatile i8, ptr %46, align 1
+45:                                               ; preds = %_ZL15skip_annotationPKhii.exit
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %48 = zext i16 %38 to i64
+  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  %50 = load volatile i8, ptr %49, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  %48 = icmp eq i8 %47, 1
-  br i1 %48, label %_ZL15check_symbol_atPK12ConstantPooli.exit, label %.critedge
+  %51 = icmp eq i8 %50, 1
+  br i1 %51, label %_ZL15check_symbol_atPK12ConstantPooli.exit, label %.critedge
 
-_ZL15check_symbol_atPK12ConstantPooli.exit:       ; preds = %42
-  %49 = getelementptr inbounds i64, ptr %10, i64 %45
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.critedge, label %52
+_ZL15check_symbol_atPK12ConstantPooli.exit:       ; preds = %45
+  %52 = getelementptr inbounds i64, ptr %10, i64 %48
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %.critedge, label %55
 
-52:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit
+55:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit
   %.not67 = icmp eq i16 %.0.i.i.i71, 0
-  br i1 %.not67, label %71, label %53
+  br i1 %.not67, label %74, label %56
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %34, i64 4
-  %.0.i.i.i72 = load i16, ptr %54, align 1
-  %55 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i72)
-  %56 = zext i16 %55 to i32
-  %57 = load i32, ptr %16, align 4
-  %58 = icmp ne i16 %.0.i.i.i72, 0
-  %59 = icmp sgt i32 %57, %56
-  %60 = and i1 %58, %59
-  br i1 %60, label %61, label %.critedge
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds i8, ptr %37, i64 4
+  %.0.i.i.i72 = load i16, ptr %57, align 1
+  %58 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i72)
+  %59 = zext i16 %58 to i32
+  %60 = load i32, ptr %16, align 4
+  %61 = icmp ne i16 %.0.i.i.i72, 0
+  %62 = icmp sgt i32 %60, %59
+  %63 = and i1 %61, %62
+  br i1 %63, label %64, label %.critedge
 
-61:                                               ; preds = %53
-  %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
-  %64 = zext i16 %55 to i64
-  %65 = getelementptr inbounds i8, ptr %63, i64 %64
-  %66 = load volatile i8, ptr %65, align 1
+64:                                               ; preds = %56
+  %65 = load ptr, ptr %9, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = zext i16 %58 to i64
+  %68 = getelementptr inbounds i8, ptr %66, i64 %67
+  %69 = load volatile i8, ptr %68, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  %67 = icmp eq i8 %66, 1
-  br i1 %67, label %_ZL15check_symbol_atPK12ConstantPooli.exit74, label %.critedge
+  %70 = icmp eq i8 %69, 1
+  br i1 %70, label %_ZL15check_symbol_atPK12ConstantPooli.exit74, label %.critedge
 
-_ZL15check_symbol_atPK12ConstantPooli.exit74:     ; preds = %61
-  %68 = getelementptr inbounds i64, ptr %10, i64 %64
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %.critedge, label %71
+_ZL15check_symbol_atPK12ConstantPooli.exit74:     ; preds = %64
+  %71 = getelementptr inbounds i64, ptr %10, i64 %67
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.critedge, label %74
 
-71:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit74, %52
-  %.060 = phi ptr [ %69, %_ZL15check_symbol_atPK12ConstantPooli.exit74 ], [ null, %52 ]
-  %72 = tail call noundef i32 @_ZN19AnnotationCollector16annotation_indexEPK15ClassLoaderDataPK6Symbolb(ptr noundef nonnull align 4 dereferenceable(10) %3, ptr noundef %4, ptr noundef nonnull %50, i1 noundef zeroext %5)
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.backedge, label %74
+74:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit74, %55
+  %.060 = phi ptr [ %72, %_ZL15check_symbol_atPK12ConstantPooli.exit74 ], [ null, %55 ]
+  %75 = tail call noundef i32 @_ZN19AnnotationCollector16annotation_indexEPK15ClassLoaderDataPK6Symbolb(ptr noundef nonnull align 4 dereferenceable(10) %3, ptr noundef %4, ptr noundef nonnull %53, i1 noundef zeroext %5)
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %.backedge, label %77
 
-74:                                               ; preds = %71
-  %75 = shl nuw nsw i32 1, %72
-  %76 = load i32, ptr %17, align 4
-  %77 = or i32 %76, %75
-  store i32 %77, ptr %17, align 4
-  switch i32 %72, label %.backedge [
-    i32 15, label %78
-    i32 11, label %118
+77:                                               ; preds = %74
+  %78 = shl nuw nsw i32 1, %75
+  %79 = load i32, ptr %17, align 4
+  %80 = or i32 %79, %78
+  store i32 %80, ptr %17, align 4
+  switch i32 %75, label %.backedge [
+    i32 15, label %81
+    i32 11, label %121
   ]
 
-78:                                               ; preds = %74
+81:                                               ; preds = %77
   br i1 %.not67, label %.backedge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %78
-  %79 = getelementptr inbounds i8, ptr %34, i64 4
-  %80 = tail call i16 @llvm.umax.i16(i16 %37, i16 1)
-  %umax = zext i16 %80 to i32
+.lr.ph.preheader:                                 ; preds = %81
+  %82 = getelementptr inbounds i8, ptr %37, i64 4
+  %83 = tail call i16 @llvm.umax.i16(i16 %40, i16 1)
+  %umax = zext i16 %83 to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %115
-  %.05884 = phi i32 [ %116, %115 ], [ 0, %.lr.ph.preheader ]
-  %.05983 = phi ptr [ %.1, %115 ], [ %79, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %118
+  %.05884 = phi i32 [ %119, %118 ], [ 0, %.lr.ph.preheader ]
+  %.05983 = phi ptr [ %.1, %118 ], [ %82, %.lr.ph.preheader ]
   %.0.i.i.i75 = load i16, ptr %.05983, align 1
-  %81 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i75)
-  %82 = zext i16 %81 to i32
-  %83 = load i32, ptr %16, align 4
-  %84 = icmp ne i16 %.0.i.i.i75, 0
-  %85 = icmp sgt i32 %83, %82
-  %86 = and i1 %84, %85
-  br i1 %86, label %87, label %_ZL15check_symbol_atPK12ConstantPooli.exit77
+  %84 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i75)
+  %85 = zext i16 %84 to i32
+  %86 = load i32, ptr %16, align 4
+  %87 = icmp ne i16 %.0.i.i.i75, 0
+  %88 = icmp sgt i32 %86, %85
+  %89 = and i1 %87, %88
+  br i1 %89, label %90, label %_ZL15check_symbol_atPK12ConstantPooli.exit77
 
-87:                                               ; preds = %.lr.ph
-  %88 = load ptr, ptr %9, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
-  %90 = zext i16 %81 to i64
-  %91 = getelementptr inbounds i8, ptr %89, i64 %90
-  %92 = load volatile i8, ptr %91, align 1
+90:                                               ; preds = %.lr.ph
+  %91 = load ptr, ptr %9, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 4
+  %93 = zext i16 %84 to i64
+  %94 = getelementptr inbounds i8, ptr %92, i64 %93
+  %95 = load volatile i8, ptr %94, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  %93 = icmp eq i8 %92, 1
-  br i1 %93, label %94, label %_ZL15check_symbol_atPK12ConstantPooli.exit77
+  %96 = icmp eq i8 %95, 1
+  br i1 %96, label %97, label %_ZL15check_symbol_atPK12ConstantPooli.exit77
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds i64, ptr %10, i64 %90
-  %96 = load ptr, ptr %95, align 8
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds i64, ptr %10, i64 %93
+  %99 = load ptr, ptr %98, align 8
   br label %_ZL15check_symbol_atPK12ConstantPooli.exit77
 
-_ZL15check_symbol_atPK12ConstantPooli.exit77:     ; preds = %.lr.ph, %87, %94
-  %.0.i76 = phi ptr [ %96, %94 ], [ null, %.lr.ph ], [ null, %87 ]
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 736), align 8
-  %98 = icmp eq ptr %.0.i76, %97
-  br i1 %98, label %99, label %101
+_ZL15check_symbol_atPK12ConstantPooli.exit77:     ; preds = %.lr.ph, %90, %97
+  %.0.i76 = phi ptr [ %99, %97 ], [ null, %.lr.ph ], [ null, %90 ]
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 736), align 8
+  %101 = icmp eq ptr %.0.i76, %100
+  br i1 %101, label %102, label %104
 
-99:                                               ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit77
-  %100 = getelementptr inbounds i8, ptr %.05983, i64 5
-  br label %115
+102:                                              ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit77
+  %103 = getelementptr inbounds i8, ptr %.05983, i64 5
+  br label %118
 
-101:                                              ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit77
-  %102 = getelementptr inbounds i8, ptr %.05983, i64 2
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 744), align 8
-  %104 = icmp eq ptr %.0.i76, %103
-  br i1 %104, label %105, label %115
+104:                                              ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit77
+  %105 = getelementptr inbounds i8, ptr %.05983, i64 2
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 744), align 8
+  %107 = icmp eq ptr %.0.i76, %106
+  br i1 %107, label %108, label %118
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %.05983, i64 3
-  %.0.i.i.i78 = load i16, ptr %106, align 1
-  %107 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i78)
-  %108 = zext i16 %107 to i64
-  %109 = getelementptr inbounds i64, ptr %10, i64 %108
-  %110 = load i32, ptr %109, align 4
-  %111 = icmp eq i32 %110, 1
-  br i1 %111, label %112, label %.backedge
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %.05983, i64 3
+  %.0.i.i.i78 = load i16, ptr %109, align 1
+  %110 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i78)
+  %111 = zext i16 %110 to i64
+  %112 = getelementptr inbounds i64, ptr %10, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = icmp eq i32 %113, 1
+  br i1 %114, label %115, label %.backedge
 
-112:                                              ; preds = %105
-  %113 = load i32, ptr %17, align 4
-  %114 = or i32 %113, 65536
-  store i32 %114, ptr %17, align 4
+115:                                              ; preds = %108
+  %116 = load i32, ptr %17, align 4
+  %117 = or i32 %116, 65536
+  store i32 %117, ptr %17, align 4
   br label %.backedge
 
-115:                                              ; preds = %101, %99
-  %.1 = phi ptr [ %100, %99 ], [ %102, %101 ]
-  %116 = add nuw nsw i32 %.05884, 1
-  %exitcond.not = icmp eq i32 %116, %umax
+118:                                              ; preds = %104, %102
+  %.1 = phi ptr [ %103, %102 ], [ %105, %104 ]
+  %119 = add nuw nsw i32 %.05884, 1
+  %exitcond.not = icmp eq i32 %119, %umax
   br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !20
 
-.backedge:                                        ; preds = %115, %138, %74, %112, %105, %78, %71
-  %117 = icmp slt i32 %.in, 2
+.backedge:                                        ; preds = %118, %141, %77, %115, %108, %81, %74
+  %120 = icmp slt i32 %.in, 2
   %.not = icmp sgt i32 %.018.i, %11
-  %or.cond = select i1 %117, i1 true, i1 %.not
+  %or.cond = select i1 %120, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge, label %19, !llvm.loop !21
 
-118:                                              ; preds = %74
-  %119 = icmp eq i16 %.0.i.i.i71, 256
-  %120 = sub nsw i32 %.018.i, %.05687
-  %121 = icmp eq i32 %120, 9
-  %or.cond69 = select i1 %119, i1 %121, i1 false
-  br i1 %or.cond69, label %122, label %138
+121:                                              ; preds = %77
+  %122 = icmp eq i16 %.0.i.i.i71, 256
+  %123 = sub nsw i32 %.018.i, %.05687
+  %124 = icmp eq i32 %123, 9
+  %or.cond69 = select i1 %122, i1 %124, i1 false
+  br i1 %or.cond69, label %125, label %141
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %34, i64 6
-  %124 = load i8, ptr %123, align 1
-  %125 = icmp eq i8 %124, 115
-  br i1 %125, label %126, label %138
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds i8, ptr %37, i64 6
+  %127 = load i8, ptr %126, align 1
+  %128 = icmp eq i8 %127, 115
+  br i1 %128, label %129, label %141
 
-126:                                              ; preds = %122
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3656), align 8
-  %128 = icmp eq ptr %.060, %127
-  br i1 %128, label %129, label %138
+129:                                              ; preds = %125
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3656), align 8
+  %131 = icmp eq ptr %.060, %130
+  br i1 %131, label %132, label %141
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %34, i64 7
-  %.0.i.i.i79 = load i16, ptr %130, align 1
-  %131 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i79)
-  %132 = zext i16 %131 to i64
-  %133 = getelementptr inbounds i64, ptr %10, i64 %132
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 4
-  %136 = load i16, ptr %135, align 4
-  %137 = icmp eq i16 %136, 0
-  %spec.select = select i1 %137, i16 0, i16 %131
-  br label %138
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds i8, ptr %37, i64 7
+  %.0.i.i.i79 = load i16, ptr %133, align 1
+  %134 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i79)
+  %135 = zext i16 %134 to i64
+  %136 = getelementptr inbounds i64, ptr %10, i64 %135
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 4
+  %139 = load i16, ptr %138, align 4
+  %140 = icmp eq i16 %139, 0
+  %spec.select = select i1 %140, i16 0, i16 %134
+  br label %141
 
-138:                                              ; preds = %129, %126, %122, %118
-  %.0 = phi i16 [ 0, %126 ], [ 0, %122 ], [ 0, %118 ], [ %spec.select, %129 ]
+141:                                              ; preds = %132, %129, %125, %121
+  %.0 = phi i16 [ 0, %129 ], [ 0, %125 ], [ 0, %121 ], [ %spec.select, %132 ]
   store i16 %.0, ptr %18, align 4
   br label %.backedge
 
-.critedge:                                        ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit, %_ZL15check_symbol_atPK12ConstantPooli.exit74, %.backedge, %_ZL15skip_annotationPKhii.exit, %42, %53, %61, %8, %6
+.critedge:                                        ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit, %_ZL15check_symbol_atPK12ConstantPooli.exit74, %.backedge, %_ZL15skip_annotationPKhii.exit, %45, %56, %64, %8, %6
   ret void
 }
 
@@ -19213,9 +19215,9 @@ declare void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 derefer
 declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 3, -2147483648) i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #17 {
+define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef range(i32 4, -2147483648) %1, i32 noundef range(i32 3, 2147483647) %2) unnamed_addr #17 {
   %4 = add nsw i32 %1, -1
-  %.not = icmp slt i32 %2, %4
+  %.not = icmp ult i32 %2, %4
   br i1 %.not, label %5, label %_ZL15skip_annotationPKhii.exit
 
 5:                                                ; preds = %3
@@ -19241,21 +19243,21 @@ define internal fastcc noundef range(i32 3, -2147483648) i32 @_ZL21skip_annotati
 
 10:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %11 = add nsw i32 %1, -2
-  %.not41 = icmp slt i32 %6, %11
+  %.not41 = icmp ult i32 %6, %11
   %12 = add nuw nsw i32 %2, 3
   %spec.select = select i1 %.not41, i32 %12, i32 %1
   br label %_ZL15skip_annotationPKhii.exit
 
 13:                                               ; preds = %5
   %14 = add nsw i32 %1, -4
-  %.not40 = icmp slt i32 %6, %14
+  %.not40 = icmp ult i32 %6, %14
   %15 = add nuw nsw i32 %2, 5
   %spec.select42 = select i1 %.not40, i32 %15, i32 %1
   br label %_ZL15skip_annotationPKhii.exit
 
 16:                                               ; preds = %5
   %17 = add nsw i32 %1, -2
-  %.not39 = icmp slt i32 %6, %17
+  %.not39 = icmp ult i32 %6, %17
   br i1 %.not39, label %18, label %_ZL15skip_annotationPKhii.exit
 
 18:                                               ; preds = %16
@@ -19265,7 +19267,7 @@ define internal fastcc noundef range(i32 3, -2147483648) i32 @_ZL21skip_annotati
   %22 = getelementptr inbounds i8, ptr %21, i64 -2
   %.0.i.i.i = load i16, ptr %22, align 1
   %23 = icmp ne i16 %.0.i.i.i, 0
-  %24 = icmp slt i32 %19, %1
+  %24 = icmp ult i32 %19, %1
   %25 = and i1 %24, %23
   br i1 %25, label %.lr.ph49.preheader, label %_ZL15skip_annotationPKhii.exit
 
@@ -19280,13 +19282,13 @@ define internal fastcc noundef range(i32 3, -2147483648) i32 @_ZL21skip_annotati
   %28 = add nsw i32 %.048, -1
   %29 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %.147)
   %30 = icmp ugt i32 %.048, 1
-  %31 = icmp slt i32 %29, %1
+  %31 = icmp ult i32 %29, %1
   %32 = and i1 %31, %30
   br i1 %32, label %.lr.ph49, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !84
 
 33:                                               ; preds = %5
   %34 = add nsw i32 %1, -4
-  %.not.i = icmp slt i32 %6, %34
+  %.not.i = icmp ult i32 %6, %34
   br i1 %.not.i, label %35, label %_ZL15skip_annotationPKhii.exit
 
 35:                                               ; preds = %33
@@ -19297,7 +19299,7 @@ define internal fastcc noundef range(i32 3, -2147483648) i32 @_ZL21skip_annotati
   %.0.i.i.i.i = load i16, ptr %39, align 1
   %40 = add nsw i32 %1, -2
   %41 = icmp ne i16 %.0.i.i.i.i, 0
-  %42 = icmp slt i32 %36, %1
+  %42 = icmp ult i32 %36, %1
   %43 = and i1 %42, %41
   br i1 %43, label %.lr.ph.preheader, label %_ZL15skip_annotationPKhii.exit
 
@@ -19309,7 +19311,7 @@ define internal fastcc noundef range(i32 3, -2147483648) i32 @_ZL21skip_annotati
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %.in = phi i32 [ %47, %46 ], [ %45, %.lr.ph.preheader ]
   %.017.i44 = phi i32 [ %49, %46 ], [ %36, %.lr.ph.preheader ]
-  %.not22.i = icmp slt i32 %.017.i44, %40
+  %.not22.i = icmp ult i32 %.017.i44, %40
   br i1 %.not22.i, label %46, label %_ZL15skip_annotationPKhii.exit
 
 46:                                               ; preds = %.lr.ph
@@ -19317,7 +19319,7 @@ define internal fastcc noundef range(i32 3, -2147483648) i32 @_ZL21skip_annotati
   %48 = add nuw nsw i32 %.017.i44, 2
   %49 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %48)
   %50 = icmp sgt i32 %.in, 1
-  %51 = icmp slt i32 %49, %1
+  %51 = icmp ult i32 %49, %1
   %52 = and i1 %51, %50
   br i1 %52, label %.lr.ph, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !19
 

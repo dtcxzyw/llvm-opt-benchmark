@@ -1727,7 +1727,7 @@ declare dso_local ptr @__px_vaddr(ptr noundef) local_unnamed_addr #2
 declare dso_local void @drm_clflush_virt_range(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__gen8_ppgtt_alloc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc void @__gen8_ppgtt_alloc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, i64 noundef range(i64 0, 9007199254740991) %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = load i64, ptr %3, align 8
   %8 = add i32 %5, -1
   %9 = mul i32 %5, 9
@@ -1896,7 +1896,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__gen8_ppgtt_clear(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i64 @__gen8_ppgtt_clear(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 0, 9007199254740991) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 472
   %7 = sext i32 %4 to i64
   %8 = getelementptr [4 x ptr], ptr %6, i64 0, i64 %7
@@ -2095,7 +2095,7 @@ declare dso_local zeroext i1 @release_pd_entry(ptr noundef, i16 noundef zeroext,
 declare dso_local void @free_px(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__gen8_ppgtt_foreach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc void @__gen8_ppgtt_foreach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef range(i64 0, 9007199254740991) %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = load i64, ptr %2, align 8
   %9 = add i32 %4, -1
   %10 = mul i32 %4, 9

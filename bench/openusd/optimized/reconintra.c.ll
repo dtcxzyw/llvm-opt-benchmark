@@ -4075,7 +4075,7 @@ define internal void @init_intra_predictors_internal() #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 2147483558) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #7 {
   %5 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %6 = add nsw i32 %1, %0
   %7 = icmp eq i32 %3, 0

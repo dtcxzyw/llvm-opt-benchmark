@@ -166,13 +166,13 @@ for.end:                                          ; preds = %for.body, %entry
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %contents, align 8
-  call fastcc void @verror_at(ptr noundef %3, ptr noundef %4, i32 noundef %line_no.0.lcssa, ptr noundef %loc, ptr noundef %fmt, ptr noundef nonnull %ap)
+  call fastcc void @verror_at(ptr noundef %3, ptr noundef %4, i32 noundef %line_no.0.lcssa, ptr noundef %loc, ptr noundef %fmt, ptr noundef %ap)
   call void @exit(i32 noundef 1) #26
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verror_at(ptr noundef %filename, ptr noundef readnone %input, i32 noundef %line_no, ptr noundef %loc, ptr nocapture noundef readonly %fmt, ptr noundef %ap) unnamed_addr #4 {
+define internal fastcc void @verror_at(ptr noundef %filename, ptr noundef readnone %input, i32 noundef %line_no, ptr noundef %loc, ptr nocapture noundef readonly %fmt, ptr noundef nonnull %ap) unnamed_addr #4 {
 entry:
   br label %while.cond
 
@@ -221,7 +221,7 @@ while.end12:                                      ; preds = %while.cond3, %while
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 2, i64 1, ptr %5) #25
   %7 = load ptr, ptr @stderr, align 8
-  %call22 = tail call i32 @vfprintf(ptr noundef %7, ptr noundef %fmt, ptr noundef %ap) #25
+  %call22 = tail call i32 @vfprintf(ptr noundef %7, ptr noundef %fmt, ptr noundef nonnull %ap) #25
   %8 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %8)
   ret void
@@ -241,7 +241,7 @@ entry:
   %3 = load i32, ptr %line_no, align 16
   %loc = getelementptr inbounds i8, ptr %tok, i64 48
   %4 = load ptr, ptr %loc, align 16
-  call fastcc void @verror_at(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %fmt, ptr noundef nonnull %ap)
+  call fastcc void @verror_at(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %fmt, ptr noundef %ap)
   call void @exit(i32 noundef 1) #26
   unreachable
 }
@@ -260,7 +260,7 @@ entry:
   %3 = load i32, ptr %line_no, align 16
   %loc = getelementptr inbounds i8, ptr %tok, i64 48
   %4 = load ptr, ptr %loc, align 16
-  call fastcc void @verror_at(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %fmt, ptr noundef nonnull %ap)
+  call fastcc void @verror_at(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %fmt, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -813,7 +813,7 @@ for.body:                                         ; preds = %string_literal_end.
 
 if.then:                                          ; preds = %for.body
   %add.ptr5 = getelementptr inbounds i8, ptr %1, i64 1
-  %call6 = call fastcc i32 @read_escaped_char(ptr noundef nonnull %p, ptr noundef nonnull %add.ptr5)
+  %call6 = call fastcc i32 @read_escaped_char(ptr noundef %p, ptr noundef nonnull %add.ptr5)
   %conv7 = trunc i32 %call6 to i16
   %inc = add nsw i32 %len.021, 1
   %idxprom = sext i32 %len.021 to i64
@@ -946,7 +946,7 @@ for.body:                                         ; preds = %string_literal_end.
 
 if.then:                                          ; preds = %for.body
   %add.ptr5 = getelementptr inbounds i8, ptr %1, i64 1
-  %call6 = call fastcc i32 @read_escaped_char(ptr noundef nonnull %p, ptr noundef nonnull %add.ptr5)
+  %call6 = call fastcc i32 @read_escaped_char(ptr noundef %p, ptr noundef nonnull %add.ptr5)
   br label %if.end
 
 if.else:                                          ; preds = %for.body
@@ -1486,7 +1486,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #11
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read) uwtable
-define internal fastcc noalias noundef ptr @new_token(i32 noundef %kind, ptr noundef %start, ptr noundef %end) unnamed_addr #12 {
+define internal fastcc noalias noundef ptr @new_token(i32 noundef range(i32 0, 7) %kind, ptr noundef %start, ptr noundef %end) unnamed_addr #12 {
 entry:
   %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #31
   store i32 %kind, ptr %call, align 16
@@ -1565,7 +1565,7 @@ for.body:                                         ; preds = %string_literal_end.
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %call6 = call fastcc i32 @read_escaped_char(ptr noundef nonnull %p, ptr noundef nonnull %add.ptr5)
+  %call6 = call fastcc i32 @read_escaped_char(ptr noundef %p, ptr noundef nonnull %add.ptr5)
   %conv7 = trunc i32 %call6 to i8
   %.pre = load ptr, ptr %p, align 8
   br label %if.end
@@ -1645,7 +1645,7 @@ if.then:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %entry
   %add.ptr6 = getelementptr inbounds i8, ptr %quote, i64 2
-  %call = call fastcc i32 @read_escaped_char(ptr noundef nonnull %p, ptr noundef nonnull %add.ptr6)
+  %call = call fastcc i32 @read_escaped_char(ptr noundef %p, ptr noundef nonnull %add.ptr6)
   br label %if.end8
 
 if.else:                                          ; preds = %entry
@@ -2043,7 +2043,7 @@ if.then.i25:                                      ; preds = %while.body.tail.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %if.then.i25
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i25 ], [ %indvars.iv.next.i.i, %if.end.i.i ]
-  %c.07.i.i = phi i32 [ 0, %if.then.i25 ], [ %or.i.i, %if.end.i.i ]
+  %c.06.i.i = phi i32 [ 0, %if.then.i25 ], [ %or.i.i, %if.end.i.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv.i.i
   %28 = load i8, ptr %arrayidx.i.i, align 1
   %idxprom1.i.i = sext i8 %28 to i64
@@ -2054,7 +2054,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %if.the
   br i1 %tobool.not.i.i, label %if.else.i27, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %shl.i.i = shl i32 %c.07.i.i, 4
+  %shl.i.i = shl i32 %c.06.i.i, 4
   %conv.i.i.i = sext i8 %28 to i32
   %31 = add i8 %28, -48
   %or.cond.i.i.i = icmp ult i8 %31, 10
@@ -2092,7 +2092,7 @@ if.then10.i:                                      ; preds = %while.body.tail.i
 
 for.body.i30.i:                                   ; preds = %if.end.i37.i, %if.then10.i
   %indvars.iv.i31.i = phi i64 [ 0, %if.then10.i ], [ %indvars.iv.next.i46.i, %if.end.i37.i ]
-  %c.07.i32.i = phi i32 [ 0, %if.then10.i ], [ %or.i45.i, %if.end.i37.i ]
+  %c.06.i32.i = phi i32 [ 0, %if.then10.i ], [ %or.i45.i, %if.end.i37.i ]
   %arrayidx.i33.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %indvars.iv.i31.i
   %34 = load i8, ptr %arrayidx.i33.i, align 1
   %idxprom1.i34.i = sext i8 %34 to i64
@@ -2103,7 +2103,7 @@ for.body.i30.i:                                   ; preds = %if.end.i37.i, %if.t
   br i1 %tobool.not.i36.i, label %if.else20.i, label %if.end.i37.i
 
 if.end.i37.i:                                     ; preds = %for.body.i30.i
-  %shl.i38.i = shl i32 %c.07.i32.i, 4
+  %shl.i38.i = shl i32 %c.06.i32.i, 4
   %conv.i.i39.i = sext i8 %34 to i32
   %37 = add i8 %34, -48
   %or.cond.i.i40.i = icmp ult i8 %37, 10
@@ -2206,7 +2206,7 @@ declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 nound
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_escaped_char(ptr nocapture noundef writeonly %new_pos, ptr noundef %p) unnamed_addr #4 {
+define internal fastcc i32 @read_escaped_char(ptr nocapture noundef nonnull writeonly %new_pos, ptr noundef %p) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %p, align 1
   %1 = and i8 %0, -8

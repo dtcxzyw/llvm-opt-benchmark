@@ -633,7 +633,7 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17he32763a4db59
 define void @_ZN3vfs6loader5Entry20rs_files_recursively17haf6ac5a26dc22c79E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.9, i64 noundef 1)
+  call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef align 8 dereferenceable(72) %3, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.9, i64 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   ret void
@@ -643,7 +643,7 @@ define void @_ZN3vfs6loader5Entry20rs_files_recursively17haf6ac5a26dc22c79E(ptr 
 define void @_ZN3vfs6loader5Entry19local_cargo_package17h4497e989faf4f6f4E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.11, i64 noundef 2)
+  call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef align 8 dereferenceable(72) %3, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.11, i64 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   ret void
@@ -653,7 +653,7 @@ define void @_ZN3vfs6loader5Entry19local_cargo_package17h4497e989faf4f6f4E(ptr n
 define void @_ZN3vfs6loader5Entry24cargo_package_dependency17h26066b7e80ae2ee1E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.15, i64 noundef 4)
+  call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef align 8 dereferenceable(72) %3, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.15, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   ret void
@@ -736,7 +736,7 @@ define noundef zeroext i1 @_ZN3vfs6loader5Entry13contains_file17hf43d5c8f153cf4f
   br i1 %41, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b877aeee318961aE.exit", label %.lr.ph.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h84b127af6bb77997E.exit.i": ; preds = %39
-  %42 = tail call fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %42 = tail call fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b877aeee318961aE.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b877aeee318961aE.exit": ; preds = %"_ZN3vfs6loader11Directories13contains_file28_$u7b$$u7b$closure$u7d$$u7d$17h511ce3acbf86cd0eE.exit.backedge.i.i", %16, %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h84b127af6bb77997E.exit.i", %25
@@ -751,7 +751,7 @@ define noundef zeroext i1 @_ZN3vfs6loader5Entry12contains_dir17hc32ff7f56f6d17c8
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %7 = tail call fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br label %8
 
 8:                                                ; preds = %3, %6
@@ -795,7 +795,7 @@ define noundef zeroext i1 @_ZN3vfs6loader11Directories13contains_file17h041c30eb
   br i1 %19, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h84b127af6bb77997E.exit": ; preds = %17
-  %20 = tail call fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %20 = tail call fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN3vfs6loader11Directories13contains_file28_$u7b$$u7b$closure$u7d$$u7d$17h511ce3acbf86cd0eE.exit.backedge.i", %3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h84b127af6bb77997E.exit"
@@ -805,12 +805,12 @@ define noundef zeroext i1 @_ZN3vfs6loader11Directories13contains_file17h041c30eb
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN3vfs6loader11Directories12contains_dir17h8aebfa500748adf3E(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
-  %4 = tail call fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %4 = tail call fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes_path17h3f2e4857c08bac0bE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -891,7 +891,7 @@ define internal fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef range(i64 1, 5) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { ptr, ptr, {} }, ptr }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8

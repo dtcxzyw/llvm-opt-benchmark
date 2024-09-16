@@ -216,7 +216,7 @@ _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit: ; preds = %_ZN12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122ReadableOrderTraverser5visitEPN3spv5BlockENS1_11ReachReasonES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122ReadableOrderTraverser5visitEPN3spv5BlockENS1_11ReachReasonES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = alloca %"struct.std::__detail::_AllocNode", align 8
   %6 = alloca %"struct.std::__detail::_AllocNode", align 8
   %7 = alloca %"struct.std::__detail::_AllocNode", align 8

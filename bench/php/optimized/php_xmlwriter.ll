@@ -3065,7 +3065,7 @@ define hidden void @zif_xmlwriter_output_memory(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   store i8 1, ptr %4, align 1
@@ -3105,7 +3105,7 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
 27:                                               ; preds = %19
   %28 = getelementptr inbounds i8, ptr %21, i64 -8
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq i32 %2, 1
+  %30 = icmp ne i32 %2, 0
   %31 = icmp eq ptr %29, null
   %or.cond = select i1 %30, i1 %31, i1 false
   br i1 %or.cond, label %32, label %35

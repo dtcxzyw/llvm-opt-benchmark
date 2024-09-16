@@ -885,7 +885,7 @@ entry:
   %1 = load ptr, ptr %limits_, align 8
   %max = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %max, align 8
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef %1, ptr noundef %2)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef %1, ptr noundef %2)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v1, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -2083,7 +2083,7 @@ lpad.i307:                                        ; preds = %.noexc309
   br label %ehcleanup304
 
 invoke.cont277:                                   ; preds = %.noexc309
-  invoke fastcc void @"_ZN6google8protobuf2io7Printer3SubC2IRZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_2EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_"(ptr noundef nonnull align 8 dereferenceable(184) %ref.tmp271, ptr noundef nonnull %agg.tmp274, ptr noundef nonnull align 8 dereferenceable(8) %write_assert)
+  invoke fastcc void @"_ZN6google8protobuf2io7Printer3SubC2IRZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_2EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_"(ptr noundef nonnull align 8 dereferenceable(184) %ref.tmp271, ptr noundef %agg.tmp274, ptr noundef nonnull align 8 dereferenceable(8) %write_assert)
           to label %invoke.cont279 unwind label %lpad278
 
 invoke.cont279:                                   ; preds = %invoke.cont277
@@ -2149,7 +2149,7 @@ lpad.i326:                                        ; preds = %.noexc328
   br label %ehcleanup366
 
 invoke.cont339:                                   ; preds = %.noexc328
-  invoke fastcc void @"_ZN6google8protobuf2io7Printer3SubC2IRZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_2EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_"(ptr noundef nonnull align 8 dereferenceable(184) %ref.tmp333, ptr noundef nonnull %agg.tmp336, ptr noundef nonnull align 8 dereferenceable(8) %write_assert)
+  invoke fastcc void @"_ZN6google8protobuf2io7Printer3SubC2IRZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_2EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_"(ptr noundef nonnull align 8 dereferenceable(184) %ref.tmp333, ptr noundef %agg.tmp336, ptr noundef nonnull align 8 dereferenceable(8) %write_assert)
           to label %invoke.cont341 unwind label %lpad340
 
 invoke.cont341:                                   ; preds = %invoke.cont339
@@ -2404,7 +2404,7 @@ lpad:                                             ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias align 8 %agg.result, ptr noundef %enum_, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr nocapture noundef readonly %min, ptr nocapture noundef readonly %max) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef %enum_, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr nocapture noundef readonly %min, ptr nocapture noundef readonly %max) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp.i41 = alloca %"class.std::allocator", align 1
@@ -3147,7 +3147,7 @@ entry:
   %1 = load ptr, ptr %limits_, align 8
   %max = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %max, align 8
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef %1, ptr noundef %2)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef %1, ptr noundef %2)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -3297,7 +3297,7 @@ entry:
   %1 = load ptr, ptr %limits_, align 8
   %max = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %max, align 8
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef %1, ptr noundef %2)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef %1, ptr noundef %2)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -4634,7 +4634,7 @@ entry:
   %1 = load ptr, ptr %limits_, align 8
   %max = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %max, align 8
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef %1, ptr noundef %2)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18EnumVarsB5cxx11EPKNS0_14EnumDescriptorERKNS2_7OptionsEPKNS0_19EnumValueDescriptorESC_(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef %1, ptr noundef %2)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -5990,27 +5990,27 @@ if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i26
   unreachable
 
 _ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i260
-  %call5.i.i.i.i2.i10.i266 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i257) #29
+  %call5.i.i.i.i1.i9.i266 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i257) #29
           to label %if.then.i.i.i269 unwind label %lpad289.loopexit.split-lp
 
 if.then.i.i.i269:                                 ; preds = %_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.exit.i.i.i.i
-  store ptr %call5.i.i.i.i2.i10.i266, ptr %offsets_by_number, align 8
+  store ptr %call5.i.i.i.i1.i9.i266, ptr %offsets_by_number, align 8
   %_M_finish.i.i.i263 = getelementptr inbounds i8, ptr %offsets_by_number, i64 8
-  store ptr %call5.i.i.i.i2.i10.i266, ptr %_M_finish.i.i.i263, align 8
-  %add.ptr.i.i.i264 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i10.i266, i64 %sub.ptr.sub.i.i257
+  store ptr %call5.i.i.i.i1.i9.i266, ptr %_M_finish.i.i.i263, align 8
+  %add.ptr.i.i.i264 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i9.i266, i64 %sub.ptr.sub.i.i257
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %offsets_by_number, i64 16
   store ptr %add.ptr.i.i.i264, ptr %_M_end_of_storage.i.i.i, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i10.i266, ptr align 8 %__x.val.i, i64 %sub.ptr.sub.i.i257, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i10.i266, i64 %sub.ptr.sub.i.i257
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i9.i266, ptr align 8 %__x.val.i, i64 %sub.ptr.sub.i.i257, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i9.i266, i64 %sub.ptr.sub.i.i257
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i263, align 8
-  %sub.ptr.rhs.cast.i.i.i.i271 = ptrtoint ptr %call5.i.i.i.i2.i10.i266 to i64
+  %sub.ptr.rhs.cast.i.i.i.i271 = ptrtoint ptr %call5.i.i.i.i1.i9.i266 to i64
   %sub.ptr.div.i.i.i.i273 = lshr exact i64 %sub.ptr.sub.i.i257, 5
   %140 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i.i273, i1 true)
   %sub.i.i.i.i274 = shl nuw nsw i64 %140, 1
   %mul.i.i.i275 = xor i64 %sub.i.i.i.i274, 126
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_T0_T1_"(ptr nonnull %call5.i.i.i.i2.i10.i266, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i275)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_T0_T1_"(ptr nonnull %call5.i.i.i.i1.i9.i266, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i275)
   %cmp.i4.i.i.i276 = icmp ugt i64 %sub.ptr.sub.i.i257, 512
-  %scevgep.i.i.i.i277 = getelementptr i8, ptr %call5.i.i.i.i2.i10.i266, i64 32
+  %scevgep.i.i.i.i277 = getelementptr i8, ptr %call5.i.i.i.i1.i9.i266, i64 32
   br i1 %cmp.i4.i.i.i276, label %for.body.lr.ph.i.i.i.i.i278, label %if.else.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i278:                      ; preds = %if.then.i.i.i269
@@ -6019,17 +6019,17 @@ for.body.lr.ph.i.i.i.i.i278:                      ; preds = %if.then.i.i.i269
 
 for.body.i.i.i.i.i279:                            ; preds = %for.inc.i.i.i.i.i292, %for.body.lr.ph.i.i.i.i.i278
   %__i.sroa.0.011.i.idx.i.i.i.i280 = phi i64 [ 32, %for.body.lr.ph.i.i.i.i.i278 ], [ %__i.sroa.0.011.i.add.i.i.i.i293, %for.inc.i.i.i.i.i292 ]
-  %__first.coerce.pn10.i.i.i.i.i281 = phi ptr [ %call5.i.i.i.i2.i10.i266, %for.body.lr.ph.i.i.i.i.i278 ], [ %__i.sroa.0.011.i.ptr.i.i.i.i282, %for.inc.i.i.i.i.i292 ]
-  %__i.sroa.0.011.i.ptr.i.i.i.i282 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i10.i266, i64 %__i.sroa.0.011.i.idx.i.i.i.i280
+  %__first.coerce.pn10.i.i.i.i.i281 = phi ptr [ %call5.i.i.i.i1.i9.i266, %for.body.lr.ph.i.i.i.i.i278 ], [ %__i.sroa.0.011.i.ptr.i.i.i.i282, %for.inc.i.i.i.i.i292 ]
+  %__i.sroa.0.011.i.ptr.i.i.i.i282 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i9.i266, i64 %__i.sroa.0.011.i.idx.i.i.i.i280
   %call.val.i.i.i.i.i.i283 = load i32, ptr %__i.sroa.0.011.i.ptr.i.i.i.i282, align 8
-  %call3.val.i.i.i.i.i.i284 = load i32, ptr %call5.i.i.i.i2.i10.i266, align 8
+  %call3.val.i.i.i.i.i.i284 = load i32, ptr %call5.i.i.i.i1.i9.i266, align 8
   %cmp.i.i.i.i.i.i.i285 = icmp slt i32 %call.val.i.i.i.i.i.i283, %call3.val.i.i.i.i.i.i284
   br i1 %cmp.i.i.i.i.i.i.i285, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i.i307, label %if.else.i.i.i.i.i286
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i.i307: ; preds = %for.body.i.i.i.i.i279
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__val.i.i.i.i.i267, ptr noundef nonnull align 8 dereferenceable(32) %__i.sroa.0.011.i.ptr.i.i.i.i282, i64 32, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i277, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i10.i266, i64 %__i.sroa.0.011.i.idx.i.i.i.i280, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i10.i266, ptr noundef nonnull align 8 dereferenceable(32) %__val.i.i.i.i.i267, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i277, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i1.i9.i266, i64 %__i.sroa.0.011.i.idx.i.i.i.i280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i1.i9.i266, ptr noundef nonnull align 8 dereferenceable(32) %__val.i.i.i.i.i267, i64 32, i1 false)
   br label %for.inc.i.i.i.i.i292
 
 if.else.i.i.i.i.i286:                             ; preds = %for.body.i.i.i.i.i279
@@ -6063,7 +6063,7 @@ for.inc.i.i.i.i.i292:                             ; preds = %"_ZSt25__unguarded_
   br i1 %cmp.i6.not.i.i.i.i.i294, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_T0_.exit.i.i.i.i", label %for.body.i.i.i.i.i279, !llvm.loop !99
 
 "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_T0_.exit.i.i.i.i": ; preds = %for.inc.i.i.i.i.i292
-  %add.ptr.i.i.i.i.i295 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i10.i266, i64 512
+  %add.ptr.i.i.i.i.i295 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i9.i266, i64 512
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__val.i.i.i.i.i267)
   br label %for.body.i7.i.i.i.i297
 
@@ -6104,9 +6104,9 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i269
 
 for.body.i28.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %for.inc.i41.i.i.i.i
   %__i.sroa.0.011.i29.i.i.i.i = phi ptr [ %__i.sroa.0.0.i42.i.i.i.i, %for.inc.i41.i.i.i.i ], [ %scevgep.i.i.i.i277, %if.else.i.i.i.i ]
-  %__first.coerce.pn10.i30.i.i.i.i = phi ptr [ %__i.sroa.0.011.i29.i.i.i.i, %for.inc.i41.i.i.i.i ], [ %call5.i.i.i.i2.i10.i266, %if.else.i.i.i.i ]
+  %__first.coerce.pn10.i30.i.i.i.i = phi ptr [ %__i.sroa.0.011.i29.i.i.i.i, %for.inc.i41.i.i.i.i ], [ %call5.i.i.i.i1.i9.i266, %if.else.i.i.i.i ]
   %call.val.i.i31.i.i.i.i = load i32, ptr %__i.sroa.0.011.i29.i.i.i.i, align 8
-  %call3.val.i.i32.i.i.i.i = load i32, ptr %call5.i.i.i.i2.i10.i266, align 8
+  %call3.val.i.i32.i.i.i.i = load i32, ptr %call5.i.i.i.i1.i9.i266, align 8
   %cmp.i.i.i33.i.i.i.i = icmp slt i32 %call.val.i.i31.i.i.i.i, %call3.val.i.i32.i.i.i.i
   br i1 %cmp.i.i.i33.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i50.i.i.i.i, label %if.else.i34.i.i.i.i
 
@@ -6118,8 +6118,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3
   %sub.ptr.div.i.i.i.i.i.i54.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i, 5
   %.pre.i.i.i.i.i.i55.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i54.i.i.i.i
   %add.ptr.i.i.i.i.i.i56.i.i.i.i = getelementptr inbounds %struct.Offset, ptr %add.ptr.i7.i51.i.i.i.i, i64 %.pre.i.i.i.i.i.i55.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i56.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i10.i266, i64 %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i10.i266, ptr noundef nonnull align 8 dereferenceable(32) %__val.i21.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i56.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i1.i9.i266, i64 %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i1.i9.i266, ptr noundef nonnull align 8 dereferenceable(32) %__val.i21.i.i.i.i, i64 32, i1 false)
   br label %for.inc.i41.i.i.i.i
 
 if.else.i34.i.i.i.i:                              ; preds = %for.body.i28.i.i.i.i

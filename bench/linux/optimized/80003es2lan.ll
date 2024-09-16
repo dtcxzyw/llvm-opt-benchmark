@@ -209,7 +209,7 @@ define internal i32 @e1000_setup_copper_link_80003es2lan(ptr noundef %0) #0 alig
 declare dso_local void @__ew32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -13, 1) i32 @e1000_write_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @e1000_write_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef range(i32 0, 32) %1, i16 noundef zeroext range(i16 16, 5) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
 
@@ -243,101 +243,99 @@ define internal fastcc noundef range(i32 -13, 1) i32 @e1000_write_kmrn_reg_80003
   tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %21) #4
   tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
   %22 = shl nuw nsw i32 %1, 16
-  %23 = and i32 %22, 2031616
-  %24 = zext i16 %2 to i32
-  %25 = or disjoint i32 %23, %24
-  tail call void @__ew32(ptr noundef %0, i64 noundef 52, i32 noundef %25) #4
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr i8, ptr %26, i64 8
-  %28 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27) #4, !srcloc !5
-  tail call void @__const_udelay(i64 noundef 8590) #4
-  br label %29
-
-29:                                               ; preds = %29, %20
-  %30 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %29, !llvm.loop !11
-
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr i8, ptr %33, i64 23388
-  %35 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34) #4, !srcloc !5
-  %36 = and i32 %35, -9
-  tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %36) #4
-  tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
-  br label %.thread1
-
-.thread1:                                         ; preds = %15, %5, %18, %32
-  %37 = phi i32 [ 0, %32 ], [ -13, %18 ], [ -13, %5 ], [ -13, %15 ]
-  ret i32 %37
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -13, 1) i32 @e1000_read_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %5
-
-5:                                                ; preds = %15, %3
-  %6 = phi i32 [ 0, %3 ], [ %16, %15 ]
-  %7 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %.thread1
-
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr i8, ptr %10, i64 23388
-  %12 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11) #4, !srcloc !5
-  %13 = and i32 %12, 524296
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %18, label %15
-
-15:                                               ; preds = %9
-  tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
-  tail call void @__const_udelay(i64 noundef 21475000) #4
-  %16 = add nuw nsw i32 %6, 1
-  %17 = icmp eq i32 %16, 50
-  br i1 %17, label %.thread1, label %5, !llvm.loop !8
-
-18:                                               ; preds = %9
-  %19 = icmp eq i32 %6, 50
-  br i1 %19, label %.thread1, label %20
-
-20:                                               ; preds = %18
-  %21 = or disjoint i32 %12, 8
-  tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %21) #4
-  tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
-  %22 = shl nuw nsw i32 %1, 16
-  %23 = and i32 %22, 2031616
-  %24 = or disjoint i32 %23, 2097152
+  %23 = zext i16 %2 to i32
+  %24 = or disjoint i32 %22, %23
   tail call void @__ew32(ptr noundef %0, i64 noundef 52, i32 noundef %24) #4
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr i8, ptr %25, i64 8
   %27 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26) #4, !srcloc !5
   tail call void @__const_udelay(i64 noundef 8590) #4
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr i8, ptr %28, i64 52
-  %30 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29) #4, !srcloc !5
-  %31 = trunc i32 %30 to i16
-  store i16 %31, ptr %2, align 2
-  br label %32
+  br label %28
 
-32:                                               ; preds = %32, %20
-  %33 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %32, !llvm.loop !11
+28:                                               ; preds = %28, %20
+  %29 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %28, !llvm.loop !11
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr i8, ptr %36, i64 23388
-  %38 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37) #4, !srcloc !5
-  %39 = and i32 %38, -9
-  tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %39) #4
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr i8, ptr %32, i64 23388
+  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #4, !srcloc !5
+  %35 = and i32 %34, -9
+  tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %35) #4
   tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
   br label %.thread1
 
-.thread1:                                         ; preds = %15, %5, %18, %35
-  %40 = phi i32 [ 0, %35 ], [ -13, %18 ], [ -13, %5 ], [ -13, %15 ]
-  ret i32 %40
+.thread1:                                         ; preds = %15, %5, %18, %31
+  %36 = phi i32 [ 0, %31 ], [ -13, %18 ], [ -13, %5 ], [ -13, %15 ]
+  ret i32 %36
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc noundef range(i32 -13, 1) i32 @e1000_read_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef range(i32 2, 32) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %5
+
+5:                                                ; preds = %15, %3
+  %6 = phi i32 [ 0, %3 ], [ %16, %15 ]
+  %7 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %.thread1
+
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr i8, ptr %10, i64 23388
+  %12 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11) #4, !srcloc !5
+  %13 = and i32 %12, 524296
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %18, label %15
+
+15:                                               ; preds = %9
+  tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
+  tail call void @__const_udelay(i64 noundef 21475000) #4
+  %16 = add nuw nsw i32 %6, 1
+  %17 = icmp eq i32 %16, 50
+  br i1 %17, label %.thread1, label %5, !llvm.loop !8
+
+18:                                               ; preds = %9
+  %19 = icmp eq i32 %6, 50
+  br i1 %19, label %.thread1, label %20
+
+20:                                               ; preds = %18
+  %21 = or disjoint i32 %12, 8
+  tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %21) #4
+  tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
+  %22 = shl nuw nsw i32 %1, 16
+  %23 = or disjoint i32 %22, 2097152
+  tail call void @__ew32(ptr noundef %0, i64 noundef 52, i32 noundef %23) #4
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr i8, ptr %24, i64 8
+  %26 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #4, !srcloc !5
+  tail call void @__const_udelay(i64 noundef 8590) #4
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr i8, ptr %27, i64 52
+  %29 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28) #4, !srcloc !5
+  %30 = trunc i32 %29 to i16
+  store i16 %30, ptr %2, align 2
+  br label %31
+
+31:                                               ; preds = %31, %20
+  %32 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %31, !llvm.loop !11
+
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr i8, ptr %35, i64 23388
+  %37 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36) #4, !srcloc !5
+  %38 = and i32 %37, -9
+  tail call void @__ew32(ptr noundef %0, i64 noundef 23388, i32 noundef %38) #4
+  tail call void @e1000e_put_hw_semaphore(ptr noundef %0) #4
+  br label %.thread1
+
+.thread1:                                         ; preds = %15, %5, %18, %34
+  %39 = phi i32 [ 0, %34 ], [ -13, %18 ], [ -13, %5 ], [ -13, %15 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

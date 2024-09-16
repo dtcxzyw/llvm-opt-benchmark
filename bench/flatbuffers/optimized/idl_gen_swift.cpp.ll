@@ -1767,7 +1767,7 @@ lpad.i47:                                         ; preds = %invoke.cont5.i, %in
   br label %ehcleanup33
 
 invoke.cont25:                                    ; preds = %invoke.cont5.i
-  invoke fastcc void @_ZN11flatbuffers5swift12_GLOBAL__N_113SwiftKeywordsB5cxx11Ev(ptr noalias nonnull align 8 %agg.tmp26)
+  invoke fastcc void @_ZN11flatbuffers5swift12_GLOBAL__N_113SwiftKeywordsB5cxx11Ev(ptr noalias align 8 %agg.tmp26)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
@@ -2644,7 +2644,7 @@ invoke.cont4:                                     ; preds = %if.end
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers5swift12_GLOBAL__N_113SwiftKeywordsB5cxx11Ev(ptr noalias align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers5swift12_GLOBAL__N_113SwiftKeywordsB5cxx11Ev(ptr noalias nonnull align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp = alloca [79 x %"class.std::__cxx11::basic_string"], align 8

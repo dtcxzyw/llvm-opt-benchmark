@@ -3673,7 +3673,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3SetINS_7VtArrayIdEEEEbRKT_N
   br label %.body20.i
 
 _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit40.i: ; preds = %.lr.ph.i.i.i.i34.i, %754
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %47, double 1.000000e+00, ptr noundef nonnull %51)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %47, double 1.000000e+00, ptr noundef %51)
           to label %758 unwind label %869
 
 758:                                              ; preds = %_ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit40.i
@@ -24788,7 +24788,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %94
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit
@@ -24832,7 +24832,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %27, %29
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit14: ; preds = %.lr.ph.i.i.i.i8, %34
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %38 unwind label %96
 
 38:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit14
@@ -24876,7 +24876,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit18: ; preds = %38, %
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit26: ; preds = %.lr.ph.i.i.i.i20, %45
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %49 unwind label %98
 
 49:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit26
@@ -25176,7 +25176,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %88
 
 27:                                               ; preds = %_ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -25210,7 +25210,7 @@ _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13: ; preds = %.lr.ph.i.i.i.i7, %31
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %35 unwind label %90
 
 35:                                               ; preds = %_ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
@@ -25244,7 +25244,7 @@ _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
   br label %.body
 
 _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %39
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %43 unwind label %92
 
 43:                                               ; preds = %_ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21
@@ -25544,7 +25544,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %88
 
 27:                                               ; preds = %_ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -25578,7 +25578,7 @@ _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13: ; preds = %.lr.ph.i.i.i.i7, %31
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %35 unwind label %90
 
 35:                                               ; preds = %_ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
@@ -25612,7 +25612,7 @@ _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
   br label %.body
 
 _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %39
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %43 unwind label %92
 
 43:                                               ; preds = %_ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21
@@ -25937,7 +25937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit.i: ; p
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %27
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 0.000000e+00, ptr noundef nonnull %10)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 0.000000e+00, ptr noundef %10)
           to label %40 unwind label %175
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit
@@ -26039,7 +26039,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit.i9: ; 
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit16: ; preds = %.lr.ph.i.i.i.i11, %68
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 1.000000e+00, ptr noundef nonnull %11)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 1.000000e+00, ptr noundef %11)
           to label %75 unwind label %177
 
 75:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit16
@@ -26141,7 +26141,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit.i24: ;
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit31: ; preds = %.lr.ph.i.i.i.i26, %103
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 2.000000e+00, ptr noundef nonnull %12)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 2.000000e+00, ptr noundef %12)
           to label %110 unwind label %179
 
 110:                                              ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit31
@@ -26501,7 +26501,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 .loopexit45:                                      ; preds = %.lr.ph.i.i.i.i, %18
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %.preheader.i6 unwind label %81
 
 .preheader.i6:                                    ; preds = %.loopexit45
@@ -26541,7 +26541,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 .loopexit44:                                      ; preds = %.lr.ph.i.i.i.i11, %25
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %.preheader.i18 unwind label %83
 
 .preheader.i18:                                   ; preds = %.loopexit44
@@ -26581,7 +26581,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i23, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %36 unwind label %85
 
 36:                                               ; preds = %.loopexit
@@ -26922,7 +26922,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %9, %13
   br label %.body
 
 .loopexit44:                                      ; preds = %.lr.ph.i.i.i.i, %20
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %24 unwind label %97
 
 24:                                               ; preds = %.loopexit44
@@ -26978,7 +26978,7 @@ _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEdET_T0_.exit
   br label %.body
 
 .loopexit43:                                      ; preds = %.lr.ph.i.i.i.i14, %34
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %38 unwind label %99
 
 38:                                               ; preds = %.loopexit43
@@ -27034,7 +27034,7 @@ _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEdET_T0_.exit
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i29, %48
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %7)
           to label %52 unwind label %101
 
 52:                                               ; preds = %.loopexit
@@ -27375,7 +27375,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %9, %13
   br label %.body
 
 .loopexit44:                                      ; preds = %.lr.ph.i.i.i.i, %20
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %24 unwind label %97
 
 24:                                               ; preds = %.loopexit44
@@ -27431,7 +27431,7 @@ _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEdET_T0_.exit
   br label %.body
 
 .loopexit43:                                      ; preds = %.lr.ph.i.i.i.i14, %34
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %38 unwind label %99
 
 38:                                               ; preds = %.loopexit43
@@ -27487,7 +27487,7 @@ _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEdET_T0_.exit
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i29, %48
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %7)
           to label %52 unwind label %101
 
 52:                                               ; preds = %.loopexit
@@ -27823,7 +27823,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %9, %13
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %21
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %29 unwind label %101
 
 29:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit
@@ -27879,7 +27879,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i8, %42
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %46 unwind label %103
 
 46:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit14
@@ -27923,7 +27923,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit18: ; preds = %47, %
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit26: ; preds = %.lr.ph.i.i.i.i20, %52
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %8)
           to label %56 unwind label %105
 
 56:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit26
@@ -28241,7 +28241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %13, %9
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %21
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %29 unwind label %97
 
 29:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit
@@ -28291,7 +28291,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i7, %40
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %44 unwind label %99
 
 44:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit14
@@ -28327,7 +28327,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit23: ; preds = %.lr.ph.i.i.i.i16, %48
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %8)
           to label %52 unwind label %101
 
 52:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit23
@@ -28645,7 +28645,7 @@ define linkonce_odr dso_local void @_ZN8TestCaseIN32pxrInternal_v0_24__pxrReserv
   br label %.body
 
 .loopexit33:                                      ; preds = %.lr.ph.i.i.i.i, %23
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %3, double 0.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %3, double 0.000000e+00, ptr noundef %5)
           to label %27 unwind label %90
 
 27:                                               ; preds = %.loopexit33
@@ -28690,7 +28690,7 @@ define linkonce_odr dso_local void @_ZN8TestCaseIN32pxrInternal_v0_24__pxrReserv
 
 .loopexit32:                                      ; preds = %.lr.ph.i.i.i.i7, %33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %3, double 1.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %3, double 1.000000e+00, ptr noundef %6)
           to label %37 unwind label %92
 
 37:                                               ; preds = %.loopexit32
@@ -28726,7 +28726,7 @@ define linkonce_odr dso_local void @_ZN8TestCaseIN32pxrInternal_v0_24__pxrReserv
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i15, %41
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %3, double 2.000000e+00, ptr noundef nonnull %10)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %3, double 2.000000e+00, ptr noundef %10)
           to label %45 unwind label %94
 
 45:                                               ; preds = %.loopexit
@@ -29050,7 +29050,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %94
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit
@@ -29096,7 +29096,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %27, %29
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i8, %34
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %38 unwind label %96
 
 38:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit14
@@ -29142,7 +29142,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit18: ; preds = %38, %
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit26: ; preds = %.lr.ph.i.i.i.i20, %45
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %49 unwind label %98
 
 49:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit26
@@ -29442,7 +29442,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %88
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit
@@ -29476,7 +29476,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7, %31
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %35 unwind label %90
 
 35:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit13
@@ -29510,7 +29510,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %39
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %43 unwind label %92
 
 43:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit21
@@ -29810,7 +29810,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %88
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit
@@ -29846,7 +29846,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i7, %31
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %35 unwind label %90
 
 35:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit14
@@ -29882,7 +29882,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit23: ; preds = %.lr.ph.i.i.i.i16, %39
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %43 unwind label %92
 
 43:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit23
@@ -30207,7 +30207,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %28 unwind label %95
 
 28:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit
@@ -30253,7 +30253,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %28, %30
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit19: ; preds = %.lr.ph.i.i.i.i13, %35
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %39 unwind label %97
 
 39:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit19
@@ -30299,7 +30299,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit23: ; preds = %39, %
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit31: ; preds = %.lr.ph.i.i.i.i25, %46
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %50 unwind label %99
 
 50:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit31
@@ -30600,7 +30600,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %28 unwind label %89
 
 28:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit
@@ -30636,7 +30636,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit18: ; preds = %.lr.ph.i.i.i.i11, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %36 unwind label %91
 
 36:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit18
@@ -30672,7 +30672,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit27: ; preds = %.lr.ph.i.i.i.i20, %40
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %44 unwind label %93
 
 44:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit27
@@ -30987,7 +30987,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %28 unwind label %89
 
 28:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit
@@ -31025,7 +31025,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %36 unwind label %91
 
 36:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit13
@@ -31063,7 +31063,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %40
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %44 unwind label %93
 
 44:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit21
@@ -31387,7 +31387,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %94
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit
@@ -31433,7 +31433,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %27, %29
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i8, %34
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %38 unwind label %96
 
 38:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit14
@@ -31479,7 +31479,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit18: ; preds = %38, %
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit26: ; preds = %.lr.ph.i.i.i.i20, %45
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %49 unwind label %98
 
 49:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit26
@@ -31779,7 +31779,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %88
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit
@@ -31815,7 +31815,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i7, %31
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %35 unwind label %90
 
 35:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit14
@@ -31851,7 +31851,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit23: ; preds = %.lr.ph.i.i.i.i16, %39
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %43 unwind label %92
 
 43:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit23
@@ -32169,7 +32169,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %88
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit
@@ -32209,7 +32209,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7, %31
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %35 unwind label %90
 
 35:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit13
@@ -32249,7 +32249,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %39
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %43 unwind label %92
 
 43:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit21
@@ -32546,7 +32546,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIbEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.preheader.i.i.i.i, %18
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %24 unwind label %89
 
 24:                                               ; preds = %_ZL13CreateVtArrayIbEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -32580,7 +32580,7 @@ _ZL13CreateVtArrayIbEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIbEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit11: ; preds = %.lr.ph.preheader.i.i.i.i7, %28
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %34 unwind label %91
 
 34:                                               ; preds = %_ZL13CreateVtArrayIbEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit11
@@ -32614,7 +32614,7 @@ _ZL13CreateVtArrayIbEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit11
   br label %.body
 
 _ZL13CreateVtArrayIbEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit17: ; preds = %.lr.ph.preheader.i.i.i.i13, %38
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %44 unwind label %93
 
 44:                                               ; preds = %_ZL13CreateVtArrayIbEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit17
@@ -32911,7 +32911,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIhEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %19, %18
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %25 unwind label %92
 
 25:                                               ; preds = %_ZL13CreateVtArrayIhEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -32945,7 +32945,7 @@ _ZL13CreateVtArrayIhEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIhEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit10: ; preds = %30, %29
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %36 unwind label %94
 
 36:                                               ; preds = %_ZL13CreateVtArrayIhEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit10
@@ -32979,7 +32979,7 @@ _ZL13CreateVtArrayIhEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit10
   br label %.body
 
 _ZL13CreateVtArrayIhEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit15: ; preds = %41, %40
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %47 unwind label %96
 
 47:                                               ; preds = %_ZL13CreateVtArrayIhEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit15
@@ -33279,7 +33279,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIiEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIiEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -33316,7 +33316,7 @@ _ZL13CreateVtArrayIiEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIiEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIiEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
@@ -33350,7 +33350,7 @@ _ZL13CreateVtArrayIiEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
   br label %.body
 
 _ZL13CreateVtArrayIiEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIiEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21
@@ -33650,7 +33650,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIjEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIjEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -33687,7 +33687,7 @@ _ZL13CreateVtArrayIjEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIjEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIjEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
@@ -33721,7 +33721,7 @@ _ZL13CreateVtArrayIjEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
   br label %.body
 
 _ZL13CreateVtArrayIjEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIjEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21
@@ -34021,7 +34021,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIlEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIlEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -34058,7 +34058,7 @@ _ZL13CreateVtArrayIlEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIlEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIlEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
@@ -34092,7 +34092,7 @@ _ZL13CreateVtArrayIlEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
   br label %.body
 
 _ZL13CreateVtArrayIlEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIlEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21
@@ -34392,7 +34392,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayImEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayImEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayImEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayImEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -34429,7 +34429,7 @@ _ZL13CreateVtArrayImEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayImEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayImEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayImEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayImEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
@@ -34463,7 +34463,7 @@ _ZL13CreateVtArrayImEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
   br label %.body
 
 _ZL13CreateVtArrayImEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayImEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayImEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayImEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21
@@ -34773,7 +34773,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %96
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit
@@ -34810,7 +34810,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArr
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %98
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit13
@@ -34854,7 +34854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %40, %42
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit22: ; preds = %.lr.ph.i.i.i.i16, %47
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %51 unwind label %100
 
 51:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEENS0_7VtArrayIT_EES4_m.exit22
@@ -35154,7 +35154,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -35191,7 +35191,7 @@ _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
@@ -35225,7 +35225,7 @@ _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
   br label %.body
 
 _ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIfEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21
@@ -35525,7 +35525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit
@@ -35562,7 +35562,7 @@ _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit: 
   br label %.body
 
 _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
@@ -35596,7 +35596,7 @@ _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit13
   br label %.body
 
 _ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIdEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES2_m.exit21
@@ -35921,7 +35921,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit.i: ; p
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %27
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 0.000000e+00, ptr noundef nonnull %10)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 0.000000e+00, ptr noundef %10)
           to label %40 unwind label %182
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit
@@ -36028,7 +36028,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit.i9: ; 
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit16: ; preds = %.lr.ph.i.i.i.i11.preheader, %69
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 1.000000e+00, ptr noundef nonnull %11)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 1.000000e+00, ptr noundef %11)
           to label %82 unwind label %184
 
 82:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit16
@@ -36130,7 +36130,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit.i24: ;
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit31: ; preds = %.lr.ph.i.i.i.i26, %110
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 2.000000e+00, ptr noundef nonnull %12)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %8, double 2.000000e+00, ptr noundef %12)
           to label %117 unwind label %186
 
 117:                                              ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeEENS0_7VtArrayIT_EES3_m.exit31
@@ -36340,7 +36340,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %10, %14
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc14
-  invoke fastcc void @_ZL20VerifyAttributeValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS6_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS6_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %21 unwind label %74
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -36365,7 +36365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19: ; preds = %.noexc16
-  invoke fastcc void @_ZL20VerifyAttributeValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS6_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS6_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %6)
           to label %25 unwind label %78
 
 25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19
@@ -36390,7 +36390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19: ; 
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24: ; preds = %.noexc21
-  invoke fastcc void @_ZL20VerifyAttributeValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS6_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL20VerifyAttributeValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS6_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %8)
           to label %29 unwind label %82
 
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24
@@ -36612,7 +36612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body22
 
 _ZL13CreateVtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES8_m.exit: ; preds = %.noexc.i, %27
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %31 unwind label %100
 
 31:                                               ; preds = %_ZL13CreateVtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES8_m.exit
@@ -36679,7 +36679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28: ; 
   br label %.body40
 
 _ZL13CreateVtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES8_m.exit42: ; preds = %.noexc.i37, %38
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %7)
           to label %42 unwind label %106
 
 42:                                               ; preds = %_ZL13CreateVtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES8_m.exit42
@@ -36746,7 +36746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit47: ; 
   br label %.body59
 
 _ZL13CreateVtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES8_m.exit61: ; preds = %.noexc.i56, %49
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %10)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %10)
           to label %53 unwind label %112
 
 53:                                               ; preds = %_ZL13CreateVtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN32pxrInternal_v0_24__pxrReserved__7VtArrayIT_EES8_m.exit61
@@ -36937,7 +36937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
           to label %15 unwind label %84
 
 15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %16 unwind label %86
 
 16:                                               ; preds = %15
@@ -36958,7 +36958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit7: ; preds = %16, %20
           to label %24 unwind label %84
 
 24:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit7
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %25 unwind label %95
 
 25:                                               ; preds = %24
@@ -36979,7 +36979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit9: ; preds = %25, %29
           to label %33 unwind label %84
 
 33:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit9
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %34 unwind label %104
 
 34:                                               ; preds = %33
@@ -37241,7 +37241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i.i.i: ; preds = %_
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS0_7VtArrayIT_EES3_m.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i.i.i, %22
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %48 unwind label %178
 
 48:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS0_7VtArrayIT_EES3_m.exit
@@ -37336,7 +37336,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i.i.i25: ; preds = 
   br label %.body28
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS0_7VtArrayIT_EES3_m.exit30: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i.i.i25, %60
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %6)
           to label %86 unwind label %189
 
 86:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS0_7VtArrayIT_EES3_m.exit30
@@ -37431,7 +37431,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i.i.i42: ; preds = 
   br label %.body45
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS0_7VtArrayIT_EES3_m.exit47: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i.i.i42, %98
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %8)
           to label %124 unwind label %200
 
 124:                                              ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS0_7VtArrayIT_EES3_m.exit47
@@ -37673,7 +37673,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %24 unwind label %83
 
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %25 unwind label %85
 
 25:                                               ; preds = %24
@@ -37705,7 +37705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25: ; 
           to label %30 unwind label %91
 
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %7)
           to label %31 unwind label %93
 
 31:                                               ; preds = %30
@@ -37737,7 +37737,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
           to label %36 unwind label %99
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %10)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %10)
           to label %37 unwind label %101
 
 37:                                               ; preds = %36
@@ -38019,7 +38019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body28
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.noexc3.i, %31
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %42 unwind label %213
 
 42:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEENS0_7VtArrayIT_EES3_m.exit
@@ -38178,7 +38178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35: ; 
   br label %.body48
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEENS0_7VtArrayIT_EES3_m.exit50: ; preds = %.noexc3.i45, %78
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %8)
           to label %89 unwind label %223
 
 89:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEENS0_7VtArrayIT_EES3_m.exit50
@@ -38337,7 +38337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit67: ; 
   br label %.body80
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEENS0_7VtArrayIT_EES3_m.exit82: ; preds = %.noexc3.i77, %125
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %12)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %12)
           to label %136 unwind label %233
 
 136:                                              ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEENS0_7VtArrayIT_EES3_m.exit82
@@ -38667,7 +38667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %27 unwind label %83
 
 27:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %28 unwind label %85
 
 28:                                               ; preds = %27
@@ -38699,7 +38699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25: ; 
           to label %32 unwind label %90
 
 32:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %8)
           to label %33 unwind label %92
 
 33:                                               ; preds = %32
@@ -38731,7 +38731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
           to label %37 unwind label %97
 
 37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %12)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %12)
           to label %38 unwind label %99
 
 38:                                               ; preds = %37
@@ -39088,7 +39088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 .loopexit45:                                      ; preds = %.lr.ph.i.i.i.i, %18
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %.preheader.i6 unwind label %81
 
 .preheader.i6:                                    ; preds = %.loopexit45
@@ -39122,7 +39122,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 .loopexit44:                                      ; preds = %.lr.ph.i.i.i.i11, %25
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %.preheader.i18 unwind label %83
 
 .preheader.i18:                                   ; preds = %.loopexit44
@@ -39162,7 +39162,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i23, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %36 unwind label %85
 
 36:                                               ; preds = %.loopexit
@@ -39484,7 +39484,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %8, %12
   br label %.body
 
 .loopexit44:                                      ; preds = %.lr.ph.i.i.i.i, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %_ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEdET_T0_.exit12 unwind label %89
 
 _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEdET_T0_.exit12: ; preds = %.loopexit44
@@ -39518,7 +39518,7 @@ _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEdET_T0_.exit
   br label %.body
 
 .loopexit43:                                      ; preds = %.lr.ph.i.i.i.i14, %26
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %30 unwind label %91
 
 30:                                               ; preds = %.loopexit43
@@ -39574,7 +39574,7 @@ _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEdET_T0_.exit
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i29, %40
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %44 unwind label %93
 
 44:                                               ; preds = %.loopexit
@@ -39896,7 +39896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %8, %12
   br label %.body
 
 .loopexit44:                                      ; preds = %.lr.ph.i.i.i.i, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %_ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEdET_T0_.exit12 unwind label %89
 
 _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEdET_T0_.exit12: ; preds = %.loopexit44
@@ -39930,7 +39930,7 @@ _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEdET_T0_.exit
   br label %.body
 
 .loopexit43:                                      ; preds = %.lr.ph.i.i.i.i14, %26
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %30 unwind label %91
 
 30:                                               ; preds = %.loopexit43
@@ -39986,7 +39986,7 @@ _ZL14CreateGfMatrixIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEdET_T0_.exit
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i29, %40
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %44 unwind label %93
 
 44:                                               ; preds = %.loopexit
@@ -40298,7 +40298,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %96
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit
@@ -40335,7 +40335,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %98
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit13
@@ -40381,7 +40381,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %42, %40
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit22: ; preds = %.lr.ph.i.i.i.i16, %47
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %51 unwind label %100
 
 51:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuathEENS0_7VtArrayIT_EES3_m.exit22
@@ -40681,7 +40681,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit
@@ -40718,7 +40718,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit14
@@ -40754,7 +40754,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit23: ; preds = %.lr.ph.i.i.i.i16, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfQuatfEENS0_7VtArrayIT_EES3_m.exit23
@@ -41059,7 +41059,7 @@ define linkonce_odr dso_local void @_ZN8TestCaseIN32pxrInternal_v0_24__pxrReserv
   br label %.body
 
 .loopexit37:                                      ; preds = %.lr.ph.i.i.i.i, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %23 unwind label %84
 
 23:                                               ; preds = %.loopexit37
@@ -41093,7 +41093,7 @@ define linkonce_odr dso_local void @_ZN8TestCaseIN32pxrInternal_v0_24__pxrReserv
   br label %.body
 
 .loopexit36:                                      ; preds = %.lr.ph.i.i.i.i7, %27
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %31 unwind label %86
 
 31:                                               ; preds = %.loopexit36
@@ -41129,7 +41129,7 @@ define linkonce_odr dso_local void @_ZN8TestCaseIN32pxrInternal_v0_24__pxrReserv
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i15, %35
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %39 unwind label %88
 
 39:                                               ; preds = %.loopexit
@@ -41429,7 +41429,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2iEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2iEENS0_7VtArrayIT_EES3_m.exit
@@ -41466,7 +41466,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2iEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2iEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2iEENS0_7VtArrayIT_EES3_m.exit13
@@ -41500,7 +41500,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2iEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2iEENS0_7VtArrayIT_EES3_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2iEENS0_7VtArrayIT_EES3_m.exit21
@@ -41812,7 +41812,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %96
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit
@@ -41849,7 +41849,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %98
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit13
@@ -41895,7 +41895,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %40, %42
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit22: ; preds = %.lr.ph.i.i.i.i16, %47
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %51 unwind label %100
 
 51:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2hEENS0_7VtArrayIT_EES3_m.exit22
@@ -42195,7 +42195,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit
@@ -42232,7 +42232,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit13
@@ -42266,7 +42266,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit21
@@ -42566,7 +42566,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit
@@ -42603,7 +42603,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit14
@@ -42639,7 +42639,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit23: ; preds = %.lr.ph.i.i.i.i16, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEENS0_7VtArrayIT_EES3_m.exit23
@@ -42940,7 +42940,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3iEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %28 unwind label %95
 
 28:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3iEENS0_7VtArrayIT_EES3_m.exit
@@ -42978,7 +42978,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3iEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3iEENS0_7VtArrayIT_EES3_m.exit18: ; preds = %.lr.ph.i.i.i.i11.preheader, %33
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %42 unwind label %97
 
 42:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3iEENS0_7VtArrayIT_EES3_m.exit18
@@ -43014,7 +43014,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3iEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3iEENS0_7VtArrayIT_EES3_m.exit27: ; preds = %.lr.ph.i.i.i.i20, %46
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %50 unwind label %99
 
 50:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3iEENS0_7VtArrayIT_EES3_m.exit27
@@ -43327,7 +43327,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %28 unwind label %98
 
 28:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit
@@ -43365,7 +43365,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit18: ; preds = %.lr.ph.i.i.i.i12.preheader, %33
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %42 unwind label %100
 
 42:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit18
@@ -43411,7 +43411,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %42, %44
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit27: ; preds = %.lr.ph.i.i.i.i21, %49
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %53 unwind label %102
 
 53:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3hEENS0_7VtArrayIT_EES3_m.exit27
@@ -43712,7 +43712,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %28 unwind label %95
 
 28:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit
@@ -43750,7 +43750,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit18: ; preds = %.lr.ph.i.i.i.i11.preheader, %33
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %42 unwind label %97
 
 42:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit18
@@ -43786,7 +43786,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit27: ; preds = %.lr.ph.i.i.i.i20, %46
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %50 unwind label %99
 
 50:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_EES3_m.exit27
@@ -44097,7 +44097,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %28 unwind label %95
 
 28:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit
@@ -44135,7 +44135,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %33
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %42 unwind label %97
 
 42:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit13
@@ -44173,7 +44173,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %46
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %50 unwind label %99
 
 50:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3dEENS0_7VtArrayIT_EES3_m.exit21
@@ -44473,7 +44473,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4iEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4iEENS0_7VtArrayIT_EES3_m.exit
@@ -44510,7 +44510,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4iEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4iEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4iEENS0_7VtArrayIT_EES3_m.exit14
@@ -44546,7 +44546,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4iEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4iEENS0_7VtArrayIT_EES3_m.exit23: ; preds = %.lr.ph.i.i.i.i16, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4iEENS0_7VtArrayIT_EES3_m.exit23
@@ -44858,7 +44858,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %11, %7
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %96
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit
@@ -44895,7 +44895,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %98
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit13
@@ -44941,7 +44941,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %40, %42
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit22: ; preds = %.lr.ph.i.i.i.i16, %47
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %51 unwind label %100
 
 51:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4hEENS0_7VtArrayIT_EES3_m.exit22
@@ -45241,7 +45241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit
@@ -45278,7 +45278,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit14: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit14
@@ -45314,7 +45314,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit23: ; preds = %.lr.ph.i.i.i.i16, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit23
@@ -45626,7 +45626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %7, %11
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 0.000000e+00, ptr noundef %4)
           to label %27 unwind label %93
 
 27:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit
@@ -45663,7 +45663,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit13: ; preds = %.lr.ph.i.i.i.i7.preheader, %32
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, ptr noundef %5)
           to label %40 unwind label %95
 
 40:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit13
@@ -45703,7 +45703,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_E
   br label %.body
 
 _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit21: ; preds = %.lr.ph.i.i.i.i15, %44
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, ptr noundef %6)
           to label %48 unwind label %97
 
 48:                                               ; preds = %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4dEENS0_7VtArrayIT_EES3_m.exit21
@@ -46671,7 +46671,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_8pxr_half4halfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -48245,7 +48245,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -49817,7 +49817,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -51500,7 +51500,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_11SdfTimeCodeEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::SdfTimeCode>::_Streamer", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::SdfTimeCode>::_Streamer", align 8
@@ -53469,7 +53469,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_10GfMatrix2dEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -55098,7 +55098,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_10GfMatrix3dEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -56727,7 +56727,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_10GfMatrix4dEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_10GfMatrix4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -58446,7 +58446,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfQuathEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -60125,7 +60125,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfQuatfEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatfEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -61802,7 +61802,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfQuatdEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfQuatdEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -63464,7 +63464,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec2hEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -65097,7 +65097,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec2fEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -66739,7 +66739,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec2dEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -68429,7 +68429,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec3hEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -70091,7 +70091,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec3fEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -71751,7 +71751,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec3dEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -73469,7 +73469,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec4hEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4hEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -75147,7 +75147,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec4fEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4fEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -76823,7 +76823,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec4dEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4dEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -78399,7 +78399,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -79225,7 +79225,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIhEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i8 noundef zeroext %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIhEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -80043,7 +80043,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -80869,7 +80869,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i32 noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIiEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -81687,7 +81687,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -82513,7 +82513,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIjEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i32 noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIjEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -83331,7 +83331,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -84157,7 +84157,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIlEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i64 noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIlEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i64 noundef range(i64 0, 3) %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -84975,7 +84975,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -85801,7 +85801,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueImEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i64 noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueImEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, i64 noundef range(i64 0, 3) %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -86619,7 +86619,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayImEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayImEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -87445,7 +87445,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS6_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS6_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -88237,7 +88237,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -89063,7 +89063,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -89938,7 +89938,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -90764,7 +90764,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -91686,7 +91686,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::SdfAssetPath>::_Streamer", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::SdfAssetPath>::_Streamer", align 8
@@ -92822,7 +92822,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAny
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -95269,7 +95269,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec2iEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -96931,7 +96931,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec3iEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec3iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -98609,7 +98609,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec4iEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec4iEEEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8

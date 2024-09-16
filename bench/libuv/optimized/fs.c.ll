@@ -1822,33 +1822,33 @@ if.end20.i366:                                    ; preds = %if.then18.i373, %if
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body.i.i, %if.end20.i366
-  %offset.019.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end20.i366 ]
-  %size.addr.018.i.i = phi i64 [ %sub.i.i367, %for.body.i.i ], [ %r.0.i.i, %if.end20.i366 ]
-  %len.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %215, i64 %offset.019.i.i, i32 1
+  %offset.018.i.i = phi i64 [ 0, %if.end20.i366 ], [ %inc.i.i, %for.body.i.i ]
+  %size.addr.017.i.i = phi i64 [ %r.0.i.i, %if.end20.i366 ], [ %sub.i.i367, %for.body.i.i ]
+  %len.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %215, i64 %offset.018.i.i, i32 1
   %216 = load i64, ptr %len.i.i, align 8
-  %cmp1.not.i.i = icmp ugt i64 %216, %size.addr.018.i.i
+  %cmp1.not.i.i = icmp ugt i64 %216, %size.addr.017.i.i
   br i1 %cmp1.not.i.i, label %if.then.i29.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
-  %sub.i.i367 = sub nuw i64 %size.addr.018.i.i, %216
-  %inc.i.i = add i64 %offset.019.i.i, 1
+  %sub.i.i367 = sub nuw i64 %size.addr.017.i.i, %216
+  %inc.i.i = add i64 %offset.018.i.i, 1
   %cmp.not.i.i368 = icmp eq i64 %sub.i.i367, 0
   br i1 %cmp.not.i.i368, label %uv__fs_buf_offset.exit.i, label %land.rhs.i.i
 
 if.then.i29.i:                                    ; preds = %land.rhs.i.i
-  %arrayidx5.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %215, i64 %offset.019.i.i
+  %arrayidx5.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %215, i64 %offset.018.i.i
   %217 = load ptr, ptr %arrayidx5.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %217, i64 %size.addr.018.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %217, i64 %size.addr.017.i.i
   store ptr %add.ptr.i.i, ptr %arrayidx5.i.i, align 8
   %len7.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 8
-  %sub8.i.i = sub nuw i64 %216, %size.addr.018.i.i
+  %sub8.i.i = sub nuw i64 %216, %size.addr.017.i.i
   store i64 %sub8.i.i, ptr %len7.i.i, align 8
   %.pre54.i = load ptr, ptr %bufs2.i354, align 8
   br label %uv__fs_buf_offset.exit.i
 
 uv__fs_buf_offset.exit.i:                         ; preds = %for.body.i.i, %if.then.i29.i
   %218 = phi ptr [ %.pre54.i, %if.then.i29.i ], [ %215, %for.body.i.i ]
-  %offset.015.i.i = phi i64 [ %offset.019.i.i, %if.then.i29.i ], [ %inc.i.i, %for.body.i.i ]
+  %offset.015.i.i = phi i64 [ %offset.018.i.i, %if.then.i29.i ], [ %inc.i.i, %for.body.i.i ]
   %conv.i369 = trunc i64 %offset.015.i.i to i32
   store i32 %conv.i369, ptr %nbufs1.i, align 4
   %idx.ext.i = and i64 %offset.015.i.i, 4294967295

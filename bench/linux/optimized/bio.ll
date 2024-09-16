@@ -1404,7 +1404,7 @@ define dso_local void @guard_bio_eod(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bio_truncate(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @bio_truncate(ptr nocapture noundef %0, i32 noundef range(i32 0, -1023) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, %1

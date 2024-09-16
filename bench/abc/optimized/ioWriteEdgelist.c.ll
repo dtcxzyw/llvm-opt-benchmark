@@ -96,7 +96,7 @@ define void @Io_WriteEdgelist(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr (...) @Extra_TimeStamp() #11
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef %15, ptr noundef %16) #11
-  tail call fastcc void @Io_NtkEdgelistWrite(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  tail call fastcc void @Io_NtkEdgelistWrite(ptr noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %18 = getelementptr i8, ptr %0, i64 136
   %.val30 = load i32, ptr %18, align 8
   %19 = icmp sgt i32 %.val30, 0
@@ -131,7 +131,7 @@ define void @Io_WriteEdgelist(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 
 36:                                               ; preds = %.lr.ph
   %37 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 2, i64 1, ptr nonnull %7)
-  tail call fastcc void @Io_NtkEdgelistWrite(ptr noundef nonnull %7, ptr noundef %34, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  tail call fastcc void @Io_NtkEdgelistWrite(ptr noundef %7, ptr noundef %34, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %.pre = load ptr, ptr %24, align 8
   br label %38
 
@@ -163,36 +163,36 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkEdgelistWrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @Io_NtkEdgelistWrite(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val, 1
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %6
-  tail call fastcc void @Io_NtkEdgelistWriteOne(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  tail call fastcc void @Io_NtkEdgelistWriteOne(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %8 = getelementptr i8, ptr %1, i64 328
   %.val.i = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.val.i, null
   br i1 %.not.i, label %Io_NtkEdgelistWrite_int.exit, label %9
 
 9:                                                ; preds = %7
-  %fputc.i = tail call i32 @fputc(i32 10, ptr %0)
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 6, i64 1, ptr %0)
-  tail call fastcc void @Io_NtkEdgelistWriteOne(ptr noundef %0, ptr noundef nonnull %.val.i, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %fputc.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 6, i64 1, ptr nonnull %0)
+  tail call fastcc void @Io_NtkEdgelistWriteOne(ptr noundef nonnull %0, ptr noundef nonnull %.val.i, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   br label %Io_NtkEdgelistWrite_int.exit
 
 11:                                               ; preds = %6
   %12 = tail call ptr @Abc_NtkToNetlist(ptr noundef nonnull %1) #11
-  tail call fastcc void @Io_NtkEdgelistWriteOne(ptr noundef %0, ptr noundef %12, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  tail call fastcc void @Io_NtkEdgelistWriteOne(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %13 = getelementptr i8, ptr %12, i64 328
   %.val.i14 = load ptr, ptr %13, align 8
   %.not.i15 = icmp eq ptr %.val.i14, null
   br i1 %.not.i15, label %Io_NtkEdgelistWrite_int.exit17, label %14
 
 14:                                               ; preds = %11
-  %fputc.i16 = tail call i32 @fputc(i32 10, ptr %0)
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 6, i64 1, ptr %0)
-  tail call fastcc void @Io_NtkEdgelistWriteOne(ptr noundef %0, ptr noundef nonnull %.val.i14, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %fputc.i16 = tail call i32 @fputc(i32 10, ptr nonnull %0)
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 6, i64 1, ptr nonnull %0)
+  tail call fastcc void @Io_NtkEdgelistWriteOne(ptr noundef nonnull %0, ptr noundef nonnull %.val.i14, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   br label %Io_NtkEdgelistWrite_int.exit17
 
 Io_NtkEdgelistWrite_int.exit17:                   ; preds = %11, %14

@@ -340,7 +340,7 @@ if.end81:                                         ; preds = %if.end76
   br i1 %cmp82.not, label %if.else90, label %if.then84
 
 if.then84:                                        ; preds = %if.end81
-  %call85 = call fastcc i32 @dmg_read_resource_fork(ptr noundef nonnull %bs, ptr noundef nonnull %ds, i64 noundef %12, i64 noundef %14)
+  %call85 = call fastcc i32 @dmg_read_resource_fork(ptr noundef nonnull %bs, ptr noundef %ds, i64 noundef %12, i64 noundef %14)
   %cmp86 = icmp slt i32 %call85, 0
   br i1 %cmp86, label %fail, label %if.end101
 
@@ -349,7 +349,7 @@ if.else90:                                        ; preds = %if.end81
   br i1 %cmp91.not, label %fail, label %if.then93
 
 if.then93:                                        ; preds = %if.else90
-  %call94 = call fastcc i32 @dmg_read_plist_xml(ptr noundef nonnull %bs, ptr noundef nonnull %ds, i64 noundef %16, i64 noundef %18)
+  %call94 = call fastcc i32 @dmg_read_plist_xml(ptr noundef nonnull %bs, ptr noundef %ds, i64 noundef %16, i64 noundef %18)
   %cmp95 = icmp slt i32 %call94, 0
   br i1 %cmp95, label %fail, label %if.end101
 
@@ -594,7 +594,7 @@ declare i32 @bdrv_open_file_child(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @module_load(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @dmg_read_resource_fork(ptr nocapture noundef readonly %bs, ptr nocapture noundef %ds, i64 noundef %info_begin, i64 noundef %info_length) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @dmg_read_resource_fork(ptr nocapture noundef readonly %bs, ptr nocapture noundef nonnull %ds, i64 noundef %info_begin, i64 noundef range(i64 1, 0) %info_length) unnamed_addr #0 {
 entry:
   %buffer.i32 = alloca i32, align 4
   %buffer.i26 = alloca i32, align 4
@@ -702,7 +702,7 @@ fail:                                             ; preds = %if.end38, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @dmg_read_plist_xml(ptr nocapture noundef readonly %bs, ptr nocapture noundef %ds, i64 noundef %info_begin, i64 noundef %info_length) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @dmg_read_plist_xml(ptr nocapture noundef readonly %bs, ptr nocapture noundef nonnull %ds, i64 noundef %info_begin, i64 noundef range(i64 1, 0) %info_length) unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -776,7 +776,7 @@ declare i64 @llvm.bswap.i64(i64) #5
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @dmg_read_mish_block(ptr nocapture noundef %s, ptr nocapture noundef %ds, ptr nocapture noundef readonly %buffer, i32 noundef %count) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @dmg_read_mish_block(ptr nocapture noundef %s, ptr nocapture noundef nonnull %ds, ptr nocapture noundef readonly %buffer, i32 noundef %count) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %buffer, align 4
   %cmp = icmp ne i32 %0, 1752394093

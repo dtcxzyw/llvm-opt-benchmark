@@ -3510,7 +3510,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ComputeTimeSamplesERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_10GfIntervalERKSt6vectorISt10shared_ptrINS0_12_SkelAdapterEESaISC_EERKS9_ISA_INS0_16_SkinningAdapterEESaISI_EEPNS_17UsdGeomXformCacheE(ptr dead_on_unwind noalias nonnull writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %79)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ComputeTimeSamplesERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_10GfIntervalERKSt6vectorISt10shared_ptrINS0_12_SkelAdapterEESaISC_EERKS9_ISA_INS0_16_SkinningAdapterEESaISI_EEPNS_17UsdGeomXformCacheE(ptr dead_on_unwind noalias writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %79)
           to label %1132 unwind label %.loopexit.split-lp376
 
 .loopexit375:                                     ; preds = %443, %453, %469
@@ -7124,7 +7124,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ComputeTimeSamplesERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_10GfIntervalERKSt6vectorISt10shared_ptrINS0_12_SkelAdapterEESaISC_EERKS9_ISA_INS0_16_SkinningAdapterEESaISI_EEPNS_17UsdGeomXformCacheE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ComputeTimeSamplesERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_10GfIntervalERKSt6vectorISt10shared_ptrINS0_12_SkelAdapterEESaISC_EERKS9_ISA_INS0_16_SkinningAdapterEESaISI_EEPNS_17UsdGeomXformCacheE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %8 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -7838,7 +7838,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit: ; preds = %_ZN32
   br i1 %333, label %334, label %335
 
 334:                                              ; preds = %.loopexit.i
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GLOBAL__N_132_ExtendWorldTransformTimeSamplesERKNS_7UsdPrimERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %.val38, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %128)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GLOBAL__N_132_ExtendWorldTransformTimeSamplesERKNS_7UsdPrimERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %.val38, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %128)
           to label %335 unwind label %149
 
 335:                                              ; preds = %334, %.loopexit.i
@@ -7855,7 +7855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit: ; preds = %_ZN32
           to label %342 unwind label %149
 
 342:                                              ; preds = %341
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GLOBAL__N_132_ExtendWorldTransformTimeSamplesERKNS_7UsdPrimERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %128)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GLOBAL__N_132_ExtendWorldTransformTimeSamplesERKNS_7UsdPrimERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %128)
           to label %343 unwind label %374
 
 343:                                              ; preds = %342
@@ -8534,7 +8534,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %597
   %607 = phi ptr [ null, %.noexc87.thread ], [ %599, %600 ]
   %608 = getelementptr inbounds i8, ptr %607, i64 %593
   store ptr %608, ptr %606, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_UnionTimesESt6vectorIdSaIdEEPS3_S4_(ptr noundef nonnull %31, ptr noundef nonnull %29, ptr noundef nonnull %30)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_UnionTimesESt6vectorIdSaIdEEPS3_S4_(ptr noundef %31, ptr noundef %29, ptr noundef %30)
           to label %609 unwind label %637
 
 609:                                              ; preds = %604
@@ -8606,7 +8606,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i91..noexc95_crit_edge:
 633:                                              ; preds = %632, %.noexc95
   %634 = getelementptr inbounds i8, ptr %630, i64 %.pre-phi141
   store ptr %634, ptr %614, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_UnionTimesESt6vectorIdSaIdEEPS3_S4_(ptr noundef nonnull %32, ptr noundef nonnull %29, ptr noundef nonnull %30)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_UnionTimesESt6vectorIdSaIdEEPS3_S4_(ptr noundef %32, ptr noundef %29, ptr noundef %30)
           to label %635 unwind label %643
 
 635:                                              ; preds = %633
@@ -8988,7 +8988,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit125:                 ; preds = %_ZNSt6vectorIdSaIdE
 .lr.ph.i.i.i.i126:                                ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit125, %.noexc.i.i.i
   %.02.i.i.i.i = phi ptr [ %.0.val.i.i.i.i, %.noexc.i.i.i ], [ %.val.i.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit125 ]
   %.0.val.i.i.i.i = load ptr, ptr %.02.i.i.i.i, align 8
-  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %.02.i.i.i.i)
+  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %.02.i.i.i.i)
           to label %.noexc.i.i.i unwind label %782
 
 .noexc.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i126
@@ -11416,7 +11416,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS1_NS0_7V
 
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS1_NS0_7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ENS6_16_HashComparePrimENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit28.i.i: ; preds = %336, %310
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %337, %336 ], [ %311, %310 ]
-  call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_7VtArrayISt10shared_ptrINS3_12_GLOBAL__N_116_SkinningAdapterEEEEELb1EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %243)
+  call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_7VtArrayISt10shared_ptrINS3_12_GLOBAL__N_116_SkinningAdapterEEEEELb1EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %243)
   br label %.body
 
 .loopexit181:                                     ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS2_NS1_7VtArrayISt10shared_ptrINS1_12_GLOBAL__N_116_SkinningAdapterEEEEENS_10_Select1stESt8equal_toIS2_ENS7_16_HashComparePrimENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS1_NS0_7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ENS6_16_HashComparePrimENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i
@@ -12241,17 +12241,17 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EE6resizeEm.exit:
 _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %666
   %670 = mul nuw nsw i64 %.val59.pre, 40
   %671 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %670) #28
-          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE13_M_deallocateEPS6_m.exit49.i.i unwind label %.loopexit.split-lp177
+          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE13_M_deallocateEPS6_m.exit45.i.i unwind label %.loopexit.split-lp177
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE13_M_deallocateEPS6_m.exit49.i.i: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %671, i8 0, i64 %670, i1 false)
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE13_M_deallocateEPS6_m.exit45.i.i: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %671, i8 0, i64 %670, i1 false)
   store ptr %671, ptr %21, align 8
   %672 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::VtArray.418", ptr %671, i64 %.val59.pre
   store ptr %672, ptr %665, align 8
   store ptr %672, ptr %667, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EE6resizeEm.exit, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE13_M_deallocateEPS6_m.exit49.i.i
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EE6resizeEm.exit, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEESaIS6_EE13_M_deallocateEPS6_m.exit45.i.i
   %.val61 = load ptr, ptr %47, align 8
   %.not174210 = icmp eq ptr %.val61, null
   br i1 %.not174210, label %._crit_edge214, label %.lr.ph213
@@ -12687,7 +12687,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EED2Ev.exit: ; pr
 .lr.ph.i.i.i.i132:                                ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EED2Ev.exit, %.lr.ph.i.i.i.i132
   %.02.i.i.i.i = phi ptr [ %.0.val.i.i.i.i, %.lr.ph.i.i.i.i132 ], [ %.val.i.i.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EED2Ev.exit ]
   %.0.val.i.i.i.i = load ptr, ptr %.02.i.i.i.i, align 8
-  call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_7VtArrayISt10shared_ptrINS3_12_GLOBAL__N_116_SkinningAdapterEEEEELb1EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %.02.i.i.i.i)
+  call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_7VtArrayISt10shared_ptrINS3_12_GLOBAL__N_116_SkinningAdapterEEEEELb1EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %.02.i.i.i.i)
   %.not.i.i.i.i133 = icmp eq ptr %.0.val.i.i.i.i, null
   br i1 %.not.i.i.i.i133, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS1_NS0_7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ENS6_16_HashComparePrimENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i132, !llvm.loop !147
 
@@ -23309,7 +23309,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEESaIS2_EED2Ev.
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__20SdfCreatePrimInLayerERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle.255") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_AttrWriter6DefineERKNS_9SdfHandleINS_11SdfPrimSpecEEERKNS_7TfTokenERKNS_16SdfValueTypeNameENS_14SdfVariabilityE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_AttrWriter6DefineERKNS_9SdfHandleINS_11SdfPrimSpecEEERKNS_7TfTokenERKNS_16SdfValueTypeNameENS_14SdfVariabilityE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfHandle", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfHandle", align 8
   %8 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
@@ -29709,7 +29709,7 @@ _ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 
 .body.i:                                          ; preds = %102, %75
   %eh.lpad-body.i = phi { ptr, i32 } [ %103, %102 ], [ %76, %75 ]
-  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %18)
+  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %18)
           to label %_ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt4pairIKS4_St6vectorIdSaIdEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %104
 
 104:                                              ; preds = %.body.i
@@ -29729,7 +29729,7 @@ _ZNSt8__detail9_Map_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_UnionTimesESt6vectorIdSaIdEEPS3_S4_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_UnionTimesESt6vectorIdSaIdEEPS3_S4_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -29908,7 +29908,7 @@ define internal fastcc void @_ZNSt13unordered_mapISt10shared_ptrIN32pxrInternal_
 .lr.ph.i.i.i:                                     ; preds = %1, %.noexc.i.i
   %.02.i.i.i = phi ptr [ %.0.val.i.i.i, %.noexc.i.i ], [ %.val.i.i, %1 ]
   %.0.val.i.i.i = load ptr, ptr %.02.i.i.i, align 8
-  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %.02.i.i.i)
+  invoke fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %.02.i.i.i)
           to label %.noexc.i.i unwind label %3
 
 .noexc.i.i:                                       ; preds = %.lr.ph.i.i.i
@@ -29947,7 +29947,7 @@ _ZNSt10_HashtableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapterEESt6vectorIdSaIdEEELb0EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -30721,7 +30721,7 @@ _ZNSt6vectorIdSaIdEE6insertIN9__gnu_cxx17__normal_iteratorIPdS1_EEvEES6_NS4_IPKd
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapter7GetPrimEv.exit.i unwind label %43
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapter7GetPrimEv.exit.i: ; preds = %72
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GLOBAL__N_132_ExtendWorldTransformTimeSamplesERKNS_7UsdPrimERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GLOBAL__N_132_ExtendWorldTransformTimeSamplesERKNS_7UsdPrimERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %20)
           to label %73 unwind label %104
 
 73:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_SkelAdapter7GetPrimEv.exit.i
@@ -30836,7 +30836,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimQ
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimQuery40GetBlendShapeWeightTimeSamplesInIntervalERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GLOBAL__N_132_ExtendWorldTransformTimeSamplesERKNS_7UsdPrimERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GLOBAL__N_132_ExtendWorldTransformTimeSamplesERKNS_7UsdPrimERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.334", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomXformable", align 8
@@ -35880,7 +35880,7 @@ define internal fastcc void @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReser
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.02.i.i.i = phi ptr [ %.0.val.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i, %1 ]
   %.0.val.i.i.i = load ptr, ptr %.02.i.i.i, align 8
-  tail call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_7VtArrayISt10shared_ptrINS3_12_GLOBAL__N_116_SkinningAdapterEEEEELb1EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %.02.i.i.i)
+  tail call fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_7VtArrayISt10shared_ptrINS3_12_GLOBAL__N_116_SkinningAdapterEEEEELb1EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %.02.i.i.i)
   %.not.i.i.i = icmp eq ptr %.0.val.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS1_NS0_7VtArrayISt10shared_ptrINS0_12_GLOBAL__N_116_SkinningAdapterEEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ENS6_16_HashComparePrimENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !147
 
@@ -35907,7 +35907,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS1_NS0_7V
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_7VtArrayISt10shared_ptrINS3_12_GLOBAL__N_116_SkinningAdapterEEEEELb1EEEEE18_M_deallocate_nodeEPSD_(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_7VtArrayISt10shared_ptrINS3_12_GLOBAL__N_116_SkinningAdapterEEEEELb1EEEEE18_M_deallocate_nodeEPSD_(ptr noundef nonnull %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS_12_GLOBAL__N_116_SkinningAdapterEEE7_DecRefEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayISt10shared_ptrINS_12_GLOBAL__N_116_SkinningAdapterEEED2Ev.exit.i.i.i unwind label %3

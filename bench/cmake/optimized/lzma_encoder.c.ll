@@ -1360,7 +1360,7 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_mode_is_supported(i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @match(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @match(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -1, -5) %2, i32 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 736
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %6, 7

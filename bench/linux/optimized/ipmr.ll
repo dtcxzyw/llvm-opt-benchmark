@@ -478,7 +478,7 @@ declare dso_local void @inet_netconf_notify_devconf(ptr noundef, i32 noundef, i3
 declare dso_local void @rtnl_unlock() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vif_add(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @vif_add(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.vif_entry_notifier_info, align 8
   %6 = alloca %struct.ip_tunnel_parm, align 4
   %7 = alloca [16 x i8], align 16
@@ -893,7 +893,7 @@ define internal fastcc i32 @vif_add(ptr noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -99, 1) i32 @vif_delete(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -99, 1) i32 @vif_delete(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.vif_entry_notifier_info, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -1037,7 +1037,7 @@ define internal fastcc noundef range(i32 -99, 1) i32 @vif_delete(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2, 1) i32 @ipmr_mfc_delete(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @ipmr_mfc_delete(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -1, 65536) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.mfc_entry_notifier_info, align 8
   %5 = alloca %struct.mfc_cache_cmp_arg, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1127,7 +1127,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @ipmr_mfc_delete(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 -1, 65536) %4) unnamed_addr #1 align 16 {
   %6 = alloca %struct.mfc_entry_notifier_info, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.mfc_entry_notifier_info, align 8
@@ -2937,7 +2937,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ipmr_cache_unresolved(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 0, -2147483647) %5) unnamed_addr #1 align 16 {
   %7 = getelementptr inbounds i8, ptr %1, i64 3592
   %8 = load volatile i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 112
@@ -4817,7 +4817,7 @@ define internal noundef i32 @reg_vif_get_iflink(ptr nocapture readnone %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ipmr_cache_report(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @ipmr_cache_report(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef range(i32 1, 5) %3) unnamed_addr #1 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -5547,7 +5547,7 @@ define internal fastcc void @rhltable_remove(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mroute_netlink_event(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @mroute_netlink_event(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 24, 26) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5586,9 +5586,9 @@ define internal fastcc void @mroute_netlink_event(ptr noundef %0, ptr noundef %1
 declare dso_local ptr @mr_mfc_find_parent(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @rht_unlock(ptr noundef %0, i64 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc void @rht_unlock(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #5 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i32 -2, ptr elementtype(i8) %0) #17, !srcloc !53
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i32 -2, ptr nonnull elementtype(i8) %0) #17, !srcloc !53
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !54
   %3 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !45
   %4 = icmp ult i8 %3, 2
@@ -5911,7 +5911,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare dso_local void @skb_queue_tail(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ipmr_queue_xmit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @ipmr_queue_xmit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.nf_hook_state, align 8
   %6 = alloca %struct.flowi4, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 192

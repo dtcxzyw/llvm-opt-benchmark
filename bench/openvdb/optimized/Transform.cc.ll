@@ -12106,7 +12106,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
   %arrayidx9.i = getelementptr inbounds i8, ptr %arrayidx.i66, i64 24
   %55 = load double, ptr %arrayidx9.i, align 8
   store double %55, ptr %arrayidx11.i, align 8
-  invoke fastcc void @_ZZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN5Local11rowAsStringB5cxx11ERKNS1_4Vec4IdEE(ptr noalias nonnull align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79)
+  invoke fastcc void @_ZZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN5Local11rowAsStringB5cxx11ERKNS1_4Vec4IdEE(ptr noalias align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79)
           to label %invoke.cont83 unwind label %lpad.loopexit
 
 invoke.cont83:                                    ; preds = %invoke.cont76
@@ -12479,7 +12479,7 @@ for.body118:                                      ; preds = %_ZNSt10shared_ptrIK
   %arrayidx9.i197 = getelementptr inbounds i8, ptr %arrayidx.i192, i64 24
   %109 = load double, ptr %arrayidx9.i197, align 8
   store double %109, ptr %arrayidx11.i198, align 8
-  invoke fastcc void @_ZZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN5Local11rowAsStringB5cxx11ERKNS1_4Vec4IdEE(ptr noalias nonnull align 8 %str, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119)
+  invoke fastcc void @_ZZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN5Local11rowAsStringB5cxx11ERKNS1_4Vec4IdEE(ptr noalias align 8 %str, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119)
           to label %invoke.cont124 unwind label %lpad120.loopexit
 
 invoke.cont124:                                   ; preds = %for.body118
@@ -12906,7 +12906,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN5Local11rowAsStringB5cxx11ERKNS1_4Vec4IdEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %row) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN5Local11rowAsStringB5cxx11ERKNS1_4Vec4IdEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %row) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ostr)
@@ -12957,7 +12957,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %ostr)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %ostr)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont27

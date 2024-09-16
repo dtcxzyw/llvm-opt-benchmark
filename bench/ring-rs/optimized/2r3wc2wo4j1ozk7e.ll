@@ -581,7 +581,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair14generate_p
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !74
   store <32 x i8> %12, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
-  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(96) %7, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %8)
+  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef align 1 dereferenceable(96) %7, ptr noalias noundef readonly align 1 dereferenceable(32) %8)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6)
   %13 = getelementptr inbounds i8, ptr %7, i64 64
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4), !noalias !80
@@ -693,7 +693,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_pkcs8
 
 35:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !108
-  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(96) %4, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %23), !noalias !114
+  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef align 1 dereferenceable(96) %4, ptr noalias noundef readonly align 1 dereferenceable(32) %23), !noalias !114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, ptr noundef nonnull align 1 dereferenceable(7) %4, i64 7, i1 false), !noalias !115
   %.sroa.627.1..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 7
   %.sroa.627.1.copyload.i = load ptr, ptr %.sroa.627.1..sroa_idx.i, align 1, !noalias !116
@@ -837,7 +837,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair26from_pkcs8
 
 35:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !142
-  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %24), !noalias !148
+  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef align 1 dereferenceable(96) %5, ptr noalias noundef readonly align 1 dereferenceable(32) %24), !noalias !148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, ptr noundef nonnull align 1 dereferenceable(7) %5, i64 7, i1 false), !noalias !149
   %.sroa.627.1..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 7
   %.sroa.627.1.copyload.i = load ptr, ptr %.sroa.627.1..sroa_idx.i, align 1, !noalias !150
@@ -898,7 +898,7 @@ _ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair24from_seed_and_public_ke
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !160
-  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(96) %4, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %24), !noalias !157
+  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef align 1 dereferenceable(96) %4, ptr noalias noundef readonly align 1 dereferenceable(32) %24), !noalias !157
   %48 = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %48, ptr noundef nonnull align 1 dereferenceable(96) %4, i64 96, i1 false), !noalias !162
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !160
@@ -931,7 +931,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair24from_seed_
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6), !noalias !163
-  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(96) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %1), !noalias !167
+  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef align 1 dereferenceable(96) %6, ptr noalias noundef readonly align 1 dereferenceable(32) %1), !noalias !167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) %6, i64 7, i1 false)
   %.sroa.627.1..sroa_idx = getelementptr inbounds i8, ptr %6, i64 7
   %.sroa.627.1.copyload = load ptr, ptr %.sroa.627.1..sroa_idx, align 1, !noalias !168
@@ -993,7 +993,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair19from_seed_
 
 5:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
-  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(96) %4, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %1)
+  call fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef align 1 dereferenceable(96) %4, ptr noalias noundef readonly align 1 dereferenceable(32) %1)
   %6 = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %6, ptr noundef nonnull align 1 dereferenceable(96) %4, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
@@ -1013,7 +1013,7 @@ define void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair19from_seed_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef writeonly align 1 dereferenceable(96) %0, ptr noalias noundef readonly align 1 dereferenceable(32) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4ring2ec10curve255197ed255197signing14Ed25519KeyPair10from_seed_17h1658ed7a6b1a4e63E(ptr noalias nocapture noundef nonnull writeonly align 1 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = alloca { [5 x i64], {} }, align 8
   %5 = alloca { [5 x i64], {} }, align 8
@@ -1611,7 +1611,7 @@ define void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair10from_pkcs817h7ee47
   store ptr %19, ptr %.sroa.7.0..sroa_idx2, align 8
   %.sroa.9.0..sroa_idx4 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %21, ptr %.sroa.9.0..sroa_idx4, align 8
-  call fastcc void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair3new17ha69f8a17a5a9af69E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair3new17ha69f8a17a5a9af69E(ptr noalias nocapture noundef align 8 dereferenceable(240) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef align 8 dereferenceable(168) %7, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) %5)
   br label %26
 
 23:                                               ; preds = %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit"
@@ -1663,7 +1663,7 @@ define void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair31from_private_key_a
   store ptr %19, ptr %.sroa.7.0..sroa_idx2, align 8
   %.sroa.9.0..sroa_idx4 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %21, ptr %.sroa.9.0..sroa_idx4, align 8
-  call fastcc void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair3new17ha69f8a17a5a9af69E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call fastcc void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair3new17ha69f8a17a5a9af69E(ptr noalias nocapture noundef align 8 dereferenceable(240) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef align 8 dereferenceable(168) %9, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) %7)
   br label %26
 
 23:                                               ; preds = %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit"
@@ -1680,7 +1680,7 @@ define void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair31from_private_key_a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair3new17ha69f8a17a5a9af69E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(240) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(168) %2, ptr noundef nonnull align 1 %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4ring2ec7suite_b5ecdsa7signing12EcdsaKeyPair3new17ha69f8a17a5a9af69E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr noundef nonnull align 1 %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #6 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { ptr, { [8 x i64] }, i64 }, align 8
   %8 = alloca { { ptr, { [8 x i64] }, i64 }, [128 x i8], i64 }, align 8
@@ -2120,7 +2120,7 @@ _ZN4ring2ec7suite_b3ops16PrivateScalarOps18scalar_inv_to_mont17h6d2b28c522a7dd28
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %24), !noalias !518
   %.val25.i = load ptr, ptr %58, align 8, !noalias !522, !nonnull !9, !align !41, !noundef !9
   %.val26.i = load ptr, ptr %63, align 8, !noalias !522
-  call fastcc void @_ZN4ring2ec7suite_b11private_key20affine_from_jacobian17hca16ad6d3975c24aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %24, ptr nonnull %.val25.i, ptr %.val26.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %27), !noalias !522
+  call fastcc void @_ZN4ring2ec7suite_b11private_key20affine_from_jacobian17hca16ad6d3975c24aE(ptr noalias nocapture noundef align 8 dereferenceable(104) %24, ptr nonnull %.val25.i, ptr %.val26.i, ptr noalias noundef readonly align 8 dereferenceable(144) %27), !noalias !522
   %111 = load i64, ptr %24, align 8, !range !61, !noalias !518, !noundef !9
   %trunc15.i = trunc nuw i64 %111 to i1
   br i1 %trunc15.i, label %122, label %112
@@ -2552,7 +2552,7 @@ define noundef range(i64 6, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_
   %9 = add i64 %4, -2
   %10 = getelementptr inbounds i8, ptr %3, i64 2
   %.val = load ptr, ptr %0, align 8, !alias.scope !721, !nonnull !9, !align !41, !noundef !9
-  %11 = tail call fastcc noundef i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr nonnull %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %10, i64 noundef %9)
+  %11 = tail call fastcc noundef i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %10, i64 noundef %9)
   %12 = icmp ugt i64 %11, %9
   br i1 %12, label %13, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.llvm.7363024586935657205.exit5"
 
@@ -2563,7 +2563,7 @@ define noundef range(i64 6, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.llvm.7363024586935657205.exit5": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.llvm.7363024586935657205.exit4"
   %14 = sub nuw i64 %9, %11
   %15 = getelementptr inbounds i8, ptr %10, i64 %11
-  %16 = tail call fastcc noundef i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr nonnull %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 1 %15, i64 noundef %14)
+  %16 = tail call fastcc noundef i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 1 %15, i64 noundef %14)
   %17 = add nuw nsw i64 %16, %11
   %18 = icmp ult i64 %17, 128
   br i1 %18, label %21, label %20
@@ -2585,7 +2585,7 @@ define noundef range(i64 6, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i64 2, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr readonly %.0.val, ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull writeonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i64 2, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull writeonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = alloca [49 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(49) %4, i8 0, i64 49, i1 false)
@@ -2859,7 +2859,7 @@ _ZN4ring2ec7suite_b11private_key28scalar_from_big_endian_bytes17hf6ce9f7db3a0bd5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4ring2ec7suite_b11private_key20affine_from_jacobian17hca16ad6d3975c24aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(104) %0, ptr %.0.val, ptr readonly %.8.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(144) %1) unnamed_addr #6 {
+define internal fastcc void @_ZN4ring2ec7suite_b11private_key20affine_from_jacobian17hca16ad6d3975c24aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr %.0.val, ptr readonly %.8.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(144) %1) unnamed_addr #6 {
   %.sroa.0.i6 = alloca [6 x i64], align 8
   %.sroa.0.i5 = alloca [6 x i64], align 8
   %.sroa.0.i = alloca [6 x i64], align 8
@@ -3006,7 +3006,7 @@ define hidden noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key31big_endian_a
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !41, !noundef !9
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val12 = load ptr, ptr %14, align 8
-  call fastcc void @_ZN4ring2ec7suite_b11private_key20affine_from_jacobian17hca16ad6d3975c24aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %11, ptr nonnull %.val, ptr %.val12, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %5)
+  call fastcc void @_ZN4ring2ec7suite_b11private_key20affine_from_jacobian17hca16ad6d3975c24aE(ptr noalias nocapture noundef align 8 dereferenceable(104) %11, ptr nonnull %.val, ptr %.val12, ptr noalias noundef readonly align 8 dereferenceable(144) %5)
   %15 = load i64, ptr %11, align 8, !range !61, !noundef !9
   %trunc = trunc nuw i64 %15 to i1
   br i1 %trunc, label %18, label %16

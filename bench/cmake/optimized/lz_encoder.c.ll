@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i64 -1, 38654705880) i64 @lzma_lz_encoder_memusage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lzma_mf_s, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
-  %3 = call fastcc zeroext i1 @lz_encoder_prepare(ptr noundef nonnull %2, ptr noundef null, ptr noundef %0)
+  %3 = call fastcc zeroext i1 @lz_encoder_prepare(ptr noundef %2, ptr noundef null, ptr noundef %0)
   br i1 %3, label %18, label %4
 
 4:                                                ; preds = %1
@@ -38,7 +38,7 @@ define dso_local range(i64 -1, 38654705880) i64 @lzma_lz_encoder_memusage(ptr no
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1610612737
@@ -279,7 +279,7 @@ define dso_local i32 @lzma_lz_encoder_init(ptr nocapture noundef %0, ptr noundef
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %.032, i64 32
-  %27 = call fastcc zeroext i1 @lz_encoder_prepare(ptr noundef nonnull %26, ptr noundef %1, ptr noundef nonnull %5)
+  %27 = call fastcc zeroext i1 @lz_encoder_prepare(ptr noundef %26, ptr noundef %1, ptr noundef nonnull %5)
   br i1 %27, label %lz_encoder_init.exit.thread, label %28
 
 28:                                               ; preds = %25

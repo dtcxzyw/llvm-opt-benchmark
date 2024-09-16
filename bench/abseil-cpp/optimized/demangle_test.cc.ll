@@ -5068,7 +5068,7 @@ entry:
   %ref.tmp285 = alloca %"class.testing::Message", align 8
   %ref.tmp288 = alloca %"class.testing::internal::AssertHelper", align 8
   store i32 0, ptr %stack_consumed, align 4
-  %call = call fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef nonnull @.str.18, ptr noundef nonnull %stack_consumed)
+  %call = call fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef nonnull @.str.18, ptr noundef %stack_consumed)
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.24, ptr noundef %call)
   %0 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -5377,9 +5377,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit104:         ; preds = %if.end46, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i103
   store ptr null, ptr %message_.i101, align 8
-  call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias nonnull align 8 %nested_mangled_name0, i32 noundef 0)
+  call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias align 8 %nested_mangled_name0, i32 noundef 0)
   %call48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %nested_mangled_name0) #20
-  %call51 = invoke fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %call48, ptr noundef nonnull %stack_consumed)
+  %call51 = invoke fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %call48, ptr noundef %stack_consumed)
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit104
@@ -5704,12 +5704,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit178:         ; preds = %if.end108, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i177
   store ptr null, ptr %message_.i175, align 8
-  invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias nonnull align 8 %nested_mangled_name1, i32 noundef 1)
+  invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias align 8 %nested_mangled_name1, i32 noundef 1)
           to label %invoke.cont110 unwind label %lpad49
 
 invoke.cont110:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit178
   %call111 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %nested_mangled_name1) #20
-  %call114 = invoke fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %call111, ptr noundef nonnull %stack_consumed)
+  %call114 = invoke fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %call111, ptr noundef %stack_consumed)
           to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %invoke.cont110
@@ -6034,12 +6034,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit253:         ; preds = %if.end171, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i252
   store ptr null, ptr %message_.i250, align 8
-  invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias nonnull align 8 %nested_mangled_name2, i32 noundef 2)
+  invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias align 8 %nested_mangled_name2, i32 noundef 2)
           to label %invoke.cont173 unwind label %lpad112
 
 invoke.cont173:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit253
   %call174 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %nested_mangled_name2) #20
-  %call177 = invoke fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %call174, ptr noundef nonnull %stack_consumed)
+  %call177 = invoke fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %call174, ptr noundef %stack_consumed)
           to label %invoke.cont176 unwind label %lpad175
 
 invoke.cont176:                                   ; preds = %invoke.cont173
@@ -6364,12 +6364,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit328:         ; preds = %if.end234, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i327
   store ptr null, ptr %message_.i325, align 8
-  invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias nonnull align 8 %nested_mangled_name3, i32 noundef 3)
+  invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias align 8 %nested_mangled_name3, i32 noundef 3)
           to label %invoke.cont236 unwind label %lpad175
 
 invoke.cont236:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit328
   %call237 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %nested_mangled_name3) #20
-  %call240 = invoke fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %call237, ptr noundef nonnull %stack_consumed)
+  %call240 = invoke fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %call237, ptr noundef %stack_consumed)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %invoke.cont236
@@ -6731,7 +6731,7 @@ eh.resume:                                        ; preds = %ehcleanup302, %ehcl
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %mangled, ptr nocapture noundef %stack_consumed) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %mangled, ptr nocapture noundef nonnull %stack_consumed) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i = alloca i32, align 4
   %ref.tmp1 = alloca %"class.absl::log_internal::LogMessage", align 8
@@ -6763,7 +6763,7 @@ lpad:                                             ; preds = %invoke.cont3, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias align 8 %agg.result, i32 noundef %depth) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 0, 4) %depth) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6787,8 +6787,8 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
-  %cmp = icmp sgt i32 %depth, 0
-  br i1 %cmp, label %if.then, label %nrvo.skipdtor
+  %cmp.not = icmp eq i32 %depth, 0
+  br i1 %cmp.not, label %nrvo.skipdtor, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
   %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.97)
@@ -6796,7 +6796,7 @@ if.then:                                          ; preds = %invoke.cont
 
 invoke.cont2:                                     ; preds = %if.then
   %sub = add nsw i32 %depth, -1
-  invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp3, i32 noundef %sub)
+  invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_117NestedMangledNameB5cxx11Ei(ptr noalias align 8 %ref.tmp3, i32 noundef %sub)
           to label %invoke.cont4 unwind label %lpad1
 
 invoke.cont4:                                     ; preds = %invoke.cont2

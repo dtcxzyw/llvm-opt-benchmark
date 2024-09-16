@@ -2968,7 +2968,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %_ZN4llvm4j
   %44 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #17
   %46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #17
-  call fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %45, i64 %46)
+  call fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %45, i64 %46)
   %47 = getelementptr inbounds nuw i8, ptr %.040, i64 12
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
@@ -3234,7 +3234,7 @@ _ZN4llvm4json5ArrayD2Ev.exit23:                   ; preds = %_ZSt8_DestroyIPN4ll
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3) unnamed_addr #0 {
 .lr.ph.i:
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3300,7 +3300,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit:                 ; preds = %_ZN4llvm4json6Objec
 30:                                               ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr nonnull @.str.35, i64 7)
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call fastcc void @_ZL13createMessageN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %2, i64 %3)
+  call fastcc void @_ZL13createMessageN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %9, ptr %2, i64 %3)
   store i16 7, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %33 = load ptr, ptr %9, align 8
@@ -3836,7 +3836,7 @@ define dso_local void @_ZN5clang19SarifDocumentWriter12appendResultERKNS_11Sarif
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
   %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
-  call fastcc void @_ZL13createMessageN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %28, i64 %29)
+  call fastcc void @_ZL13createMessageN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %7, ptr %28, i64 %29)
   store i16 7, ptr %26, align 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %31 = load ptr, ptr %7, align 8
@@ -3951,7 +3951,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit:                 ; preds = %54, %_ZNKSt14defaul
 77:                                               ; preds = %.lr.ph, %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit
   %.049 = phi ptr [ %68, %.lr.ph ], [ %101, %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit ]
   call void @_ZN5clang19SarifDocumentWriter22createPhysicalLocationERKNS_15CharSourceRangeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::json::Object") align 8 %11, ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 4 dereferenceable(9) %.049)
-  call fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nonnull @.str.38, i64 0)
+  call fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nonnull @.str.38, i64 0)
   %78 = load ptr, ptr %71, align 8
   %79 = load ptr, ptr %72, align 8
   %.not.i.i = icmp eq ptr %78, %79
@@ -4251,7 +4251,7 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit41: ; preds = %180,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13createMessageN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13createMessageN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::allocator.87", align 1

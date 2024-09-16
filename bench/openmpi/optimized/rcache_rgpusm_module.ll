@@ -172,7 +172,7 @@ define range(i32 -10, 1) i32 @mca_rcache_rgpusm_register(ptr noundef %0, ptr nou
   br label %opal_free_list_return.exit
 
 32:                                               ; preds = %16
-  %33 = tail call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %14)
+  %33 = tail call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef %14)
   %.not153 = icmp eq i32 %33, 0
   br i1 %.not153, label %73, label %34
 
@@ -531,7 +531,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %67, %53
   br label %opal_free_list_return.exit
 
 248:                                              ; preds = %232
-  %249 = tail call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %224)
+  %249 = tail call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef %224)
   switch i32 %249, label %.thread180 [
     i32 -10, label %250
     i32 0, label %.thread
@@ -581,7 +581,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %67, %53
   %277 = load i32, ptr %276, align 16
   %278 = add i32 %277, 1
   store i32 %278, ptr %276, align 16
-  %279 = call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %224)
+  %279 = call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef %224)
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %.thread, label %.lr.ph.preheader
 
@@ -593,7 +593,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %67, %53
   br i1 %281, label %282, label %.thread180
 
 282:                                              ; preds = %.lr.ph
-  %283 = call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %224)
+  %283 = call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef %224)
   %.not160 = icmp eq i32 %283, 0
   br i1 %.not160, label %.thread, label %.lr.ph, !llvm.loop !6
 
@@ -1528,7 +1528,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -10, 1) i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 1) i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 120), align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 184
   %6 = getelementptr inbounds i8, ptr %2, i64 80

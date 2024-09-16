@@ -93,7 +93,7 @@ declare dso_local ptr @kobject_create_and_add(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @create_setup_data_nodes(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @create_setup_data_nodes(ptr noundef nonnull %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 592), align 1
@@ -101,7 +101,7 @@ define internal fastcc i32 @create_setup_data_nodes(ptr noundef %0) unnamed_addr
   br i1 %4, label %34, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.4, ptr noundef %0) #11
+  %6 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.4, ptr noundef nonnull %0) #11
   %7 = icmp eq ptr %6, null
   br i1 %7, label %34, label %8
 
@@ -212,7 +212,7 @@ define internal noundef i64 @boot_params_data_read(ptr nocapture readnone %0, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -12, 1) i32 @get_setup_data_total_num(i64 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @get_setup_data_total_num(i64 noundef range(i64 1, 0) %0, ptr nocapture noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   store i32 0, ptr %1, align 4
   br label %3
 
@@ -237,14 +237,14 @@ define internal fastcc noundef range(i32 -12, 1) i32 @get_setup_data_total_num(i
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @create_setup_data_node(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @create_setup_data_node(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !5
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %2) #11
-  %7 = call ptr @kobject_create_and_add(ptr noundef nonnull %5, ptr noundef %0) #11
+  %7 = call ptr @kobject_create_and_add(ptr noundef nonnull %5, ptr noundef nonnull %0) #11
   %8 = icmp eq ptr %7, null
   br i1 %8, label %19, label %9
 

@@ -1461,7 +1461,7 @@ declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rlayer_early_data_count_ok(ptr nocapture noundef %rl, i64 noundef %length, i64 noundef %overhead) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rlayer_early_data_count_ok(ptr nocapture noundef %rl, i64 noundef %length, i64 noundef range(i64 0, 105) %overhead) unnamed_addr #0 {
 entry:
   %max_early_data1 = getelementptr inbounds i8, ptr %rl, i64 4168
   %0 = load i32, ptr %max_early_data1, align 8
@@ -1475,7 +1475,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = trunc i64 %overhead to i32
+  %1 = trunc nuw nsw i64 %overhead to i32
   %conv2 = add i32 %0, %1
   %early_data_count = getelementptr inbounds i8, ptr %rl, i64 4176
   %2 = load i64, ptr %early_data_count, align 8

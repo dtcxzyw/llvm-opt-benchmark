@@ -1221,7 +1221,7 @@ define dso_local i64 @GetAttributeByName(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 0, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %49, align 8
-  %50 = call fastcc i64 @heap_getattr(ptr noundef nonnull %4, i32 noundef %42, ptr noundef nonnull %22, ptr noundef nonnull %2)
+  %50 = call fastcc i64 @heap_getattr(ptr noundef %4, i32 noundef %42, ptr noundef nonnull %22, ptr noundef %2)
   %51 = getelementptr inbounds i8, ptr %22, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %52, -1
@@ -1243,7 +1243,7 @@ declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr
 declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %75
 
@@ -1258,7 +1258,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #9
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #9
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -1360,7 +1360,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
-  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #9
+  %76 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #9
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, %51, %48, %45, %42, %75, %14
@@ -1422,7 +1422,7 @@ define dso_local i64 @GetAttributeByNum(ptr noundef %0, i16 noundef signext %1, 
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %29, align 8
-  %30 = call fastcc i64 @heap_getattr(ptr noundef nonnull %4, i32 noundef %5, ptr noundef %22, ptr noundef nonnull %2)
+  %30 = call fastcc i64 @heap_getattr(ptr noundef %4, i32 noundef %5, ptr noundef %22, ptr noundef %2)
   %31 = getelementptr inbounds i8, ptr %22, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, -1

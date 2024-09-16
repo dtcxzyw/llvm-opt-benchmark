@@ -1073,8 +1073,8 @@ define dso_local void @_ZN4llvm26computeArchiveRelativePathB5cxx11ENS_9StringRef
   %29 = alloca %"class.llvm::Twine", align 8
   %30 = alloca %"class.llvm::Twine", align 8
   %31 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN4llvmL16canonicalizePathENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %3, i64 %4)
-  call fastcc void @_ZN4llvmL16canonicalizePathENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %1, i64 %2)
+  call fastcc void @_ZN4llvmL16canonicalizePathENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %10, ptr %3, i64 %4)
+  call fastcc void @_ZN4llvmL16canonicalizePathENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr %1, i64 %2)
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
@@ -1329,7 +1329,7 @@ _ZN4llvm7ErrorOrINS_11SmallStringILj128EEEED2Ev.exit57: ; preds = %_ZN4llvm7Erro
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL16canonicalizePathENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvmL16canonicalizePathENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallString", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = getelementptr inbounds i8, ptr %4, i64 24
@@ -2694,7 +2694,7 @@ _ZN4llvm11raw_ostream5flushEv.exit.i:             ; preds = %619, %616
 620:                                              ; preds = %_ZN4llvm11raw_ostream5flushEv.exit.i
   %621 = trunc i32 %.0135183.i to i16
   %622 = add i16 %621, 1
-  call fastcc void @_ZL10getSymbolsPN4llvm6object12SymbolicFileEtRNS_11raw_ostreamEP6SymMap(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr noundef %.sroa.010.0.i, i16 noundef zeroext %622, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef %.), !noalias !83
+  call fastcc void @_ZL10getSymbolsPN4llvm6object12SymbolicFileEtRNS_11raw_ostreamEP6SymMap(ptr dead_on_unwind noalias writable align 8 %57, ptr noundef %.sroa.010.0.i, i16 noundef zeroext %622, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef %.), !noalias !83
   %623 = load i8, ptr %322, align 8, !noalias !83
   %624 = trunc i8 %623 to i1
   br i1 %624, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i160.i, label %637
@@ -4387,7 +4387,7 @@ _ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit346: ; preds = %1327
 
 _ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit346.thread: ; preds = %_ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit346, %1327
   %1334 = phi ptr [ %71, %1327 ], [ %spec.select557, %_ZL19is64BitSymbolicFilePKN4llvm6object12SymbolicFileE.exit346 ]
-  call fastcc void @_ZL10getSymbolsPN4llvm6object12SymbolicFileEtRNS_11raw_ostreamEP6SymMap(ptr dead_on_unwind noalias nonnull writable align 8 %73, ptr noundef %1329, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(48) %1334, ptr noundef null)
+  call fastcc void @_ZL10getSymbolsPN4llvm6object12SymbolicFileEtRNS_11raw_ostreamEP6SymMap(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef %1329, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(48) %1334, ptr noundef null)
   %1335 = load i8, ptr %1325, align 8
   %1336 = trunc i8 %1335 to i1
   br i1 %1336, label %.critedge238, label %.critedge236
@@ -5142,7 +5142,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef no
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL18computeHeadersSizeN4llvm6object7Archive4KindEmmmmP6SymMap(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL18computeHeadersSizeN4llvm6object7Archive4KindEmmmmP6SymMap(i32 noundef %0, i64 noundef range(i64 -88686269585142075, 88686269585142076) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
 switch.lookup:
   %6 = alloca %"struct.std::pair.256", align 8
   %7 = alloca %"struct.std::pair.256", align 8
@@ -5222,8 +5222,8 @@ _ZL22computeSymbolTableSizeN4llvm6object7Archive4KindEmmmPj.exit: ; preds = %15,
 
 45:                                               ; preds = %"_ZZL18computeHeadersSizeN4llvm6object7Archive4KindEmmmmP6SymMapENK3$_0clEv.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  %46 = shl i64 %1, 2
-  %47 = add i64 %46, 8
+  %46 = shl nsw i64 %1, 2
+  %47 = add nsw i64 %46, 8
   %48 = getelementptr inbounds i8, ptr %5, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5650,7 +5650,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %121, %123, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10getSymbolsPN4llvm6object12SymbolicFileEtRNS_11raw_ostreamEP6SymMap(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL10getSymbolsPN4llvm6object12SymbolicFileEtRNS_11raw_ostreamEP6SymMap(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.std::tuple.266", align 8
   %7 = alloca %"class.std::tuple.200", align 1
   %8 = alloca %"class.std::tuple.266", align 8

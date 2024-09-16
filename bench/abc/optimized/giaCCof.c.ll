@@ -116,8 +116,8 @@ define void @Gia_ManCofExtendSolver(ptr nocapture noundef readonly %0) local_unn
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 24
-  %.val25 = load i32, ptr %8, align 8
-  %9 = icmp slt i32 %5, %.val25
+  %.val24 = load i32, ptr %8, align 8
+  %9 = icmp slt i32 %5, %.val24
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
@@ -191,7 +191,7 @@ define void @Gia_ManCofExtendSolver(ptr nocapture noundef readonly %0) local_unn
   br i1 %53, label %14, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %49, %1
-  %.val.lcssa = phi i32 [ %.val25, %1 ], [ %.val, %49 ]
+  %.val.lcssa = phi i32 [ %.val24, %1 ], [ %.val, %49 ]
   %54 = load ptr, ptr %3, align 8
   call void @sat_solver_setnvars(ptr noundef %54, i32 noundef %.val.lcssa) #16
   ret void
@@ -211,7 +211,7 @@ define void @Gia_ManCofOneDerive_rec(ptr noundef %0, i32 noundef %1) local_unnam
   %7 = getelementptr inbounds i32, ptr %.val34, i64 %6
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, -1
-  br i1 %.not, label %9, label %59
+  br i1 %.not, label %9, label %60
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 32
@@ -225,74 +225,74 @@ define void @Gia_ManCofOneDerive_rec(ptr noundef %0, i32 noundef %1) local_unnam
   %15 = and i64 %.val31, 536870911
   %16 = icmp eq i64 %15, 536870911
   %narrow.i.not = or i1 %.not.i, %16
-  br i1 %narrow.i.not, label %41, label %17
+  br i1 %narrow.i.not, label %42, label %17
 
 17:                                               ; preds = %9
   %18 = trunc i64 %.val31 to i32
-  %19 = and i32 %18, 536870911
-  %20 = sub nsw i32 %1, %19
-  %21 = lshr i64 %.val31, 32
-  %22 = trunc nuw i64 %21 to i32
-  %23 = and i32 %22, 536870911
-  %24 = sub nsw i32 %1, %23
-  tail call void @Gia_ManCofOneDerive_rec(ptr noundef nonnull %0, i32 noundef %20)
-  tail call void @Gia_ManCofOneDerive_rec(ptr noundef nonnull %0, i32 noundef %24)
-  %25 = load ptr, ptr %10, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr i8, ptr %26, i64 8
-  %.val37 = load ptr, ptr %27, align 8
-  %28 = sext i32 %20 to i64
-  %29 = getelementptr inbounds i32, ptr %.val37, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = lshr i32 %18, 29
-  %.lobit = and i32 %31, 1
-  %32 = xor i32 %30, %.lobit
-  %33 = sext i32 %24 to i64
+  %19 = lshr i32 %18, 29
+  %20 = and i32 %19, 1
+  %21 = lshr i64 %.val31, 61
+  %22 = trunc nuw nsw i64 %21 to i32
+  %23 = and i32 %22, 1
+  %24 = and i32 %18, 536870911
+  %25 = sub nsw i32 %1, %24
+  %26 = lshr i64 %.val31, 32
+  %27 = trunc nuw i64 %26 to i32
+  %28 = and i32 %27, 536870911
+  %29 = sub nsw i32 %1, %28
+  tail call void @Gia_ManCofOneDerive_rec(ptr noundef nonnull %0, i32 noundef %25)
+  tail call void @Gia_ManCofOneDerive_rec(ptr noundef nonnull %0, i32 noundef %29)
+  %30 = load ptr, ptr %10, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr i8, ptr %31, i64 8
+  %.val37 = load ptr, ptr %32, align 8
+  %33 = sext i32 %25 to i64
   %34 = getelementptr inbounds i32, ptr %.val37, i64 %33
   %35 = load i32, ptr %34, align 4
-  %36 = lshr i64 %.val31, 61
-  %37 = trunc nuw nsw i64 %36 to i32
-  %38 = and i32 %37, 1
-  %39 = xor i32 %35, %38
-  %40 = tail call i32 @Gia_ManHashAnd(ptr noundef %25, i32 noundef %32, i32 noundef %39) #16
+  %36 = xor i32 %35, %20
+  %37 = sext i32 %29 to i64
+  %38 = getelementptr inbounds i32, ptr %.val37, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = xor i32 %39, %23
+  %41 = tail call i32 @Gia_ManHashAnd(ptr noundef %30, i32 noundef %36, i32 noundef %40) #16
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
   %.val42.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %57
+  br label %58
 
-41:                                               ; preds = %9
-  %42 = lshr i64 %.val31, 32
-  %43 = trunc nuw i64 %42 to i32
-  %44 = and i32 %43, 536870911
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr i8, ptr %45, i64 16
-  %.val40 = load i32, ptr %46, align 8
-  %.not30 = icmp slt i32 %44, %.val40
-  br i1 %.not30, label %55, label %47
+42:                                               ; preds = %9
+  %43 = lshr i64 %.val31, 32
+  %44 = trunc nuw i64 %43 to i32
+  %45 = and i32 %44, 536870911
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr i8, ptr %46, i64 16
+  %.val40 = load i32, ptr %47, align 8
+  %.not30 = icmp slt i32 %45, %.val40
+  br i1 %.not30, label %56, label %48
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr i8, ptr %49, i64 328
-  %.val41 = load ptr, ptr %50, align 8
-  %51 = getelementptr inbounds i32, ptr %.val41, i64 %6
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %52, 1
-  %54 = zext i1 %53 to i32
-  br label %57
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr i8, ptr %50, i64 328
+  %.val41 = load ptr, ptr %51, align 8
+  %52 = getelementptr inbounds i32, ptr %.val41, i64 %6
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %53, 1
+  %55 = zext i1 %54 to i32
+  br label %58
 
-55:                                               ; preds = %41
-  %56 = shl nsw i32 %1, 1
-  br label %57
+56:                                               ; preds = %42
+  %57 = shl nsw i32 %1, 1
+  br label %58
 
-57:                                               ; preds = %47, %55, %17
-  %.val42 = phi ptr [ %.val42.pre, %17 ], [ %.val34, %47 ], [ %.val34, %55 ]
-  %.0 = phi i32 [ %40, %17 ], [ %54, %47 ], [ %56, %55 ]
-  %58 = getelementptr inbounds i32, ptr %.val42, i64 %6
-  store i32 %.0, ptr %58, align 4
-  br label %59
+58:                                               ; preds = %48, %56, %17
+  %.val42 = phi ptr [ %.val42.pre, %17 ], [ %.val34, %48 ], [ %.val34, %56 ]
+  %.0 = phi i32 [ %41, %17 ], [ %55, %48 ], [ %57, %56 ]
+  %59 = getelementptr inbounds i32, ptr %.val42, i64 %6
+  store i32 %.0, ptr %59, align 4
+  br label %60
 
-59:                                               ; preds = %2, %57
+60:                                               ; preds = %2, %58
   ret void
 }
 

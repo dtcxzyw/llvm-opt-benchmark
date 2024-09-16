@@ -199,101 +199,101 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef %1, 
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  br label %.lr.ph.i
+  br label %13
 
-.lr.ph.i:                                         ; preds = %12, %41
-  %13 = phi i64 [ %42, %41 ], [ 0, %12 ]
-  %.044.i = phi i1 [ %.2.i, %41 ], [ false, %12 ]
-  %.03443.i = phi i32 [ %.135.i, %41 ], [ 0, %12 ]
-  %.03642.i = phi i32 [ %.3.i, %41 ], [ 0, %12 ]
-  %14 = zext i32 %.03443.i to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %_ZL13CharToWideMapPKcPwmRb.exit, label %18
+13:                                               ; preds = %42, %12
+  %14 = phi i64 [ 0, %12 ], [ %43, %42 ]
+  %.044.i = phi i1 [ false, %12 ], [ %.2.i, %42 ]
+  %.03443.i = phi i32 [ 0, %12 ], [ %.135.i, %42 ]
+  %.03642.i = phi i32 [ 0, %12 ], [ %.3.i, %42 ]
+  %15 = zext i32 %.03443.i to i64
+  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %_ZL13CharToWideMapPKcPwmRb.exit, label %19
 
-18:                                               ; preds = %.lr.ph.i
+19:                                               ; preds = %13
   store i64 0, ptr %4, align 8
-  %19 = getelementptr inbounds i32, ptr %1, i64 %13
-  %20 = call i64 @__ctype_get_mb_cur_max() #12
-  %21 = call i64 @mbrtowc(ptr noundef nonnull %19, ptr noundef nonnull %15, i64 noundef %20, ptr noundef nonnull %4) #12
-  %or.cond.i = icmp ugt i64 %21, -3
-  br i1 %or.cond.i, label %22, label %35
+  %20 = getelementptr inbounds i32, ptr %1, i64 %14
+  %21 = call i64 @__ctype_get_mb_cur_max() #12
+  %22 = call i64 @mbrtowc(ptr noundef nonnull %20, ptr noundef nonnull %16, i64 noundef %21, ptr noundef nonnull %4) #12
+  %or.cond.i = icmp ugt i64 %22, -3
+  br i1 %or.cond.i, label %23, label %36
 
-22:                                               ; preds = %18
-  %23 = load i8, ptr %15, align 1
-  %24 = icmp slt i8 %23, 0
-  br i1 %24, label %25, label %_ZL13CharToWideMapPKcPwmRb.exit
+23:                                               ; preds = %19
+  %24 = load i8, ptr %16, align 1
+  %25 = icmp slt i8 %24, 0
+  br i1 %25, label %26, label %_ZL13CharToWideMapPKcPwmRb.exit
 
-25:                                               ; preds = %22
-  br i1 %.044.i, label %._crit_edge51.i, label %26
+26:                                               ; preds = %23
+  br i1 %.044.i, label %._crit_edge46.i, label %27
 
-._crit_edge51.i:                                  ; preds = %25
-  %.pre52.i = zext i32 %.03642.i to i64
-  br label %29
+._crit_edge46.i:                                  ; preds = %26
+  %.pre47.i = zext i32 %.03642.i to i64
+  br label %30
 
-26:                                               ; preds = %25
-  %27 = add i32 %.03642.i, 1
-  store i32 65534, ptr %19, align 4
-  %28 = zext i32 %27 to i64
-  %.not.i = icmp ugt i64 %2, %28
+27:                                               ; preds = %26
+  %28 = add i32 %.03642.i, 1
+  store i32 65534, ptr %20, align 4
+  %29 = zext i32 %28 to i64
+  %.not.i = icmp ugt i64 %2, %29
   br i1 %.not.i, label %._crit_edge.i, label %_ZL13CharToWideMapPKcPwmRb.exit
 
-._crit_edge.i:                                    ; preds = %26
-  %.pre.i = load i8, ptr %15, align 1
-  br label %29
+._crit_edge.i:                                    ; preds = %27
+  %.pre.i = load i8, ptr %16, align 1
+  br label %30
 
-29:                                               ; preds = %._crit_edge.i, %._crit_edge51.i
-  %.pre-phi.i = phi i64 [ %.pre52.i, %._crit_edge51.i ], [ %28, %._crit_edge.i ]
-  %30 = phi i8 [ %23, %._crit_edge51.i ], [ %.pre.i, %._crit_edge.i ]
-  %.238.i = phi i32 [ %.03642.i, %._crit_edge51.i ], [ %27, %._crit_edge.i ]
-  %31 = add i32 %.03443.i, 1
-  %32 = zext i8 %30 to i32
-  %33 = or disjoint i32 %32, 57344
-  %34 = getelementptr inbounds i32, ptr %1, i64 %.pre-phi.i
-  store i32 %33, ptr %34, align 4
-  br label %41
+30:                                               ; preds = %._crit_edge.i, %._crit_edge46.i
+  %.pre-phi.i = phi i64 [ %.pre47.i, %._crit_edge46.i ], [ %29, %._crit_edge.i ]
+  %31 = phi i8 [ %24, %._crit_edge46.i ], [ %.pre.i, %._crit_edge.i ]
+  %.238.i = phi i32 [ %.03642.i, %._crit_edge46.i ], [ %28, %._crit_edge.i ]
+  %32 = add i32 %.03443.i, 1
+  %33 = zext i8 %31 to i32
+  %34 = or disjoint i32 %33, 57344
+  %35 = getelementptr inbounds i32, ptr %1, i64 %.pre-phi.i
+  store i32 %34, ptr %35, align 4
+  br label %42
 
-35:                                               ; preds = %18
+36:                                               ; preds = %19
   store i64 0, ptr %4, align 8
-  %36 = call i64 @__ctype_get_mb_cur_max() #12
-  %37 = call i64 @mbrlen(ptr noundef nonnull %15, i64 noundef %36, ptr noundef nonnull %4) #12
-  %38 = trunc i64 %37 to i32
-  %39 = call i32 @llvm.smax.i32(i32 %38, i32 1)
-  %40 = add i32 %39, %.03443.i
-  br label %41
+  %37 = call i64 @__ctype_get_mb_cur_max() #12
+  %38 = call i64 @mbrlen(ptr noundef nonnull %16, i64 noundef %37, ptr noundef nonnull %4) #12
+  %39 = trunc i64 %38 to i32
+  %40 = call i32 @llvm.smax.i32(i32 %39, i32 1)
+  %41 = add i32 %40, %.03443.i
+  br label %42
 
-41:                                               ; preds = %35, %29
-  %.3.in.i = phi i32 [ %.238.i, %29 ], [ %.03642.i, %35 ]
-  %.135.i = phi i32 [ %31, %29 ], [ %40, %35 ]
-  %.2.i = phi i1 [ true, %29 ], [ %.044.i, %35 ]
+42:                                               ; preds = %36, %30
+  %.3.in.i = phi i32 [ %.238.i, %30 ], [ %.03642.i, %36 ]
+  %.135.i = phi i32 [ %32, %30 ], [ %41, %36 ]
+  %.2.i = phi i1 [ true, %30 ], [ %.044.i, %36 ]
   %.3.i = add i32 %.3.in.i, 1
-  %42 = zext i32 %.3.i to i64
-  %43 = icmp ugt i64 %2, %42
-  br i1 %43, label %.lr.ph.i, label %_ZL13CharToWideMapPKcPwmRb.exit, !llvm.loop !6
+  %43 = zext i32 %.3.i to i64
+  %44 = icmp ugt i64 %2, %43
+  br i1 %44, label %13, label %_ZL13CharToWideMapPKcPwmRb.exit, !llvm.loop !6
 
-_ZL13CharToWideMapPKcPwmRb.exit:                  ; preds = %.lr.ph.i, %22, %26, %41
-  %.137.i = phi i32 [ %.03642.i, %.lr.ph.i ], [ %.03642.i, %22 ], [ %27, %26 ], [ %.3.i, %41 ]
-  %44 = zext i32 %.137.i to i64
-  %45 = add i64 %2, -1
-  %46 = call i64 @llvm.umin.i64(i64 %45, i64 %44)
-  %47 = getelementptr inbounds i32, ptr %1, i64 %46
-  store i32 0, ptr %47, align 4
+_ZL13CharToWideMapPKcPwmRb.exit:                  ; preds = %13, %23, %27, %42
+  %.137.i = phi i32 [ %.03642.i, %13 ], [ %.03642.i, %23 ], [ %28, %27 ], [ %.3.i, %42 ]
+  %45 = zext i32 %.137.i to i64
+  %46 = add i64 %2, -1
+  %47 = call i64 @llvm.umin.i64(i64 %46, i64 %45)
+  %48 = getelementptr inbounds i32, ptr %1, i64 %47
+  store i32 0, ptr %48, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %_ZL13CharToWideMapPKcPwmRb.exit, %10
-  %.1 = phi i1 [ %17, %_ZL13CharToWideMapPKcPwmRb.exit ], [ false, %10 ], [ true, %3 ], [ true, %8 ]
+  %.1 = phi i1 [ %18, %_ZL13CharToWideMapPKcPwmRb.exit ], [ false, %10 ], [ true, %3 ], [ true, %8 ]
   %.not14 = icmp eq i64 %2, 0
-  br i1 %.not14, label %51, label %48
+  br i1 %.not14, label %52, label %49
 
-48:                                               ; preds = %.thread
-  %49 = getelementptr i32, ptr %1, i64 %2
-  %50 = getelementptr i8, ptr %49, i64 -4
-  store i32 0, ptr %50, align 4
-  br label %51
+49:                                               ; preds = %.thread
+  %50 = getelementptr i32, ptr %1, i64 %2
+  %51 = getelementptr i8, ptr %50, i64 -4
+  store i32 0, ptr %51, align 4
+  br label %52
 
-51:                                               ; preds = %48, %.thread
+52:                                               ; preds = %49, %.thread
   ret i1 %.1
 }
 

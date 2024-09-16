@@ -143,7 +143,7 @@ define ptr @Io_ReadBlif(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %calloc.i, i64 88
   store ptr %34, ptr %38, align 8
-  %39 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %calloc.i)
+  %39 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %calloc.i)
   %40 = getelementptr inbounds i8, ptr %calloc.i, i64 40
   store ptr %39, ptr %40, align 8
   %41 = icmp eq ptr %39, null
@@ -184,7 +184,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %60, label %61, label %.lr.ph.backedge.i
 
 61:                                               ; preds = %55
-  %62 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
+  %62 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
   %63 = getelementptr inbounds i8, ptr %53, i64 328
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
@@ -197,13 +197,13 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %66, label %.split.us.i, label %.lr.ph.backedge.i
 
 .lr.ph.backedge.i:                                ; preds = %65, %55
-  %67 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
+  %67 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.split.us.i, label %.lr.ph
 
 69:                                               ; preds = %42
   %70 = getelementptr inbounds i8, ptr %calloc.i, i64 16
-  %71 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
+  %71 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.split.us.i, label %73
 
@@ -229,7 +229,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br label %.lr.ph.preheader.i
 
 81:                                               ; preds = %75
-  %82 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
+  %82 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
   %83 = getelementptr inbounds i8, ptr %71, i64 328
   store ptr %82, ptr %83, align 8
   %84 = icmp eq ptr %82, null
@@ -243,7 +243,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %85, label %.split.us.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.split32.us.i, %.split32.us.thread46.i
-  %86 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
+  %86 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.split.us.i, label %.lr.ph
 
@@ -263,7 +263,7 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %Io_ReadBlifNetwork.exit.thread, %Io_ReadBlifNetwork.exit
-  tail call fastcc void @Io_ReadBlifFree(ptr noundef nonnull %calloc.i)
+  tail call fastcc void @Io_ReadBlifFree(ptr noundef %calloc.i)
   br label %Io_ReadBlifFile.exit.thread
 
 93:                                               ; preds = %Io_ReadBlifNetwork.exit
@@ -446,7 +446,7 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
   br i1 %191, label %.critedge4.i, label %Io_ReadBlifCreateTiming.exit, !llvm.loop !8
 
 Io_ReadBlifCreateTiming.exit:                     ; preds = %.critedge4.i, %.critedge4.preheader.i
-  tail call fastcc void @Io_ReadBlifFree(ptr noundef nonnull %calloc.i)
+  tail call fastcc void @Io_ReadBlifFree(ptr noundef %calloc.i)
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %Io_ReadBlifFile.exit.thread, label %192
 
@@ -466,7 +466,7 @@ Io_ReadBlifFile.exit.thread:                      ; preds = %2, %Io_ReadBlifCrea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_ReadBlifFree(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Io_ReadBlifFree(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @Extra_FileReaderFree(ptr noundef %3) #15
@@ -1841,7 +1841,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, pt
 declare void @Abc_NtkFinalizeRead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Io_ReadBlifGetTokens(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @Io_ReadBlifGetTokens(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -2227,7 +2227,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2373,7 +2373,7 @@ define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %0) unnamed_addr #
   br i1 %.not105, label %91, label %.critedge
 
 91:                                               ; preds = %90
-  %92 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
+  %92 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %0)
   store ptr %92, ptr %14, align 8
   %.not106 = icmp eq ptr %92, null
   br i1 %.not106, label %.loopexit, label %.critedge
@@ -2447,7 +2447,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %103, %100, %.crited
   store i32 0, ptr %132, align 4
   %133 = load i32, ptr %111, align 4
   %134 = icmp eq i32 %133, 2
-  %135 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
+  %135 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %0)
   %.not86166.i = icmp eq ptr %135, null
   br i1 %134, label %.preheader.i, label %.preheader160.i
 
@@ -2690,7 +2690,7 @@ Vec_StrPush.exit108.i:                            ; preds = %242, %Vec_StrGrow.e
   %247 = sext i32 %245 to i64
   %248 = getelementptr inbounds i8, ptr %244, i64 %247
   store i8 10, ptr %248, align 1
-  %249 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
+  %249 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %0)
   %.not86.i = icmp eq ptr %249, null
   br i1 %.not86.i, label %.loopexit.i, label %.lr.ph167.i, !llvm.loop !32
 
@@ -3044,7 +3044,7 @@ Vec_StrPush.exit130.i:                            ; preds = %406, %Vec_StrGrow.e
   %411 = sext i32 %409 to i64
   %412 = getelementptr inbounds i8, ptr %408, i64 %411
   store i8 10, ptr %412, align 1
-  %413 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
+  %413 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %0)
   %.not.i126 = icmp eq ptr %413, null
   br i1 %.not.i126, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !34
 
@@ -5010,7 +5010,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1257, %1259, %1278,
   br i1 %.not117, label %1438, label %1440
 
 1438:                                             ; preds = %1436
-  %1439 = tail call fastcc i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef nonnull %0, ptr noundef nonnull %104)
+  %1439 = tail call fastcc i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef %0, ptr noundef nonnull %104)
   br label %Io_ReadBlifNetworkNames.exit
 
 1440:                                             ; preds = %1436
@@ -5019,7 +5019,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1257, %1259, %1278,
   br i1 %.not118, label %1442, label %1444
 
 1442:                                             ; preds = %1440
-  %1443 = tail call fastcc i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef nonnull %0, ptr noundef nonnull %104)
+  %1443 = tail call fastcc i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef %0, ptr noundef nonnull %104)
   br label %Io_ReadBlifNetworkNames.exit
 
 1444:                                             ; preds = %1440
@@ -5028,7 +5028,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1257, %1259, %1278,
   br i1 %.not119, label %1446, label %1448
 
 1446:                                             ; preds = %1444
-  %1447 = tail call fastcc i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef nonnull %0, ptr noundef nonnull %104)
+  %1447 = tail call fastcc i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef %0, ptr noundef nonnull %104)
   br label %Io_ReadBlifNetworkNames.exit
 
 1448:                                             ; preds = %1444
@@ -5037,7 +5037,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1257, %1259, %1278,
   br i1 %.not120, label %1450, label %1452
 
 1450:                                             ; preds = %1448
-  %1451 = tail call fastcc i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef nonnull %0, ptr noundef nonnull %104)
+  %1451 = tail call fastcc i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef %0, ptr noundef nonnull %104)
   br label %Io_ReadBlifNetworkNames.exit
 
 1452:                                             ; preds = %1448
@@ -5051,7 +5051,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1257, %1259, %1278,
   br i1 %.not122, label %1456, label %1458
 
 1456:                                             ; preds = %1454
-  %1457 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
+  %1457 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %0)
   store ptr %1457, ptr %14, align 8
   br label %.loopexit
 
@@ -5129,7 +5129,7 @@ declare i32 @Extra_FileReaderGetFileSize(ptr noundef) local_unnamed_addr #1
 declare i32 @Extra_FileReaderGetCurPosition(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -5515,7 +5515,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %85, %83, %49, %47, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -5615,7 +5615,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %57, %55, %20, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -5715,7 +5715,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %57, %55, %20, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4

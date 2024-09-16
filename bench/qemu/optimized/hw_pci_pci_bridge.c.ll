@@ -300,7 +300,7 @@ entry:
   %shl.i9.i.i = and i64 %and.i8.i.i, 4293918720
   %and1.i.i.i = and i64 %conv.i.i.i, 1
   %tobool.not.i10.i.i = icmp eq i64 %and1.i.i.i, 0
-  br i1 %tobool.not.i10.i.i, label %if.then5.i29.i, label %if.then.i11.i.i
+  br i1 %tobool.not.i10.i.i, label %if.else.i26.thread.i, label %if.then.i11.i.i
 
 if.then.i11.i.i:                                  ; preds = %entry
   %add.ptr4.i.i.i = getelementptr i8, ptr %bridge.val5.i.i, i64 40
@@ -308,9 +308,9 @@ if.then.i11.i.i:                                  ; preds = %entry
   %conv6.i.i.i = zext i32 %add.ptr4.val.i.i.i to i64
   %shl7.i.i.i = shl nuw i64 %conv6.i.i.i, 32
   %or.i12.i.i = or disjoint i64 %shl7.i.i.i, %shl.i9.i.i
-  br label %if.then5.i29.i
+  br label %if.else.i26.thread.i
 
-if.then5.i29.i:                                   ; preds = %if.then.i11.i.i, %entry
+if.else.i26.thread.i:                             ; preds = %if.then.i11.i.i, %entry
   %base.0.i.ph.ph.i = phi i64 [ %or.i12.i.i, %if.then.i11.i.i ], [ %shl.i9.i.i, %entry ]
   %add.ptr.i8.i.i = getelementptr i8, ptr %bridge.val5.i.i, i64 38
   %add.ptr.val.i9.i.i = load i16, ptr %add.ptr.i8.i.i, align 1
@@ -321,7 +321,7 @@ if.then5.i29.i:                                   ; preds = %if.then.i11.i.i, %e
   %tobool.not.i12.i.i = icmp eq i64 %and1.i.i31.i, 0
   br i1 %tobool.not.i12.i.i, label %pci_bridge_init_alias.exit, label %if.then.i13.i.i
 
-if.then.i13.i.i:                                  ; preds = %if.then5.i29.i
+if.then.i13.i.i:                                  ; preds = %if.else.i26.thread.i
   %add.ptr4.i.i32.i = getelementptr i8, ptr %bridge.val5.i.i, i64 44
   %add.ptr4.val.i.i33.i = load i32, ptr %add.ptr4.i.i32.i, align 1
   %conv6.i.i34.i = zext i32 %add.ptr4.val.i.i33.i to i64
@@ -329,8 +329,8 @@ if.then.i13.i.i:                                  ; preds = %if.then5.i29.i
   %or.i14.i.i = or disjoint i64 %shl7.i.i35.i, %shl.i11.i.i
   br label %pci_bridge_init_alias.exit
 
-pci_bridge_init_alias.exit:                       ; preds = %if.then5.i29.i, %if.then.i13.i.i
-  %limit.1.i.i = phi i64 [ %or.i14.i.i, %if.then.i13.i.i ], [ %shl.i11.i.i, %if.then5.i29.i ]
+pci_bridge_init_alias.exit:                       ; preds = %if.else.i26.thread.i, %if.then.i13.i.i
+  %limit.1.i.i = phi i64 [ %or.i14.i.i, %if.then.i13.i.i ], [ %shl.i11.i.i, %if.else.i26.thread.i ]
   %or9.i.i = or i64 %limit.1.i.i, 1048575
   %cmp.not.i = icmp uge i64 %or9.i.i, %base.0.i.ph.ph.i
   %or.cond.not.i = select i1 %tobool, i1 %cmp.not.i, i1 false
@@ -457,25 +457,25 @@ entry:
   %sub.i.i = add nsw i64 %add.i.i, %conv2
   %cmp.i = icmp ugt i32 %address, 5
   %cmp2.i = icmp ult i64 %sub.i.i, 4
-  %.not.i.not = or i1 %cmp.i, %cmp2.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %cmp.i15 = icmp ugt i32 %address, 29
   %cmp2.i16 = icmp ult i64 %sub.i.i, 28
-  %.not.i17.not = or i1 %cmp.i15, %cmp2.i16
+  %.not.i17.not = select i1 %cmp.i15, i1 true, i1 %cmp2.i16
   br i1 %.not.i17.not, label %lor.lhs.false8, label %if.then
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
   %cmp.i21 = icmp ugt i32 %address, 51
   %cmp2.i22 = icmp ult i64 %sub.i.i, 32
-  %.not.i23.not = or i1 %cmp.i21, %cmp2.i22
+  %.not.i23.not = select i1 %cmp.i21, i1 true, i1 %cmp2.i22
   br i1 %.not.i23.not, label %lor.lhs.false13, label %if.then
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false8
   %cmp.i27 = icmp ugt i32 %address, 63
   %cmp2.i28 = icmp ult i64 %sub.i.i, 62
-  %.not.i29.not = or i1 %cmp.i27, %cmp2.i28
+  %.not.i29.not = select i1 %cmp.i27, i1 true, i1 %cmp2.i28
   br i1 %.not.i29.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false13, %lor.lhs.false8, %lor.lhs.false, %entry

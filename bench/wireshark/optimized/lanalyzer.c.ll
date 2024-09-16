@@ -749,24 +749,24 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   %89 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 2, ptr noundef %3) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   %.not69 = icmp eq i32 %89, 0
-  br i1 %.not69, label %s0write.exit.thread, label %.lr.ph.i
+  br i1 %.not69, label %s0write.exit.thread, label %90
 
-.lr.ph.i:                                         ; preds = %85
+90:                                               ; preds = %85
   store i32 %37, ptr %86, align 8
-  %90 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef 12, ptr noundef %3) #11
-  %.not9.i = icmp eq i32 %90, 0
+  %91 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef 12, ptr noundef %3) #11
+  %.not9.i = icmp eq i32 %91, 0
   br i1 %.not9.i, label %s0write.exit.thread, label %s0write.exit
 
-s0write.exit:                                     ; preds = %.lr.ph.i
-  %91 = load i32, ptr %17, align 8
-  %92 = zext i32 %91 to i64
-  %93 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %92, ptr noundef %3) #11
-  %.not71 = icmp ne i32 %93, 0
+s0write.exit:                                     ; preds = %90
+  %92 = load i32, ptr %17, align 8
+  %93 = zext i32 %92 to i64
+  %94 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %93, ptr noundef %3) #11
+  %.not71 = icmp ne i32 %94, 0
   %. = zext i1 %.not71 to i32
   br label %s0write.exit.thread
 
-s0write.exit.thread:                              ; preds = %.lr.ph.i, %s0write.exit, %85, %80, %68, %64, %58, %56, %54, %42, %40, %39, %34, %27, %21
-  %.0 = phi i32 [ 0, %21 ], [ 0, %27 ], [ 0, %34 ], [ 0, %39 ], [ 0, %40 ], [ 0, %42 ], [ 0, %54 ], [ 0, %56 ], [ 0, %58 ], [ 0, %64 ], [ 0, %68 ], [ 0, %80 ], [ 0, %85 ], [ %., %s0write.exit ], [ 0, %.lr.ph.i ]
+s0write.exit.thread:                              ; preds = %90, %s0write.exit, %85, %80, %68, %64, %58, %56, %54, %42, %40, %39, %34, %27, %21
+  %.0 = phi i32 [ 0, %21 ], [ 0, %27 ], [ 0, %34 ], [ 0, %39 ], [ 0, %40 ], [ 0, %42 ], [ 0, %54 ], [ 0, %56 ], [ 0, %58 ], [ 0, %64 ], [ 0, %68 ], [ 0, %80 ], [ 0, %85 ], [ %., %s0write.exit ], [ 0, %90 ]
   ret i32 %.0
 }
 
@@ -972,14 +972,14 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr n
   %111 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef 1, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21)
   %.not127.i = icmp eq i32 %111, 0
-  br i1 %.not127.i, label %lanalyzer_dump_header.exit, label %.lr.ph.i.preheader.i
+  br i1 %.not127.i, label %lanalyzer_dump_header.exit, label %.preheader206.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %108
+.preheader206.preheader.i:                        ; preds = %108
   %112 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef 2, ptr noundef %1) #11
   %.not9.i.i = icmp eq i32 %112, 0
   br i1 %.not9.i.i, label %lanalyzer_dump_header.exit, label %s0write.exit.i
 
-s0write.exit.i:                                   ; preds = %.lr.ph.i.preheader.i
+s0write.exit.i:                                   ; preds = %.preheader206.preheader.i
   %113 = load i32, ptr %42, align 8
   %114 = trunc i32 %113 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
@@ -1017,19 +1017,19 @@ s0write.exit.i:                                   ; preds = %.lr.ph.i.preheader.
   %127 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %17, i64 noundef 1, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
   %.not132.i = icmp eq i32 %127, 0
-  br i1 %.not132.i, label %lanalyzer_dump_header.exit, label %.lr.ph.i153.preheader.i
+  br i1 %.not132.i, label %lanalyzer_dump_header.exit, label %.preheader204.preheader.i
 
-.lr.ph.i153.preheader.i:                          ; preds = %124
+.preheader204.preheader.i:                        ; preds = %124
   %128 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef 2, ptr noundef %1) #11
-  %.not9.i155.i = icmp eq i32 %128, 0
-  br i1 %.not9.i155.i, label %lanalyzer_dump_header.exit, label %.lr.ph.i159.preheader.i
+  %.not9.i154.i = icmp eq i32 %128, 0
+  br i1 %.not9.i154.i, label %lanalyzer_dump_header.exit, label %s0write.exit157.preheader.i
 
-.lr.ph.i159.preheader.i:                          ; preds = %.lr.ph.i153.preheader.i
+s0write.exit157.preheader.i:                      ; preds = %.preheader204.preheader.i
   %129 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef 6, ptr noundef %1) #11
-  %.not9.i161.i = icmp eq i32 %129, 0
-  br i1 %.not9.i161.i, label %lanalyzer_dump_header.exit, label %s0write.exit164.i
+  %.not9.i159.i = icmp eq i32 %129, 0
+  br i1 %.not9.i159.i, label %lanalyzer_dump_header.exit, label %s0write.exit162.i
 
-s0write.exit164.i:                                ; preds = %.lr.ph.i159.preheader.i
+s0write.exit162.i:                                ; preds = %s0write.exit157.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16)
   store i16 1, ptr %16, align 2
   %130 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %16, i64 noundef 2, ptr noundef %1) #11
@@ -1037,7 +1037,7 @@ s0write.exit164.i:                                ; preds = %.lr.ph.i159.prehead
   %.not135.i = icmp eq i32 %130, 0
   br i1 %.not135.i, label %lanalyzer_dump_header.exit, label %131
 
-131:                                              ; preds = %s0write.exit164.i
+131:                                              ; preds = %s0write.exit162.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
   store i16 0, ptr %15, align 2
   %132 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %15, i64 noundef 2, ptr noundef %1) #11
@@ -1061,48 +1061,48 @@ s0write.exit164.i:                                ; preds = %.lr.ph.i159.prehead
   %138 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 4, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %.not138.i = icmp eq i32 %138, 0
-  br i1 %.not138.i, label %lanalyzer_dump_header.exit, label %.lr.ph.i165.preheader.i
+  br i1 %.not138.i, label %lanalyzer_dump_header.exit, label %.preheader201.preheader.i
 
-.lr.ph.i165.preheader.i:                          ; preds = %135
+.preheader201.preheader.i:                        ; preds = %135
   %139 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef 12, ptr noundef %1) #11
-  %.not9.i167.i = icmp eq i32 %139, 0
-  br i1 %.not9.i167.i, label %lanalyzer_dump_header.exit, label %s0write.exit170.i
+  %.not9.i164.i = icmp eq i32 %139, 0
+  br i1 %.not9.i164.i, label %lanalyzer_dump_header.exit, label %s0write.exit167.i
 
-s0write.exit170.i:                                ; preds = %.lr.ph.i165.preheader.i
+s0write.exit167.i:                                ; preds = %.preheader201.preheader.i
   %140 = load i32, ptr %136, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 %140, ptr %12, align 4
   %141 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %.not140.i = icmp eq i32 %141, 0
-  br i1 %.not140.i, label %lanalyzer_dump_header.exit, label %.lr.ph.i171.i
+  br i1 %.not140.i, label %lanalyzer_dump_header.exit, label %.preheader199.i
 
-142:                                              ; preds = %.lr.ph.i171.i
-  %143 = sub i64 %.0811.i172.i, %144
-  %.not.i174.i = icmp eq i64 %143, 0
-  br i1 %.not.i174.i, label %s0write.exit176.i, label %.lr.ph.i171.i, !llvm.loop !4
+142:                                              ; preds = %.preheader199.i
+  %143 = sub i64 %.0810.i168.i, %144
+  %.not.i170.i = icmp eq i64 %143, 0
+  br i1 %.not.i170.i, label %s0write.exit172.i, label %.preheader199.i, !llvm.loop !4
 
-.lr.ph.i171.i:                                    ; preds = %s0write.exit170.i, %142
-  %.0811.i172.i = phi i64 [ %143, %142 ], [ 136, %s0write.exit170.i ]
-  %144 = call i64 @llvm.umin.i64(i64 %.0811.i172.i, i64 64)
+.preheader199.i:                                  ; preds = %s0write.exit167.i, %142
+  %.0810.i168.i = phi i64 [ %143, %142 ], [ 136, %s0write.exit167.i ]
+  %144 = call i64 @llvm.umin.i64(i64 %.0810.i168.i, i64 64)
   %145 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @z64, i64 noundef %144, ptr noundef %1) #11
-  %.not9.i173.i = icmp eq i32 %145, 0
-  br i1 %.not9.i173.i, label %lanalyzer_dump_header.exit, label %142
+  %.not9.i169.i = icmp eq i32 %145, 0
+  br i1 %.not9.i169.i, label %lanalyzer_dump_header.exit, label %142
 
-s0write.exit176.i:                                ; preds = %142
+s0write.exit172.i:                                ; preds = %142
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
   store i16 %40, ptr %11, align 2
   %146 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
   %.not142.i = icmp eq i32 %146, 0
-  br i1 %.not142.i, label %lanalyzer_dump_header.exit, label %.lr.ph.i177.preheader.i
+  br i1 %.not142.i, label %lanalyzer_dump_header.exit, label %.preheader197.preheader.i
 
-.lr.ph.i177.preheader.i:                          ; preds = %s0write.exit176.i
+.preheader197.preheader.i:                        ; preds = %s0write.exit172.i
   %147 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @z64, i64 noundef 20, ptr noundef %1) #11
-  %.not9.i179.i = icmp eq i32 %147, 0
-  br i1 %.not9.i179.i, label %lanalyzer_dump_header.exit, label %s0write.exit182.i
+  %.not9.i174.i = icmp eq i32 %147, 0
+  br i1 %.not9.i174.i, label %lanalyzer_dump_header.exit, label %s0write.exit177.i
 
-s0write.exit182.i:                                ; preds = %.lr.ph.i177.preheader.i
+s0write.exit177.i:                                ; preds = %.preheader197.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
   store i16 4099, ptr %10, align 2
   %148 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2, ptr noundef %1) #11
@@ -1110,7 +1110,7 @@ s0write.exit182.i:                                ; preds = %.lr.ph.i177.prehead
   %.not144.i = icmp eq i32 %148, 0
   br i1 %.not144.i, label %lanalyzer_dump_header.exit, label %149
 
-149:                                              ; preds = %s0write.exit182.i
+149:                                              ; preds = %s0write.exit177.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
   store i16 6, ptr %9, align 2
   %150 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2, ptr noundef %1) #11
@@ -1162,19 +1162,19 @@ s0write.exit182.i:                                ; preds = %.lr.ph.i177.prehead
   %163 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   %.not151.i = icmp eq i32 %163, 0
-  br i1 %.not151.i, label %lanalyzer_dump_header.exit, label %.lr.ph.i183.i
+  br i1 %.not151.i, label %lanalyzer_dump_header.exit, label %.preheader.i
 
-.lr.ph.i183.i:                                    ; preds = %162, %.lr.ph.i183.i
-  %.0811.i184.i = phi i64 [ %166, %.lr.ph.i183.i ], [ 2012, %162 ]
-  %164 = call i64 @llvm.umin.i64(i64 %.0811.i184.i, i64 64)
+.preheader.i:                                     ; preds = %162, %.preheader.i
+  %.0810.i178.i = phi i64 [ %166, %.preheader.i ], [ 2012, %162 ]
+  %164 = call i64 @llvm.umin.i64(i64 %.0810.i178.i, i64 64)
   %165 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @z64, i64 noundef %164, ptr noundef %1) #11
-  %.not9.i185.i = icmp eq i32 %165, 0
-  %166 = sub i64 %.0811.i184.i, %164
-  %.not.i186.i = icmp eq i64 %166, 0
-  %or.cond = or i1 %.not9.i185.i, %.not.i186.i
-  br i1 %or.cond, label %lanalyzer_dump_header.exit, label %.lr.ph.i183.i, !llvm.loop !4
+  %.not9.i179.i = icmp eq i32 %165, 0
+  %166 = sub i64 %.0810.i178.i, %164
+  %.not.i180.i = icmp eq i64 %166, 0
+  %or.cond = or i1 %.not9.i179.i, %.not.i180.i
+  br i1 %or.cond, label %lanalyzer_dump_header.exit, label %.preheader.i, !llvm.loop !4
 
-lanalyzer_dump_header.exit:                       ; preds = %.lr.ph.i171.i, %.lr.ph.i183.i, %3, %44, %47, %49, %51, %53, %55, %57, %59, %61, %63, %68, %74, %80, %84, %89, %94, %98, %103, %108, %.lr.ph.i.preheader.i, %s0write.exit.i, %116, %120, %124, %.lr.ph.i153.preheader.i, %.lr.ph.i159.preheader.i, %s0write.exit164.i, %131, %133, %135, %.lr.ph.i165.preheader.i, %s0write.exit170.i, %s0write.exit176.i, %.lr.ph.i177.preheader.i, %s0write.exit182.i, %149, %151, %153, %156, %158, %160, %162
+lanalyzer_dump_header.exit:                       ; preds = %.preheader199.i, %.preheader.i, %3, %44, %47, %49, %51, %53, %55, %57, %59, %61, %63, %68, %74, %80, %84, %89, %94, %98, %103, %108, %.preheader206.preheader.i, %s0write.exit.i, %116, %120, %124, %.preheader204.preheader.i, %s0write.exit157.preheader.i, %s0write.exit162.i, %131, %133, %135, %.preheader201.preheader.i, %s0write.exit167.i, %s0write.exit172.i, %.preheader197.preheader.i, %s0write.exit177.i, %149, %151, %153, %156, %158, %160, %162
   store i64 %34, ptr %33, align 8
   %167 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %167, 0

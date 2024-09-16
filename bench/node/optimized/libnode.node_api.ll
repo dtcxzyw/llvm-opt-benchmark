@@ -839,7 +839,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6v8impl12_GLOBAL__N_124ThrowNodeApiVersionErrorEPN4node11EnvironmentEPKci(ptr nocapture noundef readonly %node_env, ptr noundef %module_name, i32 noundef %module_api_version) unnamed_addr #3 {
+define internal fastcc void @_ZN6v8impl12_GLOBAL__N_124ThrowNodeApiVersionErrorEPN4node11EnvironmentEPKci(ptr nocapture noundef readonly %node_env, ptr noundef %module_name, i32 noundef range(i32 10, 9) %module_api_version) unnamed_addr #3 {
 entry:
   %handle_scope.i.i = alloca %"class.v8::HandleScope", align 8
   %error_message = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2365,7 +2365,7 @@ if.then98:                                        ; preds = %do.end89
 
 if.else:                                          ; preds = %do.end89
   %conv117 = trunc i64 %argc to i32
-  %call124 = call fastcc ptr @_ZN6v8impl12_GLOBAL__N_112AsyncContext12MakeCallbackEN2v85LocalINS2_6ObjectEEENS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(33) %async_context, ptr nonnull %call51, ptr nonnull %func, i32 noundef %conv117, ptr noundef %argv)
+  %call124 = call fastcc ptr @_ZN6v8impl12_GLOBAL__N_112AsyncContext12MakeCallbackEN2v85LocalINS2_6ObjectEEENS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(33) %async_context, ptr %call51, ptr nonnull %func, i32 noundef %conv117, ptr noundef %argv)
   br label %if.end129
 
 if.end129:                                        ; preds = %if.else, %if.then98
@@ -2443,7 +2443,7 @@ declare noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull alig
 declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_8FunctionEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef, ptr, ptr, i32 noundef, ptr noundef, double, double) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN6v8impl12_GLOBAL__N_112AsyncContext12MakeCallbackEN2v85LocalINS2_6ObjectEEENS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEE(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr %recv.coerce, ptr %callback.coerce, i32 noundef %argc, ptr noundef %argv) unnamed_addr #3 align 2 {
+define internal fastcc ptr @_ZN6v8impl12_GLOBAL__N_112AsyncContext12MakeCallbackEN2v85LocalINS2_6ObjectEEENS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEE(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr nonnull %recv.coerce, ptr %callback.coerce, i32 noundef %argc, ptr noundef %argv) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZN6v8impl12_GLOBAL__N_112AsyncContext15EnsureReferenceEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
   %this.val = load ptr, ptr %this, align 8
@@ -2522,7 +2522,7 @@ _ZN6v8impl12_GLOBAL__N_112AsyncContext8resourceEv.exit: ; preds = %_ZN6v8impl12_
   %24 = load double, ptr %async_id_, align 8
   %trigger_async_id_ = getelementptr inbounds i8, ptr %this, i64 16
   %25 = load double, ptr %trigger_async_id_, align 8
-  %call23 = tail call ptr @_ZN4node20InternalMakeCallbackEPNS_11EnvironmentEN2v85LocalINS2_6ObjectEEES5_NS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEENS_13async_contextE(ptr noundef %retval.0.i.i.i, ptr %retval.i17.sroa.0.0.i, ptr %recv.coerce, ptr %callback.coerce, i32 noundef %argc, ptr noundef %argv, double %24, double %25) #21
+  %call23 = tail call ptr @_ZN4node20InternalMakeCallbackEPNS_11EnvironmentEN2v85LocalINS2_6ObjectEEES5_NS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEENS_13async_contextE(ptr noundef %retval.0.i.i.i, ptr %retval.i17.sroa.0.0.i, ptr nonnull %recv.coerce, ptr %callback.coerce, i32 noundef %argc, ptr noundef %argv, double %24, double %25) #21
   ret ptr %call23
 }
 

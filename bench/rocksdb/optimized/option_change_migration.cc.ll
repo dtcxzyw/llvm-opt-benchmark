@@ -546,7 +546,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_114CompactToLevelERKNS_7OptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEimb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1508) %options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, i32 noundef %dest_level, i64 noundef %l0_file_size, i1 noundef zeroext %need_reopen) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_114CompactToLevelERKNS_7OptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEimb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1508) %options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, i32 noundef range(i32 -2147483648, 2147483647) %dest_level, i64 noundef range(i64 0, 2305843009213693952) %l0_file_size, i1 noundef zeroext %need_reopen) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tmpdb.i16 = alloca ptr, align 8
   %tmpdb.i = alloca ptr, align 8

@@ -3369,7 +3369,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_execute_cdb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_execute_cdb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 9) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_ndmp_execute_cdb_flags, align 4
   %7 = load i32, ptr @ett_ndmp_execute_cdb_flags, align 4
   %8 = tail call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @dissect_execute_cdb_flags.cdb_flags, i32 noundef 0) #7
@@ -3528,7 +3528,7 @@ dissect_execute_cdb_cdb.exit:                     ; preds = %5, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_execute_cdb_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_execute_cdb_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #7
   %9 = tail call i32 @rpc_roundup(i32 noundef %8) #7
   %10 = add i32 %9, 4

@@ -1416,7 +1416,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #2
 declare ptr @bit_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %14) unnamed_addr #0 {
+define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5, i16 noundef zeroext %6, i32 noundef range(i32 0, 65536) %7, ptr noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %14) unnamed_addr #0 {
   %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
@@ -1504,8 +1504,8 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
   %.085.i = phi i64 [ %66, %64 ], [ %53, %52 ], [ %44, %45 ], [ %51, %48 ]
   store i32 0, ptr %16, align 4
   %68 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %16) #9
-  %.not105164.i = icmp eq ptr %68, null
-  br i1 %.not105164.i, label %_verify_node_state.exit.thread, label %.lr.ph.i
+  %.not105165.i = icmp eq ptr %68, null
+  br i1 %.not105165.i, label %_verify_node_state.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %67
   %.not106.i = icmp eq i64 %.085.i, 0
@@ -1515,6 +1515,7 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
   %70 = getelementptr inbounds i8, ptr %11, i64 40
   %71 = getelementptr inbounds i8, ptr %0, i64 296
   %72 = getelementptr inbounds i8, ptr %0, i64 392
+  %trunc.i = trunc nuw i32 %7 to i16
   %73 = getelementptr inbounds i8, ptr %0, i64 664
   %.not47.i.i = icmp eq ptr %8, null
   %not..i.i = xor i1 %13, true
@@ -1697,9 +1698,9 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not115.i, label %216, label %178
 
 178:                                              ; preds = %177
-  switch i32 %7, label %184 [
-    i32 64000, label %179
-    i32 0, label %179
+  switch i16 %trunc.i, label %184 [
+    i16 -1536, label %179
+    i16 0, label %179
   ]
 
 179:                                              ; preds = %178, %178
@@ -1800,9 +1801,9 @@ _is_node_busy.exit.i:                             ; preds = %.lr.ph.i.i
   br label %273
 
 216:                                              ; preds = %177
-  switch i32 %7, label %_is_node_busy.exit.thread.i [
-    i32 64000, label %217
-    i32 1, label %241
+  switch i16 %trunc.i, label %_is_node_busy.exit.thread.i [
+    i16 -1536, label %217
+    i16 1, label %241
   ]
 
 217:                                              ; preds = %216
@@ -4947,7 +4948,7 @@ _socks_per_node.exit.i:                           ; preds = %75, %70, %56, %55
 _allocate.exit.i.i:                               ; preds = %174, %173, %162
   %storemerge.i.i.i = phi i32 [ %172, %162 ], [ %180, %174 ], [ 1, %173 ]
   store i32 %storemerge.i.i.i, ptr %19, align 4
-  %181 = call fastcc ptr @_allocate_sc(ptr noundef nonnull readonly %0, ptr noundef %161, ptr noundef %.0150.i.i, i32 noundef %104, ptr noundef nonnull %19, i1 noundef zeroext %.not.i.i.i, ptr noundef %159)
+  %181 = call fastcc ptr @_allocate_sc(ptr noundef nonnull readonly %0, ptr noundef %161, ptr noundef %.0150.i.i, i32 noundef %104, ptr noundef %19, i1 noundef zeroext %.not.i.i.i, ptr noundef %159)
   %182 = load ptr, ptr %20, align 8
   %.not175.i.i = icmp eq ptr %182, null
   br i1 %.not175.i.i, label %184, label %183
@@ -5848,7 +5849,7 @@ declare i32 @gres_select_filter_remove_unusable(ptr noundef, i64 noundef, i16 no
 declare void @bit_clear_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_allocate_sc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @_allocate_sc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
@@ -6811,7 +6812,7 @@ declare ptr @find_job_record(i32 noundef) local_unnamed_addr #1
 declare zeroext i16 @slurm_job_preempt_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_job_res_rm_job(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_job_res_rm_job(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.wrapper_rm_job_args_t, align 8
   store i32 %4, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8

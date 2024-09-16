@@ -283,7 +283,7 @@ entry:
   br i1 %cmp, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc ptr @sm2_sig_gen(ptr noundef %key, ptr noundef nonnull %call)
+  %call1 = tail call fastcc ptr @sm2_sig_gen(ptr noundef %key, ptr noundef %call)
   br label %done
 
 done:                                             ; preds = %entry, %if.end
@@ -369,7 +369,7 @@ done:                                             ; preds = %done.sink.split, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sm2_sig_gen(ptr noundef %key, ptr noundef %e) unnamed_addr #0 {
+define internal fastcc ptr @sm2_sig_gen(ptr noundef %key, ptr noundef nonnull %e) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EC_KEY_get0_private_key(ptr noundef %key) #3
   %call1 = tail call ptr @EC_KEY_get0_group(ptr noundef %key) #3
@@ -417,7 +417,7 @@ lor.lhs.false27:                                  ; preds = %if.end24
   br i1 %tobool29.not, label %if.then74, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false27
-  %call31 = tail call i32 @BN_mod_add(ptr noundef %call16, ptr noundef %e, ptr noundef %call11, ptr noundef %call2, ptr noundef nonnull %call5) #3
+  %call31 = tail call i32 @BN_mod_add(ptr noundef %call16, ptr noundef nonnull %e, ptr noundef %call11, ptr noundef %call2, ptr noundef nonnull %call5) #3
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then74, label %if.end34
 
@@ -512,7 +512,7 @@ entry:
   br i1 %cmp, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @sm2_sig_verify(ptr noundef %key, ptr noundef %sig, ptr noundef nonnull %call)
+  %call1 = tail call fastcc i32 @sm2_sig_verify(ptr noundef %key, ptr noundef %sig, ptr noundef %call)
   br label %done
 
 done:                                             ; preds = %entry, %if.end
@@ -522,7 +522,7 @@ done:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %key, ptr noundef %sig, ptr noundef %e) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %key, ptr noundef %sig, ptr noundef nonnull %e) unnamed_addr #0 {
 entry:
   %r = alloca ptr, align 8
   %s = alloca ptr, align 8
@@ -633,7 +633,7 @@ if.then39:                                        ; preds = %lor.lhs.false36, %i
   br label %done
 
 if.end40:                                         ; preds = %lor.lhs.false36
-  %call41 = call i32 @BN_mod_add(ptr noundef %call6, ptr noundef %e, ptr noundef nonnull %call7, ptr noundef %call1, ptr noundef nonnull %call3) #3
+  %call41 = call i32 @BN_mod_add(ptr noundef %call6, ptr noundef nonnull %e, ptr noundef nonnull %call7, ptr noundef %call1, ptr noundef nonnull %call3) #3
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.then43, label %if.end44
 
@@ -674,7 +674,7 @@ if.then:                                          ; preds = %entry
   br label %done
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc ptr @sm2_sig_gen(ptr noundef %eckey, ptr noundef nonnull %call)
+  %call1 = tail call fastcc ptr @sm2_sig_gen(ptr noundef %eckey, ptr noundef %call)
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -777,7 +777,7 @@ if.then18:                                        ; preds = %if.end14
 
 if.end19:                                         ; preds = %if.end14
   %2 = load ptr, ptr %s, align 8
-  %call20 = call fastcc i32 @sm2_sig_verify(ptr noundef %eckey, ptr noundef %2, ptr noundef nonnull %call15)
+  %call20 = call fastcc i32 @sm2_sig_verify(ptr noundef %eckey, ptr noundef %2, ptr noundef %call15)
   br label %done
 
 done:                                             ; preds = %if.end19, %if.then18, %if.then13, %if.then4, %if.then

@@ -473,8 +473,8 @@ define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1
 declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @edid_block_status_print(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #3 align 16 {
-  switch i32 %0, label %default.unreachable [
+define internal fastcc void @edid_block_status_print(i32 noundef range(i32 0, 9) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #3 align 16 {
+  switch i32 %0, label %default.unreachable1 [
     i32 0, label %28
     i32 1, label %28
     i32 2, label %28
@@ -523,7 +523,7 @@ define internal fastcc void @edid_block_status_print(i32 noundef %0, ptr nocaptu
   %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %26) #22
   br label %28
 
-default.unreachable:                              ; preds = %3
+default.unreachable1:                             ; preds = %3
   unreachable
 
 28:                                               ; preds = %23, %19, %8, %6, %4, %3, %3, %3, %3, %3
@@ -9743,11 +9743,11 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local void @print_hex_dump(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @connector_bad_edid(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @connector_bad_edid(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, 257) %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 126
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
-  %7 = icmp sgt i32 %2, %6
+  %7 = icmp ugt i32 %2, %6
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %3
@@ -12185,7 +12185,7 @@ drm_for_each_detailed_block.exit21:               ; preds = %324
 declare dso_local ptr @drm_gtf_mode(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 16 {
+define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 -32768, 32768) %2, i32 noundef range(i32 -32768, 32768) %3, i32 noundef range(i32 -32768, 32768) %4) unnamed_addr #3 align 16 {
   %6 = tail call ptr @drm_gtf_mode(ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, i32 noundef 0) #21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %629, label %8

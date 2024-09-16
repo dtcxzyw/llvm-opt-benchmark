@@ -1347,7 +1347,7 @@ llvm_append_xxlizer.exit:                         ; preds = %expand_.exit.i, %10
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr inbounds i8, ptr %192, i64 40
   %377 = load i32, ptr %376, align 8
-  call fastcc void @llvm_expand_from_args(ptr noundef nonnull %0, ptr noundef %373, ptr noundef %375, ptr noundef nonnull %6, i32 noundef %377)
+  call fastcc void @llvm_expand_from_args(ptr noundef nonnull %0, ptr noundef %373, ptr noundef %375, ptr noundef %6, i32 noundef %377)
   br label %llvm_process_parameter_value.exit.i.i
 
 llvm_process_parameter_value.exit.i.i:            ; preds = %.lr.ph.i.i.i, %371, %360, %339, %312, %306, %301, %265, %205, %199, %190
@@ -2122,7 +2122,7 @@ declare ptr @llvm_emit_struct_gep_raw(ptr noundef, ptr noundef, ptr noundef, i32
 declare void @llvm_emit_coerce_store(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_expand_from_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @llvm_expand_from_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   br label %tailrecurse

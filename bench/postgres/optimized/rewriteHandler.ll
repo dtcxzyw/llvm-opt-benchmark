@@ -2161,7 +2161,7 @@ list_length.exit.i:                               ; preds = %143, %searchForDefa
 
 view_has_instead_trigger.exit.i:                  ; preds = %186, %183
   %190 = load i32, ptr %69, align 8
-  %191 = call fastcc ptr @matchLocks(i32 noundef 3, ptr noundef nonnull readonly %80, i32 noundef %190, ptr noundef %0, ptr noundef nonnull %8)
+  %191 = call fastcc ptr @matchLocks(i32 noundef 3, ptr noundef nonnull readonly %80, i32 noundef %190, ptr noundef %0, ptr noundef %8)
   %.not105.i = icmp eq ptr %191, null
   br i1 %.not105.i, label %view_has_instead_trigger.exit.thread.i, label %.lr.ph144.i
 
@@ -2531,7 +2531,7 @@ rewriteValuesRTE.exit:                            ; preds = %._crit_edge160.i
 .thread377:                                       ; preds = %371, %348, %.lr.ph512, %68, %341, %326, %329, %333
   %.1243 = phi i1 [ %.0242, %333 ], [ %.0242, %329 ], [ %.0242, %326 ], [ false, %341 ], [ false, %68 ], [ false, %.lr.ph512 ], [ false, %348 ], [ false, %371 ]
   %.2240 = phi i32 [ %.0238.lcssa681, %333 ], [ %.0238.lcssa681, %329 ], [ %.0238.lcssa681, %326 ], [ 0, %341 ], [ 0, %68 ], [ 0, %.lr.ph512 ], [ 0, %348 ], [ 0, %371 ]
-  %378 = call fastcc ptr @matchLocks(i32 noundef %12, ptr noundef %80, i32 noundef %70, ptr noundef %0, ptr noundef nonnull %9)
+  %378 = call fastcc ptr @matchLocks(i32 noundef %12, ptr noundef %80, i32 noundef %70, ptr noundef %0, ptr noundef %9)
   %379 = load ptr, ptr %71, align 8
   %.not.i300 = icmp eq ptr %379, null
   br i1 %.not.i300, label %list_length.exit301, label %380
@@ -6049,7 +6049,7 @@ process_matched_tle.exit:                         ; preds = %55, %152
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @matchLocks(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @matchLocks(i32 noundef range(i32 2, 1) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null

@@ -494,7 +494,7 @@ if.end49:                                         ; preds = %if.then43
 if.end54:                                         ; preds = %if.end49
   %14 = load ptr, ptr %key44, align 8
   %15 = load i64, ptr %keylen45, align 8
-  %call57 = call fastcc i32 @kek_wrap_key(ptr noundef nonnull %call50, ptr noundef nonnull %keylen, ptr noundef %14, i64 noundef %15, ptr noundef nonnull %call20, ptr noundef %call)
+  %call57 = call fastcc i32 @kek_wrap_key(ptr noundef nonnull %call50, ptr noundef %keylen, ptr noundef %14, i64 noundef %15, ptr noundef %call20, ptr noundef %call)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err, label %if.end60
 
@@ -524,7 +524,7 @@ if.end70:                                         ; preds = %if.else
   %22 = load ptr, ptr %data72, align 8
   %23 = load i32, ptr %21, align 8
   %conv75 = sext i32 %23 to i64
-  %call76 = call fastcc i32 @kek_unwrap_key(ptr noundef nonnull %call66, ptr noundef nonnull %keylen, ptr noundef %22, i64 noundef %conv75, ptr noundef nonnull %call20)
+  %call76 = call fastcc i32 @kek_unwrap_key(ptr noundef %call66, ptr noundef %keylen, ptr noundef %22, i64 noundef %conv75, ptr noundef %call20)
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %if.then78, label %if.end79
 
@@ -586,10 +586,10 @@ declare i32 @EVP_CIPHER_asn1_to_param(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @EVP_PBE_CipherInit(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %out, ptr nocapture noundef writeonly %outlen, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr noundef %ctx, ptr noundef %cms_ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %out, ptr nocapture noundef nonnull writeonly %outlen, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr noundef nonnull %ctx, ptr noundef %cms_ctx) unnamed_addr #0 {
 entry:
   %dummy = alloca i32, align 4
-  %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %ctx) #4
+  %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef nonnull %ctx) #4
   %call.fr = freeze i32 %call
   %conv = sext i32 %call.fr to i64
   %add = add i64 %inlen, 4
@@ -640,12 +640,12 @@ land.lhs.true:                                    ; preds = %if.then8
 
 if.end36:                                         ; preds = %land.lhs.true, %if.then8
   %conv37 = trunc i64 %mul to i32
-  %call38 = call i32 @EVP_EncryptUpdate(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef nonnull %dummy, ptr noundef nonnull %out, i32 noundef %conv37) #4
+  %call38 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %dummy, ptr noundef nonnull %out, i32 noundef %conv37) #4
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end36
-  %call41 = call i32 @EVP_EncryptUpdate(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef nonnull %dummy, ptr noundef nonnull %out, i32 noundef %conv37) #4
+  %call41 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %dummy, ptr noundef nonnull %out, i32 noundef %conv37) #4
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %return, label %if.end45
 
@@ -661,10 +661,10 @@ return:                                           ; preds = %if.end36, %lor.lhs.
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kek_unwrap_key(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i64 noundef %inlen, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kek_unwrap_key(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull writeonly %outlen, ptr noundef %in, i64 noundef range(i64 -2147483648, 2147483648) %inlen, ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %outl = alloca i32, align 4
-  %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %ctx) #4
+  %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef nonnull %ctx) #4
   %conv = sext i32 %call to i64
   %mul = shl nsw i64 %conv, 1
   %cmp = icmp ult i64 %inlen, %mul
@@ -687,31 +687,31 @@ if.end8:                                          ; preds = %if.end3
   %add.ptr11 = getelementptr inbounds i8, ptr %in, i64 %inlen
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr11, i64 %idx.neg
   %conv16 = trunc i64 %mul to i32
-  %call17 = call i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef nonnull %add.ptr10, ptr noundef nonnull %outl, ptr noundef nonnull %add.ptr14, i32 noundef %conv16) #4
+  %call17 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %add.ptr10, ptr noundef nonnull %outl, ptr noundef nonnull %add.ptr14, i32 noundef %conv16) #4
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end8
   %idx.neg20 = sub nsw i64 0, %conv
   %add.ptr21 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg20
-  %call23 = call i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef nonnull %call4, ptr noundef nonnull %outl, ptr noundef nonnull %add.ptr21, i32 noundef %call) #4
+  %call23 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %call4, ptr noundef nonnull %outl, ptr noundef nonnull %add.ptr21, i32 noundef %call) #4
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %err, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false
-  %0 = trunc i64 %inlen to i32
+  %0 = trunc nsw i64 %inlen to i32
   %conv26 = sub i32 %0, %call
-  %call27 = call i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef nonnull %call4, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %conv26) #4
+  %call27 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %call4, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %conv26) #4
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %err, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %lor.lhs.false25
-  %call30 = call i32 @EVP_DecryptInit_ex(ptr noundef %ctx, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #4
+  %call30 = call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #4
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false29
-  %call34 = call i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef nonnull %call4, ptr noundef nonnull %outl, ptr noundef nonnull %call4, i32 noundef %0) #4
+  %call34 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %call4, ptr noundef nonnull %outl, ptr noundef nonnull %call4, i32 noundef %0) #4
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %err, label %if.end37
 
@@ -745,7 +745,7 @@ if.end55:                                         ; preds = %if.end37
 
 if.end63:                                         ; preds = %if.end55
   store i64 %conv57, ptr %outlen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %arrayidx39, i64 %conv57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out, ptr nonnull align 1 %arrayidx39, i64 %conv57, i1 false)
   br label %err
 
 err:                                              ; preds = %if.end55, %if.end37, %if.end8, %lor.lhs.false, %lor.lhs.false25, %lor.lhs.false29, %lor.lhs.false32, %if.end63

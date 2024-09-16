@@ -6499,7 +6499,7 @@ _ZN5clang8DeclStmt5declsEv.exit.i:                ; preds = %2236, %2232
   br i1 %2250, label %2251, label %2255
 
 2251:                                             ; preds = %2249
-  %2252 = call fastcc noundef ptr @_ZL15getSelfInitExprPN5clang7VarDeclE(ptr noundef nonnull %2243)
+  %2252 = call fastcc noundef ptr @_ZL15getSelfInitExprPN5clang7VarDeclE(ptr noundef %2243)
   store ptr %2252, ptr %77, align 8
   %.not14.i = icmp eq ptr %2252, null
   br i1 %.not14.i, label %2255, label %2253
@@ -7107,7 +7107,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %39, %44
   br i1 %.not, label %55, label %53
 
 53:                                               ; preds = %47
-  %54 = tail call fastcc noundef zeroext i1 @_ZL16recordIsNotEmptyPKN5clang10RecordDeclE(ptr noundef nonnull %52)
+  %54 = tail call fastcc noundef zeroext i1 @_ZL16recordIsNotEmptyPKN5clang10RecordDeclE(ptr noundef %52)
   br label %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread
 
 55:                                               ; preds = %47
@@ -7173,7 +7173,7 @@ define internal fastcc noundef zeroext i1 @_ZL16recordIsNotEmptyPKN5clang10Recor
   br i1 %.not, label %._crit_edge, label %18
 
 18:                                               ; preds = %12
-  %19 = tail call fastcc noundef zeroext i1 @_ZL16recordIsNotEmptyPKN5clang10RecordDeclE(ptr noundef nonnull %17)
+  %19 = tail call fastcc noundef zeroext i1 @_ZL16recordIsNotEmptyPKN5clang10RecordDeclE(ptr noundef %17)
   br i1 %19, label %._crit_edge, label %20
 
 20:                                               ; preds = %18, %9, %.lr.ph
@@ -10229,7 +10229,7 @@ _ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE9referencecvS1_Ev.exit.i:
 205:                                              ; preds = %_ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE9referencecvS1_Ev.exit.i
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %207 = load ptr, ptr %206, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117TransferFunctions12getUninitUseEPKN5clang4ExprEPKNS1_7VarDeclE5Value(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %142, i32 noundef 2)
+  call fastcc void @_ZN12_GLOBAL__N_117TransferFunctions12getUninitUseEPKN5clang4ExprEPKNS1_7VarDeclE5Value(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %142, i32 noundef 2)
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 24
   %210 = load ptr, ptr %209, align 8
@@ -11011,7 +11011,7 @@ _ZN5clang8DeclStmt5declsEv.exit:                  ; preds = %8, %12
   br i1 %30, label %31, label %_ZN4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE9referenceaSES1_.exit
 
 31:                                               ; preds = %27
-  %32 = tail call fastcc noundef ptr @_ZL15getSelfInitExprPN5clang7VarDeclE(ptr noundef nonnull %21)
+  %32 = tail call fastcc noundef ptr @_ZL15getSelfInitExprPN5clang7VarDeclE(ptr noundef %21)
   %.not26 = icmp eq ptr %32, null
   br i1 %.not26, label %115, label %33
 
@@ -11728,7 +11728,7 @@ _ZN4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE9referenceaSES1_.exit: ; p
 declare noundef zeroext i1 @_ZN5clang12ObjCNoReturn18isImplicitNoReturnEPKNS_15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114CFGBlockValues19setAllScratchValuesE5Value(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114CFGBlockValues19setAllScratchValuesE5Value(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 1
@@ -11967,7 +11967,7 @@ _ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE9referencecvS1_Ev.exit: ;
 67:                                               ; preds = %_ZNK4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE9referencecvS1_Ev.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %69 = load ptr, ptr %68, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117TransferFunctions12getUninitUseEPKN5clang4ExprEPKNS1_7VarDeclE5Value(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, i32 noundef %.us-phi.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_117TransferFunctions12getUninitUseEPKN5clang4ExprEPKNS1_7VarDeclE5Value(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, i32 noundef %.us-phi.i.i)
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
@@ -11988,7 +11988,7 @@ _ZN5clang9UninitUseD2Ev.exit:                     ; preds = %78, %67, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TransferFunctions12getUninitUseEPKN5clang4ExprEPKNS1_7VarDeclE5Value(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TransferFunctions12getUninitUseEPKN5clang4ExprEPKNS1_7VarDeclE5Value(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SmallVector.776", align 8
   %7 = alloca %"class.llvm::SmallVector.778", align 8
   %8 = icmp eq i32 %4, 2
@@ -13163,7 +13163,7 @@ declare void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 d
 declare void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL15getSelfInitExprPN5clang7VarDeclE(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL15getSelfInitExprPN5clang7VarDeclE(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %3 = and i64 %.sroa.0.0.copyload.i, -16

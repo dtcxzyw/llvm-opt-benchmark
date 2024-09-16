@@ -1482,7 +1482,7 @@ Vec_WecInit.exit43:                               ; preds = %Vec_WecInit.exit, %
 
 119:                                              ; preds = %113
   %120 = shl nsw i32 %117, 1
-  %121 = call noundef i32 @llvm.smax.i32(i32 %120, i32 %104)
+  %121 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %120, i32 %104)
   %122 = load i32, ptr %58, align 8
   %.not.i.i44.us = icmp slt i32 %122, %121
   br i1 %.not.i.i44.us, label %123, label %Vec_WecGrow.exit.i.us
@@ -1594,7 +1594,7 @@ Vec_WecPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
 172:                                              ; preds = %Vec_WecPush.exit.us
   %173 = add nsw i32 %116, 1
   %174 = shl nsw i32 %171, 1
-  %175 = call noundef i32 @llvm.smax.i32(i32 %174, i32 %173)
+  %175 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %174, i32 %173)
   %176 = load i32, ptr %77, align 8
   %.not.i.i48.us = icmp slt i32 %176, %175
   br i1 %.not.i.i48.us, label %177, label %Vec_WecGrow.exit.i49.us

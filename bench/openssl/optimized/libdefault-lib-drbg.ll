@@ -493,7 +493,7 @@ if.then55:                                        ; preds = %if.else51
 if.else62:                                        ; preds = %if.else51
   %max_noncelen64 = getelementptr inbounds i8, ptr %drbg, i64 168
   %15 = load i64, ptr %max_noncelen64, align 8
-  %call65 = call fastcc i64 @prov_drbg_get_nonce(ptr noundef nonnull %drbg, ptr noundef nonnull %nonce, i64 noundef %5, i64 noundef %15)
+  %call65 = call fastcc i64 @prov_drbg_get_nonce(ptr noundef nonnull %drbg, ptr noundef %nonce, i64 noundef %5, i64 noundef %15)
   %16 = load i64, ptr %min_noncelen, align 8
   %cmp67 = icmp ult i64 %call65, %16
   br i1 %cmp67, label %if.then72, label %lor.lhs.false
@@ -522,7 +522,7 @@ if.end76:                                         ; preds = %if.end40, %lor.lhs.
   %spec.store.select = call i32 @llvm.umax.i32(i32 %inc, i32 1)
   %storemerge = select i1 %tobool.not, i32 0, i32 %spec.store.select
   store i32 %storemerge, ptr %reseed_next_counter, align 4
-  %call87 = call fastcc i64 @get_entropy(ptr noundef nonnull %drbg, ptr noundef nonnull %entropy, i32 noundef %min_entropy.0, i64 noundef %min_entropylen.0, i64 noundef %max_entropylen.0, i32 noundef %prediction_resistance)
+  %call87 = call fastcc i64 @get_entropy(ptr noundef nonnull %drbg, ptr noundef %entropy, i32 noundef %min_entropy.0, i64 noundef %min_entropylen.0, i64 noundef %max_entropylen.0, i32 noundef %prediction_resistance)
   %cmp88 = icmp ult i64 %call87, %min_entropylen.0
   %cmp91 = icmp ugt i64 %call87, %max_entropylen.0
   %or.cond = or i1 %cmp88, %cmp91
@@ -585,7 +585,7 @@ if.end106:                                        ; preds = %if.then105, %end
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @prov_drbg_get_nonce(ptr noundef %drbg, ptr noundef %pout, i64 noundef %min_len, i64 noundef %max_len) unnamed_addr #1 {
+define internal fastcc i64 @prov_drbg_get_nonce(ptr noundef %drbg, ptr noundef nonnull %pout, i64 noundef range(i64 1, 0) %min_len, i64 noundef %max_len) unnamed_addr #1 {
 entry:
   %data = alloca %struct.anon, align 8
   %provctx = getelementptr inbounds i8, ptr %drbg, i64 8
@@ -651,7 +651,7 @@ if.end22:                                         ; preds = %if.then4, %land.lhs
 
 if.end26:                                         ; preds = %if.end22
   %11 = load ptr, ptr %provctx, align 8
-  %call28 = call i64 @ossl_prov_get_nonce(ptr noundef %11, ptr noundef %pout, i64 noundef %min_len, i64 noundef %max_len, ptr noundef nonnull %data, i64 noundef 16) #8
+  %call28 = call i64 @ossl_prov_get_nonce(ptr noundef %11, ptr noundef nonnull %pout, i64 noundef %min_len, i64 noundef %max_len, ptr noundef nonnull %data, i64 noundef 16) #8
   br label %return
 
 return:                                           ; preds = %if.end22, %entry, %if.end26, %if.then19
@@ -660,7 +660,7 @@ return:                                           ; preds = %if.end22, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @get_entropy(ptr noundef %drbg, ptr noundef %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance) unnamed_addr #1 {
+define internal fastcc i64 @get_entropy(ptr noundef %drbg, ptr noundef nonnull %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance) unnamed_addr #1 {
 entry:
   %drbg.addr = alloca ptr, align 8
   %p_str = alloca i32, align 4
@@ -673,7 +673,7 @@ entry:
 if.then:                                          ; preds = %entry
   %provctx = getelementptr inbounds i8, ptr %drbg, i64 8
   %1 = load ptr, ptr %provctx, align 8
-  %call = tail call i64 @ossl_prov_get_entropy(ptr noundef %1, ptr noundef %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len) #8
+  %call = tail call i64 @ossl_prov_get_entropy(ptr noundef %1, ptr noundef nonnull %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len) #8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -689,7 +689,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call fastcc i32 @get_parent_strength(ptr noundef nonnull %drbg, ptr noundef nonnull %p_str)
+  %call4 = call fastcc i32 @get_parent_strength(ptr noundef nonnull %drbg, ptr noundef %p_str)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %if.end6
 
@@ -737,7 +737,7 @@ if.end13:                                         ; preds = %land.lhs.true3.i.if
   %7 = phi i32 [ %.pre11, %land.lhs.true3.i.if.end13_crit_edge ], [ %3, %land.lhs.true.i ], [ %3, %if.end9 ]
   %8 = phi ptr [ %.pre, %land.lhs.true3.i.if.end13_crit_edge ], [ %5, %land.lhs.true.i ], [ null, %if.end9 ]
   %9 = load ptr, ptr %parent_get_seed, align 8
-  %call17 = call i64 %9(ptr noundef %8, ptr noundef %pout, i32 noundef %7, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr noundef nonnull %drbg.addr, i64 noundef 8) #8
+  %call17 = call i64 %9(ptr noundef %8, ptr noundef nonnull %pout, i32 noundef %7, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr noundef nonnull %drbg.addr, i64 noundef 8) #8
   %10 = load ptr, ptr %drbg.addr, align 8
   %parent1.i4 = getelementptr inbounds i8, ptr %10, i64 48
   %11 = load ptr, ptr %parent1.i4, align 8
@@ -1001,7 +1001,7 @@ if.end46:                                         ; preds = %if.then41, %if.end2
   %11 = load i64, ptr %min_entropylen47, align 8
   %max_entropylen48 = getelementptr inbounds i8, ptr %drbg, i64 152
   %12 = load i64, ptr %max_entropylen48, align 8
-  %call49 = call fastcc i64 @get_entropy(ptr noundef nonnull %drbg, ptr noundef nonnull %entropy, i32 noundef %10, i64 noundef %11, i64 noundef %12, i32 noundef %prediction_resistance)
+  %call49 = call fastcc i64 @get_entropy(ptr noundef nonnull %drbg, ptr noundef %entropy, i32 noundef %10, i64 noundef %11, i64 noundef %12, i32 noundef %prediction_resistance)
   %13 = load i64, ptr %min_entropylen47, align 8
   %cmp51 = icmp ult i64 %call49, %13
   br i1 %cmp51, label %if.then54, label %lor.lhs.false
@@ -1398,7 +1398,7 @@ if.end49:                                         ; preds = %if.end45
   br i1 %cmp50.not, label %return, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  %call52 = call fastcc i32 @get_parent_strength(ptr noundef nonnull %call1, ptr noundef nonnull %p_str)
+  %call52 = call fastcc i32 @get_parent_strength(ptr noundef nonnull %call1, ptr noundef %p_str)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %ossl_rand_drbg_free.exit, label %if.end55
 
@@ -1427,7 +1427,7 @@ return:                                           ; preds = %if.end49, %if.end55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_parent_strength(ptr nocapture noundef readonly %drbg, ptr noundef %str) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @get_parent_strength(ptr nocapture noundef readonly %drbg, ptr noundef nonnull %str) unnamed_addr #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1447,7 +1447,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef %str) #8
+  call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %str) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %3 = load ptr, ptr %parent1, align 8
   %cmp.not.i = icmp eq ptr %3, null

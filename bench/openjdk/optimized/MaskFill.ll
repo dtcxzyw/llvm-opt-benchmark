@@ -365,7 +365,7 @@ define void @Java_sun_java2d_loops_MaskFill_FillAAPgram(ptr noundef %0, ptr noun
   %.2150 = select i1 %40, double %120, double %.1149
   %121 = fadd double %.0155, %.2150
   %122 = fadd double %.1147, %.1161
-  call fastcc void @fillAARect(ptr noundef nonnull %55, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %89, ptr noundef nonnull %95, ptr noundef %116, double noundef %.0155, double noundef %.1147, double noundef %121, double noundef %122)
+  call fastcc void @fillAARect(ptr noundef %55, ptr noundef %12, ptr noundef %13, i32 noundef %89, ptr noundef %95, ptr noundef %116, double noundef %.0155, double noundef %.1147, double noundef %121, double noundef %122)
   br label %131
 
 123:                                              ; preds = %102
@@ -380,11 +380,11 @@ define void @Java_sun_java2d_loops_MaskFill_FillAAPgram(ptr noundef %0, ptr noun
   %.2159 = select i1 %42, double %128, double %.1158
   %.3 = select i1 %42, double %127, double %.1
   %129 = fadd double %.3, %.2159
-  call fastcc void @fillAARect(ptr noundef nonnull %55, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %89, ptr noundef nonnull %95, ptr noundef %116, double noundef %.3, double noundef %.1147, double noundef %129, double noundef %51)
+  call fastcc void @fillAARect(ptr noundef %55, ptr noundef %12, ptr noundef %13, i32 noundef %89, ptr noundef %95, ptr noundef %116, double noundef %.3, double noundef %.1147, double noundef %129, double noundef %51)
   br label %131
 
 130:                                              ; preds = %123
-  call fastcc void @fillAAPgram(ptr noundef nonnull %55, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %89, ptr noundef nonnull %95, ptr noundef %116, double noundef %.1, double noundef %.1147, double noundef %.1149, double noundef %.1152, double noundef %.1158, double noundef %.1161)
+  call fastcc void @fillAAPgram(ptr noundef %55, ptr noundef %12, ptr noundef %13, i32 noundef %89, ptr noundef %95, ptr noundef %116, double noundef %.1, double noundef %.1147, double noundef %.1149, double noundef %.1152, double noundef %.1158, double noundef %.1161)
   br label %131
 
 131:                                              ; preds = %94, %126, %130, %119
@@ -434,7 +434,7 @@ declare void @SurfaceData_IntersectBoundsXYXY(ptr noundef, i32 noundef, i32 noun
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) unnamed_addr #0 {
+define internal fastcc void @fillAARect(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) unnamed_addr #0 {
   %11 = load i32, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
@@ -482,7 +482,7 @@ define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noun
   %46 = fmul double %.0158, 0x406FFFFF2E48E8A7
   %47 = fptoui double %46 to i8
   %48 = zext nneg i32 %26 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 %47, i64 %48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 %47, i64 %48, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %44
@@ -513,7 +513,7 @@ define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noun
 63:                                               ; preds = %56, %54
   %64 = getelementptr inbounds i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef %5, ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %26, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %65(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %26, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   %66 = ptrtoint ptr %5 to i64
   %67 = sext i32 %28 to i64
   %68 = add nsw i64 %67, %66
@@ -541,7 +541,7 @@ define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noun
   store i8 %80, ptr %4, align 1
   %81 = getelementptr inbounds i8, ptr %0, i64 32
   %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef %.0152, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %76, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %82(ptr noundef %.0152, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %76, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   %83 = ptrtoint ptr %.0152 to i64
   %84 = getelementptr inbounds i8, ptr %1, i64 28
   %85 = load i32, ptr %84, align 4
@@ -564,7 +564,7 @@ define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noun
   %95 = sub nsw i32 %94, %.0156
   %96 = getelementptr inbounds i8, ptr %0, i64 32
   %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef %.0154, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %95, i32 noundef %76, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %97(ptr noundef %.0154, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %95, i32 noundef %76, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   %98 = ptrtoint ptr %.0154 to i64
   %99 = sext i32 %95 to i64
   %100 = getelementptr inbounds i8, ptr %1, i64 28
@@ -587,7 +587,7 @@ define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noun
   store i8 %110, ptr %4, align 1
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   %112 = load ptr, ptr %111, align 8
-  tail call void %112(ptr noundef %.1155, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %76, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %112(ptr noundef %.1155, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %76, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %113
 
 113:                                              ; preds = %108, %106
@@ -613,7 +613,7 @@ define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noun
   %124 = fmul double %36, 0x406FFFFF2E48E8A7
   %125 = fptoui double %124 to i8
   %126 = zext nneg i32 %26 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 %125, i64 %126, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 %125, i64 %126, i1 false)
   br label %._crit_edge179
 
 ._crit_edge179:                                   ; preds = %.lr.ph178.preheader, %122
@@ -644,7 +644,7 @@ define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noun
 141:                                              ; preds = %134, %132
   %142 = getelementptr inbounds i8, ptr %0, i64 32
   %143 = load ptr, ptr %142, align 8
-  tail call void %143(ptr noundef %.1, ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %26, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %143(ptr noundef %.1, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %26, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %144
 
 144:                                              ; preds = %141, %120
@@ -652,7 +652,7 @@ define internal fastcc void @fillAARect(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11) unnamed_addr #0 {
+define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11) unnamed_addr #0 {
   %13 = alloca [4 x %struct.EdgeInfo], align 16
   %14 = alloca [1025 x float], align 16
   %15 = load i32, ptr %1, align 8
@@ -664,19 +664,19 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %21 = load i32, ptr %20, align 4
   %22 = sub nsw i32 %19, %15
   %23 = getelementptr inbounds i8, ptr %13, i64 176
-  %24 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %13, double noundef %6, double noundef %7, double noundef %8, double noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 0)
+  %24 = call fastcc zeroext i8 @storeEdge(ptr noundef %13, double noundef %6, double noundef %7, double noundef %8, double noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 0)
   %25 = getelementptr inbounds i8, ptr %13, i64 88
   %26 = fadd double %6, %8
   %27 = fadd double %7, %9
-  %28 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %25, double noundef %26, double noundef %27, double noundef %10, double noundef %11, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 0)
+  %28 = call fastcc zeroext i8 @storeEdge(ptr noundef %25, double noundef %26, double noundef %27, double noundef %10, double noundef %11, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 0)
   %29 = icmp eq i8 %28, 0
   %30 = icmp eq i8 %24, 0
-  %31 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %23, double noundef %6, double noundef %7, double noundef %10, double noundef %11, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 1)
+  %31 = call fastcc zeroext i8 @storeEdge(ptr noundef %23, double noundef %6, double noundef %7, double noundef %10, double noundef %11, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 1)
   %32 = icmp eq i8 %31, 0
   %33 = getelementptr inbounds i8, ptr %13, i64 264
   %34 = fadd double %6, %10
   %35 = fadd double %7, %11
-  %36 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %33, double noundef %34, double noundef %35, double noundef %8, double noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 1)
+  %36 = call fastcc zeroext i8 @storeEdge(ptr noundef %33, double noundef %34, double noundef %35, double noundef %8, double noundef %9, i32 noundef %17, i32 noundef %19, i32 noundef %21, i8 noundef zeroext 1)
   %37 = icmp eq i8 %36, 0
   %.not595 = select i1 %37, i1 %32, i1 false
   %.not592 = select i1 %.not595, i1 %29, i1 false
@@ -1440,7 +1440,7 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %459 = add nsw i64 %458, %.0679
   %460 = inttoptr i64 %459 to ptr
   %461 = load ptr, ptr %127, align 8
-  tail call void %461(ptr noundef %460, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %443, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %461(ptr noundef %460, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %443, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %462
 
 462:                                              ; preds = %453, %452
@@ -1459,7 +1459,7 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %472 = inttoptr i64 %471 to ptr
   %473 = load ptr, ptr %127, align 8
   %474 = sub nsw i32 %464, %451
-  tail call void %473(ptr noundef %472, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %474, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %473(ptr noundef %472, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %474, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %._crit_edge657.thread
 
 475:                                              ; preds = %._crit_edge657
@@ -1518,7 +1518,7 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %493 = add nsw i64 %492, %.0679
   %494 = inttoptr i64 %493 to ptr
   %495 = load ptr, ptr %127, align 8
-  tail call void %495(ptr noundef %494, ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %.3481.lcssa754, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %495(ptr noundef %494, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %.3481.lcssa754, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %496
 
 496:                                              ; preds = %487, %._crit_edge667
@@ -1747,7 +1747,7 @@ define void @Java_sun_java2d_loops_MaskFill_DrawAAPgram(ptr noundef %0, ptr noun
   %138 = add i64 %132, %127
   %139 = add i64 %138, %137
   %140 = inttoptr i64 %139 to ptr
-  call fastcc void @drawAAPgram(ptr noundef nonnull %79, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %113, ptr noundef nonnull %119, ptr noundef %140, double noundef %48, double noundef %51, double noundef %.1161, double noundef %.1163, double noundef %.1169, double noundef %.1171, double noundef %42, double noundef %43, double noundef %44, double noundef %45)
+  call fastcc void @drawAAPgram(ptr noundef %79, ptr noundef %14, ptr noundef %15, i32 noundef %113, ptr noundef %119, ptr noundef %140, double noundef %48, double noundef %51, double noundef %.1161, double noundef %.1163, double noundef %.1169, double noundef %.1171, double noundef %42, double noundef %43, double noundef %44, double noundef %45)
   br label %141
 
 141:                                              ; preds = %118, %126
@@ -1784,7 +1784,7 @@ define void @Java_sun_java2d_loops_MaskFill_DrawAAPgram(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %14, double noundef %15) unnamed_addr #0 {
+define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %14, double noundef %15) unnamed_addr #0 {
   %17 = alloca [8 x %struct.EdgeInfo], align 16
   %18 = alloca [1025 x float], align 16
   %19 = load i32, ptr %1, align 8
@@ -1800,19 +1800,19 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %29 = fadd double %9, %13
   %30 = fadd double %10, %14
   %31 = fadd double %11, %15
-  %32 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %17, double noundef %6, double noundef %7, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
+  %32 = call fastcc zeroext i8 @storeEdge(ptr noundef %17, double noundef %6, double noundef %7, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %33 = getelementptr inbounds i8, ptr %17, i64 88
   %34 = fadd double %6, %28
   %35 = fadd double %7, %29
-  %36 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %33, double noundef %34, double noundef %35, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
+  %36 = call fastcc zeroext i8 @storeEdge(ptr noundef %33, double noundef %34, double noundef %35, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %37 = icmp eq i8 %36, 0
   %38 = icmp eq i8 %32, 0
-  %39 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %27, double noundef %6, double noundef %7, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
+  %39 = call fastcc zeroext i8 @storeEdge(ptr noundef %27, double noundef %6, double noundef %7, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
   %40 = icmp eq i8 %39, 0
   %41 = getelementptr inbounds i8, ptr %17, i64 616
   %42 = fadd double %6, %30
   %43 = fadd double %7, %31
-  %44 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %41, double noundef %42, double noundef %43, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
+  %44 = call fastcc zeroext i8 @storeEdge(ptr noundef %41, double noundef %42, double noundef %43, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
   %45 = icmp eq i8 %44, 0
   %.not1090 = select i1 %45, i1 %40, i1 false
   %.not1087 = select i1 %.not1090, i1 %37, i1 false
@@ -1830,16 +1830,16 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %54 = fsub double %9, %13
   %55 = fsub double %10, %14
   %56 = fsub double %11, %15
-  %57 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %47, double noundef %50, double noundef %52, double noundef %53, double noundef %54, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
+  %57 = call fastcc zeroext i8 @storeEdge(ptr noundef %47, double noundef %50, double noundef %52, double noundef %53, double noundef %54, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
   %58 = getelementptr inbounds i8, ptr %17, i64 264
   %59 = fadd double %53, %50
   %60 = fadd double %54, %52
-  %61 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %58, double noundef %59, double noundef %60, double noundef %55, double noundef %56, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
-  %62 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %48, double noundef %50, double noundef %52, double noundef %55, double noundef %56, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
+  %61 = call fastcc zeroext i8 @storeEdge(ptr noundef %58, double noundef %59, double noundef %60, double noundef %55, double noundef %56, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
+  %62 = call fastcc zeroext i8 @storeEdge(ptr noundef %48, double noundef %50, double noundef %52, double noundef %55, double noundef %56, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %63 = getelementptr inbounds i8, ptr %17, i64 440
   %64 = fadd double %50, %55
   %65 = fadd double %52, %56
-  %66 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %63, double noundef %64, double noundef %65, double noundef %53, double noundef %54, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
+  %66 = call fastcc zeroext i8 @storeEdge(ptr noundef %63, double noundef %64, double noundef %65, double noundef %53, double noundef %54, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %67 = icmp sgt i32 %26, 1024
   %68 = add nsw i32 %26, 1
   br i1 %67, label %69, label %.thread
@@ -3314,7 +3314,7 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %865 = add nsw i64 %864, %.01227
   %866 = inttoptr i64 %865 to ptr
   %867 = load ptr, ptr %227, align 8
-  tail call void %867(ptr noundef %866, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %847, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %867(ptr noundef %866, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %847, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %868
 
 868:                                              ; preds = %859, %858
@@ -3335,7 +3335,7 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %878 = inttoptr i64 %877 to ptr
   %879 = load ptr, ptr %227, align 8
   %880 = sub nsw i32 %870, %855
-  tail call void %879(ptr noundef %878, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %880, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %879(ptr noundef %878, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %880, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %882
 
 881:                                              ; preds = %._crit_edge1212
@@ -3396,7 +3396,7 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %900 = add nsw i64 %899, %.01227
   %901 = inttoptr i64 %900 to ptr
   %902 = load ptr, ptr %227, align 8
-  tail call void %902(ptr noundef %901, ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %.3879.lcssa1302, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %902(ptr noundef %901, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %.3879.lcssa1302, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %903
 
 903:                                              ; preds = %894, %._crit_edge1222
@@ -3416,7 +3416,7 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %912 = inttoptr i64 %911 to ptr
   %913 = load ptr, ptr %227, align 8
   %914 = sub nsw i32 %26, %.2884.lcssa1301
-  tail call void %913(ptr noundef %912, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %914, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2) #8
+  tail call void %913(ptr noundef %912, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %914, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %2) #8
   br label %915
 
 915:                                              ; preds = %906, %903
@@ -3443,7 +3443,7 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture noundef writeonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i8 noundef zeroext %8) unnamed_addr #6 {
+define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture noundef nonnull writeonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i8 noundef zeroext range(i8 0, 2) %8) unnamed_addr #6 {
   %10 = fadd double %1, %3
   %11 = fadd double %2, %4
   store double %1, ptr %0, align 8

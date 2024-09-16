@@ -158,7 +158,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_oid(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   tail call fastcc void @prepopulate_oids()
   %4 = add i32 %1, -1
   %5 = zext i32 %4 to i64

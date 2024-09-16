@@ -531,7 +531,7 @@ CostManagerInitFreeList.exit.i.i:                 ; preds = %207
 222:                                              ; preds = %216
   %223 = trunc i64 %indvars.iv.i.i to i32
   %224 = add i32 %223, -1
-  %225 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %224, i1 true)
+  %225 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %224, i1 true)
   %226 = sub nuw nsw i32 30, %225
   %227 = lshr i32 %224, %226
   %228 = and i32 %227, 1
@@ -851,7 +851,7 @@ AddSingleLiteralWithCostModel.exit124.i:          ; preds = %374, %370
 
 386:                                              ; preds = %378
   %387 = add nsw i32 %379, -1
-  %388 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %387, i1 true)
+  %388 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %387, i1 true)
   %389 = sub nuw nsw i32 30, %388
   %390 = lshr i32 %387, %389
   %391 = and i32 %390, 1
@@ -869,7 +869,7 @@ GetDistanceCost.exit.i:                           ; preds = %386, %381
   %398 = sitofp i32 %.0.i125.i to float
   %399 = fadd float %397, %398
   %400 = fadd float %326, %399
-  call fastcc void @PushInterval(ptr noundef nonnull %24, float noundef %400, i32 noundef %indvars201.i, i32 noundef %330)
+  call fastcc void @PushInterval(ptr noundef %24, float noundef %400, i32 noundef %indvars201.i, i32 noundef %330)
   br label %472
 
 401:                                              ; preds = %377
@@ -1019,7 +1019,7 @@ UpdateCostAtIndex.exit139.i:                      ; preds = %UpdateCost.exit.us.
   %468 = getelementptr inbounds float, ptr %467, i64 %.pre.i
   %469 = load float, ptr %468, align 4
   %470 = fadd float %.086181.i, %469
-  call fastcc void @PushInterval(ptr noundef nonnull %24, float noundef %470, i32 noundef %.0167.i, i32 noundef %.1154.i)
+  call fastcc void @PushInterval(ptr noundef %24, float noundef %470, i32 noundef %.0167.i, i32 noundef %.1154.i)
   %471 = add i32 %422, %.1154.i
   br label %472
 
@@ -1348,7 +1348,7 @@ declare i32 @VP8LColorCacheInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @VP8LDistanceToPlaneCode(i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PushInterval(ptr noundef %0, float noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @PushInterval(ptr noundef nonnull %0, float noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp slt i32 %3, 10
@@ -1448,7 +1448,7 @@ define internal fastcc void @PushInterval(ptr noundef %0, float noundef %1, i32 
   br i1 %60, label %62, label %61
 
 61:                                               ; preds = %58
-  tail call fastcc void @InsertInterval(ptr noundef nonnull %0, ptr noundef nonnull %.1123, float noundef %49, i32 noundef %2, i32 noundef %.091122, i32 noundef %51)
+  tail call fastcc void @InsertInterval(ptr noundef %0, ptr noundef nonnull %.1123, float noundef %49, i32 noundef %2, i32 noundef %.091122, i32 noundef %51)
   %.not106 = icmp slt i32 %57, %47
   br i1 %.not106, label %84, label %.critedge2
 
@@ -1501,7 +1501,7 @@ PopInterval.exit:                                 ; preds = %65, %69
 80:                                               ; preds = %79
   %81 = getelementptr inbounds i8, ptr %.1123, i64 12
   %82 = load i32, ptr %81, align 4
-  tail call fastcc void @InsertInterval(ptr noundef nonnull %0, ptr noundef nonnull %.1123, float noundef %59, i32 noundef %82, i32 noundef %47, i32 noundef %57)
+  tail call fastcc void @InsertInterval(ptr noundef %0, ptr noundef nonnull %.1123, float noundef %59, i32 noundef %82, i32 noundef %47, i32 noundef %57)
   %83 = load ptr, ptr %54, align 8
   br label %.critedge2
 
@@ -1513,7 +1513,7 @@ PopInterval.exit:                                 ; preds = %65, %69
 .critedge2:                                       ; preds = %.lr.ph, %61, %84, %43, %80, %77
   %.192 = phi i32 [ %.091122, %77 ], [ %.091122, %80 ], [ %44, %43 ], [ %.091122, %.lr.ph ], [ %57, %61 ], [ %.293, %84 ]
   %.2 = phi ptr [ %.1123, %77 ], [ %83, %80 ], [ null, %43 ], [ %.1123, %.lr.ph ], [ %.1123, %61 ], [ null, %84 ]
-  tail call fastcc void @InsertInterval(ptr noundef nonnull %0, ptr noundef %.2, float noundef %49, i32 noundef %2, i32 noundef %.192, i32 noundef %47)
+  tail call fastcc void @InsertInterval(ptr noundef %0, ptr noundef %.2, float noundef %49, i32 noundef %2, i32 noundef %.192, i32 noundef %47)
   %85 = add nuw i64 %.0132, 1
   %86 = load i64, ptr %32, align 8
   %87 = icmp ult i64 %85, %86
@@ -1638,7 +1638,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InsertInterval(ptr nocapture noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @InsertInterval(ptr nocapture noundef nonnull %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp slt i32 %4, %5
   br i1 %.not, label %7, label %UpdateCostPerInterval.exit
 
@@ -1749,28 +1749,28 @@ UpdateCost.exit.i43:                              ; preds = %43, %38
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %0, align 8
-  %.not50.i = icmp eq ptr %58, null
-  br i1 %.not50.i, label %.critedge.i.preheader, label %.lr.ph.i47.preheader
+  %.not43.i = icmp eq ptr %58, null
+  br i1 %.not43.i, label %.critedge.i.preheader, label %.lr.ph.i47.preheader
 
 .lr.ph.i47.preheader:                             ; preds = %57, %52
-  %.151.i.ph = phi ptr [ %1, %52 ], [ %58, %57 ]
+  %.144.i.ph = phi ptr [ %1, %52 ], [ %58, %57 ]
   br label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %.lr.ph.i47.preheader, %62
-  %.151.i = phi ptr [ %64, %62 ], [ %.151.i.ph, %.lr.ph.i47.preheader ]
-  %59 = getelementptr inbounds i8, ptr %.151.i, i64 4
+  %.144.i = phi ptr [ %64, %62 ], [ %.144.i.ph, %.lr.ph.i47.preheader ]
+  %59 = getelementptr inbounds i8, ptr %.144.i, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = icmp slt i32 %4, %60
   br i1 %61, label %62, label %.critedge.i.preheader
 
 62:                                               ; preds = %.lr.ph.i47
-  %63 = getelementptr inbounds i8, ptr %.151.i, i64 16
+  %63 = getelementptr inbounds i8, ptr %.144.i, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %.critedge.i.preheader, label %.lr.ph.i47, !llvm.loop !24
 
 .critedge.i.preheader:                            ; preds = %62, %.lr.ph.i47, %57
-  %.2.i.ph = phi ptr [ null, %57 ], [ null, %62 ], [ %.151.i, %.lr.ph.i47 ]
+  %.2.i.ph = phi ptr [ null, %57 ], [ null, %62 ], [ %.144.i, %.lr.ph.i47 ]
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %70
@@ -1794,36 +1794,36 @@ UpdateCost.exit.i43:                              ; preds = %43, %38
   %71 = getelementptr inbounds i8, ptr %67, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = icmp slt i32 %72, %4
-  br i1 %73, label %.critedge.i, label %ConnectIntervals.exit.i, !llvm.loop !25
+  br i1 %73, label %.critedge.i, label %74, !llvm.loop !25
 
-ConnectIntervals.exit.i:                          ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %.2.i, i64 24
-  %75 = getelementptr inbounds i8, ptr %.0, i64 24
-  store ptr %67, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 16
-  store ptr %.0, ptr %76, align 8
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds i8, ptr %.2.i, i64 24
+  %76 = getelementptr inbounds i8, ptr %.0, i64 24
+  store ptr %67, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %67, i64 16
+  store ptr %.0, ptr %77, align 8
   br label %PositionOrphanInterval.exit
 
 .critedge29.i:                                    ; preds = %.critedge.i
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %.0, i64 24
-  store ptr %77, ptr %78, align 8
-  %.not9.i36.i = icmp eq ptr %77, null
-  br i1 %.not9.i36.i, label %PositionOrphanInterval.exit, label %79
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds i8, ptr %.0, i64 24
+  store ptr %78, ptr %79, align 8
+  %.not9.i33.i = icmp eq ptr %78, null
+  br i1 %.not9.i33.i, label %PositionOrphanInterval.exit, label %80
 
-79:                                               ; preds = %.critedge29.i
-  %80 = getelementptr inbounds i8, ptr %77, i64 16
-  store ptr %.0, ptr %80, align 8
+80:                                               ; preds = %.critedge29.i
+  %81 = getelementptr inbounds i8, ptr %78, i64 16
+  store ptr %.0, ptr %81, align 8
   br label %PositionOrphanInterval.exit
 
-PositionOrphanInterval.exit:                      ; preds = %.critedge29.i, %79, %ConnectIntervals.exit.i, %.split.thread.i
-  %.sink73 = phi ptr [ %74, %ConnectIntervals.exit.i ], [ %68, %.split.thread.i ], [ %0, %79 ], [ %0, %.critedge29.i ]
-  store ptr %.0, ptr %.sink73, align 8
-  %81 = getelementptr inbounds i8, ptr %.0, i64 16
-  store ptr %.2.i, ptr %81, align 8
-  %82 = load i32, ptr %8, align 8
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %8, align 8
+PositionOrphanInterval.exit:                      ; preds = %.split.thread.i, %74, %.critedge29.i, %80
+  %.sink63.i = phi ptr [ %68, %.split.thread.i ], [ %75, %74 ], [ %0, %.critedge29.i ], [ %0, %80 ]
+  store ptr %.0, ptr %.sink63.i, align 8
+  %82 = getelementptr inbounds i8, ptr %.0, i64 16
+  store ptr %.2.i, ptr %82, align 8
+  %83 = load i32, ptr %8, align 8
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %8, align 8
   br label %UpdateCostPerInterval.exit
 
 UpdateCostPerInterval.exit:                       ; preds = %UpdateCost.exit.i43, %UpdateCost.exit.i, %6, %PositionOrphanInterval.exit

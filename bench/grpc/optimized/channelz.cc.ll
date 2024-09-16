@@ -11848,13 +11848,13 @@ ehcleanup351:                                     ; preds = %lpad344, %lpad.i497
 if.end353:                                        ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit520, %land.lhs.true, %_ZN9grpc_core12experimental4JsonD2Ev.exit493
   %remote_ = getelementptr inbounds i8, ptr %this, i64 176
   %call354 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %remote_) #24
-  invoke fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef nonnull %object, ptr noundef nonnull @.str.47, ptr noundef %call354)
+  invoke fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef %object, ptr noundef nonnull @.str.47, ptr noundef %call354)
           to label %invoke.cont355 unwind label %lpad329
 
 invoke.cont355:                                   ; preds = %if.end353
   %local_ = getelementptr inbounds i8, ptr %this, i64 144
   %call356 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %local_) #24
-  invoke fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef nonnull %object, ptr noundef nonnull @.str.48, ptr noundef %call356)
+  invoke fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef %object, ptr noundef nonnull @.str.48, ptr noundef %call356)
           to label %invoke.cont357 unwind label %lpad329
 
 invoke.cont357:                                   ; preds = %invoke.cont355
@@ -11899,7 +11899,7 @@ ehcleanup360:                                     ; preds = %arraydestroy.body32
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef %json, ptr noundef %name, ptr noundef %addr_str) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef nonnull %json, ptr noundef %name, ptr noundef %addr_str) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i434 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %__an.i408 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -13979,7 +13979,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit46:      ; preds = %_ZN9grpc_core12expe
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #24
   %local_addr_ = getelementptr inbounds i8, ptr %this, i64 64
   %call80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %local_addr_) #24
-  invoke fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef nonnull %object, ptr noundef nonnull @.str.48, ptr noundef %call80)
+  invoke fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef %object, ptr noundef nonnull @.str.48, ptr noundef %call80)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit46

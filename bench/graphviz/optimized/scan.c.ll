@@ -3432,19 +3432,19 @@ define void @aagerror(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.8, ptr noundef nonnull %3)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef nonnull %3)
   br label %5
 
 5:                                                ; preds = %4, %1
   %6 = load i32, ptr @line_num, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, ptr noundef %0, i32 noundef %6)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.9, ptr noundef %0, i32 noundef %6)
   %7 = load ptr, ptr @aagtext, align 8
   %8 = load i8, ptr %7, align 1
   %.not1 = icmp eq i8 %8, 0
   br i1 %.not1, label %10, label %9
 
 9:                                                ; preds = %5
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %7)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %7)
   br label %agxbsizeof.exit.i
 
 10:                                               ; preds = %5
@@ -3458,7 +3458,7 @@ define void @aagerror(ptr noundef %0) local_unnamed_addr #1 {
   ]
 
 14:                                               ; preds = %10
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.11, i32 noundef 16384)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef 16384)
   %.val.i = load i8, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 31), align 1
   switch i8 %.val.i, label %agxblen.exit.i.i [
     i8 -1, label %agxblen.exit
@@ -3530,11 +3530,11 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %32
   %34 = phi ptr [ %33, %32 ], [ @Sbuf, %agxbclear.exit.thread.i ]
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.12, ptr noundef %34)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef %34)
   br label %agxbsizeof.exit.i
 
 35:                                               ; preds = %10
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.13, i32 noundef 16384)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.13, i32 noundef 16384)
   %.val.i5 = load i8, ptr getelementptr inbounds (i8, ptr @Sbuf, i64 31), align 1
   switch i8 %.val.i5, label %agxblen.exit.i.i11 [
     i8 -1, label %agxblen.exit8
@@ -3606,11 +3606,11 @@ agxbclear.exit.thread.i22:                        ; preds = %agxbputc.exit.i19
 
 agxbuse.exit24:                                   ; preds = %agxbclear.exit.thread.i22, %53
   %55 = phi ptr [ %54, %53 ], [ @Sbuf, %agxbclear.exit.thread.i22 ]
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.14, ptr noundef %55)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %55)
   br label %agxbsizeof.exit.i
 
 56:                                               ; preds = %10
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.15, i32 noundef 16384)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef 16384)
   br label %agxbsizeof.exit.i
 
 agxbsizeof.exit.i:                                ; preds = %35, %14, %56, %agxbuse.exit, %agxblen.exit, %agxbuse.exit24, %agxblen.exit8, %10, %9
@@ -3724,7 +3724,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit42, %93
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #1 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)

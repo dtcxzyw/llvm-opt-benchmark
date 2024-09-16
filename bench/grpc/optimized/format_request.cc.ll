@@ -119,7 +119,7 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %if.then.i.i, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #17
-  invoke fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext true, ptr noundef nonnull %out)
+  invoke fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext true, ptr noundef %out)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -263,7 +263,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr nocapture noundef readonly %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext %connection_close, ptr noundef %buf) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr nocapture noundef readonly %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext %connection_close, ptr noundef nonnull %buf) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator.0", align 1
@@ -1032,7 +1032,7 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %if.then.i.i, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #17
-  invoke fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext true, ptr noundef nonnull %out)
+  invoke fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext true, ptr noundef %out)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1364,7 +1364,7 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %if.then.i.i, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #17
-  invoke fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext true, ptr noundef nonnull %out)
+  invoke fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext true, ptr noundef %out)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1686,7 +1686,7 @@ if.else.i.i:                                      ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %if.then.i.i, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #17
-  invoke fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext false, ptr noundef nonnull %out)
+  invoke fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext false, ptr noundef %out)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3

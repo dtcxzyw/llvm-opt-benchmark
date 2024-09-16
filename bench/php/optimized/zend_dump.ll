@@ -531,7 +531,7 @@ define void @zend_dump_ssa_var(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @zend_dump_ssa_var_info(ptr nocapture readonly %.72.val, i32 noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @zend_dump_ssa_var_info(ptr nocapture readonly %.72.val, i32 noundef range(i32 0, -2147483648) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %.72.val, i64 %3
   %5 = load i32, ptr %4, align 8
@@ -1637,7 +1637,7 @@ declare ptr @zend_get_opcode_name(i8 noundef zeroext) local_unnamed_addr #3
 declare i32 @zend_get_opcode_flags(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #4 {
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 2, i64 1, ptr %5) #9
   %7 = and i32 %0, 268435456
@@ -2387,131 +2387,130 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef %1) unnamed_addr #5 {
-  %3 = and i32 %1, 240
-  %4 = add nsw i32 %3, -16
-  %5 = lshr exact i32 %4, 4
-  switch i32 %5, label %zend_dump_class_fetch_type.exit [
-    i32 0, label %6
-    i32 2, label %9
-    i32 4, label %13
-    i32 5, label %16
-    i32 6, label %19
-    i32 7, label %54
-    i32 8, label %57
+define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #5 {
+  %3 = add nsw i32 %1, -16
+  %4 = lshr i32 %3, 4
+  switch i32 %4, label %zend_dump_class_fetch_type.exit [
+    i32 0, label %5
+    i32 2, label %8
+    i32 4, label %12
+    i32 5, label %15
+    i32 6, label %18
+    i32 7, label %53
+    i32 8, label %56
   ]
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.25, i32 noundef %0) #10
+5:                                                ; preds = %2
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.25, i32 noundef %0) #10
   br label %zend_dump_class_fetch_type.exit
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   %.not12 = icmp eq i32 %0, -1
-  br i1 %.not12, label %zend_dump_class_fetch_type.exit, label %10
+  br i1 %.not12, label %zend_dump_class_fetch_type.exit, label %9
 
-10:                                               ; preds = %9
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.158, i32 noundef %0) #10
+9:                                                ; preds = %8
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.158, i32 noundef %0) #10
   br label %zend_dump_class_fetch_type.exit
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.159, i64 5, i64 1, ptr %14) #9
+12:                                               ; preds = %2
+  %13 = load ptr, ptr @stderr, align 8
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.159, i64 5, i64 1, ptr %13) #9
   br label %zend_dump_class_fetch_type.exit
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 5, i64 1, ptr %17) #9
+15:                                               ; preds = %2
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 5, i64 1, ptr %16) #9
   br label %zend_dump_class_fetch_type.exit
 
-19:                                               ; preds = %2
-  %20 = and i32 %0, 15
-  switch i32 %20, label %39 [
-    i32 1, label %21
-    i32 2, label %24
-    i32 3, label %27
-    i32 4, label %30
-    i32 5, label %33
-    i32 6, label %36
+18:                                               ; preds = %2
+  %19 = and i32 %0, 15
+  switch i32 %19, label %38 [
+    i32 1, label %20
+    i32 2, label %23
+    i32 3, label %26
+    i32 4, label %29
+    i32 5, label %32
+    i32 6, label %35
   ]
 
-21:                                               ; preds = %19
-  %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.163, i64 7, i64 1, ptr %22) #9
-  br label %39
+20:                                               ; preds = %18
+  %21 = load ptr, ptr @stderr, align 8
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.163, i64 7, i64 1, ptr %21) #9
+  br label %38
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.164, i64 9, i64 1, ptr %25) #9
-  br label %39
+23:                                               ; preds = %18
+  %24 = load ptr, ptr @stderr, align 8
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.164, i64 9, i64 1, ptr %24) #9
+  br label %38
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.165, i64 9, i64 1, ptr %28) #9
-  br label %39
+26:                                               ; preds = %18
+  %27 = load ptr, ptr @stderr, align 8
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.165, i64 9, i64 1, ptr %27) #9
+  br label %38
 
-30:                                               ; preds = %19
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.166, i64 7, i64 1, ptr %31) #9
-  br label %39
+29:                                               ; preds = %18
+  %30 = load ptr, ptr @stderr, align 8
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.166, i64 7, i64 1, ptr %30) #9
+  br label %38
 
-33:                                               ; preds = %19
-  %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.167, i64 12, i64 1, ptr %34) #9
-  br label %39
+32:                                               ; preds = %18
+  %33 = load ptr, ptr @stderr, align 8
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.167, i64 12, i64 1, ptr %33) #9
+  br label %38
 
-36:                                               ; preds = %19
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i64 @fwrite(ptr nonnull @.str.168, i64 8, i64 1, ptr %37) #9
-  br label %39
+35:                                               ; preds = %18
+  %36 = load ptr, ptr @stderr, align 8
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.168, i64 8, i64 1, ptr %36) #9
+  br label %38
 
-39:                                               ; preds = %36, %33, %30, %27, %24, %21, %19
-  %40 = and i32 %0, 128
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %44, label %41
+38:                                               ; preds = %35, %32, %29, %26, %23, %20, %18
+  %39 = and i32 %0, 128
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %43, label %40
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.169, i64 14, i64 1, ptr %42) #9
-  br label %44
+40:                                               ; preds = %38
+  %41 = load ptr, ptr @stderr, align 8
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.169, i64 14, i64 1, ptr %41) #9
+  br label %43
 
-44:                                               ; preds = %41, %39
-  %45 = and i32 %0, 256
-  %.not4.i = icmp eq i32 %45, 0
-  br i1 %.not4.i, label %49, label %46
+43:                                               ; preds = %40, %38
+  %44 = and i32 %0, 256
+  %.not4.i = icmp eq i32 %44, 0
+  br i1 %.not4.i, label %48, label %45
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr @stderr, align 8
-  %48 = tail call i64 @fwrite(ptr nonnull @.str.170, i64 9, i64 1, ptr %47) #9
-  br label %49
+45:                                               ; preds = %43
+  %46 = load ptr, ptr @stderr, align 8
+  %47 = tail call i64 @fwrite(ptr nonnull @.str.170, i64 9, i64 1, ptr %46) #9
+  br label %48
 
-49:                                               ; preds = %46, %44
-  %50 = and i32 %0, 512
-  %.not5.i = icmp eq i32 %50, 0
-  br i1 %.not5.i, label %zend_dump_class_fetch_type.exit, label %51
+48:                                               ; preds = %45, %43
+  %49 = and i32 %0, 512
+  %.not5.i = icmp eq i32 %49, 0
+  br i1 %.not5.i, label %zend_dump_class_fetch_type.exit, label %50
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i64 @fwrite(ptr nonnull @.str.171, i64 12, i64 1, ptr %52) #9
+50:                                               ; preds = %48
+  %51 = load ptr, ptr @stderr, align 8
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.171, i64 12, i64 1, ptr %51) #9
   br label %zend_dump_class_fetch_type.exit
 
-54:                                               ; preds = %2
-  %55 = load ptr, ptr @stderr, align 8
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.161, i64 12, i64 1, ptr %55) #9
+53:                                               ; preds = %2
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.161, i64 12, i64 1, ptr %54) #9
   br label %zend_dump_class_fetch_type.exit
 
-57:                                               ; preds = %2
-  %58 = and i32 %0, 2048
-  %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %zend_dump_class_fetch_type.exit, label %59
+56:                                               ; preds = %2
+  %57 = and i32 %0, 2048
+  %.not = icmp eq i32 %57, 0
+  br i1 %.not, label %zend_dump_class_fetch_type.exit, label %58
 
-59:                                               ; preds = %57
-  %60 = load ptr, ptr @stderr, align 8
-  %61 = tail call i64 @fwrite(ptr nonnull @.str.162, i64 27, i64 1, ptr %60) #9
+58:                                               ; preds = %56
+  %59 = load ptr, ptr @stderr, align 8
+  %60 = tail call i64 @fwrite(ptr nonnull @.str.162, i64 27, i64 1, ptr %59) #9
   br label %zend_dump_class_fetch_type.exit
 
-zend_dump_class_fetch_type.exit:                  ; preds = %51, %49, %2, %10, %9, %16, %54, %57, %59, %13, %6
+zend_dump_class_fetch_type.exit:                  ; preds = %50, %48, %2, %9, %8, %15, %53, %56, %58, %12, %5
   ret void
 }
 
@@ -2880,7 +2879,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 148:                                              ; preds = %145, %142
   %149 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @zend_dump_block_header(ptr noundef nonnull %.0147, ptr noundef %0, ptr noundef %spec.select192, i32 noundef %149, i32 noundef %1)
+  tail call fastcc void @zend_dump_block_header(ptr noundef %.0147, ptr noundef %0, ptr noundef %spec.select192, i32 noundef %149, i32 noundef %1)
   %150 = load ptr, ptr %141, align 8
   %151 = getelementptr inbounds i8, ptr %144, i64 12
   %152 = load i32, ptr %151, align 4
@@ -3255,8 +3254,8 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @zend_dump_block_header(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
-  tail call fastcc void @zend_dump_block_info(ptr noundef %0, i32 noundef %3, i32 noundef %4)
+define internal fastcc void @zend_dump_block_header(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
+  tail call fastcc void @zend_dump_block_info(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -3481,7 +3480,7 @@ define internal fastcc void @zend_dump_block_header(ptr nocapture noundef readon
   br label %._crit_edge
 
 145:                                              ; preds = %47
-  tail call fastcc void @zend_dump_type_constraint(ptr noundef nonnull %58, i32 noundef %4)
+  tail call fastcc void @zend_dump_type_constraint(ptr noundef %58, i32 noundef %4)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37, %145, %63, %113, %138, %140, %26
@@ -4351,7 +4350,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @zend_dump_type_constraint(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @zend_dump_type_constraint(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 5, i64 1, ptr %3) #9
   %5 = load i32, ptr %0, align 8

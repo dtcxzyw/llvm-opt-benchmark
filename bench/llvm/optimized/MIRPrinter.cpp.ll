@@ -2284,7 +2284,7 @@ _ZNSt6vectorIN4llvm4yaml23FixedMachineStackObjectESaIS2_EE9push_backERKS2_.exit:
   store i32 %.0171179, ptr %18, align 8, !alias.scope !21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %19) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %78, ptr noundef nonnull align 8 dereferenceable(5) %75, i64 5, i1 false)
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E6insertEOSt4pairIiS3_E(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull align 8 dereferenceable(48) %18)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E6insertEOSt4pairIiS3_E(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull align 8 dereferenceable(48) %18)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #20
@@ -2521,7 +2521,7 @@ _ZN12_GLOBAL__N_117FrameIndexOperand6createEN4llvm9StringRefEj.exit: ; preds = %
   store i32 %indvars205, ptr %25, align 8, !alias.scope !31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(32) %26) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %195, ptr noundef nonnull align 8 dereferenceable(5) %192, i64 5, i1 false)
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E6insertEOSt4pairIiS3_E(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 1 dereferenceable(1) %191, ptr noundef nonnull align 8 dereferenceable(48) %25)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E6insertEOSt4pairIiS3_E(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 1 dereferenceable(1) %191, ptr noundef nonnull align 8 dereferenceable(48) %25)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %194) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #20
@@ -5393,7 +5393,7 @@ declare noundef ptr @_ZNK4llvm19MachineRegisterInfo18getCalleeSavedRegsEv(ptr no
 declare void @_ZN4llvm17printMBBReferenceERKNS_17MachineBasicBlockE(ptr dead_on_unwind writable sret(%"class.llvm::Printable") align 8, ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E6insertEOSt4pairIiS3_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E6insertEOSt4pairIiS3_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %.val.i = load ptr, ptr %1, align 8, !noalias !89
@@ -24178,7 +24178,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %30, ptr %23, align 8
   store ptr %32, ptr %24, align 8
   store ptr %34, ptr %25, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa43, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa43, ptr noundef %5)
   %35 = load ptr, ptr %23, align 8
   %36 = load ptr, ptr %24, align 8
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %35, %36
@@ -24247,7 +24247,7 @@ _ZN4llvm4yaml12CallSiteInfoD2Ev.exit17.i.i.i:     ; preds = %38, %_ZSt8_DestroyI
   store ptr %52, ptr %45, align 8
   store ptr %54, ptr %46, align 8
   store ptr %56, ptr %47, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %63, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %63, ptr noundef %4)
   %64 = load ptr, ptr %45, align 8
   %65 = load ptr, ptr %46, align 8
   %.not4.i.i.i.i.i.i.i10.i = icmp eq ptr %64, %65
@@ -24626,7 +24626,7 @@ _ZN4llvm4yaml12CallSiteInfoD2Ev.exit23:           ; preds = %_ZSt8_DestroyIPN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

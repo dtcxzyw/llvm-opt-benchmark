@@ -906,7 +906,7 @@ invoke.cont2.i8:                                  ; preds = %if.then8
   br i1 %tobool.i.i.i9, label %if.then.i, label %if.end23.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i8
-  invoke fastcc void @_ZL30create_default_creds_from_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core13RefCountedPtrI21grpc_call_credentialsEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %path_from_env.i, ptr noundef nonnull %ref.tmp)
+  invoke fastcc void @_ZL30create_default_creds_from_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core13RefCountedPtrI21grpc_call_credentialsEE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %path_from_env.i, ptr noundef %ref.tmp)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %if.then.i
@@ -1060,7 +1060,7 @@ if.end.i.i:                                       ; preds = %if.end23.i
           to label %invoke.cont26.i unwind label %lpad4.i, !noalias !11
 
 invoke.cont26.i:                                  ; preds = %if.end.i.i, %if.then.i55.i
-  invoke fastcc void @_ZL30create_default_creds_from_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core13RefCountedPtrI21grpc_call_credentialsEE(ptr noalias nonnull align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i, ptr noundef nonnull %ref.tmp)
+  invoke fastcc void @_ZL30create_default_creds_from_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core13RefCountedPtrI21grpc_call_credentialsEE(ptr noalias align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i, ptr noundef %ref.tmp)
           to label %invoke.cont28.i unwind label %lpad27.i
 
 invoke.cont28.i:                                  ; preds = %invoke.cont26.i
@@ -3349,7 +3349,7 @@ declare void @abort() local_unnamed_addr #15
 declare void @_ZN9grpc_core6GetEnvB5cxx11EPKc(ptr sret(%"class.std::optional.28") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL30create_default_creds_from_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core13RefCountedPtrI21grpc_call_credentialsEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %creds_path, ptr nocapture noundef %creds) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL30create_default_creds_from_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core13RefCountedPtrI21grpc_call_credentialsEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %creds_path, ptr nocapture noundef nonnull %creds) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i182 = alloca %class.anon.74, align 1
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.74, align 1

@@ -218,7 +218,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0

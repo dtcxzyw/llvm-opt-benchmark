@@ -843,7 +843,7 @@ drbd_ib_append_col_info.exit.i:                   ; preds = %46, %43
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %62, ptr noundef %61, i32 noundef 0, i32 noundef -1, i32 noundef 0) #8
   %64 = load i32, ptr @ett_drbd, align 4
   %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #8
-  %66 = call fastcc ptr @decode_header(ptr noundef %61, ptr noundef %65, ptr noundef nonnull %5)
+  %66 = call fastcc ptr @decode_header(ptr noundef %61, ptr noundef %65, ptr noundef %5)
   %.not.i = icmp eq ptr %66, null
   br i1 %.not.i, label %dissect_drbd_ib_message.exit, label %67
 
@@ -1069,7 +1069,7 @@ define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #8
   %9 = load i32, ptr @ett_drbd, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #8
-  %11 = call fastcc ptr @decode_header(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %4)
+  %11 = call fastcc ptr @decode_header(ptr noundef %0, ptr noundef %10, ptr noundef %4)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %98, label %12
 
@@ -1248,7 +1248,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decode_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @decode_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #8
   %5 = icmp eq i32 %4, -2089549209
   br i1 %5, label %6, label %12
@@ -1999,7 +1999,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 29) %2) unnamed_addr #0 {
   %4 = alloca [13 x ptr], align 16
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2) #8
   %6 = zext i32 %5 to i64
@@ -2064,7 +2064,7 @@ mask_fields.exit:                                 ; preds = %19
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert_twopc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @insert_twopc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 46, 54) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #8
   %6 = tail call ptr @wmem_file_scope() #8
   %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 8) #8

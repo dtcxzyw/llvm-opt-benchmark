@@ -162,7 +162,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
   br i1 %9, label %328, label %10
 
 10:                                               ; preds = %1
-  call fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %6)
+  call fastcc void @uv__signal_block_and_lock(ptr noundef %6)
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -948,7 +948,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_signal_start(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__signal_start(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__signal_start(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca %struct.sigaction, align 8
@@ -978,7 +978,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__signal_start
   br label %20
 
 20:                                               ; preds = %19, %18
-  call fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %10)
+  call fastcc void @uv__signal_block_and_lock(ptr noundef %10)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %9)
   %21 = getelementptr inbounds i8, ptr %9, i64 104
   store i32 %2, ptr %21, align 8
@@ -1795,7 +1795,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uv__signal_block_and_lock(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca %struct.__sigset_t, align 8
   %4 = call i32 @sigfillset(ptr noundef nonnull %3) #10
@@ -1807,8 +1807,8 @@ define internal fastcc void @uv__signal_block_and_lock(ptr noundef %0) unnamed_a
   unreachable
 
 6:                                                ; preds = %1
-  %7 = call i32 @sigemptyset(ptr noundef %0) #10
-  %8 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef %0) #10
+  %7 = call i32 @sigemptyset(ptr noundef nonnull %0) #10
+  %8 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %0) #10
   %.not2 = icmp eq i32 %8, 0
   br i1 %.not2, label %10, label %9
 

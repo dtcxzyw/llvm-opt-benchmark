@@ -1915,7 +1915,7 @@ if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrI1
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.then.i.i, %_ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EE5resetEPS0_.exit
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper16OnResolvedLockedEN4absl12lts_202308026StatusE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %arg, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper16OnResolvedLockedEN4absl12lts_202308026StatusE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %arg, ptr noundef %agg.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -2191,7 +2191,7 @@ if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrI1
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.then.i.i, %_ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EE5resetEPS0_.exit
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper16OnResolvedLockedEN4absl12lts_202308026StatusE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %arg, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper16OnResolvedLockedEN4absl12lts_202308026StatusE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %arg, ptr noundef %agg.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -2464,7 +2464,7 @@ if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrI1
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.then.i.i, %_ZNSt10unique_ptrI17grpc_ares_requestSt14default_deleteIS0_EE5resetEPS0_.exit
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper16OnResolvedLockedEN4absl12lts_202308026StatusE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %arg, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper16OnResolvedLockedEN4absl12lts_202308026StatusE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %arg, ptr noundef %agg.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -3109,7 +3109,7 @@ entry:
 declare void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper16OnResolvedLockedEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper16OnResolvedLockedEN4absl12lts_202308026StatusE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %result = alloca %"struct.grpc_core::Resolver::Result", align 8
@@ -5465,7 +5465,7 @@ _ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_address
   %inc = add nsw i64 %2, 1
   store i64 %inc, ptr %aba_token_, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %call, i64 %name.coerce0, ptr %name.coerce1, i64 %agg.tmp3.sroa.0.0.copyload, ptr %agg.tmp3.sroa.2.0.copyload, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef nonnull %this, i64 noundef %2)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %call, i64 %name.coerce0, ptr %name.coerce1, i64 %agg.tmp3.sroa.0.0.copyload, ptr %agg.tmp3.sroa.2.0.copyload, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef %this, i64 noundef %2)
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEEC2EOS9_.exit
@@ -5713,7 +5713,7 @@ _ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_address
   %2 = load i64, ptr %aba_token_, align 8
   %inc = add nsw i64 %2, 1
   store i64 %inc, ptr %aba_token_, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %call, i64 %name.coerce0, ptr %name.coerce1, i64 %agg.tmp2.sroa.0.0.copyload, ptr %agg.tmp2.sroa.2.0.copyload, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef nonnull %this, i64 noundef %2)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %call, i64 %name.coerce0, ptr %name.coerce1, i64 %agg.tmp2.sroa.0.0.copyload, ptr %agg.tmp2.sroa.2.0.copyload, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef %this, i64 noundef %2)
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEEC2EOS9_.exit
@@ -5914,7 +5914,7 @@ _ZNSt8functionIFvN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11ch
   %2 = load i64, ptr %aba_token_, align 8
   %inc = add nsw i64 %2, 1
   store i64 %inc, ptr %aba_token_, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %call, i64 %name.coerce0, ptr %name.coerce1, i64 %agg.tmp2.sroa.0.0.copyload, ptr %agg.tmp2.sroa.2.0.copyload, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef nonnull %this, i64 noundef %2)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %call, i64 %name.coerce0, ptr %name.coerce1, i64 %agg.tmp2.sroa.0.0.copyload, ptr %agg.tmp2.sroa.2.0.copyload, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef %this, i64 noundef %2)
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEC2EOSB_.exit
@@ -6430,7 +6430,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2:       ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 %name.coerce0, ptr %name.coerce1, i64 %name_server.coerce0, ptr %name_server.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef %resolver, i64 noundef %aba_token) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 %name.coerce0, ptr %name.coerce1, i64 %name_server.coerce0, ptr %name_server.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef nonnull %resolver, i64 noundef %aba_token) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

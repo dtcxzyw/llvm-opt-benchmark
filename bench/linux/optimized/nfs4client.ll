@@ -1233,7 +1233,7 @@ define dso_local ptr @nfs4_create_server(ptr nocapture noundef readonly %0) loca
 declare dso_local ptr @nfs_alloc_server() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs4_server_common_setup(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nfs4_server_common_setup(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 664
   %6 = load ptr, ptr %5, align 8
@@ -1288,12 +1288,12 @@ define internal fastcc i32 @nfs4_server_common_setup(ptr noundef %0, ptr noundef
   br label %39
 
 39:                                               ; preds = %37, %29, %25
-  %40 = tail call i32 @nfs4_get_rootfh(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #14
+  %40 = tail call i32 @nfs4_get_rootfh(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) #14
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %55, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @nfs_probe_server(ptr noundef %0, ptr noundef %1) #14
+  %43 = tail call i32 @nfs_probe_server(ptr noundef nonnull %0, ptr noundef %1) #14
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %55, label %45
 
@@ -1309,7 +1309,7 @@ define internal fastcc i32 @nfs4_server_common_setup(ptr noundef %0, ptr noundef
   br label %51
 
 51:                                               ; preds = %50, %45
-  tail call void @nfs_server_insert_lists(ptr noundef %0) #14
+  tail call void @nfs_server_insert_lists(ptr noundef nonnull %0) #14
   %52 = load volatile i64, ptr @jiffies, align 64
   %53 = getelementptr inbounds i8, ptr %0, i64 208
   store i64 %52, ptr %53, align 8

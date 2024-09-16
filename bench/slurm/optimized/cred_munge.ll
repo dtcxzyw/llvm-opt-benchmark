@@ -216,7 +216,7 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   %17 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %18 = call fastcc i32 @_decode(ptr noundef %17, i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef null)
+  %18 = call fastcc i32 @_decode(ptr noundef %17, i1 noundef zeroext false, ptr noundef %3, ptr noundef null)
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %20, label %_verify_signature.exit.thread
 
@@ -299,7 +299,7 @@ define ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) loca
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %6 = call fastcc i32 @_decode(ptr noundef %0, i1 noundef zeroext true, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %6 = call fastcc i32 @_decode(ptr noundef %0, i1 noundef zeroext true, ptr noundef %5, ptr noundef nonnull %3)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -351,7 +351,7 @@ define ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -546,7 +546,7 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %27 = call fastcc i32 @_decode(ptr noundef %26, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef null)
+  %27 = call fastcc i32 @_decode(ptr noundef %26, i1 noundef zeroext false, ptr noundef %4, ptr noundef null)
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %29, label %_verify_signature.exit.thread
 

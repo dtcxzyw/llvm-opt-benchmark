@@ -2875,7 +2875,7 @@ switch.lookup1680:                                ; preds = %367
   ]
 
 1154:                                             ; preds = %1152
-  %1155 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %7, ptr %.01407, ptr noundef %.21183, i32 noundef %1153)
+  %1155 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr %.01407, ptr noundef %.21183, i32 noundef %1153)
   switch i32 %1155, label %.thread1422 [
     i32 0, label %.thread1426
     i32 1, label %1156
@@ -2909,7 +2909,7 @@ switch.lookup1680:                                ; preds = %367
   br label %.loopexit1483
 
 1162:                                             ; preds = %1158
-  %1163 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %7, ptr nonnull %1160, ptr noundef %.21183, i32 noundef %1153)
+  %1163 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr nonnull %1160, ptr noundef %.21183, i32 noundef %1153)
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1160) #12
   %1164 = icmp eq i32 %1163, 2
   br i1 %1164, label %.loopexit1483, label %yydestruct.exit
@@ -3178,7 +3178,7 @@ declare i32 @yr_parser_emit_pushes_for_strings(ptr noundef, ptr noundef) local_u
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -128, 128) %2) unnamed_addr #8 {
   %4 = alloca [5 x ptr], align 16
   %.not = icmp eq i32 %2, -2
   br i1 %.not, label %.thread10, label %5

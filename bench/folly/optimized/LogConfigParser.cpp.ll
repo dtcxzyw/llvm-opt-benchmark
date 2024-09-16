@@ -12370,7 +12370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE(ptr dead_on_unwind noalias writable align 8 %agg.result, i32 %value.0.val) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i32 %value.0.val) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !63

@@ -31,7 +31,7 @@ define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr nocapture noundef read
   %12 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr null, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %1, i8 0, i64 25, i1 false)
-  %13 = call fastcc i32 @find_file(i32 noundef %7, ptr noundef nonnull %3, ptr noundef nonnull @.str.4)
+  %13 = call fastcc i32 @find_file(i32 noundef %7, ptr noundef %3, ptr noundef nonnull @.str.4)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %16, label %14
 
@@ -40,7 +40,7 @@ define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr nocapture noundef read
   br label %48
 
 16:                                               ; preds = %9
-  %17 = call fastcc ptr @inflate_file(i32 noundef %7, ptr noundef nonnull %3, ptr noundef null)
+  %17 = call fastcc ptr @inflate_file(i32 noundef %7, ptr noundef %3, ptr noundef null)
   store ptr %17, ptr @manifest, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21
@@ -51,7 +51,7 @@ define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr nocapture noundef read
 
 21:                                               ; preds = %16
   store ptr %17, ptr %4, align 8
-  %22 = call fastcc i32 @parse_nv_pair(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %22 = call fastcc i32 @parse_nv_pair(ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
@@ -96,7 +96,7 @@ define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr nocapture noundef read
   br label %43
 
 43:                                               ; preds = %32, %38, %41, %37, %27
-  %44 = call fastcc i32 @parse_nv_pair(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %44 = call fastcc i32 @parse_nv_pair(ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
@@ -116,7 +116,7 @@ define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr nocapture noundef read
 declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [30 x i8], align 16
@@ -238,7 +238,7 @@ define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef %0, ptr nocap
 
 find_positions.exit:                              ; preds = %15, %72
   %.sink = phi i64 [ %75, %72 ], [ %10, %15 ]
-  %78 = call fastcc i32 @find_positions64(i32 noundef %0, ptr noundef nonnull %7, i64 noundef %.sink, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %78 = call fastcc i32 @find_positions64(i32 noundef %0, ptr noundef %7, i64 noundef %.sink, ptr noundef %4, ptr noundef %5)
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %find_positions.exit.thread, label %80
 
@@ -497,7 +497,7 @@ find_positions.exit.thread:                       ; preds = %38, %33, %30, %12, 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @inflate_file(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @inflate_file(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.z_stream_s, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -632,7 +632,7 @@ define internal fastcc noundef ptr @inflate_file(i32 noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %6 [
@@ -765,12 +765,12 @@ define hidden noundef ptr @JLI_JarUnpackFile(ptr nocapture noundef readonly %0, 
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3
-  %8 = call fastcc i32 @find_file(i32 noundef %5, ptr noundef nonnull %4, ptr noundef %1)
+  %8 = call fastcc i32 @find_file(i32 noundef %5, ptr noundef %4, ptr noundef %1)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = call fastcc ptr @inflate_file(i32 noundef %5, ptr noundef nonnull %4, ptr noundef %2)
+  %11 = call fastcc ptr @inflate_file(i32 noundef %5, ptr noundef %4, ptr noundef %2)
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -811,7 +811,7 @@ define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr nocapture noundef readonly 
   br i1 %9, label %29, label %10
 
 10:                                               ; preds = %3
-  %11 = call fastcc i32 @find_file(i32 noundef %8, ptr noundef nonnull %4, ptr noundef nonnull @.str.4)
+  %11 = call fastcc i32 @find_file(i32 noundef %8, ptr noundef %4, ptr noundef nonnull @.str.4)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %14, label %12
 
@@ -820,7 +820,7 @@ define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr nocapture noundef readonly 
   br label %29
 
 14:                                               ; preds = %10
-  %15 = call fastcc ptr @inflate_file(i32 noundef %8, ptr noundef nonnull %4, ptr noundef null)
+  %15 = call fastcc ptr @inflate_file(i32 noundef %8, ptr noundef %4, ptr noundef null)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
@@ -830,7 +830,7 @@ define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr nocapture noundef readonly 
 
 19:                                               ; preds = %14
   store ptr %15, ptr %5, align 8
-  %20 = call fastcc i32 @parse_nv_pair(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %20 = call fastcc i32 @parse_nv_pair(ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -838,7 +838,7 @@ define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr nocapture noundef readonly 
   %22 = load ptr, ptr %6, align 8
   %23 = load ptr, ptr %7, align 8
   tail call void %1(ptr noundef %22, ptr noundef %23, ptr noundef %2) #14
-  %24 = call fastcc i32 @parse_nv_pair(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %24 = call fastcc i32 @parse_nv_pair(ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
@@ -871,7 +871,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @find_positions64(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @find_positions64(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca [76 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i16, ptr %7, align 1
@@ -1048,12 +1048,12 @@ is_zip64_endhdr.exit.thread:                      ; preds = %68, %125, %122, %83
   br i1 %147, label %148, label %readAt.exit.thread
 
 148:                                              ; preds = %is_zip64_endhdr.exit.thread
-  %149 = call fastcc zeroext i8 @readAt(i32 noundef %0, i64 noundef %146, i32 noundef 56, ptr noundef nonnull %6)
+  %149 = call fastcc zeroext i8 @readAt(i32 noundef %0, i64 noundef %146, i32 noundef 56, ptr noundef %6)
   %.not51 = icmp eq i8 %149, 0
   br i1 %.not51, label %readAt.exit.thread, label %150
 
 150:                                              ; preds = %148
-  %151 = call fastcc zeroext i8 @is_zip64_endhdr(i32 noundef %0, ptr noundef nonnull %6, i64 noundef %146, i64 noundef %14, i64 noundef %22, i64 noundef %30)
+  %151 = call fastcc zeroext i8 @is_zip64_endhdr(i32 noundef %0, ptr noundef %6, i64 noundef %146, i64 noundef %14, i64 noundef %22, i64 noundef %30)
   %.not52 = icmp eq i8 %151, 0
   br i1 %.not52, label %readAt.exit.thread, label %._crit_edge
 
@@ -1136,7 +1136,7 @@ readAt.exit.thread:                               ; preds = %35, %150, %148, %is
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @readAt(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @readAt(i32 noundef range(i32 0, -1) %0, i64 noundef %1, i32 noundef range(i32 30, 77) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp sgt i64 %1, -1
   br i1 %5, label %6, label %14
 
@@ -1147,7 +1147,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @readAt(i32 noundef %0, i64 nou
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %2 to i64
-  %11 = tail call i64 @read(i32 noundef %0, ptr noundef %3, i64 noundef %10) #14
+  %11 = tail call i64 @read(i32 noundef %0, ptr noundef nonnull %3, i64 noundef %10) #14
   %12 = icmp eq i64 %11, %10
   %13 = zext i1 %12 to i8
   br label %14
@@ -1158,7 +1158,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @readAt(i32 noundef %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @is_zip64_endhdr(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @is_zip64_endhdr(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %3, i64 noundef range(i64 0, 4294967296) %4, i64 noundef range(i64 0, 65536) %5) unnamed_addr #0 {
   %7 = load i8, ptr %1, align 1
   %8 = icmp eq i8 %7, 80
   %9 = getelementptr inbounds i8, ptr %1, i64 1
@@ -1257,7 +1257,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @is_zip64_endhdr(i32 noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @is_valid_end_header(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @is_valid_end_header(i32 noundef range(i32 0, -1) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [46 x i8], align 16
   %6 = alloca [30 x i8], align 16
   %7 = sub nsw i64 %1, %2

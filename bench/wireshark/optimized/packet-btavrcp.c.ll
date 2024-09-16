@@ -3798,7 +3798,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 9, 20) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_btavrcp_attribute_list, align 4
   %6 = shl nuw nsw i32 %3, 2
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef %6, i32 noundef 0) #4
@@ -3812,8 +3812,8 @@ define internal fastcc noundef i32 @dissect_attribute_id_list(ptr noundef %0, pt
   %.01213 = phi i32 [ %13, %.lr.ph ], [ 0, %4 ]
   %10 = load i32, ptr @hf_btavrcp_attribute, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef %.014, i32 noundef 4, i32 noundef 0) #4
-  %12 = add i32 %.014, 4
-  %13 = add nuw i32 %.01213, 1
+  %12 = add nuw nsw i32 %.014, 4
+  %13 = add nuw nsw i32 %.01213, 1
   %exitcond.not = icmp eq i32 %13, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -3825,7 +3825,7 @@ define internal fastcc noundef i32 @dissect_attribute_id_list(ptr noundef %0, pt
 declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3841,7 +3841,7 @@ define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, pt
   %10 = zext i16 %9 to i32
   %11 = add i32 %.05155, 8
   %12 = add i32 %11, %10
-  %13 = add nuw i32 %.05254, 1
+  %13 = add nuw nsw i32 %.05254, 1
   %exitcond.not = icmp eq i32 %13, %4
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !23
 
@@ -3893,7 +3893,7 @@ define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, pt
   %45 = load i32, ptr @hf_btavrcp_setting_value, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %45, ptr noundef %0, i32 noundef %27, i32 noundef %25, i32 noundef 2) #4
   %47 = add i32 %27, %25
-  %48 = add nuw i32 %.156, 1
+  %48 = add nuw nsw i32 %.156, 1
   %exitcond64.not = icmp eq i32 %48, %4
   br i1 %exitcond64.not, label %._crit_edge60, label %20, !llvm.loop !24
 

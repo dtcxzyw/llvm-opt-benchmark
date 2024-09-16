@@ -4999,7 +4999,7 @@ declare ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull a
 declare ptr @_ZN6hermes2vm14OrderedHashMap6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @"_ZN6hermes2vm27createListFromArrayLike_RJSIZNS0_7JSProxy15ownPropertyKeysENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_12OwnKeysFlagsEE3$_0EENS0_15ExecutionStatusES5_S7_mRKT_"(ptr %arrayLikeHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %elementCB) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @"_ZN6hermes2vm27createListFromArrayLike_RJSIZNS0_7JSProxy15ownPropertyKeysENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_12OwnKeysFlagsEE3$_0EENS0_15ExecutionStatusES5_S7_mRKT_"(ptr %arrayLikeHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 noundef range(i64 0, 4294967296) %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %elementCB) unnamed_addr #1 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   store ptr %runtime, ptr %gcScope, align 8
@@ -5225,12 +5225,12 @@ if.end47:                                         ; preds = %if.end31
   br i1 %cmp53, label %cleanup, label %for.inc
 
 for.inc:                                          ; preds = %if.end47, %if.then23
-  %inc = add nuw i64 %elemIdx.067, 1
+  %inc = add nuw nsw i64 %elemIdx.067, 1
   %exitcond74.not = icmp eq i64 %inc, %length
   br i1 %exitcond74.not, label %cleanup, label %for.body, !llvm.loop !59
 
 for.cond58:                                       ; preds = %if.end78
-  %inc89 = add nuw i64 %elemIdx57.063, 1
+  %inc89 = add nuw nsw i64 %elemIdx57.063, 1
   %exitcond.not = icmp eq i64 %inc89, %length
   br i1 %exitcond.not, label %cleanup, label %for.body60, !llvm.loop !60
 
@@ -6028,7 +6028,7 @@ declare noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align
 declare void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @"_ZZN6hermes2vm7JSProxy15ownPropertyKeysENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_12OwnKeysFlagsEENK3$_0clES6_mNS0_12PseudoHandleINS0_11HermesValueEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 noundef %index, i64 %value.coerce) unnamed_addr #1 align 2 {
+define internal fastcc noundef i32 @"_ZZN6hermes2vm7JSProxy15ownPropertyKeysENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_12OwnKeysFlagsEENK3$_0clES6_mNS0_12PseudoHandleINS0_11HermesValueEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 noundef range(i64 0, 4294967295) %index, i64 %value.coerce) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8

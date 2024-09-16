@@ -742,7 +742,7 @@ cond.true:                                        ; preds = %for.body47
   %27 = load ptr, ptr %scalarNames, align 8
   %add.ptr.i93 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %27, i64 %add50
   %28 = trunc nuw nsw i64 %indvars.iv to i32
-  invoke fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias nonnull align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(16) %printName, i32 noundef %26, i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i93, ptr noundef nonnull align 8 dereferenceable(56) %veloxNames)
+  invoke fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(16) %printName, i32 noundef %26, i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i93, ptr noundef nonnull align 8 dereferenceable(56) %veloxNames)
           to label %invoke.cont54 unwind label %lpad41.loopexit
 
 invoke.cont54:                                    ; preds = %cond.true
@@ -856,7 +856,7 @@ cond.true65:                                      ; preds = %invoke.cont62
   %39 = load ptr, ptr %aggNames, align 8
   %add.ptr.i99 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %39, i64 %indvars.iv157
   %40 = trunc nuw nsw i64 %indvars.iv157 to i32
-  invoke fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias nonnull align 8 %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(16) %printName, i32 noundef %40, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i99, ptr noundef nonnull align 8 dereferenceable(56) %veloxAggNames)
+  invoke fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias align 8 %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(16) %printName, i32 noundef %40, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i99, ptr noundef nonnull align 8 dereferenceable(56) %veloxAggNames)
           to label %invoke.cont69 unwind label %lpad41.loopexit.split-lp.loopexit
 
 invoke.cont69:                                    ; preds = %cond.true65
@@ -903,7 +903,7 @@ cond.true86:                                      ; preds = %invoke.cont83
   %46 = load ptr, ptr %windowNames, align 8
   %add.ptr.i115 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %46, i64 %indvars.iv157
   %47 = trunc nuw nsw i64 %indvars.iv157 to i32
-  invoke fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias nonnull align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(16) %printName, i32 noundef %47, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i115, ptr noundef nonnull align 8 dereferenceable(56) %veloxWindowNames)
+  invoke fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(16) %printName, i32 noundef %47, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i115, ptr noundef nonnull align 8 dereferenceable(56) %veloxWindowNames)
           to label %invoke.cont90 unwind label %lpad41.loopexit.split-lp.loopexit
 
 invoke.cont90:                                    ; preds = %cond.true86
@@ -1376,7 +1376,7 @@ eh.resume:                                        ; preds = %ehcleanup80, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %row, i32 noundef %column, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %veloxNames) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %row, i32 noundef range(i32 -2147483648, 9) %column, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %veloxNames) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %call.i.i = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %veloxNames, ptr noundef nonnull align 8 dereferenceable(32) %name)
@@ -1484,7 +1484,7 @@ _ZN8facebook5velox9functions16TableCellTracker3addEii.exit: ; preds = %if.then.i
   store i64 %10, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !27, !noalias !33
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   store i64 %call2.i.i22.i.i, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i, align 8, !alias.scope !27, !noalias !33
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.1, i64 12, i64 221, ptr nonnull %ref.tmp.i.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.1, i64 12, i64 221, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   br label %return
 
@@ -3652,7 +3652,7 @@ invoke.cont65:                                    ; preds = %for.end
 cond.true68:                                      ; preds = %invoke.cont65
   %60 = load ptr, ptr %aggNames, align 8
   %add.ptr.i92 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %60, i64 %indvars.iv197
-  invoke fastcc void @"_ZZN8facebook5velox9functions19printVeloxFunctionsERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERKS8_ENK3$_0clB5cxx11ESI_"(ptr noalias nonnull align 8 %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(16) %printName, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i92)
+  invoke fastcc void @"_ZZN8facebook5velox9functions19printVeloxFunctionsERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERKS8_ENK3$_0clB5cxx11ESI_"(ptr noalias align 8 %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(16) %printName, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i92)
           to label %invoke.cont72 unwind label %lpad44.loopexit.split-lp.loopexit
 
 invoke.cont72:                                    ; preds = %cond.true68
@@ -3698,7 +3698,7 @@ invoke.cont86:                                    ; preds = %cleanup.done81
 cond.true89:                                      ; preds = %invoke.cont86
   %66 = load ptr, ptr %windowNames, align 8
   %add.ptr.i108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %66, i64 %indvars.iv197
-  invoke fastcc void @"_ZZN8facebook5velox9functions19printVeloxFunctionsERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERKS8_ENK3$_0clB5cxx11ESI_"(ptr noalias nonnull align 8 %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(16) %printName, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i108)
+  invoke fastcc void @"_ZZN8facebook5velox9functions19printVeloxFunctionsERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERKS8_ENK3$_0clB5cxx11ESI_"(ptr noalias align 8 %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(16) %printName, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i108)
           to label %invoke.cont93 unwind label %lpad44.loopexit.split-lp.loopexit
 
 invoke.cont93:                                    ; preds = %cond.true89
@@ -3879,7 +3879,7 @@ ehcleanup116:                                     ; preds = %ehcleanup115, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox9functions19printVeloxFunctionsERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERKS8_ENK3$_0clB5cxx11ESI_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN8facebook5velox9functions19printVeloxFunctionsERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERKS8_ENK3$_0clB5cxx11ESI_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %0 = load ptr, ptr %this, align 8
@@ -3905,7 +3905,7 @@ cond.true:                                        ; preds = %entry
   store i64 %4, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !72, !noalias !78
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   store i64 %call2.i.i22.i.i, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i, align 8, !alias.scope !72, !noalias !78
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.1, i64 12, i64 221, ptr nonnull %ref.tmp.i.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.1, i64 12, i64 221, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   br label %cond.end
 

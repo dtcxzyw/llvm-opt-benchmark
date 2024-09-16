@@ -24091,7 +24091,7 @@ _ZNK12_GLOBAL__N_119SampleProfileLoader25findCalleeFunctionSamplesERKN4llvm8Call
 254:                                              ; preds = %_ZNK12_GLOBAL__N_119SampleProfileLoader25findCalleeFunctionSamplesERKN4llvm8CallBaseE.exit.i, %_ZNK12_GLOBAL__N_119SampleProfileLoader25findCalleeFunctionSamplesERKN4llvm8CallBaseE.exit.thread.i
   %.val.i.i = load ptr, ptr %137, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %64)
-  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr %.val.i.i, ptr noundef nonnull align 8 dereferenceable(88) %155)
+  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias writable align 8 %64, ptr %.val.i.i, ptr noundef nonnull align 8 dereferenceable(88) %155)
   %255 = load i8, ptr %138, align 8
   %256 = trunc i8 %255 to i1
   br i1 %256, label %257, label %_ZN12_GLOBAL__N_119SampleProfileLoader36getExternalInlineAdvisorShouldInlineERN4llvm8CallBaseE.exit.thread.i.i
@@ -24620,7 +24620,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i:   ; preds = %_ZN4llvm16dyn_cast_
 
 458:                                              ; preds = %.thread.i, %455
   store i64 0, ptr %68, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERm(ptr dead_on_unwind noalias nonnull writable align 8 %69, ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(72) %443, ptr noundef nonnull align 8 dereferenceable(8) %68)
+  call fastcc void @_ZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERm(ptr dead_on_unwind noalias writable align 8 %69, ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(72) %443, ptr noundef nonnull align 8 dereferenceable(8) %68)
   %459 = load i64, ptr %68, align 8
   %460 = load float, ptr %371, align 8
   %461 = uitofp i64 %459 to float
@@ -24905,7 +24905,7 @@ _ZNK12_GLOBAL__N_119SampleProfileLoader25findCalleeFunctionSamplesERKN4llvm8Call
 593:                                              ; preds = %_ZNK12_GLOBAL__N_119SampleProfileLoader25findCalleeFunctionSamplesERKN4llvm8CallBaseE.exit191.i, %_ZNK12_GLOBAL__N_119SampleProfileLoader25findCalleeFunctionSamplesERKN4llvm8CallBaseE.exit191.thread.i
   %.val.i88.i = load ptr, ptr %352, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %62)
-  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %62, ptr %.val.i88.i, ptr noundef nonnull align 8 dereferenceable(88) %494)
+  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias writable align 8 %62, ptr %.val.i88.i, ptr noundef nonnull align 8 dereferenceable(88) %494)
   %594 = load i8, ptr %381, align 8
   %595 = trunc i8 %594 to i1
   br i1 %595, label %596, label %_ZN12_GLOBAL__N_119SampleProfileLoader36getExternalInlineAdvisorShouldInlineERN4llvm8CallBaseE.exit.thread.i89.i
@@ -25348,7 +25348,7 @@ _ZN4llvm3isaINS_13IntrinsicInstEPNS_8CallBaseEEEbRKT0_.exit.thread.i127.i: ; pre
 731:                                              ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPNS_8CallBaseEEEbRKT0_.exit.thread.i127.i
   %.val.i134.i = load ptr, ptr %352, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %60)
-  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr %.val.i134.i, ptr noundef nonnull align 8 dereferenceable(88) %713)
+  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias writable align 8 %60, ptr %.val.i134.i, ptr noundef nonnull align 8 dereferenceable(88) %713)
   %732 = load i8, ptr %360, align 8
   %733 = trunc i8 %732 to i1
   br i1 %733, label %734, label %_ZN12_GLOBAL__N_119SampleProfileLoader36getExternalInlineAdvisorShouldInlineERN4llvm8CallBaseE.exit.thread.i135.i
@@ -25599,7 +25599,7 @@ _ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_
 
 818:                                              ; preds = %.critedge.thread.i
   call void @_ZN4llvm9MapVectorIPNS_8CallBaseEPKNS_10sampleprof15FunctionSamplesENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S6_ELj0EEEEC2ERKSI_(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(40) %66)
-  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader36promoteMergeNotInlinedContextSamplesEN4llvm9MapVectorIPNS1_8CallBaseEPKNS1_10sampleprof15FunctionSamplesENS1_8DenseMapIS4_jNS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_jEEEENS1_11SmallVectorISt4pairIS4_S8_ELj0EEEEERKNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull %74, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader36promoteMergeNotInlinedContextSamplesEN4llvm9MapVectorIPNS1_8CallBaseEPKNS1_10sampleprof15FunctionSamplesENS1_8DenseMapIS4_jNS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_jEEEENS1_11SmallVectorISt4pairIS4_S8_ELj0EEEEERKNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %819 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %820 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %819) #22
   %821 = load ptr, ptr %819, align 8
@@ -27029,7 +27029,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit63.i: ; 
 1515:                                             ; preds = %_ZNK12_GLOBAL__N_119SampleProfileLoader25findCalleeFunctionSamplesERKN4llvm8CallBaseE.exit.i33, %_ZNK12_GLOBAL__N_119SampleProfileLoader25findCalleeFunctionSamplesERKN4llvm8CallBaseE.exit.thread.i46
   %.val.i = load ptr, ptr %878, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %32)
-  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr %.val.i, ptr noundef nonnull align 8 dereferenceable(88) %900)
+  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias writable align 8 %32, ptr %.val.i, ptr noundef nonnull align 8 dereferenceable(88) %900)
   %1516 = load i8, ptr %879, align 8
   %1517 = trunc i8 %1516 to i1
   br i1 %1517, label %1518, label %_ZN12_GLOBAL__N_119SampleProfileLoader36getExternalInlineAdvisorShouldInlineERN4llvm8CallBaseE.exit.thread.i
@@ -27263,7 +27263,7 @@ _ZNK4llvm9MapVectorIPNS_8CallBaseEPKNS_10sampleprof15FunctionSamplesENS_8DenseMa
   br i1 %1624, label %1625, label %1692
 
 1625:                                             ; preds = %1623
-  call fastcc void @_ZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERm(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(72) %1575, ptr noundef nonnull align 8 dereferenceable(8) %43)
+  call fastcc void @_ZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERm(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(72) %1575, ptr noundef nonnull align 8 dereferenceable(8) %43)
   %1626 = load ptr, ptr %44, align 8
   %1627 = load ptr, ptr %890, align 8
   %.not280339.i = icmp eq ptr %1626, %1627
@@ -27588,7 +27588,7 @@ _ZN4llvm11SmallVectorIPNS_8CallBaseELj10EED2Ev.exit98.i: ; preds = %1785, %._cri
 
 1790:                                             ; preds = %1787
   call void @_ZN4llvm9MapVectorIPNS_8CallBaseEPKNS_10sampleprof15FunctionSamplesENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S6_ELj0EEEEC2ERKSI_(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %38)
-  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader36promoteMergeNotInlinedContextSamplesEN4llvm9MapVectorIPNS1_8CallBaseEPKNS1_10sampleprof15FunctionSamplesENS1_8DenseMapIS4_jNS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_jEEEENS1_11SmallVectorISt4pairIS4_S8_ELj0EEEEERKNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader36promoteMergeNotInlinedContextSamplesEN4llvm9MapVectorIPNS1_8CallBaseEPKNS1_10sampleprof15FunctionSamplesENS1_8DenseMapIS4_jNS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_jEEEENS1_11SmallVectorISt4pairIS4_S8_ELj0EEEEERKNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %1791 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %1792 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1791) #22
   %1793 = load ptr, ptr %1791, align 8
@@ -32430,7 +32430,7 @@ declare noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull ali
 declare noundef i32 @_ZNK4llvm8Function19getInstructionCountEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERm(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1648) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1648) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::vector.1265", align 8
   %6 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %7 = alloca %"class.llvm::ErrorOr.1043", align 8
@@ -32734,7 +32734,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader27findExterna
   %19 = getelementptr inbounds i8, ptr %0, i64 1632
   %.val = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
-  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val, ptr noundef nonnull align 8 dereferenceable(88) %1)
+  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias writable align 8 %12, ptr %.val, ptr noundef nonnull align 8 dereferenceable(88) %1)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
@@ -34077,7 +34077,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %_ZNK4llvm8CallBase1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %40 = getelementptr inbounds i8, ptr %0, i64 1632
   %.val.i = load ptr, ptr %40, align 8, !noalias !448
-  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val.i, ptr noundef nonnull align 8 dereferenceable(88) %37), !noalias !448
+  call fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val.i, ptr noundef nonnull align 8 dereferenceable(88) %37), !noalias !448
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %42 = load i8, ptr %41, align 8, !noalias !448
   %43 = trunc i8 %42 to i1
@@ -34714,7 +34714,7 @@ _ZN4llvm8DebugLocD2Ev.exit46:                     ; preds = %344, %_ZN4llvm10Inl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader36promoteMergeNotInlinedContextSamplesEN4llvm9MapVectorIPNS1_8CallBaseEPKNS1_10sampleprof15FunctionSamplesENS1_8DenseMapIS4_jNS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_jEEEENS1_11SmallVectorISt4pairIS4_S8_ELj0EEEEERKNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader36promoteMergeNotInlinedContextSamplesEN4llvm9MapVectorIPNS1_8CallBaseEPKNS1_10sampleprof15FunctionSamplesENS1_8DenseMapIS4_jNS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_jEEEENS1_11SmallVectorISt4pairIS4_S8_ELj0EEEEERKNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::tuple.1414", align 8
   %5 = alloca %"class.std::tuple.441", align 1
   %6 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
@@ -35278,7 +35278,7 @@ _ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit28: ; preds = %_ZNK4llvm10s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.1632.val, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.1632.val, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::unique_ptr.1303", align 8
   %4 = alloca %"class.llvm::InlineCost", align 8
   %5 = alloca %"class.std::optional.1289", align 8

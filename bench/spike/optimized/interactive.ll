@@ -2801,7 +2801,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %.body.i
 
 665:                                              ; preds = %.split305.us.i
-  invoke fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %638, ptr noundef nonnull %16)
+  invoke fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %638, ptr noundef %16)
           to label %666 unwind label %695
 
 666:                                              ; preds = %665
@@ -3381,7 +3381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i124.us.i: ; pred
           to label %831 unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp.i, !noalias !6
 
 831:                                              ; preds = %830
-  invoke fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %638, ptr noundef nonnull %17)
+  invoke fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %638, ptr noundef %17)
           to label %832 unwind label %851
 
 832:                                              ; preds = %831
@@ -3445,7 +3445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i: ; preds = 
           to label %858 unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp.i, !noalias !6
 
 858:                                              ; preds = %857
-  invoke fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %638, ptr noundef nonnull %18)
+  invoke fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %638, ptr noundef %18)
           to label %859 unwind label %869
 
 859:                                              ; preds = %858
@@ -3611,7 +3611,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %930 unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp.i, !noalias !6
 
 930:                                              ; preds = %929
-  invoke fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %638, ptr noundef nonnull %19)
+  invoke fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %638, ptr noundef %19)
           to label %931 unwind label %967
 
 931:                                              ; preds = %930
@@ -13450,7 +13450,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_tra
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9clear_strbiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   br i1 %0, label %5, label %69
@@ -13628,7 +13628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8send_keybiji(i1 noundef zeroext %0, i32 noundef %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL8send_keybiji(i1 noundef zeroext %0, i32 noundef range(i32 1792835, 1792837) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   br i1 %0, label %5, label %38

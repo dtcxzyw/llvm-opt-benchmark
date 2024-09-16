@@ -2168,7 +2168,7 @@ if.then91:                                        ; preds = %entry
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %if.then91
-  invoke fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_113doublePrinterB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp96, double noundef %0)
+  invoke fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_113doublePrinterB5cxx11Ed(ptr noalias align 8 %ref.tmp96, double noundef %0)
           to label %invoke.cont100 unwind label %lpad97
 
 invoke.cont100:                                   ; preds = %invoke.cont95
@@ -5434,7 +5434,7 @@ entry:
   %ascii_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i8, ptr %ascii_, align 8
   %tobool = trunc i8 %1 to i1
-  call fastcc void @_ZN8facebook6hermes7tracingL12encodingNameB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext %tobool)
+  call fastcc void @_ZN8facebook6hermes7tracingL12encodingNameB5cxx11Eb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext %tobool)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.59, i64 8)
           to label %.noexc unwind label %lpad
 
@@ -5461,7 +5461,7 @@ lpad:                                             ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook6hermes7tracingL12encodingNameB5cxx11Eb(ptr noalias align 8 %agg.result, i1 noundef zeroext %isASCII) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook6hermes7tracingL12encodingNameB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, i1 noundef zeroext %isASCII) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.10", align 1
   %.str.146..str.147 = select i1 %isASCII, ptr @.str.146, ptr @.str.147
@@ -5546,7 +5546,7 @@ lpad:                                             ; preds = %.noexc, %_ZN4llvh9S
 
 _ZN4llvh9StringRefC2EPKc.exit34:                  ; preds = %entry
   %cmp7 = icmp eq i32 %1, 0
-  call fastcc void @_ZN8facebook6hermes7tracingL12encodingNameB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp5, i1 noundef zeroext %cmp7)
+  call fastcc void @_ZN8facebook6hermes7tracingL12encodingNameB5cxx11Eb(ptr noalias align 8 %ref.tmp5, i1 noundef zeroext %cmp7)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.59, i64 8)
           to label %.noexc18 unwind label %lpad8
 

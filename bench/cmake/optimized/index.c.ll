@@ -69,7 +69,7 @@ define dso_local void @lzma_index_end(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not.i, label %index_tree_end.exit, label %4
 
 4:                                                ; preds = %3
-  tail call fastcc void @index_tree_node_end(ptr noundef nonnull %.val, ptr noundef %1, ptr noundef nonnull @index_stream_end)
+  tail call fastcc void @index_tree_node_end(ptr noundef %.val, ptr noundef %1, ptr noundef nonnull @index_stream_end)
   br label %index_tree_end.exit
 
 index_tree_end.exit:                              ; preds = %3, %4
@@ -88,7 +88,7 @@ define internal void @index_stream_end(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %index_tree_end.exit, label %4
 
 4:                                                ; preds = %2
-  tail call fastcc void @index_tree_node_end(ptr noundef nonnull %.val, ptr noundef %1, ptr noundef nonnull @lzma_free)
+  tail call fastcc void @index_tree_node_end(ptr noundef %.val, ptr noundef %1, ptr noundef nonnull @lzma_free)
   br label %index_tree_end.exit
 
 index_tree_end.exit:                              ; preds = %2, %4
@@ -843,7 +843,7 @@ lzma_index_file_size.exit69:                      ; preds = %55, %63
   %146 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %0, ptr %146, align 8
   %147 = load ptr, ptr %1, align 8
-  call fastcc void @index_cat_helper(ptr noundef nonnull %4, ptr noundef %147)
+  call fastcc void @index_cat_helper(ptr noundef %4, ptr noundef %147)
   %148 = load i64, ptr %78, align 8
   %149 = add i64 %148, %81
   store i64 %149, ptr %78, align 8
@@ -889,7 +889,7 @@ lzma_index_checks.exit:                           ; preds = %140, %164
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @index_cat_helper(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @index_cat_helper(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1185,7 +1185,7 @@ index_tree_next.exit.i:                           ; preds = %.preheader17.i.i, %
   br i1 %.not.i.i27, label %lzma_index_end.exit, label %97
 
 97:                                               ; preds = %.loopexit
-  tail call fastcc void @index_tree_node_end(ptr noundef nonnull %.val.i, ptr noundef %1, ptr noundef nonnull @index_stream_end)
+  tail call fastcc void @index_tree_node_end(ptr noundef %.val.i, ptr noundef %1, ptr noundef nonnull @index_stream_end)
   br label %lzma_index_end.exit
 
 lzma_index_end.exit:                              ; preds = %.loopexit, %97
@@ -1883,14 +1883,14 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @index_tree_node_end(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @index_tree_node_end(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call fastcc void @index_tree_node_end(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @index_tree_node_end(ptr noundef %5, ptr noundef %1, ptr noundef %2)
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -1900,7 +1900,7 @@ define internal fastcc void @index_tree_node_end(ptr noundef %0, ptr noundef %1,
   br i1 %.not12, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call fastcc void @index_tree_node_end(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @index_tree_node_end(ptr noundef %9, ptr noundef %1, ptr noundef %2)
   br label %11
 
 11:                                               ; preds = %10, %7

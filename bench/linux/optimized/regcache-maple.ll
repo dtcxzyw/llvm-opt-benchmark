@@ -690,7 +690,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #6
 declare dso_local zeroext i1 @regcache_reg_needs_sync(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8
   tail call void @mas_pause(ptr noundef %2) #10

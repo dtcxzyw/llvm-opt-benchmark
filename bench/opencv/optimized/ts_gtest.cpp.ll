@@ -1205,7 +1205,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN7testing8internal16BoolFromGTestEnvEPKcb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %0)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0)
   %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
   %5 = call noundef ptr @getenv(ptr noundef %4) #50
   %6 = icmp eq ptr %5, null
@@ -1231,7 +1231,7 @@ sub_1:                                            ; preds = %sub_0
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7testing8internal18StringFromGTestEnvEPKcS2_(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %0)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0)
   %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
   %5 = call noundef ptr @getenv(ptr noundef %4) #50
   %6 = icmp eq ptr %5, null
@@ -1327,7 +1327,7 @@ define noundef i32 @_ZN7testing8internal17Int32FromGTestEnvEPKci(ptr noundef %0,
   %5 = alloca %"class.testing::Message", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.testing::Message", align 8
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %0)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0)
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
   %9 = call noundef ptr @getenv(ptr noundef %8) #50
   %10 = icmp eq ptr %9, null
@@ -8712,11 +8712,11 @@ _ZN7testing7MessagelsIA15_cEERS0_RKT_.exit:       ; preds = %49, %_ZN7testing7Me
   br i1 %55, label %101, label %56
 
 56:                                               ; preds = %54
-  invoke fastcc void @_ZN7testing8internal12_GLOBAL__N_118SplitEscapedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN7testing8internal12_GLOBAL__N_118SplitEscapedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %57 unwind label %31
 
 57:                                               ; preds = %56
-  invoke fastcc void @_ZN7testing8internal12_GLOBAL__N_118SplitEscapedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN7testing8internal12_GLOBAL__N_118SplitEscapedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %58 unwind label %82
 
 58:                                               ; preds = %57
@@ -8901,7 +8901,7 @@ _ZN7testing7MessageD2Ev.exit35:                   ; preds = %115, %117
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal12_GLOBAL__N_118SplitEscapedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal12_GLOBAL__N_118SplitEscapedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -19422,7 +19422,7 @@ define noundef zeroext i1 @_ZN7testing10TestResult20ValidateTestPropertyERKNSt7_
           to label %11 unwind label %118
 
 11:                                               ; preds = %2
-  invoke fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %12 unwind label %120
 
 12:                                               ; preds = %11
@@ -19772,7 +19772,7 @@ define linkonce_odr hidden ptr @_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.testing::internal::GTestLog", align 4
   %4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.227) #50
   %5 = icmp eq i32 %4, 0
@@ -20775,7 +20775,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7Message
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7testing8internal26GoogleTestFailureExceptionC2ERKNS_14TestPartResultE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(112) %1)
+  call fastcc void @_ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(112) %1)
   %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
   invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4)
           to label %5 unwind label %6
@@ -20793,7 +20793,7 @@ define void @_ZN7testing8internal26GoogleTestFailureExceptionC2ERKNS_14TestPartR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -20854,7 +20854,7 @@ _ZN7testing7MessagelsIKcEERS0_RKPT_.exit:         ; preds = %_ZN7testingL26TestP
 
 _ZN7testing7MessagelsIKcEERS0_RKPT_.exit8:        ; preds = %_ZN7testing7MessagelsIKcEERS0_RKPT_.exit
   %31 = load ptr, ptr %3, align 8, !noalias !350
-  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %31)
+  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %31)
           to label %_ZNK7testing7Message9GetStringB5cxx11Ev.exit unwind label %39
 
 _ZNK7testing7Message9GetStringB5cxx11Ev.exit:     ; preds = %_ZN7testing7MessagelsIKcEERS0_RKPT_.exit8
@@ -21111,7 +21111,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %4, %9, %12
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(8) %48) #50
-  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %53, ptr noundef %3)
+  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %53, ptr noundef %3)
           to label %54 unwind label %64
 
 54:                                               ; preds = %49
@@ -21124,7 +21124,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %4, %9, %12
   br label %_ZN7testing8internal38HandleSehExceptionsInMethodIfSupportedINS_4TestEvEET0_PT_MS4_FS3_vEPKc.exit
 
 56:                                               ; preds = %45
-  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef null, ptr noundef %3)
+  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef null, ptr noundef %3)
           to label %57 unwind label %59
 
 57:                                               ; preds = %56
@@ -22343,7 +22343,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %4, %9, %12
   %52 = getelementptr inbounds i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %49) #50
-  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %54, ptr noundef %3)
+  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %54, ptr noundef %3)
           to label %55 unwind label %65
 
 55:                                               ; preds = %50
@@ -22356,7 +22356,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %4, %9, %12
   br label %_ZN7testing8internal38HandleSehExceptionsInMethodIfSupportedINS0_15TestFactoryBaseEPNS_4TestEEET0_PT_MS6_FS5_vEPKc.exit
 
 57:                                               ; preds = %46
-  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef null, ptr noundef %3)
+  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef null, ptr noundef %3)
           to label %58 unwind label %60
 
 58:                                               ; preds = %57
@@ -23145,7 +23145,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %4, %9, %12
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(8) %48) #50
-  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %53, ptr noundef %3)
+  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %53, ptr noundef %3)
           to label %54 unwind label %64
 
 54:                                               ; preds = %49
@@ -23158,7 +23158,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %4, %9, %12
   br label %_ZN7testing8internal38HandleSehExceptionsInMethodIfSupportedINS_8TestCaseEvEET0_PT_MS4_FS3_vEPKc.exit
 
 56:                                               ; preds = %45
-  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef null, ptr noundef %3)
+  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef null, ptr noundef %3)
           to label %57 unwind label %59
 
 57:                                               ; preds = %56
@@ -23656,7 +23656,7 @@ _ZNK7testing8TestCase17test_to_run_countEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, 
 
 _ZNK7testing8UnitTest17test_to_run_countEv.exit:  ; preds = %_ZNK7testing8TestCase17test_to_run_countEv.exit.i.i, %38
   %.012.lcssa.i.i.i = phi i32 [ 0, %38 ], [ %61, %_ZNK7testing8TestCase17test_to_run_countEv.exit.i.i ]
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %.012.lcssa.i.i.i, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %.012.lcssa.i.i.i, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
   %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #50
   %64 = load ptr, ptr %39, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 184
@@ -23681,7 +23681,7 @@ _ZNK7testing8UnitTest17test_to_run_countEv.exit:  ; preds = %_ZNK7testing8TestCa
 
 _ZNK7testing8UnitTest22test_case_to_run_countEv.exit: ; preds = %.lr.ph.i.i.i, %_ZNK7testing8UnitTest17test_to_run_countEv.exit
   %.0.lcssa.i.i.i = phi i32 [ 0, %_ZNK7testing8UnitTest17test_to_run_countEv.exit ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  invoke fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %.0.lcssa.i.i.i, ptr noundef nonnull @.str.408, ptr noundef nonnull @.str.409)
+  invoke fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.0.lcssa.i.i.i, ptr noundef nonnull @.str.408, ptr noundef nonnull @.str.409)
           to label %_ZN7testingL19FormatTestCaseCountB5cxx11Ei.exit unwind label %79
 
 _ZN7testingL19FormatTestCaseCountB5cxx11Ei.exit:  ; preds = %_ZNK7testing8UnitTest22test_case_to_run_countEv.exit
@@ -23704,7 +23704,7 @@ _ZN7testingL19FormatTestCaseCountB5cxx11Ei.exit:  ; preds = %_ZNK7testing8UnitTe
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internalL13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internalL13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef range(i32 0, 4) %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load atomic i8, ptr @_ZGVZN7testing8internalL13ColoredPrintfENS0_10GTestColorEPKczE13in_color_mode acquire, align 8
@@ -24317,7 +24317,7 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter15OnTestCas
 
 _ZNK7testing8TestCase17test_to_run_countEv.exit:  ; preds = %.lr.ph.i.i, %2
   %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %3, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
   call void (i32, ptr, ...) @_ZN7testing8internalL13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 2, ptr noundef nonnull @.str.160)
   %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
   %15 = getelementptr inbounds i8, ptr %1, i64 8
@@ -24359,7 +24359,7 @@ _ZNK7testing8TestCase10type_paramEv.exit7:        ; preds = %24, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.testing::Message", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24515,7 +24515,7 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter16OnTestPar
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(112) %1)
+  call fastcc void @_ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(112) %1)
   %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %7)
   %8 = load ptr, ptr @stdout, align 8
@@ -24719,7 +24719,7 @@ define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter13OnTestCas
 
 _ZNK7testing8TestCase17test_to_run_countEv.exit:  ; preds = %.lr.ph.i.i, %8
   %.0.lcssa.i.i = phi i32 [ 0, %8 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
   call void (i32, ptr, ...) @_ZN7testing8internalL13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 2, ptr noundef nonnull @.str.160)
   %19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #50
   %20 = getelementptr inbounds i8, ptr %1, i64 8
@@ -25341,7 +25341,7 @@ _ZNK7testing8TestCase17test_to_run_countEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, 
 
 _ZNK7testing8UnitTest17test_to_run_countEv.exit:  ; preds = %_ZNK7testing8TestCase17test_to_run_countEv.exit.i.i, %3
   %.012.lcssa.i.i.i = phi i32 [ 0, %3 ], [ %32, %_ZNK7testing8TestCase17test_to_run_countEv.exit.i.i ]
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %.012.lcssa.i.i.i, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.012.lcssa.i.i.i, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
   %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #50
   %35 = load ptr, ptr %10, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 184
@@ -25366,7 +25366,7 @@ _ZNK7testing8UnitTest17test_to_run_countEv.exit:  ; preds = %_ZNK7testing8TestCa
 
 _ZNK7testing8UnitTest22test_case_to_run_countEv.exit: ; preds = %.lr.ph.i.i.i, %_ZNK7testing8UnitTest17test_to_run_countEv.exit
   %.0.lcssa.i.i.i = phi i32 [ 0, %_ZNK7testing8UnitTest17test_to_run_countEv.exit ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  invoke fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %6, i32 noundef %.0.lcssa.i.i.i, ptr noundef nonnull @.str.408, ptr noundef nonnull @.str.409)
+  invoke fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %6, i32 noundef %.0.lcssa.i.i.i, ptr noundef nonnull @.str.408, ptr noundef nonnull @.str.409)
           to label %_ZN7testingL19FormatTestCaseCountB5cxx11Ei.exit unwind label %72
 
 _ZN7testingL19FormatTestCaseCountB5cxx11Ei.exit:  ; preds = %_ZNK7testing8UnitTest22test_case_to_run_countEv.exit
@@ -25530,7 +25530,7 @@ _ZNK7testing8TestCase21successful_test_countEv.exit.i.i: ; preds = %_ZN7testing8
 
 _ZNK7testing8UnitTest21successful_test_countEv.exit: ; preds = %_ZNK7testing8TestCase21successful_test_countEv.exit.i.i, %74
   %.012.lcssa.i.i.i34 = phi i32 [ 0, %74 ], [ %111, %_ZNK7testing8TestCase21successful_test_countEv.exit.i.i ]
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %8, i32 noundef %.012.lcssa.i.i.i34, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %8, i32 noundef %.012.lcssa.i.i.i34, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
   %113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #50
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.176, ptr noundef %113)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #50
@@ -25719,7 +25719,7 @@ _ZNK7testing8TestCase17failed_test_countEv.exit.i.i63: ; preds = %_ZN7testing8Te
 _ZNK7testing8UnitTest17failed_test_countEv.exit76: ; preds = %_ZNK7testing8TestCase17failed_test_countEv.exit.i.i63, %154
   %.012.lcssa.i.i.i66 = phi i32 [ 0, %154 ], [ %191, %_ZNK7testing8TestCase17failed_test_countEv.exit.i.i63 ]
   call void (i32, ptr, ...) @_ZN7testing8internalL13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 1, ptr noundef nonnull @.str.168)
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias nonnull writable align 8 %9, i32 noundef %.012.lcssa.i.i.i66, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr dead_on_unwind noalias writable align 8 %9, i32 noundef %.012.lcssa.i.i.i66, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163)
   %193 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #50
   %194 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.177, ptr noundef %193)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #50
@@ -29055,7 +29055,7 @@ define hidden void @_ZN7testing8internal24XmlUnitTestResultPrinter18OutputXmlAtt
   %5 = alloca %"class.std::vector.33", align 8
   %6 = alloca %"class.testing::internal::GTestLog", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -33006,7 +33006,7 @@ define hidden void @_ZN7testing8internal25JsonUnitTestResultPrinter13OutputJsonK
   %7 = alloca %"class.std::vector.33", align 8
   %8 = alloca %"class.testing::internal::GTestLog", align 4
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -33136,7 +33136,7 @@ define hidden void @_ZN7testing8internal25JsonUnitTestResultPrinter13OutputJsonK
   %8 = alloca %"class.std::vector.33", align 8
   %9 = alloca %"class.testing::internal::GTestLog", align 4
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -36904,7 +36904,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %4, %9, %12
   %52 = getelementptr inbounds i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %49) #50
-  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %54, ptr noundef %3)
+  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %54, ptr noundef %3)
           to label %55 unwind label %65
 
 55:                                               ; preds = %50
@@ -36917,7 +36917,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %4, %9, %12
   br label %_ZN7testing8internal38HandleSehExceptionsInMethodIfSupportedINS0_12UnitTestImplEbEET0_PT_MS4_FS3_vEPKc.exit
 
 57:                                               ; preds = %46
-  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef null, ptr noundef %3)
+  invoke fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef null, ptr noundef %3)
           to label %58 unwind label %60
 
 58:                                               ; preds = %57
@@ -43542,7 +43542,7 @@ _ZN7testing7MessagelsIA28_cEERS0_RKT_.exit:       ; preds = %45
           to label %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit15 unwind label %43
 
 _ZN7testing7MessagelsIA13_cEERS0_RKT_.exit15:     ; preds = %_ZN7testing7MessagelsIA28_cEERS0_RKT_.exit
-  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %52 unwind label %43
 
 52:                                               ; preds = %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit15
@@ -43574,7 +43574,7 @@ _ZN7testing7MessagelsIA33_cEERS0_RKT_.exit:       ; preds = %58
           to label %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit16 unwind label %43
 
 _ZN7testing7MessagelsIA13_cEERS0_RKT_.exit16:     ; preds = %_ZN7testing7MessagelsIA33_cEERS0_RKT_.exit
-  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %65 unwind label %43
 
 65:                                               ; preds = %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit16
@@ -43606,7 +43606,7 @@ _ZN7testing7MessagelsIA47_cEERS0_RKT_.exit:       ; preds = %71
           to label %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit18 unwind label %43
 
 _ZN7testing7MessagelsIA13_cEERS0_RKT_.exit18:     ; preds = %_ZN7testing7MessagelsIA47_cEERS0_RKT_.exit
-  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %78 unwind label %43
 
 78:                                               ; preds = %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit18
@@ -43687,7 +43687,7 @@ _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit28:      ; preds = %_ZN7testing7Message
           to label %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit30 unwind label %43
 
 _ZN7testing7MessagelsIA13_cEERS0_RKT_.exit30:     ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit28
-  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %116 unwind label %43
 
 116:                                              ; preds = %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit30
@@ -43822,7 +43822,7 @@ _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit40:      ; preds = %_ZN7testing7Message
           to label %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit42 unwind label %182
 
 _ZN7testing7MessagelsIA13_cEERS0_RKT_.exit42:     ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit40
-  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %178 unwind label %182
 
 178:                                              ; preds = %_ZN7testing7MessagelsIA13_cEERS0_RKT_.exit42
@@ -49625,7 +49625,7 @@ define void @_ZN7testing8internal13CaptureStdoutEv() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL13CaptureStreamEiPKcPPNS0_14CapturedStreamE(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL13CaptureStreamEiPKcPPNS0_14CapturedStreamE(i32 noundef range(i32 1, 3) %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.testing::internal::GTestLog", align 4
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %5, null
@@ -49915,7 +49915,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #35
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::Message", align 8
   %5 = alloca %"class.testing::Message", align 8
@@ -50024,7 +50024,7 @@ _ZN7testing7MessagelsIcEERS0_RKT_.exit:           ; preds = %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN7testing7MessagelsIcEERS0_RKT_.exit, %.preheader
   %46 = load ptr, ptr %5, align 8, !noalias !980
-  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %46)
+  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %46)
           to label %_ZNK7testing7Message9GetStringB5cxx11Ev.exit13 unwind label %.loopexit.split-lp
 
 _ZNK7testing7Message9GetStringB5cxx11Ev.exit13:   ; preds = %._crit_edge
@@ -56928,7 +56928,7 @@ define linkonce_odr hidden void @_ZN7testing8internal14GTestFlagSaverD2Ev(ptr no
 declare i32 @llvm.eh.typeid.for.p0(ptr) #43
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.testing::Message", align 8
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.not = icmp eq ptr %1, null
@@ -56996,7 +56996,7 @@ _ZN7testing7MessagelsIKcEERS0_RKPT_.exit2:        ; preds = %_ZN7testing7Message
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit3:       ; preds = %_ZN7testing7MessagelsIKcEERS0_RKPT_.exit2
   %34 = load ptr, ptr %4, align 8, !noalias !1126
-  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %34)
+  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %34)
           to label %_ZNK7testing7Message9GetStringB5cxx11Ev.exit unwind label %14
 
 _ZNK7testing7Message9GetStringB5cxx11Ev.exit:     ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit3
@@ -58290,7 +58290,7 @@ define internal void @_GLOBAL__sub_I_ts_gtest.cpp() #44 section ".text.startup" 
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str)
   %27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #50
   %28 = call noundef ptr @getenv(ptr noundef %27) #50
   %29 = icmp eq ptr %28, null
@@ -58314,7 +58314,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %0, %sub_0.i.i, %sub
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
   store i8 %35, ptr @_ZN7testing35FLAGS_gtest_also_run_disabled_testsE, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull @.str.23)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull @.str.23)
   %36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #50
   %37 = call noundef ptr @getenv(ptr noundef %36) #50
   %38 = icmp eq ptr %37, null
@@ -58338,7 +58338,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %__cxx_global_var_in
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   store i8 %44, ptr @_ZN7testing28FLAGS_gtest_break_on_failureE, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull @.str.25)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull @.str.25)
   %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #50
   %46 = call noundef ptr @getenv(ptr noundef %45) #50
   %47 = icmp eq ptr %46, null
@@ -58363,7 +58363,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %__cxx_global_var_in
   store i8 %53, ptr @_ZN7testing28FLAGS_gtest_catch_exceptionsE, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.27)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.27)
   %54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #50
   %55 = call noundef ptr @getenv(ptr noundef %54) #50
   %56 = icmp eq ptr %55, null
@@ -58393,7 +58393,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %__cxx_global_var_in
   %.not.i.i7 = icmp eq ptr %61, null
   %_ZN7testingL16kUniversalFilterE..i.i = select i1 %.not.i.i7, ptr @_ZN7testingL16kUniversalFilterE, ptr %61
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull @.str.30)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull @.str.30)
   %62 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #50
   %63 = call noundef ptr @getenv(ptr noundef %62) #50
   %64 = icmp eq ptr %63, null
@@ -58415,7 +58415,7 @@ __cxx_global_var_init.29.exit:                    ; preds = %__cxx_global_var_in
   %68 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7testing18FLAGS_gtest_filterB5cxx11E, ptr nonnull @__dso_handle) #50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.32)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.32)
   %69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #50
   %70 = call noundef ptr @getenv(ptr noundef %69) #50
   %71 = icmp eq ptr %70, null
@@ -58443,7 +58443,7 @@ __cxx_global_var_init.31.exit:                    ; preds = %__cxx_global_var_in
   %.not.i.i11 = icmp eq ptr %78, null
   %_ZN7testingL16kUniversalFilterE..i.i12 = select i1 %.not.i.i11, ptr @_ZN7testingL16kUniversalFilterE, ptr %78
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.34)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.34)
   %79 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #50
   %80 = call noundef ptr @getenv(ptr noundef %79) #50
   %81 = icmp eq ptr %80, null
@@ -58469,7 +58469,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %__cxx_global_var_in
   call void @_ZN7testing8internal25OutputFlagAlsoCheckEnvVarB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14)
   %86 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  invoke fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.36)
+  invoke fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.36)
           to label %87 unwind label %92
 
 87:                                               ; preds = %__cxx_global_var_init.33.exit
@@ -58506,7 +58506,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %87
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.38)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.38)
   %98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #50
   %99 = call noundef ptr @getenv(ptr noundef %98) #50
   %100 = icmp eq ptr %99, null
@@ -58530,7 +58530,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %__cxx_global_var_in
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   store i8 %106, ptr @_ZN7testing22FLAGS_gtest_print_timeE, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.40)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.40)
   %107 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #50
   %108 = call noundef ptr @getenv(ptr noundef %107) #50
   %109 = icmp eq ptr %108, null
@@ -58558,7 +58558,7 @@ __cxx_global_var_init.39.exit:                    ; preds = %__cxx_global_var_in
   %117 = call noundef i32 @_ZN7testing8internal17Int32FromGTestEnvEPKci(ptr noundef nonnull @.str.44, i32 noundef 1)
   store i32 %117, ptr @_ZN7testing18FLAGS_gtest_repeatE, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.46)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.46)
   %118 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #50
   %119 = call noundef ptr @getenv(ptr noundef %118) #50
   %120 = icmp eq ptr %119, null
@@ -58585,7 +58585,7 @@ __cxx_global_var_init.45.exit:                    ; preds = %__cxx_global_var_in
   store i32 %127, ptr @_ZN7testing29FLAGS_gtest_stack_trace_depthE, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.50)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.50)
   %128 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #50
   %129 = call noundef ptr @getenv(ptr noundef %128) #50
   %130 = icmp eq ptr %129, null
@@ -58607,7 +58607,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %__cxx_global_var_in
   %134 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7testing28FLAGS_gtest_stream_result_toB5cxx11E, ptr nonnull @__dso_handle) #50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.53)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.53)
   %135 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #50
   %136 = call noundef ptr @getenv(ptr noundef %135) #50
   %137 = icmp eq ptr %136, null
@@ -58632,7 +58632,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %__cxx_global_var_in
   store i8 %143, ptr @_ZN7testing28FLAGS_gtest_throw_on_failureE, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.55)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.55)
   %144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #50
   %145 = call noundef ptr @getenv(ptr noundef %144) #50
   %146 = icmp eq ptr %145, null
@@ -58658,7 +58658,7 @@ __cxx_global_var_init.54.exit:                    ; preds = %__cxx_global_var_in
   store ptr @_ZN7testing8internal12TypeIdHelperINS_4TestEE6dummy_E, ptr @_ZN7testing8internal23kTestTypeIdInGoogleTestE, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull @.str.296)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull @.str.296)
   %152 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
   %153 = call noundef ptr @getenv(ptr noundef %152) #50
   %154 = icmp eq ptr %153, null
@@ -58680,7 +58680,7 @@ __cxx_global_var_init.295.exit:                   ; preds = %__cxx_global_var_in
   %158 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN7testing28FLAGS_gtest_death_test_styleB5cxx11E, ptr nonnull @__dso_handle) #50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.298)
+  call fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.298)
   %159 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #50
   %160 = call noundef ptr @getenv(ptr noundef %159) #50
   %161 = icmp eq ptr %160, null

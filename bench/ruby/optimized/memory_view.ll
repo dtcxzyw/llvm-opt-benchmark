@@ -317,7 +317,7 @@ define dso_local i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr nound
   %28 = icmp ne i8 %26, 32
   %29 = add nsw i32 %27, -14
   %30 = icmp ult i32 %29, -5
-  %narrow.i.not = and i1 %28, %30
+  %narrow.i.not = select i1 %28, i1 %30, i1 false
   br i1 %narrow.i.not, label %38, label %.preheader
 
 .preheader:                                       ; preds = %25, %.preheader
@@ -327,7 +327,7 @@ define dso_local i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr nound
   %34 = icmp ne i8 %32, 32
   %35 = add nsw i32 %33, -14
   %36 = icmp ult i32 %35, -5
-  %narrow.i75.not = and i1 %34, %36
+  %narrow.i75.not = select i1 %34, i1 %36, i1 false
   %37 = getelementptr i8, ptr %31, i64 1
   br i1 %narrow.i75.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
@@ -337,7 +337,7 @@ define dso_local i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr nound
   store i64 0, ptr %8, align 8
   store i32 0, ptr %9, align 4
   store i64 0, ptr %10, align 8
-  %39 = call fastcc i64 @get_format_size(ptr noundef nonnull %.lcssa9295, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %39 = call fastcc i64 @get_format_size(ptr noundef nonnull %.lcssa9295, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %6, ptr noundef nonnull %5)
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %41, label %43
 
@@ -430,7 +430,7 @@ calculate_padding.exit78:                         ; preds = %59, %61
   store i64 0, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i64 0, ptr %15, align 8
-  %74 = call fastcc i64 @get_format_size(ptr noundef nonnull %73, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef null)
+  %74 = call fastcc i64 @get_format_size(ptr noundef nonnull %73, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %11, ptr noundef null)
   %75 = load i64, ptr %13, align 8
   %76 = icmp sgt i64 %75, 1
   br i1 %76, label %77, label %calculate_padding.exit81.us
@@ -510,7 +510,7 @@ calculate_padding.exit81:                         ; preds = %.lr.ph117, %114
   store i64 0, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i64 0, ptr %15, align 8
-  %102 = call fastcc i64 @get_format_size(ptr noundef nonnull %101, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef null)
+  %102 = call fastcc i64 @get_format_size(ptr noundef nonnull %101, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %11, ptr noundef null)
   %.not69 = icmp eq i8 %100, 120
   br i1 %.not69, label %calculate_padding.exit81._crit_edge, label %103
 
@@ -579,7 +579,7 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   store i32 0, ptr %3, align 4
   store i64 1, ptr %4, align 8
@@ -924,7 +924,7 @@ define hidden i64 @rb_memory_view_extract_item_member(ptr noundef readonly %0, p
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
+  %10 = tail call fastcc i64 @extract_item_member(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2)
   br label %11
 
 11:                                               ; preds = %6, %3, %9
@@ -933,7 +933,7 @@ define hidden i64 @rb_memory_view_extract_item_member(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @extract_item_member(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @extract_item_member(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %union.anon.14, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -1250,7 +1250,7 @@ define dso_local i64 @rb_memory_view_extract_item_members(ptr noundef readonly %
   br i1 %10, label %rb_memory_view_extract_item_member.exit, label %.preheader.preheader
 
 rb_memory_view_extract_item_member.exit:          ; preds = %7
-  %11 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef 0)
+  %11 = tail call fastcc i64 @extract_item_member(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i64 noundef 0)
   br label %.loopexit
 
 .preheader.preheader:                             ; preds = %7, %6
@@ -1267,7 +1267,7 @@ rb_memory_view_extract_item_member.exit:          ; preds = %7
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02226 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
-  %16 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull %0, ptr noundef %13, i64 noundef %.02226)
+  %16 = tail call fastcc i64 @extract_item_member(ptr noundef %0, ptr noundef %13, i64 noundef %.02226)
   %17 = tail call i64 @rb_ary_push(i64 noundef %12, i64 noundef %16) #16
   %18 = add nuw i64 %.02226, 1
   %19 = load i64, ptr %14, align 8
@@ -1497,7 +1497,7 @@ rb_memory_view_prepare_item_desc.exit:            ; preds = %75
   br i1 %96, label %rb_memory_view_extract_item_member.exit.i, label %.preheader.preheader.i
 
 rb_memory_view_extract_item_member.exit.i:        ; preds = %93
-  %97 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef nonnull readonly %87, i64 noundef 0)
+  %97 = call fastcc i64 @extract_item_member(ptr noundef readonly %.051.i, ptr noundef nonnull readonly %87, i64 noundef 0)
   br label %rb_memory_view_extract_item_members.exit
 
 .preheader.preheader.i:                           ; preds = %93, %92
@@ -1514,7 +1514,7 @@ rb_memory_view_extract_item_member.exit.i:        ; preds = %93
 
 .lr.ph.i10:                                       ; preds = %.preheader.i9, %.lr.ph.i10
   %.02226.i = phi i64 [ %104, %.lr.ph.i10 ], [ 0, %.preheader.i9 ]
-  %102 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef readonly %99, i64 noundef %.02226.i)
+  %102 = call fastcc i64 @extract_item_member(ptr noundef readonly %.051.i, ptr noundef readonly %99, i64 noundef %.02226.i)
   %103 = call i64 @rb_ary_push(i64 noundef %98, i64 noundef %102) #16
   %104 = add nuw i64 %.02226.i, 1
   %105 = load i64, ptr %100, align 8

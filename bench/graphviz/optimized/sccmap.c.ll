@@ -220,7 +220,7 @@ scanArgs.exit:                                    ; preds = %51, %53
 68:                                               ; preds = %.lr.ph.i.i
   %69 = add nsw i32 %.03145.i.i, 1
   store i32 0, ptr %3, align 4
-  %70 = call fastcc i32 @label(ptr noundef nonnull %.02946.i.i, i32 noundef 0, ptr noundef nonnull %3)
+  %70 = call fastcc i32 @label(ptr noundef nonnull %.02946.i.i, i32 noundef 0, ptr noundef %3)
   %71 = load i32, ptr %3, align 4
   %72 = add nsw i32 %71, %.03344.i.i
   %73 = add i32 %.03543.i.i, 1
@@ -291,7 +291,7 @@ countComponents.exit.i:                           ; preds = %.lr.ph53.i.i, %._cr
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %.lr.ph.i
-  %97 = call fastcc i32 @visit(ptr noundef nonnull %.01724.i, ptr noundef %91, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %97 = call fastcc i32 @visit(ptr noundef nonnull %.01724.i, ptr noundef %91, ptr noundef %4, ptr noundef %5)
   br label %98
 
 98:                                               ; preds = %96, %.lr.ph.i
@@ -383,7 +383,7 @@ declare ptr @fileName(ptr noundef) local_unnamed_addr #1
 declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #3 {
   tail call void @exit(i32 noundef %0) #17
   unreachable
 }
@@ -416,7 +416,7 @@ declare ptr @agopen(ptr noundef, i32, ptr noundef) local_unnamed_addr #1
 declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @visit(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #7 {
+define internal fastcc i32 @visit(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #7 {
   %5 = alloca [32 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
@@ -678,7 +678,7 @@ declare i32 @agnnodes(ptr noundef) local_unnamed_addr #1
 declare i32 @agnedges(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @label(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @label(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #7 {
   %4 = getelementptr i8, ptr %0, i64 16
   %.val21 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %.val21, i64 16
@@ -722,7 +722,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @label(ptr nounde
   br i1 %.not20, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = tail call fastcc i32 @label(ptr noundef nonnull %21, i32 noundef %.01823, ptr noundef nonnull %2)
+  %25 = tail call fastcc i32 @label(ptr noundef nonnull %21, i32 noundef %.01823, ptr noundef %2)
   br label %26
 
 26:                                               ; preds = %20, %24

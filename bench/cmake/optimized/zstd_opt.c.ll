@@ -55,7 +55,7 @@ define dso_local i64 @ZSTD_compressBlock_btopt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #2 {
   %7 = alloca %struct.repcodes_s, align 8
   %8 = alloca %struct.repcodes_s, align 8
   %9 = alloca i32, align 4
@@ -120,7 +120,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocaptur
   %49 = ptrtoint ptr %3 to i64
   %50 = ptrtoint ptr %14 to i64
   %51 = trunc i64 %4 to i32
-  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %10, i32 noundef 0, i32 noundef %51)
+  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef %10, i32 noundef 0, i32 noundef %51)
   tail call fastcc void @ZSTD_rescaleFreqs(ptr noundef nonnull %13, ptr noundef %3, i64 noundef %4, i32 noundef 0)
   %52 = icmp eq ptr %3, %21
   %53 = zext i1 %52 to i64
@@ -179,7 +179,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocaptur
   %88 = trunc i64 %87 to i32
   %89 = sub i64 %50, %82
   %90 = trunc i64 %89 to i32
-  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnull %10, ptr noundef %40, ptr noundef nonnull %11, i32 noundef %88, i32 noundef %90)
+  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef %10, ptr noundef %40, ptr noundef %11, i32 noundef %88, i32 noundef %90)
   %91 = load i32, ptr %11, align 4
   %.not499 = icmp eq i32 %91, 0
   br i1 %.not499, label %92, label %.preheader626
@@ -764,7 +764,7 @@ ZSTD_litLengthPrice.exit543:                      ; preds = %406, %410
   %423 = trunc i64 %422 to i32
   %424 = sub i64 %50, %421
   %425 = trunc i64 %424 to i32
-  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnull %10, ptr noundef %40, ptr noundef nonnull %12, i32 noundef %423, i32 noundef %425)
+  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef %10, ptr noundef %40, ptr noundef %12, i32 noundef %423, i32 noundef %425)
   %426 = load i32, ptr %12, align 4
   %.not504 = icmp eq i32 %426, 0
   br i1 %.not504, label %.loopexit, label %427
@@ -1447,7 +1447,7 @@ define dso_local i64 @ZSTD_compressBlock_btultra(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #2 {
   %7 = alloca %struct.repcodes_s, align 8
   %8 = alloca %struct.repcodes_s, align 8
   %9 = alloca i32, align 4
@@ -1511,7 +1511,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocaptur
   %48 = ptrtoint ptr %3 to i64
   %49 = ptrtoint ptr %13 to i64
   %50 = trunc i64 %4 to i32
-  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %10, i32 noundef 0, i32 noundef %50)
+  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef %10, i32 noundef 0, i32 noundef %50)
   tail call fastcc void @ZSTD_rescaleFreqs(ptr noundef nonnull %12, ptr noundef %3, i64 noundef %4, i32 noundef 2)
   %51 = icmp eq ptr %3, %20
   %52 = zext i1 %51 to i64
@@ -1573,7 +1573,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocaptur
   %90 = trunc i64 %89 to i32
   %91 = sub i64 %49, %84
   %92 = trunc i64 %91 to i32
-  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnull %10, ptr noundef %39, ptr noundef nonnull %11, i32 noundef %90, i32 noundef %92)
+  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef %10, ptr noundef %39, ptr noundef %11, i32 noundef %90, i32 noundef %92)
   %93 = load i32, ptr %11, align 4
   %.not497 = icmp eq i32 %93, 0
   br i1 %.not497, label %94, label %.preheader671
@@ -2262,7 +2262,7 @@ ZSTD_litLengthPrice.exit546:                      ; preds = %441, %445
   br label %ZSTD_optLdm_skipRawSeqStoreBytes.exit.i
 
 ZSTD_optLdm_skipRawSeqStoreBytes.exit.i:          ; preds = %.loopexit.i.i, %.critedge.i.i, %471
-  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %10, i32 noundef %462, i32 noundef %464)
+  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef %10, i32 noundef %462, i32 noundef %464)
   %.pre.i = load i32, ptr %47, align 4
   br label %491
 
@@ -3082,7 +3082,7 @@ define dso_local i64 @ZSTD_compressBlock_btultra_extDict(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ZSTD_insertBt1(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @ZSTD_insertBt1(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 256
   %9 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3644,7 +3644,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
@@ -3831,7 +3831,7 @@ ZSTD_optLdm_skipRawSeqStoreBytes.exit:            ; preds = %.loopexit.i62, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 96
   %.val = load i32, ptr %6, align 8
@@ -3861,7 +3861,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr nou
 
 20:                                               ; preds = %14
   store i32 0, ptr %7, align 8
-  br i1 %.not, label %.loopexit145, label %21
+  br i1 %.not, label %.loopexit141, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3869,33 +3869,33 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr nou
   br label %23
 
 23:                                               ; preds = %21, %23
-  %indvars.iv172 = phi i64 [ 0, %21 ], [ %indvars.iv.next173, %23 ]
+  %indvars.iv168 = phi i64 [ 0, %21 ], [ %indvars.iv.next169, %23 ]
   %24 = load ptr, ptr %15, align 8
-  %25 = trunc nuw nsw i64 %indvars.iv172 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv168 to i32
   %26 = tail call i32 @HUF_getNbBitsFromCTable(ptr noundef %24, i32 noundef %25) #11
   %.not90 = icmp eq i32 %26, 0
   %27 = sub i32 11, %26
   %28 = shl nuw i32 1, %27
   %29 = select i1 %.not90, i32 1, i32 %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv172
+  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv168
   store i32 %29, ptr %31, align 4
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv172
+  %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv168
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %22, align 8
   %36 = add i32 %35, %34
   store i32 %36, ptr %22, align 8
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next173, 256
-  br i1 %exitcond175.not, label %.loopexit145.loopexit, label %23, !llvm.loop !24
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond171.not = icmp eq i64 %indvars.iv.next169, 256
+  br i1 %exitcond171.not, label %.loopexit141.loopexit, label %23, !llvm.loop !24
 
-.loopexit145.loopexit:                            ; preds = %23
+.loopexit141.loopexit:                            ; preds = %23
   %.pre = load ptr, ptr %15, align 8
-  br label %.loopexit145
+  br label %.loopexit141
 
-.loopexit145:                                     ; preds = %.loopexit145.loopexit, %20
-  %37 = phi ptr [ %.pre, %.loopexit145.loopexit ], [ %16, %20 ]
+.loopexit141:                                     ; preds = %.loopexit141.loopexit, %20
+  %37 = phi ptr [ %.pre, %.loopexit141.loopexit ], [ %16, %20 ]
   %38 = getelementptr inbounds i8, ptr %37, i64 4288
   %.val.i = load i16, ptr %38, align 1
   %39 = zext i16 %.val.i to i32
@@ -3908,13 +3908,13 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr nou
   %45 = getelementptr inbounds i32, ptr %40, i64 %44
   store i32 0, ptr %8, align 4
   %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %.pre188 = load ptr, ptr %46, align 8
+  %.pre184 = load ptr, ptr %46, align 8
   br label %47
 
-47:                                               ; preds = %.loopexit145, %47
-  %48 = phi ptr [ %.pre188, %.loopexit145 ], [ %57, %47 ]
-  %indvars.iv176 = phi i64 [ 0, %.loopexit145 ], [ %indvars.iv.next177, %47 ]
-  %49 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %45, i64 %indvars.iv176, i32 1
+47:                                               ; preds = %.loopexit141, %47
+  %48 = phi ptr [ %.pre184, %.loopexit141 ], [ %57, %47 ]
+  %indvars.iv172 = phi i64 [ 0, %.loopexit141 ], [ %indvars.iv.next173, %47 ]
+  %49 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %45, i64 %indvars.iv172, i32 1
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, 65535
   %52 = lshr i32 %51, 16
@@ -3922,17 +3922,17 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr nou
   %53 = sub nsw i32 10, %52
   %54 = shl nuw nsw i32 1, %53
   %55 = select i1 %.not89, i32 1, i32 %54
-  %56 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv176
+  %56 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv172
   store i32 %55, ptr %56, align 4
   %57 = load ptr, ptr %46, align 8
-  %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv176
+  %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv172
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %8, align 4
   %61 = add i32 %60, %59
   store i32 %61, ptr %8, align 4
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %exitcond179.not = icmp eq i64 %indvars.iv.next177, 36
-  br i1 %exitcond179.not, label %62, label %47, !llvm.loop !25
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %exitcond175.not = icmp eq i64 %indvars.iv.next173, 36
+  br i1 %exitcond175.not, label %62, label %47, !llvm.loop !25
 
 62:                                               ; preds = %47
   %63 = load ptr, ptr %15, align 8
@@ -3949,13 +3949,13 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr nou
   %72 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 16
-  %.pre189 = load ptr, ptr %73, align 8
+  %.pre185 = load ptr, ptr %73, align 8
   br label %74
 
 74:                                               ; preds = %62, %74
-  %75 = phi ptr [ %.pre189, %62 ], [ %84, %74 ]
-  %indvars.iv180 = phi i64 [ 0, %62 ], [ %indvars.iv.next181, %74 ]
-  %76 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %71, i64 %indvars.iv180, i32 1
+  %75 = phi ptr [ %.pre185, %62 ], [ %84, %74 ]
+  %indvars.iv176 = phi i64 [ 0, %62 ], [ %indvars.iv.next177, %74 ]
+  %76 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %71, i64 %indvars.iv176, i32 1
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, 65535
   %79 = lshr i32 %78, 16
@@ -3963,17 +3963,17 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr nou
   %80 = sub nsw i32 10, %79
   %81 = shl nuw nsw i32 1, %80
   %82 = select i1 %.not88, i32 1, i32 %81
-  %83 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv180
+  %83 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv176
   store i32 %82, ptr %83, align 4
   %84 = load ptr, ptr %73, align 8
-  %85 = getelementptr inbounds i32, ptr %84, i64 %indvars.iv180
+  %85 = getelementptr inbounds i32, ptr %84, i64 %indvars.iv176
   %86 = load i32, ptr %85, align 4
   %87 = load i32, ptr %72, align 8
   %88 = add i32 %87, %86
   store i32 %88, ptr %72, align 8
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %exitcond183.not = icmp eq i64 %indvars.iv.next181, 53
-  br i1 %exitcond183.not, label %89, label %74, !llvm.loop !26
+  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next177, 53
+  br i1 %exitcond179.not, label %89, label %74, !llvm.loop !26
 
 89:                                               ; preds = %74
   %90 = load ptr, ptr %15, align 8
@@ -3990,13 +3990,13 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr nou
   %99 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %99, align 4
   %100 = getelementptr inbounds i8, ptr %0, i64 24
-  %.pre190 = load ptr, ptr %100, align 8
+  %.pre186 = load ptr, ptr %100, align 8
   br label %101
 
 101:                                              ; preds = %89, %101
-  %102 = phi ptr [ %.pre190, %89 ], [ %111, %101 ]
-  %indvars.iv184 = phi i64 [ 0, %89 ], [ %indvars.iv.next185, %101 ]
-  %103 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %98, i64 %indvars.iv184, i32 1
+  %102 = phi ptr [ %.pre186, %89 ], [ %111, %101 ]
+  %indvars.iv180 = phi i64 [ 0, %89 ], [ %indvars.iv.next181, %101 ]
+  %103 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %98, i64 %indvars.iv180, i32 1
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, 65535
   %106 = lshr i32 %105, 16
@@ -4004,17 +4004,17 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %0, ptr nou
   %107 = sub nsw i32 10, %106
   %108 = shl nuw nsw i32 1, %107
   %109 = select i1 %.not87, i32 1, i32 %108
-  %110 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv184
+  %110 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv180
   store i32 %109, ptr %110, align 4
   %111 = load ptr, ptr %100, align 8
-  %112 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv184
+  %112 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv180
   %113 = load i32, ptr %112, align 4
   %114 = load i32, ptr %99, align 4
   %115 = add i32 %114, %113
   store i32 %115, ptr %99, align 4
-  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
-  %exitcond187.not = icmp eq i64 %indvars.iv.next185, 32
-  br i1 %exitcond187.not, label %.loopexit, label %101, !llvm.loop !27
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond183.not = icmp eq i64 %indvars.iv.next181, 32
+  br i1 %exitcond183.not, label %.loopexit, label %101, !llvm.loop !27
 
 116:                                              ; preds = %14
   br i1 %.not, label %sum_u32.exit, label %117
@@ -4061,9 +4061,9 @@ sum_u32.exit:                                     ; preds = %ZSTD_downscaleStats
   store i32 1, ptr %134, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 53
-  br i1 %exitcond.not, label %sum_u32.exit99, label %132, !llvm.loop !29
+  br i1 %exitcond.not, label %sum_u32.exit98, label %132, !llvm.loop !29
 
-sum_u32.exit99:                                   ; preds = %132
+sum_u32.exit98:                                   ; preds = %132
   %135 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 53, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4072,270 +4072,270 @@ sum_u32.exit99:                                   ; preds = %132
   br label %.loopexit.sink.split
 
 138:                                              ; preds = %4
-  br i1 %.not, label %156, label %139
+  br i1 %.not, label %157, label %139
 
 139:                                              ; preds = %138
   %140 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i.i
+  br label %141
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %139
-  %.08.i.i = phi i32 [ %143, %.lr.ph.i.i ], [ 0, %139 ]
-  %.067.i.i = phi i64 [ %144, %.lr.ph.i.i ], [ 0, %139 ]
-  %141 = getelementptr inbounds i32, ptr %140, i64 %.067.i.i
-  %142 = load i32, ptr %141, align 4
-  %143 = add i32 %142, %.08.i.i
-  %144 = add nuw nsw i64 %.067.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %144, 256
-  br i1 %exitcond.not.i.i, label %sum_u32.exit.i, label %.lr.ph.i.i, !llvm.loop !30
+141:                                              ; preds = %141, %139
+  %.08.i.i = phi i32 [ 0, %139 ], [ %144, %141 ]
+  %.067.i.i = phi i64 [ 0, %139 ], [ %145, %141 ]
+  %142 = getelementptr inbounds i32, ptr %140, i64 %.067.i.i
+  %143 = load i32, ptr %142, align 4
+  %144 = add i32 %143, %.08.i.i
+  %145 = add nuw nsw i64 %.067.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %145, 256
+  br i1 %exitcond.not.i.i, label %sum_u32.exit.i, label %141, !llvm.loop !30
 
-sum_u32.exit.i:                                   ; preds = %.lr.ph.i.i
-  %145 = icmp ult i32 %143, 8192
-  br i1 %145, label %ZSTD_scaleStats.exit, label %146
+sum_u32.exit.i:                                   ; preds = %141
+  %146 = icmp ult i32 %144, 8192
+  br i1 %146, label %ZSTD_scaleStats.exit, label %147
 
-146:                                              ; preds = %sum_u32.exit.i
-  %147 = lshr i32 %143, 12
-  %148 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %147, i1 true)
-  %149 = xor i32 %148, 31
+147:                                              ; preds = %sum_u32.exit.i
+  %148 = lshr i32 %144, 12
+  %149 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %148, i1 true)
+  %150 = xor i32 %149, 31
   br label %.split.i.i
 
-.split.i.i:                                       ; preds = %.split.i.i, %146
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.split.i.i ], [ 0, %146 ]
-  %.01517.i.i = phi i32 [ %154, %.split.i.i ], [ 0, %146 ]
-  %150 = getelementptr inbounds i32, ptr %140, i64 %indvars.iv.i.i
-  %151 = load i32, ptr %150, align 4
-  %152 = lshr i32 %151, %149
-  %153 = add i32 %152, 1
-  %154 = add i32 %153, %.01517.i.i
-  store i32 %153, ptr %150, align 4
+.split.i.i:                                       ; preds = %.split.i.i, %147
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.split.i.i ], [ 0, %147 ]
+  %.01517.i.i = phi i32 [ %155, %.split.i.i ], [ 0, %147 ]
+  %151 = getelementptr inbounds i32, ptr %140, i64 %indvars.iv.i.i
+  %152 = load i32, ptr %151, align 4
+  %153 = lshr i32 %152, %150
+  %154 = add i32 %153, 1
+  %155 = add i32 %154, %.01517.i.i
+  store i32 %154, ptr %151, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i.i, 256
   br i1 %exitcond.not.i10.i, label %ZSTD_scaleStats.exit, label %.split.i.i, !llvm.loop !28
 
 ZSTD_scaleStats.exit:                             ; preds = %.split.i.i, %sum_u32.exit.i
-  %.0.i = phi i32 [ %143, %sum_u32.exit.i ], [ %154, %.split.i.i ]
-  %155 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %.0.i, ptr %155, align 8
-  br label %156
+  %.0.i = phi i32 [ %144, %sum_u32.exit.i ], [ %155, %.split.i.i ]
+  %156 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %.0.i, ptr %156, align 8
+  br label %157
 
-156:                                              ; preds = %ZSTD_scaleStats.exit, %138
-  %157 = getelementptr inbounds i8, ptr %0, i64 8
-  %158 = load ptr, ptr %157, align 8
-  br label %.lr.ph.i.i100
+157:                                              ; preds = %ZSTD_scaleStats.exit, %138
+  %158 = getelementptr inbounds i8, ptr %0, i64 8
+  %159 = load ptr, ptr %158, align 8
+  br label %160
 
-.lr.ph.i.i100:                                    ; preds = %.lr.ph.i.i100, %156
-  %.08.i.i101 = phi i32 [ %161, %.lr.ph.i.i100 ], [ 0, %156 ]
-  %.067.i.i102 = phi i64 [ %162, %.lr.ph.i.i100 ], [ 0, %156 ]
-  %159 = getelementptr inbounds i32, ptr %158, i64 %.067.i.i102
-  %160 = load i32, ptr %159, align 4
-  %161 = add i32 %160, %.08.i.i101
-  %162 = add nuw nsw i64 %.067.i.i102, 1
-  %exitcond.not.i.i103 = icmp eq i64 %162, 36
-  br i1 %exitcond.not.i.i103, label %sum_u32.exit.i104, label %.lr.ph.i.i100, !llvm.loop !30
+160:                                              ; preds = %160, %157
+  %.08.i.i99 = phi i32 [ 0, %157 ], [ %163, %160 ]
+  %.067.i.i100 = phi i64 [ 0, %157 ], [ %164, %160 ]
+  %161 = getelementptr inbounds i32, ptr %159, i64 %.067.i.i100
+  %162 = load i32, ptr %161, align 4
+  %163 = add i32 %162, %.08.i.i99
+  %164 = add nuw nsw i64 %.067.i.i100, 1
+  %exitcond.not.i.i101 = icmp eq i64 %164, 36
+  br i1 %exitcond.not.i.i101, label %sum_u32.exit.i102, label %160, !llvm.loop !30
 
-sum_u32.exit.i104:                                ; preds = %.lr.ph.i.i100
-  %163 = icmp ult i32 %161, 4096
-  br i1 %163, label %ZSTD_scaleStats.exit111, label %164
+sum_u32.exit.i102:                                ; preds = %160
+  %165 = icmp ult i32 %163, 4096
+  br i1 %165, label %ZSTD_scaleStats.exit109, label %166
 
-164:                                              ; preds = %sum_u32.exit.i104
-  %165 = lshr i32 %161, 11
-  %166 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %165, i1 true)
-  %167 = xor i32 %166, 31
-  br label %.split.i.i105
+166:                                              ; preds = %sum_u32.exit.i102
+  %167 = lshr i32 %163, 11
+  %168 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %167, i1 true)
+  %169 = xor i32 %168, 31
+  br label %.split.i.i103
 
-.split.i.i105:                                    ; preds = %.split.i.i105, %164
-  %indvars.iv.i.i106 = phi i64 [ %indvars.iv.next.i.i108, %.split.i.i105 ], [ 0, %164 ]
-  %.01517.i.i107 = phi i32 [ %172, %.split.i.i105 ], [ 0, %164 ]
-  %168 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv.i.i106
-  %169 = load i32, ptr %168, align 4
-  %170 = lshr i32 %169, %167
-  %171 = add i32 %170, 1
-  %172 = add i32 %171, %.01517.i.i107
-  store i32 %171, ptr %168, align 4
-  %indvars.iv.next.i.i108 = add nuw nsw i64 %indvars.iv.i.i106, 1
-  %exitcond.not.i10.i109 = icmp eq i64 %indvars.iv.next.i.i108, 36
-  br i1 %exitcond.not.i10.i109, label %ZSTD_scaleStats.exit111, label %.split.i.i105, !llvm.loop !28
+.split.i.i103:                                    ; preds = %.split.i.i103, %166
+  %indvars.iv.i.i104 = phi i64 [ %indvars.iv.next.i.i106, %.split.i.i103 ], [ 0, %166 ]
+  %.01517.i.i105 = phi i32 [ %174, %.split.i.i103 ], [ 0, %166 ]
+  %170 = getelementptr inbounds i32, ptr %159, i64 %indvars.iv.i.i104
+  %171 = load i32, ptr %170, align 4
+  %172 = lshr i32 %171, %169
+  %173 = add i32 %172, 1
+  %174 = add i32 %173, %.01517.i.i105
+  store i32 %173, ptr %170, align 4
+  %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i104, 1
+  %exitcond.not.i10.i107 = icmp eq i64 %indvars.iv.next.i.i106, 36
+  br i1 %exitcond.not.i10.i107, label %ZSTD_scaleStats.exit109, label %.split.i.i103, !llvm.loop !28
 
-ZSTD_scaleStats.exit111:                          ; preds = %.split.i.i105, %sum_u32.exit.i104
-  %.0.i110 = phi i32 [ %161, %sum_u32.exit.i104 ], [ %172, %.split.i.i105 ]
-  store i32 %.0.i110, ptr %8, align 4
-  %173 = getelementptr inbounds i8, ptr %0, i64 16
-  %174 = load ptr, ptr %173, align 8
-  br label %.lr.ph.i.i112
+ZSTD_scaleStats.exit109:                          ; preds = %.split.i.i103, %sum_u32.exit.i102
+  %.0.i108 = phi i32 [ %163, %sum_u32.exit.i102 ], [ %174, %.split.i.i103 ]
+  store i32 %.0.i108, ptr %8, align 4
+  %175 = getelementptr inbounds i8, ptr %0, i64 16
+  %176 = load ptr, ptr %175, align 8
+  br label %177
 
-.lr.ph.i.i112:                                    ; preds = %.lr.ph.i.i112, %ZSTD_scaleStats.exit111
-  %.08.i.i113 = phi i32 [ %177, %.lr.ph.i.i112 ], [ 0, %ZSTD_scaleStats.exit111 ]
-  %.067.i.i114 = phi i64 [ %178, %.lr.ph.i.i112 ], [ 0, %ZSTD_scaleStats.exit111 ]
-  %175 = getelementptr inbounds i32, ptr %174, i64 %.067.i.i114
-  %176 = load i32, ptr %175, align 4
-  %177 = add i32 %176, %.08.i.i113
-  %178 = add nuw nsw i64 %.067.i.i114, 1
-  %exitcond.not.i.i115 = icmp eq i64 %178, 53
-  br i1 %exitcond.not.i.i115, label %sum_u32.exit.i116, label %.lr.ph.i.i112, !llvm.loop !30
+177:                                              ; preds = %177, %ZSTD_scaleStats.exit109
+  %.08.i.i110 = phi i32 [ 0, %ZSTD_scaleStats.exit109 ], [ %180, %177 ]
+  %.067.i.i111 = phi i64 [ 0, %ZSTD_scaleStats.exit109 ], [ %181, %177 ]
+  %178 = getelementptr inbounds i32, ptr %176, i64 %.067.i.i111
+  %179 = load i32, ptr %178, align 4
+  %180 = add i32 %179, %.08.i.i110
+  %181 = add nuw nsw i64 %.067.i.i111, 1
+  %exitcond.not.i.i112 = icmp eq i64 %181, 53
+  br i1 %exitcond.not.i.i112, label %sum_u32.exit.i113, label %177, !llvm.loop !30
 
-sum_u32.exit.i116:                                ; preds = %.lr.ph.i.i112
-  %179 = icmp ult i32 %177, 4096
-  br i1 %179, label %ZSTD_scaleStats.exit123, label %180
+sum_u32.exit.i113:                                ; preds = %177
+  %182 = icmp ult i32 %180, 4096
+  br i1 %182, label %ZSTD_scaleStats.exit120, label %183
 
-180:                                              ; preds = %sum_u32.exit.i116
-  %181 = lshr i32 %177, 11
-  %182 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %181, i1 true)
-  %183 = xor i32 %182, 31
-  br label %.split.i.i117
+183:                                              ; preds = %sum_u32.exit.i113
+  %184 = lshr i32 %180, 11
+  %185 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %184, i1 true)
+  %186 = xor i32 %185, 31
+  br label %.split.i.i114
 
-.split.i.i117:                                    ; preds = %.split.i.i117, %180
-  %indvars.iv.i.i118 = phi i64 [ %indvars.iv.next.i.i120, %.split.i.i117 ], [ 0, %180 ]
-  %.01517.i.i119 = phi i32 [ %188, %.split.i.i117 ], [ 0, %180 ]
-  %184 = getelementptr inbounds i32, ptr %174, i64 %indvars.iv.i.i118
-  %185 = load i32, ptr %184, align 4
-  %186 = lshr i32 %185, %183
-  %187 = add i32 %186, 1
-  %188 = add i32 %187, %.01517.i.i119
-  store i32 %187, ptr %184, align 4
-  %indvars.iv.next.i.i120 = add nuw nsw i64 %indvars.iv.i.i118, 1
-  %exitcond.not.i10.i121 = icmp eq i64 %indvars.iv.next.i.i120, 53
-  br i1 %exitcond.not.i10.i121, label %ZSTD_scaleStats.exit123, label %.split.i.i117, !llvm.loop !28
+.split.i.i114:                                    ; preds = %.split.i.i114, %183
+  %indvars.iv.i.i115 = phi i64 [ %indvars.iv.next.i.i117, %.split.i.i114 ], [ 0, %183 ]
+  %.01517.i.i116 = phi i32 [ %191, %.split.i.i114 ], [ 0, %183 ]
+  %187 = getelementptr inbounds i32, ptr %176, i64 %indvars.iv.i.i115
+  %188 = load i32, ptr %187, align 4
+  %189 = lshr i32 %188, %186
+  %190 = add i32 %189, 1
+  %191 = add i32 %190, %.01517.i.i116
+  store i32 %190, ptr %187, align 4
+  %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i115, 1
+  %exitcond.not.i10.i118 = icmp eq i64 %indvars.iv.next.i.i117, 53
+  br i1 %exitcond.not.i10.i118, label %ZSTD_scaleStats.exit120, label %.split.i.i114, !llvm.loop !28
 
-ZSTD_scaleStats.exit123:                          ; preds = %.split.i.i117, %sum_u32.exit.i116
-  %.0.i122 = phi i32 [ %177, %sum_u32.exit.i116 ], [ %188, %.split.i.i117 ]
-  %189 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 %.0.i122, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %0, i64 24
-  %191 = load ptr, ptr %190, align 8
-  br label %.lr.ph.i.i124
+ZSTD_scaleStats.exit120:                          ; preds = %.split.i.i114, %sum_u32.exit.i113
+  %.0.i119 = phi i32 [ %180, %sum_u32.exit.i113 ], [ %191, %.split.i.i114 ]
+  %192 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 %.0.i119, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %0, i64 24
+  %194 = load ptr, ptr %193, align 8
+  br label %195
 
-.lr.ph.i.i124:                                    ; preds = %.lr.ph.i.i124, %ZSTD_scaleStats.exit123
-  %.08.i.i125 = phi i32 [ %194, %.lr.ph.i.i124 ], [ 0, %ZSTD_scaleStats.exit123 ]
-  %.067.i.i126 = phi i64 [ %195, %.lr.ph.i.i124 ], [ 0, %ZSTD_scaleStats.exit123 ]
-  %192 = getelementptr inbounds i32, ptr %191, i64 %.067.i.i126
-  %193 = load i32, ptr %192, align 4
-  %194 = add i32 %193, %.08.i.i125
-  %195 = add nuw nsw i64 %.067.i.i126, 1
-  %exitcond.not.i.i127 = icmp eq i64 %195, 32
-  br i1 %exitcond.not.i.i127, label %sum_u32.exit.i128, label %.lr.ph.i.i124, !llvm.loop !30
+195:                                              ; preds = %195, %ZSTD_scaleStats.exit120
+  %.08.i.i121 = phi i32 [ 0, %ZSTD_scaleStats.exit120 ], [ %198, %195 ]
+  %.067.i.i122 = phi i64 [ 0, %ZSTD_scaleStats.exit120 ], [ %199, %195 ]
+  %196 = getelementptr inbounds i32, ptr %194, i64 %.067.i.i122
+  %197 = load i32, ptr %196, align 4
+  %198 = add i32 %197, %.08.i.i121
+  %199 = add nuw nsw i64 %.067.i.i122, 1
+  %exitcond.not.i.i123 = icmp eq i64 %199, 32
+  br i1 %exitcond.not.i.i123, label %sum_u32.exit.i124, label %195, !llvm.loop !30
 
-sum_u32.exit.i128:                                ; preds = %.lr.ph.i.i124
-  %196 = icmp ult i32 %194, 4096
-  br i1 %196, label %.loopexit.sink.split, label %197
+sum_u32.exit.i124:                                ; preds = %195
+  %200 = icmp ult i32 %198, 4096
+  br i1 %200, label %.loopexit.sink.split, label %201
 
-197:                                              ; preds = %sum_u32.exit.i128
-  %198 = lshr i32 %194, 11
-  %199 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %198, i1 true)
-  %200 = xor i32 %199, 31
-  br label %.split.i.i129
+201:                                              ; preds = %sum_u32.exit.i124
+  %202 = lshr i32 %198, 11
+  %203 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %202, i1 true)
+  %204 = xor i32 %203, 31
+  br label %.split.i.i125
 
-.split.i.i129:                                    ; preds = %.split.i.i129, %197
-  %indvars.iv.i.i130 = phi i64 [ %indvars.iv.next.i.i132, %.split.i.i129 ], [ 0, %197 ]
-  %.01517.i.i131 = phi i32 [ %205, %.split.i.i129 ], [ 0, %197 ]
-  %201 = getelementptr inbounds i32, ptr %191, i64 %indvars.iv.i.i130
-  %202 = load i32, ptr %201, align 4
-  %203 = lshr i32 %202, %200
-  %204 = add i32 %203, 1
-  %205 = add i32 %204, %.01517.i.i131
-  store i32 %204, ptr %201, align 4
-  %indvars.iv.next.i.i132 = add nuw nsw i64 %indvars.iv.i.i130, 1
-  %exitcond.not.i10.i133 = icmp eq i64 %indvars.iv.next.i.i132, 32
-  br i1 %exitcond.not.i10.i133, label %.loopexit.sink.split, label %.split.i.i129, !llvm.loop !28
+.split.i.i125:                                    ; preds = %.split.i.i125, %201
+  %indvars.iv.i.i126 = phi i64 [ %indvars.iv.next.i.i128, %.split.i.i125 ], [ 0, %201 ]
+  %.01517.i.i127 = phi i32 [ %209, %.split.i.i125 ], [ 0, %201 ]
+  %205 = getelementptr inbounds i32, ptr %194, i64 %indvars.iv.i.i126
+  %206 = load i32, ptr %205, align 4
+  %207 = lshr i32 %206, %204
+  %208 = add i32 %207, 1
+  %209 = add i32 %208, %.01517.i.i127
+  store i32 %208, ptr %205, align 4
+  %indvars.iv.next.i.i128 = add nuw nsw i64 %indvars.iv.i.i126, 1
+  %exitcond.not.i10.i129 = icmp eq i64 %indvars.iv.next.i.i128, 32
+  br i1 %exitcond.not.i10.i129, label %.loopexit.sink.split, label %.split.i.i125, !llvm.loop !28
 
-.loopexit.sink.split:                             ; preds = %.split.i.i129, %sum_u32.exit.i128, %sum_u32.exit99
-  %.sink = phi i32 [ 53, %sum_u32.exit99 ], [ %194, %sum_u32.exit.i128 ], [ %205, %.split.i.i129 ]
-  %206 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 %.sink, ptr %206, align 4
+.loopexit.sink.split:                             ; preds = %.split.i.i125, %sum_u32.exit.i124, %sum_u32.exit98
+  %.sink = phi i32 [ 53, %sum_u32.exit98 ], [ %198, %sum_u32.exit.i124 ], [ %209, %.split.i.i125 ]
+  %210 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 %.sink, ptr %210, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %101, %.loopexit.sink.split
-  %207 = phi i32 [ %.sink, %.loopexit.sink.split ], [ %115, %101 ]
-  %.val.i136 = load i32, ptr %6, align 8
-  %.not19.i = icmp eq i32 %.val.i136, 2
-  br i1 %.not19.i, label %225, label %208
+  %211 = phi i32 [ %.sink, %.loopexit.sink.split ], [ %115, %101 ]
+  %.val.i132 = load i32, ptr %6, align 8
+  %.not19.i = icmp eq i32 %.val.i132, 2
+  br i1 %.not19.i, label %229, label %212
 
-208:                                              ; preds = %.loopexit
+212:                                              ; preds = %.loopexit
   %.not16.i = icmp eq i32 %3, 0
-  %209 = getelementptr inbounds i8, ptr %0, i64 48
-  %210 = load i32, ptr %209, align 8
-  %211 = add i32 %210, 1
-  %212 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %211, i1 true)
-  br i1 %.not16.i, label %219, label %213
+  %213 = getelementptr inbounds i8, ptr %0, i64 48
+  %214 = load i32, ptr %213, align 8
+  %215 = add i32 %214, 1
+  %216 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %215, i1 true)
+  br i1 %.not16.i, label %223, label %217
 
-213:                                              ; preds = %208
-  %214 = xor i32 %212, 31
-  %215 = shl nuw nsw i32 %214, 8
-  %216 = shl i32 %211, 8
-  %217 = lshr i32 %216, %214
-  %218 = add i32 %215, %217
-  br label %222
+217:                                              ; preds = %212
+  %218 = xor i32 %216, 31
+  %219 = shl nuw nsw i32 %218, 8
+  %220 = shl i32 %215, 8
+  %221 = lshr i32 %220, %218
+  %222 = add i32 %219, %221
+  br label %226
 
-219:                                              ; preds = %208
-  %220 = shl nuw nsw i32 %212, 8
-  %221 = xor i32 %220, 7936
-  br label %222
+223:                                              ; preds = %212
+  %224 = shl nuw nsw i32 %216, 8
+  %225 = xor i32 %224, 7936
+  br label %226
 
-222:                                              ; preds = %219, %213
-  %223 = phi i32 [ %218, %213 ], [ %221, %219 ]
-  %224 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %223, ptr %224, align 8
-  br label %225
+226:                                              ; preds = %223, %217
+  %227 = phi i32 [ %222, %217 ], [ %225, %223 ]
+  %228 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %227, ptr %228, align 8
+  br label %229
 
-225:                                              ; preds = %222, %.loopexit
+229:                                              ; preds = %226, %.loopexit
   %.not17.i = icmp eq i32 %3, 0
-  %226 = load i32, ptr %8, align 4
-  %227 = add i32 %226, 1
-  %228 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %227, i1 true)
-  br i1 %.not17.i, label %251, label %229
+  %230 = load i32, ptr %8, align 4
+  %231 = add i32 %230, 1
+  %232 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %231, i1 true)
+  br i1 %.not17.i, label %255, label %233
 
-229:                                              ; preds = %225
-  %230 = xor i32 %228, 31
-  %231 = shl nuw nsw i32 %230, 8
-  %232 = shl i32 %227, 8
-  %233 = lshr i32 %232, %230
-  %234 = add i32 %231, %233
-  %235 = getelementptr inbounds i8, ptr %0, i64 56
-  %236 = load i32, ptr %235, align 8
-  %237 = add i32 %236, 1
-  %238 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %237, i1 true)
-  %239 = xor i32 %238, 31
-  %240 = shl nuw nsw i32 %239, 8
-  %241 = shl i32 %237, 8
-  %242 = lshr i32 %241, %239
-  %243 = add i32 %240, %242
-  %244 = add i32 %207, 1
-  %245 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %244, i1 true)
-  %246 = xor i32 %245, 31
-  %247 = shl nuw nsw i32 %246, 8
-  %248 = shl i32 %244, 8
-  %249 = lshr i32 %248, %246
-  %250 = add i32 %247, %249
+233:                                              ; preds = %229
+  %234 = xor i32 %232, 31
+  %235 = shl nuw nsw i32 %234, 8
+  %236 = shl i32 %231, 8
+  %237 = lshr i32 %236, %234
+  %238 = add i32 %235, %237
+  %239 = getelementptr inbounds i8, ptr %0, i64 56
+  %240 = load i32, ptr %239, align 8
+  %241 = add i32 %240, 1
+  %242 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %241, i1 true)
+  %243 = xor i32 %242, 31
+  %244 = shl nuw nsw i32 %243, 8
+  %245 = shl i32 %241, 8
+  %246 = lshr i32 %245, %243
+  %247 = add i32 %244, %246
+  %248 = add i32 %211, 1
+  %249 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %248, i1 true)
+  %250 = xor i32 %249, 31
+  %251 = shl nuw nsw i32 %250, 8
+  %252 = shl i32 %248, 8
+  %253 = lshr i32 %252, %250
+  %254 = add i32 %251, %253
   br label %ZSTD_setBasePrices.exit
 
-251:                                              ; preds = %225
-  %252 = shl nuw nsw i32 %228, 8
-  %253 = xor i32 %252, 7936
-  %254 = getelementptr inbounds i8, ptr %0, i64 56
-  %255 = load i32, ptr %254, align 8
-  %256 = add i32 %255, 1
-  %257 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %256, i1 true)
-  %258 = shl nuw nsw i32 %257, 8
-  %259 = xor i32 %258, 7936
-  %260 = add i32 %207, 1
+255:                                              ; preds = %229
+  %256 = shl nuw nsw i32 %232, 8
+  %257 = xor i32 %256, 7936
+  %258 = getelementptr inbounds i8, ptr %0, i64 56
+  %259 = load i32, ptr %258, align 8
+  %260 = add i32 %259, 1
   %261 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %260, i1 true)
   %262 = shl nuw nsw i32 %261, 8
   %263 = xor i32 %262, 7936
+  %264 = add i32 %211, 1
+  %265 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %264, i1 true)
+  %266 = shl nuw nsw i32 %265, 8
+  %267 = xor i32 %266, 7936
   br label %ZSTD_setBasePrices.exit
 
-ZSTD_setBasePrices.exit:                          ; preds = %229, %251
-  %.sink20.i = phi i32 [ %253, %251 ], [ %234, %229 ]
-  %.sink.i = phi i32 [ %259, %251 ], [ %243, %229 ]
-  %264 = phi i32 [ %263, %251 ], [ %250, %229 ]
-  %265 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %.sink20.i, ptr %265, align 4
-  %266 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %.sink.i, ptr %266, align 8
-  %267 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 %264, ptr %267, align 4
+ZSTD_setBasePrices.exit:                          ; preds = %233, %255
+  %.sink20.i = phi i32 [ %257, %255 ], [ %238, %233 ]
+  %.sink.i = phi i32 [ %263, %255 ], [ %247, %233 ]
+  %268 = phi i32 [ %267, %255 ], [ %254, %233 ]
+  %269 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %.sink20.i, ptr %269, align 4
+  %270 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %.sink.i, ptr %270, align 8
+  %271 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 %268, ptr %271, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 {
+define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
@@ -4404,7 +4404,7 @@ define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr nocapture nou
   br label %ZSTD_optLdm_skipRawSeqStoreBytes.exit
 
 ZSTD_optLdm_skipRawSeqStoreBytes.exit:            ; preds = %.loopexit.i, %.critedge.i, %15
-  tail call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4)
+  tail call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef %0, i32 noundef %3, i32 noundef %4)
   %.pre = load i32, ptr %13, align 4
   br label %35
 

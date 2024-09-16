@@ -14468,7 +14468,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3MDL8HalfLifeL26log_warning_limit_exceededILi100EEEviRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %current_amount, ptr noundef nonnull align 8 dereferenceable(32) %direct_object) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3MDL8HalfLifeL26log_warning_limit_exceededILi100EEEviRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef range(i32 101, -2147483648) %current_amount, ptr noundef nonnull align 8 dereferenceable(32) %direct_object) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14720,7 +14720,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3MDL8HalfLifeL26log_warning_limit_exceededILi32EEEviRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %current_amount, ptr noundef nonnull align 8 dereferenceable(32) %direct_object) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3MDL8HalfLifeL26log_warning_limit_exceededILi32EEEviRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef range(i32 33, -2147483648) %current_amount, ptr noundef nonnull align 8 dereferenceable(32) %direct_object) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14972,7 +14972,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3MDL8HalfLifeL26log_warning_limit_exceededILi2048EEEviRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %current_amount, ptr noundef nonnull align 8 dereferenceable(32) %direct_object) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3MDL8HalfLifeL26log_warning_limit_exceededILi2048EEEviRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef range(i32 2049, -2147483648) %current_amount, ptr noundef nonnull align 8 dereferenceable(32) %direct_object) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16149,7 +16149,7 @@ return:                                           ; preds = %if.then17, %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_0clEis"(ptr %this.0.val, i32 noundef %bone, i16 noundef signext %trivert_index) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_0clEis"(ptr %this.0.val, i32 noundef range(i32 0, 256) %bone, i16 noundef signext %trivert_index) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.67", align 1
@@ -16378,7 +16378,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeIssSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_1clERKNS1_7TrivertEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 dereferenceable(8) %trivert, i32 noundef %bone) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_1clERKNS1_7TrivertEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 dereferenceable(8) %trivert, i32 noundef range(i32 0, 256) %bone) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.94", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.67", align 1
@@ -16892,7 +16892,7 @@ _ZNSt8_Rb_treeIssSt9_IdentityIsESt4lessIsESaIsEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3MDL8HalfLifeL26log_warning_limit_exceededILi20000EEEviRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %current_amount, ptr noundef nonnull align 8 dereferenceable(32) %direct_object) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3MDL8HalfLifeL26log_warning_limit_exceededILi20000EEEviRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef range(i32 20001, -2147483648) %current_amount, ptr noundef nonnull align 8 dereferenceable(32) %direct_object) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8

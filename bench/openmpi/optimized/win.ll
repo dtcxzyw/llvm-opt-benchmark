@@ -700,7 +700,7 @@ define i32 @ompi_win_create(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
-  %10 = call fastcc i32 @alloc_window(ptr noundef %3, ptr noundef %4, i32 noundef 1, ptr noundef nonnull %8)
+  %10 = call fastcc i32 @alloc_window(ptr noundef %3, ptr noundef %4, i32 noundef 1, ptr noundef %8)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %62
 
@@ -818,7 +818,7 @@ opal_obj_run_destructors.exit29:                  ; preds = %.lr.ph.i26, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @alloc_window(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @alloc_window(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 5) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1045,7 +1045,7 @@ declare i32 @ompi_osc_base_select(ptr noundef, ptr noundef, i64 noundef, i32 nou
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @config_window(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @config_window(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 5) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %5, i64 240
   %8 = tail call i32 @ompi_attr_set_c(i32 noundef 3, ptr noundef %5, ptr noundef nonnull %7, i32 noundef 7, ptr noundef %0, i1 noundef zeroext true) #7
   %.not = icmp eq i32 %8, 0
@@ -1091,7 +1091,7 @@ define i32 @ompi_win_allocate(i64 noundef %0, i32 noundef %1, ptr noundef %2, pt
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  %10 = call fastcc i32 @alloc_window(ptr noundef %3, ptr noundef %2, i32 noundef 2, ptr noundef nonnull %7)
+  %10 = call fastcc i32 @alloc_window(ptr noundef %3, ptr noundef %2, i32 noundef 2, ptr noundef %7)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %63
 
@@ -1215,7 +1215,7 @@ define i32 @ompi_win_allocate_shared(i64 noundef %0, i32 noundef %1, ptr noundef
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  %10 = call fastcc i32 @alloc_window(ptr noundef %3, ptr noundef %2, i32 noundef 4, ptr noundef nonnull %7)
+  %10 = call fastcc i32 @alloc_window(ptr noundef %3, ptr noundef %2, i32 noundef 4, ptr noundef %7)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %63
 
@@ -1338,7 +1338,7 @@ opal_obj_run_destructors.exit30:                  ; preds = %.lr.ph.i27, %50
 define i32 @ompi_win_create_dynamic(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @alloc_window(ptr noundef %1, ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @alloc_window(ptr noundef %1, ptr noundef %0, i32 noundef 3, ptr noundef %4)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %57
 

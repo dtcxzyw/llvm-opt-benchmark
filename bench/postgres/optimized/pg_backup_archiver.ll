@@ -1006,7 +1006,7 @@ define dso_local void @ProcessArchiveRestoreOptions(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @_tocEntryRequired(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @_tocEntryRequired(ptr nocapture noundef readonly %0, i32 noundef range(i32 2, 1) %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 80

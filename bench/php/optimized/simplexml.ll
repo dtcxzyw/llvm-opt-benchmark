@@ -518,7 +518,7 @@ declare ptr @_zend_new_array(i32 noundef) local_unnamed_addr #2
 declare void @zend_hash_real_init_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_node_as_zval(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @_node_as_zval(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1010,7 +1010,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %21, %33
 38:                                               ; preds = %35
   %39 = load i8, ptr %3, align 1
   %40 = trunc i8 %39 to i1
-  call fastcc void @sxe_add_namespaces(ptr noundef nonnull %.0.i, i1 noundef zeroext %40, ptr noundef nonnull %1)
+  call fastcc void @sxe_add_namespaces(ptr noundef %.0.i, i1 noundef zeroext %40, ptr noundef nonnull %1)
   br label %45
 
 41:                                               ; preds = %35
@@ -1020,7 +1020,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %21, %33
   br i1 %.not27, label %45, label %44
 
 44:                                               ; preds = %41
-  call fastcc void @sxe_add_namespace_name(ptr noundef nonnull %1, ptr noundef nonnull %43)
+  call fastcc void @sxe_add_namespace_name(ptr noundef nonnull %1, ptr noundef %43)
   br label %45
 
 45:                                               ; preds = %php_sxe_get_first_node_non_destructive.exit.thread, %35, %38, %44, %41, %php_sxe_get_first_node_non_destructive.exit, %8
@@ -1028,14 +1028,14 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %21, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call fastcc void @sxe_add_namespace_name(ptr noundef %2, ptr noundef nonnull %5)
+  tail call fastcc void @sxe_add_namespace_name(ptr noundef %2, ptr noundef %5)
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -1052,7 +1052,7 @@ define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef readonly %
   br i1 %.not23, label %12, label %11
 
 11:                                               ; preds = %.lr.ph
-  tail call fastcc void @sxe_add_namespace_name(ptr noundef %2, ptr noundef nonnull %10)
+  tail call fastcc void @sxe_add_namespace_name(ptr noundef %2, ptr noundef %10)
   br label %12
 
 12:                                               ; preds = %11, %.lr.ph
@@ -1078,7 +1078,7 @@ define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef readonly %
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %.lr.ph8
-  tail call fastcc void @sxe_add_namespaces(ptr noundef nonnull %.0176, i1 noundef zeroext true, ptr noundef %2)
+  tail call fastcc void @sxe_add_namespaces(ptr noundef %.0176, i1 noundef zeroext true, ptr noundef %2)
   br label %20
 
 20:                                               ; preds = %19, %.lr.ph8
@@ -1092,7 +1092,7 @@ define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_add_namespace_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @sxe_add_namespace_name(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1238,7 +1238,7 @@ define hidden void @zim_SimpleXMLElement_getDocNamespaces(ptr nocapture noundef 
   store i32 775, ptr %35, align 8
   %36 = load i8, ptr %3, align 1
   %37 = trunc i8 %36 to i1
-  call fastcc void @sxe_add_registered_namespaces(ptr noundef nonnull %.024, i1 noundef zeroext %37, ptr noundef nonnull %1)
+  call fastcc void @sxe_add_registered_namespaces(ptr noundef %.024, i1 noundef zeroext %37, ptr noundef nonnull %1)
   br label %38
 
 38:                                               ; preds = %.thread22, %32, %20, %9
@@ -1248,7 +1248,7 @@ define hidden void @zim_SimpleXMLElement_getDocNamespaces(ptr nocapture noundef 
 declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_add_registered_namespaces(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc void @sxe_add_registered_namespaces(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1
@@ -1262,7 +1262,7 @@ define internal fastcc void @sxe_add_registered_namespaces(ptr nocapture noundef
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.03 = phi ptr [ %.0, %.lr.ph ], [ %.01, %7 ]
-  tail call fastcc void @sxe_add_namespace_name(ptr noundef %2, ptr noundef nonnull %.03)
+  tail call fastcc void @sxe_add_namespace_name(ptr noundef %2, ptr noundef %.03)
   %.0 = load ptr, ptr %.03, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1278,7 +1278,7 @@ define internal fastcc void @sxe_add_registered_namespaces(ptr nocapture noundef
 
 .lr.ph8:                                          ; preds = %9, %.lr.ph8
   %.0136 = phi ptr [ %.013, %.lr.ph8 ], [ %.0134, %9 ]
-  tail call fastcc void @sxe_add_registered_namespaces(ptr noundef nonnull %.0136, i1 noundef zeroext true, ptr noundef %2)
+  tail call fastcc void @sxe_add_registered_namespaces(ptr noundef %.0136, i1 noundef zeroext true, ptr noundef %2)
   %11 = getelementptr inbounds i8, ptr %.0136, i64 48
   %.013 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %.013, null
@@ -3967,7 +3967,7 @@ declare noalias ptr @_emalloc_96() local_unnamed_addr #2
 declare void @zend_iterator_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_sxe_iterator_fetch(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc ptr @php_sxe_iterator_fetch(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -5353,7 +5353,7 @@ declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #2
 declare void @php_info_print_table_end() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_sxe_reset_iterator_no_clear_iter_data(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc ptr @php_sxe_reset_iterator_no_clear_iter_data(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %4
@@ -8414,7 +8414,7 @@ match_ns.exit233:                                 ; preds = %.thread.i227, %209,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sxe_get_prop_hash(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc ptr @sxe_get_prop_hash(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -96
@@ -8604,7 +8604,7 @@ sxe_xmlNodeListGetString.exit:                    ; preds = %71, %82
   %94 = call ptr @_zend_new_array_0() #14
   store ptr %94, ptr %4, align 8
   store i32 775, ptr %33, align 8
-  call fastcc void @sxe_properties_add(ptr noundef %.0113, ptr noundef nonnull @.str.98, i32 noundef 11, ptr noundef nonnull %4)
+  call fastcc void @sxe_properties_add(ptr noundef %.0113, ptr noundef nonnull @.str.98, i32 noundef 11, ptr noundef %4)
   br label %95
 
 95:                                               ; preds = %93, %sxe_xmlNodeListGetString.exit
@@ -9018,7 +9018,7 @@ match_ns.exit179.thread197:                       ; preds = %_get_base_node_valu
   br i1 %294, label %.loopexit, label %.thread198
 
 match_ns.exit179.thread195:                       ; preds = %_get_base_node_value.exit
-  call fastcc void @sxe_properties_add(ptr noundef %.0113, ptr noundef nonnull %232, i32 noundef %234, ptr noundef nonnull %3)
+  call fastcc void @sxe_properties_add(ptr noundef %.0113, ptr noundef nonnull %232, i32 noundef %234, ptr noundef %3)
   %295 = load i32, ptr %214, align 8
   %296 = icmp eq i32 %295, 17
   br i1 %296, label %.loopexit, label %.thread196
@@ -9084,7 +9084,7 @@ define internal fastcc ptr @sxe_xmlNodeListGetString(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_properties_add(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @sxe_properties_add(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = sext i32 %2 to i64
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 32
@@ -9112,19 +9112,19 @@ define internal fastcc void @sxe_properties_add(ptr noundef %0, ptr nocapture no
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %14, align 8
-  %21 = tail call ptr @zend_hash_next_index_insert_new(ptr noundef %20, ptr noundef %3) #14
+  %21 = tail call ptr @zend_hash_next_index_insert_new(ptr noundef %20, ptr noundef nonnull %3) #14
   br label %28
 
 22:                                               ; preds = %15
   %23 = tail call ptr @_zend_new_array_0() #14
   %24 = tail call ptr @zend_hash_next_index_insert_new(ptr noundef %23, ptr noundef nonnull %14) #14
-  %25 = tail call ptr @zend_hash_next_index_insert_new(ptr noundef %23, ptr noundef %3) #14
+  %25 = tail call ptr @zend_hash_next_index_insert_new(ptr noundef %23, ptr noundef nonnull %3) #14
   store ptr %23, ptr %14, align 8
   store i32 775, ptr %16, align 8
   br label %28
 
 26:                                               ; preds = %4
-  %27 = tail call ptr @zend_hash_add_new(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %3) #14
+  %27 = tail call ptr @zend_hash_add_new(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %3) #14
   br label %28
 
 28:                                               ; preds = %19, %22, %26

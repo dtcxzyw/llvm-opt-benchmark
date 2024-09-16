@@ -543,7 +543,7 @@ define dso_local i32 @ip_defrag(ptr nocapture noundef readonly %0, ptr noundef %
   %286 = getelementptr inbounds i8, ptr %1, i64 88
   %287 = load i64, ptr %286, align 8
   store i64 0, ptr %286, align 8
-  %288 = call fastcc i32 @ip_frag_reasm(ptr noundef nonnull %42, ptr noundef %1, ptr noundef %219, ptr noundef %217), !range !17
+  %288 = call fastcc i32 @ip_frag_reasm(ptr noundef %42, ptr noundef %1, ptr noundef %219, ptr noundef %217), !range !17
   store i64 %287, ptr %286, align 8
   %289 = icmp eq i32 %288, 0
   br i1 %289, label %313, label %290
@@ -778,7 +778,7 @@ declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 
 declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 116
@@ -793,7 +793,7 @@ define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef %1)
 
 11:                                               ; preds = %9
   %12 = sub i32 %1, %7
-  %13 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %12) #15
+  %13 = tail call ptr @__pskb_pull_tail(ptr noundef nonnull %0, i32 noundef %12) #15
   %14 = icmp ne ptr %13, null
   br label %15
 
@@ -1029,12 +1029,12 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 sectio
 declare dso_local i32 @inet_frag_queue_insert(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @ip_frag_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ip_frag_reasm(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 32
-  tail call void @inet_frag_kill(ptr noundef %0) #15
+  tail call void @inet_frag_kill(ptr noundef nonnull %0) #15
   %9 = getelementptr inbounds i8, ptr %0, i64 176
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i64
@@ -1044,7 +1044,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ip_frag_reasm(ptr noundef 
   br i1 %14, label %74, label %15, !prof !13
 
 15:                                               ; preds = %4
-  %16 = tail call ptr @inet_frag_reasm_prepare(ptr noundef %0, ptr noundef %1, ptr noundef %2) #15
+  %16 = tail call ptr @inet_frag_reasm_prepare(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #15
   %17 = icmp eq ptr %16, null
   br i1 %17, label %74, label %18
 
@@ -1069,7 +1069,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ip_frag_reasm(ptr noundef 
   %34 = getelementptr inbounds i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
-  tail call void @inet_frag_reasm_finish(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %16, i1 noundef zeroext %36) #15
+  tail call void @inet_frag_reasm_finish(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %16, i1 noundef zeroext %36) #15
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %3, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 178

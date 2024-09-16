@@ -25,7 +25,7 @@ define i32 @Abc_NodeMffcSize(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NodeRefDeref(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Abc_NodeRefDeref(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   br label %tailrecurse89
 
 tailrecurse89:                                    ; preds = %81, %3
@@ -219,7 +219,7 @@ define i32 @Abc_NodeMffcSizeStop(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Abc_NodeRefDerefStop(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @Abc_NodeRefDerefStop(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   br label %tailrecurse79
 
 tailrecurse79:                                    ; preds = %52, %2
@@ -1295,7 +1295,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

@@ -517,7 +517,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i10
   unreachable
 
 invoke.cont.i11:                                  ; preds = %invoke.cont.i.i, %call.i.noexc
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120Chttp2ServerListenerC2EPNS_6ServerERKNS_11ChannelArgsESt8functionIFS4_S6_PN4absl12lts_202308026StatusEEE(ptr noundef nonnull align 8 dereferenceable(360) %call.i13, ptr noundef %server, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120Chttp2ServerListenerC2EPNS_6ServerERKNS_11ChannelArgsESt8functionIFS4_S6_PN4absl12lts_202308026StatusEEE(ptr noundef nonnull align 8 dereferenceable(360) %call.i13, ptr noundef %server, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %agg.tmp.i)
           to label %invoke.cont2.i unwind label %lpad1.i, !noalias !6
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i11
@@ -1258,7 +1258,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i93.i
   unreachable
 
 invoke.cont3.i.i.i:                               ; preds = %invoke.cont.i.i.i.i, %invoke.cont.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120Chttp2ServerListenerC2EPNS_6ServerERKNS_11ChannelArgsESt8functionIFS4_S6_PN4absl12lts_202308026StatusEEE(ptr noundef nonnull align 8 dereferenceable(360) %call.i.i91.i, ptr noundef %server, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %agg.tmp.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120Chttp2ServerListenerC2EPNS_6ServerERKNS_11ChannelArgsESt8functionIFS4_S6_PN4absl12lts_202308026StatusEEE(ptr noundef nonnull align 8 dereferenceable(360) %call.i.i91.i, ptr noundef %server, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %agg.tmp.i.i.i)
           to label %invoke.cont5.i.i.i unwind label %lpad4.i.i.i, !noalias !23
 
 invoke.cont5.i.i.i:                               ; preds = %invoke.cont3.i.i.i
@@ -1350,7 +1350,7 @@ if.then19.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.else.i.i105.i:                                 ; preds = %if.end.i.i.i
   %135 = load ptr, ptr %tcp_server_.i.i.i, align 8, !noalias !23
-  invoke void @_Z24grpc_tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPi(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp20.i.i.i, ptr noundef %135, ptr noundef %__begin2.sroa.0.0304.i, ptr noundef nonnull %port_temp.i)
+  invoke void @_Z24grpc_tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPi(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp20.i.i.i, ptr noundef %135, ptr noundef nonnull %__begin2.sroa.0.0304.i, ptr noundef nonnull %port_temp.i)
           to label %invoke.cont22.i.i.i unwind label %lpad.i.i.i, !noalias !23
 
 invoke.cont22.i.i.i:                              ; preds = %if.else.i.i105.i
@@ -1376,7 +1376,7 @@ invoke.cont34.i.i.i:                              ; preds = %if.end31.i.i.i
   br i1 %retval.0.i.i.i.i, label %if.then41.i.i.i, label %if.end78.i.i.i
 
 if.then41.i.i.i:                                  ; preds = %invoke.cont34.i.i.i
-  invoke void @_Z20grpc_sockaddr_to_uriB5cxx11PK21grpc_resolved_address(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.115") align 8 %string_address.i.i.i, ptr noundef %__begin2.sroa.0.0304.i)
+  invoke void @_Z20grpc_sockaddr_to_uriB5cxx11PK21grpc_resolved_address(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.115") align 8 %string_address.i.i.i, ptr noundef nonnull %__begin2.sroa.0.0304.i)
           to label %invoke.cont44.i.i.i unwind label %lpad.i.i.i, !noalias !23
 
 invoke.cont44.i.i.i:                              ; preds = %if.then41.i.i.i
@@ -4173,7 +4173,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120Chttp2ServerListenerC2EPNS_6ServerERKNS_11ChannelArgsESt8functionIFS4_S6_PN4absl12lts_202308026StatusEEE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef %server, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %args_modifier) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120Chttp2ServerListenerC2EPNS_6ServerERKNS_11ChannelArgsESt8functionIFS4_S6_PN4absl12lts_202308026StatusEEE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef %server, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %args_modifier) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_120Chttp2ServerListenerE, i64 16), ptr %this, align 8
   %server_ = getelementptr inbounds i8, ptr %this, i64 8

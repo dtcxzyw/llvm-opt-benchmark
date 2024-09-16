@@ -1202,7 +1202,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit47: ; preds = %_ZN12
 _ZNK5vcpkg11DllMetadata28try_get_image_data_directoryEm.exit.i: ; preds = %245
   %.val.i = load ptr, ptr %183, align 8, !noalias !35
   %.val25.i = load ptr, ptr %185, align 8, !noalias !35
-  invoke fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.i, ptr %.val25.i, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %247)
+  invoke fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val.i, ptr %.val25.i, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %247)
           to label %.noexc50 unwind label %74
 
 .noexc50:                                         ; preds = %_ZNK5vcpkg11DllMetadata28try_get_image_data_directoryEm.exit.i
@@ -1744,7 +1744,7 @@ _ZNK5vcpkg11DllMetadata28try_get_image_data_directoryEm.exit: ; preds = %12
   %.val5 = load ptr, ptr %17, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  call fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val, ptr %.val5, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %13), !noalias !64
+  call fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val, ptr %.val5, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %13), !noalias !64
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = load i8, ptr %18, align 8, !noalias !70
@@ -1962,7 +1962,7 @@ _ZNK5vcpkg11DllMetadata28try_get_image_data_directoryEm.exit: ; preds = %23
   %.val = load ptr, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 384
   %.val6 = load ptr, ptr %28, align 8
-  call fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %.val, ptr %.val6, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %25)
+  call fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %14, ptr %.val, ptr %.val6, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %29 = getelementptr inbounds i8, ptr %14, i64 32
   %30 = load i8, ptr %29, align 8, !noalias !89
@@ -2238,7 +2238,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit._crit_edge.i.i.i.i.
   %.val26.i.i.i.i.i = load ptr, ptr %28, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !106
-  invoke fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.i.i.i.i.i, ptr %.val26.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %119)
+  invoke fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val.i.i.i.i.i, ptr %.val26.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %119)
           to label %.noexc29.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i
 
 .noexc29.i.i.i.i.i:                               ; preds = %118
@@ -2567,7 +2567,7 @@ _ZN5vcpkg7Strings6concatIJA9_cA21_cEEENSt7__cxx1112basic_stringIcSt11char_traits
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %0, ptr readonly %.376.val, ptr readnone %.384.val, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.376.val, ptr readnone %.384.val, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v10::format_arg_store.87", align 16
   %5 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %6 = alloca %"struct.vcpkg::ExpectedT.21", align 8

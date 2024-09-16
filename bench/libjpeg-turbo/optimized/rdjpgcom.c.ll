@@ -272,7 +272,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_JPEG_header(i32 noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @scan_JPEG_header(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #4 {
   %3 = load ptr, ptr @infile, align 8
   %4 = tail call i32 @getc(ptr noundef %3)
   %5 = load ptr, ptr @infile, align 8
@@ -748,7 +748,7 @@ read_1_byte.exit:                                 ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_COM(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc void @process_COM(i32 noundef range(i32 0, 2) %0) unnamed_addr #4 {
   %2 = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull @.str.35) #16
   %3 = tail call fastcc i32 @read_2_bytes()
   %4 = icmp ult i32 %3, 2

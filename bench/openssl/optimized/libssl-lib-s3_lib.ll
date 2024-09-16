@@ -3054,7 +3054,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl3_read_internal(ptr noundef %s, ptr noundef %buf, i64 noundef %len, i32 noundef %peek, ptr noundef %readbytes) unnamed_addr #4 {
+define internal fastcc i32 @ssl3_read_internal(ptr noundef %s, ptr noundef %buf, i64 noundef %len, i32 noundef range(i32 0, 2) %peek, ptr noundef %readbytes) unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false

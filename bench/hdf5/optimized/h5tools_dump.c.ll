@@ -7879,7 +7879,7 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %171 = load i32, ptr %158, align 8
   %172 = add i32 %171, 1
   store i32 %172, ptr %158, align 8
-  call fastcc void @h5tools_print_virtual_selection(i64 noundef %161, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select)
+  call fastcc void @h5tools_print_virtual_selection(i64 noundef %161, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %19, ptr noundef %18, i64 noundef %spec.select)
   %173 = load i32, ptr %158, align 8
   %174 = add i32 %173, -1
   store i32 %174, ptr %158, align 8
@@ -7922,7 +7922,7 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %206 = load ptr, ptr %205, align 8
   %207 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.17, ptr noundef %206) #12
   %208 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
-  call fastcc void @h5tools_print_virtual_selection(i64 noundef %162, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select)
+  call fastcc void @h5tools_print_virtual_selection(i64 noundef %162, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %19, ptr noundef %18, i64 noundef %spec.select)
   %209 = load i32, ptr %158, align 8
   %210 = add i32 %209, -1
   store i32 %210, ptr %158, align 8
@@ -8350,7 +8350,7 @@ declare i64 @H5Pget_virtual_vspace(i64 noundef, i64 noundef) local_unnamed_addr 
 declare i64 @H5Pget_virtual_srcspace(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @h5tools_print_virtual_selection(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #1 {
+define internal fastcc void @h5tools_print_virtual_selection(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef range(i64 1, 4294967296) %6) unnamed_addr #1 {
   %8 = tail call i32 @H5Sget_select_type(i64 noundef %0) #12
   switch i32 %8, label %55 [
     i32 0, label %9
@@ -8362,27 +8362,27 @@ define internal fastcc void @h5tools_print_virtual_selection(i64 noundef %0, ptr
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %10, align 8
-  %11 = tail call ptr @h5tools_str_reset(ptr noundef %4) #12
-  %12 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %4, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.311) #12
+  %11 = tail call ptr @h5tools_str_reset(ptr noundef nonnull %4) #12
+  %12 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.311) #12
   br label %57
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @h5tools_str_reset(ptr noundef %4) #12
+  %14 = tail call ptr @h5tools_str_reset(ptr noundef nonnull %4) #12
   %15 = load ptr, ptr @h5tools_dump_header_format, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 696
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %4, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.312, ptr noundef %17) #12
-  tail call void @h5tools_str_dump_space_points(ptr noundef %4, i64 noundef %0, ptr noundef %2) #12
+  %18 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.312, ptr noundef %17) #12
+  tail call void @h5tools_str_dump_space_points(ptr noundef nonnull %4, i64 noundef %0, ptr noundef %2) #12
   %19 = load ptr, ptr @h5tools_dump_header_format, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 704
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %4, ptr noundef nonnull @.str.199, ptr noundef %21) #12
+  %22 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.199, ptr noundef %21) #12
   br label %57
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %24, align 8
-  %25 = tail call ptr @h5tools_str_reset(ptr noundef %4) #12
+  %25 = tail call ptr @h5tools_str_reset(ptr noundef nonnull %4) #12
   %26 = tail call i32 @H5Sis_regular_hyperslab(i64 noundef %0) #12
   %.not = icmp eq i32 %26, 0
   %27 = load ptr, ptr @h5tools_dump_header_format, align 8
@@ -8391,15 +8391,15 @@ define internal fastcc void @h5tools_print_virtual_selection(i64 noundef %0, ptr
   br i1 %.not, label %34, label %30
 
 30:                                               ; preds = %23
-  %31 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %4, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.313, ptr noundef %29) #12
-  %32 = tail call zeroext i1 @h5tools_render_element(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef 0, i64 noundef 0) #12
-  %33 = tail call ptr @h5tools_str_reset(ptr noundef %4) #12
-  tail call void @h5tools_str_dump_space_slabs(ptr noundef %4, i64 noundef %0, ptr noundef %2, ptr noundef nonnull %3) #12
+  %31 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.313, ptr noundef %29) #12
+  %32 = tail call zeroext i1 @h5tools_render_element(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6, i64 noundef 0, i64 noundef 0) #12
+  %33 = tail call ptr @h5tools_str_reset(ptr noundef nonnull %4) #12
+  tail call void @h5tools_str_dump_space_slabs(ptr noundef nonnull %4, i64 noundef %0, ptr noundef %2, ptr noundef nonnull %3) #12
   br label %44
 
 34:                                               ; preds = %23
-  %35 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %4, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.314, ptr noundef %29) #12
-  %36 = tail call zeroext i1 @h5tools_render_element(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef 0, i64 noundef 0) #12
+  %35 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.314, ptr noundef %29) #12
+  %36 = tail call zeroext i1 @h5tools_render_element(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6, i64 noundef 0, i64 noundef 0) #12
   %37 = getelementptr inbounds i8, ptr %3, i64 568
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, 1
@@ -8407,36 +8407,36 @@ define internal fastcc void @h5tools_print_virtual_selection(i64 noundef %0, ptr
   store i32 1, ptr %24, align 8
   %40 = load i64, ptr %5, align 8
   tail call void @h5tools_simple_prefix(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %40, i32 noundef 0) #12
-  %41 = tail call ptr @h5tools_str_reset(ptr noundef %4) #12
-  tail call void @h5tools_str_dump_space_blocks(ptr noundef %4, i64 noundef %0, ptr noundef %2) #12
+  %41 = tail call ptr @h5tools_str_reset(ptr noundef nonnull %4) #12
+  tail call void @h5tools_str_dump_space_blocks(ptr noundef nonnull %4, i64 noundef %0, ptr noundef %2) #12
   %42 = load i32, ptr %37, align 8
   %43 = add i32 %42, -1
   store i32 %43, ptr %37, align 8
   br label %44
 
 44:                                               ; preds = %34, %30
-  %45 = tail call zeroext i1 @h5tools_render_element(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef 0, i64 noundef 0) #12
+  %45 = tail call zeroext i1 @h5tools_render_element(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6, i64 noundef 0, i64 noundef 0) #12
   store i32 1, ptr %24, align 8
-  %46 = tail call ptr @h5tools_str_reset(ptr noundef %4) #12
+  %46 = tail call ptr @h5tools_str_reset(ptr noundef nonnull %4) #12
   %47 = load ptr, ptr @h5tools_dump_header_format, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 704
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %4, ptr noundef nonnull @.str.17, ptr noundef %49) #12
+  %50 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, ptr noundef %49) #12
   br label %57
 
 51:                                               ; preds = %7
   %52 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 1, ptr %52, align 8
-  %53 = tail call ptr @h5tools_str_reset(ptr noundef %4) #12
-  %54 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %4, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.315) #12
+  %53 = tail call ptr @h5tools_str_reset(ptr noundef nonnull %4) #12
+  %54 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.315) #12
   br label %57
 
 55:                                               ; preds = %7
-  %56 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %4, ptr noundef nonnull @.str.316) #12
+  %56 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.316) #12
   br label %57
 
 57:                                               ; preds = %55, %51, %44, %13, %9
-  %58 = tail call zeroext i1 @h5tools_render_element(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef 0, i64 noundef 0) #12
+  %58 = tail call zeroext i1 @h5tools_render_element(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6, i64 noundef 0, i64 noundef 0) #12
   ret void
 }
 

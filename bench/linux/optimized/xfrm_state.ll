@@ -1620,7 +1620,7 @@ define dso_local range(i32 -3, 1) i32 @xfrm_state_flush(ptr noundef %0, i8 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @xfrm_state_hold(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @xfrm_state_hold(ptr noundef nonnull %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #15, !srcloc !82
   %4 = icmp eq i32 %3, 0

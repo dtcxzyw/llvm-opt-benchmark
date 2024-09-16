@@ -4860,7 +4860,7 @@ define internal fastcc i32 @intel_cpufreq_update_pstate(ptr nocapture noundef re
 declare dso_local void @cpufreq_freq_transition_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_cpufreq_trace(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_cpufreq_trace(ptr nocapture noundef %0, i32 noundef range(i32 10, 91) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_pstate_sample, i64 8), i32 2) #26
           to label %48 [label %4], !srcloc !8
 
@@ -6043,7 +6043,7 @@ define internal noundef i64 @store_max_perf_pct(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @update_qos_request(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @update_qos_request(i32 noundef range(i32 1, 3) %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = icmp eq i32 %0, 1
   %4 = select i1 %3, i64 0, i64 56

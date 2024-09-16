@@ -3648,7 +3648,7 @@ if.end156:                                        ; preds = %lor.lhs.false151.if
   br i1 %tobool158.not, label %if.end186, label %if.end160
 
 if.end160:                                        ; preds = %if.end156
-  %call161 = call fastcc ptr @ec_group_explicit_to_named(ptr noundef nonnull %group.183, ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %call15)
+  %call161 = call fastcc ptr @ec_group_explicit_to_named(ptr noundef %group.183, ptr noundef %libctx, ptr noundef %propq, ptr noundef %call15)
   %cmp162 = icmp eq ptr %call161, null
   br i1 %cmp162, label %if.end186, label %if.end165
 
@@ -3742,8 +3742,8 @@ declare ptr @EC_GROUP_new_curve_GF2m(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @EC_POINT_oct2point(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ec_group_explicit_to_named(ptr noundef %group, ptr noundef %libctx, ptr noundef %propq, ptr noundef %ctx) unnamed_addr #0 {
-if.end.i:
+define internal fastcc ptr @ec_group_explicit_to_named(ptr noundef nonnull %group, ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %ctx) unnamed_addr #0 {
+entry:
   %generator.i = getelementptr inbounds i8, ptr %group, i64 8
   %0 = load ptr, ptr %generator.i, align 8
   %order.i = getelementptr inbounds i8, ptr %group, i64 16
@@ -3760,7 +3760,7 @@ if.end.i:
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %err, label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.end.i
+if.end3.i:                                        ; preds = %entry
   %call4.i = tail call i32 @EC_GROUP_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %group)
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.then8.i, label %lor.lhs.false9
@@ -3779,7 +3779,7 @@ lor.lhs.false9:                                   ; preds = %if.end3.i
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false9
-  %call11 = tail call i32 @ossl_ec_curve_nid_from_params(ptr noundef nonnull %call.i, ptr noundef %ctx) #9
+  %call11 = tail call i32 @ossl_ec_curve_nid_from_params(ptr noundef nonnull %call.i, ptr noundef nonnull %ctx) #9
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %if.end28, label %if.then14
 
@@ -3805,8 +3805,8 @@ if.end28:                                         ; preds = %if.then21, %if.end,
   tail call void @EC_GROUP_free(ptr noundef nonnull %call.i)
   br label %return
 
-err:                                              ; preds = %if.end.i, %if.then8.i, %if.then14, %lor.lhs.false9
-  %retval.0.i20 = phi ptr [ %call.i, %if.then14 ], [ %call.i, %lor.lhs.false9 ], [ null, %if.then8.i ], [ null, %if.end.i ]
+err:                                              ; preds = %entry, %if.then8.i, %if.then14, %lor.lhs.false9
+  %retval.0.i20 = phi ptr [ %call.i, %if.then14 ], [ %call.i, %lor.lhs.false9 ], [ null, %if.then8.i ], [ null, %entry ]
   tail call void @EC_GROUP_free(ptr noundef %retval.0.i20)
   tail call void @EC_GROUP_free(ptr noundef null)
   br label %return

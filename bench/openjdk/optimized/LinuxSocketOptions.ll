@@ -93,7 +93,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_quickAckSuppor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @socketOptionSupported(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @socketOptionSupported(i32 noundef range(i32 1, 7) %0, i32 noundef range(i32 4, 57) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 1, ptr %3, align 4

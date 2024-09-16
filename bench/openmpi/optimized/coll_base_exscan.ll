@@ -127,7 +127,7 @@ ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i, %54, %47
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -361,11 +361,11 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %44, %50
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %63
-  %66 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %.087161, i32 noundef %2, ptr noundef %3, ptr noundef %.085162, i32 noundef %2, ptr noundef %3) #5
+  %66 = tail call i32 @ompi_datatype_sndrcv(ptr noundef nonnull %.087161, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %.085162, i32 noundef %2, ptr noundef %3) #5
   br label %ompi_coll_base_sendrecv.exit
 
 67:                                               ; preds = %63
-  %68 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %.087161, i64 noundef %14, ptr noundef %3, i32 noundef %61, i32 noundef -18, ptr noundef %.085162, i64 noundef %14, ptr noundef %3, i32 noundef %61, i32 noundef -18, ptr noundef %5, ptr noundef null) #5
+  %68 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %.087161, i64 noundef %14, ptr noundef %3, i32 noundef %61, i32 noundef -18, ptr noundef nonnull %.085162, i64 noundef %14, ptr noundef %3, i32 noundef %61, i32 noundef -18, ptr noundef %5, ptr noundef null) #5
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %65, %67
@@ -406,22 +406,22 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %65, %67
   br i1 %.not.i142, label %ompi_datatype_copy_content_same_ddt.exit143.thread, label %.lr.ph.i134, !llvm.loop !4
 
 79:                                               ; preds = %71
-  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.085162, ptr noundef %1, i64 noundef %14, ptr noundef %3)
+  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %.085162, ptr noundef %1, i64 noundef %14, ptr noundef %3)
   br label %ompi_datatype_copy_content_same_ddt.exit143.thread
 
 ompi_datatype_copy_content_same_ddt.exit143.thread: ; preds = %74, %79
-  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.085162, ptr noundef %.087161, i64 noundef %14, ptr noundef %3)
+  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %.085162, ptr noundef nonnull %.087161, i64 noundef %14, ptr noundef %3)
   br label %83
 
 80:                                               ; preds = %69
   br i1 %.not151, label %82, label %81
 
 81:                                               ; preds = %80
-  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.085162, ptr noundef %.087161, i64 noundef %14, ptr noundef %3)
+  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %.085162, ptr noundef nonnull %.087161, i64 noundef %14, ptr noundef %3)
   br label %83
 
 82:                                               ; preds = %80
-  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.087161, ptr noundef %.085162, i64 noundef %14, ptr noundef %3)
+  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %.087161, ptr noundef nonnull %.085162, i64 noundef %14, ptr noundef %3)
   br label %83
 
 83:                                               ; preds = %60, %81, %82, %ompi_datatype_copy_content_same_ddt.exit143.thread

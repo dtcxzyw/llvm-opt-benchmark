@@ -196,7 +196,7 @@ if.then38:                                        ; preds = %if.then17
   %17 = load i64, ptr %call, align 8
   store i64 %17, ptr %tmp, align 8
   store i64 -1, ptr %call, align 8
-  call fastcc void @gc_call_finalizer(ptr noundef nonnull %1, ptr noundef nonnull %L, ptr noundef nonnull %tmp, ptr noundef nonnull %5)
+  call fastcc void @gc_call_finalizer(ptr noundef nonnull %1, ptr noundef nonnull %L, ptr noundef %tmp, ptr noundef nonnull %5)
   br label %if.end78
 
 if.end41:                                         ; preds = %if.end
@@ -238,7 +238,7 @@ cond.end74:                                       ; preds = %cond.false
   br i1 %tobool76.not, label %if.end78, label %if.then77
 
 if.then77:                                        ; preds = %cond.end74
-  tail call fastcc void @gc_call_finalizer(ptr noundef nonnull %1, ptr noundef nonnull %L, ptr noundef nonnull %call73, ptr noundef nonnull %5)
+  tail call fastcc void @gc_call_finalizer(ptr noundef nonnull %1, ptr noundef nonnull %L, ptr noundef %call73, ptr noundef nonnull %5)
   br label %if.end78
 
 if.end78:                                         ; preds = %cond.false, %if.end41, %if.then17, %if.then38, %if.then77, %cond.end74
@@ -299,7 +299,7 @@ if.then11:                                        ; preds = %land.lhs.true
   %15 = load i64, ptr %arrayidx, align 8
   store i64 %15, ptr %tmp, align 8
   store i64 -1, ptr %arrayidx, align 8
-  call fastcc void @gc_call_finalizer(ptr noundef %1, ptr noundef %L, ptr noundef nonnull %tmp, ptr noundef %10)
+  call fastcc void @gc_call_finalizer(ptr noundef %1, ptr noundef %L, ptr noundef %tmp, ptr noundef %10)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then11
@@ -312,7 +312,7 @@ if.end29:                                         ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gc_call_finalizer(ptr noundef %g, ptr noundef %L, ptr nocapture noundef readonly %mo, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc void @gc_call_finalizer(ptr noundef %g, ptr noundef %L, ptr nocapture noundef nonnull readonly %mo, ptr noundef %o) unnamed_addr #0 {
 entry:
   %hookmask = getelementptr inbounds i8, ptr %g, i64 145
   %0 = load i8, ptr %hookmask, align 1
@@ -489,7 +489,7 @@ for.end:                                          ; preds = %gc_sweepstr.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @gc_sweep(ptr noundef %g, ptr noundef %p, i32 noundef %lim) unnamed_addr #0 {
+define internal fastcc noundef ptr @gc_sweep(ptr noundef %g, ptr noundef %p, i32 noundef range(i32 -1, 41) %lim) unnamed_addr #0 {
 entry:
   %currentwhite = getelementptr inbounds i8, ptr %g, i64 32
   %0 = load i8, ptr %currentwhite, align 8

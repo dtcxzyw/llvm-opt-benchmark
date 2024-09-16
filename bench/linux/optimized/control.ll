@@ -1752,7 +1752,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @__snd_ctl_add_replace(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__snd_ctl_add_replace(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.snd_ctl_elem_id, align 4
   %5 = alloca %struct.snd_ctl_elem_id, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #17
@@ -3400,7 +3400,7 @@ declare i64 @llvm.read_register.i64(metadata) #12
 declare void @llvm.write_register.i64(metadata, i64) #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_user(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_user(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.snd_ctl_elem_info, align 8
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %4, i8 0, i64 272, i1 false), !annotation !40
@@ -3471,7 +3471,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_user(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_ctl_tlv_ioctl(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_ctl_tlv_ioctl(ptr noundef readonly %0, ptr noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.snd_ctl_tlv, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store i64 0, ptr %4, align 8, !annotation !40
@@ -3640,7 +3640,7 @@ define internal fastcc i32 @snd_ctl_tlv_ioctl(ptr noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @snd_ctl_elem_list(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @snd_ctl_elem_list(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.snd_ctl_elem_id, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !40
@@ -3872,10 +3872,10 @@ declare dso_local i32 @pid_vnr(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @memdup_user(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_ctl_elem_read(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_ctl_elem_read(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   tail call void @down_read(ptr noundef %3) #17
-  %4 = tail call ptr @snd_ctl_find_id_locked(ptr noundef %0, ptr noundef %1)
+  %4 = tail call ptr @snd_ctl_find_id_locked(ptr noundef nonnull %0, ptr noundef %1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %65, label %6
 
@@ -3937,7 +3937,7 @@ define internal fastcc i32 @snd_ctl_elem_read(ptr noundef %0, ptr noundef %1) un
   %49 = load i32, ptr %1, align 4
   %50 = add i32 %49, %33
   store i32 %50, ptr %1, align 4
-  %51 = tail call i32 @snd_power_ref_and_wait(ptr noundef %0) #17
+  %51 = tail call i32 @snd_power_ref_and_wait(ptr noundef nonnull %0) #17
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %56
 
@@ -4130,7 +4130,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_write(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4459,7 +4459,7 @@ define internal void @snd_ctl_elem_user_free(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_ctl_elem_init_enum_names(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_ctl_elem_init_enum_names(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load i64, ptr %3, align 8
@@ -4971,7 +4971,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -14, 1) i32 @read_tlv_buf(ptr nocapture noundef readonly %0, i32 %.0.val, i32 %.60.val, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @read_tlv_buf(ptr nocapture noundef nonnull readonly %0, i32 %.0.val, i32 %.60.val, ptr noundef %1, i32 noundef range(i32 8, 0) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = icmp eq i32 %.0.val, 0
   %6 = getelementptr inbounds i8, ptr %0, i64 80
@@ -5043,7 +5043,7 @@ define internal fastcc range(i32 -14, 1) i32 @read_tlv_buf(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_compat(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_compat(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(272) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 272) #18
   %6 = icmp eq ptr %5, null
@@ -5155,7 +5155,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_compat(pt
   br label %78
 
 78:                                               ; preds = %74, %64, %52, %26
-  %79 = tail call fastcc i32 @snd_ctl_elem_add(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2)
+  %79 = tail call fastcc i32 @snd_ctl_elem_add(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %2)
   br label %80
 
 80:                                               ; preds = %78, %69, %64, %52, %40, %28, %15, %10, %7
@@ -5169,8 +5169,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_compat(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 align 16 {
-  %7 = tail call i64 @_copy_from_user(ptr noundef %1, ptr noundef %2, i64 noundef 64) #17
+define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 align 16 {
+  %7 = tail call i64 @_copy_from_user(ptr noundef nonnull %1, ptr noundef %2, i64 noundef 64) #17
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %.thread
 
@@ -5194,7 +5194,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(p
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 448
   tail call void @down_read(ptr noundef %22) #17
-  %23 = tail call ptr @snd_ctl_find_id_locked(ptr noundef %0, ptr noundef %1)
+  %23 = tail call ptr @snd_ctl_find_id_locked(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -5213,8 +5213,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(p
   br label %.thread
 
 31:                                               ; preds = %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef align 4 dereferenceable(64) %1, i64 64, i1 false)
-  %32 = tail call i32 @snd_power_ref_and_wait(ptr noundef %0) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false)
+  %32 = tail call i32 @snd_power_ref_and_wait(ptr noundef nonnull %0) #17
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %38
 
@@ -5337,7 +5337,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -14, 1) i32 @copy_ctl_value_to_user(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @copy_ctl_value_to_user(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = add i32 %3, -1
   %7 = icmp ult i32 %6, 2
   br i1 %7, label %8, label %29
@@ -5407,7 +5407,7 @@ define internal fastcc range(i32 -14, 1) i32 @copy_ctl_value_to_user(ptr noundef
   br i1 %39, label %.loopexit4, label %.loopexit
 
 .loopexit4:                                       ; preds = %13, %.thread, %8
-  %40 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef %2, i64 noundef 64) #17
+  %40 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 64) #17
   %41 = icmp eq i64 %40, 0
   %42 = select i1 %41, i32 0, i32 -14
   br label %.loopexit

@@ -120,7 +120,7 @@ define hidden void @"_ZN4core3ptr263drop_in_place$LT$lock_api..rwlock..RwLockWri
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..dynimage..DynamicImage$GT$17hd99a20b80c1ceda6E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..dynimage..DynamicImage$GT$17hd99a20b80c1ceda6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -1066,7 +1066,7 @@ _ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit.i.i.i.i.i.i.i: ; pred
   %119 = zext nneg i8 %118 to i64
   %.sroa.3.0.i.i.i.i.i.i.i.i = select i1 %114, i64 %119, i64 %117
   %.sroa.0.0.i.i.i.i.i.i.i.i = select i1 %114, ptr %111, ptr %115
-  call fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.3.0.i.i.i.i.i.i.i.i), !noalias !156
+  call fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias noundef align 8 dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.3.0.i.i.i.i.i.i.i.i), !noalias !156
   %120 = load i64, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !224, !noundef !8
   %121 = add i64 %120, 1
   store i64 %121, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !224
@@ -1122,7 +1122,7 @@ _ZN4core4hash6Hasher9write_str17h97246910e83a80c7E.exit.i.i.i.i.i.i.i: ; preds =
   br label %_ZN5typst4util4hash9hash_item17hf385dcaca82fb675E.exit.i.i.i.i.i
 
 _ZN5typst4util4hash9hash_item17hf385dcaca82fb675E.exit.i.i.i.i.i: ; preds = %_ZN4core4hash6Hasher9write_str17h97246910e83a80c7E.exit.i.i.i.i.i.i.i, %_ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit.i.i.i.i.i.i.i
-  %156 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %22), !noalias !160
+  %156 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias noundef readonly align 8 dereferenceable(72) %22), !noalias !160
   %157 = extractvalue { i64, i64 } %156, 0
   %158 = extractvalue { i64, i64 } %156, 1
   %159 = zext i64 %157 to i128
@@ -1139,7 +1139,7 @@ _ZN5typst4util4hash9hash_item17hf385dcaca82fb675E.exit.i.i.i.i.i: ; preds = %_ZN
   %.0.i.i.i.i.i = phi i128 [ %162, %_ZN5typst4util4hash9hash_item17hf385dcaca82fb675E.exit.i.i.i.i.i ], [ %30, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !229
   store i128 %.0.i.i.i.i.i, ptr %18, align 16, !noalias !229
-  call fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %24, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef 16), !noalias !232
+  call fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias noundef align 8 dereferenceable(72) %24, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef 16), !noalias !232
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !229
   %165 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1.i = load i32, ptr %165, align 8, !noundef !8
@@ -1244,7 +1244,7 @@ _ZN5typst4util4hash9hash_item17hf385dcaca82fb675E.exit.i.i.i.i.i: ; preds = %_ZN
 "_ZN85_$LT$comemo..input..Args$LT$$LP$A$C$B$C$C$RP$$GT$$u20$as$u20$comemo..input..Input$GT$3key17h5923abafb21ed91eE.exit": ; preds = %212, %236
   %.sink.i.i.i.i2.i = phi i64 [ %237, %236 ], [ %233, %212 ]
   store i64 %.sink.i.i.i.i2.i, ptr %.sroa.1121.0..sroa_idx, align 8, !alias.scope !246, !noalias !242
-  %238 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %24)
+  %238 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias noundef readonly align 8 dereferenceable(72) %24)
   %239 = extractvalue { i64, i64 } %238, 0
   %240 = extractvalue { i64, i64 } %238, 1
   %241 = zext i64 %239 to i128
@@ -1529,7 +1529,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 356:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..dynimage..DynamicImage$GT$17hd99a20b80c1ceda6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #20
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..dynimage..DynamicImage$GT$17hd99a20b80c1ceda6E"(ptr noalias noundef align 8 dereferenceable(40) %10) #20
           to label %.thread39.i unwind label %414, !noalias !327
 
 357:                                              ; preds = %354
@@ -1569,7 +1569,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br i1 %372, label %._crit_edge.i.i._crit_edge.i, label %373
 
 ._crit_edge.i.i._crit_edge.i:                     ; preds = %._crit_edge.i.i.i, %.noexc.i, %361
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..dynimage..DynamicImage$GT$17hd99a20b80c1ceda6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..dynimage..DynamicImage$GT$17hd99a20b80c1ceda6E"(ptr noalias noundef align 8 dereferenceable(40) %10)
           to label %400 unwind label %.thread44.i, !noalias !327
 
 373:                                              ; preds = %.noexc.i
@@ -3612,7 +3612,7 @@ _ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit.i.i.i: ; preds = %948
   br label %"_ZN89_$LT$comemo..input..Args$LT$$LP$A$C$B$C$C$C$D$RP$$GT$$u20$as$u20$comemo..input..Input$GT$3key17h09b5cbb592059b19E.exit"
 
 "_ZN89_$LT$comemo..input..Args$LT$$LP$A$C$B$C$C$C$D$RP$$GT$$u20$as$u20$comemo..input..Input$GT$3key17h09b5cbb592059b19E.exit": ; preds = %_ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit.i.i.i, %1056, %1080
-  %1082 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %21)
+  %1082 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias noundef readonly align 8 dereferenceable(72) %21)
   %1083 = extractvalue { i64, i64 } %1082, 0
   %1084 = extractvalue { i64, i64 } %1082, 1
   %1085 = zext i64 %1083 to i128
@@ -4365,7 +4365,7 @@ define hidden noundef ptr @_ZN6comemo5cache8memoized17he031d011a7e380b8E(ptr noa
   %.val4.i = load i16, ptr %34, align 8, !noundef !8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16), !noalias !907
   store i16 %.val4.i, ptr %16, align 2, !noalias !907
-  call fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef 2), !noalias !914
+  call fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias noundef align 8 dereferenceable(72) %19, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef 2), !noalias !914
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16), !noalias !907
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   %.val2.i = load i32, ptr %35, align 8, !noundef !8
@@ -4518,7 +4518,7 @@ define hidden noundef ptr @_ZN6comemo5cache8memoized17he031d011a7e380b8E(ptr noa
 "_ZN93_$LT$comemo..input..Args$LT$$LP$A$C$B$C$C$C$D$C$E$RP$$GT$$u20$as$u20$comemo..input..Input$GT$3key17hba78d9f2a2ef2d97E.exit": ; preds = %117, %141
   %.sink.i.i.i.i7.i = phi i64 [ %142, %141 ], [ %138, %117 ]
   store i64 %.sink.i.i.i.i7.i, ptr %.sroa.1121.0..sroa_idx, align 8, !alias.scope !939, !noalias !914
-  %143 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %19)
+  %143 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias noundef readonly align 8 dereferenceable(72) %19)
   %144 = extractvalue { i64, i64 } %143, 0
   %145 = extractvalue { i64, i64 } %143, 1
   %146 = zext i64 %144 to i128
@@ -5077,7 +5077,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h756a19b2e16f671cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = add i64 %5, %2
@@ -5460,7 +5460,7 @@ define hidden void @"_ZN89_$LT$lock_api..rwlock..RwLockWriteGuard$LT$R$C$T$GT$$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #4 {
+define internal fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h7ed7c00c20dfc87bE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #4 {
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.13.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8

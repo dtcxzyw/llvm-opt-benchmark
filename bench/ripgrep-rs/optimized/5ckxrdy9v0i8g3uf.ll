@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.0923cb38b7fdc9785e1561170331db22.30.llvm.6679066857390535418 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0923cb38b7fdc9785e1561170331db22.29.llvm.6679066857390535418, [16 x i8] c"'\00\00\00\00\00\00\00\1E\00\00\00\12\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !range !4, !noundef !5
@@ -64,7 +64,7 @@ define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_init13outlined_call17h6b2a19886a270af2E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_init13outlined_call17h6b2a19886a270af2E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
   %3 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !20
   %4 = load i64, ptr %1, align 8, !range !19, !alias.scope !23, !noalias !26, !noundef !5
@@ -103,7 +103,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core4cell4on
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %2
-  call fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_init13outlined_call17h6b2a19886a270af2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 %1)
+  call fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_init13outlined_call17h6b2a19886a270af2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
@@ -151,7 +151,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core4cell4on
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #16
+  invoke fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE"(ptr noalias noundef align 8 dereferenceable(32) %4) #16
           to label %25 unwind label %23
 
 22:                                               ; preds = %14

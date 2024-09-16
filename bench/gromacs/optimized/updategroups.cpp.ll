@@ -364,7 +364,7 @@ define void @_ZN3gmx34makeUpdateGroupingsPerMoleculeTypeB5cxx11ERK10gmx_mtop_t(p
   store i32 0, ptr %44, align 4, !noalias !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !5
   %46 = getelementptr inbounds i8, ptr %.sroa.050.0165, i64 80
-  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 4)
+  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 4)
           to label %.noexc.i unwind label %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit57.thread.i, !noalias !5
 
 .noexc.i:                                         ; preds = %.noexc
@@ -446,7 +446,7 @@ _ZNSt5arrayI15InteractionListLm94EED2Ev.exit57.thread.i: ; preds = %80, %.noexc
 
 80:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !5
-  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 2)
+  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 2)
           to label %.noexc19.i unwind label %_ZNSt5arrayI15InteractionListLm94EED2Ev.exit57.thread.i, !noalias !5
 
 .noexc19.i:                                       ; preds = %80
@@ -552,7 +552,7 @@ _ZNSt5arrayI15InteractionListLm94EED2Ev.exit57.thread.i: ; preds = %80, %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !11, !noalias !5
-  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 4)
+  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 4)
           to label %132 unwind label %_ZNSt6vectorI21InteractionListHandleSaIS0_EED2Ev.exit124.i.thread.i, !noalias !14
 
 132:                                              ; preds = %131
@@ -1368,7 +1368,7 @@ _ZN15InteractionListaSEOS_.exit.thread.i:         ; preds = %464, %_ZN15Interact
 _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i:         ; preds = %.noexc34.i, %.lr.ph.i
   %.sroa.094.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %475, %.noexc34.i ]
   %.sroa.32.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %477, %.noexc34.i ]
-  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 2)
+  invoke fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(2256) %46, i32 noundef 2)
           to label %478 unwind label %487, !noalias !16
 
 478:                                              ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i
@@ -2476,7 +2476,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, i32 noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, i32 noundef range(i32 2, 7) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2772,7 +2772,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 define internal fastcc i64 @_ZN3gmxL19vsiteConstructRangeEiRK13gmx_moltype_t(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(2384) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.95", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 80
-  call fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(2256) %4, i32 noundef 2)
+  call fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(2256) %4, i32 noundef 2)
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3156,7 +3156,7 @@ define noundef float @_ZN3gmx27computeMaxUpdateGroupRadiusERK10gmx_mtop_tNS_8Arr
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %52 = getelementptr inbounds i8, ptr %44, i64 80
-  call fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(2256) %52, i32 noundef 4)
+  call fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(2256) %52, i32 noundef 4)
   %53 = load ptr, ptr %8, align 8
   %54 = load ptr, ptr %28, align 8
   %.not2329.not.i.i = icmp eq ptr %53, %54
@@ -4856,7 +4856,7 @@ define noundef zeroext i1 @_ZN3gmx28systemHasConstraintsOrVsitesERK10gmx_mtop_t(
   store ptr %3, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %20 = call noundef nonnull align 8 dereferenceable(2256) ptr @_ZNK10IListProxy4listEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(2256) %20, i32 noundef 6)
+  call fastcc void @_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(2256) %20, i32 noundef 6)
   %21 = load ptr, ptr %2, align 8
   %22 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %21, null

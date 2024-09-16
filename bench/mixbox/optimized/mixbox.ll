@@ -3572,7 +3572,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %thread-pre-split.i
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre.i = load i32, ptr %13, align 4
   %.pre84.i = load i32, ptr %12, align 8
   br label %39
@@ -3589,7 +3589,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %39
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre85.i = load i32, ptr %13, align 4
   %.pre86.i = load i32, ptr %12, align 8
   br label %47
@@ -3613,7 +3613,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %53
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pr.i.i = load i32, ptr %12, align 8
   %.pre87.i = load i32, ptr %13, align 4
   br label %56
@@ -3631,7 +3631,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %56
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pr148.i.i = load i32, ptr %12, align 8
   %.pre.i.i = load i32, ptr %13, align 4
   br label %65
@@ -3649,7 +3649,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   br i1 %72, label %73, label %.preheader152.preheader.i.i
 
 73:                                               ; preds = %65
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre163.i.i = load i32, ptr %13, align 4
   %.pre164.i.i = load i32, ptr %12, align 8
   br label %.preheader152.preheader.i.i
@@ -3849,7 +3849,7 @@ _ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %161, %89, %.prehead
 
 180:                                              ; preds = %_ZL9fill_bitsP4zbuf.exit.i
   %181 = add nuw nsw i32 %71, %62
-  %182 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 19)
+  %182 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef %1, ptr noundef %3, i32 noundef 19)
   %.not.i.i = icmp eq i32 %182, 0
   br i1 %.not.i.i, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %.preheader151.i.i
 
@@ -3866,7 +3866,7 @@ _ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %161, %89, %.prehead
   br i1 %.not146.i.i, label %188, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i
 
 188:                                              ; preds = %186
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre167.i.i = load i32, ptr %13, align 4
   br label %189
 
@@ -3972,7 +3972,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   br i1 %246, label %247, label %248
 
 247:                                              ; preds = %245
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre170.i.i = load i32, ptr %13, align 4
   %.pre171.i.i = load i32, ptr %12, align 8
   br label %248
@@ -4001,7 +4001,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   br i1 %262, label %263, label %264
 
 263:                                              ; preds = %261
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre168.i.i = load i32, ptr %13, align 4
   %.pre169.i.i = load i32, ptr %12, align 8
   br label %264
@@ -4022,7 +4022,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   br i1 %272, label %273, label %274
 
 273:                                              ; preds = %271
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre172.i.i = load i32, ptr %13, align 4
   %.pre173.i.i = load i32, ptr %12, align 8
   br label %274
@@ -4067,7 +4067,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   br i1 %.not143.i.i, label %294, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i
 
 294:                                              ; preds = %293
-  %295 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef %62)
+  %295 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef %23, ptr noundef %2, i32 noundef %62)
   %.not144.i.i = icmp eq i32 %295, 0
   br i1 %.not144.i.i, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %_ZL21compute_huffman_codesP4zbuf.exit.i
 
@@ -4080,7 +4080,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.thread.i:   ; preds = %294, %293, %180, %2
 _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   %296 = zext nneg i32 %62 to i64
   %297 = getelementptr inbounds i8, ptr %2, i64 %296
-  %298 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %24, ptr noundef nonnull %297, i32 noundef %71)
+  %298 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef %24, ptr noundef %297, i32 noundef %71)
   call void @llvm.lifetime.end.p0(i64 2020, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 455, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %3)
@@ -4103,7 +4103,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   br i1 %.not.i58.i, label %306, label %_ZL10decompressPci.exit
 
 306:                                              ; preds = %304
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   br label %307
 
 307:                                              ; preds = %306, %301
@@ -4216,7 +4216,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i47.i: ; preds = %346, %313
   br i1 %371, label %372, label %373
 
 372:                                              ; preds = %370
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre.i52.i = load i32, ptr %13, align 4
   %.pre137.i.i = load i32, ptr %12, align 8
   br label %373
@@ -4247,7 +4247,7 @@ thread-pre-split.i.i:                             ; preds = %373, %362
   br i1 %.not109.i.i, label %386, label %_ZL10decompressPci.exit
 
 386:                                              ; preds = %384
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre138.i.i = load i32, ptr %13, align 4
   br label %387
 
@@ -4341,7 +4341,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
   br i1 %442, label %443, label %444
 
 443:                                              ; preds = %441
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
   %.pre139.i.i = load i32, ptr %13, align 4
   %.pre140.i.i = load i32, ptr %12, align 8
   br label %444
@@ -4463,7 +4463,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef nonnull %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i32, ptr %2, align 4
@@ -4605,86 +4605,78 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 289) %2) unnamed_addr #7 {
 .preheader85.preheader:
   %3 = alloca [16 x i32], align 16
   %4 = alloca [17 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %4, i8 0, i64 68, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
-  %5 = icmp sgt i32 %2, 0
-  br i1 %5, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %.preheader85.preheader
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %.lr.ph
+  br label %.preheader
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %9, align 4
+.preheader:                                       ; preds = %.preheader85.preheader, %.preheader
+  %indvars.iv = phi i64 [ 0, %.preheader85.preheader ], [ %indvars.iv.next, %.preheader ]
+  %5 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = load i8, ptr %5, align 1
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 4
+  %10 = add nsw i32 %9, 1
+  store i32 %10, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %11, label %.preheader, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader85.preheader
+11:                                               ; preds = %.preheader
   %12 = getelementptr inbounds i8, ptr %0, i64 1024
   %13 = getelementptr inbounds i8, ptr %0, i64 1124
   %14 = getelementptr inbounds i8, ptr %0, i64 1056
   br label %15
 
-15:                                               ; preds = %._crit_edge, %26
-  %indvars.iv102 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next103, %26 ]
-  %.07790 = phi i32 [ 0, %._crit_edge ], [ %32, %26 ]
-  %.07889 = phi i32 [ 0, %._crit_edge ], [ %31, %26 ]
-  %16 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %indvars.iv102
+15:                                               ; preds = %11, %26
+  %indvars.iv98 = phi i64 [ 1, %11 ], [ %indvars.iv.next99, %26 ]
+  %.07790 = phi i32 [ 0, %11 ], [ %32, %26 ]
+  %.07889 = phi i32 [ 0, %11 ], [ %31, %26 ]
+  %16 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %indvars.iv98
   store i32 %.07889, ptr %16, align 4
   %17 = trunc i32 %.07889 to i16
-  %18 = getelementptr inbounds [16 x i16], ptr %12, i64 0, i64 %indvars.iv102
+  %18 = getelementptr inbounds [16 x i16], ptr %12, i64 0, i64 %indvars.iv98
   store i16 %17, ptr %18, align 2
   %19 = trunc i32 %.07790 to i16
-  %20 = getelementptr inbounds [16 x i16], ptr %13, i64 0, i64 %indvars.iv102
+  %20 = getelementptr inbounds [16 x i16], ptr %13, i64 0, i64 %indvars.iv98
   store i16 %19, ptr %20, align 2
-  %21 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv102
+  %21 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv98
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, %.07889
   %.not81 = icmp ne i32 %22, 0
-  %24 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv98 to i32
   %25 = shl nuw nsw i32 1, %24
   %.not82.not = icmp sgt i32 %23, %25
   %or.cond = select i1 %.not81, i1 %.not82.not, i1 false
   br i1 %or.cond, label %.loopexit83, label %26
 
 26:                                               ; preds = %15
-  %27 = trunc i64 %indvars.iv102 to i32
+  %27 = trunc i64 %indvars.iv98 to i32
   %28 = sub i32 16, %27
   %29 = shl i32 %23, %28
-  %30 = getelementptr inbounds [17 x i32], ptr %14, i64 0, i64 %indvars.iv102
+  %30 = getelementptr inbounds [17 x i32], ptr %14, i64 0, i64 %indvars.iv98
   store i32 %29, ptr %30, align 4
   %31 = shl i32 %23, 1
   %32 = add nsw i32 %22, %.07790
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next103, 16
-  br i1 %exitcond105.not, label %33, label %15, !llvm.loop !20
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next99, 16
+  br i1 %exitcond101.not, label %33, label %15, !llvm.loop !20
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %0, i64 1120
   store i32 65536, ptr %34, align 4
-  br i1 %5, label %.lr.ph97, label %.loopexit83
-
-.lr.ph97:                                         ; preds = %33
   %35 = getelementptr inbounds i8, ptr %0, i64 1156
   %36 = getelementptr inbounds i8, ptr %0, i64 1444
-  %wide.trip.count112 = zext nneg i32 %2 to i64
   br label %37
 
-37:                                               ; preds = %.lr.ph97, %74
-  %indvars.iv109 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next110, %74 ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv109
+37:                                               ; preds = %33, %74
+  %indvars.iv105 = phi i64 [ 0, %33 ], [ %indvars.iv.next106, %74 ]
+  %38 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv105
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %.not = icmp eq i8 %39, 0
@@ -4703,13 +4695,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffma
   %51 = zext i16 %50 to i32
   %52 = add nsw i32 %48, %51
   %53 = shl nuw nsw i32 %40, 9
-  %54 = trunc nuw nsw i64 %indvars.iv109 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv105 to i32
   %55 = or i32 %53, %54
   %56 = trunc i32 %55 to i16
   %57 = sext i32 %52 to i64
   %58 = getelementptr inbounds [288 x i8], ptr %35, i64 0, i64 %57
   store i8 %39, ptr %58, align 1
-  %59 = trunc i64 %indvars.iv109 to i16
+  %59 = trunc i64 %indvars.iv105 to i16
   %60 = getelementptr inbounds [288 x i16], ptr %36, i64 0, i64 %57
   store i16 %59, ptr %60, align 2
   %61 = icmp ult i8 %39, 10
@@ -4722,20 +4714,20 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffma
   %64 = sub nuw nsw i32 16, %40
   %65 = lshr i32 %63, %64
   %66 = icmp ult i32 %65, 512
-  br i1 %66, label %.lr.ph94, label %.loopexit
+  br i1 %66, label %.lr.ph, label %.loopexit
 
-.lr.ph94:                                         ; preds = %62
+.lr.ph:                                           ; preds = %62
   %67 = shl nuw nsw i32 1, %40
   %68 = zext nneg i32 %65 to i64
   %69 = zext nneg i32 %67 to i64
   br label %70
 
-70:                                               ; preds = %.lr.ph94, %70
-  %indvars.iv106 = phi i64 [ %68, %.lr.ph94 ], [ %indvars.iv.next107, %70 ]
-  %71 = getelementptr inbounds [512 x i16], ptr %0, i64 0, i64 %indvars.iv106
+70:                                               ; preds = %.lr.ph, %70
+  %indvars.iv102 = phi i64 [ %68, %.lr.ph ], [ %indvars.iv.next103, %70 ]
+  %71 = getelementptr inbounds [512 x i16], ptr %0, i64 0, i64 %indvars.iv102
   store i16 %56, ptr %71, align 2
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, %69
-  %72 = icmp ult i64 %indvars.iv.next107, 512
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, %69
+  %72 = icmp ult i64 %indvars.iv.next103, 512
   br i1 %72, label %70, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %70, %62, %41
@@ -4744,12 +4736,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffma
   br label %74
 
 74:                                               ; preds = %37, %.loopexit
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %.loopexit83, label %37, !llvm.loop !22
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
+  br i1 %exitcond109.not, label %.loopexit83, label %37, !llvm.loop !22
 
-.loopexit83:                                      ; preds = %15, %74, %33
-  %.075 = phi i32 [ 1, %33 ], [ 1, %74 ], [ 0, %15 ]
+.loopexit83:                                      ; preds = %15, %74
+  %.075 = phi i32 [ 1, %74 ], [ 0, %15 ]
   ret i32 %.075
 }
 

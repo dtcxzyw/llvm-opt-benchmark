@@ -1757,7 +1757,7 @@ ip6_dst_mtu_maybe_forward.exit:                   ; preds = %372, %384
 declare dso_local ptr @dev_get_by_index_rcu(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @ip6_call_ra_chain(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ip6_call_ra_chain(ptr noundef %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 align 16 {
   tail call void @_raw_read_lock(ptr noundef nonnull @ip6_ra_lock) #12
   %3 = load ptr, ptr @ip6_ra_chain, align 8
   %4 = icmp eq ptr %3, null
@@ -1859,7 +1859,7 @@ declare dso_local void @ndisc_send_redirect(ptr noundef, ptr noundef) local_unna
 declare dso_local void @inet_putpeer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @skb_cow(ptr noundef %0, i32 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc i32 @skb_cow(ptr noundef %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 126
   %4 = load i8, ptr %3, align 2
   %5 = and i8 %4, 1
@@ -1895,7 +1895,7 @@ define internal fastcc i32 @skb_cow(ptr noundef %0, i32 noundef %1) unnamed_addr
 
 27:                                               ; preds = %._crit_edge
   %28 = add nuw nsw i32 %24, 63
-  %29 = and i32 %28, -64
+  %29 = and i32 %28, 131008
   %30 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef %29, i32 noundef 0, i32 noundef 2080) #12
   br label %31
 
@@ -7049,7 +7049,7 @@ declare dso_local i32 @ip_generic_getfrag(ptr noundef, ptr noundef, i32 noundef,
 declare dso_local ptr @msg_zerocopy_realloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @skb_zcopy_set(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc void @skb_zcopy_set(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #6 align 16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %48, label %4
 
@@ -7136,7 +7136,7 @@ declare dso_local i64 @skb_splice_from_iter(ptr noundef, ptr noundef, i64 nounde
 declare dso_local zeroext i1 @sk_page_frag_refill(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @__skb_fill_page_desc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #6 align 16 {
+define internal fastcc void @__skb_fill_page_desc(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #6 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 188

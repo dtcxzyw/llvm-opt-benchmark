@@ -1373,7 +1373,7 @@ invoke.cont27.i:                                  ; preds = %invoke.cont21.i
   br i1 %cmp.i.not.i, label %for.end.i, label %invoke.cont.i
 
 for.end.i:                                        ; preds = %invoke.cont27.i
-  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree20MergeLeafNodesToTreeESt17basic_string_viewIcSt11char_traitsIcEEPKNS3_4NodeEPS3_(i64 %16, ptr %17, ptr noundef %second.val.i, ptr noundef nonnull %intersection)
+  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree20MergeLeafNodesToTreeESt17basic_string_viewIcSt11char_traitsIcEEPKNS3_4NodeEPS3_(i64 %16, ptr %17, ptr noundef %second.val.i, ptr noundef %intersection)
           to label %cleanupthread-pre-split.i unwind label %lpad.i
 
 cleanupthread-pre-split.i:                        ; preds = %invoke.cont21.i, %for.end.i, %if.then11.i, %if.then9.i
@@ -1951,7 +1951,7 @@ _ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112
   br label %if.end22.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then13.i.i.i.i.i.i
-  invoke fastcc void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE(ptr noundef nonnull align 8 dereferenceable(24) %node.0215.i, ptr noundef nonnull %iter.i.i.i.i.i.i)
+  invoke fastcc void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE(ptr noundef nonnull align 8 dereferenceable(24) %node.0215.i, ptr noundef %iter.i.i.i.i.i.i)
           to label %.noexc64.i unwind label %lpad47.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc64.i:                                       ; preds = %if.else.i.i.i.i.i.i
@@ -3751,7 +3751,7 @@ _ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112
   br label %if.end22.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then13.i.i.i.i
-  call fastcc void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %iter.i.i.i.i), !noalias !93
+  call fastcc void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %iter.i.i.i.i), !noalias !93
   %.pre.i.i.i = load ptr, ptr %iter.i.i.i.i, align 8, !noalias !93
   %.pre15.i.i.i = load i32, ptr %6, align 8, !noalias !93
   br label %if.end22.i.i.i.i
@@ -3908,7 +3908,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %iter) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull %iter) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parent_iter = alloca %"class.absl::lts_20230802::container_internal::btree_iterator", align 8
   %position_ = getelementptr inbounds i8, ptr %iter, i64 8
@@ -4027,7 +4027,7 @@ if.then112:                                       ; preds = %if.end108
   store ptr %.val74, ptr %parent_iter, align 8
   %position_.i = getelementptr inbounds i8, ptr %parent_iter, i64 8
   store i32 %conv114, ptr %position_.i, align 8
-  call fastcc void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %parent_iter)
+  call fastcc void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %parent_iter)
   %17 = load ptr, ptr %iter, align 8
   %.val75 = load ptr, ptr %17, align 8
   br label %if.end122
@@ -5148,7 +5148,7 @@ for.end:                                          ; preds = %_ZN4absl12lts_20230
 declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree20MergeLeafNodesToTreeESt17basic_string_viewIcSt11char_traitsIcEEPKNS3_4NodeEPS3_(i64 %prefix.coerce0, ptr %prefix.coerce1, ptr nocapture noundef readonly %node, ptr noundef %out) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree20MergeLeafNodesToTreeESt17basic_string_viewIcSt11char_traitsIcEEPKNS3_4NodeEPS3_(i64 %prefix.coerce0, ptr %prefix.coerce1, ptr nocapture noundef readonly %node, ptr noundef nonnull %out) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_path = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8

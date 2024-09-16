@@ -330,8 +330,8 @@ for.end:                                          ; preds = %for.body
   tail call fastcc void @sc_montmul(ptr noundef nonnull %s, ptr noundef nonnull readonly %s, ptr noundef nonnull readonly @ossl_curve448_scalar_one)
   tail call fastcc void @sc_montmul(ptr noundef nonnull %s, ptr noundef nonnull %s, ptr noundef nonnull @sc_r2)
   %4 = and i128 %sub, 79228162495817593519834398720
-  %5 = icmp ne i128 %4, 0
-  %conv.i8 = sext i1 %5 to i32
+  %isnotneg = icmp ne i128 %4, 0
+  %conv.i8 = sext i1 %isnotneg to i32
   ret i32 %conv.i8
 }
 

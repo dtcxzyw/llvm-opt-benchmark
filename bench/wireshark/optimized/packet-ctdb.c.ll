@@ -589,7 +589,7 @@ define internal range(i32 0, 2) i32 @dissect_ctdb(ptr noundef %0, ptr noundef %1
 
 134:                                              ; preds = %127, %.thread83.i
   %.086.i = phi ptr [ %114, %.thread83.i ], [ %133, %127 ]
-  call fastcc void @ctdb_display_trans(ptr noundef nonnull %1, ptr noundef %.0121, ptr noundef %0, ptr noundef nonnull %.086.i)
+  call fastcc void @ctdb_display_trans(ptr noundef nonnull %1, ptr noundef %.0121, ptr noundef %0, ptr noundef %.086.i)
   br label %dissect_ctdb_req_call.exit
 
 dissect_ctdb_req_call.exit:                       ; preds = %127, %134
@@ -675,7 +675,7 @@ dissect_ctdb_reply_call.exit:                     ; preds = %140, %142
   %174 = load i32, ptr %173, align 4
   %175 = getelementptr inbounds i8, ptr %171, i64 8
   store i32 %174, ptr %175, align 8
-  call fastcc void @ctdb_display_trans(ptr noundef nonnull %1, ptr noundef %.0121, ptr noundef %0, ptr noundef nonnull %171)
+  call fastcc void @ctdb_display_trans(ptr noundef nonnull %1, ptr noundef %.0121, ptr noundef %0, ptr noundef %171)
   br label %dissect_ctdb_reply_dmaster.exit
 
 dissect_ctdb_reply_dmaster.exit:                  ; preds = %163, %172
@@ -741,7 +741,7 @@ dissect_ctdb_reply_dmaster.exit:                  ; preds = %163, %172
   br i1 %.not63.i, label %dissect_ctdb_req_dmaster.exit, label %208
 
 208:                                              ; preds = %199
-  call fastcc void @ctdb_display_trans(ptr noundef nonnull %1, ptr noundef %.0121, ptr noundef %0, ptr noundef nonnull %207)
+  call fastcc void @ctdb_display_trans(ptr noundef nonnull %1, ptr noundef %.0121, ptr noundef %0, ptr noundef %207)
   br label %dissect_ctdb_req_dmaster.exit
 
 dissect_ctdb_req_dmaster.exit:                    ; preds = %199, %208
@@ -905,7 +905,7 @@ find_control_dissector.exit.i:                    ; preds = %275
   br label %find_control_dissector.exit.thread.i
 
 find_control_dissector.exit.thread.i:             ; preds = %277, %272, %281, %find_control_dissector.exit.i
-  call fastcc void @ctdb_display_control(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, ptr noundef nonnull %.07079.i)
+  call fastcc void @ctdb_display_control(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, ptr noundef %.07079.i)
   br label %dissect_ctdb_req_control.exit
 
 dissect_ctdb_req_control.exit:                    ; preds = %256, %find_control_dissector.exit.thread.i
@@ -1074,7 +1074,7 @@ find_control_dissector.exit.i146:                 ; preds = %355
   br label %find_control_dissector.exit.thread.i144
 
 find_control_dissector.exit.thread.i144:          ; preds = %357, %352, %361, %find_control_dissector.exit.i146
-  call fastcc void @ctdb_display_control(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, ptr noundef nonnull %291)
+  call fastcc void @ctdb_display_control(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, ptr noundef %291)
   br label %dissect_ctdb_reply_control.exit
 
 dissect_ctdb_reply_control.exit:                  ; preds = %283, %find_control_dissector.exit.thread.i144
@@ -1129,7 +1129,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ctdb_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ctdb_key(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 56, 61) %2, i32 noundef %3, ptr noundef writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %7
 
@@ -1213,7 +1213,7 @@ declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) lo
 declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ctdb_display_trans(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @ctdb_display_trans(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
@@ -1316,7 +1316,7 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ctdb_display_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @ctdb_display_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4

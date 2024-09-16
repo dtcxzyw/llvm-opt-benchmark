@@ -5691,7 +5691,7 @@ init_containers.exit:                             ; preds = %gtk3_get_state_flag
   %.047 = phi ptr [ %51, %52 ], [ %51, %.thread ], [ %45, %.thread44 ], [ %48, %.thread.thread ]
   %55 = phi i1 [ false, %52 ], [ false, %.thread ], [ true, %.thread44 ], [ false, %.thread.thread ]
   %.038 = phi i32 [ %53, %52 ], [ %.0.i, %.thread ], [ %.0.i, %.thread44 ], [ %.0.i, %.thread.thread ]
-  call fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %.047, i32 noundef %.038, i32 noundef %3)
+  call fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %.047, i32 noundef %.038, i32 noundef %3)
   %56 = getelementptr inbounds i8, ptr %6, i64 24
   %57 = load double, ptr %56, align 8
   %58 = fmul double %57, 6.553500e+04
@@ -6200,7 +6200,7 @@ create_Integer.exit:                              ; preds = %139, %.sink.split.i
   br i1 %.not69, label %259, label %257
 
 257:                                              ; preds = %254
-  %258 = call fastcc ptr @create_Insets(ptr noundef %0, ptr noundef nonnull %256)
+  %258 = call fastcc ptr @create_Insets(ptr noundef %0, ptr noundef %256)
   br label %259
 
 259:                                              ; preds = %init_containers.exit, %248, %257, %254, %241, %233, %225, %217, %209, %201, %193, %185, %177, %169, %create_Integer.exit, %create_Character.exit76, %create_Character.exit, %create_Boolean.exit
@@ -8192,7 +8192,7 @@ createWidgetPath.exit85:                          ; preds = %198, %195, %createW
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef range(i32 0, 33) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.GdkRGBA, align 8
   %6 = alloca %struct.GdkRGBA, align 8
   %7 = alloca %struct.GdkRGBA, align 8
@@ -8230,7 +8230,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   store double 1.000000e+00, ptr %17, align 8, !alias.scope !18
   %18 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !18
   call void %18(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7) #19
-  call fastcc void @gtk3_style_shade(ptr noundef nonnull %7, ptr noundef nonnull %0, double noundef 1.300000e+00)
+  call fastcc void @gtk3_style_shade(ptr noundef %7, ptr noundef %0, double noundef 1.300000e+00)
   br label %49
 
 19:                                               ; preds = %4
@@ -8239,7 +8239,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   store double 1.000000e+00, ptr %20, align 8, !alias.scope !21
   %21 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !21
   call void %21(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8) #19
-  call fastcc void @gtk3_style_shade(ptr noundef nonnull %8, ptr noundef nonnull %0, double noundef 0x3FE6666666666666)
+  call fastcc void @gtk3_style_shade(ptr noundef %8, ptr noundef %0, double noundef 0x3FE6666666666666)
   br label %49
 
 22:                                               ; preds = %4
@@ -8249,7 +8249,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   store double 1.000000e+00, ptr %23, align 8, !alias.scope !24, !noalias !27
   %24 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !30
   call void %24(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6) #19, !noalias !27
-  call fastcc void @gtk3_style_shade(ptr noundef nonnull %6, ptr noundef nonnull %9, double noundef 1.300000e+00)
+  call fastcc void @gtk3_style_shade(ptr noundef %6, ptr noundef %9, double noundef 1.300000e+00)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -8257,7 +8257,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   store double 1.000000e+00, ptr %25, align 8, !alias.scope !31, !noalias !34
   %26 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !37
   call void %26(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5) #19, !noalias !34
-  call fastcc void @gtk3_style_shade(ptr noundef nonnull %5, ptr noundef nonnull %10, double noundef 0x3FE6666666666666)
+  call fastcc void @gtk3_style_shade(ptr noundef %5, ptr noundef %10, double noundef 0x3FE6666666666666)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %27 = load double, ptr %9, align 8
   %28 = load double, ptr %10, align 8
@@ -8302,7 +8302,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @gtk3_style_shade(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, double noundef %2) unnamed_addr #14 {
+define internal fastcc void @gtk3_style_shade(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, double noundef %2) unnamed_addr #14 {
   %4 = load double, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
@@ -8734,7 +8734,7 @@ create_Object.exit:                               ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca [4 x %union.jvalue], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i16, ptr %4, align 2

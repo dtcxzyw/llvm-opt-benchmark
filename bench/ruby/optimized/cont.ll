@@ -415,7 +415,7 @@ define dso_local i64 @rb_fiber_new_storage(ptr noundef %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @fiber_initialize(i64 noundef returned %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @fiber_initialize(i64 noundef returned %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3) unnamed_addr #0 {
   switch i64 %3, label %11 [
     i64 36, label %5
     i64 20, label %5
@@ -506,65 +506,64 @@ fiber_storage_validate.exit:                      ; preds = %4, %25
   %45 = getelementptr inbounds i8, ptr %43, i64 536
   %46 = trunc nuw nsw i32 %2 to i8
   %47 = load i8, ptr %45, align 8
-  %48 = shl i8 %46, 3
-  %49 = and i8 %48, 8
-  %50 = and i8 %47, -25
-  %51 = or disjoint i8 %50, %49
-  store i8 %51, ptr %45, align 8
+  %48 = shl nuw nsw i8 %46, 3
+  %49 = and i8 %47, -25
+  %50 = or disjoint i8 %49, %48
+  store i8 %50, ptr %45, align 8
   %.val.i17.i = load ptr, ptr %36, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %52, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val.i17.i, i64 376, i1 false)
-  %53 = getelementptr inbounds i8, ptr %43, i64 240
-  store ptr null, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %43, i64 128
-  store ptr %.val.i.i, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %43, i64 136
-  store ptr null, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %43, i64 144
+  %51 = getelementptr inbounds i8, ptr %43, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %51, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val.i17.i, i64 376, i1 false)
+  %52 = getelementptr inbounds i8, ptr %43, i64 240
+  store ptr null, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %43, i64 128
+  store ptr %.val.i.i, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %43, i64 136
+  store ptr null, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %43, i64 144
+  store i64 4, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %43, i64 152
   store i64 4, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %43, i64 152
-  store i64 4, ptr %57, align 8
-  %58 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #32
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %61
+  %57 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #32
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %60
 
-60:                                               ; preds = %42
+59:                                               ; preds = %42
   tail call void @rb_memerror() #33
   unreachable
 
-61:                                               ; preds = %42
-  store ptr %52, ptr %58, align 8
+60:                                               ; preds = %42
+  store ptr %51, ptr %57, align 8
   tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #9
-  %62 = load ptr, ptr @first_jit_cont, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %fiber_t_alloc.exit, label %64
+  %61 = load ptr, ptr @first_jit_cont, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %fiber_t_alloc.exit, label %63
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %58, i64 16
-  store ptr %62, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %62, i64 8
-  store ptr %58, ptr %66, align 8
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %57, i64 16
+  store ptr %61, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %61, i64 8
+  store ptr %57, ptr %65, align 8
   br label %fiber_t_alloc.exit
 
-fiber_t_alloc.exit:                               ; preds = %61, %64
-  store ptr %58, ptr @first_jit_cont, align 8
+fiber_t_alloc.exit:                               ; preds = %60, %63
+  store ptr %57, ptr @first_jit_cont, align 8
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #9
-  %67 = getelementptr inbounds i8, ptr %43, i64 504
-  store ptr %58, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %43, i64 120
-  store ptr %43, ptr %68, align 8
-  tail call void @rb_ec_clear_vm_stack(ptr noundef nonnull %52) #9
-  %69 = getelementptr inbounds i8, ptr %43, i64 520
-  store ptr null, ptr %69, align 8
+  %66 = getelementptr inbounds i8, ptr %43, i64 504
+  store ptr %57, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %43, i64 120
+  store ptr %43, ptr %67, align 8
+  tail call void @rb_ec_clear_vm_stack(ptr noundef nonnull %51) #9
+  %68 = getelementptr inbounds i8, ptr %43, i64 520
+  store ptr null, ptr %68, align 8
   store ptr %43, ptr %31, align 8
-  %70 = getelementptr inbounds i8, ptr %43, i64 160
-  store i64 %.0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %43, i64 512
-  store i64 %1, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %43, i64 560
-  store ptr null, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %43, i64 592
-  store ptr @shared_fiber_pool, ptr %73, align 8
+  %69 = getelementptr inbounds i8, ptr %43, i64 160
+  store i64 %.0, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %43, i64 512
+  store i64 %1, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %43, i64 560
+  store ptr null, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %43, i64 592
+  store ptr @shared_fiber_pool, ptr %72, align 8
   ret i64 %0
 }
 
@@ -872,7 +871,7 @@ declare void @rb_threadptr_pending_interrupt_enque(ptr noundef, i64 noundef) loc
 declare i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @rb_fiber_terminate(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc void @rb_fiber_terminate(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2) unnamed_addr #6 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
@@ -1929,12 +1928,12 @@ define dso_local i64 @rb_fiber_resume_kw(i64 noundef %0, i32 noundef %1, ptr nou
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %4
-  %8 = tail call fastcc i64 @fiber_resume_kw(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, i32 noundef %3)
+  %8 = tail call fastcc i64 @fiber_resume_kw(ptr noundef %5, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @fiber_resume_kw(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @fiber_resume_kw(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
@@ -2050,7 +2049,7 @@ define dso_local i64 @rb_fiber_resume(i64 noundef %0, i32 noundef %1, ptr nounde
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %3
-  %7 = tail call fastcc i64 @fiber_resume_kw(ptr noundef nonnull %4, i32 noundef %1, ptr noundef %2, i32 noundef 0)
+  %7 = tail call fastcc i64 @fiber_resume_kw(ptr noundef %4, i32 noundef %1, ptr noundef %2, i32 noundef 0)
   ret i64 %7
 }
 
@@ -2281,7 +2280,7 @@ fiber_transfer_kw.exit.i:                         ; preds = %12
   br label %fiber_raise.exit
 
 18:                                               ; preds = %fiber_ptr.exit
-  %19 = call fastcc i64 @fiber_resume_kw(ptr noundef nonnull %6, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0)
+  %19 = call fastcc i64 @fiber_resume_kw(ptr noundef %6, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0)
   br label %fiber_raise.exit
 
 fiber_raise.exit:                                 ; preds = %fiber_transfer_kw.exit.i, %18
@@ -2955,7 +2954,7 @@ define internal i64 @rb_fiber_m_resume(i32 noundef %0, ptr noundef %1, i64 nound
   unreachable
 
 rb_fiber_resume_kw.exit:                          ; preds = %3
-  %8 = tail call fastcc i64 @fiber_resume_kw(ptr noundef nonnull %5, i32 noundef %0, ptr noundef %1, i32 noundef %4)
+  %8 = tail call fastcc i64 @fiber_resume_kw(ptr noundef %5, i32 noundef %0, ptr noundef %1, i32 noundef %4)
   ret i64 %8
 }
 
@@ -3092,7 +3091,7 @@ fiber_transfer_kw.exit.i:                         ; preds = %59
   br label %fiber_raise.exit
 
 65:                                               ; preds = %fiber_ptr.exit15
-  %66 = call fastcc i64 @fiber_resume_kw(ptr noundef nonnull %53, i32 noundef -1, ptr noundef nonnull %2, i32 noundef 0)
+  %66 = call fastcc i64 @fiber_resume_kw(ptr noundef %53, i32 noundef -1, ptr noundef nonnull %2, i32 noundef 0)
   br label %fiber_raise.exit
 
 fiber_raise.exit:                                 ; preds = %fiber_transfer_kw.exit.i, %65

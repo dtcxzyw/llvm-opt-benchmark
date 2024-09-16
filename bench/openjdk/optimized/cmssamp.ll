@@ -522,7 +522,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   br label %119
 
 114:                                              ; preds = %111
-  %115 = call fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef %.1111, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %115 = call fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef %.1111, ptr noundef %11, ptr noundef %12)
   %116 = fcmp olt double %115, 0.000000e+00
   %storemerge = select i1 %116, double 0.000000e+00, double %115
   store double %storemerge, ptr %7, align 8
@@ -585,11 +585,11 @@ declare double @llvm.fabs.f64(double) #2
 declare void @cmsLab2XYZ(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef range(i32 3, -2147483648) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.cmsMAT3, align 8
   %5 = alloca %struct.cmsVEC3, align 8
   %6 = alloca %struct.cmsVEC3, align 8
-  %7 = icmp slt i32 %0, 4
+  %7 = icmp ult i32 %0, 4
   br i1 %7, label %60, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %3

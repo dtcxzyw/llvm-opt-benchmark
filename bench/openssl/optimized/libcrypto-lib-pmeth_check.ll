@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_public_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef %checktype) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_public_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef range(i32 0, 2) %checktype) unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
   %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
@@ -126,7 +126,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_param_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef %checktype) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_param_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef range(i32 0, 2) %checktype) unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
   %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136

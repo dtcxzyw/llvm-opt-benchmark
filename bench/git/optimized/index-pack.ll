@@ -790,7 +790,7 @@ if.end237:                                        ; preds = %if.end225, %if.end2
   br i1 %or.cond4, label %if.then241, label %if.end243
 
 if.then241:                                       ; preds = %if.end237
-  %call242 = call fastcc ptr @derive_filename(ptr noundef nonnull %pack_name.0.lcssa, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull %index_name_buf)
+  %call242 = call fastcc ptr @derive_filename(ptr noundef %pack_name.0.lcssa, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef %index_name_buf)
   br label %if.end243
 
 if.end243:                                        ; preds = %if.then241, %if.end237
@@ -809,7 +809,7 @@ if.then247:                                       ; preds = %if.end243
   br i1 %tobool251.not, label %if.end255.thread, label %if.then252
 
 if.then252:                                       ; preds = %if.then247
-  %call253 = call fastcc ptr @derive_filename(ptr noundef nonnull %index_name.2, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull %rev_index_name_buf)
+  %call253 = call fastcc ptr @derive_filename(ptr noundef %index_name.2, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %rev_index_name_buf)
   br label %if.end255
 
 if.end255:                                        ; preds = %if.then252, %if.end243
@@ -1090,7 +1090,7 @@ if.then.i95:                                      ; preds = %if.else.i5.i
 
 st_add.exit:                                      ; preds = %if.else.i5.i
   %conv290 = sext i32 %97 to i64
-  %add.i = add nuw nsw i64 %conv290, 1
+  %add.i = add nsw i64 %conv290, 1
   %call292 = call ptr @xcalloc(i64 noundef %add.i, i64 noundef 64) #23
   store ptr %call292, ptr @objects, align 8
   %.b58 = load i1, ptr @show_stat, align 4
@@ -1107,7 +1107,7 @@ if.then.i99:                                      ; preds = %if.then294
 
 st_add.exit100:                                   ; preds = %if.then294
   %conv295 = sext i32 %98 to i64
-  %add.i98 = add nuw nsw i64 %conv295, 1
+  %add.i98 = add nsw i64 %conv295, 1
   %call297 = call ptr @xcalloc(i64 noundef %add.i98, i64 noundef 8) #23
   store ptr %call297, ptr @obj_stat, align 8
   br label %if.end298
@@ -3723,7 +3723,7 @@ if.end5.i269:                                     ; preds = %if.else.i292, %if.t
   br i1 %tobool6.not.i, label %if.end8.i270, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i269
-  call fastcc void @write_special_file(ptr noundef nonnull @.str.108, ptr noundef nonnull %514, ptr noundef %pack_name.0.lcssa, ptr noundef nonnull %pack_hash, ptr noundef nonnull %report.i)
+  call fastcc void @write_special_file(ptr noundef nonnull @.str.108, ptr noundef %514, ptr noundef %pack_name.0.lcssa, ptr noundef %pack_hash, ptr noundef nonnull %report.i)
   br label %if.end8.i270
 
 if.end8.i270:                                     ; preds = %if.then7.i, %if.end5.i269
@@ -3731,7 +3731,7 @@ if.end8.i270:                                     ; preds = %if.then7.i, %if.end
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i270
-  call fastcc void @write_special_file(ptr noundef nonnull @.str.109, ptr noundef nonnull %515, ptr noundef %pack_name.0.lcssa, ptr noundef nonnull %pack_hash, ptr noundef null)
+  call fastcc void @write_special_file(ptr noundef nonnull @.str.109, ptr noundef %515, ptr noundef %pack_name.0.lcssa, ptr noundef %pack_hash, ptr noundef null)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then10.i, %if.end8.i270
@@ -4112,7 +4112,7 @@ declare i32 @hash_algo_by_name(ptr noundef) local_unnamed_addr #4
 declare void @repo_set_hash_algo(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @derive_filename(ptr noundef %pack_name, ptr noundef %strip, ptr noundef %suffix, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc ptr @derive_filename(ptr noundef nonnull %pack_name, ptr noundef %strip, ptr noundef %suffix, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pack_name) #24
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %strip) #24
@@ -4122,7 +4122,7 @@ entry:
 lor.lhs.false.i.i:                                ; preds = %entry
   %sub.i.i = sub nuw i64 %call.i, %call.i.i
   %add.ptr.i.i = getelementptr i8, ptr %pack_name, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i, ptr readonly %strip, i64 %call.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i, ptr readonly %strip, i64 %call.i.i)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   %tobool = icmp ne i64 %call.i, %call.i.i
   %or.cond12 = and i1 %tobool, %tobool.not.i.i
@@ -4136,13 +4136,13 @@ lor.lhs.false1:                                   ; preds = %lor.lhs.false.i.i
 
 if.then:                                          ; preds = %entry, %lor.lhs.false.i.i, %lor.lhs.false1
   %call3 = tail call fastcc ptr @_(ptr noundef nonnull @.str.44)
-  tail call void (ptr, ...) @die(ptr noundef %call3, ptr noundef %pack_name, ptr noundef %strip) #22
+  tail call void (ptr, ...) @die(ptr noundef %call3, ptr noundef nonnull %pack_name, ptr noundef %strip) #22
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false1
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull %pack_name, i64 noundef %sub.i.i) #23
+  tail call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %pack_name, i64 noundef %sub.i.i) #23
   %call.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix) #24
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef %suffix, i64 noundef %call.i7) #23
+  tail call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %suffix, i64 noundef %call.i7) #23
   %buf4 = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf4, align 8
   ret ptr %1
@@ -4436,7 +4436,7 @@ declare void @strbuf_humanise_bytes(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @start_progress(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sha1_object(ptr noundef %data, ptr noundef %obj_entry, i64 noundef %size, i32 noundef %type, ptr noundef %oid) unnamed_addr #0 {
+define internal fastcc void @sha1_object(ptr noundef %data, ptr noundef %obj_entry, i64 noundef %size, i32 noundef range(i32 -128, 128) %type, ptr noundef %oid) unnamed_addr #0 {
 entry:
   %data.i = alloca %struct.compare_data, align 8
   %type.i = alloca i32, align 4
@@ -6312,7 +6312,7 @@ declare i32 @printf_ln(ptr noundef, ...) local_unnamed_addr #4
 declare void @fsync_component_or_die(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_special_file(ptr noundef %suffix, ptr noundef %msg, ptr noundef %pack_name, ptr noundef %hash, ptr noundef writeonly %report) unnamed_addr #0 {
+define internal fastcc void @write_special_file(ptr noundef %suffix, ptr noundef nonnull %msg, ptr noundef %pack_name, ptr noundef nonnull %hash, ptr noundef writeonly %report) unnamed_addr #0 {
 entry:
   %name_buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %name_buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_special_file.name_buf, i64 24, i1 false)
@@ -6322,11 +6322,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = call fastcc ptr @derive_filename(ptr noundef nonnull %pack_name, ptr noundef nonnull @.str.31, ptr noundef %suffix, ptr noundef nonnull %name_buf)
+  %call1 = call fastcc ptr @derive_filename(ptr noundef %pack_name, ptr noundef nonnull @.str.31, ptr noundef %suffix, ptr noundef %name_buf)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call2 = call ptr @odb_pack_name(ptr noundef nonnull %name_buf, ptr noundef %hash, ptr noundef %suffix) #23
+  %call2 = call ptr @odb_pack_name(ptr noundef nonnull %name_buf, ptr noundef nonnull %hash, ptr noundef %suffix) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -6352,7 +6352,7 @@ if.else12:                                        ; preds = %if.end
 
 if.then15:                                        ; preds = %if.else12
   %conv16 = and i64 %call, 2147483647
-  call void @write_or_die(i32 noundef %call3, ptr noundef %msg, i64 noundef %conv16) #23
+  call void @write_or_die(i32 noundef %call3, ptr noundef nonnull %msg, i64 noundef %conv16) #23
   call void @write_or_die(i32 noundef %call3, ptr noundef nonnull @.str.113, i64 noundef 1) #23
   br label %if.end17
 

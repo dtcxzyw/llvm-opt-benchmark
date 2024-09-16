@@ -1213,7 +1213,7 @@ if.end66:                                         ; preds = %if.then62
   br label %return
 
 legacy:                                           ; preds = %if.end24
-  %call69 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl)
+  %call69 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i32 noundef %inl)
   br label %return
 
 return:                                           ; preds = %if.end49, %if.end66, %legacy, %if.then65, %if.then48, %if.then23, %if.then13, %if.else
@@ -1426,7 +1426,7 @@ if.end96:                                         ; preds = %if.end90
   br i1 %tobool99.not, label %if.end102, label %if.then100
 
 if.then100:                                       ; preds = %if.end96
-  %call101 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl)
+  %call101 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i32 noundef %inl)
   br label %return
 
 if.end102:                                        ; preds = %if.end96
@@ -1487,7 +1487,7 @@ if.end123:                                        ; preds = %if.end117
 
 if.end126:                                        ; preds = %cond.end108, %if.end123
   %out.addr.0 = phi ptr [ %add.ptr, %if.end123 ], [ %out, %cond.end108 ]
-  %call127 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out.addr.0, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %inl)
+  %call127 = tail call fastcc i32 @evp_EncryptDecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out.addr.0, ptr noundef %outl, ptr noundef %in, i32 noundef %inl)
   %tobool128.not = icmp eq i32 %call127, 0
   br i1 %tobool128.not, label %return, label %if.end130
 
@@ -2079,7 +2079,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evp_EncryptDecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %outl, ptr noundef %in, i32 noundef %inl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evp_EncryptDecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef nonnull %outl, ptr noundef %in, i32 noundef %inl) unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_test_flags(ptr noundef %ctx, i32 noundef 8192) #8
   %tobool.not = icmp eq i32 %call, 0

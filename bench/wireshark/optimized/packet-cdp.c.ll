@@ -742,24 +742,24 @@ dissect_capabilities.exit:                        ; preds = %149, %154
   %188 = load i32, ptr @hf_cdp_tlvlength, align 4
   %189 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %188, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #3
   %190 = load ptr, ptr %50, align 8
-  %191 = load i32, ptr @hf_cdp_software_version, align 4
+  %191 = add nsw i32 %55, -4
+  %192 = load i32, ptr @hf_cdp_software_version, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %.not1102 = icmp eq i16 %54, 4
-  br i1 %.not1102, label %add_multi_line_string_to_tree.exit, label %.lr.ph.i.preheader
+  %.not.i = icmp eq i32 %191, 0
+  br i1 %.not.i, label %add_multi_line_string_to_tree.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %183
-  %192 = add nsw i32 %55, -4
   %193 = add i32 %.010271162, 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.019.i = phi i32 [ %195, %.lr.ph.i ], [ %193, %.lr.ph.i.preheader ]
-  %.01718.i = phi i32 [ %199, %.lr.ph.i ], [ %192, %.lr.ph.i.preheader ]
+  %.01718.i = phi i32 [ %199, %.lr.ph.i ], [ %191, %.lr.ph.i.preheader ]
   %194 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.019.i, i32 noundef %.01718.i, ptr noundef nonnull %5, i32 noundef 0) #3
   %195 = load i32, ptr %5, align 4
   %196 = sub i32 %195, %.019.i
   %197 = call ptr @tvb_format_stringzpad(ptr noundef %190, ptr noundef %0, i32 noundef %.019.i, i32 noundef %194) #3
-  %198 = call ptr @proto_tree_add_string(ptr noundef %185, i32 noundef %191, ptr noundef %0, i32 noundef %.019.i, i32 noundef %196, ptr noundef %197) #3
+  %198 = call ptr @proto_tree_add_string(ptr noundef %185, i32 noundef %192, ptr noundef %0, i32 noundef %.019.i, i32 noundef %196, ptr noundef %197) #3
   %199 = sub i32 %.01718.i, %196
   %200 = icmp sgt i32 %199, 0
   br i1 %200, label %.lr.ph.i, label %add_multi_line_string_to_tree.exit, !llvm.loop !6
@@ -1203,7 +1203,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
 
 506:                                              ; preds = %.thread, %495
   %507 = phi i32 [ %494, %.thread ], [ %503, %495 ]
-  %.310261101 = phi ptr [ null, %.thread ], [ %497, %495 ]
+  %.310261102 = phi ptr [ null, %.thread ], [ %497, %495 ]
   %508 = add i32 %.010271162, 8
   %509 = add i16 %54, -8
   %.not10691131 = icmp eq i32 %507, 0
@@ -1214,7 +1214,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   %.510321133 = phi i32 [ %514, %513 ], [ %508, %506 ]
   %.210361132 = phi i16 [ %516, %513 ], [ %509, %506 ]
   %510 = zext i16 %.210361132 to i32
-  %511 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.510321133, i32 noundef %510, ptr noundef %.310261101)
+  %511 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.510321133, i32 noundef %510, ptr noundef %.310261102)
   %512 = icmp slt i32 %511, 0
   br i1 %512, label %._crit_edge1137, label %513
 
@@ -1538,8 +1538,8 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   br label %724
 
 718:                                              ; preds = %684
-  %.not.i = icmp eq i32 %651, 8
-  br i1 %.not.i, label %724, label %719
+  %.not.i1100 = icmp eq i32 %651, 8
+  br i1 %.not.i1100, label %724, label %719
 
 719:                                              ; preds = %718
   %720 = load i32, ptr @hf_cdp_data, align 4
@@ -1994,9 +1994,9 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = icmp slt i32 %3, 1
+  %7 = icmp eq i32 %3, 0
   br i1 %7, label %97, label %8
 
 8:                                                ; preds = %5

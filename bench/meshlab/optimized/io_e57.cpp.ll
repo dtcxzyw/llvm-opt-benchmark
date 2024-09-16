@@ -843,7 +843,7 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %_ZN7QStringD2Ev.exi
 
 24:                                               ; preds = %20, %_ZN7QStringD2Ev.exit26
   %.val = load ptr, ptr %2, align 8, !noalias !10
-  call fastcc void @_ZL16filenameToStringB5cxx11RK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val) #27
+  call fastcc void @_ZL16filenameToStringB5cxx11RK7QString(ptr dead_on_unwind noalias writable align 8 %8, ptr %.val) #27
   invoke void @_ZN3e576ReaderC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %25 unwind label %34
 
@@ -1070,7 +1070,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8R
 declare void @_ZNK8IOPlugin15wrongOpenFormatERK7QString(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16filenameToStringB5cxx11RK7QString(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16filenameToStringB5cxx11RK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.16", align 1
   %3 = alloca %class.QByteArray, align 8
   %4 = icmp eq ptr %.0.val, @_ZN10QArrayData11shared_nullE
@@ -1635,7 +1635,7 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #27
   %.val = load ptr, ptr %2, align 8, !noalias !10
-  call fastcc void @_ZL16filenameToStringB5cxx11RK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val) #27
+  call fastcc void @_ZL16filenameToStringB5cxx11RK7QString(ptr dead_on_unwind noalias writable align 8 %12, ptr %.val) #27
   invoke void @_ZN3e576ReaderC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %57 unwind label %66
 
@@ -4407,7 +4407,7 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %_ZN7QStringD2Ev.exi
   %48 = sub i64 %46, %47
   %49 = sdiv exact i64 %48, 48
   %.val = load ptr, ptr %2, align 8, !noalias !10
-  call fastcc void @_ZL16filenameToStringB5cxx11RK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %.val) #27
+  call fastcc void @_ZL16filenameToStringB5cxx11RK7QString(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   %50 = getelementptr inbounds i8, ptr %11, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #27

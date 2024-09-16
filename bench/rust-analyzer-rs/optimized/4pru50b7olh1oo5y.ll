@@ -25,7 +25,7 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$$RF$camino..Utf8PathBuf$GT
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h652f706d072eed92E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0) unnamed_addr #1 {
+define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h652f706d072eed92E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 {
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !range !4, !noundef !5
@@ -40,7 +40,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
 
 10:                                               ; preds = %6
   store i8 1, ptr %7, align 8
-  %11 = tail call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h652f706d072eed92E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
+  %11 = tail call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h652f706d072eed92E"(ptr noalias noundef align 8 dereferenceable(72) %0)
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
   %14 = icmp eq ptr %12, null
@@ -52,7 +52,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %17, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h75f94a2d758a741bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
+  call fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h75f94a2d758a741bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %2, ptr noalias noundef align 8 dereferenceable(48) %17)
   %18 = load i64, ptr %2, align 8, !range !7, !noundef !5
   %trunc = trunc nuw i64 %18 to i1
   br i1 %trunc, label %30, label %25
@@ -132,7 +132,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h75f94a2d758a741bE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h75f94a2d758a741bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -944,7 +944,7 @@ define void @_ZN3vfs8vfs_path7VfsPath18name_and_extension17hd19cc0841cc41d88E(pt
   store i64 1, ptr %23, align 8, !alias.scope !162, !noalias !165
   %24 = getelementptr inbounds i8, ptr %3, i64 40
   store <4 x i8> <i8 47, i8 0, i8 0, i8 0>, ptr %24, align 8, !alias.scope !162, !noalias !165
-  call fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h75f94a2d758a741bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %3), !noalias !156
+  call fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h75f94a2d758a741bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef align 8 dereferenceable(48) %3), !noalias !156
   %25 = load i64, ptr %4, align 8, !range !7, !noalias !159, !noundef !5
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   %27 = load i64, ptr %26, align 8, !noalias !159
@@ -1018,7 +1018,7 @@ define void @_ZN3vfs8vfs_path7VfsPath18name_and_extension17hd19cc0841cc41d88E(pt
   %.sroa.441.sroa.7.0..sroa.441.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 73
   store i8 0, ptr %.sroa.441.sroa.7.0..sroa.441.0..sroa_idx.sroa_idx.i, align 1, !noalias !156
   store i64 1, ptr %5, align 8, !alias.scope !172, !noalias !156
-  %44 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h652f706d072eed92E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.sroa.441.0..sroa_idx.i), !noalias !156
+  %44 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h652f706d072eed92E"(ptr noalias noundef align 8 dereferenceable(72) %.sroa.441.0..sroa_idx.i), !noalias !156
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
   %47 = load i64, ptr %5, align 8, !alias.scope !175, !noalias !156, !noundef !5
@@ -1030,7 +1030,7 @@ define void @_ZN3vfs8vfs_path7VfsPath18name_and_extension17hd19cc0841cc41d88E(pt
 48:                                               ; preds = %"_ZN92_$LT$core..str..iter..RSplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5f8e333c9c641a3E.exit.i"
   %49 = add i64 %47, -1
   store i64 %49, ptr %5, align 8, !alias.scope !175, !noalias !156
-  %50 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h652f706d072eed92E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.sroa.441.0..sroa_idx.i), !noalias !156
+  %50 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h652f706d072eed92E"(ptr noalias noundef align 8 dereferenceable(72) %.sroa.441.0..sroa_idx.i), !noalias !156
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
   br label %"_ZN92_$LT$core..str..iter..RSplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5f8e333c9c641a3E.exit70.i"
@@ -1373,7 +1373,7 @@ define hidden noundef zeroext i1 @_ZN3vfs8vfs_path11VirtualPath3pop17h56664a3c78
   store i64 1, ptr %13, align 8, !alias.scope !225, !noalias !228
   %14 = getelementptr inbounds i8, ptr %3, i64 40
   store <4 x i8> <i8 47, i8 0, i8 0, i8 0>, ptr %14, align 8, !alias.scope !225, !noalias !228
-  call fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h75f94a2d758a741bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
+  call fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h75f94a2d758a741bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef align 8 dereferenceable(48) %3)
   %15 = load i64, ptr %4, align 8, !range !7, !noalias !222, !noundef !5
   %trunc.i = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds i8, ptr %4, i64 8

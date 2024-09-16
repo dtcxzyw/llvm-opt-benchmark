@@ -4516,7 +4516,7 @@ if.end:                                           ; preds = %entry
   %.str.72.mux = select i1 %ExpectedMatch, ptr @.str.72, ptr @.str.73
   %CheckTy.i = getelementptr inbounds i8, ptr %Pat, i64 128
   %0 = load i32, ptr %CheckTy.i, align 8
-  call fastcc void @_ZL13CheckTypeNameB5cxx11N4llvh9StringRefENS_5Check13FileCheckTypeE(ptr noalias nonnull align 8 %ref.tmp7, ptr %Prefix.coerce0, i64 %Prefix.coerce1, i32 noundef %0)
+  call fastcc void @_ZL13CheckTypeNameB5cxx11N4llvh9StringRefENS_5Check13FileCheckTypeE(ptr noalias align 8 %ref.tmp7, ptr %Prefix.coerce0, i64 %Prefix.coerce1, i32 noundef %0)
   %call.i12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.71) #17, !noalias !138
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i12) #17
   %call.i13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull %.str.72.mux) #17, !noalias !141
@@ -4603,7 +4603,7 @@ if.end6:                                          ; preds = %entry.if.end6_crit_
   %cond = phi i32 [ 2, %if.end ], [ 0, %entry.if.end6_crit_edge ]
   %add.ptr = getelementptr inbounds i8, ptr %Buffer.0.val, i64 %MatchPos
   %add.ptr12 = getelementptr inbounds i8, ptr %add.ptr, i64 %MatchLen
-  call fastcc void @_ZL13CheckTypeNameB5cxx11N4llvh9StringRefENS_5Check13FileCheckTypeE(ptr noalias nonnull align 8 %ref.tmp23, ptr %Prefix.coerce0, i64 %Prefix.coerce1, i32 noundef %1)
+  call fastcc void @_ZL13CheckTypeNameB5cxx11N4llvh9StringRefENS_5Check13FileCheckTypeE(ptr noalias align 8 %ref.tmp23, ptr %Prefix.coerce0, i64 %Prefix.coerce1, i32 noundef %1)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull @.str.71) #17, !noalias !147
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(32) %call.i) #17
   %call.i10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull %.str.72..str.73) #17, !noalias !150
@@ -5747,7 +5747,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13CheckTypeNameB5cxx11N4llvh9StringRefENS_5Check13FileCheckTypeE(ptr noalias align 8 %agg.result, ptr %Prefix.coerce0, i64 %Prefix.coerce1, i32 noundef %Ty) unnamed_addr #0 {
+define internal fastcc void @_ZL13CheckTypeNameB5cxx11N4llvh9StringRefENS_5Check13FileCheckTypeE(ptr noalias nonnull align 8 %agg.result, ptr %Prefix.coerce0, i64 %Prefix.coerce1, i32 noundef %Ty) unnamed_addr #0 {
 entry:
   %ref.tmp.i30 = alloca %"class.std::allocator.0", align 1
   %ref.tmp.i23 = alloca %"class.std::allocator.0", align 1

@@ -801,7 +801,7 @@ if.end137:                                        ; preds = %if.then130, %if.end
   store i8 0, ptr %arrayidx140, align 8
   %query = getelementptr inbounds i8, ptr %data, i64 4688
   %55 = load ptr, ptr %query, align 8
-  %call142 = call fastcc i32 @canon_query(ptr noundef %data, ptr noundef %55, ptr noundef nonnull %canonical_query)
+  %call142 = call fastcc i32 @canon_query(ptr noundef %data, ptr noundef %55, ptr noundef %canonical_query)
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %if.end145, label %fail
 
@@ -982,7 +982,7 @@ declare i32 @Curl_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @canon_query(ptr noundef %data, ptr noundef %query, ptr noundef %dq) unnamed_addr #0 {
+define internal fastcc i32 @canon_query(ptr noundef %data, ptr noundef %query, ptr noundef nonnull %dq) unnamed_addr #0 {
 entry:
   %array = alloca [64 x %struct.pair], align 16
   %tmp = alloca [3 x i8], align 1
@@ -1057,7 +1057,7 @@ for.body28:                                       ; preds = %if.end21, %for.inc
   br i1 %or.cond76, label %if.then50, label %if.else52
 
 if.then50:                                        ; preds = %for.body28
-  %call51 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull %q.089, i64 noundef 1) #12
+  %call51 = call i32 @Curl_dyn_addn(ptr noundef nonnull %dq, ptr noundef nonnull %q.089, i64 noundef 1) #12
   br label %for.inc
 
 if.else52:                                        ; preds = %for.body28
@@ -1071,11 +1071,11 @@ if.else52:                                        ; preds = %for.body28
   ]
 
 sw.bb:                                            ; preds = %if.else52, %if.else52, %if.else52, %if.else52
-  %call54 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull %q.089, i64 noundef 1) #12
+  %call54 = call i32 @Curl_dyn_addn(ptr noundef nonnull %dq, ptr noundef nonnull %q.089, i64 noundef 1) #12
   br label %for.inc
 
 sw.bb55:                                          ; preds = %if.else52
-  %call56 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull %q.089, i64 noundef 1) #12
+  %call56 = call i32 @Curl_dyn_addn(ptr noundef nonnull %dq, ptr noundef nonnull %q.089, i64 noundef 1) #12
   br label %for.inc
 
 sw.bb57:                                          ; preds = %if.else52
@@ -1134,12 +1134,12 @@ if.then117:                                       ; preds = %switch.early.test81
   %12 = load i8, ptr %arrayidx88, align 1
   %call122 = call signext i8 @Curl_raw_toupper(i8 noundef signext %12) #12
   store i8 %call122, ptr %arrayidx123, align 1
-  %call124 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull %tmp, i64 noundef 3) #12
+  %call124 = call i32 @Curl_dyn_addn(ptr noundef nonnull %dq, ptr noundef nonnull %tmp, i64 noundef 3) #12
   %sub = add i64 %len16.088, -2
   br label %for.inc
 
 if.else126:                                       ; preds = %switch.early.test81, %switch.early.test
-  %call127 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull @.str.35, i64 noundef 3) #12
+  %call127 = call i32 @Curl_dyn_addn(ptr noundef nonnull %dq, ptr noundef nonnull @.str.35, i64 noundef 3) #12
   br label %for.inc
 
 sw.default:                                       ; preds = %if.else52
@@ -1156,7 +1156,7 @@ sw.default:                                       ; preds = %if.else52
   %arrayidx134 = getelementptr inbounds [17 x i8], ptr @__const.canon_query.hex, i64 0, i64 %idxprom133
   %18 = load i8, ptr %arrayidx134, align 1
   store i8 %18, ptr %arrayidx135, align 1
-  %call137 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull %out, i64 noundef 3) #12
+  %call137 = call i32 @Curl_dyn_addn(ptr noundef nonnull %dq, ptr noundef nonnull %out, i64 noundef 3) #12
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then50, %if.then117, %if.else126, %sw.default, %sw.bb55, %sw.bb
@@ -1178,7 +1178,7 @@ land.lhs.true141:                                 ; preds = %for.end
   br i1 %found_equals.1, label %land.lhs.true147, label %if.end145
 
 if.end145:                                        ; preds = %land.lhs.true141
-  %call144 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull @.str.36, i64 noundef 1) #12
+  %call144 = call i32 @Curl_dyn_addn(ptr noundef nonnull %dq, ptr noundef nonnull @.str.36, i64 noundef 1) #12
   %tobool146.not = icmp eq i32 %call144, 0
   br i1 %tobool146.not, label %land.lhs.true147, label %return
 
@@ -1187,7 +1187,7 @@ land.lhs.true147:                                 ; preds = %land.lhs.true141, %
   br i1 %cmp149, label %if.then151, label %for.inc154
 
 if.then151:                                       ; preds = %land.lhs.true147
-  %call152 = call i32 @Curl_dyn_addn(ptr noundef %dq, ptr noundef nonnull @.str.37, i64 noundef 1) #12
+  %call152 = call i32 @Curl_dyn_addn(ptr noundef nonnull %dq, ptr noundef nonnull @.str.37, i64 noundef 1) #12
   br label %for.inc154
 
 for.inc154:                                       ; preds = %land.lhs.true147, %if.then151, %for.body

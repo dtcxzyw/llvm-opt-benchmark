@@ -2712,7 +2712,7 @@ define hidden noundef i32 @_ZN12Dependencies8dep_argsENS_7DepTypeE(i32 noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL20sort_dep_value_arg_1PN12Dependencies8DepValueES1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-.lr.ph.i:
+_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit:
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr %1, align 4
   %4 = sub nsw i32 %3, %2
@@ -2721,44 +2721,44 @@ define internal noundef i32 @_ZL20sort_dep_value_arg_1PN12Dependencies8DepValueE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL20sort_dep_value_arg_2PN12Dependencies8DepValueES1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = getelementptr inbounds %"class.Dependencies::DepValue", ptr %0, i64 %indvars.iv.i
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds %"class.Dependencies::DepValue", ptr %1, i64 %indvars.iv.i
-  %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ne i32 %6, %4
+3:                                                ; preds = %3, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
+  %4 = getelementptr inbounds %"class.Dependencies::DepValue", ptr %0, i64 %indvars.iv.i
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds %"class.Dependencies::DepValue", ptr %1, i64 %indvars.iv.i
+  %7 = load i32, ptr %6, align 4
+  %.not.i = icmp ne i32 %7, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  %or.cond = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit, label %.lr.ph.i, !llvm.loop !17
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit, label %3, !llvm.loop !17
 
-_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit: ; preds = %.lr.ph.i
-  %7 = sub nsw i32 %6, %4
-  ret i32 %7
+_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit: ; preds = %3
+  %8 = sub nsw i32 %7, %5
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL20sort_dep_value_arg_3PN12Dependencies8DepValueES1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = getelementptr inbounds %"class.Dependencies::DepValue", ptr %0, i64 %indvars.iv.i
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds %"class.Dependencies::DepValue", ptr %1, i64 %indvars.iv.i
-  %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ne i32 %6, %4
+3:                                                ; preds = %3, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
+  %4 = getelementptr inbounds %"class.Dependencies::DepValue", ptr %0, i64 %indvars.iv.i
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds %"class.Dependencies::DepValue", ptr %1, i64 %indvars.iv.i
+  %7 = load i32, ptr %6, align 4
+  %.not.i = icmp ne i32 %7, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  %or.cond = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit, label %.lr.ph.i, !llvm.loop !17
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit, label %3, !llvm.loop !17
 
-_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit: ; preds = %.lr.ph.i
-  %7 = sub nsw i32 %6, %4
-  ret i32 %7
+_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit: ; preds = %3
+  %8 = sub nsw i32 %7, %5
+  ret i32 %8
 }
 
 ; Function Attrs: noreturn
@@ -2766,7 +2766,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL14sort_dep_arg_1PP12ciBaseObjectS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-.lr.ph.i:
+_ZL8sort_depPP12ciBaseObjectS1_i.exit:
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #19
   %4 = load ptr, ptr %1, align 8
@@ -2777,71 +2777,71 @@ define internal noundef i32 @_ZL14sort_dep_arg_1PP12ciBaseObjectS1_(ptr nocaptur
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL14sort_dep_arg_2PP12ciBaseObjectS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
-  %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #19
-  %6 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #19
-  %.not.i = icmp ne i32 %5, %8
+3:                                                ; preds = %3, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
+  %4 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #19
+  %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #19
+  %.not.i = icmp ne i32 %6, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  %or.cond = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZL8sort_depPP12ciBaseObjectS1_i.exit, label %.lr.ph.i, !llvm.loop !18
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZL8sort_depPP12ciBaseObjectS1_i.exit, label %3, !llvm.loop !18
 
-_ZL8sort_depPP12ciBaseObjectS1_i.exit:            ; preds = %.lr.ph.i
-  %9 = sub i32 %5, %8
-  ret i32 %9
+_ZL8sort_depPP12ciBaseObjectS1_i.exit:            ; preds = %3
+  %10 = sub i32 %6, %9
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL14sort_dep_arg_3PP12ciBaseObjectS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
-  %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #19
-  %6 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #19
-  %.not.i = icmp ne i32 %5, %8
+3:                                                ; preds = %3, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
+  %4 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #19
+  %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #19
+  %.not.i = icmp ne i32 %6, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  %or.cond = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZL8sort_depPP12ciBaseObjectS1_i.exit, label %.lr.ph.i, !llvm.loop !18
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZL8sort_depPP12ciBaseObjectS1_i.exit, label %3, !llvm.loop !18
 
-_ZL8sort_depPP12ciBaseObjectS1_i.exit:            ; preds = %.lr.ph.i
-  %9 = sub i32 %5, %8
-  ret i32 %9
+_ZL8sort_depPP12ciBaseObjectS1_i.exit:            ; preds = %3
+  %10 = sub i32 %6, %9
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL14sort_dep_arg_4PP12ciBaseObjectS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
-  %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #19
-  %6 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #19
-  %.not.i = icmp ne i32 %5, %8
+3:                                                ; preds = %3, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
+  %4 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #19
+  %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %8) #19
+  %.not.i = icmp ne i32 %6, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  %or.cond = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZL8sort_depPP12ciBaseObjectS1_i.exit, label %.lr.ph.i, !llvm.loop !18
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZL8sort_depPP12ciBaseObjectS1_i.exit, label %3, !llvm.loop !18
 
-_ZL8sort_depPP12ciBaseObjectS1_i.exit:            ; preds = %.lr.ph.i
-  %9 = sub i32 %5, %8
-  ret i32 %9
+_ZL8sort_depPP12ciBaseObjectS1_i.exit:            ; preds = %3
+  %10 = sub i32 %6, %9
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

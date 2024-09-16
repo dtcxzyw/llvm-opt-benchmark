@@ -966,7 +966,7 @@ if.then459:                                       ; preds = %if.then149, %if.end
   %57 = load ptr, ptr %value, align 8
   call void %56(ptr noundef %57) #12
   %58 = load ptr, ptr @Curl_cfree, align 8
-  call void %58(ptr noundef %call6) #12
+  call void %58(ptr noundef nonnull %call6) #12
   br label %return
 
 if.end460:                                        ; preds = %lor.lhs.false456
@@ -1289,7 +1289,7 @@ if.then625:                                       ; preds = %if.end485, %if.end6
   %95 = load ptr, ptr %value.i442, align 8
   call void %94(ptr noundef %95) #12
   %96 = load ptr, ptr @Curl_cfree, align 8
-  call void %96(ptr noundef %call6) #12
+  call void %96(ptr noundef nonnull %call6) #12
   br label %return
 
 if.end627:                                        ; preds = %if.end617, %if.end460
@@ -1306,7 +1306,7 @@ if.then631:                                       ; preds = %if.end627
   br i1 %tobool633, label %if.end636, label %if.then634
 
 if.then634:                                       ; preds = %if.then631
-  call fastcc void @freecookie(ptr noundef nonnull %call6)
+  call fastcc void @freecookie(ptr noundef %call6)
   br label %return
 
 if.end636:                                        ; preds = %if.then631, %if.end627
@@ -1344,7 +1344,7 @@ land.lhs.true653:                                 ; preds = %land.lhs.true648.ta
   br i1 %tobool655, label %if.else657, label %if.end659
 
 if.else657:                                       ; preds = %sub_0, %land.lhs.true653, %land.lhs.true648.tail, %land.lhs.true645, %if.then641
-  call fastcc void @freecookie(ptr noundef nonnull %call6)
+  call fastcc void @freecookie(ptr noundef %call6)
   br label %return
 
 if.end659:                                        ; preds = %land.lhs.true653, %if.end636
@@ -1366,7 +1366,7 @@ land.lhs.true665:                                 ; preds = %land.lhs.true662
   br i1 %tobool667.not, label %if.then668, label %if.end669
 
 if.then668:                                       ; preds = %land.lhs.true665
-  call fastcc void @freecookie(ptr noundef nonnull %call6)
+  call fastcc void @freecookie(ptr noundef %call6)
   br label %return
 
 if.end669:                                        ; preds = %land.lhs.true665, %land.lhs.true662, %if.end659
@@ -1428,7 +1428,7 @@ if.then698:                                       ; preds = %if.then695
 
 if.end715:                                        ; preds = %if.then695
   %call710 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %domain) #13
-  %call711 = call fastcc zeroext i1 @bad_domain(ptr noundef nonnull %domain, i64 noundef %call710)
+  %call711 = call fastcc zeroext i1 @bad_domain(ptr noundef %domain, i64 noundef %call710)
   br i1 %call711, label %land.lhs.true720, label %if.end735
 
 land.lhs.true720:                                 ; preds = %if.then698, %if.then686, %if.end715
@@ -1446,7 +1446,7 @@ if.then728:                                       ; preds = %land.lhs.true720
   br label %do.end733
 
 do.end733:                                        ; preds = %land.lhs.true720, %if.then728
-  call fastcc void @freecookie(ptr noundef nonnull %call6)
+  call fastcc void @freecookie(ptr noundef %call6)
   br label %return
 
 if.end735:                                        ; preds = %if.then698, %if.end715, %land.lhs.true683, %land.lhs.true680, %if.end676
@@ -1558,7 +1558,7 @@ if.then815:                                       ; preds = %land.lhs.true807
   br label %do.end820
 
 do.end820:                                        ; preds = %do.body805, %land.lhs.true807, %if.then815
-  call fastcc void @freecookie(ptr noundef nonnull %call6)
+  call fastcc void @freecookie(ptr noundef %call6)
   br label %return
 
 if.end823:                                        ; preds = %if.then752, %land.lhs.true749, %land.lhs.true780, %if.end767, %land.lhs.true770, %land.lhs.true773, %land.lhs.true776, %if.end799, %while.body741
@@ -1654,7 +1654,7 @@ land.lhs.true893:                                 ; preds = %land.lhs.true890
   br i1 %tobool895, label %if.then897, label %if.end902
 
 if.then897:                                       ; preds = %land.lhs.true893
-  call fastcc void @freecookie(ptr noundef nonnull %call6)
+  call fastcc void @freecookie(ptr noundef %call6)
   br label %return
 
 if.end902:                                        ; preds = %land.lhs.true868, %if.end887, %land.lhs.true893, %land.lhs.true890, %land.lhs.true825, %if.end823
@@ -1780,7 +1780,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freecookie(ptr noundef %co) unnamed_addr #0 {
+define internal fastcc void @freecookie(ptr noundef nonnull %co) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %domain = getelementptr inbounds i8, ptr %co, i64 40
@@ -1803,7 +1803,7 @@ entry:
   %9 = load ptr, ptr %value, align 8
   tail call void %8(ptr noundef %9) #12
   %10 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %10(ptr noundef %co) #12
+  tail call void %10(ptr noundef nonnull %co) #12
   ret void
 }
 
@@ -2045,18 +2045,18 @@ declare i32 @psl_is_cookie_domain_acceptable(ptr noundef, ptr noundef, ptr nound
 declare void @Curl_psl_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @bad_domain(ptr noundef %domain, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @bad_domain(ptr noundef nonnull %domain, i64 noundef %len) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 9
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call i32 @curl_strnequal(ptr noundef %domain, ptr noundef nonnull @.str.33, i64 noundef 9) #12
+  %call = tail call i32 @curl_strnequal(ptr noundef nonnull %domain, ptr noundef nonnull @.str.33, i64 noundef 9) #12
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %call1 = tail call ptr @memchr(ptr noundef %domain, i32 noundef 46, i64 noundef %len) #13
+  %call1 = tail call ptr @memchr(ptr noundef nonnull %domain, i32 noundef 46, i64 noundef %len) #13
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %if.end7, label %if.then3
 

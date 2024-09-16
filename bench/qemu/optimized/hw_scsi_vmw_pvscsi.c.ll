@@ -3782,7 +3782,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pvscsi_send_msg(ptr noundef %s, ptr nocapture noundef readonly %dev, i32 noundef %msg_type) unnamed_addr #0 {
+define internal fastcc void @pvscsi_send_msg(ptr noundef %s, ptr nocapture noundef readonly %dev, i32 noundef range(i32 0, 2) %msg_type) unnamed_addr #0 {
 entry:
   %val.addr.i.i.i = alloca i32, align 4
   %_now.i.i.i7 = alloca %struct.timeval, align 8

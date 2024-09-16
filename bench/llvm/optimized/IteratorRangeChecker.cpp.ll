@@ -1428,7 +1428,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit61: ; preds =
   br i1 %.not, label %101, label %80
 
 80:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit61
-  call fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nonnull @.str.8, i64 46, ptr %3, i8 %4, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull %77)
+  call fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nonnull @.str.8, i64 46, ptr %3, i8 %4, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef %77)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i65
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i65: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit54.thread, %80
@@ -1512,7 +1512,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit92: ; preds =
   br i1 %.not39, label %101, label %100
 
 100:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit92
-  call fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nonnull @.str.9, i64 54, ptr %3, i8 %4, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull %97)
+  call fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nonnull @.str.9, i64 54, ptr %3, i8 %4, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef %97)
   br label %101
 
 101:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread, %100, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit92, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit61
@@ -1540,7 +1540,7 @@ declare void @_ZN5clang4ento8iterator15advancePositionEN4llvm18IntrusiveRefCntPt
 declare noundef ptr @_ZN5clang4ento8iterator19getIteratorPositionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValE(ptr noundef, ptr, i8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr %1, i64 %2, ptr %3, i8 %4, ptr nocapture noundef nonnull align 8 dereferenceable(81) %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr %1, i64 %2, ptr %3, i8 %4, ptr nocapture noundef nonnull align 8 dereferenceable(81) %5, ptr noundef nonnull %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::unique_ptr.305", align 8
   %9 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -1553,7 +1553,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugE
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, i8 0, i64 28, i1 false), !noalias !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, i8 0, i64 17, i1 false), !noalias !20
-  tail call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1016) %12, ptr noundef nonnull align 8 dereferenceable(97) %11, ptr %1, i64 %2, ptr %1, i64 %2, ptr noundef %6, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %9, ptr noundef null) #14, !noalias !20
+  tail call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1016) %12, ptr noundef nonnull align 8 dereferenceable(97) %11, ptr %1, i64 %2, ptr %1, i64 %2, ptr noundef nonnull %6, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %9, ptr noundef null) #14, !noalias !20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !20
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -2539,7 +2539,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30: ; preds =
   br i1 %.not, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23.thread, label %59
 
 59:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30
-  call fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nonnull @.str.12, i64 35, ptr %2, i8 %3, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull %55)
+  call fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nonnull @.str.12, i64 35, ptr %2, i8 %3, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef %55)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23.thread
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30, %59

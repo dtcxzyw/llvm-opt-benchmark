@@ -747,7 +747,7 @@ H5HL__remove_free.exit:                           ; preds = %63, %64
   br i1 %154, label %155, label %181
 
 155:                                              ; preds = %143
-  tail call fastcc void @H5HL__remove_free(ptr noundef nonnull %1, ptr noundef nonnull %.0115.lcssa155)
+  tail call fastcc void @H5HL__remove_free(ptr noundef nonnull %1, ptr noundef %.0115.lcssa155)
   br label %181
 
 156:                                              ; preds = %137, %136
@@ -834,7 +834,7 @@ H5HL__remove_free.exit:                           ; preds = %63, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5HL__remove_free(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @H5HL__remove_free(ptr nocapture noundef writeonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

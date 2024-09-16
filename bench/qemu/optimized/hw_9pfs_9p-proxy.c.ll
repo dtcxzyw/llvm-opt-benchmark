@@ -1077,7 +1077,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @v9fs_request(ptr noundef %proxy, i32 noundef %type, ptr noundef %response, ...) unnamed_addr #0 {
+define internal i32 @v9fs_request(ptr noundef %proxy, i32 noundef range(i32 2, 22) %type, ptr noundef %response, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %retval1 = alloca i32, align 4
@@ -1098,7 +1098,7 @@ if.end:                                           ; preds = %entry
   %out_iovec = getelementptr inbounds i8, ptr %proxy, i64 72
   %in_iovec = getelementptr inbounds i8, ptr %proxy, i64 56
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  switch i32 %type, label %default.unreachable [
+  switch i32 %type, label %default.unreachable124 [
     i32 2, label %sw.bb
     i32 3, label %sw.bb21
     i32 4, label %sw.bb90
@@ -2398,7 +2398,7 @@ vaarg.end819:                                     ; preds = %vaarg.in_mem815, %v
   %call821 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %398) #19
   br label %sw.epilog
 
-default.unreachable:                              ; preds = %if.end854, %if.end
+default.unreachable124:                           ; preds = %if.end854, %if.end
   unreachable
 
 sw.epilog:                                        ; preds = %vaarg.end819, %vaarg.end798, %vaarg.end765, %vaarg.end696, %vaarg.end663, %vaarg.end618, %vaarg.end597, %vaarg.end554, %vaarg.end482, %vaarg.end449, %vaarg.end404, %vaarg.end371, %vaarg.end350, %vaarg.end317, %vaarg.end296, %vaarg.end263, %vaarg.end206, %vaarg.end149, %vaarg.end80, %vaarg.end13
@@ -2435,7 +2435,7 @@ if.end841:                                        ; preds = %if.end833
   br i1 %cmp851.not, label %if.end854, label %close_error
 
 if.end854:                                        ; preds = %if.end841
-  switch i32 %type, label %default.unreachable [
+  switch i32 %type, label %default.unreachable124 [
     i32 2, label %sw.bb855
     i32 3, label %sw.bb855
     i32 4, label %sw.bb862
@@ -2460,17 +2460,17 @@ if.end854:                                        ; preds = %if.end841
 
 sw.bb855:                                         ; preds = %if.end854, %if.end854
   %402 = load i32, ptr %proxy, align 8
-  %call857 = call fastcc i32 @v9fs_receivefd(i32 noundef %402, ptr noundef nonnull %retval1)
+  %call857 = call fastcc i32 @v9fs_receivefd(i32 noundef %402, ptr noundef %retval1)
   %cmp858 = icmp slt i32 %call857, 0
   br i1 %cmp858, label %close_error, label %err_out
 
 sw.bb862:                                         ; preds = %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854, %if.end854
-  %call863 = call fastcc i32 @v9fs_receive_status(ptr noundef nonnull %proxy, ptr noundef nonnull %in_iovec, ptr noundef nonnull %retval1)
+  %call863 = call fastcc i32 @v9fs_receive_status(ptr noundef nonnull %proxy, ptr noundef nonnull %in_iovec, ptr noundef %retval1)
   %cmp864 = icmp slt i32 %call863, 0
   br i1 %cmp864, label %close_error, label %err_out
 
 sw.bb868:                                         ; preds = %if.end854, %if.end854, %if.end854, %if.end854
-  %call869 = call fastcc i32 @v9fs_receive_response(ptr noundef nonnull %proxy, i32 noundef %type, ptr noundef nonnull %retval1, ptr noundef %response)
+  %call869 = call fastcc i32 @v9fs_receive_response(ptr noundef nonnull %proxy, i32 noundef %type, ptr noundef %retval1, ptr noundef %response)
   %cmp870 = icmp slt i32 %call869, 0
   br i1 %cmp870, label %close_error, label %err_out
 
@@ -2479,12 +2479,12 @@ sw.bb874:                                         ; preds = %if.end854, %if.end8
   br i1 %tobool.not, label %if.then875, label %if.else881
 
 if.then875:                                       ; preds = %sw.bb874
-  %call876 = call fastcc i32 @v9fs_receive_status(ptr noundef nonnull %proxy, ptr noundef nonnull %in_iovec, ptr noundef nonnull %retval1)
+  %call876 = call fastcc i32 @v9fs_receive_status(ptr noundef nonnull %proxy, ptr noundef nonnull %in_iovec, ptr noundef %retval1)
   %cmp877 = icmp slt i32 %call876, 0
   br i1 %cmp877, label %close_error, label %err_out
 
 if.else881:                                       ; preds = %sw.bb874
-  %call882 = call fastcc i32 @v9fs_receive_response(ptr noundef nonnull %proxy, i32 noundef %type, ptr noundef nonnull %retval1, ptr noundef %response)
+  %call882 = call fastcc i32 @v9fs_receive_response(ptr noundef nonnull %proxy, i32 noundef %type, ptr noundef %retval1, ptr noundef %response)
   %cmp883 = icmp slt i32 %call882, 0
   br i1 %cmp883, label %close_error, label %err_out
 
@@ -2516,7 +2516,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i64 @qemu_write_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receivefd(i32 noundef %sockfd, ptr nocapture noundef writeonly %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receivefd(i32 noundef %sockfd, ptr nocapture noundef nonnull writeonly %status) unnamed_addr #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
   %msg = alloca %struct.msghdr, align 8
@@ -2604,7 +2604,7 @@ return:                                           ; preds = %land.rhs, %return.s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_status(ptr nocapture noundef readonly %proxy, ptr noundef %reply, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_status(ptr nocapture noundef readonly %proxy, ptr noundef %reply, ptr noundef nonnull %status) unnamed_addr #0 {
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   store i32 0, ptr %status, align 4
@@ -2741,7 +2741,7 @@ return:                                           ; preds = %while.cond.i, %whil
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_response(ptr noundef %proxy, i32 noundef %type, ptr noundef %status, ptr noundef %response) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_response(ptr noundef %proxy, i32 noundef range(i32 2, 22) %type, ptr noundef nonnull %status, ptr noundef %response) unnamed_addr #0 {
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   %prstat = alloca %struct.ProxyStat, align 8
@@ -2982,7 +2982,7 @@ if.else62:                                        ; preds = %sw.bb
   unreachable
 
 if.end63:                                         ; preds = %sw.bb
-  call fastcc void @prstat_to_stat(ptr noundef %response, ptr noundef nonnull %prstat)
+  call fastcc void @prstat_to_stat(ptr noundef %response, ptr noundef %prstat)
   br label %return
 
 sw.bb64:                                          ; preds = %if.end56
@@ -3105,7 +3105,7 @@ declare i64 @v9fs_iov_unmarshal(ptr noundef, i32 noundef, i64 noundef, i32 nound
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @prstat_to_stat(ptr nocapture noundef writeonly %stbuf, ptr nocapture noundef readonly %prstat) unnamed_addr #14 {
+define internal fastcc void @prstat_to_stat(ptr nocapture noundef writeonly %stbuf, ptr nocapture noundef nonnull readonly %prstat) unnamed_addr #14 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stbuf, i8 0, i64 144, i1 false)
   %0 = load i64, ptr %prstat, align 8

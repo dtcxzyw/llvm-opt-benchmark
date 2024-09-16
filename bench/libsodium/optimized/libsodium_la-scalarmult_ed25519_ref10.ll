@@ -8,21 +8,21 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind ssp uwtable
 define range(i32 -1, 1) i32 @crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p, i32 noundef 1)
+  %call = tail call fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef %q, ptr noundef %n, ptr noundef %p, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc range(i32 -1, 1) i32 @_crypto_scalarmult_ed25519(ptr noundef %q, ptr noundef %n, ptr noundef %p, i32 noundef %clamp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p, i32 noundef range(i32 0, 2) %clamp) unnamed_addr #0 {
 entry:
   %Q = alloca %struct.ge25519_p3, align 8
   %P = alloca %struct.ge25519_p3, align 8
-  %call = tail call i32 @_sodium_ge25519_is_canonical(ptr noundef %p) #4
+  %call = tail call i32 @_sodium_ge25519_is_canonical(ptr noundef nonnull %p) #4
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %P, ptr noundef %p) #4
+  %call1 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %P, ptr noundef nonnull %p) #4
   %cmp2.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not, label %lor.lhs.false3, label %return
 
@@ -96,7 +96,7 @@ _crypto_scalarmult_ed25519_is_inf.exit:           ; preds = %for.body.i
   br i1 %cmp18.not, label %lor.lhs.false20, label %return
 
 lor.lhs.false20:                                  ; preds = %_crypto_scalarmult_ed25519_is_inf.exit
-  %call21 = call i32 @sodium_is_zero(ptr noundef %n, i64 noundef 32) #4
+  %call21 = call i32 @sodium_is_zero(ptr noundef nonnull %n, i64 noundef 32) #4
   %tobool.not = icmp ne i32 %call21, 0
   %spec.select = sext i1 %tobool.not to i32
   br label %return
@@ -109,7 +109,7 @@ return:                                           ; preds = %lor.lhs.false20, %_
 ; Function Attrs: nounwind ssp uwtable
 define range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_noclamp(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef nonnull %q, ptr noundef nonnull %n, ptr noundef nonnull %p, i32 noundef 0)
+  %call = tail call fastcc i32 @_crypto_scalarmult_ed25519(ptr noundef %q, ptr noundef %n, ptr noundef %p, i32 noundef 0)
   ret i32 %call
 }
 

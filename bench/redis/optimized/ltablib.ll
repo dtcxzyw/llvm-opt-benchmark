@@ -388,7 +388,7 @@ declare void @lua_rawseti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @auxsort(ptr noundef %L, i32 noundef %l, i32 noundef %u) unnamed_addr #0 {
+define internal fastcc void @auxsort(ptr noundef %L, i32 noundef range(i32 -2147483646, -2147483648) %l, i32 noundef %u) unnamed_addr #0 {
 entry:
   %cmp150 = icmp slt i32 %l, %u
   br i1 %cmp150, label %while.body, label %while.end54
@@ -615,7 +615,7 @@ while.end54:                                      ; preds = %if.then39, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sort_comp(ptr noundef %L, i32 noundef %a, i32 noundef %b) unnamed_addr #0 {
+define internal fastcc i32 @sort_comp(ptr noundef %L, i32 noundef range(i32 -3, 0) %a, i32 noundef range(i32 -2, 0) %b) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #3
   %cmp = icmp eq i32 %call, 0

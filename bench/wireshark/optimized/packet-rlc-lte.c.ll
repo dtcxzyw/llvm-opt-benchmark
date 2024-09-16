@@ -1079,7 +1079,7 @@ define internal range(i32 0, 2) i32 @dissect_rlc_lte_heur(ptr noundef %0, ptr no
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rlc_lte_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rlc_lte_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.channel_hash_key, align 4
   %6 = alloca %struct.channel_hash_key, align 4
   %7 = alloca [512 x i16], align 16
@@ -1478,7 +1478,7 @@ proto_item_set_generated.exit169:                 ; preds = %176, %173, %168, %p
   ]
 
 230:                                              ; preds = %203
-  tail call fastcc void @dissect_rlc_lte_tm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37, ptr noundef nonnull %40, ptr noundef %35)
+  tail call fastcc void @dissect_rlc_lte_tm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37, ptr noundef %40, ptr noundef %35)
   br label %1079
 
 231:                                              ; preds = %203
@@ -1569,7 +1569,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %237, %234, %231
   br i1 %.not160.i, label %279, label %277
 
 277:                                              ; preds = %269
-  %278 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %244, i32 noundef %.0151.i, ptr noundef nonnull %40)
+  %278 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %244, i32 noundef %.0151.i, ptr noundef %40)
   br label %279
 
 279:                                              ; preds = %277, %269
@@ -2260,7 +2260,7 @@ thread-pre-split.i.i:                             ; preds = %588
   br i1 %.not79.i.i.i, label %checkChannelRepeatedNACKInfo.exit.i.i, label %628
 
 628:                                              ; preds = %609
-  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %627, ptr noundef nonnull readonly %40, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %627, ptr noundef readonly %40, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelRepeatedNACKInfo.exit.i.i
 
 629:                                              ; preds = %603
@@ -2497,7 +2497,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %722, %628, %609
   br i1 %.not37.i.i.i, label %checkChannelACKWindow.exit.i.i, label %751
 
 751:                                              ; preds = %732
-  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %750, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %750, i32 noundef 1, ptr noundef %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelACKWindow.exit.i.i
 
 752:                                              ; preds = %checkChannelRepeatedNACKInfo.exit.i.i
@@ -2581,7 +2581,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %722, %628, %609
   %816 = or disjoint i32 %811, %815
   store i32 %816, ptr %.phi.trans.insert.i.i129.i.i, align 4
   %817 = call ptr @wmem_map_insert(ptr noundef %797, ptr noundef nonnull %801, ptr noundef %789) #13
-  call fastcc void @addChannelSequenceInfo(ptr noundef %789, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelSequenceInfo(ptr noundef %789, i32 noundef 1, ptr noundef %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelACKWindow.exit.i.i
 
 checkChannelACKWindow.exit.i.i:                   ; preds = %787, %772, %752, %751, %732
@@ -2751,7 +2751,7 @@ dissect_rlc_lte_am_status_pdu.exit.i:             ; preds = %checkChannelACKWind
   br label %902
 
 902:                                              ; preds = %894, %890, %875, %869
-  %903 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %459, i32 noundef %.1201.i, ptr noundef nonnull %40)
+  %903 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %459, i32 noundef %.1201.i, ptr noundef %40)
   br label %904
 
 904:                                              ; preds = %902, %867
@@ -3189,7 +3189,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rlc_lte_tm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_rlc_lte_tm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3395,7 +3395,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
 .lr.ph:
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3488,7 +3488,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef %8, i32 noundef %9, ptr nocapture noundef writeonly %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 2) %9, ptr nocapture noundef writeonly %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca %struct.channel_hash_key, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
@@ -3531,7 +3531,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   br i1 %.not283, label %45, label %44
 
 44:                                               ; preds = %19
-  tail call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %43, i32 noundef 0, ptr noundef nonnull %2, i16 noundef zeroext %7, i32 noundef %8, ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11, ptr noundef %1)
+  tail call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %43, i32 noundef 0, ptr noundef %2, i16 noundef zeroext %7, i32 noundef %8, ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11, ptr noundef %1)
   br label %.sink.split
 
 45:                                               ; preds = %19, %12
@@ -3680,8 +3680,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   store i32 %133, ptr %126, align 4
   %134 = getelementptr inbounds i8, ptr %.0262, i64 2
   store i16 %7, ptr %134, align 2
-  %.not297 = icmp eq i32 %9, 0
-  %135 = zext i1 %.not297 to i32
+  %135 = xor i32 %9, 1
   store i32 %135, ptr %129, align 8
   br label %409
 
@@ -3996,7 +3995,7 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
 
 327:                                              ; preds = %reassembly_add_segment.exit310
   %.val309 = load i32, ptr %293, align 4
-  call fastcc void @reassembly_record(ptr noundef nonnull %.0262, i32 %.val309, i16 noundef zeroext %7, ptr noundef nonnull %2)
+  call fastcc void @reassembly_record(ptr noundef nonnull %.0262, i32 %.val309, i16 noundef zeroext %7, ptr noundef %2)
   store ptr null, ptr %298, align 8
   br label %328
 
@@ -4092,8 +4091,7 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
   %383 = getelementptr inbounds i8, ptr %0, i64 20
   %384 = load i32, ptr %383, align 4
   store i32 %384, ptr %376, align 4
-  %.not289 = icmp eq i32 %9, 0
-  %385 = zext i1 %.not289 to i32
+  %385 = xor i32 %9, 1
   store i32 %385, ptr %379, align 8
   br label %409
 
@@ -4130,8 +4128,7 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
   %405 = load i32, ptr %404, align 4
   %406 = getelementptr inbounds i8, ptr %.0262, i64 4
   store i32 %405, ptr %406, align 4
-  %.not288 = icmp eq i32 %9, 0
-  %407 = zext i1 %.not288 to i32
+  %407 = xor i32 %9, 1
   %408 = getelementptr inbounds i8, ptr %.0262, i64 8
   store i32 %407, ptr %408, align 8
   br label %409
@@ -4166,7 +4163,7 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
   %432 = or disjoint i32 %427, %431
   store i32 %432, ptr %.phi.trans.insert.i, align 4
   %433 = call ptr @wmem_map_insert(ptr noundef %410, ptr noundef nonnull %414, ptr noundef nonnull %79) #13
-  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %79, i32 noundef 0, ptr noundef nonnull %2, i16 noundef zeroext %7, i32 noundef %8, ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11, ptr noundef %1)
+  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %79, i32 noundef 0, ptr noundef %2, i16 noundef zeroext %7, i32 noundef %8, ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11, ptr noundef %1)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %409
@@ -4183,7 +4180,7 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef readonly %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, i32 noundef range(i32 0, 2) %6, ptr noundef readonly %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
@@ -4302,7 +4299,7 @@ reassembly_get_reassembled_tvb.exit:              ; preds = %62, %._crit_edge.i
   %73 = call ptr @tvb_new_child_real_data(ptr noundef %2, ptr noundef %59, i32 noundef %.028.lcssa.i, i32 noundef %.028.lcssa.i) #13
   call void @add_new_data_source(ptr noundef %0, ptr noundef %73, ptr noundef nonnull @.str.352) #13
   store ptr %73, ptr @show_PDU_in_tree.pdcp_tvb, align 8
-  call fastcc void @reassembly_show_source(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  call fastcc void @reassembly_show_source(ptr noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   br label %74
 
 74:                                               ; preds = %reassembly_get_reassembled_tvb.exit, %46
@@ -4627,7 +4624,7 @@ reassembly_get_reassembled_tvb.exit170:           ; preds = %210, %._crit_edge.i
   %221 = call ptr @tvb_new_child_real_data(ptr noundef %2, ptr noundef %207, i32 noundef %.028.lcssa.i169, i32 noundef %.028.lcssa.i169) #13
   call void @add_new_data_source(ptr noundef %0, ptr noundef %221, ptr noundef nonnull @.str.352) #13
   store ptr %221, ptr @show_PDU_in_tree.rrc_tvb, align 8
-  call fastcc void @reassembly_show_source(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  call fastcc void @reassembly_show_source(ptr noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   br label %222
 
 222:                                              ; preds = %reassembly_get_reassembled_tvb.exit170, %194
@@ -4797,7 +4794,7 @@ reassembly_get_reassembled_tvb.exit192:           ; preds = %278, %._crit_edge.i
   %289 = call ptr @tvb_new_child_real_data(ptr noundef %2, ptr noundef %275, i32 noundef %.028.lcssa.i191, i32 noundef %.028.lcssa.i191) #13
   call void @add_new_data_source(ptr noundef %0, ptr noundef %289, ptr noundef nonnull @.str.352) #13
   store ptr %289, ptr @show_PDU_in_tree.ip_tvb, align 8
-  call fastcc void @reassembly_show_source(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  call fastcc void @reassembly_show_source(ptr noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   br label %290
 
 290:                                              ; preds = %reassembly_get_reassembled_tvb.exit192, %262
@@ -4902,7 +4899,7 @@ declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addChannelSequenceInfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @addChannelSequenceInfo(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull readonly %2, i16 noundef zeroext %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = load i32, ptr @hf_rlc_lte_sequence_analysis, align 4
   %11 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %7, i32 noundef %10, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.118) #13
   %12 = load i32, ptr @ett_rlc_lte_sequence_analysis, align 4
@@ -5860,7 +5857,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @is_mac_lte_frame_retx(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reassembly_add_segment(ptr nocapture noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @reassembly_add_segment(ptr nocapture noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i16, ptr %8, align 8
@@ -5904,7 +5901,7 @@ define internal fastcc void @reassembly_add_segment(ptr nocapture noundef %0, i1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reassembly_record(ptr nocapture noundef readonly %0, i32 %.20.val, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @reassembly_record(ptr nocapture noundef readonly %0, i32 %.20.val, i16 noundef zeroext %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr @reassembly_report_hash, align 8
   %5 = tail call ptr @wmem_file_scope() #13
   %6 = tail call noalias ptr @wmem_alloc0(ptr noundef %5, i64 noundef 8) #13
@@ -5952,7 +5949,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reassembly_show_source(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @reassembly_show_source(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_rlc_lte_reassembly_source, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   %7 = load i32, ptr @ett_rlc_lte_reassembly_source, align 4
@@ -6181,7 +6178,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addChannelRepeatedNACKInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @addChannelRepeatedNACKInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_rlc_lte_sequence_analysis, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %3, i32 noundef %6, ptr noundef %4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.118) #13
   %8 = load i32, ptr @ett_rlc_lte_sequence_analysis, align 4

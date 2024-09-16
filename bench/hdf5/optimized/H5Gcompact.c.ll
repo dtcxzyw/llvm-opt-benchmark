@@ -78,7 +78,7 @@ define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %10, align 8
-  %11 = call fastcc i32 @H5G__compact_build_table(ptr noundef %0, i64 %.val, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9)
+  %11 = call fastcc i32 @H5G__compact_build_table(ptr noundef %0, i64 %.val, i32 noundef %2, i32 noundef %3, ptr noundef %9)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -151,7 +151,7 @@ define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr no
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr noundef %0, i64 %.24.val, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr noundef %0, i64 %.24.val, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.H5G_iter_bt_t, align 8
   %6 = alloca %struct.H5O_mesg_operator_t, align 8
   store i64 %.24.val, ptr %3, align 8
@@ -280,7 +280,7 @@ define range(i32 -1, 1) i32 @H5G__compact_remove_by_idx(ptr noundef %0, ptr noca
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %9 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %9, align 8
-  %10 = call fastcc i32 @H5G__compact_build_table(ptr noundef %0, i64 %.val, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7)
+  %10 = call fastcc i32 @H5G__compact_build_table(ptr noundef %0, i64 %.val, i32 noundef %3, i32 noundef %4, ptr noundef %7)
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -351,7 +351,7 @@ define i32 @H5G__compact_iterate(ptr noundef %0, ptr nocapture noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %10, align 8
-  %11 = call fastcc i32 @H5G__compact_build_table(ptr noundef %0, i64 %.val, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9)
+  %11 = call fastcc i32 @H5G__compact_build_table(ptr noundef %0, i64 %.val, i32 noundef %2, i32 noundef %3, ptr noundef %9)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -469,7 +469,7 @@ define range(i32 -1, 1) i32 @H5G__compact_lookup_by_idx(ptr noundef %0, ptr noca
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %8, align 8
-  %9 = call fastcc i32 @H5G__compact_build_table(ptr noundef %0, i64 %.val, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %7)
+  %9 = call fastcc i32 @H5G__compact_build_table(ptr noundef %0, i64 %.val, i32 noundef %2, i32 noundef %3, ptr noundef %7)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %15
 

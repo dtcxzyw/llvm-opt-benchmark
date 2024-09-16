@@ -2614,7 +2614,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare ptr @_ZNK2v813ModuleRequest19GetImportAssertionsEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6loaderL31createImportAttributesContainerEPNS_5RealmEPN2v87IsolateENS3_5LocalINS3_10FixedArrayEEEi(ptr noundef %realm, ptr noundef %isolate, ptr nonnull %raw_attributes.coerce, i32 noundef %elements_per_attribute) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6loaderL31createImportAttributesContainerEPNS_5RealmEPN2v87IsolateENS3_5LocalINS3_10FixedArrayEEEi(ptr noundef %realm, ptr noundef %isolate, ptr nonnull %raw_attributes.coerce, i32 noundef range(i32 2, 4) %elements_per_attribute) unnamed_addr #3 {
 entry:
   %call3 = tail call noundef i32 @_ZNK2v810FixedArray6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %raw_attributes.coerce) #19
   %rem = srem i32 %call3, %elements_per_attribute
@@ -2650,7 +2650,7 @@ for.body:                                         ; preds = %do.end7, %for.inc
   %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 64
   %4 = load ptr, ptr %vfn62, align 8
   %call63 = tail call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %realm) #19
-  %add = add nsw i32 %i.015, 1
+  %add = add nuw nsw i32 %i.015, 1
   %call70 = tail call ptr @_ZNK2v810FixedArray3GetENS_5LocalINS_7ContextEEEi(ptr noundef nonnull align 1 dereferenceable(1) %raw_attributes.coerce, ptr %call63, i32 noundef %add) #19
   %call87 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call19, ptr %call28, ptr %call46, ptr %call70) #19
   %tobool.i.i = trunc i16 %call87 to i1
@@ -2661,7 +2661,7 @@ if.then.i:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then.i
-  %add89 = add nsw i32 %i.015, %elements_per_attribute
+  %add89 = add nuw nsw i32 %i.015, %elements_per_attribute
   %call24 = tail call noundef i32 @_ZNK2v810FixedArray6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %raw_attributes.coerce) #19
   %cmp25 = icmp slt i32 %add89, %call24
   br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !17

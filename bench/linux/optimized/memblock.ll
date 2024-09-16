@@ -839,7 +839,7 @@ define dso_local noundef range(i32 -12, 1) i32 @memblock_mark_hotplug(i64 nounde
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -12, 1) i32 @memblock_setclr_flag(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @memblock_setclr_flag(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 1, 17) %4) unnamed_addr #4 section ".meminit.text" align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
@@ -1857,7 +1857,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_isolate_range(ptr
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @memblock_merge_regions(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc void @memblock_merge_regions(ptr nocapture noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #4 section ".meminit.text" align 16 {
   %4 = icmp eq i64 %1, 0
   %5 = trunc nsw i64 %1 to i32
   %6 = add i32 %5, -1
@@ -2035,7 +2035,7 @@ define dso_local range(i64 4096, 1) i64 @memblock_alloc_range_nid(i64 noundef %0
 declare dso_local void @dump_stack() local_unnamed_addr #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i64 4096, 1) i64 @memblock_find_in_range_node(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc range(i64 4096, 1) i64 @memblock_find_in_range_node(i64 noundef %0, i64 noundef range(i64 1, 0) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #4 section ".meminit.text" align 16 {
   %7 = icmp ult i64 %3, 2
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @memblock, i64 8), align 8
   %9 = select i1 %7, i64 %8, i64 %3
@@ -3014,7 +3014,7 @@ define internal fastcc void @memblock_insert_region(ptr nocapture noundef %0, i3
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @memblock_double_array(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @memblock_double_array(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #4 section ".meminit.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -3062,119 +3062,117 @@ define internal fastcc noundef range(i32 -1, 1) i32 @memblock_double_array(ptr n
 35:                                               ; preds = %26, %23
   %36 = phi i64 [ %34, %26 ], [ 0, %23 ]
   store i64 %36, ptr %4, align 8
-  br label %58
+  br label %56
 
 37:                                               ; preds = %12
   %38 = icmp eq ptr %0, getelementptr inbounds (i8, ptr @memblock, i64 56)
-  %39 = select i1 %38, i64 %2, i64 0
-  %40 = select i1 %38, i64 %1, i64 0
-  %41 = add i64 %39, %40
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @memblock, i64 8), align 8
-  %43 = tail call fastcc i64 @memblock_find_in_range(i64 noundef %41, i64 noundef %42, i64 noundef %20) #22
-  store i64 %43, ptr %4, align 8
-  %44 = icmp eq i64 %43, 0
-  %45 = icmp ne i64 %39, 0
-  %46 = and i1 %45, %44
-  br i1 %46, label %47, label %51
+  %39 = add i64 %2, %1
+  %40 = select i1 %38, i64 %39, i64 0
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @memblock, i64 8), align 8
+  %42 = tail call fastcc i64 @memblock_find_in_range(i64 noundef %40, i64 noundef %41, i64 noundef %20) #22
+  store i64 %42, ptr %4, align 8
+  %43 = icmp eq i64 %42, 0
+  %44 = and i1 %38, %43
+  br i1 %44, label %45, label %49
 
-47:                                               ; preds = %37
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @memblock, i64 8), align 8
-  %49 = tail call i64 @llvm.umin.i64(i64 %40, i64 %48)
-  %50 = tail call fastcc i64 @memblock_find_in_range(i64 noundef 0, i64 noundef %49, i64 noundef %20) #22
-  store i64 %50, ptr %4, align 8
-  br label %51
+45:                                               ; preds = %37
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @memblock, i64 8), align 8
+  %47 = tail call i64 @llvm.umin.i64(i64 %1, i64 %46)
+  %48 = tail call fastcc i64 @memblock_find_in_range(i64 noundef 0, i64 noundef %47, i64 noundef %20) #22
+  store i64 %48, ptr %4, align 8
+  br label %49
 
-51:                                               ; preds = %47, %37
-  %52 = phi i64 [ %50, %47 ], [ %43, %37 ]
-  %53 = icmp eq i64 %52, 0
-  %54 = load i64, ptr @page_offset_base, align 8
-  %55 = add i64 %54, %52
-  %56 = inttoptr i64 %55 to ptr
-  %57 = select i1 %53, ptr null, ptr %56
-  br label %58
+49:                                               ; preds = %45, %37
+  %50 = phi i64 [ %48, %45 ], [ %42, %37 ]
+  %51 = icmp eq i64 %50, 0
+  %52 = load i64, ptr @page_offset_base, align 8
+  %53 = add i64 %52, %50
+  %54 = inttoptr i64 %53 to ptr
+  %55 = select i1 %51, ptr null, ptr %54
+  br label %56
 
-58:                                               ; preds = %51, %35
-  %59 = phi i64 [ %52, %51 ], [ %36, %35 ]
-  %60 = phi ptr [ %57, %51 ], [ %24, %35 ]
-  %61 = icmp eq i64 %59, 0
-  br i1 %61, label %62, label %68
+56:                                               ; preds = %49, %35
+  %57 = phi i64 [ %50, %49 ], [ %36, %35 ]
+  %58 = phi ptr [ %55, %49 ], [ %24, %35 ]
+  %59 = icmp eq i64 %57, 0
+  br i1 %59, label %60, label %66
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i64, ptr %13, align 8
-  %66 = shl i64 %65, 1
-  %67 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %64, i64 noundef %65, i64 noundef %66) #21
-  br label %101
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i64, ptr %13, align 8
+  %64 = shl i64 %63, 1
+  %65 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %62, i64 noundef %63, i64 noundef %64) #21
+  br label %99
 
-68:                                               ; preds = %58
-  %69 = add i64 %16, -1
-  %70 = add i64 %69, %59
-  store i64 %70, ptr %5, align 8
-  %71 = load i1, ptr @memblock_debug, align 4
-  br i1 %71, label %72, label %78
+66:                                               ; preds = %56
+  %67 = add i64 %16, -1
+  %68 = add i64 %67, %57
+  store i64 %68, ptr %5, align 8
+  %69 = load i1, ptr @memblock_debug, align 4
+  br i1 %69, label %70, label %76
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = load i64, ptr %13, align 8
-  %76 = shl i64 %75, 1
-  %77 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %74, i64 noundef %76, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
-  br label %78
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i64, ptr %13, align 8
+  %74 = shl i64 %73, 1
+  %75 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %72, i64 noundef %74, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
+  br label %76
 
-78:                                               ; preds = %72, %68
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
-  %80 = load ptr, ptr %79, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr align 8 %80, i64 %15, i1 false)
-  %81 = load i64, ptr %13, align 8
-  %82 = getelementptr %struct.memblock_region, ptr %60, i64 %81
-  call void @llvm.memset.p0.i64(ptr align 8 %82, i8 0, i64 %15, i1 false)
-  %83 = load ptr, ptr %79, align 8
-  store ptr %60, ptr %79, align 8
-  %84 = load i64, ptr %13, align 8
-  %85 = shl i64 %84, 1
-  store i64 %85, ptr %13, align 8
-  %86 = load i32, ptr %22, align 4
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %89, label %88
+76:                                               ; preds = %70, %66
+  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = load ptr, ptr %77, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %58, ptr align 8 %78, i64 %15, i1 false)
+  %79 = load i64, ptr %13, align 8
+  %80 = getelementptr %struct.memblock_region, ptr %58, i64 %79
+  call void @llvm.memset.p0.i64(ptr align 8 %80, i8 0, i64 %15, i1 false)
+  %81 = load ptr, ptr %77, align 8
+  store ptr %58, ptr %77, align 8
+  %82 = load i64, ptr %13, align 8
+  %83 = shl i64 %82, 1
+  store i64 %83, ptr %13, align 8
+  %84 = load i32, ptr %22, align 4
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %87, label %86
 
-88:                                               ; preds = %78
-  call void @kfree(ptr noundef %83) #20
-  br label %94
+86:                                               ; preds = %76
+  call void @kfree(ptr noundef %81) #20
+  br label %92
 
-89:                                               ; preds = %78
-  %90 = icmp ne ptr %83, @memblock_memory_init_regions
-  %91 = icmp ne ptr %83, @memblock_reserved_init_regions
-  %92 = and i1 %90, %91
-  br i1 %92, label %93, label %94
+87:                                               ; preds = %76
+  %88 = icmp ne ptr %81, @memblock_memory_init_regions
+  %89 = icmp ne ptr %81, @memblock_reserved_init_regions
+  %90 = and i1 %88, %89
+  br i1 %90, label %91, label %92
 
-93:                                               ; preds = %89
-  call void @memblock_free(ptr noundef %83, i64 noundef %18)
-  br label %94
+91:                                               ; preds = %87
+  call void @memblock_free(ptr noundef %81, i64 noundef %18)
+  br label %92
 
-94:                                               ; preds = %93, %89, %88
-  br i1 %6, label %100, label %95
+92:                                               ; preds = %91, %87, %86
+  br i1 %6, label %98, label %93
 
-95:                                               ; preds = %94
-  %96 = load i64, ptr %4, align 8
-  %97 = call i32 @memblock_reserve(i64 noundef %96, i64 noundef %20), !range !10
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %100, label %99, !prof !11
+93:                                               ; preds = %92
+  %94 = load i64, ptr %4, align 8
+  %95 = call i32 @memblock_reserve(i64 noundef %94, i64 noundef %20), !range !10
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %98, label %97, !prof !11
 
-99:                                               ; preds = %95
+97:                                               ; preds = %93
   call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #20, !srcloc !74
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 498, i32 0, i64 12) #20, !srcloc !75
   unreachable
 
-100:                                              ; preds = %95, %94
+98:                                               ; preds = %93, %92
   store i32 %7, ptr %22, align 4
-  br label %101
+  br label %99
 
-101:                                              ; preds = %100, %62
-  %102 = phi i32 [ 0, %100 ], [ -1, %62 ]
+99:                                               ; preds = %98, %60
+  %100 = phi i32 [ 0, %98 ], [ -1, %60 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  ret i32 %102
+  ret i32 %100
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3187,7 +3185,7 @@ declare dso_local zeroext i1 @slab_is_available() local_unnamed_addr #5
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #15
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i64 4096, 1) i64 @memblock_find_in_range(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc range(i64 4096, 1) i64 @memblock_find_in_range(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 0, -4095) %2) unnamed_addr #4 section ".meminit.text" align 16 {
   %4 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
   %5 = load i1, ptr @system_has_some_mirror, align 1
@@ -3224,7 +3222,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i64 4096, 1) i64 @__memblock_find_range_bottom_up(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc range(i64 4096, 1) i64 @__memblock_find_range_bottom_up(i64 noundef range(i64 4096, 0) %0, i64 noundef range(i64 4096, 0) %1, i64 noundef %2, i64 noundef range(i64 1, 0) %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #4 section ".meminit.text" align 16 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -3278,7 +3276,7 @@ define internal fastcc range(i64 4096, 1) i64 @__memblock_find_range_bottom_up(i
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i64 4096, 1) i64 @__memblock_find_range_top_down(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc range(i64 4096, 1) i64 @__memblock_find_range_top_down(i64 noundef range(i64 4096, 0) %0, i64 noundef range(i64 4096, 0) %1, i64 noundef %2, i64 noundef range(i64 1, 0) %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #4 section ".meminit.text" align 16 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -3503,7 +3501,7 @@ declare dso_local void @reserve_bootmem_region(i64 noundef, i64 noundef, i32 nou
 declare dso_local i32 @early_pfn_to_nid(i64 noundef) local_unnamed_addr #6 section ".meminit.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @__free_pages_memory(i64 noundef %0, i64 noundef %1) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc void @__free_pages_memory(i64 noundef range(i64 0, 4503599627370495) %0, i64 noundef range(i64 1, 4503599627370496) %1) unnamed_addr #4 section ".init.text" align 16 {
   %3 = icmp ult i64 %0, %1
   br i1 %3, label %.preheader, label %.loopexit
 

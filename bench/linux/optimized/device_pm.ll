@@ -446,7 +446,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 1) i32 @acpi_dev_pm_explicit_set(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_dev_pm_explicit_set(ptr nocapture noundef nonnull readonly %0) unnamed_addr #1 align 16 {
   %2 = alloca [5 x i8], align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load i8, ptr %3, align 8
@@ -1197,7 +1197,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
 declare dso_local i32 @dev_pm_qos_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
   %6 = alloca [5 x i8], align 1
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #6
@@ -1423,7 +1423,7 @@ define dso_local i32 @acpi_pm_set_device_wakeup(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__acpi_device_wakeup_enable(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @__acpi_device_wakeup_enable(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   tail call void @mutex_lock(ptr noundef nonnull @acpi_wakeup_lock) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 492
@@ -1432,11 +1432,11 @@ define internal fastcc i32 @__acpi_device_wakeup_enable(ptr noundef %0, i32 noun
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @acpi_disable_wakeup_device_power(ptr noundef %0) #6
+  %8 = tail call i32 @acpi_disable_wakeup_device_power(ptr noundef nonnull %0) #6
   br label %9
 
 9:                                                ; preds = %7, %2
-  %10 = tail call i32 @acpi_enable_wakeup_device_power(ptr noundef %0, i32 noundef %1) #6
+  %10 = tail call i32 @acpi_enable_wakeup_device_power(ptr noundef nonnull %0, i32 noundef %1) #6
   %11 = icmp eq i32 %10, 0
   %12 = load i32, ptr %4, align 4
   %13 = icmp sgt i32 %12, 0
@@ -1467,7 +1467,7 @@ define internal fastcc i32 @__acpi_device_wakeup_enable(ptr noundef %0, i32 noun
   br i1 %28, label %thread-pre-split, label %29
 
 29:                                               ; preds = %22
-  %30 = tail call i32 @acpi_disable_wakeup_device_power(ptr noundef %0) #6
+  %30 = tail call i32 @acpi_disable_wakeup_device_power(ptr noundef nonnull %0) #6
   br label %39
 
 thread-pre-split:                                 ; preds = %22

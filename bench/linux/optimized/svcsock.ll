@@ -2318,7 +2318,7 @@ define internal void @svc_tcp_handshake(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @svc_create_socket(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @svc_create_socket(ptr noundef %0, i32 noundef range(i32 6, 18) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.__kernel_sockaddr_storage, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16

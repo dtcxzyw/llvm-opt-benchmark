@@ -214,7 +214,7 @@ aud_to_ossfmt.exit:                               ; preds = %entry, %sw.bb1.i, %
   %3 = load i32, ptr %nchannels, align 4
   %nchannels5 = getelementptr inbounds i8, ptr %req, i64 8
   store i32 %3, ptr %nchannels5, align 4
-  %call6 = call fastcc i32 @oss_open(i32 noundef 0, ptr noundef nonnull %req, ptr noundef nonnull %as, ptr noundef nonnull %obt, ptr noundef nonnull %fd, ptr noundef %drv_opaque)
+  %call6 = call fastcc i32 @oss_open(i32 noundef 0, ptr noundef %req, ptr noundef nonnull %as, ptr noundef %obt, ptr noundef %fd, ptr noundef %drv_opaque)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -833,7 +833,7 @@ aud_to_ossfmt.exit:                               ; preds = %entry, %sw.bb1.i, %
   %3 = load i32, ptr %nchannels, align 4
   %nchannels5 = getelementptr inbounds i8, ptr %req, i64 8
   store i32 %3, ptr %nchannels5, align 4
-  %call6 = call fastcc i32 @oss_open(i32 noundef 1, ptr noundef nonnull %req, ptr noundef nonnull %as, ptr noundef nonnull %obt, ptr noundef nonnull %fd, ptr noundef %drv_opaque)
+  %call6 = call fastcc i32 @oss_open(i32 noundef 1, ptr noundef %req, ptr noundef nonnull %as, ptr noundef %obt, ptr noundef %fd, ptr noundef %drv_opaque)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -1043,7 +1043,7 @@ if.end10:                                         ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @oss_open(i32 noundef %in, ptr nocapture noundef %req, ptr noundef %as, ptr nocapture noundef writeonly %obt, ptr nocapture noundef writeonly %pfd, ptr nocapture noundef readonly %dev) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @oss_open(i32 noundef range(i32 0, 2) %in, ptr nocapture noundef nonnull %req, ptr noundef %as, ptr nocapture noundef nonnull writeonly %obt, ptr nocapture noundef nonnull writeonly %pfd, ptr nocapture noundef readonly %dev) unnamed_addr #0 {
 entry:
   %abinfo = alloca %struct.audio_buf_info, align 4
   %fmt = alloca i32, align 4
@@ -1085,7 +1085,7 @@ land.lhs.true:                                    ; preds = %land.end
   br i1 %tobool14, label %cond.end19, label %cond.false16
 
 cond.false16:                                     ; preds = %land.lhs.true, %land.end
-  %cond18 = zext i1 %tobool.not to i32
+  %cond18 = xor i32 %in, 1
   br label %cond.end19
 
 cond.end19:                                       ; preds = %land.lhs.true, %cond.false16

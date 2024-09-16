@@ -64,7 +64,7 @@ define dso_local void @rdmacg_uncharge(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
   %5 = icmp eq ptr %0, %2
   br i1 %5, label %.loopexit, label %6

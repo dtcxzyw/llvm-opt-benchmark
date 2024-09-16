@@ -5789,7 +5789,7 @@ _ZNSt8functionIFN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL8from_envERKSt8functionIFNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_11ZStringViewEEES9_RS8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #3 {
+define internal fastcc void @_ZN5vcpkgL8from_envERKSt8functionIFNS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_11ZStringViewEEES9_RS8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 range(i64 10, 27) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #3 {
   %5 = alloca %"struct.vcpkg::ZStringView", align 8
   %6 = alloca %"struct.vcpkg::Optional", align 8
   %7 = load i8, ptr %3, align 8

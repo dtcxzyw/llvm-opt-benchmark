@@ -1613,7 +1613,7 @@ return:                                           ; preds = %if.end18, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL13create_socketP19grpc_socket_factoryiii(ptr noundef %factory, i32 noundef %domain, i32 noundef %type, i32 noundef %protocol) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL13create_socketP19grpc_socket_factoryiii(ptr noundef %factory, i32 noundef range(i32 0, 65536) %domain, i32 noundef %type, i32 noundef %protocol) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   %cmp.not = icmp eq ptr %factory, null

@@ -420,7 +420,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %117,
 
 126:                                              ; preds = %.noexc27
   store ptr null, ptr %13, align 8
-  %127 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry20_FindFunctionForTypeERKNS_6TfTypeEPPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE(ptr noundef nonnull align 8 dereferenceable(73) %80, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull %13)
+  %127 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry20_FindFunctionForTypeERKNS_6TfTypeEPPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE(ptr noundef nonnull align 8 dereferenceable(73) %80, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef %13)
           to label %.noexc30 unwind label %362
 
 .noexc30:                                         ; preds = %126
@@ -657,7 +657,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry39_GetTyp
 
 200:                                              ; preds = %288, %.lr.ph.i
   %.sroa.032.045.i = phi ptr [ %.pre.i, %.lr.ph.i ], [ %289, %288 ]
-  %201 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry20_FindFunctionForTypeERKNS_6TfTypeEPPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE(ptr noundef nonnull align 8 dereferenceable(73) %80, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.032.045.i, ptr noundef nonnull %13)
+  %201 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry20_FindFunctionForTypeERKNS_6TfTypeEPPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE(ptr noundef nonnull align 8 dereferenceable(73) %80, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.032.045.i, ptr noundef %13)
           to label %202 unwind label %.loopexit.i
 
 202:                                              ; preds = %200
@@ -907,7 +907,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit.i.i: 
   br i1 %.0.i.i, label %285, label %288
 
 285:                                              ; preds = %284
-  %286 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry20_FindFunctionForTypeERKNS_6TfTypeEPPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE(ptr noundef nonnull align 8 dereferenceable(73) %80, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.032.045.i, ptr noundef nonnull %13)
+  %286 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry20_FindFunctionForTypeERKNS_6TfTypeEPPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE(ptr noundef nonnull align 8 dereferenceable(73) %80, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.032.045.i, ptr noundef %13)
           to label %287 unwind label %.loopexit.i
 
 287:                                              ; preds = %285
@@ -2220,7 +2220,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr nounde
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry20_FindFunctionForTypeERKNS_6TfTypeEPPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry20_FindFunctionForTypeERKNS_6TfTypeEPPFbRKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.tbb::detail::d1::queuing_rw_mutex::scoped_lock", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8

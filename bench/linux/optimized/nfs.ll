@@ -436,7 +436,7 @@ define internal ptr @fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef range(i64 0, 281474976710656) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 220

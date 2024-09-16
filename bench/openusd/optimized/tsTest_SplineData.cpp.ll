@@ -1247,7 +1247,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetExtrapDescB5cxx11ERKNS_17TsTest_SplineData13ExtrapolationE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(20) %23)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetExtrapDescB5cxx11ERKNS_17TsTest_SplineData13ExtrapolationE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(20) %23)
           to label %24 unwind label %.loopexit.split-lp
 
 24:                                               ; preds = %22
@@ -1264,7 +1264,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetExtrapDescB5cxx11ERKNS_17TsTest_SplineData13ExtrapolationE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(20) %31)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetExtrapDescB5cxx11ERKNS_17TsTest_SplineData13ExtrapolationE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(20) %31)
           to label %32 unwind label %83
 
 32:                                               ; preds = %30
@@ -1562,7 +1562,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetExtrapDescB5cxx11ERKNS_17TsTest_SplineData13ExtrapolationE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetExtrapDescB5cxx11ERKNS_17TsTest_SplineData13ExtrapolationE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1661,7 +1661,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L14_GetExtrapD
   br label %43
 
 41:                                               ; preds = %12, %35, %16
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %42 unwind label %20
 
 42:                                               ; preds = %41

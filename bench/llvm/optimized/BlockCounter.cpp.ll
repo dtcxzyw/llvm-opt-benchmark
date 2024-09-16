@@ -347,12 +347,12 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE3add
 74:                                               ; preds = %141, %.preheader.i.i10
   %.02543.i.i = phi ptr [ %68, %.preheader.i.i10 ], [ %143, %141 ]
   %.142.i.i = phi ptr [ undef, %.preheader.i.i10 ], [ %.2.i.i, %141 ]
-  call fastcc void @_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE5beginEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(80) %.02543.i.i), !noalias !15
+  call fastcc void @_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE5beginEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(80) %.02543.i.i), !noalias !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, i8 0, i64 176, i1 false), !alias.scope !19, !noalias !15
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %69, i64 noundef 20) #15, !noalias !15
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5), !noalias !15
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6), !noalias !15
-  call fastcc void @_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE5beginEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(80) %35), !noalias !15
+  call fastcc void @_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE5beginEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(80) %35), !noalias !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %6, i8 0, i64 176, i1 false), !alias.scope !22, !noalias !15
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %70, i64 noundef 20) #15, !noalias !15
   br label %75
@@ -1975,7 +1975,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE15i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, -2147483648
-  %52 = or disjoint i32 %45, %51
+  %52 = or disjoint i32 %51, %45
   %53 = or i32 %52, 268435456
   store i32 %53, ptr %49, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 48

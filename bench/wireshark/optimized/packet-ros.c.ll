@@ -928,7 +928,7 @@ define internal i32 @dissect_ros_T_argument(i1 zeroext %0, ptr noundef %1, i32 n
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.ros_call_response, align 8
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0) #5

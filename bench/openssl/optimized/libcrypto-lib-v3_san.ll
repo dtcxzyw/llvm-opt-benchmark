@@ -140,7 +140,7 @@ land.lhs.true10:                                  ; preds = %land.lhs.true
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %land.lhs.true10
-  %call15 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call3, i32 noundef 0)
+  %call15 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef %call3, i32 noundef 0)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %err, label %for.inc
 
@@ -162,7 +162,7 @@ land.lhs.true25:                                  ; preds = %land.lhs.true22
   br i1 %cmp28, label %if.then29, label %if.else34
 
 if.then29:                                        ; preds = %land.lhs.true25
-  %call30 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call3, i32 noundef 1)
+  %call30 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef %call3, i32 noundef 1)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %for.inc
 
@@ -1212,7 +1212,7 @@ declare ptr @X509V3_EXT_d2i(ptr noundef) local_unnamed_addr #0
 declare i32 @OPENSSL_sk_reserve(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly %ctx, ptr noundef %gens, i32 noundef %move_p) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly %ctx, ptr noundef nonnull %gens, i32 noundef range(i32 0, 2) %move_p) unnamed_addr #1 {
 entry:
   %cond19 = icmp eq ptr %ctx, null
   br i1 %cond19, label %if.then6, label %land.lhs.true
@@ -1276,7 +1276,7 @@ if.end26.us:                                      ; preds = %lor.lhs.false22.us
   %d.us = getelementptr inbounds i8, ptr %call23.us, i64 8
   store ptr %call17.us, ptr %d.us, align 8
   store i32 1, ptr %call23.us, align 8
-  %call29.us = tail call i32 @OPENSSL_sk_push(ptr noundef %gens, ptr noundef nonnull %call23.us) #3
+  %call29.us = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %gens, ptr noundef nonnull %call23.us) #3
   %tobool30.not.us = icmp eq i32 %call29.us, 0
   br i1 %tobool30.not.us, label %err, label %while.cond.us, !llvm.loop !10
 
@@ -1305,7 +1305,7 @@ if.end26:                                         ; preds = %lor.lhs.false22
   %d = getelementptr inbounds i8, ptr %call23, i64 8
   store ptr %call17, ptr %d, align 8
   store i32 1, ptr %call23, align 8
-  %call29 = tail call i32 @OPENSSL_sk_push(ptr noundef %gens, ptr noundef nonnull %call23) #3
+  %call29 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %gens, ptr noundef nonnull %call23) #3
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %err, label %while.cond, !llvm.loop !10
 

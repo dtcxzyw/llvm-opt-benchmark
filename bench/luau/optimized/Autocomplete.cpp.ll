@@ -5032,7 +5032,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %626
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit256: ; preds = %645, %652, %655
   %.sroa.044.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %13, ptr noundef %.0127, ptr noundef nonnull %.0132, i64 %.sroa.044.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %13, ptr noundef %.0127, ptr noundef nonnull %.0132, i64 %.sroa.044.0.copyload)
           to label %657 unwind label %693
 
 657:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit256
@@ -5271,7 +5271,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %746
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit270: ; preds = %760, %767, %770
   %.sroa.022.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %14, ptr noundef %.0127, ptr noundef %757, i64 %.sroa.022.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %14, ptr noundef %.0127, ptr noundef %757, i64 %.sroa.022.0.copyload)
           to label %.loopexit491.sink.split unwind label %772
 
 772:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit270
@@ -5318,7 +5318,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit270: ; preds = %760, %767, %770
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit273: ; preds = %779, %786, %789
   %.sroa.020.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %15, ptr noundef %.0127, ptr noundef %776, i64 %.sroa.020.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %15, ptr noundef %.0127, ptr noundef %776, i64 %.sroa.020.0.copyload)
           to label %.loopexit491.sink.split unwind label %791
 
 791:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit273
@@ -5472,7 +5472,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i281: ; preds = %838
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289: ; preds = %852, %859, %862
   %.sroa.013.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %16, ptr noundef %.0127, ptr noundef %849, i64 %.sroa.013.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %16, ptr noundef %.0127, ptr noundef %849, i64 %.sroa.013.0.copyload)
           to label %864 unwind label %865
 
 864:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289
@@ -5623,7 +5623,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i296: ; preds = %910
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304: ; preds = %924, %931, %934
   %.sroa.06.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %17, ptr noundef %.0127, ptr noundef %921, i64 %.sroa.06.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %17, ptr noundef %.0127, ptr noundef %921, i64 %.sroa.06.0.copyload)
           to label %936 unwind label %937
 
 936:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304
@@ -5664,7 +5664,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304: ; preds = %924, %931, %934
   br i1 %951, label %953, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit263
 
 953:                                              ; preds = %952
-  %954 = invoke fastcc noundef ptr @"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE"(ptr noundef nonnull align 8 dereferenceable(952) %1, ptr noundef nonnull %547)
+  %954 = invoke fastcc noundef ptr @"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE"(ptr noundef nonnull align 8 dereferenceable(952) %1, ptr noundef %547)
           to label %955 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 955:                                              ; preds = %953
@@ -5710,7 +5710,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304: ; preds = %924, %931, %934
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit308: ; preds = %964, %971, %974
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %18, ptr noundef %.0127, ptr noundef %961, i64 %.sroa.0.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %18, ptr noundef %.0127, ptr noundef %961, i64 %.sroa.0.0.copyload)
           to label %976 unwind label %977
 
 976:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit308
@@ -5987,7 +5987,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, i64 %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef %3, i64 %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::optional.265", align 8
   %7 = alloca %"class.std::shared_ptr.119", align 8
   %8 = alloca %"struct.Luau::AutocompleteEntry", align 8
@@ -6070,7 +6070,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %20
   br label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit:    ; preds = %.thread38, %42, %45
-  invoke fastcc void @_ZN4LuauL21tryGetTypeNameInScopeB5cxx11ESt10shared_ptrINS_5ScopeEEPKNS_4TypeEb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %7, ptr noundef %.sroa.027.032, i1 noundef zeroext false)
+  invoke fastcc void @_ZN4LuauL21tryGetTypeNameInScopeB5cxx11ESt10shared_ptrINS_5ScopeEEPKNS_4TypeEb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, ptr noundef %.sroa.027.032, i1 noundef zeroext false)
           to label %47 unwind label %90
 
 47:                                               ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit
@@ -6294,7 +6294,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define internal fastcc noundef ptr @"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 376
   %4 = getelementptr inbounds i8, ptr %0, i64 392
   %5 = load i64, ptr %4, align 8
@@ -6469,7 +6469,7 @@ define dso_local void @_ZN4Luau12autocompleteERNS_8FrontendERKNSt7__cxx1112basic
   unreachable
 
 _ZNSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEEC2ERKSQ_.exit: ; preds = %41, %27
-  invoke fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaEPNS_5ScopeENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.03.0.copyload, ptr noundef nonnull %7, i64 %3, ptr noundef nonnull %8)
+  invoke fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaEPNS_5ScopeENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.03.0.copyload, ptr noundef %7, i64 %3, ptr noundef %8)
           to label %53 unwind label %60
 
 53:                                               ; preds = %_ZNSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEEC2ERKSQ_.exit
@@ -6601,7 +6601,7 @@ declare noundef ptr @_ZN4Luau8Frontend15getSourceModuleERKNSt7__cxx1112basic_str
 declare void @_ZNK4Luau22FrontendModuleResolver9getModuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.487") align 8, ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaEPNS_5ScopeENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, ptr noundef %4, i64 %5, ptr noundef %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaEPNS_5ScopeENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, ptr noundef nonnull %4, i64 %5, ptr noundef nonnull %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Luau::Position", align 8
   %9 = alloca %"class.std::vector.114", align 8
   %10 = alloca %"class.Luau::AstExprConstantNil", align 8
@@ -6893,7 +6893,7 @@ define internal fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10s
   store float 1.000000e+00, ptr %221, align 8, !alias.scope !26
   %222 = getelementptr inbounds i8, ptr %12, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, i8 0, i64 16, i1 false), !alias.scope !26
-  invoke fastcc void @_ZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %217, ptr noundef %4, ptr %3, ptr noundef %211, i32 noundef %216, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(56) %12)
+  invoke fastcc void @_ZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %217, ptr noundef nonnull %4, ptr %3, ptr noundef %211, i32 noundef %216, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(56) %12)
           to label %_ZN4Luau17autocompletePropsB5cxx11ERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EE.exit unwind label %223
 
 223:                                              ; preds = %212
@@ -7693,7 +7693,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit572: ; preds = %549, %551
 570:                                              ; preds = %499
   %571 = load ptr, ptr %2, align 8
   %.sroa.0180.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(952) %571, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0180.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(952) %571, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0180.0.copyload)
           to label %572 unwind label %165
 
 572:                                              ; preds = %570
@@ -8171,7 +8171,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17Autocomp
 759:                                              ; preds = %706
   %760 = load ptr, ptr %2, align 8
   %.sroa.0150.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(952) %760, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0150.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(952) %760, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0150.0.copyload)
           to label %761 unwind label %165
 
 761:                                              ; preds = %759
@@ -8245,7 +8245,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit601: ; preds = %762, %764
           to label %793 unwind label %165
 
 793:                                              ; preds = %792
-  invoke fastcc void @_ZN4LuauL29autocompleteWhileLoopKeywordsESt6vectorIPNS_7AstNodeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %55)
+  invoke fastcc void @_ZN4LuauL29autocompleteWhileLoopKeywordsESt6vectorIPNS_7AstNodeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %55)
           to label %794 unwind label %802
 
 794:                                              ; preds = %793
@@ -8307,7 +8307,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit601: ; preds = %762, %764
 823:                                              ; preds = %822
   %824 = load ptr, ptr %2, align 8
   %.sroa.0139.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(952) %824, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0139.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(952) %824, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0139.0.copyload)
           to label %825 unwind label %165
 
 825:                                              ; preds = %823
@@ -8380,7 +8380,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit608: ; preds = %826, %828
           to label %855 unwind label %165
 
 855:                                              ; preds = %854
-  invoke fastcc void @_ZN4LuauL29autocompleteWhileLoopKeywordsESt6vectorIPNS_7AstNodeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %58)
+  invoke fastcc void @_ZN4LuauL29autocompleteWhileLoopKeywordsESt6vectorIPNS_7AstNodeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %58)
           to label %856 unwind label %864
 
 856:                                              ; preds = %855
@@ -8984,7 +8984,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit630: ; preds = %1059, %1061
 1100:                                             ; preds = %1099
   %1101 = load ptr, ptr %2, align 8
   %.sroa.0108.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias nonnull writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(952) %1101, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0108.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(952) %1101, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0108.0.copyload)
           to label %1102 unwind label %165
 
 1102:                                             ; preds = %1100
@@ -9079,7 +9079,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit633: ; preds = %1103, %1105
 1143:                                             ; preds = %1142
   %1144 = load ptr, ptr %2, align 8
   %1145 = load ptr, ptr %1141, align 8
-  invoke void @_ZN4Luau17autocompletePropsB5cxx11ERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::unordered_map") align 8 %89, ptr noundef nonnull align 8 dereferenceable(952) %1144, ptr noundef %4, ptr %3, ptr noundef %1145, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke void @_ZN4Luau17autocompletePropsB5cxx11ERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::unordered_map") align 8 %89, ptr noundef nonnull align 8 dereferenceable(952) %1144, ptr noundef nonnull %4, ptr %3, ptr noundef %1145, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %1146 unwind label %165
 
 1146:                                             ; preds = %1143
@@ -9290,7 +9290,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit639: ; preds = %1207, %1209
 1232:                                             ; preds = %1231
   %1233 = load ptr, ptr %2, align 8
   %1234 = load ptr, ptr %1230, align 8
-  invoke void @_ZN4Luau17autocompletePropsB5cxx11ERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::unordered_map") align 8 %97, ptr noundef nonnull align 8 dereferenceable(952) %1233, ptr noundef %4, ptr %3, ptr noundef %1234, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke void @_ZN4Luau17autocompletePropsB5cxx11ERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::unordered_map") align 8 %97, ptr noundef nonnull align 8 dereferenceable(952) %1233, ptr noundef nonnull %4, ptr %3, ptr noundef %1234, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %1235 unwind label %1249
 
 1235:                                             ; preds = %1232
@@ -9453,7 +9453,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit647: ; preds = %1280, %1282
 1302:                                             ; preds = %1297
   %1303 = load ptr, ptr %2, align 8
   %.sroa.044.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(952) %1303, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.044.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(952) %1303, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.044.0.copyload)
           to label %1304 unwind label %165
 
 1304:                                             ; preds = %1302
@@ -9491,7 +9491,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit649: ; preds = %1305, %1307
           to label %1315 unwind label %165
 
 1315:                                             ; preds = %.loopexit102
-  invoke fastcc void @_ZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.043.0.copyload, ptr noundef nonnull %105)
+  invoke fastcc void @_ZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.043.0.copyload, ptr noundef %105)
           to label %1316 unwind label %1337
 
 1316:                                             ; preds = %1315
@@ -9665,7 +9665,7 @@ _ZN4LuauL26isSimpleInterpolatedStringEPKNS_7AstNodeE.exit: ; preds = %1354
           to label %1403 unwind label %1376
 
 1403:                                             ; preds = %1399
-  invoke fastcc void @_ZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %1400, ptr noundef %4, ptr %3, ptr noundef %1402, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(56) %108)
+  invoke fastcc void @_ZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %1400, ptr noundef nonnull %4, ptr %3, ptr noundef %1402, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(56) %108)
           to label %1423 unwind label %1376
 
 1404:                                             ; preds = %1385
@@ -9849,7 +9849,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit666: ; preds = %1445, %1447
   %.sroa.022.0.copyload = load i64, ptr %8, align 8
   %.val = load ptr, ptr %9, align 8
   %.val505 = load ptr, ptr %129, align 8
-  invoke fastcc void @_ZN4LuauL23makeAnonymousAutofilledERKSt10shared_ptrINS_6ModuleEENS_8PositionEPKNS_7AstNodeERKSt6vectorIPS6_SaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.sroa.022.0.copyload, ptr noundef nonnull %.0, ptr %.val, ptr %.val505)
+  invoke fastcc void @_ZN4LuauL23makeAnonymousAutofilledERKSt10shared_ptrINS_6ModuleEENS_8PositionEPKNS_7AstNodeERKSt6vectorIPS6_SaISA_EE(ptr dead_on_unwind noalias writable align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.sroa.022.0.copyload, ptr noundef nonnull %.0, ptr %.val, ptr %.val505)
           to label %1479 unwind label %1487
 
 1479:                                             ; preds = %1478
@@ -9918,7 +9918,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
 1502:                                             ; preds = %1501
   %1503 = load ptr, ptr %2, align 8
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias nonnull writable align 8 %118, ptr noundef nonnull align 8 dereferenceable(952) %1503, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %118, ptr noundef nonnull align 8 dereferenceable(952) %1503, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0.0.copyload)
           to label %1504 unwind label %165
 
 1504:                                             ; preds = %1502
@@ -10599,7 +10599,7 @@ _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %91
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit110: ; preds = %114
   %117 = getelementptr inbounds i8, ptr %113, i64 8
-  call fastcc void @"_ZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_1clEPKNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull %117)
+  call fastcc void @"_ZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_1clEPKNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef %117)
   br label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit110.thread
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %91
@@ -11427,7 +11427,7 @@ _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %91
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit181: ; preds = %446
   %449 = getelementptr inbounds i8, ptr %445, i64 8
-  call fastcc void @"_ZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_1clEPKNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull %449)
+  call fastcc void @"_ZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_1clEPKNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef %449)
   br label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit110.thread
 
 _ZN4Luau6get_ifINS_15StringSingletonEJNS_16BooleanSingletonES1_EEEPKT_PKNS_7VariantIJDpT0_EEE.exit.i: ; preds = %91
@@ -11610,7 +11610,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %76
   %.val.i = load ptr, ptr %72, align 8
   %79 = getelementptr inbounds i8, ptr %72, i64 8
   %.val13.i = load ptr, ptr %79, align 8, !noalias !33
-  %80 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef nonnull %78, ptr %.val.i, ptr %.val13.i)
+  %80 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %78, ptr %.val.i, ptr %.val13.i)
   br label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %76
@@ -11641,7 +11641,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %86
   %89 = getelementptr inbounds i8, ptr %85, i64 8
   %.val.i.i = load ptr, ptr %72, align 8
   %.val8.i.i = load ptr, ptr %83, align 8, !noalias !36
-  %90 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef nonnull %89, ptr %.val.i.i, ptr %.val8.i.i)
+  %90 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %89, ptr %.val.i.i, ptr %.val8.i.i)
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %.0812.i.i, i32 %90)
   %91 = getelementptr inbounds i8, ptr %.sroa.02.011.i.i, i64 8
   %.not.i.i19 = icmp eq ptr %91, %.val15.i
@@ -11690,7 +11690,7 @@ _ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i23: ; preds = %110
   %112 = getelementptr inbounds i8, ptr %53, i64 8
-  %113 = call fastcc noundef zeroext i1 @"_ZZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_2clESA_ENKUlPKNS_12FunctionTypeEE_clES1F_"(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull readonly %112)
+  %113 = call fastcc noundef zeroext i1 @"_ZZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_2clESA_ENKUlPKNS_12FunctionTypeEE_clES1F_"(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef readonly %112)
   %114 = xor i1 %113, true
   br label %"_ZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_2clESA_.exit"
 
@@ -11716,7 +11716,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i21: ; preds = %110
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit22.i: ; preds = %121
   %124 = getelementptr inbounds i8, ptr %120, i64 8
-  %125 = call fastcc noundef zeroext i1 @"_ZZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_2clESA_ENKUlPKNS_12FunctionTypeEE_clES1F_"(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull %124)
+  %125 = call fastcc noundef zeroext i1 @"_ZZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_2clESA_ENKUlPKNS_12FunctionTypeEE_clES1F_"(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef %124)
   br i1 %125, label %"_ZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_2clESA_.exit", label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit22.thread.i
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit22.thread.i: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit22.i, %121, %.lr.ph.i
@@ -11826,7 +11826,7 @@ _ZN4Luau17AutocompleteEntryD2Ev.exit:             ; preds = %154, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_1clEPKNS_9TableTypeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_1clEPKNS_9TableTypeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = alloca %"class.std::optional.249", align 8
@@ -15177,7 +15177,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_St10shared_ptrINS0_14NormalizedTypeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr nocapture noundef readonly %0, ptr readnone %.0.val, ptr readonly %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr nocapture noundef nonnull readonly %0, ptr readnone %.0.val, ptr readonly %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.569", align 8
   %3 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4
   %4 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4
@@ -15316,7 +15316,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 declare noundef zeroext i1 @_ZN4Luau10isVariadicEPKNS_11TypePackVarE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_2clESA_ENKUlPKNS_12FunctionTypeEE_clES1F_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeESA_NS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEERSt13unordered_setISA_SR_ISA_EST_ISA_ESaISA_EESt8optionalIPKNS_9ClassTypeEEENK3$_2clESA_ENKUlPKNS_12FunctionTypeEE_clES1F_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.119", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8
@@ -17588,7 +17588,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL21tryGetTypeNameInScopeB5cxx11ESt10shared_ptrINS_5ScopeEEPKNS_4TypeEb(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL21tryGetTypeNameInScopeB5cxx11ESt10shared_ptrINS_5ScopeEEPKNS_4TypeEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.119", align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %5, align 8
@@ -17937,7 +17937,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringOptions", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = zext i1 %2 to i8
@@ -19025,7 +19025,7 @@ _ZN4Luau17AutocompleteEntryC2EOS0_.exit:          ; preds = %_ZNSt8optionalINSt7
 declare noundef zeroext i1 @_ZNK4Luau8PositiongeERKS0_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__detail::_AllocNode.897", align 8
   %8 = alloca %"class.std::unordered_map", align 8
   %9 = alloca %"class.std::unordered_map", align 8
@@ -19399,7 +19399,7 @@ _ZN4Luau17AutocompleteEntryC2EOS0_.exit:          ; preds = %_ZNSt8optionalINSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.569", align 8
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %struct._Guard, align 8
@@ -20295,7 +20295,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %349
   %351 = getelementptr inbounds i8, ptr %348, i64 8
   %.val.i = load ptr, ptr %2, align 8
   %.val13.i = load ptr, ptr %43, align 8, !noalias !82
-  %352 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef nonnull %351, ptr %.val.i, ptr %.val13.i)
+  %352 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %351, ptr %.val.i, ptr %.val13.i)
           to label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit unwind label %.loopexit.split-lp
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %349
@@ -22293,7 +22293,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau11extractStatINS_12AstStatFor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL29autocompleteWhileLoopKeywordsESt6vectorIPNS_7AstNodeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL29autocompleteWhileLoopKeywordsESt6vectorIPNS_7AstNodeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unordered_map", align 8
   %4 = alloca %"struct.Luau::AutocompleteEntry", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23385,7 +23385,7 @@ _ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit: ; preds = %_
   %51 = getelementptr inbounds i8, ptr %7, i64 176
   store i8 0, ptr %51, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %48, i8 0, i64 28, i1 false)
-  invoke fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias nonnull writable align 8 %8, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  invoke fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias writable align 8 %8, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %52 unwind label %72
 
 52:                                               ; preds = %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit
@@ -23620,7 +23620,7 @@ _ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit49: ; preds = 
   store i8 0, ptr %93, align 8
   store i8 0, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %91, i8 0, i64 28, i1 false)
-  invoke fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias nonnull writable align 8 %12, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %150)
+  invoke fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias writable align 8 %12, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %150)
           to label %151 unwind label %169
 
 151:                                              ; preds = %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit49
@@ -23773,7 +23773,7 @@ _ZN4Luau17AutocompleteEntryD2Ev.exit:             ; preds = %33, %_ZN4Luau6get_i
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 6) i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 6) i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Luau::Position", align 8
   %8 = alloca %"struct.Luau::Location", align 4
   %9 = alloca %"struct.Luau::AutocompleteEntry", align 8
@@ -23868,7 +23868,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZN4LuauL22autocompleteExpre
 79:                                               ; preds = %70
   %80 = getelementptr inbounds i8, ptr %71, i64 8
   %81 = load ptr, ptr %80, align 8
-  tail call fastcc void @_ZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %2, ptr %1, ptr noundef %81, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %5)
+  tail call fastcc void @_ZN4LuauL17autocompletePropsERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_4TypeENS_13PropIndexTypeERKSt6vectorIPNS_7AstNodeESaISE_EERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull %2, ptr %1, ptr noundef %81, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %5)
   br label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit
 
 82:                                               ; preds = %6
@@ -24332,7 +24332,7 @@ _ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERK
 246:                                              ; preds = %245
   %.sroa.012.0.copyload = load i64, ptr %18, align 8
   %247 = load ptr, ptr %215, align 8
-  %248 = invoke fastcc noundef i32 @_ZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %2, ptr %1, ptr noundef nonnull %43, i64 %.sroa.012.0.copyload, ptr noundef %247)
+  %248 = invoke fastcc noundef i32 @_ZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull %2, ptr %1, ptr noundef nonnull %43, i64 %.sroa.012.0.copyload, ptr noundef %247)
           to label %249 unwind label %292
 
 249:                                              ; preds = %246
@@ -24388,7 +24388,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %262
   %264 = getelementptr inbounds i8, ptr %261, i64 8
   %.val.i = load ptr, ptr %3, align 8
   %.val13.i = load ptr, ptr %40, align 8, !noalias !91
-  %265 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef nonnull %264, ptr %.val.i, ptr %.val13.i)
+  %265 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %264, ptr %.val.i, ptr %.val13.i)
           to label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit unwind label %.loopexit.split-lp22
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %262
@@ -24415,7 +24415,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %269
   %272 = getelementptr inbounds i8, ptr %268, i64 8
   %.val.i.i = load ptr, ptr %3, align 8
   %.val8.i.i = load ptr, ptr %40, align 8, !noalias !94
-  %273 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef nonnull %272, ptr %.val.i.i, ptr %.val8.i.i)
+  %273 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %272, ptr %.val.i.i, ptr %.val8.i.i)
           to label %.noexc120 unwind label %.loopexit21
 
 .noexc120:                                        ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i
@@ -24655,21 +24655,21 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEaSERKS2_.exit:    ; preds = %._crit_edge, %_ZNSt
   %.sroa.09.0.copyload = load i64, ptr %18, align 8
   %350 = getelementptr inbounds i8, ptr %1, i64 16
   %351 = load ptr, ptr %350, align 8
-  %352 = invoke fastcc noundef i32 @_ZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %2, ptr nonnull %1, ptr noundef nonnull %43, i64 %.sroa.09.0.copyload, ptr noundef %351)
+  %352 = invoke fastcc noundef i32 @_ZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull %2, ptr nonnull %1, ptr noundef nonnull %43, i64 %.sroa.09.0.copyload, ptr noundef %351)
           to label %353 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 353:                                              ; preds = %._crit_edge47
   %.sroa.06.0.copyload = load i64, ptr %18, align 8
   %354 = getelementptr inbounds i8, ptr %1, i64 96
   %355 = load ptr, ptr %354, align 8
-  %356 = invoke fastcc noundef i32 @_ZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %2, ptr nonnull %1, ptr noundef nonnull %43, i64 %.sroa.06.0.copyload, ptr noundef %355)
+  %356 = invoke fastcc noundef i32 @_ZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull %2, ptr nonnull %1, ptr noundef nonnull %43, i64 %.sroa.06.0.copyload, ptr noundef %355)
           to label %357 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 357:                                              ; preds = %353
   %.sroa.03.0.copyload = load i64, ptr %18, align 8
   %358 = getelementptr inbounds i8, ptr %1, i64 104
   %359 = load ptr, ptr %358, align 8
-  %360 = invoke fastcc noundef i32 @_ZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %2, ptr nonnull %1, ptr noundef nonnull %43, i64 %.sroa.03.0.copyload, ptr noundef %359)
+  %360 = invoke fastcc noundef i32 @_ZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull %2, ptr nonnull %1, ptr noundef nonnull %43, i64 %.sroa.03.0.copyload, ptr noundef %359)
           to label %361 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 361:                                              ; preds = %357
@@ -25735,7 +25735,7 @@ define linkonce_odr dso_local void @_ZNSt13unordered_mapINSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3, ptr noundef %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3, ptr noundef nonnull %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.0", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26228,7 +26228,7 @@ _ZNSt14_Optional_baseISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL23makeAnonymousAutofilledERKSt10shared_ptrINS_6ModuleEENS_8PositionEPKNS_7AstNodeERKSt6vectorIPS6_SaISA_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %2, ptr noundef %3, ptr %.0.val, ptr %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL23makeAnonymousAutofilledERKSt10shared_ptrINS_6ModuleEENS_8PositionEPKNS_7AstNodeERKSt6vectorIPS6_SaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %2, ptr noundef %3, ptr %.0.val, ptr %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Luau::Position", align 8
   %6 = alloca %"struct.std::pair.569", align 8
   %7 = alloca %"class.std::shared_ptr.119", align 8
@@ -26480,14 +26480,14 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit57.thread25: ; preds = %109
   %136 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %106, ptr %136, align 8
   store i8 1, ptr %126, align 8
-  invoke fastcc void @_ZN4LuauL13makeAnonymousB5cxx11ERKSt10shared_ptrINS_5ScopeEERKNS_12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(307) %.03628)
+  invoke fastcc void @_ZN4LuauL13makeAnonymousB5cxx11ERKSt10shared_ptrINS_5ScopeEERKNS_12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(307) %.03628)
           to label %137 unwind label %140
 
 137:                                              ; preds = %125
   %138 = getelementptr inbounds i8, ptr %8, i64 136
   %139 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %138, ptr noundef nonnull align 8 dereferenceable(32) %9) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
-  call void @_ZSt13make_optionalIN4Luau17AutocompleteEntryEENSt9enable_ifIX18is_constructible_vINSt5decayIT_E4typeES4_EESt8optionalIS6_EE4typeEOS4_(ptr dead_on_unwind writable sret(%"class.std::optional.885") align 8 %0, ptr noundef nonnull align 8 dereferenceable(177) %8) #24
+  call void @_ZSt13make_optionalIN4Luau17AutocompleteEntryEENSt9enable_ifIX18is_constructible_vINSt5decayIT_E4typeES4_EESt8optionalIS6_EE4typeEOS4_(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.885") align 8 %0, ptr noundef nonnull align 8 dereferenceable(177) %8) #24
   call void @_ZN4Luau17AutocompleteEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %8) #24
   br label %142
 
@@ -27996,7 +27996,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare noundef zeroext i1 @_ZNK4Luau8PositioneqERKS0_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias writable align 8 %0, i8 %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = trunc i8 %.0.val to i1
@@ -28038,7 +28038,7 @@ define internal fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4Type
   resume { ptr, i32 } %.pn
 
 19:                                               ; preds = %2
-  tail call void @_ZN4Luau6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %7, ptr %8, i1 noundef zeroext false)
+  tail call void @_ZN4Luau6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %7, ptr %8, i1 noundef zeroext false)
   br label %20
 
 20:                                               ; preds = %19, %13
@@ -28370,7 +28370,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEEENK3$_0clB5cxx11EPKNS_12FunctionTypeE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr %.176.val, ptr readnone %.184.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEEENK3$_0clB5cxx11EPKNS_12FunctionTypeE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr %.176.val, ptr readnone %.184.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::optional.249", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::optional.265", align 8
@@ -28527,7 +28527,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exi
 72:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit
   %73 = getelementptr inbounds i8, ptr %15, i64 24
   %74 = load ptr, ptr %73, align 8, !noalias !112
-  invoke void %74(ptr dead_on_unwind writable sret(%"class.std::optional.875") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(40) %5)
+  invoke void %74(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.875") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %75 unwind label %.loopexit4
 
 75:                                               ; preds = %72
@@ -28810,7 +28810,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit16: ; preds = %_ZN4Luau12TypeIter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL13makeAnonymousB5cxx11ERKSt10shared_ptrINS_5ScopeEERKNS_12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(307) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL13makeAnonymousB5cxx11ERKSt10shared_ptrINS_5ScopeEERKNS_12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(307) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringOptions", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"class.std::allocator.0", align 1
@@ -28980,7 +28980,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit:    ; preds = %67, %73, %76
   %78 = load ptr, ptr %7, align 8
   %79 = getelementptr inbounds ptr, ptr %78, i64 %.044102
   %80 = load ptr, ptr %79, align 8
-  invoke fastcc void @_ZN4LuauL21tryGetTypeNameInScopeB5cxx11ESt10shared_ptrINS_5ScopeEEPKNS_4TypeEb(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %12, ptr noundef %80, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4LuauL21tryGetTypeNameInScopeB5cxx11ESt10shared_ptrINS_5ScopeEEPKNS_4TypeEb(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %12, ptr noundef %80, i1 noundef zeroext true)
           to label %81 unwind label %127
 
 81:                                               ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit
@@ -29220,7 +29220,7 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %17
   %.val = load ptr, ptr %1, align 8
   %180 = getelementptr inbounds i8, ptr %1, i64 8
   %.val60 = load ptr, ptr %180, align 8
-  invoke fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %.val, ptr %.val60, ptr noundef %179, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b(ptr dead_on_unwind noalias writable align 8 %16, ptr %.val, ptr %.val60, ptr noundef %179, i1 noundef zeroext true)
           to label %181 unwind label %190
 
 181:                                              ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit

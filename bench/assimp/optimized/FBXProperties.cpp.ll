@@ -2289,7 +2289,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_115checkTokenCountERKSt6vectorIPKNS0_5TokenESaIS5_EEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tok, i32 noundef %expectedCount) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_115checkTokenCountERKSt6vectorIPKNS0_5TokenESaIS5_EEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tok, i32 noundef range(i32 5, 9) %expectedCount) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca i64, align 8

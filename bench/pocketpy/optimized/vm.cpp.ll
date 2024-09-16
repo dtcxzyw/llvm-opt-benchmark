@@ -5294,7 +5294,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIS
   br label %191
 
 191:                                              ; preds = %_ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIS4_EEvOT_.exit, %164
-  invoke fastcc void @"_ZZN4pkpy2VM9py_importENS_3StrEbENK3$_0clERKNS_10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  invoke fastcc void @"_ZZN4pkpy2VM9py_importENS_3StrEbENK3$_0clERKNS_10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EEE"(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %192 unwind label %125
 
 192:                                              ; preds = %191
@@ -5973,7 +5973,7 @@ _ZNSt3mapIN4pkpy7StrNameENS0_3StrESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.ex
           to label %442 unwind label %519
 
 442:                                              ; preds = %439
-  invoke fastcc void @"_ZZN4pkpy2VM9py_importENS_3StrEbENK3$_0clERKNS_10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  invoke fastcc void @"_ZZN4pkpy2VM9py_importENS_3StrEbENK3$_0clERKNS_10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EEE"(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %443 unwind label %521
 
 443:                                              ; preds = %442
@@ -7531,7 +7531,7 @@ declare void @_ZNK4pkpy3Str5splitEc(ptr dead_on_unwind writable sret(%"struct.pk
 declare void @_ZNK4pkpy3Str6substrEi(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pkpy2VM9py_importENS_3StrEbENK3$_0clERKNS_10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pkpy2VM9py_importENS_3StrEbENK3$_0clERKNS_10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::SStream", align 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -7606,7 +7606,7 @@ _ZN4pkpy7SStreamD2Ev.exit:                        ; preds = %17, %19
   br i1 %25, label %11, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %22, %2
-  invoke void @_ZN4pkpy7SStream3strEv(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %3)
+  invoke void @_ZN4pkpy7SStream3strEv(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %3)
           to label %26 unwind label %.loopexit.split-lp
 
 26:                                               ; preds = %._crit_edge
@@ -12156,7 +12156,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
           to label %231 unwind label %227
 
 231:                                              ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.thread.invoke
-  invoke fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEEENK3$_0clERKNS_3StrEi"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 8)
+  invoke fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEEENK3$_0clERKNS_3StrEi"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 8)
           to label %232 unwind label %227
 
 232:                                              ; preds = %231
@@ -12174,7 +12174,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
           to label %238 unwind label %261
 
 238:                                              ; preds = %236
-  invoke fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEEENK3$_0clERKNS_3StrEi"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
+  invoke fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEEENK3$_0clERKNS_3StrEi"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %239 unwind label %263
 
 239:                                              ; preds = %238
@@ -12284,7 +12284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %277 unwind label %272
 
 277:                                              ; preds = %276
-  invoke fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEEENK3$_0clERKNS_3StrEi"(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 25)
+  invoke fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEEENK3$_0clERKNS_3StrEi"(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 25)
           to label %278 unwind label %401
 
 278:                                              ; preds = %277
@@ -12917,7 +12917,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEEENK3$_0clERKNS_3StrEi"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEEENK3$_0clERKNS_3StrEi"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef range(i32 3, 26) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::Str", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.72", align 1
@@ -12926,7 +12926,7 @@ define internal fastcc void @"_ZZN4pkpy2VM11disassembleESt10shared_ptrINS_10Code
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @_ZNK4pkpy3Str6substrEii(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, i32 noundef %2)
+  tail call void @_ZNK4pkpy3Str6substrEii(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, i32 noundef %2)
   br label %24
 
 9:                                                ; preds = %3
@@ -12955,7 +12955,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
           to label %15 unwind label %19
 
 15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  invoke void @_ZNK4pkpy3StrplERKS0_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZNK4pkpy3StrplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %16 unwind label %21
 
 16:                                               ; preds = %15

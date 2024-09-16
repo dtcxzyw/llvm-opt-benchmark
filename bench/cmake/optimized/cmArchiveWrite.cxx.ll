@@ -228,7 +228,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef %78)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %78)
           to label %79 unwind label %88
 
 79:                                               ; preds = %77
@@ -278,7 +278,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
 
 96:                                               ; preds = %95
   %97 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef %97)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %97)
           to label %98 unwind label %88
 
 98:                                               ; preds = %96
@@ -323,7 +323,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
 
 113:                                              ; preds = %112
   %114 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef %114)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %114)
           to label %115 unwind label %88
 
 115:                                              ; preds = %113
@@ -377,7 +377,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
 
 134:                                              ; preds = %133
   %135 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef %135)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef %135)
           to label %136 unwind label %138
 
 136:                                              ; preds = %134
@@ -420,7 +420,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
 
 148:                                              ; preds = %147
   %149 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef %149)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef %149)
           to label %150 unwind label %88
 
 150:                                              ; preds = %148
@@ -465,7 +465,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
 
 165:                                              ; preds = %164
   %166 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef %166)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %166)
           to label %167 unwind label %88
 
 167:                                              ; preds = %165
@@ -510,7 +510,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
   br i1 %.not28, label %195, label %183
 
 183:                                              ; preds = %181
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef %182)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %182)
           to label %184 unwind label %88
 
 184:                                              ; preds = %183
@@ -555,7 +555,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
 
 199:                                              ; preds = %198
   %200 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef %200)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef %200)
           to label %201 unwind label %88
 
 201:                                              ; preds = %199
@@ -600,7 +600,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
   br i1 %.not, label %229, label %217
 
 217:                                              ; preds = %215
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef %216)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef %216)
           to label %218 unwind label %88
 
 218:                                              ; preds = %217
@@ -645,7 +645,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
 
 233:                                              ; preds = %232
   %234 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef %234)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef %234)
           to label %235 unwind label %88
 
 235:                                              ; preds = %233
@@ -719,7 +719,7 @@ switch.lookup:                                    ; preds = %247
 
 261:                                              ; preds = %260
   %262 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef %262)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %262)
           to label %263 unwind label %249
 
 263:                                              ; preds = %261
@@ -777,7 +777,7 @@ switch.lookup:                                    ; preds = %247
   br i1 %.not41, label %292, label %280
 
 280:                                              ; preds = %278
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef %279)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef %279)
           to label %281 unwind label %88
 
 281:                                              ; preds = %280
@@ -822,7 +822,7 @@ switch.lookup:                                    ; preds = %247
   br i1 %.not42, label %309, label %297
 
 297:                                              ; preds = %295
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef %296)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef %296)
           to label %298 unwind label %88
 
 298:                                              ; preds = %297
@@ -866,7 +866,7 @@ switch.lookup:                                    ; preds = %247
 
 312:                                              ; preds = %311
   %313 = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef %313)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef %313)
           to label %314 unwind label %88
 
 314:                                              ; preds = %312
@@ -1082,7 +1082,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
 declare i32 @archive_write_add_filter_none(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = tail call ptr @archive_error_string(ptr noundef %1)
   %.not = icmp eq ptr %4, null
@@ -1200,7 +1200,7 @@ define dso_local noundef zeroext i1 @_ZN14cmArchiveWrite4OpenEv(ptr noundef nonn
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %8, align 8
-  call fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %12)
+  call fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %12)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store i64 20, ptr %2, align 8, !alias.scope !144, !noalias !147
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -1835,7 +1835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 71:                                               ; preds = %70
   %72 = load ptr, ptr %67, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %72)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %72)
           to label %73 unwind label %87
 
 73:                                               ; preds = %71
@@ -2164,7 +2164,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 215:                                              ; preds = %214
   %216 = load ptr, ptr %211, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef %216)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %216)
           to label %217 unwind label %87
 
 217:                                              ; preds = %215
@@ -2525,7 +2525,7 @@ define dso_local noundef zeroext i1 @_ZN14cmArchiveWrite7AddDataEPKcm(ptr nounde
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %21, align 8
-  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %51)
+  invoke fastcc void @_ZL23cm_archive_error_stringB5cxx11P7archive(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %51)
           to label %52 unwind label %.loopexit.split-lp
 
 52:                                               ; preds = %50

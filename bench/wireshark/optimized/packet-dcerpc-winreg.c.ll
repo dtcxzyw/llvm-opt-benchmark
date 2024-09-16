@@ -3079,7 +3079,7 @@ define internal i32 @winreg_dissect_element_CreateKey_handle_(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cnf_dissect_winreg_String(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @cnf_dissect_winreg_String(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 805306371) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 28

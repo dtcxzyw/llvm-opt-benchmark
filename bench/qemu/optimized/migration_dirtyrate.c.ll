@@ -541,7 +541,7 @@ for.body.i.i.i:                                   ; preds = %rcu_read_lock.exit.
   br i1 %call.i5.i.i, label %if.else.i.i21.i, label %while.end8.i.i.i
 
 if.else.i.i21.i:                                  ; preds = %for.body.i.i.i
-  %call1.i.i.i = tail call fastcc zeroext i1 @skip_sample_ramblock(ptr noundef nonnull %block.024.i.i.i)
+  %call1.i.i.i = tail call fastcc zeroext i1 @skip_sample_ramblock(ptr noundef %block.024.i.i.i)
   %not.call1.i.i.i = xor i1 %call1.i.i.i, true
   %inc.i6.i.i = zext i1 %not.call1.i.i.i to i32
   %spec.select.i.i.i = add i32 %total_count.023.i.i.i, %inc.i6.i.i
@@ -576,7 +576,7 @@ for.body22.i.i.i:                                 ; preds = %while.end18.i.i.i, 
   br i1 %call23.i.i.i, label %if.else25.i.i.i, label %while.end43.i.i.i
 
 if.else25.i.i.i:                                  ; preds = %for.body22.i.i.i
-  %call26.i.i.i = tail call fastcc zeroext i1 @skip_sample_ramblock(ptr noundef nonnull %block.128.i.i.i)
+  %call26.i.i.i = tail call fastcc zeroext i1 @skip_sample_ramblock(ptr noundef %block.128.i.i.i)
   br i1 %call26.i.i.i, label %while.end43.i.i.i, label %if.end28.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %if.else25.i.i.i
@@ -760,7 +760,7 @@ for.body.i23.i.i:                                 ; preds = %while.end11.i.i.i, 
   br i1 %call.i24.i.i, label %if.else.i28.i.i, label %while.end11.i.i.i
 
 if.else.i28.i.i:                                  ; preds = %for.body.i23.i.i
-  %call1.i29.i.i = tail call fastcc zeroext i1 @skip_sample_ramblock(ptr noundef nonnull %block.035.i.i.i)
+  %call1.i29.i.i = tail call fastcc zeroext i1 @skip_sample_ramblock(ptr noundef %block.035.i.i.i)
   br i1 %call1.i29.i.i, label %while.end11.i.i.i, label %if.end.i30.i.i
 
 if.end.i30.i.i:                                   ; preds = %if.else.i28.i.i
@@ -1074,7 +1074,7 @@ return:                                           ; preds = %if.end4, %if.then
 declare void @rcu_register_thread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @dirtyrate_set_state(i32 noundef %old_state, i32 noundef %new_state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dirtyrate_set_state(i32 noundef %old_state, i32 noundef range(i32 0, 3) %new_state) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @DirtyRateStatus_lookup, i32 noundef %new_state) #12
@@ -1589,16 +1589,16 @@ declare ptr @get_ptr_rcu_reader() local_unnamed_addr #1
 declare void @qemu_event_set(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @skip_sample_ramblock(ptr noundef %block) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @skip_sample_ramblock(ptr noundef nonnull %block) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call i64 @qemu_ram_get_used_length(ptr noundef %block) #12
+  %call = tail call i64 @qemu_ram_get_used_length(ptr noundef nonnull %block) #12
   %cmp = icmp ult i64 %call, 131072
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %idstr = getelementptr inbounds i8, ptr %block, i64 76
-  %call1 = tail call i64 @qemu_ram_get_used_length(ptr noundef %block) #12
+  %call1 = tail call i64 @qemu_ram_get_used_length(ptr noundef nonnull %block) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -1682,7 +1682,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %mul.i.i = mul i64 %1, -4417276706812531889
   %add.i.i = add i64 %mul.i.i, %v1.036.i
-  %or.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %add.i.i, i64 %add.i.i, i64 31)
+  %or.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add.i.i, i64 %add.i.i, i64 31)
   %mul1.i.i = mul i64 %or.i.i.i, -7046029288634856825
   %add3.i = or disjoint i32 %i.037.i, 1
   %idxprom4.i = zext i32 %add3.i to i64
@@ -1690,7 +1690,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %2 = load i64, ptr %arrayidx5.i, align 8
   %mul.i17.i = mul i64 %2, -4417276706812531889
   %add.i18.i = add i64 %mul.i17.i, %v2.033.i
-  %or.i.i19.i = tail call noundef i64 @llvm.fshl.i64(i64 %add.i18.i, i64 %add.i18.i, i64 31)
+  %or.i.i19.i = tail call i64 @llvm.fshl.i64(i64 %add.i18.i, i64 %add.i18.i, i64 31)
   %mul1.i20.i = mul i64 %or.i.i19.i, -7046029288634856825
   %add7.i = or disjoint i32 %i.037.i, 2
   %idxprom8.i = zext i32 %add7.i to i64
@@ -1698,7 +1698,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %3 = load i64, ptr %arrayidx9.i, align 8
   %mul.i21.i = mul i64 %3, -4417276706812531889
   %add.i22.i = add i64 %mul.i21.i, %v3.034.i
-  %or.i.i23.i = tail call noundef i64 @llvm.fshl.i64(i64 %add.i22.i, i64 %add.i22.i, i64 31)
+  %or.i.i23.i = tail call i64 @llvm.fshl.i64(i64 %add.i22.i, i64 %add.i22.i, i64 31)
   %mul1.i24.i = mul i64 %or.i.i23.i, -7046029288634856825
   %add11.i = or disjoint i32 %i.037.i, 3
   %idxprom12.i = zext i32 %add11.i to i64
@@ -1706,7 +1706,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %4 = load i64, ptr %arrayidx13.i, align 8
   %mul.i25.i = mul i64 %4, -4417276706812531889
   %add.i26.i = add i64 %mul.i25.i, %v4.035.i
-  %or.i.i27.i = tail call noundef i64 @llvm.fshl.i64(i64 %add.i26.i, i64 %add.i26.i, i64 31)
+  %or.i.i27.i = tail call i64 @llvm.fshl.i64(i64 %add.i26.i, i64 %add.i26.i, i64 31)
   %mul1.i28.i = mul i64 %or.i.i27.i, -7046029288634856825
   %add15.i = add i32 %i.037.i, 4
   %conv.i = zext i32 %add15.i to i64
@@ -1718,38 +1718,38 @@ compute_page_hash.exit:                           ; preds = %for.body.i, %entry
   %v3.0.lcssa.i = phi i64 [ 1, %entry ], [ %mul1.i24.i, %for.body.i ]
   %v4.0.lcssa.i = phi i64 [ 7046029288634856826, %entry ], [ %mul1.i28.i, %for.body.i ]
   %v1.0.lcssa.i = phi i64 [ 6983438078262162903, %entry ], [ %mul1.i.i, %for.body.i ]
-  %or.i.i29.i = tail call noundef i64 @llvm.fshl.i64(i64 %v1.0.lcssa.i, i64 %v1.0.lcssa.i, i64 1)
-  %or.i9.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %v2.0.lcssa.i, i64 %v2.0.lcssa.i, i64 7)
-  %or.i10.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %v3.0.lcssa.i, i64 %v3.0.lcssa.i, i64 12)
-  %or.i11.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %v4.0.lcssa.i, i64 %v4.0.lcssa.i, i64 18)
-  %add.i30.i = add i64 %or.i10.i.i, %or.i9.i.i
-  %add3.i.i = add i64 %add.i30.i, %or.i11.i.i
+  %or.i.i29.i = tail call i64 @llvm.fshl.i64(i64 %v1.0.lcssa.i, i64 %v1.0.lcssa.i, i64 1)
+  %or.i11.i.i = tail call i64 @llvm.fshl.i64(i64 %v2.0.lcssa.i, i64 %v2.0.lcssa.i, i64 7)
+  %or.i14.i.i = tail call i64 @llvm.fshl.i64(i64 %v3.0.lcssa.i, i64 %v3.0.lcssa.i, i64 12)
+  %or.i17.i.i = tail call i64 @llvm.fshl.i64(i64 %v4.0.lcssa.i, i64 %v4.0.lcssa.i, i64 18)
+  %add.i30.i = add i64 %or.i14.i.i, %or.i11.i.i
+  %add3.i.i = add i64 %add.i30.i, %or.i17.i.i
   %add5.i.i = add i64 %add3.i.i, %or.i.i29.i
   %mul.i.i.i.i = mul i64 %v1.0.lcssa.i, -4417276706812531889
-  %or.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %mul.i.i.i.i, i64 %mul.i.i.i.i, i64 31)
+  %or.i.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %mul.i.i.i.i, i64 %mul.i.i.i.i, i64 31)
   %mul1.i.i.i.i = mul i64 %or.i.i.i.i.i, -7046029288634856825
   %xor.i.i.i = xor i64 %mul1.i.i.i.i, %add5.i.i
   %mul.i.i.i = mul i64 %xor.i.i.i, -7046029288634856825
   %add.i.i.i = add i64 %mul.i.i.i, -8796714831421723037
-  %mul.i.i12.i.i = mul i64 %v2.0.lcssa.i, -4417276706812531889
-  %or.i.i.i13.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %mul.i.i12.i.i, i64 %mul.i.i12.i.i, i64 31)
-  %mul1.i.i14.i.i = mul i64 %or.i.i.i13.i.i, -7046029288634856825
-  %xor.i15.i.i = xor i64 %add.i.i.i, %mul1.i.i14.i.i
-  %mul.i16.i.i = mul i64 %xor.i15.i.i, -7046029288634856825
-  %add.i17.i.i = add i64 %mul.i16.i.i, -8796714831421723037
-  %mul.i.i18.i.i = mul i64 %v3.0.lcssa.i, -4417276706812531889
-  %or.i.i.i19.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %mul.i.i18.i.i, i64 %mul.i.i18.i.i, i64 31)
+  %mul.i.i18.i.i = mul i64 %v2.0.lcssa.i, -4417276706812531889
+  %or.i.i.i19.i.i = tail call i64 @llvm.fshl.i64(i64 %mul.i.i18.i.i, i64 %mul.i.i18.i.i, i64 31)
   %mul1.i.i20.i.i = mul i64 %or.i.i.i19.i.i, -7046029288634856825
-  %xor.i21.i.i = xor i64 %add.i17.i.i, %mul1.i.i20.i.i
+  %xor.i21.i.i = xor i64 %add.i.i.i, %mul1.i.i20.i.i
   %mul.i22.i.i = mul i64 %xor.i21.i.i, -7046029288634856825
   %add.i23.i.i = add i64 %mul.i22.i.i, -8796714831421723037
-  %mul.i.i24.i.i = mul i64 %v4.0.lcssa.i, -4417276706812531889
-  %or.i.i.i25.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %mul.i.i24.i.i, i64 %mul.i.i24.i.i, i64 31)
+  %mul.i.i24.i.i = mul i64 %v3.0.lcssa.i, -4417276706812531889
+  %or.i.i.i25.i.i = tail call i64 @llvm.fshl.i64(i64 %mul.i.i24.i.i, i64 %mul.i.i24.i.i, i64 31)
   %mul1.i.i26.i.i = mul i64 %or.i.i.i25.i.i, -7046029288634856825
   %xor.i27.i.i = xor i64 %add.i23.i.i, %mul1.i.i26.i.i
   %mul.i28.i.i = mul i64 %xor.i27.i.i, -7046029288634856825
-  %add.i29.i.i = add i64 %call.i, -8796714831421723037
-  %add17.i = add i64 %add.i29.i.i, %mul.i28.i.i
+  %add.i29.i.i = add i64 %mul.i28.i.i, -8796714831421723037
+  %mul.i.i30.i.i = mul i64 %v4.0.lcssa.i, -4417276706812531889
+  %or.i.i.i31.i.i = tail call i64 @llvm.fshl.i64(i64 %mul.i.i30.i.i, i64 %mul.i.i30.i.i, i64 31)
+  %mul1.i.i32.i.i = mul i64 %or.i.i.i31.i.i, -7046029288634856825
+  %xor.i33.i.i = xor i64 %add.i29.i.i, %mul1.i.i32.i.i
+  %mul.i34.i.i = mul i64 %xor.i33.i.i, -7046029288634856825
+  %add.i35.i.i = add i64 %call.i, -8796714831421723037
+  %add17.i = add i64 %add.i35.i.i, %mul.i34.i.i
   %shr.i.i = lshr i64 %add17.i, 33
   %xor.i.i = xor i64 %shr.i.i, %add17.i
   %mul.i31.i = mul i64 %xor.i.i, -4417276706812531889
@@ -1809,14 +1809,14 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare i64 @llvm.fshl.i64(i64, i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
@@ -1830,8 +1830,8 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind allocsize(0,1) }

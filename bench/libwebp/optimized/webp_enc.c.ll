@@ -205,7 +205,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
   br label %71
 
 71:                                               ; preds = %70, %67
-  %72 = tail call fastcc ptr @InitVP8Encoder(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %72 = tail call fastcc ptr @InitVP8Encoder(ptr noundef %0, ptr noundef %1)
   %73 = icmp eq ptr %72, null
   br i1 %73, label %WebPEncodingSetError.exit78, label %74
 
@@ -247,22 +247,22 @@ WebPEncodingSetError.exit:                        ; preds = %4
   br i1 %.not87, label %.critedge.thread, label %.critedge
 
 .critedge.thread:                                 ; preds = %74, %87, %86, %80, %83
-  tail call fastcc void @StoreStats(ptr noundef nonnull %72)
+  tail call fastcc void @StoreStats(ptr noundef %72)
   br label %90
 
 .critedge:                                        ; preds = %87
   %89 = tail call i32 @VP8EncWrite(ptr noundef nonnull %72) #8
   %.not88 = icmp eq i32 %89, 0
-  tail call fastcc void @StoreStats(ptr noundef nonnull %72)
+  tail call fastcc void @StoreStats(ptr noundef %72)
   br i1 %.not88, label %90, label %92
 
 90:                                               ; preds = %.critedge, %.critedge.thread
   tail call void @VP8EncFreeBitWriters(ptr noundef nonnull %72) #8
-  %91 = tail call fastcc i32 @DeleteVP8Encoder(ptr noundef nonnull %72)
+  %91 = tail call fastcc i32 @DeleteVP8Encoder(ptr noundef %72)
   br label %WebPEncodingSetError.exit78
 
 92:                                               ; preds = %.critedge
-  %93 = tail call fastcc i32 @DeleteVP8Encoder(ptr noundef nonnull %72)
+  %93 = tail call fastcc i32 @DeleteVP8Encoder(ptr noundef %72)
   %94 = and i32 %93, 1
   br label %WebPEncodingSetError.exit78
 
@@ -313,7 +313,7 @@ declare i32 @WebPPictureARGBToYUVADithered(ptr noundef, i32 noundef, float nound
 declare void @WebPCleanupTransparentArea(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @InitVP8Encoder(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @InitVP8Encoder(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #2 {
 ._crit_edge:
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 4
@@ -615,7 +615,7 @@ declare i32 @VP8EncFinishAlpha(ptr noundef) local_unnamed_addr #3
 declare i32 @VP8EncWrite(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @StoreStats(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc void @StoreStats(ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 128
@@ -798,11 +798,11 @@ FinalizePSNR.exit:                                ; preds = %GetPSNR.exit24.i, %
 declare void @VP8EncFreeBitWriters(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DeleteVP8Encoder(ptr noundef %0) unnamed_addr #2 {
-  %2 = tail call i32 @VP8EncDeleteAlpha(ptr noundef %0) #8
+define internal fastcc i32 @DeleteVP8Encoder(ptr noundef nonnull %0) unnamed_addr #2 {
+  %2 = tail call i32 @VP8EncDeleteAlpha(ptr noundef nonnull %0) #8
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   tail call void @VP8TBufferClear(ptr noundef nonnull %3) #8
-  tail call void @WebPSafeFree(ptr noundef %0) #8
+  tail call void @WebPSafeFree(ptr noundef nonnull %0) #8
   ret i32 %2
 }
 

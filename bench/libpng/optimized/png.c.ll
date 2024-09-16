@@ -1366,7 +1366,7 @@ define void @png_colorspace_set_gamma(ptr noalias noundef %0, ptr noalias nocapt
 ._crit_edge21:                                    ; preds = %3
   %.phi.trans.insert22 = getelementptr inbounds i8, ptr %1, i64 74
   %.pre23 = load i16, ptr %.phi.trans.insert22, align 2
-  br label %32
+  br label %33
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 300
@@ -1378,23 +1378,23 @@ define void @png_colorspace_set_gamma(ptr noalias noundef %0, ptr noalias nocapt
   %9 = and i16 %.pre, 8
   %.not15 = icmp eq i16 %9, 0
   %or.cond24 = select i1 %.not, i1 true, i1 %.not15
-  br i1 %or.cond24, label %._crit_edge, label %32
+  br i1 %or.cond24, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 74
   %.not16 = icmp sgt i16 %.pre, -1
-  br i1 %.not16, label %11, label %36
+  br i1 %.not16, label %11, label %37
 
 11:                                               ; preds = %._crit_edge
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %12 = and i16 %.pre, 1
   %.not.i = icmp eq i16 %12, 0
-  br i1 %.not.i, label %30, label %13
+  br i1 %.not.i, label %31, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %1, align 4, !alias.scope !17, !noalias !20
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %png_muldiv.exit.thread15.i, label %16
+  br i1 %15, label %png_muldiv.exit.i, label %16
 
 16:                                               ; preds = %13
   %17 = sitofp i32 %14 to double
@@ -1406,43 +1406,43 @@ define void @png_colorspace_set_gamma(ptr noalias noundef %0, ptr noalias nocapt
   %23 = fcmp ole double %22, 0x41DFFFFFFFC00000
   %24 = fcmp oge double %22, 0xC1E0000000000000
   %or.cond3.i.i = and i1 %23, %24
-  br i1 %or.cond3.i.i, label %png_muldiv.exit.i, label %png_muldiv.exit.thread15.i
+  br i1 %or.cond3.i.i, label %25, label %png_muldiv.exit.i
 
-png_muldiv.exit.i:                                ; preds = %16
-  %25 = fptosi double %22 to i32
-  %26 = add i32 %25, -95000
-  %27 = icmp ult i32 %26, 10001
-  br i1 %27, label %30, label %png_muldiv.exit.thread15.i
+25:                                               ; preds = %16
+  %26 = fptosi double %22 to i32
+  %27 = add i32 %26, -95000
+  %28 = icmp ult i32 %27, 10001
+  br i1 %28, label %31, label %png_muldiv.exit.i
 
-png_muldiv.exit.thread15.i:                       ; preds = %png_muldiv.exit.i, %16, %13
-  %28 = and i16 %.pre, 32
-  %.not20 = icmp eq i16 %28, 0
-  br i1 %.not20, label %29, label %png_colorspace_check_gamma.exit
+png_muldiv.exit.i:                                ; preds = %25, %16, %13
+  %29 = and i16 %.pre, 32
+  %.not20 = icmp eq i16 %29, 0
+  br i1 %.not20, label %30, label %png_colorspace_check_gamma.exit
 
-29:                                               ; preds = %png_muldiv.exit.thread15.i
+30:                                               ; preds = %png_muldiv.exit.i
   tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, i32 noundef 0) #29, !noalias !17
-  br label %30
+  br label %31
 
-png_colorspace_check_gamma.exit:                  ; preds = %png_muldiv.exit.thread15.i
+png_colorspace_check_gamma.exit:                  ; preds = %png_muldiv.exit.i
   tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, i32 noundef 2) #29, !noalias !17
-  br label %36
+  br label %37
 
-30:                                               ; preds = %29, %png_muldiv.exit.i, %11
+31:                                               ; preds = %30, %25, %11
   store i32 %2, ptr %1, align 4
-  %31 = or i16 %.pre, 9
-  store i16 %31, ptr %10, align 2
-  br label %36
+  %32 = or i16 %.pre, 9
+  store i16 %32, ptr %10, align 2
+  br label %37
 
-32:                                               ; preds = %5, %._crit_edge21
-  %33 = phi i16 [ %.pre23, %._crit_edge21 ], [ %.pre, %5 ]
+33:                                               ; preds = %5, %._crit_edge21
+  %34 = phi i16 [ %.pre23, %._crit_edge21 ], [ %.pre, %5 ]
   %.0 = phi ptr [ @.str.20, %._crit_edge21 ], [ @.str.21, %5 ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 74
-  %35 = or i16 %33, -32768
-  store i16 %35, ptr %34, align 2
+  %35 = getelementptr inbounds i8, ptr %1, i64 74
+  %36 = or i16 %34, -32768
+  store i16 %36, ptr %35, align 2
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef 1) #29
-  br label %36
+  br label %37
 
-36:                                               ; preds = %png_colorspace_check_gamma.exit, %30, %._crit_edge, %32
+37:                                               ; preds = %png_colorspace_check_gamma.exit, %31, %._crit_edge, %33
   ret void
 }
 
@@ -1587,7 +1587,7 @@ png_colorspace_sync_info.exit:                    ; preds = %35, %33, %21, %2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @png_colorspace_set_chromaticities(ptr noalias noundef %0, ptr noalias nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.png_XYZ, align 4
-  %6 = call fastcc i32 @png_colorspace_check_xy(ptr noundef nonnull %5, ptr noundef %2)
+  %6 = call fastcc i32 @png_colorspace_check_xy(ptr noundef %5, ptr noundef %2)
   switch i32 %6, label %32 [
     i32 0, label %7
     i32 1, label %28
@@ -1659,7 +1659,7 @@ png_colorspace_set_xy_and_XYZ.exit:               ; preds = %21, %19, %17, %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @png_colorspace_check_xy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #15 {
+define internal fastcc range(i32 0, 3) i32 @png_colorspace_check_xy(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #15 {
   %3 = alloca %struct.png_xy, align 4
   %4 = load i32, ptr %1, align 4
   %or.cond.i = icmp ugt i32 %4, 100000
@@ -2170,7 +2170,7 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
 315:                                              ; preds = %313, %297
   %.sink.i205.i = phi i32 [ %314, %313 ], [ 0, %297 ]
   store i32 %.sink.i205.i, ptr %298, align 4
-  %316 = call fastcc i32 @png_xy_from_XYZ(ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %316 = call fastcc i32 @png_xy_from_XYZ(ptr noundef %3, ptr noundef %0)
   %.not10 = icmp eq i32 %316, 0
   br i1 %.not10, label %317, label %png_XYZ_from_xy.exit.thread
 
@@ -2549,7 +2549,7 @@ png_muldiv.exit101.i.i:                           ; preds = %165, %154
   br label %png_XYZ_normalize.exit.i
 
 png_XYZ_normalize.exit.i:                         ; preds = %png_muldiv.exit101.i.i, %48
-  %167 = call fastcc i32 @png_xy_from_XYZ(ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %167 = call fastcc i32 @png_xy_from_XYZ(ptr noundef %7, ptr noundef %6)
   %.not11.i = icmp eq i32 %167, 0
   br i1 %.not11.i, label %png_colorspace_check_XYZ.exit, label %png_colorspace_check_XYZ.exit.thread
 
@@ -2559,7 +2559,7 @@ png_colorspace_check_XYZ.exit.thread:             ; preds = %png_XYZ_normalize.e
 
 png_colorspace_check_XYZ.exit:                    ; preds = %png_XYZ_normalize.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %6, i64 36, i1 false)
-  %168 = call fastcc i32 @png_colorspace_check_xy(ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %168 = call fastcc i32 @png_colorspace_check_xy(ptr noundef %5, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
   switch i32 %168, label %290 [
     i32 0, label %169
@@ -2789,7 +2789,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
   %4 = getelementptr inbounds i8, ptr %1, i64 74
   %5 = load i16, ptr %4, align 2
   %.not = icmp sgt i16 %5, -1
-  br i1 %.not, label %6, label %50
+  br i1 %.not, label %6, label %51
 
 6:                                                ; preds = %3
   %or.cond = icmp ugt i32 %2, 3
@@ -2798,7 +2798,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
 7:                                                ; preds = %6
   %8 = sext i32 %2 to i64
   tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %8, ptr noundef nonnull @.str.26)
-  br label %50
+  br label %51
 
 9:                                                ; preds = %6
   %10 = and i16 %5, 4
@@ -2815,7 +2815,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
 15:                                               ; preds = %11
   %16 = zext nneg i32 %2 to i64
   tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %16, ptr noundef nonnull @.str.27)
-  br label %50
+  br label %51
 
 17:                                               ; preds = %11, %9
   %18 = zext nneg i16 %5 to i32
@@ -2825,7 +2825,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
 
 20:                                               ; preds = %17
   tail call void @png_benign_error(ptr noundef %0, ptr noundef nonnull @.str.28) #29
-  br label %50
+  br label %51
 
 21:                                               ; preds = %17
   %22 = and i32 %18, 2
@@ -2853,7 +2853,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
 30:                                               ; preds = %27
   %31 = load i32, ptr %1, align 4, !alias.scope !49, !noalias !52
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %png_muldiv.exit.thread15.i, label %33
+  br i1 %32, label %png_muldiv.exit.i, label %33
 
 33:                                               ; preds = %30
   %34 = sitofp i32 %31 to double
@@ -2864,40 +2864,40 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
   %39 = fcmp ole double %38, 0x41DFFFFFFFC00000
   %40 = fcmp oge double %38, 0xC1E0000000000000
   %or.cond3.i.i = and i1 %39, %40
-  br i1 %or.cond3.i.i, label %png_muldiv.exit.i, label %png_muldiv.exit.thread15.i
+  br i1 %or.cond3.i.i, label %41, label %png_muldiv.exit.i
 
-png_muldiv.exit.i:                                ; preds = %33
-  %41 = fptosi double %38 to i32
-  %42 = add i32 %41, -95000
-  %43 = icmp ult i32 %42, 10001
-  br i1 %43, label %png_colorspace_check_gamma.exit, label %png_muldiv.exit.thread15.i
+41:                                               ; preds = %33
+  %42 = fptosi double %38 to i32
+  %43 = add i32 %42, -95000
+  %44 = icmp ult i32 %43, 10001
+  br i1 %44, label %png_colorspace_check_gamma.exit, label %png_muldiv.exit.i
 
-png_muldiv.exit.thread15.i:                       ; preds = %png_muldiv.exit.i, %33, %30
+png_muldiv.exit.i:                                ; preds = %41, %33, %30
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.69, i32 noundef 2) #29, !noalias !49
   %.pre35 = load i16, ptr %4, align 2
   br label %png_colorspace_check_gamma.exit
 
-png_colorspace_check_gamma.exit:                  ; preds = %27, %png_muldiv.exit.i, %png_muldiv.exit.thread15.i
-  %44 = phi i16 [ %28, %27 ], [ %28, %png_muldiv.exit.i ], [ %.pre35, %png_muldiv.exit.thread15.i ]
-  %45 = trunc nuw nsw i32 %2 to i16
-  %46 = getelementptr inbounds i8, ptr %1, i64 72
-  store i16 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %47, ptr noundef nonnull align 4 dereferenceable(32) @sRGB_xy, i64 32, i1 false)
-  %48 = getelementptr inbounds i8, ptr %1, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %48, ptr noundef nonnull align 4 dereferenceable(36) @png_colorspace_set_sRGB.sRGB_XYZ, i64 36, i1 false)
+png_colorspace_check_gamma.exit:                  ; preds = %27, %41, %png_muldiv.exit.i
+  %45 = phi i16 [ %28, %27 ], [ %28, %41 ], [ %.pre35, %png_muldiv.exit.i ]
+  %46 = trunc nuw nsw i32 %2 to i16
+  %47 = getelementptr inbounds i8, ptr %1, i64 72
+  store i16 %46, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %1, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %48, ptr noundef nonnull align 4 dereferenceable(32) @sRGB_xy, i64 32, i1 false)
+  %49 = getelementptr inbounds i8, ptr %1, i64 36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %49, ptr noundef nonnull align 4 dereferenceable(36) @png_colorspace_set_sRGB.sRGB_XYZ, i64 36, i1 false)
   store i32 45455, ptr %1, align 4
-  %49 = or i16 %44, 231
-  store i16 %49, ptr %4, align 2
-  br label %50
+  %50 = or i16 %45, 231
+  store i16 %50, ptr %4, align 2
+  br label %51
 
-50:                                               ; preds = %3, %png_colorspace_check_gamma.exit, %20, %15, %7
+51:                                               ; preds = %3, %png_colorspace_check_gamma.exit, %20, %15, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 0, %20 ], [ 1, %png_colorspace_check_gamma.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 4294967296) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [196 x i8], align 16
   %7 = alloca [24 x i8], align 16
   %.not = icmp eq ptr %1, null
@@ -2919,11 +2919,13 @@ define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr n
   %18 = icmp ne i64 %17, 32
   %19 = add nsw i64 %17, -58
   %or.cond.i.i = icmp ult i64 %19, -10
-  %or.cond10.i.not16.i = and i1 %18, %or.cond.i.i
-  %20 = and i64 %17, 1099511627743
-  %21 = add nsw i64 %20, -91
+  %or.cond10.i.not23.i = select i1 %18, i1 %or.cond.i.i, i1 false
+  %20 = add nsw i64 %17, -91
+  %or.cond3.i.i = icmp ult i64 %20, -26
+  %or.cond11.i.not22.i = select i1 %or.cond10.i.not23.i, i1 %or.cond3.i.i, i1 false
+  %21 = add nsw i64 %17, -123
   %22 = icmp ult i64 %21, -26
-  %narrow.i.not.i = and i1 %or.cond10.i.not16.i, %22
+  %narrow.i.not.i = select i1 %or.cond11.i.not22.i, i1 %22, i1 false
   br i1 %narrow.i.not.i, label %is_ICC_signature.exit.thread, label %23
 
 23:                                               ; preds = %12
@@ -2932,37 +2934,43 @@ define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr n
   %26 = icmp ne i64 %25, 32
   %27 = add nsw i64 %25, -58
   %or.cond.i6.i = icmp ult i64 %27, -10
-  %or.cond10.i7.not18.i = and i1 %26, %or.cond.i6.i
-  %28 = and i64 %24, 223
-  %29 = add nsw i64 %28, -91
+  %or.cond10.i7.not26.i = select i1 %26, i1 %or.cond.i6.i, i1 false
+  %28 = add nsw i64 %25, -91
+  %or.cond3.i8.i = icmp ult i64 %28, -26
+  %or.cond11.i9.not24.i = select i1 %or.cond10.i7.not26.i, i1 %or.cond3.i8.i, i1 false
+  %29 = add nsw i64 %25, -123
   %30 = icmp ult i64 %29, -26
-  %narrow.i8.not.i = and i1 %30, %or.cond10.i7.not18.i
-  br i1 %narrow.i8.not.i, label %is_ICC_signature.exit.thread, label %31
+  %narrow.i10.not.i = select i1 %or.cond11.i9.not24.i, i1 %30, i1 false
+  br i1 %narrow.i10.not.i, label %is_ICC_signature.exit.thread, label %31
 
 31:                                               ; preds = %23
   %32 = lshr i64 %3, 8
   %33 = and i64 %32, 255
   %34 = icmp ne i64 %33, 32
   %35 = add nsw i64 %33, -58
-  %or.cond.i9.i = icmp ult i64 %35, -10
-  %or.cond10.i10.not20.i = and i1 %34, %or.cond.i9.i
-  %36 = and i64 %32, 223
-  %37 = add nsw i64 %36, -91
+  %or.cond.i11.i = icmp ult i64 %35, -10
+  %or.cond10.i12.not29.i = select i1 %34, i1 %or.cond.i11.i, i1 false
+  %36 = add nsw i64 %33, -91
+  %or.cond3.i13.i = icmp ult i64 %36, -26
+  %or.cond11.i14.not27.i = select i1 %or.cond10.i12.not29.i, i1 %or.cond3.i13.i, i1 false
+  %37 = add nsw i64 %33, -123
   %38 = icmp ult i64 %37, -26
-  %narrow.i11.not.i = and i1 %38, %or.cond10.i10.not20.i
-  br i1 %narrow.i11.not.i, label %is_ICC_signature.exit.thread, label %is_ICC_signature.exit
+  %narrow.i15.not.i = select i1 %or.cond11.i14.not27.i, i1 %38, i1 false
+  br i1 %narrow.i15.not.i, label %is_ICC_signature.exit.thread, label %is_ICC_signature.exit
 
 is_ICC_signature.exit:                            ; preds = %31
   %39 = and i64 %3, 255
   %40 = icmp ne i64 %39, 32
   %41 = add nsw i64 %39, -58
-  %or.cond.i12.i = icmp ult i64 %41, -10
-  %or.cond10.i13.i.not25 = and i1 %40, %or.cond.i12.i
-  %42 = and i64 %3, 223
-  %43 = add nsw i64 %42, -91
+  %or.cond.i16.i = icmp ult i64 %41, -10
+  %or.cond10.i17.i.not26 = select i1 %40, i1 %or.cond.i16.i, i1 false
+  %42 = add nsw i64 %39, -91
+  %or.cond3.i18.i = icmp ult i64 %42, -26
+  %or.cond11.i19.i.not24 = select i1 %or.cond10.i17.i.not26, i1 %or.cond3.i18.i, i1 false
+  %43 = add nsw i64 %39, -123
   %44 = icmp ult i64 %43, -26
-  %narrow.i14.i.not = and i1 %44, %or.cond10.i13.i.not25
-  br i1 %narrow.i14.i.not, label %is_ICC_signature.exit.thread, label %45
+  %narrow.i20.i.not = select i1 %or.cond11.i19.i.not24, i1 %44, i1 false
+  br i1 %narrow.i20.i.not, label %is_ICC_signature.exit.thread, label %45
 
 45:                                               ; preds = %is_ICC_signature.exit
   %46 = getelementptr inbounds i8, ptr %6, i64 %16
@@ -2978,17 +2986,17 @@ is_ICC_signature.exit:                            ; preds = %31
   %52 = lshr i32 %47, 16
   %53 = and i32 %52, 255
   %54 = add nsw i32 %53, -32
-  %or.cond.i9.i21 = icmp ult i32 %54, 95
+  %or.cond.i9.i = icmp ult i32 %54, 95
   %55 = trunc i32 %52 to i8
-  %.0.i10.i = select i1 %or.cond.i9.i21, i8 %55, i8 63
+  %.0.i10.i = select i1 %or.cond.i9.i, i8 %55, i8 63
   %56 = getelementptr inbounds i8, ptr %46, i64 2
   store i8 %.0.i10.i, ptr %56, align 1
   %57 = lshr i32 %47, 8
   %58 = and i32 %57, 255
   %59 = add nsw i32 %58, -32
-  %or.cond.i11.i = icmp ult i32 %59, 95
+  %or.cond.i11.i21 = icmp ult i32 %59, 95
   %60 = trunc i32 %57 to i8
-  %.0.i12.i = select i1 %or.cond.i11.i, i8 %60, i8 63
+  %.0.i12.i = select i1 %or.cond.i11.i21, i8 %60, i8 63
   %61 = getelementptr inbounds i8, ptr %46, i64 3
   store i8 %.0.i12.i, ptr %61, align 1
   %62 = and i32 %47, 255
@@ -3025,7 +3033,7 @@ is_ICC_signature.exit.thread:                     ; preds = %12, %23, %31, %is_I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @png_colorspace_endpoints_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @png_colorspace_endpoints_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 5, 1001) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 24
@@ -5874,7 +5882,7 @@ png_build_8bit_table.exit104:                     ; preds = %png_gamma_8bit_corr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 16) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = sub nsw i32 8, %2
   %6 = shl nuw nsw i32 1, %5
   %7 = sub nuw nsw i32 16, %2
@@ -5882,7 +5890,7 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %8 = xor i32 %notmask, -1
   %9 = uitofp nneg i32 %8 to double
   %10 = fdiv double 1.000000e+00, %9
-  %11 = sub nuw nsw i32 15, %2
+  %11 = xor i32 %2, 15
   %12 = shl nuw nsw i32 1, %11
   %13 = zext nneg i32 %6 to i64
   %14 = shl nuw nsw i64 %13, 3
@@ -6100,7 +6108,7 @@ define noundef i32 @png_image_error(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @png_xy_from_XYZ(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #15 {
+define internal fastcc range(i32 0, 2) i32 @png_xy_from_XYZ(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4

@@ -2277,17 +2277,17 @@ if.end13.i:                                       ; preds = %skip_optional.threa
   store i32 -1, ptr %sentinel15.i, align 4
   %sentinel17.i = getelementptr inbounds i8, ptr %efd2obj.i, i64 12
   store i32 -1, ptr %sentinel17.i, align 4
-  %call18.i = call fastcc i32 @seq2set(ptr noundef %1, ptr noundef nonnull %ifdset.i, ptr noundef nonnull %rfd2obj.i)
+  %call18.i = call fastcc i32 @seq2set(ptr noundef %1, ptr noundef %ifdset.i, ptr noundef %rfd2obj.i)
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %finally.i, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end13.i
-  %call23.i = call fastcc i32 @seq2set(ptr noundef %2, ptr noundef nonnull %ofdset.i, ptr noundef nonnull %wfd2obj.i)
+  %call23.i = call fastcc i32 @seq2set(ptr noundef %2, ptr noundef %ofdset.i, ptr noundef %wfd2obj.i)
   %cmp24.i = icmp slt i32 %call23.i, 0
   br i1 %cmp24.i, label %finally.i, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end21.i
-  %call28.i = call fastcc i32 @seq2set(ptr noundef %3, ptr noundef nonnull %efdset.i, ptr noundef nonnull %efd2obj.i)
+  %call28.i = call fastcc i32 @seq2set(ptr noundef %3, ptr noundef %efdset.i, ptr noundef %efd2obj.i)
   %cmp29.i = icmp slt i32 %call28.i, 0
   br i1 %cmp29.i, label %finally.i, label %if.end31.i
 
@@ -2374,9 +2374,9 @@ if.then108.i:                                     ; preds = %do.end105.i
   br label %finally.i
 
 if.else110.i:                                     ; preds = %do.end105.i, %for.body.preheader.i
-  %call112.i = call fastcc ptr @set2list(ptr noundef nonnull %ifdset.i, ptr noundef nonnull %rfd2obj.i)
-  %call114.i = call fastcc ptr @set2list(ptr noundef nonnull %ofdset.i, ptr noundef nonnull %wfd2obj.i)
-  %call116.i = call fastcc ptr @set2list(ptr noundef nonnull %efdset.i, ptr noundef nonnull %efd2obj.i)
+  %call112.i = call fastcc ptr @set2list(ptr noundef %ifdset.i, ptr noundef %rfd2obj.i)
+  %call114.i = call fastcc ptr @set2list(ptr noundef %ofdset.i, ptr noundef %wfd2obj.i)
+  %call116.i = call fastcc ptr @set2list(ptr noundef %efdset.i, ptr noundef %efd2obj.i)
   %call117.i = call ptr @PyErr_Occurred() #8
   %tobool118.not.i = icmp eq ptr %call117.i, null
   br i1 %tobool118.not.i, label %if.else120.i, label %if.end122.i
@@ -2632,7 +2632,7 @@ select_poll_impl.exit:                            ; preds = %entry, %if.end.i.i,
 declare i32 @_PyTime_AsTimeval(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1025) i32 @seq2set(ptr noundef %seq, ptr nocapture noundef %set, ptr nocapture noundef writeonly %fd2obj) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1025) i32 @seq2set(ptr noundef %seq, ptr nocapture noundef nonnull %set, ptr nocapture noundef nonnull writeonly %fd2obj) unnamed_addr #0 {
 entry:
   store ptr null, ptr %fd2obj, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %set, i8 0, i64 128, i1 false)
@@ -2792,7 +2792,7 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @_PyTime_AsTimeval_clamp(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set2list(ptr nocapture noundef readonly %set, ptr nocapture noundef %fd2obj) unnamed_addr #0 {
+define internal fastcc ptr @set2list(ptr nocapture noundef nonnull readonly %set, ptr nocapture noundef nonnull %fd2obj) unnamed_addr #0 {
 entry:
   %sentinel24 = getelementptr inbounds i8, ptr %fd2obj, i64 12
   %0 = load i32, ptr %sentinel24, align 4

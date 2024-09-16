@@ -278,7 +278,7 @@ define i32 @dissect_oer_constrained_integer_64b_no_ub(ptr noundef %0, i32 nounde
 
 13:                                               ; preds = %9
   %14 = load i32, ptr @hf_oer_length_determinant, align 4
-  %15 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %14, ptr noundef nonnull %11)
+  %15 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %14, ptr noundef %11)
   %16 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %28, label %17
@@ -327,7 +327,7 @@ define i32 @dissect_oer_constrained_integer_64b_no_ub(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   store i32 0, ptr %5, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #8
   %8 = icmp sgt i8 %7, -1
@@ -417,7 +417,7 @@ proto_item_set_hidden.exit:                       ; preds = %18, %15, %12, %9
 define noundef i32 @dissect_oer_integer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_oer_length_determinant, align 4
-  %9 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef nonnull %7)
+  %9 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef %7)
   %10 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %35, label %11
@@ -545,7 +545,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @dissect_oer_enumerated(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readnone %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
-  %12 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, ptr noundef nonnull %11)
+  %12 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, ptr noundef %11)
   %13 = sub i32 %12, %1
   %14 = load i32, ptr %11, align 4
   %15 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %13, i32 noundef %14) #8
@@ -604,7 +604,7 @@ define noundef i32 @dissect_oer_octet_string(ptr noundef %0, i32 noundef %1, ptr
 
 21:                                               ; preds = %9
   %22 = load i32, ptr @hf_oer_length_determinant, align 4
-  %23 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %22, ptr noundef nonnull %10)
+  %23 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %22, ptr noundef %10)
   %24 = load i32, ptr %10, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef 0) #8
   %26 = getelementptr inbounds i8, ptr %2, i64 24
@@ -952,7 +952,7 @@ index_get_field_name.exit:                        ; preds = %137, %145
 
 157:                                              ; preds = %._crit_edge222
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %158 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %.1.lcssa, ptr noundef readonly %2, ptr noundef %14, i32 noundef -1, ptr noundef nonnull %8)
+  %158 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %.1.lcssa, ptr noundef readonly %2, ptr noundef %14, i32 noundef -1, ptr noundef %8)
   %159 = load i32, ptr %8, align 4
   %160 = icmp sgt i32 %159, 0
   br i1 %160, label %161, label %.thread8.i
@@ -1310,7 +1310,7 @@ define i32 @dissect_oer_sequence_of(ptr noundef %0, i32 noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_oer_length_determinant, align 4
-  %11 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %10, ptr noundef nonnull %9)
+  %11 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %10, ptr noundef %9)
   %12 = load i32, ptr %9, align 4
   switch i32 %12, label %23 [
     i32 1, label %13
@@ -1549,7 +1549,7 @@ proto_item_set_hidden.exit77:                     ; preds = %proto_item_set_hidd
 
 68:                                               ; preds = %61
   %69 = load i32, ptr @hf_oer_length_determinant, align 4
-  %70 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, i32 noundef %69, ptr noundef nonnull %11)
+  %70 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, i32 noundef %69, ptr noundef %11)
   br label %71
 
 71:                                               ; preds = %68, %61
@@ -1577,7 +1577,7 @@ proto_item_set_hidden.exit77:                     ; preds = %proto_item_set_hidd
 ._crit_edge:                                      ; preds = %79, %54
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %83 = load i32, ptr @hf_oer_length_determinant, align 4
-  %84 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, i32 noundef %83, ptr noundef nonnull %9)
+  %84 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, i32 noundef %83, ptr noundef %9)
   %85 = load i32, ptr %9, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %84, i32 noundef %85, i32 noundef 0) #8
   %87 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1600,7 +1600,7 @@ define i32 @dissect_oer_object_identifier(ptr noundef %0, i32 noundef %1, ptr no
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %8 = load i32, ptr @hf_oer_length_determinant, align 4
-  %9 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef nonnull %7)
+  %9 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef %7)
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr null, ptr %10, align 8
   %11 = tail call ptr @proto_registrar_get_nth(i32 noundef %4) #8
@@ -1678,7 +1678,7 @@ define noundef i32 @dissect_oer_IA5String(ptr noundef %0, i32 noundef %1, ptr no
 
 12:                                               ; preds = %8
   %13 = load i32, ptr @hf_oer_length_determinant, align 4
-  %14 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %13, ptr noundef nonnull %9)
+  %14 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %13, ptr noundef %9)
   %.pre = load i32, ptr %9, align 4
   br label %15
 
@@ -1697,7 +1697,7 @@ define hidden noundef i32 @dissect_oer_UTF8String(ptr noundef %0, i32 noundef %1
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %10 = load i32, ptr @hf_oer_length_determinant, align 4
-  %11 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %10, ptr noundef nonnull %9)
+  %11 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %10, ptr noundef %9)
   %12 = load i32, ptr %9, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %11, i32 noundef %12, i32 noundef 2) #8
   %14 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1711,7 +1711,7 @@ define noundef i32 @dissect_oer_open_type(ptr noundef %0, i32 noundef %1, ptr no
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %8 = load i32, ptr @hf_oer_open_type_length, align 4
-  %9 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef nonnull %7)
+  %9 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef %7)
   %10 = load i32, ptr %7, align 4
   %11 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %9, i32 noundef %10) #8
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %11, i32 noundef 0, i32 noundef %10, i32 noundef 0) #8

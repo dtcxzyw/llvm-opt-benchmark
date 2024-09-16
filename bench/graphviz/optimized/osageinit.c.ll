@@ -1287,7 +1287,7 @@ declare i32 @getPackInfo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) loc
 declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #10 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0, i64 noundef range(i64 4, 33) %1) unnamed_addr #10 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 

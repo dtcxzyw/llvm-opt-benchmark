@@ -2114,7 +2114,7 @@ declare i64 @llvm.read_register.i64(metadata) #6
 declare void @llvm.write_register.i64(metadata, i64) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @poll_select_finish(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @poll_select_finish(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.timespec64, align 8
   %6 = alloca %struct.timespec64, align 8
   %7 = alloca %struct.__kernel_old_timeval, align 8
@@ -2209,7 +2209,7 @@ define internal fastcc noundef i32 @poll_select_finish(ptr nocapture noundef rea
 57:                                               ; preds = %56, %43
   %58 = phi i64 [ 0, %56 ], [ %54, %43 ]
   %59 = phi i64 [ 0, %56 ], [ %52, %43 ]
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable1 [
     i32 0, label %60
     i32 1, label %65
     i32 2, label %72
@@ -2250,7 +2250,7 @@ define internal fastcc noundef i32 @poll_select_finish(ptr nocapture noundef rea
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %80, label %78
 
-default.unreachable:                              ; preds = %57
+default.unreachable1:                             ; preds = %57
   unreachable
 
 78:                                               ; preds = %75, %72, %65, %60, %31
@@ -3063,7 +3063,7 @@ declare dso_local i64 @compat_get_bitmap(ptr noundef, ptr noundef, i64 noundef) 
 declare dso_local i64 @compat_put_bitmap(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_compat_pselect(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_compat_pselect(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 2, 4) %7) unnamed_addr #0 align 16 {
   %9 = alloca %struct.timespec64, align 8
   %10 = alloca %struct.timespec64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9

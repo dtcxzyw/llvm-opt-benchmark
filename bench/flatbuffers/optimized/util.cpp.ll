@@ -1442,7 +1442,7 @@ sw.bb11:                                          ; preds = %sw.epilog
   store ptr @_ZN11flatbuffers11CharToUpperEc, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFccEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFccEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_15ToAllERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFccEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_15ToAllERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFccEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef %agg.tmp)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %sw.bb11
@@ -1487,7 +1487,7 @@ sw.bb14:                                          ; preds = %sw.epilog
   store ptr @_ZN11flatbuffers11CharToLowerEc, ptr %agg.tmp15, align 8
   store ptr @_ZNSt17_Function_handlerIFccEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i55, align 8
   store ptr @_ZNSt17_Function_handlerIFccEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i54, align 8
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_15ToAllERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFccEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef nonnull %agg.tmp15)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_15ToAllERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFccEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef %agg.tmp15)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %sw.bb14
@@ -1797,7 +1797,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_15ToAllERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFccEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef %transform) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_15ToAllERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFccEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef nonnull %transform) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i8, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #17

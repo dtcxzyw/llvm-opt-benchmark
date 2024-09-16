@@ -5984,7 +5984,7 @@ _ZNSt10unique_ptrIN5ceres8internal11ProblemImplESt14default_deleteIS2_EED2Ev.exi
   %225 = load i32, ptr %26, align 4
   %226 = load i32, ptr %27, align 4
   %227 = load i32, ptr %28, align 4
-  invoke fastcc void @_ZN5ceres12_GLOBAL__N_122SchurStructureToStringB5cxx11Eiii(ptr dead_on_unwind noalias nonnull writable align 8 %29, i32 noundef %225, i32 noundef %226, i32 noundef %227)
+  invoke fastcc void @_ZN5ceres12_GLOBAL__N_122SchurStructureToStringB5cxx11Eiii(ptr dead_on_unwind noalias writable align 8 %29, i32 noundef %225, i32 noundef %226, i32 noundef %227)
           to label %228 unwind label %240
 
 228:                                              ; preds = %224
@@ -5998,7 +5998,7 @@ _ZNSt10unique_ptrIN5ceres8internal11ProblemImplESt14default_deleteIS2_EED2Ev.exi
   %232 = load i32, ptr %26, align 4
   %233 = load i32, ptr %27, align 4
   %234 = load i32, ptr %28, align 4
-  invoke fastcc void @_ZN5ceres12_GLOBAL__N_122SchurStructureToStringB5cxx11Eiii(ptr dead_on_unwind noalias nonnull writable align 8 %30, i32 noundef %232, i32 noundef %233, i32 noundef %234)
+  invoke fastcc void @_ZN5ceres12_GLOBAL__N_122SchurStructureToStringB5cxx11Eiii(ptr dead_on_unwind noalias writable align 8 %30, i32 noundef %232, i32 noundef %233, i32 noundef %234)
           to label %235 unwind label %240
 
 235:                                              ; preds = %231
@@ -7519,7 +7519,7 @@ declare void @_ZN5ceres8internal15DetectStructureERKNS0_27CompressedRowBlockStru
 declare noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix15block_structureEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ceres12_GLOBAL__N_122SchurStructureToStringB5cxx11Eiii(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ceres12_GLOBAL__N_122SchurStructureToStringB5cxx11Eiii(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.6", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7622,7 +7622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
   %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   %30 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
-  invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.177, ptr noundef %29, ptr noundef %30, ptr noundef %31)
+  invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.177, ptr noundef %29, ptr noundef %30, ptr noundef %31)
           to label %32 unwind label %36
 
 32:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38

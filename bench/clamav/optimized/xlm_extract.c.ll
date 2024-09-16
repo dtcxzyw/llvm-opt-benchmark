@@ -1997,7 +1997,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   %98 = load i16, ptr %34, align 2
   %99 = zext i16 %98 to i32
   %100 = add nsw i32 %99, -21
-  %101 = call fastcc i32 @parse_formula(ptr noundef nonnull %22, ptr noundef nonnull %45, i32 noundef %100)
+  %101 = call fastcc i32 @parse_formula(ptr noundef %22, ptr noundef %45, i32 noundef %100)
   %.not162 = icmp eq i32 %101, 0
   br i1 %.not162, label %227, label %102
 
@@ -2390,7 +2390,7 @@ declare i64 @cli_readn(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 -21, 65515) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %.not385 = icmp eq i32 %2, 0
@@ -2409,7 +2409,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
   %12 = zext nneg i8 %9 to i64
   %13 = getelementptr inbounds [126 x ptr], ptr @TOKENS, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef %14) #10
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1223, ptr noundef %14) #10
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %18
 
@@ -2497,7 +2497,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
   %40 = add i32 %.0245384, 3
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %1, i64 %41
-  %43 = call i32 @cli_codepage_to_utf8(ptr noundef %42, i64 noundef %spec.select, i16 noundef zeroext 1200, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %43 = call i32 @cli_codepage_to_utf8(ptr noundef nonnull %42, i64 noundef %spec.select, i16 noundef zeroext 1200, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %54
 
@@ -2508,7 +2508,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %4, align 8
-  %49 = call i64 @fwrite(ptr noundef %48, i64 noundef 1, i64 noundef %46, ptr noundef %0)
+  %49 = call i64 @fwrite(ptr noundef %48, i64 noundef 1, i64 noundef %46, ptr noundef nonnull %0)
   %50 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %50) #10
   %51 = load i64, ptr %5, align 8
@@ -2521,7 +2521,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 54:                                               ; preds = %36
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1226) #10
-  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1212) #10
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1212) #10
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %58
 
@@ -2552,7 +2552,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 70:                                               ; preds = %68
   %71 = zext i32 %spec.select311 to i64
-  %72 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %71, ptr noundef %0)
+  %72 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %71, ptr noundef nonnull %0)
   %73 = icmp ult i64 %72, %71
   br i1 %73, label %74, label %75
 
@@ -2609,7 +2609,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
   %.masked305 = and i32 %94, 65535
   %100 = or i32 %99, %.masked305
   %101 = add nuw nsw i32 %100, 1
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1231, i32 noundef %101) #10
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1231, i32 noundef %101) #10
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %105
 
@@ -2642,7 +2642,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
   %117 = load i8, ptr %116, align 1
   %.not301 = icmp eq i8 %117, 0
   %118 = select i1 %.not301, ptr @.str.289, ptr @.str.288
-  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %118) #10
+  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1223, ptr noundef nonnull %118) #10
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %121, label %122
 
@@ -2675,7 +2675,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
   %136 = sext i8 %135 to i32
   %137 = shl nsw i32 %136, 8
   %138 = or i32 %137, %132
-  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1236, i32 noundef %138) #10
+  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1236, i32 noundef %138) #10
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %141, label %142
 
@@ -2740,7 +2740,7 @@ get_function_name.exit:                           ; preds = %163, %165, %.sink.s
   %.0.i = phi ptr [ null, %165 ], [ null, %163 ], [ %171, %.sink.split.i ]
   %172 = icmp eq ptr %.0.i, null
   %173 = select i1 %172, ptr @.str.1240, ptr %.0.i
-  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1239, ptr noundef nonnull %173, i32 noundef %158) #10
+  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1239, ptr noundef nonnull %173, i32 noundef %158) #10
   %175 = icmp slt i32 %174, 0
   br i1 %175, label %176, label %177
 
@@ -2810,7 +2810,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   %211 = sext i8 %210 to i32
   %212 = icmp eq ptr %.0.i313, null
   %213 = select i1 %212, ptr @.str.1240, ptr %.0.i313
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1243, i32 noundef %211, ptr noundef nonnull %213, i32 noundef %193) #10
+  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1243, i32 noundef %211, ptr noundef nonnull %213, i32 noundef %193) #10
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %216, label %217
 
@@ -2859,7 +2859,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   %245 = sext i8 %244 to i32
   %246 = shl nsw i32 %245, 24
   %247 = or i32 %241, %246
-  %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1246, i32 noundef %247) #10
+  %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1246, i32 noundef %247) #10
   %249 = icmp slt i32 %248, 0
   br i1 %249, label %250, label %251
 
@@ -2885,7 +2885,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   %258 = zext i32 %257 to i64
   %259 = getelementptr inbounds i8, ptr %1, i64 %258
   %260 = load double, ptr %259, align 8
-  %261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1249, double noundef %260) #10
+  %261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1249, double noundef %260) #10
   %262 = icmp slt i32 %261, 0
   br i1 %262, label %263, label %264
 
@@ -2907,7 +2907,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   br label %.loopexit
 
 269:                                              ; preds = %266
-  %270 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1252) #10
+  %270 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1252) #10
   %271 = icmp slt i32 %270, 0
   br i1 %271, label %272, label %273
 
@@ -2956,7 +2956,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   %.masked291 = and i32 %294, 65535
   %302 = or i32 %299, %.masked291
   %303 = add nuw nsw i32 %302, 1
-  %304 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1255, i32 noundef %301, i32 noundef %303) #10
+  %304 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1255, i32 noundef %301, i32 noundef %303) #10
   %305 = icmp slt i32 %304, 0
   br i1 %305, label %306, label %307
 
@@ -3014,7 +3014,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   %341 = or i32 %333, %.masked288
   %342 = zext i1 %.not287 to i32
   %343 = add nuw nsw i32 %341, %342
-  %344 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1258, ptr noundef nonnull %336, i32 noundef %339, ptr noundef nonnull %340, i32 noundef %343) #10
+  %344 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1258, ptr noundef nonnull %336, i32 noundef %339, ptr noundef nonnull %340, i32 noundef %343) #10
   %345 = icmp slt i32 %344, 0
   br i1 %345, label %346, label %347
 
@@ -3109,7 +3109,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   %413 = or i32 %395, %.masked282
   %414 = zext i1 %.not281 to i32
   %415 = add nuw nsw i32 %413, %414
-  %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1263, ptr noundef nonnull %398, i32 noundef %401, ptr noundef nonnull %402, i32 noundef %405, ptr noundef nonnull %408, i32 noundef %411, ptr noundef nonnull %412, i32 noundef %415) #10
+  %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1263, ptr noundef nonnull %398, i32 noundef %401, ptr noundef nonnull %402, i32 noundef %405, ptr noundef nonnull %408, i32 noundef %411, ptr noundef nonnull %412, i32 noundef %415) #10
   %417 = icmp slt i32 %416, 0
   br i1 %417, label %418, label %419
 
@@ -3167,7 +3167,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   %453 = or i32 %445, %.masked271
   %454 = zext i1 %.not270 to i32
   %455 = add nuw nsw i32 %453, %454
-  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1258, ptr noundef nonnull %448, i32 noundef %451, ptr noundef nonnull %452, i32 noundef %455) #10
+  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1258, ptr noundef nonnull %448, i32 noundef %451, ptr noundef nonnull %452, i32 noundef %455) #10
   %457 = icmp slt i32 %456, 0
   br i1 %457, label %458, label %459
 
@@ -3202,7 +3202,7 @@ get_function_name.exit316:                        ; preds = %198, %200, %.sink.s
   %475 = shl nuw nsw i32 %474, 8
   %.masked = and i32 %469, 65535
   %476 = or i32 %475, %.masked
-  %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1268, i32 noundef %476) #10
+  %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1268, i32 noundef %476) #10
   %478 = icmp slt i32 %477, 0
   br i1 %478, label %479, label %480
 

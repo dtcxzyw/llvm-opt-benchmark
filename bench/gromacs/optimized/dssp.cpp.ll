@@ -8047,7 +8047,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 -67818912035696880, 67818912035696881) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %3, align 8
@@ -8349,10 +8349,10 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondarySt
   store float %90, ptr %65, align 8
   %91 = load i64, ptr %38, align 8
   %.val108 = load ptr, ptr %20, align 8
-  %92 = call fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures24calculateAtomicDistancesEPfmRK10t_trxframePK5t_pbc(ptr noundef nonnull %7, i64 noundef %91, ptr %.val108, ptr noundef %4)
+  %92 = call fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures24calculateAtomicDistancesEPfmRK10t_trxframePK5t_pbc(ptr noundef %7, i64 noundef %91, ptr %.val108, ptr noundef %4)
   %93 = load i64, ptr %42, align 8
   %.val109 = load ptr, ptr %20, align 8
-  %94 = call fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures24calculateAtomicDistancesEPfmRK10t_trxframePK5t_pbc(ptr noundef nonnull %7, i64 noundef %93, ptr %.val109, ptr noundef %4)
+  %94 = call fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures24calculateAtomicDistancesEPfmRK10t_trxframePK5t_pbc(ptr noundef %7, i64 noundef %93, ptr %.val109, ptr noundef %4)
   br label %103
 
 95:                                               ; preds = %35
@@ -8589,7 +8589,7 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondarySt
   %88 = load i64, ptr %26, align 8
   %89 = getelementptr inbounds [3 x float], ptr %85, i64 %88
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef %4, ptr noundef nonnull %7, ptr noundef %89, ptr noundef nonnull %8)
-  %90 = call fastcc noundef float @_ZL9gmx_anglePKfS0_(ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %90 = call fastcc noundef float @_ZL9gmx_anglePKfS0_(ptr noundef %6, ptr noundef %8)
   %91 = fpext float %90 to double
   %92 = fmul double %91, 0x404CA5DC1A63C1F8
   %93 = fptrunc double %92 to float
@@ -8828,7 +8828,7 @@ define internal fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119Se
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures24calculateAtomicDistancesEPfmRK10t_trxframePK5t_pbc(ptr noundef %0, i64 noundef %1, ptr %.72.val, ptr noundef %2) unnamed_addr #3 align 2 {
+define internal fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures24calculateAtomicDistancesEPfmRK10t_trxframePK5t_pbc(ptr noundef nonnull %0, i64 noundef %1, ptr %.72.val, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.gmx::BasicVector", align 4
   store float 0.000000e+00, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -8836,7 +8836,7 @@ define internal fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119Se
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store float 0.000000e+00, ptr %6, align 4
   %7 = getelementptr inbounds [3 x float], ptr %.72.val, i64 %1
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %4)
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef %2, ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %4)
   %8 = load float, ptr %4, align 4
   %9 = load float, ptr %5, align 4
   %10 = fmul float %9, %9
@@ -8854,7 +8854,7 @@ declare void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef, ptr noundef, ptr noundef, p
 declare float @llvm.fmuladd.f32(float, float, float) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc noundef float @_ZL9gmx_anglePKfS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #19 {
+define internal fastcc noundef float @_ZL9gmx_anglePKfS0_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load float, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8

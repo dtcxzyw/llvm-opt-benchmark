@@ -850,7 +850,7 @@ define internal fastcc void @am_rdma_retry_operation(ptr noundef %0) unnamed_add
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = call fastcc i32 @am_rdma_target_get(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %7, ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %20 = call fastcc i32 @am_rdma_target_get(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %7, ptr noundef %6, ptr noundef nonnull %3, ptr noundef %2)
   br label %am_rdma_respond.exit
 
 21:                                               ; preds = %13
@@ -858,7 +858,7 @@ define internal fastcc void @am_rdma_retry_operation(ptr noundef %0) unnamed_add
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
-  %26 = call fastcc i32 @am_rdma_target_put(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0, ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %26 = call fastcc i32 @am_rdma_target_put(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0, ptr noundef %6, ptr noundef nonnull %3, ptr noundef %2)
   br label %am_rdma_respond.exit
 
 27:                                               ; preds = %13
@@ -1029,7 +1029,7 @@ am_rdma_respond.exit.thread7:                     ; preds = %79, %53, %opal_obj_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @am_rdma_target_get(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @am_rdma_target_get(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i8, ptr %7, align 8
   %.not = icmp eq i8 %8, 0
@@ -1220,7 +1220,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @am_rdma_target_put(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @am_rdma_target_put(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i8, ptr %9, align 8
   %.not = icmp eq i8 %10, 0
@@ -1964,11 +1964,11 @@ define internal void @am_rdma_process_rdma(ptr noundef %0, ptr nocapture noundef
 25:                                               ; preds = %17
   %26 = getelementptr inbounds i8, ptr %1, i64 16
   %27 = load i64, ptr %26, align 8
-  %28 = call fastcc i32 @am_rdma_target_put(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %19, i64 noundef %27, ptr noundef %23, ptr noundef nonnull %20, ptr noundef nonnull %4)
+  %28 = call fastcc i32 @am_rdma_target_put(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %19, i64 noundef %27, ptr noundef %23, ptr noundef nonnull %20, ptr noundef %4)
   br label %41
 
 29:                                               ; preds = %17
-  %30 = call fastcc i32 @am_rdma_target_get(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %23, ptr noundef nonnull %20, ptr noundef nonnull %4)
+  %30 = call fastcc i32 @am_rdma_target_get(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %23, ptr noundef nonnull %20, ptr noundef %4)
   br label %41
 
 31:                                               ; preds = %17
@@ -2407,7 +2407,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i30, %69
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @am_rdma_start(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) unnamed_addr #0 {
+define internal fastcc i32 @am_rdma_start(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) unnamed_addr #0 {
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr getelementptr inbounds (i8, ptr @am_rdma_context_t_class, i64 56), align 8
@@ -2738,15 +2738,15 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %31
   switch i8 %46, label %am_rdma_operation_size.exit [
     i8 0, label %47
     i8 1, label %54
-    i8 2, label %am_rdma_operation_size.exit.thread61
-    i8 3, label %am_rdma_operation_size.exit.thread61
+    i8 2, label %am_rdma_operation_size.exit.thread60
+    i8 3, label %am_rdma_operation_size.exit.thread60
   ]
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds i8, ptr %0, i64 25
   %49 = load i8, ptr %48, align 1
   %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %am_rdma_operation_size.exit.thread65
+  br i1 %50, label %51, label %am_rdma_operation_size.exit.thread64
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %6, i64 88
@@ -2757,14 +2757,14 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %31
   %55 = getelementptr inbounds i8, ptr %0, i64 24
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %am_rdma_operation_size.exit.thread65
+  br i1 %57, label %58, label %am_rdma_operation_size.exit.thread64
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %6, i64 104
   %60 = load i64, ptr %59, align 8
   br label %am_rdma_operation_size.exit.thread
 
-am_rdma_operation_size.exit.thread65:             ; preds = %47, %54
+am_rdma_operation_size.exit.thread64:             ; preds = %47, %54
   %61 = getelementptr inbounds i8, ptr %6, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, -48
@@ -2775,10 +2775,10 @@ am_rdma_operation_size.exit:                      ; preds = %39
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, -48
   %67 = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %66)
-  br label %am_rdma_operation_size.exit.thread61
+  br label %am_rdma_operation_size.exit.thread60
 
-am_rdma_operation_size.exit.thread:               ; preds = %58, %51, %am_rdma_operation_size.exit.thread65
-  %.sink = phi i64 [ %60, %58 ], [ %53, %51 ], [ %63, %am_rdma_operation_size.exit.thread65 ]
+am_rdma_operation_size.exit.thread:               ; preds = %am_rdma_operation_size.exit.thread64, %58, %51
+  %.sink = phi i64 [ %63, %am_rdma_operation_size.exit.thread64 ], [ %60, %58 ], [ %53, %51 ]
   %68 = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %.sink)
   %69 = getelementptr inbounds i8, ptr %45, i64 16
   store i64 %68, ptr %69, align 8
@@ -2791,15 +2791,15 @@ am_rdma_operation_size.exit.thread:               ; preds = %58, %51, %am_rdma_o
   store i64 %74, ptr %75, align 8
   br label %78
 
-am_rdma_operation_size.exit.thread61:             ; preds = %39, %39, %am_rdma_operation_size.exit
-  %.0.i5263 = phi i64 [ %67, %am_rdma_operation_size.exit ], [ %40, %39 ], [ %40, %39 ]
-  %76 = trunc i64 %.0.i5263 to i8
+am_rdma_operation_size.exit.thread60:             ; preds = %39, %39, %am_rdma_operation_size.exit
+  %.0.i5262 = phi i64 [ %67, %am_rdma_operation_size.exit ], [ %40, %39 ], [ %40, %39 ]
+  %76 = trunc i64 %.0.i5262 to i8
   %77 = getelementptr inbounds i8, ptr %45, i64 9
   store i8 %76, ptr %77, align 1
   br label %78
 
-78:                                               ; preds = %am_rdma_operation_size.exit.thread61, %am_rdma_operation_size.exit.thread
-  %.0.i5259 = phi i64 [ %.0.i5263, %am_rdma_operation_size.exit.thread61 ], [ %68, %am_rdma_operation_size.exit.thread ]
+78:                                               ; preds = %am_rdma_operation_size.exit.thread60, %am_rdma_operation_size.exit.thread
+  %.0.i5259 = phi i64 [ %.0.i5262, %am_rdma_operation_size.exit.thread60 ], [ %68, %am_rdma_operation_size.exit.thread ]
   %79 = getelementptr inbounds i8, ptr %2, i64 88
   %80 = load i64, ptr %79, align 8
   %81 = load i64, ptr %9, align 8

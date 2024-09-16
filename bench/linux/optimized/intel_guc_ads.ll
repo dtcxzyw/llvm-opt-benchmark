@@ -2695,7 +2695,7 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @guc_mmio_reg_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef i64 @guc_mmio_reg_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 16777216) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.guc_mmio_reg, align 4
   %5 = alloca %struct.guc_mmio_reg, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16

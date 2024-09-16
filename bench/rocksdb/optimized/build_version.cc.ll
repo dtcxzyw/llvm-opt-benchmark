@@ -187,9 +187,9 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  tail call fastcc void @_ZN7rocksdbL11AddPropertyEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEERSC_(ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(32) @_ZL21rocksdb_build_git_shaB5cxx11)
-  tail call fastcc void @_ZN7rocksdbL11AddPropertyEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEERSC_(ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(32) @_ZL21rocksdb_build_git_tagB5cxx11)
-  tail call fastcc void @_ZN7rocksdbL11AddPropertyEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEERSC_(ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(32) @_ZL18rocksdb_build_dateB5cxx11)
+  tail call fastcc void @_ZN7rocksdbL11AddPropertyEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEERSC_(ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) @_ZL21rocksdb_build_git_shaB5cxx11)
+  tail call fastcc void @_ZN7rocksdbL11AddPropertyEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEERSC_(ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) @_ZL21rocksdb_build_git_tagB5cxx11)
+  tail call fastcc void @_ZN7rocksdbL11AddPropertyEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEERSC_(ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) @_ZL18rocksdb_build_dateB5cxx11)
   ret ptr %call
 }
 
@@ -668,7 +668,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdbL11AddPropertyEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEERSC_(ptr noundef %props, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdbL11AddPropertyEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEERSC_(ptr noundef nonnull %props, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8

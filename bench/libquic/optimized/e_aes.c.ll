@@ -2031,7 +2031,7 @@ aead_aes_ctr_hmac_sha256_crypt.exit:              ; preds = %if.then.i, %if.else
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %counter.i)
   %inner_init_state = getelementptr inbounds i8, ptr %0, i64 264
   %outer_init_state = getelementptr inbounds i8, ptr %0, i64 376
-  call fastcc void @hmac_calculate(ptr noundef nonnull %hmac_result, ptr noundef nonnull %inner_init_state, ptr noundef nonnull %outer_init_state, ptr noundef %ad, i64 noundef %ad_len, ptr noundef nonnull %nonce, ptr noundef %out, i64 noundef %in_len)
+  call fastcc void @hmac_calculate(ptr noundef %hmac_result, ptr noundef nonnull %inner_init_state, ptr noundef nonnull %outer_init_state, ptr noundef %ad, i64 noundef %ad_len, ptr noundef nonnull %nonce, ptr noundef %out, i64 noundef %in_len)
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %in_len
   %4 = load i8, ptr %tag_len, align 8
   %conv17 = zext i8 %4 to i64
@@ -2086,7 +2086,7 @@ if.then10:                                        ; preds = %if.end7
 if.end11:                                         ; preds = %if.end7
   %inner_init_state = getelementptr inbounds i8, ptr %0, i64 264
   %outer_init_state = getelementptr inbounds i8, ptr %0, i64 376
-  call fastcc void @hmac_calculate(ptr noundef nonnull %hmac_result, ptr noundef nonnull %inner_init_state, ptr noundef nonnull %outer_init_state, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %sub)
+  call fastcc void @hmac_calculate(ptr noundef %hmac_result, ptr noundef nonnull %inner_init_state, ptr noundef nonnull %outer_init_state, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %sub)
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %sub
   %2 = load i8, ptr %tag_len, align 8
   %conv14 = zext i8 %2 to i64
@@ -2142,7 +2142,7 @@ declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #3
 declare i32 @SHA256_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hmac_calculate(ptr noundef %out, ptr nocapture noundef readonly %inner_init_state, ptr nocapture noundef readonly %outer_init_state, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %nonce, ptr noundef %ciphertext, i64 noundef %ciphertext_len) unnamed_addr #2 {
+define internal fastcc void @hmac_calculate(ptr noundef nonnull %out, ptr nocapture noundef readonly %inner_init_state, ptr nocapture noundef readonly %outer_init_state, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %nonce, ptr noundef %ciphertext, i64 noundef %ciphertext_len) unnamed_addr #2 {
 entry:
   %bytes.i5 = alloca [8 x i8], align 1
   %bytes.i = alloca [8 x i8], align 1
@@ -2194,7 +2194,7 @@ hmac_update_uint64.exit15:                        ; preds = %for.body.i6
   %call9 = call i32 @SHA256_Final(ptr noundef nonnull %inner_digest, ptr noundef nonnull %sha256) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %sha256, ptr noundef nonnull align 4 dereferenceable(112) %outer_init_state, i64 112, i1 false)
   %call11 = call i32 @SHA256_Update(ptr noundef nonnull %sha256, ptr noundef nonnull %inner_digest, i64 noundef 32) #10
-  %call12 = call i32 @SHA256_Final(ptr noundef %out, ptr noundef nonnull %sha256) #10
+  %call12 = call i32 @SHA256_Final(ptr noundef nonnull %out, ptr noundef nonnull %sha256) #10
   ret void
 }
 

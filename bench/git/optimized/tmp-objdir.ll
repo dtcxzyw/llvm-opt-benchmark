@@ -348,7 +348,7 @@ if.end.i:                                         ; preds = %if.end, %if.end5
   %call = call ptr @get_object_directory() #15
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #17
   call void @strbuf_add(ptr noundef nonnull %dst, ptr noundef %call, i64 noundef %call.i) #15
-  %call10 = call fastcc i32 @migrate_paths(ptr noundef nonnull %src, ptr noundef nonnull %dst)
+  %call10 = call fastcc i32 @migrate_paths(ptr noundef %src, ptr noundef %dst)
   call void @strbuf_release(ptr noundef nonnull %src) #15
   call void @strbuf_release(ptr noundef nonnull %dst) #15
   %6 = load ptr, ptr @the_tmp_objdir, align 8
@@ -389,7 +389,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @migrate_paths(ptr noundef %src, ptr noundef %dst) unnamed_addr #0 {
+define internal fastcc i32 @migrate_paths(ptr noundef nonnull %src, ptr noundef nonnull %dst) unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %paths = alloca %struct.string_list, align 8
@@ -448,8 +448,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %st
   %6 = load ptr, ptr %paths, align 8
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %src, ptr noundef nonnull @.str.11, ptr noundef %7) #15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %dst, ptr noundef nonnull @.str.11, ptr noundef %7) #15
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %src, ptr noundef nonnull @.str.11, ptr noundef %7) #15
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %dst, ptr noundef nonnull @.str.11, ptr noundef %7) #15
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   %8 = load ptr, ptr %buf, align 8
   %call.i12 = call i32 @stat64(ptr noundef %8, ptr noundef nonnull %st.i) #15
@@ -481,7 +481,7 @@ if.else.i:                                        ; preds = %if.then2.i
   br i1 %cmp12.not.i, label %if.end15.i, label %migrate_one.exit
 
 if.end15.i:                                       ; preds = %if.else.i, %if.then5.i
-  %call16.i15 = call fastcc i32 @migrate_paths(ptr noundef nonnull %src, ptr noundef nonnull %dst)
+  %call16.i15 = call fastcc i32 @migrate_paths(ptr noundef %src, ptr noundef %dst)
   br label %migrate_one.exit
 
 if.end17.i:                                       ; preds = %if.end.i

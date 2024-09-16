@@ -8610,7 +8610,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %15
   %.0211.i = phi i32 [ %56, %.lr.ph.i79 ], [ %41, %33 ]
   %54 = call i32 @tvb_get_letohl(ptr noundef nonnull %29, i32 noundef %.0211.i) #5
   %55 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %52, i32 noundef %48, ptr noundef nonnull %29, i32 noundef %.0211.i, i32 noundef 4, i32 noundef %54, ptr noundef nonnull @.str.6122, i32 noundef %.02.i, i32 noundef %54) #5
-  %56 = add i32 %.0211.i, 4
+  %56 = add nuw i32 %.0211.i, 4
   %57 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i80 = icmp eq i32 %57, %50
   br i1 %exitcond.not.i80, label %mapi_dissect_element_handles_cnf.exit, label %.lr.ph.i79, !llvm.loop !6
@@ -9610,7 +9610,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %32
   %.0211.i = phi i32 [ %73, %.lr.ph.i79 ], [ %58, %50 ]
   %71 = call i32 @tvb_get_letohl(ptr noundef nonnull %46, i32 noundef %.0211.i) #5
   %72 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %69, i32 noundef %65, ptr noundef nonnull %46, i32 noundef %.0211.i, i32 noundef 4, i32 noundef %71, ptr noundef nonnull @.str.6122, i32 noundef %.02.i, i32 noundef %71) #5
-  %73 = add i32 %.0211.i, 4
+  %73 = add nuw i32 %.0211.i, 4
   %74 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i80 = icmp eq i32 %74, %67
   br i1 %exitcond.not.i80, label %mapi_dissect_element_handles_cnf.exit, label %.lr.ph.i79, !llvm.loop !6
@@ -26219,7 +26219,7 @@ define internal i32 @mapi_dissect_element_SCommentRestriction_TaggedValues_(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
@@ -26233,18 +26233,19 @@ define internal fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 no
 
 13:                                               ; preds = %10, %7
   %.075 = phi ptr [ %12, %10 ], [ null, %7 ]
-  switch i32 %6, label %73 [
-    i32 0, label %14
-    i32 1, label %26
-    i32 2, label %38
-    i32 3, label %41
-    i32 4, label %44
-    i32 5, label %47
-    i32 6, label %50
-    i32 7, label %53
-    i32 8, label %56
-    i32 9, label %67
-    i32 10, label %70
+  %trunc = trunc nuw i32 %6 to i8
+  switch i8 %trunc, label %73 [
+    i8 0, label %14
+    i8 1, label %26
+    i8 2, label %38
+    i8 3, label %41
+    i8 4, label %44
+    i8 5, label %47
+    i8 6, label %50
+    i8 7, label %53
+    i8 8, label %56
+    i8 9, label %67
+    i8 10, label %70
   ]
 
 14:                                               ; preds = %13
@@ -26678,7 +26679,7 @@ define internal i32 @mapi_dissect_element_HardDeleteMessages_req_MessageIds_(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %3, null
@@ -26691,126 +26692,127 @@ define internal fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef 
 
 12:                                               ; preds = %9, %7
   %.0723 = phi ptr [ %11, %9 ], [ null, %7 ]
-  switch i32 %6, label %368 [
-    i32 1, label %13
-    i32 2, label %16
-    i32 3, label %19
-    i32 4, label %22
-    i32 5, label %25
-    i32 6, label %28
-    i32 7, label %31
-    i32 8, label %34
-    i32 9, label %37
-    i32 10, label %40
-    i32 11, label %43
-    i32 12, label %46
-    i32 17, label %49
-    i32 16, label %52
-    i32 18, label %54
-    i32 19, label %57
-    i32 20, label %60
-    i32 13, label %63
-    i32 14, label %66
-    i32 15, label %69
-    i32 21, label %72
-    i32 22, label %75
-    i32 23, label %78
-    i32 24, label %81
-    i32 25, label %84
-    i32 26, label %87
-    i32 27, label %90
-    i32 28, label %93
-    i32 29, label %96
-    i32 30, label %99
-    i32 31, label %102
-    i32 32, label %105
-    i32 33, label %108
-    i32 34, label %111
-    i32 35, label %114
-    i32 36, label %117
-    i32 37, label %120
-    i32 38, label %123
-    i32 39, label %126
-    i32 41, label %129
-    i32 43, label %132
-    i32 44, label %135
-    i32 45, label %138
-    i32 46, label %141
-    i32 47, label %144
-    i32 48, label %147
-    i32 49, label %150
-    i32 50, label %153
-    i32 51, label %156
-    i32 52, label %159
-    i32 53, label %162
-    i32 54, label %165
-    i32 55, label %168
-    i32 56, label %171
-    i32 57, label %174
-    i32 58, label %177
-    i32 59, label %180
-    i32 62, label %183
-    i32 63, label %186
-    i32 64, label %189
-    i32 65, label %192
-    i32 66, label %195
-    i32 67, label %198
-    i32 68, label %201
-    i32 69, label %204
-    i32 70, label %207
-    i32 71, label %210
-    i32 72, label %213
-    i32 73, label %216
-    i32 74, label %219
-    i32 78, label %222
-    i32 79, label %225
-    i32 80, label %228
-    i32 81, label %231
-    i32 82, label %234
-    i32 85, label %237
-    i32 86, label %240
-    i32 87, label %243
-    i32 88, label %246
-    i32 89, label %249
-    i32 90, label %252
-    i32 91, label %255
-    i32 92, label %258
-    i32 93, label %261
-    i32 94, label %264
-    i32 95, label %267
-    i32 96, label %270
-    i32 97, label %273
-    i32 99, label %276
-    i32 102, label %279
-    i32 103, label %282
-    i32 104, label %285
-    i32 107, label %288
-    i32 108, label %291
-    i32 109, label %294
-    i32 111, label %297
-    i32 112, label %300
-    i32 114, label %303
-    i32 115, label %306
-    i32 116, label %309
-    i32 117, label %312
-    i32 118, label %315
-    i32 119, label %318
-    i32 120, label %321
-    i32 121, label %324
-    i32 122, label %327
-    i32 123, label %330
-    i32 126, label %333
-    i32 127, label %336
-    i32 128, label %339
-    i32 129, label %342
-    i32 130, label %345
-    i32 135, label %348
-    i32 136, label %351
-    i32 137, label %353
-    i32 144, label %356
-    i32 145, label %359
-    i32 146, label %362
-    i32 254, label %365
+  %trunc = trunc nuw i32 %6 to i8
+  switch i8 %trunc, label %368 [
+    i8 1, label %13
+    i8 2, label %16
+    i8 3, label %19
+    i8 4, label %22
+    i8 5, label %25
+    i8 6, label %28
+    i8 7, label %31
+    i8 8, label %34
+    i8 9, label %37
+    i8 10, label %40
+    i8 11, label %43
+    i8 12, label %46
+    i8 17, label %49
+    i8 16, label %52
+    i8 18, label %54
+    i8 19, label %57
+    i8 20, label %60
+    i8 13, label %63
+    i8 14, label %66
+    i8 15, label %69
+    i8 21, label %72
+    i8 22, label %75
+    i8 23, label %78
+    i8 24, label %81
+    i8 25, label %84
+    i8 26, label %87
+    i8 27, label %90
+    i8 28, label %93
+    i8 29, label %96
+    i8 30, label %99
+    i8 31, label %102
+    i8 32, label %105
+    i8 33, label %108
+    i8 34, label %111
+    i8 35, label %114
+    i8 36, label %117
+    i8 37, label %120
+    i8 38, label %123
+    i8 39, label %126
+    i8 41, label %129
+    i8 43, label %132
+    i8 44, label %135
+    i8 45, label %138
+    i8 46, label %141
+    i8 47, label %144
+    i8 48, label %147
+    i8 49, label %150
+    i8 50, label %153
+    i8 51, label %156
+    i8 52, label %159
+    i8 53, label %162
+    i8 54, label %165
+    i8 55, label %168
+    i8 56, label %171
+    i8 57, label %174
+    i8 58, label %177
+    i8 59, label %180
+    i8 62, label %183
+    i8 63, label %186
+    i8 64, label %189
+    i8 65, label %192
+    i8 66, label %195
+    i8 67, label %198
+    i8 68, label %201
+    i8 69, label %204
+    i8 70, label %207
+    i8 71, label %210
+    i8 72, label %213
+    i8 73, label %216
+    i8 74, label %219
+    i8 78, label %222
+    i8 79, label %225
+    i8 80, label %228
+    i8 81, label %231
+    i8 82, label %234
+    i8 85, label %237
+    i8 86, label %240
+    i8 87, label %243
+    i8 88, label %246
+    i8 89, label %249
+    i8 90, label %252
+    i8 91, label %255
+    i8 92, label %258
+    i8 93, label %261
+    i8 94, label %264
+    i8 95, label %267
+    i8 96, label %270
+    i8 97, label %273
+    i8 99, label %276
+    i8 102, label %279
+    i8 103, label %282
+    i8 104, label %285
+    i8 107, label %288
+    i8 108, label %291
+    i8 109, label %294
+    i8 111, label %297
+    i8 112, label %300
+    i8 114, label %303
+    i8 115, label %306
+    i8 116, label %309
+    i8 117, label %312
+    i8 118, label %315
+    i8 119, label %318
+    i8 120, label %321
+    i8 121, label %324
+    i8 122, label %327
+    i8 123, label %330
+    i8 126, label %333
+    i8 127, label %336
+    i8 -128, label %339
+    i8 -127, label %342
+    i8 -126, label %345
+    i8 -121, label %348
+    i8 -120, label %351
+    i8 -119, label %353
+    i8 -112, label %356
+    i8 -111, label %359
+    i8 -110, label %362
+    i8 -2, label %365
   ]
 
 13:                                               ; preds = %12
@@ -27467,7 +27469,7 @@ mapi_dissect_struct_SetSyncNotificationGuid_req.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %3, null
@@ -27480,128 +27482,129 @@ define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1
 
 12:                                               ; preds = %9, %7
   %.0735 = phi ptr [ %11, %9 ], [ null, %7 ]
-  switch i32 %6, label %295 [
-    i32 1, label %13
-    i32 2, label %15
-    i32 3, label %18
-    i32 4, label %21
-    i32 5, label %24
-    i32 6, label %27
-    i32 7, label %30
-    i32 8, label %33
-    i32 9, label %36
-    i32 10, label %38
-    i32 11, label %40
-    i32 12, label %42
-    i32 13, label %45
-    i32 14, label %47
-    i32 15, label %49
-    i32 17, label %51
-    i32 16, label %54
-    i32 18, label %57
-    i32 19, label %59
-    i32 20, label %61
-    i32 21, label %63
-    i32 22, label %66
-    i32 23, label %68
-    i32 24, label %71
-    i32 25, label %74
-    i32 26, label %77
-    i32 27, label %79
-    i32 28, label %82
-    i32 29, label %85
-    i32 30, label %87
-    i32 32, label %89
-    i32 33, label %91
-    i32 34, label %93
-    i32 35, label %95
-    i32 36, label %97
-    i32 37, label %99
-    i32 38, label %101
-    i32 39, label %103
-    i32 41, label %106
-    i32 42, label %108
-    i32 43, label %111
-    i32 44, label %113
-    i32 45, label %116
-    i32 46, label %118
-    i32 47, label %120
-    i32 48, label %122
-    i32 49, label %124
-    i32 50, label %127
-    i32 51, label %129
-    i32 52, label %131
-    i32 53, label %133
-    i32 54, label %135
-    i32 55, label %137
-    i32 56, label %139
-    i32 57, label %141
-    i32 58, label %143
-    i32 59, label %146
-    i32 62, label %148
-    i32 63, label %150
-    i32 64, label %152
-    i32 65, label %154
-    i32 66, label %156
-    i32 67, label %159
-    i32 68, label %162
-    i32 69, label %164
-    i32 70, label %167
-    i32 71, label %170
-    i32 72, label %172
-    i32 73, label %174
-    i32 74, label %177
-    i32 78, label %180
-    i32 79, label %183
-    i32 80, label %186
-    i32 81, label %189
-    i32 82, label %191
-    i32 85, label %193
-    i32 86, label %195
-    i32 87, label %197
-    i32 88, label %199
-    i32 89, label %201
-    i32 90, label %204
-    i32 91, label %206
-    i32 92, label %208
-    i32 93, label %210
-    i32 94, label %212
-    i32 95, label %214
-    i32 96, label %217
-    i32 97, label %219
-    i32 99, label %221
-    i32 102, label %224
-    i32 103, label %226
-    i32 104, label %228
-    i32 110, label %230
-    i32 107, label %232
-    i32 108, label %235
-    i32 109, label %238
-    i32 111, label %240
-    i32 112, label %243
-    i32 114, label %245
-    i32 115, label %247
-    i32 116, label %249
-    i32 117, label %251
-    i32 118, label %253
-    i32 119, label %255
-    i32 120, label %257
-    i32 121, label %259
-    i32 122, label %261
-    i32 123, label %263
-    i32 126, label %266
-    i32 127, label %268
-    i32 128, label %271
-    i32 129, label %273
-    i32 130, label %275
-    i32 135, label %277
-    i32 136, label %280
-    i32 137, label %282
-    i32 144, label %284
-    i32 145, label %286
-    i32 146, label %288
-    i32 254, label %290
-    i32 255, label %293
+  %trunc = trunc nuw i32 %6 to i8
+  switch i8 %trunc, label %295 [
+    i8 1, label %13
+    i8 2, label %15
+    i8 3, label %18
+    i8 4, label %21
+    i8 5, label %24
+    i8 6, label %27
+    i8 7, label %30
+    i8 8, label %33
+    i8 9, label %36
+    i8 10, label %38
+    i8 11, label %40
+    i8 12, label %42
+    i8 13, label %45
+    i8 14, label %47
+    i8 15, label %49
+    i8 17, label %51
+    i8 16, label %54
+    i8 18, label %57
+    i8 19, label %59
+    i8 20, label %61
+    i8 21, label %63
+    i8 22, label %66
+    i8 23, label %68
+    i8 24, label %71
+    i8 25, label %74
+    i8 26, label %77
+    i8 27, label %79
+    i8 28, label %82
+    i8 29, label %85
+    i8 30, label %87
+    i8 32, label %89
+    i8 33, label %91
+    i8 34, label %93
+    i8 35, label %95
+    i8 36, label %97
+    i8 37, label %99
+    i8 38, label %101
+    i8 39, label %103
+    i8 41, label %106
+    i8 42, label %108
+    i8 43, label %111
+    i8 44, label %113
+    i8 45, label %116
+    i8 46, label %118
+    i8 47, label %120
+    i8 48, label %122
+    i8 49, label %124
+    i8 50, label %127
+    i8 51, label %129
+    i8 52, label %131
+    i8 53, label %133
+    i8 54, label %135
+    i8 55, label %137
+    i8 56, label %139
+    i8 57, label %141
+    i8 58, label %143
+    i8 59, label %146
+    i8 62, label %148
+    i8 63, label %150
+    i8 64, label %152
+    i8 65, label %154
+    i8 66, label %156
+    i8 67, label %159
+    i8 68, label %162
+    i8 69, label %164
+    i8 70, label %167
+    i8 71, label %170
+    i8 72, label %172
+    i8 73, label %174
+    i8 74, label %177
+    i8 78, label %180
+    i8 79, label %183
+    i8 80, label %186
+    i8 81, label %189
+    i8 82, label %191
+    i8 85, label %193
+    i8 86, label %195
+    i8 87, label %197
+    i8 88, label %199
+    i8 89, label %201
+    i8 90, label %204
+    i8 91, label %206
+    i8 92, label %208
+    i8 93, label %210
+    i8 94, label %212
+    i8 95, label %214
+    i8 96, label %217
+    i8 97, label %219
+    i8 99, label %221
+    i8 102, label %224
+    i8 103, label %226
+    i8 104, label %228
+    i8 110, label %230
+    i8 107, label %232
+    i8 108, label %235
+    i8 109, label %238
+    i8 111, label %240
+    i8 112, label %243
+    i8 114, label %245
+    i8 115, label %247
+    i8 116, label %249
+    i8 117, label %251
+    i8 118, label %253
+    i8 119, label %255
+    i8 120, label %257
+    i8 121, label %259
+    i8 122, label %261
+    i8 123, label %263
+    i8 126, label %266
+    i8 127, label %268
+    i8 -128, label %271
+    i8 -127, label %273
+    i8 -126, label %275
+    i8 -121, label %277
+    i8 -120, label %280
+    i8 -119, label %282
+    i8 -112, label %284
+    i8 -111, label %286
+    i8 -110, label %288
+    i8 -2, label %290
+    i8 -1, label %293
   ]
 
 13:                                               ; preds = %12

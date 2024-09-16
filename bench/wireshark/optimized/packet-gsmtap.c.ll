@@ -677,7 +677,7 @@ switch.early.test.i:                              ; preds = %69
   br i1 %.not249.i, label %120, label %119
 
 119:                                              ; preds = %118
-  tail call fastcc void @dissect_sacch_l1h(ptr noundef nonnull %.0233.i, ptr noundef %2)
+  tail call fastcc void @dissect_sacch_l1h(ptr noundef %.0233.i, ptr noundef %2)
   br label %120
 
 120:                                              ; preds = %119, %118
@@ -1389,28 +1389,28 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sacch_l1h(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_sacch_l1h(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %2
   %4 = load i32, ptr @proto_gsmtap, align 4
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef 0) #6
   %6 = and i8 %5, 31
   %7 = zext nneg i8 %6 to i32
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef 1) #6
   %9 = zext i8 %8 to i32
-  %10 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.337, i32 noundef %7, i32 noundef %9) #6
+  %10 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %1, i32 noundef %4, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.337, i32 noundef %7, i32 noundef %9) #6
   %11 = load i32, ptr @ett_gsmtap, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #6
   %13 = load i32, ptr @hf_sacch_l1h_power_lev, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
   %15 = load i32, ptr @hf_sacch_l1h_fpc, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
   %17 = load i32, ptr @hf_sacch_l1h_sro_srr, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %17, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
   %19 = load i32, ptr @hf_sacch_l1h_ta, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %19, ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   br label %21
 
 21:                                               ; preds = %2, %3

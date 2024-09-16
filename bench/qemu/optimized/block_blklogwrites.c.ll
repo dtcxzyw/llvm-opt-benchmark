@@ -186,7 +186,7 @@ if.then48:                                        ; preds = %blk_log_writes_sect
   %10 = load ptr, ptr %0, align 8
   %nr_entries51 = getelementptr inbounds i8, ptr %log_sb, i64 16
   %11 = load i64, ptr %nr_entries51, align 8
-  %call53 = call fastcc i64 @blk_log_writes_find_cur_log_sector(ptr noundef %10, i32 noundef %6, i64 noundef %11, ptr noundef nonnull %local_err)
+  %call53 = call fastcc i64 @blk_log_writes_find_cur_log_sector(ptr noundef %10, i32 noundef %6, i64 noundef %11, ptr noundef %local_err)
   store i64 %call53, ptr %cur_log_sector, align 8
   %12 = load ptr, ptr %local_err, align 8
   %tobool55.not = icmp eq ptr %12, null
@@ -377,7 +377,7 @@ declare i32 @bdrv_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @blk_log_writes_find_cur_log_sector(ptr noundef %log, i32 noundef %sector_size, i64 noundef %nr_entries, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i64 @blk_log_writes_find_cur_log_sector(ptr noundef %log, i32 noundef %sector_size, i64 noundef %nr_entries, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %cur_entry = alloca %struct.log_write_entry, align 1
   %cmp.not.i = icmp eq i32 %sector_size, 0
@@ -409,7 +409,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %sub = sub i32 0, %call1
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 115, ptr noundef nonnull @__func__.blk_log_writes_find_cur_log_sector, i32 noundef %sub, ptr noundef nonnull @.str.17, i64 noundef %cur_idx.015) #8
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.5, i32 noundef 115, ptr noundef nonnull @__func__.blk_log_writes_find_cur_log_sector, i32 noundef %sub, ptr noundef nonnull @.str.17, i64 noundef %cur_idx.015) #8
   br label %return
 
 if.end:                                           ; preds = %while.body
@@ -418,7 +418,7 @@ if.end:                                           ; preds = %while.body
   br i1 %tobool.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 121, ptr noundef nonnull @__func__.blk_log_writes_find_cur_log_sector, ptr noundef nonnull @.str.18, i64 noundef %1, i64 noundef %cur_idx.015) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.5, i32 noundef 121, ptr noundef nonnull @__func__.blk_log_writes_find_cur_log_sector, ptr noundef nonnull @.str.18, i64 noundef %1, i64 noundef %cur_idx.015) #8
   br label %return
 
 if.end7:                                          ; preds = %if.end

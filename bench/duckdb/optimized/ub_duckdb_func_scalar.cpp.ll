@@ -13473,7 +13473,7 @@ declare void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonn
 declare void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb27UnaryLambdaWrapperWithNulls9OperationIZNS_14StrfTimeFormat17ConvertDateVectorERNS_6VectorES4_mE3$_0NS_6date_tENS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv"(i32 %input.coerce, ptr nocapture noundef readonly %dataptr) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb27UnaryLambdaWrapperWithNulls9OperationIZNS_14StrfTimeFormat17ConvertDateVectorERNS_6VectorES4_mE3$_0NS_6date_tENS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv"(i32 %input.coerce, ptr nocapture noundef nonnull readonly %dataptr) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i = alloca [8 x i32], align 16
   %retval.i = alloca %"struct.duckdb::string_t", align 8
@@ -14177,7 +14177,7 @@ _ZNSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb27UnaryLambdaWrapperWithNulls9OperationIZNS_14StrfTimeFormat22ConvertTimestampVectorERNS_6VectorES4_mE3$_0NS_11timestamp_tENS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv"(i64 %input.coerce, ptr nocapture noundef readonly %dataptr) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb27UnaryLambdaWrapperWithNulls9OperationIZNS_14StrfTimeFormat22ConvertTimestampVectorERNS_6VectorES4_mE3$_0NS_11timestamp_tENS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv"(i64 %input.coerce, ptr nocapture noundef nonnull readonly %dataptr) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i = alloca [8 x i32], align 16
   %retval.i = alloca %"struct.duckdb::string_t", align 8

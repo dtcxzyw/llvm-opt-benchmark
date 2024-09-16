@@ -1498,7 +1498,7 @@ AllocUnits.exit192:                               ; preds = %256, %259
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @CreateSuccessors(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc ptr @CreateSuccessors(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %3 = alloca [64 x ptr], align 16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1734,7 +1734,7 @@ define internal fastcc ptr @CreateSuccessors(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @AllocUnitsRare(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc ptr @AllocUnitsRare(ptr nocapture noundef %0, i32 noundef range(i32 0, 257) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0

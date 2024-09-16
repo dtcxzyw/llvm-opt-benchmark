@@ -284,7 +284,7 @@ define dso_local i32 @__nla_validate(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef range(i32 0, 11) %7) unnamed_addr #0 align 16 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -2168,12 +2168,12 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #10
 declare dso_local ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef range(i32 0, 10) %6) unnamed_addr #0 align 16 {
   %8 = add nuw nsw i32 %6, 1
   %9 = icmp eq ptr %4, null
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = icmp sgt i32 %1, 3
+  %12 = icmp ugt i32 %1, 3
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %7, %.thread4
@@ -2209,7 +2209,7 @@ define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef %1, i
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %13, i64 4
   %28 = zext i16 %20 to i32
-  %29 = tail call fastcc i32 @__nla_validate_parse(ptr noundef %27, i32 noundef %28, i32 noundef %2, ptr noundef %3, i32 noundef %5, ptr noundef %4, ptr noundef null, i32 noundef %8)
+  %29 = tail call fastcc i32 @__nla_validate_parse(ptr noundef %27, i32 noundef %28, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %5, ptr noundef %4, ptr noundef null, i32 noundef %8)
   %30 = icmp slt i32 %29, 0
   %31 = select i1 %30, i32 %29, i32 %14
   %cond = icmp sgt i32 %29, -1

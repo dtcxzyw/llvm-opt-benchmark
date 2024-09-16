@@ -1244,7 +1244,7 @@ invoke.cont14.i.i:                                ; preds = %cond.true.i.i.i50.i
   %cond.i.i383.i.i = phi i8 [ %cond.i.i.i.i, %cond.true.i.i.i50.i.i ], [ %cond.i.i.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i47.i.i ], [ %cond.i.i.i.i, %invoke.cont12.i.i ], [ 0, %invoke.cont10.i.i ], [ 0, %invoke.cont7.i.i ]
   %cond.i.i.i29378382.i.i = phi ptr [ %cond.i.i.i29.i.i, %cond.true.i.i.i50.i.i ], [ %cond.i.i.i29.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i47.i.i ], [ %cond.i.i.i29.i.i, %invoke.cont12.i.i ], [ %cond.i.i.i29.i.i, %invoke.cont10.i.i ], [ null, %invoke.cont7.i.i ]
   %cond.i.i.i46.i.i = phi ptr [ %add.ptr4.i.i.i54.i.i, %cond.true.i.i.i50.i.i ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i47.i.i ], [ null, %invoke.cont12.i.i ], [ null, %invoke.cont10.i.i ], [ null, %invoke.cont7.i.i ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV111GetDataTypeEPKNS1_3fbs14PrimitiveArrayENS4_12TypeMetadataEPKvPSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef %cond.i.i.i29378382.i.i, i8 noundef zeroext %cond.i.i383.i.i, ptr noundef %cond.i.i.i46.i.i, ptr noundef nonnull %type.i.i)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV111GetDataTypeEPKNS1_3fbs14PrimitiveArrayENS4_12TypeMetadataEPKvPSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp.i.i, ptr noundef %cond.i.i.i29378382.i.i, i8 noundef zeroext %cond.i.i383.i.i, ptr noundef %cond.i.i.i46.i.i, ptr noundef %type.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i.i unwind label %lpad9.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %invoke.cont14.i.i
@@ -4375,7 +4375,7 @@ if.then.i.i:                                      ; preds = %invoke.cont13.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %invoke.cont13.i
   %9 = load ptr, ptr %call14.val.i, align 8, !noalias !96
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_112WriteArrayV1ERKNS_5ArrayEPNS_2io12OutputStreamEPNS2_13ArrayMetadataE(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %dst, ptr noundef nonnull %col.i)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_112WriteArrayV1ERKNS_5ArrayEPNS_2io12OutputStreamEPNS2_13ArrayMetadataE(ptr noalias align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %dst, ptr noundef nonnull %col.i)
           to label %.noexc71.i unwind label %lpad15.i, !noalias !73
 
 .noexc71.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
@@ -4432,7 +4432,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i61.i, %call14.i.noexc.i
   %19 = phi ptr [ %14, %call14.i.noexc.i ], [ %14, %if.then.i.i.i.i.i.i61.i ], [ %.pre.i.i, %if.else.i.i.i.i.i.i.i ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_112WriteArrayV1ERKNS_5ArrayEPNS_2io12OutputStreamEPNS2_13ArrayMetadataE(ptr noalias nonnull align 8 %ref.tmp17.i.i, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull %dst, ptr noundef nonnull %category_levels.i.i)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_112WriteArrayV1ERKNS_5ArrayEPNS_2io12OutputStreamEPNS2_13ArrayMetadataE(ptr noalias align 8 %ref.tmp17.i.i, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull %dst, ptr noundef nonnull %category_levels.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit93.i.i unwind label %lpad.i.i, !noalias !96
 
 _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit.i.i
@@ -6553,7 +6553,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV111GetDataTypeEPKNS1_3fbs14PrimitiveArrayENS4_12TypeMetadataEPKvPSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %values, i8 noundef zeroext %metadata_type, ptr noundef %metadata, ptr noundef %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV111GetDataTypeEPKNS1_3fbs14PrimitiveArrayENS4_12TypeMetadataEPKvPSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %values, i8 noundef zeroext %metadata_type, ptr noundef %metadata, ptr noundef nonnull %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.53", align 1
   %index_type = alloca %"class.std::shared_ptr.72", align 8
@@ -6575,7 +6575,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index_type, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dict_type, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV111GetDataTypeEPKNS1_3fbs14PrimitiveArrayENS4_12TypeMetadataEPKvPSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %values, i8 noundef zeroext 0, ptr noundef null, ptr noundef nonnull %index_type)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV111GetDataTypeEPKNS1_3fbs14PrimitiveArrayENS4_12TypeMetadataEPKvPSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp, ptr noundef %values, i8 noundef zeroext 0, ptr noundef null, ptr noundef %index_type)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %sw.bb
@@ -6618,7 +6618,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNK22arrow_vendore
 
 invoke.cont12:                                    ; preds = %cond.true.i.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit65
   %cond.i.i.i = phi ptr [ %add.ptr4.i.i.i, %cond.true.i.i.i ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ null, %_ZN5arrow6StatusD2Ev.exit65 ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV111GetDataTypeEPKNS1_3fbs14PrimitiveArrayENS4_12TypeMetadataEPKvPSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp11, ptr noundef %cond.i.i.i, i8 noundef zeroext 0, ptr noundef null, ptr noundef nonnull %dict_type)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV111GetDataTypeEPKNS1_3fbs14PrimitiveArrayENS4_12TypeMetadataEPKvPSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp11, ptr noundef %cond.i.i.i, i8 noundef zeroext 0, ptr noundef null, ptr noundef %dict_type)
           to label %_ZN5arrow6StatusD2Ev.exit101 unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit101:                     ; preds = %invoke.cont12
@@ -7604,7 +7604,7 @@ sw.bb115:                                         ; preds = %_ZNK5arrow3ipc7feat
   br label %sw.epilog119
 
 sw.default118:                                    ; preds = %_ZNK5arrow3ipc7feather3fbs14PrimitiveArray4typeEv.exit
-  tail call void @_ZN5arrow6Status8FromArgsIJRA18_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(18) @.str.7)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA18_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(18) @.str.7)
   br label %return
 
 sw.epilog119:                                     ; preds = %if.end8.sink.split.i.i.i.i423, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i420, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i410, %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSEOS2_.exit400, %if.end9.i.i.i, %sw.bb63, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit219, %sw.bb73, %sw.bb76, %sw.bb79, %sw.bb82, %sw.bb85, %sw.bb88, %sw.bb91, %sw.bb94, %sw.bb97, %sw.bb100, %sw.bb103, %sw.bb106, %sw.bb109, %sw.bb112, %sw.bb115, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit324
@@ -9429,7 +9429,7 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjED2Ev.exit: ; preds =
 declare noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_112WriteArrayV1ERKNS_5ArrayEPNS_2io12OutputStreamEPNS2_13ArrayMetadataE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %dst, ptr noundef %meta) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_112WriteArrayV1ERKNS_5ArrayEPNS_2io12OutputStreamEPNS2_13ArrayMetadataE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %dst, ptr noundef %meta) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp37.i = alloca %"class.arrow::Status", align 8
   %ref.tmp38.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9883,7 +9883,7 @@ do.body53.i:                                      ; preds = %invoke.cont49.i
   %add.i = add nsw i64 %shr.i, %conv.i
   %offset.i324 = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load i64, ptr %offset.i324, align 8, !noalias !203
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %ref.tmp54.i, ptr noundef nonnull align 8 dereferenceable(24) %visitor, ptr noundef %54, i64 noundef %add.i, i64 noundef %57)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %ref.tmp54.i, ptr noundef nonnull align 8 dereferenceable(24) %visitor, ptr noundef %54, i64 noundef %add.i, i64 noundef %57)
           to label %_ZN5arrow6StatusD2Ev.exit322 unwind label %lpad25.i, !noalias !203
 
 _ZN5arrow6StatusD2Ev.exit322:                     ; preds = %do.body53.i
@@ -9955,7 +9955,7 @@ sw.bb.i:                                          ; preds = %if.end77.i
           to label %.noexc175 unwind label %lpad25.i
 
 .noexc175:                                        ; preds = %sw.bb.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_8NullTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i.i
 
 common.resume.i:                                  ; preds = %lpad.i1160.i, %lpad.i1156.i, %lpad.i1152.i, %lpad.i1148.i, %lpad.i1144.i, %lpad.i1140.i, %lpad.i1136.i, %lpad.i1132.i, %lpad.i1128.i, %lpad.i1124.i, %lpad.i1120.i, %lpad.i1116.i, %lpad.i1112.i, %lpad.i1108.i, %lpad.i1104.i, %lpad.i1100.i, %lpad.i1096.i, %lpad.i1092.i, %lpad.i1014.i, %lpad.i973.i, %lpad.i969.i, %lpad.i667.i, %lpad.i510.i, %lpad.i.i
@@ -10728,7 +10728,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %if.then.i498.i, %_Z
   %233 = load i64, ptr %length.i9.i.i, align 8, !noalias !309
   %add.i.i = shl i64 %233, 2
   %mul.i502.i = add i64 %add.i.i, 4
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %ref.tmp6.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %offsets_data.0.i.i, i64 noundef %mul.i502.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %ref.tmp6.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %offsets_data.0.i.i, i64 noundef %mul.i502.i, i64 noundef 0)
           to label %.noexc225 unwind label %lpad25.i
 
 .noexc225:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
@@ -10952,7 +10952,7 @@ if.end8.sink.split.i.i.i.i130.i.i:                ; preds = %_ZN9__gnu_cxx27__ex
 
 if.end24.i.i:                                     ; preds = %if.end8.sink.split.i.i.i.i130.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117.i.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit106.i.i, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit93.i.i, %if.end8.sink.split.i.i.i.i84.i.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i
   %values_buffer.0.i.i = phi ptr [ null, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit93.i.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i ], [ null, %if.end8.sink.split.i.i.i.i84.i.i ], [ %cond.i.i505.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit106.i.i ], [ %cond.i10.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117.i.i ], [ %cond.i10.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127.i.i ], [ %cond.i10.i.i, %if.end8.sink.split.i.i.i.i130.i.i ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %values_buffer.0.i.i, i64 noundef %values_bytes.0.i.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %values_buffer.0.i.i, i64 noundef %values_bytes.0.i.i, i64 noundef 0)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad25.i
 
 _ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i: ; preds = %if.end24.i.i, %.noexc225
@@ -10968,7 +10968,7 @@ sw.bb28.i:                                        ; preds = %if.end77.i
           to label %.noexc227 unwind label %lpad25.i
 
 .noexc227:                                        ; preds = %sw.bb28.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i507.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i507.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14StringViewTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i510.i
 
 lpad.i510.i:                                      ; preds = %.noexc227
@@ -11111,7 +11111,7 @@ _ZN5arrow6StatusD2Ev.exit.i541.i:                 ; preds = %if.then.i533.i, %_Z
   %300 = load i64, ptr %length.i9.i545.i, align 8, !noalias !329
   %add.i546.i = shl i64 %300, 2
   %mul.i547.i = add i64 %add.i546.i, 4
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %ref.tmp6.i511.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %offsets_data.0.i542.i, i64 noundef %mul.i547.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %ref.tmp6.i511.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %offsets_data.0.i542.i, i64 noundef %mul.i547.i, i64 noundef 0)
           to label %.noexc228 unwind label %lpad25.i
 
 .noexc228:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit.i541.i
@@ -11335,7 +11335,7 @@ if.end8.sink.split.i.i.i.i130.i605.i:             ; preds = %_ZN9__gnu_cxx27__ex
 
 if.end24.i593.i:                                  ; preds = %if.end8.sink.split.i.i.i.i130.i605.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127.i602.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117.i590.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit106.i615.i, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit93.i569.i, %if.end8.sink.split.i.i.i.i84.i630.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i640.i
   %values_buffer.0.i594.i = phi ptr [ null, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit93.i569.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i640.i ], [ null, %if.end8.sink.split.i.i.i.i84.i630.i ], [ %cond.i.i619.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit106.i615.i ], [ %cond.i10.i584.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117.i590.i ], [ %cond.i10.i584.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127.i602.i ], [ %cond.i10.i584.i, %if.end8.sink.split.i.i.i.i130.i605.i ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %values_buffer.0.i594.i, i64 noundef %values_bytes.0.i543.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %values_buffer.0.i594.i, i64 noundef %values_bytes.0.i543.i, i64 noundef 0)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad25.i
 
 _ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i: ; preds = %if.end24.i593.i, %.noexc228
@@ -11351,7 +11351,7 @@ sw.bb32.i:                                        ; preds = %if.end77.i
           to label %.noexc230 unwind label %lpad25.i
 
 .noexc230:                                        ; preds = %sw.bb32.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i664.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i664.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14BinaryViewTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i667.i
 
 lpad.i667.i:                                      ; preds = %.noexc230
@@ -11493,7 +11493,7 @@ _ZN5arrow6StatusD2Ev.exit.i697.i:                 ; preds = %if.then.i690.i, %_Z
   %367 = load i64, ptr %length.i9.i701.i, align 8, !noalias !349
   %add.i702.i = shl i64 %367, 3
   %mul.i703.i = add i64 %add.i702.i, 8
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %ref.tmp6.i668.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %offsets_data.0.i698.i, i64 noundef %mul.i703.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %ref.tmp6.i668.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %offsets_data.0.i698.i, i64 noundef %mul.i703.i, i64 noundef 0)
           to label %.noexc231 unwind label %lpad25.i
 
 .noexc231:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit.i697.i
@@ -11717,7 +11717,7 @@ if.end8.sink.split.i.i.i.i130.i758.i:             ; preds = %_ZN9__gnu_cxx27__ex
 
 if.end23.i.i:                                     ; preds = %if.end8.sink.split.i.i.i.i130.i758.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127.i755.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117.i744.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit106.i.i, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit93.i724.i, %if.end8.sink.split.i.i.i.i84.i782.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i
   %values_buffer.0.i747.i = phi ptr [ null, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit93.i724.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i ], [ null, %if.end8.sink.split.i.i.i.i84.i782.i ], [ %cond.i.i771.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit106.i.i ], [ %cond.i10.i738.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117.i744.i ], [ %cond.i10.i738.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127.i755.i ], [ %cond.i10.i738.i, %if.end8.sink.split.i.i.i.i130.i758.i ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %values_buffer.0.i747.i, i64 noundef %values_bytes.0.i699.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %values_buffer.0.i747.i, i64 noundef %values_bytes.0.i699.i, i64 noundef 0)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad25.i
 
 _ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i: ; preds = %if.end23.i.i, %.noexc231
@@ -11853,7 +11853,7 @@ _ZN5arrow6StatusD2Ev.exit.i843.i:                 ; preds = %if.then.i836.i, %_Z
   %432 = load i64, ptr %length.i9.i847.i, align 8, !noalias !366
   %add.i848.i = shl i64 %432, 3
   %mul.i849.i = add i64 %add.i848.i, 8
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %ref.tmp6.i814.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %offsets_data.0.i844.i, i64 noundef %mul.i849.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %ref.tmp6.i814.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %offsets_data.0.i844.i, i64 noundef %mul.i849.i, i64 noundef 0)
           to label %.noexc233 unwind label %lpad25.i
 
 .noexc233:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit.i843.i
@@ -12077,7 +12077,7 @@ if.end8.sink.split.i.i.i.i130.i907.i:             ; preds = %_ZN9__gnu_cxx27__ex
 
 if.end23.i895.i:                                  ; preds = %if.end8.sink.split.i.i.i.i130.i907.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127.i904.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117.i892.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit106.i917.i, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit93.i871.i, %if.end8.sink.split.i.i.i.i84.i932.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i942.i
   %values_buffer.0.i896.i = phi ptr [ null, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit93.i871.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i942.i ], [ null, %if.end8.sink.split.i.i.i.i84.i932.i ], [ %cond.i.i921.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit106.i917.i ], [ %cond.i10.i886.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i117.i892.i ], [ %cond.i10.i886.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127.i904.i ], [ %cond.i10.i886.i, %if.end8.sink.split.i.i.i.i130.i907.i ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %values_buffer.0.i896.i, i64 noundef %values_bytes.0.i845.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %visitor, ptr noundef %values_buffer.0.i896.i, i64 noundef %values_bytes.0.i845.i, i64 noundef 0)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad25.i
 
 _ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i: ; preds = %if.end23.i895.i, %.noexc233
@@ -12093,7 +12093,7 @@ sw.bb38.i:                                        ; preds = %if.end77.i
           to label %.noexc235 unwind label %lpad25.i
 
 .noexc235:                                        ; preds = %sw.bb38.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i966.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i966.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i969.i
 
 lpad.i969.i:                                      ; preds = %.noexc235
@@ -12115,7 +12115,7 @@ sw.bb40.i:                                        ; preds = %if.end77.i
           to label %.noexc236 unwind label %lpad25.i
 
 .noexc236:                                        ; preds = %sw.bb40.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i970.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i970.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_12DurationTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i973.i
 
 lpad.i973.i:                                      ; preds = %.noexc236
@@ -12189,7 +12189,7 @@ sw.bb44.i:                                        ; preds = %if.end77.i
           to label %.noexc241 unwind label %lpad25.i
 
 .noexc241:                                        ; preds = %sw.bb44.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1011.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1011.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10Date64TypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameIS5_S7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1014.i
 
 lpad.i1014.i:                                     ; preds = %.noexc241
@@ -12334,7 +12334,7 @@ sw.bb50.i:                                        ; preds = %if.end77.i
           to label %.noexc250 unwind label %lpad25.i
 
 .noexc250:                                        ; preds = %sw.bb50.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1089.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1089.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10Time64TypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameIS5_S7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1092.i
 
 lpad.i1092.i:                                     ; preds = %.noexc250
@@ -12356,7 +12356,7 @@ sw.bb52.i:                                        ; preds = %if.end77.i
           to label %.noexc251 unwind label %lpad25.i
 
 .noexc251:                                        ; preds = %sw.bb52.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1093.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1093.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1096.i
 
 lpad.i1096.i:                                     ; preds = %.noexc251
@@ -12378,7 +12378,7 @@ sw.bb54.i:                                        ; preds = %if.end77.i
           to label %.noexc252 unwind label %lpad25.i
 
 .noexc252:                                        ; preds = %sw.bb54.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1097.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1097.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1100.i
 
 lpad.i1100.i:                                     ; preds = %.noexc252
@@ -12400,7 +12400,7 @@ sw.bb56.i:                                        ; preds = %if.end77.i
           to label %.noexc253 unwind label %lpad25.i
 
 .noexc253:                                        ; preds = %sw.bb56.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1101.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1101.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1104.i
 
 lpad.i1104.i:                                     ; preds = %.noexc253
@@ -12422,7 +12422,7 @@ sw.bb58.i:                                        ; preds = %if.end77.i
           to label %.noexc254 unwind label %lpad25.i
 
 .noexc254:                                        ; preds = %sw.bb58.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1105.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1105.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14Decimal128TypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1108.i
 
 lpad.i1108.i:                                     ; preds = %.noexc254
@@ -12444,7 +12444,7 @@ sw.bb60.i:                                        ; preds = %if.end77.i
           to label %.noexc255 unwind label %lpad25.i
 
 .noexc255:                                        ; preds = %sw.bb60.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1109.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1109.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14Decimal256TypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1112.i
 
 lpad.i1112.i:                                     ; preds = %.noexc255
@@ -12466,7 +12466,7 @@ sw.bb62.i:                                        ; preds = %if.end77.i
           to label %.noexc256 unwind label %lpad25.i
 
 .noexc256:                                        ; preds = %sw.bb62.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1113.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1113.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_8ListTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1116.i
 
 lpad.i1116.i:                                     ; preds = %.noexc256
@@ -12488,7 +12488,7 @@ sw.bb64.i:                                        ; preds = %if.end77.i
           to label %.noexc257 unwind label %lpad25.i
 
 .noexc257:                                        ; preds = %sw.bb64.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1117.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1117.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_13LargeListTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1120.i
 
 lpad.i1120.i:                                     ; preds = %.noexc257
@@ -12510,7 +12510,7 @@ sw.bb66.i:                                        ; preds = %if.end77.i
           to label %.noexc258 unwind label %lpad25.i
 
 .noexc258:                                        ; preds = %sw.bb66.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1121.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1121.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_12ListViewTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1124.i
 
 lpad.i1124.i:                                     ; preds = %.noexc258
@@ -12532,7 +12532,7 @@ sw.bb68.i:                                        ; preds = %if.end77.i
           to label %.noexc259 unwind label %lpad25.i
 
 .noexc259:                                        ; preds = %sw.bb68.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1125.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1125.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_17LargeListViewTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1128.i
 
 lpad.i1128.i:                                     ; preds = %.noexc259
@@ -12554,7 +12554,7 @@ sw.bb70.i:                                        ; preds = %if.end77.i
           to label %.noexc260 unwind label %lpad25.i
 
 .noexc260:                                        ; preds = %sw.bb70.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1129.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1129.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_7MapTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1132.i
 
 lpad.i1132.i:                                     ; preds = %.noexc260
@@ -12576,7 +12576,7 @@ sw.bb72.i:                                        ; preds = %if.end77.i
           to label %.noexc261 unwind label %lpad25.i
 
 .noexc261:                                        ; preds = %sw.bb72.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1133.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1133.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_17FixedSizeListTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1136.i
 
 lpad.i1136.i:                                     ; preds = %.noexc261
@@ -12598,7 +12598,7 @@ sw.bb74.i:                                        ; preds = %if.end77.i
           to label %.noexc262 unwind label %lpad25.i
 
 .noexc262:                                        ; preds = %sw.bb74.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1137.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1137.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10StructTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1140.i
 
 lpad.i1140.i:                                     ; preds = %.noexc262
@@ -12620,7 +12620,7 @@ sw.bb76.i:                                        ; preds = %if.end77.i
           to label %.noexc263 unwind label %lpad25.i
 
 .noexc263:                                        ; preds = %sw.bb76.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1141.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1141.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_15SparseUnionTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1144.i
 
 lpad.i1144.i:                                     ; preds = %.noexc263
@@ -12642,7 +12642,7 @@ sw.bb78.i:                                        ; preds = %if.end77.i
           to label %.noexc264 unwind label %lpad25.i
 
 .noexc264:                                        ; preds = %sw.bb78.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1145.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1145.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14DenseUnionTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1148.i
 
 lpad.i1148.i:                                     ; preds = %.noexc264
@@ -12664,7 +12664,7 @@ sw.bb80.i:                                        ; preds = %if.end77.i
           to label %.noexc265 unwind label %lpad25.i
 
 .noexc265:                                        ; preds = %sw.bb80.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1149.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1149.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14DictionaryTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameIS5_S7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1152.i
 
 lpad.i1152.i:                                     ; preds = %.noexc265
@@ -12686,7 +12686,7 @@ sw.bb82.i:                                        ; preds = %if.end77.i
           to label %.noexc266 unwind label %lpad25.i
 
 .noexc266:                                        ; preds = %sw.bb82.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1153.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1153.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_17RunEndEncodedTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1156.i
 
 lpad.i1156.i:                                     ; preds = %.noexc266
@@ -12708,7 +12708,7 @@ sw.bb84.i:                                        ; preds = %if.end77.i
           to label %.noexc267 unwind label %lpad25.i
 
 .noexc267:                                        ; preds = %sw.bb84.i
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1157.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1157.i)
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_13ExtensionTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameIS5_S7_EE5valueENS_6StatusEE4typeERKS7_.exit.i unwind label %lpad.i1160.i
 
 lpad.i1160.i:                                     ; preds = %.noexc267
@@ -12722,7 +12722,7 @@ _ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_13ExtensionTypeEEENS
   br label %cleanup83.i
 
 sw.epilog.i:                                      ; preds = %if.end77.i
-  invoke void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.14)
+  invoke void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.14)
           to label %cleanup83.i unwind label %lpad25.i
 
 cleanup83.i:                                      ; preds = %call23.i1080.i.noexc.invoke, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_13ExtensionTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameIS5_S7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_17RunEndEncodedTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14DictionaryTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameIS5_S7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14DenseUnionTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_15SparseUnionTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10StructTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_17FixedSizeListTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_7MapTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_17LargeListViewTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_12ListViewTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_13LargeListTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_8ListTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14Decimal256TypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14Decimal128TypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10Time64TypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameIS5_S7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %if.else.i1088.i, %if.else.i1051.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10Date64TypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameIS5_S7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %if.else.i1010.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_12DurationTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14BinaryViewTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_14StringViewTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %if.else.i494.i, %if.else.i457.i, %if.else.i420.i, %if.else.i383.i, %if.else.i346.i, %if.else.i309.i, %if.else.i272.i, %if.else.i235.i, %if.else.i198.i, %if.else.i161.i, %if.else.i124.i, %if.else.i.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_8NullTypeEEENSt9enable_ifIXoooooooooooooooooooosr14is_nested_typeIT_EE5valuesr12is_null_typeIS7_EE5valuesr15is_decimal_typeIS7_EE5valuesr3std7is_sameINS_14DictionaryTypeES7_EE5valuesr16is_duration_typeIS7_EE5valuesr16is_interval_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valuesr24is_binary_view_like_typeIS7_EE5valuesr3std7is_sameINS_10Date64TypeES7_EE5valuesr3std7is_sameINS_10Time64TypeES7_EE5valuesr3std7is_sameINS_13ExtensionTypeES7_EE5valueENS_6StatusEE4typeERKS7_.exit.i, %sw.epilog.i, %_ZN5arrow6StatusC2ERKS0_.exit, %_ZN5arrow6StatusD2Ev.exit322
@@ -13354,7 +13354,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow15DictionaryArray7indicesEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %buffer, i64 noundef %length, i64 noundef %bit_offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %buffer, i64 noundef %length, i64 noundef %bit_offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %null.i = alloca i8, align 1
   %ref.tmp.i42 = alloca %"class.arrow::Status", align 8
@@ -17331,7 +17331,7 @@ if.else.i.do.body_crit_edge:                      ; preds = %if.else.i
 do.body:                                          ; preds = %if.else.i.do.body_crit_edge, %if.then.i
   %15 = phi ptr [ %.pre, %if.else.i.do.body_crit_edge ], [ %incdec.ptr.i, %if.then.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 -16
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV19GetColumnEiPSt10shared_ptrINS_12ChunkedArrayEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %i.0173, ptr noundef nonnull %add.ptr.i.i)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV19GetColumnEiPSt10shared_ptrINS_12ChunkedArrayEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %i.0173, ptr noundef %add.ptr.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad.loopexit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -17938,7 +17938,7 @@ do.body:                                          ; preds = %if.else.i.do.body_c
   %9 = phi ptr [ %.pre, %if.else.i.do.body_crit_edge ], [ %incdec.ptr.i, %if.then.i ]
   %10 = load i32, ptr %field_index, align 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -16
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV19GetColumnEiPSt10shared_ptrINS_12ChunkedArrayEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %10, ptr noundef nonnull %add.ptr.i.i)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV19GetColumnEiPSt10shared_ptrINS_12ChunkedArrayEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %10, ptr noundef %add.ptr.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad7.loopexit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -18969,7 +18969,7 @@ if.else.i.do.body_crit_edge:                      ; preds = %if.else.i
 do.body:                                          ; preds = %if.else.i.do.body_crit_edge, %if.then.i
   %9 = phi ptr [ %.pre, %if.else.i.do.body_crit_edge ], [ %incdec.ptr.i, %if.then.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -16
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV19GetColumnEiPSt10shared_ptrINS_12ChunkedArrayEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %call11, ptr noundef nonnull %add.ptr.i.i)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV19GetColumnEiPSt10shared_ptrINS_12ChunkedArrayEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %call11, ptr noundef %add.ptr.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad9.loopexit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -19983,7 +19983,7 @@ _ZNSt12__shared_ptrIN5arrow2io16RandomAccessFileELN9__gnu_cxx12_Lock_policyE2EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV19GetColumnEiPSt10shared_ptrINS_12ChunkedArrayEE(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %field_index, ptr nocapture noundef %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV19GetColumnEiPSt10shared_ptrINS_12ChunkedArrayEE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %field_index, ptr nocapture noundef nonnull %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::shared_ptr.72", align 8
   %data = alloca %"class.std::shared_ptr.133", align 8
@@ -20116,7 +20116,7 @@ cond.true.i.i.i28:                                ; preds = %_ZNK22arrow_vendore
 
 invoke.cont13:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i25, %cond.true.i.i.i28, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit19
   %cond.i.i.i24390394 = phi ptr [ null, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit19 ], [ %add.ptr4.i.i.i32, %cond.true.i.i.i28 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i25 ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV110LoadValuesESt10shared_ptrINS_8DataTypeEEPKNS1_3fbs14PrimitiveArrayENS7_12TypeMetadataEPKvPS4_INS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %agg.tmp, ptr noundef %cond.i.i.i24390394, ptr noundef nonnull %data)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV110LoadValuesESt10shared_ptrINS_8DataTypeEEPKNS1_3fbs14PrimitiveArrayENS7_12TypeMetadataEPKvPS4_INS_9ArrayDataEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %agg.tmp, ptr noundef %cond.i.i.i24390394, ptr noundef nonnull %data)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad8
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont13
@@ -20355,7 +20355,7 @@ cond.true.i.i.i13.i:                              ; preds = %_ZNK22arrow_vendore
 
 invoke.cont.i:                                    ; preds = %cond.true.i.i.i13.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i10.i, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i
   %cond.i.i.i9.i = phi ptr [ %add.ptr4.i.i.i17.i, %cond.true.i.i.i13.i ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i10.i ], [ null, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i ]
-  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV110LoadValuesESt10shared_ptrINS_8DataTypeEEPKNS1_3fbs14PrimitiveArrayENS7_12TypeMetadataEPKvPS4_INS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef %cond.i.i.i9.i, ptr noundef nonnull %dictionary)
+  invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV110LoadValuesESt10shared_ptrINS_8DataTypeEEPKNS1_3fbs14PrimitiveArrayENS7_12TypeMetadataEPKvPS4_INS_9ArrayDataEE(ptr noalias align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %agg.tmp.i, ptr noundef %cond.i.i.i9.i, ptr noundef nonnull %dictionary)
           to label %invoke.cont12.i unwind label %lpad.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont.i
@@ -21121,7 +21121,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE13_M_deallocat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV110LoadValuesESt10shared_ptrINS_8DataTypeEEPKNS1_3fbs14PrimitiveArrayENS7_12TypeMetadataEPKvPS4_INS_9ArrayDataEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %type, ptr nocapture noundef readonly %meta, ptr nocapture noundef %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV110LoadValuesESt10shared_ptrINS_8DataTypeEEPKNS1_3fbs14PrimitiveArrayENS7_12TypeMetadataEPKvPS4_INS_9ArrayDataEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull %type, ptr nocapture noundef readonly %meta, ptr nocapture noundef %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffers = alloca %"class.std::vector.149", align 8
   %ref.tmp = alloca %"class.arrow::Result.9", align 8

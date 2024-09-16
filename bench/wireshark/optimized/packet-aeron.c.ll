@@ -755,7 +755,7 @@ aeron_frame_info_add.exit:                        ; preds = %132, %107, %105
   store i32 %156, ptr %98, align 4
   %157 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %135) #9
   store i8 %157, ptr %99, align 2
-  %158 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %151, ptr noundef nonnull %14, ptr noundef %.0)
+  %158 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %151, ptr noundef %14, ptr noundef %.0)
   %159 = icmp slt i32 %158, 0
   br i1 %159, label %dissect_aeron_pad.exit, label %160
 
@@ -841,7 +841,7 @@ proto_item_set_generated.exit.i:                  ; preds = %188, %185, %aeron_i
   %207 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %206, ptr noundef %0, i32 noundef %152, i32 noundef 4, i32 noundef -2147483648) #9
   %208 = load i32, ptr @hf_aeron_pad_term_id, align 4
   %209 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %208, ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef -2147483648) #9
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %181, ptr noundef nonnull %151, ptr noundef nonnull %14, ptr noundef %.0)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %181, ptr noundef nonnull %151, ptr noundef %14, ptr noundef %.0)
   call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %181, ptr noundef nonnull %151, ptr noundef %.0)
   call void @proto_item_set_len(ptr noundef %179, i32 noundef %143) #9
   %210 = icmp ult i32 %141, 24
@@ -886,7 +886,7 @@ dissect_aeron_pad.exit:                           ; preds = %140, %145, %proto_i
   store i16 1, ptr %91, align 8
   %229 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %135) #9
   store i8 %229, ptr %92, align 2
-  %230 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %224, ptr noundef nonnull %13, ptr noundef %.0)
+  %230 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %224, ptr noundef %13, ptr noundef %.0)
   %231 = icmp slt i32 %230, 0
   br i1 %231, label %dissect_aeron_heartbeat.exit, label %232
 
@@ -970,7 +970,7 @@ proto_item_set_generated.exit.i114:               ; preds = %260, %257, %aeron_i
   %279 = call ptr @proto_tree_add_item(ptr noundef %253, i32 noundef %278, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef -2147483648) #9
   %280 = load i32, ptr @hf_aeron_heartbeat_term_id, align 4
   %281 = call ptr @proto_tree_add_item(ptr noundef %253, i32 noundef %280, ptr noundef %0, i32 noundef %227, i32 noundef 4, i32 noundef -2147483648) #9
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %253, ptr noundef nonnull %224, ptr noundef nonnull %13, ptr noundef %.0)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %253, ptr noundef nonnull %224, ptr noundef %13, ptr noundef %.0)
   call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %253, ptr noundef nonnull %224, ptr noundef %.0)
   call void @proto_item_set_len(ptr noundef %251, i32 noundef 24) #9
   %.not.i = icmp eq i32 %218, 0
@@ -1026,7 +1026,7 @@ dissect_aeron_heartbeat.exit:                     ; preds = %217, %proto_item_se
   store i16 1, ptr %83, align 8
   %304 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %135) #9
   store i8 %304, ptr %84, align 2
-  %305 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %299, ptr noundef nonnull %11, ptr noundef %.0)
+  %305 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %299, ptr noundef %11, ptr noundef %.0)
   %306 = icmp slt i32 %305, 0
   br i1 %306, label %dissect_aeron_data.exit, label %307
 
@@ -1171,7 +1171,7 @@ proto_item_set_generated.exit.i122:               ; preds = %335, %332, %aeron_i
   br i1 %.not48.i.i, label %390, label %381
 
 381:                                              ; preds = %378, %377
-  %382 = call fastcc ptr @aeron_term_msg_add(ptr noundef nonnull %373, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %11)
+  %382 = call fastcc ptr @aeron_term_msg_add(ptr noundef %373, ptr noundef nonnull readonly %1, ptr noundef readonly %11)
   br label %390
 
 383:                                              ; preds = %374
@@ -1184,7 +1184,7 @@ proto_item_set_generated.exit.i122:               ; preds = %335, %332, %aeron_i
   br i1 %387, label %390, label %388
 
 388:                                              ; preds = %384
-  %389 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef nonnull %376, ptr noundef nonnull readonly %11)
+  %389 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef %376, ptr noundef readonly %11)
   %.not46.i.i = icmp eq ptr %389, null
   br i1 %.not46.i.i, label %390, label %aeron_msg_process.exit.i
 
@@ -1375,7 +1375,7 @@ dissect_aeron_reassembled_data.exit.i:            ; preds = %467, %464, %._crit_
   br label %488
 
 488:                                              ; preds = %.critedge.i, %483, %proto_item_set_generated.exit.i122
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %328, ptr noundef nonnull %299, ptr noundef nonnull %11, ptr noundef %.0)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %328, ptr noundef nonnull %299, ptr noundef %11, ptr noundef %.0)
   call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %328, ptr noundef nonnull %299, ptr noundef %.0)
   call void @proto_item_set_len(ptr noundef %326, i32 noundef %.0128.i) #9
   %489 = add i32 %285, -1
@@ -1421,7 +1421,7 @@ dissect_aeron_data.exit:                          ; preds = %287, %293, %488, %4
   store i16 2, ptr %75, align 8
   %509 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %135) #9
   store i8 %509, ptr %76, align 2
-  %510 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %500, ptr noundef nonnull %8, ptr noundef %.0)
+  %510 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %500, ptr noundef %8, ptr noundef %.0)
   %511 = icmp slt i32 %510, 0
   br i1 %511, label %dissect_aeron_nak.exit, label %512
 
@@ -1472,7 +1472,7 @@ proto_item_set_generated.exit.i130:               ; preds = %524, %521, %512
   %545 = load i32, ptr @hf_aeron_nak_length, align 4
   %546 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %545, ptr noundef %0, i32 noundef %507, i32 noundef 4, i32 noundef -2147483648) #9
   %547 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %544, ptr noundef nonnull @ei_aeron_analysis_nak, ptr noundef nonnull @.str.278, i32 noundef %506, i32 noundef %508) #9
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %517, ptr noundef nonnull %500, ptr noundef nonnull %8, ptr noundef %.0)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %517, ptr noundef nonnull %500, ptr noundef %8, ptr noundef %.0)
   call void @proto_item_set_len(ptr noundef %515, i32 noundef %494) #9
   %.not.i131 = icmp eq i32 %494, 28
   br i1 %.not.i131, label %dissect_aeron_nak.exit, label %548
@@ -1533,7 +1533,7 @@ dissect_aeron_nak.exit:                           ; preds = %493, %496, %proto_i
   store i32 0, ptr %68, align 8
   store i32 0, ptr %69, align 4
   store i16 3, ptr %70, align 8
-  %574 = call fastcc i32 @aeron_frame_info_setup(ptr noundef nonnull %1, ptr noundef %559, ptr noundef nonnull %7, ptr noundef %.0)
+  %574 = call fastcc i32 @aeron_frame_info_setup(ptr noundef nonnull %1, ptr noundef %559, ptr noundef %7, ptr noundef %.0)
   %575 = icmp slt i32 %574, 0
   br i1 %575, label %dissect_aeron_sm.exit, label %576
 
@@ -1682,7 +1682,7 @@ aeron_window_resize_report.exit.i:                ; preds = %654, %651, %648, %p
   br label %662
 
 662:                                              ; preds = %658, %aeron_window_resize_report.exit.i
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %613, ptr noundef nonnull %559, ptr noundef nonnull %7, ptr noundef %.0)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %613, ptr noundef nonnull %559, ptr noundef %7, ptr noundef %.0)
   call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %613, ptr noundef nonnull %559, ptr noundef %.0)
   call void @proto_item_set_len(ptr noundef %611, i32 noundef %552) #9
   %663 = icmp ult i32 %552, 36
@@ -1845,7 +1845,7 @@ proto_item_set_generated.exit.i144:               ; preds = %689, %686, %670
   store i32 0, ptr %58, align 8
   store i32 0, ptr %59, align 4
   store i16 5, ptr %60, align 8
-  %772 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %765, ptr noundef nonnull %6, ptr noundef %.0)
+  %772 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %765, ptr noundef %6, ptr noundef %.0)
   %773 = icmp slt i32 %772, 0
   br i1 %773, label %dissect_aeron_setup.exit, label %774
 
@@ -1934,7 +1934,7 @@ proto_item_set_generated.exit.i150:               ; preds = %802, %799, %aeron_s
   %828 = call ptr @proto_tree_add_item(ptr noundef %795, i32 noundef %827, ptr noundef %0, i32 noundef %777, i32 noundef 4, i32 noundef -2147483648) #9
   %829 = load i32, ptr @hf_aeron_setup_ttl, align 4
   %830 = call ptr @proto_tree_add_item(ptr noundef %795, i32 noundef %829, ptr noundef %0, i32 noundef %779, i32 noundef 4, i32 noundef -2147483648) #9
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %795, ptr noundef nonnull %765, ptr noundef nonnull %6, ptr noundef %.0)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %795, ptr noundef nonnull %765, ptr noundef %6, ptr noundef %.0)
   call void @proto_item_set_len(ptr noundef %793, i32 noundef %757) #9
   %.not.i151 = icmp eq i32 %757, 40
   br i1 %.not.i151, label %dissect_aeron_setup.exit, label %831
@@ -2673,7 +2673,7 @@ copy_address_wmem.exit44:                         ; preds = %copy_address_wmem.e
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @aeron_frame_info_setup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @aeron_frame_info_setup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3583,7 +3583,7 @@ aeron_term_fragment_add.exit.i:                   ; preds = %442, %434, %428
 459:                                              ; preds = %457, %aeron_term_fragment_add.exit.i
   %460 = getelementptr inbounds i8, ptr %.0.i47, i64 8
   %461 = load ptr, ptr %460, align 8
-  call void @wmem_list_append(ptr noundef %461, ptr noundef %3) #9
+  call void @wmem_list_append(ptr noundef %461, ptr noundef nonnull %3) #9
   %462 = getelementptr inbounds i8, ptr %.0.i47, i64 52
   %463 = load i32, ptr %462, align 4
   %464 = add i32 %463, 1
@@ -3817,7 +3817,7 @@ aeron_term_frame_add.exit:                        ; preds = %565, %570
   br i1 %579, label %580, label %aeron_frame_stream_analysis_setup.exit.thread
 
 580:                                              ; preds = %aeron_term_frame_add.exit
-  call fastcc void @aeron_frame_nak_analysis_setup(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %.035)
+  call fastcc void @aeron_frame_nak_analysis_setup(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %.035)
   br label %aeron_frame_stream_analysis_setup.exit.thread
 
 581:                                              ; preds = %aeron_transport_stream_add.exit
@@ -3896,7 +3896,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @aeron_next_offset_report(ptr noundef %0, ptr noundef %1, ptr %.8.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @aeron_next_offset_report(ptr noundef %0, ptr noundef %1, ptr %.8.val, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, -2147483648) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -4036,7 +4036,7 @@ proto_item_set_generated.exit62:                  ; preds = %60, %57, %53, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @aeron_sequence_report(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @aeron_sequence_report(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr nocapture noundef nonnull readonly %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -4921,7 +4921,7 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @aeron_frame_nak_analysis_setup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @aeron_frame_nak_analysis_setup(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @wmem_file_scope() #9
   %5 = tail call noalias ptr @wmem_alloc0(ptr noundef %4, i64 noundef 24) #9
   store ptr %2, ptr %5, align 8
@@ -4998,7 +4998,7 @@ declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @aeron_term_msg_add(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @aeron_term_msg_add(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr i8, ptr %0, i64 16
@@ -5053,7 +5053,7 @@ define internal fastcc ptr @aeron_term_msg_add(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @aeron_msg_fragment_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @aeron_msg_fragment_find(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 12

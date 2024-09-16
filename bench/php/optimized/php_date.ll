@@ -7863,7 +7863,7 @@ define hidden void @zim_DateTime___set_state(ptr noundef %0, ptr noundef %1) #0 
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   store ptr %17, ptr %3, align 8
-  %18 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %13)
+  %18 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %13)
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %12
@@ -7878,7 +7878,7 @@ define hidden void @zim_DateTime___set_state(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @php_date_initialize_from_hash(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @php_date_initialize_from_hash(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = tail call ptr @zend_hash_str_find(ptr noundef %1, ptr noundef nonnull @.str, i64 noundef 4) #25
   %.not = icmp eq ptr %4, null
@@ -8038,7 +8038,7 @@ define hidden void @zim_DateTimeImmutable___set_state(ptr noundef %0, ptr nounde
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   store ptr %17, ptr %3, align 8
-  %18 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %13)
+  %18 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %13)
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %12
@@ -8487,7 +8487,7 @@ define hidden void @zim_DateTime___unserialize(ptr noundef %0, ptr nocapture rea
   %15 = getelementptr inbounds i8, ptr %14, i64 -8
   store ptr %15, ptr %3, align 8
   %16 = load ptr, ptr %9, align 8
-  %17 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %16)
+  %17 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %16)
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %13
@@ -8565,7 +8565,7 @@ define internal fastcc void @restore_custom_datetime_properties(ptr nocapture no
 
 date_time_is_internal_property.exit:              ; preds = %26, %24, %22, %19
   %28 = load ptr, ptr %0, align 8
-  tail call fastcc void @update_property(ptr noundef %28, ptr noundef nonnull %17, ptr noundef nonnull %.026)
+  tail call fastcc void @update_property(ptr noundef %28, ptr noundef %17, ptr noundef nonnull %.026)
   br label %date_time_is_internal_property.exit.thread
 
 date_time_is_internal_property.exit.thread:       ; preds = %22, %24, %26, %15, %.lr.ph, %date_time_is_internal_property.exit
@@ -8610,7 +8610,7 @@ define hidden void @zim_DateTimeImmutable___unserialize(ptr noundef %0, ptr noca
   %15 = getelementptr inbounds i8, ptr %14, i64 -8
   store ptr %15, ptr %3, align 8
   %16 = load ptr, ptr %9, align 8
-  %17 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %16)
+  %17 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %16)
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %13
@@ -8650,7 +8650,7 @@ define hidden void @zim_DateTime___wakeup(ptr nocapture noundef readonly %0, ptr
   %13 = getelementptr inbounds i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef %9) #25
-  %16 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %15)
+  %16 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %15)
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %7
@@ -8683,7 +8683,7 @@ define hidden void @zim_DateTimeImmutable___wakeup(ptr nocapture noundef readonl
   %13 = getelementptr inbounds i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef %9) #25
-  %16 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %15)
+  %16 = call fastcc zeroext i1 @php_date_initialize_from_hash(ptr noundef %3, ptr noundef %15)
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %7
@@ -12787,7 +12787,7 @@ php_date_timezone_initialize_from_hash.exit.thread: ; preds = %27, %24, %21, %18
 
 date_timezone_is_internal_property.exit.i:        ; preds = %57, %55, %52
   %59 = load ptr, ptr %3, align 8
-  tail call fastcc void @update_property(ptr noundef %59, ptr noundef nonnull %50, ptr noundef nonnull %.026.i)
+  tail call fastcc void @update_property(ptr noundef %59, ptr noundef %50, ptr noundef nonnull %.026.i)
   br label %date_timezone_is_internal_property.exit.thread.i
 
 date_timezone_is_internal_property.exit.thread.i: ; preds = %date_timezone_is_internal_property.exit.i, %57, %55, %48, %.lr.ph.i
@@ -14238,7 +14238,7 @@ define hidden void @zim_DateInterval___set_state(ptr noundef %0, ptr noundef %1)
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -32
   store ptr %17, ptr %3, align 8
-  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %13)
+  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef %3, ptr noundef %13)
   br label %18
 
 18:                                               ; preds = %12, %11
@@ -14246,7 +14246,7 @@ define hidden void @zim_DateInterval___set_state(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
@@ -15267,7 +15267,7 @@ define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr nocapture
   %15 = getelementptr inbounds i8, ptr %14, i64 -32
   store ptr %15, ptr %3, align 8
   %16 = load ptr, ptr %9, align 8
-  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %16)
+  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef %3, ptr noundef %16)
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 24
@@ -15345,7 +15345,7 @@ define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr nocapture
 
 date_interval_is_internal_property.exit.i:        ; preds = %43, %41, %39, %38, %33
   %45 = load ptr, ptr %4, align 8
-  tail call fastcc void @update_property(ptr noundef %45, ptr noundef nonnull %31, ptr noundef nonnull %.026.i)
+  tail call fastcc void @update_property(ptr noundef %45, ptr noundef %31, ptr noundef nonnull %.026.i)
   br label %date_interval_is_internal_property.exit.thread.i
 
 date_interval_is_internal_property.exit.thread.i: ; preds = %date_interval_is_internal_property.exit.i, %43, %41, %39, %39, %39, %39, %39, %39, %39, %38, %36, %29, %.lr.ph.i
@@ -15379,7 +15379,7 @@ define hidden void @zim_DateInterval___wakeup(ptr nocapture noundef readonly %0,
   %13 = getelementptr inbounds i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef %9) #25
-  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef nonnull %3, ptr noundef %15)
+  call fastcc void @php_date_interval_initialize_from_hash(ptr noundef %3, ptr noundef %15)
   br label %16
 
 16:                                               ; preds = %7, %6
@@ -16077,7 +16077,7 @@ define hidden void @zim_DatePeriod_createFromISO8601String(ptr nocapture noundef
   %20 = load ptr, ptr @date_ce_immutable, align 8
   %21 = load ptr, ptr %5, align 8
   %22 = load i64, ptr %6, align 8
-  %23 = call fastcc zeroext i1 @date_period_init_iso8601_string(ptr noundef nonnull %18, ptr noundef %20, ptr noundef %21, i64 noundef %22, ptr noundef nonnull %3)
+  %23 = call fastcc zeroext i1 @date_period_init_iso8601_string(ptr noundef nonnull %18, ptr noundef %20, ptr noundef %21, i64 noundef %22, ptr noundef %3)
   br i1 %23, label %24, label %.sink.split
 
 24:                                               ; preds = %11
@@ -16097,7 +16097,7 @@ define hidden void @zim_DatePeriod_createFromISO8601String(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @date_period_init_iso8601_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @date_period_init_iso8601_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -16399,7 +16399,7 @@ define hidden void @zim_DatePeriod___construct(ptr nocapture noundef readonly %0
   %36 = load ptr, ptr @date_ce_date, align 8
   %37 = load ptr, ptr %8, align 8
   %38 = load i64, ptr %9, align 8
-  %39 = call fastcc zeroext i1 @date_period_init_iso8601_string(ptr noundef nonnull %30, ptr noundef %36, ptr noundef %37, i64 noundef %38, ptr noundef nonnull %6)
+  %39 = call fastcc zeroext i1 @date_period_init_iso8601_string(ptr noundef nonnull %30, ptr noundef %36, ptr noundef %37, i64 noundef %38, ptr noundef %6)
   br i1 %39, label %135, label %.sink.split
 
 40:                                               ; preds = %28
@@ -18768,7 +18768,7 @@ define hidden void @zim_DatePeriod___unserialize(ptr noundef %0, ptr nocapture r
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %3, align 8
-  tail call fastcc void @update_property(ptr noundef %38, ptr noundef nonnull %33, ptr noundef nonnull %.025.i)
+  tail call fastcc void @update_property(ptr noundef %38, ptr noundef %33, ptr noundef nonnull %.025.i)
   br label %39
 
 39:                                               ; preds = %37, %35, %31, %.lr.ph.i
@@ -20874,7 +20874,7 @@ declare ptr @zend_string_concat3(ptr noundef, i64 noundef, ptr noundef, i64 noun
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_property(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @update_property(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8

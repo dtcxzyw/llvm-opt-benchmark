@@ -3044,7 +3044,7 @@ _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit: ; preds = %45, %47
   br i1 %54, label %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread, label %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread65
 
 _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread: ; preds = %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit
-  call fastcc void @_ZL23post_monitor_wait_eventP20EventJavaMonitorWaitP13ObjectMonitormlb(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef 0, i64 noundef %1, i1 noundef zeroext false)
+  call fastcc void @_ZL23post_monitor_wait_eventP20EventJavaMonitorWaitP13ObjectMonitormlb(ptr noundef %5, ptr noundef %0, i64 noundef 0, i64 noundef %1, i1 noundef zeroext false)
   br label %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread65
 
 _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread65: ; preds = %41, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit
@@ -3326,7 +3326,7 @@ _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit62: ; preds = %162, %1
 
 _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit62.thread: ; preds = %156, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit62
   %176 = load i64, ptr %61, align 8
-  call fastcc void @_ZL23post_monitor_wait_eventP20EventJavaMonitorWaitP13ObjectMonitormlb(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %176, i64 noundef %1, i1 noundef zeroext %.0)
+  call fastcc void @_ZL23post_monitor_wait_eventP20EventJavaMonitorWaitP13ObjectMonitormlb(ptr noundef %5, ptr noundef %0, i64 noundef %176, i64 noundef %1, i1 noundef zeroext %.0)
   br label %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit62.thread68
 
 _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit62.thread68: ; preds = %154, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit62.thread, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit62
@@ -3443,7 +3443,7 @@ declare noundef zeroext i1 @_ZN10JavaThread14is_interruptedEb(ptr noundef nonnul
 declare void @_ZN11JvmtiExport19post_monitor_waitedEP10JavaThreadP13ObjectMonitorh(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23post_monitor_wait_eventP20EventJavaMonitorWaitP13ObjectMonitormlb(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL23post_monitor_wait_eventP20EventJavaMonitorWaitP13ObjectMonitormlb(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8

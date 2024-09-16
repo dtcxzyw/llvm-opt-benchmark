@@ -149,7 +149,7 @@ define hidden void @"_ZN2tt18TokenTree$LT$S$GT$15subtree_or_wrap17h5a57c431bb150
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN2tt19print_debug_subtree17hc49d1511bbdf901cE(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(64) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN2tt19print_debug_subtree17hc49d1511bbdf901cE(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 switch.lookup:
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -228,7 +228,7 @@ default.unreachable78:                            ; preds = %109
   br i1 %35, label %.loopexit75, label %37
 
 37:                                               ; preds = %36
-  %38 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %22, ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  %38 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef readonly align 4 dereferenceable(20) %22, ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %39 unwind label %.loopexit.split-lp
 
 39:                                               ; preds = %37
@@ -253,7 +253,7 @@ default.unreachable78:                            ; preds = %109
   br i1 %45, label %.loopexit75, label %47
 
 47:                                               ; preds = %46
-  %48 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %23, ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  %48 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef readonly align 4 dereferenceable(20) %23, ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %49 unwind label %.loopexit.split-lp
 
 49:                                               ; preds = %47
@@ -369,7 +369,7 @@ default.unreachable78:                            ; preds = %109
   ]
 
 111:                                              ; preds = %.noexc
-  %112 = invoke fastcc noundef zeroext i1 @_ZN2tt19print_debug_subtree17hc49d1511bbdf901cE(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.0.077, i64 noundef %71)
+  %112 = invoke fastcc noundef zeroext i1 @_ZN2tt19print_debug_subtree17hc49d1511bbdf901cE(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(64) %.sroa.0.077, i64 noundef %71)
           to label %157 unwind label %119
 
 113:                                              ; preds = %109
@@ -426,7 +426,7 @@ default.unreachable78:                            ; preds = %109
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds i8, ptr %.sroa.0.077, i64 32
-  %127 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %126, ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  %127 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef readonly align 4 dereferenceable(20) %126, ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %128 unwind label %119
 
 128:                                              ; preds = %125
@@ -440,7 +440,7 @@ default.unreachable78:                            ; preds = %109
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds i8, ptr %.sroa.0.077, i64 8
-  %132 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %131, ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  %132 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef readonly align 4 dereferenceable(20) %131, ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %133 unwind label %119
 
 133:                                              ; preds = %130
@@ -469,7 +469,7 @@ default.unreachable78:                            ; preds = %109
 
 138:                                              ; preds = %137
   %139 = getelementptr inbounds i8, ptr %.sroa.0.077, i64 32
-  %140 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %139, ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  %140 = invoke fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef readonly align 4 dereferenceable(20) %139, ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %141 unwind label %119
 
 141:                                              ; preds = %138
@@ -597,14 +597,14 @@ _ZN2tt17print_debug_token17h6bb6739252208946E.exit: ; preds = %.noexc63, %151, %
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3ed15f9780d40bd6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !80, !noundef !5
-  %4 = tail call fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %4 = tail call fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef readonly align 4 dereferenceable(20) %3, ptr noalias noundef align 8 dereferenceable(64) %1)
   ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6ca61ea525d5e017E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !27, !noundef !5
-  %4 = tail call fastcc noundef zeroext i1 @_ZN2tt19print_debug_subtree17hc49d1511bbdf901cE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3, i64 noundef 0)
+  %4 = tail call fastcc noundef zeroext i1 @_ZN2tt19print_debug_subtree17hc49d1511bbdf901cE(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 dereferenceable(64) %3, i64 noundef 0)
   ret i1 %4
 }
 
@@ -1417,7 +1417,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef readonly align 4 dereferenceable(20) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8e3f6d0f3ebbc89E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca { ptr, i8, i8, [6 x i8] }, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

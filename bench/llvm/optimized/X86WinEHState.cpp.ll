@@ -470,7 +470,7 @@ _ZNK4llvm10BasicBlock7isEHPadEv.exit:             ; preds = %.lr.ph
   store ptr %45, ptr %47, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %46, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114WinEHStatePass31emitExceptionRegistrationRecordEPN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1)
+  call fastcc void @_ZN12_GLOBAL__N_114WinEHStatePass31emitExceptionRegistrationRecordEPN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1)
   call void @_ZN4llvm13WinEHFuncInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(720) %4) #18
   call fastcc void @_ZN12_GLOBAL__N_114WinEHStatePass14addStateStoresERN4llvm8FunctionERNS1_13WinEHFuncInfoE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(720) %4)
   store ptr null, ptr %18, align 8
@@ -509,7 +509,7 @@ declare noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeENS_8ArrayRefIS2_EEb(pt
 declare noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114WinEHStatePass31emitExceptionRegistrationRecordEPN4llvm8FunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114WinEHStatePass31emitExceptionRegistrationRecordEPN4llvm8FunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca [2 x ptr], align 16
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8

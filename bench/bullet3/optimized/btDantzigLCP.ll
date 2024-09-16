@@ -1602,7 +1602,7 @@ if.end130:                                        ; preds = %for.inc128, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii(ptr nocapture noundef %A, ptr nocapture noundef %x, ptr nocapture noundef %b, ptr nocapture noundef %w, ptr nocapture noundef %lo, ptr nocapture noundef %hi, ptr nocapture noundef %p, ptr nocapture noundef %state, ptr noundef %findex, i32 noundef %n, i32 noundef %i1, i32 noundef %i2, i32 noundef %do_fast_row_swaps) unnamed_addr #2 {
+define internal fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii(ptr nocapture noundef %A, ptr nocapture noundef %x, ptr nocapture noundef %b, ptr nocapture noundef %w, ptr nocapture noundef %lo, ptr nocapture noundef %hi, ptr nocapture noundef %p, ptr nocapture noundef %state, ptr noundef %findex, i32 noundef %n, i32 noundef %i1, i32 noundef %i2, i32 noundef range(i32 0, 2) %do_fast_row_swaps) unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %i1, %i2
   br i1 %cmp, label %if.end69, label %if.end

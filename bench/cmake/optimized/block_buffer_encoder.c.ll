@@ -151,14 +151,14 @@ lzma2_bound.exit:                                 ; preds = %44
   br i1 %7, label %54, label %.thread
 
 54:                                               ; preds = %lzma2_bound.exit
-  %55 = tail call fastcc i32 @block_encode_normal(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %41)
+  %55 = tail call fastcc i32 @block_encode_normal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %41)
   switch i32 %55, label %74 [
     i32 0, label %57
     i32 10, label %.thread
   ]
 
 .thread:                                          ; preds = %lzma2_bound.exit, %54
-  %56 = tail call fastcc i32 @block_encode_uncompressed(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %41)
+  %56 = tail call fastcc i32 @block_encode_uncompressed(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %41)
   %.not79 = icmp eq i32 %56, 0
   br i1 %.not79, label %57, label %74
 
@@ -219,10 +219,10 @@ declare zeroext i8 @lzma_check_is_supported(i32 noundef) local_unnamed_addr #2
 declare i32 @lzma_check_size(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @block_encode_normal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #1 {
+define internal fastcc i32 @block_encode_normal(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6) unnamed_addr #1 {
   %8 = alloca %struct.lzma_next_coder_s, align 8
   %9 = alloca i64, align 8
-  %10 = tail call i32 @lzma_block_header_size(ptr noundef %0) #9
+  %10 = tail call i32 @lzma_block_header_size(ptr noundef nonnull %0) #9
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %44
 
@@ -258,7 +258,7 @@ define internal fastcc i32 @block_encode_normal(ptr noundef %0, ptr noundef %1, 
   %30 = getelementptr inbounds i8, ptr %8, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %8, align 8
-  %33 = call i32 %31(ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %5, i64 noundef %spec.select, i32 noundef 3) #9
+  %33 = call i32 %31(ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %spec.select, i32 noundef 3) #9
   br label %34
 
 34:                                               ; preds = %26, %17
@@ -277,7 +277,7 @@ define internal fastcc i32 @block_encode_normal(ptr noundef %0, ptr noundef %1, 
   %40 = sub i64 %36, %39
   store i64 %40, ptr %19, align 8
   %41 = getelementptr inbounds i8, ptr %4, i64 %12
-  %42 = call i32 @lzma_block_header_encode(ptr noundef nonnull %0, ptr noundef %41) #9
+  %42 = call i32 @lzma_block_header_encode(ptr noundef nonnull %0, ptr noundef nonnull %41) #9
   %.not46 = icmp eq i32 %42, 0
   br i1 %.not46, label %44, label %43
 
@@ -295,7 +295,7 @@ select.unfold48:                                  ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca %struct.lzma_options_lzma, align 8
   %8 = alloca [2 x %struct.lzma_filter], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false)
@@ -308,7 +308,7 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   store ptr %8, ptr %11, align 8
-  %13 = call i32 @lzma_block_header_size(ptr noundef %0) #9
+  %13 = call i32 @lzma_block_header_size(ptr noundef nonnull %0) #9
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
 
@@ -334,7 +334,7 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %3, i64 %16
-  %28 = call i32 @lzma_block_header_encode(ptr noundef nonnull %0, ptr noundef %27) #9
+  %28 = call i32 @lzma_block_header_encode(ptr noundef nonnull %0, ptr noundef nonnull %27) #9
   %.not49 = icmp eq i32 %28, 0
   store ptr %12, ptr %11, align 8
   br i1 %.not49, label %29, label %57
@@ -374,7 +374,7 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
   %48 = load i64, ptr %4, align 8
   %49 = getelementptr inbounds i8, ptr %3, i64 %48
   %50 = getelementptr inbounds i8, ptr %1, i64 %.04751
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %50, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %50, i64 %37, i1 false)
   %51 = add i64 %37, %.04751
   %52 = load i64, ptr %4, align 8
   %53 = add i64 %52, %37

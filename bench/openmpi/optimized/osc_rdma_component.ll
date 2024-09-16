@@ -1654,7 +1654,7 @@ ompi_osc_rdma_query_accelerated_btls.exit:        ; preds = %ompi_osc_rdma_query
 
 537:                                              ; preds = %504, %492, %534, %529
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  %538 = call fastcc i32 @ompi_osc_rdma_create_groups(ptr noundef nonnull %29)
+  %538 = call fastcc i32 @ompi_osc_rdma_create_groups(ptr noundef %29)
   %.not169 = icmp eq i32 %538, 0
   br i1 %.not169, label %541, label %539
 
@@ -1663,7 +1663,7 @@ ompi_osc_rdma_query_accelerated_btls.exit:        ; preds = %ompi_osc_rdma_query
   br label %630
 
 541:                                              ; preds = %537
-  %542 = call fastcc i32 @allocate_state_shared(ptr noundef nonnull %29, ptr noundef %1, i64 noundef %2)
+  %542 = call fastcc i32 @allocate_state_shared(ptr noundef %29, ptr noundef %1, i64 noundef %2)
   %543 = load ptr, ptr %164, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %542, ptr %9, align 4
@@ -1789,7 +1789,7 @@ ompi_osc_rdma_query_accelerated_btls.exit:        ; preds = %ompi_osc_rdma_query
   %612 = load ptr, ptr %24, align 8
   call void @free(ptr noundef %612) #15
   fence seq_cst
-  %613 = call fastcc i32 @ompi_osc_rdma_share_data(ptr noundef nonnull %29)
+  %613 = call fastcc i32 @ompi_osc_rdma_share_data(ptr noundef %29)
   %.not172 = icmp eq i32 %613, 0
   br i1 %.not172, label %621, label %614
 
@@ -1808,7 +1808,7 @@ ompi_osc_rdma_query_accelerated_btls.exit:        ; preds = %ompi_osc_rdma_query
   br label %630
 
 621:                                              ; preds = %606
-  %622 = call fastcc ptr @ompi_osc_rdma_module_peer(ptr noundef nonnull %29)
+  %622 = call fastcc ptr @ompi_osc_rdma_module_peer(ptr noundef %29)
   %623 = getelementptr inbounds i8, ptr %29, i64 344
   store ptr %622, ptr %623, align 8
   %624 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 76), align 4
@@ -2154,7 +2154,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_create_groups(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @ompi_osc_rdma_create_groups(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [2 x i32], align 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 392
@@ -2267,7 +2267,7 @@ define internal fastcc i32 @ompi_osc_rdma_create_groups(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @allocate_state_shared(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @allocate_state_shared(ptr noundef nonnull %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2960,7 +2960,7 @@ _ompi_osc_rdma_register.exit:                     ; preds = %.thread, %395, %383
   ]
 
 417:                                              ; preds = %415
-  %418 = call fastcc i32 @ompi_osc_rdma_initialize_region(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %.0227)
+  %418 = call fastcc i32 @ompi_osc_rdma_initialize_region(ptr noundef %0, ptr noundef %1, i64 noundef %.0227)
   br label %441
 
 419:                                              ; preds = %415
@@ -3249,7 +3249,7 @@ declare i32 @opal_hash_table_set_value_uint32(ptr noundef, i32 noundef, ptr noun
 declare i32 @ompi_win_set_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_share_data(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @ompi_osc_rdma_share_data(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 392
   %4 = load ptr, ptr %3, align 8
@@ -3464,7 +3464,7 @@ define internal fastcc i32 @ompi_osc_rdma_share_data(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ompi_osc_rdma_module_peer(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @ompi_osc_rdma_module_peer(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 1000
@@ -3554,7 +3554,7 @@ declare ptr @opal_shmem_segment_attach(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_shmem_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @ompi_osc_rdma_initialize_region(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @ompi_osc_rdma_initialize_region(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 368
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds i8, ptr %5, i64 328

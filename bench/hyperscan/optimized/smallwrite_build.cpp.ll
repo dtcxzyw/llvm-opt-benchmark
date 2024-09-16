@@ -790,7 +790,7 @@ if.end26:                                         ; preds = %if.end20, %if.then2
   br i1 %cmp.i13, label %if.end34, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  call fastcc void @_ZN3ue2L8buildDfaERNS_7LitTrieEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %lit_trie, i1 noundef zeroext false)
+  call fastcc void @_ZN3ue2L8buildDfaERNS_7LitTrieEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %lit_trie, i1 noundef zeroext false)
   %7 = load ptr, ptr %_M_finish.i.i136, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -902,7 +902,7 @@ if.end34.if.end45_crit_edge:                      ; preds = %if.end34
   br label %if.end45
 
 if.then37:                                        ; preds = %if.end34
-  call fastcc void @_ZN3ue2L8buildDfaERNS_7LitTrieEb(ptr noalias nonnull align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(72) %lit_trie_nocase35, i1 noundef zeroext true)
+  call fastcc void @_ZN3ue2L8buildDfaERNS_7LitTrieEb(ptr noalias align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(72) %lit_trie_nocase35, i1 noundef zeroext true)
   %18 = load ptr, ptr %_M_finish.i.i136, align 8
   %_M_end_of_storage.i.i22 = getelementptr inbounds i8, ptr %this, i64 40
   %19 = load ptr, ptr %_M_end_of_storage.i.i22, align 8
@@ -1108,7 +1108,7 @@ call.i.noexc:                                     ; preds = %_ZNSt6vectorISt10un
   store ptr %46, ptr %_M_right.i.i.i.i.i.i, align 8, !noalias !41
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %accel_states.i, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !noalias !41
-  invoke fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbRSt3setItSt4lessItESaItEE(ptr noalias nonnull align 8 %nfa.i, ptr noundef nonnull align 8 dereferenceable(560) %39, ptr noundef nonnull align 8 dereferenceable(320) %44, ptr noundef nonnull align 8 dereferenceable(505) %45, i1 noundef zeroext %lnot4137, ptr noundef nonnull align 8 dereferenceable(48) %accel_states.i)
+  invoke fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbRSt3setItSt4lessItESaItEE(ptr noalias align 8 %nfa.i, ptr noundef nonnull align 8 dereferenceable(560) %39, ptr noundef nonnull align 8 dereferenceable(320) %44, ptr noundef nonnull align 8 dereferenceable(505) %45, i1 noundef zeroext %lnot4137, ptr noundef nonnull align 8 dereferenceable(48) %accel_states.i)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !41
 
 invoke.cont.i:                                    ; preds = %call.i.noexc
@@ -1601,7 +1601,7 @@ invoke.cont18.i:                                  ; preds = %if.then16.i
   br i1 %cmp19.i, label %cleanup.i, label %if.end25.i
 
 if.end25.i:                                       ; preds = %invoke.cont18.i
-  invoke fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbRSt3setItSt4lessItESaItEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(560) %39, ptr noundef nonnull align 8 dereferenceable(320) %44, ptr noundef nonnull align 8 dereferenceable(505) %45, i1 noundef zeroext %lnot4137, ptr noundef nonnull align 8 dereferenceable(48) %accel_states.i)
+  invoke fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbRSt3setItSt4lessItESaItEE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(560) %39, ptr noundef nonnull align 8 dereferenceable(320) %44, ptr noundef nonnull align 8 dereferenceable(505) %45, i1 noundef zeroext %lnot4137, ptr noundef nonnull align 8 dereferenceable(48) %accel_states.i)
           to label %invoke.cont27.i unwind label %lpad1.i, !noalias !41
 
 invoke.cont27.i:                                  ; preds = %if.end25.i
@@ -4146,7 +4146,7 @@ _ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE12empl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L8buildDfaERNS_7LitTrieEb(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %trie, i1 noundef zeroext %nocase) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L8buildDfaERNS_7LitTrieEb(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %trie, i1 noundef zeroext %nocase) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cr.i.i = alloca %"class.ue2::CharReach", align 8
   %t.i.i = alloca %"class.ue2::CharReach", align 8
@@ -12350,7 +12350,7 @@ declare void @_ZN3ue212mergeAllDfasERKSt6vectorIPKNS_7raw_dfaESaIS3_EEmPKNS_13Re
 declare noundef i32 @_ZN3ue219remove_leading_dotsERNS_7raw_dfaE(ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbRSt3setItSt4lessItESaItEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %has_non_literals, ptr noundef nonnull align 8 dereferenceable(48) %accel_states) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbRSt3setItSt4lessItESaItEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %has_non_literals, ptr noundef nonnull align 8 dereferenceable(48) %accel_states) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.ue2::bytecode_ptr.148", align 8
   %ref.tmp10 = alloca %"class.ue2::bytecode_ptr.148", align 8

@@ -477,7 +477,7 @@ entry:
   br i1 %call, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_124GoogleCloud2ProdResolverENS0_16OrphanableDeleteEED2Ev.exit, label %return
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_124GoogleCloud2ProdResolverENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %entry
-  call fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_124GoogleCloud2ProdResolverEJNS_12ResolverArgsEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args)
+  call fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_124GoogleCloud2ProdResolverEJNS_12ResolverArgsEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args)
   %1 = load ptr, ptr %ref.tmp, align 8
   br label %return
 
@@ -538,7 +538,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_124GoogleCloud2ProdResolverEJNS_12ResolverArgsEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_124GoogleCloud2ProdResolverEJNS_12ResolverArgsEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::optional", align 8
   %ref.tmp1.i.i = alloca %"class.std::optional", align 8
@@ -9400,7 +9400,7 @@ entry:
   br i1 %call, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_124GoogleCloud2ProdResolverENS0_16OrphanableDeleteEED2Ev.exit, label %return
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_124GoogleCloud2ProdResolverENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %entry
-  call fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_124GoogleCloud2ProdResolverEJNS_12ResolverArgsEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args)
+  call fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_124GoogleCloud2ProdResolverEJNS_12ResolverArgsEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args)
   %1 = load ptr, ptr %ref.tmp, align 8
   br label %return
 

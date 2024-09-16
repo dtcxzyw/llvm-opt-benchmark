@@ -77317,7 +77317,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1061:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1731 unwind label %.loopexit2261
 
 1731:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1061
-  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireE(ptr noundef nonnull align 8 dereferenceable(64) %106, ptr noundef %487)
+  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireE(ptr noundef nonnull align 8 dereferenceable(64) %106, ptr noundef nonnull %487)
           to label %1732 unwind label %1765
 
 1732:                                             ; preds = %1731
@@ -77483,11 +77483,11 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1085: ; preds =
           to label %1773 unwind label %1832
 
 1773:                                             ; preds = %1772
-  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %112, ptr noundef %487, i32 noundef %.02254010, i32 noundef 1)
+  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %112, ptr noundef nonnull %487, i32 noundef %.02254010, i32 noundef 1)
           to label %1774 unwind label %1834
 
 1774:                                             ; preds = %1773
-  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %113, ptr noundef %.0221, i32 noundef %.02254010, i32 noundef 1)
+  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %113, ptr noundef nonnull %.0221, i32 noundef %.02254010, i32 noundef 1)
           to label %1775 unwind label %1836
 
 1775:                                             ; preds = %1774
@@ -78172,7 +78172,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1216: ; preds =
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1218:             ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1216, %1969
   %1970 = load ptr, ptr %157, align 8
-  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireE(ptr noundef nonnull align 8 dereferenceable(64) %124, ptr noundef %.0221)
+  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireE(ptr noundef nonnull align 8 dereferenceable(64) %124, ptr noundef nonnull %.0221)
           to label %1971 unwind label %.loopexit2261
 
 1971:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1218
@@ -79066,11 +79066,11 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i1370:
           to label %2221 unwind label %2283
 
 2221:                                             ; preds = %2220
-  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %142, ptr noundef %487, i32 noundef %.02264007, i32 noundef 1)
+  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %142, ptr noundef nonnull %487, i32 noundef %.02264007, i32 noundef 1)
           to label %2222 unwind label %2285
 
 2222:                                             ; preds = %2221
-  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %143, ptr noundef %.0221, i32 noundef %.02264007, i32 noundef 1)
+  invoke void @_ZN5Yosys5RTLIL7SigSpecC1EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %143, ptr noundef nonnull %.0221, i32 noundef %.02264007, i32 noundef 1)
           to label %2223 unwind label %2287
 
 2223:                                             ; preds = %2222

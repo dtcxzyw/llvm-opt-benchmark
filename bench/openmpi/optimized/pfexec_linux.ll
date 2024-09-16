@@ -1339,7 +1339,7 @@ define internal void @send_error_show_help(i32 noundef %0, i32 %1, ptr nocapture
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 1, ptr %7, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call fastcc void @write_help_msg(i32 noundef %0, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull %5)
+  call fastcc void @write_help_msg(i32 noundef %0, ptr noundef %6, ptr noundef %3, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @exit(i32 noundef 1) #25
   unreachable
@@ -1358,12 +1358,12 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_help_msg(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @write_help_msg(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %36, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @pmix_show_help_vstring(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %3) #18
+  %7 = tail call ptr @pmix_show_help_vstring(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %3) #18
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 21, ptr %8, align 4
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26

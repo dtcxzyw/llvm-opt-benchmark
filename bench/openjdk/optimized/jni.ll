@@ -4794,7 +4794,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %36, %40, %44
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %51, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %49, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %49, i32 noundef 2, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %52 = load ptr, ptr %30, align 8
   %.not26 = icmp eq ptr %52, null
   %spec.select = select i1 %.not26, ptr %49, ptr null
@@ -4851,7 +4851,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %class.methodHandle, align 8
   %8 = alloca %class.JavaCallArguments, align 8
   %.not.i = icmp eq ptr %1, null
@@ -5303,7 +5303,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %36, %40, %44
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %51, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %49, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %49, i32 noundef 2, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %52 = load ptr, ptr %30, align 8
   %.not26 = icmp eq ptr %52, null
   %.1 = select i1 %.not26, ptr %49, ptr null
@@ -5473,7 +5473,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %36, %40, %44
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %51, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %49, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %49, i32 noundef 2, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %52 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %52, null
   br i1 %.not25, label %53, label %54
@@ -6494,7 +6494,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %41
@@ -6637,7 +6637,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %41
@@ -6780,7 +6780,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %41
@@ -6923,7 +6923,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %41
@@ -7066,7 +7066,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -7208,7 +7208,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -7350,7 +7350,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -7492,7 +7492,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -7634,7 +7634,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -7774,7 +7774,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -7908,7 +7908,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8042,7 +8042,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8176,7 +8176,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8310,7 +8310,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8443,7 +8443,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8576,7 +8576,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8709,7 +8709,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 8
   %38 = load float, ptr %37, align 8
@@ -8842,7 +8842,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 8
   %38 = load double, ptr %37, align 8
@@ -8975,7 +8975,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9107,7 +9107,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9239,7 +9239,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9371,7 +9371,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9503,7 +9503,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9634,7 +9634,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9765,7 +9765,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9896,7 +9896,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 8
   %38 = load float, ptr %37, align 8
@@ -10027,7 +10027,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 8
   %38 = load double, ptr %37, align 8
@@ -10160,7 +10160,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %38
@@ -10297,7 +10297,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   call void @llvm.va_end.p0(ptr nonnull %35)
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22CallVoidMethodV__return\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #15, !srcloc !247
@@ -10425,7 +10425,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %7, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull %10)
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22CallVoidMethodA__return\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #15, !srcloc !251
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !252
   %36 = load ptr, ptr %29, align 8
@@ -10553,7 +10553,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %42
@@ -10697,7 +10697,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %42
@@ -10841,7 +10841,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %42
@@ -10985,7 +10985,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %42
@@ -11129,7 +11129,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %41
@@ -11272,7 +11272,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %41
@@ -11415,7 +11415,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %41
@@ -11558,7 +11558,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %41
@@ -11700,7 +11700,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %41
@@ -11840,7 +11840,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -11975,7 +11975,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -12110,7 +12110,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -12245,7 +12245,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -12380,7 +12380,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -12514,7 +12514,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -12648,7 +12648,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -12782,7 +12782,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 8
   %39 = load float, ptr %38, align 8
@@ -12915,7 +12915,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 8
   %39 = load double, ptr %38, align 8
@@ -13048,7 +13048,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -13181,7 +13181,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -13314,7 +13314,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -13447,7 +13447,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -13580,7 +13580,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -13712,7 +13712,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -13844,7 +13844,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -13976,7 +13976,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 8
   %39 = load float, ptr %38, align 8
@@ -14107,7 +14107,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 8
   %39 = load double, ptr %38, align 8
@@ -14240,7 +14240,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %6)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   %37 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %39
@@ -14377,7 +14377,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr %4)
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %8, align 8
   call void @llvm.va_end.p0(ptr nonnull %36)
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22CallNonvirtualVoidMethodV__return\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #15, !srcloc !367
@@ -14505,7 +14505,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherArray, i64 16), ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %4, ptr %36, align 8
-  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %7, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %11)
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22CallNonvirtualVoidMethodA__return\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #15, !srcloc !371
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !372
   %37 = load ptr, ptr %30, align 8
@@ -14634,7 +14634,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %41
@@ -14698,7 +14698,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %0, ptr %.0.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %0, ptr %.0.val, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %class.methodHandle, align 8
   %5 = alloca %class.JavaCallArguments, align 8
   store ptr %.0.val, ptr %4, align 8
@@ -14924,7 +14924,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %41
@@ -15068,7 +15068,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %41
@@ -15212,7 +15212,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %41
@@ -15356,7 +15356,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -15499,7 +15499,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -15642,7 +15642,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -15785,7 +15785,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -15928,7 +15928,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %40
@@ -16105,7 +16105,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %60
@@ -16283,7 +16283,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %60
@@ -16461,7 +16461,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %60
@@ -16639,7 +16639,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %60
@@ -16817,7 +16817,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not24 = icmp eq ptr %55, null
   br i1 %.not24, label %56, label %59
@@ -16994,7 +16994,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %59
@@ -17171,7 +17171,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %59
@@ -17348,7 +17348,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %59
@@ -17525,7 +17525,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
 
 54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %55 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %55, null
   br i1 %.not23, label %56, label %59
@@ -17666,7 +17666,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -17799,7 +17799,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -17932,7 +17932,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -18065,7 +18065,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -18198,7 +18198,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -18330,7 +18330,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -18462,7 +18462,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -18594,7 +18594,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 8
   %38 = load float, ptr %37, align 8
@@ -18726,7 +18726,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 8
   %38 = load double, ptr %37, align 8
@@ -18860,7 +18860,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr nonnull %5)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   %36 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %38
@@ -18998,7 +18998,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.va_copy.p0(ptr nonnull %35, ptr %3)
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23JNI_ArgumentPusherVaArg, i64 16), ptr %7, align 8
   call void @llvm.va_end.p0(ptr nonnull %35)
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22CallStaticVoidMethodV__return\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #15, !srcloc !487
@@ -19127,7 +19127,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %35 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %3, ptr %35, align 8
   %.val = load ptr, ptr %2, align 8
-  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %6, ptr %.val, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef %6, ptr %.val, ptr noundef %7, ptr noundef nonnull %10)
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22CallStaticVoidMethodA__return\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #15, !srcloc !491
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !492
   %36 = load ptr, ptr %29, align 8

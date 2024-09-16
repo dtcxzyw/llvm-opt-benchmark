@@ -140,14 +140,14 @@ lor.lhs.false:                                    ; preds = %sw.bb9, %if.end
 sw.bb19:                                          ; preds = %while.cond
   tail call void @CRYPTO_free(ptr noundef %cipher.0, ptr noundef nonnull @.str.31, i32 noundef 121) #3
   %call20 = tail call ptr @opt_arg() #3
-  %call21 = call fastcc ptr @alloc_mac_algorithm_name(ptr noundef nonnull %opts, ptr noundef nonnull @.str.6, ptr noundef %call20)
+  %call21 = call fastcc ptr @alloc_mac_algorithm_name(ptr noundef %opts, ptr noundef nonnull @.str.6, ptr noundef %call20)
   %cmp22 = icmp eq ptr %call21, null
   br i1 %cmp22, label %opthelp, label %while.cond.backedge
 
 sw.bb25:                                          ; preds = %while.cond
   tail call void @CRYPTO_free(ptr noundef %digest.0, ptr noundef nonnull @.str.31, i32 noundef 127) #3
   %call26 = tail call ptr @opt_arg() #3
-  %call27 = call fastcc ptr @alloc_mac_algorithm_name(ptr noundef nonnull %opts, ptr noundef nonnull @.str.8, ptr noundef %call26)
+  %call27 = call fastcc ptr @alloc_mac_algorithm_name(ptr noundef %opts, ptr noundef nonnull @.str.8, ptr noundef %call26)
   %cmp28 = icmp eq ptr %call27, null
   br i1 %cmp28, label %opthelp, label %while.cond.backedge
 
@@ -384,7 +384,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @alloc_mac_algorithm_name(ptr nocapture noundef %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc noundef ptr @alloc_mac_algorithm_name(ptr nocapture noundef nonnull %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #4
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #4

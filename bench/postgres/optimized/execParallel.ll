@@ -447,7 +447,7 @@ ExecSerializePlan.exit:                           ; preds = %69, %._crit_edge.i,
   br i1 %271, label %275, label %272
 
 272:                                              ; preds = %264
-  %273 = call fastcc i64 @SerializeParamExecParams(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %269)
+  %273 = call fastcc i64 @SerializeParamExecParams(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %269)
   %274 = getelementptr inbounds i8, ptr %16, i64 56
   store i64 %273, ptr %274, align 8
   store i64 %273, ptr %194, align 8
@@ -751,7 +751,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare ptr @dsa_create_in_place(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
@@ -759,7 +759,7 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %9 = tail call i32 @bms_next_member(ptr noundef %1, i32 noundef -1) #9
+  %9 = tail call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef -1) #9
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %.lr.ph.i, label %EstimateParamExecSpace.exit
 
@@ -808,7 +808,7 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
   %36 = trunc i8 %35 to i1
   %37 = call i64 @datumEstimateSpace(i64 noundef %33, i1 noundef zeroext %36, i1 noundef zeroext %31, i32 noundef %30) #9
   %38 = call i64 @add_size(i64 noundef %24, i64 noundef %37) #9
-  %39 = call i32 @bms_next_member(ptr noundef %1, i32 noundef %14) #9
+  %39 = call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef %14) #9
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %13, label %EstimateParamExecSpace.exit, !llvm.loop !8
 
@@ -818,11 +818,11 @@ EstimateParamExecSpace.exit:                      ; preds = %29, %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %41 = call i64 @dsa_allocate_extended(ptr noundef %2, i64 noundef %.012.lcssa.i, i32 noundef 0) #9
   %42 = call ptr @dsa_get_address(ptr noundef %2, i64 noundef %41) #9
-  %43 = call i32 @bms_num_members(ptr noundef %1) #9
+  %43 = call i32 @bms_num_members(ptr noundef nonnull %1) #9
   store i32 %43, ptr %42, align 1
   %44 = getelementptr i8, ptr %42, i64 4
   store ptr %44, ptr %6, align 8
-  %45 = call i32 @bms_next_member(ptr noundef %1, i32 noundef -1) #9
+  %45 = call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef -1) #9
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %.lr.ph, label %._crit_edge
 
@@ -873,7 +873,7 @@ EstimateParamExecSpace.exit:                      ; preds = %29, %3
   %73 = load i8, ptr %72, align 8
   %74 = trunc i8 %73 to i1
   call void @datumSerialize(i64 noundef %71, i1 noundef zeroext %74, i1 noundef zeroext %69, i32 noundef %68, ptr noundef nonnull %6) #9
-  %75 = call i32 @bms_next_member(ptr noundef %1, i32 noundef %50) #9
+  %75 = call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef %50) #9
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %49, label %._crit_edge, !llvm.loop !9
 
@@ -1210,7 +1210,7 @@ ExecParallelSetupTupleQueues.exit:                ; preds = %28, %18, %10
 53:                                               ; preds = %51
   %54 = getelementptr inbounds i8, ptr %1, i64 48
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call fastcc i64 @SerializeParamExecParams(ptr noundef %5, ptr noundef nonnull %2, ptr noundef %55)
+  %56 = tail call fastcc i64 @SerializeParamExecParams(ptr noundef %5, ptr noundef %2, ptr noundef %55)
   %57 = getelementptr inbounds i8, ptr %1, i64 56
   store i64 %56, ptr %57, align 8
   store i64 %56, ptr %46, align 8

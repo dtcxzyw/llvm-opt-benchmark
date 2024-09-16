@@ -802,7 +802,7 @@ define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_step_state(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_step_state(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #13
   %5 = icmp eq i32 %1, 0
@@ -1411,7 +1411,7 @@ declare void @dt_control_job_set_params(ptr noundef, ptr noundef, ptr noundef) l
 declare ptr @dt_control_job_get_params(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_process_image(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_process_image(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8

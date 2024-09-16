@@ -2452,7 +2452,7 @@ define internal void @trigger_event(ptr nocapture noundef readonly %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #7 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #7 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
@@ -2644,7 +2644,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare dso_local i32 @dm_io(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   store i32 1, ptr %4, align 8
@@ -2822,32 +2822,32 @@ declare dso_local void @dm_io_client_destroy(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @queue_bio(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
-  %4 = icmp eq i32 %2, 1
-  %5 = select i1 %4, i64 56, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #12
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, null
+define internal fastcc void @queue_bio(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 align 16 {
+  %.not = icmp eq i32 %2, 0
+  %4 = select i1 %.not, i64 40, i64 56
+  %5 = getelementptr inbounds i8, ptr %0, i64 %4
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp eq ptr %8, null
   store ptr null, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  %14 = select i1 %13, ptr %6, ptr %12
-  store ptr %1, ptr %14, align 8
-  store ptr %1, ptr %11, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %8) #12
-  br i1 %10, label %15, label %20
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  %13 = select i1 %12, ptr %5, ptr %11
+  store ptr %1, ptr %13, align 8
+  store ptr %1, ptr %10, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %7) #12
+  br i1 %9, label %14, label %19
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 160
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
-  %19 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %17, ptr noundef %18) #12
-  br label %20
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %0, i64 160
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %16, ptr noundef %17) #12
+  br label %19
 
-20:                                               ; preds = %15, %3
+19:                                               ; preds = %14, %3
   ret void
 }
 
@@ -3275,7 +3275,7 @@ declare dso_local void @bio_associate_blkg(ptr noundef) local_unnamed_addr #1
 declare dso_local void @dm_rh_mark_nosync(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hold_bio(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @hold_bio(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 148
@@ -3291,7 +3291,7 @@ define internal fastcc void @hold_bio(ptr noundef %0, ptr noundef %1) unnamed_ad
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = select i1 %10, i8 10, i8 11
   store i8 %12, ptr %11, align 8
-  tail call void @bio_endio(ptr noundef %1) #12
+  tail call void @bio_endio(ptr noundef nonnull %1) #12
   br label %19
 
 13:                                               ; preds = %2

@@ -2508,12 +2508,12 @@ for.body:                                         ; preds = %for.cond.preheader,
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %call3 = call fastcc i32 @config_dict_get_int(ptr noundef %dict, ptr noundef nonnull %4, ptr noundef %add.ptr)
+  %call3 = call fastcc i32 @config_dict_get_int(ptr noundef %dict, ptr noundef %4, ptr noundef %add.ptr)
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %return, label %for.inc
 
 sw.bb7:                                           ; preds = %for.body
-  %call9 = call fastcc i32 @config_dict_get_int(ptr noundef %dict, ptr noundef nonnull %4, ptr noundef nonnull %value)
+  %call9 = call fastcc i32 @config_dict_get_int(ptr noundef %dict, ptr noundef %4, ptr noundef nonnull %value)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %return, label %if.end12
 
@@ -2605,7 +2605,7 @@ config_dict_get_ulong.exit:                       ; preds = %Py_DECREF.exit.i, %
   br label %for.inc
 
 sw.bb23:                                          ; preds = %for.body
-  %call25 = call fastcc i32 @config_dict_get_wstr(ptr noundef %dict, ptr noundef nonnull %4, ptr noundef %config, ptr noundef %add.ptr)
+  %call25 = call fastcc i32 @config_dict_get_wstr(ptr noundef %dict, ptr noundef %4, ptr noundef %config, ptr noundef %add.ptr)
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %return, label %if.end28
 
@@ -2620,7 +2620,7 @@ if.then30:                                        ; preds = %if.end28
   br label %return
 
 sw.bb33:                                          ; preds = %for.body
-  %call36 = call fastcc i32 @config_dict_get_wstr(ptr noundef %dict, ptr noundef nonnull %4, ptr noundef %config, ptr noundef %add.ptr)
+  %call36 = call fastcc i32 @config_dict_get_wstr(ptr noundef %dict, ptr noundef %4, ptr noundef %config, ptr noundef %add.ptr)
   %cmp37 = icmp slt i32 %call36, 0
   br i1 %cmp37, label %return, label %for.inc
 
@@ -2888,11 +2888,11 @@ return:                                           ; preds = %sw.bb33, %sw.bb23, 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @config_dict_get_int(ptr noundef %dict, ptr noundef %name, ptr nocapture noundef writeonly %result) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @config_dict_get_int(ptr noundef %dict, ptr noundef nonnull %name, ptr nocapture noundef writeonly %result) unnamed_addr #5 {
 entry:
   %item.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %item.i)
-  %call.i = call i32 @PyDict_GetItemStringRef(ptr noundef %dict, ptr noundef %name, ptr noundef nonnull %item.i) #21
+  %call.i = call i32 @PyDict_GetItemStringRef(ptr noundef %dict, ptr noundef nonnull %name, ptr noundef nonnull %item.i) #21
   %cmp.i8 = icmp slt i32 %call.i, 0
   br i1 %cmp.i8, label %config_dict_get.exit.thread, label %if.end.i9
 
@@ -2903,7 +2903,7 @@ if.end.i9:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i9
   %1 = load ptr, ptr @PyExc_ValueError, align 8
-  %call3.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.99, ptr noundef %name) #21
+  %call3.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.99, ptr noundef nonnull %name) #21
   br label %config_dict_get.exit.thread
 
 config_dict_get.exit.thread:                      ; preds = %if.then2.i, %entry
@@ -2945,7 +2945,7 @@ if.then4:                                         ; preds = %land.lhs.true
 
 if.then7:                                         ; preds = %if.then4
   %5 = load ptr, ptr @PyExc_TypeError, align 8
-  %call.i10 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.100, ptr noundef %name) #21
+  %call.i10 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.100, ptr noundef nonnull %name) #21
   br label %return
 
 if.else:                                          ; preds = %if.then4
@@ -2956,7 +2956,7 @@ if.else:                                          ; preds = %if.then4
 
 if.then10:                                        ; preds = %if.else
   %7 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i11 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.101, ptr noundef %name) #21
+  %call.i11 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.101, ptr noundef nonnull %name) #21
   br label %return
 
 if.end13:                                         ; preds = %land.lhs.true, %Py_DECREF.exit
@@ -2969,13 +2969,13 @@ return:                                           ; preds = %config_dict_get.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @config_dict_get_wstr(ptr noundef %dict, ptr noundef %name, ptr noundef %config, ptr nocapture noundef %result) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @config_dict_get_wstr(ptr noundef %dict, ptr noundef nonnull %name, ptr noundef %config, ptr nocapture noundef %result) unnamed_addr #5 {
 entry:
   %status.i21 = alloca %struct.PyStatus, align 8
   %status.i = alloca %struct.PyStatus, align 8
   %item.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %item.i)
-  %call.i = call i32 @PyDict_GetItemStringRef(ptr noundef %dict, ptr noundef %name, ptr noundef nonnull %item.i) #21
+  %call.i = call i32 @PyDict_GetItemStringRef(ptr noundef %dict, ptr noundef nonnull %name, ptr noundef nonnull %item.i) #21
   %cmp.i16 = icmp slt i32 %call.i, 0
   br i1 %cmp.i16, label %config_dict_get.exit.thread, label %if.end.i17
 
@@ -2986,7 +2986,7 @@ if.end.i17:                                       ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i17
   %1 = load ptr, ptr @PyExc_ValueError, align 8
-  %call3.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.99, ptr noundef %name) #21
+  %call3.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.99, ptr noundef nonnull %name) #21
   br label %config_dict_get.exit.thread
 
 config_dict_get.exit.thread:                      ; preds = %if.then2.i, %entry
@@ -3026,7 +3026,7 @@ if.else:                                          ; preds = %if.end
 
 if.then5:                                         ; preds = %if.else
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %call.i20 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.100, ptr noundef %name) #21
+  %call.i20 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.100, ptr noundef nonnull %name) #21
   br label %error
 
 if.else6:                                         ; preds = %if.else
@@ -5387,7 +5387,7 @@ if.end27:                                         ; preds = %config_read_cmdline
   br i1 %cmp30.not, label %if.end32, label %done
 
 if.end32:                                         ; preds = %if.end27
-  call fastcc void @config_read(ptr noalias nonnull align 8 %tmp33, ptr noundef %config, i32 noundef %compute_path_config)
+  call fastcc void @config_read(ptr noalias align 8 %tmp33, ptr noundef %config, i32 noundef %compute_path_config)
   %status.sroa.0.0.copyload9 = load i32, ptr %tmp33, align 8
   %status.sroa.13.0.tmp33.sroa_idx = getelementptr inbounds i8, ptr %tmp33, i64 4
   %status.sroa.13.sroa.0.0.copyload63 = load i32, ptr %status.sroa.13.0.tmp33.sroa_idx, align 4
@@ -5436,7 +5436,7 @@ declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #10
 declare void @_PySys_ReadPreinitXOptions(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @config_read(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %config, i32 noundef %compute_path_config) unnamed_addr #5 {
+define internal fastcc void @config_read(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %config, i32 noundef %compute_path_config) unnamed_addr #5 {
 entry:
   %status.i76.i = alloca %struct.PyStatus, align 8
   %status.i.i.i112 = alloca %struct.PyStatus, align 8
@@ -8204,7 +8204,7 @@ declare i32 @_PyOS_GetOpt(i64 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @config_usage(i32 noundef %error, ptr noundef %program) unnamed_addr #12 {
+define internal fastcc void @config_usage(i32 noundef range(i32 0, 2) %error, ptr noundef %program) unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq i32 %error, 0
   %0 = load ptr, ptr @stderr, align 8

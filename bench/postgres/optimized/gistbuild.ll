@@ -184,7 +184,7 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.i
   %78 = phi ptr [ %83, %.lr.ph.i ], [ %77, %58 ]
-  call fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef nonnull %5, ptr noundef %72, ptr noundef nonnull %78)
+  call fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef %5, ptr noundef %72, ptr noundef nonnull %78)
   %79 = load ptr, ptr %20, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
@@ -210,7 +210,7 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not35.i, label %gist_indexsortbuild.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %86, %.preheader.i
-  call fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef nonnull %5, ptr noundef nonnull %.031.i)
+  call fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef %5, ptr noundef nonnull %.031.i)
   %88 = load ptr, ptr %84, align 8
   %89 = getelementptr inbounds i8, ptr %.031.i, i64 16
   br label %90
@@ -957,7 +957,7 @@ declare void @gistinitpage(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @tuplesort_getindextuple(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gist_indexsortbuild_levelstate_add(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @gist_indexsortbuild_levelstate_add(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 6
@@ -1034,7 +1034,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_add(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1233,7 +1233,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture 
 
 117:                                              ; preds = %112, %101
   %.0 = phi ptr [ %113, %112 ], [ %110, %101 ]
-  call fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef nonnull %0, ptr noundef nonnull %.0, ptr noundef nonnull %93)
+  call fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %93)
   %118 = getelementptr inbounds i8, ptr %.185, i64 48
   %119 = load ptr, ptr %118, align 8
   %.not75 = icmp eq ptr %119, null

@@ -2170,7 +2170,7 @@ if.end82:                                         ; preds = %if.then72, %if.else
   %trstart.0198 = phi i32 [ %trstart.0199, %if.then56 ], [ %trstart.0, %if.then72 ], [ %trstart.0, %if.else76 ]
   %end.1 = phi i32 [ %add67, %if.then56 ], [ %end.0, %if.then72 ], [ %41, %if.else76 ]
   %trend.1 = phi i32 [ %call66, %if.then56 ], [ %trend.0, %if.then72 ], [ %call1, %if.else76 ]
-  %call83 = call fastcc i32 @recff_string_start(ptr noundef nonnull %J, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %start, i32 noundef %trstart.0198, i32 noundef %call1, i32 noundef %call2)
+  %call83 = call fastcc i32 @recff_string_start(ptr noundef nonnull %J, ptr noundef nonnull %retval.0.i, ptr noundef %start, i32 noundef %trstart.0198, i32 noundef %call1, i32 noundef %call2)
   %42 = load i32, ptr %data, align 8
   %tobool85.not = icmp eq i32 %42, 0
   %43 = load i32, ptr %start, align 4
@@ -2704,7 +2704,7 @@ if.end:                                           ; preds = %argv2int.exit, %if.
   %storemerge = phi i32 [ %conv.i, %argv2int.exit ], [ 1, %if.then ]
   %trstart.0 = phi i32 [ %call17, %argv2int.exit ], [ %call14, %if.then ]
   store i32 %storemerge, ptr %start, align 4
-  %call21 = call fastcc i32 @recff_string_start(ptr noundef nonnull %J, ptr noundef %retval.0.i, ptr noundef nonnull %start, i32 noundef %trstart.0, i32 noundef %call4, i32 noundef %call5)
+  %call21 = call fastcc i32 @recff_string_start(ptr noundef nonnull %J, ptr noundef %retval.0.i, ptr noundef %start, i32 noundef %trstart.0, i32 noundef %call4, i32 noundef %call5)
   %21 = load i32, ptr %start, align 4
   %len = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %22 = load i32, ptr %len, align 4
@@ -3156,7 +3156,7 @@ entry:
   %ud = alloca i32, align 4
   %data = getelementptr inbounds i8, ptr %rd, i64 16
   %0 = load i32, ptr %data, align 8
-  %call = call fastcc i32 @recff_io_fp(ptr noundef %J, ptr noundef nonnull %ud, i32 noundef %0)
+  %call = call fastcc i32 @recff_io_fp(ptr noundef %J, ptr noundef %ud, i32 noundef %0)
   %call1 = tail call i32 @lj_ir_kint(ptr noundef %J, i32 noundef 0) #9
   %call2 = tail call i32 @lj_ir_kint(ptr noundef %J, i32 noundef 1) #9
   %1 = load i32, ptr %data, align 8
@@ -3307,7 +3307,7 @@ entry:
   %ud = alloca i32, align 4
   %data = getelementptr inbounds i8, ptr %rd, i64 16
   %0 = load i32, ptr %data, align 8
-  %call = call fastcc i32 @recff_io_fp(ptr noundef %J, ptr noundef nonnull %ud, i32 noundef %0)
+  %call = call fastcc i32 @recff_io_fp(ptr noundef %J, ptr noundef %ud, i32 noundef %0)
   %call1 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %J, i32 noundef 58, i32 noundef %call) #9
   %1 = getelementptr i8, ptr %J, i64 128
   %J.val = load ptr, ptr %1, align 8
@@ -5058,7 +5058,7 @@ declare hidden i32 @recff_bit64_tohex(ptr noundef, ptr noundef, i32 noundef) loc
 declare hidden i32 @lj_ir_tostr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recff_string_start(ptr noundef %J, ptr nocapture noundef readonly %s, ptr nocapture noundef %st, i32 noundef %tr, i32 noundef %trlen, i32 noundef %tr0) unnamed_addr #0 {
+define internal fastcc i32 @recff_string_start(ptr noundef %J, ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %st, i32 noundef %tr, i32 noundef %trlen, i32 noundef %tr0) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %st, align 4
   %cmp = icmp slt i32 %0, 0
@@ -5142,7 +5142,7 @@ declare hidden i32 @lj_str_haspattern(ptr noundef) local_unnamed_addr #1
 declare hidden ptr @lj_str_find(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recff_format(ptr noundef %J, ptr nocapture noundef %rd, i32 noundef %hdr, i32 noundef %sbufx) unnamed_addr #0 {
+define internal fastcc void @recff_format(ptr noundef %J, ptr nocapture noundef %rd, i32 noundef %hdr, i32 noundef range(i32 0, 2) %sbufx) unnamed_addr #0 {
 entry:
   %fs = alloca %struct.FormatState, align 8
   %conv = zext nneg i32 %sbufx to i64
@@ -5411,7 +5411,7 @@ declare hidden i32 @lj_tab_len(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recff_io_fp(ptr noundef %J, ptr nocapture noundef writeonly %udp, i32 noundef %id) unnamed_addr #0 {
+define internal fastcc i32 @recff_io_fp(ptr noundef %J, ptr nocapture noundef nonnull writeonly %udp, i32 noundef %id) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %id, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -5478,7 +5478,7 @@ if.end11:                                         ; preds = %if.end, %if.then
 declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recff_sbufx_checkint(ptr noundef %J, ptr nocapture noundef readonly %rd, i64 noundef %arg) unnamed_addr #0 {
+define internal fastcc i32 @recff_sbufx_checkint(ptr noundef %J, ptr nocapture noundef readonly %rd, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %arg) unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8

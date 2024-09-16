@@ -331,7 +331,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ELFAsmParser18ParseSectionSwitchEN4llvm9StringRefEjjNS1_11SectionKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr %1, i64 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ELFAsmParser18ParseSectionSwitchEN4llvm9StringRefEjjNS1_11SectionKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr %1, i64 %2, i32 noundef range(i32 1, 9) %3, i32 noundef range(i32 2, 1028) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.llvm::Twine", align 8

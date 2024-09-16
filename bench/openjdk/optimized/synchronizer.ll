@@ -4111,7 +4111,7 @@ _ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150: ; preds = %383
 
 .thread188.sink.split:                            ; preds = %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150, %377, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136, %293, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit, %193
   %.2.ph.ph = phi ptr [ %87, %193 ], [ %87, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit ], [ %217, %293 ], [ %217, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136 ], [ %313, %377 ], [ %313, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150 ]
-  call fastcc void @_ZL26post_monitor_inflate_eventP23EventJavaMonitorInflateP7oopDescN18ObjectSynchronizer12InflateCauseE(ptr noundef nonnull %4, ptr noundef nonnull %1, i32 noundef %2)
+  call fastcc void @_ZL26post_monitor_inflate_eventP23EventJavaMonitorInflateP7oopDescN18ObjectSynchronizer12InflateCauseE(ptr noundef %4, ptr noundef nonnull %1, i32 noundef %2)
   br label %.thread188
 
 .thread188:                                       ; preds = %.thread188.sink.split, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150, %_ZN12ResourceMarkD2Ev.exit, %_ZN12ResourceMarkD2Ev.exit129, %_ZN12ResourceMarkD2Ev.exit143
@@ -4136,7 +4136,7 @@ declare void @_ZN13ObjectMonitorC1EP7oopDesc(ptr noundef nonnull align 8 derefer
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26post_monitor_inflate_eventP23EventJavaMonitorInflateP7oopDescN18ObjectSynchronizer12InflateCauseE(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL26post_monitor_inflate_eventP23EventJavaMonitorInflateP7oopDescN18ObjectSynchronizer12InflateCauseE(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 8

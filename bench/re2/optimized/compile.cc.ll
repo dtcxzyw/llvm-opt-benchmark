@@ -4951,11 +4951,11 @@ lpad:                                             ; preds = %if.then3.i.i.i99.in
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %invoke.cont3
-  %call6 = invoke fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr noundef nonnull %sre, i32 noundef 0)
+  %call6 = invoke fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr noundef %sre, i32 noundef 0)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.end
-  %call9 = invoke fastcc noundef zeroext i1 @_ZN3re2L11IsAnchorEndEPPNS_6RegexpEi(ptr noundef nonnull %sre, i32 noundef 0)
+  %call9 = invoke fastcc noundef zeroext i1 @_ZN3re2L11IsAnchorEndEPPNS_6RegexpEi(ptr noundef %sre, i32 noundef 0)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont5
@@ -5300,12 +5300,12 @@ cleanup:                                          ; preds = %if.end57, %invoke.c
 declare noundef ptr @_ZN3re26Regexp8SimplifyEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr nocapture noundef %pre, i32 noundef %depth) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr nocapture noundef nonnull %pre, i32 noundef range(i32 0, 5) %depth) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = alloca ptr, align 8
   %0 = load ptr, ptr %pre, align 8
   %cmp = icmp eq ptr %0, null
-  %cmp1 = icmp sgt i32 %depth, 3
+  %cmp1 = icmp ugt i32 %depth, 3
   %or.cond = or i1 %cmp1, %cmp
   br i1 %or.cond, label %return, label %if.end
 
@@ -5332,7 +5332,7 @@ if.then4:                                         ; preds = %sw.bb
   %call6 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   store ptr %call6, ptr %sub, align 8
   %add = add nuw nsw i32 %depth, 1
-  %call7 = call fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr noundef nonnull %sub, i32 noundef %add)
+  %call7 = call fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr noundef %sub, i32 noundef %add)
   br i1 %call7, label %invoke.cont, label %if.end29
 
 invoke.cont:                                      ; preds = %if.then4
@@ -5414,7 +5414,7 @@ sw.bb31:                                          ; preds = %if.end
   %call34 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
   store ptr %call34, ptr %sub, align 8
   %add35 = add nuw nsw i32 %depth, 1
-  %call36 = call fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr noundef nonnull %sub, i32 noundef %add35)
+  %call36 = call fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr noundef %sub, i32 noundef %add35)
   %19 = load ptr, ptr %sub, align 8
   br i1 %call36, label %if.then37, label %if.end41
 
@@ -5448,12 +5448,12 @@ return:                                           ; preds = %if.end41, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3re2L11IsAnchorEndEPPNS_6RegexpEi(ptr nocapture noundef %pre, i32 noundef %depth) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3re2L11IsAnchorEndEPPNS_6RegexpEi(ptr nocapture noundef nonnull %pre, i32 noundef range(i32 0, 5) %depth) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = alloca ptr, align 8
   %0 = load ptr, ptr %pre, align 8
   %cmp = icmp eq ptr %0, null
-  %cmp1 = icmp sgt i32 %depth, 3
+  %cmp1 = icmp ugt i32 %depth, 3
   %or.cond = or i1 %cmp1, %cmp
   br i1 %or.cond, label %return, label %if.end
 
@@ -5483,7 +5483,7 @@ if.then4:                                         ; preds = %sw.bb
   %call8 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   store ptr %call8, ptr %sub, align 8
   %add = add nuw nsw i32 %depth, 1
-  %call9 = call fastcc noundef zeroext i1 @_ZN3re2L11IsAnchorEndEPPNS_6RegexpEi(ptr noundef nonnull %sub, i32 noundef %add)
+  %call9 = call fastcc noundef zeroext i1 @_ZN3re2L11IsAnchorEndEPPNS_6RegexpEi(ptr noundef %sub, i32 noundef %add)
   br i1 %call9, label %invoke.cont, label %if.end31
 
 invoke.cont:                                      ; preds = %if.then4
@@ -5569,7 +5569,7 @@ sw.bb33:                                          ; preds = %if.end
   %call36 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
   store ptr %call36, ptr %sub, align 8
   %add37 = add nuw nsw i32 %depth, 1
-  %call38 = call fastcc noundef zeroext i1 @_ZN3re2L11IsAnchorEndEPPNS_6RegexpEi(ptr noundef nonnull %sub, i32 noundef %add37)
+  %call38 = call fastcc noundef zeroext i1 @_ZN3re2L11IsAnchorEndEPPNS_6RegexpEi(ptr noundef %sub, i32 noundef %add37)
   %22 = load ptr, ptr %sub, align 8
   br i1 %call38, label %if.then39, label %if.end43
 

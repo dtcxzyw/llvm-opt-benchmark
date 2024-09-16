@@ -2518,53 +2518,45 @@ declare void @libdeflate_init_x86_cpu_features() local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @build_decode_table(ptr nocapture noundef %decode_table, ptr nocapture noundef readonly %lens, i32 noundef %num_syms, ptr nocapture noundef readonly %decode_results, i32 noundef %table_bits, i32 noundef %max_codeword_len, ptr nocapture noundef %sorted_syms, ptr noundef writeonly %table_bits_ret) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @build_decode_table(ptr nocapture noundef %decode_table, ptr nocapture noundef readonly %lens, i32 noundef range(i32 1, 289) %num_syms, ptr nocapture noundef readonly %decode_results, i32 noundef range(i32 7, 12) %table_bits, i32 noundef range(i32 7, 16) %max_codeword_len, ptr nocapture noundef %sorted_syms, ptr noundef writeonly %table_bits_ret) unnamed_addr #6 {
 entry:
   %len_counts = alloca [16 x i32], align 16
   %offsets = alloca [16 x i32], align 16
-  %0 = zext i32 %max_codeword_len to i64
-  %1 = shl nuw nsw i64 %0, 2
-  %2 = add nuw nsw i64 %1, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %len_counts, i8 0, i64 %2, i1 false)
-  %cmp2129.not = icmp eq i32 %num_syms, 0
-  br i1 %cmp2129.not, label %while.cond.preheader, label %for.body3.preheader
-
-for.body3.preheader:                              ; preds = %entry
-  %wide.trip.count = zext i32 %num_syms to i64
+  %0 = shl nuw nsw i32 %max_codeword_len, 2
+  %narrow = add nuw nsw i32 %0, 4
+  %1 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %len_counts, i8 0, i64 %1, i1 false)
+  %wide.trip.count = zext nneg i32 %num_syms to i64
   br label %for.body3
 
-while.cond.preheader:                             ; preds = %for.body3, %entry
-  %cmp12131 = icmp ugt i32 %max_codeword_len, 1
-  br i1 %cmp12131, label %land.rhs, label %while.end
-
-for.body3:                                        ; preds = %for.body3.preheader, %for.body3
-  %indvars.iv = phi i64 [ 0, %for.body3.preheader ], [ %indvars.iv.next, %for.body3 ]
+for.body3:                                        ; preds = %entry, %for.body3
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body3 ]
   %arrayidx5 = getelementptr inbounds i8, ptr %lens, i64 %indvars.iv
-  %3 = load i8, ptr %arrayidx5, align 1
-  %idxprom6 = zext i8 %3 to i64
+  %2 = load i8, ptr %arrayidx5, align 1
+  %idxprom6 = zext i8 %2 to i64
   %arrayidx7 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %idxprom6
-  %4 = load i32, ptr %arrayidx7, align 4
-  %inc8 = add i32 %4, 1
+  %3 = load i32, ptr %arrayidx7, align 4
+  %inc8 = add i32 %3, 1
   store i32 %inc8, ptr %arrayidx7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %while.cond.preheader, label %for.body3
+  br i1 %exitcond.not, label %land.rhs, label %for.body3
 
-land.rhs:                                         ; preds = %while.cond.preheader, %while.body
-  %max_codeword_len.addr.0132 = phi i32 [ %dec, %while.body ], [ %max_codeword_len, %while.cond.preheader ]
-  %idxprom13 = zext i32 %max_codeword_len.addr.0132 to i64
+land.rhs:                                         ; preds = %for.body3, %while.body
+  %max_codeword_len.addr.0130 = phi i32 [ %dec, %while.body ], [ %max_codeword_len, %for.body3 ]
+  %idxprom13 = zext i32 %max_codeword_len.addr.0130 to i64
   %arrayidx14 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %idxprom13
-  %5 = load i32, ptr %arrayidx14, align 4
-  %cmp15 = icmp eq i32 %5, 0
+  %4 = load i32, ptr %arrayidx14, align 4
+  %cmp15 = icmp eq i32 %4, 0
   br i1 %cmp15, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %dec = add i32 %max_codeword_len.addr.0132, -1
+  %dec = add nsw i32 %max_codeword_len.addr.0130, -1
   %cmp12 = icmp ugt i32 %dec, 1
   br i1 %cmp12, label %land.rhs, label %while.end
 
-while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
-  %max_codeword_len.addr.0.lcssa = phi i32 [ %max_codeword_len, %while.cond.preheader ], [ 1, %while.body ], [ %max_codeword_len.addr.0132, %land.rhs ]
+while.end:                                        ; preds = %while.body, %land.rhs
+  %max_codeword_len.addr.0.lcssa = phi i32 [ 1, %while.body ], [ %max_codeword_len.addr.0130, %land.rhs ]
   %cmp16.not = icmp eq ptr %table_bits_ret, null
   br i1 %cmp16.not, label %if.end, label %if.then
 
@@ -2576,68 +2568,64 @@ if.then:                                          ; preds = %while.end
 if.end:                                           ; preds = %if.then, %while.end
   %table_bits.addr.0 = phi i32 [ %cond, %if.then ], [ %table_bits, %while.end ]
   store i32 0, ptr %offsets, align 16
-  %6 = load i32, ptr %len_counts, align 16
+  %5 = load i32, ptr %len_counts, align 16
   %arrayidx20 = getelementptr inbounds i8, ptr %offsets, i64 4
-  store i32 %6, ptr %arrayidx20, align 4
-  %cmp22134 = icmp ugt i32 %max_codeword_len.addr.0.lcssa, 1
-  br i1 %cmp22134, label %for.body23.preheader, label %for.end36
+  store i32 %5, ptr %arrayidx20, align 4
+  %cmp22131 = icmp ugt i32 %max_codeword_len.addr.0.lcssa, 1
+  br i1 %cmp22131, label %for.body23.preheader, label %for.end36
 
 for.body23.preheader:                             ; preds = %if.end
-  %wide.trip.count177 = zext i32 %max_codeword_len.addr.0.lcssa to i64
+  %wide.trip.count172 = zext i32 %max_codeword_len.addr.0.lcssa to i64
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.preheader, %for.body23
-  %7 = phi i32 [ %6, %for.body23.preheader ], [ %add, %for.body23 ]
-  %indvars.iv174 = phi i64 [ 1, %for.body23.preheader ], [ %indvars.iv.next175, %for.body23 ]
-  %codespace_used.0136 = phi i32 [ 0, %for.body23.preheader ], [ %add33, %for.body23 ]
-  %arrayidx27 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %indvars.iv174
-  %8 = load i32, ptr %arrayidx27, align 4
-  %add = add i32 %8, %7
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %arrayidx30 = getelementptr inbounds [16 x i32], ptr %offsets, i64 0, i64 %indvars.iv.next175
+  %6 = phi i32 [ %5, %for.body23.preheader ], [ %add, %for.body23 ]
+  %indvars.iv169 = phi i64 [ 1, %for.body23.preheader ], [ %indvars.iv.next170, %for.body23 ]
+  %codespace_used.0133 = phi i32 [ 0, %for.body23.preheader ], [ %add33, %for.body23 ]
+  %arrayidx27 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %indvars.iv169
+  %7 = load i32, ptr %arrayidx27, align 4
+  %add = add i32 %7, %6
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
+  %arrayidx30 = getelementptr inbounds [16 x i32], ptr %offsets, i64 0, i64 %indvars.iv.next170
   store i32 %add, ptr %arrayidx30, align 4
-  %shl = shl i32 %codespace_used.0136, 1
-  %add33 = add i32 %8, %shl
-  %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %for.end36.loopexit, label %for.body23
+  %shl = shl i32 %codespace_used.0133, 1
+  %add33 = add i32 %7, %shl
+  %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
+  br i1 %exitcond173.not, label %for.end36.loopexit, label %for.body23
 
 for.end36.loopexit:                               ; preds = %for.body23
+  %8 = zext i32 %max_codeword_len.addr.0.lcssa to i64
   %9 = shl i32 %add33, 1
-  %10 = zext i32 %max_codeword_len.addr.0.lcssa to i64
   br label %for.end36
 
 for.end36:                                        ; preds = %if.end, %for.end36.loopexit
-  %len.1.lcssa = phi i64 [ %10, %for.end36.loopexit ], [ 1, %if.end ]
+  %len.1.lcssa = phi i64 [ %8, %for.end36.loopexit ], [ 1, %if.end ]
   %codespace_used.0.lcssa = phi i32 [ %9, %for.end36.loopexit ], [ 0, %if.end ]
   %arrayidx39 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %len.1.lcssa
-  %11 = load i32, ptr %arrayidx39, align 4
-  %add40 = add i32 %11, %codespace_used.0.lcssa
-  br i1 %cmp2129.not, label %for.end53, label %for.body43.preheader
-
-for.body43.preheader:                             ; preds = %for.end36
-  %wide.trip.count182 = zext i32 %num_syms to i64
+  %10 = load i32, ptr %arrayidx39, align 4
   br label %for.body43
 
-for.body43:                                       ; preds = %for.body43.preheader, %for.body43
-  %indvars.iv179 = phi i64 [ 0, %for.body43.preheader ], [ %indvars.iv.next180, %for.body43 ]
-  %conv = trunc i64 %indvars.iv179 to i16
-  %arrayidx45 = getelementptr inbounds i8, ptr %lens, i64 %indvars.iv179
-  %12 = load i8, ptr %arrayidx45, align 1
-  %idxprom46 = zext i8 %12 to i64
+for.body43:                                       ; preds = %for.end36, %for.body43
+  %indvars.iv174 = phi i64 [ 0, %for.end36 ], [ %indvars.iv.next175, %for.body43 ]
+  %conv = trunc i64 %indvars.iv174 to i16
+  %arrayidx45 = getelementptr inbounds i8, ptr %lens, i64 %indvars.iv174
+  %11 = load i8, ptr %arrayidx45, align 1
+  %idxprom46 = zext i8 %11 to i64
   %arrayidx47 = getelementptr inbounds [16 x i32], ptr %offsets, i64 0, i64 %idxprom46
-  %13 = load i32, ptr %arrayidx47, align 4
-  %inc48 = add i32 %13, 1
+  %12 = load i32, ptr %arrayidx47, align 4
+  %inc48 = add i32 %12, 1
   store i32 %inc48, ptr %arrayidx47, align 4
-  %idxprom49 = zext i32 %13 to i64
+  %idxprom49 = zext i32 %12 to i64
   %arrayidx50 = getelementptr inbounds i16, ptr %sorted_syms, i64 %idxprom49
   store i16 %conv, ptr %arrayidx50, align 2
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %for.end53, label %for.body43
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count
+  br i1 %exitcond178.not, label %for.end53, label %for.body43
 
-for.end53:                                        ; preds = %for.body43, %for.end36
-  %14 = load i32, ptr %offsets, align 16
-  %idx.ext = zext i32 %14 to i64
+for.end53:                                        ; preds = %for.body43
+  %add40 = add i32 %10, %codespace_used.0.lcssa
+  %13 = load i32, ptr %offsets, align 16
+  %idx.ext = zext i32 %13 to i64
   %add.ptr = getelementptr inbounds i16, ptr %sorted_syms, i64 %idx.ext
   %shl55 = shl nuw i32 1, %max_codeword_len.addr.0.lcssa
   %cmp56 = icmp ugt i32 %add40, %shl55
@@ -2656,29 +2644,29 @@ if.else:                                          ; preds = %if.then71
   %shl76 = shl nuw i32 1, %sub
   %cmp77 = icmp ne i32 %add40, %shl76
   %arrayidx79 = getelementptr inbounds i8, ptr %len_counts, i64 4
-  %15 = load i32, ptr %arrayidx79, align 4
-  %cmp80 = icmp ne i32 %15, 1
+  %14 = load i32, ptr %arrayidx79, align 4
+  %cmp80 = icmp ne i32 %14, 1
   %or.cond = select i1 %cmp77, i1 true, i1 %cmp80
   br i1 %or.cond, label %return, label %if.end83
 
 if.end83:                                         ; preds = %if.else
-  %16 = load i16, ptr %add.ptr, align 2
-  %17 = zext i16 %16 to i64
+  %15 = load i16, ptr %add.ptr, align 2
+  %16 = zext i16 %15 to i64
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then71, %if.end83
-  %sym.2 = phi i64 [ %17, %if.end83 ], [ 0, %if.then71 ]
+  %sym.2 = phi i64 [ %16, %if.end83 ], [ 0, %if.then71 ]
   %arrayidx.i243 = getelementptr inbounds i32, ptr %decode_results, i64 %sym.2
-  %18 = load i32, ptr %arrayidx.i243, align 4
-  %add1.i246 = add i32 %18, 257
+  %17 = load i32, ptr %arrayidx.i243, align 4
+  %add1.i246 = add i32 %17, 257
   br label %for.body91
 
 for.body91:                                       ; preds = %if.end86, %for.body91
-  %i.0164 = phi i32 [ 0, %if.end86 ], [ %inc95, %for.body91 ]
-  %idxprom92 = zext i32 %i.0164 to i64
+  %i.0159 = phi i32 [ 0, %if.end86 ], [ %inc95, %for.body91 ]
+  %idxprom92 = zext i32 %i.0159 to i64
   %arrayidx93 = getelementptr inbounds i32, ptr %decode_table, i64 %idxprom92
   store i32 %add1.i246, ptr %arrayidx93, align 4
-  %inc95 = add i32 %i.0164, 1
+  %inc95 = add i32 %i.0159, 1
   %i.0.highbits = lshr i32 %inc95, %table_bits.addr.0
   %cmp89 = icmp eq i32 %i.0.highbits, 0
   br i1 %cmp89, label %for.body91, label %return
@@ -2687,14 +2675,14 @@ while.cond98:                                     ; preds = %if.end61, %while.co
   %len.2 = phi i32 [ %inc104, %while.cond98 ], [ 1, %if.end61 ]
   %idxprom99 = zext i32 %len.2 to i64
   %arrayidx100 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %idxprom99
-  %19 = load i32, ptr %arrayidx100, align 4
-  %cmp101 = icmp eq i32 %19, 0
+  %18 = load i32, ptr %arrayidx100, align 4
+  %cmp101 = icmp eq i32 %18, 0
   %inc104 = add i32 %len.2, 1
   br i1 %cmp101, label %while.cond98, label %while.end105
 
 while.end105:                                     ; preds = %while.cond98
-  %cmp108.not141 = icmp ugt i32 %len.2, %table_bits.addr.0
-  br i1 %cmp108.not141, label %while.end154, label %do.body.preheader.preheader
+  %cmp108.not136 = icmp ugt i32 %len.2, %table_bits.addr.0
+  br i1 %cmp108.not136, label %while.end154, label %do.body.preheader.preheader
 
 do.body.preheader.preheader:                      ; preds = %while.end105
   %shl106 = shl nuw i32 1, %len.2
@@ -2704,24 +2692,24 @@ while.cond107.loopexit:                           ; preds = %do.cond148
   br i1 %cmp139.not, label %while.end154, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.preheader, %while.cond107.loopexit
-  %sorted_syms.addr.0146 = phi ptr [ %incdec.ptr, %while.cond107.loopexit ], [ %add.ptr, %do.body.preheader.preheader ]
-  %cur_table_end.0145 = phi i32 [ %cur_table_end.3, %while.cond107.loopexit ], [ %shl106, %do.body.preheader.preheader ]
-  %count.0144 = phi i32 [ %23, %while.cond107.loopexit ], [ %19, %do.body.preheader.preheader ]
-  %len.3143 = phi i32 [ %inc138, %while.cond107.loopexit ], [ %len.2, %do.body.preheader.preheader ]
-  %codeword.0142 = phi i32 [ %or, %while.cond107.loopexit ], [ 0, %do.body.preheader.preheader ]
-  %add.i237 = mul i32 %len.3143, 257
-  %sub115 = add i32 %cur_table_end.0145, -1
+  %sorted_syms.addr.0141 = phi ptr [ %incdec.ptr, %while.cond107.loopexit ], [ %add.ptr, %do.body.preheader.preheader ]
+  %cur_table_end.0140 = phi i32 [ %cur_table_end.3, %while.cond107.loopexit ], [ %shl106, %do.body.preheader.preheader ]
+  %count.0139 = phi i32 [ %22, %while.cond107.loopexit ], [ %18, %do.body.preheader.preheader ]
+  %len.3138 = phi i32 [ %inc138, %while.cond107.loopexit ], [ %len.2, %do.body.preheader.preheader ]
+  %codeword.0137 = phi i32 [ %or, %while.cond107.loopexit ], [ 0, %do.body.preheader.preheader ]
+  %add.i237 = mul i32 %len.3138, 257
+  %sub115 = add i32 %cur_table_end.0140, -1
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end130
-  %codeword.1 = phi i32 [ %or, %if.end130 ], [ %codeword.0142, %do.body.preheader ]
-  %count.1 = phi i32 [ %dec135, %if.end130 ], [ %count.0144, %do.body.preheader ]
-  %sorted_syms.addr.1 = phi ptr [ %incdec.ptr, %if.end130 ], [ %sorted_syms.addr.0146, %do.body.preheader ]
-  %20 = load i16, ptr %sorted_syms.addr.1, align 2
-  %idxprom.i234 = zext i16 %20 to i64
+  %codeword.1 = phi i32 [ %or, %if.end130 ], [ %codeword.0137, %do.body.preheader ]
+  %count.1 = phi i32 [ %dec135, %if.end130 ], [ %count.0139, %do.body.preheader ]
+  %sorted_syms.addr.1 = phi ptr [ %incdec.ptr, %if.end130 ], [ %sorted_syms.addr.0141, %do.body.preheader ]
+  %19 = load i16, ptr %sorted_syms.addr.1, align 2
+  %idxprom.i234 = zext i16 %19 to i64
   %arrayidx.i235 = getelementptr inbounds i32, ptr %decode_results, i64 %idxprom.i234
-  %21 = load i32, ptr %arrayidx.i235, align 4
-  %add1.i238 = add i32 %add.i237, %21
+  %20 = load i32, ptr %arrayidx.i235, align 4
+  %add1.i238 = add i32 %add.i237, %20
   %idxprom113 = zext i32 %codeword.1 to i64
   %arrayidx114 = getelementptr inbounds i32, ptr %decode_table, i64 %idxprom113
   store i32 %add1.i238, ptr %arrayidx114, align 4
@@ -2729,26 +2717,26 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp116, label %for.cond119.preheader, label %if.end130
 
 for.cond119.preheader:                            ; preds = %do.body
-  %cmp120151 = icmp ult i32 %len.3143, %table_bits.addr.0
-  br i1 %cmp120151, label %for.body122, label %return
+  %cmp120146 = icmp ult i32 %len.3138, %table_bits.addr.0
+  br i1 %cmp120146, label %for.body122, label %return
 
 for.body122:                                      ; preds = %for.cond119.preheader, %for.body122
-  %cur_table_end.1153 = phi i32 [ %shl126, %for.body122 ], [ %cur_table_end.0145, %for.cond119.preheader ]
-  %len.4152 = phi i32 [ %inc128, %for.body122 ], [ %len.3143, %for.cond119.preheader ]
-  %idxprom123 = zext i32 %cur_table_end.1153 to i64
+  %cur_table_end.1148 = phi i32 [ %shl126, %for.body122 ], [ %cur_table_end.0140, %for.cond119.preheader ]
+  %len.4147 = phi i32 [ %inc128, %for.body122 ], [ %len.3138, %for.cond119.preheader ]
+  %idxprom123 = zext i32 %cur_table_end.1148 to i64
   %arrayidx124 = getelementptr inbounds i32, ptr %decode_table, i64 %idxprom123
   %mul = shl nuw nsw i64 %idxprom123, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx124, ptr align 4 %decode_table, i64 %mul, i1 false)
-  %shl126 = shl i32 %cur_table_end.1153, 1
-  %inc128 = add nuw i32 %len.4152, 1
-  %exitcond184.not = icmp eq i32 %inc128, %table_bits.addr.0
-  br i1 %exitcond184.not, label %return, label %for.body122
+  %shl126 = shl i32 %cur_table_end.1148, 1
+  %inc128 = add nuw nsw i32 %len.4147, 1
+  %exitcond179.not = icmp eq i32 %inc128, %table_bits.addr.0
+  br i1 %exitcond179.not, label %return, label %for.body122
 
 if.end130:                                        ; preds = %do.body
   %incdec.ptr = getelementptr inbounds i8, ptr %sorted_syms.addr.1, i64 2
   %xor = xor i32 %codeword.1, %sub115
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %xor, i1 true)
-  %sub.i248 = xor i32 %22, 31
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %xor, i1 true)
+  %sub.i248 = xor i32 %21, 31
   %shl133 = shl nuw i32 1, %sub.i248
   %sub134 = add i32 %shl133, -1
   %and = and i32 %sub134, %codeword.1
@@ -2758,8 +2746,8 @@ if.end130:                                        ; preds = %do.body
   br i1 %tobool136.not, label %do.body137, label %do.body
 
 do.body137:                                       ; preds = %if.end130, %do.cond148
-  %len.5 = phi i32 [ %inc138, %do.cond148 ], [ %len.3143, %if.end130 ]
-  %cur_table_end.2 = phi i32 [ %cur_table_end.3, %do.cond148 ], [ %cur_table_end.0145, %if.end130 ]
+  %len.5 = phi i32 [ %inc138, %do.cond148 ], [ %len.3138, %if.end130 ]
+  %cur_table_end.2 = phi i32 [ %cur_table_end.3, %do.cond148 ], [ %cur_table_end.0140, %if.end130 ]
   %inc138 = add i32 %len.5, 1
   %cmp139.not = icmp ugt i32 %inc138, %table_bits.addr.0
   br i1 %cmp139.not, label %do.cond148, label %if.then141
@@ -2776,30 +2764,30 @@ do.cond148:                                       ; preds = %do.body137, %if.the
   %cur_table_end.3 = phi i32 [ %shl146, %if.then141 ], [ %cur_table_end.2, %do.body137 ]
   %idxprom149 = zext i32 %inc138 to i64
   %arrayidx150 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %idxprom149
-  %23 = load i32, ptr %arrayidx150, align 4
-  %cmp151 = icmp eq i32 %23, 0
+  %22 = load i32, ptr %arrayidx150, align 4
+  %cmp151 = icmp eq i32 %22, 0
   br i1 %cmp151, label %do.body137, label %while.cond107.loopexit
 
 while.end154:                                     ; preds = %while.cond107.loopexit, %while.end105
   %codeword.0.lcssa = phi i32 [ 0, %while.end105 ], [ %or, %while.cond107.loopexit ]
   %len.3.lcssa = phi i32 [ %len.2, %while.end105 ], [ %inc138, %while.cond107.loopexit ]
-  %count.0.lcssa = phi i32 [ %19, %while.end105 ], [ %23, %while.cond107.loopexit ]
+  %count.0.lcssa = phi i32 [ %18, %while.end105 ], [ %22, %while.cond107.loopexit ]
   %sorted_syms.addr.0.lcssa = phi ptr [ %add.ptr, %while.end105 ], [ %incdec.ptr, %while.cond107.loopexit ]
-  %shl155 = shl nuw i32 1, %table_bits.addr.0
-  %sub161 = add i32 %shl155, -1
-  %invariant.op = add nuw i32 %table_bits.addr.0, 1
+  %shl155 = shl nuw nsw i32 1, %table_bits.addr.0
+  %sub161 = add nsw i32 %shl155, -1
+  %invariant.op = add nuw nsw i32 %table_bits.addr.0, 1
   br label %for.cond156.outer
 
 for.cond156.outer:                                ; preds = %while.body226, %while.end154
   %codeword.2.ph = phi i32 [ %codeword.0.lcssa, %while.end154 ], [ %or221, %while.body226 ]
   %len.6.ph = phi i32 [ %len.3.lcssa, %while.end154 ], [ %inc227, %while.body226 ]
-  %count.2.ph = phi i32 [ %count.0.lcssa, %while.end154 ], [ %29, %while.body226 ]
+  %count.2.ph = phi i32 [ %count.0.lcssa, %while.end154 ], [ %28, %while.body226 ]
   %cur_table_end.4.ph = phi i32 [ %shl155, %while.end154 ], [ %cur_table_end.5, %while.body226 ]
   %subtable_prefix.0.ph = phi i32 [ -1, %while.end154 ], [ %subtable_prefix.1, %while.body226 ]
   %subtable_start.0.ph = phi i32 [ 0, %while.end154 ], [ %subtable_start.1, %while.body226 ]
   %sorted_syms.addr.2.ph = phi ptr [ %sorted_syms.addr.0.lcssa, %while.end154 ], [ %incdec.ptr193, %while.body226 ]
   %.pre = sub i32 %len.6.ph, %table_bits.addr.0
-  %.pre185 = shl nuw i32 1, %.pre
+  %.pre180 = shl nuw i32 1, %.pre
   %add.i = mul i32 %.pre, 257
   %notmask = shl nsw i32 -1, %len.6.ph
   %sub209 = xor i32 %notmask, -1
@@ -2817,31 +2805,31 @@ for.cond156:                                      ; preds = %for.cond156.outer, 
   br i1 %cmp163.not, label %if.end192, label %if.then165
 
 if.then165:                                       ; preds = %for.cond156
-  %cmp172155 = icmp ult i32 %count.2, %.pre185
-  br i1 %cmp172155, label %while.body174, label %while.end181
+  %cmp172150 = icmp ult i32 %count.2, %.pre180
+  br i1 %cmp172150, label %while.body174, label %while.end181
 
 while.body174:                                    ; preds = %if.then165, %while.body174
-  %subtable_bits.0157 = phi i32 [ %inc175, %while.body174 ], [ %.pre, %if.then165 ]
-  %codespace_used.1156 = phi i32 [ %add180, %while.body174 ], [ %count.2, %if.then165 ]
-  %inc175 = add i32 %subtable_bits.0157, 1
-  %shl176 = shl nuw i32 %codespace_used.1156, 1
-  %add177.reass = add i32 %subtable_bits.0157, %invariant.op
+  %subtable_bits.0152 = phi i32 [ %inc175, %while.body174 ], [ %.pre, %if.then165 ]
+  %codespace_used.1151 = phi i32 [ %add180, %while.body174 ], [ %count.2, %if.then165 ]
+  %inc175 = add i32 %subtable_bits.0152, 1
+  %shl176 = shl nuw i32 %codespace_used.1151, 1
+  %add177.reass = add i32 %subtable_bits.0152, %invariant.op
   %idxprom178 = zext i32 %add177.reass to i64
   %arrayidx179 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %idxprom178
-  %24 = load i32, ptr %arrayidx179, align 4
-  %add180 = add i32 %24, %shl176
+  %23 = load i32, ptr %arrayidx179, align 4
+  %add180 = add i32 %23, %shl176
   %shl171 = shl nuw i32 1, %inc175
   %cmp172 = icmp ult i32 %add180, %shl171
   br i1 %cmp172, label %while.body174, label %while.end181
 
 while.end181:                                     ; preds = %while.body174, %if.then165
   %subtable_bits.0.lcssa = phi i32 [ %.pre, %if.then165 ], [ %inc175, %while.body174 ]
-  %shl171.lcssa = phi i32 [ %.pre185, %if.then165 ], [ %shl171, %while.body174 ]
+  %shl171.lcssa = phi i32 [ %.pre180, %if.then165 ], [ %shl171, %while.body174 ]
   %add183 = add i32 %shl171.lcssa, %cur_table_end.4
   %shl184 = shl i32 %cur_table_end.4, 16
   %shl187 = shl i32 %subtable_bits.0.lcssa, 8
-  %25 = or i32 %shl184, %shl187
-  %or188 = or i32 %25, %table_bits.addr.0
+  %24 = or i32 %shl184, %shl187
+  %or188 = or disjoint i32 %24, %table_bits.addr.0
   %or189 = or i32 %or188, 49152
   %idxprom190 = zext nneg i32 %and162 to i64
   %arrayidx191 = getelementptr inbounds i32, ptr %decode_table, i64 %idxprom190
@@ -2852,11 +2840,11 @@ if.end192:                                        ; preds = %for.cond156, %while
   %cur_table_end.5 = phi i32 [ %add183, %while.end181 ], [ %cur_table_end.4, %for.cond156 ]
   %subtable_prefix.1 = phi i32 [ %and162, %while.end181 ], [ %subtable_prefix.0, %for.cond156 ]
   %subtable_start.1 = phi i32 [ %cur_table_end.4, %while.end181 ], [ %subtable_start.0, %for.cond156 ]
-  %26 = load i16, ptr %sorted_syms.addr.2, align 2
-  %idxprom.i = zext i16 %26 to i64
+  %25 = load i16, ptr %sorted_syms.addr.2, align 2
+  %idxprom.i = zext i16 %25 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %decode_results, i64 %idxprom.i
-  %27 = load i32, ptr %arrayidx.i, align 4
-  %add1.i = add i32 %add.i, %27
+  %26 = load i32, ptr %arrayidx.i, align 4
+  %add1.i = add i32 %add.i, %26
   %shr = lshr i32 %codeword.2, %table_bits.addr.0
   %add197 = add i32 %subtable_start.1, %shr
   br label %do.body200
@@ -2866,7 +2854,7 @@ do.body200:                                       ; preds = %do.body200, %if.end
   %idxprom201 = zext i32 %i158.0 to i64
   %arrayidx202 = getelementptr inbounds i32, ptr %decode_table, i64 %idxprom201
   store i32 %add1.i, ptr %arrayidx202, align 4
-  %add203 = add i32 %i158.0, %.pre185
+  %add203 = add i32 %i158.0, %.pre180
   %cmp205 = icmp ult i32 %add203, %cur_table_end.5
   br i1 %cmp205, label %do.body200, label %do.end207
 
@@ -2877,23 +2865,23 @@ do.end207:                                        ; preds = %do.body200
 if.end213:                                        ; preds = %do.end207
   %incdec.ptr193 = getelementptr inbounds i8, ptr %sorted_syms.addr.2, i64 2
   %xor216 = xor i32 %codeword.2, %sub209
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %xor216, i1 true)
-  %sub.i = xor i32 %28, 31
+  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %xor216, i1 true)
+  %sub.i = xor i32 %27, 31
   %shl218 = shl nuw i32 1, %sub.i
   %sub219 = add i32 %shl218, -1
   %and220 = and i32 %sub219, %codeword.2
   %or221 = or i32 %and220, %shl218
   %dec222 = add i32 %count.2, -1
-  %cmp224160 = icmp eq i32 %dec222, 0
-  br i1 %cmp224160, label %while.body226, label %for.cond156
+  %cmp224155 = icmp eq i32 %dec222, 0
+  br i1 %cmp224155, label %while.body226, label %for.cond156
 
 while.body226:                                    ; preds = %if.end213, %while.body226
-  %len.7161 = phi i32 [ %inc227, %while.body226 ], [ %len.6.ph, %if.end213 ]
-  %inc227 = add i32 %len.7161, 1
+  %len.7156 = phi i32 [ %inc227, %while.body226 ], [ %len.6.ph, %if.end213 ]
+  %inc227 = add i32 %len.7156, 1
   %idxprom228 = zext i32 %inc227 to i64
   %arrayidx229 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %idxprom228
-  %29 = load i32, ptr %arrayidx229, align 4
-  %cmp224 = icmp eq i32 %29, 0
+  %28 = load i32, ptr %arrayidx229, align 4
+  %cmp224 = icmp eq i32 %28, 0
   br i1 %cmp224, label %while.body226, label %for.cond156.outer
 
 return:                                           ; preds = %for.body122, %do.end207, %for.body91, %for.cond119.preheader, %if.else, %for.end53

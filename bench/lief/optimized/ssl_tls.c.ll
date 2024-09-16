@@ -2443,7 +2443,7 @@ define hidden range(i32 -28800, 1) i32 @mbedtls_ssl_session_save(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -28800, 1) i32 @ssl_session_save(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #14 {
+define internal fastcc range(i32 -28800, 1) i32 @ssl_session_save(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 0, 2) %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #14 {
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %6, label %10
 
@@ -2738,7 +2738,7 @@ mbedtls_ssl_session_free.exit:                    ; preds = %ssl_clear_peer_cert
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_session_load(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ssl_session_load(ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 2) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %6, label %11
@@ -5364,7 +5364,7 @@ define hidden i32 @mbedtls_ssl_derive_keys(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_tls12_populate_transform(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @ssl_tls12_populate_transform(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 256) %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [256 x i8], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %3, ptr %11, align 8
@@ -5558,9 +5558,10 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
   %101 = getelementptr inbounds i8, ptr %0, i64 8
   %102 = trunc nuw nsw i64 %99 to i32
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %8, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 7418, ptr noundef nonnull @.str.134, i32 noundef %57, i32 noundef %100, i32 noundef %98, i32 noundef %102) #22
-  switch i32 %7, label %117 [
-    i32 0, label %103
-    i32 1, label %110
+  %trunc = trunc nuw i32 %7 to i8
+  switch i8 %trunc, label %117 [
+    i8 0, label %103
+    i8 1, label %110
   ]
 
 103:                                              ; preds = %97
@@ -7982,7 +7983,7 @@ declare void @mbedtls_sha256_clone(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @mbedtls_sha256_finish(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tls_prf_generic(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @tls_prf_generic(i32 noundef range(i32 4, 6) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, i64 noundef %7) unnamed_addr #0 {
   %9 = alloca [64 x i8], align 16
   %10 = alloca %struct.mbedtls_md_context_t, align 8
   call void @mbedtls_md_init(ptr noundef nonnull %10) #22

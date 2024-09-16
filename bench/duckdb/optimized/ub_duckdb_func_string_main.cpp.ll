@@ -57512,7 +57512,7 @@ _ZN6duckdb10unique_ptrINS_12FunctionDataESt14default_deleteIS1_ELb1EE13AssertNot
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef i64 @"_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L25ArrayLengthBinaryFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0llEET1_T0_RNS_12ValidityMaskEmPv"(i64 noundef %input, ptr nocapture noundef readonly %dataptr) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @"_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L25ArrayLengthBinaryFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0llEET1_T0_RNS_12ValidityMaskEmPv"(i64 noundef %input, ptr nocapture noundef nonnull readonly %dataptr) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -60703,7 +60703,7 @@ declare { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorERKNSt7__cxx
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L20RegexReplaceFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_1NS_8string_tES9_S9_S9_EET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr %fun.coerce0, ptr %fun.coerce1, i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr %b.coerce1, ptr nocapture noundef readonly byval(%"struct.duckdb::string_t") align 8 %c) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L20RegexReplaceFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_1NS_8string_tES9_S9_S9_EET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr %fun.coerce0, ptr nonnull %fun.coerce1, i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr %b.coerce1, ptr nocapture noundef readonly byval(%"struct.duckdb::string_t") align 8 %c) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %input.i = alloca %"struct.duckdb::string_t", align 8

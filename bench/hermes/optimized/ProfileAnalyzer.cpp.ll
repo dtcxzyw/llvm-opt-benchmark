@@ -15536,7 +15536,7 @@ _ZNSt4pairIjN6hermes25FunctionRuntimeStatisticsEEC2EOS2_.exit33.i.i.i: ; preds =
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i.i.i, align 8
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i, ptr %basicBlockStats.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEEvT_T0_SH_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEEvT_T0_SH_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i)
   %17 = load ptr, ptr %_M_before_begin.i.i.i.i.i15.i.i.i, align 8
   %tobool.not3.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not3.i.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableItSt4pairIKtmESaIS2_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i
@@ -15771,7 +15771,7 @@ _ZNSt4pairIjN6hermes25FunctionRuntimeStatisticsEEC2EOS2_.exit43.i: ; preds = %if
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
   store ptr %_M_single_bucket.i.i.i.i.i.i, ptr %basicBlockStats.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEEvT_T0_SH_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef nonnull %agg.tmp7.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEEvT_T0_SH_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef %agg.tmp7.i)
   %51 = load ptr, ptr %_M_before_begin.i.i.i.i.i25.i, align 8
   %tobool.not3.i.i.i.i.i.i46.i = icmp eq ptr %51, null
   br i1 %tobool.not3.i.i.i.i.i.i46.i, label %_ZNSt10_HashtableItSt4pairIKtmESaIS2_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i47.i
@@ -15954,7 +15954,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEEvT_T0_SH_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEEvT_T0_SH_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull %__value) unnamed_addr #0 {
 entry:
   %agg.tmp37 = alloca %"struct.std::pair.218", align 8
   %sub = add nsw i64 %__len, -1

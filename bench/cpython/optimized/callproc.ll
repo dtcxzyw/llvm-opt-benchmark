@@ -1727,7 +1727,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ConvParam(ptr noundef %obj, i64 noundef %index, ptr nocapture noundef %pa) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ConvParam(ptr noundef %obj, i64 noundef range(i64 -9223372036854775807, 1025) %index, ptr nocapture noundef %pa) unnamed_addr #0 {
 entry:
   %arg = alloca ptr, align 8
   %keep = getelementptr inbounds i8, ptr %pa, i64 8

@@ -192,12 +192,12 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
 64:                                               ; preds = %51
   %65 = getelementptr inbounds i8, ptr %0, i64 384
   store i8 1, ptr %65, align 8
-  call fastcc void @zend_file_cache_serialize(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %59)
+  call fastcc void @zend_file_cache_serialize(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %59)
   store i8 0, ptr %65, align 8
   br label %66
 
 .critedge:                                        ; preds = %51
-  call fastcc void @zend_file_cache_serialize(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %59)
+  call fastcc void @zend_file_cache_serialize(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %59)
   br label %66
 
 66:                                               ; preds = %.critedge, %64
@@ -350,7 +350,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 declare void @zend_shared_alloc_init_xlat_table() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   store i64 19501227087974479, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @zend_system_id, i64 32, i1 false)

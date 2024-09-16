@@ -338,7 +338,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h5e8264817a2f3af
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [1000 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -1070,8 +1070,8 @@ _ZN5ropey4tree13node_children12NodeChildren11get_two_mut17h867e2dd6559cda8aE.exi
   %33 = getelementptr inbounds ptr, ptr %0, i64 %26
   %34 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %1
   %35 = getelementptr inbounds [0 x ptr], ptr %33, i64 0, i64 %30
-  %36 = tail call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %34)
-  %37 = tail call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35)
+  %36 = tail call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef align 8 dereferenceable(8) %34)
+  %37 = tail call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef align 8 dereferenceable(8) %35)
   %38 = load i8, ptr %36, align 8, !range !29, !noundef !4
   %trunc = trunc nuw i8 %38 to i1
   %39 = load i8, ptr %37, align 8, !range !29, !noundef !4
@@ -1692,7 +1692,7 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit31: ; 
   unreachable
 
 _ZN5ropey4tree13node_children12NodeChildren8data_mut17h32bf862d12b21f71E.exit.i: ; preds = %82
-  %85 = call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %47)
+  %85 = call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef align 8 dereferenceable(8) %47)
   call void @llvm.experimental.noalias.scope.decl(metadata !351)
   %86 = load i8, ptr %85, align 8, !range !29, !alias.scope !351, !noundef !4
   %trunc.i32 = trunc nuw i8 %86 to i1
@@ -1822,7 +1822,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit36: ; preds = %111
   unreachable
 
 _ZN5ropey4tree13node_children12NodeChildren8data_mut17h32bf862d12b21f71E.exit.i37: ; preds = %127
-  %130 = call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %47)
+  %130 = call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef align 8 dereferenceable(8) %47)
   call void @llvm.experimental.noalias.scope.decl(metadata !403)
   %131 = load i8, ptr %130, align 8, !range !29, !alias.scope !403, !noundef !4
   %trunc.i39 = trunc nuw i8 %131 to i1
@@ -1834,7 +1834,7 @@ _ZN5ropey4tree13node_children12NodeChildren8data_mut17h32bf862d12b21f71E.exit.i3
 
 _ZN5ropey4tree4node4Node13leaf_text_mut17he6847c5392486714E.exit40: ; preds = %_ZN5ropey4tree13node_children12NodeChildren8data_mut17h32bf862d12b21f71E.exit.i37
   %133 = getelementptr inbounds i8, ptr %130, i64 8
-  %134 = call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %61)
+  %134 = call fastcc noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E"(ptr noalias noundef align 8 dereferenceable(8) %61)
   call void @llvm.experimental.noalias.scope.decl(metadata !406)
   %135 = load i8, ptr %134, align 8, !range !29, !alias.scope !406, !noundef !4
   %trunc.i41 = trunc nuw i8 %135 to i1

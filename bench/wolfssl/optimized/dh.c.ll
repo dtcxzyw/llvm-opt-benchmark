@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -173, 1) i32 @_ffc_validate_public_key(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %prime, i32 noundef %primeSz, i32 noundef %partial) unnamed_addr #1 {
+define internal fastcc range(i32 -173, 1) i32 @_ffc_validate_public_key(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %prime, i32 noundef %primeSz, i32 noundef range(i32 0, 2) %partial) unnamed_addr #1 {
 entry:
   %y = alloca [1 x %struct.sp_int], align 16
   %p = alloca [1 x %struct.sp_int], align 16
@@ -572,7 +572,7 @@ if.end12.i.i.i:                                   ; preds = %CheckDhLN.exit.i.i.
   br i1 %cmp15.not.i.i.i, label %do.body19.i.i.i, label %GeneratePrivateDh.exit.thread21.i
 
 do.body19.i.i.i:                                  ; preds = %if.end12.i.i.i, %do.cond.i.i.i
-  %call21.i.i.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %cBuf.i.i.i, i32 noundef %add.i.i.i) #13
+  %call21.i.i.i = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef nonnull %cBuf.i.i.i, i32 noundef %add.i.i.i) #13
   %cmp22.i.i.i = icmp eq i32 %call21.i.i.i, 0
   br i1 %cmp22.i.i.i, label %if.end28.i.i.i, label %GeneratePrivateDh.exit.thread24.i
 
@@ -663,7 +663,7 @@ if.then86.i.i.i:                                  ; preds = %if.end83.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then86.i.i.i
   store i32 %call88.i.i.i, ptr %privSz, align 4
-  %call96.i.i.i = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %tmpX.i.i.i, ptr noundef %priv) #13
+  %call96.i.i.i = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %tmpX.i.i.i, ptr noundef nonnull %priv) #13
   br label %GeneratePrivateDh.exit.i
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
@@ -693,7 +693,7 @@ if.else.i19.i.i:                                  ; preds = %sw.default.i.i
 
 DiscreteLogWorkFactor.exit.i.i:                   ; preds = %if.else.i19.i.i, %sw.default.i.i
   %retval.0.i21.i.i = phi i32 [ %15, %if.else.i19.i.i ], [ 1, %sw.default.i.i ]
-  %cond.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %call11.i.i, i32 %retval.0.i21.i.i)
+  %cond.i.i.i = tail call range(i32 0, 536870913) i32 @llvm.umin.i32(i32 %call11.i.i, i32 %retval.0.i21.i.i)
   br label %sw.epilog.i.i
 
 switch.lookup:                                    ; preds = %if.else9.i.i
@@ -756,7 +756,7 @@ if.end.i.i:                                       ; preds = %if.then11.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %GeneratePublicDh.exit.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %call7.i.i = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %x.i.i, ptr noundef %priv, i32 noundef %20) #13
+  %call7.i.i = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %x.i.i, ptr noundef nonnull %priv, i32 noundef %20) #13
   %cmp8.not.i.i = icmp eq i32 %call7.i.i, 0
   br i1 %cmp8.not.i.i, label %land.lhs.true.i.i, label %if.end30.i.i
 

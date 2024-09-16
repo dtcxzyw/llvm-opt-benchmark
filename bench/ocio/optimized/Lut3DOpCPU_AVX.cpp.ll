@@ -98,7 +98,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %15 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %12, <8 x float> %vecinit7.i.i)
   %16 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %13, <8 x float> %vecinit7.i.i)
   %17 = bitcast <4 x double> %shuffle.i.i11.i.i.i to <8 x float>
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias nonnull align 32 %ref.tmp.i, ptr noundef nonnull align 32 dereferenceable(128) %ctx.i, <8 x float> noundef %14, <8 x float> noundef %15, <8 x float> noundef %16, <8 x float> noundef %17)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias align 32 %ref.tmp.i, ptr noundef nonnull align 32 dereferenceable(128) %ctx.i, <8 x float> noundef %14, <8 x float> noundef %15, <8 x float> noundef %16, <8 x float> noundef %17)
   %c.sroa.0.0.copyload.i = load <8 x float>, ptr %ref.tmp.i, align 32
   %c.sroa.4.0.copyload.i = load <8 x float>, ptr %c.sroa.4.0.ref.tmp.sroa_idx.i, align 32
   %c.sroa.6.0.copyload.i = load <8 x float>, ptr %c.sroa.6.0.ref.tmp.sroa_idx.i, align 32
@@ -210,7 +210,7 @@ for.end52.i:                                      ; preds = %for.end52.loopexit.
   %45 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %42, <8 x float> %vecinit7.i.i)
   %46 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %43, <8 x float> %vecinit7.i.i)
   %47 = bitcast <4 x double> %shuffle.i.i11.i.i98.i to <8 x float>
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias nonnull align 32 %ref.tmp65.i, ptr noundef nonnull align 32 dereferenceable(128) %ctx.i, <8 x float> noundef %44, <8 x float> noundef %45, <8 x float> noundef %46, <8 x float> noundef %47)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias align 32 %ref.tmp65.i, ptr noundef nonnull align 32 dereferenceable(128) %ctx.i, <8 x float> noundef %44, <8 x float> noundef %45, <8 x float> noundef %46, <8 x float> noundef %47)
   %c.sroa.0.0.copyload27.i = load <8 x float>, ptr %ref.tmp65.i, align 32
   %c.sroa.4.0.ref.tmp65.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp65.i, i64 32
   %c.sroa.4.0.copyload28.i = load <8 x float>, ptr %c.sroa.4.0.ref.tmp65.sroa_idx.i, align 32
@@ -279,7 +279,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias nocapture writeonly align 32 %agg.result, ptr nocapture noundef nonnull readonly align 32 dereferenceable(128) %ctx, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) unnamed_addr #4 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias nocapture nonnull writeonly align 32 %agg.result, ptr nocapture noundef nonnull readonly align 32 dereferenceable(128) %ctx, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) unnamed_addr #4 {
 entry:
   %lutmax = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load <8 x float>, ptr %lutmax, align 32

@@ -800,7 +800,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
 declare dso_local i32 @ext4_inlinedir_to_tree(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @htree_dirblock_to_tree(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @htree_dirblock_to_tree(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 268435456) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.fscrypt_str, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
   %8 = getelementptr inbounds i8, ptr %1, i64 40
@@ -2671,7 +2671,7 @@ sub_2:                                            ; preds = %sub_19
 declare dso_local zeroext i1 @empty_inline_dir(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__ext4_read_dirblock(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__ext4_read_dirblock(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 4) %2, ptr noundef %3, i32 noundef range(i32 822, 3539) %4) unnamed_addr #0 align 16 {
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i64, ptr %7, align 8
@@ -8102,7 +8102,7 @@ define internal fastcc range(i32 0, 2) i32 @ext4_dx_csum_verify(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_dx_csum(ptr nocapture readonly %.40.val.872.val, i32 %.840.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_dx_csum(ptr nocapture readonly %.40.val.872.val, i32 %.840.val, ptr noundef %0, i32 noundef range(i32 0, 33) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.anon.16, align 8
   %6 = alloca %struct.anon.16, align 8
   %7 = alloca %struct.anon.16, align 8
@@ -9544,7 +9544,7 @@ sub_2:                                            ; preds = %sub_14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_setent(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_setent(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -9764,7 +9764,7 @@ declare dso_local ptr @ext4_get_first_inline_block(ptr noundef, ptr noundef, ptr
 declare dso_local i32 @ext4_alloc_da_blocks(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ext4_whiteout_for_rename(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ext4_whiteout_for_rename(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 38, 78) %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store i32 0, ptr %5, align 4
@@ -9841,7 +9841,7 @@ define internal fastcc ptr @ext4_whiteout_for_rename(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_rename_delete(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ext4_rename_delete(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.ext4_filename, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.ext4_filename, align 8
@@ -10004,7 +10004,7 @@ declare dso_local void @__ext4_fc_track_unlink(ptr noundef, ptr noundef, ptr nou
 declare dso_local void @__ext4_fc_track_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_resetent(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @ext4_resetent(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.ext4_filename, align 8
   %6 = alloca %struct.ext4_renament, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #13

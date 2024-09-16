@@ -176,7 +176,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: cold mustprogress noreturn nounwind optsize uwtable
-define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS0_15safe_assert_argEiP13__va_list_tag(ptr nocapture noundef readonly %arg_, i32 noundef %error, ptr nocapture noundef %msg) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS0_15safe_assert_argEiP13__va_list_tag(ptr nocapture noundef readonly %arg_, i32 noundef %error, ptr nocapture noundef nonnull %msg) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buf) #13
@@ -432,7 +432,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(ptr nocapture noundef readonly %s, i64 noundef %len) unnamed_addr #3 {
+define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(ptr nocapture noundef nonnull readonly %s, i64 noundef %len) unnamed_addr #3 {
 entry:
   br label %do.body.i
 
@@ -467,7 +467,7 @@ _ZN5folly15fileutil_detail8wrapFullIPFliPKvmEJEEElT_iPvmDpT0_.exit: ; preds = %d
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef nonnull ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS7_15safe_assert_argEiP13__va_list_tagE3$_0ET_SF_SF_T0_"(i32 %__pred.coerce) unnamed_addr #6 {
+define internal fastcc noundef nonnull ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS7_15safe_assert_argEiP13__va_list_tagE3$_0ET_SF_SF_T0_"(i32 range(i32 1, 0) %__pred.coerce) unnamed_addr #6 {
 entry:
   br label %for.body.i.i
 

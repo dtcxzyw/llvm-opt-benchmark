@@ -363,7 +363,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef %0, i32 noundef %1, i64 %2, i64 %3) unnamed_addr #1 align 16 {
+define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef range(i32 2, 7) %0, i32 noundef range(i32 1, -2147483648) %1, i64 %2, i64 %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.guid_t, align 8
   store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8

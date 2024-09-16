@@ -126,7 +126,7 @@ if.end43:                                         ; preds = %if.end35
   br i1 %tobool45.not, label %return, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %if.end43
-  %call47 = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef nonnull %extensions)
+  %call47 = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef %extensions)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %return, label %lor.lhs.false49
 
@@ -162,7 +162,7 @@ declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 declare i32 @CBS_get_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_check_duplicate_extensions(ptr nocapture noundef readonly %cbs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_check_duplicate_extensions(ptr nocapture noundef nonnull readonly %cbs) unnamed_addr #0 {
 entry:
   %extensions = alloca %struct.cbs_st, align 8
   %type = alloca i16, align 2
@@ -620,19 +620,19 @@ entry:
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
-  %i.06.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %arrayidx.i.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.06.i.i
+  %i.05.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.05.i.i
   %1 = load i32, ptr %arrayidx.i.i, align 8
   %cmp2.i.i = icmp eq i32 %1, %0
   br i1 %cmp2.i.i, label %tls12_get_sigid.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 2
   br i1 %exitcond.not.i.i, label %if.then, label %for.body.i.i, !llvm.loop !16
 
 tls12_get_sigid.exit:                             ; preds = %for.body.i.i
-  %id.i.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.06.i.i, i32 1
+  %id.i.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.05.i.i, i32 1
   %2 = load i32, ptr %id.i.i, align 4
   %cmp = icmp eq i32 %2, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -727,19 +727,19 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.05.i
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp2.i = icmp eq i32 %0, %pkey_type
   br i1 %cmp2.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %id.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.06.i, i32 1
+  %id.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.05.i, i32 1
   %1 = load i32, ptr %id.i, align 4
   br label %tls12_find_id.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 2
   br i1 %exitcond.not.i, label %tls12_find_id.exit, label %for.body.i, !llvm.loop !16
 
@@ -1193,7 +1193,7 @@ if.then7.i:                                       ; preds = %for.end.i
   br i1 %tobool.not.i, label %if.then12.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then7.i
-  %call10.i = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef nonnull %extensions8.i)
+  %call10.i = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef %extensions8.i)
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %if.then12.i, label %while.cond.outer.i
 
@@ -1416,7 +1416,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i, label %return.sink.split.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %call2.i = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef nonnull %extensions.i)
+  %call2.i = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef %extensions.i)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %return.sink.split.i, label %while.cond.preheader.i
 
@@ -1792,19 +1792,19 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_md, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_md, i64 %i.05.i
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp2.i = icmp eq i32 %0, %call
   br i1 %cmp2.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %id.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_md, i64 %i.06.i, i32 1
+  %id.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_md, i64 %i.05.i, i32 1
   %1 = load i32, ptr %id.i, align 4
   br label %tls12_find_id.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %tls12_find_id.exit, label %for.body.i, !llvm.loop !16
 
@@ -1814,19 +1814,19 @@ tls12_find_id.exit:                               ; preds = %for.inc.i, %if.then
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %tls12_find_id.exit
-  %i.06.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %tls12_find_id.exit ]
-  %arrayidx.i.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.06.i.i
+  %i.05.i.i = phi i64 [ 0, %tls12_find_id.exit ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.05.i.i
   %2 = load i32, ptr %arrayidx.i.i, align 8
   %cmp2.i.i = icmp eq i32 %2, %call2
   br i1 %cmp2.i.i, label %tls12_get_sigid.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 2
   br i1 %exitcond.not.i.i, label %land.end, label %for.body.i.i, !llvm.loop !16
 
 tls12_get_sigid.exit:                             ; preds = %for.body.i.i
-  %id.i.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.06.i.i, i32 1
+  %id.i.i = getelementptr inbounds %struct.tls12_lookup, ptr @tls12_sig, i64 %i.05.i.i, i32 1
   %3 = load i32, ptr %id.i.i, align 4
   %cmp = icmp ne i32 %retval.0.i, -1
   %cmp4 = icmp ne i32 %3, -1

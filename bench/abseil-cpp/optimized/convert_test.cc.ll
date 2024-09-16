@@ -5132,7 +5132,7 @@ entry:
   %dispatcher_.i.i108 = getelementptr inbounds i8, ptr %args_array, i64 216
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchINS0_7VoidPtrEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i108, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp16, ptr nonnull @.str.92, i64 2, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -5234,7 +5234,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp35, ptr nonnull @.str.94, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar32, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.93, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar32, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.93, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -5341,7 +5341,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit138:         ; preds = %if.end57, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i137
   store ptr null, ptr %message_.i135, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp62, ptr nonnull @.str.96, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar59, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar59, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit138
@@ -5448,7 +5448,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit162:         ; preds = %if.end84, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i161
   store ptr null, ptr %message_.i159, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp89, ptr nonnull @.str.98, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar86, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar86, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89)
           to label %invoke.cont94 unwind label %lpad93
 
 invoke.cont94:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit162
@@ -5555,7 +5555,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit186:         ; preds = %if.end111, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i185
   store ptr null, ptr %message_.i183, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp116, ptr nonnull @.str.100, i64 7, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar113, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar113, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116)
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit186
@@ -5662,7 +5662,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit210:         ; preds = %if.end138, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i209
   store ptr null, ptr %message_.i207, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp143, ptr nonnull @.str.102, i64 3, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar140, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.101, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp143)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar140, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.101, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp143)
           to label %invoke.cont148 unwind label %lpad147
 
 invoke.cont148:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit210
@@ -5769,7 +5769,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit234:         ; preds = %if.end165, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i233
   store ptr null, ptr %message_.i231, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp170, ptr nonnull @.str.104, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar167, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.103, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar167, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.103, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170)
           to label %invoke.cont175 unwind label %lpad174
 
 invoke.cont175:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit234
@@ -5876,7 +5876,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit258:         ; preds = %if.end192, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i257
   store ptr null, ptr %message_.i255, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp197, ptr nonnull @.str.106, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar194, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp197)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar194, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp197)
           to label %invoke.cont202 unwind label %lpad201
 
 invoke.cont202:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit258
@@ -5983,7 +5983,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit282:         ; preds = %if.end219, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i281
   store ptr null, ptr %message_.i279, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp224, ptr nonnull @.str.98, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar221, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar221, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224)
           to label %invoke.cont229 unwind label %lpad228
 
 invoke.cont229:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit282
@@ -6090,7 +6090,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit306:         ; preds = %if.end246, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i305
   store ptr null, ptr %message_.i303, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp251, ptr nonnull @.str.108, i64 8, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar248, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp251)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar248, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp251)
           to label %invoke.cont256 unwind label %lpad255
 
 invoke.cont256:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit306
@@ -7526,7 +7526,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit635:         ; preds = %if.end354, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i634
   store ptr null, ptr %message_.i632, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp359, ptr nonnull @.str.116, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar356, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp359)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar356, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp359)
           to label %invoke.cont364 unwind label %lpad363
 
 invoke.cont364:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit635
@@ -7633,7 +7633,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit659:         ; preds = %if.end381, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i658
   store ptr null, ptr %message_.i656, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp386, ptr nonnull @.str.118, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar383, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp386)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar383, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp386)
           to label %invoke.cont391 unwind label %lpad390
 
 invoke.cont391:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit659
@@ -7740,7 +7740,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit683:         ; preds = %if.end408, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i682
   store ptr null, ptr %message_.i680, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp413, ptr nonnull @.str.120, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar410, ptr noundef nonnull @.str.119, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp413)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar410, ptr noundef nonnull @.str.119, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp413)
           to label %invoke.cont418 unwind label %lpad417
 
 invoke.cont418:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit683
@@ -9176,7 +9176,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1124:        ; preds = %if.end516, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1123
   store ptr null, ptr %message_.i1121, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp521, ptr nonnull @.str.128, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar518, ptr noundef nonnull @.str.127, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp521)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar518, ptr noundef nonnull @.str.127, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp521)
           to label %invoke.cont526 unwind label %lpad525
 
 invoke.cont526:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1124
@@ -9283,7 +9283,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1148:        ; preds = %if.end543, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1147
   store ptr null, ptr %message_.i1145, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp548, ptr nonnull @.str.130, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar545, ptr nonnull %vc, ptr noundef nonnull @.str.129, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp548)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar545, ptr nonnull %vc, ptr noundef nonnull @.str.129, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp548)
           to label %invoke.cont553 unwind label %lpad552
 
 invoke.cont553:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1148
@@ -9390,7 +9390,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1172:        ; preds = %if.end570, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1171
   store ptr null, ptr %message_.i1169, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp575, ptr nonnull @.str.132, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar572, ptr nonnull %vwc, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp575)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar572, ptr nonnull %vwc, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp575)
           to label %invoke.cont580 unwind label %lpad579
 
 invoke.cont580:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1172
@@ -9497,7 +9497,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1196:        ; preds = %if.end597, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1195
   store ptr null, ptr %message_.i1193, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp602, ptr nonnull @.str.134, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar599, ptr noundef nonnull @.str.133, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp602)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar599, ptr noundef nonnull @.str.133, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp602)
           to label %invoke.cont607 unwind label %lpad606
 
 invoke.cont607:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1196
@@ -9604,7 +9604,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1220:        ; preds = %if.end624, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1219
   store ptr null, ptr %message_.i1217, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp629, ptr nonnull @.str.136, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar626, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp629)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar626, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp629)
           to label %invoke.cont634 unwind label %lpad633
 
 invoke.cont634:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1220
@@ -9722,7 +9722,7 @@ eh.resume:                                        ; preds = %ehcleanup652, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -9795,7 +9795,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -10056,7 +10056,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -10129,7 +10129,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -10390,7 +10390,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -10463,7 +10463,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -11022,7 +11022,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -11041,7 +11041,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -11109,7 +11109,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -11164,7 +11164,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -11879,7 +11879,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -11898,7 +11898,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -11966,7 +11966,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -12021,7 +12021,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -12165,7 +12165,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12184,7 +12184,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12252,7 +12252,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -12307,7 +12307,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -12443,7 +12443,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12462,7 +12462,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12530,7 +12530,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -12585,7 +12585,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -12785,7 +12785,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture nonnull readnone align 8 %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12804,7 +12804,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture nonnull readnone align 8 %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12865,7 +12865,7 @@ return:                                           ; preds = %entry, %if.end10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -12918,7 +12918,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -13053,7 +13053,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -13072,7 +13072,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -13140,7 +13140,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -13195,7 +13195,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -13331,7 +13331,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -13350,7 +13350,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -13418,7 +13418,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -13473,7 +13473,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -13609,7 +13609,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -13628,7 +13628,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -13696,7 +13696,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -13751,7 +13751,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -13895,7 +13895,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -13914,7 +13914,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -13982,7 +13982,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -14037,7 +14037,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -16670,7 +16670,7 @@ invoke.cont65.i:                                  ; preds = %fpclassify_not_nan.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %string_printf_result.i) #30
   %call69.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %fmt_str.i) #30
   %conv70.i = fpext float %48 to double
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_19StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %string_printf_result.i, ptr noundef %call69.i, double noundef %conv70.i, i32 noundef -10)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_19StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef %string_printf_result.i, ptr noundef %call69.i, double noundef %conv70.i, i32 noundef -10)
           to label %invoke.cont71.i unwind label %lpad56.i
 
 invoke.cont71.i:                                  ; preds = %invoke.cont65.i
@@ -16775,7 +16775,7 @@ invoke.cont95.i:                                  ; preds = %invoke.cont93.i
           to label %invoke.cont97.i unwind label %lpad94.i
 
 invoke.cont97.i:                                  ; preds = %invoke.cont95.i
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp99.i, ptr noundef nonnull @.str.220, double noundef %conv70.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp99.i, ptr noundef nonnull @.str.220, double noundef %conv70.i)
           to label %invoke.cont101.i unwind label %lpad94.i
 
 invoke.cont101.i:                                 ; preds = %invoke.cont97.i
@@ -16791,7 +16791,7 @@ invoke.cont103.i:                                 ; preds = %invoke.cont101.i
           to label %invoke.cont105.i unwind label %lpad102.i
 
 invoke.cont105.i:                                 ; preds = %invoke.cont103.i
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp107.i, ptr noundef nonnull @.str.221, double noundef %conv70.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp107.i, ptr noundef nonnull @.str.221, double noundef %conv70.i)
           to label %invoke.cont109.i unwind label %lpad102.i
 
 invoke.cont109.i:                                 ; preds = %invoke.cont105.i
@@ -16807,7 +16807,7 @@ invoke.cont111.i:                                 ; preds = %invoke.cont109.i
           to label %invoke.cont113.i unwind label %lpad110.i
 
 invoke.cont113.i:                                 ; preds = %invoke.cont111.i
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp115.i, ptr noundef nonnull @.str.222, double noundef %conv70.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp115.i, ptr noundef nonnull @.str.222, double noundef %conv70.i)
           to label %invoke.cont117.i unwind label %lpad110.i
 
 invoke.cont117.i:                                 ; preds = %invoke.cont113.i
@@ -17492,11 +17492,11 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_19StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef %out, ptr nocapture noundef readonly %format, ...) unnamed_addr #3 {
+define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_19StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %out, ptr nocapture noundef readonly %format, ...) unnamed_addr #3 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StrAppendVEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcP13__va_list_tag(ptr noundef %out, ptr noundef %format, ptr noundef nonnull %ap)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StrAppendVEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcP13__va_list_tag(ptr noundef %out, ptr noundef %format, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -17509,7 +17509,7 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StrAppendVEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcP13__va_list_tag(ptr noundef nonnull %agg.result, ptr noundef %format, ptr noundef nonnull %ap)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StrAppendVEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcP13__va_list_tag(ptr noundef %agg.result, ptr noundef %format, ptr noundef %ap)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -17539,7 +17539,7 @@ entry:
   %ref.tmp77 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp81 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp87 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.223, double noundef 6.565700e+04)
+  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.223, double noundef 6.565700e+04)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #30
   %0 = extractvalue { i64, ptr } %call, 0
   %cmp.not.i = icmp ult i64 %0, 6
@@ -17552,7 +17552,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds
   br i1 %cmp7.i, label %land.lhs.true, label %cleanup.done64
 
 land.lhs.true:                                    ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp4, ptr noundef nonnull @.str.223, double noundef 6.591300e+04)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp4, ptr noundef nonnull @.str.223, double noundef 6.591300e+04)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true
@@ -17568,7 +17568,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15: ; pre
   br i1 %cmp7.i14, label %land.lhs.true8, label %cleanup.action63
 
 land.lhs.true8:                                   ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10, ptr noundef nonnull @.str.223, double noundef 6.566400e+04)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10, ptr noundef nonnull @.str.223, double noundef 6.566400e+04)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %land.lhs.true8
@@ -17584,7 +17584,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit24: ; pre
   br i1 %cmp7.i23, label %land.lhs.true17, label %cleanup.done57.thread
 
 land.lhs.true17:                                  ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit24
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp19, ptr noundef nonnull @.str.223, double noundef 6.592000e+04)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp19, ptr noundef nonnull @.str.223, double noundef 6.592000e+04)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %land.lhs.true17
@@ -17600,7 +17600,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit33: ; pre
   br i1 %cmp7.i32, label %land.lhs.true26, label %cleanup.done51.thread
 
 land.lhs.true26:                                  ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit33
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp28, ptr noundef nonnull @.str.223, double noundef 6.566500e+04)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp28, ptr noundef nonnull @.str.223, double noundef 6.566500e+04)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %land.lhs.true26
@@ -17616,7 +17616,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit42: ; pre
   br i1 %cmp7.i41, label %land.rhs, label %cleanup.done45.thread
 
 land.rhs:                                         ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit42
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp36, ptr noundef nonnull @.str.223, double noundef 6.592100e+04)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp36, ptr noundef nonnull @.str.223, double noundef 6.592100e+04)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %land.rhs
@@ -17660,7 +17660,7 @@ cleanup.action63:                                 ; preds = %invoke.cont, %_ZN4a
 cleanup.done64:                                   ; preds = %entry, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %cleanup.action63
   %frombool9297113121127 = phi i32 [ %frombool9297113121128, %cleanup.action63 ], [ 0, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ 0, %entry ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #30
-  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp72, ptr noundef nonnull @.str.221, double noundef 4.940660e-324)
+  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp72, ptr noundef nonnull @.str.221, double noundef 4.940660e-324)
   %call73 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #30
   %14 = extractvalue { i64, ptr } %call73, 0
   %cmp.not.i56 = icmp ult i64 %14, 17
@@ -17676,10 +17676,10 @@ land.rhs.i57:                                     ; preds = %cleanup.done64
 _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit60: ; preds = %cleanup.done64, %land.rhs.i57
   %retval.sroa.2.0.insert.shift = phi i32 [ 0, %cleanup.done64 ], [ %16, %land.rhs.i57 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #30
-  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp77, ptr noundef nonnull @.str.221, double noundef 6.565700e+04)
+  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp77, ptr noundef nonnull @.str.221, double noundef 6.565700e+04)
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77, ptr noundef nonnull @.str.228) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #30
-  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp81, ptr noundef nonnull @.str.221, double noundef 1.500000e+00)
+  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp81, ptr noundef nonnull @.str.221, double noundef 1.500000e+00)
   %call82 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #30
   %17 = extractvalue { i64, ptr } %call82, 0
   %cmp.not.i65 = icmp ult i64 %17, 5
@@ -17692,7 +17692,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit69: ; pre
   br i1 %cmp7.i68, label %land.rhs85, label %cleanup.done98
 
 land.rhs85:                                       ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit69
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp87, ptr noundef nonnull @.str.230, x86_fp80 noundef 0xK3FFFC000000000000000)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp87, ptr noundef nonnull @.str.230, x86_fp80 noundef 0xK3FFFC000000000000000)
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %land.rhs85
@@ -17788,11 +17788,11 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIfEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StrAppendVEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcP13__va_list_tag(ptr noundef %dst, ptr nocapture noundef readonly %format, ptr noundef %ap) unnamed_addr #3 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StrAppendVEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcP13__va_list_tag(ptr noundef nonnull %dst, ptr nocapture noundef readonly %format, ptr noundef nonnull %ap) unnamed_addr #3 {
 entry:
   %space = alloca [1024 x i8], align 16
   %backup_ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_copy.p0(ptr nonnull %backup_ap, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %backup_ap, ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull %space, i64 noundef 1024, ptr noundef %format, ptr noundef nonnull %backup_ap) #30
   call void @llvm.va_end.p0(ptr nonnull %backup_ap)
   %cmp = icmp slt i32 %call, 1024
@@ -17811,7 +17811,7 @@ if.end11:                                         ; preds = %entry
   %narrow = add nuw i32 %call, 1
   %add = zext i32 %narrow to i64
   %call13 = call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #35
-  call void @llvm.va_copy.p0(ptr nonnull %backup_ap, ptr %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %backup_ap, ptr nonnull %ap)
   %call16 = call i32 @vsnprintf(ptr noundef nonnull %call13, i64 noundef %add, ptr noundef %format, ptr noundef nonnull %backup_ap) #30
   call void @llvm.va_end.p0(ptr nonnull %backup_ap)
   %cmp18 = icmp slt i32 %call16, 0
@@ -18244,7 +18244,7 @@ for.inc67:                                        ; preds = %for.inc65
   br i1 %cmp.not, label %for.end69, label %for.body
 
 for.end69:                                        ; preds = %for.inc67
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp70, ptr noundef nonnull @.str.233, double noundef 0x7FEFFFFFFFFFFFFF)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp70, ptr noundef nonnull @.str.233, double noundef 0x7FEFFFFFFFFFFFFF)
           to label %invoke.cont72 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont72:                                    ; preds = %for.end69
@@ -19218,7 +19218,7 @@ invoke.cont65.i:                                  ; preds = %fpclassify_not_nan.
   %call67.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %fmt_str.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %string_printf_result.i) #30
   %call69.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %fmt_str.i) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_19StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %string_printf_result.i, ptr noundef %call69.i, double noundef %91, i32 noundef -10)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_19StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef %string_printf_result.i, ptr noundef %call69.i, double noundef %91, i32 noundef -10)
           to label %invoke.cont70.i unwind label %lpad56.i
 
 invoke.cont70.i:                                  ; preds = %invoke.cont65.i
@@ -19323,7 +19323,7 @@ invoke.cont94.i:                                  ; preds = %invoke.cont92.i
           to label %invoke.cont96.i unwind label %lpad93.i
 
 invoke.cont96.i:                                  ; preds = %invoke.cont94.i
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp98.i, ptr noundef nonnull @.str.220, double noundef %91)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp98.i, ptr noundef nonnull @.str.220, double noundef %91)
           to label %invoke.cont99.i unwind label %lpad93.i
 
 invoke.cont99.i:                                  ; preds = %invoke.cont96.i
@@ -19339,7 +19339,7 @@ invoke.cont101.i:                                 ; preds = %invoke.cont99.i
           to label %invoke.cont103.i unwind label %lpad100.i
 
 invoke.cont103.i:                                 ; preds = %invoke.cont101.i
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp105.i, ptr noundef nonnull @.str.221, double noundef %91)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp105.i, ptr noundef nonnull @.str.221, double noundef %91)
           to label %invoke.cont106.i unwind label %lpad100.i
 
 invoke.cont106.i:                                 ; preds = %invoke.cont103.i
@@ -19355,7 +19355,7 @@ invoke.cont108.i:                                 ; preds = %invoke.cont106.i
           to label %invoke.cont110.i unwind label %lpad107.i
 
 invoke.cont110.i:                                 ; preds = %invoke.cont108.i
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp112.i, ptr noundef nonnull @.str.222, double noundef %91)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp112.i, ptr noundef nonnull @.str.222, double noundef %91)
           to label %invoke.cont113.i unwind label %lpad107.i
 
 invoke.cont113.i:                                 ; preds = %invoke.cont110.i
@@ -23105,7 +23105,7 @@ entry:
   %3 = load ptr, ptr %this, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #30
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl19str_format_internal10AppendPackEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr noundef %3, ptr %fmt, i64 %call.i.i, ptr nonnull %args, i64 1)
-  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull %fmt, double noundef %d)
+  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull %fmt, double noundef %d)
   %4 = load ptr, ptr %this, align 8
   invoke void @_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %invoke.cont unwind label %lpad
@@ -33355,7 +33355,7 @@ entry:
   br i1 %tobool, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
-  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull %fmt, double noundef %d)
+  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull %fmt, double noundef %d)
   %7 = load ptr, ptr %this, align 8
   invoke void @_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont unwind label %lpad
@@ -40122,7 +40122,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %6 = load x86_fp80, ptr %d.addr, align 16
-  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef nonnull %fmt, x86_fp80 noundef %6)
+  call void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef nonnull %fmt, x86_fp80 noundef %6)
   %7 = load ptr, ptr %this, align 8
   invoke void @_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont unwind label %lpad
@@ -41662,7 +41662,7 @@ invoke.cont125:                                   ; preds = %invoke.cont125.preh
 invoke.cont131:                                   ; preds = %invoke.cont125
   %call133 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %fmt_str) #30
   %22 = load x86_fp80, ptr %d, align 16
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp132, ptr noundef %call133, x86_fp80 noundef %22)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp132, ptr noundef %call133, x86_fp80 noundef %22)
           to label %invoke.cont135 unwind label %lpad134
 
 invoke.cont135:                                   ; preds = %invoke.cont131
@@ -41731,7 +41731,7 @@ invoke.cont145:                                   ; preds = %invoke.cont143
 
 invoke.cont147:                                   ; preds = %invoke.cont145
   %30 = load x86_fp80, ptr %d, align 16
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp149, ptr noundef nonnull @.str.740, x86_fp80 noundef %30)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp149, ptr noundef nonnull @.str.740, x86_fp80 noundef %30)
           to label %invoke.cont150 unwind label %lpad144
 
 invoke.cont150:                                   ; preds = %invoke.cont147
@@ -41748,7 +41748,7 @@ invoke.cont152:                                   ; preds = %invoke.cont150
 
 invoke.cont154:                                   ; preds = %invoke.cont152
   %33 = load x86_fp80, ptr %d, align 16
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp156, ptr noundef nonnull @.str.230, x86_fp80 noundef %33)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp156, ptr noundef nonnull @.str.230, x86_fp80 noundef %33)
           to label %invoke.cont157 unwind label %lpad151
 
 invoke.cont157:                                   ; preds = %invoke.cont154
@@ -41765,7 +41765,7 @@ invoke.cont159:                                   ; preds = %invoke.cont157
 
 invoke.cont161:                                   ; preds = %invoke.cont159
   %36 = load x86_fp80, ptr %d, align 16
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp163, ptr noundef nonnull @.str.741, x86_fp80 noundef %36)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp163, ptr noundef nonnull @.str.741, x86_fp80 noundef %36)
           to label %invoke.cont164 unwind label %lpad158
 
 invoke.cont164:                                   ; preds = %invoke.cont161
@@ -42088,7 +42088,7 @@ invoke.cont:                                      ; preds = %_ZN4absl19str_forma
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   %conv = sitofp i32 %retval.sroa.0.0.copyload.i.i.i to double
   store i32 1403, ptr %ref.tmp, align 8
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %out, ptr noundef nonnull @.str.233, double noundef %conv)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %out, ptr noundef nonnull @.str.233, double noundef %conv)
           to label %invoke.cont5 unwind label %lpad4.thread
 
 lpad4.thread:                                     ; preds = %invoke.cont
@@ -42099,19 +42099,19 @@ lpad4.thread:                                     ; preds = %invoke.cont
 invoke.cont5:                                     ; preds = %invoke.cont
   store ptr @.str.233, ptr %fmt, align 8
   store i32 1404, ptr %arrayinit.element, align 8
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %out7, ptr noundef nonnull @.str.742, double noundef %conv)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %out7, ptr noundef nonnull @.str.742, double noundef %conv)
           to label %invoke.cont8 unwind label %lpad4.split.loop.exit.split-lp.split.loop.exit
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   store ptr @.str.742, ptr %fmt9, align 8
   store i32 1405, ptr %arrayinit.element10, align 8
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %out12, ptr noundef nonnull @.str.269, double noundef %conv)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %out12, ptr noundef nonnull @.str.269, double noundef %conv)
           to label %invoke.cont13 unwind label %lpad4.split.loop.exit.split-lp.split.loop.exit.split-lp
 
 invoke.cont13:                                    ; preds = %invoke.cont8
   store ptr @.str.269, ptr %fmt14, align 8
   store i32 1406, ptr %arrayinit.element15, align 8
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %out17, ptr noundef nonnull @.str.472, double noundef %conv)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %out17, ptr noundef nonnull @.str.472, double noundef %conv)
           to label %invoke.cont18 unwind label %lpad4.split.loop.exit
 
 invoke.cont18:                                    ; preds = %invoke.cont13
@@ -42215,7 +42215,7 @@ arraydestroy.done28.if.end_crit_edge:             ; preds = %arraydestroy.done28
 
 if.then:                                          ; preds = %arraydestroy.done28
   store i32 1409, ptr %ex, align 8
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %out36, ptr noundef nonnull @.str.743, double noundef %conv)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %out36, ptr noundef nonnull @.str.743, double noundef %conv)
           to label %invoke.cont38 unwind label %lpad37.loopexit.split-lp
 
 invoke.cont38:                                    ; preds = %if.then
@@ -48296,7 +48296,7 @@ invoke.cont32:                                    ; preds = %.noexc94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -48495,7 +48495,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
 
 invoke.cont109:                                   ; preds = %invoke.cont106
   %call112 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp111, ptr noundef %call112, i32 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp111, ptr noundef %call112, i32 noundef %8)
           to label %invoke.cont113 unwind label %lpad103
 
 invoke.cont113:                                   ; preds = %invoke.cont109
@@ -49079,7 +49079,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %flag_set = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -49550,7 +49550,7 @@ invoke.cont32:                                    ; preds = %.noexc96
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -49886,7 +49886,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
 
 invoke.cont112:                                   ; preds = %invoke.cont109
   %call115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i32 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i32 noundef %8)
           to label %if.end130 unwind label %lpad106
 
 lpad89:                                           ; preds = %call.i107.noexc, %if.end
@@ -49996,7 +49996,7 @@ invoke.cont121:                                   ; preds = %invoke.cont119
 
 invoke.cont124:                                   ; preds = %invoke.cont121
   %call127 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp126, ptr noundef %call127, i32 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp126, ptr noundef %call127, i32 noundef %8)
           to label %if.end130 unwind label %lpad106
 
 lpad120:                                          ; preds = %invoke.cont119
@@ -50729,7 +50729,7 @@ invoke.cont46:                                    ; preds = %.noexc96
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad63
 
 for.cond.preheader:                               ; preds = %invoke.cont46
@@ -50929,7 +50929,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
 invoke.cont121:                                   ; preds = %invoke.cont118
   %call124 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
   %24 = load volatile i32, ptr %val, align 4
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp123, ptr noundef %call124, i32 noundef %24)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp123, ptr noundef %call124, i32 noundef %24)
           to label %invoke.cont125 unwind label %lpad115
 
 invoke.cont125:                                   ; preds = %invoke.cont121
@@ -51793,7 +51793,7 @@ invoke.cont32:                                    ; preds = %.noexc94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -51993,7 +51993,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 invoke.cont106:                                   ; preds = %invoke.cont103
   %call109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i32 noundef %conv110)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i32 noundef %conv110)
           to label %invoke.cont111 unwind label %lpad100
 
 invoke.cont111:                                   ; preds = %invoke.cont106
@@ -52833,7 +52833,7 @@ invoke.cont32:                                    ; preds = %.noexc96
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -53170,7 +53170,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
 
 invoke.cont112:                                   ; preds = %invoke.cont109
   %call115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i32 noundef %conv116)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i32 noundef %conv116)
           to label %if.end132 unwind label %lpad106
 
 lpad89:                                           ; preds = %call.i107.noexc, %if.end
@@ -53280,7 +53280,7 @@ invoke.cont122:                                   ; preds = %invoke.cont120
 
 invoke.cont125:                                   ; preds = %invoke.cont122
   %call128 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp127, ptr noundef %call128, i32 noundef %conv116)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp127, ptr noundef %call128, i32 noundef %conv116)
           to label %if.end132 unwind label %lpad106
 
 lpad121:                                          ; preds = %invoke.cont120
@@ -53976,7 +53976,7 @@ invoke.cont32:                                    ; preds = %.noexc94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -54174,7 +54174,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 invoke.cont106:                                   ; preds = %invoke.cont103
   %call109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i64 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i64 noundef %8)
           to label %invoke.cont110 unwind label %lpad100
 
 invoke.cont110:                                   ; preds = %invoke.cont106
@@ -56927,7 +56927,7 @@ invoke.cont32:                                    ; preds = %.noexc96
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -57262,7 +57262,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
 
 invoke.cont112:                                   ; preds = %invoke.cont109
   %call115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i64 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i64 noundef %8)
           to label %if.end130 unwind label %lpad106
 
 lpad89:                                           ; preds = %call.i107.noexc, %if.end
@@ -57372,7 +57372,7 @@ invoke.cont121:                                   ; preds = %invoke.cont119
 
 invoke.cont124:                                   ; preds = %invoke.cont121
   %call127 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp126, ptr noundef %call127, i64 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp126, ptr noundef %call127, i64 noundef %8)
           to label %if.end130 unwind label %lpad106
 
 lpad120:                                          ; preds = %invoke.cont119
@@ -58068,7 +58068,7 @@ invoke.cont32:                                    ; preds = %.noexc94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -58266,7 +58266,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 invoke.cont106:                                   ; preds = %invoke.cont103
   %call109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i64 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i64 noundef %8)
           to label %invoke.cont110 unwind label %lpad100
 
 invoke.cont110:                                   ; preds = %invoke.cont106
@@ -59106,7 +59106,7 @@ invoke.cont32:                                    ; preds = %.noexc96
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -59441,7 +59441,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
 
 invoke.cont112:                                   ; preds = %invoke.cont109
   %call115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i64 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i64 noundef %8)
           to label %if.end130 unwind label %lpad106
 
 lpad89:                                           ; preds = %call.i107.noexc, %if.end
@@ -59551,7 +59551,7 @@ invoke.cont121:                                   ; preds = %invoke.cont119
 
 invoke.cont124:                                   ; preds = %invoke.cont121
   %call127 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp126, ptr noundef %call127, i64 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp126, ptr noundef %call127, i64 noundef %8)
           to label %if.end130 unwind label %lpad106
 
 lpad120:                                          ; preds = %invoke.cont119
@@ -60246,7 +60246,7 @@ invoke.cont32:                                    ; preds = %.noexc94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -60260,7 +60260,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx = getelementptr inbounds [13 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIcE8TestBodyEv.kVals, i64 0, i64 %vi.0185
   %8 = load i8, ptr %arrayidx, align 1
   %conv.i = sext i8 %8 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp53, i32 noundef %conv.i)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp53, i32 noundef %conv.i)
           to label %invoke.cont54 unwind label %lpad51
 
 invoke.cont54:                                    ; preds = %for.body
@@ -60429,7 +60429,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 invoke.cont106:                                   ; preds = %invoke.cont103
   %call109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i32 noundef %conv.i)
           to label %invoke.cont111 unwind label %lpad100
 
 invoke.cont111:                                   ; preds = %invoke.cont106
@@ -61013,7 +61013,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %agg.result, i32 noundef %v) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 -128, 256) %v) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -61308,7 +61308,7 @@ invoke.cont32:                                    ; preds = %.noexc96
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -61322,7 +61322,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx = getelementptr inbounds [13 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIhE8TestBodyEv.kVals, i64 0, i64 %vi.0216
   %8 = load i8, ptr %arrayidx, align 1
   %conv.i = zext i8 %8 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp53, i32 noundef %conv.i)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp53, i32 noundef %conv.i)
           to label %invoke.cont54 unwind label %lpad51
 
 invoke.cont54:                                    ; preds = %for.body
@@ -61628,7 +61628,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
 
 invoke.cont112:                                   ; preds = %invoke.cont109
   %call115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef %call115, i32 noundef %conv.i)
           to label %if.end132 unwind label %lpad106
 
 lpad89:                                           ; preds = %call.i.noexc107, %if.end
@@ -61738,7 +61738,7 @@ invoke.cont122:                                   ; preds = %invoke.cont120
 
 invoke.cont125:                                   ; preds = %invoke.cont122
   %call128 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp127, ptr noundef %call128, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp127, ptr noundef %call128, i32 noundef %conv.i)
           to label %if.end132 unwind label %lpad106
 
 lpad121:                                          ; preds = %invoke.cont120
@@ -62431,7 +62431,7 @@ invoke.cont32:                                    ; preds = %.noexc94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -62445,7 +62445,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx = getelementptr inbounds [13 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIcE8TestBodyEv.kVals, i64 0, i64 %vi.0185
   %8 = load i8, ptr %arrayidx, align 1
   %conv.i = sext i8 %8 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp53, i32 noundef %conv.i)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp53, i32 noundef %conv.i)
           to label %invoke.cont54 unwind label %lpad51
 
 invoke.cont54:                                    ; preds = %for.body
@@ -62614,7 +62614,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 invoke.cont106:                                   ; preds = %invoke.cont103
   %call109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i32 noundef %conv.i)
           to label %invoke.cont111 unwind label %lpad100
 
 invoke.cont111:                                   ; preds = %invoke.cont106
@@ -63448,7 +63448,7 @@ invoke.cont32:                                    ; preds = %.noexc94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #30
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias nonnull align 8 %flag_sets)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev(ptr noalias align 8 %flag_sets)
           to label %for.cond.preheader unwind label %lpad49
 
 for.cond.preheader:                               ; preds = %invoke.cont32
@@ -63461,7 +63461,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %vi.0184 = phi i64 [ 0, %for.cond.preheader ], [ %inc176, %for.end173 ]
   %arrayidx = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kVals, i64 0, i64 %vi.0184
   %8 = load i32, ptr %arrayidx, align 4
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_13EscB5cxx11Ew(ptr noalias nonnull align 8 %ref.tmp53, i32 noundef signext %8)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_13EscB5cxx11Ew(ptr noalias align 8 %ref.tmp53, i32 noundef signext %8)
           to label %invoke.cont54 unwind label %lpad51
 
 invoke.cont54:                                    ; preds = %for.body
@@ -63630,7 +63630,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 invoke.cont106:                                   ; preds = %invoke.cont103
   %call109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_fmt) #30
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i32 noundef %8)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr noundef %call109, i32 noundef %8)
           to label %invoke.cont110 unwind label %lpad100
 
 invoke.cont110:                                   ; preds = %invoke.cont106
@@ -64214,7 +64214,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_13EscB5cxx11Ew(ptr noalias align 8 %agg.result, i32 noundef signext %v) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_13EscB5cxx11Ew(ptr noalias nonnull align 8 %agg.result, i32 noundef signext %v) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -66391,7 +66391,7 @@ invoke.cont41:                                    ; preds = %.noexc17
   store ptr %12, ptr %args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %9)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %9)
           to label %invoke.cont44 unwind label %lpad40
 
 invoke.cont44:                                    ; preds = %invoke.cont41
@@ -66592,7 +66592,7 @@ invoke.cont83:                                    ; preds = %.noexc43
   %32 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i47 to ptr
   store ptr %32, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i48, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp86, i32 noundef signext %.sroa.speculated)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp86, i32 noundef signext %.sroa.speculated)
           to label %invoke.cont87 unwind label %lpad82
 
 invoke.cont87:                                    ; preds = %invoke.cont83
@@ -66832,7 +66832,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i97, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %agg.result, i32 noundef signext %c) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %agg.result, i32 noundef signext %c) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -66935,7 +66935,7 @@ lpad3.body:                                       ; preds = %lpad.i7, %lpad3
   br label %eh.resume
 
 if.end7:                                          ; preds = %invoke.cont4
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %output, ptr noundef nonnull @.str.803, i32 noundef %c)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %output, ptr noundef nonnull @.str.803, i32 noundef %c)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.end7
@@ -67332,7 +67332,7 @@ invoke.cont39:                                    ; preds = %.noexc17
   store ptr %12, ptr %args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIjEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %9)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %9)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont39
@@ -67532,7 +67532,7 @@ invoke.cont81:                                    ; preds = %.noexc43
   %32 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i47 to ptr
   store ptr %32, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIjEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i48, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp84, i32 noundef signext %29)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp84, i32 noundef signext %29)
           to label %invoke.cont85 unwind label %lpad80
 
 invoke.cont85:                                    ; preds = %invoke.cont81
@@ -68126,7 +68126,7 @@ invoke.cont39:                                    ; preds = %.noexc17
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIViEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   %16 = load volatile i32, ptr %c, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %16)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %16)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont39
@@ -68329,7 +68329,7 @@ invoke.cont79:                                    ; preds = %.noexc43
   store ptr %wc, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIViEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i46, align 8
   %38 = load volatile i32, ptr %wc, align 4
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp82, i32 noundef signext %38)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp82, i32 noundef signext %38)
           to label %invoke.cont83 unwind label %lpad78
 
 invoke.cont83:                                    ; preds = %invoke.cont79
@@ -68773,7 +68773,7 @@ invoke.cont47:                                    ; preds = %.noexc17
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIsEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %conv.i = sext i16 %9 to i32
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont50 unwind label %lpad46
 
 invoke.cont50:                                    ; preds = %invoke.cont47
@@ -68975,7 +68975,7 @@ invoke.cont89:                                    ; preds = %.noexc43
   store ptr %32, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIsEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i48, align 8
   %conv93 = zext nneg i16 %.sroa.speculated to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp92, i32 noundef signext %conv93)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp92, i32 noundef signext %conv93)
           to label %invoke.cont94 unwind label %lpad88
 
 invoke.cont94:                                    ; preds = %invoke.cont89
@@ -69576,7 +69576,7 @@ invoke.cont47:                                    ; preds = %.noexc17
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchItEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %conv.i = zext i16 %9 to i32
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont50 unwind label %lpad46
 
 invoke.cont50:                                    ; preds = %invoke.cont47
@@ -69777,7 +69777,7 @@ invoke.cont89:                                    ; preds = %.noexc43
   store ptr %32, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchItEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i48, align 8
   %conv93 = zext i16 %29 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp92, i32 noundef signext %conv93)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp92, i32 noundef signext %conv93)
           to label %invoke.cont94 unwind label %lpad88
 
 invoke.cont94:                                    ; preds = %invoke.cont89
@@ -70365,7 +70365,7 @@ invoke.cont39:                                    ; preds = %.noexc17
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %conv.i = trunc i64 %9 to i32
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont39
@@ -70566,7 +70566,7 @@ invoke.cont81:                                    ; preds = %.noexc43
   store ptr %32, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i47, align 8
   %conv85 = trunc i64 %.sroa.speculated to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp84, i32 noundef signext %conv85)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp84, i32 noundef signext %conv85)
           to label %invoke.cont86 unwind label %lpad80
 
 invoke.cont86:                                    ; preds = %invoke.cont81
@@ -73067,7 +73067,7 @@ invoke.cont39:                                    ; preds = %.noexc17
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchImEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %conv.i = trunc i64 %9 to i32
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont39
@@ -73267,7 +73267,7 @@ invoke.cont79:                                    ; preds = %.noexc43
   store ptr %32, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchImEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i47, align 8
   %conv83 = trunc nuw nsw i64 %29 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp82, i32 noundef signext %conv83)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp82, i32 noundef signext %conv83)
           to label %invoke.cont84 unwind label %lpad78
 
 invoke.cont84:                                    ; preds = %invoke.cont79
@@ -73855,7 +73855,7 @@ invoke.cont39:                                    ; preds = %.noexc17
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIxEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %conv.i = trunc i64 %9 to i32
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont39
@@ -74056,7 +74056,7 @@ invoke.cont81:                                    ; preds = %.noexc43
   store ptr %32, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIxEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i47, align 8
   %conv85 = trunc i64 %.sroa.speculated to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp84, i32 noundef signext %conv85)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp84, i32 noundef signext %conv85)
           to label %invoke.cont86 unwind label %lpad80
 
 invoke.cont86:                                    ; preds = %invoke.cont81
@@ -74644,7 +74644,7 @@ invoke.cont39:                                    ; preds = %.noexc17
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIyEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %conv.i = trunc i64 %9 to i32
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont39
@@ -74844,7 +74844,7 @@ invoke.cont81:                                    ; preds = %.noexc43
   store ptr %32, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIyEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i47, align 8
   %conv85 = trunc nuw nsw i64 %29 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp84, i32 noundef signext %conv85)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp84, i32 noundef signext %conv85)
           to label %invoke.cont86 unwind label %lpad80
 
 invoke.cont86:                                    ; preds = %invoke.cont81
@@ -75399,7 +75399,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %__begin0.sroa.0.0115 = phi ptr [ %7, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit79 ]
   %9 = load i8, ptr %__begin0.sroa.0.0115, align 1
   %conv.i = sext i8 %9 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp41, i32 noundef %conv.i)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp41, i32 noundef %conv.i)
           to label %invoke.cont42 unwind label %lpad24.loopexit
 
 invoke.cont42:                                    ; preds = %for.body
@@ -75426,7 +75426,7 @@ invoke.cont47:                                    ; preds = %.noexc
   store ptr %11, ptr %args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIaEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont50 unwind label %lpad46
 
 invoke.cont50:                                    ; preds = %invoke.cont47
@@ -75585,7 +75585,7 @@ if.end75:                                         ; preds = %_ZN7testing15Assert
   %28 = call i8 @llvm.smin.i8(i8 %27, i8 %9)
   %.sroa.speculated = call i8 @llvm.smax.i8(i8 %28, i8 0)
   %conv.i30 = zext nneg i8 %.sroa.speculated to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp82, i32 noundef %conv.i30)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp82, i32 noundef %conv.i30)
           to label %invoke.cont83 unwind label %lpad52
 
 invoke.cont83:                                    ; preds = %if.end75
@@ -75611,7 +75611,7 @@ invoke.cont89:                                    ; preds = %.noexc35
   %30 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i39 to ptr
   store ptr %30, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIaEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i40, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp92, i32 noundef signext %conv.i30)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp92, i32 noundef signext %conv.i30)
           to label %invoke.cont94 unwind label %lpad88
 
 invoke.cont94:                                    ; preds = %invoke.cont89
@@ -76161,7 +76161,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %__begin0.sroa.0.0115 = phi ptr [ %7, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit79 ]
   %9 = load i8, ptr %__begin0.sroa.0.0115, align 1
   %conv.i = zext i8 %9 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp41, i32 noundef %conv.i)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp41, i32 noundef %conv.i)
           to label %invoke.cont42 unwind label %lpad24.loopexit
 
 invoke.cont42:                                    ; preds = %for.body
@@ -76188,7 +76188,7 @@ invoke.cont47:                                    ; preds = %.noexc
   store ptr %11, ptr %args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIhEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont50 unwind label %lpad46
 
 invoke.cont50:                                    ; preds = %invoke.cont47
@@ -76346,7 +76346,7 @@ if.end75:                                         ; preds = %_ZN7testing15Assert
   %27 = sext i1 %.b116 to i8
   %28 = call i8 @llvm.umin.i8(i8 %27, i8 %9)
   %conv.i30 = zext i8 %28 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp82, i32 noundef %conv.i30)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp82, i32 noundef %conv.i30)
           to label %invoke.cont83 unwind label %lpad52
 
 invoke.cont83:                                    ; preds = %if.end75
@@ -76372,7 +76372,7 @@ invoke.cont89:                                    ; preds = %.noexc35
   %30 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i39 to ptr
   store ptr %30, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIhEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i40, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp92, i32 noundef signext %conv.i30)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp92, i32 noundef signext %conv.i30)
           to label %invoke.cont94 unwind label %lpad88
 
 invoke.cont94:                                    ; preds = %invoke.cont89
@@ -76942,7 +76942,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %__begin0.sroa.0.0109 = phi ptr [ %8, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit79 ]
   %10 = load i8, ptr %__begin0.sroa.0.0109, align 1
   %conv.i = sext i8 %10 to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp41, i32 noundef %conv.i)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp41, i32 noundef %conv.i)
           to label %invoke.cont42 unwind label %lpad24.loopexit
 
 invoke.cont42:                                    ; preds = %for.body
@@ -76969,7 +76969,7 @@ invoke.cont47:                                    ; preds = %.noexc
   store ptr %12, ptr %args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN4absl19str_format_internal12_GLOBAL__N_18StrPrintB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.752, i32 noundef %conv.i)
           to label %invoke.cont50 unwind label %lpad46
 
 invoke.cont50:                                    ; preds = %invoke.cont47
@@ -77128,7 +77128,7 @@ if.end75:                                         ; preds = %_ZN7testing15Assert
   %29 = call i8 @llvm.smin.i8(i8 %28, i8 %10)
   %.sroa.speculated = call i8 @llvm.smax.i8(i8 %29, i8 0)
   %conv.i30 = zext nneg i8 %.sroa.speculated to i32
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp82, i32 noundef %conv.i30)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_111EscCharImplB5cxx11Ei(ptr noalias align 8 %ref.tmp82, i32 noundef %conv.i30)
           to label %invoke.cont83 unwind label %lpad52
 
 invoke.cont83:                                    ; preds = %if.end75
@@ -77154,7 +77154,7 @@ invoke.cont89:                                    ; preds = %.noexc35
   %31 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i39 to ptr
   store ptr %31, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i40, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp92, i32 noundef signext %conv.i30)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp92, i32 noundef signext %conv.i30)
           to label %invoke.cont94 unwind label %lpad88
 
 invoke.cont94:                                    ; preds = %invoke.cont89
@@ -77745,7 +77745,7 @@ for.body.lr.ph:                                   ; preds = %init.end24
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit75
   %__begin0.sroa.0.0105 = phi ptr [ %8, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit75 ]
   %10 = load i32, ptr %__begin0.sroa.0.0105, align 4
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_13EscB5cxx11Ew(ptr noalias nonnull align 8 %ref.tmp31, i32 noundef signext %10)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_13EscB5cxx11Ew(ptr noalias align 8 %ref.tmp31, i32 noundef signext %10)
           to label %invoke.cont32 unwind label %lpad15.loopexit
 
 invoke.cont32:                                    ; preds = %for.body
@@ -77771,7 +77771,7 @@ invoke.cont37:                                    ; preds = %.noexc
   %12 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i to ptr
   store ptr %12, ptr %args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIwEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %result, i32 noundef signext %10)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %result, i32 noundef signext %10)
           to label %invoke.cont40 unwind label %lpad36
 
 invoke.cont40:                                    ; preds = %invoke.cont37
@@ -77925,7 +77925,7 @@ if.end65:                                         ; preds = %_ZN7testing15Assert
   %28 = select i1 %.b, i32 1114111, i32 0
   %29 = call i32 @llvm.smin.i32(i32 %28, i32 %10)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %29, i32 0)
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_13EscB5cxx11Ew(ptr noalias nonnull align 8 %ref.tmp72, i32 noundef signext %.sroa.speculated)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_13EscB5cxx11Ew(ptr noalias align 8 %ref.tmp72, i32 noundef signext %.sroa.speculated)
           to label %invoke.cont73 unwind label %lpad42
 
 invoke.cont73:                                    ; preds = %if.end65
@@ -77951,7 +77951,7 @@ invoke.cont79:                                    ; preds = %.noexc31
   %31 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i35 to ptr
   store ptr %31, ptr %wide_args, align 16
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIwEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i36, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias nonnull align 8 %ref.tmp82, i32 noundef signext %.sroa.speculated)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_112StrPrintCharIwEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_(ptr noalias align 8 %ref.tmp82, i32 noundef signext %.sroa.speculated)
           to label %invoke.cont83 unwind label %lpad78
 
 invoke.cont83:                                    ; preds = %invoke.cont79

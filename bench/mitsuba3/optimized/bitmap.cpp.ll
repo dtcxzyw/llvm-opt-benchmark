@@ -12359,7 +12359,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %410 unwind label %432
 
 410:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit376
-  %411 = invoke fastcc noundef zeroext i8 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_2clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr noundef nonnull %33)
+  %411 = invoke fastcc noundef zeroext i8 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_2clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr noundef %33)
           to label %412 unwind label %434
 
 412:                                              ; preds = %410
@@ -12475,7 +12475,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
           to label %452 unwind label %.loopexit574
 
 452:                                              ; preds = %451
-  %453 = invoke fastcc noundef zeroext i8 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_2clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr noundef nonnull %34)
+  %453 = invoke fastcc noundef zeroext i8 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_2clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr noundef %34)
           to label %.thread unwind label %458
 
 .thread:                                          ; preds = %452
@@ -13590,7 +13590,7 @@ _ZN7mitsuba3refINS_6BitmapEEaSIS1_EERS2_PS1_.exit: ; preds = %._crit_edge618, %8
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.exit unwind label %999
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.exit: ; preds = %990
-  invoke fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_6clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERKSA_"(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull %60, ptr noundef nonnull align 8 dereferenceable(24) %61)
+  invoke fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_6clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERKSA_"(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(24) %61)
           to label %993 unwind label %1001
 
 993:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.exit
@@ -13804,7 +13804,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.exit420 unwind label %1135
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.exit420: ; preds = %1126
-  invoke fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_6clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERKSA_"(ptr dead_on_unwind noalias nonnull writable align 8 %72, ptr noundef nonnull %73, ptr noundef nonnull align 8 dereferenceable(24) %74)
+  invoke fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_6clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERKSA_"(ptr dead_on_unwind noalias writable align 8 %72, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(24) %74)
           to label %1129 unwind label %1137
 
 1129:                                             ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.exit420
@@ -21560,7 +21560,7 @@ declare void @_ZN7mitsuba10Properties13set_transformERKNSt3__112basic_stringIcNS
 declare void @_ZN7mitsuba10Properties15set_transform3fERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEERKNS_9TransformINS_5PointIdLm3EEEEEb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 32 dereferenceable(192), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext range(i8 0, 10) i8 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_2clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext range(i8 0, 10) i8 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_2clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr noundef nonnull %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::allocator.29", align 1
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = alloca %"class.std::__1::basic_string", align 8
@@ -21883,7 +21883,7 @@ declare void @_ZN7Imf_2_59InputFile10readPixelsEii(ptr noundef nonnull align 8 d
 declare void @_ZN7Imf_2_57RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr dead_on_unwind writable sret(%"class.Imath_2_5::Vec3") align 4, ptr noundef nonnull align 4 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_6clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERKSA_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_6clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERKSA_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::allocator.29", align 1
   %5 = alloca %"class.std::__1::basic_string", align 8
   %6 = alloca %"class.std::__1::basic_string", align 8
@@ -43144,7 +43144,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6St
   %5 = alloca %"class.std::__1::basic_string", align 8
   %6 = alloca %"class.std::__1::basic_string", align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_8clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull %4)
+  invoke fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_8clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %4)
           to label %7 unwind label %36
 
 7:                                                ; preds = %2
@@ -43152,7 +43152,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6St
           to label %8 unwind label %38
 
 8:                                                ; preds = %7
-  invoke fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_8clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %6)
+  invoke fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_8clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %6)
           to label %9 unwind label %40
 
 9:                                                ; preds = %8
@@ -43533,14 +43533,14 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_8clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_8clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::allocator.29", align 1
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8
   %6 = alloca %"class.std::__1::basic_string", align 8
   %7 = alloca %"class.std::__1::basic_string", align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %8 = invoke fastcc noundef zeroext i8 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_2clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr noundef nonnull %4)
+  %8 = invoke fastcc noundef zeroext i8 @"_ZZN7mitsuba6Bitmap8read_exrEPNS_6StreamEENK3$_2clENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE"(ptr noundef %4)
           to label %9 unwind label %11
 
 9:                                                ; preds = %2

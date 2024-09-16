@@ -1587,7 +1587,7 @@ if.else75.i:                                      ; preds = %lor.lhs.false.i88
   br i1 %cmp79.i, label %err.i105, label %if.end81.i
 
 if.end81.i:                                       ; preds = %if.else75.i
-  %call82.i = call fastcc i32 @ossl_ess_add1_signing_cert_v2(ptr noundef nonnull %call50.i, ptr noundef nonnull %call78.i)
+  %call82.i = call fastcc i32 @ossl_ess_add1_signing_cert_v2(ptr noundef %call50.i, ptr noundef %call78.i)
   %tobool83.not.i110 = icmp eq i32 %call82.i, 0
   br i1 %tobool83.not.i110, label %if.then84.i111, label %if.end86.i
 
@@ -1622,7 +1622,7 @@ if.end4.i.i99:                                    ; preds = %if.end.i57.i
 if.end9.i59.i:                                    ; preds = %if.end4.i.i99
   %97 = load ptr, ptr %d.i.i, align 8
   call void @ASN1_TYPE_set(ptr noundef %97, i32 noundef 4, ptr noundef nonnull %call6.i.i100) #9
-  %call11.i.i101 = call i32 @PKCS7_set_content(ptr noundef %call1.i73, ptr noundef nonnull %call.i55.i97) #9
+  %call11.i.i101 = call i32 @PKCS7_set_content(ptr noundef nonnull %call1.i73, ptr noundef nonnull %call.i55.i97) #9
   %tobool.not.i60.i = icmp eq i32 %call11.i.i101, 0
   br i1 %tobool.not.i60.i, label %ts_TST_INFO_content_new.exit.thread.i, label %if.end90.i
 
@@ -1632,7 +1632,7 @@ ts_TST_INFO_content_new.exit.thread.i:            ; preds = %if.end9.i59.i, %if.
   br label %err.i105
 
 if.end90.i:                                       ; preds = %if.end9.i59.i
-  %call91.i = call ptr @PKCS7_dataInit(ptr noundef %call1.i73, ptr noundef null) #9
+  %call91.i = call ptr @PKCS7_dataInit(ptr noundef nonnull %call1.i73, ptr noundef null) #9
   %cmp92.i = icmp eq ptr %call91.i, null
   br i1 %cmp92.i, label %if.then93.i, label %if.end94.i
 
@@ -1655,7 +1655,7 @@ if.then97.i:                                      ; preds = %if.end94.i
   br label %err.i105
 
 if.end98.i:                                       ; preds = %if.end94.i
-  %call99.i = call i32 @PKCS7_dataFinal(ptr noundef %call1.i73, ptr noundef nonnull %call91.i) #9
+  %call99.i = call i32 @PKCS7_dataFinal(ptr noundef nonnull %call1.i73, ptr noundef nonnull %call91.i) #9
   %tobool100.not.i = icmp eq i32 %call99.i, 0
   br i1 %tobool100.not.i, label %if.then101.i109, label %if.end102.i
 
@@ -1668,7 +1668,7 @@ if.then101.i109:                                  ; preds = %if.end98.i
 if.end102.i:                                      ; preds = %if.end98.i
   %99 = load ptr, ptr %response1, align 8
   %100 = load ptr, ptr %tst_info, align 8
-  call void @TS_RESP_set_tst_info(ptr noundef %99, ptr noundef %call1.i73, ptr noundef %100) #9
+  call void @TS_RESP_set_tst_info(ptr noundef %99, ptr noundef nonnull %call1.i73, ptr noundef %100) #9
   store ptr null, ptr %tst_info, align 8
   br label %err.i105
 
@@ -1870,10 +1870,10 @@ declare ptr @OSSL_ESS_signing_cert_new_init(ptr noundef, ptr noundef, i32 nounde
 declare ptr @OSSL_ESS_signing_cert_v2_new_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_ess_add1_signing_cert_v2(ptr noundef %si, ptr noundef %sc) unnamed_addr #0 {
+define internal fastcc i32 @ossl_ess_add1_signing_cert_v2(ptr noundef nonnull %si, ptr noundef nonnull %sc) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
-  %call = tail call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef %sc, ptr noundef null) #9
+  %call = tail call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef nonnull %sc, ptr noundef null) #9
   %conv = sext i32 %call to i64
   %call1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 651) #9
   %cmp = icmp eq ptr %call1, null
@@ -1881,7 +1881,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %call1, ptr %p, align 8
-  %call3 = call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef %sc, ptr noundef nonnull %p) #9
+  %call3 = call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef nonnull %sc, ptr noundef nonnull %p) #9
   %call4 = call ptr @ASN1_STRING_new() #9
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.then8, label %lor.lhs.false
@@ -1898,7 +1898,7 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
 
 if.end9:                                          ; preds = %lor.lhs.false
   call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str, i32 noundef 664) #9
-  %call10 = call i32 @PKCS7_add_signed_attribute(ptr noundef %si, i32 noundef 1086, i32 noundef 16, ptr noundef nonnull %call4) #9
+  %call10 = call i32 @PKCS7_add_signed_attribute(ptr noundef nonnull %si, i32 noundef 1086, i32 noundef 16, ptr noundef nonnull %call4) #9
   br label %return
 
 return:                                           ; preds = %entry, %if.end9, %if.then8

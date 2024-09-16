@@ -519,7 +519,7 @@ define dso_local range(i64 0, 4294967296) i64 @enum_first(ptr nocapture noundef 
 declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @enum_endpoint(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @enum_endpoint(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #0 {
   %3 = alloca %struct.ScanKeyData, align 8
   %4 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #7
@@ -632,7 +632,7 @@ define dso_local i64 @enum_range_bounds(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @enum_range_internal(i32 noundef range(i32 1, 0) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.ScanKeyData, align 8
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #7

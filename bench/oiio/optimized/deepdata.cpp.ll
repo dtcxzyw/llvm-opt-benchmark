@@ -5631,7 +5631,7 @@ if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br i1 %cmp1.not.i.i.i.i, label %if.then2.i.i, label %while.body.i.i.i.i, !llvm.loop !64
 
 if.then2.i.i:                                     ; preds = %if.end4.i.i.i.i
-  invoke fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef nonnull %5, ptr noundef nonnull %add.ptr, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp27)
+  invoke fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef %5, ptr noundef %add.ptr, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp27)
           to label %if.end10.i.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.else.i.i, %if.then2.i.i
@@ -5641,7 +5641,7 @@ lpad.i.i:                                         ; preds = %if.else.i.i, %if.th
   resume { ptr, i32 } %6
 
 if.else.i.i:                                      ; preds = %while.body.i.i.i.i
-  invoke fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_(ptr noundef nonnull %5, ptr noundef nonnull %add.ptr, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp27)
+  invoke fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_(ptr noundef %5, ptr noundef %add.ptr, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp27)
           to label %if.end10.i.i unwind label %lpad.i.i
 
 if.end10.i.i:                                     ; preds = %if.else.i.i, %if.then2.i.i
@@ -9397,7 +9397,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #5 {
+define internal fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef nonnull %__first, ptr noundef nonnull %__last, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
@@ -9421,12 +9421,12 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast7 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub13 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast7
   %sub.ptr.div14 = ashr exact i64 %sub.ptr.sub13, 2
-  tail call fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_S8_T0_S9_T1_(ptr noundef %__first, ptr noundef %add.ptr, ptr noundef %__last, i64 noundef %div16, i64 noundef %sub.ptr.div14, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
+  tail call fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_S8_T0_S9_T1_(ptr noundef nonnull %__first, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__last, i64 noundef %div16, i64 noundef %sub.ptr.div14, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
   br label %common.ret17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #5 {
+define internal fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_(ptr noundef nonnull %__first, ptr noundef nonnull %__last, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
@@ -9452,7 +9452,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %sub.ptr.lhs.cast4 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast4
   %sub.ptr.div11 = ashr exact i64 %sub.ptr.sub10, 2
-  tail call fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_S8_T0_S9_T1_S9_T2_(ptr noundef %__first, ptr noundef %add.ptr, ptr noundef %__last, i64 noundef %div, i64 noundef %sub.ptr.div11, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
+  tail call fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_S8_T0_S9_T1_S9_T2_(ptr noundef nonnull %__first, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__last, i64 noundef %div, i64 noundef %sub.ptr.div11, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
   ret void
 }
 
@@ -9460,7 +9460,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef %__first, ptr noundef readnone %__last, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #15 {
+define internal fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef nonnull %__first, ptr noundef nonnull readnone %__last, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #15 {
 entry:
   %cmp = icmp eq ptr %__first, %__last
   br i1 %cmp, label %for.end, label %for.cond.preheader
@@ -10474,7 +10474,7 @@ return:                                           ; preds = %for.end59, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZSt24__merge_sort_with_bufferIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__buffer, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #15 {
+define internal fastcc void @_ZSt24__merge_sort_with_bufferIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_(ptr noundef nonnull %__first, ptr noundef nonnull %__last, ptr noundef %__buffer, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #15 {
 entry:
   %agg.tmp222 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %agg.tmp115 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
@@ -10489,7 +10489,7 @@ entry:
 while.body.i:                                     ; preds = %entry, %while.body.i
   %__first.addr.011.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %__first, %entry ]
   %add.ptr.i = getelementptr inbounds i8, ptr %__first.addr.011.i, i64 28
-  tail call fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef %__first.addr.011.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
+  tail call fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef %__first.addr.011.i, ptr noundef %add.ptr.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i
   %cmp.i = icmp sgt i64 %sub.ptr.sub.i, 24
@@ -11166,7 +11166,7 @@ _ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_
   %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div, %while.body ], [ %sub.ptr.div.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__step_size.0619, i64 %sub.ptr.div.lcssa.i)
   %add.ptr9.i = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i21, i64 %.sroa.speculated.i
-  tail call fastcc void @_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_(ptr noundef %__first.addr.0.lcssa.i21, ptr noundef %add.ptr9.i, ptr noundef %add.ptr9.i, ptr noundef %__last, ptr noundef %__result.addr.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp115)
+  tail call fastcc void @_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_(ptr noundef %__first.addr.0.lcssa.i21, ptr noundef %add.ptr9.i, ptr noundef %add.ptr9.i, ptr noundef nonnull %__last, ptr noundef %__result.addr.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp115)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp115)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp222)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp222, ptr noundef nonnull align 8 dereferenceable(24) %__comp, i64 24, i1 false)

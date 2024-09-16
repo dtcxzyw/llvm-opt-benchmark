@@ -1185,8 +1185,8 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %0, i64 80
   %135 = load ptr, ptr %134, align 8
-  %.not869909 = icmp eq ptr %133, %135
-  br i1 %.not869909, label %._crit_edge911, label %.preheader.lr.ph
+  %.not874908 = icmp eq ptr %133, %135
+  br i1 %.not874908, label %._crit_edge910, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit
   %136 = getelementptr inbounds i8, ptr %0, i64 208
@@ -1202,12 +1202,12 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %146 = getelementptr inbounds i8, ptr %1, i64 32
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge908
-  %.sroa.0860.0910 = phi ptr [ %133, %.preheader.lr.ph ], [ %1490, %._crit_edge908 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge907
+  %.sroa.0865.0909 = phi ptr [ %133, %.preheader.lr.ph ], [ %1490, %._crit_edge907 ]
   %147 = load ptr, ptr %136, align 8
   %148 = load ptr, ptr %8, align 8
-  %.not930 = icmp eq ptr %147, %148
-  br i1 %.not930, label %._crit_edge, label %.lr.ph.preheader
+  %.not929 = icmp eq ptr %147, %148
+  br i1 %.not929, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %149 = ptrtoint ptr %147 to i64
@@ -1217,13 +1217,13 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0892 = phi i64 [ %156, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %152 = getelementptr inbounds i8, ptr %148, i64 %.0892
+  %.0891 = phi i64 [ %156, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %152 = getelementptr inbounds i8, ptr %148, i64 %.0891
   %153 = load i8, ptr %152, align 1
   %154 = and i8 %153, 127
-  %155 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.0892
+  %155 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.0891
   store i8 %154, ptr %155, align 1
-  %156 = add nuw i64 %.0892, 1
+  %156 = add nuw i64 %.0891, 1
   %exitcond.not = icmp eq i64 %156, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
@@ -1231,69 +1231,69 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %157 = load i8, ptr %137, align 4
   %158 = load i8, ptr %138, align 2
   %159 = icmp ult i8 %157, %158
-  br i1 %159, label %.lr.ph895.preheader, label %._crit_edge896
+  br i1 %159, label %.lr.ph894.preheader, label %._crit_edge895
 
-.lr.ph895.preheader:                              ; preds = %._crit_edge
+.lr.ph894.preheader:                              ; preds = %._crit_edge
   %160 = zext i8 %157 to i64
-  br label %.lr.ph895
+  br label %.lr.ph894
 
-.lr.ph895:                                        ; preds = %.lr.ph895.preheader, %.lr.ph895
-  %indvars.iv = phi i64 [ %160, %.lr.ph895.preheader ], [ %indvars.iv.next, %.lr.ph895 ]
+.lr.ph894:                                        ; preds = %.lr.ph894.preheader, %.lr.ph894
+  %indvars.iv = phi i64 [ %160, %.lr.ph894.preheader ], [ %indvars.iv.next, %.lr.ph894 ]
   %161 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv
   store i8 15, ptr %161, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %162 = load i8, ptr %138, align 2
   %163 = zext i8 %162 to i64
   %164 = icmp ult i64 %indvars.iv.next, %163
-  br i1 %164, label %.lr.ph895, label %._crit_edge896, !llvm.loop !31
+  br i1 %164, label %.lr.ph894, label %._crit_edge895, !llvm.loop !31
 
-._crit_edge896:                                   ; preds = %.lr.ph895, %._crit_edge
-  %165 = load i32, ptr %.sroa.0860.0910, align 4
-  %166 = getelementptr inbounds i8, ptr %.sroa.0860.0910, i64 4
+._crit_edge895:                                   ; preds = %.lr.ph894, %._crit_edge
+  %165 = load i32, ptr %.sroa.0865.0909, align 4
+  %166 = getelementptr inbounds i8, ptr %.sroa.0865.0909, i64 4
   %167 = load i32, ptr %166, align 4
-  %.not902 = icmp sgt i32 %165, %167
-  br i1 %.not902, label %._crit_edge908, label %.lr.ph907
+  %.not901 = icmp sgt i32 %165, %167
+  br i1 %.not901, label %._crit_edge907, label %.lr.ph906
 
-.lr.ph907:                                        ; preds = %._crit_edge896, %_ZN4Luau11getOpLengthE10LuauOpcode.exit
-  %.0592905 = phi i32 [ %.1950, %_ZN4Luau11getOpLengthE10LuauOpcode.exit ], [ 15, %._crit_edge896 ]
-  %.0593903 = phi i32 [ %1488, %_ZN4Luau11getOpLengthE10LuauOpcode.exit ], [ %165, %._crit_edge896 ]
+.lr.ph906:                                        ; preds = %._crit_edge895, %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  %.0592904 = phi i32 [ %.1949, %_ZN4Luau11getOpLengthE10LuauOpcode.exit ], [ 15, %._crit_edge895 ]
+  %.0593902 = phi i32 [ %1488, %_ZN4Luau11getOpLengthE10LuauOpcode.exit ], [ %165, %._crit_edge895 ]
   %168 = load ptr, ptr %139, align 8
-  %169 = sext i32 %.0593903 to i64
+  %169 = sext i32 %.0593902 to i64
   %170 = getelementptr inbounds i32, ptr %168, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = load ptr, ptr %9, align 8
   %173 = load ptr, ptr %11, align 8
-  %.not870897 = icmp eq ptr %172, %173
-  br i1 %.not870897, label %._crit_edge901, label %.lr.ph900
+  %.not875896 = icmp eq ptr %172, %173
+  br i1 %.not875896, label %._crit_edge900, label %.lr.ph899
 
-.lr.ph900:                                        ; preds = %.lr.ph907, %185
-  %.sroa.0856.0898 = phi ptr [ %186, %185 ], [ %172, %.lr.ph907 ]
-  %174 = load i8, ptr %.sroa.0856.0898, align 4
+.lr.ph899:                                        ; preds = %.lr.ph906, %185
+  %.sroa.0861.0897 = phi ptr [ %186, %185 ], [ %172, %.lr.ph906 ]
+  %174 = load i8, ptr %.sroa.0861.0897, align 4
   %.not629 = icmp ne i8 %174, 15
-  %175 = getelementptr inbounds i8, ptr %.sroa.0856.0898, i64 4
+  %175 = getelementptr inbounds i8, ptr %.sroa.0861.0897, i64 4
   %176 = load i32, ptr %175, align 4
-  %.not630 = icmp sge i32 %.0593903, %176
-  %or.cond632.not878 = select i1 %.not629, i1 %.not630, i1 false
-  %177 = getelementptr inbounds i8, ptr %.sroa.0856.0898, i64 8
+  %.not630 = icmp sge i32 %.0593902, %176
+  %or.cond632.not877 = select i1 %.not629, i1 %.not630, i1 false
+  %177 = getelementptr inbounds i8, ptr %.sroa.0861.0897, i64 8
   %178 = load i32, ptr %177, align 4
-  %179 = icmp slt i32 %.0593903, %178
-  %or.cond635 = select i1 %or.cond632.not878, i1 %179, i1 false
+  %179 = icmp slt i32 %.0593902, %178
+  %or.cond635 = select i1 %or.cond632.not877, i1 %179, i1 false
   br i1 %or.cond635, label %180, label %185
 
-180:                                              ; preds = %.lr.ph900
-  %181 = getelementptr inbounds i8, ptr %.sroa.0856.0898, i64 1
+180:                                              ; preds = %.lr.ph899
+  %181 = getelementptr inbounds i8, ptr %.sroa.0861.0897, i64 1
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i64
   %184 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %183
   store i8 %174, ptr %184, align 1
   br label %185
 
-185:                                              ; preds = %.lr.ph900, %180
-  %186 = getelementptr inbounds i8, ptr %.sroa.0856.0898, i64 12
-  %.not870 = icmp eq ptr %186, %173
-  br i1 %.not870, label %._crit_edge901, label %.lr.ph900
+185:                                              ; preds = %.lr.ph899, %180
+  %186 = getelementptr inbounds i8, ptr %.sroa.0861.0897, i64 12
+  %.not875 = icmp eq ptr %186, %173
+  br i1 %.not875, label %._crit_edge900, label %.lr.ph899
 
-._crit_edge901:                                   ; preds = %185, %.lr.ph907
+._crit_edge900:                                   ; preds = %185, %.lr.ph906
   %187 = load ptr, ptr %128, align 8
   %188 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeTypes", ptr %187, i64 %169
   %trunc = trunc i32 %171 to i8
@@ -1347,7 +1347,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
     i8 9, label %1445
   ]
 
-189:                                              ; preds = %._crit_edge901
+189:                                              ; preds = %._crit_edge900
   %190 = load i32, ptr %170, align 4
   %191 = lshr i32 %190, 8
   %192 = and i32 %191, 255
@@ -1357,7 +1357,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   store i8 0, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-195:                                              ; preds = %._crit_edge901
+195:                                              ; preds = %._crit_edge900
   %196 = load i32, ptr %170, align 4
   %197 = lshr i32 %196, 8
   %198 = and i32 %197, 255
@@ -1379,7 +1379,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
 208:                                              ; preds = %195
   %209 = getelementptr inbounds i8, ptr %206, i64 -4
   %210 = load i32, ptr %209, align 4
-  %.not.not.i.i = icmp slt i32 %.0593903, %210
+  %.not.not.i.i = icmp slt i32 %.0593902, %210
   br i1 %.not.not.i.i, label %.lr.ph.preheader.i.i, label %.loopexit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %208
@@ -1391,13 +1391,13 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %.sroa.0.014.i.i = phi ptr [ %220, %219 ], [ %212, %.lr.ph.preheader.i.i ]
   %213 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i, i64 4
   %214 = load i32, ptr %213, align 4
-  %.not10.i.i = icmp slt i32 %.0593903, %214
+  %.not10.i.i = icmp slt i32 %.0593902, %214
   br i1 %.not10.i.i, label %219, label %215
 
 215:                                              ; preds = %.lr.ph.i.i
   %216 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i, i64 8
   %217 = load i32, ptr %216, align 4
-  %218 = icmp slt i32 %.0593903, %217
+  %218 = icmp slt i32 %.0593902, %217
   br i1 %218, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i, label %219
 
 219:                                              ; preds = %215, %.lr.ph.i.i
@@ -1433,7 +1433,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i: ; preds = %215
   store i8 1, ptr %231, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-235:                                              ; preds = %._crit_edge901
+235:                                              ; preds = %._crit_edge900
   %236 = load i32, ptr %170, align 4
   %237 = lshr i32 %236, 8
   %238 = and i32 %237, 255
@@ -1455,7 +1455,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i: ; preds = %215
 248:                                              ; preds = %235
   %249 = getelementptr inbounds i8, ptr %246, i64 -4
   %250 = load i32, ptr %249, align 4
-  %.not.not.i.i668 = icmp slt i32 %.0593903, %250
+  %.not.not.i.i668 = icmp slt i32 %.0593902, %250
   br i1 %.not.not.i.i668, label %.lr.ph.preheader.i.i670, label %.loopexit.i669
 
 .lr.ph.preheader.i.i670:                          ; preds = %248
@@ -1467,13 +1467,13 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i: ; preds = %215
   %.sroa.0.014.i.i672 = phi ptr [ %260, %259 ], [ %252, %.lr.ph.preheader.i.i670 ]
   %253 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i672, i64 4
   %254 = load i32, ptr %253, align 4
-  %.not10.i.i673 = icmp slt i32 %.0593903, %254
+  %.not10.i.i673 = icmp slt i32 %.0593902, %254
   br i1 %.not10.i.i673, label %259, label %255
 
 255:                                              ; preds = %.lr.ph.i.i671
   %256 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i672, i64 8
   %257 = load i32, ptr %256, align 4
-  %258 = icmp slt i32 %.0593903, %257
+  %258 = icmp slt i32 %.0593902, %257
   br i1 %258, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i675, label %259
 
 259:                                              ; preds = %255, %.lr.ph.i.i671
@@ -1509,7 +1509,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i675: ; preds = %
   store i8 2, ptr %271, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-275:                                              ; preds = %._crit_edge901
+275:                                              ; preds = %._crit_edge900
   %276 = load i32, ptr %170, align 4
   %277 = lshr i32 %276, 8
   %278 = and i32 %277, 255
@@ -1554,7 +1554,7 @@ switch.lookup:                                    ; preds = %275
 296:                                              ; preds = %switch.lookup
   %297 = getelementptr inbounds i8, ptr %294, i64 -4
   %298 = load i32, ptr %297, align 4
-  %.not.not.i.i680 = icmp slt i32 %.0593903, %298
+  %.not.not.i.i680 = icmp slt i32 %.0593902, %298
   br i1 %.not.not.i.i680, label %.lr.ph.preheader.i.i682, label %.loopexit.i681
 
 .lr.ph.preheader.i.i682:                          ; preds = %296
@@ -1566,13 +1566,13 @@ switch.lookup:                                    ; preds = %275
   %.sroa.0.014.i.i684 = phi ptr [ %308, %307 ], [ %300, %.lr.ph.preheader.i.i682 ]
   %301 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i684, i64 4
   %302 = load i32, ptr %301, align 4
-  %.not10.i.i685 = icmp slt i32 %.0593903, %302
+  %.not10.i.i685 = icmp slt i32 %.0593902, %302
   br i1 %.not10.i.i685, label %307, label %303
 
 303:                                              ; preds = %.lr.ph.i.i683
   %304 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i684, i64 8
   %305 = load i32, ptr %304, align 4
-  %306 = icmp slt i32 %.0593903, %305
+  %306 = icmp slt i32 %.0593902, %305
   br i1 %306, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i687, label %307
 
 307:                                              ; preds = %303, %.lr.ph.i.i683
@@ -1608,7 +1608,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i687: ; preds = %
   store i8 %switch.load, ptr %319, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-323:                                              ; preds = %._crit_edge901
+323:                                              ; preds = %._crit_edge900
   %324 = load i32, ptr %170, align 4
   %325 = lshr i32 %324, 8
   %326 = and i32 %325, 255
@@ -1619,7 +1619,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i687: ; preds = %
   %.sroa.1.0..sroa_idx.i689 = getelementptr inbounds %struct.lua_TValue, ptr %.val656, i64 %329, i32 2
   %.sroa.1.0.copyload.i690 = load i32, ptr %.sroa.1.0..sroa_idx.i689, align 4
   %330 = icmp ult i32 %.sroa.1.0.copyload.i690, 11
-  br i1 %330, label %switch.lookup1014, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692
+  br i1 %330, label %switch.lookup1013, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692
 
 _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692: ; preds = %323
   %331 = getelementptr inbounds i8, ptr %188, i64 1
@@ -1630,16 +1630,16 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692: ; preds = %323
   store i8 15, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-switch.lookup1014:                                ; preds = %323
+switch.lookup1013:                                ; preds = %323
   %334 = zext nneg i32 %.sroa.1.0.copyload.i690 to i64
-  %switch.gep1015 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %334
-  %switch.load1016 = load i8, ptr %switch.gep1015, align 1
+  %switch.gep1014 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %334
+  %switch.load1015 = load i8, ptr %switch.gep1014, align 1
   %335 = getelementptr inbounds i8, ptr %188, i64 1
-  store i8 %switch.load1016, ptr %335, align 1
+  store i8 %switch.load1015, ptr %335, align 1
   %336 = zext nneg i32 %326 to i64
   %337 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %336
-  store i8 %switch.load1016, ptr %337, align 1
-  store i8 %switch.load1016, ptr %188, align 1
+  store i8 %switch.load1015, ptr %337, align 1
+  store i8 %switch.load1015, ptr %188, align 1
   %.val.i694 = load ptr, ptr %9, align 8
   %.val16.i695 = load ptr, ptr %72, align 8
   %338 = getelementptr inbounds i32, ptr %.val16.i695, i64 %336
@@ -1651,10 +1651,10 @@ switch.lookup1014:                                ; preds = %323
   %344 = icmp eq i32 %339, %341
   br i1 %344, label %.loopexit.i697, label %345
 
-345:                                              ; preds = %switch.lookup1014
+345:                                              ; preds = %switch.lookup1013
   %346 = getelementptr inbounds i8, ptr %343, i64 -4
   %347 = load i32, ptr %346, align 4
-  %.not.not.i.i696 = icmp slt i32 %.0593903, %347
+  %.not.not.i.i696 = icmp slt i32 %.0593902, %347
   br i1 %.not.not.i.i696, label %.lr.ph.preheader.i.i698, label %.loopexit.i697
 
 .lr.ph.preheader.i.i698:                          ; preds = %345
@@ -1666,13 +1666,13 @@ switch.lookup1014:                                ; preds = %323
   %.sroa.0.014.i.i700 = phi ptr [ %357, %356 ], [ %349, %.lr.ph.preheader.i.i698 ]
   %350 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i700, i64 4
   %351 = load i32, ptr %350, align 4
-  %.not10.i.i701 = icmp slt i32 %.0593903, %351
+  %.not10.i.i701 = icmp slt i32 %.0593902, %351
   br i1 %.not10.i.i701, label %356, label %352
 
 352:                                              ; preds = %.lr.ph.i.i699
   %353 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i700, i64 8
   %354 = load i32, ptr %353, align 4
-  %355 = icmp slt i32 %.0593903, %354
+  %355 = icmp slt i32 %.0593902, %354
   br i1 %355, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703, label %356
 
 356:                                              ; preds = %352, %.lr.ph.i.i699
@@ -1686,10 +1686,10 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703: ; preds = %
   br i1 %359, label %360, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
 360:                                              ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703
-  store i8 %switch.load1016, ptr %.sroa.0.014.i.i700, align 4
+  store i8 %switch.load1015, ptr %.sroa.0.014.i.i700, align 4
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-.loopexit.i697:                                   ; preds = %356, %345, %switch.lookup1014
+.loopexit.i697:                                   ; preds = %356, %345, %switch.lookup1013
   %361 = load ptr, ptr %136, align 8
   %362 = load ptr, ptr %8, align 8
   %363 = ptrtoint ptr %361 to i64
@@ -1705,10 +1705,10 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703: ; preds = %
   br i1 %370, label %371, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
 371:                                              ; preds = %367
-  store i8 %switch.load1016, ptr %368, align 1
+  store i8 %switch.load1015, ptr %368, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-372:                                              ; preds = %._crit_edge901
+372:                                              ; preds = %._crit_edge900
   %373 = load i32, ptr %170, align 4
   %374 = lshr i32 %373, 8
   %375 = and i32 %374, 255
@@ -1741,7 +1741,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703: ; preds = %
 392:                                              ; preds = %384
   %393 = getelementptr inbounds i8, ptr %390, i64 -4
   %394 = load i32, ptr %393, align 4
-  %.not.not.i.i708 = icmp slt i32 %.0593903, %394
+  %.not.not.i.i708 = icmp slt i32 %.0593902, %394
   br i1 %.not.not.i.i708, label %.lr.ph.preheader.i.i710, label %.loopexit.i709
 
 .lr.ph.preheader.i.i710:                          ; preds = %392
@@ -1753,13 +1753,13 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703: ; preds = %
   %.sroa.0.014.i.i712 = phi ptr [ %404, %403 ], [ %396, %.lr.ph.preheader.i.i710 ]
   %397 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i712, i64 4
   %398 = load i32, ptr %397, align 4
-  %.not10.i.i713 = icmp slt i32 %.0593903, %398
+  %.not10.i.i713 = icmp slt i32 %.0593902, %398
   br i1 %.not10.i.i713, label %403, label %399
 
 399:                                              ; preds = %.lr.ph.i.i711
   %400 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i712, i64 8
   %401 = load i32, ptr %400, align 4
-  %402 = icmp slt i32 %.0593903, %401
+  %402 = icmp slt i32 %.0593902, %401
   br i1 %402, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715, label %403
 
 403:                                              ; preds = %399, %.lr.ph.i.i711
@@ -1795,7 +1795,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715: ; preds = %
   store i8 %380, ptr %415, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-419:                                              ; preds = %._crit_edge901
+419:                                              ; preds = %._crit_edge900
   %420 = load i32, ptr %170, align 4
   %421 = lshr i32 %420, 16
   %422 = and i32 %421, 255
@@ -1812,7 +1812,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715: ; preds = %
   store i8 %430, ptr %431, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-432:                                              ; preds = %._crit_edge901
+432:                                              ; preds = %._crit_edge900
   %433 = load i32, ptr %170, align 4
   %434 = lshr i32 %433, 16
   %435 = and i32 %434, 255
@@ -1829,7 +1829,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715: ; preds = %
   store i8 %443, ptr %444, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-445:                                              ; preds = %._crit_edge901
+445:                                              ; preds = %._crit_edge900
   %446 = load i32, ptr %170, align 4
   %447 = lshr i32 %446, 8
   %448 = and i32 %447, 255
@@ -1847,16 +1847,16 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715: ; preds = %
   %.sroa.1.0..sroa_idx.i717 = getelementptr inbounds %struct.lua_TValue, ptr %.val657, i64 %457, i32 2
   %.sroa.1.0.copyload.i718 = load i32, ptr %.sroa.1.0..sroa_idx.i717, align 4
   %458 = icmp ult i32 %.sroa.1.0.copyload.i718, 11
-  br i1 %458, label %switch.lookup1017, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720
+  br i1 %458, label %switch.lookup1016, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720
 
-switch.lookup1017:                                ; preds = %445
+switch.lookup1016:                                ; preds = %445
   %459 = zext nneg i32 %.sroa.1.0.copyload.i718 to i64
-  %switch.gep1018 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %459
-  %switch.load1019 = load i8, ptr %switch.gep1018, align 1
+  %switch.gep1017 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %459
+  %switch.load1018 = load i8, ptr %switch.gep1017, align 1
   br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720
 
-_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720: ; preds = %445, %switch.lookup1017
-  %.0.i719 = phi i8 [ %switch.load1019, %switch.lookup1017 ], [ 15, %445 ]
+_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720: ; preds = %445, %switch.lookup1016
+  %.0.i719 = phi i8 [ %switch.load1018, %switch.lookup1016 ], [ 15, %445 ]
   %460 = getelementptr inbounds i8, ptr %188, i64 2
   store i8 %.0.i719, ptr %460, align 1
   %461 = zext nneg i32 %448 to i64
@@ -1890,32 +1890,32 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720: ; preds = %445, %swi
   %or.cond = icmp eq i8 %481, 120
   %482 = icmp eq i8 %480, 122
   %or.cond5 = or i1 %482, %or.cond
-  br i1 %or.cond5, label %.thread946.sink.split, label %483
+  br i1 %or.cond5, label %.thread945.sink.split, label %483
 
 483:                                              ; preds = %478, %474
   %484 = load i8, ptr @_ZN5FFlag31LuauCodegenAnalyzeHostVectorOpsE, align 8
   %485 = trunc i8 %484 to i1
-  br i1 %485, label %486, label %.thread946
+  br i1 %485, label %486, label %.thread945
 
 486:                                              ; preds = %483
   %487 = load ptr, ptr %1, align 8
   %.not628 = icmp eq ptr %487, null
-  br i1 %.not628, label %.thread946, label %488
+  br i1 %.not628, label %.thread945, label %488
 
 488:                                              ; preds = %486
   %489 = load i32, ptr %475, align 4
   %490 = zext i32 %489 to i64
   %491 = tail call noundef zeroext i8 %487(ptr noundef nonnull %471, i64 noundef %490)
-  br label %.thread946.sink.split
+  br label %.thread945.sink.split
 
 492:                                              ; preds = %465
   %493 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %472)
-  br i1 %493, label %494, label %.thread946
+  br i1 %493, label %494, label %.thread945
 
 494:                                              ; preds = %492
   %495 = load ptr, ptr %146, align 8
   %.not627 = icmp eq ptr %495, null
-  br i1 %.not627, label %.thread946, label %496
+  br i1 %.not627, label %.thread945, label %496
 
 496:                                              ; preds = %494
   %497 = load i8, ptr %456, align 1
@@ -1923,12 +1923,12 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720: ; preds = %445, %swi
   %499 = load i32, ptr %498, align 4
   %500 = zext i32 %499 to i64
   %501 = tail call noundef zeroext i8 %495(i8 noundef zeroext %497, ptr noundef nonnull %471, i64 noundef %500)
-  br label %.thread946.sink.split
+  br label %.thread945.sink.split
 
 502:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720
   %503 = load i8, ptr %456, align 1
   %504 = icmp eq i8 %503, 8
-  br i1 %504, label %505, label %.thread946
+  br i1 %504, label %505, label %.thread945
 
 505:                                              ; preds = %502
   %506 = load ptr, ptr %6, align 8
@@ -1949,35 +1949,35 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720: ; preds = %445, %swi
   %or.cond8 = icmp eq i8 %518, 120
   %519 = icmp eq i8 %517, 122
   %or.cond11 = or i1 %519, %or.cond8
-  br i1 %or.cond11, label %.thread946.sink.split, label %520
+  br i1 %or.cond11, label %.thread945.sink.split, label %520
 
 520:                                              ; preds = %515, %505
   %521 = load i8, ptr @_ZN5FFlag31LuauCodegenAnalyzeHostVectorOpsE, align 8
   %522 = trunc i8 %521 to i1
-  br i1 %522, label %523, label %.thread946
+  br i1 %522, label %523, label %.thread945
 
 523:                                              ; preds = %520
   %524 = load ptr, ptr %1, align 8
   %.not626 = icmp eq ptr %524, null
-  br i1 %.not626, label %.thread946, label %525
+  br i1 %.not626, label %.thread945, label %525
 
 525:                                              ; preds = %523
   %526 = load i32, ptr %512, align 4
   %527 = zext i32 %526 to i64
   %528 = tail call noundef zeroext i8 %524(ptr noundef nonnull %511, i64 noundef %527)
-  br label %.thread946.sink.split
+  br label %.thread945.sink.split
 
-.thread946.sink.split:                            ; preds = %515, %478, %496, %488, %525
+.thread945.sink.split:                            ; preds = %515, %478, %496, %488, %525
   %.sink = phi i8 [ %528, %525 ], [ %491, %488 ], [ %501, %496 ], [ 2, %478 ], [ 2, %515 ]
   store i8 %.sink, ptr %462, align 1
-  br label %.thread946
+  br label %.thread945
 
-.thread946:                                       ; preds = %.thread946.sink.split, %502, %523, %520, %486, %483, %494, %492
-  %529 = phi i8 [ 15, %502 ], [ 15, %523 ], [ 15, %520 ], [ 15, %486 ], [ 15, %483 ], [ 15, %494 ], [ 15, %492 ], [ %.sink, %.thread946.sink.split ]
+.thread945:                                       ; preds = %.thread945.sink.split, %502, %523, %520, %486, %483, %494, %492
+  %529 = phi i8 [ 15, %502 ], [ 15, %523 ], [ 15, %520 ], [ 15, %486 ], [ 15, %483 ], [ 15, %494 ], [ 15, %492 ], [ %.sink, %.thread945.sink.split ]
   store i8 %529, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-530:                                              ; preds = %._crit_edge901
+530:                                              ; preds = %._crit_edge900
   %531 = load i32, ptr %170, align 4
   %532 = lshr i32 %531, 16
   %533 = and i32 %532, 255
@@ -1990,7 +1990,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720: ; preds = %445, %swi
   store i8 3, ptr %538, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-539:                                              ; preds = %._crit_edge901, %._crit_edge901
+539:                                              ; preds = %._crit_edge900, %._crit_edge900
   %540 = load i32, ptr %170, align 4
   %541 = lshr i32 %540, 16
   %542 = and i32 %541, 255
@@ -2003,7 +2003,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720: ; preds = %445, %swi
   store i8 2, ptr %547, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-548:                                              ; preds = %._crit_edge901, %._crit_edge901
+548:                                              ; preds = %._crit_edge900, %._crit_edge900
   %549 = load i32, ptr %170, align 4
   %550 = lshr i32 %549, 8
   %551 = and i32 %550, 255
@@ -2041,8 +2041,8 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit720: ; preds = %445, %swi
   %574 = trunc i8 %573 to i1
   %575 = load ptr, ptr %145, align 8
   %.not625 = icmp ne ptr %575, null
-  %or.cond913.not = select i1 %574, i1 %.not625, i1 false
-  br i1 %or.cond913.not, label %576, label %585
+  %or.cond912.not = select i1 %574, i1 %.not625, i1 false
+  br i1 %or.cond912.not, label %576, label %585
 
 576:                                              ; preds = %572
   %577 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %565)
@@ -2063,16 +2063,16 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit: ; preds = %578, %57
   br label %.sink.split
 
 .sink.split:                                      ; preds = %569, %548, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit
-  %.sink972 = phi i8 [ %584, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit ], [ 2, %548 ], [ 8, %569 ]
-  store i8 %.sink972, ptr %564, align 1
+  %.sink971 = phi i8 [ %584, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit ], [ 2, %548 ], [ 8, %569 ]
+  store i8 %.sink971, ptr %564, align 1
   br label %585
 
 585:                                              ; preds = %.sink.split, %578, %572
-  %586 = phi i8 [ 15, %578 ], [ 15, %572 ], [ %.sink972, %.sink.split ]
+  %586 = phi i8 [ 15, %578 ], [ 15, %572 ], [ %.sink971, %.sink.split ]
   store i8 %586, ptr %188, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-587:                                              ; preds = %._crit_edge901, %._crit_edge901, %._crit_edge901
+587:                                              ; preds = %._crit_edge900, %._crit_edge900, %._crit_edge900
   %588 = load i32, ptr %170, align 4
   %589 = lshr i32 %588, 8
   %590 = and i32 %589, 255
@@ -2101,15 +2101,15 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit: ; preds = %578, %57
 605:                                              ; preds = %587
   %606 = load i8, ptr %601, align 1
   switch i8 %606, label %635 [
-    i8 2, label %.sink.split973
-    i8 8, label %.sink.split973
+    i8 2, label %.sink.split972
+    i8 8, label %.sink.split972
   ]
 
 607:                                              ; preds = %587
   %608 = load i8, ptr %601, align 1
   switch i8 %608, label %635 [
-    i8 2, label %.sink.split973
-    i8 8, label %.sink.split973
+    i8 2, label %.sink.split972
+    i8 8, label %.sink.split972
   ]
 
 609:                                              ; preds = %587
@@ -2117,8 +2117,8 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit: ; preds = %578, %57
   %611 = trunc i8 %610 to i1
   %612 = load ptr, ptr %145, align 8
   %.not624 = icmp ne ptr %612, null
-  %or.cond915.not = select i1 %611, i1 %.not624, i1 false
-  br i1 %or.cond915.not, label %613, label %635
+  %or.cond914.not = select i1 %611, i1 %.not624, i1 false
+  br i1 %or.cond914.not, label %613, label %635
 
 613:                                              ; preds = %609
   %614 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %604)
@@ -2133,7 +2133,7 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit: ; preds = %578, %57
   %619 = load ptr, ptr %145, align 8
   %620 = load i8, ptr %597, align 1
   %621 = load i8, ptr %601, align 1
-  switch i8 %trunc, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723 [
+  switch i8 %trunc, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724 [
     i8 72, label %633
     i8 44, label %631
     i8 35, label %622
@@ -2149,57 +2149,57 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit: ; preds = %578, %57
   ]
 
 622:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 623:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 624:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 625:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 626:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 627:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 628:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 629:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 630:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 631:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 632:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
 633:                                              ; preds = %618
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
 
-_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723: ; preds = %618, %622, %623, %624, %625, %626, %627, %628, %629, %630, %631, %632, %633
-  %.0.i722 = phi i32 [ 3, %633 ], [ 1, %632 ], [ 6, %631 ], [ 5, %630 ], [ 3, %629 ], [ 2, %628 ], [ 1, %627 ], [ 6, %626 ], [ 5, %625 ], [ 4, %624 ], [ 3, %623 ], [ 2, %622 ], [ 0, %618 ]
-  %634 = tail call noundef zeroext i8 %619(i8 noundef zeroext %620, i8 noundef zeroext %621, i32 noundef %.0.i722)
-  br label %.sink.split973
+_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724: ; preds = %618, %622, %623, %624, %625, %626, %627, %628, %629, %630, %631, %632, %633
+  %.0.i723 = phi i32 [ 3, %633 ], [ 1, %632 ], [ 6, %631 ], [ 5, %630 ], [ 3, %629 ], [ 2, %628 ], [ 1, %627 ], [ 6, %626 ], [ 5, %625 ], [ 4, %624 ], [ 3, %623 ], [ 2, %622 ], [ 0, %618 ]
+  %634 = tail call noundef zeroext i8 %619(i8 noundef zeroext %620, i8 noundef zeroext %621, i32 noundef %.0.i723)
+  br label %.sink.split972
 
-.sink.split973:                                   ; preds = %605, %607, %607, %605, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723
-  %.sink975 = phi i8 [ %634, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723 ], [ %606, %605 ], [ 8, %607 ], [ 8, %607 ], [ %606, %605 ]
-  store i8 %.sink975, ptr %603, align 1
+.sink.split972:                                   ; preds = %605, %607, %607, %605, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724
+  %.sink974 = phi i8 [ %634, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit724 ], [ %606, %605 ], [ 8, %607 ], [ 8, %607 ], [ %606, %605 ]
+  store i8 %.sink974, ptr %603, align 1
   br label %635
 
-635:                                              ; preds = %.sink.split973, %607, %605, %615, %609
-  %636 = phi i8 [ 15, %607 ], [ 15, %605 ], [ 15, %615 ], [ 15, %609 ], [ %.sink975, %.sink.split973 ]
+635:                                              ; preds = %.sink.split972, %607, %605, %615, %609
+  %636 = phi i8 [ 15, %607 ], [ 15, %605 ], [ 15, %615 ], [ 15, %609 ], [ %.sink974, %.sink.split972 ]
   store i8 %636, ptr %188, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-637:                                              ; preds = %._crit_edge901, %._crit_edge901
+637:                                              ; preds = %._crit_edge900, %._crit_edge900
   %638 = load i32, ptr %170, align 4
   %639 = lshr i32 %638, 8
   %640 = and i32 %639, 255
@@ -2224,45 +2224,45 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit723: ; preds = %618, 
   %656 = load i8, ptr %651, align 1
   %657 = icmp eq i8 %656, 2
   %or.cond641 = select i1 %655, i1 %657, i1 false
-  br i1 %or.cond641, label %.sink.split976, label %658
+  br i1 %or.cond641, label %.sink.split975, label %658
 
 658:                                              ; preds = %637
   %659 = load i8, ptr @_ZN5FFlag22LuauCodegenUserdataOpsE, align 8
   %660 = trunc i8 %659 to i1
   %661 = load ptr, ptr %145, align 8
   %.not623 = icmp ne ptr %661, null
-  %or.cond917.not = select i1 %660, i1 %.not623, i1 false
-  br i1 %or.cond917.not, label %662, label %671
+  %or.cond916.not = select i1 %660, i1 %.not623, i1 false
+  br i1 %or.cond916.not, label %662, label %671
 
 662:                                              ; preds = %658
   %663 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %654)
-  br i1 %663, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit725, label %664
+  br i1 %663, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit727, label %664
 
 664:                                              ; preds = %662
   %665 = load i8, ptr %651, align 1
   %666 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %665)
-  br i1 %666, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit725, label %671
+  br i1 %666, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit727, label %671
 
-_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit725: ; preds = %664, %662
+_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit727: ; preds = %664, %662
   %667 = load ptr, ptr %145, align 8
   %668 = load i8, ptr %647, align 1
   %669 = load i8, ptr %651, align 1
   %switch = icmp eq i8 %trunc, 38
   %. = select i1 %switch, i32 6, i32 5
   %670 = tail call noundef zeroext i8 %667(i8 noundef zeroext %668, i8 noundef zeroext %669, i32 noundef %.)
-  br label %.sink.split976
+  br label %.sink.split975
 
-.sink.split976:                                   ; preds = %637, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit725
-  %.sink978 = phi i8 [ %670, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit725 ], [ 2, %637 ]
-  store i8 %.sink978, ptr %653, align 1
+.sink.split975:                                   ; preds = %637, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit727
+  %.sink977 = phi i8 [ %670, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit727 ], [ 2, %637 ]
+  store i8 %.sink977, ptr %653, align 1
   br label %671
 
-671:                                              ; preds = %.sink.split976, %658, %664
-  %672 = phi i8 [ 15, %658 ], [ 15, %664 ], [ %.sink978, %.sink.split976 ]
+671:                                              ; preds = %.sink.split975, %658, %664
+  %672 = phi i8 [ 15, %658 ], [ 15, %664 ], [ %.sink977, %.sink.split975 ]
   store i8 %672, ptr %188, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-673:                                              ; preds = %._crit_edge901, %._crit_edge901
+673:                                              ; preds = %._crit_edge900, %._crit_edge900
   %674 = load i32, ptr %170, align 4
   %675 = lshr i32 %674, 8
   %676 = and i32 %675, 255
@@ -2276,21 +2276,21 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit725: ; preds = %664, 
   store i8 %682, ptr %683, align 1
   %.val658 = load ptr, ptr %142, align 8
   %684 = zext nneg i32 %679 to i64
-  %.sroa.1.0..sroa_idx.i726 = getelementptr inbounds %struct.lua_TValue, ptr %.val658, i64 %684, i32 2
-  %.sroa.1.0.copyload.i727 = load i32, ptr %.sroa.1.0..sroa_idx.i726, align 4
-  %685 = icmp ult i32 %.sroa.1.0.copyload.i727, 11
-  br i1 %685, label %switch.lookup1020, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit729
+  %.sroa.1.0..sroa_idx.i728 = getelementptr inbounds %struct.lua_TValue, ptr %.val658, i64 %684, i32 2
+  %.sroa.1.0.copyload.i729 = load i32, ptr %.sroa.1.0..sroa_idx.i728, align 4
+  %685 = icmp ult i32 %.sroa.1.0.copyload.i729, 11
+  br i1 %685, label %switch.lookup1019, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit731
 
-switch.lookup1020:                                ; preds = %673
-  %686 = zext nneg i32 %.sroa.1.0.copyload.i727 to i64
-  %switch.gep1021 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %686
-  %switch.load1022 = load i8, ptr %switch.gep1021, align 1
-  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit729
+switch.lookup1019:                                ; preds = %673
+  %686 = zext nneg i32 %.sroa.1.0.copyload.i729 to i64
+  %switch.gep1020 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %686
+  %switch.load1021 = load i8, ptr %switch.gep1020, align 1
+  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit731
 
-_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit729: ; preds = %673, %switch.lookup1020
-  %.0.i728 = phi i8 [ %switch.load1022, %switch.lookup1020 ], [ 15, %673 ]
+_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit731: ; preds = %673, %switch.lookup1019
+  %.0.i730 = phi i8 [ %switch.load1021, %switch.lookup1019 ], [ 15, %673 ]
   %687 = getelementptr inbounds i8, ptr %188, i64 2
-  store i8 %.0.i728, ptr %687, align 1
+  store i8 %.0.i730, ptr %687, align 1
   %688 = zext nneg i32 %676 to i64
   %689 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %688
   store i8 15, ptr %689, align 1
@@ -2299,51 +2299,51 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit729: ; preds = %673, %swi
   %692 = load i8, ptr %687, align 1
   %693 = icmp eq i8 %692, 2
   %or.cond643 = select i1 %691, i1 %693, i1 false
-  br i1 %or.cond643, label %.sink.split980, label %694
+  br i1 %or.cond643, label %.sink.split979, label %694
 
-694:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit729
+694:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit731
   %695 = icmp eq i8 %690, 8
   %696 = icmp eq i8 %692, 8
   %or.cond645 = select i1 %695, i1 %696, i1 false
-  br i1 %or.cond645, label %.sink.split980, label %697
+  br i1 %or.cond645, label %.sink.split979, label %697
 
 697:                                              ; preds = %694
   %698 = load i8, ptr @_ZN5FFlag22LuauCodegenUserdataOpsE, align 8
   %699 = trunc i8 %698 to i1
   %700 = load ptr, ptr %145, align 8
   %.not622 = icmp ne ptr %700, null
-  %or.cond919.not = select i1 %699, i1 %.not622, i1 false
-  br i1 %or.cond919.not, label %701, label %710
+  %or.cond918.not = select i1 %699, i1 %.not622, i1 false
+  br i1 %or.cond918.not, label %701, label %710
 
 701:                                              ; preds = %697
   %702 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %690)
-  br i1 %702, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit731, label %703
+  br i1 %702, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit734, label %703
 
 703:                                              ; preds = %701
   %704 = load i8, ptr %687, align 1
   %705 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %704)
-  br i1 %705, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit731, label %710
+  br i1 %705, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit734, label %710
 
-_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit731: ; preds = %703, %701
+_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit734: ; preds = %703, %701
   %706 = load ptr, ptr %145, align 8
   %707 = load i8, ptr %683, align 1
   %708 = load i8, ptr %687, align 1
-  %cond956 = icmp eq i8 %trunc, 40
-  %spec.select979 = zext i1 %cond956 to i32
-  %709 = tail call noundef zeroext i8 %706(i8 noundef zeroext %707, i8 noundef zeroext %708, i32 noundef %spec.select979)
-  br label %.sink.split980
+  %cond955 = icmp eq i8 %trunc, 40
+  %spec.select978 = zext i1 %cond955 to i32
+  %709 = tail call noundef zeroext i8 %706(i8 noundef zeroext %707, i8 noundef zeroext %708, i32 noundef %spec.select978)
+  br label %.sink.split979
 
-.sink.split980:                                   ; preds = %694, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit729, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit731
-  %.sink982 = phi i8 [ %709, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit731 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit729 ], [ 8, %694 ]
-  store i8 %.sink982, ptr %689, align 1
+.sink.split979:                                   ; preds = %694, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit731, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit734
+  %.sink981 = phi i8 [ %709, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit734 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit731 ], [ 8, %694 ]
+  store i8 %.sink981, ptr %689, align 1
   br label %710
 
-710:                                              ; preds = %.sink.split980, %703, %697
-  %711 = phi i8 [ 15, %703 ], [ 15, %697 ], [ %.sink982, %.sink.split980 ]
+710:                                              ; preds = %.sink.split979, %703, %697
+  %711 = phi i8 [ 15, %703 ], [ 15, %697 ], [ %.sink981, %.sink.split979 ]
   store i8 %711, ptr %188, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-712:                                              ; preds = %._crit_edge901, %._crit_edge901, %._crit_edge901
+712:                                              ; preds = %._crit_edge900, %._crit_edge900, %._crit_edge900
   %713 = load i32, ptr %170, align 4
   %714 = lshr i32 %713, 8
   %715 = and i32 %714, 255
@@ -2357,21 +2357,21 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit731: ; preds = %703, 
   store i8 %721, ptr %722, align 1
   %.val659 = load ptr, ptr %142, align 8
   %723 = zext nneg i32 %718 to i64
-  %.sroa.1.0..sroa_idx.i732 = getelementptr inbounds %struct.lua_TValue, ptr %.val659, i64 %723, i32 2
-  %.sroa.1.0.copyload.i733 = load i32, ptr %.sroa.1.0..sroa_idx.i732, align 4
-  %724 = icmp ult i32 %.sroa.1.0.copyload.i733, 11
-  br i1 %724, label %switch.lookup1023, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735
+  %.sroa.1.0..sroa_idx.i735 = getelementptr inbounds %struct.lua_TValue, ptr %.val659, i64 %723, i32 2
+  %.sroa.1.0.copyload.i736 = load i32, ptr %.sroa.1.0..sroa_idx.i735, align 4
+  %724 = icmp ult i32 %.sroa.1.0.copyload.i736, 11
+  br i1 %724, label %switch.lookup1022, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit738
 
-switch.lookup1023:                                ; preds = %712
-  %725 = zext nneg i32 %.sroa.1.0.copyload.i733 to i64
-  %switch.gep1024 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %725
-  %switch.load1025 = load i8, ptr %switch.gep1024, align 1
-  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735
+switch.lookup1022:                                ; preds = %712
+  %725 = zext nneg i32 %.sroa.1.0.copyload.i736 to i64
+  %switch.gep1023 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %725
+  %switch.load1024 = load i8, ptr %switch.gep1023, align 1
+  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit738
 
-_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735: ; preds = %712, %switch.lookup1023
-  %.0.i734 = phi i8 [ %switch.load1025, %switch.lookup1023 ], [ 15, %712 ]
+_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit738: ; preds = %712, %switch.lookup1022
+  %.0.i737 = phi i8 [ %switch.load1024, %switch.lookup1022 ], [ 15, %712 ]
   %726 = getelementptr inbounds i8, ptr %188, i64 2
-  store i8 %.0.i734, ptr %726, align 1
+  store i8 %.0.i737, ptr %726, align 1
   %727 = zext nneg i32 %715 to i64
   %728 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %727
   store i8 15, ptr %728, align 1
@@ -2381,27 +2381,27 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735: ; preds = %712, %swi
     i8 8, label %732
   ]
 
-730:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735
+730:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit738
   %731 = load i8, ptr %726, align 1
   switch i8 %731, label %756 [
-    i8 2, label %.sink.split983
-    i8 8, label %.sink.split983
+    i8 2, label %.sink.split982
+    i8 8, label %.sink.split982
   ]
 
-732:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735
+732:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit738
   %733 = load i8, ptr %726, align 1
   switch i8 %733, label %756 [
-    i8 2, label %.sink.split983
-    i8 8, label %.sink.split983
+    i8 2, label %.sink.split982
+    i8 8, label %.sink.split982
   ]
 
-734:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735
+734:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit738
   %735 = load i8, ptr @_ZN5FFlag22LuauCodegenUserdataOpsE, align 8
   %736 = trunc i8 %735 to i1
   %737 = load ptr, ptr %145, align 8
   %.not621 = icmp ne ptr %737, null
-  %or.cond921.not = select i1 %736, i1 %.not621, i1 false
-  br i1 %or.cond921.not, label %738, label %756
+  %or.cond920.not = select i1 %736, i1 %.not621, i1 false
+  br i1 %or.cond920.not, label %738, label %756
 
 738:                                              ; preds = %734
   %739 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %729)
@@ -2416,7 +2416,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735: ; preds = %712, %swi
   %744 = load ptr, ptr %145, align 8
   %745 = load i8, ptr %722, align 1
   %746 = load i8, ptr %726, align 1
-  switch i8 %trunc, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737 [
+  switch i8 %trunc, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741 [
     i8 72, label %754
     i8 44, label %752
     i8 43, label %751
@@ -2428,45 +2428,45 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit735: ; preds = %712, %swi
   ]
 
 747:                                              ; preds = %743
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
 
 748:                                              ; preds = %743
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
 
 749:                                              ; preds = %743
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
 
 750:                                              ; preds = %743
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
 
 751:                                              ; preds = %743
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
 
 752:                                              ; preds = %743
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
 
 753:                                              ; preds = %743
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
 
 754:                                              ; preds = %743
-  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
+  br label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
 
-_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737: ; preds = %743, %747, %748, %749, %750, %751, %752, %753, %754
-  %.0.i736 = phi i32 [ 3, %754 ], [ 1, %753 ], [ 6, %752 ], [ 5, %751 ], [ 4, %750 ], [ 3, %749 ], [ 2, %748 ], [ 4, %747 ], [ 0, %743 ]
-  %755 = tail call noundef zeroext i8 %744(i8 noundef zeroext %745, i8 noundef zeroext %746, i32 noundef %.0.i736)
-  br label %.sink.split983
+_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741: ; preds = %743, %747, %748, %749, %750, %751, %752, %753, %754
+  %.0.i740 = phi i32 [ 3, %754 ], [ 1, %753 ], [ 6, %752 ], [ 5, %751 ], [ 4, %750 ], [ 3, %749 ], [ 2, %748 ], [ 4, %747 ], [ 0, %743 ]
+  %755 = tail call noundef zeroext i8 %744(i8 noundef zeroext %745, i8 noundef zeroext %746, i32 noundef %.0.i740)
+  br label %.sink.split982
 
-.sink.split983:                                   ; preds = %730, %732, %732, %730, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737
-  %.sink985 = phi i8 [ %755, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737 ], [ %731, %730 ], [ 8, %732 ], [ 8, %732 ], [ %731, %730 ]
-  store i8 %.sink985, ptr %728, align 1
+.sink.split982:                                   ; preds = %730, %732, %732, %730, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741
+  %.sink984 = phi i8 [ %755, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit741 ], [ %731, %730 ], [ 8, %732 ], [ 8, %732 ], [ %731, %730 ]
+  store i8 %.sink984, ptr %728, align 1
   br label %756
 
-756:                                              ; preds = %.sink.split983, %732, %730, %740, %734
-  %757 = phi i8 [ 15, %732 ], [ 15, %730 ], [ 15, %740 ], [ 15, %734 ], [ %.sink985, %.sink.split983 ]
+756:                                              ; preds = %.sink.split982, %732, %730, %740, %734
+  %757 = phi i8 [ 15, %732 ], [ 15, %730 ], [ 15, %740 ], [ 15, %734 ], [ %.sink984, %.sink.split982 ]
   store i8 %757, ptr %188, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-758:                                              ; preds = %._crit_edge901, %._crit_edge901
+758:                                              ; preds = %._crit_edge900, %._crit_edge900
   %759 = load i32, ptr %170, align 4
   %760 = lshr i32 %759, 8
   %761 = and i32 %760, 255
@@ -2480,21 +2480,21 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit737: ; preds = %743, 
   store i8 %767, ptr %768, align 1
   %.val660 = load ptr, ptr %142, align 8
   %769 = zext nneg i32 %764 to i64
-  %.sroa.1.0..sroa_idx.i738 = getelementptr inbounds %struct.lua_TValue, ptr %.val660, i64 %769, i32 2
-  %.sroa.1.0.copyload.i739 = load i32, ptr %.sroa.1.0..sroa_idx.i738, align 4
-  %770 = icmp ult i32 %.sroa.1.0.copyload.i739, 11
-  br i1 %770, label %switch.lookup1026, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit741
+  %.sroa.1.0..sroa_idx.i742 = getelementptr inbounds %struct.lua_TValue, ptr %.val660, i64 %769, i32 2
+  %.sroa.1.0.copyload.i743 = load i32, ptr %.sroa.1.0..sroa_idx.i742, align 4
+  %770 = icmp ult i32 %.sroa.1.0.copyload.i743, 11
+  br i1 %770, label %switch.lookup1025, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit745
 
-switch.lookup1026:                                ; preds = %758
-  %771 = zext nneg i32 %.sroa.1.0.copyload.i739 to i64
-  %switch.gep1027 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %771
-  %switch.load1028 = load i8, ptr %switch.gep1027, align 1
-  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit741
+switch.lookup1025:                                ; preds = %758
+  %771 = zext nneg i32 %.sroa.1.0.copyload.i743 to i64
+  %switch.gep1026 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %771
+  %switch.load1027 = load i8, ptr %switch.gep1026, align 1
+  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit745
 
-_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit741: ; preds = %758, %switch.lookup1026
-  %.0.i740 = phi i8 [ %switch.load1028, %switch.lookup1026 ], [ 15, %758 ]
+_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit745: ; preds = %758, %switch.lookup1025
+  %.0.i744 = phi i8 [ %switch.load1027, %switch.lookup1025 ], [ 15, %758 ]
   %772 = getelementptr inbounds i8, ptr %188, i64 2
-  store i8 %.0.i740, ptr %772, align 1
+  store i8 %.0.i744, ptr %772, align 1
   %773 = zext nneg i32 %761 to i64
   %774 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %773
   store i8 15, ptr %774, align 1
@@ -2503,45 +2503,45 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit741: ; preds = %758, %swi
   %777 = load i8, ptr %772, align 1
   %778 = icmp eq i8 %777, 2
   %or.cond647 = select i1 %776, i1 %778, i1 false
-  br i1 %or.cond647, label %.sink.split989, label %779
+  br i1 %or.cond647, label %.sink.split988, label %779
 
-779:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit741
+779:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit745
   %780 = load i8, ptr @_ZN5FFlag22LuauCodegenUserdataOpsE, align 8
   %781 = trunc i8 %780 to i1
   %782 = load ptr, ptr %145, align 8
   %.not620 = icmp ne ptr %782, null
-  %or.cond923.not = select i1 %781, i1 %.not620, i1 false
-  br i1 %or.cond923.not, label %783, label %792
+  %or.cond922.not = select i1 %781, i1 %.not620, i1 false
+  br i1 %or.cond922.not, label %783, label %792
 
 783:                                              ; preds = %779
   %784 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %775)
-  br i1 %784, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit743, label %785
+  br i1 %784, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit748, label %785
 
 785:                                              ; preds = %783
   %786 = load i8, ptr %772, align 1
   %787 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %786)
-  br i1 %787, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit743, label %792
+  br i1 %787, label %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit748, label %792
 
-_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit743: ; preds = %785, %783
+_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit748: ; preds = %785, %783
   %788 = load ptr, ptr %145, align 8
   %789 = load i8, ptr %768, align 1
   %790 = load i8, ptr %772, align 1
-  %switch987 = icmp eq i8 %trunc, 44
-  %.988 = select i1 %switch987, i32 6, i32 5
-  %791 = tail call noundef zeroext i8 %788(i8 noundef zeroext %789, i8 noundef zeroext %790, i32 noundef %.988)
-  br label %.sink.split989
+  %switch986 = icmp eq i8 %trunc, 44
+  %.987 = select i1 %switch986, i32 6, i32 5
+  %791 = tail call noundef zeroext i8 %788(i8 noundef zeroext %789, i8 noundef zeroext %790, i32 noundef %.987)
+  br label %.sink.split988
 
-.sink.split989:                                   ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit741, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit743
-  %.sink991 = phi i8 [ %791, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit743 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit741 ]
-  store i8 %.sink991, ptr %774, align 1
+.sink.split988:                                   ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit745, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit748
+  %.sink990 = phi i8 [ %791, %_ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit748 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit745 ]
+  store i8 %.sink990, ptr %774, align 1
   br label %792
 
-792:                                              ; preds = %.sink.split989, %779, %785
-  %793 = phi i8 [ 15, %779 ], [ 15, %785 ], [ %.sink991, %.sink.split989 ]
+792:                                              ; preds = %.sink.split988, %779, %785
+  %793 = phi i8 [ 15, %779 ], [ 15, %785 ], [ %.sink990, %.sink.split988 ]
   store i8 %793, ptr %188, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-794:                                              ; preds = %._crit_edge901
+794:                                              ; preds = %._crit_edge900
   %795 = load i32, ptr %170, align 4
   %796 = lshr i32 %795, 8
   %797 = and i32 %796, 255
@@ -2550,21 +2550,21 @@ _ZN4Luau7CodeGenL22opcodeToHostMetamethodE10LuauOpcode.exit743: ; preds = %785, 
   %800 = lshr i32 %795, 24
   %.val661 = load ptr, ptr %142, align 8
   %801 = zext nneg i32 %799 to i64
-  %.sroa.1.0..sroa_idx.i744 = getelementptr inbounds %struct.lua_TValue, ptr %.val661, i64 %801, i32 2
-  %.sroa.1.0.copyload.i745 = load i32, ptr %.sroa.1.0..sroa_idx.i744, align 4
-  %802 = icmp ult i32 %.sroa.1.0.copyload.i745, 11
-  br i1 %802, label %switch.lookup1029, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747
+  %.sroa.1.0..sroa_idx.i749 = getelementptr inbounds %struct.lua_TValue, ptr %.val661, i64 %801, i32 2
+  %.sroa.1.0.copyload.i750 = load i32, ptr %.sroa.1.0..sroa_idx.i749, align 4
+  %802 = icmp ult i32 %.sroa.1.0.copyload.i750, 11
+  br i1 %802, label %switch.lookup1028, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752
 
-switch.lookup1029:                                ; preds = %794
-  %803 = zext nneg i32 %.sroa.1.0.copyload.i745 to i64
-  %switch.gep1030 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %803
-  %switch.load1031 = load i8, ptr %switch.gep1030, align 1
-  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747
+switch.lookup1028:                                ; preds = %794
+  %803 = zext nneg i32 %.sroa.1.0.copyload.i750 to i64
+  %switch.gep1029 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %803
+  %switch.load1030 = load i8, ptr %switch.gep1029, align 1
+  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752
 
-_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747: ; preds = %794, %switch.lookup1029
-  %.0.i746 = phi i8 [ %switch.load1031, %switch.lookup1029 ], [ 15, %794 ]
+_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %794, %switch.lookup1028
+  %.0.i751 = phi i8 [ %switch.load1030, %switch.lookup1028 ], [ 15, %794 ]
   %804 = getelementptr inbounds i8, ptr %188, i64 1
-  store i8 %.0.i746, ptr %804, align 1
+  store i8 %.0.i751, ptr %804, align 1
   %805 = zext nneg i32 %800 to i64
   %806 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %805
   %807 = load i8, ptr %806, align 1
@@ -2578,21 +2578,21 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747: ; preds = %794, %swi
   %813 = load i8, ptr %808, align 1
   %814 = icmp eq i8 %813, 2
   %or.cond649 = select i1 %812, i1 %814, i1 false
-  br i1 %or.cond649, label %.sink.split992, label %815
+  br i1 %or.cond649, label %.sink.split991, label %815
 
-815:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747
+815:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752
   %816 = icmp eq i8 %811, 8
   %817 = icmp eq i8 %813, 8
   %or.cond651 = select i1 %816, i1 %817, i1 false
-  br i1 %or.cond651, label %.sink.split992, label %818
+  br i1 %or.cond651, label %.sink.split991, label %818
 
 818:                                              ; preds = %815
   %819 = load i8, ptr @_ZN5FFlag22LuauCodegenUserdataOpsE, align 8
   %820 = trunc i8 %819 to i1
   %821 = load ptr, ptr %145, align 8
   %.not619 = icmp ne ptr %821, null
-  %or.cond925.not = select i1 %820, i1 %.not619, i1 false
-  br i1 %or.cond925.not, label %822, label %832
+  %or.cond924.not = select i1 %820, i1 %.not619, i1 false
+  br i1 %or.cond924.not, label %822, label %832
 
 822:                                              ; preds = %818
   %823 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %811)
@@ -2608,19 +2608,19 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747: ; preds = %794, %swi
   %829 = load i8, ptr %804, align 1
   %830 = load i8, ptr %808, align 1
   %831 = tail call noundef zeroext i8 %828(i8 noundef zeroext %829, i8 noundef zeroext %830, i32 noundef 1)
-  br label %.sink.split992
+  br label %.sink.split991
 
-.sink.split992:                                   ; preds = %815, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747, %827
-  %.sink994 = phi i8 [ %831, %827 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747 ], [ 8, %815 ]
-  store i8 %.sink994, ptr %810, align 1
+.sink.split991:                                   ; preds = %815, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752, %827
+  %.sink993 = phi i8 [ %831, %827 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752 ], [ 8, %815 ]
+  store i8 %.sink993, ptr %810, align 1
   br label %832
 
-832:                                              ; preds = %.sink.split992, %824, %818
-  %833 = phi i8 [ 15, %824 ], [ 15, %818 ], [ %.sink994, %.sink.split992 ]
+832:                                              ; preds = %.sink.split991, %824, %818
+  %833 = phi i8 [ 15, %824 ], [ 15, %818 ], [ %.sink993, %.sink.split991 ]
   store i8 %833, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-834:                                              ; preds = %._crit_edge901
+834:                                              ; preds = %._crit_edge900
   %835 = load i32, ptr %170, align 4
   %836 = lshr i32 %835, 8
   %837 = and i32 %836, 255
@@ -2629,21 +2629,21 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit747: ; preds = %794, %swi
   %840 = lshr i32 %835, 24
   %.val662 = load ptr, ptr %142, align 8
   %841 = zext nneg i32 %839 to i64
-  %.sroa.1.0..sroa_idx.i749 = getelementptr inbounds %struct.lua_TValue, ptr %.val662, i64 %841, i32 2
-  %.sroa.1.0.copyload.i750 = load i32, ptr %.sroa.1.0..sroa_idx.i749, align 4
-  %842 = icmp ult i32 %.sroa.1.0.copyload.i750, 11
-  br i1 %842, label %switch.lookup1032, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752
+  %.sroa.1.0..sroa_idx.i754 = getelementptr inbounds %struct.lua_TValue, ptr %.val662, i64 %841, i32 2
+  %.sroa.1.0.copyload.i755 = load i32, ptr %.sroa.1.0..sroa_idx.i754, align 4
+  %842 = icmp ult i32 %.sroa.1.0.copyload.i755, 11
+  br i1 %842, label %switch.lookup1031, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit757
 
-switch.lookup1032:                                ; preds = %834
-  %843 = zext nneg i32 %.sroa.1.0.copyload.i750 to i64
-  %switch.gep1033 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %843
-  %switch.load1034 = load i8, ptr %switch.gep1033, align 1
-  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752
+switch.lookup1031:                                ; preds = %834
+  %843 = zext nneg i32 %.sroa.1.0.copyload.i755 to i64
+  %switch.gep1032 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %843
+  %switch.load1033 = load i8, ptr %switch.gep1032, align 1
+  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit757
 
-_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %switch.lookup1032
-  %.0.i751 = phi i8 [ %switch.load1034, %switch.lookup1032 ], [ 15, %834 ]
+_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit757: ; preds = %834, %switch.lookup1031
+  %.0.i756 = phi i8 [ %switch.load1033, %switch.lookup1031 ], [ 15, %834 ]
   %844 = getelementptr inbounds i8, ptr %188, i64 1
-  store i8 %.0.i751, ptr %844, align 1
+  store i8 %.0.i756, ptr %844, align 1
   %845 = zext nneg i32 %840 to i64
   %846 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %845
   %847 = load i8, ptr %846, align 1
@@ -2658,27 +2658,27 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
     i8 8, label %854
   ]
 
-852:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752
+852:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit757
   %853 = load i8, ptr %848, align 1
   switch i8 %853, label %870 [
-    i8 2, label %.sink.split995
-    i8 8, label %.sink.split995
+    i8 2, label %.sink.split994
+    i8 8, label %.sink.split994
   ]
 
-854:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752
+854:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit757
   %855 = load i8, ptr %848, align 1
   switch i8 %855, label %870 [
-    i8 2, label %.sink.split995
-    i8 8, label %.sink.split995
+    i8 2, label %.sink.split994
+    i8 8, label %.sink.split994
   ]
 
-856:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752
+856:                                              ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit757
   %857 = load i8, ptr @_ZN5FFlag22LuauCodegenUserdataOpsE, align 8
   %858 = trunc i8 %857 to i1
   %859 = load ptr, ptr %145, align 8
   %.not618 = icmp ne ptr %859, null
-  %or.cond927.not = select i1 %858, i1 %.not618, i1 false
-  br i1 %or.cond927.not, label %860, label %870
+  %or.cond926.not = select i1 %858, i1 %.not618, i1 false
+  br i1 %or.cond926.not, label %860, label %870
 
 860:                                              ; preds = %856
   %861 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %851)
@@ -2694,19 +2694,19 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
   %867 = load i8, ptr %844, align 1
   %868 = load i8, ptr %848, align 1
   %869 = tail call noundef zeroext i8 %866(i8 noundef zeroext %867, i8 noundef zeroext %868, i32 noundef 3)
-  br label %.sink.split995
+  br label %.sink.split994
 
-.sink.split995:                                   ; preds = %852, %854, %854, %852, %865
-  %.sink997 = phi i8 [ %869, %865 ], [ %853, %852 ], [ 8, %854 ], [ 8, %854 ], [ %853, %852 ]
-  store i8 %.sink997, ptr %850, align 1
+.sink.split994:                                   ; preds = %852, %854, %854, %852, %865
+  %.sink996 = phi i8 [ %869, %865 ], [ %853, %852 ], [ 8, %854 ], [ 8, %854 ], [ %853, %852 ]
+  store i8 %.sink996, ptr %850, align 1
   br label %870
 
-870:                                              ; preds = %.sink.split995, %854, %852, %862, %856
-  %871 = phi i8 [ 15, %854 ], [ 15, %852 ], [ 15, %862 ], [ 15, %856 ], [ %.sink997, %.sink.split995 ]
+870:                                              ; preds = %.sink.split994, %854, %852, %862, %856
+  %871 = phi i8 [ 15, %854 ], [ 15, %852 ], [ 15, %862 ], [ 15, %856 ], [ %.sink996, %.sink.split994 ]
   store i8 %871, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-872:                                              ; preds = %._crit_edge901
+872:                                              ; preds = %._crit_edge900
   %873 = load i32, ptr %170, align 4
   %874 = lshr i32 %873, 8
   %875 = and i32 %874, 255
@@ -2723,7 +2723,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
   store i8 1, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-884:                                              ; preds = %._crit_edge901
+884:                                              ; preds = %._crit_edge900
   %885 = load i32, ptr %170, align 4
   %886 = lshr i32 %885, 8
   %887 = and i32 %886, 255
@@ -2739,8 +2739,8 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
   store i8 15, ptr %895, align 1
   %896 = load i8, ptr %893, align 1
   switch i8 %896, label %897 [
-    i8 2, label %.sink.split998
-    i8 8, label %.sink.split998
+    i8 2, label %.sink.split997
+    i8 8, label %.sink.split997
   ]
 
 897:                                              ; preds = %884
@@ -2748,8 +2748,8 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
   %899 = trunc i8 %898 to i1
   %900 = load ptr, ptr %145, align 8
   %.not617 = icmp ne ptr %900, null
-  %or.cond929.not = select i1 %899, i1 %.not617, i1 false
-  br i1 %or.cond929.not, label %901, label %907
+  %or.cond928.not = select i1 %899, i1 %.not617, i1 false
+  br i1 %or.cond928.not, label %901, label %907
 
 901:                                              ; preds = %897
   %902 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext %896)
@@ -2759,19 +2759,19 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
   %904 = load ptr, ptr %145, align 8
   %905 = load i8, ptr %893, align 1
   %906 = tail call noundef zeroext i8 %904(i8 noundef zeroext %905, i8 noundef zeroext 15, i32 noundef 7)
-  br label %.sink.split998
+  br label %.sink.split997
 
-.sink.split998:                                   ; preds = %884, %884, %903
-  %.sink1000 = phi i8 [ %906, %903 ], [ %896, %884 ], [ %896, %884 ]
-  store i8 %.sink1000, ptr %895, align 1
+.sink.split997:                                   ; preds = %884, %884, %903
+  %.sink999 = phi i8 [ %906, %903 ], [ %896, %884 ], [ %896, %884 ]
+  store i8 %.sink999, ptr %895, align 1
   br label %907
 
-907:                                              ; preds = %.sink.split998, %901, %897
-  %908 = phi i8 [ 15, %901 ], [ 15, %897 ], [ %.sink1000, %.sink.split998 ]
+907:                                              ; preds = %.sink.split997, %901, %897
+  %908 = phi i8 [ 15, %901 ], [ 15, %897 ], [ %.sink999, %.sink.split997 ]
   store i8 %908, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-909:                                              ; preds = %._crit_edge901
+909:                                              ; preds = %._crit_edge900
   %910 = load i32, ptr %170, align 4
   %911 = lshr i32 %910, 8
   %912 = and i32 %911, 255
@@ -2788,7 +2788,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
   store i8 2, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-921:                                              ; preds = %._crit_edge901, %._crit_edge901
+921:                                              ; preds = %._crit_edge900, %._crit_edge900
   %922 = load i32, ptr %170, align 4
   %923 = lshr i32 %922, 8
   %924 = and i32 %923, 255
@@ -2798,7 +2798,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
   store i8 4, ptr %188, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-927:                                              ; preds = %._crit_edge901
+927:                                              ; preds = %._crit_edge900
   %928 = load i32, ptr %170, align 4
   %929 = lshr i32 %928, 8
   %930 = and i32 %929, 255
@@ -2832,60 +2832,60 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit752: ; preds = %834, %swi
   %954 = zext nneg i32 %937 to i64
   %955 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %954
   store i8 %953, ptr %955, align 1
-  %.not.i754 = icmp eq i8 %953, 15
-  br i1 %.not.i754, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %956
+  %.not.i759 = icmp eq i8 %953, 15
+  br i1 %.not.i759, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %956
 
 956:                                              ; preds = %927
-  %.val.i755 = load ptr, ptr %9, align 8
-  %.val16.i756 = load ptr, ptr %72, align 8
-  %957 = getelementptr inbounds i32, ptr %.val16.i756, i64 %954
+  %.val.i760 = load ptr, ptr %9, align 8
+  %.val16.i761 = load ptr, ptr %72, align 8
+  %957 = getelementptr inbounds i32, ptr %.val16.i761, i64 %954
   %958 = load i32, ptr %957, align 4
   %959 = getelementptr inbounds i8, ptr %957, i64 4
   %960 = load i32, ptr %959, align 4
   %961 = zext i32 %960 to i64
-  %962 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i755, i64 %961
+  %962 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i760, i64 %961
   %963 = icmp eq i32 %958, %960
-  br i1 %963, label %.loopexit.i758, label %964
+  br i1 %963, label %.loopexit.i763, label %964
 
 964:                                              ; preds = %956
   %965 = getelementptr inbounds i8, ptr %962, i64 -4
   %966 = load i32, ptr %965, align 4
-  %.not.not.i.i757 = icmp slt i32 %.0593903, %966
-  br i1 %.not.not.i.i757, label %.lr.ph.preheader.i.i759, label %.loopexit.i758
+  %.not.not.i.i762 = icmp slt i32 %.0593902, %966
+  br i1 %.not.not.i.i762, label %.lr.ph.preheader.i.i764, label %.loopexit.i763
 
-.lr.ph.preheader.i.i759:                          ; preds = %964
+.lr.ph.preheader.i.i764:                          ; preds = %964
   %967 = zext i32 %958 to i64
-  %968 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i755, i64 %967
-  br label %.lr.ph.i.i760
+  %968 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i760, i64 %967
+  br label %.lr.ph.i.i765
 
-.lr.ph.i.i760:                                    ; preds = %975, %.lr.ph.preheader.i.i759
-  %.sroa.0.014.i.i761 = phi ptr [ %976, %975 ], [ %968, %.lr.ph.preheader.i.i759 ]
-  %969 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i761, i64 4
+.lr.ph.i.i765:                                    ; preds = %975, %.lr.ph.preheader.i.i764
+  %.sroa.0.014.i.i766 = phi ptr [ %976, %975 ], [ %968, %.lr.ph.preheader.i.i764 ]
+  %969 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i766, i64 4
   %970 = load i32, ptr %969, align 4
-  %.not10.i.i762 = icmp slt i32 %.0593903, %970
-  br i1 %.not10.i.i762, label %975, label %971
+  %.not10.i.i767 = icmp slt i32 %.0593902, %970
+  br i1 %.not10.i.i767, label %975, label %971
 
-971:                                              ; preds = %.lr.ph.i.i760
-  %972 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i761, i64 8
+971:                                              ; preds = %.lr.ph.i.i765
+  %972 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i766, i64 8
   %973 = load i32, ptr %972, align 4
-  %974 = icmp slt i32 %.0593903, %973
-  br i1 %974, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i764, label %975
+  %974 = icmp slt i32 %.0593902, %973
+  br i1 %974, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i769, label %975
 
-975:                                              ; preds = %971, %.lr.ph.i.i760
-  %976 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i761, i64 12
-  %.not12.i.i763 = icmp eq ptr %976, %962
-  br i1 %.not12.i.i763, label %.loopexit.i758, label %.lr.ph.i.i760, !llvm.loop !32
+975:                                              ; preds = %971, %.lr.ph.i.i765
+  %976 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i766, i64 12
+  %.not12.i.i768 = icmp eq ptr %976, %962
+  br i1 %.not12.i.i768, label %.loopexit.i763, label %.lr.ph.i.i765, !llvm.loop !32
 
-_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i764: ; preds = %971
-  %977 = load i8, ptr %.sroa.0.014.i.i761, align 4
+_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i769: ; preds = %971
+  %977 = load i8, ptr %.sroa.0.014.i.i766, align 4
   %978 = icmp eq i8 %977, 15
   br i1 %978, label %979, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-979:                                              ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i764
-  store i8 %953, ptr %.sroa.0.014.i.i761, align 4
+979:                                              ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i769
+  store i8 %953, ptr %.sroa.0.014.i.i766, align 4
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-.loopexit.i758:                                   ; preds = %975, %964, %956
+.loopexit.i763:                                   ; preds = %975, %964, %956
   %980 = load ptr, ptr %136, align 8
   %981 = load ptr, ptr %8, align 8
   %982 = ptrtoint ptr %980 to i64
@@ -2894,7 +2894,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i764: ; preds = %
   %985 = icmp ugt i64 %984, %954
   br i1 %985, label %986, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-986:                                              ; preds = %.loopexit.i758
+986:                                              ; preds = %.loopexit.i763
   %987 = getelementptr inbounds i8, ptr %981, i64 %954
   %988 = load i8, ptr %987, align 1
   %989 = icmp eq i8 %988, 15
@@ -2904,7 +2904,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i764: ; preds = %
   store i8 %953, ptr %987, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-991:                                              ; preds = %._crit_edge901, %._crit_edge901
+991:                                              ; preds = %._crit_edge900, %._crit_edge900
   %992 = load i32, ptr %170, align 4
   %993 = lshr i32 %992, 8
   %994 = and i32 %993, 255
@@ -2928,60 +2928,60 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i764: ; preds = %
   %1010 = zext nneg i32 %1001 to i64
   %1011 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1010
   store i8 %1009, ptr %1011, align 1
-  %.not.i766 = icmp eq i8 %1009, 15
-  br i1 %.not.i766, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, label %1012
+  %.not.i771 = icmp eq i8 %1009, 15
+  br i1 %.not.i771, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, label %1012
 
 1012:                                             ; preds = %991
-  %.val.i767 = load ptr, ptr %9, align 8
-  %.val16.i768 = load ptr, ptr %72, align 8
-  %1013 = getelementptr inbounds i32, ptr %.val16.i768, i64 %1010
+  %.val.i772 = load ptr, ptr %9, align 8
+  %.val16.i773 = load ptr, ptr %72, align 8
+  %1013 = getelementptr inbounds i32, ptr %.val16.i773, i64 %1010
   %1014 = load i32, ptr %1013, align 4
   %1015 = getelementptr inbounds i8, ptr %1013, i64 4
   %1016 = load i32, ptr %1015, align 4
   %1017 = zext i32 %1016 to i64
-  %1018 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i767, i64 %1017
+  %1018 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i772, i64 %1017
   %1019 = icmp eq i32 %1014, %1016
-  br i1 %1019, label %.loopexit.i770, label %1020
+  br i1 %1019, label %.loopexit.i775, label %1020
 
 1020:                                             ; preds = %1012
   %1021 = getelementptr inbounds i8, ptr %1018, i64 -4
   %1022 = load i32, ptr %1021, align 4
-  %.not.not.i.i769 = icmp slt i32 %.0593903, %1022
-  br i1 %.not.not.i.i769, label %.lr.ph.preheader.i.i771, label %.loopexit.i770
+  %.not.not.i.i774 = icmp slt i32 %.0593902, %1022
+  br i1 %.not.not.i.i774, label %.lr.ph.preheader.i.i776, label %.loopexit.i775
 
-.lr.ph.preheader.i.i771:                          ; preds = %1020
+.lr.ph.preheader.i.i776:                          ; preds = %1020
   %1023 = zext i32 %1014 to i64
-  %1024 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i767, i64 %1023
-  br label %.lr.ph.i.i772
+  %1024 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i772, i64 %1023
+  br label %.lr.ph.i.i777
 
-.lr.ph.i.i772:                                    ; preds = %1031, %.lr.ph.preheader.i.i771
-  %.sroa.0.014.i.i773 = phi ptr [ %1032, %1031 ], [ %1024, %.lr.ph.preheader.i.i771 ]
-  %1025 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i773, i64 4
+.lr.ph.i.i777:                                    ; preds = %1031, %.lr.ph.preheader.i.i776
+  %.sroa.0.014.i.i778 = phi ptr [ %1032, %1031 ], [ %1024, %.lr.ph.preheader.i.i776 ]
+  %1025 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i778, i64 4
   %1026 = load i32, ptr %1025, align 4
-  %.not10.i.i774 = icmp slt i32 %.0593903, %1026
-  br i1 %.not10.i.i774, label %1031, label %1027
+  %.not10.i.i779 = icmp slt i32 %.0593902, %1026
+  br i1 %.not10.i.i779, label %1031, label %1027
 
-1027:                                             ; preds = %.lr.ph.i.i772
-  %1028 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i773, i64 8
+1027:                                             ; preds = %.lr.ph.i.i777
+  %1028 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i778, i64 8
   %1029 = load i32, ptr %1028, align 4
-  %1030 = icmp slt i32 %.0593903, %1029
-  br i1 %1030, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i776, label %1031
+  %1030 = icmp slt i32 %.0593902, %1029
+  br i1 %1030, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i781, label %1031
 
-1031:                                             ; preds = %1027, %.lr.ph.i.i772
-  %1032 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i773, i64 12
-  %.not12.i.i775 = icmp eq ptr %1032, %1018
-  br i1 %.not12.i.i775, label %.loopexit.i770, label %.lr.ph.i.i772, !llvm.loop !32
+1031:                                             ; preds = %1027, %.lr.ph.i.i777
+  %1032 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i778, i64 12
+  %.not12.i.i780 = icmp eq ptr %1032, %1018
+  br i1 %.not12.i.i780, label %.loopexit.i775, label %.lr.ph.i.i777, !llvm.loop !32
 
-_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i776: ; preds = %1027
-  %1033 = load i8, ptr %.sroa.0.014.i.i773, align 4
+_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i781: ; preds = %1027
+  %1033 = load i8, ptr %.sroa.0.014.i.i778, align 4
   %1034 = icmp eq i8 %1033, 15
   br i1 %1034, label %1035, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1035:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i776
-  store i8 %1009, ptr %.sroa.0.014.i.i773, align 4
+1035:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i781
+  store i8 %1009, ptr %.sroa.0.014.i.i778, align 4
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-.loopexit.i770:                                   ; preds = %1031, %1020, %1012
+.loopexit.i775:                                   ; preds = %1031, %1020, %1012
   %1036 = load ptr, ptr %136, align 8
   %1037 = load ptr, ptr %8, align 8
   %1038 = ptrtoint ptr %1036 to i64
@@ -2990,7 +2990,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i776: ; preds = %
   %1041 = icmp ugt i64 %1040, %1010
   br i1 %1041, label %1042, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1042:                                             ; preds = %.loopexit.i770
+1042:                                             ; preds = %.loopexit.i775
   %1043 = getelementptr inbounds i8, ptr %1037, i64 %1010
   %1044 = load i8, ptr %1043, align 1
   %1045 = icmp eq i8 %1044, 15
@@ -3000,7 +3000,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i776: ; preds = %
   store i8 %1009, ptr %1043, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1047:                                             ; preds = %._crit_edge901
+1047:                                             ; preds = %._crit_edge900
   %1048 = load i32, ptr %170, align 4
   %1049 = lshr i32 %1048, 8
   %1050 = and i32 %1049, 255
@@ -3031,60 +3031,60 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i776: ; preds = %
   %1072 = zext nneg i32 %1057 to i64
   %1073 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1072
   store i8 %1071, ptr %1073, align 1
-  %.not.i778 = icmp eq i8 %1071, 15
-  br i1 %.not.i778, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1074
+  %.not.i783 = icmp eq i8 %1071, 15
+  br i1 %.not.i783, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1074
 
 1074:                                             ; preds = %1047
-  %.val.i779 = load ptr, ptr %9, align 8
-  %.val16.i780 = load ptr, ptr %72, align 8
-  %1075 = getelementptr inbounds i32, ptr %.val16.i780, i64 %1072
+  %.val.i784 = load ptr, ptr %9, align 8
+  %.val16.i785 = load ptr, ptr %72, align 8
+  %1075 = getelementptr inbounds i32, ptr %.val16.i785, i64 %1072
   %1076 = load i32, ptr %1075, align 4
   %1077 = getelementptr inbounds i8, ptr %1075, i64 4
   %1078 = load i32, ptr %1077, align 4
   %1079 = zext i32 %1078 to i64
-  %1080 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i779, i64 %1079
+  %1080 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i784, i64 %1079
   %1081 = icmp eq i32 %1076, %1078
-  br i1 %1081, label %.loopexit.i782, label %1082
+  br i1 %1081, label %.loopexit.i787, label %1082
 
 1082:                                             ; preds = %1074
   %1083 = getelementptr inbounds i8, ptr %1080, i64 -4
   %1084 = load i32, ptr %1083, align 4
-  %.not.not.i.i781 = icmp slt i32 %.0593903, %1084
-  br i1 %.not.not.i.i781, label %.lr.ph.preheader.i.i783, label %.loopexit.i782
+  %.not.not.i.i786 = icmp slt i32 %.0593902, %1084
+  br i1 %.not.not.i.i786, label %.lr.ph.preheader.i.i788, label %.loopexit.i787
 
-.lr.ph.preheader.i.i783:                          ; preds = %1082
+.lr.ph.preheader.i.i788:                          ; preds = %1082
   %1085 = zext i32 %1076 to i64
-  %1086 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i779, i64 %1085
-  br label %.lr.ph.i.i784
+  %1086 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i784, i64 %1085
+  br label %.lr.ph.i.i789
 
-.lr.ph.i.i784:                                    ; preds = %1093, %.lr.ph.preheader.i.i783
-  %.sroa.0.014.i.i785 = phi ptr [ %1094, %1093 ], [ %1086, %.lr.ph.preheader.i.i783 ]
-  %1087 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i785, i64 4
+.lr.ph.i.i789:                                    ; preds = %1093, %.lr.ph.preheader.i.i788
+  %.sroa.0.014.i.i790 = phi ptr [ %1094, %1093 ], [ %1086, %.lr.ph.preheader.i.i788 ]
+  %1087 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i790, i64 4
   %1088 = load i32, ptr %1087, align 4
-  %.not10.i.i786 = icmp slt i32 %.0593903, %1088
-  br i1 %.not10.i.i786, label %1093, label %1089
+  %.not10.i.i791 = icmp slt i32 %.0593902, %1088
+  br i1 %.not10.i.i791, label %1093, label %1089
 
-1089:                                             ; preds = %.lr.ph.i.i784
-  %1090 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i785, i64 8
+1089:                                             ; preds = %.lr.ph.i.i789
+  %1090 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i790, i64 8
   %1091 = load i32, ptr %1090, align 4
-  %1092 = icmp slt i32 %.0593903, %1091
-  br i1 %1092, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i788, label %1093
+  %1092 = icmp slt i32 %.0593902, %1091
+  br i1 %1092, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i793, label %1093
 
-1093:                                             ; preds = %1089, %.lr.ph.i.i784
-  %1094 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i785, i64 12
-  %.not12.i.i787 = icmp eq ptr %1094, %1080
-  br i1 %.not12.i.i787, label %.loopexit.i782, label %.lr.ph.i.i784, !llvm.loop !32
+1093:                                             ; preds = %1089, %.lr.ph.i.i789
+  %1094 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i790, i64 12
+  %.not12.i.i792 = icmp eq ptr %1094, %1080
+  br i1 %.not12.i.i792, label %.loopexit.i787, label %.lr.ph.i.i789, !llvm.loop !32
 
-_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i788: ; preds = %1089
-  %1095 = load i8, ptr %.sroa.0.014.i.i785, align 4
+_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i793: ; preds = %1089
+  %1095 = load i8, ptr %.sroa.0.014.i.i790, align 4
   %1096 = icmp eq i8 %1095, 15
   br i1 %1096, label %1097, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1097:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i788
-  store i8 %1071, ptr %.sroa.0.014.i.i785, align 4
+1097:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i793
+  store i8 %1071, ptr %.sroa.0.014.i.i790, align 4
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-.loopexit.i782:                                   ; preds = %1093, %1082, %1074
+.loopexit.i787:                                   ; preds = %1093, %1082, %1074
   %1098 = load ptr, ptr %136, align 8
   %1099 = load ptr, ptr %8, align 8
   %1100 = ptrtoint ptr %1098 to i64
@@ -3093,7 +3093,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i788: ; preds = %
   %1103 = icmp ugt i64 %1102, %1072
   br i1 %1103, label %1104, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1104:                                             ; preds = %.loopexit.i782
+1104:                                             ; preds = %.loopexit.i787
   %1105 = getelementptr inbounds i8, ptr %1099, i64 %1072
   %1106 = load i8, ptr %1105, align 1
   %1107 = icmp eq i8 %1106, 15
@@ -3103,7 +3103,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i788: ; preds = %
   store i8 %1071, ptr %1105, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1109:                                             ; preds = %._crit_edge901
+1109:                                             ; preds = %._crit_edge900
   %1110 = load i32, ptr %170, align 4
   %1111 = lshr i32 %1110, 8
   %1112 = and i32 %1111, 255
@@ -3142,60 +3142,60 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i788: ; preds = %
   %1141 = zext nneg i32 %1121 to i64
   %1142 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1141
   store i8 %1140, ptr %1142, align 1
-  %.not.i790 = icmp eq i8 %1140, 15
-  br i1 %.not.i790, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1143
+  %.not.i795 = icmp eq i8 %1140, 15
+  br i1 %.not.i795, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1143
 
 1143:                                             ; preds = %1109
-  %.val.i791 = load ptr, ptr %9, align 8
-  %.val16.i792 = load ptr, ptr %72, align 8
-  %1144 = getelementptr inbounds i32, ptr %.val16.i792, i64 %1141
+  %.val.i796 = load ptr, ptr %9, align 8
+  %.val16.i797 = load ptr, ptr %72, align 8
+  %1144 = getelementptr inbounds i32, ptr %.val16.i797, i64 %1141
   %1145 = load i32, ptr %1144, align 4
   %1146 = getelementptr inbounds i8, ptr %1144, i64 4
   %1147 = load i32, ptr %1146, align 4
   %1148 = zext i32 %1147 to i64
-  %1149 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i791, i64 %1148
+  %1149 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i796, i64 %1148
   %1150 = icmp eq i32 %1145, %1147
-  br i1 %1150, label %.loopexit.i794, label %1151
+  br i1 %1150, label %.loopexit.i799, label %1151
 
 1151:                                             ; preds = %1143
   %1152 = getelementptr inbounds i8, ptr %1149, i64 -4
   %1153 = load i32, ptr %1152, align 4
-  %.not.not.i.i793 = icmp slt i32 %.0593903, %1153
-  br i1 %.not.not.i.i793, label %.lr.ph.preheader.i.i795, label %.loopexit.i794
+  %.not.not.i.i798 = icmp slt i32 %.0593902, %1153
+  br i1 %.not.not.i.i798, label %.lr.ph.preheader.i.i800, label %.loopexit.i799
 
-.lr.ph.preheader.i.i795:                          ; preds = %1151
+.lr.ph.preheader.i.i800:                          ; preds = %1151
   %1154 = zext i32 %1145 to i64
-  %1155 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i791, i64 %1154
-  br label %.lr.ph.i.i796
+  %1155 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i796, i64 %1154
+  br label %.lr.ph.i.i801
 
-.lr.ph.i.i796:                                    ; preds = %1162, %.lr.ph.preheader.i.i795
-  %.sroa.0.014.i.i797 = phi ptr [ %1163, %1162 ], [ %1155, %.lr.ph.preheader.i.i795 ]
-  %1156 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i797, i64 4
+.lr.ph.i.i801:                                    ; preds = %1162, %.lr.ph.preheader.i.i800
+  %.sroa.0.014.i.i802 = phi ptr [ %1163, %1162 ], [ %1155, %.lr.ph.preheader.i.i800 ]
+  %1156 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i802, i64 4
   %1157 = load i32, ptr %1156, align 4
-  %.not10.i.i798 = icmp slt i32 %.0593903, %1157
-  br i1 %.not10.i.i798, label %1162, label %1158
+  %.not10.i.i803 = icmp slt i32 %.0593902, %1157
+  br i1 %.not10.i.i803, label %1162, label %1158
 
-1158:                                             ; preds = %.lr.ph.i.i796
-  %1159 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i797, i64 8
+1158:                                             ; preds = %.lr.ph.i.i801
+  %1159 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i802, i64 8
   %1160 = load i32, ptr %1159, align 4
-  %1161 = icmp slt i32 %.0593903, %1160
-  br i1 %1161, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i800, label %1162
+  %1161 = icmp slt i32 %.0593902, %1160
+  br i1 %1161, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i805, label %1162
 
-1162:                                             ; preds = %1158, %.lr.ph.i.i796
-  %1163 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i797, i64 12
-  %.not12.i.i799 = icmp eq ptr %1163, %1149
-  br i1 %.not12.i.i799, label %.loopexit.i794, label %.lr.ph.i.i796, !llvm.loop !32
+1162:                                             ; preds = %1158, %.lr.ph.i.i801
+  %1163 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i802, i64 12
+  %.not12.i.i804 = icmp eq ptr %1163, %1149
+  br i1 %.not12.i.i804, label %.loopexit.i799, label %.lr.ph.i.i801, !llvm.loop !32
 
-_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i800: ; preds = %1158
-  %1164 = load i8, ptr %.sroa.0.014.i.i797, align 4
+_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i805: ; preds = %1158
+  %1164 = load i8, ptr %.sroa.0.014.i.i802, align 4
   %1165 = icmp eq i8 %1164, 15
   br i1 %1165, label %1166, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1166:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i800
-  store i8 %1140, ptr %.sroa.0.014.i.i797, align 4
+1166:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i805
+  store i8 %1140, ptr %.sroa.0.014.i.i802, align 4
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-.loopexit.i794:                                   ; preds = %1162, %1151, %1143
+.loopexit.i799:                                   ; preds = %1162, %1151, %1143
   %1167 = load ptr, ptr %136, align 8
   %1168 = load ptr, ptr %8, align 8
   %1169 = ptrtoint ptr %1167 to i64
@@ -3204,7 +3204,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i800: ; preds = %
   %1172 = icmp ugt i64 %1171, %1141
   br i1 %1172, label %1173, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1173:                                             ; preds = %.loopexit.i794
+1173:                                             ; preds = %.loopexit.i799
   %1174 = getelementptr inbounds i8, ptr %1168, i64 %1141
   %1175 = load i8, ptr %1174, align 1
   %1176 = icmp eq i8 %1175, 15
@@ -3214,7 +3214,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i800: ; preds = %
   store i8 %1140, ptr %1174, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1178:                                             ; preds = %._crit_edge901
+1178:                                             ; preds = %._crit_edge900
   %1179 = load i32, ptr %170, align 4
   %1180 = lshr i32 %1179, 8
   %1181 = and i32 %1180, 255
@@ -3229,207 +3229,207 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i800: ; preds = %
   %1188 = zext nneg i32 %1187 to i64
   %1189 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1188
   store i8 2, ptr %1189, align 1
-  %.val16.i804 = load ptr, ptr %72, align 8
-  %1190 = getelementptr inbounds i32, ptr %.val16.i804, i64 %1182
+  %.val16.i809 = load ptr, ptr %72, align 8
+  %1190 = getelementptr inbounds i32, ptr %.val16.i809, i64 %1182
   %1191 = load i32, ptr %1190, align 4
   %1192 = getelementptr inbounds i8, ptr %1190, i64 4
   %1193 = load i32, ptr %1192, align 4
   %1194 = zext i32 %1193 to i64
   %1195 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %172, i64 %1194
   %1196 = icmp eq i32 %1191, %1193
-  br i1 %1196, label %.loopexit.i806, label %1197
+  br i1 %1196, label %.loopexit.i811, label %1197
 
 1197:                                             ; preds = %1178
   %1198 = getelementptr inbounds i8, ptr %1195, i64 -4
   %1199 = load i32, ptr %1198, align 4
-  %.not.not.i.i805 = icmp slt i32 %.0593903, %1199
-  br i1 %.not.not.i.i805, label %.lr.ph.preheader.i.i807, label %.loopexit.i806
+  %.not.not.i.i810 = icmp slt i32 %.0593902, %1199
+  br i1 %.not.not.i.i810, label %.lr.ph.preheader.i.i812, label %.loopexit.i811
 
-.lr.ph.preheader.i.i807:                          ; preds = %1197
+.lr.ph.preheader.i.i812:                          ; preds = %1197
   %1200 = zext i32 %1191 to i64
   %1201 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %172, i64 %1200
-  br label %.lr.ph.i.i808
+  br label %.lr.ph.i.i813
 
-.lr.ph.i.i808:                                    ; preds = %1208, %.lr.ph.preheader.i.i807
-  %.sroa.0.014.i.i809 = phi ptr [ %1209, %1208 ], [ %1201, %.lr.ph.preheader.i.i807 ]
-  %1202 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i809, i64 4
+.lr.ph.i.i813:                                    ; preds = %1208, %.lr.ph.preheader.i.i812
+  %.sroa.0.014.i.i814 = phi ptr [ %1209, %1208 ], [ %1201, %.lr.ph.preheader.i.i812 ]
+  %1202 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i814, i64 4
   %1203 = load i32, ptr %1202, align 4
-  %.not10.i.i810 = icmp slt i32 %.0593903, %1203
-  br i1 %.not10.i.i810, label %1208, label %1204
+  %.not10.i.i815 = icmp slt i32 %.0593902, %1203
+  br i1 %.not10.i.i815, label %1208, label %1204
 
-1204:                                             ; preds = %.lr.ph.i.i808
-  %1205 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i809, i64 8
+1204:                                             ; preds = %.lr.ph.i.i813
+  %1205 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i814, i64 8
   %1206 = load i32, ptr %1205, align 4
-  %1207 = icmp slt i32 %.0593903, %1206
-  br i1 %1207, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i812, label %1208
+  %1207 = icmp slt i32 %.0593902, %1206
+  br i1 %1207, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i817, label %1208
 
-1208:                                             ; preds = %1204, %.lr.ph.i.i808
-  %1209 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i809, i64 12
-  %.not12.i.i811 = icmp eq ptr %1209, %1195
-  br i1 %.not12.i.i811, label %.loopexit.i806, label %.lr.ph.i.i808, !llvm.loop !32
+1208:                                             ; preds = %1204, %.lr.ph.i.i813
+  %1209 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i814, i64 12
+  %.not12.i.i816 = icmp eq ptr %1209, %1195
+  br i1 %.not12.i.i816, label %.loopexit.i811, label %.lr.ph.i.i813, !llvm.loop !32
 
-_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i812: ; preds = %1204
-  %1210 = load i8, ptr %.sroa.0.014.i.i809, align 4
+_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i817: ; preds = %1204
+  %1210 = load i8, ptr %.sroa.0.014.i.i814, align 4
   %1211 = icmp eq i8 %1210, 15
-  br i1 %1211, label %1212, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit813
+  br i1 %1211, label %1212, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit818
 
-1212:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i812
-  store i8 2, ptr %.sroa.0.014.i.i809, align 4
-  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit813
+1212:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i817
+  store i8 2, ptr %.sroa.0.014.i.i814, align 4
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit818
 
-.loopexit.i806:                                   ; preds = %1208, %1197, %1178
+.loopexit.i811:                                   ; preds = %1208, %1197, %1178
   %1213 = load ptr, ptr %136, align 8
   %1214 = load ptr, ptr %8, align 8
   %1215 = ptrtoint ptr %1213 to i64
   %1216 = ptrtoint ptr %1214 to i64
   %1217 = sub i64 %1215, %1216
   %1218 = icmp ugt i64 %1217, %1182
-  br i1 %1218, label %1219, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit813
+  br i1 %1218, label %1219, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit818
 
-1219:                                             ; preds = %.loopexit.i806
+1219:                                             ; preds = %.loopexit.i811
   %1220 = getelementptr inbounds i8, ptr %1214, i64 %1182
   %1221 = load i8, ptr %1220, align 1
   %1222 = icmp eq i8 %1221, 15
-  br i1 %1222, label %1223, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit813
+  br i1 %1222, label %1223, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit818
 
 1223:                                             ; preds = %1219
   store i8 2, ptr %1220, align 1
-  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit813
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit818
 
-_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit813: ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i812, %1212, %.loopexit.i806, %1219, %1223
+_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit818: ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i817, %1212, %.loopexit.i811, %1219, %1223
   %1224 = load i8, ptr %1186, align 1
-  %.not.i814 = icmp eq i8 %1224, 15
-  br i1 %.not.i814, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825, label %1225
+  %.not.i819 = icmp eq i8 %1224, 15
+  br i1 %.not.i819, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830, label %1225
 
-1225:                                             ; preds = %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit813
-  %.val.i815 = load ptr, ptr %9, align 8
-  %.val16.i816 = load ptr, ptr %72, align 8
+1225:                                             ; preds = %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit818
+  %.val.i820 = load ptr, ptr %9, align 8
+  %.val16.i821 = load ptr, ptr %72, align 8
   %1226 = and i32 %1184, 255
   %1227 = zext nneg i32 %1226 to i64
-  %1228 = getelementptr inbounds i32, ptr %.val16.i816, i64 %1227
+  %1228 = getelementptr inbounds i32, ptr %.val16.i821, i64 %1227
   %1229 = load i32, ptr %1228, align 4
   %1230 = getelementptr inbounds i8, ptr %1228, i64 4
   %1231 = load i32, ptr %1230, align 4
   %1232 = zext i32 %1231 to i64
-  %1233 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i815, i64 %1232
+  %1233 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i820, i64 %1232
   %1234 = icmp eq i32 %1229, %1231
-  br i1 %1234, label %.loopexit.i818, label %1235
+  br i1 %1234, label %.loopexit.i823, label %1235
 
 1235:                                             ; preds = %1225
   %1236 = getelementptr inbounds i8, ptr %1233, i64 -4
   %1237 = load i32, ptr %1236, align 4
-  %.not.not.i.i817 = icmp slt i32 %.0593903, %1237
-  br i1 %.not.not.i.i817, label %.lr.ph.preheader.i.i819, label %.loopexit.i818
+  %.not.not.i.i822 = icmp slt i32 %.0593902, %1237
+  br i1 %.not.not.i.i822, label %.lr.ph.preheader.i.i824, label %.loopexit.i823
 
-.lr.ph.preheader.i.i819:                          ; preds = %1235
+.lr.ph.preheader.i.i824:                          ; preds = %1235
   %1238 = zext i32 %1229 to i64
-  %1239 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i815, i64 %1238
-  br label %.lr.ph.i.i820
+  %1239 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i820, i64 %1238
+  br label %.lr.ph.i.i825
 
-.lr.ph.i.i820:                                    ; preds = %1246, %.lr.ph.preheader.i.i819
-  %.sroa.0.014.i.i821 = phi ptr [ %1247, %1246 ], [ %1239, %.lr.ph.preheader.i.i819 ]
-  %1240 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i821, i64 4
+.lr.ph.i.i825:                                    ; preds = %1246, %.lr.ph.preheader.i.i824
+  %.sroa.0.014.i.i826 = phi ptr [ %1247, %1246 ], [ %1239, %.lr.ph.preheader.i.i824 ]
+  %1240 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i826, i64 4
   %1241 = load i32, ptr %1240, align 4
-  %.not10.i.i822 = icmp slt i32 %.0593903, %1241
-  br i1 %.not10.i.i822, label %1246, label %1242
+  %.not10.i.i827 = icmp slt i32 %.0593902, %1241
+  br i1 %.not10.i.i827, label %1246, label %1242
 
-1242:                                             ; preds = %.lr.ph.i.i820
-  %1243 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i821, i64 8
+1242:                                             ; preds = %.lr.ph.i.i825
+  %1243 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i826, i64 8
   %1244 = load i32, ptr %1243, align 4
-  %1245 = icmp slt i32 %.0593903, %1244
-  br i1 %1245, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i824, label %1246
+  %1245 = icmp slt i32 %.0593902, %1244
+  br i1 %1245, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i829, label %1246
 
-1246:                                             ; preds = %1242, %.lr.ph.i.i820
-  %1247 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i821, i64 12
-  %.not12.i.i823 = icmp eq ptr %1247, %1233
-  br i1 %.not12.i.i823, label %.loopexit.i818, label %.lr.ph.i.i820, !llvm.loop !32
+1246:                                             ; preds = %1242, %.lr.ph.i.i825
+  %1247 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i826, i64 12
+  %.not12.i.i828 = icmp eq ptr %1247, %1233
+  br i1 %.not12.i.i828, label %.loopexit.i823, label %.lr.ph.i.i825, !llvm.loop !32
 
-_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i824: ; preds = %1242
-  %1248 = load i8, ptr %.sroa.0.014.i.i821, align 4
+_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i829: ; preds = %1242
+  %1248 = load i8, ptr %.sroa.0.014.i.i826, align 4
   %1249 = icmp eq i8 %1248, 15
-  br i1 %1249, label %1250, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825
+  br i1 %1249, label %1250, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830
 
-1250:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i824
-  store i8 %1224, ptr %.sroa.0.014.i.i821, align 4
-  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825
+1250:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i829
+  store i8 %1224, ptr %.sroa.0.014.i.i826, align 4
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830
 
-.loopexit.i818:                                   ; preds = %1246, %1235, %1225
+.loopexit.i823:                                   ; preds = %1246, %1235, %1225
   %1251 = load ptr, ptr %136, align 8
   %1252 = load ptr, ptr %8, align 8
   %1253 = ptrtoint ptr %1251 to i64
   %1254 = ptrtoint ptr %1252 to i64
   %1255 = sub i64 %1253, %1254
   %1256 = icmp ugt i64 %1255, %1227
-  br i1 %1256, label %1257, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825
+  br i1 %1256, label %1257, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830
 
-1257:                                             ; preds = %.loopexit.i818
+1257:                                             ; preds = %.loopexit.i823
   %1258 = getelementptr inbounds i8, ptr %1252, i64 %1227
   %1259 = load i8, ptr %1258, align 1
   %1260 = icmp eq i8 %1259, 15
-  br i1 %1260, label %1261, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825
+  br i1 %1260, label %1261, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830
 
 1261:                                             ; preds = %1257
   store i8 %1224, ptr %1258, align 1
-  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830
 
-_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825: ; preds = %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit813, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i824, %1250, %.loopexit.i818, %1257, %1261
+_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830: ; preds = %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit818, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i829, %1250, %.loopexit.i823, %1257, %1261
   %1262 = load i8, ptr %1189, align 1
-  %.not.i826 = icmp eq i8 %1262, 15
-  br i1 %.not.i826, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, label %1263
+  %.not.i831 = icmp eq i8 %1262, 15
+  br i1 %.not.i831, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, label %1263
 
-1263:                                             ; preds = %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825
-  %.val.i827 = load ptr, ptr %9, align 8
-  %.val16.i828 = load ptr, ptr %72, align 8
+1263:                                             ; preds = %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830
+  %.val.i832 = load ptr, ptr %9, align 8
+  %.val16.i833 = load ptr, ptr %72, align 8
   %1264 = and i32 %1187, 255
   %1265 = zext nneg i32 %1264 to i64
-  %1266 = getelementptr inbounds i32, ptr %.val16.i828, i64 %1265
+  %1266 = getelementptr inbounds i32, ptr %.val16.i833, i64 %1265
   %1267 = load i32, ptr %1266, align 4
   %1268 = getelementptr inbounds i8, ptr %1266, i64 4
   %1269 = load i32, ptr %1268, align 4
   %1270 = zext i32 %1269 to i64
-  %1271 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i827, i64 %1270
+  %1271 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i832, i64 %1270
   %1272 = icmp eq i32 %1267, %1269
-  br i1 %1272, label %.loopexit.i830, label %1273
+  br i1 %1272, label %.loopexit.i835, label %1273
 
 1273:                                             ; preds = %1263
   %1274 = getelementptr inbounds i8, ptr %1271, i64 -4
   %1275 = load i32, ptr %1274, align 4
-  %.not.not.i.i829 = icmp slt i32 %.0593903, %1275
-  br i1 %.not.not.i.i829, label %.lr.ph.preheader.i.i831, label %.loopexit.i830
+  %.not.not.i.i834 = icmp slt i32 %.0593902, %1275
+  br i1 %.not.not.i.i834, label %.lr.ph.preheader.i.i836, label %.loopexit.i835
 
-.lr.ph.preheader.i.i831:                          ; preds = %1273
+.lr.ph.preheader.i.i836:                          ; preds = %1273
   %1276 = zext i32 %1267 to i64
-  %1277 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i827, i64 %1276
-  br label %.lr.ph.i.i832
+  %1277 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i832, i64 %1276
+  br label %.lr.ph.i.i837
 
-.lr.ph.i.i832:                                    ; preds = %1284, %.lr.ph.preheader.i.i831
-  %.sroa.0.014.i.i833 = phi ptr [ %1285, %1284 ], [ %1277, %.lr.ph.preheader.i.i831 ]
-  %1278 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i833, i64 4
+.lr.ph.i.i837:                                    ; preds = %1284, %.lr.ph.preheader.i.i836
+  %.sroa.0.014.i.i838 = phi ptr [ %1285, %1284 ], [ %1277, %.lr.ph.preheader.i.i836 ]
+  %1278 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i838, i64 4
   %1279 = load i32, ptr %1278, align 4
-  %.not10.i.i834 = icmp slt i32 %.0593903, %1279
-  br i1 %.not10.i.i834, label %1284, label %1280
+  %.not10.i.i839 = icmp slt i32 %.0593902, %1279
+  br i1 %.not10.i.i839, label %1284, label %1280
 
-1280:                                             ; preds = %.lr.ph.i.i832
-  %1281 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i833, i64 8
+1280:                                             ; preds = %.lr.ph.i.i837
+  %1281 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i838, i64 8
   %1282 = load i32, ptr %1281, align 4
-  %1283 = icmp slt i32 %.0593903, %1282
-  br i1 %1283, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836, label %1284
+  %1283 = icmp slt i32 %.0593902, %1282
+  br i1 %1283, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i841, label %1284
 
-1284:                                             ; preds = %1280, %.lr.ph.i.i832
-  %1285 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i833, i64 12
-  %.not12.i.i835 = icmp eq ptr %1285, %1271
-  br i1 %.not12.i.i835, label %.loopexit.i830, label %.lr.ph.i.i832, !llvm.loop !32
+1284:                                             ; preds = %1280, %.lr.ph.i.i837
+  %1285 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i838, i64 12
+  %.not12.i.i840 = icmp eq ptr %1285, %1271
+  br i1 %.not12.i.i840, label %.loopexit.i835, label %.lr.ph.i.i837, !llvm.loop !32
 
-_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836: ; preds = %1280
-  %1286 = load i8, ptr %.sroa.0.014.i.i833, align 4
+_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i841: ; preds = %1280
+  %1286 = load i8, ptr %.sroa.0.014.i.i838, align 4
   %1287 = icmp eq i8 %1286, 15
   br i1 %1287, label %1288, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1288:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836
-  store i8 %1262, ptr %.sroa.0.014.i.i833, align 4
+1288:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i841
+  store i8 %1262, ptr %.sroa.0.014.i.i838, align 4
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-.loopexit.i830:                                   ; preds = %1284, %1273, %1263
+.loopexit.i835:                                   ; preds = %1284, %1273, %1263
   %1289 = load ptr, ptr %136, align 8
   %1290 = load ptr, ptr %8, align 8
   %1291 = ptrtoint ptr %1289 to i64
@@ -3438,7 +3438,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836: ; preds = %
   %1294 = icmp ugt i64 %1293, %1265
   br i1 %1294, label %1295, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1295:                                             ; preds = %.loopexit.i830
+1295:                                             ; preds = %.loopexit.i835
   %1296 = getelementptr inbounds i8, ptr %1290, i64 %1265
   %1297 = load i8, ptr %1296, align 1
   %1298 = icmp eq i8 %1297, 15
@@ -3448,7 +3448,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836: ; preds = %
   store i8 %1262, ptr %1296, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1300:                                             ; preds = %._crit_edge901
+1300:                                             ; preds = %._crit_edge900
   %1301 = load i32, ptr %170, align 4
   %1302 = lshr i32 %1301, 8
   %1303 = and i32 %1302, 255
@@ -3465,7 +3465,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836: ; preds = %
   store i8 2, ptr %1311, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-1312:                                             ; preds = %._crit_edge901
+1312:                                             ; preds = %._crit_edge900
   %1313 = load i32, ptr %170, align 4
   %1314 = lshr i32 %1313, 8
   %1315 = and i32 %1314, 255
@@ -3475,7 +3475,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836: ; preds = %
   store i8 3, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-1318:                                             ; preds = %._crit_edge901, %._crit_edge901
+1318:                                             ; preds = %._crit_edge900, %._crit_edge900
   %1319 = load i32, ptr %170, align 4
   %1320 = lshr i32 %1319, 8
   %1321 = and i32 %1320, 255
@@ -3485,7 +3485,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836: ; preds = %
   store i8 5, ptr %188, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1324:                                             ; preds = %._crit_edge901
+1324:                                             ; preds = %._crit_edge900
   %1325 = load i32, ptr %170, align 4
   %1326 = lshr i32 %1325, 8
   %1327 = and i32 %1326, 255
@@ -3500,21 +3500,21 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836: ; preds = %
   store i8 %1334, ptr %1335, align 1
   %.val663 = load ptr, ptr %142, align 8
   %1336 = zext i32 %1331 to i64
-  %.sroa.1.0..sroa_idx.i838 = getelementptr inbounds %struct.lua_TValue, ptr %.val663, i64 %1336, i32 2
-  %.sroa.1.0.copyload.i839 = load i32, ptr %.sroa.1.0..sroa_idx.i838, align 4
-  %1337 = icmp ult i32 %.sroa.1.0.copyload.i839, 11
-  br i1 %1337, label %switch.lookup1035, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841
+  %.sroa.1.0..sroa_idx.i843 = getelementptr inbounds %struct.lua_TValue, ptr %.val663, i64 %1336, i32 2
+  %.sroa.1.0.copyload.i844 = load i32, ptr %.sroa.1.0..sroa_idx.i843, align 4
+  %1337 = icmp ult i32 %.sroa.1.0.copyload.i844, 11
+  br i1 %1337, label %switch.lookup1034, label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit846
 
-switch.lookup1035:                                ; preds = %1324
-  %1338 = zext nneg i32 %.sroa.1.0.copyload.i839 to i64
-  %switch.gep1036 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %1338
-  %switch.load1037 = load i8, ptr %switch.gep1036, align 1
-  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841
+switch.lookup1034:                                ; preds = %1324
+  %1338 = zext nneg i32 %.sroa.1.0.copyload.i844 to i64
+  %switch.gep1035 = getelementptr inbounds [11 x i8], ptr @switch.table._ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE.22, i64 0, i64 %1338
+  %switch.load1036 = load i8, ptr %switch.gep1035, align 1
+  br label %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit846
 
-_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841: ; preds = %1324, %switch.lookup1035
-  %.0.i840 = phi i8 [ %switch.load1037, %switch.lookup1035 ], [ 15, %1324 ]
+_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit846: ; preds = %1324, %switch.lookup1034
+  %.0.i845 = phi i8 [ %switch.load1036, %switch.lookup1034 ], [ 15, %1324 ]
   %1339 = getelementptr inbounds i8, ptr %188, i64 2
-  store i8 %.0.i840, ptr %1339, align 1
+  store i8 %.0.i845, ptr %1339, align 1
   %1340 = zext nneg i32 %1327 to i64
   %1341 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1340
   store i8 5, ptr %1341, align 1
@@ -3528,7 +3528,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841: ; preds = %1324, %sw
   %1347 = trunc i8 %1346 to i1
   br i1 %1347, label %1348, label %1377
 
-1348:                                             ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841
+1348:                                             ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit846
   %1349 = load ptr, ptr %6, align 8
   %1350 = getelementptr inbounds i8, ptr %1349, i64 8
   %1351 = load ptr, ptr %1350, align 8
@@ -3572,7 +3572,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841: ; preds = %1324, %sw
   %1376 = zext i8 %1375 to i32
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-1377:                                             ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841
+1377:                                             ; preds = %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit846
   %1378 = load i8, ptr @_ZN5FFlag31LuauCodegenAnalyzeHostVectorOpsE, align 8
   %1379 = trunc i8 %1378 to i1
   %1380 = icmp eq i8 %1342, 8
@@ -3598,7 +3598,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841: ; preds = %1324, %sw
   %1394 = zext i8 %1393 to i32
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-1395:                                             ; preds = %._crit_edge901
+1395:                                             ; preds = %._crit_edge900
   %1396 = load i8, ptr @_ZN5FFlag31LuauCodegenAnalyzeHostVectorOpsE, align 8
   %1397 = trunc i8 %1396 to i1
   br i1 %1397, label %1398, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
@@ -3606,12 +3606,12 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841: ; preds = %1324, %sw
 1398:                                             ; preds = %1395
   %1399 = load i32, ptr %170, align 4
   %1400 = lshr i32 %1399, 8
-  %.not613 = icmp eq i32 %.0592905, 15
+  %.not613 = icmp eq i32 %.0592904, 15
   br i1 %.not613, label %1406, label %1401
 
 1401:                                             ; preds = %1398
   %1402 = and i32 %1400, 255
-  %1403 = trunc nuw i32 %.0592905 to i8
+  %1403 = trunc nuw i32 %.0592904 to i8
   store i8 %1403, ptr %188, align 1
   %1404 = zext nneg i32 %1402 to i64
   %1405 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1404
@@ -3620,62 +3620,62 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit841: ; preds = %1324, %sw
 
 1406:                                             ; preds = %1401, %1398
   %1407 = load i8, ptr %188, align 1
-  %.not.i842 = icmp eq i8 %1407, 15
-  br i1 %.not.i842, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1408
+  %.not.i847 = icmp eq i8 %1407, 15
+  br i1 %.not.i847, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1408
 
 1408:                                             ; preds = %1406
-  %.val.i843 = load ptr, ptr %9, align 8
-  %.val16.i844 = load ptr, ptr %72, align 8
+  %.val.i848 = load ptr, ptr %9, align 8
+  %.val16.i849 = load ptr, ptr %72, align 8
   %1409 = and i32 %1400, 255
   %1410 = zext nneg i32 %1409 to i64
-  %1411 = getelementptr inbounds i32, ptr %.val16.i844, i64 %1410
+  %1411 = getelementptr inbounds i32, ptr %.val16.i849, i64 %1410
   %1412 = load i32, ptr %1411, align 4
   %1413 = getelementptr inbounds i8, ptr %1411, i64 4
   %1414 = load i32, ptr %1413, align 4
   %1415 = zext i32 %1414 to i64
-  %1416 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i843, i64 %1415
+  %1416 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i848, i64 %1415
   %1417 = icmp eq i32 %1412, %1414
-  br i1 %1417, label %.loopexit.i846, label %1418
+  br i1 %1417, label %.loopexit.i851, label %1418
 
 1418:                                             ; preds = %1408
   %1419 = getelementptr inbounds i8, ptr %1416, i64 -4
   %1420 = load i32, ptr %1419, align 4
-  %.not.not.i.i845 = icmp slt i32 %.0593903, %1420
-  br i1 %.not.not.i.i845, label %.lr.ph.preheader.i.i847, label %.loopexit.i846
+  %.not.not.i.i850 = icmp slt i32 %.0593902, %1420
+  br i1 %.not.not.i.i850, label %.lr.ph.preheader.i.i852, label %.loopexit.i851
 
-.lr.ph.preheader.i.i847:                          ; preds = %1418
+.lr.ph.preheader.i.i852:                          ; preds = %1418
   %1421 = zext i32 %1412 to i64
-  %1422 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i843, i64 %1421
-  br label %.lr.ph.i.i848
+  %1422 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %.val.i848, i64 %1421
+  br label %.lr.ph.i.i853
 
-.lr.ph.i.i848:                                    ; preds = %1429, %.lr.ph.preheader.i.i847
-  %.sroa.0.014.i.i849 = phi ptr [ %1430, %1429 ], [ %1422, %.lr.ph.preheader.i.i847 ]
-  %1423 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i849, i64 4
+.lr.ph.i.i853:                                    ; preds = %1429, %.lr.ph.preheader.i.i852
+  %.sroa.0.014.i.i854 = phi ptr [ %1430, %1429 ], [ %1422, %.lr.ph.preheader.i.i852 ]
+  %1423 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i854, i64 4
   %1424 = load i32, ptr %1423, align 4
-  %.not10.i.i850 = icmp slt i32 %.0593903, %1424
-  br i1 %.not10.i.i850, label %1429, label %1425
+  %.not10.i.i855 = icmp slt i32 %.0593902, %1424
+  br i1 %.not10.i.i855, label %1429, label %1425
 
-1425:                                             ; preds = %.lr.ph.i.i848
-  %1426 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i849, i64 8
+1425:                                             ; preds = %.lr.ph.i.i853
+  %1426 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i854, i64 8
   %1427 = load i32, ptr %1426, align 4
-  %1428 = icmp slt i32 %.0593903, %1427
-  br i1 %1428, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852, label %1429
+  %1428 = icmp slt i32 %.0593902, %1427
+  br i1 %1428, label %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i857, label %1429
 
-1429:                                             ; preds = %1425, %.lr.ph.i.i848
-  %1430 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i849, i64 12
-  %.not12.i.i851 = icmp eq ptr %1430, %1416
-  br i1 %.not12.i.i851, label %.loopexit.i846, label %.lr.ph.i.i848, !llvm.loop !32
+1429:                                             ; preds = %1425, %.lr.ph.i.i853
+  %1430 = getelementptr inbounds i8, ptr %.sroa.0.014.i.i854, i64 12
+  %.not12.i.i856 = icmp eq ptr %1430, %1416
+  br i1 %.not12.i.i856, label %.loopexit.i851, label %.lr.ph.i.i853, !llvm.loop !32
 
-_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852: ; preds = %1425
-  %1431 = load i8, ptr %.sroa.0.014.i.i849, align 4
+_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i857: ; preds = %1425
+  %1431 = load i8, ptr %.sroa.0.014.i.i854, align 4
   %1432 = icmp eq i8 %1431, 15
   br i1 %1432, label %1433, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1433:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852
-  store i8 %1407, ptr %.sroa.0.014.i.i849, align 4
+1433:                                             ; preds = %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i857
+  store i8 %1407, ptr %.sroa.0.014.i.i854, align 4
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-.loopexit.i846:                                   ; preds = %1429, %1418, %1408
+.loopexit.i851:                                   ; preds = %1429, %1418, %1408
   %1434 = load ptr, ptr %136, align 8
   %1435 = load ptr, ptr %8, align 8
   %1436 = ptrtoint ptr %1434 to i64
@@ -3684,7 +3684,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852: ; preds = %
   %1439 = icmp ugt i64 %1438, %1410
   br i1 %1439, label %1440, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1440:                                             ; preds = %.loopexit.i846
+1440:                                             ; preds = %.loopexit.i851
   %1441 = getelementptr inbounds i8, ptr %1435, i64 %1410
   %1442 = load i8, ptr %1441, align 1
   %1443 = icmp eq i8 %1442, 15
@@ -3694,7 +3694,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852: ; preds = %
   store i8 %1407, ptr %1441, align 1
   br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
 
-1445:                                             ; preds = %._crit_edge901
+1445:                                             ; preds = %._crit_edge900
   %1446 = load i32, ptr %170, align 4
   %1447 = lshr i32 %1446, 8
   %1448 = and i32 %1447, 255
@@ -3726,7 +3726,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852: ; preds = %
   store i8 %1464, ptr %188, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-1467:                                             ; preds = %._crit_edge901
+1467:                                             ; preds = %._crit_edge900
   %1468 = load i32, ptr %170, align 4
   %1469 = lshr i32 %1468, 8
   %1470 = and i32 %1469, 255
@@ -3734,8 +3734,8 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852: ; preds = %
   %1472 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1471
   %1473 = load i8, ptr %1472, align 1
   %.val664 = load ptr, ptr %140, align 8
-  %.not.i854 = icmp eq i8 %1473, 15
-  br i1 %.not.i854, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1474
+  %.not.i859 = icmp eq i8 %1473, 15
+  br i1 %.not.i859, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1474
 
 1474:                                             ; preds = %1467
   %.val665 = load ptr, ptr %141, align 8
@@ -3758,8 +3758,8 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852: ; preds = %
   store i8 %1473, ptr %1483, align 1
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit: ; preds = %1444, %1440, %.loopexit.i846, %1433, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852, %1299, %1295, %.loopexit.i830, %1288, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825, %1177, %1173, %.loopexit.i794, %1166, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i800, %1108, %1104, %.loopexit.i782, %1097, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i788, %1046, %1042, %.loopexit.i770, %1035, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i776, %991, %990, %986, %.loopexit.i758, %979, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i764, %418, %414, %.loopexit.i709, %407, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715, %371, %367, %.loopexit.i697, %360, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703, %322, %318, %.loopexit.i681, %311, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i687, %274, %270, %.loopexit.i669, %263, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i675, %234, %230, %.loopexit.i, %223, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i, %._crit_edge901, %1318, %921, %792, %756, %710, %671, %635, %585, %539
-  %.1 = phi i32 [ %.0592905, %._crit_edge901 ], [ %.0592905, %1318 ], [ %.0592905, %921 ], [ %.0592905, %792 ], [ %.0592905, %756 ], [ %.0592905, %710 ], [ %.0592905, %671 ], [ %.0592905, %635 ], [ %.0592905, %585 ], [ %.0592905, %539 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i ], [ %.0592905, %223 ], [ %.0592905, %.loopexit.i ], [ %.0592905, %230 ], [ %.0592905, %234 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i675 ], [ %.0592905, %263 ], [ %.0592905, %.loopexit.i669 ], [ %.0592905, %270 ], [ %.0592905, %274 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i687 ], [ %.0592905, %311 ], [ %.0592905, %.loopexit.i681 ], [ %.0592905, %318 ], [ %.0592905, %322 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703 ], [ %.0592905, %360 ], [ %.0592905, %.loopexit.i697 ], [ %.0592905, %367 ], [ %.0592905, %371 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715 ], [ %.0592905, %407 ], [ %.0592905, %.loopexit.i709 ], [ %.0592905, %414 ], [ %.0592905, %418 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i764 ], [ %.0592905, %979 ], [ %.0592905, %.loopexit.i758 ], [ %.0592905, %986 ], [ %.0592905, %990 ], [ %.0592905, %991 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i776 ], [ %.0592905, %1035 ], [ %.0592905, %.loopexit.i770 ], [ %.0592905, %1042 ], [ %.0592905, %1046 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i788 ], [ %.0592905, %1097 ], [ %.0592905, %.loopexit.i782 ], [ %.0592905, %1104 ], [ %.0592905, %1108 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i800 ], [ %.0592905, %1166 ], [ %.0592905, %.loopexit.i794 ], [ %.0592905, %1173 ], [ %.0592905, %1177 ], [ %.0592905, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit825 ], [ %.0592905, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i836 ], [ %.0592905, %1288 ], [ %.0592905, %.loopexit.i830 ], [ %.0592905, %1295 ], [ %.0592905, %1299 ], [ 15, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i852 ], [ 15, %1433 ], [ 15, %.loopexit.i846 ], [ 15, %1440 ], [ 15, %1444 ]
+_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit: ; preds = %1444, %1440, %.loopexit.i851, %1433, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i857, %1299, %1295, %.loopexit.i835, %1288, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i841, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830, %1177, %1173, %.loopexit.i799, %1166, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i805, %1108, %1104, %.loopexit.i787, %1097, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i793, %1046, %1042, %.loopexit.i775, %1035, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i781, %991, %990, %986, %.loopexit.i763, %979, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i769, %418, %414, %.loopexit.i709, %407, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715, %371, %367, %.loopexit.i697, %360, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703, %322, %318, %.loopexit.i681, %311, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i687, %274, %270, %.loopexit.i669, %263, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i675, %234, %230, %.loopexit.i, %223, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i, %._crit_edge900, %1318, %921, %792, %756, %710, %671, %635, %585, %539
+  %.1 = phi i32 [ %.0592904, %._crit_edge900 ], [ %.0592904, %1318 ], [ %.0592904, %921 ], [ %.0592904, %792 ], [ %.0592904, %756 ], [ %.0592904, %710 ], [ %.0592904, %671 ], [ %.0592904, %635 ], [ %.0592904, %585 ], [ %.0592904, %539 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i ], [ %.0592904, %223 ], [ %.0592904, %.loopexit.i ], [ %.0592904, %230 ], [ %.0592904, %234 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i675 ], [ %.0592904, %263 ], [ %.0592904, %.loopexit.i669 ], [ %.0592904, %270 ], [ %.0592904, %274 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i687 ], [ %.0592904, %311 ], [ %.0592904, %.loopexit.i681 ], [ %.0592904, %318 ], [ %.0592904, %322 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i703 ], [ %.0592904, %360 ], [ %.0592904, %.loopexit.i697 ], [ %.0592904, %367 ], [ %.0592904, %371 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i715 ], [ %.0592904, %407 ], [ %.0592904, %.loopexit.i709 ], [ %.0592904, %414 ], [ %.0592904, %418 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i769 ], [ %.0592904, %979 ], [ %.0592904, %.loopexit.i763 ], [ %.0592904, %986 ], [ %.0592904, %990 ], [ %.0592904, %991 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i781 ], [ %.0592904, %1035 ], [ %.0592904, %.loopexit.i775 ], [ %.0592904, %1042 ], [ %.0592904, %1046 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i793 ], [ %.0592904, %1097 ], [ %.0592904, %.loopexit.i787 ], [ %.0592904, %1104 ], [ %.0592904, %1108 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i805 ], [ %.0592904, %1166 ], [ %.0592904, %.loopexit.i799 ], [ %.0592904, %1173 ], [ %.0592904, %1177 ], [ %.0592904, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit830 ], [ %.0592904, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i841 ], [ %.0592904, %1288 ], [ %.0592904, %.loopexit.i835 ], [ %.0592904, %1295 ], [ %.0592904, %1299 ], [ 15, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i857 ], [ 15, %1433 ], [ 15, %.loopexit.i851 ], [ 15, %1440 ], [ 15, %1444 ]
   switch i8 %trunc, label %1487 [
     i8 7, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
     i8 8, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
@@ -3789,20 +3789,20 @@ _ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit: ; preds = %14
 1487:                                             ; preds = %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-_ZN4Luau11getOpLengthE10LuauOpcode.exit:          ; preds = %.thread946, %530, %1377, %1381, %1383, %1360, %1370, %1368, %1366, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692, %1047, %1109, %189, %419, %432, %832, %870, %872, %907, %909, %1300, %1312, %1463, %1395, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit, %372, %927, %1406, %1467, %1474, %1482, %1486, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %1487
-  %.1950 = phi i32 [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %1487 ], [ %.0592905, %1486 ], [ %.0592905, %1482 ], [ %.0592905, %1474 ], [ %.0592905, %1467 ], [ 15, %1406 ], [ %.0592905, %927 ], [ %.0592905, %372 ], [ %.0592905, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit ], [ %.0592905, %189 ], [ %.0592905, %419 ], [ %.0592905, %432 ], [ %.0592905, %832 ], [ %.0592905, %870 ], [ %.0592905, %872 ], [ %.0592905, %907 ], [ %.0592905, %909 ], [ %.0592905, %1300 ], [ %.0592905, %1312 ], [ %.0592905, %1395 ], [ %.0592905, %1463 ], [ %.0592905, %1109 ], [ %.0592905, %1047 ], [ %.0592905, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692 ], [ %.0592905, %.thread946 ], [ %.0592905, %530 ], [ %.0592905, %1377 ], [ %.0592905, %1381 ], [ %1394, %1383 ], [ %.0592905, %1366 ], [ %.0592905, %1368 ], [ %1376, %1370 ], [ %1365, %1360 ]
-  %.0.i855 = phi i32 [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 1, %1487 ], [ 1, %1486 ], [ 1, %1482 ], [ 1, %1474 ], [ 1, %1467 ], [ 1, %1406 ], [ 1, %927 ], [ 1, %372 ], [ 1, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit ], [ 1, %189 ], [ 1, %419 ], [ 1, %432 ], [ 1, %832 ], [ 1, %870 ], [ 1, %872 ], [ 1, %907 ], [ 1, %909 ], [ 1, %1300 ], [ 1, %1312 ], [ 1, %1395 ], [ 1, %1463 ], [ 2, %1109 ], [ 2, %1047 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692 ], [ 2, %.thread946 ], [ 2, %530 ], [ 2, %1377 ], [ 2, %1381 ], [ 2, %1383 ], [ 2, %1366 ], [ 2, %1368 ], [ 2, %1370 ], [ 2, %1360 ]
-  %1488 = add nsw i32 %.0.i855, %.0593903
+_ZN4Luau11getOpLengthE10LuauOpcode.exit:          ; preds = %.thread945, %530, %1377, %1381, %1383, %1360, %1370, %1368, %1366, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692, %1047, %1109, %189, %419, %432, %832, %870, %872, %907, %909, %1300, %1312, %1463, %1395, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit, %372, %927, %1406, %1467, %1474, %1482, %1486, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %1487
+  %.1949 = phi i32 [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %1487 ], [ %.0592904, %1486 ], [ %.0592904, %1482 ], [ %.0592904, %1474 ], [ %.0592904, %1467 ], [ 15, %1406 ], [ %.0592904, %927 ], [ %.0592904, %372 ], [ %.0592904, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit ], [ %.0592904, %189 ], [ %.0592904, %419 ], [ %.0592904, %432 ], [ %.0592904, %832 ], [ %.0592904, %870 ], [ %.0592904, %872 ], [ %.0592904, %907 ], [ %.0592904, %909 ], [ %.0592904, %1300 ], [ %.0592904, %1312 ], [ %.0592904, %1395 ], [ %.0592904, %1463 ], [ %.0592904, %1109 ], [ %.0592904, %1047 ], [ %.0592904, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692 ], [ %.0592904, %.thread945 ], [ %.0592904, %530 ], [ %.0592904, %1377 ], [ %.0592904, %1381 ], [ %1394, %1383 ], [ %.0592904, %1366 ], [ %.0592904, %1368 ], [ %1376, %1370 ], [ %1365, %1360 ]
+  %.0.i860 = phi i32 [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 1, %1487 ], [ 1, %1486 ], [ 1, %1482 ], [ 1, %1474 ], [ 1, %1467 ], [ 1, %1406 ], [ 1, %927 ], [ 1, %372 ], [ 1, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit ], [ 1, %189 ], [ 1, %419 ], [ 1, %432 ], [ 1, %832 ], [ 1, %870 ], [ 1, %872 ], [ 1, %907 ], [ 1, %909 ], [ 1, %1300 ], [ 1, %1312 ], [ 1, %1395 ], [ 1, %1463 ], [ 2, %1109 ], [ 2, %1047 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit692 ], [ 2, %.thread945 ], [ 2, %530 ], [ 2, %1377 ], [ 2, %1381 ], [ 2, %1383 ], [ 2, %1366 ], [ 2, %1368 ], [ 2, %1370 ], [ 2, %1360 ]
+  %1488 = add nsw i32 %.0.i860, %.0593902
   %1489 = load i32, ptr %166, align 4
   %.not = icmp sgt i32 %1488, %1489
-  br i1 %.not, label %._crit_edge908, label %.lr.ph907, !llvm.loop !33
+  br i1 %.not, label %._crit_edge907, label %.lr.ph906, !llvm.loop !33
 
-._crit_edge908:                                   ; preds = %_ZN4Luau11getOpLengthE10LuauOpcode.exit, %._crit_edge896
-  %1490 = getelementptr inbounds i8, ptr %.sroa.0860.0910, i64 8
-  %.not869 = icmp eq ptr %1490, %135
-  br i1 %.not869, label %._crit_edge911, label %.preheader
+._crit_edge907:                                   ; preds = %_ZN4Luau11getOpLengthE10LuauOpcode.exit, %._crit_edge895
+  %1490 = getelementptr inbounds i8, ptr %.sroa.0865.0909, i64 8
+  %.not874 = icmp eq ptr %1490, %135
+  br i1 %.not874, label %._crit_edge910, label %.preheader
 
-._crit_edge911:                                   ; preds = %._crit_edge908, %_ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit
+._crit_edge910:                                   ; preds = %._crit_edge907, %_ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit
   ret void
 }
 
@@ -3912,86 +3912,87 @@ _ZNSt6vectorIN4Luau7CodeGen13BytecodeTypesESaIS2_EE17_M_default_appendEm.exit: ;
 declare noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13BytecodeTypesE(i32 noundef %0, ptr noundef nonnull writeonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
-  switch i32 %0, label %130 [
-    i32 0, label %3
-    i32 1, label %3
-    i32 2, label %4
-    i32 3, label %4
-    i32 4, label %4
-    i32 5, label %6
-    i32 6, label %9
-    i32 7, label %9
-    i32 8, label %9
-    i32 9, label %9
-    i32 10, label %9
-    i32 11, label %9
-    i32 12, label %9
-    i32 13, label %11
-    i32 14, label %14
-    i32 15, label %16
-    i32 16, label %19
-    i32 17, label %21
-    i32 18, label %24
-    i32 19, label %24
-    i32 20, label %25
-    i32 21, label %27
-    i32 22, label %30
-    i32 23, label %30
-    i32 24, label %30
-    i32 25, label %30
-    i32 26, label %30
-    i32 27, label %30
-    i32 28, label %32
-    i32 29, label %35
-    i32 30, label %36
-    i32 31, label %38
-    i32 32, label %38
-    i32 33, label %38
-    i32 34, label %38
-    i32 35, label %39
-    i32 36, label %39
-    i32 37, label %42
-    i32 38, label %43
-    i32 39, label %43
-    i32 40, label %46
-    i32 41, label %47
-    i32 42, label %50
-    i32 43, label %54
-    i32 44, label %56
-    i32 45, label %57
-    i32 46, label %61
-    i32 47, label %62
-    i32 48, label %64
-    i32 50, label %66
-    i32 51, label %68
-    i32 53, label %69
-    i32 54, label %72
-    i32 55, label %76
-    i32 56, label %76
-    i32 57, label %78
-    i32 58, label %79
-    i32 59, label %80
-    i32 60, label %83
-    i32 62, label %84
-    i32 63, label %85
-    i32 64, label %86
-    i32 65, label %88
-    i32 66, label %88
-    i32 67, label %91
-    i32 68, label %95
-    i32 69, label %95
-    i32 70, label %98
-    i32 71, label %102
-    i32 72, label %102
-    i32 73, label %105
-    i32 74, label %109
-    i32 75, label %112
-    i32 76, label %116
-    i32 77, label %119
-    i32 52, label %123
-    i32 49, label %125
-    i32 61, label %127
+define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13BytecodeTypesE(i32 noundef range(i32 0, 256) %0, ptr noundef nonnull writeonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+  %trunc = trunc nuw i32 %0 to i8
+  switch i8 %trunc, label %130 [
+    i8 0, label %3
+    i8 1, label %3
+    i8 2, label %4
+    i8 3, label %4
+    i8 4, label %4
+    i8 5, label %6
+    i8 6, label %9
+    i8 7, label %9
+    i8 8, label %9
+    i8 9, label %9
+    i8 10, label %9
+    i8 11, label %9
+    i8 12, label %9
+    i8 13, label %11
+    i8 14, label %14
+    i8 15, label %16
+    i8 16, label %19
+    i8 17, label %21
+    i8 18, label %24
+    i8 19, label %24
+    i8 20, label %25
+    i8 21, label %27
+    i8 22, label %30
+    i8 23, label %30
+    i8 24, label %30
+    i8 25, label %30
+    i8 26, label %30
+    i8 27, label %30
+    i8 28, label %32
+    i8 29, label %35
+    i8 30, label %36
+    i8 31, label %38
+    i8 32, label %38
+    i8 33, label %38
+    i8 34, label %38
+    i8 35, label %39
+    i8 36, label %39
+    i8 37, label %42
+    i8 38, label %43
+    i8 39, label %43
+    i8 40, label %46
+    i8 41, label %47
+    i8 42, label %50
+    i8 43, label %54
+    i8 44, label %56
+    i8 45, label %57
+    i8 46, label %61
+    i8 47, label %62
+    i8 48, label %64
+    i8 50, label %66
+    i8 51, label %68
+    i8 53, label %69
+    i8 54, label %72
+    i8 55, label %76
+    i8 56, label %76
+    i8 57, label %78
+    i8 58, label %79
+    i8 59, label %80
+    i8 60, label %83
+    i8 62, label %84
+    i8 63, label %85
+    i8 64, label %86
+    i8 65, label %88
+    i8 66, label %88
+    i8 67, label %91
+    i8 68, label %95
+    i8 69, label %95
+    i8 70, label %98
+    i8 71, label %102
+    i8 72, label %102
+    i8 73, label %105
+    i8 74, label %109
+    i8 75, label %112
+    i8 76, label %116
+    i8 77, label %119
+    i8 52, label %123
+    i8 49, label %125
+    i8 61, label %127
   ]
 
 3:                                                ; preds = %2, %2

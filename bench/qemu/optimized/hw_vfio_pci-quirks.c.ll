@@ -3299,7 +3299,7 @@ if.end74:                                         ; preds = %if.then24, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @vfio_ioeventfd_init(ptr nocapture noundef readonly %vdev, ptr noundef %mr, i64 noundef %addr, i32 noundef %size, i64 noundef %data, ptr noundef %region, i64 noundef %region_addr) unnamed_addr #0 {
+define internal fastcc noundef ptr @vfio_ioeventfd_init(ptr nocapture noundef readonly %vdev, ptr noundef %mr, i64 noundef range(i64 64, 0) %addr, i32 noundef %size, i64 noundef %data, ptr noundef %region, i64 noundef %region_addr) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vfio_ioeventfd = alloca %struct.vfio_device_ioeventfd, align 8

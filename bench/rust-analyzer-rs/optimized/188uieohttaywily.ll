@@ -265,7 +265,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$crossbeam_channel..flavors.
   %35 = select i1 %34, i64 0, i64 %29
   %.0.i = sub nuw i64 %33, %35
   %36 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %31, i64 %.0.i
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %36)
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias noundef align 8 dereferenceable(48) %36)
           to label %.noexc unwind label %38
 
 .noexc:                                           ; preds = %32
@@ -310,14 +310,14 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr132drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$notify..inotify..EventLoopMsg$GT$$u5d$$GT$$GT$17hb62d8fb640587b57E.llvm.3009195400206169856.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3009195400206169856.exit.i.i4", %"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c3054eaa5137e7eE.llvm.3009195400206169856.exit"
   %51 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %51)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %51)
           to label %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i" unwind label %52
 
 52:                                               ; preds = %"_ZN4core3ptr132drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$notify..inotify..EventLoopMsg$GT$$u5d$$GT$$GT$17hb62d8fb640587b57E.llvm.3009195400206169856.exit5"
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %54) #22
           to label %.body unwind label %55
 
 55:                                               ; preds = %52
@@ -328,7 +328,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i": ; preds = %"_ZN4core3ptr132drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$notify..inotify..EventLoopMsg$GT$$u5d$$GT$$GT$17hb62d8fb640587b57E.llvm.3009195400206169856.exit5"
   %57 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %57)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %59
 
 .body:                                            ; preds = %59, %52, %"_ZN4core3ptr132drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$notify..inotify..EventLoopMsg$GT$$u5d$$GT$$GT$17hb62d8fb640587b57E.llvm.3009195400206169856.exit"
@@ -344,14 +344,14 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i"
   %61 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %61)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %61)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit8" unwind label %62
 
 62:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %63 = landingpad { ptr, i32 }
           cleanup
   %64 = getelementptr inbounds i8, ptr %0, i64 352
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %64) #22
           to label %common.resume unwind label %65
 
 65:                                               ; preds = %62
@@ -366,7 +366,7 @@ common.resume:                                    ; preds = %.body, %62
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit8": ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %67 = getelementptr inbounds i8, ptr %0, i64 352
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %67)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %67)
   ret void
 
 68:                                               ; preds = %.body, %"_ZN4core3ptr132drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$notify..inotify..EventLoopMsg$GT$$u5d$$GT$$GT$17hb62d8fb640587b57E.llvm.3009195400206169856.exit"
@@ -1155,14 +1155,14 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$crossbeam_channel..flavors.
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %9) #22
           to label %common.resume unwind label %10
 
 10:                                               ; preds = %7
@@ -1177,7 +1177,7 @@ common.resume:                                    ; preds = %2, %7
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %12)
   ret void
 
 13:                                               ; preds = %2
@@ -1238,14 +1238,14 @@ define hidden void @"_ZN4core3ptr126drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$bool$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hc948f76a720a727eE.llvm.3009195400206169856.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3009195400206169856.exit.i.i4", %10
   %18 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %18)
           to label %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i" unwind label %19
 
 19:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$bool$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hc948f76a720a727eE.llvm.3009195400206169856.exit5"
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %21) #22
           to label %.body unwind label %22
 
 22:                                               ; preds = %19
@@ -1256,7 +1256,7 @@ define hidden void @"_ZN4core3ptr126drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i": ; preds = %"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$bool$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hc948f76a720a727eE.llvm.3009195400206169856.exit5"
   %24 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %24)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %26
 
 .body:                                            ; preds = %26, %19, %"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$bool$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hc948f76a720a727eE.llvm.3009195400206169856.exit"
@@ -1272,14 +1272,14 @@ define hidden void @"_ZN4core3ptr126drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i"
   %28 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %28)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit7" unwind label %29
 
 29:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %30 = landingpad { ptr, i32 }
           cleanup
   %31 = getelementptr inbounds i8, ptr %0, i64 352
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %31) #22
           to label %common.resume unwind label %32
 
 32:                                               ; preds = %29
@@ -1294,7 +1294,7 @@ common.resume:                                    ; preds = %.body, %29
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit7": ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 352
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %34)
   ret void
 
 35:                                               ; preds = %.body, %"_ZN4core3ptr158drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$bool$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hc948f76a720a727eE.llvm.3009195400206169856.exit"
@@ -1385,14 +1385,14 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$crossbeam_channel..flavors.
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %9) #22
           to label %common.resume unwind label %10
 
 10:                                               ; preds = %7
@@ -1407,7 +1407,7 @@ common.resume:                                    ; preds = %2, %7
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %12)
   ret void
 
 13:                                               ; preds = %2
@@ -1519,14 +1519,14 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr162drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$$LP$$RP$$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hd320db501fc73188E.llvm.3009195400206169856.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3009195400206169856.exit.i.i4", %10
   %18 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %18)
           to label %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i" unwind label %19
 
 19:                                               ; preds = %"_ZN4core3ptr162drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$$LP$$RP$$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hd320db501fc73188E.llvm.3009195400206169856.exit5"
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %21) #22
           to label %.body unwind label %22
 
 22:                                               ; preds = %19
@@ -1537,7 +1537,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i": ; preds = %"_ZN4core3ptr162drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$$LP$$RP$$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hd320db501fc73188E.llvm.3009195400206169856.exit5"
   %24 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %24)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %26
 
 .body:                                            ; preds = %26, %19, %"_ZN4core3ptr162drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$$LP$$RP$$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hd320db501fc73188E.llvm.3009195400206169856.exit"
@@ -1553,14 +1553,14 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i"
   %28 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %28)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit7" unwind label %29
 
 29:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %30 = landingpad { ptr, i32 }
           cleanup
   %31 = getelementptr inbounds i8, ptr %0, i64 352
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %31) #22
           to label %common.resume unwind label %32
 
 32:                                               ; preds = %29
@@ -1575,7 +1575,7 @@ common.resume:                                    ; preds = %.body, %29
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit7": ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 352
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %34)
   ret void
 
 35:                                               ; preds = %.body, %"_ZN4core3ptr162drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$$LP$$RP$$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hd320db501fc73188E.llvm.3009195400206169856.exit"
@@ -1625,14 +1625,14 @@ define hidden void @"_ZN4core3ptr132drop_in_place$LT$alloc..raw_vec..RawVec$LT$$
 define hidden void @"_ZN4core3ptr132drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..list..Channel$LT$vfs_notify..Message$GT$$GT$$GT$17hfa182ae70f4eefeeE"(ptr noalias nocapture noundef readonly align 128 dereferenceable(512) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b5e104bbe9f08b1E.llvm.3009195400206169856"(ptr noalias noundef nonnull readonly align 128 dereferenceable(384) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$vfs_notify..Message$GT$$GT$17h291dab220293bb35E.llvm.3009195400206169856.exit" unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %5) #22
           to label %8 unwind label %6
 
 6:                                                ; preds = %3
@@ -1646,7 +1646,7 @@ define hidden void @"_ZN4core3ptr132drop_in_place$LT$crossbeam_channel..counter.
 
 "_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$vfs_notify..Message$GT$$GT$17h291dab220293bb35E.llvm.3009195400206169856.exit": ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %9)
   ret void
 }
 
@@ -1883,14 +1883,14 @@ define hidden void @"_ZN4core3ptr141drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4b707d822776e08E.llvm.3009195400206169856.exit": ; preds = %12, %._crit_edge.i
   %23 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %23)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %24
 
 24:                                               ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4b707d822776e08E.llvm.3009195400206169856.exit"
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %26) #22
           to label %common.resume unwind label %27
 
 27:                                               ; preds = %24
@@ -1905,7 +1905,7 @@ common.resume:                                    ; preds = %20, %24
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4b707d822776e08E.llvm.3009195400206169856.exit"
   %29 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %29)
   ret void
 
 30:                                               ; preds = %20
@@ -2078,14 +2078,14 @@ define hidden void @"_ZN4core3ptr142drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr174drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$notify..event..Event$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hb60e26436e8af68fE.llvm.3009195400206169856.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3009195400206169856.exit.i.i4", %"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb1e29b23c27f389cE.llvm.3009195400206169856.exit"
   %51 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %51)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %51)
           to label %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i" unwind label %52
 
 52:                                               ; preds = %"_ZN4core3ptr174drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$notify..event..Event$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hb60e26436e8af68fE.llvm.3009195400206169856.exit5"
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %54) #22
           to label %.body unwind label %55
 
 55:                                               ; preds = %52
@@ -2096,7 +2096,7 @@ define hidden void @"_ZN4core3ptr142drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i": ; preds = %"_ZN4core3ptr174drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$notify..event..Event$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hb60e26436e8af68fE.llvm.3009195400206169856.exit5"
   %57 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %57)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %59
 
 .body:                                            ; preds = %59, %52, %"_ZN4core3ptr174drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$notify..event..Event$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hb60e26436e8af68fE.llvm.3009195400206169856.exit"
@@ -2112,14 +2112,14 @@ define hidden void @"_ZN4core3ptr142drop_in_place$LT$crossbeam_channel..flavors.
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i"
   %61 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %61)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %61)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit8" unwind label %62
 
 62:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %63 = landingpad { ptr, i32 }
           cleanup
   %64 = getelementptr inbounds i8, ptr %0, i64 352
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %64) #22
           to label %common.resume unwind label %65
 
 65:                                               ; preds = %62
@@ -2134,7 +2134,7 @@ common.resume:                                    ; preds = %.body, %62
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit8": ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %67 = getelementptr inbounds i8, ptr %0, i64 352
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %67)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %67)
   ret void
 
 68:                                               ; preds = %.body, %"_ZN4core3ptr174drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$notify..event..Event$C$notify..error..Error$GT$$GT$$u5d$$GT$$GT$17hb60e26436e8af68fE.llvm.3009195400206169856.exit"
@@ -2272,14 +2272,14 @@ define hidden void @"_ZN4core3ptr168drop_in_place$LT$crossbeam_channel..counter.
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr125drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$core..result..Result$LT$bool$C$notify..error..Error$GT$$GT$$GT$17he23e1ec306921835E.llvm.3009195400206169856.exit" unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %9) #22
           to label %common.resume.i unwind label %10
 
 10:                                               ; preds = %7
@@ -2300,7 +2300,7 @@ common.resume.i:                                  ; preds = %7, %2
 
 "_ZN4core3ptr125drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$core..result..Result$LT$bool$C$notify..error..Error$GT$$GT$$GT$17he23e1ec306921835E.llvm.3009195400206169856.exit": ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %14)
   ret void
 }
 
@@ -2388,14 +2388,14 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$crossbeam_channel..counter.
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr129drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$core..result..Result$LT$$LP$$RP$$C$notify..error..Error$GT$$GT$$GT$17hdcaea6029d5a7555E.llvm.3009195400206169856.exit" unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %9) #22
           to label %common.resume.i unwind label %10
 
 10:                                               ; preds = %7
@@ -2416,7 +2416,7 @@ common.resume.i:                                  ; preds = %7, %2
 
 "_ZN4core3ptr129drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$core..result..Result$LT$$LP$$RP$$C$notify..error..Error$GT$$GT$$GT$17hdcaea6029d5a7555E.llvm.3009195400206169856.exit": ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %14)
   ret void
 }
 
@@ -3060,7 +3060,7 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hf13347af
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT$17h79545c942e0a6e3dE"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT$17h79545c942e0a6e3dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !933, !noundef !4
   %.not = icmp eq i64 %2, 4
   br i1 %.not, label %11, label %3
@@ -3169,7 +3169,7 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT
 44:                                               ; preds = %40
   %45 = getelementptr inbounds [0 x { i64, [7 x i64] }], ptr %14, i64 0, i64 %.1.i.i.i
   %46 = add i64 %.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$walkdir..dent..DirEntry$C$walkdir..error..Error$GT$$GT$17h4a3aca0ec83201a6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %45) #22
+  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$walkdir..dent..DirEntry$C$walkdir..error..Error$GT$$GT$17h4a3aca0ec83201a6E"(ptr noalias noundef readonly align 8 dereferenceable(64) %45) #22
           to label %40 unwind label %47, !noalias !969
 
 47:                                               ; preds = %44
@@ -3335,20 +3335,20 @@ define hidden void @"_ZN4core3ptr38drop_in_place$LT$walkdir..IntoIter$GT$17hb870
 
 "_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h0466709b610b46dcE.llvm.3009195400206169856.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3009195400206169856.exit.i.i1.i.i.i.i.i", %27, %.body
   %38 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$walkdir..DirList$GT$$GT$17h0bf52c9bf228634aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38) #22
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$walkdir..DirList$GT$$GT$17h0bf52c9bf228634aE"(ptr noalias noundef align 8 dereferenceable(24) %38) #22
           to label %40 unwind label %72
 
 "_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h0466709b610b46dcE.llvm.3009195400206169856.exit7": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3009195400206169856.exit.i.i1.i.i.i.i.i6", %34, %"_ZN4core3ptr44drop_in_place$LT$walkdir..WalkDirOptions$GT$17h427d16599b97c798E.exit"
   %39 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$walkdir..DirList$GT$$GT$17h0bf52c9bf228634aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39)
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$walkdir..DirList$GT$$GT$17h0bf52c9bf228634aE"(ptr noalias noundef align 8 dereferenceable(24) %39)
           to label %45 unwind label %43
 
 40:                                               ; preds = %43, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h0466709b610b46dcE.llvm.3009195400206169856.exit"
   %.pn2 = phi { ptr, i32 } [ %44, %43 ], [ %10, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h0466709b610b46dcE.llvm.3009195400206169856.exit" ]
   %41 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call fastcc void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$walkdir..Ancestor$GT$$GT$17he2360de45e5e6382E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #22
+  tail call fastcc void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$walkdir..Ancestor$GT$$GT$17he2360de45e5e6382E"(ptr noalias noundef align 8 dereferenceable(24) %41) #22
   %42 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$walkdir..dent..DirEntry$GT$$GT$17h0866121752c397eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #22
+  tail call fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$walkdir..dent..DirEntry$GT$$GT$17h0866121752c397eaE"(ptr noalias noundef align 8 dereferenceable(24) %42) #22
   resume { ptr, i32 } %.pn2
 
 43:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h0466709b610b46dcE.llvm.3009195400206169856.exit7"
@@ -4815,7 +4815,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$std..sys..pal..unix..fs..Dir
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca ptr, align 8
   %3 = load i64, ptr %0, align 8, !range !270, !noundef !4
   %4 = add nsw i64 %3, -3
@@ -5148,19 +5148,19 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..En
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef align 8 dereferenceable(24) %0)
           to label %5 unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef align 8 dereferenceable(24) %4) #22
           to label %9 unwind label %7
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef align 8 dereferenceable(24) %6)
   ret void
 
 7:                                                ; preds = %2
@@ -5326,14 +5326,14 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..context..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit" unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %5) #22
           to label %8 unwind label %6
 
 6:                                                ; preds = %3
@@ -5347,7 +5347,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..Sy
 
 "_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit": ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %9)
   ret void
 }
 
@@ -5661,7 +5661,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$std..sys..pal..unix..fs..Inn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$walkdir..DirList$GT$$GT$17h0bf52c9bf228634aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$walkdir..DirList$GT$$GT$17h0bf52c9bf228634aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5676,7 +5676,7 @@ define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$
 6:                                                ; preds = %4
   %7 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %.val, i64 0, i64 %.0.i.i
   %8 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT$17h79545c942e0a6e3dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7)
+  invoke fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT$17h79545c942e0a6e3dE"(ptr noalias noundef align 8 dereferenceable(72) %7)
           to label %4 unwind label %11
 
 9:                                                ; preds = %13, %11
@@ -5692,7 +5692,7 @@ define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %.val, i64 0, i64 %.1.i.i
   %15 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT$17h79545c942e0a6e3dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14) #22
+  invoke fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT$17h79545c942e0a6e3dE"(ptr noalias noundef align 8 dereferenceable(72) %14) #22
           to label %9 unwind label %16
 
 16:                                               ; preds = %13
@@ -5730,19 +5730,19 @@ define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr60drop_in_place$LT$crossbeam_channel..flavors..zero..Inner$GT$17he18270d42c6dc913E.llvm.3009195400206169856"(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0)
           to label %5 unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %4) #22
           to label %.body unwind label %7
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856.exit" unwind label %9
 
 7:                                                ; preds = %2
@@ -5764,14 +5764,14 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856.exit": ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %12)
           to label %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856.exit1" unwind label %13
 
 13:                                               ; preds = %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856.exit"
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %15) #22
           to label %common.resume unwind label %16
 
 16:                                               ; preds = %13
@@ -5786,7 +5786,7 @@ common.resume:                                    ; preds = %.body, %13
 
 "_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856.exit1": ; preds = %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856.exit"
   %18 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %18)
   ret void
 
 19:                                               ; preds = %.body
@@ -5850,7 +5850,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$paths..Ab
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$walkdir..Ancestor$GT$$GT$17he2360de45e5e6382E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$walkdir..Ancestor$GT$$GT$17he2360de45e5e6382E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6143,7 +6143,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$mio..sys..unix..waker..event
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$walkdir..dent..DirEntry$GT$$GT$17h0866121752c397eaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$walkdir..dent..DirEntry$GT$$GT$17h0866121752c397eaE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6526,7 +6526,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$std..thr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6858,14 +6858,14 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4197b6f59b419f5aE.llvm.3009195400206169856.exit": ; preds = %11, %._crit_edge.i
   %16 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %16)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %17
 
 17:                                               ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4197b6f59b419f5aE.llvm.3009195400206169856.exit"
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %19) #22
           to label %22 unwind label %20
 
 20:                                               ; preds = %17
@@ -6879,7 +6879,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4197b6f59b419f5aE.llvm.3009195400206169856.exit"
   %23 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %23)
   ret void
 }
 
@@ -6948,14 +6948,14 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$$LP$$RP$$GT$$u5d$$GT$$GT$17h0f341a074e508647E.llvm.3009195400206169856.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3009195400206169856.exit.i.i4", %1
   %8 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %8)
           to label %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i" unwind label %9
 
 9:                                                ; preds = %"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$$LP$$RP$$GT$$u5d$$GT$$GT$17h0f341a074e508647E.llvm.3009195400206169856.exit5"
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %11) #22
           to label %.body unwind label %12
 
 12:                                               ; preds = %9
@@ -6966,7 +6966,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i": ; preds = %"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$$LP$$RP$$GT$$u5d$$GT$$GT$17h0f341a074e508647E.llvm.3009195400206169856.exit5"
   %14 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %14)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %16
 
 .body:                                            ; preds = %16, %9
@@ -6982,14 +6982,14 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i"
   %18 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %18)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit7" unwind label %19
 
 19:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = getelementptr inbounds i8, ptr %0, i64 352
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %21) #22
           to label %common.resume unwind label %22
 
 22:                                               ; preds = %19
@@ -7004,7 +7004,7 @@ common.resume:                                    ; preds = %.body, %19
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit7": ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %24 = getelementptr inbounds i8, ptr %0, i64 352
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %24)
   ret void
 
 25:                                               ; preds = %.body
@@ -7180,14 +7180,14 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$crossbeam_channel..err..Send
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr82drop_in_place$LT$core..cell..UnsafeCell$LT$crossbeam_channel..waker..Waker$GT$$GT$17hd985351f59a6e3aaE.llvm.3009195400206169856"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856.exit" unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %4) #22
           to label %7 unwind label %5
 
 5:                                                ; preds = %2
@@ -7201,7 +7201,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$core..cell..UnsafeCell$LT$cr
 
 "_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Waker$GT$17h5e7ad2fd984f57f9E.llvm.3009195400206169856.exit": ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %8)
   ret void
 }
 
@@ -7214,14 +7214,14 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$crossbeam_channel..channel..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr82drop_in_place$LT$core..cell..UnsafeCell$LT$crossbeam_channel..waker..Waker$GT$$GT$17hd985351f59a6e3aaE.llvm.3009195400206169856.exit" unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %5) #22
           to label %8 unwind label %6
 
 6:                                                ; preds = %3
@@ -7235,7 +7235,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$c
 
 "_ZN4core3ptr82drop_in_place$LT$core..cell..UnsafeCell$LT$crossbeam_channel..waker..Waker$GT$$GT$17hd985351f59a6e3aaE.llvm.3009195400206169856.exit": ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %9)
   ret void
 }
 
@@ -7481,14 +7481,14 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3009195400206169856.exit.
 define hidden void @"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$vfs_notify..Message$GT$$GT$17h291dab220293bb35E.llvm.3009195400206169856"(ptr noalias nocapture noundef readonly align 128 dereferenceable(384) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b5e104bbe9f08b1E.llvm.3009195400206169856"(ptr noalias noundef nonnull align 128 dereferenceable(384) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %5) #22
           to label %8 unwind label %6
 
 6:                                                ; preds = %3
@@ -7502,7 +7502,7 @@ define hidden void @"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %9)
   ret void
 }
 
@@ -7600,14 +7600,14 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$vfs_notify..Message$GT$$u5d$$GT$$GT$17h4ed56f9606fb3b1eE.llvm.3009195400206169856.exit5": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3009195400206169856.exit.i.i4", %1
   %8 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %8)
           to label %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i" unwind label %9
 
 9:                                                ; preds = %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$vfs_notify..Message$GT$$u5d$$GT$$GT$17h4ed56f9606fb3b1eE.llvm.3009195400206169856.exit5"
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %11) #22
           to label %.body unwind label %12
 
 12:                                               ; preds = %9
@@ -7618,7 +7618,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i": ; preds = %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_channel..flavors..array..Slot$LT$vfs_notify..Message$GT$$u5d$$GT$$GT$17h4ed56f9606fb3b1eE.llvm.3009195400206169856.exit5"
   %14 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %14)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %16
 
 .body:                                            ; preds = %16, %9
@@ -7634,14 +7634,14 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..Mutex$LT$crossbeam_channel..waker..Waker$GT$$GT$17h133cdd53e0bed1abE.llvm.3009195400206169856.exit.i"
   %18 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %18)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit7" unwind label %19
 
 19:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = getelementptr inbounds i8, ptr %0, i64 352
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %21) #22
           to label %common.resume unwind label %22
 
 22:                                               ; preds = %19
@@ -7656,7 +7656,7 @@ common.resume:                                    ; preds = %.body, %19
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit7": ; preds = %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit"
   %24 = getelementptr inbounds i8, ptr %0, i64 352
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %24)
   ret void
 
 25:                                               ; preds = %.body
@@ -7828,7 +7828,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_utils..atomic..ato
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$walkdir..dent..DirEntry$C$walkdir..error..Error$GT$$GT$17h4a3aca0ec83201a6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$walkdir..dent..DirEntry$C$walkdir..error..Error$GT$$GT$17h4a3aca0ec83201a6E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !973, !noundef !4
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %4, label %10
@@ -8057,7 +8057,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$crossbeam_channel..flavors..
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds i8, ptr %.01419.i, i64 8
   %17 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %16, i64 %11
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias noundef align 8 dereferenceable(48) %17)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %15, %13
@@ -8075,14 +8075,14 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$crossbeam_channel..flavors..
 
 "_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbb5787557bd8fa19E.llvm.3009195400206169856.exit": ; preds = %12, %._crit_edge.i
   %22 = getelementptr inbounds i8, ptr %0, i64 264
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %22)
           to label %"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit" unwind label %23
 
 23:                                               ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbb5787557bd8fa19E.llvm.3009195400206169856.exit"
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25) #22
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %25) #22
           to label %common.resume unwind label %26
 
 26:                                               ; preds = %23
@@ -8097,7 +8097,7 @@ common.resume:                                    ; preds = %19, %23
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..waker..SyncWaker$GT$17hf77132aacd524fa8E.llvm.3009195400206169856.exit": ; preds = %"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbb5787557bd8fa19E.llvm.3009195400206169856.exit"
   %28 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
+  tail call fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..waker..Entry$GT$$GT$17h9dfa8e70b4caf5d8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %28)
   ret void
 
 29:                                               ; preds = %19
@@ -11081,7 +11081,7 @@ define hidden void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds i8, ptr %.01419, i64 8
   %18 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %17, i64 %11
-  tail call fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18)
+  tail call fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias noundef align 8 dereferenceable(48) %18)
   br label %19
 
 19:                                               ; preds = %16, %14
@@ -11205,7 +11205,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   %36 = select i1 %35, i64 0, i64 %29
   %.0 = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %31, i64 %.0
-  tail call fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37)
+  tail call fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17hb7d5fac1b8fcb184E"(ptr noalias noundef align 8 dereferenceable(48) %37)
   %exitcond.not = icmp eq i64 %33, %.07
   br i1 %exitcond.not, label %._crit_edge, label %32
 }

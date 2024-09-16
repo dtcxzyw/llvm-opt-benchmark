@@ -1222,7 +1222,7 @@ _ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit53.i: ; pred
 192:                                              ; preds = %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit53.i, %169, %142
   %.0.i = phi i64 [ %191, %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit53.i ], [ 0, %169 ], [ 0, %142 ]
   %193 = load ptr, ptr %48, align 8
-  call fastcc void @_ZL12getIssueHashRKN5clang4ento14PathDiagnosticERKNS_12PreprocessorE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(480) %87, ptr noundef nonnull align 8 dereferenceable(3288) %193)
+  call fastcc void @_ZL12getIssueHashRKN5clang4ento14PathDiagnosticERKNS_12PreprocessorE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(480) %87, ptr noundef nonnull align 8 dereferenceable(3288) %193)
   %194 = load ptr, ptr %18, align 8
   %195 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   %196 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %194, i64 %195) #18
@@ -1233,7 +1233,7 @@ _ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit53.i: ; pred
 
 199:                                              ; preds = %192
   %200 = call noundef ptr @_ZN4llvm11SmallStringILj128EE5c_strEv(ptr noundef nonnull align 8 dereferenceable(152) %12)
-  call fastcc void @_ZN12_GLOBAL__N_115HTMLDiagnostics12GenerateHTMLB5cxx11ERKN5clang4ento14PathDiagnosticERNS1_8RewriterERKNS1_13SourceManagerERKNS2_10PathPiecesEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(480) %87, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(696) %151, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %200)
+  call fastcc void @_ZN12_GLOBAL__N_115HTMLDiagnostics12GenerateHTMLB5cxx11ERKN5clang4ento14PathDiagnosticERNS1_8RewriterERKNS1_13SourceManagerERKNS2_10PathPiecesEPKc(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(480) %87, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(696) %151, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %200)
   %201 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   br i1 %201, label %202, label %217
 
@@ -1973,7 +1973,7 @@ declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 derefere
 declare noundef i32 @_ZNK5clang13FullSourceLoc22getExpansionLineNumberEPb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12getIssueHashRKN5clang4ento14PathDiagnosticERKNS_12PreprocessorE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(480) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL12getIssueHashRKN5clang4ento14PathDiagnosticERKNS_12PreprocessorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(480) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::FullSourceLoc", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
@@ -2005,12 +2005,12 @@ _ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit: ; preds = 
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %20 = load ptr, ptr %19, align 8
-  call void @_ZN5clang12getIssueHashERKNS_13FullSourceLocEN4llvm9StringRefES4_PKNS_4DeclERKNS_11LangOptionsE(ptr dead_on_unwind writable sret(%"class.llvm::SmallString.341") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %12, i64 %13, ptr %15, i64 %16, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(841) %20) #18
+  call void @_ZN5clang12getIssueHashERKNS_13FullSourceLocEN4llvm9StringRefES4_PKNS_4DeclERKNS_11LangOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallString.341") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %12, i64 %13, ptr %15, i64 %16, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(841) %20) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115HTMLDiagnostics12GenerateHTMLB5cxx11ERKN5clang4ento14PathDiagnosticERNS1_8RewriterERKNS1_13SourceManagerERKNS2_10PathPiecesEPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(480) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(696) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115HTMLDiagnostics12GenerateHTMLB5cxx11ERKN5clang4ento14PathDiagnosticERNS1_8RewriterERKNS1_13SourceManagerERKNS2_10PathPiecesEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(480) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(696) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -6396,7 +6396,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit294.i:            ; preds = %2037, %2035
   %.0.i.i293.i = phi ptr [ %2036, %2035 ], [ %33, %2037 ]
   %2040 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %2041 = load ptr, ptr %2040, align 8
-  call fastcc void @_ZL12getIssueHashRKN5clang4ento14PathDiagnosticERKNS_12PreprocessorE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(480) %2, ptr noundef nonnull align 8 dereferenceable(3288) %2041)
+  call fastcc void @_ZL12getIssueHashRKN5clang4ento14PathDiagnosticERKNS_12PreprocessorE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(480) %2, ptr noundef nonnull align 8 dereferenceable(3288) %2041)
   %2042 = load ptr, ptr %34, align 8
   %2043 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #18
   %2044 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i293.i, ptr noundef %2042, i64 noundef %2043) #18

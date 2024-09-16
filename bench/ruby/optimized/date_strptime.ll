@@ -795,14 +795,14 @@ head_match_p.exit763.thread:                      ; preds = %head_match_p.exit76
 148:                                              ; preds = %124, %143, %141
   %149 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %150 = sub i64 %1, %.06441393
-  %151 = call fastcc i64 @read_digits(ptr noundef %149, i64 noundef %150, ptr noundef nonnull %6, i64 noundef 2)
+  %151 = call fastcc i64 @read_digits(ptr noundef %149, i64 noundef %150, ptr noundef %6, i64 noundef 2)
   %152 = icmp eq i64 %151, 0
   br i1 %152, label %.loopexit1213.sink.split.sink.split, label %157
 
 num_pattern_p.exit:                               ; preds = %143, %139, %132
   %153 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %154 = sub i64 %1, %.06441393
-  %155 = call fastcc i64 @read_digits(ptr noundef %153, i64 noundef %154, ptr noundef nonnull %6, i64 noundef 9223372036854775807)
+  %155 = call fastcc i64 @read_digits(ptr noundef %153, i64 noundef %154, ptr noundef %6, i64 noundef 9223372036854775807)
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %.loopexit1213.sink.split.sink.split, label %157
 
@@ -886,7 +886,7 @@ rbimpl_intern_const.exit795:                      ; preds = %.lr.ph.i793, %172
   %187 = add i64 %.06441393, 1
   %188 = getelementptr inbounds i8, ptr %0, i64 %187
   %189 = sub i64 %1, %187
-  %190 = call fastcc i64 @read_digits(ptr noundef %188, i64 noundef %189, ptr noundef nonnull %7, i64 noundef 1)
+  %190 = call fastcc i64 @read_digits(ptr noundef %188, i64 noundef %189, ptr noundef %7, i64 noundef 1)
   %191 = icmp eq i64 %190, 0
   br i1 %191, label %.loopexit1213.sink.split.sink.split, label %192
 
@@ -896,7 +896,7 @@ rbimpl_intern_const.exit795:                      ; preds = %.lr.ph.i793, %172
 
 194:                                              ; preds = %182
   %195 = sub i64 %1, %.06441393
-  %196 = call fastcc i64 @read_digits(ptr noundef nonnull %183, i64 noundef %195, ptr noundef nonnull %7, i64 noundef 2)
+  %196 = call fastcc i64 @read_digits(ptr noundef nonnull %183, i64 noundef %195, ptr noundef %7, i64 noundef 2)
   %197 = icmp eq i64 %196, 0
   br i1 %197, label %.loopexit1213.sink.split.sink.split, label %198
 
@@ -1020,14 +1020,14 @@ rbimpl_intern_const.exit810:                      ; preds = %.lr.ph.i808, %215
 249:                                              ; preds = %225, %244, %242
   %250 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %251 = sub i64 %1, %.06441393
-  %252 = call fastcc i64 @read_digits(ptr noundef %250, i64 noundef %251, ptr noundef nonnull %8, i64 noundef 4)
+  %252 = call fastcc i64 @read_digits(ptr noundef %250, i64 noundef %251, ptr noundef %8, i64 noundef 4)
   %253 = icmp eq i64 %252, 0
   br i1 %253, label %.loopexit1213.sink.split.sink.split, label %258
 
 num_pattern_p.exit818:                            ; preds = %244, %240, %233
   %254 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %255 = sub i64 %1, %.06441393
-  %256 = call fastcc i64 @read_digits(ptr noundef %254, i64 noundef %255, ptr noundef nonnull %8, i64 noundef 9223372036854775807)
+  %256 = call fastcc i64 @read_digits(ptr noundef %254, i64 noundef %255, ptr noundef %8, i64 noundef 9223372036854775807)
   %257 = icmp eq i64 %256, 0
   br i1 %257, label %.loopexit1213.sink.split.sink.split, label %258
 
@@ -1054,7 +1054,7 @@ rbimpl_intern_const.exit824:                      ; preds = %.lr.ph.i822, %258
 263:                                              ; preds = %.preheader1211
   %264 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %265 = sub i64 %1, %.06441393
-  %266 = call fastcc i64 @read_digits(ptr noundef %264, i64 noundef %265, ptr noundef nonnull %9, i64 noundef 2)
+  %266 = call fastcc i64 @read_digits(ptr noundef %264, i64 noundef %265, ptr noundef %9, i64 noundef 2)
   %267 = icmp eq i64 %266, 0
   br i1 %267, label %.loopexit1213.sink.split.sink.split, label %268
 
@@ -1155,7 +1155,7 @@ rbimpl_intern_const.exit854:                      ; preds = %.lr.ph.i852, %rbimp
   %299 = add i64 %.06441393, 1
   %300 = getelementptr inbounds i8, ptr %0, i64 %299
   %301 = sub i64 %1, %299
-  %302 = call fastcc i64 @read_digits(ptr noundef %300, i64 noundef %301, ptr noundef nonnull %10, i64 noundef 1)
+  %302 = call fastcc i64 @read_digits(ptr noundef %300, i64 noundef %301, ptr noundef %10, i64 noundef 1)
   %303 = icmp eq i64 %302, 0
   br i1 %303, label %.loopexit1213.sink.split.sink.split, label %304
 
@@ -1165,7 +1165,7 @@ rbimpl_intern_const.exit854:                      ; preds = %.lr.ph.i852, %rbimp
 
 306:                                              ; preds = %294
   %307 = sub i64 %1, %.06441393
-  %308 = call fastcc i64 @read_digits(ptr noundef nonnull %295, i64 noundef %307, ptr noundef nonnull %10, i64 noundef 2)
+  %308 = call fastcc i64 @read_digits(ptr noundef nonnull %295, i64 noundef %307, ptr noundef %10, i64 noundef 2)
   %309 = icmp eq i64 %308, 0
   br i1 %309, label %.loopexit1213.sink.split.sink.split, label %310
 
@@ -1223,7 +1223,7 @@ rbimpl_intern_const.exit866:                      ; preds = %.lr.ph.i864, %322
   %331 = add i64 %.06441393, 1
   %332 = getelementptr inbounds i8, ptr %0, i64 %331
   %333 = sub i64 %1, %331
-  %334 = call fastcc i64 @read_digits(ptr noundef %332, i64 noundef %333, ptr noundef nonnull %11, i64 noundef 1)
+  %334 = call fastcc i64 @read_digits(ptr noundef %332, i64 noundef %333, ptr noundef %11, i64 noundef 1)
   %335 = icmp eq i64 %334, 0
   br i1 %335, label %.loopexit1213.sink.split.sink.split, label %336
 
@@ -1233,7 +1233,7 @@ rbimpl_intern_const.exit866:                      ; preds = %.lr.ph.i864, %322
 
 338:                                              ; preds = %326
   %339 = sub i64 %1, %.06441393
-  %340 = call fastcc i64 @read_digits(ptr noundef nonnull %327, i64 noundef %339, ptr noundef nonnull %11, i64 noundef 2)
+  %340 = call fastcc i64 @read_digits(ptr noundef nonnull %327, i64 noundef %339, ptr noundef %11, i64 noundef 2)
   %341 = icmp eq i64 %340, 0
   br i1 %341, label %.loopexit1213.sink.split.sink.split, label %342
 
@@ -1285,7 +1285,7 @@ rbimpl_intern_const.exit878:                      ; preds = %.lr.ph.i876, %355
 359:                                              ; preds = %.preheader1211
   %360 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %361 = sub i64 %1, %.06441393
-  %362 = call fastcc i64 @read_digits(ptr noundef %360, i64 noundef %361, ptr noundef nonnull %12, i64 noundef 3)
+  %362 = call fastcc i64 @read_digits(ptr noundef %360, i64 noundef %361, ptr noundef %12, i64 noundef 3)
   %363 = icmp eq i64 %362, 0
   br i1 %363, label %.loopexit1213.sink.split.sink.split, label %364
 
@@ -1397,14 +1397,14 @@ rbimpl_intern_const.exit890:                      ; preds = %.lr.ph.i888, %375
   %412 = sub i64 %1, %.8
   %413 = icmp eq i8 %59, 76
   %414 = select i1 %413, i64 3, i64 9
-  %415 = call fastcc i64 @read_digits(ptr noundef %411, i64 noundef %412, ptr noundef nonnull %13, i64 noundef %414)
+  %415 = call fastcc i64 @read_digits(ptr noundef %411, i64 noundef %412, ptr noundef %13, i64 noundef %414)
   %416 = icmp eq i64 %415, 0
   br i1 %416, label %.loopexit1213.sink.split.sink.split, label %421
 
 num_pattern_p.exit898:                            ; preds = %405, %401, %394
   %417 = getelementptr inbounds i8, ptr %0, i64 %.8
   %418 = sub i64 %1, %.8
-  %419 = call fastcc i64 @read_digits(ptr noundef %417, i64 noundef %418, ptr noundef nonnull %13, i64 noundef 9223372036854775807)
+  %419 = call fastcc i64 @read_digits(ptr noundef %417, i64 noundef %418, ptr noundef %13, i64 noundef 9223372036854775807)
   %420 = icmp eq i64 %419, 0
   br i1 %420, label %.loopexit1213.sink.split.sink.split, label %421
 
@@ -1480,7 +1480,7 @@ rb_ulong2num_inline.exit:                         ; preds = %432, %435
 440:                                              ; preds = %.preheader1211
   %441 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %442 = sub i64 %1, %.06441393
-  %443 = call fastcc i64 @read_digits(ptr noundef %441, i64 noundef %442, ptr noundef nonnull %14, i64 noundef 2)
+  %443 = call fastcc i64 @read_digits(ptr noundef %441, i64 noundef %442, ptr noundef %14, i64 noundef 2)
   %444 = icmp eq i64 %443, 0
   br i1 %444, label %.loopexit1213.sink.split.sink.split, label %445
 
@@ -1527,7 +1527,7 @@ rbimpl_intern_const.exit929:                      ; preds = %.lr.ph.i927, %455
 460:                                              ; preds = %.preheader1211
   %461 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %462 = sub i64 %1, %.06441393
-  %463 = call fastcc i64 @read_digits(ptr noundef %461, i64 noundef %462, ptr noundef nonnull %15, i64 noundef 2)
+  %463 = call fastcc i64 @read_digits(ptr noundef %461, i64 noundef %462, ptr noundef %15, i64 noundef 2)
   %464 = icmp eq i64 %463, 0
   br i1 %464, label %.loopexit1213.sink.split.sink.split, label %465
 
@@ -1670,7 +1670,7 @@ rbimpl_intern_const.exit953:                      ; preds = %.lr.ph.i951, %514
   %spec.select = add i64 %.06441393, %524
   %525 = getelementptr inbounds i8, ptr %0, i64 %spec.select
   %526 = sub i64 %1, %spec.select
-  %527 = call fastcc i64 @read_digits(ptr noundef %525, i64 noundef %526, ptr noundef nonnull %16, i64 noundef 9223372036854775807)
+  %527 = call fastcc i64 @read_digits(ptr noundef %525, i64 noundef %526, ptr noundef %16, i64 noundef 9223372036854775807)
   %528 = icmp eq i64 %527, 0
   br i1 %528, label %.loopexit1213.sink.split.sink.split, label %529
 
@@ -1768,7 +1768,7 @@ rbimpl_intern_const.exit977:                      ; preds = %.lr.ph.i975, %551
 561:                                              ; preds = %.preheader1211
   %562 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %563 = sub i64 %1, %.06441393
-  %564 = call fastcc i64 @read_digits(ptr noundef %562, i64 noundef %563, ptr noundef nonnull %17, i64 noundef 2)
+  %564 = call fastcc i64 @read_digits(ptr noundef %562, i64 noundef %563, ptr noundef %17, i64 noundef 2)
   %565 = icmp eq i64 %564, 0
   br i1 %565, label %.loopexit1213.sink.split.sink.split, label %566
 
@@ -1820,7 +1820,7 @@ rbimpl_intern_const.exit989:                      ; preds = %.lr.ph.i987, %576
   %spec.select738 = add i64 %.06441393, %585
   %586 = getelementptr inbounds i8, ptr %0, i64 %spec.select738
   %587 = sub i64 %1, %spec.select738
-  %588 = call fastcc i64 @read_digits(ptr noundef %586, i64 noundef %587, ptr noundef nonnull %18, i64 noundef 9223372036854775807)
+  %588 = call fastcc i64 @read_digits(ptr noundef %586, i64 noundef %587, ptr noundef %18, i64 noundef 9223372036854775807)
   %589 = icmp eq i64 %588, 0
   br i1 %589, label %.loopexit1213.sink.split.sink.split, label %590
 
@@ -1892,7 +1892,7 @@ rbimpl_intern_const.exit1007:                     ; preds = %.lr.ph.i1005, %601
 611:                                              ; preds = %.preheader1211, %.preheader1211
   %612 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %613 = sub i64 %1, %.06441393
-  %614 = call fastcc i64 @read_digits(ptr noundef %612, i64 noundef %613, ptr noundef nonnull %19, i64 noundef 2)
+  %614 = call fastcc i64 @read_digits(ptr noundef %612, i64 noundef %613, ptr noundef %19, i64 noundef 2)
   %615 = icmp eq i64 %614, 0
   br i1 %615, label %.loopexit1213.sink.split.sink.split, label %616
 
@@ -1930,7 +1930,7 @@ valid_range_p.exit1013:                           ; preds = %622
 633:                                              ; preds = %.preheader1211
   %634 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %635 = sub i64 %1, %.06441393
-  %636 = call fastcc i64 @read_digits(ptr noundef %634, i64 noundef %635, ptr noundef nonnull %20, i64 noundef 1)
+  %636 = call fastcc i64 @read_digits(ptr noundef %634, i64 noundef %635, ptr noundef %20, i64 noundef 1)
   %637 = icmp eq i64 %636, 0
   br i1 %637, label %.loopexit1213.sink.split.sink.split, label %638
 
@@ -1978,7 +1978,7 @@ rbimpl_intern_const.exit1025:                     ; preds = %.lr.ph.i1023, %649
 654:                                              ; preds = %.preheader1211
   %655 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %656 = sub i64 %1, %.06441393
-  %657 = call fastcc i64 @read_digits(ptr noundef %655, i64 noundef %656, ptr noundef nonnull %21, i64 noundef 2)
+  %657 = call fastcc i64 @read_digits(ptr noundef %655, i64 noundef %656, ptr noundef %21, i64 noundef 2)
   %658 = icmp eq i64 %657, 0
   br i1 %658, label %.loopexit1213.sink.split.sink.split, label %659
 
@@ -2051,7 +2051,7 @@ rbimpl_intern_const.exit1043:                     ; preds = %.lr.ph.i1041, %675
 685:                                              ; preds = %.preheader1211
   %686 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %687 = sub i64 %1, %.06441393
-  %688 = call fastcc i64 @read_digits(ptr noundef %686, i64 noundef %687, ptr noundef nonnull %22, i64 noundef 1)
+  %688 = call fastcc i64 @read_digits(ptr noundef %686, i64 noundef %687, ptr noundef %22, i64 noundef 1)
   %689 = icmp eq i64 %688, 0
   br i1 %689, label %.loopexit1213.sink.split.sink.split, label %690
 
@@ -2210,14 +2210,14 @@ rbimpl_intern_const.exit1067:                     ; preds = %.lr.ph.i1065, %715
 755:                                              ; preds = %731, %750, %748
   %756 = getelementptr inbounds i8, ptr %0, i64 %.13
   %757 = sub i64 %1, %.13
-  %758 = call fastcc i64 @read_digits(ptr noundef %756, i64 noundef %757, ptr noundef nonnull %23, i64 noundef 4)
+  %758 = call fastcc i64 @read_digits(ptr noundef %756, i64 noundef %757, ptr noundef %23, i64 noundef 4)
   %759 = icmp eq i64 %758, 0
   br i1 %759, label %.loopexit1213.sink.split.sink.split, label %764
 
 num_pattern_p.exit1075:                           ; preds = %750, %746, %739
   %760 = getelementptr inbounds i8, ptr %0, i64 %.13
   %761 = sub i64 %1, %.13
-  %762 = call fastcc i64 @read_digits(ptr noundef %760, i64 noundef %761, ptr noundef nonnull %23, i64 noundef 9223372036854775807)
+  %762 = call fastcc i64 @read_digits(ptr noundef %760, i64 noundef %761, ptr noundef %23, i64 noundef 9223372036854775807)
   %763 = icmp eq i64 %762, 0
   br i1 %763, label %.loopexit1213.sink.split.sink.split, label %764
 
@@ -2265,7 +2265,7 @@ rbimpl_intern_const.exit1087:                     ; preds = %.lr.ph.i1085, %769
 774:                                              ; preds = %.preheader1211
   %775 = getelementptr inbounds i8, ptr %0, i64 %.06441393
   %776 = sub i64 %1, %.06441393
-  %777 = call fastcc i64 @read_digits(ptr noundef %775, i64 noundef %776, ptr noundef nonnull %24, i64 noundef 2)
+  %777 = call fastcc i64 @read_digits(ptr noundef %775, i64 noundef %776, ptr noundef %24, i64 noundef 2)
   %778 = icmp eq i64 %777, 0
   br i1 %778, label %.loopexit1213.sink.split.sink.split, label %779
 
@@ -2605,7 +2605,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #3
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2, i64 noundef range(i64 1, -9223372036854775808) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   br label %6
 
@@ -2623,7 +2623,7 @@ define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr noca
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %7
-  %14 = add i64 %.035, 1
+  %14 = add nuw nsw i64 %.035, 1
   %15 = icmp eq i64 %14, %3
   br i1 %15, label %.critedge.thread, label %6, !llvm.loop !14
 

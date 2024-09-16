@@ -9454,7 +9454,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %5 = load ptr, ptr %4, align 8, !alias.scope !982, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.start.p0(i64 7144, ptr nonnull %2), !noalias !982
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7144) %2, ptr noundef nonnull readonly align 8 dereferenceable(7144) %0, i64 7144, i1 false)
-  call fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h69a5309aa9e5acd6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(384) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(7144) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.536)
+  call fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h69a5309aa9e5acd6E(ptr noalias nocapture noundef align 8 dereferenceable(384) %3, ptr noalias noundef readonly align 8 dereferenceable(16) %5, ptr noalias nocapture noundef align 8 dereferenceable(7144) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.536)
   call void @llvm.lifetime.end.p0(i64 7144, ptr nonnull %2), !noalias !982
   %6 = getelementptr inbounds i8, ptr %0, i64 7144
   %7 = load ptr, ptr %6, align 8, !alias.scope !982, !nonnull !5, !align !6, !noundef !5
@@ -11827,7 +11827,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr92drop
 .body.i.i.i.i:                                    ; preds = %89, %70
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %90, %89 ], [ %.pn.i.i.i.i.i, %70 ]
   %91 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hafea8dc6caf0e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91) #33
+  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hafea8dc6caf0e0ecE"(ptr noalias noundef align 8 dereferenceable(24) %91) #33
           to label %103 unwind label %108
 
 "_ZN4core3ptr87drop_in_place$LT$aws_runtime..env_config..source..load..$u7b$$u7b$closure$u7d$$u7d$$GT$17h829a8c4886930840E.exit.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8dc06d0ccd13fcc6E.exit.i.i4.i.i.i.i", %74, %57
@@ -11961,7 +11961,7 @@ define internal void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h8d2132ce9692b72cE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h8d2132ce9692b72cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr75drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$17h7b5f73636691b515E.exit", label %4
@@ -12008,7 +12008,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$aws_sd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$$GT$17hd0966939adb6c79cE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$$GT$17hd0966939adb6c79cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr79drop_in_place$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$17h55ddee61c0fe39e1E.exit", label %4
@@ -12047,7 +12047,7 @@ define internal void @"_ZN4core3ptr110drop_in_place$LT$$RF$aws_sdk_dynamodb..typ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h2c1078efd663ccdcE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h2c1078efd663ccdcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr82drop_in_place$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$17h1333fbc12fe214c5E.exit", label %4
@@ -12184,7 +12184,7 @@ define internal void @"_ZN4core3ptr119drop_in_place$LT$$RF$alloc..sync..Arc$LT$d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$$GT$17hb5d094ded68f90daE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$$GT$17hb5d094ded68f90daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr91drop_in_place$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$17h9fee21a58b3246e1E.exit", label %4
@@ -13051,7 +13051,7 @@ define internal void @"_ZN4core3ptr187drop_in_place$LT$$RF$aws_smithy_runtime_ap
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$C$aws_runtime..env_config..EnvConfigError$LT$aws_types..app_name..InvalidAppName$GT$$GT$$GT$17h16766a00390c495eE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$C$aws_runtime..env_config..EnvConfigError$LT$aws_types..app_name..InvalidAppName$GT$$GT$$GT$17h16766a00390c495eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !110, !noundef !5
@@ -13176,7 +13176,7 @@ define internal void @"_ZN4core3ptr32drop_in_place$LT$$RF$$RF$str$GT$17hd5fdeab4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, [1 x i32] }, { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, align 8
   %3 = alloca i64, align 8
   %4 = alloca [2 x { ptr, ptr }], align 8
@@ -13448,7 +13448,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 97:                                               ; preds = %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17he8132ce43f8273f7E.exit107.i", %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17he8132ce43f8273f7E.exit.i", %.noexc8, %.critedge.i7, %11
   %98 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6111a1f2ea735193E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #33
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6111a1f2ea735193E"(ptr noalias noundef align 8 dereferenceable(32) %0) #33
           to label %111 unwind label %109
 
 "_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb262c21a46286199E.exit": ; preds = %.noexc4, %17, %.noexc2
@@ -13537,7 +13537,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$std..time..SystemTime$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !111, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -14176,7 +14176,7 @@ define internal void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6111a1f2ea735193E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6111a1f2ea735193E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !80, !noundef !5
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr41drop_in_place$LT$tracing..span..Inner$GT$17h4be33e0e5fe72083E.exit", label %4
@@ -15094,7 +15094,7 @@ define internal void @"_ZN4core3ptr73drop_in_place$LT$tracing_core..field..Displ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$aws_types..region..Region$GT$$GT$17hc7b49c6967cff4d9E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$aws_types..region..Region$GT$$GT$17hc7b49c6967cff4d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !5
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -15290,7 +15290,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$GT$17h118ebf37e7ac5771E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$GT$17h118ebf37e7ac5771E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !5
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -15778,7 +15778,7 @@ common.resume:                                    ; preds = %158, %139, %120, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hafea8dc6caf0e0ecE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hafea8dc6caf0e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !5
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -16566,7 +16566,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
 .body.i:                                          ; preds = %144, %119
   %eh.lpad-body.i = phi { ptr, i32 } [ %145, %144 ], [ %120, %119 ]
   %146 = getelementptr inbounds i8, ptr %0, i64 2944
-  invoke fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$C$aws_runtime..env_config..EnvConfigError$LT$aws_types..app_name..InvalidAppName$GT$$GT$$GT$17h16766a00390c495eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %146) #33
+  invoke fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$C$aws_runtime..env_config..EnvConfigError$LT$aws_types..app_name..InvalidAppName$GT$$GT$$GT$17h16766a00390c495eE"(ptr noalias noundef align 8 dereferenceable(32) %146) #33
           to label %171 unwind label %181
 
 "_ZN4core3ptr116drop_in_place$LT$aws_config..default_provider..app_name..Builder..fallback_app_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbbc8625ddc664db1E.exit.i": ; preds = %.noexc.i, %126, %122, %114
@@ -17729,7 +17729,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
   %596 = getelementptr inbounds i8, ptr %0, i64 2103
   store i8 0, ptr %596, align 1
   %597 = getelementptr inbounds i8, ptr %0, i64 1504
-  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$GT$17h118ebf37e7ac5771E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %597) #33
+  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$GT$17h118ebf37e7ac5771E"(ptr noalias noundef align 8 dereferenceable(24) %597) #33
           to label %.body61 unwind label %543
 
 598:                                              ; preds = %345
@@ -17764,7 +17764,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
   %608 = getelementptr inbounds i8, ptr %0, i64 2102
   store i8 0, ptr %608, align 2
   %609 = getelementptr inbounds i8, ptr %0, i64 1656
-  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$$GT$17hb5d094ded68f90daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %609) #33
+  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$$GT$17hb5d094ded68f90daE"(ptr noalias noundef align 8 dereferenceable(24) %609) #33
           to label %.body69 unwind label %543
 
 610:                                              ; preds = %468
@@ -17795,7 +17795,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
 620:                                              ; preds = %628, %610
   %.pn2.pn = phi { ptr, i32 } [ %.pn2, %628 ], [ %611, %610 ]
   %621 = getelementptr inbounds i8, ptr %0, i64 1680
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$$GT$17hd0966939adb6c79cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %621) #33
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$$GT$17hd0966939adb6c79cE"(ptr noalias noundef align 8 dereferenceable(24) %621) #33
           to label %.body93 unwind label %543
 
 622:                                              ; preds = %.noexc96, %485
@@ -17928,7 +17928,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
   %669 = getelementptr inbounds i8, ptr %0, i64 2096
   store i8 0, ptr %669, align 8
   %670 = getelementptr inbounds i8, ptr %0, i64 1120
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17h37de3e45378f777bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %670) #33
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17h37de3e45378f777bE"(ptr noalias noundef align 8 dereferenceable(16) %670) #33
           to label %673 unwind label %543
 
 671:                                              ; preds = %666
@@ -18054,7 +18054,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
   %720 = landingpad { ptr, i32 }
           cleanup
   %721 = getelementptr inbounds i8, ptr %0, i64 992
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h2c1078efd663ccdcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %721) #33
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h2c1078efd663ccdcE"(ptr noalias noundef align 8 dereferenceable(16) %721) #33
           to label %722 unwind label %543
 
 722:                                              ; preds = %726, %719
@@ -18298,7 +18298,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
 825:                                              ; preds = %851, %827, %.body138
   %.pn38 = phi { ptr, i32 } [ %828, %827 ], [ %.pn36, %851 ], [ %.pn36, %.body138 ]
   %826 = getelementptr inbounds i8, ptr %0, i64 1064
-  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h8d2132ce9692b72cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %826) #33
+  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h8d2132ce9692b72cE"(ptr noalias noundef align 8 dereferenceable(16) %826) #33
           to label %853 unwind label %543
 
 827:                                              ; preds = %.noexc143, %824
@@ -18355,7 +18355,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
 
 851:                                              ; preds = %.body138
   %852 = getelementptr inbounds i8, ptr %0, i64 1048
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17h37de3e45378f777bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %852) #33
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17h37de3e45378f777bE"(ptr noalias noundef align 8 dereferenceable(16) %852) #33
           to label %825 unwind label %543
 
 853:                                              ; preds = %900, %825, %829
@@ -18372,7 +18372,7 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
 
 858:                                              ; preds = %.body56
   %859 = getelementptr inbounds i8, ptr %0, i64 1440
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$aws_types..region..Region$GT$$GT$17hc7b49c6967cff4d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %859) #33
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$aws_types..region..Region$GT$$GT$17hc7b49c6967cff4d9E"(ptr noalias noundef align 8 dereferenceable(24) %859) #33
           to label %.body105 unwind label %543
 
 860:                                              ; preds = %.body
@@ -18387,12 +18387,12 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
 
 864:                                              ; preds = %866, %693
   %865 = getelementptr inbounds i8, ptr %0, i64 992
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h2c1078efd663ccdcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %865) #33
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h2c1078efd663ccdcE"(ptr noalias noundef align 8 dereferenceable(16) %865) #33
           to label %868 unwind label %543
 
 866:                                              ; preds = %693
   %867 = getelementptr inbounds i8, ptr %0, i64 840
-  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$GT$17h118ebf37e7ac5771E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %867) #33
+  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$GT$17h118ebf37e7ac5771E"(ptr noalias noundef align 8 dereferenceable(24) %867) #33
           to label %864 unwind label %543
 
 868:                                              ; preds = %864
@@ -18457,12 +18457,12 @@ common.ret.sink.split.i59:                        ; preds = %"_ZN4core3ptr53drop
 
 900:                                              ; preds = %902, %895
   %901 = getelementptr inbounds i8, ptr %0, i64 1064
-  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h8d2132ce9692b72cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %901) #33
+  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h8d2132ce9692b72cE"(ptr noalias noundef align 8 dereferenceable(16) %901) #33
           to label %853 unwind label %543
 
 902:                                              ; preds = %895
   %903 = getelementptr inbounds i8, ptr %0, i64 1048
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17h37de3e45378f777bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %903) #33
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17h37de3e45378f777bE"(ptr noalias noundef align 8 dereferenceable(16) %903) #33
           to label %900 unwind label %543
 }
 
@@ -18656,7 +18656,7 @@ define internal void @"_ZN4core3ptr94drop_in_place$LT$$RF$aws_smithy_runtime_api
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17h37de3e45378f777bE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17h37de3e45378f777bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h822312df74600c24E.exit", label %4
@@ -21531,7 +21531,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h0c86cd0e3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h69a5309aa9e5acd6E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(384) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef align 8 dereferenceable(7144) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h69a5309aa9e5acd6E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(384) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(7144) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [18 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [2 x i32], i32, [7 x i32] }, { [2 x i32], i32, [3 x i32] }, { [14 x i32], i32, [1 x i32] }, { ptr, [1 x i64] }, { ptr, [2 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, i8, [5 x i8] }, [1536 x i8], i8, [5055 x i8] }, align 8
   %7 = alloca { i64, [47 x i64] }, align 8
@@ -23179,7 +23179,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   store ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.268, ptr %13, align 8
   %72 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 65, ptr %72, align 8
-  invoke fastcc void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place18panic_cold_display17h6a2faf1dd19fd0feE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #36
+  invoke fastcc void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place18panic_cold_display17h6a2faf1dd19fd0feE(ptr noalias noundef readonly align 8 dereferenceable(16) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %2) #36
           to label %73 unwind label %.thread42
 
 73:                                               ; preds = %71
@@ -23192,7 +23192,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   call void @llvm.lifetime.start.p0(i64 7144, ptr nonnull %9), !noalias !3406
   %75 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7144) %9, ptr noundef nonnull align 8 dereferenceable(7144) %75, i64 7144, i1 false)
-  invoke fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h69a5309aa9e5acd6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(7144) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.535)
+  invoke fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h69a5309aa9e5acd6E(ptr noalias nocapture noundef align 8 dereferenceable(384) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %10, ptr noalias nocapture noundef align 8 dereferenceable(7144) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.535)
           to label %78 unwind label %76
 
 76:                                               ; preds = %74
@@ -23320,7 +23320,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   call void @llvm.lifetime.start.p0(i64 7144, ptr nonnull %5), !noalias !3440
   %112 = getelementptr inbounds i8, ptr %11, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7144) %5, ptr noundef nonnull align 8 dereferenceable(7144) %112, i64 7144, i1 false), !noalias !3436
-  invoke fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h69a5309aa9e5acd6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(7144) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.535)
+  invoke fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h69a5309aa9e5acd6E(ptr noalias nocapture noundef align 8 dereferenceable(384) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %7, ptr noalias nocapture noundef align 8 dereferenceable(7144) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.535)
           to label %115 unwind label %113
 
 113:                                              ; preds = %111
@@ -23437,7 +23437,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place18panic_cold_display17h6a2faf1dd19fd0feE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #16 {
+define internal fastcc void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place18panic_cold_display17h6a2faf1dd19fd0feE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #16 {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -24551,7 +24551,7 @@ common.resume:                                    ; preds = %40, %25
 
 .body:                                            ; preds = %63, %59, %.body9
   %.pn = phi { ptr, i32 } [ %eh.lpad-body10, %.body9 ], [ %64, %63 ], [ %60, %59 ]
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #33
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb4fe7e915d4e64f9E"(ptr noalias noundef align 8 dereferenceable(24) %10) #33
           to label %40 unwind label %89
 
 63:                                               ; preds = %55
@@ -26869,7 +26869,7 @@ default.unreachable77:                            ; preds = %3
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #33
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h68b4d9f4d88e0baeE"(ptr noalias noundef align 8 dereferenceable(40) %10) #33
           to label %40 unwind label %65
 
 65:                                               ; preds = %96, %91, %64

@@ -371,7 +371,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hce3eaa050af0207bE.exit.thr
   br i1 %80, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i, label %81
 
 81:                                               ; preds = %.lr.ph.i.us.i.i
-  %82 = add nuw i64 %.05.i.us.i.i, 1
+  %82 = add nuw nsw i64 %.05.i.us.i.i, 1
   %exitcond.not.i.us.i.i = icmp eq i64 %82, %.sroa.3.0.i47.us.i.i
   br i1 %exitcond.not.i.us.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i, label %.lr.ph.i.us.i.i
 
@@ -428,7 +428,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i: ; preds = %
   br i1 %103, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %104
 
 104:                                              ; preds = %.lr.ph.i.i.i
-  %105 = add nuw i64 %.05.i.i.i, 1
+  %105 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %105, %.sroa.3.0.i47.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 

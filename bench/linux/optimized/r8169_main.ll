@@ -10205,7 +10205,7 @@ define internal void @rtl_hw_start_8125b(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__rtl_ephy_init(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__rtl_ephy_init(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 2, 14) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   br label %5
 
@@ -10315,7 +10315,7 @@ define internal fastcc void @__rtl_ephy_init(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_set_aspm_entry_latency(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_set_aspm_entry_latency(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 39, 48) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 912
@@ -10446,7 +10446,7 @@ declare dso_local void @netdev_printk(ptr noundef, ptr noundef, ptr noundef, ...
 declare dso_local i32 @pcie_capability_clear_and_set_word_locked(ptr noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_set_fifo_size(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_set_fifo_size(ptr nocapture noundef readonly %0, i16 noundef zeroext range(i16 0, 17) %1, i16 noundef zeroext range(i16 0, 17) %2) unnamed_addr #0 align 16 {
   %4 = zext nneg i16 %1 to i32
   %5 = shl nuw nsw i32 %4, 16
   %6 = or disjoint i32 %5, 2
@@ -11257,7 +11257,7 @@ define internal fastcc void @rtl_hw_start_8168g(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8168g_set_pause_thresholds(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl8168g_set_pause_thresholds(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 47, 57) %1, i8 noundef zeroext range(i8 72, 96) %2) unnamed_addr #0 align 16 {
   %4 = zext nneg i8 %1 to i32
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %5, i64 112
@@ -11822,7 +11822,7 @@ declare dso_local i32 @pcie_set_readrq(ptr noundef, i32 noundef) local_unnamed_a
 declare dso_local i32 @phy_start_aneg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8169_do_counters(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl8169_do_counters(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 9) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 6752
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -12470,7 +12470,7 @@ _rtl_eri_read.exit7.thread:                       ; preds = %145, %148, %150, %_
 declare dso_local i32 @phy_speed_down(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @r8168dp_oob_notify(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @r8168dp_oob_notify(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 5, 7) %1) unnamed_addr #0 align 16 {
   %3 = zext nneg i8 %1 to i32
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 112
@@ -12544,7 +12544,7 @@ define internal fastcc void @r8168dp_oob_notify(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @rtl8169_tx_map(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @rtl8169_tx_map(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 456
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %4 to i64

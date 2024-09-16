@@ -9252,7 +9252,7 @@ define hidden void @"_ZN121_$LT$diesel..pg..metadata_lookup..pg_type..columns..t
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc7f745ed9bd12d73E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc7f745ed9bd12d73E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 {
   %.sroa.28.i = alloca [3 x i64], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
@@ -9647,7 +9647,7 @@ default.unreachable:                              ; preds = %23
   store ptr %6, ptr %.sroa.4.0..sroa_idx.i60, align 8, !noalias !2299
   %39 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %15, ptr %39, align 8, !noalias !2299
-  call fastcc void @"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc7f745ed9bd12d73E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !2303
+  call fastcc void @"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc7f745ed9bd12d73E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr noalias nocapture noundef align 8 dereferenceable(40) %4), !noalias !2303
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !2299
   %40 = load i64, ptr %5, align 8, !range !955, !noalias !2299, !noundef !16
   %41 = icmp eq i64 %40, -9223372036854775798
@@ -9724,7 +9724,7 @@ default.unreachable1.i70:                         ; preds = %"_ZN6diesel13query_
   store ptr %.sroa.13.0.i63, ptr %.sroa.13.0..sroa_idx.i69, align 8, !alias.scope !2304, !noalias !2307
   %57 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %15, ptr %57, align 8, !alias.scope !2304, !noalias !2307
-  call fastcc void @"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc7f745ed9bd12d73E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10)
+  call fastcc void @"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc7f745ed9bd12d73E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %11, ptr noalias nocapture noundef align 8 dereferenceable(40) %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   %58 = load i64, ptr %11, align 8, !range !955, !noundef !16
   %59 = icmp eq i64 %58, -9223372036854775798

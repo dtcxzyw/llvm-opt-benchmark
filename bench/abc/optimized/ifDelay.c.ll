@@ -67,7 +67,7 @@ define i32 @If_CutDelaySop(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 43:                                               ; preds = %37
   %44 = icmp sgt i32 %.val59, 0
-  br i1 %44, label %.lr.ph.us.preheader.i, label %.lr.ph76
+  br i1 %44, label %.lr.ph.us.preheader.i, label %.lr.ph75
 
 .lr.ph.us.preheader.i:                            ; preds = %43
   %45 = getelementptr i8, ptr %34, i64 8
@@ -104,9 +104,9 @@ define i32 @If_CutDelaySop(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
   %56 = icmp eq i32 %.val59, 1
-  br i1 %56, label %.lr.ph76, label %.lr.ph
+  br i1 %56, label %.lr.ph75, label %.lr.ph
 
-.lr.ph76:                                         ; preds = %If_CutMaxCubeSize.exit, %43
+.lr.ph75:                                         ; preds = %If_CutMaxCubeSize.exit, %43
   %57 = and i32 %.val59, 4095
   %58 = zext nneg i32 %57 to i64
   %59 = and i64 %9, -4096
@@ -121,14 +121,14 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
   %sext54 = shl i32 %64, 24
   %67 = ashr exact i32 %sext54, 24
   %68 = sitofp i32 %67 to float
-  %umax88 = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
-  %wide.trip.count89 = zext nneg i32 %umax88 to i64
+  %umax87 = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
+  %wide.trip.count88 = zext nneg i32 %umax87 to i64
   br label %69
 
-69:                                               ; preds = %.lr.ph76, %76
-  %indvars.iv85 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next86, %76 ]
-  %.075 = phi i32 [ 0, %.lr.ph76 ], [ %82, %76 ]
-  %70 = getelementptr inbounds [0 x i32], ptr %3, i64 0, i64 %indvars.iv85
+69:                                               ; preds = %.lr.ph75, %76
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next85, %76 ]
+  %.074 = phi i32 [ 0, %.lr.ph75 ], [ %82, %76 ]
+  %70 = getelementptr inbounds [0 x i32], ptr %3, i64 0, i64 %indvars.iv84
   %71 = load i32, ptr %70, align 4
   %.val = load ptr, ptr %65, align 8
   %72 = getelementptr i8, ptr %.val, i64 8
@@ -142,14 +142,14 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
 76:                                               ; preds = %69
   %77 = getelementptr inbounds i8, ptr %75, i64 92
   %78 = load float, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv85
+  %79 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv84
   store i8 %66, ptr %79, align 1
   %80 = fadd float %78, %68
   %81 = fptosi float %80 to i32
-  %82 = tail call noundef i32 @llvm.smax.i32(i32 %.075, i32 %81)
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count89
-  br i1 %exitcond90.not, label %.critedge, label %69, !llvm.loop !7
+  %82 = tail call noundef i32 @llvm.smax.i32(i32 %.074, i32 %81)
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count88
+  br i1 %exitcond89.not, label %.critedge, label %69, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %If_CutMaxCubeSize.exit
   %83 = add nuw nsw i32 %.val59, 1
@@ -176,7 +176,7 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
 
 100:                                              ; preds = %.lr.ph, %107
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  %.271 = phi i32 [ 0, %.lr.ph ], [ %113, %107 ]
+  %.270 = phi i32 [ 0, %.lr.ph ], [ %113, %107 ]
   %101 = getelementptr inbounds [0 x i32], ptr %3, i64 0, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4
   %.val55 = load ptr, ptr %96, align 8
@@ -195,13 +195,13 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
   store i8 %97, ptr %110, align 1
   %111 = fadd float %109, %99
   %112 = fptosi float %111 to i32
-  %113 = tail call noundef i32 @llvm.smax.i32(i32 %.271, i32 %112)
+  %113 = tail call noundef i32 @llvm.smax.i32(i32 %.270, i32 %112)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %100, !llvm.loop !8
 
 .critedge:                                        ; preds = %100, %107, %69, %76, %37, %25, %2, %15
-  %.047 = phi i32 [ %24, %15 ], [ 0, %2 ], [ -1, %25 ], [ -1, %37 ], [ %.075, %69 ], [ %82, %76 ], [ %.271, %100 ], [ %113, %107 ]
+  %.047 = phi i32 [ %24, %15 ], [ 0, %2 ], [ -1, %25 ], [ -1, %37 ], [ %.074, %69 ], [ %82, %76 ], [ %.270, %100 ], [ %113, %107 ]
   ret i32 %.047
 }
 
@@ -1699,7 +1699,7 @@ If_LogCreateAndXor.exit196:                       ; preds = %.Vec_IntGrow.exit10
   store i32 %400, ptr %389, align 4
   %401 = load i32, ptr %394, align 4
   %402 = load i32, ptr %395, align 4
-  %403 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef nonnull %3, i32 noundef %401, i32 noundef %402, i32 noundef %5)
+  %403 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef %3, i32 noundef %401, i32 noundef %402, i32 noundef %5)
   store i32 %403, ptr %395, align 4
   %404 = add nsw i32 %.181.i144, -1
   %405 = icmp slt i32 %.07180.i145, %404
@@ -2857,7 +2857,7 @@ define float @If_LutDecPinRequired(ptr nocapture noundef readnone %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @If_LogCreateAndXor(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @If_LogCreateAndXor(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
   %5 = getelementptr i8, ptr %0, i64 4
   %.val.i = load i32, ptr %5, align 4
   %6 = load i32, ptr %0, align 8

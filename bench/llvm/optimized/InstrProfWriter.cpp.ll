@@ -4835,7 +4835,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_13SmallDenseMapImNS_15Inst
   br i1 %.not.i.i.i147, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i.i:              ; preds = %.lr.ph.i.i.i, %268
-  %304 = call fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %65, i64 noundef 0, ptr noundef null), !noalias !96
+  %304 = call fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef %65, i64 noundef 0, ptr noundef null), !noalias !96
   %305 = load ptr, ptr %201, align 8, !noalias !96
   %306 = load ptr, ptr %305, align 8, !noalias !96
   %307 = getelementptr inbounds i8, ptr %306, i64 80
@@ -4956,7 +4956,7 @@ _ZL14writeMemProfV0RN4llvm11ProfOStreamERNS_7memprof18IndexedMemProfDataE.exit.i
   br i1 %.not.i.i16.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i17.i, label %.lr.ph.i.i12.i
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i17.i:            ; preds = %.lr.ph.i.i12.i, %329
-  %368 = call fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %57, i64 noundef 1, ptr noundef null), !noalias !100
+  %368 = call fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef %57, i64 noundef 1, ptr noundef null), !noalias !100
   %369 = load ptr, ptr %201, align 8, !noalias !100
   %370 = load ptr, ptr %369, align 8, !noalias !100
   %371 = getelementptr inbounds i8, ptr %370, i64 80
@@ -5104,7 +5104,7 @@ _ZN4llvm11SmallVectorINS_7memprof4MetaELj28EED2Ev.exit.i.i: ; preds = %428, %422
   br i1 %.not.i.i27.i, label %_ZL18writeMemProfSchemaRN4llvm11ProfOStreamERKNS_11SmallVectorINS_7memprof4MetaELj28EEE.exit.i.i, label %.lr.ph.i.i23.i
 
 _ZL18writeMemProfSchemaRN4llvm11ProfOStreamERKNS_11SmallVectorINS_7memprof4MetaELj28EEE.exit.i.i: ; preds = %.lr.ph.i.i23.i, %_ZN4llvm11SmallVectorINS_7memprof4MetaELj28EED2Ev.exit.i.i
-  %443 = call fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %47, i64 noundef 2, ptr noundef null), !noalias !104
+  %443 = call fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef %47, i64 noundef 2, ptr noundef null), !noalias !104
   %444 = load ptr, ptr %201, align 8, !noalias !104
   %445 = load ptr, ptr %444, align 8, !noalias !104
   %446 = getelementptr inbounds i8, ptr %445, i64 80
@@ -6598,7 +6598,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit.i41.i:            ; preds = %1169, %_ZNSt6vector
   %1185 = ptrtoint ptr %1183 to i64
   %1186 = add i64 %1179, %1184
   %1187 = sub i64 %1186, %1185
-  %1188 = call fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %29, i64 noundef 3, ptr noundef nonnull %33), !noalias !108
+  %1188 = call fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef %29, i64 noundef 3, ptr noundef nonnull %33), !noalias !108
   store i64 %1135, ptr %34, align 16, !noalias !108
   %1189 = getelementptr inbounds i8, ptr %34, i64 8
   store i64 %1187, ptr %1189, align 8, !noalias !108
@@ -13267,7 +13267,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN4llvm7memprof13getFullSchemaEv(ptr dead_on_unwind writable sret(%"class.llvm::SmallVector.259") align 8) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL19writeMemProfRecordsRN4llvm11ProfOStreamERNS_9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS4_ELj0EEEEEPNSC_INS3_4MetaELj28EEENS3_14IndexedVersionEPSB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 4) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::memprof::RecordWriterTrait", align 8
   %7 = alloca %"class.llvm::OnDiskChainedHashTableGenerator.265", align 8
   store ptr %2, ptr %6, align 8
@@ -27947,7 +27947,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   store i64 %114, ptr %96, align 8
   store ptr null, ptr %88, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %82, ptr noundef nonnull %20)
+  call fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %82, ptr noundef %20)
   call void @_ZN4llvm15InstrProfRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %90) #22
   %.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
   %115 = add nsw i64 %.013.i.i.i, -1
@@ -28016,7 +28016,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false)
   store i64 %145, ptr %127, align 8
   store ptr null, ptr %119, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %150, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %150, ptr noundef %18)
   call void @_ZN4llvm15InstrProfRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %121) #22
   call void @_ZN4llvm15InstrProfRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %117) #22
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17)
@@ -28820,7 +28820,7 @@ _ZN4llvm15InstrProfRecordD2Ev.exit:               ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr noundef %0, i64 noundef range(i64 0, 57646075230342348) %1, i64 noundef range(i64 -115292150460684697, 115292150460684698) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.217", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

@@ -897,7 +897,7 @@ define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8C
   br i1 %23, label %24, label %.thread.thread
 
 24:                                               ; preds = %12
-  %25 = getelementptr i8, ptr %20, i64 32
+  %25 = getelementptr inbounds i8, ptr %20, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %26, align 8
   %.not.i = icmp eq i8 %27, 17
@@ -934,7 +934,7 @@ define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8C
   %43 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %42
   %44 = zext i32 %.val10 to i64
   %45 = getelementptr inbounds %"class.llvm::Use", ptr %43, i64 %44
-  %46 = getelementptr i8, ptr %45, i64 64
+  %46 = getelementptr inbounds i8, ptr %45, i64 64
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %47, align 8
   %.not.i16 = icmp eq i8 %48, 17
@@ -997,7 +997,7 @@ define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeIns
   br i1 %21, label %22, label %_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit
 
 22:                                               ; preds = %10
-  %23 = getelementptr i8, ptr %18, i64 32
+  %23 = getelementptr inbounds i8, ptr %18, i64 32
   %24 = load ptr, ptr %23, align 8, !noalias !8
   %25 = load i8, ptr %24, align 8, !noalias !8
   %.not.i.i = icmp eq i8 %25, 17
@@ -1034,7 +1034,7 @@ define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeIns
   %41 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %40
   %42 = zext i32 %.sroa.2.0.copyload to i64
   %43 = getelementptr inbounds %"class.llvm::Use", ptr %41, i64 %42
-  %44 = getelementptr i8, ptr %43, i64 64
+  %44 = getelementptr inbounds i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8, !noalias !8
   %46 = load i8, ptr %45, align 8, !noalias !8
   %.not.i16.i = icmp eq i8 %46, 17
@@ -1334,7 +1334,7 @@ _ZN4llvm12PatternMatch14Argument_matchINS0_12match_unlessINS0_14specificval_tyEE
   br i1 %53, label %54, label %_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit
 
 54:                                               ; preds = %43
-  %55 = getelementptr i8, ptr %51, i64 32
+  %55 = getelementptr inbounds i8, ptr %51, i64 32
   %56 = load ptr, ptr %55, align 8, !noalias !15
   %57 = load i8, ptr %56, align 8, !noalias !15
   %.not.i.i = icmp eq i8 %57, 17
@@ -1367,7 +1367,7 @@ _ZN4llvm12PatternMatch14Argument_matchINS0_12match_unlessINS0_14specificval_tyEE
   %72 = getelementptr inbounds %"class.llvm::Use", ptr %35, i64 %71
   %73 = zext i32 %.val10.i to i64
   %74 = getelementptr inbounds %"class.llvm::Use", ptr %72, i64 %73
-  %75 = getelementptr i8, ptr %74, i64 64
+  %75 = getelementptr inbounds i8, ptr %74, i64 64
   %76 = load ptr, ptr %75, align 8, !noalias !15
   %77 = load i8, ptr %76, align 8, !noalias !15
   %.not.i16.i = icmp eq i8 %77, 17
@@ -1656,7 +1656,7 @@ _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %64, %68
   br i1 %90, label %91, label %_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit
 
 91:                                               ; preds = %81
-  %92 = getelementptr i8, ptr %88, i64 32
+  %92 = getelementptr inbounds i8, ptr %88, i64 32
   %93 = load ptr, ptr %92, align 8, !noalias !23
   %94 = load i8, ptr %93, align 8, !noalias !23
   %.not.i.i = icmp eq i8 %94, 17
@@ -1693,7 +1693,7 @@ _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %64, %68
   %110 = getelementptr inbounds %"class.llvm::Use", ptr %59, i64 %109
   %111 = zext i32 %.val10.i to i64
   %112 = getelementptr inbounds %"class.llvm::Use", ptr %110, i64 %111
-  %113 = getelementptr i8, ptr %112, i64 64
+  %113 = getelementptr inbounds i8, ptr %112, i64 64
   %114 = load ptr, ptr %113, align 8, !noalias !23
   %115 = load i8, ptr %114, align 8, !noalias !23
   %.not.i16.i = icmp eq i8 %115, 17
@@ -1934,7 +1934,7 @@ _ZN4llvm12PatternMatch14Argument_matchINS0_12match_unlessINS0_14specificval_tyEE
   br i1 %232, label %233, label %_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE.exit55
 
 233:                                              ; preds = %222
-  %234 = getelementptr i8, ptr %230, i64 32
+  %234 = getelementptr inbounds i8, ptr %230, i64 32
   %235 = load ptr, ptr %234, align 8, !noalias !26
   %236 = load i8, ptr %235, align 8, !noalias !26
   %.not.i.i43 = icmp eq i8 %236, 17
@@ -1971,7 +1971,7 @@ _ZN4llvm12PatternMatch14Argument_matchINS0_12match_unlessINS0_14specificval_tyEE
   %252 = getelementptr inbounds %"class.llvm::Use", ptr %214, i64 %251
   %253 = zext i32 %.val10.i40 to i64
   %254 = getelementptr inbounds %"class.llvm::Use", ptr %252, i64 %253
-  %255 = getelementptr i8, ptr %254, i64 64
+  %255 = getelementptr inbounds i8, ptr %254, i64 64
   %256 = load ptr, ptr %255, align 8, !noalias !26
   %257 = load i8, ptr %256, align 8, !noalias !26
   %.not.i16.i48 = icmp eq i8 %257, 17

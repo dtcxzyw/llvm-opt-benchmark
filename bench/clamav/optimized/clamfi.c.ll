@@ -120,7 +120,7 @@ define dso_local i32 @clamfi_header(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 11:                                               ; preds = %8
   %12 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str) #17
-  tail call fastcc void @nullify(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0)
+  tail call fastcc void @nullify(ptr noundef %0, ptr noundef %4, i32 noundef 0)
   br label %.sink.split
 
 13:                                               ; preds = %8, %5
@@ -221,12 +221,12 @@ define dso_local i32 @clamfi_header(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 59:                                               ; preds = %53, %55, %44
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  %61 = tail call fastcc i32 @sendchunk(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %60, ptr noundef %0)
+  %61 = tail call fastcc i32 @sendchunk(ptr noundef %4, ptr noundef nonnull %1, i64 noundef %60, ptr noundef %0)
   %.not69 = icmp eq i32 %61, 0
   br i1 %.not69, label %62, label %.sink.split
 
 62:                                               ; preds = %59
-  %63 = tail call fastcc i32 @sendchunk(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %0)
+  %63 = tail call fastcc i32 @sendchunk(ptr noundef %4, ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %0)
   %.not70 = icmp eq i32 %63, 0
   br i1 %.not70, label %64, label %.sink.split
 
@@ -236,12 +236,12 @@ define dso_local i32 @clamfi_header(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 65:                                               ; preds = %64
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  %67 = tail call fastcc i32 @sendchunk(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef %66, ptr noundef %0)
+  %67 = tail call fastcc i32 @sendchunk(ptr noundef %4, ptr noundef nonnull %2, i64 noundef %66, ptr noundef %0)
   %.not72 = icmp eq i32 %67, 0
   br i1 %.not72, label %68, label %.sink.split
 
 68:                                               ; preds = %65, %64
-  %69 = tail call fastcc i32 @sendchunk(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef 2, ptr noundef %0)
+  %69 = tail call fastcc i32 @sendchunk(ptr noundef %4, ptr noundef nonnull @.str.8, i64 noundef 2, ptr noundef %0)
   %.not73 = icmp eq i32 %69, 0
   br i1 %.not73, label %70, label %.sink.split
 
@@ -260,7 +260,7 @@ declare ptr @smfi_getpriv(ptr noundef) local_unnamed_addr #1
 declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nullify(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @nullify(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %._crit_edge
@@ -268,115 +268,113 @@ define internal fastcc void @nullify(ptr noundef %0, ptr nocapture noundef %1, i
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 44
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %11
+  br label %10
 
 5:                                                ; preds = %3
-  %6 = and i32 %2, 4
-  %.not23 = icmp eq i32 %6, 0
-  br i1 %.not23, label %14, label %7
+  %.not23 = icmp ult i32 %2, 4
+  br i1 %.not23, label %13, label %6
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 44
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %11, label %14
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds i8, ptr %1, i64 44
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp sgt i32 %8, -1
+  br i1 %9, label %10, label %.thread33
 
-11:                                               ; preds = %._crit_edge, %7
-  %12 = phi i32 [ %.pre, %._crit_edge ], [ %9, %7 ]
-  %13 = tail call i32 @close(i32 noundef %12) #17
-  br label %14
+10:                                               ; preds = %._crit_edge, %6
+  %11 = phi i32 [ %.pre, %._crit_edge ], [ %8, %6 ]
+  %12 = tail call i32 @close(i32 noundef %11) #17
+  br label %13
 
-14:                                               ; preds = %11, %7, %5
-  %15 = and i32 %2, 2
-  %.not24 = icmp eq i32 %15, 0
-  br i1 %.not24, label %16, label %._crit_edge32
+13:                                               ; preds = %10, %5
+  %14 = and i32 %2, 2
+  %.not24 = icmp eq i32 %14, 0
+  br i1 %.not24, label %15, label %._crit_edge35
 
-._crit_edge32:                                    ; preds = %14
-  %.phi.trans.insert33 = getelementptr inbounds i8, ptr %1, i64 48
-  %.pre34 = load i32, ptr %.phi.trans.insert33, align 8
+._crit_edge35:                                    ; preds = %13
+  %.phi.trans.insert36 = getelementptr inbounds i8, ptr %1, i64 48
+  %.pre37 = load i32, ptr %.phi.trans.insert36, align 8
+  br label %19
+
+15:                                               ; preds = %13
+  %.not25 = icmp ult i32 %2, 4
+  br i1 %.not25, label %22, label %.thread33
+
+.thread33:                                        ; preds = %6, %15
+  %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp sgt i32 %17, -1
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %._crit_edge35, %.thread33
+  %20 = phi i32 [ %.pre37, %._crit_edge35 ], [ %17, %.thread33 ]
+  %21 = tail call i32 @close(i32 noundef %20) #17
   br label %22
 
-16:                                               ; preds = %14
-  %17 = and i32 %2, 4
-  %.not25 = icmp eq i32 %17, 0
-  br i1 %.not25, label %25, label %18
+22:                                               ; preds = %19, %.thread33, %15
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %.not26 = icmp eq ptr %24, null
+  br i1 %.not26, label %26, label %25
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %22, label %25
+25:                                               ; preds = %22
+  tail call void @free(ptr noundef nonnull %24) #17
+  br label %26
 
-22:                                               ; preds = %._crit_edge32, %18
-  %23 = phi i32 [ %.pre34, %._crit_edge32 ], [ %20, %18 ]
-  %24 = tail call i32 @close(i32 noundef %23) #17
-  br label %25
+26:                                               ; preds = %25, %22
+  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %.not27 = icmp eq ptr %28, null
+  br i1 %.not27, label %30, label %29
 
-25:                                               ; preds = %22, %18, %16
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not26 = icmp eq ptr %27, null
-  br i1 %.not26, label %29, label %28
+29:                                               ; preds = %26
+  tail call void @free(ptr noundef nonnull %28) #17
+  br label %30
 
-28:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %27) #17
-  br label %29
+30:                                               ; preds = %29, %26
+  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %.not28 = icmp eq ptr %32, null
+  br i1 %.not28, label %34, label %33
 
-29:                                               ; preds = %28, %25
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %.not27 = icmp eq ptr %31, null
-  br i1 %.not27, label %33, label %32
+33:                                               ; preds = %30
+  tail call void @free(ptr noundef nonnull %32) #17
+  br label %34
 
-32:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %31) #17
-  br label %33
+34:                                               ; preds = %33, %30
+  %35 = load i32, ptr @multircpt, align 4
+  %.not29 = icmp eq i32 %35, 0
+  br i1 %.not29, label %49, label %36
 
-33:                                               ; preds = %32, %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %.not28 = icmp eq ptr %35, null
-  br i1 %.not28, label %37, label %36
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %1, i64 76
+  %38 = load i32, ptr %37, align 4
+  %.not30 = icmp eq i32 %38, 0
+  br i1 %.not30, label %49, label %.preheader
 
-36:                                               ; preds = %33
-  tail call void @free(ptr noundef nonnull %35) #17
-  br label %37
+.preheader:                                       ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  br label %40
 
-37:                                               ; preds = %36, %33
-  %38 = load i32, ptr @multircpt, align 4
-  %.not29 = icmp eq i32 %38, 0
-  br i1 %.not29, label %52, label %39
-
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 76
-  %41 = load i32, ptr %40, align 4
-  %.not30 = icmp eq i32 %41, 0
-  br i1 %.not30, label %52, label %.preheader
-
-.preheader:                                       ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %43
-
-43:                                               ; preds = %.preheader, %43
-  %44 = phi i32 [ %41, %.preheader ], [ %.pr, %43 ]
-  %45 = add i32 %44, -1
-  store i32 %45, ptr %40, align 4
-  %46 = load ptr, ptr %42, align 8
-  %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  tail call void @free(ptr noundef %49) #17
-  %.pr = load i32, ptr %40, align 4
+40:                                               ; preds = %.preheader, %40
+  %41 = phi i32 [ %38, %.preheader ], [ %.pr, %40 ]
+  %42 = add i32 %41, -1
+  store i32 %42, ptr %37, align 4
+  %43 = load ptr, ptr %39, align 8
+  %44 = zext i32 %42 to i64
+  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %46 = load ptr, ptr %45, align 8
+  tail call void @free(ptr noundef %46) #17
+  %.pr = load i32, ptr %37, align 4
   %.not31 = icmp eq i32 %.pr, 0
-  br i1 %.not31, label %50, label %43
+  br i1 %.not31, label %47, label %40
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %42, align 8
-  tail call void @free(ptr noundef %51) #17
-  br label %52
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %39, align 8
+  tail call void @free(ptr noundef %48) #17
+  br label %49
 
-52:                                               ; preds = %50, %39, %37
-  %53 = tail call i32 @smfi_setpriv(ptr noundef %0, ptr noundef null) #17
+49:                                               ; preds = %47, %36, %34
+  %50 = tail call i32 @smfi_setpriv(ptr noundef %0, ptr noundef null) #17
   ret void
 }
 
@@ -390,7 +388,7 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sendchunk(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
@@ -415,13 +413,13 @@ define internal fastcc i32 @sendchunk(ptr noundef %0, ptr noundef %1, i64 nounde
 
 18:                                               ; preds = %13
   %19 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.58) #17
-  tail call fastcc void @nullify(ptr noundef %3, ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @nullify(ptr noundef %3, ptr noundef %0, i32 noundef 0)
   %20 = load i32, ptr @FailAction, align 4
   br label %.loopexit
 
 21:                                               ; preds = %13
   store i32 1, ptr %6, align 4
-  %22 = tail call fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef nonnull @.str.59, i64 noundef 19, ptr noundef %3)
+  %22 = tail call fastcc i32 @sendchunk(ptr noundef %0, ptr noundef nonnull @.str.59, i64 noundef 19, ptr noundef %3)
   %.not81 = icmp eq i32 %22, 0
   br i1 %.not81, label %23, label %.loopexit
 
@@ -467,7 +465,7 @@ define internal fastcc i32 @sendchunk(ptr noundef %0, ptr noundef %1, i64 nounde
 
 42:                                               ; preds = %37
   %43 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.60) #17
-  tail call fastcc void @nullify(ptr noundef %3, ptr noundef nonnull %0, i32 noundef 3)
+  tail call fastcc void @nullify(ptr noundef %3, ptr noundef %0, i32 noundef 3)
   %44 = load i32, ptr @FailAction, align 4
   br label %.loopexit
 
@@ -564,7 +562,7 @@ define internal fastcc i32 @sendchunk(ptr noundef %0, ptr noundef %1, i64 nounde
 
 95:                                               ; preds = %.thread98, %79
   %96 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.61) #17
-  call fastcc void @nullify(ptr noundef %3, ptr noundef nonnull %0, i32 noundef 0)
+  call fastcc void @nullify(ptr noundef %3, ptr noundef %0, i32 noundef 0)
   %97 = load i32, ptr @FailAction, align 4
   br label %.loopexit
 
@@ -589,7 +587,7 @@ define dso_local i32 @clamfi_body(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not17, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = tail call fastcc i32 @sendchunk(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef 2, ptr noundef %0)
+  %9 = tail call fastcc i32 @sendchunk(ptr noundef %4, ptr noundef nonnull @.str.8, i64 noundef 2, ptr noundef %0)
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %10, label %.sink.split
 
@@ -598,7 +596,7 @@ define dso_local i32 @clamfi_body(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %11
 
 11:                                               ; preds = %10, %5
-  %12 = tail call fastcc i32 @sendchunk(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2, ptr noundef %0)
+  %12 = tail call fastcc i32 @sendchunk(ptr noundef %4, ptr noundef %1, i64 noundef %2, ptr noundef %0)
   %.not19 = icmp eq i32 %12, 0
   br i1 %.not19, label %13, label %.sink.split
 
@@ -619,7 +617,7 @@ define dso_local noundef i32 @clamfi_abort(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call fastcc void @nullify(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 4)
+  tail call fastcc void @nullify(ptr noundef %0, ptr noundef %2, i32 noundef 4)
   tail call void @free(ptr noundef nonnull %2) #17
   br label %4
 
@@ -648,7 +646,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
   %12 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.9) #17
   %13 = load ptr, ptr @CleanAction, align 8
   %14 = tail call i32 %13(ptr noundef %0) #17
-  tail call fastcc void @nullify(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0)
+  tail call fastcc void @nullify(ptr noundef %0, ptr noundef %7, i32 noundef 0)
   tail call void @free(ptr noundef nonnull %7) #17
   br label %311
 
@@ -671,7 +669,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %18
   %28 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.10) #17
-  tail call fastcc void @nullify(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2)
+  tail call fastcc void @nullify(ptr noundef %0, ptr noundef %7, i32 noundef 2)
   tail call void @free(ptr noundef nonnull %7) #17
   %29 = load i32, ptr @FailAction, align 4
   br label %311
@@ -704,7 +702,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %41, %35
   %46 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.11) #17
-  call fastcc void @nullify(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @nullify(ptr noundef %0, ptr noundef %7, i32 noundef 0)
   call void @free(ptr noundef nonnull %7) #17
   %47 = load i32, ptr @FailAction, align 4
   br label %311
@@ -731,7 +729,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
 
 59:                                               ; preds = %57
   %60 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.12) #17
-  call fastcc void @nullify(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @nullify(ptr noundef %0, ptr noundef %7, i32 noundef 0)
   call void @free(ptr noundef nonnull %7) #17
   %61 = load i32, ptr @FailAction, align 4
   br label %311
@@ -1989,7 +1987,7 @@ define dso_local range(i32 0, 5) i32 @clamfi_envrcpt(ptr noundef %0, ptr nocaptu
 .sink.split:                                      ; preds = %23, %14
   %.str.57.sink = phi ptr [ @.str.56, %14 ], [ @.str.57, %23 ]
   %30 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull %.str.57.sink) #17
-  tail call fastcc void @nullify(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4)
+  tail call fastcc void @nullify(ptr noundef %0, ptr noundef %3, i32 noundef 4)
   tail call void @free(ptr noundef nonnull %3) #17
   %31 = load i32, ptr @FailAction, align 4
   br label %32

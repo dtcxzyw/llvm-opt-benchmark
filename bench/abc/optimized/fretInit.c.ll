@@ -1042,7 +1042,7 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
 
 .critedge2.i:                                     ; preds = %185, %.preheader194.i
   %223 = load ptr, ptr %37, align 8
-  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %223, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %223, ptr noundef %2, ptr noundef %3)
   %224 = load i32, ptr %2, align 4
   %225 = load i32, ptr %3, align 4
   tail call fastcc void @Abc_FlowRetime_SetInitValue(ptr noundef nonnull %0, i32 noundef %224, i32 noundef %225)
@@ -3643,7 +3643,7 @@ Abc_FlowRetime_ConnectBiasNode.exit:              ; preds = %Vec_PtrFree.exit.i,
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -3914,7 +3914,7 @@ declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #9 {
+define internal fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3965,10 +3965,10 @@ tailrecurse:                                      ; preds = %26, %3
 28:                                               ; preds = %tailrecurse
   %29 = getelementptr i8, ptr %10, i64 16
   %.val36 = load ptr, ptr %29, align 8
-  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %.val36, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %.val36, ptr noundef %4, ptr noundef %5)
   %30 = getelementptr i8, ptr %10, i64 24
   %.val38 = load ptr, ptr %30, align 8
-  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %.val38, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %.val38, ptr noundef %6, ptr noundef %7)
   %31 = load i32, ptr %5, align 4
   %32 = load i32, ptr %6, align 4
   %33 = and i32 %32, %31

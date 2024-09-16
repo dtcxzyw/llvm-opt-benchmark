@@ -31032,7 +31032,7 @@ declare ptr @new_variable(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @ECPGmake_simple_type(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cat_str(i32 noundef %0, ...) unnamed_addr #0 {
+define internal noundef ptr @cat_str(i32 noundef range(i32 2, 19) %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load i32, ptr %2, align 16
@@ -31058,47 +31058,42 @@ define internal ptr @cat_str(i32 noundef %0, ...) unnamed_addr #0 {
 15:                                               ; preds = %11, %5
   %16 = phi ptr [ %9, %5 ], [ %13, %11 ]
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp sgt i32 %0, 1
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  br label %20
 
-.lr.ph:                                           ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %21
+20:                                               ; preds = %15, %31
+  %.08 = phi ptr [ %17, %15 ], [ %34, %31 ]
+  %.047 = phi i32 [ 1, %15 ], [ %35, %31 ]
+  %21 = load i32, ptr %2, align 16
+  %22 = icmp ult i32 %21, 41
+  br i1 %22, label %23, label %28
 
-21:                                               ; preds = %.lr.ph, %32
-  %.08 = phi ptr [ %17, %.lr.ph ], [ %35, %32 ]
-  %.047 = phi i32 [ 1, %.lr.ph ], [ %36, %32 ]
-  %22 = load i32, ptr %2, align 16
-  %23 = icmp ult i32 %22, 41
-  br i1 %23, label %24, label %29
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %19, align 16
+  %25 = zext nneg i32 %21 to i64
+  %26 = getelementptr i8, ptr %24, i64 %25
+  %27 = add nuw nsw i32 %21, 8
+  store i32 %27, ptr %2, align 16
+  br label %31
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %20, align 16
-  %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr i8, ptr %25, i64 %26
-  %28 = add nuw nsw i32 %22, 8
-  store i32 %28, ptr %2, align 16
-  br label %32
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %18, align 8
+  %30 = getelementptr i8, ptr %29, i64 8
+  store ptr %30, ptr %18, align 8
+  br label %31
 
-29:                                               ; preds = %21
-  %30 = load ptr, ptr %19, align 8
-  %31 = getelementptr i8, ptr %30, i64 8
-  store ptr %31, ptr %19, align 8
-  br label %32
+31:                                               ; preds = %28, %23
+  %32 = phi ptr [ %26, %23 ], [ %29, %28 ]
+  %33 = load ptr, ptr %32, align 8
+  %34 = call fastcc ptr @cat2_str(ptr noundef %.08, ptr noundef %33)
+  %35 = add nuw nsw i32 %.047, 1
+  %exitcond.not = icmp eq i32 %35, %0
+  br i1 %exitcond.not, label %36, label %20, !llvm.loop !15
 
-32:                                               ; preds = %29, %24
-  %33 = phi ptr [ %27, %24 ], [ %30, %29 ]
-  %34 = load ptr, ptr %33, align 8
-  %35 = call fastcc ptr @cat2_str(ptr noundef %.08, ptr noundef %34)
-  %36 = add nuw nsw i32 %.047, 1
-  %exitcond.not = icmp eq i32 %36, %0
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !15
-
-._crit_edge:                                      ; preds = %32, %15
-  %.0.lcssa = phi ptr [ %17, %15 ], [ %35, %32 ]
+36:                                               ; preds = %31
   call void @llvm.va_end.p0(ptr nonnull %2)
-  ret ptr %.0.lcssa
+  ret ptr %34
 }
 
 declare void @output_prepare_statement(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -31810,14 +31805,14 @@ declare void @remove_variable_from_list(ptr noundef, ptr noundef) local_unnamed_
 declare void @add_variable_to_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   store ptr %1, ptr %9, align 8
   store ptr %2, ptr %10, align 8
   %11 = and i32 %3, -2
   %or.cond = icmp eq i32 %11, 22
-  %12 = icmp eq i32 %6, 1
+  %12 = icmp ne i32 %6, 0
   %or.cond3 = and i1 %or.cond, %12
   br i1 %or.cond3, label %13, label %14
 

@@ -564,12 +564,12 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16HttpClientFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 1 %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) %md) local_unnamed_addr #3 align 2 {
 entry:
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias align 8 %agg.result, ptr noundef nonnull %md)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias align 8 %agg.result, ptr noundef %md)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias align 8 %agg.result, ptr nocapture noundef %b) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %b) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -718,7 +718,7 @@ eh.resume:                                        ; preds = %lpad18, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16HttpClientFilter4Call24OnServerTrailingMetadataER19grpc_metadata_batch(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 1 %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) %md) local_unnamed_addr #3 align 2 {
 entry:
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias align 8 %agg.result, ptr noundef nonnull %md)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias align 8 %agg.result, ptr noundef %md)
   ret void
 }
 
@@ -3929,7 +3929,7 @@ entry:
   %agg.tmp3 = alloca %"class.std::unique_ptr", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias nonnull align 8 %status, ptr noundef nonnull %0)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias nonnull align 8 %status, ptr noundef %0)
   %1 = load i64, ptr %status, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %cleanup.thread, label %if.end
@@ -4239,7 +4239,7 @@ entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias nonnull align 8 %status, ptr noundef nonnull %0)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias nonnull align 8 %status, ptr noundef %0)
   %1 = load i64, ptr %status, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %cleanup.thread, label %if.end
@@ -5149,7 +5149,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias nonnull align 8 %status, ptr noundef nonnull %0)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias nonnull align 8 %status, ptr noundef %0)
   %1 = load i64, ptr %status, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %if.end, label %land.lhs.true
@@ -5755,7 +5755,7 @@ entry:
   %status = alloca %"class.absl::lts_20230802::Status", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias nonnull align 8 %status, ptr noundef nonnull %0)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_119CheckServerMetadataEP19grpc_metadata_batch(ptr noalias nonnull align 8 %status, ptr noundef %0)
   %1 = load i64, ptr %status, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %cleanup.thread, label %if.then

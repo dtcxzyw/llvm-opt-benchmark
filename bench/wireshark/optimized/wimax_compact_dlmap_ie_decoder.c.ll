@@ -1512,57 +1512,56 @@ define internal fastcc range(i32 1, 3) i32 @wimax_compact_dlmap_harq_control_ie_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 5) i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 5) i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
-  %6 = and i32 %3, 1
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %20, label %7
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %19, label %6
 
-7:                                                ; preds = %4
-  %8 = and i8 %5, 8
-  %.not50 = icmp eq i8 %8, 0
-  %9 = load i32, ptr @hf_cqich_control_ie_indicator_1, align 4
-  br i1 %.not50, label %18, label %10
+6:                                                ; preds = %4
+  %7 = and i8 %5, 8
+  %.not50 = icmp eq i8 %7, 0
+  %8 = load i32, ptr @hf_cqich_control_ie_indicator_1, align 4
+  br i1 %.not50, label %17, label %9
 
-10:                                               ; preds = %7
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
-  %12 = load i32, ptr @hf_cqich_control_ie_alloc_id_1, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
-  %14 = load i32, ptr @hf_cqich_control_ie_period_1, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
-  %16 = load i32, ptr @hf_cqich_control_ie_frame_offset_1, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
-  br label %32
+9:                                                ; preds = %6
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
+  %11 = load i32, ptr @hf_cqich_control_ie_alloc_id_1, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
+  %13 = load i32, ptr @hf_cqich_control_ie_period_1, align 4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
+  %15 = load i32, ptr @hf_cqich_control_ie_frame_offset_1, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
+  br label %31
 
-18:                                               ; preds = %7
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
-  br label %32
+17:                                               ; preds = %6
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  br label %31
 
-20:                                               ; preds = %4
+19:                                               ; preds = %4
   %.not49 = icmp sgt i8 %5, -1
-  %21 = load i32, ptr @hf_cqich_control_ie_indicator, align 4
-  br i1 %.not49, label %30, label %22
+  %20 = load i32, ptr @hf_cqich_control_ie_indicator, align 4
+  br i1 %.not49, label %29, label %21
 
-22:                                               ; preds = %20
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
-  %24 = load i32, ptr @hf_cqich_control_ie_alloc_id, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %24, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
-  %26 = load i32, ptr @hf_cqich_control_ie_period, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
-  %28 = load i32, ptr @hf_cqich_control_ie_frame_offset, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
-  br label %32
+21:                                               ; preds = %19
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
+  %23 = load i32, ptr @hf_cqich_control_ie_alloc_id, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
+  %25 = load i32, ptr @hf_cqich_control_ie_period, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
+  %27 = load i32, ptr @hf_cqich_control_ie_frame_offset, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
+  br label %31
 
-30:                                               ; preds = %20
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
-  br label %32
+29:                                               ; preds = %19
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  br label %31
 
-32:                                               ; preds = %22, %30, %10, %18
-  %hf_cqich_control_ie_duration.sink = phi ptr [ @hf_cqich_control_ie_duration, %22 ], [ @hf_cqich_control_ie_cqi_rep_threshold, %30 ], [ @hf_cqich_control_ie_duration_1, %10 ], [ @hf_cqich_control_ie_cqi_rep_threshold_1, %18 ]
-  %.sink1 = phi i32 [ 2, %22 ], [ 1, %30 ], [ 3, %10 ], [ 1, %18 ]
-  %.0 = phi i32 [ 4, %22 ], [ 1, %30 ], [ 4, %10 ], [ 1, %18 ]
-  %33 = load i32, ptr %hf_cqich_control_ie_duration.sink, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %2, i32 noundef %.sink1, i32 noundef 0) #2
+31:                                               ; preds = %21, %29, %9, %17
+  %hf_cqich_control_ie_duration.sink = phi ptr [ @hf_cqich_control_ie_duration, %21 ], [ @hf_cqich_control_ie_cqi_rep_threshold, %29 ], [ @hf_cqich_control_ie_duration_1, %9 ], [ @hf_cqich_control_ie_cqi_rep_threshold_1, %17 ]
+  %.sink1 = phi i32 [ 2, %21 ], [ 1, %29 ], [ 3, %9 ], [ 1, %17 ]
+  %.0 = phi i32 [ 4, %21 ], [ 1, %29 ], [ 4, %9 ], [ 1, %17 ]
+  %32 = load i32, ptr %hf_cqich_control_ie_duration.sink, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %2, i32 noundef %.sink1, i32 noundef 0) #2
   ret i32 %.0
 }
 

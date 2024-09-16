@@ -654,7 +654,7 @@ define dso_local noundef range(i32 -32, 1) i32 @snd_pcm_update_hw_ptr(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -32, 1) i32 @snd_pcm_update_hw_ptr0(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -32, 1) i32 @snd_pcm_update_hw_ptr0(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca %struct.timespec64, align 8
   %5 = alloca %struct.timespec64, align 8

@@ -3371,7 +3371,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit: ; preds = %_ZN5Yosys5RTLIL
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %.lr.ph, %61
   store i32 %60, ptr %5, align 4
-  %67 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %67 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %5, i1 noundef zeroext true)
           to label %68 unwind label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit46
 
 68:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
@@ -3466,7 +3466,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit: ; preds = %_ZN5Yosys5RTLIL8I
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit58:          ; preds = %.lr.ph162, %109
   store i32 %108, ptr %6, align 4
-  %115 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %6, i1 noundef zeroext true)
+  %115 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %6, i1 noundef zeroext true)
           to label %116 unwind label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit62
 
 116:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit58
@@ -3569,7 +3569,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit70: ; preds = %_ZN5Yosys5RTLIL
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit72:          ; preds = %.lr.ph172, %159
   store i32 %158, ptr %7, align 4
-  %165 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %7, i1 noundef zeroext true)
+  %165 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %7, i1 noundef zeroext true)
           to label %166 unwind label %245
 
 166:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit72
@@ -3618,7 +3618,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit74:              ; preds = %166, %171, %178
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit76:          ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit74, %184
   store i32 %183, ptr %8, align 4
-  %190 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %8, i1 noundef zeroext true)
+  %190 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %8, i1 noundef zeroext true)
           to label %191 unwind label %247
 
 191:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit76
@@ -3692,7 +3692,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit78:              ; preds = %191, %196, %203
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit82:          ; preds = %.lr.ph167, %222
   store i32 %221, ptr %9, align 4
-  %228 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %9, i1 noundef zeroext true)
+  %228 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %9, i1 noundef zeroext true)
           to label %229 unwind label %249
 
 229:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit82
@@ -4158,7 +4158,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19SmvWorker3runEv(ptr noundef nonnu
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %1, %365
   store i32 %364, ptr %52, align 4
-  %371 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %52, i1 noundef zeroext false)
+  %371 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %52, i1 noundef zeroext false)
           to label %372 unwind label %610
 
 372:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
@@ -4622,7 +4622,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit780:              ; preds = %_ZSt8_DestroyIPN5Yo
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit782:         ; preds = %656, %659
   store i32 %658, ptr %58, align 4
-  %665 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %58, i1 noundef zeroext false)
+  %665 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %58, i1 noundef zeroext false)
           to label %666 unwind label %694
 
 666:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit782
@@ -4783,7 +4783,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit787:             ; preds = %690, %683, %_ZNSt6v
           to label %754 unwind label %615
 
 754:                                              ; preds = %752
-  %755 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %60)
+  %755 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %60)
           to label %756 unwind label %790
 
 756:                                              ; preds = %754
@@ -4796,7 +4796,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit787:             ; preds = %690, %683, %_ZNSt6v
           to label %760 unwind label %790
 
 760:                                              ; preds = %759
-  %761 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %61, i32 noundef -1, i1 noundef zeroext false)
+  %761 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %61, i32 noundef -1, i1 noundef zeroext false)
           to label %762 unwind label %792
 
 762:                                              ; preds = %760
@@ -5140,7 +5140,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit833:             ; preds = %_ZZN12_GLOBAL__N_19
           to label %913 unwind label %968
 
 913:                                              ; preds = %912
-  %914 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %65, i32 noundef -1, i1 noundef zeroext false)
+  %914 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %65, i32 noundef -1, i1 noundef zeroext false)
           to label %915 unwind label %970
 
 915:                                              ; preds = %913
@@ -5148,7 +5148,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit833:             ; preds = %_ZZN12_GLOBAL__N_19
           to label %916 unwind label %970
 
 916:                                              ; preds = %915
-  %917 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %66, i32 noundef -1, i1 noundef zeroext false)
+  %917 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %66, i32 noundef -1, i1 noundef zeroext false)
           to label %918 unwind label %972
 
 918:                                              ; preds = %916
@@ -6165,7 +6165,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit943:             ; preds = %_ZZN12_GLOBAL__N_19
           to label %1328 unwind label %1413
 
 1328:                                             ; preds = %1327
-  %1329 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %80, i32 noundef %.0507.lcssa)
+  %1329 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %80, i32 noundef %.0507.lcssa)
           to label %1330 unwind label %1415
 
 1330:                                             ; preds = %1328
@@ -6223,7 +6223,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit956:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1345 unwind label %1413
 
 1345:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit956
-  %1346 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %82, i32 noundef -1, i1 noundef zeroext false)
+  %1346 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %82, i32 noundef -1, i1 noundef zeroext false)
           to label %1347 unwind label %1417
 
 1347:                                             ; preds = %1345
@@ -6287,7 +6287,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit969:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1364 unwind label %1413
 
 1364:                                             ; preds = %1362
-  %1365 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %84, i32 noundef -1, i1 noundef zeroext false)
+  %1365 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %84, i32 noundef -1, i1 noundef zeroext false)
           to label %1366 unwind label %.loopexit4373
 
 1366:                                             ; preds = %1364
@@ -6328,7 +6328,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %1374, %1366
           to label %1385 unwind label %.loopexit4373
 
 1385:                                             ; preds = %1383
-  %1386 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %85, i32 noundef -1, i1 noundef zeroext false)
+  %1386 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %85, i32 noundef -1, i1 noundef zeroext false)
           to label %1387 unwind label %1419
 
 1387:                                             ; preds = %1385
@@ -6629,7 +6629,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1011:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1493 unwind label %1413
 
 1493:                                             ; preds = %1492
-  %1494 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %87, i32 noundef %.0507.lcssa)
+  %1494 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %87, i32 noundef %.0507.lcssa)
           to label %1495 unwind label %1562
 
 1495:                                             ; preds = %1493
@@ -6685,7 +6685,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1024:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1508 unwind label %1413
 
 1508:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1024
-  %1509 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %88, i32 noundef -1)
+  %1509 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %88, i32 noundef -1)
           to label %1510 unwind label %1564
 
 1510:                                             ; preds = %1508
@@ -6741,7 +6741,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1037:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1523 unwind label %1413
 
 1523:                                             ; preds = %1522
-  %1524 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %90, i32 noundef -1)
+  %1524 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %90, i32 noundef -1)
           to label %1525 unwind label %1566
 
 1525:                                             ; preds = %1523
@@ -6928,7 +6928,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1054: ; preds = %1579, %1573
           to label %1590 unwind label %.loopexit4368
 
 1590:                                             ; preds = %1588
-  %1591 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %96, i32 noundef -1, i1 noundef zeroext false)
+  %1591 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %96, i32 noundef -1, i1 noundef zeroext false)
           to label %1592 unwind label %1607
 
 1592:                                             ; preds = %1590
@@ -7157,7 +7157,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1084:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1681 unwind label %1413
 
 1681:                                             ; preds = %1680
-  %1682 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %98, i32 noundef %.0507.lcssa)
+  %1682 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %98, i32 noundef %.0507.lcssa)
           to label %1683 unwind label %1695
 
 1683:                                             ; preds = %1681
@@ -7215,7 +7215,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1095: ; preds =
           to label %1698 unwind label %1413
 
 1698:                                             ; preds = %1697
-  %1699 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %100, i32 noundef %.sroa.speculated3958)
+  %1699 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %100, i32 noundef %.sroa.speculated3958)
           to label %1700 unwind label %1712
 
 1700:                                             ; preds = %1698
@@ -7282,7 +7282,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1097:             ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1716 unwind label %1413
 
 1716:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1097
-  %1717 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %102, i32 noundef -1)
+  %1717 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %102, i32 noundef -1)
           to label %1718 unwind label %1754
 
 1718:                                             ; preds = %1716
@@ -7346,7 +7346,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1123:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1735 unwind label %1413
 
 1735:                                             ; preds = %1734
-  %1736 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %104, i32 noundef -1)
+  %1736 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %104, i32 noundef -1)
           to label %1737 unwind label %1756
 
 1737:                                             ; preds = %1735
@@ -7424,7 +7424,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit998:              ; preds = %1753, %_ZSt8_Destro
           to label %1760 unwind label %1413
 
 1760:                                             ; preds = %1759
-  %1761 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %106)
+  %1761 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %106)
           to label %1762 unwind label %1801
 
 1762:                                             ; preds = %1760
@@ -8103,7 +8103,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1215:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %2032 unwind label %1950
 
 2032:                                             ; preds = %2031
-  %2033 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %112)
+  %2033 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %112)
           to label %2034 unwind label %2067
 
 2034:                                             ; preds = %2032
@@ -8116,7 +8116,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1215:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %2038 unwind label %2067
 
 2038:                                             ; preds = %2037
-  %2039 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %113, i32 noundef %1914)
+  %2039 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %113, i32 noundef %1914)
           to label %2040 unwind label %2069
 
 2040:                                             ; preds = %2038
@@ -8260,7 +8260,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1242: ; preds =
           to label %2078 unwind label %1950
 
 2078:                                             ; preds = %2077
-  %2079 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %115)
+  %2079 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %115)
           to label %2080 unwind label %2113
 
 2080:                                             ; preds = %2078
@@ -8273,7 +8273,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1242: ; preds =
           to label %2084 unwind label %2113
 
 2084:                                             ; preds = %2083
-  %2085 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %116, i32 noundef %1914)
+  %2085 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %116, i32 noundef %1914)
           to label %2086 unwind label %2115
 
 2086:                                             ; preds = %2084
@@ -9526,7 +9526,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1359:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %2631 unwind label %2405
 
 2631:                                             ; preds = %2630
-  %2632 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %127)
+  %2632 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %127)
           to label %2633 unwind label %2681
 
 2633:                                             ; preds = %2631
@@ -9538,7 +9538,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1359:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %2636 unwind label %2681
 
 2636:                                             ; preds = %2635
-  %2637 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %128, i32 noundef %2369)
+  %2637 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %128, i32 noundef %2369)
           to label %2638 unwind label %2683
 
 2638:                                             ; preds = %2636
@@ -9551,7 +9551,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1359:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %2642 unwind label %2683
 
 2642:                                             ; preds = %2641
-  %2643 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %129, i32 noundef %2369)
+  %2643 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %129, i32 noundef %2369)
           to label %2644 unwind label %2685
 
 2644:                                             ; preds = %2642
@@ -9749,7 +9749,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1399: ; preds =
           to label %2695 unwind label %2405
 
 2695:                                             ; preds = %2694
-  %2696 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %131)
+  %2696 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %131)
           to label %2697 unwind label %2745
 
 2697:                                             ; preds = %2695
@@ -9761,7 +9761,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1399: ; preds =
           to label %2700 unwind label %2745
 
 2700:                                             ; preds = %2699
-  %2701 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %132, i32 noundef %2369)
+  %2701 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %132, i32 noundef %2369)
           to label %2702 unwind label %2747
 
 2702:                                             ; preds = %2700
@@ -9774,7 +9774,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1399: ; preds =
           to label %2706 unwind label %2747
 
 2706:                                             ; preds = %2705
-  %2707 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %133, i32 noundef %2369)
+  %2707 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %133, i32 noundef %2369)
           to label %2708 unwind label %2749
 
 2708:                                             ; preds = %2706
@@ -10174,7 +10174,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1457:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %2845 unwind label %2835
 
 2845:                                             ; preds = %2844
-  %2846 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %138)
+  %2846 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %138)
           to label %2847 unwind label %2895
 
 2847:                                             ; preds = %2845
@@ -10186,7 +10186,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1457:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %2850 unwind label %2895
 
 2850:                                             ; preds = %2849
-  %2851 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %139, i32 noundef %.sroa.speculated3903)
+  %2851 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %139, i32 noundef %.sroa.speculated3903)
           to label %2852 unwind label %2897
 
 2852:                                             ; preds = %2850
@@ -10199,7 +10199,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1457:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %2856 unwind label %2897
 
 2856:                                             ; preds = %2855
-  %2857 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %140, i32 noundef %.sroa.speculated3903)
+  %2857 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %140, i32 noundef %.sroa.speculated3903)
           to label %2858 unwind label %2899
 
 2858:                                             ; preds = %2856
@@ -10397,7 +10397,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1497: ; preds =
           to label %2909 unwind label %2835
 
 2909:                                             ; preds = %2908
-  %2910 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %142)
+  %2910 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %142)
           to label %2911 unwind label %2959
 
 2911:                                             ; preds = %2909
@@ -10409,7 +10409,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1497: ; preds =
           to label %2914 unwind label %2959
 
 2914:                                             ; preds = %2913
-  %2915 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %143, i32 noundef %.sroa.speculated3903)
+  %2915 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %143, i32 noundef %.sroa.speculated3903)
           to label %2916 unwind label %2961
 
 2916:                                             ; preds = %2914
@@ -10422,7 +10422,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1497: ; preds =
           to label %2920 unwind label %2961
 
 2920:                                             ; preds = %2919
-  %2921 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %144, i32 noundef %.sroa.speculated3903)
+  %2921 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %144, i32 noundef %.sroa.speculated3903)
           to label %2922 unwind label %2963
 
 2922:                                             ; preds = %2920
@@ -11891,7 +11891,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1641:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %3554 unwind label %3292
 
 3554:                                             ; preds = %3553
-  %3555 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %156, i32 noundef -1, i1 noundef zeroext false)
+  %3555 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %156, i32 noundef -1, i1 noundef zeroext false)
           to label %3556 unwind label %3585
 
 3556:                                             ; preds = %3554
@@ -11953,7 +11953,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1654:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %3571 unwind label %3292
 
 3571:                                             ; preds = %3570
-  %3572 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %158, i32 noundef -1, i1 noundef zeroext false)
+  %3572 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %158, i32 noundef -1, i1 noundef zeroext false)
           to label %3573 unwind label %3587
 
 3573:                                             ; preds = %3571
@@ -12023,7 +12023,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1665: ; preds =
           to label %3592 unwind label %3292
 
 3592:                                             ; preds = %3591
-  %3593 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %160, i32 noundef -1, i1 noundef zeroext false)
+  %3593 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %160, i32 noundef -1, i1 noundef zeroext false)
           to label %3594 unwind label %3623
 
 3594:                                             ; preds = %3592
@@ -12085,7 +12085,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1680:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %3609 unwind label %3292
 
 3609:                                             ; preds = %3608
-  %3610 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %162, i32 noundef -1, i1 noundef zeroext false)
+  %3610 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %162, i32 noundef -1, i1 noundef zeroext false)
           to label %3611 unwind label %3625
 
 3611:                                             ; preds = %3609
@@ -12160,7 +12160,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1667:             ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3629 unwind label %3292
 
 3629:                                             ; preds = %3628
-  %3630 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %164)
+  %3630 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %164)
           to label %3631 unwind label %3655
 
 3631:                                             ; preds = %3629
@@ -12505,7 +12505,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1729:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %3773 unwind label %.loopexit.split-lp4355.loopexit
 
 3773:                                             ; preds = %3772
-  %3774 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %167, i32 noundef -1, i1 noundef zeroext false)
+  %3774 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %167, i32 noundef -1, i1 noundef zeroext false)
           to label %3775 unwind label %3837
 
 3775:                                             ; preds = %3773
@@ -12561,7 +12561,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1742:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %3788 unwind label %.loopexit.split-lp4355.loopexit
 
 3788:                                             ; preds = %3787
-  %3789 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %168)
+  %3789 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %168)
           to label %3790 unwind label %3839
 
 3790:                                             ; preds = %3788
@@ -13073,7 +13073,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1789:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4003 unwind label %.loopexit.split-lp4355.loopexit
 
 4003:                                             ; preds = %4002
-  %4004 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %175)
+  %4004 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %175)
           to label %4005 unwind label %4041
 
 4005:                                             ; preds = %4003
@@ -13202,7 +13202,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %4028, %4024
           to label %4044 unwind label %.loopexit4344
 
 4044:                                             ; preds = %4043
-  %4045 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %178, i32 noundef -1, i1 noundef zeroext false)
+  %4045 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %178, i32 noundef -1, i1 noundef zeroext false)
           to label %4046 unwind label %4059
 
 4046:                                             ; preds = %4044
@@ -13566,7 +13566,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1845:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4193 unwind label %.loopexit.split-lp4355.loopexit
 
 4193:                                             ; preds = %4192
-  %4194 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %184, i32 noundef -1, i1 noundef zeroext false)
+  %4194 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %184, i32 noundef -1, i1 noundef zeroext false)
           to label %4195 unwind label %4278
 
 4195:                                             ; preds = %4193
@@ -13626,7 +13626,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1858:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4209 unwind label %4280
 
 4209:                                             ; preds = %4208
-  %4210 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %186, i32 noundef -1, i1 noundef zeroext false)
+  %4210 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %186, i32 noundef -1, i1 noundef zeroext false)
           to label %4211 unwind label %4282
 
 4211:                                             ; preds = %4209
@@ -13686,7 +13686,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1871:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4225 unwind label %4284
 
 4225:                                             ; preds = %4224
-  %4226 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %187)
+  %4226 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %187)
           to label %4227 unwind label %4286
 
 4227:                                             ; preds = %4225
@@ -14114,7 +14114,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1915:            ; preds = %_ZZN12_GLOBAL__N_19
           to label %4391 unwind label %.loopexit.split-lp4355.loopexit
 
 4391:                                             ; preds = %4390
-  %4392 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %195, i32 noundef -1, i1 noundef zeroext false)
+  %4392 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %195, i32 noundef -1, i1 noundef zeroext false)
           to label %4393 unwind label %4428
 
 4393:                                             ; preds = %4391
@@ -14174,7 +14174,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1928:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4407 unwind label %4430
 
 4407:                                             ; preds = %4406
-  %4408 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %196)
+  %4408 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %196)
           to label %4409 unwind label %4432
 
 4409:                                             ; preds = %4407
@@ -14492,7 +14492,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1958: ; preds = %4524, %.lr.ph57
           to label %4534 unwind label %.loopexit4349
 
 4534:                                             ; preds = %4532
-  %4535 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %204, i32 noundef -1, i1 noundef zeroext false)
+  %4535 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %204, i32 noundef -1, i1 noundef zeroext false)
           to label %4536 unwind label %4572
 
 4536:                                             ; preds = %4534
@@ -14502,7 +14502,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1958: ; preds = %4524, %.lr.ph57
           to label %4539 unwind label %4572
 
 4539:                                             ; preds = %4536
-  %4540 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %205, i32 noundef -1, i1 noundef zeroext false)
+  %4540 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %205, i32 noundef -1, i1 noundef zeroext false)
           to label %4541 unwind label %4574
 
 4541:                                             ; preds = %4539
@@ -14665,7 +14665,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1988:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4580 unwind label %.loopexit.split-lp4350.loopexit
 
 4580:                                             ; preds = %._crit_edge
-  %4581 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %206, i32 noundef -1, i1 noundef zeroext false)
+  %4581 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %206, i32 noundef -1, i1 noundef zeroext false)
           to label %4582 unwind label %4593
 
 4582:                                             ; preds = %4580
@@ -14682,7 +14682,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1988:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4587 unwind label %.loopexit.split-lp4350.loopexit
 
 4587:                                             ; preds = %4586
-  %4588 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %208)
+  %4588 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %208)
           to label %4589 unwind label %4595
 
 4589:                                             ; preds = %4587
@@ -14742,7 +14742,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1988:             ; preds = %_ZSt8_DestroyIPN5Yo
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 4602:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1957
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE67_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %209)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE67_clEv(ptr dead_on_unwind noalias writable align 4 %209)
           to label %4603 unwind label %.loopexit.split-lp4355.loopexit
 
 4603:                                             ; preds = %4602
@@ -14761,7 +14761,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1988:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4610 unwind label %.loopexit.split-lp4355.loopexit
 
 4610:                                             ; preds = %4609
-  %4611 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %211)
+  %4611 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %211)
           to label %4612 unwind label %4634
 
 4612:                                             ; preds = %4610
@@ -14796,7 +14796,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1988:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4624 unwind label %.loopexit.split-lp4355.loopexit
 
 4624:                                             ; preds = %4623
-  %4625 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %213)
+  %4625 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %213)
           to label %4626 unwind label %4639
 
 4626:                                             ; preds = %4624
@@ -14808,7 +14808,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1988:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4629 unwind label %4639
 
 4629:                                             ; preds = %4628
-  %4630 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %214, i32 noundef -1, i1 noundef zeroext false)
+  %4630 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %214, i32 noundef -1, i1 noundef zeroext false)
           to label %4631 unwind label %4641
 
 4631:                                             ; preds = %4629
@@ -14868,11 +14868,11 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1988:             ; preds = %_ZSt8_DestroyIPN5Yo
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 4647:                                             ; preds = %4603
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE68_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %215)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE68_clEv(ptr dead_on_unwind noalias writable align 4 %215)
           to label %4648 unwind label %.loopexit.split-lp4355.loopexit
 
 4648:                                             ; preds = %4647
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE69_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %216)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE69_clEv(ptr dead_on_unwind noalias writable align 4 %216)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1989 unwind label %4675
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1989: ; preds = %4648
@@ -14887,7 +14887,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1989: ; preds = %4648
   br i1 %4654, label %4655, label %4690
 
 4655:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1989
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE70_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %218)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE70_clEv(ptr dead_on_unwind noalias writable align 4 %218)
           to label %4656 unwind label %.loopexit.split-lp4355.loopexit
 
 4656:                                             ; preds = %4655
@@ -14910,7 +14910,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1989: ; preds = %4648
           to label %4664 unwind label %4679
 
 4664:                                             ; preds = %4663
-  %4665 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %221)
+  %4665 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %221)
           to label %4666 unwind label %4681
 
 4666:                                             ; preds = %4664
@@ -14923,7 +14923,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1989: ; preds = %4648
           to label %4670 unwind label %4681
 
 4670:                                             ; preds = %4669
-  %4671 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %222, i32 noundef -1, i1 noundef zeroext false)
+  %4671 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %222, i32 noundef -1, i1 noundef zeroext false)
           to label %4672 unwind label %4683
 
 4672:                                             ; preds = %4670
@@ -14991,35 +14991,35 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1989: ; preds = %4648
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 4690:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1989
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE71_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %223)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE71_clEv(ptr dead_on_unwind noalias writable align 4 %223)
           to label %4691 unwind label %.loopexit.split-lp4355.loopexit
 
 4691:                                             ; preds = %4690
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE72_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %224)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE72_clEv(ptr dead_on_unwind noalias writable align 4 %224)
           to label %4692 unwind label %4729
 
 4692:                                             ; preds = %4691
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE73_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %225)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE73_clEv(ptr dead_on_unwind noalias writable align 4 %225)
           to label %4693 unwind label %4731
 
 4693:                                             ; preds = %4692
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE74_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %226)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE74_clEv(ptr dead_on_unwind noalias writable align 4 %226)
           to label %4694 unwind label %4733
 
 4694:                                             ; preds = %4693
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE75_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %227)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE75_clEv(ptr dead_on_unwind noalias writable align 4 %227)
           to label %4695 unwind label %4735
 
 4695:                                             ; preds = %4694
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE76_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %228)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE76_clEv(ptr dead_on_unwind noalias writable align 4 %228)
           to label %4696 unwind label %4737
 
 4696:                                             ; preds = %4695
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE77_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %229)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE77_clEv(ptr dead_on_unwind noalias writable align 4 %229)
           to label %4697 unwind label %4739
 
 4697:                                             ; preds = %4696
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE78_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %230)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE78_clEv(ptr dead_on_unwind noalias writable align 4 %230)
           to label %4698 unwind label %4741
 
 4698:                                             ; preds = %4697
@@ -15072,15 +15072,15 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit1995: ; preds
 
 4716:                                             ; preds = %.critedge4179, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit1995
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %231) #24
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE79_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %232)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE79_clEv(ptr dead_on_unwind noalias writable align 4 %232)
           to label %4717 unwind label %4749
 
 4717:                                             ; preds = %4716
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE80_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %233)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE80_clEv(ptr dead_on_unwind noalias writable align 4 %233)
           to label %4718 unwind label %4751
 
 4718:                                             ; preds = %4717
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE81_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %234)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE81_clEv(ptr dead_on_unwind noalias writable align 4 %234)
           to label %4719 unwind label %4753
 
 4719:                                             ; preds = %4718
@@ -15198,15 +15198,15 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1997: ; preds = %4719
   br label %4896
 
 4756:                                             ; preds = %4727, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1997
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE82_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %235)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE82_clEv(ptr dead_on_unwind noalias writable align 4 %235)
           to label %4757 unwind label %4749
 
 4757:                                             ; preds = %4756
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE83_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %236)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE83_clEv(ptr dead_on_unwind noalias writable align 4 %236)
           to label %4758 unwind label %4769
 
 4758:                                             ; preds = %4757
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE84_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %237)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE84_clEv(ptr dead_on_unwind noalias writable align 4 %237)
           to label %4759 unwind label %4771
 
 4759:                                             ; preds = %4758
@@ -15253,7 +15253,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1999: ; preds = %4759
   br label %4896
 
 4774:                                             ; preds = %4767, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1999
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE85_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %238)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE85_clEv(ptr dead_on_unwind noalias writable align 4 %238)
           to label %4775 unwind label %4749
 
 4775:                                             ; preds = %4774
@@ -15268,7 +15268,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1999: ; preds = %4759
           to label %4781 unwind label %4749
 
 4781:                                             ; preds = %4779, %4775
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE86_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %239)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE86_clEv(ptr dead_on_unwind noalias writable align 4 %239)
           to label %4782 unwind label %4749
 
 4782:                                             ; preds = %4781
@@ -15283,11 +15283,11 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1999: ; preds = %4759
           to label %4788 unwind label %4749
 
 4788:                                             ; preds = %4786, %4782
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE87_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %240)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE87_clEv(ptr dead_on_unwind noalias writable align 4 %240)
           to label %4789 unwind label %4749
 
 4789:                                             ; preds = %4788
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE88_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %241)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE88_clEv(ptr dead_on_unwind noalias writable align 4 %241)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2000 unwind label %4814
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2000: ; preds = %4789
@@ -15310,7 +15310,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2000: ; preds = %4789
           to label %4799 unwind label %4749
 
 4799:                                             ; preds = %4798
-  %4800 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %243)
+  %4800 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %243)
           to label %4801 unwind label %4816
 
 4801:                                             ; preds = %4799
@@ -15322,7 +15322,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2000: ; preds = %4789
           to label %4804 unwind label %4816
 
 4804:                                             ; preds = %4803
-  %4805 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %244, i32 noundef -1, i1 noundef zeroext false)
+  %4805 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %244, i32 noundef -1, i1 noundef zeroext false)
           to label %4806 unwind label %4818
 
 4806:                                             ; preds = %4804
@@ -15335,7 +15335,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2000: ; preds = %4789
           to label %4810 unwind label %4818
 
 4810:                                             ; preds = %4809
-  %4811 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %245, i32 noundef -1, i1 noundef zeroext false)
+  %4811 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %245, i32 noundef -1, i1 noundef zeroext false)
           to label %4812 unwind label %4820
 
 4812:                                             ; preds = %4810
@@ -15389,11 +15389,11 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2000: ; preds = %4789
   br label %4896
 
 4827:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2000
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE89_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %246)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE89_clEv(ptr dead_on_unwind noalias writable align 4 %246)
           to label %4828 unwind label %4749
 
 4828:                                             ; preds = %4827
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE90_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %247)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE90_clEv(ptr dead_on_unwind noalias writable align 4 %247)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001 unwind label %4853
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
@@ -15416,7 +15416,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4838 unwind label %4749
 
 4838:                                             ; preds = %4837
-  %4839 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %249)
+  %4839 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %249)
           to label %4840 unwind label %4855
 
 4840:                                             ; preds = %4838
@@ -15428,7 +15428,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4843 unwind label %4855
 
 4843:                                             ; preds = %4842
-  %4844 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %250, i32 noundef -1, i1 noundef zeroext false)
+  %4844 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %250, i32 noundef -1, i1 noundef zeroext false)
           to label %4845 unwind label %4857
 
 4845:                                             ; preds = %4843
@@ -15441,7 +15441,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4849 unwind label %4857
 
 4849:                                             ; preds = %4848
-  %4850 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %251, i32 noundef -1, i1 noundef zeroext false)
+  %4850 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %251, i32 noundef -1, i1 noundef zeroext false)
           to label %4851 unwind label %4859
 
 4851:                                             ; preds = %4849
@@ -15503,7 +15503,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4869 unwind label %4749
 
 4869:                                             ; preds = %4868
-  %4870 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %253)
+  %4870 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %253)
           to label %4871 unwind label %4884
 
 4871:                                             ; preds = %4869
@@ -15515,7 +15515,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4874 unwind label %4884
 
 4874:                                             ; preds = %4873
-  %4875 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %254, i32 noundef -1, i1 noundef zeroext false)
+  %4875 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %254, i32 noundef -1, i1 noundef zeroext false)
           to label %4876 unwind label %4886
 
 4876:                                             ; preds = %4874
@@ -15528,7 +15528,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4880 unwind label %4886
 
 4880:                                             ; preds = %4879
-  %4881 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %255, i32 noundef -1, i1 noundef zeroext false)
+  %4881 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %255, i32 noundef -1, i1 noundef zeroext false)
           to label %4882 unwind label %4888
 
 4882:                                             ; preds = %4880
@@ -15593,7 +15593,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 4897:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit1995
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE91_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %256)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE91_clEv(ptr dead_on_unwind noalias writable align 4 %256)
           to label %4898 unwind label %.loopexit.split-lp4355.loopexit
 
 4898:                                             ; preds = %4897
@@ -15612,7 +15612,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4905 unwind label %.loopexit.split-lp4355.loopexit
 
 4905:                                             ; preds = %4904
-  %4906 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %258)
+  %4906 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %258)
           to label %4907 unwind label %4925
 
 4907:                                             ; preds = %4905
@@ -15624,7 +15624,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4910 unwind label %4925
 
 4910:                                             ; preds = %4909
-  %4911 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %259, i32 noundef -1, i1 noundef zeroext false)
+  %4911 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %259, i32 noundef -1, i1 noundef zeroext false)
           to label %4912 unwind label %4927
 
 4912:                                             ; preds = %4910
@@ -15636,7 +15636,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4915 unwind label %4927
 
 4915:                                             ; preds = %4914
-  %4916 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %260, i32 noundef -1, i1 noundef zeroext false)
+  %4916 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %260, i32 noundef -1, i1 noundef zeroext false)
           to label %4917 unwind label %4929
 
 4917:                                             ; preds = %4915
@@ -15648,7 +15648,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4920 unwind label %4929
 
 4920:                                             ; preds = %4919
-  %4921 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %261, i32 noundef -1, i1 noundef zeroext false)
+  %4921 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %261, i32 noundef -1, i1 noundef zeroext false)
           to label %4922 unwind label %4931
 
 4922:                                             ; preds = %4920
@@ -15714,7 +15714,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 4939:                                             ; preds = %4898
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE92_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %262)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE92_clEv(ptr dead_on_unwind noalias writable align 4 %262)
           to label %4940 unwind label %.loopexit.split-lp4355.loopexit
 
 4940:                                             ; preds = %4939
@@ -15733,7 +15733,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4947 unwind label %.loopexit.split-lp4355.loopexit
 
 4947:                                             ; preds = %4946
-  %4948 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %264)
+  %4948 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %264)
           to label %4949 unwind label %4967
 
 4949:                                             ; preds = %4947
@@ -15745,7 +15745,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4952 unwind label %4967
 
 4952:                                             ; preds = %4951
-  %4953 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %265, i32 noundef -1, i1 noundef zeroext false)
+  %4953 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %265, i32 noundef -1, i1 noundef zeroext false)
           to label %4954 unwind label %4969
 
 4954:                                             ; preds = %4952
@@ -15757,7 +15757,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4957 unwind label %4969
 
 4957:                                             ; preds = %4956
-  %4958 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %266, i32 noundef -1, i1 noundef zeroext false)
+  %4958 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %266, i32 noundef -1, i1 noundef zeroext false)
           to label %4959 unwind label %4971
 
 4959:                                             ; preds = %4957
@@ -15769,7 +15769,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4962 unwind label %4971
 
 4962:                                             ; preds = %4961
-  %4963 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %267, i32 noundef -1, i1 noundef zeroext false)
+  %4963 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %267, i32 noundef -1, i1 noundef zeroext false)
           to label %4964 unwind label %4973
 
 4964:                                             ; preds = %4962
@@ -15835,7 +15835,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 4981:                                             ; preds = %4940
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE93_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %268)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE93_clEv(ptr dead_on_unwind noalias writable align 4 %268)
           to label %4982 unwind label %.loopexit.split-lp4355.loopexit
 
 4982:                                             ; preds = %4981
@@ -15854,7 +15854,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4989 unwind label %.loopexit.split-lp4355.loopexit
 
 4989:                                             ; preds = %4988
-  %4990 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %270)
+  %4990 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %270)
           to label %4991 unwind label %5009
 
 4991:                                             ; preds = %4989
@@ -15866,7 +15866,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4994 unwind label %5009
 
 4994:                                             ; preds = %4993
-  %4995 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %271, i32 noundef -1, i1 noundef zeroext false)
+  %4995 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %271, i32 noundef -1, i1 noundef zeroext false)
           to label %4996 unwind label %5011
 
 4996:                                             ; preds = %4994
@@ -15878,7 +15878,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %4999 unwind label %5011
 
 4999:                                             ; preds = %4998
-  %5000 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %272, i32 noundef -1, i1 noundef zeroext false)
+  %5000 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %272, i32 noundef -1, i1 noundef zeroext false)
           to label %5001 unwind label %5013
 
 5001:                                             ; preds = %4999
@@ -15890,7 +15890,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5004 unwind label %5013
 
 5004:                                             ; preds = %5003
-  %5005 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %273, i32 noundef -1, i1 noundef zeroext false)
+  %5005 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %273, i32 noundef -1, i1 noundef zeroext false)
           to label %5006 unwind label %5015
 
 5006:                                             ; preds = %5004
@@ -15956,7 +15956,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 5023:                                             ; preds = %4982
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE94_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %274)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE94_clEv(ptr dead_on_unwind noalias writable align 4 %274)
           to label %5024 unwind label %.loopexit.split-lp4355.loopexit
 
 5024:                                             ; preds = %5023
@@ -15975,7 +15975,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5031 unwind label %.loopexit.split-lp4355.loopexit
 
 5031:                                             ; preds = %5030
-  %5032 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %276)
+  %5032 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %276)
           to label %5033 unwind label %5051
 
 5033:                                             ; preds = %5031
@@ -15987,7 +15987,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5036 unwind label %5051
 
 5036:                                             ; preds = %5035
-  %5037 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %277, i32 noundef -1, i1 noundef zeroext false)
+  %5037 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %277, i32 noundef -1, i1 noundef zeroext false)
           to label %5038 unwind label %5053
 
 5038:                                             ; preds = %5036
@@ -15999,7 +15999,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5041 unwind label %5053
 
 5041:                                             ; preds = %5040
-  %5042 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %278, i32 noundef -1, i1 noundef zeroext false)
+  %5042 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %278, i32 noundef -1, i1 noundef zeroext false)
           to label %5043 unwind label %5055
 
 5043:                                             ; preds = %5041
@@ -16011,7 +16011,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5046 unwind label %5055
 
 5046:                                             ; preds = %5045
-  %5047 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %279, i32 noundef -1, i1 noundef zeroext false)
+  %5047 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %279, i32 noundef -1, i1 noundef zeroext false)
           to label %5048 unwind label %5057
 
 5048:                                             ; preds = %5046
@@ -16077,7 +16077,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 5065:                                             ; preds = %5024
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE95_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %280)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE95_clEv(ptr dead_on_unwind noalias writable align 4 %280)
           to label %5066 unwind label %.loopexit.split-lp4355.loopexit
 
 5066:                                             ; preds = %5065
@@ -16096,7 +16096,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5073 unwind label %.loopexit.split-lp4355.loopexit
 
 5073:                                             ; preds = %5072
-  %5074 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %282)
+  %5074 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %282)
           to label %5075 unwind label %5098
 
 5075:                                             ; preds = %5073
@@ -16108,7 +16108,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5078 unwind label %5098
 
 5078:                                             ; preds = %5077
-  %5079 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %283, i32 noundef -1, i1 noundef zeroext false)
+  %5079 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %283, i32 noundef -1, i1 noundef zeroext false)
           to label %5080 unwind label %5100
 
 5080:                                             ; preds = %5078
@@ -16120,7 +16120,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5083 unwind label %5100
 
 5083:                                             ; preds = %5082
-  %5084 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %284, i32 noundef -1, i1 noundef zeroext false)
+  %5084 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %284, i32 noundef -1, i1 noundef zeroext false)
           to label %5085 unwind label %5102
 
 5085:                                             ; preds = %5083
@@ -16132,7 +16132,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5088 unwind label %5102
 
 5088:                                             ; preds = %5087
-  %5089 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %285, i32 noundef -1, i1 noundef zeroext false)
+  %5089 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %285, i32 noundef -1, i1 noundef zeroext false)
           to label %5090 unwind label %5104
 
 5090:                                             ; preds = %5088
@@ -16144,7 +16144,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5093 unwind label %5104
 
 5093:                                             ; preds = %5092
-  %5094 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %286, i32 noundef -1, i1 noundef zeroext false)
+  %5094 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %286, i32 noundef -1, i1 noundef zeroext false)
           to label %5095 unwind label %5106
 
 5095:                                             ; preds = %5093
@@ -16221,7 +16221,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 5115:                                             ; preds = %5066
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE96_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %287)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE96_clEv(ptr dead_on_unwind noalias writable align 4 %287)
           to label %5116 unwind label %.loopexit.split-lp4355.loopexit
 
 5116:                                             ; preds = %5115
@@ -16240,7 +16240,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5123 unwind label %.loopexit.split-lp4355.loopexit
 
 5123:                                             ; preds = %5122
-  %5124 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %289)
+  %5124 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %289)
           to label %5125 unwind label %5148
 
 5125:                                             ; preds = %5123
@@ -16252,7 +16252,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5128 unwind label %5148
 
 5128:                                             ; preds = %5127
-  %5129 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %290, i32 noundef -1, i1 noundef zeroext false)
+  %5129 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %290, i32 noundef -1, i1 noundef zeroext false)
           to label %5130 unwind label %5150
 
 5130:                                             ; preds = %5128
@@ -16264,7 +16264,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5133 unwind label %5150
 
 5133:                                             ; preds = %5132
-  %5134 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %291, i32 noundef -1, i1 noundef zeroext false)
+  %5134 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %291, i32 noundef -1, i1 noundef zeroext false)
           to label %5135 unwind label %5152
 
 5135:                                             ; preds = %5133
@@ -16276,7 +16276,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5138 unwind label %5152
 
 5138:                                             ; preds = %5137
-  %5139 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %292, i32 noundef -1, i1 noundef zeroext false)
+  %5139 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %292, i32 noundef -1, i1 noundef zeroext false)
           to label %5140 unwind label %5154
 
 5140:                                             ; preds = %5138
@@ -16288,7 +16288,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
           to label %5143 unwind label %5154
 
 5143:                                             ; preds = %5142
-  %5144 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %293, i32 noundef -1, i1 noundef zeroext false)
+  %5144 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %293, i32 noundef -1, i1 noundef zeroext false)
           to label %5145 unwind label %5156
 
 5145:                                             ; preds = %5143
@@ -16365,7 +16365,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 5165:                                             ; preds = %5116
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE97_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %294)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE97_clEv(ptr dead_on_unwind noalias writable align 4 %294)
           to label %5166 unwind label %.loopexit.split-lp4355.loopexit
 
 5166:                                             ; preds = %5165
@@ -16384,19 +16384,19 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2001: ; preds = %4828
   br i1 %5173, label %5174, label %5358
 
 5174:                                             ; preds = %5172
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE98_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %295)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE98_clEv(ptr dead_on_unwind noalias writable align 4 %295)
           to label %5175 unwind label %.loopexit.split-lp4355.loopexit.split-lp
 
 5175:                                             ; preds = %5174
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE99_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %296)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE99_clEv(ptr dead_on_unwind noalias writable align 4 %296)
           to label %5176 unwind label %5209
 
 5176:                                             ; preds = %5175
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE100_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %297)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE100_clEv(ptr dead_on_unwind noalias writable align 4 %297)
           to label %5177 unwind label %5211
 
 5177:                                             ; preds = %5176
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE101_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %298)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE101_clEv(ptr dead_on_unwind noalias writable align 4 %298)
           to label %5178 unwind label %5213
 
 5178:                                             ; preds = %5177
@@ -16573,27 +16573,27 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %5203
   br label %5232
 
 5232:                                             ; preds = %.critedge4219, %.thread4093
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE102_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %304)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE102_clEv(ptr dead_on_unwind noalias writable align 4 %304)
           to label %5233 unwind label %.loopexit.split-lp4355.loopexit.split-lp
 
 5233:                                             ; preds = %5232
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE103_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %305)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE103_clEv(ptr dead_on_unwind noalias writable align 4 %305)
           to label %5234 unwind label %5269
 
 5234:                                             ; preds = %5233
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE104_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %306)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE104_clEv(ptr dead_on_unwind noalias writable align 4 %306)
           to label %5235 unwind label %5271
 
 5235:                                             ; preds = %5234
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE105_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %307)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE105_clEv(ptr dead_on_unwind noalias writable align 4 %307)
           to label %5236 unwind label %5273
 
 5236:                                             ; preds = %5235
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE106_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %308)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE106_clEv(ptr dead_on_unwind noalias writable align 4 %308)
           to label %5237 unwind label %5275
 
 5237:                                             ; preds = %5236
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE107_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %309)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE107_clEv(ptr dead_on_unwind noalias writable align 4 %309)
           to label %5238 unwind label %5277
 
 5238:                                             ; preds = %5237
@@ -16769,19 +16769,19 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit2011: ; preds = %5263
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit2037
 
 5295:                                             ; preds = %.critedge755.thread
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE108_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %314)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE108_clEv(ptr dead_on_unwind noalias writable align 4 %314)
           to label %5296 unwind label %.loopexit.split-lp4355.loopexit.split-lp
 
 5296:                                             ; preds = %5295
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE109_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %315)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE109_clEv(ptr dead_on_unwind noalias writable align 4 %315)
           to label %5297 unwind label %5326
 
 5297:                                             ; preds = %5296
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE110_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %316)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE110_clEv(ptr dead_on_unwind noalias writable align 4 %316)
           to label %5298 unwind label %5328
 
 5298:                                             ; preds = %5297
-  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE111_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %317)
+  invoke fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE111_clEv(ptr dead_on_unwind noalias writable align 4 %317)
           to label %5299 unwind label %5330
 
 5299:                                             ; preds = %5298
@@ -16992,7 +16992,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit2023.cont: ; preds = %_ZN5Yosys
           to label %5379 unwind label %.loopexit4354
 
 5379:                                             ; preds = %5377
-  %5380 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %323)
+  %5380 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %323)
           to label %5381 unwind label %5402
 
 5381:                                             ; preds = %5379
@@ -17011,7 +17011,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit2023.cont: ; preds = %_ZN5Yosys
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2027:        ; preds = %5381, %5383
   store i32 %5382, ptr %324, align 4
-  %5389 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %324, i1 noundef zeroext false)
+  %5389 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %324, i1 noundef zeroext false)
           to label %5390 unwind label %5404
 
 5390:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2027
@@ -17030,7 +17030,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2027:        ; preds = %5381, %5383
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2029:        ; preds = %5390, %5392
   store i32 %5391, ptr %325, align 4
-  %5398 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %325, i1 noundef zeroext false)
+  %5398 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %325, i1 noundef zeroext false)
           to label %5399 unwind label %5406
 
 5399:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2029
@@ -17100,7 +17100,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2029:        ; preds = %5390, %5392
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2031:        ; preds = %5413, %5415
   store i32 %5414, ptr %327, align 4
-  %5421 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %327, i1 noundef zeroext false)
+  %5421 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %327, i1 noundef zeroext false)
           to label %5422 unwind label %5438
 
 5422:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2031
@@ -17119,7 +17119,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2031:        ; preds = %5413, %5415
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2033:        ; preds = %5422, %5424
   store i32 %5423, ptr %328, align 4
-  %5430 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %328, i1 noundef zeroext false)
+  %5430 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %328, i1 noundef zeroext false)
           to label %5431 unwind label %5440
 
 5431:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2033
@@ -17128,7 +17128,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2033:        ; preds = %5422, %5424
           to label %5433 unwind label %5440
 
 5433:                                             ; preds = %5431
-  %5434 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %329, i32 noundef -1, i1 noundef zeroext false)
+  %5434 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %329, i32 noundef -1, i1 noundef zeroext false)
           to label %5435 unwind label %5442
 
 5435:                                             ; preds = %5433
@@ -24683,7 +24683,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit4286:                                    ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc7.i.thread
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc7.i.thread ], [ %9069, %.lr.ph.i.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %847, align 8
-  %9071 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %347, i32 noundef -1, i1 noundef zeroext false)
+  %9071 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %347, i32 noundef -1, i1 noundef zeroext false)
           to label %9072 unwind label %9104
 
 9072:                                             ; preds = %.loopexit4286
@@ -24852,7 +24852,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2225:             ; preds = %9103, %_ZSt8_Destro
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2392:        ; preds = %._crit_edge5768, %9112
   store i32 %9111, ptr %349, align 4
-  %9118 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %349, i1 noundef zeroext false)
+  %9118 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %349, i1 noundef zeroext false)
           to label %9119 unwind label %9143
 
 9119:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2392
@@ -28047,7 +28047,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -88703,7 +88703,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6lvalueEN5Yosys5R
 
 8:                                                ; preds = %2
   call void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %9 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %3, i32 noundef -1, i1 noundef zeroext false)
+  %9 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %3, i32 noundef -1, i1 noundef zeroext false)
           to label %10 unwind label %24
 
 10:                                               ; preds = %8
@@ -88819,7 +88819,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZNK5Yosys5RTLIL15S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -89059,7 +89059,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i93: ; preds = %91, %87
           to label %120 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 120:                                              ; preds = %118
-  %121 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %7, i32 noundef -1, i1 noundef zeroext false)
+  %121 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %7, i32 noundef -1, i1 noundef zeroext false)
           to label %122 unwind label %138
 
 122:                                              ; preds = %120
@@ -89143,7 +89143,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %137, %_ZSt8_Destroy
           to label %148 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 148:                                              ; preds = %147
-  %149 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %10, i32 noundef -1, i1 noundef zeroext false)
+  %149 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %10, i32 noundef -1, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %148
@@ -89295,7 +89295,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i108: ; preds = 
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %198, %201
   store i32 %200, ptr %14, align 4
-  %207 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %14, i1 noundef zeroext false)
+  %207 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %14, i1 noundef zeroext false)
           to label %208 unwind label %233
 
 208:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
@@ -89377,7 +89377,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %198, %201
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit114:         ; preds = %238, %241
   store i32 %240, ptr %16, align 4
-  %247 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %16, i1 noundef zeroext false)
+  %247 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker3cidEN5Yosys5RTLIL8IdStringEb(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %16, i1 noundef zeroext false)
           to label %248 unwind label %266
 
 248:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit114
@@ -89930,7 +89930,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL5Const7as_boolEv(ptr noundef nonnull
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_sEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   call void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %5 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %4, i32 noundef %2, i1 noundef zeroext true)
+  %5 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %4, i32 noundef %2, i1 noundef zeroext true)
           to label %6 unwind label %20
 
 6:                                                ; preds = %3
@@ -89998,7 +89998,7 @@ declare void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull alig
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker8rvalue_uEN5Yosys5RTLIL7SigSpecEi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   call void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %5 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull %4, i32 noundef %2, i1 noundef zeroext false)
+  %5 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_19SmvWorker6rvalueEN5Yosys5RTLIL7SigSpecEib(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %4, i32 noundef %2, i1 noundef zeroext false)
           to label %6 unwind label %20
 
 6:                                                ; preds = %3
@@ -90288,7 +90288,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE67_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE67_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE67_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90336,7 +90336,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 declare noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE68_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE68_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE68_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90382,7 +90382,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE69_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE69_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE69_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90428,7 +90428,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE70_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE70_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE70_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90474,7 +90474,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE71_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE71_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE71_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90520,7 +90520,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE72_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE72_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE72_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90566,7 +90566,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE73_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE73_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE73_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90612,7 +90612,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE74_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE74_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE74_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90658,7 +90658,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE75_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE75_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE75_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90704,7 +90704,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE76_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE76_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE76_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90750,7 +90750,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE77_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE77_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE77_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90796,7 +90796,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE78_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE78_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE78_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90842,7 +90842,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE79_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE79_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE79_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90888,7 +90888,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE80_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE80_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE80_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90934,7 +90934,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE81_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE81_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE81_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -90980,7 +90980,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE82_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE82_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE82_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91026,7 +91026,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE83_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE83_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE83_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91072,7 +91072,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE84_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE84_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE84_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91118,7 +91118,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE85_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE85_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE85_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91164,7 +91164,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE86_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE86_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE86_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91210,7 +91210,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE87_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE87_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE87_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91256,7 +91256,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE88_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE88_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE88_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91302,7 +91302,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE89_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE89_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE89_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91348,7 +91348,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE90_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE90_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE90_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91394,7 +91394,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE91_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE91_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE91_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91440,7 +91440,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE92_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE92_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE92_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91486,7 +91486,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE93_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE93_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE93_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91532,7 +91532,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE94_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE94_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE94_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91578,7 +91578,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE95_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE95_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE95_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91624,7 +91624,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE96_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE96_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE96_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91670,7 +91670,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE97_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE97_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE97_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91741,7 +91741,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit:           ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE98_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE98_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE98_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91787,7 +91787,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE99_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE99_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE99_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91833,7 +91833,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE100_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE100_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE100_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91879,7 +91879,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE101_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE101_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE101_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -91961,7 +91961,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE102_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE102_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE102_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92007,7 +92007,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE103_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE103_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE103_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92053,7 +92053,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE104_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE104_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE104_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92099,7 +92099,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE105_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE105_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE105_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92145,7 +92145,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE106_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE106_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE106_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92191,7 +92191,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE107_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE107_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE107_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92237,7 +92237,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE108_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE108_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE108_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92283,7 +92283,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE109_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE109_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE109_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92329,7 +92329,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE110_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE110_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE110_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42
@@ -92375,7 +92375,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE111_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE111_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_19SmvWorker3runEvENKUlvE111_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !42

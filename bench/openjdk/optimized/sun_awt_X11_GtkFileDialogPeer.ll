@@ -543,7 +543,7 @@ define internal void @handle_response(ptr noundef %0, i32 noundef %1, ptr nounde
   %29 = tail call i32 %28(ptr noundef nonnull %11) #5
   %30 = tail call ptr %25(ptr noundef nonnull %5, i32 noundef %29, ptr noundef nonnull %17, ptr noundef null) #5
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %.lr.ph.i.i
+  br i1 %31, label %32, label %.preheader56.i
 
 32:                                               ; preds = %23
   %33 = load ptr, ptr %5, align 8
@@ -553,43 +553,43 @@ define internal void @handle_response(ptr noundef %0, i32 noundef %1, ptr nounde
   tail call void @JNU_ThrowInternalError(ptr noundef nonnull %5, ptr noundef nonnull @.str.18) #5
   br label %toFilenamesArray.exit
 
-.lr.ph.i.i:                                       ; preds = %23, %44
-  %.026.i.i = phi ptr [ %49, %44 ], [ %11, %23 ]
-  %.01725.i.i = phi ptr [ %.1.i.i, %44 ], [ null, %23 ]
+.preheader56.i:                                   ; preds = %23, %44
+  %.025.i.i = phi ptr [ %49, %44 ], [ %11, %23 ]
+  %.01724.i.i = phi ptr [ %.1.i.i, %44 ], [ null, %23 ]
   %36 = load ptr, ptr @gtk, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 448
   %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %.026.i.i, align 8
+  %39 = load ptr, ptr %.025.i.i, align 8
   %40 = tail call ptr %38(ptr noundef %39) #5
-  %.not18.i.i = icmp eq ptr %.01725.i.i, null
+  %.not18.i.i = icmp eq ptr %.01724.i.i, null
   br i1 %.not18.i.i, label %.critedge.i.i, label %41
 
-41:                                               ; preds = %.lr.ph.i.i
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.01725.i.i, ptr noundef nonnull dereferenceable(1) %40) #6
+41:                                               ; preds = %.preheader56.i
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.01724.i.i, ptr noundef nonnull dereferenceable(1) %40) #6
   %.not19.i.i = icmp eq i32 %42, 0
   br i1 %.not19.i.i, label %44, label %50
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i
+.critedge.i.i:                                    ; preds = %.preheader56.i
   %43 = tail call noalias ptr @strdup(ptr noundef %40) #5
   br label %44
 
 44:                                               ; preds = %.critedge.i.i, %41
-  %.1.i.i = phi ptr [ %43, %.critedge.i.i ], [ %.01725.i.i, %41 ]
+  %.1.i.i = phi ptr [ %43, %.critedge.i.i ], [ %.01724.i.i, %41 ]
   %45 = load ptr, ptr @gtk, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 280
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef %40) #5
-  %48 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
+  %48 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not.not.i.i = icmp eq ptr %49, null
-  br i1 %.not.not.i.i, label %isFromSameDirectory.exit.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.not.i.i, label %isFromSameDirectory.exit.i, label %.preheader56.i, !llvm.loop !6
 
 50:                                               ; preds = %41
   %51 = load ptr, ptr @gtk, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 280
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef %40) #5
-  tail call void @free(ptr noundef nonnull %.01725.i.i) #5
+  tail call void @free(ptr noundef nonnull %.01724.i.i) #5
   %54 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.19) #5
   br label %isFromSameDirectory.exit.i
 
@@ -607,9 +607,9 @@ isFromSameDirectory.exit.i:                       ; preds = %44, %50
   br i1 %.not50.i, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %80
-  %.04459.us.i = phi i32 [ %83, %80 ], [ 0, %.preheader.i ]
-  %.04558.us.i = phi ptr [ %82, %80 ], [ %11, %.preheader.i ]
-  %60 = load ptr, ptr %.04558.us.i, align 8
+  %.04460.us.i = phi i32 [ %83, %80 ], [ 0, %.preheader.i ]
+  %.04559.us.i = phi ptr [ %82, %80 ], [ %11, %.preheader.i ]
+  %60 = load ptr, ptr %.04559.us.i, align 8
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 47
   %spec.select.idx.us.i = zext i1 %62 to i64
@@ -633,7 +633,7 @@ isFromSameDirectory.exit.i:                       ; preds = %44, %50
   %73 = load ptr, ptr %5, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 1392
   %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull %5, ptr noundef nonnull %30, i32 noundef %.04459.us.i, ptr noundef nonnull %66) #5
+  tail call void %75(ptr noundef nonnull %5, ptr noundef nonnull %30, i32 noundef %.04460.us.i, ptr noundef nonnull %66) #5
   %76 = load ptr, ptr %5, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 1824
   %78 = load ptr, ptr %77, align 8
@@ -642,9 +642,9 @@ isFromSameDirectory.exit.i:                       ; preds = %44, %50
   br i1 %.not53.us.i, label %80, label %.split.us.i
 
 80:                                               ; preds = %72, %71
-  %81 = getelementptr inbounds i8, ptr %.04558.us.i, i64 8
+  %81 = getelementptr inbounds i8, ptr %.04559.us.i, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = add nuw nsw i32 %.04459.us.i, 1
+  %83 = add nuw nsw i32 %.04460.us.i, 1
   %.not.us.i = icmp eq ptr %82, null
   br i1 %.not.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !8
 
@@ -653,9 +653,9 @@ isFromSameDirectory.exit.i:                       ; preds = %44, %50
   br label %toFilenamesArray.exit
 
 .preheader.split.i:                               ; preds = %.preheader.i, %105
-  %.04459.i = phi i32 [ %108, %105 ], [ 0, %.preheader.i ]
-  %.04558.i = phi ptr [ %107, %105 ], [ %11, %.preheader.i ]
-  %85 = load ptr, ptr %.04558.i, align 8
+  %.04460.i = phi i32 [ %108, %105 ], [ 0, %.preheader.i ]
+  %.04559.i = phi ptr [ %107, %105 ], [ %11, %.preheader.i ]
+  %85 = load ptr, ptr %.04559.i, align 8
   %86 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %85, i32 noundef 47) #6
   %87 = getelementptr inbounds i8, ptr %86, i64 1
   %88 = load ptr, ptr %5, align 8
@@ -677,7 +677,7 @@ isFromSameDirectory.exit.i:                       ; preds = %44, %50
   %98 = load ptr, ptr %5, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 1392
   %100 = load ptr, ptr %99, align 8
-  tail call void %100(ptr noundef nonnull %5, ptr noundef nonnull %30, i32 noundef %.04459.i, ptr noundef nonnull %91) #5
+  tail call void %100(ptr noundef nonnull %5, ptr noundef nonnull %30, i32 noundef %.04460.i, ptr noundef nonnull %91) #5
   %101 = load ptr, ptr %5, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 1824
   %103 = load ptr, ptr %102, align 8
@@ -686,9 +686,9 @@ isFromSameDirectory.exit.i:                       ; preds = %44, %50
   br i1 %.not53.i, label %105, label %.split.us.i
 
 105:                                              ; preds = %97, %96
-  %106 = getelementptr inbounds i8, ptr %.04558.i, i64 8
+  %106 = getelementptr inbounds i8, ptr %.04559.i, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = add nuw nsw i32 %.04459.i, 1
+  %108 = add nuw nsw i32 %.04460.i, 1
   %.not.i = icmp eq ptr %107, null
   br i1 %.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !8
 

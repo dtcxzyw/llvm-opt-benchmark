@@ -1134,7 +1134,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_hcd_map_urb_for_dma(ptr noca
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i64 @dma_map_single_attrs(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #7 align 16 {
+define internal fastcc i64 @dma_map_single_attrs(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 1, 4294967296) %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #7 align 16 {
   %5 = tail call zeroext i1 @is_vmalloc_addr(ptr noundef %1) #18
   %6 = load i1, ptr @dma_map_single_attrs.__already_done, align 1
   %7 = xor i1 %5, true
@@ -3636,7 +3636,7 @@ declare dso_local ptr @usb_alloc_dev(ptr noundef, ptr noundef, i32 noundef) loca
 declare dso_local void @device_set_wakeup_capable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @usb_hcd_request_irqs(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @usb_hcd_request_irqs(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -4124,11 +4124,11 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @device_set_wakeup_enable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 255) i32 @rh_string(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #12 align 16 {
+define internal fastcc range(i32 0, 255) i32 @rh_string(i32 noundef range(i32 0, 4) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #12 align 16 {
   %5 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %5, i8 0, i64 100, i1 false), !annotation !6
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable3 [
     i32 0, label %6
     i32 1, label %9
     i32 2, label %12
@@ -4158,7 +4158,7 @@ define internal fastcc range(i32 0, 255) i32 @rh_string(i32 noundef %0, ptr noca
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.20, ptr noundef nonnull @init_uts_ns, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), ptr noundef %18) #18
   br label %20
 
-default.unreachable:                              ; preds = %4
+default.unreachable3:                             ; preds = %4
   unreachable
 
 20:                                               ; preds = %15, %12, %9

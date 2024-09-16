@@ -10789,7 +10789,7 @@ if.else.i164.invoke.cont56_crit_edge:             ; preds = %if.else.i164
 
 invoke.cont56:                                    ; preds = %if.else.i164.invoke.cont56_crit_edge, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i138
   %89 = phi ptr [ %.pre452, %if.else.i164.invoke.cont56_crit_edge ], [ %75, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i138 ]
-  invoke fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias nonnull align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(976) %60, ptr noundef %74, ptr noundef %89)
+  invoke fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(976) %60, ptr noundef %74, ptr noundef %89)
           to label %invoke.cont60 unwind label %lpad57
 
 invoke.cont60:                                    ; preds = %invoke.cont56
@@ -11496,7 +11496,7 @@ eh.resume:                                        ; preds = %ehcleanup113, %ehcl
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %e1, ptr noundef %e2) unnamed_addr #3 {
+define internal fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %e1, ptr noundef %e2) unnamed_addr #3 {
 entry:
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %e1, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
@@ -12196,7 +12196,7 @@ invoke.cont96:                                    ; preds = %land.lhs.true93
 
 if.then98:                                        ; preds = %invoke.cont96, %_ZN7obj_refI4expr11ast_managerED2Ev.exit136
   %73 = load ptr, ptr %this, align 8
-  invoke fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias nonnull align 8 %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(976) %73, ptr noundef %61, ptr noundef %68)
+  invoke fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias align 8 %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(976) %73, ptr noundef %61, ptr noundef %68)
           to label %invoke.cont105 unwind label %lpad68.loopexit.split-lp
 
 invoke.cont105:                                   ; preds = %if.then98
@@ -12713,7 +12713,7 @@ if.then162:                                       ; preds = %invoke.cont159
   %140 = load ptr, ptr %136, align 8
   %arrayidx.i.i280 = getelementptr inbounds i8, ptr %136, i64 8
   %141 = load ptr, ptr %arrayidx.i.i280, align 8
-  invoke fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias nonnull align 8 %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(976) %139, ptr noundef %140, ptr noundef %141)
+  invoke fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias align 8 %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(976) %139, ptr noundef %140, ptr noundef %141)
           to label %invoke.cont169 unwind label %lpad125.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont169:                                   ; preds = %if.then162
@@ -18384,7 +18384,7 @@ for.body104:                                      ; preds = %_ZNK6vectorIZN3mbp1
   %p105.sroa.0.0.copyload = load ptr, ptr %arrayidx.i179, align 8
   %p105.sroa.2.0.call107.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i179, i64 8
   %p105.sroa.2.0.copyload = load ptr, ptr %p105.sroa.2.0.call107.sroa_idx, align 8
-  invoke fastcc void @"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_0clEPS4_"(ptr noalias nonnull align 8 %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(24) %partition_of, ptr noundef %p105.sroa.0.0.copyload)
+  invoke fastcc void @"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_0clEPS4_"(ptr noalias align 8 %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(24) %partition_of, ptr noundef %p105.sroa.0.0.copyload)
           to label %invoke.cont114 unwind label %lpad100.loopexit.split-lp
 
 invoke.cont114:                                   ; preds = %for.body104
@@ -18485,7 +18485,7 @@ lpad113:                                          ; preds = %for.body121
 for.body121:                                      ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit187, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit227
   %__begin2112.0716 = phi ptr [ %incdec.ptr193, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit227 ], [ %91, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit187 ]
   %106 = load ptr, ptr %__begin2112.0716, align 8
-  invoke fastcc void @"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_0clEPS4_"(ptr noalias nonnull align 8 %ref.tmp122, ptr noundef nonnull align 8 dereferenceable(24) %partition_of, ptr noundef %p105.sroa.2.0.copyload)
+  invoke fastcc void @"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_0clEPS4_"(ptr noalias align 8 %ref.tmp122, ptr noundef nonnull align 8 dereferenceable(24) %partition_of, ptr noundef %p105.sroa.2.0.copyload)
           to label %invoke.cont126 unwind label %lpad113
 
 invoke.cont126:                                   ; preds = %for.body121
@@ -20099,7 +20099,7 @@ if.end:                                           ; preds = %_ZN6vectorIZN3mbp10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_0clEPS4_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_0clEPS4_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 12
@@ -21255,7 +21255,7 @@ if.then23:                                        ; preds = %land.lhs.true21
   %37 = load ptr, ptr %m, align 8
   %38 = load ptr, ptr %p1, align 8
   %39 = load ptr, ptr %p2, align 8
-  call fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(976) %37, ptr noundef %38, ptr noundef %39)
+  call fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(976) %37, ptr noundef %38, ptr noundef %39)
   %40 = load ptr, ptr %ref.tmp, align 8
   %41 = load ptr, ptr %m_nodes.i18, align 8
   %cmp.i.i58 = icmp eq ptr %41, null

@@ -16,7 +16,7 @@ define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h0ff
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$io..file_operations..Error$GT$17h7987a07656103cf0E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$io..file_operations..Error$GT$17h7987a07656103cf0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -416,7 +416,7 @@ define noundef nonnull ptr @"_ZN2io15file_operations105_$LT$impl$u20$core..conve
 
 .body:                                            ; preds = %13, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %14, %13 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$io..file_operations..Error$GT$17h7987a07656103cf0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #11
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$io..file_operations..Error$GT$17h7987a07656103cf0E"(ptr noalias noundef align 8 dereferenceable(32) %0) #11
           to label %26 unwind label %24
 
 21:                                               ; preds = %15
@@ -429,7 +429,7 @@ define noundef nonnull ptr @"_ZN2io15file_operations105_$LT$impl$u20$core..conve
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$io..file_operations..Error$GT$17h7987a07656103cf0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$io..file_operations..Error$GT$17h7987a07656103cf0E"(ptr noalias noundef align 8 dereferenceable(32) %0)
   ret ptr %22
 
 24:                                               ; preds = %.body

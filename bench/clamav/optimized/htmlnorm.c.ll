@@ -380,12 +380,12 @@ define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i6
   store i64 %2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = call fastcc zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %10 = call fastcc zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i1 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1025 x i8], align 16
   %8 = alloca [1025 x i8], align 16
@@ -1061,7 +1061,7 @@ html_output_c.exit1420:                           ; preds = %224, %231, %html_ou
   br i1 %or.cond12, label %240, label %241
 
 240:                                              ; preds = %235
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %.21128.ph721, ptr noundef nonnull %.us-phi2938)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %.21128.ph721, ptr noundef nonnull %.us-phi2938)
   br label %241
 
 241:                                              ; preds = %240, %235, %html_output_c.exit1420
@@ -2456,7 +2456,7 @@ html_tag_arg_value.exit:                          ; preds = %828
   br label %.critedge1378.sink.split
 
 .critedge1378.sink.split:                         ; preds = %847, %839, %.critedge1378.sink.split.sink.split
-  call fastcc void @html_output_tag(ptr noundef %.11152, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @html_output_tag(ptr noundef %.11152, ptr noundef %7, ptr noundef %10)
   br label %.critedge1378
 
 .critedge1378:                                    ; preds = %827, %.critedge1378.sink.split, %823, %html_tag_arg_value.exit, %844
@@ -2580,15 +2580,15 @@ html_tag_arg_value.exit1519:                      ; preds = %892
   br i1 %.not1316, label %918, label %903
 
 903:                                              ; preds = %901
-  %904 = call fastcc ptr @html_tag_arg_value(ptr noundef nonnull %10, ptr noundef nonnull @.str.32)
+  %904 = call fastcc ptr @html_tag_arg_value(ptr noundef %10, ptr noundef nonnull @.str.32)
   %905 = icmp ne i32 %.21136.ph717, 0
   %906 = icmp ne ptr %spec.select1379, null
   %or.cond129 = select i1 %905, i1 %906, i1 false
   br i1 %or.cond129, label %907, label %908
 
 907:                                              ; preds = %903
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %spec.select1379, ptr noundef %.11124.ph724)
-  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %.21136.ph717, ptr noundef nonnull %14)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %spec.select1379, ptr noundef %.11124.ph724)
+  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %.21136.ph717, ptr noundef %14)
   br label %908
 
 908:                                              ; preds = %907, %903
@@ -2600,9 +2600,9 @@ html_tag_arg_value.exit1519:                      ; preds = %892
   call void @html_tag_arg_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.33, ptr noundef nonnull %904)
   %910 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %899) #16
   %911 = getelementptr inbounds i8, ptr %899, i64 %910
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %899, ptr noundef nonnull %911)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %899, ptr noundef nonnull %911)
   %912 = load i32, ptr %3, align 8
-  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %912, ptr noundef nonnull %14)
+  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %912, ptr noundef %14)
   br label %913
 
 913:                                              ; preds = %909, %908
@@ -2614,9 +2614,9 @@ html_tag_arg_value.exit1519:                      ; preds = %892
   store i64 0, ptr %14, align 8
   %915 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.21120.ph729) #16
   %916 = getelementptr inbounds i8, ptr %.21120.ph729, i64 %915
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %.21120.ph729, ptr noundef nonnull %916)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %.21120.ph729, ptr noundef nonnull %916)
   %917 = load i32, ptr %3, align 8
-  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %917, ptr noundef nonnull %14)
+  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %917, ptr noundef %14)
   br label %918
 
 918:                                              ; preds = %913, %914, %901
@@ -2642,7 +2642,7 @@ html_tag_arg_value.exit1519:                      ; preds = %892
   br i1 %.not1290, label %932, label %926
 
 926:                                              ; preds = %924
-  %927 = call fastcc ptr @html_tag_arg_value(ptr noundef nonnull %10, ptr noundef nonnull @.str.35)
+  %927 = call fastcc ptr @html_tag_arg_value(ptr noundef %10, ptr noundef nonnull @.str.35)
   %.not1311 = icmp eq ptr %927, null
   br i1 %.not1311, label %html_tag_arg_value.exit1512.thread, label %928
 
@@ -2730,9 +2730,9 @@ html_tag_arg_value.exit1526:                      ; preds = %938
   store i64 0, ptr %14, align 8
   %965 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.21120.ph729) #16
   %966 = getelementptr inbounds i8, ptr %.21120.ph729, i64 %965
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %.21120.ph729, ptr noundef nonnull %966)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %.21120.ph729, ptr noundef nonnull %966)
   %967 = load i32, ptr %3, align 8
-  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %967, ptr noundef nonnull %14)
+  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %967, ptr noundef %14)
   br label %.lr.ph.i1528.preheader
 
 .lr.ph.i1528.preheader:                           ; preds = %937, %html_tag_arg_value.exit1526, %946, %964, %963
@@ -2795,9 +2795,9 @@ html_tag_arg_value.exit1533:                      ; preds = %.lr.ph.i1528
   store i64 0, ptr %14, align 8
   %995 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.21120.ph729) #16
   %996 = getelementptr inbounds i8, ptr %.21120.ph729, i64 %995
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %.21120.ph729, ptr noundef nonnull %996)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %.21120.ph729, ptr noundef nonnull %996)
   %997 = load i32, ptr %3, align 8
-  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %997, ptr noundef nonnull %14)
+  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %997, ptr noundef %14)
   br label %html_tag_arg_value.exit1512.thread
 
 998:                                              ; preds = %932
@@ -2806,7 +2806,7 @@ html_tag_arg_value.exit1533:                      ; preds = %.lr.ph.i1528
   br i1 %999, label %1000, label %1024
 
 1000:                                             ; preds = %998
-  %1001 = call fastcc ptr @html_tag_arg_value(ptr noundef nonnull %10, ptr noundef nonnull @.str.37)
+  %1001 = call fastcc ptr @html_tag_arg_value(ptr noundef %10, ptr noundef nonnull @.str.37)
   %.not1299 = icmp eq ptr %1001, null
   br i1 %.not1299, label %html_tag_arg_value.exit1512.thread, label %1002
 
@@ -2847,9 +2847,9 @@ html_tag_arg_value.exit1533:                      ; preds = %.lr.ph.i1528
   store i64 0, ptr %14, align 8
   %1021 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.21120.ph729) #16
   %1022 = getelementptr inbounds i8, ptr %.21120.ph729, i64 %1021
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %.21120.ph729, ptr noundef nonnull %1022)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %.21120.ph729, ptr noundef nonnull %1022)
   %1023 = load i32, ptr %3, align 8
-  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %1023, ptr noundef nonnull %14)
+  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %1023, ptr noundef %14)
   br label %html_tag_arg_value.exit1512.thread
 
 1024:                                             ; preds = %998
@@ -2858,7 +2858,7 @@ html_tag_arg_value.exit1533:                      ; preds = %.lr.ph.i1528
   br i1 %1025, label %1026, label %html_tag_arg_value.exit1512.thread
 
 1026:                                             ; preds = %1024
-  %1027 = call fastcc ptr @html_tag_arg_value(ptr noundef nonnull %10, ptr noundef nonnull @.str.31)
+  %1027 = call fastcc ptr @html_tag_arg_value(ptr noundef %10, ptr noundef nonnull @.str.31)
   %.not1296 = icmp eq ptr %1027, null
   br i1 %.not1296, label %html_tag_arg_value.exit1512.thread, label %1028
 
@@ -2899,9 +2899,9 @@ html_tag_arg_value.exit1533:                      ; preds = %.lr.ph.i1528
   store i64 0, ptr %14, align 8
   %1047 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.21120.ph729) #16
   %1048 = getelementptr inbounds i8, ptr %.21120.ph729, i64 %1047
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %.21120.ph729, ptr noundef nonnull %1048)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %.21120.ph729, ptr noundef nonnull %1048)
   %1049 = load i32, ptr %3, align 8
-  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %1049, ptr noundef nonnull %14)
+  call fastcc void @html_tag_contents_done(ptr noundef nonnull %3, i32 noundef %1049, ptr noundef %14)
   br label %html_tag_arg_value.exit1512.thread
 
 1050:                                             ; preds = %883
@@ -3789,7 +3789,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   br label %html_output_c.exit
 
 1473:                                             ; preds = %.split.us
-  call fastcc void @screnc_decode(ptr noundef nonnull %.us-phi2938, ptr noundef nonnull %11)
+  call fastcc void @screnc_decode(ptr noundef nonnull %.us-phi2938, ptr noundef %11)
   %1474 = load i32, ptr %11, align 4
   %.not1261 = icmp ne i32 %1474, 0
   %..11002 = select i1 %.not1261, i1 %.11002.ph771, i1 false
@@ -4527,7 +4527,7 @@ html_output_c.exit:                               ; preds = %html_output_c.exit1
   br i1 %or.cond115, label %1781, label %1782
 
 1781:                                             ; preds = %1776
-  call fastcc void @html_tag_contents_append(ptr noundef nonnull %14, ptr noundef nonnull %.21128.ph522, ptr noundef nonnull %split2456)
+  call fastcc void @html_tag_contents_append(ptr noundef %14, ptr noundef %.21128.ph522, ptr noundef nonnull %split2456)
   br label %1782
 
 1782:                                             ; preds = %1781, %1776, %.outer1875._crit_edge
@@ -4934,7 +4934,7 @@ define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, pt
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %1, ptr %11, align 8
-  %12 = call fastcc zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %12 = call fastcc zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i1 %12
 }
 
@@ -4959,7 +4959,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   br i1 %14, label %16, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %15 = call fastcc ptr @cli_readchunk(ptr noundef nonnull %6)
+  %15 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not72 = icmp eq ptr %15, null
   br i1 %.not72, label %.thread63, label %.lr.ph
 
@@ -4975,7 +4975,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 
 19:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %17) #15
-  %20 = call fastcc ptr @cli_readchunk(ptr noundef nonnull %6)
+  %20 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.thread63, label %.lr.ph
 
@@ -4993,7 +4993,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 
 25:                                               ; preds = %23
   tail call void @free(ptr noundef %.132) #15
-  %26 = call fastcc ptr @cli_readchunk(ptr noundef nonnull %6)
+  %26 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not54 = icmp eq ptr %26, null
   br i1 %.not54, label %.thread63, label %27
 
@@ -5094,7 +5094,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 .lr.ph75:                                         ; preds = %34, %106
   %.474 = phi ptr [ %107, %106 ], [ %33, %34 ]
   %.33473 = phi ptr [ %107, %106 ], [ %.233, %34 ]
-  call fastcc void @screnc_decode(ptr noundef nonnull %.474, ptr noundef nonnull %5)
+  call fastcc void @screnc_decode(ptr noundef nonnull %.474, ptr noundef %5)
   %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.474) #16
   %102 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull %.474, i64 noundef %101) #15
   tail call void @free(ptr noundef nonnull %.33473) #15
@@ -5108,7 +5108,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   br label %115
 
 106:                                              ; preds = %.lr.ph75
-  %107 = call fastcc ptr @cli_readchunk(ptr noundef nonnull %6)
+  %107 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not107 = icmp eq ptr %107, null
   br i1 %.not107, label %._crit_edge.thread91, label %.lr.ph75
 
@@ -5158,7 +5158,7 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cli_readchunk(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call ptr @cli_max_malloc(i64 noundef 8192) #15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -5382,7 +5382,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @screnc_decode(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @screnc_decode(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %123, label %thread-pre-split.preheader
 
@@ -5657,7 +5657,7 @@ html_output_flush.exit:                           ; preds = %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @html_tag_contents_append(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #9 {
+define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonnull %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #9 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %53, label %4
 
@@ -5807,7 +5807,7 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @html_tag_contents_done(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @html_tag_contents_done(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 1
@@ -5840,7 +5840,7 @@ define internal fastcc void @html_tag_contents_done(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @html_tag_arg_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #12 {
+define internal fastcc ptr @html_tag_arg_value(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #12 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.loopexit
@@ -5880,7 +5880,7 @@ define internal fastcc ptr @html_tag_arg_value(ptr nocapture noundef readonly %0
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @html_output_tag(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @html_output_tag(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %html_output_str.exit, label %4
 
@@ -5933,13 +5933,13 @@ html_output_flush.exit.thread.i:                  ; preds = %11
 
 html_output_flush.exit16.i:                       ; preds = %25, %24, %html_output_flush.exit.thread.i
   %28 = load i32, ptr %0, align 8
-  %29 = tail call i64 @cli_writen(i32 noundef %28, ptr noundef %1, i64 noundef %16) #15
+  %29 = tail call i64 @cli_writen(i32 noundef %28, ptr noundef nonnull %1, i64 noundef %16) #15
   br label %html_output_str.exit
 
 30:                                               ; preds = %html_output_flush.exit.thread.i, %html_output_flush.exit.i28
   %31 = phi i64 [ 0, %html_output_flush.exit.thread.i ], [ %17, %html_output_flush.exit.i28 ]
   %32 = getelementptr inbounds i8, ptr %13, i64 %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %1, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %1, i64 %16, i1 false)
   %33 = load i64, ptr %5, align 8
   %34 = add i64 %33, %16
   store i64 %34, ptr %5, align 8

@@ -1669,7 +1669,7 @@ declare void @llvm.write_register.i64(metadata, i64) #11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @gss_fill_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc ptr @gss_fill_context(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 align 16 {
   %5 = load volatile i64, ptr @jiffies, align 64
   %6 = getelementptr i8, ptr %0, i64 4
   %7 = icmp ugt ptr %6, %1
@@ -1831,8 +1831,8 @@ define internal fastcc ptr @gss_fill_context(ptr noundef %0, ptr noundef %1, ptr
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef nonnull ptr @gss_get_ctx(ptr noundef returned %0) unnamed_addr #14 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #18, !srcloc !6
+define internal fastcc noundef nonnull ptr @gss_get_ctx(ptr noundef nonnull returned %0) unnamed_addr #14 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #18, !srcloc !6
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %8, label %4, !prof !7
 
@@ -1844,7 +1844,7 @@ define internal fastcc noundef nonnull ptr @gss_get_ctx(ptr noundef returned %0)
 
 8:                                                ; preds = %4, %1
   %9 = phi i32 [ 2, %1 ], [ 1, %4 ]
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %9) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %9) #18
   br label %10
 
 10:                                               ; preds = %8, %4
@@ -1852,7 +1852,7 @@ define internal fastcc noundef nonnull ptr @gss_get_ctx(ptr noundef returned %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__gss_unhash_msg(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @__gss_unhash_msg(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -1868,12 +1868,12 @@ define internal fastcc void @__gss_unhash_msg(ptr noundef %0) unnamed_addr #2 al
   tail call void @rpc_wake_up_status(ptr noundef %7, i32 noundef %9) #18
   %10 = getelementptr inbounds i8, ptr %0, i64 296
   %11 = tail call i32 @__wake_up(ptr noundef %10, i32 noundef 3, i32 noundef 0, ptr noundef null) #18
-  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #18, !srcloc !10
+  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #18, !srcloc !10
   %13 = icmp slt i32 %12, 2
   br i1 %13, label %14, label %15, !prof !7
 
 14:                                               ; preds = %1
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 4) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 4) #18
   br label %15
 
 15:                                               ; preds = %14, %1
@@ -2023,7 +2023,7 @@ define internal fastcc ptr @simple_get_netobj(ptr noundef %0, ptr noundef readno
 declare dso_local i32 @gss_import_sec_context(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_rpcgss_import_ctx(i32 noundef %0) unnamed_addr #14 align 16 {
+define internal fastcc void @trace_rpcgss_import_ctx(i32 noundef range(i32 -2147483648, 0) %0) unnamed_addr #14 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rpcgss_import_ctx, i64 8), i32 2) #18
           to label %22 [label %2], !srcloc !12
 
@@ -2068,7 +2068,7 @@ define internal fastcc void @trace_rpcgss_import_ctx(i32 noundef %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_rpcgss_context(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #14 align 16 {
+define internal fastcc void @trace_rpcgss_context(i32 noundef range(i32 1, 0) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #14 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rpcgss_context, i64 8), i32 2) #18
           to label %27 [label %7], !srcloc !12
 
@@ -5485,7 +5485,7 @@ declare dso_local i32 @__SCT__tp_func_rpcgss_wrap(ptr noundef, ptr noundef, i32 
 declare dso_local i32 @rpcauth_unwrap_resp_decode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gss_update_rslack(ptr noundef %0, ptr %.48.val, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @gss_update_rslack(ptr noundef %0, ptr %.48.val, i32 noundef range(i32 3, 1073741827) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %.48.val, i64 16
   %4 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 2, ptr elementtype(i64) %3) #18, !srcloc !60
   %5 = icmp ult i8 %4, 2

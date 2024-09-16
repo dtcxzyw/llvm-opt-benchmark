@@ -953,7 +953,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_simple_type(ptr %.304.val, ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_simple_type(ptr %.304.val, ptr nocapture noundef %0, i32 noundef range(i32 2, 9) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9

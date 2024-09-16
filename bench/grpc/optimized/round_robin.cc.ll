@@ -3392,7 +3392,7 @@ if.then13.i:                                      ; preds = %if.then.i
   br i1 %cmp.i.not.i, label %cond.false.i, label %cond.end.thread.i
 
 cond.end.thread.i:                                ; preds = %if.then13.i
-  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelList14CountersStringB5cxx11Ev(ptr noalias nonnull align 8 %old_counters_string.i, ptr noundef nonnull align 8 dereferenceable(96) %subchannel_list_.val.i)
+  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelList14CountersStringB5cxx11Ev(ptr noalias align 8 %old_counters_string.i, ptr noundef nonnull align 8 dereferenceable(96) %subchannel_list_.val.i)
           to label %cleanup.done.i unwind label %lpad
 
 cond.false.i:                                     ; preds = %if.then13.i
@@ -3442,7 +3442,7 @@ cleanup.action.i:                                 ; preds = %invoke.cont.i
 cleanup.done.i:                                   ; preds = %cond.end.thread.i, %cleanup.action.i
   %subchannel_list_21.val.i = load ptr, ptr %subchannel_list_.i, align 8
   %call23.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_counters_string.i) #22
-  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelList14CountersStringB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(96) %this.val7)
+  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelList14CountersStringB5cxx11Ev(ptr noalias align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(96) %this.val7)
           to label %invoke.cont26.i unwind label %lpad25.i
 
 invoke.cont26.i:                                  ; preds = %cleanup.done.i
@@ -4558,7 +4558,7 @@ return:                                           ; preds = %if.end32, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK9grpc_core12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelList14CountersStringB5cxx11Ev(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK9grpc_core12_GLOBAL__N_113OldRoundRobin24RoundRobinSubchannelList14CountersStringB5cxx11Ev(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca [8 x %"class.std::basic_string_view"], align 8
   %ref.tmp13.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -4647,7 +4647,7 @@ entry:
   store i64 %sub.ptr.sub.i35.i, ptr %arrayinit.element18.i, align 8, !noalias !69
   %12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
   store ptr %digits_.i31.i, ptr %12, align 8, !noalias !69
-  call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 8)
+  call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 8)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp13.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp19.i)
@@ -7074,7 +7074,7 @@ if.then13.i:                                      ; preds = %if.then.i
   br i1 %cmp.i.i.not.i, label %cond.false.i, label %cond.end.thread.i
 
 cond.end.thread.i:                                ; preds = %if.then13.i
-  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_110RoundRobin22RoundRobinEndpointList14CountersStringB5cxx11Ev(ptr noalias nonnull align 8 %old_counters_string.i, ptr noundef nonnull align 8 dereferenceable(88) %.pre173.i)
+  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_110RoundRobin22RoundRobinEndpointList14CountersStringB5cxx11Ev(ptr noalias align 8 %old_counters_string.i, ptr noundef nonnull align 8 dereferenceable(88) %.pre173.i)
           to label %cleanup.done.i unwind label %lpad25
 
 cond.false.i:                                     ; preds = %if.then13.i
@@ -7124,7 +7124,7 @@ cleanup.action.i:                                 ; preds = %invoke.cont.i
 cleanup.done.i:                                   ; preds = %cond.end.thread.i, %cleanup.action.i
   %endpoint_list_21.val.i = load ptr, ptr %endpoint_list_.i, align 8
   %call23.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_counters_string.i) #22
-  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_110RoundRobin22RoundRobinEndpointList14CountersStringB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(88) %this.val)
+  invoke fastcc void @_ZNK9grpc_core12_GLOBAL__N_110RoundRobin22RoundRobinEndpointList14CountersStringB5cxx11Ev(ptr noalias align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(88) %this.val)
           to label %invoke.cont26.i unwind label %lpad25.i
 
 invoke.cont26.i:                                  ; preds = %cleanup.done.i
@@ -8008,7 +8008,7 @@ declare void @_ZN9grpc_core12EndpointList8Endpoint14ExitIdleLockedEv(ptr noundef
 declare noundef zeroext i1 @_ZNK9grpc_core12EndpointList28AllEndpointsSeenInitialStateEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK9grpc_core12_GLOBAL__N_110RoundRobin22RoundRobinEndpointList14CountersStringB5cxx11Ev(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK9grpc_core12_GLOBAL__N_110RoundRobin22RoundRobinEndpointList14CountersStringB5cxx11Ev(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca [8 x %"class.std::basic_string_view"], align 8
   %ref.tmp13.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -8097,7 +8097,7 @@ entry:
   store i64 %sub.ptr.sub.i35.i, ptr %arrayinit.element18.i, align 8, !noalias !123
   %12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
   store ptr %digits_.i31.i, ptr %12, align 8, !noalias !123
-  call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 8)
+  call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 8)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp13.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp19.i)

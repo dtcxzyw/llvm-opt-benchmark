@@ -649,7 +649,7 @@ define internal fastcc void @mount_nfs_root() unnamed_addr #0 section ".init.tex
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @mount_nodev_root(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @mount_nodev_root(ptr noundef nonnull %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef 0) #18
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %28, label %4
@@ -675,7 +675,7 @@ define internal fastcc i32 @mount_nodev_root(ptr noundef %0) unnamed_addr #0 sec
 15:                                               ; preds = %13
   %16 = load i32, ptr @root_mountflags, align 4
   %17 = load ptr, ptr @root_mount_data, align 8
-  %18 = tail call fastcc i32 @do_mount_root(ptr noundef %0, ptr noundef %10, i32 noundef %16, ptr noundef %17) #19
+  %18 = tail call fastcc i32 @do_mount_root(ptr noundef nonnull %0, ptr noundef %10, i32 noundef %16, ptr noundef %17) #19
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 

@@ -200,7 +200,7 @@ define hidden range(i32 -1, 1) i32 @output_console(ptr noundef %0, ptr noundef %
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
-  tail call fastcc void @hwloc_lstopo_show_summary(ptr noundef nonnull %10, ptr noundef %5)
+  tail call fastcc void @hwloc_lstopo_show_summary(ptr noundef %10, ptr noundef %5)
   br label %59
 
 59:                                               ; preds = %58, %55
@@ -1193,7 +1193,7 @@ define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_lstopo_show_summary(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @hwloc_lstopo_show_summary(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @hwloc_topology_get_depth(ptr noundef %1) #17
   %4 = sext i32 %3 to i64
   %5 = add nsw i64 %4, 11
@@ -1215,11 +1215,11 @@ define internal fastcc void @hwloc_lstopo_show_summary(ptr nocapture noundef %0,
 
 9:                                                ; preds = %._crit_edge
   %10 = tail call i32 @hwloc_get_depth_type(ptr noundef %1, i32 noundef -3) #17
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef -3) #14
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef -3) #14
   %12 = tail call ptr @hwloc_obj_type_string(i32 noundef %10) #15
   %13 = trunc i64 %spec.select to i32
   %14 = sub i32 %13, %11
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %14, ptr noundef nonnull @.str.8, i32 noundef %8, ptr noundef %12, i32 noundef %10) #14
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %14, ptr noundef nonnull @.str.8, i32 noundef %8, ptr noundef %12, i32 noundef %10) #14
   br label %hwloc_lstopo_show_summary_depth.exit
 
 hwloc_lstopo_show_summary_depth.exit:             ; preds = %._crit_edge, %9
@@ -1229,11 +1229,11 @@ hwloc_lstopo_show_summary_depth.exit:             ; preds = %._crit_edge, %9
 
 17:                                               ; preds = %hwloc_lstopo_show_summary_depth.exit
   %18 = tail call i32 @hwloc_get_depth_type(ptr noundef %1, i32 noundef -8) #17
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef -8) #14
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef -8) #14
   %20 = tail call ptr @hwloc_obj_type_string(i32 noundef %18) #15
   %21 = trunc i64 %spec.select to i32
   %22 = sub i32 %21, %19
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %22, ptr noundef nonnull @.str.8, i32 noundef %16, ptr noundef %20, i32 noundef %18) #14
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %22, ptr noundef nonnull @.str.8, i32 noundef %16, ptr noundef %20, i32 noundef %18) #14
   br label %hwloc_lstopo_show_summary_depth.exit32
 
 hwloc_lstopo_show_summary_depth.exit32:           ; preds = %hwloc_lstopo_show_summary_depth.exit, %17
@@ -1243,11 +1243,11 @@ hwloc_lstopo_show_summary_depth.exit32:           ; preds = %hwloc_lstopo_show_s
 
 25:                                               ; preds = %hwloc_lstopo_show_summary_depth.exit32
   %26 = tail call i32 @hwloc_get_depth_type(ptr noundef %1, i32 noundef -4) #17
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef -4) #14
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef -4) #14
   %28 = tail call ptr @hwloc_obj_type_string(i32 noundef %26) #15
   %29 = trunc i64 %spec.select to i32
   %30 = sub i32 %29, %27
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %30, ptr noundef nonnull @.str.8, i32 noundef %24, ptr noundef %28, i32 noundef %26) #14
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %30, ptr noundef nonnull @.str.8, i32 noundef %24, ptr noundef %28, i32 noundef %26) #14
   br label %hwloc_lstopo_show_summary_depth.exit34
 
 hwloc_lstopo_show_summary_depth.exit34:           ; preds = %hwloc_lstopo_show_summary_depth.exit32, %25
@@ -1257,11 +1257,11 @@ hwloc_lstopo_show_summary_depth.exit34:           ; preds = %hwloc_lstopo_show_s
 
 33:                                               ; preds = %hwloc_lstopo_show_summary_depth.exit34
   %34 = tail call i32 @hwloc_get_depth_type(ptr noundef %1, i32 noundef -5) #17
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef -5) #14
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef -5) #14
   %36 = tail call ptr @hwloc_obj_type_string(i32 noundef %34) #15
   %37 = trunc i64 %spec.select to i32
   %38 = sub i32 %37, %35
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %38, ptr noundef nonnull @.str.8, i32 noundef %32, ptr noundef %36, i32 noundef %34) #14
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %38, ptr noundef nonnull @.str.8, i32 noundef %32, ptr noundef %36, i32 noundef %34) #14
   br label %hwloc_lstopo_show_summary_depth.exit36
 
 hwloc_lstopo_show_summary_depth.exit36:           ; preds = %hwloc_lstopo_show_summary_depth.exit34, %33
@@ -1271,11 +1271,11 @@ hwloc_lstopo_show_summary_depth.exit36:           ; preds = %hwloc_lstopo_show_s
 
 41:                                               ; preds = %hwloc_lstopo_show_summary_depth.exit36
   %42 = tail call i32 @hwloc_get_depth_type(ptr noundef %1, i32 noundef -6) #17
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef -6) #14
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef -6) #14
   %44 = tail call ptr @hwloc_obj_type_string(i32 noundef %42) #15
   %45 = trunc i64 %spec.select to i32
   %46 = sub i32 %45, %43
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %46, ptr noundef nonnull @.str.8, i32 noundef %40, ptr noundef %44, i32 noundef %42) #14
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %46, ptr noundef nonnull @.str.8, i32 noundef %40, ptr noundef %44, i32 noundef %42) #14
   br label %hwloc_lstopo_show_summary_depth.exit38
 
 hwloc_lstopo_show_summary_depth.exit38:           ; preds = %hwloc_lstopo_show_summary_depth.exit36, %41
@@ -1285,11 +1285,11 @@ hwloc_lstopo_show_summary_depth.exit38:           ; preds = %hwloc_lstopo_show_s
 
 49:                                               ; preds = %hwloc_lstopo_show_summary_depth.exit38
   %50 = tail call i32 @hwloc_get_depth_type(ptr noundef %1, i32 noundef -7) #17
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef -7) #14
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef -7) #14
   %52 = tail call ptr @hwloc_obj_type_string(i32 noundef %50) #15
   %53 = trunc i64 %spec.select to i32
   %54 = sub i32 %53, %51
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %54, ptr noundef nonnull @.str.8, i32 noundef %48, ptr noundef %52, i32 noundef %50) #14
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %54, ptr noundef nonnull @.str.8, i32 noundef %48, ptr noundef %52, i32 noundef %50) #14
   br label %hwloc_lstopo_show_summary_depth.exit40
 
 hwloc_lstopo_show_summary_depth.exit40:           ; preds = %hwloc_lstopo_show_summary_depth.exit38, %49
@@ -2560,7 +2560,7 @@ declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local
 declare i32 @hwloc_topology_get_depth(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_lstopo_show_summary_depth(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @hwloc_lstopo_show_summary_depth(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483636, 2147483659) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = tail call i32 @hwloc_get_depth_type(ptr noundef %2, i32 noundef %3) #17
   %7 = tail call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %2, i32 noundef %3) #17
@@ -2572,12 +2572,12 @@ define internal fastcc void @hwloc_lstopo_show_summary_depth(ptr nocapture nound
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef %3) #14
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef %3) #14
   %12 = tail call ptr @hwloc_obj_type_string(i32 noundef %6) #15
   br label %17
 
 13:                                               ; preds = %8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %3, ptr noundef nonnull @.str.8, i32 noundef %3) #14
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.78, i32 noundef %3, ptr noundef nonnull @.str.8, i32 noundef %3) #14
   %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %2, i32 noundef %3, i32 noundef 0) #17
   %16 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef %15, i64 noundef 2) #14
   br label %17
@@ -2587,7 +2587,7 @@ define internal fastcc void @hwloc_lstopo_show_summary_depth(ptr nocapture nound
   %.0 = phi ptr [ %12, %10 ], [ %5, %13 ]
   %18 = trunc i64 %1 to i32
   %19 = sub i32 %18, %.020.in24
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %19, ptr noundef nonnull @.str.8, i32 noundef %7, ptr noundef %.0, i32 noundef %6) #14
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %19, ptr noundef nonnull @.str.8, i32 noundef %7, ptr noundef %.0, i32 noundef %6) #14
   br label %21
 
 21:                                               ; preds = %17, %4

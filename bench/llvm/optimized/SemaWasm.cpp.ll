@@ -514,7 +514,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaWasm19BuiltinWasmTableGetEPNS
 declare noundef zeroext i1 @_ZN5clang4Sema13checkArgCountEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clangL26CheckWasmBuiltinArgIsTableERNS_4SemaEPNS_8CallExprEjRNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clangL26CheckWasmBuiltinArgIsTableERNS_4SemaEPNS_8CallExprEjRNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::QualType", align 8
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %7 = alloca i32, align 4
@@ -528,7 +528,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL26CheckWasmBuiltinArgIsTabl
   %15 = and i32 %14, 1
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %13, i64 %16
-  %18 = zext i32 %2 to i64
+  %18 = zext nneg i32 %2 to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -579,7 +579,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL26CheckWasmBuiltinArgIsTabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clangL28CheckWasmBuiltinArgIsIntegerERNS_4SemaEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clangL28CheckWasmBuiltinArgIsIntegerERNS_4SemaEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -2147483648, 5) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.clang::SourceRange", align 8

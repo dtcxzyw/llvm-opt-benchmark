@@ -53266,7 +53266,7 @@ declare void @_ZN8facebook5velox4exec7EvalCtx22setVeloxExceptionErrorEiRKNSt15__
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E1_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E1_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -54069,7 +54069,7 @@ if.end19:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -54872,7 +54872,7 @@ if.end21:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -55675,7 +55675,7 @@ if.end21:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -56478,7 +56478,7 @@ if.end19:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -57310,7 +57310,7 @@ if.end20:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -58113,7 +58113,7 @@ if.end19:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -58916,7 +58916,7 @@ if.end19:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -59828,7 +59828,7 @@ if.end19:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -60740,7 +60740,7 @@ if.end19:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -61597,7 +61597,7 @@ if.end19:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorERKSH_SK_SK_RNS0_10FlatVectorIlEEEUlT_E0_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -62055,7 +62055,7 @@ if.end21:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE30ETnNSt9enable_ifIXntsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorESI_SI_RKSH_RNS0_10FlatVectorIlEEEUlT_E_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE30ETnNSt9enable_ifIXntsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorESI_SI_RKSH_RNS0_10FlatVectorIlEEEUlT_E_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -62513,7 +62513,7 @@ if.end21:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE31ETnNSt9enable_ifIXntsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorESI_SI_RKSH_RNS0_10FlatVectorIlEEEUlT_E_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE31ETnNSt9enable_ifIXntsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorESI_SI_RKSH_RNS0_10FlatVectorIlEEEUlT_E_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -62971,7 +62971,7 @@ if.end21:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE32ETnNSt9enable_ifIXntsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorESI_SI_RKSH_RNS0_10FlatVectorIlEEEUlT_E_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_122applyTypedWithInstanceILNS0_8TypeKindE32ETnNSt9enable_ifIXntsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_17SelectivityVectorERS4_RNS0_13DecodedVectorESI_SI_RKSH_RNS0_10FlatVectorIlEEEUlT_E_EEvSF_SO_EUlSO_E_EEvPKmiibSO_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8

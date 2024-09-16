@@ -1190,7 +1190,7 @@ define dso_local void @e820__memory_setup_extended(i64 noundef %0, i32 noundef %
 declare dso_local ptr @early_memremap(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @__append_e820_table(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @__append_e820_table(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 214748365) %1) unnamed_addr #3 section ".init.text" align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.thread, label %.lr.ph
 
@@ -1358,7 +1358,7 @@ define dso_local noundef range(i64 0, 1099511627777) i64 @e820__end_of_ram_pfn()
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64 noundef range(i64 1048576, 1099511627777) %0) unnamed_addr #3 section ".init.text" align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #17
           to label %3 [label %3, label %2], !srcloc !36
 
@@ -2049,10 +2049,10 @@ declare dso_local i64 @memparse(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @parse_memmap_one(ptr noundef %0) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc void @parse_memmap_one(ptr noundef nonnull %0) unnamed_addr #3 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.39, i64 noundef 8) #17
+  %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.39, i64 noundef 8) #17
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
 
@@ -2063,7 +2063,7 @@ define internal fastcc void @parse_memmap_one(ptr noundef %0) unnamed_addr #3 se
   br label %70
 
 7:                                                ; preds = %1
-  %8 = call i64 @memparse(ptr noundef %0, ptr noundef nonnull %2) #17
+  %8 = call i64 @memparse(ptr noundef nonnull %0, ptr noundef nonnull %2) #17
   %9 = load ptr, ptr %2, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %70, label %11

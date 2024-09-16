@@ -1109,7 +1109,7 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; p
   %16 = getelementptr inbounds i8, ptr %.tr2039, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !16, !align !213, !noundef !16
   %18 = getelementptr inbounds i8, ptr %17, i64 48
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %18)
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef align 1 dereferenceable(2) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %18)
   br label %.loopexit
 
 19:                                               ; preds = %.lr.ph.split
@@ -1161,7 +1161,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph.split, %19
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias nocapture noundef align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(160) %1) unnamed_addr #1 {
+define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(2) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %.val4 = load i8, ptr %0, align 1, !range !211, !noundef !16
   %.val15 = load i8, ptr %3, align 1
@@ -1178,12 +1178,12 @@ define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_se
   br i1 %8, label %tailrecurse, label %9
 
 9:                                                ; preds = %.lr.ph
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.tr27)
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias noundef align 1 dereferenceable(2) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %.tr27)
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %.lr.ph
   %10 = load ptr, ptr %.tr27, align 8, !nonnull !16, !align !213, !noundef !16
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %10)
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef align 1 dereferenceable(2) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %10)
   %11 = getelementptr inbounds i8, ptr %.tr27, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !16, !align !213, !noundef !16
   %.val = load i8, ptr %0, align 1, !range !211, !noundef !16
@@ -1198,7 +1198,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias nocapture noundef align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(160) %1) unnamed_addr #1 {
+define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias nocapture noundef nonnull align 1 dereferenceable(2) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) unnamed_addr #1 {
   %.val = load i8, ptr %0, align 1, !range !211, !noundef !16
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %.val2 = load i8, ptr %3, align 1
@@ -1301,7 +1301,7 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16: ;
 35:                                               ; preds = %6
   %36 = load ptr, ptr %1, align 8, !nonnull !16, !align !213, !noundef !16
   %37 = getelementptr inbounds i8, ptr %36, i64 48
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %37)
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis18from_ast_class_set17ha47a567fde763cf8E(ptr noalias noundef align 1 dereferenceable(2) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %37)
   br label %.loopexit
 
 38:                                               ; preds = %6
@@ -1316,7 +1316,7 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16: ;
 .lr.ph:                                           ; preds = %38, %.lr.ph
   %.sroa.0.024 = phi ptr [ %43, %.lr.ph ], [ %.val6, %38 ]
   %43 = getelementptr inbounds i8, ptr %.sroa.0.024, i64 160
-  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.sroa.0.024)
+  tail call fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_set_item17hb5a9cf6993c30bdaE(ptr noalias noundef align 1 dereferenceable(2) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %.sroa.0.024)
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %.loopexit, label %.lr.ph
 }

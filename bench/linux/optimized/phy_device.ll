@@ -839,7 +839,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @phy_request_driver_module(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @phy_request_driver_module(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = lshr i32 %1, 31
   %4 = lshr i32 %1, 30
   %5 = and i32 %4, 1
@@ -910,7 +910,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @phy_request_driver_module(
 
 69:                                               ; preds = %2
   %70 = zext i32 %1 to i64
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.82, i32 noundef %65, i64 noundef %70) #20
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, i32 noundef %65, i64 noundef %70) #20
   br label %71
 
 71:                                               ; preds = %69, %2

@@ -130,7 +130,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i32 @add_uevent_var(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @create_of_modalias(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @create_of_modalias(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   store i64 -1, ptr %4, align 8
@@ -226,8 +226,8 @@ define internal fastcc i32 @create_of_modalias(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @create_pnp_modalias(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
-  %4 = tail call zeroext i1 @acpi_device_is_present(ptr noundef %0) #6
+define internal fastcc i32 @create_pnp_modalias(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+  %4 = tail call zeroext i1 @acpi_device_is_present(ptr noundef nonnull %0) #6
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %3

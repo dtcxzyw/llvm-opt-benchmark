@@ -1138,13 +1138,13 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %25, %_ZNSt11char_tr
   %.sroa.speculated5.i30 = zext i1 %48 to i64
   %49 = getelementptr inbounds i8, ptr %43, i64 %.sroa.speculated5.i30
   %50 = sub i64 %.sroa.speculated.i, %.sroa.speculated5.i30
-  call fastcc void @_ZL6expandN4llvm9StringRefES0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %49, i64 %50, ptr nonnull %1, i64 %2)
+  call fastcc void @_ZL6expandN4llvm9StringRefES0_(ptr dead_on_unwind noalias writable align 8 %7, ptr %49, i64 %50, ptr nonnull %1, i64 %2)
   %51 = load i8, ptr %15, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %59
 
 .thread62:                                        ; preds = %41
-  call fastcc void @_ZL6expandN4llvm9StringRefES0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %43, i64 %.sroa.speculated.i, ptr nonnull %1, i64 %2)
+  call fastcc void @_ZL6expandN4llvm9StringRefES0_(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %43, i64 %.sroa.speculated.i, ptr nonnull %1, i64 %2)
   %53 = load i8, ptr %15, align 8
   %54 = trunc i8 %53 to i1
   br i1 %54, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %_ZN4llvm9BitVector4flipEv.exit
@@ -1344,7 +1344,7 @@ _ZN4llvm11GlobPattern14SubGlobPatternC2ERKS1_.exit: ; preds = %_ZN4llvm11SmallVe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL6expandN4llvm9StringRefES0_(ptr dead_on_unwind noalias writable align 8 %0, ptr readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL6expandN4llvm9StringRefES0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::BitVector", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16

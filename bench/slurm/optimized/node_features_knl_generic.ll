@@ -324,7 +324,7 @@ _knl_mcdram_parse.exit:                           ; preds = %37, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   store i16 %.010.i, ptr @allow_mcdram, align 2
-  %45 = and i16 %.010.i, 32512
+  %45 = and i16 %.010.i, 7936
   %46 = zext nneg i16 %45 to i32
   br label %47
 
@@ -510,7 +510,7 @@ _knl_mcdram_parse.exit90:                         ; preds = %102, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   store i16 %.010.i89, ptr @default_mcdram, align 2
-  %110 = and i16 %.010.i89, 32512
+  %110 = and i16 %.010.i89, 7936
   %111 = zext nneg i16 %110 to i32
   br label %112
 
@@ -1700,7 +1700,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   %.sink124.sroa.phi = phi ptr [ %.sink124.sroa.gep, %32 ], [ %.sink124.sroa.gep130, %29 ]
   store ptr %.str.55.sink, ptr %.sink125.sroa.phi, align 8
   store ptr null, ptr %.sink124.sroa.phi, align 16
-  %36 = call fastcc ptr @_run_script(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %36 = call fastcc ptr @_run_script(ptr noundef nonnull %8, ptr noundef %6, ptr noundef %7)
   store ptr %36, ptr %5, align 8
   %37 = load i32, ptr %7, align 4
   %38 = and i32 %37, 65407
@@ -1727,7 +1727,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   br label %104
 
 48:                                               ; preds = %41
-  call fastcc void @_log_script_argv(ptr noundef nonnull %6, ptr noundef nonnull %42)
+  call fastcc void @_log_script_argv(ptr noundef %6, ptr noundef nonnull %42)
   %49 = load i32, ptr @knl_system_type, align 4
   switch i32 %49, label %.thread107 [
     i32 1, label %51
@@ -1793,7 +1793,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   store ptr null, ptr %70, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #15
   %71 = load ptr, ptr @syscfg_path, align 8
-  %72 = call fastcc ptr @_run_script(ptr noundef %71, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %72 = call fastcc ptr @_run_script(ptr noundef %71, ptr noundef %6, ptr noundef %7)
   store ptr %72, ptr %5, align 8
   %73 = load i32, ptr %7, align 4
   %74 = and i32 %73, 65407
@@ -1910,7 +1910,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 
 110:                                              ; preds = %.sink.split126, %104
   %111 = load ptr, ptr @syscfg_path, align 8
-  %112 = call fastcc ptr @_run_script(ptr noundef %111, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %112 = call fastcc ptr @_run_script(ptr noundef %111, ptr noundef %6, ptr noundef %7)
   store ptr %112, ptr %5, align 8
   %113 = load i32, ptr %7, align 4
   %114 = and i32 %113, 65407
@@ -1937,7 +1937,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   br label %184
 
 124:                                              ; preds = %117
-  call fastcc void @_log_script_argv(ptr noundef nonnull %6, ptr noundef nonnull %118)
+  call fastcc void @_log_script_argv(ptr noundef %6, ptr noundef nonnull %118)
   %125 = load i32, ptr @knl_system_type, align 4
   switch i32 %125, label %.thread119 [
     i32 1, label %127
@@ -2006,7 +2006,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   store ptr null, ptr %147, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #15
   %148 = load ptr, ptr @syscfg_path, align 8
-  %149 = call fastcc ptr @_run_script(ptr noundef %148, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %149 = call fastcc ptr @_run_script(ptr noundef %148, ptr noundef %6, ptr noundef %7)
   store ptr %149, ptr %5, align 8
   %150 = load i32, ptr %7, align 4
   %151 = and i32 %150, 65407
@@ -2139,7 +2139,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [2 x i32], align 8
@@ -2200,7 +2200,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef %1, ptr noun
 
 ._crit_edge57:                                    ; preds = %34, %22
   %36 = call i32 @setpgid(i32 noundef 0, i32 noundef 0) #15
-  %37 = call i32 @execv(ptr noundef %0, ptr noundef %1) #15
+  %37 = call i32 @execv(ptr noundef %0, ptr noundef nonnull %1) #15
   %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.142, ptr noundef nonnull @__func__._run_script, ptr noundef %0) #15
   call void @_exit(i32 noundef 127) #16
   unreachable
@@ -2355,7 +2355,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef %1, ptr noun
   %123 = call i32 @killpg(i32 noundef %20, i32 noundef 15) #15
   %124 = call i32 @usleep(i32 noundef 10000) #15
   %125 = call i32 @killpg(i32 noundef %20, i32 noundef 9) #15
-  %126 = call i32 @waitpid(i32 noundef %20, ptr noundef %2, i32 noundef 0) #15
+  %126 = call i32 @waitpid(i32 noundef %20, ptr noundef nonnull %2, i32 noundef 0) #15
   %127 = load i32, ptr %6, align 8
   %128 = call i32 @close(i32 noundef %127) #15
   %.pre = load ptr, ptr %5, align 8
@@ -2367,7 +2367,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_log_script_argv(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_log_script_argv(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -2492,7 +2492,7 @@ define range(i32 0, 8002) i32 @node_features_p_job_valid(ptr noundef %0, ptr noc
   br i1 %.not12.i, label %_knl_mcdram_parse.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 _knl_mcdram_parse.exit.loopexit:                  ; preds = %.lr.ph.i
-  %23 = and i16 %21, 32512
+  %23 = and i16 %21, 7936
   %24 = zext nneg i16 %23 to i32
   br label %_knl_mcdram_parse.exit
 
@@ -2810,7 +2810,7 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
   %.sink53.sroa.phi = phi ptr [ %.sink53.sroa.gep, %32 ], [ %.sink53.sroa.gep73, %29 ]
   store ptr %.str.55.sink, ptr %.sink54.sroa.phi, align 8
   store ptr null, ptr %.sink53.sroa.phi, align 16
-  %36 = call fastcc ptr @_run_script(ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  %36 = call fastcc ptr @_run_script(ptr noundef nonnull %13, ptr noundef %3, ptr noundef %5)
   store ptr %36, ptr %2, align 8
   %37 = load i32, ptr %5, align 4
   %38 = and i32 %37, 65407
@@ -2838,7 +2838,7 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
   br label %.thread
 
 48:                                               ; preds = %41
-  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef nonnull %42)
+  call fastcc void @_log_script_argv(ptr noundef %3, ptr noundef nonnull %42)
   %49 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.62) #17
   %.not28 = icmp eq ptr %49, null
   br i1 %.not28, label %50, label %58
@@ -2926,7 +2926,7 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 75:                                               ; preds = %.sink.split, %66
   %76 = load ptr, ptr @syscfg_path, align 8
-  %77 = call fastcc ptr @_run_script(ptr noundef %76, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  %77 = call fastcc ptr @_run_script(ptr noundef %76, ptr noundef %3, ptr noundef %5)
   store ptr %77, ptr %2, align 8
   %78 = load i32, ptr %5, align 4
   %79 = and i32 %78, 65407
@@ -2938,7 +2938,7 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
   br label %83
 
 82:                                               ; preds = %75
-  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef %77)
+  call fastcc void @_log_script_argv(ptr noundef %3, ptr noundef %77)
   br label %83
 
 83:                                               ; preds = %82, %80
@@ -2977,7 +2977,7 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 89:                                               ; preds = %.sink.split60, %.thread
   %90 = load ptr, ptr @syscfg_path, align 8
-  %91 = call fastcc ptr @_run_script(ptr noundef %90, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  %91 = call fastcc ptr @_run_script(ptr noundef %90, ptr noundef %3, ptr noundef %5)
   store ptr %91, ptr %2, align 8
   %92 = load i32, ptr %5, align 4
   %93 = and i32 %92, 65407
@@ -3005,7 +3005,7 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
   br label %123
 
 103:                                              ; preds = %96
-  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef nonnull %97)
+  call fastcc void @_log_script_argv(ptr noundef %3, ptr noundef nonnull %97)
   %104 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.79) #17
   %.not36 = icmp eq ptr %104, null
   br i1 %.not36, label %105, label %thread-pre-split
@@ -3109,7 +3109,7 @@ thread-pre-split:                                 ; preds = %103, %109, %111, %1
 
 134:                                              ; preds = %.sink.split67, %125
   %135 = load ptr, ptr @syscfg_path, align 8
-  %136 = call fastcc ptr @_run_script(ptr noundef %135, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  %136 = call fastcc ptr @_run_script(ptr noundef %135, ptr noundef %3, ptr noundef %5)
   store ptr %136, ptr %2, align 8
   %137 = load i32, ptr %5, align 4
   %138 = and i32 %137, 65407
@@ -3121,7 +3121,7 @@ thread-pre-split:                                 ; preds = %103, %109, %111, %1
   br label %142
 
 141:                                              ; preds = %134
-  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef %136)
+  call fastcc void @_log_script_argv(ptr noundef %3, ptr noundef %136)
   br label %142
 
 142:                                              ; preds = %141, %139

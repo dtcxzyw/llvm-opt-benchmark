@@ -559,7 +559,7 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   %24 = load ptr, ptr %23, align 8
   %25 = tail call fastcc ptr @type_lowering(ptr noundef %24)
   %26 = tail call ptr @type_get_ptr(ptr noundef %25) #4
-  %27 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %26)
+  %27 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %26)
   %28 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %27, ptr %28, align 8
   br label %29
@@ -586,7 +586,7 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %39 ]
   %40 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
-  %42 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %41)
+  %42 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %41)
   %43 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.i
   store ptr %42, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -618,7 +618,7 @@ x86_create_params.exit:                           ; preds = %39, %29, %32
   %indvars.iv.i17 = phi i64 [ 0, %50 ], [ %indvars.iv.next.i18, %54 ]
   %55 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.i17
   %56 = load ptr, ptr %55, align 8
-  %57 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %56)
+  %57 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %56)
   %58 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i17
   store ptr %57, ptr %58, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
@@ -636,7 +636,7 @@ x86_create_params.exit21:                         ; preds = %54, %x86_create_par
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @type_lowering(ptr noundef %1)
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %212 [

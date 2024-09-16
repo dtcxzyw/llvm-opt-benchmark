@@ -182,7 +182,7 @@ entry:
   store ptr @_ZN9grpc_core12_GLOBAL__N_115IsAuthorityCharEc, ptr %agg.tmp1, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1, ptr noundef nonnull %agg.tmp1)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1, ptr noundef %agg.tmp1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -227,7 +227,7 @@ _ZNSt8functionIFbcEED2Ev.exit7:                   ; preds = %lpad, %if.then.i.i4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %agg.result, i64 %str.coerce0, ptr readonly %str.coerce1, ptr noundef %is_allowed_char) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %agg.result, i64 %str.coerce0, ptr readonly %str.coerce1, ptr noundef nonnull %is_allowed_char) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i8, align 1
   %c = alloca i8, align 1
@@ -401,7 +401,7 @@ entry:
   store ptr @_ZN9grpc_core12_GLOBAL__N_110IsPathCharEc, ptr %agg.tmp1, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1, ptr noundef nonnull %agg.tmp1)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1, ptr noundef %agg.tmp1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1295,7 +1295,7 @@ if.then87:                                        ; preds = %switch.early.test.i
   store i64 41, ptr %agg.tmp91, align 8
   %_M_str.i207 = getelementptr inbounds i8, ptr %agg.tmp91, i64 8
   store ptr @.str.15, ptr %_M_str.i207, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120MakeInvalidURIStatusESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr noalias nonnull align 8 %ref.tmp88, i64 12, ptr nonnull @.str.14, i64 %uri_text.coerce0, ptr %uri_text.coerce1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp91)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120MakeInvalidURIStatusESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr noalias align 8 %ref.tmp88, i64 12, ptr nonnull @.str.14, i64 %uri_text.coerce0, ptr %uri_text.coerce1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp91)
           to label %invoke.cont92 unwind label %lpad67.loopexit.split-lp
 
 invoke.cont92:                                    ; preds = %if.then87
@@ -1526,7 +1526,7 @@ if.then144:                                       ; preds = %switch.early.test.i
   store i64 37, ptr %agg.tmp148, align 8
   %_M_str.i266 = getelementptr inbounds i8, ptr %agg.tmp148, i64 8
   store ptr @.str.18, ptr %_M_str.i266, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120MakeInvalidURIStatusESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr noalias nonnull align 8 %ref.tmp145, i64 8, ptr nonnull @.str.17, i64 %uri_text.coerce0, ptr %uri_text.coerce1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp148)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120MakeInvalidURIStatusESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr noalias align 8 %ref.tmp145, i64 8, ptr nonnull @.str.17, i64 %uri_text.coerce0, ptr %uri_text.coerce1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp148)
           to label %invoke.cont149 unwind label %lpad137
 
 invoke.cont149:                                   ; preds = %if.then144
@@ -1697,7 +1697,7 @@ return:                                           ; preds = %_ZN9grpc_core12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120MakeInvalidURIStatusESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr noalias align 8 %agg.result, i64 %part_name.coerce0, ptr %part_name.coerce1, i64 %uri.coerce0, ptr %uri.coerce1, ptr noundef byval(%"class.std::basic_string_view") align 8 %extra) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120MakeInvalidURIStatusESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr noalias nonnull align 8 %agg.result, i64 %part_name.coerce0, ptr %part_name.coerce1, i64 %uri.coerce0, ptr %uri.coerce1, ptr noundef byval(%"class.std::basic_string_view") align 8 %extra) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [3 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %part_name = alloca %"class.std::basic_string_view", align 8
@@ -1726,7 +1726,7 @@ entry:
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   %2 = extractvalue { i64, ptr } %call, 0
   %3 = extractvalue { i64, ptr } %call, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %2, ptr %3)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %2, ptr %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2712,7 +2712,7 @@ entry:
   store ptr @_ZN9grpc_core12_GLOBAL__N_112IsSchemeCharEc, ptr %agg.tmp3, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp, i64 %0, ptr %1, ptr noundef nonnull %agg.tmp3)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp, i64 %0, ptr %1, ptr noundef %agg.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2875,7 +2875,7 @@ invoke.cont26:                                    ; preds = %if.else.i, %.noexc2
   store ptr @_ZN9grpc_core12_GLOBAL__N_115IsAuthorityCharEc, ptr %agg.tmp32, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i25, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i24, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp28, i64 %17, ptr %18, ptr noundef nonnull %agg.tmp32)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp28, i64 %17, ptr %18, ptr noundef %agg.tmp32)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont26
@@ -3019,7 +3019,7 @@ if.then41:                                        ; preds = %if.end
   store ptr @_ZN9grpc_core12_GLOBAL__N_110IsPathCharEc, ptr %agg.tmp46, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i54, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i53, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp42, i64 %38, ptr %39, ptr noundef nonnull %agg.tmp46)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp42, i64 %38, ptr %39, ptr noundef %agg.tmp46)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %if.then41
@@ -3172,7 +3172,7 @@ invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i
   store ptr @_ZN9grpc_core12_GLOBAL__N_121IsQueryKeyOrValueCharEc, ptr %agg.tmp4.i.i.i.i, align 8, !noalias !55
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i.i.i.i.i, align 8, !noalias !55
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i, align 8, !noalias !55
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp3.i.i.i.i, i64 %63, ptr %64, ptr noundef nonnull %agg.tmp4.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp3.i.i.i.i, i64 %63, ptr %64, ptr noundef %agg.tmp4.i.i.i.i)
           to label %invoke.cont8.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont8.i.i.i.i:                             ; preds = %invoke.cont.i.i.i
@@ -3191,7 +3191,7 @@ invoke.cont8.i.i.i.i:                             ; preds = %invoke.cont.i.i.i
   store ptr @_ZN9grpc_core12_GLOBAL__N_121IsQueryKeyOrValueCharEc, ptr %agg.tmp13.i.i.i.i, align 8, !noalias !55
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i7.i.i.i.i, align 8, !noalias !55
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i6.i.i.i.i, align 8, !noalias !55
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp10.i.i.i.i, i64 %67, ptr %68, ptr noundef nonnull %agg.tmp13.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp10.i.i.i.i, i64 %67, ptr %68, ptr noundef %agg.tmp13.i.i.i.i)
           to label %invoke.cont15.i.i.i.i unwind label %lpad14.i.i.i.i
 
 invoke.cont15.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.i
@@ -3426,7 +3426,7 @@ invoke.cont81:                                    ; preds = %if.then.i.i109, %if
   store ptr @_ZN9grpc_core12_GLOBAL__N_121IsQueryOrFragmentCharEc, ptr %agg.tmp88, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i115, align 8
   store ptr @_ZNSt17_Function_handlerIFbcEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager.i.i114, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp84, i64 %98, ptr %99, ptr noundef nonnull %agg.tmp88)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113PercentEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbcEE(ptr noalias nonnull align 8 %ref.tmp84, i64 %98, ptr %99, ptr noundef %agg.tmp88)
           to label %invoke.cont90 unwind label %lpad89
 
 invoke.cont90:                                    ; preds = %invoke.cont81

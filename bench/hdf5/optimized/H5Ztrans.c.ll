@@ -650,7 +650,7 @@ H5Z__xform_find_type.exit:                        ; preds = %101, %95, %89, %83,
   br i1 %338, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %325, %305, %309
-  %339 = call fastcc i32 @H5Z__xform_eval_full(ptr noundef %20, i64 noundef %2, i64 noundef %.0.i, ptr noundef nonnull %5)
+  %339 = call fastcc i32 @H5Z__xform_eval_full(ptr noundef %20, i64 noundef %2, i64 noundef %.0.i, ptr noundef %5)
   %340 = icmp slt i32 %339, 0
   br i1 %340, label %341, label %345
 
@@ -745,7 +745,7 @@ declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.result, align 8
   %6 = alloca %struct.result, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -789,7 +789,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
   br i1 %.not, label %31, label %24
 
 24:                                               ; preds = %22
-  %25 = call fastcc i32 @H5Z__xform_eval_full(ptr noundef nonnull %23, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %5)
+  %25 = call fastcc i32 @H5Z__xform_eval_full(ptr noundef nonnull %23, i64 noundef %1, i64 noundef %2, ptr noundef %5)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %31
 
@@ -802,7 +802,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 31:                                               ; preds = %24, %22
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = call fastcc i32 @H5Z__xform_eval_full(ptr noundef %33, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %6)
+  %34 = call fastcc i32 @H5Z__xform_eval_full(ptr noundef %33, i64 noundef %1, i64 noundef %2, ptr noundef %6)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %40
 
@@ -7147,7 +7147,7 @@ H5Z__xform_parse.exit:                            ; preds = %.thread98, %69
   %74 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %0, ptr %74, align 8
   store ptr %0, ptr %2, align 8
-  %75 = call fastcc ptr @H5Z__parse_expression(ptr noundef nonnull %2, ptr noundef nonnull %10)
+  %75 = call fastcc ptr @H5Z__parse_expression(ptr noundef %2, ptr noundef nonnull %10)
   call fastcc void @H5Z__xform_reduce_tree(ptr noundef %75)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %76 = getelementptr inbounds i8, ptr %3, i64 8
@@ -7720,7 +7720,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare i32 @H5T_cmp(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5Z__parse_expression(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5Z__parse_expression(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
@@ -7755,7 +7755,7 @@ define internal fastcc ptr @H5Z__parse_expression(ptr noundef %0, ptr nocapture 
   %19 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 4, ptr %19, align 8
   store ptr %.033, ptr %9, align 8
-  %20 = tail call fastcc ptr @H5Z__parse_term(ptr noundef nonnull %0, ptr noundef %1)
+  %20 = tail call fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr noundef %1)
   %21 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %20, ptr %21, align 8
   %.not39 = icmp eq ptr %20, null
@@ -7787,7 +7787,7 @@ define internal fastcc ptr @H5Z__parse_expression(ptr noundef %0, ptr nocapture 
   %37 = getelementptr inbounds i8, ptr %27, i64 16
   store i32 5, ptr %37, align 8
   store ptr %.033, ptr %27, align 8
-  %38 = tail call fastcc ptr @H5Z__parse_term(ptr noundef nonnull %0, ptr noundef %1)
+  %38 = tail call fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr noundef %1)
   %39 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %38, ptr %39, align 8
   %.not37 = icmp eq ptr %38, null
@@ -8003,7 +8003,7 @@ H5Z__op_is_numbs.exit33:                          ; preds = %H5Z__op_is_numbs.ex
   br i1 %switch19.i53, label %H5Z__op_is_numbs.exit33.thread.sink.split, label %H5Z__op_is_numbs.exit33.thread
 
 H5Z__op_is_numbs.exit33.thread.sink.split:        ; preds = %62, %71, %45, %56, %29, %40, %H5Z__op_is_numbs.exit33, %H5Z__op_is_numbs.exit27, %H5Z__op_is_numbs.exit
-  tail call fastcc void @H5Z__do_op(ptr noundef nonnull %0)
+  tail call fastcc void @H5Z__do_op(ptr noundef %0)
   br label %H5Z__op_is_numbs.exit33.thread
 
 H5Z__op_is_numbs.exit33.thread:                   ; preds = %H5Z__op_is_numbs.exit33.thread.sink.split, %62, %71, %66, %69, %H5Z__op_is_numbs.exit27.thread, %2, %H5Z__op_is_numbs.exit33, %1
@@ -8011,7 +8011,7 @@ H5Z__op_is_numbs.exit33.thread:                   ; preds = %H5Z__op_is_numbs.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5Z__parse_term(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
@@ -8052,7 +8052,7 @@ define internal fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr nocapture nounde
   %19 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 6, ptr %19, align 8
   store ptr %.035, ptr %9, align 8
-  %20 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef nonnull %0, ptr noundef %1)
+  %20 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr noundef %1)
   %21 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %20, ptr %21, align 8
   %.not41 = icmp eq ptr %20, null
@@ -8088,7 +8088,7 @@ define internal fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr nocapture nounde
   %37 = getelementptr inbounds i8, ptr %27, i64 16
   store i32 7, ptr %37, align 8
   store ptr %.035, ptr %27, align 8
-  %38 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef nonnull %0, ptr noundef %1)
+  %38 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr noundef %1)
   %39 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %38, ptr %39, align 8
   %.not39 = icmp eq ptr %38, null
@@ -8142,7 +8142,7 @@ define internal fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @H5Z__get_token(ptr noundef returned %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull returned %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8388,7 +8388,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @H5Z__get_token(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -8478,7 +8478,7 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr nocapture noun
   br label %130
 
 57:                                               ; preds = %2
-  %58 = tail call fastcc ptr @H5Z__parse_expression(ptr noundef nonnull %0, ptr noundef %1)
+  %58 = tail call fastcc ptr @H5Z__parse_expression(ptr noundef %0, ptr noundef %1)
   %.not84 = icmp eq ptr %58, null
   br i1 %.not84, label %59, label %63
 
@@ -8489,7 +8489,7 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr nocapture noun
   br label %130
 
 63:                                               ; preds = %57
-  %64 = tail call fastcc ptr @H5Z__get_token(ptr noundef nonnull %0)
+  %64 = tail call fastcc ptr @H5Z__get_token(ptr noundef %0)
   %65 = load i32, ptr %4, align 8
   %.not85 = icmp eq i32 %65, 9
   br i1 %.not85, label %130, label %66
@@ -8508,7 +8508,7 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr nocapture noun
   br label %130
 
 74:                                               ; preds = %2
-  %75 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef nonnull %0, ptr noundef %1)
+  %75 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr noundef %1)
   %.not79 = icmp eq ptr %75, null
   br i1 %.not79, label %96, label %76
 
@@ -8555,7 +8555,7 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr nocapture noun
   br label %130
 
 100:                                              ; preds = %2
-  %101 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef nonnull %0, ptr noundef %1)
+  %101 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %101, null
   br i1 %.not, label %122, label %102
 
@@ -8616,7 +8616,7 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr nocapture noun
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5Z__do_op(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @H5Z__do_op(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %246 [

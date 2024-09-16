@@ -767,7 +767,7 @@ define dso_local void @_ZN4llvm18StructurizeCFGPass3runERNS_8FunctionERNS_15Anal
   br i1 %66, label %70, label %67, !llvm.loop !4
 
 67:                                               ; preds = %65, %52
-  %68 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114StructurizeCFG3runEPN4llvm6RegionEPNS1_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(872) %6, ptr noundef %55, ptr noundef nonnull %8)
+  %68 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114StructurizeCFG3runEPN4llvm6RegionEPNS1_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(872) %6, ptr noundef %55, ptr noundef %8)
   %69 = or i1 %.017, %68
   br label %70
 
@@ -1986,7 +1986,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10RegionNodeENS_23df_iterator_defa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114StructurizeCFG3runEPN4llvm6RegionEPNS1_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114StructurizeCFG3runEPN4llvm6RegionEPNS1_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SSAUpdater", align 8
   %5 = alloca %"class.llvm::iterator_range.174", align 8
   %6 = alloca %"class.llvm::RegionBase<llvm::RegionTraits<Function>>::block_iterator_wrapper", align 8
@@ -7973,7 +7973,7 @@ _ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit: ; preds =
   %80 = load ptr, ptr %79, align 8
   %81 = call noundef nonnull align 8 dereferenceable(160) ptr %80(ptr noundef nonnull align 8 dereferenceable(28) %77, ptr noundef nonnull @_ZN4llvm24DominatorTreeWrapperPass2IDE) #21
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %83 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114StructurizeCFG3runEPN4llvm6RegionEPNS1_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(872) %4, ptr noundef %1, ptr noundef nonnull %82)
+  %83 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114StructurizeCFG3runEPN4llvm6RegionEPNS1_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(872) %4, ptr noundef %1, ptr noundef %82)
   br label %84
 
 84:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_25UniformityInfoWrapperPassEEERT_v.exit, %_ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit
@@ -9789,7 +9789,7 @@ _ZNSt6vectorISt4pairIPN4llvm10RegionNodeEPNS1_13SmallDenseSetIS3_Lj4ENS1_12Dense
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.2.0.copyload = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  call fastcc void @_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %5), !noalias !182
+  call fastcc void @_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %5), !noalias !182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   %43 = load i32, ptr %0, align 8
@@ -9915,7 +9915,7 @@ _ZNSt6vectorISt4pairIPN4llvm10RegionNodeEPNS1_13SmallDenseSetIS3_Lj4ENS1_12Dense
   %21 = getelementptr inbounds i8, ptr %.val7, i64 -96
   %22 = getelementptr inbounds i8, ptr %.val7, i64 -80
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  call fastcc void @_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %21), !noalias !190
+  call fastcc void @_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %21), !noalias !190
   %.sroa.018.0.copyload23.i = load i64, ptr %13, align 8
   %.sroa.220.0.copyload24.i = load i32, ptr %.sroa.220.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
@@ -11083,7 +11083,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSet
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::filter_iterator_impl", align 8
   %4 = alloca %"class.llvm::filter_iterator_impl", align 8
   %.sroa.08 = alloca %"class.llvm::RNSuccIterator", align 8

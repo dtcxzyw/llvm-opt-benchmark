@@ -669,7 +669,7 @@ declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 align 16 {
   %4 = alloca %union.anon.26, align 8
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %4) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 24

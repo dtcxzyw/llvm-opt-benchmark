@@ -2848,7 +2848,7 @@ _ZN4llvm11SmallVectorImLj64EED2Ev.exit:           ; preds = %_ZN4llvm15Bitstream
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11EmitBlockIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL11EmitBlockIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef range(i32 8, 20) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #31
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %6, align 8
@@ -25791,7 +25791,7 @@ _ZNK4llvm15BitstreamWriter15GetCurrentBitNoEv.exit210: ; preds = %308, %317, %_Z
   br i1 %.not183, label %1197, label %348
 
 348:                                              ; preds = %347
-  %349 = call fastcc noundef zeroext i1 @_ZL17shouldIgnoreMacroPN5clang14MacroDirectiveEbRKNS_12PreprocessorE(ptr noundef nonnull %310, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(3288) %1)
+  %349 = call fastcc noundef zeroext i1 @_ZL17shouldIgnoreMacroPN5clang14MacroDirectiveEbRKNS_12PreprocessorE(ptr noundef %310, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(3288) %1)
   br i1 %349, label %1197, label %350
 
 350:                                              ; preds = %348
@@ -103646,7 +103646,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i29.i.i: ; preds = %_ZNK5cl
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN5clang12FileEntryRefElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr %3) unnamed_addr #20 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN5clang12FileEntryRefElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr %3) unnamed_addr #20 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -104754,7 +104754,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE13growAndAssignEmS3_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_119HeaderFileInfoTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_119HeaderFileInfoTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #36
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -104784,7 +104784,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 
 .lr.ph17:                                         ; preds = %_ZN4llvm11safe_callocEmm.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = add i64 %1, 4294967295
+  %14 = add nuw nsw i64 %1, 4294967295
   br label %15
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
@@ -109625,7 +109625,7 @@ _ZSt4moveIPSt4pairIjN5clang11LocalDeclIDEES4_ET0_T_S6_S5_.exit42: ; preds = %.lr
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_118ASTMethodPoolTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_118ASTMethodPoolTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #36
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -109655,7 +109655,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 
 .lr.ph17:                                         ; preds = %_ZN4llvm11safe_callocEmm.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = add i64 %1, 4294967295
+  %14 = add nuw nsw i64 %1, 4294967295
   br label %15
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
@@ -109715,7 +109715,7 @@ declare noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align
 declare noundef ptr @_ZNK5clang8Selector24getIdentifierInfoForSlotEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_123ASTIdentifierTableTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_123ASTIdentifierTableTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #36
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -109745,7 +109745,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 
 .lr.ph17:                                         ; preds = %_ZN4llvm11safe_callocEmm.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = add i64 %1, 4294967295
+  %14 = add nuw nsw i64 %1, 4294967295
   br label %15
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
@@ -109921,7 +109921,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_31OnDiskChainedHashTableGeneratorIN12_GLOB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_129ASTDeclContextNameLookupTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_129ASTDeclContextNameLookupTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #36
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -109951,7 +109951,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 
 .lr.ph17:                                         ; preds = %_ZN4llvm11safe_callocEmm.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = add i64 %1, 4294967295
+  %14 = add nuw nsw i64 %1, 4294967295
   br label %15
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge

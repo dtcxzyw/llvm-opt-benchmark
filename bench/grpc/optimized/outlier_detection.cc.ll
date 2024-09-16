@@ -3303,7 +3303,7 @@ invoke.cont24:                                    ; preds = %_ZTWN9grpc_core9Tim
 
 call.i.noexc:                                     ; preds = %invoke.cont24
   store ptr %this, ptr %agg.tmp.i, align 8, !noalias !23
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EjectionTimerC2ENS_13RefCountedPtrIS1_EENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(344) %call.i25, ptr noundef nonnull %agg.tmp.i, i64 %call.i22)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EjectionTimerC2ENS_13RefCountedPtrIS1_EENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(344) %call.i25, ptr noundef %agg.tmp.i, i64 %call.i22)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !23
 
 invoke.cont.i:                                    ; preds = %call.i.noexc
@@ -3444,7 +3444,7 @@ invoke.cont60:                                    ; preds = %if.then55.invoke.co
 
 call.i46.noexc:                                   ; preds = %invoke.cont60
   store ptr %this, ptr %agg.tmp.i45, align 8, !noalias !29
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EjectionTimerC2ENS_13RefCountedPtrIS1_EENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(344) %call.i4667, ptr noundef nonnull %agg.tmp.i45, i64 %call63.val)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EjectionTimerC2ENS_13RefCountedPtrIS1_EENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(344) %call.i4667, ptr noundef %agg.tmp.i45, i64 %call63.val)
           to label %invoke.cont.i58 unwind label %lpad.i48, !noalias !29
 
 invoke.cont.i58:                                  ; preds = %call.i46.noexc
@@ -5158,7 +5158,7 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EjectionTimerC2ENS_13RefCountedPtrIS1_EENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr nocapture noundef %parent, i64 %start_time.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EjectionTimerC2ENS_13RefCountedPtrIS1_EENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr nocapture noundef nonnull %parent, i64 %start_time.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seeder.i.i = alloca %"class.absl::lts_20230802::random_internal::RandenPoolSeedSeq", align 1
   %interval = alloca %"class.grpc_core::Duration", align 8
@@ -6965,7 +6965,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %call.i172.noexc.i.i
 invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i, %call.i172.noexc.i.i.i.i
   %77 = phi ptr [ %.pre.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ null, %call.i172.noexc.i.i.i.i ]
   store ptr %77, ptr %agg.tmp.i.i.i.i.i, align 8, !noalias !68
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EjectionTimerC2ENS_13RefCountedPtrIS1_EENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(344) %call.i172175.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i, i64 %call.i168170.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118OutlierDetectionLb13EjectionTimerC2ENS_13RefCountedPtrIS1_EENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(344) %call.i172175.i.i.i.i, ptr noundef %agg.tmp.i.i.i.i.i, i64 %call.i168170.i.i.i.i)
           to label %invoke.cont5.i.i.i.i.i unwind label %lpad4.i.i.i.i.i, !noalias !68
 
 invoke.cont5.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i.i

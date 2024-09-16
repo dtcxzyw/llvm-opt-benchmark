@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3c061c8455c5c731a73b3ba087a74295.5 = private unnamed_addr constant <{ [48 x i8] }> <{ [48 x i8] c"\10\00\00\00\00\00\00\00 \00\00\00\00\00\00\00@\00\00\00\00\00\00\00\80\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\02\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr nonnull align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [2 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %4 = alloca [2 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -19,7 +19,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha
   %8 = alloca i16, align 2
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h942bee3101470f2cE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %9, ptr align 8 %0)
+  call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h942bee3101470f2cE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %9, ptr nonnull align 8 %0)
   %11 = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds i8, ptr %9, i64 16
@@ -48,16 +48,16 @@ define internal fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha
   br label %18
 
 21:                                               ; preds = %17
-  %22 = invoke i16 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType6number17h68ba705da1d4b60fE(ptr align 8 %0)
+  %22 = invoke i16 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType6number17h68ba705da1d4b60fE(ptr nonnull align 8 %0)
           to label %23 unwind label %19
 
 23:                                               ; preds = %21
   store i16 %22, ptr %8, align 2
-  invoke void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType3doc17h04d53b9ee23b45e0E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %7, ptr align 8 %0)
+  invoke void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType3doc17h04d53b9ee23b45e0E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %7, ptr nonnull align 8 %0)
           to label %24 unwind label %19
 
 24:                                               ; preds = %23
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter11doc_comment17h15f42d15af9bbee3E(ptr align 8 %1, ptr nonnull align 8 %7)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter11doc_comment17h15f42d15af9bbee3E(ptr nonnull align 8 %1, ptr nonnull align 8 %7)
           to label %27 unwind label %25
 
 25:                                               ; preds = %24
@@ -116,7 +116,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha
           to label %38 unwind label %19
 
 38:                                               ; preds = %28
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %6)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %1, ptr nonnull align 8 %6)
           to label %39 unwind label %19
 
 39:                                               ; preds = %38
@@ -195,7 +195,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
 
 .lr.ph.i:                                         ; preds = %.noexc8, %.noexc12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr nonnull align 8 %19, ptr nonnull align 8 %22)
+  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %19, ptr align 8 %22)
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc11:                                         ; preds = %.lr.ph.i
@@ -231,7 +231,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
 
 .lr.ph10.i:                                       ; preds = %.noexc10, %.noexc15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
-  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr nonnull align 8 %16, ptr nonnull align 8 %22)
+  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %16, ptr align 8 %22)
           to label %.noexc14 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc14:                                         ; preds = %.lr.ph10.i
@@ -277,7 +277,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
           to label %.noexc18 unwind label %.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %.lr.ph.i.i
-  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr nonnull align 8 %10, ptr nonnull align 8 %22)
+  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %10, ptr align 8 %22)
           to label %.noexc19 unwind label %.loopexit.split-lp.loopexit
 
 .noexc19:                                         ; preds = %.noexc18
@@ -325,7 +325,7 @@ _ZN22cranelift_codegen_meta9gen_types12emit_vectors17h72679626038016a6E.exit.i: 
           to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %.lr.ph.i8.i
-  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr nonnull align 8 %5, ptr nonnull align 8 %22)
+  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %5, ptr align 8 %22)
           to label %.noexc24 unwind label %.loopexit
 
 .noexc24:                                         ; preds = %.noexc23

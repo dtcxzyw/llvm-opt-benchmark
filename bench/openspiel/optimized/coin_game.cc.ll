@@ -1150,10 +1150,10 @@ declare void @_ZN10open_spiel28RegisterSingleTensorObserverC1ERKNSt7__cxx1112bas
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10open_spiel9coin_game5SetupC2Eiii(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_110RangeAsSetEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %3)
+  tail call fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_110RangeAsSetEi(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = mul nsw i32 %2, %1
-  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_110RangeAsSetEi(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %6)
+  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_110RangeAsSetEi(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %6)
           to label %7 unwind label %11
 
 7:                                                ; preds = %4
@@ -1173,7 +1173,7 @@ define void @_ZN10open_spiel9coin_game5SetupC2Eiii(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_110RangeAsSetEi(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_110RangeAsSetEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2096,7 +2096,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_
   br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit
 
 _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit:         ; preds = %16, %31
-  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %6)
           to label %34 unwind label %39
 
 34:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit
@@ -2166,7 +2166,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_
   br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit12
 
 _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit12:       ; preds = %41, %56
-  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %7)
           to label %59 unwind label %64
 
 59:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit12
@@ -2236,7 +2236,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_
   br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit21
 
 _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit21:       ; preds = %66, %81
-  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %8)
+  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %8)
           to label %84 unwind label %89
 
 84:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit21
@@ -2293,7 +2293,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %96, %84, %59, %34, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
@@ -2520,7 +2520,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_
   br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit
 
 _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit:         ; preds = %12, %27
-  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %6)
           to label %30 unwind label %35
 
 30:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit
@@ -2591,7 +2591,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_
   br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14
 
 _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14:       ; preds = %37, %52
-  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %7)
           to label %55 unwind label %60
 
 55:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit14
@@ -2662,7 +2662,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_S_minimumEPSt18_Rb_tree_node_
   br label %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23
 
 _ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23:       ; preds = %62, %77
-  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %8)
+  invoke fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %8)
           to label %80 unwind label %85
 
 80:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEEC2ERKS3_.exit23
@@ -2723,7 +2723,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %80, %55, %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
@@ -4698,9 +4698,9 @@ default.unreachable:                              ; preds = %15
   unreachable
 
 .body.i:                                          ; preds = %56, %.body4, %44, %.body6, %32, %.body9, %20, %18
-  %.sink21.i = phi ptr [ %6, %18 ], [ %6, %20 ], [ %7, %.body9 ], [ %7, %32 ], [ %8, %.body6 ], [ %8, %44 ], [ %9, %.body4 ], [ %9, %56 ]
+  %.sink22.i = phi ptr [ %6, %18 ], [ %6, %20 ], [ %7, %.body9 ], [ %7, %32 ], [ %8, %.body6 ], [ %8, %44 ], [ %9, %.body4 ], [ %9, %56 ]
   %.pn.i = phi { ptr, i32 } [ %19, %18 ], [ %21, %20 ], [ %31, %.body9 ], [ %33, %32 ], [ %43, %.body6 ], [ %45, %44 ], [ %55, %.body4 ], [ %57, %56 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink21.i) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink22.i) #26
   br label %.body
 
 58:                                               ; preds = %.noexc5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit11

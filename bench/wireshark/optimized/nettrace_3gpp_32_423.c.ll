@@ -405,7 +405,7 @@ declare ptr @g_strrstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca %struct.exported_pdu_info, align 8
   %9 = alloca [65 x i8], align 16
   %10 = alloca [65 x i8], align 16
@@ -440,7 +440,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   %25 = getelementptr inbounds i8, ptr %8, i64 20
   store i32 0, ptr %25, align 4
   %26 = ptrtoint ptr %3 to i64
-  %27 = add i64 %4, -4
+  %27 = add nsw i64 %4, -4
   %28 = tail call ptr @g_strstr_len(ptr noundef %19, i64 noundef %27, ptr noundef nonnull @.str.3) #11
   %.not222 = icmp eq ptr %28, null
   br i1 %.not222, label %29, label %31
@@ -601,7 +601,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   br i1 %.not231, label %112, label %111
 
 111:                                              ; preds = %106
-  call fastcc void @nettrace_parse_address(ptr noundef nonnull %107, i32 noundef 1, ptr noundef nonnull %8)
+  call fastcc void @nettrace_parse_address(ptr noundef %107, i32 noundef 1, ptr noundef %8)
   br label %112
 
 112:                                              ; preds = %106, %111, %104
@@ -619,7 +619,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   br i1 %.not234, label %120, label %119
 
 119:                                              ; preds = %114
-  call fastcc void @nettrace_parse_address(ptr noundef nonnull %115, i32 noundef 0, ptr noundef nonnull %8)
+  call fastcc void @nettrace_parse_address(ptr noundef %115, i32 noundef 0, ptr noundef %8)
   br label %120
 
 120:                                              ; preds = %114, %119, %112
@@ -972,7 +972,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @ascii_strdown_inplace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nettrace_parse_address(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @nettrace_parse_address(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [46 x i8], align 16
   %6 = alloca %struct.e_in6_addr, align 1
@@ -990,7 +990,7 @@ define internal fastcc void @nettrace_parse_address(ptr noundef %0, i32 noundef 
 
 14:                                               ; preds = %12, %3
   %15 = phi ptr [ %13, %12 ], [ %10, %3 ]
-  %16 = call i32 @g_regex_match(ptr noundef %15, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %9) #11
+  %16 = call i32 @g_regex_match(ptr noundef %15, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %9) #11
   %17 = load ptr, ptr %9, align 8
   %18 = call i32 @g_match_info_matches(ptr noundef %17) #11
   %.not = icmp eq i32 %18, 0

@@ -12539,7 +12539,7 @@ _ZNK12_GLOBAL__N_18OrderMap6lookupEPKN4llvm5ValueE.exit36.thread.i32.i.i: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZL28predictValueUseListOrderImplPKNS1_5ValueEPKNS1_8FunctionEjRKN12_GLOBAL__N_18OrderMapERSt6vectorINS1_12UseListOrderESaISL_EEE3$_0EEEvT_T0_SS_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %5) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZL28predictValueUseListOrderImplPKNS1_5ValueEPKNS1_8FunctionEjRKN12_GLOBAL__N_18OrderMapERSt6vectorINS1_12UseListOrderESaISL_EEE3$_0EEEvT_T0_SS_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %5) unnamed_addr #0 {
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
   %9 = icmp slt i64 %1, %8
@@ -18069,7 +18069,7 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i26.i.i: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm15ValueEnumerator7MDIndexElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, ptr nocapture readonly %4) unnamed_addr #13 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm15ValueEnumerator7MDIndexElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, i64 %3, ptr nocapture readonly %4) unnamed_addr #13 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7

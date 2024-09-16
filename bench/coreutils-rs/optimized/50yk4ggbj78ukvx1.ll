@@ -408,7 +408,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.46
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr167drop_in_place$LT$core..result..Result$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$C$std..io..error..Error$GT$$GT$17h35f3947b1b6d52a5E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr167drop_in_place$LT$core..result..Result$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$C$std..io..error..Error$GT$$GT$17h35f3947b1b6d52a5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !53, !noundef !4
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -1749,7 +1749,7 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
 
 136:                                              ; preds = %.thread.thread, %.thread
   %.pn74107134 = phi { ptr, i32 } [ %133, %.thread.thread ], [ %.pn74107, %.thread ]
-  invoke fastcc void @"_ZN4core3ptr167drop_in_place$LT$core..result..Result$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$C$std..io..error..Error$GT$$GT$17h35f3947b1b6d52a5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15) #18
+  invoke fastcc void @"_ZN4core3ptr167drop_in_place$LT$core..result..Result$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$C$std..io..error..Error$GT$$GT$17h35f3947b1b6d52a5E"(ptr noalias noundef align 8 dereferenceable(48) %15) #18
           to label %.thread136 unwind label %84
 
 137:                                              ; preds = %135

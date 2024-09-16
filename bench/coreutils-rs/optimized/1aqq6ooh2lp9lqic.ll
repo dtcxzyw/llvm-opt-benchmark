@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E = external local_unnamed_addr global [256 x i8]
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_fmt..parasplit..Line$GT$17h958526843fa66fcbE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_fmt..parasplit..Line$GT$17h958526843fa66fcbE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
@@ -294,7 +294,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6uu_fmt9parasplit9FileLines14compute_indent17hda209334e684b1fcE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN6uu_fmt9parasplit9FileLines14compute_indent17hda209334e684b1fcE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %.critedge21, label %.lr.ph
@@ -950,7 +950,7 @@ _ZN6uu_fmt9parasplit9FileLines17match_anti_prefix17hfcf15ebf77f1b72dE.exit.threa
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %203 = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %204 = load i64, ptr %20, align 8, !noundef !5
-  invoke fastcc void @_ZN6uu_fmt9parasplit9FileLines14compute_indent17hda209334e684b1fcE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %198, ptr noalias noundef nonnull readonly align 1 %203, i64 noundef %204, i64 noundef %202)
+  invoke fastcc void @_ZN6uu_fmt9parasplit9FileLines14compute_indent17hda209334e684b1fcE(ptr noalias nocapture noundef align 8 dereferenceable(24) %5, ptr nonnull %198, ptr noalias noundef nonnull readonly align 1 %203, i64 noundef %204, i64 noundef %202)
           to label %205 unwind label %85
 
 205:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hececebd7e710ce3aE.exit"
@@ -1229,7 +1229,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit.t
   br i1 %68, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %69
 
 69:                                               ; preds = %.lr.ph.i.i.i.i
-  %70 = add nuw i64 %.05.i.i.i.i, 1
+  %70 = add nuw nsw i64 %.05.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %70, %.sroa.3.0.i47.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -1709,7 +1709,7 @@ thread-pre-split:                                 ; preds = %279
 294:                                              ; preds = %288
   %295 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_fmt..parasplit..Line$GT$17h958526843fa66fcbE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7) #16
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_fmt..parasplit..Line$GT$17h958526843fa66fcbE"(ptr noalias noundef align 8 dereferenceable(56) %7) #16
           to label %.body unwind label %296, !noalias !233
 
 296:                                              ; preds = %294

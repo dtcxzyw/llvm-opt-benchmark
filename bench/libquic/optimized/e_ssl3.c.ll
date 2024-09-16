@@ -131,7 +131,7 @@ if.then14:                                        ; preds = %if.end12
   br label %return
 
 if.end15:                                         ; preds = %if.end12
-  %call16 = call fastcc i32 @ssl3_mac(ptr noundef nonnull %0, ptr noundef nonnull %mac, ptr noundef nonnull %mac_len, ptr noundef %ad, ptr noundef %in, i64 noundef %in_len)
+  %call16 = call fastcc i32 @ssl3_mac(ptr noundef nonnull %0, ptr noundef %mac, ptr noundef nonnull %mac_len, ptr noundef %ad, ptr noundef %in, i64 noundef %in_len)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %if.end19
 
@@ -316,7 +316,7 @@ if.end55:                                         ; preds = %if.end25, %if.end47
   %sub50.pn = phi i64 [ %sub50, %if.end47 ], [ %add27, %if.end25 ]
   %data_len.0.in = sub i64 %sub50.pn, %call
   %conv56 = and i64 %data_len.0.in, 4294967295
-  %call57 = call fastcc i32 @ssl3_mac(ptr noundef nonnull %0, ptr noundef nonnull %mac, ptr noundef null, ptr noundef %ad, ptr noundef %out, i64 noundef %conv56)
+  %call57 = call fastcc i32 @ssl3_mac(ptr noundef nonnull %0, ptr noundef %mac, ptr noundef null, ptr noundef %ad, ptr noundef %out, i64 noundef %conv56)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %return, label %if.end60
 
@@ -476,7 +476,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare i64 @EVP_AEAD_max_overhead(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl3_mac(ptr noundef %ssl3_ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %ad, ptr noundef %in, i64 noundef %in_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl3_mac(ptr noundef %ssl3_ctx, ptr noundef nonnull %out, ptr noundef %out_len, ptr noundef %ad, ptr noundef %in, i64 noundef range(i64 0, 4294967296) %in_len) unnamed_addr #1 {
 entry:
   %ad_extra = alloca [2 x i8], align 1
   %md_ctx4 = alloca %struct.env_md_ctx_st, align 8
@@ -540,7 +540,7 @@ lor.lhs.false33:                                  ; preds = %lor.lhs.false29
   br i1 %tobool36.not, label %return, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false33
-  %call38 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx4, ptr noundef %out, ptr noundef %out_len) #6
+  %call38 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx4, ptr noundef nonnull %out, ptr noundef %out_len) #6
   %tobool39.not = icmp ne i32 %call38, 0
   %spec.select = zext i1 %tobool39.not to i32
   br label %return

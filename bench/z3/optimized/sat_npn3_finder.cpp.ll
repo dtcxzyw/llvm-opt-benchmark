@@ -4066,7 +4066,7 @@ _ZN3sat11npn3_finder7ternaryC2ENS_7literalES2_S2_PNS_6clauseE.exit: ; preds = %i
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val17 = load ptr, ptr %7, align 8
-  call fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEEENK3$_1clENS_7literalESH_SH_PS2_"(ptr %.val, ptr %.val17, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp11.sroa.0.0.copyload, i32 %agg.tmp13.sroa.0.0.copyload, ptr noundef nonnull %c)
+  call fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEEENK3$_1clENS_7literalESH_SH_PS2_"(ptr %.val, ptr %.val17, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp11.sroa.0.0.copyload, i32 %agg.tmp13.sroa.0.0.copyload, ptr noundef %c)
   %8 = load ptr, ptr %5, align 8
   %agg.tmp18.sroa.0.0.copyload = load i32, ptr %m_lits.i, align 4
   %agg.tmp20.sroa.0.0.copyload = load i32, ptr %arrayidx.i24, align 4
@@ -4074,7 +4074,7 @@ _ZN3sat11npn3_finder7ternaryC2ENS_7literalES2_S2_PNS_6clauseE.exit: ; preds = %i
   %.val18 = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %8, i64 8
   %.val19 = load ptr, ptr %9, align 8
-  call fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEEENK3$_1clENS_7literalESH_SH_PS2_"(ptr %.val18, ptr %.val19, i32 %agg.tmp18.sroa.0.0.copyload, i32 %agg.tmp20.sroa.0.0.copyload, i32 %agg.tmp22.sroa.0.0.copyload, ptr noundef nonnull %c)
+  call fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEEENK3$_1clENS_7literalESH_SH_PS2_"(ptr %.val18, ptr %.val19, i32 %agg.tmp18.sroa.0.0.copyload, i32 %agg.tmp20.sroa.0.0.copyload, i32 %agg.tmp22.sroa.0.0.copyload, ptr noundef %c)
   %10 = load ptr, ptr %5, align 8
   %agg.tmp27.sroa.0.0.copyload = load i32, ptr %arrayidx.i24, align 4
   %agg.tmp29.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
@@ -4082,7 +4082,7 @@ _ZN3sat11npn3_finder7ternaryC2ENS_7literalES2_S2_PNS_6clauseE.exit: ; preds = %i
   %.val20 = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %10, i64 8
   %.val21 = load ptr, ptr %11, align 8
-  call fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEEENK3$_1clENS_7literalESH_SH_PS2_"(ptr %.val20, ptr %.val21, i32 %agg.tmp27.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp31.sroa.0.0.copyload, ptr noundef nonnull %c)
+  call fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEEENK3$_1clENS_7literalESH_SH_PS2_"(ptr %.val20, ptr %.val21, i32 %agg.tmp27.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp31.sroa.0.0.copyload, ptr noundef %c)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3sat11npn3_finder7ternaryC2ENS_7literalES2_S2_PNS_6clauseE.exit, %entry
@@ -4245,7 +4245,7 @@ _ZN3sat11npn3_finder7ternaryC2ENS_7literalES2_S2_PNS_6clauseE.exit: ; preds = %i
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val23 = load ptr, ptr %7, align 8
-  call fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEERS5_INS0_10quaternaryENSG_4hashENSG_2eqEEENK3$_1clENS_7literalESM_SM_PS2_"(ptr %.val, ptr %.val23, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp11.sroa.0.0.copyload, i32 %agg.tmp13.sroa.0.0.copyload, ptr noundef nonnull %c)
+  call fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEERS5_INS0_10quaternaryENSG_4hashENSG_2eqEEENK3$_1clENS_7literalESM_SM_PS2_"(ptr %.val, ptr %.val23, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp11.sroa.0.0.copyload, i32 %agg.tmp13.sroa.0.0.copyload, ptr noundef %c)
   %8 = load ptr, ptr %5, align 8
   %agg.tmp18.sroa.0.0.copyload = load i32, ptr %m_lits.i, align 4
   %agg.tmp20.sroa.0.0.copyload = load i32, ptr %arrayidx.i30, align 4
@@ -4253,7 +4253,7 @@ _ZN3sat11npn3_finder7ternaryC2ENS_7literalES2_S2_PNS_6clauseE.exit: ; preds = %i
   %.val24 = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %8, i64 8
   %.val25 = load ptr, ptr %9, align 8
-  call fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEERS5_INS0_10quaternaryENSG_4hashENSG_2eqEEENK3$_1clENS_7literalESM_SM_PS2_"(ptr %.val24, ptr %.val25, i32 %agg.tmp18.sroa.0.0.copyload, i32 %agg.tmp20.sroa.0.0.copyload, i32 %agg.tmp22.sroa.0.0.copyload, ptr noundef nonnull %c)
+  call fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEERS5_INS0_10quaternaryENSG_4hashENSG_2eqEEENK3$_1clENS_7literalESM_SM_PS2_"(ptr %.val24, ptr %.val25, i32 %agg.tmp18.sroa.0.0.copyload, i32 %agg.tmp20.sroa.0.0.copyload, i32 %agg.tmp22.sroa.0.0.copyload, ptr noundef %c)
   %10 = load ptr, ptr %5, align 8
   %agg.tmp27.sroa.0.0.copyload = load i32, ptr %arrayidx.i30, align 4
   %agg.tmp29.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
@@ -4261,7 +4261,7 @@ _ZN3sat11npn3_finder7ternaryC2ENS_7literalES2_S2_PNS_6clauseE.exit: ; preds = %i
   %.val26 = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %10, i64 8
   %.val27 = load ptr, ptr %11, align 8
-  call fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEERS5_INS0_10quaternaryENSG_4hashENSG_2eqEEENK3$_1clENS_7literalESM_SM_PS2_"(ptr %.val26, ptr %.val27, i32 %agg.tmp27.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp31.sroa.0.0.copyload, ptr noundef nonnull %c)
+  call fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEERS5_INS0_10quaternaryENSG_4hashENSG_2eqEEENK3$_1clENS_7literalESM_SM_PS2_"(ptr %.val26, ptr %.val27, i32 %agg.tmp27.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp31.sroa.0.0.copyload, ptr noundef %c)
   br label %if.end52
 
 if.then38:                                        ; preds = %entry
@@ -6437,7 +6437,7 @@ return:                                           ; preds = %if.end48, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEEENK3$_1clENS_7literalESH_SH_PS2_"(ptr nonnull %this.0.val, ptr %this.8.val, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr noundef %c) unnamed_addr #7 align 2 {
+define internal fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEEENK3$_1clENS_7literalESH_SH_PS2_"(ptr nonnull %this.0.val, ptr %this.8.val, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr noundef nonnull %c) unnamed_addr #7 align 2 {
 entry:
   %temp.i.i = alloca %"struct.sat::npn3_finder::binary", align 8
   %et.i = alloca ptr, align 8
@@ -7318,7 +7318,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEERS5_INS0_10quaternaryENSG_4hashENSG_2eqEEENK3$_1clENS_7literalESM_SM_PS2_"(ptr nonnull %this.0.val, ptr %this.8.val, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr noundef %c) unnamed_addr #7 align 2 {
+define internal fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr_vectorINS_6clauseEER9hashtableINS0_6binaryENS6_4hashENS6_2eqEERS5_INS0_7ternaryENSB_4hashENSB_2eqEERS5_INS0_10quaternaryENSG_4hashENSG_2eqEEENK3$_1clENS_7literalESM_SM_PS2_"(ptr nonnull %this.0.val, ptr %this.8.val, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr noundef nonnull %c) unnamed_addr #7 align 2 {
 entry:
   %temp.i.i = alloca %"struct.sat::npn3_finder::binary", align 8
   %et.i = alloca ptr, align 8

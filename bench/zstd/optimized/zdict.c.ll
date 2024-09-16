@@ -1610,7 +1610,7 @@ ZDICT_analyzePos.exit.i.i:                        ; preds = %for.inc361.i.i.i, %
   %retval.sroa.0.sroa.3.0.insert.shift.i.le.i.i = shl nuw i64 %conv268.i.i.i, 32
   %retval.sroa.0.sroa.0.0.insert.ext.i.le.i.i = zext i32 %38 to i64
   %retval.sroa.0.sroa.0.0.insert.insert.i.le.i.i = or disjoint i64 %retval.sroa.0.sroa.3.0.insert.shift.i.le.i.i, %retval.sroa.0.sroa.0.0.insert.ext.i.le.i.i
-  %call.i.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %retval.sroa.0.sroa.0.0.insert.insert.i.le.i.i, i32 %60, i32 noundef 0, ptr noundef nonnull readonly %call1)
+  %call.i.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %retval.sroa.0.sroa.0.0.insert.insert.i.le.i.i, i32 %60, i32 noundef 0, ptr noundef readonly %call1)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end5.i.i.i, label %while.body.i.preheader.i.i
 
@@ -1620,7 +1620,7 @@ while.body.i.preheader.i.i:                       ; preds = %ZDICT_analyzePos.ex
   %arrayidx.coerce.sroa.0.0.copyload.i87.i.i = load i64, ptr %arrayidx.i6686.i.i, align 4
   %arrayidx.coerce.sroa.2.0.arrayidx.sroa_idx.i88.i.i = getelementptr inbounds i8, ptr %arrayidx.i6686.i.i, i64 8
   %arrayidx.coerce.sroa.2.0.copyload.i89.i.i = load i32, ptr %arrayidx.coerce.sroa.2.0.arrayidx.sroa_idx.i88.i.i, align 4
-  %call2.i90.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %arrayidx.coerce.sroa.0.0.copyload.i87.i.i, i32 %arrayidx.coerce.sroa.2.0.copyload.i89.i.i, i32 noundef %call.i.i.i, ptr noundef nonnull readonly %call1)
+  %call2.i90.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %arrayidx.coerce.sroa.0.0.copyload.i87.i.i, i32 %arrayidx.coerce.sroa.2.0.copyload.i89.i.i, i32 noundef %call.i.i.i, ptr noundef readonly %call1)
   %tobool3.not.i91.i.i = icmp eq i32 %call2.i90.i.i, 0
   br i1 %tobool3.not.i91.i.i, label %ZDICT_insertDictItem.exit.i.i, label %for.cond.preheader.i.i.i.i
 
@@ -1659,7 +1659,7 @@ if.end.i.i.i:                                     ; preds = %for.end.loopexit.i.
   %arrayidx.coerce.sroa.0.0.copyload.i.i.i = load i64, ptr %arrayidx.i66.i.i, align 4
   %arrayidx.coerce.sroa.2.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i66.i.i, i64 8
   %arrayidx.coerce.sroa.2.0.copyload.i.i.i = load i32, ptr %arrayidx.coerce.sroa.2.0.arrayidx.sroa_idx.i.i.i, align 4
-  %call2.i.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull %call.i, i64 %arrayidx.coerce.sroa.0.0.copyload.i.i.i, i32 %arrayidx.coerce.sroa.2.0.copyload.i.i.i, i32 noundef %call2.i94.i.i, ptr noundef nonnull readonly %call1)
+  %call2.i.i.i = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %call.i, i64 %arrayidx.coerce.sroa.0.0.copyload.i.i.i, i32 %arrayidx.coerce.sroa.2.0.copyload.i.i.i, i32 noundef %call2.i94.i.i, ptr noundef readonly %call1)
   %tobool3.not.i.i.i = icmp eq i32 %call2.i.i.i, 0
   br i1 %tobool3.not.i.i.i, label %ZDICT_insertDictItem.exit.i.i, label %for.cond.preheader.i.i.i.i
 
@@ -2152,7 +2152,7 @@ declare i64 @clock() local_unnamed_addr #11
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef %table, i64 %elt.coerce0, i32 %elt.coerce1, i32 noundef %eltNbToSkip, ptr nocapture noundef readonly %buffer) unnamed_addr #12 {
+define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef nonnull %table, i64 %elt.coerce0, i32 %elt.coerce1, i32 noundef %eltNbToSkip, ptr nocapture noundef nonnull readonly %buffer) unnamed_addr #12 {
 entry:
   %elt.sroa.0.sroa.0.0.extract.trunc = trunc i64 %elt.coerce0 to i32
   %elt.sroa.0.sroa.14.0.extract.shift = lshr i64 %elt.coerce0, 32

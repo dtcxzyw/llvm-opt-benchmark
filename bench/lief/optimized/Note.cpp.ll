@@ -4016,7 +4016,7 @@ _ZNK6frozen3mapIN4LIEF3ELF4Note4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS
 ; Function Attrs: mustprogress uwtable
 define range(i64 0, 8589934592) i64 @_ZN4LIEF3ELF4Note12convert_typeENS0_6Header9FILE_TYPEEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %5 = icmp eq i32 %0, 4
   br i1 %5, label %6, label %40
 
@@ -4265,7 +4265,7 @@ _ZNK6frozen3mapIiN4LIEF3ELF4Note4TYPEELm14ESt4lessIiEE4findIjEEPKSt4pairIiS4_ERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
@@ -5109,7 +5109,7 @@ _ZNK6frozen3mapIN4LIEF3ELF4Note4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS
   br i1 %57, label %.thread275, label %58
 
 58:                                               ; preds = %54
-  invoke fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %59 unwind label %82
 
 59:                                               ; preds = %58
@@ -5352,7 +5352,7 @@ _ZN4LIEF3ELF9to_stringENS0_4Note4TYPEE.exit163:   ; preds = %113, %111, %_ZNK6fr
   br i1 %or.cond, label %122, label %127
 
 122:                                              ; preds = %120
-  invoke fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  invoke fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %123 unwind label %125
 
 123:                                              ; preds = %122
@@ -6095,7 +6095,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZN4LIEF3ELF8raw_typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4Note4TYPEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call fastcc void @_ZN4LIEF3ELFL10strip_zeroERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %4 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.12) #22
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.preheader, label %11

@@ -137,7 +137,7 @@ land.rhs:                                         ; preds = %if.then14, %for.bod
 
 for.body28:                                       ; preds = %land.rhs
   %call29 = call ptr @sk_value(ptr noundef nonnull %call16, i64 noundef %j.046) #6
-  %call30 = call fastcc i32 @process_pci_value(ptr noundef %call29, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy)
+  %call30 = call fastcc i32 @process_pci_value(ptr noundef %call29, ptr noundef %language, ptr noundef %pathlen, ptr noundef %policy)
   %inc = add nuw i64 %j.046, 1
   %tobool24.not = icmp eq i32 %call30, 0
   br i1 %tobool24.not, label %err.critedge, label %land.rhs, !llvm.loop !7
@@ -147,7 +147,7 @@ for.end:                                          ; preds = %land.rhs
   br label %for.inc42
 
 if.else:                                          ; preds = %land.lhs.true
-  %call34 = call fastcc i32 @process_pci_value(ptr noundef nonnull %call2, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy)
+  %call34 = call fastcc i32 @process_pci_value(ptr noundef nonnull %call2, ptr noundef %language, ptr noundef %pathlen, ptr noundef %policy)
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then36, label %for.inc42
 
@@ -268,7 +268,7 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 declare ptr @X509V3_get_section(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef %language, ptr noundef %pathlen, ptr nocapture noundef %policy) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef nonnull %language, ptr noundef nonnull %pathlen, ptr nocapture noundef nonnull %policy) unnamed_addr #0 {
 entry:
   %val_len = alloca i64, align 8
   %buf = alloca [2048 x i8], align 16

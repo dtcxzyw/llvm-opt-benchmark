@@ -5276,7 +5276,7 @@ declare void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116JumpScopeChecker9CheckJumpEPN5clang4StmtES3_NS1_14SourceLocationEjjj(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116JumpScopeChecker9CheckJumpEPN5clang4StmtES3_NS1_14SourceLocationEjjj(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 noundef range(i32 3553, 4699) %4, i32 noundef range(i32 0, 5204) %5, i32 noundef range(i32 6348, 6359) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %9 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %10 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8

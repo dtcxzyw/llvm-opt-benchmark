@@ -1409,7 +1409,7 @@ declare dso_local void @security_current_getsecid_subj(ptr noundef) local_unname
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8

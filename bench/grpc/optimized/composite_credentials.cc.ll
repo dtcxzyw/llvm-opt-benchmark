@@ -3233,7 +3233,7 @@ entry:
   br label %if.then.i.i.i
 
 "_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEEclEv.exit": ; preds = %entry
-  call fastcc void @"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEE12PollNonEmptyEv"(ptr noalias nonnull align 8 %agg.tmp, ptr noundef nonnull align 16 dereferenceable(64) %0)
+  call fastcc void @"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEE12PollNonEmptyEv"(ptr noalias align 8 %agg.tmp, ptr noundef nonnull align 16 dereferenceable(64) %0)
   %.pre = load i8, ptr %agg.tmp, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
@@ -3395,7 +3395,7 @@ if.end:                                           ; preds = %if.then.i.i3.i.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEE12PollNonEmptyEv"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEE12PollNonEmptyEv"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::unique_ptr", align 8
   %agg.tmp.i.i = alloca %"class.std::unique_ptr", align 8

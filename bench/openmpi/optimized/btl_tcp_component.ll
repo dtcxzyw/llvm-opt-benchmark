@@ -1097,7 +1097,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   br label %.loopexit.i
 
 .lr.ph101.i:                                      ; preds = %.lr.ph
-  tail call fastcc void @mca_btl_tcp_create(i32 noundef %66, ptr noundef nonnull %65)
+  tail call fastcc void @mca_btl_tcp_create(i32 noundef %66, ptr noundef %65)
   %72 = getelementptr inbounds i8, ptr %.06399.i52, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not73.i = icmp eq ptr %73, null
@@ -1124,7 +1124,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   %78 = getelementptr inbounds i32, ptr %calloc.i, i64 %indvars.iv117.i
   %79 = load i32, ptr %78, align 4
   %80 = call i32 @opal_ifkindextoname(i32 noundef %79, ptr noundef nonnull %10, i32 noundef 32) #15
-  call fastcc void @mca_btl_tcp_create(i32 noundef %79, ptr noundef nonnull %10)
+  call fastcc void @mca_btl_tcp_create(i32 noundef %79, ptr noundef %10)
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond121.not.i = icmp eq i64 %indvars.iv.next118.i, %wide.trip.count120.i
   br i1 %exitcond121.not.i, label %.loopexit.i, label %.critedge2.thread.us.i, !llvm.loop !11
@@ -1150,7 +1150,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   br i1 %89, label %.critedge2.i, label %84, !llvm.loop !12
 
 .critedge2.thread.i:                              ; preds = %84
-  call fastcc void @mca_btl_tcp_create(i32 noundef %82, ptr noundef nonnull %10)
+  call fastcc void @mca_btl_tcp_create(i32 noundef %82, ptr noundef %10)
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %86, %.critedge2.thread.i
@@ -2152,7 +2152,7 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
 declare i32 @opal_ifnametokindex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_btl_tcp_create(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @mca_btl_tcp_create(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %.sroa.4 = alloca [126 x i8], align 2
   %.091112 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 32), align 8
@@ -2382,10 +2382,10 @@ opal_obj_run_constructors.exit105:                ; preds = %.lr.ph.i102, %71
   %89 = load i32, ptr %35, align 8
   %90 = getelementptr inbounds i8, ptr %41, i64 696
   store i32 %89, ptr %90, align 8
-  %91 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %1) #15
+  %91 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef nonnull %1) #15
   %92 = getelementptr inbounds i8, ptr %41, i64 64
   %93 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_tcp_component, ptr noundef nonnull %3, ptr noundef null, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %92) #15
-  %94 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %1) #15
+  %94 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %1) #15
   %95 = getelementptr inbounds i8, ptr %41, i64 60
   %96 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_tcp_component, ptr noundef nonnull %3, ptr noundef null, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %95) #15
   %.not98 = icmp eq i32 %.090131, 0
@@ -2401,16 +2401,16 @@ opal_obj_run_constructors.exit105:                ; preds = %.lr.ph.i102, %71
   br label %102
 
 102:                                              ; preds = %97, %opal_obj_run_constructors.exit105
-  %103 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef %1, i32 noundef %.090131) #15
+  %103 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull %1, i32 noundef %.090131) #15
   %104 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_tcp_component, ptr noundef nonnull %3, ptr noundef null, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %92) #15
-  %105 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %1, i32 noundef %.090131) #15
+  %105 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef nonnull %1, i32 noundef %.090131) #15
   %106 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_tcp_component, ptr noundef nonnull %3, ptr noundef null, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %95) #15
   %107 = load i32, ptr %92, align 8
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %102
-  %110 = call i32 @opal_ethtool_get_speed(ptr noundef %1) #15
+  %110 = call i32 @opal_ethtool_get_speed(ptr noundef nonnull %1) #15
   %111 = icmp eq i32 %110, 0
   %112 = select i1 %111, i32 100, i32 %110
   store i32 %112, ptr %92, align 8
@@ -2433,7 +2433,7 @@ opal_obj_run_constructors.exit105:                ; preds = %.lr.ph.i102, %71
 
 119:                                              ; preds = %118, %115
   %120 = getelementptr inbounds i8, ptr %45, i64 40
-  call void @opal_string_copy(ptr noundef nonnull %120, ptr noundef %1, i64 noundef 32) #15
+  call void @opal_string_copy(ptr noundef nonnull %120, ptr noundef nonnull %1, i64 noundef 32) #15
   %121 = getelementptr inbounds i8, ptr %45, i64 72
   store i32 %.us-phi, ptr %121, align 8
   %122 = load i16, ptr %87, align 4
@@ -2487,7 +2487,7 @@ opal_obj_run_constructors.exit105:                ; preds = %.lr.ph.i102, %71
   %154 = select i1 %153, ptr @.str.46, ptr @.str.47
   %155 = load i32, ptr %92, align 8
   %156 = load i32, ptr %95, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %148, ptr noundef nonnull @.str.45, ptr noundef nonnull %41, ptr noundef %1, i32 noundef %150, i32 noundef %.090131, ptr noundef %151, ptr noundef nonnull %154, i32 noundef %155, i32 noundef %156) #15
+  call void (i32, ptr, ...) @opal_output(i32 noundef %148, ptr noundef nonnull @.str.45, ptr noundef nonnull %41, ptr noundef nonnull %1, i32 noundef %150, i32 noundef %.090131, ptr noundef %151, ptr noundef nonnull %154, i32 noundef %155, i32 noundef %156) #15
   br label %157
 
 157:                                              ; preds = %147, %119

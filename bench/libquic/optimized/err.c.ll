@@ -119,7 +119,7 @@ get_error_values.exit:                            ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_error_values(i32 noundef %inc, i32 noundef %top, ptr noundef writeonly %file, ptr noundef writeonly %line, ptr noundef writeonly %data, ptr noundef writeonly %flags) unnamed_addr #0 {
+define internal fastcc i32 @get_error_values(i32 noundef range(i32 0, 2) %inc, i32 noundef range(i32 0, 2) %top, ptr noundef writeonly %file, ptr noundef writeonly %line, ptr noundef writeonly %data, ptr noundef writeonly %flags) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #19
   %cmp.i = icmp eq ptr %call.i, null

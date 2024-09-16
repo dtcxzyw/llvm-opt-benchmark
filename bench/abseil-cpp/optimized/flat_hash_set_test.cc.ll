@@ -14913,7 +14913,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i139:         ; preds = %call.i.i.i.i.i.i.no
 invoke.cont35:                                    ; preds = %invoke.cont24.thread, %_ZNKSt14default_deleteIiEclEPi.exit.i139
   store ptr null, ptr %ref.tmp19, align 8
   store i64 30064771089, ptr %ref.tmp25, align 8, !alias.scope !208
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, ptr noundef nonnull @.str.151, ptr noundef nonnull align 8 dereferenceable(32) %set1)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, ptr noundef nonnull @.str.151, ptr noundef nonnull align 8 dereferenceable(32) %set1)
           to label %invoke.cont36 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont36:                                    ; preds = %invoke.cont35
@@ -15042,7 +15042,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont63:                                    ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   store i64 30064771091, ptr %ref.tmp50, align 8, !alias.scope !211
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar49, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar49, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont64 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %invoke.cont63
@@ -15442,7 +15442,7 @@ invoke.cont14.i:                                  ; preds = %if.end.i.i
           to label %invoke.cont15.i unwind label %lpad4.i, !noalias !245
 
 invoke.cont15.i:                                  ; preds = %invoke.cont14.i
-  %call18.i = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEERSF_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull align 8 dereferenceable(24) %matcher.i, ptr noundef nonnull %listener.i)
+  %call18.i = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEERSF_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull align 8 dereferenceable(24) %matcher.i, ptr noundef %listener.i)
           to label %invoke.cont17.i unwind label %lpad16.i, !noalias !245
 
 invoke.cont17.i:                                  ; preds = %invoke.cont15.i
@@ -15726,7 +15726,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont130:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i212, %if.end119
   store ptr null, ptr %message_.i210, align 8
   store i32 7, ptr %ref.tmp122, align 4, !alias.scope !247
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEEEEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar121, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp122, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEEEEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar121, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp122, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont131 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont131:                                   ; preds = %invoke.cont130
@@ -15825,7 +15825,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit235:         ; preds = %if.end147, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i234
   store ptr null, ptr %message_.i232, align 8
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias nonnull align 8 %node, ptr noundef nonnull align 8 dereferenceable(32) %set1, i32 7)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias align 8 %node, ptr noundef nonnull align 8 dereferenceable(32) %set1, i32 7)
           to label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit241 unwind label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit247
 
 _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit241: ; preds = %_ZN7testing15AssertionResultD2Ev.exit235
@@ -16042,7 +16042,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont223:                                   ; preds = %if.end207, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i281
   store ptr null, ptr %message_.i279, align 8
   store i64 73014444051, ptr %ref.tmp210, align 8, !alias.scope !250
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar209, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp210, ptr noundef nonnull @.str.151, ptr noundef nonnull align 8 dereferenceable(32) %set1)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar209, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp210, ptr noundef nonnull @.str.151, ptr noundef nonnull align 8 dereferenceable(32) %set1)
           to label %invoke.cont224 unwind label %lpad155
 
 invoke.cont224:                                   ; preds = %invoke.cont223
@@ -16862,7 +16862,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont410:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i444, %if.end399
   store ptr null, ptr %message_.i442, align 8
   store i32 7, ptr %ref.tmp402, align 4, !alias.scope !270
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEEEEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar401, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp402, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEEEEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar401, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp402, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont411 unwind label %lpad246
 
 invoke.cont411:                                   ; preds = %invoke.cont410
@@ -16961,7 +16961,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit467:         ; preds = %if.end427, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i466
   store ptr null, ptr %message_.i464, align 8
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias nonnull align 8 %ref.tmp429, ptr noundef nonnull align 8 dereferenceable(32) %set1, i32 17)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias align 8 %ref.tmp429, ptr noundef nonnull align 8 dereferenceable(32) %set1, i32 17)
           to label %invoke.cont434 unwind label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit497
 
 invoke.cont434:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit467
@@ -17239,7 +17239,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont500:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i532, %if.end489
   store ptr null, ptr %message_.i530, align 8
   store i32 19, ptr %ref.tmp492, align 4, !alias.scope !273
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEEEEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar491, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp492, ptr noundef nonnull @.str.151, ptr noundef nonnull align 8 dereferenceable(32) %set1)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEEEEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar491, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp492, ptr noundef nonnull @.str.151, ptr noundef nonnull align 8 dereferenceable(32) %set1)
           to label %invoke.cont501 unwind label %lpad246
 
 invoke.cont501:                                   ; preds = %invoke.cont500
@@ -17868,7 +17868,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont644:                                   ; preds = %if.end628, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i701
   store ptr null, ptr %message_.i699, align 8
   store i64 30064771095, ptr %ref.tmp631, align 8, !alias.scope !296
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar630, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp631, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar630, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp631, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont645 unwind label %lpad246
 
 invoke.cont645:                                   ; preds = %invoke.cont644
@@ -18165,7 +18165,7 @@ ehcleanup665:                                     ; preds = %lpad3.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEES5_EEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -18317,7 +18317,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %_ZN7testing15SafeMatcherCastIRKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEENS_8internal27UnorderedElementsAreMatcherISt5tupleIJNSG_14PointeeMatcherIiEESK_EEEEEENS_7MatcherIT_EERKT0_.exit, %if.end, %if.then
@@ -18392,7 +18392,7 @@ invoke.cont14:                                    ; preds = %if.end.i
           to label %invoke.cont15 unwind label %lpad4
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEERSF_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef nonnull %listener)
+  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEERSF_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef %listener)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -18578,7 +18578,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEEEEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_14PointeeMatcherIiEEEEEEEclIN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNSA_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSI_8TestBodyEvE2EqSaISF_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -18730,7 +18730,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %_ZN7testing15SafeMatcherCastIRKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS1_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EEENS_8internal27UnorderedElementsAreMatcherISt5tupleIJNSG_14PointeeMatcherIiEEEEEEEENS_7MatcherIT_EERKT0_.exit, %if.end, %if.then
@@ -18805,7 +18805,7 @@ invoke.cont14:                                    ; preds = %if.end.i
           to label %invoke.cont15 unwind label %lpad4
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEERSF_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef nonnull %listener)
+  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEERSF_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef %listener)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -18991,7 +18991,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %key.0.val.0.val) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyISt10unique_ptrIiSt14default_deleteIiEEEEZNS0_12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNS9_8TestBodyEvE2EqSaIS6_EE7extractIS6_TnNSt9enable_ifIXntsr3std7is_sameIT_NSD_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS7_NS0_18hash_policy_traitsIS7_vEESC_vEERKS6_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %key.0.val.0.val) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val.i = load ptr, ptr %this, align 8
   tail call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
@@ -19917,7 +19917,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEERSF_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef readonly %listener) unnamed_addr #23 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setISt10unique_ptrIiSt14default_deleteIiEEZNS2_18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test8TestBodyEvE4HashZNSA_8TestBodyEvE2EqSaIS7_EEERSF_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef nonnull readonly %listener) unnamed_addr #23 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -29916,11 +29916,11 @@ invoke.cont:
   %set.sink314.sroa.gep317 = getelementptr inbounds i8, ptr %set111, i64 24
   %set.sink314.sroa.gep318 = getelementptr inbounds i8, ptr %set146, i64 24
   %set.sink314.sroa.gep319 = getelementptr inbounds i8, ptr %set184, i64 24
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias nonnull align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %set, ptr noundef nonnull align 8 dereferenceable(8) %a)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %set, ptr noundef nonnull align 8 dereferenceable(8) %a)
           to label %invoke.cont8 unwind label %lpad4
 
 invoke.cont8:                                     ; preds = %invoke.cont
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i64 0, ptr noundef nonnull @.str.202, ptr noundef nonnull align 8 dereferenceable(32) %set)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i64 0, ptr noundef nonnull @.str.202, ptr noundef nonnull align 8 dereferenceable(32) %set)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -30024,7 +30024,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias nonnull align 8 %tmp24, ptr noundef nonnull align 8 dereferenceable(32) %set, ptr noundef nonnull align 8 dereferenceable(8) %b)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias align 8 %tmp24, ptr noundef nonnull align 8 dereferenceable(32) %set, ptr noundef nonnull align 8 dereferenceable(8) %b)
           to label %invoke.cont31 unwind label %lpad4
 
 invoke.cont31:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -30366,7 +30366,7 @@ invoke.cont14.i:                                  ; preds = %if.end.i.i
           to label %invoke.cont15.i unwind label %lpad4.i, !noalias !820
 
 invoke.cont15.i:                                  ; preds = %invoke.cont14.i
-  %call18.i = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setINS2_18container_internal12_GLOBAL__N_112PoisonInlineENS2_13hash_internal4HashIS6_EESt8equal_toIS6_ESaIS6_EEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %set, ptr noundef nonnull align 8 dereferenceable(24) %matcher.i, ptr noundef nonnull %listener.i)
+  %call18.i = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setINS2_18container_internal12_GLOBAL__N_112PoisonInlineENS2_13hash_internal4HashIS6_EESt8equal_toIS6_ESaIS6_EEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %set, ptr noundef nonnull align 8 dereferenceable(24) %matcher.i, ptr noundef %listener.i)
           to label %invoke.cont17.i unwind label %lpad16.i, !noalias !820
 
 invoke.cont17.i:                                  ; preds = %invoke.cont15.i
@@ -30719,7 +30719,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL
 
 invoke.cont60:                                    ; preds = %for.end.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE4findIS4_EENSC_8iteratorERKS4_.exit.i
   %b.val = load i64, ptr %b, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar55, i64 %b.val, ptr noundef nonnull @.str.202, ptr noundef nonnull align 8 dereferenceable(32) %set)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar55, i64 %b.val, ptr noundef nonnull @.str.202, ptr noundef nonnull align 8 dereferenceable(32) %set)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont60
@@ -30848,7 +30848,7 @@ if.end10.i:                                       ; preds = %land.lhs.true4.i
           to label %invoke.cont88 unwind label %lpad4
 
 invoke.cont88:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit104, %if.then7.i, %if.end10.i
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar83, i64 %b.val, ptr noundef nonnull @.str.202, ptr noundef nonnull align 8 dereferenceable(32) %set)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar83, i64 %b.val, ptr noundef nonnull @.str.202, ptr noundef nonnull align 8 dereferenceable(32) %set)
           to label %invoke.cont90 unwind label %lpad89
 
 invoke.cont90:                                    ; preds = %invoke.cont88
@@ -30970,14 +30970,14 @@ _ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_1
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set111, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i131 = getelementptr inbounds i8, ptr %set111, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i131, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias nonnull align 8 %tmp113, ptr noundef nonnull align 8 dereferenceable(32) %set111, ptr noundef nonnull align 8 dereferenceable(8) %a)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias align 8 %tmp113, ptr noundef nonnull align 8 dereferenceable(32) %set111, ptr noundef nonnull align 8 dereferenceable(8) %a)
           to label %invoke.cont122 unwind label %lpad114
 
 invoke.cont122:                                   ; preds = %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %set2, ptr noundef nonnull readonly align 8 dereferenceable(32) %set111, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set111, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i131, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar116, i64 %a.val50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar116, i64 %a.val50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont124 unwind label %lpad123
 
 invoke.cont124:                                   ; preds = %invoke.cont122
@@ -31131,7 +31131,7 @@ _ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_1
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set2148, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i180 = getelementptr inbounds i8, ptr %set2148, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i180, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias nonnull align 8 %tmp151, ptr noundef nonnull align 8 dereferenceable(32) %set146, ptr noundef nonnull align 8 dereferenceable(8) %a)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias align 8 %tmp151, ptr noundef nonnull align 8 dereferenceable(32) %set146, ptr noundef nonnull align 8 dereferenceable(8) %a)
           to label %invoke.cont153 unwind label %lpad152
 
 invoke.cont153:                                   ; preds = %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit178
@@ -31154,7 +31154,7 @@ invoke.cont160:                                   ; preds = %invoke.cont153, %if
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %set2148, ptr noundef nonnull align 8 dereferenceable(32) %set146, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set146, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i179, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar155, i64 %a.val50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2148)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar155, i64 %a.val50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2148)
           to label %invoke.cont162 unwind label %lpad161
 
 invoke.cont162:                                   ; preds = %invoke.cont160
@@ -31321,7 +31321,7 @@ _ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_1
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set184, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i237 = getelementptr inbounds i8, ptr %set184, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i237, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias nonnull align 8 %tmp186, ptr noundef nonnull align 8 dereferenceable(32) %set184, ptr noundef nonnull align 8 dereferenceable(8) %a)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias align 8 %tmp186, ptr noundef nonnull align 8 dereferenceable(32) %set184, ptr noundef nonnull align 8 dereferenceable(8) %a)
           to label %invoke.cont200 unwind label %lpad187
 
 invoke.cont200:                                   ; preds = %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit236
@@ -31333,7 +31333,7 @@ invoke.cont200:                                   ; preds = %_ZN4absl13flat_hash
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %set2189, ptr noundef nonnull align 8 dereferenceable(32) %set184, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %set184, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar194, i64 %a.val50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2189)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar194, i64 %a.val50, ptr noundef nonnull @.str.152, ptr noundef nonnull align 8 dereferenceable(32) %set2189)
           to label %invoke.cont202 unwind label %lpad201
 
 invoke.cont202:                                   ; preds = %invoke.cont200
@@ -31546,7 +31546,7 @@ ehcleanup225:                                     ; preds = %ehcleanup225.sink.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %value) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %value) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i.i.i.i.i.i.i = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !826)
@@ -31732,7 +31732,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, i64 %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEEEEEclINS4_13flat_hash_setIS7_NS4_13hash_internal4HashIS7_EESt8equal_toIS7_ESaIS7_EEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, i64 %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -31938,7 +31938,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %_ZN7testing15SafeMatcherCastIRKN4absl13flat_hash_setINS1_18container_internal12_GLOBAL__N_112PoisonInlineENS1_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS5_EEENS_8internal27UnorderedElementsAreMatcherISt5tupleIJS5_EEEEEENS_7MatcherIT_EERKT0_.exit, %if.end, %if.then
@@ -32013,7 +32013,7 @@ invoke.cont14:                                    ; preds = %if.end.i
           to label %invoke.cont15 unwind label %lpad4
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setINS2_18container_internal12_GLOBAL__N_112PoisonInlineENS2_13hash_internal4HashIS6_EESt8equal_toIS6_ESaIS6_EEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef nonnull %listener)
+  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setINS2_18container_internal12_GLOBAL__N_112PoisonInlineENS2_13hash_internal4HashIS6_EESt8equal_toIS6_ESaIS6_EEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef %listener)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -32431,7 +32431,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setINS2_18container_internal12_GLOBAL__N_112PoisonInlineENS2_13hash_internal4HashIS6_EESt8equal_toIS6_ESaIS6_EEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef readonly %listener) unnamed_addr #23 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13flat_hash_setINS2_18container_internal12_GLOBAL__N_112PoisonInlineENS2_13hash_internal4HashIS6_EESt8equal_toIS6_ESaIS6_EEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef nonnull readonly %listener) unnamed_addr #23 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4

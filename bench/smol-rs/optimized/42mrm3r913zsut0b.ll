@@ -222,7 +222,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13w
   %.sroa.01.06.i.i = phi i64 [ 1, %.thread.i.i ], [ %.sroa.01.0.i.i, %20 ]
   %23 = phi i64 [ 24, %.thread.i.i ], [ %spec.select.i.i, %20 ]
   %.sroa.5.0.i.i = getelementptr inbounds i8, ptr %.0.i.i8, i64 %23
-  %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i.i, ptr noundef nonnull %.sroa.5.0.i.i)
+  %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i.i, ptr noundef %.sroa.5.0.i.i)
           to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit" unwind label %25, !noalias !44
 
 25:                                               ; preds = %22, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i.i"
@@ -262,7 +262,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13w
   %8 = load i64, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8, !range !62, !noundef !4
-  %11 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %8, i32 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef 1, ptr noundef nonnull %3)
+  %11 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %8, i32 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(8) %4, i64 noundef 1, ptr noundef %3)
           to label %18 unwind label %12
 
 12:                                               ; preds = %2
@@ -362,7 +362,7 @@ define hidden noundef align 8 ptr @"_ZN14event_listener21Listener$LT$T$C$B$GT$13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(8) %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef range(i32 0, 1000000001) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, i64 noundef range(i64 0, 2) %4, ptr noundef nonnull %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -379,7 +379,7 @@ define internal fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %13, i64 16
-  %18 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef %5), !range !34
+  %18 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef nonnull %5), !range !34
   switch i8 %18, label %default.unreachable [
     i8 0, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
     i8 1, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.preheader"
@@ -392,7 +392,7 @@ define internal fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C
 
 "_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.preheader", %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
   tail call void @_ZN7parking6Parker4park17ha99c62e15d390bb9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-  %20 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef %5), !range !34
+  %20 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef nonnull %5), !range !34
   switch i8 %20, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us.unreachabledefault" [
     i8 0, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
     i8 1, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
@@ -460,7 +460,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
 
 "_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30": ; preds = %28, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
   %36 = tail call noundef zeroext i1 @_ZN7parking6Parker13park_deadline17hcc76ef234181dafeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, i64 noundef %1, i32 noundef %2)
-  %37 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef %5), !range !34
+  %37 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef nonnull %5), !range !34
   switch i8 %37, label %default.unreachable [
     i8 0, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
     i8 1, label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
@@ -1699,7 +1699,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   %.sroa.01.06.i = phi i64 [ 1, %.thread.i ], [ %.sroa.01.0.i, %20 ]
   %23 = phi i64 [ 24, %.thread.i ], [ %spec.select.i, %20 ]
   %.sroa.5.0.i = getelementptr inbounds i8, ptr %6, i64 %23
-  %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %1, i64 %.val, i32 noundef %.val10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i, ptr noundef nonnull %.sroa.5.0.i)
+  %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %1, i64 %.val, i32 noundef %.val10, ptr noalias noundef readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i, ptr noundef %.sroa.5.0.i)
           to label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit" unwind label %25
 
 25:                                               ; preds = %22, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i"

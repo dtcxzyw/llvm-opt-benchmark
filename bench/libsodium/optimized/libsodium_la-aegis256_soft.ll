@@ -14,7 +14,7 @@ entry:
   %state = alloca [6 x %struct.SoftAesBlock], align 16
   %src = alloca [16 x i8], align 16
   %dst = alloca [16 x i8], align 16
-  call fastcc void @aegis256_init(ptr noundef %k, ptr noundef %npub, ptr noundef nonnull %state)
+  call fastcc void @aegis256_init(ptr noundef %k, ptr noundef %npub, ptr noundef %state)
   %cmp.not95 = icmp ult i64 %adlen, 16
   br i1 %cmp.not95, label %for.end, label %for.body.lr.ph
 
@@ -384,7 +384,7 @@ if.then21:                                        ; preds = %for.end18
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then21, %for.end18
-  %call = call fastcc i32 @aegis256_mac(ptr noundef %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr noundef nonnull %state)
+  %call = call fastcc i32 @aegis256_mac(ptr noundef %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr noundef %state)
   ret i32 %call
 }
 
@@ -396,7 +396,7 @@ entry:
   %state = alloca [6 x %struct.SoftAesBlock], align 16
   %src = alloca [16 x i8], align 16
   %computed_mac = alloca [32 x i8], align 16
-  call fastcc void @aegis256_init(ptr noundef %k, ptr noundef %npub, ptr noundef nonnull %state)
+  call fastcc void @aegis256_init(ptr noundef %k, ptr noundef %npub, ptr noundef %state)
   %cmp.not194 = icmp ult i64 %adlen, 16
   br i1 %cmp.not194, label %for.end, label %for.body.lr.ph
 
@@ -794,8 +794,8 @@ if.then36:                                        ; preds = %if.end31.thread303,
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pad.i)
   %127 = sub nuw nsw i64 16, %rem32298310
   %128 = getelementptr i8, ptr %pad.i, i64 %rem32298310
-  call void @llvm.memset.p0.i64(ptr align 1 %128, i8 0, i64 %127, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr38, i64 %rem32298310, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %128, i8 0, i64 %127, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 %rem32298310, i1 false)
   %in.val.i.i = load i64, ptr %pad.i, align 16
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %pad.i, i64 8
   %add.ptr3.val.i.i = load i64, ptr %add.ptr3.i.i, align 8
@@ -841,10 +841,8 @@ if.then36:                                        ; preds = %if.end31.thread303,
   store i32 %in.sroa.3.8.extract.trunc.i.i72, ptr %add.ptr3.i.i, align 8
   %add.ptr3.i35.i = getelementptr inbounds i8, ptr %pad.i, i64 12
   store i32 %in.sroa.5.8.extract.trunc.i.i74, ptr %add.ptr3.i35.i, align 4
-  %add.ptr.i = getelementptr i8, ptr %pad.i, i64 %rem32298310
-  %sub.i = sub nuw nsw i64 16, %rem32298310
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, i8 0, i64 %sub.i, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32298310, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %128, i8 0, i64 %127, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr37, ptr noundef nonnull align 16 dereferenceable(1) %pad.i, i64 %rem32298310, i1 false)
   %in.val.i36.i = load i64, ptr %pad.i, align 16
   %add.ptr3.val.i38.i = load i64, ptr %add.ptr3.i.i, align 8
   %call.i165 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %132, i64 %134, i64 %129, i64 %131) #5
@@ -892,8 +890,8 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pad.i76)
   %165 = sub nuw nsw i64 16, %rem32298301
   %166 = getelementptr i8, ptr %pad.i76, i64 %rem32298301
-  call void @llvm.memset.p0.i64(ptr align 1 %166, i8 0, i64 %165, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i76, ptr readonly align 1 %add.ptr43, i64 %rem32298301, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %166, i8 0, i64 %165, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i76, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 %rem32298301, i1 false)
   %in.val.i.i77 = load i64, ptr %pad.i76, align 16
   %add.ptr3.i.i78 = getelementptr inbounds i8, ptr %pad.i76, i64 8
   %add.ptr3.val.i.i79 = load i64, ptr %add.ptr3.i.i78, align 8
@@ -939,9 +937,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   store i32 %in.sroa.3.8.extract.trunc.i.i98, ptr %add.ptr3.i.i78, align 8
   %add.ptr3.i35.i102 = getelementptr inbounds i8, ptr %pad.i76, i64 12
   store i32 %in.sroa.5.8.extract.trunc.i.i100, ptr %add.ptr3.i35.i102, align 4
-  %add.ptr.i103 = getelementptr i8, ptr %pad.i76, i64 %rem32298301
-  %sub.i104 = sub nuw nsw i64 16, %rem32298301
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i103, i8 0, i64 %sub.i104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %166, i8 0, i64 %165, i1 false)
   %in.val.i36.i105 = load i64, ptr %pad.i76, align 16
   %add.ptr3.val.i38.i106 = load i64, ptr %add.ptr3.i.i78, align 8
   %call.i181 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %170, i64 %172, i64 %167, i64 %169) #5
@@ -983,7 +979,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end31.thread303, %if.end31.thread, %if.then36, %if.else41, %if.end31
-  %call = call fastcc i32 @aegis256_mac(ptr noundef nonnull %computed_mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %clen, ptr noundef nonnull %state)
+  %call = call fastcc i32 @aegis256_mac(ptr noundef nonnull %computed_mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %clen, ptr noundef %state)
   %cmp50 = icmp eq i32 %call, 0
   br i1 %cmp50, label %if.then51, label %if.end63
 
@@ -1016,7 +1012,7 @@ if.end67:                                         ; preds = %if.then66, %if.end6
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @aegis256_init(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %nonce, ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc void @aegis256_init(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %nonce, ptr nocapture noundef nonnull %state) unnamed_addr #0 {
 entry:
   %in.val.i = load i64, ptr %key, align 1
   %add.ptr3.i = getelementptr i8, ptr %key, i64 8
@@ -1067,10 +1063,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %i.050 = phi i32 [ 0, %entry ], [ %inc, %for.body ]
-  tail call fastcc void @aegis256_update(ptr noundef nonnull %state, i64 %in.val.i, i64 %add.ptr3.val.i)
-  tail call fastcc void @aegis256_update(ptr noundef nonnull %state, i64 %in.val.i21, i64 %add.ptr3.val.i23)
-  tail call fastcc void @aegis256_update(ptr noundef nonnull %state, i64 %xor1.i, i64 %xor84.i)
-  tail call fastcc void @aegis256_update(ptr noundef nonnull %state, i64 %xor1.i38, i64 %xor84.i39)
+  tail call fastcc void @aegis256_update(ptr noundef %state, i64 %in.val.i, i64 %add.ptr3.val.i)
+  tail call fastcc void @aegis256_update(ptr noundef %state, i64 %in.val.i21, i64 %add.ptr3.val.i23)
+  tail call fastcc void @aegis256_update(ptr noundef %state, i64 %xor1.i, i64 %xor84.i)
+  tail call fastcc void @aegis256_update(ptr noundef %state, i64 %xor1.i38, i64 %xor84.i39)
   %inc = add nuw nsw i32 %i.050, 1
   %exitcond.not = icmp eq i32 %inc, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -1086,7 +1082,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc range(i32 -1, 1) i32 @aegis256_mac(ptr nocapture noundef writeonly %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @aegis256_mac(ptr nocapture noundef writeonly %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr nocapture noundef nonnull %state) unnamed_addr #0 {
 entry:
   %shl = shl i64 %mlen, 3
   %shl2 = shl i64 %adlen, 3
@@ -1227,7 +1223,7 @@ return:                                           ; preds = %if.then, %if.then22
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @aegis256_update(ptr nocapture noundef %state, i64 %d.coerce0, i64 %d.coerce1) unnamed_addr #0 {
+define internal fastcc void @aegis256_update(ptr nocapture noundef nonnull %state, i64 %d.coerce0, i64 %d.coerce1) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 80
   %tmp.sroa.0.0.copyload = load i64, ptr %arrayidx, align 4

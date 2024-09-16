@@ -887,7 +887,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.i: ; preds = %61
   br i1 %87, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.thread.i, label %88
 
 88:                                               ; preds = %86, %84
-  call fastcc void @_ZNK12_GLOBAL__N_118DynamicTypeChecker15reportTypeErrorEN5clang8QualTypeES2_PKNS1_4ento9MemRegionEPKNS1_4StmtERNS3_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 %.fca.0.extract.i, i64 %.sroa.0.0.copyload.i41.i, ptr noundef nonnull %22, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  call fastcc void @_ZNK12_GLOBAL__N_118DynamicTypeChecker15reportTypeErrorEN5clang8QualTypeES2_PKNS1_4ento9MemRegionEPKNS1_4StmtERNS3_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 %.fca.0.extract.i, i64 %.sroa.0.0.copyload.i41.i, ptr noundef %22, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.thread.i
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.thread.i: ; preds = %88, %86, %82, %71, %68, %65, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.i, %53, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
@@ -1038,7 +1038,7 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %1, %9
 declare noundef zeroext i1 @_ZN5clang10ASTContext23canAssignObjCInterfacesEPKNS_21ObjCObjectPointerTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_118DynamicTypeChecker15reportTypeErrorEN5clang8QualTypeES2_PKNS1_4ento9MemRegionEPKNS1_4StmtERNS3_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 %1, i64 %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_118DynamicTypeChecker15reportTypeErrorEN5clang8QualTypeES2_PKNS1_4ento9MemRegionEPKNS1_4StmtERNS3_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 %1, i64 %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::unique_ptr.751", align 8
   %8 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -1291,7 +1291,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %178, i8 0, i64 17, i1 false), !noalias !14
   call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1016) %176, ptr noundef nonnull align 8 dereferenceable(97) %162, ptr %164, i64 %165, ptr %164, i64 %165, ptr noundef %173, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %8, ptr noundef null) #18, !noalias !14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !14
-  call void @_ZN5clang4ento22PathSensitiveBugReport15markInterestingEPKNS0_9MemRegionENS0_11bugreporter12TrackingKindE(ptr noundef nonnull align 8 dereferenceable(1016) %176, ptr noundef %3, i32 noundef 0) #18
+  call void @_ZN5clang4ento22PathSensitiveBugReport15markInterestingEPKNS0_9MemRegionENS0_11bugreporter12TrackingKindE(ptr noundef nonnull align 8 dereferenceable(1016) %176, ptr noundef nonnull %3, i32 noundef 0) #18
   %179 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !17
   %180 = getelementptr inbounds i8, ptr %179, i64 8
   store ptr null, ptr %180, align 8, !noalias !17

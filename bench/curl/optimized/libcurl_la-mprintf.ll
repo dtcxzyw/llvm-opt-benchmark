@@ -37,7 +37,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %formatbuf.i)
   store i32 0, ptr %ocount.i, align 4
   store i32 0, ptr %icount.i, align 4
-  %call.i = call fastcc i32 @parsefmt(ptr noundef %format, ptr noundef nonnull %output.i, ptr noundef nonnull %input.i, ptr noundef nonnull %ocount.i, ptr noundef nonnull %icount.i, ptr noundef %ap_save)
+  %call.i = call fastcc i32 @parsefmt(ptr noundef %format, ptr noundef %output.i, ptr noundef %input.i, ptr noundef %ocount.i, ptr noundef %icount.i, ptr noundef %ap_save)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %0 = load i32, ptr %ocount.i, align 4
   %cmp.i658 = icmp sgt i32 %0, 0
@@ -1129,7 +1129,7 @@ entry:
   %formatbuf = alloca [32 x i8], align 16
   store i32 0, ptr %ocount, align 4
   store i32 0, ptr %icount, align 4
-  %call = call fastcc i32 @parsefmt(ptr noundef %format, ptr noundef nonnull %output, ptr noundef nonnull %input, ptr noundef nonnull %ocount, ptr noundef nonnull %icount, ptr noundef %ap_save)
+  %call = call fastcc i32 @parsefmt(ptr noundef %format, ptr noundef %output, ptr noundef %input, ptr noundef %ocount, ptr noundef %icount, ptr noundef %ap_save)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load i32, ptr %ocount, align 4
   %cmp460 = icmp sgt i32 %0, 0
@@ -2305,7 +2305,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 12) i32 @parsefmt(ptr noundef %format, ptr nocapture noundef writeonly %out, ptr nocapture noundef %in, ptr nocapture noundef writeonly %opieces, ptr nocapture noundef writeonly %ipieces, ptr nocapture noundef %arglist) unnamed_addr #3 {
+define internal fastcc range(i32 0, 12) i32 @parsefmt(ptr noundef %format, ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull %in, ptr nocapture noundef nonnull writeonly %opieces, ptr nocapture noundef nonnull writeonly %ipieces, ptr nocapture noundef %arglist) unnamed_addr #3 {
 entry:
   %usedinput = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %usedinput, i8 0, i64 16, i1 false)
@@ -3333,7 +3333,7 @@ entry:
   %formatbuf = alloca [32 x i8], align 16
   store i32 0, ptr %ocount, align 4
   store i32 0, ptr %icount, align 4
-  %call = call fastcc i32 @parsefmt(ptr noundef %format, ptr noundef nonnull %output, ptr noundef nonnull %input, ptr noundef nonnull %ocount, ptr noundef nonnull %icount, ptr noundef %ap_save)
+  %call = call fastcc i32 @parsefmt(ptr noundef %format, ptr noundef %output, ptr noundef %input, ptr noundef %ocount, ptr noundef %icount, ptr noundef %ap_save)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load i32, ptr %ocount, align 4
   %cmp174 = icmp sgt i32 %0, 0
@@ -4346,7 +4346,7 @@ entry:
   %formatbuf = alloca [32 x i8], align 16
   store i32 0, ptr %ocount, align 4
   store i32 0, ptr %icount, align 4
-  %call = call fastcc i32 @parsefmt(ptr noundef %format, ptr noundef nonnull %output, ptr noundef nonnull %input, ptr noundef nonnull %ocount, ptr noundef nonnull %icount, ptr noundef %ap_save)
+  %call = call fastcc i32 @parsefmt(ptr noundef %format, ptr noundef %output, ptr noundef %input, ptr noundef %ocount, ptr noundef %icount, ptr noundef %ap_save)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load i32, ptr %ocount, align 4
   %cmp116 = icmp sgt i32 %0, 0

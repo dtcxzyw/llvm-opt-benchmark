@@ -641,1546 +641,1546 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %6, 0
-  br i1 %3, label %7, label %23
+  br i1 %3, label %7, label %24
 
 7:                                                ; preds = %4
-  br i1 %.not.i, label %check_json_keys.exit, label %.lr.ph20.i
+  br i1 %.not.i, label %check_json_keys.exit, label %.lr.ph.i
 
-.lr.ph20.i:                                       ; preds = %7
+.lr.ph.i:                                         ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %.lr.ph.us.outer.i
+  br label %.outer.i
 
-.lr.ph.us.outer.i:                                ; preds = %.loopexit.us.thread.i, %.lr.ph20.i
-  %.ph.i = phi i64 [ %.pre.i, %.loopexit.us.thread.i ], [ %6, %.lr.ph20.i ]
-  %.01318.us.ph.i = phi i1 [ true, %.loopexit.us.thread.i ], [ false, %.lr.ph20.i ]
-  %.01417.us.ph.i = phi i64 [ %21, %.loopexit.us.thread.i ], [ 0, %.lr.ph20.i ]
+.outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph.i
+  %.ph.i = phi i64 [ %.pre.i, %.loopexit.thread.i ], [ %6, %.lr.ph.i ]
+  %.01318.ph.i = phi i1 [ true, %.loopexit.thread.i ], [ false, %.lr.ph.i ]
+  %.01417.ph.i = phi i64 [ %22, %.loopexit.thread.i ], [ 0, %.lr.ph.i ]
   %9 = load ptr, ptr %8, align 8
-  br label %.lr.ph.us.i
+  br label %10
 
-.lr.ph.us.i:                                      ; preds = %.loopexit.us.i, %.lr.ph.us.outer.i
-  %.01417.us.i = phi i64 [ %19, %.loopexit.us.i ], [ %.01417.us.ph.i, %.lr.ph.us.outer.i ]
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %.01417.us.i
-  %11 = load ptr, ptr %10, align 8
-  br label %14
+10:                                               ; preds = %.loopexit.i, %.outer.i
+  %.01417.i = phi i64 [ %20, %.loopexit.i ], [ %.01417.ph.i, %.outer.i ]
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %.01417.i
+  %12 = load ptr, ptr %11, align 8
+  br label %15
 
-12:                                               ; preds = %14
-  %13 = add nuw nsw i64 %.016.us.i, 1
-  %exitcond.not.i = icmp eq i64 %13, 47
-  br i1 %exitcond.not.i, label %.loopexit.us.thread.i, label %14, !llvm.loop !12
+13:                                               ; preds = %15
+  %14 = add nuw nsw i64 %.016.i, 1
+  %exitcond.not.i = icmp eq i64 %14, 47
+  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %15, !llvm.loop !12
 
-14:                                               ; preds = %12, %.lr.ph.us.i
-  %.016.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %13, %12 ]
-  %15 = getelementptr inbounds [2 x ptr], ptr @project_default_keys, i64 %.016.us.i
-  %16 = load ptr, ptr %15, align 16
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %16) #10
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.loopexit.us.i, label %12
+15:                                               ; preds = %13, %10
+  %.016.i = phi i64 [ 0, %10 ], [ %14, %13 ]
+  %16 = getelementptr inbounds [2 x ptr], ptr @project_default_keys, i64 %.016.i
+  %17 = load ptr, ptr %16, align 16
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %17) #10
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %.loopexit.i, label %13
 
-.loopexit.us.i:                                   ; preds = %14
-  %19 = add nuw i64 %.01417.us.i, 1
-  %20 = icmp ult i64 %19, %.ph.i
-  br i1 %20, label %.lr.ph.us.i, label %._crit_edge21.i, !llvm.loop !13
+.loopexit.i:                                      ; preds = %15
+  %20 = add nuw i64 %.01417.i, 1
+  %21 = icmp ult i64 %20, %.ph.i
+  br i1 %21, label %10, label %._crit_edge.i, !llvm.loop !13
 
-.loopexit.us.thread.i:                            ; preds = %12
-  tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef %11, ptr noundef %1) #8
+.loopexit.thread.i:                               ; preds = %13
+  tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef %12, ptr noundef %1) #8
   %.pre.i = load i64, ptr %5, align 8
-  %21 = add nuw i64 %.01417.us.i, 1
-  %22 = icmp ult i64 %21, %.pre.i
-  br i1 %22, label %.lr.ph.us.outer.i, label %.critedge22.i, !llvm.loop !13
+  %22 = add nuw i64 %.01417.i, 1
+  %23 = icmp ult i64 %22, %.pre.i
+  br i1 %23, label %.outer.i, label %._crit_edge.thread.i, !llvm.loop !13
 
-._crit_edge21.i:                                  ; preds = %.loopexit.us.i
-  br i1 %.01318.us.ph.i, label %.critedge22.i, label %check_json_keys.exit
+._crit_edge.i:                                    ; preds = %.loopexit.i
+  br i1 %.01318.ph.i, label %._crit_edge.thread.i, label %check_json_keys.exit
 
-.critedge22.i:                                    ; preds = %.loopexit.us.thread.i, %._crit_edge21.i
+._crit_edge.thread.i:                             ; preds = %.loopexit.thread.i, %._crit_edge.i
   %.b15.i = load i1, ptr @check_json_keys.failed_shown, align 1
   br i1 %.b15.i, label %check_json_keys.exit, label %check_json_keys.exit.sink.split
 
-23:                                               ; preds = %4
-  br i1 %.not.i, label %check_json_keys.exit, label %.lr.ph20.i364
+24:                                               ; preds = %4
+  br i1 %.not.i, label %check_json_keys.exit, label %.lr.ph.i364
 
-.lr.ph20.i364:                                    ; preds = %23
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %.lr.ph.us.outer.i365
+.lr.ph.i364:                                      ; preds = %24
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %.outer.i365
 
-.lr.ph.us.outer.i365:                             ; preds = %.loopexit.us.thread.i373, %.lr.ph20.i364
-  %.ph.i366 = phi i64 [ %.pre.i374, %.loopexit.us.thread.i373 ], [ %6, %.lr.ph20.i364 ]
-  %.01318.us.ph.i367 = phi i1 [ true, %.loopexit.us.thread.i373 ], [ false, %.lr.ph20.i364 ]
-  %.01417.us.ph.i368 = phi i64 [ %37, %.loopexit.us.thread.i373 ], [ 0, %.lr.ph20.i364 ]
-  %25 = load ptr, ptr %24, align 8
-  br label %.lr.ph.us.i369
+.outer.i365:                                      ; preds = %.loopexit.thread.i372, %.lr.ph.i364
+  %.ph.i366 = phi i64 [ %.pre.i373, %.loopexit.thread.i372 ], [ %6, %.lr.ph.i364 ]
+  %.01318.ph.i367 = phi i1 [ true, %.loopexit.thread.i372 ], [ false, %.lr.ph.i364 ]
+  %.01417.ph.i368 = phi i64 [ %39, %.loopexit.thread.i372 ], [ 0, %.lr.ph.i364 ]
+  %26 = load ptr, ptr %25, align 8
+  br label %27
 
-.lr.ph.us.i369:                                   ; preds = %.loopexit.us.i377, %.lr.ph.us.outer.i365
-  %.01417.us.i370 = phi i64 [ %35, %.loopexit.us.i377 ], [ %.01417.us.ph.i368, %.lr.ph.us.outer.i365 ]
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %.01417.us.i370
-  %27 = load ptr, ptr %26, align 8
-  br label %30
+27:                                               ; preds = %.loopexit.i376, %.outer.i365
+  %.01417.i369 = phi i64 [ %37, %.loopexit.i376 ], [ %.01417.ph.i368, %.outer.i365 ]
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %.01417.i369
+  %29 = load ptr, ptr %28, align 8
+  br label %32
 
-28:                                               ; preds = %30
-  %29 = add nuw nsw i64 %.016.us.i371, 1
-  %exitcond.not.i372 = icmp eq i64 %29, 55
-  br i1 %exitcond.not.i372, label %.loopexit.us.thread.i373, label %30, !llvm.loop !12
+30:                                               ; preds = %32
+  %31 = add nuw nsw i64 %.016.i370, 1
+  %exitcond.not.i371 = icmp eq i64 %31, 55
+  br i1 %exitcond.not.i371, label %.loopexit.thread.i372, label %32, !llvm.loop !12
 
-30:                                               ; preds = %28, %.lr.ph.us.i369
-  %.016.us.i371 = phi i64 [ 0, %.lr.ph.us.i369 ], [ %29, %28 ]
-  %31 = getelementptr inbounds [2 x ptr], ptr @project_target_keys, i64 %.016.us.i371
-  %32 = load ptr, ptr %31, align 16
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %32) #10
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.loopexit.us.i377, label %28
+32:                                               ; preds = %30, %27
+  %.016.i370 = phi i64 [ 0, %27 ], [ %31, %30 ]
+  %33 = getelementptr inbounds [2 x ptr], ptr @project_target_keys, i64 %.016.i370
+  %34 = load ptr, ptr %33, align 16
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %34) #10
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %.loopexit.i376, label %30
 
-.loopexit.us.i377:                                ; preds = %30
-  %35 = add nuw i64 %.01417.us.i370, 1
-  %36 = icmp ult i64 %35, %.ph.i366
-  br i1 %36, label %.lr.ph.us.i369, label %._crit_edge21.i378, !llvm.loop !13
+.loopexit.i376:                                   ; preds = %32
+  %37 = add nuw i64 %.01417.i369, 1
+  %38 = icmp ult i64 %37, %.ph.i366
+  br i1 %38, label %27, label %._crit_edge.i377, !llvm.loop !13
 
-.loopexit.us.thread.i373:                         ; preds = %28
-  tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef %27, ptr noundef %1) #8
-  %.pre.i374 = load i64, ptr %5, align 8
-  %37 = add nuw i64 %.01417.us.i370, 1
-  %38 = icmp ult i64 %37, %.pre.i374
-  br i1 %38, label %.lr.ph.us.outer.i365, label %.critedge22.i375, !llvm.loop !13
+.loopexit.thread.i372:                            ; preds = %30
+  tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef %29, ptr noundef %1) #8
+  %.pre.i373 = load i64, ptr %5, align 8
+  %39 = add nuw i64 %.01417.i369, 1
+  %40 = icmp ult i64 %39, %.pre.i373
+  br i1 %40, label %.outer.i365, label %._crit_edge.thread.i374, !llvm.loop !13
 
-._crit_edge21.i378:                               ; preds = %.loopexit.us.i377
-  br i1 %.01318.us.ph.i367, label %.critedge22.i375, label %check_json_keys.exit
+._crit_edge.i377:                                 ; preds = %.loopexit.i376
+  br i1 %.01318.ph.i367, label %._crit_edge.thread.i374, label %check_json_keys.exit
 
-.critedge22.i375:                                 ; preds = %.loopexit.us.thread.i373, %._crit_edge21.i378
-  %.b15.i376 = load i1, ptr @check_json_keys.failed_shown, align 1
-  br i1 %.b15.i376, label %check_json_keys.exit, label %check_json_keys.exit.sink.split
+._crit_edge.thread.i374:                          ; preds = %.loopexit.thread.i372, %._crit_edge.i377
+  %.b15.i375 = load i1, ptr @check_json_keys.failed_shown, align 1
+  br i1 %.b15.i375, label %check_json_keys.exit, label %check_json_keys.exit.sink.split
 
-check_json_keys.exit.sink.split:                  ; preds = %.critedge22.i375, %.critedge22.i
-  %.ph = phi ptr [ @.str.18, %.critedge22.i ], [ @.str.111, %.critedge22.i375 ]
+check_json_keys.exit.sink.split:                  ; preds = %._crit_edge.thread.i374, %._crit_edge.thread.i
+  %.ph = phi ptr [ @.str.18, %._crit_edge.thread.i ], [ @.str.111, %._crit_edge.thread.i374 ]
   tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.200) #8
   store i1 true, ptr @check_json_keys.failed_shown, align 1
   br label %check_json_keys.exit
 
-check_json_keys.exit:                             ; preds = %check_json_keys.exit.sink.split, %.critedge22.i375, %._crit_edge21.i378, %23, %.critedge22.i, %._crit_edge21.i, %7
-  %39 = phi ptr [ @.str.18, %7 ], [ @.str.18, %._crit_edge21.i ], [ @.str.18, %.critedge22.i ], [ @.str.111, %23 ], [ @.str.111, %._crit_edge21.i378 ], [ @.str.111, %.critedge22.i375 ], [ %.ph, %check_json_keys.exit.sink.split ]
-  %40 = getelementptr inbounds i8, ptr %2, i64 272
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.6) #8
-  %.not.i380 = icmp eq ptr %42, null
-  br i1 %.not.i380, label %get_string.exit, label %43
+check_json_keys.exit:                             ; preds = %check_json_keys.exit.sink.split, %._crit_edge.thread.i374, %._crit_edge.i377, %24, %._crit_edge.thread.i, %._crit_edge.i, %7
+  %41 = phi ptr [ @.str.18, %7 ], [ @.str.18, %._crit_edge.i ], [ @.str.18, %._crit_edge.thread.i ], [ @.str.111, %24 ], [ @.str.111, %._crit_edge.i377 ], [ @.str.111, %._crit_edge.thread.i374 ], [ %.ph, %check_json_keys.exit.sink.split ]
+  %42 = getelementptr inbounds i8, ptr %2, i64 272
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.6) #8
+  %.not.i379 = icmp eq ptr %44, null
+  br i1 %.not.i379, label %get_string.exit, label %45
 
-43:                                               ; preds = %check_json_keys.exit
-  %44 = load i32, ptr %42, align 8
-  %.not10.i = icmp eq i32 %44, 1
-  br i1 %.not10.i, label %46, label %45
+45:                                               ; preds = %check_json_keys.exit
+  %46 = load i32, ptr %44, align 8
+  %.not10.i = icmp eq i32 %46, 1
+  br i1 %.not10.i, label %48, label %47
 
-45:                                               ; preds = %43
+47:                                               ; preds = %45
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.6) #9
   unreachable
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %42, i64 8
-  %48 = load ptr, ptr %47, align 8
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  %50 = load ptr, ptr %49, align 8
   br label %get_string.exit
 
-get_string.exit:                                  ; preds = %check_json_keys.exit, %46
-  %.0.i = phi ptr [ %48, %46 ], [ %41, %check_json_keys.exit ]
-  store ptr %.0.i, ptr %40, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 144
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.55) #8
-  %.not.i381 = icmp eq ptr %51, null
-  br i1 %.not.i381, label %get_string.exit384, label %52
+get_string.exit:                                  ; preds = %check_json_keys.exit, %48
+  %.0.i = phi ptr [ %50, %48 ], [ %43, %check_json_keys.exit ]
+  store ptr %.0.i, ptr %42, align 8
+  %51 = getelementptr inbounds i8, ptr %2, i64 144
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.55) #8
+  %.not.i380 = icmp eq ptr %53, null
+  br i1 %.not.i380, label %get_string.exit383, label %54
 
-52:                                               ; preds = %get_string.exit
-  %53 = load i32, ptr %51, align 8
-  %.not10.i382 = icmp eq i32 %53, 1
-  br i1 %.not10.i382, label %55, label %54
+54:                                               ; preds = %get_string.exit
+  %55 = load i32, ptr %53, align 8
+  %.not10.i381 = icmp eq i32 %55, 1
+  br i1 %.not10.i381, label %57, label %56
 
-54:                                               ; preds = %52
+56:                                               ; preds = %54
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.55) #9
   unreachable
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %51, i64 8
-  %57 = load ptr, ptr %56, align 8
-  br label %get_string.exit384
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %59 = load ptr, ptr %58, align 8
+  br label %get_string.exit383
 
-get_string.exit384:                               ; preds = %get_string.exit, %55
-  %.0.i383 = phi ptr [ %57, %55 ], [ %50, %get_string.exit ]
-  store ptr %.0.i383, ptr %49, align 8
-  %58 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %1)
-  br i1 %3, label %.thread543, label %59
+get_string.exit383:                               ; preds = %get_string.exit, %57
+  %.0.i382 = phi ptr [ %59, %57 ], [ %52, %get_string.exit ]
+  store ptr %.0.i382, ptr %51, align 8
+  %60 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull %41, ptr noundef %1)
+  br i1 %3, label %.thread542, label %61
 
-.thread543:                                       ; preds = %get_string.exit384
-  %.not575 = icmp eq ptr %58, null
-  br i1 %.not575, label %.thread546, label %70
+.thread542:                                       ; preds = %get_string.exit383
+  %.not574 = icmp eq ptr %60, null
+  br i1 %.not574, label %.thread545, label %72
 
-59:                                               ; preds = %get_string.exit384
-  %60 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull @.str.109, ptr noundef %1)
-  %61 = icmp ne ptr %58, null
-  %62 = icmp ne ptr %60, null
-  %or.cond = select i1 %61, i1 %62, i1 false
-  br i1 %or.cond, label %63, label %64
+61:                                               ; preds = %get_string.exit383
+  %62 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull @.str.109, ptr noundef %1)
+  %63 = icmp ne ptr %60, null
+  %64 = icmp ne ptr %62, null
+  %or.cond = select i1 %63, i1 %64, i1 false
+  br i1 %or.cond, label %65, label %66
 
-63:                                               ; preds = %59
+65:                                               ; preds = %61
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.162, ptr noundef %1) #9
   unreachable
 
-64:                                               ; preds = %59
-  br i1 %62, label %65, label %69
+66:                                               ; preds = %61
+  br i1 %64, label %67, label %71
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %2, i64 288
-  %67 = load ptr, ptr %66, align 8
-  %.not = icmp eq ptr %67, null
-  br i1 %.not, label %68, label %69
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds i8, ptr %2, i64 288
+  %69 = load ptr, ptr %68, align 8
+  %.not = icmp eq ptr %69, null
+  br i1 %.not, label %70, label %71
 
-68:                                               ; preds = %65
-  store ptr %60, ptr %66, align 8
-  br i1 %61, label %70, label %.thread546
+70:                                               ; preds = %67
+  store ptr %62, ptr %68, align 8
+  br i1 %63, label %72, label %.thread545
 
-69:                                               ; preds = %65, %64
-  br i1 %61, label %70, label %72
+71:                                               ; preds = %67, %66
+  br i1 %63, label %72, label %74
 
-70:                                               ; preds = %.thread543, %68, %69
-  %.0327545 = phi ptr [ null, %68 ], [ %60, %69 ], [ null, %.thread543 ]
-  %71 = getelementptr inbounds i8, ptr %2, i64 288
-  store ptr %58, ptr %71, align 8
-  br label %72
+72:                                               ; preds = %.thread542, %70, %71
+  %.0327544 = phi ptr [ null, %70 ], [ %62, %71 ], [ null, %.thread542 ]
+  %73 = getelementptr inbounds i8, ptr %2, i64 288
+  store ptr %60, ptr %73, align 8
+  br label %74
 
-72:                                               ; preds = %70, %69
-  %.0327544 = phi ptr [ %.0327545, %70 ], [ %60, %69 ]
-  %.not353 = icmp eq ptr %.0327544, null
-  br i1 %.not353, label %.thread546, label %73
+74:                                               ; preds = %72, %71
+  %.0327543 = phi ptr [ %.0327544, %72 ], [ %62, %71 ]
+  %.not353 = icmp eq ptr %.0327543, null
+  br i1 %.not353, label %.thread545, label %75
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %.0327544, i64 -8
-  %75 = load i32, ptr %74, align 4
-  %.not592 = icmp eq i32 %75, 0
-  br i1 %.not592, label %.thread546, label %.lr.ph
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds i8, ptr %.0327543, i64 -8
+  %77 = load i32, ptr %76, align 4
+  %.not591 = icmp eq i32 %77, 0
+  br i1 %.not591, label %.thread545, label %.lr.ph
 
-.lr.ph:                                           ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %2, i64 288
-  %wide.trip.count = zext i32 %75 to i64
-  br label %77
+.lr.ph:                                           ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %2, i64 288
+  %wide.trip.count = zext i32 %77 to i64
+  br label %79
 
-77:                                               ; preds = %.lr.ph, %104
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %104 ]
-  %78 = getelementptr inbounds ptr, ptr %.0327544, i64 %indvars.iv
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %76, align 8
-  %.not.i385 = icmp eq ptr %80, null
-  br i1 %.not.i385, label %81, label %84
+79:                                               ; preds = %.lr.ph, %106
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
+  %80 = getelementptr inbounds ptr, ptr %.0327543, i64 %indvars.iv
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %78, align 8
+  %.not.i384 = icmp eq ptr %82, null
+  br i1 %.not.i384, label %83, label %86
 
-81:                                               ; preds = %77
-  %82 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
-  store i32 8, ptr %83, align 4
-  br label %86
+83:                                               ; preds = %79
+  %84 = tail call ptr @calloc_arena(i64 noundef 72) #8
+  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  store i32 8, ptr %85, align 4
+  br label %88
 
-84:                                               ; preds = %77
-  %85 = getelementptr inbounds i8, ptr %80, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %80, i64 -4
-  %.pre.i386 = load i32, ptr %.phi.trans.insert.i, align 4
-  br label %86
+86:                                               ; preds = %79
+  %87 = getelementptr inbounds i8, ptr %82, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %82, i64 -4
+  %.pre.i385 = load i32, ptr %.phi.trans.insert.i, align 4
+  br label %88
 
-86:                                               ; preds = %84, %81
-  %87 = phi i32 [ %.pre.i386, %84 ], [ 8, %81 ]
-  %.0.i387 = phi ptr [ %85, %84 ], [ %82, %81 ]
-  %88 = load i32, ptr %.0.i387, align 4
-  %89 = icmp eq i32 %88, %87
-  br i1 %89, label %90, label %104
+88:                                               ; preds = %86, %83
+  %89 = phi i32 [ %.pre.i385, %86 ], [ 8, %83 ]
+  %.0.i386 = phi ptr [ %87, %86 ], [ %84, %83 ]
+  %90 = load i32, ptr %.0.i386, align 4
+  %91 = icmp eq i32 %90, %89
+  br i1 %91, label %92, label %106
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %.0.i387, i64 4
-  %92 = shl i32 %87, 1
-  %93 = zext i32 %92 to i64
-  %94 = shl nuw nsw i64 %93, 3
-  %95 = or disjoint i64 %94, 8
-  %96 = tail call ptr @calloc_arena(i64 noundef %95) #8
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
-  store i32 %92, ptr %97, align 4
-  %98 = load i32, ptr %91, align 4
-  %99 = zext i32 %98 to i64
-  %100 = shl nuw nsw i64 %99, 3
-  %101 = add nuw nsw i64 %100, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %96, ptr noundef nonnull align 4 dereferenceable(1) %.0.i387, i64 %101, i1 false)
-  %102 = load i32, ptr %97, align 4
-  %103 = shl i32 %102, 1
-  store i32 %103, ptr %97, align 4
-  %.pre18.i = load i32, ptr %96, align 4
-  br label %104
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds i8, ptr %.0.i386, i64 4
+  %94 = shl i32 %89, 1
+  %95 = zext i32 %94 to i64
+  %96 = shl nuw nsw i64 %95, 3
+  %97 = or disjoint i64 %96, 8
+  %98 = tail call ptr @calloc_arena(i64 noundef %97) #8
+  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  store i32 %94, ptr %99, align 4
+  %100 = load i32, ptr %93, align 4
+  %101 = zext i32 %100 to i64
+  %102 = shl nuw nsw i64 %101, 3
+  %103 = add nuw nsw i64 %102, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %98, ptr noundef nonnull align 4 dereferenceable(1) %.0.i386, i64 %103, i1 false)
+  %104 = load i32, ptr %99, align 4
+  %105 = shl i32 %104, 1
+  store i32 %105, ptr %99, align 4
+  %.pre18.i = load i32, ptr %98, align 4
+  br label %106
 
-104:                                              ; preds = %86, %90
-  %105 = phi i32 [ %.pre18.i, %90 ], [ %88, %86 ]
-  %.1.i = phi ptr [ %96, %90 ], [ %.0.i387, %86 ]
-  %106 = add i32 %105, 1
-  store i32 %106, ptr %.1.i, align 4
-  %107 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  store ptr %107, ptr %76, align 8
-  %108 = load i32, ptr %.1.i, align 4
-  %109 = add i32 %108, -1
-  %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %107, i64 %110
-  store ptr %79, ptr %111, align 8
+106:                                              ; preds = %88, %92
+  %107 = phi i32 [ %.pre18.i, %92 ], [ %90, %88 ]
+  %.1.i = phi ptr [ %98, %92 ], [ %.0.i386, %88 ]
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %.1.i, align 4
+  %109 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  store ptr %109, ptr %78, align 8
+  %110 = load i32, ptr %.1.i, align 4
+  %111 = add i32 %110, -1
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds ptr, ptr %109, i64 %112
+  store ptr %81, ptr %113, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread546, label %77, !llvm.loop !14
+  br i1 %exitcond.not, label %.thread545, label %79, !llvm.loop !14
 
-.thread546:                                       ; preds = %104, %73, %.thread543, %68, %72
-  %112 = getelementptr inbounds i8, ptr %2, i64 120
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.47) #8
-  %.not.i388 = icmp eq ptr %114, null
-  br i1 %.not.i388, label %get_string.exit391, label %115
+.thread545:                                       ; preds = %106, %75, %.thread542, %70, %74
+  %114 = getelementptr inbounds i8, ptr %2, i64 120
+  %115 = load ptr, ptr %114, align 8
+  %116 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.47) #8
+  %.not.i387 = icmp eq ptr %116, null
+  br i1 %.not.i387, label %get_string.exit390, label %117
 
-115:                                              ; preds = %.thread546
-  %116 = load i32, ptr %114, align 8
-  %.not10.i389 = icmp eq i32 %116, 1
-  br i1 %.not10.i389, label %118, label %117
+117:                                              ; preds = %.thread545
+  %118 = load i32, ptr %116, align 8
+  %.not10.i388 = icmp eq i32 %118, 1
+  br i1 %.not10.i388, label %120, label %119
 
-117:                                              ; preds = %115
+119:                                              ; preds = %117
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.47) #9
   unreachable
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %114, i64 8
-  %120 = load ptr, ptr %119, align 8
-  br label %get_string.exit391
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds i8, ptr %116, i64 8
+  %122 = load ptr, ptr %121, align 8
+  br label %get_string.exit390
 
-get_string.exit391:                               ; preds = %.thread546, %118
-  %.0.i390 = phi ptr [ %120, %118 ], [ %113, %.thread546 ]
-  store ptr %.0.i390, ptr %112, align 8
-  %121 = select i1 %3, ptr @.str.8, ptr @.str.99
-  %122 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull %121) #8
-  %.not.i392 = icmp eq ptr %122, null
-  br i1 %.not.i392, label %get_valid_string.exit, label %123
+get_string.exit390:                               ; preds = %.thread545, %120
+  %.0.i389 = phi ptr [ %122, %120 ], [ %115, %.thread545 ]
+  store ptr %.0.i389, ptr %114, align 8
+  %123 = select i1 %3, ptr @.str.8, ptr @.str.99
+  %124 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull %123) #8
+  %.not.i391 = icmp eq ptr %124, null
+  br i1 %.not.i391, label %get_valid_string.exit, label %125
 
-123:                                              ; preds = %get_string.exit391
-  %124 = load i32, ptr %122, align 8
-  %.not9.i = icmp eq i32 %124, 1
-  br i1 %.not9.i, label %126, label %125
+125:                                              ; preds = %get_string.exit390
+  %126 = load i32, ptr %124, align 8
+  %.not9.i = icmp eq i32 %126, 1
+  br i1 %.not9.i, label %128, label %127
 
-125:                                              ; preds = %123
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull %121) #9
+127:                                              ; preds = %125
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull %123) #9
   unreachable
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %122, i64 8
-  %128 = load ptr, ptr %127, align 8
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds i8, ptr %124, i64 8
+  %130 = load ptr, ptr %129, align 8
   br label %get_valid_string.exit
 
-get_valid_string.exit:                            ; preds = %get_string.exit391, %126
-  %.0.i393 = phi ptr [ %128, %126 ], [ null, %get_string.exit391 ]
-  br i1 %3, label %get_valid_string.exit397.thread, label %129
+get_valid_string.exit:                            ; preds = %get_string.exit390, %128
+  %.0.i392 = phi ptr [ %130, %128 ], [ null, %get_string.exit390 ]
+  br i1 %3, label %get_valid_string.exit396.thread, label %131
 
-129:                                              ; preds = %get_valid_string.exit
-  %130 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.97) #8
-  %.not.i394 = icmp eq ptr %130, null
-  br i1 %.not.i394, label %get_valid_string.exit397.thread, label %131
-
-131:                                              ; preds = %129
-  %132 = load i32, ptr %130, align 8
-  %.not9.i395 = icmp eq i32 %132, 1
-  br i1 %.not9.i395, label %get_valid_string.exit397, label %133
+131:                                              ; preds = %get_valid_string.exit
+  %132 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.97) #8
+  %.not.i393 = icmp eq ptr %132, null
+  br i1 %.not.i393, label %get_valid_string.exit396.thread, label %133
 
 133:                                              ; preds = %131
+  %134 = load i32, ptr %132, align 8
+  %.not9.i394 = icmp eq i32 %134, 1
+  br i1 %.not9.i394, label %get_valid_string.exit396, label %135
+
+135:                                              ; preds = %133
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.97) #9
   unreachable
 
-get_valid_string.exit397.thread:                  ; preds = %get_valid_string.exit, %129
-  %.not576 = icmp eq ptr %.0.i393, null
-  br i1 %.not576, label %.thread550, label %.thread574
+get_valid_string.exit396.thread:                  ; preds = %get_valid_string.exit, %131
+  %.not575 = icmp eq ptr %.0.i392, null
+  br i1 %.not575, label %.thread549, label %.thread573
 
-.thread574:                                       ; preds = %get_valid_string.exit397.thread
-  %134 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr %.0.i393, ptr %134, align 8
-  br label %.thread550
+.thread573:                                       ; preds = %get_valid_string.exit396.thread
+  %136 = getelementptr inbounds i8, ptr %2, i64 280
+  store ptr %.0.i392, ptr %136, align 8
+  br label %.thread549
 
-get_valid_string.exit397:                         ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %130, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp ne ptr %.0.i393, null
-  %138 = icmp ne ptr %136, null
-  %or.cond3 = select i1 %137, i1 %138, i1 false
-  br i1 %or.cond3, label %139, label %140
+get_valid_string.exit396:                         ; preds = %133
+  %137 = getelementptr inbounds i8, ptr %132, i64 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = icmp ne ptr %.0.i392, null
+  %140 = icmp ne ptr %138, null
+  %or.cond3 = select i1 %139, i1 %140, i1 false
+  br i1 %or.cond3, label %141, label %142
 
-139:                                              ; preds = %get_valid_string.exit397
+141:                                              ; preds = %get_valid_string.exit396
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.163, ptr noundef %1) #9
   unreachable
 
-140:                                              ; preds = %get_valid_string.exit397
-  br i1 %137, label %141, label %144
+142:                                              ; preds = %get_valid_string.exit396
+  br i1 %139, label %143, label %146
 
-141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %2, i64 280
-  store ptr %.0.i393, ptr %142, align 8
-  br i1 %138, label %.thread, label %.thread550
+143:                                              ; preds = %142
+  %144 = getelementptr inbounds i8, ptr %2, i64 280
+  store ptr %.0.i392, ptr %144, align 8
+  br i1 %140, label %.thread, label %.thread549
 
-.thread:                                          ; preds = %141
-  %143 = getelementptr inbounds i8, ptr %2, i64 280
-  br label %147
+.thread:                                          ; preds = %143
+  %145 = getelementptr inbounds i8, ptr %2, i64 280
+  br label %149
 
-144:                                              ; preds = %140
-  br i1 %138, label %145, label %.thread550
+146:                                              ; preds = %142
+  br i1 %140, label %147, label %.thread549
 
-145:                                              ; preds = %144
+147:                                              ; preds = %146
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 280
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %146 = getelementptr inbounds i8, ptr %2, i64 280
+  %148 = getelementptr inbounds i8, ptr %2, i64 280
   %.not354 = icmp eq ptr %.pre, null
-  br i1 %.not354, label %151, label %147
+  br i1 %.not354, label %153, label %149
 
-147:                                              ; preds = %.thread, %145
-  %148 = phi ptr [ %143, %.thread ], [ %146, %145 ]
-  %149 = phi ptr [ %.0.i393, %.thread ], [ %.pre, %145 ]
-  %150 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.164, ptr noundef nonnull %149, ptr noundef nonnull %136) #8
-  store ptr %150, ptr %148, align 8
-  br label %.thread550
+149:                                              ; preds = %.thread, %147
+  %150 = phi ptr [ %145, %.thread ], [ %148, %147 ]
+  %151 = phi ptr [ %.0.i392, %.thread ], [ %.pre, %147 ]
+  %152 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.164, ptr noundef nonnull %151, ptr noundef nonnull %138) #8
+  store ptr %152, ptr %150, align 8
+  br label %.thread549
 
-151:                                              ; preds = %145
-  store ptr %136, ptr %146, align 8
-  br label %.thread550
+153:                                              ; preds = %147
+  store ptr %138, ptr %148, align 8
+  br label %.thread549
 
-.thread550:                                       ; preds = %.thread574, %get_valid_string.exit397.thread, %141, %147, %151, %144
-  %152 = getelementptr inbounds i8, ptr %2, i64 296
-  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %152, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.93, i1 noundef zeroext %3)
-  %153 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %153, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.125, i1 noundef zeroext %3)
-  %154 = getelementptr inbounds i8, ptr %2, i64 80
-  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %154, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.113, i1 noundef zeroext %3)
-  %155 = getelementptr inbounds i8, ptr %2, i64 72
-  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %155, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.117, i1 noundef zeroext %3)
-  %156 = getelementptr inbounds i8, ptr %2, i64 96
-  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %156, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.121, i1 noundef zeroext %3)
-  %157 = getelementptr inbounds i8, ptr %2, i64 56
-  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %157, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.105, i1 noundef zeroext %3)
-  %158 = getelementptr inbounds i8, ptr %2, i64 64
-  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %158, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.101, i1 noundef zeroext %3)
-  %159 = load ptr, ptr %158, align 8
-  %.not355 = icmp eq ptr %159, null
-  br i1 %.not355, label %._crit_edge, label %160
+.thread549:                                       ; preds = %.thread573, %get_valid_string.exit396.thread, %143, %149, %153, %146
+  %154 = getelementptr inbounds i8, ptr %2, i64 296
+  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %154, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.93, i1 noundef zeroext %3)
+  %155 = getelementptr inbounds i8, ptr %2, i64 40
+  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %155, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.125, i1 noundef zeroext %3)
+  %156 = getelementptr inbounds i8, ptr %2, i64 80
+  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %156, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.113, i1 noundef zeroext %3)
+  %157 = getelementptr inbounds i8, ptr %2, i64 72
+  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %157, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.117, i1 noundef zeroext %3)
+  %158 = getelementptr inbounds i8, ptr %2, i64 96
+  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %158, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.121, i1 noundef zeroext %3)
+  %159 = getelementptr inbounds i8, ptr %2, i64 56
+  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %159, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.105, i1 noundef zeroext %3)
+  %160 = getelementptr inbounds i8, ptr %2, i64 64
+  tail call fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %160, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.101, i1 noundef zeroext %3)
+  %161 = load ptr, ptr %160, align 8
+  %.not355 = icmp eq ptr %161, null
+  br i1 %.not355, label %._crit_edge, label %162
 
-160:                                              ; preds = %.thread550
-  %161 = getelementptr inbounds i8, ptr %159, i64 -8
-  %162 = load i32, ptr %161, align 4
-  %.not593 = icmp eq i32 %162, 0
-  br i1 %.not593, label %._crit_edge, label %.lr.ph588.preheader
+162:                                              ; preds = %.thread549
+  %163 = getelementptr inbounds i8, ptr %161, i64 -8
+  %164 = load i32, ptr %163, align 4
+  %.not592 = icmp eq i32 %164, 0
+  br i1 %.not592, label %._crit_edge, label %.lr.ph587.preheader
 
-.lr.ph588.preheader:                              ; preds = %160
-  %wide.trip.count610 = zext i32 %162 to i64
-  br label %.lr.ph588
+.lr.ph587.preheader:                              ; preds = %162
+  %wide.trip.count609 = zext i32 %164 to i64
+  br label %.lr.ph587
 
-163:                                              ; preds = %.lr.ph588
-  %indvars.iv.next608 = add nuw nsw i64 %indvars.iv607, 1
-  %exitcond611.not = icmp eq i64 %indvars.iv.next608, %wide.trip.count610
-  br i1 %exitcond611.not, label %._crit_edge, label %.lr.ph588, !llvm.loop !15
+165:                                              ; preds = %.lr.ph587
+  %indvars.iv.next607 = add nuw nsw i64 %indvars.iv606, 1
+  %exitcond610.not = icmp eq i64 %indvars.iv.next607, %wide.trip.count609
+  br i1 %exitcond610.not, label %._crit_edge, label %.lr.ph587, !llvm.loop !15
 
-.lr.ph588:                                        ; preds = %.lr.ph588.preheader, %163
-  %indvars.iv607 = phi i64 [ 0, %.lr.ph588.preheader ], [ %indvars.iv.next608, %163 ]
-  %164 = getelementptr inbounds ptr, ptr %159, i64 %indvars.iv607
-  %165 = load ptr, ptr %164, align 8
-  %166 = tail call zeroext i1 @str_is_valid_lowercase_name(ptr noundef %165) #8
-  br i1 %166, label %163, label %167
+.lr.ph587:                                        ; preds = %.lr.ph587.preheader, %165
+  %indvars.iv606 = phi i64 [ 0, %.lr.ph587.preheader ], [ %indvars.iv.next607, %165 ]
+  %166 = getelementptr inbounds ptr, ptr %161, i64 %indvars.iv606
+  %167 = load ptr, ptr %166, align 8
+  %168 = tail call zeroext i1 @str_is_valid_lowercase_name(ptr noundef %167) #8
+  br i1 %168, label %165, label %169
 
-167:                                              ; preds = %.lr.ph588
-  %168 = tail call noalias ptr @strdup(ptr noundef %165) #8
-  tail call void @str_ellide_in_place(ptr noundef %168, i64 noundef 32) #8
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.135, ptr noundef %168) #9
+169:                                              ; preds = %.lr.ph587
+  %170 = tail call noalias ptr @strdup(ptr noundef %167) #8
+  tail call void @str_ellide_in_place(ptr noundef %170, i64 noundef 32) #8
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.135, ptr noundef %170) #9
   unreachable
 
-._crit_edge:                                      ; preds = %163, %.thread550, %160
-  %169 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.12) #8
-  %.not.i398 = icmp eq ptr %169, null
-  br i1 %.not.i398, label %get_valid_string_setting.exit, label %170
+._crit_edge:                                      ; preds = %165, %.thread549, %162
+  %171 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.12) #8
+  %.not.i397 = icmp eq ptr %171, null
+  br i1 %.not.i397, label %get_valid_string_setting.exit, label %172
 
-170:                                              ; preds = %._crit_edge
-  %171 = load i32, ptr %169, align 8
-  %172 = icmp eq i32 %171, 1
-  br i1 %172, label %173, label %178
+172:                                              ; preds = %._crit_edge
+  %173 = load i32, ptr %171, align 8
+  %174 = icmp eq i32 %173, 1
+  br i1 %174, label %175, label %180
 
-173:                                              ; preds = %170
-  %174 = getelementptr inbounds i8, ptr %169, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = tail call i32 @str_findlist(ptr noundef %175, i32 noundef 3, ptr noundef nonnull @load_into_build_target.debug_infos) #8
-  %177 = icmp sgt i32 %176, -1
-  br i1 %177, label %179, label %178
+175:                                              ; preds = %172
+  %176 = getelementptr inbounds i8, ptr %171, i64 8
+  %177 = load ptr, ptr %176, align 8
+  %178 = tail call i32 @str_findlist(ptr noundef %177, i32 noundef 3, ptr noundef nonnull @load_into_build_target.debug_infos) #8
+  %179 = icmp sgt i32 %178, -1
+  br i1 %179, label %181, label %180
 
-178:                                              ; preds = %173, %170
+180:                                              ; preds = %175, %172
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.169) #9
   unreachable
 
-179:                                              ; preds = %173
-  %180 = getelementptr inbounds i8, ptr %2, i64 216
-  store i32 %176, ptr %180, align 8
+181:                                              ; preds = %175
+  %182 = getelementptr inbounds i8, ptr %2, i64 216
+  store i32 %178, ptr %182, align 8
   br label %get_valid_string_setting.exit
 
-get_valid_string_setting.exit:                    ; preds = %._crit_edge, %179
-  %181 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.43) #8
-  %.not.i400 = icmp eq ptr %181, null
-  br i1 %.not.i400, label %get_valid_string_setting.exit402, label %182
+get_valid_string_setting.exit:                    ; preds = %._crit_edge, %181
+  %183 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.43) #8
+  %.not.i399 = icmp eq ptr %183, null
+  br i1 %.not.i399, label %get_valid_string_setting.exit401, label %184
 
-182:                                              ; preds = %get_valid_string_setting.exit
-  %183 = load i32, ptr %181, align 8
-  %184 = icmp eq i32 %183, 1
-  br i1 %184, label %185, label %190
+184:                                              ; preds = %get_valid_string_setting.exit
+  %185 = load i32, ptr %183, align 8
+  %186 = icmp eq i32 %185, 1
+  br i1 %186, label %187, label %192
 
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %181, i64 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = tail call i32 @str_findlist(ptr noundef %187, i32 noundef 4, ptr noundef nonnull @optlevels) #8
-  %189 = icmp sgt i32 %188, -1
-  br i1 %189, label %get_valid_string_setting.exit402, label %190
+187:                                              ; preds = %184
+  %188 = getelementptr inbounds i8, ptr %183, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = tail call i32 @str_findlist(ptr noundef %189, i32 noundef 4, ptr noundef nonnull @optlevels) #8
+  %191 = icmp sgt i32 %190, -1
+  br i1 %191, label %get_valid_string_setting.exit401, label %192
 
-190:                                              ; preds = %185, %182
+192:                                              ; preds = %187, %184
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.170) #9
   unreachable
 
-get_valid_string_setting.exit402:                 ; preds = %get_valid_string_setting.exit, %185
-  %.0.i401 = phi i32 [ -1, %get_valid_string_setting.exit ], [ %188, %185 ]
-  %191 = getelementptr inbounds i8, ptr %2, i64 184
-  store i32 %.0.i401, ptr %191, align 8
-  %192 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.45) #8
-  %.not.i403 = icmp eq ptr %192, null
-  br i1 %.not.i403, label %get_valid_string_setting.exit405, label %193
+get_valid_string_setting.exit401:                 ; preds = %get_valid_string_setting.exit, %187
+  %.0.i400 = phi i32 [ -1, %get_valid_string_setting.exit ], [ %190, %187 ]
+  %193 = getelementptr inbounds i8, ptr %2, i64 184
+  store i32 %.0.i400, ptr %193, align 8
+  %194 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.45) #8
+  %.not.i402 = icmp eq ptr %194, null
+  br i1 %.not.i402, label %get_valid_string_setting.exit404, label %195
 
-193:                                              ; preds = %get_valid_string_setting.exit402
-  %194 = load i32, ptr %192, align 8
-  %195 = icmp eq i32 %194, 1
-  br i1 %195, label %196, label %201
+195:                                              ; preds = %get_valid_string_setting.exit401
+  %196 = load i32, ptr %194, align 8
+  %197 = icmp eq i32 %196, 1
+  br i1 %197, label %198, label %203
 
-196:                                              ; preds = %193
-  %197 = getelementptr inbounds i8, ptr %192, i64 8
-  %198 = load ptr, ptr %197, align 8
-  %199 = tail call i32 @str_findlist(ptr noundef %198, i32 noundef 4, ptr noundef nonnull @optsizes) #8
-  %200 = icmp sgt i32 %199, -1
-  br i1 %200, label %get_valid_string_setting.exit405, label %201
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds i8, ptr %194, i64 8
+  %200 = load ptr, ptr %199, align 8
+  %201 = tail call i32 @str_findlist(ptr noundef %200, i32 noundef 4, ptr noundef nonnull @optsizes) #8
+  %202 = icmp sgt i32 %201, -1
+  br i1 %202, label %get_valid_string_setting.exit404, label %203
 
-201:                                              ; preds = %196, %193
+203:                                              ; preds = %198, %195
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.171) #9
   unreachable
 
-get_valid_string_setting.exit405:                 ; preds = %get_valid_string_setting.exit402, %196
-  %.0.i404 = phi i32 [ -1, %get_valid_string_setting.exit402 ], [ %199, %196 ]
-  %202 = getelementptr inbounds i8, ptr %2, i64 192
-  store i32 %.0.i404, ptr %202, align 8
-  %203 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.42) #8
-  %.not.i406 = icmp eq ptr %203, null
-  br i1 %.not.i406, label %get_valid_string_setting.exit408.thread, label %204
+get_valid_string_setting.exit404:                 ; preds = %get_valid_string_setting.exit401, %198
+  %.0.i403 = phi i32 [ -1, %get_valid_string_setting.exit401 ], [ %201, %198 ]
+  %204 = getelementptr inbounds i8, ptr %2, i64 192
+  store i32 %.0.i403, ptr %204, align 8
+  %205 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.42) #8
+  %.not.i405 = icmp eq ptr %205, null
+  br i1 %.not.i405, label %get_valid_string_setting.exit407.thread, label %206
 
-204:                                              ; preds = %get_valid_string_setting.exit405
-  %205 = load i32, ptr %203, align 8
-  %206 = icmp eq i32 %205, 1
-  br i1 %206, label %207, label %212
+206:                                              ; preds = %get_valid_string_setting.exit404
+  %207 = load i32, ptr %205, align 8
+  %208 = icmp eq i32 %207, 1
+  br i1 %208, label %209, label %214
 
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %203, i64 8
-  %209 = load ptr, ptr %208, align 8
-  %210 = tail call i32 @str_findlist(ptr noundef %209, i32 noundef 8, ptr noundef nonnull @load_into_build_target.opt_settings) #8
-  %211 = icmp sgt i32 %210, -1
-  br i1 %211, label %get_valid_string_setting.exit408, label %212
+209:                                              ; preds = %206
+  %210 = getelementptr inbounds i8, ptr %205, i64 8
+  %211 = load ptr, ptr %210, align 8
+  %212 = tail call i32 @str_findlist(ptr noundef %211, i32 noundef 8, ptr noundef nonnull @load_into_build_target.opt_settings) #8
+  %213 = icmp sgt i32 %212, -1
+  br i1 %213, label %get_valid_string_setting.exit407, label %214
 
-212:                                              ; preds = %207, %204
+214:                                              ; preds = %209, %206
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.180) #9
   unreachable
 
-get_valid_string_setting.exit408:                 ; preds = %207
-  %213 = getelementptr inbounds i8, ptr %2, i64 180
-  store i32 %210, ptr %213, align 4
-  br label %get_valid_string_setting.exit408.thread
+get_valid_string_setting.exit407:                 ; preds = %209
+  %215 = getelementptr inbounds i8, ptr %2, i64 180
+  store i32 %212, ptr %215, align 4
+  br label %get_valid_string_setting.exit407.thread
 
-get_valid_string_setting.exit408.thread:          ; preds = %get_valid_string_setting.exit405, %get_valid_string_setting.exit408
-  %214 = getelementptr inbounds i8, ptr %2, i64 328
-  %215 = getelementptr inbounds i8, ptr %2, i64 336
-  %216 = load i32, ptr %215, align 8
-  %217 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.53) #8
-  %.not.i409 = icmp eq ptr %217, null
-  br i1 %.not.i409, label %get_valid_bool.exit, label %218
+get_valid_string_setting.exit407.thread:          ; preds = %get_valid_string_setting.exit404, %get_valid_string_setting.exit407
+  %216 = getelementptr inbounds i8, ptr %2, i64 328
+  %217 = getelementptr inbounds i8, ptr %2, i64 336
+  %218 = load i32, ptr %217, align 8
+  %219 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.53) #8
+  %.not.i408 = icmp eq ptr %219, null
+  br i1 %.not.i408, label %get_valid_bool.exit, label %220
 
-218:                                              ; preds = %get_valid_string_setting.exit408.thread
-  %219 = load i32, ptr %217, align 8
-  %.not9.i410 = icmp eq i32 %219, 4
-  br i1 %.not9.i410, label %221, label %220
+220:                                              ; preds = %get_valid_string_setting.exit407.thread
+  %221 = load i32, ptr %219, align 8
+  %.not9.i409 = icmp eq i32 %221, 4
+  br i1 %.not9.i409, label %223, label %222
 
-220:                                              ; preds = %218
+222:                                              ; preds = %220
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.53) #9
   unreachable
 
-221:                                              ; preds = %218
-  %222 = getelementptr inbounds i8, ptr %217, i64 8
-  %223 = load i8, ptr %222, align 8
-  %224 = and i8 %223, 1
-  %225 = zext nneg i8 %224 to i32
+223:                                              ; preds = %220
+  %224 = getelementptr inbounds i8, ptr %219, i64 8
+  %225 = load i8, ptr %224, align 8
+  %226 = and i8 %225, 1
+  %227 = zext nneg i8 %226 to i32
   br label %get_valid_bool.exit
 
-get_valid_bool.exit:                              ; preds = %get_valid_string_setting.exit408.thread, %221
-  %.0.i411 = phi i32 [ %225, %221 ], [ %216, %get_valid_string_setting.exit408.thread ]
-  store i32 %.0.i411, ptr %215, align 8
-  %226 = getelementptr inbounds i8, ptr %2, i64 196
-  %227 = load i32, ptr %226, align 4
-  %228 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.57) #8
-  %.not.i412 = icmp eq ptr %228, null
-  br i1 %.not.i412, label %get_valid_bool.exit415, label %229
+get_valid_bool.exit:                              ; preds = %get_valid_string_setting.exit407.thread, %223
+  %.0.i410 = phi i32 [ %227, %223 ], [ %218, %get_valid_string_setting.exit407.thread ]
+  store i32 %.0.i410, ptr %217, align 8
+  %228 = getelementptr inbounds i8, ptr %2, i64 196
+  %229 = load i32, ptr %228, align 4
+  %230 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.57) #8
+  %.not.i411 = icmp eq ptr %230, null
+  br i1 %.not.i411, label %get_valid_bool.exit414, label %231
 
-229:                                              ; preds = %get_valid_bool.exit
-  %230 = load i32, ptr %228, align 8
-  %.not9.i413 = icmp eq i32 %230, 4
-  br i1 %.not9.i413, label %232, label %231
+231:                                              ; preds = %get_valid_bool.exit
+  %232 = load i32, ptr %230, align 8
+  %.not9.i412 = icmp eq i32 %232, 4
+  br i1 %.not9.i412, label %234, label %233
 
-231:                                              ; preds = %229
+233:                                              ; preds = %231
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.57) #9
   unreachable
 
-232:                                              ; preds = %229
-  %233 = getelementptr inbounds i8, ptr %228, i64 8
-  %234 = load i8, ptr %233, align 8
-  %235 = and i8 %234, 1
-  %236 = zext nneg i8 %235 to i32
-  br label %get_valid_bool.exit415
+234:                                              ; preds = %231
+  %235 = getelementptr inbounds i8, ptr %230, i64 8
+  %236 = load i8, ptr %235, align 8
+  %237 = and i8 %236, 1
+  %238 = zext nneg i8 %237 to i32
+  br label %get_valid_bool.exit414
 
-get_valid_bool.exit415:                           ; preds = %get_valid_bool.exit, %232
-  %.0.i414 = phi i32 [ %236, %232 ], [ %227, %get_valid_bool.exit ]
-  store i32 %.0.i414, ptr %226, align 4
-  %237 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.38) #8
-  %.not.i416 = icmp eq ptr %237, null
-  br i1 %.not.i416, label %get_valid_string_setting.exit418, label %238
+get_valid_bool.exit414:                           ; preds = %get_valid_bool.exit, %234
+  %.0.i413 = phi i32 [ %238, %234 ], [ %229, %get_valid_bool.exit ]
+  store i32 %.0.i413, ptr %228, align 4
+  %239 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.38) #8
+  %.not.i415 = icmp eq ptr %239, null
+  br i1 %.not.i415, label %get_valid_string_setting.exit417, label %240
 
-238:                                              ; preds = %get_valid_bool.exit415
-  %239 = load i32, ptr %237, align 8
-  %240 = icmp eq i32 %239, 1
-  br i1 %240, label %241, label %246
+240:                                              ; preds = %get_valid_bool.exit414
+  %241 = load i32, ptr %239, align 8
+  %242 = icmp eq i32 %241, 1
+  br i1 %242, label %243, label %248
 
-241:                                              ; preds = %238
-  %242 = getelementptr inbounds i8, ptr %237, i64 8
-  %243 = load ptr, ptr %242, align 8
-  %244 = tail call i32 @str_findlist(ptr noundef %243, i32 noundef 6, ptr noundef nonnull @memory_environment) #8
-  %245 = icmp sgt i32 %244, -1
-  br i1 %245, label %247, label %246
+243:                                              ; preds = %240
+  %244 = getelementptr inbounds i8, ptr %239, i64 8
+  %245 = load ptr, ptr %244, align 8
+  %246 = tail call i32 @str_findlist(ptr noundef %245, i32 noundef 6, ptr noundef nonnull @memory_environment) #8
+  %247 = icmp sgt i32 %246, -1
+  br i1 %247, label %249, label %248
 
-246:                                              ; preds = %241, %238
+248:                                              ; preds = %243, %240
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.181) #9
   unreachable
 
-247:                                              ; preds = %241
-  %248 = getelementptr inbounds i8, ptr %2, i64 188
-  store i32 %244, ptr %248, align 4
-  br label %get_valid_string_setting.exit418
+249:                                              ; preds = %243
+  %250 = getelementptr inbounds i8, ptr %2, i64 188
+  store i32 %246, ptr %250, align 4
+  br label %get_valid_string_setting.exit417
 
-get_valid_string_setting.exit418:                 ; preds = %get_valid_bool.exit415, %247
-  %249 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.65) #8
-  %.not.i419 = icmp eq ptr %249, null
-  br i1 %.not.i419, label %get_valid_integer.exit.thread, label %250
+get_valid_string_setting.exit417:                 ; preds = %get_valid_bool.exit414, %249
+  %251 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.65) #8
+  %.not.i418 = icmp eq ptr %251, null
+  br i1 %.not.i418, label %get_valid_integer.exit.thread, label %252
 
-250:                                              ; preds = %get_valid_string_setting.exit418
-  %251 = load i32, ptr %249, align 8
-  %.not14.i = icmp eq i32 %251, 3
-  br i1 %.not14.i, label %252, label %257
+252:                                              ; preds = %get_valid_string_setting.exit417
+  %253 = load i32, ptr %251, align 8
+  %.not14.i = icmp eq i32 %253, 3
+  br i1 %.not14.i, label %254, label %259
 
-252:                                              ; preds = %250
-  %253 = getelementptr inbounds i8, ptr %249, i64 8
-  %254 = load double, ptr %253, align 8
-  %255 = tail call double @llvm.trunc.f64(double %254)
-  %256 = fcmp une double %255, %254
-  br i1 %256, label %257, label %get_valid_integer.exit
+254:                                              ; preds = %252
+  %255 = getelementptr inbounds i8, ptr %251, i64 8
+  %256 = load double, ptr %255, align 8
+  %257 = tail call double @llvm.trunc.f64(double %256)
+  %258 = fcmp une double %257, %256
+  br i1 %258, label %259, label %get_valid_integer.exit
 
-257:                                              ; preds = %252, %250
+259:                                              ; preds = %254, %252
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.133, ptr noundef %1, ptr noundef nonnull @.str.65) #9
   unreachable
 
-get_valid_integer.exit:                           ; preds = %252
-  %258 = fptosi double %255 to i64
-  %259 = icmp sgt i64 %258, 0
-  br i1 %259, label %260, label %get_valid_integer.exit.thread
+get_valid_integer.exit:                           ; preds = %254
+  %260 = fptosi double %257 to i64
+  %261 = icmp sgt i64 %260, 0
+  br i1 %261, label %262, label %get_valid_integer.exit.thread
 
-260:                                              ; preds = %get_valid_integer.exit
-  %261 = icmp ult i64 %258, 1024
-  br i1 %261, label %262, label %263
+262:                                              ; preds = %get_valid_integer.exit
+  %263 = icmp ult i64 %260, 1024
+  br i1 %263, label %264, label %265
 
-262:                                              ; preds = %260
+264:                                              ; preds = %262
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.135, ptr noundef %1) #9
   unreachable
 
-263:                                              ; preds = %260
-  %264 = icmp ugt i64 %258, 1048576
-  br i1 %264, label %265, label %266
+265:                                              ; preds = %262
+  %266 = icmp ugt i64 %260, 1048576
+  br i1 %266, label %267, label %268
 
-265:                                              ; preds = %263
+267:                                              ; preds = %265
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.135, ptr noundef %1, i32 noundef 1048576) #9
   unreachable
 
-266:                                              ; preds = %263
-  %267 = trunc nuw nsw i64 %258 to i32
-  %268 = getelementptr inbounds i8, ptr %2, i64 236
-  store i32 %267, ptr %268, align 4
+268:                                              ; preds = %265
+  %269 = trunc nuw nsw i64 %260 to i32
+  %270 = getelementptr inbounds i8, ptr %2, i64 236
+  store i32 %269, ptr %270, align 4
   br label %get_valid_integer.exit.thread
 
-get_valid_integer.exit.thread:                    ; preds = %get_valid_string_setting.exit418, %266, %get_valid_integer.exit
-  %269 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.67) #8
-  %.not.i421 = icmp eq ptr %269, null
-  br i1 %.not.i421, label %get_valid_string.exit424.thread, label %270
+get_valid_integer.exit.thread:                    ; preds = %get_valid_string_setting.exit417, %268, %get_valid_integer.exit
+  %271 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.67) #8
+  %.not.i420 = icmp eq ptr %271, null
+  br i1 %.not.i420, label %get_valid_string.exit423.thread, label %272
 
-270:                                              ; preds = %get_valid_integer.exit.thread
-  %271 = load i32, ptr %269, align 8
-  %.not9.i422 = icmp eq i32 %271, 1
-  br i1 %.not9.i422, label %get_valid_string.exit424, label %272
+272:                                              ; preds = %get_valid_integer.exit.thread
+  %273 = load i32, ptr %271, align 8
+  %.not9.i421 = icmp eq i32 %273, 1
+  br i1 %.not9.i421, label %get_valid_string.exit423, label %274
 
-272:                                              ; preds = %270
+274:                                              ; preds = %272
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.67) #9
   unreachable
 
-get_valid_string.exit424:                         ; preds = %270
-  %273 = getelementptr inbounds i8, ptr %269, i64 8
-  %274 = load ptr, ptr %273, align 8
-  %.not357 = icmp eq ptr %274, null
-  br i1 %.not357, label %get_valid_string.exit424.thread, label %275
+get_valid_string.exit423:                         ; preds = %272
+  %275 = getelementptr inbounds i8, ptr %271, i64 8
+  %276 = load ptr, ptr %275, align 8
+  %.not357 = icmp eq ptr %276, null
+  br i1 %.not357, label %get_valid_string.exit423.thread, label %277
 
-275:                                              ; preds = %get_valid_string.exit424
-  %276 = tail call i32 @arch_os_target_from_string(ptr noundef nonnull %274) #8
-  %277 = icmp eq i32 %276, 0
-  br i1 %277, label %278, label %279
+277:                                              ; preds = %get_valid_string.exit423
+  %278 = tail call i32 @arch_os_target_from_string(ptr noundef nonnull %276) #8
+  %279 = icmp eq i32 %278, 0
+  br i1 %279, label %280, label %281
 
-278:                                              ; preds = %275
+280:                                              ; preds = %277
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.135, ptr noundef %1) #9
   unreachable
 
-279:                                              ; preds = %275
-  %280 = getelementptr inbounds i8, ptr %2, i64 224
-  store i32 %276, ptr %280, align 8
-  br label %get_valid_string.exit424.thread
+281:                                              ; preds = %277
+  %282 = getelementptr inbounds i8, ptr %2, i64 224
+  store i32 %278, ptr %282, align 8
+  br label %get_valid_string.exit423.thread
 
-get_valid_string.exit424.thread:                  ; preds = %get_valid_integer.exit.thread, %279, %get_valid_string.exit424
-  %281 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.51) #8
-  %.not.i425 = icmp eq ptr %281, null
-  br i1 %.not.i425, label %get_valid_string_setting.exit427, label %282
+get_valid_string.exit423.thread:                  ; preds = %get_valid_integer.exit.thread, %281, %get_valid_string.exit423
+  %283 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.51) #8
+  %.not.i424 = icmp eq ptr %283, null
+  br i1 %.not.i424, label %get_valid_string_setting.exit426, label %284
 
-282:                                              ; preds = %get_valid_string.exit424.thread
-  %283 = load i32, ptr %281, align 8
-  %284 = icmp eq i32 %283, 1
-  br i1 %284, label %285, label %290
+284:                                              ; preds = %get_valid_string.exit423.thread
+  %285 = load i32, ptr %283, align 8
+  %286 = icmp eq i32 %285, 1
+  br i1 %286, label %287, label %292
 
-285:                                              ; preds = %282
-  %286 = getelementptr inbounds i8, ptr %281, i64 8
-  %287 = load ptr, ptr %286, align 8
-  %288 = tail call i32 @str_findlist(ptr noundef %287, i32 noundef 5, ptr noundef nonnull @reloc_models) #8
-  %289 = icmp sgt i32 %288, -1
-  br i1 %289, label %291, label %290
+287:                                              ; preds = %284
+  %288 = getelementptr inbounds i8, ptr %283, i64 8
+  %289 = load ptr, ptr %288, align 8
+  %290 = tail call i32 @str_findlist(ptr noundef %289, i32 noundef 5, ptr noundef nonnull @reloc_models) #8
+  %291 = icmp sgt i32 %290, -1
+  br i1 %291, label %293, label %292
 
-290:                                              ; preds = %285, %282
+292:                                              ; preds = %287, %284
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.185) #9
   unreachable
 
-291:                                              ; preds = %285
-  %292 = getelementptr inbounds i8, ptr %2, i64 220
-  store i32 %288, ptr %292, align 4
-  br label %get_valid_string_setting.exit427
+293:                                              ; preds = %287
+  %294 = getelementptr inbounds i8, ptr %2, i64 220
+  store i32 %290, ptr %294, align 4
+  br label %get_valid_string_setting.exit426
 
-get_valid_string_setting.exit427:                 ; preds = %get_valid_string.exit424.thread, %291
-  %293 = getelementptr inbounds i8, ptr %2, i64 88
-  %294 = load ptr, ptr %293, align 8
-  %295 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.10) #8
-  %.not.i428 = icmp eq ptr %295, null
-  br i1 %.not.i428, label %get_string.exit431, label %296
+get_valid_string_setting.exit426:                 ; preds = %get_valid_string.exit423.thread, %293
+  %295 = getelementptr inbounds i8, ptr %2, i64 88
+  %296 = load ptr, ptr %295, align 8
+  %297 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.10) #8
+  %.not.i427 = icmp eq ptr %297, null
+  br i1 %.not.i427, label %get_string.exit430, label %298
 
-296:                                              ; preds = %get_valid_string_setting.exit427
-  %297 = load i32, ptr %295, align 8
-  %.not10.i429 = icmp eq i32 %297, 1
-  br i1 %.not10.i429, label %299, label %298
+298:                                              ; preds = %get_valid_string_setting.exit426
+  %299 = load i32, ptr %297, align 8
+  %.not10.i428 = icmp eq i32 %299, 1
+  br i1 %.not10.i428, label %301, label %300
 
-298:                                              ; preds = %296
+300:                                              ; preds = %298
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.10) #9
   unreachable
 
-299:                                              ; preds = %296
-  %300 = getelementptr inbounds i8, ptr %295, i64 8
-  %301 = load ptr, ptr %300, align 8
-  br label %get_string.exit431
+301:                                              ; preds = %298
+  %302 = getelementptr inbounds i8, ptr %297, i64 8
+  %303 = load ptr, ptr %302, align 8
+  br label %get_string.exit430
 
-get_string.exit431:                               ; preds = %get_valid_string_setting.exit427, %299
-  %.0.i430 = phi ptr [ %301, %299 ], [ %294, %get_valid_string_setting.exit427 ]
-  store ptr %.0.i430, ptr %293, align 8
-  %302 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.81) #8
-  %.not.i432 = icmp eq ptr %302, null
-  br i1 %.not.i432, label %get_valid_string_setting.exit434, label %303
+get_string.exit430:                               ; preds = %get_valid_string_setting.exit426, %301
+  %.0.i429 = phi ptr [ %303, %301 ], [ %296, %get_valid_string_setting.exit426 ]
+  store ptr %.0.i429, ptr %295, align 8
+  %304 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.81) #8
+  %.not.i431 = icmp eq ptr %304, null
+  br i1 %.not.i431, label %get_valid_string_setting.exit433, label %305
 
-303:                                              ; preds = %get_string.exit431
-  %304 = load i32, ptr %302, align 8
-  %305 = icmp eq i32 %304, 1
-  br i1 %305, label %306, label %311
+305:                                              ; preds = %get_string.exit430
+  %306 = load i32, ptr %304, align 8
+  %307 = icmp eq i32 %306, 1
+  br i1 %307, label %308, label %313
 
-306:                                              ; preds = %303
-  %307 = getelementptr inbounds i8, ptr %302, i64 8
-  %308 = load ptr, ptr %307, align 8
-  %309 = tail call i32 @str_findlist(ptr noundef %308, i32 noundef 3, ptr noundef nonnull @wincrt_linking) #8
-  %310 = icmp sgt i32 %309, -1
-  br i1 %310, label %312, label %311
+308:                                              ; preds = %305
+  %309 = getelementptr inbounds i8, ptr %304, i64 8
+  %310 = load ptr, ptr %309, align 8
+  %311 = tail call i32 @str_findlist(ptr noundef %310, i32 noundef 3, ptr noundef nonnull @wincrt_linking) #8
+  %312 = icmp sgt i32 %311, -1
+  br i1 %312, label %314, label %313
 
-311:                                              ; preds = %306, %303
+313:                                              ; preds = %308, %305
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.186) #9
   unreachable
 
-312:                                              ; preds = %306
-  %313 = getelementptr inbounds i8, ptr %2, i64 392
-  store i32 %309, ptr %313, align 8
-  br label %get_valid_string_setting.exit434
+314:                                              ; preds = %308
+  %315 = getelementptr inbounds i8, ptr %2, i64 392
+  store i32 %311, ptr %315, align 8
+  br label %get_valid_string_setting.exit433
 
-get_valid_string_setting.exit434:                 ; preds = %get_string.exit431, %312
-  %314 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.22) #8
-  %.not.i435 = icmp eq ptr %314, null
-  br i1 %.not.i435, label %get_valid_string_setting.exit437, label %315
+get_valid_string_setting.exit433:                 ; preds = %get_string.exit430, %314
+  %316 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.22) #8
+  %.not.i434 = icmp eq ptr %316, null
+  br i1 %.not.i434, label %get_valid_string_setting.exit436, label %317
 
-315:                                              ; preds = %get_valid_string_setting.exit434
-  %316 = load i32, ptr %314, align 8
-  %317 = icmp eq i32 %316, 1
-  br i1 %317, label %318, label %323
+317:                                              ; preds = %get_valid_string_setting.exit433
+  %318 = load i32, ptr %316, align 8
+  %319 = icmp eq i32 %318, 1
+  br i1 %319, label %320, label %325
 
-318:                                              ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %314, i64 8
-  %320 = load ptr, ptr %319, align 8
-  %321 = tail call i32 @str_findlist(ptr noundef %320, i32 noundef 3, ptr noundef nonnull @fp_math) #8
-  %322 = icmp sgt i32 %321, -1
-  br i1 %322, label %324, label %323
+320:                                              ; preds = %317
+  %321 = getelementptr inbounds i8, ptr %316, i64 8
+  %322 = load ptr, ptr %321, align 8
+  %323 = tail call i32 @str_findlist(ptr noundef %322, i32 noundef 3, ptr noundef nonnull @fp_math) #8
+  %324 = icmp sgt i32 %323, -1
+  br i1 %324, label %326, label %325
 
-323:                                              ; preds = %318, %315
+325:                                              ; preds = %320, %317
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.187) #9
   unreachable
 
-324:                                              ; preds = %318
-  %325 = getelementptr inbounds i8, ptr %2, i64 332
-  store i32 %321, ptr %325, align 4
-  br label %get_valid_string_setting.exit437
+326:                                              ; preds = %320
+  %327 = getelementptr inbounds i8, ptr %2, i64 332
+  store i32 %323, ptr %327, align 4
+  br label %get_valid_string_setting.exit436
 
-get_valid_string_setting.exit437:                 ; preds = %get_valid_string_setting.exit434, %324
-  %326 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %1)
-  %.not358 = icmp eq ptr %326, null
-  br i1 %.not358, label %.loopexit, label %327
+get_valid_string_setting.exit436:                 ; preds = %get_valid_string_setting.exit433, %326
+  %328 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %1)
+  %.not358 = icmp eq ptr %328, null
+  br i1 %.not358, label %.loopexit, label %329
 
-327:                                              ; preds = %get_valid_string_setting.exit437
-  %328 = getelementptr inbounds i8, ptr %326, i64 -8
-  %329 = load i32, ptr %328, align 4
-  %.not594 = icmp eq i32 %329, 0
-  br i1 %.not594, label %.loopexit, label %.lr.ph591
+329:                                              ; preds = %get_valid_string_setting.exit436
+  %330 = getelementptr inbounds i8, ptr %328, i64 -8
+  %331 = load i32, ptr %330, align 4
+  %.not593 = icmp eq i32 %331, 0
+  br i1 %.not593, label %.loopexit, label %.lr.ph590
 
-.lr.ph591:                                        ; preds = %327
-  %330 = getelementptr inbounds i8, ptr %2, i64 312
-  %wide.trip.count615 = zext i32 %329 to i64
-  br label %331
+.lr.ph590:                                        ; preds = %329
+  %332 = getelementptr inbounds i8, ptr %2, i64 312
+  %wide.trip.count614 = zext i32 %331 to i64
+  br label %333
 
-331:                                              ; preds = %.lr.ph591, %361
-  %indvars.iv612 = phi i64 [ 0, %.lr.ph591 ], [ %indvars.iv.next613, %361 ]
-  %332 = getelementptr inbounds ptr, ptr %326, i64 %indvars.iv612
-  %333 = load ptr, ptr %332, align 8
-  %334 = tail call zeroext i1 @str_is_valid_constant(ptr noundef %333) #8
-  br i1 %334, label %336, label %335
+333:                                              ; preds = %.lr.ph590, %363
+  %indvars.iv611 = phi i64 [ 0, %.lr.ph590 ], [ %indvars.iv.next612, %363 ]
+  %334 = getelementptr inbounds ptr, ptr %328, i64 %indvars.iv611
+  %335 = load ptr, ptr %334, align 8
+  %336 = tail call zeroext i1 @str_is_valid_constant(ptr noundef %335) #8
+  br i1 %336, label %338, label %337
 
-335:                                              ; preds = %331
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.188, ptr noundef %333) #9
+337:                                              ; preds = %333
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.188, ptr noundef %335) #9
   unreachable
 
-336:                                              ; preds = %331
-  %337 = load ptr, ptr %330, align 8
-  %.not.i438 = icmp eq ptr %337, null
-  br i1 %.not.i438, label %338, label %341
+338:                                              ; preds = %333
+  %339 = load ptr, ptr %332, align 8
+  %.not.i437 = icmp eq ptr %339, null
+  br i1 %.not.i437, label %340, label %343
 
-338:                                              ; preds = %336
-  %339 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %340 = getelementptr inbounds i8, ptr %339, i64 4
-  store i32 8, ptr %340, align 4
-  br label %343
+340:                                              ; preds = %338
+  %341 = tail call ptr @calloc_arena(i64 noundef 72) #8
+  %342 = getelementptr inbounds i8, ptr %341, i64 4
+  store i32 8, ptr %342, align 4
+  br label %345
 
-341:                                              ; preds = %336
-  %342 = getelementptr inbounds i8, ptr %337, i64 -8
-  %.phi.trans.insert.i439 = getelementptr inbounds i8, ptr %337, i64 -4
-  %.pre.i440 = load i32, ptr %.phi.trans.insert.i439, align 4
-  br label %343
+343:                                              ; preds = %338
+  %344 = getelementptr inbounds i8, ptr %339, i64 -8
+  %.phi.trans.insert.i438 = getelementptr inbounds i8, ptr %339, i64 -4
+  %.pre.i439 = load i32, ptr %.phi.trans.insert.i438, align 4
+  br label %345
 
-343:                                              ; preds = %341, %338
-  %344 = phi i32 [ %.pre.i440, %341 ], [ 8, %338 ]
-  %.0.i441 = phi ptr [ %342, %341 ], [ %339, %338 ]
-  %345 = load i32, ptr %.0.i441, align 4
-  %346 = icmp eq i32 %345, %344
-  br i1 %346, label %347, label %361
+345:                                              ; preds = %343, %340
+  %346 = phi i32 [ %.pre.i439, %343 ], [ 8, %340 ]
+  %.0.i440 = phi ptr [ %344, %343 ], [ %341, %340 ]
+  %347 = load i32, ptr %.0.i440, align 4
+  %348 = icmp eq i32 %347, %346
+  br i1 %348, label %349, label %363
 
-347:                                              ; preds = %343
-  %348 = getelementptr inbounds i8, ptr %.0.i441, i64 4
-  %349 = shl i32 %344, 1
-  %350 = zext i32 %349 to i64
-  %351 = shl nuw nsw i64 %350, 3
-  %352 = or disjoint i64 %351, 8
-  %353 = tail call ptr @calloc_arena(i64 noundef %352) #8
-  %354 = getelementptr inbounds i8, ptr %353, i64 4
-  store i32 %349, ptr %354, align 4
-  %355 = load i32, ptr %348, align 4
-  %356 = zext i32 %355 to i64
-  %357 = shl nuw nsw i64 %356, 3
-  %358 = add nuw nsw i64 %357, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %353, ptr noundef nonnull align 4 dereferenceable(1) %.0.i441, i64 %358, i1 false)
-  %359 = load i32, ptr %354, align 4
-  %360 = shl i32 %359, 1
-  store i32 %360, ptr %354, align 4
-  %.pre18.i443 = load i32, ptr %353, align 4
-  br label %361
+349:                                              ; preds = %345
+  %350 = getelementptr inbounds i8, ptr %.0.i440, i64 4
+  %351 = shl i32 %346, 1
+  %352 = zext i32 %351 to i64
+  %353 = shl nuw nsw i64 %352, 3
+  %354 = or disjoint i64 %353, 8
+  %355 = tail call ptr @calloc_arena(i64 noundef %354) #8
+  %356 = getelementptr inbounds i8, ptr %355, i64 4
+  store i32 %351, ptr %356, align 4
+  %357 = load i32, ptr %350, align 4
+  %358 = zext i32 %357 to i64
+  %359 = shl nuw nsw i64 %358, 3
+  %360 = add nuw nsw i64 %359, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %355, ptr noundef nonnull align 4 dereferenceable(1) %.0.i440, i64 %360, i1 false)
+  %361 = load i32, ptr %356, align 4
+  %362 = shl i32 %361, 1
+  store i32 %362, ptr %356, align 4
+  %.pre18.i442 = load i32, ptr %355, align 4
+  br label %363
 
-361:                                              ; preds = %343, %347
-  %362 = phi i32 [ %.pre18.i443, %347 ], [ %345, %343 ]
-  %.1.i442 = phi ptr [ %353, %347 ], [ %.0.i441, %343 ]
-  %363 = add i32 %362, 1
-  store i32 %363, ptr %.1.i442, align 4
-  %364 = getelementptr inbounds i8, ptr %.1.i442, i64 8
-  store ptr %364, ptr %330, align 8
-  %365 = load i32, ptr %.1.i442, align 4
-  %366 = add i32 %365, -1
-  %367 = zext i32 %366 to i64
-  %368 = getelementptr inbounds ptr, ptr %364, i64 %367
-  store ptr %333, ptr %368, align 8
-  %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
-  %exitcond616.not = icmp eq i64 %indvars.iv.next613, %wide.trip.count615
-  br i1 %exitcond616.not, label %.loopexit, label %331, !llvm.loop !16
+363:                                              ; preds = %345, %349
+  %364 = phi i32 [ %.pre18.i442, %349 ], [ %347, %345 ]
+  %.1.i441 = phi ptr [ %355, %349 ], [ %.0.i440, %345 ]
+  %365 = add i32 %364, 1
+  store i32 %365, ptr %.1.i441, align 4
+  %366 = getelementptr inbounds i8, ptr %.1.i441, i64 8
+  store ptr %366, ptr %332, align 8
+  %367 = load i32, ptr %.1.i441, align 4
+  %368 = add i32 %367, -1
+  %369 = zext i32 %368 to i64
+  %370 = getelementptr inbounds ptr, ptr %366, i64 %369
+  store ptr %335, ptr %370, align 8
+  %indvars.iv.next612 = add nuw nsw i64 %indvars.iv611, 1
+  %exitcond615.not = icmp eq i64 %indvars.iv.next612, %wide.trip.count614
+  br i1 %exitcond615.not, label %.loopexit, label %333, !llvm.loop !16
 
-.loopexit:                                        ; preds = %361, %327, %get_valid_string_setting.exit437
-  %369 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.89) #8
-  %.not.i445 = icmp eq ptr %369, null
-  br i1 %.not.i445, label %get_valid_string_setting.exit447, label %370
+.loopexit:                                        ; preds = %363, %329, %get_valid_string_setting.exit436
+  %371 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.89) #8
+  %.not.i444 = icmp eq ptr %371, null
+  br i1 %.not.i444, label %get_valid_string_setting.exit446, label %372
 
-370:                                              ; preds = %.loopexit
-  %371 = load i32, ptr %369, align 8
-  %372 = icmp eq i32 %371, 1
-  br i1 %372, label %373, label %378
+372:                                              ; preds = %.loopexit
+  %373 = load i32, ptr %371, align 8
+  %374 = icmp eq i32 %373, 1
+  br i1 %374, label %375, label %380
 
-373:                                              ; preds = %370
-  %374 = getelementptr inbounds i8, ptr %369, i64 8
-  %375 = load ptr, ptr %374, align 8
-  %376 = tail call i32 @str_findlist(ptr noundef %375, i32 noundef 6, ptr noundef nonnull @x86_vector_capability) #8
-  %377 = icmp sgt i32 %376, -1
-  br i1 %377, label %379, label %378
+375:                                              ; preds = %372
+  %376 = getelementptr inbounds i8, ptr %371, i64 8
+  %377 = load ptr, ptr %376, align 8
+  %378 = tail call i32 @str_findlist(ptr noundef %377, i32 noundef 6, ptr noundef nonnull @x86_vector_capability) #8
+  %379 = icmp sgt i32 %378, -1
+  br i1 %379, label %381, label %380
 
-378:                                              ; preds = %373, %370
+380:                                              ; preds = %375, %372
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.189) #9
   unreachable
 
-379:                                              ; preds = %373
-  %380 = trunc i32 %376 to i16
-  %381 = load i16, ptr %214, align 8
-  %382 = shl i16 %380, 6
-  %383 = and i16 %382, 960
-  %384 = and i16 %381, -961
-  %385 = or disjoint i16 %384, %383
-  store i16 %385, ptr %214, align 8
-  br label %get_valid_string_setting.exit447
+381:                                              ; preds = %375
+  %382 = trunc i32 %378 to i16
+  %383 = load i16, ptr %216, align 8
+  %384 = shl i16 %382, 6
+  %385 = and i16 %384, 960
+  %386 = and i16 %383, -961
+  %387 = or disjoint i16 %386, %385
+  store i16 %387, ptr %216, align 8
+  br label %get_valid_string_setting.exit446
 
-get_valid_string_setting.exit447:                 ; preds = %.loopexit, %379
-  %386 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.87) #8
-  %.not.i448 = icmp eq ptr %386, null
-  br i1 %.not.i448, label %get_valid_string_setting.exit450, label %387
+get_valid_string_setting.exit446:                 ; preds = %.loopexit, %381
+  %388 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.87) #8
+  %.not.i447 = icmp eq ptr %388, null
+  br i1 %.not.i447, label %get_valid_string_setting.exit449, label %389
 
-387:                                              ; preds = %get_valid_string_setting.exit447
-  %388 = load i32, ptr %386, align 8
-  %389 = icmp eq i32 %388, 1
-  br i1 %389, label %390, label %395
+389:                                              ; preds = %get_valid_string_setting.exit446
+  %390 = load i32, ptr %388, align 8
+  %391 = icmp eq i32 %390, 1
+  br i1 %391, label %392, label %397
 
-390:                                              ; preds = %387
-  %391 = getelementptr inbounds i8, ptr %386, i64 8
-  %392 = load ptr, ptr %391, align 8
-  %393 = tail call i32 @str_findlist(ptr noundef %392, i32 noundef 8, ptr noundef nonnull @x86_cpu_set) #8
-  %394 = icmp sgt i32 %393, -1
-  br i1 %394, label %396, label %395
+392:                                              ; preds = %389
+  %393 = getelementptr inbounds i8, ptr %388, i64 8
+  %394 = load ptr, ptr %393, align 8
+  %395 = tail call i32 @str_findlist(ptr noundef %394, i32 noundef 8, ptr noundef nonnull @x86_cpu_set) #8
+  %396 = icmp sgt i32 %395, -1
+  br i1 %396, label %398, label %397
 
-395:                                              ; preds = %390, %387
+397:                                              ; preds = %392, %389
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.190) #9
   unreachable
 
-396:                                              ; preds = %390
-  %397 = getelementptr inbounds i8, ptr %2, i64 340
-  store i32 %393, ptr %397, align 4
-  br label %get_valid_string_setting.exit450
+398:                                              ; preds = %392
+  %399 = getelementptr inbounds i8, ptr %2, i64 340
+  store i32 %395, ptr %399, align 4
+  br label %get_valid_string_setting.exit449
 
-get_valid_string_setting.exit450:                 ; preds = %get_valid_string_setting.exit447, %396
-  %398 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.191) #8
-  %.not.i451 = icmp eq ptr %398, null
-  br i1 %.not.i451, label %get_valid_string_setting.exit453, label %399
+get_valid_string_setting.exit449:                 ; preds = %get_valid_string_setting.exit446, %398
+  %400 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.191) #8
+  %.not.i450 = icmp eq ptr %400, null
+  br i1 %.not.i450, label %get_valid_string_setting.exit452, label %401
 
-399:                                              ; preds = %get_valid_string_setting.exit450
-  %400 = load i32, ptr %398, align 8
-  %401 = icmp eq i32 %400, 1
-  br i1 %401, label %402, label %407
+401:                                              ; preds = %get_valid_string_setting.exit449
+  %402 = load i32, ptr %400, align 8
+  %403 = icmp eq i32 %402, 1
+  br i1 %403, label %404, label %409
 
-402:                                              ; preds = %399
-  %403 = getelementptr inbounds i8, ptr %398, i64 8
-  %404 = load ptr, ptr %403, align 8
-  %405 = tail call i32 @str_findlist(ptr noundef %404, i32 noundef 3, ptr noundef nonnull @riscv_capability) #8
-  %406 = icmp sgt i32 %405, -1
-  br i1 %406, label %408, label %407
+404:                                              ; preds = %401
+  %405 = getelementptr inbounds i8, ptr %400, i64 8
+  %406 = load ptr, ptr %405, align 8
+  %407 = tail call i32 @str_findlist(ptr noundef %406, i32 noundef 3, ptr noundef nonnull @riscv_capability) #8
+  %408 = icmp sgt i32 %407, -1
+  br i1 %408, label %410, label %409
 
-407:                                              ; preds = %402, %399
+409:                                              ; preds = %404, %401
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.234, ptr noundef %1, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192) #9
   unreachable
 
-408:                                              ; preds = %402
-  %409 = trunc i32 %405 to i16
-  %410 = load i16, ptr %214, align 8
-  %411 = shl i16 %409, 10
-  %412 = and i16 %411, 15360
-  %413 = and i16 %410, -15361
-  %414 = or disjoint i16 %413, %412
-  store i16 %414, ptr %214, align 8
-  br label %get_valid_string_setting.exit453
+410:                                              ; preds = %404
+  %411 = trunc i32 %407 to i16
+  %412 = load i16, ptr %216, align 8
+  %413 = shl i16 %411, 10
+  %414 = and i16 %413, 15360
+  %415 = and i16 %412, -15361
+  %416 = or disjoint i16 %415, %414
+  store i16 %416, ptr %216, align 8
+  br label %get_valid_string_setting.exit452
 
-get_valid_string_setting.exit453:                 ; preds = %get_valid_string_setting.exit450, %408
-  %415 = getelementptr inbounds i8, ptr %2, i64 376
-  %416 = load ptr, ptr %415, align 8
-  %417 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.85) #8
-  %.not.i454 = icmp eq ptr %417, null
-  br i1 %.not.i454, label %get_string.exit457, label %418
+get_valid_string_setting.exit452:                 ; preds = %get_valid_string_setting.exit449, %410
+  %417 = getelementptr inbounds i8, ptr %2, i64 376
+  %418 = load ptr, ptr %417, align 8
+  %419 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.85) #8
+  %.not.i453 = icmp eq ptr %419, null
+  br i1 %.not.i453, label %get_string.exit456, label %420
 
-418:                                              ; preds = %get_valid_string_setting.exit453
-  %419 = load i32, ptr %417, align 8
-  %.not10.i455 = icmp eq i32 %419, 1
-  br i1 %.not10.i455, label %421, label %420
+420:                                              ; preds = %get_valid_string_setting.exit452
+  %421 = load i32, ptr %419, align 8
+  %.not10.i454 = icmp eq i32 %421, 1
+  br i1 %.not10.i454, label %423, label %422
 
-420:                                              ; preds = %418
+422:                                              ; preds = %420
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.85) #9
   unreachable
 
-421:                                              ; preds = %418
-  %422 = getelementptr inbounds i8, ptr %417, i64 8
-  %423 = load ptr, ptr %422, align 8
-  br label %get_string.exit457
-
-get_string.exit457:                               ; preds = %get_valid_string_setting.exit453, %421
-  %.0.i456 = phi ptr [ %423, %421 ], [ %416, %get_valid_string_setting.exit453 ]
-  store ptr %.0.i456, ptr %415, align 8
-  %424 = getelementptr inbounds i8, ptr %2, i64 384
+423:                                              ; preds = %420
+  %424 = getelementptr inbounds i8, ptr %419, i64 8
   %425 = load ptr, ptr %424, align 8
-  %426 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.83) #8
-  %.not.i458 = icmp eq ptr %426, null
-  br i1 %.not.i458, label %get_string.exit461, label %427
+  br label %get_string.exit456
 
-427:                                              ; preds = %get_string.exit457
-  %428 = load i32, ptr %426, align 8
-  %.not10.i459 = icmp eq i32 %428, 1
-  br i1 %.not10.i459, label %430, label %429
+get_string.exit456:                               ; preds = %get_valid_string_setting.exit452, %423
+  %.0.i455 = phi ptr [ %425, %423 ], [ %418, %get_valid_string_setting.exit452 ]
+  store ptr %.0.i455, ptr %417, align 8
+  %426 = getelementptr inbounds i8, ptr %2, i64 384
+  %427 = load ptr, ptr %426, align 8
+  %428 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.83) #8
+  %.not.i457 = icmp eq ptr %428, null
+  br i1 %.not.i457, label %get_string.exit460, label %429
 
-429:                                              ; preds = %427
+429:                                              ; preds = %get_string.exit456
+  %430 = load i32, ptr %428, align 8
+  %.not10.i458 = icmp eq i32 %430, 1
+  br i1 %.not10.i458, label %432, label %431
+
+431:                                              ; preds = %429
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.83) #9
   unreachable
 
-430:                                              ; preds = %427
-  %431 = getelementptr inbounds i8, ptr %426, i64 8
-  %432 = load ptr, ptr %431, align 8
-  br label %get_string.exit461
-
-get_string.exit461:                               ; preds = %get_string.exit457, %430
-  %.0.i460 = phi ptr [ %432, %430 ], [ %425, %get_string.exit457 ]
-  store ptr %.0.i460, ptr %424, align 8
-  %433 = getelementptr inbounds i8, ptr %2, i64 344
+432:                                              ; preds = %429
+  %433 = getelementptr inbounds i8, ptr %428, i64 8
   %434 = load ptr, ptr %433, align 8
-  %435 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.36) #8
-  %.not.i462 = icmp eq ptr %435, null
-  br i1 %.not.i462, label %get_string.exit465, label %436
+  br label %get_string.exit460
 
-436:                                              ; preds = %get_string.exit461
-  %437 = load i32, ptr %435, align 8
-  %.not10.i463 = icmp eq i32 %437, 1
-  br i1 %.not10.i463, label %439, label %438
+get_string.exit460:                               ; preds = %get_string.exit456, %432
+  %.0.i459 = phi ptr [ %434, %432 ], [ %427, %get_string.exit456 ]
+  store ptr %.0.i459, ptr %426, align 8
+  %435 = getelementptr inbounds i8, ptr %2, i64 344
+  %436 = load ptr, ptr %435, align 8
+  %437 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.36) #8
+  %.not.i461 = icmp eq ptr %437, null
+  br i1 %.not.i461, label %get_string.exit464, label %438
 
-438:                                              ; preds = %436
+438:                                              ; preds = %get_string.exit460
+  %439 = load i32, ptr %437, align 8
+  %.not10.i462 = icmp eq i32 %439, 1
+  br i1 %.not10.i462, label %441, label %440
+
+440:                                              ; preds = %438
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.36) #9
   unreachable
 
-439:                                              ; preds = %436
-  %440 = getelementptr inbounds i8, ptr %435, i64 8
-  %441 = load ptr, ptr %440, align 8
-  br label %get_string.exit465
-
-get_string.exit465:                               ; preds = %get_string.exit461, %439
-  %.0.i464 = phi ptr [ %441, %439 ], [ %434, %get_string.exit461 ]
-  store ptr %.0.i464, ptr %433, align 8
-  %442 = getelementptr inbounds i8, ptr %2, i64 352
+441:                                              ; preds = %438
+  %442 = getelementptr inbounds i8, ptr %437, i64 8
   %443 = load ptr, ptr %442, align 8
-  %444 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.193) #8
-  %.not.i466 = icmp eq ptr %444, null
-  br i1 %.not.i466, label %get_string.exit469, label %445
+  br label %get_string.exit464
 
-445:                                              ; preds = %get_string.exit465
-  %446 = load i32, ptr %444, align 8
-  %.not10.i467 = icmp eq i32 %446, 1
-  br i1 %.not10.i467, label %448, label %447
+get_string.exit464:                               ; preds = %get_string.exit460, %441
+  %.0.i463 = phi ptr [ %443, %441 ], [ %436, %get_string.exit460 ]
+  store ptr %.0.i463, ptr %435, align 8
+  %444 = getelementptr inbounds i8, ptr %2, i64 352
+  %445 = load ptr, ptr %444, align 8
+  %446 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.193) #8
+  %.not.i465 = icmp eq ptr %446, null
+  br i1 %.not.i465, label %get_string.exit468, label %447
 
-447:                                              ; preds = %445
+447:                                              ; preds = %get_string.exit464
+  %448 = load i32, ptr %446, align 8
+  %.not10.i466 = icmp eq i32 %448, 1
+  br i1 %.not10.i466, label %450, label %449
+
+449:                                              ; preds = %447
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.193) #9
   unreachable
 
-448:                                              ; preds = %445
-  %449 = getelementptr inbounds i8, ptr %444, i64 8
-  %450 = load ptr, ptr %449, align 8
-  br label %get_string.exit469
-
-get_string.exit469:                               ; preds = %get_string.exit465, %448
-  %.0.i468 = phi ptr [ %450, %448 ], [ %443, %get_string.exit465 ]
-  store ptr %.0.i468, ptr %442, align 8
-  %451 = getelementptr inbounds i8, ptr %2, i64 360
+450:                                              ; preds = %447
+  %451 = getelementptr inbounds i8, ptr %446, i64 8
   %452 = load ptr, ptr %451, align 8
-  %453 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.194) #8
-  %.not.i470 = icmp eq ptr %453, null
-  br i1 %.not.i470, label %get_string.exit473, label %454
+  br label %get_string.exit468
 
-454:                                              ; preds = %get_string.exit469
-  %455 = load i32, ptr %453, align 8
-  %.not10.i471 = icmp eq i32 %455, 1
-  br i1 %.not10.i471, label %457, label %456
+get_string.exit468:                               ; preds = %get_string.exit464, %450
+  %.0.i467 = phi ptr [ %452, %450 ], [ %445, %get_string.exit464 ]
+  store ptr %.0.i467, ptr %444, align 8
+  %453 = getelementptr inbounds i8, ptr %2, i64 360
+  %454 = load ptr, ptr %453, align 8
+  %455 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.194) #8
+  %.not.i469 = icmp eq ptr %455, null
+  br i1 %.not.i469, label %get_string.exit472, label %456
 
-456:                                              ; preds = %454
+456:                                              ; preds = %get_string.exit468
+  %457 = load i32, ptr %455, align 8
+  %.not10.i470 = icmp eq i32 %457, 1
+  br i1 %.not10.i470, label %459, label %458
+
+458:                                              ; preds = %456
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.194) #9
   unreachable
 
-457:                                              ; preds = %454
-  %458 = getelementptr inbounds i8, ptr %453, i64 8
-  %459 = load ptr, ptr %458, align 8
-  br label %get_string.exit473
-
-get_string.exit473:                               ; preds = %get_string.exit469, %457
-  %.0.i472 = phi ptr [ %459, %457 ], [ %452, %get_string.exit469 ]
-  store ptr %.0.i472, ptr %451, align 8
-  %460 = getelementptr inbounds i8, ptr %2, i64 400
+459:                                              ; preds = %456
+  %460 = getelementptr inbounds i8, ptr %455, i64 8
   %461 = load ptr, ptr %460, align 8
-  %462 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.195) #8
-  %.not.i474 = icmp eq ptr %462, null
-  br i1 %.not.i474, label %get_string.exit477, label %463
+  br label %get_string.exit472
 
-463:                                              ; preds = %get_string.exit473
-  %464 = load i32, ptr %462, align 8
-  %.not10.i475 = icmp eq i32 %464, 1
-  br i1 %.not10.i475, label %466, label %465
+get_string.exit472:                               ; preds = %get_string.exit468, %459
+  %.0.i471 = phi ptr [ %461, %459 ], [ %454, %get_string.exit468 ]
+  store ptr %.0.i471, ptr %453, align 8
+  %462 = getelementptr inbounds i8, ptr %2, i64 400
+  %463 = load ptr, ptr %462, align 8
+  %464 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.195) #8
+  %.not.i473 = icmp eq ptr %464, null
+  br i1 %.not.i473, label %get_string.exit476, label %465
 
-465:                                              ; preds = %463
+465:                                              ; preds = %get_string.exit472
+  %466 = load i32, ptr %464, align 8
+  %.not10.i474 = icmp eq i32 %466, 1
+  br i1 %.not10.i474, label %468, label %467
+
+467:                                              ; preds = %465
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.195) #9
   unreachable
 
-466:                                              ; preds = %463
-  %467 = getelementptr inbounds i8, ptr %462, i64 8
-  %468 = load ptr, ptr %467, align 8
-  br label %get_string.exit477
-
-get_string.exit477:                               ; preds = %get_string.exit473, %466
-  %.0.i476 = phi ptr [ %468, %466 ], [ %461, %get_string.exit473 ]
-  store ptr %.0.i476, ptr %460, align 8
-  %469 = getelementptr inbounds i8, ptr %2, i64 408
+468:                                              ; preds = %465
+  %469 = getelementptr inbounds i8, ptr %464, i64 8
   %470 = load ptr, ptr %469, align 8
-  %471 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.196) #8
-  %.not.i478 = icmp eq ptr %471, null
-  br i1 %.not.i478, label %get_string.exit481, label %472
+  br label %get_string.exit476
 
-472:                                              ; preds = %get_string.exit477
-  %473 = load i32, ptr %471, align 8
-  %.not10.i479 = icmp eq i32 %473, 1
-  br i1 %.not10.i479, label %475, label %474
+get_string.exit476:                               ; preds = %get_string.exit472, %468
+  %.0.i475 = phi ptr [ %470, %468 ], [ %463, %get_string.exit472 ]
+  store ptr %.0.i475, ptr %462, align 8
+  %471 = getelementptr inbounds i8, ptr %2, i64 408
+  %472 = load ptr, ptr %471, align 8
+  %473 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.196) #8
+  %.not.i477 = icmp eq ptr %473, null
+  br i1 %.not.i477, label %get_string.exit480, label %474
 
-474:                                              ; preds = %472
+474:                                              ; preds = %get_string.exit476
+  %475 = load i32, ptr %473, align 8
+  %.not10.i478 = icmp eq i32 %475, 1
+  br i1 %.not10.i478, label %477, label %476
+
+476:                                              ; preds = %474
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.196) #9
   unreachable
 
-475:                                              ; preds = %472
-  %476 = getelementptr inbounds i8, ptr %471, i64 8
-  %477 = load ptr, ptr %476, align 8
-  br label %get_string.exit481
-
-get_string.exit481:                               ; preds = %get_string.exit477, %475
-  %.0.i480 = phi ptr [ %477, %475 ], [ %470, %get_string.exit477 ]
-  store ptr %.0.i480, ptr %469, align 8
-  %478 = getelementptr inbounds i8, ptr %2, i64 24
+477:                                              ; preds = %474
+  %478 = getelementptr inbounds i8, ptr %473, i64 8
   %479 = load ptr, ptr %478, align 8
-  %480 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.77) #8
-  %.not.i482 = icmp eq ptr %480, null
-  br i1 %.not.i482, label %get_string.exit485, label %481
+  br label %get_string.exit480
 
-481:                                              ; preds = %get_string.exit481
-  %482 = load i32, ptr %480, align 8
-  %.not10.i483 = icmp eq i32 %482, 1
-  br i1 %.not10.i483, label %484, label %483
+get_string.exit480:                               ; preds = %get_string.exit476, %477
+  %.0.i479 = phi ptr [ %479, %477 ], [ %472, %get_string.exit476 ]
+  store ptr %.0.i479, ptr %471, align 8
+  %480 = getelementptr inbounds i8, ptr %2, i64 24
+  %481 = load ptr, ptr %480, align 8
+  %482 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.77) #8
+  %.not.i481 = icmp eq ptr %482, null
+  br i1 %.not.i481, label %get_string.exit484, label %483
 
-483:                                              ; preds = %481
+483:                                              ; preds = %get_string.exit480
+  %484 = load i32, ptr %482, align 8
+  %.not10.i482 = icmp eq i32 %484, 1
+  br i1 %.not10.i482, label %486, label %485
+
+485:                                              ; preds = %483
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.77) #9
   unreachable
 
-484:                                              ; preds = %481
-  %485 = getelementptr inbounds i8, ptr %480, i64 8
-  %486 = load ptr, ptr %485, align 8
-  br label %get_string.exit485
-
-get_string.exit485:                               ; preds = %get_string.exit481, %484
-  %.0.i484 = phi ptr [ %486, %484 ], [ %479, %get_string.exit481 ]
-  store ptr %.0.i484, ptr %478, align 8
-  %487 = getelementptr inbounds i8, ptr %2, i64 32
+486:                                              ; preds = %483
+  %487 = getelementptr inbounds i8, ptr %482, i64 8
   %488 = load ptr, ptr %487, align 8
-  %489 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.24) #8
-  %.not.i486 = icmp eq ptr %489, null
-  br i1 %.not.i486, label %get_string.exit489, label %490
+  br label %get_string.exit484
 
-490:                                              ; preds = %get_string.exit485
-  %491 = load i32, ptr %489, align 8
-  %.not10.i487 = icmp eq i32 %491, 1
-  br i1 %.not10.i487, label %493, label %492
+get_string.exit484:                               ; preds = %get_string.exit480, %486
+  %.0.i483 = phi ptr [ %488, %486 ], [ %481, %get_string.exit480 ]
+  store ptr %.0.i483, ptr %480, align 8
+  %489 = getelementptr inbounds i8, ptr %2, i64 32
+  %490 = load ptr, ptr %489, align 8
+  %491 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.24) #8
+  %.not.i485 = icmp eq ptr %491, null
+  br i1 %.not.i485, label %get_string.exit488, label %492
 
-492:                                              ; preds = %490
+492:                                              ; preds = %get_string.exit484
+  %493 = load i32, ptr %491, align 8
+  %.not10.i486 = icmp eq i32 %493, 1
+  br i1 %.not10.i486, label %495, label %494
+
+494:                                              ; preds = %492
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.24) #9
   unreachable
 
-493:                                              ; preds = %490
-  %494 = getelementptr inbounds i8, ptr %489, i64 8
-  %495 = load ptr, ptr %494, align 8
-  br label %get_string.exit489
-
-get_string.exit489:                               ; preds = %get_string.exit485, %493
-  %.0.i488 = phi ptr [ %495, %493 ], [ %488, %get_string.exit485 ]
-  store ptr %.0.i488, ptr %487, align 8
-  %496 = getelementptr inbounds i8, ptr %2, i64 248
+495:                                              ; preds = %492
+  %496 = getelementptr inbounds i8, ptr %491, i64 8
   %497 = load ptr, ptr %496, align 8
-  %498 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.49) #8
-  %.not.i490 = icmp eq ptr %498, null
-  br i1 %.not.i490, label %get_string.exit493, label %499
+  br label %get_string.exit488
 
-499:                                              ; preds = %get_string.exit489
-  %500 = load i32, ptr %498, align 8
-  %.not10.i491 = icmp eq i32 %500, 1
-  br i1 %.not10.i491, label %502, label %501
+get_string.exit488:                               ; preds = %get_string.exit484, %495
+  %.0.i487 = phi ptr [ %497, %495 ], [ %490, %get_string.exit484 ]
+  store ptr %.0.i487, ptr %489, align 8
+  %498 = getelementptr inbounds i8, ptr %2, i64 248
+  %499 = load ptr, ptr %498, align 8
+  %500 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.49) #8
+  %.not.i489 = icmp eq ptr %500, null
+  br i1 %.not.i489, label %get_string.exit492, label %501
 
-501:                                              ; preds = %499
+501:                                              ; preds = %get_string.exit488
+  %502 = load i32, ptr %500, align 8
+  %.not10.i490 = icmp eq i32 %502, 1
+  br i1 %.not10.i490, label %504, label %503
+
+503:                                              ; preds = %501
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.49) #9
   unreachable
 
-502:                                              ; preds = %499
-  %503 = getelementptr inbounds i8, ptr %498, i64 8
-  %504 = load ptr, ptr %503, align 8
-  br label %get_string.exit493
-
-get_string.exit493:                               ; preds = %get_string.exit489, %502
-  %.0.i492 = phi ptr [ %504, %502 ], [ %497, %get_string.exit489 ]
-  store ptr %.0.i492, ptr %496, align 8
-  %505 = getelementptr inbounds i8, ptr %2, i64 264
+504:                                              ; preds = %501
+  %505 = getelementptr inbounds i8, ptr %500, i64 8
   %506 = load ptr, ptr %505, align 8
-  %507 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.71) #8
-  %.not.i494 = icmp eq ptr %507, null
-  br i1 %.not.i494, label %get_string.exit497, label %508
+  br label %get_string.exit492
 
-508:                                              ; preds = %get_string.exit493
-  %509 = load i32, ptr %507, align 8
-  %.not10.i495 = icmp eq i32 %509, 1
-  br i1 %.not10.i495, label %511, label %510
+get_string.exit492:                               ; preds = %get_string.exit488, %504
+  %.0.i491 = phi ptr [ %506, %504 ], [ %499, %get_string.exit488 ]
+  store ptr %.0.i491, ptr %498, align 8
+  %507 = getelementptr inbounds i8, ptr %2, i64 264
+  %508 = load ptr, ptr %507, align 8
+  %509 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.71) #8
+  %.not.i493 = icmp eq ptr %509, null
+  br i1 %.not.i493, label %get_string.exit496, label %510
 
-510:                                              ; preds = %508
+510:                                              ; preds = %get_string.exit492
+  %511 = load i32, ptr %509, align 8
+  %.not10.i494 = icmp eq i32 %511, 1
+  br i1 %.not10.i494, label %513, label %512
+
+512:                                              ; preds = %510
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.71) #9
   unreachable
 
-511:                                              ; preds = %508
-  %512 = getelementptr inbounds i8, ptr %507, i64 8
-  %513 = load ptr, ptr %512, align 8
-  br label %get_string.exit497
-
-get_string.exit497:                               ; preds = %get_string.exit493, %511
-  %.0.i496 = phi ptr [ %513, %511 ], [ %506, %get_string.exit493 ]
-  store ptr %.0.i496, ptr %505, align 8
-  %514 = getelementptr inbounds i8, ptr %2, i64 256
+513:                                              ; preds = %510
+  %514 = getelementptr inbounds i8, ptr %509, i64 8
   %515 = load ptr, ptr %514, align 8
-  %516 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.2) #8
-  %.not.i498 = icmp eq ptr %516, null
-  br i1 %.not.i498, label %get_string.exit501, label %517
+  br label %get_string.exit496
 
-517:                                              ; preds = %get_string.exit497
-  %518 = load i32, ptr %516, align 8
-  %.not10.i499 = icmp eq i32 %518, 1
-  br i1 %.not10.i499, label %520, label %519
+get_string.exit496:                               ; preds = %get_string.exit492, %513
+  %.0.i495 = phi ptr [ %515, %513 ], [ %508, %get_string.exit492 ]
+  store ptr %.0.i495, ptr %507, align 8
+  %516 = getelementptr inbounds i8, ptr %2, i64 256
+  %517 = load ptr, ptr %516, align 8
+  %518 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.2) #8
+  %.not.i497 = icmp eq ptr %518, null
+  br i1 %.not.i497, label %get_string.exit500, label %519
 
-519:                                              ; preds = %517
+519:                                              ; preds = %get_string.exit496
+  %520 = load i32, ptr %518, align 8
+  %.not10.i498 = icmp eq i32 %520, 1
+  br i1 %.not10.i498, label %522, label %521
+
+521:                                              ; preds = %519
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.2) #9
   unreachable
 
-520:                                              ; preds = %517
-  %521 = getelementptr inbounds i8, ptr %516, i64 8
-  %522 = load ptr, ptr %521, align 8
-  br label %get_string.exit501
+522:                                              ; preds = %519
+  %523 = getelementptr inbounds i8, ptr %518, i64 8
+  %524 = load ptr, ptr %523, align 8
+  br label %get_string.exit500
 
-get_string.exit501:                               ; preds = %get_string.exit497, %520
-  %.0.i500 = phi ptr [ %522, %520 ], [ %515, %get_string.exit497 ]
-  store ptr %.0.i500, ptr %514, align 8
-  %523 = getelementptr inbounds i8, ptr %2, i64 208
-  %524 = load i32, ptr %523, align 8
-  %525 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.34) #8
-  %.not.i502 = icmp eq ptr %525, null
-  br i1 %.not.i502, label %get_valid_bool.exit505, label %526
+get_string.exit500:                               ; preds = %get_string.exit496, %522
+  %.0.i499 = phi ptr [ %524, %522 ], [ %517, %get_string.exit496 ]
+  store ptr %.0.i499, ptr %516, align 8
+  %525 = getelementptr inbounds i8, ptr %2, i64 208
+  %526 = load i32, ptr %525, align 8
+  %527 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.34) #8
+  %.not.i501 = icmp eq ptr %527, null
+  br i1 %.not.i501, label %get_valid_bool.exit504, label %528
 
-526:                                              ; preds = %get_string.exit501
-  %527 = load i32, ptr %525, align 8
-  %.not9.i503 = icmp eq i32 %527, 4
-  br i1 %.not9.i503, label %529, label %528
+528:                                              ; preds = %get_string.exit500
+  %529 = load i32, ptr %527, align 8
+  %.not9.i502 = icmp eq i32 %529, 4
+  br i1 %.not9.i502, label %531, label %530
 
-528:                                              ; preds = %526
+530:                                              ; preds = %528
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.34) #9
   unreachable
 
-529:                                              ; preds = %526
-  %530 = getelementptr inbounds i8, ptr %525, i64 8
-  %531 = load i8, ptr %530, align 8
-  %532 = and i8 %531, 1
-  %533 = zext nneg i8 %532 to i32
-  br label %get_valid_bool.exit505
+531:                                              ; preds = %528
+  %532 = getelementptr inbounds i8, ptr %527, i64 8
+  %533 = load i8, ptr %532, align 8
+  %534 = and i8 %533, 1
+  %535 = zext nneg i8 %534 to i32
+  br label %get_valid_bool.exit504
 
-get_valid_bool.exit505:                           ; preds = %get_string.exit501, %529
-  %.0.i504 = phi i32 [ %533, %529 ], [ %524, %get_string.exit501 ]
-  store i32 %.0.i504, ptr %523, align 8
-  %534 = getelementptr inbounds i8, ptr %2, i64 212
-  %535 = load i32, ptr %534, align 4
-  %536 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.63) #8
-  %.not.i506 = icmp eq ptr %536, null
-  br i1 %.not.i506, label %get_valid_bool.exit509, label %537
+get_valid_bool.exit504:                           ; preds = %get_string.exit500, %531
+  %.0.i503 = phi i32 [ %535, %531 ], [ %526, %get_string.exit500 ]
+  store i32 %.0.i503, ptr %525, align 8
+  %536 = getelementptr inbounds i8, ptr %2, i64 212
+  %537 = load i32, ptr %536, align 4
+  %538 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.63) #8
+  %.not.i505 = icmp eq ptr %538, null
+  br i1 %.not.i505, label %get_valid_bool.exit508, label %539
 
-537:                                              ; preds = %get_valid_bool.exit505
-  %538 = load i32, ptr %536, align 8
-  %.not9.i507 = icmp eq i32 %538, 4
-  br i1 %.not9.i507, label %540, label %539
+539:                                              ; preds = %get_valid_bool.exit504
+  %540 = load i32, ptr %538, align 8
+  %.not9.i506 = icmp eq i32 %540, 4
+  br i1 %.not9.i506, label %542, label %541
 
-539:                                              ; preds = %537
+541:                                              ; preds = %539
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.63) #9
   unreachable
 
-540:                                              ; preds = %537
-  %541 = getelementptr inbounds i8, ptr %536, i64 8
-  %542 = load i8, ptr %541, align 8
-  %543 = and i8 %542, 1
-  %544 = zext nneg i8 %543 to i32
-  br label %get_valid_bool.exit509
+542:                                              ; preds = %539
+  %543 = getelementptr inbounds i8, ptr %538, i64 8
+  %544 = load i8, ptr %543, align 8
+  %545 = and i8 %544, 1
+  %546 = zext nneg i8 %545 to i32
+  br label %get_valid_bool.exit508
 
-get_valid_bool.exit509:                           ; preds = %get_valid_bool.exit505, %540
-  %.0.i508 = phi i32 [ %544, %540 ], [ %535, %get_valid_bool.exit505 ]
-  store i32 %.0.i508, ptr %534, align 4
-  %545 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.28) #8
-  %.not.i510 = icmp eq ptr %545, null
-  br i1 %.not.i510, label %get_string.exit513.thread, label %546
+get_valid_bool.exit508:                           ; preds = %get_valid_bool.exit504, %542
+  %.0.i507 = phi i32 [ %546, %542 ], [ %537, %get_valid_bool.exit504 ]
+  store i32 %.0.i507, ptr %536, align 4
+  %547 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.28) #8
+  %.not.i509 = icmp eq ptr %547, null
+  br i1 %.not.i509, label %get_string.exit512.thread, label %548
 
-546:                                              ; preds = %get_valid_bool.exit509
-  %547 = load i32, ptr %545, align 8
-  %.not10.i511 = icmp eq i32 %547, 1
-  br i1 %.not10.i511, label %get_string.exit513, label %548
+548:                                              ; preds = %get_valid_bool.exit508
+  %549 = load i32, ptr %547, align 8
+  %.not10.i510 = icmp eq i32 %549, 1
+  br i1 %.not10.i510, label %get_string.exit512, label %550
 
-548:                                              ; preds = %546
+550:                                              ; preds = %548
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.201, ptr noundef %1, ptr noundef nonnull @.str.28) #9
   unreachable
 
-get_string.exit513:                               ; preds = %546
-  %549 = getelementptr inbounds i8, ptr %545, i64 8
-  %550 = load ptr, ptr %549, align 8
-  %.not359 = icmp eq ptr %550, null
-  br i1 %.not359, label %get_string.exit513.thread, label %551
+get_string.exit512:                               ; preds = %548
+  %551 = getelementptr inbounds i8, ptr %547, i64 8
+  %552 = load ptr, ptr %551, align 8
+  %.not359 = icmp eq ptr %552, null
+  br i1 %.not359, label %get_string.exit512.thread, label %553
 
-551:                                              ; preds = %get_string.exit513
-  %552 = tail call zeroext i1 @str_eq(ptr noundef nonnull @.str.6, ptr noundef nonnull %550) #8
-  %553 = getelementptr inbounds i8, ptr %2, i64 320
-  br i1 %552, label %554, label %556
+553:                                              ; preds = %get_string.exit512
+  %554 = tail call zeroext i1 @str_eq(ptr noundef nonnull @.str.6, ptr noundef nonnull %552) #8
+  %555 = getelementptr inbounds i8, ptr %2, i64 320
+  br i1 %554, label %556, label %558
 
-554:                                              ; preds = %551
-  %555 = getelementptr inbounds i8, ptr %2, i64 232
-  store i32 1, ptr %555, align 8
-  br label %get_string.exit513.thread.sink.split
+556:                                              ; preds = %553
+  %557 = getelementptr inbounds i8, ptr %2, i64 232
+  store i32 1, ptr %557, align 8
+  br label %get_string.exit512.thread.sink.split
 
-556:                                              ; preds = %551
-  %557 = tail call zeroext i1 @str_eq(ptr noundef nonnull @.str.197, ptr noundef nonnull %550) #8
-  %558 = getelementptr inbounds i8, ptr %2, i64 232
-  br i1 %557, label %559, label %560
+558:                                              ; preds = %553
+  %559 = tail call zeroext i1 @str_eq(ptr noundef nonnull @.str.197, ptr noundef nonnull %552) #8
+  %560 = getelementptr inbounds i8, ptr %2, i64 232
+  br i1 %559, label %561, label %562
 
-559:                                              ; preds = %556
-  store i32 0, ptr %558, align 8
-  br label %get_string.exit513.thread.sink.split
+561:                                              ; preds = %558
+  store i32 0, ptr %560, align 8
+  br label %get_string.exit512.thread.sink.split
 
-560:                                              ; preds = %556
-  store i32 2, ptr %558, align 8
-  br label %get_string.exit513.thread.sink.split
+562:                                              ; preds = %558
+  store i32 2, ptr %560, align 8
+  br label %get_string.exit512.thread.sink.split
 
-get_string.exit513.thread.sink.split:             ; preds = %559, %560, %554
-  %.sink = phi ptr [ null, %554 ], [ %550, %560 ], [ null, %559 ]
-  store ptr %.sink, ptr %553, align 8
-  br label %get_string.exit513.thread
+get_string.exit512.thread.sink.split:             ; preds = %561, %562, %556
+  %.sink = phi ptr [ null, %556 ], [ %552, %562 ], [ null, %561 ]
+  store ptr %.sink, ptr %555, align 8
+  br label %get_string.exit512.thread
 
-get_string.exit513.thread:                        ; preds = %get_string.exit513.thread.sink.split, %get_valid_bool.exit509, %get_string.exit513
-  %561 = getelementptr inbounds i8, ptr %2, i64 171
-  %562 = load i8, ptr %561, align 1
-  %563 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.40) #8
-  %.not.i514 = icmp eq ptr %563, null
-  br i1 %.not.i514, label %get_valid_bool.exit517, label %564
+get_string.exit512.thread:                        ; preds = %get_string.exit512.thread.sink.split, %get_valid_bool.exit508, %get_string.exit512
+  %563 = getelementptr inbounds i8, ptr %2, i64 171
+  %564 = load i8, ptr %563, align 1
+  %565 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.40) #8
+  %.not.i513 = icmp eq ptr %565, null
+  br i1 %.not.i513, label %get_valid_bool.exit516, label %566
 
-564:                                              ; preds = %get_string.exit513.thread
-  %565 = load i32, ptr %563, align 8
-  %.not9.i515 = icmp eq i32 %565, 4
-  br i1 %.not9.i515, label %567, label %566
+566:                                              ; preds = %get_string.exit512.thread
+  %567 = load i32, ptr %565, align 8
+  %.not9.i514 = icmp eq i32 %567, 4
+  br i1 %.not9.i514, label %569, label %568
 
-566:                                              ; preds = %564
+568:                                              ; preds = %566
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.40) #9
   unreachable
 
-567:                                              ; preds = %564
-  %568 = getelementptr inbounds i8, ptr %563, i64 8
-  %569 = load i8, ptr %568, align 8
-  br label %get_valid_bool.exit517
+569:                                              ; preds = %566
+  %570 = getelementptr inbounds i8, ptr %565, i64 8
+  %571 = load i8, ptr %570, align 8
+  br label %get_valid_bool.exit516
 
-get_valid_bool.exit517:                           ; preds = %get_string.exit513.thread, %567
-  %.0.i516.in.in = phi i8 [ %569, %567 ], [ %562, %get_string.exit513.thread ]
-  %.0.i516.in = and i8 %.0.i516.in.in, 1
-  store i8 %.0.i516.in, ptr %561, align 1
-  %570 = getelementptr inbounds i8, ptr %2, i64 200
-  %571 = load i32, ptr %570, align 8
-  %572 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.75) #8
-  %.not.i518 = icmp eq ptr %572, null
-  br i1 %.not.i518, label %get_valid_bool.exit521, label %573
+get_valid_bool.exit516:                           ; preds = %get_string.exit512.thread, %569
+  %.0.i515.in.in = phi i8 [ %571, %569 ], [ %564, %get_string.exit512.thread ]
+  %.0.i515.in = and i8 %.0.i515.in.in, 1
+  store i8 %.0.i515.in, ptr %563, align 1
+  %572 = getelementptr inbounds i8, ptr %2, i64 200
+  %573 = load i32, ptr %572, align 8
+  %574 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.75) #8
+  %.not.i517 = icmp eq ptr %574, null
+  br i1 %.not.i517, label %get_valid_bool.exit520, label %575
 
-573:                                              ; preds = %get_valid_bool.exit517
-  %574 = load i32, ptr %572, align 8
-  %.not9.i519 = icmp eq i32 %574, 4
-  br i1 %.not9.i519, label %576, label %575
+575:                                              ; preds = %get_valid_bool.exit516
+  %576 = load i32, ptr %574, align 8
+  %.not9.i518 = icmp eq i32 %576, 4
+  br i1 %.not9.i518, label %578, label %577
 
-575:                                              ; preds = %573
+577:                                              ; preds = %575
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.75) #9
   unreachable
 
-576:                                              ; preds = %573
-  %577 = getelementptr inbounds i8, ptr %572, i64 8
-  %578 = load i8, ptr %577, align 8
-  %579 = and i8 %578, 1
-  %580 = zext nneg i8 %579 to i32
-  br label %get_valid_bool.exit521
+578:                                              ; preds = %575
+  %579 = getelementptr inbounds i8, ptr %574, i64 8
+  %580 = load i8, ptr %579, align 8
+  %581 = and i8 %580, 1
+  %582 = zext nneg i8 %581 to i32
+  br label %get_valid_bool.exit520
 
-get_valid_bool.exit521:                           ; preds = %get_valid_bool.exit517, %576
-  %.0.i520 = phi i32 [ %580, %576 ], [ %571, %get_valid_bool.exit517 ]
-  store i32 %.0.i520, ptr %570, align 8
-  %581 = getelementptr inbounds i8, ptr %2, i64 204
-  %582 = load i32, ptr %581, align 4
-  %583 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.198) #8
-  %.not.i522 = icmp eq ptr %583, null
-  br i1 %.not.i522, label %get_valid_bool.exit525, label %584
+get_valid_bool.exit520:                           ; preds = %get_valid_bool.exit516, %578
+  %.0.i519 = phi i32 [ %582, %578 ], [ %573, %get_valid_bool.exit516 ]
+  store i32 %.0.i519, ptr %572, align 8
+  %583 = getelementptr inbounds i8, ptr %2, i64 204
+  %584 = load i32, ptr %583, align 4
+  %585 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.198) #8
+  %.not.i521 = icmp eq ptr %585, null
+  br i1 %.not.i521, label %get_valid_bool.exit524, label %586
 
-584:                                              ; preds = %get_valid_bool.exit521
-  %585 = load i32, ptr %583, align 8
-  %.not9.i523 = icmp eq i32 %585, 4
-  br i1 %.not9.i523, label %587, label %586
+586:                                              ; preds = %get_valid_bool.exit520
+  %587 = load i32, ptr %585, align 8
+  %.not9.i522 = icmp eq i32 %587, 4
+  br i1 %.not9.i522, label %589, label %588
 
-586:                                              ; preds = %584
+588:                                              ; preds = %586
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.198) #9
   unreachable
 
-587:                                              ; preds = %584
-  %588 = getelementptr inbounds i8, ptr %583, i64 8
-  %589 = load i8, ptr %588, align 8
-  %590 = and i8 %589, 1
-  %591 = zext nneg i8 %590 to i32
-  br label %get_valid_bool.exit525
+589:                                              ; preds = %586
+  %590 = getelementptr inbounds i8, ptr %585, i64 8
+  %591 = load i8, ptr %590, align 8
+  %592 = and i8 %591, 1
+  %593 = zext nneg i8 %592 to i32
+  br label %get_valid_bool.exit524
 
-get_valid_bool.exit525:                           ; preds = %get_valid_bool.exit521, %587
-  %.0.i524 = phi i32 [ %591, %587 ], [ %582, %get_valid_bool.exit521 ]
-  store i32 %.0.i524, ptr %581, align 4
-  %592 = load i32, ptr %226, align 4
-  %593 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.57) #8
-  %.not.i526 = icmp eq ptr %593, null
-  br i1 %.not.i526, label %get_valid_bool.exit529, label %594
+get_valid_bool.exit524:                           ; preds = %get_valid_bool.exit520, %589
+  %.0.i523 = phi i32 [ %593, %589 ], [ %584, %get_valid_bool.exit520 ]
+  store i32 %.0.i523, ptr %583, align 4
+  %594 = load i32, ptr %228, align 4
+  %595 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.57) #8
+  %.not.i525 = icmp eq ptr %595, null
+  br i1 %.not.i525, label %get_valid_bool.exit528, label %596
 
-594:                                              ; preds = %get_valid_bool.exit525
-  %595 = load i32, ptr %593, align 8
-  %.not9.i527 = icmp eq i32 %595, 4
-  br i1 %.not9.i527, label %597, label %596
+596:                                              ; preds = %get_valid_bool.exit524
+  %597 = load i32, ptr %595, align 8
+  %.not9.i526 = icmp eq i32 %597, 4
+  br i1 %.not9.i526, label %599, label %598
 
-596:                                              ; preds = %594
+598:                                              ; preds = %596
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.57) #9
   unreachable
 
-597:                                              ; preds = %594
-  %598 = getelementptr inbounds i8, ptr %593, i64 8
-  %599 = load i8, ptr %598, align 8
-  %600 = and i8 %599, 1
-  %601 = zext nneg i8 %600 to i32
-  br label %get_valid_bool.exit529
+599:                                              ; preds = %596
+  %600 = getelementptr inbounds i8, ptr %595, i64 8
+  %601 = load i8, ptr %600, align 8
+  %602 = and i8 %601, 1
+  %603 = zext nneg i8 %602 to i32
+  br label %get_valid_bool.exit528
 
-get_valid_bool.exit529:                           ; preds = %get_valid_bool.exit525, %597
-  %.0.i528 = phi i32 [ %601, %597 ], [ %592, %get_valid_bool.exit525 ]
-  store i32 %.0.i528, ptr %226, align 4
-  %602 = load i16, ptr %214, align 8
-  %603 = lshr i16 %602, 14
-  %.lobit = and i16 %603, 1
-  %604 = zext nneg i16 %.lobit to i32
-  %605 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.73) #8
-  %.not.i530 = icmp eq ptr %605, null
-  br i1 %.not.i530, label %get_valid_bool.exit533, label %606
+get_valid_bool.exit528:                           ; preds = %get_valid_bool.exit524, %599
+  %.0.i527 = phi i32 [ %603, %599 ], [ %594, %get_valid_bool.exit524 ]
+  store i32 %.0.i527, ptr %228, align 4
+  %604 = load i16, ptr %216, align 8
+  %605 = lshr i16 %604, 14
+  %.lobit = and i16 %605, 1
+  %606 = zext nneg i16 %.lobit to i32
+  %607 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.73) #8
+  %.not.i529 = icmp eq ptr %607, null
+  br i1 %.not.i529, label %get_valid_bool.exit532, label %608
 
-606:                                              ; preds = %get_valid_bool.exit529
-  %607 = load i32, ptr %605, align 8
-  %.not9.i531 = icmp eq i32 %607, 4
-  br i1 %.not9.i531, label %609, label %608
+608:                                              ; preds = %get_valid_bool.exit528
+  %609 = load i32, ptr %607, align 8
+  %.not9.i530 = icmp eq i32 %609, 4
+  br i1 %.not9.i530, label %611, label %610
 
-608:                                              ; preds = %606
+610:                                              ; preds = %608
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.73) #9
   unreachable
 
-609:                                              ; preds = %606
-  %610 = getelementptr inbounds i8, ptr %605, i64 8
-  %611 = load i8, ptr %610, align 8
-  %612 = and i8 %611, 1
-  %613 = zext nneg i8 %612 to i32
-  br label %get_valid_bool.exit533
+611:                                              ; preds = %608
+  %612 = getelementptr inbounds i8, ptr %607, i64 8
+  %613 = load i8, ptr %612, align 8
+  %614 = and i8 %613, 1
+  %615 = zext nneg i8 %614 to i32
+  br label %get_valid_bool.exit532
 
-get_valid_bool.exit533:                           ; preds = %get_valid_bool.exit529, %609
-  %.0.i532 = phi i32 [ %613, %609 ], [ %604, %get_valid_bool.exit529 ]
-  %.not360 = icmp eq i32 %.0.i532, 0
-  %614 = load i16, ptr %214, align 8
-  %615 = select i1 %.not360, i16 0, i16 16384
-  %616 = and i16 %614, -16385
-  %617 = or disjoint i16 %616, %615
-  store i16 %617, ptr %214, align 8
-  %618 = shl i16 %614, 10
-  %619 = ashr i16 %618, 13
-  %620 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.91) #8
-  %.not.i534 = icmp eq ptr %620, null
-  br i1 %.not.i534, label %get_valid_bool.exit537, label %621
+get_valid_bool.exit532:                           ; preds = %get_valid_bool.exit528, %611
+  %.0.i531 = phi i32 [ %615, %611 ], [ %606, %get_valid_bool.exit528 ]
+  %.not360 = icmp eq i32 %.0.i531, 0
+  %616 = load i16, ptr %216, align 8
+  %617 = select i1 %.not360, i16 0, i16 16384
+  %618 = and i16 %616, -16385
+  %619 = or disjoint i16 %618, %617
+  store i16 %619, ptr %216, align 8
+  %620 = shl i16 %616, 10
+  %621 = ashr i16 %620, 13
+  %622 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.91) #8
+  %.not.i533 = icmp eq ptr %622, null
+  br i1 %.not.i533, label %get_valid_bool.exit536, label %623
 
-621:                                              ; preds = %get_valid_bool.exit533
-  %622 = load i32, ptr %620, align 8
-  %.not9.i535 = icmp eq i32 %622, 4
-  br i1 %.not9.i535, label %624, label %623
+623:                                              ; preds = %get_valid_bool.exit532
+  %624 = load i32, ptr %622, align 8
+  %.not9.i534 = icmp eq i32 %624, 4
+  br i1 %.not9.i534, label %626, label %625
 
-623:                                              ; preds = %621
+625:                                              ; preds = %623
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.91) #9
   unreachable
 
-624:                                              ; preds = %621
-  %625 = getelementptr inbounds i8, ptr %620, i64 8
-  %626 = load i8, ptr %625, align 8
-  %627 = and i8 %626, 1
-  %628 = zext nneg i8 %627 to i16
-  br label %get_valid_bool.exit537
+626:                                              ; preds = %623
+  %627 = getelementptr inbounds i8, ptr %622, i64 8
+  %628 = load i8, ptr %627, align 8
+  %629 = and i8 %628, 1
+  %630 = zext nneg i8 %629 to i16
+  br label %get_valid_bool.exit536
 
-get_valid_bool.exit537:                           ; preds = %get_valid_bool.exit533, %624
-  %.0.i536 = phi i16 [ %628, %624 ], [ %619, %get_valid_bool.exit533 ]
-  %629 = load i16, ptr %214, align 8
-  %630 = shl nsw i16 %.0.i536, 3
-  %631 = and i16 %630, 56
-  %632 = and i16 %629, -57
-  %633 = or disjoint i16 %632, %631
-  store i16 %633, ptr %214, align 8
-  %634 = shl i16 %629, 13
-  %635 = ashr exact i16 %634, 13
-  %636 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.59) #8
-  %.not.i538 = icmp eq ptr %636, null
-  br i1 %.not.i538, label %get_valid_bool.exit541, label %637
+get_valid_bool.exit536:                           ; preds = %get_valid_bool.exit532, %626
+  %.0.i535 = phi i16 [ %630, %626 ], [ %621, %get_valid_bool.exit532 ]
+  %631 = load i16, ptr %216, align 8
+  %632 = shl nsw i16 %.0.i535, 3
+  %633 = and i16 %632, 56
+  %634 = and i16 %631, -57
+  %635 = or disjoint i16 %634, %633
+  store i16 %635, ptr %216, align 8
+  %636 = shl i16 %631, 13
+  %637 = ashr exact i16 %636, 13
+  %638 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.59) #8
+  %.not.i537 = icmp eq ptr %638, null
+  br i1 %.not.i537, label %get_valid_bool.exit540, label %639
 
-637:                                              ; preds = %get_valid_bool.exit537
-  %638 = load i32, ptr %636, align 8
-  %.not9.i539 = icmp eq i32 %638, 4
-  br i1 %.not9.i539, label %640, label %639
+639:                                              ; preds = %get_valid_bool.exit536
+  %640 = load i32, ptr %638, align 8
+  %.not9.i538 = icmp eq i32 %640, 4
+  br i1 %.not9.i538, label %642, label %641
 
-639:                                              ; preds = %637
+641:                                              ; preds = %639
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.131, ptr noundef %1, ptr noundef nonnull @.str.59) #9
   unreachable
 
-640:                                              ; preds = %637
-  %641 = getelementptr inbounds i8, ptr %636, i64 8
-  %642 = load i8, ptr %641, align 8
-  %643 = and i8 %642, 1
-  %644 = zext nneg i8 %643 to i16
-  br label %get_valid_bool.exit541
+642:                                              ; preds = %639
+  %643 = getelementptr inbounds i8, ptr %638, i64 8
+  %644 = load i8, ptr %643, align 8
+  %645 = and i8 %644, 1
+  %646 = zext nneg i8 %645 to i16
+  br label %get_valid_bool.exit540
 
-get_valid_bool.exit541:                           ; preds = %get_valid_bool.exit537, %640
-  %.0.i540 = phi i16 [ %644, %640 ], [ %635, %get_valid_bool.exit537 ]
-  %645 = load i16, ptr %214, align 8
-  %646 = and i16 %.0.i540, 7
-  %647 = and i16 %645, -8
-  %648 = or disjoint i16 %647, %646
-  store i16 %648, ptr %214, align 8
+get_valid_bool.exit540:                           ; preds = %get_valid_bool.exit536, %642
+  %.0.i539 = phi i16 [ %646, %642 ], [ %637, %get_valid_bool.exit536 ]
+  %647 = load i16, ptr %216, align 8
+  %648 = and i16 %.0.i539, 7
+  %649 = and i16 %647, -8
+  %650 = or disjoint i16 %649, %648
+  store i16 %650, ptr %216, align 8
   ret void
 }
 

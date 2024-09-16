@@ -637,7 +637,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
   %.not = icmp eq i64 %54, 0
   %55 = sext i1 %.not to i64
   store i64 %55, ptr %7, align 8
-  %56 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %5, i64 noundef %.0112, i64 noundef %.0111, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %3, i1 noundef zeroext false, ptr noundef null)
+  %56 = call fastcc i64 @tsrm_realpath_r(ptr noundef %5, i64 noundef %.0112, i64 noundef %.0111, ptr noundef %6, ptr noundef %7, i32 noundef %3, i1 noundef zeroext false, ptr noundef null)
   %57 = icmp eq i64 %56, -1
   br i1 %57, label %58, label %60
 
@@ -733,7 +733,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef range(i64 0, 2) %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.stat, align 8
   store i32 0, ptr %9, align 4
@@ -831,7 +831,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 45:                                               ; preds = %41
   %46 = add i64 %.0250.lcssa, -1
-  %47 = tail call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %46, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true, ptr noundef null)
+  %47 = tail call fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 noundef %46, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true, ptr noundef null)
   %48 = icmp ugt i64 %47, %1
   %49 = icmp ne i64 %47, -1
   %or.cond = and i1 %48, %49
@@ -1052,7 +1052,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br i1 %156, label %157, label %162
 
 157:                                              ; preds = %153
-  %158 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %149, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %.0247296, ptr noundef nonnull %9)
+  %158 = call fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef 1, i64 noundef %149, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %.0247296, ptr noundef nonnull %9)
   %159 = icmp eq i64 %158, -1
   br i1 %159, label %160, label %176
 
@@ -1083,7 +1083,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %138, i64 %170, i1 false)
   %171 = getelementptr inbounds i8, ptr %0, i64 %170
   store i8 47, ptr %171, align 1
-  %172 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %163, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %.0247296, ptr noundef nonnull %9)
+  %172 = call fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 noundef %163, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %.0247296, ptr noundef nonnull %9)
   %173 = icmp eq i64 %172, -1
   br i1 %173, label %174, label %176
 
@@ -1135,7 +1135,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 188:                                              ; preds = %.critedge286
   %189 = add i64 %.0250.lcssa, -1
   %190 = select i1 %.0248.shrunk, i32 1, i32 %5
-  %191 = tail call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %189, ptr noundef %3, ptr noundef %4, i32 noundef %190, i1 noundef zeroext true, ptr noundef null)
+  %191 = tail call fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 noundef %189, ptr noundef %3, ptr noundef %4, i32 noundef %190, i1 noundef zeroext true, ptr noundef null)
   %192 = icmp ugt i64 %191, %1
   %193 = icmp ne i64 %191, -1
   %or.cond14 = and i1 %192, %193
@@ -1171,7 +1171,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   %205 = getelementptr inbounds i8, ptr %138, i64 %.0250.lcssa
   %206 = sub i64 %.0246297, %.0250.lcssa
   %207 = add i64 %206, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 1 %205, i64 %207, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr align 1 %205, i64 %207, i1 false)
   %208 = add i64 %.4289, %206
   br label %209
 
@@ -1191,7 +1191,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 215:                                              ; preds = %212
   %216 = add i64 %.0246297, 49
-  %bcmp.i = call i32 @bcmp(ptr readonly %138, ptr nonnull readonly %0, i64 %.0246297)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %138, ptr noundef nonnull readonly dereferenceable(1) %0, i64 %.0246297)
   %.not44.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not44.i, label %220, label %217
 
@@ -1251,7 +1251,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   %243 = getelementptr inbounds i8, ptr %224, i64 16
   store ptr %242, ptr %243, align 8
   %244 = add i64 %.3, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %242, ptr readonly align 1 %0, i64 %244, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %242, ptr nonnull readonly align 1 %0, i64 %244, i1 false)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %224, i64 44
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   %.pre47.i = load i64, ptr %224, align 8

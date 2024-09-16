@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_item_flags_i2d(ptr noundef %val, ptr noundef %out, ptr noundef %it, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @asn1_item_flags_i2d(ptr noundef %val, ptr noundef %out, ptr noundef %it, i32 noundef range(i32 0, 2049) %flags) unnamed_addr #0 {
 entry:
   %val.addr = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -501,7 +501,7 @@ for.body.i:                                       ; preds = %for.cond.i.preheade
   %i.0.i133 = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.cond.i.preheader ]
   %call.i101 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %4, i32 noundef %i.0.i133) #8
   store ptr %call.i101, ptr %skitem.i, align 8
-  %call21.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef %out, ptr noundef %call96, i32 noundef -1, i32 noundef %and18)
+  %call21.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %out, ptr noundef %call96, i32 noundef -1, i32 noundef %and18)
   %inc.i = add nuw nsw i32 %i.0.i133, 1
   %call.i102 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #8
   %cmp18.i = icmp slt i32 %inc.i, %call.i102
@@ -596,11 +596,11 @@ asn1_set_seq_out.exit:                            ; preds = %for.body.i, %for.co
   br i1 %or.cond87.not.not, label %return, label %if.then100
 
 if.then100:                                       ; preds = %asn1_set_seq_out.exit
-  %call101 = call i32 @ASN1_put_eoc(ptr noundef %out) #8
+  %call101 = call i32 @ASN1_put_eoc(ptr noundef nonnull %out) #8
   br i1 %tobool46.not, label %return, label %if.then104
 
 if.then104:                                       ; preds = %if.then100
-  %call105 = call i32 @ASN1_put_eoc(ptr noundef %out) #8
+  %call105 = call i32 @ASN1_put_eoc(ptr noundef nonnull %out) #8
   br label %return
 
 if.end108:                                        ; preds = %if.end17
@@ -677,7 +677,7 @@ entry:
   %0 = load i64, ptr %utype1, align 8
   %conv = trunc i64 %0 to i32
   store i32 %conv, ptr %utype, align 4
-  %call = call fastcc i32 @asn1_ex_i2c(ptr noundef %pval, ptr noundef null, ptr noundef nonnull %utype, ptr noundef %it)
+  %call = call fastcc i32 @asn1_ex_i2c(ptr noundef %pval, ptr noundef null, ptr noundef %utype, ptr noundef %it)
   %1 = load i32, ptr %utype, align 4
   %cmp8 = icmp eq i32 %call, -1
   br i1 %cmp8, label %return, label %if.end11
@@ -704,7 +704,7 @@ if.then22:                                        ; preds = %if.then20
 
 if.end23:                                         ; preds = %if.then20, %if.then20, %if.then20, %if.then22
   %2 = load ptr, ptr %out, align 8
-  %call24 = call fastcc i32 @asn1_ex_i2c(ptr noundef %pval, ptr noundef %2, ptr noundef nonnull %utype, ptr noundef nonnull %it)
+  %call24 = call fastcc i32 @asn1_ex_i2c(ptr noundef %pval, ptr noundef %2, ptr noundef %utype, ptr noundef nonnull %it)
   br i1 %cmp12.not, label %if.then26, label %if.else28
 
 if.then26:                                        ; preds = %if.end23
@@ -792,7 +792,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 declare ptr @OPENSSL_sk_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_ex_i2c(ptr noundef %pval, ptr noundef %cout, ptr noundef %putype, ptr noundef %it) unnamed_addr #0 {
+define internal fastcc i32 @asn1_ex_i2c(ptr noundef %pval, ptr noundef %cout, ptr noundef nonnull %putype, ptr noundef %it) unnamed_addr #0 {
 entry:
   %cout.addr = alloca ptr, align 8
   %c = alloca i8, align 1
@@ -809,7 +809,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call i32 %1(ptr noundef %pval, ptr noundef %cout, ptr noundef %putype, ptr noundef nonnull %it) #8
+  %call = tail call i32 %1(ptr noundef %pval, ptr noundef %cout, ptr noundef nonnull %putype, ptr noundef nonnull %it) #8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry

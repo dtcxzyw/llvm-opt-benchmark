@@ -1633,12 +1633,12 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local ptr @mas_find(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mmap_read_unlock(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @mmap_read_unlock(ptr noundef nonnull %0) unnamed_addr #7 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #13
           to label %3 [label %2], !srcloc !8
 
 2:                                                ; preds = %1
-  tail call void @__mmap_lock_do_trace_released(ptr noundef %0, i1 noundef zeroext false) #13
+  tail call void @__mmap_lock_do_trace_released(ptr noundef nonnull %0, i1 noundef zeroext false) #13
   br label %3
 
 3:                                                ; preds = %2, %1
@@ -1793,7 +1793,7 @@ select.unfold:                                    ; preds = %85, %51, %81, %88
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @show_vma_header_prefix(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc void @show_vma_header_prefix(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef range(i64 0, -4095) %4, i32 noundef %5, i64 noundef %6) unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 72
@@ -2584,7 +2584,7 @@ define internal noundef i32 @smaps_pte_range(ptr noundef %0, i64 noundef %1, i64
   br i1 %326, label %327, label %328
 
 327:                                              ; preds = %321
-  call fastcc void @smaps_page_accumulate(ptr noundef %22, ptr noundef nonnull %145, i64 noundef 16777216, i1 noundef zeroext %144, i1 noundef zeroext %27, i1 noundef zeroext true)
+  call fastcc void @smaps_page_accumulate(ptr noundef %22, ptr noundef %145, i64 noundef 16777216, i1 noundef zeroext %144, i1 noundef zeroext %27, i1 noundef zeroext true)
   br label %.thread
 
 328:                                              ; preds = %321
@@ -2662,7 +2662,7 @@ define internal noundef i32 @smaps_pte_range(ptr noundef %0, i64 noundef %1, i64
 375:                                              ; preds = %372, %369
   %376 = phi i64 [ %374, %372 ], [ 16777216, %369 ]
   %377 = icmp slt i32 %370, 2
-  call fastcc void @smaps_page_accumulate(ptr noundef %22, ptr noundef nonnull %145, i64 noundef %376, i1 noundef zeroext %144, i1 noundef zeroext %27, i1 noundef zeroext %377)
+  call fastcc void @smaps_page_accumulate(ptr noundef %22, ptr noundef %145, i64 noundef %376, i1 noundef zeroext %144, i1 noundef zeroext %27, i1 noundef zeroext %377)
   br label %.thread
 
 .thread:                                          ; preds = %60, %66, %71, %375, %327, %142, %123, %118
@@ -2992,7 +2992,7 @@ define internal noundef i32 @smaps_pte_hole(i64 noundef %0, i64 noundef %1, i32 
 declare dso_local i64 @shmem_partial_swap_usage(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @smaps_page_accumulate(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc void @smaps_page_accumulate(ptr nocapture noundef %0, ptr noundef nonnull %1, i64 noundef range(i64 0, 16777217) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %2
@@ -3563,12 +3563,12 @@ define internal fastcc void @mmu_notifier_invalidate_range_end(ptr noundef %0) u
 declare dso_local void @flush_tlb_mm_range(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mmap_write_unlock(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @mmap_write_unlock(ptr noundef nonnull %0) unnamed_addr #7 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #13
           to label %3 [label %2], !srcloc !8
 
 2:                                                ; preds = %1
-  tail call void @__mmap_lock_do_trace_released(ptr noundef %0, i1 noundef zeroext true) #13
+  tail call void @__mmap_lock_do_trace_released(ptr noundef nonnull %0, i1 noundef zeroext true) #13
   br label %3
 
 3:                                                ; preds = %2, %1
@@ -6329,7 +6329,7 @@ define internal noundef i32 @gather_hugetlb_stats(ptr noundef %0, i64 %1, i64 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gather_stats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @gather_stats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load volatile i32, ptr %4, align 4
   %6 = load volatile i64, ptr %0, align 8

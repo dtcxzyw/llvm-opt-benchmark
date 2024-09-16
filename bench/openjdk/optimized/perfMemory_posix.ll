@@ -192,7 +192,7 @@ _ZL13get_user_namej.exit.i.i:                     ; preds = %35
   %61 = getelementptr inbounds i8, ptr %59, i64 1
   %.0.i.i = select i1 %60, ptr %57, ptr %61
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %62 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef %53, ptr noundef nonnull %9)
+  %62 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef %53, ptr noundef %9)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %_ZL23cleanup_sharedmem_filesPKc.exit.i.i, label %64
 
@@ -421,7 +421,7 @@ _ZL19is_directory_securePKc.exit.i.i.i.i:         ; preds = %.critedge3.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i, label %_ZL17make_user_tmp_dirPKc.exit.i.i.i, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
 _ZL17make_user_tmp_dirPKc.exit.i.i.i:             ; preds = %_ZL19is_directory_securePKc.exit.i.i.i.i, %124
-  %144 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef %53, ptr noundef nonnull %6)
+  %144 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef %53, ptr noundef %6)
   %145 = icmp eq ptr %144, null
   br i1 %145, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i, label %.preheader62.i.i.i
 
@@ -1348,7 +1348,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call fastcc noundef ptr @_ZL21open_directory_securePKc(ptr noundef %0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %22, label %5
@@ -1617,7 +1617,7 @@ declare noundef i32 @_ZN2os5Linux17get_namespace_pidEi(i32 noundef) local_unname
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 noundef range(i32 1, 0) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
   %6 = alloca [4097 x i8], align 16

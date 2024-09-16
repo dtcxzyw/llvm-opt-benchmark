@@ -610,7 +610,7 @@ define dso_local i32 @i915_gem_pread_ioctl(ptr nocapture noundef readonly %0, pt
 declare dso_local i32 @i915_gem_object_wait(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 248
@@ -624,7 +624,7 @@ define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef %0, ptr nocapture n
   ]
 
 9:                                                ; preds = %2
-  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #9, !srcloc !25
+  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #9, !srcloc !25
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %16, label %12, !prof !10
 
@@ -636,7 +636,7 @@ define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef %0, ptr nocapture n
 
 16:                                               ; preds = %12, %9
   %17 = phi i32 [ 2, %9 ], [ 1, %12 ]
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %17) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %17) #9
   br label %18
 
 18:                                               ; preds = %16, %12
@@ -666,12 +666,12 @@ define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef %0, ptr nocapture n
   br i1 %31, label %._crit_edge, label %.lr.ph, !prof !28, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %29, %19
-  %32 = tail call i32 @__i915_gem_object_get_pages(ptr noundef %0) #9
+  %32 = tail call i32 @__i915_gem_object_get_pages(ptr noundef nonnull %0) #9
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.thread10, label %90
 
 .thread10:                                        ; preds = %.lr.ph, %._crit_edge
-  %34 = call i32 @i915_gem_object_prepare_read(ptr noundef %0, ptr noundef nonnull %3) #9
+  %34 = call i32 @i915_gem_object_prepare_read(ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   %35 = icmp eq i32 %34, 0
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, ptr elementtype(i32) %20) #9
   br i1 %35, label %36, label %90
@@ -685,7 +685,7 @@ define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef %0, ptr nocapture n
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %36
-  call void %40(ptr noundef %0) #9
+  call void %40(ptr noundef nonnull %0) #9
   br label %43
 
 43:                                               ; preds = %42, %36
@@ -718,7 +718,7 @@ define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef %0, ptr nocapture n
   %63 = phi i64 [ 0, %56 ], [ %52, %48 ]
   %64 = phi i64 [ %58, %56 ], [ %51, %48 ]
   %65 = phi i64 [ %59, %56 ], [ %46, %48 ]
-  %66 = call ptr @__i915_gem_object_get_page(ptr noundef %0, i64 noundef %64) #9
+  %66 = call ptr @__i915_gem_object_get_page(ptr noundef nonnull %0, i64 noundef %64) #9
   %67 = sub nuw nsw i64 4096, %63
   %68 = call i64 @llvm.umin.i64(i64 %65, i64 %67)
   %69 = load i32, ptr %3, align 4
@@ -766,7 +766,7 @@ define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef %0, ptr nocapture n
   br i1 %96, label %98, label %97
 
 97:                                               ; preds = %90
-  call void %95(ptr noundef %0) #9
+  call void %95(ptr noundef nonnull %0) #9
   br label %98
 
 98:                                               ; preds = %97, %90
@@ -781,7 +781,7 @@ define internal fastcc i32 @i915_gem_shmem_pread(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @i915_gem_gtt_pread(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @i915_gem_gtt_pread(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.drm_mm_node, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -836,7 +836,7 @@ define internal fastcc i32 @i915_gem_gtt_pread(ptr noundef %0, ptr nocapture nou
 40:                                               ; preds = %.lr.ph
   %41 = load ptr, ptr %22, align 8
   %42 = lshr i64 %31, 12
-  %43 = call i64 @__i915_gem_object_get_dma_address(ptr noundef %0, i64 noundef %42) #9
+  %43 = call i64 @__i915_gem_object_get_dma_address(ptr noundef nonnull %0, i64 noundef %42) #9
   %44 = load i64, ptr %20, align 8
   %45 = call i32 @i915_gem_get_pat_index(ptr noundef %5, i32 noundef 0) #9
   call void %41(ptr noundef %9, i64 noundef %43, i64 noundef %44, i32 noundef %45, i32 noundef 0) #9
@@ -1156,7 +1156,7 @@ declare dso_local zeroext i1 @i915_gem_object_has_struct_page(ptr noundef) local
 declare dso_local zeroext i1 @i915_gem_cpu_write_needs_clflush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @i915_gem_gtt_pwrite_fast(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @i915_gem_gtt_pwrite_fast(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.drm_mm_node, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1168,7 +1168,7 @@ define internal fastcc i32 @i915_gem_gtt_pwrite_fast(ptr noundef %0, ptr nocaptu
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3) #9
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = tail call zeroext i1 @i915_gem_object_has_struct_page(ptr noundef %0) #9
+  %13 = tail call zeroext i1 @i915_gem_object_has_struct_page(ptr noundef nonnull %0) #9
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
@@ -1198,7 +1198,7 @@ define internal fastcc i32 @i915_gem_gtt_pwrite_fast(ptr noundef %0, ptr nocaptu
   br i1 %28, label %30, label %29, !prof !12
 
 29:                                               ; preds = %25
-  call void @__i915_gem_object_invalidate_frontbuffer(ptr noundef %0, i32 noundef 0) #9
+  call void @__i915_gem_object_invalidate_frontbuffer(ptr noundef nonnull %0, i32 noundef 0) #9
   br label %30
 
 30:                                               ; preds = %29, %25
@@ -1237,7 +1237,7 @@ define internal fastcc i32 @i915_gem_gtt_pwrite_fast(ptr noundef %0, ptr nocaptu
   call void @intel_gt_flush_ggtt_writes(ptr noundef %54) #9
   %55 = load ptr, ptr %35, align 8
   %56 = lshr i64 %43, 12
-  %57 = call i64 @__i915_gem_object_get_dma_address(ptr noundef %0, i64 noundef %56) #9
+  %57 = call i64 @__i915_gem_object_get_dma_address(ptr noundef nonnull %0, i64 noundef %56) #9
   %58 = load i64, ptr %32, align 8
   %59 = call i32 @i915_gem_get_pat_index(ptr noundef %5, i32 noundef 0) #9
   call void %55(ptr noundef %9, i64 noundef %57, i64 noundef %58, i32 noundef %59, i32 noundef 0) #9
@@ -1313,7 +1313,7 @@ define internal fastcc i32 @i915_gem_gtt_pwrite_fast(ptr noundef %0, ptr nocaptu
   br i1 %100, label %102, label %101, !prof !12
 
 101:                                              ; preds = %.thread
-  call void @__i915_gem_object_flush_frontbuffer(ptr noundef %0, i32 noundef 0) #9
+  call void @__i915_gem_object_flush_frontbuffer(ptr noundef nonnull %0, i32 noundef 0) #9
   br label %102
 
 102:                                              ; preds = %101, %.thread
@@ -1359,7 +1359,7 @@ define internal fastcc i32 @i915_gem_gtt_pwrite_fast(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 248
@@ -1373,7 +1373,7 @@ define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture 
   ]
 
 9:                                                ; preds = %2
-  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #9, !srcloc !25
+  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #9, !srcloc !25
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %16, label %12, !prof !10
 
@@ -1385,7 +1385,7 @@ define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture 
 
 16:                                               ; preds = %12, %9
   %17 = phi i32 [ 2, %9 ], [ 1, %12 ]
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %17) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %17) #9
   br label %18
 
 18:                                               ; preds = %16, %12
@@ -1415,12 +1415,12 @@ define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture 
   br i1 %31, label %._crit_edge, label %.lr.ph, !prof !28, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %29, %19
-  %32 = tail call i32 @__i915_gem_object_get_pages(ptr noundef %0) #9
+  %32 = tail call i32 @__i915_gem_object_get_pages(ptr noundef nonnull %0) #9
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.thread12, label %109
 
 .thread12:                                        ; preds = %.lr.ph, %._crit_edge
-  %34 = call i32 @i915_gem_object_prepare_write(ptr noundef %0, ptr noundef nonnull %3) #9
+  %34 = call i32 @i915_gem_object_prepare_write(ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   %35 = icmp eq i32 %34, 0
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, ptr elementtype(i32) %20) #9
   br i1 %35, label %36, label %109
@@ -1434,7 +1434,7 @@ define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture 
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %36
-  call void %40(ptr noundef %0) #9
+  call void %40(ptr noundef nonnull %0) #9
   br label %43
 
 43:                                               ; preds = %42, %36
@@ -1475,7 +1475,7 @@ define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture 
   %71 = phi i64 [ 0, %64 ], [ %60, %56 ]
   %72 = phi i64 [ %66, %64 ], [ %59, %56 ]
   %73 = phi i64 [ %67, %64 ], [ %54, %56 ]
-  %74 = call ptr @__i915_gem_object_get_page(ptr noundef %0, i64 noundef %72) #9
+  %74 = call ptr @__i915_gem_object_get_page(ptr noundef nonnull %0, i64 noundef %72) #9
   %75 = sub nuw nsw i64 4096, %71
   %76 = call i64 @llvm.umin.i64(i64 %73, i64 %75)
   %77 = or i64 %76, %71
@@ -1528,7 +1528,7 @@ define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture 
   br i1 %106, label %108, label %107, !prof !12
 
 107:                                              ; preds = %.loopexit
-  call void @__i915_gem_object_flush_frontbuffer(ptr noundef %0, i32 noundef 0) #9
+  call void @__i915_gem_object_flush_frontbuffer(ptr noundef nonnull %0, i32 noundef 0) #9
   br label %108
 
 108:                                              ; preds = %107, %.loopexit
@@ -1545,7 +1545,7 @@ define internal fastcc i32 @i915_gem_shmem_pwrite(ptr noundef %0, ptr nocapture 
   br i1 %115, label %117, label %116
 
 116:                                              ; preds = %109
-  call void %114(ptr noundef %0) #9
+  call void %114(ptr noundef nonnull %0) #9
   br label %117
 
 117:                                              ; preds = %116, %109
@@ -3151,7 +3151,7 @@ declare dso_local void @drm_clflush_virt_range(ptr noundef, i64 noundef) local_u
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @i915_gem_gtt_prepare(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @i915_gem_gtt_prepare(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.i915_gem_ww_ctx, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3200,7 +3200,7 @@ define internal fastcc ptr @i915_gem_gtt_prepare(ptr noundef %0, ptr noundef %1,
   br i1 %37, label %38, label %49
 
 38:                                               ; preds = %35
-  %39 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #9, !srcloc !25
+  %39 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #9, !srcloc !25
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %45, label %41, !prof !10
 
@@ -3212,7 +3212,7 @@ define internal fastcc ptr @i915_gem_gtt_prepare(ptr noundef %0, ptr noundef %1,
 
 45:                                               ; preds = %41, %38
   %46 = phi i32 [ 2, %38 ], [ 1, %41 ]
-  call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %46) #9
+  call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %46) #9
   br label %47
 
 47:                                               ; preds = %45, %41
@@ -3232,7 +3232,7 @@ define internal fastcc ptr @i915_gem_gtt_prepare(ptr noundef %0, ptr noundef %1,
   ]
 
 52:                                               ; preds = %49
-  %53 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #9, !srcloc !25
+  %53 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #9, !srcloc !25
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %59, label %55, !prof !10
 
@@ -3244,7 +3244,7 @@ define internal fastcc ptr @i915_gem_gtt_prepare(ptr noundef %0, ptr noundef %1,
 
 59:                                               ; preds = %55, %52
   %60 = phi i32 [ 2, %52 ], [ 1, %55 ]
-  call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %60) #9
+  call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %60) #9
   br label %i915_gem_object_lock.exit.thread
 
 i915_gem_object_lock.exit.thread:                 ; preds = %55, %59
@@ -3252,7 +3252,7 @@ i915_gem_object_lock.exit.thread:                 ; preds = %55, %59
   br label %.thread20
 
 61:                                               ; preds = %49
-  %62 = call i32 @i915_gem_object_set_to_gtt_domain(ptr noundef %0, i1 noundef zeroext %2) #9
+  %62 = call i32 @i915_gem_object_set_to_gtt_domain(ptr noundef nonnull %0, i1 noundef zeroext %2) #9
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %.thread11
 
@@ -3263,7 +3263,7 @@ i915_gem_object_lock.exit.thread:                 ; preds = %55, %59
   br i1 %67, label %68, label %.thread10
 
 68:                                               ; preds = %64
-  %69 = call ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 13)
+  %69 = call ptr @i915_gem_object_ggtt_pin_ww(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 13)
   %70 = icmp eq ptr %69, inttoptr (i64 -35 to ptr)
   br i1 %70, label %.thread20, label %71
 
@@ -3318,7 +3318,7 @@ i915_gem_object_lock.exit.thread:                 ; preds = %55, %59
   br i1 %99, label %._crit_edge, label %.lr.ph, !prof !28, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %97, %87
-  %100 = call i32 @__i915_gem_object_get_pages(ptr noundef %0) #9
+  %100 = call i32 @__i915_gem_object_get_pages(ptr noundef nonnull %0) #9
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %.thread16.thread, label %102
 

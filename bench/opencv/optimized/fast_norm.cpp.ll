@@ -250,7 +250,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit32: ; preds = %_ZN2c
   %51 = mul nsw i64 %.024.i24, %50
   %52 = uitofp i64 %51 to double
   %53 = fmul double %52, 0x3F50000000000000
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull %11, double noundef %53)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef %11, double noundef %53)
           to label %54 unwind label %61
 
 54:                                               ; preds = %48
@@ -315,7 +315,7 @@ declare void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 nound
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %5 = alloca %"class.std::function", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -623,7 +623,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit33: ; preds = %_ZN2c
   %49 = mul nsw i64 %.024.i25, %48
   %50 = uitofp i64 %49 to double
   %51 = fmul double %50, 0x3F50000000000000
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull %10, double noundef %51)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef %10, double noundef %51)
           to label %52 unwind label %59
 
 52:                                               ; preds = %46
@@ -877,7 +877,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38: ; preds = %_ZN2c
   %73 = mul nsw i64 %.024.i30, %72
   %74 = uitofp i64 %73 to double
   %75 = fmul double %74, 0x3F50000000000000
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull %11, double noundef %75)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef %11, double noundef %75)
           to label %76 unwind label %84
 
 76:                                               ; preds = %70
@@ -1093,7 +1093,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3
   %64 = mul i64 %54, %.024.i
   %65 = uitofp i64 %64 to double
   %66 = fmul double %65, 0x3F50000000000000
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull %11, double noundef %66)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef %11, double noundef %66)
           to label %67 unwind label %74
 
 67:                                               ; preds = %62
@@ -1310,7 +1310,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3
   %70 = mul i64 %59, %58
   %71 = uitofp i64 %70 to double
   %72 = fmul double %71, 0x3F50000000000000
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull %14, double noundef %72)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14, double noundef %72)
           to label %73 unwind label %80
 
 73:                                               ; preds = %68

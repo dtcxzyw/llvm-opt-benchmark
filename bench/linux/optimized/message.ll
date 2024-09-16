@@ -472,7 +472,7 @@ define internal void @usb_api_blocking_completion(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @usb_start_wait_urb(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @usb_start_wait_urb(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.api_context, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -482,7 +482,7 @@ define internal fastcc i32 @usb_start_wait_urb(ptr noundef %0, i32 noundef %1, p
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 132
   store i32 0, ptr %7, align 4
-  %8 = call i32 @usb_submit_urb(ptr noundef %0, i32 noundef 3072) #12
+  %8 = call i32 @usb_submit_urb(ptr noundef nonnull %0, i32 noundef 3072) #12
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %26, !prof !6
 
@@ -501,7 +501,7 @@ define internal fastcc i32 @usb_start_wait_urb(ptr noundef %0, i32 noundef %1, p
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
-  call void @usb_kill_urb(ptr noundef %0) #12
+  call void @usb_kill_urb(ptr noundef nonnull %0) #12
   %19 = getelementptr inbounds i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, -2
@@ -524,7 +524,7 @@ define internal fastcc i32 @usb_start_wait_urb(ptr noundef %0, i32 noundef %1, p
   br label %31
 
 31:                                               ; preds = %29, %26
-  call void @usb_free_urb(ptr noundef %0) #12
+  call void @usb_free_urb(ptr noundef nonnull %0) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
   ret i32 %27
 }
@@ -1369,7 +1369,7 @@ define dso_local i32 @usb_string(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1268
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 1
@@ -1394,7 +1394,7 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
   %17 = load i32, ptr %0, align 8
   %18 = shl i32 %17, 8
   %19 = or i32 %18, -2147483520
-  %20 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %19, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %14, i16 noundef zeroext %9, ptr noundef %3, i16 noundef zeroext 255, i32 noundef 5000)
+  %20 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %19, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %14, i16 noundef zeroext %9, ptr noundef nonnull %3, i16 noundef zeroext 255, i32 noundef 5000)
   switch i32 %20, label %21 [
     i32 -32, label %26
     i32 0, label %26
@@ -1424,7 +1424,7 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
   %32 = load i32, ptr %0, align 8
   %33 = shl i32 %32, 8
   %34 = or i32 %33, -2147483520
-  %35 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %34, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %.pre-phi48, i16 noundef zeroext %9, ptr noundef %3, i16 noundef zeroext 2, i32 noundef 5000)
+  %35 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %34, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %.pre-phi48, i16 noundef zeroext %9, ptr noundef nonnull %3, i16 noundef zeroext 2, i32 noundef 5000)
   switch i32 %35, label %36 [
     i32 -32, label %41
     i32 0, label %41
@@ -1463,7 +1463,7 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
   %54 = load i32, ptr %0, align 8
   %55 = shl i32 %54, 8
   %56 = or i32 %55, -2147483520
-  %57 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %56, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %.pre-phi48, i16 noundef zeroext %9, ptr noundef %3, i16 noundef zeroext %51, i32 noundef 5000)
+  %57 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %56, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %.pre-phi48, i16 noundef zeroext %9, ptr noundef nonnull %3, i16 noundef zeroext %51, i32 noundef 5000)
   switch i32 %57, label %58 [
     i32 -32, label %63
     i32 0, label %63

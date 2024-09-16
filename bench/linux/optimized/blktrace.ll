@@ -283,7 +283,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 67108864, 67108867) %2, ptr nocapture noundef readonly %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i64 noundef %5) unnamed_addr #0 align 16 {
   %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !13
   %8 = load i1, ptr @blk_tracer_enabled, align 1
   %9 = icmp eq i64 %5, 0
@@ -387,7 +387,7 @@ define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 n
   %70 = getelementptr inbounds i8, ptr %67, i64 36
   store i32 %69, ptr %70, align 4
   %71 = select i1 %9, i32 0, i32 256
-  %72 = or i32 %71, %2
+  %72 = or disjoint i32 %71, %2
   %73 = getelementptr inbounds i8, ptr %67, i64 28
   store i32 %72, ptr %73, align 4
   %74 = getelementptr inbounds i8, ptr %67, i64 32
@@ -949,7 +949,7 @@ define dso_local void @blk_add_driver_data(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__blk_add_trace(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i64 noundef %8) unnamed_addr #0 align 16 {
+define internal fastcc void @__blk_add_trace(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 13, 1073741842) %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i64 noundef %8) unnamed_addr #0 align 16 {
   %10 = alloca i64, align 8
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !11
   %12 = inttoptr i64 %11 to ptr
@@ -977,7 +977,7 @@ define internal fastcc void @__blk_add_trace(ptr nocapture noundef readonly %0, 
   %32 = or i32 %29, %4
   %33 = or i32 %32, %26
   %34 = or i32 %33, %28
-  %35 = or i32 %34, %31
+  %35 = or disjoint i32 %34, %31
   %36 = or i32 %35, %24
   %37 = trunc i32 %3 to i8
   switch i8 %37, label %40 [
@@ -1439,7 +1439,7 @@ declare dso_local void @trace_buffer_unlock_commit_regs(ptr noundef, ptr noundef
 declare dso_local void @synchronize_rcu() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_trace_free(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @blk_trace_free(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @relay_close(ptr noundef %4) #21
@@ -1467,7 +1467,7 @@ define internal fastcc void @blk_trace_free(ptr nocapture noundef readonly %0, p
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void @free_percpu(ptr noundef %17) #21
-  tail call void @kfree(ptr noundef %1) #21
+  tail call void @kfree(ptr noundef nonnull %1) #21
   ret void
 }
 

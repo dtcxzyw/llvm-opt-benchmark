@@ -563,7 +563,7 @@ define hidden range(i32 0, 2) i32 @write_recent() local_unnamed_addr #0 {
   br i1 %.not15.us.i.i, label %33, label %31
 
 31:                                               ; preds = %30
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.130, ptr noundef nonnull %29) #13
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.130, ptr noundef nonnull %29) #13
   br label %33
 
 33:                                               ; preds = %31, %30, %28
@@ -578,83 +578,83 @@ cfilter_recent_write_all_list.exit.i:             ; preds = %33, %.lr.ph.split.u
   br i1 %.not.i, label %cfilter_recent_write_all.exit, label %37
 
 37:                                               ; preds = %cfilter_recent_write_all_list.exit.i
-  call void @g_hash_table_foreach(ptr noundef nonnull %36, ptr noundef nonnull @cfilter_recent_write_all_hash_callback, ptr noundef %13) #13
+  call void @g_hash_table_foreach(ptr noundef nonnull %36, ptr noundef nonnull @cfilter_recent_write_all_hash_callback, ptr noundef nonnull %13) #13
   br label %cfilter_recent_write_all.exit
 
 cfilter_recent_write_all.exit:                    ; preds = %cfilter_recent_write_all_list.exit.i, %37
-  %38 = call i64 @fwrite(ptr nonnull @.str.6, i64 97, i64 1, ptr %13)
-  call void @dfilter_recent_combo_write_all(ptr noundef %13) #13
-  %39 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %13)
-  %40 = call i64 @fwrite(ptr nonnull @.str.8, i64 19, i64 1, ptr %13)
+  %38 = call i64 @fwrite(ptr nonnull @.str.6, i64 97, i64 1, ptr nonnull %13)
+  call void @dfilter_recent_combo_write_all(ptr noundef nonnull %13) #13
+  %39 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr nonnull %13)
+  %40 = call i64 @fwrite(ptr nonnull @.str.8, i64 19, i64 1, ptr nonnull %13)
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 112), align 8
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.9, i32 noundef %41) #13
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.9, i32 noundef %41) #13
   %43 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 116), align 4
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.10, i32 noundef %43) #13
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.10, i32 noundef %43) #13
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 120), align 8
-  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.11, i32 noundef %45) #13
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.11, i32 noundef %45) #13
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 124), align 4
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.12, i32 noundef %47) #13
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.12, i32 noundef %47) #13
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 128), align 8
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.13) #13
-  %51 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.13) #13
+  %51 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %13)
   %52 = icmp eq i32 %49, 1
   %53 = select i1 %52, ptr @.str.133, ptr @.str.134
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.14, ptr noundef nonnull %53) #13
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.14, ptr noundef nonnull %53) #13
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %61, label %56
 
 56:                                               ; preds = %cfilter_recent_write_all.exit
-  %57 = call i64 @fwrite(ptr nonnull @.str.15, i64 31, i64 1, ptr %13)
-  %58 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr %13)
+  %57 = call i64 @fwrite(ptr nonnull @.str.15, i64 31, i64 1, ptr nonnull %13)
+  %58 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr nonnull %13)
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.17, ptr noundef %59) #13
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.17, ptr noundef %59) #13
   br label %61
 
 61:                                               ; preds = %56, %cfilter_recent_write_all.exit
   %62 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 132), align 4
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.18) #13
-  %64 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
+  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.18) #13
+  %64 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %13)
   %65 = icmp eq i32 %62, 1
   %66 = select i1 %65, ptr @.str.133, ptr @.str.134
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.19, ptr noundef nonnull %66) #13
-  %68 = call i64 @fwrite(ptr nonnull @.str.20, i64 36, i64 1, ptr %13)
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.19, ptr noundef nonnull %66) #13
+  %68 = call i64 @fwrite(ptr nonnull @.str.20, i64 36, i64 1, ptr nonnull %13)
   %69 = call ptr @get_profile_name() #13
-  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.21, ptr noundef %69) #13
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.21, ptr noundef %69) #13
   %71 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 168), align 8
-  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.22) #13
-  %73 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.22) #13
+  %73 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %13)
   %74 = icmp eq i32 %71, 1
   %75 = select i1 %74, ptr @.str.133, ptr @.str.134
-  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.23, ptr noundef nonnull %75) #13
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.23, ptr noundef nonnull %75) #13
   %77 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 172), align 4
-  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.24) #13
-  %79 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.24) #13
+  %79 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %13)
   %80 = icmp eq i32 %77, 1
   %81 = select i1 %80, ptr @.str.133, ptr @.str.134
-  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.25, ptr noundef nonnull %81) #13
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.25, ptr noundef nonnull %81) #13
   %83 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 72), align 8
   call fastcc void @write_recent_enum(ptr noundef %13, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @search_in_values, i32 noundef %83)
   %84 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 76), align 4
   call fastcc void @write_recent_enum(ptr noundef %13, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @search_char_set_values, i32 noundef %84)
   %85 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 80), align 8
-  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.30) #13
-  %87 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.30) #13
+  %87 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %13)
   %88 = icmp eq i32 %85, 1
   %89 = select i1 %88, ptr @.str.133, ptr @.str.134
-  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.31, ptr noundef nonnull %89) #13
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.31, ptr noundef nonnull %89) #13
   %91 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 84), align 4
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.32) #13
-  %93 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.32) #13
+  %93 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %13)
   %94 = icmp eq i32 %91, 1
   %95 = select i1 %94, ptr @.str.133, ptr @.str.134
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.33, ptr noundef nonnull %95) #13
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.33, ptr noundef nonnull %95) #13
   %97 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 88), align 8
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.34) #13
-  %99 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %13)
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.34) #13
+  %99 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %13)
   %100 = icmp eq i32 %97, 1
   %101 = select i1 %100, ptr @.str.133, ptr @.str.134
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.35, ptr noundef nonnull %101) #13
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.35, ptr noundef nonnull %101) #13
   %103 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 92), align 4
   call fastcc void @write_recent_enum(ptr noundef %13, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @search_type_values, i32 noundef %103)
   %104 = load ptr, ptr @window_geom_hash, align 8
@@ -668,14 +668,14 @@ cfilter_recent_write_all.exit:                    ; preds = %cfilter_recent_writ
 
 window_geom_recent_write_all.exit:                ; preds = %61, %105
   %107 = phi ptr [ %106, %105 ], [ %104, %61 ]
-  call void @g_hash_table_foreach(ptr noundef %107, ptr noundef nonnull @write_recent_geom, ptr noundef %13) #13
-  %108 = call i64 @fwrite(ptr nonnull @.str.38, i64 18, i64 1, ptr %13)
-  %109 = call i64 @fwrite(ptr nonnull @.str.39, i64 53, i64 1, ptr %13)
+  call void @g_hash_table_foreach(ptr noundef %107, ptr noundef nonnull @write_recent_geom, ptr noundef nonnull %13) #13
+  %108 = call i64 @fwrite(ptr nonnull @.str.38, i64 18, i64 1, ptr nonnull %13)
+  %109 = call i64 @fwrite(ptr nonnull @.str.39, i64 53, i64 1, ptr nonnull %13)
   %110 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   %111 = call ptr @join_string_list(ptr noundef %110) #13
-  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.40, ptr noundef %111) #13
+  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.40, ptr noundef %111) #13
   call void @g_free(ptr noundef %111) #13
-  %113 = call i32 @fclose(ptr noundef %13)
+  %113 = call i32 @fclose(ptr noundef nonnull %13)
   br label %114
 
 114:                                              ; preds = %window_geom_recent_write_all.exit, %15, %4
@@ -713,9 +713,9 @@ declare void @dfilter_recent_combo_write_all(ptr noundef) local_unnamed_addr #1
 declare ptr @get_profile_name() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_recent_enum(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef %1) #13
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 10, i64 1, ptr %0)
+define internal fastcc void @write_recent_enum(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, ptr noundef %1) #13
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 10, i64 1, ptr nonnull %0)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not28 = icmp eq ptr %9, null
@@ -727,7 +727,7 @@ define internal fastcc void @write_recent_enum(ptr nocapture noundef %0, ptr nou
   %.02229 = phi ptr [ %15, %14 ], [ %3, %5 ]
   %11 = icmp eq ptr %.030, null
   %spec.select = select i1 %11, ptr %10, ptr %.030
-  %fputs = tail call i32 @fputs(ptr nonnull %10, ptr %0)
+  %fputs = tail call i32 @fputs(ptr nonnull %10, ptr nonnull %0)
   %12 = getelementptr i8, ptr %.02229, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not27 = icmp eq ptr %13, null
@@ -735,20 +735,20 @@ define internal fastcc void @write_recent_enum(ptr nocapture noundef %0, ptr nou
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr i8, ptr %.02229, i64 16
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 2, i64 1, ptr %0)
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 2, i64 1, ptr nonnull %0)
   %.pre = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.pre, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14, %5
   %.0.lcssa = phi ptr [ null, %5 ], [ %spec.select, %14 ], [ %spec.select, %.lr.ph ]
-  %fputc = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %17 = tail call ptr @try_val_to_str(i32 noundef %4, ptr noundef %3) #13
   %.not25 = icmp eq ptr %17, null
   %.not26 = icmp eq ptr %.0.lcssa, null
   %18 = select i1 %.not26, ptr @.str.74, ptr %.0.lcssa
   %.sink = select i1 %.not25, ptr %18, ptr %17
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %2, ptr noundef nonnull %.sink) #13
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, ptr noundef %2, ptr noundef nonnull %.sink) #13
   ret void
 }
 
@@ -857,7 +857,7 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   %85 = select i1 %84, ptr @.str.133, ptr @.str.134
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.62, ptr noundef nonnull %85) #13
   %87 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
-  call fastcc void @write_recent_enum(ptr noundef nonnull %16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @ts_type_values, i32 noundef %87)
+  call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @ts_type_values, i32 noundef %87)
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66) #13
   %89 = call i64 @fwrite(ptr nonnull @.str.67, i64 10, i64 1, ptr nonnull %16)
   %90 = call i64 @fwrite(ptr nonnull @.str.167, i64 4, i64 1, ptr %16)
@@ -875,14 +875,14 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   br i1 %.not113, label %97, label %91, !llvm.loop !8
 
 97:                                               ; preds = %91
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.70, i32 noundef 9) #13
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.70, i32 noundef 9) #13
   %99 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   %100 = call ptr @try_val_to_str(i32 noundef %99, ptr noundef nonnull @ts_precision_values) #13
   %.not106 = icmp eq ptr %100, null
   br i1 %.not106, label %103, label %101
 
 101:                                              ; preds = %97
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull %100) #13
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull %100) #13
   br label %109
 
 103:                                              ; preds = %97
@@ -891,36 +891,36 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   br i1 %or.cond, label %105, label %107
 
 105:                                              ; preds = %103
-  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.72, i32 noundef %104) #13
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.72, i32 noundef %104) #13
   br label %109
 
 107:                                              ; preds = %103
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.167) #13
+  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.167) #13
   br label %109
 
 109:                                              ; preds = %105, %107, %101
   %110 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 48), align 8
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, ptr noundef nonnull @ts_seconds_values, i32 noundef %110)
-  %111 = call i64 @fwrite(ptr nonnull @.str.77, i64 15, i64 1, ptr %16)
-  %112 = call i64 @fwrite(ptr nonnull @.str.78, i64 20, i64 1, ptr %16)
+  %111 = call i64 @fwrite(ptr nonnull @.str.77, i64 15, i64 1, ptr nonnull %16)
+  %112 = call i64 @fwrite(ptr nonnull @.str.78, i64 20, i64 1, ptr nonnull %16)
   %113 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 52), align 4
-  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.79, i32 noundef %113) #13
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.79, i32 noundef %113) #13
   %115 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull @bytes_view_type_values, i32 noundef %115)
   %116 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 60), align 4
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef nonnull @bytes_encoding_type_values, i32 noundef %116)
   %117 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 64), align 8
-  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.84) #13
-  %119 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %16)
+  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.84) #13
+  %119 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %120 = icmp eq i32 %117, 1
   %121 = select i1 %120, ptr @.str.133, ptr @.str.134
-  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.85, ptr noundef nonnull %121) #13
+  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.85, ptr noundef nonnull %121) #13
   %123 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
-  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.86) #13
-  %125 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %16)
+  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.86) #13
+  %125 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %126 = icmp eq i32 %123, 1
   %127 = select i1 %126, ptr @.str.133, ptr @.str.134
-  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.87, ptr noundef nonnull %127) #13
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.87, ptr noundef nonnull %127) #13
   %129 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 96), align 8
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr noundef nonnull @bytes_show_values, i32 noundef %129)
   %130 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 100), align 4
@@ -929,25 +929,25 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull @show_bytes_decode_values, i32 noundef %131)
   %132 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 108), align 4
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, ptr noundef nonnull @bytes_show_values, i32 noundef %132)
-  %133 = call i64 @fwrite(ptr nonnull @.str.96, i64 46, i64 1, ptr %16)
-  %134 = call i64 @fwrite(ptr nonnull @.str.97, i64 18, i64 1, ptr %16)
+  %133 = call i64 @fwrite(ptr nonnull @.str.96, i64 46, i64 1, ptr nonnull %16)
+  %134 = call i64 @fwrite(ptr nonnull @.str.97, i64 18, i64 1, ptr nonnull %16)
   %135 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
   %.not108 = icmp eq i32 %135, 0
   br i1 %.not108, label %138, label %136
 
 136:                                              ; preds = %109
-  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.98, i32 noundef %135) #13
+  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.98, i32 noundef %135) #13
   br label %138
 
 138:                                              ; preds = %136, %109
-  %139 = call i64 @fwrite(ptr nonnull @.str.99, i64 33, i64 1, ptr %16)
-  %140 = call i64 @fwrite(ptr nonnull @.str.97, i64 18, i64 1, ptr %16)
+  %139 = call i64 @fwrite(ptr nonnull @.str.99, i64 33, i64 1, ptr nonnull %16)
+  %140 = call i64 @fwrite(ptr nonnull @.str.97, i64 18, i64 1, ptr nonnull %16)
   %141 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
   %.not109 = icmp eq i32 %141, 0
   br i1 %.not109, label %144, label %142
 
 142:                                              ; preds = %138
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.100, i32 noundef %141) #13
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.100, i32 noundef %141) #13
   br label %144
 
 144:                                              ; preds = %142, %138
@@ -956,10 +956,10 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   br i1 %.not110, label %151, label %146
 
 146:                                              ; preds = %144
-  %147 = call i64 @fwrite(ptr nonnull @.str.101, i64 38, i64 1, ptr %16)
-  %148 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr %16)
+  %147 = call i64 @fwrite(ptr nonnull @.str.101, i64 38, i64 1, ptr nonnull %16)
+  %148 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr nonnull %16)
   %149 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
-  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.102, ptr noundef %149) #13
+  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.102, ptr noundef %149) #13
   br label %151
 
 151:                                              ; preds = %146, %144
@@ -968,10 +968,10 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   br i1 %.not111, label %158, label %153
 
 153:                                              ; preds = %151
-  %154 = call i64 @fwrite(ptr nonnull @.str.103, i64 37, i64 1, ptr %16)
-  %155 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr %16)
+  %154 = call i64 @fwrite(ptr nonnull @.str.103, i64 37, i64 1, ptr nonnull %16)
+  %155 = call i64 @fwrite(ptr nonnull @.str.16, i64 19, i64 1, ptr nonnull %16)
   %156 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
-  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.104, ptr noundef %156) #13
+  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.104, ptr noundef %156) #13
   br label %158
 
 158:                                              ; preds = %153, %151
@@ -990,11 +990,11 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
 
 .lr.ph.i:                                         ; preds = %160, %.lr.ph.i
   %162 = load ptr, ptr %2, align 8
-  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.202, ptr noundef %162) #13
-  %164 = call i64 @fwrite(ptr nonnull @.str.203, i64 39, i64 1, ptr %16)
+  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.202, ptr noundef %162) #13
+  %164 = call i64 @fwrite(ptr nonnull @.str.203, i64 39, i64 1, ptr nonnull %16)
   %165 = load ptr, ptr %2, align 8
   %166 = load ptr, ptr %3, align 8
-  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.204, ptr noundef %165, ptr noundef %166) #13
+  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.204, ptr noundef %165, ptr noundef %166) #13
   %168 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
   %.not3.i = icmp eq i32 %168, 0
   br i1 %.not3.i, label %window_splitter_recent_write_all.exit, label %.lr.ph.i, !llvm.loop !9
@@ -1003,22 +1003,22 @@ window_splitter_recent_write_all.exit:            ; preds = %.lr.ph.i, %158, %16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %169 = call i64 @fwrite(ptr nonnull @.str.105, i64 36, i64 1, ptr %16)
-  %170 = call i64 @fwrite(ptr nonnull @.str.106, i64 72, i64 1, ptr %16)
-  call void @packet_list_recent_write_all(ptr noundef %16) #13
-  %171 = call i64 @fwrite(ptr nonnull @.str.107, i64 34, i64 1, ptr %16)
-  %172 = call i64 @fwrite(ptr nonnull @.str.108, i64 50, i64 1, ptr %16)
+  %169 = call i64 @fwrite(ptr nonnull @.str.105, i64 36, i64 1, ptr nonnull %16)
+  %170 = call i64 @fwrite(ptr nonnull @.str.106, i64 72, i64 1, ptr nonnull %16)
+  call void @packet_list_recent_write_all(ptr noundef nonnull %16) #13
+  %171 = call i64 @fwrite(ptr nonnull @.str.107, i64 34, i64 1, ptr nonnull %16)
+  %172 = call i64 @fwrite(ptr nonnull @.str.108, i64 50, i64 1, ptr nonnull %16)
   %173 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 184), align 8
   %174 = call ptr @join_string_list(ptr noundef %173) #13
-  %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.109, ptr noundef %174) #13
+  %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.109, ptr noundef %174) #13
   call void @g_free(ptr noundef %174) #13
-  %176 = call i64 @fwrite(ptr nonnull @.str.110, i64 37, i64 1, ptr %16)
-  %177 = call i64 @fwrite(ptr nonnull @.str.111, i64 40, i64 1, ptr %16)
+  %176 = call i64 @fwrite(ptr nonnull @.str.110, i64 37, i64 1, ptr nonnull %16)
+  %177 = call i64 @fwrite(ptr nonnull @.str.111, i64 40, i64 1, ptr nonnull %16)
   %178 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 192), align 8
   %179 = call ptr @join_string_list(ptr noundef %178) #13
-  %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.112, ptr noundef %179) #13
+  %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.112, ptr noundef %179) #13
   call void @g_free(ptr noundef %179) #13
-  %181 = call i64 @fwrite(ptr nonnull @.str.113, i64 30, i64 1, ptr %16)
+  %181 = call i64 @fwrite(ptr nonnull @.str.113, i64 30, i64 1, ptr nonnull %16)
   %182 = call i64 @fwrite(ptr nonnull @.str.114, i64 46, i64 1, ptr %16)
   %183 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 200), align 8
   %184 = call ptr @join_string_list(ptr noundef %183) #13
@@ -1031,11 +1031,11 @@ window_splitter_recent_write_all.exit:            ; preds = %.lr.ph.i, %158, %16
   %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.118, ptr noundef %189) #13
   call void @g_free(ptr noundef %189) #13
   %191 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 224), align 8
-  %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.119) #13
-  %193 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %16)
+  %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.119) #13
+  %193 = call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr nonnull %16)
   %194 = icmp eq i32 %191, 1
   %195 = select i1 %194, ptr @.str.133, ptr @.str.134
-  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.120, ptr noundef nonnull %195) #13
+  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.120, ptr noundef nonnull %195) #13
   %197 = call ptr @get_last_open_dir() #13
   %.not112 = icmp eq ptr %197, null
   br i1 %.not112, label %202, label %198

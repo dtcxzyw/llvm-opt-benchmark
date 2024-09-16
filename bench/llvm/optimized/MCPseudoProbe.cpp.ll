@@ -6448,7 +6448,7 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i17.i.i:  ; preds = %222, %.preheader.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr %3, ptr %4) unnamed_addr #1 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, ptr %4) unnamed_addr #1 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7

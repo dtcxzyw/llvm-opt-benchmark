@@ -324,7 +324,7 @@ _ZNSt6vectorIPKcSaIS1_EEaSEOS3_.exit:             ; preds = %9
   %84 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store i64 1, ptr %84, align 8
   store ptr %22, ptr %23, align 8
-  call fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  call fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias writable align 8 %24, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(8) %23)
   %85 = load ptr, ptr %24, align 8
   %86 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %87 = load ptr, ptr %86, align 8
@@ -338,7 +338,7 @@ _ZNSt6vectorIPKcSaIS1_EEaSEOS3_.exit91:           ; preds = %_ZNSt6vectorIPKcSaI
   %.sroa.029.0.copyload = load ptr, ptr %5, align 8
   %.sroa.230.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.230.0.copyload = load i64, ptr %.sroa.230.0..sroa_idx, align 8
-  call fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr %.sroa.029.0.copyload, i64 %.sroa.230.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  call fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias writable align 8 %25, ptr %.sroa.029.0.copyload, i64 %.sroa.230.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %23)
   %91 = load ptr, ptr %25, align 8
   %92 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %93 = load ptr, ptr %92, align 8
@@ -409,13 +409,13 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit93:              ; preds = %_ZNSt6vectorIPKcSaI
 120:                                              ; preds = %119
   %121 = call i32 @posix_spawn_file_actions_init(ptr noundef nonnull %26) #21
   %122 = load ptr, ptr %28, align 16
-  %123 = call fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPS4_P26posix_spawn_file_actions_t(ptr noundef %122, i32 noundef 0, ptr noundef %7, ptr noundef nonnull %26)
+  %123 = call fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPS4_P26posix_spawn_file_actions_t(ptr noundef %122, i32 noundef 0, ptr noundef %7, ptr noundef %26)
   br i1 %123, label %165, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds i8, ptr %28, i64 8
   %126 = load ptr, ptr %125, align 8
-  %127 = call fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPS4_P26posix_spawn_file_actions_t(ptr noundef %126, i32 noundef 1, ptr noundef %7, ptr noundef nonnull %26)
+  %127 = call fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPS4_P26posix_spawn_file_actions_t(ptr noundef %126, i32 noundef 1, ptr noundef %7, ptr noundef %26)
   br i1 %127, label %165, label %128
 
 128:                                              ; preds = %124
@@ -454,7 +454,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %139
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %137, %_ZN4llvmneENS_9StringRefES0_.exit, %133, %128
   %141 = getelementptr inbounds i8, ptr %28, i64 16
   %142 = load ptr, ptr %141, align 16
-  %143 = call fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPS4_P26posix_spawn_file_actions_t(ptr noundef %142, i32 noundef 2, ptr noundef %7, ptr noundef nonnull %26)
+  %143 = call fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPS4_P26posix_spawn_file_actions_t(ptr noundef %142, i32 noundef 2, ptr noundef %7, ptr noundef %26)
   br i1 %143, label %165, label %146
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread11:       ; preds = %139, %_ZN4llvmneENS_9StringRefES0_.exit
@@ -1831,7 +1831,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds %"class.llvm::StringRef", ptr %1, i64 %2
   %.not24 = icmp eq i64 %2, 0
@@ -2002,7 +2002,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare i32 @posix_spawn_file_actions_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPS4_P26posix_spawn_file_actions_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPS4_P26posix_spawn_file_actions_t(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %0, null
@@ -2020,7 +2020,7 @@ define internal fastcc noundef zeroext i1 @_ZL13RedirectIO_PSPKNSt7__cxx1112basi
   %.010 = phi ptr [ %10, %9 ], [ @.str.16, %7 ]
   %12 = icmp eq i32 %1, 0
   %13 = select i1 %12, i32 0, i32 65
-  %14 = tail call i32 @posix_spawn_file_actions_addopen(ptr noundef %3, i32 noundef %1, ptr noundef %.010, i32 noundef %13, i32 noundef 438) #21
+  %14 = tail call i32 @posix_spawn_file_actions_addopen(ptr noundef nonnull %3, i32 noundef %1, ptr noundef %.010, i32 noundef %13, i32 noundef 438) #21
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %17, label %15
 
@@ -2054,7 +2054,7 @@ declare i32 @posix_spawn_file_actions_destroy(ptr noundef) local_unnamed_addr #4
 declare i32 @fork() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10RedirectIOSt8optionalIN4llvm9StringRefEEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly byval(%"class.std::optional.63") align 8 %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL10RedirectIOSt8optionalIN4llvm9StringRefEEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly byval(%"class.std::optional.63") align 8 %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -2171,7 +2171,7 @@ declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @setsid() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15SetMemoryLimitsj(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @_ZL15SetMemoryLimitsj(i32 noundef range(i32 1, 0) %0) unnamed_addr #0 {
   %2 = alloca %struct.rlimit, align 8
   %3 = zext i32 %0 to i64
   %4 = shl nuw nsw i64 %3, 20

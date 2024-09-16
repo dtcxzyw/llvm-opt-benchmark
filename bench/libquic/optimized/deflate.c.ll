@@ -2618,11 +2618,11 @@ if.end642:                                        ; preds = %if.then621, %land.l
   ]
 
 if.then646:                                       ; preds = %if.end642
-  %call647 = tail call fastcc i32 @deflate_huff(ptr noundef nonnull %0, i32 noundef %flush)
+  %call647 = tail call fastcc i32 @deflate_huff(ptr noundef %0, i32 noundef %flush)
   br label %if.end661
 
 if.then652:                                       ; preds = %if.end642
-  %call653 = tail call fastcc i32 @deflate_rle(ptr noundef nonnull %0, i32 noundef %flush)
+  %call653 = tail call fastcc i32 @deflate_rle(ptr noundef %0, i32 noundef %flush)
   br label %if.end661
 
 if.else654:                                       ; preds = %if.end642
@@ -3088,7 +3088,7 @@ if.end18:                                         ; preds = %entry, %if.then16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %s, i32 noundef %flush) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef nonnull %s, i32 noundef range(i32 0, 6) %flush) unnamed_addr #0 {
 entry:
   %lookahead = getelementptr inbounds i8, ptr %s, i64 1292
   %match_length = getelementptr inbounds i8, ptr %s, i64 1272
@@ -3389,7 +3389,7 @@ return:                                           ; preds = %flush_pending.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %s, i32 noundef %flush) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef nonnull %s, i32 noundef range(i32 0, 6) %flush) unnamed_addr #0 {
 entry:
   %lookahead = getelementptr inbounds i8, ptr %s, i64 1292
   %match_length149 = getelementptr inbounds i8, ptr %s, i64 1272
@@ -5919,7 +5919,7 @@ return:                                           ; preds = %if.end243, %flush_p
 declare void @MOZ_Z__tr_flush_block(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @longest_match(ptr nocapture noundef %s, i32 noundef %cur_match, i32 noundef %clas) unnamed_addr #8 {
+define internal fastcc i32 @longest_match(ptr nocapture noundef %s, i32 noundef range(i32 1, 65536) %cur_match, i32 noundef %clas) unnamed_addr #8 {
 entry:
   %max_chain_length = getelementptr inbounds i8, ptr %s, i64 1300
   %0 = load i32, ptr %max_chain_length, align 4

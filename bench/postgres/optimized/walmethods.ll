@@ -915,34 +915,27 @@ define internal range(i32 -1, 1) i32 @tar_close(ptr noundef %0, i32 noundef %1) 
   %43 = sub i64 %33, %41
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %3, i8 0, i64 8192, i1 false)
-  %.not11.i = icmp eq i64 %43, 0
-  br i1 %.not11.i, label %tar_write_padding_data.exit.thread, label %.lr.ph.i
+  br label %44
 
-44:                                               ; preds = %.lr.ph.i
-  %45 = sub i64 %.0912.i, %47
-  %.not.i = icmp eq i64 %45, 0
-  br i1 %.not.i, label %tar_write_padding_data.exit.thread, label %.lr.ph.i, !llvm.loop !5
+44:                                               ; preds = %44, %42
+  %.0911.i = phi i64 [ %43, %42 ], [ %48, %44 ]
+  %45 = call i64 @llvm.umin.i64(i64 %.0911.i, i64 8192)
+  %46 = call i64 @tar_write(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %45)
+  %47 = icmp sgt i64 %46, -1
+  %48 = sub i64 %.0911.i, %46
+  %.not.i = icmp ne i64 %48, 0
+  %or.cond.not.i = and i1 %47, %.not.i
+  br i1 %or.cond.not.i, label %44, label %tar_write_padding_data.exit, !llvm.loop !5
 
-.lr.ph.i:                                         ; preds = %42, %44
-  %.0912.i = phi i64 [ %45, %44 ], [ %43, %42 ]
-  %46 = call i64 @llvm.umin.i64(i64 %.0912.i, i64 8192)
-  %47 = call i64 @tar_write(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %46)
-  %48 = icmp sgt i64 %47, -1
-  br i1 %48, label %44, label %tar_write_padding_data.exit
-
-tar_write_padding_data.exit.thread:               ; preds = %44, %42
+tar_write_padding_data.exit:                      ; preds = %44
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
-  br label %50
-
-tar_write_padding_data.exit:                      ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
-  br label %162
+  br i1 %47, label %50, label %162
 
 49:                                               ; preds = %34
   store i64 %33, ptr %39, align 8
   br label %50
 
-50:                                               ; preds = %tar_write_padding_data.exit.thread, %49, %40, %31
+50:                                               ; preds = %49, %tar_write_padding_data.exit, %40, %31
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, 511
@@ -1130,7 +1123,7 @@ tar_write_padding_data.exit:                      ; preds = %.lr.ph.i
   store ptr null, ptr %161, align 8
   br label %162
 
-162:                                              ; preds = %tar_write_padding_data.exit, %109, %65, %57, %158, %127, %120, %106, %98, %85, %27, %22, %14
+162:                                              ; preds = %109, %65, %57, %tar_write_padding_data.exit, %158, %127, %120, %106, %98, %85, %27, %22, %14
   %.0 = phi i32 [ -1, %14 ], [ -1, %22 ], [ 0, %27 ], [ -1, %85 ], [ -1, %98 ], [ -1, %127 ], [ 0, %158 ], [ -1, %106 ], [ -1, %120 ], [ -1, %tar_write_padding_data.exit ], [ -1, %57 ], [ -1, %65 ], [ -1, %109 ]
   ret i32 %.0
 }
@@ -1837,25 +1830,23 @@ declare i64 @time(ptr noundef) local_unnamed_addr #6
 declare i32 @deflateParams(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @tar_write_padding_data(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @tar_write_padding_data(ptr nocapture noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = alloca %union.PGAlignedXLogBlock, align 4096
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %3, i8 0, i64 8192, i1 false)
-  %.not11 = icmp eq i64 %1, 0
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  br label %4
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0912 = phi i64 [ %7, %.lr.ph ], [ %1, %2 ]
-  %4 = call i64 @llvm.umin.i64(i64 %.0912, i64 8192)
-  %5 = call i64 @tar_write(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %4)
-  %6 = icmp sgt i64 %5, -1
-  %7 = sub i64 %.0912, %5
-  %.not = icmp ne i64 %7, 0
-  %or.cond.not = and i1 %.not, %6
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+4:                                                ; preds = %4, %2
+  %.0911 = phi i64 [ %1, %2 ], [ %8, %4 ]
+  %5 = call i64 @llvm.umin.i64(i64 %.0911, i64 8192)
+  %6 = call i64 @tar_write(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %5)
+  %7 = icmp sgt i64 %6, -1
+  %8 = sub i64 %.0911, %6
+  %.not = icmp ne i64 %8, 0
+  %or.cond.not = and i1 %.not, %7
+  br i1 %or.cond.not, label %4, label %9, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not.lcssa = phi i1 [ true, %2 ], [ %6, %.lr.ph ]
-  ret i1 %.not.lcssa
+9:                                                ; preds = %4
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

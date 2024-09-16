@@ -405,7 +405,7 @@ _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %35
   br label %_ZNSt6vectorIN4llvm6TripleESaIS1_EED2Ev.exit
 
 53:                                               ; preds = %35
-  call fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFileENS_5MachO12ArchitectureE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %31, i8 noundef zeroext %42)
+  call fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFileENS_5MachO12ArchitectureE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %31, i8 noundef zeroext %42)
   %54 = load ptr, ptr %10, align 8
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %56 = load ptr, ptr %55, align 8
@@ -531,7 +531,7 @@ _ZNSt10shared_ptrIN4llvm5MachO12RecordsSliceEED2Ev.exit: ; preds = %68, %91, %10
   %111 = getelementptr inbounds %"class.std::shared_ptr", ptr %109, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 -16
   %113 = load ptr, ptr %112, align 8
-  call fastcc void @_ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(304) %113, ptr noundef nonnull align 4 dereferenceable(7) %2, i8 noundef zeroext %42)
+  call fastcc void @_ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(304) %113, ptr noundef nonnull align 4 dereferenceable(7) %2, i8 noundef zeroext %42)
   %114 = load ptr, ptr %13, align 8
   %.not108 = icmp eq ptr %114, null
   br i1 %.not108, label %_ZN4llvm5ErrorD2Ev.exit47, label %_ZN4llvm5ErrorD2Ev.exit46
@@ -698,7 +698,7 @@ _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %178, %_ZNSt10unique
   ]
 
 187:                                              ; preds = %182, %182, %182
-  call fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFileENS_5MachO12ArchitectureE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull %183, i8 noundef zeroext %163)
+  call fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFileENS_5MachO12ArchitectureE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %183, i8 noundef zeroext %163)
   %188 = load ptr, ptr %17, align 8
   %189 = load ptr, ptr %153, align 8
   %.not109116 = icmp eq ptr %188, %189
@@ -798,7 +798,7 @@ _ZNSt10shared_ptrIN4llvm5MachO12RecordsSliceEED2Ev.exit63: ; preds = %.lr.ph120,
   %232 = getelementptr inbounds %"class.std::shared_ptr", ptr %230, i64 %231
   %233 = getelementptr inbounds i8, ptr %232, i64 -16
   %234 = load ptr, ptr %233, align 8
-  call fastcc void @_ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull %183, ptr noundef nonnull align 8 dereferenceable(304) %234, ptr noundef nonnull align 4 dereferenceable(7) %2, i8 noundef zeroext %163)
+  call fastcc void @_ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef %183, ptr noundef nonnull align 8 dereferenceable(304) %234, ptr noundef nonnull align 4 dereferenceable(7) %2, i8 noundef zeroext %163)
   %235 = load ptr, ptr %20, align 8
   %.not110 = icmp eq ptr %235, null
   br i1 %.not110, label %_ZN4llvm5ErrorD2Ev.exit65, label %_ZN4llvm5ErrorD2Ev.exit64
@@ -994,7 +994,7 @@ declare noundef zeroext i8 @_ZN4llvm5MachO26getArchitectureFromCpuTypeEjj(i32 no
 declare noundef nonnull align 4 dereferenceable(28) ptr @_ZNK4llvm6object15MachOObjectFile9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(360)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFileENS_5MachO12ArchitectureE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFileENS_5MachO12ArchitectureE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator.31", align 1
   %5 = alloca %"class.std::allocator.31", align 1
   %6 = alloca %"class.std::allocator.31", align 1
@@ -2304,7 +2304,7 @@ _ZN4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO12GlobalRecordESt14defa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(304) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(7) %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(304) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(7) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::StringMap.242", align 8
   %8 = alloca %"class.llvm::iterator_range.243", align 8

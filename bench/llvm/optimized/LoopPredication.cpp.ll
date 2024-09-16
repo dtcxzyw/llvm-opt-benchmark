@@ -546,7 +546,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %89
   br i1 %.not23.i.i, label %111, label %_ZN12_GLOBAL__N_115LoopPredication18parseLoopLatchICmpEv.exit.thread.i
 
 111:                                              ; preds = %105
-  call fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull readonly align 8 dereferenceable(88) %29, ptr noundef nonnull %109), !noalias !7
+  call fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull readonly align 8 dereferenceable(88) %29, ptr noundef %109), !noalias !7
   %112 = getelementptr inbounds i8, ptr %25, i64 24
   %.val.i.i = load i8, ptr %112, align 8, !noalias !7
   %113 = trunc i8 %.val.i.i to i1
@@ -2699,7 +2699,7 @@ declare noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align
 declare noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopLatchEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 63
@@ -3116,7 +3116,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115LoopPredication11widenChecksERN4
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull readonly %31)
+  call fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef readonly %31)
   %.val24.i = load i8, ptr %18, align 8
   %34 = trunc i8 %.val24.i to i1
   %35 = load i32, ptr %14, align 8

@@ -773,7 +773,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mojito_contact(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_mojito_contact(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 256) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp sgt i32 %4, 0
   %8 = load i32, ptr @ett_mojito_contact, align 4

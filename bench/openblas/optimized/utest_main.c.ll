@@ -137,10 +137,10 @@ define internal fastcc void @msg_start() unnamed_addr #0 {
 }
 
 ; Function Attrs: inlinehint nofree nounwind uwtable
-define internal fastcc void @vprint_errormsg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @vprint_errormsg(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = load ptr, ptr @ctest_errormsg, align 8, !tbaa !7
   %4 = load i64, ptr @ctest_errorsize, align 8, !tbaa !9
-  %5 = tail call i32 @vsnprintf(ptr noundef %3, i64 noundef %4, ptr noundef %0, ptr noundef %1) #14
+  %5 = tail call i32 @vsnprintf(ptr noundef %3, i64 noundef %4, ptr noundef %0, ptr noundef nonnull %1) #14
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 

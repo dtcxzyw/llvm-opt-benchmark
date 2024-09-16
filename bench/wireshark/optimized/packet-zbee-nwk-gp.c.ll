@@ -2266,7 +2266,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #0
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @zbee_gp_security_parse_key(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @zbee_gp_security_parse_key(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
@@ -2461,7 +2461,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #11

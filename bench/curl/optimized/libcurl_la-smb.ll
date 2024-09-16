@@ -262,7 +262,7 @@ if.end13:                                         ; preds = %if.end9
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end13, %entry
-  %call15 = call fastcc i32 @smb_send_and_recv(ptr noundef nonnull %data, ptr noundef nonnull %msg)
+  %call15 = call fastcc i32 @smb_send_and_recv(ptr noundef nonnull %data, ptr noundef %msg)
   switch i32 %call15, label %if.then19 [
     i32 81, label %if.end20
     i32 0, label %if.end20
@@ -456,7 +456,7 @@ if.end9:                                          ; preds = %smb_send_tree_conne
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %if.end
-  %call11 = call fastcc i32 @smb_send_and_recv(ptr noundef nonnull %data, ptr noundef nonnull %msg)
+  %call11 = call fastcc i32 @smb_send_and_recv(ptr noundef nonnull %data, ptr noundef %msg)
   switch i32 %call11, label %if.then15 [
     i32 81, label %if.end16
     i32 0, label %if.end16
@@ -928,7 +928,7 @@ declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @Curl_conn_connect(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @smb_send_and_recv(ptr noundef %data, ptr nocapture noundef writeonly %msg) unnamed_addr #0 {
+define internal fastcc i32 @smb_send_and_recv(ptr noundef %data, ptr nocapture noundef nonnull writeonly %msg) unnamed_addr #0 {
 entry:
   %bytes_read.i = alloca i64, align 8
   %bytes_written.i = alloca i64, align 8
@@ -1188,7 +1188,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @smb_send_message(ptr noundef %data, i8 noundef zeroext %cmd, ptr nocapture noundef readonly %msg, i64 noundef %msg_len) unnamed_addr #0 {
+define internal fastcc i32 @smb_send_message(ptr noundef %data, i8 noundef zeroext range(i8 4, -93) %cmd, ptr nocapture noundef readonly %msg, i64 noundef %msg_len) unnamed_addr #0 {
 entry:
   %bytes_written.i = alloca i64, align 8
   %call = tail call i32 @Curl_get_upload_buffer(ptr noundef %data) #12

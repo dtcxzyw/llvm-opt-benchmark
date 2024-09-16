@@ -5804,7 +5804,7 @@ dissect_homeplug_av_get_sw_cnf.exit:              ; preds = %dissect_homeplug_av
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_homeplug_av_nw_info_net(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @dissect_homeplug_av_nw_info_net(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @ptvcursor_tree(ptr noundef %0) #5
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %35, label %5
@@ -5867,7 +5867,7 @@ define internal fastcc void @dissect_homeplug_av_nw_info_net(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_homeplug_av_nw_info_sta(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_homeplug_av_nw_info_sta(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 {
   %4 = tail call ptr @ptvcursor_tree(ptr noundef %0) #5
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %40, label %5
@@ -5899,9 +5899,10 @@ define internal fastcc void @dissect_homeplug_av_nw_info_sta(ptr noundef %0, i32
   br label %22
 
 22:                                               ; preds = %19, %5
-  switch i32 %2, label %39 [
-    i32 0, label %23
-    i32 1, label %26
+  %trunc = trunc nuw i32 %2 to i8
+  switch i8 %trunc, label %39 [
+    i8 0, label %23
+    i8 1, label %26
   ]
 
 23:                                               ; preds = %22
@@ -6080,107 +6081,103 @@ define internal fastcc void @dissect_homeplug_av_cblock(ptr noundef %0) unnamed_
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_homeplug_av_tone_map_carrier(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @dissect_homeplug_av_tone_map_carrier(ptr noundef %0, i16 noundef zeroext range(i16 1, 0) %1) unnamed_addr #0 {
   %3 = tail call ptr @ptvcursor_tree(ptr noundef %0) #5
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %62, label %4
+  br i1 %.not, label %62, label %.lr.ph.preheader
 
-4:                                                ; preds = %2
-  %5 = lshr i16 %1, 1
-  %spec.select = sub i16 %1, %5
-  %6 = load i32, ptr @hf_homeplug_av_tone_map_carriers, align 4
-  %7 = zext i16 %spec.select to i32
-  %8 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef 0) #5
-  %9 = load i32, ptr @ett_homeplug_av_tone_map_carriers, align 4
-  %10 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %8, i32 noundef %9) #5
-  %.not69 = icmp eq i16 %1, 0
-  br i1 %.not69, label %._crit_edge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
+.lr.ph.preheader:                                 ; preds = %2
+  %4 = lshr i16 %1, 1
+  %spec.select = sub i16 %1, %4
+  %5 = load i32, ptr @hf_homeplug_av_tone_map_carriers, align 4
+  %6 = zext i16 %spec.select to i32
+  %7 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef 0) #5
+  %8 = load i32, ptr @ett_homeplug_av_tone_map_carriers, align 4
+  %9 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %7, i32 noundef %8) #5
   %umax = tail call i16 @llvm.umax.i16(i16 %spec.select, i16 1)
   %wide.trip.count = zext i16 %umax to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.066 = phi i16 [ 0, %.lr.ph.preheader ], [ %51, %.lr.ph ]
-  %.05365 = phi i16 [ 0, %.lr.ph.preheader ], [ %48, %.lr.ph ]
+  %.066 = phi i16 [ 0, %.lr.ph.preheader ], [ %50, %.lr.ph ]
+  %.05365 = phi i16 [ 0, %.lr.ph.preheader ], [ %47, %.lr.ph ]
   %.05464 = phi i16 [ 0, %.lr.ph.preheader ], [ %.2, %.lr.ph ]
-  %11 = load i32, ptr @hf_homeplug_av_tone_map_carrier, align 4
-  %12 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #5
-  %13 = shl nuw i32 %indvars.iv, 1
-  %14 = and i32 %13, 65534
-  %15 = or disjoint i32 %14, 1
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.1582, i32 noundef %14, i32 noundef %15) #5
-  %16 = load i32, ptr @ett_homeplug_av_tone_map_carrier, align 4
-  %17 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %12, i32 noundef %16) #5
-  %18 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #5
-  %19 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #5
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %19) #5
-  %21 = zext i8 %20 to i32
-  %22 = and i32 %21, 15
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbits, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = lshr i32 %21, 4
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbits, i64 0, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = add nsw i64 %23, -1
-  %.not60 = icmp ult i64 %30, 8
-  %31 = zext i1 %.not60 to i16
-  %spec.select62 = add i16 %.05464, %31
-  %32 = add nsw i64 %27, -1
-  %.not61 = icmp ult i64 %32, 8
-  %33 = zext i1 %.not61 to i16
-  %.2 = add i16 %spec.select62, %33
-  %34 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbitsSnr, i64 0, i64 %23
-  %35 = load i8, ptr %34, align 1
-  %36 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbitsSnr, i64 0, i64 %27
-  %37 = load i8, ptr %36, align 1
-  %38 = load i32, ptr @hf_homeplug_av_tone_map_carrier_lo, align 4
-  %39 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #5
-  %40 = zext i8 %25 to i32
-  %41 = zext i8 %35 to i32
-  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %39, ptr noundef nonnull @.str.1583, i32 noundef %14, i32 noundef %40, i32 noundef %41) #5
-  %42 = load i32, ptr @hf_homeplug_av_tone_map_carrier_hi, align 4
-  %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #5
-  %44 = zext i8 %29 to i32
-  %45 = zext i8 %37 to i32
-  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %43, ptr noundef nonnull @.str.1583, i32 noundef %15, i32 noundef %44, i32 noundef %45) #5
+  %10 = load i32, ptr @hf_homeplug_av_tone_map_carrier, align 4
+  %11 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #5
+  %12 = shl nuw i32 %indvars.iv, 1
+  %13 = and i32 %12, 65534
+  %14 = or disjoint i32 %13, 1
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.1582, i32 noundef %13, i32 noundef %14) #5
+  %15 = load i32, ptr @ett_homeplug_av_tone_map_carrier, align 4
+  %16 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %11, i32 noundef %15) #5
+  %17 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #5
+  %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #5
+  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %18) #5
+  %20 = zext i8 %19 to i32
+  %21 = and i32 %20, 15
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbits, i64 0, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %25 = lshr i32 %20, 4
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbits, i64 0, i64 %26
+  %28 = load i8, ptr %27, align 1
+  %29 = add nsw i64 %22, -1
+  %.not60 = icmp ult i64 %29, 8
+  %30 = zext i1 %.not60 to i16
+  %spec.select62 = add i16 %.05464, %30
+  %31 = add nsw i64 %26, -1
+  %.not61 = icmp ult i64 %31, 8
+  %32 = zext i1 %.not61 to i16
+  %.2 = add i16 %spec.select62, %32
+  %33 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbitsSnr, i64 0, i64 %22
+  %34 = load i8, ptr %33, align 1
+  %35 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbitsSnr, i64 0, i64 %26
+  %36 = load i8, ptr %35, align 1
+  %37 = load i32, ptr @hf_homeplug_av_tone_map_carrier_lo, align 4
+  %38 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #5
+  %39 = zext i8 %24 to i32
+  %40 = zext i8 %34 to i32
+  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %38, ptr noundef nonnull @.str.1583, i32 noundef %13, i32 noundef %39, i32 noundef %40) #5
+  %41 = load i32, ptr @hf_homeplug_av_tone_map_carrier_hi, align 4
+  %42 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %41, i32 noundef 1, i32 noundef 0) #5
+  %43 = zext i8 %28 to i32
+  %44 = zext i8 %36 to i32
+  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %42, ptr noundef nonnull @.str.1583, i32 noundef %14, i32 noundef %43, i32 noundef %44) #5
   tail call void @ptvcursor_pop_subtree(ptr noundef %0) #5
-  %46 = add nuw nsw i32 %44, %40
-  %47 = trunc nuw nsw i32 %46 to i16
-  %48 = add i16 %.05365, %47
-  %49 = add nuw nsw i32 %45, %41
-  %50 = trunc nuw nsw i32 %49 to i16
-  %51 = add i16 %.066, %50
+  %45 = add nuw nsw i32 %43, %39
+  %46 = trunc nuw nsw i32 %45 to i16
+  %47 = add i16 %.05365, %46
+  %48 = add nuw nsw i32 %44, %40
+  %49 = trunc nuw nsw i32 %48 to i16
+  %50 = add i16 %.066, %49
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not59 = icmp eq i16 %.2, 0
-  br i1 %.not59, label %._crit_edge.thread, label %52
+  br i1 %.not59, label %61, label %51
 
-52:                                               ; preds = %._crit_edge
-  %53 = uitofp i16 %51 to float
-  %54 = zext i16 %48 to i32
-  %55 = zext i16 %.2 to i32
-  %56 = uitofp i16 %48 to float
-  %57 = uitofp i16 %.2 to float
-  %58 = fdiv float %56, %57
-  %59 = fpext float %58 to double
-  %60 = fdiv float %53, %57
-  %61 = fpext float %60 to double
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.1584, i32 noundef %54, i32 noundef %55, double noundef %59, double noundef %61) #5
-  br label %._crit_edge.thread
+51:                                               ; preds = %._crit_edge
+  %52 = zext i16 %47 to i32
+  %53 = zext i16 %.2 to i32
+  %54 = uitofp i16 %47 to float
+  %55 = uitofp i16 %.2 to float
+  %56 = fdiv float %54, %55
+  %57 = fpext float %56 to double
+  %58 = uitofp i16 %50 to float
+  %59 = fdiv float %58, %55
+  %60 = fpext float %59 to double
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.1584, i32 noundef %52, i32 noundef %53, double noundef %57, double noundef %60) #5
+  br label %61
 
-._crit_edge.thread:                               ; preds = %4, %52, %._crit_edge
+61:                                               ; preds = %51, %._crit_edge
   tail call void @ptvcursor_pop_subtree(ptr noundef %0) #5
   br label %62
 
-62:                                               ; preds = %2, %._crit_edge.thread
+62:                                               ; preds = %2, %61
   ret void
 }
 

@@ -192,7 +192,7 @@ define internal i32 @dissect_git_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %11 = load i32, ptr @ett_git, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #4
-  %13 = call fastcc i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef %5)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %16, label %14
 
@@ -221,7 +221,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @wmem_packet_scope() #4
@@ -354,7 +354,7 @@ define internal fastcc i32 @dissect_http_pkt_lines(ptr noundef %0, ptr noundef %
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %16
-  %20 = call fastcc i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef nonnull %5)
+  %20 = call fastcc i32 @dissect_pkt_line(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef %5)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %16, !llvm.loop !4
 

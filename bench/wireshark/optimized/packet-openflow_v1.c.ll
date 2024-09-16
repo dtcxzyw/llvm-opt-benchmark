@@ -829,7 +829,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 48, 53) i32 @dissect_openflow_ofp_match_v1(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 48, 53) i32 @dissect_openflow_ofp_match_v1(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 13) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_openflow_wildcards, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #3
   %6 = add nuw nsw i32 %2, 4
@@ -865,7 +865,7 @@ define internal fastcc range(i32 48, 53) i32 @dissect_openflow_ofp_match_v1(ptr 
   %36 = add nuw nsw i32 %2, 28
   %37 = load i32, ptr @hf_openflow_ofp_source_addr, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef 0) #3
-  %39 = add nuw nsw i32 %2, 32
+  %39 = or disjoint i32 %2, 32
   %40 = load i32, ptr @hf_openflow_ofp_dest_addr, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0) #3
   %42 = add nuw nsw i32 %2, 36
@@ -881,7 +881,7 @@ define internal fastcc range(i32 48, 53) i32 @dissect_openflow_ofp_match_v1(ptr 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 16, 65612) i32 @dissect_openflow_action_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 16, 65612) i32 @dissect_openflow_action_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 16, 77) %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #3
   %6 = load i32, ptr @hf_openflow_action_type, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #3
@@ -908,7 +908,7 @@ define internal fastcc range(i32 16, 65612) i32 @dissect_openflow_action_header(
 
 22:                                               ; preds = %19, %12
   %.sink = phi i32 [ %21, %19 ], [ 8, %12 ]
-  %23 = add i32 %3, %.sink
+  %23 = add nuw nsw i32 %3, %.sink
   ret i32 %23
 }
 

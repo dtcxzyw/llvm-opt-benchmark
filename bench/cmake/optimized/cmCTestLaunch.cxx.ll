@@ -1170,7 +1170,7 @@ _ZN2cm11uv_pipe_ptrC2Ev.exit16:                   ; preds = %_ZN2cm11uv_pipe_ptr
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_pipe_ptrEiRSoRSt14basic_ofstreamIcSt11char_traitsIcEERbSA_i"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %64, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 1 dereferenceable(1) %8, i32 noundef 1)
+  invoke fastcc void @"_ZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_pipe_ptrEiRSoRSt14basic_ofstreamIcSt11char_traitsIcEERbSA_i"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %64, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 1 dereferenceable(1) %8, i32 noundef 1)
           to label %_ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit unwind label %.loopexit.split-lp
 
 _ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit: ; preds = %65
@@ -1182,7 +1182,7 @@ _ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit: ; pre
 
 69:                                               ; preds = %_ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit
   %70 = getelementptr inbounds i8, ptr %0, i64 49
-  invoke fastcc void @"_ZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_pipe_ptrEiRSoRSt14basic_ofstreamIcSt11char_traitsIcEERbSA_i"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %68, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(248) %4, ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull align 1 dereferenceable(1) %9, i32 noundef 2)
+  invoke fastcc void @"_ZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_pipe_ptrEiRSoRSt14basic_ofstreamIcSt11char_traitsIcEERbSA_i"(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %68, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(248) %4, ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull align 1 dereferenceable(1) %9, i32 noundef 2)
           to label %_ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit24 unwind label %.loopexit.split-lp
 
 _ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit24: ; preds = %69
@@ -1496,7 +1496,7 @@ declare void @_ZNK23cmUVProcessChainBuilder5StartEv(ptr dead_on_unwind writable 
 declare void @_ZN15cmProcessOutputC1ENS_8EncodingEj(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_pipe_ptrEiRSoRSt14basic_ofstreamIcSt11char_traitsIcEERbSA_i"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, i32 noundef %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_pipe_ptrEiRSoRSt14basic_ofstreamIcSt11char_traitsIcEERbSA_i"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, i32 noundef range(i32 1, 3) %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = load ptr, ptr %1, align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(848) ptr @_ZN16cmUVProcessChain7GetLoopEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %12 = tail call noundef i32 @_ZN2cm11uv_pipe_ptr4initER9uv_loop_siPv(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(848) %11, i32 noundef 0, ptr noundef null)

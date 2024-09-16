@@ -5334,13 +5334,13 @@ lpad28:                                           ; preds = %invoke.cont22
   br label %eh.resume
 
 if.else:                                          ; preds = %sw.bb
-  %call.i222225 = call fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0ET_SC_SC_T0_"(ptr nonnull %spec.select.i.i, ptr nonnull %add.ptr.i.i, ptr nonnull %this)
+  %call.i222225 = call fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0ET_SC_SC_T0_"(ptr nonnull %spec.select.i.i, ptr nonnull %add.ptr.i.i, ptr %this)
   %cmp.i.i223 = icmp eq ptr %call.i222225, %add.ptr.i.i
   br i1 %cmp.i.i223, label %invoke.cont48, label %if.end.i224
 
 if.end.i224:                                      ; preds = %if.else
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call.i222225, i64 8
-  %call17.i226 = call fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0ET_SC_SC_T0_"(ptr nonnull %incdec.ptr.i.i, ptr nonnull %add.ptr.i.i, ptr nonnull %this)
+  %call17.i226 = call fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0ET_SC_SC_T0_"(ptr nonnull %incdec.ptr.i.i, ptr nonnull %add.ptr.i.i, ptr %this)
   %cmp.i2.i = icmp eq ptr %call17.i226, %add.ptr.i.i
   %retval.sroa.0.0.copyload1.i = select i1 %cmp.i2.i, ptr %call.i222225, ptr %add.ptr.i.i
   br label %invoke.cont48
@@ -5527,13 +5527,13 @@ sw.bb70:                                          ; preds = %cond.end
   br i1 %parentAssignment, label %if.then72, label %if.else112
 
 if.then72:                                        ; preds = %sw.bb70
-  %call.i293300 = call fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1ET_SC_SC_T0_"(ptr nonnull %spec.select.i.i284, ptr nonnull %add.ptr.i.i292, ptr nonnull %this)
+  %call.i293300 = call fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1ET_SC_SC_T0_"(ptr nonnull %spec.select.i.i284, ptr nonnull %add.ptr.i.i292, ptr %this)
   %cmp.i.i294 = icmp eq ptr %call.i293300, %add.ptr.i.i292
   br i1 %cmp.i.i294, label %invoke.cont90, label %if.end.i295
 
 if.end.i295:                                      ; preds = %if.then72
   %incdec.ptr.i.i296 = getelementptr inbounds i8, ptr %call.i293300, i64 8
-  %call17.i302 = call fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1ET_SC_SC_T0_"(ptr nonnull %incdec.ptr.i.i296, ptr nonnull %add.ptr.i.i292, ptr nonnull %this)
+  %call17.i302 = call fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1ET_SC_SC_T0_"(ptr nonnull %incdec.ptr.i.i296, ptr nonnull %add.ptr.i.i292, ptr %this)
   %cmp.i2.i297 = icmp eq ptr %call17.i302, %add.ptr.i.i292
   %retval.sroa.0.0.copyload1.i298 = select i1 %cmp.i2.i297, ptr %call.i293300, ptr %add.ptr.i.i292
   br label %invoke.cont90
@@ -24678,7 +24678,7 @@ unreachable:                                      ; preds = %invoke.cont3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0ET_SC_SC_T0_"(ptr %__first.coerce, ptr %__last.coerce, ptr %__pred.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_0ET_SC_SC_T0_"(ptr %__first.coerce, ptr %__last.coerce, ptr nonnull %__pred.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i244.i.i = alloca %"class.cvc5::internal::NodeTemplate.309", align 8
   %agg.tmp.i.i199.i.i = alloca %"class.cvc5::internal::NodeTemplate.309", align 8
@@ -25347,7 +25347,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1ET_SC_SC_T0_"(ptr %__first.coerce, ptr %__last.coerce, ptr %__pred.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc ptr @"_ZSt7find_ifIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory8booleans17CircuitPropagator17propagateBackwardES6_bE3$_1ET_SC_SC_T0_"(ptr %__first.coerce, ptr %__last.coerce, ptr nonnull %__pred.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i244.i.i = alloca %"class.cvc5::internal::NodeTemplate.309", align 8
   %agg.tmp.i.i199.i.i = alloca %"class.cvc5::internal::NodeTemplate.309", align 8

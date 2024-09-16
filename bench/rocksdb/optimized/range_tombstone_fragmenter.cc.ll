@@ -2061,7 +2061,7 @@ if.then.i.i95:                                    ; preds = %invoke.cont53
   %mul.i.i99 = xor i64 %sub.i2.i.i, 126
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %agg.tmp4.i.i, align 8
   store i64 %60, ptr %user_comparator_.i.i.i.i2.i, align 8
-  invoke fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_T1_"(ptr noundef nonnull %agg.tmp.i.i86, ptr noundef nonnull %agg.tmp1.i.i87, i64 noundef %mul.i.i99, ptr noundef nonnull %agg.tmp4.i.i)
+  invoke fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_T1_"(ptr noundef %agg.tmp.i.i86, ptr noundef %agg.tmp1.i.i87, i64 noundef %mul.i.i99, ptr noundef %agg.tmp4.i.i)
           to label %.noexc102 unwind label %lpad55.loopexit.split-lp.loopexit.split-lp
 
 .noexc102:                                        ; preds = %if.then.i.i95
@@ -2081,7 +2081,7 @@ invoke.cont.i.i.i:                                ; preds = %.noexc102
   store i64 16, ptr %index_.i.i.i.i.i, align 8, !alias.scope !28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %agg.tmp2.i.i.i, align 8
   store i64 %60, ptr %user_comparator_.i.i.i.i.i.i, align 8
-  invoke fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_"(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
+  invoke fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_"(ptr noundef %agg.tmp.i.i.i, ptr noundef %agg.tmp1.i.i.i, ptr noundef %agg.tmp2.i.i.i)
           to label %invoke.cont4.lr.ph.i.i.i.i unwind label %lpad55.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont4.lr.ph.i.i.i.i:                       ; preds = %invoke.cont.i.i.i
@@ -2171,7 +2171,7 @@ if.else.i.i.i100:                                 ; preds = %.noexc102
   store i64 %add.i.i83, ptr %agg.tmp9.sroa.2.0.agg.tmp14.i.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %agg.tmp15.i.i.i, align 8
   store i64 %60, ptr %user_comparator_.i.i.i12.i.i.i, align 8
-  invoke fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_"(ptr noundef nonnull %agg.tmp13.i.i.i, ptr noundef nonnull %agg.tmp14.i.i.i, ptr noundef nonnull %agg.tmp15.i.i.i)
+  invoke fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_"(ptr noundef %agg.tmp13.i.i.i, ptr noundef %agg.tmp14.i.i.i, ptr noundef %agg.tmp15.i.i.i)
           to label %invoke.cont12.i.i unwind label %lpad55.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont12.i.i:                                ; preds = %invoke.cont6.i.i.i.i, %if.else.i.i.i100
@@ -7000,7 +7000,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_T1_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture noundef readonly %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i22.i = alloca %"class.rocksdb::Slice", align 8
   %__tmp.i.i147.i.i = alloca %"class.rocksdb::Slice", align 8
@@ -7072,7 +7072,7 @@ invoke.cont.i.i.i:                                ; preds = %if.end9.split.i.i.i
   store i64 %.fr.i60, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %agg.tmp4.i.i.i, align 8
   store i64 %3, ptr %user_comparator_.i.i.i.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.i61, ptr %__value.sroa.0.0.copyload.i.i.i, i64 %__value.sroa.2.0.copyload.i.i.i, ptr noundef nonnull %agg.tmp4.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr noundef %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.i61, ptr %__value.sroa.0.0.copyload.i.i.i, i64 %__value.sroa.2.0.copyload.i.i.i, ptr noundef %agg.tmp4.i.i.i)
   %cmp7.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   br i1 %cmp7.i.i.i, label %invoke.cont.i.i, label %if.end9.split.i.i.i
 
@@ -7119,7 +7119,7 @@ while.body.i.us.i:                                ; preds = %while.body.lr.ph.i.
   %sub.i.i.i26.us.i = sub i64 %dec.i.i10.us.i, %.fr.i60
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %agg.tmp5.i.i5.i, align 8
   store i64 %3, ptr %user_comparator_.i.i.i.i.i8.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i4.i, i64 noundef 0, i64 noundef %sub.i.i.i26.us.i, ptr %__value.sroa.0.0.copyload.i.i17.us.i, i64 %__value.sroa.2.0.copyload.i.i19.us.i, ptr noundef nonnull %agg.tmp5.i.i5.i)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr noundef %agg.tmp.i.i4.i, i64 noundef 0, i64 noundef %sub.i.i.i26.us.i, ptr %__value.sroa.0.0.copyload.i.i17.us.i, i64 %__value.sroa.2.0.copyload.i.i19.us.i, ptr noundef %agg.tmp5.i.i5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i4.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp5.i.i5.i)
   %cmp.i.us.i = icmp sgt i64 %sub.i.i.i26.us.i, 1
@@ -7149,7 +7149,7 @@ while.body.i.i:                                   ; preds = %while.body.lr.ph.i.
   %sub.i.i.i26.i = sub i64 %dec.i.i10.i, %.fr.i60
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %agg.tmp5.i.i5.i, align 8
   store i64 %3, ptr %user_comparator_.i.i.i.i.i8.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i4.i, i64 noundef 0, i64 noundef %sub.i.i.i26.i, ptr %__value.sroa.0.0.copyload.i.i17.i, i64 %__value.sroa.2.0.copyload.i.i19.i, ptr noundef nonnull %agg.tmp5.i.i5.i)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr noundef %agg.tmp.i.i4.i, i64 noundef 0, i64 noundef %sub.i.i.i26.i, ptr %__value.sroa.0.0.copyload.i.i17.i, i64 %__value.sroa.2.0.copyload.i.i19.i, ptr noundef %agg.tmp5.i.i5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i4.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp5.i.i5.i)
   %cmp.i.i = icmp sgt i64 %sub.i.i.i26.i, 1
@@ -7508,7 +7508,7 @@ invoke.cont9:                                     ; preds = %while.end14.i.i, %w
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %agg.tmp12, align 8
   %79 = load i64, ptr %user_comparator_2.i.i.i9, align 8
   store i64 %79, ptr %user_comparator_.i.i.i36, align 8
-  call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_T1_"(ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp11, i64 noundef %dec, ptr noundef nonnull %agg.tmp12)
+  call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_T1_"(ptr noundef %agg.tmp10, ptr noundef %agg.tmp11, i64 noundef %dec, ptr noundef %agg.tmp12)
   store ptr %agg.tmp5.sroa.0.0.copyload, ptr %__last, align 8
   store i64 %.us-phi73.i, ptr %index_.i, align 8
   %80 = load i64, ptr %index_2.i, align 8
@@ -7522,7 +7522,7 @@ while.end:                                        ; preds = %invoke.cont9, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce0, i64 %__value.coerce1, ptr nocapture noundef readonly %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce0, i64 %__value.coerce1, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__value.i = alloca %"class.rocksdb::Slice", align 8
   %sub = add nsw i64 %__len, -1
@@ -7698,7 +7698,7 @@ invoke.cont39:                                    ; preds = %invoke.cont10.i, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last, ptr nocapture noundef readonly %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.i = alloca %"class.rocksdb::Slice", align 8
   %__val = alloca %"class.rocksdb::Slice", align 8

@@ -1679,7 +1679,7 @@ define dso_local i32 @drm_mode_setplane(ptr noundef %0, ptr nocapture noundef re
   %111 = load ptr, ptr %85, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  %114 = call i32 %113(ptr noundef %18, ptr noundef nonnull %4) #13
+  %114 = call i32 %113(ptr noundef nonnull %18, ptr noundef nonnull %4) #13
   br label %__setplane_atomic.exit
 
 115:                                              ; preds = %109
@@ -1691,7 +1691,7 @@ define dso_local i32 @drm_mode_setplane(ptr noundef %0, ptr nocapture noundef re
 118:                                              ; preds = %115
   %119 = load ptr, ptr %85, align 8
   %120 = load ptr, ptr %119, align 8
-  %121 = call i32 %120(ptr noundef %18, ptr noundef %44, ptr noundef nonnull %45, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61, ptr noundef nonnull %4) #13
+  %121 = call i32 %120(ptr noundef nonnull %18, ptr noundef %44, ptr noundef nonnull %45, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61, ptr noundef nonnull %4) #13
   br label %__setplane_atomic.exit
 
 122:                                              ; preds = %105, %101
@@ -2062,7 +2062,7 @@ __setplane_atomic.exit.thread19:                  ; preds = %184
 
 190:                                              ; preds = %184
   %.val.i = load i32, ptr %47, align 8
-  %191 = call fastcc i32 @__setplane_check(ptr noundef nonnull %65, i32 %.val.i, ptr noundef nonnull %126, i32 noundef %133, i32 noundef %132, i32 noundef %143, i32 noundef %144, i32 noundef 0, i32 noundef 0, i32 noundef %145, i32 noundef %146)
+  %191 = call fastcc i32 @__setplane_check(ptr noundef %65, i32 %.val.i, ptr noundef nonnull %126, i32 noundef %133, i32 noundef %132, i32 noundef %143, i32 noundef %144, i32 noundef 0, i32 noundef 0, i32 noundef %145, i32 noundef %146)
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %193, label %__setplane_atomic.exit.thread
 
@@ -2865,7 +2865,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @drm_modeset_lock_all_ctx(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__setplane_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__setplane_internal(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) unnamed_addr #0 align 16 {
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
@@ -2909,7 +2909,7 @@ define internal fastcc i32 @__setplane_internal(ptr noundef %0, ptr noundef %1, 
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 %41(ptr noundef %0, ptr noundef %11) #13
+  %42 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef %11) #13
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %46
 
@@ -2937,7 +2937,7 @@ define internal fastcc i32 @__setplane_internal(ptr noundef %0, ptr noundef %1, 
   %55 = getelementptr inbounds i8, ptr %0, i64 184
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call i32 %57(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #13
+  %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #13
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %63
 
@@ -2974,7 +2974,7 @@ define internal fastcc i32 @__setplane_internal(ptr noundef %0, ptr noundef %1, 
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__setplane_check(ptr noundef %0, i32 %.144.val, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__setplane_check(ptr noundef nonnull %0, i32 %.144.val, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 16 {
   %11 = getelementptr inbounds i8, ptr %0, i64 120
   %12 = load i32, ptr %11, align 8
   %13 = shl nuw i32 1, %.144.val
@@ -3033,7 +3033,7 @@ define internal fastcc i32 @__setplane_check(ptr noundef %0, i32 %.144.val, ptr 
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %43
-  %50 = tail call zeroext i1 %47(ptr noundef %0, i32 noundef %20, i64 noundef %22) #13
+  %50 = tail call zeroext i1 %47(ptr noundef nonnull %0, i32 noundef %20, i64 noundef %22) #13
   br i1 %50, label %72, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %49
@@ -3095,7 +3095,7 @@ define internal fastcc i32 @__setplane_check(ptr noundef %0, i32 %.144.val, ptr 
   br label %85
 
 83:                                               ; preds = %74
-  %84 = tail call i32 @drm_framebuffer_check_src_coords(i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %1) #13
+  %84 = tail call i32 @drm_framebuffer_check_src_coords(i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %1) #13
   br label %85
 
 85:                                               ; preds = %83, %82, %.thread, %16

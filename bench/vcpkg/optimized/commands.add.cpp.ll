@@ -1802,7 +1802,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %548 unwind label %299
 
 548:                                              ; preds = %547
-  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRSt6vectorINS_24ParsedQualifiedSpecifierESaIS3_EEZNS_20command_add_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_3EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_"(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(24) %22)
+  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRSt6vectorINS_24ParsedQualifiedSpecifierESaIS3_EEZNS_20command_add_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_3EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_"(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %549 unwind label %299
 
 549:                                              ; preds = %548

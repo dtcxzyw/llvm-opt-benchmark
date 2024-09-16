@@ -2498,7 +2498,7 @@ _ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE
   %103 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22, !noalias !54
   %104 = getelementptr inbounds %"struct.clang::Sema::PragmaStack<clang::Sema::AlignPackInfo>::Slot", ptr %102, i64 %103
   %105 = load ptr, ptr %0, align 8, !noalias !65
-  call fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_1EEDaOT_T0_"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %104, ptr %105)
+  call fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_1EEDaOT_T0_"(ptr dead_on_unwind noalias writable align 8 %8, ptr %104, ptr %105)
   %106 = load ptr, ptr %0, align 8
   %107 = load ptr, ptr %8, align 8
   %.not40 = icmp eq ptr %107, %106
@@ -6365,7 +6365,7 @@ _ZSt4moveIPN5clang4Sema11PragmaStackINS1_13AlignPackInfoEE4SlotES6_ET0_T_S8_S7_.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_1EEDaOT_T0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #8 {
+define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_1EEDaOT_T0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #8 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)

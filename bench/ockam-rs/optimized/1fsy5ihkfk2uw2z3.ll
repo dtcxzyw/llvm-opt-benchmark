@@ -765,7 +765,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i32, ptr %0, align 8, !range !90, !noundef !14
@@ -4057,7 +4057,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.13257885452337864956.exit: ; preds
   br label %135
 
 160:                                              ; preds = %135
-  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %1)
   br label %161
 
 161:                                              ; preds = %135, %160
@@ -4070,7 +4070,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.13257885452337864956.exit: ; preds
   unreachable
 
 164:                                              ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #20
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %1) #20
           to label %166 unwind label %162
 
 165:                                              ; preds = %.body

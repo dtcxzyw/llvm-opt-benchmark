@@ -1773,7 +1773,7 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %17 = load i32, ptr @ett_capwap_control, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #2
-  %19 = call fastcc i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %5)
+  %19 = call fastcc i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %18, ptr noundef %5)
   %20 = load i8, ptr %5, align 1
   %21 = icmp eq i8 %20, 1
   br i1 %21, label %22, label %26
@@ -1785,7 +1785,7 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   br label %82
 
 26:                                               ; preds = %4
-  %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %28 = add nsw i32 %27, %19
   %29 = getelementptr inbounds i8, ptr %1, i64 272
   %30 = load i32, ptr %29, align 8
@@ -1904,7 +1904,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %17 = load i32, ptr @ett_capwap_data, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #2
-  %19 = call fastcc i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %5)
+  %19 = call fastcc i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %18, ptr noundef %5)
   %20 = load i8, ptr %5, align 1
   %21 = icmp eq i8 %20, 1
   br i1 %21, label %22, label %26
@@ -1916,7 +1916,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.sink.split
 
 26:                                               ; preds = %4
-  %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %28 = add nsw i32 %27, %19
   %29 = getelementptr inbounds i8, ptr %1, i64 272
   %30 = load i32, ptr %29, align 8
@@ -2076,7 +2076,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 5) i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 5) i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_capwap_preamble, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %6 = load i32, ptr @ett_capwap_preamble, align 4
@@ -2107,7 +2107,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 5) %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = shl nuw nsw i32 %2, 3
   %12 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %11, i32 noundef 5) #2
   %13 = zext i8 %12 to i32
@@ -2199,7 +2199,7 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
   %78 = load i32, ptr @hf_capwap_header_mac_length, align 4
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %78, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0) #2
   %80 = zext i8 %77 to i32
-  %81 = add nuw nsw i32 %2, 8
+  %81 = or disjoint i32 %2, 8
   switch i8 %77, label %83 [
     i8 6, label %84
     i8 8, label %82
@@ -2244,11 +2244,11 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
   %spec.select = add nuw nsw i32 %.0175, %102
   %103 = zext i8 %99 to i32
   %104 = load i32, ptr @hf_capwap_header_wireless_length, align 4
-  %105 = add i32 %spec.select, %2
+  %105 = add nuw nsw i32 %spec.select, %2
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0) #2
   %107 = add nuw nsw i32 %spec.select, 1
   %108 = load i32, ptr @hf_capwap_header_wireless_data, align 4
-  %109 = add i32 %107, %2
+  %109 = add nuw nsw i32 %107, %2
   %110 = select i1 %101, i32 4, i32 %103
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef %110, i32 noundef 0) #2
   %112 = load i8, ptr %5, align 1
@@ -2271,10 +2271,10 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
   %123 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_fi_rssi, align 4
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %0, i32 noundef %109, i32 noundef 1, i32 noundef 0) #2
   %125 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_fi_snr, align 4
-  %126 = add i32 %109, 1
+  %126 = add nuw nsw i32 %109, 1
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %125, ptr noundef %0, i32 noundef %126, i32 noundef 1, i32 noundef 0) #2
   %128 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_fi_data_rate, align 4
-  %129 = add i32 %109, 2
+  %129 = add nuw nsw i32 %109, 2
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %128, ptr noundef %0, i32 noundef %129, i32 noundef 2, i32 noundef 0) #2
   %131 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %129) #2
   %132 = uitofp i16 %131 to float
@@ -2291,13 +2291,13 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
   %140 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_dw_wlan_id_bitmap, align 4
   %141 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #2
   %142 = load i32, ptr @hf_capwap_header_wireless_data_ieee80211_dw_reserved, align 4
-  %143 = add i32 %109, 2
+  %143 = add nuw nsw i32 %109, 2
   %144 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %142, ptr noundef %0, i32 noundef %143, i32 noundef 2, i32 noundef 0) #2
   br label %dissect_capwap_data_message_bindings_ieee80211.exit
 
 dissect_capwap_data_message_bindings_ieee80211.exit: ; preds = %135, %118, %97
   %145 = add nuw nsw i32 %107, %110
-  %146 = add i32 %145, %2
+  %146 = add nuw nsw i32 %145, %2
   %147 = and i32 %146, 3
   %.not185 = icmp eq i32 %147, 0
   br i1 %.not185, label %153, label %148
@@ -2336,7 +2336,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_capwap_control_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_capwap_control_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 1024) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_capwap_control_header, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 8, i32 noundef 0) #2
   %7 = load i32, ptr @ett_capwap_control_header, align 4
@@ -3897,7 +3897,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
 declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 7, 65536) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_capwap_fortinet_element_id, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2) #2
@@ -4403,7 +4403,7 @@ define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_capwap_message_element_vendor_cisco_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_capwap_message_element_vendor_cisco_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 7, 65536) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_capwap_cisco_element_id, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2) #2

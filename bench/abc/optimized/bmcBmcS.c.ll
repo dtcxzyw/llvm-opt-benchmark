@@ -3794,7 +3794,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %153 = ashr exact i64 %sext131, 30
   %154 = getelementptr inbounds i8, ptr %48, i64 %153
   store i32 %147, ptr %154, align 4
-  %155 = icmp eq i32 %67, %70
+  %155 = icmp eq i32 %70, %67
   %156 = and i32 %.1136, 1
   %157 = select i1 %155, i32 %156, i32 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

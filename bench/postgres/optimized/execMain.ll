@@ -4166,7 +4166,7 @@ declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @pg_attribute_aclcheck(i32 noundef, i16 noundef signext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ExecCheckPermissionsModified(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ExecCheckPermissionsModified(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 5) %3) unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %.preheader
 

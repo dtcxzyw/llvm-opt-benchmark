@@ -109,7 +109,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit: ; preds =
   %40 = icmp ult i64 %39, 64
   br i1 %40, label %.lr.ph.i.i24, label %._crit_edge.i.i27, !llvm.loop !4
 
-.lr.ph.i.i24:                                     ; preds = %38, %27
+.lr.ph.i.i24:                                     ; preds = %27, %38
   %.01931.i.i25 = phi i64 [ %39, %38 ], [ 0, %27 ]
   %41 = getelementptr inbounds i8, ptr %6, i64 %.01931.i.i25
   %42 = sub nuw nsw i64 64, %.01931.i.i25
@@ -213,7 +213,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39.us: ; pr
   %83 = icmp ult i64 %82, 64
   br i1 %83, label %.lr.ph.i.i32, label %._crit_edge.i.i35, !llvm.loop !4
 
-.lr.ph.i.i32:                                     ; preds = %81, %.lr.ph.split
+.lr.ph.i.i32:                                     ; preds = %.lr.ph.split, %81
   %.01931.i.i33 = phi i64 [ %82, %81 ], [ 0, %.lr.ph.split ]
   %84 = getelementptr inbounds i8, ptr %3, i64 %.01931.i.i33
   %85 = sub nuw nsw i64 64, %.01931.i.i33
@@ -459,9 +459,9 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
   %51 = tail call ptr @__errno_location() #19
   %52 = load i32, ptr %51, align 4, !noalias !8
   %53 = icmp eq i32 %52, 4
-  br i1 %53, label %47, label %.thread133.i.i, !llvm.loop !12
+  br i1 %53, label %47, label %.thread131.i.i, !llvm.loop !12
 
-.thread133.i.i:                                   ; preds = %50
+.thread131.i.i:                                   ; preds = %50
   store i32 -1, ptr %13, align 4, !noalias !8
   br label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit.i.i
 
@@ -519,11 +519,11 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
   %77 = tail call ptr @__errno_location() #19
   %78 = load i32, ptr %77, align 4, !noalias !8
   %79 = icmp eq i32 %78, 4
-  br i1 %79, label %73, label %.loopexit146.i.i, !llvm.loop !6
+  br i1 %79, label %73, label %.loopexit144.i.i, !llvm.loop !6
 
 "_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i.i": ; preds = %.noexc56.i.i
   %80 = icmp slt i64 %74, 0
-  br i1 %80, label %.loopexit146.i.i, label %81
+  br i1 %80, label %.loopexit144.i.i, label %81
 
 81:                                               ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i.i"
   %82 = icmp eq i64 %74, 0
@@ -540,7 +540,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i: ; preds = %._crit_edge.i.i.i.i
   %84 = icmp eq i64 %.019.lcssa.i.i.i.i, 0
-  br i1 %84, label %.loopexit146.i.i, label %85
+  br i1 %84, label %.loopexit144.i.i, label %85
 
 85:                                               ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i
   %86 = add i64 %.019.lcssa.i.i.i.i, %.sroa.11.0.i.i
@@ -580,7 +580,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
 
 .preheader.i22.i.i.i:                             ; preds = %99
   %.not34.i23.i.i.i = icmp eq i64 %93, 1024
-  br i1 %.not34.i23.i.i.i, label %.loopexit146.i.i, label %.lr.ph.i24.i.i.i
+  br i1 %.not34.i23.i.i.i, label %.loopexit144.i.i, label %.lr.ph.i24.i.i.i
 
 100:                                              ; preds = %99
   call void @abort() #18, !noalias !8
@@ -610,11 +610,11 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   %111 = tail call ptr @__errno_location() #19
   %112 = load i32, ptr %111, align 4, !noalias !8
   %113 = icmp eq i32 %112, 4
-  br i1 %113, label %107, label %.loopexit146.i.i, !llvm.loop !6
+  br i1 %113, label %107, label %.loopexit144.i.i, !llvm.loop !6
 
 "_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i26.i.i.i": ; preds = %.noexc57.i.i
   %114 = icmp slt i64 %108, 0
-  br i1 %114, label %.loopexit146.i.i, label %115
+  br i1 %114, label %.loopexit144.i.i, label %115
 
 115:                                              ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i26.i.i.i"
   %116 = icmp eq i64 %108, 0
@@ -631,7 +631,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i: ; preds = %._crit_edge.i27.i.i.i
   %118 = icmp slt i64 %.019.lcssa.i28.i.i.i, 1
-  br i1 %118, label %.loopexit146.i.i, label %119
+  br i1 %118, label %.loopexit144.i.i, label %119
 
 119:                                              ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i
   %120 = add i64 %.019.lcssa.i28.i.i.i, %.sroa.11.0.i.i
@@ -648,7 +648,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i: ; pred
   %126 = call noundef ptr @memchr(ptr noundef nonnull %.sroa.18.0.i.i, i32 noundef 10, i64 noundef %125) #20, !noalias !8
   %127 = ptrtoint ptr %126 to i64
   %128 = icmp eq ptr %126, null
-  br i1 %128, label %.loopexit146.i.i, label %129
+  br i1 %128, label %.loopexit144.i.i, label %129
 
 .loopexit.i.i:                                    ; preds = %224
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -656,27 +656,27 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i: ; pred
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.i.i:                  ; preds = %193
-  %lpad.loopexit141.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit139.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.i.i: ; preds = %73
-  %lpad.loopexit144.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit142.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i: ; preds = %107
-  %lpad.loopexit147.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit145.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %268
-  %lpad.loopexit.split-lp148.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp146.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i
-  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit141.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit144.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit147.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp148.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ]
+  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit139.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit142.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit145.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp146.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ]
   call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #21, !noalias !8
   br label %283
 
@@ -744,12 +744,12 @@ switch.early.test._crit_edge.i.i.i:               ; preds = %136, %switch.early.
 
 _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i: ; preds = %switch.early.test._crit_edge.i.i.i
   %149 = icmp eq ptr %.0.lcssa.i.i.i, %126
-  br i1 %149, label %.loopexit146.i.i, label %150
+  br i1 %149, label %.loopexit144.i.i, label %150
 
 150:                                              ; preds = %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i
   %151 = load i8, ptr %.0.lcssa.i.i.i, align 1, !noalias !8
   %.not.i.i = icmp eq i8 %151, 45
-  br i1 %.not.i.i, label %152, label %.loopexit146.i.i
+  br i1 %.not.i.i, label %152, label %.loopexit144.i.i
 
 152:                                              ; preds = %150
   %153 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 1
@@ -763,7 +763,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i: ; preds = %switc
   br label %.lr.ph.i64.i.i
 
 .lr.ph.i64.i.i:                                   ; preds = %160, %.lr.ph.preheader.i62.i.i
-  %.1118.i.i = phi i64 [ 0, %.lr.ph.preheader.i62.i.i ], [ %169, %160 ]
+  %.1116.i.i = phi i64 [ 0, %.lr.ph.preheader.i62.i.i ], [ %169, %160 ]
   %.028.i65.i.i = phi ptr [ %153, %.lr.ph.preheader.i62.i.i ], [ %170, %160 ]
   %157 = load i8, ptr %.028.i65.i.i, align 1, !noalias !8
   %.fr27.i66.i.i = freeze i8 %157
@@ -789,7 +789,7 @@ switch.early.test.i68.i.i:                        ; preds = %.lr.ph.i64.i.i
   ]
 
 160:                                              ; preds = %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %.lr.ph.i64.i.i
-  %161 = shl i64 %.1118.i.i, 4
+  %161 = shl i64 %.1116.i.i, 4
   %162 = icmp ult i8 %.fr27.i66.i.i, 65
   %163 = add nsw i32 %158, -48
   %164 = sext i32 %163 to i64
@@ -803,9 +803,9 @@ switch.early.test.i68.i.i:                        ; preds = %.lr.ph.i64.i.i
   br i1 %exitcond.not.i69.i.i, label %switch.early.test._crit_edge.i59.i.i, label %.lr.ph.i64.i.i, !llvm.loop !13
 
 switch.early.test._crit_edge.i59.i.i:             ; preds = %160, %switch.early.test.i68.i.i, %152
-  %.0117.i.i = phi i64 [ 0, %152 ], [ %.1118.i.i, %switch.early.test.i68.i.i ], [ %169, %160 ]
+  %.0115.i.i = phi i64 [ 0, %152 ], [ %.1116.i.i, %switch.early.test.i68.i.i ], [ %169, %160 ]
   %.0.lcssa.i60.i.i = phi ptr [ %153, %152 ], [ %.028.i65.i.i, %switch.early.test.i68.i.i ], [ %scevgep.i63.i.i, %160 ]
-  %.0.lcssa.i60240.i.i = ptrtoint ptr %.0.lcssa.i60.i.i to i64
+  %.0.lcssa.i60238.i.i = ptrtoint ptr %.0.lcssa.i60.i.i to i64
   %.not.i61.i.i = icmp ugt ptr %.0.lcssa.i60.i.i, %126
   br i1 %.not.i61.i.i, label %171, label %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i
 
@@ -815,101 +815,101 @@ switch.early.test._crit_edge.i59.i.i:             ; preds = %160, %switch.early.
 
 _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %switch.early.test._crit_edge.i59.i.i
   %172 = icmp eq ptr %.0.lcssa.i60.i.i, %126
-  br i1 %172, label %.loopexit146.i.i, label %173
+  br i1 %172, label %.loopexit144.i.i, label %173
 
 173:                                              ; preds = %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i
   %174 = load i8, ptr %.0.lcssa.i60.i.i, align 1, !noalias !8
   %.not41.i.i = icmp eq i8 %174, 32
-  br i1 %.not41.i.i, label %175, label %.loopexit146.i.i
+  br i1 %.not41.i.i, label %175, label %.loopexit144.i.i
 
 175:                                              ; preds = %173
-  %.ptr137.i.i = getelementptr inbounds i8, ptr %.0.lcssa.i60.i.i, i64 1
-  %176 = icmp ult ptr %.ptr137.i.i, %126
-  br i1 %176, label %.lr.ph.preheader.i.i, label %.loopexit146.i.i
+  %.ptr135.i.i = getelementptr inbounds i8, ptr %.0.lcssa.i60.i.i, i64 1
+  %176 = icmp ult ptr %.ptr135.i.i, %126
+  br i1 %176, label %.lr.ph.preheader.i.i, label %.loopexit144.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %175
-  %177 = sub i64 %127, %.0.lcssa.i60240.i.i
+  %177 = sub i64 %127, %.0.lcssa.i60238.i.i
   %scevgep.i.i = getelementptr i8, ptr %.0.lcssa.i60.i.i, i64 %177
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %179, %.lr.ph.preheader.i.i
-  %storemerge.ptr188.i.i = phi ptr [ %storemerge.ptr.i.i, %179 ], [ %.ptr137.i.i, %.lr.ph.preheader.i.i ]
-  %storemerge.idx187.i.i = phi i64 [ %storemerge.add.i.i, %179 ], [ 1, %.lr.ph.preheader.i.i ]
-  %178 = load i8, ptr %storemerge.ptr188.i.i, align 1, !noalias !8
+  %storemerge.ptr186.i.i = phi ptr [ %storemerge.ptr.i.i, %179 ], [ %.ptr135.i.i, %.lr.ph.preheader.i.i ]
+  %storemerge.idx185.i.i = phi i64 [ %storemerge.add.i.i, %179 ], [ 1, %.lr.ph.preheader.i.i ]
+  %178 = load i8, ptr %storemerge.ptr186.i.i, align 1, !noalias !8
   %.not42.i.i = icmp eq i8 %178, 32
   br i1 %.not42.i.i, label %.critedge.i.i, label %179
 
 179:                                              ; preds = %.lr.ph.i.i
-  %storemerge.add.i.i = add nuw i64 %storemerge.idx187.i.i, 1
+  %storemerge.add.i.i = add nuw i64 %storemerge.idx185.i.i, 1
   %storemerge.ptr.i.i = getelementptr inbounds i8, ptr %.0.lcssa.i60.i.i, i64 %storemerge.add.i.i
   %exitcond.not.i.i = icmp eq i64 %storemerge.add.i.i, %177
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .critedge.i.i:                                    ; preds = %179, %.lr.ph.i.i
-  %storemerge.idx.lcssa.ph.i.i = phi i64 [ %storemerge.idx187.i.i, %.lr.ph.i.i ], [ %177, %179 ]
-  %storemerge.ptr.lcssa.ph.i.i = phi ptr [ %storemerge.ptr188.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %179 ]
+  %storemerge.idx.lcssa.ph.i.i = phi i64 [ %storemerge.idx185.i.i, %.lr.ph.i.i ], [ %177, %179 ]
+  %storemerge.ptr.lcssa.ph.i.i = phi ptr [ %storemerge.ptr186.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %179 ]
   %180 = icmp ult i64 %storemerge.idx.lcssa.ph.i.i, 5
   %181 = icmp eq ptr %storemerge.ptr.lcssa.ph.i.i, %126
   %or.cond53.i.i = or i1 %180, %181
-  br i1 %or.cond53.i.i, label %.loopexit146.i.i, label %182
+  br i1 %or.cond53.i.i, label %.loopexit144.i.i, label %182
 
 182:                                              ; preds = %.critedge.i.i
-  %183 = load i8, ptr %.ptr137.i.i, align 1, !noalias !8
+  %183 = load i8, ptr %.ptr135.i.i, align 1, !noalias !8
   %184 = icmp eq i8 %183, 114
   br i1 %184, label %185, label %.thread.i.i
 
 185:                                              ; preds = %182
-  br i1 %63, label %.lr.ph.i.i72.i.i, label %186
+  br i1 %63, label %.lr.ph.i.i71.i.i, label %186
 
 186:                                              ; preds = %185
   call void @abort() #18, !noalias !8
   unreachable
 
 187:                                              ; preds = %201
-  %188 = add i64 %194, %.01931.i.i73.i.i
+  %188 = add i64 %194, %.01931.i.i72.i.i
   %189 = icmp ult i64 %188, 64
-  br i1 %189, label %.lr.ph.i.i72.i.i, label %._crit_edge.i.i75.i.i, !llvm.loop !4
+  br i1 %189, label %.lr.ph.i.i71.i.i, label %._crit_edge.i.i74.i.i, !llvm.loop !4
 
-.lr.ph.i.i72.i.i:                                 ; preds = %185, %187
-  %.01931.i.i73.i.i = phi i64 [ %188, %187 ], [ 0, %185 ]
-  %190 = getelementptr inbounds i8, ptr %15, i64 %.01931.i.i73.i.i
-  %191 = sub nuw nsw i64 64, %.01931.i.i73.i.i
-  %192 = add i64 %.01931.i.i73.i.i, %147
+.lr.ph.i.i71.i.i:                                 ; preds = %185, %187
+  %.01931.i.i72.i.i = phi i64 [ %188, %187 ], [ 0, %185 ]
+  %190 = getelementptr inbounds i8, ptr %15, i64 %.01931.i.i72.i.i
+  %191 = sub nuw nsw i64 64, %.01931.i.i72.i.i
+  %192 = add i64 %.01931.i.i72.i.i, %147
   br label %193
 
-193:                                              ; preds = %196, %.lr.ph.i.i72.i.i
+193:                                              ; preds = %196, %.lr.ph.i.i71.i.i
   %194 = invoke noundef i64 @pread(i32 noundef %48, ptr noundef nonnull %190, i64 noundef %191, i64 noundef %192)
-          to label %.noexc79.i.i unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !8
+          to label %.noexc78.i.i unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !8
 
-.noexc79.i.i:                                     ; preds = %193
+.noexc78.i.i:                                     ; preds = %193
   %195 = icmp eq i64 %194, -1
-  br i1 %195, label %196, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i74.i.i"
+  br i1 %195, label %196, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i73.i.i"
 
-196:                                              ; preds = %.noexc79.i.i
+196:                                              ; preds = %.noexc78.i.i
   %197 = tail call ptr @__errno_location() #19
   %198 = load i32, ptr %197, align 4, !noalias !8
   %199 = icmp eq i32 %198, 4
   br i1 %199, label %193, label %.thread.i.i, !llvm.loop !6
 
-"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i74.i.i": ; preds = %.noexc79.i.i
+"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i73.i.i": ; preds = %.noexc78.i.i
   %200 = icmp slt i64 %194, 0
   br i1 %200, label %.thread.i.i, label %201
 
-201:                                              ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i74.i.i"
+201:                                              ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i73.i.i"
   %202 = icmp eq i64 %194, 0
-  br i1 %202, label %._crit_edge.i.i75.i.i, label %187
+  br i1 %202, label %._crit_edge.i.i74.i.i, label %187
 
-._crit_edge.i.i75.i.i:                            ; preds = %201, %187
-  %.019.lcssa.i.i76.i.i = phi i64 [ %188, %187 ], [ %.01931.i.i73.i.i, %201 ]
-  %.not23.i.i77.i.i = icmp ugt i64 %.019.lcssa.i.i76.i.i, 64
-  br i1 %.not23.i.i77.i.i, label %203, label %204
+._crit_edge.i.i74.i.i:                            ; preds = %201, %187
+  %.019.lcssa.i.i75.i.i = phi i64 [ %188, %187 ], [ %.01931.i.i72.i.i, %201 ]
+  %.not23.i.i76.i.i = icmp ugt i64 %.019.lcssa.i.i75.i.i, 64
+  br i1 %.not23.i.i76.i.i, label %203, label %204
 
-203:                                              ; preds = %._crit_edge.i.i75.i.i
+203:                                              ; preds = %._crit_edge.i.i74.i.i
   call void @abort() #18, !noalias !8
   unreachable
 
-204:                                              ; preds = %._crit_edge.i.i75.i.i
-  %205 = icmp eq i64 %.019.lcssa.i.i76.i.i, 64
+204:                                              ; preds = %._crit_edge.i.i74.i.i
+  %205 = icmp eq i64 %.019.lcssa.i.i75.i.i, 64
   %lhsv.i.i = load i32, ptr %15, align 8, !noalias !8
   %.not43.i.i = icmp eq i32 %lhsv.i.i, 1179403647
   %or.cond54.i.i = select i1 %205, i1 %.not43.i.i, i1 false
@@ -926,73 +926,73 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   %209 = load i64, ptr %19, align 8, !noalias !8
   store i64 %209, ptr %20, align 8, !noalias !8
   %210 = load i16, ptr %59, align 8, !noalias !8
-  %.not44193.i.i = icmp eq i16 %210, 0
-  br i1 %.not44193.i.i, label %.thread.i.i, label %.lr.ph195.i.i
+  %.not44191.i.i = icmp eq i16 %210, 0
+  br i1 %.not44191.i.i, label %.thread.i.i, label %.lr.ph193.i.i
 
-.lr.ph195.i.i:                                    ; preds = %208
+.lr.ph193.i.i:                                    ; preds = %208
   %211 = load i64, ptr %60, align 8, !noalias !8
   %212 = zext i16 %210 to i64
-  br label %.lr.ph.i.i81.preheader.i.i
+  br label %.lr.ph.i.i79.preheader.i.i
 
-213:                                              ; preds = %.loopexit139.i.i
+213:                                              ; preds = %.loopexit137.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not44.i.i = icmp eq i64 %indvars.iv.next.i.i, %212
-  br i1 %.not44.i.i, label %.thread.i.i, label %.lr.ph.i.i81.preheader.i.i, !llvm.loop !15
+  br i1 %.not44.i.i, label %.thread.i.i, label %.lr.ph.i.i79.preheader.i.i, !llvm.loop !15
 
-.lr.ph.i.i81.preheader.i.i:                       ; preds = %213, %.lr.ph195.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph195.i.i ], [ %indvars.iv.next.i.i, %213 ]
+.lr.ph.i.i79.preheader.i.i:                       ; preds = %213, %.lr.ph193.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph193.i.i ], [ %indvars.iv.next.i.i, %213 ]
   %214 = mul nuw nsw i64 %indvars.iv.i.i, 56
   %215 = load i64, ptr %19, align 8, !noalias !8
   %216 = add i64 %214, %211
   %217 = add i64 %216, %215
-  br label %.lr.ph.i.i81.i.i
+  br label %.lr.ph.i.i79.i.i
 
 218:                                              ; preds = %232
-  %219 = add i64 %225, %.01931.i.i82.i.i
+  %219 = add i64 %225, %.01931.i.i80.i.i
   %220 = icmp ult i64 %219, 56
-  br i1 %220, label %.lr.ph.i.i81.i.i, label %._crit_edge.i.i84.i.i, !llvm.loop !4
+  br i1 %220, label %.lr.ph.i.i79.i.i, label %._crit_edge.i.i82.i.i, !llvm.loop !4
 
-.lr.ph.i.i81.i.i:                                 ; preds = %218, %.lr.ph.i.i81.preheader.i.i
-  %.01931.i.i82.i.i = phi i64 [ %219, %218 ], [ 0, %.lr.ph.i.i81.preheader.i.i ]
-  %221 = getelementptr inbounds i8, ptr %16, i64 %.01931.i.i82.i.i
-  %222 = sub nuw nsw i64 56, %.01931.i.i82.i.i
-  %223 = add i64 %217, %.01931.i.i82.i.i
+.lr.ph.i.i79.i.i:                                 ; preds = %218, %.lr.ph.i.i79.preheader.i.i
+  %.01931.i.i80.i.i = phi i64 [ %219, %218 ], [ 0, %.lr.ph.i.i79.preheader.i.i ]
+  %221 = getelementptr inbounds i8, ptr %16, i64 %.01931.i.i80.i.i
+  %222 = sub nuw nsw i64 56, %.01931.i.i80.i.i
+  %223 = add i64 %217, %.01931.i.i80.i.i
   br label %224
 
-224:                                              ; preds = %227, %.lr.ph.i.i81.i.i
+224:                                              ; preds = %227, %.lr.ph.i.i79.i.i
   %225 = invoke noundef i64 @pread(i32 noundef %48, ptr noundef nonnull %221, i64 noundef %222, i64 noundef %223)
-          to label %.noexc89.i.i unwind label %.loopexit.i.i, !noalias !8
+          to label %.noexc87.i.i unwind label %.loopexit.i.i, !noalias !8
 
-.noexc89.i.i:                                     ; preds = %224
+.noexc87.i.i:                                     ; preds = %224
   %226 = icmp eq i64 %225, -1
-  br i1 %226, label %227, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i83.i.i"
+  br i1 %226, label %227, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i81.i.i"
 
-227:                                              ; preds = %.noexc89.i.i
+227:                                              ; preds = %.noexc87.i.i
   %228 = tail call ptr @__errno_location() #19
   %229 = load i32, ptr %228, align 4, !noalias !8
   %230 = icmp eq i32 %229, 4
-  br i1 %230, label %224, label %.loopexit139.i.i, !llvm.loop !6
+  br i1 %230, label %224, label %.loopexit137.i.i, !llvm.loop !6
 
-"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i83.i.i": ; preds = %.noexc89.i.i
+"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i81.i.i": ; preds = %.noexc87.i.i
   %231 = icmp slt i64 %225, 0
-  br i1 %231, label %.loopexit139.i.i, label %232
+  br i1 %231, label %.loopexit137.i.i, label %232
 
-232:                                              ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i83.i.i"
+232:                                              ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i81.i.i"
   %233 = icmp eq i64 %225, 0
-  br i1 %233, label %._crit_edge.i.i84.i.i, label %218
+  br i1 %233, label %._crit_edge.i.i82.i.i, label %218
 
-._crit_edge.i.i84.i.i:                            ; preds = %232, %218
-  %.019.lcssa.i.i85.i.i = phi i64 [ %219, %218 ], [ %.01931.i.i82.i.i, %232 ]
-  %.not23.i.i86.i.i = icmp ugt i64 %.019.lcssa.i.i85.i.i, 56
-  br i1 %.not23.i.i86.i.i, label %234, label %.loopexit139.i.i
+._crit_edge.i.i82.i.i:                            ; preds = %232, %218
+  %.019.lcssa.i.i83.i.i = phi i64 [ %219, %218 ], [ %.01931.i.i80.i.i, %232 ]
+  %.not23.i.i84.i.i = icmp ugt i64 %.019.lcssa.i.i83.i.i, 56
+  br i1 %.not23.i.i84.i.i, label %234, label %.loopexit137.i.i
 
-234:                                              ; preds = %._crit_edge.i.i84.i.i
+234:                                              ; preds = %._crit_edge.i.i82.i.i
   call void @abort() #18, !noalias !8
   unreachable
 
-.loopexit139.i.i:                                 ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i83.i.i", %227, %._crit_edge.i.i84.i.i
-  %.0.i.i88.i.i = phi i64 [ %.019.lcssa.i.i85.i.i, %._crit_edge.i.i84.i.i ], [ -1, %227 ], [ -1, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i83.i.i" ]
-  %235 = icmp eq i64 %.0.i.i88.i.i, 56
+.loopexit137.i.i:                                 ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i81.i.i", %227, %._crit_edge.i.i82.i.i
+  %.0.i.i86.i.i = phi i64 [ %.019.lcssa.i.i83.i.i, %._crit_edge.i.i82.i.i ], [ -1, %227 ], [ -1, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i81.i.i" ]
+  %235 = icmp eq i64 %.0.i.i86.i.i, 56
   %236 = load i32, ptr %16, align 8, !noalias !8
   %237 = icmp eq i32 %236, 1
   %or.cond.i.i = select i1 %235, i1 %237, i1 false
@@ -1001,7 +1001,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   %or.cond5.i.i = select i1 %or.cond.i.i, i1 %239, i1 false
   br i1 %or.cond5.i.i, label %240, label %213
 
-240:                                              ; preds = %.loopexit139.i.i
+240:                                              ; preds = %.loopexit137.i.i
   %241 = load i64, ptr %19, align 8, !noalias !8
   %242 = load i64, ptr %62, align 8, !noalias !8
   %243 = sub i64 %241, %242
@@ -1012,15 +1012,15 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   store i64 %.sink.i.i, ptr %20, align 8, !noalias !8
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i74.i.i", %213, %196, %.thread.sink.split.i.i, %208, %206, %204, %182
+.thread.i.i:                                      ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i73.i.i", %213, %196, %.thread.sink.split.i.i, %208, %206, %204, %182
   %244 = load i64, ptr %19, align 8, !noalias !8
   %245 = icmp ule i64 %244, %22
-  %.not45.i.i = icmp ugt i64 %.0117.i.i, %22
+  %.not45.i.i = icmp ugt i64 %.0115.i.i, %22
   %or.cond55.i.i = select i1 %245, i1 %.not45.i.i, i1 false
   br i1 %or.cond55.i.i, label %246, label %.backedge.i.i.backedge
 
 246:                                              ; preds = %.thread.i.i
-  %247 = load i8, ptr %.ptr137.i.i, align 1, !noalias !8
+  %247 = load i8, ptr %.ptr135.i.i, align 1, !noalias !8
   %.not46.i.i = icmp eq i8 %247, 114
   br i1 %.not46.i.i, label %248, label %.backedge.i.i.backedge
 
@@ -1035,52 +1035,52 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
 
 251:                                              ; preds = %248
   %252 = getelementptr inbounds i8, ptr %storemerge.ptr.lcssa.ph.i.i, i64 1
-  %253 = call fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef nonnull %252, ptr noundef nonnull %126, ptr noundef nonnull %17), !noalias !8
+  %253 = call fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef nonnull %252, ptr noundef nonnull %126, ptr noundef %17), !noalias !8
   %254 = ptrtoint ptr %253 to i64
   %255 = icmp eq ptr %253, %126
-  br i1 %255, label %.loopexit146.i.i, label %256
+  br i1 %255, label %.loopexit144.i.i, label %256
 
 256:                                              ; preds = %251
   %257 = load i8, ptr %253, align 1, !noalias !8
   %.not48.i.i = icmp eq i8 %257, 32
-  br i1 %.not48.i.i, label %.preheader.i.i, label %.loopexit146.i.i
+  br i1 %.not48.i.i, label %.preheader.i.i, label %.loopexit144.i.i
 
 .preheader.i.i:                                   ; preds = %256
-  %storemerge49196.i.i = getelementptr inbounds i8, ptr %253, i64 1
-  %258 = icmp ult ptr %storemerge49196.i.i, %126
-  br i1 %258, label %.lr.ph199.preheader.i.i, label %._crit_edge.i.i
+  %storemerge49194.i.i = getelementptr inbounds i8, ptr %253, i64 1
+  %258 = icmp ult ptr %storemerge49194.i.i, %126
+  br i1 %258, label %.lr.ph197.preheader.i.i, label %._crit_edge.i.i
 
-.lr.ph199.preheader.i.i:                          ; preds = %.preheader.i.i
+.lr.ph197.preheader.i.i:                          ; preds = %.preheader.i.i
   %259 = sub i64 0, %254
-  %scevgep242.i.i = getelementptr i8, ptr %253, i64 %259
-  %scevgep244.i.i = getelementptr i8, ptr %scevgep242.i.i, i64 %127
-  br label %.lr.ph199.i.i
+  %scevgep240.i.i = getelementptr i8, ptr %253, i64 %259
+  %scevgep242.i.i = getelementptr i8, ptr %scevgep240.i.i, i64 %127
+  br label %.lr.ph197.i.i
 
-.lr.ph199.i.i:                                    ; preds = %266, %.lr.ph199.preheader.i.i
-  %storemerge49198.i.i = phi ptr [ %storemerge49.i.i, %266 ], [ %storemerge49196.i.i, %.lr.ph199.preheader.i.i ]
-  %.0197.i.i = phi i32 [ %.1.i.i, %266 ], [ 0, %.lr.ph199.preheader.i.i ]
-  %260 = load i8, ptr %storemerge49198.i.i, align 1, !noalias !8
+.lr.ph197.i.i:                                    ; preds = %266, %.lr.ph197.preheader.i.i
+  %storemerge49196.i.i = phi ptr [ %storemerge49.i.i, %266 ], [ %storemerge49194.i.i, %.lr.ph197.preheader.i.i ]
+  %.0195.i.i = phi i32 [ %.1.i.i, %266 ], [ 0, %.lr.ph197.preheader.i.i ]
+  %260 = load i8, ptr %storemerge49196.i.i, align 1, !noalias !8
   %261 = icmp eq i8 %260, 32
   br i1 %261, label %262, label %264
 
-262:                                              ; preds = %.lr.ph199.i.i
-  %263 = add nsw i32 %.0197.i.i, 1
+262:                                              ; preds = %.lr.ph197.i.i
+  %263 = add nsw i32 %.0195.i.i, 1
   br label %266
 
-264:                                              ; preds = %.lr.ph199.i.i
-  %265 = icmp sgt i32 %.0197.i.i, 1
+264:                                              ; preds = %.lr.ph197.i.i
+  %265 = icmp sgt i32 %.0195.i.i, 1
   br i1 %265, label %._crit_edge.i.i, label %266
 
 266:                                              ; preds = %264, %262
-  %.1.i.i = phi i32 [ %263, %262 ], [ %.0197.i.i, %264 ]
-  %storemerge49.i.i = getelementptr inbounds i8, ptr %storemerge49198.i.i, i64 1
-  %exitcond245.not.i.i = icmp eq ptr %storemerge49.i.i, %scevgep244.i.i
-  br i1 %exitcond245.not.i.i, label %._crit_edge.i.i, label %.lr.ph199.i.i, !llvm.loop !17
+  %.1.i.i = phi i32 [ %263, %262 ], [ %.0195.i.i, %264 ]
+  %storemerge49.i.i = getelementptr inbounds i8, ptr %storemerge49196.i.i, i64 1
+  %exitcond243.not.i.i = icmp eq ptr %storemerge49.i.i, %scevgep242.i.i
+  br i1 %exitcond243.not.i.i, label %._crit_edge.i.i, label %.lr.ph197.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %266, %264, %.preheader.i.i
-  %storemerge49.lcssa.i.i = phi ptr [ %storemerge49196.i.i, %.preheader.i.i ], [ %storemerge49198.i.i, %264 ], [ %scevgep244.i.i, %266 ]
+  %storemerge49.lcssa.i.i = phi ptr [ %storemerge49194.i.i, %.preheader.i.i ], [ %storemerge49196.i.i, %264 ], [ %scevgep242.i.i, %266 ]
   %267 = icmp eq ptr %storemerge49.lcssa.i.i, %126
-  br i1 %267, label %.loopexit146.i.i, label %268
+  br i1 %267, label %.loopexit144.i.i, label %268
 
 268:                                              ; preds = %._crit_edge.i.i
   %269 = invoke fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i"(ptr nonnull %storemerge49.lcssa.i.i)
@@ -1088,8 +1088,8 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
 
 270:                                              ; preds = %268
   store i32 %269, ptr %18, align 4, !noalias !8
-  %.not138.i.i = icmp eq i32 %269, -1
-  br i1 %.not138.i.i, label %271, label %273
+  %.not136.i.i = icmp eq i32 %269, -1
+  br i1 %.not136.i.i, label %271, label %273
 
 271:                                              ; preds = %270
   %272 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef nonnull %storemerge49.lcssa.i.i, i64 noundef %35) #21, !noalias !8
@@ -1102,23 +1102,23 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
 
 274:                                              ; preds = %273, %271
   call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %18) #21, !noalias !8
-  br label %.loopexit146.i.i
+  br label %.loopexit144.i.i
 
-.loopexit146.i.i:                                 ; preds = %.critedge.i.i, %175, %173, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i, %150, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i, %122, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i, %.preheader.i22.i.i.i, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i26.i.i.i", %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i.i", %110, %76, %274, %._crit_edge.i.i, %256, %251
+.loopexit144.i.i:                                 ; preds = %.critedge.i.i, %175, %173, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i, %150, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i, %122, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i, %.preheader.i22.i.i.i, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i26.i.i.i", %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i.i", %110, %76, %274, %._crit_edge.i.i, %256, %251
   %.sroa.0.0.i = phi i32 [ %269, %274 ], [ -1, %256 ], [ -1, %251 ], [ -1, %._crit_edge.i.i ], [ -1, %76 ], [ -1, %110 ], [ -1, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i.i" ], [ -1, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i26.i.i.i" ], [ -1, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i ], [ -1, %.preheader.i22.i.i.i ], [ -1, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i ], [ -1, %122 ], [ -1, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i ], [ -1, %150 ], [ -1, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i ], [ -1, %173 ], [ -1, %175 ], [ -1, %.critedge.i.i ]
   store i32 -1, ptr %13, align 4, !noalias !8
   %275 = invoke i32 @close(i32 noundef %48)
           to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit.i.i unwind label %276, !noalias !8
 
-276:                                              ; preds = %.loopexit146.i.i
+276:                                              ; preds = %.loopexit144.i.i
   %277 = landingpad { ptr, i32 }
           catch ptr null
   %278 = extractvalue { ptr, i32 } %277, 0
   call void @__clang_call_terminate(ptr %278) #18
   unreachable
 
-_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit.i.i: ; preds = %.loopexit146.i.i, %.thread133.i.i
-  %.sroa.0.1.i = phi i32 [ -1, %.thread133.i.i ], [ %.sroa.0.0.i, %.loopexit146.i.i ]
+_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit.i.i: ; preds = %.loopexit144.i.i, %.thread131.i.i
+  %.sroa.0.1.i = phi i32 [ -1, %.thread131.i.i ], [ %.sroa.0.0.i, %.loopexit144.i.i ]
   store i32 -1, ptr %12, align 4, !noalias !8
   %279 = invoke i32 @close(i32 noundef %40)
           to label %.loopexit136.i unwind label %280, !noalias !8
@@ -1395,7 +1395,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.i.i: ; pre
   %381 = load i16, ptr %380, align 4
   %382 = getelementptr inbounds i8, ptr %7, i64 40
   %383 = load i64, ptr %382, align 8
-  %384 = invoke fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %.pr.i, i16 noundef zeroext %381, i64 noundef %383, i32 noundef 2, ptr noundef nonnull %8)
+  %384 = invoke fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %.pr.i, i16 noundef zeroext %381, i64 noundef %383, i32 noundef 2, ptr noundef %8)
           to label %.noexc81.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc81.i:                                       ; preds = %379
@@ -1457,14 +1457,14 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit22.i.i: ; p
   br i1 %408, label %409, label %.loopexit111.i
 
 409:                                              ; preds = %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit22.i.i
-  %410 = invoke fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %22, i32 noundef %.pr.i, ptr noundef %.050.i, i64 noundef %.051.i, i64 noundef %361, ptr noundef nonnull %9, ptr noundef nonnull %8)
+  %410 = invoke fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %22, i32 noundef %.pr.i, ptr noundef %.050.i, i64 noundef %.051.i, i64 noundef %361, ptr noundef %9, ptr noundef %8)
           to label %.noexc83.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc83.i:                                       ; preds = %409
   br i1 %410, label %488, label %411
 
 411:                                              ; preds = %.noexc83.i, %.noexc81.i
-  %412 = invoke fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %.pr.i, i16 noundef zeroext %381, i64 noundef %383, i32 noundef 11, ptr noundef nonnull %8)
+  %412 = invoke fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %.pr.i, i16 noundef zeroext %381, i64 noundef %383, i32 noundef 11, ptr noundef %8)
           to label %.noexc84.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc84.i:                                       ; preds = %411
@@ -1526,7 +1526,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit30.i.i: ; p
   br i1 %436, label %437, label %.loopexit111.i
 
 437:                                              ; preds = %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit30.i.i
-  %438 = invoke fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %22, i32 noundef %.pr.i, ptr noundef %.050.i, i64 noundef %.051.i, i64 noundef %361, ptr noundef nonnull %9, ptr noundef nonnull %8)
+  %438 = invoke fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %22, i32 noundef %.pr.i, ptr noundef %.050.i, i64 noundef %.051.i, i64 noundef %361, ptr noundef %9, ptr noundef %8)
           to label %.noexc86.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc86.i:                                       ; preds = %437
@@ -1750,7 +1750,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) unnamed_addr #11 {
+define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #11 {
   store i64 0, ptr %2, align 8
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %.lr.ph.preheader, label %switch.early.test._crit_edge
@@ -1848,7 +1848,7 @@ declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, i32 noundef range(i32 2, 12) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #12 {
   %6 = alloca [16 x %struct.Elf64_Shdr], align 16
   %7 = zext i16 %1 to i64
   %.not = icmp eq i16 %1, 0
@@ -1957,7 +1957,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #12 {
   %8 = alloca [32 x %struct.Elf64_Sym], align 16
   %9 = getelementptr inbounds i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8

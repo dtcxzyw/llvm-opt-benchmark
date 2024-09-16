@@ -53,7 +53,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 3, 6) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not16 = or i1 %4, %5

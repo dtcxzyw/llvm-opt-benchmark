@@ -12611,7 +12611,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN5folly17AsyncServerSocket4bindEtENK3$_1clEP8addrinfo"(ptr %this.0.val, ptr nocapture noundef readonly %res) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5folly17AsyncServerSocket4bindEtENK3$_1clEP8addrinfo"(ptr nonnull %this.0.val, ptr nocapture noundef nonnull readonly %res) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"struct.folly::NetworkSocket", align 4
   %_result = alloca %"struct.google::CheckOpString", align 8

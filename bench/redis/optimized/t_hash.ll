@@ -3200,7 +3200,7 @@ cond.end43:                                       ; preds = %hashTypeReleaseIter
 declare void @addReplyMapLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr nocapture noundef readonly %hi, i32 noundef %what) unnamed_addr #0 {
+define internal fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr nocapture noundef readonly %hi, i32 noundef range(i32 1, 3) %what) unnamed_addr #0 {
 entry:
   %vlen = alloca i32, align 4
   %vll = alloca i64, align 8

@@ -8123,7 +8123,7 @@ if.end9:                                          ; preds = %if.then6
   br label %do.end11
 
 do.end11:                                         ; preds = %do.end, %if.end9
-  %call12 = call fastcc i32 @ctl_arena_init(ptr noundef %tsd, ptr noundef nonnull %config)
+  %call12 = call fastcc i32 @ctl_arena_init(ptr noundef %tsd, ptr noundef %config)
   store i32 %call12, ptr %arena_ind, align 4
   %cmp13 = icmp eq i32 %call12, -1
   br i1 %cmp13, label %label_return, label %if.then19
@@ -8200,12 +8200,12 @@ do.end:                                           ; preds = %malloc_mutex_lock.e
 
 if.then.i:                                        ; preds = %do.end
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #14
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %ptr.0)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %ptr.0)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i.split:                                   ; preds = %do.end
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsd, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %ptr.0)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %ptr.0)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if.then.i
@@ -8480,7 +8480,7 @@ label_return:                                     ; preds = %if.end15, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ctl_arena_init(ptr noundef %tsd, ptr noundef %config) unnamed_addr #0 {
+define internal fastcc noundef i32 @ctl_arena_init(ptr noundef %tsd, ptr noundef nonnull %config) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @ctl_arenas, align 8
   %destroyed = getelementptr inbounds i8, ptr %0, i64 16
@@ -8601,7 +8601,7 @@ arenas_i2a_impl.exit20.i:                         ; preds = %sw.default.i12.i, %
   br label %if.end62
 
 if.end62:                                         ; preds = %arenas_i2a_impl.exit20.i, %arenas_i2a_impl.exit.i
-  %call64 = tail call ptr @arena_init(ptr noundef %tsd, i32 noundef %arena_ind.0, ptr noundef %config) #14
+  %call64 = tail call ptr @arena_init(ptr noundef %tsd, i32 noundef %arena_ind.0, ptr noundef nonnull %config) #14
   %cmp65 = icmp eq ptr %call64, null
   br i1 %cmp65, label %return, label %if.end68
 
@@ -8623,7 +8623,7 @@ return:                                           ; preds = %if.then.i, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15
@@ -32428,7 +32428,7 @@ if.end9:                                          ; preds = %if.then6
   br label %do.end11
 
 do.end11:                                         ; preds = %do.body4, %if.end9
-  %call12 = call fastcc i32 @ctl_arena_init(ptr noundef %tsd, ptr noundef nonnull %config)
+  %call12 = call fastcc i32 @ctl_arena_init(ptr noundef %tsd, ptr noundef %config)
   store i32 %call12, ptr %arena_ind, align 4
   %cmp13 = icmp eq i32 %call12, -1
   br i1 %cmp13, label %label_return, label %if.then19

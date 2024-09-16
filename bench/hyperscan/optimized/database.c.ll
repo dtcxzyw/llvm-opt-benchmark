@@ -498,7 +498,7 @@ if.end2:                                          ; preds = %if.end12.i
   %3 = load i64, ptr %incdec.ptr13.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %bytes, i64 44
   %4 = load i32, ptr %add.ptr, align 1
-  %call4 = tail call fastcc i32 @print_database_string(ptr noundef nonnull %info, i32 noundef 84148736, i64 noundef %3, i32 noundef %4)
+  %call4 = tail call fastcc i32 @print_database_string(ptr noundef %info, i32 noundef 84148736, i64 noundef %3, i32 noundef %4)
   br label %return
 
 return:                                           ; preds = %if.end12.i, %if.end6.i, %if.end2.i, %if.end, %entry, %if.end2
@@ -507,7 +507,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9, 1) i32 @print_database_string(ptr nocapture noundef writeonly %s, i32 noundef %version, i64 noundef %plat, i32 noundef %raw_mode) unnamed_addr #0 {
+define internal fastcc range(i32 -9, 1) i32 @print_database_string(ptr nocapture noundef nonnull writeonly %s, i32 noundef %version, i64 noundef %plat, i32 noundef %raw_mode) unnamed_addr #0 {
 entry:
   store ptr null, ptr %s, align 8
   %shr = lshr i32 %version, 8
@@ -621,7 +621,7 @@ if.end5:                                          ; preds = %lor.lhs.false3
   %4 = load i32, ptr %version, align 4
   %mode = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   %5 = load i32, ptr %mode, align 4
-  %call7 = tail call fastcc i32 @print_database_string(ptr noundef nonnull %info, i32 noundef %4, i64 noundef %2, i32 noundef %5)
+  %call7 = tail call fastcc i32 @print_database_string(ptr noundef %info, i32 noundef %4, i64 noundef %2, i32 noundef %5)
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false3, %entry, %if.end5

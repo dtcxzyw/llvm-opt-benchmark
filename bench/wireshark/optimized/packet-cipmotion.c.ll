@@ -2598,7 +2598,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_set_cyclic_list_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_set_cyclic_list_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, -4) %3, i32 noundef range(i32 0, 256) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i32, ptr @ett_set_cyclic_list, align 4
@@ -2651,7 +2651,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare i32 @dissect_cip_attribute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_set_cyclic_list_respone(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_set_cyclic_list_respone(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, -4) %3, i32 noundef range(i32 0, 256) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i32, ptr @ett_set_cyclic_list, align 4

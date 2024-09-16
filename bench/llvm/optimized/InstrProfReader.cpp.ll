@@ -890,7 +890,7 @@ define dso_local void @_ZN4llvm15InstrProfReader6createERKNS_5TwineERNS_3vfs10Fi
   %6 = alloca %"class.llvm::Expected.1", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = alloca %"class.std::function", align 8
-  call fastcc void @_ZL17setupMemoryBufferRKN4llvm5TwineERNS_3vfs10FileSystemE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
+  call fastcc void @_ZL17setupMemoryBufferRKN4llvm5TwineERNS_3vfs10FileSystemE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -958,7 +958,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17setupMemoryBufferRKN4llvm5TwineERNS_3vfs10FileSystemE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17setupMemoryBufferRKN4llvm5TwineERNS_3vfs10FileSystemE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::ErrorOr", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -1547,7 +1547,7 @@ define dso_local void @_ZN4llvm22IndexedInstrProfReader6createERKNS_5TwineERNS_3
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.std::unique_ptr", align 8
   %10 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL17setupMemoryBufferRKN4llvm5TwineERNS_3vfs10FileSystemE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
+  call fastcc void @_ZL17setupMemoryBufferRKN4llvm5TwineERNS_3vfs10FileSystemE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
@@ -1579,7 +1579,7 @@ _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %4, %_ZN4llvm8Expect
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %22, align 1
   store ptr %6, ptr %8, align 8
-  call fastcc void @_ZL17setupMemoryBufferRKN4llvm5TwineERNS_3vfs10FileSystemE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(12) %2)
+  call fastcc void @_ZL17setupMemoryBufferRKN4llvm5TwineERNS_3vfs10FileSystemE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(12) %2)
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1

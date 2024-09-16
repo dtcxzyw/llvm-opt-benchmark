@@ -1624,7 +1624,7 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i: ; preds = %302, %289
   br i1 %.not.i.i.i, label %424, label %_ZNK12_GLOBAL__N_119PlacementNewChecker27checkPlaceIsAlignedProperlyEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i
 
 424:                                              ; preds = %419
-  %425 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119PlacementNewChecker26isVarRegionAlignedProperlyEPKN5clang4ento9VarRegionERNS2_14CheckerContextEPKNS1_4ExprEj(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %420, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %296, i32 noundef %332)
+  %425 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119PlacementNewChecker26isVarRegionAlignedProperlyEPKN5clang4ento9VarRegionERNS2_14CheckerContextEPKNS1_4ExprEj(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %420, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %296, i32 noundef %332)
   br i1 %425, label %426, label %_ZNK12_GLOBAL__N_119PlacementNewChecker27checkPlaceIsAlignedProperlyEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i
 
 426:                                              ; preds = %424
@@ -1664,7 +1664,7 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i: ; preds = %302, %289
   br i1 %.not43.i.i, label %450, label %_ZNK12_GLOBAL__N_119PlacementNewChecker27checkPlaceIsAlignedProperlyEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i
 
 450:                                              ; preds = %448
-  %451 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119PlacementNewChecker26isVarRegionAlignedProperlyEPKN5clang4ento9VarRegionERNS2_14CheckerContextEPKNS1_4ExprEj(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %344, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %296, i32 noundef %332)
+  %451 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119PlacementNewChecker26isVarRegionAlignedProperlyEPKN5clang4ento9VarRegionERNS2_14CheckerContextEPKNS1_4ExprEj(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %344, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %296, i32 noundef %332)
   br label %_ZNK12_GLOBAL__N_119PlacementNewChecker27checkPlaceIsAlignedProperlyEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i
 
 _ZNK12_GLOBAL__N_119PlacementNewChecker27checkPlaceIsAlignedProperlyEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i: ; preds = %450, %448, %447, %430, %426, %424, %419, %"_ZZNK12_GLOBAL__N_119PlacementNewChecker23checkElementRegionAlignEPKN5clang4ento13ElementRegionERNS2_14CheckerContextEPKNS1_4ExprEjENK3$_1clEv.exit.sink.split.i.i.i", %402, %"_ZZNK12_GLOBAL__N_119PlacementNewChecker23checkElementRegionAlignEPKN5clang4ento13ElementRegionERNS2_14CheckerContextEPKNS1_4ExprEjENK3$_0clEv.exit.i.i.i", %354, %._crit_edge.i.i.i.i, %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i
@@ -2000,7 +2000,7 @@ declare void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9Str
 declare noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119PlacementNewChecker26isVarRegionAlignedProperlyEPKN5clang4ento9VarRegionERNS2_14CheckerContextEPKNS1_4ExprEj(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119PlacementNewChecker26isVarRegionAlignedProperlyEPKN5clang4ento9VarRegionERNS2_14CheckerContextEPKNS1_4ExprEj(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8

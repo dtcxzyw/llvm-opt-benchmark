@@ -1506,7 +1506,7 @@ entry:
   %ref.tmp139 = alloca %"class.testing::Message", align 8
   %ref.tmp141 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr @.str.78, ptr %ref.tmp, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp9, double noundef 1.000000e+00)
+  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %ref.tmp9, double noundef 1.000000e+00)
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIPKcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultES4_RKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull @.str.79, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
 
@@ -1609,7 +1609,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   store ptr @.str.80, ptr %ref.tmp24, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp35, double noundef 1.000000e-01)
+  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %ref.tmp35, double noundef 1.000000e-01)
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIPKcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultES4_RKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar23, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24, ptr noundef nonnull @.str.81, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35)
           to label %invoke.cont37 unwind label %lpad36
 
@@ -1717,7 +1717,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit52:          ; preds = %if.end55, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i51
   store ptr null, ptr %message_.i49, align 8
   store ptr @.str.82, ptr %ref.tmp58, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp69, double noundef 0x44EA784379D99DB4)
+  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %ref.tmp69, double noundef 0x44EA784379D99DB4)
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIPKcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultES4_RKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar57, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58, ptr noundef nonnull @.str.83, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69)
           to label %invoke.cont71 unwind label %lpad70
 
@@ -1956,7 +1956,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   br label %invoke.cont95
 
 invoke.cont95:                                    ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN7testing8internal29PredicateFormatterFromMatcherINS_18PolymorphicMatcherINS0_19MatchesRegexMatcherEEEEC2ES4_.exit.i
-  invoke fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp96, double noundef 4.940660e-324)
+  invoke fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %ref.tmp96, double noundef 4.940660e-324)
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %invoke.cont95
@@ -2236,7 +2236,7 @@ for.body128:                                      ; preds = %for.cond126.prehead
   %__begin2.0.ptr = getelementptr inbounds i8, ptr @constinit, i64 %__begin2.0.idx150
   %88 = load double, ptr %__begin2.0.ptr, align 8
   %mul = fmul double %88, %conv
-  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %s, double noundef %mul)
+  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %s, double noundef %mul)
   %call130 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #28
   %call131 = call double @strtod(ptr nocapture noundef %call130, ptr noundef null) #28
   invoke void @_ZN7testing8internal24CmpHelperFloatingPointEQIdEENS_15AssertionResultEPKcS4_T_S5_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar129, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, double noundef %mul, double noundef %call131)
@@ -2703,7 +2703,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %agg.result, double noundef %d) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %agg.result, double noundef %d) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2755,7 +2755,7 @@ while.cond.preheader:                             ; preds = %if.end
 
 if.then2:                                         ; preds = %if.end
   %fneg = fneg double %d
-  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp3, double noundef %fneg)
+  call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %ref.tmp3, double noundef %fneg)
   %call.i37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, ptr noundef nonnull @.str.105)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -5237,7 +5237,7 @@ for.end18:                                        ; preds = %for.body14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110CheckInt32Ei(i32 noundef %x) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110CheckInt32Ei(i32 noundef range(i32 2147483647, 101) %x) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca [32 x i8], align 16
   %expected = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7082,7 +7082,7 @@ ehcleanup93:                                      ; preds = %ehcleanup92, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110CheckHex64Em(i64 noundef %v) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110CheckHex64Em(i64 noundef range(i64 -2147483648, 1311768467463790321) %v) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i56 = alloca %"class.std::allocator", align 1
   %buffer.i.i.i20 = alloca [32 x i8], align 16
@@ -18463,7 +18463,7 @@ ehcleanup52:                                      ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIliEEvT0_T_(i32 noundef %in_value, i64 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIliEEvT0_T_(i32 noundef %in_value, i64 noundef range(i64 -2147483648, 2147483648) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i53 = alloca i64, align 8
   %val.i.i = alloca i64, align 8
@@ -19597,7 +19597,7 @@ ehcleanup101:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodImiEEvT0_T_(i32 noundef %in_value, i64 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodImiEEvT0_T_(i32 noundef %in_value, i64 noundef range(i64 -2147483648, 2147483648) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i53 = alloca i64, align 8
   %val.i.i = alloca i64, align 8
@@ -40241,7 +40241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE3E01S2_EEvT0_T_(i32 noundef %in_value, i32 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE3E01S2_EEvT0_T_(i32 noundef range(i32 0, 2) %in_value, i32 noundef range(i32 0, 2) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i53 = alloca i32, align 4
   %val.i.i = alloca i32, align 4
@@ -40462,7 +40462,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -40669,7 +40669,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -40783,7 +40783,7 @@ ehcleanup101:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE5E_101S2_EEvT0_T_(i32 noundef %in_value, i32 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE5E_101S2_EEvT0_T_(i32 noundef range(i32 -1, 2) %in_value, i32 noundef range(i32 -1, 2) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i53 = alloca i32, align 4
   %val.i.i = alloca i32, align 4
@@ -41004,7 +41004,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -41211,7 +41211,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -41325,7 +41325,7 @@ ehcleanup101:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS2_EEvT0_T_(i32 noundef %in_value, i32 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS2_EEvT0_T_(i32 noundef range(i32 0, -2147483648) %in_value, i32 noundef range(i32 0, -2147483648) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i53 = alloca i32, align 4
   %val.i.i = alloca i32, align 4
@@ -41546,7 +41546,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -41753,7 +41753,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -41867,7 +41867,7 @@ ehcleanup101:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS2_EEvT0_T_(i32 noundef %in_value, i32 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS2_EEvT0_T_(i32 noundef range(i32 0, -2147483647) %in_value, i32 noundef range(i32 0, -2147483647) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i53 = alloca i32, align 4
   %val.i.i = alloca i32, align 4
@@ -42088,7 +42088,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -42295,7 +42295,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -42409,7 +42409,7 @@ ehcleanup101:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS2_EEvT0_T_(i32 noundef %in_value, i32 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS2_EEvT0_T_(i32 noundef range(i32 -1, -2147483648) %in_value, i32 noundef range(i32 -1, -2147483648) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i53 = alloca i32, align 4
   %val.i.i = alloca i32, align 4
@@ -42630,7 +42630,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -42837,7 +42837,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %invoke.cont58, %if.end80, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72
   store ptr null, ptr %message_.i58, align 8
-  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
+  invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar82, ptr noundef nonnull align 4 dereferenceable(4) %exp_value.addr, ptr noundef nonnull align 4 dereferenceable(4) %x)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit73
@@ -42951,7 +42951,7 @@ ehcleanup101:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -42963,7 +42963,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -43016,7 +43016,7 @@ lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !825
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !826
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE3E01S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
@@ -43047,7 +43047,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -43059,7 +43059,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -43112,7 +43112,7 @@ lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !847
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !848
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE5E_101S4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
@@ -43143,7 +43143,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -43155,7 +43155,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -43208,7 +43208,7 @@ lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !869
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !870
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE8E_bigintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
@@ -43239,7 +43239,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -43251,7 +43251,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -43304,7 +43304,7 @@ lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !891
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !892
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_fullintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
@@ -43335,7 +43335,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -43347,7 +43347,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -43400,7 +43400,7 @@ lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !913
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !914
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEvE9E_biguintS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
@@ -53127,7 +53127,7 @@ ehcleanup68:                                      ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIliEEvT0_T_(i32 noundef %in_value, i64 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodIliEEvT0_T_(i32 noundef %in_value, i64 noundef range(i64 -2147483648, 2147483648) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i55 = alloca i64, align 8
   %val.i.i = alloca i64, align 8
@@ -54324,7 +54324,7 @@ ehcleanup119:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodImiEEvT0_T_(i32 noundef %in_value, i64 noundef %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123VerifySimpleHexAtoiGoodImiEEvT0_T_(i32 noundef %in_value, i64 noundef range(i64 -2147483648, 2147483648) %exp_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i55 = alloca i64, align 8
   %val.i.i = alloca i64, align 8
@@ -77075,7 +77075,7 @@ invoke.cont104:                                   ; preds = %invoke.cont102
           to label %invoke.cont106 unwind label %lpad95
 
 invoke.cont106:                                   ; preds = %invoke.cont104
-  invoke fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp108, double noundef %call74)
+  invoke fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %ref.tmp108, double noundef %call74)
           to label %invoke.cont109 unwind label %lpad95
 
 invoke.cont109:                                   ; preds = %invoke.cont106
@@ -77110,7 +77110,7 @@ invoke.cont124:                                   ; preds = %invoke.cont120
           to label %invoke.cont126 unwind label %lpad110
 
 invoke.cont126:                                   ; preds = %invoke.cont124
-  invoke fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp128, double noundef %53)
+  invoke fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %ref.tmp128, double noundef %53)
           to label %invoke.cont129 unwind label %lpad110
 
 invoke.cont129:                                   ; preds = %invoke.cont126
@@ -77145,7 +77145,7 @@ invoke.cont144:                                   ; preds = %invoke.cont140
           to label %invoke.cont146 unwind label %lpad130
 
 invoke.cont146:                                   ; preds = %invoke.cont144
-  invoke fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp148, double noundef %call75)
+  invoke fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %ref.tmp148, double noundef %call75)
           to label %invoke.cont149 unwind label %lpad130
 
 invoke.cont149:                                   ; preds = %invoke.cont146

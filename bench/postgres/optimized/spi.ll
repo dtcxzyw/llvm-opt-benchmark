@@ -855,7 +855,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 @CreateCommandTag(ptr noundef %32) #15
-  %34 = call ptr @CreateOneShotCachedPlan(ptr noundef %30, ptr noundef %0, i32 noundef %33) #15
+  %34 = call ptr @CreateOneShotCachedPlan(ptr noundef %30, ptr noundef nonnull %0, i32 noundef %33) #15
   %35 = call ptr @lappend(ptr noundef %.02428.i, ptr noundef %34) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %24, align 4
@@ -878,7 +878,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_b
   store i8 %8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %2, ptr %43, align 8
-  %44 = call fastcc i32 @_SPI_execute_plan(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %44 = call fastcc i32 @_SPI_execute_plan(ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %45 = load ptr, ptr @_SPI_current, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -899,7 +899,7 @@ _SPI_begin_call.exit:                             ; preds = %11, %3, %_SPI_prepa
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.SPICallbackArg, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
   %8 = alloca %struct.QueryCompletion, align 8
@@ -1575,7 +1575,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @CreateCommandTag(ptr noundef %38) #15
-  %40 = call ptr @CreateOneShotCachedPlan(ptr noundef %36, ptr noundef %0, i32 noundef %39) #15
+  %40 = call ptr @CreateOneShotCachedPlan(ptr noundef %36, ptr noundef nonnull %0, i32 noundef %39) #15
   %41 = call ptr @lappend(ptr noundef %.02428.i, ptr noundef %40) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = load i32, ptr %30, align 4
@@ -1593,7 +1593,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %24, %.
   store ptr %47, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %48 = call fastcc i32 @_SPI_execute_plan(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %48 = call fastcc i32 @_SPI_execute_plan(ptr noundef %5, ptr noundef %1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %49 = load ptr, ptr @_SPI_current, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
@@ -1707,7 +1707,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   store i8 %7, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %4, ptr %54, align 8
-  %55 = call fastcc i32 @_SPI_execute_plan(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %55 = call fastcc i32 @_SPI_execute_plan(ptr noundef %0, ptr noundef %6, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %56 = load ptr, ptr @_SPI_current, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
@@ -1755,7 +1755,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   %13 = getelementptr inbounds i8, ptr %11, i64 40
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
-  %15 = tail call fastcc i32 @_SPI_execute_plan(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %15 = tail call fastcc i32 @_SPI_execute_plan(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %16 = load ptr, ptr @_SPI_current, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
@@ -1806,7 +1806,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %12
   store i8 %6, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %3, ptr %21, align 8
-  %22 = call fastcc i32 @_SPI_execute_plan(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %22 = call fastcc i32 @_SPI_execute_plan(ptr noundef %0, ptr noundef %5, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %23 = load ptr, ptr @_SPI_current, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
@@ -1920,7 +1920,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   store i8 %10, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %7, ptr %57, align 8
-  %58 = call fastcc i32 @_SPI_execute_plan(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6)
+  %58 = call fastcc i32 @_SPI_execute_plan(ptr noundef %0, ptr noundef %9, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6)
   %59 = load ptr, ptr @_SPI_current, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8
@@ -2047,7 +2047,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %57 = load ptr, ptr @error_context_stack, align 8
   store ptr %57, ptr %9, align 8
   store ptr %9, ptr @error_context_stack, align 8
-  %58 = call ptr @raw_parser(ptr noundef %0, i32 noundef 0) #15
+  %58 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #15
   %59 = getelementptr inbounds i8, ptr %58, i64 4
   %.not.i29 = icmp eq ptr %58, null
   br i1 %.not.i29, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
@@ -2067,7 +2067,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 @CreateCommandTag(ptr noundef %67) #15
-  %69 = call ptr @CreateOneShotCachedPlan(ptr noundef %65, ptr noundef %0, i32 noundef %68) #15
+  %69 = call ptr @CreateOneShotCachedPlan(ptr noundef %65, ptr noundef nonnull %0, i32 noundef %68) #15
   %70 = call ptr @lappend(ptr noundef %.02428.i, ptr noundef %69) #15
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %71 = load i32, ptr %59, align 4
@@ -2092,7 +2092,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_c
   store i8 %12, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %6, ptr %79, align 8
-  %80 = call fastcc i32 @_SPI_execute_plan(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %80 = call fastcc i32 @_SPI_execute_plan(ptr noundef %10, ptr noundef %11, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %81 = load ptr, ptr @_SPI_current, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 32
   %83 = load ptr, ptr %82, align 8
@@ -2150,8 +2150,8 @@ _SPI_begin_call.exit.thread.i:                    ; preds = %11
   store ptr %2, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  call fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  %21 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef nonnull %4)
+  call fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr noundef %4)
+  %21 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef %4)
   %22 = load ptr, ptr @_SPI_current, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -2215,8 +2215,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %12
   store ptr %2, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  call fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr noundef nonnull %5)
-  %23 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef nonnull %5)
+  call fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr noundef %5)
+  %23 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef %5)
   %24 = load ptr, ptr @_SPI_current, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -2238,7 +2238,7 @@ _SPI_begin_call.exit:                             ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.SPICallbackArg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   store ptr %0, ptr %3, align 8
@@ -2253,7 +2253,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture nou
   %10 = load ptr, ptr @error_context_stack, align 8
   store ptr %10, ptr %4, align 8
   store ptr %4, ptr @error_context_stack, align 8
-  %11 = call ptr @raw_parser(ptr noundef %0, i32 noundef %6) #15
+  %11 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef %6) #15
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2278,7 +2278,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture nou
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 @CreateCommandTag(ptr noundef %25) #15
-  %27 = call ptr @CreateCachedPlan(ptr noundef %23, ptr noundef %0, i32 noundef %26) #15
+  %27 = call ptr @CreateCachedPlan(ptr noundef %23, ptr noundef nonnull %0, i32 noundef %26) #15
   %28 = load ptr, ptr %14, align 8
   %.not39 = icmp eq ptr %28, null
   br i1 %.not39, label %35, label %29
@@ -2288,7 +2288,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture nou
   %31 = load ptr, ptr @_SPI_current, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 64
   %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %23, ptr noundef %0, ptr noundef nonnull %28, ptr noundef %30, ptr noundef %33) #15
+  %34 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %30, ptr noundef %33) #15
   br label %42
 
 35:                                               ; preds = %.lr.ph49
@@ -2297,7 +2297,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture nou
   %38 = load ptr, ptr @_SPI_current, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8
-  %41 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %23, ptr noundef %0, ptr noundef %36, i32 noundef %37, ptr noundef %40) #15
+  %41 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef %36, i32 noundef %37, ptr noundef %40) #15
   br label %42
 
 42:                                               ; preds = %35, %29
@@ -2327,7 +2327,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr @_SPI_current, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -2460,8 +2460,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %7
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr %24, ptr %25, align 8
-  call fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  %26 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef nonnull %3)
+  call fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr noundef %3)
+  %26 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef %3)
   %27 = load ptr, ptr @_SPI_current, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
@@ -2516,8 +2516,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 56
   store ptr %2, ptr %18, align 8
-  call fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr noundef nonnull %5)
-  %19 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef nonnull %5)
+  call fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr noundef %5)
+  %19 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef %5)
   %20 = load ptr, ptr @_SPI_current, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -3198,7 +3198,7 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %75
 
@@ -4147,7 +4147,7 @@ _SPI_begin_call.exit:                             ; preds = %22
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i20 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %36, %.split.us.i ], [ %36, %.split.i ]
-  call fastcc void @_SPI_prepare_plan(ptr noundef %1, ptr noundef nonnull %9)
+  call fastcc void @_SPI_prepare_plan(ptr noundef %1, ptr noundef %9)
   %58 = call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %.0.i20, i1 noundef zeroext %6)
   %59 = load ptr, ptr @_SPI_current, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 32
@@ -4226,7 +4226,7 @@ _SPI_begin_call.exit:                             ; preds = %10
   br label %30
 
 30:                                               ; preds = %23, %_SPI_begin_call.exit.thread
-  call fastcc void @_SPI_prepare_plan(ptr noundef nonnull %1, ptr noundef nonnull %4)
+  call fastcc void @_SPI_prepare_plan(ptr noundef %1, ptr noundef %4)
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr inbounds i8, ptr %2, i64 12
   %33 = load i8, ptr %32, align 4

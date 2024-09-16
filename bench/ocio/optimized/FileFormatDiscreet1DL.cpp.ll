@@ -291,7 +291,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp99.i)
   store ptr null, ptr %lut.i, align 8
   store i32 0, ptr %errline, align 4
-  %call.i18 = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114FindNonCommentERSiRiPci(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr noundef nonnull align 4 dereferenceable(4) %errline, ptr noundef nonnull %InString.i)
+  %call.i18 = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114FindNonCommentERSiRiPci(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr noundef nonnull align 4 dereferenceable(4) %errline, ptr noundef %InString.i)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %invoke.cont2
@@ -307,7 +307,7 @@ if.end.i:                                         ; preds = %call.i.noexc
 if.then3.i:                                       ; preds = %if.end.i
   store i32 1, ptr %numtables.i, align 4
   store i32 256, ptr %length.i, align 4
-  %call4.i19 = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils10IMLutAllocEPPNS1_11IMLutStructEii(ptr noundef nonnull %lut.i, i32 noundef 1, i32 noundef 256)
+  %call4.i19 = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils10IMLutAllocEPPNS1_11IMLutStructEii(ptr noundef %lut.i, i32 noundef 1, i32 noundef 256)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call4.i.noexc:                                    ; preds = %if.then3.i
@@ -508,7 +508,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %depthScaled.2.i = phi i32 [ 0, %if.end52.i ], [ 8, %if.then54.i ], [ 10, %sw.bb1.i.i ], [ 12, %sw.bb2.i.i ], [ %cond.i.i, %sw.bb3.i.i ]
   %24 = load i32, ptr %numtables.i, align 4
   %25 = load i32, ptr %length.i, align 4
-  %call73.i = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils10IMLutAllocEPPNS1_11IMLutStructEii(ptr noundef nonnull %lut.i, i32 noundef %24, i32 noundef %25)
+  %call73.i = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils10IMLutAllocEPPNS1_11IMLutStructEii(ptr noundef %lut.i, i32 noundef %24, i32 noundef %25)
           to label %invoke.cont72.i unwind label %lpad23.i
 
 invoke.cont72.i:                                  ; preds = %if.end71.i
@@ -1029,7 +1029,7 @@ if.then109.i:                                     ; preds = %if.end107.i, %if.en
   br label %if.end110.i
 
 if.end110.i:                                      ; preds = %if.then109.i, %if.end107.i
-  %call112.i25 = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114FindNonCommentERSiRiPci(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr noundef nonnull align 4 dereferenceable(4) %errline, ptr noundef nonnull %InString.i)
+  %call112.i25 = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114FindNonCommentERSiRiPci(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr noundef nonnull align 4 dereferenceable(4) %errline, ptr noundef %InString.i)
           to label %call112.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call112.i.noexc:                                  ; preds = %if.end110.i
@@ -2303,7 +2303,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileELN9__g
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114FindNonCommentERSiRiPci(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr nocapture noundef nonnull align 4 dereferenceable(4) %line, ptr noundef %InString) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114FindNonCommentERSiRiPci(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr nocapture noundef nonnull align 4 dereferenceable(4) %line, ptr noundef nonnull %InString) unnamed_addr #3 {
 entry:
   %invariant.gep = getelementptr i8, ptr %InString, i64 -1
   %vtable10 = load ptr, ptr %istream, align 8
@@ -2314,7 +2314,7 @@ entry:
   br i1 %call14, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115StripEndNewLineEPc.exit
-  %call1 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7getlineEPcl(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr noundef %InString, i64 noundef 200)
+  %call1 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7getlineEPcl(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr noundef nonnull %InString, i64 noundef 200)
   %0 = load i32, ptr %line, align 4
   %add = add nsw i32 %0, 1
   store i32 %add, ptr %line, align 4
@@ -2442,7 +2442,7 @@ while.end:                                        ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils10IMLutAllocEPPNS1_11IMLutStructEii(ptr nocapture noundef writeonly %plut, i32 noundef %num, i32 noundef %length) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils10IMLutAllocEPPNS1_11IMLutStructEii(ptr nocapture noundef nonnull writeonly %plut, i32 noundef %num, i32 noundef %length) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = or i32 %length, %num
   %or.cond.not = icmp sgt i32 %0, -1

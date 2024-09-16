@@ -2044,7 +2044,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %"_ZN7xgboost10collectivelsIZNS0_14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS5_ESaISG_EEE3$_5EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSN_OSM_.exit"
 
 300:                                              ; preds = %"_ZN7xgboost10collectivelsIZNS0_14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS5_ESaISG_EEE3$_4EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSN_OSM_.exit"
-  invoke fastcc void @"_ZZN7xgboost10collective14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS4_ESaISF_EEENK4$_12clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull readonly align 8 dereferenceable(16) %35)
+  invoke fastcc void @"_ZZN7xgboost10collective14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS4_ESaISF_EEENK4$_12clEv"(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull readonly align 8 dereferenceable(16) %35)
           to label %"._ZN7xgboost10collectivelsIZNS0_14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS5_ESaISG_EEE3$_5EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSN_OSM_.exit_crit_edge" unwind label %314
 
 "._ZN7xgboost10collectivelsIZNS0_14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS5_ESaISG_EEE3$_5EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSN_OSM_.exit_crit_edge": ; preds = %300
@@ -2413,7 +2413,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %"_ZN7xgboost10collectivelsIZNS0_14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS5_ESaISG_EEE3$_7EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSN_OSM_.exit"
 
 436:                                              ; preds = %433
-  invoke fastcc void @"_ZZN7xgboost10collective14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS4_ESaISF_EEENK4$_12clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull readonly align 8 dereferenceable(16) %35)
+  invoke fastcc void @"_ZZN7xgboost10collective14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS4_ESaISF_EEENK4$_12clEv"(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull readonly align 8 dereferenceable(16) %35)
           to label %"._ZN7xgboost10collectivelsIZNS0_14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS5_ESaISG_EEE3$_7EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSN_OSM_.exit_crit_edge" unwind label %447
 
 "._ZN7xgboost10collectivelsIZNS0_14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS5_ESaISG_EEE3$_7EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSN_OSM_.exit_crit_edge": ; preds = %436
@@ -4949,7 +4949,7 @@ define void @_ZN7xgboost10collective9RabitCommC2ERKNSt7__cxx1112basic_stringIcSt
 
 48:                                               ; preds = %47
   %49 = load i32, ptr %23, align 4
-  invoke fastcc void @_ZN7xgboost10collective12_GLOBAL__N_17InitLogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull %15, i32 noundef %49)
+  invoke fastcc void @_ZN7xgboost10collective12_GLOBAL__N_17InitLogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %15, i32 noundef %49)
           to label %50 unwind label %57
 
 50:                                               ; preds = %48
@@ -5231,7 +5231,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit33:        ; preds = %_ZNKSt14default_del
 declare void @_ZN7xgboost13ConsoleLoggerC1ENS0_12LogVerbosityE(ptr noundef nonnull align 8 dereferenceable(380), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost10collective12_GLOBAL__N_17InitLogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost10collective12_GLOBAL__N_17InitLogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6438,7 +6438,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit: ; preds = %_ZNSt6vec
 
 356:                                              ; preds = %354
   %357 = load i32, ptr %59, align 4
-  invoke fastcc void @_ZN7xgboost10collective12_GLOBAL__N_17InitLogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull %52, i32 noundef %357)
+  invoke fastcc void @_ZN7xgboost10collective12_GLOBAL__N_17InitLogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef %52, i32 noundef %357)
           to label %358 unwind label %364
 
 358:                                              ; preds = %356
@@ -12839,7 +12839,7 @@ _ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEED2Ev.exit: ; preds = %_ZN7xgb
 declare void @_ZN7xgboost10collective8cpu_impl13RingAllgatherERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEmiSt10shared_ptrINS0_7ChannelEESA_(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8, ptr noundef nonnull align 8 dereferenceable(184), ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7xgboost10collective14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS4_ESaISF_EEENK4$_12clEv"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7xgboost10collective14ConnectWorkersERKNS0_4CommEPNS0_9TCPSocketEiNS0_5proto8PeerInfoENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiPSt6vectorISt10shared_ptrIS4_ESaISF_EEENK4$_12clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"class.std::shared_ptr.22"], align 8
   %4 = alloca %"class.std::shared_ptr.22", align 8
   %5 = load ptr, ptr %1, align 8
@@ -12935,7 +12935,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit20: ; preds = %35,
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  invoke void %50(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %47)
+  invoke void %50(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %47)
           to label %51 unwind label %54
 
 51:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit20

@@ -933,7 +933,7 @@ define dso_local noundef zeroext i1 @describeAggregates(ptr noundef %0, i1 nound
   br label %10
 
 10:                                               ; preds = %9, %3
-  %11 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 3)
+  %11 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 3)
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %10
@@ -976,12 +976,12 @@ declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @validateSQLNamePattern(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef range(i32 1, 4) %9) unnamed_addr #0 {
   %11 = alloca %struct.PQExpBufferData, align 8
   %12 = alloca i32, align 4
   call void @initPQExpBuffer(ptr noundef nonnull %11) #9
   %13 = load ptr, ptr @pset, align 8
-  %14 = call zeroext i1 @processSQLNamePattern(ptr noundef %13, ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
+  %14 = call zeroext i1 @processSQLNamePattern(ptr noundef %13, ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %17, label %15
 
@@ -1000,7 +1000,7 @@ define internal fastcc noundef zeroext i1 @validateSQLNamePattern(ptr noundef %0
   br label %35
 
 20:                                               ; preds = %17
-  %21 = icmp sgt i32 %9, 1
+  %21 = icmp ugt i32 %9, 1
   %22 = add nsw i32 %9, -1
   %23 = icmp eq i32 %18, %22
   %or.cond = select i1 %21, i1 %23, i1 false
@@ -1437,7 +1437,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
 95:                                               ; preds = %.sink.split103, %55, %71
   %.068 = phi i8 [ %.5, %71 ], [ 0, %55 ], [ 1, %.sink.split103 ]
   %96 = trunc nuw i8 %.068 to i1
-  %97 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %7, ptr noundef %1, i1 noundef zeroext %96, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 3)
+  %97 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %7, ptr noundef %1, i1 noundef zeroext %96, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 3)
   br i1 %97, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %95
@@ -1494,7 +1494,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
 
 map_typename_pattern.exit:                        ; preds = %120, %.tail.thread, %115
   %.07.i = phi ptr [ %119, %115 ], [ null, %.tail.thread ], [ %109, %120 ]
-  %121 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %7, ptr noundef %.07.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, i32 noundef 3)
+  %121 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %7, ptr noundef %.07.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, i32 noundef 3)
   br i1 %121, label %124, label %.loopexit
 
 122:                                              ; preds = %.tail
@@ -1632,7 +1632,7 @@ define dso_local noundef zeroext i1 @describeTypes(ptr noundef %0, i1 noundef ze
 
 map_typename_pattern.exit:                        ; preds = %23, %12, %13, %18
   %.07.i = phi ptr [ %22, %18 ], [ null, %13 ], [ null, %12 ], [ %0, %23 ]
-  %24 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef %.07.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
+  %24 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %.07.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %map_typename_pattern.exit
@@ -1710,7 +1710,7 @@ define dso_local noundef zeroext i1 @describeOperators(ptr noundef %0, ptr nocap
 
 20:                                               ; preds = %19, %17
   %21 = xor i1 %or.cond, true
-  %22 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %6, ptr noundef %0, i1 noundef zeroext %21, i1 noundef zeroext true, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.120, ptr noundef null, ptr noundef nonnull @.str.121, ptr noundef null, i32 noundef 3)
+  %22 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %0, i1 noundef zeroext %21, i1 noundef zeroext true, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.120, ptr noundef null, ptr noundef nonnull @.str.121, ptr noundef null, i32 noundef 3)
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %20
@@ -1776,7 +1776,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
 
 map_typename_pattern.exit:                        ; preds = %49, %.tail.thread, %44
   %.07.i = phi ptr [ %48, %44 ], [ null, %.tail.thread ], [ %38, %49 ]
-  %50 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %6, ptr noundef %.07.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, i32 noundef 3)
+  %50 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %.07.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, i32 noundef 3)
   br i1 %50, label %53, label %.loopexit
 
 51:                                               ; preds = %.tail
@@ -1941,7 +1941,7 @@ define dso_local noundef zeroext i1 @permissionsList(ptr noundef %0, i1 noundef 
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %16 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %15
@@ -1987,7 +1987,7 @@ define dso_local noundef zeroext i1 @listDefaultACLs(ptr noundef %0) local_unnam
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @.str.147, i32 noundef 83, ptr noundef nonnull @.str.150, i32 noundef 102, ptr noundef nonnull @.str.164, i32 noundef 84, ptr noundef nonnull @.str.165, i32 noundef 110, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.18) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.883, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.884, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.162) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.168) #9
-  %4 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %2, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.169, ptr noundef null, ptr noundef null, i32 noundef 3)
+  %4 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %2, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.169, ptr noundef null, ptr noundef null, i32 noundef 3)
   br i1 %4, label %5, label %16
 
 5:                                                ; preds = %1
@@ -2042,7 +2042,7 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
 
 7:                                                ; preds = %6, %2
   %8 = xor i1 %or.cond, true
-  %9 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext %8, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %9 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext %8, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %7
@@ -2054,7 +2054,7 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
   br label %12
 
 12:                                               ; preds = %11, %10
-  %13 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext %8, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
+  %13 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext %8, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
   br i1 %13, label %14, label %40
 
 14:                                               ; preds = %12
@@ -2066,7 +2066,7 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
   br label %16
 
 16:                                               ; preds = %15, %14
-  %17 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.181, ptr noundef null, ptr noundef nonnull @.str.182, ptr noundef null, i32 noundef 3)
+  %17 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.181, ptr noundef null, ptr noundef nonnull @.str.182, ptr noundef null, i32 noundef 3)
   br i1 %17, label %18, label %40
 
 18:                                               ; preds = %16
@@ -2078,7 +2078,7 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
   br label %20
 
 20:                                               ; preds = %19, %18
-  %21 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.185, ptr noundef null, ptr noundef nonnull @.str.186, ptr noundef null, i32 noundef 3)
+  %21 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.185, ptr noundef null, ptr noundef nonnull @.str.186, ptr noundef null, i32 noundef 3)
   br i1 %21, label %22, label %40
 
 22:                                               ; preds = %20
@@ -2090,7 +2090,7 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
   br label %24
 
 24:                                               ; preds = %23, %22
-  %25 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.189, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %25 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.189, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %24
@@ -2102,7 +2102,7 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
   br label %28
 
 28:                                               ; preds = %27, %26
-  %29 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext %8, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.191, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %29 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext %8, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.191, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %28
@@ -2153,7 +2153,7 @@ define dso_local noundef zeroext i1 @describeTableDetails(ptr noundef %0, i1 nou
 
 7:                                                ; preds = %6, %3
   %8 = xor i1 %or.cond, true
-  %9 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext %8, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %9 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %0, i1 noundef zeroext %8, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %7
@@ -3327,7 +3327,7 @@ sub_01245:                                        ; preds = %sub_01241, %.tail12
   br i1 %158, label %423, label %.sink.split1454
 
 423:                                              ; preds = %.tail1244.thread
-  call fastcc void @add_tablespace_footer(ptr noundef nonnull %7, i8 noundef signext 105, i32 noundef %92, i1 noundef zeroext true)
+  call fastcc void @add_tablespace_footer(ptr noundef %7, i8 noundef signext 105, i32 noundef %92, i1 noundef zeroext true)
   br label %.sink.split1454
 
 .sink.split1452.sink.split:                       ; preds = %349, %358
@@ -3538,7 +3538,7 @@ sub_01285:                                        ; preds = %.tail1280.thread, %
   %498 = call ptr @PQgetvalue(ptr noundef nonnull %432, i32 noundef %.21346, i32 noundef 11) #9
   %499 = call i64 @strtoul(ptr nocapture noundef %498, ptr noundef null, i32 noundef 10) #9
   %500 = trunc i64 %499 to i32
-  call fastcc void @add_tablespace_footer(ptr noundef nonnull %7, i8 noundef signext 105, i32 noundef %500, i1 noundef zeroext false)
+  call fastcc void @add_tablespace_footer(ptr noundef %7, i8 noundef signext 105, i32 noundef %500, i1 noundef zeroext false)
   %501 = add nuw nsw i32 %.21346, 1
   %exitcond1424.not = icmp eq i32 %501, %434
   br i1 %exitcond1424.not, label %.loopexit1340, label %sub_01249, !llvm.loop !13
@@ -4786,7 +4786,7 @@ sub_01326:                                        ; preds = %sub_01326.sink.spli
   br label %967
 
 967:                                              ; preds = %965, %966
-  call fastcc void @add_tablespace_footer(ptr noundef nonnull %7, i8 noundef signext %45, i32 noundef %92, i1 noundef zeroext true)
+  call fastcc void @add_tablespace_footer(ptr noundef %7, i8 noundef signext %45, i32 noundef %92, i1 noundef zeroext true)
   %968 = icmp ne ptr %.sroa.109.0, null
   %or.cond175 = select i1 %3, i1 %968, i1 false
   br i1 %or.cond175, label %969, label %974
@@ -5606,7 +5606,7 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
   br label %63
 
 63:                                               ; preds = %62, %61
-  %64 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %5, ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %64 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %5, ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %63
@@ -5784,12 +5784,12 @@ define dso_local noundef zeroext i1 @listPartitionedTables(ptr noundef readonly 
   br i1 %23, label %.split, label %45
 
 .split:                                           ; preds = %42
-  %44 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %44 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %44, label %48, label %47
 
 45:                                               ; preds = %42
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.267) #9
-  %46 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %46 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %46, label %48, label %47
 
 47:                                               ; preds = %.split, %45
@@ -5853,7 +5853,7 @@ define dso_local noundef zeroext i1 @listLanguages(ptr noundef %0, i1 noundef ze
   br i1 %.not12, label %11, label %8
 
 8:                                                ; preds = %7
-  %9 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.302, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 2)
+  %9 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.302, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 2)
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %8
@@ -5920,7 +5920,7 @@ define dso_local noundef zeroext i1 @listDomains(ptr noundef %0, i1 noundef zero
   br label %9
 
 9:                                                ; preds = %8, %.critedge
-  %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.105, ptr noundef null, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
+  %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.105, ptr noundef null, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %9
@@ -5978,7 +5978,7 @@ define dso_local noundef zeroext i1 @listConversions(ptr noundef %0, i1 noundef 
   br label %9
 
 9:                                                ; preds = %8, %.critedge
-  %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.326, ptr noundef null, ptr noundef nonnull @.str.327, ptr noundef null, i32 noundef 3)
+  %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.326, ptr noundef null, ptr noundef nonnull @.str.327, ptr noundef null, i32 noundef 3)
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %9
@@ -6195,7 +6195,7 @@ define dso_local noundef zeroext i1 @listExtendedStats(ptr noundef %0) local_unn
 
 15:                                               ; preds = %14, %9
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.366) #9
-  %16 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %2, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.368, ptr noundef null, ptr noundef nonnull @.str.369, ptr noundef null, i32 noundef 3)
+  %16 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %2, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.368, ptr noundef null, ptr noundef nonnull @.str.369, ptr noundef null, i32 noundef 3)
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %15
@@ -6246,12 +6246,12 @@ define dso_local noundef zeroext i1 @listCasts(ptr noundef %0, i1 noundef zeroex
   %.str.378.sink = phi ptr [ @.str.379, %5 ], [ @.str.378, %2 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull %.str.378.sink) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.380) #9
-  %6 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.381, ptr noundef nonnull @.str.382, ptr noundef nonnull @.str.383, ptr noundef nonnull @.str.384, ptr noundef null, i32 noundef 3)
+  %6 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.381, ptr noundef nonnull @.str.382, ptr noundef nonnull @.str.383, ptr noundef nonnull @.str.384, ptr noundef null, i32 noundef 3)
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %.critedge
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.385) #9
-  %8 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.386, ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.388, ptr noundef nonnull @.str.389, ptr noundef null, i32 noundef 3)
+  %8 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.386, ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.388, ptr noundef nonnull @.str.389, ptr noundef null, i32 noundef 3)
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %7
@@ -6337,7 +6337,7 @@ define dso_local noundef zeroext i1 @listCollations(ptr noundef %0, i1 noundef z
 
 21:                                               ; preds = %20, %18
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.405) #9
-  %22 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.406, ptr noundef null, ptr noundef nonnull @.str.407, ptr noundef null, i32 noundef 3)
+  %22 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.406, ptr noundef null, ptr noundef nonnull @.str.407, ptr noundef null, i32 noundef 3)
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %21
@@ -6399,7 +6399,7 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
 
 10:                                               ; preds = %9, %7
   %11 = xor i1 %or.cond, true
-  %12 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext %11, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 2)
+  %12 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %0, i1 noundef zeroext %11, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 2)
   br i1 %12, label %13, label %52
 
 13:                                               ; preds = %10
@@ -6525,7 +6525,7 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.849) #9
-  %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %6, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.419, ptr noundef null, ptr noundef nonnull @.str.420, ptr noundef null, i32 noundef 3)
+  %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.419, ptr noundef null, ptr noundef nonnull @.str.420, ptr noundef null, i32 noundef 3)
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %9
@@ -6703,7 +6703,7 @@ listTSParsersVerbose.exit:                        ; preds = %11, %12, %32, %.loo
 65:                                               ; preds = %2
   call void @initPQExpBuffer(ptr noundef nonnull %7) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #9
-  %66 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %7, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.419, ptr noundef null, ptr noundef nonnull @.str.420, ptr noundef null, i32 noundef 3)
+  %66 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %7, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.419, ptr noundef null, ptr noundef nonnull @.str.420, ptr noundef null, i32 noundef 3)
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %65
@@ -6750,7 +6750,7 @@ define dso_local noundef zeroext i1 @listTSDictionaries(ptr noundef %0, i1 nound
 6:                                                ; preds = %5, %2
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.426, ptr noundef nonnull @.str.6) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.427) #9
-  %7 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.428, ptr noundef null, ptr noundef nonnull @.str.429, ptr noundef null, i32 noundef 3)
+  %7 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.428, ptr noundef null, ptr noundef nonnull @.str.429, ptr noundef null, i32 noundef 3)
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
@@ -6799,7 +6799,7 @@ define dso_local noundef zeroext i1 @listTSTemplates(ptr noundef %0, i1 noundef 
 
 7:                                                ; preds = %6, %5
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.435) #9
-  %8 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.436, ptr noundef null, ptr noundef nonnull @.str.437, ptr noundef null, i32 noundef 3)
+  %8 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.436, ptr noundef null, ptr noundef nonnull @.str.437, ptr noundef null, i32 noundef 3)
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %7
@@ -6845,7 +6845,7 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.865) #9
-  %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %6, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.440, ptr noundef null, ptr noundef nonnull @.str.441, ptr noundef null, i32 noundef 3)
+  %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.440, ptr noundef null, ptr noundef nonnull @.str.441, ptr noundef null, i32 noundef 3)
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %9
@@ -7007,7 +7007,7 @@ listTSConfigsVerbose.exit:                        ; preds = %11, %12, %30, %55, 
 62:                                               ; preds = %2
   call void @initPQExpBuffer(ptr noundef nonnull %7) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.439, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #9
-  %63 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %7, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.440, ptr noundef null, ptr noundef nonnull @.str.441, ptr noundef null, i32 noundef 3)
+  %63 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %7, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.440, ptr noundef null, ptr noundef nonnull @.str.441, ptr noundef null, i32 noundef 3)
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %62
@@ -7246,7 +7246,7 @@ define dso_local noundef zeroext i1 @listForeignTables(ptr noundef %0, i1 nounde
 .critedge:                                        ; preds = %2, %5
   %.str.470.sink = phi ptr [ @.str.471, %5 ], [ @.str.470, %2 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull %.str.470.sink) #9
-  %6 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
+  %6 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %3, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef nonnull @.str.161, ptr noundef null, i32 noundef 3)
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %.critedge
@@ -7738,7 +7738,7 @@ sub_1:                                            ; preds = %sub_0
   %.str.502.sink = phi ptr [ @.str.501, %64 ], [ @.str.502, %61 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull %.str.502.sink) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.503, ptr noundef %39) #9
-  %66 = call fastcc zeroext i1 @addFooterToPublicationDesc(ptr noundef nonnull %4, ptr noundef nonnull @.str.504, i1 noundef zeroext false, ptr noundef nonnull %6)
+  %66 = call fastcc zeroext i1 @addFooterToPublicationDesc(ptr noundef %4, ptr noundef nonnull @.str.504, i1 noundef zeroext false, ptr noundef %6)
   br i1 %66, label %67, label %78
 
 67:                                               ; preds = %65
@@ -7748,7 +7748,7 @@ sub_1:                                            ; preds = %sub_0
 
 70:                                               ; preds = %67
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.505, ptr noundef %39) #9
-  %71 = call fastcc zeroext i1 @addFooterToPublicationDesc(ptr noundef nonnull %4, ptr noundef nonnull @.str.506, i1 noundef zeroext true, ptr noundef nonnull %6)
+  %71 = call fastcc zeroext i1 @addFooterToPublicationDesc(ptr noundef %4, ptr noundef nonnull @.str.506, i1 noundef zeroext true, ptr noundef %6)
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %67, %70, %.thread56
@@ -7780,7 +7780,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @addFooterToPublicationDesc(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @addFooterToPublicationDesc(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @PSQLexec(ptr noundef %5) #9
   %.not = icmp ne ptr %6, null
@@ -7792,7 +7792,7 @@ define internal fastcc noundef zeroext i1 @addFooterToPublicationDesc(ptr nounde
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  tail call void @printTableAddFooter(ptr noundef %3, ptr noundef %1) #9
+  tail call void @printTableAddFooter(ptr noundef nonnull %3, ptr noundef %1) #9
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -7800,7 +7800,7 @@ define internal fastcc noundef zeroext i1 @addFooterToPublicationDesc(ptr nounde
   %10 = tail call ptr @PQgetvalue(ptr noundef nonnull %6, i32 noundef %.035.us, i32 noundef 0) #9
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %0, ptr noundef nonnull @.str.417, ptr noundef %10) #9
   %11 = load ptr, ptr %0, align 8
-  tail call void @printTableAddFooter(ptr noundef %3, ptr noundef %11) #9
+  tail call void @printTableAddFooter(ptr noundef nonnull %3, ptr noundef %11) #9
   %12 = add nuw nsw i32 %.035.us, 1
   %exitcond37.not = icmp eq i32 %12, %8
   br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !37
@@ -7831,7 +7831,7 @@ define internal fastcc noundef zeroext i1 @addFooterToPublicationDesc(ptr nounde
 
 22:                                               ; preds = %18, %20
   %23 = load ptr, ptr %0, align 8
-  tail call void @printTableAddFooter(ptr noundef %3, ptr noundef %23) #9
+  tail call void @printTableAddFooter(ptr noundef nonnull %3, ptr noundef %23) #9
   %24 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %24, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !37
@@ -8008,7 +8008,7 @@ validateSQLNamePattern.exit:                      ; preds = %9
   br i1 %.not12, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %6, ptr noundef nonnull %1, i1 noundef zeroext %.014, i1 noundef zeroext false, ptr noundef nonnull @.str.542, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
+  %15 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef nonnull %1, i1 noundef zeroext %.014, i1 noundef zeroext false, ptr noundef nonnull @.str.542, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %14, %13
@@ -8094,7 +8094,7 @@ validateSQLNamePattern.exit:                      ; preds = %10
 
 16:                                               ; preds = %15
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.548, ptr noundef nonnull %.013) #9
-  %17 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %6, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.542, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
+  %17 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.542, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef 3)
   br i1 %17, label %18, label %29
 
 18:                                               ; preds = %16
@@ -8184,7 +8184,7 @@ validateSQLNamePattern.exit:                      ; preds = %9
   br i1 %.not12, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %6, ptr noundef nonnull %1, i1 noundef zeroext %.014, i1 noundef zeroext false, ptr noundef nonnull @.str.563, ptr noundef nonnull @.str.564, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 3)
+  %15 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef nonnull %1, i1 noundef zeroext %.014, i1 noundef zeroext false, ptr noundef nonnull @.str.563, ptr noundef nonnull @.str.564, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 3)
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %14, %13
@@ -8263,7 +8263,7 @@ validateSQLNamePattern.exit:                      ; preds = %8
   br i1 %.not11, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %6, ptr noundef nonnull %1, i1 noundef zeroext %.013, i1 noundef zeroext false, ptr noundef nonnull @.str.381, ptr noundef nonnull @.str.564, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 3)
+  %14 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef nonnull %1, i1 noundef zeroext %.013, i1 noundef zeroext false, ptr noundef nonnull @.str.381, ptr noundef nonnull @.str.564, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 3)
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %13, %12
@@ -8349,7 +8349,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 declare void @printTableAddFooter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_tablespace_footer(ptr noundef %0, i8 noundef signext %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @add_tablespace_footer(ptr noundef nonnull %0, i8 noundef signext %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = and i8 %1, -5
   %7 = icmp eq i8 %6, 105
@@ -8384,7 +8384,7 @@ define internal fastcc void @add_tablespace_footer(ptr noundef %0, i8 noundef si
   %21 = call ptr @PQgetvalue(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.846, ptr noundef %21) #9
   %22 = load ptr, ptr %5, align 8
-  call void @printTableAddFooter(ptr noundef %0, ptr noundef %22) #9
+  call void @printTableAddFooter(ptr noundef nonnull %0, ptr noundef %22) #9
   br label %29
 
 23:                                               ; preds = %19
@@ -8395,7 +8395,7 @@ define internal fastcc void @add_tablespace_footer(ptr noundef %0, i8 noundef si
   %27 = call ptr @PQgetvalue(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.848, ptr noundef %27) #9
   %28 = load ptr, ptr %5, align 8
-  call void @printTableSetFooter(ptr noundef %0, ptr noundef %28) #9
+  call void @printTableSetFooter(ptr noundef nonnull %0, ptr noundef %28) #9
   br label %29
 
 29:                                               ; preds = %20, %23, %16

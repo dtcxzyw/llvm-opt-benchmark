@@ -1219,7 +1219,7 @@ define dso_local void @_ZN5vcpkg3IFW9do_exportERKSt6vectorINS_16ExportPlanAction
           to label %142 unwind label %263
 
 142:                                              ; preds = %4
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_121get_packages_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %122, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_121get_packages_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %122, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %143 unwind label %263
 
 143:                                              ; preds = %142
@@ -1346,7 +1346,7 @@ _ZN5vcpkg3msg7printlnIJEJEEEvNS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS3
           to label %176 unwind label %201
 
 176:                                              ; preds = %174
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %112)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %112)
           to label %177 unwind label %201
 
 177:                                              ; preds = %176
@@ -1886,7 +1886,7 @@ _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
 
 346:                                              ; preds = %345
   %347 = getelementptr inbounds i8, ptr %285, i64 40
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %99)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %99)
           to label %348 unwind label %390, !noalias !11
 
 348:                                              ; preds = %346
@@ -2107,7 +2107,7 @@ _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
   br label %.body88
 
 ._crit_edge:                                      ; preds = %407, %230
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_120get_config_file_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %133, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_120get_config_file_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %133, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %417 unwind label %.loopexit.split-lp
 
 417:                                              ; preds = %._crit_edge
@@ -2197,7 +2197,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5vcpkg16ExportP
           to label %439 unwind label %.loopexit.split-lp.i
 
 439:                                              ; preds = %437
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %69)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %69)
           to label %440 unwind label %.loopexit.split-lp.i
 
 440:                                              ; preds = %439
@@ -2332,7 +2332,7 @@ _ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
           to label %497 unwind label %524
 
 497:                                              ; preds = %_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %80)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %80)
           to label %498 unwind label %526
 
 498:                                              ; preds = %497
@@ -2566,7 +2566,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %557 unwind label %.loopexit.split-lp.i108
 
 557:                                              ; preds = %555
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %53)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %53)
           to label %558 unwind label %.loopexit.split-lp.i108
 
 558:                                              ; preds = %557
@@ -2635,7 +2635,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %586 unwind label %.loopexit.i114
 
 586:                                              ; preds = %583
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %60)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %60)
           to label %587 unwind label %.loopexit.i114
 
 587:                                              ; preds = %586
@@ -2792,7 +2792,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %624 unwind label %636
 
 624:                                              ; preds = %622
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %45)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %45)
           to label %625 unwind label %636
 
 625:                                              ; preds = %624
@@ -2873,7 +2873,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %.noexc128 unwind label %783
 
 .noexc128:                                        ; preds = %645
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_120get_config_file_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_120get_config_file_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %.noexc129 unwind label %783
 
 .noexc129:                                        ; preds = %.noexc128
@@ -3026,11 +3026,11 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %694 unwind label %764
 
 694:                                              ; preds = %.noexc137
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_121get_packages_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_121get_packages_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %695 unwind label %764
 
 695:                                              ; preds = %694
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_123get_repository_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_123get_repository_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %696 unwind label %766
 
 696:                                              ; preds = %695
@@ -3352,15 +3352,15 @@ _ZN5vcpkg3IFW12_GLOBAL__N_113do_repositoryERKNSt7__cxx1112basic_stringIcSt11char
           to label %798 unwind label %844
 
 798:                                              ; preds = %.noexc154
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_120get_config_file_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_120get_config_file_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %799 unwind label %844
 
 799:                                              ; preds = %798
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_121get_packages_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_121get_packages_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %800 unwind label %846
 
 800:                                              ; preds = %799
-  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_123get_repository_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
+  invoke fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_123get_repository_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %801 unwind label %848
 
 801:                                              ; preds = %800
@@ -3799,7 +3799,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5vcpkg16ExportP
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5vcpkg10VcpkgPaths14get_filesystemEv(ptr noundef nonnull align 8 dereferenceable(400)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_121get_packages_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_121get_packages_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3848,7 +3848,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   %24 = load i64, ptr %23, align 8
-  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr %22, i64 %24)
+  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr %22, i64 %24)
           to label %25 unwind label %27
 
 25:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
@@ -4040,7 +4040,7 @@ declare void @_ZN5vcpkg34install_package_and_write_listfileERKNS_10FilesystemERK
 declare void @_ZNK5vcpkg10VcpkgPaths11package_dirERKNS_11PackageSpecE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8, ptr noundef nonnull align 8 dereferenceable(400), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_120get_config_file_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_120get_config_file_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4089,7 +4089,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   %24 = load i64, ptr %23, align 8
-  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr %22, i64 %24)
+  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr %22, i64 %24)
           to label %25 unwind label %27
 
 25:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
@@ -4330,7 +4330,7 @@ declare noundef zeroext i1 @_ZNK5vcpkg10Filesystem9copy_fileERKNS_4PathES3_NS_11
 declare void @_ZNK5vcpkg10Filesystem14write_contentsERKNS_4PathENS_10StringViewENS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr, i64, i32, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_119create_release_dateB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.fmt::v10::format_arg_store.40", align 16
   %3 = alloca %struct.tm, align 8
   %4 = alloca [11 x i8], align 1
@@ -8141,7 +8141,7 @@ declare void @_ZN5vcpkg4PathC1ENS_10StringViewE(ptr noundef nonnull align 8 dere
 declare void @_ZN5vcpkg4Path16replace_filenameENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_123get_repository_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg3IFW12_GLOBAL__N_123get_repository_dir_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(400) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8190,7 +8190,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   %24 = load i64, ptr %23, align 8
-  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr %22, i64 %24)
+  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr %22, i64 %24)
           to label %25 unwind label %27
 
 25:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit

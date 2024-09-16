@@ -316,7 +316,7 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
   br i1 %or.cond, label %67, label %74
 
 67:                                               ; preds = %64
-  %68 = tail call fastcc i32 @get_algorithm(i32 noundef 0, i64 noundef %13, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %68 = tail call fastcc i32 @get_algorithm(i32 noundef 0, i64 noundef %13, ptr noundef nonnull %6, ptr noundef %7)
   %69 = tail call ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef 0, i32 noundef %68) #8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %74
@@ -335,7 +335,7 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_module(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc ptr @get_module(i32 noundef range(i32 0, 16) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %3, i64 808
   %6 = load i32, ptr %5, align 8
   %7 = zext nneg i32 %0 to i64
@@ -392,7 +392,7 @@ define internal fastcc ptr @get_module(i32 noundef %0, i64 noundef %1, ptr nound
 declare ptr @mca_coll_base_colltype_to_str(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_algorithm(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #3 {
+define internal fastcc i32 @get_algorithm(i32 noundef range(i32 0, 16) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #3 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %2, i64 220
@@ -699,7 +699,7 @@ define i32 @mca_coll_han_allreduce_intra_dynamic(ptr noundef %0, ptr noundef %1,
   br i1 %78, label %86, label %79
 
 79:                                               ; preds = %76
-  %80 = tail call fastcc i32 @get_algorithm(i32 noundef 2, i64 noundef %22, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %80 = tail call fastcc i32 @get_algorithm(i32 noundef 2, i64 noundef %22, ptr noundef nonnull %5, ptr noundef %6)
   %81 = tail call ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef 2, i32 noundef %80) #8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %86
@@ -829,7 +829,7 @@ define i32 @mca_coll_han_barrier_intra_dynamic(ptr noundef %0, ptr noundef %1) l
   br i1 %or.cond, label %68, label %72
 
 68:                                               ; preds = %65
-  %69 = tail call fastcc i32 @get_algorithm(i32 noundef 6, i64 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %69 = tail call fastcc i32 @get_algorithm(i32 noundef 6, i64 noundef 0, ptr noundef nonnull %0, ptr noundef %1)
   %70 = tail call ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef 6, i32 noundef %69) #8
   %71 = icmp eq ptr %70, null
   %spec.store.select = select i1 %71, ptr @mca_coll_han_barrier_intra_simple, ptr %70
@@ -954,7 +954,7 @@ define i32 @mca_coll_han_bcast_intra_dynamic(ptr noundef %0, i32 noundef %1, ptr
   br i1 %or.cond, label %75, label %82
 
 75:                                               ; preds = %72
-  %76 = tail call fastcc i32 @get_algorithm(i32 noundef 7, i64 noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %76 = tail call fastcc i32 @get_algorithm(i32 noundef 7, i64 noundef %21, ptr noundef nonnull %4, ptr noundef %5)
   %77 = tail call ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef 7, i32 noundef %76) #8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %82
@@ -1089,7 +1089,7 @@ define i32 @mca_coll_han_gather_intra_dynamic(ptr noundef %0, i32 noundef %1, pt
   br i1 %or.cond, label %78, label %85
 
 78:                                               ; preds = %75
-  %79 = tail call fastcc i32 @get_algorithm(i32 noundef 9, i64 noundef %24, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %79 = tail call fastcc i32 @get_algorithm(i32 noundef 9, i64 noundef %24, ptr noundef nonnull %7, ptr noundef %8)
   %80 = tail call ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef 9, i32 noundef %79) #8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %85
@@ -1226,7 +1226,7 @@ define i32 @mca_coll_han_reduce_intra_dynamic(ptr noundef %0, ptr noundef %1, i3
   br i1 %79, label %87, label %80
 
 80:                                               ; preds = %77
-  %81 = tail call fastcc i32 @get_algorithm(i32 noundef 11, i64 noundef %23, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %81 = tail call fastcc i32 @get_algorithm(i32 noundef 11, i64 noundef %23, ptr noundef nonnull %6, ptr noundef %7)
   %82 = tail call ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef 11, i32 noundef %81) #8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %87
@@ -1363,7 +1363,7 @@ define i32 @mca_coll_han_scatter_intra_dynamic(ptr noundef %0, i32 noundef %1, p
   br i1 %or.cond, label %78, label %85
 
 78:                                               ; preds = %75
-  %79 = tail call fastcc i32 @get_algorithm(i32 noundef 15, i64 noundef %24, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %79 = tail call fastcc i32 @get_algorithm(i32 noundef 15, i64 noundef %24, ptr noundef nonnull %7, ptr noundef %8)
   %80 = tail call ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef 15, i32 noundef %79) #8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %85
@@ -1390,7 +1390,7 @@ declare i32 @mca_coll_han_scatter_intra_simple(ptr noundef, i32 noundef, ptr nou
 declare i32 @mca_coll_han_scatter_intra(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32 %.248.val.16.val, i32 %.808.val) unnamed_addr #3 {
+define internal fastcc ptr @get_dynamic_rule(i32 noundef range(i32 0, 16) %0, i64 noundef %1, i32 %.248.val.16.val, i32 %.808.val) unnamed_addr #3 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 664), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 672), align 8
   %5 = zext i32 %3 to i64

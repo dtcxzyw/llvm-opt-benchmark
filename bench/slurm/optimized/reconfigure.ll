@@ -61,12 +61,12 @@ define range(i32 -1, 1803) i32 @slurm_ping(i32 noundef %0) local_unnamed_addr #0
   call void @slurm_msg_t_init(ptr noundef nonnull %2) #5
   %3 = getelementptr inbounds i8, ptr %2, i64 204
   store i16 1008, ptr %3, align 4
-  %4 = call fastcc i32 @_send_message_controller(i32 noundef %0, ptr noundef nonnull %2)
+  %4 = call fastcc i32 @_send_message_controller(i32 noundef %0, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1803) i32 @_send_message_controller(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1803) i32 @_send_message_controller(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = load ptr, ptr @working_cluster_rec, align 8
   %5 = tail call i32 @slurm_open_controller_conn_spec(i32 noundef %0, ptr noundef %4) #5
@@ -79,8 +79,8 @@ define internal fastcc range(i32 -1, 1803) i32 @_send_message_controller(i32 nou
 
 8:                                                ; preds = %2
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  tail call void @slurm_msg_set_r_uid(ptr noundef %1, i32 noundef %9) #5
-  %10 = tail call i32 @slurm_send_node_msg(i32 noundef %5, ptr noundef %1) #5
+  tail call void @slurm_msg_set_r_uid(ptr noundef nonnull %1, i32 noundef %9) #5
+  %10 = tail call i32 @slurm_send_node_msg(i32 noundef %5, ptr noundef nonnull %1) #5
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %14
 
@@ -168,7 +168,7 @@ define ptr @ping_all_controllers() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %1)
   call void @slurm_msg_t_init(ptr noundef nonnull %1) #5
   store i16 1008, ptr %11, align 4
-  %20 = call fastcc range(i32 -1, 1803) i32 @_send_message_controller(i32 noundef %18, ptr noundef nonnull %1)
+  %20 = call fastcc range(i32 -1, 1803) i32 @_send_message_controller(i32 noundef %18, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %1)
   %.not = icmp eq i32 %20, 0
   %21 = getelementptr inbounds i8, ptr %16, i64 8
@@ -218,14 +218,14 @@ define range(i32 -1, 1803) i32 @slurm_shutdown(i16 noundef zeroext %0) local_unn
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.04 = phi i32 [ %10, %.lr.ph ], [ 1, %1 ]
-  %9 = call fastcc i32 @_send_message_controller(i32 noundef %.04, ptr noundef nonnull %2)
+  %9 = call fastcc i32 @_send_message_controller(i32 noundef %.04, ptr noundef %2)
   %10 = add nuw nsw i32 %.04, 1
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
   %12 = icmp ult i32 %10, %11
   br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %1
-  %13 = call fastcc i32 @_send_message_controller(i32 noundef 0, ptr noundef nonnull %2)
+  %13 = call fastcc i32 @_send_message_controller(i32 noundef 0, ptr noundef %2)
   ret i32 %13
 }
 
@@ -239,7 +239,7 @@ define range(i32 -1, 1803) i32 @slurm_takeover(i32 noundef %0) local_unnamed_add
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = call fastcc i32 @_send_message_controller(i32 noundef %0, ptr noundef nonnull %2)
+  %6 = call fastcc i32 @_send_message_controller(i32 noundef %0, ptr noundef %2)
   br label %7
 
 7:                                                ; preds = %1, %5

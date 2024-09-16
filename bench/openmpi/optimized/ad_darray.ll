@@ -79,7 +79,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %42 = load i64, ptr %16, align 8
   %43 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv170
   %44 = trunc nuw nsw i64 %indvars.iv170 to i32
-  call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %44, i32 noundef %2, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef 1, i64 noundef %42, ptr noundef %32, ptr noundef nonnull %12, ptr noundef %43)
+  call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %44, i32 noundef %2, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef 1, i64 noundef %42, ptr noundef %32, ptr noundef %12, ptr noundef %43)
   br label %59
 
 45:                                               ; preds = %.lr.ph148
@@ -92,14 +92,14 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %52 = load i64, ptr %16, align 8
   %53 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv170
   %54 = trunc nuw nsw i64 %indvars.iv170 to i32
-  call fastcc void @MPIOI_Type_cyclic(ptr noundef %3, i32 noundef %54, i32 noundef %2, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef 1, i64 noundef %52, ptr noundef %32, ptr noundef nonnull %12, ptr noundef %53)
+  call fastcc void @MPIOI_Type_cyclic(ptr noundef %3, i32 noundef %54, i32 noundef %2, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef 1, i64 noundef %52, ptr noundef %32, ptr noundef %12, ptr noundef %53)
   br label %59
 
 55:                                               ; preds = %.lr.ph148
   %56 = load i64, ptr %16, align 8
   %57 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv170
   %58 = trunc nuw nsw i64 %indvars.iv170 to i32
-  call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %58, i32 noundef %2, i32 noundef 1, i32 noundef 0, i32 noundef -1, i32 noundef 1, i64 noundef %56, ptr noundef %32, ptr noundef nonnull %12, ptr noundef %57)
+  call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %58, i32 noundef %2, i32 noundef 1, i32 noundef 0, i32 noundef -1, i32 noundef 1, i64 noundef %56, ptr noundef %32, ptr noundef %12, ptr noundef %57)
   br label %59
 
 59:                                               ; preds = %55, %45, %35, %.lr.ph148
@@ -177,7 +177,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %88 = load i64, ptr %16, align 8
   %89 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv164
   %90 = trunc nuw nsw i64 %indvars.iv164 to i32
-  call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %90, i32 noundef %2, i32 noundef %83, i32 noundef %85, i32 noundef %87, i32 noundef %7, i64 noundef %88, ptr noundef %78, ptr noundef nonnull %12, ptr noundef %89)
+  call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %90, i32 noundef %2, i32 noundef %83, i32 noundef %85, i32 noundef %87, i32 noundef %7, i64 noundef %88, ptr noundef %78, ptr noundef %12, ptr noundef %89)
   br label %109
 
 91:                                               ; preds = %.lr.ph141
@@ -190,7 +190,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %98 = load i64, ptr %16, align 8
   %99 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv164
   %100 = trunc nuw nsw i64 %indvars.iv164 to i32
-  call fastcc void @MPIOI_Type_cyclic(ptr noundef %3, i32 noundef %100, i32 noundef %2, i32 noundef %93, i32 noundef %95, i32 noundef %97, i32 noundef %7, i64 noundef %98, ptr noundef %78, ptr noundef nonnull %12, ptr noundef %99)
+  call fastcc void @MPIOI_Type_cyclic(ptr noundef %3, i32 noundef %100, i32 noundef %2, i32 noundef %93, i32 noundef %95, i32 noundef %97, i32 noundef %7, i64 noundef %98, ptr noundef %78, ptr noundef %12, ptr noundef %99)
   br label %109
 
 101:                                              ; preds = %.lr.ph141
@@ -201,7 +201,7 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
   %106 = load i64, ptr %16, align 8
   %107 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv164
   %108 = trunc nuw nsw i64 %indvars.iv164 to i32
-  call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %108, i32 noundef %2, i32 noundef %103, i32 noundef %105, i32 noundef -1, i32 noundef %7, i64 noundef %106, ptr noundef %78, ptr noundef nonnull %12, ptr noundef %107)
+  call fastcc void @MPIOI_Type_block(ptr noundef %3, i32 noundef %108, i32 noundef %2, i32 noundef %103, i32 noundef %105, i32 noundef -1, i32 noundef %7, i64 noundef %106, ptr noundef %78, ptr noundef %12, ptr noundef %107)
   br label %109
 
 109:                                              ; preds = %101, %91, %81, %.lr.ph141
@@ -301,7 +301,7 @@ declare i32 @PMPI_Type_get_extent(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @ADIOI_Malloc_fn(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef writeonly %10) unnamed_addr #0 {
+define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr nocapture noundef writeonly %10) unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
@@ -346,7 +346,7 @@ define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0,
   br label %.lr.ph76
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @PMPI_Type_contiguous(i32 noundef %spec.store.select, ptr noundef %8, ptr noundef %9) #3
+  %36 = tail call i32 @PMPI_Type_contiguous(i32 noundef %spec.store.select, ptr noundef %8, ptr noundef nonnull %9) #3
   br label %55
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
@@ -362,7 +362,7 @@ define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0,
 
 ._crit_edge77:                                    ; preds = %.lr.ph76, %.preheader
   %.0.lcssa = phi i64 [ %7, %.preheader ], [ %40, %.lr.ph76 ]
-  %41 = tail call i32 @PMPI_Type_create_hvector(i32 noundef %spec.store.select, i32 noundef 1, i64 noundef %.0.lcssa, ptr noundef %8, ptr noundef %9) #3
+  %41 = tail call i32 @PMPI_Type_create_hvector(i32 noundef %spec.store.select, i32 noundef 1, i64 noundef %.0.lcssa, ptr noundef %8, ptr noundef nonnull %9) #3
   br label %55
 
 42:                                               ; preds = %27
@@ -379,7 +379,7 @@ define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0,
   br label %.lr.ph
 
 47:                                               ; preds = %42
-  %48 = tail call i32 @PMPI_Type_contiguous(i32 noundef %spec.store.select, ptr noundef %8, ptr noundef %9) #3
+  %48 = tail call i32 @PMPI_Type_contiguous(i32 noundef %spec.store.select, ptr noundef %8, ptr noundef nonnull %9) #3
   br label %55
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -395,7 +395,7 @@ define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0,
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader71
   %.1.lcssa = phi i64 [ %7, %.preheader71 ], [ %52, %.lr.ph ]
-  %54 = tail call i32 @PMPI_Type_create_hvector(i32 noundef %spec.store.select, i32 noundef 1, i64 noundef %.1.lcssa, ptr noundef %8, ptr noundef %9) #3
+  %54 = tail call i32 @PMPI_Type_create_hvector(i32 noundef %spec.store.select, i32 noundef 1, i64 noundef %.1.lcssa, ptr noundef %8, ptr noundef nonnull %9) #3
   br label %55
 
 55:                                               ; preds = %47, %._crit_edge, %35, %._crit_edge77
@@ -422,7 +422,7 @@ define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef writeonly %10) unnamed_addr #0 {
+define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr nocapture noundef writeonly %10) unnamed_addr #0 {
   %12 = alloca [3 x i32], align 4
   %13 = alloca [3 x i64], align 16
   %14 = alloca ptr, align 8
@@ -505,7 +505,7 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph106, %.preheader99, %.preheader
   %.1 = phi i64 [ %40, %.preheader ], [ %40, %.preheader99 ], [ %48, %.lr.ph106 ], [ %52, %.lr.ph ]
-  %54 = tail call i32 @PMPI_Type_create_hvector(i32 noundef %35, i32 noundef %., i64 noundef %.1, ptr noundef %8, ptr noundef %9) #3
+  %54 = tail call i32 @PMPI_Type_create_hvector(i32 noundef %35, i32 noundef %., i64 noundef %.1, ptr noundef %8, ptr noundef nonnull %9) #3
   %.not95 = icmp eq i32 %36, 0
   br i1 %.not95, label %65, label %55
 

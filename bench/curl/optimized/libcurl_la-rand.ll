@@ -25,7 +25,7 @@ while.body:                                       ; preds = %entry, %while.cond.
   %num.addr.012 = phi i64 [ %0, %while.cond.loopexit ], [ %num, %entry ]
   %rnd.addr.011 = phi ptr [ %incdec.ptr, %while.cond.loopexit ], [ %rnd, %entry ]
   %cond = call i64 @llvm.umin.i64(i64 %num.addr.012, i64 4)
-  %call = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r)
+  %call = call fastcc i32 @randit(ptr noundef %data, ptr noundef %r)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %while.body4.preheader, label %return
 
@@ -53,9 +53,9 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 5, 4) i32 @randit(ptr noundef %data, ptr noundef %rnd) unnamed_addr #0 {
+define internal fastcc range(i32 5, 4) i32 @randit(ptr noundef %data, ptr noundef nonnull %rnd) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @Curl_ssl_random(ptr noundef %data, ptr noundef %rnd, i64 noundef 4) #5
+  %call = tail call i32 @Curl_ssl_random(ptr noundef %data, ptr noundef nonnull %rnd, i64 noundef 4) #5
   %cmp.not = icmp eq i32 %call, 4
   br i1 %cmp.not, label %if.end, label %return
 
@@ -162,7 +162,7 @@ while.body.i:                                     ; preds = %if.end, %while.cond
   %num.addr.012.i = phi i64 [ %1, %while.cond.loopexit.i ], [ %div39, %if.end ]
   %rnd.addr.011.i = phi ptr [ %incdec.ptr.i, %while.cond.loopexit.i ], [ %buffer, %if.end ]
   %cond.i = call i64 @llvm.umin.i64(i64 %num.addr.012.i, i64 4)
-  %call.i = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r.i)
+  %call.i = call fastcc i32 @randit(ptr noundef %data, ptr noundef %r.i)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %while.body4.preheader.i, label %Curl_rand.exit
 
@@ -209,7 +209,7 @@ do.body1.preheader:                               ; preds = %entry, %do.end3
   br label %do.body1
 
 do.body1:                                         ; preds = %do.body1.preheader, %do.cond
-  %call = call fastcc i32 @randit(ptr noundef %data, ptr noundef nonnull %r)
+  %call = call fastcc i32 @randit(ptr noundef %data, ptr noundef %r)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %do.cond, label %return
 

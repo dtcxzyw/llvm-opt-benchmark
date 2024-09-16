@@ -1098,7 +1098,7 @@ copy_address_wmem.exit:                           ; preds = %37, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @client_state_machine_v5(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @client_state_machine_v5(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = icmp eq i32 %4, 0
   br label %tailrecurse
@@ -1510,8 +1510,8 @@ define internal fastcc void @client_display_socks_v5(ptr noundef %0, i32 noundef
   br i1 %32, label %get_auth_method_name.exit, label %33
 
 33:                                               ; preds = %31
-  %.not125 = icmp eq i8 %28, -1
-  %spec.select = select i1 %.not125, ptr @.str.110, ptr @.str.109
+  %.not.i = icmp eq i8 %28, -1
+  %spec.select.i = select i1 %.not.i, ptr @.str.110, ptr @.str.109
   br label %get_auth_method_name.exit
 
 switch.lookup:                                    ; preds = %.lr.ph
@@ -1520,8 +1520,8 @@ switch.lookup:                                    ; preds = %.lr.ph
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_auth_method_name.exit
 
-get_auth_method_name.exit:                        ; preds = %switch.lookup, %33, %31
-  %.0.i = phi ptr [ @.str.108, %31 ], [ %spec.select, %33 ], [ %switch.load, %switch.lookup ]
+get_auth_method_name.exit:                        ; preds = %switch.lookup, %31, %33
+  %.0.i = phi ptr [ @.str.108, %31 ], [ %spec.select.i, %33 ], [ %switch.load, %switch.lookup ]
   %35 = load i32, ptr @hf_client_auth_method, align 4
   %36 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %20, i32 noundef %35, ptr noundef %0, i32 noundef %.0127, i32 noundef 1, i32 noundef %29, ptr noundef nonnull @.str.99, i32 noundef %.0117126, i32 noundef %29, ptr noundef nonnull %.0.i) #6
   %37 = add i32 %.0127, 1
@@ -1586,8 +1586,8 @@ get_auth_method_name.exit:                        ; preds = %switch.lookup, %33,
 74:                                               ; preds = %70
   %75 = load i32, ptr @hf_socks_ver, align 4
   %76 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %75, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 5) #6
-  %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %77
+  %.not.i125 = icmp eq ptr %76, null
+  br i1 %.not.i125, label %proto_item_set_generated.exit, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %76, i64 32
@@ -1705,8 +1705,8 @@ define internal fastcc void @server_display_socks_v5(ptr noundef %0, ptr nocaptu
   br i1 %19, label %get_auth_method_name.exit, label %20
 
 20:                                               ; preds = %18
-  %.not109 = icmp eq i8 %15, -1
-  %spec.select = select i1 %.not109, ptr @.str.110, ptr @.str.109
+  %.not.i = icmp eq i8 %15, -1
+  %spec.select.i = select i1 %.not.i, ptr @.str.110, ptr @.str.109
   br label %get_auth_method_name.exit
 
 switch.lookup:                                    ; preds = %10
@@ -1715,8 +1715,8 @@ switch.lookup:                                    ; preds = %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_auth_method_name.exit
 
-get_auth_method_name.exit:                        ; preds = %switch.lookup, %20, %18
-  %.0.i = phi ptr [ @.str.108, %18 ], [ %spec.select, %20 ], [ %switch.load, %switch.lookup ]
+get_auth_method_name.exit:                        ; preds = %switch.lookup, %18, %20
+  %.0.i = phi ptr [ @.str.108, %18 ], [ %spec.select.i, %20 ], [ %switch.load, %switch.lookup ]
   %22 = load i32, ptr @hf_server_accepted_auth_method, align 4
   %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %16, ptr noundef nonnull @.str.113, i32 noundef %16, ptr noundef nonnull %.0.i) #6
   br label %101
@@ -1727,8 +1727,8 @@ get_auth_method_name.exit:                        ; preds = %switch.lookup, %20,
   tail call void @col_append_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.114) #6
   %27 = load i32, ptr @hf_socks_ver, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 5) #6
-  %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %29
+  %.not.i106 = icmp eq ptr %28, null
+  br i1 %.not.i106, label %proto_item_set_generated.exit, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %28, i64 32
@@ -1766,23 +1766,23 @@ proto_item_set_generated.exit:                    ; preds = %24, %29, %32
   tail call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.117) #6
   %46 = load i32, ptr @hf_socks_ver, align 4
   %47 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 5) #6
-  %.not.i106 = icmp eq ptr %47, null
-  br i1 %.not.i106, label %proto_item_set_generated.exit108, label %48
+  %.not.i107 = icmp eq ptr %47, null
+  br i1 %.not.i107, label %proto_item_set_generated.exit109, label %48
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds i8, ptr %47, i64 32
   %50 = load ptr, ptr %49, align 8
-  %.not5.i107 = icmp eq ptr %50, null
-  br i1 %.not5.i107, label %proto_item_set_generated.exit108, label %51
+  %.not5.i108 = icmp eq ptr %50, null
+  br i1 %.not5.i108, label %proto_item_set_generated.exit109, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %50, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = or i32 %53, 2
   store i32 %54, ptr %52, align 4
-  br label %proto_item_set_generated.exit108
+  br label %proto_item_set_generated.exit109
 
-proto_item_set_generated.exit108:                 ; preds = %43, %48, %51
+proto_item_set_generated.exit109:                 ; preds = %43, %48, %51
   %55 = load i32, ptr @hf_socks_subnegotiation_version, align 4
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
   %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
@@ -1791,7 +1791,7 @@ proto_item_set_generated.exit108:                 ; preds = %43, %48, %51
   %.not = icmp eq i8 %57, -1
   br i1 %.not, label %101, label %60
 
-60:                                               ; preds = %proto_item_set_generated.exit108
+60:                                               ; preds = %proto_item_set_generated.exit109
   %61 = load i32, ptr @hf_gssapi_length, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
   %63 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #6
@@ -1849,7 +1849,7 @@ proto_item_set_generated.exit108:                 ; preds = %43, %48, %51
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.103, i32 noundef %97) #6
   br label %101
 
-101:                                              ; preds = %95, %98, %proto_item_set_generated.exit108, %64, %60, %41, %42, %5, %83, %68, %get_auth_method_name.exit
+101:                                              ; preds = %95, %98, %proto_item_set_generated.exit109, %64, %60, %41, %42, %5, %83, %68, %get_auth_method_name.exit
   ret void
 }
 

@@ -15,18 +15,18 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ef210b60d2e439ef389dcbe29160292b.10 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.ef210b60d2e439ef389dcbe29160292b.9, [8 x i8] c"\12\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_flags11IgnoreFlags11parse_ident17h6809fb899d32b9c0E(ptr nocapture align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_flags11IgnoreFlags11parse_ident17h6809fb899d32b9c0E(ptr nocapture align 1 %0, ptr nonnull align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [16 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  invoke void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h7132a4cebc4ff8c7E"(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %1)
+  invoke void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h7132a4cebc4ff8c7E"(ptr nonnull sret([24 x i8]) align 8 %8, ptr nonnull align 8 %1)
           to label %12 unwind label %10
 
 9:                                                ; preds = %18, %10
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %19, %18 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr align 8 %1) #5
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %1) #5
           to label %68 unwind label %66
 
 10:                                               ; preds = %47, %3
@@ -148,7 +148,7 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
           to label %47 unwind label %18
 
 65:                                               ; preds = %47
-  call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr align 8 %1)
+  call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %1)
   ret i1 %.sroa.0.0
 
 66:                                               ; preds = %18, %9
@@ -251,7 +251,7 @@ default.unreachable:                              ; preds = %29
 
 40:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
-  %41 = invoke fastcc zeroext i1 @_ZN13logos_codegen6parser12ignore_flags11IgnoreFlags11parse_ident17h6809fb899d32b9c0E(ptr align 1 %0, ptr nonnull align 8 %21, ptr align 8 %3)
+  %41 = invoke fastcc zeroext i1 @_ZN13logos_codegen6parser12ignore_flags11IgnoreFlags11parse_ident17h6809fb899d32b9c0E(ptr align 1 %0, ptr align 8 %21, ptr align 8 %3)
           to label %44 unwind label %.loopexit82
 
 .loopexit82:                                      ; preds = %40
@@ -465,7 +465,7 @@ switch.early.test:                                ; preds = %102
 
 97:                                               ; preds = %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  %98 = invoke fastcc zeroext i1 @_ZN13logos_codegen6parser12ignore_flags11IgnoreFlags11parse_ident17h6809fb899d32b9c0E(ptr align 1 %0, ptr nonnull align 8 %11, ptr align 8 %3)
+  %98 = invoke fastcc zeroext i1 @_ZN13logos_codegen6parser12ignore_flags11IgnoreFlags11parse_ident17h6809fb899d32b9c0E(ptr align 1 %0, ptr align 8 %11, ptr align 8 %3)
           to label %102 unwind label %switch.early.test55
 
 99:                                               ; preds = %95

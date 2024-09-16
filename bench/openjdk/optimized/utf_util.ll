@@ -298,7 +298,7 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @utfError(i32 noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @utfError(i32 noundef range(i32 158, 474) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef %0, ptr noundef %1) #9
   tail call void @abort() #10
@@ -612,7 +612,7 @@ define hidden i32 @utf8ToPlatform(ptr noundef %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @iconvConvert(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #3 {
+define internal fastcc i32 @iconvConvert(i32 noundef range(i32 0, 2) %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %4) unnamed_addr #3 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
@@ -698,7 +698,7 @@ thread-pre-split37:                               ; preds = %27, %20
   store ptr %1, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i64 %2, ptr %6, align 8
-  %41 = shl i64 %4, 32
+  %41 = shl nsw i64 %4, 32
   %sext = add i64 %41, -4294967296
   %42 = ashr exact i64 %sext, 32
   store i64 %42, ptr %7, align 8

@@ -310,7 +310,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %15 = phi ptr [ %.pre, %for.cond.preheader ], [ %17, %if.end200 ]
   %cmp169 = icmp ne ptr %seed.3188, %15
   %conv170 = zext i1 %cmp169 to i32
-  %call171 = call fastcc i32 @generate_q_fips186_4(ptr noundef %call47, ptr noundef nonnull %call120, ptr noundef %call18, i32 noundef %conv35, ptr noundef nonnull %seed.3188, i64 noundef %spec.select, i32 noundef %conv170, ptr noundef nonnull %m, ptr noundef nonnull %res, ptr noundef %cb)
+  %call171 = call fastcc i32 @generate_q_fips186_4(ptr noundef %call47, ptr noundef %call120, ptr noundef %call18, i32 noundef %conv35, ptr noundef %seed.3188, i64 noundef %spec.select, i32 noundef %conv170, ptr noundef %m, ptr noundef nonnull %res, ptr noundef %cb)
   %tobool172.not = icmp eq i32 %call171, 0
   br i1 %tobool172.not, label %err, label %if.end174
 
@@ -339,7 +339,7 @@ if.end186:                                        ; preds = %if.end182
 
 if.end190:                                        ; preds = %if.end186
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call130, ptr nonnull align 1 %seed.3188, i64 %spec.select, i1 false)
-  %call192 = call fastcc i32 @generate_p(ptr noundef %call47, ptr noundef %call18, i32 noundef %counter.0, i32 noundef %conv160, ptr noundef nonnull %call130, i64 noundef %spec.select, ptr noundef nonnull %call120, ptr noundef %call119, i32 noundef %L.tr189, ptr noundef %cb, ptr noundef nonnull %pcounter, ptr noundef nonnull %res)
+  %call192 = call fastcc i32 @generate_p(ptr noundef %call47, ptr noundef %call18, i32 noundef %counter.0, i32 noundef %conv160, ptr noundef %call130, i64 noundef %spec.select, ptr noundef nonnull %call120, ptr noundef %call119, i32 noundef %L.tr189, ptr noundef %cb, ptr noundef %pcounter, ptr noundef nonnull %res)
   %cmp193 = icmp sgt i32 %call192, 0
   br i1 %cmp193, label %for.end, label %if.end196
 
@@ -428,7 +428,7 @@ land.lhs.true254:                                 ; preds = %if.end251
   br i1 %cmp255.not, label %if.else271, label %if.then257
 
 if.then257:                                       ; preds = %land.lhs.true254
-  %call259 = tail call fastcc i32 @generate_canonical_g(ptr noundef %call47, ptr noundef nonnull %call226, ptr noundef %call18, ptr noundef %call52, ptr noundef nonnull %call56, ptr noundef %p.0, ptr noundef %call54, i32 noundef %21, ptr noundef nonnull %seed.2, i64 noundef %spec.select)
+  %call259 = tail call fastcc i32 @generate_canonical_g(ptr noundef %call47, ptr noundef %call226, ptr noundef %call18, ptr noundef %call52, ptr noundef %call56, ptr noundef %p.0, ptr noundef %call54, i32 noundef %21, ptr noundef %seed.2, i64 noundef %spec.select)
   %tobool260.not = icmp eq i32 %call259, 0
   br i1 %tobool260.not, label %if.then261, label %if.end262
 
@@ -454,7 +454,7 @@ if.else271:                                       ; preds = %land.lhs.true254, %
   br i1 %cmp, label %if.end279, label %if.then273
 
 if.then273:                                       ; preds = %if.else271
-  %call274 = call fastcc i32 @generate_unverifiable_g(ptr noundef %call47, ptr noundef nonnull %call226, ptr noundef %call52, ptr noundef nonnull %call56, ptr noundef %p.0, ptr noundef %call54, ptr noundef %call53, ptr noundef nonnull %hret)
+  %call274 = call fastcc i32 @generate_unverifiable_g(ptr noundef %call47, ptr noundef %call226, ptr noundef %call52, ptr noundef nonnull %call56, ptr noundef %p.0, ptr noundef %call54, ptr noundef %call53, ptr noundef %hret)
   %tobool275.not = icmp eq i32 %call274, 0
   br i1 %tobool275.not, label %err, label %if.end279
 
@@ -592,13 +592,13 @@ declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @BN_value_one() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef %ctx, ptr noundef %q, ptr noundef %evpmd, i32 noundef %qsize, ptr noundef %seed, i64 noundef %seedlen, i32 noundef %generate_seed, ptr nocapture noundef %retm, ptr nocapture noundef %res, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef nonnull %ctx, ptr noundef nonnull %q, ptr noundef nonnull %evpmd, i32 noundef %qsize, ptr noundef nonnull %seed, i64 noundef range(i64 1, 0) %seedlen, i32 noundef range(i32 0, 2) %generate_seed, ptr nocapture noundef nonnull %retm, ptr nocapture noundef %res, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
   %0 = load i32, ptr %retm, align 4
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef %evpmd) #5
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %evpmd) #5
   %call.fr = freeze i32 %call
-  %call1 = tail call ptr @ossl_bn_get_libctx(ptr noundef %ctx) #5
+  %call1 = tail call ptr @ossl_bn_get_libctx(ptr noundef nonnull %ctx) #5
   %tobool3.not = icmp eq i32 %generate_seed, 0
   %cmp11 = icmp sgt i32 %call.fr, %qsize
   %idx.ext = sext i32 %call.fr to i64
@@ -624,7 +624,7 @@ for.cond.us.us:                                   ; preds = %entry.split.us
   br i1 %tobool.not.us.us, label %err, label %if.end.us.us
 
 if.end.us.us:                                     ; preds = %for.cond.us.us
-  %call7.us.us = call i32 @EVP_Digest(ptr noundef %seed, i64 noundef %seedlen, ptr noundef nonnull %md, ptr noundef null, ptr noundef %evpmd, ptr noundef null) #5
+  %call7.us.us = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef %seedlen, ptr noundef nonnull %md, ptr noundef null, ptr noundef nonnull %evpmd, ptr noundef null) #5
   %tobool8.not.us.us = icmp eq i32 %call7.us.us, 0
   br i1 %tobool8.not.us.us, label %err, label %if.end10.us.us
 
@@ -636,12 +636,12 @@ if.end10.us.us:                                   ; preds = %if.end.us.us
   %4 = load i8, ptr %arrayidx27, align 1
   %5 = or i8 %4, 1
   store i8 %5, ptr %arrayidx27, align 1
-  %call31.us.us = call ptr @BN_bin2bn(ptr noundef nonnull %pmd.0, i32 noundef %qsize, ptr noundef %q) #5
+  %call31.us.us = call ptr @BN_bin2bn(ptr noundef nonnull %pmd.0, i32 noundef %qsize, ptr noundef nonnull %q) #5
   %tobool32.not.us.us = icmp eq ptr %call31.us.us, null
   br i1 %tobool32.not.us.us, label %err, label %if.end34.us.us
 
 if.end34.us.us:                                   ; preds = %if.end10.us.us
-  %call35.us.us = call i32 @BN_check_prime(ptr noundef %q, ptr noundef %ctx, ptr noundef %cb) #5
+  %call35.us.us = call i32 @BN_check_prime(ptr noundef nonnull %q, ptr noundef nonnull %ctx, ptr noundef %cb) #5
   %cmp36.us.us = icmp sgt i32 %call35.us.us, 0
   br i1 %cmp36.us.us, label %err, label %if.then41
 
@@ -649,7 +649,7 @@ for.cond.us:                                      ; preds = %entry.split.us
   br i1 %tobool.not.us.us, label %err, label %if.end.us
 
 if.end.us:                                        ; preds = %for.cond.us
-  %call7.us = call i32 @EVP_Digest(ptr noundef %seed, i64 noundef %seedlen, ptr noundef nonnull %md, ptr noundef null, ptr noundef %evpmd, ptr noundef null) #5
+  %call7.us = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef %seedlen, ptr noundef nonnull %md, ptr noundef null, ptr noundef nonnull %evpmd, ptr noundef null) #5
   %tobool8.not.us = icmp eq i32 %call7.us, 0
   br i1 %tobool8.not.us, label %err, label %if.end10.us
 
@@ -660,12 +660,12 @@ if.end10.us:                                      ; preds = %if.end.us
   %8 = load i8, ptr %arrayidx27, align 1
   %9 = or i8 %8, 1
   store i8 %9, ptr %arrayidx27, align 1
-  %call31.us = call ptr @BN_bin2bn(ptr noundef nonnull %pmd.0, i32 noundef %qsize, ptr noundef %q) #5
+  %call31.us = call ptr @BN_bin2bn(ptr noundef nonnull %pmd.0, i32 noundef %qsize, ptr noundef nonnull %q) #5
   %tobool32.not.us = icmp eq ptr %call31.us, null
   br i1 %tobool32.not.us, label %err, label %if.end34.us
 
 if.end34.us:                                      ; preds = %if.end10.us
-  %call35.us = call i32 @BN_check_prime(ptr noundef %q, ptr noundef %ctx, ptr noundef %cb) #5
+  %call35.us = call i32 @BN_check_prime(ptr noundef nonnull %q, ptr noundef nonnull %ctx, ptr noundef %cb) #5
   %cmp36.us = icmp sgt i32 %call35.us, 0
   br i1 %cmp36.us, label %err, label %if.then41
 
@@ -680,12 +680,12 @@ for.cond.us26:                                    ; preds = %entry.split.split, 
   br i1 %tobool.not.us30, label %err, label %if.end.us31
 
 if.end.us31:                                      ; preds = %for.cond.us26
-  %call4.us = call i32 @RAND_bytes_ex(ptr noundef %call1, ptr noundef %seed, i64 noundef %seedlen, i32 noundef 0) #5
+  %call4.us = call i32 @RAND_bytes_ex(ptr noundef %call1, ptr noundef nonnull %seed, i64 noundef %seedlen, i32 noundef 0) #5
   %cmp.us = icmp slt i32 %call4.us, 1
   br i1 %cmp.us, label %err, label %if.end6.us32
 
 if.end6.us32:                                     ; preds = %if.end.us31
-  %call7.us33 = call i32 @EVP_Digest(ptr noundef %seed, i64 noundef %seedlen, ptr noundef nonnull %md, ptr noundef null, ptr noundef %evpmd, ptr noundef null) #5
+  %call7.us33 = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef %seedlen, ptr noundef nonnull %md, ptr noundef null, ptr noundef nonnull %evpmd, ptr noundef null) #5
   %tobool8.not.us34 = icmp eq i32 %call7.us33, 0
   br i1 %tobool8.not.us34, label %err, label %if.end10.us35
 
@@ -697,12 +697,12 @@ if.end10.us35:                                    ; preds = %if.end6.us32
   %12 = load i8, ptr %arrayidx27, align 1
   %13 = or i8 %12, 1
   store i8 %13, ptr %arrayidx27, align 1
-  %call31.us38 = call ptr @BN_bin2bn(ptr noundef nonnull %pmd.0, i32 noundef %qsize, ptr noundef %q) #5
+  %call31.us38 = call ptr @BN_bin2bn(ptr noundef nonnull %pmd.0, i32 noundef %qsize, ptr noundef nonnull %q) #5
   %tobool32.not.us39 = icmp eq ptr %call31.us38, null
   br i1 %tobool32.not.us39, label %err, label %if.end34.us40
 
 if.end34.us40:                                    ; preds = %if.end10.us35
-  %call35.us41 = call i32 @BN_check_prime(ptr noundef %q, ptr noundef %ctx, ptr noundef %cb) #5
+  %call35.us41 = call i32 @BN_check_prime(ptr noundef nonnull %q, ptr noundef nonnull %ctx, ptr noundef %cb) #5
   %cmp36.us42 = icmp sgt i32 %call35.us41, 0
   br i1 %cmp36.us42, label %err, label %if.end39.us43
 
@@ -718,12 +718,12 @@ for.cond:                                         ; preds = %entry.split.split, 
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %for.cond
-  %call4 = call i32 @RAND_bytes_ex(ptr noundef %call1, ptr noundef %seed, i64 noundef %seedlen, i32 noundef 0) #5
+  %call4 = call i32 @RAND_bytes_ex(ptr noundef %call1, ptr noundef nonnull %seed, i64 noundef %seedlen, i32 noundef 0) #5
   %cmp = icmp slt i32 %call4, 1
   br i1 %cmp, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %call7 = call i32 @EVP_Digest(ptr noundef %seed, i64 noundef %seedlen, ptr noundef nonnull %md, ptr noundef null, ptr noundef %evpmd, ptr noundef null) #5
+  %call7 = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef %seedlen, ptr noundef nonnull %md, ptr noundef null, ptr noundef nonnull %evpmd, ptr noundef null) #5
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %err, label %if.end10
 
@@ -734,12 +734,12 @@ if.end10:                                         ; preds = %if.end6
   %16 = load i8, ptr %arrayidx27, align 1
   %17 = or i8 %16, 1
   store i8 %17, ptr %arrayidx27, align 1
-  %call31 = call ptr @BN_bin2bn(ptr noundef nonnull %pmd.0, i32 noundef %qsize, ptr noundef %q) #5
+  %call31 = call ptr @BN_bin2bn(ptr noundef nonnull %pmd.0, i32 noundef %qsize, ptr noundef nonnull %q) #5
   %tobool32.not = icmp eq ptr %call31, null
   br i1 %tobool32.not, label %err, label %if.end34
 
 if.end34:                                         ; preds = %if.end10
-  %call35 = call i32 @BN_check_prime(ptr noundef %q, ptr noundef %ctx, ptr noundef %cb) #5
+  %call35 = call i32 @BN_check_prime(ptr noundef nonnull %q, ptr noundef nonnull %ctx, ptr noundef %cb) #5
   %cmp36 = icmp sgt i32 %call35, 0
   br i1 %cmp36, label %err, label %if.end39
 
@@ -768,15 +768,15 @@ declare i32 @BN_GENCB_call(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef %ctx, ptr noundef %evpmd, i32 noundef %max_counter, i32 noundef %n, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %q, ptr noundef %p, i32 noundef %L, ptr noundef %cb, ptr nocapture noundef writeonly %counter, ptr nocapture noundef %res) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %ctx, ptr noundef nonnull %evpmd, i32 noundef %max_counter, i32 noundef %n, ptr noundef nonnull %buf, i64 noundef %buf_len, ptr noundef %q, ptr noundef %p, i32 noundef %L, ptr noundef %cb, ptr nocapture noundef nonnull writeonly %counter, ptr nocapture noundef %res) unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
-  tail call void @BN_CTX_start(ptr noundef %ctx) #5
-  %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #5
-  %call1 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #5
-  %call2 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #5
-  %call3 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #5
-  %call4 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #5
+  tail call void @BN_CTX_start(ptr noundef nonnull %ctx) #5
+  %call = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #5
+  %call1 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #5
+  %call2 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #5
+  %call3 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #5
+  %call4 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #5
   %cmp = icmp eq ptr %call4, null
   br i1 %cmp, label %err, label %if.end
 
@@ -788,7 +788,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %err, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %call9 = tail call i32 @EVP_MD_get_size(ptr noundef %evpmd) #5
+  %call9 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %evpmd) #5
   %cmp10 = icmp slt i32 %call9, 1
   br i1 %cmp10, label %err, label %for.cond.preheader
 
@@ -841,7 +841,7 @@ for.body26:                                       ; preds = %for.cond23
   br i1 %cmp30.not, label %for.cond23, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body26, %for.cond23
-  %call34 = call i32 @EVP_Digest(ptr noundef %buf, i64 noundef %buf_len, ptr noundef nonnull %md, ptr noundef null, ptr noundef %evpmd, ptr noundef null) #5
+  %call34 = call i32 @EVP_Digest(ptr noundef nonnull %buf, i64 noundef %buf_len, ptr noundef nonnull %md, ptr noundef null, ptr noundef nonnull %evpmd, ptr noundef null) #5
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %err, label %lor.lhs.false
 
@@ -882,7 +882,7 @@ lor.lhs.false60:                                  ; preds = %lor.lhs.false57
   br i1 %tobool62.not, label %err, label %lor.lhs.false63
 
 lor.lhs.false63:                                  ; preds = %lor.lhs.false60
-  %call64 = call i32 @BN_div(ptr noundef null, ptr noundef %call2, ptr noundef %call1, ptr noundef nonnull %call4, ptr noundef %ctx) #5
+  %call64 = call i32 @BN_div(ptr noundef null, ptr noundef %call2, ptr noundef %call1, ptr noundef nonnull %call4, ptr noundef nonnull %ctx) #5
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %err, label %lor.lhs.false66
 
@@ -903,7 +903,7 @@ if.end74:                                         ; preds = %lor.lhs.false70
   br i1 %cmp76, label %if.then78, label %for.inc89
 
 if.then78:                                        ; preds = %if.end74
-  %call79 = call i32 @BN_check_prime(ptr noundef %p, ptr noundef %ctx, ptr noundef %cb) #5
+  %call79 = call i32 @BN_check_prime(ptr noundef %p, ptr noundef nonnull %ctx, ptr noundef %cb) #5
   %cmp80 = icmp sgt i32 %call79, 0
   br i1 %cmp80, label %if.then82, label %if.end83
 
@@ -928,7 +928,7 @@ for.end91:                                        ; preds = %for.inc89, %for.con
 
 err:                                              ; preds = %if.end83, %for.end50, %lor.lhs.false54, %lor.lhs.false57, %lor.lhs.false60, %lor.lhs.false63, %lor.lhs.false66, %lor.lhs.false70, %land.lhs.true, %for.end, %lor.lhs.false, %lor.lhs.false40, %lor.lhs.false43, %if.end8, %if.end, %entry, %for.end91, %if.then82
   %ret.0 = phi i32 [ -1, %entry ], [ -1, %if.end8 ], [ 1, %if.then82 ], [ 0, %for.end91 ], [ -1, %if.end ], [ -1, %lor.lhs.false43 ], [ -1, %lor.lhs.false40 ], [ -1, %lor.lhs.false ], [ -1, %for.end ], [ -1, %land.lhs.true ], [ -1, %lor.lhs.false70 ], [ -1, %lor.lhs.false66 ], [ -1, %lor.lhs.false63 ], [ -1, %lor.lhs.false60 ], [ -1, %lor.lhs.false57 ], [ -1, %lor.lhs.false54 ], [ -1, %for.end50 ], [ -1, %if.end83 ]
-  call void @BN_CTX_end(ptr noundef %ctx) #5
+  call void @BN_CTX_end(ptr noundef nonnull %ctx) #5
   ret i32 %ret.0
 }
 
@@ -943,10 +943,10 @@ declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @generate_canonical_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %evpmd, ptr noundef %g, ptr noundef %tmp, ptr noundef %p, ptr noundef %e, i32 noundef %gindex, ptr noundef %seed, i64 noundef %seedlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_canonical_g(ptr noundef nonnull %ctx, ptr noundef nonnull %mont, ptr noundef nonnull %evpmd, ptr noundef %g, ptr noundef nonnull %tmp, ptr noundef %p, ptr noundef %e, i32 noundef range(i32 0, -1) %gindex, ptr noundef nonnull %seed, i64 noundef range(i64 1, 0) %seedlen) unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef %evpmd) #5
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %evpmd) #5
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -974,12 +974,12 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i8 %conv7, ptr %arrayidx8, align 1
   %conv10 = trunc i32 %counter.014 to i8
   store i8 %conv10, ptr %arrayidx11, align 2
-  %call12 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call1, ptr noundef %evpmd, ptr noundef null) #5
+  %call12 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call1, ptr noundef nonnull %evpmd, ptr noundef null) #5
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %call13 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %seed, i64 noundef %seedlen) #5
+  %call13 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef nonnull %seed, i64 noundef %seedlen) #5
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %for.end, label %lor.lhs.false15
 
@@ -999,12 +999,12 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false18
   br i1 %tobool24.not, label %for.end, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false21
-  %call27 = call ptr @BN_bin2bn(ptr noundef nonnull %md, i32 noundef %call, ptr noundef %tmp) #5
+  %call27 = call ptr @BN_bin2bn(ptr noundef nonnull %md, i32 noundef %call, ptr noundef nonnull %tmp) #5
   %cmp28 = icmp eq ptr %call27, null
   br i1 %cmp28, label %for.end, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false25
-  %call31 = call i32 @BN_mod_exp_mont(ptr noundef %g, ptr noundef %tmp, ptr noundef %e, ptr noundef %p, ptr noundef %ctx, ptr noundef %mont) #5
+  %call31 = call i32 @BN_mod_exp_mont(ptr noundef %g, ptr noundef nonnull %tmp, ptr noundef %e, ptr noundef %p, ptr noundef nonnull %ctx, ptr noundef nonnull %mont) #5
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %for.end, label %if.end34
 
@@ -1025,14 +1025,14 @@ return:                                           ; preds = %if.end, %entry, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @generate_unverifiable_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %g, ptr noundef %hbn, ptr noundef %p, ptr noundef %e, ptr noundef %pm1, ptr nocapture noundef writeonly %hret) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_unverifiable_g(ptr noundef nonnull %ctx, ptr noundef nonnull %mont, ptr noundef %g, ptr noundef %hbn, ptr noundef %p, ptr noundef %e, ptr noundef %pm1, ptr nocapture noundef nonnull writeonly %hret) unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_set_word(ptr noundef %hbn, i64 noundef 2) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %call18 = tail call i32 @BN_mod_exp_mont(ptr noundef %g, ptr noundef %hbn, ptr noundef %e, ptr noundef %p, ptr noundef %ctx, ptr noundef %mont) #5
+  %call18 = tail call i32 @BN_mod_exp_mont(ptr noundef %g, ptr noundef %hbn, ptr noundef %e, ptr noundef %p, ptr noundef nonnull %ctx, ptr noundef nonnull %mont) #5
   %tobool2.not9 = icmp eq i32 %call18, 0
   br i1 %tobool2.not9, label %return, label %if.end4
 
@@ -1055,7 +1055,7 @@ lor.lhs.false:                                    ; preds = %if.end9
 
 if.end16:                                         ; preds = %lor.lhs.false
   %inc = add nuw nsw i32 %h.010, 1
-  %call1 = tail call i32 @BN_mod_exp_mont(ptr noundef %g, ptr noundef %hbn, ptr noundef %e, ptr noundef %p, ptr noundef %ctx, ptr noundef %mont) #5
+  %call1 = tail call i32 @BN_mod_exp_mont(ptr noundef %g, ptr noundef %hbn, ptr noundef %e, ptr noundef %p, ptr noundef nonnull %ctx, ptr noundef nonnull %mont) #5
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
@@ -1419,7 +1419,7 @@ if.then152:                                       ; preds = %if.then148
 
 if.end155:                                        ; preds = %if.then148, %if.end140
   %counter.0 = phi i32 [ %conv146, %if.end140 ], [ %23, %if.then148 ]
-  %call158 = call fastcc i32 @generate_p(ptr noundef nonnull %call58, ptr noundef nonnull %call19, i32 noundef %counter.0, i32 noundef %conv143, ptr noundef nonnull %buf, i64 noundef %shr, ptr noundef %call65, ptr noundef %call66, i32 noundef %div139.tr, ptr noundef %cb, ptr noundef nonnull %pcounter, ptr noundef nonnull %res)
+  %call158 = call fastcc i32 @generate_p(ptr noundef %call58, ptr noundef %call19, i32 noundef %counter.0, i32 noundef %conv143, ptr noundef %buf, i64 noundef %shr, ptr noundef %call65, ptr noundef %call66, i32 noundef %div139.tr, ptr noundef %cb, ptr noundef %pcounter, ptr noundef nonnull %res)
   %cmp159 = icmp sgt i32 %call158, 0
   br i1 %cmp159, label %for.end, label %if.end162
 
@@ -1486,7 +1486,7 @@ if.end204:                                        ; preds = %if.then199
   br i1 %tobool206.not, label %if.then281, label %if.end208
 
 if.end208:                                        ; preds = %if.end204
-  %call209 = call fastcc i32 @generate_unverifiable_g(ptr noundef nonnull %call58, ptr noundef nonnull %call189, ptr noundef %call64, ptr noundef %call67, ptr noundef %p.0, ptr noundef %call63, ptr noundef nonnull %call68, ptr noundef nonnull %hret)
+  %call209 = call fastcc i32 @generate_unverifiable_g(ptr noundef %call58, ptr noundef %call189, ptr noundef %call64, ptr noundef %call67, ptr noundef %p.0, ptr noundef %call63, ptr noundef nonnull %call68, ptr noundef %hret)
   %tobool210.not = icmp eq i32 %call209, 0
   br i1 %tobool210.not, label %if.then281, label %if.end223.thread
 

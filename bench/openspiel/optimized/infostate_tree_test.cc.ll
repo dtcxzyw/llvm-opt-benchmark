@@ -631,7 +631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit79.i: ; preds = %192
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %136, ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %.011161.i, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %136, ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %.011161.i, i32 noundef 1000)
           to label %194 unwind label %215
 
 194:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit79.i
@@ -864,7 +864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84.i: 
   br label %.body87.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit89.i: ; preds = %.noexc86.i
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %145, ptr noundef nonnull align 8 dereferenceable(32) %146, i32 noundef %.010162.i, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %145, ptr noundef nonnull align 8 dereferenceable(32) %146, i32 noundef %.010162.i, i32 noundef 1000)
           to label %273 unwind label %295
 
 273:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit89.i
@@ -1097,7 +1097,7 @@ _ZNSt10shared_ptrIN10open_spiel10algorithms13InfostateTreeEED2Ev.exit98.i: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit103.i: ; preds = %351
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %152, ptr noundef nonnull align 8 dereferenceable(32) %153, i32 noundef 0, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %152, ptr noundef nonnull align 8 dereferenceable(32) %153, i32 noundef 0, i32 noundef 1000)
           to label %353 unwind label %376
 
 353:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit103.i
@@ -1353,7 +1353,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit127.i: ; preds = %434
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %163, ptr noundef nonnull align 8 dereferenceable(32) %164, i32 noundef 1, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %163, ptr noundef nonnull align 8 dereferenceable(32) %164, i32 noundef 1, i32 noundef 1000)
           to label %436 unwind label %461
 
 436:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit127.i
@@ -1589,7 +1589,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit141.i:
   br label %.body144.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146.i: ; preds = %.noexc143.i
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %172, ptr noundef nonnull align 8 dereferenceable(32) %173, i32 noundef %.0163.i, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %172, ptr noundef nonnull align 8 dereferenceable(32) %173, i32 noundef %.0163.i, i32 noundef 1000)
           to label %516 unwind label %541
 
 516:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146.i
@@ -1943,7 +1943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41.i: ; preds = %600
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(32) %106, i32 noundef 0, i32 noundef 2)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(32) %106, i32 noundef 0, i32 noundef 2)
           to label %602 unwind label %623
 
 602:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41.i
@@ -2879,7 +2879,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %866, ptr noundef nonnull align 8 dereferenceable(48) @constinit.102, i64 48, i1 false)
   store ptr %870, ptr %817, align 8
   %871 = trunc nuw nsw i64 %indvars.iv.i to i32
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(32) %86, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %90, i32 noundef %871)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(32) %86, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %90, i32 noundef %871)
           to label %872 unwind label %930
 
 872:                                              ; preds = %869
@@ -3436,7 +3436,7 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_124TestDepthLimitedSubgamesEv.exit: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i44: ; preds = %1061
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef %.0173.i, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef %.0173.i, i32 noundef 1000)
           to label %1063 unwind label %1104
 
 1063:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i44
@@ -4075,7 +4075,7 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_122TestSequenceIdLabelingEv.exit: ; pred
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i73: ; preds = %1265
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 0, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 0, i32 noundef 1000)
           to label %1267 unwind label %1330
 
 1267:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i73
@@ -4121,7 +4121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i73: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit72.i: ; preds = %1275
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 1, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 1, i32 noundef 1000)
           to label %1277 unwind label %1334
 
 1277:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit72.i
@@ -5110,7 +5110,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds =
   store double 0x3FC5555555555555, ptr %117, align 8
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %121, ptr %123, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 1000)
           to label %124 unwind label %167
 
 124:                                              ; preds = %120
@@ -5502,7 +5502,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i328: ; pred
   store double 0x3FD5555555555555, ptr %.sroa.2796.0..sroa_idx, align 8
   %263 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %261, ptr %263, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 1000)
           to label %264 unwind label %315
 
 264:                                              ; preds = %260
@@ -5922,7 +5922,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i395: ; pred
   store double 0x3FC5555555555555, ptr %.sroa.2790.0..sroa_idx, align 8
   %414 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %412, ptr %414, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %32, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %32, i32 noundef 1000)
           to label %415 unwind label %466
 
 415:                                              ; preds = %411
@@ -6338,7 +6338,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i462: ; pred
   store double 0x3FC5555555555555, ptr %.sroa.2787.0..sroa_idx, align 8
   %565 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %563, ptr %565, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %44, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %44, i32 noundef 1000)
           to label %566 unwind label %617
 
 566:                                              ; preds = %562
@@ -6756,7 +6756,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i529: ; pred
   store double 0x3FC5555555555555, ptr %.sroa.2783.0..sroa_idx, align 8
   %716 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %714, ptr %716, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %56, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %56, i32 noundef 1000)
           to label %717 unwind label %768
 
 717:                                              ; preds = %713
@@ -7172,7 +7172,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i596: ; pred
   store double 0x3FC5555555555555, ptr %.sroa.2781.0..sroa_idx, align 8
   %867 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %865, ptr %867, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %68, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %68, i32 noundef 1000)
           to label %868 unwind label %919
 
 868:                                              ; preds = %864
@@ -7588,7 +7588,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i663: ; pred
   store double 0x3FC5555555555555, ptr %.sroa.2779.0..sroa_idx, align 8
   %1018 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %1016, ptr %1018, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(32) %76, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %80, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(32) %76, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %80, i32 noundef 1000)
           to label %1019 unwind label %1070
 
 1019:                                             ; preds = %1015
@@ -7986,7 +7986,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i.i725: ; pred
   store double 1.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8
   %1166 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %1164, ptr %1166, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(32) %86, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %90, i32 noundef 1000)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(32) %86, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %90, i32 noundef 1000)
           to label %1167 unwind label %1219
 
 1167:                                             ; preds = %1163
@@ -8343,13 +8343,13 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.35", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca i32, align 4
   call void @_ZN10open_spiel8LoadGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = load ptr, ptr %5, align 8
-  invoke void @_ZN10open_spiel10algorithms17MakeInfostateTreeERKNS_4GameEii(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %8, i32 noundef %2, i32 noundef %3)
+  invoke void @_ZN10open_spiel10algorithms17MakeInfostateTreeERKNS_4GameEii(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %8, i32 noundef %2, i32 noundef %3)
           to label %9 unwind label %55
 
 9:                                                ; preds = %4
@@ -8923,7 +8923,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorISA_IlSaIlEESaISC_EERKSA_IdSaIdEEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef range(i32 -2147483648, 1001) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr.35", align 8
   %8 = alloca %"class.std::vector.20", align 8
   %9 = alloca %"class.std::vector.48", align 8
@@ -9251,7 +9251,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13Gam
   br label %_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN10open_spiel8ObserverEEC2ERKS2_.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit, %134, %137
-  invoke void @_ZN10open_spiel10algorithms17MakeInfostateTreeERKSt6vectorIPKNS_5StateESaIS4_EERKS1_IdSaIdEESt10shared_ptrINS_8ObserverEEii(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %13, i32 noundef %2, i32 noundef %5)
+  invoke void @_ZN10open_spiel10algorithms17MakeInfostateTreeERKSt6vectorIPKNS_5StateESaIS4_EERKS1_IdSaIdEESt10shared_ptrINS_8ObserverEEii(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %13, i32 noundef %2, i32 noundef %5)
           to label %139 unwind label %186
 
 139:                                              ; preds = %_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2ERKS2_.exit
@@ -10328,7 +10328,7 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_114BuildAll
   br i1 %100, label %101, label %596
 
 101:                                              ; preds = %99
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias nonnull writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0, i32 noundef %.011244)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_18MakeTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0, i32 noundef %.011244)
           to label %102 unwind label %.loopexit47
 
 102:                                              ; preds = %101

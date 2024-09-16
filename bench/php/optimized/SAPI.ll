@@ -493,12 +493,12 @@ declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define noalias ptr @sapi_get_default_content_type() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = call fastcc ptr @get_default_content_type(i32 noundef 0, ptr noundef nonnull %1)
+  %2 = call fastcc ptr @get_default_content_type(i32 noundef 0, ptr noundef %1)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @get_default_content_type(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i32 0, 15) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 400), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -533,7 +533,7 @@ define internal fastcc noalias ptr @get_default_content_type(i32 noundef %0, ptr
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %14
-  %18 = add i32 %0, 10
+  %18 = add nuw nsw i32 %0, 10
   %19 = add i32 %18, %.099
   %20 = add i32 %19, %.098
   store i32 %20, ptr %1, align 4
@@ -573,7 +573,7 @@ define internal fastcc noalias ptr @get_default_content_type(i32 noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define void @sapi_get_default_content_type_header(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = call fastcc ptr @get_default_content_type(i32 noundef 14, ptr noundef nonnull %2)
+  %3 = call fastcc ptr @get_default_content_type(i32 noundef 14, ptr noundef %2)
   store ptr %3, ptr %0, align 8
   %4 = load i32, ptr %2, align 4
   %5 = zext i32 %4 to i64
@@ -1563,7 +1563,7 @@ sapi_update_response_code.exit238:                ; preds = %205, %182, %177, %1
   br label %sapi_update_response_code.exit246
 
 sapi_update_response_code.exit246:                ; preds = %215, %209
-  call fastcc void @sapi_header_add_op(i32 noundef %0, ptr noundef nonnull %3)
+  call fastcc void @sapi_header_add_op(i32 noundef %0, ptr noundef %3)
   br label %sapi_update_response_code.exit
 
 sapi_update_response_code.exit:                   ; preds = %24, %16, %15, %25, %27, %13, %14, %sapi_update_response_code.exit246, %118, %100, %98, %sapi_remove_header.exit, %65, %40
@@ -1626,13 +1626,13 @@ declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 declare i32 @zend_alter_ini_entry_chars(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sapi_header_add_op(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 88), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 %3(ptr noundef %1, i32 noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160)) #18
+  %5 = tail call i32 %3(ptr noundef nonnull %1, i32 noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160)) #18
   %6 = and i32 %5, 1
   %.not13 = icmp eq i32 %6, 0
   br i1 %.not13, label %39, label %7
@@ -1705,7 +1705,7 @@ sapi_remove_header.exit:                          ; preds = %37, %12
   br label %38
 
 38:                                               ; preds = %9, %sapi_remove_header.exit, %7
-  tail call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr noundef %1) #18
+  tail call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr noundef nonnull %1) #18
   br label %41
 
 39:                                               ; preds = %4
@@ -1748,7 +1748,7 @@ define range(i32 -1, 1) i32 @sapi_send_headers() local_unnamed_addr #0 {
 
 18:                                               ; preds = %15
   store i32 0, ptr %5, align 4
-  %19 = call fastcc ptr @get_default_content_type(i32 noundef 0, ptr noundef nonnull %5)
+  %19 = call fastcc ptr @get_default_content_type(i32 noundef 0, ptr noundef %5)
   %20 = icmp ne ptr %19, null
   %21 = load i32, ptr %5, align 4
   %22 = icmp ne i32 %21, 0
@@ -1899,7 +1899,7 @@ sapi_run_header_callback.exit:                    ; preds = %55, %57
 
 78:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  %79 = call fastcc ptr @get_default_content_type(i32 noundef 14, ptr noundef nonnull %1)
+  %79 = call fastcc ptr @get_default_content_type(i32 noundef 14, ptr noundef %1)
   store ptr %79, ptr %10, align 8
   %80 = load i32, ptr %1, align 4
   %81 = zext i32 %80 to i64

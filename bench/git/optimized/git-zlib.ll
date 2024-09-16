@@ -592,7 +592,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_git_deflate_init(ptr noundef %strm, i32 noundef %level, i32 noundef %windowBits) unnamed_addr #0 {
+define internal fastcc void @do_git_deflate_init(ptr noundef %strm, i32 noundef %level, i32 noundef range(i32 -15, 32) %windowBits) unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152

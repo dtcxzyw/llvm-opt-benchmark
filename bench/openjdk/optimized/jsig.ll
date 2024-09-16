@@ -50,7 +50,7 @@ define ptr @signal(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_signal(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @set_signal(i32 noundef range(i32 0, 65) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.__sigset_t, align 8
   %5 = alloca %struct.__sigset_t, align 8
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mutex) #9

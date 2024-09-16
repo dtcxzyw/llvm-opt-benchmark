@@ -293,7 +293,7 @@ define hidden noundef i32 @"_ZN68_$LT$rand..rngs..thread..ThreadRng$u20$as$u20$r
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14with_pair_impl17h4b9fb90510220855E(ptr noalias nocapture noundef writeonly align 32 dereferenceable(160) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i8 noundef %3, i8 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14with_pair_impl17h4b9fb90510220855E(ptr noalias nocapture noundef nonnull writeonly align 32 dereferenceable(160) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef range(i64 2, 0) %2, i8 noundef %3, i8 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = zext i8 %3 to i64
   %7 = icmp ugt i64 %2, %6
   br i1 %7, label %8, label %11, !prof !84
@@ -319,13 +319,13 @@ define internal fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14wit
   %.0.sroa.speculated.i = tail call noundef i8 @llvm.umax.i8(i8 %3, i8 %4)
   %15 = zext i8 %.0.sroa.speculated.i to i64
   %16 = add nuw nsw i64 %15, 16
-  %.0.sroa.speculated.i1 = tail call noundef i64 @llvm.umax.i64(i64 %2, i64 %16)
+  %.0.sroa.speculated.i1 = tail call noundef range(i64 16, 0) i64 @llvm.umax.i64(i64 %2, i64 %16)
   %17 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %9
   %18 = load i8, ptr %17, align 1, !noalias !7, !noundef !7
   %.0.vec.insert.i2 = insertelement <16 x i8> poison, i8 %18, i64 0
   %.15.vec.insert.i3 = shufflevector <16 x i8> %.0.vec.insert.i2, <16 x i8> poison, <16 x i32> zeroinitializer
   %19 = add nuw nsw i64 %15, 32
-  %.0.sroa.speculated.i5 = tail call noundef i64 @llvm.umax.i64(i64 %2, i64 %19)
+  %.0.sroa.speculated.i5 = tail call noundef range(i64 16, 0) i64 @llvm.umax.i64(i64 %2, i64 %19)
   %.0.vec.insert.i6 = insertelement <32 x i8> poison, i8 %14, i64 0
   %.31.vec.insert.i = shufflevector <32 x i8> %.0.vec.insert.i6, <32 x i8> poison, <32 x i32> zeroinitializer
   %.0.vec.insert.i7 = insertelement <32 x i8> poison, i8 %18, i64 0
@@ -611,7 +611,7 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %_ZN6memch
 
 76:                                               ; preds = %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %10)
-  call fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14with_pair_impl17h4b9fb90510220855E(ptr noalias nocapture noundef nonnull align 32 dereferenceable(160) %10, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i8 noundef %.ph206.ph, i8 noundef %.ph)
+  call fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14with_pair_impl17h4b9fb90510220855E(ptr noalias nocapture noundef align 32 dereferenceable(160) %10, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i8 noundef %.ph206.ph, i8 noundef %.ph)
   %.sroa.56.sroa.0.31..sroa_idx = getelementptr inbounds i8, ptr %.sroa.56.sroa.0, i64 31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %.sroa.56.sroa.0.31..sroa_idx, ptr noundef nonnull align 32 dereferenceable(72) %10, i64 72, i1 false)
   %.sroa.56.sroa.4.31..sroa_idx = getelementptr inbounds i8, ptr %10, i64 72
@@ -650,7 +650,7 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17hd69567523f551d6
   %.0.sroa.speculated.i.i = call noundef i8 @llvm.umax.i8(i8 %.ph206.ph, i8 %.ph)
   %88 = zext i8 %.0.sroa.speculated.i.i to i64
   %89 = add nuw nsw i64 %88, 16
-  %.0.sroa.speculated.i1.i = call noundef i64 @llvm.umax.i64(i64 %3, i64 %89)
+  %.0.sroa.speculated.i1.i = call noundef range(i64 16, 0) i64 @llvm.umax.i64(i64 %3, i64 %89)
   %90 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %82
   %91 = load i8, ptr %90, align 1, !alias.scope !134, !noalias !135, !noundef !7
   %.0.vec.insert.i2.i = insertelement <16 x i8> poison, i8 %91, i64 0

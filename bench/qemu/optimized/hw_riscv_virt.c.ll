@@ -565,16 +565,16 @@ if.then.i:                                        ; preds = %if.else101
   %mul.i142 = shl i64 %indvars.iv, 24
   %conv.i143 = and i64 %mul.i142, 4278190080
   %add.i144 = add nuw nsw i64 %conv.i143, 603979776
-  %cmp11.i.not = icmp eq i32 %call15, 0
-  br i1 %cmp11.i.not, label %for.end.i, label %for.body.i
+  %cmp11.not.i = icmp eq i32 %call15, 0
+  br i1 %cmp11.not.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.then.i ]
   %mul4.i = shl nuw nsw i64 %indvars.iv.i, 12
   %add5.i = add nuw nsw i64 %add.i144, %mul4.i
-  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %add6.i = add i32 %call11, %9
-  %call.i145 = tail call ptr @riscv_imsic_create(i64 noundef %add5.i, i32 noundef %add6.i, i1 noundef zeroext true, i32 noundef 1, i32 noundef 255) #14
+  %9 = trunc i64 %indvars.iv.i to i32
+  %10 = add i32 %call11, %9
+  %call.i145 = tail call ptr @riscv_imsic_create(i64 noundef %add5.i, i32 noundef %10, i1 noundef zeroext true, i32 noundef 1, i32 noundef 255) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv31
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -594,22 +594,22 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %fo
 
 imsic_num_bits.exit.i:                            ; preds = %while.cond.i.i
   %add13.i = add nuw nsw i64 %conv.i143, 671088640
-  br i1 %cmp11.i.not, label %virt_create_aia.exit, label %for.body17.lr.ph.i
+  br i1 %cmp11.not.i, label %virt_create_aia.exit, label %for.body17.lr.ph.i
 
 for.body17.lr.ph.i:                               ; preds = %imsic_num_bits.exit.i
-  %10 = add nuw nsw i64 %sh_prom.i.i, 12
+  %11 = add nuw nsw i64 %sh_prom.i.i, 12
   br label %for.body17.i
 
 for.body17.i:                                     ; preds = %for.body17.i, %for.body17.lr.ph.i
-  %indvars.iv6.i = phi i64 [ 0, %for.body17.lr.ph.i ], [ %indvars.iv.next7.i, %for.body17.i ]
-  %mul21.i = shl i64 %indvars.iv6.i, %10
+  %indvars.iv7.i = phi i64 [ 0, %for.body17.lr.ph.i ], [ %indvars.iv.next8.i, %for.body17.i ]
+  %mul21.i = shl i64 %indvars.iv7.i, %11
   %add22.i = add i64 %add13.i, %mul21.i
-  %11 = trunc nuw nsw i64 %indvars.iv6.i to i32
-  %add23.i = add i32 %call11, %11
-  %call25.i = tail call ptr @riscv_imsic_create(i64 noundef %add22.i, i32 noundef %add23.i, i1 noundef zeroext false, i32 noundef %add7.i, i32 noundef 255) #14
-  %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
-  %exitcond10.not.i = icmp eq i64 %indvars.iv.next7.i, %conv31
-  br i1 %exitcond10.not.i, label %virt_create_aia.exit, label %for.body17.i, !llvm.loop !8
+  %12 = trunc i64 %indvars.iv7.i to i32
+  %13 = add i32 %call11, %12
+  %call25.i = tail call ptr @riscv_imsic_create(i64 noundef %add22.i, i32 noundef %13, i1 noundef zeroext false, i32 noundef %add7.i, i32 noundef 255) #14
+  %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
+  %exitcond12.not.i = icmp eq i64 %indvars.iv.next8.i, %conv31
+  br i1 %exitcond12.not.i, label %virt_create_aia.exit, label %for.body17.i, !llvm.loop !8
 
 virt_create_aia.exit:                             ; preds = %for.body17.i, %if.else101, %imsic_num_bits.exit.i
   %cond44.i = phi i32 [ %call15, %if.else101 ], [ 0, %imsic_num_bits.exit.i ], [ 0, %for.body17.i ]
@@ -658,8 +658,8 @@ for.end:                                          ; preds = %for.inc, %if.end6
 
 if.then141:                                       ; preds = %for.end
   %ram_size = getelementptr inbounds i8, ptr %machine, i64 144
-  %12 = load i64, ptr %ram_size, align 8
-  %cmp142 = icmp ugt i64 %12, 10737418240
+  %14 = load i64, ptr %ram_size, align 8
+  %cmp142 = icmp ugt i64 %14, 10737418240
   br i1 %cmp142, label %if.then144, label %if.end146
 
 if.then144:                                       ; preds = %if.then141
@@ -675,8 +675,8 @@ if.end146:                                        ; preds = %if.then144, %if.the
 if.else147:                                       ; preds = %for.end
   store i64 17179869184, ptr @virt_high_pcie_memmap.1, align 8
   %ram_size150 = getelementptr inbounds i8, ptr %machine, i64 144
-  %13 = load i64, ptr %ram_size150, align 8
-  %sub = add i64 %13, 19327352831
+  %15 = load i64, ptr %ram_size150, align 8
+  %sub = add i64 %15, 19327352831
   %and = and i64 %sub, -17179869184
   store i64 %and, ptr @virt_high_pcie_memmap.0, align 8
   br label %if.end154
@@ -685,14 +685,14 @@ if.end154:                                        ; preds = %if.else147, %if.end
   %memmap155 = getelementptr inbounds i8, ptr %call.i, i64 3864
   store ptr @virt_memmap, ptr %memmap155, align 8
   %ram = getelementptr inbounds i8, ptr %machine, i64 120
-  %14 = load ptr, ptr %ram, align 8
-  tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 2147483648, ptr noundef %14) #14
+  %16 = load ptr, ptr %ram, align 8
+  tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 2147483648, ptr noundef %16) #14
   tail call void @memory_region_init_rom(ptr noundef %call2, ptr noundef null, ptr noundef nonnull @.str.51, i64 noundef 61440, ptr noundef nonnull @error_fatal) #14
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 4096, ptr noundef %call2) #14
   %call.i146 = tail call ptr @fw_cfg_init_mem_wide(i64 noundef 269484040, i64 noundef 269484032, i32 noundef 8, i64 noundef 269484048, ptr noundef nonnull @address_space_memory) #14
   %smp.i = getelementptr inbounds i8, ptr %machine, i64 288
-  %15 = load i32, ptr %smp.i, align 8
-  %conv.i147 = trunc i32 %15 to i16
+  %17 = load i32, ptr %smp.i, align 8
+  %conv.i147 = trunc i32 %17 to i16
   tail call void @fw_cfg_add_i16(ptr noundef %call.i146, i16 noundef zeroext 5, i16 noundef zeroext %conv.i147) #14
   %fw_cfg = getelementptr inbounds i8, ptr %call.i, i64 3816
   store ptr %call.i146, ptr %fw_cfg, align 8
@@ -702,18 +702,18 @@ if.end154:                                        ; preds = %if.else147, %if.end
 
 for.body170:                                      ; preds = %if.end154, %for.body170
   %indvars.iv214 = phi i64 [ 0, %if.end154 ], [ %indvars.iv.next215, %for.body170 ]
-  %16 = shl nuw nsw i64 %indvars.iv214, 12
-  %17 = add nuw nsw i64 %16, 268439552
+  %18 = shl nuw nsw i64 %indvars.iv214, 12
+  %19 = add nuw nsw i64 %18, 268439552
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %18 = trunc nuw nsw i64 %indvars.iv.next215 to i32
-  %call179 = tail call ptr @qdev_get_gpio_in(ptr noundef %virtio_irqchip.0.lcssa, i32 noundef %18) #14
-  %call.i148 = tail call ptr (ptr, i64, ...) @sysbus_create_varargs(ptr noundef nonnull @.str.52, i64 noundef %17, ptr noundef %call179, ptr noundef null) #14
+  %20 = trunc nuw nsw i64 %indvars.iv.next215 to i32
+  %call179 = tail call ptr @qdev_get_gpio_in(ptr noundef %virtio_irqchip.0.lcssa, i32 noundef %20) #14
+  %call.i148 = tail call ptr (ptr, i64, ...) @sysbus_create_varargs(ptr noundef nonnull @.str.52, i64 noundef %19, ptr noundef %call179, ptr noundef null) #14
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, 8
   br i1 %exitcond218.not, label %for.end183, label %for.body170, !llvm.loop !10
 
 for.end183:                                       ; preds = %for.body170
-  %19 = load i64, ptr @virt_high_pcie_memmap.0, align 8
-  %20 = load i64, ptr @virt_high_pcie_memmap.1, align 8
+  %21 = load i64, ptr @virt_high_pcie_memmap.0, align 8
+  %22 = load i64, ptr @virt_high_pcie_memmap.1, align 8
   %call.i149 = tail call ptr @qdev_new(ptr noundef nonnull @.str.57) #14
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i149, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #14
   %call2.i = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i.i, ptr noundef nonnull @error_fatal) #14
@@ -730,9 +730,9 @@ for.end183:                                       ; preds = %for.body170
   %call10.i = tail call ptr @get_system_memory() #14
   tail call void @memory_region_add_subregion(ptr noundef %call10.i, i64 noundef 1073741824, ptr noundef %call7.i) #14
   %call11.i = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 272) #16
-  tail call void @memory_region_init_alias(ptr noundef %call11.i, ptr noundef %call.i149, ptr noundef nonnull @.str.60, ptr noundef %call9.i, i64 noundef %19, i64 noundef %20) #14
+  tail call void @memory_region_init_alias(ptr noundef %call11.i, ptr noundef %call.i149, ptr noundef nonnull @.str.60, ptr noundef %call9.i, i64 noundef %21, i64 noundef %22) #14
   %call12.i = tail call ptr @get_system_memory() #14
-  tail call void @memory_region_add_subregion(ptr noundef %call12.i, i64 noundef %19, ptr noundef %call11.i) #14
+  tail call void @memory_region_add_subregion(ptr noundef %call12.i, i64 noundef %21, ptr noundef %call11.i) #14
   %call.i23.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i149, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #14
   tail call void @sysbus_mmio_map(ptr noundef %call.i23.i, i32 noundef 2, i64 noundef 50331648) #14
   br label %for.body.i151
@@ -782,15 +782,15 @@ create_platform_bus.exit:                         ; preds = %for.body.i158
   %call202 = tail call ptr @qdev_get_gpio_in(ptr noundef %mmio_irqchip.0.lcssa, i32 noundef 11) #14
   %call.i165 = tail call ptr (ptr, i64, ...) @sysbus_create_varargs(ptr noundef nonnull @.str.53, i64 noundef 1052672, ptr noundef %call202, ptr noundef null) #14
   %flash = getelementptr inbounds i8, ptr %call.i, i64 3800
-  %21 = load ptr, ptr %flash, align 8
-  %call211 = tail call ptr @drive_get(i32 noundef 4, i32 noundef 0, i32 noundef 0) #14
-  tail call void @pflash_cfi01_legacy_drive(ptr noundef %21, ptr noundef %call211) #14
-  %arrayidx210.c = getelementptr i8, ptr %call.i, i64 3808
-  %22 = load ptr, ptr %arrayidx210.c, align 8
-  %call211.c = tail call ptr @drive_get(i32 noundef 4, i32 noundef 0, i32 noundef 1) #14
-  tail call void @pflash_cfi01_legacy_drive(ptr noundef %22, ptr noundef %call211.c) #14
   %23 = load ptr, ptr %flash, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %23, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call211 = tail call ptr @drive_get(i32 noundef 4, i32 noundef 0, i32 noundef 0) #14
+  tail call void @pflash_cfi01_legacy_drive(ptr noundef %23, ptr noundef %call211) #14
+  %arrayidx210.c = getelementptr i8, ptr %call.i, i64 3808
+  %24 = load ptr, ptr %arrayidx210.c, align 8
+  %call211.c = tail call ptr @drive_get(i32 noundef 4, i32 noundef 0, i32 noundef 1) #14
+  tail call void @pflash_cfi01_legacy_drive(ptr noundef %24, ptr noundef %call211.c) #14
+  %25 = load ptr, ptr %flash, align 8
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %25, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   tail call void @qdev_prop_set_uint32(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.67, i32 noundef 128) #14
   %call.i5.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #14
   %call7.i.i = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i5.i.i, ptr noundef nonnull @error_fatal) #14
@@ -798,8 +798,8 @@ create_platform_bus.exit:                         ; preds = %for.body.i158
   %call9.i.i = tail call ptr @sysbus_mmio_get_region(ptr noundef %call.i6.i.i, i32 noundef 0) #14
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 536870912, ptr noundef %call9.i.i) #14
   %arrayidx2.i = getelementptr i8, ptr %call.i, i64 3808
-  %24 = load ptr, ptr %arrayidx2.i, align 8
-  %call.i.i6.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %24, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %26 = load ptr, ptr %arrayidx2.i, align 8
+  %call.i.i6.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %26, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   tail call void @qdev_prop_set_uint32(ptr noundef %call.i.i6.i, ptr noundef nonnull @.str.67, i32 noundef 128) #14
   %call.i5.i7.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i6.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #14
   %call7.i8.i = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i5.i7.i, ptr noundef nonnull @error_fatal) #14
@@ -807,13 +807,13 @@ create_platform_bus.exit:                         ; preds = %for.body.i158
   %call9.i10.i = tail call ptr @sysbus_mmio_get_region(ptr noundef %call.i6.i9.i, i32 noundef 0) #14
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 570425344, ptr noundef %call9.i10.i) #14
   %dtb = getelementptr inbounds i8, ptr %machine, i64 48
-  %25 = load ptr, ptr %dtb, align 8
-  %tobool215.not = icmp eq ptr %25, null
+  %27 = load ptr, ptr %dtb, align 8
+  %tobool215.not = icmp eq ptr %27, null
   br i1 %tobool215.not, label %if.else223, label %if.then216
 
 if.then216:                                       ; preds = %create_platform_bus.exit
   %fdt_size = getelementptr inbounds i8, ptr %call.i, i64 3824
-  %call218 = tail call ptr @load_device_tree(ptr noundef nonnull %25, ptr noundef nonnull %fdt_size) #14
+  %call218 = tail call ptr @load_device_tree(ptr noundef nonnull %27, ptr noundef nonnull %fdt_size) #14
   %fdt = getelementptr inbounds i8, ptr %machine, i64 40
   store ptr %call218, ptr %fdt, align 8
   %tobool220.not = icmp eq ptr %call218, null
@@ -841,35 +841,35 @@ if.then.i177:                                     ; preds = %if.else223
 
 create_fdt.exit:                                  ; preds = %if.else223
   %call4.i168 = tail call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i167, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73) #14
-  %26 = load ptr, ptr %fdt.i, align 8
-  %call6.i169 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %26, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75) #14
-  %27 = load ptr, ptr %fdt.i, align 8
-  %call8.i = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %27, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.76, i32 noundef 2) #14
   %28 = load ptr, ptr %fdt.i, align 8
-  %call10.i170 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %28, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.77, i32 noundef 2) #14
+  %call6.i169 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %28, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75) #14
   %29 = load ptr, ptr %fdt.i, align 8
-  %call12.i171 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %29, ptr noundef nonnull @.str.78) #14
+  %call8.i = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %29, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.76, i32 noundef 2) #14
   %30 = load ptr, ptr %fdt.i, align 8
-  %call14.i172 = tail call i32 @qemu_fdt_setprop(ptr noundef %30, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, ptr noundef null, i32 noundef 0) #14
+  %call10.i170 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %30, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.77, i32 noundef 2) #14
   %31 = load ptr, ptr %fdt.i, align 8
-  %call16.i = tail call i32 @qemu_fdt_setprop_string(ptr noundef %31, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.80) #14
+  %call12.i171 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %31, ptr noundef nonnull @.str.78) #14
   %32 = load ptr, ptr %fdt.i, align 8
-  %call18.i173 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %32, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.76, i32 noundef 2) #14
+  %call14.i172 = tail call i32 @qemu_fdt_setprop(ptr noundef %32, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, ptr noundef null, i32 noundef 0) #14
   %33 = load ptr, ptr %fdt.i, align 8
-  %call20.i = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %33, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.77, i32 noundef 2) #14
+  %call16.i = tail call i32 @qemu_fdt_setprop_string(ptr noundef %33, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.80) #14
   %34 = load ptr, ptr %fdt.i, align 8
-  %call22.i = tail call i32 @qemu_fdt_add_subnode(ptr noundef %34, ptr noundef nonnull @.str.81) #14
-  call void @qemu_guest_getrandom_nofail(ptr noundef nonnull %rng_seed.i, i64 noundef 32) #14
+  %call18.i173 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %34, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.76, i32 noundef 2) #14
   %35 = load ptr, ptr %fdt.i, align 8
-  %call25.i174 = call i32 @qemu_fdt_setprop(ptr noundef %35, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull %rng_seed.i, i32 noundef 32) #14
+  %call20.i = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %35, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.77, i32 noundef 2) #14
+  %36 = load ptr, ptr %fdt.i, align 8
+  %call22.i = tail call i32 @qemu_fdt_add_subnode(ptr noundef %36, ptr noundef nonnull @.str.81) #14
+  call void @qemu_guest_getrandom_nofail(ptr noundef nonnull %rng_seed.i, i64 noundef 32) #14
+  %37 = load ptr, ptr %fdt.i, align 8
+  %call25.i174 = call i32 @qemu_fdt_setprop(ptr noundef %37, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull %rng_seed.i, i32 noundef 32) #14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %qdt_tmp.i.i)
   %call.i.i.i175 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
   %call1.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.83, i64 noundef 536870912) #14
   %fdt.i.i = getelementptr inbounds i8, ptr %call.i.i.i175, i64 40
-  %36 = load ptr, ptr %fdt.i.i, align 8
-  %call2.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %36, ptr noundef %call1.i.i) #14
-  %37 = load ptr, ptr %fdt.i.i, align 8
-  %call4.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %37, ptr noundef %call1.i.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.84) #14
+  %38 = load ptr, ptr %fdt.i.i, align 8
+  %call2.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %38, ptr noundef %call1.i.i) #14
+  %39 = load ptr, ptr %fdt.i.i, align 8
+  %call4.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %39, ptr noundef %call1.i.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.84) #14
   store i64 2, ptr %qdt_tmp.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 8
   store i64 536870912, ptr %arrayinit.element.i.i, align 8
@@ -885,20 +885,20 @@ create_fdt.exit:                                  ; preds = %if.else223
   store i64 2, ptr %arrayinit.element9.i.i, align 16
   %arrayinit.element10.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 56
   store i64 33554432, ptr %arrayinit.element10.i.i, align 8
-  %38 = load ptr, ptr %fdt.i.i, align 8
-  %call12.i.i = call i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %38, ptr noundef %call1.i.i, ptr noundef nonnull @.str.85, i32 noundef 4, ptr noundef nonnull %qdt_tmp.i.i) #14
-  %39 = load ptr, ptr %fdt.i.i, align 8
-  %call14.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %39, ptr noundef %call1.i.i, ptr noundef nonnull @.str.86, i32 noundef 4) #14
+  %40 = load ptr, ptr %fdt.i.i, align 8
+  %call12.i.i = call i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %40, ptr noundef %call1.i.i, ptr noundef nonnull @.str.85, i32 noundef 4, ptr noundef nonnull %qdt_tmp.i.i) #14
+  %41 = load ptr, ptr %fdt.i.i, align 8
+  %call14.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %41, ptr noundef %call1.i.i, ptr noundef nonnull @.str.86, i32 noundef 4) #14
   call void @g_free(ptr noundef %call1.i.i) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %qdt_tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %qdt_tmp.i18.i)
   %call.i.i19.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
   %call4.i20.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.87, i64 noundef 269484032) #14
   %fdt.i21.i = getelementptr inbounds i8, ptr %call.i.i19.i, i64 40
-  %40 = load ptr, ptr %fdt.i21.i, align 8
-  %call5.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %40, ptr noundef %call4.i20.i) #14
-  %41 = load ptr, ptr %fdt.i21.i, align 8
-  %call7.i.i176 = call i32 @qemu_fdt_setprop_string(ptr noundef %41, ptr noundef %call4.i20.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.88) #14
+  %42 = load ptr, ptr %fdt.i21.i, align 8
+  %call5.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %42, ptr noundef %call4.i20.i) #14
+  %43 = load ptr, ptr %fdt.i21.i, align 8
+  %call7.i.i176 = call i32 @qemu_fdt_setprop_string(ptr noundef %43, ptr noundef %call4.i20.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.88) #14
   store i64 2, ptr %qdt_tmp.i18.i, align 16
   %arrayinit.element.i22.i = getelementptr inbounds i8, ptr %qdt_tmp.i18.i, i64 8
   store i64 269484032, ptr %arrayinit.element.i22.i, align 8
@@ -906,25 +906,25 @@ create_fdt.exit:                                  ; preds = %if.else223
   store i64 2, ptr %arrayinit.element8.i23.i, align 16
   %arrayinit.element9.i24.i = getelementptr inbounds i8, ptr %qdt_tmp.i18.i, i64 24
   store i64 24, ptr %arrayinit.element9.i24.i, align 8
-  %42 = load ptr, ptr %fdt.i21.i, align 8
-  %call11.i.i = call i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %42, ptr noundef %call4.i20.i, ptr noundef nonnull @.str.85, i32 noundef 2, ptr noundef nonnull %qdt_tmp.i18.i) #14
-  %43 = load ptr, ptr %fdt.i21.i, align 8
-  %call13.i.i = call i32 @qemu_fdt_setprop(ptr noundef %43, ptr noundef %call4.i20.i, ptr noundef nonnull @.str.89, ptr noundef null, i32 noundef 0) #14
+  %44 = load ptr, ptr %fdt.i21.i, align 8
+  %call11.i.i = call i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %44, ptr noundef %call4.i20.i, ptr noundef nonnull @.str.85, i32 noundef 2, ptr noundef nonnull %qdt_tmp.i18.i) #14
+  %45 = load ptr, ptr %fdt.i21.i, align 8
+  %call13.i.i = call i32 @qemu_fdt_setprop(ptr noundef %45, ptr noundef %call4.i20.i, ptr noundef nonnull @.str.89, ptr noundef null, i32 noundef 0) #14
   call void @g_free(ptr noundef %call4.i20.i) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %qdt_tmp.i18.i)
   %call.i.i25.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
   %harts.i.i = getelementptr inbounds i8, ptr %call.i, i64 1216
-  %44 = load ptr, ptr %harts.i.i, align 8
-  %hart.sroa.1.0.arrayidx1.sroa_idx.i.i = getelementptr inbounds i8, ptr %44, i64 19176
+  %46 = load ptr, ptr %harts.i.i, align 8
+  %hart.sroa.1.0.arrayidx1.sroa_idx.i.i = getelementptr inbounds i8, ptr %46, i64 19176
   %hart.sroa.1.0.copyload.i.i = load i32, ptr %hart.sroa.1.0.arrayidx1.sroa_idx.i.i, align 8
   %call2.i26.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.90) #14
   %fdt.i27.i = getelementptr inbounds i8, ptr %call.i.i25.i, i64 40
-  %45 = load ptr, ptr %fdt.i27.i, align 8
-  %call3.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %45, ptr noundef %call2.i26.i) #14
-  %46 = load ptr, ptr %fdt.i27.i, align 8
-  %call5.i28.i = call i32 @qemu_fdt_setprop_string(ptr noundef %46, ptr noundef %call2.i26.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.91) #14
   %47 = load ptr, ptr %fdt.i27.i, align 8
-  call void @riscv_pmu_generate_fdt_node(ptr noundef %47, i32 noundef %hart.sroa.1.0.copyload.i.i, ptr noundef %call2.i26.i) #14
+  %call3.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %47, ptr noundef %call2.i26.i) #14
+  %48 = load ptr, ptr %fdt.i27.i, align 8
+  %call5.i28.i = call i32 @qemu_fdt_setprop_string(ptr noundef %48, ptr noundef %call2.i26.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.91) #14
+  %49 = load ptr, ptr %fdt.i27.i, align 8
+  call void @riscv_pmu_generate_fdt_node(ptr noundef %49, i32 noundef %hart.sroa.1.0.copyload.i.i, ptr noundef %call2.i26.i) #14
   call void @g_free(ptr noundef %call2.i26.i) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rng_seed.i)
   br label %if.end224
@@ -2544,7 +2544,7 @@ declare i32 @llvm.bswap.i32(i32) #9
 declare i32 @qemu_fdt_setprop_string_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @create_fdt_one_imsic(ptr noundef %s, i64 noundef %base_addr, ptr nocapture noundef readonly %intc_phandles, i32 noundef %msi_phandle, i1 noundef zeroext %m_mode, i32 noundef %imsic_guest_bits) unnamed_addr #1 {
+define internal fastcc void @create_fdt_one_imsic(ptr noundef %s, i64 noundef range(i64 603979776, 671088641) %base_addr, ptr nocapture noundef readonly %intc_phandles, i32 noundef %msi_phandle, i1 noundef zeroext %m_mode, i32 noundef %imsic_guest_bits) unnamed_addr #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
   %call1 = tail call i32 @riscv_socket_count(ptr noundef %call.i) #14
@@ -2569,7 +2569,7 @@ for.cond19.preheader:                             ; preds = %for.body, %entry
   br i1 %cmp2072, label %for.body22.lr.ph, label %for.end64
 
 for.body22.lr.ph:                                 ; preds = %for.cond19.preheader
-  %2 = trunc i64 %base_addr to i32
+  %2 = trunc nuw nsw i64 %base_addr to i32
   %soc = getelementptr inbounds i8, ptr %s, i64 376
   %3 = zext i32 %imsic_guest_bits to i64
   %4 = add nuw nsw i64 %3, 12
@@ -2711,7 +2711,7 @@ if.end107:                                        ; preds = %imsic_num_bits.exit
 declare void @platform_bus_add_all_fdt_nodes(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @create_fdt_one_aplic(ptr noundef %s, i32 noundef %socket, i64 noundef %aplic_addr, i32 noundef %msi_phandle, ptr nocapture noundef readonly %intc_phandles, i32 noundef %aplic_phandle, i32 noundef %aplic_child_phandle, i1 noundef zeroext %m_mode, i32 noundef %num_harts) unnamed_addr #1 {
+define internal fastcc void @create_fdt_one_aplic(ptr noundef %s, i32 noundef range(i32 0, -2147483648) %socket, i64 noundef range(i64 201326592, 70368962248705) %aplic_addr, i32 noundef %msi_phandle, ptr nocapture noundef readonly %intc_phandles, i32 noundef %aplic_phandle, i32 noundef %aplic_child_phandle, i1 noundef zeroext %m_mode, i32 noundef %num_harts) unnamed_addr #1 {
 entry:
   %qdt_tmp = alloca [4 x i32], align 16
   %qdt_tmp56 = alloca [3 x i32], align 4

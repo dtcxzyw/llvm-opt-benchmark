@@ -10559,7 +10559,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 declare void @_ZN6duckdb5ValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20InSearchPathFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm"(ptr nonnull %fun.coerce0, ptr %fun.coerce1, i64 %left.coerce0, ptr %left.coerce1, i64 %right.coerce0, ptr %right.coerce1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20InSearchPathFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm"(ptr nonnull %fun.coerce0, ptr nonnull %fun.coerce1, i64 %left.coerce0, ptr %left.coerce1, i64 %right.coerce0, ptr %right.coerce1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i10.i = alloca i64, align 8
   %__dnew.i.i.i.i = alloca i64, align 8

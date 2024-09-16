@@ -2539,13 +2539,13 @@ lor.lhs.false36:                                  ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %ref.tmp28.sroa.3.i)
   %call38 = call ptr @_ZNK4node4quic11BindingData18tls_options_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #29
   store ptr %call38, ptr %ref.tmp37, align 8
-  %call42 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_10TLSContext7OptionsEXadL_ZNS4_11tls_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE(ptr noundef nonnull %env, ptr noundef nonnull %options, ptr nonnull %value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
+  %call42 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_10TLSContext7OptionsEXadL_ZNS4_11tls_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE(ptr noundef nonnull %env, ptr noundef %options, ptr nonnull %value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
   br i1 %call42, label %lor.lhs.false43, label %if.then56
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false36
   %call45 = call ptr @_ZNK4node4quic11BindingData26application_options_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #29
   store ptr %call45, ptr %ref.tmp44, align 8
-  %call49 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS3_19Application_OptionsEXadL_ZNS4_19application_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr noundef nonnull %env, ptr noundef nonnull %options, ptr nonnull %value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp44)
+  %call49 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS3_19Application_OptionsEXadL_ZNS4_19application_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr noundef nonnull %env, ptr noundef %options, ptr nonnull %value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp44)
   br i1 %call49, label %lor.rhs, label %if.then56
 
 lor.rhs:                                          ; preds = %lor.lhs.false43
@@ -2656,7 +2656,7 @@ declare ptr @_ZNK4node4quic11BindingData33preferred_address_strategy_stringEv(pt
 declare ptr @_ZNK4node4quic11BindingData23transport_params_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_10TLSContext7OptionsEXadL_ZNS4_11tls_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE(ptr noundef %env, ptr noundef %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_10TLSContext7OptionsEXadL_ZNS4_11tls_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE(ptr noundef %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #5 {
 entry:
   %maybeOptions = alloca %"class.v8::Maybe.755", align 8
   %ref.tmp28 = alloca %"struct.node::quic::TLSContext::Options", align 8
@@ -2726,7 +2726,7 @@ return:                                           ; preds = %entry, %cleanup
 declare ptr @_ZNK4node4quic11BindingData18tls_options_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS3_19Application_OptionsEXadL_ZNS4_19application_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr noundef %env, ptr nocapture noundef writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS3_19Application_OptionsEXadL_ZNS4_19application_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr noundef %env, ptr nocapture noundef nonnull writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #5 {
 entry:
   %maybeOptions = alloca %"class.v8::Maybe.758", align 8
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728

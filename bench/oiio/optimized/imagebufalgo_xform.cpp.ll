@@ -2582,7 +2582,7 @@ entry:
   %0 = load ptr, ptr %filtername, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %filtername, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias nonnull align 8 %filter, ptr %0, i64 %1, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias align 8 %filter, ptr %0, i64 %1, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst)
   %2 = load ptr, ptr %filter, align 8
   %cmp.i.not = icmp eq ptr %2, null
   br i1 %cmp.i.not, label %cleanup, label %if.end
@@ -2677,7 +2677,7 @@ _ZNSt10shared_ptrIN18OpenImageIO_v2_6_08Filter2DEED2Ev.exit: ; preds = %cleanup,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias align 8 %agg.result, ptr %filtername_.0.val, i64 %filtername_.8.val, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias nonnull align 8 %agg.result, ptr %filtername_.0.val, i64 %filtername_.8.val, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %filtername = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3037,7 +3037,7 @@ entry:
   %0 = load ptr, ptr %filtername, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %filtername, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias nonnull align 8 %filter, ptr %0, i64 %1, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias align 8 %filter, ptr %0, i64 %1, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst)
   %2 = load ptr, ptr %filter, align 8
   %cmp.i.not = icmp eq ptr %2, null
   br i1 %cmp.i.not, label %cleanup, label %if.end
@@ -6353,7 +6353,7 @@ invoke.cont3:                                     ; preds = %invoke.cont1
   %m_len.i.i = getelementptr inbounds i8, ptr %filtername, i64 8
   %11 = load i64, ptr %m_len.i.i, align 8
   store i64 %11, ptr %m_len.i10, align 8
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias nonnull align 8 %filter, ptr noundef nonnull %agg.tmp11, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %div, float noundef %div10)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias align 8 %filter, ptr noundef %agg.tmp11, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %div, float noundef %div10)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont3
@@ -6484,7 +6484,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias align 8 %agg.result, ptr noundef %filtername, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %wratio, float noundef %hratio) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %filtername, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %wratio, float noundef %hratio) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %fd = alloca %"class.OpenImageIO_v2_6_0::FilterDesc", align 8
   %agg.tmp24 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -7647,7 +7647,7 @@ invoke.cont3:                                     ; preds = %invoke.cont1
   %m_len.i.i = getelementptr inbounds i8, ptr %filtername, i64 8
   %11 = load i64, ptr %m_len.i.i, align 8
   store i64 %11, ptr %m_len.i10, align 8
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias nonnull align 8 %filter, ptr noundef nonnull %agg.tmp11, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %div, float noundef %div10)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias align 8 %filter, ptr noundef %agg.tmp11, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %div, float noundef %div10)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont3
@@ -20566,7 +20566,7 @@ entry:
   %0 = load ptr, ptr %filtername, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %filtername, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias nonnull align 8 %filter, ptr %0, i64 %1, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias align 8 %filter, ptr %0, i64 %1, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst)
   %2 = load ptr, ptr %filter, align 8
   %cmp.i.not = icmp eq ptr %2, null
   br i1 %cmp.i.not, label %cleanup, label %if.end

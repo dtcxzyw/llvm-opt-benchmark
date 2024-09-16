@@ -441,7 +441,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9ConstPoolEmm(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9ConstPoolEmm(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %5
 

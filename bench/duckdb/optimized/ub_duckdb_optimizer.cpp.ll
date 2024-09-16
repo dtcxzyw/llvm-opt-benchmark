@@ -59155,7 +59155,7 @@ _ZNSt15__new_allocatorIN6duckdb10LHSBindingEE7destroyIS1_EEvPT_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN6duckdb20ExpressionHeuristics18ReorderExpressionsERNS2_6vectorINS2_10unique_ptrINS2_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEEE15ExpressionCostsSt6vectorISC_SaISC_EEEElNS0_5__ops15_Iter_less_iterEEvT_SK_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN6duckdb20ExpressionHeuristics18ReorderExpressionsERNS2_6vectorINS2_10unique_ptrINS2_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEEE15ExpressionCostsSt6vectorISC_SaISC_EEEElNS0_5__ops15_Iter_less_iterEEvT_SK_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp7.i.i13.i = alloca %struct.ExpressionCosts, align 16
   %agg.tmp6.i.i.i = alloca %struct.ExpressionCosts, align 16
@@ -59581,7 +59581,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6duckdb20ExpressionHeuristics18ReorderExpressionsERNS2_6vectorINS2_10unique_ptrINS2_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEEE15ExpressionCostsSt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_less_iterEEvT_T0_SL_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6duckdb20ExpressionHeuristics18ReorderExpressionsERNS2_6vectorINS2_10unique_ptrINS2_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEEE15ExpressionCostsSt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_less_iterEEvT_T0_SL_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef range(i64 -576460752303423488, 576460752303423488) %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -67207,7 +67207,7 @@ _ZNSt10_HashtableIN6duckdb13ColumnBindingESt4pairIKS1_mESaIS4_ENSt8__detail10_Se
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZN6duckdb21RemoveDuplicateGroups14VisitAggregateERNSB_16LogicalAggregateEE3$_0EEEvT_SH_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #24 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZN6duckdb21RemoveDuplicateGroups14VisitAggregateERNSB_16LogicalAggregateEE3$_0EEEvT_SH_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #24 {
 entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.lhs.cast.i36 = ptrtoint ptr %__last.coerce to i64

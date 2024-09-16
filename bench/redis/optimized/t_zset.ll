@@ -7025,7 +7025,7 @@ if.then10:                                        ; preds = %if.else
   %5 = load ptr, ptr %arrayidx12, align 8
   %arrayidx14 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %arrayidx14, align 8
-  %call15 = call fastcc i32 @zslParseRange(ptr noundef %5, ptr noundef %6, ptr noundef nonnull %range)
+  %call15 = call fastcc i32 @zslParseRange(ptr noundef %5, ptr noundef %6, ptr noundef %range)
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %if.end33, label %if.then17
 
@@ -7342,7 +7342,7 @@ if.end143:                                        ; preds = %if.then8.i, %if.end
 declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @zslParseRange(ptr nocapture noundef readonly %min, ptr nocapture noundef readonly %max, ptr nocapture noundef writeonly %spec) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @zslParseRange(ptr nocapture noundef readonly %min, ptr nocapture noundef readonly %max, ptr nocapture noundef nonnull writeonly %spec) unnamed_addr #9 {
 entry:
   %eptr = alloca ptr, align 8
   %maxex = getelementptr inbounds i8, ptr %spec, i64 20
@@ -9391,7 +9391,7 @@ while.end363:                                     ; preds = %while.body355, %for
 
 if.then367:                                       ; preds = %if.else282
   %112 = load i64, ptr %setnum, align 8
-  call fastcc void @zdiff(ptr noundef %call8, i64 noundef %112, ptr noundef %dstzset.0, ptr noundef nonnull %maxelelen, ptr noundef nonnull %totelelen)
+  call fastcc void @zdiff(ptr noundef %call8, i64 noundef %112, ptr noundef %dstzset.0, ptr noundef %maxelelen, ptr noundef %totelelen)
   br label %if.end371
 
 if.else368:                                       ; preds = %if.else282
@@ -9659,7 +9659,7 @@ declare ptr @dictGetDoubleValPtr(ptr noundef) local_unnamed_addr #2
 declare double @dictGetDoubleVal(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zdiff(ptr noundef %src, i64 noundef %setnum, ptr nocapture noundef readonly %dstzset, ptr nocapture noundef %maxelelen, ptr nocapture noundef %totelelen) unnamed_addr #0 {
+define internal fastcc void @zdiff(ptr noundef %src, i64 noundef %setnum, ptr nocapture noundef readonly %dstzset, ptr nocapture noundef nonnull %maxelelen, ptr nocapture noundef nonnull %totelelen) unnamed_addr #0 {
 entry:
   %update.i.i = alloca [32 x ptr], align 16
   %zval.i18 = alloca %struct.zsetopval, align 8
@@ -11141,7 +11141,7 @@ sw.bb104:                                         ; preds = %if.end83
   %idxprom109 = sext i32 %maxidx.0 to i64
   %arrayidx110 = getelementptr inbounds ptr, ptr %19, i64 %idxprom109
   %21 = load ptr, ptr %arrayidx110, align 8
-  %call111 = call fastcc i32 @zslParseRange(ptr noundef %20, ptr noundef %21, ptr noundef nonnull %range)
+  %call111 = call fastcc i32 @zslParseRange(ptr noundef %20, ptr noundef %21, ptr noundef %range)
   %cmp112.not = icmp eq i32 %call111, 0
   br i1 %cmp112.not, label %sw.epilog, label %if.then113
 
@@ -11823,7 +11823,7 @@ entry:
   %2 = load ptr, ptr %arrayidx2, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %arrayidx4, align 8
-  %call = call fastcc i32 @zslParseRange(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %range)
+  %call = call fastcc i32 @zslParseRange(ptr noundef %2, ptr noundef %3, ptr noundef %range)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 

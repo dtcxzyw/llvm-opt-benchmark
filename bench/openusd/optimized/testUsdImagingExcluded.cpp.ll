@@ -730,7 +730,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit78.i: 
           to label %267 unwind label %613
 
 267:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit78.i
-  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %244, ptr noundef nonnull %25)
+  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %244, ptr noundef %25)
           to label %268 unwind label %615
 
 268:                                              ; preds = %267
@@ -896,7 +896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit92.i: 
           to label %334 unwind label %620
 
 334:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit92.i
-  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %311, ptr noundef nonnull %29)
+  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %311, ptr noundef %29)
           to label %335 unwind label %622
 
 335:                                              ; preds = %334
@@ -1062,7 +1062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit110.i:
           to label %401 unwind label %627
 
 401:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit110.i
-  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %378, ptr noundef nonnull %33)
+  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %378, ptr noundef %33)
           to label %402 unwind label %629
 
 402:                                              ; preds = %401
@@ -1228,7 +1228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit128.i:
           to label %468 unwind label %634
 
 468:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit128.i
-  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %445, ptr noundef nonnull %37)
+  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %445, ptr noundef %37)
           to label %469 unwind label %636
 
 469:                                              ; preds = %468
@@ -1394,7 +1394,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146.i:
           to label %535 unwind label %641
 
 535:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit146.i
-  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %512, ptr noundef nonnull %41)
+  invoke fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %512, ptr noundef %41)
           to label %536 unwind label %643
 
 536:                                              ; preds = %535
@@ -3787,7 +3787,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL12TestRootPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimERKSt6vectorINS_7SdfPathESaIS4_EEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12TestRootPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimERKSt6vectorINS_7SdfPathESaIS4_EEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 6) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Hd_UnitTestNullRenderDelegate", align 8
   %6 = alloca %"class.std::unique_ptr.137", align 8
@@ -4460,7 +4460,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdGeomXform6DefineERKNS_9T
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdGeomXformD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %.0.val, ptr noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL8MakeMeshN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEENS_7SdfPathE(ptr %.0.val, ptr noundef nonnull %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomMesh", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.76", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8

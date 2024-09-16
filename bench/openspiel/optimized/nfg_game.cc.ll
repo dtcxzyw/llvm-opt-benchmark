@@ -853,7 +853,7 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit: ; p
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %72)
-  call fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  call fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
   %103 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.24) #19
   %104 = icmp eq i32 %103, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #19
@@ -874,7 +874,7 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit: ; p
   br label %269
 
 109:                                              ; preds = %102
-  call fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  call fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
   %110 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.26) #19
   %111 = icmp eq i32 %110, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #19
@@ -895,7 +895,7 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit: ; p
   br label %269
 
 116:                                              ; preds = %109
-  call fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  call fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
   %117 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.28) #19
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %.critedge.i, label %119
@@ -961,14 +961,14 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit: ; p
   br label %269
 
 140:                                              ; preds = %132
-  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
           to label %141 unwind label %124
 
 141:                                              ; preds = %140
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %143 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %52) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #19
-  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
           to label %144 unwind label %124
 
 144:                                              ; preds = %141
@@ -1042,7 +1042,7 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit: ; p
   br label %.loopexit.split-lp.i
 
 165:                                              ; preds = %157
-  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
           to label %166 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 166:                                              ; preds = %165
@@ -1079,7 +1079,7 @@ _ZNK10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser12IsWhiteSpaceEc.exit: ; p
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i unwind label %.loopexit.split-lp.loopexit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i: ; preds = %178, %.noexc.i
-  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
           to label %179 unwind label %.loopexit.split-lp.loopexit.i
 
 179:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i
@@ -1101,7 +1101,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %190 = trunc i64 %189 to i32
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %190, ptr %191, align 4
-  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
           to label %192 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 192:                                              ; preds = %._crit_edge.i
@@ -1130,7 +1130,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %.loopexit.split-lp.i
 
 201:                                              ; preds = %192
-  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
           to label %202 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 202:                                              ; preds = %201
@@ -1256,7 +1256,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %224
-  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext true)
           to label %250 unwind label %.loopexit.i
 
 250:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
@@ -2236,7 +2236,7 @@ _ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser13RowMajorIndexERKSt6vector
   %610 = zext i32 %609 to i64
   %611 = icmp ne i64 %indvars.iv.i26, %610
   %612 = select i1 %.not.i27, i1 %611, i1 false
-  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext %612)
+  invoke fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext %612)
           to label %613 unwind label %.loopexit.i28
 
 613:                                              ; preds = %.lr.ph.i25
@@ -3414,7 +3414,7 @@ declare void @_ZN10open_spiel11matrix_game16CreateMatrixGameERKNSt7__cxx1112basi
 declare void @_ZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt6vectorIS9_IS6_SaIS6_EESaISB_EERKS9_IS9_IdSaIdEESaISH_EE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.33") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel8nfg_game12_GLOBAL__N_113NFGGameParser9NextTokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(272) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1

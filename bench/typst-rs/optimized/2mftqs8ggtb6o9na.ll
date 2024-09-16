@@ -1135,7 +1135,7 @@ define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_
   %19 = xor i64 %13, %.val23.i
   store i64 %19, ptr %2, align 8, !alias.scope !136, !noalias !147
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val23.i), !noalias !130
-  %20 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %2), !noalias !130
+  %20 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef readonly align 8 dereferenceable(72) %2), !noalias !130
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = extractvalue { i64, i64 } %20, 1
   %23 = zext i64 %21 to i128
@@ -1187,7 +1187,7 @@ define hidden noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.ll
   store i64 %14, ptr %1, align 8, !alias.scope !155, !noalias !166
   store i64 0, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !155, !noalias !166
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val23)
-  %15 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1)
+  %15 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef readonly align 8 dereferenceable(72) %1)
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
   %18 = zext i64 %16 to i128
@@ -1305,7 +1305,7 @@ define hidden void @"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Ha
   %25 = xor i64 %19, %.val23.i.i
   store i64 %25, ptr %4, align 8, !alias.scope !185, !noalias !196
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val23.i.i), !noalias !179
-  %26 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %4), !noalias !179
+  %26 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef readonly align 8 dereferenceable(72) %4), !noalias !179
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   %29 = zext i64 %27 to i128
@@ -2046,7 +2046,7 @@ define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..h
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$6finish17h0aeca6b22c97dfa8E.llvm.2546880118954093015"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #12 {
-  %2 = tail call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
+  %2 = tail call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef readonly align 8 dereferenceable(72) %0)
   %3 = extractvalue { i64, i64 } %2, 1
   ret i64 %3
 }
@@ -3022,7 +3022,7 @@ define hidden void @"_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$cor
   %25 = xor i64 %19, %.val23.i.i
   store i64 %25, ptr %5, align 8, !alias.scope !434, !noalias !445
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val23.i.i), !noalias !428
-  %26 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %5), !noalias !428
+  %26 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef readonly align 8 dereferenceable(72) %5), !noalias !428
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   %29 = zext i64 %27 to i128
@@ -3307,7 +3307,7 @@ define hidden void @"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$
   %24 = xor i64 %18, %.val23.i.i
   store i64 %24, ptr %4, align 8, !alias.scope !474, !noalias !485
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val23.i.i), !noalias !468
-  %25 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %4), !noalias !468
+  %25 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef readonly align 8 dereferenceable(72) %4), !noalias !468
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = extractvalue { i64, i64 } %25, 1
   %28 = zext i64 %26 to i128
@@ -3682,7 +3682,7 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hcefa13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #12 {
+define internal fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #12 {
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.13.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8

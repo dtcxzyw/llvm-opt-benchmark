@@ -9108,7 +9108,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L11addCategoryEPNS_10UnicodeSetEiR10UErrorCode(ptr noundef %set, i32 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %ec) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_75L11addCategoryEPNS_10UnicodeSetEiR10UErrorCode(ptr noundef %set, i32 noundef range(i32 1, 33554433) %value, ptr noundef nonnull align 4 dereferenceable(4) %ec) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeSet", align 8
   call void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp)

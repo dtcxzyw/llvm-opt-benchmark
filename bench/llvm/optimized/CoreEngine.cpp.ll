@@ -158,7 +158,7 @@ define dso_local void @_ZN5clang4ento10CoreEngineC2ERNS0_10ExprEngineEPNS0_19Fun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5clang4ento13ExplodedGraphC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call fastcc void @_ZL16generateWorkListRN5clang15AnalyzerOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(488) %3)
+  tail call fastcc void @_ZL16generateWorkListRN5clang15AnalyzerOptionsE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(488) %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %9 = load i8, ptr %8, align 8
@@ -166,7 +166,7 @@ define dso_local void @_ZN5clang4ento10CoreEngineC2ERNS0_10ExprEngineEPNS0_19Fun
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %4
-  tail call fastcc void @_ZL16generateWorkListRN5clang15AnalyzerOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(488) %3)
+  tail call fastcc void @_ZL16generateWorkListRN5clang15AnalyzerOptionsE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(488) %3)
   br label %13
 
 12:                                               ; preds = %4
@@ -192,7 +192,7 @@ define dso_local void @_ZN5clang4ento10CoreEngineC2ERNS0_10ExprEngineEPNS0_19Fun
 declare void @_ZN5clang4ento13ExplodedGraphC1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16generateWorkListRN5clang15AnalyzerOptionsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(488) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL16generateWorkListRN5clang15AnalyzerOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(488) %1) unnamed_addr #0 {
   %3 = tail call noundef i32 @_ZNK5clang15AnalyzerOptions22getExplorationStrategyEv(ptr noundef nonnull align 8 dereferenceable(488) %1) #16
   switch i32 %3, label %10 [
     i32 0, label %4
@@ -204,27 +204,27 @@ define internal fastcc void @_ZL16generateWorkListRN5clang15AnalyzerOptionsE(ptr
   ]
 
 4:                                                ; preds = %2
-  tail call void @_ZN5clang4ento8WorkList7makeDFSEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0) #16
+  tail call void @_ZN5clang4ento8WorkList7makeDFSEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0) #16
   br label %11
 
 5:                                                ; preds = %2
-  tail call void @_ZN5clang4ento8WorkList7makeBFSEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0) #16
+  tail call void @_ZN5clang4ento8WorkList7makeBFSEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0) #16
   br label %11
 
 6:                                                ; preds = %2
-  tail call void @_ZN5clang4ento8WorkList23makeBFSBlockDFSContentsEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0) #16
+  tail call void @_ZN5clang4ento8WorkList23makeBFSBlockDFSContentsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0) #16
   br label %11
 
 7:                                                ; preds = %2
-  tail call void @_ZN5clang4ento8WorkList19makeUnexploredFirstEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0) #16
+  tail call void @_ZN5clang4ento8WorkList19makeUnexploredFirstEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0) #16
   br label %11
 
 8:                                                ; preds = %2
-  tail call void @_ZN5clang4ento8WorkList32makeUnexploredFirstPriorityQueueEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0) #16
+  tail call void @_ZN5clang4ento8WorkList32makeUnexploredFirstPriorityQueueEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0) #16
   br label %11
 
 9:                                                ; preds = %2
-  tail call void @_ZN5clang4ento8WorkList40makeUnexploredFirstPriorityLocationQueueEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0) #16
+  tail call void @_ZN5clang4ento8WorkList40makeUnexploredFirstPriorityLocationQueueEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0) #16
   br label %11
 
 10:                                               ; preds = %2

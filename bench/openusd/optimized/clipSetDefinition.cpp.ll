@@ -1963,7 +1963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClips
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i: ; preds = %639, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i, %.noexc115.i.thread
   %642 = phi ptr [ %631, %.noexc115.i.thread ], [ %641, %639 ], [ %633, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i ]
   %.val74.i = load ptr, ptr %642, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_ApplyLayerOffsetToClipInfoERKNS_10PcpNodeRefERKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7TfTokenEPNS_12VtDictionaryE(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(8) %189, ptr %.val74.i, ptr noundef nonnull %79)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_ApplyLayerOffsetToClipInfoERKNS_10PcpNodeRefERKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7TfTokenEPNS_12VtDictionaryE(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(8) %189, ptr %.val74.i, ptr noundef %79)
           to label %643 unwind label %.loopexit192.i
 
 643:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i
@@ -2003,7 +2003,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   %656 = phi ptr [ %645, %643 ], [ %655, %653 ], [ %647, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i125.i ]
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 80
   %.val75.i = load ptr, ptr %657, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_ApplyLayerOffsetToClipInfoERKNS_10PcpNodeRefERKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7TfTokenEPNS_12VtDictionaryE(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(8) %189, ptr %.val75.i, ptr noundef nonnull %79)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_ApplyLayerOffsetToClipInfoERKNS_10PcpNodeRefERKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7TfTokenEPNS_12VtDictionaryE(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(8) %189, ptr %.val75.i, ptr noundef %79)
           to label %658 unwind label %.loopexit192.i
 
 658:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit129.i
@@ -4387,7 +4387,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   %1594 = phi ptr [ %1583, %_ZN32pxrInternal_v0_24__pxrReserved__L8_SetInfoINS_7VtArrayINS_12SdfAssetPathEEEEEbRKNS_12VtDictionaryERKNS_7TfTokenEPSt8optionalIT_E.exit ], [ %1593, %1591 ], [ %1585, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i278 ]
   %1595 = getelementptr inbounds i8, ptr %1254, i64 -136
   %.val127 = load ptr, ptr %1594, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L8_SetInfoINS_7VtArrayINS_7GfVec2dEEEEEbRKNS_12VtDictionaryERKNS_7TfTokenEPSt8optionalIT_E(ptr noundef nonnull align 8 dereferenceable(8) %1324, ptr %.val127, ptr noundef nonnull %1595)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L8_SetInfoINS_7VtArrayINS_7GfVec2dEEEEEbRKNS_12VtDictionaryERKNS_7TfTokenEPSt8optionalIT_E(ptr noundef nonnull align 8 dereferenceable(8) %1324, ptr %.val127, ptr noundef %1595)
           to label %1596 unwind label %.loopexit581
 
 1596:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit282
@@ -4428,7 +4428,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   %1610 = getelementptr inbounds nuw i8, ptr %1609, i64 80
   %1611 = getelementptr inbounds i8, ptr %1254, i64 -88
   %.val128 = load ptr, ptr %1610, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L8_SetInfoINS_7VtArrayINS_7GfVec2dEEEEEbRKNS_12VtDictionaryERKNS_7TfTokenEPSt8optionalIT_E(ptr noundef nonnull align 8 dereferenceable(8) %1324, ptr %.val128, ptr noundef nonnull %1611)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L8_SetInfoINS_7VtArrayINS_7GfVec2dEEEEEbRKNS_12VtDictionaryERKNS_7TfTokenEPSt8optionalIT_E(ptr noundef nonnull align 8 dereferenceable(8) %1324, ptr %.val128, ptr noundef %1611)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit unwind label %.loopexit581
 
 1612:                                             ; preds = %.noexc274, %1539, %1542, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i.i260
@@ -7762,7 +7762,7 @@ _ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_12SdfAssetPathEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L8_SetInfoINS_7VtArrayINS_7GfVec2dEEEEEbRKNS_12VtDictionaryERKNS_7TfTokenEPSt8optionalIT_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %.0.val, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L8_SetInfoINS_7VtArrayINS_7GfVec2dEEEEEbRKNS_12VtDictionaryERKNS_7TfTokenEPSt8optionalIT_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %.0.val, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %.0.val to i64
   %4 = and i64 %3, -8
   %.not.i = icmp eq i64 %4, 0
@@ -8218,7 +8218,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapINS_12VtDictionaryEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_ApplyLayerOffsetToClipInfoERKNS_10PcpNodeRefERKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7TfTokenEPNS_12VtDictionaryE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr %.0.val, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_ApplyLayerOffsetToClipInfoERKNS_10PcpNodeRefERKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7TfTokenEPNS_12VtDictionaryE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr %.0.val, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.64", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfLayerOffset", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.85", align 8
@@ -14004,7 +14004,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i64 %137, ptr %118, align 8
   store ptr null, ptr %112, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull align 8 dereferenceable(32) %113) #22
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_41Usd_ComputeClipSetDefinitionsForPrimIndexERKNS2_12PcpPrimIndexEPS6_INS2_21Usd_ClipSetDefinitionESaISF_EEPS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %105, ptr noundef nonnull %24)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_41Usd_ComputeClipSetDefinitionsForPrimIndexERKNS2_12PcpPrimIndexEPS6_INS2_21Usd_ClipSetDefinitionESaISF_EEPS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %105, ptr noundef %24)
           to label %138 unwind label %140
 
 138:                                              ; preds = %120
@@ -14091,7 +14091,7 @@ common.resume:                                    ; preds = %175, %140
   store i64 %174, ptr %152, align 8
   store ptr null, ptr %146, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull align 8 dereferenceable(32) %147) #22
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_41Usd_ComputeClipSetDefinitionsForPrimIndexERKNS2_12PcpPrimIndexEPS6_INS2_21Usd_ClipSetDefinitionESaISF_EEPS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %169, ptr noundef nonnull %5)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_41Usd_ComputeClipSetDefinitionsForPrimIndexERKNS2_12PcpPrimIndexEPS6_INS2_21Usd_ClipSetDefinitionESaISF_EEPS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %169, ptr noundef %5)
           to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_41Usd_ComputeClipSetDefinitionsForPrimIndexERKNS2_12PcpPrimIndexEPS6_INS2_21Usd_ClipSetDefinitionESaISF_EEPS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EEE3$_0EEEvT_SU_SU_RT0_.exit" unwind label %175
 
 175:                                              ; preds = %.lr.ph.i9.i
@@ -14885,7 +14885,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetD2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_41Usd_ComputeClipSetDefinitionsForPrimIndexERKNS2_12PcpPrimIndexEPS6_INS2_21Usd_ClipSetDefinitionESaISF_EEPS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EEE3$_0EEEvT_T0_SV_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_41Usd_ComputeClipSetDefinitionsForPrimIndexERKNS2_12PcpPrimIndexEPS6_INS2_21Usd_ClipSetDefinitionESaISF_EEPS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EEE3$_0EEEvT_T0_SV_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef range(i64 -96076792050570581, 96076792050570582) %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.246", align 8
   %6 = alloca %"class.std::tuple.246", align 8
   %7 = alloca %"class.std::tuple.246", align 8

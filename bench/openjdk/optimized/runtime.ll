@@ -2462,7 +2462,7 @@ define hidden noundef ptr @_ZN11OptoRuntime19fast_arraycopy_TypeEv() local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 noundef range(i32 0, 4) %0) unnamed_addr #0 {
   %2 = icmp eq i32 %0, 0
   %3 = select i1 %2, i32 3, i32 5
   %4 = icmp eq i32 %0, 1

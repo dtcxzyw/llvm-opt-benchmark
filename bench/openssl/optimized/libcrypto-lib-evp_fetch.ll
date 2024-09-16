@@ -28,7 +28,7 @@ entry:
   store ptr %libctx, ptr %methdata, align 8
   %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
-  %call = call fastcc ptr @inner_evp_generic_fetch(ptr noundef nonnull %methdata, ptr noundef null, i32 noundef %operation_id, ptr noundef %name, ptr noundef %properties, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
+  %call = call fastcc ptr @inner_evp_generic_fetch(ptr noundef %methdata, ptr noundef null, i32 noundef %operation_id, ptr noundef %name, ptr noundef %properties, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
   %0 = load ptr, ptr %tmp_store, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %dealloc_tmp_evp_method_store.exit, label %if.then.i
@@ -42,7 +42,7 @@ dealloc_tmp_evp_method_store.exit:                ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @inner_evp_generic_fetch(ptr noundef %methdata, ptr noundef %prov, i32 noundef %operation_id, ptr noundef %name, ptr noundef %properties, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method) unnamed_addr #0 {
+define internal fastcc ptr @inner_evp_generic_fetch(ptr noundef nonnull %methdata, ptr noundef %prov, i32 noundef %operation_id, ptr noundef %name, ptr noundef %properties, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method) unnamed_addr #0 {
 entry:
   %prov.addr = alloca ptr, align 8
   %method = alloca ptr, align 8
@@ -208,7 +208,7 @@ entry:
   store ptr %call, ptr %methdata, align 8
   %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
-  %call1 = call fastcc ptr @inner_evp_generic_fetch(ptr noundef nonnull %methdata, ptr noundef %prov, i32 noundef %operation_id, ptr noundef %name, ptr noundef %properties, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
+  %call1 = call fastcc ptr @inner_evp_generic_fetch(ptr noundef %methdata, ptr noundef %prov, i32 noundef %operation_id, ptr noundef %name, ptr noundef %properties, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
   %0 = load ptr, ptr %tmp_store, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %dealloc_tmp_evp_method_store.exit, label %if.then.i
@@ -568,7 +568,7 @@ entry:
   store ptr %libctx, ptr %methdata, align 8
   %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
-  %call = call fastcc ptr @inner_evp_generic_fetch(ptr noundef nonnull %methdata, ptr noundef null, i32 noundef %operation_id, ptr noundef null, ptr noundef null, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
+  %call = call fastcc ptr @inner_evp_generic_fetch(ptr noundef %methdata, ptr noundef null, i32 noundef %operation_id, ptr noundef null, ptr noundef null, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
   store i32 %operation_id, ptr %data, align 8
   %user_fn3 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %user_fn, ptr %user_fn3, align 8

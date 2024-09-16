@@ -449,7 +449,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #3 {
   tail call void @exit(i32 noundef %0) #16
   unreachable
 }
@@ -458,7 +458,7 @@ define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #3 {
 declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @usage(ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @usage(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.27, ptr noundef %0) #13
   %5 = load ptr, ptr @stderr, align 8

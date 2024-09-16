@@ -5316,7 +5316,7 @@ declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @dt_iop_image_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @dt_RGB_to_Lab(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
+define internal fastcc void @dt_RGB_to_Lab(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #17 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load float, ptr %1, align 4, !tbaa !72

@@ -1570,7 +1570,7 @@ if.then.i.i.i.i:                                  ; preds = %lpad.i177.body.i
 invoke.cont83.i:                                  ; preds = %for.inc.i.i.i.i.i.i
   %_M_finish.i317.i = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 8
   store ptr %incdec.ptr1.i.i.i.i.i.i, ptr %_M_finish.i317.i, align 8, !noalias !7
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias nonnull align 8 %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i)
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias align 8 %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i)
           to label %for.body.i.i.i.i.i unwind label %lpad84.i, !noalias !7
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont83.i, %for.body.i.i.i.i.i
@@ -2065,7 +2065,7 @@ if.then.i.i.i217.i:                               ; preds = %lpad.i215.body.i
 invoke.cont154.i:                                 ; preds = %for.inc.i.i.i.i.i341.i
   %_M_finish.i345.i = getelementptr inbounds i8, ptr %ref.tmp126.i, i64 8
   store ptr %incdec.ptr1.i.i.i.i.i343.i, ptr %_M_finish.i345.i, align 8, !noalias !7
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias nonnull align 8 %ref.tmp125.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp126.i)
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias align 8 %ref.tmp125.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp126.i)
           to label %for.body.i.i.i.i224.i unwind label %lpad155.i, !noalias !7
 
 for.body.i.i.i.i224.i:                            ; preds = %invoke.cont154.i, %for.body.i.i.i.i224.i
@@ -2608,7 +2608,7 @@ invoke.cont10:                                    ; preds = %invoke.cont1
   %124 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8, !noalias !30
   store ptr %124, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %storage_.i.i, i8 0, i64 24, i1 false), !noalias !30
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_110try_dlopenERKSt6vectorINS_8internal16PlatformFilenameESaIS5_EEPKc(ptr noalias nonnull align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(24) %libjvm_potential_paths, ptr noundef nonnull @.str.52)
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_110try_dlopenERKSt6vectorINS_8internal16PlatformFilenameESaIS5_EEPKc(ptr noalias align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(24) %libjvm_potential_paths, ptr noundef nonnull @.str.52)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
@@ -2851,7 +2851,7 @@ if.then.i.i.i.i88:                                ; preds = %lpad.i23.body.i
 invoke.cont11.i:                                  ; preds = %for.inc.i.i.i.i.i.i90
   %_M_finish.i85.i = getelementptr inbounds i8, ptr %ref.tmp1.i58, i64 8
   store ptr %incdec.ptr1.i.i.i.i.i.i92, ptr %_M_finish.i85.i, align 8, !noalias !31
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias nonnull align 8 %ref.tmp.i57, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1.i58)
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias align 8 %ref.tmp.i57, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1.i58)
           to label %for.body.i.i.i.i.i94 unwind label %lpad12.i, !noalias !31
 
 for.body.i.i.i.i.i94:                             ; preds = %invoke.cont11.i, %for.body.i.i.i.i.i94
@@ -3336,7 +3336,7 @@ invoke.cont46:                                    ; preds = %invoke.cont31
   %202 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i159, align 8, !noalias !48
   store ptr %202, ptr %_M_end_of_storage.i.i.i.i.i.i158, align 8, !alias.scope !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %storage_.i.i155, i8 0, i64 24, i1 false), !noalias !48
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_110try_dlopenERKSt6vectorINS_8internal16PlatformFilenameESaIS5_EEPKc(ptr noalias nonnull align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(24) %libhdfs_potential_paths, ptr noundef nonnull @.str.53)
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_110try_dlopenERKSt6vectorINS_8internal16PlatformFilenameESaIS5_EEPKc(ptr noalias align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(24) %libhdfs_potential_paths, ptr noundef nonnull @.str.53)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont46
@@ -3908,7 +3908,7 @@ ehcleanup82:                                      ; preds = %lpad, %ehcleanup257
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_110try_dlopenERKSt6vectorINS_8internal16PlatformFilenameESaIS5_EEPKc(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %potential_paths, ptr noundef %name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_110try_dlopenERKSt6vectorINS_8internal16PlatformFilenameESaIS5_EEPKc(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %potential_paths, ptr noundef %name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %name.addr = alloca ptr, align 8
@@ -5027,7 +5027,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %names) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %names) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %filenames = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

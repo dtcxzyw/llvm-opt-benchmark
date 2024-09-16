@@ -54,7 +54,7 @@ define hidden void @"_ZN121_$LT$diesel..query_builder..locking_clause..NoLocking
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h01dc39a0eba855ccE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h01dc39a0eba855ccE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28.i = alloca [3 x i64], align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -156,7 +156,7 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h03f0bfaa5e21ec47E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h03f0bfaa5e21ec47E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28.i = alloca [3 x i64], align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -453,7 +453,7 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h1469939bd0027579E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h1469939bd0027579E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28.i = alloca [3 x i64], align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -555,7 +555,7 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h2e384d1a1c5c7934E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h2e384d1a1c5c7934E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28.i = alloca [3 x i64], align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -657,7 +657,7 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3e480d63f02ca511E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3e480d63f02ca511E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28.i = alloca [3 x i64], align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -759,7 +759,7 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h636f74f9fcb795e0E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h636f74f9fcb795e0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28.i = alloca [3 x i64], align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -1065,7 +1065,7 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hff85c9264962306fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hff85c9264962306fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28.i = alloca [3 x i64], align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -1452,7 +1452,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query
   store ptr %15, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !404
   %29 = getelementptr inbounds i8, ptr %13, i64 32
   store ptr %28, ptr %29, align 8, !noalias !404
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h01dc39a0eba855ccE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13), !noalias !409
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h01dc39a0eba855ccE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %14, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %13), !noalias !409
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !404
   %30 = load i64, ptr %14, align 8, !range !16, !noalias !404, !noundef !4
   %31 = icmp eq i64 %30, -9223372036854775798
@@ -1522,7 +1522,7 @@ default.unreachable:                              ; preds = %153, %125, %97, %36
   store ptr %.sroa.13.0.i, ptr %.sroa.13.0..sroa_idx.i, align 8, !alias.scope !411, !noalias !414
   %46 = getelementptr inbounds i8, ptr %25, i64 32
   store ptr %28, ptr %46, align 8, !alias.scope !411, !noalias !414
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h01dc39a0eba855ccE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %25)
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h01dc39a0eba855ccE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %26, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %25)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
   %47 = load i64, ptr %26, align 8, !range !16, !noundef !4
   %48 = icmp eq i64 %47, -9223372036854775798
@@ -1554,7 +1554,7 @@ default.unreachable:                              ; preds = %153, %125, %97, %36
   store ptr %12, ptr %.sroa.4.0..sroa_idx.i163, align 8, !noalias !416
   %54 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %52, ptr %54, align 8, !noalias !416
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h1469939bd0027579E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10), !noalias !421
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h1469939bd0027579E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %11, ptr noalias noundef readonly align 8 dereferenceable(8) %53, ptr noalias nocapture noundef align 8 dereferenceable(40) %10), !noalias !421
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !416
   %55 = load i64, ptr %11, align 8, !range !16, !noalias !416, !noundef !4
   %56 = icmp eq i64 %55, -9223372036854775798
@@ -1636,7 +1636,7 @@ default.unreachable1.i173:                        ; preds = %"_ZN6diesel13query_
   store ptr %.sroa.13.0.i166, ptr %.sroa.13.0..sroa_idx.i172, align 8, !alias.scope !425, !noalias !422
   %73 = getelementptr inbounds i8, ptr %23, i64 32
   store ptr %72, ptr %73, align 8, !alias.scope !425, !noalias !422
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h1469939bd0027579E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %23)
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h1469939bd0027579E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %24, ptr noalias noundef readonly align 8 dereferenceable(8) %53, ptr noalias nocapture noundef align 8 dereferenceable(40) %23)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   %74 = load i64, ptr %24, align 8, !range !16, !noundef !4
   %75 = icmp eq i64 %74, -9223372036854775798
@@ -1688,7 +1688,7 @@ default.unreachable1.i173:                        ; preds = %"_ZN6diesel13query_
   store ptr %9, ptr %.sroa.4.0..sroa_idx.i176, align 8, !noalias !433
   %89 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %88, ptr %89, align 8, !noalias !433
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h2e384d1a1c5c7934E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %87, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !438
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h2e384d1a1c5c7934E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias noundef readonly align 8 dereferenceable(8) %87, ptr noalias nocapture noundef align 8 dereferenceable(40) %7), !noalias !438
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !433
   %90 = load i64, ptr %8, align 8, !range !16, !noalias !433, !noundef !4
   %91 = icmp eq i64 %90, -9223372036854775798
@@ -1759,7 +1759,7 @@ default.unreachable1.i173:                        ; preds = %"_ZN6diesel13query_
   store ptr %.sroa.13.0.i179, ptr %.sroa.13.0..sroa_idx.i185, align 8, !alias.scope !439, !noalias !442
   %108 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %107, ptr %108, align 8, !alias.scope !439, !noalias !442
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h2e384d1a1c5c7934E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %87, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %21)
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h2e384d1a1c5c7934E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %22, ptr noalias noundef readonly align 8 dereferenceable(8) %87, ptr noalias nocapture noundef align 8 dereferenceable(40) %21)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
   %109 = load i64, ptr %22, align 8, !range !16, !noundef !4
   %110 = icmp eq i64 %109, -9223372036854775798
@@ -1795,7 +1795,7 @@ default.unreachable1.i173:                        ; preds = %"_ZN6diesel13query_
   store ptr %6, ptr %.sroa.4.0..sroa_idx.i189, align 8, !noalias !444
   %117 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %116, ptr %117, align 8, !noalias !444
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hff85c9264962306fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %115, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !449
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hff85c9264962306fE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr noalias noundef readonly align 8 dereferenceable(8) %115, ptr noalias nocapture noundef align 8 dereferenceable(40) %4), !noalias !449
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !444
   %118 = load i64, ptr %5, align 8, !range !16, !noalias !444, !noundef !4
   %119 = icmp eq i64 %118, -9223372036854775798
@@ -1866,7 +1866,7 @@ default.unreachable1.i173:                        ; preds = %"_ZN6diesel13query_
   store ptr %.sroa.13.0.i192, ptr %.sroa.13.0..sroa_idx.i198, align 8, !alias.scope !450, !noalias !453
   %136 = getelementptr inbounds i8, ptr %19, i64 32
   store ptr %135, ptr %136, align 8, !alias.scope !450, !noalias !453
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hff85c9264962306fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %115, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %19)
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hff85c9264962306fE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %20, ptr noalias noundef readonly align 8 dereferenceable(8) %115, ptr noalias nocapture noundef align 8 dereferenceable(40) %19)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
   %137 = load i64, ptr %20, align 8, !range !16, !noundef !4
   %138 = icmp eq i64 %137, -9223372036854775798
@@ -1894,7 +1894,7 @@ default.unreachable1.i173:                        ; preds = %"_ZN6diesel13query_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   %143 = getelementptr inbounds i8, ptr %1, i64 32
   %144 = load ptr, ptr %27, align 8, !nonnull !4, !align !6, !noundef !4
-  call fastcc void @_ZN6diesel13query_builder13QueryFragment7is_noop17h9b8f6e53cbe8dccfE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %143, ptr noalias noundef nonnull readonly align 1 %144)
+  call fastcc void @_ZN6diesel13query_builder13QueryFragment7is_noop17h9b8f6e53cbe8dccfE(ptr noalias nocapture noundef align 8 dereferenceable(32) %18, ptr noalias noundef readonly align 8 dereferenceable(8) %143, ptr noalias noundef nonnull readonly align 1 %144)
   %145 = load i64, ptr %18, align 8, !range !16, !noundef !4
   %146 = icmp eq i64 %145, -9223372036854775798
   %147 = getelementptr inbounds i8, ptr %18, i64 8
@@ -1961,7 +1961,7 @@ default.unreachable1.i173:                        ; preds = %"_ZN6diesel13query_
   store ptr %.sroa.13.0.i201, ptr %.sroa.13.0..sroa_idx.i207, align 8, !alias.scope !455, !noalias !458
   %164 = getelementptr inbounds i8, ptr %16, i64 32
   store ptr %163, ptr %164, align 8, !alias.scope !455, !noalias !458
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3e480d63f02ca511E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %143, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %16)
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3e480d63f02ca511E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %17, ptr noalias noundef readonly align 8 dereferenceable(8) %143, ptr noalias nocapture noundef align 8 dereferenceable(40) %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   %165 = load i64, ptr %17, align 8, !range !16, !noundef !4
   %166 = icmp eq i64 %165, -9223372036854775798
@@ -2016,7 +2016,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
   store ptr %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !460
   %16 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %15, ptr %16, align 8, !noalias !460
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h636f74f9fcb795e0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7), !noalias !465
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h636f74f9fcb795e0E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %7), !noalias !465
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !460
   %17 = load i64, ptr %8, align 8, !range !16, !noalias !460, !noundef !4
   %18 = icmp eq i64 %17, -9223372036854775798
@@ -2086,7 +2086,7 @@ default.unreachable:                              ; preds = %23
   store ptr %.sroa.13.0.i, ptr %.sroa.13.0..sroa_idx.i, align 8, !alias.scope !466, !noalias !469
   %33 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %15, ptr %33, align 8, !alias.scope !466, !noalias !469
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h636f74f9fcb795e0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12)
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h636f74f9fcb795e0E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %13, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   %34 = load i64, ptr %13, align 8, !range !16, !noundef !4
   %35 = icmp eq i64 %34, -9223372036854775798
@@ -2116,7 +2116,7 @@ default.unreachable:                              ; preds = %23
   store ptr %6, ptr %.sroa.4.0..sroa_idx.i60, align 8, !noalias !471
   %40 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %15, ptr %40, align 8, !noalias !471
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h03f0bfaa5e21ec47E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !476
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h03f0bfaa5e21ec47E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr noalias noundef readonly align 8 dereferenceable(16) %39, ptr noalias nocapture noundef align 8 dereferenceable(40) %4), !noalias !476
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !471
   %41 = load i64, ptr %5, align 8, !range !16, !noalias !471, !noundef !4
   %42 = icmp eq i64 %41, -9223372036854775798
@@ -2197,7 +2197,7 @@ default.unreachable1.i70:                         ; preds = %"_ZN6diesel13query_
   store ptr %.sroa.13.0.i63, ptr %.sroa.13.0..sroa_idx.i69, align 8, !alias.scope !480, !noalias !477
   %59 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %15, ptr %59, align 8, !alias.scope !480, !noalias !477
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h03f0bfaa5e21ec47E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10)
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h03f0bfaa5e21ec47E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %11, ptr noalias noundef readonly align 8 dereferenceable(16) %39, ptr noalias nocapture noundef align 8 dereferenceable(40) %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   %60 = load i64, ptr %11, align 8, !range !16, !noundef !4
   %61 = icmp eq i64 %60, -9223372036854775798
@@ -2415,7 +2415,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h7364dc1ff
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6diesel13query_builder13QueryFragment7is_noop17h9b8f6e53cbe8dccfE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #2 {
+define internal fastcc void @_ZN6diesel13query_builder13QueryFragment7is_noop17h9b8f6e53cbe8dccfE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #2 {
   %.sroa.210 = alloca [3 x i64], align 8
   %4 = alloca { { i64, [3 x i64] }, ptr }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -2429,7 +2429,7 @@ define internal fastcc void @_ZN6diesel13query_builder13QueryFragment7is_noop17h
   store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %2, ptr %7, align 8
-  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3e480d63f02ca511E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
+  call fastcc void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h3e480d63f02ca511E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %8 = load i64, ptr %5, align 8, !range !16, !noundef !4
   %9 = icmp eq i64 %8, -9223372036854775798

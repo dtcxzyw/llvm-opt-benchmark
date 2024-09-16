@@ -2013,7 +2013,7 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not166.not, label %.preheader, label %123, !llvm.loop !50
 
 123:                                              ; preds = %122
-  %124 = call fastcc i32 @ddSymmGroupMove(ptr noundef nonnull %0, i32 noundef %.0140200, i32 noundef %.0150196, ptr noundef nonnull %4)
+  %124 = call fastcc i32 @ddSymmGroupMove(ptr noundef nonnull %0, i32 noundef %.0140200, i32 noundef %.0150196, ptr noundef %4)
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %162, label %126
 
@@ -2477,7 +2477,7 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   br label %143
 
 108:                                              ; preds = %69, %67
-  %109 = call fastcc i32 @ddSymmGroupMove(ptr noundef nonnull %0, i32 noundef %.0126153, i32 noundef %.0121155, ptr noundef nonnull %4)
+  %109 = call fastcc i32 @ddSymmGroupMove(ptr noundef nonnull %0, i32 noundef %.0126153, i32 noundef %.0121155, ptr noundef %4)
   %110 = icmp eq i32 %109, 0
   %.pr.pre = load ptr, ptr %4, align 8
   br i1 %110, label %149, label %111
@@ -2580,7 +2580,7 @@ declare i32 @cuddSwapInPlace(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @cuddDynamicAllocNode(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64

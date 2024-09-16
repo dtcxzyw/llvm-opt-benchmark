@@ -505,7 +505,7 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_118readNetFr
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
 _ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %46, %54, %57
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(296) %5, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(296) %5, ptr noundef %6)
           to label %59 unwind label %62
 
 59:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
@@ -663,7 +663,7 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_118readNetFr
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
 _ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %44, %52, %55
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(296) %4, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(296) %4, ptr noundef %5)
           to label %57 unwind label %60
 
 57:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
@@ -823,7 +823,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052118readNetFromDarknetERKSt6vectorIhSaIhEES
 declare void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

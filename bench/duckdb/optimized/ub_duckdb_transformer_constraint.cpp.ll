@@ -928,7 +928,7 @@ _ZN6duckdb10unique_ptrINS_16ParsedExpressionESt14default_deleteIS1_ELb1EE13Asser
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL29TransformForeignKeyConstraintEPN17duckdb_libpgquery12PGConstraintENS_12optional_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef readonly %constraint, ptr %override_fk_column.coerce) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL29TransformForeignKeyConstraintEPN17duckdb_libpgquery12PGConstraintENS_12optional_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef readonly %constraint, ptr %override_fk_column.coerce) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1380,7 +1380,7 @@ cleanup.action80:                                 ; preds = %ehcleanup75, %_ZNKS
   br label %ehcleanup84
 
 if.end82:                                         ; preds = %if.end63
-  invoke void @_ZN6duckdb9make_uniqINS_20ForeignKeyConstraintEJRNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEESA_NS_14ForeignKeyInfoEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.67") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %pk_columns, ptr noundef nonnull align 8 dereferenceable(24) %fk_columns, ptr noundef nonnull align 8 dereferenceable(120) %fk_info)
+  invoke void @_ZN6duckdb9make_uniqINS_20ForeignKeyConstraintEJRNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEESA_NS_14ForeignKeyInfoEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.67") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %pk_columns, ptr noundef nonnull align 8 dereferenceable(24) %fk_columns, ptr noundef nonnull align 8 dereferenceable(120) %fk_info)
           to label %invoke.cont83 unwind label %lpad10
 
 invoke.cont83:                                    ; preds = %if.end82

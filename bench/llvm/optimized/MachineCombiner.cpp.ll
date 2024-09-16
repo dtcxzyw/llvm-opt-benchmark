@@ -891,7 +891,7 @@ _ZNK4llvm16TargetSchedModel31hasInstrSchedModelOrItinerariesEv.exit.i.i: ; preds
 
 _ZNK4llvm16TargetSchedModel31hasInstrSchedModelOrItinerariesEv.exit.thread.i.i: ; preds = %_ZNK4llvm16TargetSchedModel31hasInstrSchedModelOrItinerariesEv.exit.i.i, %220
   %223 = load ptr, ptr %115, align 8
-  %224 = call { ptr, ptr } @_ZN4llvm19MachineTraceMetrics8Ensemble8getTraceEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(440) %223, ptr noundef %.sroa.041.061) #17
+  %224 = call { ptr, ptr } @_ZN4llvm19MachineTraceMetrics8Ensemble8getTraceEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(440) %223, ptr noundef nonnull %.sroa.041.061) #17
   %225 = extractvalue { ptr, ptr } %224, 0
   %226 = extractvalue { ptr, ptr } %224, 1
   %227 = call fastcc i64 @_ZN12_GLOBAL__N_115MachineCombiner29getLatenciesForInstrSequencesERN4llvm12MachineInstrERNS1_15SmallVectorImplIPS2_EES7_NS1_19MachineTraceMetrics5TraceE(ptr noundef nonnull align 8 dereferenceable(801) %0, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %225, ptr %226)
@@ -1020,7 +1020,7 @@ _ZNK4llvm17MachineBasicBlock4sizeEv.exit.thread.i: ; preds = %_ZNK4llvm17Machine
   %.6.i = phi i8 [ %spec.select126.i, %_ZNK4llvm17MachineBasicBlock4sizeEv.exit.i ], [ %.273148.i, %269 ]
   %276 = load ptr, ptr %115, align 8
   %277 = load ptr, ptr %26, align 8
-  call fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef nonnull %.sroa.041.061, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %276, ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef %277, i32 noundef %252, i1 noundef zeroext %.pre-phi.i)
+  call fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef %.sroa.041.061, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %276, ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef %277, i32 noundef %252, i1 noundef zeroext %.pre-phi.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0116.2146.i, align 8
   %278 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %279 = inttoptr i64 %278 to ptr
@@ -1063,7 +1063,7 @@ _ZN12_GLOBAL__N_115MachineCombiner20getCombinerObjectiveEj.exit.thread.i: ; pred
 295:                                              ; preds = %289
   %296 = load ptr, ptr %115, align 8
   %297 = load ptr, ptr %26, align 8
-  call fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef nonnull %.sroa.041.061, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %296, ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef %297, i32 noundef %252, i1 noundef zeroext %259)
+  call fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef %.sroa.041.061, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %296, ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef %297, i32 noundef %252, i1 noundef zeroext %259)
   br label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEi.exit.i
 
 298:                                              ; preds = %289, %_ZN12_GLOBAL__N_115MachineCombiner20getCombinerObjectiveEj.exit.thread.i
@@ -1078,7 +1078,7 @@ _ZN12_GLOBAL__N_115MachineCombiner20getCombinerObjectiveEj.exit.thread.i: ; pred
 303:                                              ; preds = %299
   %304 = load ptr, ptr %115, align 8
   %305 = load ptr, ptr %26, align 8
-  call fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef nonnull %.sroa.041.061, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %304, ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef %305, i32 noundef %252, i1 noundef zeroext %259)
+  call fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef %.sroa.041.061, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %304, ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef %305, i32 noundef %252, i1 noundef zeroext %259)
   br label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEi.exit.i
 
 306:                                              ; preds = %299, %298
@@ -1860,7 +1860,7 @@ _ZNK4llvm17MachineBasicBlock4sizeEv.exit104.thread.i: ; preds = %_ZNK4llvm17Mach
   %.7.i = phi i8 [ %spec.select128.i, %_ZNK4llvm17MachineBasicBlock4sizeEv.exit104.i ], [ %.273148.i, %710 ]
   %717 = load ptr, ptr %115, align 8
   %718 = load ptr, ptr %26, align 8
-  call fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef nonnull %.sroa.041.061, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %717, ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef %718, i32 noundef %252, i1 noundef zeroext %.pre-phi179.i)
+  call fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef %.sroa.041.061, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0116.0161.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %717, ptr noundef nonnull align 8 dereferenceable(222) %14, ptr noundef %718, i32 noundef %252, i1 noundef zeroext %.pre-phi179.i)
   br label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEi.exit.i
 
 719:                                              ; preds = %_ZN12_GLOBAL__N_115MachineCombiner20preservesResourceLenEPN4llvm17MachineBasicBlockENS1_19MachineTraceMetrics5TraceERNS1_15SmallVectorImplIPNS1_12MachineInstrEEESA_.exit.i, %709, %_ZN12_GLOBAL__N_115MachineCombiner23improvesCriticalPathLenEPN4llvm17MachineBasicBlockEPNS1_12MachineInstrENS1_19MachineTraceMetrics5TraceERNS1_15SmallVectorImplIS5_EESA_RNS1_8DenseMapIjjNS1_12DenseMapInfoIjvEENS1_6detail12DenseMapPairIjjEEEEjb.exit.i, %_ZN12_GLOBAL__N_115MachineCombiner20getCombinerObjectiveEj.exit.thread.i.i
@@ -2393,7 +2393,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare void @_ZN4llvm19MachineTraceMetrics8Ensemble12updateDepthsENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES4_RNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEE(ptr noundef nonnull align 8 dereferenceable(440), ptr, ptr, ptr noundef nonnull align 8 dereferenceable(222)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(222) %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @_ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_15SmallVectorImplIPS2_EES7_PNS_19MachineTraceMetrics8EnsembleERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEEPKNS_15TargetInstrInfoEjb(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(222) %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %7, ptr %10, align 4
   %11 = load ptr, ptr %6, align 8
@@ -2528,13 +2528,13 @@ _ZN4llvm9SparseSetINS_11LiveRegUnitENS_8identityIjEEhE5eraseEPS1_.exit: ; preds 
 .lr.ph63:                                         ; preds = %74, %.lr.ph63
   %.04361 = phi ptr [ %79, %.lr.ph63 ], [ %75, %74 ]
   %78 = load ptr, ptr %.04361, align 8
-  call void @_ZN4llvm19MachineTraceMetrics8Ensemble11updateDepthEPKNS_17MachineBasicBlockERKNS_12MachineInstrERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEE(ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(70) %78, ptr noundef nonnull align 8 dereferenceable(222) %5) #17
+  call void @_ZN4llvm19MachineTraceMetrics8Ensemble11updateDepthEPKNS_17MachineBasicBlockERKNS_12MachineInstrERNS_9SparseSetINS_11LiveRegUnitENS_8identityIjEEhEE(ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(70) %78, ptr noundef nonnull align 8 dereferenceable(222) %5) #17
   %79 = getelementptr inbounds i8, ptr %.04361, i64 8
   %.not46 = icmp eq ptr %79, %77
   br i1 %.not46, label %.loopexit, label %.lr.ph63
 
 80:                                               ; preds = %._crit_edge59
-  call void @_ZN4llvm19MachineTraceMetrics8Ensemble10invalidateEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef %0) #17
+  call void @_ZN4llvm19MachineTraceMetrics8Ensemble10invalidateEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef nonnull %0) #17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph63, %74, %80

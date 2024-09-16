@@ -381,7 +381,7 @@ stream_write_bits.exit.i.i:                       ; preds = %183, %rev_precision
   store i64 %195, ptr %178, align 8
   %reass.sub = sub i32 %120, %.029.i
   %196 = add i32 %reass.sub, -6
-  %197 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %117, i32 noundef %196, i32 noundef %173, ptr noundef nonnull %6)
+  %197 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %117, i32 noundef %196, i32 noundef %173, ptr noundef %6)
   %198 = add i32 %197, 6
   %199 = icmp ult i32 %198, %161
   br i1 %199, label %200, label %rev_encode_block_int64_2.exit.i
@@ -624,7 +624,7 @@ fwd_xform_int64_2.exit.i.i:                       ; preds = %.preheader.i.i.i17,
 fwd_order_int64.exit.i.i22:                       ; preds = %fwd_xform_int64_2.exit.i.i
   %332 = tail call i32 @llvm.usub.sat.i32(i32 %271, i32 12)
   %333 = add i32 %273, -12
-  %334 = call fastcc i32 @encode_ints_uint64(ptr noundef %270, i32 noundef %333, i32 noundef %233, ptr noundef nonnull %3)
+  %334 = call fastcc i32 @encode_ints_uint64(ptr noundef %270, i32 noundef %333, i32 noundef %233, ptr noundef %3)
   %335 = icmp ult i32 %334, %332
   br i1 %335, label %336, label %encode_block_int64_2.exit.i
 
@@ -745,7 +745,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @encode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #5 {
+define internal fastcc i32 @encode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull readonly %3) unnamed_addr #5 {
   %.sroa.24.i = alloca { ptr, ptr }, align 8
   %5 = shl i32 %2, 4
   %6 = or disjoint i32 %5, 15

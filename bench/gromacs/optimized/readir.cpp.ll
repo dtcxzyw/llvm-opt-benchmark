@@ -10098,7 +10098,7 @@ _ZN3gmx19KeyValueTreeBuilderD2Ev.exit:            ; preds = %_ZNSt6vectorIN3gmx2
   %indvars.iv.i = phi i64 [ 0, %1958 ], [ %indvars.iv.next.i, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ]
   %1967 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1960, i64 %indvars.iv.i
   %1968 = getelementptr inbounds [7 x i32], ptr %21, i64 0, i64 %indvars.iv.i
-  invoke fastcc void @_ZL12parse_n_realRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiP14WarningHandler(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %1967, ptr noundef nonnull %1968, ptr noundef %6)
+  invoke fastcc void @_ZL12parse_n_realRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiP14WarningHandler(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %1967, ptr noundef %1968, ptr noundef %6)
           to label %1969 unwind label %.loopexit.split-lp.loopexit.i
 
 1969:                                             ; preds = %1966
@@ -10412,7 +10412,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %2032, %2030, %2028,
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc123.i
-  invoke fastcc void @_ZL12parse_n_realRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiP14WarningHandler(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull %19, ptr noundef %6)
+  invoke fastcc void @_ZL12parse_n_realRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiP14WarningHandler(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %19, ptr noundef %6)
           to label %2095 unwind label %2127
 
 2095:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -16035,7 +16035,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12parse_n_realRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiP14WarningHandler(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12parse_n_realRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiP14WarningHandler(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22961,12 +22961,12 @@ declare void @_Z10init_indexPKc(ptr dead_on_unwind writable sret(%"class.std::ve
 declare noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL12do_numberingiP16SimulationGroupsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS2_IK10IndexGroupEE23SimulationAtomGroupTypei13GroupCoveragebP14WarningHandler(i32 noundef %0, ptr nocapture noundef %1, ptr %2, ptr %3, ptr %4, ptr %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef %10) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL12do_numberingiP16SimulationGroupsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS2_IK10IndexGroupEE23SimulationAtomGroupTypei13GroupCoveragebP14WarningHandler(i32 noundef %0, ptr nocapture noundef %1, ptr %2, ptr %3, ptr %4, ptr %5, i32 noundef range(i32 0, 10) %6, i32 noundef %7, i32 noundef range(i32 0, 4) %8, i1 noundef zeroext %9, ptr noundef %10) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %13 = alloca [4096 x i8], align 16
   %14 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %15 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %16 = sext i32 %6 to i64
+  %16 = zext nneg i32 %6 to i64
   %17 = getelementptr inbounds [10 x %"class.std::vector.375"], ptr %1, i64 0, i64 %16
   %18 = tail call noundef ptr @_Z9shortName23SimulationAtomGroupType(i32 noundef %6)
   %19 = sext i32 %0 to i64
@@ -23573,7 +23573,7 @@ declare void @_ZN3gmx19IndexGroupsAndNamesC1ENS_8ArrayRefIK10IndexGroupEE(ptr no
 declare noundef ptr @_Z9shortName23SimulationAtomGroupType(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL11do_egp_flagP10t_inputrecP16SimulationGroupsPKcS4_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL11do_egp_flagP10t_inputrecP16SimulationGroupsPKcS4_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 3) %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1

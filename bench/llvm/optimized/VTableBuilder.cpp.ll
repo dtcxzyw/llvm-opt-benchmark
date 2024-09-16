@@ -7735,7 +7735,7 @@ _ZNK12_GLOBAL__N_115FinalOverriders12getOverriderEPKN5clang13CXXMethodDeclENS1_9
   %.sroa.0158.3.i.i = phi ptr [ %.sroa.0158.0.copyload.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKN5clang13CXXMethodDeclENS3_9CharUnitsEEN12_GLOBAL__N_115FinalOverriders13OverriderInfoENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SB_EEEES8_SB_SD_SG_E6doFindIS8_EEPKSG_RKT_.exit.i.i.i.i ], [ null, %1503 ], [ null, %.lr.ph.i.i.i.i51.i.i ]
   %1549 = getelementptr i8, ptr %.sroa.0160.0190.i.i, i64 48
   %.val38.i.i = load i64, ptr %1549, align 8
-  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(23096) %62, ptr noundef %.sroa.0158.3.i.i, i64 %.val38.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(23096) %62, ptr noundef %.sroa.0158.3.i.i, i64 %.val38.i.i)
   %.val39.i.i = load ptr, ptr %88, align 8
   %.val40.i.i = load i64, ptr %89, align 8
   %1550 = icmp eq i64 %.val40.i.i, 0
@@ -20238,7 +20238,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImN5clang9ThunkInfoENS_12DenseMapInfoImvEENS
   br i1 %434, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImN5clang9ThunkInfoENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6lookupERKm.exit.thread.i, label %435
 
 435:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapImN5clang9ThunkInfoENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6lookupERKm.exit.i, %_ZNK12_GLOBAL__N_115FinalOverriders12getOverriderEPKN5clang13CXXMethodDeclENS1_9CharUnitsE.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_120ItaniumVTableBuilder21ComputeThisAdjustmentEPKN5clang13CXXMethodDeclENS1_9CharUnitsENS_15FinalOverriders13OverriderInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef %351, i64 %405, ptr %.sroa.049.2.i, i64 %.sroa.451.2.i)
+  call fastcc void @_ZN12_GLOBAL__N_120ItaniumVTableBuilder21ComputeThisAdjustmentEPKN5clang13CXXMethodDeclENS1_9CharUnitsENS_15FinalOverriders13OverriderInfoE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef %351, i64 %405, ptr %.sroa.049.2.i, i64 %.sroa.451.2.i)
   %436 = load i64, ptr %9, align 8
   %.not.i30.i = icmp eq i64 %436, 0
   br i1 %.not.i30.i, label %_ZNK5clang14ThisAdjustment7isEmptyEv.exit.i, label %_ZNK5clang14ThisAdjustment7isEmptyEv.exit.thread.i
@@ -21352,7 +21352,7 @@ _ZNK12_GLOBAL__N_115FinalOverriders12getOverriderEPKN5clang13CXXMethodDeclENS1_9
   %140 = load ptr, ptr %27, align 8
   %141 = getelementptr i8, ptr %138, i64 48
   %.val56 = load i64, ptr %141, align 8
-  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(23096) %140, ptr noundef nonnull %96, i64 %.val56)
+  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(23096) %140, ptr noundef nonnull %96, i64 %.val56)
   %.val59 = load ptr, ptr %67, align 8
   %.val60 = load i64, ptr %68, align 8
   %142 = icmp eq i64 %.val60, 0
@@ -21619,7 +21619,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120It
   br i1 %or.cond, label %_ZN5clang17VTableContextBase13hasVtableSlotEPKNS_13CXXMethodDeclE.exit.thread, label %264
 
 264:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_120ItaniumVTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5eraseERKS5_.exit
-  call fastcc void @_ZN12_GLOBAL__N_120ItaniumVTableBuilder21ComputeThisAdjustmentEPKN5clang13CXXMethodDeclENS1_9CharUnitsENS_15FinalOverriders13OverriderInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull %138, i64 %3, ptr %.sroa.0215.2, i64 %.sroa.7.2)
+  call fastcc void @_ZN12_GLOBAL__N_120ItaniumVTableBuilder21ComputeThisAdjustmentEPKN5clang13CXXMethodDeclENS1_9CharUnitsENS_15FinalOverriders13OverriderInfoE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull %138, i64 %3, ptr %.sroa.0215.2, i64 %.sroa.7.2)
   %265 = load i64, ptr %76, align 8
   %.not52 = icmp eq i64 %265, 0
   br i1 %.not52, label %_ZN5clang17VTableContextBase13hasVtableSlotEPKNS_13CXXMethodDeclE.exit.thread, label %266
@@ -21652,7 +21652,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %266, %274
   %282 = load ptr, ptr %27, align 8
   %283 = getelementptr i8, ptr %96, i64 48
   %.val57 = load i64, ptr %283, align 8
-  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(23096) %282, ptr noundef %.sroa.0215.2, i64 %.val57)
+  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(23096) %282, ptr noundef %.sroa.0215.2, i64 %.val57)
   %.sroa.0244.0.copyload = load ptr, ptr %21, align 8
   %.sroa.2245.0.copyload = load ptr, ptr %.sroa.2245.0..sroa_idx, align 8
   %.sroa.3246.0.copyload = load i64, ptr %.sroa.3246.0..sroa_idx, align 8
@@ -22236,7 +22236,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang15VTableComponentELb1EE9push_backES2_.e
   %580 = load ptr, ptr %27, align 8
   %581 = getelementptr i8, ptr %394, i64 48
   %.val58 = load i64, ptr %581, align 8
-  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(23096) %580, ptr noundef nonnull %.sroa.0199.1, i64 %.val58)
+  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(23096) %580, ptr noundef nonnull %.sroa.0199.1, i64 %.val58)
   %.sroa.0253.0.copyload = load ptr, ptr %24, align 8
   %.sroa.3254.0.copyload = load ptr, ptr %.sroa.3254.0..sroa_idx, align 8
   %.sroa.4255.0.copyload = load i64, ptr %.sroa.4255.0..sroa_idx, align 8
@@ -23648,7 +23648,7 @@ _ZN4llvm11SmallPtrSetIPKN5clang13CXXMethodDeclELj8EED2Ev.exit: ; preds = %.loope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef readonly %2, i64 %.48.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef readonly %2, i64 %.48.val) unnamed_addr #0 {
   %4 = alloca %"class.clang::CXXBasePaths", align 8
   %5 = and i64 %.48.val, -16
   %6 = inttoptr i64 %5 to ptr
@@ -23891,7 +23891,7 @@ _ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDecl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120ItaniumVTableBuilder21ComputeThisAdjustmentEPKN5clang13CXXMethodDeclENS1_9CharUnitsENS_15FinalOverriders13OverriderInfoE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(920) %1, ptr noundef %2, i64 %3, ptr %.0.val, i64 %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120ItaniumVTableBuilder21ComputeThisAdjustmentEPKN5clang13CXXMethodDeclENS1_9CharUnitsENS_15FinalOverriders13OverriderInfoE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(920) %1, ptr noundef %2, i64 %3, ptr %.0.val, i64 %.16.val) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CXXBasePaths", align 8
   %6 = alloca %"struct.(anonymous namespace)::BaseOffset", align 8
   %7 = alloca %"class.(anonymous namespace)::VCallAndVBaseOffsetBuilder", align 8
@@ -24011,7 +24011,7 @@ _ZN5clang12CXXBasePathsC2Ebbb.exit.i:             ; preds = %.lr.ph.i.i.i.i.i
   %.sroa.015.024.i = phi ptr [ %57, %.lr.ph.i ], [ %77, %76 ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.015.024.i, i64 16
   %64 = load ptr, ptr %58, align 8, !noalias !391
-  call fastcc void @_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclERKNS0_11CXXBasePathE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(23096) %64, ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(128) %63)
+  call fastcc void @_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclERKNS0_11CXXBasePathE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(23096) %64, ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(128) %63)
   %65 = load i64, ptr %59, align 8, !alias.scope !391
   %66 = load ptr, ptr %60, align 8
   %.not.i = icmp eq ptr %66, null
@@ -24898,7 +24898,7 @@ declare noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 d
 declare noundef zeroext i1 @_ZNK5clang13CXXRecordDecl13isDerivedFromEPKS0_RNS_12CXXBasePathsE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef, ptr noundef nonnull align 8 dereferenceable(371)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclERKNS0_11CXXBasePathE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclERKNS0_11CXXBasePathE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3) unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
   %6 = load ptr, ptr %3, align 8
   %sext = shl i64 %5, 32
@@ -30695,7 +30695,7 @@ _ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.thread9.i.i.i.i.i17.i.i: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN5clang9ThunkInfoElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SE_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%"struct.clang::ThunkInfo") align 8 %3) unnamed_addr #18 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN5clang9ThunkInfoElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SE_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 82351536043346212) %1, i64 noundef range(i64 -164703072086692425, 164703072086692426) %2, ptr nocapture noundef readonly byval(%"struct.clang::ThunkInfo") align 8 %3) unnamed_addr #18 {
   %5 = alloca %"struct.clang::ThunkInfo", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -32277,7 +32277,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt17reference_wrapperIN5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang8VPtrInfoEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang8VPtrInfoEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -35893,7 +35893,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VF
   %1218 = load ptr, ptr %41, align 8
   %1219 = getelementptr i8, ptr %335, i64 48
   %.val71 = load i64, ptr %1219, align 8
-  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(23096) %1218, ptr noundef nonnull %293, i64 %.val71)
+  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(23096) %1218, ptr noundef nonnull %293, i64 %.val71)
   %.val74 = load ptr, ptr %278, align 8
   %.val75 = load i64, ptr %279, align 8
   %1220 = icmp eq i64 %.val75, 0
@@ -35923,7 +35923,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VF
   store i64 %1229, ptr %.sroa.2224.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.3225.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.4226.0..sroa_idx, align 1
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VFTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6insertEOSt4pairIS5_S8_E(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 1 dereferenceable(1) %276, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VFTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6insertEOSt4pairIS5_S8_E(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 1 dereferenceable(1) %276, ptr noundef nonnull align 8 dereferenceable(32) %27)
   br label %.critedge
 
 .thread275:                                       ; preds = %1214, %1222
@@ -35970,7 +35970,7 @@ _ZNK5clang14ThisAdjustment7isEmptyEv.exit:        ; preds = %1234, %.thread275, 
   store i64 %1247, ptr %.sroa.2.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.3220.0..sroa_idx, align 8
   store i8 %1248, ptr %.sroa.4221.0..sroa_idx, align 1
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VFTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6insertEOSt4pairIS5_S8_E(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 1 dereferenceable(1) %276, ptr noundef nonnull align 8 dereferenceable(32) %29)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VFTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6insertEOSt4pairIS5_S8_E(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 1 dereferenceable(1) %276, ptr noundef nonnull align 8 dereferenceable(32) %29)
   %1249 = getelementptr inbounds i8, ptr %.sroa.0238.1, i64 82
   %1250 = load i32, ptr %1249, align 2
   %1251 = and i32 %1250, 8
@@ -35981,7 +35981,7 @@ _ZNK5clang14ThisAdjustment7isEmptyEv.exit:        ; preds = %1234, %.thread275, 
   %1253 = load ptr, ptr %41, align 8
   %1254 = getelementptr i8, ptr %293, i64 48
   %.val70 = load i64, ptr %1254, align 8
-  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(23096) %1253, ptr noundef nonnull %.sroa.0238.1, i64 %.val70)
+  call fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffsetERN5clang10ASTContextEPKNS0_13CXXMethodDeclES5_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(23096) %1253, ptr noundef nonnull %.sroa.0238.1, i64 %.val70)
   %.sroa.4215.0.copyload = load ptr, ptr %.sroa.4215.0..sroa_idx, align 8
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
   %1255 = icmp ne i64 %.sroa.7.0.copyload, 0
@@ -36290,7 +36290,7 @@ _ZN4llvm11SmallVectorIPKN5clang13CXXMethodDeclELj10EED2Ev.exit: ; preds = %1397,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VFTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6insertEOSt4pairIS5_S8_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEN12_GLOBAL__N_114VFTableBuilder10MethodInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6insertEOSt4pairIS5_S8_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !498)
   %.val9.i = load ptr, ptr %1, align 8, !noalias !498

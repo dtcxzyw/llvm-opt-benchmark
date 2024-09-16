@@ -338,11 +338,11 @@ define internal range(i32 0, -2147483648) i32 @dissect_cp2179(ptr noundef %0, pt
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %17) #3
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %13, %.outer.i
-  %.0.ph39.i = phi i32 [ %27, %.outer.i ], [ %5, %13 ]
-  %.026.ph38.i = phi i32 [ %26, %.outer.i ], [ 0, %13 ]
-  %.027.ph37.i = phi ptr [ %28, %.outer.i ], [ %18, %13 ]
-  %.028.ph36.i = phi ptr [ %29, %.outer.i ], [ %14, %13 ]
+.lr.ph.i:                                         ; preds = %.outer.i, %13
+  %.0.ph39.i = phi i32 [ %5, %13 ], [ %27, %.outer.i ]
+  %.026.ph38.i = phi i32 [ 0, %13 ], [ %26, %.outer.i ]
+  %.027.ph37.i = phi ptr [ %18, %13 ], [ %28, %.outer.i ]
+  %.028.ph36.i = phi ptr [ %14, %13 ], [ %29, %.outer.i ]
   br label %19
 
 19:                                               ; preds = %31, %.lr.ph.i

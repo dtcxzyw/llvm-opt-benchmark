@@ -1059,7 +1059,7 @@ if.then6:                                         ; preds = %invoke.cont3
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %if.then6
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133CertificateValidationContextParseERKNS_15XdsResourceType13DecodeContextEPK70envoy_extensions_transport_sockets_tls_v3_CertificateValidationContextPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %4, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133CertificateValidationContextParseERKNS_15XdsResourceType13DecodeContextEPK70envoy_extensions_transport_sockets_tls_v3_CertificateValidationContextPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %4, ptr noundef nonnull %errors)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -1158,7 +1158,7 @@ if.then18:                                        ; preds = %_ZNK9grpc_core16Com
           to label %invoke.cont21 unwind label %lpad2
 
 invoke.cont21:                                    ; preds = %if.then18
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132CertificateProviderInstanceParseERKNS_15XdsResourceType13DecodeContextEPK86envoy_extensions_transport_sockets_tls_v3_CommonTlsContext_CertificateProviderInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %16, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132CertificateProviderInstanceParseERKNS_15XdsResourceType13DecodeContextEPK86envoy_extensions_transport_sockets_tls_v3_CommonTlsContext_CertificateProviderInstancePNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %16, ptr noundef nonnull %errors)
           to label %if.then.i56 unwind label %lpad23
 
 if.then.i56:                                      ; preds = %invoke.cont21
@@ -1217,7 +1217,7 @@ if.then32:                                        ; preds = %invoke.cont29
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %if.then32
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133CertificateValidationContextParseERKNS_15XdsResourceType13DecodeContextEPK70envoy_extensions_transport_sockets_tls_v3_CertificateValidationContextPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %24, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133CertificateValidationContextParseERKNS_15XdsResourceType13DecodeContextEPK70envoy_extensions_transport_sockets_tls_v3_CertificateValidationContextPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %24, ptr noundef nonnull %errors)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
@@ -1326,7 +1326,7 @@ if.then59:                                        ; preds = %invoke.cont56
           to label %invoke.cont62 unwind label %lpad
 
 invoke.cont62:                                    ; preds = %if.then59
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_138CertificateProviderPluginInstanceParseERKNS_15XdsResourceType13DecodeContextEPK75envoy_extensions_transport_sockets_tls_v3_CertificateProviderPluginInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %37, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_138CertificateProviderPluginInstanceParseERKNS_15XdsResourceType13DecodeContextEPK75envoy_extensions_transport_sockets_tls_v3_CertificateProviderPluginInstancePNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %37, ptr noundef nonnull %errors)
           to label %if.then.i114 unwind label %lpad64
 
 if.then.i114:                                     ; preds = %invoke.cont62
@@ -1364,7 +1364,7 @@ if.then73:                                        ; preds = %invoke.cont70
           to label %invoke.cont76 unwind label %lpad
 
 invoke.cont76:                                    ; preds = %if.then73
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132CertificateProviderInstanceParseERKNS_15XdsResourceType13DecodeContextEPK86envoy_extensions_transport_sockets_tls_v3_CommonTlsContext_CertificateProviderInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %42, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132CertificateProviderInstanceParseERKNS_15XdsResourceType13DecodeContextEPK86envoy_extensions_transport_sockets_tls_v3_CommonTlsContext_CertificateProviderInstancePNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %42, ptr noundef nonnull %errors)
           to label %if.then.i127 unwind label %lpad78
 
 if.then.i127:                                     ; preds = %invoke.cont76
@@ -1541,7 +1541,7 @@ ehcleanup132:                                     ; preds = %lpad128, %lpad117, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_133CertificateValidationContextParseERKNS_15XdsResourceType13DecodeContextEPK70envoy_extensions_transport_sockets_tls_v3_CertificateValidationContextPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %certificate_validation_context_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_133CertificateValidationContextParseERKNS_15XdsResourceType13DecodeContextEPK70envoy_extensions_transport_sockets_tls_v3_CertificateValidationContextPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %certificate_validation_context_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i123 = alloca %"class.std::allocator.3", align 1
   %ref.tmp.i107 = alloca %"class.std::allocator.3", align 1
@@ -1956,7 +1956,7 @@ if.then114:                                       ; preds = %invoke.cont111
           to label %invoke.cont117 unwind label %lpad.loopexit.split-lp
 
 invoke.cont117:                                   ; preds = %if.then114
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_138CertificateProviderPluginInstanceParseERKNS_15XdsResourceType13DecodeContextEPK75envoy_extensions_transport_sockets_tls_v3_CertificateProviderPluginInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %45, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_138CertificateProviderPluginInstanceParseERKNS_15XdsResourceType13DecodeContextEPK75envoy_extensions_transport_sockets_tls_v3_CertificateProviderPluginInstancePNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %45, ptr noundef nonnull %errors)
           to label %if.then.i158 unwind label %lpad119
 
 if.then.i158:                                     ; preds = %invoke.cont117
@@ -2276,7 +2276,7 @@ _ZNSt6vectorIN9grpc_core13StringMatcherESaIS1_EED2Ev.exit: ; preds = %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_132CertificateProviderInstanceParseERKNS_15XdsResourceType13DecodeContextEPK86envoy_extensions_transport_sockets_tls_v3_CommonTlsContext_CertificateProviderInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %certificate_provider_instance_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_132CertificateProviderInstanceParseERKNS_15XdsResourceType13DecodeContextEPK86envoy_extensions_transport_sockets_tls_v3_CommonTlsContext_CertificateProviderInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %certificate_provider_instance_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i16 = alloca %"class.std::allocator.3", align 1
   %ref.tmp.i = alloca %"class.std::allocator.3", align 1
@@ -2454,7 +2454,7 @@ ehcleanup37:                                      ; preds = %lpad.i, %lpad.i18, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_138CertificateProviderPluginInstanceParseERKNS_15XdsResourceType13DecodeContextEPK75envoy_extensions_transport_sockets_tls_v3_CertificateProviderPluginInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %certificate_provider_plugin_instance_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_138CertificateProviderPluginInstanceParseERKNS_15XdsResourceType13DecodeContextEPK75envoy_extensions_transport_sockets_tls_v3_CertificateProviderPluginInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %certificate_provider_plugin_instance_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i16 = alloca %"class.std::allocator.3", align 1
   %ref.tmp.i = alloca %"class.std::allocator.3", align 1

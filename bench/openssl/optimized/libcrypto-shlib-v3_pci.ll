@@ -143,7 +143,7 @@ land.rhs:                                         ; preds = %if.then16, %for.bod
 
 for.body31:                                       ; preds = %land.rhs
   %call33 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call18, i32 noundef %j.042) #4
-  %call34 = call fastcc i32 @process_pci_value(ptr noundef %call33, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy)
+  %call34 = call fastcc i32 @process_pci_value(ptr noundef %call33, ptr noundef %language, ptr noundef %pathlen, ptr noundef %policy)
   %inc = add nuw nsw i32 %j.042, 1
   %tobool26.not = icmp eq i32 %call34, 0
   br i1 %tobool26.not, label %err.critedge, label %land.rhs, !llvm.loop !4
@@ -153,7 +153,7 @@ for.end:                                          ; preds = %land.rhs
   br label %for.inc46
 
 if.else:                                          ; preds = %land.lhs.true
-  %call38 = call fastcc i32 @process_pci_value(ptr noundef nonnull %call4, ptr noundef nonnull %language, ptr noundef nonnull %pathlen, ptr noundef nonnull %policy)
+  %call38 = call fastcc i32 @process_pci_value(ptr noundef nonnull %call4, ptr noundef %language, ptr noundef %pathlen, ptr noundef %policy)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.then40, label %for.inc46
 
@@ -267,7 +267,7 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #0
 declare ptr @X509V3_get_section(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef %language, ptr noundef %pathlen, ptr nocapture noundef %policy) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef nonnull %language, ptr noundef nonnull %pathlen, ptr nocapture noundef nonnull %policy) unnamed_addr #1 {
 entry:
   %val_len = alloca i64, align 8
   %buf = alloca [2048 x i8], align 16

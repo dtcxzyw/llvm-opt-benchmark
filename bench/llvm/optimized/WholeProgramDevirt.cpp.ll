@@ -4314,7 +4314,7 @@ _ZN12_GLOBAL__N_112DevirtModule17scanTypeTestUsersEPN4llvm8FunctionERNS1_8DenseM
   br i1 %.not222, label %468, label %467
 
 467:                                              ; preds = %466
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule24scanTypeCheckedLoadUsersEPN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull %113)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule24scanTypeCheckedLoadUsersEPN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef %113)
   br label %468
 
 468:                                              ; preds = %467, %466
@@ -4322,7 +4322,7 @@ _ZN12_GLOBAL__N_112DevirtModule17scanTypeTestUsersEPN4llvm8FunctionERNS1_8DenseM
   br i1 %.not223, label %470, label %469
 
 469:                                              ; preds = %468
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule24scanTypeCheckedLoadUsersEPN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull %118)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule24scanTypeCheckedLoadUsersEPN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef %118)
   br label %470
 
 470:                                              ; preds = %469, %468
@@ -4585,7 +4585,7 @@ _ZNKSt3mapISt6vectorImSaImEEN4llvm28WholeProgramDevirtResolution5ByArgESt4lessIS
   %588 = ashr exact i64 %540, 3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60)
   %589 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr nonnull %.sroa.0155.0.copyload, i64 %.sroa.2156.0.copyload, ptr %535, i64 %588, ptr nonnull @.str.156, i64 13)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %60, ptr nonnull %.sroa.0155.0.copyload, i64 %.sroa.2156.0.copyload, ptr %535, i64 %588, ptr nonnull @.str.156, i64 13)
   %590 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #22
   %591 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #22
   %592 = load ptr, ptr %481, align 8
@@ -4655,7 +4655,7 @@ _ZNKSt3mapISt6vectorImSaImEEN4llvm28WholeProgramDevirtResolution5ByArgESt4lessIS
 
 626:                                              ; preds = %._crit_edge.i260
   %627 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr nonnull %.sroa.0155.0.copyload, i64 %.sroa.2156.0.copyload, ptr null, i64 0, ptr nonnull @.str.159, i64 13)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %65, ptr nonnull %.sroa.0155.0.copyload, i64 %.sroa.2156.0.copyload, ptr null, i64 0, ptr nonnull @.str.159, i64 13)
   %628 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #22
   %629 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #22
   %630 = load ptr, ptr %0, align 8
@@ -7285,7 +7285,7 @@ _ZN12_GLOBAL__N_112DevirtModule19tryVirtualConstPropEN4llvm15MutableArrayRefINS1
   br i1 %1813, label %1817, label %1826
 
 1817:                                             ; preds = %.thread.i
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr nonnull %.sroa.0552.0.copyload, i64 %.sroa.2553.0.copyload, ptr null, i64 0, ptr nonnull @.str.159, i64 13)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %20, ptr nonnull %.sroa.0552.0.copyload, i64 %.sroa.2553.0.copyload, ptr null, i64 0, ptr nonnull @.str.159, i64 13)
   store i8 4, ptr %1154, align 8
   store i8 1, ptr %1155, align 1
   store ptr %20, ptr %19, align 8
@@ -15715,7 +15715,7 @@ define internal fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLO
   tail call fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.0.val)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull %.02) #22
+  tail call fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.02) #22
   %.not = icmp eq ptr %.0.val6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !199
 
@@ -15724,7 +15724,7 @@ define internal fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLO
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -27890,7 +27890,7 @@ declare void @_ZN4llvm4yaml6Output18postflightDocumentEv(ptr noundef nonnull ali
 declare void @_ZN4llvm4yaml6Output12endDocumentsEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DevirtModule24scanTypeCheckedLoadUsersEPN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DevirtModule24scanTypeCheckedLoadUsersEPN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -29901,7 +29901,7 @@ _ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %.critedge.i.i.i.i.i.i.i.i.i.i, %_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
   %294 = phi i1 [ true, %_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i ], [ %292, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %293, %.loopexit.i.loopexit ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %294, ptr noundef nonnull %46, ptr noundef %.sroa.12.0.i9.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #22
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %294, ptr noundef nonnull %46, ptr noundef nonnull %.sroa.12.0.i9.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   %295 = getelementptr inbounds i8, ptr %0, i64 40
   %296 = load i64, ptr %295, align 8
   %297 = add i64 %296, 1
@@ -29910,7 +29910,7 @@ _ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_
 
 _ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread12.i: ; preds = %197, %208, %270, %117, %_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit20.i118.i.i, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit83.i.i, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit20.i62.i.i, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit20.i.i.i
   %.sroa.01.0.ph.i = phi ptr [ %.sroa.021.0.i.i, %_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i ], [ %.08.lcssa.i.i.i25, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit83.i.i ], [ %.sroa.01.0.i.i.i, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit20.i.i.i ], [ %.sroa.01.0.i56.i.i, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit20.i62.i.i ], [ %.sroa.01.0.i112.i.i, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit20.i118.i.i ], [ %.sroa.01.0.i.i.i, %117 ], [ %.sroa.01.0.i112.i.i, %270 ], [ %.08.lcssa.i.i.i25, %208 ], [ %.sroa.01.0.i56.i.i, %197 ]
-  tail call fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull %46) #22
+  tail call fastcc void @_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef %46) #22
   br label %_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit
 
 _ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit: ; preds = %40, %_ZNSt8_Rb_treeISt6vectorImSaImEESt4pairIKS2_N12_GLOBAL__N_112CallSiteInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread12.i, %.loopexit.i, %_ZNKSt4lessISt6vectorImSaImEEEclERKS2_S5_.exit
@@ -32845,7 +32845,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112DevirtModule14importConst
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %28 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.021.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.021.0.copyload, i64 %.sroa.2.0.copyload)
   %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
   %30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -33160,7 +33160,7 @@ _ZN12_GLOBAL__N_112CallSiteInfo10markDevirtEv.exit: ; preds = %._crit_edge, %115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr readonly %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr readonly %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22
@@ -36721,7 +36721,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112DevirtModule14exportConstantENS_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load ptr, ptr %31, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.09.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %10, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.09.0.copyload, i64 %.sroa.2.0.copyload)
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 4, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 33
@@ -37495,7 +37495,7 @@ _ZN12_GLOBAL__N_112DevirtModule13getMemberAddrEPKN4llvm18wholeprogramdevirt14Typ
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %70 = load ptr, ptr %24, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, ptr nonnull @.str.156, i64 13)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, ptr nonnull @.str.156, i64 13)
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 4, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 33

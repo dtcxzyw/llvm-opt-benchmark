@@ -1283,7 +1283,7 @@ define void @_ZN5Yosys5RTLIL16const_reduce_andERKNS0_5ConstES3_bbi(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL20logic_reduce_wrapperENS_5RTLIL5StateEPFS1_S1_S1_ERKNS0_5ConstEi(ptr dead_on_unwind noalias writable align 8 %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL20logic_reduce_wrapperENS_5RTLIL5StateEPFS1_S1_S1_ERKNS0_5ConstEi(ptr dead_on_unwind noalias writable align 8 %0, i8 noundef zeroext range(i8 0, 2) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -1776,7 +1776,7 @@ define void @_ZN5Yosys5RTLIL15const_logic_notERKNS0_5ConstES3_bbi(ptr dead_on_un
   %7 = alloca i32, align 4
   %8 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   %11 = load i32, ptr %7, align 4
@@ -1934,7 +1934,7 @@ _ZN10BigIntegerD2Ev.exit9:                        ; preds = %_ZN5Yosys5RTLIL5Con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.BigUnsigned, align 8
   %6 = alloca %class.BigUnsigned, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -2085,8 +2085,8 @@ define void @_ZN5Yosys5RTLIL15const_logic_andERKNS0_5ConstES3_bbi(ptr dead_on_un
   %10 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
   store i32 -1, ptr %8, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZN5YosysL9logic_andENS_5RTLIL5StateES1_.exit unwind label %63
 
 _ZN5YosysL9logic_andENS_5RTLIL5StateES1_.exit:    ; preds = %6
@@ -2288,8 +2288,8 @@ define void @_ZN5Yosys5RTLIL14const_logic_orERKNS0_5ConstES3_bbi(ptr dead_on_unw
   %10 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
   store i32 -1, ptr %8, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %11 unwind label %62
 
 11:                                               ; preds = %6
@@ -2575,7 +2575,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit7:                  ; preds = %33, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL18const_shift_workerERKNS_5RTLIL5ConstES3_bbiiNS0_5StateE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL18const_shift_workerERKNS_5RTLIL5ConstES3_bbiiNS0_5StateE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef range(i32 -1, 2) %5, i32 noundef %6, i8 noundef zeroext range(i8 0, 3) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca %class.BigInteger, align 8
   %11 = alloca %class.BigInteger, align 8
@@ -2585,7 +2585,7 @@ define internal fastcc void @_ZN5YosysL18const_shift_workerERKNS_5RTLIL5ConstES3
   %15 = alloca %class.BigInteger, align 8
   %16 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %9, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %9)
   invoke void @_ZN10BigIntegerC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %5)
           to label %17 unwind label %42
 
@@ -3087,8 +3087,8 @@ define void @_ZN5Yosys5RTLIL8const_ltERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   %8 = alloca %class.BigInteger, align 8
   %9 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %10 unwind label %67
 
 10:                                               ; preds = %6
@@ -3277,8 +3277,8 @@ define void @_ZN5Yosys5RTLIL8const_leERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   %8 = alloca %class.BigInteger, align 8
   %9 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %10 unwind label %67
 
 10:                                               ; preds = %6
@@ -4022,8 +4022,8 @@ define void @_ZN5Yosys5RTLIL8const_geERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   %8 = alloca %class.BigInteger, align 8
   %9 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %10 unwind label %67
 
 10:                                               ; preds = %6
@@ -4212,8 +4212,8 @@ define void @_ZN5Yosys5RTLIL8const_gtERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   %8 = alloca %class.BigInteger, align 8
   %9 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %10 unwind label %67
 
 10:                                               ; preds = %6
@@ -4403,8 +4403,8 @@ define void @_ZN5Yosys5RTLIL9const_addERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   %9 = alloca %class.BigInteger, align 8
   %10 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %11 unwind label %52
 
 11:                                               ; preds = %6
@@ -4707,8 +4707,8 @@ define void @_ZN5Yosys5RTLIL9const_subERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   %9 = alloca %class.BigInteger, align 8
   %10 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %11 unwind label %52
 
 11:                                               ; preds = %6
@@ -4840,8 +4840,8 @@ define void @_ZN5Yosys5RTLIL9const_mulERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   %9 = alloca %class.BigInteger, align 8
   %10 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %11 unwind label %52
 
 11:                                               ; preds = %6
@@ -4977,8 +4977,8 @@ define void @_ZN5Yosys5RTLIL9const_divERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   %12 = alloca %class.BigInteger, align 8
   %13 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %14 unwind label %18
 
 14:                                               ; preds = %6
@@ -5415,8 +5415,8 @@ define void @_ZN5Yosys5RTLIL9const_modERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   %12 = alloca %class.BigInteger, align 8
   %13 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %14 unwind label %18
 
 14:                                               ; preds = %6
@@ -5855,8 +5855,8 @@ define void @_ZN5Yosys5RTLIL14const_divfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
   %18 = alloca %class.BigInteger, align 8
   %19 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %20 unwind label %24
 
 20:                                               ; preds = %6
@@ -6452,8 +6452,8 @@ define void @_ZN5Yosys5RTLIL14const_modfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
   %15 = alloca %class.BigInteger, align 8
   %16 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %17 unwind label %21
 
 17:                                               ; preds = %6
@@ -6997,8 +6997,8 @@ define void @_ZN5Yosys5RTLIL9const_powERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   %42 = alloca %class.BigInteger, align 8
   %43 = alloca %class.BigInteger, align 8
   store i32 -1, ptr %7, align 4
-  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  invoke fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %44 unwind label %78
 
 44:                                               ; preds = %6

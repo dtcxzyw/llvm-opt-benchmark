@@ -315,7 +315,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
@@ -4487,7 +4487,7 @@ declare void @gtk_tree_store_insert(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare void @gtk_tree_store_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_propagate_sel_to_parents(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_propagate_sel_to_parents(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
@@ -4669,7 +4669,7 @@ declare ptr @gtk_tree_model_filter_get_model(ptr noundef) local_unnamed_addr #3
 declare i32 @gtk_tree_model_get_iter_first(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagid(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagid(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca %struct._GtkTreeIter, align 8
@@ -4677,7 +4677,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagid(ptr nou
   br label %7
 
 7:                                                ; preds = %17, %3
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %4, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %4, i32 noundef -1) #16
   %8 = load i32, ptr %4, align 4, !tbaa !32
   %9 = icmp eq i32 %8, %2
   br i1 %9, label %.loopexit, label %10
@@ -4715,7 +4715,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagid(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_calculate_sel_on_tree(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_calculate_sel_on_tree(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
@@ -4774,7 +4774,7 @@ declare i32 @gtk_tree_model_iter_children(ptr noundef, ptr noundef, ptr noundef)
 declare i32 @gtk_tree_model_iter_next(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_reset_sel_on_path(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @_reset_sel_on_path(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca i32, align 4
@@ -4844,7 +4844,7 @@ define internal fastcc void @_reset_sel_on_path(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_calculate_sel_on_path(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @_calculate_sel_on_path(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca i32, align 4
@@ -4933,7 +4933,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 declare void @gtk_tooltip_set_text(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tree_tagname_show(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readonly %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @_tree_tagname_show(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -5676,7 +5676,7 @@ declare void @dt_conf_set_bool(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @gtk_toggle_button_get_active(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_show_tag_on_view(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_show_tag_on_view(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %23, label %7
@@ -5724,7 +5724,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #3
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagname(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagname(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._GtkTreeIter, align 8
   %7 = alloca %struct._GtkTreeIter, align 8
@@ -5737,7 +5737,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagname(ptr n
   br i1 %10, label %.preheader, label %.preheader2
 
 .preheader:                                       ; preds = %9, %21
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #16
   %11 = load ptr, ptr %5, align 8, !tbaa !18
   %12 = call i32 @g_strcmp0(ptr noundef nonnull %2, ptr noundef %11) #16
   %13 = icmp eq i32 %12, 0
@@ -5766,7 +5766,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagname(ptr n
   br i1 %23, label %.loopexit, label %.preheader
 
 .preheader2:                                      ; preds = %9, %36
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #16
   %24 = load ptr, ptr %5, align 8, !tbaa !18
   %25 = call noalias ptr @g_utf8_strdown(ptr noundef %24, i64 noundef -1) #16
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #18
@@ -7456,7 +7456,7 @@ declare void @dt_tag_get_tags_images(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @dt_tag_remove_list(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_delete_tree_path(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_delete_tree_path(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca %struct._GtkTreeIter, align 8
   %7 = alloca %struct._GtkTreeIter, align 8
@@ -7545,7 +7545,7 @@ define internal fastcc void @_delete_tree_path(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
   store ptr null, ptr %11, align 8, !tbaa !18
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %11, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %11, i32 noundef -1) #16
   %40 = load ptr, ptr %11, align 8, !tbaa !18
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #18
   %42 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %0, ptr noundef nonnull %10) #16
@@ -8094,7 +8094,7 @@ declare i64 @dt_tag_export(ptr noundef) local_unnamed_addr #3
 declare void @g_date_time_unref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_reset_sel_on_path_full(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_reset_sel_on_path_full(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca %struct._GtkTreeIter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16

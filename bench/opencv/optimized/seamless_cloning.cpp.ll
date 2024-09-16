@@ -171,7 +171,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %48, %51
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %62 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  invoke fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %.sroa.0.0.insert.insert.i)
+  invoke fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %.sroa.0.0.insert.insert.i)
           to label %64 unwind label %104
 
 64:                                               ; preds = %58
@@ -535,7 +535,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::_InputArray", align 8
   %6 = alloca %"class.cv::_OutputArray", align 8
@@ -854,7 +854,7 @@ define void @_ZN2cv11colorChangeERKNS_11_InputArrayES2_RKNS_12_OutputArrayEfff(p
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %26 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  invoke fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %.sroa.0.0.insert.insert.i)
+  invoke fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %.sroa.0.0.insert.insert.i)
           to label %28 unwind label %81
 
 28:                                               ; preds = %22
@@ -1087,7 +1087,7 @@ define void @_ZN2cv18illuminationChangeERKNS_11_InputArrayES2_RKNS_12_OutputArra
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %25 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  invoke fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %.sroa.0.0.insert.insert.i)
+  invoke fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %.sroa.0.0.insert.insert.i)
           to label %27 unwind label %80
 
 27:                                               ; preds = %21
@@ -1316,7 +1316,7 @@ define void @_ZN2cv17textureFlatteningERKNS_11_InputArrayES2_RKNS_12_OutputArray
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %26 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  invoke fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %.sroa.0.0.insert.insert.i)
+  invoke fastcc void @_ZL9checkMaskRKN2cv11_InputArrayENS_5Size_IiEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %.sroa.0.0.insert.insert.i)
           to label %28 unwind label %81
 
 28:                                               ; preds = %22

@@ -974,7 +974,7 @@ if.end40.i:                                       ; preds = %for.body34.i
   %130 = load ptr, ptr %two48.i, align 8
   %path49.i = getelementptr inbounds i8, ptr %130, i64 40
   %131 = load ptr, ptr %path49.i, align 8
-  call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %129, ptr noundef %131)
+  call fastcc void @update_dir_rename_counts(ptr noundef %info, ptr noundef %dirs_removed, ptr noundef %129, ptr noundef %131)
   br label %for.inc50.i
 
 for.inc50.i:                                      ; preds = %if.end40.i, %if.then36.i
@@ -1000,7 +1000,7 @@ for.body57.i:                                     ; preds = %for.end51.i, %for.i
 if.end61.i:                                       ; preds = %for.body57.i
   %key58.i = getelementptr inbounds i8, ptr %entry1.156.i, i64 16
   %135 = load ptr, ptr %key58.i, align 8
-  call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %135, ptr noundef nonnull %134)
+  call fastcc void @update_dir_rename_counts(ptr noundef %info, ptr noundef %dirs_removed, ptr noundef %135, ptr noundef nonnull %134)
   br label %for.inc62.i
 
 for.inc62.i:                                      ; preds = %if.end61.i, %for.body57.i
@@ -1285,7 +1285,7 @@ if.end83.i:                                       ; preds = %if.end78.i
   %two89.i = getelementptr inbounds i8, ptr %180, i64 8
   %181 = load ptr, ptr %two89.i, align 8
   %182 = load ptr, ptr %repo2, align 8
-  %call91.i = call fastcc i32 @estimate_similarity(ptr noundef %182, ptr noundef %179, ptr noundef %181, i32 noundef %add, ptr noundef nonnull %dpf_options.i)
+  %call91.i = call fastcc i32 @estimate_similarity(ptr noundef %182, ptr noundef %179, ptr noundef %181, i32 noundef %add, ptr noundef %dpf_options.i)
   %cmp92.i = icmp slt i32 %call91.i, %add
   br i1 %cmp92.i, label %for.inc102.i, label %if.end95.i
 
@@ -1355,7 +1355,7 @@ record_rename_pair.exit.i:                        ; preds = %if.else.i.i, %if.th
   %199 = load ptr, ptr %path99.i, align 8
   %path100.i = getelementptr inbounds i8, ptr %181, i64 40
   %200 = load ptr, ptr %path100.i, align 8
-  call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %199, ptr noundef %200)
+  call fastcc void @update_dir_rename_counts(ptr noundef %info, ptr noundef %dirs_removed, ptr noundef %199, ptr noundef %200)
   call void @diff_free_filespec_blob(ptr noundef %179) #14
   call void @diff_free_filespec_blob(ptr noundef %181) #14
   br label %for.inc102.i
@@ -1979,7 +1979,7 @@ land.lhs.true196:                                 ; preds = %for.body189
 
 if.end203:                                        ; preds = %land.lhs.true196, %for.body189
   %278 = load ptr, ptr %repo2, align 8
-  %call205 = call fastcc i32 @estimate_similarity(ptr noundef %278, ptr noundef %277, ptr noundef %270, i32 noundef %spec.store.select, ptr noundef nonnull %dpf_options)
+  %call205 = call fastcc i32 @estimate_similarity(ptr noundef %278, ptr noundef %277, ptr noundef %270, i32 noundef %spec.store.select, ptr noundef %dpf_options)
   %conv206 = trunc i32 %call205 to i16
   %279 = getelementptr i8, ptr %277, i64 40
   %.val = load ptr, ptr %279, align 8
@@ -2192,11 +2192,11 @@ stop_progress.exit:                               ; preds = %for.end220, %if.end
   %mul221 = shl nsw i32 %dst_cnt.0.lcssa, 2
   %conv222 = sext i32 %mul221 to i64
   call void @git_stable_qsort(ptr noundef %call159, i64 noundef %conv222, i64 noundef 12, ptr noundef nonnull @score_compare) #14
-  call fastcc void @find_renames(ptr noundef %call159, i32 noundef %dst_cnt.0.lcssa, i32 noundef %spec.store.select, i32 noundef 0, ptr noundef nonnull %info, ptr noundef %dirs_removed)
+  call fastcc void @find_renames(ptr noundef %call159, i32 noundef %dst_cnt.0.lcssa, i32 noundef %spec.store.select, i32 noundef 0, ptr noundef %info, ptr noundef %dirs_removed)
   br i1 %cmp, label %if.then226, label %if.end229
 
 if.then226:                                       ; preds = %stop_progress.exit
-  call fastcc void @find_renames(ptr noundef %call159, i32 noundef %dst_cnt.0.lcssa, i32 noundef %spec.store.select, i32 noundef 1, ptr noundef nonnull %info, ptr noundef %dirs_removed)
+  call fastcc void @find_renames(ptr noundef %call159, i32 noundef %dst_cnt.0.lcssa, i32 noundef %spec.store.select, i32 noundef 1, ptr noundef %info, ptr noundef %dirs_removed)
   br label %if.end229
 
 if.end229:                                        ; preds = %if.then226, %stop_progress.exit
@@ -2675,7 +2675,7 @@ declare void @mem_pool_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @mem_pool_discard(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_unneeded_paths_from_src(i32 noundef %detecting_copies, ptr noundef %interesting) unnamed_addr #0 {
+define internal fastcc void @remove_unneeded_paths_from_src(i32 noundef range(i32 0, 2) %detecting_copies, ptr noundef %interesting) unnamed_addr #0 {
 entry:
   %tobool = icmp ne i32 %detecting_copies, 0
   %tobool1 = icmp eq ptr %interesting, null
@@ -2934,7 +2934,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @diff_unmodified_pair(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @estimate_similarity(ptr noundef %r, ptr noundef %src, ptr noundef %dst, i32 noundef %minimum_score, ptr noundef %dpf_opt) unnamed_addr #0 {
+define internal fastcc i32 @estimate_similarity(ptr noundef %r, ptr noundef %src, ptr noundef %dst, i32 noundef %minimum_score, ptr noundef nonnull %dpf_opt) unnamed_addr #0 {
 entry:
   %src_copied = alloca i64, align 8
   %literal_added = alloca i64, align 8
@@ -3094,7 +3094,7 @@ return:                                           ; preds = %if.else, %if.end17,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_renames(ptr nocapture noundef readonly %mx, i32 noundef %dst_cnt, i32 noundef %minimum_score, i32 noundef %copies, ptr nocapture noundef readonly %info, ptr noundef %dirs_removed) unnamed_addr #0 {
+define internal fastcc void @find_renames(ptr nocapture noundef readonly %mx, i32 noundef %dst_cnt, i32 noundef %minimum_score, i32 noundef range(i32 0, 2) %copies, ptr nocapture noundef nonnull readonly %info, ptr noundef %dirs_removed) unnamed_addr #0 {
 entry:
   %cmp21 = icmp sgt i32 %dst_cnt, 0
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
@@ -3287,7 +3287,7 @@ declare i32 @strmap_contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @strmap_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_dir_rename_counts(ptr nocapture noundef readonly %info, ptr noundef %dirs_removed, ptr noundef %oldname, ptr noundef %newname) unnamed_addr #0 {
+define internal fastcc void @update_dir_rename_counts(ptr nocapture noundef nonnull readonly %info, ptr noundef %dirs_removed, ptr noundef %oldname, ptr noundef %newname) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %newname, align 1
   %setup = getelementptr inbounds i8, ptr %info, i64 152

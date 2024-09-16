@@ -1234,7 +1234,7 @@ do.body27.i:                                      ; preds = %do.end85
 
 do.end39.i:                                       ; preds = %do.body27.i
   %tobool40.i = icmp ne i32 %4, 0
-  %cmp41.i = icmp sgt i32 %nbSeq.0153, 24
+  %cmp41.i = icmp ugt i32 %nbSeq.0153, 24
   %or.cond.i = and i1 %cmp41.i, %tobool40.i
   br i1 %or.cond.i, label %if.then43.i, label %do.end111
 
@@ -1346,7 +1346,7 @@ do.body27.i77:                                    ; preds = %do.end111
 
 do.end39.i79:                                     ; preds = %do.body27.i77
   %tobool40.i80 = icmp ne i32 %12, 0
-  %cmp41.i81 = icmp sgt i32 %nbSeq.0153, 24
+  %cmp41.i81 = icmp ugt i32 %nbSeq.0153, 24
   %or.cond.i82 = and i1 %cmp41.i81, %tobool40.i80
   br i1 %or.cond.i82, label %if.then43.i83, label %do.end137
 
@@ -1453,7 +1453,7 @@ do.body27.i120:                                   ; preds = %do.end137
 
 do.end39.i122:                                    ; preds = %do.body27.i120
   %tobool40.i123 = icmp ne i32 %21, 0
-  %cmp41.i124 = icmp sgt i32 %nbSeq.0153, 24
+  %cmp41.i124 = icmp ugt i32 %nbSeq.0153, 24
   %or.cond.i125 = and i1 %cmp41.i124, %tobool40.i123
   br i1 %or.cond.i125, label %if.then43.i126, label %do.end163
 
@@ -2872,7 +2872,7 @@ lor.rhs.i.i:                                      ; preds = %if.end92.i.i
   br i1 %cmp13.i.i, label %if.then17.i.i, label %if.end21.i.i
 
 if.then.i296.i:                                   ; preds = %if.end92.i.i
-  %call11.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.2.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx56.i.i, ptr noundef nonnull %litPtr.i.i, ptr noundef nonnull %add.ptr95.i.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %call11.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.2.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx56.i.i, ptr noundef %litPtr.i.i, ptr noundef nonnull %add.ptr95.i.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %ZSTD_execSequence.exit.i
 
 if.then17.i.i:                                    ; preds = %lor.rhs.i.i
@@ -3431,7 +3431,7 @@ lor.rhs.i328.i:                                   ; preds = %cond.false128.i.i
   br i1 %cmp13.i336.i, label %if.then17.i386.i, label %if.end21.i339.i
 
 if.then.i390.i:                                   ; preds = %cond.false128.i.i
-  %call11.i391.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.12020.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx132.i.i, ptr noundef nonnull %litPtr.i.i, ptr noundef %litBufferEnd.i.12024.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %call11.i391.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.12020.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx132.i.i, ptr noundef %litPtr.i.i, ptr noundef %litBufferEnd.i.12024.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %cond.end134.i.i
 
 if.then17.i386.i:                                 ; preds = %lor.rhs.i328.i
@@ -3823,7 +3823,7 @@ lor.rhs.i426.i:                                   ; preds = %if.end210.i.i
   br i1 %cmp13.i434.i, label %if.then17.i484.i, label %if.end21.i437.i
 
 if.then.i488.i:                                   ; preds = %if.end210.i.i
-  %call11.i489.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.5.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx172.i.i, ptr noundef nonnull %litPtr.i.i, ptr noundef nonnull %add.ptr215.i.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %call11.i489.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.5.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx172.i.i, ptr noundef %litPtr.i.i, ptr noundef nonnull %add.ptr215.i.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %ZSTD_execSequence.exit496.i
 
 if.then17.i484.i:                                 ; preds = %lor.rhs.i426.i
@@ -4367,7 +4367,7 @@ lor.rhs.i524.i:                                   ; preds = %cond.false234.i.i
   br i1 %cmp13.i532.i, label %if.then17.i582.i, label %if.end21.i535.i
 
 if.then.i586.i:                                   ; preds = %cond.false234.i.i
-  %call11.i587.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.42032.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx172.i.i, ptr noundef nonnull %litPtr.i.i, ptr noundef %litBufferEnd.i.32036.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %call11.i587.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.42032.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx172.i.i, ptr noundef %litPtr.i.i, ptr noundef %litBufferEnd.i.32036.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %cond.end236.i.i
 
 if.then17.i582.i:                                 ; preds = %lor.rhs.i524.i
@@ -5853,7 +5853,7 @@ lor.rhs.i477.i.i:                                 ; preds = %if.end81.i.i
   br i1 %cmp13.i485.i.i, label %if.then17.i535.i.i, label %if.end21.i488.i.i
 
 if.then.i539.i.i:                                 ; preds = %if.end81.i.i
-  %call11.i540.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.3.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence449.i.i, ptr noundef nonnull %litPtr.i.i, ptr noundef nonnull %add.ptr84.i.i, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %call11.i540.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.3.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence449.i.i, ptr noundef %litPtr.i.i, ptr noundef nonnull %add.ptr84.i.i, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %ZSTD_execSequence.exit547.i.i
 
 if.then17.i535.i.i:                               ; preds = %lor.rhs.i477.i.i
@@ -6396,7 +6396,7 @@ lor.rhs.i.i.i:                                    ; preds = %ZSTD_decodeSequence
   br i1 %cmp13.i.i.i, label %if.then17.i.i.i, label %if.end21.i.i.i
 
 if.then.i448.i.i:                                 ; preds = %ZSTD_decodeSequence.exit.i.i
-  %call11.i.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.51353.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence103433.i.i, ptr noundef nonnull %litPtr.i.i, ptr noundef nonnull %add.ptr84.i.i, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %call11.i.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.51353.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence103433.i.i, ptr noundef %litPtr.i.i, ptr noundef nonnull %add.ptr84.i.i, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %ZSTD_execSequence.exit.i.i
 
 if.then17.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -7460,7 +7460,7 @@ lor.rhs.i.i.i:                                    ; preds = %ZSTD_decodeSequence
   br i1 %cmp13.i.i.i, label %if.then17.i.i.i, label %if.end21.i.i.i
 
 if.then.i116.i.i:                                 ; preds = %ZSTD_decodeSequence.exit.i.i
-  %call11.i.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.1594.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence101.i.i, ptr noundef nonnull %litPtr.i.i, ptr noundef %add.ptr2.i.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %call11.i.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.1594.i, ptr noundef %cond.i.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence101.i.i, ptr noundef %litPtr.i.i, ptr noundef %add.ptr2.i.i, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %ZSTD_execSequence.exit.i.i
 
 if.then17.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -9070,7 +9070,7 @@ lor.rhs.i:                                        ; preds = %if.end92.i
   br i1 %cmp13.i, label %if.then17.i, label %if.end21.i
 
 if.then.i296:                                     ; preds = %if.end92.i
-  %call11.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.2, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx56.i, ptr noundef nonnull %litPtr.i, ptr noundef nonnull %add.ptr95.i, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %call11.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.2, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx56.i, ptr noundef %litPtr.i, ptr noundef nonnull %add.ptr95.i, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   br label %ZSTD_execSequence.exit
 
 if.then17.i:                                      ; preds = %lor.rhs.i
@@ -9632,7 +9632,7 @@ lor.rhs.i328:                                     ; preds = %cond.false128.i
   br i1 %cmp13.i336, label %if.then17.i386, label %if.end21.i339
 
 if.then.i390:                                     ; preds = %cond.false128.i
-  %call11.i391 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.12020, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx132.i, ptr noundef nonnull %litPtr.i, ptr noundef %litBufferEnd.i.12024, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %call11.i391 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.12020, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx132.i, ptr noundef %litPtr.i, ptr noundef %litBufferEnd.i.12024, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   br label %cond.end134.i
 
 if.then17.i386:                                   ; preds = %lor.rhs.i328
@@ -10026,7 +10026,7 @@ lor.rhs.i426:                                     ; preds = %if.end210.i
   br i1 %cmp13.i434, label %if.then17.i484, label %if.end21.i437
 
 if.then.i488:                                     ; preds = %if.end210.i
-  %call11.i489 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.5, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx172.i, ptr noundef nonnull %litPtr.i, ptr noundef nonnull %add.ptr215.i, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %call11.i489 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.5, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx172.i, ptr noundef %litPtr.i, ptr noundef nonnull %add.ptr215.i, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   br label %ZSTD_execSequence.exit496
 
 if.then17.i484:                                   ; preds = %lor.rhs.i426
@@ -10571,7 +10571,7 @@ lor.rhs.i524:                                     ; preds = %cond.false234.i
   br i1 %cmp13.i532, label %if.then17.i582, label %if.end21.i535
 
 if.then.i586:                                     ; preds = %cond.false234.i
-  %call11.i587 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.42032, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx172.i, ptr noundef nonnull %litPtr.i, ptr noundef %litBufferEnd.i.32036, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %call11.i587 = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.42032, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %arrayidx172.i, ptr noundef %litPtr.i, ptr noundef %litBufferEnd.i.32036, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   br label %cond.end236.i
 
 if.then17.i582:                                   ; preds = %lor.rhs.i524
@@ -10857,7 +10857,7 @@ ZSTD_decompressSequencesLong_body.exit:           ; preds = %do.body53.i, %do.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op, ptr noundef %oend, ptr nocapture noundef readonly byval(%struct.seq_t) align 8 %sequence, ptr nocapture noundef %litPtr, ptr noundef %litLimit, ptr noundef %prefixStart, ptr noundef %virtualStart, ptr noundef readonly %dictEnd) unnamed_addr #12 {
+define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op, ptr noundef %oend, ptr nocapture noundef readonly byval(%struct.seq_t) align 8 %sequence, ptr nocapture noundef nonnull %litPtr, ptr noundef %litLimit, ptr noundef %prefixStart, ptr noundef %virtualStart, ptr noundef readonly %dictEnd) unnamed_addr #12 {
 entry:
   %0 = load i64, ptr %sequence, align 8
   %add.ptr = getelementptr inbounds i8, ptr %op, i64 %0
@@ -11027,7 +11027,7 @@ return:                                           ; preds = %do.body38, %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ZSTD_safecopy(ptr noundef %op, ptr noundef %oend_w, ptr noundef %ip, i64 noundef %length, i32 noundef %ovtype) unnamed_addr #13 {
+define internal fastcc void @ZSTD_safecopy(ptr noundef %op, ptr noundef %oend_w, ptr noundef %ip, i64 noundef %length, i32 noundef range(i32 0, 2) %ovtype) unnamed_addr #13 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %op to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ip to i64
@@ -11051,7 +11051,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp1, label %while.body, label %while.end28, !llvm.loop !64
 
 if.end:                                           ; preds = %entry
-  %cmp3 = icmp eq i32 %ovtype, 1
+  %cmp3 = icmp ne i32 %ovtype, 0
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
@@ -12403,7 +12403,7 @@ lor.rhs.i477.i:                                   ; preds = %if.end81.i
   br i1 %cmp13.i485.i, label %if.then17.i535.i, label %if.end21.i488.i
 
 if.then.i539.i:                                   ; preds = %if.end81.i
-  %call11.i540.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.3, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence449.i, ptr noundef nonnull %litPtr.i, ptr noundef nonnull %add.ptr84.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %call11.i540.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.3, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence449.i, ptr noundef %litPtr.i, ptr noundef nonnull %add.ptr84.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %ZSTD_execSequence.exit547.i
 
 if.then17.i535.i:                                 ; preds = %lor.rhs.i477.i
@@ -12946,7 +12946,7 @@ lor.rhs.i.i:                                      ; preds = %ZSTD_decodeSequence
   br i1 %cmp13.i.i, label %if.then17.i.i, label %if.end21.i.i
 
 if.then.i448.i:                                   ; preds = %ZSTD_decodeSequence.exit.i
-  %call11.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.51353, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence103433.i, ptr noundef nonnull %litPtr.i, ptr noundef nonnull %add.ptr84.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %call11.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.51353, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence103433.i, ptr noundef %litPtr.i, ptr noundef nonnull %add.ptr84.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %ZSTD_execSequence.exit.i
 
 if.then17.i.i:                                    ; preds = %lor.rhs.i.i
@@ -13989,7 +13989,7 @@ lor.rhs.i.i:                                      ; preds = %ZSTD_decodeSequence
   br i1 %cmp13.i.i, label %if.then17.i.i, label %if.end21.i.i
 
 if.then.i116.i:                                   ; preds = %ZSTD_decodeSequence.exit.i
-  %call11.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.1594, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence101.i, ptr noundef nonnull %litPtr.i, ptr noundef %add.ptr2.i, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %call11.i.i = call fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op.i.1594, ptr noundef %cond.i, ptr noundef nonnull byval(%struct.seq_t) align 8 %sequence101.i, ptr noundef %litPtr.i, ptr noundef %add.ptr2.i, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   br label %ZSTD_execSequence.exit.i
 
 if.then17.i.i:                                    ; preds = %lor.rhs.i.i

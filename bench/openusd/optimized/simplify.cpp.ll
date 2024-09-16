@@ -3079,7 +3079,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
 
 .lr.ph474:                                        ; preds = %.lr.ph474.preheader, %700
   %.0111473 = phi i64 [ %701, %700 ], [ 0, %.lr.ph474.preheader ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %.0111473, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %.0111473, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %700 unwind label %.loopexit.split-lp.loopexit
 
 700:                                              ; preds = %.lr.ph474
@@ -3225,11 +3225,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_
 751:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i, %747
   %752 = getelementptr inbounds i8, ptr %.val156, i64 -24
   store ptr %752, ptr %593, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %741, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %741, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %753 unwind label %.loopexit
 
 753:                                              ; preds = %751
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %.0109.lcssa, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %.0109.lcssa, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %712 unwind label %.loopexit, !llvm.loop !18
 
 754:                                              ; preds = %._crit_edge483
@@ -4052,7 +4052,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrame20SetRightTangent
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval8ContainsEd(ptr noundef nonnull align 8 dereferenceable(48), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4) unnamed_addr #3 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4) unnamed_addr #3 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", align 8
@@ -4143,7 +4143,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInf
   %or.cond.i4.i = fcmp une double %47, 0x7FF0000000000000
   %spec.store.select.i6.i = zext i1 %or.cond.i4.i to i8
   store i8 %spec.store.select.i6.i, ptr %46, align 8
-  %48 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__25_ComputeErrorIfKeyRemovedEPNS_8TsSplineEdRKNS_10GfIntervalERKSt6vectorIdSaIdEES4_(ptr noundef %2, double noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %48 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__25_ComputeErrorIfKeyRemovedEPNS_8TsSplineEdRKNS_10GfIntervalERKSt6vectorIdSaIdEES4_(ptr noundef nonnull %2, double noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %.val33 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val33, i64 %1, i32 3
   store double %48, ptr %49, align 8

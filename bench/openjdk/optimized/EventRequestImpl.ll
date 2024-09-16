@@ -62,7 +62,7 @@ define internal noundef zeroext i8 @setCommand(ptr noundef %0, ptr noundef %1) #
   %22 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 %spec.select, ptr %22, align 4
   %23 = tail call ptr @getEnv() #2
-  %24 = tail call fastcc zeroext i16 @readAndSetFilters(ptr noundef %23, ptr noundef %0, ptr noundef nonnull %17, i32 noundef %9)
+  %24 = tail call fastcc zeroext i16 @readAndSetFilters(ptr noundef %23, ptr noundef %0, ptr noundef %17, i32 noundef %9)
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %34
 
@@ -157,7 +157,7 @@ declare i32 @eventHandler_allocHandlerID() local_unnamed_addr #1
 declare ptr @eventHandler_alloc(i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %.thread
 
@@ -197,7 +197,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not120, label %14, label %.thread
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @eventFilter_setConditionalFilter(ptr noundef %2, i32 noundef %.0124, i32 noundef %12) #2
+  %15 = tail call i32 @eventFilter_setConditionalFilter(ptr noundef nonnull %2, i32 noundef %.0124, i32 noundef %12) #2
   br label %97
 
 16:                                               ; preds = %10
@@ -207,7 +207,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not119, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @eventFilter_setCountFilter(ptr noundef %2, i32 noundef %.0124, i32 noundef %17) #2
+  %20 = tail call i32 @eventFilter_setCountFilter(ptr noundef nonnull %2, i32 noundef %.0124, i32 noundef %17) #2
   br label %97
 
 21:                                               ; preds = %10
@@ -217,7 +217,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not118, label %24, label %.thread
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @eventFilter_setThreadOnlyFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %22) #2
+  %25 = tail call i32 @eventFilter_setThreadOnlyFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %22) #2
   br label %97
 
 26:                                               ; preds = %10
@@ -245,7 +245,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not117, label %38, label %.thread
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @eventFilter_setLocationOnlyFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %30, ptr noundef %33, i64 noundef %36) #2
+  %39 = tail call i32 @eventFilter_setLocationOnlyFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %30, ptr noundef %33, i64 noundef %36) #2
   br label %97
 
 40:                                               ; preds = %10
@@ -261,7 +261,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not113, label %46, label %.thread
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @eventFilter_setFieldOnlyFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %41, ptr noundef %44) #2
+  %47 = tail call i32 @eventFilter_setFieldOnlyFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %41, ptr noundef %44) #2
   br label %97
 
 48:                                               ; preds = %10
@@ -271,7 +271,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not111, label %51, label %.thread
 
 51:                                               ; preds = %48
-  %52 = tail call i32 @eventFilter_setClassOnlyFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %49) #2
+  %52 = tail call i32 @eventFilter_setClassOnlyFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %49) #2
   br label %97
 
 53:                                               ; preds = %10
@@ -293,7 +293,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not110, label %62, label %.thread
 
 62:                                               ; preds = %59
-  %63 = tail call i32 @eventFilter_setExceptionOnlyFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %54, i8 noundef zeroext %57, i8 noundef zeroext %60) #2
+  %63 = tail call i32 @eventFilter_setExceptionOnlyFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %54, i8 noundef zeroext %57, i8 noundef zeroext %60) #2
   br label %97
 
 64:                                               ; preds = %10
@@ -303,7 +303,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not107, label %67, label %.thread
 
 67:                                               ; preds = %64
-  %68 = tail call i32 @eventFilter_setInstanceOnlyFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %65) #2
+  %68 = tail call i32 @eventFilter_setInstanceOnlyFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %65) #2
   br label %97
 
 69:                                               ; preds = %10
@@ -313,7 +313,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not106, label %72, label %.thread
 
 72:                                               ; preds = %69
-  %73 = tail call i32 @eventFilter_setClassMatchFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %70) #2
+  %73 = tail call i32 @eventFilter_setClassMatchFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %70) #2
   br label %97
 
 74:                                               ; preds = %10
@@ -323,7 +323,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not105, label %77, label %.thread
 
 77:                                               ; preds = %74
-  %78 = tail call i32 @eventFilter_setClassExcludeFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %75) #2
+  %78 = tail call i32 @eventFilter_setClassExcludeFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %75) #2
   br label %97
 
 79:                                               ; preds = %10
@@ -345,7 +345,7 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not104, label %88, label %.thread
 
 88:                                               ; preds = %85
-  %89 = tail call i32 @eventFilter_setStepFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %80, i32 noundef %83, i32 noundef %86) #2
+  %89 = tail call i32 @eventFilter_setStepFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %80, i32 noundef %83, i32 noundef %86) #2
   br label %97
 
 90:                                               ; preds = %10
@@ -355,11 +355,11 @@ define internal fastcc zeroext i16 @readAndSetFilters(ptr noundef %0, ptr nounde
   br i1 %.not101, label %93, label %.thread
 
 93:                                               ; preds = %90
-  %94 = tail call i32 @eventFilter_setSourceNameMatchFilter(ptr noundef %2, i32 noundef %.0124, ptr noundef %91) #2
+  %94 = tail call i32 @eventFilter_setSourceNameMatchFilter(ptr noundef nonnull %2, i32 noundef %.0124, ptr noundef %91) #2
   br label %97
 
 95:                                               ; preds = %10
-  %96 = tail call i32 @eventFilter_setPlatformThreadsOnlyFilter(ptr noundef %2, i32 noundef %.0124) #2
+  %96 = tail call i32 @eventFilter_setPlatformThreadsOnlyFilter(ptr noundef nonnull %2, i32 noundef %.0124) #2
   br label %97
 
 97:                                               ; preds = %95, %93, %88, %77, %72, %67, %62, %51, %46, %38, %24, %19, %14

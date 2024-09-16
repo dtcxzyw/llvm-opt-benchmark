@@ -602,7 +602,7 @@ cond.false271:                                    ; preds = %if.then254
 
 cond.end279:                                      ; preds = %if.then254, %cond.false271
   %cond280 = phi i64 [ %or278, %cond.false271 ], [ %conv264, %if.then254 ]
-  call fastcc void @pcnet_rmd_load(ptr noundef nonnull %call, ptr noundef nonnull %rmd102, i64 noundef %cond280)
+  call fastcc void @pcnet_rmd_load(ptr noundef nonnull %call, ptr noundef %rmd102, i64 noundef %cond280)
   %105 = load i16, ptr %status177, align 2
   %tobool285.not = icmp sgt i16 %105, -1
   br i1 %tobool285.not, label %if.end468, label %if.then286
@@ -660,7 +660,7 @@ cond.false346:                                    ; preds = %cond.end317
 
 cond.end354:                                      ; preds = %cond.end317, %cond.false346
   %cond355 = phi i64 [ %or353, %cond.false346 ], [ %conv264, %cond.end317 ]
-  call fastcc void @pcnet_rmd_store(ptr noundef nonnull %call, ptr noundef nonnull %rmd102, i64 noundef %cond355)
+  call fastcc void @pcnet_rmd_store(ptr noundef nonnull %call, ptr noundef %rmd102, i64 noundef %cond355)
   %cmp358 = icmp sgt i32 %sub333, 0
   br i1 %cmp358, label %land.lhs.true360, label %if.end468
 
@@ -694,7 +694,7 @@ cond.false378:                                    ; preds = %if.then371
 
 cond.end386:                                      ; preds = %if.then371, %cond.false378
   %cond387 = phi i64 [ %or385, %cond.false378 ], [ %or368, %if.then371 ]
-  call fastcc void @pcnet_rmd_load(ptr noundef nonnull %call, ptr noundef nonnull %rmd102, i64 noundef %cond387)
+  call fastcc void @pcnet_rmd_load(ptr noundef nonnull %call, ptr noundef %rmd102, i64 noundef %cond387)
   %132 = load i16, ptr %status177, align 2
   %tobool392.not = icmp sgt i16 %132, -1
   br i1 %tobool392.not, label %if.end468, label %if.then393
@@ -751,7 +751,7 @@ cond.false453:                                    ; preds = %cond.end424
 
 cond.end461:                                      ; preds = %cond.end424, %cond.false453
   %cond462 = phi i64 [ %or460, %cond.false453 ], [ %or368, %cond.end424 ]
-  call fastcc void @pcnet_rmd_store(ptr noundef nonnull %call, ptr noundef nonnull %rmd102, i64 noundef %cond462)
+  call fastcc void @pcnet_rmd_store(ptr noundef nonnull %call, ptr noundef %rmd102, i64 noundef %cond462)
   br label %if.end468
 
 if.end468:                                        ; preds = %cond.end279, %cond.end386, %cond.end461, %land.lhs.true360, %cond.end354, %land.lhs.true244, %pcnet_rmd_store.exit
@@ -1549,7 +1549,7 @@ if.end203:                                        ; preds = %if.else198, %pcnet_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcnet_rmd_load(ptr nocapture noundef readonly %s, ptr noundef %rmd, i64 noundef %addr) unnamed_addr #0 {
+define internal fastcc void @pcnet_rmd_load(ptr nocapture noundef readonly %s, ptr noundef nonnull %rmd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
 entry:
   %rda = alloca %struct.anon, align 4
   %arrayidx = getelementptr i8, ptr %s, i64 8564
@@ -1586,7 +1586,7 @@ if.then:                                          ; preds = %entry
   br label %if.end29
 
 if.else:                                          ; preds = %entry
-  tail call void %2(ptr noundef %3, i64 noundef %addr, ptr noundef %rmd, i32 noundef 16, i32 noundef 0) #11
+  tail call void %2(ptr noundef %3, i64 noundef %addr, ptr noundef nonnull %rmd, i32 noundef 16, i32 noundef 0) #11
   %8 = load i16, ptr %arrayidx, align 4
   %9 = and i16 %8, 255
   %cmp = icmp eq i16 %9, 3
@@ -1611,7 +1611,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcnet_rmd_store(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %rmd, i64 noundef %addr) unnamed_addr #0 {
+define internal fastcc void @pcnet_rmd_store(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %rmd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
 entry:
   %rda = alloca %struct.anon.4, align 4
   %rda10 = alloca %struct.anon.5, align 4

@@ -76,7 +76,7 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 
 25:                                               ; preds = %20
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
-  %27 = call fastcc ptr @parse_regex(ptr noundef nonnull %0, i64 noundef %26, ptr noundef nonnull %8)
+  %27 = call fastcc ptr @parse_regex(ptr noundef %0, i64 noundef %26, ptr noundef %8)
   %.not33 = icmp eq ptr %27, null
   br i1 %.not33, label %.thread42, label %28
 
@@ -85,7 +85,7 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %29 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %7, ptr %29, align 8
-  %30 = call fastcc i32 @build_suffixtree_descend(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %30 = call fastcc i32 @build_suffixtree_descend(ptr noundef nonnull %27, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %.pre = load ptr, ptr %5, align 8
   %.not35 = icmp eq ptr %.pre, null
   br i1 %.not35, label %.thread, label %.thread42
@@ -134,7 +134,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_regex(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @parse_regex(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %invariant.gep.i = getelementptr i8, ptr %0, i64 2
   %4 = add i64 %1, -1
   br label %make_node.exit106
@@ -161,7 +161,7 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
 8:                                                ; preds = %make_node.exit106
   %9 = add i64 %5, 1
   store i64 %9, ptr %2, align 8
-  %10 = tail call fastcc ptr @parse_regex(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2)
+  %10 = tail call fastcc ptr @parse_regex(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %11 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #10
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %21, label %12
@@ -296,7 +296,7 @@ make_node.exit92:                                 ; preds = %22
 55:                                               ; preds = %make_node.exit106
   %56 = add i64 %5, 1
   store i64 %56, ptr %2, align 8
-  %57 = tail call fastcc ptr @parse_regex(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2)
+  %57 = tail call fastcc ptr @parse_regex(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %.not82 = icmp eq ptr %57, null
   br i1 %.not82, label %58, label %59
 
@@ -693,7 +693,7 @@ make_node.exit129.thread:                         ; preds = %make_leaf.exit, %ma
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %.not41 = icmp eq ptr %0, null
   br i1 %.not41, label %.critedge36, label %.lr.ph
 
@@ -727,7 +727,7 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr nounde
   store i64 %12, ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %.03142, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %18, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %19 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %18, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not35 = icmp eq i32 %19, 0
   br i1 %.not35, label %20, label %.critedge36
 
@@ -773,7 +773,7 @@ textbuffer_putc.exit:                             ; preds = %28, %33
   %37 = load ptr, ptr %1, align 8
   %38 = load i64, ptr %22, align 8
   %39 = add i64 %38, -1
-  %40 = tail call i32 %2(ptr noundef %3, ptr noundef %37, i64 noundef %39, ptr noundef %4) #8
+  %40 = tail call i32 %2(ptr noundef %3, ptr noundef %37, i64 noundef %39, ptr noundef nonnull %4) #8
   %.not33 = icmp eq i32 %40, 0
   %. = select i1 %.not33, i32 0, i32 20
   br label %.critedge36
@@ -923,7 +923,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %.not113 = icmp eq ptr %0, null
   br i1 %.not113, label %.loopexit, label %.lr.ph
 
@@ -986,7 +986,7 @@ textbuffer_putc.exit:                             ; preds = %18, %23
   %27 = load ptr, ptr %1, align 8
   %28 = load i64, ptr %7, align 8
   %29 = add i64 %28, -1
-  %30 = tail call i32 %3(ptr noundef %4, ptr noundef %27, i64 noundef %29, ptr noundef %5) #8
+  %30 = tail call i32 %3(ptr noundef %4, ptr noundef %27, i64 noundef %29, ptr noundef nonnull %5) #8
   %.not71 = icmp eq i32 %30, 0
   %. = select i1 %.not71, i32 0, i32 20
   br label %.loopexit
@@ -1086,7 +1086,7 @@ textbuffer_putc.exit90:                           ; preds = %66, %71
   %75 = load ptr, ptr %1, align 8
   %76 = load i64, ptr %7, align 8
   %77 = add i64 %76, -1
-  %78 = tail call i32 %3(ptr noundef %4, ptr noundef %75, i64 noundef %77, ptr noundef %5) #8
+  %78 = tail call i32 %3(ptr noundef %4, ptr noundef %75, i64 noundef %77, ptr noundef nonnull %5) #8
   %.not69 = icmp eq i32 %78, 0
   %.72 = select i1 %.not69, i32 0, i32 20
   br label %.loopexit
@@ -1140,7 +1140,7 @@ textbuffer_putc.exit90:                           ; preds = %66, %71
 
 textbuffer_putc.exit98:                           ; preds = %95, %100
   %104 = load ptr, ptr %60, align 8
-  %105 = tail call fastcc i32 @build_suffixtree_ascend(ptr noundef %104, ptr noundef nonnull %1, ptr noundef nonnull %.057115, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %105 = tail call fastcc i32 @build_suffixtree_ascend(ptr noundef %104, ptr noundef %1, ptr noundef nonnull %.057115, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not68 = icmp eq i32 %105, 0
   br i1 %.not68, label %106, label %.loopexit
 
@@ -1201,7 +1201,7 @@ textbuffer_putc.exit106:                          ; preds = %119, %124
   %128 = load ptr, ptr %1, align 8
   %129 = load i64, ptr %7, align 8
   %130 = add i64 %129, -1
-  %131 = tail call i32 %3(ptr noundef %4, ptr noundef %128, i64 noundef %130, ptr noundef %5) #8
+  %131 = tail call i32 %3(ptr noundef %4, ptr noundef %128, i64 noundef %130, ptr noundef nonnull %5) #8
   %.not64 = icmp eq i32 %131, 0
   %.74 = select i1 %.not64, i32 0, i32 20
   br label %.loopexit

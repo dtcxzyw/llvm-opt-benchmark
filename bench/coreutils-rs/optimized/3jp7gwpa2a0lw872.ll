@@ -124,7 +124,7 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingSty
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h706e1127c64f4388E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h706e1127c64f4388E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !16
   %.not = icmp eq ptr %3, null
@@ -471,14 +471,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %3, %"_ZN4core5slice
   br label %27
 
 56:                                               ; preds = %50
-  call fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h706e1127c64f4388E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  call fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h706e1127c64f4388E"(ptr noalias noundef align 8 dereferenceable(32) %8)
   br label %55
 
 57:                                               ; preds = %58, %.body
   resume { ptr, i32 } %eh.lpad-body
 
 58:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h706e1127c64f4388E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #13
+  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h706e1127c64f4388E"(ptr noalias noundef align 8 dereferenceable(32) %8) #13
           to label %57 unwind label %59
 
 59:                                               ; preds = %58

@@ -330,7 +330,7 @@ default.unreachable1:                             ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h578d14448bf0fe33E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h578d14448bf0fe33E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i8, ptr %0, align 8, !range !71, !noundef !5
   %4 = icmp eq i8 %3, 0
@@ -380,7 +380,7 @@ define internal void @"_ZN4core3ptr47drop_in_place$LT$std..time..SystemTimeError
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8bbdafb8ff258826E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8bbdafb8ff258826E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !19, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1600,7 +1600,7 @@ _ZN10actix_http12http_message11HttpMessage10get_header17h9356a48683cc36f6E.exit.
 369:                                              ; preds = %356
   %370 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h578d14448bf0fe33E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %51) #21
+  invoke fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h578d14448bf0fe33E"(ptr noalias noundef align 8 dereferenceable(32) %51) #21
           to label %.body223 unwind label %371, !noalias !243
 
 371:                                              ; preds = %369
@@ -3090,7 +3090,7 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
 860:                                              ; preds = %847
   %861 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h578d14448bf0fe33E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #21
+  invoke fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h578d14448bf0fe33E"(ptr noalias noundef align 8 dereferenceable(32) %14) #21
           to label %.body337 unwind label %862, !noalias !512
 
 862:                                              ; preds = %860
@@ -4116,7 +4116,7 @@ define void @"_ZN88_$LT$actix_files..named..NamedFile$u20$as$u20$actix_web..serv
   %.2 = phi i1 [ false, %17 ], [ true, %16 ]
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8bbdafb8ff258826E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #21
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8bbdafb8ff258826E"(ptr noalias noundef align 8 dereferenceable(24) %6) #21
           to label %13 unwind label %29
 
 16:                                               ; preds = %2

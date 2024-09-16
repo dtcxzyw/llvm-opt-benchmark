@@ -187,7 +187,7 @@ declare dso_local i32 @root_nfs_parse_addr(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @root_nfs_parse_options(ptr noundef %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @root_nfs_parse_options(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #11
@@ -201,7 +201,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @root_nfs_parse_options(ptr 
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = call i64 @strscpy(ptr noundef %1, ptr noundef %4, i64 noundef 1025) #11
+  %11 = call i64 @strscpy(ptr noundef nonnull %1, ptr noundef %4, i64 noundef 1025) #11
   %12 = icmp eq i64 %11, -7
   br i1 %12, label %23, label %13
 

@@ -4405,7 +4405,7 @@ _ZZN12_GLOBAL__N_17VizPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char
   br label %.loopexit.split-lp607.i
 
 1617:                                             ; preds = %1609
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(49) %30, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(49) %30, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %.loopexit637.i unwind label %.loopexit.split-lp607.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .loopexit637.i:                                   ; preds = %1611, %1617
@@ -13680,7 +13680,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i246: ;
 
 825:                                              ; preds = %820
   store i8 1, ptr %817, align 4
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %.thread1752 unwind label %.loopexit1884
 
 826:                                              ; preds = %820
@@ -16165,7 +16165,7 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE5countERK
   %1891 = load ptr, ptr %40, align 8
   %1892 = call fastcc noundef ptr @_ZN12_GLOBAL__N_19GraphNode3getEv(ptr noundef nonnull align 8 dereferenceable(240) %1891)
   %1893 = getelementptr inbounds i8, ptr %1892, i64 128
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(49) %1893, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(49) %1893, ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %1894 unwind label %.loopexit1842
 
 1894:                                             ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE5countERKS4_.exit.thread1765
@@ -16177,7 +16177,7 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE5countERK
 .invoke3258:                                      ; preds = %.loopexit1823, %1894
   %1898 = phi ptr [ %46, %1894 ], [ %47, %.loopexit1823 ]
   %1899 = phi ptr [ %1897, %1894 ], [ %1900, %.loopexit1823 ]
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %1898, ptr noundef nonnull align 8 dereferenceable(49) %1899, ptr noundef nonnull align 8 dereferenceable(8) %40)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %1898, ptr noundef nonnull align 8 dereferenceable(49) %1899, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE5countERKS4_.exit unwind label %.loopexit1842
 
 .loopexit1823:                                    ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i446, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i449, %._crit_edge.i.i435, %1583
@@ -17722,14 +17722,14 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE5countERK
   %2545 = load ptr, ptr %40, align 8
   %2546 = call fastcc noundef ptr @_ZN12_GLOBAL__N_19GraphNode3getEv(ptr noundef nonnull align 8 dereferenceable(240) %2545)
   %2547 = getelementptr inbounds i8, ptr %2546, i64 184
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(49) %2547, ptr noundef nonnull align 8 dereferenceable(8) %50)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(49) %2547, ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %2548 unwind label %.loopexit1828
 
 2548:                                             ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE5countERKS4_.exit589.thread1776
   %2549 = load ptr, ptr %50, align 8
   %2550 = call fastcc noundef ptr @_ZN12_GLOBAL__N_19GraphNode3getEv(ptr noundef nonnull align 8 dereferenceable(240) %2549)
   %2551 = getelementptr inbounds i8, ptr %2550, i64 128
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(49) %2551, ptr noundef nonnull align 8 dereferenceable(8) %40)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(49) %2551, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.thread1769 unwind label %.loopexit1828
 
 .thread1769:                                      ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i561, %2536, %2258, %._crit_edge.i.i550, %2548, %2256
@@ -18903,13 +18903,13 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i688: ; preds = %3002, %2998
   store ptr %3027, ptr %58, align 8
   %3028 = call fastcc noundef ptr @_ZN12_GLOBAL__N_19GraphNode3getEv(ptr noundef nonnull align 8 dereferenceable(240) %2976)
   %3029 = getelementptr inbounds i8, ptr %3028, i64 184
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(49) %3029, ptr noundef nonnull align 8 dereferenceable(8) %58)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(49) %3029, ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %3030 unwind label %.loopexit1793
 
 3030:                                             ; preds = %3025
   %3031 = call fastcc noundef ptr @_ZN12_GLOBAL__N_19GraphNode3getEv(ptr noundef nonnull align 8 dereferenceable(240) %3027)
   %3032 = getelementptr inbounds i8, ptr %3031, i64 128
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(49) %3032, ptr noundef nonnull align 8 dereferenceable(8) %54)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(49) %3032, ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %3023 unwind label %.loopexit1793
 
 .loopexit:                                        ; preds = %3023, %3010
@@ -29284,7 +29284,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolISt4pairIiiENS1_8hash_opsIS4_EEE7entry_tESaIS8_
   br label %.body
 
 ._crit_edge:                                      ; preds = %4020, %3298
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(49) %3291, ptr noundef nonnull align 8 dereferenceable(8) %108)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(49) %3291, ptr noundef nonnull align 8 dereferenceable(8) %108)
           to label %4021 unwind label %.loopexit.split-lp3427.loopexit
 
 4021:                                             ; preds = %._crit_edge
@@ -31216,11 +31216,11 @@ _ZZN12_GLOBAL__N_15Graph5phaseEbiENKUlPKcE_clES2_.exit545: ; preds = %.noexc544,
   br i1 %.not3388, label %._crit_edge5033, label %4811
 
 ._crit_edge5033:                                  ; preds = %4862, %._crit_edge5027
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef nonnull align 8 dereferenceable(49) %4735, ptr noundef nonnull align 8 dereferenceable(8) %115)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %116, ptr noundef nonnull align 8 dereferenceable(49) %4735, ptr noundef nonnull align 8 dereferenceable(8) %115)
           to label %4863 unwind label %.loopexit.split-lp3410.loopexit.split-lp
 
 4863:                                             ; preds = %._crit_edge5033
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %117, ptr noundef nonnull align 8 dereferenceable(49) %4739, ptr noundef nonnull align 8 dereferenceable(8) %115)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %117, ptr noundef nonnull align 8 dereferenceable(49) %4739, ptr noundef nonnull align 8 dereferenceable(8) %115)
           to label %4864 unwind label %.loopexit.split-lp3410.loopexit.split-lp
 
 4864:                                             ; preds = %4863
@@ -32276,7 +32276,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %.loopexit, %89, %96
   br i1 %.not37, label %137, label %136
 
 136:                                              ; preds = %132
-  call fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(49) %130, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(49) %130, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %137
 
 137:                                              ; preds = %132, %136
@@ -32314,7 +32314,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %.loopexit, %89, %96
   br i1 %.not, label %152, label %151
 
 151:                                              ; preds = %147
-  call fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(49) %145, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  call fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(49) %145, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %152
 
 152:                                              ; preds = %147, %151
@@ -32524,7 +32524,7 @@ common.ret3:                                      ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val6 = load ptr, ptr %4, align 8
@@ -37186,7 +37186,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_19GraphNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9
   br i1 %.not13, label %57, label %56
 
 56:                                               ; preds = %.lr.ph
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %57 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit21:                                      ; preds = %71
@@ -37245,7 +37245,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_19GraphNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9
   br i1 %.not12, label %75, label %71
 
 71:                                               ; preds = %67
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %72 unwind label %.loopexit21
 
 72:                                               ; preds = %71
@@ -40036,7 +40036,7 @@ _ZNK5Yosys7hashlib4dictISt6vectorIiSaIiEENS0_4poolIPN12_GLOBAL__N_19GraphNodeENS
   br i1 %.not97, label %._crit_edge195, label %367
 
 ._crit_edge195:                                   ; preds = %419, %354
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(49) %356, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(49) %356, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %420 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 420:                                              ; preds = %._crit_edge195

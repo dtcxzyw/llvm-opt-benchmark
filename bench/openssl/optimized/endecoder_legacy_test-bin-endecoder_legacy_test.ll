@@ -741,7 +741,7 @@ declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) #2
 declare i32 @EVP_PKEY_print_private(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_unprotected_PEM(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %pem_write_bio, ptr noundef readonly %pem_read_bio, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef %selection, ptr noundef %structure) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_unprotected_PEM(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %pem_write_bio, ptr noundef readonly %pem_read_bio, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef range(i32 132, 135) %selection, ptr noundef %structure) unnamed_addr #1 {
 entry:
   %decoded_provided_pkey = alloca ptr, align 8
   store ptr null, ptr %decoded_provided_pkey, align 8
@@ -863,7 +863,7 @@ declare i32 @EVP_PKEY_parameters_eq(ptr noundef, ptr noundef) #2
 declare i32 @EVP_PKEY_print_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_DER(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %i2d, ptr noundef readonly %d2i, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef %selection, ptr noundef %structure) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_DER(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %i2d, ptr noundef readonly %d2i, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef range(i32 132, 136) %selection, ptr noundef %structure) unnamed_addr #1 {
 entry:
   %der_legacy = alloca ptr, align 8
   %pder_legacy = alloca ptr, align 8

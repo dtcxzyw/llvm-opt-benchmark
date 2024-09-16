@@ -87,7 +87,7 @@ entry:
   store ptr %libctx, ptr %methdata, align 8
   %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
-  %call = call fastcc ptr @inner_loader_fetch(ptr noundef nonnull %methdata, ptr noundef %scheme, ptr noundef %properties)
+  %call = call fastcc ptr @inner_loader_fetch(ptr noundef %methdata, ptr noundef %scheme, ptr noundef %properties)
   %0 = load ptr, ptr %tmp_store, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %dealloc_tmp_loader_store.exit, label %if.then.i
@@ -101,7 +101,7 @@ dealloc_tmp_loader_store.exit:                    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @inner_loader_fetch(ptr noundef %methdata, ptr noundef %scheme, ptr noundef %properties) unnamed_addr #1 {
+define internal fastcc ptr @inner_loader_fetch(ptr noundef nonnull %methdata, ptr noundef %scheme, ptr noundef %properties) unnamed_addr #1 {
 entry:
   %method = alloca ptr, align 8
   %mcm = alloca %struct.ossl_method_construct_method_st, align 8
@@ -373,7 +373,7 @@ entry:
   store ptr %libctx, ptr %methdata, align 8
   %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
-  %call = call fastcc ptr @inner_loader_fetch(ptr noundef nonnull %methdata, ptr noundef null, ptr noundef null)
+  %call = call fastcc ptr @inner_loader_fetch(ptr noundef %methdata, ptr noundef null, ptr noundef null)
   store ptr %user_fn, ptr %data, align 8
   %user_arg3 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %user_arg, ptr %user_arg3, align 8

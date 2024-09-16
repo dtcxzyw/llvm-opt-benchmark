@@ -747,7 +747,7 @@ _ZN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8
 
 54:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %6)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %6)
           to label %.noexc.i unwind label %.loopexit.split-lp.i.loopexit
 
 .noexc.i:                                         ; preds = %54
@@ -761,7 +761,7 @@ _ZN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8
           to label %.noexc11.i unwind label %.loopexit.i
 
 .noexc11.i:                                       ; preds = %.lr.ph.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %6)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %6)
           to label %.noexc12.i unwind label %.loopexit.i
 
 .noexc12.i:                                       ; preds = %.noexc11.i
@@ -3037,7 +3037,7 @@ declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1425) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1425) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.15", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3337,7 +3337,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser14parse_top_itemEv(ptr noun
   %8 = alloca %"struct.(anonymous namespace)::RamDef", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"struct.Yosys::RTLIL::IdString", align 4
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %11 = getelementptr inbounds i8, ptr %0, i64 612
   %12 = load i8, ptr %11, align 4, !noalias !36
   %13 = trunc i8 %12 to i1
@@ -3364,7 +3364,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %14
           to label %23 unwind label %40
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %24 unwind label %40
 
 24:                                               ; preds = %23
@@ -3375,7 +3375,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %14
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %27
@@ -3422,7 +3422,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %14
           to label %48 unwind label %40
 
 48:                                               ; preds = %47
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %49 unwind label %40
 
 49:                                               ; preds = %48
@@ -3433,7 +3433,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %14
 
 52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc10 unwind label %40
 
 .noexc10:                                         ; preds = %52
@@ -3893,7 +3893,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_t
 
 _ZN12_GLOBAL__N_16RamDefaSEOS0_.exit:             ; preds = %239, %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EvT_SA_RSaIT0_E.exit.i.i.i.i
   call fastcc void @_ZN12_GLOBAL__N_16RamDefD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %8) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc14 unwind label %40
 
 .noexc14:                                         ; preds = %_ZN12_GLOBAL__N_16RamDefaSEOS0_.exit
@@ -3941,7 +3941,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit15: ; preds = %242, %.noexc14
   store i32 %.sink, ptr %97, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc16 unwind label %40
 
 .noexc16:                                         ; preds = %260
@@ -4405,7 +4405,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_16Parser11enter_ifdef
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1424
   %7 = load i8, ptr %6, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %8 = getelementptr inbounds i8, ptr %0, i64 612
   %9 = load i8, ptr %8, align 4, !noalias !55
   %10 = trunc i8 %9 to i1
@@ -4617,14 +4617,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser15parse_top_blockEv(ptr nou
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %6 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.23) #24
   %7 = icmp eq i32 %6, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %1
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %9 = getelementptr inbounds i8, ptr %0, i64 612
   %10 = load i8, ptr %9, align 4, !noalias !61
   %11 = trunc i8 %10 to i1
@@ -4639,7 +4639,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser15parse_top_blockEv(ptr nou
 
 _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %8, %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %16 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.24) #24
   %.not3 = icmp eq i32 %16, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
@@ -4647,14 +4647,14 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %8, %12
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit, %.lr.ph
   call fastcc void @_ZN12_GLOBAL__N_16Parser14parse_top_itemEv(ptr noundef nonnull align 8 dereferenceable(1425) %0)
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.24) #24
   %.not = icmp eq i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %18 = load i8, ptr %9, align 4, !noalias !65
   %19 = trunc i8 %18 to i1
   br i1 %19, label %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit2, label %20
@@ -4687,14 +4687,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser15parse_ram_blockEv(ptr nou
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %6 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.23) #24
   %7 = icmp eq i32 %6, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %1
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %9 = getelementptr inbounds i8, ptr %0, i64 612
   %10 = load i8, ptr %9, align 4, !noalias !68
   %11 = trunc i8 %10 to i1
@@ -4709,7 +4709,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser15parse_ram_blockEv(ptr nou
 
 _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %8, %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %16 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.24) #24
   %.not3 = icmp eq i32 %16, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
@@ -4717,14 +4717,14 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %8, %12
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit, %.lr.ph
   call fastcc void @_ZN12_GLOBAL__N_16Parser14parse_ram_itemEv(ptr noundef nonnull align 8 dereferenceable(1425) %0)
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.24) #24
   %.not = icmp eq i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %18 = load i8, ptr %9, align 4, !noalias !72
   %19 = trunc i8 %18 to i1
   br i1 %19, label %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit2, label %20
@@ -4833,7 +4833,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser11compile_ramEi(ptr noundef
 
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i8, ptr %0, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_16Parser21make_opt_combinationsERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_4poolINS1_5RTLIL5ConstENS2_8hash_opsISC_EEEENSD_IS9_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(49) %64)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser21make_opt_combinationsERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_4poolINS1_5RTLIL5ConstENS2_8hash_opsISC_EEEENSD_IS9_EEEE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(49) %64)
   %65 = load ptr, ptr %33, align 8
   %66 = getelementptr inbounds i8, ptr %33, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -15053,7 +15053,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser14parse_ram_itemEv(ptr noun
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = alloca %"class.std::__cxx11::basic_string", align 8
   %23 = alloca %"struct.(anonymous namespace)::PortGroupDef", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %24 = getelementptr inbounds i8, ptr %0, i64 612
   %25 = load i8, ptr %24, align 4, !noalias !101
   %26 = trunc i8 %25 to i1
@@ -15081,7 +15081,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %27
           to label %37 unwind label %.loopexit.split-lp83.loopexit.split-lp
 
 37:                                               ; preds = %35
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %38 unwind label %.loopexit.split-lp83.loopexit.split-lp
 
 38:                                               ; preds = %37
@@ -15092,7 +15092,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %27
 
 41:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc unwind label %.loopexit.split-lp83.loopexit.split-lp
 
 .noexc:                                           ; preds = %41
@@ -15155,7 +15155,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %27
           to label %63 unwind label %.loopexit.split-lp83.loopexit.split-lp
 
 63:                                               ; preds = %61
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %64 unwind label %.loopexit.split-lp83.loopexit.split-lp
 
 64:                                               ; preds = %63
@@ -15166,7 +15166,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %27
 
 67:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc49 unwind label %.loopexit.split-lp83.loopexit.split-lp
 
 .noexc49:                                         ; preds = %67
@@ -15322,7 +15322,7 @@ _ZN12_GLOBAL__N_16Parser11exit_optionEv.exit:     ; preds = %87, %93
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds i8, ptr %0, i64 832
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_9WidthsDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull %10)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_9WidthsDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef %10)
           to label %133 unwind label %136
 
 133:                                              ; preds = %131
@@ -15498,7 +15498,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %192 = phi ptr [ %189, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %169, %168 ]
   %.val42 = phi ptr [ %184, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %148, %168 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc59 unwind label %.loopexit
 
 .noexc59:                                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -15536,7 +15536,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %201
 
 201:                                              ; preds = %.loopexit81, %.thread
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc60 unwind label %.loopexit.split-lp
 
 .noexc60:                                         ; preds = %201
@@ -15587,7 +15587,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit61: ; preds = %204, %.noexc60
 
 223:                                              ; preds = %222
   %224 = getelementptr inbounds i8, ptr %0, i64 832
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_9WidthsDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %224, ptr noundef nonnull %13)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_9WidthsDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %224, ptr noundef %13)
           to label %225 unwind label %228
 
 225:                                              ; preds = %223
@@ -15635,7 +15635,7 @@ _ZN12_GLOBAL__N_19WidthsDefD2Ev.exit63:           ; preds = %225, %226
 
 235:                                              ; preds = %232
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %236 unwind label %242
 
 236:                                              ; preds = %235
@@ -15673,7 +15673,7 @@ _ZN12_GLOBAL__N_19WidthsDefD2Ev.exit63:           ; preds = %225, %226
   %250 = load i32, ptr %249, align 8
   store i32 %250, ptr %248, align 8
   %251 = getelementptr inbounds i8, ptr %0, i64 856
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_11ResourceDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %251, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_11ResourceDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %251, ptr noundef %16)
           to label %252 unwind label %253
 
 252:                                              ; preds = %247
@@ -15760,7 +15760,7 @@ _ZN12_GLOBAL__N_19WidthsDefD2Ev.exit63:           ; preds = %225, %226
   br i1 %287, label %288, label %310
 
 288:                                              ; preds = %285
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc71 unwind label %.loopexit.split-lp83.loopexit.split-lp
 
 .noexc71:                                         ; preds = %288
@@ -15817,7 +15817,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit72: ; preds = %291, %.noexc71
   br label %314
 
 314:                                              ; preds = %.preheader, %326
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %315 unwind label %.loopexit82
 
 315:                                              ; preds = %314
@@ -15842,7 +15842,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit72: ; preds = %291, %.noexc71
           to label %323 unwind label %327
 
 323:                                              ; preds = %._crit_edge
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorINS_10CapabilityIT_EESaISB_EESA_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %313, ptr noundef nonnull %19)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorINS_10CapabilityIT_EESaISB_EESA_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %313, ptr noundef %19)
           to label %324 unwind label %329
 
 324:                                              ; preds = %323
@@ -15887,7 +15887,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit72: ; preds = %291, %.noexc71
 
 338:                                              ; preds = %335
   call fastcc void @_ZN12_GLOBAL__N_112PortGroupDefD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %20) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc73 unwind label %.loopexit.split-lp83.loopexit.split-lp
 
 .noexc73:                                         ; preds = %338
@@ -15942,7 +15942,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit74: ; preds = %341, %.noexc73
   br label %364
 
 364:                                              ; preds = %368, %362
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %365 unwind label %.loopexit.split-lp83.loopexit
 
 365:                                              ; preds = %364
@@ -15973,7 +15973,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit74: ; preds = %341, %.noexc73
 
 375:                                              ; preds = %374
   %376 = getelementptr inbounds i8, ptr %0, i64 784
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortGroupDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %376, ptr noundef nonnull %23)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortGroupDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %376, ptr noundef %23)
           to label %377 unwind label %380
 
 377:                                              ; preds = %375
@@ -16041,8 +16041,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser12enter_optionEv(ptr nounde
   %3 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %4 = alloca %"struct.std::pair.154", align 8
   %5 = alloca %"struct.std::pair.142", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser9get_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser9get_valueEv(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %6 unwind label %14
 
 6:                                                ; preds = %1
@@ -16186,7 +16186,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit8:                  ; preds = %53, %.body, %14
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_16Parser8get_semiEv(ptr noundef nonnull align 8 dereferenceable(1425) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 612
   %4 = load i8, ptr %3, align 4, !noalias !122
   %5 = trunc i8 %4 to i1
@@ -16241,12 +16241,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_5EmptyEEEvRSt6v
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 624
   %.val7 = load ptr, ptr %11, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val, ptr %.val7)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val, ptr %.val7)
   %12 = getelementptr inbounds i8, ptr %0, i64 640
   %.val8 = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 648
   %.val9 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val8, ptr %.val9)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val8, ptr %.val9)
           to label %14 unwind label %169
 
 14:                                               ; preds = %9
@@ -16684,7 +16684,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_16Parser7get_intEv(ptr noundef nonnull align 8 dereferenceable(1425) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca ptr, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 612
   %5 = load i8, ptr %4, align 4, !noalias !126
   %6 = trunc i8 %5 to i1
@@ -16735,7 +16735,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIiEEvRSt6vectorINS_10CapabilityIT_EESaIS5_EES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIiEEvRSt6vectorINS_10CapabilityIT_EESaIS5_EES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.145", align 8
   %5 = alloca %"class.Yosys::hashlib::dict.135", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -16749,12 +16749,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIiEEvRSt6vectorINS_
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 624
   %.val8 = load ptr, ptr %12, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val, ptr %.val8)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val, ptr %.val8)
   %13 = getelementptr inbounds i8, ptr %0, i64 640
   %.val9 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 648
   %.val10 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val9, ptr %.val10)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val9, ptr %.val10)
           to label %15 unwind label %188
 
 15:                                               ; preds = %10
@@ -17233,7 +17233,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_9WidthsDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_9WidthsDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.146", align 8
   %5 = alloca %"class.Yosys::hashlib::dict.135", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -17273,7 +17273,7 @@ _ZN12_GLOBAL__N_19WidthsDefC2ERKS0_.exit:         ; preds = %10, %19
   %.val10 = load ptr, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 624
   %.val11 = load ptr, ptr %25, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val10, ptr %.val11)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val10, ptr %.val11)
           to label %26 unwind label %255
 
 26:                                               ; preds = %_ZN12_GLOBAL__N_19WidthsDefC2ERKS0_.exit
@@ -17281,7 +17281,7 @@ _ZN12_GLOBAL__N_19WidthsDefC2ERKS0_.exit:         ; preds = %10, %19
   %.val12 = load ptr, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 648
   %.val13 = load ptr, ptr %28, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val12, ptr %.val13)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val12, ptr %.val13)
           to label %29 unwind label %257
 
 29:                                               ; preds = %26
@@ -17991,7 +17991,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %13, %23
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_16Parser8peek_intEv(ptr noundef nonnull align 8 dereferenceable(1425) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %3 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   br i1 %3, label %9, label %4
 
@@ -18019,9 +18019,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_16Parser8peek_intEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1425) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1425) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %1)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %1)
   %4 = getelementptr inbounds i8, ptr %1, i64 612
   %5 = load i8, ptr %4, align 4, !noalias !131
   %6 = trunc i8 %5 to i1
@@ -18079,7 +18079,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %2, %7
 31:                                               ; preds = %21
   %32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   %33 = add i64 %32, -2
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 1, i64 noundef %33)
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 1, i64 noundef %33)
           to label %34 unwind label %29
 
 34:                                               ; preds = %31
@@ -18088,7 +18088,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_11ResourceDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_11ResourceDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.147", align 8
   %5 = alloca %"struct.(anonymous namespace)::ResourceDef", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -18108,7 +18108,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_11ResourceDefEE
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 624
   %.val9 = load ptr, ptr %16, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, ptr %.val9)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val, ptr %.val9)
           to label %17 unwind label %203
 
 17:                                               ; preds = %11
@@ -18116,7 +18116,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_11ResourceDefEE
   %.val10 = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 648
   %.val11 = load ptr, ptr %19, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val10, ptr %.val11)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val10, ptr %.val11)
           to label %20 unwind label %205
 
 20:                                               ; preds = %17
@@ -18662,12 +18662,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIdEEvRSt6vectorINS_
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 624
   %.val8 = load ptr, ptr %12, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val, ptr %.val8)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val, ptr %.val8)
   %13 = getelementptr inbounds i8, ptr %0, i64 640
   %.val9 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 648
   %.val10 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val9, ptr %.val10)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val9, ptr %.val10)
           to label %15 unwind label %188
 
 15:                                               ; preds = %10
@@ -19149,7 +19149,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 define internal fastcc noundef double @_ZN12_GLOBAL__N_16Parser10get_doubleEv(ptr noundef nonnull align 8 dereferenceable(1425) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca ptr, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 612
   %5 = load i8, ptr %4, align 4, !noalias !136
   %6 = trunc i8 %5 to i1
@@ -19197,7 +19197,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrary14MemoryInitKindEEEvRSt6vectorINS_10CapabilityIT_EESaIS8_EES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrary14MemoryInitKindEEEvRSt6vectorINS_10CapabilityIT_EESaIS8_EES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.149", align 8
   %5 = alloca %"class.Yosys::hashlib::dict.135", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -19211,12 +19211,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrar
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 624
   %.val8 = load ptr, ptr %12, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val, ptr %.val8)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val, ptr %.val8)
   %13 = getelementptr inbounds i8, ptr %0, i64 640
   %.val9 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 648
   %.val10 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val9, ptr %.val10)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val9, ptr %.val10)
           to label %15 unwind label %188
 
 15:                                               ; preds = %10
@@ -19698,7 +19698,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 declare i32 @tolower(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorINS_10CapabilityIT_EESaISB_EESA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorINS_10CapabilityIT_EESaISB_EESA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.150", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -19714,7 +19714,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINSt7__cxx1112basic
   %.val = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 624
   %.val9 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, ptr %.val9)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val, ptr %.val9)
           to label %14 unwind label %172
 
 14:                                               ; preds = %11
@@ -19722,7 +19722,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINSt7__cxx1112basic
   %.val10 = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 648
   %.val11 = load ptr, ptr %16, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val10, ptr %.val11)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val10, ptr %.val11)
           to label %17 unwind label %174
 
 17:                                               ; preds = %14
@@ -20189,7 +20189,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_16Parser11peek_stringEv(ptr noundef nonnull align 8 dereferenceable(1425) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %3 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   br i1 %3, label %9, label %4
 
@@ -20740,14 +20740,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser16parse_port_blockEv(ptr no
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %6 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.23) #24
   %7 = icmp eq i32 %6, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %1
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %9 = getelementptr inbounds i8, ptr %0, i64 612
   %10 = load i8, ptr %9, align 4, !noalias !141
   %11 = trunc i8 %10 to i1
@@ -20762,7 +20762,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser16parse_port_blockEv(ptr no
 
 _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %8, %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %16 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.24) #24
   %.not3 = icmp eq i32 %16, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
@@ -20770,14 +20770,14 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %8, %12
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit, %.lr.ph
   call fastcc void @_ZN12_GLOBAL__N_16Parser15parse_port_itemEv(ptr noundef nonnull align 8 dereferenceable(1425) %0)
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.24) #24
   %.not = icmp eq i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %18 = load i8, ptr %9, align 4, !noalias !145
   %19 = trunc i8 %18 to i1
   br i1 %19, label %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit2, label %20
@@ -20802,7 +20802,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit2: ; preds = %._crit_edge, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortGroupDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortGroupDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.144", align 8
   %5 = alloca %"struct.(anonymous namespace)::PortGroupDef", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -20818,7 +20818,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortGroupDefE
   %.val = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 624
   %.val9 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, ptr %.val9)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val, ptr %.val9)
           to label %14 unwind label %128
 
 14:                                               ; preds = %11
@@ -20826,7 +20826,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortGroupDefE
   %.val10 = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 648
   %.val11 = load ptr, ptr %16, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val10, ptr %.val11)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val10, ptr %.val11)
           to label %17 unwind label %130
 
 17:                                               ; preds = %14
@@ -22089,10 +22089,10 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_13RawWrTransDefEEEEvT_S5_.exit.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser9get_valueEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1425) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser9get_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1425) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %1)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %1)
   %5 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   br i1 %5, label %18, label %6
 
@@ -22106,7 +22106,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser9get_valueEv(ptr dead_on_un
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(1425) %1)
           to label %12 unwind label %14
 
 12:                                               ; preds = %11
@@ -25394,7 +25394,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr %.616.val, ptr readnone %.624.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.616.val, ptr readnone %.624.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.142", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %.not4 = icmp eq ptr %.616.val, %.624.val
@@ -25530,7 +25530,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL5Con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr %.640.val, ptr readnone %.648.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.640.val, ptr readnone %.648.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.142", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %.not4 = icmp eq ptr %.640.val, %.648.val
@@ -28363,7 +28363,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser15parse_port_itemEv(ptr nou
   %49 = alloca %"class.std::__cxx11::basic_string", align 8
   %50 = alloca %"class.std::__cxx11::basic_string", align 8
   %51 = alloca %"struct.(anonymous namespace)::RawWrTransDef", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %52 = getelementptr inbounds i8, ptr %0, i64 612
   %53 = load i8, ptr %52, align 4, !noalias !173
   %54 = trunc i8 %53 to i1
@@ -28391,7 +28391,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %55
           to label %65 unwind label %.loopexit.split-lp163
 
 65:                                               ; preds = %63
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %66 unwind label %.loopexit.split-lp163
 
 66:                                               ; preds = %65
@@ -28402,7 +28402,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %55
 
 69:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc unwind label %.loopexit.split-lp163
 
 .noexc:                                           ; preds = %69
@@ -28460,7 +28460,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %55
           to label %91 unwind label %.loopexit.split-lp163
 
 91:                                               ; preds = %89
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %92 unwind label %.loopexit.split-lp163
 
 92:                                               ; preds = %91
@@ -28471,7 +28471,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit: ; preds = %1, %55
 
 95:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc63 unwind label %.loopexit.split-lp163
 
 .noexc63:                                         ; preds = %95
@@ -28545,11 +28545,11 @@ _ZN12_GLOBAL__N_16Parser11exit_optionEv.exit:     ; preds = %115, %121
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc65 unwind label %.loopexit.split-lp163
 
 .noexc65:                                         ; preds = %125
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser9get_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser9get_valueEv(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %126 unwind label %134
 
 126:                                              ; preds = %.noexc65
@@ -28737,7 +28737,7 @@ _ZN12_GLOBAL__N_16Parser15exit_portoptionEv.exit: ; preds = %175, %181
 193:                                              ; preds = %185
   %194 = getelementptr inbounds i8, ptr %18, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %194) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc67 unwind label %204
 
 .noexc67:                                         ; preds = %193
@@ -28789,7 +28789,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit68: ; preds = %197, %.noexc67
   %.sink = phi i32 [ 0, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit68 ], [ 1, %206 ], [ 2, %209 ]
   store i32 %.sink, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc69 unwind label %204
 
 .noexc69:                                         ; preds = %218
@@ -28819,7 +28819,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit68: ; preds = %197, %.noexc67
   br i1 %226, label %227, label %230
 
 227:                                              ; preds = %224
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %228 unwind label %204
 
 228:                                              ; preds = %227
@@ -28861,7 +28861,7 @@ _ZN12_GLOBAL__N_18ClockDefC2ERKS0_.exit:          ; preds = %231
   %.val.i = load ptr, ptr %241, align 8
   %242 = getelementptr inbounds i8, ptr %0, i64 624
   %.val9.i = load ptr, ptr %242, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.i, ptr %.val9.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val.i, ptr %.val9.i)
           to label %243 unwind label %407
 
 243:                                              ; preds = %.noexc81
@@ -28869,7 +28869,7 @@ _ZN12_GLOBAL__N_18ClockDefC2ERKS0_.exit:          ; preds = %231
   %.val10.i = load ptr, ptr %244, align 8
   %245 = getelementptr inbounds i8, ptr %0, i64 648
   %.val11.i = load ptr, ptr %245, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val10.i, ptr %.val11.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val10.i, ptr %.val11.i)
           to label %246 unwind label %409
 
 246:                                              ; preds = %243
@@ -29406,7 +29406,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 439:                                              ; preds = %436
   %440 = getelementptr inbounds i8, ptr %22, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %440, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %441 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 441:                                              ; preds = %439
@@ -29419,7 +29419,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
   br i1 %446, label %447, label %498
 
 447:                                              ; preds = %441
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc84:                                         ; preds = %447
@@ -29498,7 +29498,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit85: ; preds = %450, %.noexc84
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge, %.preheader
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc86 unwind label %.loopexit
 
 .noexc86:                                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
@@ -29613,7 +29613,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br i1 %500, label %501, label %550
 
 501:                                              ; preds = %498
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc91:                                         ; preds = %501
@@ -29641,7 +29641,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit92: ; preds = %504, %.noexc91
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit109:        ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit109.backedge, %.preheader141
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc95 unwind label %.loopexit.split-lp.loopexit
 
 .noexc95:                                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit109
@@ -29754,7 +29754,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br i1 %552, label %553, label %581
 
 553:                                              ; preds = %550
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc110:                                        ; preds = %553
@@ -29801,7 +29801,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit111: ; preds = %556, %.noexc110
           to label %568 unwind label %576
 
 568:                                              ; preds = %567
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser9eat_tokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull %28)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser9eat_tokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef %28)
           to label %569 unwind label %578
 
 569:                                              ; preds = %568
@@ -29847,7 +29847,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit111: ; preds = %556, %.noexc110
   br i1 %583, label %584, label %.preheader158
 
 584:                                              ; preds = %581
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc112 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc112:                                        ; preds = %584
@@ -29890,7 +29890,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit113: ; preds = %587, %.noexc112
           to label %597 unwind label %606
 
 597:                                              ; preds = %596
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser9eat_tokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull %33)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser9eat_tokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef %33)
           to label %598 unwind label %608
 
 598:                                              ; preds = %597
@@ -29959,7 +29959,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit113: ; preds = %587, %.noexc112
 
 617:                                              ; preds = %616
   %618 = getelementptr inbounds i8, ptr %0, i64 1184
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortWidthDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %618, ptr noundef nonnull %37)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortWidthDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %618, ptr noundef %37)
           to label %619 unwind label %620
 
 619:                                              ; preds = %617
@@ -30007,7 +30007,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit113: ; preds = %587, %.noexc112
   br i1 %.not40, label %635, label %.invoke
 
 635:                                              ; preds = %632
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc114 unwind label %.loopexit.split-lp163
 
 .noexc114:                                        ; preds = %635
@@ -30085,7 +30085,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit115: ; preds = %638, %.noexc114
   ]
 
 671:                                              ; preds = %668, %668
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc116 unwind label %.loopexit.split-lp163
 
 .noexc116:                                        ; preds = %671
@@ -30148,7 +30148,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit117: ; preds = %674, %.noexc116
   ]
 
 699:                                              ; preds = %696, %696
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc118 unwind label %.loopexit.split-lp163
 
 .noexc118:                                        ; preds = %699
@@ -30209,7 +30209,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit119: ; preds = %702, %.noexc118
   ]
 
 728:                                              ; preds = %725, %725
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc120 unwind label %.loopexit.split-lp163
 
 .noexc120:                                        ; preds = %728
@@ -30253,7 +30253,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit121: ; preds = %731, %.noexc120
 
 750:                                              ; preds = %747, %744, %741, %738
   %.sroa.04.0.ph = phi i64 [ 4, %747 ], [ 3, %744 ], [ 2, %741 ], [ 1, %738 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc122 unwind label %.loopexit.split-lp163
 
 .noexc122:                                        ; preds = %750
@@ -30288,7 +30288,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit123: ; preds = %753, %.noexc122
 766:                                              ; preds = %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit121, %763, %760, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit123
   %.sroa.04.0139 = phi i64 [ %.sroa.04.0.ph, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit123 ], [ %.sroa.04.0.ph, %760 ], [ %.sroa.04.0.ph, %763 ], [ 0, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit121 ]
   %.sroa.7.0 = phi i64 [ 4294967296, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit123 ], [ 8589934592, %760 ], [ 12884901888, %763 ], [ 0, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit121 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %767 unwind label %.loopexit.split-lp163
 
 767:                                              ; preds = %766
@@ -30298,7 +30298,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit123: ; preds = %753, %.noexc122
   br i1 %769, label %770, label %777
 
 770:                                              ; preds = %767
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc124 unwind label %.loopexit.split-lp163
 
 .noexc124:                                        ; preds = %770
@@ -30344,11 +30344,11 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit125: ; preds = %773, %.noexc124
   br label %787
 
 787:                                              ; preds = %.preheader161, %791
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %788 unwind label %.loopexit162
 
 788:                                              ; preds = %787
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorINS_10CapabilityIT_EESaISB_EESA_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %786, ptr noundef nonnull %45)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorINS_10CapabilityIT_EESaISB_EESA_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %786, ptr noundef %45)
           to label %789 unwind label %793
 
 789:                                              ; preds = %788
@@ -30381,7 +30381,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit125: ; preds = %773, %.noexc124
   br i1 %switch61, label %.invoke, label %801
 
 801:                                              ; preds = %798
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %802 unwind label %.loopexit.split-lp163
 
 802:                                              ; preds = %801
@@ -30395,7 +30395,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit125: ; preds = %773, %.noexc124
 
 807:                                              ; preds = %802
   store i32 0, ptr %47, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc126 unwind label %814
 
 .noexc126:                                        ; preds = %807
@@ -30417,7 +30417,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit125: ; preds = %773, %.noexc124
 
 816:                                              ; preds = %802
   store i32 1, ptr %47, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10get_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %817 unwind label %814
 
 817:                                              ; preds = %816
@@ -30427,7 +30427,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit125: ; preds = %773, %.noexc124
 _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit127: ; preds = %.noexc126, %810, %817
   %.sink182 = phi ptr [ %49, %817 ], [ %48, %810 ], [ %48, %.noexc126 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink182) #24
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.noexc128 unwind label %814
 
 .noexc128:                                        ; preds = %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit127
@@ -30485,7 +30485,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit129: ; preds = %821, %.noexc128
   %845 = load i32, ptr %844, align 8
   store i32 %845, ptr %843, align 8
   %846 = getelementptr inbounds i8, ptr %0, i64 1352
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_13RawWrTransDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %846, ptr noundef nonnull %51)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_13RawWrTransDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %846, ptr noundef %51)
           to label %847 unwind label %848
 
 847:                                              ; preds = %842
@@ -30657,9 +30657,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser9eat_tokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser9eat_tokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1425) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 612
   %5 = load i8, ptr %4, align 4, !noalias !228
   %6 = trunc i8 %5 to i1
@@ -30714,7 +30714,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortWidthDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortWidthDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.173", align 8
   %5 = alloca %"struct.(anonymous namespace)::PortWidthDef", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -30730,7 +30730,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortWidthDefE
   %.val = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 624
   %.val9 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, ptr %.val9)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val, ptr %.val9)
           to label %14 unwind label %218
 
 14:                                               ; preds = %11
@@ -30738,7 +30738,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortWidthDefE
   %.val10 = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 648
   %.val11 = load ptr, ptr %16, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val10, ptr %.val11)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val10, ptr %.val11)
           to label %17 unwind label %220
 
 17:                                               ; preds = %14
@@ -31396,7 +31396,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %53, %56
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrary8RdWrKindEEEvRSt6vectorINS_10CapabilityIT_EESaIS8_EES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrary8RdWrKindEEEvRSt6vectorINS_10CapabilityIT_EESaIS8_EES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.174", align 8
   %5 = alloca %"class.Yosys::hashlib::dict.135", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -31410,12 +31410,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrar
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 624
   %.val8 = load ptr, ptr %12, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val, ptr %.val8)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val, ptr %.val8)
   %13 = getelementptr inbounds i8, ptr %0, i64 640
   %.val9 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 648
   %.val10 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val9, ptr %.val10)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val9, ptr %.val10)
           to label %15 unwind label %172
 
 15:                                               ; preds = %10
@@ -31855,7 +31855,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrary12ResetValKindEEEvRSt6vectorINS_10CapabilityIT_EESaIS8_EES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrary12ResetValKindEEEvRSt6vectorINS_10CapabilityIT_EESaIS8_EES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.175", align 8
   %5 = alloca %"class.Yosys::hashlib::dict.135", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -31869,12 +31869,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrar
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 624
   %.val8 = load ptr, ptr %12, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val, ptr %.val8)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val, ptr %.val8)
   %13 = getelementptr inbounds i8, ptr %0, i64 640
   %.val9 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 648
   %.val10 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val9, ptr %.val10)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val9, ptr %.val10)
           to label %15 unwind label %172
 
 15:                                               ; preds = %10
@@ -32314,7 +32314,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_7SrstDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i64 %2, i8 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_7SrstDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i64 range(i64 0, 17179869184) %2, i8 range(i8 0, 2) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.(anonymous namespace)::Capability.176", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
   %7 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -32328,12 +32328,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_7SrstDefEEEvRSt
   %.val = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 624
   %.val15 = load ptr, ptr %13, align 8
-  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, ptr %.val15)
+  call fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val, ptr %.val15)
   %14 = getelementptr inbounds i8, ptr %0, i64 640
   %.val16 = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 648
   %.val17 = load ptr, ptr %15, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val16, ptr %.val17)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val16, ptr %.val17)
           to label %16 unwind label %171
 
 16:                                               ; preds = %11
@@ -32773,7 +32773,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_13RawWrTransDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_13RawWrTransDefEEEvRSt6vectorINS_10CapabilityIT_EESaIS6_EES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1425) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Capability.177", align 8
   %5 = alloca %"struct.(anonymous namespace)::RawWrTransDef", align 8
   %6 = alloca %"class.Yosys::hashlib::dict.135", align 8
@@ -32797,7 +32797,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_13RawWrTransDef
   %.val = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 624
   %.val9 = load ptr, ptr %19, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, ptr %.val9)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val, ptr %.val9)
           to label %20 unwind label %190
 
 20:                                               ; preds = %11
@@ -32805,7 +32805,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_13RawWrTransDef
   %.val10 = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 648
   %.val11 = load ptr, ptr %22, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val10, ptr %.val11)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val10, ptr %.val11)
           to label %23 unwind label %192
 
 23:                                               ; preds = %20
@@ -38341,7 +38341,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 
 84:                                               ; preds = %_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEED2Ev.exit183
   %85 = getelementptr inbounds i8, ptr %2, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16Parser21make_opt_combinationsERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_4poolINS1_5RTLIL5ConstENS2_8hash_opsISC_EEEENSD_IS9_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(49) %85)
+  invoke fastcc void @_ZN12_GLOBAL__N_16Parser21make_opt_combinationsERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_4poolINS1_5RTLIL5ConstENS2_8hash_opsISC_EEEENSD_IS9_EEEE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(49) %85)
           to label %86 unwind label %184
 
 86:                                               ; preds = %84

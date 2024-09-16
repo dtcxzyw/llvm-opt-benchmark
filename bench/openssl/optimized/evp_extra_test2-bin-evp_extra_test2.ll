@@ -2182,7 +2182,7 @@ declare i32 @EVP_PKEY_fromdata(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pkey_has_private(ptr noundef %key, ptr noundef %privtag, i32 noundef %use_octstring) unnamed_addr #0 {
+define internal fastcc i32 @pkey_has_private(ptr noundef %key, ptr noundef %privtag, i32 noundef range(i32 0, 2) %use_octstring) unnamed_addr #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %bn = alloca ptr, align 8
@@ -2231,7 +2231,7 @@ declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_check_bn(ptr noundef %params, ptr noundef %key, ptr noundef %expected, i64 noundef %expected_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_check_bn(ptr noundef %params, ptr noundef %key, ptr noundef %expected, i64 noundef range(i64 28, 258) %expected_len) unnamed_addr #0 {
 entry:
   %bn = alloca ptr, align 8
   %buffer = alloca [257 x i8], align 16
@@ -2272,7 +2272,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_check_int(ptr noundef %params, ptr noundef %key, i32 noundef %expected) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_check_int(ptr noundef %params, ptr noundef %key, i32 noundef range(i32 -1, 2) %expected) unnamed_addr #0 {
 entry:
   %val = alloca i32, align 4
   store i32 0, ptr %val, align 4
@@ -2345,7 +2345,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare ptr @OSSL_PARAM_merge(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_check_params(ptr noundef %key_params, i32 noundef %expected) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_check_params(ptr noundef %key_params, i32 noundef range(i32 0, 2) %expected) unnamed_addr #0 {
 entry:
   %pkey = alloca ptr, align 8
   store ptr null, ptr %pkey, align 8

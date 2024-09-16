@@ -140,11 +140,11 @@ sub_1244:                                         ; preds = %sub_1, %.tail
   ]
 
 44:                                               ; preds = %41
-  %45 = call fastcc i64 @get_size(ptr noundef %.0, ptr noundef nonnull %3, i32 noundef %0, ptr noundef nonnull %1)
+  %45 = call fastcc i64 @get_size(ptr noundef %.0, ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1)
   br label %49
 
 46:                                               ; preds = %41
-  %47 = call fastcc i64 @get_size(ptr noundef %.0, ptr noundef nonnull %3, i32 noundef %0, ptr noundef nonnull %1)
+  %47 = call fastcc i64 @get_size(ptr noundef %.0, ptr noundef %3, i32 noundef %0, ptr noundef nonnull %1)
   br label %49
 
 48:                                               ; preds = %41
@@ -734,7 +734,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @get_size(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc i64 @get_size(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call ptr @__ctype_b_loc() #25

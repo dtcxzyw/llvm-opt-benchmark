@@ -1544,7 +1544,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext range(i16 0, 3) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = add i32 %1, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #3
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #3
@@ -1554,7 +1554,7 @@ define internal fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef 
   %13 = load i32, ptr @hf_isns_port_type, align 4
   %14 = zext nneg i16 %10 to i64
   %15 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %1, i32 noundef 2, i64 noundef %14) #3
-  %16 = add i16 %4, -1
+  %16 = add nsw i16 %4, -1
   %or.cond = icmp ult i16 %16, 2
   br i1 %or.cond, label %17, label %27
 

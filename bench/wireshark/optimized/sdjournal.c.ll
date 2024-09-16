@@ -299,7 +299,7 @@ declare void @extcap_cmdline_debug(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i8 @extcap_base_handle_interface(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i32 0, -2147483647) %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

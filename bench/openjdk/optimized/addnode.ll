@@ -168,7 +168,7 @@ define hidden noundef ptr @_ZN7AddNode5IdealEP8PhaseGVNb(ptr noundef nonnull ali
   %29 = getelementptr inbounds i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(20) %23) #7
-  %32 = tail call fastcc noundef zeroext i1 @_ZL7commuteP8PhaseGVNP4Node(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %32 = tail call fastcc noundef zeroext i1 @_ZL7commuteP8PhaseGVNP4Node(ptr noundef nonnull %1, ptr noundef %0)
   br i1 %32, label %287, label %33
 
 33:                                               ; preds = %3
@@ -591,7 +591,7 @@ _ZN4Node7set_reqEjPS_.exit111:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7commuteP8PhaseGVNP4Node(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7commuteP8PhaseGVNP4Node(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2287,7 +2287,7 @@ declare noundef ptr @_ZN5TypeF4makeEf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8AddFNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
-  %4 = tail call fastcc noundef zeroext i1 @_ZL7commuteP8PhaseGVNP4Node(ptr noundef %1, ptr noundef nonnull %0)
+  %4 = tail call fastcc noundef zeroext i1 @_ZL7commuteP8PhaseGVNP4Node(ptr noundef %1, ptr noundef %0)
   %. = select i1 %4, ptr %0, ptr null
   ret ptr %.
 }
@@ -2339,7 +2339,7 @@ declare noundef ptr @_ZN5TypeD4makeEd(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8AddDNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
-  %4 = tail call fastcc noundef zeroext i1 @_ZL7commuteP8PhaseGVNP4Node(ptr noundef %1, ptr noundef nonnull %0)
+  %4 = tail call fastcc noundef zeroext i1 @_ZL7commuteP8PhaseGVNP4Node(ptr noundef %1, ptr noundef %0)
   %. = select i1 %4, ptr %0, ptr null
   ret ptr %.
 }
@@ -3474,7 +3474,7 @@ _ZN14RotateLeftNodeC2EP4NodeS1_PK4Type.exit:      ; preds = %230, %207, %311, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL12rotate_shiftP8PhaseGVNP4NodeS2_i(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL12rotate_shiftP8PhaseGVNP4NodeS2_i(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 31, 64) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 40
@@ -3522,7 +3522,7 @@ define internal fastcc noundef ptr @_ZL12rotate_shiftP8PhaseGVNP4NodeS2_i(ptr no
   %39 = and i32 %27, %3
   %40 = add nuw nsw i32 %3, 1
   %41 = and i32 %34, %3
-  %42 = sub i32 %40, %41
+  %42 = sub nsw i32 %40, %41
   %43 = icmp eq i32 %39, %42
   br i1 %43, label %44, label %46
 
@@ -6030,7 +6030,7 @@ define hidden noundef ptr @_ZN8MaxLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %brmerge.not, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVN(ptr noundef nonnull %0, ptr noundef %1)
+  %6 = tail call fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVN(ptr noundef %0, ptr noundef %1)
   br label %7
 
 7:                                                ; preds = %3, %5
@@ -6039,7 +6039,7 @@ define hidden noundef ptr @_ZN8MaxLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVN(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVN(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -6306,7 +6306,7 @@ define hidden noundef ptr @_ZN8MinLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %brmerge.not, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVN(ptr noundef nonnull %0, ptr noundef %1)
+  %6 = tail call fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVN(ptr noundef %0, ptr noundef %1)
   br label %7
 
 7:                                                ; preds = %3, %5

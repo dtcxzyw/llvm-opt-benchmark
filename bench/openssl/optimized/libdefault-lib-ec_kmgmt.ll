@@ -512,7 +512,7 @@ if.end:                                           ; preds = %lor.lhs.false1
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call fastcc i32 @ec_gen_set_group_from_params(ptr noundef nonnull %genctx)
+  %call6 = tail call fastcc i32 @ec_gen_set_group_from_params(ptr noundef %genctx)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %err, label %if.end28
 
@@ -1163,7 +1163,7 @@ if.end21:                                         ; preds = %if.then16
   br i1 %brmerge.not, label %land.rhs35, label %if.end40
 
 land.rhs35:                                       ; preds = %if.end21
-  %call36 = call fastcc i32 @key_to_params(ptr noundef nonnull %keydata, ptr noundef nonnull %call10, ptr noundef null, i32 noundef %and4, ptr noundef nonnull %pub_key)
+  %call36 = call fastcc i32 @key_to_params(ptr noundef nonnull %keydata, ptr noundef nonnull %call10, ptr noundef null, i32 noundef %and4, ptr noundef %pub_key)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end21, %land.rhs35
@@ -1339,7 +1339,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call fastcc i32 @ec_gen_set_group_from_params(ptr noundef nonnull %genctx)
+  %call4 = tail call fastcc i32 @ec_gen_set_group_from_params(ptr noundef %genctx)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %err, label %if.end25
 
@@ -1614,7 +1614,7 @@ declare i32 @OSSL_PARAM_get_BN(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ec_gen_set_group_from_params(ptr nocapture noundef %gctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ec_gen_set_group_from_params(ptr nocapture noundef nonnull %gctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_BLD_new() #4
   %cmp = icmp eq ptr %call, null
@@ -1821,7 +1821,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #2
 declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @common_get_params(ptr noundef %key, ptr noundef %params, i32 noundef %sm2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @common_get_params(ptr noundef %key, ptr noundef %params, i32 noundef range(i32 0, 2) %sm2) unnamed_addr #0 {
 entry:
   %k1.i = alloca i32, align 4
   %k2.i = alloca i32, align 4
@@ -2067,7 +2067,7 @@ land.lhs.true105:                                 ; preds = %lor.lhs.false19.i, 
   br i1 %tobool107.not, label %err, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %land.lhs.true105
-  %call109 = call fastcc i32 @key_to_params(ptr noundef %key, ptr noundef null, ptr noundef %params, i32 noundef 1, ptr noundef nonnull %pub_key)
+  %call109 = call fastcc i32 @key_to_params(ptr noundef %key, ptr noundef null, ptr noundef %params, i32 noundef 1, ptr noundef %pub_key)
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %err, label %land.rhs
 
@@ -2121,7 +2121,7 @@ declare i64 @EC_POINT_point2oct(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare i32 @ossl_ec_group_todata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %eckey, ptr noundef %tmpl, ptr noundef %params, i32 noundef %include_private, ptr noundef %pub_key) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %eckey, ptr noundef %tmpl, ptr noundef %params, i32 noundef range(i32 0, 2) %include_private, ptr noundef nonnull %pub_key) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2159,7 +2159,7 @@ if.then20:                                        ; preds = %if.end10, %if.end16
   %px.048 = phi ptr [ %call14, %if.end16 ], [ null, %if.end10 ]
   %p.046 = phi ptr [ %call13, %if.end16 ], [ null, %if.end10 ]
   %call21 = tail call i32 @EC_KEY_get_conv_form(ptr noundef nonnull %eckey) #4
-  %call22 = tail call i64 @EC_POINT_point2buf(ptr noundef nonnull %call, ptr noundef nonnull %call3, i32 noundef %call21, ptr noundef %pub_key, ptr noundef nonnull %call7) #4
+  %call22 = tail call i64 @EC_POINT_point2buf(ptr noundef nonnull %call, ptr noundef nonnull %call3, i32 noundef %call21, ptr noundef nonnull %pub_key, ptr noundef nonnull %call7) #4
   %cmp23 = icmp eq i64 %call22, 0
   br i1 %cmp23, label %err, label %lor.lhs.false24
 
@@ -2367,7 +2367,7 @@ declare i32 @ossl_ec_key_private_check(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_ec_key_pairwise_check(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @common_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params, i32 noundef %sm2_wanted) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @common_import(ptr noundef %keydata, i32 noundef %selection, ptr noundef %params, i32 noundef range(i32 0, 2) %sm2_wanted) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp eq i32 %call, 0

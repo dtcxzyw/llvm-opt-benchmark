@@ -1969,7 +1969,7 @@ define dso_local i32 @ext4_try_add_inline_entry(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 1, 0) i32 @ext4_add_dirent_to_inline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 1, 0) i32 @ext4_add_dirent_to_inline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef range(i32 -60, 65476) %6) unnamed_addr #0 align 16 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   store ptr null, ptr %8, align 8, !annotation !5
@@ -4476,7 +4476,7 @@ declare dso_local void @unlock_buffer(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @__ext4_handle_dirty_metadata(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_finish_convert_inline_dir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_finish_convert_inline_dir(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 40
@@ -4615,7 +4615,7 @@ define internal fastcc i32 @ext4_finish_convert_inline_dir(ptr noundef %0, ptr n
   %90 = getelementptr inbounds i8, ptr %89, i64 24
   %91 = load i64, ptr %90, align 8
   %92 = trunc i64 %91 to i32
-  tail call void @ext4_initialize_dirent_tail(ptr noundef %2, i32 noundef %92) #8
+  tail call void @ext4_initialize_dirent_tail(ptr noundef nonnull %2, i32 noundef %92) #8
   br label %93
 
 93:                                               ; preds = %88, %87
@@ -4625,12 +4625,12 @@ define internal fastcc i32 @ext4_finish_convert_inline_dir(ptr noundef %0, ptr n
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %93
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 1, ptr elementtype(i8) %2) #8, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i32 1, ptr nonnull elementtype(i8) %2) #8, !srcloc !14
   br label %98
 
 98:                                               ; preds = %97, %93
-  tail call void @unlock_buffer(ptr noundef %2) #8
-  %99 = tail call i32 @ext4_handle_dirty_dirblock(ptr noundef %0, ptr noundef %1, ptr noundef %2) #8
+  tail call void @unlock_buffer(ptr noundef nonnull %2) #8
+  %99 = tail call i32 @ext4_handle_dirty_dirblock(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) #8
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %109
 

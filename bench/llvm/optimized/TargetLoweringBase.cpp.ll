@@ -7131,7 +7131,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit42:              ; preds = %_ZL19parseRefinemen
   br i1 %34, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit42.thread91
 
 _ZN4llvmeqENS_9StringRefES0_.exit42.thread91:     ; preds = %17, %_ZN4llvmeqENS_9StringRefES0_.exit38, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZL19parseRefinementStepN4llvm9StringRefERmRh.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit42, %12
-  call fastcc void @_ZL19getReciprocalOpNameB5cxx11bN4llvm3EVTE(ptr dead_on_unwind noalias nonnull writable align 8 %8, i1 noundef zeroext %0, i16 %1, ptr %2)
+  call fastcc void @_ZL19getReciprocalOpNameB5cxx11bN4llvm3EVTE(ptr dead_on_unwind noalias writable align 8 %8, i1 noundef zeroext %0, i16 %1, ptr %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
   %35 = load ptr, ptr %7, align 8
@@ -7362,7 +7362,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZL19parseRefinementStepN4llvm9StringRefERmRh.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit32.thread75:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZL19parseRefinementStepN4llvm9StringRefERmRh.exit, %_ZN4llvmeqENS_9StringRefES0_.exit32, %12
-  call fastcc void @_ZL19getReciprocalOpNameB5cxx11bN4llvm3EVTE(ptr dead_on_unwind noalias nonnull writable align 8 %8, i1 noundef zeroext %0, i16 %1, ptr %2)
+  call fastcc void @_ZL19getReciprocalOpNameB5cxx11bN4llvm3EVTE(ptr dead_on_unwind noalias writable align 8 %8, i1 noundef zeroext %0, i16 %1, ptr %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
   %35 = load ptr, ptr %7, align 8
@@ -11629,7 +11629,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 declare void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef signext, i32 noundef, i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19getReciprocalOpNameB5cxx11bN4llvm3EVTE(ptr dead_on_unwind noalias writable align 8 %0, i1 noundef zeroext %1, i16 %2, ptr %3) unnamed_addr #0 {
+define internal fastcc void @_ZL19getReciprocalOpNameB5cxx11bN4llvm3EVTE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i16 %2, ptr %3) unnamed_addr #0 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"class.std::allocator.35", align 1
   store i16 %2, ptr %5, align 8

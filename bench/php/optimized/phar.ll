@@ -4028,7 +4028,7 @@ define hidden range(i32 -1, 1) i32 @phar_create_or_parse_filename(ptr noundef %0
   %.0123164 = phi ptr [ %18, %.thread ], [ %0, %17 ]
   %.0124163 = phi i64 [ %20, %.thread ], [ %1, %17 ]
   %22 = zext i1 %4 to i32
-  %23 = call fastcc i32 @phar_open_from_fp(ptr noundef nonnull %15, ptr noundef %.0123164, i64 noundef %.0124163, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %spec.store.select, i32 noundef %22, ptr noundef %7)
+  %23 = call fastcc i32 @phar_open_from_fp(ptr noundef %15, ptr noundef %.0123164, i64 noundef %.0124163, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %spec.store.select, i32 noundef %22, ptr noundef %7)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %47
 
@@ -4322,7 +4322,7 @@ declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #1
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca %struct._zval_struct, align 8
@@ -4345,12 +4345,12 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br label %24
 
 24:                                               ; preds = %23, %8
-  %25 = tail call i32 @_php_stream_seek(ptr noundef %0, i64 noundef 0, i32 noundef 0) #23
+  %25 = tail call i32 @_php_stream_seek(ptr noundef nonnull %0, i64 noundef 0, i32 noundef 0) #23
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @_php_stream_free(ptr noundef %0, i32 noundef 3) #23
+  %28 = tail call i32 @_php_stream_free(ptr noundef nonnull %0, i32 noundef 3) #23
   br i1 %.not, label %1004, label %29
 
 29:                                               ; preds = %27
@@ -4361,7 +4361,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   %32 = getelementptr inbounds i8, ptr %21, i64 1042
   store i8 0, ptr %32, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %21, i8 32, i64 19, i1 false)
-  %33 = tail call zeroext i1 @_php_stream_eof(ptr noundef %0) #23
+  %33 = tail call zeroext i1 @_php_stream_eof(ptr noundef nonnull %0) #23
   br i1 %33, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %31
@@ -4385,12 +4385,12 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   %40 = phi i1 [ %.ph312, %.lr.ph ], [ true, %.backedge ]
   %.0156305 = phi i32 [ %.0156.ph311, %.lr.ph ], [ %.0156.be, %.backedge ]
   %.0159304 = phi i32 [ %.0159.ph310, %.lr.ph ], [ %.0159.be, %.backedge ]
-  %41 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %34, i64 noundef 1024) #23
+  %41 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %34, i64 noundef 1024) #23
   %42 = icmp ult i64 %41, 18
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
-  %44 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %44 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %1004, label %45
 
 45:                                               ; preds = %43
@@ -4411,7 +4411,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not174, label %51, label %55
 
 51:                                               ; preds = %49
-  %52 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %52 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %1004, label %53
 
 53:                                               ; preds = %51
@@ -4428,7 +4428,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not175, label %58, label %62
 
 58:                                               ; preds = %55
-  %59 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %59 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %1004, label %60
 
 60:                                               ; preds = %58
@@ -4436,7 +4436,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br label %1004
 
 62:                                               ; preds = %55
-  %63 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef 0, i32 noundef 0) #23
+  %63 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef 0, i32 noundef 0) #23
   %64 = getelementptr inbounds i8, ptr %.0154306, i64 96
   %65 = load i16, ptr %64, align 8
   %66 = trunc i16 %65 to i8
@@ -4532,7 +4532,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not183, label %108, label %112
 
 108:                                              ; preds = %106
-  %109 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %109 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %1004, label %110
 
 110:                                              ; preds = %108
@@ -4545,7 +4545,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not184, label %114, label %118
 
 114:                                              ; preds = %112
-  %115 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %115 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %1004, label %116
 
 116:                                              ; preds = %114
@@ -4553,7 +4553,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br label %1004
 
 118:                                              ; preds = %112
-  %119 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef 0, i32 noundef 0) #23
+  %119 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef 0, i32 noundef 0) #23
   %120 = getelementptr inbounds i8, ptr %.0154306, i64 96
   %121 = load i16, ptr %120, align 8
   %122 = trunc i16 %121 to i8
@@ -4610,8 +4610,8 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not189, label %149, label %152
 
 149:                                              ; preds = %148
-  %150 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef 0, i32 noundef 2) #23
-  %151 = call i32 @phar_parse_zipfile(ptr noundef %.0154306, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7) #23
+  %150 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef 0, i32 noundef 2) #23
+  %151 = call i32 @phar_parse_zipfile(ptr noundef nonnull %.0154306, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7) #23
   br label %1004
 
 152:                                              ; preds = %148
@@ -4624,8 +4624,8 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not190, label %.loopexit196, label %156
 
 156:                                              ; preds = %154
-  %157 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef 0, i32 noundef 0) #23
-  %158 = call i32 @phar_parse_tarfile(ptr noundef %.0154306, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %.0159304, ptr noundef %7) #23
+  %157 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef 0, i32 noundef 0) #23
+  %158 = call i32 @phar_parse_tarfile(ptr noundef nonnull %.0154306, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %.0159304, ptr noundef %7) #23
   br label %1004
 
 .loopexit196:                                     ; preds = %47, %154, %152
@@ -4689,12 +4689,12 @@ phar_strnstr.exit:                                ; preds = %172
   br label %177
 
 177:                                              ; preds = %176, %175
-  %178 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef %173, i32 noundef 0) #23
+  %178 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef %173, i32 noundef 0) #23
   %179 = icmp eq i32 %178, -1
   br i1 %179, label %180, label %184
 
 180:                                              ; preds = %177
-  %181 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %181 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %182
 
 182:                                              ; preds = %180
@@ -4702,12 +4702,12 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 184:                                              ; preds = %177
-  %185 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %12, i64 noundef 3) #23
+  %185 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %12, i64 noundef 3) #23
   %.not1053.i = icmp eq i64 %185, 3
   br i1 %.not1053.i, label %190, label %186
 
 186:                                              ; preds = %184
-  %187 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %187 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %188
 
 188:                                              ; preds = %186
@@ -4732,12 +4732,12 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %or.cond1149.i, label %199, label %220
 
 199:                                              ; preds = %192
-  %200 = call i32 @_php_stream_getc(ptr noundef %.0154306) #23
+  %200 = call i32 @_php_stream_getc(ptr noundef nonnull %.0154306) #23
   %201 = icmp eq i32 %200, -1
   br i1 %201, label %202, label %206
 
 202:                                              ; preds = %199
-  %203 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %203 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %204
 
 204:                                              ; preds = %202
@@ -4751,13 +4751,13 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %208, label %209, label %217
 
 209:                                              ; preds = %206
-  %210 = call i32 @_php_stream_getc(ptr noundef %.0154306) #23
+  %210 = call i32 @_php_stream_getc(ptr noundef nonnull %.0154306) #23
   %sext.mask1055.i = and i32 %210, 255
   %.not1054.i = icmp eq i32 %sext.mask1055.i, 10
   br i1 %.not1054.i, label %215, label %211
 
 211:                                              ; preds = %209
-  %212 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %212 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %213
 
 213:                                              ; preds = %211
@@ -4778,12 +4778,12 @@ phar_strnstr.exit:                                ; preds = %172
 
 220:                                              ; preds = %217, %192, %190
   %.0948.i = phi i64 [ %173, %192 ], [ %173, %190 ], [ %spec.select.i, %217 ]
-  %221 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef %.0948.i, i32 noundef 0) #23
+  %221 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef %.0948.i, i32 noundef 0) #23
   %222 = icmp eq i32 %221, -1
   br i1 %222, label %223, label %227
 
 223:                                              ; preds = %220
-  %224 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %224 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %225
 
 225:                                              ; preds = %223
@@ -4791,12 +4791,12 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 227:                                              ; preds = %220
-  %228 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %12, i64 noundef 4) #23
+  %228 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %12, i64 noundef 4) #23
   %.not1057.i = icmp eq i64 %228, 4
   br i1 %.not1057.i, label %233, label %229
 
 229:                                              ; preds = %227
-  %230 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %230 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %231
 
 231:                                              ; preds = %229
@@ -4809,7 +4809,7 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %234, label %235, label %239
 
 235:                                              ; preds = %233
-  %236 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %236 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %237
 
 237:                                              ; preds = %235
@@ -4824,7 +4824,7 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %243, label %.thread1153.i, label %244
 
 244:                                              ; preds = %239
-  %245 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef %241, i64 noundef %240) #23
+  %245 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef %241, i64 noundef %240) #23
   %.not1058.i = icmp eq i64 %245, %240
   br i1 %.not1058.i, label %255, label %.thread1153.i
 
@@ -4848,7 +4848,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %251
 
 251:                                              ; preds = %250, %249, %.thread1153.i
-  %252 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %252 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %253
 
 253:                                              ; preds = %251
@@ -4880,7 +4880,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %263
 
 263:                                              ; preds = %262, %261, %257
-  %264 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %264 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %265
 
 265:                                              ; preds = %263
@@ -4901,7 +4901,7 @@ phar_strnstr.exit:                                ; preds = %172
 
 277:                                              ; preds = %267
   call void @_efree(ptr noundef nonnull %241) #23
-  %278 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %278 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %279
 
 279:                                              ; preds = %277
@@ -4920,17 +4920,17 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %.not1059.i, label %405, label %288
 
 288:                                              ; preds = %282
-  %289 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef -8, i32 noundef 2) #23
+  %289 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef -8, i32 noundef 2) #23
   %290 = icmp eq i32 %289, -1
   br i1 %290, label %297, label %291
 
 291:                                              ; preds = %288
-  %292 = call i64 @_php_stream_tell(ptr noundef %.0154306) #23
+  %292 = call i64 @_php_stream_tell(ptr noundef nonnull %.0154306) #23
   %293 = icmp slt i64 %292, 20
   br i1 %293, label %297, label %294
 
 294:                                              ; preds = %291
-  %295 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %16, i64 noundef 8) #23
+  %295 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %16, i64 noundef 8) #23
   %.not1061.i = icmp eq i64 %295, 8
   %296 = getelementptr inbounds i8, ptr %16, i64 4
   %lhsv = load i32, ptr %296, align 4
@@ -4940,7 +4940,7 @@ phar_strnstr.exit:                                ; preds = %172
 
 297:                                              ; preds = %294, %291, %288
   call void @_efree(ptr noundef nonnull %241) #23
-  %298 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %298 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %299
 
 299:                                              ; preds = %297
@@ -4960,18 +4960,18 @@ phar_strnstr.exit:                                ; preds = %172
   ]
 
 302:                                              ; preds = %301, %301, %301
-  %303 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef -12, i32 noundef 1) #23
+  %303 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef -12, i32 noundef 1) #23
   %304 = icmp eq i32 %303, -1
   br i1 %304, label %307, label %305
 
 305:                                              ; preds = %302
-  %306 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %16, i64 noundef 4) #23
+  %306 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %16, i64 noundef 4) #23
   %.not1067.i = icmp eq i64 %306, 4
   br i1 %.not1067.i, label %311, label %307
 
 307:                                              ; preds = %305, %302
   call void @_efree(ptr noundef nonnull %241) #23
-  %308 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %308 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %309
 
 309:                                              ; preds = %307
@@ -4985,25 +4985,25 @@ phar_strnstr.exit:                                ; preds = %172
   %314 = add i32 %.0.copyload.i, 4
   %315 = zext i32 %314 to i64
   %316 = sub nsw i64 0, %315
-  %317 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef %316, i32 noundef 1) #23
+  %317 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef %316, i32 noundef 1) #23
   %318 = icmp eq i32 %317, -1
   br i1 %318, label %324, label %319
 
 319:                                              ; preds = %311
-  %320 = call i64 @_php_stream_tell(ptr noundef %.0154306) #23
+  %320 = call i64 @_php_stream_tell(ptr noundef nonnull %.0154306) #23
   %.not1068.i = icmp eq i64 %320, 0
   br i1 %.not1068.i, label %324, label %321
 
 321:                                              ; preds = %319
   %322 = zext i32 %.0.copyload.i to i64
-  %323 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef %313, i64 noundef %322) #23
+  %323 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef %313, i64 noundef %322) #23
   %.not1069.i = icmp eq i64 %323, %322
   br i1 %.not1069.i, label %328, label %324
 
 324:                                              ; preds = %321, %319, %311
   call void @_efree(ptr noundef nonnull %241) #23
   call void @_efree(ptr noundef %313) #23
-  %325 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %325 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %326
 
 326:                                              ; preds = %324
@@ -5011,14 +5011,14 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 328:                                              ; preds = %321
-  %329 = call i32 @phar_verify_signature(ptr noundef %.0154306, i64 noundef %320, i32 noundef %.0.copyload97.i, ptr noundef %313, i64 noundef %322, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
+  %329 = call i32 @phar_verify_signature(ptr noundef nonnull %.0154306, i64 noundef %320, i32 noundef %.0.copyload97.i, ptr noundef %313, i64 noundef %322, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
   %330 = icmp eq i32 %329, -1
   br i1 %330, label %331, label %336
 
 331:                                              ; preds = %328
   call void @_efree(ptr noundef nonnull %241) #23
   call void @_efree(ptr noundef %313) #23
-  %332 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %332 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %333
 
 333:                                              ; preds = %331
@@ -5032,15 +5032,15 @@ phar_strnstr.exit:                                ; preds = %172
   br label %412
 
 337:                                              ; preds = %301
-  %338 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef -72, i32 noundef 2) #23
-  %339 = call i64 @_php_stream_tell(ptr noundef %.0154306) #23
-  %340 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %17, i64 noundef 64) #23
+  %338 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef -72, i32 noundef 2) #23
+  %339 = call i64 @_php_stream_tell(ptr noundef nonnull %.0154306) #23
+  %340 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %17, i64 noundef 64) #23
   %.not1066.i = icmp eq i64 %340, 64
   br i1 %.not1066.i, label %345, label %341
 
 341:                                              ; preds = %337
   call void @_efree(ptr noundef nonnull %241) #23
-  %342 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %342 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %343
 
 343:                                              ; preds = %341
@@ -5048,13 +5048,13 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 345:                                              ; preds = %337
-  %346 = call i32 @phar_verify_signature(ptr noundef %.0154306, i64 noundef %339, i32 noundef 4, ptr noundef nonnull %17, i64 noundef 64, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
+  %346 = call i32 @phar_verify_signature(ptr noundef nonnull %.0154306, i64 noundef %339, i32 noundef 4, ptr noundef nonnull %17, i64 noundef 64, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
   %347 = icmp eq i32 %346, -1
   br i1 %347, label %348, label %412
 
 348:                                              ; preds = %345
   call void @_efree(ptr noundef nonnull %241) #23
-  %349 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %349 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %350
 
 350:                                              ; preds = %348
@@ -5064,15 +5064,15 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 353:                                              ; preds = %301
-  %354 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef -40, i32 noundef 2) #23
-  %355 = call i64 @_php_stream_tell(ptr noundef %.0154306) #23
-  %356 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %18, i64 noundef 32) #23
+  %354 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef -40, i32 noundef 2) #23
+  %355 = call i64 @_php_stream_tell(ptr noundef nonnull %.0154306) #23
+  %356 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %18, i64 noundef 32) #23
   %.not1065.i = icmp eq i64 %356, 32
   br i1 %.not1065.i, label %361, label %357
 
 357:                                              ; preds = %353
   call void @_efree(ptr noundef nonnull %241) #23
-  %358 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %358 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %359
 
 359:                                              ; preds = %357
@@ -5080,13 +5080,13 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 361:                                              ; preds = %353
-  %362 = call i32 @phar_verify_signature(ptr noundef %.0154306, i64 noundef %355, i32 noundef 3, ptr noundef nonnull %18, i64 noundef 32, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
+  %362 = call i32 @phar_verify_signature(ptr noundef nonnull %.0154306, i64 noundef %355, i32 noundef 3, ptr noundef nonnull %18, i64 noundef 32, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
   %363 = icmp eq i32 %362, -1
   br i1 %363, label %364, label %412
 
 364:                                              ; preds = %361
   call void @_efree(ptr noundef nonnull %241) #23
-  %365 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %365 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %366
 
 366:                                              ; preds = %364
@@ -5096,15 +5096,15 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 369:                                              ; preds = %301
-  %370 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef -28, i32 noundef 2) #23
-  %371 = call i64 @_php_stream_tell(ptr noundef %.0154306) #23
-  %372 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %19, i64 noundef 20) #23
+  %370 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef -28, i32 noundef 2) #23
+  %371 = call i64 @_php_stream_tell(ptr noundef nonnull %.0154306) #23
+  %372 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %19, i64 noundef 20) #23
   %.not1064.i = icmp eq i64 %372, 20
   br i1 %.not1064.i, label %377, label %373
 
 373:                                              ; preds = %369
   call void @_efree(ptr noundef nonnull %241) #23
-  %374 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %374 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %375
 
 375:                                              ; preds = %373
@@ -5112,13 +5112,13 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 377:                                              ; preds = %369
-  %378 = call i32 @phar_verify_signature(ptr noundef %.0154306, i64 noundef %371, i32 noundef 2, ptr noundef nonnull %19, i64 noundef 20, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
+  %378 = call i32 @phar_verify_signature(ptr noundef nonnull %.0154306, i64 noundef %371, i32 noundef 2, ptr noundef nonnull %19, i64 noundef 20, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
   %379 = icmp eq i32 %378, -1
   br i1 %379, label %380, label %412
 
 380:                                              ; preds = %377
   call void @_efree(ptr noundef nonnull %241) #23
-  %381 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %381 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %382
 
 382:                                              ; preds = %380
@@ -5128,15 +5128,15 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 385:                                              ; preds = %301
-  %386 = call i32 @_php_stream_seek(ptr noundef %.0154306, i64 noundef -24, i32 noundef 2) #23
-  %387 = call i64 @_php_stream_tell(ptr noundef %.0154306) #23
-  %388 = call i64 @_php_stream_read(ptr noundef %.0154306, ptr noundef nonnull %20, i64 noundef 16) #23
+  %386 = call i32 @_php_stream_seek(ptr noundef nonnull %.0154306, i64 noundef -24, i32 noundef 2) #23
+  %387 = call i64 @_php_stream_tell(ptr noundef nonnull %.0154306) #23
+  %388 = call i64 @_php_stream_read(ptr noundef nonnull %.0154306, ptr noundef nonnull %20, i64 noundef 16) #23
   %.not1063.i = icmp eq i64 %388, 16
   br i1 %.not1063.i, label %393, label %389
 
 389:                                              ; preds = %385
   call void @_efree(ptr noundef nonnull %241) #23
-  %390 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %390 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %391
 
 391:                                              ; preds = %389
@@ -5144,13 +5144,13 @@ phar_strnstr.exit:                                ; preds = %172
   br label %phar_parse_pharfile.exit
 
 393:                                              ; preds = %385
-  %394 = call i32 @phar_verify_signature(ptr noundef %.0154306, i64 noundef %387, i32 noundef 1, ptr noundef nonnull %20, i64 noundef 16, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
+  %394 = call i32 @phar_verify_signature(ptr noundef nonnull %.0154306, i64 noundef %387, i32 noundef 1, ptr noundef nonnull %20, i64 noundef 16, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %7) #23
   %395 = icmp eq i32 %394, -1
   br i1 %395, label %396, label %412
 
 396:                                              ; preds = %393
   call void @_efree(ptr noundef nonnull %241) #23
-  %397 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %397 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %398
 
 398:                                              ; preds = %396
@@ -5161,7 +5161,7 @@ phar_strnstr.exit:                                ; preds = %172
 
 401:                                              ; preds = %301
   call void @_efree(ptr noundef nonnull %241) #23
-  %402 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %402 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %403
 
 403:                                              ; preds = %401
@@ -5175,7 +5175,7 @@ phar_strnstr.exit:                                ; preds = %172
 
 407:                                              ; preds = %405
   call void @_efree(ptr noundef nonnull %241) #23
-  %408 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %408 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %409
 
 409:                                              ; preds = %407
@@ -5215,7 +5215,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %423
 
 423:                                              ; preds = %422, %421, %417
-  %424 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %424 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %425
 
 425:                                              ; preds = %423
@@ -5247,7 +5247,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %436
 
 436:                                              ; preds = %435, %434, %430
-  %437 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %437 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %438
 
 438:                                              ; preds = %436
@@ -5274,7 +5274,7 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %.not1072.i, label %459, label %447
 
 447:                                              ; preds = %445, %444
-  %448 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %448 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   %449 = load ptr, ptr %15, align 8
   %.not1138.i = icmp eq ptr %449, null
   br i1 %.not1138.i, label %451, label %450
@@ -5335,7 +5335,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %470
 
 470:                                              ; preds = %469, %468, %464
-  %471 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %471 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %472
 
 472:                                              ; preds = %470
@@ -5391,7 +5391,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %498
 
 498:                                              ; preds = %497, %496, %492
-  %499 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %499 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %500
 
 500:                                              ; preds = %498
@@ -5432,7 +5432,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %515
 
 515:                                              ; preds = %514, %513, %509
-  %516 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %516 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %517
 
 517:                                              ; preds = %515
@@ -5474,7 +5474,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %532
 
 532:                                              ; preds = %531, %530, %526
-  %533 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %533 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %534
 
 534:                                              ; preds = %532
@@ -5579,7 +5579,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %595
 
 595:                                              ; preds = %594, %593, %589
-  %596 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %596 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %597
 
 597:                                              ; preds = %595
@@ -5614,7 +5614,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %609
 
 609:                                              ; preds = %608, %607, %603
-  %610 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %610 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %611
 
 611:                                              ; preds = %609
@@ -5659,7 +5659,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %628
 
 628:                                              ; preds = %627, %626, %622
-  %629 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %629 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %630
 
 630:                                              ; preds = %628
@@ -5807,7 +5807,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %699
 
 699:                                              ; preds = %698, %697, %693
-  %700 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %700 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %701
 
 701:                                              ; preds = %699
@@ -5881,7 +5881,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %731
 
 731:                                              ; preds = %730, %729, %725
-  %732 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %732 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %733
 
 733:                                              ; preds = %731
@@ -5934,7 +5934,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %753
 
 753:                                              ; preds = %752, %751, %747
-  %754 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %754 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %755
 
 755:                                              ; preds = %753
@@ -5987,7 +5987,7 @@ phar_strnstr.exit:                                ; preds = %172
   br label %775
 
 775:                                              ; preds = %774, %773, %769
-  %776 = call i32 @_php_stream_free(ptr noundef %.0154306, i32 noundef 3) #23
+  %776 = call i32 @_php_stream_free(ptr noundef nonnull %.0154306, i32 noundef 3) #23
   br i1 %.not, label %phar_parse_pharfile.exit, label %777
 
 777:                                              ; preds = %775
@@ -6004,7 +6004,7 @@ phar_strnstr.exit:                                ; preds = %172
   %786 = and i16 %785, -2
   %787 = or disjoint i16 %786, %784
   store i16 %787, ptr %567, align 2
-  call fastcc void @phar_set_inode(ptr noundef nonnull %13)
+  call fastcc void @phar_set_inode(ptr noundef %13)
   %788 = load i16, ptr %483, align 4
   %789 = and i16 %788, 256
   %.not1113.i = icmp eq i16 %789, 0
@@ -6461,12 +6461,12 @@ phar_parse_pharfile.exit:                         ; preds = %180, %182, %186, %1
 .outer:                                           ; preds = %169, %165, %.loopexit196
   %999 = add i64 %41, %.0160.ph308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %21, ptr noundef nonnull align 16 dereferenceable(18) %38, i64 18, i1 false)
-  %1000 = call zeroext i1 @_php_stream_eof(ptr noundef %.0154306) #23
+  %1000 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0154306) #23
   br i1 %1000, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %31
   %.0154.lcssa = phi ptr [ %0, %31 ], [ %.0154.be, %.backedge ], [ %.0154306, %.outer ]
-  %1001 = call i32 @_php_stream_free(ptr noundef %.0154.lcssa, i32 noundef 3) #23
+  %1001 = call i32 @_php_stream_free(ptr noundef nonnull %.0154.lcssa, i32 noundef 3) #23
   br i1 %.not, label %1004, label %1002
 
 1002:                                             ; preds = %.outer._crit_edge
@@ -6659,7 +6659,7 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
 44:                                               ; preds = %40, %38
   %.049 = phi i64 [ %43, %40 ], [ %1, %38 ]
   %.048 = phi ptr [ %41, %40 ], [ %0, %38 ]
-  %45 = call fastcc i32 @phar_open_from_fp(ptr noundef nonnull %21, ptr noundef %.048, i64 noundef %.049, ptr noundef %2, i64 noundef %3, ptr noundef %5, i32 noundef %spec.select, ptr noundef %6)
+  %45 = call fastcc i32 @phar_open_from_fp(ptr noundef %21, ptr noundef %.048, i64 noundef %.049, ptr noundef %2, i64 noundef %3, ptr noundef %5, i32 noundef %spec.select, ptr noundef %6)
   %46 = load ptr, ptr %8, align 8
   %.not61 = icmp eq ptr %46, null
   br i1 %.not61, label %56, label %47
@@ -7254,7 +7254,7 @@ define hidden i32 @phar_open_executed_filename(ptr noundef %0, i64 noundef %1, p
   %44 = getelementptr inbounds i8, ptr %spec.select, i64 24
   %45 = getelementptr inbounds i8, ptr %spec.select, i64 16
   %46 = load i64, ptr %45, align 8
-  %47 = call fastcc i32 @phar_open_from_fp(ptr noundef nonnull %26, ptr noundef nonnull %44, i64 noundef %46, ptr noundef %0, i64 noundef %1, ptr noundef null, i32 noundef 0, ptr noundef %2)
+  %47 = call fastcc i32 @phar_open_from_fp(ptr noundef %26, ptr noundef nonnull %44, i64 noundef %46, ptr noundef %0, i64 noundef %1, ptr noundef null, i32 noundef 0, ptr noundef %2)
   %48 = load ptr, ptr %4, align 8
   %.not53 = icmp eq ptr %48, null
   br i1 %.not53, label %59, label %49
@@ -9759,7 +9759,7 @@ declare noalias ptr @__zend_calloc(i64 noundef, i64 noundef) local_unnamed_addr 
 declare noalias ptr @zend_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_set_inode(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @phar_set_inode(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
@@ -9796,7 +9796,7 @@ define internal fastcc void @phar_set_inode(ptr nocapture noundef %0) unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @phar_validate_alias(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @phar_validate_alias(ptr noundef readonly %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #17 {
   %3 = tail call ptr @memchr(ptr noundef %0, i32 noundef 47, i64 noundef %1) #24
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %16
@@ -9837,7 +9837,7 @@ declare i64 @zend_hash_func(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @phar_analyze_path(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phar_analyze_path(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 50) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._php_stream_statbuf, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64

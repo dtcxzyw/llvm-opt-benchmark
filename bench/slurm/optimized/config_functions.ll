@@ -418,7 +418,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @slurm_ctime2(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_rollup_stats(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_print_rollup_stats(ptr noundef %0, i32 noundef range(i32 -2147483648, 3) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %35, label %3
 

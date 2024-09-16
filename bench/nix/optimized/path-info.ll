@@ -1498,7 +1498,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
 
 57:                                               ; preds = %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit.i.i
   %58 = load ptr, ptr %55, align 8
-  invoke fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(264) %58, i1 noundef zeroext false)
+  invoke fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(264) %58, i1 noundef zeroext false)
           to label %59 unwind label %76
 
 59:                                               ; preds = %57
@@ -1913,7 +1913,7 @@ define void @_ZN3nix39PathInfoTest_PathInfo_pure_to_json_Test8TestBodyEv(ptr nou
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %6)
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !noalias !4
-  invoke fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(264) %20, i1 noundef zeroext false)
+  invoke fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(264) %20, i1 noundef zeroext false)
           to label %.noexc.i unwind label %107
 
 .noexc.i:                                         ; preds = %1
@@ -2638,7 +2638,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
 
 57:                                               ; preds = %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit.i.i
   %58 = load ptr, ptr %55, align 8
-  invoke fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(264) %58, i1 noundef zeroext true)
+  invoke fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(264) %58, i1 noundef zeroext true)
           to label %59 unwind label %76
 
 59:                                               ; preds = %57
@@ -3053,7 +3053,7 @@ define void @_ZN3nix41PathInfoTest_PathInfo_impure_to_json_Test8TestBodyEv(ptr n
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %6)
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !noalias !17
-  invoke fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(264) %20, i1 noundef zeroext true)
+  invoke fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(264) %20, i1 noundef zeroext true)
           to label %.noexc.i unwind label %107
 
 .noexc.i:                                         ; preds = %1
@@ -5699,7 +5699,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
 declare void @_ZN3nix20UnkeyedValidPathInfo8fromJSONERKNS_5StoreERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS4_14adl_serializerES7_IhSaIhEEEE(ptr dead_on_unwind writable sret(%"struct.nix::UnkeyedValidPathInfo") align 8, ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i1 noundef zeroext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i1 noundef zeroext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nix::ValidPathInfo", align 8
   %5 = alloca %"struct.nix::ContentAddressWithReferences", align 8
   %6 = alloca %"struct.nix::FixedOutputInfo", align 8

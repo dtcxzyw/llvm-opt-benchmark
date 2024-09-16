@@ -1185,9 +1185,9 @@ _ZN7ciField4typeEv.exit:                          ; preds = %9, %15
   %.0.in = getelementptr inbounds i8, ptr %8, i64 104
   %.0 = load ptr, ptr %.0.in, align 8
   %.not28 = icmp eq ptr %.0, null
-  br i1 %.not28, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %.lr.ph.i
+  br i1 %.not28, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %.preheader
 
-.lr.ph.i:                                         ; preds = %27, %33
+.preheader:                                       ; preds = %27, %33
   %.08.i = phi i32 [ %36, %33 ], [ 4, %27 ]
   %.067.i = phi ptr [ %35, %33 ], [ %8, %27 ]
   %28 = load ptr, ptr %.067.i, align 8
@@ -1197,14 +1197,14 @@ _ZN7ciField4typeEv.exit:                          ; preds = %9, %15
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-33:                                               ; preds = %.lr.ph.i
+33:                                               ; preds = %.preheader
   %34 = getelementptr inbounds i8, ptr %.067.i, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = add nsw i32 %.08.i, -1
   %37 = icmp ugt i32 %.08.i, 1
   %38 = icmp ne ptr %35, null
   %or.cond.i = and i1 %37, %38
-  br i1 %or.cond.i, label %.lr.ph.i, label %_ZL16in_current_blockP11Instruction.exit, !llvm.loop !6
+  br i1 %or.cond.i, label %.preheader, label %_ZL16in_current_blockP11Instruction.exit, !llvm.loop !6
 
 _ZL16in_current_blockP11Instruction.exit:         ; preds = %33
   %39 = icmp eq ptr %35, null
@@ -1262,14 +1262,14 @@ _ZN11InstructionnwEm.exit:                        ; preds = %55, %57
 74:                                               ; preds = %60, %_ZN11InstructionnwEm.exit
   %75 = getelementptr inbounds i8, ptr %0, i64 16
   %76 = load ptr, ptr %75, align 8
-  %.not.i29 = icmp eq ptr %76, %.0.i.i.i
-  br i1 %.not.i29, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %77
+  %.not.i = icmp eq ptr %76, %.0.i.i.i
+  br i1 %.not.i, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %77
 
 77:                                               ; preds = %74
   store ptr %.0.i.i.i, ptr %75, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.lr.ph.i, %22, %24, %26, %_ZN7ciField4typeEv.exit, %77, %74, %27, %_ZL16in_current_blockP11Instruction.exit, %2
+_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.preheader, %22, %24, %26, %_ZN7ciField4typeEv.exit, %77, %74, %27, %_ZL16in_current_blockP11Instruction.exit, %2
   ret void
 }
 
@@ -1795,9 +1795,9 @@ define hidden void @_ZN13Canonicalizer15do_StoreIndexedEP12StoreIndexed(ptr noca
   %.0.in = getelementptr inbounds i8, ptr %8, i64 104
   %.0 = load ptr, ptr %.0.in, align 8
   %.not28 = icmp eq ptr %.0, null
-  br i1 %.not28, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %.lr.ph.i
+  br i1 %.not28, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %.preheader
 
-.lr.ph.i:                                         ; preds = %19, %25
+.preheader:                                       ; preds = %19, %25
   %.08.i = phi i32 [ %28, %25 ], [ 4, %19 ]
   %.067.i = phi ptr [ %27, %25 ], [ %8, %19 ]
   %20 = load ptr, ptr %.067.i, align 8
@@ -1807,14 +1807,14 @@ define hidden void @_ZN13Canonicalizer15do_StoreIndexedEP12StoreIndexed(ptr noca
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-25:                                               ; preds = %.lr.ph.i
+25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds i8, ptr %.067.i, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = add nsw i32 %.08.i, -1
   %29 = icmp ugt i32 %.08.i, 1
   %30 = icmp ne ptr %27, null
   %or.cond.i = and i1 %29, %30
-  br i1 %or.cond.i, label %.lr.ph.i, label %_ZL16in_current_blockP11Instruction.exit, !llvm.loop !6
+  br i1 %or.cond.i, label %.preheader, label %_ZL16in_current_blockP11Instruction.exit, !llvm.loop !6
 
 _ZL16in_current_blockP11Instruction.exit:         ; preds = %25
   %31 = icmp eq ptr %27, null
@@ -1926,10 +1926,10 @@ _ZN11InstructionnwEm.exit:                        ; preds = %47, %49
   %99 = getelementptr inbounds i8, ptr %98, i64 72
   %100 = load ptr, ptr %99, align 8
   %101 = tail call noundef ptr %100(ptr noundef nonnull align 8 dereferenceable(16) %97) #9
-  %.not.i29 = icmp eq ptr %101, null
+  %.not.i = icmp eq ptr %101, null
   %102 = load i32, ptr %81, align 8
   %103 = and i32 %102, -129
-  %masksel.i = select i1 %.not.i29, i32 0, i32 128
+  %masksel.i = select i1 %.not.i, i32 0, i32 128
   %104 = or disjoint i32 %103, %masksel.i
   store i32 %104, ptr %81, align 8
   %105 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %59) #9
@@ -1951,14 +1951,14 @@ _ZN11InstructionnwEm.exit:                        ; preds = %47, %49
 115:                                              ; preds = %52, %_ZN11InstructionnwEm.exit
   %116 = getelementptr inbounds i8, ptr %0, i64 16
   %117 = load ptr, ptr %116, align 8
-  %.not.i30 = icmp eq ptr %117, %.0.i.i.i
-  br i1 %.not.i30, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %118
+  %.not.i29 = icmp eq ptr %117, %.0.i.i.i
+  br i1 %.not.i29, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %118
 
 118:                                              ; preds = %115
   store ptr %.0.i.i.i, ptr %116, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.lr.ph.i, %14, %16, %18, %9, %118, %115, %19, %_ZL16in_current_blockP11Instruction.exit, %2
+_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.preheader, %14, %16, %18, %9, %118, %115, %19, %_ZL16in_current_blockP11Instruction.exit, %2
   ret void
 }
 

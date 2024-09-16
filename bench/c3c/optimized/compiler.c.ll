@@ -2550,7 +2550,7 @@ setup_bool_define.exit132:                        ; preds = %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @target_expand_source_names(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @target_expand_source_names(ptr noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %0, null
@@ -2739,7 +2739,7 @@ declare ptr @symtab_preset(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @htable_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setup_int_define(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @setup_int_define(ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 65, ptr %4, align 4
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22

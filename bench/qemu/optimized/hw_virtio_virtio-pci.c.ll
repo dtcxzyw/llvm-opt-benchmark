@@ -2827,7 +2827,7 @@ declare ptr @virtio_vector_first_queue(ptr noundef, i16 noundef zeroext) local_u
 declare zeroext i16 @virtio_get_queue_index(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @virtio_pci_one_vector_unmask(ptr noundef %proxy, i32 noundef %queue_no, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef %n) unnamed_addr #0 {
+define internal fastcc i32 @virtio_pci_one_vector_unmask(ptr noundef %proxy, i32 noundef range(i32 -1, 65536) %queue_no, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef %n) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %proxy, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -3057,7 +3057,7 @@ if.end6:                                          ; preds = %if.then.i.i, %virti
   %add.i.i = add nsw i64 %conv, -1
   %sub.i.i = add nsw i64 %add.i.i, %conv7
   %cmp1.i = icmp ult i64 %sub.i.i, 4
-  %narrow.i.not = or i1 %cmp.not.i, %cmp1.i
+  %narrow.i.not = select i1 %cmp.not.i, i1 true, i1 %cmp1.i
   br i1 %narrow.i.not, label %if.end20, label %if.then10
 
 if.then10:                                        ; preds = %if.end6
@@ -3108,7 +3108,7 @@ land.lhs.true:                                    ; preds = %if.end20
   %sub.i4.i = add nsw i64 %conv25, 19
   %cmp.i43 = icmp ult i64 %sub.i4.i, %conv
   %cmp2.i = icmp ult i64 %sub.i.i, %add
-  %.not.i.not = or i1 %cmp2.i, %cmp.i43
+  %.not.i.not = select i1 %cmp.i43, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %if.end50, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true
@@ -3128,11 +3128,11 @@ if.end47:                                         ; preds = %if.then28, %if.then
   %18 = load i32, ptr %offset, align 4
   %pci_cfg_data = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %not.i = sub nsw i32 0, %17
-  %and.i4557 = and i32 %18, %not.i
-  %and.i45 = zext i32 %and.i4557 to i64
+  %and.i4451 = and i32 %18, %not.i
+  %and.i44 = zext i32 %and.i4451 to i64
   %19 = getelementptr inbounds i8, ptr %call.i, i64 2880
   %conv5.i.i = zext nneg i32 %17 to i64
-  %add.i.i46 = add nuw nsw i64 %and.i45, %conv5.i.i
+  %add.i.i45 = add nuw nsw i64 %and.i44, %conv5.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end47
@@ -3140,7 +3140,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr [5 x %struct.VirtIOPCIRegion], ptr %19, i64 0, i64 %indvars.iv.i.i
   %offset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 272
   %20 = load i32, ptr %offset.i.i, align 16
-  %cmp3.not.i.i = icmp ult i32 %and.i4557, %20
+  %cmp3.not.i.i = icmp ult i32 %and.i4451, %20
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
@@ -3148,7 +3148,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %21 = load i32, ptr %size.i.i, align 4
   %add7.i.i = add i32 %21, %20
   %conv8.i.i = zext i32 %add7.i.i to i64
-  %cmp9.not.i.i = icmp ugt i64 %add.i.i46, %conv8.i.i
+  %cmp9.not.i.i = icmp ugt i64 %add.i.i45, %conv8.i.i
   br i1 %cmp9.not.i.i, label %for.inc.i.i, label %virtio_address_space_lookup.exit.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -3158,23 +3158,23 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
 
 virtio_address_space_lookup.exit.i:               ; preds = %land.lhs.true.i.i
   %conv2.i.i.le = zext i32 %20 to i64
-  %sub.i.i47 = sub nsw i64 %and.i45, %conv2.i.i.le
-  %tobool.not.i48 = icmp eq ptr %arrayidx.i.i, null
-  br i1 %tobool.not.i48, label %if.end50, label %if.end.i49
+  %sub.i.i46 = sub nsw i64 %and.i44, %conv2.i.i.le
+  %tobool.not.i47 = icmp eq ptr %arrayidx.i.i, null
+  br i1 %tobool.not.i47, label %if.end50, label %if.end.i48
 
-if.end.i49:                                       ; preds = %virtio_address_space_lookup.exit.i
-  %sub.i50 = add i32 %17, -1
+if.end.i48:                                       ; preds = %virtio_address_space_lookup.exit.i
+  %sub.i49 = add i32 %17, -1
   %22 = ptrtoint ptr %pci_cfg_data to i64
-  %conv2.i = sext i32 %sub.i50 to i64
+  %conv2.i = sext i32 %sub.i49 to i64
   %and3.i = and i64 %conv2.i, %22
   %tobool4.not.i = icmp eq i64 %and3.i, 0
   br i1 %tobool4.not.i, label %if.end6.i, label %if.else.i
 
-if.else.i:                                        ; preds = %if.end.i49
+if.else.i:                                        ; preds = %if.end.i48
   tail call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.5, i32 noundef 650, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_address_space_write) #15
   unreachable
 
-if.end6.i:                                        ; preds = %if.end.i49
+if.end6.i:                                        ; preds = %if.end.i48
   switch i32 %17, label %if.end50 [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb9.i
@@ -3183,7 +3183,7 @@ if.end6.i:                                        ; preds = %if.end.i49
 
 sw.bb.i:                                          ; preds = %if.end6.i
   %buf.val.i = load i8, ptr %pci_cfg_data, align 1
-  %conv8.i51 = zext i8 %buf.val.i to i64
+  %conv8.i50 = zext i8 %buf.val.i to i64
   br label %sw.epilog.i
 
 sw.bb9.i:                                         ; preds = %if.end6.i
@@ -3197,9 +3197,9 @@ sw.bb12.i:                                        ; preds = %if.end6.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb12.i, %sw.bb9.i, %sw.bb.i
-  %val.0.i = phi i64 [ %conv14.i, %sw.bb12.i ], [ %conv11.i, %sw.bb9.i ], [ %conv8.i51, %sw.bb.i ]
+  %val.0.i = phi i64 [ %conv14.i, %sw.bb12.i ], [ %conv11.i, %sw.bb9.i ], [ %conv8.i50, %sw.bb.i ]
   %23 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %17, i1 false)
-  %call43.i = tail call i32 @memory_region_dispatch_write(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i47, i64 noundef %val.0.i, i32 noundef %23, i32 1) #14
+  %call43.i = tail call i32 @memory_region_dispatch_write(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i46, i64 noundef %val.0.i, i32 noundef %23, i32 1) #14
   br label %if.end50
 
 if.end50:                                         ; preds = %for.inc.i.i, %sw.epilog.i, %if.end6.i, %virtio_address_space_lookup.exit.i, %if.then28, %land.lhs.true, %if.end20
@@ -3226,7 +3226,7 @@ land.lhs.true:                                    ; preds = %entry
   %sub.i4.i = add nsw i64 %conv3, 19
   %cmp.i = icmp ult i64 %sub.i4.i, %conv
   %cmp2.i = icmp ult i64 %sub.i.i, %add
-  %.not.i.not = or i1 %cmp2.i, %cmp.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %if.end24, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -3247,8 +3247,8 @@ if.end:                                           ; preds = %if.then, %if.then, 
   %pci_cfg_data = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i)
   %not.i = sub nsw i32 0, %2
-  %and.i22 = and i32 %3, %not.i
-  %and.i = zext i32 %and.i22 to i64
+  %and.i17 = and i32 %3, %not.i
+  %and.i = zext i32 %and.i17 to i64
   %4 = getelementptr inbounds i8, ptr %call.i, i64 2880
   %conv5.i.i = zext nneg i32 %2 to i64
   %add.i.i15 = add nuw nsw i64 %and.i, %conv5.i.i
@@ -3259,7 +3259,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr [5 x %struct.VirtIOPCIRegion], ptr %4, i64 0, i64 %indvars.iv.i.i
   %offset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 272
   %5 = load i32, ptr %offset.i.i, align 16
-  %cmp3.not.i.i = icmp ult i32 %and.i22, %5
+  %cmp3.not.i.i = icmp ult i32 %and.i17, %5
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i

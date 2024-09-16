@@ -103,7 +103,7 @@ entry:
   %agg.tmp.sroa.1.0.copyload = load ptr, ptr %agg.tmp.sroa.1.0.field.sroa_idx, align 8
   %agg.tmp.sroa.2.0.field.sroa_idx = getelementptr inbounds i8, ptr %field, i64 16
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.field.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias nonnull align 8 %ref.tmp, ptr %agg.tmp.sroa.1.0.copyload, ptr %agg.tmp.sroa.2.0.copyload)
+  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias align 8 %ref.tmp, ptr %agg.tmp.sroa.1.0.copyload, ptr %agg.tmp.sroa.2.0.copyload)
   %0 = load ptr, ptr %ref.tmp, align 8
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -129,7 +129,7 @@ _ZNSt10unique_ptrIN6google8protobuf8compiler4rust17AccessorGeneratorESt14default
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr %field.8.val, ptr %field.16.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %field.8.val, ptr %field.16.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.6", align 8
   %ref.tmp8 = alloca %"class.std::unique_ptr.6", align 8
@@ -431,7 +431,7 @@ entry:
   %agg.tmp.sroa.1.0.copyload = load ptr, ptr %agg.tmp.sroa.1.0.field.sroa_idx, align 8
   %agg.tmp.sroa.2.0.field.sroa_idx = getelementptr inbounds i8, ptr %field, i64 16
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.field.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias nonnull align 8 %ref.tmp, ptr %agg.tmp.sroa.1.0.copyload, ptr %agg.tmp.sroa.2.0.copyload)
+  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias align 8 %ref.tmp, ptr %agg.tmp.sroa.1.0.copyload, ptr %agg.tmp.sroa.2.0.copyload)
   %0 = load ptr, ptr %ref.tmp, align 8
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
@@ -465,7 +465,7 @@ entry:
   %agg.tmp.sroa.1.0.copyload = load ptr, ptr %agg.tmp.sroa.1.0.field.sroa_idx, align 8
   %agg.tmp.sroa.2.0.field.sroa_idx = getelementptr inbounds i8, ptr %field, i64 16
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.field.sroa_idx, align 8
-  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias nonnull align 8 %ref.tmp, ptr %agg.tmp.sroa.1.0.copyload, ptr %agg.tmp.sroa.2.0.copyload)
+  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias align 8 %ref.tmp, ptr %agg.tmp.sroa.1.0.copyload, ptr %agg.tmp.sroa.2.0.copyload)
   %0 = load ptr, ptr %ref.tmp, align 8
   %agg.tmp12.sroa.0.0.copyload = load ptr, ptr %field, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)

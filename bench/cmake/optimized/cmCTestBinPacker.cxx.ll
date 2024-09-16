@@ -345,7 +345,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %64
   store i64 %61, ptr %8, align 8
   store i64 %62, ptr %9, align 8
-  invoke fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  invoke fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef %8, ptr noundef %9)
           to label %72 unwind label %70
 
 70:                                               ; preds = %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES4_EC2ESA_l.exit.i.i.i, %.loopexit.i.i.i
@@ -358,7 +358,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
 _ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES4_EC2ESA_l.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   store i64 %61, ptr %10, align 8
   store i64 %62, ptr %11, align 8
-  invoke fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %69, i64 noundef %storemerge26.i.i.i.i.i)
+  invoke fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %69, i64 noundef %storemerge26.i.i.i.i.i)
           to label %72 unwind label %70
 
 72:                                               ; preds = %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES4_EC2ESA_l.exit.i.i.i, %.loopexit.i.i.i
@@ -531,7 +531,7 @@ _ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS
 _ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread.i.i.i.i: ; preds = %select.unfold.i.i.i.i.i.i, %99
   store i64 %96, ptr %4, align 8
   store i64 %97, ptr %5, align 8
-  invoke fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nonnull %0)
+  invoke fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %4, ptr noundef %5, ptr nonnull %0)
           to label %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_ED2Ev.exit.i.i.i.i unwind label %118
 
 118:                                              ; preds = %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread20.i.i.i.i, %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread.i.i.i.i
@@ -545,7 +545,7 @@ _ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS
   store i64 %storemerge26.i.i.i.i.i.i, ptr %104, align 8
   store i64 %96, ptr %6, align 8
   store i64 %97, ptr %7, align 8
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %108, i64 noundef %storemerge26.i.i.i.i.i.i, ptr nonnull %0)
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %108, i64 noundef %storemerge26.i.i.i.i.i.i, ptr nonnull %0)
           to label %120 unwind label %118
 
 120:                                              ; preds = %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread20.i.i.i.i
@@ -808,7 +808,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %64
   store i64 %61, ptr %8, align 8
   store i64 %62, ptr %9, align 8
-  invoke fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  invoke fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef %8, ptr noundef %9)
           to label %72 unwind label %70
 
 70:                                               ; preds = %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES4_EC2ESA_l.exit.i.i.i, %.loopexit.i.i.i
@@ -821,7 +821,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
 _ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES4_EC2ESA_l.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   store i64 %61, ptr %10, align 8
   store i64 %62, ptr %11, align 8
-  invoke fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %69, i64 noundef %storemerge26.i.i.i.i.i)
+  invoke fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %69, i64 noundef %storemerge26.i.i.i.i.i)
           to label %72 unwind label %70
 
 72:                                               ; preds = %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES4_EC2ESA_l.exit.i.i.i, %.loopexit.i.i.i
@@ -994,7 +994,7 @@ _ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS
 _ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread.i.i.i.i: ; preds = %select.unfold.i.i.i.i.i.i, %99
   store i64 %96, ptr %4, align 8
   store i64 %97, ptr %5, align 8
-  invoke fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nonnull %0)
+  invoke fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %4, ptr noundef %5, ptr nonnull %0)
           to label %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_ED2Ev.exit.i.i.i.i unwind label %118
 
 118:                                              ; preds = %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread20.i.i.i.i, %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread.i.i.i.i
@@ -1008,7 +1008,7 @@ _ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS
   store i64 %storemerge26.i.i.i.i.i.i, ptr %104, align 8
   store i64 %96, ptr %6, align 8
   store i64 %97, ptr %7, align 8
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %108, i64 noundef %storemerge26.i.i.i.i.i.i, ptr nonnull %0)
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %108, i64 noundef %storemerge26.i.i.i.i.i.i, ptr nonnull %0)
           to label %120 unwind label %118
 
 120:                                              ; preds = %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_EC2ESE_l.exit.thread20.i.i.i.i
@@ -1750,7 +1750,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca %"class.std::reverse_iterator", align 8
   %4 = alloca %"class.std::reverse_iterator", align 8
   %5 = alloca %"class.std::reverse_iterator", align 8
@@ -1838,11 +1838,11 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   store i64 %9, ptr %3, align 8
   %47 = ptrtoint ptr %46 to i64
   store i64 %47, ptr %4, align 8
-  call fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef %3, ptr noundef %4)
   store i64 %47, ptr %5, align 8
   %48 = load i64, ptr %1, align 8
   store i64 %48, ptr %6, align 8
-  call fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef %5, ptr noundef %6)
   %49 = load i64, ptr %0, align 8
   store i64 %49, ptr %7, align 8
   %50 = load i64, ptr %1, align 8
@@ -1851,7 +1851,7 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   %52 = ashr exact i64 %51, 3
   %53 = sub i64 %47, %50
   %54 = ashr exact i64 %53, 3
-  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef nonnull %7, i64 %47, ptr noundef nonnull %8, i64 noundef %52, i64 noundef %54)
+  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef %7, i64 %47, ptr noundef %8, i64 noundef %52, i64 noundef %54)
   br label %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_.exit
 
 _ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_.exit: ; preds = %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit.i, %14, %43
@@ -1859,7 +1859,7 @@ _ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca %"class.std::reverse_iterator", align 8
   %6 = alloca %"class.std::reverse_iterator", align 8
   %7 = alloca %"class.std::reverse_iterator", align 8
@@ -1888,21 +1888,21 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN
 26:                                               ; preds = %4
   store i64 %16, ptr %5, align 8
   store i64 %25, ptr %6, align 8
-  call fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef %5, ptr noundef %6, ptr noundef %2, i64 noundef %3)
   store i64 %25, ptr %7, align 8
   %27 = load i64, ptr %1, align 8
   store i64 %27, ptr %8, align 8
-  call fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef %7, ptr noundef %8, ptr noundef %2, i64 noundef %3)
   br label %30
 
 28:                                               ; preds = %4
   store i64 %16, ptr %9, align 8
   store i64 %25, ptr %10, align 8
-  call fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %2)
+  call fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr noundef %9, ptr noundef %10, ptr noundef %2)
   store i64 %25, ptr %11, align 8
   %29 = load i64, ptr %1, align 8
   store i64 %29, ptr %12, align 8
-  call fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2)
+  call fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr noundef %11, ptr noundef %12, ptr noundef %2)
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -1915,7 +1915,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN
   %34 = ashr exact i64 %33, 3
   %35 = sub i64 %25, %32
   %36 = ashr exact i64 %35, 3
-  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %34, i64 noundef %36, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %34, i64 noundef %36, ptr noundef %2, i64 noundef %3)
   ret void
 }
 
@@ -1927,7 +1927,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr nocapture noundef readonly %0, i64 %.0.val, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr nocapture noundef nonnull readonly %0, i64 %.0.val, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca %"class.std::reverse_iterator", align 8
   %6 = alloca %"class.std::reverse_iterator", align 8
   %7 = alloca %"class.std::reverse_iterator", align 8
@@ -2082,14 +2082,14 @@ _ZSt13__upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   store i64 %92, ptr %9, align 8
   %93 = load i64, ptr %8, align 8
   store i64 %93, ptr %10, align 8
-  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef nonnull %9, i64 %.sroa.020.0, ptr noundef nonnull %10, i64 noundef %.0, i64 noundef %.020)
+  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef %9, i64 %.sroa.020.0, ptr noundef %10, i64 noundef %.0, i64 noundef %.020)
   %94 = load i64, ptr %8, align 8
   store i64 %94, ptr %11, align 8
   %95 = load i64, ptr %1, align 8
   store i64 %95, ptr %12, align 8
   %96 = sub nsw i64 %2, %.0
   %97 = sub nsw i64 %3, %.020
-  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef nonnull %11, i64 %.sroa.015.0, ptr noundef nonnull %12, i64 noundef %96, i64 noundef %97)
+  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef %11, i64 %.sroa.015.0, ptr noundef %12, i64 noundef %96, i64 noundef %97)
   br label %98
 
 98:                                               ; preds = %19, %29, %4, %91
@@ -2285,7 +2285,7 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #10 {
+define internal fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #10 {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload.i2.i = load ptr, ptr %1, align 8
   %4 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
@@ -2840,7 +2840,7 @@ _ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__g
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #1 {
   %8 = alloca %"class.std::reverse_iterator", align 8
   %9 = alloca %"class.std::reverse_iterator", align 8
   %10 = alloca %"class.std::reverse_iterator", align 8
@@ -3174,14 +3174,14 @@ _ZSt13__upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   store i64 %.sroa.089.0, ptr %13, align 8
   %177 = load i64, ptr %8, align 8
   store i64 %177, ptr %14, align 8
-  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %.0, i64 noundef %.043, ptr noundef %5, i64 noundef %6)
+  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %.0, i64 noundef %.043, ptr noundef %5, i64 noundef %6)
   %178 = load i64, ptr %8, align 8
   store i64 %178, ptr %15, align 8
   store i64 %.sroa.084.0, ptr %16, align 8
   %179 = load i64, ptr %2, align 8
   store i64 %179, ptr %17, align 8
   %180 = sub nsw i64 %4, %.043
-  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %175, i64 noundef %180, ptr noundef %5, i64 noundef %6)
+  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef %15, ptr noundef %16, ptr noundef %17, i64 noundef %175, i64 noundef %180, ptr noundef %5, i64 noundef %6)
   br label %_ZSt21__move_merge_adaptiveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEESA_NS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_S14_T1_T2_.exit
 
 _ZSt21__move_merge_adaptiveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEESA_NS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_S14_T1_T2_.exit: ; preds = %36, %.lr.ph.i.i.i.i.i.i, %108, %.lr.ph.i.i.i.i.i17.i, %.lr.ph.i.i.i.i.i.i61, %18, %96, %84, %73, %.critedge.i, %174
@@ -3570,7 +3570,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr %2) unnamed_addr #1 {
+define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr %2) unnamed_addr #1 {
   %4 = alloca %"class.std::reverse_iterator.22", align 8
   %5 = alloca %"class.std::reverse_iterator.22", align 8
   %6 = alloca %"class.std::reverse_iterator.22", align 8
@@ -3592,7 +3592,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
 18:                                               ; preds = %3
   store i64 %13, ptr %4, align 8
   store i64 %14, ptr %5, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr %2)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %4, ptr noundef %5, ptr %2)
   br label %31
 
 19:                                               ; preds = %3
@@ -3602,11 +3602,11 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
   store i64 %13, ptr %6, align 8
   %23 = ptrtoint ptr %22 to i64
   store i64 %23, ptr %7, align 8
-  call fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr %2)
+  call fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %6, ptr noundef %7, ptr %2)
   store i64 %23, ptr %8, align 8
   %24 = load i64, ptr %1, align 8
   store i64 %24, ptr %9, align 8
-  call fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr %2)
+  call fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %8, ptr noundef %9, ptr %2)
   %25 = load i64, ptr %0, align 8
   store i64 %25, ptr %10, align 8
   store i64 %23, ptr %11, align 8
@@ -3616,7 +3616,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
   %28 = ashr exact i64 %27, 5
   %29 = sub i64 %23, %26
   %30 = ashr exact i64 %29, 5
-  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %28, i64 noundef %30, ptr %2)
+  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef %10, ptr noundef %11, ptr noundef %12, i64 noundef %28, i64 noundef %30, ptr %2)
   br label %31
 
 31:                                               ; preds = %19, %18
@@ -3624,7 +3624,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr %4) unnamed_addr #1 {
+define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i64 noundef %3, ptr %4) unnamed_addr #1 {
   %6 = alloca %"class.std::reverse_iterator.22", align 8
   %7 = alloca %"class.std::reverse_iterator.22", align 8
   %8 = alloca %"class.std::reverse_iterator.22", align 8
@@ -3653,21 +3653,21 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorI
 27:                                               ; preds = %5
   store i64 %17, ptr %6, align 8
   store i64 %26, ptr %7, align 8
-  call fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %2, i64 noundef %3, ptr %4)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef %6, ptr noundef %7, ptr noundef %2, i64 noundef %3, ptr %4)
   store i64 %26, ptr %8, align 8
   %28 = load i64, ptr %1, align 8
   store i64 %28, ptr %9, align 8
-  call fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %2, i64 noundef %3, ptr %4)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef %8, ptr noundef %9, ptr noundef %2, i64 noundef %3, ptr %4)
   br label %31
 
 29:                                               ; preds = %5
   store i64 %17, ptr %10, align 8
   store i64 %26, ptr %11, align 8
-  call fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %2, ptr %4)
+  call fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr noundef %10, ptr noundef %11, ptr noundef %2, ptr %4)
   store i64 %26, ptr %12, align 8
   %30 = load i64, ptr %1, align 8
   store i64 %30, ptr %13, align 8
-  call fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %2, ptr %4)
+  call fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr noundef %12, ptr noundef %13, ptr noundef %2, ptr %4)
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -3681,7 +3681,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorI
   %36 = sub i64 %26, %33
   %37 = ashr exact i64 %36, 5
   %38 = ptrtoint ptr %4 to i64
-  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %35, i64 noundef %37, ptr noundef %2, i64 noundef %3, i64 %38)
+  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %35, i64 noundef %37, ptr noundef %2, i64 noundef %3, i64 %38)
   ret void
 }
 
@@ -3716,7 +3716,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.24", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3927,7 +3927,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr %5) unnamed_addr #1 {
+define internal fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, ptr %5) unnamed_addr #1 {
   %7 = alloca %"class.std::reverse_iterator.22", align 8
   %8 = alloca %"class.std::reverse_iterator.22", align 8
   %9 = alloca %"class.std::reverse_iterator.22", align 8
@@ -4087,7 +4087,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %92 = load i64, ptr %13, align 8
   store i64 %92, ptr %16, align 8
   %.sroa.02.0.copyload = load ptr, ptr %12, align 8
-  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %.0, i64 noundef %.022, ptr %.sroa.02.0.copyload)
+  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %.0, i64 noundef %.022, ptr %.sroa.02.0.copyload)
   %93 = load i64, ptr %13, align 8
   store i64 %93, ptr %17, align 8
   store i64 %.sroa.055.0, ptr %18, align 8
@@ -4095,7 +4095,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   store i64 %94, ptr %19, align 8
   %95 = sub nsw i64 %3, %.0
   %96 = sub nsw i64 %4, %.022
-  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef %95, i64 noundef %96, ptr %.sroa.02.0.copyload)
+  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %95, i64 noundef %96, ptr %.sroa.02.0.copyload)
   br label %97
 
 97:                                               ; preds = %25, %33, %6, %89
@@ -4360,7 +4360,7 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateISt16reverse_iteratorIN9__
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::reverse_iterator.22", align 8
   %6 = alloca %"class.std::reverse_iterator.22", align 8
   %7 = alloca %"class.std::reverse_iterator.22", align 8
@@ -4392,7 +4392,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %.cast.i = inttoptr i64 %21 to ptr
   %22 = getelementptr inbounds i8, ptr %.cast.i, i64 -224
   store ptr %22, ptr %12, align 8, !alias.scope !305
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr %3)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %11, ptr noundef %12, ptr %3)
   %23 = getelementptr inbounds i8, ptr %.sroa.063.0, i64 -224
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %24, %16
@@ -4403,7 +4403,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %27 = phi i64 [ %15, %4 ], [ %24, %.lr.ph.i ]
   store i64 %27, ptr %13, align 8
   store i64 %16, ptr %14, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr %3)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %13, ptr noundef %14, ptr %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -4634,7 +4634,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
   store ptr %112, ptr %8, align 8, !alias.scope !312
   store ptr %112, ptr %9, align 8, !alias.scope !315
   store i64 %34, ptr %10, align 8
-  call fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %.0.lcssa.i, ptr %3)
+  call fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %.0.lcssa.i, ptr %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -4877,7 +4877,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt
   %.sroa.speculated.i21 = tail call i64 @llvm.smin.i64(i64 %35, i64 %.lcssa.i20)
   %210 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.0.lcssa.i19, i64 %.sroa.speculated.i21
   store i64 %209, ptr %5, align 8
-  call fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %.0.lcssa.i19, ptr noundef %210, ptr noundef %210, ptr noundef %19, ptr noundef nonnull %5, i64 %.pre.i)
+  call fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %.0.lcssa.i19, ptr noundef %210, ptr noundef %210, ptr noundef %19, ptr noundef %5, i64 %.pre.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %211 = icmp slt i64 %114, %18
@@ -4888,7 +4888,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 %7) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 %7) unnamed_addr #1 {
   %9 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter.28", align 8
   %10 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val.30", align 8
   %11 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.24", align 8
@@ -5232,14 +5232,14 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   store i64 %.sroa.089.0, ptr %18, align 8
   %174 = load i64, ptr %13, align 8
   store i64 %174, ptr %19, align 8
-  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef %.0, i64 noundef %.040, ptr noundef %5, i64 noundef %6, i64 %7)
+  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %.0, i64 noundef %.040, ptr noundef %5, i64 noundef %6, i64 %7)
   %175 = load i64, ptr %13, align 8
   store i64 %175, ptr %20, align 8
   store i64 %.sroa.084.0, ptr %21, align 8
   %176 = load i64, ptr %2, align 8
   store i64 %176, ptr %22, align 8
   %177 = sub nsw i64 %4, %.040
-  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, i64 noundef %172, i64 noundef %177, ptr noundef %5, i64 noundef %6, i64 %7)
+  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef %20, ptr noundef %21, ptr noundef %22, i64 noundef %172, i64 noundef %177, ptr noundef %5, i64 noundef %6, i64 %7)
   br label %178
 
 178:                                              ; preds = %"_ZSt30__move_merge_adaptive_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_SE_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_SZ_T1_T2_.exit", %170, %"_ZSt21__move_merge_adaptiveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEESE_NS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEEvT_SY_T0_SZ_T1_T2_.exit"
@@ -5247,7 +5247,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr %5) unnamed_addr #1 {
+define internal fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, ptr %5) unnamed_addr #1 {
   %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.24", align 8
   store ptr %5, ptr %7, align 8
   %.sroa.0.0.copyload.i.i.i21 = load ptr, ptr %0, align 8
@@ -5355,7 +5355,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, i64 %6) unnamed_addr #1 {
+define internal fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, i64 %6) unnamed_addr #1 {
   %8 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.24", align 8
   %9 = inttoptr i64 %6 to ptr
   store ptr %9, ptr %8, align 8
@@ -7008,7 +7008,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca %"class.std::reverse_iterator", align 8
   %4 = alloca %"class.std::reverse_iterator", align 8
   %5 = alloca %"class.std::reverse_iterator", align 8
@@ -7096,11 +7096,11 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   store i64 %9, ptr %3, align 8
   %47 = ptrtoint ptr %46 to i64
   store i64 %47, ptr %4, align 8
-  call fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef %3, ptr noundef %4)
   store i64 %47, ptr %5, align 8
   %48 = load i64, ptr %1, align 8
   store i64 %48, ptr %6, align 8
-  call fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_(ptr noundef %5, ptr noundef %6)
   %49 = load i64, ptr %0, align 8
   store i64 %49, ptr %7, align 8
   %50 = load i64, ptr %1, align 8
@@ -7109,7 +7109,7 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   %52 = ashr exact i64 %51, 3
   %53 = sub i64 %47, %50
   %54 = ashr exact i64 %53, 3
-  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef nonnull %7, i64 %47, ptr noundef nonnull %8, i64 noundef %52, i64 noundef %54)
+  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef %7, i64 %47, ptr noundef %8, i64 noundef %52, i64 noundef %54)
   br label %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_.exit
 
 _ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_.exit: ; preds = %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_.exit.i, %14, %43
@@ -7117,7 +7117,7 @@ _ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca %"class.std::reverse_iterator", align 8
   %6 = alloca %"class.std::reverse_iterator", align 8
   %7 = alloca %"class.std::reverse_iterator", align 8
@@ -7146,21 +7146,21 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN
 26:                                               ; preds = %4
   store i64 %16, ptr %5, align 8
   store i64 %25, ptr %6, align 8
-  call fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef %5, ptr noundef %6, ptr noundef %2, i64 noundef %3)
   store i64 %25, ptr %7, align 8
   %27 = load i64, ptr %1, align 8
   store i64 %27, ptr %8, align 8
-  call fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_(ptr noundef %7, ptr noundef %8, ptr noundef %2, i64 noundef %3)
   br label %30
 
 28:                                               ; preds = %4
   store i64 %16, ptr %9, align 8
   store i64 %25, ptr %10, align 8
-  call fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %2)
+  call fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr noundef %9, ptr noundef %10, ptr noundef %2)
   store i64 %25, ptr %11, align 8
   %29 = load i64, ptr %1, align 8
   store i64 %29, ptr %12, align 8
-  call fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2)
+  call fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr noundef %11, ptr noundef %12, ptr noundef %2)
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -7173,12 +7173,12 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN
   %34 = ashr exact i64 %33, 3
   %35 = sub i64 %25, %32
   %36 = ashr exact i64 %35, 3
-  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %34, i64 noundef %36, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %34, i64 noundef %36, ptr noundef %2, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr nocapture noundef readonly %0, i64 %.0.val, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr nocapture noundef nonnull readonly %0, i64 %.0.val, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca %"class.std::reverse_iterator", align 8
   %6 = alloca %"class.std::reverse_iterator", align 8
   %7 = alloca %"class.std::reverse_iterator", align 8
@@ -7333,14 +7333,14 @@ _ZSt13__upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   store i64 %92, ptr %9, align 8
   %93 = load i64, ptr %8, align 8
   store i64 %93, ptr %10, align 8
-  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef nonnull %9, i64 %.sroa.020.0, ptr noundef nonnull %10, i64 noundef %.0, i64 noundef %.020)
+  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef %9, i64 %.sroa.020.0, ptr noundef %10, i64 noundef %.0, i64 noundef %.020)
   %94 = load i64, ptr %8, align 8
   store i64 %94, ptr %11, align 8
   %95 = load i64, ptr %1, align 8
   store i64 %95, ptr %12, align 8
   %96 = sub nsw i64 %2, %.0
   %97 = sub nsw i64 %3, %.020
-  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef nonnull %11, i64 %.sroa.015.0, ptr noundef nonnull %12, i64 noundef %96, i64 noundef %97)
+  call fastcc void @_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_(ptr noundef %11, i64 %.sroa.015.0, ptr noundef %12, i64 noundef %96, i64 noundef %97)
   br label %98
 
 98:                                               ; preds = %19, %29, %4, %91
@@ -7348,7 +7348,7 @@ _ZSt13__upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #10 {
+define internal fastcc void @_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #10 {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload.i2.i = load ptr, ptr %1, align 8
   %4 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
@@ -7903,7 +7903,7 @@ _ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__g
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #1 {
   %8 = alloca %"class.std::reverse_iterator", align 8
   %9 = alloca %"class.std::reverse_iterator", align 8
   %10 = alloca %"class.std::reverse_iterator", align 8
@@ -8237,14 +8237,14 @@ _ZSt13__upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   store i64 %.sroa.089.0, ptr %13, align 8
   %177 = load i64, ptr %8, align 8
   store i64 %177, ptr %14, align 8
-  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %.0, i64 noundef %.043, ptr noundef %5, i64 noundef %6)
+  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %.0, i64 noundef %.043, ptr noundef %5, i64 noundef %6)
   %178 = load i64, ptr %8, align 8
   store i64 %178, ptr %15, align 8
   store i64 %.sroa.084.0, ptr %16, align 8
   %179 = load i64, ptr %2, align 8
   store i64 %179, ptr %17, align 8
   %180 = sub nsw i64 %4, %.043
-  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %175, i64 noundef %180, ptr noundef %5, i64 noundef %6)
+  call fastcc void @_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElS5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_S13_T0_S14_T1_S14_T2_(ptr noundef %15, ptr noundef %16, ptr noundef %17, i64 noundef %175, i64 noundef %180, ptr noundef %5, i64 noundef %6)
   br label %_ZSt21__move_merge_adaptiveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEESA_NS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_S14_T1_T2_.exit
 
 _ZSt21__move_merge_adaptiveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEESA_NS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_S14_T1_T2_.exit: ; preds = %36, %.lr.ph.i.i.i.i.i.i, %108, %.lr.ph.i.i.i.i.i17.i, %.lr.ph.i.i.i.i.i.i61, %18, %96, %84, %73, %.critedge.i, %174
@@ -8252,7 +8252,7 @@ _ZSt21__move_merge_adaptiveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr %2) unnamed_addr #1 {
+define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr %2) unnamed_addr #1 {
   %4 = alloca %"class.std::reverse_iterator.22", align 8
   %5 = alloca %"class.std::reverse_iterator.22", align 8
   %6 = alloca %"class.std::reverse_iterator.22", align 8
@@ -8274,7 +8274,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
 18:                                               ; preds = %3
   store i64 %13, ptr %4, align 8
   store i64 %14, ptr %5, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr %2)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %4, ptr noundef %5, ptr %2)
   br label %31
 
 19:                                               ; preds = %3
@@ -8284,11 +8284,11 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
   store i64 %13, ptr %6, align 8
   %23 = ptrtoint ptr %22 to i64
   store i64 %23, ptr %7, align 8
-  call fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr %2)
+  call fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %6, ptr noundef %7, ptr %2)
   store i64 %23, ptr %8, align 8
   %24 = load i64, ptr %1, align 8
   store i64 %24, ptr %9, align 8
-  call fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr %2)
+  call fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %8, ptr noundef %9, ptr %2)
   %25 = load i64, ptr %0, align 8
   store i64 %25, ptr %10, align 8
   store i64 %23, ptr %11, align 8
@@ -8298,7 +8298,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
   %28 = ashr exact i64 %27, 5
   %29 = sub i64 %23, %26
   %30 = ashr exact i64 %29, 5
-  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %28, i64 noundef %30, ptr %2)
+  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef %10, ptr noundef %11, ptr noundef %12, i64 noundef %28, i64 noundef %30, ptr %2)
   br label %31
 
 31:                                               ; preds = %19, %18
@@ -8306,7 +8306,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr %4) unnamed_addr #1 {
+define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i64 noundef %3, ptr %4) unnamed_addr #1 {
   %6 = alloca %"class.std::reverse_iterator.22", align 8
   %7 = alloca %"class.std::reverse_iterator.22", align 8
   %8 = alloca %"class.std::reverse_iterator.22", align 8
@@ -8335,21 +8335,21 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorI
 27:                                               ; preds = %5
   store i64 %17, ptr %6, align 8
   store i64 %26, ptr %7, align 8
-  call fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %2, i64 noundef %3, ptr %4)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef %6, ptr noundef %7, ptr noundef %2, i64 noundef %3, ptr %4)
   store i64 %26, ptr %8, align 8
   %28 = load i64, ptr %1, align 8
   store i64 %28, ptr %9, align 8
-  call fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %2, i64 noundef %3, ptr %4)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_"(ptr noundef %8, ptr noundef %9, ptr noundef %2, i64 noundef %3, ptr %4)
   br label %31
 
 29:                                               ; preds = %5
   store i64 %17, ptr %10, align 8
   store i64 %26, ptr %11, align 8
-  call fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %2, ptr %4)
+  call fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr noundef %10, ptr noundef %11, ptr noundef %2, ptr %4)
   store i64 %26, ptr %12, align 8
   %30 = load i64, ptr %1, align 8
   store i64 %30, ptr %13, align 8
-  call fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %2, ptr %4)
+  call fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr noundef %12, ptr noundef %13, ptr noundef %2, ptr %4)
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -8363,12 +8363,12 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorI
   %36 = sub i64 %26, %33
   %37 = ashr exact i64 %36, 5
   %38 = ptrtoint ptr %4 to i64
-  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %35, i64 noundef %37, ptr noundef %2, i64 noundef %3, i64 %38)
+  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %35, i64 noundef %37, ptr noundef %2, i64 noundef %3, i64 %38)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.42", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8579,7 +8579,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr %5) unnamed_addr #1 {
+define internal fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, ptr %5) unnamed_addr #1 {
   %7 = alloca %"class.std::reverse_iterator.22", align 8
   %8 = alloca %"class.std::reverse_iterator.22", align 8
   %9 = alloca %"class.std::reverse_iterator.22", align 8
@@ -8739,7 +8739,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %92 = load i64, ptr %13, align 8
   store i64 %92, ptr %16, align 8
   %.sroa.02.0.copyload = load ptr, ptr %12, align 8
-  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %.0, i64 noundef %.022, ptr %.sroa.02.0.copyload)
+  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %.0, i64 noundef %.022, ptr %.sroa.02.0.copyload)
   %93 = load i64, ptr %13, align 8
   store i64 %93, ptr %17, align 8
   store i64 %.sroa.055.0, ptr %18, align 8
@@ -8747,7 +8747,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   store i64 %94, ptr %19, align 8
   %95 = sub nsw i64 %3, %.0
   %96 = sub nsw i64 %4, %.022
-  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef %95, i64 noundef %96, ptr %.sroa.02.0.copyload)
+  call fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_"(ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %95, i64 noundef %96, ptr %.sroa.02.0.copyload)
   br label %97
 
 97:                                               ; preds = %25, %33, %6, %89
@@ -8881,7 +8881,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::reverse_iterator.22", align 8
   %6 = alloca %"class.std::reverse_iterator.22", align 8
   %7 = alloca %"class.std::reverse_iterator.22", align 8
@@ -8913,7 +8913,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %.cast.i = inttoptr i64 %21 to ptr
   %22 = getelementptr inbounds i8, ptr %.cast.i, i64 -224
   store ptr %22, ptr %12, align 8, !alias.scope !655
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr %3)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %11, ptr noundef %12, ptr %3)
   %23 = getelementptr inbounds i8, ptr %.sroa.063.0, i64 -224
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %24, %16
@@ -8924,7 +8924,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %27 = phi i64 [ %15, %4 ], [ %24, %.lr.ph.i ]
   store i64 %27, ptr %13, align 8
   store i64 %16, ptr %14, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr %3)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_"(ptr noundef %13, ptr noundef %14, ptr %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -9155,7 +9155,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
   store ptr %112, ptr %8, align 8, !alias.scope !661
   store ptr %112, ptr %9, align 8, !alias.scope !664
   store i64 %34, ptr %10, align 8
-  call fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %.0.lcssa.i, ptr %3)
+  call fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %.0.lcssa.i, ptr %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -9398,7 +9398,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt
   %.sroa.speculated.i21 = tail call i64 @llvm.smin.i64(i64 %35, i64 %.lcssa.i20)
   %210 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.0.lcssa.i19, i64 %.sroa.speculated.i21
   store i64 %209, ptr %5, align 8
-  call fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %.0.lcssa.i19, ptr noundef %210, ptr noundef %210, ptr noundef %19, ptr noundef nonnull %5, i64 %.pre.i)
+  call fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %.0.lcssa.i19, ptr noundef %210, ptr noundef %210, ptr noundef %19, ptr noundef %5, i64 %.pre.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %211 = icmp slt i64 %114, %18
@@ -9409,7 +9409,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 %7) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 %7) unnamed_addr #1 {
   %9 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter.43", align 8
   %10 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val.44", align 8
   %11 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.42", align 8
@@ -9753,14 +9753,14 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   store i64 %.sroa.089.0, ptr %18, align 8
   %174 = load i64, ptr %13, align 8
   store i64 %174, ptr %19, align 8
-  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef %.0, i64 noundef %.040, ptr noundef %5, i64 noundef %6, i64 %7)
+  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %.0, i64 noundef %.040, ptr noundef %5, i64 noundef %6, i64 %7)
   %175 = load i64, ptr %13, align 8
   store i64 %175, ptr %20, align 8
   store i64 %.sroa.084.0, ptr %21, align 8
   %176 = load i64, ptr %2, align 8
   store i64 %176, ptr %22, align 8
   %177 = sub nsw i64 %4, %.040
-  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, i64 noundef %172, i64 noundef %177, ptr noundef %5, i64 noundef %6, i64 %7)
+  call fastcc void @"_ZSt16__merge_adaptiveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElS9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_SY_T0_SZ_T1_SZ_T2_"(ptr noundef %20, ptr noundef %21, ptr noundef %22, i64 noundef %172, i64 noundef %177, ptr noundef %5, i64 noundef %6, i64 %7)
   br label %178
 
 178:                                              ; preds = %"_ZSt30__move_merge_adaptive_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_SE_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_SZ_T1_T2_.exit", %170, %"_ZSt21__move_merge_adaptiveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEESE_NS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEEvT_SY_T0_SZ_T1_T2_.exit"
@@ -9768,7 +9768,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr %5) unnamed_addr #1 {
+define internal fastcc void @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, ptr %5) unnamed_addr #1 {
   %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.42", align 8
   store ptr %5, ptr %7, align 8
   %.sroa.0.0.copyload.i.i.i21 = load ptr, ptr %0, align 8
@@ -9876,7 +9876,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, i64 %6) unnamed_addr #1 {
+define internal fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, i64 %6) unnamed_addr #1 {
   %8 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.42", align 8
   %9 = inttoptr i64 %6 to ptr
   store ptr %9, ptr %8, align 8

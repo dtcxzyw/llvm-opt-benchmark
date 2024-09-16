@@ -253,7 +253,7 @@ define range(i32 -1, 1) i32 @exdump(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not22, label %16, label %15
 
 15:                                               ; preds = %8
-  call fastcc void @gen(ptr noundef nonnull %7, ptr noundef nonnull %1)
+  call fastcc void @gen(ptr noundef %7, ptr noundef nonnull %1)
   br label %.loopexit
 
 16:                                               ; preds = %8
@@ -283,7 +283,7 @@ define range(i32 -1, 1) i32 @exdump(ptr noundef %0, ptr noundef %1, ptr noundef 
   %29 = load ptr, ptr %25, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
-  call fastcc void @gen(ptr noundef nonnull %7, ptr noundef %31)
+  call fastcc void @gen(ptr noundef %7, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %.lr.ph, %24, %27
@@ -441,7 +441,7 @@ exccopen.exit.thread:                             ; preds = %3, %exccclose.exit
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gen(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @gen(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   br label %tailrecurse
 
@@ -469,7 +469,7 @@ tailrecurse:                                      ; preds = %262, %2
   br i1 %.not374, label %17, label %16
 
 16:                                               ; preds = %8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef nonnull %15)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %15)
   br label %17
 
 17:                                               ; preds = %16, %8
@@ -635,7 +635,7 @@ agxbsizeof.exit.i:                                ; preds = %22, %agxblen.exit.i
   tail call fastcc void @agxbput(ptr noundef %71, ptr noundef nonnull %72)
   br label %common.ret1425
 
-common.ret1425:                                   ; preds = %185, %180, %34, %29, %265, %247, %253, %98, %57, %59, %61, %62, %702, %677, %664, %.critedge375, %471, %468, %457, %444, %290, %274, %268, %256, %240, %218, %87, %84, %69, %63, %49, %46, %agxbput.exit447, %41, %41, %tailrecurse, %684, %670, %659, %654, %649, %637, %632, %627, %621, %615, %606, %597, %581, %.loopexit, %486, %269, %192, %95, %73
+common.ret1425:                                   ; preds = %185, %180, %34, %29, %265, %247, %253, %98, %57, %59, %61, %62, %677, %664, %.critedge375, %471, %468, %457, %444, %290, %274, %268, %256, %240, %218, %87, %84, %69, %63, %49, %46, %agxbput.exit447, %41, %41, %tailrecurse, %702, %684, %670, %659, %654, %649, %637, %632, %627, %621, %615, %606, %597, %581, %.loopexit, %486, %269, %192, %95, %73
   ret void
 
 73:                                               ; preds = %41
@@ -659,7 +659,7 @@ common.ret1425:                                   ; preds = %185, %180, %34, %29
   br i1 %.not372, label %84, label %83
 
 83:                                               ; preds = %78
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef nonnull %82)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %82)
   br label %84
 
 84:                                               ; preds = %83, %78
@@ -763,7 +763,7 @@ agxblen.exit.i.i:                                 ; preds = %112, %agxbsizeof.ex
 
 agxbput.exit:                                     ; preds = %99, %121, %127
   %134 = load ptr, ptr %100, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %134)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %134)
   %135 = load ptr, ptr %3, align 8
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr i8, ptr %136, i64 31
@@ -822,7 +822,7 @@ agxblen.exit.i.i379:                              ; preds = %139, %agxbsizeof.ex
 agxbput.exit385:                                  ; preds = %148, %153
   %160 = getelementptr inbounds i8, ptr %.tr458, i64 40
   %161 = load ptr, ptr %160, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %161)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %161)
   %162 = getelementptr inbounds i8, ptr %.tr458, i64 48
   %163 = load ptr, ptr %162, align 8
   %.not370 = icmp eq ptr %163, null
@@ -833,7 +833,7 @@ agxbput.exit385:                                  ; preds = %148, %153
   %166 = load ptr, ptr %165, align 8
   tail call fastcc void @agxbput(ptr noundef %166, ptr noundef nonnull @.str.50)
   %167 = load ptr, ptr %162, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %167)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %167)
   br label %168
 
 168:                                              ; preds = %164, %agxbput.exit385
@@ -929,7 +929,7 @@ agxbsizeof.exit.i389:                             ; preds = %173, %agxblen.exit.
   %215 = load ptr, ptr %205, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 40
   %217 = load ptr, ptr %216, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %217)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %217)
   br label %218
 
 218:                                              ; preds = %212, %200
@@ -956,7 +956,7 @@ agxbsizeof.exit.i389:                             ; preds = %173, %agxblen.exit.
   %230 = load ptr, ptr %229, align 8
   tail call fastcc void @agxbputc(ptr noundef %230, i8 noundef signext 40)
   %231 = load ptr, ptr %222, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %231)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %231)
   %232 = load ptr, ptr %3, align 8
   %233 = load ptr, ptr %232, align 8
   tail call fastcc void @agxbputc(ptr noundef %233, i8 noundef signext 41)
@@ -972,7 +972,7 @@ agxbsizeof.exit.i389:                             ; preds = %173, %agxblen.exit.
   br i1 %.not368, label %240, label %239
 
 239:                                              ; preds = %234
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef nonnull %238)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %238)
   br label %240
 
 240:                                              ; preds = %239, %234
@@ -1025,7 +1025,7 @@ agxbsizeof.exit.i389:                             ; preds = %173, %agxblen.exit.
   br label %common.ret1425
 
 268:                                              ; preds = %41
-  tail call fastcc void @print(ptr noundef %0, ptr noundef nonnull %.tr458)
+  tail call fastcc void @print(ptr noundef %0, ptr noundef %.tr458)
   br label %common.ret1425
 
 269:                                              ; preds = %41
@@ -1039,7 +1039,7 @@ agxbsizeof.exit.i389:                             ; preds = %173, %agxblen.exit.
   br label %common.ret1425
 
 274:                                              ; preds = %41
-  tail call fastcc void @scan(ptr noundef %0, ptr noundef nonnull %.tr458)
+  tail call fastcc void @scan(ptr noundef %0, ptr noundef %.tr458)
   br label %common.ret1425
 
 .loopexit1191:                                    ; preds = %41
@@ -1053,7 +1053,7 @@ agxbsizeof.exit.i389:                             ; preds = %173, %agxblen.exit.
   tail call fastcc void @agxbput(ptr noundef %277, ptr noundef nonnull %.str.67.sink)
   %278 = getelementptr inbounds i8, ptr %.tr458, i64 40
   %279 = load ptr, ptr %278, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %279)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %279)
   %280 = load ptr, ptr %3, align 8
   %281 = load ptr, ptr %280, align 8
   %282 = load ptr, ptr %275, align 8
@@ -1069,7 +1069,7 @@ agxbsizeof.exit.i389:                             ; preds = %173, %agxblen.exit.
   %288 = load ptr, ptr %287, align 8
   tail call fastcc void @agxbputc(ptr noundef %288, i8 noundef signext 44)
   %289 = load ptr, ptr %284, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %289)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %289)
   br label %290
 
 290:                                              ; preds = %286, %.loopexit1067
@@ -1334,7 +1334,7 @@ agxblen.exit.i.i420:                              ; preds = %392, %agxbsizeof.ex
 
 agxbput.exit426:                                  ; preds = %401, %406
   %413 = load ptr, ptr %315, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %413)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %413)
   %414 = load ptr, ptr %3, align 8
   %415 = load ptr, ptr %414, align 8
   %416 = getelementptr i8, ptr %415, i64 31
@@ -1432,7 +1432,7 @@ agxbputc.exit437:                                 ; preds = %430, %425, %319
   %455 = load ptr, ptr %454, align 8
   tail call fastcc void @agxbputc(ptr noundef %455, i8 noundef signext 44)
   %456 = load ptr, ptr %451, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %456)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %456)
   br label %457
 
 457:                                              ; preds = %453, %447
@@ -1455,7 +1455,7 @@ agxbputc.exit437:                                 ; preds = %430, %425, %319
   br i1 %.not357, label %468, label %467
 
 467:                                              ; preds = %460
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef nonnull %466)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %466)
   br label %468
 
 468:                                              ; preds = %467, %460
@@ -1491,7 +1491,7 @@ agxbputc.exit437:                                 ; preds = %430, %425, %319
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %477, ptr noundef nonnull @.str.76, ptr noundef nonnull %480, ptr noundef nonnull %487)
   %488 = getelementptr inbounds i8, ptr %.tr458, i64 40
   %489 = load ptr, ptr %488, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %489)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %489)
   %490 = load ptr, ptr %3, align 8
   %491 = load ptr, ptr %490, align 8
   tail call fastcc void @agxbputc(ptr noundef %491, i8 noundef signext 41)
@@ -1609,7 +1609,7 @@ agxbput.exit447:                                  ; preds = %519, %524
   br label %.loopexit
 
 .loopexit:                                        ; preds = %531, %531, %531, %531, %531, %531, %534
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef nonnull %495)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %495)
   %538 = load ptr, ptr %3, align 8
   %539 = load ptr, ptr %538, align 8
   tail call fastcc void @agxbput(ptr noundef %539, ptr noundef nonnull @.str.78)
@@ -1691,7 +1691,7 @@ agxblen.exit.i.i451:                              ; preds = %554, %agxbsizeof.ex
 agxbput.exit457:                                  ; preds = %563, %568
   %575 = getelementptr inbounds i8, ptr %545, i64 32
   %576 = load ptr, ptr %575, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %576)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %576)
   %577 = getelementptr inbounds i8, ptr %545, i64 40
   %578 = load ptr, ptr %577, align 8
   %.not355 = icmp eq ptr %578, null
@@ -1699,7 +1699,7 @@ agxbput.exit457:                                  ; preds = %563, %568
 
 .critedge:                                        ; preds = %.lr.ph
   tail call fastcc void @agxbput(ptr noundef %550, ptr noundef nonnull @.str.79)
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef nonnull %545)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %545)
   br label %.critedge375
 
 .critedge375:                                     ; preds = %agxbput.exit457, %540, %.critedge
@@ -1946,7 +1946,6 @@ agxbput.exit457:                                  ; preds = %563, %568
   %696 = load ptr, ptr %3, align 8
   %697 = load ptr, ptr %696, align 8
   tail call fastcc void @agxbputc(ptr noundef %697, i8 noundef signext 40)
-  tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %43)
   br label %702
 
 .critedge1065:                                    ; preds = %691
@@ -1957,10 +1956,11 @@ agxbput.exit457:                                  ; preds = %563, %568
   %700 = load i32, ptr %643, align 4
   %701 = tail call ptr @exopname(i32 noundef %700)
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %699, ptr noundef nonnull @.str.105, ptr noundef nonnull %701)
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef nonnull %645)
   br label %702
 
 702:                                              ; preds = %694, %.critedge1065
+  %.lcssa982.sink = phi ptr [ %43, %694 ], [ %645, %.critedge1065 ]
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %.lcssa982.sink)
   %703 = load ptr, ptr %3, align 8
   %704 = load ptr, ptr %703, align 8
   tail call fastcc void @agxbputc(ptr noundef %704, i8 noundef signext 41)
@@ -2064,7 +2064,7 @@ vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbputc(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #2 {
+define internal fastcc void @agxbputc(ptr nocapture noundef %0, i8 noundef signext range(i8 0, 126) %1) unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -2293,7 +2293,7 @@ declare ptr @extype(i64 noundef) local_unnamed_addr #11
 declare ptr @fmtesq(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @print(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2534,7 +2534,7 @@ agxblen.exit.i.i36:                               ; preds = %93, %agxbsizeof.exi
 
 agxbput.exit42:                                   ; preds = %102, %107
   %114 = load ptr, ptr %86, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %114)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %114)
   %115 = load ptr, ptr %7, align 8
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr i8, ptr %116, i64 31
@@ -2702,7 +2702,7 @@ agxblen.exit.i.i57:                               ; preds = %162, %agxbsizeof.ex
 
 agxbput.exit63:                                   ; preds = %171, %176
   %183 = load ptr, ptr %82, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %183)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %183)
   %184 = load ptr, ptr %7, align 8
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr i8, ptr %185, i64 31
@@ -2823,7 +2823,7 @@ agxbput.exit84:                                   ; preds = %225, %220, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @scan(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3048,7 +3048,7 @@ agxblen.exit.i.i34:                               ; preds = %81, %agxbsizeof.exi
 
 agxbput.exit40:                                   ; preds = %90, %95
   %102 = load ptr, ptr %74, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %102)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %102)
   %103 = load ptr, ptr %6, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr i8, ptr %104, i64 31
@@ -3216,7 +3216,7 @@ agxblen.exit.i.i55:                               ; preds = %150, %agxbsizeof.ex
 
 agxbput.exit61:                                   ; preds = %159, %164
   %171 = load ptr, ptr %70, align 8
-  tail call fastcc void @gen(ptr noundef nonnull %0, ptr noundef %171)
+  tail call fastcc void @gen(ptr noundef %0, ptr noundef %171)
   %172 = load ptr, ptr %6, align 8
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr i8, ptr %173, i64 31

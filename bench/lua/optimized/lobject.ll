@@ -799,7 +799,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.ptr.lhs.cast = ptrtoint ptr %call54 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %fmt.addr.053 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef %fmt.addr.053, i64 noundef %sub.ptr.sub)
+  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef %fmt.addr.053, i64 noundef %sub.ptr.sub)
   %add.ptr = getelementptr inbounds i8, ptr %call54, i64 1
   %1 = load i8, ptr %add.ptr, align 1
   switch i8 %1, label %sw.default [
@@ -838,7 +838,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %cmp2 = icmp eq ptr %5, null
   %spec.store.select = select i1 %cmp2, ptr @.str, ptr %5
   %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #19
-  call fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef nonnull %spec.store.select, i64 noundef %call4)
+  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef nonnull %spec.store.select, i64 noundef %call4)
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %while.body
@@ -934,7 +934,7 @@ vaarg.end28:                                      ; preds = %vaarg.in_mem24, %va
   %conv30 = sext i32 %22 to i64
   store i64 %conv30, ptr %num, align 8
   store i8 3, ptr %tt_, align 8
-  call fastcc void @addnum2buff(ptr noundef nonnull %buff, ptr noundef nonnull %num)
+  call fastcc void @addnum2buff(ptr noundef %buff, ptr noundef %num)
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %while.body
@@ -961,7 +961,7 @@ vaarg.end43:                                      ; preds = %vaarg.in_mem39, %va
   %26 = load i64, ptr %vaarg.addr44, align 8
   store i64 %26, ptr %num32, align 8
   store i8 3, ptr %tt_46, align 8
-  call fastcc void @addnum2buff(ptr noundef nonnull %buff, ptr noundef nonnull %num32)
+  call fastcc void @addnum2buff(ptr noundef %buff, ptr noundef %num32)
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %while.body
@@ -988,7 +988,7 @@ vaarg.end56:                                      ; preds = %vaarg.in_mem52, %va
   %30 = load double, ptr %vaarg.addr57, align 8
   store double %30, ptr %num48, align 8
   store i8 19, ptr %tt_59, align 8
-  call fastcc void @addnum2buff(ptr noundef nonnull %buff, ptr noundef nonnull %num48)
+  call fastcc void @addnum2buff(ptr noundef %buff, ptr noundef %num48)
   br label %sw.epilog
 
 sw.bb60:                                          ; preds = %while.body
@@ -1121,7 +1121,7 @@ luaO_utf8esc.exit:                                ; preds = %vaarg.end87, %do.en
   store i8 %conv9.sink.i, ptr %arrayidx12.i, align 1
   %idx.neg = sub nsw i64 0, %n.0.i
   %add.ptr92 = getelementptr inbounds i8, ptr %add.ptr91, i64 %idx.neg
-  call fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef nonnull %add.ptr92, i64 noundef %n.0.i)
+  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef nonnull %add.ptr92, i64 noundef %n.0.i)
   br label %sw.epilog
 
 sw.bb94:                                          ; preds = %while.body
@@ -1184,7 +1184,7 @@ sw.epilog:                                        ; preds = %addstr2buff.exit46,
 while.end:                                        ; preds = %sw.epilog, %entry
   %fmt.addr.0.lcssa = phi ptr [ %fmt, %entry ], [ %add.ptr97, %sw.epilog ]
   %call98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt.addr.0.lcssa) #19
-  call fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef %fmt.addr.0.lcssa, i64 noundef %call98)
+  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef %fmt.addr.0.lcssa, i64 noundef %call98)
   %space.i47 = getelementptr inbounds i8, ptr %buff, i64 16
   %62 = load i32, ptr %blen, align 4
   %conv.i = sext i32 %62 to i64
@@ -1227,7 +1227,7 @@ clearbuff.exit:                                   ; preds = %if.then.i.i49, %if.
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addstr2buff(ptr noundef %buff, ptr noundef %str, i64 noundef %slen) unnamed_addr #1 {
+define internal fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef %str, i64 noundef %slen) unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %slen, 200
   %blen.i = getelementptr inbounds i8, ptr %buff, i64 12
@@ -1348,7 +1348,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addnum2buff(ptr noundef %buff, ptr nocapture noundef readonly %num) unnamed_addr #1 {
+define internal fastcc void @addnum2buff(ptr noundef nonnull %buff, ptr nocapture noundef nonnull readonly %num) unnamed_addr #1 {
 entry:
   %blen.i = getelementptr inbounds i8, ptr %buff, i64 12
   %0 = load i32, ptr %blen.i, align 4

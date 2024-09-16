@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %switch = icmp ult i64 %2, 2
   br i1 %switch, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %3
@@ -400,7 +400,7 @@ select.unfold105:                                 ; preds = %.noexc, %109
 
 .thread:                                          ; preds = %128
   %131 = load i32, ptr %9, align 4, !noundef !5
-  call fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h5a7829b981072579E(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %131, i64 noundef 2, ptr nonnull %107)
+  call fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h5a7829b981072579E(ptr noalias noundef align 8 dereferenceable(96) %0, i32 noundef %131, i64 noundef 2, ptr nonnull %107)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit"
 
@@ -715,7 +715,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 
 .body:                                            ; preds = %25, %33
   %.pn = phi { ptr, i32 } [ %lpad.phi, %33 ], [ %26, %25 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #15
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %7) #15
           to label %56 unwind label %54
 
 25:                                               ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf8f7c8f16fa9283cE.llvm.12611796297594801985.exit.i", %24, %4
@@ -832,7 +832,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 
 "_ZN51_$LT$salsa..Cycle$u20$as$u20$core..clone..Clone$GT$5clone17hd5c0630ac31b016cE.exit": ; preds = %50, %34
   %.sroa.6.0 = phi ptr [ undef, %34 ], [ %.val, %50 ]
-  invoke fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h5a7829b981072579E(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %40, i64 noundef %41, ptr %.sroa.6.0)
+  invoke fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h5a7829b981072579E(ptr noalias noundef align 8 dereferenceable(96) %0, i32 noundef %40, i64 noundef %41, ptr %.sroa.6.0)
           to label %29 unwind label %.loopexit
 
 54:                                               ; preds = %33, %.body
@@ -846,7 +846,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h5a7829b981072579E(ptr noalias noundef align 8 dereferenceable(96) %0, i32 noundef %1, i64 noundef %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h5a7829b981072579E(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i64 noundef range(i64 0, 3) %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, ptr, { i32, i16, i16 }, i32, [1 x i32] } }, i64 }, align 8
   %.sroa.6.i = alloca [5 x i64], align 8
@@ -989,7 +989,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 
 .body.i.i:                                        ; preds = %55, %43
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %56, %55 ], [ %44, %43 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35) #15
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %35) #15
           to label %.body unwind label %67
 
 57:                                               ; preds = %51, %47, %.noexc.i.i
@@ -1073,7 +1073,7 @@ _ZN11parking_lot7condvar7Condvar10notify_one17hd7cf2c1fd33a2bd6E.exit: ; preds =
 85:                                               ; preds = %18, %4, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h717442a0987903fbE.llvm.5552234135467064381.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #15
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %10) #15
           to label %.thread unwind label %83
 }
 

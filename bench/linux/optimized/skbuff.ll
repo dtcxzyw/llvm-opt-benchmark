@@ -706,7 +706,7 @@ define dso_local ptr @__build_skb(ptr noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__build_skb_around(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__build_skb_around(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp ne i32 %2, 0
   %5 = load i1, ptr @__build_skb_around.__already_done, align 1
   %6 = select i1 %4, i1 true, i1 %5
@@ -1667,7 +1667,7 @@ define dso_local void @skb_add_rx_frag(ptr nocapture noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @skb_fill_page_desc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc void @skb_fill_page_desc(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 188
@@ -4192,7 +4192,7 @@ define dso_local void @msg_zerocopy_callback(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @net_zcopy_get(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @net_zcopy_get(ptr noundef nonnull %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #23, !srcloc !88
   %4 = icmp eq i32 %3, 0
@@ -18692,7 +18692,7 @@ define dso_local noundef ptr @pskb_extract(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 112
@@ -18897,7 +18897,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef %0,
   br i1 %136, label %.loopexit, label %.preheader, !llvm.loop !128
 
 .loopexit:                                        ; preds = %134, %.loopexit29
-  tail call fastcc void @skb_release_data(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @skb_release_data(ptr noundef nonnull %0, i32 noundef 1)
   br label %146
 
 137:                                              ; preds = %49, %23
@@ -19262,7 +19262,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef %0,
   br label %357
 
 348:                                              ; preds = %333, %.loopexit31, %.loopexit34
-  tail call fastcc void @skb_release_data(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @skb_release_data(ptr noundef nonnull %0, i32 noundef 1)
   store ptr %171, ptr %159, align 8
   %349 = load i8, ptr %165, align 2
   %350 = getelementptr inbounds i8, ptr %0, i64 200
@@ -20855,10 +20855,11 @@ declare dso_local void @_raw_read_unlock_bh(ptr noundef) local_unnamed_addr #2 s
 declare dso_local i64 @ktime_get_with_offset(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @skb_checksum_setup_ip(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
-  switch i32 %1, label %129 [
-    i32 6, label %4
-    i32 17, label %67
+define internal fastcc ptr @skb_checksum_setup_ip(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #0 align 16 {
+  %trunc = trunc nuw i32 %1 to i8
+  switch i8 %trunc, label %129 [
+    i8 6, label %4
+    i8 17, label %67
   ]
 
 4:                                                ; preds = %3

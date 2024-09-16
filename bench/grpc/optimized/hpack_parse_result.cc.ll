@@ -390,7 +390,7 @@ sw.bb10:                                          ; preds = %if.end
 if.then14:                                        ; preds = %sw.bb10
   %call.i.i25 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call19) #12
   call void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp15, i64 %call.i.i25, ptr %call19)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp15)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp15)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then14
@@ -435,7 +435,7 @@ _ZN4absl12lts_202308028AlphaNumC2EPKc.exit:       ; preds = %if.else, %cond.true
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp20)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp20)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -3016,7 +3016,7 @@ if.then122:                                       ; preds = %sw.bb117
           to label %invoke.cont134 unwind label %lpad133
 
 invoke.cont134:                                   ; preds = %if.then122
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp123)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp123)
           to label %invoke.cont136 unwind label %lpad135
 
 invoke.cont136:                                   ; preds = %invoke.cont134
@@ -3042,7 +3042,7 @@ ehcleanup138:                                     ; preds = %lpad135, %lpad133
 
 if.else139:                                       ; preds = %sw.bb117
   call void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp140, i64 22, ptr nonnull @.str.16)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp140)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp140)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %if.else139
@@ -3083,7 +3083,7 @@ if.then150:                                       ; preds = %sw.bb145
           to label %invoke.cont162 unwind label %lpad161
 
 invoke.cont162:                                   ; preds = %if.then150
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp151)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp151)
           to label %invoke.cont164 unwind label %lpad163
 
 invoke.cont164:                                   ; preds = %invoke.cont162
@@ -3119,7 +3119,7 @@ if.else167:                                       ; preds = %sw.bb145
           to label %invoke.cont174 unwind label %lpad173
 
 invoke.cont174:                                   ; preds = %if.else167
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp168)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp168)
           to label %invoke.cont176 unwind label %lpad175
 
 invoke.cont176:                                   ; preds = %invoke.cont174
@@ -3447,7 +3447,7 @@ declare void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_1
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr nocapture noundef %error) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeStreamErrorEN4absl12lts_202308026StatusE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %error) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load i64, ptr %error, align 8

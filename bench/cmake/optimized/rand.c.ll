@@ -24,7 +24,7 @@ define dso_local range(i32 5, 4) i32 @Curl_rand(ptr noundef %0, ptr nocapture no
   %.01224 = phi i64 [ %5, %.loopexit ], [ %2, %3 ]
   %.01323 = phi ptr [ %10, %.loopexit ], [ %1, %3 ]
   %6 = call i64 @llvm.umin.i64(i64 %.01224, i64 4)
-  %7 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @randit(ptr noundef %0, ptr noundef %4)
   %.not17 = icmp eq i32 %7, 0
   br i1 %.not17, label %.preheader.preheader, label %._crit_edge
 
@@ -52,8 +52,8 @@ define dso_local range(i32 5, 4) i32 @Curl_rand(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 5, 4) i32 @randit(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @Curl_ssl_random(ptr noundef %0, ptr noundef %1, i64 noundef 4) #5
+define internal fastcc range(i32 5, 4) i32 @randit(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+  %3 = tail call i32 @Curl_ssl_random(ptr noundef %0, ptr noundef nonnull %1, i64 noundef 4) #5
   %.not = icmp eq i32 %3, 4
   br i1 %.not, label %4, label %35
 
@@ -159,7 +159,7 @@ Curl_rand.exit.thread:                            ; preds = %.loopexit.i
   %.01224.i = phi i64 [ %10, %.loopexit.i ], [ %9, %7 ]
   %.01323.i = phi ptr [ %15, %.loopexit.i ], [ %5, %7 ]
   %11 = call i64 @llvm.umin.i64(i64 %.01224.i, i64 4)
-  %12 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4)
+  %12 = call fastcc i32 @randit(ptr noundef %0, ptr noundef %4)
   %.not17.i = icmp eq i32 %12, 0
   br i1 %.not17.i, label %.preheader.preheader.i, label %Curl_rand.exit
 
@@ -205,7 +205,7 @@ define dso_local range(i32 5, 4) i32 @Curl_rand_alnum(ptr noundef %0, ptr nocapt
   br label %5
 
 5:                                                ; preds = %.preheader, %7
-  %6 = call fastcc i32 @randit(ptr noundef %0, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @randit(ptr noundef %0, ptr noundef %4)
   %.not14 = icmp eq i32 %6, 0
   br i1 %.not14, label %7, label %.loopexit
 

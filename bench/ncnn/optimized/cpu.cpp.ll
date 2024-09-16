@@ -1512,7 +1512,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn19set_flush_denormalsEi(i32 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL13get_elf_hwcapj(i32 noundef %0) unnamed_addr #9 {
+define internal fastcc void @_ZL13get_elf_hwcapj(i32 noundef range(i32 16, 27) %0) unnamed_addr #9 {
   %2 = alloca %struct.anon, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.7)
@@ -1604,7 +1604,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_data_cache_sizeii(i32 noundef %0, i32 noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_data_cache_sizeii(i32 noundef %0, i32 noundef range(i32 2, 4) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca [256 x i8], align 16

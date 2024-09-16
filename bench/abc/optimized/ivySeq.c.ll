@@ -209,7 +209,7 @@ Abc_Clock.exit:                                   ; preds = %3, %20
 Abc_Clock.exit.i:                                 ; preds = %112, %107
   %.0.i.neg.i = phi i64 [ %.neg192.i, %112 ], [ 1, %107 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call fastcc void @Ivy_CutComputeForNode(ptr noundef nonnull %0, ptr noundef nonnull %100, i32 noundef 5)
+  call fastcc void @Ivy_CutComputeForNode(ptr noundef nonnull %0, ptr noundef %100, i32 noundef 5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   %115 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #18
   %116 = icmp slt i32 %115, 0
@@ -1265,14 +1265,14 @@ Abc_Clock.exit71:                                 ; preds = %652, %657
   %662 = load i32, ptr %661, align 8
   %663 = xor i32 %662, 1
   store i32 %663, ptr %661, align 8
-  call fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr noundef nonnull %100, ptr noundef %653)
+  call fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr noundef %100, ptr noundef %653)
   %664 = load i32, ptr %661, align 8
   %665 = xor i32 %664, 1
   store i32 %665, ptr %661, align 8
   br label %666
 
 .critedge63:                                      ; preds = %Abc_Clock.exit71
-  call fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr noundef nonnull %100, ptr noundef %653)
+  call fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr noundef %100, ptr noundef %653)
   br label %666
 
 666:                                              ; preds = %.critedge63, %660
@@ -1358,7 +1358,7 @@ declare ptr @Rwt_ManReadDecs(ptr noundef) local_unnamed_addr #1
 declare i32 @Rwt_ManReadCompl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %.val55.i = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %.val55.i, 0
   %4 = getelementptr i8, ptr %2, i64 24
@@ -1517,7 +1517,7 @@ Ivy_GraphToNetworkSeq.exit:                       ; preds = %5, %16, %._crit_edg
   %86 = zext nneg i32 %84 to i64
   %87 = xor i64 %86, %85
   %.051.i = inttoptr i64 %87 to ptr
-  tail call void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %.051.i, i32 noundef 1, i32 noundef 0, i32 noundef 0) #18
+  tail call void @Ivy_ObjReplace(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.051.i, i32 noundef 1, i32 noundef 0, i32 noundef 0) #18
   %88 = tail call i32 @Ivy_ManPropagateBuffers(ptr noundef %0, i32 noundef 0) #18
   ret void
 }
@@ -2093,7 +2093,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   br i1 %narrow.i, label %40, label %32
 
 32:                                               ; preds = %28
-  call fastcc void @Ivy_CutComputeForNode(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef %1)
+  call fastcc void @Ivy_CutComputeForNode(ptr noundef nonnull %0, ptr noundef %26, i32 noundef %1)
   %33 = load i32, ptr @Ivy_CutComputeForNode.CutStore, align 4
   %34 = add nsw i32 %33, %.03046
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @Ivy_CutComputeForNode.CutStore, i64 4), align 4
@@ -2163,7 +2163,7 @@ Abc_Clock.exit42:                                 ; preds = %.critedge, %51
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc void @Ivy_CutComputeForNode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc void @Ivy_CutComputeForNode(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -2147483648, 7) %2) unnamed_addr #7 {
 .lr.ph96:
   %3 = alloca %struct.Ivy_Cut_t_, align 4
   store i32 0, ptr @Ivy_CutComputeForNode.CutStore, align 4

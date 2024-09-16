@@ -518,7 +518,7 @@ invoke.cont44.i:                                  ; preds = %invoke.cont42.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40.i) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #11
   %36 = load ptr, ptr %method.i, align 8
-  invoke fastcc void @_ZN21grpc_python_generator12_GLOBAL__N_118GenerateMethodTypeB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp48.i, ptr noundef nonnull %36)
+  invoke fastcc void @_ZN21grpc_python_generator12_GLOBAL__N_118GenerateMethodTypeB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp48.i, ptr noundef %36)
           to label %invoke.cont50.i unwind label %lpad37.i
 
 invoke.cont50.i:                                  ; preds = %invoke.cont44.i
@@ -1360,7 +1360,7 @@ invoke.cont26.i186:                               ; preds = %invoke.cont24.i183
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i112) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i110) #11
   %126 = load ptr, ptr %method.i109, align 8
-  invoke fastcc void @_ZN21grpc_python_generator12_GLOBAL__N_118GenerateMethodTypeB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp30.i113, ptr noundef nonnull %126)
+  invoke fastcc void @_ZN21grpc_python_generator12_GLOBAL__N_118GenerateMethodTypeB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp30.i113, ptr noundef %126)
           to label %invoke.cont32.i188 unwind label %lpad19.i175
 
 invoke.cont32.i188:                               ; preds = %invoke.cont26.i186
@@ -1811,7 +1811,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21grpc_python_generator12_GLOBAL__N_118GenerateMethodTypeB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %agg.result, ptr noundef %method) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21grpc_python_generator12_GLOBAL__N_118GenerateMethodTypeB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %method) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp5 = alloca %"class.std::allocator", align 1

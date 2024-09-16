@@ -333,22 +333,22 @@ if.end8.i:                                        ; preds = %if.end.i
   %add12.i = add i64 %add11.i40, %shl10.i39
   %sub.i41 = add nsw i32 %div9.i, -10
   %shr.i42 = ashr i32 %sub.i41, 8
-  %narrow = mul nuw nsw i32 %div9.i, 103
-  %2 = lshr i32 %narrow, 10
+  %narrow.i = mul nuw nsw i32 %div9.i, 103
+  %2 = lshr i32 %narrow.i, 10
   %mul2.neg.i = mul nsw i32 %2, -10
   %sub3.i = add nsw i32 %mul2.neg.i, %div9.i
-  %add.i46 = or disjoint i32 %2, 12336
-  %shl.i47 = shl nsw i32 %sub3.i, 8
-  %add4.i = add nsw i32 %add.i46, %shl.i47
-  %and.i48 = and i32 %shr.i42, 8
-  %shr5.i = lshr i32 %add4.i, %and.i48
+  %add.i43 = or disjoint i32 %2, 12336
+  %shl.i44 = shl nsw i32 %sub3.i, 8
+  %add4.i = add nsw i32 %add.i43, %shl.i44
+  %and.i45 = and i32 %shr.i42, 8
+  %shr5.i = lshr i32 %add4.i, %and.i45
   %conv6.i = trunc nuw nsw i32 %shr5.i to i16
   store i16 %conv6.i, ptr %out_str, align 1
-  %add.ptr.i49 = getelementptr inbounds i8, ptr %out_str, i64 2
-  %idx.ext.i50 = sext i32 %shr.i42 to i64
-  %add.ptr7.i51 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 %idx.ext.i50
-  store i64 %add12.i, ptr %add.ptr7.i51, align 1
-  %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr7.i51, i64 8
+  %add.ptr.i46 = getelementptr inbounds i8, ptr %out_str, i64 2
+  %idx.ext.i47 = sext i32 %shr.i42 to i64
+  %add.ptr7.i48 = getelementptr inbounds i8, ptr %add.ptr.i46, i64 %idx.ext.i47
+  store i64 %add12.i, ptr %add.ptr7.i48, align 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr7.i48, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
 _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %if.end8.i, %if.then2.i, %if.then.i
@@ -446,22 +446,22 @@ if.end8.i:                                        ; preds = %if.end.i
   %add12.i = add i64 %add11.i43, %shl10.i42
   %sub.i44 = add nsw i32 %div9.i, -10
   %shr.i45 = ashr i32 %sub.i44, 8
-  %narrow = mul nuw nsw i32 %div9.i, 103
-  %2 = lshr i32 %narrow, 10
+  %narrow.i = mul nuw nsw i32 %div9.i, 103
+  %2 = lshr i32 %narrow.i, 10
   %mul2.neg.i = mul nsw i32 %2, -10
   %sub3.i = add nsw i32 %mul2.neg.i, %div9.i
-  %add.i49 = or disjoint i32 %2, 12336
-  %shl.i50 = shl nsw i32 %sub3.i, 8
-  %add4.i = add nsw i32 %add.i49, %shl.i50
-  %and.i51 = and i32 %shr.i45, 8
-  %shr5.i = lshr i32 %add4.i, %and.i51
+  %add.i46 = or disjoint i32 %2, 12336
+  %shl.i47 = shl nsw i32 %sub3.i, 8
+  %add4.i = add nsw i32 %add.i46, %shl.i47
+  %and.i48 = and i32 %shr.i45, 8
+  %shr5.i = lshr i32 %add4.i, %and.i48
   %conv6.i = trunc nuw nsw i32 %shr5.i to i16
   store i16 %conv6.i, ptr %buffer.addr.0, align 1
-  %add.ptr.i52 = getelementptr inbounds i8, ptr %buffer.addr.0, i64 2
-  %idx.ext.i53 = sext i32 %shr.i45 to i64
-  %add.ptr7.i54 = getelementptr inbounds i8, ptr %add.ptr.i52, i64 %idx.ext.i53
-  store i64 %add12.i, ptr %add.ptr7.i54, align 1
-  %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr7.i54, i64 8
+  %add.ptr.i49 = getelementptr inbounds i8, ptr %buffer.addr.0, i64 2
+  %idx.ext.i50 = sext i32 %shr.i45 to i64
+  %add.ptr7.i51 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 %idx.ext.i50
+  store i64 %add12.i, ptr %add.ptr7.i51, align 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr7.i51, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit
 
 _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %if.end8.i, %if.then2.i, %if.then.i
@@ -552,20 +552,20 @@ if.end8.i33.i:                                    ; preds = %if.end.i31.i
   %add12.i37.i = add i64 %add11.i69, %shl10.i68
   %sub.i70 = add nsw i32 %div9.i34.i, -10
   %shr.i = ashr i32 %sub.i70, 8
-  %narrow = mul nuw nsw i32 %div9.i34.i, 103
-  %2 = lshr i32 %narrow, 10
+  %narrow.i = mul nuw nsw i32 %div9.i34.i, 103
+  %2 = lshr i32 %narrow.i, 10
   %mul2.neg.i = mul nsw i32 %2, -10
   %sub3.i = add nsw i32 %mul2.neg.i, %div9.i34.i
-  %add.i74 = or disjoint i32 %2, 12336
-  %shl.i75 = shl nsw i32 %sub3.i, 8
-  %add4.i = add nsw i32 %add.i74, %shl.i75
-  %and.i76 = and i32 %shr.i, 8
-  %shr5.i = lshr i32 %add4.i, %and.i76
+  %add.i71 = or disjoint i32 %2, 12336
+  %shl.i72 = shl nsw i32 %sub3.i, 8
+  %add4.i = add nsw i32 %add.i71, %shl.i72
+  %and.i73 = and i32 %shr.i, 8
+  %shr5.i = lshr i32 %add4.i, %and.i73
   %conv6.i = trunc nuw nsw i32 %shr5.i to i16
   store i16 %conv6.i, ptr %buffer, align 1
-  %add.ptr.i77 = getelementptr inbounds i8, ptr %buffer, i64 2
+  %add.ptr.i74 = getelementptr inbounds i8, ptr %buffer, i64 2
   %idx.ext.i = sext i32 %shr.i to i64
-  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i77, i64 %idx.ext.i
+  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i74, i64 %idx.ext.i
   store i64 %add12.i37.i, ptr %add.ptr7.i, align 1
   %add.ptr14.i39.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
@@ -578,31 +578,31 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i.i:                                     ; preds = %if.end.i
   %conv5.i = trunc nuw nsw i64 %div.i to i32
-  %div.i78 = udiv i32 %conv5.i, 10000
-  %rem.i79 = urem i32 %conv5.i, 10000
-  %conv.i80 = zext nneg i32 %div.i78 to i64
-  %conv1.i81 = zext nneg i32 %rem.i79 to i64
-  %shl.i82 = shl nuw nsw i64 %conv1.i81, 32
-  %or.i83 = or disjoint i64 %shl.i82, %conv.i80
-  %mul.i84 = mul nuw nsw i64 %or.i83, 10486
-  %div29.i85 = lshr i64 %mul.i84, 20
-  %and.i86 = and i64 %div29.i85, 545460846719
-  %mul3.neg.i87 = mul nsw i64 %and.i86, -100
-  %sub.i88 = add nsw i64 %mul3.neg.i87, %or.i83
-  %shl4.i89 = shl nsw i64 %sub.i88, 16
-  %add.i90 = add nsw i64 %shl4.i89, %and.i86
-  %mul5.i91 = mul i64 %add.i90, 103
-  %div610.i92 = lshr i64 %mul5.i91, 10
-  %and7.i93 = and i64 %div610.i92, 4222189076152335
-  %mul8.neg.i94 = mul i64 %and7.i93, 72057594037927926
-  %sub9.i95 = add i64 %mul8.neg.i94, %add.i90
-  %shl10.i96 = shl i64 %sub9.i95, 8
-  %add11.i97 = add i64 %shl10.i96, %and7.i93
-  %cmp3.i.i = icmp ne i64 %add11.i97, 0
+  %div.i75 = udiv i32 %conv5.i, 10000
+  %rem.i76 = urem i32 %conv5.i, 10000
+  %conv.i77 = zext nneg i32 %div.i75 to i64
+  %conv1.i78 = zext nneg i32 %rem.i76 to i64
+  %shl.i79 = shl nuw nsw i64 %conv1.i78, 32
+  %or.i80 = or disjoint i64 %shl.i79, %conv.i77
+  %mul.i81 = mul nuw nsw i64 %or.i80, 10486
+  %div29.i82 = lshr i64 %mul.i81, 20
+  %and.i83 = and i64 %div29.i82, 545460846719
+  %mul3.neg.i84 = mul nsw i64 %and.i83, -100
+  %sub.i85 = add nsw i64 %mul3.neg.i84, %or.i80
+  %shl4.i86 = shl nsw i64 %sub.i85, 16
+  %add.i87 = add nsw i64 %shl4.i86, %and.i83
+  %mul5.i88 = mul i64 %add.i87, 103
+  %div610.i89 = lshr i64 %mul5.i88, 10
+  %and7.i90 = and i64 %div610.i89, 4222189076152335
+  %mul8.neg.i91 = mul i64 %and7.i90, 72057594037927926
+  %sub9.i92 = add i64 %mul8.neg.i91, %add.i87
+  %shl10.i93 = shl i64 %sub9.i92, 8
+  %add11.i94 = add i64 %shl10.i93, %and7.i90
+  %cmp3.i.i = icmp ne i64 %add11.i94, 0
   tail call void @llvm.assume(i1 %cmp3.i.i)
-  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %add11.i97, i1 true)
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %add11.i94, i1 true)
   %and.i.i = and i64 %3, 56
-  %add5.i.i = add i64 %add11.i97, 3472328296227680304
+  %add5.i.i = add i64 %add11.i94, 3472328296227680304
   %shr.i.i = lshr i64 %add5.i.i, %and.i.i
   store i64 %shr.i.i, ptr %buffer, align 1
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
@@ -616,53 +616,52 @@ if.else.i:                                        ; preds = %if.end.i
   %conv13.i = trunc nuw nsw i64 %div12.i to i32
   %rem14.i = urem i64 %div.i, 100000000
   %conv15.i = trunc nuw nsw i64 %rem14.i to i32
-  %div.i99 = udiv i32 %conv15.i, 10000
-  %rem.i100 = urem i32 %conv15.i, 10000
-  %conv.i101 = zext nneg i32 %div.i99 to i64
-  %conv1.i102 = zext nneg i32 %rem.i100 to i64
-  %shl.i103 = shl nuw nsw i64 %conv1.i102, 32
-  %or.i104 = or disjoint i64 %shl.i103, %conv.i101
-  %mul.i105 = mul nuw nsw i64 %or.i104, 10486
-  %div29.i106 = lshr i64 %mul.i105, 20
-  %and.i107 = and i64 %div29.i106, 545460846719
-  %mul3.neg.i108 = mul nsw i64 %and.i107, -100
-  %sub.i109 = add nsw i64 %mul3.neg.i108, %or.i104
-  %shl4.i110 = shl nsw i64 %sub.i109, 16
-  %add.i111 = add nsw i64 %shl4.i110, %and.i107
-  %mul5.i112 = mul i64 %add.i111, 103
-  %div610.i113 = lshr i64 %mul5.i112, 10
-  %and7.i114 = and i64 %div610.i113, 4222189076152335
-  %mul8.neg.i115 = mul i64 %and7.i114, 72057594037927926
-  %sub9.i116 = add i64 %mul8.neg.i115, %add.i111
-  %shl10.i117 = shl i64 %sub9.i116, 8
-  %add11.i118 = or disjoint i64 %and7.i114, 3472328296227680304
-  %add.i = add i64 %add11.i118, %shl10.i117
-  %mul.i120 = mul nuw nsw i64 %div12.i, 10486
-  %div13.i = lshr i64 %mul.i120, 20
-  %conv1.i121 = trunc nuw nsw i64 %div13.i to i32
-  %4 = mul nsw i32 %conv1.i121, -100
-  %conv5.i122 = add nsw i32 %4, %conv13.i
-  %shl.i123 = shl nsw i32 %conv5.i122, 16
-  %add.i124 = or disjoint i32 %shl.i123, %conv1.i121
-  %mul7.i = mul i32 %add.i124, 103
-  %5 = lshr i32 %mul7.i, 10
-  %conv11.i = and i32 %5, 983055
+  %div.i96 = udiv i32 %conv15.i, 10000
+  %rem.i97 = urem i32 %conv15.i, 10000
+  %conv.i98 = zext nneg i32 %div.i96 to i64
+  %conv1.i99 = zext nneg i32 %rem.i97 to i64
+  %shl.i100 = shl nuw nsw i64 %conv1.i99, 32
+  %or.i101 = or disjoint i64 %shl.i100, %conv.i98
+  %mul.i102 = mul nuw nsw i64 %or.i101, 10486
+  %div29.i103 = lshr i64 %mul.i102, 20
+  %and.i104 = and i64 %div29.i103, 545460846719
+  %mul3.neg.i105 = mul nsw i64 %and.i104, -100
+  %sub.i106 = add nsw i64 %mul3.neg.i105, %or.i101
+  %shl4.i107 = shl nsw i64 %sub.i106, 16
+  %add.i108 = add nsw i64 %shl4.i107, %and.i104
+  %mul5.i109 = mul i64 %add.i108, 103
+  %div610.i110 = lshr i64 %mul5.i109, 10
+  %and7.i111 = and i64 %div610.i110, 4222189076152335
+  %mul8.neg.i112 = mul i64 %and7.i111, 72057594037927926
+  %sub9.i113 = add i64 %mul8.neg.i112, %add.i108
+  %shl10.i114 = shl i64 %sub9.i113, 8
+  %add11.i115 = or disjoint i64 %and7.i111, 3472328296227680304
+  %add.i = add i64 %add11.i115, %shl10.i114
+  %mul.i116 = mul nuw nsw i32 %conv13.i, 10486
+  %div13.i = lshr i32 %mul.i116, 20
+  %narrow.neg.i = mul nsw i32 %div13.i, -100
+  %sub.i117 = add nsw i32 %narrow.neg.i, %conv13.i
+  %shl.i118 = shl nsw i32 %sub.i117, 16
+  %add.i119 = or disjoint i32 %shl.i118, %div13.i
+  %mul7.i = mul i32 %add.i119, 103
+  %4 = lshr i32 %mul7.i, 10
+  %conv11.i = and i32 %4, 983055
   %mul14.neg.i = mul i32 %conv11.i, 16777206
-  %sub15.i = add i32 %mul14.neg.i, %add.i124
+  %sub15.i = add i32 %mul14.neg.i, %add.i119
   %shl16.i = shl i32 %sub15.i, 8
   %add18.i = add i32 %shl16.i, %conv11.i
   %cmp.i = icmp ne i32 %add18.i, 0
   tail call void @llvm.assume(i1 %cmp.i)
-  %6 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %add18.i, i1 true)
-  %and20.i = and i32 %6, 24
+  %5 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %add18.i, i1 true)
+  %and20.i = and i32 %5, 24
   %add22.i = add i32 %add18.i, 808464432
-  %shr.i125 = lshr i32 %add22.i, %and20.i
-  store i32 %shr.i125, ptr %buffer, align 1
-  %add.ptr.i126 = getelementptr inbounds i8, ptr %buffer, i64 4
-  %div2415.i = lshr i32 %6, 3
-  %idx.ext.i127 = zext nneg i32 %div2415.i to i64
-  %idx.neg.i = sub nsw i64 0, %idx.ext.i127
-  %add.ptr25.i = getelementptr inbounds i8, ptr %add.ptr.i126, i64 %idx.neg.i
+  %shr.i120 = lshr i32 %add22.i, %and20.i
+  store i32 %shr.i120, ptr %buffer, align 1
+  %add.ptr.i121 = getelementptr inbounds i8, ptr %buffer, i64 4
+  %div2415.i = lshr i32 %5, 3
+  %idx.ext.i122 = zext nneg i32 %div2415.i to i64
+  %idx.neg.i = sub nsw i64 0, %idx.ext.i122
+  %add.ptr25.i = getelementptr inbounds i8, ptr %add.ptr.i121, i64 %idx.neg.i
   store i64 %add.i, ptr %add.ptr25.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr25.i, i64 8
   br label %if.end18.i
@@ -670,27 +669,27 @@ if.else.i:                                        ; preds = %if.end.i
 if.end18.i:                                       ; preds = %if.then2.i.i, %if.else.i
   %buffer.addr.i.0 = phi ptr [ %add.ptr.i, %if.else.i ], [ %add.ptr7.i.i, %if.then2.i.i ]
   %mod08.i.0 = trunc nuw nsw i64 %mod08.i.0.in to i32
-  %div.i128 = udiv i32 %mod08.i.0, 10000
-  %rem.i129 = urem i32 %mod08.i.0, 10000
-  %conv.i130 = zext nneg i32 %div.i128 to i64
-  %conv1.i131 = zext nneg i32 %rem.i129 to i64
-  %shl.i132 = shl nuw nsw i64 %conv1.i131, 32
-  %or.i133 = or disjoint i64 %shl.i132, %conv.i130
-  %mul.i134 = mul nuw nsw i64 %or.i133, 10486
-  %div29.i135 = lshr i64 %mul.i134, 20
-  %and.i136 = and i64 %div29.i135, 545460846719
-  %mul3.neg.i137 = mul nsw i64 %and.i136, -100
-  %sub.i138 = add nsw i64 %mul3.neg.i137, %or.i133
-  %shl4.i139 = shl nsw i64 %sub.i138, 16
-  %add.i140 = add nsw i64 %shl4.i139, %and.i136
-  %mul5.i141 = mul i64 %add.i140, 103
-  %div610.i142 = lshr i64 %mul5.i141, 10
-  %and7.i143 = and i64 %div610.i142, 4222189076152335
-  %mul8.neg.i144 = mul i64 %and7.i143, 72057594037927926
-  %sub9.i145 = add i64 %mul8.neg.i144, %add.i140
-  %shl10.i146 = shl i64 %sub9.i145, 8
-  %add11.i147 = or disjoint i64 %and7.i143, 3472328296227680304
-  %add20.i = add i64 %add11.i147, %shl10.i146
+  %div.i123 = udiv i32 %mod08.i.0, 10000
+  %rem.i124 = urem i32 %mod08.i.0, 10000
+  %conv.i125 = zext nneg i32 %div.i123 to i64
+  %conv1.i126 = zext nneg i32 %rem.i124 to i64
+  %shl.i127 = shl nuw nsw i64 %conv1.i126, 32
+  %or.i128 = or disjoint i64 %shl.i127, %conv.i125
+  %mul.i129 = mul nuw nsw i64 %or.i128, 10486
+  %div29.i130 = lshr i64 %mul.i129, 20
+  %and.i131 = and i64 %div29.i130, 545460846719
+  %mul3.neg.i132 = mul nsw i64 %and.i131, -100
+  %sub.i133 = add nsw i64 %mul3.neg.i132, %or.i128
+  %shl4.i134 = shl nsw i64 %sub.i133, 16
+  %add.i135 = add nsw i64 %shl4.i134, %and.i131
+  %mul5.i136 = mul i64 %add.i135, 103
+  %div610.i137 = lshr i64 %mul5.i136, 10
+  %and7.i138 = and i64 %div610.i137, 4222189076152335
+  %mul8.neg.i139 = mul i64 %and7.i138, 72057594037927926
+  %sub9.i140 = add i64 %mul8.neg.i139, %add.i135
+  %shl10.i141 = shl i64 %sub9.i140, 8
+  %add11.i142 = or disjoint i64 %and7.i138, 3472328296227680304
+  %add20.i = add i64 %add11.i142, %shl10.i141
   store i64 %add20.i, ptr %buffer.addr.i.0, align 1
   %add.ptr21.i = getelementptr inbounds i8, ptr %buffer.addr.i.0, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
@@ -795,20 +794,20 @@ if.end8.i33.i:                                    ; preds = %if.end.i31.i
   %add12.i37.i = add i64 %add11.i72, %shl10.i71
   %sub.i73 = add nsw i32 %div9.i34.i, -10
   %shr.i = ashr i32 %sub.i73, 8
-  %narrow = mul nuw nsw i32 %div9.i34.i, 103
-  %2 = lshr i32 %narrow, 10
+  %narrow.i = mul nuw nsw i32 %div9.i34.i, 103
+  %2 = lshr i32 %narrow.i, 10
   %mul2.neg.i = mul nsw i32 %2, -10
   %sub3.i = add nsw i32 %mul2.neg.i, %div9.i34.i
-  %add.i77 = or disjoint i32 %2, 12336
-  %shl.i78 = shl nsw i32 %sub3.i, 8
-  %add4.i = add nsw i32 %add.i77, %shl.i78
-  %and.i79 = and i32 %shr.i, 8
-  %shr5.i = lshr i32 %add4.i, %and.i79
+  %add.i74 = or disjoint i32 %2, 12336
+  %shl.i75 = shl nsw i32 %sub3.i, 8
+  %add4.i = add nsw i32 %add.i74, %shl.i75
+  %and.i76 = and i32 %shr.i, 8
+  %shr5.i = lshr i32 %add4.i, %and.i76
   %conv6.i = trunc nuw nsw i32 %shr5.i to i16
   store i16 %conv6.i, ptr %buffer.addr.0, align 1
-  %add.ptr.i80 = getelementptr inbounds i8, ptr %buffer.addr.0, i64 2
+  %add.ptr.i77 = getelementptr inbounds i8, ptr %buffer.addr.0, i64 2
   %idx.ext.i = sext i32 %shr.i to i64
-  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i80, i64 %idx.ext.i
+  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i77, i64 %idx.ext.i
   store i64 %add12.i37.i, ptr %add.ptr7.i, align 1
   %add.ptr14.i39.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
@@ -821,31 +820,31 @@ if.end.i:                                         ; preds = %if.end
 
 if.then2.i.i:                                     ; preds = %if.end.i
   %conv5.i = trunc nuw nsw i64 %div.i to i32
-  %div.i81 = udiv i32 %conv5.i, 10000
-  %rem.i82 = urem i32 %conv5.i, 10000
-  %conv.i83 = zext nneg i32 %div.i81 to i64
-  %conv1.i84 = zext nneg i32 %rem.i82 to i64
-  %shl.i85 = shl nuw nsw i64 %conv1.i84, 32
-  %or.i86 = or disjoint i64 %shl.i85, %conv.i83
-  %mul.i87 = mul nuw nsw i64 %or.i86, 10486
-  %div29.i88 = lshr i64 %mul.i87, 20
-  %and.i89 = and i64 %div29.i88, 545460846719
-  %mul3.neg.i90 = mul nsw i64 %and.i89, -100
-  %sub.i91 = add nsw i64 %mul3.neg.i90, %or.i86
-  %shl4.i92 = shl nsw i64 %sub.i91, 16
-  %add.i93 = add nsw i64 %shl4.i92, %and.i89
-  %mul5.i94 = mul i64 %add.i93, 103
-  %div610.i95 = lshr i64 %mul5.i94, 10
-  %and7.i96 = and i64 %div610.i95, 4222189076152335
-  %mul8.neg.i97 = mul i64 %and7.i96, 72057594037927926
-  %sub9.i98 = add i64 %mul8.neg.i97, %add.i93
-  %shl10.i99 = shl i64 %sub9.i98, 8
-  %add11.i100 = add i64 %shl10.i99, %and7.i96
-  %cmp3.i.i = icmp ne i64 %add11.i100, 0
+  %div.i78 = udiv i32 %conv5.i, 10000
+  %rem.i79 = urem i32 %conv5.i, 10000
+  %conv.i80 = zext nneg i32 %div.i78 to i64
+  %conv1.i81 = zext nneg i32 %rem.i79 to i64
+  %shl.i82 = shl nuw nsw i64 %conv1.i81, 32
+  %or.i83 = or disjoint i64 %shl.i82, %conv.i80
+  %mul.i84 = mul nuw nsw i64 %or.i83, 10486
+  %div29.i85 = lshr i64 %mul.i84, 20
+  %and.i86 = and i64 %div29.i85, 545460846719
+  %mul3.neg.i87 = mul nsw i64 %and.i86, -100
+  %sub.i88 = add nsw i64 %mul3.neg.i87, %or.i83
+  %shl4.i89 = shl nsw i64 %sub.i88, 16
+  %add.i90 = add nsw i64 %shl4.i89, %and.i86
+  %mul5.i91 = mul i64 %add.i90, 103
+  %div610.i92 = lshr i64 %mul5.i91, 10
+  %and7.i93 = and i64 %div610.i92, 4222189076152335
+  %mul8.neg.i94 = mul i64 %and7.i93, 72057594037927926
+  %sub9.i95 = add i64 %mul8.neg.i94, %add.i90
+  %shl10.i96 = shl i64 %sub9.i95, 8
+  %add11.i97 = add i64 %shl10.i96, %and7.i93
+  %cmp3.i.i = icmp ne i64 %add11.i97, 0
   tail call void @llvm.assume(i1 %cmp3.i.i)
-  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %add11.i100, i1 true)
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %add11.i97, i1 true)
   %and.i.i = and i64 %3, 56
-  %add5.i.i = add i64 %add11.i100, 3472328296227680304
+  %add5.i.i = add i64 %add11.i97, 3472328296227680304
   %shr.i.i = lshr i64 %add5.i.i, %and.i.i
   store i64 %shr.i.i, ptr %buffer.addr.0, align 1
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %buffer.addr.0, i64 8
@@ -859,53 +858,52 @@ if.else.i:                                        ; preds = %if.end.i
   %conv13.i = trunc nuw nsw i64 %div12.i to i32
   %rem14.i = urem i64 %div.i, 100000000
   %conv15.i = trunc nuw nsw i64 %rem14.i to i32
-  %div.i102 = udiv i32 %conv15.i, 10000
-  %rem.i103 = urem i32 %conv15.i, 10000
-  %conv.i104 = zext nneg i32 %div.i102 to i64
-  %conv1.i105 = zext nneg i32 %rem.i103 to i64
-  %shl.i106 = shl nuw nsw i64 %conv1.i105, 32
-  %or.i107 = or disjoint i64 %shl.i106, %conv.i104
-  %mul.i108 = mul nuw nsw i64 %or.i107, 10486
-  %div29.i109 = lshr i64 %mul.i108, 20
-  %and.i110 = and i64 %div29.i109, 545460846719
-  %mul3.neg.i111 = mul nsw i64 %and.i110, -100
-  %sub.i112 = add nsw i64 %mul3.neg.i111, %or.i107
-  %shl4.i113 = shl nsw i64 %sub.i112, 16
-  %add.i114 = add nsw i64 %shl4.i113, %and.i110
-  %mul5.i115 = mul i64 %add.i114, 103
-  %div610.i116 = lshr i64 %mul5.i115, 10
-  %and7.i117 = and i64 %div610.i116, 4222189076152335
-  %mul8.neg.i118 = mul i64 %and7.i117, 72057594037927926
-  %sub9.i119 = add i64 %mul8.neg.i118, %add.i114
-  %shl10.i120 = shl i64 %sub9.i119, 8
-  %add11.i121 = or disjoint i64 %and7.i117, 3472328296227680304
-  %add.i = add i64 %add11.i121, %shl10.i120
-  %mul.i123 = mul nuw nsw i64 %div12.i, 10486
-  %div13.i = lshr i64 %mul.i123, 20
-  %conv1.i124 = trunc nuw nsw i64 %div13.i to i32
-  %4 = mul nsw i32 %conv1.i124, -100
-  %conv5.i125 = add nsw i32 %4, %conv13.i
-  %shl.i126 = shl nsw i32 %conv5.i125, 16
-  %add.i127 = or disjoint i32 %shl.i126, %conv1.i124
-  %mul7.i = mul i32 %add.i127, 103
-  %5 = lshr i32 %mul7.i, 10
-  %conv11.i = and i32 %5, 983055
+  %div.i99 = udiv i32 %conv15.i, 10000
+  %rem.i100 = urem i32 %conv15.i, 10000
+  %conv.i101 = zext nneg i32 %div.i99 to i64
+  %conv1.i102 = zext nneg i32 %rem.i100 to i64
+  %shl.i103 = shl nuw nsw i64 %conv1.i102, 32
+  %or.i104 = or disjoint i64 %shl.i103, %conv.i101
+  %mul.i105 = mul nuw nsw i64 %or.i104, 10486
+  %div29.i106 = lshr i64 %mul.i105, 20
+  %and.i107 = and i64 %div29.i106, 545460846719
+  %mul3.neg.i108 = mul nsw i64 %and.i107, -100
+  %sub.i109 = add nsw i64 %mul3.neg.i108, %or.i104
+  %shl4.i110 = shl nsw i64 %sub.i109, 16
+  %add.i111 = add nsw i64 %shl4.i110, %and.i107
+  %mul5.i112 = mul i64 %add.i111, 103
+  %div610.i113 = lshr i64 %mul5.i112, 10
+  %and7.i114 = and i64 %div610.i113, 4222189076152335
+  %mul8.neg.i115 = mul i64 %and7.i114, 72057594037927926
+  %sub9.i116 = add i64 %mul8.neg.i115, %add.i111
+  %shl10.i117 = shl i64 %sub9.i116, 8
+  %add11.i118 = or disjoint i64 %and7.i114, 3472328296227680304
+  %add.i = add i64 %add11.i118, %shl10.i117
+  %mul.i119 = mul nuw nsw i32 %conv13.i, 10486
+  %div13.i = lshr i32 %mul.i119, 20
+  %narrow.neg.i = mul nsw i32 %div13.i, -100
+  %sub.i120 = add nsw i32 %narrow.neg.i, %conv13.i
+  %shl.i121 = shl nsw i32 %sub.i120, 16
+  %add.i122 = or disjoint i32 %shl.i121, %div13.i
+  %mul7.i = mul i32 %add.i122, 103
+  %4 = lshr i32 %mul7.i, 10
+  %conv11.i = and i32 %4, 983055
   %mul14.neg.i = mul i32 %conv11.i, 16777206
-  %sub15.i = add i32 %mul14.neg.i, %add.i127
+  %sub15.i = add i32 %mul14.neg.i, %add.i122
   %shl16.i = shl i32 %sub15.i, 8
   %add18.i = add i32 %shl16.i, %conv11.i
   %cmp.i = icmp ne i32 %add18.i, 0
   tail call void @llvm.assume(i1 %cmp.i)
-  %6 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %add18.i, i1 true)
-  %and20.i = and i32 %6, 24
+  %5 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %add18.i, i1 true)
+  %and20.i = and i32 %5, 24
   %add22.i = add i32 %add18.i, 808464432
-  %shr.i128 = lshr i32 %add22.i, %and20.i
-  store i32 %shr.i128, ptr %buffer.addr.0, align 1
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %buffer.addr.0, i64 4
-  %div2415.i = lshr i32 %6, 3
-  %idx.ext.i130 = zext nneg i32 %div2415.i to i64
-  %idx.neg.i = sub nsw i64 0, %idx.ext.i130
-  %add.ptr25.i = getelementptr inbounds i8, ptr %add.ptr.i129, i64 %idx.neg.i
+  %shr.i123 = lshr i32 %add22.i, %and20.i
+  store i32 %shr.i123, ptr %buffer.addr.0, align 1
+  %add.ptr.i124 = getelementptr inbounds i8, ptr %buffer.addr.0, i64 4
+  %div2415.i = lshr i32 %5, 3
+  %idx.ext.i125 = zext nneg i32 %div2415.i to i64
+  %idx.neg.i = sub nsw i64 0, %idx.ext.i125
+  %add.ptr25.i = getelementptr inbounds i8, ptr %add.ptr.i124, i64 %idx.neg.i
   store i64 %add.i, ptr %add.ptr25.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr25.i, i64 8
   br label %if.end18.i
@@ -913,27 +911,27 @@ if.else.i:                                        ; preds = %if.end.i
 if.end18.i:                                       ; preds = %if.then2.i.i, %if.else.i
   %buffer.addr.i.0 = phi ptr [ %add.ptr.i, %if.else.i ], [ %add.ptr7.i.i, %if.then2.i.i ]
   %mod08.i.0 = trunc nuw nsw i64 %mod08.i.0.in to i32
-  %div.i131 = udiv i32 %mod08.i.0, 10000
-  %rem.i132 = urem i32 %mod08.i.0, 10000
-  %conv.i133 = zext nneg i32 %div.i131 to i64
-  %conv1.i134 = zext nneg i32 %rem.i132 to i64
-  %shl.i135 = shl nuw nsw i64 %conv1.i134, 32
-  %or.i136 = or disjoint i64 %shl.i135, %conv.i133
-  %mul.i137 = mul nuw nsw i64 %or.i136, 10486
-  %div29.i138 = lshr i64 %mul.i137, 20
-  %and.i139 = and i64 %div29.i138, 545460846719
-  %mul3.neg.i140 = mul nsw i64 %and.i139, -100
-  %sub.i141 = add nsw i64 %mul3.neg.i140, %or.i136
-  %shl4.i142 = shl nsw i64 %sub.i141, 16
-  %add.i143 = add nsw i64 %shl4.i142, %and.i139
-  %mul5.i144 = mul i64 %add.i143, 103
-  %div610.i145 = lshr i64 %mul5.i144, 10
-  %and7.i146 = and i64 %div610.i145, 4222189076152335
-  %mul8.neg.i147 = mul i64 %and7.i146, 72057594037927926
-  %sub9.i148 = add i64 %mul8.neg.i147, %add.i143
-  %shl10.i149 = shl i64 %sub9.i148, 8
-  %add11.i150 = or disjoint i64 %and7.i146, 3472328296227680304
-  %add20.i = add i64 %add11.i150, %shl10.i149
+  %div.i126 = udiv i32 %mod08.i.0, 10000
+  %rem.i127 = urem i32 %mod08.i.0, 10000
+  %conv.i128 = zext nneg i32 %div.i126 to i64
+  %conv1.i129 = zext nneg i32 %rem.i127 to i64
+  %shl.i130 = shl nuw nsw i64 %conv1.i129, 32
+  %or.i131 = or disjoint i64 %shl.i130, %conv.i128
+  %mul.i132 = mul nuw nsw i64 %or.i131, 10486
+  %div29.i133 = lshr i64 %mul.i132, 20
+  %and.i134 = and i64 %div29.i133, 545460846719
+  %mul3.neg.i135 = mul nsw i64 %and.i134, -100
+  %sub.i136 = add nsw i64 %mul3.neg.i135, %or.i131
+  %shl4.i137 = shl nsw i64 %sub.i136, 16
+  %add.i138 = add nsw i64 %shl4.i137, %and.i134
+  %mul5.i139 = mul i64 %add.i138, 103
+  %div610.i140 = lshr i64 %mul5.i139, 10
+  %and7.i141 = and i64 %div610.i140, 4222189076152335
+  %mul8.neg.i142 = mul i64 %and7.i141, 72057594037927926
+  %sub9.i143 = add i64 %mul8.neg.i142, %add.i138
+  %shl10.i144 = shl i64 %sub9.i143, 8
+  %add11.i145 = or disjoint i64 %and7.i141, 3472328296227680304
+  %add20.i = add i64 %add11.i145, %shl10.i144
   store i64 %add20.i, ptr %buffer.addr.i.0, align 1
   %add.ptr21.i = getelementptr inbounds i8, ptr %buffer.addr.i.0, i64 8
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
@@ -1547,7 +1545,7 @@ entry:
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i32 0, ptr %value, align 4
-  %call.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef nonnull %text.i, ptr noundef nonnull %base.addr.i, ptr noundef nonnull %negative.i)
+  %call.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef %text.i, ptr noundef %base.addr.i, ptr noundef %negative.i)
   br i1 %call.i, label %if.end.i, label %_ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1653,7 +1651,7 @@ entry:
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i64 0, ptr %value, align 8
-  %call.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef nonnull %text.i, ptr noundef nonnull %base.addr.i, ptr noundef nonnull %negative.i)
+  %call.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef %text.i, ptr noundef %base.addr.i, ptr noundef %negative.i)
   br i1 %call.i, label %if.end.i, label %_ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1760,7 +1758,7 @@ entry:
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i128 0, ptr %value, align 16
-  %call1.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef nonnull %text.i, ptr noundef nonnull %base.addr.i, ptr noundef nonnull %negative.i)
+  %call1.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef %text.i, ptr noundef %base.addr.i, ptr noundef %negative.i)
   br i1 %call1.i, label %if.end.i, label %_ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1939,7 +1937,7 @@ entry:
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i32 0, ptr %value, align 4
-  %call.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef nonnull %text.i, ptr noundef nonnull %base.addr.i, ptr noundef nonnull %negative.i)
+  %call.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef %text.i, ptr noundef %base.addr.i, ptr noundef %negative.i)
   br i1 %call.i, label %lor.lhs.false.i, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -2013,7 +2011,7 @@ entry:
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i64 0, ptr %value, align 8
-  %call.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef nonnull %text.i, ptr noundef nonnull %base.addr.i, ptr noundef nonnull %negative.i)
+  %call.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef %text.i, ptr noundef %base.addr.i, ptr noundef %negative.i)
   br i1 %call.i, label %lor.lhs.false.i, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -2088,7 +2086,7 @@ entry:
   store i32 %base, ptr %base.addr.i, align 4
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %value, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %value, i8 0, i64 16, i1 false)
-  %call1.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef nonnull %text.i, ptr noundef nonnull %base.addr.i, ptr noundef nonnull %negative.i)
+  %call1.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef %text.i, ptr noundef %base.addr.i, ptr noundef %negative.i)
   br i1 %call1.i, label %lor.lhs.false.i, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -2488,9 +2486,9 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc { i64, i64 } @_ZN4abslL7PowFiveEmi(i64 noundef %num, i32 noundef %expfive) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, i64 } @_ZN4abslL7PowFiveEmi(i64 noundef range(i64 0, -1) %num, i32 noundef range(i32 0, -2147483648) %expfive) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp52 = icmp sgt i32 %expfive, 12
+  %cmp52 = icmp ugt i32 %expfive, 12
   br i1 %cmp52, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN4abslL5Mul32ESt4pairImmEj.exit
@@ -2610,7 +2608,7 @@ if.end:                                           ; preds = %if.then, %_ZN4abslL
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr nocapture noundef %text, ptr nocapture noundef %base_ptr, ptr nocapture noundef writeonly %negative_ptr) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr nocapture noundef nonnull %text, ptr nocapture noundef nonnull %base_ptr, ptr nocapture noundef nonnull writeonly %negative_ptr) unnamed_addr #6 {
 entry:
   %_M_str.i = getelementptr inbounds i8, ptr %text, i64 8
   %0 = load ptr, ptr %_M_str.i, align 8

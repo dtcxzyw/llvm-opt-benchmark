@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.26f4206a9fc8a8c6d289e2be3cec11c9.7.llvm.13986783010576937582 = external hidden unnamed_addr constant <{ [17 x i8], [7 x i8] }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17hf1987002b8443eb3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17hf1987002b8443eb3E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -142,12 +142,12 @@ define hidden { i64, i64 } @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17
 
 ; Function Attrs: noreturn nonlazybind uwtable
 define hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h5c9e84e3cd6e757cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 {
-  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17he931554204bd43c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) #20
+  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17he931554204bd43c4E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) #20
   unreachable
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17he931554204bd43c4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17he931554204bd43c4E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !17, !noundef !7
@@ -1384,7 +1384,7 @@ define void @"_ZN364_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$s
 _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit: ; preds = %8, %2
   %.us-phi.i.i = phi double [ 0.000000e+00, %2 ], [ %12, %8 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !167
-  call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17hf1987002b8443eb3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.val1), !noalias !167
+  call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17hf1987002b8443eb3E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %4, i64 noundef %.val1), !noalias !167
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8, !noalias !167
   %.sroa.4.0..sroa_idx10.i = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx10.i, align 8, !noalias !167
@@ -1494,7 +1494,7 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !189
-  call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17hf1987002b8443eb3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %.val13), !noalias !189
+  call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17hf1987002b8443eb3E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %7, i64 noundef %.val13), !noalias !189
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !noalias !189
   %.sroa.4.0..sroa_idx11.i = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx11.i, align 8, !noalias !189

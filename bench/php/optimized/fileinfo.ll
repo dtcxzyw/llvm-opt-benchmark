@@ -577,7 +577,7 @@ define hidden void @zif_finfo_file(ptr noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 -1, 3) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8

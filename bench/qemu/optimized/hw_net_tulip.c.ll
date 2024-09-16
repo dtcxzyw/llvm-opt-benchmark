@@ -1347,7 +1347,7 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %tulip_next_tx_descriptor.exit
   %2 = phi i64 [ %.pre, %for.cond.preheader ], [ %and18.i, %tulip_next_tx_descriptor.exit ]
   %i.080 = phi i8 [ 0, %for.cond.preheader ], [ %inc, %tulip_next_tx_descriptor.exit ]
-  call fastcc void @tulip_desc_read(ptr noundef nonnull %s, i64 noundef %2, ptr noundef nonnull %desc)
+  call fastcc void @tulip_desc_read(ptr noundef nonnull %s, i64 noundef %2, ptr noundef %desc)
   %s.val15 = load i64, ptr %current_tx_desc, align 8
   %conv.i = trunc i64 %s.val15 to i32
   %3 = load i32, ptr %desc, align 4
@@ -1735,7 +1735,7 @@ if.then19.i:                                      ; preds = %if.end15.i
 
 if.end28:                                         ; preds = %if.then39.i, %do.body31.i, %if.then8.i61, %do.body.i, %if.then19.i, %if.end15.i, %if.then20, %tulip_setup_frame.exit
   %71 = load i64, ptr %current_tx_desc, align 8
-  call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %71, ptr noundef nonnull %desc)
+  call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %71, ptr noundef %desc)
   %desc.val = load i32, ptr %control.i, align 4
   %desc.val16 = load i32, ptr %buf_addr2.i, align 4
   %conv.i70 = zext i32 %desc.val to i64
@@ -1783,7 +1783,7 @@ declare void @qemu_flush_queued_packets(ptr noundef) local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_desc_read(ptr noundef %s, i64 noundef %p, ptr noundef %desc) unnamed_addr #0 {
+define internal fastcc void @tulip_desc_read(ptr noundef %s, i64 noundef %p, ptr noundef nonnull %desc) unnamed_addr #0 {
 entry:
   %csr = getelementptr inbounds i8, ptr %s, i64 11392
   %0 = load i32, ptr %csr, align 16
@@ -1792,7 +1792,7 @@ entry:
   %bus_master_as.i.i36 = getelementptr inbounds i8, ptr %s, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8
   fence seq_cst
-  %call.i.i.i.i.i37 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %p, i32 32, ptr noundef %desc, i64 noundef 4, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i37 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %p, i32 32, ptr noundef nonnull %desc, i64 noundef 4, i1 noundef zeroext false) #8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1848,7 +1848,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_desc_write(ptr noundef %s, i64 noundef %p, ptr nocapture noundef readonly %desc) unnamed_addr #0 {
+define internal fastcc void @tulip_desc_write(ptr noundef %s, i64 noundef %p, ptr nocapture noundef nonnull readonly %desc) unnamed_addr #0 {
 entry:
   %val.addr.i.i48 = alloca i32, align 4
   %val.addr.i.i45 = alloca i32, align 4
@@ -2085,9 +2085,9 @@ do.body.preheader:                                ; preds = %do.body.preheader.s
 
 do.body:                                          ; preds = %do.body.preheader, %tulip_next_rx_descriptor.exit
   %20 = phi i64 [ %.pre, %do.body.preheader ], [ %and18.i44, %tulip_next_rx_descriptor.exit ]
-  call fastcc void @tulip_desc_read(ptr noundef nonnull %s, i64 noundef %20, ptr noundef nonnull %desc)
+  call fastcc void @tulip_desc_read(ptr noundef nonnull %s, i64 noundef %20, ptr noundef %desc)
   %s.val35 = load i64, ptr %current_rx_desc, align 16
-  call fastcc void @tulip_dump_rx_descriptor(i64 %s.val35, ptr noundef nonnull %desc)
+  call fastcc void @tulip_dump_rx_descriptor(i64 %s.val35, ptr noundef %desc)
   %21 = load i32, ptr %desc, align 4
   %tobool9.not = icmp sgt i32 %21, -1
   br i1 %tobool9.not, label %if.then10, label %if.end17
@@ -2195,9 +2195,9 @@ if.then39:                                        ; preds = %tulip_copy_rx_bytes
 
 if.end48:                                         ; preds = %if.then39, %tulip_copy_rx_bytes.exit
   %s.val36 = load i64, ptr %current_rx_desc, align 16
-  call fastcc void @tulip_dump_rx_descriptor(i64 %s.val36, ptr noundef nonnull %desc)
+  call fastcc void @tulip_dump_rx_descriptor(i64 %s.val36, ptr noundef %desc)
   %43 = load i64, ptr %current_rx_desc, align 16
-  call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %43, ptr noundef nonnull %desc)
+  call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %43, ptr noundef %desc)
   %desc.val = load i32, ptr %control.i, align 4
   %desc.val37 = load i32, ptr %buf_addr2.i, align 4
   %conv.i40 = zext i32 %desc.val to i64
@@ -2244,7 +2244,7 @@ return:                                           ; preds = %tulip_next_rx_descr
 declare i64 @qemu_send_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_dump_rx_descriptor(i64 %s.11472.val, ptr nocapture noundef readonly %desc) unnamed_addr #0 {
+define internal fastcc void @tulip_dump_rx_descriptor(i64 %s.11472.val, ptr nocapture noundef nonnull readonly %desc) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = trunc i64 %s.11472.val to i32

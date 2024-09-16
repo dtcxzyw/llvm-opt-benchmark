@@ -921,7 +921,7 @@ XLogWalRcvClose.exit133:                          ; preds = %353, %354
   %380 = load i32, ptr @recvFileTLI, align 4
   %381 = load i64, ptr @recvSegNo, align 8
   %382 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %9, i32 noundef %380, i64 noundef %381, i32 noundef %382)
+  call fastcc void @XLogFileName(ptr noundef %9, i32 noundef %380, i64 noundef %381, i32 noundef %382)
   store i32 %379, ptr %369, align 4
   %383 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
   call void @llvm.assume(i1 %383)
@@ -2232,14 +2232,14 @@ declare i32 @WaitLatchOrSocket(ptr noundef, i32 noundef, i32 noundef, i64 nounde
 declare void @ResetLatch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @XLogFileName(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = sext i32 %3 to i64
   %6 = udiv i64 4294967296, %5
   %7 = udiv i64 %2, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %2, %6
   %10 = trunc nuw i64 %9 to i32
-  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %0, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %8, i32 noundef %10) #15
+  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %0, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %8, i32 noundef %10) #15
   ret void
 }
 

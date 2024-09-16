@@ -18991,7 +18991,7 @@ _ZL14commuteShuffleRN4llvm7SDValueES1_NS_15MutableArrayRefIiEE.exit: ; preds = %
   br i1 %.not159, label %92, label %91
 
 91:                                               ; preds = %86
-  call fastcc void @"_ZZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEEENK3$_0clEPNS_17BuildVectorSDNodeEi"(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %.sroa.0243.0, i32 noundef 0)
+  call fastcc void @"_ZZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEEENK3$_0clEPNS_17BuildVectorSDNodeEi"(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %.sroa.0243.0, i32 noundef 0)
   br label %92
 
 92:                                               ; preds = %91, %86
@@ -19004,7 +19004,7 @@ _ZL14commuteShuffleRN4llvm7SDValueES1_NS_15MutableArrayRefIiEE.exit: ; preds = %
 
 96:                                               ; preds = %92
   %97 = load i32, ptr %18, align 4
-  call fastcc void @"_ZZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEEENK3$_0clEPNS_17BuildVectorSDNodeEi"(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %79, i32 noundef %97)
+  call fastcc void @"_ZZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEEENK3$_0clEPNS_17BuildVectorSDNodeEi"(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %79, i32 noundef %97)
   br label %98
 
 98:                                               ; preds = %92, %96, %_ZL14commuteShuffleRN4llvm7SDValueES1_NS_15MutableArrayRefIiEE.exit
@@ -19707,7 +19707,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEEENK3$_0clEPNS_17BuildVectorSDNodeEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEEENK3$_0clEPNS_17BuildVectorSDNodeEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::BitVector", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -47413,7 +47413,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit809: ; preds = %
   %497 = getelementptr inbounds nuw i8, ptr %483, i64 88
   %498 = load ptr, ptr %497, align 8
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 24
-  call fastcc void @_ZL9FoldValuejRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %49, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %496, ptr noundef nonnull align 8 dereferenceable(12) %499)
+  call fastcc void @_ZL9FoldValuejRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %49, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %496, ptr noundef nonnull align 8 dereferenceable(12) %499)
   %500 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %501 = load i8, ptr %500, align 8
   %502 = trunc i8 %501 to i1
@@ -47740,7 +47740,7 @@ _ZN4llvm19peekThroughBitcastsENS_7SDValueE.exit845: ; preds = %_ZN4llvm19peekThr
   %646 = load i64, ptr %645, align 8
   %647 = and i64 %646, %639
   %648 = icmp ne i64 %647, 0
-  call fastcc void @_ZL18FoldValueWithUndefjRKN4llvm5APIntEbS2_b(ptr dead_on_unwind noalias nonnull writable align 8 %57, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %632, i1 noundef zeroext %641, ptr noundef nonnull align 8 dereferenceable(12) %643, i1 noundef zeroext %648)
+  call fastcc void @_ZL18FoldValueWithUndefjRKN4llvm5APIntEbS2_b(ptr dead_on_unwind noalias writable align 8 %57, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %632, i1 noundef zeroext %641, ptr noundef nonnull align 8 dereferenceable(12) %643, i1 noundef zeroext %648)
   %649 = load i8, ptr %627, align 8
   %650 = trunc i8 %649 to i1
   br i1 %650, label %651, label %652
@@ -50539,7 +50539,7 @@ _ZN4llvm7APFloatD2Ev.exit167:                     ; preds = %94, %128, %143, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9FoldValuejRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #1 {
+define internal fastcc void @_ZL9FoldValuejRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 0, 491) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #1 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -51776,7 +51776,7 @@ _ZNK4llvm17BuildVectorSDNode10isConstantEv.exit:  ; preds = %.lr.ph.i, %126, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18FoldValueWithUndefjRKN4llvm5APIntEbS2_b(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext %5) unnamed_addr #1 {
+define internal fastcc void @_ZL18FoldValueWithUndefjRKN4llvm5APIntEbS2_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 0, 491) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext %5) unnamed_addr #1 {
   %7 = alloca %"class.llvm::APInt", align 8
   %brmerge = or i1 %3, %5
   br i1 %brmerge, label %9, label %8
@@ -52394,7 +52394,7 @@ _ZNK4llvm5APInt3shlERKS0_.exit:                   ; preds = %8, %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefINS_7SDValueEEEZNS_12SelectionDAG22FoldConstantArithmeticEjRKNS_5SDLocENS_3EVTES3_NS_11SDNodeFlagsEE3$_1EEbOT_T0_"(ptr %.0.val, i64 %.8.val, i64 %0) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefINS_7SDValueEEEZNS_12SelectionDAG22FoldConstantArithmeticEjRKNS_5SDLocENS_3EVTES3_NS_11SDNodeFlagsEE3$_1EEbOT_T0_"(ptr %.0.val, i64 %.8.val, i64 range(i64 0, 1099511627776) %0) unnamed_addr #6 {
   %2 = alloca %"struct.llvm::EVT", align 8
   %3 = alloca %"struct.llvm::EVT", align 8
   %4 = alloca %"struct.llvm::EVT", align 8
@@ -55197,7 +55197,7 @@ _ZNK4llvm3EVTeqES0_.exit562.thread908:            ; preds = %316, %313
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %329, %331
   %.sroa.2253.0.copyload = phi ptr [ %.sroa.2257.0.copyload, %329 ], [ %.sroa.2253.0.copyload.pre, %331 ]
   %.sroa.0251.0.copyload = phi i16 [ %.sroa.0255.0.copyload, %329 ], [ %.sroa.0251.0.copyload.pre, %331 ]
-  %332 = call fastcc { ptr, i32 } @"_ZZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_11SDNodeFlagsEENK3$_0clENS_5APIntES4_"(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull %33, i16 %.sroa.0251.0.copyload, ptr %.sroa.2253.0.copyload)
+  %332 = call fastcc { ptr, i32 } @"_ZZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_11SDNodeFlagsEENK3$_0clENS_5APIntES4_"(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %33, i16 %.sroa.0251.0.copyload, ptr %.sroa.2253.0.copyload)
   %.fca.0.extract247 = extractvalue { ptr, i32 } %332, 0
   %.fca.1.extract248 = extractvalue { ptr, i32 } %332, 1
   %333 = load i32, ptr %325, align 8
@@ -55588,7 +55588,7 @@ _ZN4llvm5APIntC2ERKS0_.exit577:                   ; preds = %492, %494
   %.sroa.0.0.copyload.i.i578 = load i16, ptr %502, align 8
   %.sroa.21.0..sroa_idx.i.i579 = getelementptr inbounds i8, ptr %502, i64 8
   %.sroa.21.0.copyload.i.i580 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i579, align 8
-  %503 = call fastcc { ptr, i32 } @"_ZZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_11SDNodeFlagsEENK3$_0clENS_5APIntES4_"(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull %38, i16 %.sroa.0.0.copyload.i.i578, ptr %.sroa.21.0.copyload.i.i580)
+  %503 = call fastcc { ptr, i32 } @"_ZZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_11SDNodeFlagsEENK3$_0clENS_5APIntES4_"(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %38, i16 %.sroa.0.0.copyload.i.i578, ptr %.sroa.21.0.copyload.i.i580)
   %.fca.0.extract205 = extractvalue { ptr, i32 } %503, 0
   %.fca.1.extract206 = extractvalue { ptr, i32 } %503, 1
   store ptr %.fca.0.extract205, ptr %37, align 8
@@ -58838,7 +58838,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm3EVT13getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i32 } @"_ZZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_11SDNodeFlagsEENK3$_0clENS_5APIntES4_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, i16 %2, ptr %3) unnamed_addr #1 align 2 {
+define internal fastcc { ptr, i32 } @"_ZZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_11SDNodeFlagsEENK3$_0clENS_5APIntES4_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i16 %2, ptr %3) unnamed_addr #1 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -67103,7 +67103,7 @@ define dso_local { ptr, i32 } @_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexe
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %.val = load ptr, ptr %18, align 8
-  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(21) %9, ptr %.val, ptr %.sroa.014.0.copyload, ptr %.sroa.0.0.copyload)
+  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(21) %9, ptr %.val, ptr %.sroa.014.0.copyload, ptr %.sroa.0.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 8 dereferenceable(21) %16, i64 21, i1 false)
   br label %19
 
@@ -67145,7 +67145,7 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %21, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %1, ptr %.40.val, ptr nocapture readonly %2, ptr nocapture readonly %.0.val) unnamed_addr #1 {
+define internal fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %1, ptr %.40.val, ptr nocapture readonly %2, ptr nocapture readonly %.0.val) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %94 [
@@ -67191,7 +67191,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %12, %19
 _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %25 = load i32, ptr %24, align 8, !noalias !495
-  tail call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind writable sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %.40.val, i32 noundef %25, i64 noundef %.0.i.i.i15) #32
+  tail call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %.40.val, i32 noundef %25, i64 noundef %.0.i.i.i15) #32
   br label %_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueEl.exit
 
 26:                                               ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit
@@ -67248,7 +67248,7 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %
 _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.i: ; preds = %54, %47
   %.0.i.i.i9.i = phi i64 [ %.0.i.i.i.i.i, %47 ], [ %56, %54 ]
   %57 = add nsw i64 %.0.i.i.i9.i, %.0.i.i.i15
-  tail call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind writable sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %.40.val, i32 noundef %40, i64 noundef %57) #32
+  tail call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %.40.val, i32 noundef %40, i64 noundef %57) #32
   br label %_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueEl.exit
 
 58:                                               ; preds = %3
@@ -67263,7 +67263,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.i: ; preds = %54, %47
 _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRT0_.exit.i19: ; preds = %58, %58
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %62 = load i32, ptr %61, align 8, !noalias !498
-  tail call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind writable sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %.40.val, i32 noundef %62, i64 noundef 0) #32
+  tail call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %.40.val, i32 noundef %62, i64 noundef 0) #32
   br label %_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueEl.exit
 
 63:                                               ; preds = %58
@@ -67319,7 +67319,7 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRT0_.exit.i19: ; preds =
 
 _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.i16: ; preds = %91, %84
   %.0.i.i.i9.i17 = phi i64 [ %.0.i.i.i.i.i18, %84 ], [ %93, %91 ]
-  tail call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind writable sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %.40.val, i32 noundef %77, i64 noundef %.0.i.i.i9.i17) #32
+  tail call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %.40.val, i32 noundef %77, i64 noundef %.0.i.i.i9.i17) #32
   br label %_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueEl.exit
 
 94:                                               ; preds = %3
@@ -67818,7 +67818,7 @@ _ZNK4llvm12SelectionDAG11getEVTAlignENS_3EVTE.exit: ; preds = %23, %_ZNK4llvm3EV
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
   %.sroa.020.0.copyload = load ptr, ptr %8, align 8
   %.val.i18 = load ptr, ptr %27, align 8
-  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(21) %18, ptr %.val.i18, ptr %.sroa.0.0.copyload, ptr %.sroa.020.0.copyload)
+  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(21) %18, ptr %.val.i18, ptr %.sroa.0.0.copyload, ptr %.sroa.020.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %18, ptr noundef nonnull align 8 dereferenceable(21) %16, i64 21, i1 false)
   br label %32
 
@@ -68035,7 +68035,7 @@ define dso_local { ptr, i32 } @_ZN4llvm12SelectionDAG14getIndexedLoadENS_7SDValu
 32:                                               ; preds = %8
   %33 = getelementptr inbounds i8, ptr %0, i64 40
   %.val.i = load ptr, ptr %33, align 8
-  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(21) %11, ptr %.val.i, ptr %4, ptr %.sroa.0.0.copyload)
+  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(21) %11, ptr %.val.i, ptr %4, ptr %.sroa.0.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef nonnull align 8 dereferenceable(21) %9, i64 21, i1 false)
   br label %34
 
@@ -69132,7 +69132,7 @@ define dso_local { ptr, i32 } @_ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemInde
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %.val = load ptr, ptr %21, align 8
-  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(21) %11, ptr %.val, ptr %.sroa.014.0.copyload, ptr %.sroa.0.0.copyload)
+  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(21) %11, ptr %.val, ptr %.sroa.014.0.copyload, ptr %.sroa.0.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef nonnull align 8 dereferenceable(21) %19, i64 21, i1 false)
   br label %22
 
@@ -69531,7 +69531,7 @@ _ZNK4llvm12SelectionDAG11getEVTAlignENS_3EVTE.exit: ; preds = %26, %_ZNK4llvm3EV
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
   %.sroa.021.0.copyload = load ptr, ptr %8, align 8
   %.val.i19 = load ptr, ptr %30, align 8
-  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(21) %21, ptr %.val.i19, ptr %.sroa.0.0.copyload, ptr %.sroa.021.0.copyload)
+  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(21) %21, ptr %.val.i19, ptr %.sroa.0.0.copyload, ptr %.sroa.021.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %21, ptr noundef nonnull align 8 dereferenceable(21) %19, i64 21, i1 false)
   br label %35
 
@@ -69757,7 +69757,7 @@ define dso_local { ptr, i32 } @_ZN4llvm12SelectionDAG16getIndexedLoadVPENS_7SDVa
 37:                                               ; preds = %8
   %38 = getelementptr inbounds i8, ptr %0, i64 40
   %.val.i = load ptr, ptr %38, align 8
-  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(21) %11, ptr %.val.i, ptr %4, ptr %.sroa.0.0.copyload)
+  call fastcc void @_ZL16InferPointerInfoRKN4llvm18MachinePointerInfoERNS_12SelectionDAGENS_7SDValueES5_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(21) %11, ptr %.val.i, ptr %4, ptr %.sroa.0.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef nonnull align 8 dereferenceable(21) %9, i64 21, i1 false)
   br label %39
 

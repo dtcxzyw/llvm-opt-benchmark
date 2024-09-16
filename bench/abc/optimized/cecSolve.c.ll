@@ -443,10 +443,10 @@ define void @Cec_AddClausesSuper(ptr nocapture noundef readonly %0, ptr noundef 
   %33 = ashr exact i64 %sext.i, 30
   %34 = getelementptr inbounds i8, ptr %.val72, i64 %33
   %35 = load i32, ptr %34, align 4
-  %36 = shl nsw i32 %35, 1
-  %37 = trunc i64 %27 to i32
-  %38 = and i32 %37, 1
-  %39 = or disjoint i32 %36, %38
+  %36 = trunc i64 %27 to i32
+  %37 = and i32 %36, 1
+  %38 = shl nsw i32 %35, 1
+  %39 = or disjoint i32 %38, %37
   store i32 %39, ptr %8, align 4
   %.val69.val = load ptr, ptr %29, align 8
   %40 = ptrtoint ptr %.val69.val to i64
@@ -508,10 +508,10 @@ define void @Cec_AddClausesSuper(ptr nocapture noundef readonly %0, ptr noundef 
   %72 = ashr exact i64 %sext.i79, 30
   %73 = getelementptr inbounds i8, ptr %.val68, i64 %72
   %74 = load i32, ptr %73, align 4
-  %75 = shl nsw i32 %74, 1
-  %76 = trunc i64 %67 to i32
-  %77 = and i32 %76, 1
-  %78 = or disjoint i32 %75, %77
+  %75 = trunc i64 %67 to i32
+  %76 = and i32 %75, 1
+  %77 = shl nsw i32 %74, 1
+  %78 = or disjoint i32 %77, %76
   %79 = xor i32 %78, 1
   %80 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv87
   store i32 %79, ptr %80, align 4
@@ -1777,10 +1777,10 @@ Abc_Clock.exit:                                   ; preds = %46, %43, %39, %36
   %62 = ashr exact i64 %sext.i, 30
   %63 = getelementptr inbounds i8, ptr %.val55, i64 %62
   %64 = load i32, ptr %63, align 4
-  %65 = shl nsw i32 %64, 1
-  %66 = trunc i64 %11 to i32
-  %67 = and i32 %66, 1
-  %68 = or disjoint i32 %65, %67
+  %65 = trunc i64 %11 to i32
+  %66 = and i32 %65, 1
+  %67 = shl nsw i32 %64, 1
+  %68 = or disjoint i32 %67, %66
   store i32 %68, ptr %10, align 4
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 20
@@ -2077,10 +2077,10 @@ Abc_Clock.exit:                                   ; preds = %57, %54, %50, %47
   %73 = ashr exact i64 %sext.i, 30
   %74 = getelementptr inbounds i8, ptr %.val73, i64 %73
   %75 = load i32, ptr %74, align 4
-  %76 = shl nsw i32 %75, 1
-  %77 = trunc i64 %12 to i32
-  %78 = and i32 %77, 1
-  %79 = or disjoint i32 %76, %78
+  %76 = trunc i64 %12 to i32
+  %77 = and i32 %76, 1
+  %78 = shl nsw i32 %75, 1
+  %79 = or disjoint i32 %78, %77
   store i32 %79, ptr %11, align 4
   %80 = sub i64 %16, %70
   %81 = sdiv exact i64 %80, 12
@@ -2088,10 +2088,10 @@ Abc_Clock.exit:                                   ; preds = %57, %54, %50, %47
   %82 = ashr exact i64 %sext.i80, 30
   %83 = getelementptr inbounds i8, ptr %.val73, i64 %82
   %84 = load i32, ptr %83, align 4
-  %85 = shl nsw i32 %84, 1
-  %86 = trunc i64 %15 to i32
-  %87 = and i32 %86, 1
-  %88 = or disjoint i32 %85, %87
+  %85 = trunc i64 %15 to i32
+  %86 = and i32 %85, 1
+  %87 = shl nsw i32 %84, 1
+  %88 = or disjoint i32 %87, %86
   %89 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %88, ptr %89, align 4
   %90 = load ptr, ptr %0, align 8

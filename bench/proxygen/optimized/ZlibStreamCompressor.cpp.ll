@@ -229,7 +229,7 @@ entry:
   %0 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %zlibStream_ = getelementptr inbounds i8, ptr %this, i64 16
   %conv = trunc i64 %0 to i32
-  call fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias nonnull align 8 %out, ptr noundef nonnull %zlibStream_, i32 noundef %conv)
+  call fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %out, ptr noundef %zlibStream_, i32 noundef %conv)
   invoke void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(56) %in)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -292,7 +292,7 @@ while.body18.us:                                  ; preds = %while.body18.us.pre
 if.then.i.us:                                     ; preds = %while.body18.us
   %11 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %conv.i.us = trunc i64 %11 to i32
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull %zlibStream_, i32 noundef %conv.i.us)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i, ptr noundef %zlibStream_, i32 noundef %conv.i.us)
           to label %.noexc.us unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 .noexc.us:                                        ; preds = %if.then.i.us
@@ -378,7 +378,7 @@ while.body18:                                     ; preds = %while.body18.prehea
 if.then.i:                                        ; preds = %while.body18
   %16 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %conv.i = trunc i64 %16 to i32
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull %zlibStream_, i32 noundef %conv.i)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i, ptr noundef %zlibStream_, i32 noundef %conv.i)
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
 .noexc:                                           ; preds = %if.then.i
@@ -503,7 +503,7 @@ do.body:                                          ; preds = %for.end, %invoke.co
 if.then.i13:                                      ; preds = %do.body
   %33 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %conv.i14 = trunc i64 %33 to i32
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias nonnull align 8 %ref.tmp.i9, ptr noundef nonnull %zlibStream_, i32 noundef %conv.i14)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i9, ptr noundef %zlibStream_, i32 noundef %conv.i14)
           to label %.noexc20 unwind label %lpad.loopexit
 
 .noexc20:                                         ; preds = %if.then.i13
@@ -551,7 +551,7 @@ do.body41:                                        ; preds = %do.body41.preheader
 if.then.i29:                                      ; preds = %do.body41
   %37 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %conv.i30 = trunc i64 %37 to i32
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias nonnull align 8 %ref.tmp.i25, ptr noundef nonnull %zlibStream_, i32 noundef %conv.i30)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i25, ptr noundef %zlibStream_, i32 noundef %conv.i30)
           to label %.noexc36 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc36:                                         ; preds = %if.then.i29
@@ -630,7 +630,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %agg.result, ptr nocapture noundef %stream, i32 noundef %length) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull %stream, i32 noundef %length) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
@@ -689,7 +689,7 @@ lpad:                                             ; preds = %while.body
 
 invoke.cont12:                                    ; preds = %entry, %_ZN6google12Check_EQImplIjiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %conv = zext i32 %length to i64
-  call void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %conv)
+  call void @_ZN5folly5IOBuf6createEm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %conv)
   %4 = load ptr, ptr %agg.result, align 8
   %capacity_.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %capacity_.i, align 8

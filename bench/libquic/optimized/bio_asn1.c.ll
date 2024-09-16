@@ -460,7 +460,7 @@ if.end27:                                         ; preds = %asn1_bio_setup_ex.e
 if.then30:                                        ; preds = %if.end27
   %suffix_free31 = getelementptr inbounds i8, ptr %0, i64 64
   %15 = load ptr, ptr %suffix_free31, align 8
-  %call32 = tail call fastcc i32 @asn1_bio_flush_ex(ptr noundef nonnull %b, ptr noundef nonnull %0, ptr noundef %15, i32 noundef 6)
+  %call32 = tail call fastcc i32 @asn1_bio_flush_ex(ptr noundef nonnull %b, ptr noundef %0, ptr noundef %15, i32 noundef 6)
   %cmp33 = icmp slt i32 %call32, 1
   br i1 %cmp33, label %if.then35, label %if.then30.if.end37_crit_edge
 
@@ -592,7 +592,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef %ctx, ptr noundef readonly %cleanup, i32 noundef %next) unnamed_addr #1 {
+define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef nonnull %ctx, ptr noundef readonly %cleanup, i32 noundef range(i32 2, 7) %next) unnamed_addr #1 {
 entry:
   %ex_len = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load i32, ptr %ex_len, align 8

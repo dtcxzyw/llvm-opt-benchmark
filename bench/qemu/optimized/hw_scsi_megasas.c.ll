@@ -3242,7 +3242,7 @@ megasas_write_sense.exit.i.i:                     ; preds = %if.end12.i.i.i.i, %
 if.end44.i.i:                                     ; preds = %if.end36.i.i
   %315 = load ptr, ptr %frame20.i.i, align 8
   %sgl.i.i = getelementptr inbounds i8, ptr %315, i64 48
-  %call46.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i.i)
+  %call46.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef %arrayidx14.i.i, ptr noundef nonnull %sgl.i.i)
   %tobool47.not.i.i = icmp eq i32 %call46.i.i, 0
   br i1 %tobool47.not.i.i, label %if.end53.i.i, label %if.then48.i.i
 
@@ -3328,7 +3328,7 @@ if.end53.i.i:                                     ; preds = %if.end44.i.i
 mfi_frame_desc.exit155.i.i:                       ; preds = %if.end53.i.i
   call fastcc void @trace_megasas_scsi_req_alloc_failed(ptr noundef %284, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i)
   %sense_code_NO_SENSE.coerce.0.copyload.i.i = load i24, ptr @sense_code_NO_SENSE, align 1
-  call fastcc void @megasas_write_sense(ptr noundef nonnull %arrayidx14.i.i, i24 %sense_code_NO_SENSE.coerce.0.copyload.i.i)
+  call fastcc void @megasas_write_sense(ptr noundef %arrayidx14.i.i, i24 %sense_code_NO_SENSE.coerce.0.copyload.i.i)
   %329 = load ptr, ptr %frame20.i.i, align 8
   %scsi_status61.i.i = getelementptr inbounds i8, ptr %329, i64 3
   store i8 8, ptr %scsi_status61.i.i, align 1
@@ -3364,7 +3364,7 @@ if.else82.i.i:                                    ; preds = %if.end64.i.i
   br label %if.end84.i.i
 
 if.end84.i.i:                                     ; preds = %if.else82.i.i, %if.else.i151.i, %if.then74.i.i
-  %call86.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp67.i.i)
+  %call86.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef %arrayidx14.i.i, i1 noundef zeroext %cmp67.i.i)
   br label %sw.epilog
 
 sw.bb14.i:                                        ; preds = %if.end.i167, %if.end.i167
@@ -3598,7 +3598,7 @@ if.end31.i210.i:                                  ; preds = %if.end25.i.i
   store i64 %conv32.i.i, ptr %iov_size.i211.i, align 8
   %374 = load ptr, ptr %frame20.i.i, align 8
   %sgl.i212.i = getelementptr inbounds i8, ptr %374, i64 40
-  %call34.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i212.i)
+  %call34.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef %arrayidx14.i.i, ptr noundef nonnull %sgl.i212.i)
   %tobool35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %tobool35.not.i.i, label %if.end41.i.i, label %if.then36.i.i
 
@@ -3796,7 +3796,7 @@ megasas_write_sense.exit181.i.i:                  ; preds = %if.end12.i.i173.i.i
   br label %megasas_handle_io.exit.i
 
 if.end55.i.i:                                     ; preds = %if.end41.i.i
-  %call57.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp.i191.i)
+  %call57.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef %arrayidx14.i.i, i1 noundef zeroext %cmp.i191.i)
   %cmp58.i.i = icmp sgt i32 %call57.i.i, 0
   br i1 %cmp58.i.i, label %if.then60.i.i, label %megasas_handle_io.exit.i
 
@@ -7344,7 +7344,7 @@ declare void @qemu_sglist_add(ptr noundef, i64 noundef, i64 noundef) local_unnam
 declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @megasas_write_sense(ptr nocapture noundef readonly %cmd, i24 %sense.coerce) unnamed_addr #0 {
+define internal fastcc void @megasas_write_sense(ptr nocapture noundef nonnull readonly %cmd, i24 %sense.coerce) unnamed_addr #0 {
 entry:
   %sense_buf = alloca [252 x i8], align 16
   %sense.sroa.0.0.extract.trunc = trunc i24 %sense.coerce to i8
@@ -7408,7 +7408,7 @@ megasas_build_sense.exit:                         ; preds = %entry, %if.end12.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @megasas_map_sgl(ptr noundef %s, ptr noundef %cmd, ptr noundef readonly %sgl) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @megasas_map_sgl(ptr noundef %s, ptr noundef nonnull %cmd, ptr noundef readonly %sgl) unnamed_addr #0 {
 entry:
   %_now.i.i84 = alloca %struct.timeval, align 8
   %_now.i.i70 = alloca %struct.timeval, align 8
@@ -7720,7 +7720,7 @@ return:                                           ; preds = %unmap, %if.end40, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_megasas_scsi_req_alloc_failed(ptr noundef %frame, i32 noundef %dev, i32 noundef %lun) unnamed_addr #0 {
+define internal fastcc void @trace_megasas_scsi_req_alloc_failed(ptr noundef %frame, i32 noundef range(i32 0, 256) %dev, i32 noundef range(i32 0, 256) %lun) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -7884,7 +7884,7 @@ _nocheck__trace_megasas_scsi_nodata.exit:         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, -2147483647) i32 @megasas_enqueue_req(ptr nocapture noundef %cmd, i1 noundef zeroext %is_write) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483647) i32 @megasas_enqueue_req(ptr nocapture noundef nonnull %cmd, i1 noundef zeroext %is_write) unnamed_addr #0 {
 entry:
   %_now.i.i53 = alloca %struct.timeval, align 8
   %_now.i.i39 = alloca %struct.timeval, align 8

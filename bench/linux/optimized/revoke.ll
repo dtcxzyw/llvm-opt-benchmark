@@ -168,38 +168,38 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr noc
   %34 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %33, ptr %34, align 8
   %35 = icmp eq ptr %33, null
-  br i1 %35, label %36, label %.preheader9
+  br i1 %35, label %36, label %.preheader8
 
 36:                                               ; preds = %30, %.thread2.i
   %37 = load ptr, ptr @jbd2_revoke_table_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %37, ptr noundef nonnull %16) #8
   br label %jbd2_journal_init_revoke_table.exit.thread
 
-.preheader9:                                      ; preds = %30, %.preheader9
-  %38 = phi i64 [ %41, %.preheader9 ], [ 0, %30 ]
+.preheader8:                                      ; preds = %30, %.preheader8
+  %38 = phi i64 [ %41, %.preheader8 ], [ 0, %30 ]
   %39 = getelementptr %struct.list_head, ptr %33, i64 %38
   store volatile ptr %39, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   store volatile ptr %39, ptr %40, align 8
   %41 = add nuw nsw i64 %38, 1
   %42 = icmp eq i64 %41, %31
-  br i1 %42, label %jbd2_journal_init_revoke_table.exit, label %.preheader9, !llvm.loop !20
+  br i1 %42, label %jbd2_journal_init_revoke_table.exit, label %.preheader8, !llvm.loop !20
 
 jbd2_journal_init_revoke_table.exit.thread:       ; preds = %36, %14
   store ptr null, ptr %3, align 8
   br label %89
 
-jbd2_journal_init_revoke_table.exit:              ; preds = %.preheader9
+jbd2_journal_init_revoke_table.exit:              ; preds = %.preheader8
   store ptr %16, ptr %3, align 8
   %43 = load ptr, ptr @jbd2_revoke_table_cache, align 8
   %44 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %43, i32 noundef 3264) #8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %jbd2_journal_init_revoke_table.exit8.thread, label %46
+  br i1 %45, label %jbd2_journal_init_revoke_table.exit7.thread, label %46
 
 46:                                               ; preds = %jbd2_journal_init_revoke_table.exit
-  br i1 %19, label %.thread.i7, label %.preheader.i4
+  br i1 %19, label %.thread.i6, label %.preheader.i4
 
-.thread.i7:                                       ; preds = %46
+.thread.i6:                                       ; preds = %46
   store i32 %1, ptr %44, align 8
   %47 = getelementptr inbounds i8, ptr %44, i64 4
   store i32 0, ptr %47, align 4
@@ -218,24 +218,24 @@ jbd2_journal_init_revoke_table.exit:              ; preds = %.preheader9
   %54 = getelementptr inbounds i8, ptr %44, i64 4
   store i32 %51, ptr %54, align 4
   %55 = icmp slt i32 %1, 0
-  br i1 %55, label %.thread2.i6, label %57, !prof !19
+  br i1 %55, label %.thread2.i5, label %57, !prof !19
 
-.thread2.i6:                                      ; preds = %53
+.thread2.i5:                                      ; preds = %53
   %56 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr null, ptr %56, align 8
   br label %61
 
-57:                                               ; preds = %53, %.thread.i7
+57:                                               ; preds = %53, %.thread.i6
   %58 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %32, i32 noundef 3264) #10
   %59 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %58, ptr %59, align 8
   %60 = icmp eq ptr %58, null
   br i1 %60, label %61, label %.preheader
 
-61:                                               ; preds = %57, %.thread2.i6
+61:                                               ; preds = %57, %.thread2.i5
   %62 = load ptr, ptr @jbd2_revoke_table_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %62, ptr noundef nonnull %44) #8
-  br label %jbd2_journal_init_revoke_table.exit8.thread
+  br label %jbd2_journal_init_revoke_table.exit7.thread
 
 .preheader:                                       ; preds = %57, %.preheader
   %63 = phi i64 [ %66, %.preheader ], [ 0, %57 ]
@@ -245,9 +245,9 @@ jbd2_journal_init_revoke_table.exit:              ; preds = %.preheader9
   store volatile ptr %64, ptr %65, align 8
   %66 = add nuw nsw i64 %63, 1
   %67 = icmp eq i64 %66, %31
-  br i1 %67, label %jbd2_journal_init_revoke_table.exit8, label %.preheader, !llvm.loop !20
+  br i1 %67, label %jbd2_journal_init_revoke_table.exit7, label %.preheader, !llvm.loop !20
 
-jbd2_journal_init_revoke_table.exit8.thread:      ; preds = %61, %jbd2_journal_init_revoke_table.exit
+jbd2_journal_init_revoke_table.exit7.thread:      ; preds = %61, %jbd2_journal_init_revoke_table.exit
   %68 = getelementptr i8, ptr %0, i64 1176
   store ptr null, ptr %68, align 8
   %69 = load ptr, ptr %3, align 8
@@ -257,7 +257,7 @@ jbd2_journal_init_revoke_table.exit8.thread:      ; preds = %61, %jbd2_journal_i
   %73 = load ptr, ptr %72, align 8
   br i1 %71, label %77, label %.loopexit
 
-jbd2_journal_init_revoke_table.exit8:             ; preds = %.preheader
+jbd2_journal_init_revoke_table.exit7:             ; preds = %.preheader
   %74 = getelementptr i8, ptr %0, i64 1176
   store ptr %44, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 1160
@@ -266,7 +266,7 @@ jbd2_journal_init_revoke_table.exit8:             ; preds = %.preheader
   store i32 0, ptr %76, align 8
   br label %89
 
-77:                                               ; preds = %jbd2_journal_init_revoke_table.exit8.thread
+77:                                               ; preds = %jbd2_journal_init_revoke_table.exit7.thread
   %78 = zext nneg i32 %70 to i64
   br label %82
 
@@ -287,15 +287,15 @@ jbd2_journal_init_revoke_table.exit8:             ; preds = %.preheader
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 255, i32 0, i64 12) #8, !srcloc !23
   unreachable
 
-.loopexit:                                        ; preds = %79, %jbd2_journal_init_revoke_table.exit8.thread
+.loopexit:                                        ; preds = %79, %jbd2_journal_init_revoke_table.exit7.thread
   tail call void @kfree(ptr noundef %73) #8
   %88 = load ptr, ptr @jbd2_revoke_table_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %88, ptr noundef %69) #8
   store ptr null, ptr %3, align 8
   br label %89
 
-89:                                               ; preds = %jbd2_journal_init_revoke_table.exit.thread, %.loopexit, %jbd2_journal_init_revoke_table.exit8
-  %90 = phi i32 [ 0, %jbd2_journal_init_revoke_table.exit8 ], [ -12, %.loopexit ], [ -12, %jbd2_journal_init_revoke_table.exit.thread ]
+89:                                               ; preds = %jbd2_journal_init_revoke_table.exit.thread, %.loopexit, %jbd2_journal_init_revoke_table.exit7
+  %90 = phi i32 [ 0, %jbd2_journal_init_revoke_table.exit7 ], [ -12, %.loopexit ], [ -12, %jbd2_journal_init_revoke_table.exit.thread ]
   ret i32 %90
 }
 

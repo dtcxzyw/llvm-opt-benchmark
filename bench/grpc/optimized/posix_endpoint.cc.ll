@@ -4083,7 +4083,7 @@ if.then46:                                        ; preds = %_ZN17grpc_event_eng
   br label %return
 
 if.else47:                                        ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8UndoSendEv.exit
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112PosixOSErrorEiPKc(ptr noalias nonnull align 8 %agg.tmp49, i32 noundef %47)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112PosixOSErrorEiPKc(ptr noalias align 8 %agg.tmp49, i32 noundef %47)
   invoke void @_ZN17grpc_event_engine12experimental17PosixEndpointImpl16TcpAnnotateErrorEN4absl12lts_202308026StatusE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp48, ptr noundef nonnull align 16 dereferenceable(936) %this, ptr noundef nonnull %agg.tmp49)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -4371,7 +4371,7 @@ declare i64 @_ZN9grpc_core9Timestamp21FromTimespecRoundDownE12gpr_timespec(i64, 
 declare { i64, i64 } @gpr_now(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112PosixOSErrorEiPKc(ptr noalias align 8 %agg.result, i32 noundef %error_no) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112PosixOSErrorEiPKc(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 12, 11) %error_no) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4379,13 +4379,13 @@ entry:
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
-  invoke void @_ZN4absl12lts_2023080212UnknownErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %0, ptr %1)
+  invoke void @_ZN4absl12lts_2023080212UnknownErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %0, ptr %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
   %conv = sext i32 %error_no to i64
-  invoke void @_ZN9grpc_core12StatusSetIntEPN4absl12lts_202308026StatusENS_17StatusIntPropertyEl(ptr noundef %agg.result, i32 noundef 0, i64 noundef %conv)
+  invoke void @_ZN9grpc_core12StatusSetIntEPN4absl12lts_202308026StatusENS_17StatusIntPropertyEl(ptr noundef nonnull %agg.result, i32 noundef 0, i64 noundef %conv)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -4396,12 +4396,12 @@ invoke.cont5:                                     ; preds = %invoke.cont2
   %call6 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #29
   %2 = extractvalue { i64, ptr } %call6, 0
   %3 = extractvalue { i64, ptr } %call6, 1
-  invoke void @_ZN9grpc_core12StatusSetStrEPN4absl12lts_202308026StatusENS_17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %agg.result, i32 noundef 2, i64 %2, ptr %3)
+  invoke void @_ZN9grpc_core12StatusSetStrEPN4absl12lts_202308026StatusENS_17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %agg.result, i32 noundef 2, i64 %2, ptr %3)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #29
-  invoke void @_ZN9grpc_core12StatusSetStrEPN4absl12lts_202308026StatusENS_17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %agg.result, i32 noundef 3, i64 7, ptr nonnull @.str.14)
+  invoke void @_ZN9grpc_core12StatusSetStrEPN4absl12lts_202308026StatusENS_17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %agg.result, i32 noundef 3, i64 7, ptr nonnull @.str.14)
           to label %nrvo.skipdtor unwind label %lpad1
 
 lpad:                                             ; preds = %entry
@@ -4721,7 +4721,7 @@ for.body37:                                       ; preds = %if.then33, %for.bod
   br i1 %exitcond.not, label %return, label %for.body37, !llvm.loop !74
 
 if.else42:                                        ; preds = %if.then29
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112PosixOSErrorEiPKc(ptr noalias nonnull align 8 %agg.tmp44, i32 noundef %25)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112PosixOSErrorEiPKc(ptr noalias align 8 %agg.tmp44, i32 noundef %25)
   invoke void @_ZN17grpc_event_engine12experimental17PosixEndpointImpl16TcpAnnotateErrorEN4absl12lts_202308026StatusE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp43, ptr noundef nonnull align 16 dereferenceable(936) %this, ptr noundef nonnull %agg.tmp44)
           to label %invoke.cont46 unwind label %lpad45
 
@@ -8527,7 +8527,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont15 unwind label %lpad13
 
 invoke.cont15:                                    ; preds = %invoke.cont
-  %call18 = invoke fastcc noundef i64 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126ParseUlimitMemLockFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %agg.tmp)
+  %call18 = invoke fastcc noundef i64 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126ParseUlimitMemLockFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %agg.tmp)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -8582,7 +8582,7 @@ lpad.i15:                                         ; preds = %.noexc17
   br label %eh.resume
 
 invoke.cont28:                                    ; preds = %.noexc17
-  %call31 = invoke fastcc noundef i64 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126ParseUlimitMemLockFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %agg.tmp25)
+  %call31 = invoke fastcc noundef i64 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126ParseUlimitMemLockFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %agg.tmp25)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont28
@@ -8618,7 +8618,7 @@ declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnam
 declare ptr @readdir(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126ParseUlimitMemLockFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %file_name) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126ParseUlimitMemLockFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %file_name) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2.i = alloca %"class.std::reverse_iterator", align 8
   %agg.tmp3.i = alloca %"class.std::reverse_iterator", align 8

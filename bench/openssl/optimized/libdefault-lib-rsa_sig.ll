@@ -1819,7 +1819,7 @@ if.end162:                                        ; preds = %if.then161, %if.end
 
 land.lhs.true164:                                 ; preds = %if.end162
   %28 = load ptr, ptr %pmgf1mdprops, align 8
-  %call165 = call fastcc i32 @rsa_setup_mgf1_md(ptr noundef nonnull %vprsactx, ptr noundef nonnull %27, ptr noundef %28)
+  %call165 = call fastcc i32 @rsa_setup_mgf1_md(ptr noundef %vprsactx, ptr noundef %27, ptr noundef %28)
   %tobool166.not = icmp eq i32 %call165, 0
   br i1 %tobool166.not, label %return, label %land.lhs.true164.if.end168_crit_edge
 
@@ -1834,7 +1834,7 @@ if.end168:                                        ; preds = %land.lhs.true164.if
 
 if.then170:                                       ; preds = %if.end168
   %30 = load ptr, ptr %pmdprops, align 8
-  %call171 = call fastcc i32 @rsa_setup_md(ptr noundef nonnull %vprsactx, ptr noundef nonnull %29, ptr noundef %30)
+  %call171 = call fastcc i32 @rsa_setup_md(ptr noundef nonnull %vprsactx, ptr noundef %29, ptr noundef %30)
   %tobool172.not = icmp eq i32 %call171, 0
   br i1 %tobool172.not, label %return, label %if.end180
 
@@ -1953,7 +1953,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_signverify_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_signverify_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef range(i32 16, 65) %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool = icmp eq i32 %call, 0
@@ -2077,18 +2077,18 @@ if.end49:                                         ; preds = %if.end44
   store i32 %call31, ptr %saltlen, align 8
   %propq = getelementptr inbounds i8, ptr %vprsactx, i64 8
   %5 = load ptr, ptr %propq, align 8
-  %call51 = tail call fastcc i32 @rsa_setup_mgf1_md(ptr noundef nonnull %vprsactx, ptr noundef nonnull %call33, ptr noundef %5)
+  %call51 = tail call fastcc i32 @rsa_setup_mgf1_md(ptr noundef %vprsactx, ptr noundef %call33, ptr noundef %5)
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %return, label %lor.lhs.false53
 
 lor.lhs.false53:                                  ; preds = %if.end49
   %6 = load ptr, ptr %propq, align 8
-  %call55 = tail call fastcc i32 @rsa_setup_md(ptr noundef nonnull %vprsactx, ptr noundef nonnull %call32, ptr noundef %6)
+  %call55 = tail call fastcc i32 @rsa_setup_md(ptr noundef nonnull %vprsactx, ptr noundef %call32, ptr noundef %6)
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %return, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %lor.lhs.false53
-  %call58 = tail call fastcc i32 @rsa_check_parameters(ptr noundef nonnull %vprsactx, i32 noundef %call31)
+  %call58 = tail call fastcc i32 @rsa_check_parameters(ptr noundef %vprsactx, i32 noundef %call31)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %return, label %sw.epilog
 
@@ -2136,7 +2136,7 @@ declare ptr @ossl_rsa_oaeppss_nid2name(i32 noundef) local_unnamed_addr #3
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_setup_mgf1_md(ptr noundef %ctx, ptr noundef %mdname, ptr noundef %mdprops) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_setup_mgf1_md(ptr noundef nonnull %ctx, ptr noundef nonnull %mdname, ptr noundef %mdprops) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %mdprops, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2149,14 +2149,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %mdprops.addr.0 = phi ptr [ %0, %if.then ], [ %mdprops, %entry ]
   %1 = load ptr, ptr %ctx, align 8
-  %call = tail call ptr @EVP_MD_fetch(ptr noundef %1, ptr noundef %mdname, ptr noundef %mdprops.addr.0) #11
+  %call = tail call ptr @EVP_MD_fetch(ptr noundef %1, ptr noundef nonnull %mdname, ptr noundef %mdprops.addr.0) #11
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 371, ptr noundef nonnull @__func__.rsa_setup_mgf1_md) #11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef nonnull @.str.5, ptr noundef %mdname) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef nonnull @.str.5, ptr noundef nonnull %mdname) #11
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -2183,20 +2183,18 @@ sw.bb6.i:                                         ; preds = %lor.lhs.false
   %min_saltlen.i = getelementptr inbounds i8, ptr %ctx, i64 180
   %4 = load i32, ptr %min_saltlen.i, align 4
   %cmp7.not.i = icmp eq i32 %4, -1
-  %cmp12.not.i = icmp eq ptr %mdname, null
-  %or.cond = or i1 %cmp12.not.i, %cmp7.not.i
-  br i1 %or.cond, label %if.end12, label %land.lhs.true13.i
+  br i1 %cmp7.not.i, label %if.end12, label %if.then8.i
 
-land.lhs.true13.i:                                ; preds = %sw.bb6.i
+if.then8.i:                                       ; preds = %sw.bb6.i
   %mgf1_md.i = getelementptr inbounds i8, ptr %ctx, i64 112
   %5 = load ptr, ptr %mgf1_md.i, align 8
   %call14.i = tail call i32 @EVP_MD_is_a(ptr noundef %5, ptr noundef nonnull %mdname) #11
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %if.then8, label %if.end12
 
-if.then8:                                         ; preds = %lor.lhs.false, %land.lhs.true13.i, %sw.bb2.i
-  %.sink8.i = phi i32 [ 135, %sw.bb2.i ], [ 144, %land.lhs.true13.i ], [ 129, %lor.lhs.false ]
-  %.sink.i = phi i32 [ 170, %sw.bb2.i ], [ 174, %land.lhs.true13.i ], [ 168, %lor.lhs.false ]
+if.then8:                                         ; preds = %lor.lhs.false, %if.then8.i, %sw.bb2.i
+  %.sink8.i = phi i32 [ 135, %sw.bb2.i ], [ 144, %if.then8.i ], [ 129, %lor.lhs.false ]
+  %.sink.i = phi i32 [ 170, %sw.bb2.i ], [ 174, %if.then8.i ], [ 168, %lor.lhs.false ]
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8.i, ptr noundef nonnull @__func__.rsa_check_padding) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #11
@@ -2205,23 +2203,23 @@ if.then8:                                         ; preds = %lor.lhs.false, %lan
 if.then10:                                        ; preds = %if.end3
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 379, ptr noundef nonnull @__func__.rsa_setup_mgf1_md) #11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 174, ptr noundef nonnull @.str.6, ptr noundef %mdname) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 174, ptr noundef nonnull @.str.6, ptr noundef nonnull %mdname) #11
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.then10
   tail call void @EVP_MD_free(ptr noundef nonnull %call) #11
   br label %return
 
-if.end12:                                         ; preds = %lor.lhs.false, %sw.bb6.i, %land.lhs.true13.i, %sw.bb2.i
+if.end12:                                         ; preds = %lor.lhs.false, %sw.bb6.i, %if.then8.i, %sw.bb2.i
   %mgf1_mdname = getelementptr inbounds i8, ptr %ctx, i64 124
-  %call13 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mgf1_mdname, ptr noundef %mdname, i64 noundef 50) #11
+  %call13 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mgf1_mdname, ptr noundef nonnull %mdname, i64 noundef 50) #11
   %cmp14 = icmp ugt i64 %call13, 49
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 386, ptr noundef nonnull @__func__.rsa_setup_mgf1_md) #11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef nonnull @.str.7, ptr noundef %mdname) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef nonnull @.str.7, ptr noundef nonnull %mdname) #11
   tail call void @EVP_MD_free(ptr noundef nonnull %call) #11
   br label %return
 
@@ -2244,7 +2242,7 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_setup_md(ptr noundef %ctx, ptr noundef %mdname, ptr noundef %mdprops) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_setup_md(ptr noundef %ctx, ptr noundef nonnull %mdname, ptr noundef %mdprops) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %mdprops, null
   br i1 %cmp, label %if.then, label %if.then2
@@ -2257,7 +2255,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %entry, %if.then
   %mdprops.addr.0 = phi ptr [ %0, %if.then ], [ %mdprops, %entry ]
   %1 = load ptr, ptr %ctx, align 8
-  %call = tail call ptr @EVP_MD_fetch(ptr noundef %1, ptr noundef %mdname, ptr noundef %mdprops.addr.0) #11
+  %call = tail call ptr @EVP_MD_fetch(ptr noundef %1, ptr noundef nonnull %mdname, ptr noundef %mdprops.addr.0) #11
   %operation = getelementptr inbounds i8, ptr %ctx, i64 24
   %2 = load i32, ptr %operation, align 8
   %cmp3 = icmp ne i32 %2, 16
@@ -2271,11 +2269,43 @@ if.then2:                                         ; preds = %entry, %if.then
   br i1 %or.cond, label %if.then16, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %if.then2
-  %call12 = tail call fastcc i32 @rsa_check_padding(ptr noundef nonnull %ctx, ptr noundef %mdname, ptr noundef null, i32 noundef %call5)
-  %tobool = icmp eq i32 %call12, 0
+  %pad_mode.i = getelementptr inbounds i8, ptr %ctx, i64 104
+  %4 = load i32, ptr %pad_mode.i, align 8
+  switch i32 %4, label %rsa_check_padding.exit [
+    i32 3, label %rsa_check_padding.exit.thread
+    i32 5, label %sw.bb2.i
+    i32 6, label %sw.bb6.i
+  ]
+
+sw.bb2.i:                                         ; preds = %lor.lhs.false11
+  %call.i = tail call i32 @RSA_X931_hash_id(i32 noundef %call5) #11
+  %cmp3.i = icmp eq i32 %call.i, -1
+  br i1 %cmp3.i, label %rsa_check_padding.exit.thread, label %rsa_check_padding.exit
+
+sw.bb6.i:                                         ; preds = %lor.lhs.false11
+  %min_saltlen.i = getelementptr inbounds i8, ptr %ctx, i64 180
+  %5 = load i32, ptr %min_saltlen.i, align 4
+  %cmp7.not.i = icmp eq i32 %5, -1
+  br i1 %cmp7.not.i, label %rsa_check_padding.exit, label %if.then8.i
+
+if.then8.i:                                       ; preds = %sw.bb6.i
+  %md.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %6 = load ptr, ptr %md.i, align 8
+  %call10.i = tail call i32 @EVP_MD_is_a(ptr noundef %6, ptr noundef nonnull %mdname) #11
+  %tobool.not.i = icmp eq i32 %call10.i, 0
+  br i1 %tobool.not.i, label %rsa_check_padding.exit.thread, label %rsa_check_padding.exit
+
+rsa_check_padding.exit.thread:                    ; preds = %sw.bb2.i, %if.then8.i, %lor.lhs.false11
+  %.sink8.i = phi i32 [ 135, %sw.bb2.i ], [ 144, %if.then8.i ], [ 129, %lor.lhs.false11 ]
+  %.sink.i = phi i32 [ 170, %sw.bb2.i ], [ 174, %if.then8.i ], [ 168, %lor.lhs.false11 ]
+  tail call void @ERR_new() #11
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8.i, ptr noundef nonnull @__func__.rsa_check_padding) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #11
+  br label %if.end24
+
+rsa_check_padding.exit:                           ; preds = %if.then8.i, %lor.lhs.false11, %sw.bb2.i, %sw.bb6.i
   %cmp14 = icmp ugt i64 %call6, 49
-  %or.cond1 = select i1 %tobool, i1 true, i1 %cmp14
-  br i1 %or.cond1, label %if.end24, label %if.end29
+  br i1 %cmp14, label %if.then27, label %if.end29
 
 if.then16:                                        ; preds = %if.then2
   br i1 %cmp7, label %if.then19, label %if.end20
@@ -2283,7 +2313,7 @@ if.then16:                                        ; preds = %if.then2
 if.then19:                                        ; preds = %if.then16
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 314, ptr noundef nonnull @__func__.rsa_setup_md) #11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef nonnull @.str.5, ptr noundef %mdname) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef nonnull @.str.5, ptr noundef nonnull %mdname) #11
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then19, %if.then16
@@ -2292,24 +2322,24 @@ if.end20:                                         ; preds = %if.then19, %if.then
 if.then23:                                        ; preds = %if.end20
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 317, ptr noundef nonnull @__func__.rsa_setup_md) #11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 174, ptr noundef nonnull @.str.6, ptr noundef %mdname) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 174, ptr noundef nonnull @.str.6, ptr noundef nonnull %mdname) #11
   br label %if.end24
 
-if.end24:                                         ; preds = %lor.lhs.false11, %if.then23, %if.end20
+if.end24:                                         ; preds = %rsa_check_padding.exit.thread, %if.then23, %if.end20
   %cmp25 = icmp ugt i64 %call6, 49
   br i1 %cmp25, label %if.then27, label %if.end28
 
-if.then27:                                        ; preds = %if.end24
+if.then27:                                        ; preds = %rsa_check_padding.exit, %if.end24
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 320, ptr noundef nonnull @__func__.rsa_setup_md) #11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef nonnull @.str.7, ptr noundef %mdname) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef nonnull @.str.7, ptr noundef nonnull %mdname) #11
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then27, %if.end24
   tail call void @EVP_MD_free(ptr noundef %call) #11
   br label %return
 
-if.end29:                                         ; preds = %lor.lhs.false11
+if.end29:                                         ; preds = %rsa_check_padding.exit
   %flag_allow_md = getelementptr inbounds i8, ptr %ctx, i64 28
   %bf.load = load i8, ptr %flag_allow_md, align 4
   %bf.clear = and i8 %bf.load, 1
@@ -2318,8 +2348,8 @@ if.end29:                                         ; preds = %lor.lhs.false11
 
 if.then31:                                        ; preds = %if.end29
   %mdname32 = getelementptr inbounds i8, ptr %ctx, i64 52
-  %4 = load i8, ptr %mdname32, align 4
-  %cmp34.not = icmp eq i8 %4, 0
+  %7 = load i8, ptr %mdname32, align 4
+  %cmp34.not = icmp eq i8 %7, 0
   br i1 %cmp34.not, label %if.end42, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then31
@@ -2330,7 +2360,7 @@ land.lhs.true:                                    ; preds = %if.then31
 if.then39:                                        ; preds = %land.lhs.true
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @__func__.rsa_setup_md) #11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 174, ptr noundef nonnull @.str.8, ptr noundef %mdname, ptr noundef nonnull %mdname32) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 174, ptr noundef nonnull @.str.8, ptr noundef nonnull %mdname, ptr noundef nonnull %mdname32) #11
   tail call void @EVP_MD_free(ptr noundef nonnull %call) #11
   br label %return
 
@@ -2339,8 +2369,8 @@ if.end42:                                         ; preds = %land.lhs.true, %if.
   br label %return
 
 if.end43:                                         ; preds = %if.end29
-  %5 = and i8 %bf.load, 2
-  %tobool47.not = icmp eq i8 %5, 0
+  %8 = and i8 %bf.load, 2
+  %tobool47.not = icmp eq i8 %8, 0
   br i1 %tobool47.not, label %if.then48, label %if.end56
 
 if.then48:                                        ; preds = %if.end43
@@ -2354,28 +2384,28 @@ if.then51:                                        ; preds = %if.then48
 
 if.end52:                                         ; preds = %if.then48
   %mgf1_md = getelementptr inbounds i8, ptr %ctx, i64 112
-  %6 = load ptr, ptr %mgf1_md, align 8
-  tail call void @EVP_MD_free(ptr noundef %6) #11
+  %9 = load ptr, ptr %mgf1_md, align 8
+  tail call void @EVP_MD_free(ptr noundef %9) #11
   store ptr %call, ptr %mgf1_md, align 8
   %mgf1_mdnid = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 %call5, ptr %mgf1_mdnid, align 8
   %mgf1_mdname = getelementptr inbounds i8, ptr %ctx, i64 124
-  %call55 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mgf1_mdname, ptr noundef %mdname, i64 noundef 50) #11
+  %call55 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mgf1_mdname, ptr noundef nonnull %mdname, i64 noundef 50) #11
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end52, %if.end43
   %mdctx = getelementptr inbounds i8, ptr %ctx, i64 40
-  %7 = load ptr, ptr %mdctx, align 8
-  tail call void @EVP_MD_CTX_free(ptr noundef %7) #11
+  %10 = load ptr, ptr %mdctx, align 8
+  tail call void @EVP_MD_CTX_free(ptr noundef %10) #11
   %md57 = getelementptr inbounds i8, ptr %ctx, i64 32
-  %8 = load ptr, ptr %md57, align 8
-  tail call void @EVP_MD_free(ptr noundef %8) #11
+  %11 = load ptr, ptr %md57, align 8
+  tail call void @EVP_MD_free(ptr noundef %11) #11
   store ptr null, ptr %mdctx, align 8
   store ptr %call, ptr %md57, align 8
   %mdnid = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 %call5, ptr %mdnid, align 8
   %mdname60 = getelementptr inbounds i8, ptr %ctx, i64 52
-  %call62 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mdname60, ptr noundef %mdname, i64 noundef 50) #11
+  %call62 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mdname60, ptr noundef nonnull %mdname, i64 noundef 50) #11
   br label %return
 
 return:                                           ; preds = %if.end56, %if.then51, %if.end42, %if.then39, %if.end28
@@ -2384,7 +2414,7 @@ return:                                           ; preds = %if.end56, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_check_parameters(ptr nocapture noundef %prsactx, i32 noundef %min_saltlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_check_parameters(ptr nocapture noundef nonnull %prsactx, i32 noundef %min_saltlen) unnamed_addr #0 {
 entry:
   %pad_mode = getelementptr inbounds i8, ptr %prsactx, i64 104
   %0 = load i32, ptr %pad_mode, align 8
@@ -2580,7 +2610,7 @@ declare i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @ossl_rsa_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_digest_signverify_init(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_digest_signverify_init(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %vrsa, ptr noundef %params, i32 noundef range(i32 16, 33) %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool.not = icmp eq i32 %call, 0
@@ -2609,7 +2639,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 land.lhs.true11:                                  ; preds = %lor.lhs.false, %land.lhs.true
   %propq = getelementptr inbounds i8, ptr %vprsactx, i64 8
   %1 = load ptr, ptr %propq, align 8
-  %call12 = tail call fastcc i32 @rsa_setup_md(ptr noundef %vprsactx, ptr noundef nonnull %mdname, ptr noundef %1)
+  %call12 = tail call fastcc i32 @rsa_setup_md(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %1)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %if.end15
 

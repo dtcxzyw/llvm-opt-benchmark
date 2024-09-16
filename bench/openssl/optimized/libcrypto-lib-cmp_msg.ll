@@ -660,7 +660,7 @@ land.lhs.true78:                                  ; preds = %lor.lhs.false73
   br i1 %cmp81.not, label %if.end86, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %land.lhs.true78
-  %call83 = call fastcc i32 @add1_extension(ptr noundef nonnull %exts, i32 noundef 85, i32 noundef %lor.ext, ptr noundef nonnull %call80)
+  %call83 = call fastcc i32 @add1_extension(ptr noundef %exts, i32 noundef 85, i32 noundef %lor.ext, ptr noundef nonnull %call80)
   %tobool84.not = icmp eq i32 %call83, 0
   br i1 %tobool84.not, label %err, label %if.end86
 
@@ -734,7 +734,7 @@ if.end103:                                        ; preds = %add1_extension.exit
 land.lhs.true105:                                 ; preds = %if.end103
   %setPoliciesCritical = getelementptr inbounds i8, ptr %ctx, i64 416
   %23 = load i32, ptr %setPoliciesCritical, align 8
-  %call107 = call fastcc i32 @add1_extension(ptr noundef nonnull %exts, i32 noundef 89, i32 noundef %23, ptr noundef nonnull %22)
+  %call107 = call fastcc i32 @add1_extension(ptr noundef %exts, i32 noundef 89, i32 noundef %23, ptr noundef nonnull %22)
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %err, label %if.end110
 
@@ -816,14 +816,14 @@ declare ptr @X509V3_get_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) 
 declare ptr @X509_get0_extensions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add1_extension(ptr noundef %pexts, i32 noundef %nid, i32 noundef %crit, ptr noundef %ex) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add1_extension(ptr noundef nonnull %pexts, i32 noundef range(i32 85, 142) %nid, i32 noundef %crit, ptr noundef %ex) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509V3_EXT_i2d(i32 noundef %nid, i32 noundef %crit, ptr noundef %ex) #6
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %entry
-  %call9 = tail call ptr @X509v3_add_ext(ptr noundef %pexts, ptr noundef nonnull %call, i32 noundef 0) #6
+  %call9 = tail call ptr @X509v3_add_ext(ptr noundef nonnull %pexts, ptr noundef nonnull %call, i32 noundef 0) #6
   %cmp10 = icmp ne ptr %call9, null
   %conv11 = zext i1 %cmp10 to i32
   tail call void @X509_EXTENSION_free(ptr noundef nonnull %call) #6
@@ -1544,7 +1544,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gen_new(ptr noundef %ctx, ptr noundef %itavs, i32 noundef %body_type, i32 noundef %err_code) unnamed_addr #0 {
+define internal fastcc ptr @gen_new(ptr noundef %ctx, ptr noundef %itavs, i32 noundef range(i32 21, 23) %body_type, i32 noundef range(i32 119, 121) %err_code) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %return, label %if.end

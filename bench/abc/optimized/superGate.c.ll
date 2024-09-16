@@ -873,7 +873,7 @@ Abc_Clock.exit.i:                                 ; preds = %286, %280
   %384 = load i32, ptr %104, align 8
   call void @Mio_DeriveTruthTable(ptr noundef %383, ptr noundef nonnull %33, i32 noundef 1, i32 noundef %384, ptr noundef nonnull %32) #19
   %385 = load i32, ptr %104, align 8
-  %386 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef nonnull %32, float noundef %371, ptr noundef nonnull %29, i32 noundef %385)
+  %386 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef %32, float noundef %371, ptr noundef %29, i32 noundef %385)
   %.not771.i = icmp eq i32 %386, 0
   br i1 %.not771.i, label %420, label %387
 
@@ -1018,7 +1018,7 @@ Super_AddGateToTable.exit.i94:                    ; preds = %409, %387
   %457 = load i32, ptr %104, align 8
   call void @Mio_DeriveTruthTable(ptr noundef %456, ptr noundef nonnull %33, i32 noundef 2, i32 noundef %457, ptr noundef nonnull %32) #19
   %458 = load i32, ptr %104, align 8
-  %459 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef nonnull %32, float noundef %444, ptr noundef nonnull %29, i32 noundef %458)
+  %459 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef %32, float noundef %444, ptr noundef %29, i32 noundef %458)
   %.not768.i = icmp eq i32 %459, 0
   br i1 %.not768.i, label %493, label %460
 
@@ -1209,7 +1209,7 @@ Super_AddGateToTable.exit851.i:                   ; preds = %482, %460
   %546 = load i32, ptr %104, align 8
   call void @Mio_DeriveTruthTable(ptr noundef %545, ptr noundef nonnull %33, i32 noundef 3, i32 noundef %546, ptr noundef nonnull %32) #19
   %547 = load i32, ptr %104, align 8
-  %548 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef nonnull %32, float noundef %533, ptr noundef nonnull %29, i32 noundef %547)
+  %548 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef %32, float noundef %533, ptr noundef %29, i32 noundef %547)
   %.not762.us.i = icmp eq i32 %548, 0
   br i1 %.not762.us.i, label %582, label %549
 
@@ -1454,7 +1454,7 @@ Super_AddGateToTable.exit853.us.i:                ; preds = %571, %549
   %651 = load i32, ptr %104, align 8
   call void @Mio_DeriveTruthTable(ptr noundef %650, ptr noundef nonnull %33, i32 noundef 4, i32 noundef %651, ptr noundef nonnull %32) #19
   %652 = load i32, ptr %104, align 8
-  %653 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef nonnull %32, float noundef %638, ptr noundef nonnull %29, i32 noundef %652)
+  %653 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef %32, float noundef %638, ptr noundef %29, i32 noundef %652)
   %.not753.us.us.i = icmp eq i32 %653, 0
   br i1 %.not753.us.us.i, label %687, label %654
 
@@ -1748,7 +1748,7 @@ Super_AddGateToTable.exit855.us.us.i:             ; preds = %676, %654
   %772 = load i32, ptr %104, align 8
   call void @Mio_DeriveTruthTable(ptr noundef %771, ptr noundef nonnull %33, i32 noundef 5, i32 noundef %772, ptr noundef nonnull %32) #19
   %773 = load i32, ptr %104, align 8
-  %774 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef nonnull %32, float noundef %759, ptr noundef nonnull %29, i32 noundef %773)
+  %774 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef %32, float noundef %759, ptr noundef %29, i32 noundef %773)
   %.not740.us.us.us.i = icmp eq i32 %774, 0
   br i1 %.not740.us.us.us.i, label %808, label %775
 
@@ -2098,7 +2098,7 @@ Super_AddGateToTable.exit857.us.us.us.i:          ; preds = %797, %775
   %911 = load i32, ptr %104, align 8
   call void @Mio_DeriveTruthTable(ptr noundef %910, ptr noundef nonnull %33, i32 noundef 6, i32 noundef %911, ptr noundef nonnull %32) #19
   %912 = load i32, ptr %104, align 8
-  %913 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef nonnull %32, float noundef %898, ptr noundef nonnull %29, i32 noundef %912)
+  %913 = call fastcc i32 @Super_CompareGates(ptr noundef nonnull %55, ptr noundef %32, float noundef %898, ptr noundef %29, i32 noundef %912)
   %.not796.us.us.us.us.i = icmp eq i32 %913, 0
   br i1 %.not796.us.us.us.us.i, label %947, label %914
 
@@ -3952,7 +3952,7 @@ declare void @Mio_DeriveGateDelays(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare void @Mio_DeriveTruthTable(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, float noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, float noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8

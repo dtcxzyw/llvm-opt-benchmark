@@ -2801,22 +2801,22 @@ exit_no_retire.i:                                 ; preds = %if.then282.i, %if.e
   br label %for.body.i.i179.i
 
 for.body.i.i179.i:                                ; preds = %for.inc.i.i.i, %exit_no_retire.i
-  %i.019.i.i.i = phi i32 [ 0, %exit_no_retire.i ], [ %inc.i.i183.i, %for.inc.i.i.i ]
-  %buf.addr.018.i.i.i = phi ptr [ %td.i, %exit_no_retire.i ], [ %incdec.ptr.i.i184.i, %for.inc.i.i.i ]
-  %addr.addr.017.i.i.i = phi i64 [ %add.i.i177.i, %exit_no_retire.i ], [ %add29.i.i185.i, %for.inc.i.i.i ]
-  %154 = load i32, ptr %buf.addr.018.i.i.i, align 4
+  %i.018.i.i.i = phi i32 [ 0, %exit_no_retire.i ], [ %inc.i.i183.i, %for.inc.i.i.i ]
+  %buf.addr.017.i.i.i = phi ptr [ %td.i, %exit_no_retire.i ], [ %incdec.ptr.i.i184.i, %for.inc.i.i.i ]
+  %addr.addr.016.i.i.i = phi i64 [ %add.i.i177.i, %exit_no_retire.i ], [ %add29.i.i185.i, %for.inc.i.i.i ]
+  %154 = load i32, ptr %buf.addr.017.i.i.i, align 4
   store i32 %154, ptr %tmp.i.i.i, align 4
   %155 = load ptr, ptr %as.i.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i180.i = call i32 @address_space_rw(ptr noundef %155, i64 noundef %addr.addr.017.i.i.i, i32 1, ptr noundef nonnull %tmp.i.i.i, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i180.i = call i32 @address_space_rw(ptr noundef %155, i64 noundef %addr.addr.016.i.i.i, i32 1, ptr noundef nonnull %tmp.i.i.i, i64 noundef 4, i1 noundef zeroext true) #8
   %tobool.not.i.i181.i = icmp eq i32 %call.i.i.i.i.i180.i, 0
   br i1 %tobool.not.i.i181.i, label %for.inc.i.i.i, label %if.then288.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i179.i
-  %inc.i.i183.i = add nuw nsw i32 %i.019.i.i.i, 1
-  %incdec.ptr.i.i184.i = getelementptr i8, ptr %buf.addr.018.i.i.i, i64 4
-  %add29.i.i185.i = add i64 %addr.addr.017.i.i.i, 4
+  %inc.i.i183.i = add nuw nsw i32 %i.018.i.i.i, 1
+  %incdec.ptr.i.i184.i = getelementptr i8, ptr %buf.addr.017.i.i.i, i64 4
+  %add29.i.i185.i = add i64 %addr.addr.016.i.i.i, 4
   %exitcond.not.i.i186.i = icmp eq i32 %inc.i.i183.i, 4
   br i1 %exitcond.not.i.i186.i, label %ohci_service_td.exit, label %for.body.i.i179.i, !llvm.loop !14
 
@@ -3147,22 +3147,22 @@ if.end76.i:                                       ; preds = %if.then74.i, %do.bo
   br label %for.body.i.i221.i
 
 for.body.i.i221.i:                                ; preds = %for.inc.i.i.i108, %if.end76.i
-  %i.019.i.i.i105 = phi i32 [ 0, %if.end76.i ], [ %inc.i.i225.i, %for.inc.i.i.i108 ]
-  %buf.addr.018.i.i.i106 = phi ptr [ %iso_td.i, %if.end76.i ], [ %incdec.ptr.i.i226.i, %for.inc.i.i.i108 ]
-  %addr.addr.017.i.i.i107 = phi i64 [ %add.i.i219.i, %if.end76.i ], [ %add29.i.i227.i, %for.inc.i.i.i108 ]
-  %217 = load i32, ptr %buf.addr.018.i.i.i106, align 4
+  %i.018.i.i.i105 = phi i32 [ 0, %if.end76.i ], [ %inc.i.i225.i, %for.inc.i.i.i108 ]
+  %buf.addr.017.i.i.i106 = phi ptr [ %iso_td.i, %if.end76.i ], [ %incdec.ptr.i.i226.i, %for.inc.i.i.i108 ]
+  %addr.addr.016.i.i.i107 = phi i64 [ %add.i.i219.i, %if.end76.i ], [ %add29.i.i227.i, %for.inc.i.i.i108 ]
+  %217 = load i32, ptr %buf.addr.017.i.i.i106, align 4
   store i32 %217, ptr %tmp.i.i.i51, align 4
   %218 = load ptr, ptr %as.i.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i222.i = call i32 @address_space_rw(ptr noundef %218, i64 noundef %addr.addr.017.i.i.i107, i32 1, ptr noundef nonnull %tmp.i.i.i51, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i222.i = call i32 @address_space_rw(ptr noundef %218, i64 noundef %addr.addr.016.i.i.i107, i32 1, ptr noundef nonnull %tmp.i.i.i51, i64 noundef 4, i1 noundef zeroext true) #8
   %tobool.not.i.i223.i = icmp eq i32 %call.i.i.i.i.i222.i, 0
   br i1 %tobool.not.i.i223.i, label %for.inc.i.i.i108, label %ohci_put_iso_td.exit.thread.i
 
 for.inc.i.i.i108:                                 ; preds = %for.body.i.i221.i
-  %inc.i.i225.i = add nuw nsw i32 %i.019.i.i.i105, 1
-  %incdec.ptr.i.i226.i = getelementptr i8, ptr %buf.addr.018.i.i.i106, i64 4
-  %add29.i.i227.i = add i64 %addr.addr.017.i.i.i107, 4
+  %inc.i.i225.i = add nuw nsw i32 %i.018.i.i.i105, 1
+  %incdec.ptr.i.i226.i = getelementptr i8, ptr %buf.addr.017.i.i.i106, i64 4
+  %add29.i.i227.i = add i64 %addr.addr.016.i.i.i107, 4
   %exitcond.not.i.i228.i = icmp eq i32 %inc.i.i225.i, 4
   br i1 %exitcond.not.i.i228.i, label %lor.rhs.i229.i, label %for.body.i.i221.i, !llvm.loop !14
 
@@ -3177,25 +3177,25 @@ lor.rhs.i229.i:                                   ; preds = %for.inc.i.i.i108
   %add.i6.i.i = add i64 %219, %add.i.i85
   br label %for.body.i8.i.i
 
-for.body.i8.i.i:                                  ; preds = %for.inc.i12.i.i, %lor.rhs.i229.i
-  %i.018.i.i.i = phi i32 [ 0, %lor.rhs.i229.i ], [ %inc.i13.i.i, %for.inc.i12.i.i ]
-  %buf.addr.017.i.i.i = phi ptr [ %offset.i.i, %lor.rhs.i229.i ], [ %incdec.ptr.i14.i.i, %for.inc.i12.i.i ]
-  %addr.addr.016.i.i.i = phi i64 [ %add.i6.i.i, %lor.rhs.i229.i ], [ %add29.i15.i.i, %for.inc.i12.i.i ]
-  %220 = load i16, ptr %buf.addr.017.i.i.i, align 2
+for.body.i8.i.i:                                  ; preds = %for.inc.i15.i.i, %lor.rhs.i229.i
+  %i.018.i9.i.i = phi i32 [ 0, %lor.rhs.i229.i ], [ %inc.i16.i.i, %for.inc.i15.i.i ]
+  %buf.addr.017.i10.i.i = phi ptr [ %offset.i.i, %lor.rhs.i229.i ], [ %incdec.ptr.i17.i.i, %for.inc.i15.i.i ]
+  %addr.addr.016.i11.i.i = phi i64 [ %add.i6.i.i, %lor.rhs.i229.i ], [ %add29.i18.i.i, %for.inc.i15.i.i ]
+  %220 = load i16, ptr %buf.addr.017.i10.i.i, align 2
   store i16 %220, ptr %tmp.i4.i.i, align 2
   %221 = load ptr, ptr %as.i.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i9.i.i = call i32 @address_space_rw(ptr noundef %221, i64 noundef %addr.addr.016.i.i.i, i32 1, ptr noundef nonnull %tmp.i4.i.i, i64 noundef 2, i1 noundef zeroext true) #8
-  %tobool.not.i10.not.not.not.i.not.i = icmp eq i32 %call.i.i.i.i9.i.i, 0
-  br i1 %tobool.not.i10.not.not.not.i.not.i, label %for.inc.i12.i.i, label %ohci_put_iso_td.exit.i
+  %call.i.i.i.i12.i.i = call i32 @address_space_rw(ptr noundef %221, i64 noundef %addr.addr.016.i11.i.i, i32 1, ptr noundef nonnull %tmp.i4.i.i, i64 noundef 2, i1 noundef zeroext true) #8
+  %tobool.not.i13.not.not.not.i.not.i = icmp eq i32 %call.i.i.i.i12.i.i, 0
+  br i1 %tobool.not.i13.not.not.not.i.not.i, label %for.inc.i15.i.i, label %ohci_put_iso_td.exit.i
 
-for.inc.i12.i.i:                                  ; preds = %for.body.i8.i.i
-  %inc.i13.i.i = add nuw nsw i32 %i.018.i.i.i, 1
-  %incdec.ptr.i14.i.i = getelementptr i8, ptr %buf.addr.017.i.i.i, i64 2
-  %add29.i15.i.i = add i64 %addr.addr.016.i.i.i, 2
-  %exitcond.not.i16.i.i = icmp eq i32 %inc.i13.i.i, 8
-  br i1 %exitcond.not.i16.i.i, label %ohci_service_iso_td.exit, label %for.body.i8.i.i, !llvm.loop !16
+for.inc.i15.i.i:                                  ; preds = %for.body.i8.i.i
+  %inc.i16.i.i = add nuw nsw i32 %i.018.i9.i.i, 1
+  %incdec.ptr.i17.i.i = getelementptr i8, ptr %buf.addr.017.i10.i.i, i64 2
+  %add29.i18.i.i = add i64 %addr.addr.016.i11.i.i, 2
+  %exitcond.not.i19.i.i = icmp eq i32 %inc.i16.i.i, 8
+  br i1 %exitcond.not.i19.i.i, label %ohci_service_iso_td.exit, label %for.body.i8.i.i, !llvm.loop !16
 
 ohci_put_iso_td.exit.i:                           ; preds = %for.body.i8.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp.i4.i.i)
@@ -3471,7 +3471,7 @@ if.end187.i:                                      ; preds = %if.else183.i, %if.t
   br i1 %or.cond1.i, label %if.then196.i, label %if.end202.i
 
 if.then196.i:                                     ; preds = %if.end187.i
-  %call198.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %buf.i, i32 noundef %254, i32 noundef 0)
+  %call198.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef %buf.i, i32 noundef %254, i32 noundef 0)
   %tobool199.not.i = icmp eq i32 %call198.i, 0
   br i1 %tobool199.not.i, label %if.then196.if.end202_crit_edge.i, label %if.then200.i
 
@@ -3538,7 +3538,7 @@ if.end238.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %or.cond159.i, label %if.else283.i, label %if.then248.i
 
 if.then248.i:                                     ; preds = %if.end238.i
-  %call250.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %buf.i, i32 noundef %ret.0.i99, i32 noundef 1)
+  %call250.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef %buf.i, i32 noundef %ret.0.i99, i32 noundef 1)
   %tobool251.not.i = icmp eq i32 %call250.i, 0
   br i1 %tobool251.not.i, label %do.body254.i, label %if.then252.i
 
@@ -3627,7 +3627,7 @@ if.then476.i:                                     ; preds = %do.body455.i
   br label %if.end479.i
 
 if.end479.i:                                      ; preds = %if.then476.i, %do.body455.i, %if.end450.i
-  %call481.i = call fastcc i32 @ohci_put_iso_td(ptr noundef nonnull %ohci, i64 noundef %conv.i, ptr noundef nonnull %iso_td.i)
+  %call481.i = call fastcc i32 @ohci_put_iso_td(ptr noundef nonnull %ohci, i64 noundef %conv.i, ptr noundef %iso_td.i)
   %tobool482.not.i = icmp eq i32 %call481.i, 0
   br i1 %tobool482.not.i, label %ohci_service_iso_td.exit.thread, label %if.then483.i
 
@@ -3641,7 +3641,7 @@ ohci_service_iso_td.exit.thread:                  ; preds = %trace_usb_ohci_iso_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %iso_td.i)
   br label %while.end
 
-ohci_service_iso_td.exit:                         ; preds = %for.inc.i12.i.i
+ohci_service_iso_td.exit:                         ; preds = %for.inc.i15.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp.i4.i.i)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %iso_td.i)
@@ -3729,7 +3729,7 @@ _nocheck__trace_usb_ohci_iso_td_bad_cc_overrun.exit: ; preds = %entry, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ohci_td_pkt(ptr noundef %msg, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc void @ohci_td_pkt(ptr noundef %msg, ptr nocapture noundef readonly %buf, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #0 {
 entry:
   %_now.i.i14 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3889,7 +3889,7 @@ for.end:                                          ; preds = %if.end41, %if.end41
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @ohci_find_device(ptr noundef %ohci, i8 noundef zeroext %addr) unnamed_addr #0 {
+define internal fastcc ptr @ohci_find_device(ptr noundef %ohci, i8 noundef zeroext range(i8 0, -128) %addr) unnamed_addr #0 {
 entry:
   %num_ports = getelementptr inbounds i8, ptr %ohci, i64 488
   %0 = load i32, ptr %num_ports, align 8
@@ -4106,7 +4106,7 @@ _nocheck__trace_usb_ohci_td_babble.exit:          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_ohci_td_bad_device_response(i32 noundef %rc) unnamed_addr #0 {
+define internal fastcc void @trace_usb_ohci_td_bad_device_response(i32 noundef range(i32 -2147483648, 0) %rc) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -4152,7 +4152,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @usb_find_device(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @ohci_put_iso_td(ptr nocapture noundef readonly %ohci, i64 noundef %addr, ptr nocapture noundef readonly %td) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ohci_put_iso_td(ptr nocapture noundef readonly %ohci, i64 noundef range(i64 1, 4294967281) %addr, ptr nocapture noundef nonnull readonly %td) unnamed_addr #0 {
 entry:
   %tmp.i4 = alloca i16, align 2
   %tmp.i = alloca i32, align 4
@@ -4164,22 +4164,22 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.019.i = phi i32 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %buf.addr.018.i = phi ptr [ %td, %entry ], [ %incdec.ptr.i, %for.inc.i ]
-  %addr.addr.017.i = phi i64 [ %add.i, %entry ], [ %add29.i, %for.inc.i ]
-  %1 = load i32, ptr %buf.addr.018.i, align 4
+  %i.018.i = phi i32 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %buf.addr.017.i = phi ptr [ %td, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %addr.addr.016.i = phi i64 [ %add.i, %entry ], [ %add29.i, %for.inc.i ]
+  %1 = load i32, ptr %buf.addr.017.i, align 4
   store i32 %1, ptr %tmp.i, align 4
   %2 = load ptr, ptr %as.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %2, i64 noundef %addr.addr.017.i, i32 1, ptr noundef nonnull %tmp.i, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %2, i64 noundef %addr.addr.016.i, i32 1, ptr noundef nonnull %tmp.i, i64 noundef 4, i1 noundef zeroext true) #8
   %tobool.not.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %put_dwords.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i32 %i.019.i, 1
-  %incdec.ptr.i = getelementptr i8, ptr %buf.addr.018.i, i64 4
-  %add29.i = add i64 %addr.addr.017.i, 4
+  %inc.i = add nuw nsw i32 %i.018.i, 1
+  %incdec.ptr.i = getelementptr i8, ptr %buf.addr.017.i, i64 4
+  %add29.i = add i64 %addr.addr.016.i, 4
   %exitcond.not.i = icmp eq i32 %inc.i, 4
   br i1 %exitcond.not.i, label %lor.rhs, label %for.body.i, !llvm.loop !14
 
@@ -4196,29 +4196,29 @@ lor.rhs:                                          ; preds = %for.inc.i
   %add.i6 = add i64 %add, %3
   br label %for.body.i8
 
-for.body.i8:                                      ; preds = %for.inc.i12, %lor.rhs
-  %i.018.i = phi i32 [ 0, %lor.rhs ], [ %inc.i13, %for.inc.i12 ]
-  %buf.addr.017.i = phi ptr [ %offset, %lor.rhs ], [ %incdec.ptr.i14, %for.inc.i12 ]
-  %addr.addr.016.i = phi i64 [ %add.i6, %lor.rhs ], [ %add29.i15, %for.inc.i12 ]
-  %4 = load i16, ptr %buf.addr.017.i, align 2
+for.body.i8:                                      ; preds = %for.inc.i15, %lor.rhs
+  %i.018.i9 = phi i32 [ 0, %lor.rhs ], [ %inc.i16, %for.inc.i15 ]
+  %buf.addr.017.i10 = phi ptr [ %offset, %lor.rhs ], [ %incdec.ptr.i17, %for.inc.i15 ]
+  %addr.addr.016.i11 = phi i64 [ %add.i6, %lor.rhs ], [ %add29.i18, %for.inc.i15 ]
+  %4 = load i16, ptr %buf.addr.017.i10, align 2
   store i16 %4, ptr %tmp.i4, align 2
   %5 = load ptr, ptr %as.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i9 = call i32 @address_space_rw(ptr noundef %5, i64 noundef %addr.addr.016.i, i32 1, ptr noundef nonnull %tmp.i4, i64 noundef 2, i1 noundef zeroext true) #8
-  %tobool.not.i10.not.not.not.not.not = icmp ne i32 %call.i.i.i.i9, 0
-  br i1 %tobool.not.i10.not.not.not.not.not, label %put_words.exit, label %for.inc.i12
+  %call.i.i.i.i12 = call i32 @address_space_rw(ptr noundef %5, i64 noundef %addr.addr.016.i11, i32 1, ptr noundef nonnull %tmp.i4, i64 noundef 2, i1 noundef zeroext true) #8
+  %tobool.not.i13.not.not.not.not.not = icmp ne i32 %call.i.i.i.i12, 0
+  br i1 %tobool.not.i13.not.not.not.not.not, label %put_words.exit, label %for.inc.i15
 
-for.inc.i12:                                      ; preds = %for.body.i8
-  %inc.i13 = add nuw nsw i32 %i.018.i, 1
-  %incdec.ptr.i14 = getelementptr i8, ptr %buf.addr.017.i, i64 2
-  %add29.i15 = add i64 %addr.addr.016.i, 2
-  %exitcond.not.i16 = icmp eq i32 %inc.i13, 8
-  br i1 %exitcond.not.i16, label %put_words.exit, label %for.body.i8, !llvm.loop !16
+for.inc.i15:                                      ; preds = %for.body.i8
+  %inc.i16 = add nuw nsw i32 %i.018.i9, 1
+  %incdec.ptr.i17 = getelementptr i8, ptr %buf.addr.017.i10, i64 2
+  %add29.i18 = add i64 %addr.addr.016.i11, 2
+  %exitcond.not.i19 = icmp eq i32 %inc.i16, 8
+  br i1 %exitcond.not.i19, label %put_words.exit, label %for.body.i8, !llvm.loop !16
 
-put_words.exit:                                   ; preds = %for.body.i8, %for.inc.i12
+put_words.exit:                                   ; preds = %for.body.i8, %for.inc.i15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp.i4)
-  %6 = zext i1 %tobool.not.i10.not.not.not.not.not to i32
+  %6 = zext i1 %tobool.not.i13.not.not.not.not.not to i32
   br label %lor.end
 
 lor.end:                                          ; preds = %put_dwords.exit, %put_words.exit
@@ -4227,7 +4227,7 @@ lor.end:                                          ; preds = %put_dwords.exit, %p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @ohci_copy_iso_td(ptr nocapture noundef readonly %ohci, i32 noundef %start_addr, i32 noundef %end_addr, ptr noundef %buf, i32 noundef %len, i32 noundef %dir) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ohci_copy_iso_td(ptr nocapture noundef readonly %ohci, i32 noundef %start_addr, i32 noundef %end_addr, ptr noundef nonnull %buf, i32 noundef %len, i32 noundef range(i32 0, 2) %dir) unnamed_addr #0 {
 entry:
   %conv = zext i32 %start_addr to i64
   %and = and i64 %conv, 4095
@@ -4241,8 +4241,8 @@ entry:
   %add = add i64 %1, %conv
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %cmp.i.i = icmp eq i32 %dir, 1
-  %call.i.i = tail call i32 @address_space_rw(ptr noundef %0, i64 noundef %add, i32 1, ptr noundef %buf, i64 noundef %spec.select, i1 noundef zeroext %cmp.i.i) #8
+  %cmp.i.i = icmp ne i32 %dir, 0
+  %call.i.i = tail call i32 @address_space_rw(ptr noundef %0, i64 noundef %add, i32 1, ptr noundef nonnull %buf, i64 noundef %spec.select, i1 noundef zeroext %cmp.i.i) #8
   %tobool.not = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not, label %if.end32, label %return
 
@@ -4276,7 +4276,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_ohci_iso_td_so(i32 noundef %so, i32 noundef %eo, i32 noundef %s, i32 noundef %e, ptr noundef %str, i64 noundef %len, i32 noundef %ret) unnamed_addr #0 {
+define internal fastcc void @trace_usb_ohci_iso_td_so(i32 noundef range(i32 0, 65536) %so, i32 noundef %eo, i32 noundef %s, i32 noundef %e, ptr noundef %str, i64 noundef range(i64 0, 4294967296) %len, i32 noundef %ret) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -4317,7 +4317,7 @@ _nocheck__trace_usb_ohci_iso_td_so.exit:          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_ohci_iso_td_data_overrun(i32 noundef %ret, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc void @trace_usb_ohci_iso_td_data_overrun(i32 noundef %ret, i64 noundef range(i64 0, 2147483647) %len) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -4358,7 +4358,7 @@ _nocheck__trace_usb_ohci_iso_td_data_overrun.exit: ; preds = %entry, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_ohci_iso_td_data_underrun(i32 noundef %ret) unnamed_addr #0 {
+define internal fastcc void @trace_usb_ohci_iso_td_data_underrun(i32 noundef range(i32 0, -2147483648) %ret) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)

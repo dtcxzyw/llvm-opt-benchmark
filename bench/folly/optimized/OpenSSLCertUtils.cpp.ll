@@ -1496,7 +1496,7 @@ declare i32 @X509_get_ext_count(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly3ssl12_GLOBAL__N_19getExtOidB5cxx11EP17X509_extension_st(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef %extension) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly3ssl12_GLOBAL__N_19getExtOidB5cxx11EP17X509_extension_st(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef %extension) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured.i = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp.i = alloca %"struct.google::CheckOpString", align 8
@@ -1586,7 +1586,7 @@ nrvo.skipdtor:                                    ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly3ssl12_GLOBAL__N_110getExtDataB5cxx11EP17X509_extension_st(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef %extension) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly3ssl12_GLOBAL__N_110getExtDataB5cxx11EP17X509_extension_st(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef %extension) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i26.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -3948,7 +3948,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly3ssl12_GLOBAL__N_121getOpenSSLErrorStringB5cxx11Em(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 noundef %err) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly3ssl12_GLOBAL__N_121getOpenSSLErrorStringB5cxx11Em(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i64 noundef %err) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %errBuff = alloca %"struct.std::array", align 1

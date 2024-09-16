@@ -670,7 +670,7 @@ if.then11.i.i:                                    ; preds = %do.body8.i.i
   br label %for.inc.i.i
 
 if.end19.i.i:                                     ; preds = %verify_notes_filepair.exit.i.i
-  %call20.i.i = call fastcc ptr @find_notes_merge_pair_pos(ptr noundef %call3.i.i, i32 noundef %len.076.i.i, ptr noundef nonnull %obj.i.i, i32 noundef 1, ptr noundef nonnull %occupied.i.i)
+  %call20.i.i = call fastcc ptr @find_notes_merge_pair_pos(ptr noundef %call3.i.i, i32 noundef %len.076.i.i, ptr noundef %obj.i.i, i32 noundef 1, ptr noundef %occupied.i.i)
   %69 = load i32, ptr %occupied.i.i, align 4
   %tobool21.not.i.i = icmp eq i32 %69, 0
   br i1 %tobool21.not.i.i, label %if.else42.i.i, label %if.then22.i.i
@@ -961,7 +961,7 @@ if.then9.i.i:                                     ; preds = %do.body6.i.i
   br label %for.inc.i46.i
 
 if.end16.i.i:                                     ; preds = %verify_notes_filepair.exit.i62.i
-  %call17.i.i = call fastcc ptr @find_notes_merge_pair_pos(ptr noundef %call3.i.i, i32 noundef %len.0.lcssa.i.i, ptr noundef nonnull %obj.i15.i, i32 noundef 0, ptr noundef nonnull %match.i.i)
+  %call17.i.i = call fastcc ptr @find_notes_merge_pair_pos(ptr noundef %call3.i.i, i32 noundef %len.0.lcssa.i.i, ptr noundef %obj.i15.i, i32 noundef 0, ptr noundef %match.i.i)
   %110 = load i32, ptr %match.i.i, align 4
   %tobool18.not.i.i = icmp eq i32 %110, 0
   br i1 %tobool18.not.i.i, label %do.body20.i.i, label %if.end33.i.i
@@ -1681,7 +1681,7 @@ if.then13.i.i.i.i.i:                              ; preds = %if.end.i83.i.i.i.i
 
 ll_merge_in_worktree.exit.i.i.i.i:                ; preds = %if.end.i83.i.i.i.i
   %180 = load i64, ptr %size.i.i.i.i.i, align 8
-  call fastcc void @write_buf_to_worktree(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %179, i64 noundef %180)
+  call fastcc void @write_buf_to_worktree(ptr noundef nonnull %add.ptr.i.i, ptr noundef %179, i64 noundef %180)
   %181 = load ptr, ptr %result_buf.i.i.i.i.i, align 8
   call void @free(ptr noundef %181) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_buf.i.i.i.i.i)
@@ -2157,7 +2157,7 @@ declare void @diffcore_std(ptr noundef) local_unnamed_addr #2
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_notes_merge_pair_pos(ptr noundef %list, i32 noundef %len, ptr nocapture noundef readonly %obj, i32 noundef %insert_new, ptr nocapture noundef writeonly %occupied) unnamed_addr #0 {
+define internal fastcc ptr @find_notes_merge_pair_pos(ptr noundef %list, i32 noundef %len, ptr nocapture noundef nonnull readonly %obj, i32 noundef range(i32 0, 2) %insert_new, ptr nocapture noundef nonnull writeonly %occupied) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @find_notes_merge_pair_pos.last_index, align 4
   %cmp = icmp slt i32 %0, %len
@@ -2399,7 +2399,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %2 = load i64, ptr %size, align 8
-  call fastcc void @write_buf_to_worktree(ptr noundef %obj, ptr noundef nonnull %call, i64 noundef %2)
+  call fastcc void @write_buf_to_worktree(ptr noundef %obj, ptr noundef %call, i64 noundef %2)
   call void @free(ptr noundef nonnull %call) #14
   ret void
 }
@@ -2443,7 +2443,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #8
 declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_buf_to_worktree(ptr noundef %obj, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @write_buf_to_worktree(ptr noundef %obj, ptr noundef nonnull %buf, i64 noundef %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @oid_to_hex(ptr noundef %obj) #14
   %call1 = tail call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.72, ptr noundef %call) #14

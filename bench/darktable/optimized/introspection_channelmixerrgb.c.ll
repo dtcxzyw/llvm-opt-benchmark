@@ -6590,7 +6590,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @find_temperature_from_raw_co
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @convert_any_XYZ_to_LMS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #12 {
+define internal fastcc void @convert_any_XYZ_to_LMS(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2) unnamed_addr #12 {
   switch i32 %2, label %74 [
     i32 2, label %4
     i32 0, label %4
@@ -6886,7 +6886,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
 declare i32 @dt_dev_get_preview_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @_update_bounding_box(ptr noundef %0, float noundef %1, float noundef %2) unnamed_addr #10 {
+define internal fastcc void @_update_bounding_box(ptr noundef nonnull %0, float noundef %1, float noundef %2) unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 400
   %5 = getelementptr inbounds i8, ptr %0, i64 328
   %6 = load i32, ptr %4, align 4, !tbaa !16
@@ -15606,7 +15606,7 @@ declare i32 @dt_iop_is_first_instance(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc <2 x float> @_extract_patches(ptr noalias nocapture noundef readonly %0, i32 %1, i32 %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noalias nocapture noundef %6, i32 noundef %7) unnamed_addr #14 {
+define internal fastcc <2 x float> @_extract_patches(ptr noalias nocapture noundef readonly %0, i32 %1, i32 %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr noalias nocapture noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #14 {
   %9 = insertelement <2 x i32> poison, i32 %1, i64 0
   %10 = insertelement <2 x i32> %9, i32 %2, i64 1
   %11 = sext <2 x i32> %10 to <2 x i64>
@@ -16624,7 +16624,7 @@ define internal fastcc <2 x float> @_extract_patches(ptr noalias nocapture nound
 }
 
 ; Function Attrs: inlinehint nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_compute_patches_delta_E(ptr noalias nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef writeonly %3, ptr noalias nocapture noundef writeonly %4) unnamed_addr #21 {
+define internal fastcc void @_compute_patches_delta_E(ptr noalias nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef nonnull writeonly %3, ptr noalias nocapture noundef nonnull writeonly %4) unnamed_addr #21 {
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load i64, ptr %6, align 16, !tbaa !89
   %8 = icmp eq i64 %7, 0
@@ -16995,7 +16995,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare i32 @dt_dev_is_D65_chroma(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @matrice_pseudoinverse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 {
+define internal fastcc void @matrice_pseudoinverse(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #12 {
   %3 = load float, ptr %0, align 4, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load float, ptr %4, align 4, !tbaa !12
@@ -17224,7 +17224,7 @@ declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #15
 declare i32 @get_homography(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #23 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4) unnamed_addr #23 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2

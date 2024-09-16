@@ -326,7 +326,7 @@ define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, doubl
   %69 = load ptr, ptr %68, align 8
   tail call void @gv_argvlist_set_item(ptr noundef nonnull %62, i32 noundef %.037.i.i, ptr noundef %69) #12
   %70 = add nuw nsw i32 %.037.i.i, 2
-  %71 = tail call ptr @agxget(ptr noundef %44, ptr noundef nonnull %66) #12
+  %71 = tail call ptr @agxget(ptr noundef nonnull %44, ptr noundef nonnull %66) #12
   tail call void @gv_argvlist_set_item(ptr noundef nonnull %62, i32 noundef %67, ptr noundef %71) #12
   %72 = tail call ptr @agnxtattr(ptr noundef %64, i32 noundef 1, ptr noundef nonnull %66) #12
   %.not.i.i = icmp eq ptr %72, null
@@ -336,21 +336,21 @@ define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, doubl
   %.0.lcssa.i.i = phi i32 [ 2, %53 ], [ %70, %.lr.ph.i.i ]
   %73 = getelementptr inbounds i8, ptr %0, i64 752
   store i32 %.0.lcssa.i.i, ptr %73, align 8
-  %74 = tail call ptr @agraphof(ptr noundef %44) #12
+  %74 = tail call ptr @agraphof(ptr noundef nonnull %44) #12
   %75 = tail call ptr @agattr(ptr noundef %74, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef null) #12
   %.not31.i.i = icmp eq ptr %75, null
   br i1 %.not31.i.i, label %76, label %.thread.i.i
 
 76:                                               ; preds = %._crit_edge.i.i
-  %77 = tail call ptr @agraphof(ptr noundef %44) #12
+  %77 = tail call ptr @agraphof(ptr noundef nonnull %44) #12
   %78 = tail call ptr @agattr(ptr noundef %77, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef null) #12
   %.not32.i.i = icmp eq ptr %78, null
   br i1 %.not32.i.i, label %gvevent_select_current_obj.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %76, %._crit_edge.i.i
   %.135.i.i = phi ptr [ %78, %76 ], [ %75, %._crit_edge.i.i ]
-  %79 = tail call ptr @agxget(ptr noundef %44, ptr noundef nonnull %.135.i.i) #12
-  %80 = tail call ptr @strdup_and_subst_obj(ptr noundef %79, ptr noundef %44) #12
+  %79 = tail call ptr @agxget(ptr noundef nonnull %44, ptr noundef nonnull %.135.i.i) #12
+  %80 = tail call ptr @strdup_and_subst_obj(ptr noundef %79, ptr noundef nonnull %44) #12
   store ptr %80, ptr %41, align 8
   br label %gvevent_select_current_obj.exit
 

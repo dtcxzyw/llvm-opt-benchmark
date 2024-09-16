@@ -176,7 +176,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr59.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub60.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 0)
+  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef %final_look.i, i32 noundef 0)
   %cmp63.i = icmp eq i8 %call61.i, 0
   br i1 %cmp63.i, label %if.then65.i, label %land.lhs.true94.i
 
@@ -526,7 +526,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr54.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub55.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 0)
+  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef %final_look.i, i32 noundef 0)
   %cmp58.i = icmp eq i8 %call56.i, 0
   br i1 %cmp58.i, label %if.then60.i, label %land.lhs.true87.i
 
@@ -875,7 +875,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr59.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub60.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 1)
+  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef %final_look.i, i32 noundef 1)
   %cmp63.i = icmp eq i8 %call61.i, 0
   br i1 %cmp63.i, label %if.then65.i, label %land.lhs.true70.i
 
@@ -1248,7 +1248,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr54.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub55.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 1)
+  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef %final_look.i, i32 noundef 1)
   %cmp58.i = icmp eq i8 %call56.i, 0
   br i1 %cmp58.i, label %if.then60.i, label %land.lhs.true65.i
 
@@ -1605,7 +1605,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr59.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub60.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i15, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 2)
+  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i15, ptr noundef %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef %final_look.i, i32 noundef 2)
   %cmp63.i = icmp eq i8 %call61.i, 0
   br i1 %cmp63.i, label %if.then65.i, label %if.end116.i
 
@@ -1928,7 +1928,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr54.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub55.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i15, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 2)
+  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i15, ptr noundef %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef %final_look.i, i32 noundef 2)
   %cmp58.i = icmp eq i8 %call56.i, 0
   br i1 %cmp58.i, label %if.then60.i, label %if.end109.i
 
@@ -2902,7 +2902,7 @@ expandSomSpace.exit:                              ; preds = %for.body.i.us32, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef writeonly %final_point, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef nonnull %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef nonnull writeonly %final_point, i32 noundef range(i32 0, 3) %mode) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %state, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
@@ -3858,7 +3858,7 @@ if.end:                                           ; preds = %run_prog_i.exit140,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef writeonly %final_point, i32 noundef %mode) unnamed_addr #7 {
+define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef nonnull %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef nonnull writeonly %final_point, i32 noundef range(i32 0, 3) %mode) unnamed_addr #7 {
 entry:
   %0 = load i16, ptr %state, align 2
   %add.ptr.i = getelementptr inbounds i8, ptr %m, i64 -64

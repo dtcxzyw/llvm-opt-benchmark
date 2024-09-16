@@ -4462,7 +4462,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @netlogon_dissect_netrserverauthenticate023_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @netlogon_dissect_netrserverauthenticate023_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 4) %6) unnamed_addr #0 {
   %8 = alloca %struct._netlogon_auth_key, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct._md4_pass, align 1
@@ -4502,7 +4502,7 @@ define internal fastcc i32 @netlogon_dissect_netrserverauthenticate023_reply(ptr
 
 dissect_dcerpc_8bytes.exit:                       ; preds = %28, %30
   %32 = add i32 %1, 8
-  %33 = icmp sgt i32 %6, 1
+  %33 = icmp ugt i32 %6, 1
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %dissect_dcerpc_8bytes.exit
@@ -4526,7 +4526,7 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %28, %30
   %45 = and i32 %.097, -4
   %46 = add i32 %45, 4
   %.198 = select i1 %or.cond, i32 %.097, i32 %46
-  %47 = icmp sgt i32 %6, 2
+  %47 = icmp eq i32 %6, 3
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %41
@@ -7203,7 +7203,7 @@ declare i32 @dissect_mscldap_string(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i8 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -7605,7 +7605,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [4 x i8], align 4
   %6 = alloca i64, align 8

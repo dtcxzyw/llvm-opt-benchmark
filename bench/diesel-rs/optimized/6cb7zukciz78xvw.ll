@@ -2341,7 +2341,7 @@ define hidden { i32, i32 } @_ZN4core3str11validations15next_code_point17h88410b8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17he109312909a887a5E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull readonly align 1 %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17he109312909a887a5E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull readonly align 1 %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #6 personality ptr @rust_eh_personality {
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = add i64 %5, -1
   %.promoted61 = load i64, ptr %8, align 8
@@ -4420,7 +4420,7 @@ _ZN4core3str11validations15next_code_point17h88410b8e33f22cdfE.llvm.155654546946
   %104 = load i64, ptr %24, align 8, !alias.scope !1490, !noalias !1491, !noundef !11
   %105 = load ptr, ptr %28, align 8, !alias.scope !1490, !noalias !1491, !nonnull !11, !align !179, !noundef !11
   %106 = load i64, ptr %29, align 8, !alias.scope !1490, !noalias !1491, !noundef !11
-  invoke fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17he109312909a887a5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %20, ptr noalias noundef nonnull readonly align 1 %103, i64 noundef %104, ptr noalias noundef nonnull readonly align 1 %105, i64 noundef %106, i1 noundef zeroext %102)
+  invoke fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17he109312909a887a5E(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 8 dereferenceable(64) %20, ptr noalias noundef nonnull readonly align 1 %103, i64 noundef %104, ptr noalias noundef nonnull readonly align 1 %105, i64 noundef %106, i1 noundef zeroext %102)
           to label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h93c72b3d81be7e75E.exit.i" unwind label %.loopexit
 
 .loopexit.i.i:                                    ; preds = %_ZN4core3str11validations15next_code_point17h88410b8e33f22cdfE.llvm.15565454694699926178.exit.thread.i.i.i

@@ -23,7 +23,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %11 = zext i1 %10 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !6
   store i64 %11, ptr %7, align 8, !noalias !6
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !6
   %12 = icmp eq i64 %9, -9223372036854775808
   br i1 %12, label %13, label %16
@@ -33,7 +33,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %15 = trunc i128 %14 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !11
   store i64 %15, ptr %6, align 8, !noalias !11
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !11
   br label %_ZN4core4hash4Hash10hash_slice17h5a7dd8f0f7564cedE.exit
 
@@ -42,10 +42,10 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !5
-  tail call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20)
+  tail call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !14
   store i8 -1, ptr %5, align 1, !noalias !14
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !18
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !14
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !noundef !5
@@ -53,7 +53,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %24 = load i64, ptr %23, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !19
   store i64 %24, ptr %4, align 8, !noalias !19
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
@@ -190,7 +190,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #29
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #29
           to label %.thread46 unwind label %33
 
 33:                                               ; preds = %31
@@ -316,7 +316,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 32:                                               ; preds = %31
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #29
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #29
           to label %.thread45 unwind label %34
 
 34:                                               ; preds = %32
@@ -474,7 +474,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 42:                                               ; preds = %41
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #29
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef align 8 dereferenceable(24) %7) #29
           to label %.thread36 unwind label %44
 
 44:                                               ; preds = %42
@@ -502,7 +502,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 51:                                               ; preds = %50
   %52 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef align 8 dereferenceable(24) %8) #29
           to label %.thread39 unwind label %53
 
 53:                                               ; preds = %51
@@ -671,7 +671,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #29
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #29
           to label %.thread45 unwind label %33
 
 33:                                               ; preds = %31
@@ -795,7 +795,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #29
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #29
           to label %.thread46 unwind label %32
 
 32:                                               ; preds = %30
@@ -1057,7 +1057,7 @@ define hidden void @"_ZN4core3ptr523drop_in_place$LT$hashbrown..raw..RawTable$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2497fafd0c28b09aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1372,7 +1372,7 @@ define hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..has
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #15 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd54bfeddc5d78342E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #15 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = add i64 %5, %2

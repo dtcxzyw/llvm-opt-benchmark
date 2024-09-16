@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asn1_item_combine_free(ptr noundef %pval, ptr noundef %it, i32 noundef %combine) unnamed_addr #0 {
+define internal fastcc void @asn1_item_combine_free(ptr noundef %pval, ptr noundef %it, i32 noundef range(i32 0, 1025) %combine) unnamed_addr #0 {
 entry:
   %vtmp.i73 = alloca ptr, align 8
   %vtmp.i = alloca ptr, align 8

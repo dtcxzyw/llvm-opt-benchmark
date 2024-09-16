@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @commview_ncf_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.commview_ncf_header, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = call fastcc i32 @commview_ncf_read_header(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %1, ptr noundef %2)
+  %6 = call fastcc i32 @commview_ncf_read_header(ptr noundef %4, ptr noundef %5, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -118,8 +118,8 @@ define hidden range(i32 -1, 2) i32 @commview_ncf_open(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @commview_ncf_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef %0, i32 noundef 2, ptr noundef %2, ptr noundef %3) #7
+define internal fastcc range(i32 0, 2) i32 @commview_ncf_read_header(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 2, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %57, label %6
 
@@ -265,7 +265,7 @@ define internal i32 @commview_ncf_seek_read(ptr nocapture noundef readonly %0, i
 define hidden range(i32 -1, 2) i32 @commview_ncfx_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.commview_ncfx_header, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = call fastcc i32 @commview_ncfx_read_header(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %1, ptr noundef %2)
+  %6 = call fastcc i32 @commview_ncfx_read_header(ptr noundef %4, ptr noundef %5, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -355,8 +355,8 @@ define hidden range(i32 -1, 2) i32 @commview_ncfx_open(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @commview_ncfx_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef %0, i32 noundef 4, ptr noundef %2, ptr noundef %3) #7
+define internal fastcc range(i32 0, 2) i32 @commview_ncfx_read_header(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 4, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %48, label %6
 
@@ -499,7 +499,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @commview_ncf_read_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.commview_ncf_header, align 4
   %7 = alloca %struct.tm, align 8
-  %8 = call fastcc i32 @commview_ncf_read_header(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  %8 = call fastcc i32 @commview_ncf_read_header(ptr noundef %6, ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %143, label %9
 
@@ -817,7 +817,7 @@ define internal fastcc i32 @commview_ncfx_read_packet(ptr noundef %0, ptr nocapt
   %7 = alloca %struct.tm, align 8
   %8 = alloca %struct.commview_ncfx_rf_header, align 4
   %9 = alloca %struct.commview_ncfx_mcs_header, align 1
-  %10 = call fastcc i32 @commview_ncfx_read_header(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  %10 = call fastcc i32 @commview_ncfx_read_header(ptr noundef %6, ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %commview_ncfx_read_rf_header.exit.thread, label %11
 
@@ -1077,7 +1077,7 @@ commview_ncfx_read_rf_header.exit:                ; preds = %54
 
 132:                                              ; preds = %127
   %133 = add i32 %12, -44
-  %134 = call fastcc i32 @commview_ncfx_read_mcs_header(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  %134 = call fastcc i32 @commview_ncfx_read_mcs_header(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %.not116 = icmp eq i32 %134, 0
   br i1 %.not116, label %commview_ncfx_read_rf_header.exit.thread, label %135
 
@@ -1268,8 +1268,8 @@ commview_ncfx_read_rf_header.exit.thread:         ; preds = %54, %51, %48, %45, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @commview_ncfx_read_mcs_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef %3) #7
+define internal fastcc range(i32 0, 2) i32 @commview_ncfx_read_mcs_header(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = tail call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 1, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %15, label %6
 

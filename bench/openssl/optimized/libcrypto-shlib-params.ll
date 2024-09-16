@@ -208,7 +208,7 @@ if.end9:                                          ; preds = %sw.bb4
   br label %return
 
 sw.epilog:                                        ; preds = %if.then3
-  %call = tail call fastcc i32 @general_get_int(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef 4)
+  %call = tail call fastcc i32 @general_get_int(ptr noundef %p, ptr noundef %val, i64 noundef 4)
   br label %return
 
 if.then13:                                        ; preds = %if.end
@@ -255,7 +255,7 @@ if.end27:                                         ; preds = %sw.bb21
   br label %return
 
 sw.epilog28:                                      ; preds = %if.then13
-  %call29 = tail call fastcc i32 @general_get_int(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef 4)
+  %call29 = tail call fastcc i32 @general_get_int(ptr noundef %p, ptr noundef %val, i64 noundef 4)
   br label %return
 
 if.then34:                                        ; preds = %if.end
@@ -361,7 +361,7 @@ sw.bb8:                                           ; preds = %if.end6
   br label %return
 
 sw.epilog:                                        ; preds = %if.end6
-  %call = call fastcc i32 @general_set_int(ptr noundef nonnull %p, ptr noundef nonnull %val.addr, i64 noundef 4)
+  %call = call fastcc i32 @general_set_int(ptr noundef %p, ptr noundef %val.addr, i64 noundef 4)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -396,7 +396,7 @@ sw.bb26:                                          ; preds = %if.end22
   br label %return
 
 sw.epilog30:                                      ; preds = %if.end22
-  %call31 = call fastcc i32 @general_set_int(ptr noundef nonnull %p, ptr noundef nonnull %val.addr, i64 noundef 4)
+  %call31 = call fastcc i32 @general_set_int(ptr noundef %p, ptr noundef %val.addr, i64 noundef 4)
   br label %return
 
 if.else32:                                        ; preds = %if.else
@@ -517,7 +517,7 @@ if.end8:                                          ; preds = %sw.bb4
   br label %return
 
 sw.epilog:                                        ; preds = %if.then3
-  %call = tail call fastcc i32 @general_get_uint(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef 4)
+  %call = tail call fastcc i32 @general_get_uint(ptr noundef %p, ptr noundef %val, i64 noundef 4)
   br label %return
 
 if.then12:                                        ; preds = %if.end
@@ -573,7 +573,7 @@ if.else32:                                        ; preds = %if.end28
   br label %return
 
 sw.epilog34:                                      ; preds = %if.then12
-  %call35 = tail call fastcc i32 @general_get_uint(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef 4)
+  %call35 = tail call fastcc i32 @general_get_uint(ptr noundef %p, ptr noundef %val, i64 noundef 4)
   br label %return
 
 if.then40:                                        ; preds = %if.end
@@ -682,7 +682,7 @@ sw.bb8:                                           ; preds = %if.end6
   br label %return
 
 sw.epilog:                                        ; preds = %if.end6
-  %call = call fastcc i32 @general_set_uint(ptr noundef nonnull %p, ptr noundef nonnull %val.addr, i64 noundef 4)
+  %call = call fastcc i32 @general_set_uint(ptr noundef %p, ptr noundef %val.addr, i64 noundef 4)
   br label %return
 
 if.then14:                                        ; preds = %if.end
@@ -721,7 +721,7 @@ sw.bb28:                                          ; preds = %if.end20
   br label %return
 
 sw.epilog32:                                      ; preds = %if.end20
-  %call33 = call fastcc i32 @general_set_uint(ptr noundef nonnull %p, ptr noundef nonnull %val.addr, i64 noundef 4)
+  %call33 = call fastcc i32 @general_set_uint(ptr noundef %p, ptr noundef %val.addr, i64 noundef 4)
   br label %return
 
 if.then38:                                        ; preds = %if.end
@@ -828,7 +828,7 @@ sw.bb4:                                           ; preds = %if.then3
   br label %return
 
 sw.epilog:                                        ; preds = %if.then3
-  %call = tail call fastcc i32 @general_get_int(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef 8)
+  %call = tail call fastcc i32 @general_get_int(ptr noundef %p, ptr noundef %val, i64 noundef 8)
   br label %return
 
 if.then9:                                         ; preds = %if.end
@@ -865,7 +865,7 @@ if.end19:                                         ; preds = %sw.bb14
   br label %return
 
 sw.epilog20:                                      ; preds = %if.then9
-  %call21 = tail call fastcc i32 @general_get_int(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef 8)
+  %call21 = tail call fastcc i32 @general_get_int(ptr noundef %p, ptr noundef %val, i64 noundef 8)
   br label %return
 
 if.then26:                                        ; preds = %if.end
@@ -982,7 +982,7 @@ sw.bb13:                                          ; preds = %if.end6
   br label %return
 
 sw.epilog:                                        ; preds = %if.end6
-  %call = call fastcc i32 @general_set_int(ptr noundef nonnull %p, ptr noundef nonnull %val.addr, i64 noundef 8)
+  %call = call fastcc i32 @general_set_int(ptr noundef %p, ptr noundef %val.addr, i64 noundef 8)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -1027,7 +1027,7 @@ sw.bb37:                                          ; preds = %if.end27
   br label %return
 
 sw.epilog39:                                      ; preds = %if.end27
-  %call40 = call fastcc i32 @general_set_int(ptr noundef nonnull %p, ptr noundef nonnull %val.addr, i64 noundef 8)
+  %call40 = call fastcc i32 @general_set_int(ptr noundef %p, ptr noundef %val.addr, i64 noundef 8)
   br label %return
 
 if.else41:                                        ; preds = %if.else
@@ -1149,7 +1149,7 @@ sw.bb4:                                           ; preds = %if.then3
   br label %return
 
 sw.epilog:                                        ; preds = %if.then3
-  %call = tail call fastcc i32 @general_get_uint(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef 8)
+  %call = tail call fastcc i32 @general_get_uint(ptr noundef %p, ptr noundef %val, i64 noundef 8)
   br label %return
 
 if.then9:                                         ; preds = %if.end
@@ -1196,7 +1196,7 @@ if.end23:                                         ; preds = %sw.bb18
   br label %return
 
 sw.epilog24:                                      ; preds = %if.then9
-  %call25 = tail call fastcc i32 @general_get_uint(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef 8)
+  %call25 = tail call fastcc i32 @general_get_uint(ptr noundef %p, ptr noundef %val, i64 noundef 8)
   br label %return
 
 if.then30:                                        ; preds = %if.end
@@ -1315,7 +1315,7 @@ sw.bb12:                                          ; preds = %if.end6
   br label %return
 
 sw.epilog:                                        ; preds = %if.end6
-  %call = call fastcc i32 @general_set_uint(ptr noundef nonnull %p, ptr noundef nonnull %val.addr, i64 noundef 8)
+  %call = call fastcc i32 @general_set_uint(ptr noundef %p, ptr noundef %val.addr, i64 noundef 8)
   br label %return
 
 if.then17:                                        ; preds = %if.end
@@ -1364,7 +1364,7 @@ if.end38:                                         ; preds = %sw.bb33
   br label %return
 
 sw.epilog39:                                      ; preds = %if.end23
-  %call40 = call fastcc i32 @general_set_uint(ptr noundef nonnull %p, ptr noundef nonnull %val.addr, i64 noundef 8)
+  %call40 = call fastcc i32 @general_set_uint(ptr noundef %p, ptr noundef %val.addr, i64 noundef 8)
   br label %return
 
 if.then45:                                        ; preds = %if.end
@@ -1430,7 +1430,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %val, i64 noundef %val_size) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr nocapture noundef nonnull readonly %p, ptr nocapture noundef nonnull writeonly %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
 entry:
   %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
@@ -1452,10 +1452,10 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %sub.i.i = sub nuw i64 %val_size, %2
+  %sub.i.i = sub nuw nsw i64 %val_size, %2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %val, i64 %2
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 %.lobit.i, i64 %sub.i.i, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 %.lobit.i, i64 %sub.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %val, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   br label %return
 
 if.else.i.i:                                      ; preds = %if.then
@@ -1490,7 +1490,7 @@ if.then9.i.i:                                     ; preds = %for.body.i.i.i, %lo
   br label %return
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr nonnull readonly align 1 %1, i64 %val_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %val, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %val_size, i1 false)
   br label %return
 
 if.then3:                                         ; preds = %entry
@@ -1502,10 +1502,10 @@ if.then3:                                         ; preds = %entry
   br i1 %cmp.i.i8, label %if.then.i.i26, label %if.else.i.i9
 
 if.then.i.i26:                                    ; preds = %if.then3
-  %sub.i.i27 = sub nuw i64 %val_size, %8
+  %sub.i.i27 = sub nuw nsw i64 %val_size, %8
   %add.ptr.i.i28 = getelementptr inbounds i8, ptr %val, i64 %8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i28, i8 0, i64 %sub.i.i27, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr readonly align 1 %7, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i28, i8 0, i64 %sub.i.i27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %val, ptr readonly align 1 %7, i64 %8, i1 false)
   br label %return
 
 if.else.i.i9:                                     ; preds = %if.then3
@@ -1539,7 +1539,7 @@ if.then9.i.i17:                                   ; preds = %for.body.i.i.i13, %
   br label %return
 
 if.end.i.i25:                                     ; preds = %lor.lhs.false.i.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr nonnull readonly align 1 %7, i64 %val_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %val, ptr noundef nonnull readonly align 1 dereferenceable(1) %7, i64 %val_size, i1 false)
   br label %return
 
 if.end7:                                          ; preds = %entry
@@ -1554,7 +1554,7 @@ return:                                           ; preds = %if.end.i.i25, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @general_set_int(ptr nocapture noundef %p, ptr nocapture noundef readonly %val, i64 noundef %val_size) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @general_set_int(ptr nocapture noundef nonnull %p, ptr nocapture noundef nonnull readonly %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
 entry:
   %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %val_size, ptr %return_size, align 8
@@ -1585,10 +1585,11 @@ if.then.i.i:                                      ; preds = %if.then2
   %sub.i.i = sub nuw i64 %2, %val_size
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %val_size
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 %.lobit.i, i64 %sub.i.i, i1 false)
-  br label %cond.true.sink.split
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly align 1 dereferenceable(1) %val, i64 %val_size, i1 false)
+  br label %cond.true
 
 if.else.i.i:                                      ; preds = %if.then2
-  %sub1.i.i = sub nuw i64 %val_size, %2
+  %sub1.i.i = sub nuw nsw i64 %val_size, %2
   %add.ptr2.i.i = getelementptr i8, ptr %val, i64 %2
   %cmp3.not.i.i.i = icmp eq i64 %val_size, %2
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i, label %for.body.i.i.i
@@ -1610,13 +1611,17 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i, %if
   %6 = load i8, ptr %arrayidx.i3.i, align 1
   %xor18.i.i = xor i8 %6, %.lobit.i
   %cmp7.not.i.i = icmp sgt i8 %xor18.i.i, -1
-  br i1 %cmp7.not.i.i, label %cond.true.sink.split, label %if.then9.i.i
+  br i1 %cmp7.not.i.i, label %if.end.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %for.body.i.i.i, %lor.lhs.false.i.i
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %cond.end
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull readonly align 1 %val, i64 %2, i1 false)
+  br label %cond.true
 
 if.else10:                                        ; preds = %if.end
   tail call void @ERR_new() #13
@@ -1627,16 +1632,11 @@ if.else10:                                        ; preds = %if.end
 if.end12:                                         ; preds = %if.end
   %data_size8 = getelementptr inbounds i8, ptr %p, i64 24
   %7 = load i64, ptr %data_size8, align 8
-  %call9 = tail call fastcc i32 @unsigned_from_signed(ptr noundef nonnull %0, i64 noundef %7, ptr noundef %val, i64 noundef %val_size)
+  %call9 = tail call fastcc i32 @unsigned_from_signed(ptr noundef %0, i64 noundef %7, ptr noundef nonnull %val, i64 noundef %val_size)
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
-cond.true.sink.split:                             ; preds = %lor.lhs.false.i.i, %if.then.i.i
-  %val_size.sink = phi i64 [ %val_size, %if.then.i.i ], [ %2, %lor.lhs.false.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull readonly align 1 %val, i64 %val_size.sink, i1 false)
-  br label %cond.true
-
-cond.true:                                        ; preds = %cond.true.sink.split, %if.end12
+cond.true:                                        ; preds = %if.then.i.i, %if.end.i.i, %if.end12
   %data_size13 = getelementptr inbounds i8, ptr %p, i64 24
   %8 = load i64, ptr %data_size13, align 8
   br label %cond.end
@@ -1668,7 +1668,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %val, i64 noundef %val_size) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr nocapture noundef nonnull readonly %p, ptr nocapture noundef nonnull writeonly %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
 entry:
   %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
@@ -1694,10 +1694,10 @@ if.then3:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then3
-  %sub.i.i = sub nuw i64 %val_size, %4
+  %sub.i.i = sub nuw nsw i64 %val_size, %4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %val, i64 %4
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %sub.i.i, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr readonly align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 0, i64 %sub.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %val, ptr readonly align 1 %3, i64 %4, i1 false)
   br label %return
 
 if.else.i.i:                                      ; preds = %if.then3
@@ -1719,7 +1719,7 @@ for.body.i.i.i:                                   ; preds = %if.else.i.i, %for.c
   br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %if.then9.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i, %if.else.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr readonly align 1 %3, i64 %val_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %val, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %val_size, i1 false)
   br label %return
 
 if.then9.i.i:                                     ; preds = %for.body.i.i.i
@@ -1740,7 +1740,7 @@ return:                                           ; preds = %if.then9.i.i, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @general_set_uint(ptr nocapture noundef %p, ptr nocapture noundef readonly %val, i64 noundef %val_size) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @general_set_uint(ptr nocapture noundef nonnull %p, ptr nocapture noundef nonnull readonly %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
 entry:
   %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %val_size, ptr %return_size, align 8
@@ -1767,11 +1767,11 @@ if.then.i.i:                                      ; preds = %if.then2
   %sub.i.i = sub nuw i64 %2, %val_size
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %val_size
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 0, i64 %sub.i.i, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr readonly align 1 %val, i64 %val_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly align 1 dereferenceable(1) %val, i64 %val_size, i1 false)
   br label %cond.true
 
 if.else.i.i:                                      ; preds = %if.then2
-  %sub1.i.i = sub nuw i64 %val_size, %2
+  %sub1.i.i = sub nuw nsw i64 %val_size, %2
   %add.ptr2.i.i = getelementptr i8, ptr %val, i64 %2
   %cmp3.not.i.i.i = icmp eq i64 %val_size, %2
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i, label %for.body.i.i.i
@@ -1814,11 +1814,11 @@ if.then.i.i31:                                    ; preds = %if.then6
   %sub.i.i32 = sub nuw i64 %5, %val_size
   %add.ptr.i.i33 = getelementptr inbounds i8, ptr %0, i64 %val_size
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i33, i8 0, i64 %sub.i.i32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr readonly align 1 %val, i64 %val_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly align 1 dereferenceable(1) %val, i64 %val_size, i1 false)
   br label %cond.true
 
 if.else.i.i17:                                    ; preds = %if.then6
-  %sub1.i.i18 = sub nuw i64 %val_size, %5
+  %sub1.i.i18 = sub nuw nsw i64 %val_size, %5
   %add.ptr2.i.i19 = getelementptr i8, ptr %val, i64 %5
   %cmp3.not.i.i.i20 = icmp eq i64 %val_size, %5
   br i1 %cmp3.not.i.i.i20, label %lor.lhs.false.i.i30, label %for.body.i.i.i21
@@ -1836,7 +1836,7 @@ for.body.i.i.i21:                                 ; preds = %if.else.i.i17, %for
   br i1 %cmp2.not.i.i.i24, label %for.cond.i.i.i27, label %if.then9.i.i25
 
 lor.lhs.false.i.i30:                              ; preds = %for.cond.i.i.i27, %if.else.i.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr readonly align 1 %val, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull readonly align 1 %val, i64 %5, i1 false)
   br label %cond.true
 
 if.then9.i.i25:                                   ; preds = %for.body.i.i.i21
@@ -2463,7 +2463,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string(ptr noundef %p, ptr nound
 entry:
   %max_len.addr = alloca i64, align 8
   store i64 %max_len, ptr %max_len.addr, align 8
-  %call = call fastcc i32 @get_string_internal(ptr noundef %p, ptr noundef %val, ptr noundef nonnull %max_len.addr, ptr noundef null, i32 noundef 4)
+  %call = call fastcc i32 @get_string_internal(ptr noundef %p, ptr noundef %val, ptr noundef %max_len.addr, ptr noundef null, i32 noundef 4)
   %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load i64, ptr %data_size, align 8
   %cmp = icmp eq i32 %call, 0
@@ -2503,7 +2503,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef readonly %p, ptr noundef %val, ptr nocapture noundef %max_len, ptr noundef writeonly %used_len, i32 noundef %type) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef readonly %p, ptr noundef %val, ptr nocapture noundef nonnull %max_len, ptr noundef writeonly %used_len, i32 noundef range(i32 4, 6) %type) unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %used_len, null
@@ -2607,7 +2607,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string(ptr noundef %p, ptr noun
 entry:
   %max_len.addr = alloca i64, align 8
   store i64 %max_len, ptr %max_len.addr, align 8
-  %call = call fastcc i32 @get_string_internal(ptr noundef %p, ptr noundef %val, ptr noundef nonnull %max_len.addr, ptr noundef %used_len, i32 noundef 5)
+  %call = call fastcc i32 @get_string_internal(ptr noundef %p, ptr noundef %val, ptr noundef %max_len.addr, ptr noundef %used_len, i32 noundef 5)
   ret i32 %call
 }
 
@@ -2637,7 +2637,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #12
-  %call4 = tail call fastcc i32 @set_string_internal(ptr noundef nonnull %p, ptr noundef nonnull %val, i64 noundef %call, i32 noundef 4)
+  %call4 = tail call fastcc i32 @set_string_internal(ptr noundef %p, ptr noundef %val, i64 noundef %call, i32 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -2646,7 +2646,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr nocapture noundef %p, ptr nocapture noundef readonly %val, i64 noundef %len, i32 noundef %type) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr nocapture noundef nonnull %p, ptr nocapture noundef nonnull readonly %val, i64 noundef %len, i32 noundef range(i32 4, 6) %type) unnamed_addr #4 {
 entry:
   %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %len, ptr %return_size, align 8
@@ -2680,7 +2680,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end6:                                          ; preds = %if.end3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %val, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %val, i64 %len, i1 false)
   %cmp8 = icmp eq i32 %type, 4
   br i1 %cmp8, label %land.lhs.true, label %return
 
@@ -3080,7 +3080,7 @@ land.lhs.true:                                    ; preds = %if.end
 land.lhs.true3:                                   ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max_len.addr.i)
   store i64 0, ptr %max_len.addr.i, align 8
-  %call.i = call fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef nonnull %p.addr.07.i.i, ptr noundef nonnull %buf, ptr noundef nonnull %max_len.addr.i, ptr noundef nonnull %len, i32 noundef 5)
+  %call.i = call fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef nonnull %p.addr.07.i.i, ptr noundef nonnull %buf, ptr noundef %max_len.addr.i, ptr noundef nonnull %len, i32 noundef 5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %max_len.addr.i)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end6
@@ -3103,7 +3103,7 @@ return:                                           ; preds = %for.inc.i.i, %for.c
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_param_get1_concat_octet_string(ptr noundef %params, ptr noundef %name, ptr nocapture noundef %out, ptr nocapture noundef %out_len, i64 noundef %maxsize) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @ossl_param_get1_concat_octet_string(ptr noundef readonly %params, ptr noundef %name, ptr nocapture noundef %out, ptr nocapture noundef %out_len, i64 noundef %maxsize) local_unnamed_addr #4 {
 entry:
   %sz = alloca i64, align 8
   %cmp.i.i = icmp ne ptr %params, null
@@ -3131,7 +3131,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 if.end:                                           ; preds = %for.body.i.i
   store i64 0, ptr %sz, align 8
-  %call1 = call fastcc i32 @setbuf_fromparams(ptr noundef nonnull %p.addr.07.i.i, ptr noundef nonnull %name, ptr noundef null, ptr noundef nonnull %sz)
+  %call1 = call fastcc i32 @setbuf_fromparams(ptr noundef %p.addr.07.i.i, ptr noundef nonnull %name, ptr noundef null, ptr noundef %sz)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -3157,7 +3157,7 @@ if.end14:                                         ; preds = %if.end7
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end14
-  %call19 = call fastcc i32 @setbuf_fromparams(ptr noundef nonnull %p.addr.07.i.i, ptr noundef nonnull %name, ptr noundef nonnull %call15, ptr noundef nonnull %sz)
+  %call19 = call fastcc i32 @setbuf_fromparams(ptr noundef %p.addr.07.i.i, ptr noundef nonnull %name, ptr noundef nonnull %call15, ptr noundef %sz)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.then21, label %fin
 
@@ -3182,7 +3182,7 @@ return:                                           ; preds = %for.inc.i.i, %for.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef readonly %p, ptr noundef readonly %name, ptr noundef %out, ptr noundef %outlen) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr nocapture noundef nonnull readonly %p, ptr noundef readonly %name, ptr noundef %out, ptr noundef nonnull %outlen) unnamed_addr #4 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %cmp = icmp eq ptr %out, null
@@ -3200,20 +3200,16 @@ if.else:                                          ; preds = %entry
   br i1 %tobool3.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.then
-  %cmp7.not10 = icmp eq ptr %p, null
-  br i1 %cmp7.not10, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.end6
   %cmp1.i.i.not = icmp eq ptr %name, null
   %data_type.us = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %data_type.us, align 8
   %cmp8.not.us = icmp eq i32 %1, 5
   br i1 %cmp1.i.i.not, label %for.body.us, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %for.body.lr.ph
+for.body.preheader:                               ; preds = %if.end6
   br i1 %cmp8.not.us, label %if.end10, label %err
 
-for.body.us:                                      ; preds = %for.body.lr.ph
+for.body.us:                                      ; preds = %if.end6
   br i1 %cmp8.not.us, label %if.end10.us, label %err
 
 if.end10.us:                                      ; preds = %for.body.us
@@ -3240,14 +3236,14 @@ for.body.loopexit:                                ; preds = %for.body.i.i
   br i1 %cmp8.not, label %if.end10, label %err, !llvm.loop !56
 
 if.end10:                                         ; preds = %for.body.preheader, %for.body.loopexit
-  %p.addr.01120 = phi ptr [ %p.addr.07.i.i, %for.body.loopexit ], [ %p, %for.body.preheader ]
-  %data = getelementptr inbounds i8, ptr %p.addr.01120, i64 16
+  %p.addr.01019 = phi ptr [ %p.addr.07.i.i, %for.body.loopexit ], [ %p, %for.body.preheader ]
+  %data = getelementptr inbounds i8, ptr %p.addr.01019, i64 16
   %5 = load ptr, ptr %data, align 8
   %cmp11.not = icmp eq ptr %5, null
   br i1 %cmp11.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end10
-  %data_size = getelementptr inbounds i8, ptr %p.addr.01120, i64 24
+  %data_size = getelementptr inbounds i8, ptr %p.addr.01019, i64 24
   %6 = load i64, ptr %data_size, align 8
   %cmp12.not = icmp eq i64 %6, 0
   br i1 %cmp12.not, label %for.inc, label %land.lhs.true13
@@ -3258,7 +3254,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
   br i1 %tobool17.not, label %err, label %for.inc
 
 for.inc:                                          ; preds = %if.end10, %land.lhs.true, %land.lhs.true13
-  %add.ptr = getelementptr inbounds i8, ptr %p.addr.01120, i64 40
+  %add.ptr = getelementptr inbounds i8, ptr %p.addr.01019, i64 40
   %7 = load ptr, ptr %add.ptr, align 8
   %cmp3.not6.i.i = icmp eq ptr %7, null
   br i1 %cmp3.not6.i.i, label %for.end, label %for.body.i.i
@@ -3276,8 +3272,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %cmp3.not.i.i = icmp eq ptr %9, null
   br i1 %cmp3.not.i.i, label %for.end, label %for.body.i.i, !llvm.loop !4
 
-for.end:                                          ; preds = %for.inc, %for.inc.i.i, %if.end10.us, %land.lhs.true.us, %land.lhs.true13.us, %if.end6
-  %call21 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %pkt, ptr noundef %outlen) #13
+for.end:                                          ; preds = %for.inc, %for.inc.i.i, %land.lhs.true13.us, %land.lhs.true.us, %if.end10.us
+  %call21 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %pkt, ptr noundef nonnull %outlen) #13
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %err, label %lor.lhs.false
 
@@ -3417,7 +3413,7 @@ lor.end:                                          ; preds = %if.end7.i, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @unsigned_from_signed(ptr nocapture noundef writeonly %dest, i64 noundef %dest_len, ptr nocapture noundef readonly %src, i64 noundef %src_len) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @unsigned_from_signed(ptr nocapture noundef nonnull writeonly %dest, i64 noundef %dest_len, ptr nocapture noundef readonly %src, i64 noundef %src_len) unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %src, i64 %src_len
   %arrayidx.i = getelementptr i8, ptr %0, i64 -1
@@ -3438,8 +3434,8 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %sub.i = sub nuw i64 %dest_len, %src_len
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 %src_len
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr nonnull readonly align 1 %src, i64 %src_len, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %dest, ptr nonnull readonly align 1 %src, i64 %src_len, i1 false)
   br label %return
 
 if.else.i:                                        ; preds = %if.end
@@ -3461,7 +3457,7 @@ for.body.i.i:                                     ; preds = %if.else.i, %for.con
   br i1 %cmp2.not.i.i, label %for.cond.i.i, label %if.then9.i
 
 lor.lhs.false.i:                                  ; preds = %for.cond.i.i, %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr nonnull readonly align 1 %src, i64 %dest_len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %dest, ptr nonnull readonly align 1 %src, i64 %dest_len, i1 false)
   br label %return
 
 if.then9.i:                                       ; preds = %for.body.i.i

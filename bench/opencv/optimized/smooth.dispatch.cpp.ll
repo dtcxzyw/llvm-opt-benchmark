@@ -1061,7 +1061,7 @@ define void @_ZN2cv17getGaussianKernelEidi(ptr dead_on_unwind noalias writable s
 10:                                               ; preds = %4
   tail call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef 1, i32 noundef %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN2cvL25getGaussianKernelBitExactERSt6vectorINS_10softdoubleESaIS1_EEid(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %1, double noundef %2)
+  invoke fastcc void @_ZN2cvL25getGaussianKernelBitExactERSt6vectorINS_10softdoubleESaIS1_EEid(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %1, double noundef %2)
           to label %11 unwind label %58
 
 11:                                               ; preds = %10
@@ -1241,7 +1241,7 @@ declare void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 no
 declare void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL25getGaussianKernelBitExactERSt6vectorINS_10softdoubleESaIS1_EEid(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL25getGaussianKernelBitExactERSt6vectorINS_10softdoubleESaIS1_EEid(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::softdouble", align 8
   %6 = alloca %"struct.cv::softdouble", align 8
   %7 = alloca %"struct.cv::softdouble", align 8
@@ -18127,7 +18127,7 @@ define internal fastcc void @_ZN2cvL17getGaussianKernelINS_12_GLOBAL__N_113ufixe
   %7 = alloca %"struct.cv::softdouble", align 8
   %8 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN2cvL25getGaussianKernelBitExactERSt6vectorINS_10softdoubleESaIS1_EEid(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %0, double noundef %1)
+  invoke fastcc void @_ZN2cvL25getGaussianKernelBitExactERSt6vectorINS_10softdoubleESaIS1_EEid(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %0, double noundef %1)
           to label %9 unwind label %75
 
 9:                                                ; preds = %3
@@ -18189,7 +18189,7 @@ _ZNSt16allocator_traitsISaIN2cv10softdoubleEEE8allocateERS2_m.exit.i.i.i.i: ; pr
   %29 = phi ptr [ null, %.noexc19.thread ], [ %21, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc19.thread ], [ %27, %.lr.ph.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %28, align 8
-  invoke fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorIlSaIlEES0_INS_10softdoubleESaIS4_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %8, i32 noundef 8)
+  invoke fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorIlSaIlEES0_INS_10softdoubleESaIS4_EEi(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %8, i32 noundef 8)
           to label %30 unwind label %79
 
 30:                                               ; preds = %.loopexit
@@ -18386,7 +18386,7 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit30: ; preds = %_ZNSt6vectorIlSaIl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorIlSaIlEES0_INS_10softdoubleESaIS4_EEi(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorIlSaIlEES0_INS_10softdoubleESaIS4_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 8, 17) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.0", align 1
   %7 = alloca %"struct.cv::softdouble", align 8
@@ -18525,7 +18525,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %45, %47, %49, %51
   %73 = getelementptr inbounds i64, ptr %72, i64 %68
   store i64 %71, ptr %73, align 8
   call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %71)
-  call void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %15)
   ret void
 }
 
@@ -18650,7 +18650,7 @@ define internal fastcc void @_ZN2cvL17getGaussianKernelINS_12_GLOBAL__N_113ufixe
   %7 = alloca %"struct.cv::softdouble", align 8
   %8 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN2cvL25getGaussianKernelBitExactERSt6vectorINS_10softdoubleESaIS1_EEid(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %0, double noundef %1)
+  invoke fastcc void @_ZN2cvL25getGaussianKernelBitExactERSt6vectorINS_10softdoubleESaIS1_EEid(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %0, double noundef %1)
           to label %9 unwind label %75
 
 9:                                                ; preds = %3
@@ -18712,7 +18712,7 @@ _ZNSt16allocator_traitsISaIN2cv10softdoubleEEE8allocateERS2_m.exit.i.i.i.i: ; pr
   %29 = phi ptr [ null, %.noexc19.thread ], [ %21, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc19.thread ], [ %27, %.lr.ph.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %28, align 8
-  invoke fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorIlSaIlEES0_INS_10softdoubleESaIS4_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %8, i32 noundef 16)
+  invoke fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorIlSaIlEES0_INS_10softdoubleESaIS4_EEi(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %8, i32 noundef 16)
           to label %30 unwind label %79
 
 30:                                               ; preds = %.loopexit

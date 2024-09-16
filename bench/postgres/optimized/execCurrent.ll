@@ -265,7 +265,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   store i8 0, ptr %6, align 1
   %123 = getelementptr inbounds i8, ptr %70, i64 88
   %124 = load ptr, ptr %123, align 8
-  %125 = call fastcc ptr @search_plan_tree(ptr noundef %124, i32 noundef %2, ptr noundef nonnull %6)
+  %125 = call fastcc ptr @search_plan_tree(ptr noundef %124, i32 noundef %2, ptr noundef %6)
   %.not73 = icmp eq ptr %125, null
   br i1 %.not73, label %126, label %130
 
@@ -356,7 +356,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 

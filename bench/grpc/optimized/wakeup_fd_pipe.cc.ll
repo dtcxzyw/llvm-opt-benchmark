@@ -118,7 +118,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
 
 invoke.cont11:                                    ; preds = %entry
   %9 = load i32, ptr %pipefd, align 4
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_120SetSocketNonBlockingEi(ptr noalias nonnull align 8 %status, i32 noundef %9)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_120SetSocketNonBlockingEi(ptr noalias align 8 %status, i32 noundef %9)
   %10 = load i64, ptr %status, align 8
   %cmp.i = icmp eq i64 %10, 0
   br i1 %cmp.i, label %if.end14, label %if.then13
@@ -135,7 +135,7 @@ lpad10:                                           ; preds = %if.end14
 if.end14:                                         ; preds = %invoke.cont11
   %arrayidx16 = getelementptr inbounds i8, ptr %pipefd, i64 4
   %12 = load i32, ptr %arrayidx16, align 4
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_120SetSocketNonBlockingEi(ptr noalias nonnull align 8 %ref.tmp15, i32 noundef %12)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_120SetSocketNonBlockingEi(ptr noalias align 8 %ref.tmp15, i32 noundef %12)
           to label %invoke.cont17 unwind label %lpad10
 
 invoke.cont17:                                    ; preds = %if.end14
@@ -239,7 +239,7 @@ declare void @_ZN4absl12lts_202308026StatusC1ENS0_10StatusCodeESt17basic_string_
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_120SetSocketNonBlockingEi(ptr noalias align 8 %agg.result, i32 noundef %fd) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_120SetSocketNonBlockingEi(ptr noalias nonnull align 8 %agg.result, i32 noundef %fd) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.absl::lts_20230802::AlphaNum", align 8

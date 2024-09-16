@@ -835,7 +835,7 @@ define void @_ZN5ZXing28FindConcentricPatternCornersERKNS_9BitMatrixENS_6PointTI
   %7 = alloca %"class.std::optional.1", align 8
   %8 = alloca %"class.std::optional.1", align 8
   %9 = alloca %"class.ZXing::Quadrilateral", align 8
-  call fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, double %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext false)
+  call fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, double %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext false)
   %10 = getelementptr inbounds i8, ptr %7, i64 64
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
@@ -843,7 +843,7 @@ define void @_ZN5ZXing28FindConcentricPatternCornersERKNS_9BitMatrixENS_6PointTI
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %5, 1
-  call fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, double %3, i32 noundef %4, i32 noundef %14, i1 noundef zeroext true)
+  call fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, double %3, i32 noundef %4, i32 noundef %14, i1 noundef zeroext true)
   %15 = getelementptr inbounds i8, ptr %8, i64 64
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
@@ -929,7 +929,7 @@ _ZN5ZXing5BlendINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_S7_.exit.preheader: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, double %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, double %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.ZXing::PointT", align 8
   %9 = alloca %"struct.ZXing::PointT", align 8
   %10 = alloca %"struct.ZXing::PointT", align 8
@@ -2347,7 +2347,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit21:   ; preds = %62
 
 78:                                               ; preds = %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit21
   %79 = phi ptr [ %61, %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread ], [ %63, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit21 ]
-  call fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.07.0.copyload, double %.sroa.28.0.copyload, i32 noundef %4, i32 noundef 1, i1 noundef zeroext false)
+  call fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.07.0.copyload, double %.sroa.28.0.copyload, i32 noundef %4, i32 noundef 1, i1 noundef zeroext false)
   %80 = getelementptr inbounds i8, ptr %9, i64 64
   %81 = load i8, ptr %80, align 8
   %82 = trunc i8 %81 to i1

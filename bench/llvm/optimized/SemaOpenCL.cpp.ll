@@ -4097,7 +4097,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadicArgsERNS_4SemaEPNS_8CallExprEPNS_4ExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %.8.val, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadicArgsERNS_4SemaEPNS_8CallExprEPNS_4ExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %.8.val, i32 noundef range(i32 4, 8) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %6 = and i64 %.8.val, -16
@@ -4130,7 +4130,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %19
   %25 = and i32 %24, 65535
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i32, ptr %26, align 8
-  %28 = add i32 %25, %2
+  %28 = add nuw nsw i32 %25, %2
   %.not = icmp eq i32 %27, %28
   br i1 %.not, label %32, label %29
 
@@ -4142,7 +4142,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %19
   br label %_ZN5clangL31checkOpenCLEnqueueLocalSizeArgsERNS_4SemaEPNS_8CallExprEjj.exit
 
 32:                                               ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
-  %33 = add i32 %27, -1
+  %33 = add nsw i32 %27, -1
   %invariant.gep.i = getelementptr inbounds i8, ptr %1, i64 8
   %.not11.i = icmp ugt i32 %2, %33
   br i1 %.not11.i, label %_ZN5clangL31checkOpenCLEnqueueLocalSizeArgsERNS_4SemaEPNS_8CallExprEjj.exit, label %.lr.ph.i
@@ -5169,7 +5169,7 @@ _ZNK5clang16OpenCLAccessAttr10isReadOnlyEv.exit.thread: ; preds = %_ZNK5clang16O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clangL19checkPipePacketTypeERNS_4SemaEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clangL19checkPipePacketTypeERNS_4SemaEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.clang::QualType", align 8
@@ -5185,7 +5185,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL19checkPipePacketTypeERNS_4
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %13, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = zext i32 %2 to i64
+  %19 = zext nneg i32 %2 to i64
   %20 = getelementptr inbounds ptr, ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8

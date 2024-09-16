@@ -587,7 +587,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.0180.lcssa, label %196, label %194
 
 194:                                              ; preds = %190
-  %195 = call fastcc i32 @eval_buf(ptr noundef nonnull %175, ptr noundef nonnull @.str.26, i32 noundef 96, ptr noundef nonnull @.str.27, i32 noundef 1)
+  %195 = call fastcc i32 @eval_buf(ptr noundef %175, ptr noundef nonnull @.str.26, i32 noundef 96, ptr noundef nonnull @.str.27, i32 noundef 1)
   br label %196
 
 196:                                              ; preds = %194, %190
@@ -607,7 +607,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv = phi i64 [ 0, %.lr.ph547.preheader ], [ %indvars.iv.next, %198 ]
   %199 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8
-  %201 = call fastcc i32 @eval_file(ptr noundef nonnull %175, ptr noundef %200, i32 noundef %.0183.lcssa)
+  %201 = call fastcc i32 @eval_file(ptr noundef %175, ptr noundef %200, i32 noundef %.0183.lcssa)
   %.not221 = icmp eq i32 %201, 0
   br i1 %.not221, label %198, label %.loopexit
 
@@ -623,8 +623,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.sroa.10.1.i = extractvalue { i64, i64 } %205, 1
   %.sroa.07.1.i = extractvalue { i64, i64 } %205, 0
   %206 = and i64 %.sroa.10.1.i, 4294967295
-  %.not35.i.not = icmp eq i64 %206, 6
-  br i1 %.not35.i.not, label %207, label %208
+  %.not37.i.not = icmp eq i64 %206, 6
+  br i1 %.not37.i.not, label %207, label %208
 
 207:                                              ; preds = %202
   call void @js_std_dump_error(ptr noundef nonnull %175) #16
@@ -648,7 +648,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %eval_buf.exit
 
 eval_buf.exit:                                    ; preds = %208, %211, %216
-  br i1 %.not35.i.not, label %.loopexit, label %221
+  br i1 %.not37.i.not, label %.loopexit, label %221
 
 217:                                              ; preds = %._crit_edge
   %.not217 = icmp slt i32 %.1, %0
@@ -656,7 +656,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
 
 218:                                              ; preds = %217
   %219 = load ptr, ptr %193, align 8
-  %220 = call fastcc i32 @eval_file(ptr noundef nonnull %175, ptr noundef %219, i32 noundef %.0183.lcssa)
+  %220 = call fastcc i32 @eval_file(ptr noundef %175, ptr noundef %219, i32 noundef %.0183.lcssa)
   %.not218 = icmp eq i32 %220, 0
   br i1 %.not218, label %221, label %.loopexit
 
@@ -850,76 +850,75 @@ declare void @js_std_eval_binary(ptr noundef, ptr noundef, i64 noundef, i32 noun
 declare void @js_std_add_helpers(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
-  %6 = and i32 %4, 3
-  %7 = icmp eq i32 %6, 1
-  %8 = sext i32 %2 to i64
-  br i1 %7, label %9, label %22
+define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
+  %.not = icmp eq i32 %4, 0
+  %6 = sext i32 %2 to i64
+  br i1 %.not, label %20, label %7
 
-9:                                                ; preds = %5
-  %10 = or i32 %4, 32
-  %11 = tail call { i64, i64 } @JS_Eval(ptr noundef %0, ptr noundef %1, i64 noundef %8, ptr noundef %3, i32 noundef %10) #16
-  %12 = extractvalue { i64, i64 } %11, 0
-  %13 = extractvalue { i64, i64 } %11, 1
-  %14 = and i64 %13, 4294967295
-  %.not = icmp eq i64 %14, 6
-  br i1 %.not, label %20, label %15
+7:                                                ; preds = %5
+  %8 = or disjoint i32 %4, 32
+  %9 = tail call { i64, i64 } @JS_Eval(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, i32 noundef %8) #16
+  %10 = extractvalue { i64, i64 } %9, 0
+  %11 = extractvalue { i64, i64 } %9, 1
+  %12 = and i64 %11, 4294967295
+  %.not36 = icmp eq i64 %12, 6
+  br i1 %.not36, label %18, label %13
 
-15:                                               ; preds = %9
-  %16 = tail call i32 @js_module_set_import_meta(ptr noundef %0, i64 %12, i64 %13, i32 noundef 1, i32 noundef 1) #16
-  %17 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %12, i64 %13) #16
-  %18 = extractvalue { i64, i64 } %17, 0
-  %19 = extractvalue { i64, i64 } %17, 1
-  br label %20
+13:                                               ; preds = %7
+  %14 = tail call i32 @js_module_set_import_meta(ptr noundef nonnull %0, i64 %10, i64 %11, i32 noundef 1, i32 noundef 1) #16
+  %15 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef nonnull %0, i64 %10, i64 %11) #16
+  %16 = extractvalue { i64, i64 } %15, 0
+  %17 = extractvalue { i64, i64 } %15, 1
+  br label %18
 
-20:                                               ; preds = %15, %9
-  %.sroa.07.0 = phi i64 [ %12, %9 ], [ %18, %15 ]
-  %.sroa.10.0 = phi i64 [ %13, %9 ], [ %19, %15 ]
-  %21 = tail call { i64, i64 } @js_std_await(ptr noundef %0, i64 %.sroa.07.0, i64 %.sroa.10.0) #16
-  br label %24
+18:                                               ; preds = %13, %7
+  %.sroa.07.0 = phi i64 [ %10, %7 ], [ %16, %13 ]
+  %.sroa.10.0 = phi i64 [ %11, %7 ], [ %17, %13 ]
+  %19 = tail call { i64, i64 } @js_std_await(ptr noundef nonnull %0, i64 %.sroa.07.0, i64 %.sroa.10.0) #16
+  br label %22
 
-22:                                               ; preds = %5
-  %23 = tail call { i64, i64 } @JS_Eval(ptr noundef %0, ptr noundef %1, i64 noundef %8, ptr noundef %3, i32 noundef %4) #16
-  br label %24
+20:                                               ; preds = %5
+  %21 = tail call { i64, i64 } @JS_Eval(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, i32 noundef 0) #16
+  br label %22
 
-24:                                               ; preds = %22, %20
-  %.pn = phi { i64, i64 } [ %21, %20 ], [ %23, %22 ]
+22:                                               ; preds = %20, %18
+  %.pn = phi { i64, i64 } [ %19, %18 ], [ %21, %20 ]
   %.sroa.10.1 = extractvalue { i64, i64 } %.pn, 1
   %.sroa.07.1 = extractvalue { i64, i64 } %.pn, 0
-  %25 = and i64 %.sroa.10.1, 4294967295
-  %.not35 = icmp eq i64 %25, 6
-  br i1 %.not35, label %26, label %27
+  %23 = and i64 %.sroa.10.1, 4294967295
+  %.not37 = icmp eq i64 %23, 6
+  br i1 %.not37, label %24, label %25
 
-26:                                               ; preds = %24
-  tail call void @js_std_dump_error(ptr noundef %0) #16
-  br label %27
+24:                                               ; preds = %22
+  tail call void @js_std_dump_error(ptr noundef nonnull %0) #16
+  br label %25
 
-27:                                               ; preds = %24, %26
-  %.0 = phi i32 [ -1, %26 ], [ 0, %24 ]
-  %28 = trunc i64 %.sroa.10.1 to i32
-  %29 = icmp ugt i32 %28, -12
-  br i1 %29, label %30, label %JS_FreeValue.exit
+25:                                               ; preds = %22, %24
+  %.0 = phi i32 [ -1, %24 ], [ 0, %22 ]
+  %26 = trunc i64 %.sroa.10.1 to i32
+  %27 = icmp ugt i32 %26, -12
+  br i1 %27, label %28, label %JS_FreeValue.exit
 
-30:                                               ; preds = %27
-  %31 = inttoptr i64 %.sroa.07.1 to ptr
-  %32 = load i32, ptr %31, align 4
-  %33 = add i32 %32, -1
-  store i32 %33, ptr %31, align 4
-  %34 = icmp slt i32 %33, 1
-  br i1 %34, label %35, label %JS_FreeValue.exit
+28:                                               ; preds = %25
+  %29 = inttoptr i64 %.sroa.07.1 to ptr
+  %30 = load i32, ptr %29, align 4
+  %31 = add i32 %30, -1
+  store i32 %31, ptr %29, align 4
+  %32 = icmp slt i32 %31, 1
+  br i1 %32, label %33, label %JS_FreeValue.exit
 
-35:                                               ; preds = %30
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.07.1, i64 %.sroa.10.1) #16
+33:                                               ; preds = %28
+  tail call void @__JS_FreeValue(ptr noundef nonnull %0, i64 %.sroa.07.1, i64 %.sroa.10.1) #16
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %27, %30, %35
+JS_FreeValue.exit:                                ; preds = %25, %28, %33
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
-  %5 = call ptr @js_load_file(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1) #16
+  %5 = call ptr @js_load_file(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %1) #16
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
@@ -956,7 +955,7 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef %0, ptr nound
   %18 = load i64, ptr %4, align 8
   %19 = trunc i64 %18 to i32
   %20 = call fastcc i32 @eval_buf(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %19, ptr noundef %1, i32 noundef %17)
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %5) #16
+  call void @js_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #16
   ret i32 %20
 }
 

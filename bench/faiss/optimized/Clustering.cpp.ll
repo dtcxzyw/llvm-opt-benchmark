@@ -625,7 +625,7 @@ define void @_ZN5faiss10Clustering13train_encodedElPKhPKNS_5IndexERS3_PKf(ptr no
   br i1 %153, label %154, label %160
 
 154:                                              ; preds = %143
-  %155 = invoke fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_122subsample_training_setERKNS_10ClusteringElPKhmPKfPPhPPf(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, ptr noundef %2, i64 noundef %146, ptr noundef %5, ptr noundef nonnull %23, ptr noundef nonnull %24)
+  %155 = invoke fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_122subsample_training_setERKNS_10ClusteringElPKhmPKfPPhPPf(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, ptr noundef %2, i64 noundef %146, ptr noundef %5, ptr noundef %23, ptr noundef %24)
           to label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit unwind label %158
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %154
@@ -2461,7 +2461,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef double @_ZN5faiss12getmillisecsEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_122subsample_training_setERKNS_10ClusteringElPKhmPKfPPhPPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_122subsample_training_setERKNS_10ClusteringElPKhmPKfPPhPPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -3350,7 +3350,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = shl i64 %14, 2
-  %16 = call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_122subsample_training_setERKNS_10ClusteringElPKhmPKfPPhPPf(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, ptr noundef %2, i64 noundef %15, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %16 = call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_122subsample_training_setERKNS_10ClusteringElPKhmPKfPPhPPf(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, ptr noundef %2, i64 noundef %15, ptr noundef null, ptr noundef %4, ptr noundef %5)
   %17 = load ptr, ptr %4, align 8
   %.pre = load i64, ptr %6, align 8
   br label %20

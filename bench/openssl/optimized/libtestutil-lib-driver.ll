@@ -606,14 +606,14 @@ do.body:                                          ; preds = %if.end108, %do.body
   br i1 %cmp123, label %do.body.backedge, label %while.body.i
 
 while.body.i:                                     ; preds = %do.body, %while.body.i
-  %a.addr.06.i = phi i32 [ %b.addr.05.i, %while.body.i ], [ %38, %do.body ]
-  %b.addr.05.i = phi i32 [ %rem.i, %while.body.i ], [ %rem122, %do.body ]
-  %rem.i = srem i32 %a.addr.06.i, %b.addr.05.i
+  %a.addr.05.i = phi i32 [ %b.addr.04.i, %while.body.i ], [ %38, %do.body ]
+  %b.addr.04.i = phi i32 [ %rem.i, %while.body.i ], [ %rem122, %do.body ]
+  %rem.i = srem i32 %a.addr.05.i, %b.addr.04.i
   %cmp.not.i = icmp eq i32 %rem.i, 0
   br i1 %cmp.not.i, label %gcd.exit, label %while.body.i, !llvm.loop !9
 
 gcd.exit:                                         ; preds = %while.body.i
-  %cmp129.not = icmp eq i32 %b.addr.05.i, 1
+  %cmp129.not = icmp eq i32 %b.addr.04.i, 1
   br i1 %cmp129.not, label %if.end131, label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %gcd.exit, %do.body

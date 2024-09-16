@@ -807,7 +807,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$LP$std..fs..File$C$bytes..b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h775c65efc5b66d64E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h775c65efc5b66d64E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -2411,7 +2411,7 @@ define void @"_ZN64_$LT$actix_files..files..Files$u20$as$u20$core..clone..Clone$
   br label %26
 
 "_ZN4core3ptr292drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$core..option..Option$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$$GT$17he335c54d2d584a34E.exit": ; preds = %"_ZN4core3ptr277drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$actix_files..directory..Directory$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$std..io..error..Error$GT$$GT$$GT$17h6c16e09f565cde60E.exit"
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h775c65efc5b66d64E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #23
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h775c65efc5b66d64E"(ptr noalias noundef align 8 dereferenceable(24) %11) #23
           to label %37 unwind label %128
 
 _ZN5alloc2rc10RcInnerPtr10inc_strong17h85b933b38ada7e01E.exit: ; preds = %26
@@ -3871,7 +3871,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr101dro
 
 192:                                              ; preds = %102
   %193 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h775c65efc5b66d64E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %193) #23
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h775c65efc5b66d64E"(ptr noalias noundef align 8 dereferenceable(24) %193) #23
           to label %122 unwind label %194
 
 194:                                              ; preds = %254, %249, %242, %234, %215, %210, %205, %199, %196, %229, %224, %219, %30, %192
@@ -3944,7 +3944,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr101dro
 
 224:                                              ; preds = %216
   %225 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h775c65efc5b66d64E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %225) #23
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h775c65efc5b66d64E"(ptr noalias noundef align 8 dereferenceable(24) %225) #23
           to label %220 unwind label %194
 
 226:                                              ; preds = %229, %220

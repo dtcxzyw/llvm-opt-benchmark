@@ -779,7 +779,7 @@ declare i64 @rb_int_plus(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_int_mul(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @f_addsub(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i64 @f_addsub(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 43, 46) %5) unnamed_addr #0 {
   %7 = and i64 %1, 1
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %99, label %8
@@ -1717,7 +1717,7 @@ rb_float_new_inline.exit:                         ; preds = %83, %81, %77, %.cri
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @f_muldiv(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i64 @f_muldiv(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 42, 48) %5) unnamed_addr #0 {
   %7 = and i64 %1, 3
   %8 = icmp eq i64 %7, 2
   br i1 %8, label %RB_FLOAT_TYPE_P.exit.thread, label %9
@@ -3420,7 +3420,7 @@ rb_type.exit.thread:                              ; preds = %11, %7, %7, %7, %7,
 declare i64 @rb_int_cmp(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @f_imul(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @f_imul(i64 noundef range(i64 -4611686018427387904, 4611686018427387905) %0, i64 noundef range(i64 -4611686018427387904, 4611686018427387905) %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
   %4 = icmp eq i64 %1, 0
   %or.cond = or i1 %3, %4
@@ -4033,7 +4033,7 @@ float_decode_internal.exit:                       ; preds = %9, %10, %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %24, ptr %4, align 8
   store i64 3, ptr %5, align 8
-  call fastcc void @nurat_reduce(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @nurat_reduce(ptr noundef %4, ptr noundef %5)
   %28 = load i64, ptr %4, align 8
   %29 = load i64, ptr %5, align 8
   %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -4087,7 +4087,7 @@ nurat_s_canonicalize_internal.exit:               ; preds = %RATIONAL_SET_NUM.ex
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %54, ptr %2, align 8
   store i64 3, ptr %3, align 8
-  call fastcc void @nurat_reduce(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @nurat_reduce(ptr noundef %2, ptr noundef %3)
   %56 = load i64, ptr %2, align 8
   %57 = load i64, ptr %3, align 8
   %58 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -5407,7 +5407,7 @@ INT_NEGATIVE_P.exit.i:                            ; preds = %3
   unreachable
 
 nurat_canonicalize.exit:                          ; preds = %12, %15, %17
-  call fastcc void @nurat_reduce(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @nurat_reduce(ptr noundef %4, ptr noundef %5)
   %20 = load i64, ptr %4, align 8
   %21 = load i64, ptr %5, align 8
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -5876,7 +5876,7 @@ f_eqeq_p.exit:                                    ; preds = %38, %rb_integer_typ
   br label %63
 
 58:                                               ; preds = %f_eqeq_p.exit
-  call fastcc void @nurat_rationalize_internal(i64 noundef %.0.i1120, i64 noundef %.0.i14, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @nurat_rationalize_internal(i64 noundef %.0.i1120, i64 noundef %.0.i14, ptr noundef %3, ptr noundef %4)
   %59 = load i64, ptr %3, align 8
   %60 = load i64, ptr %4, align 8
   %61 = load i64, ptr @rb_cRational, align 8
@@ -5889,7 +5889,7 @@ f_eqeq_p.exit:                                    ; preds = %38, %rb_integer_typ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nurat_rationalize_internal(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @nurat_rationalize_internal(i64 noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %f_sub.exit47, %4
@@ -6245,7 +6245,7 @@ float_decode_internal.exit:                       ; preds = %9, %10, %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %35, ptr %2, align 8
   store i64 3, ptr %3, align 8
-  call fastcc void @nurat_reduce(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @nurat_reduce(ptr noundef %2, ptr noundef %3)
   %37 = load i64, ptr %2, align 8
   %38 = load i64, ptr %3, align 8
   %39 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -6346,7 +6346,7 @@ f_eqeq_p.exit:                                    ; preds = %67, %rb_integer_typ
   %89 = tail call fastcc i64 @nurat_s_canonicalize_internal(i64 noundef %88, i64 noundef %62, i64 noundef %61)
   %90 = load i64, ptr @rb_cRational, align 8
   %91 = tail call fastcc i64 @nurat_s_canonicalize_internal(i64 noundef %90, i64 noundef %63, i64 noundef %61)
-  call fastcc void @nurat_rationalize_internal(i64 noundef %89, i64 noundef %91, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @nurat_rationalize_internal(i64 noundef %89, i64 noundef %91, ptr noundef %4, ptr noundef %5)
   %92 = load i64, ptr %4, align 8
   %93 = load i64, ptr %5, align 8
   %94 = load i64, ptr @rb_cRational, align 8
@@ -6472,7 +6472,7 @@ skip_ws.exit:                                     ; preds = %16, %22, %4
 
 read_sign.exit:                                   ; preds = %skip_ws.exit, %25, %27
   %.0.i = phi i1 [ %29, %27 ], [ false, %25 ], [ false, %skip_ws.exit ]
-  %30 = call fastcc i32 @read_num(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %30 = call fastcc i32 @read_num(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef %8)
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %42
 
@@ -6509,7 +6509,7 @@ read_sign.exit:                                   ; preds = %skip_ws.exit, %25, 
 48:                                               ; preds = %45
   %49 = getelementptr i8, ptr %43, i64 1
   store ptr %49, ptr %5, align 8
-  %50 = call fastcc i32 @read_num(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %50 = call fastcc i32 @read_num(ptr noundef %5, ptr noundef nonnull %1, ptr noundef %7, ptr noundef %9)
   %.not27 = icmp eq i32 %50, 0
   br i1 %.not27, label %51, label %53
 
@@ -6576,7 +6576,7 @@ skip_ws.exit39:                                   ; preds = %67, %73, %59
   %76 = load i64, ptr %8, align 8
   %77 = load i64, ptr %9, align 8
   %78 = tail call i64 @rb_int_minus(i64 noundef %76, i64 noundef %77) #16
-  call fastcc void @nurat_reduce(ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @nurat_reduce(ptr noundef %6, ptr noundef %7)
   br label %93
 
 79:                                               ; preds = %45
@@ -6722,7 +6722,7 @@ RB_FLOAT_TYPE_P.exit.thread63:                    ; preds = %RB_FLOAT_TYPE_P.exi
   %141 = load i64, ptr %.sink, align 8
   %142 = tail call i64 @rb_int_mul(i64 noundef %141, i64 noundef %.sink71) #16
   store i64 %142, ptr %.sink, align 8
-  call fastcc void @nurat_reduce(ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @nurat_reduce(ptr noundef %6, ptr noundef %7)
   br label %143
 
 143:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread63, %93
@@ -8059,7 +8059,7 @@ f_eqeq_p.exit:                                    ; preds = %49, %rb_integer_typ
   br i1 %.not, label %67, label %RATIONAL_SET_DEN.exit
 
 67:                                               ; preds = %f_eqeq_p.exit
-  call fastcc void @nurat_rationalize_internal(i64 noundef %44, i64 noundef %45, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @nurat_rationalize_internal(i64 noundef %44, i64 noundef %45, ptr noundef %4, ptr noundef %5)
   %.not30 = icmp eq i64 %.028, %2
   br i1 %.not30, label %85, label %68
 
@@ -8636,7 +8636,7 @@ define internal i64 @nilclass_to_r(i64 %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 1, ptr %2, align 8
   store i64 3, ptr %3, align 8
-  call fastcc void @nurat_reduce(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @nurat_reduce(ptr noundef %2, ptr noundef %3)
   %5 = load i64, ptr %2, align 8
   %6 = load i64, ptr %3, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -8700,7 +8700,7 @@ define internal i64 @integer_to_r(i64 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %0, ptr %2, align 8
   store i64 3, ptr %3, align 8
-  call fastcc void @nurat_reduce(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @nurat_reduce(ptr noundef %2, ptr noundef %3)
   %5 = load i64, ptr %2, align 8
   %6 = load i64, ptr %3, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -8931,13 +8931,13 @@ RB_FLOAT_TYPE_P.exit.thread10:                    ; preds = %20, %11, %FLOAT_ZER
 declare void @rb_provide(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(none) uwtable
-define internal fastcc i64 @i_gcd(i64 noundef %0, i64 noundef %1) unnamed_addr #10 {
+define internal fastcc i64 @i_gcd(i64 noundef range(i64 -4611686018427387904, 4611686018427387904) %0, i64 noundef range(i64 -4611686018427387904, 4611686018427387904) %1) unnamed_addr #10 {
   %.036 = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %28, label %4
 
 4:                                                ; preds = %2
-  %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
+  %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %28, label %.preheader46
 
@@ -9312,7 +9312,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nurat_reduce(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @nurat_reduce(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 3
   br i1 %4, label %74, label %5
@@ -9479,7 +9479,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #13
 declare i64 @rb_dbl2big(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_num(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_num(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store i64 1, ptr %3, align 8

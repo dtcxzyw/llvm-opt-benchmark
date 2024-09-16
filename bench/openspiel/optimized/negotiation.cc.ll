@@ -2391,7 +2391,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit36:           ; preds = %_ZN4absl7debian27St
   store i64 11, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %181 = load i32, ptr %180, align 8
-  invoke fastcc void @_ZN10open_spiel11negotiation12_GLOBAL__N_116TurnTypeToStringB5cxx11ENS0_8TurnTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %32, i32 noundef %181)
+  invoke fastcc void @_ZN10open_spiel11negotiation12_GLOBAL__N_116TurnTypeToStringB5cxx11ENS0_8TurnTypeE(ptr dead_on_unwind noalias writable align 8 %32, i32 noundef %181)
           to label %182 unwind label %155
 
 182:                                              ; preds = %178
@@ -2756,7 +2756,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel11negotiation12_GLOBAL__N_116TurnTypeToStringB5cxx11ENS0_8TurnTypeE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel11negotiation12_GLOBAL__N_116TurnTypeToStringB5cxx11ENS0_8TurnTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6388,7 +6388,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit45:           ; preds = %_ZN4absl7debian27St
   store i64 11, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %158 = load i32, ptr %157, align 8
-  invoke fastcc void @_ZN10open_spiel11negotiation12_GLOBAL__N_116TurnTypeToStringB5cxx11ENS0_8TurnTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %24, i32 noundef %158)
+  invoke fastcc void @_ZN10open_spiel11negotiation12_GLOBAL__N_116TurnTypeToStringB5cxx11ENS0_8TurnTypeE(ptr dead_on_unwind noalias writable align 8 %24, i32 noundef %158)
           to label %159 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 159:                                              ; preds = %155

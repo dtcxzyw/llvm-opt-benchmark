@@ -973,7 +973,7 @@ _ZL19atomicSizeSupportedIN4llvm9StoreInstEEbPKNS0_14TargetLoweringEPT_.exit.thre
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36)
   %353 = load ptr, ptr %62, align 8
-  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %35, ptr noundef %spec.select.i.i116.i, ptr noundef nonnull align 8 dereferenceable(512) %353)
+  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %35, ptr noundef nonnull %spec.select.i.i116.i, ptr noundef nonnull align 8 dereferenceable(512) %353)
   %354 = call noundef ptr @_ZNK4llvm11Instruction9getModuleEv(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i116.i) #16
   %355 = load ptr, ptr %303, align 8
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
@@ -1902,7 +1902,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   br i1 %.not112.i, label %814, label %811
 
 811:                                              ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i
-  %812 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl19tryExpandAtomicLoadEPN4llvm8LoadInstE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.089.i)
+  %812 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl19tryExpandAtomicLoadEPN4llvm8LoadInstE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.089.i)
   %813 = or i1 %.1.i, %812
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %46)
   br i1 %813, label %895, label %896
@@ -1926,7 +1926,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
 821:                                              ; preds = %815
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %20)
   %822 = load ptr, ptr %62, align 8
-  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef %.088.i, ptr noundef nonnull align 8 dereferenceable(512) %822)
+  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull %.088.i, ptr noundef nonnull align 8 dereferenceable(512) %822)
   %823 = getelementptr inbounds nuw i8, ptr %.088.i, i64 2
   %824 = load i16, ptr %823, align 2
   %825 = lshr i16 %824, 7
@@ -2051,7 +2051,7 @@ _ZN12_GLOBAL__N_116AtomicExpandImpl15isIdempotentRMWEPN4llvm13AtomicRMWInstE.exi
   br i1 %.not.i170.not.i, label %_ZN12_GLOBAL__N_116AtomicExpandImpl21simplifyIdempotentRMWEPN4llvm13AtomicRMWInstE.exit.i, label %_ZN12_GLOBAL__N_116AtomicExpandImpl21simplifyIdempotentRMWEPN4llvm13AtomicRMWInstE.exit.thread.i
 
 _ZN12_GLOBAL__N_116AtomicExpandImpl21simplifyIdempotentRMWEPN4llvm13AtomicRMWInstE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_116AtomicExpandImpl15isIdempotentRMWEPN4llvm13AtomicRMWInstE.exit.thread174.i
-  %888 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl19tryExpandAtomicLoadEPN4llvm8LoadInstE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %887)
+  %888 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl19tryExpandAtomicLoadEPN4llvm8LoadInstE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %887)
   br label %.sink.split
 
 _ZN12_GLOBAL__N_116AtomicExpandImpl21simplifyIdempotentRMWEPN4llvm13AtomicRMWInstE.exit.i: ; preds = %_ZN12_GLOBAL__N_116AtomicExpandImpl15isIdempotentRMWEPN4llvm13AtomicRMWInstE.exit.thread174.i, %_ZN12_GLOBAL__N_116AtomicExpandImpl15isIdempotentRMWEPN4llvm13AtomicRMWInstE.exit.i, %875, %865, %862, %852, %848
@@ -2065,7 +2065,7 @@ _ZN12_GLOBAL__N_116AtomicExpandImpl21simplifyIdempotentRMWEPN4llvm13AtomicRMWIns
   br i1 %.not115.i, label %_ZN12_GLOBAL__N_116AtomicExpandImpl18processAtomicInstrEPN4llvm11InstructionE.exit, label %892
 
 892:                                              ; preds = %891
-  %893 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl22tryExpandAtomicCmpXchgEPN4llvm17AtomicCmpXchgInstE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.086.i)
+  %893 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl22tryExpandAtomicCmpXchgEPN4llvm17AtomicCmpXchgInstE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.086.i)
   %894 = or i1 %.1.i, %893
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %46)
   br i1 %894, label %895, label %896
@@ -2774,7 +2774,7 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction14hasAtomicStoreEv(ptr noundef
 declare void @_ZN4llvm11Instruction9moveAfterEPS0_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl19tryExpandAtomicLoadEPN4llvm8LoadInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl19tryExpandAtomicLoadEPN4llvm8LoadInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::ReplacementIRBuilder", align 8
   %5 = alloca i32, align 4
@@ -2786,7 +2786,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl19
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 1120
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(408123) %10, ptr noundef %1) #16
+  %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(408123) %10, ptr noundef nonnull %1) #16
   switch i32 %14, label %110 [
     i32 0, label %111
     i32 2, label %15
@@ -2816,7 +2816,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl19
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %29)
+  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(512) %29)
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -2864,7 +2864,7 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %.val)
+  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(512) %.val)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %59 = load i16, ptr %58, align 2
   %60 = lshr i16 %59, 7
@@ -3329,7 +3329,7 @@ _ZN4llvm25OptimizationRemarkEmitterD2Ev.exit:     ; preds = %"_ZN4llvm25Optimiza
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 88
   %189 = load i32, ptr %188, align 8
   %190 = lshr i32 %189, 3
-  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull %1, ptr noundef %179, ptr noundef %181, i8 %186, i32 noundef %190)
+  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull %1, ptr noundef %179, ptr noundef %181, i8 %186, i32 noundef %190)
   %191 = load i16, ptr %182, align 2
   %192 = lshr i16 %191, 4
   %193 = and i16 %192, 31
@@ -3730,7 +3730,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AtomicExpandImpl22
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 88
   %167 = load i32, ptr %166, align 8
   %168 = lshr i32 %167, 3
-  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nonnull writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(128) %77, ptr noundef nonnull %1, ptr noundef %159, ptr noundef %127, i8 %164, i32 noundef %168)
+  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(128) %77, ptr noundef nonnull %1, ptr noundef %159, ptr noundef %127, i8 %164, i32 noundef %168)
   %169 = load ptr, ptr %81, align 8
   %170 = getelementptr inbounds nuw i8, ptr %82, i64 32
   store i16 257, ptr %170, align 8
@@ -4717,7 +4717,7 @@ _ZNK4llvm17AtomicCmpXchgInst17getMergedOrderingEv.exit.thread.i: ; preds = %584,
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 88
   %644 = load i32, ptr %643, align 8
   %645 = lshr i32 %644, 3
-  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull %1, ptr noundef %637, ptr noundef %562, i8 %641, i32 noundef %645)
+  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull %1, ptr noundef %637, ptr noundef %562, i8 %641, i32 noundef %645)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %38)
   %646 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #16
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %646, ptr noundef nonnull %617, ptr null, i64 0) #16
@@ -6212,7 +6212,7 @@ _ZN12_GLOBAL__N_116AtomicExpandImpl19expandAtomicCmpXchgEPN4llvm17AtomicCmpXchgI
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   %1391 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1392 = load ptr, ptr %1391, align 8
-  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %1392)
+  call fastcc void @_ZN12_GLOBAL__N_120ReplacementIRBuilderC2EPN4llvm11InstructionERKNS1_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(264) %9, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(512) %1392)
   %1393 = load ptr, ptr %106, align 8
   %1394 = getelementptr inbounds nuw i8, ptr %1393, i64 8
   %1395 = load ptr, ptr %1394, align 8
@@ -6227,7 +6227,7 @@ _ZN12_GLOBAL__N_116AtomicExpandImpl19expandAtomicCmpXchgEPN4llvm17AtomicCmpXchgI
   %1404 = getelementptr inbounds nuw i8, ptr %1403, i64 88
   %1405 = load i32, ptr %1404, align 8
   %1406 = lshr i32 %1405, 3
-  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull %1, ptr noundef %1395, ptr noundef %1397, i8 %1402, i32 noundef %1406)
+  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull %1, ptr noundef %1395, ptr noundef %1397, i8 %1402, i32 noundef %1406)
   %1407 = load ptr, ptr %106, align 8
   %1408 = load ptr, ptr %10, align 8
   %1409 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -9925,7 +9925,7 @@ declare noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef no
 declare noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116AtomicExpandImpl23expandPartwordAtomicRMWEPN4llvm13AtomicRMWInstENS1_18TargetLoweringBase19AtomicExpansionKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116AtomicExpandImpl23expandPartwordAtomicRMWEPN4llvm13AtomicRMWInstENS1_18TargetLoweringBase19AtomicExpansionKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef range(i32 2, 5) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -9978,7 +9978,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AtomicExpandImpl23expandPartword
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
   %43 = load i32, ptr %42, align 8
   %44 = lshr i32 %43, 3
-  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull %1, ptr noundef %34, ptr noundef %36, i8 %40, i32 noundef %44)
+  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull %1, ptr noundef %34, ptr noundef %36, i8 %40, i32 noundef %44)
   store ptr null, ptr %12, align 8
   switch i16 %20, label %82 [
     i16 4, label %45
@@ -10360,7 +10360,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116AtomicExpandImpl22widenPa
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 3
-  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull %1, ptr noundef %22, ptr noundef %24, i8 %27, i32 noundef %31)
+  call fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull %1, ptr noundef %22, ptr noundef %24, i8 %27, i32 noundef %31)
   %32 = getelementptr inbounds i8, ptr %1, i64 -32
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %10, align 8
@@ -10623,7 +10623,7 @@ _ZN12_GLOBAL__N_120ReplacementIRBuilderD2Ev.exit: ; preds = %_ZL18extractMaskedV
 declare noundef zeroext i1 @_ZN4llvm18lowerAtomicRMWInstEPNS_13AtomicRMWInstE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i8 %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i8 %5, i32 noundef range(i32 0, 536870912) %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -10746,7 +10746,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %7, %7, %7, %7, %7, 
   store ptr %4, ptr %14, align 8
   %74 = getelementptr inbounds i8, ptr %14, i64 8
   %75 = add nsw i32 %6, -1
-  %76 = zext i32 %75 to i64
+  %76 = zext nneg i32 %75 to i64
   %77 = xor i64 %76, -1
   %78 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %68, i64 noundef %77, i1 noundef zeroext false) #16
   store ptr %78, ptr %74, align 8
@@ -10833,7 +10833,7 @@ _ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_
   br label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueEmRKNS_5TwineEbb.exit
 
 121:                                              ; preds = %89
-  %122 = sub i32 %6, %33
+  %122 = sub nsw i32 %6, %33
   %123 = zext i32 %122 to i64
   %124 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i16 257, ptr %124, align 8

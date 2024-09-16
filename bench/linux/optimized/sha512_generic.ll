@@ -121,7 +121,7 @@ define dso_local noundef i32 @crypto_sha512_update(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @sha512_generic_block_fn(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @sha512_generic_block_fn(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 33554432) %2) unnamed_addr #0 align 16 {
   %4 = alloca [16 x i64], align 16
   %5 = getelementptr i8, ptr %0, i64 8
   %6 = getelementptr i8, ptr %0, i64 16

@@ -689,7 +689,7 @@ define void @Amap_ManCutSaveStored(ptr nocapture noundef %0, ptr nocapture nound
   %94 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %32, ptr %94, align 8
   %95 = add nsw i32 %5, -1
-  %96 = tail call noundef i32 @llvm.smin.i32(i32 %.066.lcssa, i32 %95)
+  %96 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.066.lcssa, i32 %95)
   %97 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %96, ptr %97, align 4
   ret void

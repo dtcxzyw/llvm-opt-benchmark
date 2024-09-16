@@ -239,7 +239,7 @@ _ZN5serde2de7Visitor9visit_f3217hdf0f65e76a6ac525E.exit: ; preds = %56, %62
 
 68:                                               ; preds = %63
   store i64 -9223372036854775808, ptr %18, align 8, !noalias !51
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %18), !noalias !54
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %18), !noalias !54
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hdaf9216bce4f21c3E.exit"
 
 "_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hdaf9216bce4f21c3E.exit": ; preds = %63, %68
@@ -584,7 +584,7 @@ common.resume:                                    ; preds = %254, %223, %.body.i
 202:                                              ; preds = %201
   %203 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6) #19
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %6) #19
           to label %.body.i unwind label %204, !noalias !133
 
 204:                                              ; preds = %202
@@ -653,7 +653,7 @@ common.resume:                                    ; preds = %254, %223, %.body.i
 223:                                              ; preds = %218, %215
   %224 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %13) #19
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %13) #19
           to label %common.resume unwind label %229, !noalias !118
 
 225:                                              ; preds = %.noexc, %213
@@ -667,7 +667,7 @@ common.resume:                                    ; preds = %254, %223, %.body.i
   %227 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %220, ptr %227, align 8, !alias.scope !118, !noalias !170
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !118, !noalias !170
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %13), !noalias !118
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %13), !noalias !118
   br label %228
 
 228:                                              ; preds = %226, %221
@@ -738,7 +738,7 @@ common.resume:                                    ; preds = %254, %223, %.body.i
 254:                                              ; preds = %247, %244
   %255 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11) #19
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %11) #19
           to label %common.resume unwind label %259, !noalias !171
 
 256:                                              ; preds = %.noexc.i, %241
@@ -750,7 +750,7 @@ common.resume:                                    ; preds = %254, %223, %.body.i
   %258 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %249, ptr %258, align 8, !alias.scope !171, !noalias !179
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !171, !noalias !179
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11), !noalias !171
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %11), !noalias !171
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h771323130ce082c7E.exit
 
 259:                                              ; preds = %254
@@ -2862,20 +2862,20 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hdfa12b44760878aeE.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h4ad938449bfb27c5E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+define internal fastcc void @"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h4ad938449bfb27c5E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %0)
           to label %5 unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #19
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %4) #19
           to label %9 unwind label %7
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %6)
   ret void
 
 7:                                                ; preds = %2
@@ -2939,7 +2939,7 @@ define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$str$GT$17hd0772698a58c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !603, !noundef !5
@@ -3044,7 +3044,7 @@ define internal void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..de..Key
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i8, ptr %0, align 8, !range !4, !noundef !5
@@ -3173,7 +3173,7 @@ common.resume:                                    ; preds = %36, %31
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$17h11a06fc5dceffe21E"(ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$17h11a06fc5dceffe21E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !157, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -3499,7 +3499,7 @@ _ZN5serde2de9MapAccess10next_value17hd10ed450212f015cE.exit.i.i: ; preds = %59
   br i1 %67, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i", label %68
 
 68:                                               ; preds = %65
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %11)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i" unwind label %.thread.i, !noalias !669
 
 69:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h49d04b0ac4cdaaa1E.exit.i"
@@ -3543,7 +3543,7 @@ _ZN5serde2de9MapAccess10next_value17hd10ed450212f015cE.exit.i.i: ; preds = %59
   br i1 %77, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit111.i", label %78
 
 78:                                               ; preds = %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hec5b61572250dda0E.exit.i"
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %11)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit111.i" unwind label %82, !noalias !669
 
 79:                                               ; preds = %73
@@ -3596,7 +3596,7 @@ common.resume:                                    ; preds = %109, %122, %80, %97
 
 94:                                               ; preds = %.thread.i, %24
   %.pn114.i = phi { ptr, i32 } [ %70, %.thread.i ], [ %.pn.ph.i, %24 ]
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11) #19
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %11) #19
           to label %80 unwind label %95, !noalias !669
 
 95:                                               ; preds = %97, %94
@@ -4008,7 +4008,7 @@ default.unreachable:                              ; preds = %29
   br i1 %80, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$$GT$17h6d3d1149d8915532E.exit.i", label %81
 
 81:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h723be02dac89f6d6E.exit.thread.i"
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %14)
           to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$$GT$17h6d3d1149d8915532E.exit.i" unwind label %84, !noalias !742
 
 82:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h723be02dac89f6d6E.exit.i"
@@ -4067,7 +4067,7 @@ _ZN5serde2de9MapAccess10next_value17h7e0ec4b91bb139d2E.exit.i.i: ; preds = %89
   br i1 %97, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$$GT$17hf3669c5372ce0235E.exit.i", label %98
 
 98:                                               ; preds = %95
-  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$17h11a06fc5dceffe21E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %13)
+  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$17h11a06fc5dceffe21E"(ptr noalias noundef align 8 dereferenceable(104) %13)
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$$GT$17hf3669c5372ce0235E.exit.i" unwind label %.thread.i, !noalias !742
 
 99:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd20163474daa125bE.exit.i"
@@ -4163,7 +4163,7 @@ _ZN5serde2de9MapAccess10next_value17h7e0ec4b91bb139d2E.exit.i.i: ; preds = %89
   br i1 %switch.i, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i", label %129
 
 123:                                              ; preds = %.loopexit
-  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$17h11a06fc5dceffe21E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %13)
+  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$17h11a06fc5dceffe21E"(ptr noalias noundef align 8 dereferenceable(104) %13)
           to label %121 unwind label %126, !noalias !742
 
 124:                                              ; preds = %142, %126, %.loopexit.i
@@ -4185,7 +4185,7 @@ _ZN5serde2de9MapAccess10next_value17h7e0ec4b91bb139d2E.exit.i.i: ; preds = %89
   br i1 %switch251.i, label %153, label %133
 
 129:                                              ; preds = %121
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %14)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i" unwind label %131, !noalias !742
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit199.i": ; preds = %143, %131, %124
@@ -4228,11 +4228,11 @@ common.resume:                                    ; preds = %156, %"_ZN4core3ptr
 
 142:                                              ; preds = %.thread.i, %.loopexit.i
   %.pn223.i = phi { ptr, i32 } [ %100, %.thread.i ], [ %.pn.ph.i, %.loopexit.i ]
-  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$17h11a06fc5dceffe21E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %13) #19
+  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$lsp_server..msg..ResponseError$GT$$GT$17h11a06fc5dceffe21E"(ptr noalias noundef align 8 dereferenceable(104) %13) #19
           to label %124 unwind label %119, !noalias !742
 
 143:                                              ; preds = %124
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %14)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit199.i" unwind label %119, !noalias !742
 
 144:                                              ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit199.i"
@@ -4618,7 +4618,7 @@ _ZN5serde2de9MapAccess10next_value17h7c7fd60855b7aad8E.exit.i.i: ; preds = %89
   br i1 %97, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i", label %98
 
 98:                                               ; preds = %95
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %16)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i" unwind label %.thread.i, !noalias !880
 
 99:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he06462d3e2d2ec26E.exit.i"
@@ -4745,7 +4745,7 @@ _ZN5serde2de9MapAccess10next_value17h7c7fd60855b7aad8E.exit.i.i: ; preds = %89
   br i1 %132, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit182.i", label %133
 
 133:                                              ; preds = %.loopexit
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %16)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit182.i" unwind label %139, !noalias !880
 
 134:                                              ; preds = %171, %168, %167, %115
@@ -4852,7 +4852,7 @@ common.resume:                                    ; preds = %183, %154, %169, %1
 167:                                              ; preds = %.thread.i, %32
   %.pn193.i = phi { ptr, i32 } [ %100, %.thread.i ], [ %.pn.ph.i, %32 ]
   %.2135192.i = phi i8 [ 1, %.thread.i ], [ %.2135.ph.i, %32 ]
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16) #19
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %16) #19
           to label %137 unwind label %134, !noalias !880
 
 168:                                              ; preds = %137
@@ -5261,7 +5261,7 @@ _ZN5serde2de9MapAccess10next_value17h66f440c3fcafc2eeE.exit.i.i: ; preds = %47
   br i1 %87, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$$GT$17h6d3d1149d8915532E.exit.i", label %88
 
 88:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h771e400508822018E.exit.thread.i"
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %13)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %13)
           to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$$GT$17h6d3d1149d8915532E.exit.i" unwind label %.thread, !noalias !1016
 
 89:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h771e400508822018E.exit.i"
@@ -5319,7 +5319,7 @@ _ZN5serde2de9MapAccess10next_value17h66f440c3fcafc2eeE.exit.i.i: ; preds = %47
   br label %121
 
 103:                                              ; preds = %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h040316ba57fbf333E.exit.i"
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %13)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %13)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i" unwind label %106, !noalias !1016
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i": ; preds = %103, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h040316ba57fbf333E.exit.i"
@@ -5368,7 +5368,7 @@ common.resume:                                    ; preds = %132, %145, %149, %"
 
 117:                                              ; preds = %.loopexit.i, %.thread
   %.pn185.i24 = phi { ptr, i32 } [ %91, %.thread ], [ %.pn.ph.i, %.loopexit.i ]
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %13)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %13)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit166.i" unwind label %118, !noalias !1016
 
 118:                                              ; preds = %120, %117
@@ -5759,7 +5759,7 @@ common.resume:                                    ; preds = %105, %"_ZN4core3ptr
   br i1 %71, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i", label %72
 
 72:                                               ; preds = %68
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %9)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit.i" unwind label %91, !noalias !1173
 
 73:                                               ; preds = %.noexc63.i
@@ -5777,7 +5777,7 @@ common.resume:                                    ; preds = %105, %"_ZN4core3ptr
   br i1 %78, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit66.i", label %79
 
 79:                                               ; preds = %76
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %9)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit66.i" unwind label %50, !noalias !1173
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit66.i": ; preds = %52, %54, %79, %76
@@ -7800,7 +7800,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 47:                                               ; preds = %.loopexit.split-lp30, %.loopexit29
   %lpad.phi33 = phi { ptr, i32 } [ %lpad.loopexit31, %.loopexit29 ], [ %lpad.loopexit.split-lp32, %.loopexit.split-lp30 ]
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #19
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %8) #19
           to label %.body unwind label %51, !noalias !1644
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hcd6acceaf40a1b4aE.exit.i.i": ; preds = %43
@@ -7816,7 +7816,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 49:                                               ; preds = %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hcd6acceaf40a1b4aE.exit._crit_edge.i.i", %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hcd6acceaf40a1b4aE.exit.thread.i.i"
   %50 = phi ptr [ %.pre.i.i, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hcd6acceaf40a1b4aE.exit._crit_edge.i.i" ], [ %.0.i.ph.i.i.i, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hcd6acceaf40a1b4aE.exit.thread.i.i" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1630
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %8)
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %49
@@ -7901,7 +7901,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 63:                                               ; preds = %62
   %64 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h4ad938449bfb27c5E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10) #19
+  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h4ad938449bfb27c5E"(ptr noalias noundef align 8 dereferenceable(64) %10) #19
           to label %.body unwind label %65
 
 65:                                               ; preds = %63
@@ -8018,7 +8018,7 @@ _ZN5serde2de9SeqAccess12next_element17h28630b01919eb33fE.exit: ; preds = %16
 29:                                               ; preds = %28
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #19
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %4) #19
           to label %.body unwind label %31
 
 31:                                               ; preds = %29

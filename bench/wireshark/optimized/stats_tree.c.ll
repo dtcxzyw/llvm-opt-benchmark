@@ -260,7 +260,7 @@ define void @stats_tree_free(ptr noundef %0) local_unnamed_addr #0 {
   %.024 = phi ptr [ %15, %.lr.ph ], [ %13, %2 ]
   %14 = getelementptr inbounds i8, ptr %.024, i64 112
   %15 = load ptr, ptr %14, align 8
-  tail call fastcc void @free_stat_node(ptr noundef nonnull %.024)
+  tail call fastcc void @free_stat_node(ptr noundef %.024)
   %.not20 = icmp eq ptr %15, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -300,7 +300,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_stat_node(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @free_stat_node(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -310,7 +310,7 @@ define internal fastcc void @free_stat_node(ptr noundef %0) unnamed_addr #0 {
   %.022 = phi ptr [ %5, %.preheader ], [ %3, %1 ]
   %4 = getelementptr inbounds i8, ptr %.022, i64 112
   %5 = load ptr, ptr %4, align 8
-  tail call fastcc void @free_stat_node(ptr noundef nonnull %.022)
+  tail call fastcc void @free_stat_node(ptr noundef %.022)
   %.not19 = icmp eq ptr %5, null
   br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !8
 
@@ -447,7 +447,7 @@ define void @stats_tree_reinit(ptr noundef %0) local_unnamed_addr #0 {
   %.037 = phi ptr [ %5, %.lr.ph ], [ %3, %1 ]
   %4 = getelementptr inbounds i8, ptr %.037, i64 112
   %5 = load ptr, ptr %4, align 8
-  tail call fastcc void @free_stat_node(ptr noundef nonnull %.037)
+  tail call fastcc void @free_stat_node(ptr noundef %.037)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 

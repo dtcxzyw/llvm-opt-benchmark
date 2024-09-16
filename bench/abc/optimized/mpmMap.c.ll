@@ -1146,7 +1146,7 @@ define void @Mpm_ObjTranslateCutsFromStore(ptr nocapture noundef %0, ptr nocaptu
   %19 = getelementptr inbounds i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 27
-  %22 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %21, ptr noundef nonnull %4)
+  %22 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %21, ptr noundef %4)
   %23 = load i32, ptr %19, align 4
   %24 = and i32 %23, 33554431
   %25 = load ptr, ptr %4, align 8
@@ -1262,7 +1262,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %6, align 4
   %85 = and i32 %.val, -2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %86 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef 1, ptr noundef nonnull %3)
+  %86 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef 1, ptr noundef %3)
   %87 = getelementptr inbounds i8, ptr %0, i64 4892
   %88 = load i32, ptr %87, align 4
   %89 = shl nsw i32 %88, 1
@@ -1643,7 +1643,7 @@ Mig_ObjIsNode2.exit:                              ; preds = %Mpm_ObjPrepareFanin
   br i1 %.not134, label %208, label %207
 
 207:                                              ; preds = %183
-  tail call fastcc void @Mpm_ManExploreNewCut(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %175, ptr noundef nonnull %182, ptr noundef null, i32 noundef %9)
+  tail call fastcc void @Mpm_ManExploreNewCut(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %175, ptr noundef %182, ptr noundef null, i32 noundef %9)
   %.pre = load i32, ptr %169, align 4
   br label %208
 
@@ -1750,7 +1750,7 @@ Mig_ObjIsNode2.exit:                              ; preds = %Mpm_ObjPrepareFanin
   br i1 %.not129, label %267, label %266
 
 266:                                              ; preds = %240
-  tail call fastcc void @Mpm_ManExploreNewCut(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %225, ptr noundef nonnull %232, ptr noundef nonnull %239, i32 noundef %9)
+  tail call fastcc void @Mpm_ManExploreNewCut(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %225, ptr noundef %232, ptr noundef nonnull %239, i32 noundef %9)
   %.pre217 = load i32, ptr %218, align 8
   br label %267
 
@@ -1805,7 +1805,7 @@ Mig_ObjIsNode2.exit:                              ; preds = %Mpm_ObjPrepareFanin
   %285 = getelementptr inbounds i8, ptr %284, i64 32
   %286 = load i32, ptr %285, align 4
   %287 = lshr i32 %286, 27
-  %288 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %287, ptr noundef nonnull %3)
+  %288 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %287, ptr noundef %3)
   %289 = load i32, ptr %285, align 4
   %290 = and i32 %289, 33554431
   %291 = load ptr, ptr %3, align 8
@@ -2162,7 +2162,7 @@ Mpm_ObjDerefFaninCuts.exit:                       ; preds = %Mig_ObjSibl.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Mpm_ManExploreNewCut(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc void @Mpm_ManExploreNewCut(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5) unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %2, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = lshr i32 %8, 27
@@ -2400,7 +2400,7 @@ Mpm_CutGetArrTime.exit:                           ; preds = %99, %89
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Mmr_StepRecycle(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @Mmr_StepRecycle(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -2766,7 +2766,7 @@ define void @Mpm_ManPrepare(ptr nocapture noundef readonly %0) local_unnamed_add
   %.val = load i32, ptr %22, align 4
   %23 = and i32 %.val, -2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %24 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef 1, ptr noundef nonnull %2)
+  %24 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef 1, ptr noundef %2)
   %25 = load i32, ptr %6, align 4
   %26 = shl nsw i32 %25, 1
   %27 = load ptr, ptr %2, align 8
@@ -3676,11 +3676,11 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @Mpm_CutAlloc(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 1, 0) i32 @Mpm_CutAlloc(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 32) %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = shl nuw nsw i32 %1, 2
-  %narrow.i = add nuw i32 %6, 12
+  %narrow.i = add nuw nsw i32 %6, 12
   %7 = lshr i32 %narrow.i, 3
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
@@ -3941,7 +3941,7 @@ Mmr_StepFetch.exit:                               ; preds = %103, %3, %._crit_ed
   store ptr %158, ptr %2, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4
-  %161 = shl i32 %1, 27
+  %161 = shl nuw i32 %1, 27
   %162 = and i32 %160, 134217727
   %163 = or disjoint i32 %162, %161
   store i32 %163, ptr %159, align 4

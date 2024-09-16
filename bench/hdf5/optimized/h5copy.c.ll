@@ -1105,7 +1105,7 @@ define internal fastcc void @usage() unnamed_addr #3 {
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @leave(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @leave(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @fname_src, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3

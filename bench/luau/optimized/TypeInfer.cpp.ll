@@ -56057,7 +56057,7 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %885
 
 888:                                              ; preds = %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit
   %889 = load ptr, ptr %111, align 8
-  invoke fastcc void @_ZN4LuauL22getIdentifierOfBaseVarB5cxx11EPNS_7AstExprE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef %889)
+  invoke fastcc void @_ZN4LuauL22getIdentifierOfBaseVarB5cxx11EPNS_7AstExprE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef %889)
           to label %890 unwind label %528
 
 890:                                              ; preds = %888
@@ -56665,7 +56665,7 @@ declare void @_ZN4Luau8toStringB5cxx11ENS_13AstExprBinary2OpE(ptr dead_on_unwind
 declare { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL22getIdentifierOfBaseVarB5cxx11EPNS_7AstExprE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @_ZN4LuauL22getIdentifierOfBaseVarB5cxx11EPNS_7AstExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #5 {
   %3 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8

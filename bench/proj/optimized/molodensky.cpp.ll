@@ -221,13 +221,13 @@ define internal void @_ZL24pj_molodensky_forward_4dR8PJ_COORDP8PJconsts(ptr noca
 10:                                               ; preds = %2
   %.sink.i.sroa.gep14 = getelementptr inbounds i8, ptr %3, i64 16
   %.sink.i.sroa.gep11 = getelementptr inbounds i8, ptr %3, i64 8
-  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %0, ptr noundef nonnull %1)
+  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %0, ptr noundef nonnull %1)
   br label %12
 
 11:                                               ; preds = %2
   %.sink.i.sroa.gep13 = getelementptr inbounds i8, ptr %4, i64 16
   %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %0, ptr noundef nonnull %1)
+  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %0, ptr noundef nonnull %1)
   br label %12
 
 12:                                               ; preds = %11, %10
@@ -303,7 +303,7 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noca
   store double %.sroa.2.0.copyload, ptr %.sroa.7.0..sroa_idx11.i, align 8, !noalias !7
   %.sroa.9.0..sroa_idx17.i = getelementptr inbounds i8, ptr %4, i64 16
   store double %.sroa.311.0.copyload, ptr %.sroa.9.0..sroa_idx17.i, align 8, !noalias !7
-  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull %1), !noalias !7
+  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull %1), !noalias !7
   br label %14
 
 13:                                               ; preds = %2
@@ -314,7 +314,7 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noca
   store double %.sroa.2.0.copyload, ptr %.sroa.7.0..sroa_idx13.i, align 8, !noalias !7
   %.sroa.9.0..sroa_idx19.i = getelementptr inbounds i8, ptr %6, i64 16
   store double %.sroa.311.0.copyload, ptr %.sroa.9.0..sroa_idx19.i, align 8, !noalias !7
-  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %6, ptr noundef nonnull %1), !noalias !7
+  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %6, ptr noundef nonnull %1), !noalias !7
   br label %14
 
 14:                                               ; preds = %13, %12
@@ -376,11 +376,11 @@ define internal void @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts(ptr dead_on
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %3
-  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %1, ptr noundef nonnull %2)
+  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %1, ptr noundef nonnull %2)
   br label %13
 
 12:                                               ; preds = %3
-  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %1, ptr noundef nonnull %2)
+  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %1, ptr noundef nonnull %2)
   br label %13
 
 13:                                               ; preds = %12, %11
@@ -440,7 +440,7 @@ define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on
   store double %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx11, align 8
   %.sroa.9.0..sroa_idx17 = getelementptr inbounds i8, ptr %5, i64 16
   store double %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx17, align 8
-  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef nonnull %2)
+  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef nonnull %2)
   br label %15
 
 14:                                               ; preds = %3
@@ -451,7 +451,7 @@ define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on
   store double %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx13, align 8
   %.sroa.9.0..sroa_idx19 = getelementptr inbounds i8, ptr %7, i64 16
   store double %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx19, align 8
-  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2)
+  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2)
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -508,11 +508,11 @@ define internal { double, double } @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconst
   br i1 %.not.i, label %13, label %12
 
 12:                                               ; preds = %3
-  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !10
+  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !10
   br label %14
 
 13:                                               ; preds = %3
-  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !10
+  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !10
   br label %14
 
 14:                                               ; preds = %13, %12
@@ -574,7 +574,7 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   store double %1, ptr %.sroa.7.0..sroa_idx11.i, align 8, !noalias !13
   %.sroa.9.0..sroa_idx17.i = getelementptr inbounds i8, ptr %5, i64 16
   store double 0.000000e+00, ptr %.sroa.9.0..sroa_idx17.i, align 8, !noalias !13
-  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef nonnull %2), !noalias !13
+  call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef nonnull %2), !noalias !13
   br label %15
 
 14:                                               ; preds = %3
@@ -584,7 +584,7 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   store double %1, ptr %.sroa.7.0..sroa_idx13.i, align 8, !noalias !13
   %.sroa.9.0..sroa_idx19.i = getelementptr inbounds i8, ptr %7, i64 16
   store double 0.000000e+00, ptr %.sroa.9.0..sroa_idx19.i, align 8, !noalias !13
-  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !13
+  call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !13
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -629,7 +629,7 @@ declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) l
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
+define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %1, align 8
@@ -751,7 +751,7 @@ _ZL2RNddd.exit:                                   ; preds = %_ZL2RMddd.exit, %56
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
+define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %1, align 8

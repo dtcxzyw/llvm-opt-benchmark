@@ -1815,25 +1815,21 @@ return:                                           ; preds = %if.then48, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L13isASCIIOkBiDiEPKDsi(ptr nocapture noundef readonly %s, i32 noundef %length) unnamed_addr #6 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L13isASCIIOkBiDiEPKDsi(ptr nocapture noundef readonly %s, i32 noundef range(i32 1, -2147483648) %length) unnamed_addr #6 {
 entry:
-  %cmp24 = icmp sgt i32 %length, 0
-  br i1 %cmp24, label %for.body.preheader, label %return
-
-for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %length to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %labelStart.025 = phi i32 [ 0, %for.body.preheader ], [ %labelStart.1, %for.inc ]
+for.body:                                         ; preds = %entry, %for.inc
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
+  %labelStart.024 = phi i32 [ 0, %entry ], [ %labelStart.1, %for.inc ]
   %arrayidx = getelementptr inbounds i16, ptr %s, i64 %indvars.iv
   %0 = load i16, ptr %arrayidx, align 2
   %cmp1 = icmp eq i16 %0, 46
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %1 = sext i32 %labelStart.025 to i64
+  %1 = sext i32 %labelStart.024 to i64
   %cmp2 = icmp sgt i64 %indvars.iv, %1
   br i1 %cmp2, label %if.then3, label %if.end17
 
@@ -1853,7 +1849,7 @@ if.end17:                                         ; preds = %if.then3, %if.then
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %7 = zext i32 %labelStart.025 to i64
+  %7 = zext i32 %labelStart.024 to i64
   %cmp18 = icmp eq i64 %indvars.iv, %7
   br i1 %cmp18, label %if.then19, label %if.else27
 
@@ -1874,13 +1870,13 @@ land.lhs.true30:                                  ; preds = %if.else27
   br i1 %or.cond23, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true30, %if.end17, %if.else27, %if.then19
-  %labelStart.1 = phi i32 [ %6, %if.end17 ], [ %labelStart.025, %if.then19 ], [ %labelStart.025, %if.else27 ], [ %labelStart.025, %land.lhs.true30 ]
+  %labelStart.1 = phi i32 [ %6, %if.end17 ], [ %labelStart.024, %if.then19 ], [ %labelStart.024, %if.else27 ], [ %labelStart.024, %land.lhs.true30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
-return:                                           ; preds = %if.then3, %if.then19, %land.lhs.true30, %for.inc, %entry
-  %retval.0 = phi i8 [ 1, %entry ], [ 1, %for.inc ], [ 0, %land.lhs.true30 ], [ 0, %if.then19 ], [ 0, %if.then3 ]
+return:                                           ; preds = %for.inc, %land.lhs.true30, %if.then19, %if.then3
+  %retval.0 = phi i8 [ 0, %if.then3 ], [ 0, %if.then19 ], [ 0, %land.lhs.true30 ], [ 1, %for.inc ]
   ret i8 %retval.0
 }
 
@@ -1890,25 +1886,21 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7511StringPieceC1ERKS0_i(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L13isASCIIOkBiDiEPKci(ptr nocapture noundef readonly %s, i32 noundef %length) unnamed_addr #6 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L13isASCIIOkBiDiEPKci(ptr nocapture noundef readonly %s, i32 noundef range(i32 1, -2147483648) %length) unnamed_addr #6 {
 entry:
-  %cmp32 = icmp sgt i32 %length, 0
-  br i1 %cmp32, label %for.body.preheader, label %return
-
-for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %length to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %labelStart.033 = phi i32 [ 0, %for.body.preheader ], [ %labelStart.1, %for.inc ]
+for.body:                                         ; preds = %entry, %for.inc
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
+  %labelStart.032 = phi i32 [ 0, %entry ], [ %labelStart.1, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %cmp1 = icmp eq i8 %0, 46
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %1 = sext i32 %labelStart.033 to i64
+  %1 = sext i32 %labelStart.032 to i64
   %cmp2 = icmp sgt i64 %indvars.iv, %1
   br i1 %cmp2, label %if.then3, label %if.end23
 
@@ -1929,7 +1921,7 @@ if.end23:                                         ; preds = %if.then3, %if.then
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %8 = zext i32 %labelStart.033 to i64
+  %8 = zext i32 %labelStart.032 to i64
   %cmp24 = icmp eq i64 %indvars.iv, %8
   br i1 %cmp24, label %if.then25, label %if.else39
 
@@ -1951,13 +1943,13 @@ land.lhs.true42:                                  ; preds = %if.else39
   br i1 %or.cond31, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true42, %if.end23, %if.else39, %if.then25
-  %labelStart.1 = phi i32 [ %7, %if.end23 ], [ %labelStart.033, %if.then25 ], [ %labelStart.033, %if.else39 ], [ %labelStart.033, %land.lhs.true42 ]
+  %labelStart.1 = phi i32 [ %7, %if.end23 ], [ %labelStart.032, %if.then25 ], [ %labelStart.032, %if.else39 ], [ %labelStart.032, %land.lhs.true42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
-return:                                           ; preds = %if.then3, %if.then25, %land.lhs.true42, %for.inc, %entry
-  %retval.0 = phi i8 [ 1, %entry ], [ 1, %for.inc ], [ 0, %land.lhs.true42 ], [ 0, %if.then25 ], [ 0, %if.then3 ]
+return:                                           ; preds = %for.inc, %land.lhs.true42, %if.then25, %if.then3
+  %retval.0 = phi i8 [ 0, %if.then3 ], [ 0, %if.then25 ], [ 0, %land.lhs.true42 ], [ 1, %for.inc ]
   ret i8 %retval.0
 }
 

@@ -14470,7 +14470,7 @@ _ZN4llvm5APIntC2ERKS0_.exit4244:                  ; preds = %4491, %4493
   %.val3481.val = load ptr, ptr %11, align 8
   %4494 = getelementptr i8, ptr %.val3481.val, i64 24
   %.val3481.val.val = load i32, ptr %4494, align 8
-  call fastcc void @"_ZZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjbENK3$_0clES2_RKS5_"(ptr dead_on_unwind noalias nonnull writable align 8 %315, i32 %.val3481.val.val, ptr noundef nonnull %316, ptr noundef nonnull align 8 dereferenceable(32) %314)
+  call fastcc void @"_ZZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjbENK3$_0clES2_RKS5_"(ptr dead_on_unwind noalias writable align 8 %315, i32 %.val3481.val.val, ptr noundef %316, ptr noundef nonnull align 8 dereferenceable(32) %314)
   %4495 = call noundef zeroext i1 @_ZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjb(ptr noundef nonnull align 8 dereferenceable(408123) %0, ptr %.sroa.0242.0.copyload, i32 %.sroa.2243.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %315, ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(32) %313, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %4484, i1 noundef zeroext false)
   br i1 %4495, label %4498, label %4496
 
@@ -24291,7 +24291,7 @@ _ZN4llvm5APIntD2Ev.exit1250:                      ; preds = %_ZN4llvm5APIntD2Ev.
   %.sroa.0113.0.copyload = load ptr, ptr %14, align 8
   %.sroa.2114.0.copyload = load i32, ptr %142, align 8
   %1860 = load ptr, ptr %6, align 8
-  call fastcc void @_ZL27getKnownUndefForVectorBinopN4llvm7SDValueERNS_12SelectionDAGERKNS_5APIntES5_(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr %.sroa.0113.0.copyload, i32 %.sroa.2114.0.copyload, ptr noundef nonnull align 8 dereferenceable(904) %1860, ptr noundef nonnull align 8 dereferenceable(12) %116, ptr noundef nonnull align 8 dereferenceable(12) %114)
+  call fastcc void @_ZL27getKnownUndefForVectorBinopN4llvm7SDValueERNS_12SelectionDAGERKNS_5APIntES5_(ptr dead_on_unwind noalias writable align 8 %120, ptr %.sroa.0113.0.copyload, i32 %.sroa.2114.0.copyload, ptr noundef nonnull align 8 dereferenceable(904) %1860, ptr noundef nonnull align 8 dereferenceable(12) %116, ptr noundef nonnull align 8 dereferenceable(12) %114)
   %1861 = load i32, ptr %170, align 8
   %1862 = icmp ult i32 %1861, 65
   br i1 %1862, label %_ZN4llvm5APIntD2Ev.exit1252, label %1863
@@ -25563,7 +25563,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %7, %5, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjbENK3$_0clES2_RKS5_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.0.val.0.val.24.val, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjbENK3$_0clES2_RKS5_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val.0.val.24.val, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %.0.val.0.val.24.val, 58
   br i1 %4, label %5, label %16
 
@@ -25776,7 +25776,7 @@ _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjbENK3$_2clENS_3ISD8NodeTypeES1_S1_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr %2, i32 %3, ptr %4, i32 %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4llvm14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEjbENK3$_2clENS_3ISD8NodeTypeES1_S1_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 56, 58) %1, ptr %2, i32 %3, ptr %4, i32 %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::SDValue", align 8
   %9 = alloca %"class.llvm::SDValue", align 8
   %10 = alloca %"class.llvm::SDValue", align 8
@@ -26575,7 +26575,7 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEED2Ev.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27getKnownUndefForVectorBinopN4llvm7SDValueERNS_12SelectionDAGERKNS_5APIntES5_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(904) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL27getKnownUndefForVectorBinopN4llvm7SDValueERNS_12SelectionDAGERKNS_5APIntES5_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(904) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %5) unnamed_addr #0 {
   %7 = alloca %"struct.llvm::EVT", align 8
   %8 = alloca %"struct.llvm::EVT", align 8
   %9 = alloca %"class.llvm::SDLoc", align 8
@@ -44363,7 +44363,7 @@ _ZNSt8functionIFbPN4llvm14ConstantSDNodeES2_EED2Ev.exit: ; preds = %107, %121
   store ptr @_ZN4llvm14isNullConstantENS_7SDValueE, ptr %42, align 8
   store ptr @_ZNSt17_Function_handlerIFbN4llvm7SDValueEEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr %139, align 8
   store ptr @_ZNSt17_Function_handlerIFbN4llvm7SDValueEEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr %138, align 8
-  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %136, i64 %137, ptr noundef nonnull %42, ptr null, i32 0)
+  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %136, i64 %137, ptr noundef %42, ptr null, i32 0)
   %141 = load ptr, ptr %138, align 8
   %.not.i.i226 = icmp eq ptr %141, null
   br i1 %.not.i.i226, label %_ZNSt8functionIFbN4llvm7SDValueEEED2Ev.exit, label %142
@@ -44387,7 +44387,7 @@ _ZNSt8functionIFbN4llvm7SDValueEEED2Ev.exit:      ; preds = %135, %142
   %149 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %56, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 %.sroa.0144.0.copyload, ptr %.sroa.2146.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %.fca.0.extract140 = extractvalue { ptr, i32 } %149, 0
   %.fca.1.extract141 = extractvalue { ptr, i32 } %149, 1
-  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %144, i64 %145, ptr noundef nonnull %43, ptr %.fca.0.extract140, i32 %.fca.1.extract141)
+  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %144, i64 %145, ptr noundef %43, ptr %.fca.0.extract140, i32 %.fca.1.extract141)
   %150 = load ptr, ptr %146, align 8
   %.not.i.i227 = icmp eq ptr %150, null
   br i1 %.not.i.i227, label %_ZNSt8functionIFbN4llvm7SDValueEEED2Ev.exit228, label %151
@@ -44950,7 +44950,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj16EED2Ev.exit286: ; preds = %98, %_ZNK4llvm1
 declare noundef zeroext i1 @_ZN4llvm3ISD20matchBinaryPredicateENS_7SDValueES1_St8functionIFbPNS_14ConstantSDNodeES4_EEbb(ptr, i32, ptr, i32, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %0, i64 %1, ptr noundef %2, ptr %3, i32 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %0, i64 %1, ptr noundef nonnull %2, ptr %3, i32 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
   %8 = alloca %"class.llvm::SDValue", align 8
@@ -46002,7 +46002,7 @@ _ZNSt8functionIFbPN4llvm14ConstantSDNodeEEED2Ev.exit: ; preds = %_ZN4llvm3ISD19m
   store ptr @_ZN4llvm14isNullConstantENS_7SDValueE, ptr %35, align 8
   store ptr @_ZNSt17_Function_handlerIFbN4llvm7SDValueEEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr %158, align 8
   store ptr @_ZNSt17_Function_handlerIFbN4llvm7SDValueEEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr %157, align 8
-  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %155, i64 %156, ptr noundef nonnull %35, ptr null, i32 0)
+  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %155, i64 %156, ptr noundef %35, ptr null, i32 0)
   %160 = load ptr, ptr %157, align 8
   %.not.i.i302 = icmp eq ptr %160, null
   br i1 %.not.i.i302, label %_ZNSt8functionIFbN4llvm7SDValueEEED2Ev.exit, label %161
@@ -46026,7 +46026,7 @@ _ZNSt8functionIFbN4llvm7SDValueEEED2Ev.exit:      ; preds = %154, %161
   %168 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %55, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 %.sroa.0208.0.copyload, ptr %.sroa.2210.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %.fca.0.extract204 = extractvalue { ptr, i32 } %168, 0
   %.fca.1.extract205 = extractvalue { ptr, i32 } %168, 1
-  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %163, i64 %164, ptr noundef nonnull %36, ptr %.fca.0.extract204, i32 %.fca.1.extract205)
+  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %163, i64 %164, ptr noundef %36, ptr %.fca.0.extract204, i32 %.fca.1.extract205)
   %169 = load ptr, ptr %165, align 8
   %.not.i.i303 = icmp eq ptr %169, null
   br i1 %.not.i.i303, label %_ZNSt8functionIFbN4llvm7SDValueEEED2Ev.exit304, label %170
@@ -46050,7 +46050,7 @@ _ZNSt8functionIFbN4llvm7SDValueEEED2Ev.exit304:   ; preds = %_ZNSt8functionIFbN4
   %177 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %55, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 %.sroa.0199.0.copyload, ptr %.sroa.2201.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %.fca.0.extract195 = extractvalue { ptr, i32 } %177, 0
   %.fca.1.extract196 = extractvalue { ptr, i32 } %177, 1
-  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %172, i64 %173, ptr noundef nonnull %37, ptr %.fca.0.extract195, i32 %.fca.1.extract196)
+  call fastcc void @_ZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_(ptr %172, i64 %173, ptr noundef %37, ptr %.fca.0.extract195, i32 %.fca.1.extract196)
   %178 = load ptr, ptr %174, align 8
   %.not.i.i305 = icmp eq ptr %178, null
   br i1 %.not.i.i305, label %_ZNSt8functionIFbN4llvm7SDValueEEED2Ev.exit306, label %179
@@ -71779,7 +71779,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %157, %159
 declare noundef zeroext i1 @_ZN4llvm15isOneOrOneSplatENS_7SDValueEb(ptr, i32, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i32 } @"_ZZNK4llvm14TargetLowering15expandIntMINMAXEPNS_6SDNodeERNS_12SelectionDAGEENK3$_0clENS_3ISD8CondCodeES7_S7_S7_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, i32 } @"_ZZNK4llvm14TargetLowering15expandIntMINMAXEPNS_6SDNodeERNS_12SelectionDAGEENK3$_0clENS_3ISD8CondCodeES7_S7_S7_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef range(i32 10, 21) %1, i32 noundef range(i32 11, 22) %2, i32 noundef range(i32 10, 21) %3, i32 noundef range(i32 11, 22) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
   %8 = alloca %"class.llvm::SDValue", align 8
@@ -89975,7 +89975,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #21 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 768614336404564649) %3) unnamed_addr #21 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64

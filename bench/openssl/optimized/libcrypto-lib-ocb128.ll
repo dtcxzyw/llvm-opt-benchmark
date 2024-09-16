@@ -325,15 +325,15 @@ if.end:                                           ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %ktop, i64 %i.07.i
+  %i.06.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %ktop, i64 %i.06.i
   %9 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr23, i64 %i.07.i
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr23, i64 %i.06.i
   %10 = load i8, ptr %arrayidx1.i, align 1
   %xor5.i = xor i8 %10, %9
-  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr25, i64 %i.07.i
+  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr25, i64 %i.06.i
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
-  %inc.i = add nuw nsw i64 %i.07.i, 1
+  %inc.i = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
   br i1 %exitcond.not.i, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !6
 
@@ -873,16 +873,16 @@ if.then87:                                        ; preds = %if.end84
   call void %46(ptr noundef nonnull %offset89, ptr noundef nonnull %pad, ptr noundef %47) #6
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.then87, %for.body.i
-  %i.07.i = phi i64 [ %inc.i108, %for.body.i ], [ 0, %if.then87 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.0, i64 %i.07.i
+for.body.i:                                       ; preds = %for.body.i, %if.then87
+  %i.06.i = phi i64 [ 0, %if.then87 ], [ %inc.i108, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.0, i64 %i.06.i
   %48 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %pad, i64 %i.07.i
+  %arrayidx1.i = getelementptr inbounds i8, ptr %pad, i64 %i.06.i
   %49 = load i8, ptr %arrayidx1.i, align 1
   %xor5.i = xor i8 %49, %48
-  %arrayidx4.i = getelementptr inbounds i8, ptr %out.addr.0, i64 %i.07.i
+  %arrayidx4.i = getelementptr inbounds i8, ptr %out.addr.0, i64 %i.06.i
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
-  %inc.i108 = add nuw nsw i64 %i.07.i, 1
+  %inc.i108 = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i109 = icmp eq i64 %inc.i108, %rem
   br i1 %exitcond.not.i109, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !6
 
@@ -1201,16 +1201,16 @@ if.then87:                                        ; preds = %if.end84
   call void %46(ptr noundef nonnull %offset89, ptr noundef nonnull %pad, ptr noundef %47) #6
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.then87, %for.body.i
-  %i.07.i = phi i64 [ %inc.i108, %for.body.i ], [ 0, %if.then87 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.0, i64 %i.07.i
+for.body.i:                                       ; preds = %for.body.i, %if.then87
+  %i.06.i = phi i64 [ 0, %if.then87 ], [ %inc.i108, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.0, i64 %i.06.i
   %48 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %pad, i64 %i.07.i
+  %arrayidx1.i = getelementptr inbounds i8, ptr %pad, i64 %i.06.i
   %49 = load i8, ptr %arrayidx1.i, align 1
   %xor5.i = xor i8 %49, %48
-  %arrayidx4.i = getelementptr inbounds i8, ptr %out.addr.0, i64 %i.07.i
+  %arrayidx4.i = getelementptr inbounds i8, ptr %out.addr.0, i64 %i.06.i
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
-  %inc.i108 = add nuw nsw i64 %i.07.i, 1
+  %inc.i108 = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i109 = icmp eq i64 %inc.i108, %rem
   br i1 %exitcond.not.i109, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !6
 

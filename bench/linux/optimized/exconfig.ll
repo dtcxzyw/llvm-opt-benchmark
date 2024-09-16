@@ -466,7 +466,7 @@ declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local i32 @acpi_ds_get_region_arguments(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @acpi_os_allocate(i64 noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc ptr @acpi_os_allocate(i64 noundef range(i64 36, 4294967296) %0) unnamed_addr #3 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   store i64 0, ptr %2, align 8, !annotation !5
@@ -481,7 +481,7 @@ define internal fastcc ptr @acpi_os_allocate(i64 noundef %0) unnamed_addr #3 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_ex_region_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_ex_region_read(ptr noundef %0, i32 noundef range(i32 36, 0) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !5

@@ -4325,7 +4325,7 @@ define noundef ptr @BZ2_bzopen(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = alloca [10 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 10, i1 false)
   %6 = icmp eq ptr %2, null

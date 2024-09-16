@@ -432,7 +432,7 @@ define internal i32 @dissect_igmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 define internal noundef i32 @dissect_igmp_v0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  %7 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0)
+  %7 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %6, i32 noundef 0)
   %8 = load i32, ptr %5, align 4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #4
   %10 = load i8, ptr %6, align 1
@@ -486,7 +486,7 @@ define internal noundef i32 @dissect_igmp_v0(ptr noundef %0, ptr noundef %1, ptr
 define internal noundef i32 @dissect_igmp_v1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  %7 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
+  %7 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %6, i32 noundef 1)
   %8 = load i32, ptr @hf_reserved, align 4
   %9 = load i32, ptr %5, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef 0) #4
@@ -504,7 +504,7 @@ define internal noundef i32 @dissect_igmp_v1(ptr noundef %0, ptr noundef %1, ptr
 define internal noundef i32 @dissect_igmp_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  %7 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 2)
+  %7 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %6, i32 noundef 2)
   %8 = load i32, ptr %5, align 4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #4
   %10 = load i32, ptr @hf_max_resp, align 4
@@ -611,7 +611,7 @@ define internal i32 @dissect_igmp_mquery(ptr noundef %0, ptr noundef %1, ptr nou
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %12 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 3)
+  %12 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %7, ptr noundef %8, i32 noundef 3)
   %13 = load i32, ptr %7, align 4
   %14 = add i32 %13, 9
   %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %14) #4
@@ -728,7 +728,7 @@ dissect_igmp_v3_query.exit:                       ; preds = %63, %.thread.i
 76:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %77 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
+  %77 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %6, i32 noundef 1)
   %78 = load i32, ptr @hf_reserved, align 4
   %79 = load i32, ptr %5, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef 1, i32 noundef 0) #4
@@ -753,7 +753,7 @@ define internal i32 @dissect_igmp_v3_report(ptr noundef %0, ptr noundef %1, ptr 
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
-  %8 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 3)
+  %8 = call fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6, ptr noundef %7, i32 noundef 3)
   %9 = load i32, ptr @hf_reserved, align 4
   %10 = load i32, ptr %6, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #4
@@ -1077,7 +1077,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 4) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.189, i32 noundef %5) #4

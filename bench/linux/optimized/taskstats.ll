@@ -370,7 +370,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @mk_reply(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @mk_reply(ptr noundef %0, i32 noundef range(i32 1, 3) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = icmp eq i32 %1, 1
@@ -460,9 +460,9 @@ define internal fastcc ptr @mk_reply(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fill_stats(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(432) %2, i8 0, i64 432, i1 false)
-  %4 = tail call i32 @delayacct_add_tsk(ptr noundef %2, ptr noundef %1) #10
+define internal fastcc void @fill_stats(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %2, i8 0, i64 432, i1 false)
+  %4 = tail call i32 @delayacct_add_tsk(ptr noundef nonnull %2, ptr noundef %1) #10
   store i16 14, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 1584
   %6 = load i64, ptr %5, align 16
@@ -472,8 +472,8 @@ define internal fastcc void @fill_stats(ptr noundef %0, ptr noundef %1, ptr noun
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 280
   store i64 %9, ptr %10, align 8
-  tail call void @bacct_add_tsk(ptr noundef nonnull @init_user_ns, ptr noundef %0, ptr noundef %2, ptr noundef %1) #10
-  tail call void @xacct_add_tsk(ptr noundef %2, ptr noundef %1) #10
+  tail call void @bacct_add_tsk(ptr noundef nonnull @init_user_ns, ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1) #10
+  tail call void @xacct_add_tsk(ptr noundef nonnull %2, ptr noundef %1) #10
   %11 = tail call ptr @get_task_exe_file(ptr noundef %1) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %33, label %13
@@ -1102,7 +1102,7 @@ prepare_reply.exit.thread:                        ; preds = %15, %31, %42, %41, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr @__cpu_possible_mask, align 8
   %6 = xor i64 %5, -1

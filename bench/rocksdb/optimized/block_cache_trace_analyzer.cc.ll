@@ -2331,12 +2331,12 @@ if.end:                                           ; preds = %lor.lhs.false
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %cs_name_timeline, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %num_misses_timeline_.i = getelementptr inbounds i8, ptr %this, i64 392
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %num_misses_timeline_.i, i64 noundef %time_unit)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %num_misses_timeline_.i, i64 noundef %time_unit)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.end
   %num_accesses_timeline_.i = getelementptr inbounds i8, ptr %this, i64 344
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias nonnull align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %num_accesses_timeline_.i, i64 noundef %time_unit)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %num_accesses_timeline_.i, i64 noundef %time_unit)
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %invoke.cont5
@@ -3944,7 +3944,7 @@ _ZNSt3mapImS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ImdSt4lessIm
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %time_stats, i64 noundef %time_unit) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %time_stats, i64 noundef %time_unit) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, unsigned long>, std::_Select1st<std::pair<const unsigned long, unsigned long>>, std::less<unsigned long>>::_Alloc_node", align 8
   %ref.tmp = alloca i64, align 8
@@ -4409,7 +4409,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %cs_name_timeline, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %num_misses_timeline_.i = getelementptr inbounds i8, ptr %this, i64 392
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %num_misses_timeline_.i, i64 noundef %time_unit)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %num_misses_timeline_.i, i64 noundef %time_unit)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.end
@@ -6358,7 +6358,7 @@ for.end52:                                        ; preds = %for.end49, %invoke.
   br i1 %cmp53.not, label %if.end60, label %if.then54
 
 if.then54:                                        ; preds = %for.end52
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp, i8 noundef signext %44)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp, i8 noundef signext %44)
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %if.then54
@@ -6882,7 +6882,7 @@ for.end55:                                        ; preds = %for.inc53.us, %_ZNS
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %agg.result, i8 noundef signext %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %agg.result, i8 noundef signext %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -8461,7 +8461,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 invoke.cont5:                                     ; preds = %invoke.cont2
   %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp8, i8 noundef signext %caller)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp8, i8 noundef signext %caller)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont5
@@ -8481,7 +8481,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
 invoke.cont17:                                    ; preds = %invoke.cont15
   %call19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #24
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp20, i8 noundef signext %type)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp20, i8 noundef signext %type)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont17
@@ -8692,7 +8692,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %agg.result, i8 noundef signext %caller) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %agg.result, i8 noundef signext %caller) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -11495,7 +11495,7 @@ lpad.i64:                                         ; preds = %.noexc65
   br label %ehcleanup156
 
 invoke.cont53:                                    ; preds = %.noexc65
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp54, i8 noundef signext %block_type)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp54, i8 noundef signext %block_type)
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %invoke.cont53
@@ -12357,7 +12357,7 @@ for.body37:                                       ; preds = %invoke.cont26, %inv
   %_M_storage.i.i29 = getelementptr inbounds i8, ptr %__begin129.sroa.0.039, i64 32
   %17 = load i8, ptr %_M_storage.i.i29, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %row) #24
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp40, i8 noundef signext %17)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp40, i8 noundef signext %17)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %for.body37
@@ -12582,7 +12582,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont6:                                     ; preds = %.noexc
   %6 = load i8, ptr %analyzing_caller.addr, align 1
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp7, i8 noundef signext %6)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp7, i8 noundef signext %6)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
@@ -12857,7 +12857,7 @@ lpad.i62:                                         ; preds = %.noexc63
 
 invoke.cont83:                                    ; preds = %.noexc63
   %28 = load i8, ptr %analyzing_caller.addr, align 1
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp84, i8 noundef signext %28)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp84, i8 noundef signext %28)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %invoke.cont83
@@ -13047,7 +13047,7 @@ for.body145:                                      ; preds = %invoke.cont134, %in
   %_M_storage.i.i105 = getelementptr inbounds i8, ptr %__begin2137.sroa.0.0128, i64 32
   %39 = load i8, ptr %_M_storage.i.i105, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %row148) #24
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp149, i8 noundef signext %39)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp149, i8 noundef signext %39)
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %for.body145
@@ -15977,7 +15977,7 @@ for.body:                                         ; preds = %invoke.cont4, %invo
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.050, i64 32
   %9 = load ptr, ptr @stdout, align 8
   %10 = load i8, ptr %_M_storage.i.i, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp14, i8 noundef signext %10)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp14, i8 noundef signext %10)
           to label %invoke.cont15 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont15:                                    ; preds = %for.body
@@ -16056,7 +16056,7 @@ for.body44:                                       ; preds = %for.body34, %invoke
   %20 = load ptr, ptr @stdout, align 8
   %call48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i23) #24
   %21 = load i8, ptr %_M_storage.i.i27, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp49, i8 noundef signext %21)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp49, i8 noundef signext %21)
           to label %invoke.cont51 unwind label %lpad.loopexit
 
 invoke.cont51:                                    ; preds = %for.body44
@@ -16567,7 +16567,7 @@ for.body64:                                       ; preds = %for.body64.lr.ph, %
   %__begin256.sroa.0.0294 = phi ptr [ %41, %for.body64.lr.ph ], [ %call.i92, %for.inc85 ]
   %_M_storage.i.i89 = getelementptr inbounds i8, ptr %__begin256.sroa.0.0294, i64 32
   %42 = load i8, ptr %_M_storage.i.i89, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp66, i8 noundef signext %42)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp66, i8 noundef signext %42)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %for.body64
@@ -16858,7 +16858,7 @@ if.then184:                                       ; preds = %lor.lhs.false180, %
 
 invoke.cont185:                                   ; preds = %if.then184
   %74 = load i8, ptr %_M_storage.i.i149, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp187, i8 noundef signext %74)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp187, i8 noundef signext %74)
           to label %invoke.cont189 unwind label %lpad156.loopexit
 
 invoke.cont189:                                   ; preds = %invoke.cont185
@@ -17228,7 +17228,7 @@ for.body368:                                      ; preds = %for.end361, %invoke
   %_M_storage.i.i209 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0328, i64 32
   %112 = load ptr, ptr @stdout, align 8
   %113 = load i8, ptr %_M_storage.i.i209, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp371, i8 noundef signext %113)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp371, i8 noundef signext %113)
           to label %invoke.cont373 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont373:                                   ; preds = %for.body368
@@ -17274,7 +17274,7 @@ for.body410:                                      ; preds = %for.body397, %invok
   %119 = load ptr, ptr @stdout, align 8
   %call414 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i214) #24
   %120 = load i8, ptr %_M_storage.i.i218, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp415, i8 noundef signext %120)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp415, i8 noundef signext %120)
           to label %invoke.cont417 unwind label %lpad.loopexit
 
 invoke.cont417:                                   ; preds = %for.body410
@@ -19637,10 +19637,10 @@ for.inc107:                                       ; preds = %for.inc104, %for.bo
   br i1 %cmp.i96.not, label %for.body.i.preheader, label %for.body15
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %i.03.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %i.02.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %207 = load ptr, ptr @stdout, align 8
   %208 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %207)
-  %inc.i = add nuw nsw i32 %i.03.i, 1
+  %inc.i = add nuw nsw i32 %i.02.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 3
   br i1 %exitcond.not.i, label %invoke.cont110, label %for.body.i, !llvm.loop !158
 
@@ -19666,7 +19666,7 @@ for.body125:                                      ; preds = %for.body125.lr.ph, 
   %block_type.sroa.226.0.call126.sroa_idx = getelementptr inbounds i8, ptr %__begin2117.sroa.0.01500, i64 40
   %block_type.sroa.226.0.copyload = load i64, ptr %block_type.sroa.226.0.call126.sroa_idx, align 8
   %212 = load ptr, ptr @stdout, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp127, i8 noundef signext %block_type.sroa.0.0.copyload)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp127, i8 noundef signext %block_type.sroa.0.0.copyload)
           to label %invoke.cont129 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont129:                                   ; preds = %for.body125
@@ -19700,7 +19700,7 @@ for.body150:                                      ; preds = %for.body150.lr.ph, 
   %216 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %215)
   %217 = load ptr, ptr @stdout, align 8
   %218 = load i8, ptr %caller151, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp155, i8 noundef signext %218)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp155, i8 noundef signext %218)
           to label %invoke.cont157 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont157:                                   ; preds = %for.body150
@@ -19713,7 +19713,7 @@ invoke.cont157:                                   ; preds = %for.body150
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp155) #24
   %219 = load ptr, ptr @stdout, align 8
   %220 = load i8, ptr %caller151, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp164, i8 noundef signext %220)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp164, i8 noundef signext %220)
           to label %invoke.cont166 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont166:                                   ; preds = %invoke.cont157
@@ -19793,7 +19793,7 @@ for.body183:                                      ; preds = %for.body183.lr.ph, 
 for.end194:                                       ; preds = %for.body183, %invoke.cont173
   %227 = load ptr, ptr @stdout, align 8
   %228 = load i8, ptr %caller151, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp195, i8 noundef signext %228)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp195, i8 noundef signext %228)
           to label %invoke.cont197 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont197:                                   ; preds = %for.end194
@@ -19873,7 +19873,7 @@ for.body214:                                      ; preds = %for.body214.lr.ph, 
 for.end225:                                       ; preds = %for.body214, %invoke.cont204
   %235 = load ptr, ptr @stdout, align 8
   %236 = load i8, ptr %caller151, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp226, i8 noundef signext %236)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp226, i8 noundef signext %236)
           to label %invoke.cont228 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont228:                                   ; preds = %for.end225
@@ -19941,7 +19941,7 @@ for.body245:                                      ; preds = %for.body245.lr.ph, 
   %naccess_type.sroa.214.0.call246.sroa_idx = getelementptr inbounds i8, ptr %__begin3237.sroa.0.01506, i64 40
   %naccess_type.sroa.214.0.copyload = load i64, ptr %naccess_type.sroa.214.0.call246.sroa_idx, align 8
   %242 = load ptr, ptr @stdout, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp247, i8 noundef signext %naccess_type.sroa.0.0.copyload)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp247, i8 noundef signext %naccess_type.sroa.0.0.copyload)
           to label %invoke.cont249 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont249:                                   ; preds = %for.body245
@@ -20027,10 +20027,10 @@ _ZNSt3mapIN7rocksdb9TraceTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEED2Ev.exit: ; preds
   br i1 %cmp.i.not, label %for.body.i746.preheader, label %for.body
 
 for.body.i746:                                    ; preds = %for.body.i746.preheader, %for.body.i746
-  %i.03.i747 = phi i32 [ %inc.i748, %for.body.i746 ], [ 0, %for.body.i746.preheader ]
+  %i.02.i747 = phi i32 [ %inc.i748, %for.body.i746 ], [ 0, %for.body.i746.preheader ]
   %258 = load ptr, ptr @stdout, align 8
   %259 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %258)
-  %inc.i748 = add nuw nsw i32 %i.03.i747, 1
+  %inc.i748 = add nuw nsw i32 %i.02.i747, 1
   %exitcond.not.i749 = icmp eq i32 %inc.i748, 3
   br i1 %exitcond.not.i749, label %invoke.cont272, label %for.body.i746, !llvm.loop !158
 
@@ -20055,7 +20055,7 @@ for.body286.us:                                   ; preds = %for.body286.lr.ph, 
   %block_type287.sroa.211.0.call288.sroa_idx.us = getelementptr inbounds i8, ptr %__begin1278.sroa.0.01518.us, i64 40
   %block_type287.sroa.211.0.copyload.us = load i64, ptr %block_type287.sroa.211.0.call288.sroa_idx.us, align 8
   %264 = load ptr, ptr @stdout, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp289, i8 noundef signext %block_type287.sroa.0.0.copyload.us)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp289, i8 noundef signext %block_type287.sroa.0.0.copyload.us)
           to label %invoke.cont291.us unwind label %lpad271.loopexit.split-lp.loopexit.split-lp.split.us
 
 invoke.cont291.us:                                ; preds = %for.body286.us
@@ -20078,7 +20078,7 @@ for.body286:                                      ; preds = %for.body286.lr.ph, 
   %block_type287.sroa.211.0.call288.sroa_idx = getelementptr inbounds i8, ptr %__begin1278.sroa.0.01518, i64 40
   %block_type287.sroa.211.0.copyload = load i64, ptr %block_type287.sroa.211.0.call288.sroa_idx, align 8
   %265 = load ptr, ptr @stdout, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp289, i8 noundef signext %block_type287.sroa.0.0.copyload)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp289, i8 noundef signext %block_type287.sroa.0.0.copyload)
           to label %invoke.cont291 unwind label %lpad271.loopexit.split-lp.loopexit.split-lp.split
 
 invoke.cont291:                                   ; preds = %for.body286
@@ -20127,7 +20127,7 @@ for.body313:                                      ; preds = %for.body313.lr.ph, 
   %269 = load i64, ptr %second318, align 8
   %270 = load ptr, ptr @stdout, align 8
   %271 = load i8, ptr %caller314, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp319, i8 noundef signext %271)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp319, i8 noundef signext %271)
           to label %invoke.cont321 unwind label %lpad271.loopexit.split-lp.loopexit
 
 invoke.cont321:                                   ; preds = %for.body313
@@ -20140,7 +20140,7 @@ invoke.cont321:                                   ; preds = %for.body313
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp319) #24
   %272 = load ptr, ptr @stdout, align 8
   %273 = load i8, ptr %caller314, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp329, i8 noundef signext %273)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp329, i8 noundef signext %273)
           to label %invoke.cont331 unwind label %lpad271.loopexit.split-lp.loopexit
 
 invoke.cont331:                                   ; preds = %invoke.cont321
@@ -20220,7 +20220,7 @@ for.body349:                                      ; preds = %for.body349.lr.ph, 
 for.end361:                                       ; preds = %for.body349, %invoke.cont339
   %280 = load ptr, ptr @stdout, align 8
   %281 = load i8, ptr %caller314, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias nonnull align 8 %ref.tmp362, i8 noundef signext %281)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116caller_to_stringB5cxx11ENS_17TableReaderCallerE(ptr noalias align 8 %ref.tmp362, i8 noundef signext %281)
           to label %invoke.cont364 unwind label %lpad271.loopexit.split-lp.loopexit
 
 invoke.cont364:                                   ; preds = %for.end361
@@ -20288,7 +20288,7 @@ for.body382:                                      ; preds = %for.body382.lr.ph, 
   %naccess_type383.sroa.21.0.call384.sroa_idx = getelementptr inbounds i8, ptr %__begin2374.sroa.0.01522, i64 40
   %naccess_type383.sroa.21.0.copyload = load i64, ptr %naccess_type383.sroa.21.0.call384.sroa_idx, align 8
   %287 = load ptr, ptr @stdout, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp385, i8 noundef signext %naccess_type383.sroa.0.0.copyload)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %ref.tmp385, i8 noundef signext %naccess_type383.sroa.0.0.copyload)
           to label %invoke.cont387 unwind label %lpad271.loopexit
 
 invoke.cont387:                                   ; preds = %for.body382
@@ -21652,10 +21652,10 @@ invoke.cont65:                                    ; preds = %if.end64
   br i1 %tobool66, label %for.body.i, label %if.end72
 
 for.body.i:                                       ; preds = %invoke.cont65, %for.body.i
-  %i.03.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %invoke.cont65 ]
+  %i.02.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %invoke.cont65 ]
   %33 = load ptr, ptr @stdout, align 8
   %34 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %33)
-  %inc.i = add nuw nsw i32 %i.03.i, 1
+  %inc.i = add nuw nsw i32 %i.02.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 3
   br i1 %exitcond.not.i, label %invoke.cont68, label %for.body.i, !llvm.loop !158
 
@@ -21666,10 +21666,10 @@ invoke.cont68:                                    ; preds = %for.body.i
           to label %for.body.i34 unwind label %lpad32
 
 for.body.i34:                                     ; preds = %invoke.cont68, %for.body.i34
-  %i.03.i35 = phi i32 [ %inc.i36, %for.body.i34 ], [ 0, %invoke.cont68 ]
+  %i.02.i35 = phi i32 [ %inc.i36, %for.body.i34 ], [ 0, %invoke.cont68 ]
   %37 = load ptr, ptr @stdout, align 8
   %38 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %37)
-  %inc.i36 = add nuw nsw i32 %i.03.i35, 1
+  %inc.i36 = add nuw nsw i32 %i.02.i35, 1
   %exitcond.not.i37 = icmp eq i32 %inc.i36, 3
   br i1 %exitcond.not.i37, label %invoke.cont70, label %for.body.i34, !llvm.loop !158
 
@@ -21685,10 +21685,10 @@ if.end72:                                         ; preds = %invoke.cont70, %inv
   br i1 %tobool73, label %for.body.i39, label %if.end77
 
 for.body.i39:                                     ; preds = %if.end72, %for.body.i39
-  %i.03.i40 = phi i32 [ %inc.i41, %for.body.i39 ], [ 0, %if.end72 ]
+  %i.02.i40 = phi i32 [ %inc.i41, %for.body.i39 ], [ 0, %if.end72 ]
   %42 = load ptr, ptr @stdout, align 8
   %43 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %42)
-  %inc.i41 = add nuw nsw i32 %i.03.i40, 1
+  %inc.i41 = add nuw nsw i32 %i.02.i40, 1
   %exitcond.not.i42 = icmp eq i32 %inc.i41, 3
   br i1 %exitcond.not.i42, label %invoke.cont75, label %for.body.i39, !llvm.loop !158
 
@@ -21702,10 +21702,10 @@ if.end77:                                         ; preds = %invoke.cont75, %if.
   br i1 %tobool78, label %for.body.i44, label %for.body.i49.preheader
 
 for.body.i44:                                     ; preds = %if.end77, %for.body.i44
-  %i.03.i45 = phi i32 [ %inc.i46, %for.body.i44 ], [ 0, %if.end77 ]
+  %i.02.i45 = phi i32 [ %inc.i46, %for.body.i44 ], [ 0, %if.end77 ]
   %45 = load ptr, ptr @stdout, align 8
   %46 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %45)
-  %inc.i46 = add nuw nsw i32 %i.03.i45, 1
+  %inc.i46 = add nuw nsw i32 %i.02.i45, 1
   %exitcond.not.i47 = icmp eq i32 %inc.i46, 3
   br i1 %exitcond.not.i47, label %invoke.cont80, label %for.body.i44, !llvm.loop !158
 
@@ -21717,10 +21717,10 @@ for.body.i49.preheader:                           ; preds = %invoke.cont80, %if.
   br label %for.body.i49
 
 for.body.i49:                                     ; preds = %for.body.i49.preheader, %for.body.i49
-  %i.03.i50 = phi i32 [ %inc.i51, %for.body.i49 ], [ 0, %for.body.i49.preheader ]
+  %i.02.i50 = phi i32 [ %inc.i51, %for.body.i49 ], [ 0, %for.body.i49.preheader ]
   %47 = load ptr, ptr @stdout, align 8
   %48 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %47)
-  %inc.i51 = add nuw nsw i32 %i.03.i50, 1
+  %inc.i51 = add nuw nsw i32 %i.02.i50, 1
   %exitcond.not.i52 = icmp eq i32 %inc.i51, 3
   br i1 %exitcond.not.i52, label %invoke.cont83, label %for.body.i49, !llvm.loop !158
 
@@ -30357,7 +30357,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i.i) #24
   %2 = load i64, ptr %second.i.i.i.i, align 8
   store i64 %2, ptr %second.i9.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_T0_ST_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_T0_ST_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i) #24
   %cmp9.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
@@ -30389,7 +30389,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %"_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i.i2.i, ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i1.i) #24
   %5 = load i64, ptr %second.i.i.i3.i, align 8
   store i64 %5, ptr %second.i3.i.i4.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_T0_ST_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i10.i, ptr noundef nonnull %agg.tmp7.i.i2.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_T0_ST_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i10.i, ptr noundef %agg.tmp7.i.i2.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i.i2.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i1.i) #24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__value.i.i1.i)
@@ -30489,7 +30489,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_T0_ST_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_T0_ST_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp37 = alloca %"struct.std::pair.154", align 8
   %sub = add nsw i64 %__len, -1
@@ -36788,7 +36788,7 @@ entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %__args5.val = load i8, ptr %__args5, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %type_str.i.i.i)
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %type_str.i.i.i, i8 noundef signext %__args5.val)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias align 8 %type_str.i.i.i, i8 noundef signext %__args5.val)
   %0 = load ptr, ptr %__functor.val, align 8
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8

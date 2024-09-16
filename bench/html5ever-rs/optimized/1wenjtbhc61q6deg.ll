@@ -144,7 +144,7 @@ define internal void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$markup5ever..interface..tree_builder..NodeOrText$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h35a29fa444272d84E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$markup5ever..interface..tree_builder..NodeOrText$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h35a29fa444272d84E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !11, !noundef !4
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -410,7 +410,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$markup5ever_rcdom..NodeData$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1614963830943412E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1614963830943412E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !54, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1156,7 +1156,7 @@ define internal fastcc { ptr, i64 } @_ZN17markup5ever_rcdom20get_parent_and_inde
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_existing_text17h58e0abfc8a4f61ecE(ptr %.0.val, ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_existing_text17h58e0abfc8a4f61ecE(ptr %.0.val, ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.4.i.i = alloca i64, align 8
   %3 = alloca { { i64, ptr }, i64 }, align 8
   %4 = alloca [8 x i8], align 8
@@ -1273,7 +1273,7 @@ define internal fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_exi
           to label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" unwind label %61, !noalias !185
 
 common.resume.sink.split.i:                       ; preds = %142, %61
-  %.sink.i = phi i64 [ %60, %61 ], [ %.0.i46.i, %142 ]
+  %.sink.i = phi i64 [ %60, %61 ], [ %..i.i, %142 ]
   %.sroa.05.0.insert.insert.i.i.i.sink.i = phi i64 [ %.sroa.05.0.insert.insert.i.i.i.i, %61 ], [ %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i, %142 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %62, %61 ], [ %143, %142 ]
   store i64 %.sink.i, ptr %14, align 8, !alias.scope !182, !noalias !185
@@ -1468,7 +1468,7 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   %140 = zext nneg i32 %26 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   %141 = icmp eq i32 %26, 0
-  %.0.i46.i = select i1 %141, i64 15, i64 %140
+  %..i.i = select i1 %141, i64 15, i64 %140
   store i64 0, ptr %.sroa.4.i.i, align 8, !noalias !205
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i, ptr nonnull readonly align 8 %4, i64 %140, i1 false), !noalias !209
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.i.i, align 8, !noalias !205
@@ -1482,9 +1482,9 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   br label %common.resume.sink.split.i
 
 144:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit45.i"
-  store i64 %.0.i46.i, ptr %14, align 8, !alias.scope !182, !noalias !185
-  %.sroa.5.0..sroa_idx51.i = getelementptr inbounds i8, ptr %.0.val, i64 40
-  store i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx51.i, align 8, !alias.scope !182, !noalias !185
+  store i64 %..i.i, ptr %14, align 8, !alias.scope !182, !noalias !185
+  %.sroa.5.0..sroa_idx50.i = getelementptr inbounds i8, ptr %.0.val, i64 40
+  store i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx50.i, align 8, !alias.scope !182, !noalias !185
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !196
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17h1221017265a93e77E.exit"
 
@@ -1689,7 +1689,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1614963830943412E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #22
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1614963830943412E"(ptr noalias noundef align 8 dereferenceable(24) %1) #22
           to label %10 unwind label %11
 
 10:                                               ; preds = %8
@@ -2734,7 +2734,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 156:                                              ; preds = %14, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr121drop_in_place$LT$markup5ever..interface..tree_builder..NodeOrText$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h35a29fa444272d84E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #22
+  invoke fastcc void @"_ZN4core3ptr121drop_in_place$LT$markup5ever..interface..tree_builder..NodeOrText$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h35a29fa444272d84E"(ptr noalias noundef align 8 dereferenceable(24) %2) #22
           to label %.thread unwind label %138
 }
 

@@ -1564,7 +1564,7 @@ define internal fastcc void @dmi_format_ids() unnamed_addr #0 section ".init.tex
 declare dso_local void @add_device_randomness(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_ident(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_ident(ptr noundef %0, i32 noundef range(i32 1, 23) %1, i32 noundef range(i32 4, 27) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = zext nneg i32 %1 to i64
   %5 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
@@ -1575,7 +1575,7 @@ define internal fastcc void @dmi_save_ident(ptr noundef %0, i32 noundef %1, i32 
   %9 = getelementptr inbounds i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = icmp slt i32 %2, %11
+  %12 = icmp ult i32 %2, %11
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %8
@@ -1595,7 +1595,7 @@ define internal fastcc void @dmi_save_ident(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_release(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_release(ptr nocapture noundef readonly %0, i32 noundef range(i32 4, 6) %1, i32 noundef range(i32 21, 24) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = zext nneg i32 %1 to i64
   %5 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
@@ -1606,7 +1606,7 @@ define internal fastcc void @dmi_save_release(ptr nocapture noundef readonly %0,
   %9 = getelementptr inbounds i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = icmp sgt i32 %2, %11
+  %12 = icmp ugt i32 %2, %11
   br i1 %12, label %31, label %13
 
 13:                                               ; preds = %8
@@ -2022,7 +2022,7 @@ declare dso_local ptr @extend_brk(i64 noundef, i64 noundef) local_unnamed_addr #
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_dev_pciaddr(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_dev_pciaddr(i32 noundef range(i32 0, 65536) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 256) %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 -4, -2) %5) unnamed_addr #0 section ".init.text" align 16 {
   %7 = icmp eq i32 %5, -4
   %8 = icmp eq i32 %1, 65535
   %9 = and i1 %8, %7
@@ -2071,7 +2071,7 @@ define internal fastcc void @dmi_save_dev_pciaddr(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_one_device(i32 noundef %0, ptr noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_one_device(i32 noundef range(i32 0, 128) %0, ptr noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = tail call ptr @dmi_find_device(i32 noundef %0, ptr noundef %1, ptr noundef null)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %20
@@ -2107,7 +2107,7 @@ define internal fastcc void @dmi_save_one_device(i32 noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @print_filtered(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @print_filtered(ptr noundef %0, i64 noundef range(i64 -2147483519, 2147483777) %1, ptr noundef readonly %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
 

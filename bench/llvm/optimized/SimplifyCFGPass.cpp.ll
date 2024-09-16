@@ -2548,7 +2548,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm27createCFGSimplificationPassENS_1
   br label %_ZNSt8functionIFbRKN4llvm8FunctionEEEC2EOS5_.exit
 
 _ZNSt8functionIFbRKN4llvm8FunctionEEEC2EOS5_.exit: ; preds = %2, %10
-  call fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18SimplifyCFGOptionsESt8functionIFbRKNS1_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull byval(%"struct.llvm::SimplifyCFGOptions") align 8 %0, ptr noundef nonnull %3)
+  call fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18SimplifyCFGOptionsESt8functionIFbRKNS1_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull byval(%"struct.llvm::SimplifyCFGOptions") align 8 %0, ptr noundef %3)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
@@ -2566,7 +2566,7 @@ _ZNSt8functionIFbRKN4llvm8FunctionEEED2Ev.exit:   ; preds = %_ZNSt8functionIFbRK
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18SimplifyCFGOptionsESt8functionIFbRKNS1_8FunctionEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly byval(%"struct.llvm::SimplifyCFGOptions") align 8 %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18SimplifyCFGOptionsESt8functionIFbRKNS1_8FunctionEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly byval(%"struct.llvm::SimplifyCFGOptions") align 8 %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.anon.242, align 8
   %5 = alloca %"class.std::reference_wrapper", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4289,7 +4289,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_115
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18SimplifyCFGOptionsESt8functionIFbRKNS1_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull byval(%"struct.llvm::SimplifyCFGOptions") align 8 %1, ptr noundef nonnull %2)
+  call fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18SimplifyCFGOptionsESt8functionIFbRKNS1_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull byval(%"struct.llvm::SimplifyCFGOptions") align 8 %1, ptr noundef %2)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null

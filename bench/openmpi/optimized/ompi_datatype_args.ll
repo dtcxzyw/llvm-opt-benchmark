@@ -963,7 +963,7 @@ define range(i32 -1, 1) i32 @ompi_datatype_get_pack_description(ptr noundef %0, 
 26:                                               ; preds = %22, %18
   %.1 = phi ptr [ %19, %18 ], [ %25, %22 ]
   store ptr %.1, ptr %4, align 8
-  call fastcc void @__ompi_datatype_pack_description(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  call fastcc void @__ompi_datatype_pack_description(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %3)
   %.val = load i16, ptr %16, align 8
   %27 = and i16 %.val, 512
   %.not23 = icmp eq i16 %27, 0
@@ -1026,7 +1026,7 @@ define range(i32 -1, 1) i32 @ompi_datatype_get_pack_description(ptr noundef %0, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @__ompi_datatype_pack_description(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #8 {
+define internal fastcc void @__ompi_datatype_pack_description(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #8 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr i8, ptr %0, i64 16
@@ -1145,7 +1145,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   store i32 %72, ptr %73, align 4
   %74 = add nsw i32 %72, 1
   store i32 %74, ptr %2, align 4
-  call fastcc void @__ompi_datatype_pack_description(ptr noundef nonnull %64, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  call fastcc void @__ompi_datatype_pack_description(ptr noundef nonnull %64, ptr noundef %4, ptr noundef %2)
   br label %75
 
 75:                                               ; preds = %67, %71

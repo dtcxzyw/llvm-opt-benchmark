@@ -96,7 +96,7 @@ define dso_local noundef ptr @create_plan(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_plan_recurse(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @create_plan_recurse(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4149,7 +4149,7 @@ define dso_local zeroext i1 @is_projection_capable_path(ptr nocapture noundef re
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_scan_plan(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @create_scan_plan(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4460,7 +4460,7 @@ create_samplescan_plan.exit:                      ; preds = %125, %132
   %170 = load i32, ptr %169, align 8
   %171 = getelementptr inbounds i8, ptr %1, i64 72
   %172 = load ptr, ptr %171, align 8
-  %173 = call fastcc ptr @create_bitmap_subplan(ptr noundef nonnull %0, ptr noundef %172, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %173 = call fastcc ptr @create_bitmap_subplan(ptr noundef nonnull %0, ptr noundef %172, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %174 = getelementptr inbounds i8, ptr %1, i64 32
   %175 = load i8, ptr %174, align 8
   %176 = trunc i8 %175 to i1
@@ -6093,7 +6093,7 @@ create_gating_plan.exit:                          ; preds = %1086, %1089, %1093
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_projection_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @create_projection_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = tail call fastcc zeroext i1 @use_physical_tlist(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %5 = getelementptr inbounds i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -6417,7 +6417,7 @@ define internal fastcc noundef ptr @create_group_result_plan(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_upper_unique_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_upper_unique_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = or i32 %2, 4
@@ -6611,7 +6611,7 @@ make_unique_from_pathkeys.exit:                   ; preds = %.lr.ph, %78, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_unique_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @create_unique_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = alloca %struct.Path, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 72
@@ -7709,7 +7709,7 @@ list_length.exit:                                 ; preds = %2, %16
 declare ptr @list_concat_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @use_physical_tlist(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @use_physical_tlist(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = and i32 %2, 3
@@ -8961,7 +8961,7 @@ declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @makeVar(i32 noundef, i16 noundef signext, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -8997,7 +8997,7 @@ define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr nocapture 
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv327
   %22 = load ptr, ptr %21, align 8
-  %23 = call fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %23 = call fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr noundef %22, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %24 = tail call ptr @lappend(ptr noundef %.0136284305, ptr noundef %23) #12
   %25 = load ptr, ptr %6, align 8
   %26 = tail call ptr @list_concat_unique(ptr noundef %.0137283306, ptr noundef %25) #12
@@ -9075,7 +9075,7 @@ define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr nocapture 
   %65 = load ptr, ptr %62, align 8
   %66 = getelementptr %union.ListCell, ptr %65, i64 %indvars.iv325
   %67 = load ptr, ptr %66, align 8
-  %68 = call fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr noundef %67, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %68 = call fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr noundef %67, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %69 = tail call ptr @lappend(ptr noundef %.0150243268, ptr noundef %68) #12
   %70 = load ptr, ptr %9, align 8
   %71 = icmp eq ptr %70, null

@@ -51,11 +51,11 @@ lpad.i:                                           ; preds = %if.then.i
   br label %common.resume
 
 _ZN7Imf_3_28TimeCode8setHoursEi.exit:             ; preds = %entry
-  %rem.i.lhs.trunc.i = trunc nuw i32 %hours to i8
-  %div.i5.i = udiv i8 %rem.i.lhs.trunc.i, 10
-  %1 = mul nuw nsw i8 %div.i5.i, 6
-  %or.i6.i = add nuw nsw i8 %1, %rem.i.lhs.trunc.i
-  %or.i.i = zext nneg i8 %or.i6.i to i32
+  %div.lhs.trunc.i.i = trunc nuw nsw i32 %hours to i8
+  %div2.i.i = udiv i8 %div.lhs.trunc.i.i, 10
+  %narrow.i.i = mul nuw nsw i8 %div2.i.i, 6
+  %1 = zext nneg i8 %narrow.i.i to i32
+  %or.i.i = add nuw nsw i32 %hours, %1
   %2 = load i32, ptr %this, align 4
   %and.i.i = and i32 %2, -1056964609
   %and4.i.i = shl nuw nsw i32 %or.i.i, 24
@@ -79,14 +79,14 @@ lpad.i11:                                         ; preds = %if.then.i9
   br label %common.resume
 
 _ZN7Imf_3_28TimeCode10setMinutesEi.exit:          ; preds = %_ZN7Imf_3_28TimeCode8setHoursEi.exit
-  %rem.i.lhs.trunc.i2 = trunc nuw i32 %minutes to i8
-  %div.i5.i3 = udiv i8 %rem.i.lhs.trunc.i2, 10
-  %4 = mul nuw nsw i8 %div.i5.i3, 6
-  %or.i6.i4 = add nuw nsw i8 %4, %rem.i.lhs.trunc.i2
-  %or.i.i5 = zext nneg i8 %or.i6.i4 to i32
+  %div.lhs.trunc.i.i2 = trunc nuw nsw i32 %minutes to i8
+  %div2.i.i3 = udiv i8 %div.lhs.trunc.i.i2, 10
+  %narrow.i.i4 = mul nuw nsw i8 %div2.i.i3, 6
+  %4 = zext nneg i8 %narrow.i.i4 to i32
+  %or.i.i5 = add nuw nsw i32 %minutes, %4
   %and.i.i6 = and i32 %or.i3.i, -8323073
   %and4.i.i7 = shl nuw nsw i32 %or.i.i5, 16
-  %or.i3.i8 = or disjoint i32 %and.i.i6, %and4.i.i7
+  %or.i3.i8 = or i32 %and.i.i6, %and4.i.i7
   store i32 %or.i3.i8, ptr %this, align 4
   %or.cond.i13 = icmp ugt i32 %seconds, 59
   br i1 %or.cond.i13, label %if.then.i21, label %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
@@ -106,14 +106,14 @@ lpad.i23:                                         ; preds = %if.then.i21
   br label %common.resume
 
 _ZN7Imf_3_28TimeCode10setSecondsEi.exit:          ; preds = %_ZN7Imf_3_28TimeCode10setMinutesEi.exit
-  %rem.i.lhs.trunc.i14 = trunc nuw i32 %seconds to i8
-  %div.i5.i15 = udiv i8 %rem.i.lhs.trunc.i14, 10
-  %6 = mul nuw nsw i8 %div.i5.i15, 6
-  %or.i6.i16 = add nuw nsw i8 %6, %rem.i.lhs.trunc.i14
-  %or.i.i17 = zext nneg i8 %or.i6.i16 to i32
+  %div.lhs.trunc.i.i14 = trunc nuw nsw i32 %seconds to i8
+  %div2.i.i15 = udiv i8 %div.lhs.trunc.i.i14, 10
+  %narrow.i.i16 = mul nuw nsw i8 %div2.i.i15, 6
+  %6 = zext nneg i8 %narrow.i.i16 to i32
+  %or.i.i17 = add nuw nsw i32 %seconds, %6
   %and.i.i18 = and i32 %or.i3.i8, -32513
   %and4.i.i19 = shl nuw nsw i32 %or.i.i17, 8
-  %or.i3.i20 = or disjoint i32 %and.i.i18, %and4.i.i19
+  %or.i3.i20 = or i32 %and.i.i18, %and4.i.i19
   store i32 %or.i3.i20, ptr %this, align 4
   %or.cond.i25 = icmp ugt i32 %frame, 29
   br i1 %or.cond.i25, label %if.then.i32, label %_ZN7Imf_3_28TimeCode8setFrameEi.exit
@@ -133,12 +133,12 @@ lpad.i34:                                         ; preds = %if.then.i32
   br label %common.resume
 
 _ZN7Imf_3_28TimeCode8setFrameEi.exit:             ; preds = %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
-  %rem.i.lhs.trunc.i26 = trunc nuw i32 %frame to i8
-  %div.i5.i27 = udiv i8 %rem.i.lhs.trunc.i26, 10
-  %8 = mul nuw nsw i8 %div.i5.i27, 6
-  %or.i6.i28 = add nuw nsw i8 %8, %rem.i.lhs.trunc.i26
+  %div.lhs.trunc.i.i26 = trunc nuw nsw i32 %frame to i8
+  %div2.i.i27 = udiv i8 %div.lhs.trunc.i.i26, 10
+  %narrow.i.i28 = mul nuw nsw i8 %div2.i.i27, 6
+  %8 = zext nneg i8 %narrow.i.i28 to i32
+  %or.i.i29 = add nuw nsw i32 %frame, %8
   %and.i.i30 = and i32 %or.i3.i20, 1065320192
-  %or.i.i29.masked = zext nneg i8 %or.i6.i28 to i32
   %and4.i.i37 = select i1 %dropFrame, i32 64, i32 0
   %and4.i.i40 = select i1 %colorFrame, i32 128, i32 0
   %and4.i.i43 = select i1 %fieldPhase, i32 32768, i32 0
@@ -147,8 +147,8 @@ _ZN7Imf_3_28TimeCode8setFrameEi.exit:             ; preds = %_ZN7Imf_3_28TimeCod
   %and4.i.i52 = select i1 %bgf2, i32 -2147483648, i32 0
   %and.i.i36 = or disjoint i32 %and4.i.i40, %and4.i.i37
   %or.i.i38 = or disjoint i32 %and.i.i36, %and4.i.i43
-  %or.i.i41 = or i32 %or.i.i38, %or.i.i29.masked
-  %or.i.i44 = or disjoint i32 %or.i.i41, %and4.i.i46
+  %or.i.i41 = or disjoint i32 %or.i.i38, %and4.i.i46
+  %or.i.i44 = or disjoint i32 %or.i.i41, %or.i.i29
   %and.i.i48.masked = or disjoint i32 %or.i.i44, %and4.i.i49
   %and.i.i51 = or i32 %and.i.i48.masked, %and4.i.i52
   %or.i.i53 = or i32 %and.i.i51, %and.i.i30
@@ -201,11 +201,11 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %rem.i.lhs.trunc = trunc nuw i32 %value to i8
-  %div.i5 = udiv i8 %rem.i.lhs.trunc, 10
-  %1 = mul nuw nsw i8 %div.i5, 6
-  %or.i6 = add nuw nsw i8 %1, %rem.i.lhs.trunc
-  %or.i = zext nneg i8 %or.i6 to i32
+  %div.lhs.trunc.i = trunc nuw nsw i32 %value to i8
+  %div2.i = udiv i8 %div.lhs.trunc.i, 10
+  %narrow.i = mul nuw nsw i8 %div2.i, 6
+  %1 = zext nneg i8 %narrow.i to i32
+  %or.i = add nuw nsw i32 %value, %1
   %2 = load i32, ptr %this, align 4
   %and.i = and i32 %2, -1056964609
   %and4.i = shl nuw nsw i32 %or.i, 24
@@ -236,15 +236,15 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %rem.i.lhs.trunc = trunc nuw i32 %value to i8
-  %div.i5 = udiv i8 %rem.i.lhs.trunc, 10
-  %1 = mul nuw nsw i8 %div.i5, 6
-  %or.i6 = add nuw nsw i8 %1, %rem.i.lhs.trunc
-  %or.i = zext nneg i8 %or.i6 to i32
+  %div.lhs.trunc.i = trunc nuw nsw i32 %value to i8
+  %div2.i = udiv i8 %div.lhs.trunc.i, 10
+  %narrow.i = mul nuw nsw i8 %div2.i, 6
+  %1 = zext nneg i8 %narrow.i to i32
+  %or.i = add nuw nsw i32 %value, %1
   %2 = load i32, ptr %this, align 4
   %and.i = and i32 %2, -8323073
   %and4.i = shl nuw nsw i32 %or.i, 16
-  %or.i3 = or disjoint i32 %and.i, %and4.i
+  %or.i3 = or i32 %and.i, %and4.i
   store i32 %or.i3, ptr %this, align 4
   ret void
 }
@@ -271,15 +271,15 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %rem.i.lhs.trunc = trunc nuw i32 %value to i8
-  %div.i5 = udiv i8 %rem.i.lhs.trunc, 10
-  %1 = mul nuw nsw i8 %div.i5, 6
-  %or.i6 = add nuw nsw i8 %1, %rem.i.lhs.trunc
-  %or.i = zext nneg i8 %or.i6 to i32
+  %div.lhs.trunc.i = trunc nuw nsw i32 %value to i8
+  %div2.i = udiv i8 %div.lhs.trunc.i, 10
+  %narrow.i = mul nuw nsw i8 %div2.i, 6
+  %1 = zext nneg i8 %narrow.i to i32
+  %or.i = add nuw nsw i32 %value, %1
   %2 = load i32, ptr %this, align 4
   %and.i = and i32 %2, -32513
   %and4.i = shl nuw nsw i32 %or.i, 8
-  %or.i3 = or disjoint i32 %and.i, %and4.i
+  %or.i3 = or i32 %and.i, %and4.i
   store i32 %or.i3, ptr %this, align 4
   ret void
 }
@@ -306,11 +306,11 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %rem.i.lhs.trunc = trunc nuw i32 %value to i8
-  %div.i5 = udiv i8 %rem.i.lhs.trunc, 10
-  %1 = mul nuw nsw i8 %div.i5, 6
-  %or.i6 = add nuw nsw i8 %1, %rem.i.lhs.trunc
-  %or.i = zext nneg i8 %or.i6 to i32
+  %div.lhs.trunc.i = trunc nuw nsw i32 %value to i8
+  %div2.i = udiv i8 %div.lhs.trunc.i, 10
+  %narrow.i = mul nuw nsw i8 %div2.i, 6
+  %1 = zext nneg i8 %narrow.i to i32
+  %or.i = add nuw nsw i32 %value, %1
   %2 = load i32, ptr %this, align 4
   %and.i = and i32 %2, -64
   %or.i3 = or i32 %and.i, %or.i

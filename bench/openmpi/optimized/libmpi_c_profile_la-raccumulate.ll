@@ -165,7 +165,7 @@ ompi_win_invalid.exit.thread:                     ; preds = %19, %ompi_win_inval
   br label %127
 
 69:                                               ; preds = %57
-  %70 = call fastcc zeroext i1 @ompi_op_is_valid(ptr noundef %7, ptr noundef nonnull %59, ptr noundef nonnull %11)
+  %70 = call fastcc zeroext i1 @ompi_op_is_valid(ptr noundef %7, ptr noundef nonnull %59, ptr noundef %11)
   br i1 %70, label %84, label %71
 
 71:                                               ; preds = %69
@@ -284,7 +284,7 @@ declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ompi_op_is_valid(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ompi_op_is_valid(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 84
   %.val = load i32, ptr %4, align 4
   %5 = and i32 %.val, 1
@@ -318,7 +318,7 @@ define internal fastcc noundef zeroext i1 @ompi_op_is_valid(ptr noundef %0, ptr 
 22:                                               ; preds = %16, %9
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = getelementptr inbounds i8, ptr %1, i64 240
-  %25 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @FUNC_NAME, ptr noundef nonnull %23, ptr noundef nonnull %24) #5
+  %25 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull @FUNC_NAME, ptr noundef nonnull %23, ptr noundef nonnull %24) #5
   br label %34
 
 26:                                               ; preds = %6
@@ -329,11 +329,11 @@ define internal fastcc noundef zeroext i1 @ompi_op_is_valid(ptr noundef %0, ptr 
   br i1 %.not19, label %32, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @FUNC_NAME, ptr noundef nonnull %29, ptr noundef nonnull %27) #5
+  %31 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @FUNC_NAME, ptr noundef nonnull %29, ptr noundef nonnull %27) #5
   br label %34
 
 32:                                               ; preds = %26
-  %33 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @FUNC_NAME, ptr noundef nonnull %29) #5
+  %33 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @FUNC_NAME, ptr noundef nonnull %29) #5
   br label %34
 
 34:                                               ; preds = %3, %16, %30, %32, %22

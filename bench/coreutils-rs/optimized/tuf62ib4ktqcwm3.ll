@@ -831,7 +831,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 14:                                               ; preds = %19, %.loopexit.split-lp8.i, %.loopexit7.i
   %.pn.i = phi { ptr, i32 } [ %lpad.phi.i, %19 ], [ %lpad.loopexit9.i, %.loopexit7.i ], [ %lpad.loopexit.split-lp10.i, %.loopexit.split-lp8.i ]
-  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #38
+  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef align 8 dereferenceable(72) %0) #38
           to label %39 unwind label %37
 
 .loopexit7.i:                                     ; preds = %6
@@ -929,7 +929,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 "_ZN5uu_dd8progress13SignalHandler22install_signal_handler28_$u7b$$u7b$closure$u7d$$u7d$17h738fc1d55a30c5f3E.exit": ; preds = %22, %.noexc4.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !142
-  call fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
+  call fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef align 8 dereferenceable(72) %0)
   call void asm sideeffect "", "~{memory}"() #26, !srcloc !181
   ret void
 }
@@ -1198,7 +1198,7 @@ _ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17h8cc168035ea80af2E.exit.i.
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %56, %47
   %eh.lpad-body.i = phi { ptr, i32 } [ %48, %47 ], [ %57, %56 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit11.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp12.i, %.loopexit.split-lp.loopexit.split-lp.i ]
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$uu_dd..progress..gen_prog_updater..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6063130b035ea524E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #38
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$uu_dd..progress..gen_prog_updater..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6063130b035ea524E"(ptr noalias noundef align 8 dereferenceable(24) %0) #38
           to label %68 unwind label %66
 
 62:                                               ; preds = %.noexc9.i, %.split21.us.i.i
@@ -1665,7 +1665,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$core..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr162drop_in_place$LT$signal_hook..iterator..backend..SignalDelivery$LT$std..os..unix..net..stream..UnixStream$C$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17ha3607b12b1ac3278E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %"_ZN4core3ptr55drop_in_place$LT$signal_hook..iterator..SignalsInfo$GT$17hb7a15c7245dac0fbE.exit" unwind label %2
 
@@ -1981,7 +1981,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$uu_dd..progress..gen_prog_updater..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6063130b035ea524E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$uu_dd..progress..gen_prog_updater..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6063130b035ea524E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !188, !alias.scope !359, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %2, label %default.unreachable [

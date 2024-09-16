@@ -762,7 +762,7 @@ define void @_ZN3nix13parseAttrPathERNS_9EvalStateESt17basic_string_viewIcSt11ch
 .preheader:
   %4 = alloca %"class.std::__cxx11::list", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN3nixL13parseAttrPathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 %2, ptr %3)
+  call fastcc void @_ZN3nixL13parseAttrPathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %4, i64 %2, ptr %3)
   %.sroa.016.022 = load ptr, ptr %4, align 8
   %5 = icmp eq ptr %.sroa.016.022, %4
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -933,7 +933,7 @@ _ZNSt6vectorIN3nix6SymbolESaIS1_EED2Ev.exit:      ; preds = %54, %55
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL13parseAttrPathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %0, i64 %1, ptr %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL13parseAttrPathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.3", align 1
   %5 = alloca %"class.std::basic_string_view", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1390,7 +1390,7 @@ define { ptr, i32 } @_ZN3nix17findAlongAttrPathERNS_9EvalStateERKNSt7__cxx1112ba
   %19 = load ptr, ptr %1, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8
-  call fastcc void @_ZN3nixL13parseAttrPathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 %21, ptr %19)
+  call fastcc void @_ZN3nixL13parseAttrPathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %7, i64 %21, ptr %19)
   %.sroa.0109.0187 = load ptr, ptr %7, align 8
   %22 = icmp eq ptr %.sroa.0109.0187, %7
   br i1 %22, label %._crit_edge, label %.lr.ph

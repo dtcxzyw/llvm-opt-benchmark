@@ -621,7 +621,7 @@ if.end104:                                        ; preds = %if.end9.i139, %lor.
   %ext = getelementptr inbounds i8, ptr %ret.1, i64 824
   %tlsext_hostname = getelementptr inbounds i8, ptr %call1.i, i64 88
   %33 = load ptr, ptr %tlsext_hostname, align 8
-  %call107 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %ext, ptr noundef %33)
+  %call107 = call fastcc i32 @ssl_session_strndup(ptr noundef %ext, ptr noundef %33)
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %err, label %if.end110
 
@@ -629,7 +629,7 @@ if.end110:                                        ; preds = %if.end104
   %psk_identity_hint = getelementptr inbounds i8, ptr %ret.1, i64 672
   %psk_identity_hint111 = getelementptr inbounds i8, ptr %call1.i, i64 120
   %34 = load ptr, ptr %psk_identity_hint111, align 8
-  %call112 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %psk_identity_hint, ptr noundef %34)
+  %call112 = call fastcc i32 @ssl_session_strndup(ptr noundef %psk_identity_hint, ptr noundef %34)
   %tobool113.not = icmp eq i32 %call112, 0
   br i1 %tobool113.not, label %err, label %if.end115
 
@@ -637,7 +637,7 @@ if.end115:                                        ; preds = %if.end110
   %psk_identity = getelementptr inbounds i8, ptr %ret.1, i64 680
   %psk_identity116 = getelementptr inbounds i8, ptr %call1.i, i64 128
   %35 = load ptr, ptr %psk_identity116, align 8
-  %call117 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %psk_identity, ptr noundef %35)
+  %call117 = call fastcc i32 @ssl_session_strndup(ptr noundef %psk_identity, ptr noundef %35)
   %tobool118.not = icmp eq i32 %call117, 0
   br i1 %tobool118.not, label %err, label %if.end120
 
@@ -698,7 +698,7 @@ if.end155:                                        ; preds = %if.end140, %if.end1
   %srp_username = getelementptr inbounds i8, ptr %ret.1, i64 888
   %srp_username156 = getelementptr inbounds i8, ptr %call1.i, i64 136
   %48 = load ptr, ptr %srp_username156, align 8
-  %call157 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %srp_username, ptr noundef %48)
+  %call157 = call fastcc i32 @ssl_session_strndup(ptr noundef %srp_username, ptr noundef %48)
   %tobool158.not = icmp eq i32 %call157, 0
   br i1 %tobool158.not, label %err, label %if.end160
 
@@ -840,7 +840,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 declare ptr @d2i_PUBKEY_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_session_strndup(ptr nocapture noundef %pdst, ptr noundef readonly %src) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_session_strndup(ptr nocapture noundef nonnull %pdst, ptr noundef readonly %src) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pdst, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 231) #5

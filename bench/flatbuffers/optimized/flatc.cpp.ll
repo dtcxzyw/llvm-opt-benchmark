@@ -12164,7 +12164,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpElSt12_Ios_Se
 declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %text, i64 noundef %start_col) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %text, i64 noundef range(i64 0, 26) %start_col) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22061,7 +22061,7 @@ lpad.body.i26.i.i:                                ; preds = %lpad.i25.i.i, %ehcl
   br label %common.resume
 
 "_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i": ; preds = %invoke.cont6.i.i.i.i.i.i.i.i.i
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %77, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef %retval.sroa.4.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 8)) #21
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %77, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 8)) #21
   %88 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 40), align 8
   %inc.i.i.i = add i64 %88, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 40), align 8

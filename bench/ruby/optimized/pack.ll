@@ -354,7 +354,7 @@ RSTRING_PTR.exit416:                              ; preds = %61, %68
   %78 = icmp ne i8 %76, 32
   %79 = add nsw i32 %77, -14
   %80 = icmp ult i32 %79, -5
-  %narrow.i.not = and i1 %78, %80
+  %narrow.i.not = select i1 %78, i1 %80, i1 false
   br i1 %narrow.i.not, label %81, label %.backedge
 
 81:                                               ; preds = %74
@@ -2144,7 +2144,7 @@ declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @rb_to_int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @encodes(i64 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @encodes(i64 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef range(i32 -128, 128) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [4097 x i8], align 16
   %7 = icmp eq i32 %3, 117
   %8 = select i1 %7, ptr @uu_table, ptr @b64_table
@@ -2406,7 +2406,7 @@ declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare i32 @rb_block_given_p() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @pack_unpack_internal(i64 noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @pack_unpack_internal(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 3) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -2505,7 +2505,7 @@ RSTRING_PTR.exit961:                              ; preds = %RSTRING_PTR.exit, %
   %55 = icmp ne i8 %53, 32
   %56 = add nsw i32 %54, -14
   %57 = icmp ult i32 %56, -5
-  %narrow.i.not = and i1 %55, %57
+  %narrow.i.not = select i1 %55, i1 %57, i1 false
   br i1 %narrow.i.not, label %58, label %.backedge
 
 58:                                               ; preds = %50
@@ -4858,7 +4858,7 @@ define internal fastcc range(i64 1, 0) i64 @str_associated(i64 noundef %0) unnam
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @associated_pointer(i64 noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc i64 @associated_pointer(i64 noundef range(i64 1, 0) %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 8192

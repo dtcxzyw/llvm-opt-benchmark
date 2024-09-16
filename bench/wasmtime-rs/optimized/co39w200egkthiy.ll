@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ac266b5be71133b8b91d1fd5c50fcb2d.9.llvm.14302057508642852183 = external hidden unnamed_addr constant <{ ptr, [8 x i8] }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h0aefb1773182874dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h0aefb1773182874dE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !4, !noundef !5
   %cond = icmp eq i32 %2, 8
   br i1 %cond, label %4, label %3
@@ -51,7 +51,7 @@ define hidden void @_ZN6wiggle19validate_size_align17hc7cbc044803564daE.llvm.976
   %14 = extractvalue { ptr, i64 } %12, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   store i32 2, ptr %9, align 8
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h0aefb1773182874dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %9)
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h0aefb1773182874dE"(ptr noalias noundef align 8 dereferenceable(64) %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   %15 = zext i32 %3 to i64
   %16 = icmp ult i64 %14, %15
@@ -79,7 +79,7 @@ define hidden void @_ZN6wiggle19validate_size_align17hc7cbc044803564daE.llvm.976
   br i1 %24, label %38, label %27
 
 27:                                               ; preds = %21
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h0aefb1773182874dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h0aefb1773182874dE"(ptr noalias noundef align 8 dereferenceable(64) %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   %28 = tail call noundef i64 @_ZN4core3ptr12align_offset17h31c87f3a276ef94bE(ptr noundef nonnull %17, i64 noundef 1), !noalias !9
   %29 = icmp ugt i64 %28, %23

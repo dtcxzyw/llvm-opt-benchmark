@@ -348,7 +348,7 @@ if.then92:                                        ; preds = %if.then90
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then92, %if.then90
-  %call95 = call fastcc ptr @lookup_conf(ptr noundef nonnull %call79, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56)
+  %call95 = call fastcc ptr @lookup_conf(ptr noundef %call79, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56)
   %cmp96 = icmp eq ptr %call95, null
   br i1 %cmp96, label %end.thread, label %if.end99
 
@@ -364,7 +364,7 @@ if.then101:                                       ; preds = %if.end99
   br label %if.end103
 
 if.end103:                                        ; preds = %if.then101, %if.end99
-  %call104 = call fastcc ptr @lookup_conf(ptr noundef nonnull %call79, ptr noundef nonnull %section.2, ptr noundef nonnull @.str.22)
+  %call104 = call fastcc ptr @lookup_conf(ptr noundef %call79, ptr noundef nonnull %section.2, ptr noundef nonnull @.str.22)
   %cmp105 = icmp eq ptr %call104, null
   br i1 %cmp105, label %end.thread, label %if.end108
 
@@ -491,7 +491,7 @@ if.then150:                                       ; preds = %if.end147
   %call.i185 = call ptr @OPENSSL_sk_value(ptr noundef %34, i32 noundef %gNindex.0.lcssa) #5
   %cmp154 = icmp sgt i32 %verbose.0, 1
   %conv155 = zext i1 %cmp154 to i32
-  call fastcc void @print_entry(ptr noundef nonnull %call113, i32 noundef %gNindex.0.lcssa, i32 noundef %conv155, ptr noundef nonnull @.str.61)
+  call fastcc void @print_entry(ptr noundef %call113, i32 noundef %gNindex.0.lcssa, i32 noundef %conv155, ptr noundef nonnull @.str.61)
   br label %if.end169
 
 if.else:                                          ; preds = %if.end147
@@ -601,7 +601,7 @@ for.inc42.i:                                      ; preds = %land.lhs.true35.i, 
   br i1 %cmp24.i, label %for.body26.i, label %if.end199, !llvm.loop !9
 
 if.then192:                                       ; preds = %land.lhs.true35.i
-  call fastcc void @print_user(ptr noundef nonnull %call113, i32 noundef %i.124.i, i32 noundef %lor.ext)
+  call fastcc void @print_user(ptr noundef %call113, i32 noundef %i.124.i, i32 noundef %lor.ext)
   br label %if.end199
 
 if.end199:                                        ; preds = %for.inc42.i, %if.end.i, %if.then192
@@ -624,7 +624,7 @@ if.then205:                                       ; preds = %if.end199.thread
 
 for.body213:                                      ; preds = %if.then205, %for.body213
   %i.1313 = phi i32 [ %inc215, %for.body213 ], [ 0, %if.then205 ]
-  call fastcc void @print_user(ptr noundef nonnull %call113, i32 noundef %i.1313, i32 noundef 1)
+  call fastcc void @print_user(ptr noundef %call113, i32 noundef %i.1313, i32 noundef 1)
   %inc215 = add nuw nsw i32 %i.1313, 1
   %53 = load ptr, ptr %db118, align 8
   %data209 = getelementptr inbounds i8, ptr %53, i64 8
@@ -722,7 +722,7 @@ land.lhs.true286:                                 ; preds = %lor.lhs.false284
   br i1 %cmp289, label %if.then294, label %lor.lhs.false291
 
 lor.lhs.false291:                                 ; preds = %land.lhs.true286, %lor.lhs.false284
-  %call292 = call fastcc i32 @update_index(ptr noundef nonnull %call113, ptr noundef nonnull %row239)
+  %call292 = call fastcc i32 @update_index(ptr noundef %call113, ptr noundef %row239)
   %tobool293.not = icmp eq i32 %call292, 0
   br i1 %tobool293.not, label %if.then294, label %if.end446
 
@@ -780,7 +780,7 @@ if.then334:                                       ; preds = %if.then332
 if.end336:                                        ; preds = %if.then334, %if.then332
   %arrayidx337 = getelementptr inbounds i8, ptr %call.i188, i64 32
   %81 = load ptr, ptr %arrayidx337, align 8
-  %call338 = call fastcc i32 @get_index(ptr noundef nonnull %call113, ptr noundef %81, i8 noundef signext 73)
+  %call338 = call fastcc i32 @get_index(ptr noundef %call113, ptr noundef %81, i8 noundef signext 73)
   %cmp339 = icmp sgt i32 %call338, -1
   br i1 %cmp339, label %if.end345, label %if.end345.thread
 
@@ -962,7 +962,7 @@ for.body465:                                      ; preds = %for.cond459.prehead
 
 if.then474:                                       ; preds = %for.body465
   store i8 86, ptr %114, align 1
-  call fastcc void @print_user(ptr noundef nonnull %call113, i32 noundef %i.2317, i32 noundef %verbose.0)
+  call fastcc void @print_user(ptr noundef %call113, i32 noundef %i.2317, i32 noundef %verbose.0)
   br label %for.inc478
 
 for.inc478:                                       ; preds = %for.body465, %if.then474
@@ -1094,9 +1094,9 @@ declare ptr @app_load_config_verbose(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @app_load_modules(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_conf(ptr noundef %conf, ptr noundef %section, ptr noundef %tag) unnamed_addr #0 {
+define internal fastcc ptr @lookup_conf(ptr noundef nonnull %conf, ptr noundef %section, ptr noundef %tag) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef %section, ptr noundef %tag) #5
+  %call = tail call ptr @NCONF_get_string(ptr noundef nonnull %conf, ptr noundef %section, ptr noundef %tag) #5
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1117,7 +1117,7 @@ declare ptr @load_index(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_entry(ptr nocapture noundef readonly %db, i32 noundef %indx, i32 noundef %verbose, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @print_entry(ptr nocapture noundef nonnull readonly %db, i32 noundef %indx, i32 noundef range(i32 0, -2147483648) %verbose, ptr noundef %s) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %indx, -1
   %tobool = icmp ne i32 %verbose, 0
@@ -1154,7 +1154,7 @@ if.end:                                           ; preds = %for.body, %entry
 declare ptr @SRP_get_default_gN(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_index(ptr nocapture noundef readonly %db, ptr noundef readonly %id, i8 noundef signext %type) unnamed_addr #0 {
+define internal fastcc noundef i32 @get_index(ptr nocapture noundef nonnull readonly %db, ptr noundef readonly %id, i8 noundef signext range(i8 73, 86) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %id, null
   br i1 %cmp, label %return, label %if.end
@@ -1235,7 +1235,7 @@ return:                                           ; preds = %land.lhs.true35, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_user(ptr nocapture noundef readonly %db, i32 noundef %userindex, i32 noundef %verbose) unnamed_addr #0 {
+define internal fastcc void @print_user(ptr nocapture noundef nonnull readonly %db, i32 noundef %userindex, i32 noundef %verbose) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %verbose, 0
   br i1 %cmp, label %if.then, label %if.end8
@@ -1405,7 +1405,7 @@ if.end16:                                         ; preds = %if.end9, %if.then13
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @update_index(ptr nocapture noundef readonly %db, ptr nocapture noundef readonly %row) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @update_index(ptr nocapture noundef nonnull readonly %db, ptr nocapture noundef nonnull readonly %row) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_malloc(i64 noundef 56, ptr noundef nonnull @.str.96) #5
   br label %for.body

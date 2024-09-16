@@ -1617,7 +1617,7 @@ H5SM__create_index.exit._crit_edge:               ; preds = %H5SM__create_index.
   br i1 %.not115.i, label %.thread.i57, label %350
 
 350:                                              ; preds = %345
-  %351 = call fastcc i32 @H5SM__convert_list_to_btree(ptr noundef %0, ptr noundef nonnull %151, ptr noundef nonnull %8, ptr noundef nonnull %176, ptr noundef %1)
+  %351 = call fastcc i32 @H5SM__convert_list_to_btree(ptr noundef %0, ptr noundef nonnull %151, ptr noundef %8, ptr noundef %176, ptr noundef %1)
   %352 = icmp slt i32 %351, 0
   br i1 %352, label %353, label %357
 
@@ -1639,7 +1639,7 @@ H5SM__create_index.exit._crit_edge:               ; preds = %H5SM__create_index.
   br i1 %360, label %361, label %377
 
 361:                                              ; preds = %.thread.i57
-  %362 = call fastcc i32 @H5SM__find_in_list(ptr noundef %.pre.i, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull %15)
+  %362 = call fastcc i32 @H5SM__find_in_list(ptr noundef %.pre.i, ptr noundef null, ptr noundef nonnull %13, ptr noundef %15)
   %363 = icmp slt i32 %362, 0
   br i1 %363, label %364, label %368
 
@@ -1971,7 +1971,7 @@ H5SM__get_index.exit:                             ; preds = %37
   store i32 %.sink.i, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %5, i64 40
   store i32 %46, ptr %66, align 8
-  %67 = call fastcc i32 @H5SM__read_mesg(ptr noundef %0, ptr noundef nonnull %65, ptr noundef nonnull %49, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %67 = call fastcc i32 @H5SM__read_mesg(ptr noundef %0, ptr noundef %65, ptr noundef %49, ptr noundef %1, ptr noundef %7, ptr noundef %8)
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %73
 
@@ -2799,7 +2799,7 @@ H5SM__get_index.exit:                             ; preds = %36
   %58 = load i64, ptr %57, align 8
   store i64 %58, ptr %56, align 8
   store i64 0, ptr %55, align 8
-  %59 = call fastcc i32 @H5SM__read_mesg(ptr noundef %0, ptr noundef nonnull %54, ptr noundef nonnull %47, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %59 = call fastcc i32 @H5SM__read_mesg(ptr noundef %0, ptr noundef %54, ptr noundef %47, ptr noundef null, ptr noundef %9, ptr noundef %10)
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %65
 
@@ -3035,7 +3035,7 @@ H5SM__get_index.exit:                             ; preds = %36
 declare ptr @H5HF_open(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @H5SM__read_mesg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @H5SM__read_mesg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca %struct.H5SM_read_udata_t, align 8
   %8 = alloca %struct.H5O_loc_t, align 8
   %9 = alloca %struct.H5O_mesg_operator_t, align 8
@@ -3119,7 +3119,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5SM__read_mesg(ptr nound
 
 57:                                               ; preds = %6
   %58 = getelementptr inbounds i8, ptr %1, i64 24
-  %59 = call i32 @H5HF_op(ptr noundef %2, ptr noundef nonnull %58, ptr noundef nonnull @H5SM__read_mesg_fh_cb, ptr noundef nonnull %7) #11
+  %59 = call i32 @H5HF_op(ptr noundef nonnull %2, ptr noundef nonnull %58, ptr noundef nonnull @H5SM__read_mesg_fh_cb, ptr noundef nonnull %7) #11
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %65
 
@@ -3189,7 +3189,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5SM__read_mesg(ptr nound
 declare i32 @H5_checksum_lookup3(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5SM__find_in_list(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5SM__find_in_list(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %6
@@ -4007,7 +4007,7 @@ declare i32 @H5O_msg_get_crt_index(i32 noundef, ptr noundef, ptr noundef) local_
 declare i64 @H5O_get_oh_addr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5SM__convert_list_to_btree(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5SM__convert_list_to_btree(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.H5SM_mesg_key_t, align 8
   %7 = alloca %struct.H5B2_create_t, align 8
   %8 = alloca i64, align 8
@@ -4083,7 +4083,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SM__convert_list_to_btree(ptr nou
 
 46:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 32, i1 false)
-  %47 = call fastcc i32 @H5SM__read_mesg(ptr noundef %0, ptr noundef nonnull %41, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %36, ptr noundef nonnull %9)
+  %47 = call fastcc i32 @H5SM__read_mesg(ptr noundef %0, ptr noundef %41, ptr noundef %3, ptr noundef %4, ptr noundef %36, ptr noundef %9)
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %53
 

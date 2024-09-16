@@ -973,7 +973,7 @@ lor.lhs.false77:                                  ; preds = %for.inc.us.i, %land
 
 land.lhs.true80:                                  ; preds = %lor.lhs.false77
   %conv85 = sext i32 %8 to i64
-  %call86 = call fastcc i32 @arraycmp(ptr noundef nonnull %15, ptr noundef %16, ptr noundef %12, i64 noundef %conv85)
+  %call86 = call fastcc i32 @arraycmp(ptr noundef %15, ptr noundef %16, ptr noundef %12, i64 noundef %conv85)
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %result, label %lor.lhs.false88
 
@@ -1229,7 +1229,7 @@ return:                                           ; preds = %sub_18, %sub_07, %s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arraycmp(ptr nocapture noundef readonly %a1, ptr nocapture noundef readonly %a2, ptr noundef readonly %shape, i64 noundef %ndim) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @arraycmp(ptr nocapture noundef nonnull readonly %a1, ptr nocapture noundef readonly %a2, ptr noundef readonly %shape, i64 noundef range(i64 -2147483648, 2147483648) %ndim) unnamed_addr #3 {
 entry:
   %cmp6 = icmp sgt i64 %ndim, 0
   br i1 %cmp6, label %for.body.lr.ph, label %return
@@ -2527,7 +2527,7 @@ if.then10:                                        ; preds = %land.lhs.true, %if.
   %10 = load ptr, ptr %format, align 8
   %itemsize = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load i64, ptr %itemsize, align 8
-  %call11 = tail call fastcc i32 @pack_single(ptr noundef %9, ptr noundef nonnull %value, ptr noundef %10, i64 noundef %11)
+  %call11 = tail call fastcc i32 @pack_single(ptr noundef %9, ptr noundef %value, ptr noundef %10, i64 noundef %11)
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false
@@ -2609,7 +2609,7 @@ if.end30:                                         ; preds = %if.else25
   %20 = load ptr, ptr %format31, align 8
   %itemsize32 = getelementptr inbounds i8, ptr %0, i64 80
   %21 = load i64, ptr %itemsize32, align 8
-  %call33 = tail call fastcc i32 @pack_single(ptr noundef nonnull %phi.call, ptr noundef nonnull %value, ptr noundef %20, i64 noundef %21)
+  %call33 = tail call fastcc i32 @pack_single(ptr noundef nonnull %phi.call, ptr noundef %value, ptr noundef %20, i64 noundef %21)
   br label %return
 
 if.end34:                                         ; preds = %if.end2, %land.lhs.true15
@@ -2655,7 +2655,7 @@ return:                                           ; preds = %if.else25.thread, %
 declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @pack_single(ptr noundef %ptr, ptr noundef %item, ptr noundef %fmt, i64 noundef %itemsize) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @pack_single(ptr noundef %ptr, ptr noundef nonnull %item, ptr noundef %fmt, i64 noundef %itemsize) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %fmt, null
   %spec.store.select = select i1 %cmp, ptr @.str.48, ptr %fmt
@@ -3943,7 +3943,7 @@ if.then.i44.i:                                    ; preds = %if.end36.i
   %21 = load i32, ptr %ndim.i, align 4
   %conv.i = sext i32 %21 to i64
   %22 = load i64, ptr %itemsize31.i, align 8
-  %call43.i = call fastcc ptr @unpack_rec(ptr noundef nonnull %call27.i, ptr noundef %19, ptr noundef nonnull %call38.i, ptr noundef nonnull %call32.i, ptr noundef nonnull %shape.0.i, ptr noundef nonnull %strides.0.i, ptr noundef %20, i64 noundef %conv.i, i64 noundef %22)
+  %call43.i = call fastcc ptr @unpack_rec(ptr noundef %call27.i, ptr noundef %19, ptr noundef %call38.i, ptr noundef %call32.i, ptr noundef nonnull %shape.0.i, ptr noundef nonnull %strides.0.i, ptr noundef %20, i64 noundef %conv.i, i64 noundef %22)
   %23 = load i64, ptr %call38.i, align 8
   %24 = and i64 %23, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %24, 0
@@ -4365,14 +4365,14 @@ return:                                           ; preds = %if.end54, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unpack_rec(ptr noundef %unpack_from, ptr nocapture noundef readonly %ptr, ptr noundef %mview, ptr nocapture noundef writeonly %item, ptr nocapture noundef readonly %shape, ptr nocapture noundef readonly %strides, ptr noundef %suboffsets, i64 noundef %ndim, i64 noundef %itemsize) unnamed_addr #0 {
+define internal fastcc ptr @unpack_rec(ptr noundef nonnull %unpack_from, ptr nocapture noundef readonly %ptr, ptr noundef nonnull %mview, ptr nocapture noundef nonnull writeonly %item, ptr nocapture noundef readonly %shape, ptr nocapture noundef readonly %strides, ptr noundef %suboffsets, i64 noundef %ndim, i64 noundef %itemsize) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %ndim, 0
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %item, ptr align 1 %ptr, i64 %itemsize, i1 false)
-  %call = tail call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef %unpack_from, ptr noundef %mview, ptr noundef null) #14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %item, ptr align 1 %ptr, i64 %itemsize, i1 false)
+  %call = tail call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef nonnull %unpack_from, ptr noundef nonnull %mview, ptr noundef null) #14
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end
 
@@ -5643,7 +5643,7 @@ declare ptr @PyMemoryView_FromBuffer(ptr noundef) local_unnamed_addr #1
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @seq_as_ssize_array(ptr nocapture noundef readonly %seq, i64 noundef %len, i32 noundef %is_shape) unnamed_addr #0 {
+define internal fastcc ptr @seq_as_ssize_array(ptr nocapture noundef readonly %seq, i64 noundef range(i64 -9223372036854775808, 129) %len, i32 noundef range(i32 0, 2) %is_shape) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %len, 1152921504606846975
   br i1 %cmp, label %if.then, label %cond.end

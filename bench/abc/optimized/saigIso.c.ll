@@ -707,7 +707,7 @@ declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef nonnull %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -1227,7 +1227,7 @@ Vec_IntInvert.exit:                               ; preds = %62, %Vec_IntFill.ex
   br i1 %.not47, label %78, label %79
 
 78:                                               ; preds = %76
-  call fastcc void @Vec_IntFreeP(ptr noundef nonnull %6)
+  call fastcc void @Vec_IntFreeP(ptr noundef %6)
   %.pre = load ptr, ptr %6, align 8
   br label %79
 

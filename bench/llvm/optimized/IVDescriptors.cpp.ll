@@ -1360,7 +1360,7 @@ _ZN4llvm4User8operandsEv.exit239:                 ; preds = %413, %415
   br i1 %or.cond184, label %431, label %_ZN4llvm20RecurrenceDescriptor29isFloatingPointRecurrenceKindENS_9RecurKindE.exit
 
 431:                                              ; preds = %.critedge182
-  %432 = call fastcc noundef zeroext i1 @_ZL21checkOrderedReductionN4llvm9RecurKindEPNS_11InstructionES2_PNS_7PHINodeE(i32 noundef %.0129.ph, ptr noundef %.0145.ph, ptr noundef nonnull %.3134, ptr noundef nonnull %0)
+  %432 = call fastcc noundef zeroext i1 @_ZL21checkOrderedReductionN4llvm9RecurKindEPNS_11InstructionES2_PNS_7PHINodeE(i32 noundef %.0129.ph, ptr noundef %.0145.ph, ptr noundef %.3134, ptr noundef nonnull %0)
   %.not161 = icmp eq ptr %.0143, %0
   br i1 %.not161, label %._crit_edge448, label %433
 
@@ -1369,7 +1369,7 @@ _ZN4llvm4User8operandsEv.exit239:                 ; preds = %413, %415
   br label %436
 
 433:                                              ; preds = %431
-  %434 = call fastcc { ptr, i8 } @_ZL21computeRecurrenceTypePN4llvm11InstructionEPNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_13DominatorTreeE(ptr noundef nonnull %.3134, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %434 = call fastcc { ptr, i8 } @_ZL21computeRecurrenceTypePN4llvm11InstructionEPNS_12DemandedBitsEPNS_15AssumptionCacheEPNS_13DominatorTreeE(ptr noundef %.3134, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %.fca.0.extract = extractvalue { ptr, i8 } %434, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %434, 1
   %435 = load ptr, ptr %11, align 8
@@ -1379,7 +1379,7 @@ _ZN4llvm4User8operandsEv.exit239:                 ; preds = %413, %415
 436:                                              ; preds = %._crit_edge448, %433
   %437 = phi ptr [ %.pre, %._crit_edge448 ], [ %435, %433 ]
   %.0303 = phi i8 [ 0, %._crit_edge448 ], [ %.fca.1.extract, %433 ]
-  call fastcc void @_ZL17collectCastInstrsPN4llvm4LoopEPNS_11InstructionEPNS_4TypeERNS_15SmallPtrSetImplIS3_EERj(ptr noundef nonnull %2, ptr noundef nonnull %.3134, ptr noundef %437, ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  call fastcc void @_ZL17collectCastInstrsPN4llvm4LoopEPNS_11InstructionEPNS_4TypeERNS_15SmallPtrSetImplIS3_EERj(ptr noundef nonnull %2, ptr noundef %.3134, ptr noundef %437, ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   %438 = load ptr, ptr %11, align 8
   %439 = trunc i8 %.0303 to i1
   %440 = load i32, ptr %13, align 4
@@ -3381,7 +3381,7 @@ _ZSt4findIPN4llvm3UseEPNS0_5ValueEET_S5_S5_RKT0_.exit: ; preds = %13, %_ZSt4find
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21checkOrderedReductionN4llvm9RecurKindEPNS_11InstructionES2_PNS_7PHINodeE(i32 noundef %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21checkOrderedReductionN4llvm9RecurKindEPNS_11InstructionES2_PNS_7PHINodeE(i32 noundef %0, ptr noundef readnone %1, ptr noundef nonnull %2, ptr noundef readnone %3) unnamed_addr #0 {
   switch i32 %0, label %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.thread [
     i32 16, label %5
     i32 10, label %5
@@ -3660,7 +3660,7 @@ _ZN4llvm8bit_ceilImEET_S1_.exit:                  ; preds = %.critedge, %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17collectCastInstrsPN4llvm4LoopEPNS_11InstructionEPNS_4TypeERNS_15SmallPtrSetImplIS3_EERj(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17collectCastInstrsPN4llvm4LoopEPNS_11InstructionEPNS_4TypeERNS_15SmallPtrSetImplIS3_EERj(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector", align 8
   %7 = alloca %"class.llvm::SmallPtrSet.8", align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -6029,8 +6029,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i: 
   %87 = zext i8 %85 to i32
   %88 = add nsw i32 %87, -60
   %89 = icmp ult i32 %88, -18
-  %.not16.i.i = select i1 %86, i1 true, i1 %89
-  br i1 %.not16.i.i, label %_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE.exit.thread, label %90
+  %.not15.i.i = select i1 %86, i1 true, i1 %89
+  br i1 %.not15.i.i, label %_ZL23getCastsForInductionPHIRN4llvm25PredicatedScalarEvolutionEPKNS_11SCEVUnknownEPKNS_14SCEVAddRecExprERNS_15SmallVectorImplIPNS_11InstructionEEE.exit.thread, label %90
 
 90:                                               ; preds = %84
   %91 = getelementptr inbounds i8, ptr %.0289.i, i64 -64

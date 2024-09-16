@@ -745,7 +745,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %44, %53
   br i1 %83, label %71, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %71, %66, %62
-  tail call fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef nonnull %0)
+  tail call fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef %0)
   br label %84
 
 84:                                               ; preds = %59, %.loopexit, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
@@ -1913,7 +1913,7 @@ define void @fstWriterEmitTimeChange(ptr noundef %0, i64 noundef %1) local_unnam
   store i8 33, ptr %24, align 1
   %25 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 1, ptr %25, align 8
-  tail call fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr noundef nonnull %0)
+  tail call fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr noundef %0)
   %26 = getelementptr inbounds i8, ptr %0, i64 104
   %27 = load i32, ptr %26, align 8
   %.not58 = icmp eq i32 %27, 0
@@ -1963,7 +1963,7 @@ define void @fstWriterEmitTimeChange(ptr noundef %0, i64 noundef %1) local_unnam
   %52 = getelementptr inbounds i8, ptr %0, i64 233
   %53 = and i8 %50, -33
   store i8 %53, ptr %52, align 1
-  tail call fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef nonnull %0)
+  tail call fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef %0)
   %54 = getelementptr inbounds i8, ptr %0, i64 136
   %55 = load i32, ptr %54, align 8
   %56 = add i32 %55, 1
@@ -2176,7 +2176,7 @@ _ZL27fstWriterUint32WithVarint32P16fstWriterContextPjjPKvj.exit: ; preds = %.lr.
   %62 = getelementptr inbounds i8, ptr %.018.lcssa.i, i64 1
   store i8 %61, ptr %.018.lcssa.i, align 1
   %63 = zext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr readonly align 1 %2, i64 %63, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %63, i1 false)
   %64 = ptrtoint ptr %62 to i64
   %65 = ptrtoint ptr %55 to i64
   %66 = sub i64 %64, %65
@@ -2205,7 +2205,7 @@ _ZL27fstWriterUint32WithVarint32P16fstWriterContextPjjPKvj.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef %0) unnamed_addr #11 {
+define internal fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef nonnull %0) unnamed_addr #11 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 1
@@ -3786,7 +3786,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit626: ; preds = %_ZL15fst
   br i1 %.not413, label %755, label %756
 
 755:                                              ; preds = %752
-  call fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr noundef nonnull %0)
+  call fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr noundef %0)
   br label %756
 
 756:                                              ; preds = %755, %752
@@ -3809,7 +3809,7 @@ declare noundef i64 @ftello(ptr nocapture noundef) local_unnamed_addr #9
 declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef readnone %0, i32 noundef %1, ptr noundef %2) unnamed_addr #13 {
+define internal fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef readnone %0, i32 noundef range(i32 950, 1952) %1, ptr noundef %2) unnamed_addr #13 {
   %4 = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
   br i1 %4, label %5, label %10
 
@@ -4090,7 +4090,7 @@ define void @fstWriterSetSourceStem(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 4, 6) %4) unnamed_addr #0 {
   %6 = alloca [11 x i8], align 1
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
@@ -6373,7 +6373,7 @@ _ZL36fstWriterUint32WithVarint32AndLengthP16fstWriterContextPjjPKvj.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr nocapture noundef %0) unnamed_addr #11 {
+define internal fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr nocapture noundef nonnull %0) unnamed_addr #11 {
 _ZL15fstWriterUint64P8_IO_FILEm.exit:
   %1 = alloca [10 x i8], align 1
   %2 = alloca [10 x i8], align 1
@@ -7442,7 +7442,7 @@ define range(i32 0, 2) i32 @fstReaderIterateHierRewind(ptr noundef %0) local_unn
   br i1 %.not6, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc noundef i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef nonnull %0)
+  %6 = tail call fastcc noundef i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef %0)
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -7459,7 +7459,7 @@ define range(i32 0, 2) i32 @fstReaderIterateHierRewind(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef %0) unnamed_addr #11 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef nonnull %0) unnamed_addr #11 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 1
@@ -7854,7 +7854,7 @@ define ptr @fstReaderIterateHier(ptr noundef %0) local_unnamed_addr #11 {
   br i1 %.not101, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call fastcc noundef i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef nonnull %0)
+  %8 = tail call fastcc noundef i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef %0)
   %.not102 = icmp eq i32 %8, 0
   br i1 %.not102, label %182, label %._crit_edge153
 
@@ -8306,7 +8306,7 @@ define range(i32 0, 2) i32 @fstReaderProcessHier(ptr noundef %0, ptr noundef %1)
   br i1 %.not234, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = tail call fastcc noundef i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef nonnull %0)
+  %14 = tail call fastcc noundef i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef %0)
   %.not235 = icmp eq i32 %14, 0
   br i1 %.not235, label %295, label %15
 
@@ -10672,7 +10672,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit:         ; preds = %272, %275
 284:                                              ; preds = %_ZL9fstWritexP16fstReaderContextPvi.exit, %270
   %.4873 = phi i32 [ 2, %_ZL9fstWritexP16fstReaderContextPvi.exit ], [ %.0869.ph, %270 ]
   %285 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %104) #37
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %20, i32 noundef %285)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %20, i32 noundef %285)
   %.not947 = icmp eq i32 %.4873, 0
   br i1 %.not947, label %286, label %298
 
@@ -10723,7 +10723,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1055:     ; preds = %286, %289
   %.not950 = icmp eq i8 %310, 0
   %311 = select i1 %.not950, ptr @.str.42, ptr @.str.41
   %312 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.40, ptr noundef nonnull %311) #37
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %20, i32 noundef %312)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %20, i32 noundef %312)
   br label %313
 
 313:                                              ; preds = %298, %306, %300, %267
@@ -10840,7 +10840,7 @@ _ZL17fstVcdIDForFwritePcj.exit:                   ; preds = %_ZL17fstVcdIDForFwr
   %368 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 %367
   store i8 10, ptr %368, align 1
   %369 = add nsw i32 %365, 2
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %22, i32 noundef %369)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %369)
   br label %467
 
 370:                                              ; preds = %338
@@ -10931,7 +10931,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1065:     ; preds = %_ZL17fstVcdIDForFwr
   %415 = load ptr, ptr %59, align 8
   %416 = getelementptr inbounds i32, ptr %415, i64 %328
   %417 = load i32, ptr %416, align 4
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef %414, i32 noundef %417)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef %414, i32 noundef %417)
   store i8 32, ptr %23, align 16
   %418 = shl i64 %398, 32
   %sext1244 = add i64 %418, 4294967296
@@ -10939,7 +10939,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1065:     ; preds = %_ZL17fstVcdIDForFwr
   %420 = getelementptr inbounds [16 x i8], ptr %23, i64 0, i64 %419
   store i8 10, ptr %420, align 1
   %421 = add nsw i32 %399, 2
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef %421)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %23, i32 noundef %421)
   br label %467
 
 422:                                              ; preds = %370
@@ -11056,7 +11056,7 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i1066, %.loo
   store i8 0, ptr %.0.lcssa.i1069, align 1
   %465 = load double, ptr %24, align 8
   %466 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) @.str.45, double noundef %465, ptr noundef nonnull %25) #37
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef %466)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %26, i32 noundef %466)
   br label %467
 
 467:                                              ; preds = %343, %349, %_ZL17fstVcdIDForFwritePcj.exit, %355, %.loopexit1264, %.loopexit1266, %_ZL8fstVcdIDPcj.exit, %448, %375, %_ZL9fstWritexP16fstReaderContextPvi.exit1065, %388, %.lr.ph
@@ -11858,7 +11858,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1120:     ; preds = %825, %828
 837:                                              ; preds = %_ZL9fstWritexP16fstReaderContextPvi.exit1120, %823
   %.7876 = phi i32 [ 2, %_ZL9fstWritexP16fstReaderContextPvi.exit1120 ], [ %.68751450, %823 ]
   %838 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %816) #37
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %28, i32 noundef %838)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %28, i32 noundef %838)
   %.not964 = icmp eq i32 %.7876, 0
   br i1 %.not964, label %839, label %851
 
@@ -11909,7 +11909,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1121:     ; preds = %839, %842
   %.not967 = icmp eq i8 %863, 0
   %864 = select i1 %.not967, ptr @.str.42, ptr @.str.41
   %865 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.40, ptr noundef nonnull %864) #37
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %28, i32 noundef %865)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %28, i32 noundef %865)
   br label %872
 
 866:                                              ; preds = %.lr.ph1455
@@ -12043,7 +12043,7 @@ _ZL17fstVcdIDForFwritePcj.exit1133:               ; preds = %.lr.ph.i1128
   %935 = getelementptr inbounds [16 x i8], ptr %29, i64 0, i64 %934
   store i8 10, ptr %935, align 1
   %936 = add nsw i32 %932, 2
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %29, i32 noundef %936)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %29, i32 noundef %936)
   br label %937
 
 937:                                              ; preds = %923, %_ZL17fstVcdIDForFwritePcj.exit1133, %917
@@ -12210,7 +12210,7 @@ _ZL17fstVcdIDForFwritePcj.exit1157:               ; preds = %.lr.ph.i1152
   %1021 = zext i32 %1020 to i64
   %1022 = call noalias ptr @malloc(i64 noundef %1021) #39
   %1023 = call i32 @fstUtilityBinToEsc(ptr noundef %1022, ptr noundef %991, i32 noundef %984)
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef %1022, i32 noundef %1023)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef %1022, i32 noundef %1023)
   call void @free(ptr noundef %1022) #37
   store i8 32, ptr %30, align 16
   %1024 = shl i64 %1017, 32
@@ -12219,7 +12219,7 @@ _ZL17fstVcdIDForFwritePcj.exit1157:               ; preds = %.lr.ph.i1152
   %1026 = getelementptr inbounds [16 x i8], ptr %30, i64 0, i64 %1025
   store i8 10, ptr %1026, align 1
   %1027 = add nsw i32 %1018, 2
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %30, i32 noundef %1027)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %30, i32 noundef %1027)
   br label %1028
 
 1028:                                             ; preds = %994, %_ZL17fstVcdIDForFwritePcj.exit1157, %996, %_ZL14fstGetVarint32PhPi.exit1149
@@ -12366,7 +12366,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1169:     ; preds = %1089, %1096
   %1104 = add nsw i32 %1103, 1
   store i32 %1104, ptr %52, align 8
   %1105 = load ptr, ptr %61, align 8
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef %1105, i32 noundef %900)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef %1105, i32 noundef %900)
   br label %1106
 
 1106:                                             ; preds = %1088, %_ZL9fstWritexP16fstReaderContextPvi.exit1169, %1085
@@ -12413,7 +12413,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1169:     ; preds = %1089, %1096
   %1128 = load i32, ptr %52, align 8
   %1129 = add nsw i32 %1128, 1
   store i32 %1129, ptr %52, align 8
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef %1062, i32 noundef %900)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef %1062, i32 noundef %900)
   br label %1178
 
 1130:                                             ; preds = %_ZL14fstGetVarint32PhPi.exit1168
@@ -12537,7 +12537,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1169:     ; preds = %1089, %1096
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1168
   %1175 = phi double [ %.pre1635, %.loopexit.loopexit ], [ %1170, %1168 ]
   %1176 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.48, double noundef %1175) #37
-  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull %0, ptr noundef nonnull %33, i32 noundef %1176)
+  call fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef %0, ptr noundef nonnull %33, i32 noundef %1176)
   br label %1177
 
 1177:                                             ; preds = %.loopexit1250, %.loopexit1252, %.loopexit, %1106, %1109
@@ -12772,7 +12772,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1187:     ; preds = %1264, %1262, %1261,
 declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #30 {
+define internal fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #30 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %35, label %4
 
@@ -12848,7 +12848,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit23:       ; preds = %24, %25
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #13 {
+define internal fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
   %3 = alloca [5 x i8], align 1
   br label %4
 
@@ -13970,7 +13970,7 @@ _ZL14fstGetVarint32PhPi.exit689:                  ; preds = %443
   br i1 %.not586, label %535, label %.thread885
 
 535:                                              ; preds = %529
-  %536 = call fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef nonnull %0, i32 noundef %33, ptr noundef nonnull %3)
+  %536 = call fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef %0, i32 noundef %33, ptr noundef %3)
   br label %.loopexit732
 
 .thread885:                                       ; preds = %529
@@ -14020,7 +14020,7 @@ _ZL14fstGetVarint32PhPi.exit689:                  ; preds = %443
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit690: ; preds = %.thread887, %556
   %560 = load ptr, ptr %0, align 8
-  %561 = call fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(ptr noundef %560, ptr noundef nonnull %19)
+  %561 = call fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(ptr noundef %560, ptr noundef %19)
   %562 = getelementptr inbounds i8, ptr %0, i64 540
   store i32 %561, ptr %562, align 4
   %.not591 = icmp eq i32 %561, 0
@@ -14257,7 +14257,7 @@ _ZL14fstGetVarint32PhPi.exit695._crit_edge:       ; preds = %662, %_ZL14fstGetVa
   br label %.loopexit732
 
 _ZL14fstGetVarint32PhPi.exit695._crit_edge.thread: ; preds = %.preheader, %_ZL14fstGetVarint32PhPi.exit695._crit_edge
-  %686 = call fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef nonnull %0, i32 noundef %33, ptr noundef nonnull %3)
+  %686 = call fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef %0, i32 noundef %33, ptr noundef %3)
   br label %.loopexit732
 
 687:                                              ; preds = %.lr.ph794, %711
@@ -14440,7 +14440,7 @@ _ZL14fstGetVarint32PhPi.exit700._crit_edge:       ; preds = %711, %_ZL14fstGetVa
   br label %.loopexit732
 
 _ZL14fstGetVarint32PhPi.exit700._crit_edge.thread: ; preds = %.preheader722, %_ZL14fstGetVarint32PhPi.exit700._crit_edge
-  %776 = call fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef nonnull %0, i32 noundef %33, ptr noundef nonnull %3)
+  %776 = call fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef %0, i32 noundef %33, ptr noundef %3)
   br label %.loopexit732
 
 .loopexit732:                                     ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit, %switch.early.test, %switch.early.test, %524, %4, %25, %30, %_ZL14fstGetVarint32PhPi.exit700._crit_edge.thread, %.loopexit, %749, %._crit_edge806, %_ZL14fstGetVarint32PhPi.exit695._crit_edge.thread, %684, %535
@@ -14449,7 +14449,7 @@ _ZL14fstGetVarint32PhPi.exit700._crit_edge.thread: ; preds = %.preheader722, %_Z
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #13 {
+define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, -1) %1, ptr noundef nonnull writeonly %2) unnamed_addr #13 {
   %4 = alloca double, align 8
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 488
@@ -14498,7 +14498,7 @@ define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReader
 
 38:                                               ; preds = %25
   %39 = zext i32 %12 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %37, i64 %39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %37, i64 %39, i1 false)
   %40 = load ptr, ptr %9, align 8
   %41 = getelementptr inbounds i32, ptr %40, i64 %5
   %42 = load i32, ptr %41, align 4

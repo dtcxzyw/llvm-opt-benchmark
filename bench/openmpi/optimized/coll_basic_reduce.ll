@@ -294,7 +294,7 @@ declare i32 @ompi_coll_base_reduce_intra_basic_linear(ptr noundef, ptr noundef, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 48
   %.val = load i64, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 56
@@ -326,7 +326,7 @@ define internal fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

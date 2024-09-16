@@ -5289,7 +5289,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_batadv_icmp_rr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_batadv_icmp_rr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 19, 21) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
   %6 = add i8 %5, -17
   %or.cond = icmp ult i8 %6, -16
@@ -5324,7 +5324,7 @@ define internal fastcc void @dissect_batadv_icmp_rr(ptr nocapture noundef readon
   %24 = icmp eq i32 %.030, %13
   %25 = select i1 %24, ptr @.str.302, ptr @.str.303
   %26 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ether_format(ptr noundef %10, i32 noundef %17, ptr noundef %2, i32 noundef %.02729, i32 noundef 6, ptr noundef %18, ptr noundef nonnull @.str.300, ptr noundef %23, ptr noundef nonnull %25) #4
-  %27 = add i32 %.02729, 6
+  %27 = add nuw nsw i32 %.02729, 6
   %28 = add nuw nsw i32 %.030, 1
   %exitcond.not = icmp eq i32 %28, 16
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !24

@@ -1064,7 +1064,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dpcd_probe(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_dp_dpcd_access(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #3 align 16 {
+define internal fastcc i32 @drm_dp_dpcd_access(ptr noundef %0, i8 noundef zeroext range(i8 8, 10) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #3 align 16 {
   %6 = alloca %struct.drm_dp_aux_msg, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
   store i64 0, ptr %6, align 8

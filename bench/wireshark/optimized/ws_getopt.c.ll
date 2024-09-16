@@ -269,7 +269,7 @@ define i32 @ws_getopt_long(i32 noundef %0, ptr nocapture noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef writeonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = load i32, ptr @ws_optind, align 4
   %8 = icmp eq i32 %7, 0
   %9 = load i32, ptr @ws_optreset, align 4

@@ -373,9 +373,9 @@ if.end:                                           ; preds = %if.then
   %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %call2.i = call ptr @xstrdup(ptr noundef nonnull @.str.11) #17
   store ptr %call2.i, ptr %term_bad.i, align 8
-  %call134 = call fastcc i32 @get_terms(ptr noundef nonnull %terms)
+  %call134 = call fastcc i32 @get_terms(ptr noundef %terms)
   %1 = load ptr, ptr %argv, align 8
-  %call135 = call fastcc i32 @check_and_set_terms(ptr noundef nonnull %terms, ptr noundef %1)
+  %call135 = call fastcc i32 @check_and_set_terms(ptr noundef %terms, ptr noundef %1)
   %tobool136.not = icmp eq i32 %call135, 0
   br i1 %tobool136.not, label %if.end141, label %if.then137
 
@@ -386,7 +386,7 @@ if.then137:                                       ; preds = %if.end
   unreachable
 
 if.end141:                                        ; preds = %if.end
-  %call142 = call fastcc i32 @bisect_state(ptr noundef nonnull %terms, i32 noundef %call, ptr noundef nonnull %argv)
+  %call142 = call fastcc i32 @bisect_state(ptr noundef %terms, i32 noundef %call, ptr noundef nonnull %argv)
   %3 = load ptr, ptr %terms, align 8
   call void @free(ptr noundef %3) #17
   %4 = load ptr, ptr %term_bad.i, align 8
@@ -487,7 +487,7 @@ cond.true:                                        ; preds = %if.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi ptr [ %1, %cond.true ], [ null, %if.end ]
-  %call4 = call fastcc i32 @bisect_terms(ptr noundef nonnull %terms, ptr noundef %cond)
+  %call4 = call fastcc i32 @bisect_terms(ptr noundef %terms, ptr noundef %cond)
   %2 = load ptr, ptr %terms, align 8
   tail call void @free(ptr noundef %2) #17
   %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
@@ -509,7 +509,7 @@ entry:
   %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %call2.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.11) #17
   store ptr %call2.i, ptr %term_bad.i, align 8
-  %call = call fastcc i32 @bisect_start(ptr noundef nonnull %terms, i32 noundef %argc, ptr noundef %argv)
+  %call = call fastcc i32 @bisect_start(ptr noundef %terms, i32 noundef %argc, ptr noundef %argv)
   %0 = load ptr, ptr %terms, align 8
   tail call void @free(ptr noundef %0) #17
   %1 = load ptr, ptr %term_bad.i, align 8
@@ -540,8 +540,8 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = call fastcc i32 @get_terms(ptr noundef nonnull %terms)
-  %call4 = call fastcc i32 @bisect_next(ptr noundef nonnull %terms, ptr noundef %prefix)
+  %call3 = call fastcc i32 @get_terms(ptr noundef %terms)
+  %call4 = call fastcc i32 @bisect_next(ptr noundef %terms, ptr noundef %prefix)
   %1 = load ptr, ptr %terms, align 8
   tail call void @free(ptr noundef %1) #17
   %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
@@ -731,8 +731,8 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %call9.i.i = call i64 @strspn(ptr noundef nonnull %add.ptr8.i.i, ptr noundef nonnull @.str.106) #19
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 %call9.i.i
   store i8 0, ptr %add.ptr8.i.i, align 1
-  %call11.i.i = call fastcc i32 @get_terms(ptr noundef nonnull %terms)
-  %call12.i.i = call fastcc i32 @check_and_set_terms(ptr noundef nonnull %terms, ptr noundef nonnull %add.ptr6.i.i)
+  %call11.i.i = call fastcc i32 @get_terms(ptr noundef %terms)
+  %call12.i.i = call fastcc i32 @check_and_set_terms(ptr noundef %terms, ptr noundef nonnull %add.ptr6.i.i)
   %tobool.not.i.i = icmp eq i32 %call12.i.i, 0
   br i1 %tobool.not.i.i, label %if.end14.i.i, label %process_replay_line.exit.i
 
@@ -747,7 +747,7 @@ if.then17.i.i:                                    ; preds = %if.end14.i.i
   %11 = load i64, ptr %nr.i.i, align 8
   %conv19.i.i = trunc i64 %11 to i32
   %12 = load ptr, ptr %argv.i.i, align 8
-  %call20.i.i = call fastcc i32 @bisect_start(ptr noundef nonnull %terms, i32 noundef %conv19.i.i, ptr noundef %12)
+  %call20.i.i = call fastcc i32 @bisect_start(ptr noundef %terms, i32 noundef %conv19.i.i, ptr noundef %12)
   call void @strvec_clear(ptr noundef nonnull %argv.i.i) #17
   br label %process_replay_line.exit.i
 
@@ -759,7 +759,7 @@ if.end21.i.i:                                     ; preds = %if.end14.i.i
   br i1 %tobool23.not.i.i, label %if.end26.i.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end21.i.i
-  %call25.i.i = call fastcc i32 @bisect_write(ptr noundef nonnull %add.ptr6.i.i, ptr noundef nonnull %add.ptr10.i.i, ptr noundef nonnull %terms, i32 noundef 0)
+  %call25.i.i = call fastcc i32 @bisect_write(ptr noundef nonnull %add.ptr6.i.i, ptr noundef nonnull %add.ptr10.i.i, ptr noundef %terms, i32 noundef 0)
   br label %process_replay_line.exit.i
 
 if.end26.i.i:                                     ; preds = %if.end21.i.i
@@ -781,7 +781,7 @@ cond.true.i.i:                                    ; preds = %if.then29.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.then29.i.i
   %cond.i.i = phi ptr [ %17, %cond.true.i.i ], [ null, %if.then29.i.i ]
-  %call38.i.i = call fastcc i32 @bisect_terms(ptr noundef nonnull %terms, ptr noundef %cond.i.i)
+  %call38.i.i = call fastcc i32 @bisect_terms(ptr noundef %terms, ptr noundef %cond.i.i)
   call void @strvec_clear(ptr noundef nonnull %argv30.i.i) #17
   br label %process_replay_line.exit.i
 
@@ -820,16 +820,16 @@ if.end18.critedge.i:                              ; preds = %while.cond.preheade
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end18.critedge.i, %while.end.i
-  %call.i9.i = call fastcc i32 @bisect_next_check(ptr noundef nonnull %terms, ptr noundef null)
+  %call.i9.i = call fastcc i32 @bisect_next_check(ptr noundef %terms, ptr noundef null)
   %tobool.not.i10.i = icmp eq i32 %call.i9.i, 0
   br i1 %tobool.not.i10.i, label %if.end.i12.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end18.i
-  call fastcc void @bisect_print_status(ptr noundef nonnull %terms)
+  call fastcc void @bisect_print_status(ptr noundef %terms)
   br label %bisect_replay.exit
 
 if.end.i12.i:                                     ; preds = %if.end18.i
-  %call1.i.i = call fastcc i32 @bisect_next(ptr noundef nonnull %terms, ptr noundef null)
+  %call1.i.i = call fastcc i32 @bisect_next(ptr noundef %terms, ptr noundef null)
   br label %bisect_replay.exit
 
 bisect_replay.exit:                               ; preds = %_.exit.i, %if.end.i, %if.end7.i, %while.end.i, %if.then.i.i, %if.end.i12.i
@@ -857,7 +857,7 @@ entry:
   %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %call2.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.11) #17
   store ptr %call2.i, ptr %term_bad.i, align 8
-  %call = call fastcc i32 @get_terms(ptr noundef nonnull %terms)
+  %call = call fastcc i32 @get_terms(ptr noundef %terms)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %argv_state.i)
   call void @llvm.lifetime.start.p0(i64 3024, ptr nonnull %revs.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %argv_state.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.bisect_skip.argv_state, i64 24, i1 false)
@@ -924,7 +924,7 @@ bisect_skip.exit:                                 ; preds = %for.inc.i, %entry
   %2 = load i64, ptr %nr.i, align 8
   %conv.i = trunc i64 %2 to i32
   %3 = load ptr, ptr %argv_state.i, align 8
-  %call16.i = call fastcc i32 @bisect_state(ptr noundef nonnull %terms, i32 noundef %conv.i, ptr noundef %3)
+  %call16.i = call fastcc i32 @bisect_state(ptr noundef %terms, i32 noundef %conv.i, ptr noundef %3)
   call void @strvec_clear(ptr noundef nonnull %argv_state.i) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %argv_state.i)
   call void @llvm.lifetime.end.p0(i64 3024, ptr nonnull %revs.i)
@@ -942,12 +942,12 @@ entry:
   %sb.i = alloca %struct.strbuf, align 8
   %terms = alloca %struct.bisect_terms, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %terms, i8 0, i64 16, i1 false)
-  %call = call fastcc i32 @get_terms(ptr noundef nonnull %terms)
+  %call = call fastcc i32 @get_terms(ptr noundef %terms)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cmd.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_bisect_run.cmd, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
-  %call.i = call fastcc i32 @bisect_next_check(ptr noundef nonnull readonly %terms, ptr noundef null)
+  %call.i = call fastcc i32 @bisect_next_check(ptr noundef readonly %terms, ptr noundef null)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %bisect_visualize.exit
 
@@ -1086,11 +1086,11 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = call fastcc i32 @get_terms(ptr noundef nonnull %terms)
+  %call3 = call fastcc i32 @get_terms(ptr noundef %terms)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %command.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_state.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
-  %call.i2 = call fastcc i32 @bisect_next_check(ptr noundef nonnull %terms, ptr noundef null)
+  %call.i2 = call fastcc i32 @bisect_next_check(ptr noundef %terms, ptr noundef null)
   %tobool.not.i = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i, label %if.end6.i, label %bisect_run.exit
 
@@ -1300,7 +1300,7 @@ if.end53.i:                                       ; preds = %git_path_bisect_run
   %call54.i = call i32 @fflush(ptr noundef %17)
   %call55.i = call i32 @dup(i32 noundef 1) #17
   %call56.i = call i32 @dup2(i32 noundef %call46.i, i32 noundef 1) #17
-  %call57.i = call fastcc i32 @bisect_state(ptr noundef nonnull %terms, i32 noundef 1, ptr noundef nonnull %new_state.i)
+  %call57.i = call fastcc i32 @bisect_state(ptr noundef %terms, i32 noundef 1, ptr noundef nonnull %new_state.i)
   %18 = load ptr, ptr @stdout, align 8
   %call58.i = call i32 @fflush(ptr noundef %18)
   %call59.i = call i32 @dup2(i32 noundef %call55.i, i32 noundef 1) #17
@@ -1473,7 +1473,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_terms(ptr nocapture noundef %terms) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_terms(ptr nocapture noundef nonnull %terms) unnamed_addr #0 {
 entry:
   %str = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %str, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
@@ -1516,7 +1516,7 @@ if.end9:                                          ; preds = %git_path_bisect_ter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_and_set_terms(ptr nocapture noundef %terms, ptr nocapture noundef readonly %cmd) unnamed_addr #0 {
+define internal fastcc noundef i32 @check_and_set_terms(ptr nocapture noundef nonnull %terms, ptr nocapture noundef readonly %cmd) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @git_path_bisect_terms.ret, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -1616,7 +1616,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 declare void @usage_msg_optf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bisect_state(ptr nocapture noundef %terms, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #0 {
+define internal fastcc noundef i32 @bisect_state(ptr nocapture noundef nonnull %terms, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %expected = alloca %struct.object_id, align 4
@@ -1790,7 +1790,7 @@ for.body59:                                       ; preds = %for.body59.preheade
   %17 = load ptr, ptr %revs, align 8
   %arrayidx61 = getelementptr inbounds %struct.object_id, ptr %17, i64 %indvars.iv
   %call62 = call ptr @oid_to_hex(ptr noundef %arrayidx61) #17
-  %call63 = call fastcc i32 @bisect_write(ptr noundef %1, ptr noundef %call62, ptr noundef nonnull %terms, i32 noundef 0)
+  %call63 = call fastcc i32 @bisect_write(ptr noundef %1, ptr noundef %call62, ptr noundef %terms, i32 noundef 0)
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %if.end66, label %if.then65
 
@@ -1866,7 +1866,7 @@ for.inc79:                                        ; preds = %if.end66, %oideq.ex
 
 for.end80:                                        ; preds = %for.inc79, %for.end
   call void @oid_array_clear(ptr noundef nonnull %revs) #17
-  %call81 = call fastcc i32 @bisect_auto_next(ptr noundef nonnull %terms)
+  %call81 = call fastcc i32 @bisect_auto_next(ptr noundef %terms)
   br label %return
 
 return:                                           ; preds = %if.end6, %lor.lhs.false, %if.end, %for.end80, %if.then65, %_.exit42, %_.exit32, %_.exit
@@ -2023,7 +2023,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bisect_terms(ptr nocapture noundef %terms, ptr noundef %option) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bisect_terms(ptr nocapture noundef nonnull %terms, ptr noundef %option) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @get_terms(ptr noundef %terms)
   %tobool.not = icmp eq i32 %call, 0
@@ -2157,7 +2157,7 @@ while.end:                                        ; preds = %while.body, %vaarg.
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bisect_start(ptr nocapture noundef %terms, i32 noundef %argc, ptr noundef %argv) unnamed_addr #0 {
+define internal fastcc noundef i32 @bisect_start(ptr nocapture noundef nonnull %terms, i32 noundef %argc, ptr noundef %argv) unnamed_addr #0 {
 entry:
   %orig_args.i = alloca %struct.strbuf, align 8
   %flags = alloca i32, align 4
@@ -2880,7 +2880,7 @@ declare i32 @update_ref(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 
 declare void @sq_quote_argv(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bisect_write(ptr noundef %state, ptr noundef %rev, ptr nocapture noundef readonly %terms, i32 noundef %nolog) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bisect_write(ptr noundef %state, ptr noundef %rev, ptr nocapture noundef nonnull readonly %terms, i32 noundef range(i32 0, 2) %nolog) unnamed_addr #0 {
 entry:
   %pp.i = alloca %struct.pretty_print_context, align 8
   %commit_msg.i = alloca %struct.strbuf, align 8
@@ -3079,7 +3079,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bisect_auto_next(ptr nocapture noundef %terms) unnamed_addr #0 {
+define internal fastcc noundef i32 @bisect_auto_next(ptr nocapture noundef nonnull %terms) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @bisect_next_check(ptr noundef %terms, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
@@ -3188,7 +3188,7 @@ define internal noundef i32 @write_to_file(ptr noundef %path, ptr nocapture read
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  %call = call fastcc i32 @write_in_file(ptr noundef %path, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.66, ptr noundef nonnull %args)
+  %call = call fastcc i32 @write_in_file(ptr noundef %path, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.66, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %call
 }
@@ -3196,7 +3196,7 @@ entry:
 declare i32 @check_refname_format(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_in_file(ptr noundef %path, ptr noundef %mode, ptr nocapture noundef readonly %format, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc noundef i32 @write_in_file(ptr noundef %path, ptr noundef %mode, ptr nocapture noundef readonly %format, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %mode, align 1
   switch i8 %0, label %if.then [
@@ -3240,7 +3240,7 @@ _.exit:                                           ; preds = %if.then5, %if.end3.
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %call10 = tail call i32 @vfprintf(ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %args)
+  %call10 = tail call i32 @vfprintf(ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %args)
   %cmp = icmp slt i32 %call10, 0
   br i1 %cmp, label %if.then11, label %if.end18
 
@@ -3278,7 +3278,7 @@ declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef reado
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bisect_next_check(ptr nocapture noundef readonly %terms, ptr noundef readonly %current_term) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bisect_next_check(ptr nocapture noundef nonnull readonly %terms, ptr noundef readonly %current_term) unnamed_addr #0 {
 entry:
   %state = alloca %struct.bisect_state, align 8
   store i64 0, ptr %state, align 8
@@ -3410,7 +3410,7 @@ decide_next.exit:                                 ; preds = %bisect_status.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bisect_print_status(ptr nocapture noundef readonly %terms) unnamed_addr #0 {
+define internal fastcc void @bisect_print_status(ptr nocapture noundef nonnull readonly %terms) unnamed_addr #0 {
 entry:
   %state = alloca %struct.bisect_state, align 8
   store i64 0, ptr %state, align 8
@@ -3498,7 +3498,7 @@ if.end17:                                         ; preds = %Q_.exit, %_.exit12,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bisect_next(ptr nocapture noundef %terms, ptr noundef %prefix) unnamed_addr #0 {
+define internal fastcc noundef i32 @bisect_next(ptr nocapture noundef nonnull %terms, ptr noundef %prefix) unnamed_addr #0 {
 entry:
   %cb.i.i = alloca %struct.add_bisect_ref_data, align 8
   %revs.i = alloca %struct.rev_info, align 8
@@ -3513,7 +3513,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %terms, align 8
-  %call1 = tail call fastcc i32 @bisect_next_check(ptr noundef nonnull %terms, ptr noundef %0)
+  %call1 = tail call fastcc i32 @bisect_next_check(ptr noundef %terms, ptr noundef %0)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -3789,7 +3789,7 @@ define internal noundef i32 @append_to_file(ptr noundef %path, ptr nocapture nou
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  %call = call fastcc i32 @write_in_file(ptr noundef %path, ptr noundef nonnull @.str.59, ptr noundef %format, ptr noundef nonnull %args)
+  %call = call fastcc i32 @write_in_file(ptr noundef %path, ptr noundef nonnull @.str.59, ptr noundef %format, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %call
 }
@@ -3798,7 +3798,7 @@ entry:
 declare ptr @ngettext(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bisect_autostart(ptr nocapture noundef %terms) unnamed_addr #0 {
+define internal fastcc noundef i32 @bisect_autostart(ptr nocapture noundef nonnull %terms) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @git_path_bisect_start.ret, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -3845,8 +3845,8 @@ _.exit8:                                          ; preds = %if.end7, %if.end3.i
   %retval.0.i7 = phi ptr [ %call.i6, %if.end3.i5 ], [ @.str.92, %if.end7 ]
   %call9 = tail call ptr @git_prompt(ptr noundef %retval.0.i7, i32 noundef 2) #17
   %5 = load i8, ptr %call9, align 1
-  %idxprom.i = zext i8 %5 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %5 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %7 = shl i8 %6, 3
   %8 = and i8 %7, 32

@@ -193,7 +193,7 @@ define dso_local void @synchronize_irq(i32 noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__synchronize_irq(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @__synchronize_irq(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2118,7 +2118,7 @@ define dso_local ptr @free_nmi(i32 noundef %0, ptr nocapture noundef readnone %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__cleanup_nmi(i32 noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__cleanup_nmi(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, -8193
@@ -2135,7 +2135,7 @@ define internal fastcc ptr @__cleanup_nmi(i32 noundef %0, ptr noundef %1) unname
   br label %15
 
 10:                                               ; preds = %2
-  tail call void @irq_pm_remove_action(ptr noundef %1, ptr noundef nonnull %7) #10
+  tail call void @irq_pm_remove_action(ptr noundef nonnull %1, ptr noundef nonnull %7) #10
   %11 = load ptr, ptr %6, align 16
   %12 = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 16
@@ -2151,7 +2151,7 @@ define internal fastcc ptr @__cleanup_nmi(i32 noundef %0, ptr noundef %1) unname
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, -524289
   store i32 %19, ptr %17, align 8
-  tail call void @irq_shutdown_and_deactivate(ptr noundef %1) #10
+  tail call void @irq_shutdown_and_deactivate(ptr noundef nonnull %1) #10
   %20 = getelementptr inbounds i8, ptr %1, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 176
@@ -2279,7 +2279,7 @@ define internal noundef i32 @irq_default_primary_handler(i32 %0, ptr nocapture r
 declare dso_local i32 @irq_chip_pm_get(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = getelementptr inbounds i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -2676,12 +2676,12 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef %1, ptr noun
 
 249:                                              ; preds = %248
   %250 = zext nneg i32 %246 to i64
-  %251 = tail call i32 @__irq_set_trigger(ptr noundef %1, i64 noundef %250)
+  %251 = tail call i32 @__irq_set_trigger(ptr noundef nonnull %1, i64 noundef %250)
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %355
 
 253:                                              ; preds = %249, %248
-  %254 = tail call i32 @irq_activate(ptr noundef %1) #10
+  %254 = tail call i32 @irq_activate(ptr noundef nonnull %1) #10
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %256, label %355
 
@@ -2772,7 +2772,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef %1, ptr noun
   br i1 %308, label %309, label %311
 
 309:                                              ; preds = %305
-  %310 = tail call i32 @irq_startup(ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext false) #10
+  %310 = tail call i32 @irq_startup(ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false) #10
   br label %326
 
 311:                                              ; preds = %305, %301
@@ -2808,7 +2808,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef %1, ptr noun
 
 326:                                              ; preds = %324, %318, %317, %315, %309
   store ptr %2, ptr %243, align 8
-  tail call void @irq_pm_install_action(ptr noundef %1, ptr noundef %2) #10
+  tail call void @irq_pm_install_action(ptr noundef nonnull %1, ptr noundef %2) #10
   %327 = getelementptr inbounds i8, ptr %1, i64 140
   store i32 0, ptr %327, align 4
   %328 = getelementptr inbounds i8, ptr %1, i64 152
@@ -2825,7 +2825,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef %1, ptr noun
 334:                                              ; preds = %329
   %335 = and i32 %331, -3
   store i32 %335, ptr %330, align 4
-  tail call void @__enable_irq(ptr noundef %1)
+  tail call void @__enable_irq(ptr noundef nonnull %1)
   br label %336
 
 336:                                              ; preds = %334, %329, %326
@@ -2846,7 +2846,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef %1, ptr noun
   %343 = getelementptr inbounds i8, ptr %2, i64 48
   %344 = load ptr, ptr %343, align 16
   tail call fastcc void @wake_up_and_wait_for_irq_thread_ready(ptr noundef %1, ptr noundef %344)
-  tail call void @register_irq_proc(i32 noundef %0, ptr noundef %1) #10
+  tail call void @register_irq_proc(i32 noundef %0, ptr noundef nonnull %1) #10
   %345 = getelementptr inbounds i8, ptr %2, i64 88
   store ptr null, ptr %345, align 8
   tail call void @register_handler_proc(i32 noundef %0, ptr noundef %2) #10
@@ -4066,7 +4066,7 @@ declare dso_local i32 @irq_activate(ptr noundef) local_unnamed_addr #3
 declare dso_local void @irq_pm_install_action(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wake_up_and_wait_for_irq_thread_ready(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @wake_up_and_wait_for_irq_thread_ready(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %26, label %5

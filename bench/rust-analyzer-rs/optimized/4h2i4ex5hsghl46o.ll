@@ -1099,7 +1099,7 @@ default.unreachable552:                           ; preds = %163, %74, %2
   %.sroa.0171.0386 = phi ptr [ %.041.val, %.lr.ph ], [ %69, %384 ]
   %69 = getelementptr inbounds i8, ptr %.sroa.0171.0386, i64 1
   %70 = load i8, ptr %.sroa.0171.0386, align 1, !noundef !4
-  %71 = invoke fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %16, i8 noundef %70)
+  %71 = invoke fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias noundef readonly align 8 dereferenceable(64) %16, i8 noundef %70)
           to label %149 unwind label %.loopexit.split-lp.loopexit
 
 72:                                               ; preds = %._crit_edge
@@ -1139,21 +1139,21 @@ default.unreachable552:                           ; preds = %163, %74, %2
 89:                                               ; preds = %74
   %90 = getelementptr inbounds i8, ptr %11, i64 57
   %91 = load i8, ptr %90, align 1, !alias.scope !314, !noalias !317, !noundef !4
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %80)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %91, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %80)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %89
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %80)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %91, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %80)
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc54:                                         ; preds = %.noexc
-  %92 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %80)
+  %92 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %91, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %80)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 93:                                               ; preds = %83
   %94 = getelementptr inbounds i8, ptr %11, i64 57
   %95 = load i8, ptr %94, align 1, !alias.scope !314, !noalias !317, !noundef !4
-  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %95, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc57:                                         ; preds = %93
@@ -1163,15 +1163,15 @@ default.unreachable552:                           ; preds = %163, %74, %2
   br label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit
 
 99:                                               ; preds = %85
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %87, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc59 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc59:                                         ; preds = %99
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %87, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc60 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc60:                                         ; preds = %.noexc59
-  %100 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  %100 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %87, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc57, %.noexc54, %.noexc60
@@ -1317,7 +1317,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc57,
   %155 = getelementptr inbounds i8, ptr %12, i64 16
   store i64 %153, ptr %155, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !345
-  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noalias noundef align 8 dereferenceable(24) %12)
           to label %.noexc92 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc92:                                         ; preds = %152
@@ -1338,7 +1338,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc57,
 
 160:                                              ; preds = %157
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !345
-  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noalias noundef align 8 dereferenceable(24) %12)
           to label %.noexc93 unwind label %.loopexit
 
 .noexc93:                                         ; preds = %160
@@ -2120,7 +2120,7 @@ default.unreachable511:                           ; preds = %157, %68, %2
   %.sroa.0166.0363 = phi ptr [ %.040.val, %.lr.ph ], [ %63, %378 ]
   %63 = getelementptr inbounds i8, ptr %.sroa.0166.0363, i64 1
   %64 = load i8, ptr %.sroa.0166.0363, align 1, !noundef !4
-  %65 = invoke fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %15, i8 noundef %64)
+  %65 = invoke fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias noundef readonly align 8 dereferenceable(64) %15, i8 noundef %64)
           to label %143 unwind label %.loopexit.split-lp.loopexit
 
 66:                                               ; preds = %._crit_edge
@@ -2160,21 +2160,21 @@ default.unreachable511:                           ; preds = %157, %68, %2
 83:                                               ; preds = %68
   %84 = getelementptr inbounds i8, ptr %11, i64 57
   %85 = load i8, ptr %84, align 1, !alias.scope !446, !noalias !449, !noundef !4
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %74)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %85, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %74)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %83
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %74)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %85, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %74)
           to label %.noexc51 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc51:                                         ; preds = %.noexc
-  %86 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %74)
+  %86 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %85, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %74)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 87:                                               ; preds = %77
   %88 = getelementptr inbounds i8, ptr %11, i64 57
   %89 = load i8, ptr %88, align 1, !alias.scope !446, !noalias !449, !noundef !4
-  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %89, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc54:                                         ; preds = %87
@@ -2184,15 +2184,15 @@ default.unreachable511:                           ; preds = %157, %68, %2
   br label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit
 
 93:                                               ; preds = %79
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %81, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc56 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc56:                                         ; preds = %93
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %81, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc57:                                         ; preds = %.noexc56
-  %94 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  %94 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %81, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54, %.noexc51, %.noexc57
@@ -2336,7 +2336,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54,
   %149 = getelementptr inbounds i8, ptr %12, i64 16
   store i64 %147, ptr %149, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !476
-  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noalias noundef align 8 dereferenceable(24) %12)
           to label %.noexc89 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc89:                                         ; preds = %146
@@ -2357,7 +2357,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54,
 
 154:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !476
-  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noalias noundef align 8 dereferenceable(24) %12)
           to label %.noexc90 unwind label %.loopexit
 
 .noexc90:                                         ; preds = %154
@@ -3134,7 +3134,7 @@ default.unreachable549:                           ; preds = %159, %70, %2
   %.sroa.0169.0381 = phi ptr [ %.041.val, %.lr.ph ], [ %65, %372 ]
   %65 = getelementptr inbounds i8, ptr %.sroa.0169.0381, i64 1
   %66 = load i8, ptr %.sroa.0169.0381, align 1, !noundef !4
-  %67 = invoke fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %16, i8 noundef %66)
+  %67 = invoke fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias noundef readonly align 8 dereferenceable(64) %16, i8 noundef %66)
           to label %145 unwind label %.loopexit.split-lp.loopexit
 
 68:                                               ; preds = %._crit_edge
@@ -3174,21 +3174,21 @@ default.unreachable549:                           ; preds = %159, %70, %2
 85:                                               ; preds = %70
   %86 = getelementptr inbounds i8, ptr %11, i64 57
   %87 = load i8, ptr %86, align 1, !alias.scope !561, !noalias !564, !noundef !4
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %76)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %87, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %76)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %85
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %76)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %87, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %76)
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc54:                                         ; preds = %.noexc
-  %88 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i64 noundef %76)
+  %88 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %87, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %76)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 89:                                               ; preds = %79
   %90 = getelementptr inbounds i8, ptr %11, i64 57
   %91 = load i8, ptr %90, align 1, !alias.scope !561, !noalias !564, !noundef !4
-  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %91, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc57:                                         ; preds = %89
@@ -3198,15 +3198,15 @@ default.unreachable549:                           ; preds = %159, %70, %2
   br label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit
 
 95:                                               ; preds = %81
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %83, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc59 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc59:                                         ; preds = %95
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %83, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc60 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc60:                                         ; preds = %.noexc59
-  %96 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11)
+  %96 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %83, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc57, %.noexc54, %.noexc60
@@ -3352,7 +3352,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc57,
   %151 = getelementptr inbounds i8, ptr %12, i64 16
   store i64 %149, ptr %151, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !591
-  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noalias noundef align 8 dereferenceable(24) %12)
           to label %.noexc92 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc92:                                         ; preds = %148
@@ -3373,7 +3373,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc57,
 
 156:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !591
-  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noalias noundef align 8 dereferenceable(24) %12)
           to label %.noexc93 unwind label %.loopexit
 
 .noexc93:                                         ; preds = %156
@@ -6343,7 +6343,7 @@ common.resume:                                    ; preds = %19, %9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %.0.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ult i64 %1, %4
@@ -6433,7 +6433,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %.0.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = and i8 %.0.val, 63
@@ -6465,7 +6465,7 @@ define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %.0.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 58
   %4 = load i8, ptr %3, align 2, !noundef !4
   %5 = and i8 %4, 15
@@ -6540,7 +6540,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %.0.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 58
   %3 = load i8, ptr %2, align 2, !noundef !4
   %4 = lshr i8 %3, 4
@@ -6611,7 +6611,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %.0.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
   %2 = and i8 %.0.val, 63
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %3, label %10
@@ -6634,7 +6634,7 @@ define internal fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %.0.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 58
   %3 = load i8, ptr %2, align 2, !noundef !4
   %4 = and i8 %3, 15
@@ -6697,7 +6697,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %.0.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
   %2 = and i8 %.0.val, 63
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %3, label %10
@@ -6720,7 +6720,7 @@ define internal fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8, !range !313, !noundef !4
   switch i8 %4, label %default.unreachable11 [
@@ -7109,7 +7109,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit59.
 77:                                               ; preds = %76
   %78 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11) #51
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %11) #51
           to label %.body unwind label %79, !noalias !1084
 
 79:                                               ; preds = %77
@@ -7133,14 +7133,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit59.
 84:                                               ; preds = %81
   %85 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #51
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %13) #51
           to label %.body unwind label %113
 
 86:                                               ; preds = %81
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %87 = load i8, ptr %10, align 1, !range !428, !noundef !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %13)
           to label %88 unwind label %26
 
 88:                                               ; preds = %86
@@ -7185,7 +7185,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit59.
 101:                                              ; preds = %98
   %102 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #51
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E"(ptr noalias noundef align 8 dereferenceable(32) %19) #51
           to label %common.resume unwind label %111
 
 103:                                              ; preds = %98
@@ -7232,7 +7232,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr43drop
           to label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h087ff93ff5109170E.exit62" unwind label %113
 
 117:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h087ff93ff5109170E.exit62"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19) #51
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %19) #51
           to label %common.resume unwind label %113
 }
 
@@ -7365,7 +7365,7 @@ define internal noundef zeroext i1 @"_ZN3hir4Type23iterate_path_candidates28_$u7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull readonly align 4 dereferenceable(20) %20, i64 20, i1 false), !noalias !1113
   %58 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !1154
-  call fastcc void @"_ZN6ide_db7imports13import_assets12ImportAssets10search_for28_$u7b$$u7b$closure$u7d$$u7d$17he3ddf8c7f3720e38E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %9), !noalias !1158
+  call fastcc void @"_ZN6ide_db7imports13import_assets12ImportAssets10search_for28_$u7b$$u7b$closure$u7d$$u7d$17he3ddf8c7f3720e38E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %58, ptr noalias noundef readonly align 8 dereferenceable(40) %57, ptr noalias nocapture noundef align 4 dereferenceable(20) %9), !noalias !1158
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9), !noalias !1145
   %59 = icmp ne ptr %.sroa.040.0.copyload.i, null
   call void @llvm.assume(i1 %59)
@@ -7634,7 +7634,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 29:                                               ; preds = %28
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11) #51
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %11) #51
           to label %common.resume unwind label %31, !noalias !1212
 
 31:                                               ; preds = %29
@@ -7657,14 +7657,14 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %22,
 34:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #51
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %13) #51
           to label %common.resume unwind label %39
 
 36:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %37 = load i8, ptr %10, align 1, !range !428, !noundef !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %13)
   %38 = trunc nuw i8 %37 to i1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   ret i1 %38
@@ -7814,7 +7814,7 @@ define internal noundef zeroext i1 @"_ZN3hir4Type37iterate_method_candidates_wit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull readonly align 4 dereferenceable(20) %20, i64 20, i1 false), !noalias !1216
   %63 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !1256
-  call fastcc void @"_ZN6ide_db7imports13import_assets12ImportAssets10search_for28_$u7b$$u7b$closure$u7d$$u7d$17he3ddf8c7f3720e38E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %62, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %9), !noalias !1260
+  call fastcc void @"_ZN6ide_db7imports13import_assets12ImportAssets10search_for28_$u7b$$u7b$closure$u7d$$u7d$17he3ddf8c7f3720e38E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %63, ptr noalias noundef readonly align 8 dereferenceable(40) %62, ptr noalias nocapture noundef align 4 dereferenceable(20) %9), !noalias !1260
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9), !noalias !1247
   %64 = icmp ne ptr %.sroa.047.0.copyload.i, null
   call void @llvm.assume(i1 %64)
@@ -9884,7 +9884,7 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$$LP$triomphe..arc..Arc$LT$h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1927)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %2, align 8, !alias.scope !1927, !noundef !4
@@ -10384,7 +10384,7 @@ define internal void @"_ZN4core3ptr38drop_in_place$LT$fst..error..Error$GT$17h2e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !301, !noundef !4
   %.not.i = icmp eq i64 %2, 2
   br i1 %.not.i, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E.exit", label %3
@@ -10398,7 +10398,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #51
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E"(ptr noalias noundef align 8 dereferenceable(32) %0) #51
           to label %19 unwind label %17
 
 9:                                                ; preds = %3
@@ -10492,7 +10492,7 @@ define internal void @"_ZN4core3ptr47drop_in_place$LT$$RF$fst..raw..error..Error
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !301, !noundef !4
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E.exit", label %4
@@ -10505,7 +10505,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..Ente
 6:                                                ; preds = %4
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #51
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %0) #51
           to label %common.resume unwind label %22
 
 "_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit": ; preds = %4
@@ -10516,7 +10516,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..Ente
 10:                                               ; preds = %"_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit"
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #51
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E"(ptr noalias noundef align 8 dereferenceable(32) %0) #51
           to label %common.resume unwind label %20
 
 12:                                               ; preds = %"_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit"
@@ -10630,7 +10630,7 @@ define hidden void @"_ZN4core3ptr668drop_in_place$LT$hashbrown..raw..inner..RawT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h6bb896849e040d32E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !301, !noundef !4
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr41drop_in_place$LT$tracing..span..Inner$GT$17h5652bb19c89fde6aE.exit", label %4
@@ -10661,7 +10661,7 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !301, !noundef !4
@@ -11642,7 +11642,7 @@ define hidden noundef zeroext i1 @"_ZN54_$LT$hir..ScopeDef$u20$as$u20$core..cmp.
 7:                                                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = getelementptr inbounds i8, ptr %1, i64 4
-  %10 = tail call fastcc noundef zeroext i1 @"_ZN55_$LT$hir..ModuleDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99cebce39f3bfda3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9)
+  %10 = tail call fastcc noundef zeroext i1 @"_ZN55_$LT$hir..ModuleDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99cebce39f3bfda3E"(ptr noalias noundef readonly align 4 dereferenceable(16) %8, ptr noalias noundef readonly align 4 dereferenceable(16) %9)
   br label %"_ZN58_$LT$hir..GenericParam$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e719048df039adfE.exit"
 
 11:                                               ; preds = %6
@@ -12017,7 +12017,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$hir..AssocItem$u20$as$u20$core..cmp
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN55_$LT$hir..ModuleDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99cebce39f3bfda3E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #21 {
+define internal fastcc noundef zeroext i1 @"_ZN55_$LT$hir..ModuleDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99cebce39f3bfda3E"(ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #21 {
   %3 = load i8, ptr %0, align 4, !range !2463, !noundef !4
   %4 = load i8, ptr %1, align 4, !range !2463, !noundef !4
   %5 = icmp eq i8 %3, %4
@@ -12359,7 +12359,7 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$hir..ConstParam$u20$as$u20$core..cm
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 {
-  tail call fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  tail call fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1)
   ret i1 false
 }
 
@@ -12967,7 +12967,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
@@ -16302,7 +16302,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %5
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN55_$LT$hir..ModuleDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99cebce39f3bfda3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN55_$LT$hir..ModuleDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99cebce39f3bfda3E"(ptr noalias noundef readonly align 4 dereferenceable(16) %7, ptr noalias noundef readonly align 4 dereferenceable(16) %8)
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %12
@@ -16785,7 +16785,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17h7e6653f34cf757aeE.llvm.17814
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN86_$LT$fst..raw..node..Transitions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04b93cdd285ce41eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -16917,7 +16917,7 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %17
 
 _ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit: ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
   %.0.i = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit ], [ %66, %.lr.ph.i.i ]
-  %69 = tail call fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10, i64 noundef %4)
+  %69 = tail call fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %19, ptr noalias noundef readonly align 8 dereferenceable(64) %10, i64 noundef %4)
   br label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit
 
 70:                                               ; preds = %8
@@ -19793,7 +19793,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   br i1 %16, label %17, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h76e66026f7d3fca6E.exit.i.i"
 
 17:                                               ; preds = %5
-  %18 = invoke fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h7ad367b05abb6b04E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 %10, i64 noundef %12)
+  %18 = invoke fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h7ad367b05abb6b04E"(ptr noalias noundef align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 %10, i64 noundef %12)
           to label %.noexc unwind label %137
 
 .noexc:                                           ; preds = %17
@@ -19940,7 +19940,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   %89 = load i64, ptr %70, align 8, !alias.scope !3877, !noalias !3875, !noundef !4
   %90 = load i64, ptr %14, align 8, !alias.scope !3877, !noalias !3875, !noundef !4
   %91 = add i64 %90, %89
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %91, i64 230584300921369395)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 384307168202282326) i64 @llvm.umin.i64(i64 %91, i64 230584300921369395)
   %92 = sub i64 %.0.sroa.speculated.i.i.i, %85
   %93 = icmp ugt i64 %92, 1
   br i1 %93, label %102, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17haf53fd3154c38ab8E.exit.i.thread.i"
@@ -20500,7 +20500,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.llv
   br i1 %46, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17he6e9003fc8bcd4ddE.exit.i", label %73
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17he6e9003fc8bcd4ddE.exit.i": ; preds = %43
-  %47 = invoke fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h9a7ba34b2e7c8535E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 %12, i64 noundef %14)
+  %47 = invoke fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h9a7ba34b2e7c8535E"(ptr noalias noundef align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 %12, i64 noundef %14)
           to label %.noexc unwind label %142
 
 .noexc:                                           ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17he6e9003fc8bcd4ddE.exit.i"
@@ -20590,7 +20590,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.llv
   %97 = load i64, ptr %9, align 8, !alias.scope !4024, !noundef !4
   %98 = load i64, ptr %40, align 8, !alias.scope !4024, !noundef !4
   %99 = add i64 %98, %97
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %99, i64 384307168202282325)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 384307168202282326) i64 @llvm.umin.i64(i64 %99, i64 384307168202282325)
   %100 = sub i64 %.0.sroa.speculated.i.i.i, %93
   %101 = icmp ugt i64 %100, 1
   br i1 %101, label %110, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h02b27d95c465cce1E.exit.i.thread.i"
@@ -20820,7 +20820,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.llv
   br i1 %46, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h489cd065f45253e1E.exit.i", label %73
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h489cd065f45253e1E.exit.i": ; preds = %43
-  %47 = invoke fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h3f5992c850a68687E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 %12, i64 noundef %14)
+  %47 = invoke fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h3f5992c850a68687E"(ptr noalias noundef align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 %12, i64 noundef %14)
           to label %.noexc unwind label %142
 
 .noexc:                                           ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h489cd065f45253e1E.exit.i"
@@ -20910,7 +20910,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.llv
   %97 = load i64, ptr %9, align 8, !alias.scope !4079, !noundef !4
   %98 = load i64, ptr %40, align 8, !alias.scope !4079, !noundef !4
   %99 = add i64 %98, %97
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %99, i64 384307168202282325)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 384307168202282326) i64 @llvm.umin.i64(i64 %99, i64 384307168202282325)
   %100 = sub i64 %.0.sroa.speculated.i.i.i, %93
   %101 = icmp ugt i64 %100, 1
   br i1 %101, label %110, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h09acac9ca477b184E.exit.i.thread.i"
@@ -21140,7 +21140,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.llv
   br i1 %46, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17he8a8797e4849f30aE.exit.i", label %73
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17he8a8797e4849f30aE.exit.i": ; preds = %43
-  %47 = invoke fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hb2744f81c40c654fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 %12, i64 noundef %14)
+  %47 = invoke fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hb2744f81c40c654fE"(ptr noalias noundef align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 %12, i64 noundef %14)
           to label %.noexc unwind label %142
 
 .noexc:                                           ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17he8a8797e4849f30aE.exit.i"
@@ -21230,7 +21230,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.llv
   %97 = load i64, ptr %9, align 8, !alias.scope !4137, !noalias !4136, !noundef !4
   %98 = load i64, ptr %40, align 8, !alias.scope !4137, !noalias !4136, !noundef !4
   %99 = add i64 %98, %97
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %99, i64 288230376151711743)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 384307168202282326) i64 @llvm.umin.i64(i64 %99, i64 288230376151711743)
   %100 = sub i64 %.0.sroa.speculated.i.i.i, %93
   %101 = icmp ugt i64 %100, 1
   br i1 %101, label %110, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h2ab0aa4f540d84acE.exit.i.thread.i"
@@ -31299,7 +31299,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$G
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h3f5992c850a68687E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #33 personality ptr @rust_eh_personality {
+define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h3f5992c850a68687E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #33 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { ptr, { ptr, i64 } }, align 8
   %6 = alloca { { ptr, { i64, i64 } }, { ptr, i64, i64, i64 } }, align 8
@@ -31634,7 +31634,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca530279
 143:                                              ; preds = %._crit_edge
   %144 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #51
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias noundef align 8 dereferenceable(24) %5) #51
           to label %common.resume unwind label %228, !noalias !6104
 
 .lr.ph79:                                         ; preds = %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca53027982E.exit, %227
@@ -31824,7 +31824,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17h112a88c3a6c784acE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h7ad367b05abb6b04E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #33 personality ptr @rust_eh_personality {
+define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h7ad367b05abb6b04E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #33 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { ptr, { ptr, i64 } }, align 8
   %6 = alloca { { ptr, { i64, i64 } }, { ptr, i64, i64, i64 } }, align 8
@@ -32159,7 +32159,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca530279
 143:                                              ; preds = %._crit_edge
   %144 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #51
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias noundef align 8 dereferenceable(24) %5) #51
           to label %common.resume unwind label %228, !noalias !6197
 
 .lr.ph79:                                         ; preds = %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca53027982E.exit, %227
@@ -32349,7 +32349,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17h112a88c3a6c784acE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h9a7ba34b2e7c8535E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #33 personality ptr @rust_eh_personality {
+define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h9a7ba34b2e7c8535E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #33 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { ptr, { ptr, i64 } }, align 8
   %6 = alloca { { ptr, { i64, i64 } }, { ptr, i64, i64, i64 } }, align 8
@@ -32684,7 +32684,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca530279
 143:                                              ; preds = %._crit_edge
   %144 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #51
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias noundef align 8 dereferenceable(24) %5) #51
           to label %common.resume unwind label %228, !noalias !6288
 
 .lr.ph79:                                         ; preds = %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca53027982E.exit, %227
@@ -32874,7 +32874,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17h112a88c3a6c784acE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hb2744f81c40c654fE"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #33 personality ptr @rust_eh_personality {
+define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hb2744f81c40c654fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #33 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { ptr, { ptr, i64 } }, align 8
   %6 = alloca { { ptr, { i64, i64 } }, { ptr, i64, i64, i64 } }, align 8
@@ -33209,7 +33209,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca530279
 143:                                              ; preds = %._crit_edge
   %144 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #51
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d772286a85807d6E"(ptr noalias noundef align 8 dereferenceable(24) %5) #51
           to label %common.resume unwind label %228, !noalias !6379
 
 .lr.ph79:                                         ; preds = %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca53027982E.exit, %227
@@ -39967,7 +39967,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #51
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %13) #51
           to label %common.resume unwind label %33, !noalias !8709
 
 33:                                               ; preds = %31
@@ -39990,7 +39990,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread81, %2
 
 .thread:                                          ; preds = %85, %.body, %90, %47, %.thread56, %38
   %.pn.pn = phi { ptr, i32 } [ %.pn59, %.thread56 ], [ %lpad.thr_comm.split-lp, %47 ], [ %39, %38 ], [ %lpad.thr_comm.split-lp68, %.body ], [ %lpad.thr_comm67, %90 ], [ %86, %85 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15) #51
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %15) #51
           to label %common.resume unwind label %91
 
 38:                                               ; preds = %40, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -40123,7 +40123,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread81, %2
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  invoke fastcc void @_ZN6ide_db12symbol_index11SymbolIndex3new17h51b6723f97939445E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN6ide_db12symbol_index11SymbolIndex3new17h51b6723f97939445E(ptr noalias nocapture noundef align 8 dereferenceable(88) %8, ptr noalias nocapture noundef align 8 dereferenceable(24) %7)
           to label %79 unwind label %.body
 
 79:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h0a21c91e28de16ecE.exit"
@@ -40162,7 +40162,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread81, %2
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12)
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   ret ptr %82
 
@@ -40245,7 +40245,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 25:                                               ; preds = %24
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #51
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %7) #51
           to label %common.resume unwind label %27, !noalias !8747
 
 27:                                               ; preds = %25
@@ -40272,7 +40272,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %18,
 
 .body:                                            ; preds = %44, %32
   %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %45, %44 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #51
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %9) #51
           to label %common.resume unwind label %49
 
 34:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -40283,7 +40283,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %18,
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
-  invoke fastcc void @_ZN6ide_db12symbol_index11SymbolIndex3new17h51b6723f97939445E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN6ide_db12symbol_index11SymbolIndex3new17h51b6723f97939445E(ptr noalias nocapture noundef align 8 dereferenceable(88) %5, ptr noalias nocapture noundef align 8 dereferenceable(24) %6)
           to label %38 unwind label %32
 
 38:                                               ; preds = %37
@@ -40319,7 +40319,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %18,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   ret ptr %41
 
@@ -40391,7 +40391,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 25:                                               ; preds = %24
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #51
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %7) #51
           to label %common.resume unwind label %27, !noalias !8756
 
 27:                                               ; preds = %25
@@ -40415,7 +40415,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %18,
 32:                                               ; preds = %.noexc12, %37, %34, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #51
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %9) #51
           to label %common.resume unwind label %41
 
 34:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -40455,7 +40455,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %18,
 
 40:                                               ; preds = %.noexc12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !8764
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   ret { ptr, i64 } %39
 
@@ -40580,7 +40580,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 59:                                               ; preds = %58
   %60 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %26) #51
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcde8020384a64986E"(ptr noalias noundef align 8 dereferenceable(40) %26) #51
           to label %.body.thread unwind label %61, !noalias !8782
 
 61:                                               ; preds = %59
@@ -40941,7 +40941,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 .thread141:                                       ; preds = %.body78, %152, %.body96, %203, %142, %85, %239, %184, %.thread137
   %.3 = phi i1 [ %.2, %184 ], [ false, %239 ], [ true, %.thread137 ], [ true, %85 ], [ true, %142 ], [ true, %203 ], [ true, %.body96 ], [ true, %152 ], [ true, %.body78 ]
   %.pn62 = phi { ptr, i32 } [ %185, %184 ], [ %236, %239 ], [ %.pn58140, %.thread137 ], [ %lpad.thr_comm.split-lp146, %85 ], [ %143, %142 ], [ %.pn60, %203 ], [ %.pn60, %.body96 ], [ %153, %152 ], [ %eh.lpad-body79, %.body78 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %31) #51
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %31) #51
           to label %34 unwind label %162
 
 .thread137:                                       ; preds = %89, %"_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$$u5b$la_arena..Idx$LT$base_db..input..CrateData$GT$$u5d$$GT$$GT$17h5e4fddb6106fd5a2E.exit", %.thread147
@@ -41120,7 +41120,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 238:                                              ; preds = %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %31)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef align 8 dereferenceable(40) %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
   ret void
 
@@ -41172,7 +41172,7 @@ define noundef zeroext i1 @"_ZN74_$LT$ide_db..symbol_index..SymbolIndex$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6ide_db12symbol_index11SymbolIndex3new17h51b6723f97939445E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6ide_db12symbol_index11SymbolIndex3new17h51b6723f97939445E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i32, [13 x i32] }, align 8
@@ -42538,7 +42538,7 @@ common.resume:                                    ; preds = %.body.i, %.body, %.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN6ide_db7imports13import_assets12ImportAssets10search_for28_$u7b$$u7b$closure$u7d$$u7d$17he3ddf8c7f3720e38E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN6ide_db7imports13import_assets12ImportAssets10search_for28_$u7b$$u7b$closure$u7d$$u7d$17he3ddf8c7f3720e38E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { i8, [7 x i8] }, { i64, { [3 x i64] } } }, align 8
   %5 = alloca { i8, [15 x i8] }, align 4
   %6 = alloca { i8, [15 x i8] }, align 4
@@ -42881,7 +42881,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br i1 %64, label %153, label %.loopexit
 
 65:                                               ; preds = %61
-  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %.059195)
+  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %12, i32 noundef %.059195)
           to label %thread-pre-split.backedge unwind label %.loopexit196
 
 66:                                               ; preds = %61
@@ -42933,7 +42933,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit86: ; preds = %76, %.noexc8
   br label %thread-pre-split.backedge
 
 86:                                               ; preds = %62
-  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %.059195)
+  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %14, i32 noundef %.059195)
           to label %145 unwind label %.loopexit196
 
 87:                                               ; preds = %62
@@ -43014,7 +43014,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit89: ; preds = %87, %.noexc8
 117:                                              ; preds = %116
   %118 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #51
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E"(ptr noalias noundef align 8 dereferenceable(32) %11) #51
           to label %.body unwind label %119
 
 119:                                              ; preds = %117
@@ -43059,7 +43059,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit89: ; preds = %87, %.noexc8
 136:                                              ; preds = %135
   %137 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #51
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E"(ptr noalias noundef align 8 dereferenceable(32) %10) #51
           to label %.body unwind label %138
 
 138:                                              ; preds = %136
@@ -43079,7 +43079,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit89: ; preds = %87, %.noexc8
   br label %thread-pre-split.backedge
 
 145:                                              ; preds = %86
-  %146 = and i32 %.059195, -33
+  %146 = and i32 %.059195, 2097119
   %147 = add nsw i32 %146, -65
   %or.cond3.i = icmp ult i32 %147, 26
   br i1 %or.cond3.i, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit", label %148
@@ -43500,7 +43500,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h3f154d898033875fE.exit.thread: ; p
 348:                                              ; preds = %347
   %349 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #51
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E"(ptr noalias noundef align 8 dereferenceable(32) %9) #51
           to label %.body unwind label %350
 
 350:                                              ; preds = %348
@@ -43551,7 +43551,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h3f154d898033875fE.exit.thread: ; p
   br label %371
 
 371:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3c3082c483033852E.exit132", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3c3082c483033852E.exit123", %324, %352
-  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %.059195)
+  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %12, i32 noundef %.059195)
           to label %372 unwind label %.loopexit196
 
 372:                                              ; preds = %371
@@ -43621,7 +43621,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit138: ; preds = %388, %.noex
   br label %thread-pre-split.backedge
 
 398:                                              ; preds = %273
-  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 123)
+  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %14, i32 noundef 123)
           to label %399 unwind label %.loopexit196
 
 399:                                              ; preds = %398
@@ -43629,7 +43629,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit138: ; preds = %388, %.noex
   br label %thread-pre-split.backedge
 
 401:                                              ; preds = %273
-  %402 = and i32 %.059195, -33
+  %402 = and i32 %.059195, 2097119
   %403 = add nsw i32 %402, -65
   %or.cond3.i.i = icmp ult i32 %403, 26
   br i1 %or.cond3.i.i, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread", label %404
@@ -43665,7 +43665,7 @@ switch.early.test:                                ; preds = %"_ZN4core4char7meth
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread": ; preds = %401, %.noexc140, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit.thread6.i", %switch.early.test, %switch.early.test, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit", %410
   %.3 = phi i8 [ %.0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit" ], [ 2, %410 ], [ %.0, %switch.early.test ], [ %.0, %switch.early.test ], [ %.0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit.thread6.i" ], [ %.0, %.noexc140 ], [ %.0, %401 ]
-  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %.059195)
+  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %14, i32 noundef %.059195)
           to label %thread-pre-split.backedge unwind label %.loopexit196
 
 410:                                              ; preds = %switch.early.test
@@ -43696,7 +43696,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit144: ; preds = %411, %.noex
   br label %thread-pre-split.backedge
 
 .thread191:                                       ; preds = %272, %171
-  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %.059195)
+  invoke fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %12, i32 noundef %.059195)
           to label %thread-pre-split.backedge unwind label %.loopexit196
 
 421:                                              ; preds = %.body148, %423, %.body

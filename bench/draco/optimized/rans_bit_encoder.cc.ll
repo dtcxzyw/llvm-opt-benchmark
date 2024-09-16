@@ -729,7 +729,7 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %37, %43
   %115 = trunc i32 %.sroa.19.1.lcssa to i8
   store i8 %115, ptr %113, align 1
   %116 = lshr i32 %114, 8
-  %117 = trunc nuw i32 %116 to i8
+  %117 = trunc nuw nsw i32 %116 to i8
   %118 = getelementptr inbounds i8, ptr %113, i64 1
   store i8 %117, ptr %118, align 1
   %119 = add nsw i32 %.sroa.7.1.lcssa, 2

@@ -216,7 +216,7 @@ define dso_local ptr @exportfs_decode_fh_raw(ptr noundef %0, ptr noundef %1, i32
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = call fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %7)
+  %32 = call fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %7)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.thread
 
@@ -261,7 +261,7 @@ define dso_local ptr @exportfs_decode_fh_raw(ptr noundef %0, ptr noundef %1, i32
   br label %.thread
 
 57:                                               ; preds = %53
-  %58 = call fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef nonnull %46, ptr noundef nonnull %7, ptr noundef nonnull %18)
+  %58 = call fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef nonnull %46, ptr noundef nonnull %7, ptr noundef %18)
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %61, label %60
 
@@ -333,7 +333,7 @@ define dso_local ptr @exportfs_decode_fh_raw(ptr noundef %0, ptr noundef %1, i32
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 96
   tail call void @lockref_get(ptr noundef %4) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -385,7 +385,7 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread14
 
 34:                                               ; preds = %22
-  %35 = tail call ptr %30(ptr noundef %8) #7
+  %35 = tail call ptr %30(ptr noundef nonnull %8) #7
   %36 = load ptr, ptr %23, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 160
   tail call void @up_write(ptr noundef %37) #7
@@ -458,12 +458,12 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit15
 
 69:                                               ; preds = %18
-  %70 = tail call ptr @dget_parent(ptr noundef %8) #7
+  %70 = tail call ptr @dget_parent(ptr noundef nonnull %8) #7
   br label %71
 
 .thread14:                                        ; preds = %.thread11, %.thread
   %.ph = phi ptr [ inttoptr (i64 -116 to ptr), %.thread11 ], [ inttoptr (i64 -13 to ptr), %.thread ]
-  tail call void @dput(ptr noundef %8) #7
+  tail call void @dput(ptr noundef nonnull %8) #7
   br label %.loopexit16
 
 71:                                               ; preds = %69, %55, %52, %34
@@ -472,7 +472,7 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %73, label %.loopexit15, label %74
 
 74:                                               ; preds = %71
-  tail call void @dput(ptr noundef %8) #7
+  tail call void @dput(ptr noundef nonnull %8) #7
   %75 = icmp ugt ptr %72, inttoptr (i64 -4096 to ptr)
   br i1 %75, label %.loopexit16, label %7, !llvm.loop !11
 
@@ -483,7 +483,7 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef %1, ptr n
   br label %96
 
 .loopexit15:                                      ; preds = %71, %7, %.thread13
-  tail call void @dput(ptr noundef %8) #7
+  tail call void @dput(ptr noundef nonnull %8) #7
   tail call void @lockref_get(ptr noundef %4) #7
   %79 = load i32, ptr %1, align 8
   %80 = and i32 %79, 32
@@ -528,7 +528,7 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @find_acceptable_alias(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @find_acceptable_alias(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call i32 %1(ptr noundef %2, ptr noundef %0) #7
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %35
@@ -597,7 +597,7 @@ define internal fastcc ptr @find_acceptable_alias(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.kstat, align 8
   %6 = alloca %struct.path, align 8
   %7 = alloca %struct.getdents_callback, align 8
@@ -616,7 +616,7 @@ define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, pt
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %4
-  %18 = tail call i32 %15(ptr noundef %1, ptr noundef %2, ptr noundef %3) #7
+  %18 = tail call i32 %15(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #7
   br label %71
 
 19:                                               ; preds = %4

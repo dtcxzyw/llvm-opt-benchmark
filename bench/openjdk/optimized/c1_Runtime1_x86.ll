@@ -572,13 +572,13 @@ declare void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17C1_MacroAssembler22restore_live_registersEb(ptr noundef nonnull align 8 dereferenceable(44) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.4) #7
-  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %0, i1 noundef zeroext %1)
+  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %0, i1 noundef zeroext %1)
   tail call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
@@ -687,7 +687,7 @@ define hidden void @_ZN17C1_MacroAssembler33restore_live_registers_except_raxEb(
   %15 = alloca %class.Address, align 8
   %16 = alloca %class.Address, align 8
   tail call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.5) #7
-  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %0, i1 noundef zeroext %1)
+  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %0, i1 noundef zeroext %1)
   store i32 4, ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 -1, ptr %17, align 4
@@ -1234,7 +1234,7 @@ define hidden noundef ptr @_ZN8Runtime125generate_handle_exceptionENS_6StubIDEP1
 99:                                               ; preds = %64, %64, %64
   %100 = icmp ne i32 %0, 14
   call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4) #7
-  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %1, i1 noundef zeroext %100)
+  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %1, i1 noundef zeroext %100)
   call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   br label %104
 
@@ -1359,7 +1359,7 @@ define hidden void @_ZN8Runtime125generate_unwind_exceptionEP13StubAssembler(ptr
   %5 = tail call fastcc noundef ptr @_ZL16generate_oop_mapP13StubAssemblerib(ptr noundef nonnull %0, i1 noundef zeroext true)
   tail call void @_ZN14MacroAssembler12call_VM_leafEPh8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @_ZN8Runtime127check_abort_on_vm_exceptionEP7oopDesc, i32 0) #7
   tail call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.4) #7
-  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %0, i1 noundef zeroext true)
+  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %0, i1 noundef zeroext true)
   tail call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   tail call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   br label %6
@@ -1588,7 +1588,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_patchingEP13StubAssemblerPh(pt
   store i32 0, ptr %102, align 8
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %14, i32 2) #7
   call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.4) #7
-  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %0, i1 noundef zeroext true)
   call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   call void @_ZN14MacroAssembler6addptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 8) #7
@@ -1620,7 +1620,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_patchingEP13StubAssemblerPh(pt
   call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, i32 0) #7
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %17, i1 noundef zeroext true) #7
   call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.4) #7
-  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %0, i1 noundef zeroext true)
   call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   %119 = load i32, ptr %103, align 4
@@ -1641,7 +1641,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_patchingEP13StubAssemblerPh(pt
   call void @_ZN14MacroAssembler4jumpE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %18, i32 -1) #7
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %17) #7
   call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.4) #7
-  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %0, i1 noundef zeroext true)
   call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0) #7
@@ -1788,7 +1788,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #7
   %55 = call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %54, i32 noundef %53, ptr noundef %36) #7
   call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4) #7
-  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %1, i1 noundef zeroext true)
+  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %1, i1 noundef zeroext true)
   call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 0) #7
@@ -1872,7 +1872,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #7
   %82 = call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %81, i32 noundef %80, ptr noundef %79) #7
   call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4) #7
-  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %1, i1 noundef zeroext true)
+  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %1, i1 noundef zeroext true)
   call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 0) #7
@@ -2093,7 +2093,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   tail call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %154) #7
   %155 = tail call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %154, i32 noundef %153, ptr noundef %152) #7
   tail call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4) #7
-  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %1, i1 noundef zeroext %.0)
+  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %1, i1 noundef zeroext %.0)
   tail call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   tail call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   tail call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 0) #7
@@ -2115,7 +2115,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   tail call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #7
   %161 = tail call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %160, i32 noundef %159, ptr noundef %158) #7
   tail call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4) #7
-  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %1, i1 noundef zeroext %.1)
+  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %1, i1 noundef zeroext %.1)
   tail call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   tail call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   tail call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 0) #7
@@ -2133,7 +2133,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   tail call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #7
   %166 = tail call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %165, i32 noundef %164, ptr noundef %163) #7
   tail call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4) #7
-  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %1, i1 noundef zeroext true)
+  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %1, i1 noundef zeroext true)
   tail call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   %167 = load ptr, ptr @_ZN13SharedRuntime11_deopt_blobE, align 8
   tail call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
@@ -2206,7 +2206,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false)
   call void @_ZN14MacroAssembler4callE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %14, i32 0) #7
   call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4) #7
-  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %1, i1 noundef zeroext true)
+  call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %1, i1 noundef zeroext true)
   call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 0) #7
@@ -2313,7 +2313,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   tail call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %240) #7
   %241 = tail call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %240, i32 noundef %239, ptr noundef %238) #7
   tail call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4) #7
-  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef nonnull %1, i1 noundef zeroext true)
+  tail call fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %1, i1 noundef zeroext true)
   tail call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   tail call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   %242 = load ptr, ptr @_ZN13SharedRuntime11_deopt_blobE, align 8

@@ -1862,7 +1862,7 @@ VP8LRefsCursorInit.exit.i.i43:                    ; preds = %439, %437
 
 534:                                              ; preds = %524
   %535 = add nsw i32 %526, -1
-  %536 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %535, i1 true)
+  %536 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %535, i1 true)
   %537 = sub nuw nsw i32 30, %536
   %538 = lshr i32 %535, %537
   %539 = and i32 %538, 1

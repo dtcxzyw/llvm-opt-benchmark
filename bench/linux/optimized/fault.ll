@@ -1504,7 +1504,7 @@ declare void @llvm.assume(i1 noundef) #8
 declare dso_local i32 @kprobe_fault_handler(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__bad_area_nosemaphore(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc void @__bad_area_nosemaphore(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 16) %3, i32 noundef range(i32 1, 5) %4) unnamed_addr #1 align 16 {
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !45
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1623,7 +1623,7 @@ define internal fastcc void @__bad_area_nosemaphore(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kernelmode_fixup_or_oops(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc void @kernelmode_fixup_or_oops(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 12) %3, i32 noundef range(i32 0, 5) %4, i32 noundef range(i32 0, 16) %5) unnamed_addr #1 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 3

@@ -663,7 +663,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not.i, label %if.then.i, label %if.end2.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
+  %call.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef %call)
   %cmp.not.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.not.i, i32 0, i32 -902
   br label %on_request_recv.exit
@@ -711,7 +711,7 @@ check_path.exit.i:                                ; preds = %ends_with.exit.i.i,
   br i1 %tobool7.not.not.i, label %for.cond.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %check_path.exit.i, %ends_with.exit.i.i, %land.lhs.true11.i.i, %land.lhs.true7.i.i, %land.lhs.true4.i.i, %if.end2.i
-  %call9.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
+  %call9.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef %call)
   %cmp10.not.i = icmp eq i32 %call9.i, 0
   %.17.i = select i1 %cmp10.not.i, i32 0, i32 -902
   br label %on_request_recv.exit
@@ -729,7 +729,7 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %cmp18.i, label %if.then20.i, label %if.end26.i
 
 if.then20.i:                                      ; preds = %for.end.i
-  %call21.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
+  %call21.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef %call)
   %cmp22.not.i = icmp eq i32 %call21.i, 0
   %.18.i = select i1 %cmp22.not.i, i32 0, i32 -902
   br label %on_request_recv.exit
@@ -1057,7 +1057,7 @@ declare ptr @nghttp2_session_get_stream_user_data(ptr noundef, i32 noundef) loca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @error_reply(ptr noundef %session, ptr nocapture noundef %stream_data) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @error_reply(ptr noundef %session, ptr nocapture noundef nonnull %stream_data) unnamed_addr #0 {
 entry:
   %data_prd.i = alloca %struct.nghttp2_data_provider, align 8
   %pipefd = alloca [2 x i32], align 4

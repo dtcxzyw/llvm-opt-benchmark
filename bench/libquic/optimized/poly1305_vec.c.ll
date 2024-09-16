@@ -631,7 +631,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef %bytes) unnamed_addr #2 {
+define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 0, -63) %bytes) unnamed_addr #2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %st, i64 288
   %1 = load <2 x i64>, ptr %0, align 16
@@ -917,9 +917,9 @@ entry:
 entry.if.end_crit_edge:                           ; preds = %entry
   %.pre = load i64, ptr %.phi.trans.insert, align 32
   %arrayidx3.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 296
-  %.pre304 = load i64, ptr %arrayidx3.phi.trans.insert, align 8
+  %.pre303 = load i64, ptr %arrayidx3.phi.trans.insert, align 8
   %arrayidx4.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 304
-  %.pre305 = load i64, ptr %arrayidx4.phi.trans.insert, align 16
+  %.pre304 = load i64, ptr %arrayidx4.phi.trans.insert, align 16
   br label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1295,8 +1295,8 @@ poly1305_combine.exit:                            ; preds = %if.then, %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %poly1305_combine.exit
-  %141 = phi i64 [ %and333.i, %poly1305_combine.exit ], [ %.pre305, %entry.if.end_crit_edge ]
-  %142 = phi i64 [ %and328.i, %poly1305_combine.exit ], [ %.pre304, %entry.if.end_crit_edge ]
+  %141 = phi i64 [ %and333.i, %poly1305_combine.exit ], [ %.pre304, %entry.if.end_crit_edge ]
+  %142 = phi i64 [ %and328.i, %poly1305_combine.exit ], [ %.pre303, %entry.if.end_crit_edge ]
   %143 = phi i64 [ %and321.i, %poly1305_combine.exit ], [ %.pre, %entry.if.end_crit_edge ]
   %m.0 = phi ptr [ %add.ptr, %poly1305_combine.exit ], [ %buffer, %entry.if.end_crit_edge ]
   %leftover.0 = phi i64 [ %sub, %poly1305_combine.exit ], [ %2, %entry.if.end_crit_edge ]
@@ -1402,9 +1402,9 @@ poly1305_donna_mul:                               ; preds = %poly1305_block_zero
   %b.sroa.0.0.insert.ext.i196 = and i128 %mul.i187, 18446744073709551612
   %b.sroa.0.0.insert.insert.i197 = add nuw nsw i128 %a.sroa.0.0.insert.ext.i195, %b.sroa.0.0.insert.ext.i196
   %155 = lshr i128 %b.sroa.0.0.insert.insert.i197, 64
-  %.tr300 = trunc nuw nsw i128 %155 to i64
-  %.narrow301 = add i64 %.narrow.i182, %.tr300
-  %.narrow.i201 = add i64 %.narrow301, %retval.sroa.2.0.extract.trunc.i190
+  %.tr299 = trunc nuw nsw i128 %155 to i64
+  %.narrow300 = add i64 %.narrow.i182, %.tr299
+  %.narrow.i201 = add i64 %.narrow300, %retval.sroa.2.0.extract.trunc.i190
   %conv1.i205 = zext i64 %or23 to i128
   %mul.i206 = mul nuw i128 %conv.i125, %conv1.i205
   %mul.i214 = mul nuw i128 %conv.i128, %conv1.i159
@@ -1422,9 +1422,9 @@ poly1305_donna_mul:                               ; preds = %poly1305_block_zero
   %b.sroa.0.0.insert.ext.i242 = and i128 %mul.i233, 18446744073709551615
   %b.sroa.0.0.insert.insert.i243 = add nuw nsw i128 %a.sroa.0.0.insert.ext.i241, %b.sroa.0.0.insert.ext.i242
   %157 = lshr i128 %b.sroa.0.0.insert.insert.i243, 64
-  %.tr302 = trunc nuw nsw i128 %157 to i64
-  %.narrow303 = add i64 %.narrow.i228, %.tr302
-  %.narrow.i247 = add i64 %.narrow303, %retval.sroa.2.0.extract.trunc.i236
+  %.tr301 = trunc nuw nsw i128 %157 to i64
+  %.narrow302 = add i64 %.narrow.i228, %.tr301
+  %.narrow.i247 = add i64 %.narrow302, %retval.sroa.2.0.extract.trunc.i236
   %and82 = and i64 %retval.sroa.0.0.extract.trunc.i153, 17592186044415
   %v.sroa.2.0.insert.ext.i = zext i64 %.narrow.i155 to i128
   %v.sroa.2.0.insert.shift.i = shl nuw i128 %v.sroa.2.0.insert.ext.i, 64
@@ -1473,15 +1473,15 @@ if.end120:                                        ; preds = %poly1305_donna_atmo
   %add.ptr122 = getelementptr inbounds i8, ptr %m.1, i64 %inc
   %sub123 = xor i64 %leftover.1, 15
   %tobool.not.i = icmp ult i64 %sub123, 8
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i287
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i286
 
-if.then.i287:                                     ; preds = %if.end120
+if.then.i286:                                     ; preds = %if.end120
   store i64 0, ptr %add.ptr122, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr122, i64 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i287, %if.end120
-  %dst.addr.0.i = phi ptr [ %add.ptr.i, %if.then.i287 ], [ %add.ptr122, %if.end120 ]
+if.end.i:                                         ; preds = %if.then.i286, %if.end120
+  %dst.addr.0.i = phi ptr [ %add.ptr.i, %if.then.i286 ], [ %add.ptr122, %if.end120 ]
   %and1.i = and i64 %sub123, 4
   %tobool2.not.i = icmp eq i64 %and1.i, 0
   br i1 %tobool2.not.i, label %if.end5.i, label %if.then3.i
@@ -1518,13 +1518,13 @@ poly1305_block_zero.exit:                         ; preds = %if.end10.i, %if.the
   %159 = load i64, ptr %add.ptr125, align 8
   %and126 = and i64 %158, 17592186044415
   %add127 = add i64 %and126, %h0.0
-  %conv.i288 = zext i64 %159 to i128
-  %shl.i289 = shl nuw i128 %conv.i288, 64
-  %conv1.i290 = zext i64 %158 to i128
-  %or.i291 = or disjoint i128 %shl.i289, %conv1.i290
-  %shr.i292 = lshr i128 %or.i291, 44
-  %conv2.i293 = trunc i128 %shr.i292 to i64
-  %and129 = and i64 %conv2.i293, 17592186044415
+  %conv.i287 = zext i64 %159 to i128
+  %shl.i288 = shl nuw i128 %conv.i287, 64
+  %conv1.i289 = zext i64 %158 to i128
+  %or.i290 = or disjoint i128 %shl.i288, %conv1.i289
+  %shr.i291 = lshr i128 %or.i290, 44
+  %conv2.i292 = trunc i128 %shr.i291 to i64
+  %and129 = and i64 %conv2.i292, 17592186044415
   %add130 = add i64 %and129, %h1.0
   %shr131 = lshr i64 %159, 24
   %add132 = add i64 %shr131, %h2.0
@@ -1580,13 +1580,13 @@ poly1305_donna_finish:                            ; preds = %poly1305_donna_atmo
   %add177 = add nuw nsw i64 %and176, %or155
   %shr178 = lshr i64 %add177, 44
   %and179 = and i64 %add177, 17592186044415
-  %conv.i294 = zext i64 %or175 to i128
-  %shl.i295 = shl nuw i128 %conv.i294, 64
-  %conv1.i296 = zext i64 %shl164 to i128
-  %or.i297 = or disjoint i128 %shl.i295, %conv1.i296
-  %shr.i298 = lshr i128 %or.i297, 44
-  %conv2.i299 = trunc i128 %shr.i298 to i64
-  %and181 = and i64 %conv2.i299, 17592186044415
+  %conv.i293 = zext i64 %or175 to i128
+  %shl.i294 = shl nuw i128 %conv.i293, 64
+  %conv1.i295 = zext i64 %shl164 to i128
+  %or.i296 = or disjoint i128 %shl.i294, %conv1.i295
+  %shr.i297 = lshr i128 %or.i296, 44
+  %conv2.i298 = trunc i128 %shr.i297 to i64
+  %and181 = and i64 %conv2.i298, 17592186044415
   %add182 = add nuw nsw i64 %shr178, %or158
   %add183 = add nuw nsw i64 %add182, %and181
   %shr184 = lshr i64 %add183, 44

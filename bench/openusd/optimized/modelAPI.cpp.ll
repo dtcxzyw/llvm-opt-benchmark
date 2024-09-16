@@ -5933,7 +5933,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZNK32pxr
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit unwind label %98
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
-  %37 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_GetAuthoredDrawModeERKNS_7UsdPrimEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4)
+  %37 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_GetAuthoredDrawModeERKNS_7UsdPrimEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %4)
           to label %38 unwind label %100
 
 38:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit
@@ -6293,7 +6293,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc33
   br label %.body64
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread75: ; preds = %.noexc33, %191, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
-  %205 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_GetAuthoredDrawModeERKNS_7UsdPrimEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %4)
+  %205 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_GetAuthoredDrawModeERKNS_7UsdPrimEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %4)
           to label %206 unwind label %203
 
 206:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread75
@@ -6626,7 +6626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_GetAuthoredDrawModeERKNS_7UsdPrimEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_GetAuthoredDrawModeERKNS_7UsdPrimEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomModelAPI", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
@@ -6821,7 +6821,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20: ; preds = %.noexc1
   br i1 %88, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20.thread25, label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20.thread25: ; preds = %.noexc19, %79, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20
-  %89 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, double 0x7FF8000000000000)
+  %89 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %1, double 0x7FF8000000000000)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE.exit unwind label %126
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE.exit: ; preds = %73, %71, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i15, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20.thread25, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20

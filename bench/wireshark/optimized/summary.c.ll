@@ -54,13 +54,13 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef %1) local_unname
   %30 = tail call double @nstime_to_sec(ptr noundef nonnull %28) #5
   store double %30, ptr %10, align 8
   %31 = load i32, ptr %22, align 8
-  %.not93103 = icmp eq i32 %31, 0
-  br i1 %.not93103, label %.loopexit, label %.lr.ph
+  %.not93101 = icmp eq i32 %31, 0
+  br i1 %.not93101, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %tally_frame_data.exit
-  %.0104 = phi i32 [ %112, %tally_frame_data.exit ], [ 1, %24 ]
+  %.0102 = phi i32 [ %112, %tally_frame_data.exit ], [ 1, %24 ]
   %32 = load ptr, ptr %25, align 8
-  %33 = tail call ptr @frame_data_sequence_find(ptr noundef %32, i32 noundef %.0104) #5
+  %33 = tail call ptr @frame_data_sequence_find(ptr noundef %32, i32 noundef %.0102) #5
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
@@ -218,7 +218,7 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef %1) local_unname
   br label %tally_frame_data.exit
 
 tally_frame_data.exit:                            ; preds = %65, %96, %109, %.sink.split60.i
-  %112 = add i32 %.0104, 1
+  %112 = add i32 %.0102, 1
   %113 = load i32, ptr %22, align 8
   %.not93 = icmp ugt i32 %112, %113
   br i1 %.not93, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -286,10 +286,10 @@ tally_frame_data.exit:                            ; preds = %65, %96, %109, %.si
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   %161 = load i32, ptr %160, align 8
-  %.not110 = icmp eq i32 %161, 0
-  br i1 %.not110, label %._crit_edge, label %.lr.ph106
+  %.not108 = icmp eq i32 %161, 0
+  br i1 %.not108, label %._crit_edge, label %.lr.ph104
 
-.lr.ph106:                                        ; preds = %.loopexit
+.lr.ph104:                                        ; preds = %.loopexit
   %162 = getelementptr inbounds i8, ptr %3, i64 16
   %163 = getelementptr inbounds i8, ptr %6, i64 8
   %164 = getelementptr inbounds i8, ptr %3, i64 8
@@ -300,9 +300,9 @@ tally_frame_data.exit:                            ; preds = %65, %96, %109, %.si
   %169 = getelementptr inbounds i8, ptr %3, i64 24
   br label %170
 
-170:                                              ; preds = %.lr.ph106, %214
-  %indvars.iv = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next, %214 ]
-  %171 = phi ptr [ %159, %.lr.ph106 ], [ %217, %214 ]
+170:                                              ; preds = %.lr.ph104, %214
+  %indvars.iv = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next, %214 ]
+  %171 = phi ptr [ %159, %.lr.ph104 ], [ %217, %214 ]
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr ptr, ptr %172, i64 %indvars.iv
   %174 = load ptr, ptr %173, align 8
@@ -311,8 +311,8 @@ tally_frame_data.exit:                            ; preds = %65, %96, %109, %.si
   %177 = icmp eq i32 %176, 0
   %178 = load i32, ptr %6, align 8
   %179 = icmp eq i32 %178, 0
-  %or.cond114 = select i1 %177, i1 %179, i1 false
-  br i1 %or.cond114, label %180, label %183
+  %or.cond112 = select i1 %177, i1 %179, i1 false
+  br i1 %or.cond112, label %180, label %183
 
 180:                                              ; preds = %170
   %181 = load ptr, ptr %163, align 8
@@ -344,8 +344,8 @@ tally_frame_data.exit:                            ; preds = %65, %96, %109, %.si
   br label %195
 
 195:                                              ; preds = %189, %192
-  %storemerge112 = phi ptr [ %194, %192 ], [ null, %189 ]
-  store ptr %storemerge112, ptr %164, align 8
+  %storemerge110 = phi ptr [ %194, %192 ], [ null, %189 ]
+  store ptr %storemerge110, ptr %164, align 8
   store i32 0, ptr %165, align 8
   store i64 0, ptr %166, align 8
   %196 = getelementptr inbounds i8, ptr %175, i64 20
@@ -419,33 +419,31 @@ tally_frame_data.exit:                            ; preds = %65, %96, %109, %.si
   %236 = load ptr, ptr %7, align 8
   %237 = icmp ne ptr %236, null
   %or.cond3 = select i1 %or.cond, i1 %237, i1 false
-  br i1 %or.cond3, label %.preheader, label %hash_to_str.exit102
+  br i1 %or.cond3, label %.preheader, label %hash_to_str.exit100
 
 .preheader:                                       ; preds = %230
   %238 = call i64 @fread(ptr noundef nonnull %231, i64 noundef 1, i64 noundef 1048576, ptr noundef nonnull %233)
-  %.not95107 = icmp eq i64 %238, 0
-  br i1 %.not95107, label %._crit_edge109, label %.lr.ph108
+  %.not95105 = icmp eq i64 %238, 0
+  br i1 %.not95105, label %._crit_edge107, label %.lr.ph106
 
-.lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
-  %239 = phi i64 [ %241, %.lr.ph108 ], [ %238, %.preheader ]
+.lr.ph106:                                        ; preds = %.preheader, %.lr.ph106
+  %239 = phi i64 [ %241, %.lr.ph106 ], [ %238, %.preheader ]
   %240 = load ptr, ptr %7, align 8
   call void @gcry_md_write(ptr noundef %240, ptr noundef nonnull %231, i64 noundef %239) #5
   %241 = call i64 @fread(ptr noundef nonnull %231, i64 noundef 1, i64 noundef 1048576, ptr noundef nonnull %233)
   %.not95 = icmp eq i64 %241, 0
-  br i1 %.not95, label %._crit_edge109, label %.lr.ph108, !llvm.loop !7
+  br i1 %.not95, label %._crit_edge107, label %.lr.ph106, !llvm.loop !7
 
-._crit_edge109:                                   ; preds = %.lr.ph108, %.preheader
+._crit_edge107:                                   ; preds = %.lr.ph106, %.preheader
   %242 = load ptr, ptr %7, align 8
   %243 = call i32 @gcry_md_ctl(ptr noundef %242, i32 noundef 5, ptr noundef null, i64 noundef 0) #5
   %244 = load ptr, ptr %7, align 8
   %245 = call ptr @gcry_md_read(ptr noundef %244, i32 noundef 8) #5
-  br label %.lr.ph.i
+  br label %246
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %._crit_edge109
-  %indvars.iv.i = phi i64 [ 0, %._crit_edge109 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %246 = shl i32 %indvars.iv.tr.i, 1
-  %247 = sext i32 %246 to i64
+246:                                              ; preds = %246, %._crit_edge107
+  %indvars.iv.i = phi i64 [ 0, %._crit_edge107 ], [ %indvars.iv.next.i, %246 ]
+  %247 = shl nuw i64 %indvars.iv.i, 1
   %248 = getelementptr i8, ptr %222, i64 %247
   %249 = getelementptr i8, ptr %245, i64 %indvars.iv.i
   %250 = load i8, ptr %249, align 1
@@ -453,35 +451,33 @@ tally_frame_data.exit:                            ; preds = %65, %96, %109, %.si
   %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %248, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %251) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %hash_to_str.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %hash_to_str.exit, label %246, !llvm.loop !8
 
-hash_to_str.exit:                                 ; preds = %.lr.ph.i
+hash_to_str.exit:                                 ; preds = %246
   %253 = load ptr, ptr %7, align 8
   %254 = call ptr @gcry_md_read(ptr noundef %253, i32 noundef 2) #5
-  br label %.lr.ph.i97
+  br label %255
 
-.lr.ph.i97:                                       ; preds = %.lr.ph.i97, %hash_to_str.exit
-  %indvars.iv.i98 = phi i64 [ 0, %hash_to_str.exit ], [ %indvars.iv.next.i100, %.lr.ph.i97 ]
-  %indvars.iv.tr.i99 = trunc i64 %indvars.iv.i98 to i32
-  %255 = shl i32 %indvars.iv.tr.i99, 1
-  %256 = sext i32 %255 to i64
+255:                                              ; preds = %255, %hash_to_str.exit
+  %indvars.iv.i97 = phi i64 [ 0, %hash_to_str.exit ], [ %indvars.iv.next.i98, %255 ]
+  %256 = shl nuw i64 %indvars.iv.i97, 1
   %257 = getelementptr i8, ptr %224, i64 %256
-  %258 = getelementptr i8, ptr %254, i64 %indvars.iv.i98
+  %258 = getelementptr i8, ptr %254, i64 %indvars.iv.i97
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i32
   %261 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %257, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %260) #5
-  %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i98, 1
-  %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, 20
-  br i1 %exitcond.not.i101, label %hash_to_str.exit102, label %.lr.ph.i97, !llvm.loop !8
+  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
+  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, 20
+  br i1 %exitcond.not.i99, label %hash_to_str.exit100, label %255, !llvm.loop !8
 
-hash_to_str.exit102:                              ; preds = %.lr.ph.i97, %230
+hash_to_str.exit100:                              ; preds = %255, %230
   br i1 %234, label %262, label %264
 
-262:                                              ; preds = %hash_to_str.exit102
+262:                                              ; preds = %hash_to_str.exit100
   %263 = call i32 @fclose(ptr noundef nonnull %233)
   br label %264
 
-264:                                              ; preds = %262, %hash_to_str.exit102
+264:                                              ; preds = %262, %hash_to_str.exit100
   call void @g_free(ptr noundef %231) #5
   %265 = load ptr, ptr %7, align 8
   call void @gcry_md_close(ptr noundef %265) #5

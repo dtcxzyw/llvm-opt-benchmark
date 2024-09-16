@@ -665,7 +665,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %144, %142
 
 160:                                              ; preds = %5
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr noundef nonnull readonly %.tr139167, ptr noundef nonnull align 8 dereferenceable(56) %161)
+  tail call fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr noundef readonly %.tr139167, ptr noundef nonnull align 8 dereferenceable(56) %161)
   br label %_ZN12_GLOBAL__N_125CommentASTToHTMLConverter25visitInlineCommandCommentEPKN5clang8comments20InlineCommandCommentE.exit
 
 162:                                              ; preds = %5
@@ -747,7 +747,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i20:  ; preds = %189, %188, %186
 202:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3)
   %203 = load ptr, ptr %4, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull %.tr139167, ptr noundef nonnull align 8 dereferenceable(64) %203)
+  call fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef %.tr139167, ptr noundef nonnull align 8 dereferenceable(64) %203)
   %204 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %205 = load ptr, ptr %204, align 8
   %.not.i24 = icmp eq ptr %205, null
@@ -2217,7 +2217,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %208, %206
   %216 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %18, ptr %216, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
-  call fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(56) %19)
+  call fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(56) %19)
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #16
   %217 = load ptr, ptr %18, align 8
   %218 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
@@ -2523,7 +2523,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i27:  ; preds = %344, %343, %341
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %362 = load ptr, ptr %361, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(64) %362)
+  call fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %362)
   %363 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %364 = load ptr, ptr %363, align 8
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 48
@@ -5185,7 +5185,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5430,7 +5430,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %116, %114, %106, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(64) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(64) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8506,7 +8506,7 @@ _ZSt21__move_merge_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_S5_N9__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPPKN5clang8comments20TParamCommandCommentES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #8 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPPKN5clang8comments20TParamCommandCommentES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3) unnamed_addr #8 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64

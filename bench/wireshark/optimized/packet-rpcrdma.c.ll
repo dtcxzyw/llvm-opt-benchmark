@@ -270,7 +270,7 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 34:                                               ; preds = %15
-  %35 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
+  %35 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef %6)
   call void @proto_item_set_len(ptr noundef %23, i32 noundef %35) #9
   %36 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %35, ptr noundef nonnull %1, ptr noundef %2)
   %.not151 = icmp eq ptr %36, null
@@ -418,7 +418,7 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .critedge:                                        ; preds = %49, %92, %88, %84
   %.0..0..0..0.77 = load volatile ptr, ptr %5, align 8
-  %105 = call fastcc ptr @process_rdma_lists(ptr noundef %.0..0..0..0.77, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %2)
+  %105 = call fastcc ptr @process_rdma_lists(ptr noundef %.0..0..0..0.77, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %1, ptr noundef %2)
   store ptr null, ptr @gp_rdma_write_offsets, align 8
   br i1 %48, label %108, label %106
 
@@ -442,7 +442,7 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %156
 
 113:                                              ; preds = %15
-  %114 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
+  %114 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef %6)
   %115 = getelementptr inbounds i8, ptr %1, i64 80
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 50
@@ -487,7 +487,7 @@ process_rdma_lists.exit:                          ; preds = %121, %113
   %136 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %135, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
   %137 = load i32, ptr @hf_rpcordma_rdma_thresh, align 4
   %138 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %137, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %139 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 24, ptr noundef %25, ptr noundef nonnull %6)
+  %139 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 24, ptr noundef %25, ptr noundef %6)
   call void @proto_item_set_len(ptr noundef %23, i32 noundef %139) #9
   %140 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %139) #9
   store volatile ptr %140, ptr %5, align 8
@@ -884,7 +884,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(i32 16, 25) %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #9
   %.not7.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i, label %get_read_list_chunk_count.exit.i, label %.lr.ph.i.i
@@ -905,7 +905,7 @@ get_read_list_chunk_count.exit.i:                 ; preds = %.lr.ph.i.i, %4
   %11 = load i32, ptr @ett_rpcordma_read_list, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #9
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #9
-  %14 = add i32 %1, 4
+  %14 = add nuw nsw i32 %1, 4
   %.not25.i = icmp eq i32 %13, 0
   br i1 %.not25.i, label %dissect_rpcrdma_read_list.exit, label %.lr.ph.i
 
@@ -1314,7 +1314,7 @@ set_fragment_head.exit:                           ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_rdma_lists(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc ptr @process_rdma_lists(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %17
@@ -1356,7 +1356,7 @@ declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #2
 declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 3) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = add i32 %2, 4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %6) #9
   %8 = lshr i32 %7, 4
@@ -1807,7 +1807,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = load ptr, ptr @gp_infiniband_info, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
@@ -2129,7 +2129,7 @@ end_reassembly.exit:                              ; preds = %103, %105, %109
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 80
@@ -2321,7 +2321,7 @@ define internal fastcc range(i32 0, 2) i32 @packet_is_rpcordma(ptr noundef %0) u
 declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_chunk_lists_size(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @get_chunk_lists_size(ptr noundef %0, i32 noundef range(i32 28, 0) %1, i32 noundef range(i32 16, 25) %2) unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %9, %3

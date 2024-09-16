@@ -710,7 +710,7 @@ define dso_local i32 @ieee80211_tdls_oper(ptr nocapture noundef readonly %0, ptr
 declare dso_local ptr @sta_info_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iee80211_tdls_recalc_chanctx(ptr %.1256.val, ptr %.4912.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @iee80211_tdls_recalc_chanctx(ptr %.1256.val, ptr %.4912.val, ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %.4912.val, null
   br i1 %2, label %30, label %3
 
@@ -2203,8 +2203,8 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %204 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 2) #12
   %205 = getelementptr i8, ptr %204, i64 1
   store i8 36, ptr %204, align 1
-  %206 = tail call fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr noundef %179, ptr noundef nonnull %32, i16 noundef zeroext 2412, i16 noundef zeroext 2472, i16 noundef zeroext 5)
-  %207 = tail call fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr noundef %179, ptr noundef nonnull %32, i16 noundef zeroext 5000, i16 noundef zeroext 5825, i16 noundef zeroext 20)
+  %206 = tail call fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr noundef %179, ptr noundef %32, i16 noundef zeroext 2412, i16 noundef zeroext 2472, i16 noundef zeroext 5)
+  %207 = tail call fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr noundef %179, ptr noundef %32, i16 noundef zeroext 5000, i16 noundef zeroext 5825, i16 noundef zeroext 20)
   %208 = add i8 %207, %206
   %209 = shl i8 %208, 1
   store i8 %209, ptr %205, align 1
@@ -2626,7 +2626,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   br i1 %451, label %452, label %458
 
 452:                                              ; preds = %442
-  %453 = call ptr @skb_put(ptr noundef %32, i32 noundef 4) #12
+  %453 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 4) #12
   %454 = getelementptr i8, ptr %453, i64 1
   store i8 -59, ptr %453, align 1
   %455 = getelementptr i8, ptr %453, i64 2
@@ -2649,7 +2649,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 462:                                              ; preds = %459
   call void @ieee80211_apply_vhtcap_overrides(ptr noundef %179, ptr noundef nonnull %14) #12
-  %463 = call ptr @skb_put(ptr noundef %32, i32 noundef 14) #12
+  %463 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 14) #12
   %464 = getelementptr inbounds i8, ptr %14, i64 4
   %465 = load i32, ptr %464, align 4
   %466 = call ptr @ieee80211_ie_build_vht_cap(ptr noundef %463, ptr noundef nonnull %14, i32 noundef %465) #12
@@ -2669,7 +2669,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 474:                                              ; preds = %470
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef align 4 dereferenceable(16) %471, i64 16, i1 false)
-  %475 = call ptr @skb_put(ptr noundef %32, i32 noundef 14) #12
+  %475 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 14) #12
   %476 = getelementptr inbounds i8, ptr %14, i64 4
   %477 = load i32, ptr %476, align 4
   %478 = call ptr @ieee80211_ie_build_vht_cap(ptr noundef %475, ptr noundef nonnull %14, i32 noundef %477) #12
@@ -2691,7 +2691,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %486 = getelementptr i8, ptr %7, i64 %363
   %487 = sub i64 %485, %363
   %488 = trunc i64 %487 to i32
-  %489 = call ptr @skb_put(ptr noundef %32, i32 noundef %488) #12
+  %489 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef %488) #12
   %490 = and i64 %487, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %489, ptr align 1 %486, i64 %490, i1 false)
   br label %491
@@ -2743,7 +2743,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %523 = add nuw nsw i8 %522, %499
   %524 = add nuw nsw i8 %523, %521
   %525 = zext nneg i8 %524 to i32
-  %526 = call ptr @skb_put(ptr noundef %32, i32 noundef %525) #12
+  %526 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef %525) #12
   %527 = zext nneg i8 %524 to i64
   %528 = getelementptr i8, ptr %526, i64 %527
   %529 = call ptr @ieee80211_ie_build_he_cap(i32 noundef 0, ptr noundef %526, ptr noundef nonnull %406, ptr noundef %528) #12
@@ -2752,7 +2752,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   br i1 %531, label %532, label %578
 
 532:                                              ; preds = %520
-  %533 = call ptr @skb_put(ptr noundef %32, i32 noundef 5) #12
+  %533 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 5) #12
   %534 = load i32, ptr %365, align 8
   %535 = load i8, ptr %367, align 4, !range !7, !noundef !8
   %536 = icmp eq i8 %535, 0
@@ -2844,7 +2844,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %581 = getelementptr i8, ptr %7, i64 %492
   %582 = sub i64 %580, %492
   %583 = trunc i64 %582 to i32
-  %584 = call ptr @skb_put(ptr noundef %32, i32 noundef %583) #12
+  %584 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef %583) #12
   %585 = and i64 %582, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %584, ptr align 1 %581, i64 %585, i1 false)
   br label %586
@@ -2917,7 +2917,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %635 = phi i8 [ %633, %619 ], [ 0, %613 ]
   %636 = add i8 %635, %614
   %637 = zext i8 %636 to i32
-  %638 = call ptr @skb_put(ptr noundef %32, i32 noundef %637) #12
+  %638 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef %637) #12
   %639 = zext i8 %636 to i64
   %640 = getelementptr i8, ptr %638, i64 %639
   %641 = call ptr @ieee80211_ie_build_eht_cap(ptr noundef %638, ptr noundef nonnull %406, ptr noundef nonnull %443, ptr noundef %640, i1 noundef zeroext false) #12
@@ -2930,7 +2930,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %644 = getelementptr i8, ptr %7, i64 %587
   %645 = sub i64 %8, %587
   %646 = trunc i64 %645 to i32
-  %647 = call ptr @skb_put(ptr noundef %32, i32 noundef %646) #12
+  %647 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef %646) #12
   %648 = and i64 %645, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %647, ptr align 1 %644, i64 %648, i1 false)
   br label %649
@@ -3541,7 +3541,7 @@ declare dso_local ptr @ieee80211_write_he_6ghz_cap(ptr noundef, i16 noundef zero
 declare dso_local ptr @ieee80211_ie_build_eht_cap(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i16 noundef zeroext range(i16 2412, 5001) %2, i16 noundef zeroext range(i16 2472, 5826) %3, i16 noundef zeroext range(i16 5, 21) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.cfg80211_chan_def, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
   %7 = getelementptr inbounds i8, ptr %0, i64 1256
@@ -3569,7 +3569,7 @@ define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr nocapture noun
   %24 = load ptr, ptr %7, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = mul i32 %21, 1000
+  %27 = mul nuw nsw i32 %21, 1000
   %28 = call ptr @ieee80211_get_channel_khz(ptr noundef %26, i32 noundef %27) #12
   %29 = icmp eq ptr %28, null
   br i1 %29, label %35, label %30
@@ -3588,7 +3588,7 @@ define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr nocapture noun
   br i1 %22, label %43, label %36
 
 36:                                               ; preds = %35
-  %37 = call ptr @skb_put(ptr noundef %1, i32 noundef 2) #12
+  %37 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 2) #12
   %38 = mul i32 %20, 1000
   %39 = call i32 @ieee80211_freq_khz_to_channel(i32 noundef %38) #12
   %40 = trunc i32 %39 to i8
@@ -3611,7 +3611,7 @@ define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr nocapture noun
 
 50:                                               ; preds = %48
   %51 = mul i32 %23, 1000
-  %52 = call ptr @skb_put(ptr noundef %1, i32 noundef 2) #12
+  %52 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 2) #12
   %53 = call i32 @ieee80211_freq_khz_to_channel(i32 noundef %51) #12
   %54 = trunc i32 %53 to i8
   %55 = getelementptr i8, ptr %52, i64 1
@@ -3702,7 +3702,7 @@ declare dso_local i32 @__SCT__tp_func_drv_tdls_cancel_channel_switch(ptr noundef
 declare dso_local ptr @__pskb_pull_tail(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ieee80211_tdls_ch_sw_resp_tmpl_get(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ieee80211_tdls_ch_sw_resp_tmpl_get(ptr noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca [6 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8

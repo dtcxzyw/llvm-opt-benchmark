@@ -925,7 +925,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare ptr @scsi_req_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @execute_command(ptr noundef %blk, ptr noundef %r, i32 noundef %direction, ptr noundef %complete) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @execute_command(ptr noundef %blk, ptr noundef %r, i32 noundef range(i32 -3, 0) %direction, ptr noundef %complete) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dev = getelementptr inbounds i8, ptr %r, i64 8
@@ -1552,7 +1552,7 @@ if.end:                                           ; preds = %calculate_max_trans
 declare zeroext i1 @blk_is_writable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @scsi_handle_inquiry_reply(ptr nocapture noundef readonly %r, ptr nocapture noundef %s, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc i32 @scsi_handle_inquiry_reply(ptr nocapture noundef readonly %r, ptr nocapture noundef %s, i32 noundef range(i32 1, 0) %len) unnamed_addr #0 {
 entry:
   %buf40 = alloca [16 x i8], align 16
   %scsi_version = getelementptr inbounds i8, ptr %s, i64 592

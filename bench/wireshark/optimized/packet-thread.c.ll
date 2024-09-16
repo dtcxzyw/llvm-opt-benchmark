@@ -3775,14 +3775,14 @@ set_thread_seq_ctr_from_key_index.exit:           ; preds = %11, %15, %20
   %.0.ph = phi ptr [ %32, %54 ], [ %32, %30 ], [ %.0.i, %set_thread_seq_ctr_from_key_index.exit ]
   %58 = getelementptr inbounds i8, ptr %0, i64 66
   %59 = load i16, ptr %58, align 2
-  tail call fastcc void @create_thread_temp_keys(ptr noundef nonnull %.0.ph, i16 noundef zeroext %59, ptr noundef %3, ptr noundef null, ptr noundef %1)
+  tail call fastcc void @create_thread_temp_keys(ptr noundef %.0.ph, i16 noundef zeroext %59, ptr noundef %3, ptr noundef null, ptr noundef %1)
   %60 = load ptr, ptr %.0.ph, align 8
   %61 = getelementptr i8, ptr %60, i64 3
   %62 = load i8, ptr %61, align 1
   %63 = xor i8 %62, -128
   store i8 %63, ptr %61, align 1
   %64 = load i16, ptr %58, align 2
-  tail call fastcc void @create_thread_temp_keys(ptr noundef nonnull %.0.ph, i16 noundef zeroext %64, ptr noundef %3, ptr noundef null, ptr noundef %2)
+  tail call fastcc void @create_thread_temp_keys(ptr noundef %.0.ph, i16 noundef zeroext %64, ptr noundef %3, ptr noundef null, ptr noundef %2)
   %65 = tail call ptr @g_byte_array_free(ptr noundef nonnull %.0.ph, i32 noundef 1) #7
   br label %66
 
@@ -3858,14 +3858,14 @@ define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr nocapture noundef re
   store i8 %39, ptr %34, align 1
   %40 = getelementptr inbounds i8, ptr %0, i64 66
   %41 = load i16, ptr %40, align 2
-  tail call fastcc void @create_thread_temp_keys(ptr noundef nonnull %.0.i, i16 noundef zeroext %41, ptr noundef %3, ptr noundef %1, ptr noundef null)
+  tail call fastcc void @create_thread_temp_keys(ptr noundef %.0.i, i16 noundef zeroext %41, ptr noundef %3, ptr noundef %1, ptr noundef null)
   %42 = load ptr, ptr %.0.i, align 8
   %43 = getelementptr i8, ptr %42, i64 3
   %44 = load i8, ptr %43, align 1
   %45 = xor i8 %44, -128
   store i8 %45, ptr %43, align 1
   %46 = load i16, ptr %40, align 2
-  tail call fastcc void @create_thread_temp_keys(ptr noundef nonnull %.0.i, i16 noundef zeroext %46, ptr noundef %3, ptr noundef %2, ptr noundef null)
+  tail call fastcc void @create_thread_temp_keys(ptr noundef %.0.i, i16 noundef zeroext %46, ptr noundef %3, ptr noundef %2, ptr noundef null)
   %47 = tail call ptr @g_byte_array_free(ptr noundef nonnull %.0.i, i32 noundef 1) #7
   br label %.thread
 
@@ -3961,7 +3961,7 @@ declare ptr @g_byte_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_thread_temp_keys(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @create_thread_temp_keys(ptr nocapture noundef nonnull readonly %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca [10 x i8], align 4
   %7 = alloca [32 x i8], align 16
   %8 = tail call ptr @g_byte_array_new() #7

@@ -1116,7 +1116,7 @@ define dso_local void @_ZN5vcpkg10DotVersion17try_parse_relaxedENS_10StringViewE
   %5 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %6 = alloca %"struct.vcpkg::Optional.17", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
-  call fastcc void @_ZN5vcpkgL21try_parse_dot_versionENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %1, i64 %2)
+  call fastcc void @_ZN5vcpkgL21try_parse_dot_versionENS_10StringViewE(ptr dead_on_unwind noalias writable align 8 %6, ptr %1, i64 %2)
   %8 = load i8, ptr %6, align 8
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1276,7 +1276,7 @@ define dso_local void @_ZN5vcpkg10DotVersion16try_parse_semverENS_10StringViewE(
   %5 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %6 = alloca %"struct.vcpkg::Optional.17", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
-  call fastcc void @_ZN5vcpkgL21try_parse_dot_versionENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %1, i64 %2)
+  call fastcc void @_ZN5vcpkgL21try_parse_dot_versionENS_10StringViewE(ptr dead_on_unwind noalias writable align 8 %6, ptr %1, i64 %2)
   %8 = load i8, ptr %6, align 8
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1440,7 +1440,7 @@ _ZN5vcpkg8OptionalINS_10DotVersionEED2Ev.exit:    ; preds = %47, %_ZN5vcpkg10Dot
 declare void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL21try_parse_dot_versionENS_10StringViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL21try_parse_dot_versionENS_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"struct.vcpkg::DotVersion", align 8

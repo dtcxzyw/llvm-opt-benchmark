@@ -258,7 +258,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %kctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %mode, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %info, i64 noundef %infolen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %kctx, ptr noundef %out, i64 noundef %outlen, i32 noundef range(i32 1, 3) %mode, ptr noundef %salt, i64 noundef %saltlen, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %info, i64 noundef %infolen) unnamed_addr #0 {
 entry:
   %mode.addr = alloca i32, align 4
   %params = alloca [5 x %struct.ossl_param_st], align 16
@@ -670,8 +670,8 @@ if.end41:                                         ; preds = %if.then40, %while.b
   br i1 %cmp42, label %for.cond1.preheader.i, label %if.else
 
 for.cond1.preheader.i:                            ; preds = %if.end41, %for.inc7.i
-  %i.09.i = phi i64 [ %inc8.i, %for.inc7.i ], [ 0, %if.end41 ]
-  %arrayidx.i = getelementptr inbounds %struct.synonymttab_t, ptr @kemstrtab, i64 %i.09.i
+  %i.08.i = phi i64 [ %inc8.i, %for.inc7.i ], [ 0, %if.end41 ]
+  %arrayidx.i = getelementptr inbounds %struct.synonymttab_t, ptr @kemstrtab, i64 %i.08.i
   %synonyms.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   br label %for.body3.i
 
@@ -689,9 +689,9 @@ for.body3.i:                                      ; preds = %for.cond1.i, %for.c
   br i1 %cmp5.i, label %synonyms_name2id.exit, label %for.cond1.i
 
 for.inc7.i:                                       ; preds = %for.cond1.i
-  %inc8.i = add nuw nsw i64 %i.09.i, 1
-  %exitcond11.not.i = icmp eq i64 %inc8.i, 5
-  br i1 %exitcond11.not.i, label %fail, label %for.cond1.preheader.i, !llvm.loop !11
+  %inc8.i = add nuw nsw i64 %i.08.i, 1
+  %exitcond10.not.i = icmp eq i64 %inc8.i, 5
+  br i1 %exitcond10.not.i, label %fail, label %for.cond1.preheader.i, !llvm.loop !11
 
 synonyms_name2id.exit:                            ; preds = %for.body3.i
   %5 = load i16, ptr %arrayidx.i, align 8
@@ -704,8 +704,8 @@ if.else:                                          ; preds = %synonyms_name2id.ex
   br i1 %cmp49, label %for.cond1.preheader.i31, label %if.else57
 
 for.cond1.preheader.i31:                          ; preds = %if.else, %for.inc7.i43
-  %i.09.i32 = phi i64 [ %inc8.i44, %for.inc7.i43 ], [ 0, %if.else ]
-  %arrayidx.i33 = getelementptr inbounds %struct.synonymttab_t, ptr @kdfstrtab, i64 %i.09.i32
+  %i.08.i32 = phi i64 [ %inc8.i44, %for.inc7.i43 ], [ 0, %if.else ]
+  %arrayidx.i33 = getelementptr inbounds %struct.synonymttab_t, ptr @kdfstrtab, i64 %i.08.i32
   %synonyms.i34 = getelementptr inbounds i8, ptr %arrayidx.i33, i64 8
   br label %for.body3.i35
 
@@ -723,9 +723,9 @@ for.body3.i35:                                    ; preds = %for.cond1.i40, %for
   br i1 %cmp5.i39, label %synonyms_name2id.exit48, label %for.cond1.i40
 
 for.inc7.i43:                                     ; preds = %for.cond1.i40
-  %inc8.i44 = add nuw nsw i64 %i.09.i32, 1
-  %exitcond11.not.i45 = icmp eq i64 %inc8.i44, 3
-  br i1 %exitcond11.not.i45, label %fail, label %for.cond1.preheader.i31, !llvm.loop !11
+  %inc8.i44 = add nuw nsw i64 %i.08.i32, 1
+  %exitcond10.not.i45 = icmp eq i64 %inc8.i44, 3
+  br i1 %exitcond10.not.i45, label %fail, label %for.cond1.preheader.i31, !llvm.loop !11
 
 synonyms_name2id.exit48:                          ; preds = %for.body3.i35
   %7 = load i16, ptr %arrayidx.i33, align 8
@@ -738,8 +738,8 @@ if.else57:                                        ; preds = %synonyms_name2id.ex
   br i1 %cmp58, label %for.cond1.preheader.i49, label %if.end68
 
 for.cond1.preheader.i49:                          ; preds = %if.else57, %for.inc7.i61
-  %i.09.i50 = phi i64 [ %inc8.i62, %for.inc7.i61 ], [ 0, %if.else57 ]
-  %arrayidx.i51 = getelementptr inbounds %struct.synonymttab_t, ptr @aeadstrtab, i64 %i.09.i50
+  %i.08.i50 = phi i64 [ %inc8.i62, %for.inc7.i61 ], [ 0, %if.else57 ]
+  %arrayidx.i51 = getelementptr inbounds %struct.synonymttab_t, ptr @aeadstrtab, i64 %i.08.i50
   %synonyms.i52 = getelementptr inbounds i8, ptr %arrayidx.i51, i64 8
   br label %for.body3.i53
 
@@ -757,9 +757,9 @@ for.body3.i53:                                    ; preds = %for.cond1.i58, %for
   br i1 %cmp5.i57, label %synonyms_name2id.exit66, label %for.cond1.i58
 
 for.inc7.i61:                                     ; preds = %for.cond1.i58
-  %inc8.i62 = add nuw nsw i64 %i.09.i50, 1
-  %exitcond11.not.i63 = icmp eq i64 %inc8.i62, 4
-  br i1 %exitcond11.not.i63, label %fail, label %for.cond1.preheader.i49, !llvm.loop !11
+  %inc8.i62 = add nuw nsw i64 %i.08.i50, 1
+  %exitcond10.not.i63 = icmp eq i64 %inc8.i62, 4
+  br i1 %exitcond10.not.i63, label %fail, label %for.cond1.preheader.i49, !llvm.loop !11
 
 synonyms_name2id.exit66:                          ; preds = %for.body3.i53
   %9 = load i16, ptr %arrayidx.i51, align 8

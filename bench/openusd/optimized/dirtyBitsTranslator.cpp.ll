@@ -3110,7 +3110,7 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocator
 declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet3endEv(ptr noundef nonnull align 8 dereferenceable(456)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %5, %6
@@ -3803,7 +3803,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br label %287
 
 287:                                              ; preds = %285, %279, %276
-  %288 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %288 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
   br i1 %288, label %289, label %.critedge
 
 289:                                              ; preds = %287
@@ -3834,7 +3834,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 
 306:                                              ; preds = %294
   %307 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetDefaultLocatorEv()
-  %308 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %307, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %308 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %307, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext false)
   br i1 %308, label %309, label %.critedge
 
 309:                                              ; preds = %306
@@ -3912,7 +3912,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 
 359:                                              ; preds = %347
   %360 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdIntegratorSchema17GetDefaultLocatorEv()
-  %361 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %360, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %361 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %360, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
   br i1 %361, label %362, label %.critedge
 
 362:                                              ; preds = %359
@@ -3937,7 +3937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 
 377:                                              ; preds = %365
   %378 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__20HdSampleFilterSchema17GetDefaultLocatorEv()
-  %379 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %378, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %379 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %378, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
   br i1 %379, label %380, label %383
 
 380:                                              ; preds = %377
@@ -3948,7 +3948,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 
 383:                                              ; preds = %380, %377
   %384 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
-  %385 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %384, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %385 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %384, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
   br i1 %385, label %386, label %.critedge
 
 386:                                              ; preds = %383
@@ -3973,7 +3973,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 
 401:                                              ; preds = %389
   %402 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__21HdDisplayFilterSchema17GetDefaultLocatorEv()
-  %403 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %402, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %403 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %402, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
   br i1 %403, label %404, label %407
 
 404:                                              ; preds = %401
@@ -3984,7 +3984,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 
 407:                                              ; preds = %404, %401
   %408 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
-  %409 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %408, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %409 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %408, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
   br i1 %409, label %410, label %.critedge
 
 410:                                              ; preds = %407
@@ -4009,7 +4009,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 
 425:                                              ; preds = %413
   %426 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetDefaultLocatorEv()
-  %427 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %426, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %427 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %426, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext false)
   br i1 %427, label %428, label %.critedge
 
 428:                                              ; preds = %425
@@ -4087,7 +4087,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTok
 
 473:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit109
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7)
-  %474 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %474 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
           to label %475 unwind label %479
 
 475:                                              ; preds = %473

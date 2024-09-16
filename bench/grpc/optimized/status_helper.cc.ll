@@ -1515,7 +1515,7 @@ if.else.i.i:                                      ; preds = %cond.true
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113ParseChildrenEN4absl12lts_202308024CordE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp1)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113ParseChildrenEN4absl12lts_202308024CordE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp1)
           to label %cleanup.action unwind label %lpad3
 
 cond.end:                                         ; preds = %entry
@@ -1583,7 +1583,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_113ParseChildrenEN4absl12lts_202308024CordE(ptr noalias align 8 %agg.result, ptr noundef %children) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_113ParseChildrenEN4absl12lts_202308024CordE(ptr noalias align 8 %agg.result, ptr noundef nonnull %children) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -2082,7 +2082,7 @@ if.else.i.i:                                      ; preds = %if.then29
   br label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %if.else.i.i, %if.then.i.i, %if.then.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113ParseChildrenEN4absl12lts_202308024CordE(ptr noalias nonnull align 8 %children_status, ptr noundef nonnull %agg.tmp30)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113ParseChildrenEN4absl12lts_202308024CordE(ptr noalias nonnull align 8 %children_status, ptr noundef %agg.tmp30)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont32

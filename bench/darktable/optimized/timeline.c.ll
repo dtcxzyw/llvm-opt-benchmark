@@ -423,7 +423,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef readonly byval(%struct.dt_datetime_t) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
+define internal fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr nocapture noundef readonly byval(%struct.dt_datetime_t) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
   %4 = alloca %struct.dt_datetime_t, align 8
   %5 = alloca %struct.dt_datetime_t, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #17
@@ -4462,7 +4462,7 @@ declare void @cairo_line_to(ptr noundef, double noundef, double noundef) local_u
 declare void @cairo_stroke(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias writable align 4 %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #12 {
+define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #12 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !115
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %4, align 4, !tbaa !37, !alias.scope !115
@@ -4806,12 +4806,12 @@ declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare void @dt_collection_update_query(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_selection_collect(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_selection_collect(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = alloca [200 x i8], align 16
   %4 = alloca [200 x i8], align 16
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.31) #17
   %6 = icmp sgt i32 %5, 0
-  %7 = icmp ne i32 %1, 1
+  %7 = icmp eq i32 %1, 0
   %8 = and i1 %7, %6
   br i1 %8, label %9, label %34
 

@@ -1518,7 +1518,7 @@ _ZN4llvm10MIMetadataD2Ev.exit43.i:                ; preds = %203, %_ZN4llvm10MIM
 
 _ZN4llvm8DebugLocC2ERKS0_.exit47.i:               ; preds = %187, %183
   store ptr null, ptr %43, align 8
-  call fastcc void @_ZL9BuildPACMRKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocENS6_6MIFlagEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(409552) %186, ptr noundef nonnull align 8 dereferenceable(288) %162, ptr nonnull %149, ptr noundef nonnull %43, i32 noundef 1, ptr noundef null)
+  call fastcc void @_ZL9BuildPACMRKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocENS6_6MIFlagEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(409552) %186, ptr noundef nonnull align 8 dereferenceable(288) %162, ptr nonnull %149, ptr noundef %43, i32 noundef 1, ptr noundef null)
   %206 = load ptr, ptr %43, align 8
   %.not.i.i.i.i48.i = icmp eq ptr %206, null
   br i1 %.not.i.i.i.i48.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit53.i, label %207
@@ -1937,7 +1937,7 @@ _ZN4llvm10MIMetadataD2Ev.exit.i53:                ; preds = %347, %_ZN4llvm10MIM
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit51.i
 
 _ZN4llvm8DebugLocC2ERKS0_.exit51.i:               ; preds = %352, %350
-  call fastcc void @_ZL9BuildPACMRKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocENS6_6MIFlagEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(409552) %.pre138.pre.i, ptr noundef nonnull align 8 dereferenceable(288) %300, ptr nonnull %305, ptr noundef nonnull %22, i32 noundef 2, ptr noundef %315)
+  call fastcc void @_ZL9BuildPACMRKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocENS6_6MIFlagEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(409552) %.pre138.pre.i, ptr noundef nonnull align 8 dereferenceable(288) %300, ptr nonnull %305, ptr noundef %22, i32 noundef 2, ptr noundef %315)
   %354 = load ptr, ptr %22, align 8
   %.not.i.i.i.i52.i = icmp eq ptr %354, null
   br i1 %.not.i.i.i.i52.i, label %_ZN4llvm8DebugLocD2Ev.exit53.i, label %355
@@ -2140,7 +2140,7 @@ _ZN4llvm10MIMetadataD2Ev.exit67.i:                ; preds = %420, %_ZN4llvm10MIM
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit71.i
 
 _ZN4llvm8DebugLocC2ERKS0_.exit71.i:               ; preds = %425, %423
-  call fastcc void @_ZL9BuildPACMRKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocENS6_6MIFlagEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(409552) %.pre138.i, ptr noundef nonnull align 8 dereferenceable(288) %300, ptr nonnull %149, ptr noundef nonnull %27, i32 noundef 2, ptr noundef %396)
+  call fastcc void @_ZL9BuildPACMRKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocENS6_6MIFlagEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(409552) %.pre138.i, ptr noundef nonnull align 8 dereferenceable(288) %300, ptr nonnull %149, ptr noundef %27, i32 noundef 2, ptr noundef %396)
   %427 = load ptr, ptr %27, align 8
   %.not.i.i.i.i72.i = icmp eq ptr %427, null
   br i1 %.not.i.i.i.i72.i, label %_ZN4llvm8DebugLocD2Ev.exit73.i, label %428
@@ -2679,7 +2679,7 @@ declare noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull 
 declare void @_ZN4llvm12MachineInstr17setPreInstrSymbolERNS_15MachineFunctionEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(1041), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9BuildPACMRKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocENS6_6MIFlagEPNS_8MCSymbolE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(409552) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL9BuildPACMRKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocENS6_6MIFlagEPNS_8MCSymbolE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(409552) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 1, 3) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MIMetadata", align 8
@@ -2807,27 +2807,26 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit17: ; preds = %_ZN4llvm1
   %57 = extractvalue { ptr, ptr } %56, 1
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 44
   %59 = load i32, ptr %58, align 4
-  %60 = and i32 %4, 16777215
-  %61 = or i32 %59, %60
-  store i32 %61, ptr %58, align 4
-  %62 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i.i18 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i.i.i18, label %_ZN4llvm10MIMetadataD2Ev.exit19, label %63
+  %60 = or i32 %59, %4
+  store i32 %60, ptr %58, align 4
+  %61 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i.i18 = icmp eq ptr %61, null
+  br i1 %.not.i.i.i.i.i18, label %_ZN4llvm10MIMetadataD2Ev.exit19, label %62
 
-63:                                               ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit17
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %11, ptr noundef nonnull align 4 dereferenceable(8) %62) #12
+62:                                               ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit17
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %11, ptr noundef nonnull align 4 dereferenceable(8) %61) #12
   br label %_ZN4llvm10MIMetadataD2Ev.exit19
 
-_ZN4llvm10MIMetadataD2Ev.exit19:                  ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit17, %63
-  %64 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i20 = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i20, label %_ZN4llvm8DebugLocD2Ev.exit21, label %65
+_ZN4llvm10MIMetadataD2Ev.exit19:                  ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit17, %62
+  %63 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i20 = icmp eq ptr %63, null
+  br i1 %.not.i.i.i.i20, label %_ZN4llvm8DebugLocD2Ev.exit21, label %64
 
-65:                                               ; preds = %_ZN4llvm10MIMetadataD2Ev.exit19
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(8) %64) #12
+64:                                               ; preds = %_ZN4llvm10MIMetadataD2Ev.exit19
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(8) %63) #12
   br label %_ZN4llvm8DebugLocD2Ev.exit21
 
-_ZN4llvm8DebugLocD2Ev.exit21:                     ; preds = %65, %_ZN4llvm10MIMetadataD2Ev.exit19, %43, %_ZN4llvm8DebugLocD2Ev.exit
+_ZN4llvm8DebugLocD2Ev.exit21:                     ; preds = %64, %_ZN4llvm10MIMetadataD2Ev.exit19, %43, %_ZN4llvm8DebugLocD2Ev.exit
   ret void
 }
 

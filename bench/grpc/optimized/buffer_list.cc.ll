@@ -462,7 +462,7 @@ sw.bb:                                            ; preds = %if.then
   %clock_type.i = getelementptr inbounds i8, ptr %elem.067, i64 292
   store i32 1, ptr %clock_type.i, align 4
   %metrics = getelementptr inbounds i8, ptr %elem.067, i64 296
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef nonnull %metrics, ptr noundef %opt_stats)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %metrics, ptr noundef %opt_stats)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %elem.067, ptr noundef nonnull align 8 dereferenceable(16) %scheduled_time, i64 16, i1 false)
   %next_ = getelementptr inbounds i8, ptr %elem.067, i64 16
   br label %if.end
@@ -488,7 +488,7 @@ sw.bb9:                                           ; preds = %if.then
   %clock_type.i40 = getelementptr inbounds i8, ptr %elem.067, i64 532
   store i32 1, ptr %clock_type.i40, align 4
   %metrics17 = getelementptr inbounds i8, ptr %elem.067, i64 536
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef nonnull %metrics17, ptr noundef %opt_stats)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %metrics17, ptr noundef %opt_stats)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %elem.067, ptr noundef nonnull align 8 dereferenceable(16) %sent_time, i64 16, i1 false)
   %next_23 = getelementptr inbounds i8, ptr %elem.067, i64 16
   br label %if.end
@@ -505,7 +505,7 @@ sw.bb24:                                          ; preds = %if.then
   %clock_type.i44 = getelementptr inbounds i8, ptr %elem.067, i64 772
   store i32 1, ptr %clock_type.i44, align 4
   %metrics32 = getelementptr inbounds i8, ptr %elem.067, i64 776
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef nonnull %metrics32, ptr noundef %opt_stats)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %metrics32, ptr noundef %opt_stats)
   %10 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8
   %arg_ = getelementptr inbounds i8, ptr %elem.067, i64 32
   %11 = load ptr, ptr %arg_, align 8
@@ -753,7 +753,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit54:      ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr nocapture noundef %metrics, ptr noundef readonly %opt_stats) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr nocapture noundef nonnull %metrics, ptr noundef readonly %opt_stats) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %opt_stats, null
   br i1 %cmp, label %while.end, label %if.end

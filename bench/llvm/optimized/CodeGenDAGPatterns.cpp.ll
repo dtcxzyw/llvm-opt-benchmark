@@ -3143,7 +3143,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit43.i90: ; pr
   br i1 %79, label %138, label %207
 
 138:                                              ; preds = %137
-  call fastcc void @"_ZZZN4llvm15TypeSetByHwMode9intersectERNS_19MachineValueTypeSetERKS1_ENK3$_1clESt8optionalINS_3MVTEENS_12function_refIFbS7_EEEENKUlS4_S4_E_clES4_S4_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr nonnull %5, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %9)
+  call fastcc void @"_ZZZN4llvm15TypeSetByHwMode9intersectERNS_19MachineValueTypeSetERKS1_ENK3$_1clESt8optionalINS_3MVTEENS_12function_refIFbS7_EEEENKUlS4_S4_E_clES4_S4_"(ptr dead_on_unwind noalias writable align 8 %6, ptr nonnull %5, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %9)
   br label %139
 
 139:                                              ; preds = %138, %139
@@ -3286,7 +3286,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit43.i118: ; p
   br label %"_ZL9berase_ifIZZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_ENK3$_1clESt8optionalINS0_3MVTEENS0_12function_refIFbS8_EEEEUlS8_E_EbS3_T_.exit"
 
 207:                                              ; preds = %137
-  call fastcc void @"_ZZZN4llvm15TypeSetByHwMode9intersectERNS_19MachineValueTypeSetERKS1_ENK3$_1clESt8optionalINS_3MVTEENS_12function_refIFbS7_EEEENKUlS4_S4_E_clES4_S4_"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %5, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %12)
+  call fastcc void @"_ZZZN4llvm15TypeSetByHwMode9intersectERNS_19MachineValueTypeSetERKS1_ENK3$_1clESt8optionalINS_3MVTEENS_12function_refIFbS7_EEEENKUlS4_S4_E_clES4_S4_"(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %5, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %12)
   %208 = load ptr, ptr %11, align 8
   br label %209
 
@@ -6576,7 +6576,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i469: ; pre
 504:                                              ; preds = %"_ZL6min_ifIN4llvm19MachineValueTypeSet14const_iteratorEPFbNS0_3MVTEEZNS0_9TypeInfer18EnforceSmallerThanERNS0_15TypeSetByHwModeES8_bE3$_2ET_SA_SA_T0_T1_.exit"
   %505 = trunc i32 %.sroa.531.2.i to i16
   store i16 %505, ptr %433, align 2, !alias.scope !41
-  %506 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3St12_PlaceholderILi1EENS1_3MVTEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %440, ptr noundef nonnull %9)
+  %506 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3St12_PlaceholderILi1EENS1_3MVTEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %440, ptr noundef %9)
   %507 = or i1 %.51010, %506
   br label %"_ZL6min_ifIN4llvm19MachineValueTypeSet14const_iteratorEPFbNS0_3MVTEEZNS0_9TypeInfer18EnforceSmallerThanERNS0_15TypeSetByHwModeES8_bE3$_2ET_SA_SA_T0_T1_.exit.thread"
 
@@ -6733,7 +6733,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i496: ; pre
 573:                                              ; preds = %"_ZL6max_ifIN4llvm19MachineValueTypeSet14const_iteratorEPFbNS0_3MVTEEZNS0_9TypeInfer18EnforceSmallerThanERNS0_15TypeSetByHwModeES8_bE3$_2ET_SA_SA_T0_T1_.exit"
   %574 = trunc i32 %.sroa.531.2.i493 to i16
   store i16 %574, ptr %434, align 2, !alias.scope !45
-  %575 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3NS1_3MVTESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %439, ptr noundef nonnull %10)
+  %575 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3NS1_3MVTESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %439, ptr noundef %10)
   %576 = or i1 %.6, %575
   br label %"_ZL6max_ifIN4llvm19MachineValueTypeSet14const_iteratorEPFbNS0_3MVTEEZNS0_9TypeInfer18EnforceSmallerThanERNS0_15TypeSetByHwModeES8_bE3$_2ET_SA_SA_T0_T1_.exit.thread"
 
@@ -6902,7 +6902,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i552: ; pre
 646:                                              ; preds = %"_ZL6min_ifIN4llvm19MachineValueTypeSet14const_iteratorEPFbNS0_3MVTEEZNS0_9TypeInfer18EnforceSmallerThanERNS0_15TypeSetByHwModeES8_bE3$_2ET_SA_SA_T0_T1_.exit591"
   %647 = trunc i32 %.sroa.531.2.i549 to i16
   store i16 %647, ptr %435, align 2, !alias.scope !48
-  %648 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3St12_PlaceholderILi1EENS1_3MVTEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %440, ptr noundef nonnull %11)
+  %648 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3St12_PlaceholderILi1EENS1_3MVTEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %440, ptr noundef %11)
   %649 = or i1 %.7, %648
   br label %"_ZL6min_ifIN4llvm19MachineValueTypeSet14const_iteratorEPFbNS0_3MVTEEZNS0_9TypeInfer18EnforceSmallerThanERNS0_15TypeSetByHwModeES8_bE3$_2ET_SA_SA_T0_T1_.exit591.thread"
 
@@ -7072,7 +7072,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit.i609: ; pre
 720:                                              ; preds = %"_ZL6max_ifIN4llvm19MachineValueTypeSet14const_iteratorEPFbNS0_3MVTEEZNS0_9TypeInfer18EnforceSmallerThanERNS0_15TypeSetByHwModeES8_bE3$_2ET_SA_SA_T0_T1_.exit648"
   %721 = trunc i32 %.sroa.531.2.i606 to i16
   store i16 %721, ptr %436, align 2, !alias.scope !51
-  %722 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3NS1_3MVTESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %439, ptr noundef nonnull %12)
+  %722 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3NS1_3MVTESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %439, ptr noundef %12)
   %723 = or i1 %.8, %722
   br label %"_ZL6max_ifIN4llvm19MachineValueTypeSet14const_iteratorEPFbNS0_3MVTEEZNS0_9TypeInfer18EnforceSmallerThanERNS0_15TypeSetByHwModeES8_bE3$_2ET_SA_SA_T0_T1_.exit648.thread"
 
@@ -7673,7 +7673,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit41: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3St12_PlaceholderILi1EENS1_3MVTEEEEbRNS1_19MachineValueTypeSetET_"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3St12_PlaceholderILi1EENS1_3MVTEEEEbRNS1_19MachineValueTypeSetET_"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #7 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -7851,7 +7851,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit38: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3NS1_3MVTESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSmallerThanERNS1_15TypeSetByHwModeES4_bE3$_3NS1_3MVTESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #7 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -9979,7 +9979,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit136: ; preds
 
 "_ZSt4bindIRZN4llvm9TypeInfer18EnforceSameNumEltsERNS0_15TypeSetByHwModeES3_E3$_0JRNS0_13SmallDenseSetINS0_12ElementCountELj4ENS0_12DenseMapInfoIS7_vEEEERKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   call void @_ZN4llvm13SmallDenseMapINS_12ElementCountENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_vEENS2_12DenseSetPairIS1_EEE8copyFromERKS8_(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %8)
-  %241 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSameNumEltsERNS1_15TypeSetByHwModeES4_E3$_0NS1_13SmallDenseSetINS1_12ElementCountELj4ENS1_12DenseMapInfoIS7_vEEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull %11)
+  %241 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSameNumEltsERNS1_15TypeSetByHwModeES4_E3$_0NS1_13SmallDenseSetINS1_12ElementCountELj4ENS1_12DenseMapInfoIS7_vEEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef %11)
   %242 = load i32, ptr %43, align 8
   %243 = and i32 %242, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %243, 0
@@ -10008,7 +10008,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit136: ; preds
 
 "_ZSt4bindIRZN4llvm9TypeInfer18EnforceSameNumEltsERNS0_15TypeSetByHwModeES3_E3$_0JRNS0_13SmallDenseSetINS0_12ElementCountELj4ENS0_12DenseMapInfoIS7_vEEEERKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_.exit142": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i137
   call void @_ZN4llvm13SmallDenseMapINS_12ElementCountENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_vEENS2_12DenseSetPairIS1_EEE8copyFromERKS8_(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %7)
-  %249 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSameNumEltsERNS1_15TypeSetByHwModeES4_E3$_0NS1_13SmallDenseSetINS1_12ElementCountELj4ENS1_12DenseMapInfoIS7_vEEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull %12)
+  %249 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSameNumEltsERNS1_15TypeSetByHwModeES4_E3$_0NS1_13SmallDenseSetINS1_12ElementCountELj4ENS1_12DenseMapInfoIS7_vEEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef %12)
   %250 = or i1 %241, %249
   %251 = or i1 %.2229, %250
   %252 = load i32, ptr %47, align 8
@@ -10076,7 +10076,7 @@ _ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %277, %._crit_edge23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSameNumEltsERNS1_15TypeSetByHwModeES4_E3$_0NS1_13SmallDenseSetINS1_12ElementCountELj4ENS1_12DenseMapInfoIS7_vEEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer18EnforceSameNumEltsERNS1_15TypeSetByHwModeES4_E3$_0NS1_13SmallDenseSetINS1_12ElementCountELj4ENS1_12DenseMapInfoIS7_vEEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -10405,7 +10405,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit: ; preds = 
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %10, align 8
   store i8 %.sroa.2.0.copyload.i, ptr %.sroa.213.0..sroa_idx, align 8
-  call fastcc void @_ZN4llvm8SmallSetINS_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEE6insertERKS1_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(9) %10)
+  call fastcc void @_ZN4llvm8SmallSetINS_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEE6insertERKS1_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(9) %10)
   %83 = add i32 %.sroa.4162.0187, 1
   %84 = lshr i32 %83, 6
   %85 = and i32 %83, 63
@@ -10504,7 +10504,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit121: ; preds
   %.sroa.2.0.copyload.i124 = load i8, ptr %.sroa.2.0..sroa_idx.i123, align 8
   store i64 %.sroa.0.0.copyload.i122, ptr %12, align 8
   store i8 %.sroa.2.0.copyload.i124, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZN4llvm8SmallSetINS_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEE6insertERKS1_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(9) %12)
+  call fastcc void @_ZN4llvm8SmallSetINS_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEE6insertERKS1_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(9) %12)
   %127 = add i32 %.sroa.4.0189, 1
   %128 = lshr i32 %127, 6
   %129 = and i32 %127, 63
@@ -10617,7 +10617,7 @@ _ZNSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeComp
   br label %"_ZSt4bindIRZN4llvm9TypeInfer15EnforceSameSizeERNS0_15TypeSetByHwModeES3_E3$_0JRNS0_8SmallSetINS0_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEERKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_.exit"
 
 "_ZSt4bindIRZN4llvm9TypeInfer15EnforceSameSizeERNS0_15TypeSetByHwModeES3_E3$_0JRNS0_8SmallSetINS0_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEERKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_.exit": ; preds = %_ZN4llvm11SmallVectorINS_8TypeSizeELj2EEC2ERKS2_.exit.i.i.i.i.i.i, %_ZNSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeComparatorESaIS1_EE7_M_copyERKS7_.exit.i.i.i.i.i.i.i.i
-  %170 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS1_15TypeSetByHwModeES4_E3$_0NS1_8SmallSetINS1_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull %13)
+  %170 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS1_15TypeSetByHwModeES4_E3$_0NS1_8SmallSetINS1_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef %13)
   %.val.i.i.i.i.i = load ptr, ptr %54, align 8
   call fastcc void @_ZNSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeComparatorESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef %.val.i.i.i.i.i)
   %171 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #29
@@ -10679,7 +10679,7 @@ _ZNSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeComp
   br label %"_ZSt4bindIRZN4llvm9TypeInfer15EnforceSameSizeERNS0_15TypeSetByHwModeES3_E3$_0JRNS0_8SmallSetINS0_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEERKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_.exit148"
 
 "_ZSt4bindIRZN4llvm9TypeInfer15EnforceSameSizeERNS0_15TypeSetByHwModeES3_E3$_0JRNS0_8SmallSetINS0_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEERKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_.exit148": ; preds = %_ZN4llvm11SmallVectorINS_8TypeSizeELj2EEC2ERKS2_.exit.i.i.i.i.i.i139, %_ZNSt8_Rb_treeIN4llvm8TypeSizeES1_St9_IdentityIS1_EN12_GLOBAL__N_118TypeSizeComparatorESaIS1_EE7_M_copyERKS7_.exit.i.i.i.i.i.i.i.i147
-  %187 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS1_15TypeSetByHwModeES4_E3$_0NS1_8SmallSetINS1_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef nonnull %14)
+  %187 = call fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS1_15TypeSetByHwModeES4_E3$_0NS1_8SmallSetINS1_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef %14)
   %188 = or i1 %170, %187
   %189 = or i1 %.2193, %188
   %.val.i.i.i.i.i149 = load ptr, ptr %61, align 8
@@ -10741,7 +10741,7 @@ _ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %206, %._crit_edge19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm8SmallSetINS_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEE6insertERKS1_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm8SmallSetINS_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEE6insertERKS1_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %.val = load i64, ptr %4, align 8
   %5 = icmp eq i64 %.val, 0
@@ -10895,7 +10895,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8TypeSizeELb1EE9push_backES1_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS1_15TypeSetByHwModeES4_E3$_0NS1_8SmallSetINS1_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZL9berase_ifISt5_BindIFZN4llvm9TypeInfer15EnforceSameSizeERNS1_15TypeSetByHwModeES4_E3$_0NS1_8SmallSetINS1_8TypeSizeELj2EN12_GLOBAL__N_118TypeSizeComparatorEEESt12_PlaceholderILi1EEEEEbRNS1_19MachineValueTypeSetET_"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -31026,7 +31026,7 @@ _ZL11FindDepVarsRN4llvm15TreePatternNodeERNS_9StringSetINS_15MallocAllocatorEEE.
   br label %_ZNK4llvm14PatternToMatch19getSrcPatternSharedEv.exit
 
 _ZNK4llvm14PatternToMatch19getSrcPatternSharedEv.exit: ; preds = %_ZL11FindDepVarsRN4llvm15TreePatternNodeERNS_9StringSetINS_15MallocAllocatorEEE.exit, %87
-  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(1212) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(1212) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %90 = load ptr, ptr %7, align 8
   %.not.i.i32 = icmp eq ptr %90, null
   br i1 %.not.i.i32, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit, label %91
@@ -33300,7 +33300,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit79: ; preds = %_ZN4l
   %79 = load i32, ptr %75, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr %75, align 4
-  %81 = call fastcc noundef zeroext i1 @_ZL9HandleUseRN4llvm11TreePatternENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4lessISB_ESaISt4pairIKSB_S4_EEE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %81 = call fastcc noundef zeroext i1 @_ZL9HandleUseRN4llvm11TreePatternENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4lessISB_ESaISt4pairIKSB_S4_EEE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(48) %3)
   %82 = load i32, ptr %75, align 4
   %83 = add i32 %82, -1
   store i32 %83, ptr %75, align 4
@@ -33600,7 +33600,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit102: ; preds = %_ZN4
   br i1 %.not.i.i103, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit104.thread, label %202
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit104.thread: ; preds = %._crit_edge214
-  %201 = call fastcc noundef zeroext i1 @_ZL9HandleUseRN4llvm11TreePatternENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4lessISB_ESaISt4pairIKSB_S4_EEE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %201 = call fastcc noundef zeroext i1 @_ZL9HandleUseRN4llvm11TreePatternENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4lessISB_ESaISt4pairIKSB_S4_EEE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(48) %3)
   br i1 %201, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit158, label %210
 
 202:                                              ; preds = %._crit_edge214.thread, %._crit_edge214
@@ -33608,7 +33608,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit104.thread: ; pr
   %204 = load i32, ptr %203, align 4
   %205 = add i32 %204, 1
   store i32 %205, ptr %203, align 4
-  %206 = call fastcc noundef zeroext i1 @_ZL9HandleUseRN4llvm11TreePatternENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4lessISB_ESaISt4pairIKSB_S4_EEE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %206 = call fastcc noundef zeroext i1 @_ZL9HandleUseRN4llvm11TreePatternENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4lessISB_ESaISt4pairIKSB_S4_EEE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(48) %3)
   %207 = load i32, ptr %203, align 4
   %208 = add i32 %207, -1
   store i32 %208, ptr %203, align 4
@@ -34134,7 +34134,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit158: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL9HandleUseRN4llvm11TreePatternENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4lessISB_ESaISt4pairIKSB_S4_EEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL9HandleUseRN4llvm11TreePatternENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4lessISB_ESaISt4pairIKSB_S4_EEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator.21", align 1
   %5 = alloca %"class.std::allocator.21", align 1
   %6 = alloca %"class.std::allocator.21", align 1
@@ -37738,7 +37738,7 @@ _ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit139: ; pred
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit: ; preds = %461, %464
-  call fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull %30)
+  call fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef %30)
   %467 = load ptr, ptr %30, align 8
   %.not.i.i88 = icmp eq ptr %467, null
   br i1 %.not.i.i88, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit, label %468
@@ -38903,7 +38903,7 @@ _ZNK4llvm9TypeInfer10isConcreteERKNS_15TypeSetByHwModeEb.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -38933,7 +38933,7 @@ define internal fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15T
   br label %_ZNSt6vectorIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE9push_backEOS3_.exit: ; preds = %15, %13
-  call fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %6)
+  call fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %6)
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt6vectorIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -38982,7 +38982,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit10: ; preds = %_ZN4l
   %37 = sdiv exact i64 %36, 56
   %38 = trunc i64 %37 to i32
   store i32 %38, ptr %7, align 4
-  call void @_ZN4llvm19makeIntrusiveRefCntINS_15TreePatternNodeEJRPNS_6RecordESt6vectorINS_18IntrusiveRefCntPtrIS1_EESaIS7_EEjEEENS6_IT_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call void @_ZN4llvm19makeIntrusiveRefCntINS_15TreePatternNodeEJRPNS_6RecordESt6vectorINS_18IntrusiveRefCntPtrIS1_EESaIS7_EEjEEENS6_IT_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %39 = load ptr, ptr %4, align 8
   %40 = load ptr, ptr %18, align 8
   %.not4.i.i.i = icmp eq ptr %39, %40
@@ -39074,7 +39074,7 @@ _ZSt8_DestroyIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES3_EvT_S5_RSaI
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit15: ; preds = %.lr.ph, %72
   %77 = phi ptr [ %75, %72 ], [ %67, %.lr.ph ]
   store ptr %71, ptr %9, align 8
-  call fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %9)
+  call fastcc void @_ZL13PromoteXFormsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %9)
   %78 = load ptr, ptr %8, align 8
   %.not.i.i.i16 = icmp eq ptr %78, null
   br i1 %.not.i.i.i16, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit.i, label %79
@@ -39658,7 +39658,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit11: ; preds = %_ZN4l
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca %"class.std::vector", align 8
@@ -39804,7 +39804,7 @@ _ZNK4llvm18CodeGenDAGPatterns13getSDNodeInfoEPNS_6RecordE.exit: ; preds = %61, %
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit: ; preds = %87, %88
-  call fastcc void @_ZL33GatherChildrenOfAssociativeOpcodeN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EE(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZL33GatherChildrenOfAssociativeOpcodeN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EE(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %91 = load ptr, ptr %6, align 8
   %.not.i.i97 = icmp eq ptr %91, null
   br i1 %.not.i.i97, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit, label %92
@@ -39847,7 +39847,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit: ; preds = %_ZN4llv
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit99
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit99: ; preds = %102, %104
-  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %107 = load ptr, ptr %10, align 8
   %.not.i.i100 = icmp eq ptr %107, null
   br i1 %.not.i.i100, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit102, label %108
@@ -39879,7 +39879,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit102: ; preds = %_ZN4
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit104
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit104: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit102, %115
-  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %118 = load ptr, ptr %11, align 8
   %.not.i.i105 = icmp eq ptr %118, null
   br i1 %.not.i.i105, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit107, label %119
@@ -39911,7 +39911,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit107: ; preds = %_ZN4
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit109
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit109: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit107, %126
-  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %129 = load ptr, ptr %12, align 8
   %.not.i.i110 = icmp eq ptr %129, null
   br i1 %.not.i.i110, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit112, label %130
@@ -39941,14 +39941,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit112: ; preds = %_ZN4
   br i1 %.not.i.i113, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit114.thread, label %135
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit114.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit112
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit117
 
 135:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit112
   %136 = load i32, ptr %134, align 4
   %137 = add i32 %136, 1
   store i32 %137, ptr %134, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %138 = load i32, ptr %134, align 4
   %139 = add i32 %138, -1
   store i32 %139, ptr %134, align 4
@@ -39967,14 +39967,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit117: ; preds = %_ZN4
   br i1 %.not.i.i118, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit119.thread, label %142
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit119.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit117
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit122
 
 142:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit117
   %143 = load i32, ptr %141, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %141, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %145 = load i32, ptr %141, align 4
   %146 = add i32 %145, -1
   store i32 %146, ptr %141, align 4
@@ -39993,14 +39993,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit122: ; preds = %_ZN4
   br i1 %.not.i.i123, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit124.thread, label %149
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit124.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit122
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit127
 
 149:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit122
   %150 = load i32, ptr %148, align 4
   %151 = add i32 %150, 1
   store i32 %151, ptr %148, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %152 = load i32, ptr %148, align 4
   %153 = add i32 %152, -1
   store i32 %153, ptr %148, align 4
@@ -40019,14 +40019,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit127: ; preds = %_ZN4
   br i1 %.not.i.i128, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit129.thread, label %156
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit129.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit127
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit132
 
 156:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit127
   %157 = load i32, ptr %155, align 4
   %158 = add i32 %157, 1
   store i32 %158, ptr %155, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %159 = load i32, ptr %155, align 4
   %160 = add i32 %159, -1
   store i32 %160, ptr %155, align 4
@@ -40045,14 +40045,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit132: ; preds = %_ZN4
   br i1 %.not.i.i133, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit134.thread, label %163
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit134.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit132
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit137
 
 163:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit132
   %164 = load i32, ptr %162, align 4
   %165 = add i32 %164, 1
   store i32 %165, ptr %162, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %166 = load i32, ptr %162, align 4
   %167 = add i32 %166, -1
   store i32 %167, ptr %162, align 4
@@ -40071,14 +40071,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit137: ; preds = %_ZN4
   br i1 %.not.i.i138, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit139.thread, label %170
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit139.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit137
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit142
 
 170:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit137
   %171 = load i32, ptr %169, align 4
   %172 = add i32 %171, 1
   store i32 %172, ptr %169, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %173 = load i32, ptr %169, align 4
   %174 = add i32 %173, -1
   store i32 %174, ptr %169, align 4
@@ -40097,14 +40097,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit142: ; preds = %_ZN4
   br i1 %.not.i.i143, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit144.thread, label %177
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit144.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit142
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit147
 
 177:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit142
   %178 = load i32, ptr %176, align 4
   %179 = add i32 %178, 1
   store i32 %179, ptr %176, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %180 = load i32, ptr %176, align 4
   %181 = add i32 %180, -1
   store i32 %181, ptr %176, align 4
@@ -40123,14 +40123,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit147: ; preds = %_ZN4
   br i1 %.not.i.i148, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit149.thread, label %184
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit149.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit147
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit152
 
 184:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit147
   %185 = load i32, ptr %183, align 4
   %186 = add i32 %185, 1
   store i32 %186, ptr %183, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %187 = load i32, ptr %183, align 4
   %188 = add i32 %187, -1
   store i32 %188, ptr %183, align 4
@@ -40149,14 +40149,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit152: ; preds = %_ZN4
   br i1 %.not.i.i153, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit154.thread, label %191
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit154.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit152
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit157
 
 191:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit152
   %192 = load i32, ptr %190, align 4
   %193 = add i32 %192, 1
   store i32 %193, ptr %190, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %194 = load i32, ptr %190, align 4
   %195 = add i32 %194, -1
   store i32 %195, ptr %190, align 4
@@ -40175,14 +40175,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit157: ; preds = %_ZN4
   br i1 %.not.i.i158, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit159.thread, label %198
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit159.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit157
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit162
 
 198:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit157
   %199 = load i32, ptr %197, align 4
   %200 = add i32 %199, 1
   store i32 %200, ptr %197, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %201 = load i32, ptr %197, align 4
   %202 = add i32 %201, -1
   store i32 %202, ptr %197, align 4
@@ -40201,14 +40201,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit162: ; preds = %_ZN4
   br i1 %.not.i.i163, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit164.thread, label %205
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit164.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit162
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit167
 
 205:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit162
   %206 = load i32, ptr %204, align 4
   %207 = add i32 %206, 1
   store i32 %207, ptr %204, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %208 = load i32, ptr %204, align 4
   %209 = add i32 %208, -1
   store i32 %209, ptr %204, align 4
@@ -40227,14 +40227,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit167: ; preds = %_ZN4
   br i1 %.not.i.i168, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit169.thread, label %212
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit169.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit167
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit172
 
 212:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit167
   %213 = load i32, ptr %211, align 4
   %214 = add i32 %213, 1
   store i32 %214, ptr %211, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %215 = load i32, ptr %211, align 4
   %216 = add i32 %215, -1
   store i32 %216, ptr %211, align 4
@@ -40253,14 +40253,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit172: ; preds = %_ZN4
   br i1 %.not.i.i173, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit174.thread, label %219
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit174.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit172
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit177
 
 219:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit172
   %220 = load i32, ptr %218, align 4
   %221 = add i32 %220, 1
   store i32 %221, ptr %218, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %222 = load i32, ptr %218, align 4
   %223 = add i32 %222, -1
   store i32 %223, ptr %218, align 4
@@ -40279,14 +40279,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit177: ; preds = %_ZN4
   br i1 %.not.i.i178, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit179.thread, label %226
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit179.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit177
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit182
 
 226:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit177
   %227 = load i32, ptr %225, align 4
   %228 = add i32 %227, 1
   store i32 %228, ptr %225, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %229 = load i32, ptr %225, align 4
   %230 = add i32 %229, -1
   store i32 %230, ptr %225, align 4
@@ -40305,14 +40305,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit182: ; preds = %_ZN4
   br i1 %.not.i.i183, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit184.thread, label %233
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit184.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit182
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit187
 
 233:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit182
   %234 = load i32, ptr %232, align 4
   %235 = add i32 %234, 1
   store i32 %235, ptr %232, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %236 = load i32, ptr %232, align 4
   %237 = add i32 %236, -1
   store i32 %237, ptr %232, align 4
@@ -40331,14 +40331,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit187: ; preds = %_ZN4
   br i1 %.not.i.i188, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit189.thread, label %240
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit189.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit187
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit192
 
 240:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit187
   %241 = load i32, ptr %239, align 4
   %242 = add i32 %241, 1
   store i32 %242, ptr %239, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %243 = load i32, ptr %239, align 4
   %244 = add i32 %243, -1
   store i32 %244, ptr %239, align 4
@@ -40357,14 +40357,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit192: ; preds = %_ZN4
   br i1 %.not.i.i193, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit194.thread, label %247
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit194.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit192
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %35, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit197
 
 247:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit192
   %248 = load i32, ptr %246, align 4
   %249 = add i32 %248, 1
   store i32 %249, ptr %246, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %35, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %250 = load i32, ptr %246, align 4
   %251 = add i32 %250, -1
   store i32 %251, ptr %246, align 4
@@ -40383,14 +40383,14 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit197: ; preds = %_ZN4
   br i1 %.not.i.i198, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit199.thread, label %254
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit199.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit197
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit202
 
 254:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit197
   %255 = load i32, ptr %253, align 4
   %256 = add i32 %255, 1
   store i32 %256, ptr %253, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %257 = load i32, ptr %253, align 4
   %258 = add i32 %257, -1
   store i32 %258, ptr %253, align 4
@@ -40961,7 +40961,7 @@ _ZNSt6vectorIS_IN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EESaIS5
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit315: ; preds = %.lr.ph, %443
   %446 = getelementptr inbounds %"class.std::vector", ptr %433, i64 %indvars.iv
-  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(24) %446, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL18GenerateVariantsOfN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EERNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %446, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %447 = load ptr, ptr %38, align 8
   %.not.i.i316 = icmp eq ptr %447, null
   br i1 %.not.i.i316, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit318, label %448
@@ -40990,7 +40990,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit318: ; preds = %_ZN4
   br i1 %.not.i.i319, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit320.thread, label %452
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit320.thread: ; preds = %._crit_edge
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit323
 
 452:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -40998,7 +40998,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit320.thread: ; pr
   %454 = load i32, ptr %453, align 4
   %455 = add i32 %454, 1
   store i32 %455, ptr %453, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %456 = load i32, ptr %453, align 4
   %457 = add i32 %456, -1
   store i32 %457, ptr %453, align 4
@@ -41141,14 +41141,14 @@ _ZNK4llvm15TreePatternNode22isCommutativeIntrinsicERKNS_18CodeGenDAGPatternsE.ex
   br i1 %.not.i.i328, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit329.thread, label %534
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit329.thread: ; preds = %518
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit332
 
 534:                                              ; preds = %518
   %535 = load i32, ptr %533, align 4
   %536 = add i32 %535, 1
   store i32 %536, ptr %533, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1212) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %537 = load i32, ptr %533, align 4
   %538 = add i32 %537, -1
   store i32 %538, ptr %533, align 4
@@ -41549,7 +41549,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm3MVTEEZNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN4llvm15TypeSetByHwMode9intersectERNS_19MachineValueTypeSetERKS1_ENK3$_1clESt8optionalINS_3MVTEENS_12function_refIFbS7_EEEENKUlS4_S4_E_clES4_S4_"(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN4llvm15TypeSetByHwMode9intersectERNS_19MachineValueTypeSetERKS1_ENK3$_1clESt8optionalINS_3MVTEENS_12function_refIFbS7_EEEENKUlS4_S4_E_clES4_S4_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   br label %4
 
@@ -43920,7 +43920,7 @@ declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(pt
 declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33GatherChildrenOfAssociativeOpcodeN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL33GatherChildrenOfAssociativeOpcodeN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %5 = load ptr, ptr %0, align 8
@@ -44018,7 +44018,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit: ; preds = %34
   %53 = load i32, ptr %37, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %37, align 4
-  call fastcc void @_ZL33GatherChildrenOfAssociativeOpcodeN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EE(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZL33GatherChildrenOfAssociativeOpcodeN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   br label %_ZNSt6vectorIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE9push_backERKS3_.exit14
 
@@ -44065,7 +44065,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit22: ; preds = %_
   %75 = load i32, ptr %59, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %59, align 4
-  call fastcc void @_ZL33GatherChildrenOfAssociativeOpcodeN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EE(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZL33GatherChildrenOfAssociativeOpcodeN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERSt6vectorIS2_SaIS2_EE(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   br label %_ZNSt6vectorIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE9push_backERKS3_.exit
 
@@ -44074,7 +44074,7 @@ _ZNSt6vectorIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE9push_ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1212) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1212) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 {
 _ZNSt6vectorIS_IN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EESaIS5_EE9push_backERKS5_.exit:
   %6 = alloca %"class.std::vector.359", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -44163,14 +44163,14 @@ _ZNSt6vectorIS_IN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EESaIS5
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit.thread, label %38
 
 _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEC2ERKS2_.exit.thread: ; preds = %_ZNSt6vectorIS_IN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EESaIS5_EE9push_backERKS5_.exit18
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1212) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1212) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit
 
 38:                                               ; preds = %_ZNSt6vectorIS_IN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EESaIS5_EE9push_backERKS5_.exit18
   %39 = load i32, ptr %37, align 4
   %40 = add i32 %39, 1
   store i32 %40, ptr %37, align 4
-  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1212) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1212) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %41 = load i32, ptr %37, align 4
   %42 = add i32 %41, -1
   store i32 %42, ptr %37, align 4
@@ -44188,7 +44188,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit: ; preds = %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(1212) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(1212) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 {
   %6 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, llvm::MachineValueTypeSet>, std::_Select1st<std::pair<const unsigned int, llvm::MachineValueTypeSet>>, std::less<unsigned int>>::_Reuse_or_alloc_node", align 8
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

@@ -109,20 +109,20 @@ for.cond31.preheader:                             ; preds = %for.inc29
   br i1 %cmp33452, label %for.body34, label %return
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %x64_mulmod.exit
-  %r.010.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %while.body.i.preheader ]
-  %base.addr.09.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call, %while.body.i.preheader ]
-  %exp.addr.08.i = phi i64 [ %shr.i, %x64_mulmod.exit ], [ %i.0451, %while.body.i.preheader ]
-  %and.i = and i64 %exp.addr.08.i, 1
+  %r.09.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %while.body.i.preheader ]
+  %base.addr.08.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call, %while.body.i.preheader ]
+  %exp.addr.07.i = phi i64 [ %shr.i, %x64_mulmod.exit ], [ %i.0451, %while.body.i.preheader ]
+  %and.i = and i64 %exp.addr.07.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %while.body.i.if.end.i_crit_edge, label %if.then.i
 
 while.body.i.if.end.i_crit_edge:                  ; preds = %while.body.i
-  %.pre = zext i64 %base.addr.09.i to i128
+  %.pre = zext i64 %base.addr.08.i to i128
   br label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %conv.i.i50 = zext i64 %r.010.i to i128
-  %conv1.i.i51 = zext i64 %base.addr.09.i to i128
+  %conv.i.i50 = zext i64 %r.09.i to i128
+  %conv1.i.i51 = zext i64 %base.addr.08.i to i128
   %mul.i.i52 = mul nuw i128 %conv1.i.i51, %conv.i.i50
   %shr.i.i53 = lshr i128 %mul.i.i52, 64
   %conv2.i.i54 = trunc nuw i128 %shr.i.i53 to i64
@@ -208,7 +208,7 @@ x64_mulmod.exit126:                               ; preds = %if.then.i58, %if.th
 
 if.end.i:                                         ; preds = %while.body.i.if.end.i_crit_edge, %x64_mulmod.exit126
   %conv.i.i.pre-phi = phi i128 [ %.pre, %while.body.i.if.end.i_crit_edge ], [ %conv1.i.i51, %x64_mulmod.exit126 ]
-  %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i87, %x64_mulmod.exit126 ]
+  %r.1.i = phi i64 [ %r.09.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i87, %x64_mulmod.exit126 ]
   %mul.i.i = mul nuw i128 %conv.i.i.pre-phi, %conv.i.i.pre-phi
   %shr.i.i = lshr i128 %mul.i.i, 64
   %conv2.i.i = trunc nuw i128 %shr.i.i to i64
@@ -290,8 +290,8 @@ x64_mulmod.exit:                                  ; preds = %if.then.i48, %if.th
   %or.cond57.i = select i1 %tobool104.not.i, i1 %cmp106.not.i, i1 false
   %sub108.i = select i1 %or.cond57.i, i64 0, i64 %0
   %spec.select93.i = sub i64 %add99.i, %sub108.i
-  %shr.i = lshr i64 %exp.addr.08.i, 1
-  %cmp.not.i = icmp ult i64 %exp.addr.08.i, 2
+  %shr.i = lshr i64 %exp.addr.07.i, 1
+  %cmp.not.i = icmp ult i64 %exp.addr.07.i, 2
   br i1 %cmp.not.i, label %x64_powmod.exit, label %while.body.i, !llvm.loop !6
 
 x64_powmod.exit:                                  ; preds = %x64_mulmod.exit
@@ -803,20 +803,20 @@ while.body.i.preheader:                           ; preds = %for.end, %for.inc25
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %x64_mulmod.exit
-  %r.010.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %while.body.i.preheader ]
-  %base.addr.09.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call2, %while.body.i.preheader ]
-  %exp.addr.08.i = phi i64 [ %shr.i, %x64_mulmod.exit ], [ %i.0450, %while.body.i.preheader ]
-  %and.i = and i64 %exp.addr.08.i, 1
+  %r.09.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %while.body.i.preheader ]
+  %base.addr.08.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call2, %while.body.i.preheader ]
+  %exp.addr.07.i = phi i64 [ %shr.i, %x64_mulmod.exit ], [ %i.0450, %while.body.i.preheader ]
+  %and.i = and i64 %exp.addr.07.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %while.body.i.if.end.i_crit_edge, label %if.then.i
 
 while.body.i.if.end.i_crit_edge:                  ; preds = %while.body.i
-  %.pre = zext i64 %base.addr.09.i to i128
+  %.pre = zext i64 %base.addr.08.i to i128
   br label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %conv.i.i50 = zext i64 %r.010.i to i128
-  %conv1.i.i51 = zext i64 %base.addr.09.i to i128
+  %conv.i.i50 = zext i64 %r.09.i to i128
+  %conv1.i.i51 = zext i64 %base.addr.08.i to i128
   %mul.i.i52 = mul nuw i128 %conv1.i.i51, %conv.i.i50
   %shr.i.i53 = lshr i128 %mul.i.i52, 64
   %conv2.i.i54 = trunc nuw i128 %shr.i.i53 to i64
@@ -902,7 +902,7 @@ x64_mulmod.exit126:                               ; preds = %if.then.i58, %if.th
 
 if.end.i:                                         ; preds = %while.body.i.if.end.i_crit_edge, %x64_mulmod.exit126
   %conv.i.i.pre-phi = phi i128 [ %.pre, %while.body.i.if.end.i_crit_edge ], [ %conv1.i.i51, %x64_mulmod.exit126 ]
-  %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i87, %x64_mulmod.exit126 ]
+  %r.1.i = phi i64 [ %r.09.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i87, %x64_mulmod.exit126 ]
   %mul.i.i = mul nuw i128 %conv.i.i.pre-phi, %conv.i.i.pre-phi
   %shr.i.i = lshr i128 %mul.i.i, 64
   %conv2.i.i = trunc nuw i128 %shr.i.i to i64
@@ -984,8 +984,8 @@ x64_mulmod.exit:                                  ; preds = %if.then.i48, %if.th
   %or.cond57.i = select i1 %tobool104.not.i, i1 %cmp106.not.i, i1 false
   %sub108.i = select i1 %or.cond57.i, i64 0, i64 %0
   %spec.select93.i = sub i64 %add99.i, %sub108.i
-  %shr.i = lshr i64 %exp.addr.08.i, 1
-  %cmp.not.i = icmp ult i64 %exp.addr.08.i, 2
+  %shr.i = lshr i64 %exp.addr.07.i, 1
+  %cmp.not.i = icmp ult i64 %exp.addr.07.i, 2
   br i1 %cmp.not.i, label %x64_powmod.exit, label %while.body.i, !llvm.loop !6
 
 x64_powmod.exit:                                  ; preds = %x64_mulmod.exit

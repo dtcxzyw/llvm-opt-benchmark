@@ -332,7 +332,7 @@ if.end:                                           ; preds = %entry
   %2 = load i8, ptr %1, align 8
   %tobool.i = trunc i8 %2 to i1
   %grey.i = getelementptr inbounds i8, ptr %1, i64 24
-  invoke fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReachESaIS1_EEbPNS_11ue2_literalEPjRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(24) %mask, i1 noundef zeroext %tobool.i, ptr noundef nonnull %lit, ptr noundef nonnull %lit_offset.i, ptr noundef nonnull readonly align 8 dereferenceable(292) %grey.i)
+  invoke fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReachESaIS1_EEbPNS_11ue2_literalEPjRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(24) %mask, i1 noundef zeroext %tobool.i, ptr noundef %lit, ptr noundef %lit_offset.i, ptr noundef nonnull readonly align 8 dereferenceable(292) %grey.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end
@@ -838,7 +838,7 @@ invoke.cont28.i:                                  ; preds = %invoke.cont.i.i.i, 
   %52 = load i8, ptr %51, align 8
   %tobool30.i = trunc i8 %52 to i1
   %grey32.i = getelementptr inbounds i8, ptr %51, i64 24
-  invoke fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReachESaIS1_EEbPNS_11ue2_literalEPjRKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(24) %mask2.i, i1 noundef zeroext %tobool30.i, ptr noundef nonnull %lit2.i, ptr noundef nonnull %lit2_offset.i, ptr noundef nonnull align 8 dereferenceable(292) %grey32.i)
+  invoke fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReachESaIS1_EEbPNS_11ue2_literalEPjRKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(24) %mask2.i, i1 noundef zeroext %tobool30.i, ptr noundef %lit2.i, ptr noundef %lit2_offset.i, ptr noundef nonnull align 8 dereferenceable(292) %grey32.i)
           to label %invoke.cont33.i unwind label %lpad27.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont28.i
@@ -1004,7 +1004,7 @@ _ZN3ue217RoseInVertexPropsD2Ev.exit186.i:         ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool45.not.i, label %if.else.i, label %do.end49.i
 
 do.end49.i:                                       ; preds = %_ZN3ue217RoseInVertexPropsD2Ev.exit186.i
-  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nonnull align 8 %ref.tmp50.i, i1 noundef zeroext true, i32 noundef %71, ptr noundef nonnull readonly align 8 dereferenceable(24) %mask)
+  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias align 8 %ref.tmp50.i, i1 noundef zeroext true, i32 noundef %71, ptr noundef nonnull readonly align 8 dereferenceable(24) %mask)
           to label %invoke.cont51.i unwind label %lpad27.i
 
 invoke.cont51.i:                                  ; preds = %do.end49.i
@@ -1395,7 +1395,7 @@ invoke.cont91.i:                                  ; preds = %invoke.cont88.i
   %conv97.i = trunc i64 %sub96.i to i32
   %sub99.i = sub i32 %conv9.i, %conv39.i
   %add100.i = add i32 %sub99.i, %conv93.i
-  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nonnull align 8 %ref.tmp98.i, i1 noundef zeroext true, i32 noundef %add100.i, ptr noundef nonnull align 8 dereferenceable(24) %mask3.i)
+  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias align 8 %ref.tmp98.i, i1 noundef zeroext true, i32 noundef %add100.i, ptr noundef nonnull align 8 dereferenceable(24) %mask3.i)
           to label %invoke.cont101.i unwind label %lpad90.i
 
 invoke.cont101.i:                                 ; preds = %invoke.cont91.i
@@ -1753,7 +1753,7 @@ ehcleanup128.i:                                   ; preds = %if.then.i.i.i388.i,
   br label %ehcleanup217.i
 
 if.end129.i:                                      ; preds = %_ZN3ue211ue2_literalD2Ev.exit.i, %land.lhs.true.i8, %if.then.i
-  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nonnull align 8 %ref.tmp130.i, i1 noundef zeroext %anchored, i32 noundef %conv9.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %mask)
+  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias align 8 %ref.tmp130.i, i1 noundef zeroext %anchored, i32 noundef %conv9.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %mask)
           to label %invoke.cont132.i unwind label %lpad.i
 
 invoke.cont132.i:                                 ; preds = %if.end129.i
@@ -3074,7 +3074,7 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lits, i8 0, i64 24, i1 false)
-  %call8 = invoke fastcc noundef zeroext i1 @_ZN3ue2L16findMaskLiteralsERKSt6vectorINS_9CharReachESaIS1_EEPS0_INS_11ue2_literalESaIS6_EEPjSA_(ptr noundef nonnull align 8 dereferenceable(24) %mask, ptr noundef nonnull %lits, ptr noundef nonnull %lit_minBound, ptr noundef nonnull %lit_length)
+  %call8 = invoke fastcc noundef zeroext i1 @_ZN3ue2L16findMaskLiteralsERKSt6vectorINS_9CharReachESaIS1_EEPS0_INS_11ue2_literalESaIS6_EEPjSA_(ptr noundef nonnull align 8 dereferenceable(24) %mask, ptr noundef %lits, ptr noundef %lit_minBound, ptr noundef %lit_length)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end7
@@ -3342,7 +3342,7 @@ entry:
   %no_reports = alloca %"class.ue2::flat_set", align 8
   %ref.tmp144 = alloca %"struct.std::pair", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lits, i8 0, i64 24, i1 false)
-  %call = invoke fastcc noundef zeroext i1 @_ZN3ue2L16findMaskLiteralsERKSt6vectorINS_9CharReachESaIS1_EEPS0_INS_11ue2_literalESaIS6_EEPjSA_(ptr noundef nonnull align 8 dereferenceable(24) %mask, ptr noundef nonnull %lits, ptr noundef nonnull %lit_minBound, ptr noundef nonnull %lit_length)
+  %call = invoke fastcc noundef zeroext i1 @_ZN3ue2L16findMaskLiteralsERKSt6vectorINS_9CharReachESaIS1_EEPS0_INS_11ue2_literalESaIS6_EEPjSA_(ptr noundef nonnull align 8 dereferenceable(24) %mask, ptr noundef %lits, ptr noundef %lit_minBound, ptr noundef %lit_length)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3376,7 +3376,7 @@ if.end7:                                          ; preds = %do.end4
   %sub10 = sub nsw i64 %sub.ptr.div.i, %7
   %conv11 = trunc i64 %sub10 to i32
   %conv16 = trunc i64 %sub.ptr.div.i to i32
-  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext %anchored, i32 noundef %conv16, ptr noundef nonnull align 8 dereferenceable(24) %mask)
+  invoke fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias align 8 %ref.tmp, i1 noundef zeroext %anchored, i32 noundef %conv16, ptr noundef nonnull align 8 dereferenceable(24) %mask)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %if.end7
@@ -4600,7 +4600,7 @@ return:                                           ; preds = %_ZN3ue2L15addAnchor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L16findMaskLiteralsERKSt6vectorINS_9CharReachESaIS1_EEPS0_INS_11ue2_literalESaIS6_EEPjSA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mask, ptr nocapture noundef %lit, ptr nocapture noundef writeonly %minBound, ptr nocapture noundef writeonly %length) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L16findMaskLiteralsERKSt6vectorINS_9CharReachESaIS1_EEPS0_INS_11ue2_literalESaIS6_EEPjSA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mask, ptr nocapture noundef nonnull %lit, ptr nocapture noundef nonnull writeonly %minBound, ptr nocapture noundef nonnull writeonly %length) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %c.i = alloca i8, align 1
   %nocase.i = alloca i8, align 1
@@ -6728,7 +6728,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nocapture align 8 %agg.result, i1 noundef zeroext %anchored, i32 noundef %prefix_len, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mask) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L12buildMaskLhsEbjRKSt6vectorINS_9CharReachESaIS1_EE(ptr noalias nocapture nonnull align 8 %agg.result, i1 noundef zeroext %anchored, i32 noundef %prefix_len, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mask) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"struct.std::pair.148", align 8
   %tmp17 = alloca %"struct.std::pair.148", align 8
@@ -8810,7 +8810,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReachESaIS1_EEbPNS_11ue2_literalEPjRKNS_4GreyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mask, i1 noundef zeroext %streaming, ptr noundef %lit, ptr nocapture noundef writeonly %offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReachESaIS1_EEbPNS_11ue2_literalEPjRKNS_4GreyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mask, i1 noundef zeroext %streaming, ptr noundef nonnull %lit, ptr nocapture noundef nonnull writeonly %offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %mask, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8

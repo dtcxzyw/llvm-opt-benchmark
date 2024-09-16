@@ -959,7 +959,7 @@ define dso_local void @init_extra_mapping_wb(i64 noundef %0, i64 noundef %1) loc
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @__init_extra_mapping(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc void @__init_extra_mapping(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #4 section ".init.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

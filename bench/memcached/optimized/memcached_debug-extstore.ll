@@ -1465,7 +1465,7 @@ land.lhs.true29.thread:                           ; preds = %lor.lhs.false13
   br i1 %cmp31100, label %if.end40, label %land.lhs.true53
 
 if.end40:                                         ; preds = %land.lhs.true29.thread
-  tail call fastcc void @_submit_wbuf(ptr noundef nonnull %ptr, ptr noundef nonnull %p.090)
+  tail call fastcc void @_submit_wbuf(ptr noundef nonnull %ptr, ptr noundef %p.090)
   %36 = load ptr, ptr %wbuf, align 8
   %full39 = getelementptr inbounds i8, ptr %36, i64 36
   store i8 1, ptr %full39, align 4
@@ -1483,7 +1483,7 @@ land.lhs.true43:                                  ; preds = %land.lhs.true, %if.
   br i1 %cmp47, label %if.end50, label %if.end65
 
 if.end50:                                         ; preds = %land.lhs.true43
-  tail call fastcc void @_allocate_wbuf(ptr noundef nonnull %ptr, ptr noundef nonnull %p.090)
+  tail call fastcc void @_allocate_wbuf(ptr noundef nonnull %ptr, ptr noundef %p.090)
   %.pr.pre = load ptr, ptr %wbuf, align 8
   %tobool52.not = icmp eq ptr %.pr.pre, null
   br i1 %tobool52.not, label %if.end65, label %land.lhs.true53
@@ -1524,7 +1524,7 @@ return:                                           ; preds = %if.end3, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_submit_wbuf(ptr noundef %e, ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc void @_submit_wbuf(ptr noundef %e, ptr nocapture noundef nonnull readonly %p) unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef %e) #12
   %io_stack = getelementptr inbounds i8, ptr %e, i64 56
@@ -1571,7 +1571,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_allocate_wbuf(ptr noundef %e, ptr nocapture noundef %p) unnamed_addr #0 {
+define internal fastcc void @_allocate_wbuf(ptr noundef %e, ptr nocapture noundef nonnull %p) unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef %e) #12
   %wbuf_stack = getelementptr inbounds i8, ptr %e, i64 48

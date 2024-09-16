@@ -274,32 +274,32 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %14 = tail call double @sin(double noundef %7) #11
   %15 = fmul double %0, %14
   %16 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %15)
-  br label %.lr.ph.i.i
+  br label %.preheader26.i
 
-.lr.ph.i.i:                                       ; preds = %24, %3
+.preheader26.i:                                   ; preds = %24, %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
   %17 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
 
-20:                                               ; preds = %.lr.ph.i.i
+20:                                               ; preds = %.preheader26.i
   %21 = getelementptr inbounds i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fcmp oeq double %16, %22
   br i1 %23, label %_ZL8in_imageddiii.exit.thread, label %24
 
-24:                                               ; preds = %20, %.lr.ph.i.i
+24:                                               ; preds = %20, %.preheader26.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 19
-  br i1 %exitcond.not.i.i, label %.lr.ph60.i.i, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %.preheader.i, label %.preheader26.i, !llvm.loop !4
 
-.lr.ph60.i.i:                                     ; preds = %24, %53
-  %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %53 ], [ 1, %24 ]
+.preheader.i:                                     ; preds = %24, %53
+  %indvars.iv60.i.i = phi i64 [ %indvars.iv.next61.i.i, %53 ], [ 1, %24 ]
   %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
   %.sroa.7.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
   %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
-  %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i.i
+  %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
   %26 = load double, ptr %25, align 16
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8
@@ -308,7 +308,7 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %31 = fcmp ogt double %16, %30
   br i1 %31, label %32, label %53
 
-32:                                               ; preds = %.lr.ph60.i.i
+32:                                               ; preds = %.preheader.i
   %33 = fcmp ogt double %.sroa.7.056.i.i, %28
   %34 = select i1 %33, double %.sroa.7.056.i.i, double %28
   %35 = fcmp ugt double %16, %34
@@ -340,11 +340,11 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %52 = add nsw i32 %.04855.i.i, 1
   br label %53
 
-53:                                               ; preds = %51, %43, %36, %32, %.lr.ph60.i.i
-  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.lr.ph60.i.i ]
-  %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
-  %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next64.i.i, 19
-  br i1 %exitcond67.not.i.i, label %_ZL8in_imageddiii.exit, label %.lr.ph60.i.i, !llvm.loop !6
+53:                                               ; preds = %51, %43, %36, %32, %.preheader.i
+  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.preheader.i ]
+  %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
+  %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 19
+  br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !6
 
 _ZL8in_imageddiii.exit:                           ; preds = %53
   %54 = and i32 %.149.i.i, 1
@@ -492,32 +492,32 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %14 = tail call double @sin(double noundef %7) #11
   %15 = fmul double %0, %14
   %16 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %15)
-  br label %.lr.ph.i.i
+  br label %.preheader26.i
 
-.lr.ph.i.i:                                       ; preds = %24, %3
+.preheader26.i:                                   ; preds = %24, %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
   %17 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
 
-20:                                               ; preds = %.lr.ph.i.i
+20:                                               ; preds = %.preheader26.i
   %21 = getelementptr inbounds i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fcmp oeq double %16, %22
   br i1 %23, label %_ZL8in_imageddiii.exit.thread, label %24
 
-24:                                               ; preds = %20, %.lr.ph.i.i
+24:                                               ; preds = %20, %.preheader26.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 19
-  br i1 %exitcond.not.i.i, label %.lr.ph60.i.i, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %.preheader.i, label %.preheader26.i, !llvm.loop !4
 
-.lr.ph60.i.i:                                     ; preds = %24, %53
-  %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %53 ], [ 1, %24 ]
+.preheader.i:                                     ; preds = %24, %53
+  %indvars.iv60.i.i = phi i64 [ %indvars.iv.next61.i.i, %53 ], [ 1, %24 ]
   %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
   %.sroa.7.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
   %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
-  %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i.i
+  %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
   %26 = load double, ptr %25, align 16
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8
@@ -526,7 +526,7 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %31 = fcmp ogt double %16, %30
   br i1 %31, label %32, label %53
 
-32:                                               ; preds = %.lr.ph60.i.i
+32:                                               ; preds = %.preheader.i
   %33 = fcmp ogt double %.sroa.7.056.i.i, %28
   %34 = select i1 %33, double %.sroa.7.056.i.i, double %28
   %35 = fcmp ugt double %16, %34
@@ -558,11 +558,11 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %52 = add nsw i32 %.04855.i.i, 1
   br label %53
 
-53:                                               ; preds = %51, %43, %36, %32, %.lr.ph60.i.i
-  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.lr.ph60.i.i ]
-  %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
-  %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next64.i.i, 19
-  br i1 %exitcond67.not.i.i, label %_ZL8in_imageddiii.exit, label %.lr.ph60.i.i, !llvm.loop !6
+53:                                               ; preds = %51, %43, %36, %32, %.preheader.i
+  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.preheader.i ]
+  %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
+  %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 19
+  br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !6
 
 _ZL8in_imageddiii.exit:                           ; preds = %53
   %54 = and i32 %.149.i.i, 1
@@ -1369,35 +1369,35 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 declare double @llvm.floor.f64(double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 {
   %6 = alloca [12 x [2 x double]], align 16
   %7 = icmp eq i32 %2, 0
-  br i1 %7, label %.lr.ph.i, label %46
+  br i1 %7, label %.preheader26, label %47
 
-.lr.ph.i:                                         ; preds = %5, %15
+.preheader26:                                     ; preds = %5, %15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %5 ]
   %8 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i
   %9 = load double, ptr %8, align 16
   %10 = fcmp oeq double %0, %9
   br i1 %10, label %11, label %15
 
-11:                                               ; preds = %.lr.ph.i
+11:                                               ; preds = %.preheader26
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load double, ptr %12, align 8
   %14 = fcmp oeq double %1, %13
   br i1 %14, label %_ZL6pnpolyiPA2_ddd.exit, label %15
 
-15:                                               ; preds = %11, %.lr.ph.i
+15:                                               ; preds = %11, %.preheader26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %.lr.ph60.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %.preheader, label %.preheader26, !llvm.loop !4
 
-.lr.ph60.i:                                       ; preds = %15, %44
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %44 ], [ 1, %15 ]
+.preheader:                                       ; preds = %15, %44
+  %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %44 ], [ 1, %15 ]
   %.sroa.09.057.i = phi double [ %17, %44 ], [ 0xC00921FB54442D1A, %15 ]
   %.sroa.7.056.i = phi double [ %19, %44 ], [ 0x3FE921FB54442D18, %15 ]
   %.04855.i = phi i32 [ %.149.i, %44 ], [ 0, %15 ]
-  %16 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i
+  %16 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i
   %17 = load double, ptr %16, align 16
   %18 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load double, ptr %18, align 8
@@ -1406,7 +1406,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %22 = fcmp ogt double %1, %21
   br i1 %22, label %23, label %44
 
-23:                                               ; preds = %.lr.ph60.i
+23:                                               ; preds = %.preheader
   %24 = fcmp ogt double %.sroa.7.056.i, %19
   %25 = select i1 %24, double %.sroa.7.056.i, double %19
   %26 = fcmp ugt double %1, %25
@@ -1438,161 +1438,161 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %43 = add nsw i32 %.04855.i, 1
   br label %44
 
-44:                                               ; preds = %42, %34, %27, %23, %.lr.ph60.i
-  %.149.i = phi i32 [ %43, %42 ], [ %.04855.i, %34 ], [ %.04855.i, %27 ], [ %.04855.i, %23 ], [ %.04855.i, %.lr.ph60.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, 19
-  br i1 %exitcond67.not.i, label %._crit_edge61.loopexit.i, label %.lr.ph60.i, !llvm.loop !6
+44:                                               ; preds = %42, %34, %27, %23, %.preheader
+  %.149.i = phi i32 [ %43, %42 ], [ %.04855.i, %34 ], [ %.04855.i, %27 ], [ %.04855.i, %23 ], [ %.04855.i, %.preheader ]
+  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
+  %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, 19
+  br i1 %exitcond64.not.i, label %45, label %.preheader, !llvm.loop !6
 
-._crit_edge61.loopexit.i:                         ; preds = %44
-  %45 = and i32 %.149.i, 1
+45:                                               ; preds = %44
+  %46 = and i32 %.149.i, 1
   br label %_ZL6pnpolyiPA2_ddd.exit
 
-46:                                               ; preds = %5
+47:                                               ; preds = %5
   store double 0xC00921FB54442D1A, ptr %6, align 16
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
-  store double 0x3FE921FB54442D21, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 16
-  %49 = sitofp i32 %3 to double
-  %50 = tail call double @llvm.fmuladd.f64(double %49, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %51 = fadd double %50, -1.000000e-15
-  store double %51, ptr %48, align 16
-  %52 = getelementptr inbounds i8, ptr %6, i64 24
-  store double 0x3FE921FB54442D21, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 32
-  store double %51, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %6, i64 40
-  store double 0x4002D97C7F3321D4, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 48
-  %56 = fadd double %49, 1.000000e+00
-  %57 = tail call double @llvm.fmuladd.f64(double %56, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %58 = fadd double %57, 1.000000e-15
-  store double %58, ptr %55, align 16
-  %59 = getelementptr inbounds i8, ptr %6, i64 56
-  store double 0x4002D97C7F3321D4, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 64
-  store double %58, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %6, i64 72
-  store double 0x3FE921FB54442D21, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 80
-  store double 0x400921FB54442D1A, ptr %62, align 16
-  %63 = getelementptr inbounds i8, ptr %6, i64 88
-  store double 0x3FE921FB54442D21, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 96
-  store double 0x400921FB54442D1A, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %6, i64 104
-  store double 0xBFE921FB54442D21, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %6, i64 112
-  %67 = sitofp i32 %4 to double
-  %68 = fadd double %67, 1.000000e+00
-  %69 = tail call double @llvm.fmuladd.f64(double %68, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %70 = fadd double %69, 1.000000e-15
-  store double %70, ptr %66, align 16
-  %71 = getelementptr inbounds i8, ptr %6, i64 120
-  store double 0xBFE921FB54442D21, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 128
-  store double %70, ptr %72, align 16
-  %73 = getelementptr inbounds i8, ptr %6, i64 136
-  store double 0xC002D97C7F3321D4, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 144
-  %75 = tail call double @llvm.fmuladd.f64(double %67, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %76 = fadd double %75, -1.000000e-15
-  store double %76, ptr %74, align 16
-  %77 = getelementptr inbounds i8, ptr %6, i64 152
-  store double 0xC002D97C7F3321D4, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %6, i64 160
-  store double %76, ptr %78, align 16
-  %79 = getelementptr inbounds i8, ptr %6, i64 168
-  store double 0xBFE921FB54442D21, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %6, i64 176
-  store double 0xC00921FB54442D1A, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %6, i64 184
-  store double 0xBFE921FB54442D21, ptr %81, align 8
-  br label %.lr.ph.i13
+  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  store double 0x3FE921FB54442D21, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = sitofp i32 %3 to double
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %52 = fadd double %51, -1.000000e-15
+  store double %52, ptr %49, align 16
+  %53 = getelementptr inbounds i8, ptr %6, i64 24
+  store double 0x3FE921FB54442D21, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %6, i64 32
+  store double %52, ptr %54, align 16
+  %55 = getelementptr inbounds i8, ptr %6, i64 40
+  store double 0x4002D97C7F3321D4, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %6, i64 48
+  %57 = fadd double %50, 1.000000e+00
+  %58 = tail call double @llvm.fmuladd.f64(double %57, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %59 = fadd double %58, 1.000000e-15
+  store double %59, ptr %56, align 16
+  %60 = getelementptr inbounds i8, ptr %6, i64 56
+  store double 0x4002D97C7F3321D4, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %6, i64 64
+  store double %59, ptr %61, align 16
+  %62 = getelementptr inbounds i8, ptr %6, i64 72
+  store double 0x3FE921FB54442D21, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %6, i64 80
+  store double 0x400921FB54442D1A, ptr %63, align 16
+  %64 = getelementptr inbounds i8, ptr %6, i64 88
+  store double 0x3FE921FB54442D21, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %6, i64 96
+  store double 0x400921FB54442D1A, ptr %65, align 16
+  %66 = getelementptr inbounds i8, ptr %6, i64 104
+  store double 0xBFE921FB54442D21, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %6, i64 112
+  %68 = sitofp i32 %4 to double
+  %69 = fadd double %68, 1.000000e+00
+  %70 = tail call double @llvm.fmuladd.f64(double %69, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %71 = fadd double %70, 1.000000e-15
+  store double %71, ptr %67, align 16
+  %72 = getelementptr inbounds i8, ptr %6, i64 120
+  store double 0xBFE921FB54442D21, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %6, i64 128
+  store double %71, ptr %73, align 16
+  %74 = getelementptr inbounds i8, ptr %6, i64 136
+  store double 0xC002D97C7F3321D4, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %6, i64 144
+  %76 = tail call double @llvm.fmuladd.f64(double %68, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %77 = fadd double %76, -1.000000e-15
+  store double %77, ptr %75, align 16
+  %78 = getelementptr inbounds i8, ptr %6, i64 152
+  store double 0xC002D97C7F3321D4, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %6, i64 160
+  store double %77, ptr %79, align 16
+  %80 = getelementptr inbounds i8, ptr %6, i64 168
+  store double 0xBFE921FB54442D21, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %6, i64 176
+  store double 0xC00921FB54442D1A, ptr %81, align 16
+  %82 = getelementptr inbounds i8, ptr %6, i64 184
+  store double 0xBFE921FB54442D21, ptr %82, align 8
+  br label %83
 
-.lr.ph.i13:                                       ; preds = %89, %46
-  %indvars.iv.i14 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i15, %89 ]
-  %82 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv.i14
-  %83 = load double, ptr %82, align 16
-  %84 = fcmp oeq double %0, %83
-  br i1 %84, label %85, label %89
+83:                                               ; preds = %91, %47
+  %indvars.iv.i13 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i14, %91 ]
+  %84 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv.i13
+  %85 = load double, ptr %84, align 16
+  %86 = fcmp oeq double %0, %85
+  br i1 %86, label %87, label %91
 
-85:                                               ; preds = %.lr.ph.i13
-  %86 = getelementptr inbounds i8, ptr %82, i64 8
-  %87 = load double, ptr %86, align 8
-  %88 = fcmp oeq double %1, %87
-  br i1 %88, label %_ZL6pnpolyiPA2_ddd.exit, label %89
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  %89 = load double, ptr %88, align 8
+  %90 = fcmp oeq double %1, %89
+  br i1 %90, label %_ZL6pnpolyiPA2_ddd.exit, label %91
 
-89:                                               ; preds = %85, %.lr.ph.i13
-  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
-  %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 12
-  br i1 %exitcond.not.i16, label %.lr.ph60.i18, label %.lr.ph.i13, !llvm.loop !4
+91:                                               ; preds = %87, %83
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
+  %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 12
+  br i1 %exitcond.not.i15, label %.preheader27, label %83, !llvm.loop !4
 
-.lr.ph60.i18:                                     ; preds = %89, %118
-  %indvars.iv63.i19 = phi i64 [ %indvars.iv.next64.i24, %118 ], [ 1, %89 ]
-  %.sroa.09.057.i20 = phi double [ %91, %118 ], [ 0xC00921FB54442D1A, %89 ]
-  %.sroa.7.056.i21 = phi double [ %93, %118 ], [ 0x3FE921FB54442D21, %89 ]
-  %.04855.i22 = phi i32 [ %.149.i23, %118 ], [ 0, %89 ]
-  %90 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv63.i19
-  %91 = load double, ptr %90, align 16
-  %92 = getelementptr inbounds i8, ptr %90, i64 8
-  %93 = load double, ptr %92, align 8
-  %94 = fcmp olt double %.sroa.7.056.i21, %93
-  %95 = select i1 %94, double %.sroa.7.056.i21, double %93
-  %96 = fcmp ogt double %1, %95
-  br i1 %96, label %97, label %118
+.preheader27:                                     ; preds = %91, %120
+  %indvars.iv60.i16 = phi i64 [ %indvars.iv.next61.i21, %120 ], [ 1, %91 ]
+  %.sroa.09.057.i17 = phi double [ %93, %120 ], [ 0xC00921FB54442D1A, %91 ]
+  %.sroa.7.056.i18 = phi double [ %95, %120 ], [ 0x3FE921FB54442D21, %91 ]
+  %.04855.i19 = phi i32 [ %.149.i20, %120 ], [ 0, %91 ]
+  %92 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv60.i16
+  %93 = load double, ptr %92, align 16
+  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = load double, ptr %94, align 8
+  %96 = fcmp olt double %.sroa.7.056.i18, %95
+  %97 = select i1 %96, double %.sroa.7.056.i18, double %95
+  %98 = fcmp ogt double %1, %97
+  br i1 %98, label %99, label %120
 
-97:                                               ; preds = %.lr.ph60.i18
-  %98 = fcmp ogt double %.sroa.7.056.i21, %93
-  %99 = select i1 %98, double %.sroa.7.056.i21, double %93
-  %100 = fcmp ugt double %1, %99
-  br i1 %100, label %118, label %101
+99:                                               ; preds = %.preheader27
+  %100 = fcmp ogt double %.sroa.7.056.i18, %95
+  %101 = select i1 %100, double %.sroa.7.056.i18, double %95
+  %102 = fcmp ugt double %1, %101
+  br i1 %102, label %120, label %103
 
-101:                                              ; preds = %97
-  %102 = fcmp ogt double %.sroa.09.057.i20, %91
-  %103 = select i1 %102, double %.sroa.09.057.i20, double %91
-  %104 = fcmp ole double %0, %103
-  %105 = fcmp une double %.sroa.7.056.i21, %93
-  %or.cond.i28 = and i1 %105, %104
-  br i1 %or.cond.i28, label %106, label %118
+103:                                              ; preds = %99
+  %104 = fcmp ogt double %.sroa.09.057.i17, %93
+  %105 = select i1 %104, double %.sroa.09.057.i17, double %93
+  %106 = fcmp ole double %0, %105
+  %107 = fcmp une double %.sroa.7.056.i18, %95
+  %or.cond.i24 = and i1 %107, %106
+  br i1 %or.cond.i24, label %108, label %120
 
-106:                                              ; preds = %101
-  %107 = fcmp oeq double %.sroa.09.057.i20, %91
-  br i1 %107, label %116, label %108
+108:                                              ; preds = %103
+  %109 = fcmp oeq double %.sroa.09.057.i17, %93
+  br i1 %109, label %118, label %110
 
-108:                                              ; preds = %106
-  %109 = fsub double %1, %.sroa.7.056.i21
-  %110 = fsub double %91, %.sroa.09.057.i20
-  %111 = fmul double %109, %110
-  %112 = fsub double %93, %.sroa.7.056.i21
-  %113 = fdiv double %111, %112
-  %114 = fadd double %.sroa.09.057.i20, %113
-  %115 = fcmp ugt double %0, %114
-  br i1 %115, label %118, label %116
+110:                                              ; preds = %108
+  %111 = fsub double %1, %.sroa.7.056.i18
+  %112 = fsub double %93, %.sroa.09.057.i17
+  %113 = fmul double %111, %112
+  %114 = fsub double %95, %.sroa.7.056.i18
+  %115 = fdiv double %113, %114
+  %116 = fadd double %.sroa.09.057.i17, %115
+  %117 = fcmp ugt double %0, %116
+  br i1 %117, label %120, label %118
 
-116:                                              ; preds = %108, %106
-  %117 = add nsw i32 %.04855.i22, 1
-  br label %118
+118:                                              ; preds = %110, %108
+  %119 = add nsw i32 %.04855.i19, 1
+  br label %120
 
-118:                                              ; preds = %116, %108, %101, %97, %.lr.ph60.i18
-  %.149.i23 = phi i32 [ %117, %116 ], [ %.04855.i22, %108 ], [ %.04855.i22, %101 ], [ %.04855.i22, %97 ], [ %.04855.i22, %.lr.ph60.i18 ]
-  %indvars.iv.next64.i24 = add nuw nsw i64 %indvars.iv63.i19, 1
-  %exitcond67.not.i25 = icmp eq i64 %indvars.iv.next64.i24, 12
-  br i1 %exitcond67.not.i25, label %._crit_edge61.loopexit.i26, label %.lr.ph60.i18, !llvm.loop !6
+120:                                              ; preds = %118, %110, %103, %99, %.preheader27
+  %.149.i20 = phi i32 [ %119, %118 ], [ %.04855.i19, %110 ], [ %.04855.i19, %103 ], [ %.04855.i19, %99 ], [ %.04855.i19, %.preheader27 ]
+  %indvars.iv.next61.i21 = add nuw nsw i64 %indvars.iv60.i16, 1
+  %exitcond64.not.i22 = icmp eq i64 %indvars.iv.next61.i21, 12
+  br i1 %exitcond64.not.i22, label %121, label %.preheader27, !llvm.loop !6
 
-._crit_edge61.loopexit.i26:                       ; preds = %118
-  %119 = and i32 %.149.i23, 1
+121:                                              ; preds = %120
+  %122 = and i32 %.149.i20, 1
   br label %_ZL6pnpolyiPA2_ddd.exit
 
-_ZL6pnpolyiPA2_ddd.exit:                          ; preds = %85, %11, %._crit_edge61.loopexit.i26, %._crit_edge61.loopexit.i
-  %.0 = phi i32 [ %45, %._crit_edge61.loopexit.i ], [ %119, %._crit_edge61.loopexit.i26 ], [ 1, %11 ], [ 1, %85 ]
+_ZL6pnpolyiPA2_ddd.exit:                          ; preds = %87, %11, %121, %45
+  %.0 = phi i32 [ %46, %45 ], [ %122, %121 ], [ 1, %11 ], [ 1, %87 ]
   ret i32 %.0
 }
 
 declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 {
+define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #8 {
   %.sroa.051 = alloca double, align 16
   %.sroa.252 = alloca double, align 8
   %6 = icmp eq i32 %4, 0

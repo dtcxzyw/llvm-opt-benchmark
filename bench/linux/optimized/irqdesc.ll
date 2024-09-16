@@ -310,7 +310,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @alloc_desc(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @alloc_desc(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 10485761) %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #1 align 16 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(448) ptr @kmalloc_node_trace(ptr noundef %6, i32 noundef 3520, i32 noundef %1, i64 noundef 448) #14
   %8 = icmp eq ptr %7, null

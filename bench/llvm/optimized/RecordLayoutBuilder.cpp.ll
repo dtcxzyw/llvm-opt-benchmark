@@ -620,7 +620,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i176: ; preds = %183, %175
   br label %235
 
 235:                                              ; preds = %226, %224
-  call fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder20layoutNonVirtualBaseEPKN5clang13CXXRecordDeclES4_RKNS1_15ASTRecordLayoutERPS6_(ptr noundef nonnull align 8 dereferenceable(408) %15, ptr noundef nonnull %74, ptr noundef nonnull %188, ptr noundef nonnull align 8 dereferenceable(80) %200, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder20layoutNonVirtualBaseEPKN5clang13CXXRecordDeclES4_RKNS1_15ASTRecordLayoutERPS6_(ptr noundef nonnull align 8 dereferenceable(408) %15, ptr noundef %74, ptr noundef nonnull %188, ptr noundef nonnull align 8 dereferenceable(80) %200, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %236
 
 236:                                              ; preds = %235, %218, %204
@@ -891,7 +891,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_1
 
 372:                                              ; preds = %366, %365
   %373 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder20layoutNonVirtualBaseEPKN5clang13CXXRecordDeclES4_RKNS1_15ASTRecordLayoutERPS6_(ptr noundef nonnull align 8 dereferenceable(408) %15, ptr noundef nonnull %74, ptr noundef %373, ptr noundef nonnull align 8 dereferenceable(80) %326, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder20layoutNonVirtualBaseEPKN5clang13CXXRecordDeclES4_RKNS1_15ASTRecordLayoutERPS6_(ptr noundef nonnull align 8 dereferenceable(408) %15, ptr noundef %74, ptr noundef %373, ptr noundef nonnull align 8 dereferenceable(80) %326, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %374 = load ptr, ptr %113, align 8
   %375 = load i32, ptr %305, align 8
   %376 = icmp eq i32 %375, 0
@@ -1064,7 +1064,7 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21layoutNonVirtualBasesEPKN5clang
 _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21layoutNonVirtualBasesEPKN5clang13CXXRecordDeclE.exit: ; preds = %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder21layoutNonVirtualBasesEPKN5clang13CXXRecordDeclE.exit.sink.split, %413
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder12layoutFieldsEPKN5clang10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(408) %15, ptr noundef %74)
+  call fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder12layoutFieldsEPKN5clang10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(408) %15, ptr noundef nonnull %74)
   %459 = load i8, ptr %119, align 4
   %460 = and i8 %459, 8
   %.not.i144 = icmp ne i8 %460, 0
@@ -4028,7 +4028,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_1
   br i1 %.not23.i, label %_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder21LayoutNonVirtualBasesEPKN5clang13CXXRecordDeclE.exit, label %1844
 
 _ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder21LayoutNonVirtualBasesEPKN5clang13CXXRecordDeclE.exit: ; preds = %1927, %_ZNK5clang13CXXRecordDecl5basesEv.exit.i210
-  call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder12LayoutFieldsEPKN5clang10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(912) %20, ptr noundef %74)
+  call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder12LayoutFieldsEPKN5clang10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(912) %20, ptr noundef nonnull %74)
   %1929 = load ptr, ptr %20, align 8
   %.val.i = load i64, ptr %1362, align 8
   %1930 = icmp ne i64 %.val.i, 0
@@ -4044,7 +4044,7 @@ _ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder21LayoutNonVirtualBasesEPKN5clang13
   store i64 %1937, ptr %1382, align 8
   %1938 = load i64, ptr %1364, align 8
   store i64 %1938, ptr %1383, align 8
-  call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder18LayoutVirtualBasesEPKN5clang13CXXRecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(912) %20, ptr noundef nonnull %74, ptr noundef nonnull %74)
+  call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder18LayoutVirtualBasesEPKN5clang13CXXRecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(912) %20, ptr noundef nonnull %74, ptr noundef %74)
   call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder12FinishLayoutEPKN5clang9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(912) %20, ptr noundef nonnull %74)
   %1939 = load ptr, ptr %1371, align 8
   %1940 = getelementptr inbounds nuw i8, ptr %1939, i64 340
@@ -9724,9 +9724,9 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttr
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder20layoutNonVirtualBaseEPKN5clang13CXXRecordDeclES4_RKNS1_15ASTRecordLayoutERPS6_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder20layoutNonVirtualBaseEPKN5clang13CXXRecordDeclES4_RKNS1_15ASTRecordLayoutERPS6_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.472", align 8
-  %7 = tail call fastcc noundef zeroext i1 @_ZL13recordUsesEBOPKN5clang10RecordDeclE(ptr noundef %1)
+  %7 = tail call fastcc noundef zeroext i1 @_ZL13recordUsesEBOPKN5clang10RecordDeclE(ptr noundef nonnull %1)
   %8 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZNK5clang15ASTRecordLayout23endsWithZeroSizedObjectEv.exit.thread, label %9
@@ -13787,7 +13787,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit13: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder18LayoutVirtualBasesEPKN5clang13CXXRecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder18LayoutVirtualBasesEPKN5clang13CXXRecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.475", align 8
   %5 = icmp eq ptr %2, %1
   br i1 %5, label %6, label %12
@@ -14444,7 +14444,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %110, %107
   %.val43 = phi ptr [ %.val43.pre, %._crit_edge ], [ %.val43.pre90, %155 ], [ %.val43.pre90, %146 ]
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i60 = load i32, ptr %163, align 8
-  call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder4DiagEN5clang14SourceLocationEj(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.val43, i32 %.sroa.0.0.copyload.i60, i32 noundef 2374)
+  call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder4DiagEN5clang14SourceLocationEj(ptr dead_on_unwind noalias writable align 8 %3, ptr %.val43, i32 %.sroa.0.0.copyload.i60, i32 noundef 2374)
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %165 = load ptr, ptr %164, align 8
   %.not.i61 = icmp eq ptr %165, null
@@ -17489,7 +17489,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %575
 589:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.thread
   %590 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i124 = load i32, ptr %590, align 8
-  call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder4DiagEN5clang14SourceLocationEj(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %579, i32 %.sroa.0.0.copyload.i124, i32 noundef 2349)
+  call fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder4DiagEN5clang14SourceLocationEj(ptr dead_on_unwind noalias writable align 8 %10, ptr %579, i32 %.sroa.0.0.copyload.i124, i32 noundef 2349)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %10) #15
   br label %591
 
@@ -18641,7 +18641,7 @@ _ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder14LayoutBitFieldEPKN5clang9FieldDec
 declare i64 @_ZNK5clang10ASTContext18getTypeSizeInCharsEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder4DiagEN5clang14SourceLocationEj(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nonnull %.0.val, i32 %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder4DiagEN5clang14SourceLocationEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nonnull %.0.val, i32 %1, i32 noundef range(i32 2349, 2376) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(1304) ptr @_ZNK5clang10ASTContext14getDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(23096) %.0.val) #15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 368
@@ -21126,7 +21126,7 @@ _ZSt17__rotate_adaptiveIPPKN5clang13CXXRecordDeclES4_lET_S5_S5_S5_T1_S6_T0_S6_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPPKN5clang13CXXRecordDeclES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIZL16DumpRecordLayoutRN4llvm11raw_ostreamEPKNS0_10RecordDeclERKNS0_10ASTContextENS0_9CharUnitsEjPKcbbE3$_0EEEvT_SM_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPPKN5clang13CXXRecordDeclES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIZL16DumpRecordLayoutRN4llvm11raw_ostreamEPKNS0_10RecordDeclERKNS0_10ASTContextENS0_9CharUnitsEjPKcbbE3$_0EEEvT_SM_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3, ptr %4) unnamed_addr #0 {
   %6 = shl nsw i64 %3, 1
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64

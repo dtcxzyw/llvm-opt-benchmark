@@ -4687,9 +4687,9 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   %200 = load i32, ptr %199, align 8
   %201 = icmp ne i32 %200, 212
   %202 = zext i1 %201 to i32
-  %203 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %.01671, ptr noundef nonnull %1, ptr noundef %62, i32 noundef %196, ptr noundef nonnull %5, ptr noundef nonnull %13, i32 noundef %202)
+  %203 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %.01671, ptr noundef nonnull %1, ptr noundef %62, i32 noundef %196, ptr noundef %5, ptr noundef nonnull %13, i32 noundef %202)
   %204 = load ptr, ptr %13, align 8
-  %205 = call fastcc i32 @mbim_dissect_cid(ptr noundef %.01671, ptr noundef nonnull %1, ptr noundef %62, ptr noundef nonnull %5, i8 noundef zeroext %203, ptr noundef %204)
+  %205 = call fastcc i32 @mbim_dissect_cid(ptr noundef %.01671, ptr noundef nonnull %1, ptr noundef %62, ptr noundef %5, i8 noundef zeroext %203, ptr noundef %204)
   %206 = load i32, ptr @hf_mbim_command_type, align 4
   %207 = load i32, ptr %5, align 4
   %208 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %62, i32 noundef %206, ptr noundef %.01671, i32 noundef %207, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #10
@@ -7200,9 +7200,9 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   %1496 = load i32, ptr %1495, align 8
   %1497 = icmp ne i32 %1496, 212
   %1498 = zext i1 %1497 to i32
-  %1499 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %.01670, ptr noundef nonnull %1, ptr noundef %62, i32 noundef %1492, ptr noundef nonnull %5, ptr noundef nonnull %20, i32 noundef %1498)
+  %1499 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %.01670, ptr noundef nonnull %1, ptr noundef %62, i32 noundef %1492, ptr noundef %5, ptr noundef nonnull %20, i32 noundef %1498)
   %1500 = load ptr, ptr %20, align 8
-  %1501 = call fastcc i32 @mbim_dissect_cid(ptr noundef %.01670, ptr noundef nonnull %1, ptr noundef %62, ptr noundef nonnull %5, i8 noundef zeroext %1499, ptr noundef %1500)
+  %1501 = call fastcc i32 @mbim_dissect_cid(ptr noundef %.01670, ptr noundef nonnull %1, ptr noundef %62, ptr noundef %5, i8 noundef zeroext %1499, ptr noundef %1500)
   %1502 = load i32, ptr %6, align 4
   %1503 = icmp eq i32 %1502, -2147483645
   %.pre1950 = load i32, ptr %5, align 4
@@ -10320,7 +10320,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef writeonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr noundef writeonly %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct._e_guid_t, align 4
   %9 = alloca [4 x i32], align 16
   %.not = icmp eq i32 %6, 0
@@ -10419,7 +10419,7 @@ define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i8 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %7) #10
   %9 = icmp ult i8 %4, 25
@@ -10807,7 +10807,7 @@ define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef 
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef -2147483648) #10
   %36 = add i32 %27, 12
   store i32 %36, ptr %8, align 4
-  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8)
   %37 = load i32, ptr @hf_mbim_set_connect_media_preference, align 4
   %38 = load i32, ptr %8, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef -2147483648) #10
@@ -10815,15 +10815,15 @@ define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef 
   store i32 %40, ptr %8, align 4
   %41 = load i32, ptr @ett_mbim_pair_list, align 4
   %42 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %40, i32 noundef 0, i32 noundef %41, ptr noundef null, ptr noundef nonnull @.str.442) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %42, ptr noundef nonnull %8)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %42, ptr noundef %8)
   %43 = load i32, ptr %8, align 4
   %44 = load i32, ptr @ett_mbim_pair_list, align 4
   %45 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %43, i32 noundef 0, i32 noundef %44, ptr noundef null, ptr noundef nonnull @.str.444) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %45, ptr noundef nonnull %8)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %45, ptr noundef %8)
   %46 = load i32, ptr %8, align 4
   %47 = load i32, ptr @ett_mbim_pair_list, align 4
   %48 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %46, i32 noundef 0, i32 noundef %47, ptr noundef null, ptr noundef nonnull @.str.446) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %48, ptr noundef nonnull %8)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %48, ptr noundef %8)
   %49 = load i32, ptr %15, align 8
   %50 = icmp ugt i32 %49, 3
   br i1 %50, label %55, label %51
@@ -10839,7 +10839,7 @@ define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef 
   %56 = load i32, ptr %8, align 4
   %57 = load i32, ptr @ett_mbim_pair_list, align 4
   %58 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %56, i32 noundef 0, i32 noundef %57, ptr noundef null, ptr noundef nonnull @.str.2536) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %58, ptr noundef nonnull %8)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %58, ptr noundef %8)
   br label %59
 
 59:                                               ; preds = %51, %55
@@ -10854,7 +10854,7 @@ define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef 
   %63 = phi i32 [ %66, %.lr.ph.i ], [ %60, %59 ]
   %64 = load i32, ptr @ett_mbim_pair_list, align 4
   %65 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %63, i32 noundef 0, i32 noundef %64, ptr noundef null, ptr noundef nonnull @.str.2579) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %65, ptr noundef nonnull %7)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %65, ptr noundef %7)
   %66 = load i32, ptr %7, align 4
   %67 = sub i32 %66, %3
   %68 = icmp slt i32 %67, %4
@@ -10908,7 +10908,7 @@ define internal fastcc void @mbim_dissect_set_connect(ptr noundef %0, ptr nounde
   %43 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef -2147483648) #10
   %44 = add i32 %3, 44
   store i32 %44, ptr %5, align 4
-  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
+  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   %45 = load i32, ptr %6, align 4
   %46 = icmp ne i32 %45, 0
   %47 = load i32, ptr %7, align 4
@@ -10973,7 +10973,7 @@ define internal fastcc void @mbim_dissect_set_connect(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -10989,7 +10989,7 @@ define internal fastcc void @mbim_dissect_context(ptr noundef %0, ptr noundef %1
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #10
   %17 = add i32 %3, 4
   store i32 %17, ptr %6, align 4
-  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6)
   %18 = load i32, ptr @hf_mbim_context_access_string_offset, align 4
   %19 = load i32, ptr %6, align 4
   %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
@@ -11185,7 +11185,7 @@ define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noun
   store i32 %46, ptr %5, align 4
   store ptr null, ptr %7, align 8
   %47 = load i32, ptr @hf_mbim_event_entry_device_service_id, align 4
-  %48 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %44, i32 noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1)
+  %48 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %44, i32 noundef %47, ptr noundef %5, ptr noundef nonnull %7, i32 noundef 1)
   %49 = load i32, ptr @hf_mbim_event_entry_cid_count, align 4
   %50 = load i32, ptr %5, align 4
   %51 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %44, i32 noundef %49, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
@@ -12057,7 +12057,7 @@ define internal fastcc void @mbim_dissect_set_dss_connect(ptr noundef %0, ptr no
   store i32 %3, ptr %5, align 4
   store ptr null, ptr %6, align 8
   %7 = load i32, ptr @hf_mbim_set_dss_connect_device_service_id, align 4
-  %8 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
+  %8 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef %5, ptr noundef nonnull %6, i32 noundef 1)
   %9 = load i32, ptr %5, align 4
   %10 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %9) #10
   call void @dissector_delete_uint(ptr noundef nonnull @.str.1725, i32 noundef %10, ptr noundef null) #10
@@ -12506,7 +12506,7 @@ define internal fastcc void @mbim_dissect_set_ms_provisioned_context_v2(ptr noun
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #10
   %9 = add i32 %3, 4
   store i32 %9, ptr %6, align 4
-  call fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %3, ptr noundef %4)
+  call fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6, i32 noundef %3, ptr noundef %4)
   ret void
 }
 
@@ -12846,7 +12846,7 @@ define internal fastcc void @mbim_dissect_ms_registration_params_info(ptr nounde
   %23 = phi i32 [ %26, %.lr.ph.i ], [ %21, %5 ]
   %24 = load i32, ptr @ett_mbim_pair_list, align 4
   %25 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %23, i32 noundef 0, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.2579) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef %6)
   %26 = load i32, ptr %6, align 4
   %27 = sub i32 %26, %3
   %28 = icmp slt i32 %27, %4
@@ -12869,7 +12869,7 @@ define internal fastcc void @mbim_dissect_tlv_ie_list(ptr noundef %0, ptr nounde
   %10 = phi i32 [ %13, %.lr.ph ], [ %3, %6 ]
   %11 = load i32, ptr @ett_mbim_pair_list, align 4
   %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %10, i32 noundef 0, i32 noundef %11, ptr noundef null, ptr noundef nonnull @.str.2579) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef nonnull %7)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %12, ptr noundef %7)
   %13 = load i32, ptr %7, align 4
   %14 = sub i32 %13, %4
   %15 = icmp slt i32 %14, %5
@@ -12880,7 +12880,7 @@ define internal fastcc void @mbim_dissect_tlv_ie_list(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.mbim_pair_list, align 4
   %8 = load i32, ptr @hf_mbim_ms_sar_config_sar_mode, align 4
@@ -12980,7 +12980,7 @@ define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_transmission_status(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_transmission_status(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mbim_ms_transmission_status_channel_notification, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %7 = add i32 %2, 4
@@ -14094,7 +14094,7 @@ mbim_dissect_ms_plmn.exit:                        ; preds = %67, %70
   %78 = phi i32 [ %81, %.lr.ph.i ], [ %75, %mbim_dissect_ms_plmn.exit ]
   %79 = load i32, ptr @ett_mbim_pair_list, align 4
   %80 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %78, i32 noundef 0, i32 noundef %79, ptr noundef null, ptr noundef nonnull @.str.2579) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %80, ptr noundef nonnull %7)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %80, ptr noundef %7)
   %81 = load i32, ptr %7, align 4
   %82 = sub i32 %81, %3
   %83 = icmp slt i32 %82, %5
@@ -14225,7 +14225,7 @@ define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr nound
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #10
   %20 = add i32 %3, 16
   store i32 %20, ptr %8, align 4
-  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8)
   %21 = load i32, ptr %8, align 4
   %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %21) #10
   %23 = icmp eq i32 %22, 0
@@ -14261,7 +14261,7 @@ define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr nound
   store i32 %41, ptr %8, align 4
   %42 = load i32, ptr @ett_mbim_pair_list, align 4
   %43 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %41, i32 noundef 0, i32 noundef %42, ptr noundef null, ptr noundef nonnull @.str.442) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %43, ptr noundef nonnull %8)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %43, ptr noundef %8)
   %44 = load i32, ptr %30, align 8
   %45 = icmp ugt i32 %44, 3
   br i1 %45, label %50, label %46
@@ -14277,7 +14277,7 @@ define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr nound
   %51 = load i32, ptr %8, align 4
   %52 = load i32, ptr @ett_mbim_pair_list, align 4
   %53 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %51, i32 noundef 0, i32 noundef %52, ptr noundef null, ptr noundef nonnull @.str.2536) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %53, ptr noundef nonnull %8)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %53, ptr noundef %8)
   br label %54
 
 54:                                               ; preds = %46, %50
@@ -14292,7 +14292,7 @@ define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr nound
   %58 = phi i32 [ %61, %.lr.ph.i ], [ %55, %54 ]
   %59 = load i32, ptr @ett_mbim_pair_list, align 4
   %60 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %58, i32 noundef 0, i32 noundef %59, ptr noundef null, ptr noundef nonnull @.str.2579) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %60, ptr noundef nonnull %7)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %60, ptr noundef %7)
   %61 = load i32, ptr %7, align 4
   %62 = sub i32 %61, %3
   %63 = icmp slt i32 %62, %5
@@ -14668,7 +14668,7 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   store i32 %49, ptr %5, align 4
   store ptr null, ptr %7, align 8
   %50 = load i32, ptr @hf_mbim_device_service_element_device_service_id, align 4
-  %51 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %47, i32 noundef %50, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1)
+  %51 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %47, i32 noundef %50, ptr noundef %5, ptr noundef nonnull %7, i32 noundef 1)
   %52 = load i32, ptr %5, align 4
   %53 = load i32, ptr @hf_mbim_device_service_element_dss_payload, align 4
   %54 = load i32, ptr @ett_mbim_bitmap, align 4
@@ -16041,7 +16041,7 @@ define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr nou
   %47 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648) #10
   %48 = add i32 %45, 4
   store i32 %48, ptr %6, align 4
-  call fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %43, ptr noundef nonnull %6, i32 noundef %45, ptr noundef %4)
+  call fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %43, ptr noundef %6, i32 noundef %45, ptr noundef %4)
   br label %49
 
 49:                                               ; preds = %.lr.ph48, %36, %39
@@ -16206,27 +16206,27 @@ define internal fastcc void @mbim_dissect_device_caps_v3_and_higher_info(ptr nou
   store i32 %47, ptr %6, align 4
   %48 = load i32, ptr @ett_mbim_pair_list, align 4
   %49 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %47, i32 noundef 0, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.2600) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %49, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %49, ptr noundef %6)
   %50 = load i32, ptr %6, align 4
   %51 = load i32, ptr @ett_mbim_pair_list, align 4
   %52 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %50, i32 noundef 0, i32 noundef %51, ptr noundef null, ptr noundef nonnull @.str.2601) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %52, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %52, ptr noundef %6)
   %53 = load i32, ptr %6, align 4
   %54 = load i32, ptr @ett_mbim_pair_list, align 4
   %55 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %53, i32 noundef 0, i32 noundef %54, ptr noundef null, ptr noundef nonnull @.str.211) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %55, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %55, ptr noundef %6)
   %56 = load i32, ptr %6, align 4
   %57 = load i32, ptr @ett_mbim_pair_list, align 4
   %58 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %56, i32 noundef 0, i32 noundef %57, ptr noundef null, ptr noundef nonnull @.str.2602) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %58, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %58, ptr noundef %6)
   %59 = load i32, ptr %6, align 4
   %60 = load i32, ptr @ett_mbim_pair_list, align 4
   %61 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %59, i32 noundef 0, i32 noundef %60, ptr noundef null, ptr noundef nonnull @.str.2603) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %61, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %61, ptr noundef %6)
   %62 = load i32, ptr %6, align 4
   %63 = load i32, ptr @ett_mbim_pair_list, align 4
   %64 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %62, i32 noundef 0, i32 noundef %63, ptr noundef null, ptr noundef nonnull @.str.2604) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %64, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %64, ptr noundef %6)
   ret void
 }
 
@@ -16704,7 +16704,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   store i32 %252, ptr %23, align 4
   %253 = load i32, ptr @ett_mbim_pair_list, align 4
   %254 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %252, i32 noundef %249, i32 noundef %253, ptr noundef null, ptr noundef nonnull @.str.2607) #10
-  call fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %254, ptr noundef nonnull %23)
+  call fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %254, ptr noundef %23)
   br label %255
 
 255:                                              ; preds = %251, %246
@@ -16964,7 +16964,7 @@ define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr 
   %437 = load i32, ptr %23, align 4
   %438 = load i32, ptr @ett_mbim_pair_list, align 4
   %439 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %430, ptr noundef %0, i32 noundef %437, i32 noundef 0, i32 noundef %438, ptr noundef null, ptr noundef nonnull @.str.2612, i32 noundef %.0183208) #10
-  call fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %439, ptr noundef nonnull %23)
+  call fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %439, ptr noundef %23)
   %440 = add nuw i32 %.0183208, 1
   %441 = load i32, ptr %46, align 4
   %442 = icmp ult i32 %440, %441
@@ -17368,7 +17368,7 @@ define internal fastcc void @mbim_dissect_ms_modem_config_info(ptr noundef %0, p
   store i32 %9, ptr %6, align 4
   %10 = load i32, ptr @ett_mbim_pair_list, align 4
   %11 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef 0, i32 noundef %10, ptr noundef null, ptr noundef nonnull @.str.2619) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %6)
   %12 = load i32, ptr %6, align 4
   %13 = sub i32 %12, %3
   %14 = icmp ult i32 %13, %4
@@ -17378,7 +17378,7 @@ define internal fastcc void @mbim_dissect_ms_modem_config_info(ptr noundef %0, p
   %15 = phi i32 [ %18, %.lr.ph ], [ %12, %5 ]
   %16 = load i32, ptr @ett_mbim_pair_list, align 4
   %17 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %15, i32 noundef 0, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.2579) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef %6)
   %18 = load i32, ptr %6, align 4
   %19 = sub i32 %18, %3
   %20 = icmp ult i32 %19, %4
@@ -17406,7 +17406,7 @@ define internal fastcc void @mbim_dissect_ms_network_params_info(ptr noundef %0,
   %14 = phi i32 [ %17, %.lr.ph.i ], [ %12, %5 ]
   %15 = load i32, ptr @ett_mbim_pair_list, align 4
   %16 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.2579) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef nonnull %6)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef %6)
   %17 = load i32, ptr %6, align 4
   %18 = sub i32 %17, %3
   %19 = icmp slt i32 %18, %4
@@ -17429,7 +17429,7 @@ define internal fastcc void @mbim_dissect_ms_wake_reason(ptr noundef %0, ptr nou
   store i32 %11, ptr %5, align 4
   %12 = load i32, ptr @ett_mbim_pair_list, align 4
   %13 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef 0, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.2620) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef nonnull %5)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %5)
   ret void
 }
 
@@ -17915,7 +17915,7 @@ declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._e_guid_t, align 4
   %6 = load i32, ptr %3, align 4
   call void @tvb_get_ntohguid(ptr noundef %0, i32 noundef %6, ptr noundef nonnull %5) #10
@@ -17953,7 +17953,7 @@ define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -18021,7 +18021,7 @@ define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1,
   ]
 
 43:                                               ; preds = %41
-  call fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3)
+  call fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %2, ptr noundef %3)
   br label %mbim_dissect_rej_nssai.exit
 
 44:                                               ; preds = %41, %41, %41
@@ -18037,7 +18037,7 @@ define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1,
   %.07.i = phi i32 [ %51, %.lr.ph.i ], [ 1, %44 ]
   %49 = load i32, ptr @ett_mbim_pair_list, align 4
   %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %48, i32 noundef 0, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.2547, i32 noundef %.07.i) #10
-  call fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %50, ptr noundef nonnull %19)
+  call fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %50, ptr noundef %19)
   %51 = add i32 %.07.i, 1
   %52 = load i32, ptr %19, align 4
   %53 = sub i32 %52, %45
@@ -18064,7 +18064,7 @@ mbim_dissect_nssai.exit:                          ; preds = %.lr.ph.i, %44
   store i32 %63, ptr %18, align 4
   %64 = load i32, ptr @ett_mbim_pair_list, align 4
   %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %60, ptr noundef %0, i32 noundef %63, i32 noundef 0, i32 noundef %64, ptr noundef null, ptr noundef nonnull @.str.2549) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %65, ptr noundef nonnull %18)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %65, ptr noundef %18)
   br label %mbim_dissect_precfg_dflt_cfg_nssai.exit
 
 mbim_dissect_precfg_dflt_cfg_nssai.exit:          ; preds = %.lr.ph86.preheader, %55
@@ -18132,11 +18132,11 @@ mbim_dissect_rej_snssai.exit.i:                   ; preds = %83, %.lr.ph.i77
   %101 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %99, i32 noundef 0, i32 noundef %100, ptr noundef null, ptr noundef nonnull @.str.2551, i32 noundef %.0.i84) #10
   %102 = load i32, ptr @ett_mbim_pair_list, align 4
   %103 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %101, ptr noundef %0, i32 noundef %99, i32 noundef 0, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.50) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %103, ptr noundef nonnull %16)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %103, ptr noundef %16)
   %104 = load i32, ptr %16, align 4
   %105 = load i32, ptr @ett_mbim_pair_list, align 4
   %106 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %101, ptr noundef %0, i32 noundef %104, i32 noundef 0, i32 noundef %105, ptr noundef null, ptr noundef nonnull @.str.1935) #10
-  %107 = call fastcc i32 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %106, ptr noundef nonnull %16)
+  %107 = call fastcc i32 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %106, ptr noundef %16)
   %.not.i = icmp eq i32 %107, 0
   br i1 %.not.i, label %mbim_dissect_ladn.exit, label %94
 
@@ -18164,7 +18164,7 @@ mbim_dissect_ladn.exit:                           ; preds = %.lr.ph, %94, %90
   %.08.i = phi i32 [ %112, %111 ], [ 1, %108 ]
   %117 = load i32, ptr @ett_mbim_pair_list, align 4
   %118 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %116, i32 noundef 0, i32 noundef %117, ptr noundef null, ptr noundef nonnull @.str.2555, i32 noundef %.08.i) #10
-  %119 = call fastcc i32 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %118, ptr noundef nonnull %15)
+  %119 = call fastcc i32 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %118, ptr noundef %15)
   %.not.i79 = icmp eq i32 %119, 0
   br i1 %.not.i79, label %mbim_dissect_ms_tai.exit, label %111
 
@@ -18197,7 +18197,7 @@ mbim_dissect_ms_tai.exit:                         ; preds = %111, %.lr.ph.i78, %
   %134 = add i32 %129, 2
   store i32 %134, ptr %13, align 4
   %135 = load i32, ptr %14, align 4
-  call fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %131, ptr noundef nonnull %13, i32 noundef %135)
+  call fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %131, ptr noundef %13, i32 noundef %135)
   %136 = add i32 %.010.i, 1
   %137 = load i32, ptr %13, align 4
   %138 = sub i32 %137, %126
@@ -18220,9 +18220,9 @@ mbim_dissect_tps.exit:                            ; preds = %.lr.ph.i80, %125
   %142 = load i32, ptr @ett_mbim_pair_list, align 4
   %143 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %141, i32 noundef 0, i32 noundef %142, ptr noundef null, ptr noundef nonnull @.str.2558) #10
   %144 = load i32, ptr @hf_mbim_device_service_id, align 4
-  %145 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %143, i32 noundef %144, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1)
+  %145 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %143, i32 noundef %144, ptr noundef %9, ptr noundef nonnull %10, i32 noundef 1)
   %146 = load ptr, ptr %10, align 8
-  %147 = call fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %143, ptr noundef nonnull %9, i8 noundef zeroext %145, ptr noundef %146)
+  %147 = call fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %143, ptr noundef %9, i8 noundef zeroext %145, ptr noundef %146)
   %148 = load i32, ptr @hf_mbim_ms_wake_reason_command_payload_offset, align 4
   %149 = load i32, ptr %9, align 4
   %150 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %143, i32 noundef %148, ptr noundef %0, i32 noundef %149, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #10
@@ -18320,7 +18320,7 @@ mbim_dissect_ms_wake_packet.exit:                 ; preds = %162, %181
   %208 = add i32 %198, 3
   store i32 %208, ptr %6, align 4
   %209 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %205, ptr noundef nonnull %6, i32 noundef %209)
+  call fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %205, ptr noundef %6, i32 noundef %209)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %210 = add i32 %.010.i83, 1
   %211 = load i32, ptr %6, align 4
@@ -18375,7 +18375,7 @@ mbim_dissect_rej_nssai.exit:                      ; preds = %mbim_dissect_rej_sn
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_mbim_ms_snssai_length, align 4
   %6 = load i32, ptr %2, align 4
@@ -18434,7 +18434,7 @@ define internal fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %1,
 declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -18568,7 +18568,7 @@ mbim_dissect_ms_tai_list_multi_plmn.exit:         ; preds = %mbim_dissect_ms_plm
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i32, ptr %3, align 4
@@ -18868,7 +18868,7 @@ declare zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef, ptr noundef, ptr
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -18957,7 +18957,7 @@ define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr
 73:                                               ; preds = %6, %69
   %74 = load i32, ptr @ett_mbim_pair_list, align 4
   %75 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %65, i32 noundef 0, i32 noundef %74, ptr noundef null, ptr noundef nonnull @.str.2536) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %75, ptr noundef nonnull %3)
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %75, ptr noundef %3)
   br label %76
 
 76:                                               ; preds = %69, %73
@@ -19025,7 +19025,7 @@ define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_lte_attach_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_lte_attach_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -19138,7 +19138,7 @@ define internal fastcc void @mbim_dissect_lte_attach_context(ptr noundef %0, ptr
 declare zeroext i16 @de_sm_tflow_temp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr %2, align 4

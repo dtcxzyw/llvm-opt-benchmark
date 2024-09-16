@@ -129,7 +129,7 @@ stream_write_bits.exit.i:                         ; preds = %61, %rev_precision_
   %73 = and i64 %70, %72
   store i64 %73, ptr %56, align 8
   %74 = add i32 %13, -6
-  %75 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %10, i32 noundef %74, i32 noundef %51, ptr noundef nonnull %4)
+  %75 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %10, i32 noundef %74, i32 noundef %51, ptr noundef %4)
   %76 = add i32 %75, 6
   %77 = icmp ult i32 %76, %11
   br i1 %77, label %78, label %rev_encode_block_int64_1.exit
@@ -215,7 +215,7 @@ rev_encode_block_int64_1.exit:                    ; preds = %stream_write_bits.e
   br i1 %.not.i.i16, label %fwd_order_int64.exit.i17, label %112
 
 fwd_order_int64.exit.i17:                         ; preds = %112
-  %122 = call fastcc i32 @encode_ints_uint64(ptr noundef %10, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %3)
+  %122 = call fastcc i32 @encode_ints_uint64(ptr noundef %10, i32 noundef %13, i32 noundef %15, ptr noundef %3)
   %123 = icmp ult i32 %122, %11
   br i1 %123, label %124, label %encode_block_int64_1.exit
 
@@ -262,7 +262,7 @@ encode_block_int64_1.exit:                        ; preds = %fwd_order_int64.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @encode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @encode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %.sroa.24.i = alloca { ptr, ptr }, align 8
   %5 = shl i32 %2, 2
   %6 = or disjoint i32 %5, 3

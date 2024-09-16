@@ -10710,7 +10710,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourc
 
 12:                                               ; preds = %10
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_EmptyContainerDataSourceE, i64 16), ptr %11, align 8
-  invoke fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_(ptr noundef nonnull %11)
+  invoke fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_(ptr noundef %11)
           to label %13 unwind label %27
 
 13:                                               ; preds = %12
@@ -14697,7 +14697,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_(ptr noundef nonnull %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %0, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSource3NewEmPKNS_7TfTokenEPKSt10shared_ptrINS_16HdDataSourceBaseEEE14emptyContainer, align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSource3NewEmPKNS_7TfTokenEPKSt10shared_ptrINS_16HdDataSourceBaseEEE14emptyContainer, i64 8), align 8
   %2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28

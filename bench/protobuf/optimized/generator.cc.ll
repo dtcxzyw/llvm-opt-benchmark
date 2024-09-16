@@ -1211,7 +1211,7 @@ lpad207:                                          ; preds = %invoke.cont204
   br label %ehcleanup266
 
 invoke.cont220:                                   ; preds = %invoke.cont208
-  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp221, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp221, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
           to label %invoke.cont223 unwind label %lpad222
 
 invoke.cont223:                                   ; preds = %invoke.cont220
@@ -1531,7 +1531,7 @@ lpad283:                                          ; preds = %invoke.cont278
   br label %ehcleanup357
 
 invoke.cont298:                                   ; preds = %invoke.cont284
-  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp300, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp300, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
           to label %invoke.cont302 unwind label %lpad301
 
 invoke.cont302:                                   ; preds = %invoke.cont298
@@ -1790,7 +1790,7 @@ invoke.cont371:                                   ; preds = %invoke.cont367
           to label %invoke.cont378 unwind label %lpad377
 
 invoke.cont378:                                   ; preds = %invoke.cont371
-  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp380, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp380, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
           to label %invoke.cont382 unwind label %lpad381
 
 invoke.cont382:                                   ; preds = %invoke.cont378
@@ -2102,7 +2102,7 @@ invoke.cont433:                                   ; preds = %invoke.cont429
           to label %invoke.cont440 unwind label %lpad439
 
 invoke.cont440:                                   ; preds = %invoke.cont433
-  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp442, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp442, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
           to label %invoke.cont444 unwind label %lpad443
 
 invoke.cont444:                                   ; preds = %invoke.cont440
@@ -2304,7 +2304,7 @@ invoke.cont471:                                   ; preds = %invoke.cont467
           to label %invoke.cont478 unwind label %lpad477
 
 invoke.cont478:                                   ; preds = %invoke.cont471
-  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp480, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp480, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
           to label %invoke.cont482 unwind label %lpad481
 
 invoke.cont482:                                   ; preds = %invoke.cont478
@@ -2531,7 +2531,7 @@ invoke.cont521:                                   ; preds = %invoke.cont517
           to label %invoke.cont528 unwind label %lpad527
 
 invoke.cont528:                                   ; preds = %invoke.cont521
-  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp530, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp530, ptr noundef nonnull align 8 dereferenceable(206) %file_options)
           to label %invoke.cont532 unwind label %lpad531
 
 invoke.cont532:                                   ; preds = %invoke.cont528
@@ -3118,7 +3118,7 @@ lpad:                                             ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(206) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110CommonVarsB5cxx11ERKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(206) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::allocator.0", align 1
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

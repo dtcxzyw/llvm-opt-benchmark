@@ -5265,7 +5265,7 @@ define dso_local void @_ZNK4llvm8Function5printERNS_11raw_ostreamEPNS_24Assembly
   call void @_ZN4llvm21formatted_raw_ostream9setStreamERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(105) %7, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %19 = load ptr, ptr %9, align 8
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterC2ERN4llvm21formatted_raw_ostreamERNS1_11SlotTrackerEPKNS1_6ModuleEPNS1_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef nonnull align 8 dereferenceable(105) %7, ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %19, ptr noundef %2, i1 noundef zeroext %4, i1 noundef zeroext %3)
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef %0)
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %8) #25
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -5464,7 +5464,7 @@ _ZNK4llvm15concat_iteratorIKNS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::AttributeSet", align 8
   %4 = alloca %"class.llvm::AttributeList", align 8
   %5 = alloca %"class.llvm::AttributeSet", align 8
@@ -5486,7 +5486,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPK
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(105) %17) #25
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(105) %17) #25
   br label %21
 
 21:                                               ; preds = %16, %2
@@ -5696,7 +5696,7 @@ _ZN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj4EED2Ev.exit: ; preds = %120, %118
   %123 = load ptr, ptr %0, align 8
   %124 = load i32, ptr %22, align 8
   %125 = and i32 %124, 15
-  call fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias nonnull writable align 8 %9, i32 noundef %125)
+  call fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias writable align 8 %9, i32 noundef %125)
   %126 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   %127 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   %128 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %123, ptr noundef %126, i64 noundef %127) #25
@@ -7057,7 +7057,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit202:              ; preds = %839, %841
   %846 = icmp eq ptr %.sroa.0208.0253, null
   %847 = getelementptr inbounds i8, ptr %.sroa.0208.0253, i64 -24
   %848 = select i1 %846, ptr null, ptr %847
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter15printBasicBlockEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull %848)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter15printBasicBlockEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %848)
   %849 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0253, i64 8
   %.sroa.0208.0 = load ptr, ptr %849, align 8
   %.not237 = icmp eq ptr %.sroa.0208.0, %845
@@ -7463,7 +7463,7 @@ define dso_local void @_ZNK4llvm10BasicBlock5printERNS_11raw_ostreamEPNS_24Assem
   call void @_ZN4llvm21formatted_raw_ostream9setStreamERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(105) %7, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %19 = call noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #25
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterC2ERN4llvm21formatted_raw_ostreamERNS1_11SlotTrackerEPKNS1_6ModuleEPNS1_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef nonnull align 8 dereferenceable(105) %7, ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %19, ptr noundef %2, i1 noundef zeroext %4, i1 noundef zeroext %3)
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter15printBasicBlockEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef nonnull %0)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter15printBasicBlockEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef %0)
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %8) #25
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -7496,7 +7496,7 @@ _ZN4llvm21formatted_raw_ostreamD2Ev.exit:         ; preds = %_ZN4llvm11raw_ostre
 declare noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter15printBasicBlockEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter15printBasicBlockEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.(anonymous namespace)::AsmWriterContext", align 8
   %4 = alloca %"struct.(anonymous namespace)::AsmWriterContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -10113,7 +10113,7 @@ _ZN4llvm11raw_ostreamlsEc.exit91.i:               ; preds = %931, %929, %._crit_
   %934 = icmp eq ptr %.sroa.0169.0208.i, null
   %935 = getelementptr inbounds i8, ptr %.sroa.0169.0208.i, i64 -56
   %936 = select i1 %934, ptr null, ptr %935
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter11printGlobalEPKN4llvm14GlobalVariableE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef nonnull %936)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter11printGlobalEPKN4llvm14GlobalVariableE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef %936)
   %937 = load ptr, ptr %22, align 8
   %938 = getelementptr inbounds nuw i8, ptr %937, i64 32
   %939 = load ptr, ptr %938, align 8
@@ -10175,7 +10175,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit98.i:             ; preds = %959, %957, %._crit_
   %963 = icmp eq ptr %.sroa.0163.0213.i, null
   %964 = getelementptr inbounds i8, ptr %.sroa.0163.0213.i, i64 -48
   %965 = select i1 %963, ptr null, ptr %964
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter10printAliasEPKN4llvm11GlobalAliasE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef nonnull %965)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter10printAliasEPKN4llvm11GlobalAliasE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef %965)
   %966 = getelementptr inbounds nuw i8, ptr %.sroa.0163.0213.i, i64 8
   %.sroa.0163.0.i = load ptr, ptr %966, align 8
   %.not183.i = icmp eq ptr %.sroa.0163.0.i, %947
@@ -10218,7 +10218,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit105.i:            ; preds = %979, %977, %._crit_
   %983 = icmp eq ptr %.sroa.0157.0218.i, null
   %984 = getelementptr inbounds i8, ptr %.sroa.0157.0218.i, i64 -56
   %985 = select i1 %983, ptr null, ptr %984
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter10printIFuncEPKN4llvm11GlobalIFuncE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef nonnull %985)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter10printIFuncEPKN4llvm11GlobalIFuncE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef %985)
   %986 = getelementptr inbounds nuw i8, ptr %.sroa.0157.0218.i, i64 8
   %.sroa.0157.0.i = load ptr, ptr %986, align 8
   %.not184.i = icmp eq ptr %.sroa.0157.0.i, %967
@@ -10255,7 +10255,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit105.i:            ; preds = %979, %977, %._crit_
   br label %_ZN4llvm11raw_ostreamlsEc.exit112.i
 
 _ZN4llvm11raw_ostreamlsEc.exit112.i:              ; preds = %999, %997
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef nonnull %991)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef %991)
   %1001 = getelementptr inbounds nuw i8, ptr %.sroa.0153.0223.i, i64 8
   %.sroa.0153.0.i = load ptr, ptr %1001, align 8
   %.not185.i = icmp eq ptr %.sroa.0153.0.i, %988
@@ -10508,7 +10508,7 @@ _ZN4llvm11raw_ostreamlsEc.exit125.i:              ; preds = %1102, %1100, %1090
 
 .lr.ph230.i:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit125.i, %.lr.ph230.i
   %.sroa.0148.0229.i = phi ptr [ %.sroa.0148.0.i, %.lr.ph230.i ], [ %.sroa.0148.0227.i, %_ZN4llvm11raw_ostreamlsEc.exit125.i ]
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter16printNamedMDNodeEPKN4llvm11NamedMDNodeE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef nonnull %.sroa.0148.0229.i)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter16printNamedMDNodeEPKN4llvm11NamedMDNodeE(ptr noundef nonnull align 8 dereferenceable(616) %22, ptr noundef %.sroa.0148.0229.i)
   %1105 = getelementptr inbounds nuw i8, ptr %.sroa.0148.0229.i, i64 8
   %.sroa.0148.0.i = load ptr, ptr %1105, align 8
   %.not186.i = icmp eq ptr %.sroa.0148.0.i, %1091
@@ -10788,7 +10788,7 @@ define dso_local void @_ZNK4llvm11NamedMDNode5printERNS_11raw_ostreamEb(ptr noun
   call void @_ZN4llvm21formatted_raw_ostream9setStreamERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(105) %5, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %17 = load ptr, ptr %7, align 8
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterC2ERN4llvm21formatted_raw_ostreamERNS1_11SlotTrackerEPKNS1_6ModuleEPNS1_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(616) %6, ptr noundef nonnull align 8 dereferenceable(105) %5, ptr noundef nonnull align 8 dereferenceable(356) %4, ptr noundef %17, ptr noundef null, i1 noundef zeroext %2, i1 noundef zeroext false)
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter16printNamedMDNodeEPKN4llvm11NamedMDNodeE(ptr noundef nonnull align 8 dereferenceable(616) %6, ptr noundef nonnull %0)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter16printNamedMDNodeEPKN4llvm11NamedMDNodeE(ptr noundef nonnull align 8 dereferenceable(616) %6, ptr noundef %0)
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %6) #25
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -10819,7 +10819,7 @@ _ZN4llvm21formatted_raw_ostreamD2Ev.exit:         ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter16printNamedMDNodeEPKN4llvm11NamedMDNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter16printNamedMDNodeEPKN4llvm11NamedMDNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -11058,7 +11058,7 @@ _ZNSt8optionalIN4llvm11SlotTrackerEE7emplaceIJPKNS0_6ModuleEEEENSt9enable_ifIX18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterC2ERN4llvm21formatted_raw_ostreamERNS1_11SlotTrackerEPKNS1_6ModuleEPNS1_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef nonnull align 8 dereferenceable(105) %6, ptr noundef nonnull align 8 dereferenceable(356) %.0, ptr noundef %22, ptr noundef null, i1 noundef zeroext %3, i1 noundef zeroext false)
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter16printNamedMDNodeEPKN4llvm11NamedMDNodeE(ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef nonnull %0)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter16printNamedMDNodeEPKN4llvm11NamedMDNodeE(ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %0)
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %7) #25
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %6, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -11272,11 +11272,12 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %90, %92
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13PrintLLVMNameRN4llvm11raw_ostreamENS_9StringRefE10PrefixType(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #1 {
-  switch i32 %3, label %_ZN4llvm11raw_ostreamlsEc.exit [
+define internal fastcc void @_ZL13PrintLLVMNameRN4llvm11raw_ostreamENS_9StringRefE10PrefixType(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, i32 noundef range(i32 0, 4) %3) unnamed_addr #1 {
+  switch i32 %3, label %default.unreachable [
     i32 3, label %23
     i32 0, label %5
     i32 1, label %14
+    i32 2, label %_ZN4llvm11raw_ostreamlsEc.exit
   ]
 
 5:                                                ; preds = %4
@@ -11332,6 +11333,9 @@ define internal fastcc void @_ZL13PrintLLVMNameRN4llvm11raw_ostreamENS_9StringRe
   store ptr %31, ptr %24, align 8
   store i8 37, ptr %25, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
+
+default.unreachable:                              ; preds = %4
+  unreachable
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %30, %28, %21, %19, %12, %10, %4
   tail call void @_ZN4llvm26printLLVMNameWithoutPrefixERNS_11raw_ostreamENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2)
@@ -14297,7 +14301,7 @@ _ZN4llvm11SlotTracker13purgeFunctionEv.exit.i.i71: ; preds = %._crit_edge.i.i.i.
 "_ZZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEbENK3$_0clEPKNS_8FunctionE.exit72": ; preds = %71, %74, %76, %105
   %110 = call fastcc noundef ptr @_ZL16getModuleFromValPKN4llvm5ValueE(ptr noundef nonnull %spec.select.i.i60)
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterC2ERN4llvm21formatted_raw_ostreamERNS1_11SlotTrackerEPKNS1_6ModuleEPNS1_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef nonnull align 8 dereferenceable(105) %5, ptr noundef nonnull align 8 dereferenceable(356) %24, ptr noundef %110, ptr noundef null, i1 noundef zeroext %3, i1 noundef zeroext false)
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter15printBasicBlockEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef nonnull %spec.select.i.i60)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter15printBasicBlockEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(616) %8, ptr noundef %spec.select.i.i60)
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %8) #25
   br label %154
 
@@ -14317,21 +14321,21 @@ _ZN4llvm11SlotTracker13purgeFunctionEv.exit.i.i71: ; preds = %._crit_edge.i.i.i.
   ]
 
 116:                                              ; preds = %112
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter11printGlobalEPKN4llvm14GlobalVariableE(ptr noundef nonnull align 8 dereferenceable(616) %9, ptr noundef nonnull %0)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter11printGlobalEPKN4llvm14GlobalVariableE(ptr noundef nonnull align 8 dereferenceable(616) %9, ptr noundef %0)
   br label %121
 
 117:                                              ; preds = %112
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(616) %9, ptr noundef nonnull %0)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter13printFunctionEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(616) %9, ptr noundef %0)
   br label %121
 
 118:                                              ; preds = %112
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter10printAliasEPKN4llvm11GlobalAliasE(ptr noundef nonnull align 8 dereferenceable(616) %9, ptr noundef nonnull %0)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter10printAliasEPKN4llvm11GlobalAliasE(ptr noundef nonnull align 8 dereferenceable(616) %9, ptr noundef %0)
   br label %121
 
 119:                                              ; preds = %112
   %120 = icmp eq i8 %115, 2
   call void @llvm.assume(i1 %120)
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter10printIFuncEPKN4llvm11GlobalIFuncE(ptr noundef nonnull align 8 dereferenceable(616) %9, ptr noundef nonnull %0)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter10printIFuncEPKN4llvm11GlobalIFuncE(ptr noundef nonnull align 8 dereferenceable(616) %9, ptr noundef %0)
   br label %121
 
 121:                                              ; preds = %117, %119, %118, %116
@@ -14989,7 +14993,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit494.thread:       ; preds = %_ZN4llvm11raw_ostre
 
 _ZN4llvm11raw_ostreamlsEPKc.exit498:              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit494, %_ZN4llvm11raw_ostreamlsEPKc.exit494.thread, %286, %290, %310, %308, %294
   %313 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZL21WriteOptimizationInfoRN4llvm11raw_ostreamEPKNS_4UserE(ptr noundef nonnull align 8 dereferenceable(48) %313, ptr noundef nonnull %1)
+  tail call fastcc void @_ZL21WriteOptimizationInfoRN4llvm11raw_ostreamEPKNS_4UserE(ptr noundef nonnull align 8 dereferenceable(48) %313, ptr noundef %1)
   %314 = load i8, ptr %1, align 8
   %315 = and i8 %314, -2
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i8 %315, 82
@@ -16697,7 +16701,7 @@ _ZN4llvm11raw_ostreamlsEc.exit676:                ; preds = %1232, %1234
 
 1237:                                             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit676, %1216
   %1238 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL23maybePrintCallAddrSpacePKN4llvm5ValueEPKNS_11InstructionERNS_11raw_ostreamE(ptr noundef %1218, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %1238)
+  call fastcc void @_ZL23maybePrintCallAddrSpacePKN4llvm5ValueEPKNS_11InstructionERNS_11raw_ostreamE(ptr noundef %1218, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %1238)
   %1239 = load ptr, ptr %0, align 8
   %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 32
   %1241 = load ptr, ptr %1240, align 8
@@ -16891,7 +16895,7 @@ _ZN4llvm11raw_ostreamlsEc.exit688:                ; preds = %1334, %1336
   br label %1348
 
 1348:                                             ; preds = %1339, %_ZN4llvm11raw_ostreamlsEc.exit688
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter19writeOperandBundlesEPKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull %spec.select.i.i672)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter19writeOperandBundlesEPKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %spec.select.i.i672)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit549
 
 1349:                                             ; preds = %1203
@@ -16959,7 +16963,7 @@ _ZN4llvm11raw_ostreamlsEc.exit693:                ; preds = %1378, %1380
 
 1383:                                             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit693, %1370
   %1384 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL23maybePrintCallAddrSpacePKN4llvm5ValueEPKNS_11InstructionERNS_11raw_ostreamE(ptr noundef %1352, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %1384)
+  call fastcc void @_ZL23maybePrintCallAddrSpacePKN4llvm5ValueEPKNS_11InstructionERNS_11raw_ostreamE(ptr noundef %1352, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %1384)
   %1385 = load ptr, ptr %0, align 8
   %1386 = getelementptr inbounds nuw i8, ptr %1385, i64 32
   %1387 = load ptr, ptr %1386, align 8
@@ -17112,7 +17116,7 @@ _ZN4llvm11raw_ostreamlsEc.exit705:                ; preds = %1450, %1452
   br label %1464
 
 1464:                                             ; preds = %1455, %_ZN4llvm11raw_ostreamlsEc.exit705
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter19writeOperandBundlesEPKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull %spec.select.i.i689)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter19writeOperandBundlesEPKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %spec.select.i.i689)
   %1465 = load ptr, ptr %0, align 8
   %1466 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1465, ptr noundef nonnull @.str.330)
   %1467 = getelementptr inbounds i8, ptr %spec.select.i.i689, i64 -96
@@ -17341,7 +17345,7 @@ _ZN4llvm11raw_ostreamlsEc.exit722:                ; preds = %1573, %1575
   br label %1587
 
 1587:                                             ; preds = %1578, %_ZN4llvm11raw_ostreamlsEc.exit722
-  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter19writeOperandBundlesEPKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull %spec.select.i.i706)
+  call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter19writeOperandBundlesEPKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %spec.select.i.i706)
   %1588 = load ptr, ptr %0, align 8
   %1589 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1588, ptr noundef nonnull @.str.330)
   %1590 = getelementptr inbounds nuw i8, ptr %spec.select.i.i706, i64 88
@@ -18580,7 +18584,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49:               ; preds = %64, %62, %47, %_ZN4
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 15
-  call fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %70)
+  call fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %70)
   %71 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %72 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %73 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef %71, i64 noundef %72) #25
@@ -19655,7 +19659,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %40, %42
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 15
-  call fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %48)
+  call fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %48)
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef %49, i64 noundef %50) #25
@@ -20155,7 +20159,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %40, %42
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 15
-  call fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %48)
+  call fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %48)
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef %49, i64 noundef %50) #25
@@ -22257,7 +22261,7 @@ _ZN4llvm11raw_ostreamlsEc.exit368:                ; preds = %829, %831
 852:                                              ; preds = %851
   %853 = tail call noundef ptr @_ZNK4llvm12ConstantExpr13getOpcodeNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #25
   %854 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %853)
-  tail call fastcc void @_ZL21WriteOptimizationInfoRN4llvm11raw_ostreamEPKNS_4UserE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZL21WriteOptimizationInfoRN4llvm11raw_ostreamEPKNS_4UserE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
   %855 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.291)
   %856 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %857 = load i16, ptr %856, align 2
@@ -26788,7 +26792,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %93, %95
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = icmp eq i32 %1, 0
@@ -26803,7 +26807,7 @@ define internal fastcc void @_ZL23getLinkageNameWithSpaceB5cxx11N4llvm11GlobalVa
   br label %10
 
 8:                                                ; preds = %2
-  call fastcc void @_ZL14getLinkageNameB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %1)
+  call fastcc void @_ZL14getLinkageNameB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %1)
   %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.10) #25, !noalias !205
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
@@ -29998,7 +30002,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getLinkageNameB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_ZL14getLinkageNameB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -31544,7 +31548,7 @@ _ZNK4llvm9MapVectorIPKNS_5ValueEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %5) unnamed_addr #1 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %5) unnamed_addr #1 {
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
   %9 = icmp slt i64 %1, %8
@@ -41834,7 +41838,7 @@ declare noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 derefe
 declare noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21WriteOptimizationInfoRN4llvm11raw_ostreamEPKNS_4UserE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @_ZL21WriteOptimizationInfoRN4llvm11raw_ostreamEPKNS_4UserE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca %"class.llvm::FastMathFlags", align 4
   %4 = alloca %"class.std::optional.534", align 8
   %5 = load i8, ptr %1, align 8
@@ -41843,13 +41847,13 @@ define internal fastcc void @_ZL21WriteOptimizationInfoRN4llvm11raw_ostreamEPKNS
 
 7:                                                ; preds = %2
   switch i8 %5, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread.thread [
-    i8 41, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 43, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 45, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 47, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 50, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 53, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 83, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
+    i8 41, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 43, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 45, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 47, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 50, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 53, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 83, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
     i8 84, label %8
     i8 86, label %8
     i8 85, label %8
@@ -41888,19 +41892,19 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %18, %16
   %22 = phi i32 [ %.pre.i.i.i.i.i.i.i.i.i, %18 ], [ %12, %16 ]
   %trunc.i.i.i.i.i.i.i.i.i.i.i = trunc i32 %22 to i8
   switch i8 %trunc.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm14CastIsPossibleIKNS_14FPMathOperatorEPKNS_4UserEvE10isPossibleERKS5_.exit.i.i [
-    i8 3, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 2, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 0, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 1, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-    i8 5, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
+    i8 3, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 2, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 0, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 1, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+    i8 5, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
   ]
 
 _ZN4llvm14CastIsPossibleIKNS_14FPMathOperatorEPKNS_4UserEvE10isPossibleERKS5_.exit.i.i: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i
   %23 = and i32 %22, 253
-  %spec.select.i.i14.i.i.i.i.i.i.i.i.not = icmp eq i32 %23, 4
-  br i1 %spec.select.i.i14.i.i.i.i.i.i.i.i.not, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread
+  %spec.select.i.i14.i.i.i.i.i.i.i.i = icmp eq i32 %23, 4
+  br i1 %spec.select.i.i14.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread
 
-_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZN4llvm14CastIsPossibleIKNS_14FPMathOperatorEPKNS_4UserEvE10isPossibleERKS5_.exit.i.i, %7, %7, %7, %7, %7, %7, %7
+_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleIKNS_14FPMathOperatorEPKNS_4UserEvE10isPossibleERKS5_.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i, %7, %7, %7, %7, %7, %7, %7
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = lshr i8 %25, 1
@@ -41914,8 +41918,8 @@ _ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68: ; preds
   %.pr.pre = load i8, ptr %1, align 8
   br label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread
 
-_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleIKNS_14FPMathOperatorEPKNS_4UserEvE10isPossibleERKS5_.exit.i.i, %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68
-  %.pr = phi i8 [ %5, %_ZN4llvm14CastIsPossibleIKNS_14FPMathOperatorEPKNS_4UserEvE10isPossibleERKS5_.exit.i.i ], [ %.pr.pre, %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread68 ]
+_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleIKNS_14FPMathOperatorEPKNS_4UserEvE10isPossibleERKS5_.exit.i.i, %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit
+  %.pr = phi i8 [ %5, %_ZN4llvm14CastIsPossibleIKNS_14FPMathOperatorEPKNS_4UserEvE10isPossibleERKS5_.exit.i.i ], [ %.pr.pre, %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit ]
   %29 = icmp ugt i8 %.pr, 28
   br i1 %29, label %_ZN4llvm8dyn_castIKNS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread.thread, label %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i
 
@@ -41953,8 +41957,8 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_4UserEEEDcPT0_.exit: ; pred
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = and i8 %43, 2
-  %.not88 = icmp eq i8 %44, 0
-  br i1 %.not88, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %45
+  %.not84 = icmp eq i8 %44, 0
+  br i1 %.not84, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %45
 
 45:                                               ; preds = %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_4UserEEEDcPT0_.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -41981,8 +41985,8 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_4UserEEEDcPT0_.exit: ; pred
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %56, %54, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_4UserEEEDcPT0_.exit
   %59 = load i8, ptr %42, align 1
   %60 = and i8 %59, 4
-  %.not89 = icmp eq i8 %60, 0
-  br i1 %.not89, label %_ZN4llvm11raw_ostreamlsEPKc.exit54, label %61
+  %.not85 = icmp eq i8 %60, 0
+  br i1 %.not85, label %_ZN4llvm11raw_ostreamlsEPKc.exit54, label %61
 
 61:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42029,8 +42033,8 @@ _ZN4llvm8dyn_castINS_21PossiblyExactOperatorEKNS_4UserEEEDcPT0_.exit: ; preds = 
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = and i8 %78, 2
-  %.not90 = icmp eq i8 %79, 0
-  br i1 %.not90, label %_ZN4llvm11raw_ostreamlsEPKc.exit54, label %80
+  %.not86 = icmp eq i8 %79, 0
+  br i1 %.not86, label %_ZN4llvm11raw_ostreamlsEPKc.exit54, label %80
 
 80:                                               ; preds = %_ZN4llvm8dyn_castINS_21PossiblyExactOperatorEKNS_4UserEEEDcPT0_.exit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42058,8 +42062,8 @@ _ZN4llvm8dyn_castINS_21PossiblyExactOperatorEKNS_4UserEEEDcPT0_.exit: ; preds = 
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %96 = load i8, ptr %95, align 1
   %97 = and i8 %96, 2
-  %.not87 = icmp eq i8 %97, 0
-  br i1 %.not87, label %_ZN4llvm11raw_ostreamlsEPKc.exit54, label %98
+  %.not83 = icmp eq i8 %97, 0
+  br i1 %.not83, label %_ZN4llvm11raw_ostreamlsEPKc.exit54, label %98
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42087,13 +42091,13 @@ _ZN4llvm8dyn_castINS_11GEPOperatorEKNS_4UserEEEDcPT0_.exit: ; preds = %76, %75
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %113 = load i8, ptr %112, align 1
   %114 = and i8 %113, 2
-  %.not98 = icmp eq i8 %114, 0
-  br i1 %.not98, label %115, label %.sink.split
+  %.not92 = icmp eq i8 %114, 0
+  br i1 %.not92, label %115, label %.sink.split
 
 115:                                              ; preds = %_ZN4llvm8dyn_castINS_11GEPOperatorEKNS_4UserEEEDcPT0_.exit
   %116 = and i8 %113, 4
-  %.not99 = icmp eq i8 %116, 0
-  br i1 %.not99, label %118, label %.sink.split
+  %.not93 = icmp eq i8 %116, 0
+  br i1 %.not93, label %118, label %.sink.split
 
 .sink.split:                                      ; preds = %115, %_ZN4llvm8dyn_castINS_11GEPOperatorEKNS_4UserEEEDcPT0_.exit
   %.str.340.sink = phi ptr [ @.str.339, %_ZN4llvm8dyn_castINS_11GEPOperatorEKNS_4UserEEEDcPT0_.exit ], [ @.str.340, %115 ]
@@ -42103,8 +42107,8 @@ _ZN4llvm8dyn_castINS_11GEPOperatorEKNS_4UserEEEDcPT0_.exit: ; preds = %76, %75
 118:                                              ; preds = %.sink.split, %115
   %119 = load i8, ptr %112, align 1
   %120 = and i8 %119, 8
-  %.not100 = icmp eq i8 %120, 0
-  br i1 %.not100, label %123, label %121
+  %.not94 = icmp eq i8 %120, 0
+  br i1 %.not94, label %123, label %121
 
 121:                                              ; preds = %118
   %122 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.335)
@@ -42124,11 +42128,11 @@ _ZN4llvm8dyn_castINS_11GEPOperatorEKNS_4UserEEEDcPT0_.exit: ; preds = %76, %75
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12) %130, ptr noundef nonnull align 8 dereferenceable(48) %129, i1 noundef zeroext true) #25
   %131 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %129, ptr noundef nonnull @.str.15)
-  %.pre104 = load i8, ptr %124, align 8
+  %.pre98 = load i8, ptr %124, align 8
   br label %132
 
 132:                                              ; preds = %127, %123
-  %133 = phi i8 [ %.pre104, %127 ], [ %125, %123 ]
+  %133 = phi i8 [ %.pre98, %127 ], [ %125, %123 ]
   %134 = trunc i8 %133 to i1
   br i1 %134, label %135, label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 
@@ -42180,15 +42184,15 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %143, %139, %135
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 
 158:                                              ; preds = %151
-  %.not95 = icmp eq i8 %30, 67
-  br i1 %.not95, label %159, label %_ZN4llvm11raw_ostreamlsEPKc.exit54
+  %.not89 = icmp eq i8 %30, 67
+  br i1 %.not89, label %159, label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %161 = load i8, ptr %160, align 1
   %162 = and i8 %161, 2
-  %.not96 = icmp eq i8 %162, 0
-  br i1 %.not96, label %165, label %163
+  %.not90 = icmp eq i8 %162, 0
+  br i1 %.not90, label %165, label %163
 
 163:                                              ; preds = %159
   %164 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.335)
@@ -42198,8 +42202,8 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %143, %139, %135
 165:                                              ; preds = %163, %159
   %166 = phi i8 [ %.pre, %163 ], [ %161, %159 ]
   %167 = and i8 %166, 4
-  %.not97 = icmp eq i8 %167, 0
-  br i1 %.not97, label %_ZN4llvm11raw_ostreamlsEPKc.exit54, label %168
+  %.not91 = icmp eq i8 %167, 0
+  br i1 %.not91, label %_ZN4llvm11raw_ostreamlsEPKc.exit54, label %168
 
 168:                                              ; preds = %165
   %169 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.336)
@@ -42214,7 +42218,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_os
 declare { ptr, i64 } @_ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23maybePrintCallAddrSpacePKN4llvm5ValueEPKNS_11InstructionERNS_11raw_ostreamE(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL23maybePrintCallAddrSpacePKN4llvm5ValueEPKNS_11InstructionERNS_11raw_ostreamE(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %19
 
@@ -42265,7 +42269,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %19, %26
   br i1 %.not21, label %32, label %.critedge
 
 32:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
-  %33 = tail call fastcc noundef ptr @_ZL16getModuleFromValPKN4llvm5ValueE(ptr noundef %1)
+  %33 = tail call fastcc noundef ptr @_ZL16getModuleFromValPKN4llvm5ValueE(ptr noundef nonnull %1)
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.critedge, label %34
 
@@ -42427,7 +42431,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter19writeOperandBundlesEPKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter19writeOperandBundlesEPKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.(anonymous namespace)::AsmWriterContext", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -44814,7 +44818,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit35.i:             ; preds = %240, %238
 
 _ZN4llvm11raw_ostreamlsEPKc.exit38.i:             ; preds = %254, %252
   %.0.i.i37.i = phi ptr [ %253, %252 ], [ %243, %254 ]
-  call fastcc void @_ZL14getLinkageNameB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias nonnull writable align 8 %11, i32 noundef %159)
+  call fastcc void @_ZL14getLinkageNameB5cxx11N4llvm11GlobalValue12LinkageTypesE(ptr dead_on_unwind noalias writable align 8 %11, i32 noundef %159)
   %257 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
   %258 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
   %259 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i37.i, ptr noundef %257, i64 noundef %258) #25
@@ -45015,9 +45019,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61.i:             ; preds = %375, %373
   %378 = phi ptr [ %.pre167.i, %373 ], [ %377, %375 ]
   %.0.i.i60.i = phi ptr [ %374, %373 ], [ %364, %375 ]
   %379 = and i32 %.sroa.0.0.copyload.i.i, 1024
-  %switch.i.i = icmp eq i32 %379, 0
-  %.str.432..str.239.i.i = select i1 %switch.i.i, ptr @.str.432, ptr @.str.239
-  %380 = select i1 %switch.i.i, i64 10, i64 11
+  %trunc.i.not.i = icmp eq i32 %379, 0
+  %.str.432..str.239.i.i = select i1 %trunc.i.not.i, ptr @.str.432, ptr @.str.239
+  %380 = select i1 %trunc.i.not.i, i64 10, i64 11
   %381 = getelementptr inbounds nuw i8, ptr %.0.i.i60.i, i64 24
   %382 = load ptr, ptr %381, align 8
   %383 = ptrtoint ptr %382 to i64

@@ -530,7 +530,7 @@ define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef %1, 
   %36 = shl nsw i32 %.06064.us, 2
   %37 = add i32 %36, %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %38 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef nonnull %7, i64 noundef %23, ptr noundef %0, ptr noundef %1, i8 noundef zeroext 0, i32 noundef %37, i32 noundef %34, i32 noundef %2, ptr noundef %3)
+  %38 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef %7, i64 noundef %23, ptr noundef %0, ptr noundef %1, i8 noundef zeroext 0, i32 noundef %37, i32 noundef %34, i32 noundef %2, ptr noundef %3)
   %39 = icmp eq i8 %38, -1
   br i1 %39, label %42, label %._crit_edge
 
@@ -661,7 +661,7 @@ define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i8 @set_lpf_parameters(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #4 {
+define internal fastcc zeroext i8 @set_lpf_parameters(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #4 {
   store i32 0, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load i32, ptr %10, align 8
@@ -699,7 +699,7 @@ define internal fastcc zeroext i8 @set_lpf_parameters(ptr nocapture noundef writ
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %15
-  %38 = tail call fastcc zeroext i8 @get_transform_size(ptr noundef %3, ptr noundef nonnull %35, i8 noundef zeroext %4, i32 noundef %22, i32 noundef %25, i32 noundef %7, ptr noundef nonnull %8)
+  %38 = tail call fastcc zeroext i8 @get_transform_size(ptr noundef %3, ptr noundef %35, i8 noundef zeroext %4, i32 noundef %22, i32 noundef %25, i32 noundef %7, ptr noundef nonnull %8)
   %39 = zext nneg i8 %4 to i32
   %40 = icmp eq i8 %4, 0
   %41 = select i1 %40, i32 %5, i32 %6
@@ -753,7 +753,7 @@ is_inter_block.exit:                              ; preds = %55, %52, %47
   %.neg128 = shl nsw i32 -1, %17
   %68 = select i1 %40, i32 %.neg128, i32 0
   %69 = add i32 %25, %68
-  %70 = tail call fastcc zeroext i8 @get_transform_size(ptr noundef %3, ptr noundef nonnull %63, i8 noundef zeroext %4, i32 noundef %67, i32 noundef %69, i32 noundef %7, ptr noundef nonnull %8)
+  %70 = tail call fastcc zeroext i8 @get_transform_size(ptr noundef %3, ptr noundef %63, i8 noundef zeroext %4, i32 noundef %67, i32 noundef %69, i32 noundef %7, ptr noundef nonnull %8)
   %71 = tail call zeroext i8 @av1_get_filter_level(ptr noundef nonnull %2, ptr noundef nonnull %48, i32 noundef %39, i32 noundef %7, ptr noundef nonnull %63)
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 152
   %73 = load i8, ptr %72, align 8
@@ -912,7 +912,7 @@ define hidden void @av1_filter_block_plane_horz(ptr noundef %0, ptr noundef %1, 
   %36 = load i32, ptr %22, align 4
   %37 = shl i32 %36, %11
   %38 = sext i32 %37 to i64
-  %39 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef nonnull %7, i64 noundef %38, ptr noundef %0, ptr noundef %1, i8 noundef zeroext 1, i32 noundef %32, i32 noundef %35, i32 noundef %2, ptr noundef %3)
+  %39 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef %7, i64 noundef %38, ptr noundef %0, ptr noundef %1, i8 noundef zeroext 1, i32 noundef %32, i32 noundef %35, i32 noundef %2, ptr noundef %3)
   %40 = icmp eq i8 %39, -1
   br i1 %40, label %43, label %._crit_edge
 
@@ -1094,7 +1094,7 @@ define hidden void @av1_filter_block_plane_vert_test(ptr noundef %0, ptr noundef
   %.03637.us = phi i32 [ 0, %.lr.ph.us ], [ %36, %28 ]
   %29 = shl nsw i32 %.03637.us, 2
   %30 = add i32 %29, %21
-  %31 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef nonnull %7, i64 noundef %25, ptr noundef %0, ptr noundef %1, i8 noundef zeroext 0, i32 noundef %30, i32 noundef %27, i32 noundef %2, ptr noundef %3)
+  %31 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef %7, i64 noundef %25, ptr noundef %0, ptr noundef %1, i8 noundef zeroext 0, i32 noundef %30, i32 noundef %27, i32 noundef %2, ptr noundef %3)
   %32 = icmp eq i8 %31, -1
   %spec.select = select i1 %32, i8 0, i8 %31
   %33 = zext i8 %spec.select to i64
@@ -1151,7 +1151,7 @@ define hidden void @av1_filter_block_plane_horz_test(ptr noundef %0, ptr noundef
   %30 = load i32, ptr %24, align 4
   %31 = shl i32 %30, %11
   %32 = sext i32 %31 to i64
-  %33 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef nonnull %7, i64 noundef %32, ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext 1, i32 noundef %26, i32 noundef %29, i32 noundef %2, ptr noundef %3)
+  %33 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef %7, i64 noundef %32, ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext 1, i32 noundef %26, i32 noundef %29, i32 noundef %2, ptr noundef %3)
   %34 = icmp eq i8 %33, -1
   %spec.select = select i1 %34, i8 0, i8 %33
   %35 = zext i8 %spec.select to i64
@@ -1340,7 +1340,7 @@ loop_filter_rows.exit:                            ; preds = %33, %.loopexit.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i8 @get_transform_size(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc zeroext i8 @get_transform_size(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i8 noundef zeroext range(i8 0, 2) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %8
 

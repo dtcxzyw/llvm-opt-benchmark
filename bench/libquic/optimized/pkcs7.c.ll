@@ -19,7 +19,7 @@ entry:
   %inp = alloca ptr, align 8
   store ptr null, ptr %der_bytes, align 8
   %call = tail call i64 @sk_num(ptr noundef %out_certs) #3
-  %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef nonnull %der_bytes, ptr noundef nonnull %signed_data, ptr noundef %cbs)
+  %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef %der_bytes, ptr noundef %signed_data, ptr noundef %cbs)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -98,7 +98,7 @@ return:                                           ; preds = %while.body33, %whil
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pkcs7_parse_header(ptr noundef %der_bytes, ptr noundef %out, ptr noundef %cbs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pkcs7_parse_header(ptr noundef nonnull %der_bytes, ptr noundef nonnull %out, ptr noundef %cbs) unnamed_addr #0 {
 entry:
   %der_len = alloca i64, align 8
   %in = alloca %struct.cbs_st, align 8
@@ -184,7 +184,7 @@ if.then32:                                        ; preds = %if.end30
 if.end33:                                         ; preds = %if.end30
   %call34 = call ptr @CBS_data(ptr noundef nonnull %signed_data) #3
   %call35 = call i64 @CBS_len(ptr noundef nonnull %signed_data) #3
-  call void @CBS_init(ptr noundef %out, ptr noundef %call34, i64 noundef %call35) #3
+  call void @CBS_init(ptr noundef nonnull %out, ptr noundef %call34, i64 noundef %call35) #3
   br label %return
 
 err:                                              ; preds = %if.end14, %lor.lhs.false17, %lor.lhs.false20, %lor.lhs.false23, %lor.lhs.false26, %if.end4, %lor.lhs.false, %if.then32, %if.then13
@@ -233,7 +233,7 @@ entry:
   %inp = alloca ptr, align 8
   store ptr null, ptr %der_bytes, align 8
   %call = tail call i64 @sk_num(ptr noundef %out_crls) #3
-  %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef nonnull %der_bytes, ptr noundef nonnull %signed_data, ptr noundef %cbs)
+  %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef %der_bytes, ptr noundef %signed_data, ptr noundef %cbs)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 

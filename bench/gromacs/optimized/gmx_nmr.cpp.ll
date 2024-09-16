@@ -2520,7 +2520,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 ._crit_edge968:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit514, %.preheader805
   %885 = load ptr, ptr %33, align 8
-  %886 = invoke fastcc noundef ptr @_ZL9select_itiN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(i32 noundef %716, ptr %885, ptr noundef nonnull %32)
+  %886 = invoke fastcc noundef ptr @_ZL9select_itiN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(i32 noundef %716, ptr %885, ptr noundef %32)
           to label %.preheader801 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .preheader801:                                    ; preds = %._crit_edge968
@@ -2986,7 +2986,7 @@ _ZL5mypowdd.exit:                                 ; preds = %.lr.ph989, %1053
 .lr.ph973:                                        ; preds = %1087, %1090
   %indvars.iv1170 = phi i64 [ %indvars.iv.next1171, %1090 ], [ 0, %1087 ]
   %1088 = trunc nuw nsw i64 %indvars.iv1170 to i32
-  %1089 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef nonnull %1064, i32 noundef %1088)
+  %1089 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef %1064, i32 noundef %1088)
           to label %1090 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1090:                                             ; preds = %.lr.ph973
@@ -3004,7 +3004,7 @@ _ZL5mypowdd.exit:                                 ; preds = %.lr.ph989, %1053
 .lr.ph975:                                        ; preds = %.loopexit798, %1096
   %indvars.iv1175 = phi i64 [ %indvars.iv.next1176, %1096 ], [ 0, %.loopexit798 ]
   %1094 = trunc nuw nsw i64 %indvars.iv1175 to i32
-  %1095 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef nonnull %1064, i32 noundef %1094)
+  %1095 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef %1064, i32 noundef %1094)
           to label %1096 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1096:                                             ; preds = %.lr.ph975
@@ -3032,7 +3032,7 @@ _ZL5mypowdd.exit:                                 ; preds = %.lr.ph989, %1053
   %indvars.iv1180 = phi i64 [ %indvars.iv.next1181, %1110 ], [ 0, %1104 ]
   %1107 = getelementptr inbounds i32, ptr %.3758, i64 %indvars.iv1180
   %1108 = load i32, ptr %1107, align 4
-  %1109 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef nonnull %1064, i32 noundef %1108)
+  %1109 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef %1064, i32 noundef %1108)
           to label %1110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1110:                                             ; preds = %.lr.ph978
@@ -3058,7 +3058,7 @@ _ZL5mypowdd.exit:                                 ; preds = %.lr.ph989, %1053
   %indvars.iv1185 = phi i64 [ %indvars.iv.next1186, %1120 ], [ 0, %1114 ]
   %1117 = getelementptr inbounds i32, ptr %.3758, i64 %indvars.iv1185
   %1118 = load i32, ptr %1117, align 4
-  %1119 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef nonnull %1064, i32 noundef %1118)
+  %1119 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef %1064, i32 noundef %1118)
           to label %1120 unwind label %.loopexit.split-lp.loopexit
 
 1120:                                             ; preds = %.lr.ph982
@@ -3155,7 +3155,7 @@ _ZL5mypowdd.exit:                                 ; preds = %.lr.ph989, %1053
 1159:                                             ; preds = %.preheader, %1162
   %.3315984 = phi i32 [ 0, %.preheader ], [ %1165, %1162 ]
   %1160 = add nuw nsw i32 %.3315984, %1158
-  %1161 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef nonnull %1131, i32 noundef %1160)
+  %1161 = invoke fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr noundef %1131, i32 noundef %1160)
           to label %1162 unwind label %.loopexit
 
 1162:                                             ; preds = %1159
@@ -4586,7 +4586,7 @@ declare noundef ptr @_Z22find_block_id_enxframeP10t_enxframeiP10t_enxblock(ptr n
 declare void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc noundef ptr @_ZL9select_itiN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(i32 noundef %0, ptr %1, ptr nocapture noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL9select_itiN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(i32 noundef range(i32 -715827882, 715827883) %0, ptr %1, ptr nocapture noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.119) #19
@@ -4716,7 +4716,7 @@ define internal fastcc noundef ptr @_ZL9select_itiN3gmx8ArrayRefIKNSt7__cxx1112b
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZL9blk_valueP10t_enxblockii(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1

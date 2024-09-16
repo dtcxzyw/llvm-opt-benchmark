@@ -1503,7 +1503,7 @@ if.else:                                          ; preds = %if.then81
   call void @_ZNSt12__shared_ptrIN6hermes3hbc14BCProviderBaseELN9__gnu_cxx12_Lock_policyE2EEC2INS1_20BCProviderFromBufferESt14default_deleteIS7_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp87, ptr noundef nonnull align 8 dereferenceable(8) %ret)
   %hasVal.i.i239 = getelementptr inbounds i8, ptr %agg.tmp89, i64 8
   store i8 0, ptr %hasVal.i.i239, align 8
-  call fastcc void @_ZL16enterCommandLoopRN4llvh11raw_ostreamESt10shared_ptrIN6hermes3hbc14BCProviderBaseEENS_8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS9_EEEEOS8_INS3_9SourceMapESA_ISE_EERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %cond-lvalue, ptr noundef nonnull %agg.tmp87, ptr noundef nonnull %agg.tmp89, ptr noundef nonnull align 8 dereferenceable(8) %sourceMap, ptr noundef nonnull align 8 dereferenceable(24) %startupCommands)
+  call fastcc void @_ZL16enterCommandLoopRN4llvh11raw_ostreamESt10shared_ptrIN6hermes3hbc14BCProviderBaseEENS_8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS9_EEEEOS8_INS3_9SourceMapESA_ISE_EERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %cond-lvalue, ptr noundef %agg.tmp87, ptr noundef %agg.tmp89, ptr noundef nonnull align 8 dereferenceable(8) %sourceMap, ptr noundef nonnull align 8 dereferenceable(24) %startupCommands)
   %81 = load i8, ptr %hasVal.i.i239, align 8
   %tobool.i.i.i241 = trunc i8 %81 to i1
   br i1 %tobool.i.i.i241, label %if.then.i.i.i242, label %_ZN4llvh8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
@@ -1692,7 +1692,7 @@ if.end103:                                        ; preds = %if.else91
   %102 = load i64, ptr %profileBuffer, align 8
   store i64 %102, ptr %agg.tmp106, align 8
   store ptr null, ptr %profileBuffer, align 8
-  call fastcc void @_ZL16enterCommandLoopRN4llvh11raw_ostreamESt10shared_ptrIN6hermes3hbc14BCProviderBaseEENS_8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS9_EEEEOS8_INS3_9SourceMapESA_ISE_EERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %cond-lvalue, ptr noundef nonnull %agg.tmp104, ptr noundef nonnull %agg.tmp106, ptr noundef nonnull align 8 dereferenceable(8) %sourceMap, ptr noundef nonnull align 8 dereferenceable(24) %startupCommands)
+  call fastcc void @_ZL16enterCommandLoopRN4llvh11raw_ostreamESt10shared_ptrIN6hermes3hbc14BCProviderBaseEENS_8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS9_EEEEOS8_INS3_9SourceMapESA_ISE_EERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %cond-lvalue, ptr noundef %agg.tmp104, ptr noundef %agg.tmp106, ptr noundef nonnull align 8 dereferenceable(8) %sourceMap, ptr noundef nonnull align 8 dereferenceable(24) %startupCommands)
   %103 = load i8, ptr %hasVal.i.i333, align 8
   %tobool.i.i.i335 = trunc i8 %103 to i1
   br i1 %tobool.i.i.i335, label %if.then.i.i.i336, label %_ZN4llvh8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit342
@@ -2473,7 +2473,7 @@ _ZNSt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEED2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define internal fastcc void @_ZL16enterCommandLoopRN4llvh11raw_ostreamESt10shared_ptrIN6hermes3hbc14BCProviderBaseEENS_8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS9_EEEEOS8_INS3_9SourceMapESA_ISE_EERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr nocapture noundef readonly %bcProvider, ptr nocapture noundef %profileBufferOpt, ptr noundef nonnull align 8 dereferenceable(8) %sourceMap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %startupCommands) unnamed_addr #4 {
+define internal fastcc void @_ZL16enterCommandLoopRN4llvh11raw_ostreamESt10shared_ptrIN6hermes3hbc14BCProviderBaseEENS_8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS9_EEEEOS8_INS3_9SourceMapESA_ISE_EERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr nocapture noundef nonnull readonly %bcProvider, ptr nocapture noundef nonnull %profileBufferOpt, ptr noundef nonnull align 8 dereferenceable(8) %sourceMap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %startupCommands) unnamed_addr #4 {
 entry:
   %disassembler = alloca %"class.hermes::hbc::BytecodeDisassembler", align 8
   %analyzer = alloca %"class.hermes::ProfileAnalyzer", align 8

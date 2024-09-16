@@ -117,7 +117,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17ha598a0864cb72303E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17ha598a0864cb72303E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !33, !noundef !14
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -175,7 +175,7 @@ define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !45, !noundef !14
   %4 = icmp eq i64 %3, 0
@@ -214,7 +214,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..patte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17h7c5c5f2a6c6f9502E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17h7c5c5f2a6c6f9502E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !55, !noundef !14
@@ -381,7 +381,7 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resou
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$$LP$regex..regex..string..Regex$C$alloc..vec..Vec$LT$$RF$str$GT$$RP$$GT$17h6577805fb42cce6eE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$$LP$regex..regex..string..Regex$C$alloc..vec..Vec$LT$$RF$str$GT$$RP$$GT$17h6577805fb42cce6eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17h87a3ec5e763080e8E.llvm.1258706989952115916"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
           to label %6 unwind label %3
@@ -624,7 +624,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h1b4458af
 19:                                               ; preds = %13
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #16
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef align 8 dereferenceable(32) %9) #16
           to label %10 unwind label %37
 
 21:                                               ; preds = %13
@@ -795,7 +795,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
 
 57:                                               ; preds = %181, %180, %58
   %.pn49 = phi { ptr, i32 } [ %59, %58 ], [ %.pn47, %181 ], [ %.pn47, %180 ]
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24) #16
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef align 8 dereferenceable(32) %24) #16
           to label %43 unwind label %168
 
 58:                                               ; preds = %68, %69, %46
@@ -854,7 +854,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
 .critedge54:                                      ; preds = %.loopexit, %.loopexit.split-lp, %.critedge, %94, %.critedge53.thread, %.critedge53
   %.1 = phi i1 [ true, %.critedge53.thread ], [ true, %.critedge53 ], [ false, %94 ], [ true, %.critedge ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
   %.pn47 = phi { ptr, i32 } [ %.pn105111, %.critedge53.thread ], [ %.pn106, %.critedge53 ], [ %95, %94 ], [ %.pn, %.critedge ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17ha598a0864cb72303E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #16
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17ha598a0864cb72303E"(ptr noalias noundef align 8 dereferenceable(24) %18) #16
           to label %179 unwind label %168
 
 .loopexit:                                        ; preds = %99, %167
@@ -1064,7 +1064,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
 139:                                              ; preds = %138
   %140 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$$LP$regex..regex..string..Regex$C$alloc..vec..Vec$LT$$RF$str$GT$$RP$$GT$17h6577805fb42cce6eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %12) #16
+  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$$LP$regex..regex..string..Regex$C$alloc..vec..Vec$LT$$RF$str$GT$$RP$$GT$17h6577805fb42cce6eE"(ptr noalias noundef align 8 dereferenceable(56) %12) #16
           to label %.critedge.thread unwind label %141
 
 141:                                              ; preds = %139
@@ -1154,7 +1154,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
   br i1 %.not130, label %._crit_edge, label %99
 
 167:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h10e23f60c385d38fE.exit"
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17h7c5c5f2a6c6f9502E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %17)
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17h7c5c5f2a6c6f9502E"(ptr noalias noundef align 8 dereferenceable(64) %17)
           to label %166 unwind label %.loopexit
 
 .body62.thread84:                                 ; preds = %125, %.body62.thread91
@@ -1195,7 +1195,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
 
 177:                                              ; preds = %.critedge.thread103, %.critedge
   %.pn106 = phi { ptr, i32 } [ %173, %.critedge.thread103 ], [ %.pn, %.critedge ]
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17h7c5c5f2a6c6f9502E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %17) #16
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17h7c5c5f2a6c6f9502E"(ptr noalias noundef align 8 dereferenceable(64) %17) #16
           to label %.critedge53 unwind label %168
 
 .thread:                                          ; preds = %.critedge.thread103
@@ -1253,7 +1253,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h879a3f92
 14:                                               ; preds = %3
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #16
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef align 8 dereferenceable(32) %7) #16
           to label %13 unwind label %24
 
 16:                                               ; preds = %3
@@ -1315,7 +1315,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17hbeedcd55
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #16
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hbfc49b1f00451f0dE"(ptr noalias noundef align 8 dereferenceable(32) %8) #16
           to label %14 unwind label %25
 
 17:                                               ; preds = %4

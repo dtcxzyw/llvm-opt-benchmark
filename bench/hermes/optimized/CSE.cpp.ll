@@ -188,7 +188,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for.inc.i.i.i.i
   %__begin1.sroa.0.017.i.i.i.i = phi ptr [ %__begin1.sroa.0.0.i.i.i.i, %for.inc.i.i.i.i ], [ %__begin1.sroa.0.014.i.i.i.i, %if.then.i.i.i ]
   %changed.016.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %for.inc.i.i.i.i ], [ false, %if.then.i.i.i ]
-  %call.i.i.i.i.i = call noundef zeroext i1 @_ZN6hermes33isSimpleSideEffectFreeInstructionEPNS_11InstructionE(ptr noundef %__begin1.sroa.0.017.i.i.i.i) #10
+  %call.i.i.i.i.i = call noundef zeroext i1 @_ZN6hermes33isSimpleSideEffectFreeInstructionEPNS_11InstructionE(ptr noundef nonnull %__begin1.sroa.0.017.i.i.i.i) #10
   br i1 %call.i.i.i.i.i, label %if.end.i.i.i.i, label %for.inc.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i

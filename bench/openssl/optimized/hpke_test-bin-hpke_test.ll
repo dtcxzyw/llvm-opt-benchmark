@@ -416,28 +416,28 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @export_only_test() #1 {
 entry:
-  %call = tail call fastcc i32 @do_testhpke(ptr noundef nonnull @__const.export_only_test.basedata, ptr noundef null, i64 noundef 0, ptr noundef nonnull @__const.export_only_test.exportdata)
+  %call = tail call fastcc i32 @do_testhpke(ptr noundef @__const.export_only_test.basedata, ptr noundef null, i64 noundef 0, ptr noundef @__const.export_only_test.exportdata)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @x25519kdfsha256_hkdfsha256_aes128gcm_base_test() #1 {
 entry:
-  %call = tail call fastcc i32 @do_testhpke(ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.basedata, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.aeaddata, i64 noundef 2, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.exportdata)
+  %call = tail call fastcc i32 @do_testhpke(ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.basedata, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.aeaddata, i64 noundef 2, ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_base_test.exportdata)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @x25519kdfsha256_hkdfsha256_aes128gcm_psk_test() #1 {
 entry:
-  %call = tail call fastcc i32 @do_testhpke(ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.pskdata, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.aeaddata, i64 noundef 3, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.exportdata)
+  %call = tail call fastcc i32 @do_testhpke(ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.pskdata, ptr noundef nonnull @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.aeaddata, i64 noundef 3, ptr noundef @__const.x25519kdfsha256_hkdfsha256_aes128gcm_psk_test.exportdata)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @P256kdfsha256_hkdfsha256_aes128gcm_base_test() #1 {
 entry:
-  %call = tail call fastcc i32 @do_testhpke(ptr noundef nonnull @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.basedata, ptr noundef nonnull @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.aeaddata, i64 noundef 2, ptr noundef nonnull @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.exportdata)
+  %call = tail call fastcc i32 @do_testhpke(ptr noundef @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.basedata, ptr noundef nonnull @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.aeaddata, i64 noundef 2, ptr noundef @__const.P256kdfsha256_hkdfsha256_aes128gcm_base_test.exportdata)
   ret i32 %call
 }
 
@@ -2054,7 +2054,7 @@ declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %aead, i64 noundef %aeadsz, ptr nocapture noundef readonly %export) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr nocapture noundef nonnull readonly %base, ptr nocapture noundef readonly %aead, i64 noundef range(i64 0, 4) %aeadsz, ptr nocapture noundef nonnull readonly %export) unnamed_addr #1 {
 entry:
   %ct = alloca [256 x i8], align 16
   %enc = alloca [256 x i8], align 16
@@ -2282,7 +2282,7 @@ if.end129:                                        ; preds = %if.end122
 
 if.end136:                                        ; preds = %if.end129
   %38 = load i64, ptr %lastseq, align 8
-  %add = add nuw i64 %i.0, 1
+  %add = add nuw nsw i64 %i.0, 1
   %cmp137.not = icmp eq i64 %38, %add
   br i1 %cmp137.not, label %for.cond, label %end, !llvm.loop !15
 
@@ -2418,7 +2418,7 @@ if.end241:                                        ; preds = %if.end232
 
 if.end248:                                        ; preds = %if.end241
   %62 = load i64, ptr %lastseq, align 8
-  %add249 = add nuw i64 %i.1, 1
+  %add249 = add nuw nsw i64 %i.1, 1
   %cmp250.not = icmp eq i64 %62, %add249
   br i1 %cmp250.not, label %for.cond212, label %end, !llvm.loop !16
 
@@ -2593,7 +2593,7 @@ declare i32 @test_size_t_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i64 @OSSL_HPKE_get_recommended_ikmelen(i48) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_hpke_one_ikm_gen(i16 noundef zeroext %kem_id, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %pub, i64 noundef %publen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_hpke_one_ikm_gen(i16 noundef zeroext range(i16 16, 33) %kem_id, ptr noundef %ikm, i64 noundef range(i64 32, 67) %ikmlen, ptr noundef %pub, i64 noundef range(i64 32, 134) %publen) unnamed_addr #1 {
 entry:
   %lpub = alloca [512 x i8], align 16
   %lpublen = alloca i64, align 8

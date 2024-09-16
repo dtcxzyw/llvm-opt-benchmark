@@ -383,7 +383,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
 
 77:                                               ; preds = %68
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdRenderSettingsBaseE, i64 16), ptr %11, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ReadSettingsBaseERKNS_21UsdRenderSettingsBaseEPNS_13UsdRenderSpec7ProductEb(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %10, i1 noundef zeroext true)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ReadSettingsBaseERKNS_21UsdRenderSettingsBaseEPNS_13UsdRenderSpec7ProductEb(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %10, i1 noundef zeroext true)
           to label %78 unwind label %558
 
 78:                                               ; preds = %77
@@ -736,7 +736,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 
 282:                                              ; preds = %279
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdRenderSettingsBaseE, i64 16), ptr %17, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ReadSettingsBaseERKNS_21UsdRenderSettingsBaseEPNS_13UsdRenderSpec7ProductEb(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %16, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ReadSettingsBaseERKNS_21UsdRenderSettingsBaseEPNS_13UsdRenderSpec7ProductEb(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %16, i1 noundef zeroext false)
           to label %283 unwind label %568
 
 283:                                              ; preds = %282
@@ -2928,7 +2928,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject8GetStageEv(ptr de
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ReadSettingsBaseERKNS_21UsdRenderSettingsBaseEPNS_13UsdRenderSpec7ProductEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ReadSettingsBaseERKNS_21UsdRenderSettingsBaseEPNS_13UsdRenderSpec7ProductEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.13", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8

@@ -23549,7 +23549,7 @@ define internal { ptr, i64 } @_ZN12_GLOBAL__N_119EmptyLookupIterator4NextEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 1, 8) i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc noundef range(i32 1, 8) i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef range(i32 0, 469760000) %1) unnamed_addr #6 {
   %3 = icmp eq i32 %1, 469755903
   br i1 %3, label %195, label %4
 
@@ -23680,7 +23680,7 @@ define internal fastcc noundef range(i32 1, 8) i32 @_ZL16getKeywordStatusRKN5cla
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us
   %.01537.us = phi i32 [ %85, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ %1, %.lr.ph.split.us.preheader ]
   %storemerge36.us = phi i32 [ %.sroa.speculated.us, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %83 = sub i32 0, %.01537.us
+  %83 = sub nsw i32 0, %.01537.us
   %84 = and i32 %.01537.us, %83
   %85 = xor i32 %84, %.01537.us
   switch i32 %84, label %.split.us [
@@ -23809,7 +23809,7 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us40
   %.01537.us38 = phi i32 [ %113, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us40 ], [ %1, %.lr.ph.split.split.us.preheader ]
   %storemerge36.us39 = phi i32 [ %.sroa.speculated.us42, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us40 ], [ 0, %.lr.ph.split.split.us.preheader ]
-  %111 = sub i32 0, %.01537.us38
+  %111 = sub nsw i32 0, %.01537.us38
   %112 = and i32 %.01537.us38, %111
   %113 = xor i32 %112, %.01537.us38
   switch i32 %112, label %.split.us [
@@ -23934,7 +23934,7 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48
   %.01537.us46 = phi i32 [ %141, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48 ], [ %1, %.lr.ph.split.split ]
   %storemerge36.us47 = phi i32 [ %.sroa.speculated.us50, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48 ], [ 0, %.lr.ph.split.split ]
-  %139 = sub i32 0, %.01537.us46
+  %139 = sub nsw i32 0, %.01537.us46
   %140 = and i32 %.01537.us46, %139
   %141 = xor i32 %140, %.01537.us46
   switch i32 %140, label %.split.us [
@@ -24053,7 +24053,7 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
   %.01537 = phi i32 [ %169, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ %1, %.lr.ph.split.split ]
   %storemerge36 = phi i32 [ %.sroa.speculated, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ 0, %.lr.ph.split.split ]
-  %167 = sub i32 0, %.01537
+  %167 = sub nsw i32 0, %.01537
   %168 = and i32 %.01537, %167
   %169 = xor i32 %168, %.01537
   switch i32 %168, label %.split.us [

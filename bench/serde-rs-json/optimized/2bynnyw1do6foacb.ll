@@ -25,7 +25,7 @@ define internal noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core.
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc837ed62ef544522E"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 {
-  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1)
   ret i1 false
 }
 
@@ -56,7 +56,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
@@ -749,7 +749,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit.i: ; preds = %.noexc.i, %8
   %.0.i = phi i8 [ %.09.i, %16 ], [ %32, %30 ]
   %24 = or disjoint i8 %.0.i, 48
   %25 = zext nneg i8 %24 to i32
-  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %25)
+  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %25)
           to label %"_ZN46_$LT$i8$u20$as$u20$alloc..string..ToString$GT$9to_string17h8c759ec91a1b44dfE.exit" unwind label %19, !noalias !110
 
 26:                                               ; preds = %21
@@ -771,7 +771,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit.i: ; preds = %.noexc.i, %8
   %32 = urem i8 %.1.i, 10
   %33 = add nuw nsw i8 %31, 48
   %34 = zext nneg i8 %33 to i32
-  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %34)
+  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %34)
           to label %23 unwind label %19, !noalias !110
 
 35:                                               ; preds = %.noexc13.i, %26
@@ -1031,7 +1031,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   %.0.i = phi i8 [ %1, %2 ], [ %20, %18 ]
   %11 = or disjoint i8 %.0.i, 48
   %12 = zext nneg i8 %11 to i32
-  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %12)
+  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %12)
           to label %"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17hbad456303ea5a58fE.exit" unwind label %23, !noalias !141
 
 13:                                               ; preds = %8
@@ -1039,7 +1039,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   %15 = urem i8 %1, 100
   %16 = or disjoint i8 %14, 48
   %17 = zext nneg i8 %16 to i32
-  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %17)
+  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %17)
           to label %18 unwind label %23, !noalias !141
 
 18:                                               ; preds = %13, %8
@@ -1048,7 +1048,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   %20 = urem i8 %.1.i, 10
   %21 = or disjoint i8 %19, 48
   %22 = zext nneg i8 %21 to i32
-  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %22)
+  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %3, i32 noundef %22)
           to label %10 unwind label %23, !noalias !141
 
 23:                                               ; preds = %18, %13, %10

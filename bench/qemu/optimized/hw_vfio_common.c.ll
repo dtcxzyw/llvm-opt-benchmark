@@ -815,7 +815,7 @@ return:                                           ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %start, i64 noundef %length, i8 noundef zeroext %mask) unnamed_addr #1 {
+define internal fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %start, i64 noundef %length, i8 noundef zeroext range(i8 0, 8) %mask) unnamed_addr #1 {
 entry:
   %blocks = alloca [3 x ptr], align 16
   %tobool.not = icmp eq i8 %mask, 0
@@ -843,9 +843,8 @@ while.end.i.i:                                    ; preds = %if.end
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.i.i
-  %conv = zext i8 %mask to i32
-  %and15 = and i32 %conv, 4
-  %tobool16.not = icmp eq i32 %and15, 0
+  %conv = zext nneg i8 %mask to i32
+  %tobool16.not = icmp ult i8 %mask, 4
   %arrayidx21 = getelementptr inbounds i8, ptr %blocks, i64 16
   %and27 = and i32 %conv, 1
   %tobool28.not = icmp eq i32 %and27, 0
@@ -3281,7 +3280,7 @@ int128_get64.exit49:                              ; preds = %do.end15
   %call27 = tail call i64 @ram_discard_manager_get_min_granularity(ptr noundef %call, ptr noundef %4) #17
   %granularity = getelementptr inbounds i8, ptr %call16, i64 32
   store i64 %call27, ptr %granularity, align 8
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call27)
+  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call27)
   %or.cond = icmp eq i64 %7, 1
   br i1 %or.cond, label %do.body36, label %if.else33
 

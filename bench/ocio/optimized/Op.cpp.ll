@@ -7493,7 +7493,7 @@ if.else.i.i.i.i.i11:                              ; preds = %if.then.i.i.i6
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit12
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit12: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit.thread, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit, %if.then.i.i.i.i.i9, %if.else.i.i.i.i.i11
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE(ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %dpExposure, i32 noundef 0)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE(ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %dpExposure, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit12
@@ -7594,7 +7594,7 @@ if.else.i.i.i.i.i28:                              ; preds = %if.then.i.i.i23
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit29
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit29: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit, %if.then.i.i.i.i.i26, %if.else.i.i.i.i.i28
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE(ptr noundef nonnull %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %dpContrast, i32 noundef 1)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE(ptr noundef %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %dpContrast, i32 noundef 1)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit29
@@ -7695,7 +7695,7 @@ if.else.i.i.i.i.i70:                              ; preds = %if.then.i.i.i65
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit71
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit71: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit61, %if.then.i.i.i.i.i68, %if.else.i.i.i.i.i70
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE(ptr noundef nonnull %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(16) %dpGamma, i32 noundef 2)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE(ptr noundef %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(16) %dpGamma, i32 noundef 2)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit71
@@ -9387,7 +9387,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit66
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE(ptr nocapture noundef readonly %op, ptr nocapture noundef nonnull align 8 dereferenceable(16) %prop, i32 noundef %type) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE(ptr nocapture noundef nonnull readonly %op, ptr nocapture noundef nonnull align 8 dereferenceable(16) %prop, i32 noundef range(i32 0, 3) %type) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %dp = alloca %"class.std::shared_ptr", align 8
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -9595,7 +9595,7 @@ if.end8.sink.split.i.i.i.i35:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 if.else:                                          ; preds = %if.then
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os)
-  %34 = sext i32 %type to i64
+  %34 = zext nneg i32 %type to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE, i64 0, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)

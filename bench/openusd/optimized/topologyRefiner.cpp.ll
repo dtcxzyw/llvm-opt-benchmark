@@ -2213,7 +2213,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit: ; preds = %99
   %.val.i = load i16, ptr %2, align 4
-  %101 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %60, ptr noundef nonnull %7, i32 noundef %54, i16 %.val.i)
+  %101 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %60, ptr noundef %7, i32 noundef %54, i16 %.val.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %101, label %.thread, label %102
 
@@ -2287,7 +2287,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   br i1 %or.cond27.i, label %131, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
 
 131:                                              ; preds = %128
-  %132 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %123, ptr noundef nonnull %6, i32 noundef %115, i16 %.val.pre.pre.i)
+  %132 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %123, ptr noundef %6, i32 noundef %115, i16 %.val.pre.pre.i)
   %133 = zext i1 %132 to i8
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
 
@@ -2442,7 +2442,7 @@ declare i16 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTag9BitwiseOrEPKS4_i(ptr
 declare noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level19isSingleCreasePatchEiPfPi(ptr noundef nonnull align 8 dereferenceable(480), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %0, ptr nocapture noundef readonly %1, i32 noundef %2, i16 %.0.val) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i16 %.0.val) unnamed_addr #10 {
   %.0.val.fr = freeze i16 %.0.val
   %4 = icmp eq i32 %2, 4
   br i1 %4, label %5, label %47

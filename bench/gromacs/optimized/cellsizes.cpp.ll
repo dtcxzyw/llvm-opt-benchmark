@@ -1490,7 +1490,7 @@ _Z15grid_jump_limitPK17gmx_domdec_comm_tfi.exit.i.i.i: ; preds = %288, %_ZL16cel
   %402 = load ptr, ptr %399, align 8
   %403 = getelementptr inbounds float, ptr %402, i64 %401
   store float 1.000000e+00, ptr %403, align 4
-  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %indvars60.i.i, i32 noundef %148, ptr noundef %166, ptr noundef nonnull %1, i1 noundef zeroext %3, i64 noundef %5, float noundef %.0210.i.i.i, ptr noundef nonnull %8)
+  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %indvars60.i.i, i32 noundef %148, ptr noundef %166, ptr noundef nonnull %1, i1 noundef zeroext %3, i64 noundef %5, float noundef %.0210.i.i.i, ptr noundef %8)
   %404 = icmp sgt i32 %174, 0
   br i1 %404, label %.lr.ph261.i.i.i, label %.preheader.i.i.i
 
@@ -2128,7 +2128,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i64 noundef %6, float noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i64 noundef %6, float noundef %7, ptr nocapture noundef nonnull readonly %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %10 = alloca [2 x i32], align 4
   %11 = alloca [22 x i8], align 16
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -2639,7 +2639,7 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   %301 = load float, ptr %300, align 4
   %302 = getelementptr inbounds float, ptr %277, i64 %299
   store float %301, ptr %302, align 4
-  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef %10)
   store i32 %.0252346348, ptr %10, align 4
   %.pre398 = load ptr, ptr %269, align 8
   %.pre399 = load ptr, ptr %17, align 8
@@ -2654,7 +2654,7 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   store float %307, ptr %308, align 4
   %309 = trunc nsw i64 %indvars.iv389 to i32
   store i32 %309, ptr %14, align 4
-  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef %10)
   store i32 %309, ptr %10, align 4
   %310 = load i32, ptr %15, align 4
   br label %.sink.split
@@ -2701,14 +2701,14 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
 
 .loopexit.sink.split.sink.split:                  ; preds = %319, %286
   %.sink420 = phi i32 [ %288, %286 ], [ %317, %319 ]
-  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef %10)
   store i32 %.sink420, ptr %10, align 4
   %330 = load i32, ptr %15, align 4
   store i32 %330, ptr %14, align 4
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %327
-  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
+  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef %10)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %252, %.loopexit.sink.split, %.thread301, %.thread, %327, %._crit_edge342

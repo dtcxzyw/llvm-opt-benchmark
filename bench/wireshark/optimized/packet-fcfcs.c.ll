@@ -747,7 +747,7 @@ define internal fastcc void @dissect_fcfcs_rjt(ptr noundef %0, ptr noundef %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_giel(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_giel(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp eq i32 %2, 0
   %6 = icmp ne ptr %1, null
@@ -780,7 +780,7 @@ define internal fastcc void @dissect_fcfcs_giel(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_giet(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_giet(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
 
@@ -803,7 +803,7 @@ define internal fastcc void @dissect_fcfcs_giet(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gdid(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gdid(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
 
@@ -826,7 +826,7 @@ define internal fastcc void @dissect_fcfcs_gdid(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gmid(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gmid(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
 
@@ -849,7 +849,7 @@ define internal fastcc void @dissect_fcfcs_gmid(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gfn(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gfn(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %.sink.split
 
@@ -866,7 +866,7 @@ define internal fastcc void @dissect_fcfcs_gfn(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gieln(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gieln(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %.sink.split
 
@@ -884,7 +884,7 @@ define internal fastcc void @dissect_fcfcs_gieln(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gmal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gmal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
@@ -921,7 +921,7 @@ define internal fastcc void @dissect_fcfcs_gmal(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gieil(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gieil(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %8, label %5
@@ -972,7 +972,7 @@ define internal fastcc void @dissect_fcfcs_gieil(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gpl(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gpl(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
@@ -1018,7 +1018,7 @@ define internal fastcc void @dissect_fcfcs_gpl(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gpt(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gpt(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
 
@@ -1041,7 +1041,7 @@ define internal fastcc void @dissect_fcfcs_gpt(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gppn(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gppn(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %.sink.split
 
@@ -1059,7 +1059,7 @@ define internal fastcc void @dissect_fcfcs_gppn(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gapnl(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gapnl(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
@@ -1102,7 +1102,7 @@ define internal fastcc void @dissect_fcfcs_gapnl(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gps(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gps(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %4
 
@@ -1127,7 +1127,7 @@ define internal fastcc void @dissect_fcfcs_gps(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gplnl(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gplnl(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
@@ -1168,7 +1168,7 @@ define internal fastcc void @dissect_fcfcs_gplnl(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gplt(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gplt(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -1195,7 +1195,7 @@ define internal fastcc void @dissect_fcfcs_gplt(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gplml(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gplml(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
@@ -1236,7 +1236,7 @@ define internal fastcc void @dissect_fcfcs_gplml(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gnpl(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gnpl(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -1263,7 +1263,7 @@ define internal fastcc void @dissect_fcfcs_gnpl(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gpnl(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gpnl(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp eq ptr %1, null
   %6 = icmp ne i32 %2, 0
@@ -1298,7 +1298,7 @@ define internal fastcc void @dissect_fcfcs_gpnl(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_rieln(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_rieln(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -1316,7 +1316,7 @@ define internal fastcc void @dissect_fcfcs_rieln(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_rpl(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_rpl(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp ne ptr %1, null
   %6 = icmp ne i32 %2, 0
@@ -1377,7 +1377,7 @@ define internal fastcc void @dissect_fcfcs_rpl(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_rpln(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_rpln(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -1399,7 +1399,7 @@ define internal fastcc void @dissect_fcfcs_rpln(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_rplt(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_rplt(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -1421,7 +1421,7 @@ define internal fastcc void @dissect_fcfcs_rplt(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_rplm(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_rplm(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -1443,7 +1443,7 @@ define internal fastcc void @dissect_fcfcs_rplm(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_dpl(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_dpl(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -1463,7 +1463,7 @@ define internal fastcc void @dissect_fcfcs_dpl(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_dplml(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_dplml(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -1483,7 +1483,7 @@ define internal fastcc void @dissect_fcfcs_dplml(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfcs_gcap(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfcs_gcap(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp ne i32 %2, 0
   %or.cond = or i1 %4, %5

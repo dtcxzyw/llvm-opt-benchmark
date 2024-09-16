@@ -75,7 +75,7 @@ if.end9:                                          ; preds = %while.body.preheade
   %bf.load = load i8, ptr %optional, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %optional, align 4
-  %call10 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef nonnull %s, ptr noundef nonnull %call560)
+  %call10 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef %s, ptr noundef %call560)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %err, label %if.end13
 
@@ -109,7 +109,7 @@ while.cond.i.i:                                   ; preds = %if.end18, %while.co
 
 if.then21:                                        ; preds = %while.cond.i.i
   store ptr %s.addr.0.i.i, ptr %s, align 8
-  %call22 = call fastcc i32 @parse_value(ptr noundef %ctx, ptr noundef nonnull %s, ptr noundef nonnull %call560, i32 noundef 1)
+  %call22 = call fastcc i32 @parse_value(ptr noundef %ctx, ptr noundef %s, ptr noundef %call560, i32 noundef 1)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.then24, label %if.end27
 
@@ -160,7 +160,7 @@ if.then38:                                        ; preds = %if.end31
   br label %err
 
 if.end39:                                         ; preds = %if.end31, %skip_space.exit
-  %call40 = tail call fastcc ptr @stack_to_property_list(ptr noundef %ctx, ptr noundef nonnull %call.i)
+  %call40 = tail call fastcc ptr @stack_to_property_list(ptr noundef %ctx, ptr noundef %call.i)
   br label %err
 
 err:                                              ; preds = %skip_space.exit.i26, %if.end9, %if.end27, %while.body.preheader, %if.end39, %if.then38, %if.then24, %if.then17
@@ -189,7 +189,7 @@ entry:
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %ctx, ptr nocapture noundef %t, ptr nocapture noundef writeonly %idx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %ctx, ptr nocapture noundef nonnull %t, ptr nocapture noundef nonnull writeonly %idx) unnamed_addr #0 {
 entry:
   %name = alloca [100 x i8], align 16
   %0 = load ptr, ptr %t, align 8
@@ -312,7 +312,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %ctx, ptr nocapture noundef %t, ptr nocapture noundef %res, i32 noundef %create) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %ctx, ptr nocapture noundef nonnull %t, ptr nocapture noundef nonnull %res, i32 noundef %create) unnamed_addr #0 {
 entry:
   %v.i50 = alloca [1000 x i8], align 16
   %v.i = alloca [1000 x i8], align 16
@@ -426,13 +426,13 @@ parse_string.exit:                                ; preds = %if.then11.i, %skip_
 if.then8:                                         ; preds = %entry
   %incdec.ptr9 = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %incdec.ptr9, ptr %s, align 8
-  %call10 = call fastcc i32 @parse_number(ptr noundef nonnull %s, ptr noundef %res)
+  %call10 = call fastcc i32 @parse_number(ptr noundef %s, ptr noundef %res)
   br label %if.end57
 
 if.then15:                                        ; preds = %entry
   %incdec.ptr16 = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %incdec.ptr16, ptr %s, align 8
-  %call17 = call fastcc i32 @parse_number(ptr noundef nonnull %s, ptr noundef %res)
+  %call17 = call fastcc i32 @parse_number(ptr noundef %s, ptr noundef %res)
   %v = getelementptr inbounds i8, ptr %res, i64 16
   %7 = load i64, ptr %v, align 8
   %sub = sub nsw i64 0, %7
@@ -656,7 +656,7 @@ if.else40:                                        ; preds = %land.lhs.true33.if.
   br i1 %tobool43.not, label %if.else46, label %if.then44
 
 if.then44:                                        ; preds = %if.else40
-  %call45 = tail call fastcc i32 @parse_number(ptr noundef nonnull %t, ptr noundef %res)
+  %call45 = tail call fastcc i32 @parse_number(ptr noundef %t, ptr noundef %res)
   br label %return
 
 if.else46:                                        ; preds = %if.else40
@@ -814,9 +814,9 @@ return:                                           ; preds = %if.then37.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @stack_to_property_list(ptr noundef %ctx, ptr noundef %sk) unnamed_addr #0 {
+define internal fastcc ptr @stack_to_property_list(ptr noundef %ctx, ptr noundef nonnull %sk) unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %sk) #9
+  %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %sk) #9
   %sub = add nsw i32 %call.i, -1
   %cmp.inv = icmp sgt i32 %call.i, 0
   %cond = select i1 %cmp.inv, i32 %sub, i32 0
@@ -828,7 +828,7 @@ entry:
   br i1 %cmp2.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @OPENSSL_sk_sort(ptr noundef %sk) #9
+  tail call void @OPENSSL_sk_sort(ptr noundef nonnull %sk) #9
   %has_optional = getelementptr inbounds i8, ptr %call1, i64 4
   %bf.load = load i8, ptr %has_optional, align 4
   %bf.clear = and i8 %bf.load, -2
@@ -846,7 +846,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %prev_name_idx.028 = phi i32 [ 0, %for.body.lr.ph ], [ %.pre, %if.end ]
   %arrayidx = getelementptr inbounds [1 x %struct.ossl_property_definition_st], ptr %properties, i64 0, i64 %indvars.iv
   %0 = trunc nuw nsw i64 %indvars.iv to i32
-  %call.i25 = tail call ptr @OPENSSL_sk_value(ptr noundef %sk, i32 noundef %0) #9
+  %call.i25 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %0) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, ptr noundef nonnull align 8 dereferenceable(24) %call.i25, i64 24, i1 false)
   %optional = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %bf.load10 = load i8, ptr %optional, align 4
@@ -950,7 +950,7 @@ if.then12:                                        ; preds = %while.cond.i.i
   %bf.load = load i8, ptr %optional, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %optional, align 4
-  %call13 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef nonnull %s.addr, ptr noundef nonnull %call575)
+  %call13 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef %s.addr, ptr noundef %call575)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %err, label %skip_value
 
@@ -974,7 +974,7 @@ match_ch.exit31:                                  ; preds = %if.end9, %skip_spac
   %bf.clear21 = and i8 %bf.load20, -2
   %bf.set22 = or disjoint i8 %bf.clear21, %retval.0.i23
   store i8 %bf.set22, ptr %optional19, align 4
-  %call24 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef nonnull %s.addr, ptr noundef nonnull %call575)
+  %call24 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef %s.addr, ptr noundef %call575)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %err, label %if.end27
 
@@ -1025,7 +1025,7 @@ if.end40:                                         ; preds = %while.cond.i.i45, %
   store ptr %s.addr.0.i.i46.lcssa.sink, ptr %s.addr, align 8
   %oper35 = getelementptr inbounds i8, ptr %call575, i64 8
   store i32 %.sink, ptr %oper35, align 8
-  %call41 = call fastcc i32 @parse_value(ptr noundef %ctx, ptr noundef nonnull %s.addr, ptr noundef nonnull %call575, i32 noundef %create_values)
+  %call41 = call fastcc i32 @parse_value(ptr noundef %ctx, ptr noundef %s.addr, ptr noundef %call575, i32 noundef %create_values)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.then43, label %skip_value
 
@@ -1069,7 +1069,7 @@ if.then56:                                        ; preds = %if.end49
   br label %err
 
 if.end57:                                         ; preds = %if.end49, %skip_space.exit
-  %call58 = tail call fastcc ptr @stack_to_property_list(ptr noundef %ctx, ptr noundef nonnull %call.i)
+  %call58 = tail call fastcc ptr @stack_to_property_list(ptr noundef %ctx, ptr noundef %call.i)
   br label %err
 
 err:                                              ; preds = %skip_space.exit.i60, %if.then12, %match_ch.exit31, %skip_value, %while.body.preheader, %if.end57, %if.then56
@@ -1538,7 +1538,7 @@ if.end20:                                         ; preds = %if.end20.sink.split
   br i1 %cmp22, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
-  call fastcc void @put_str(ptr noundef nonnull %call, ptr noundef nonnull %buf.addr, ptr noundef nonnull %bufsize.addr, ptr noundef nonnull %needed)
+  call fastcc void @put_str(ptr noundef %call, ptr noundef %buf.addr, ptr noundef %bufsize.addr, ptr noundef %needed)
   %oper25 = getelementptr inbounds i8, ptr %prop.166, i64 8
   %13 = load i32, ptr %oper25, align 8
   switch i32 %13, label %for.inc [
@@ -1617,7 +1617,7 @@ sw.bb27:                                          ; preds = %put_char.exit53
   br i1 %cmp29, label %return, label %if.end31
 
 if.end31:                                         ; preds = %sw.bb27
-  call fastcc void @put_str(ptr noundef nonnull %call28, ptr noundef nonnull %buf.addr, ptr noundef nonnull %bufsize.addr, ptr noundef nonnull %needed)
+  call fastcc void @put_str(ptr noundef %call28, ptr noundef %buf.addr, ptr noundef %bufsize.addr, ptr noundef %needed)
   br label %for.inc
 
 sw.bb32:                                          ; preds = %put_char.exit53
@@ -1697,7 +1697,7 @@ return:                                           ; preds = %put_char.exit53, %s
 declare ptr @ossl_property_name_str(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_str(ptr nocapture noundef readonly %str, ptr nocapture noundef %buf, ptr nocapture noundef %remain, ptr nocapture noundef %needed) unnamed_addr #0 {
+define internal fastcc void @put_str(ptr nocapture noundef nonnull readonly %str, ptr nocapture noundef nonnull %buf, ptr nocapture noundef nonnull %remain, ptr nocapture noundef nonnull %needed) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
   %0 = load i64, ptr %needed, align 8
@@ -1779,7 +1779,7 @@ if.end33:                                         ; preds = %if.then32, %if.end3
 
 if.then43:                                        ; preds = %if.end33
   %9 = load ptr, ptr %buf, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %str, i64 %spec.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %str, i64 %spec.select, i1 false)
   %10 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 %spec.select
   store ptr %add.ptr, ptr %buf, align 8
@@ -1859,7 +1859,7 @@ declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @ossl_tolower(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_number(ptr nocapture noundef %t, ptr nocapture noundef writeonly %res) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_number(ptr nocapture noundef nonnull %t, ptr nocapture noundef nonnull writeonly %res) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %t, align 8
   br label %do.body

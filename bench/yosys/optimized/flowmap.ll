@@ -3668,7 +3668,7 @@ _ZN5Yosys6SigMapC2EPNS_5RTLIL6ModuleE.exit.i:     ; preds = %578, %_ZN5Yosys7has
   br label %.body.i
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEEC2ERKS6_.exit.i: ; preds = %584
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14discover_nodesEN5Yosys7hashlib4poolINS1_5RTLIL8IdStringENS2_8hash_opsIS5_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %34, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14discover_nodesEN5Yosys7hashlib4poolINS1_5RTLIL8IdStringENS2_8hash_opsIS5_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %34, ptr noundef %22)
           to label %589 unwind label %1599
 
 589:                                              ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEEC2ERKS6_.exit.i
@@ -5619,7 +5619,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit._crit_
           to label %1539 unwind label %1541
 
 1539:                                             ; preds = %1538
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker18dump_dot_lut_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeE(ptr noundef nonnull align 8 dereferenceable(1076) %34, ptr noundef nonnull %20, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker18dump_dot_lut_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeE(ptr noundef nonnull align 8 dereferenceable(1076) %34, ptr noundef %20, i32 noundef 0)
           to label %1540 unwind label %1543
 
 1540:                                             ; preds = %1539
@@ -5703,7 +5703,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_depths_altitudesEN5Yosys7hashlib4poolINS1_5RTLIL6SigBitENS2_8hash_opsIS5_EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(1076) %34, ptr noundef nonnull %8, ptr noundef null)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_depths_altitudesEN5Yosys7hashlib4poolINS1_5RTLIL6SigBitENS2_8hash_opsIS5_EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(1076) %34, ptr noundef %8, ptr noundef null)
           to label %1559 unwind label %1577
 
 1559:                                             ; preds = %1558
@@ -5726,7 +5726,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEED2Ev.exit.i.i: ; preds = %1563, %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EED2Ev.exit.i.i28.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %34, ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef nonnull %9)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %34, ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef %9)
           to label %1564 unwind label %1579
 
 1564:                                             ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEED2Ev.exit.i.i
@@ -11120,7 +11120,7 @@ _ZN5Yosys6SigMapC2EPNS_5RTLIL6ModuleE.exit:       ; preds = %15, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14discover_nodesEN5Yosys7hashlib4poolINS1_5RTLIL8IdStringENS2_8hash_opsIS5_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14discover_nodesEN5Yosys7hashlib4poolINS1_5RTLIL8IdStringENS2_8hash_opsIS5_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.5", align 1
   %5 = alloca [75 x i32], align 4
@@ -16824,7 +16824,7 @@ _ZN5Yosys8ModIndex8PortInfoD2Ev.exit365:          ; preds = %_ZN5Yosys7hashlib4p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, i8 0, i64 48, i1 false)
   %2625 = getelementptr inbounds i8, ptr %51, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2625, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %46, i32 noundef 0, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef nonnull %51)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %46, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
           to label %2626 unwind label %2674
 
 2626:                                             ; preds = %2624
@@ -24749,7 +24749,7 @@ _ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_19FlowGraph9NodePrimeEE3cmpERKS4_S7_.ex
   br label %_ZNSt6vectorIN12_GLOBAL__N_19FlowGraph9NodePrimeESaIS2_EED2Ev.exit.i
 
 _ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.thread: ; preds = %3769, %._crit_edge.i792, %_ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_19FlowGraph9NodePrimeEE3cmpERKS4_S7_.exit.thread.i, %_ZN5Yosys7hashlib8hash_opsIN12_GLOBAL__N_19FlowGraph9NodePrimeEE3cmpERKS4_S7_.exit.thread.i.us
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(49) %47, ptr noundef nonnull align 8 dereferenceable(17) %48)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(49) %47, ptr noundef nonnull align 8 dereferenceable(17) %48)
           to label %3861 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i, !noalias !159
 
 3861:                                             ; preds = %_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.thread
@@ -27407,7 +27407,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit387: ; 
           to label %5023 unwind label %5175
 
 5023:                                             ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit387
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %122, i32 noundef 1, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %126)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %122, i32 noundef 1, ptr noundef %123, ptr noundef %124, ptr noundef %125, ptr noundef %126)
           to label %5024 unwind label %5177
 
 5024:                                             ; preds = %5023
@@ -27716,7 +27716,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
   br label %.body29.i
 
 5092:                                             ; preds = %5085
-  invoke fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys7hashlib4poolINS6_5RTLIL6SigBitENS7_8hash_opsISA_EEEENS7_4dictISA_SD_SC_EESD_SD_St8functionIFNS_10GraphStyleESA_EESG_IFSH_SA_SA_EES5_(ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %30, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34)
+  invoke fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys7hashlib4poolINS6_5RTLIL6SigBitENS7_8hash_opsISA_EEEENS7_4dictISA_SD_SC_EESD_SD_St8functionIFNS_10GraphStyleESA_EESG_IFSH_SA_SA_EES5_(ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %30, ptr noundef %32, ptr noundef %33, ptr noundef %34)
           to label %5093 unwind label %5133
 
 5093:                                             ; preds = %5092
@@ -28648,7 +28648,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit.outer.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %138, i8 0, i64 48, i1 false)
   %5424 = getelementptr inbounds i8, ptr %138, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5424, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %133, i32 noundef 0, ptr noundef nonnull %135, ptr noundef nonnull %136, ptr noundef nonnull %137, ptr noundef nonnull %138)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %133, i32 noundef 0, ptr noundef %135, ptr noundef %136, ptr noundef %137, ptr noundef %138)
           to label %5425 unwind label %5473
 
 5425:                                             ; preds = %5423
@@ -41790,7 +41790,7 @@ _ZNSt3mapIN5Yosys5RTLIL6SigBitENS0_8ModIndex10SigBitInfoESt4lessIS2_ESaISt4pairI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca i32, align 4
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -42005,7 +42005,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %74
 94:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE2atEm.exit.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  invoke fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys7hashlib4poolINS6_5RTLIL6SigBitENS7_8hash_opsISA_EEEENS7_4dictISA_SD_SC_EESD_SD_St8functionIFNS_10GraphStyleESA_EESG_IFSH_SA_SA_EES5_(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  invoke fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys7hashlib4poolINS6_5RTLIL6SigBitENS7_8hash_opsISA_EEEENS7_4dictISA_SD_SC_EESD_SD_St8functionIFNS_10GraphStyleESA_EESG_IFSH_SA_SA_EES5_(ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
           to label %95 unwind label %138
 
 95:                                               ; preds = %94
@@ -45490,7 +45490,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit81: ; preds = %567, %523, %.lo
 declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys7hashlib4poolINS6_5RTLIL6SigBitENS7_8hash_opsISA_EEEENS7_4dictISA_SD_SC_EESD_SD_St8functionIFNS_10GraphStyleESA_EESG_IFSH_SA_SA_EES5_(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys7hashlib4poolINS6_5RTLIL6SigBitENS7_8hash_opsISA_EEEENS7_4dictISA_SD_SC_EESD_SD_St8functionIFNS_10GraphStyleESA_EESG_IFSH_SA_SA_EES5_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %9 = alloca [75 x i32], align 4
   %10 = alloca %"class.std::allocator.5", align 1
   %11 = alloca [75 x i32], align 4
@@ -45693,7 +45693,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basi
           to label %109 unwind label %116
 
 109:                                              ; preds = %105
-  invoke fastcc void @_ZN12_GLOBAL__N_110dot_escapeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull %34)
+  invoke fastcc void @_ZN12_GLOBAL__N_110dot_escapeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %34)
           to label %110 unwind label %118
 
 110:                                              ; preds = %109
@@ -48128,7 +48128,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110dot_escapeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110dot_escapeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   %3 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %4 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
@@ -52154,7 +52154,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19FlowGraph20find_aug
   %.sroa.0485.0 = phi ptr [ %23, %2 ], [ %.sroa.0485.2559, %.backedge.backedge ]
   %42 = getelementptr inbounds i8, ptr %.sroa.15486.0, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(49) %14, ptr noundef nonnull align 8 dereferenceable(17) %15)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(49) %14, ptr noundef nonnull align 8 dereferenceable(17) %15)
           to label %43 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 43:                                               ; preds = %.backedge
@@ -53779,7 +53779,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19FlowGraph9NodePrimeESaIS2_EED2Ev.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %.val = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -55623,7 +55623,7 @@ _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_19FlowGraph14dump_dot_graphE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker18dump_dot_lut_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker18dump_dot_lut_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.241", align 8
   %5 = alloca %"struct.std::pair.241", align 8
   %6 = alloca %"class.Yosys::hashlib::pool.72", align 8
@@ -55783,7 +55783,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_EC2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   %68 = getelementptr inbounds i8, ptr %11, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %68, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %7, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeEN5Yosys7hashlib4poolINS8_5RTLIL6SigBitENS9_8hash_opsISC_EEEENS9_4dictISC_SF_SE_EESH_St4pairISF_SF_E(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %7, i32 noundef %2, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %69 unwind label %116
 
 69:                                               ; preds = %67
@@ -56018,7 +56018,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEED2Ev.exit64: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_depths_altitudesEN5Yosys7hashlib4poolINS1_5RTLIL6SigBitENS2_8hash_opsIS5_EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_depths_altitudesEN5Yosys7hashlib4poolINS1_5RTLIL6SigBitENS2_8hash_opsIS5_EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Yosys::hashlib::pool.72", align 8
   %5 = alloca %"class.Yosys::hashlib::pool.72", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 888
@@ -56057,7 +56057,7 @@ common.resume:                                    ; preds = %46, %48, %_ZNSt6vec
   resume { ptr, i32 } %common.resume.op
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit: ; preds = %10
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21compute_lut_distancesERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEbNS2_4poolIS5_S7_EEPSB_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %6, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef %2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21compute_lut_distancesERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEbNS2_4poolIS5_S7_EEPSB_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %6, i1 noundef zeroext true, ptr noundef %4, ptr noundef %2)
           to label %17 unwind label %46
 
 17:                                               ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit
@@ -56110,7 +56110,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
   br label %common.resume
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit13: ; preds = %25
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21compute_lut_distancesERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEbNS2_4poolIS5_S7_EEPSB_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %22, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21compute_lut_distancesERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEbNS2_4poolIS5_S7_EEPSB_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %22, i1 noundef zeroext false, ptr noundef %5, ptr noundef %2)
           to label %32 unwind label %48
 
 32:                                               ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit13
@@ -56166,7 +56166,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEED2Ev.exit18: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Yosys::hashlib::dict.90", align 8
   %5 = alloca %"class.Yosys::hashlib::pool.72", align 8
   %6 = alloca %"struct.std::pair.244", align 8
@@ -57971,7 +57971,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
   br label %.body18
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit20: ; preds = %919
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker28compute_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull %24)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker28compute_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %24)
           to label %926 unwind label %992
 
 926:                                              ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit20
@@ -57998,7 +57998,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEED2Ev.exit25: ; preds
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker28compute_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %4, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker28compute_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %4, ptr noundef %5)
           to label %931 unwind label %969
 
 931:                                              ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEED2Ev.exit25
@@ -58205,7 +58205,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
 
 994:                                              ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker28compute_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull %25)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker28compute_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %25)
           to label %995 unwind label %1000
 
 995:                                              ; preds = %994
@@ -58373,7 +58373,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FlowmapWorker21rel
 
 118:                                              ; preds = %._crit_edge
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %60, ptr noundef nonnull @.str.114, i32 noundef %2)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker18dump_dot_lut_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %60, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker18dump_dot_lut_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %60, i32 noundef 2)
           to label %119 unwind label %120
 
 119:                                              ; preds = %118
@@ -59069,7 +59069,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit152:              ; preds = %393, %_ZSt8_Destroy
   %.sroa.233.0.copyload = load i32, ptr %125, align 8
   %.sroa.029.0.copyload = load ptr, ptr %63, align 8
   %.sroa.230.0.copyload = load i32, ptr %126, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker15cut_lut_at_gateEN5Yosys5RTLIL6SigBitES3_(ptr dead_on_unwind noalias nonnull writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %.sroa.032.0.copyload, i32 %.sroa.233.0.copyload, ptr %.sroa.029.0.copyload, i32 %.sroa.230.0.copyload)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker15cut_lut_at_gateEN5Yosys5RTLIL6SigBitES3_(ptr dead_on_unwind noalias writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %.sroa.032.0.copyload, i32 %.sroa.233.0.copyload, ptr %.sroa.029.0.copyload, i32 %.sroa.230.0.copyload)
           to label %405 unwind label %.loopexit2069
 
 405:                                              ; preds = %404
@@ -61034,7 +61034,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit278:              ; preds = %1295, %_ZSt8_Destro
 .noexc283:                                        ; preds = %.noexc282
   %.sroa.0.0.copyload.i279 = load ptr, ptr %56, align 8
   %.sroa.2.0.copyload.i = load i32, ptr %172, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21realize_derealize_lutEN5Yosys5RTLIL6SigBitEPNS1_7hashlib4poolIS3_NS4_8hash_opsIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %.sroa.0.0.copyload.i279, i32 %.sroa.2.0.copyload.i, ptr noundef nonnull %75)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21realize_derealize_lutEN5Yosys5RTLIL6SigBitEPNS1_7hashlib4poolIS3_NS4_8hash_opsIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %.sroa.0.0.copyload.i279, i32 %.sroa.2.0.copyload.i, ptr noundef %75)
           to label %.noexc284 unwind label %.loopexit2046
 
 .noexc284:                                        ; preds = %.noexc283
@@ -62010,7 +62010,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit316:              ; preds = %1726, %_ZSt8_Destro
 .noexc322:                                        ; preds = %.noexc321
   %.sroa.0.0.copyload.i317 = load ptr, ptr %50, align 8
   %.sroa.2.0.copyload.i318 = load i32, ptr %182, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21realize_derealize_lutEN5Yosys5RTLIL6SigBitEPNS1_7hashlib4poolIS3_NS4_8hash_opsIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %.sroa.0.0.copyload.i317, i32 %.sroa.2.0.copyload.i318, ptr noundef nonnull %75)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21realize_derealize_lutEN5Yosys5RTLIL6SigBitEPNS1_7hashlib4poolIS3_NS4_8hash_opsIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %.sroa.0.0.copyload.i317, i32 %.sroa.2.0.copyload.i318, ptr noundef %75)
           to label %.noexc323 unwind label %.loopexit.split-lp2047.loopexit
 
 .noexc323:                                        ; preds = %.noexc322
@@ -62067,7 +62067,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
   br label %.body330
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit332: ; preds = %1740
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_depths_altitudesEN5Yosys7hashlib4poolINS1_5RTLIL6SigBitENS2_8hash_opsIS5_EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %83, ptr noundef nonnull %82)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_depths_altitudesEN5Yosys7hashlib4poolINS1_5RTLIL6SigBitENS2_8hash_opsIS5_EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %83, ptr noundef nonnull %82)
           to label %1747 unwind label %2781
 
 1747:                                             ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit332
@@ -62118,7 +62118,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
   br label %.body330
 
 _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit343: ; preds = %1753
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull %84)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker27update_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef %84)
           to label %1760 unwind label %2783
 
 1760:                                             ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit343
@@ -66283,7 +66283,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit60
           to label %3795 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 3795:                                             ; preds = %3794
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker18dump_dot_lut_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull %90, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker18dump_dot_lut_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9GraphModeE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef %90, i32 noundef 2)
           to label %3796 unwind label %3797
 
 3796:                                             ; preds = %3795
@@ -66758,7 +66758,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitENS1_IS3_iNS0_8hash_opsIS3_EEEES5_ED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21compute_lut_distancesERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEbNS2_4poolIS5_S7_EEPSB_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21compute_lut_distancesERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEbNS2_4poolIS5_S7_EEPSB_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, i1 noundef zeroext %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [75 x i32], align 4
   %7 = alloca %"class.std::allocator.5", align 1
   %8 = alloca [75 x i32], align 4
@@ -69875,7 +69875,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker19check_lut_distanc
   %6 = alloca %"struct.std::pair.271", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21compute_lut_distancesERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEbNS2_4poolIS5_S7_EEPSB_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %4, i1 noundef zeroext %2, ptr noundef nonnull %5, ptr noundef null)
+  invoke fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21compute_lut_distancesERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEbNS2_4poolIS5_S7_EEPSB_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %4, i1 noundef zeroext %2, ptr noundef %5, ptr noundef null)
           to label %7 unwind label %32
 
 7:                                                ; preds = %3
@@ -70422,7 +70422,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %90, %87, %82, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker28compute_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker28compute_lut_critical_outputsERN5Yosys7hashlib4dictINS1_5RTLIL6SigBitENS2_4poolIS5_NS2_8hash_opsIS5_EEEES8_EES9_(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [75 x i32], align 4
   %5 = alloca %"class.std::allocator.5", align 1
   %6 = alloca [75 x i32], align 4
@@ -74395,7 +74395,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit138:              ; preds = %225, %_ZSt8_Destroy
   %.sroa.267.0.copyload = load i32, ptr %80, align 8
   %.sroa.065.0.copyload = load ptr, ptr %38, align 8
   %.sroa.2.0.copyload = load i32, ptr %81, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker15cut_lut_at_gateEN5Yosys5RTLIL6SigBitES3_(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %.sroa.066.0.copyload, i32 %.sroa.267.0.copyload, ptr %.sroa.065.0.copyload, i32 %.sroa.2.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker15cut_lut_at_gateEN5Yosys5RTLIL6SigBitES3_(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %.sroa.066.0.copyload, i32 %.sroa.267.0.copyload, ptr %.sroa.065.0.copyload, i32 %.sroa.2.0.copyload)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, i8 0, i64 48, i1 false)
   %228 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %86)
           to label %229 unwind label %230
@@ -80869,7 +80869,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker15cut_lut_at_gateEN5Yosys5RTLIL6SigBitES3_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1076) %1, ptr %2, i32 %3, ptr readnone %4, i32 %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker15cut_lut_at_gateEN5Yosys5RTLIL6SigBitES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1076) %1, ptr %2, i32 %3, ptr readnone %4, i32 %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca [75 x i32], align 4
   %8 = alloca %"class.std::allocator.5", align 1
   %9 = alloca [75 x i32], align 4
@@ -84880,7 +84880,7 @@ _ZSt22__uninitialized_copy_aIPN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEiNS1_8hash_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21realize_derealize_lutEN5Yosys5RTLIL6SigBitEPNS1_7hashlib4poolIS3_NS4_8hash_opsIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %1, i32 %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker21realize_derealize_lutEN5Yosys5RTLIL6SigBitEPNS1_7hashlib4poolIS3_NS4_8hash_opsIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr %1, i32 %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .lr.ph.i:
   %4 = alloca [75 x i32], align 4
   %5 = alloca %"class.std::allocator.5", align 1

@@ -400,7 +400,7 @@ define range(i32 -1, 1) i32 @H5L_link(ptr noundef %0, ptr noundef %1, ptr nocapt
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = call fastcc i32 @H5L__create_real(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %5, ptr noundef null, i64 noundef %3)
+  %13 = call fastcc i32 @H5L__create_real(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %12, ptr noundef %5, ptr noundef null, i64 noundef %3)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %19
 
@@ -416,7 +416,7 @@ define range(i32 -1, 1) i32 @H5L_link(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5L__create_real(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5L__create_real(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.H5L_trav_cr_t, align 8
   %9 = alloca i32, align 4
   %10 = tail call ptr @H5G_normalize(ptr noundef %1) #10
@@ -500,7 +500,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_real(ptr noundef %0, pt
 define range(i32 -1, 1) i32 @H5L_link_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5O_link_t, align 8
   store i32 0, ptr %5, align 8
-  %6 = call fastcc i32 @H5L__create_real(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, ptr noundef %2, i64 noundef %3)
+  %6 = call fastcc i32 @H5L__create_real(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef %2, i64 noundef %3)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %12
 
@@ -548,7 +548,7 @@ define range(i32 -1, 1) i32 @H5L__create_hard(ptr noundef %0, ptr noundef %1, pt
   %25 = getelementptr inbounds i8, ptr %6, i64 32
   store i64 %24, ptr %25, align 8
   %26 = load ptr, ptr %22, align 8
-  %27 = call fastcc i32 @H5L__create_real(ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %26, ptr noundef nonnull %6, ptr noundef null, i64 noundef %4)
+  %27 = call fastcc i32 @H5L__create_real(ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %26, ptr noundef %6, ptr noundef null, i64 noundef %4)
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %33
 
@@ -605,7 +605,7 @@ define range(i32 -1, 1) i32 @H5L__create_soft(ptr noundef %0, ptr noundef %1, pt
   store i32 1, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %6, ptr %9, align 8
-  %10 = call fastcc i32 @H5L__create_real(ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, i64 noundef %3)
+  %10 = call fastcc i32 @H5L__create_real(ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef null, i64 noundef %3)
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %20
 
@@ -682,7 +682,7 @@ H5L__find_class_idx.exit.thread:                  ; preds = %15, %6, %H5L__find_
   %25 = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %3, ptr %25, align 8
   store i32 %4, ptr %7, align 8
-  %26 = call fastcc i32 @H5L__create_real(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, i64 noundef %5)
+  %26 = call fastcc i32 @H5L__create_real(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef %7, ptr noundef null, i64 noundef %5)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %32
 
@@ -740,7 +740,7 @@ define internal range(i32 -1, 1) i32 @H5L__get_val_cb(ptr nocapture readnone %0,
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %4, align 8
-  %16 = tail call fastcc i32 @H5L__get_val_real(ptr noundef nonnull %2, ptr noundef %14, i64 noundef %15)
+  %16 = tail call fastcc i32 @H5L__get_val_real(ptr noundef %2, ptr noundef %14, i64 noundef %15)
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
 
@@ -817,7 +817,7 @@ define internal range(i32 -1, 1) i32 @H5L__get_val_by_idx_cb(ptr nocapture readn
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
-  %31 = call fastcc i32 @H5L__get_val_real(ptr noundef nonnull %7, ptr noundef %28, i64 noundef %30)
+  %31 = call fastcc i32 @H5L__get_val_real(ptr noundef %7, ptr noundef %28, i64 noundef %30)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %37
 
@@ -2234,7 +2234,7 @@ declare i32 @H5I_dec_app_ref(i64 noundef) local_unnamed_addr #1
 declare i32 @H5G_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5L__get_val_real(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5L__get_val_real(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %18

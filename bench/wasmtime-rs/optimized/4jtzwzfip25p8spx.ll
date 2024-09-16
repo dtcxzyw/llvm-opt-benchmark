@@ -149,14 +149,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.38476532626945bb04fe24ad10240d6e.167 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00\AA\04\00\00\0D\00\00\00" }>, align 8
 @anon.38476532626945bb04fe24ad10240d6e.168 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"\02" }>, align 1
 @anon.38476532626945bb04fe24ad10240d6e.169 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00\A9\04\00\00\0D\00\00\00" }>, align 8
-@anon.38476532626945bb04fe24ad10240d6e.172 = private unnamed_addr constant <{ [40 x i8] }> <{ [40 x i8] c"internal error: entered unreachable code" }>, align 1
 @anon.38476532626945bb04fe24ad10240d6e.175 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00\17\05\00\000\00\00\00" }>, align 8
 @anon.38476532626945bb04fe24ad10240d6e.176 = private unnamed_addr constant <{ [29 x i8] }> <{ [29 x i8] c"should have finished encoding" }>, align 1
 @anon.38476532626945bb04fe24ad10240d6e.179 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00\AA\05\00\000\00\00\00" }>, align 8
 @anon.38476532626945bb04fe24ad10240d6e.180 = private unnamed_addr constant <{ [25 x i8] }> <{ [25 x i8] c"expected equal code units" }>, align 1
 @anon.38476532626945bb04fe24ad10240d6e.181 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00\FB\05\00\000\00\00\00" }>, align 8
 @anon.38476532626945bb04fe24ad10240d6e.182 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00C\06\00\000\00\00\00" }>, align 8
-@anon.38476532626945bb04fe24ad10240d6e.185 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00&\06\00\00\1B\00\00\00" }>, align 8
 @anon.38476532626945bb04fe24ad10240d6e.186 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00\9D\06\00\00\13\00\00\00" }>, align 8
 @str.0 = internal unnamed_addr constant [25 x i8] c"attempt to divide by zero"
 @anon.38476532626945bb04fe24ad10240d6e.187 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.38476532626945bb04fe24ad10240d6e.95.llvm.725258463910346102, [16 x i8] c"%\00\00\00\00\00\00\00\AC\06\00\00*\00\00\00" }>, align 8
@@ -266,7 +264,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE = external thread_local global { { { { i64, [2 x i64] } } }, i8, [7 x i8] }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17habd94e2fcf1b2cb3E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17habd94e2fcf1b2cb3E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   %5 = alloca { i32, [1 x i32] }, align 4
@@ -438,7 +436,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit.i: ;
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h1b25634dcef4f901E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef align 8 dereferenceable(80) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h1b25634dcef4f901E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { i32, [1 x i32] }, align 4
@@ -671,7 +669,7 @@ define hidden noundef align 4 dereferenceable_or_null(12) ptr @"_ZN106_$LT$core.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
@@ -691,7 +689,7 @@ define internal fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B
   store i64 %15, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.012)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h1b25634dcef4f901E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef %10)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h1b25634dcef4f901E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %8, ptr noalias noundef align 8 dereferenceable(80) %1, i64 noundef %10)
   %16 = getelementptr inbounds i8, ptr %1, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
@@ -884,7 +882,7 @@ _ZN16wasmtime_environ9component5types9FlatTypes3len17h0ec5a8bab4b54385E.exit.i.i
   %105 = add i64 %12, 1
   store i64 %105, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h1b25634dcef4f901E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef %10)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h1b25634dcef4f901E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %7, ptr noalias noundef align 8 dereferenceable(80) %1, i64 noundef %10)
   %.val = load i64, ptr %7, align 8, !range !12, !noundef !10
   %106 = icmp eq i64 %.val, 0
   br i1 %106, label %"_ZN4core3ptr127drop_in_place$LT$$LP$wasmtime_environ..fact..trampoline..Source$C$$RF$wasmtime_environ..component..types..InterfaceType$RP$$GT$17he77c0653c25f234fE.exit", label %107
@@ -1718,7 +1716,7 @@ define internal void @"_ZN4core3ptr103drop_in_place$LT$$RF$alloc..boxed..Box$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !318, !noundef !10
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1806,7 +1804,7 @@ define hidden void @"_ZN4core3ptr370drop_in_place$LT$alloc..vec..Vec$LT$wasmtime
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_environ..fact..Body$GT$17hd1b710e52b529a18E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_environ..fact..Body$GT$17hd1b710e52b529a18E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3100,7 +3098,7 @@ define hidden void @_ZN4core9panicking13assert_failed17h238d0e3974871325E(i8 nou
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef readonly align 4 dereferenceable(12) %0, ptr noalias noundef readonly align 4 dereferenceable(12) %1, ptr noalias nocapture noundef align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #10 {
+define internal fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #10 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
@@ -3170,7 +3168,7 @@ define hidden void @_ZN4core9panicking13assert_failed17h7da962049f092256E(i8 nou
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN4core9panicking13assert_failed17h8be85173ac8f9ca3E(ptr noalias noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #10 {
+define internal fastcc void @_ZN4core9panicking13assert_failed17h8be85173ac8f9ca3E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #10 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
@@ -3190,7 +3188,7 @@ define hidden void @_ZN4core9panicking13assert_failed17h9ff06dc37e16c626E(i8 nou
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN4core9panicking13assert_failed17ha62bc75f36703f97E(ptr noalias noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef align 8 dereferenceable(48) %2) unnamed_addr #10 {
+define internal fastcc void @_ZN4core9panicking13assert_failed17ha62bc75f36703f97E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #10 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
@@ -3240,7 +3238,7 @@ define hidden void @_ZN4core9panicking13assert_failed17hd41b09d1cea1b3c5E(i8 nou
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN4core9panicking13assert_failed17he3030af42e9c5ebdE(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef readonly align 8 dereferenceable(72) %1, ptr noalias nocapture noundef align 8 dereferenceable(48) %2) unnamed_addr #10 {
+define internal fastcc void @_ZN4core9panicking13assert_failed17he3030af42e9c5ebdE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #10 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
@@ -5228,7 +5226,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline7compile17hdd1452bc6f5
 213:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %102)
   store ptr null, ptr %102, align 8
-  invoke fastcc void @_ZN4core9panicking13assert_failed17ha62bc75f36703f97E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %104, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %103, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %102) #29
+  invoke fastcc void @_ZN4core9panicking13assert_failed17ha62bc75f36703f97E(ptr noalias noundef readonly align 1 dereferenceable(1) %104, ptr noalias noundef readonly align 1 dereferenceable(1) %103, ptr noalias nocapture noundef align 8 dereferenceable(48) %102) #29
           to label %223 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 214:                                              ; preds = %210
@@ -5328,7 +5326,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %.sink.i.sroa.gep26.i = getelementptr inbounds i8, ptr %39, i64 16
   %.sink.i.sroa.gep28.i = getelementptr inbounds i8, ptr %47, i64 24
   %.sink.i.sroa.gep29.i = getelementptr inbounds i8, ptr %39, i64 24
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16trap_if_not_flag17hafdc559deb5fd553E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i32 noundef %243, i32 noundef 1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %96)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16trap_if_not_flag17hafdc559deb5fd553E(ptr noalias noundef align 8 dereferenceable(136) %101, i32 noundef %243, i32 noundef 1, ptr noalias nocapture noundef align 8 dereferenceable(24) %96)
           to label %245 unwind label %.body.thread35.i, !noalias !793
 
 244:                                              ; preds = %.body70.i
@@ -5358,7 +5356,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %256 = load i32, ptr %255, align 8, !alias.scope !793, !noalias !790, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %95), !noalias !795
   store i64 1, ptr %95, align 8, !noalias !795
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16trap_if_not_flag17hafdc559deb5fd553E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i32 noundef %256, i32 noundef 2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %95)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16trap_if_not_flag17hafdc559deb5fd553E(ptr noalias noundef align 8 dereferenceable(136) %101, i32 noundef %256, i32 noundef 2, ptr noalias nocapture noundef align 8 dereferenceable(24) %95)
           to label %301 unwind label %.body.thread35.i
 
 257:                                              ; preds = %249
@@ -5548,13 +5546,13 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler15assert_not_flag17h81f73819f17cc
 
 301:                                              ; preds = %254
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %95), !noalias !795
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i32 noundef %256, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef align 8 dereferenceable(136) %101, i32 noundef %256, i32 noundef 2, i1 noundef zeroext false)
           to label %298 unwind label %.body.thread35.i
 
 302:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i, %298
   %303 = getelementptr inbounds i8, ptr %1, i64 56
   %304 = load i32, ptr %303, align 8, !alias.scope !793, !noalias !790, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i32 noundef %304, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef align 8 dereferenceable(136) %101, i32 noundef %304, i32 noundef 1, i1 noundef zeroext false)
           to label %316 unwind label %.body.thread35.i
 
 305:                                              ; preds = %298
@@ -5761,7 +5759,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 395:                                              ; preds = %.body.i.i, %396
   %.pn109.i.i = phi { ptr, i32 } [ %397, %396 ], [ %.pn107.i.i, %.body.i.i ]
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67) #30
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef align 8 dereferenceable(24) %67) #30
           to label %384 unwind label %510
 
 396:                                              ; preds = %523, %388
@@ -5794,7 +5792,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 .body.i.i:                                        ; preds = %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit162.i.i", %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i.i", %406
   %.pn107.i.i = phi { ptr, i32 } [ %.pn105.i.i, %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit162.i.i" ], [ %407, %406 ], [ %435, %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i.i" ]
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %66) #30
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef align 8 dereferenceable(24) %66) #30
           to label %395 unwind label %510
 
 406:                                              ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.i.i", %516, %.noexc132.i.i, %429, %412, %404
@@ -5843,7 +5841,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 "_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.i.i": ; preds = %413
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %62), !noalias !831
   store ptr null, ptr %62, align 8, !noalias !831
-  invoke fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %64, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %63, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.113) #29
+  invoke fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef readonly align 4 dereferenceable(12) %64, ptr noalias noundef readonly align 4 dereferenceable(12) %63, ptr noalias nocapture noundef align 8 dereferenceable(48) %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.113) #29
           to label %387 unwind label %406
 
 423:                                              ; preds = %413
@@ -5871,7 +5869,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %434 = phi i32 [ 1, %423 ], [ %432, %.noexc132.i.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0166.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0166.i.i, ptr noundef nonnull align 4 dereferenceable(12) %64, i64 12, i1 false), !noalias !831
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i8 %417, i32 noundef %414, i32 noundef %434)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef align 8 dereferenceable(136) %101, i8 %417, i32 noundef %414, i32 noundef %434)
           to label %436 unwind label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i.i", !noalias !874
 
 "_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i.i": ; preds = %433
@@ -5952,7 +5950,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.092.i.i = select i1 %459, i32 %461, i32 %464
   %.0.i.i = select i1 %459, i32 %463, i32 %466
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58), !noalias !831
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %58, ptr noalias noundef nonnull align 8 dereferenceable(136) %101, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %390, i32 noundef 0, i32 noundef %.092.i.i, i32 noundef %.0.i.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef align 8 dereferenceable(32) %58, ptr noalias noundef align 8 dereferenceable(136) %101, ptr noalias noundef readonly align 4 dereferenceable(20) %390, i32 noundef 0, i32 noundef %.092.i.i, i32 noundef %.0.i.i)
           to label %467 unwind label %454
 
 467:                                              ; preds = %456
@@ -6069,7 +6067,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 489:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit160.i.i", %482
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %56), !noalias !831
-  invoke fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %56, ptr noalias noundef nonnull align 8 dereferenceable(184) %57)
+  invoke fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %56, ptr noalias noundef align 8 dereferenceable(184) %57)
           to label %490 unwind label %.loopexit.i.i
 
 490:                                              ; preds = %489
@@ -6149,7 +6147,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i8 %.sroa.5197.0.copyload.i.i, ptr %.sroa.5197.8..sroa_idx.i.i, align 4, !noalias !831
   %.sroa.6198.8..sroa_idx.i.i = getelementptr inbounds i8, ptr %52, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6198.8..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6198.i.i, i64 3, i1 false), !noalias !831
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %52)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %101, ptr noalias nocapture noundef align 4 dereferenceable(20) %52)
           to label %.thread217.i.i unwind label %.body142.i.i
 
 .thread217.i.i:                                   ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i65.i
@@ -6441,7 +6439,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !945
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72), !noalias !831
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0170.i.i)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i32 noundef %304, i32 noundef 1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef align 8 dereferenceable(136) %101, i32 noundef %304, i32 noundef 1, i1 noundef zeroext true)
           to label %590 unwind label %587
 
 590:                                              ; preds = %589
@@ -6561,7 +6559,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
           to label %962 unwind label %.thread68.loopexit.split-lp.loopexit.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h82a6d5924d34abe1E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h625c4ce524d47b5fE.exit10.i.i.i", %600, %._crit_edge.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i32 noundef %243, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef align 8 dereferenceable(136) %101, i32 noundef %243, i32 noundef 1, i1 noundef zeroext false)
           to label %623 unwind label %.thread68.loopexit.split-lp.loopexit.split-lp.i
 
 623:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h82a6d5924d34abe1E.exit.i"
@@ -6697,7 +6695,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 693:                                              ; preds = %.body.i90.i, %694
   %.pn102.i.i = phi { ptr, i32 } [ %695, %694 ], [ %.pn100.i.i, %.body.i90.i ]
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #30
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef align 8 dereferenceable(24) %36) #30
           to label %683 unwind label %886, !noalias !990
 
 694:                                              ; preds = %827, %686
@@ -6754,7 +6752,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 .body.i90.i:                                      ; preds = %.body159.i.i, %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i120.i", %715
   %.pn100.i.i = phi { ptr, i32 } [ %.pn98.i.i, %.body159.i.i ], [ %716, %715 ], [ %733, %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i120.i" ]
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #30
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$$GT$17h759e5cb666fe32b9E"(ptr noalias noundef align 8 dereferenceable(24) %35) #30
           to label %693 unwind label %886, !noalias !990
 
 715:                                              ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.i119.i", %820, %720, %.noexc129.i.i, %706
@@ -6800,12 +6798,12 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 "_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.i119.i": ; preds = %722
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29), !noalias !1002
   store ptr null, ptr %29, align 8, !noalias !1002
-  invoke fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %31, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %30, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.119) #29
+  invoke fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef readonly align 4 dereferenceable(12) %31, ptr noalias noundef readonly align 4 dereferenceable(12) %30, ptr noalias nocapture noundef align 8 dereferenceable(48) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.119) #29
           to label %721 unwind label %715
 
 732:                                              ; preds = %722
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %30), !noalias !1002
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i8 %726, i32 noundef %723, i32 noundef %718)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef align 8 dereferenceable(136) %101, i8 %726, i32 noundef %723, i32 noundef %718)
           to label %734 unwind label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i120.i", !noalias !1052
 
 "_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i120.i": ; preds = %732
@@ -6912,12 +6910,12 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 "_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit145.i.i": ; preds = %763
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25), !noalias !1002
   store ptr null, ptr %25, align 8, !noalias !1002
-  invoke fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %26, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.122) #29
+  invoke fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef readonly align 4 dereferenceable(12) %27, ptr noalias noundef readonly align 4 dereferenceable(12) %26, ptr noalias nocapture noundef align 8 dereferenceable(48) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.122) #29
           to label %721 unwind label %758
 
 775:                                              ; preds = %763
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26), !noalias !1002
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i8 %769, i32 noundef %766, i32 noundef %761)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef align 8 dereferenceable(136) %101, i8 %769, i32 noundef %766, i32 noundef %761)
           to label %777 unwind label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i151.i.i", !noalias !1089
 
 "_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i151.i.i": ; preds = %775
@@ -7048,7 +7046,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 799:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit186.i.i", %792
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %23), !noalias !1002
-  invoke fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %23, ptr noalias noundef nonnull align 8 dereferenceable(184) %24)
+  invoke fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %23, ptr noalias noundef align 8 dereferenceable(184) %24)
           to label %800 unwind label %.loopexit.i98.i, !noalias !990
 
 800:                                              ; preds = %799
@@ -7328,7 +7326,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1161
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38), !noalias !1002
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0208.i.i)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i32 noundef %243, i32 noundef 1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef align 8 dereferenceable(136) %101, i32 noundef %243, i32 noundef 1, i1 noundef zeroext true)
           to label %889 unwind label %.thread68.loopexit.split-lp.loopexit.split-lp.i
 
 889:                                              ; preds = %888
@@ -7412,7 +7410,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   br i1 %914, label %._crit_edge88.i, label %906
 
 915:                                              ; preds = %899
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, i32 noundef %304, i32 noundef 2, i1 noundef zeroext true)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef align 8 dereferenceable(136) %101, i32 noundef %304, i32 noundef 2, i1 noundef zeroext true)
           to label %916 unwind label %.thread68.loopexit.split-lp.loopexit.split-lp.i
 
 916:                                              ; preds = %915, %899
@@ -7458,7 +7456,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.sroa.7.0..sroa_idx19.i = getelementptr inbounds i8, ptr %921, i64 4
   store i32 %.sroa.017.0.copyload18.i, ptr %83, align 4, !noalias !795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7.0..sroa_idx19.i, i64 16, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %101, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %83)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %101, ptr noalias nocapture noundef align 4 dereferenceable(20) %83)
           to label %956 unwind label %919
 
 "_ZN4core3ptr105drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$$GT$17hf588049959b4297bE.exit147.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he37798a71ca4e0deE.exit.thread.i"
@@ -7470,7 +7468,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 927:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit154.i, %"_ZN4core3ptr105drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$$GT$17hf588049959b4297bE.exit147.i"
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %81), !noalias !795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %81, ptr noundef nonnull align 8 dereferenceable(136) %101, i64 136, i1 false), !noalias !793
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6finish17hd9a2e1eafa7371a4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %81)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6finish17hd9a2e1eafa7371a4E(ptr noalias nocapture noundef align 8 dereferenceable(136) %81)
           to label %939 unwind label %611
 
 928:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$$GT$17hf588049959b4297bE.exit147.i"
@@ -8033,7 +8031,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
 127:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(136) %12, i64 136, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6finish17hd9a2e1eafa7371a4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %10)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6finish17hd9a2e1eafa7371a4E(ptr noalias nocapture noundef align 8 dereferenceable(136) %10)
           to label %128 unwind label %125
 
 128:                                              ; preds = %127
@@ -8535,7 +8533,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler9translate17h
 
 298:                                              ; preds = %5
   %299 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14assert_aligned17h350a8e58b95f7ceeE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %299)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14assert_aligned17h350a8e58b95f7ceeE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %299)
   br label %300
 
 300:                                              ; preds = %298, %5
@@ -8545,7 +8543,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler9translate17h
 
 302:                                              ; preds = %300
   %303 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14assert_aligned17h350a8e58b95f7ceeE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %303)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14assert_aligned17h350a8e58b95f7ceeE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(32) %303)
   br label %304
 
 304:                                              ; preds = %302, %300
@@ -8795,7 +8793,7 @@ default.unreachable520:                           ; preds = %_ZN16wasmtime_envir
   unreachable
 
 411:                                              ; preds = %393
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler13push_mem_addr17h15c7220f333d6cb7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %394)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler13push_mem_addr17h15c7220f333d6cb7E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %394)
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7c651acce71e0d7E.exit.thread"
 
 412:                                              ; preds = %408
@@ -8859,7 +8857,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit: ; p
 
 431:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7c651acce71e0d7E.exit.thread"
   %432 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler13push_mem_addr17h15c7220f333d6cb7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %432)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler13push_mem_addr17h15c7220f333d6cb7E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %432)
   br label %_ZN16wasmtime_environ4fact6Module16translate_helper17hcd87eae82fda7d5fE.exit
 
 _ZN16wasmtime_environ4fact6Module16translate_helper17hcd87eae82fda7d5fE.exit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7c651acce71e0d7E.exit.thread", %431
@@ -8930,7 +8928,7 @@ _ZN16wasmtime_environ4fact6Module16translate_helper17hcd87eae82fda7d5fE.exit: ; 
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %279), !noalias !1348
   %456 = load i32, ptr %455, align 4, !noundef !10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %294)
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10flush_code17h6026908bd1eed693E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10flush_code17h6026908bd1eed693E(ptr noalias noundef align 8 dereferenceable(136) %0)
   %457 = load ptr, ptr %433, align 8, !nonnull !10, !align !11, !noundef !10
   %458 = getelementptr inbounds i8, ptr %0, i64 120
   %459 = load i32, ptr %458, align 8, !noundef !10
@@ -8970,7 +8968,7 @@ _ZN16wasmtime_environ4fact6Module16translate_helper17hcd87eae82fda7d5fE.exit: ; 
 474:                                              ; preds = %473
   %475 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_environ..fact..Body$GT$17hd1b710e52b529a18E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %293) #30
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_environ..fact..Body$GT$17hd1b710e52b529a18E"(ptr noalias noundef align 8 dereferenceable(48) %293) #30
           to label %common.resume unwind label %476
 
 476:                                              ; preds = %474
@@ -9212,7 +9210,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i32 %.sroa.10.sroa.5.0.copyload, ptr %.sroa.6290.0..sroa_idx, align 4
   store i8 %.sroa.10.sroa.6.0.copyload, ptr %.sroa.7291.0..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8, i64 3, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %282)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %282)
           to label %538 unwind label %.body
 
 538:                                              ; preds = %537
@@ -9649,7 +9647,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler10i32_store817h167b188c5bdd2eadE.
   unreachable
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler12translate_u817ha6098951f56cb724E.exit: ; preds = %659
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_u8_mask17h37c29e82010e3b87E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i8 noundef -1)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_u8_mask17h37c29e82010e3b87E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %2, ptr noalias noundef readonly align 8 dereferenceable(40) %4, i8 noundef -1)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_bool17h4bcdbd4fd1da385cE.exit
 
 662:                                              ; preds = %395
@@ -9868,7 +9866,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11i32_store1617hdd74cf166e2aa3b9E
   unreachable
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler13translate_u1617h68a45794fde768acE.exit: ; preds = %722
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u16_mask17h838c2c65093dc949E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i16 noundef -1)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u16_mask17h838c2c65093dc949E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %2, ptr noalias noundef readonly align 8 dereferenceable(40) %4, i16 noundef -1)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_bool17h4bcdbd4fd1da385cE.exit
 
 725:                                              ; preds = %395
@@ -9999,7 +9997,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
   unreachable
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler13translate_u3217h3ae04d9ad3dad243E.exit: ; preds = %760
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u32_mask17h5cad19e3bfd83eebE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i32 noundef -1)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u32_mask17h5cad19e3bfd83eebE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %2, ptr noalias noundef readonly align 8 dereferenceable(40) %4, i32 noundef -1)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_bool17h4bcdbd4fd1da385cE.exit
 
 763:                                              ; preds = %395
@@ -10056,7 +10054,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e11496
   br label %778
 
 777:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e114961E.exit.i136
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %774), !noalias !1562
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %774), !noalias !1562
   br label %778
 
 778:                                              ; preds = %777, %776
@@ -10171,7 +10169,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e11496
   br label %810
 
 809:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e114961E.exit.i147
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %806), !noalias !1585
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %806), !noalias !1585
   br label %810
 
 810:                                              ; preds = %809, %808
@@ -11233,7 +11231,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
 _ZN16wasmtime_environ4fact10trampoline8Compiler14translate_char17h7c3e210a0acfdf98E.exit: ; preds = %1066, %_ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.exit.i197
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %210), !noalias !1693
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %210, ptr noundef nonnull align 4 dereferenceable(20) %227, i64 20, i1 false), !noalias !1693
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %210), !noalias !1691
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %210), !noalias !1691
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %210), !noalias !1693
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %227), !noalias !1693
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %212)
@@ -11307,7 +11305,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler14translate_char17h7c3e210a0acfdf
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exit.i
 
 1109:                                             ; preds = %1102
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1103), !noalias !1741
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1103), !noalias !1741
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exit.i
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exit.i: ; preds = %1109, %1108
@@ -11342,7 +11340,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exi
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit58.i"
 
 1125:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exit.i
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %196), !noalias !1751
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %196), !noalias !1751
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit58.i"
 
 _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i: ; preds = %1098
@@ -11449,14 +11447,14 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   %1156 = getelementptr inbounds i8, ptr %191, i64 20
   %1157 = load i32, ptr %1156, align 4, !noalias !1752, !noundef !10
   %.val39.i = load i8, ptr %1142, align 4, !noalias !1751
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val39.i, i32 noundef %1157, i32 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val39.i, i32 noundef %1157, i32 noundef 2)
           to label %1300 unwind label %1297, !noalias !1751
 
 1158:                                             ; preds = %1147
   %1159 = getelementptr inbounds i8, ptr %191, i64 20
   %1160 = load i32, ptr %1159, align 4, !noalias !1752, !noundef !10
   %.val40.i = load i8, ptr %1142, align 4, !noalias !1751
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val40.i, i32 noundef %1160, i32 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val40.i, i32 noundef %1160, i32 noundef 2)
           to label %1304 unwind label %1297, !noalias !1751
 
 1161:                                             ; preds = %1152
@@ -11465,7 +11463,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1816)
   %1162 = getelementptr inbounds i8, ptr %191, i64 40
   %.val14.i.i = load i32, ptr %1162, align 8, !alias.scope !1814, !noalias !1818, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %.0.i.i, i32 %.val14.i.i, i8 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr nonnull %.0.i.i, i32 %.val14.i.i, i8 noundef 2)
           to label %.noexc60.i unwind label %1297, !noalias !1751
 
 .noexc60.i:                                       ; preds = %1161
@@ -11482,7 +11480,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   %1167 = trunc nuw i8 %1166 to i1
   %..i25.i.i = select i1 %1167, i32 14, i32 13
   store i32 %..i25.i.i, ptr %162, align 4, !alias.scope !1829, !noalias !1832
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %.val14.i.i, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %163, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %162)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %.val14.i.i, ptr noalias nocapture noundef align 4 dereferenceable(12) %163, ptr noalias nocapture noundef align 4 dereferenceable(12) %162)
           to label %.noexc61.i unwind label %1297, !noalias !1751
 
 .noexc61.i:                                       ; preds = %.noexc60.i
@@ -11491,12 +11489,12 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %161), !noalias !1820
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %160), !noalias !1820
   store i32 %..i25.i.i, ptr %160, align 4, !alias.scope !1834, !noalias !1837
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %161, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %160)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef align 4 dereferenceable(20) %161, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %160)
           to label %.noexc62.i unwind label %1297, !noalias !1751
 
 .noexc62.i:                                       ; preds = %.noexc61.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %160), !noalias !1820
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1166, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1166, i32 noundef 1)
           to label %1169 unwind label %.thread.i.i, !noalias !1839
 
 .thread.i.i:                                      ; preds = %1170, %1169, %.noexc62.i
@@ -11505,7 +11503,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   br label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit.i.i"
 
 1169:                                             ; preds = %.noexc62.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1166)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1166)
           to label %1170 unwind label %.thread.i.i, !noalias !1840
 
 1170:                                             ; preds = %1169
@@ -11521,7 +11519,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %156), !noalias !1820
   %1172 = getelementptr inbounds i8, ptr %159, i64 12
   %1173 = load i32, ptr %1172, align 4, !noalias !1820, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %156, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i, i32 noundef 1, i32 noundef %1173, i32 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef align 8 dereferenceable(32) %156, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i, i32 noundef 1, i32 noundef %1173, i32 noundef 2)
           to label %1175 unwind label %1284, !noalias !1840
 
 1174:                                             ; preds = %.body.i.i
@@ -11539,7 +11537,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   %.val18.i.i = load i32, ptr %1179, align 4, !alias.scope !1814, !noalias !1818, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %139), !noalias !1846
   store i64 7, ptr %139, align 8, !noalias !1846
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i.i, i32 noundef %.val18.i.i, i32 noundef %.val14.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %139)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i.i, i32 noundef %.val18.i.i, i32 noundef %.val14.i.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %139)
           to label %1182 unwind label %1180, !noalias !1840
 
 1180:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit78.i.i, %1279, %1274, %1267, %1260, %1256, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit66.i.i, %1253, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62.i.i, %1246, %1240, %1234, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit50.i.i, %1227, %1220, %1217, %1209, %1203, %1197, %1191, %1184, %1182, %1175
@@ -11560,7 +11558,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   %.val20.i.i = load i32, ptr %1183, align 4, !noalias !1820, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %138), !noalias !1849
   store i64 7, ptr %138, align 8, !noalias !1849
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i, i32 noundef %.val20.i.i, i32 noundef %1173, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %138)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i, i32 noundef %.val20.i.i, i32 noundef %1173, ptr noalias nocapture noundef align 8 dereferenceable(24) %138)
           to label %1184 unwind label %1180, !noalias !1840
 
 1184:                                             ; preds = %1182
@@ -11707,7 +11705,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i32 %..i45.i.i, ptr %150, align 4, !alias.scope !1853, !noalias !1859
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %149), !noalias !1820
   store i32 %..i25.i.i, ptr %149, align 4, !alias.scope !1860, !noalias !1863
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %.val14.i.i, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %150, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %149)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %.val14.i.i, ptr noalias nocapture noundef align 4 dereferenceable(12) %150, ptr noalias nocapture noundef align 4 dereferenceable(12) %149)
           to label %1223 unwind label %1180, !noalias !1840
 
 1223:                                             ; preds = %1220
@@ -11738,7 +11736,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit50.i.i: ; preds = %1227
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %148), !noalias !1820
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1166)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1166)
           to label %1230 unwind label %1180, !noalias !1840
 
 1230:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit50.i.i
@@ -11817,7 +11815,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62.i.i: ; preds = %1246
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %145), !noalias !1820
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1166, i32 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1166, i32 noundef 2)
           to label %1249 unwind label %1180, !noalias !1840
 
 1249:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62.i.i
@@ -11846,11 +11844,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit66.i.i: ; preds = %1253
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %144), !noalias !1820
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1166, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1166, i32 noundef 1)
           to label %1256 unwind label %1180, !noalias !1840
 
 1256:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit66.i.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1166)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1166)
           to label %1257 unwind label %1180, !noalias !1840
 
 1257:                                             ; preds = %1256
@@ -11944,7 +11942,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %141), !noalias !1820
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %140), !noalias !1820
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %140, ptr noundef nonnull align 4 dereferenceable(20) %159, i64 20, i1 false), !noalias !1820
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %140)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %140)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler20string_utf8_to_utf1617hcce58b95864e4425E.exit.i unwind label %1180, !noalias !1840
 
 1282:                                             ; preds = %.invoke.i.i, %.body.i.i
@@ -12032,15 +12030,15 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler20string_utf8_to_utf1617hcce58b95
   ]
 
 1303:                                             ; preds = %1300
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22string_deflate_to_utf817ha54fc299a72db4e1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %190, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %191, i8 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22string_deflate_to_utf817ha54fc299a72db4e1E(ptr noalias nocapture noundef align 8 dereferenceable(48) %190, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %191, i8 noundef 1, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i)
           to label %1299 unwind label %1297, !noalias !1751
 
 .invoke158.i:                                     ; preds = %1300, %1152
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11string_copy17hcbbc23508e3add77E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %190, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %191, i8 noundef %1151, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i, i8 noundef %1151)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11string_copy17hcbbc23508e3add77E(ptr noalias nocapture noundef align 8 dereferenceable(48) %190, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %191, i8 noundef %1151, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i, i8 noundef %1151)
           to label %1299 unwind label %1297, !noalias !1751
 
 .invoke.i:                                        ; preds = %1300, %1152
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17string_to_compact17h0232acccaf77bccfE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %190, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %191, i8 noundef %1151, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17string_to_compact17h0232acccaf77bccfE(ptr noalias nocapture noundef align 8 dereferenceable(48) %190, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %191, i8 noundef %1151, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i)
           to label %1299 unwind label %1297, !noalias !1751
 
 1304:                                             ; preds = %1158
@@ -12072,19 +12070,19 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler20string_utf8_to_utf1617hcce58b95
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i199: ; preds = %1310
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %189), !noalias !1752
   %.val.i200 = load i8, ptr %1142, align 4, !range !36, !noalias !1751, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val.i200, i32 noundef -2147483648)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val.i200, i32 noundef -2147483648)
           to label %1313 unwind label %1297, !noalias !1751
 
 1313:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i199
   %.val37.i = load i8, ptr %1142, align 4, !range !36, !noalias !1751, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val37.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val37.i)
           to label %1314 unwind label %1297, !noalias !1751
 
 1314:                                             ; preds = %1313
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %188), !noalias !1752
   store i32 18, ptr %188, align 4, !noalias !1752
   %.val38.i = load i8, ptr %1142, align 4, !range !36, !noalias !1751, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_if17h702326f966a4d430E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val38.i, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %188)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_if17h702326f966a4d430E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val38.i, ptr noalias nocapture noundef align 4 dereferenceable(12) %188)
           to label %1315 unwind label %1297, !noalias !1751
 
 1315:                                             ; preds = %1314
@@ -12115,7 +12113,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit69.i: ; preds = %1319
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %187), !noalias !1752
   %.val36.i = load i8, ptr %1142, align 4, !range !36, !noalias !1751, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val36.i, i32 noundef -2147483648)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val36.i, i32 noundef -2147483648)
           to label %1322 unwind label %1297, !noalias !1751
 
 1322:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit69.i
@@ -12211,17 +12209,17 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   ]
 
 1342:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit78.i202
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22string_deflate_to_utf817ha54fc299a72db4e1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %185, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %191, i8 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22string_deflate_to_utf817ha54fc299a72db4e1E(ptr noalias nocapture noundef align 8 dereferenceable(48) %185, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %191, i8 noundef 1, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i)
           to label %1524 unwind label %1297, !noalias !1751
 
 1343:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit78.i202
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11string_copy17hcbbc23508e3add77E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %185, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %191, i8 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i, i8 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11string_copy17hcbbc23508e3add77E(ptr noalias nocapture noundef align 8 dereferenceable(48) %185, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %191, i8 noundef 1, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i, i8 noundef 1)
           to label %1524 unwind label %1297, !noalias !1751
 
 1344:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit78.i202
   call void @llvm.experimental.noalias.scope.decl(metadata !1888)
   call void @llvm.experimental.noalias.scope.decl(metadata !1891)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %.0.i.i, i32 %1306, i8 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr nonnull %.0.i.i, i32 %1306, i8 noundef 2)
           to label %.noexc91.i unwind label %1297, !noalias !1751
 
 .noexc91.i:                                       ; preds = %1344
@@ -12238,7 +12236,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %1349 = trunc nuw i8 %1348 to i1
   %..i31.i.i = select i1 %1349, i32 14, i32 13
   store i32 %..i31.i.i, ptr %132, align 4, !alias.scope !1904, !noalias !1907
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1306, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %133, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %132)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1306, ptr noalias nocapture noundef align 4 dereferenceable(12) %133, ptr noalias nocapture noundef align 4 dereferenceable(12) %132)
           to label %.noexc92.i unwind label %1297, !noalias !1751
 
 .noexc92.i:                                       ; preds = %.noexc91.i
@@ -12247,12 +12245,12 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %131), !noalias !1893
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %130), !noalias !1893
   store i32 %..i31.i.i, ptr %130, align 4, !alias.scope !1909, !noalias !1912
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %131, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %130)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef align 4 dereferenceable(20) %131, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %130)
           to label %.noexc93.i unwind label %1297, !noalias !1751
 
 .noexc93.i:                                       ; preds = %.noexc92.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %130), !noalias !1893
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348, i32 noundef 1)
           to label %1351 unwind label %.thread.i81.i, !noalias !1914
 
 .thread.i81.i:                                    ; preds = %1352, %1351, %.noexc93.i
@@ -12261,7 +12259,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   br label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit118.i.i"
 
 1351:                                             ; preds = %.noexc93.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348)
           to label %1352 unwind label %.thread.i81.i, !noalias !1915
 
 1352:                                             ; preds = %1351
@@ -12277,7 +12275,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126), !noalias !1893
   %1354 = getelementptr inbounds i8, ptr %129, i64 12
   %1355 = load i32, ptr %1354, align 4, !noalias !1893, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %126, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i, i32 noundef 1, i32 noundef %1355, i32 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef align 8 dereferenceable(32) %126, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i, i32 noundef 1, i32 noundef %1355, i32 noundef 2)
           to label %1359 unwind label %1511, !noalias !1915
 
 1356:                                             ; preds = %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit.i85.i"
@@ -12311,7 +12309,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %1364 = trunc nuw i8 %1363 to i1
   %..i35.i.i = select i1 %1364, i32 14, i32 13
   store i32 %..i35.i.i, ptr %124, align 4, !alias.scope !1926, !noalias !1932
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1355, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %125, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %124)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1355, ptr noalias nocapture noundef align 4 dereferenceable(12) %125, ptr noalias nocapture noundef align 4 dereferenceable(12) %124)
           to label %1365 unwind label %1357, !noalias !1915
 
 1365:                                             ; preds = %1359
@@ -12334,7 +12332,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %1370 = load i32, ptr %1369, align 4, !noalias !1893, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %103), !noalias !1940
   store i64 7, ptr %103, align 8, !noalias !1940
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i.i, i32 noundef %1160, i32 noundef %1370, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %103)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i.i, i32 noundef %1160, i32 noundef %1370, ptr noalias nocapture noundef align 8 dereferenceable(24) %103)
           to label %1371 unwind label %.body.thread137.i.i, !noalias !1915
 
 .body.thread137.i.i:                              ; preds = %1464, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115.i.i, %1501, %1494, %1487, %1482, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97.i.i, %1475, %1469, %1463, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62.i87.i, %1460, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i.i.i, %1446, %1436, %1431, %1428, %1427, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit67.i.i, %1424, %1417, %1406, %1398, %1392, %1386, %1380, %1373, %1371, %1368
@@ -12354,7 +12352,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.val25.i.i = load i32, ptr %1372, align 4, !noalias !1893, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %102), !noalias !1943
   store i64 7, ptr %102, align 8, !noalias !1943
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i, i32 noundef %.val25.i.i, i32 noundef %1355, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %102)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i, i32 noundef %.val25.i.i, i32 noundef %1355, ptr noalias nocapture noundef align 8 dereferenceable(24) %102)
           to label %1373 unwind label %.body.thread137.i.i, !noalias !1915
 
 1373:                                             ; preds = %1371
@@ -12548,11 +12546,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit67.i.i: ; preds = %1424
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %116), !noalias !1893
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348, i32 noundef 2147483647)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348, i32 noundef 2147483647)
           to label %1427 unwind label %.body.thread137.i.i, !noalias !1915
 
 1427:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit67.i.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348)
           to label %1428 unwind label %.body.thread137.i.i, !noalias !1915
 
 1428:                                             ; preds = %1427
@@ -12565,13 +12563,13 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i32 %..i68.i.i, ptr %115, align 4, !alias.scope !1947, !noalias !1953
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %114), !noalias !1893
   store i32 %..i31.i.i, ptr %114, align 4, !alias.scope !1954, !noalias !1957
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1306, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %115, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %114)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1306, ptr noalias nocapture noundef align 4 dereferenceable(12) %115, ptr noalias nocapture noundef align 4 dereferenceable(12) %114)
           to label %1431 unwind label %.body.thread137.i.i, !noalias !1915
 
 1431:                                             ; preds = %1428
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %114), !noalias !1893
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %115), !noalias !1893
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348)
           to label %1432 unwind label %.body.thread137.i.i, !noalias !1915
 
 1432:                                             ; preds = %1431
@@ -12683,15 +12681,15 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62.i87.i: ; preds = %1417
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %111), !noalias !1893
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348, i32 noundef -2147483648)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348, i32 noundef -2147483648)
           to label %1463 unwind label %.body.thread137.i.i, !noalias !1915
 
 1463:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62.i87.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348)
           to label %1464 unwind label %.body.thread137.i.i, !noalias !1915
 
 1464:                                             ; preds = %1463
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_br_if17h771d911c4d81f012E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_br_if17h771d911c4d81f012E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348)
           to label %1465 unwind label %.body.thread137.i.i
 
 1465:                                             ; preds = %1464
@@ -12745,7 +12743,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97.i.i: ; preds = %1475
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %109), !noalias !1893
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %1348, i32 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %1348, i32 noundef 2)
           to label %1478 unwind label %.body.thread137.i.i, !noalias !1915
 
 1478:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97.i.i
@@ -12841,14 +12839,14 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %106), !noalias !1893
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %105), !noalias !1893
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %105, ptr noundef nonnull align 4 dereferenceable(20) %129, i64 20, i1 false), !noalias !1893
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %105)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %105)
           to label %1504 unwind label %.body.thread137.i.i, !noalias !1915
 
 1504:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %105), !noalias !1893
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %104), !noalias !1893
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %104, ptr noundef nonnull align 4 dereferenceable(20) %123, i64 20, i1 false), !noalias !1893
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %104)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %104)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler31string_compact_utf16_to_compact17ha318c48b847b2348E.exit.i unwind label %.body.i89.i, !noalias !1915
 
 .body.thread.i.i:                                 ; preds = %1499, %1492, %1480, %1473, %1467, %1458, %1453, %1434, %1422, %1415, %1404, %1396, %1390, %1384, %1378, %.body.thread137.i.i
@@ -12964,11 +12962,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   br i1 %switch424, label %1532, label %.invoke159.i
 
 1532:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit99.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22string_deflate_to_utf817ha54fc299a72db4e1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %183, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %191, i8 noundef 2, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22string_deflate_to_utf817ha54fc299a72db4e1E(ptr noalias nocapture noundef align 8 dereferenceable(48) %183, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %191, i8 noundef 2, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i)
           to label %1533 unwind label %1530, !noalias !1751
 
 .invoke159.i:                                     ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit99.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11string_copy17hcbbc23508e3add77E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %183, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %191, i8 noundef 2, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i49.i, i8 noundef %1341)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11string_copy17hcbbc23508e3add77E(ptr noalias nocapture noundef align 8 dereferenceable(48) %183, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %191, i8 noundef 2, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i49.i, i8 noundef %1341)
           to label %1533 unwind label %1530, !noalias !1751
 
 1533:                                             ; preds = %.invoke159.i, %1532
@@ -13112,7 +13110,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %178), !noalias !1752
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %177), !noalias !1752
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %177, ptr noundef nonnull align 8 dereferenceable(20) %1534, i64 20, i1 false), !noalias !1752
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %177)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %177)
           to label %1573 unwind label %.thread138.i, !noalias !1751
 
 .thread138.i:                                     ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit127.i
@@ -13124,7 +13122,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %177), !noalias !1752
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %176), !noalias !1752
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %176, ptr noundef nonnull align 4 dereferenceable(20) %1551, i64 20, i1 false), !noalias !1752
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %176)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %176)
           to label %1574 unwind label %1666, !noalias !1751
 
 1574:                                             ; preds = %1573
@@ -13271,7 +13269,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 1619:                                             ; preds = %1643, %1618
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %168), !noalias !1752
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %168, ptr noundef nonnull align 8 dereferenceable(20) %1149, i64 20, i1 false), !noalias !1752
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %168)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %168)
           to label %1650 unwind label %.thread117.i, !noalias !1751
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit139.i: ; preds = %1591
@@ -13306,7 +13304,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.val42.i = load ptr, ptr %1585, align 8, !alias.scope !1741, !noalias !1750, !nonnull !10, !align !35, !noundef !10
   %1628 = getelementptr inbounds i8, ptr %4, i64 36
   %.val43.i = load i32, ptr %1628, align 4, !alias.scope !1741, !noalias !1750
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %.val42.i, i32 %.val43.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr nonnull %.val42.i, i32 %.val43.i)
           to label %1629 unwind label %.thread117.i, !noalias !1751
 
 1629:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit158.i
@@ -13362,7 +13360,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %1646 = trunc nuw i8 %1645 to i1
   %1647 = select i1 %1646, i32 8, i32 4
   %1648 = add i32 %1647, %.val43.i
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %.val42.i, i32 %1648)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr nonnull %.val42.i, i32 %1648)
           to label %1619 unwind label %.thread64.i, !noalias !1751
 
 .thread64.i:                                      ; preds = %1643
@@ -13374,7 +13372,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %168), !noalias !1752
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %167), !noalias !1752
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %167, ptr noundef nonnull align 4 dereferenceable(20) %1148, i64 20, i1 false), !noalias !1752
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %167)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %167)
           to label %1651 unwind label %.thread117.i, !noalias !1751
 
 1651:                                             ; preds = %1650
@@ -13382,7 +13380,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %166), !noalias !1752
   %1652 = getelementptr inbounds i8, ptr %190, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %166, ptr noundef nonnull align 8 dereferenceable(20) %1652, i64 20, i1 false), !noalias !1752
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %166)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %166)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler16translate_string17h4106deffcb688599E.exit unwind label %.thread123.thread.i, !noalias !1751
 
 1653:                                             ; preds = %.invoke160.i, %.body97.i
@@ -13529,7 +13527,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler16translate_string17h4106deffcb68
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %165), !noalias !1752
   %1690 = getelementptr inbounds i8, ptr %190, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %165, ptr noundef nonnull align 4 dereferenceable(20) %1690, i64 20, i1 false), !noalias !1752
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %165), !noalias !1751
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %165), !noalias !1751
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %165), !noalias !1752
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %190), !noalias !1752
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %191), !noalias !1752
@@ -14219,7 +14217,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler17translate_variant17h7c102a89b17
   %.val275 = load i32, ptr %3, align 4
   %1912 = getelementptr inbounds i8, ptr %3, i64 4
   %.val276 = load i32, ptr %1912, align 4
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_list17hd18e7c738e5f9383E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1911, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, i32 %.val275, i32 %.val276, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_list17hd18e7c738e5f9383E(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1911, ptr noalias noundef readonly align 8 dereferenceable(40) %2, i32 %.val275, i32 %.val276, ptr noalias noundef readonly align 8 dereferenceable(40) %4)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_bool17h4bcdbd4fd1da385cE.exit
 
 1913:                                             ; preds = %395
@@ -14362,7 +14360,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler17translate_variant17h7c102a89b17
   %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %68, i64 176
   store i64 %.0.sroa.speculated.i.i.i271, ptr %.sroa.17.0..sroa_idx, align 8, !noalias !2308
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %67), !noalias !2308
-  call fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %67, ptr noalias noundef nonnull align 8 dereferenceable(184) %68), !noalias !2303
+  call fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %67, ptr noalias noundef align 8 dereferenceable(184) %68), !noalias !2303
   %1953 = load i64, ptr %67, align 8, !range !905, !noalias !2308, !noundef !10
   %1954 = icmp eq i64 %1953, 2
   br i1 %1954, label %_ZN16wasmtime_environ4fact10trampoline8Compiler15translate_tuple17h859cc46bf7099679E.exit, label %.lr.ph479
@@ -14461,7 +14459,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler17translate_variant17h7c102a89b17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %66), !noalias !2308
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %67), !noalias !2308
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %67), !noalias !2308
-  call fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %67, ptr noalias noundef nonnull align 8 dereferenceable(184) %68), !noalias !2303
+  call fastcc void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h67918c48e1741d60E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %67, ptr noalias noundef align 8 dereferenceable(184) %68), !noalias !2303
   %1985 = load i64, ptr %67, align 8, !range !905, !noalias !2308, !noundef !10
   %1986 = icmp eq i64 %1985, 2
   br i1 %1986, label %_ZN16wasmtime_environ4fact10trampoline8Compiler15translate_tuple17h859cc46bf7099679E.exit, label %1960
@@ -14552,7 +14550,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler15translate_tuple17h859cc46bf7099
 "_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread.i": ; preds = %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.i", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit27.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %63), !noalias !2361
   store ptr null, ptr %63, align 8, !noalias !2361
-  call fastcc void @_ZN4core9panicking13assert_failed17he3030af42e9c5ebdE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %2002, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %2008, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %63) #29
+  call fastcc void @_ZN4core9panicking13assert_failed17he3030af42e9c5ebdE(ptr noalias noundef readonly align 8 dereferenceable(72) %2002, ptr noalias noundef readonly align 8 dereferenceable(72) %2008, ptr noalias nocapture noundef align 8 dereferenceable(48) %63) #29
   unreachable
 
 2024:                                             ; preds = %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.i"
@@ -14576,7 +14574,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler15translate_tuple17h859cc46bf7099
   %notmask18.i = shl nsw i8 -1, %2032
   %2033 = xor i8 %notmask18.i, -1
   %.0.i221 = select i1 %2030, i8 -1, i8 %2033
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_u8_mask17h37c29e82010e3b87E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i8 noundef %.0.i221)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_u8_mask17h37c29e82010e3b87E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %2, ptr noalias noundef readonly align 8 dereferenceable(40) %4, i8 noundef %.0.i221)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_bool17h4bcdbd4fd1da385cE.exit
 
 2034:                                             ; preds = %2024
@@ -14586,7 +14584,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler15translate_tuple17h859cc46bf7099
   %notmask17.i = shl nsw i16 -1, %2037
   %2038 = xor i16 %notmask17.i, -1
   %.012.i = select i1 %2035, i16 -1, i16 %2038
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u16_mask17h838c2c65093dc949E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i16 noundef %.012.i)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u16_mask17h838c2c65093dc949E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %2, ptr noalias noundef readonly align 8 dereferenceable(40) %4, i16 noundef %.012.i)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_bool17h4bcdbd4fd1da385cE.exit
 
 2039:                                             ; preds = %2024
@@ -14676,7 +14674,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler15translate_tuple17h859cc46bf7099
   %2057 = add nuw i64 %2056, 1
   store i64 %2057, ptr %.sroa.08.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2417, !noalias !2418
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %54), !noalias !2422
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17habd94e2fcf1b2cb3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %54, ptr noalias noundef nonnull align 8 dereferenceable(32) %62)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17habd94e2fcf1b2cb3E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %54, ptr noalias noundef align 8 dereferenceable(32) %62)
   call void @llvm.experimental.noalias.scope.decl(metadata !2423)
   call void @llvm.experimental.noalias.scope.decl(metadata !2426)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52), !noalias !2429
@@ -14851,7 +14849,7 @@ _ZN16wasmtime_environ9component5types9FlatTypes3len17h0ec5a8bab4b54385E.exit.i.i
   store i64 %2129, ptr %.sroa.08.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2417, !noalias !2418
   store i64 %.lcssa33.i, ptr %.sroa.08.sroa.3.0..sroa_idx.i, align 8, !alias.scope !2417, !noalias !2418
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %53), !noalias !2422
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17habd94e2fcf1b2cb3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %53, ptr noalias noundef nonnull align 8 dereferenceable(32) %62)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17habd94e2fcf1b2cb3E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %53, ptr noalias noundef align 8 dereferenceable(32) %62)
   %.val.i.i.i.i = load i64, ptr %53, align 8, !range !12, !noalias !2422, !noundef !10
   %2130 = icmp eq i64 %.val.i.i.i.i, 0
   br i1 %2130, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit.i.i.i.i", label %2131
@@ -14942,7 +14940,7 @@ _ZN16wasmtime_environ9component5types9FlatTypes3len17h0ec5a8bab4b54385E.exit.i.i
   %2147 = icmp ne i64 %2145, %2048
   %or.cond.i = or i1 %2050, %2147
   %.013.i = select i1 %or.cond.i, i32 -1, i32 %2053
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u32_mask17h5cad19e3bfd83eebE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %60, i32 noundef %.013.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u32_mask17h5cad19e3bfd83eebE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %61, ptr noalias noundef readonly align 8 dereferenceable(40) %60, i32 noundef %.013.i)
           to label %"_ZN4core3ptr68drop_in_place$LT$wasmtime_environ..fact..trampoline..Destination$GT$17h427992c789e7f7deE.exit.i" unwind label %"_ZN4core3ptr68drop_in_place$LT$wasmtime_environ..fact..trampoline..Destination$GT$17h427992c789e7f7deE.exit274"
 
 "_ZN4core3ptr68drop_in_place$LT$wasmtime_environ..fact..trampoline..Destination$GT$17h427992c789e7f7deE.exit274": ; preds = %2144
@@ -15356,7 +15354,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler13translate_own17h79137b709b98917
   store i64 -9223372036854775802, ptr %2279, align 8, !noalias !2640
   %2280 = call noundef i32 @_ZN16wasmtime_environ4fact6Module13import_simple17h6a4a69912e8b0fa9E(ptr noalias noundef nonnull align 8 dereferenceable(448) %2278, ptr noalias noundef nonnull readonly align 1 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.181.llvm.560786137135708080, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.182.llvm.560786137135708080, i64 noundef 12, ptr noalias noundef nonnull readonly align 4 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.183.llvm.560786137135708080, i64 noundef 3, ptr noalias noundef nonnull readonly align 4 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.184.llvm.560786137135708080, i64 noundef 1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %22), !noalias !2636
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %22), !noalias !2640
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler18translate_resource17h067983694935dc9cE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %2269, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, i32 noundef %.val76, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i32 noundef %2280)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler18translate_resource17h067983694935dc9cE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %2269, ptr noalias noundef readonly align 8 dereferenceable(40) %2, i32 noundef %.val76, ptr noalias noundef readonly align 8 dereferenceable(40) %4, i32 noundef %2280)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_bool17h4bcdbd4fd1da385cE.exit
 
 2281:                                             ; preds = %395
@@ -15391,7 +15389,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler16translate_borrow17h77c8ed8e7e32
   store i64 -9223372036854775801, ptr %2293, align 8, !noalias !2650
   %2294 = call noundef i32 @_ZN16wasmtime_environ4fact6Module13import_simple17h9e02417b0b33c981E(ptr noalias noundef nonnull align 8 dereferenceable(448) %2292, ptr noalias noundef nonnull readonly align 1 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.181.llvm.560786137135708080, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.185.llvm.560786137135708080, i64 noundef 15, ptr noalias noundef nonnull readonly align 4 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.183.llvm.560786137135708080, i64 noundef 3, ptr noalias noundef nonnull readonly align 4 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.184.llvm.560786137135708080, i64 noundef 1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %20), !noalias !2646
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %20), !noalias !2650
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler18translate_resource17h067983694935dc9cE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %2283, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, i32 noundef %.val78, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i32 noundef %2294)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler18translate_resource17h067983694935dc9cE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %2283, ptr noalias noundef readonly align 8 dereferenceable(40) %2, i32 noundef %.val78, ptr noalias noundef readonly align 8 dereferenceable(40) %4, i32 noundef %2294)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_bool17h4bcdbd4fd1da385cE.exit
 }
 
@@ -15407,7 +15405,7 @@ define hidden void @"_ZN16wasmtime_environ4fact10trampoline8Compiler9translate28
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler13push_mem_addr17h15c7220f333d6cb7E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler13push_mem_addr17h15c7220f333d6cb7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [5 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %1, i64 20
@@ -15448,14 +15446,14 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %17 = load ptr, ptr %1, align 8, !nonnull !10, !align !35, !noundef !10
   %18 = getelementptr i8, ptr %17, i64 16
   %.val = load i8, ptr %18, align 4, !range !36, !noundef !10
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val, i32 noundef %13)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val, i32 noundef %13)
   %.val1 = load i8, ptr %18, align 4, !range !36, !noundef !10
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val1)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val1)
   br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_u8_mask17h37c29e82010e3b87E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2, i8 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_u8_mask17h37c29e82010e3b87E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i8 noundef range(i8 -1, -128) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { i32, [2 x i32] }, align 4
@@ -15628,7 +15626,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler10i32_store817h167b188c5bdd2eadE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u16_mask17h838c2c65093dc949E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2, i16 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u16_mask17h838c2c65093dc949E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i16 noundef range(i16 -1, -32768) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { i32, [2 x i32] }, align 4
@@ -15801,7 +15799,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11i32_store1617hdd74cf166e2aa3b9E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u32_mask17h5cad19e3bfd83eebE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16convert_u32_mask17h5cad19e3bfd83eebE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i32 noundef range(i32 -1, -2147483648) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { i32, [2 x i32] }, align 4
@@ -15976,7 +15974,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11string_copy17hcbbc23508e3add77E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2, i8 noundef %3, ptr noalias noundef readonly align 4 dereferenceable(20) %4, i8 noundef %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11string_copy17hcbbc23508e3add77E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, i8 noundef range(i8 0, 3) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4, i8 noundef range(i8 0, 3) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -16049,7 +16047,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11st
   %.val22 = load ptr, ptr %2, align 8
   %37 = getelementptr inbounds i8, ptr %2, i64 40
   %.val23 = load i32, ptr %37, align 8, !noundef !10
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr %.val22, i32 %.val23, i8 noundef %spec.select.i)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr %.val22, i32 %.val23, i8 noundef %spec.select.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.13)
   br i1 %switch.i35, label %38, label %53
@@ -16082,12 +16080,12 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30)
   %45 = getelementptr i8, ptr %.val22, i64 16
   %.val = load i8, ptr %45, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val, i32 noundef 1)
           to label %46 unwind label %34
 
 46:                                               ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
   %.val24 = load i8, ptr %45, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val24)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val24)
           to label %47 unwind label %34
 
 47:                                               ; preds = %46
@@ -16132,7 +16130,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %59 = trunc nuw i8 %58 to i1
   %..i42 = select i1 %59, i32 14, i32 13
   store i32 %..i42, ptr %26, align 4, !alias.scope !2717, !noalias !2720
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %.val23, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %27, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %26)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %1, i32 noundef %.val23, ptr noalias nocapture noundef align 4 dereferenceable(12) %27, ptr noalias nocapture noundef align 4 dereferenceable(12) %26)
           to label %60 unwind label %34
 
 60:                                               ; preds = %53
@@ -16141,7 +16139,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24)
   store i32 %..i42, ptr %24, align 4, !alias.scope !2722, !noalias !2725
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %25, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %24)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef align 4 dereferenceable(20) %25, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(12) %24)
           to label %62 unwind label %34
 
 "_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit77": ; preds = %123
@@ -16158,11 +16156,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   br i1 %switch.i44, label %63, label %65
 
 63:                                               ; preds = %62
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %58, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %58, i32 noundef 1)
           to label %64 unwind label %.thread
 
 64:                                               ; preds = %63
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %58)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %58)
           to label %65 unwind label %.thread
 
 65:                                               ; preds = %62, %64
@@ -16187,7 +16185,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %69 = getelementptr inbounds i8, ptr %23, i64 12
   %70 = load i32, ptr %69, align 4, !noundef !10
   %spec.select.i50 = select i1 %switch.i44, i32 2, i32 1
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4, i32 noundef 1, i32 noundef %70, i32 noundef %spec.select.i50)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef align 8 dereferenceable(32) %20, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %4, i32 noundef 1, i32 noundef %70, i32 noundef %spec.select.i50)
           to label %71 unwind label %.thread102
 
 71:                                               ; preds = %68
@@ -16202,7 +16200,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.val29 = load i32, ptr %75, align 4, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !2732
   store i64 7, ptr %11, align 8, !noalias !2732
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.val22, i32 noundef %.val29, i32 noundef %.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %.val22, i32 noundef %.val29, i32 noundef %.0, ptr noalias nocapture noundef align 8 dereferenceable(24) %11)
           to label %78 unwind label %76
 
 76:                                               ; preds = %.invoke, %115, %109, %103, %97, %78, %71, %90, %119, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75
@@ -16225,7 +16223,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.val31 = load i32, ptr %79, align 4, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !2735
   store i64 7, ptr %10, align 8, !noalias !2735
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4, i32 noundef %.val31, i32 noundef %70, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %4, i32 noundef %.val31, i32 noundef %70, ptr noalias nocapture noundef align 8 dereferenceable(24) %10)
           to label %80 unwind label %76
 
 80:                                               ; preds = %78
@@ -16254,7 +16252,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %88 = phi ptr [ @anon.38476532626945bb04fe24ad10240d6e.168, %85 ], [ @anon.38476532626945bb04fe24ad10240d6e.166, %86 ]
   %89 = phi ptr [ @anon.38476532626945bb04fe24ad10240d6e.169, %85 ], [ @anon.38476532626945bb04fe24ad10240d6e.167, %86 ]
   store ptr null, ptr %.sink, align 8
-  invoke fastcc void @_ZN4core9panicking13assert_failed17h8be85173ac8f9ca3E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %87, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %88, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %89) #29
+  invoke fastcc void @_ZN4core9panicking13assert_failed17h8be85173ac8f9ca3E(ptr noalias noundef readonly align 1 dereferenceable(1) %87, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %88, ptr noalias nocapture noundef align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %89) #29
           to label %.cont unwind label %76
 
 .cont:                                            ; preds = %.invoke
@@ -16370,7 +16368,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 4 dereferenceable(20) %23, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %13)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %13)
           to label %118 unwind label %76
 
 118:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75
@@ -16386,7 +16384,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i8 %.sroa.1088.2, ptr %.sroa.1088.0..sroa_idx91, align 4
   %.sroa.13.0..sroa_idx95 = getelementptr inbounds i8, ptr %12, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.13.0..sroa_idx95, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.13, i64 3, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %12)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %12)
           to label %120 unwind label %76
 
 120:                                              ; preds = %118, %119
@@ -16464,7 +16462,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22string_deflate_to_utf817ha54fc299a72db4e1E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2, i8 noundef %3, ptr noalias noundef readonly align 4 dereferenceable(20) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22string_deflate_to_utf817ha54fc299a72db4e1E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, i8 noundef range(i8 1, 3) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -16546,7 +16544,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22st
   %.val57 = load i32, ptr %80, align 8, !noundef !10
   %switch.i.i = icmp eq i8 %3, 1
   %spec.select.i.i = select i1 %switch.i.i, i8 2, i8 1
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr %.val56, i32 %.val57, i8 noundef %spec.select.i.i)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr %.val56, i32 %.val57, i8 noundef %spec.select.i.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2757)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2760)
@@ -16561,13 +16559,13 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22st
   %86 = trunc nuw i8 %85 to i1
   %..i79 = select i1 %86, i32 14, i32 13
   store i32 %..i79, ptr %78, align 4, !alias.scope !2762, !noalias !2765
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %.val57, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %79, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %78)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %1, i32 noundef %.val57, ptr noalias nocapture noundef align 4 dereferenceable(12) %79, ptr noalias nocapture noundef align 4 dereferenceable(12) %78)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %78)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %77)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %76)
   store i32 %..i79, ptr %76, align 4, !alias.scope !2767, !noalias !2770
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %77, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %76)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef align 4 dereferenceable(20) %77, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(12) %76)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %76)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %75)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %74)
@@ -16602,7 +16600,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22st
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
   %89 = getelementptr inbounds i8, ptr %75, i64 12
   %90 = load i32, ptr %89, align 4, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %72, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4, i32 noundef 1, i32 noundef %90, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef align 8 dereferenceable(32) %72, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %4, i32 noundef 1, i32 noundef %90, i32 noundef 1)
           to label %92 unwind label %489
 
 91:                                               ; preds = %.body.thread
@@ -16668,12 +16666,12 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22st
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit: ; preds = %100
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %71)
   %.val = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val, i32 noundef 1)
           to label %106 unwind label %103
 
 106:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
   %.val58 = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val58)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val58)
           to label %107 unwind label %103
 
 107:                                              ; preds = %106
@@ -16708,7 +16706,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.val63 = load i32, ptr %114, align 4, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !2782
   store i64 7, ptr %16, align 8, !noalias !2782
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.val56, i32 noundef %.val63, i32 noundef %.018, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %.val56, i32 noundef %.val63, i32 noundef %.018, ptr noalias nocapture noundef align 8 dereferenceable(24) %16)
           to label %115 unwind label %103
 
 115:                                              ; preds = %113
@@ -16717,7 +16715,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.val65 = load i32, ptr %116, align 4, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !2785
   store i64 7, ptr %15, align 8, !noalias !2785
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4, i32 noundef %.val65, i32 noundef %90, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %4, i32 noundef %.val65, i32 noundef %90, ptr noalias nocapture noundef align 8 dereferenceable(24) %15)
           to label %117 unwind label %103
 
 117:                                              ; preds = %115
@@ -16960,7 +16958,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121: ; preds = %174
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
   %.val71 = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val71)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val71)
           to label %177 unwind label %.body112.thread459
 
 177:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121
@@ -17040,12 +17038,12 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit142: ; preds = %193
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %57)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %85, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %85, i32 noundef 1)
           to label %196 unwind label %.body112.thread459
 
 196:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit142
   %.42 = select i1 %switch.i.i, i8 3, i8 2
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull %.val56, i32 %.val57, i8 noundef %.42)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr nonnull %.val56, i32 %.val57, i8 noundef %.42)
           to label %197 unwind label %.body112.thread459
 
 197:                                              ; preds = %196
@@ -17058,14 +17056,14 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i32 %..i143, ptr %56, align 4, !alias.scope !2793, !noalias !2796
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %55)
   store i32 %..i79, ptr %55, align 4, !alias.scope !2798, !noalias !2801
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %.val57, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %56, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %55)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %1, i32 noundef %.val57, ptr noalias nocapture noundef align 4 dereferenceable(12) %56, ptr noalias nocapture noundef align 4 dereferenceable(12) %55)
           to label %200 unwind label %.body112.thread459
 
 200:                                              ; preds = %197
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %56)
   %201 = zext nneg i8 %.42 to i32
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %85, i32 noundef %201)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %85, i32 noundef %201)
           to label %202 unwind label %.body112.thread459
 
 202:                                              ; preds = %200
@@ -17213,7 +17211,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !2806
   store i64 7, ptr %12, align 8, !noalias !2806
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4, i32 noundef %.val65, i32 noundef %90, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %4, i32 noundef %.val65, i32 noundef %90, ptr noalias nocapture noundef align 8 dereferenceable(24) %12)
           to label %237 unwind label %.body112.thread459
 
 237:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit172
@@ -17267,17 +17265,17 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 249:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit188
   %.val49 = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val49, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val49, i32 noundef 1)
           to label %251 unwind label %.body112.thread459
 
 250:                                              ; preds = %251, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit188
   %.val51 = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val51)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val51)
           to label %252 unwind label %.body112.thread459
 
 251:                                              ; preds = %249
   %.val59 = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val59)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val59)
           to label %250 unwind label %.body112.thread459
 
 252:                                              ; preds = %250
@@ -17330,7 +17328,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit202: ; preds = %261
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %50)
   %.val75 = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val75)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val75)
           to label %264 unwind label %.body112.thread459
 
 264:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit202
@@ -17384,7 +17382,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit216: ; preds = %274
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %85)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %85)
           to label %277 unwind label %.body112.thread459
 
 277:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit216
@@ -17438,7 +17436,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit230: ; preds = %287
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %46)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %85)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %85)
           to label %290 unwind label %.body112.thread459
 
 290:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit230
@@ -17487,7 +17485,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit244: ; preds = %299
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %45)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %85)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %85)
           to label %302 unwind label %.body112.thread459
 
 302:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit244
@@ -17619,12 +17617,12 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit279: ; preds = %335
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43)
   %.val77 = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val77)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val77)
           to label %338 unwind label %.body112.thread459
 
 338:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit279
   %.val72 = load i8, ptr %81, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val72)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val72)
           to label %339 unwind label %.body112.thread459
 
 339:                                              ; preds = %338
@@ -17759,7 +17757,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit308: ; preds = %372
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %39)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %85)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %85)
           to label %375 unwind label %.body112.thread459
 
 375:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit308
@@ -17836,7 +17834,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit329: ; preds = %390
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %85, i32 noundef 1)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %85, i32 noundef 1)
           to label %393 unwind label %.body112.thread459
 
 393:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit329
@@ -18039,7 +18037,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit385: ; preds = %443
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %85)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %85)
           to label %446 unwind label %.body112.thread459
 
 446:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit385
@@ -18147,14 +18145,14 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit364: ; preds = %425
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %29, ptr noundef nonnull align 4 dereferenceable(20) %62, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %29)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %29)
           to label %476 unwind label %.body112
 
 476:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit364
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, ptr noundef nonnull align 4 dereferenceable(20) %75, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %28)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %28)
           to label %477 unwind label %.body112
 
 477:                                              ; preds = %476
@@ -18170,7 +18168,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i8 %.sroa.10427.1, ptr %.sroa.10427.0..sroa_idx430, align 4
   %.sroa.13.0..sroa_idx434 = getelementptr inbounds i8, ptr %27, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.13.0..sroa_idx434, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.13, i64 3, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %27)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %27)
           to label %479 unwind label %.body112
 
 479:                                              ; preds = %477, %478
@@ -18272,7 +18270,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17string_to_compact17h0232acccaf77bccfE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2, i8 noundef %3, ptr noalias noundef readonly align 4 dereferenceable(20) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17string_to_compact17h0232acccaf77bccfE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, i8 noundef range(i8 0, 2) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -18345,9 +18343,9 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17st
   %.val36 = load ptr, ptr %2, align 8
   %75 = getelementptr inbounds i8, ptr %2, i64 40
   %.val37 = load i32, ptr %75, align 8, !noundef !10
-  %switch.i.i.not = icmp eq i8 %3, 1
-  %spec.select.i.i = select i1 %switch.i.i.not, i8 2, i8 1
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr %.val36, i32 %.val37, i8 noundef %spec.select.i.i)
+  %switch.i.i.not = icmp eq i8 %3, 0
+  %spec.select.i.i = select i1 %switch.i.i.not, i8 1, i8 2
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr %.val36, i32 %.val37, i8 noundef %spec.select.i.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %74)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2860)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2863)
@@ -18362,39 +18360,39 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17st
   %81 = trunc nuw i8 %80 to i1
   %..i56 = select i1 %81, i32 14, i32 13
   store i32 %..i56, ptr %73, align 4, !alias.scope !2865, !noalias !2868
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %.val37, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %74, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %73)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %1, i32 noundef %.val37, ptr noalias nocapture noundef align 4 dereferenceable(12) %74, ptr noalias nocapture noundef align 4 dereferenceable(12) %73)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %73)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %74)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %71)
   store i32 %..i56, ptr %71, align 4, !alias.scope !2870, !noalias !2873
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %72, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %71)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef align 4 dereferenceable(20) %72, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(12) %71)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %69)
   store i32 %..i56, ptr %69, align 4, !alias.scope !2875, !noalias !2878
   %.sink.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink.sroa.gep346 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink.sroa.gep347 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink.sroa.gep349 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink.sroa.gep350 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sink.sroa.gep351 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink.sroa.gep353 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink.sroa.gep354 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink.sroa.gep355 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink.sroa.gep357 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sink.sroa.gep358 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink.sroa.gep359 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink.sroa.gep348 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sink.sroa.gep349 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink.sroa.gep351 = getelementptr inbounds i8, ptr %8, i64 32
+  %.sink.sroa.gep352 = getelementptr inbounds i8, ptr %7, i64 32
+  %.sink.sroa.gep353 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink.sroa.gep355 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink.sroa.gep356 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sink.sroa.gep357 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink.sroa.gep359 = getelementptr inbounds i8, ptr %8, i64 24
+  %.sink.sroa.gep360 = getelementptr inbounds i8, ptr %7, i64 24
+  %.sink.sroa.gep361 = getelementptr inbounds i8, ptr %6, i64 24
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_set_new_tmp17h73958f46d53b7f22E.llvm.725258463910346102(ptr noalias nocapture noundef nonnull sret({ { i32, [2 x i32] }, i32, i8, [3 x i8] }) align 4 dereferenceable(20) %70, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %69)
           to label %83 unwind label %.thread
 
-"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314": ; preds = %423
-  br i1 %.1327, label %428, label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit316"
+"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314": ; preds = %420
+  br i1 %.1327, label %425, label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit316"
 
 .thread:                                          ; preds = %5
   %82 = landingpad { ptr, i32 }
           cleanup
-  br label %428
+  br label %425
 
 83:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %69)
@@ -18402,16 +18400,16 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17st
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67)
   %84 = getelementptr inbounds i8, ptr %70, i64 12
   %85 = load i32, ptr %84, align 4, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %67, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4, i32 noundef 1, i32 noundef %85, i32 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef align 8 dereferenceable(32) %67, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %4, i32 noundef 1, i32 noundef %85, i32 noundef 2)
           to label %88 unwind label %.thread323
 
 86:                                               ; preds = %.body
-  br i1 %.116, label %423, label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit316"
+  br i1 %.116, label %420, label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit316"
 
 .thread323:                                       ; preds = %83
   %87 = landingpad { ptr, i32 }
           cleanup
-  br label %423
+  br label %420
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds i8, ptr %67, i64 8
@@ -18425,16 +18423,16 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17st
   %.val42 = load i32, ptr %92, align 4, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !2880
   store i64 7, ptr %14, align 8, !noalias !2880
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.val36, i32 noundef %.val42, i32 noundef %.val37, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %14)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %.val36, i32 noundef %.val42, i32 noundef %.val37, ptr noalias nocapture noundef align 8 dereferenceable(24) %14)
           to label %95 unwind label %93
 
-.body:                                            ; preds = %.body73.thread, %.body73, %133, %125, %119, %113, %107, %93
-  %.116 = phi i1 [ %.2.ph, %.body73 ], [ true, %93 ], [ true, %107 ], [ true, %113 ], [ true, %119 ], [ true, %125 ], [ true, %133 ], [ true, %.body73.thread ]
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body73 ], [ %94, %93 ], [ %108, %107 ], [ %114, %113 ], [ %120, %119 ], [ %126, %125 ], [ %134, %133 ], [ %eh.lpad-body74333, %.body73.thread ]
+.body:                                            ; preds = %.body73.thread, %.body73, %130, %122, %116, %110, %104, %93
+  %.116 = phi i1 [ %.2.ph, %.body73 ], [ true, %93 ], [ true, %104 ], [ true, %110 ], [ true, %116 ], [ true, %122 ], [ true, %130 ], [ true, %.body73.thread ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body73 ], [ %94, %93 ], [ %105, %104 ], [ %111, %110 ], [ %117, %116 ], [ %123, %122 ], [ %131, %130 ], [ %eh.lpad-body74333, %.body73.thread ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$wasmtime_environ..fact..trampoline..WasmString$GT$17hcf6de0d4b56548a2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %68) #30
-          to label %86 unwind label %421
+          to label %86 unwind label %418
 
-93:                                               ; preds = %135, %127, %121, %115, %109, %95, %88, %103, %100, %138, %99
+93:                                               ; preds = %132, %124, %118, %112, %106, %95, %88, %100, %97, %135
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18445,267 +18443,250 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17st
   %.val44 = load i32, ptr %96, align 4, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !2883
   store i64 7, ptr %13, align 8, !noalias !2883
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %4, i32 noundef %.val44, i32 noundef %85, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %4, i32 noundef %.val44, i32 noundef %85, ptr noalias nocapture noundef align 8 dereferenceable(24) %13)
           to label %97 unwind label %93
 
 97:                                               ; preds = %95
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !2883
-  switch i8 %3, label %default.unreachable [
-    i8 0, label %100
-    i8 1, label %98
-    i8 2, label %99
-  ]
+  %spec.select = select i1 %switch.i.i.not, i8 10, i8 7
+  %98 = getelementptr inbounds i8, ptr %1, i64 56
+  %.val45 = load ptr, ptr %98, align 8, !nonnull !10, !align !11, !noundef !10
+  %99 = invoke fastcc noundef i32 @_ZN16wasmtime_environ4fact10trampoline8Compiler10transcoder17hf33881630f8ce83fE(ptr nonnull %.val45, ptr nonnull %.val36, ptr nonnull %4, i8 noundef %spec.select)
+          to label %100 unwind label %93
 
-default.unreachable:                              ; preds = %97
-  unreachable
+100:                                              ; preds = %97
+  %spec.select340 = select i1 %switch.i.i.not, i8 9, i8 6
+  %.val48 = load ptr, ptr %98, align 8, !nonnull !10, !align !11, !noundef !10
+  %101 = invoke fastcc noundef i32 @_ZN16wasmtime_environ4fact10trampoline8Compiler10transcoder17hf33881630f8ce83fE(ptr nonnull %.val48, ptr nonnull %.val36, ptr nonnull %4, i8 noundef %spec.select340)
+          to label %102 unwind label %93
 
-98:                                               ; preds = %97
-  br label %100
-
-99:                                               ; preds = %97
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.38476532626945bb04fe24ad10240d6e.172, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.185) #29
-          to label %221 unwind label %93
-
-100:                                              ; preds = %97, %98
-  %.013 = phi i8 [ 7, %98 ], [ 10, %97 ]
-  %.0 = phi i8 [ 6, %98 ], [ 9, %97 ]
-  %101 = getelementptr inbounds i8, ptr %1, i64 56
-  %.val45 = load ptr, ptr %101, align 8, !nonnull !10, !align !11, !noundef !10
-  %102 = invoke fastcc noundef i32 @_ZN16wasmtime_environ4fact10trampoline8Compiler10transcoder17hf33881630f8ce83fE(ptr nonnull %.val45, ptr nonnull %.val36, ptr nonnull %4, i8 noundef %.013)
-          to label %103 unwind label %93
-
-103:                                              ; preds = %100
-  %.val48 = load ptr, ptr %101, align 8, !nonnull !10, !align !11, !noundef !10
-  %104 = invoke fastcc noundef i32 @_ZN16wasmtime_environ4fact10trampoline8Compiler10transcoder17hf33881630f8ce83fE(ptr nonnull %.val48, ptr nonnull %.val36, ptr nonnull %4, i8 noundef %.0)
-          to label %105 unwind label %93
-
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %66, i64 8
-  store i32 %.val42, ptr %106, align 8
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds i8, ptr %66, i64 8
+  store i32 %.val42, ptr %103, align 8
   store i64 -9223372036854775778, ptr %66, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %21, ptr noundef nonnull align 16 dereferenceable(48) %66, i64 48, i1 false)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %21, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %109 unwind label %107
+          to label %106 unwind label %104
 
-107:                                              ; preds = %105
-  %108 = landingpad { ptr, i32 }
+104:                                              ; preds = %102
+  %105 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %21) #30
-          to label %.body unwind label %110
+          to label %.body unwind label %107
 
-109:                                              ; preds = %105
+106:                                              ; preds = %102
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %21)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit unwind label %93
 
-110:                                              ; preds = %107
-  %111 = landingpad { ptr, i32 }
+107:                                              ; preds = %104
+  %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit: ; preds = %109
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit: ; preds = %106
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21)
-  %112 = getelementptr inbounds i8, ptr %65, i64 8
-  store i32 %.val37, ptr %112, align 8
+  %109 = getelementptr inbounds i8, ptr %65, i64 8
+  store i32 %.val37, ptr %109, align 8
   store i64 -9223372036854775778, ptr %65, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %20, ptr noundef nonnull align 16 dereferenceable(48) %65, i64 48, i1 false)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %20, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %115 unwind label %113
+          to label %112 unwind label %110
 
-113:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
-  %114 = landingpad { ptr, i32 }
+110:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
+  %111 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %20) #30
-          to label %.body unwind label %116
+          to label %.body unwind label %113
 
-115:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
+112:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %20)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62 unwind label %93
 
-116:                                              ; preds = %113
-  %117 = landingpad { ptr, i32 }
+113:                                              ; preds = %110
+  %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62: ; preds = %115
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62: ; preds = %112
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %64)
-  %118 = getelementptr inbounds i8, ptr %64, i64 8
-  store i32 %.val44, ptr %118, align 8
+  %115 = getelementptr inbounds i8, ptr %64, i64 8
+  store i32 %.val44, ptr %115, align 8
   store i64 -9223372036854775778, ptr %64, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %64, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %121 unwind label %119
+          to label %118 unwind label %116
 
-119:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62
-  %120 = landingpad { ptr, i32 }
+116:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62
+  %117 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %64) #30
-          to label %.body unwind label %122
+          to label %.body unwind label %119
 
-121:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62
+118:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit62
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %64)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit65 unwind label %93
 
-122:                                              ; preds = %119
-  %123 = landingpad { ptr, i32 }
+119:                                              ; preds = %116
+  %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit65: ; preds = %121
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit65: ; preds = %118
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %63)
-  %124 = getelementptr inbounds i8, ptr %63, i64 8
-  store i32 %102, ptr %124, align 8
+  %121 = getelementptr inbounds i8, ptr %63, i64 8
+  store i32 %99, ptr %121, align 8
   store i64 -9223372036854775794, ptr %63, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %63, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %127 unwind label %125
+          to label %124 unwind label %122
 
-125:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit65
-  %126 = landingpad { ptr, i32 }
+122:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit65
+  %123 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %63) #30
-          to label %.body unwind label %128
+          to label %.body unwind label %125
 
-127:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit65
+124:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit65
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %63)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit68 unwind label %93
 
-128:                                              ; preds = %125
-  %129 = landingpad { ptr, i32 }
+125:                                              ; preds = %122
+  %126 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit68: ; preds = %127
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit68: ; preds = %124
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %62)
-  %130 = getelementptr inbounds i8, ptr %68, i64 40
-  %131 = load i32, ptr %130, align 8, !noundef !10
-  %132 = getelementptr inbounds i8, ptr %62, i64 8
-  store i32 %131, ptr %132, align 8
+  %127 = getelementptr inbounds i8, ptr %68, i64 40
+  %128 = load i32, ptr %127, align 8, !noundef !10
+  %129 = getelementptr inbounds i8, ptr %62, i64 8
+  store i32 %128, ptr %129, align 8
   store i64 -9223372036854775777, ptr %62, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %62, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %135 unwind label %133
+          to label %132 unwind label %130
 
-133:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit68
-  %134 = landingpad { ptr, i32 }
+130:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit68
+  %131 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %62) #30
-          to label %.body unwind label %136
+          to label %.body unwind label %133
 
-135:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit68
+132:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit68
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %62)
-          to label %138 unwind label %93
+          to label %135 unwind label %93
 
-136:                                              ; preds = %133
-  %137 = landingpad { ptr, i32 }
+133:                                              ; preds = %130
+  %134 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-138:                                              ; preds = %135
+135:                                              ; preds = %132
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %62)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %60)
   call void @llvm.experimental.noalias.scope.decl(metadata !2886)
   call void @llvm.experimental.noalias.scope.decl(metadata !2889)
-  %139 = load i8, ptr %76, align 4, !range !36, !alias.scope !2889, !noalias !2886, !noundef !10
-  %140 = trunc nuw i8 %139 to i1
-  %..i72 = select i1 %140, i32 14, i32 13
+  %136 = load i8, ptr %76, align 4, !range !36, !alias.scope !2889, !noalias !2886, !noundef !10
+  %137 = trunc nuw i8 %136 to i1
+  %..i72 = select i1 %137, i32 14, i32 13
   store i32 %..i72, ptr %60, align 4, !alias.scope !2886, !noalias !2889
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_set_new_tmp17h73958f46d53b7f22E.llvm.725258463910346102(ptr noalias nocapture noundef nonnull sret({ { i32, [2 x i32] }, i32, i8, [3 x i8] }) align 4 dereferenceable(20) %61, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %60)
-          to label %141 unwind label %93
+          to label %138 unwind label %93
 
-141:                                              ; preds = %138
+138:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %60)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %59)
-  %142 = getelementptr inbounds i8, ptr %61, i64 12
-  %143 = load i32, ptr %142, align 4, !noundef !10
-  %144 = getelementptr inbounds i8, ptr %59, i64 8
-  store i32 %143, ptr %144, align 8
+  %139 = getelementptr inbounds i8, ptr %61, i64 12
+  %140 = load i32, ptr %139, align 4, !noundef !10
+  %141 = getelementptr inbounds i8, ptr %59, i64 8
+  store i32 %140, ptr %141, align 8
   store i64 -9223372036854775778, ptr %59, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %59, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %147 unwind label %145
+          to label %144 unwind label %142
 
-145:                                              ; preds = %141
-  %146 = landingpad { ptr, i32 }
+142:                                              ; preds = %138
+  %143 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %59) #30
-          to label %.body73.thread unwind label %148
+          to label %.body73.thread unwind label %145
 
-147:                                              ; preds = %141
+144:                                              ; preds = %138
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %59)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75 unwind label %.body73.thread335
 
-148:                                              ; preds = %145
-  %149 = landingpad { ptr, i32 }
+145:                                              ; preds = %142
+  %146 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-.body73.thread335:                                ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit289, %368, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit265, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit259, %342, %339, %311, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit207, %290, %291, %289, %257, %256, %253, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit163, %239, %211, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit103, %147, %152, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i, %169, %175, %181, %187, %193, %199, %206, %218, %225, %230, %235, %244, %250, %262, %269, %275, %280, %286, %295, %301, %308, %318, %324, %330, %336, %346, %352, %358, %365, %373, %379, %384, %390, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i292, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i293, %407, %412
+.body73.thread335:                                ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit289, %365, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit265, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit259, %339, %336, %308, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit207, %287, %288, %286, %254, %253, %250, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit163, %236, %208, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit103, %144, %149, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i, %166, %172, %178, %184, %190, %196, %203, %215, %222, %227, %232, %241, %247, %259, %266, %272, %277, %283, %292, %298, %305, %315, %321, %327, %333, %343, %349, %355, %362, %370, %376, %381, %387, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i292, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i293, %404, %409
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body73.thread
 
-.body73:                                          ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311, %415
-  %.2.ph = phi i1 [ true, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311 ], [ false, %415 ]
+.body73:                                          ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311, %412
+  %.2.ph = phi i1 [ true, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311 ], [ false, %412 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75: ; preds = %147
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75: ; preds = %144
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %19, ptr noundef nonnull align 16 dereferenceable(48) %65, i64 48, i1 false)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %19, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %152 unwind label %150
+          to label %149 unwind label %147
 
-150:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75
-  %151 = landingpad { ptr, i32 }
+147:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75
+  %148 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %19) #30
-          to label %.body73.thread unwind label %153
+          to label %.body73.thread unwind label %150
 
-152:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75
+149:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit75
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %19)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit80 unwind label %.body73.thread335
 
-153:                                              ; preds = %150
-  %154 = landingpad { ptr, i32 }
+150:                                              ; preds = %147
+  %151 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit80: ; preds = %152
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit80: ; preds = %149
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19)
   %.val53 = load i8, ptr %76, align 4, !range !36, !noundef !10
-  %155 = trunc nuw i8 %.val53 to i1
-  br i1 %155, label %161, label %156
+  %152 = trunc nuw i8 %.val53 to i1
+  br i1 %152, label %158, label %153
 
-156:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit80
+153:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit80
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !2891
   store i64 -9223372036854775738, ptr %11, align 16, !noalias !2891
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i unwind label %157
+          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i unwind label %154
 
-157:                                              ; preds = %156
-  %158 = landingpad { ptr, i32 }
+154:                                              ; preds = %153
+  %155 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %11) #30
-          to label %.body73.thread unwind label %159
+          to label %.body73.thread unwind label %156
 
-159:                                              ; preds = %157
-  %160 = landingpad { ptr, i32 }
+156:                                              ; preds = %154
+  %157 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i: ; preds = %156
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i: ; preds = %153
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %11)
           to label %.noexc unwind label %.body73.thread335
 
@@ -18713,25 +18694,25 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !2891
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_eq17h68c7ae277b6aafccE.exit
 
-161:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit80
+158:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit80
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !2891
   store i64 -9223372036854775727, ptr %12, align 16, !noalias !2891
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i unwind label %162
+          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i unwind label %159
 
-162:                                              ; preds = %161
-  %163 = landingpad { ptr, i32 }
+159:                                              ; preds = %158
+  %160 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %12) #30
-          to label %.body73.thread unwind label %164
+          to label %.body73.thread unwind label %161
 
-164:                                              ; preds = %162
-  %165 = landingpad { ptr, i32 }
+161:                                              ; preds = %159
+  %162 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i: ; preds = %161
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i: ; preds = %158
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %12)
           to label %.noexc85 unwind label %.body73.thread335
 
@@ -18740,961 +18721,961 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_eq17h68c7ae277b6aafccE.exit
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_eq17h68c7ae277b6aafccE.exit: ; preds = %.noexc85, %.noexc
-  %166 = getelementptr inbounds i8, ptr %58, i64 8
-  store i32 18, ptr %166, align 8
+  %163 = getelementptr inbounds i8, ptr %58, i64 8
+  store i32 18, ptr %163, align 8
   store i64 -9223372036854775803, ptr %58, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %18, ptr noundef nonnull align 16 dereferenceable(48) %58, i64 48, i1 false)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %18, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %169 unwind label %167
+          to label %166 unwind label %164
 
-167:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_eq17h68c7ae277b6aafccE.exit
-  %168 = landingpad { ptr, i32 }
+164:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_eq17h68c7ae277b6aafccE.exit
+  %165 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %18) #30
-          to label %.body73.thread unwind label %170
+          to label %.body73.thread unwind label %167
 
-169:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_eq17h68c7ae277b6aafccE.exit
+166:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_eq17h68c7ae277b6aafccE.exit
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %18)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit91 unwind label %.body73.thread335
 
-170:                                              ; preds = %167
-  %171 = landingpad { ptr, i32 }
+167:                                              ; preds = %164
+  %168 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit91: ; preds = %169
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit91: ; preds = %166
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57)
-  %172 = getelementptr inbounds i8, ptr %57, i64 8
-  store i32 %85, ptr %172, align 8
+  %169 = getelementptr inbounds i8, ptr %57, i64 8
+  store i32 %85, ptr %169, align 8
   store i64 -9223372036854775778, ptr %57, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %57, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %175 unwind label %173
+          to label %172 unwind label %170
 
-173:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit91
-  %174 = landingpad { ptr, i32 }
+170:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit91
+  %171 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %57) #30
-          to label %.body73.thread unwind label %176
+          to label %.body73.thread unwind label %173
 
-175:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit91
+172:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit91
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %57)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97 unwind label %.body73.thread335
 
-176:                                              ; preds = %173
-  %177 = landingpad { ptr, i32 }
+173:                                              ; preds = %170
+  %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97: ; preds = %175
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97: ; preds = %172
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %56)
-  %178 = getelementptr inbounds i8, ptr %56, i64 8
-  store i32 %131, ptr %178, align 8
+  %175 = getelementptr inbounds i8, ptr %56, i64 8
+  store i32 %128, ptr %175, align 8
   store i64 -9223372036854775778, ptr %56, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %56, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %181 unwind label %179
+          to label %178 unwind label %176
 
-179:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97
-  %180 = landingpad { ptr, i32 }
+176:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97
+  %177 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %56) #30
-          to label %.body73.thread unwind label %182
+          to label %.body73.thread unwind label %179
 
-181:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97
+178:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit97
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %56)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit103 unwind label %.body73.thread335
 
-182:                                              ; preds = %179
-  %183 = landingpad { ptr, i32 }
+179:                                              ; preds = %176
+  %180 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit103: ; preds = %181
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit103: ; preds = %178
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %56)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80)
-          to label %184 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80)
+          to label %181 unwind label %.body73.thread335
 
-184:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit103
+181:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit103
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %17, ptr noundef nonnull align 16 dereferenceable(48) %58, i64 48, i1 false)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %187 unwind label %185
+          to label %184 unwind label %182
 
-185:                                              ; preds = %184
-  %186 = landingpad { ptr, i32 }
+182:                                              ; preds = %181
+  %183 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %17) #30
-          to label %.body73.thread unwind label %188
+          to label %.body73.thread unwind label %185
 
-187:                                              ; preds = %184
+184:                                              ; preds = %181
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %17)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit109 unwind label %.body73.thread335
 
-188:                                              ; preds = %185
-  %189 = landingpad { ptr, i32 }
+185:                                              ; preds = %182
+  %186 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit109: ; preds = %187
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit109: ; preds = %184
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %55)
-  %190 = getelementptr inbounds i8, ptr %55, i64 8
-  store i32 %.val44, ptr %190, align 8
+  %187 = getelementptr inbounds i8, ptr %55, i64 8
+  store i32 %.val44, ptr %187, align 8
   store i64 -9223372036854775778, ptr %55, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %55, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %193 unwind label %191
+          to label %190 unwind label %188
 
-191:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit109
-  %192 = landingpad { ptr, i32 }
+188:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit109
+  %189 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %55) #30
-          to label %.body73.thread unwind label %194
+          to label %.body73.thread unwind label %191
 
-193:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit109
+190:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit109
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %55)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115 unwind label %.body73.thread335
 
-194:                                              ; preds = %191
-  %195 = landingpad { ptr, i32 }
+191:                                              ; preds = %188
+  %192 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115: ; preds = %193
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115: ; preds = %190
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54)
-  %196 = getelementptr inbounds i8, ptr %54, i64 8
-  store i32 %85, ptr %196, align 8
+  %193 = getelementptr inbounds i8, ptr %54, i64 8
+  store i32 %85, ptr %193, align 8
   store i64 -9223372036854775778, ptr %54, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %54, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %199 unwind label %197
+          to label %196 unwind label %194
 
-197:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115
-  %198 = landingpad { ptr, i32 }
+194:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115
+  %195 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %54) #30
-          to label %.body73.thread unwind label %200
+          to label %.body73.thread unwind label %197
 
-199:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115
+196:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit115
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %54)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121 unwind label %.body73.thread335
 
-200:                                              ; preds = %197
-  %201 = landingpad { ptr, i32 }
+197:                                              ; preds = %194
+  %198 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121: ; preds = %199
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121: ; preds = %196
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %54)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80, i32 noundef 2)
-          to label %202 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80, i32 noundef 2)
+          to label %199 unwind label %.body73.thread335
 
-202:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121
+199:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit121
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %53)
-  %203 = getelementptr inbounds i8, ptr %53, i64 8
-  store i32 %131, ptr %203, align 8
+  %200 = getelementptr inbounds i8, ptr %53, i64 8
+  store i32 %128, ptr %200, align 8
   store i64 -9223372036854775778, ptr %53, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %53, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %206 unwind label %204
+          to label %203 unwind label %201
 
-204:                                              ; preds = %202
-  %205 = landingpad { ptr, i32 }
+201:                                              ; preds = %199
+  %202 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %53) #30
-          to label %.body73.thread unwind label %207
+          to label %.body73.thread unwind label %204
 
-206:                                              ; preds = %202
+203:                                              ; preds = %199
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %53)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit127 unwind label %.body73.thread335
 
-207:                                              ; preds = %204
-  %208 = landingpad { ptr, i32 }
+204:                                              ; preds = %201
+  %205 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit127: ; preds = %206
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit127: ; preds = %203
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
-  %209 = getelementptr inbounds i8, ptr %4, i64 8
-  %210 = load i32, ptr %209, align 4, !range !1182, !noundef !10
-  %trunc = trunc nuw i32 %210 to i1
-  br i1 %trunc, label %212, label %211
+  %206 = getelementptr inbounds i8, ptr %4, i64 8
+  %207 = load i32, ptr %206, align 4, !range !1182, !noundef !10
+  %trunc = trunc nuw i32 %207 to i1
+  br i1 %trunc, label %209, label %208
 
-211:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit127
+208:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit127
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.182) #29
-          to label %221 unwind label %.body73.thread335
+          to label %218 unwind label %.body73.thread335
 
-212:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit127
-  %213 = getelementptr inbounds i8, ptr %4, i64 12
-  %214 = load i32, ptr %213, align 4
-  %215 = getelementptr inbounds i8, ptr %52, i64 8
-  store i32 %214, ptr %215, align 8
+209:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit127
+  %210 = getelementptr inbounds i8, ptr %4, i64 12
+  %211 = load i32, ptr %210, align 4
+  %212 = getelementptr inbounds i8, ptr %52, i64 8
+  store i32 %211, ptr %212, align 8
   store i64 -9223372036854775794, ptr %52, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %52, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %218 unwind label %216
+          to label %215 unwind label %213
 
-216:                                              ; preds = %212
-  %217 = landingpad { ptr, i32 }
+213:                                              ; preds = %209
+  %214 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %52) #30
-          to label %.body73.thread unwind label %219
+          to label %.body73.thread unwind label %216
 
-218:                                              ; preds = %212
+215:                                              ; preds = %209
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %52)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit133 unwind label %.body73.thread335
 
-219:                                              ; preds = %216
-  %220 = landingpad { ptr, i32 }
+216:                                              ; preds = %213
+  %217 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-221:                                              ; preds = %211, %99
+218:                                              ; preds = %208
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit133: ; preds = %218
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit133: ; preds = %215
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %51)
-  %222 = getelementptr inbounds i8, ptr %51, i64 8
-  store i32 %.val44, ptr %222, align 8
+  %219 = getelementptr inbounds i8, ptr %51, i64 8
+  store i32 %.val44, ptr %219, align 8
   store i64 -9223372036854775777, ptr %51, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %51, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %225 unwind label %223
+          to label %222 unwind label %220
 
-223:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit133
-  %224 = landingpad { ptr, i32 }
+220:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit133
+  %221 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %51) #30
-          to label %.body73.thread unwind label %226
+          to label %.body73.thread unwind label %223
 
-225:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit133
+222:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit133
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %51)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit139 unwind label %.body73.thread335
 
-226:                                              ; preds = %223
-  %227 = landingpad { ptr, i32 }
+223:                                              ; preds = %220
+  %224 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit139: ; preds = %225
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit139: ; preds = %222
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %51)
   store i64 -9223372036854775801, ptr %50, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %16, ptr noundef nonnull align 16 dereferenceable(48) %50, i64 48, i1 false)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %16, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %230 unwind label %228
+          to label %227 unwind label %225
 
-228:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit139
-  %229 = landingpad { ptr, i32 }
+225:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit139
+  %226 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %16) #30
-          to label %.body73.thread unwind label %231
+          to label %.body73.thread unwind label %228
 
-230:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit139
+227:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit139
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %16)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit145 unwind label %.body73.thread335
 
-231:                                              ; preds = %228
-  %232 = landingpad { ptr, i32 }
+228:                                              ; preds = %225
+  %229 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit145: ; preds = %230
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit145: ; preds = %227
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %49)
   store i64 -9223372036854775802, ptr %49, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %49, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %235 unwind label %233
+          to label %232 unwind label %230
 
-233:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit145
-  %234 = landingpad { ptr, i32 }
+230:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit145
+  %231 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %49) #30
-          to label %.body73.thread unwind label %236
+          to label %.body73.thread unwind label %233
 
-235:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit145
+232:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit145
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %49)
-          to label %238 unwind label %.body73.thread335
+          to label %235 unwind label %.body73.thread335
 
-236:                                              ; preds = %233
-  %237 = landingpad { ptr, i32 }
+233:                                              ; preds = %230
+  %234 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-238:                                              ; preds = %235
+235:                                              ; preds = %232
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %49)
-  br i1 %switch.i.i.not, label %240, label %239
+  br i1 %switch.i.i.not, label %236, label %237
 
-239:                                              ; preds = %238
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull %.val36, i32 %.val37, i8 noundef 2)
-          to label %240 unwind label %.body73.thread335
+236:                                              ; preds = %235
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr nonnull %.val36, i32 %.val37, i8 noundef 2)
+          to label %237 unwind label %.body73.thread335
 
-240:                                              ; preds = %239, %238
+237:                                              ; preds = %236, %235
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %48)
-  %241 = getelementptr inbounds i8, ptr %48, i64 8
-  store i32 %.val44, ptr %241, align 8
+  %238 = getelementptr inbounds i8, ptr %48, i64 8
+  store i32 %.val44, ptr %238, align 8
   store i64 -9223372036854775778, ptr %48, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %48, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %244 unwind label %242
+          to label %241 unwind label %239
 
-242:                                              ; preds = %240
-  %243 = landingpad { ptr, i32 }
+239:                                              ; preds = %237
+  %240 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %48) #30
-          to label %.body73.thread unwind label %245
+          to label %.body73.thread unwind label %242
 
-244:                                              ; preds = %240
+241:                                              ; preds = %237
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %48)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit157 unwind label %.body73.thread335
 
-245:                                              ; preds = %242
-  %246 = landingpad { ptr, i32 }
+242:                                              ; preds = %239
+  %243 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit157: ; preds = %244
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit157: ; preds = %241
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %47)
-  %247 = getelementptr inbounds i8, ptr %47, i64 8
-  store i32 %85, ptr %247, align 8
+  %244 = getelementptr inbounds i8, ptr %47, i64 8
+  store i32 %85, ptr %244, align 8
   store i64 -9223372036854775778, ptr %47, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %47, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %250 unwind label %248
+          to label %247 unwind label %245
 
-248:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit157
-  %249 = landingpad { ptr, i32 }
+245:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit157
+  %246 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %47) #30
-          to label %.body73.thread unwind label %251
+          to label %.body73.thread unwind label %248
 
-250:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit157
+247:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit157
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %47)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit163 unwind label %.body73.thread335
 
-251:                                              ; preds = %248
-  %252 = landingpad { ptr, i32 }
+248:                                              ; preds = %245
+  %249 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit163: ; preds = %250
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit163: ; preds = %247
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %47)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80, i32 noundef 2)
-          to label %253 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80, i32 noundef 2)
+          to label %250 unwind label %.body73.thread335
 
-253:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit163
+250:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit163
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %46)
   call void @llvm.experimental.noalias.scope.decl(metadata !2894)
   call void @llvm.experimental.noalias.scope.decl(metadata !2897)
-  %254 = load i8, ptr %76, align 4, !range !36, !alias.scope !2897, !noalias !2894, !noundef !10
-  %255 = trunc nuw i8 %254 to i1
-  %..i164 = select i1 %255, i32 14, i32 13
+  %251 = load i8, ptr %76, align 4, !range !36, !alias.scope !2897, !noalias !2894, !noundef !10
+  %252 = trunc nuw i8 %251 to i1
+  %..i164 = select i1 %252, i32 14, i32 13
   store i32 %..i164, ptr %46, align 4, !alias.scope !2894, !noalias !2897
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %45)
   store i32 %..i56, ptr %45, align 4, !alias.scope !2899, !noalias !2902
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %.val37, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %46, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %45)
-          to label %256 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %1, i32 noundef %.val37, ptr noalias nocapture noundef align 4 dereferenceable(12) %46, ptr noalias nocapture noundef align 4 dereferenceable(12) %45)
+          to label %253 unwind label %.body73.thread335
 
-256:                                              ; preds = %253
+253:                                              ; preds = %250
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %46)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80, i32 noundef 1)
-          to label %257 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80, i32 noundef 1)
+          to label %254 unwind label %.body73.thread335
 
-257:                                              ; preds = %256
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80)
-          to label %258 unwind label %.body73.thread335
+254:                                              ; preds = %253
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80)
+          to label %255 unwind label %.body73.thread335
 
-258:                                              ; preds = %257
+255:                                              ; preds = %254
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44)
-  %259 = getelementptr inbounds i8, ptr %44, i64 8
-  store i32 %85, ptr %259, align 8
+  %256 = getelementptr inbounds i8, ptr %44, i64 8
+  store i32 %85, ptr %256, align 8
   store i64 -9223372036854775776, ptr %44, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %44, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %262 unwind label %260
+          to label %259 unwind label %257
 
-260:                                              ; preds = %258
-  %261 = landingpad { ptr, i32 }
+257:                                              ; preds = %255
+  %258 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %44) #30
-          to label %.body73.thread unwind label %263
+          to label %.body73.thread unwind label %260
 
-262:                                              ; preds = %258
+259:                                              ; preds = %255
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %44)
-          to label %265 unwind label %.body73.thread335
+          to label %262 unwind label %.body73.thread335
 
-263:                                              ; preds = %260
-  %264 = landingpad { ptr, i32 }
+260:                                              ; preds = %257
+  %261 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-265:                                              ; preds = %262
+262:                                              ; preds = %259
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %43)
-  %266 = getelementptr inbounds i8, ptr %43, i64 8
-  store i32 %214, ptr %266, align 8
+  %263 = getelementptr inbounds i8, ptr %43, i64 8
+  store i32 %211, ptr %263, align 8
   store i64 -9223372036854775794, ptr %43, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %43, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %269 unwind label %267
+          to label %266 unwind label %264
 
-267:                                              ; preds = %265
-  %268 = landingpad { ptr, i32 }
+264:                                              ; preds = %262
+  %265 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %43) #30
-          to label %.body73.thread unwind label %270
+          to label %.body73.thread unwind label %267
 
-269:                                              ; preds = %265
+266:                                              ; preds = %262
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %43)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit177 unwind label %.body73.thread335
 
-270:                                              ; preds = %267
-  %271 = landingpad { ptr, i32 }
+267:                                              ; preds = %264
+  %268 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit177: ; preds = %269
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit177: ; preds = %266
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42)
-  %272 = getelementptr inbounds i8, ptr %42, i64 8
-  store i32 %.val44, ptr %272, align 8
+  %269 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 %.val44, ptr %269, align 8
   store i64 -9223372036854775777, ptr %42, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %42, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %275 unwind label %273
+          to label %272 unwind label %270
 
-273:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit177
-  %274 = landingpad { ptr, i32 }
+270:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit177
+  %271 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %42) #30
-          to label %.body73.thread unwind label %276
+          to label %.body73.thread unwind label %273
 
-275:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit177
+272:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit177
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %42)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit183 unwind label %.body73.thread335
 
-276:                                              ; preds = %273
-  %277 = landingpad { ptr, i32 }
+273:                                              ; preds = %270
+  %274 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit183: ; preds = %275
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit183: ; preds = %272
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %42)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %66, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %280 unwind label %278
+          to label %277 unwind label %275
 
-278:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit183
-  %279 = landingpad { ptr, i32 }
+275:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit183
+  %276 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %66) #30
-          to label %.body73.thread unwind label %281
+          to label %.body73.thread unwind label %278
 
-280:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit183
+277:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit183
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %66)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit189 unwind label %.body73.thread335
 
-281:                                              ; preds = %278
-  %282 = landingpad { ptr, i32 }
+278:                                              ; preds = %275
+  %279 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit189: ; preds = %280
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit189: ; preds = %277
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41)
-  %283 = getelementptr inbounds i8, ptr %41, i64 8
-  store i32 %143, ptr %283, align 8
+  %280 = getelementptr inbounds i8, ptr %41, i64 8
+  store i32 %140, ptr %280, align 8
   store i64 -9223372036854775778, ptr %41, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %41, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %286 unwind label %284
+          to label %283 unwind label %281
 
-284:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit189
-  %285 = landingpad { ptr, i32 }
+281:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit189
+  %282 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %41) #30
-          to label %.body73.thread unwind label %287
+          to label %.body73.thread unwind label %284
 
-286:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit189
+283:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit189
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %41)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit195 unwind label %.body73.thread335
 
-287:                                              ; preds = %284
-  %288 = landingpad { ptr, i32 }
+284:                                              ; preds = %281
+  %285 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit195: ; preds = %286
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit195: ; preds = %283
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41)
-  br i1 %switch.i.i.not, label %289, label %290
+  br i1 %switch.i.i.not, label %287, label %286
 
-289:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit195
+286:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit195
   %.val29 = load i8, ptr %76, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val29, i32 noundef 1)
-          to label %291 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val29, i32 noundef 1)
+          to label %288 unwind label %.body73.thread335
 
-290:                                              ; preds = %291, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit195
+287:                                              ; preds = %288, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit195
   %.val33 = load i8, ptr %76, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val33)
-          to label %292 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val33)
+          to label %289 unwind label %.body73.thread335
 
-291:                                              ; preds = %289
+288:                                              ; preds = %286
   %.val39 = load i8, ptr %76, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val39)
-          to label %290 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val39)
+          to label %287 unwind label %.body73.thread335
 
-292:                                              ; preds = %290
+289:                                              ; preds = %287
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %65, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %295 unwind label %293
+          to label %292 unwind label %290
 
-293:                                              ; preds = %292
-  %294 = landingpad { ptr, i32 }
+290:                                              ; preds = %289
+  %291 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %65) #30
-          to label %.body73.thread unwind label %296
+          to label %.body73.thread unwind label %293
 
-295:                                              ; preds = %292
+292:                                              ; preds = %289
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %65)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit201 unwind label %.body73.thread335
 
-296:                                              ; preds = %293
-  %297 = landingpad { ptr, i32 }
+293:                                              ; preds = %290
+  %294 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit201: ; preds = %295
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit201: ; preds = %292
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40)
-  %298 = getelementptr inbounds i8, ptr %40, i64 8
-  store i32 %143, ptr %298, align 8
+  %295 = getelementptr inbounds i8, ptr %40, i64 8
+  store i32 %140, ptr %295, align 8
   store i64 -9223372036854775778, ptr %40, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %40, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %301 unwind label %299
+          to label %298 unwind label %296
 
-299:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit201
-  %300 = landingpad { ptr, i32 }
+296:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit201
+  %297 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %40) #30
-          to label %.body73.thread unwind label %302
+          to label %.body73.thread unwind label %299
 
-301:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit201
+298:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit201
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %40)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit207 unwind label %.body73.thread335
 
-302:                                              ; preds = %299
-  %303 = landingpad { ptr, i32 }
+299:                                              ; preds = %296
+  %300 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit207: ; preds = %301
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit207: ; preds = %298
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %40)
   %.val54 = load i8, ptr %76, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val54)
-          to label %304 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val54)
+          to label %301 unwind label %.body73.thread335
 
-304:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit207
+301:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit207
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39)
-  %305 = getelementptr inbounds i8, ptr %39, i64 8
-  store i32 %.val44, ptr %305, align 8
+  %302 = getelementptr inbounds i8, ptr %39, i64 8
+  store i32 %.val44, ptr %302, align 8
   store i64 -9223372036854775778, ptr %39, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %39, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %308 unwind label %306
+          to label %305 unwind label %303
 
-306:                                              ; preds = %304
-  %307 = landingpad { ptr, i32 }
+303:                                              ; preds = %301
+  %304 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %39) #30
-          to label %.body73.thread unwind label %309
+          to label %.body73.thread unwind label %306
 
-308:                                              ; preds = %304
+305:                                              ; preds = %301
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %39)
-          to label %311 unwind label %.body73.thread335
+          to label %308 unwind label %.body73.thread335
 
-309:                                              ; preds = %306
-  %310 = landingpad { ptr, i32 }
+306:                                              ; preds = %303
+  %307 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-311:                                              ; preds = %308
+308:                                              ; preds = %305
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %38)
   call void @llvm.experimental.noalias.scope.decl(metadata !2904)
   call void @llvm.experimental.noalias.scope.decl(metadata !2907)
-  %312 = load i8, ptr %76, align 4, !range !36, !alias.scope !2907, !noalias !2904, !noundef !10
-  %313 = trunc nuw i8 %312 to i1
-  %..i214 = select i1 %313, i32 14, i32 13
+  %309 = load i8, ptr %76, align 4, !range !36, !alias.scope !2907, !noalias !2904, !noundef !10
+  %310 = trunc nuw i8 %309 to i1
+  %..i214 = select i1 %310, i32 14, i32 13
   store i32 %..i214, ptr %38, align 4, !alias.scope !2904, !noalias !2907
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %37)
   store i32 %..i56, ptr %37, align 4, !alias.scope !2909, !noalias !2912
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %.val37, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %38, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %37)
-          to label %314 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %1, i32 noundef %.val37, ptr noalias nocapture noundef align 4 dereferenceable(12) %38, ptr noalias nocapture noundef align 4 dereferenceable(12) %37)
+          to label %311 unwind label %.body73.thread335
 
-314:                                              ; preds = %311
+311:                                              ; preds = %308
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36)
-  %315 = getelementptr inbounds i8, ptr %36, i64 8
-  store i32 %131, ptr %315, align 8
+  %312 = getelementptr inbounds i8, ptr %36, i64 8
+  store i32 %128, ptr %312, align 8
   store i64 -9223372036854775778, ptr %36, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %36, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %318 unwind label %316
+          to label %315 unwind label %313
 
-316:                                              ; preds = %314
-  %317 = landingpad { ptr, i32 }
+313:                                              ; preds = %311
+  %314 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %36) #30
-          to label %.body73.thread unwind label %319
+          to label %.body73.thread unwind label %316
 
-318:                                              ; preds = %314
+315:                                              ; preds = %311
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %36)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit221 unwind label %.body73.thread335
 
-319:                                              ; preds = %316
-  %320 = landingpad { ptr, i32 }
+316:                                              ; preds = %313
+  %317 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit221: ; preds = %318
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit221: ; preds = %315
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
-  %321 = getelementptr inbounds i8, ptr %35, i64 8
-  store i32 %104, ptr %321, align 8
+  %318 = getelementptr inbounds i8, ptr %35, i64 8
+  store i32 %101, ptr %318, align 8
   store i64 -9223372036854775794, ptr %35, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %35, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %324 unwind label %322
+          to label %321 unwind label %319
 
-322:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit221
-  %323 = landingpad { ptr, i32 }
+319:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit221
+  %320 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %35) #30
-          to label %.body73.thread unwind label %325
+          to label %.body73.thread unwind label %322
 
-324:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit221
+321:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit221
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %35)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit227 unwind label %.body73.thread335
 
-325:                                              ; preds = %322
-  %326 = landingpad { ptr, i32 }
+322:                                              ; preds = %319
+  %323 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit227: ; preds = %324
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit227: ; preds = %321
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
-  %327 = getelementptr inbounds i8, ptr %34, i64 8
-  store i32 %131, ptr %327, align 8
+  %324 = getelementptr inbounds i8, ptr %34, i64 8
+  store i32 %128, ptr %324, align 8
   store i64 -9223372036854775777, ptr %34, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %34, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %330 unwind label %328
+          to label %327 unwind label %325
 
-328:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit227
-  %329 = landingpad { ptr, i32 }
+325:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit227
+  %326 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %34) #30
-          to label %.body73.thread unwind label %331
+          to label %.body73.thread unwind label %328
 
-330:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit227
+327:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit227
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %34)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233 unwind label %.body73.thread335
 
-331:                                              ; preds = %328
-  %332 = landingpad { ptr, i32 }
+328:                                              ; preds = %325
+  %329 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233: ; preds = %330
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233: ; preds = %327
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
-  %333 = getelementptr inbounds i8, ptr %33, i64 8
-  store i32 %131, ptr %333, align 8
+  %330 = getelementptr inbounds i8, ptr %33, i64 8
+  store i32 %128, ptr %330, align 8
   store i64 -9223372036854775778, ptr %33, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %33, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %336 unwind label %334
+          to label %333 unwind label %331
 
-334:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233
-  %335 = landingpad { ptr, i32 }
+331:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233
+  %332 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %33) #30
-          to label %.body73.thread unwind label %337
+          to label %.body73.thread unwind label %334
 
-336:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233
+333:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %33)
-          to label %339 unwind label %.body73.thread335
+          to label %336 unwind label %.body73.thread335
 
-337:                                              ; preds = %334
-  %338 = landingpad { ptr, i32 }
+334:                                              ; preds = %331
+  %335 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-339:                                              ; preds = %336
+336:                                              ; preds = %333
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !2914)
   call void @llvm.experimental.noalias.scope.decl(metadata !2917)
-  %340 = load i8, ptr %76, align 4, !range !36, !alias.scope !2917, !noalias !2914, !noundef !10
-  %341 = trunc nuw i8 %340 to i1
-  %..i240 = select i1 %341, i32 14, i32 13
+  %337 = load i8, ptr %76, align 4, !range !36, !alias.scope !2917, !noalias !2914, !noundef !10
+  %338 = trunc nuw i8 %337 to i1
+  %..i240 = select i1 %338, i32 14, i32 13
   store i32 %..i240, ptr %32, align 4, !alias.scope !2914, !noalias !2917
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %31)
   store i32 %..i56, ptr %31, align 4, !alias.scope !2919, !noalias !2922
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %.val37, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %32, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %31)
-          to label %342 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %1, i32 noundef %.val37, ptr noalias nocapture noundef align 4 dereferenceable(12) %32, ptr noalias nocapture noundef align 4 dereferenceable(12) %31)
+          to label %339 unwind label %.body73.thread335
 
-342:                                              ; preds = %339
+339:                                              ; preds = %336
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %32)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80)
-          to label %343 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80)
+          to label %340 unwind label %.body73.thread335
 
-343:                                              ; preds = %342
+340:                                              ; preds = %339
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %58, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %346 unwind label %344
+          to label %343 unwind label %341
 
-344:                                              ; preds = %343
-  %345 = landingpad { ptr, i32 }
+341:                                              ; preds = %340
+  %342 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %58) #30
-          to label %.body73.thread unwind label %347
+          to label %.body73.thread unwind label %344
 
-346:                                              ; preds = %343
+343:                                              ; preds = %340
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %58)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit247 unwind label %.body73.thread335
 
-347:                                              ; preds = %344
-  %348 = landingpad { ptr, i32 }
+344:                                              ; preds = %341
+  %345 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit247: ; preds = %346
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit247: ; preds = %343
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
-  %349 = getelementptr inbounds i8, ptr %30, i64 8
-  store i32 %.val44, ptr %349, align 8
+  %346 = getelementptr inbounds i8, ptr %30, i64 8
+  store i32 %.val44, ptr %346, align 8
   store i64 -9223372036854775778, ptr %30, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %352 unwind label %350
+          to label %349 unwind label %347
 
-350:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit247
-  %351 = landingpad { ptr, i32 }
+347:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit247
+  %348 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %30) #30
-          to label %.body73.thread unwind label %353
+          to label %.body73.thread unwind label %350
 
-352:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit247
+349:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit247
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %30)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit253 unwind label %.body73.thread335
 
-353:                                              ; preds = %350
-  %354 = landingpad { ptr, i32 }
+350:                                              ; preds = %347
+  %351 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit253: ; preds = %352
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit253: ; preds = %349
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29)
-  %355 = getelementptr inbounds i8, ptr %29, i64 8
-  store i32 %85, ptr %355, align 8
+  %352 = getelementptr inbounds i8, ptr %29, i64 8
+  store i32 %85, ptr %352, align 8
   store i64 -9223372036854775778, ptr %29, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %358 unwind label %356
+          to label %355 unwind label %353
 
-356:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit253
-  %357 = landingpad { ptr, i32 }
+353:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit253
+  %354 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %29) #30
-          to label %.body73.thread unwind label %359
+          to label %.body73.thread unwind label %356
 
-358:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit253
+355:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit253
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %29)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit259 unwind label %.body73.thread335
 
-359:                                              ; preds = %356
-  %360 = landingpad { ptr, i32 }
+356:                                              ; preds = %353
+  %357 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit259: ; preds = %358
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit259: ; preds = %355
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80, i32 noundef 2)
-          to label %361 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80, i32 noundef 2)
+          to label %358 unwind label %.body73.thread335
 
-361:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit259
+358:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit259
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
-  %362 = getelementptr inbounds i8, ptr %28, i64 8
-  store i32 %131, ptr %362, align 8
+  %359 = getelementptr inbounds i8, ptr %28, i64 8
+  store i32 %128, ptr %359, align 8
   store i64 -9223372036854775778, ptr %28, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %28, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %365 unwind label %363
+          to label %362 unwind label %360
 
-363:                                              ; preds = %361
-  %364 = landingpad { ptr, i32 }
+360:                                              ; preds = %358
+  %361 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %28) #30
-          to label %.body73.thread unwind label %366
+          to label %.body73.thread unwind label %363
 
-365:                                              ; preds = %361
+362:                                              ; preds = %358
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %28)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit265 unwind label %.body73.thread335
 
-366:                                              ; preds = %363
-  %367 = landingpad { ptr, i32 }
+363:                                              ; preds = %360
+  %364 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit265: ; preds = %365
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit265: ; preds = %362
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80, i32 noundef 1)
-          to label %368 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80, i32 noundef 1)
+          to label %365 unwind label %.body73.thread335
 
-368:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit265
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80)
-          to label %369 unwind label %.body73.thread335
+365:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit265
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80)
+          to label %366 unwind label %.body73.thread335
 
-369:                                              ; preds = %368
+366:                                              ; preds = %365
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27)
-  %370 = getelementptr inbounds i8, ptr %27, i64 8
-  store i32 %214, ptr %370, align 8
+  %367 = getelementptr inbounds i8, ptr %27, i64 8
+  store i32 %211, ptr %367, align 8
   store i64 -9223372036854775794, ptr %27, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %27, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %373 unwind label %371
+          to label %370 unwind label %368
 
-371:                                              ; preds = %369
-  %372 = landingpad { ptr, i32 }
+368:                                              ; preds = %366
+  %369 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %27) #30
-          to label %.body73.thread unwind label %374
+          to label %.body73.thread unwind label %371
 
-373:                                              ; preds = %369
+370:                                              ; preds = %366
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %27)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit271 unwind label %.body73.thread335
 
-374:                                              ; preds = %371
-  %375 = landingpad { ptr, i32 }
+371:                                              ; preds = %368
+  %372 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit271: ; preds = %373
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit271: ; preds = %370
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26)
-  %376 = getelementptr inbounds i8, ptr %26, i64 8
-  store i32 %.val44, ptr %376, align 8
+  %373 = getelementptr inbounds i8, ptr %26, i64 8
+  store i32 %.val44, ptr %373, align 8
   store i64 -9223372036854775777, ptr %26, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %26, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %379 unwind label %377
+          to label %376 unwind label %374
 
-377:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit271
-  %378 = landingpad { ptr, i32 }
+374:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit271
+  %375 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %26) #30
-          to label %.body73.thread unwind label %380
+          to label %.body73.thread unwind label %377
 
-379:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit271
+376:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit271
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %26)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit277 unwind label %.body73.thread335
 
-380:                                              ; preds = %377
-  %381 = landingpad { ptr, i32 }
+377:                                              ; preds = %374
+  %378 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit277: ; preds = %379
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit277: ; preds = %376
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %15, ptr noundef nonnull align 16 dereferenceable(48) %50, i64 48, i1 false)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %384 unwind label %382
+          to label %381 unwind label %379
 
-382:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit277
-  %383 = landingpad { ptr, i32 }
+379:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit277
+  %380 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %15) #30
-          to label %.body73.thread unwind label %385
+          to label %.body73.thread unwind label %382
 
-384:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit277
+381:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit277
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %15)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit283 unwind label %.body73.thread335
 
-385:                                              ; preds = %382
-  %386 = landingpad { ptr, i32 }
+382:                                              ; preds = %379
+  %383 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit283: ; preds = %384
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit283: ; preds = %381
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
-  %387 = getelementptr inbounds i8, ptr %25, i64 8
-  store i32 %131, ptr %387, align 8
+  %384 = getelementptr inbounds i8, ptr %25, i64 8
+  store i32 %128, ptr %384, align 8
   store i64 -9223372036854775778, ptr %25, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %25, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %390 unwind label %388
+          to label %387 unwind label %385
 
-388:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit283
-  %389 = landingpad { ptr, i32 }
+385:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit283
+  %386 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %25) #30
-          to label %.body73.thread unwind label %391
+          to label %.body73.thread unwind label %388
 
-390:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit283
+387:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit283
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %25)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit289 unwind label %.body73.thread335
 
-391:                                              ; preds = %388
-  %392 = landingpad { ptr, i32 }
+388:                                              ; preds = %385
+  %389 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit289: ; preds = %390
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit289: ; preds = %387
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %80, i32 noundef -2147483648)
-          to label %393 unwind label %.body73.thread335
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %80, i32 noundef -2147483648)
+          to label %390 unwind label %.body73.thread335
 
-393:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit289
-  br i1 %81, label %399, label %394
+390:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit289
+  br i1 %81, label %396, label %391
 
-394:                                              ; preds = %393
+391:                                              ; preds = %390
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !2924
   store i64 -9223372036854775694, ptr %9, align 16, !noalias !2924
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i292 unwind label %395
+          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i292 unwind label %392
 
-395:                                              ; preds = %394
-  %396 = landingpad { ptr, i32 }
+392:                                              ; preds = %391
+  %393 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %9) #30
-          to label %.body73.thread unwind label %397
+          to label %.body73.thread unwind label %394
 
-397:                                              ; preds = %395
-  %398 = landingpad { ptr, i32 }
+394:                                              ; preds = %392
+  %395 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i292: ; preds = %394
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit.i292: ; preds = %391
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %9)
           to label %.noexc298 unwind label %.body73.thread335
 
@@ -19702,25 +19683,25 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !2924
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_or17h0b36d0bb3a49cc27E.exit
 
-399:                                              ; preds = %393
+396:                                              ; preds = %390
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !2924
   store i64 -9223372036854775676, ptr %10, align 16, !noalias !2924
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i293 unwind label %400
+          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i293 unwind label %397
 
-400:                                              ; preds = %399
-  %401 = landingpad { ptr, i32 }
+397:                                              ; preds = %396
+  %398 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %10) #30
-          to label %.body73.thread unwind label %402
+          to label %.body73.thread unwind label %399
 
-402:                                              ; preds = %400
-  %403 = landingpad { ptr, i32 }
+399:                                              ; preds = %397
+  %400 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i293: ; preds = %399
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit1.i293: ; preds = %396
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %10)
           to label %.noexc299 unwind label %.body73.thread335
 
@@ -19730,63 +19711,63 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_or17h0b36d0bb3a49cc27E.exit: ; preds = %.noexc299, %.noexc298
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
-  %404 = getelementptr inbounds i8, ptr %24, i64 8
-  store i32 %131, ptr %404, align 8
+  %401 = getelementptr inbounds i8, ptr %24, i64 8
+  store i32 %128, ptr %401, align 8
   store i64 -9223372036854775777, ptr %24, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %24, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %407 unwind label %405
+          to label %404 unwind label %402
 
-405:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_or17h0b36d0bb3a49cc27E.exit
-  %406 = landingpad { ptr, i32 }
+402:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_or17h0b36d0bb3a49cc27E.exit
+  %403 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %24) #30
-          to label %.body73.thread unwind label %408
+          to label %.body73.thread unwind label %405
 
-407:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_or17h0b36d0bb3a49cc27E.exit
+404:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_or17h0b36d0bb3a49cc27E.exit
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %24)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit305 unwind label %.body73.thread335
 
-408:                                              ; preds = %405
-  %409 = landingpad { ptr, i32 }
+405:                                              ; preds = %402
+  %406 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit305: ; preds = %407
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit305: ; preds = %404
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %50, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %412 unwind label %410
+          to label %409 unwind label %407
 
-410:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit305
-  %411 = landingpad { ptr, i32 }
+407:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit305
+  %408 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %50) #30
-          to label %.body73.thread unwind label %413
+          to label %.body73.thread unwind label %410
 
-412:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit305
+409:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit305
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %50)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311 unwind label %.body73.thread335
 
-413:                                              ; preds = %410
-  %414 = landingpad { ptr, i32 }
+410:                                              ; preds = %407
+  %411 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311: ; preds = %412
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311: ; preds = %409
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %23, ptr noundef nonnull align 4 dereferenceable(20) %61, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %23)
-          to label %415 unwind label %.body73
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %23)
+          to label %412 unwind label %.body73
 
-415:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311
+412:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit311
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %22, ptr noundef nonnull align 4 dereferenceable(20) %70, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %22)
-          to label %416 unwind label %.body73
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %22)
+          to label %413 unwind label %.body73
 
-416:                                              ; preds = %415
+413:                                              ; preds = %412
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %68, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %61)
@@ -19795,76 +19776,76 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %72)
   ret void
 
-.body73.thread:                                   ; preds = %410, %405, %395, %400, %388, %382, %377, %371, %363, %356, %350, %344, %334, %328, %322, %316, %306, %299, %293, %284, %278, %273, %267, %260, %248, %242, %233, %228, %223, %216, %204, %197, %191, %185, %179, %173, %167, %157, %162, %150, %145, %.body73.thread335
-  %eh.lpad-body74333 = phi { ptr, i32 } [ %lpad.thr_comm, %.body73.thread335 ], [ %146, %145 ], [ %151, %150 ], [ %158, %157 ], [ %163, %162 ], [ %168, %167 ], [ %174, %173 ], [ %180, %179 ], [ %186, %185 ], [ %192, %191 ], [ %198, %197 ], [ %205, %204 ], [ %217, %216 ], [ %224, %223 ], [ %229, %228 ], [ %234, %233 ], [ %243, %242 ], [ %249, %248 ], [ %261, %260 ], [ %268, %267 ], [ %274, %273 ], [ %279, %278 ], [ %285, %284 ], [ %294, %293 ], [ %300, %299 ], [ %307, %306 ], [ %317, %316 ], [ %323, %322 ], [ %329, %328 ], [ %335, %334 ], [ %345, %344 ], [ %351, %350 ], [ %357, %356 ], [ %364, %363 ], [ %372, %371 ], [ %378, %377 ], [ %383, %382 ], [ %389, %388 ], [ %396, %395 ], [ %401, %400 ], [ %406, %405 ], [ %411, %410 ]
+.body73.thread:                                   ; preds = %407, %402, %392, %397, %385, %379, %374, %368, %360, %353, %347, %341, %331, %325, %319, %313, %303, %296, %290, %281, %275, %270, %264, %257, %245, %239, %230, %225, %220, %213, %201, %194, %188, %182, %176, %170, %164, %154, %159, %147, %142, %.body73.thread335
+  %eh.lpad-body74333 = phi { ptr, i32 } [ %lpad.thr_comm, %.body73.thread335 ], [ %143, %142 ], [ %148, %147 ], [ %155, %154 ], [ %160, %159 ], [ %165, %164 ], [ %171, %170 ], [ %177, %176 ], [ %183, %182 ], [ %189, %188 ], [ %195, %194 ], [ %202, %201 ], [ %214, %213 ], [ %221, %220 ], [ %226, %225 ], [ %231, %230 ], [ %240, %239 ], [ %246, %245 ], [ %258, %257 ], [ %265, %264 ], [ %271, %270 ], [ %276, %275 ], [ %282, %281 ], [ %291, %290 ], [ %297, %296 ], [ %304, %303 ], [ %314, %313 ], [ %320, %319 ], [ %326, %325 ], [ %332, %331 ], [ %342, %341 ], [ %348, %347 ], [ %354, %353 ], [ %361, %360 ], [ %369, %368 ], [ %375, %374 ], [ %380, %379 ], [ %386, %385 ], [ %393, %392 ], [ %398, %397 ], [ %403, %402 ], [ %408, %407 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2927)
   call void @llvm.experimental.noalias.scope.decl(metadata !2930)
-  %417 = getelementptr inbounds i8, ptr %61, i64 16
-  %418 = load i8, ptr %417, align 4, !range !36, !alias.scope !2933, !noundef !10
-  %419 = trunc nuw i8 %418 to i1
-  br i1 %419, label %420, label %.body
+  %414 = getelementptr inbounds i8, ptr %61, i64 16
+  %415 = load i8, ptr %414, align 4, !range !36, !alias.scope !2933, !noundef !10
+  %416 = trunc nuw i8 %415 to i1
+  br i1 %416, label %417, label %.body
 
-420:                                              ; preds = %.body73.thread
+417:                                              ; preds = %.body73.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !2933
   br label %.invoke
 
-421:                                              ; preds = %.invoke, %.body
-  %422 = landingpad { ptr, i32 }
+418:                                              ; preds = %.invoke, %.body
+  %419 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-423:                                              ; preds = %.thread323, %86
+420:                                              ; preds = %.thread323, %86
   %.pn.pn328 = phi { ptr, i32 } [ %87, %.thread323 ], [ %.pn, %86 ]
   %.1327 = phi i1 [ true, %.thread323 ], [ false, %86 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2934)
   call void @llvm.experimental.noalias.scope.decl(metadata !2937)
-  %424 = getelementptr inbounds i8, ptr %70, i64 16
-  %425 = load i8, ptr %424, align 4, !range !36, !alias.scope !2940, !noundef !10
-  %426 = trunc nuw i8 %425 to i1
-  br i1 %426, label %427, label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314"
+  %421 = getelementptr inbounds i8, ptr %70, i64 16
+  %422 = load i8, ptr %421, align 4, !range !36, !alias.scope !2940, !noundef !10
+  %423 = trunc nuw i8 %422 to i1
+  br i1 %423, label %424, label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314"
 
-427:                                              ; preds = %423
+424:                                              ; preds = %420
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !2940
   br label %.invoke
 
-"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit316": ; preds = %86, %428, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314"
-  %.pn.pn.pn321 = phi { ptr, i32 } [ %.pn.pn328, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314" ], [ %.pn.pn.pn322, %428 ], [ %.pn, %86 ]
+"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit316": ; preds = %86, %425, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314"
+  %.pn.pn.pn321 = phi { ptr, i32 } [ %.pn.pn328, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314" ], [ %.pn.pn.pn322, %425 ], [ %.pn, %86 ]
   resume { ptr, i32 } %.pn.pn.pn321
 
-428:                                              ; preds = %.thread, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314"
+425:                                              ; preds = %.thread, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314"
   %.pn.pn.pn322 = phi { ptr, i32 } [ %82, %.thread ], [ %.pn.pn328, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit314" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2941)
   call void @llvm.experimental.noalias.scope.decl(metadata !2944)
-  %429 = getelementptr inbounds i8, ptr %72, i64 16
-  %430 = load i8, ptr %429, align 4, !range !36, !alias.scope !2947, !noundef !10
-  %431 = trunc nuw i8 %430 to i1
-  br i1 %431, label %432, label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit316"
+  %426 = getelementptr inbounds i8, ptr %72, i64 16
+  %427 = load i8, ptr %426, align 4, !range !36, !alias.scope !2947, !noundef !10
+  %428 = trunc nuw i8 %427 to i1
+  br i1 %428, label %429, label %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit316"
 
-432:                                              ; preds = %428
+429:                                              ; preds = %425
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !2947
   br label %.invoke
 
-.invoke:                                          ; preds = %420, %427, %432
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %420 ], [ %.sink.sroa.gep346, %427 ], [ %.sink.sroa.gep347, %432 ]
-  %.sink.sroa.phi348 = phi ptr [ %.sink.sroa.gep349, %420 ], [ %.sink.sroa.gep350, %427 ], [ %.sink.sroa.gep351, %432 ]
-  %.sink.sroa.phi352 = phi ptr [ %.sink.sroa.gep353, %420 ], [ %.sink.sroa.gep354, %427 ], [ %.sink.sroa.gep355, %432 ]
-  %.sink.sroa.phi356 = phi ptr [ %.sink.sroa.gep357, %420 ], [ %.sink.sroa.gep358, %427 ], [ %.sink.sroa.gep359, %432 ]
-  %.sink = phi ptr [ %8, %420 ], [ %7, %427 ], [ %6, %432 ]
+.invoke:                                          ; preds = %417, %424, %429
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %417 ], [ %.sink.sroa.gep348, %424 ], [ %.sink.sroa.gep349, %429 ]
+  %.sink.sroa.phi350 = phi ptr [ %.sink.sroa.gep351, %417 ], [ %.sink.sroa.gep352, %424 ], [ %.sink.sroa.gep353, %429 ]
+  %.sink.sroa.phi354 = phi ptr [ %.sink.sroa.gep355, %417 ], [ %.sink.sroa.gep356, %424 ], [ %.sink.sroa.gep357, %429 ]
+  %.sink.sroa.phi358 = phi ptr [ %.sink.sroa.gep359, %417 ], [ %.sink.sroa.gep360, %424 ], [ %.sink.sroa.gep361, %429 ]
+  %.sink = phi ptr [ %8, %417 ], [ %7, %424 ], [ %6, %429 ]
   store ptr @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.27.llvm.11357125133562502446, ptr %.sink, align 8, !noalias !10
   store i64 1, ptr %.sink.sroa.phi, align 8, !noalias !10
-  store ptr null, ptr %.sink.sroa.phi348, align 8, !noalias !10
-  store ptr @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.13.llvm.11357125133562502446, ptr %.sink.sroa.phi352, align 8, !noalias !10
-  store i64 0, ptr %.sink.sroa.phi356, align 8, !noalias !10
+  store ptr null, ptr %.sink.sroa.phi350, align 8, !noalias !10
+  store ptr @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.13.llvm.11357125133562502446, ptr %.sink.sroa.phi354, align 8, !noalias !10
+  store i64 0, ptr %.sink.sroa.phi358, align 8, !noalias !10
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.29.llvm.11357125133562502446) #29
-          to label %.cont unwind label %421
+          to label %.cont unwind label %418
 
 .cont:                                            ; preds = %.invoke
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr readonly %.0.val, i32 %.40.val, i8 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr readonly %.0.val, i32 %.40.val, i8 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = alloca { i64, [5 x i64] }, align 16
@@ -19907,7 +19888,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.assume(i1 %18)
   %19 = getelementptr i8, ptr %.0.val, i64 16
   %.val = load i8, ptr %19, align 4, !range !36, !noundef !10
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val, i32 noundef %17)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val, i32 noundef %17)
   %.val1 = load i8, ptr %19, align 4, !range !36, !noundef !10
   %20 = trunc nuw i8 %.val1 to i1
   br i1 %20, label %26, label %21
@@ -20055,7 +20036,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN16wasmtime_environ4fact10trampoline8Compiler10transcoder17hf33881630f8ce83fE(ptr %.56.val, ptr readonly %.0.val, ptr readonly %.0.val1, i8 noundef %0) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZN16wasmtime_environ4fact10trampoline8Compiler10transcoder17hf33881630f8ce83fE(ptr %.56.val, ptr readonly %.0.val, ptr readonly %.0.val1, i8 noundef range(i8 0, 12) %0) unnamed_addr #3 {
   %2 = alloca { i64, [4 x i64] }, align 8
   %3 = alloca { ptr, ptr, ptr, ptr, ptr, ptr }, align 8
   %4 = alloca { i32, i32, i8, i8, i8, [1 x i8] }, align 4
@@ -20141,7 +20122,7 @@ _ZN16wasmtime_environ4fact6Module17import_transcoder17hfc285c50984330ffE.exit: ;
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(20) %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { i64, [5 x i64] }, align 16
   %8 = alloca { i64, [5 x i64] }, align 16
@@ -20585,7 +20566,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21)
   store i32 14, ptr %21, align 4
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %22, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %21)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef align 4 dereferenceable(20) %22, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %21)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21)
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %25, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %135 unwind label %133
@@ -20689,7 +20670,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, ptr noundef nonnull align 4 dereferenceable(20) %22, i64 20, i1 false)
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %18)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %18)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22)
   br label %96
@@ -20728,7 +20709,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_list17hd18e7c738e5f9383E(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2, i32 %.0.val, i32 %.4.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_list17hd18e7c738e5f9383E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i32 %.0.val, i32 %.4.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -20953,7 +20934,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14tr
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exit
 
 130:                                              ; preds = %123
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %124)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %124)
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exit
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exit: ; preds = %129, %130
@@ -20987,7 +20968,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exi
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit120"
 
 145:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler8ptr_load17hcea429344853c37fE.exit
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %79)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %79)
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit120"
 
 _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: ; preds = %119
@@ -21084,7 +21065,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
   %.sroa.6.8..sroa_idx.i = getelementptr inbounds i8, ptr %76, i64 16
   %.sroa.6.8.copyload.i = load i8, ptr %.sroa.6.8..sroa_idx.i, align 4, !alias.scope !3065, !noalias !3067
   %.val.i = load i8, ptr %106, align 4, !alias.scope !3063, !noalias !3069
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val.i, i32 noundef %.sroa.5.8.copyload.i, i32 noundef %.sroa.3.0.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val.i, i32 noundef %.sroa.5.8.copyload.i, i32 noundef %.sroa.3.0.i)
           to label %178 unwind label %168, !noalias !3070
 
 168:                                              ; preds = %167
@@ -21124,7 +21105,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
   %179 = getelementptr inbounds i8, ptr %78, i64 12
   %180 = load i32, ptr %179, align 4, !noundef !10
   %.val96 = load i8, ptr %106, align 4
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23calculate_list_byte_len17h3d69a8b9ce527fcdE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %74, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val96, i32 noundef %180, i32 noundef %.sroa.0.0.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23calculate_list_byte_len17h3d69a8b9ce527fcdE(ptr noalias nocapture noundef align 4 dereferenceable(20) %74, ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val96, i32 noundef %180, i32 noundef %.sroa.0.0.i)
           to label %182 unwind label %.thread24
 
 "_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit299": ; preds = %.thread31, %"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..fact..trampoline..TempLocal$GT$17h54676b417b2368c7E.exit297"
@@ -21166,7 +21147,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
   br i1 %191, label %192, label %193
 
 192:                                              ; preds = %186
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23calculate_list_byte_len17h3d69a8b9ce527fcdE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %73, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %189, i32 noundef %180, i32 noundef %.sroa.0.0.i110)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23calculate_list_byte_len17h3d69a8b9ce527fcdE(ptr noalias nocapture noundef align 4 dereferenceable(20) %73, ptr noalias noundef align 8 dereferenceable(136) %0, i8 %189, i32 noundef %180, i32 noundef %.sroa.0.0.i110)
           to label %218 unwind label %184
 
 193:                                              ; preds = %186
@@ -21176,7 +21157,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
   store i32 %..i123, ptr %69, align 4, !alias.scope !3080, !noalias !3083
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %68)
   store i32 %..i125, ptr %68, align 4, !alias.scope !3085, !noalias !3088
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %195, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %69, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %68)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %195, ptr noalias nocapture noundef align 4 dereferenceable(12) %69, ptr noalias nocapture noundef align 4 dereferenceable(12) %68)
           to label %196 unwind label %184
 
 196:                                              ; preds = %193
@@ -21199,13 +21180,13 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
   %200 = getelementptr inbounds i8, ptr %67, i64 12
   %201 = load i32, ptr %200, align 4, !noundef !10
   %.val98 = load i8, ptr %111, align 4
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23calculate_list_byte_len17h3d69a8b9ce527fcdE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %65, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val98, i32 noundef %201, i32 noundef %.sroa.0.0.i110)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23calculate_list_byte_len17h3d69a8b9ce527fcdE(ptr noalias nocapture noundef align 4 dereferenceable(20) %65, ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val98, i32 noundef %201, i32 noundef %.sroa.0.0.i110)
           to label %202 unwind label %212
 
 202:                                              ; preds = %199
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %64, ptr noundef nonnull align 4 dereferenceable(20) %67, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %64)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %64)
           to label %209 unwind label %203
 
 203:                                              ; preds = %202
@@ -21253,7 +21234,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63)
   %219 = getelementptr inbounds i8, ptr %73, i64 12
   %220 = load i32, ptr %219, align 4, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %63, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i105, i32 noundef 1, i32 noundef %220, i32 noundef %.sroa.3.0.i111)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef align 8 dereferenceable(32) %63, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i105, i32 noundef 1, i32 noundef %220, i32 noundef %.sroa.3.0.i111)
           to label %233 unwind label %.thread45
 
 221:                                              ; preds = %182
@@ -21273,7 +21254,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
   %227 = trunc nuw i8 %226 to i1
   %..i133 = select i1 %227, i32 14, i32 13
   store i32 %..i133, ptr %71, align 4, !alias.scope !3114, !noalias !3117
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %223, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %72, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %71)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %223, ptr noalias nocapture noundef align 4 dereferenceable(12) %72, ptr noalias nocapture noundef align 4 dereferenceable(12) %71)
           to label %228 unwind label %184
 
 228:                                              ; preds = %221
@@ -21305,7 +21286,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
   %234 = getelementptr inbounds i8, ptr %74, i64 12
   %235 = load i32, ptr %234, align 4, !noundef !10
   store i64 5, ptr %62, align 8
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i, i32 noundef %.sroa.5.8.copyload.i, i32 noundef %235, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %62)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i, i32 noundef %.sroa.5.8.copyload.i, i32 noundef %235, ptr noalias nocapture noundef align 8 dereferenceable(24) %62)
           to label %236 unwind label %.thread112
 
 .thread112:                                       ; preds = %478, %453, %467, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit269, %447, %442, %439, %257, %240, %239, %236, %233, %247, %254, %420, %430, %438, %457, %464
@@ -21320,20 +21301,20 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit115: 
 236:                                              ; preds = %233
   %237 = getelementptr inbounds i8, ptr %63, i64 20
   %238 = load i32, ptr %237, align 4, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.0.i105, i32 noundef %238, i32 noundef %220, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %62)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler24validate_memory_inbounds17hf0ea9500107cd769E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(20) %.0.i105, i32 noundef %238, i32 noundef %220, ptr noalias nocapture noundef align 8 dereferenceable(24) %62)
           to label %239 unwind label %.thread112
 
 239:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %61, ptr noundef nonnull align 4 dereferenceable(20) %74, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %61)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %61)
           to label %240 unwind label %.thread112
 
 240:                                              ; preds = %239
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %60)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %60, ptr noundef nonnull align 4 dereferenceable(20) %73, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %60)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %60)
           to label %241 unwind label %.thread112
 
 241:                                              ; preds = %240
@@ -21406,7 +21387,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %259 = trunc nuw i8 %258 to i1
   %..i147 = select i1 %259, i32 14, i32 13
   store i32 %..i147, ptr %56, align 4, !alias.scope !3124, !noalias !3127
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %57, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %56)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef align 4 dereferenceable(20) %57, ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(12) %56)
           to label %260 unwind label %.thread112
 
 260:                                              ; preds = %257
@@ -21728,12 +21709,12 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit173: ; preds = %331
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %45)
   %.val = load i8, ptr %106, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val, i32 noundef %.sroa.0.0.i)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val, i32 noundef %.sroa.0.0.i)
           to label %334 unwind label %323
 
 334:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit173
   %.val88 = load i8, ptr %106, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val88)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val88)
           to label %335 unwind label %323
 
 335:                                              ; preds = %334
@@ -21817,12 +21798,12 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit194: ; preds = %355
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43)
   %.val79 = load i8, ptr %111, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val79, i32 noundef %.sroa.0.0.i110)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val79, i32 noundef %.sroa.0.0.i110)
           to label %358 unwind label %323
 
 358:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit194
   %.val89 = load i8, ptr %111, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val89)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val89)
           to label %359 unwind label %323
 
 359:                                              ; preds = %358
@@ -21917,7 +21898,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_iconst17hef02f21f0c245ac9E.exit: ; preds = %.noexc212, %.noexc211
   %.val90 = load i8, ptr %106, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val90)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val90)
           to label %379 unwind label %323
 
 379:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_iconst17hef02f21f0c245ac9E.exit
@@ -21947,7 +21928,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_iconst17hef02f21f0c245ac9E.
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit219: ; preds = %383
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %40)
   %.val91 = load i8, ptr %106, align 4, !range !36, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_br_if17h771d911c4d81f012E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val91)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_br_if17h771d911c4d81f012E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val91)
           to label %386 unwind label %323
 
 386:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit219
@@ -21997,21 +21978,21 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233: ; preds = %394
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %38)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %38, ptr noundef nonnull align 4 dereferenceable(20) %50, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %38)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %38)
           to label %397 unwind label %323
 
 397:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit233
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, ptr noundef nonnull align 4 dereferenceable(20) %53, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %37)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %37)
           to label %398 unwind label %323
 
 398:                                              ; preds = %397
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %36)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %36, ptr noundef nonnull align 4 dereferenceable(20) %57, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %36)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %36)
           to label %399 unwind label %323
 
 399:                                              ; preds = %398
@@ -22172,7 +22153,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %446 = trunc nuw i8 %445 to i1
   %..i259 = select i1 %446, i32 14, i32 13
   store i32 %..i259, ptr %32, align 4, !alias.scope !3169, !noalias !3172
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %180, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %33, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %32)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %180, ptr noalias nocapture noundef align 4 dereferenceable(12) %33, ptr noalias nocapture noundef align 4 dereferenceable(12) %32)
           to label %447 unwind label %.thread112
 
 447:                                              ; preds = %442
@@ -22197,7 +22178,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 453:                                              ; preds = %472, %452
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef nonnull align 4 dereferenceable(20) %78, i64 20, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %26)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %26)
           to label %478 unwind label %.thread112
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit255: ; preds = %430
@@ -22230,7 +22211,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.val92 = load ptr, ptr %424, align 8, !nonnull !10, !align !35, !noundef !10
   %460 = getelementptr inbounds i8, ptr %3, i64 36
   %.val93 = load i32, ptr %460, align 4
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %.val92, i32 %.val93)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr nonnull %.val92, i32 %.val93)
           to label %461 unwind label %.thread112
 
 461:                                              ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit269
@@ -22268,7 +22249,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %471 = trunc nuw i8 %470 to i1
   %..i280 = select i1 %471, i32 14, i32 13
   store i32 %..i280, ptr %27, align 4, !alias.scope !3184, !noalias !3187
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %180, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %28, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %27)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %180, ptr noalias nocapture noundef align 4 dereferenceable(12) %28, ptr noalias nocapture noundef align 4 dereferenceable(12) %27)
           to label %472 unwind label %.thread112
 
 472:                                              ; preds = %467
@@ -22278,7 +22259,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %474 = trunc nuw i8 %473 to i1
   %475 = select i1 %474, i32 8, i32 4
   %476 = add i32 %475, %.val93
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %.val92, i32 %476)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr nonnull %.val92, i32 %476)
           to label %453 unwind label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit285"
 
 "_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit285": ; preds = %472
@@ -22296,7 +22277,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i8 %.sroa.6.8.copyload.i, ptr %.sroa.8.8..sroa_idx, align 4
   %.sroa.10.8..sroa_idx = getelementptr inbounds i8, ptr %25, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10, i64 3, i1 false)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %25)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %25)
           to label %479 unwind label %.thread112
 
 479:                                              ; preds = %478
@@ -22304,7 +22285,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(20) %480, i64 20, i1 false)
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %24)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %24)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %73)
@@ -22450,7 +22431,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23calculate_list_byte_len17h3d69a8b9ce527fcdE(ptr noalias nocapture noundef writeonly align 4 dereferenceable(20) %0, ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.16.val, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23calculate_list_byte_len17h3d69a8b9ce527fcdE(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.16.val, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { i64, [5 x i64] }, align 16
@@ -22492,7 +22473,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler23ca
   ]
 
 40:                                               ; preds = %4
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.16.val, i32 noundef 0)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.16.val, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %39)
   %41 = trunc nuw i8 %.16.val to i1
   %..i = select i1 %41, i32 14, i32 13
@@ -22959,7 +22940,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20)
   store i32 14, ptr %20, align 4
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %21, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %20)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef align 4 dereferenceable(20) %21, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(12) %20)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   %152 = getelementptr inbounds i8, ptr %19, i64 8
@@ -23217,7 +23198,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull align 4 dereferenceable(20) %21, i64 20, i1 false)
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %12)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(20) %12)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
   store i32 13, ptr %11, align 4
@@ -23263,7 +23244,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22convert_src_len_to_dst17h268e5e586a001fefE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(12) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, [5 x i64] }, align 8
   %6 = alloca { i32, [2 x i32] }, align 4
   %7 = alloca { i32, [2 x i32] }, align 4
@@ -23412,7 +23393,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 "_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread7": ; preds = %27, %18, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.200) #29
+  call fastcc void @_ZN4core9panicking13assert_failed17h254c6f12ff033887E(ptr noalias noundef readonly align 4 dereferenceable(12) %7, ptr noalias noundef readonly align 4 dereferenceable(12) %6, ptr noalias nocapture noundef align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.200) #29
   unreachable
 
 "_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread": ; preds = %33, %24, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit"
@@ -23422,7 +23403,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler18translate_resource17h067983694935dc9cE(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2, i32 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %4, i32 noundef %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler18translate_resource17h067983694935dc9cE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4, i32 noundef %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i64, [5 x i64] }, align 16
   %8 = alloca { i64, [5 x i64] }, align 16
   %9 = alloca { i32, [2 x i32] }, align 4
@@ -23615,7 +23596,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16trap_if_not_flag17hafdc559deb5fd553E(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler16trap_if_not_flag17hafdc559deb5fd553E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef range(i32 1, 3) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { i64, [5 x i64] }, align 16
@@ -23803,7 +23784,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8set_flag17h6a6fdb9f2cf069f7E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef range(i32 1, 3) %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { i64, [5 x i64] }, align 16
@@ -23956,7 +23937,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = alloca { i32, [2 x i32] }, align 4
@@ -24000,11 +23981,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 
 18:                                               ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
   %19 = add i32 %2, -1
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val, i32 noundef %19)
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val, i32 noundef %19)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   store i32 18, ptr %6, align 4
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_if17h702326f966a4d430E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %6)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_if17h702326f966a4d430E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val, ptr noalias nocapture noundef align 4 dereferenceable(12) %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3326)
   %20 = getelementptr inbounds i8, ptr %0, i64 24
@@ -24080,7 +24061,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14assert_aligned17h350a8e58b95f7ceeE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 4 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14assert_aligned17h350a8e58b95f7ceeE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = alloca { i32, [2 x i32] }, align 4
@@ -24148,18 +24129,18 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %34 = getelementptr inbounds i8, ptr %2, i64 28
   %35 = load i32, ptr %34, align 4, !noundef !10
   %.val = load i8, ptr %18, align 4, !range !36, !noundef !10
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val, i32 noundef %35)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val, i32 noundef %35)
   %.val4 = load i8, ptr %18, align 4, !range !36, !noundef !10
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val4)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val4)
   %36 = add i32 %.sroa.3.0.i.i, -1
   %.val1 = load i8, ptr %18, align 4, !range !36, !noundef !10
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val1, i32 noundef %36)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val1, i32 noundef %36)
   %.val2 = load i8, ptr %18, align 4, !range !36, !noundef !10
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val2)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val2)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   store i32 18, ptr %6, align 4
   %.val3 = load i8, ptr %18, align 4, !range !36, !noundef !10
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_if17h702326f966a4d430E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.val3, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %6)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_if17h702326f966a4d430E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.val3, ptr noalias nocapture noundef align 4 dereferenceable(12) %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3349)
   %37 = getelementptr inbounds i8, ptr %0, i64 24
@@ -24239,7 +24220,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias noundef readonly align 4 dereferenceable(20) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6malloc17h2c2245d64a991f38E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { i32, [2 x i32] }, align 4
   %9 = alloca { { i32, [2 x i32] }, i32, i8, [3 x i8] }, align 4
@@ -24259,14 +24240,14 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6mal
 17:                                               ; preds = %6
   %18 = getelementptr inbounds i8, ptr %2, i64 16
   %.val = load i8, ptr %18, align 4, !range !36, !noundef !10
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val, i32 noundef 0)
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val, i32 noundef 0)
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val, i32 noundef %5)
-  %switch3 = icmp eq i32 %3, 0
-  br i1 %switch3, label %19, label %20
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val, i32 noundef 0)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val, i32 noundef 0)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val, i32 noundef %5)
+  %trunc3 = trunc nuw i32 %3 to i1
+  br i1 %trunc3, label %20, label %19
 
 19:                                               ; preds = %17
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val, i32 noundef %4)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val, i32 noundef %4)
   br label %26
 
 20:                                               ; preds = %17
@@ -24304,7 +24285,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   store i32 %15, ptr %27, align 8
   store i64 -9223372036854775794, ptr %10, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit8 unwind label %28
+          to label %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit9 unwind label %28
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -24318,7 +24299,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit8: ; preds = %26
+_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit9: ; preds = %26
   call void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
@@ -24333,10 +24314,10 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %.sroa.5.8.copyload.i = load i32, ptr %.sroa.5.8..sroa_idx.i, align 4, !alias.scope !3368, !noalias !3370
   %.sroa.6.8..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
   %.sroa.6.8.copyload.i = load i8, ptr %.sroa.6.8..sroa_idx.i, align 4, !alias.scope !3368, !noalias !3370
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, i8 %.val, i32 noundef %.sroa.5.8.copyload.i, i32 noundef %5)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler14verify_aligned17h31b7ff53bba46dd5E(ptr noalias noundef align 8 dereferenceable(136) %1, i8 %.val, i32 noundef %.sroa.5.8.copyload.i, i32 noundef %5)
           to label %_ZN16wasmtime_environ4fact10trampoline8Compiler14memory_operand17hbc00bbce202b5db8E.exit unwind label %33, !noalias !3373
 
-33:                                               ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit8
+33:                                               ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit9
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = trunc nuw i8 %.sroa.6.8.copyload.i to i1
@@ -24365,7 +24346,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31, !noalias !3373
   unreachable
 
-_ZN16wasmtime_environ4fact10trampoline8Compiler14memory_operand17hbc00bbce202b5db8E.exit: ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit8
+_ZN16wasmtime_environ4fact10trampoline8Compiler14memory_operand17hbc00bbce202b5db8E.exit: ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit9
   %.sroa.7.8..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 17
   store ptr %2, ptr %0, align 8, !alias.scope !3365, !noalias !3381
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -24382,7 +24363,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler14memory_operand17hbc00bbce202b5d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef writeonly align 4 dereferenceable(20) %0, ptr noalias noundef align 8 dereferenceable(136) %1, ptr noalias nocapture noundef align 4 dereferenceable(12) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_tee_new_tmp17hc5522b2f360e056fE(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [5 x i64] }, align 16
   %.sroa.4.i = alloca { i32, [2 x i32] }, align 8
   %5 = alloca { i64, [5 x i64] }, align 16
@@ -25005,7 +24986,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler15free_temp_local17h44e8092e2bc9e114E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i32, [2 x i32] }, [1 x i32], { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
@@ -25278,7 +25259,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10flush_code17h6026908bd1eed693E(ptr noalias nocapture noundef align 8 dereferenceable(136) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10flush_code17h6026908bd1eed693E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [3 x i64], i64, [2 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !10
@@ -25336,7 +25317,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10fl
 26:                                               ; preds = %25
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_environ..fact..Body$GT$17hd1b710e52b529a18E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #30
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_environ..fact..Body$GT$17hd1b710e52b529a18E"(ptr noalias noundef align 8 dereferenceable(48) %2) #30
           to label %30 unwind label %28
 
 28:                                               ; preds = %26
@@ -25365,7 +25346,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10fl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6finish17hd9a2e1eafa7371a4E(ptr noalias nocapture noundef align 8 dereferenceable(136) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6finish17hd9a2e1eafa7371a4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store i64 -9223372036854775801, ptr %2, align 16
@@ -25400,7 +25381,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6fin
 
 _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit: ; preds = %5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10flush_code17h6026908bd1eed693E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10flush_code17h6026908bd1eed693E(ptr noalias noundef align 8 dereferenceable(136) %0)
           to label %10 unwind label %8
 
 10:                                               ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
@@ -25611,7 +25592,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   br label %48
 
 54:                                               ; preds = %34
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler29assert_i64_upper_bits_not_set17h1616f043cb39c9d3E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %20)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler29assert_i64_upper_bits_not_set17h1616f043cb39c9d3E(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %20)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   store i64 -9223372036854775641, ptr %9, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
@@ -25635,7 +25616,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   br label %48
 
 59:                                               ; preds = %34
-  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler29assert_i64_upper_bits_not_set17h1616f043cb39c9d3E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %20)
+  call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler29assert_i64_upper_bits_not_set17h1616f043cb39c9d3E(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %20)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store i64 -9223372036854775641, ptr %7, align 16
   invoke void @"_ZN78_$LT$wasm_encoder..core..code..Instruction$u20$as$u20$wasm_encoder..Encode$GT$6encode17hea97cb410cc8c14dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
@@ -25708,7 +25689,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler29assert_i64_upper_bits_not_set17h1616f043cb39c9d3E(ptr noalias noundef align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler29assert_i64_upper_bits_not_set17h1616f043cb39c9d3E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = alloca { i64, [5 x i64] }, align 16
@@ -26380,7 +26361,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler8i64_load17ha0c35291469b4f4dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = alloca { i64, [5 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -26457,7 +26438,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_add17hc38fa214579f1e8dE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 16
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = trunc nuw i8 %.16.val to i1
@@ -26518,7 +26499,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_sub17h9384690a2cc47951E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 16
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = trunc nuw i8 %.16.val to i1
@@ -26579,7 +26560,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_shl17h991836d41077b203E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 16
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = trunc nuw i8 %.16.val to i1
@@ -26640,7 +26621,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler10ptr_uconst17hf0bb377c2f5be7ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = trunc nuw i8 %.16.val to i1
@@ -26706,7 +26687,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_ne17had5fd0f66393ad03E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 16
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = trunc nuw i8 %.16.val to i1
@@ -26767,7 +26748,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler7ptr_and17hddd2e5ed31967b7bE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 16
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = trunc nuw i8 %.16.val to i1
@@ -26828,7 +26809,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_if17h702326f966a4d430E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler6ptr_if17h702326f966a4d430E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = alloca { i64, [5 x i64] }, align 16
@@ -26911,7 +26892,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_br_if17h771d911c4d81f012E(ptr noalias noundef align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_br_if17h771d911c4d81f012E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, i8 %.16.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 16
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = alloca { i64, [5 x i64] }, align 16
@@ -27188,7 +27169,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef align 8 dereferenceable(136) %0, ptr readonly %.0.val, i32 %.28.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler9ptr_store17h8bf785a2410cfcc4E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr readonly %.0.val, i32 %.28.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 16
   %3 = alloca { i64, [5 x i64] }, align 16
   %4 = icmp ne ptr %.0.val, null

@@ -1016,7 +1016,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %34, %38
   br i1 %45, label %55, label %46
 
 46:                                               ; preds = %42
-  %47 = tail call fastcc noundef zeroext i1 @_ZL25PersonalityHasOnlyCXXUsesPN4llvm8ConstantE(ptr noundef nonnull %41)
+  %47 = tail call fastcc noundef zeroext i1 @_ZL25PersonalityHasOnlyCXXUsesPN4llvm8ConstantE(ptr noundef %41)
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %46
@@ -1040,7 +1040,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %34, %38
 declare noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL25PersonalityHasOnlyCXXUsesPN4llvm8ConstantE(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL25PersonalityHasOnlyCXXUsesPN4llvm8ConstantE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.023.041 = load ptr, ptr %2, align 8
   %.not2842 = icmp eq ptr %.sroa.023.041, null
@@ -1063,7 +1063,7 @@ define internal fastcc noundef zeroext i1 @_ZL25PersonalityHasOnlyCXXUsesPN4llvm
   br i1 %.not15, label %9, label %_ZL24LandingPadHasOnlyCXXUsesPN4llvm14LandingPadInstE.exit
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc noundef zeroext i1 @_ZL25PersonalityHasOnlyCXXUsesPN4llvm8ConstantE(ptr noundef nonnull %4)
+  %10 = tail call fastcc noundef zeroext i1 @_ZL25PersonalityHasOnlyCXXUsesPN4llvm8ConstantE(ptr noundef %4)
   br i1 %10, label %.loopexit, label %_ZL24LandingPadHasOnlyCXXUsesPN4llvm14LandingPadInstE.exit
 
 11:                                               ; preds = %.lr.ph45

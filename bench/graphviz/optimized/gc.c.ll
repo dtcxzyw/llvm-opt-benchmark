@@ -204,7 +204,7 @@ init.exit:                                        ; preds = %42, %45
   br label %60
 
 60:                                               ; preds = %55, %53
-  %61 = call fastcc i32 @eval(ptr noundef nonnull %50, i32 noundef 1)
+  %61 = call fastcc i32 @eval(ptr noundef %50, i32 noundef 1)
   %62 = or i32 %61, %.013
   %63 = call ptr @nextGraph(ptr noundef nonnull %3) #14
   %.not = icmp eq ptr %63, null
@@ -244,14 +244,14 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %.not18 = icmp eq i32 %1, 0
   br i1 %.not18, label %.critedge.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @agisdirected(ptr noundef %0) #14
+  %5 = tail call i32 @agisdirected(ptr noundef nonnull %0) #14
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 2, i32 1
   %7 = load i32, ptr @gtype, align 4
@@ -260,28 +260,28 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef %0, i32 noundef %1)
   br i1 %.not15, label %142, label %.critedge
 
 .critedge:                                        ; preds = %4
-  tail call void @aginit(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef 24, i32 noundef 1) #14
+  tail call void @aginit(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef 24, i32 noundef 1) #14
   %9 = load i32, ptr @flags, align 4
   %10 = and i32 %9, 8
   %.not19 = icmp eq i32 %10, 0
   br i1 %.not19, label %.critedge.thread, label %11
 
 11:                                               ; preds = %.critedge
-  %12 = call i32 @agapply(ptr noundef %0, ptr noundef %0, ptr noundef nonnull @cntCluster, ptr noundef nonnull %3, i32 noundef 0) #14
+  %12 = call i32 @agapply(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull @cntCluster, ptr noundef nonnull %3, i32 noundef 0) #14
   %.pre = load i32, ptr %3, align 4
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %11, %.critedge
   %13 = phi i32 [ 0, %2 ], [ %.pre, %11 ], [ 0, %.critedge ]
-  %14 = call i32 @agnedges(ptr noundef %0) #14
-  %15 = call i32 @agnnodes(ptr noundef %0) #14
+  %14 = call i32 @agnedges(ptr noundef nonnull %0) #14
+  %15 = call i32 @agnnodes(ptr noundef nonnull %0) #14
   %16 = load i32, ptr @flags, align 4
   %17 = and i32 %16, 4
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %cc_decompose.exit.i, label %18
 
 18:                                               ; preds = %.critedge.thread
-  %19 = call ptr @agfstnode(ptr noundef %0) #14
+  %19 = call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not19.i.i = icmp eq ptr %19, null
   br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -291,12 +291,12 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef %0, i32 noundef %1)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   store i32 0, ptr %22, align 8
-  %23 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.020.i.i) #14
+  %23 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.020.i.i) #14
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %18
-  %24 = call ptr @agfstnode(ptr noundef %0) #14
+  %24 = call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not1521.i.i = icmp eq ptr %24, null
   br i1 %.not1521.i.i, label %cc_decompose.exit.i, label %.lr.ph25.i.i
 
@@ -388,7 +388,7 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   store i32 1, ptr %69, align 8
-  %70 = call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %64) #14
+  %70 = call ptr @agfstedge(ptr noundef nonnull %0, ptr noundef nonnull %64) #14
   %.not2327.i.i.i = icmp eq ptr %70, null
   br i1 %.not2327.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
 
@@ -477,13 +477,13 @@ push.exit.i.i.i:                                  ; preds = %101, %._crit_edge.i
   br label %116
 
 116:                                              ; preds = %push.exit.i.i.i, %83
-  %117 = call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02028.i.i.i, ptr noundef nonnull %64) #14
+  %117 = call ptr @agnxtedge(ptr noundef nonnull %0, ptr noundef nonnull %.02028.i.i.i, ptr noundef nonnull %64) #14
   %.not23.i.i.i = icmp eq ptr %117, null
   br i1 %.not23.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
 
 cc_dfs.exit.i.i:                                  ; preds = %pop.exit.i.i.i, %.loopexit.i.i.i, %push.exit.i.i, %.lr.ph25.i.i
   %.114.i.i = phi i32 [ %.01322.i.i, %.lr.ph25.i.i ], [ %30, %push.exit.i.i ], [ %30, %.loopexit.i.i.i ], [ %30, %pop.exit.i.i.i ]
-  %118 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.123.i.i) #14
+  %118 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.123.i.i) #14
   %.not15.i.i = icmp eq ptr %118, null
   br i1 %.not15.i.i, label %cc_decompose.exit.i, label %.lr.ph25.i.i
 
@@ -495,7 +495,7 @@ cc_decompose.exit.i:                              ; preds = %cc_dfs.exit.i.i, %.
   %spec.select.i = select i1 %.not17.i, i32 0, i32 %13
   %121 = load ptr, ptr @fname, align 8
   %.0.i = select i1 %.not18, ptr null, ptr %121
-  %122 = call ptr @agnameof(ptr noundef %0) #14
+  %122 = call ptr @agnameof(ptr noundef nonnull %0) #14
   call fastcc void @wcp(i32 noundef %15, i32 noundef %14, i32 noundef %.016.i, i32 noundef %spec.select.i, ptr noundef %122, ptr noundef %.0.i)
   br i1 %.not18, label %emit.exit, label %123
 
@@ -525,13 +525,13 @@ emit.exit:                                        ; preds = %cc_decompose.exit.i
   %135 = load i32, ptr @n_indent, align 4
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr @n_indent, align 4
-  %137 = call ptr @agfstsubg(ptr noundef %0) #14
+  %137 = call ptr @agfstsubg(ptr noundef nonnull %0) #14
   %.not1620 = icmp eq ptr %137, null
   br i1 %.not1620, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %134, %.lr.ph
   %.021 = phi ptr [ %139, %.lr.ph ], [ %137, %134 ]
-  %138 = call fastcc i32 @eval(ptr noundef nonnull %.021, i32 noundef 0)
+  %138 = call fastcc i32 @eval(ptr noundef %.021, i32 noundef 0)
   %139 = call ptr @agnxtsubg(ptr noundef nonnull %.021) #14
   %.not16 = icmp eq ptr %139, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -640,7 +640,7 @@ define internal fastcc void @stack_reset() unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #6 {
   tail call void @exit(i32 noundef %0) #19
   unreachable
 }

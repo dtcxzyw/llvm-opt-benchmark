@@ -2034,7 +2034,7 @@ declare dso_local void @jbd2_journal_abort(ptr noundef, i32 noundef) local_unnam
 declare dso_local ptr @jbd2_journal_add_journal_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -30, 1) i32 @do_get_write_access(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -30, 1) i32 @do_get_write_access(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4151,7 +4151,7 @@ define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_inode_ranged_write(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -30, 1) i32 @jbd2_journal_file_inode(ptr %.0.val, i32 %.36.val, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -30, 1) i32 @jbd2_journal_file_inode(ptr %.0.val, i32 %.36.val, ptr noundef %0, i64 noundef range(i64 4, 7) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 16 {
   %5 = and i32 %.36.val, 8
   %6 = icmp ne i32 %5, 0
   %7 = icmp eq ptr %.0.val, null
@@ -4401,7 +4401,7 @@ declare dso_local void @__lock_buffer(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__jbd2_journal_remove_checkpoint(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @__dispose_buffer(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__dispose_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -4409,9 +4409,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @__dispose_buffer(ptr noundef
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  tail call fastcc void @__jbd2_journal_temp_unlink_buffer(ptr noundef %0)
+  tail call fastcc void @__jbd2_journal_temp_unlink_buffer(ptr noundef nonnull %0)
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 -3, ptr elementtype(i8) %7) #11, !srcloc !87
-  tail call void @__jbd2_journal_file_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 2)
+  tail call void @__jbd2_journal_file_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 2)
   br label %19
 
 8:                                                ; preds = %2
@@ -4437,9 +4437,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @__dispose_buffer(ptr noundef
   unreachable
 
 18:                                               ; preds = %13
-  tail call fastcc void @__jbd2_journal_temp_unlink_buffer(ptr noundef %0)
+  tail call fastcc void @__jbd2_journal_temp_unlink_buffer(ptr noundef nonnull %0)
   store ptr null, ptr %9, align 8
-  tail call void @jbd2_journal_put_journal_head(ptr noundef %0) #11
+  tail call void @jbd2_journal_put_journal_head(ptr noundef nonnull %0) #11
   br label %19
 
 19:                                               ; preds = %18, %6

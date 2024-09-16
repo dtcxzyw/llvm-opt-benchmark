@@ -313,7 +313,7 @@ if.then59:                                        ; preds = %if.end55
 if.then67:                                        ; preds = %for.body
   %arrayidx68 = getelementptr inbounds i8, ptr %call.i42, i64 32
   %13 = load ptr, ptr %arrayidx68, align 8
-  %call69 = call fastcc ptr @SRP_get_gN_by_id(ptr noundef %13, ptr noundef nonnull %call)
+  %call69 = call fastcc ptr @SRP_get_gN_by_id(ptr noundef %13, ptr noundef %call)
   %cmp70.not = icmp eq ptr %call69, null
   br i1 %cmp70.not, label %for.inc, label %if.then72
 
@@ -368,7 +368,7 @@ if.end85:                                         ; preds = %if.end.i45, %SRP_us
   %v1.i = getelementptr inbounds i8, ptr %call.i43, i64 16
   %s2.i = getelementptr inbounds i8, ptr %call.i43, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s2.i, i8 0, i64 16, i1 false)
-  %call.i46 = call fastcc i32 @t_fromb64(ptr noundef nonnull %tmp.i, ptr noundef %20)
+  %call.i46 = call fastcc i32 @t_fromb64(ptr noundef %tmp.i, ptr noundef %20)
   %cmp.i47 = icmp slt i32 %call.i46, 0
   br i1 %cmp.i47, label %SRP_user_pwd_set_sv.exit.thread, label %if.end.i48
 
@@ -379,7 +379,7 @@ if.end.i48:                                       ; preds = %if.end85
   br i1 %cmp6.i, label %SRP_user_pwd_set_sv.exit.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i48
-  %call10.i = call fastcc i32 @t_fromb64(ptr noundef nonnull %tmp.i, ptr noundef %19)
+  %call10.i = call fastcc i32 @t_fromb64(ptr noundef %tmp.i, ptr noundef %19)
   %cmp11.i = icmp slt i32 %call10.i, 0
   br i1 %cmp11.i, label %err.i, label %if.end13.i
 
@@ -538,7 +538,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
   br i1 %cmp.i, label %SRP_gN_new_init.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end
-  %call1.i = call fastcc i32 @t_fromb64(ptr noundef nonnull %tmp.i, ptr noundef %ch)
+  %call1.i = call fastcc i32 @t_fromb64(ptr noundef %tmp.i, ptr noundef %ch)
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %err.i, label %if.end4.i
 
@@ -593,7 +593,7 @@ return:                                           ; preds = %SRP_gN_new_init.exi
 declare i32 @OPENSSL_sk_insert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @SRP_get_gN_by_id(ptr noundef %id, ptr noundef %gN_tab) unnamed_addr #0 {
+define internal fastcc ptr @SRP_get_gN_by_id(ptr noundef %id, ptr noundef nonnull %gN_tab) unnamed_addr #0 {
 entry:
   %call19 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %gN_tab) #7
   %cmp210 = icmp sgt i32 %call19, 0
@@ -949,7 +949,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %call = call fastcc i32 @t_fromb64(ptr noundef nonnull %tmp, ptr noundef nonnull %N)
+  %call = call fastcc i32 @t_fromb64(ptr noundef %tmp, ptr noundef nonnull %N)
   %cmp7 = icmp slt i32 %call, 1
   br i1 %cmp7, label %err, label %if.end9
 
@@ -959,7 +959,7 @@ if.end9:                                          ; preds = %if.then6
   br i1 %cmp12, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
-  %call16 = call fastcc i32 @t_fromb64(ptr noundef nonnull %tmp, ptr noundef %g)
+  %call16 = call fastcc i32 @t_fromb64(ptr noundef %tmp, ptr noundef %g)
   %cmp17 = icmp slt i32 %call16, 1
   br i1 %cmp17, label %err, label %if.end19
 
@@ -997,7 +997,7 @@ if.then33:                                        ; preds = %if.end31
   br i1 %cmp36, label %err, label %if.end49
 
 if.else41:                                        ; preds = %if.end31
-  %call43 = call fastcc i32 @t_fromb64(ptr noundef nonnull %tmp2, ptr noundef nonnull %3)
+  %call43 = call fastcc i32 @t_fromb64(ptr noundef %tmp2, ptr noundef nonnull %3)
   %cmp44 = icmp slt i32 %call43, 1
   br i1 %cmp44, label %err, label %if.end49
 
@@ -1035,7 +1035,7 @@ if.end67:                                         ; preds = %if.end61
   %call69 = call i32 @BN_num_bits(ptr noundef %6) #7
   %add70 = add nsw i32 %call69, 7
   %div71 = sdiv i32 %add70, 8
-  %call72 = call fastcc i32 @t_tob64(ptr noundef nonnull %call63, ptr noundef nonnull %tmp, i32 noundef %div71)
+  %call72 = call fastcc i32 @t_tob64(ptr noundef %call63, ptr noundef %tmp, i32 noundef %div71)
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %err, label %if.end75
 
@@ -1050,7 +1050,7 @@ if.then78:                                        ; preds = %if.end75
   br i1 %cmp80, label %err, label %if.end83
 
 if.end83:                                         ; preds = %if.then78
-  %call85 = call fastcc i32 @t_tob64(ptr noundef nonnull %call79, ptr noundef nonnull %tmp2, i32 noundef 20)
+  %call85 = call fastcc i32 @t_tob64(ptr noundef %call79, ptr noundef %tmp2, i32 noundef 20)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then87, label %if.end88
 
@@ -1084,7 +1084,7 @@ err:                                              ; preds = %if.then78, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @t_fromb64(ptr noundef %a, ptr noundef %src) unnamed_addr #0 {
+define internal fastcc i32 @t_fromb64(ptr noundef nonnull %a, ptr noundef %src) unnamed_addr #0 {
 entry:
   %outl = alloca i32, align 4
   %outl2 = alloca i32, align 4
@@ -1132,13 +1132,13 @@ if.end22:                                         ; preds = %if.end18
 
 land.lhs.true:                                    ; preds = %if.end22
   %conv25 = trunc nuw nsw i64 %and8 to i32
-  %call26 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call14, ptr noundef %a, ptr noundef nonnull %outl, ptr noundef nonnull @.str.3, i32 noundef %conv25) #7
+  %call26 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call14, ptr noundef nonnull %a, ptr noundef nonnull %outl, ptr noundef nonnull @.str.3, i32 noundef %conv25) #7
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %err.sink.split, label %if.end30
 
 if.end30:                                         ; preds = %land.lhs.true, %if.end22
   %conv31 = trunc nuw nsw i64 %call to i32
-  %call32 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call14, ptr noundef %a, ptr noundef nonnull %outl2, ptr noundef nonnull %src.addr.0, i32 noundef %conv31) #7
+  %call32 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call14, ptr noundef nonnull %a, ptr noundef nonnull %outl2, ptr noundef nonnull %src.addr.0, i32 noundef %conv31) #7
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %err.sink.split, label %if.end36
 
@@ -1149,7 +1149,7 @@ if.end36:                                         ; preds = %if.end30
   store i32 %add37, ptr %outl, align 4
   %idx.ext = sext i32 %add37 to i64
   %add.ptr = getelementptr inbounds i8, ptr %a, i64 %idx.ext
-  %call38 = call i32 @EVP_DecodeFinal(ptr noundef nonnull %call14, ptr noundef %add.ptr, ptr noundef nonnull %outl2) #7
+  %call38 = call i32 @EVP_DecodeFinal(ptr noundef nonnull %call14, ptr noundef nonnull %add.ptr, ptr noundef nonnull %outl2) #7
   %3 = load i32, ptr %outl2, align 4
   %4 = load i32, ptr %outl, align 4
   %add39 = add nsw i32 %4, %3
@@ -1165,7 +1165,7 @@ if.end47:                                         ; preds = %if.then42
   %add.ptr48 = getelementptr inbounds i8, ptr %a, i64 %and8
   %conv49 = zext nneg i32 %add39 to i64
   %sub50 = sub nuw nsw i64 %conv49, %and8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %a, ptr nonnull align 1 %add.ptr48, i64 %sub50, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %a, ptr nonnull align 1 %add.ptr48, i64 %sub50, i1 false)
   %conv53 = sub nuw nsw i32 %add39, %conv43
   br label %err.sink.split
 
@@ -1274,7 +1274,7 @@ declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @t_tob64(ptr noundef %dst, ptr noundef %src, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @t_tob64(ptr noundef nonnull %dst, ptr noundef nonnull %src, i32 noundef range(i32 -268435455, 268435456) %size) unnamed_addr #0 {
 entry:
   %outl = alloca i32, align 4
   %outl2 = alloca i32, align 4
@@ -1296,7 +1296,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call4 = call i32 @EVP_EncodeUpdate(ptr noundef nonnull %call, ptr noundef %dst, ptr noundef nonnull %outl, ptr noundef nonnull %pad, i32 noundef %sub) #7
+  %call4 = call i32 @EVP_EncodeUpdate(ptr noundef nonnull %call, ptr noundef nonnull %dst, ptr noundef nonnull %outl, ptr noundef nonnull %pad, i32 noundef %sub) #7
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return.sink.split, label %land.lhs.true.if.end6_crit_edge
 
@@ -1308,7 +1308,7 @@ land.lhs.true.if.end6_crit_edge:                  ; preds = %land.lhs.true
 if.end6:                                          ; preds = %land.lhs.true.if.end6_crit_edge, %if.end
   %idx.ext = phi i64 [ %0, %land.lhs.true.if.end6_crit_edge ], [ 0, %if.end ]
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %idx.ext
-  %call7 = call i32 @EVP_EncodeUpdate(ptr noundef nonnull %call, ptr noundef %add.ptr, ptr noundef nonnull %outl2, ptr noundef %src, i32 noundef %size) #7
+  %call7 = call i32 @EVP_EncodeUpdate(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr, ptr noundef nonnull %outl2, ptr noundef nonnull %src, i32 noundef %size) #7
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return.sink.split, label %if.end10
 
@@ -1319,7 +1319,7 @@ if.end10:                                         ; preds = %if.end6
   store i32 %add, ptr %outl, align 4
   %idx.ext11 = sext i32 %add to i64
   %add.ptr12 = getelementptr inbounds i8, ptr %dst, i64 %idx.ext11
-  call void @EVP_EncodeFinal(ptr noundef nonnull %call, ptr noundef %add.ptr12, ptr noundef nonnull %outl2) #7
+  call void @EVP_EncodeFinal(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr12, ptr noundef nonnull %outl2) #7
   %3 = load i32, ptr %outl2, align 4
   %4 = load i32, ptr %outl, align 4
   %add13 = add nsw i32 %4, %3
@@ -1330,7 +1330,7 @@ if.then16:                                        ; preds = %if.end10
   %add.ptr17 = getelementptr inbounds i8, ptr %dst, i64 %conv
   %conv18 = sext i32 %add13 to i64
   %sub19 = sub nsw i64 %conv18, %conv
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %dst, ptr align 1 %add.ptr17, i64 %sub19, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %dst, ptr nonnull align 1 %add.ptr17, i64 %sub19, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %dst, i64 %sub19
   store i8 0, ptr %arrayidx, align 1
   br label %return.sink.split

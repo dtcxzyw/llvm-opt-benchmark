@@ -1772,7 +1772,7 @@ define hidden noundef zeroext i1 @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$17expand_multi_inf
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %12, ptr noundef nonnull align 8 dereferenceable(192) %13, i64 192, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !557
-  call fastcc void @_ZN6digest11FixedOutput14finalize_fixed17hf7d99c6de90ac6f8E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(32) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %12), !noalias !561
+  call fastcc void @_ZN6digest11FixedOutput14finalize_fixed17hf7d99c6de90ac6f8E(ptr noalias nocapture noundef align 1 dereferenceable(32) %11, ptr noalias nocapture noundef align 8 dereferenceable(192) %12), !noalias !561
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %7), !noalias !562
   call void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_iter17h4e099648186203d6E"(ptr noalias nocapture noundef nonnull sret({ i8, [32 x i8] }) align 1 dereferenceable(33) %7, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %28), !noalias !566
   %53 = load i8, ptr %7, align 1, !range !567, !noalias !562, !noundef !31
@@ -2128,7 +2128,7 @@ define hidden void @"_ZN4hkdf24HkdfExtract$LT$H$C$I$GT$8finalize17h245bd8dd9ca0e
   %8 = alloca { { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} } }, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !726
-  call fastcc void @_ZN6digest11FixedOutput14finalize_fixed17hf7d99c6de90ac6f8E(ptr noalias nocapture noundef nonnull align 1 dereferenceable(32) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %1), !noalias !730
+  call fastcc void @_ZN6digest11FixedOutput14finalize_fixed17hf7d99c6de90ac6f8E(ptr noalias nocapture noundef align 1 dereferenceable(32) %7, ptr noalias nocapture noundef align 8 dereferenceable(192) %1), !noalias !730
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %6), !noalias !731
   %9 = getelementptr inbounds i8, ptr %7, i64 32
   call void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_iter17h4e099648186203d6E"(ptr noalias nocapture noundef nonnull sret({ i8, [32 x i8] }) align 1 dereferenceable(33) %6, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %9), !noalias !735
@@ -4990,7 +4990,7 @@ define hidden void @_ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN6digest11FixedOutput14finalize_fixed17hf7d99c6de90ac6f8E(ptr noalias nocapture noundef writeonly align 1 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(192) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6digest11FixedOutput14finalize_fixed17hf7d99c6de90ac6f8E(ptr noalias nocapture noundef nonnull writeonly align 1 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { ptr, ptr }, i64 }, align 8
   %5 = alloca ptr, align 8

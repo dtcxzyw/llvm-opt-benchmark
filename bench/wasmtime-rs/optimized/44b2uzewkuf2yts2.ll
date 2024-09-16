@@ -479,14 +479,14 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit.i.i: ; preds = %37, %29
   %66 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h2b77858c092f081cE", ptr %66, align 8, !noalias !24
   store ptr @anon.5370cc5e4c9bad4a34a3533d54186f9f.130, ptr %7, align 8, !noalias !24
-  %.sroa.428.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %.sroa.428.0..sroa_idx.i.i, align 8, !noalias !24
-  %.sroa.529.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %6, ptr %.sroa.529.0..sroa_idx.i.i, align 8, !noalias !24
-  %.sroa.630.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 1, ptr %.sroa.630.0..sroa_idx.i.i, align 8, !noalias !24
-  %.sroa.731.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %.sroa.731.0..sroa_idx.i.i, align 8, !noalias !24
+  %.sroa.429.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 1, ptr %.sroa.429.0..sroa_idx.i.i, align 8, !noalias !24
+  %.sroa.530.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %6, ptr %.sroa.530.0..sroa_idx.i.i, align 8, !noalias !24
+  %.sroa.631.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 1, ptr %.sroa.631.0..sroa_idx.i.i, align 8, !noalias !24
+  %.sroa.732.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %.sroa.732.0..sroa_idx.i.i, align 8, !noalias !24
   invoke void @_ZN4core9panicking13assert_failed17h65d362b51a4927a6E(i8 noundef 0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) @anon.5370cc5e4c9bad4a34a3533d54186f9f.131, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5370cc5e4c9bad4a34a3533d54186f9f.132) #27
           to label %67 unwind label %58, !noalias !24
 
@@ -856,7 +856,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$wasmtime_runtime..traphandle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..module..Module$GT$$GT$17hc009d84cd48ed8eaE"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..module..Module$GT$$GT$17hc009d84cd48ed8eaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { ptr, ptr }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %3 = load ptr, ptr %0, align 8, !alias.scope !89, !nonnull !4, !noundef !4
@@ -4874,7 +4874,7 @@ define hidden noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8instance8Instanc
 "_ZN4core3ptr67drop_in_place$LT$wasmtime_environ..module..TableSegmentElements$GT$17h53045d9faa1700abE.exit": ; preds = %.invoke, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h7b714e56893b4162E.exit.thread", %33
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..module..Module$GT$$GT$17hc009d84cd48ed8eaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #29
+  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..module..Module$GT$$GT$17hc009d84cd48ed8eaE"(ptr noalias noundef align 8 dereferenceable(8) %10) #29
           to label %83 unwind label %81
 
 38:                                               ; preds = %.noexc

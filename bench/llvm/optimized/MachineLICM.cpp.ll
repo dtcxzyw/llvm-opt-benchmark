@@ -6440,7 +6440,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %.sroa.0.0.i.i.i.i.i.i90 = phi ptr [ %.sroa.01.065.i, %.lr.ph67.i ], [ %.sroa.01.065.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i.i103 ], [ %2492, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i.i105 ]
   %2496 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i90, i64 8
   %2497 = load ptr, ptr %2496, align 8
-  %2498 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115MachineLICMBase5HoistEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockEPNS1_11MachineLoopE(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull %.sroa.01.065.i, ptr noundef nonnull %.0.i20.i, ptr noundef nonnull %1206)
+  %2498 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115MachineLICMBase5HoistEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockEPNS1_11MachineLoopE(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef %.sroa.01.065.i, ptr noundef %.0.i20.i, ptr noundef nonnull %1206)
   %2499 = and i32 %2498, 1
   %.not51.i = icmp eq i32 %2499, 0
   br i1 %.not51.i, label %_ZN4llvm11SmallVectorIPNS_11MachineLoopELj6EED2Ev.exit.i, label %2500
@@ -6498,7 +6498,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11MachineLoopELb1EE9push_backES2_.exit.i91
   br i1 %.not53.i, label %2528, label %2525
 
 2525:                                             ; preds = %.lr.ph60.i
-  %2526 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115MachineLICMBase5HoistEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockEPNS1_11MachineLoopE(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull %.sroa.01.065.i, ptr noundef nonnull %2524, ptr noundef nonnull %2521)
+  %2526 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115MachineLICMBase5HoistEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockEPNS1_11MachineLoopE(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef %.sroa.01.065.i, ptr noundef %2524, ptr noundef nonnull %2521)
   %2527 = and i32 %2526, 2
   %.not54.i = icmp eq i32 %2527, 0
   br i1 %.not54.i, label %2528, label %._crit_edge61.i
@@ -6527,7 +6527,7 @@ _ZN4llvm11SmallVectorIPNS_11MachineLoopELj6EED2Ev.exit.i: ; preds = %2533, %._cr
 
 2535:                                             ; preds = %_ZN4llvm11SmallVectorIPNS_11MachineLoopELj6EED2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull readonly %.sroa.01.065.i, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull readonly %.sroa.01.065.i, i1 noundef zeroext true, i1 noundef zeroext false)
   %2536 = load i32, ptr %1196, align 8
   %2537 = icmp eq i32 %2536, 0
   %2538 = load ptr, ptr %6, align 8
@@ -9603,7 +9603,7 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %32, %28, %_
 37:                                               ; preds = %.lr.ph, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
   %.sroa.09.014 = phi ptr [ %.sroa.09.012, %.lr.ph ], [ %.sroa.09.0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef readonly %.sroa.09.014, i1 noundef zeroext true, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef readonly %.sroa.09.014, i1 noundef zeroext true, i1 noundef zeroext true)
   %38 = load i32, ptr %35, align 8
   %39 = icmp eq i32 %38, 0
   %40 = load ptr, ptr %3, align 8
@@ -9713,7 +9713,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 1, 7) i32 @_ZN12_GLOBAL__N_115MachineLICMBase5HoistEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockEPNS1_11MachineLoopE(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef range(i32 1, 7) i32 @_ZN12_GLOBAL__N_115MachineLICMBase5HoistEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockEPNS1_11MachineLoopE(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::DenseMap.515", align 8
   %6 = alloca %"class.llvm::SmallVector.552", align 8
   %7 = alloca %"class.llvm::SmallVector.554", align 8
@@ -9745,7 +9745,7 @@ define internal fastcc noundef range(i32 1, 7) i32 @_ZN12_GLOBAL__N_115MachineLI
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %17) #16
   %27 = load ptr, ptr %24, align 8
-  %28 = tail call i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %2) #16
+  %28 = tail call i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %2) #16
   %.not.i = icmp eq i64 %26, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_115MachineLICMBase18isTgtHotterThanSrcEPN4llvm17MachineBasicBlockES3_.exit.thread, label %_ZN12_GLOBAL__N_115MachineLICMBase18isTgtHotterThanSrcEPN4llvm17MachineBasicBlockES3_.exit
 
@@ -9895,7 +9895,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase19IsLoopInvariantInstERN4llvm12MachineInstrEPN
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef readonly %124, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef readonly %124, i1 noundef zeroext true, i1 noundef zeroext false)
   %125 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %126 = load i32, ptr %125, align 8
   %127 = icmp eq i32 %126, 0
@@ -10858,7 +10858,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i:   ; preds = %556
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %556, %558, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull readonly %.095, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull readonly %.095, i1 noundef zeroext false, i1 noundef zeroext false)
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %561 = load ptr, ptr %560, align 8
   %562 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %560) #16
@@ -13004,7 +13004,7 @@ _ZNK12_GLOBAL__N_115MachineLICMBase21HasHighOperandLatencyERN4llvm12MachineInstr
   br i1 %.not, label %._crit_edge, label %434, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %_ZNK12_GLOBAL__N_115MachineLICMBase21HasHighOperandLatencyERN4llvm12MachineInstrEjNS1_8RegisterEPNS1_11MachineLoopE.exit.thread, %.loopexit125
-  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %501 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %502 = load i32, ptr %501, align 8
   %503 = icmp eq i32 %502, 0
@@ -13175,7 +13175,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase23CanCauseHighRegPressureERKN4llvm8DenseMapIji
   br i1 %570, label %573, label %571
 
 571:                                              ; preds = %566
-  %572 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115MachineLICMBase6MayCSEEPN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull %1)
+  %572 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115MachineLICMBase6MayCSEEPN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef %1)
   br i1 %572, label %573, label %.loopexit
 
 573:                                              ; preds = %571, %566, %563
@@ -13200,7 +13200,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase23CanCauseHighRegPressureERKN4llvm8DenseMapIji
   %587 = load i24, ptr %390, align 8
   %588 = zext i24 %587 to i64
   %589 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %586, i64 %588
-  %590 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_0EEbOT_T0_"(ptr %585, ptr %589, ptr nonnull %0)
+  %590 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_0EEbOT_T0_"(ptr %585, ptr %589, ptr %0)
   br i1 %590, label %591, label %.thread114
 
 591:                                              ; preds = %582
@@ -13220,7 +13220,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase23CanCauseHighRegPressureERKN4llvm8DenseMapIji
   store i32 %580, ptr %600, align 8
   %601 = getelementptr inbounds i8, ptr %9, i64 24
   call void @_ZN4llvm8DenseMapIjiNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjiEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(20) %601, ptr noundef nonnull align 8 dereferenceable(20) %8)
-  %602 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_"(ptr %597, ptr %598, ptr noundef nonnull %9)
+  %602 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_"(ptr %597, ptr %598, ptr noundef %9)
   %.val42 = load ptr, ptr %601, align 8
   %603 = getelementptr inbounds i8, ptr %9, i64 40
   %.val43 = load i32, ptr %603, align 8
@@ -13353,7 +13353,7 @@ _ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1452) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1452) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Register", align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -13672,7 +13672,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjiNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115MachineLICMBase6MayCSEEPN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1452) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115MachineLICMBase6MayCSEEPN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1452) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i16, ptr %3, align 4
   %5 = add i16 %4, -1
@@ -13882,7 +13882,7 @@ _ZN4llvm16DenseMapIteratorIPNS_17MachineBasicBlockENS_8DenseMapIjSt6vectorIPNS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nocapture readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nocapture nonnull readonly %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %.8.val to i64
   %3 = ptrtoint ptr %.0.val to i64
   %4 = sub i64 %2, %3
@@ -14060,7 +14060,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8

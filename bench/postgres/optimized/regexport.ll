@@ -49,7 +49,7 @@ define dso_local i32 @pg_reg_getnumoutarcs(ptr nocapture noundef readonly %0, i3
 
 10:                                               ; preds = %8
   store i32 0, ptr %3, align 4
-  call fastcc void @traverse_lacons(ptr noundef nonnull %6, i32 noundef %1, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0)
+  call fastcc void @traverse_lacons(ptr noundef nonnull %6, i32 noundef %1, ptr noundef %3, ptr noundef null, i32 noundef 0)
   %11 = load i32, ptr %3, align 4
   br label %12
 
@@ -59,7 +59,7 @@ define dso_local i32 @pg_reg_getnumoutarcs(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @traverse_lacons(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @traverse_lacons(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef writeonly %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #1 {
   tail call void @check_stack_depth() #4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -135,7 +135,7 @@ define dso_local void @pg_reg_getoutarcs(ptr nocapture noundef readonly %0, i32 
 
 14:                                               ; preds = %10
   store i32 0, ptr %5, align 4
-  call fastcc void @traverse_lacons(ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3)
+  call fastcc void @traverse_lacons(ptr noundef nonnull %8, i32 noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %3)
   br label %15
 
 15:                                               ; preds = %4, %10, %14

@@ -9010,7 +9010,7 @@ declare noundef ptr @_Z7or_elseP6tacticS0_S0_S0_(ptr noundef, ptr noundef, ptr n
 declare noundef ptr @_Z7try_forP6tacticj(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL20mk_no_cut_smt_tacticR11ast_managerj(ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %rs) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL20mk_no_cut_smt_tacticR11ast_managerj(ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef range(i32 100, 301) %rs) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %solver_p = alloca %class.params_ref, align 8
   %ref.tmp = alloca %class.symbol, align 8

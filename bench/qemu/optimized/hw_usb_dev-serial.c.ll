@@ -1170,7 +1170,7 @@ trace_usb_serial_set_xonxoff.exit:                ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_serial_unsupported_data_bits(i32 noundef %bus, i32 noundef %addr, i32 noundef %value) unnamed_addr #0 {
+define internal fastcc void @trace_usb_serial_unsupported_data_bits(i32 noundef %bus, i32 noundef range(i32 0, 256) %addr, i32 noundef range(i32 0, 256) %value) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1211,7 +1211,7 @@ _nocheck__trace_usb_serial_unsupported_data_bits.exit: ; preds = %entry, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_serial_unsupported_parity(i32 noundef %bus, i32 noundef %addr, i32 noundef %value) unnamed_addr #0 {
+define internal fastcc void @trace_usb_serial_unsupported_parity(i32 noundef %bus, i32 noundef range(i32 0, 256) %addr, i32 noundef range(i32 0, 1793) %value) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1252,7 +1252,7 @@ _nocheck__trace_usb_serial_unsupported_parity.exit: ; preds = %entry, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_serial_unsupported_stopbits(i32 noundef %bus, i32 noundef %addr, i32 noundef %value) unnamed_addr #0 {
+define internal fastcc void @trace_usb_serial_unsupported_stopbits(i32 noundef %bus, i32 noundef range(i32 0, 256) %addr, i32 noundef range(i32 0, 6145) %value) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1293,7 +1293,7 @@ _nocheck__trace_usb_serial_unsupported_stopbits.exit: ; preds = %entry, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_serial_set_data(i32 noundef %bus, i32 noundef %addr, i32 noundef %parity, i32 noundef %data, i32 noundef %stop) unnamed_addr #0 {
+define internal fastcc void @trace_usb_serial_set_data(i32 noundef %bus, i32 noundef range(i32 0, 256) %addr, i32 noundef %parity, i32 noundef %data, i32 noundef %stop) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)

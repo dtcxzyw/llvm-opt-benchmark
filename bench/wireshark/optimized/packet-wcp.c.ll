@@ -577,11 +577,11 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
 249:                                              ; preds = %259, %243
   %.3170.i = phi i32 [ %.0167202.i, %243 ], [ %257, %259 ]
   %.in.i.i = phi i16 [ %.0126.i, %243 ], [ %250, %259 ]
-  %.02029.i.i = phi ptr [ %.0134204.i, %243 ], [ %spec.select26.i.i, %259 ]
-  %.12228.i.i = phi ptr [ %spec.select.i.i, %243 ], [ %.2.i.i, %259 ]
+  %.02028.i.i = phi ptr [ %.0134204.i, %243 ], [ %spec.select26.i.i, %259 ]
+  %.12227.i.i = phi ptr [ %spec.select.i.i, %243 ], [ %.2.i.i, %259 ]
   %250 = add nsw i16 %.in.i.i, -1
-  %251 = load i8, ptr %.12228.i.i, align 1
-  store i8 %251, ptr %.02029.i.i, align 1
+  %251 = load i8, ptr %.12227.i.i, align 1
+  store i8 %251, ptr %.02028.i.i, align 1
   %252 = load i16, ptr %174, align 8
   %253 = icmp ult i16 %252, 32767
   br i1 %253, label %254, label %256
@@ -597,11 +597,11 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   br i1 %258, label %decompressed_entry.exit.thread.i, label %259
 
 259:                                              ; preds = %256
-  %260 = getelementptr i8, ptr %.02029.i.i, i64 1
-  %261 = icmp eq ptr %.02029.i.i, %160
+  %260 = getelementptr i8, ptr %.02028.i.i, i64 1
+  %261 = icmp eq ptr %.02028.i.i, %160
   %spec.select26.i.i = select i1 %261, ptr %159, ptr %260
-  %262 = getelementptr i8, ptr %.12228.i.i, i64 1
-  %263 = icmp eq ptr %.12228.i.i, %160
+  %262 = getelementptr i8, ptr %.12227.i.i, i64 1
+  %263 = icmp eq ptr %.12227.i.i, %160
   %.2.i.i = select i1 %263, ptr %159, ptr %262
   %.not.i161.i = icmp eq i16 %250, 0
   br i1 %.not.i161.i, label %decompressed_entry.exit.i, label %249, !llvm.loop !4

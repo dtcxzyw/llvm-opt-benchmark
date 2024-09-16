@@ -215,7 +215,7 @@ define hidden noundef zeroext i1 @_ZN6uucore4mods5error6UError5usage17hb203536b3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757f9cd1E(i8 %.32.val, ptr noalias noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757f9cd1E(i8 %.32.val, ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [1 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
@@ -609,12 +609,12 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.thread.us.us: ; preds = %
   br label %73
 
 73:                                               ; preds = %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.thread.us.us, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us
-  %74 = call fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757f9cd1E(i8 %44, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.083.us, i64 noundef %13)
+  %74 = call fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757f9cd1E(i8 %44, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.0.083.us, i64 noundef %13)
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %_ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread
 
 76:                                               ; preds = %73
-  %77 = call fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757f9cd1E(i8 %44, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.059.0.us.us, i64 noundef %57)
+  %77 = call fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757f9cd1E(i8 %44, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.059.0.us.us, i64 noundef %57)
   %78 = icmp eq ptr %77, null
   br i1 %78, label %_ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.us.us, label %_ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread
 
@@ -1355,7 +1355,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
 133:                                              ; preds = %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.thread, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit
   %134 = getelementptr inbounds i8, ptr %3, i64 32
   %.val25 = load i8, ptr %134, align 8
-  %135 = tail call fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757f9cd1E(i8 %.val25, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, i64 noundef %11)
+  %135 = tail call fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757f9cd1E(i8 %.val25, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %2, i64 noundef %11)
   %136 = icmp eq ptr %135, null
   br i1 %136, label %_ZN7uu_join4Repr12print_format17hfee7c7e838b68403E.exit, label %_ZN7uu_join4Repr12print_format17hfee7c7e838b68403E.exit.thread
 

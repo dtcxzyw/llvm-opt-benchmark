@@ -2939,7 +2939,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dvb_s2_table_tim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_dvb_s2_table_tim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %. = select i1 %.not, i32 254, i32 176
   %hf_dvb_s2_table_network_status.val = load i32, ptr @hf_dvb_s2_table_network_status, align 4
@@ -2971,7 +2971,7 @@ define internal fastcc void @dissect_dvb_s2_table_tim(ptr noundef %0, i32 nounde
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   store i32 0, ptr %7, align 4

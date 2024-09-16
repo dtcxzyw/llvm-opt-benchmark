@@ -22390,14 +22390,14 @@ declare noundef zeroext i1 @_ZN3ue237has_bounded_repeats_other_than_firstsERK3NF
 declare void @_ZN3ue214buildMcClellanERKNS_8NGHolderEPKNS_13ReportManagerERKNS_4GreyE(ptr sret(%"class.std::unique_ptr.522") align 8, ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef nonnull align 8 dereferenceable(292)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaEbRKNS_14CompileContextERKNS_13ReportManagerE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, i1 noundef zeroext %is_transient, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaEbRKNS_14CompileContextERKNS_13ReportManagerE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, i1 noundef zeroext %is_transient, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.ue2::bytecode_ptr.541", align 8
   %ref.tmp4 = alloca %"class.ue2::bytecode_ptr.541", align 8
   %ref.tmp11 = alloca %"class.ue2::bytecode_ptr.541", align 8
   %ref.tmp20 = alloca %"class.ue2::bytecode_ptr.541", align 8
   %ref.tmp27 = alloca %"class.ue2::bytecode_ptr.541", align 8
-  tail call void @_ZN3ue212shengCompileERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbPSt3setItSt4lessItESaItEE(ptr sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext false, ptr noundef null)
+  tail call void @_ZN3ue212shengCompileERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbPSt3setItSt4lessItESaItEE(ptr nonnull sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext false, ptr noundef null)
   %0 = load ptr, ptr %agg.result, align 8
   %cmp.i.i.i = icmp ne ptr %0, null
   %brmerge = or i1 %is_transient, %cmp.i.i.i
@@ -22725,7 +22725,7 @@ ehcleanup:                                        ; preds = %lpad28, %lpad21, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L8pickImplENS_12bytecode_ptrI3NFAEES2_b(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef %dfa_impl, ptr nocapture noundef %nfa_impl, i1 noundef zeroext %fast_nfa) unnamed_addr #0 {
+define internal fastcc void @_ZN3ue2L8pickImplENS_12bytecode_ptrI3NFAEES2_b(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %dfa_impl, ptr nocapture noundef nonnull %nfa_impl, i1 noundef zeroext %fast_nfa) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %nfa_impl, align 8
   %type = getelementptr inbounds i8, ptr %0, i64 8
@@ -22998,7 +22998,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @_ZN3ue212goughCompileERNS_11raw_som_dfaEhRKNS_14CompileContextERKNS_13ReportManagerE(ptr sret(%"class.ue2::bytecode_ptr.541") align 8, ptr noundef nonnull align 8 dereferenceable(644), i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(320), ptr noundef nonnull align 8 dereferenceable(505)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L14buildLeftfixesERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextERNS_17QueueIndexFactoryEPSt3setIjSt4lessIjESaIjEESC_b(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr noundef nonnull align 8 dereferenceable(606) %bc, ptr nocapture noundef nonnull align 4 dereferenceable(4) %qif, ptr noundef %no_retrigger_queues, ptr noundef %eager_queues, i1 noundef zeroext %do_prefix) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L14buildLeftfixesERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextERNS_17QueueIndexFactoryEPSt3setIjSt4lessIjESaIjEESC_b(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr noundef nonnull align 8 dereferenceable(606) %bc, ptr nocapture noundef nonnull align 4 dereferenceable(4) %qif, ptr noundef nonnull %no_retrigger_queues, ptr noundef nonnull %eager_queues, i1 noundef zeroext %do_prefix) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.1167", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.488", align 1
@@ -29721,7 +29721,7 @@ if.end:                                           ; preds = %_ZNKSt4lessIN3ue29s
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L20findTriggerSequencesERKNS_13RoseBuildImplERKSt3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS5_ESaIS5_EEPSt3mapIjSt6vectorISD_INS_9CharReachESaISE_EESaISG_EES6_IjESaISt4pairIKjSI_EEE(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr noundef nonnull readonly align 8 dereferenceable(48) %triggers, ptr noundef %trigger_lits) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L20findTriggerSequencesERKNS_13RoseBuildImplERKSt3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS5_ESaIS5_EEPSt3mapIjSt6vectorISD_INS_9CharReachESaISE_EESaISG_EES6_IjESaISt4pairIKjSI_EEE(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr noundef nonnull readonly align 8 dereferenceable(48) %triggers, ptr noundef nonnull %trigger_lits) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<std::vector<ue2::CharReach>>>, std::_Select1st<std::pair<const unsigned int, std::vector<std::vector<ue2::CharReach>>>>, std::less<unsigned int>>::_Auto_node", align 8
   %agg.tmp.i = alloca %"class.ue2::flat_detail::iter_wrapper", align 8
@@ -33417,7 +33417,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L18findFixedDepthTopsERKNS_9RoseGraphERKSt3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS5_ESaIS5_EEPSt3mapIjjS6_IjESaISt4pairIKjjEEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %triggers, ptr noundef %fixed_depth_tops) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L18findFixedDepthTopsERKNS_9RoseGraphERKSt3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS5_ESaIS5_EEPSt3mapIjjS6_IjESaISt4pairIKjjEEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %triggers, ptr noundef nonnull %fixed_depth_tops) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.684", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.488", align 1
@@ -33690,7 +33690,7 @@ ehcleanup91:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L11buildSuffixERKNS_13ReportManagerERKNS_14SomSlotManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEENS_9suffix_idERKNS_14CompileContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 %ssm.100.val, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops, ptr noundef nonnull align 8 dereferenceable(48) %triggers, ptr nocapture noundef readonly byval(%"struct.ue2::suffix_id") align 8 %suff, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L11buildSuffixERKNS_13ReportManagerERKNS_14SomSlotManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEENS_9suffix_idERKNS_14CompileContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 %ssm.100.val, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops, ptr noundef nonnull align 8 dereferenceable(48) %triggers, ptr nocapture noundef readonly byval(%"struct.ue2::suffix_id") align 8 %suff, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fast_nfa = alloca i8, align 1
   %rdfa = alloca %"class.std::unique_ptr.522", align 8
@@ -33742,11 +33742,11 @@ if.then.i.i:                                      ; preds = %_ZNKSt3mapIjSt6vect
 
 _ZNKSt3mapIjSt6vectorIS0_IN3ue29CharReachESaIS2_EESaIS4_EESt4lessIjESaISt4pairIKjS6_EEE2atERSA_.exit.i: ; preds = %_ZNKSt3mapIjSt6vectorIS0_IN3ue29CharReachESaIS2_EESaIS4_EESt4lessIjESaISt4pairIKjS6_EEE11lower_boundERSA_.exit.i.i
   %second.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 40
-  tail call void @_ZN3ue212constructLBRERKNS_11CastleProtoERKSt6vectorIS3_INS_9CharReachESaIS4_EESaIS6_EERKNS_14CompileContextERKNS_13ReportManagerE(ptr sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(24) %second.i.i, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm)
+  tail call void @_ZN3ue212constructLBRERKNS_11CastleProtoERKSt6vectorIS3_INS_9CharReachESaIS4_EESaIS6_EERKNS_14CompileContextERKNS_13ReportManagerE(ptr nonnull sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(24) %second.i.i, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm)
   br label %return
 
 if.end.i:                                         ; preds = %if.then
-  tail call void @_ZN3ue211buildCastleERKNS_11CastleProtoERKSt3mapIjSt6vectorIS4_INS_9CharReachESaIS5_EESaIS7_EESt4lessIjESaISt4pairIKjS9_EEERKNS_14CompileContextERKNS_13ReportManagerE(ptr sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(48) %triggers, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm)
+  tail call void @_ZN3ue211buildCastleERKNS_11CastleProtoERKSt3mapIjSt6vectorIS4_INS_9CharReachESaIS5_EESaIS7_EESt4lessIjESaISt4pairIKjS9_EEERKNS_14CompileContextERKNS_13ReportManagerE(ptr nonnull sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(48) %triggers, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -33757,7 +33757,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %conv = trunc i32 %ssm.100.val to i8
-  tail call void @_ZN3ue212goughCompileERNS_11raw_som_dfaEhRKNS_14CompileContextERKNS_13ReportManagerE(ptr sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(644) %5, i8 noundef zeroext %conv, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm)
+  tail call void @_ZN3ue212goughCompileERNS_11raw_som_dfaEhRKNS_14CompileContextERKNS_13ReportManagerE(ptr nonnull sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(644) %5, i8 noundef zeroext %conv, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm)
   br label %return
 
 if.end11:                                         ; preds = %if.end
@@ -33805,7 +33805,7 @@ if.then.i148:                                     ; preds = %_ZNKSt3mapIjSt6vect
 
 _ZNKSt3mapIjSt6vectorIS0_IN3ue29CharReachESaIS2_EESaIS4_EESt4lessIjESaISt4pairIKjS6_EEE2atERSA_.exit: ; preds = %_ZNKSt3mapIjSt6vectorIS0_IN3ue29CharReachESaIS2_EESaIS4_EESt4lessIjESaISt4pairIKjS6_EEE11lower_boundERSA_.exit.i
   %second.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 40
-  tail call void @_ZN3ue212constructLBRERKNS_8NGHolderERKSt6vectorIS3_INS_9CharReachESaIS4_EESaIS6_EERKNS_14CompileContextERKNS_13ReportManagerE(ptr sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(24) %second.i, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm)
+  tail call void @_ZN3ue212constructLBRERKNS_8NGHolderERKSt6vectorIS3_INS_9CharReachESaIS4_EESaIS6_EERKNS_14CompileContextERKNS_13ReportManagerE(ptr nonnull sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(24) %second.i, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm)
   %11 = load ptr, ptr %agg.result, align 8
   %cmp.i.i.i149.not = icmp eq ptr %11, null
   br i1 %cmp.i.i.i149.not, label %land.lhs.true, label %return
@@ -33993,7 +33993,7 @@ ehcleanup96:                                      ; preds = %_ZNKSt14default_del
 if.end98.critedge:                                ; preds = %if.end20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %fast_nfa) #26
   store i8 0, ptr %fast_nfa, align 1
-  call void @_ZN3ue212constructNFAERKNS_8NGHolderEPKNS_13ReportManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEEbRbRKNS_14CompileContextE(ptr sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull %rm, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops, ptr noundef nonnull align 8 dereferenceable(48) %triggers, i1 noundef zeroext %tobool23, ptr noundef nonnull align 1 dereferenceable(1) %fast_nfa, ptr noundef nonnull align 8 dereferenceable(320) %cc)
+  call void @_ZN3ue212constructNFAERKNS_8NGHolderEPKNS_13ReportManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEEbRbRKNS_14CompileContextE(ptr nonnull sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull %rm, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops, ptr noundef nonnull align 8 dereferenceable(48) %triggers, i1 noundef zeroext %tobool23, ptr noundef nonnull align 1 dereferenceable(1) %fast_nfa, ptr noundef nonnull align 8 dereferenceable(320) %cc)
   br label %nrvo.skipdtor102
 
 nrvo.skipdtor102:                                 ; preds = %if.end98.critedge, %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit159, %invoke.cont, %land.lhs.true
@@ -36470,7 +36470,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L24constructContainerEngineERKNS_9RoseGraphERNS_12_GLOBAL__N_113build_contextERKNS3_13ExclusiveInfoEjbRKNS_4GreyE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(606) %bc, ptr noundef nonnull align 8 dereferenceable(76) %info, i32 noundef %queue, i1 noundef zeroext %is_suffix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L24constructContainerEngineERKNS_9RoseGraphERNS_12_GLOBAL__N_113build_contextERKNS3_13ExclusiveInfoEjbRKNS_4GreyE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(606) %bc, ptr noundef nonnull align 8 dereferenceable(76) %info, i32 noundef %queue, i1 noundef zeroext %is_suffix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %qi.i = alloca i32, align 4
   %nfa_offset.i = alloca i32, align 4
@@ -40555,7 +40555,7 @@ unreachable:                                      ; preds = %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %left, i1 noundef zeroext %is_prefix, i1 noundef zeroext %is_transient, ptr noundef nonnull align 8 dereferenceable(48) %infixTriggers, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %left, i1 noundef zeroext %is_prefix, i1 noundef zeroext %is_transient, ptr noundef nonnull align 8 dereferenceable(48) %infixTriggers, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fixed_depth_tops = alloca %"class.std::map.315", align 8
   %triggers17 = alloca %"class.std::map.583", align 8
@@ -47557,7 +47557,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L18findEdgesByLiteralERKNS_13RoseBuildImplE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(780) %build) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L18findEdgesByLiteralERKNS_13RoseBuildImplE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(780) %build) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.i49.i.i.i = alloca %"class.ue2::graph_detail::edge_descriptor.903", align 8
   %__val.i.i.i.i = alloca %"class.ue2::graph_detail::edge_descriptor.903", align 8
@@ -48606,7 +48606,7 @@ if.end121:                                        ; preds = %if.end121.critedge,
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_L18findEdgesByLiteralERKNS2_13RoseBuildImplEE3$_0EEEvT_SN_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_L18findEdgesByLiteralERKNS2_13RoseBuildImplEE3$_0EEEvT_SN_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i37.i = alloca %"class.ue2::graph_detail::edge_descriptor.903", align 8
   %__tmp.i.i133.i.i = alloca %"class.ue2::graph_detail::edge_descriptor.903", align 8
@@ -48929,7 +48929,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS2_L18findEdgesByLiteralERKNS2_13RoseBuildImplEE3$_0EEEvT_T0_SO_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce0, i64 %__value.coerce1) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS2_L18findEdgesByLiteralERKNS2_13RoseBuildImplEE3$_0EEEvT_T0_SO_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -576460752303423488, 576460752303423488) %__len, ptr %__value.coerce0, i64 %__value.coerce1) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -49968,7 +49968,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEEvT_S10_T0_T1_T2_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #0 {
+define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEEvT_S10_T0_T1_T2_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %__buffer, i64 noundef %__buffer_size) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
@@ -51564,7 +51564,7 @@ return:                                           ; preds = %for.cond.cleanup49,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEEvT_S10_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__buffer) unnamed_addr #0 {
+define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEEvT_S10_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %__buffer) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
@@ -51649,7 +51649,7 @@ while.end:                                        ; preds = %"_ZSt17__merge_sort
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEEvT_S10_S10_T0_S11_T1_S11_T2_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEEvT_S10_S10_T0_S11_T1_S11_T2_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr noundef nonnull %__buffer, i64 noundef %__buffer_size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not289 = icmp sgt i64 %__len1, %__len2
   %cmp3.not290 = icmp sgt i64 %__len1, %__buffer_size
@@ -52294,7 +52294,7 @@ if.end:                                           ; preds = %"_ZSt13__upper_boun
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEET_S10_S10_RKT0_T1_.exit" ], [ %div47, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEET_S10_S10_RKT0_T1_.exit" ]
   %__len11.0 = phi i64 [ %div, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEET_S10_S10_RKT0_T1_.exit" ], [ %sub.ptr.div.i.i.i273, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEET_S10_S10_RKT0_T1_.exit" ]
   %sub = sub nsw i64 %__len1.tr294, %__len11.0
-  %call70 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_(ptr %__first_cut.sroa.0.0, ptr %__middle.coerce.tr293, ptr %__second_cut.sroa.0.0, i64 noundef %sub, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  %call70 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_(ptr %__first_cut.sroa.0.0, ptr %__middle.coerce.tr293, ptr %__second_cut.sroa.0.0, i64 noundef %sub, i64 noundef %__len22.0, ptr noundef nonnull %__buffer, i64 noundef %__buffer_size)
   tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEEvT_S10_S10_T0_S11_T1_S11_T2_"(ptr %__first.coerce.tr292, ptr %__first_cut.sroa.0.0, ptr %call70, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
   %sub83 = sub nsw i64 %__len2.tr295, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub83
@@ -52307,7 +52307,7 @@ if.end89:                                         ; preds = %_ZN3ue211LitFragmen
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEET0_T_S11_S11_S11_S10_T1_"(ptr %__first1.coerce, ptr %__last1.coerce, ptr %__first2.coerce, ptr %__last2.coerce, ptr noundef %__result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_L21buildFragmentProgramsERKNS2_13RoseBuildImplERS7_RNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERKS5_IS5_INS2_12graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEET0_T_S11_S11_S11_S10_T1_"(ptr %__first1.coerce, ptr %__last1.coerce, ptr %__first2.coerce, ptr %__last2.coerce, ptr noundef nonnull %__result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i82 = icmp ne ptr %__first1.coerce, %__last1.coerce
   %cmp.i2883 = icmp ne ptr %__first2.coerce, %__last2.coerce
@@ -52533,7 +52533,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3ue211LitFragmentESt6vectorIS3_SaIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZSt12__move_mergeIPN3ue211LitFragmentEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNS0_L21buildFragmentProgramsERKNS0_13RoseBuildImplERS7_RNS0_12_GLOBAL__N_113build_contextERNS0_12ProgramBuildERKS5_IS5_INS0_12graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEET0_T_S11_S11_S11_S10_T1_"(ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr %__result.coerce) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc ptr @"_ZSt12__move_mergeIPN3ue211LitFragmentEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNS0_L21buildFragmentProgramsERKNS0_13RoseBuildImplERS7_RNS0_12_GLOBAL__N_113build_contextERNS0_12ProgramBuildERKS5_IS5_INS0_12graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISR_EESaIST_EEE3$_0EEET0_T_S11_S11_S11_S10_T1_"(ptr noundef nonnull %__first1, ptr noundef nonnull %__last1, ptr noundef nonnull %__first2, ptr noundef nonnull %__last2, ptr %__result.coerce) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp81 = icmp ne ptr %__first1, %__last1
   %cmp182 = icmp ne ptr %__first2, %__last2
@@ -53886,7 +53886,7 @@ declare void @_ZN3ue221addSuffixesEodProgramERNS_11RoseProgramE(ptr noundef nonn
 declare void @_ZN3ue211RoseProgram9add_blockEOS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_L18addEodEventProgramERKNS2_13RoseBuildImplERNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERNS2_11RoseProgramEE3$_0EEEvT_SU_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_L18addEodEventProgramERKNS2_13RoseBuildImplERNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERNS2_11RoseProgramEE3$_0EEEvT_SU_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i37.i = alloca %"class.ue2::graph_detail::edge_descriptor.903", align 8
   %__tmp.i.i133.i.i = alloca %"class.ue2::graph_detail::edge_descriptor.903", align 8
@@ -54209,7 +54209,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS2_L18addEodEventProgramERKNS2_13RoseBuildImplERNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERNS2_11RoseProgramEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce0, i64 %__value.coerce1) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS2_L18addEodEventProgramERKNS2_13RoseBuildImplERNS2_12_GLOBAL__N_113build_contextERNS2_12ProgramBuildERNS2_11RoseProgramEE3$_0EEEvT_T0_SV_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -576460752303423488, 576460752303423488) %__len, ptr %__value.coerce0, i64 %__value.coerce1) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

@@ -381,7 +381,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %34, ptr %.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21)
+  call fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
@@ -2135,7 +2135,7 @@ define noundef zeroext i1 @"_ZN86_$LT$ockam_transport_ble..driver..packet..Packe
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #5 {
+define internal fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8

@@ -169,7 +169,7 @@ entry:
   store i32 %spec.select, ptr %10, align 8
   %11 = load ptr, ptr %_outputFile, align 8
   %call30 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call30)
+  call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call30)
   %12 = load float, ptr %ref.tmp, align 4
   store float %12, ptr %_yw, align 4
   %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
@@ -263,7 +263,7 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10da
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %header) unnamed_addr #3 {
+define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %header) unnamed_addr #3 {
 entry:
   %cr = alloca %"struct.Imf_3_2::Chromaticities", align 4
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.8", align 4
@@ -321,7 +321,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  call void @_ZN7Imf_3_27RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr sret(%"class.Imath_3_2::Vec3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(32) %cr)
+  call void @_ZN7Imf_3_27RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr nonnull sret(%"class.Imath_3_2::Vec3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(32) %cr)
   ret void
 }
 
@@ -2337,7 +2337,7 @@ entry:
   store i32 %7, ptr %_lineOrder, align 4
   %8 = load ptr, ptr %_inputPart, align 8
   %call24 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call24)
+  call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call24)
   %9 = load float, ptr %ref.tmp, align 4
   store float %9, ptr %_yw, align 8
   %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
@@ -3648,7 +3648,7 @@ invoke.cont7:                                     ; preds = %invoke.cont3
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call11)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call11)
           to label %invoke.cont12 unwind label %lpad2
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -3800,7 +3800,7 @@ invoke.cont7:                                     ; preds = %invoke.cont3
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call11)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call11)
           to label %invoke.cont12 unwind label %lpad2
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -3952,7 +3952,7 @@ declare void @_ZN7Imf_3_218MultiPartInputFileC1ERNS_7IStreamEib(ptr noundef nonn
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %header) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %header) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.5", align 1
   %ref.tmp6 = alloca %"class.std::allocator.5", align 1
@@ -4436,7 +4436,7 @@ delete.end:                                       ; preds = %_ZN7Imf_3_213RgbaIn
   %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call)
+  call fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call)
   %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
@@ -4560,7 +4560,7 @@ delete.end5:                                      ; preds = %delete.notnull4, %d
 invoke.cont:                                      ; preds = %delete.end5
   store ptr %call, ptr %_inputPart, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
-  call fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call9)
+  call fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call9)
   %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27

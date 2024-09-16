@@ -3137,7 +3137,7 @@ declare i32 @EVP_CIPHER_get_iv_length(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr nocapture noundef %t, i32 noundef %enc, i64 noundef %out_misalign, i64 noundef %inp_misalign, i32 noundef %frag, i32 noundef %in_place) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr nocapture noundef %t, i32 noundef range(i32 0, 2) %enc, i64 noundef range(i64 0, 2) %out_misalign, i64 noundef range(i64 0, 2) %inp_misalign, i32 noundef range(i32 0, 2) %frag, i32 noundef range(i32 0, 2) %in_place) unnamed_addr #1 {
 entry:
   %tmplen = alloca i32, align 4
   %chunklen = alloca i32, align 4
@@ -3189,11 +3189,11 @@ if.end7:                                          ; preds = %if.end
   %expected_out.0 = load ptr, ptr %plaintext12, align 8
   %out_len.0 = load i64, ptr %plaintext_len13, align 8
   %in_len.0 = load i64, ptr %ciphertext_len11, align 8
-  %cmp = icmp eq i32 %in_place, 1
-  br i1 %cmp, label %if.then15, label %if.else21
+  %cmp.not = icmp eq i32 %in_place, 0
+  br i1 %cmp.not, label %if.else21, label %if.then15
 
 if.then15:                                        ; preds = %if.end7
-  %add = add i64 %out_misalign, 64
+  %add = or disjoint i64 %out_misalign, 64
   %add16 = add i64 %add, %in_len.0
   %call17 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add16, ptr noundef nonnull @.str.27, i32 noundef 778) #11
   %tobool18.not = icmp eq ptr %call17, null
@@ -3206,8 +3206,8 @@ if.end20:                                         ; preds = %if.then15
 if.else21:                                        ; preds = %if.end7
   %add22 = add i64 %in_len.0, %out_misalign
   %and = and i64 %add22, 15
-  %reass.sub = sub i64 %inp_misalign, %and
-  %add23 = add i64 %reass.sub, 16
+  %reass.sub = sub nsw i64 %inp_misalign, %and
+  %add23 = add nsw i64 %reass.sub, 16
   %add25 = add i64 %in_len.0, 64
   %add26 = add i64 %add25, %add22
   %add27 = add i64 %add26, %add23
@@ -5184,7 +5184,7 @@ err24:                                            ; preds = %memory_err_compare.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @digestsigver_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg, i32 noundef %is_verify, i32 noundef %is_oneshot) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @digestsigver_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg, i32 noundef range(i32 0, 2) %is_verify, i32 noundef range(i32 0, 2) %is_oneshot) unnamed_addr #1 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %alg, ptr noundef nonnull dereferenceable(5) @.str.62) #12
   %cmp.not = icmp eq i32 %call, 0

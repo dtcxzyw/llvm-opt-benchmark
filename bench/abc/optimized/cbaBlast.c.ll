@@ -3042,9 +3042,10 @@ define void @Cba_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %22 = icmp slt i32 %3, 6
   %23 = icmp eq i32 %3, 0
   %24 = icmp ult i32 %3, 2
+  %.1.i = tail call i32 @llvm.umax.i32(i32 %3, i32 2)
   %25 = icmp ult i32 %3, 3
-  %.2.i = tail call i32 @llvm.umax.i32(i32 %3, i32 3)
-  %26 = icmp ult i32 %3, 4
+  %.2.i = select i1 %25, i32 3, i32 %.1.i
+  %26 = icmp eq i32 %.2.i, 3
   %.3.i = select i1 %26, i32 4, i32 %.2.i
   %27 = icmp eq i32 %.3.i, 4
   %28 = and i32 %.3.i, -2
@@ -3118,7 +3119,7 @@ define void @Cba_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %.227.i = select i1 %25, i64 %60, i64 %54
   %61 = and i64 %.227.i, 255
   %62 = mul nuw nsw i64 %61, 257
-  %.328.i = select i1 %26, i64 %62, i64 %54
+  %.328.i = select i1 %26, i64 %62, i64 %.227.i
   %63 = and i64 %.328.i, 65535
   %64 = mul nuw nsw i64 %63, 65537
   %.429.i = select i1 %27, i64 %64, i64 %.328.i

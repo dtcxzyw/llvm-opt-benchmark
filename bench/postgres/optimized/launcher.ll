@@ -851,7 +851,7 @@ logicalrep_worker_find.exit.thread:               ; preds = %25, %2, %logicalrep
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logicalrep_worker_stop_internal(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @logicalrep_worker_stop_internal(ptr nocapture noundef readonly %0, i32 noundef range(i32 2, 16) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 18
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 16

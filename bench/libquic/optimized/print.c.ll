@@ -238,7 +238,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_rsa_print(ptr noundef %out, ptr nocapture noundef readonly %rsa, i32 noundef %off, i32 noundef %include_private) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_rsa_print(ptr noundef %out, ptr nocapture noundef readonly %rsa, i32 noundef %off, i32 noundef range(i32 0, 2) %include_private) unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
@@ -713,7 +713,7 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %bp, ptr nocapture noundef readonly %x, i32 noundef %off, i32 noundef %ptype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %bp, ptr nocapture noundef readonly %x, i32 noundef %off, i32 noundef range(i32 0, 3) %ptype) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %ptype, 2
   br i1 %cmp, label %if.end.thread, label %if.end
@@ -724,17 +724,17 @@ if.end.thread:                                    ; preds = %entry
   br label %if.then3
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp sgt i32 %ptype, 0
-  br i1 %cmp2, label %if.then3, label %if.end5
+  %cmp2.not = icmp eq i32 %ptype, 0
+  br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end.thread, %if.end
-  %priv_key.071 = phi ptr [ %0, %if.end.thread ], [ null, %if.end ]
+  %priv_key.070 = phi ptr [ %0, %if.end.thread ], [ null, %if.end ]
   %pub_key4 = getelementptr inbounds i8, ptr %x, i64 32
   %1 = load ptr, ptr %pub_key4, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %priv_key.070 = phi ptr [ %priv_key.071, %if.then3 ], [ null, %if.end ]
+  %priv_key.071 = phi ptr [ %priv_key.070, %if.then3 ], [ null, %if.end ]
   %pub_key.0 = phi ptr [ %1, %if.then3 ], [ null, %if.end ]
   %cmp8 = icmp eq i32 %ptype, 1
   %spec.select = select i1 %cmp8, ptr @.str.32, ptr @.str.30
@@ -777,11 +777,11 @@ if.end.i43:                                       ; preds = %update_buflen.exit4
 
 update_buflen.exit48:                             ; preds = %if.end.i43, %update_buflen.exit41
   %buf_len.2 = phi i64 [ %buf_len.1, %update_buflen.exit41 ], [ %spec.select76, %if.end.i43 ]
-  %tobool.not.i49 = icmp eq ptr %priv_key.070, null
+  %tobool.not.i49 = icmp eq ptr %priv_key.071, null
   br i1 %tobool.not.i49, label %update_buflen.exit55, label %if.end.i50
 
 if.end.i50:                                       ; preds = %update_buflen.exit48
-  %call.i51 = tail call i32 @BN_num_bytes(ptr noundef nonnull %priv_key.070) #5
+  %call.i51 = tail call i32 @BN_num_bytes(ptr noundef nonnull %priv_key.071) #5
   %conv.i52 = zext i32 %call.i51 to i64
   %spec.select77 = tail call i64 @llvm.umax.i64(i64 %buf_len.2, i64 %conv.i52)
   br label %update_buflen.exit55
@@ -824,7 +824,7 @@ lor.lhs.false:                                    ; preds = %if.then15
   br i1 %cmp21, label %err, label %if.end24
 
 if.end24:                                         ; preds = %lor.lhs.false
-  %call2533 = tail call fastcc i32 @bn_print(ptr noundef %bp, ptr noundef nonnull @.str.34, ptr noundef nonnull %priv_key.070, ptr noundef nonnull %call, i32 noundef %off)
+  %call2533 = tail call fastcc i32 @bn_print(ptr noundef %bp, ptr noundef nonnull @.str.34, ptr noundef nonnull %priv_key.071, ptr noundef nonnull %call, i32 noundef %off)
   %tobool26.not = icmp eq i32 %call2533, 0
   br i1 %tobool26.not, label %err, label %lor.lhs.false27
 
@@ -857,7 +857,7 @@ err:                                              ; preds = %lor.lhs.false38, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef %ktype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef range(i32 0, 3) %ktype) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %if.then85, label %lor.lhs.false
@@ -873,8 +873,8 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3, label %if.then85, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %cmp6 = icmp sgt i32 %ktype, 0
-  br i1 %cmp6, label %if.then7, label %if.end44.thread
+  %cmp6.not = icmp eq i32 %ktype, 0
+  br i1 %cmp6.not, label %if.end44.thread, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
   %call8 = tail call ptr @EC_KEY_get0_public_key(ptr noundef nonnull %x) #5
@@ -931,9 +931,9 @@ if.end44:                                         ; preds = %if.then38
 
 if.end44.thread:                                  ; preds = %if.end44, %if.end5
   %buffer.171 = phi ptr [ null, %if.end5 ], [ %call39, %if.end44 ]
-  %pub_key_bytes_len.0455470 = phi i64 [ 0, %if.end5 ], [ %pub_key_bytes_len.0, %if.end44 ]
-  %pub_key_bytes.1445669 = phi ptr [ null, %if.end5 ], [ %pub_key_bytes.1, %if.end44 ]
-  %priv_key.05968 = phi ptr [ null, %if.end5 ], [ %priv_key.0.ph, %if.end44 ]
+  %pub_key_bytes_len.0455570 = phi i64 [ 0, %if.end5 ], [ %pub_key_bytes_len.0, %if.end44 ]
+  %pub_key_bytes.1445769 = phi ptr [ null, %if.end5 ], [ %pub_key_bytes.1, %if.end44 ]
+  %priv_key.06068 = phi ptr [ null, %if.end5 ], [ %priv_key.0.ph, %if.end44 ]
   %0 = phi ptr [ @.str.39, %if.end5 ], [ %spec.select90, %if.end44 ]
   %call55 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %off, i32 noundef 128) #5
   %tobool56.not = icmp eq i32 %call55, 0
@@ -956,20 +956,20 @@ lor.lhs.false65:                                  ; preds = %lor.lhs.false62
   br i1 %cmp68, label %if.then85, label %if.end71
 
 if.end71:                                         ; preds = %lor.lhs.false65
-  %cmp72.not = icmp eq ptr %priv_key.05968, null
+  %cmp72.not = icmp eq ptr %priv_key.06068, null
   br i1 %cmp72.not, label %if.end78, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %if.end71
-  %call75 = tail call fastcc i32 @bn_print(ptr noundef %bp, ptr noundef nonnull @.str.34, ptr noundef nonnull %priv_key.05968, ptr noundef %buffer.171, i32 noundef %off)
+  %call75 = tail call fastcc i32 @bn_print(ptr noundef %bp, ptr noundef nonnull @.str.34, ptr noundef nonnull %priv_key.06068, ptr noundef %buffer.171, i32 noundef %off)
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %if.then85, label %if.end78
 
 if.end78:                                         ; preds = %land.lhs.true74, %if.end71
-  %cmp79.not = icmp eq ptr %pub_key_bytes.1445669, null
+  %cmp79.not = icmp eq ptr %pub_key_bytes.1445769, null
   br i1 %cmp79.not, label %if.end86, label %if.then81
 
 if.then81:                                        ; preds = %if.end78
-  %call82 = tail call i32 @BIO_hexdump(ptr noundef %bp, ptr noundef nonnull %pub_key_bytes.1445669, i64 noundef %pub_key_bytes_len.0455470, i32 noundef %off) #5
+  %call82 = tail call i32 @BIO_hexdump(ptr noundef %bp, ptr noundef nonnull %pub_key_bytes.1445769, i64 noundef %pub_key_bytes_len.0455570, i32 noundef %off) #5
   br label %if.end86
 
 if.then85:                                        ; preds = %if.end58, %lor.lhs.false65, %land.lhs.true74, %lor.lhs.false62, %if.end44.thread, %lor.lhs.false, %entry, %if.end, %if.then10, %if.end15, %if.end19, %if.then38
@@ -977,12 +977,12 @@ if.then85:                                        ; preds = %if.end58, %lor.lhs.
   %order.0.ph = phi ptr [ null, %if.then38 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ null, %if.end44.thread ], [ %call59, %lor.lhs.false62 ], [ %call59, %land.lhs.true74 ], [ %call59, %lor.lhs.false65 ], [ null, %if.end58 ]
   %ctx.0.ph = phi ptr [ %call2, %if.then38 ], [ %call2, %if.end19 ], [ %call2, %if.end15 ], [ %call2, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %call2, %if.end44.thread ], [ %call2, %lor.lhs.false62 ], [ %call2, %land.lhs.true74 ], [ %call2, %lor.lhs.false65 ], [ %call2, %if.end58 ]
   %buffer.0.ph = phi ptr [ null, %if.then38 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %buffer.171, %if.end44.thread ], [ %buffer.171, %lor.lhs.false62 ], [ %buffer.171, %land.lhs.true74 ], [ %buffer.171, %lor.lhs.false65 ], [ %buffer.171, %if.end58 ]
-  %pub_key_bytes.0.ph = phi ptr [ %pub_key_bytes.1, %if.then38 ], [ %call16, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %pub_key_bytes.1445669, %if.end44.thread ], [ %pub_key_bytes.1445669, %lor.lhs.false62 ], [ %pub_key_bytes.1445669, %land.lhs.true74 ], [ %pub_key_bytes.1445669, %lor.lhs.false65 ], [ %pub_key_bytes.1445669, %if.end58 ]
+  %pub_key_bytes.0.ph = phi ptr [ %pub_key_bytes.1, %if.then38 ], [ %call16, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %pub_key_bytes.1445769, %if.end44.thread ], [ %pub_key_bytes.1445769, %lor.lhs.false62 ], [ %pub_key_bytes.1445769, %land.lhs.true74 ], [ %pub_key_bytes.1445769, %lor.lhs.false65 ], [ %pub_key_bytes.1445769, %if.end58 ]
   tail call void @ERR_put_error(i32 noundef 6, i32 noundef 0, i32 noundef %reason.0.ph, ptr noundef nonnull @.str.3, i32 noundef 426) #5
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then81, %if.end78, %if.then85
-  %pub_key_bytes.088 = phi ptr [ %pub_key_bytes.0.ph, %if.then85 ], [ %pub_key_bytes.1445669, %if.then81 ], [ null, %if.end78 ]
+  %pub_key_bytes.088 = phi ptr [ %pub_key_bytes.0.ph, %if.then85 ], [ %pub_key_bytes.1445769, %if.then81 ], [ null, %if.end78 ]
   %buffer.086 = phi ptr [ %buffer.0.ph, %if.then85 ], [ %buffer.171, %if.then81 ], [ %buffer.171, %if.end78 ]
   %ctx.084 = phi ptr [ %ctx.0.ph, %if.then85 ], [ %call2, %if.then81 ], [ %call2, %if.end78 ]
   %order.082 = phi ptr [ %order.0.ph, %if.then85 ], [ %call59, %if.then81 ], [ %call59, %if.end78 ]

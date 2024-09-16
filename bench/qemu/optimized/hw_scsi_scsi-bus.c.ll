@@ -4218,15 +4218,16 @@ entry:
 declare i32 @scsi_cdb_xfer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal fastcc range(i32 8, 134215689) i32 @scsi_get_performance_length(i32 noundef %num_desc, i32 noundef %type, i32 noundef %data_type) unnamed_addr #12 {
+define internal fastcc range(i32 8, 134215689) i32 @scsi_get_performance_length(i32 noundef range(i32 0, 65536) %num_desc, i32 noundef range(i32 0, 256) %type, i32 noundef range(i32 0, 32) %data_type) unnamed_addr #12 {
 entry:
-  switch i32 %type, label %return [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb3
-    i32 4, label %sw.bb3
-    i32 5, label %sw.bb3
-    i32 2, label %sw.bb6
-    i32 3, label %sw.bb9
+  %trunc = trunc nuw i32 %type to i8
+  switch i8 %trunc, label %return [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb3
+    i8 4, label %sw.bb3
+    i8 5, label %sw.bb3
+    i8 2, label %sw.bb6
+    i8 3, label %sw.bb9
   ]
 
 sw.bb:                                            ; preds = %entry

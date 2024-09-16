@@ -338,7 +338,7 @@ define range(i32 -1, 1) i32 @H5TBappend_records(i64 noundef %0, ptr noundef %1, 
   br i1 %19, label %.thread41, label %20
 
 20:                                               ; preds = %17
-  %21 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %18)
+  %21 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef %1, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %18)
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %26, label %23
 
@@ -477,208 +477,204 @@ define range(i32 -1, 1) i32 @H5TBget_table_info(i64 noundef %0, ptr noundef %1, 
 declare i64 @H5Dget_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5TB_create_type(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5) unnamed_addr #0 {
-  %7 = icmp eq ptr %1, null
-  br i1 %7, label %.thread105, label %8
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef range(i64 0, -9223372036854775808) %5) unnamed_addr #0 {
+  %7 = tail call i64 @H5Dopen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #11
+  %8 = icmp slt i64 %7, 0
+  br i1 %8, label %.thread105, label %9
 
-8:                                                ; preds = %6
-  %9 = tail call i64 @H5Dopen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #11
-  %10 = icmp slt i64 %9, 0
-  br i1 %10, label %.thread105, label %11
+9:                                                ; preds = %6
+  %10 = tail call i64 @H5Dget_type(i64 noundef %7) #11
+  %11 = icmp slt i64 %10, 0
+  br i1 %11, label %.thread.thread.i.thread, label %.thread.i
 
-11:                                               ; preds = %8
-  %12 = tail call i64 @H5Dget_type(i64 noundef %9) #11
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %.thread.thread.i.thread, label %.thread.i
+.thread.i:                                        ; preds = %9
+  %12 = tail call i32 @H5Tget_nmembers(i64 noundef %10) #11
+  %narrow = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
+  %.lobit = ashr i32 %12, 31
+  %.not49.i = icmp eq i64 %10, 0
+  br i1 %.not49.i, label %.thread.thread.i, label %13
 
-.thread.i:                                        ; preds = %11
-  %14 = tail call i32 @H5Tget_nmembers(i64 noundef %12) #11
-  %narrow = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
-  %.lobit = ashr i32 %14, 31
-  %.not49.i = icmp eq i64 %12, 0
-  br i1 %.not49.i, label %.thread.thread.i, label %15
-
-15:                                               ; preds = %.thread.i
-  %16 = tail call i32 @H5Tclose(i64 noundef %12) #11
-  %.inv.i = icmp sgt i32 %16, -1
+13:                                               ; preds = %.thread.i
+  %14 = tail call i32 @H5Tclose(i64 noundef %10) #11
+  %.inv.i = icmp sgt i32 %14, -1
   %spec.select34.i = select i1 %.inv.i, i32 %.lobit, i32 -1
   br label %.thread.thread.i
 
-.thread.thread.i:                                 ; preds = %15, %.thread.i
-  %.2.i = phi i32 [ %.lobit, %.thread.i ], [ %spec.select34.i, %15 ]
+.thread.thread.i:                                 ; preds = %13, %.thread.i
+  %.2.i = phi i32 [ %.lobit, %.thread.i ], [ %spec.select34.i, %13 ]
   %.177 = zext nneg i32 %narrow to i64
-  %.not50.i = icmp eq i64 %9, 0
-  br i1 %.not50.i, label %H5TBget_table_info.exit, label %17
+  %.not50.i = icmp eq i64 %7, 0
+  br i1 %.not50.i, label %H5TBget_table_info.exit, label %15
 
-.thread.thread.i.thread:                          ; preds = %11
-  %.not50.i170 = icmp eq i64 %9, 0
-  br i1 %.not50.i170, label %.thread105, label %17
+.thread.thread.i.thread:                          ; preds = %9
+  %.not50.i170 = icmp eq i64 %7, 0
+  br i1 %.not50.i170, label %.thread105, label %15
 
-17:                                               ; preds = %.thread.thread.i.thread, %.thread.thread.i
+15:                                               ; preds = %.thread.thread.i.thread, %.thread.thread.i
   %.177177 = phi i64 [ 0, %.thread.thread.i.thread ], [ %.177, %.thread.thread.i ]
   %.2.i175 = phi i32 [ -1, %.thread.thread.i.thread ], [ %.2.i, %.thread.thread.i ]
   %.177.shrunk172 = phi i32 [ 0, %.thread.thread.i.thread ], [ %narrow, %.thread.thread.i ]
-  %18 = tail call i32 @H5Dclose(i64 noundef %9) #11
-  %.inv51.i = icmp slt i32 %18, 0
-  %19 = icmp slt i32 %.2.i175, 0
-  %or.cond112 = select i1 %.inv51.i, i1 true, i1 %19
-  br i1 %or.cond112, label %.thread105, label %20
+  %16 = tail call i32 @H5Dclose(i64 noundef %7) #11
+  %.inv51.i = icmp slt i32 %16, 0
+  %17 = icmp slt i32 %.2.i175, 0
+  %or.cond112 = select i1 %.inv51.i, i1 true, i1 %17
+  br i1 %or.cond112, label %.thread105, label %18
 
 H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
   %.old = icmp slt i32 %.2.i, 0
-  br i1 %.old, label %.thread105, label %20
+  br i1 %.old, label %.thread105, label %18
 
-20:                                               ; preds = %17, %H5TBget_table_info.exit
-  %.177176 = phi i64 [ %.177177, %17 ], [ %.177, %H5TBget_table_info.exit ]
-  %.177.shrunk171 = phi i32 [ %.177.shrunk172, %17 ], [ %narrow, %H5TBget_table_info.exit ]
-  %21 = tail call noalias ptr @calloc(i64 noundef 8, i64 noundef %.177176) #12
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread105, label %.preheader113
+18:                                               ; preds = %15, %H5TBget_table_info.exit
+  %.177176 = phi i64 [ %.177177, %15 ], [ %.177, %H5TBget_table_info.exit ]
+  %.177.shrunk171 = phi i32 [ %.177.shrunk172, %15 ], [ %narrow, %H5TBget_table_info.exit ]
+  %19 = tail call noalias ptr @calloc(i64 noundef 8, i64 noundef %.177176) #12
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %.thread105, label %.preheader113
 
-.preheader113:                                    ; preds = %20
+.preheader113:                                    ; preds = %18
   %.not152 = icmp eq i32 %.177.shrunk171, 0
   br i1 %.not152, label %._crit_edge, label %.lr.ph
 
-23:                                               ; preds = %.lr.ph
+21:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.177176
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader113, %23
-  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader113 ]
-  %24 = tail call noalias dereferenceable_or_null(255) ptr @malloc(i64 noundef 255) #13
-  %25 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
-  store ptr %24, ptr %25, align 8
-  %26 = icmp eq ptr %24, null
-  br i1 %26, label %.loopexit, label %23
+.lr.ph:                                           ; preds = %.preheader113, %21
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader113 ]
+  %22 = tail call noalias dereferenceable_or_null(255) ptr @malloc(i64 noundef 255) #13
+  %23 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  store ptr %22, ptr %23, align 8
+  %24 = icmp eq ptr %22, null
+  br i1 %24, label %.loopexit, label %21
 
-._crit_edge:                                      ; preds = %23, %.preheader113
-  %27 = tail call i32 @H5TBget_field_info(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef null, ptr noundef null, ptr noundef null)
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %.loopexit, label %29
+._crit_edge:                                      ; preds = %21, %.preheader113
+  %25 = tail call i32 @H5TBget_field_info(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef null, ptr noundef null, ptr noundef null)
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %.loopexit, label %27
 
-29:                                               ; preds = %._crit_edge
-  %30 = tail call i64 @H5Tcreate(i32 noundef 6, i64 noundef %2) #11
-  %31 = icmp slt i64 %30, 0
-  br i1 %31, label %.loopexit, label %.preheader
+27:                                               ; preds = %._crit_edge
+  %28 = tail call i64 @H5Tcreate(i32 noundef 6, i64 noundef %2) #11
+  %29 = icmp slt i64 %28, 0
+  br i1 %29, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %29
+.preheader:                                       ; preds = %27
   br i1 %.not152, label %.thread203, label %.lr.ph117
 
 .thread203:                                       ; preds = %.preheader
-  tail call void @free(ptr noundef %21) #11
+  tail call void @free(ptr noundef %19) #11
   br label %.thread105
 
-32:                                               ; preds = %58
+30:                                               ; preds = %56
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %.177176
   br i1 %exitcond161.not, label %.loopexit, label %.lr.ph117
 
-.lr.ph117:                                        ; preds = %.preheader, %32
-  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %32 ], [ 0, %.preheader ]
-  %33 = trunc nuw nsw i64 %indvars.iv157 to i32
-  %34 = tail call i64 @H5Tget_member_type(i64 noundef %5, i32 noundef %33) #11
-  %35 = icmp slt i64 %34, 0
-  br i1 %35, label %.loopexit, label %36
+.lr.ph117:                                        ; preds = %.preheader, %30
+  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %30 ], [ 0, %.preheader ]
+  %31 = trunc nuw nsw i64 %indvars.iv157 to i32
+  %32 = tail call i64 @H5Tget_member_type(i64 noundef %5, i32 noundef %31) #11
+  %33 = icmp slt i64 %32, 0
+  br i1 %33, label %.loopexit, label %34
 
-36:                                               ; preds = %.lr.ph117
-  %37 = tail call i64 @H5Tget_native_type(i64 noundef %34, i32 noundef 0) #11
-  %38 = icmp slt i64 %37, 0
-  br i1 %38, label %.loopexit, label %39
+34:                                               ; preds = %.lr.ph117
+  %35 = tail call i64 @H5Tget_native_type(i64 noundef %32, i32 noundef 0) #11
+  %36 = icmp slt i64 %35, 0
+  br i1 %36, label %.loopexit, label %37
 
-39:                                               ; preds = %36
-  %40 = tail call i64 @H5Tget_size(i64 noundef %37) #11
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %.loopexit, label %42
+37:                                               ; preds = %34
+  %38 = tail call i64 @H5Tget_size(i64 noundef %35) #11
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %.loopexit, label %40
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv157
-  %44 = load i64, ptr %43, align 8
-  %.not = icmp eq i64 %44, %40
-  br i1 %.not, label %48, label %45
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv157
+  %42 = load i64, ptr %41, align 8
+  %.not = icmp eq i64 %42, %38
+  br i1 %.not, label %46, label %43
 
-45:                                               ; preds = %42
-  %46 = tail call i32 @H5Tset_size(i64 noundef %37, i64 noundef %44) #11
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.loopexit, label %48
+43:                                               ; preds = %40
+  %44 = tail call i32 @H5Tset_size(i64 noundef %35, i64 noundef %42) #11
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %.loopexit, label %46
 
-48:                                               ; preds = %45, %42
-  %49 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv157
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv157
-  %52 = load i64, ptr %51, align 8
-  %53 = tail call i32 @H5Tinsert(i64 noundef %30, ptr noundef %50, i64 noundef %52, i64 noundef %37) #11
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.loopexit, label %55
+46:                                               ; preds = %43, %40
+  %47 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv157
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv157
+  %50 = load i64, ptr %49, align 8
+  %51 = tail call i32 @H5Tinsert(i64 noundef %28, ptr noundef %48, i64 noundef %50, i64 noundef %35) #11
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %.loopexit, label %53
 
-55:                                               ; preds = %48
-  %56 = tail call i32 @H5Tclose(i64 noundef %34) #11
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %.loopexit, label %58
+53:                                               ; preds = %46
+  %54 = tail call i32 @H5Tclose(i64 noundef %32) #11
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %.loopexit, label %56
 
-58:                                               ; preds = %55
-  %59 = tail call i32 @H5Tclose(i64 noundef %37) #11
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.loopexit, label %32
+56:                                               ; preds = %53
+  %57 = tail call i32 @H5Tclose(i64 noundef %35) #11
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %.loopexit, label %30
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph117, %36, %39, %45, %48, %55, %58, %32, %29, %._crit_edge
-  %.054 = phi i64 [ -1, %._crit_edge ], [ -1, %29 ], [ %34, %.lr.ph117 ], [ %34, %36 ], [ %34, %39 ], [ %34, %45 ], [ %34, %48 ], [ %34, %55 ], [ -1, %58 ], [ -1, %32 ], [ -1, %.lr.ph ]
-  %.052 = phi i64 [ -1, %._crit_edge ], [ -1, %29 ], [ -1, %.lr.ph117 ], [ %37, %36 ], [ %37, %39 ], [ %37, %45 ], [ %37, %48 ], [ %37, %55 ], [ %37, %58 ], [ -1, %32 ], [ -1, %.lr.ph ]
-  %.051 = phi i64 [ -1, %._crit_edge ], [ %30, %29 ], [ %30, %32 ], [ %30, %58 ], [ %30, %55 ], [ %30, %48 ], [ %30, %45 ], [ %30, %39 ], [ %30, %36 ], [ %30, %.lr.ph117 ], [ -1, %.lr.ph ]
-  %.0 = phi i64 [ -1, %._crit_edge ], [ -1, %29 ], [ -1, %.lr.ph117 ], [ -1, %36 ], [ -1, %39 ], [ -1, %45 ], [ -1, %48 ], [ -1, %55 ], [ -1, %58 ], [ %30, %32 ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph117, %34, %37, %43, %46, %53, %56, %30, %27, %._crit_edge
+  %.054 = phi i64 [ -1, %._crit_edge ], [ -1, %27 ], [ %32, %.lr.ph117 ], [ %32, %34 ], [ %32, %37 ], [ %32, %43 ], [ %32, %46 ], [ %32, %53 ], [ -1, %56 ], [ -1, %30 ], [ -1, %.lr.ph ]
+  %.052 = phi i64 [ -1, %._crit_edge ], [ -1, %27 ], [ -1, %.lr.ph117 ], [ %35, %34 ], [ %35, %37 ], [ %35, %43 ], [ %35, %46 ], [ %35, %53 ], [ %35, %56 ], [ -1, %30 ], [ -1, %.lr.ph ]
+  %.051 = phi i64 [ -1, %._crit_edge ], [ %28, %27 ], [ %28, %30 ], [ %28, %56 ], [ %28, %53 ], [ %28, %46 ], [ %28, %43 ], [ %28, %37 ], [ %28, %34 ], [ %28, %.lr.ph117 ], [ -1, %.lr.ph ]
+  %.0 = phi i64 [ -1, %._crit_edge ], [ -1, %27 ], [ -1, %.lr.ph117 ], [ -1, %34 ], [ -1, %37 ], [ -1, %43 ], [ -1, %46 ], [ -1, %53 ], [ -1, %56 ], [ %28, %30 ], [ -1, %.lr.ph ]
   br i1 %.not152, label %._crit_edge151, label %.lr.ph150
 
-.lr.ph150:                                        ; preds = %.loopexit, %64
-  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %64 ], [ 0, %.loopexit ]
-  %61 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv162
-  %62 = load ptr, ptr %61, align 8
-  %.not71 = icmp eq ptr %62, null
-  br i1 %.not71, label %64, label %63
+.lr.ph150:                                        ; preds = %.loopexit, %62
+  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %62 ], [ 0, %.loopexit ]
+  %59 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv162
+  %60 = load ptr, ptr %59, align 8
+  %.not71 = icmp eq ptr %60, null
+  br i1 %.not71, label %62, label %61
 
-63:                                               ; preds = %.lr.ph150
-  tail call void @free(ptr noundef nonnull %62) #11
-  br label %64
+61:                                               ; preds = %.lr.ph150
+  tail call void @free(ptr noundef nonnull %60) #11
+  br label %62
 
-64:                                               ; preds = %.lr.ph150, %63
+62:                                               ; preds = %.lr.ph150, %61
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %.177176
   br i1 %exitcond166.not, label %._crit_edge151, label %.lr.ph150
 
-._crit_edge151:                                   ; preds = %64, %.loopexit
-  tail call void @free(ptr noundef %21) #11
-  %65 = icmp sgt i64 %.054, 0
-  br i1 %65, label %66, label %69
+._crit_edge151:                                   ; preds = %62, %.loopexit
+  tail call void @free(ptr noundef %19) #11
+  %63 = icmp sgt i64 %.054, 0
+  br i1 %63, label %64, label %67
 
-66:                                               ; preds = %._crit_edge151
-  %67 = tail call i32 @H5Tclose(i64 noundef %.054) #11
-  %68 = icmp slt i32 %67, 0
-  %spec.select = select i1 %68, i64 -1, i64 %.0
-  br label %69
+64:                                               ; preds = %._crit_edge151
+  %65 = tail call i32 @H5Tclose(i64 noundef %.054) #11
+  %66 = icmp slt i32 %65, 0
+  %spec.select = select i1 %66, i64 -1, i64 %.0
+  br label %67
 
-69:                                               ; preds = %66, %._crit_edge151
-  %.1 = phi i64 [ %.0, %._crit_edge151 ], [ %spec.select, %66 ]
-  %70 = icmp sgt i64 %.052, 0
-  br i1 %70, label %71, label %74
+67:                                               ; preds = %64, %._crit_edge151
+  %.1 = phi i64 [ %.0, %._crit_edge151 ], [ %spec.select, %64 ]
+  %68 = icmp sgt i64 %.052, 0
+  br i1 %68, label %69, label %72
 
-71:                                               ; preds = %69
-  %72 = tail call i32 @H5Tclose(i64 noundef %.052) #11
-  %73 = icmp slt i32 %72, 0
-  %spec.select72 = select i1 %73, i64 -1, i64 %.1
-  br label %74
+69:                                               ; preds = %67
+  %70 = tail call i32 @H5Tclose(i64 noundef %.052) #11
+  %71 = icmp slt i32 %70, 0
+  %spec.select72 = select i1 %71, i64 -1, i64 %.1
+  br label %72
 
-74:                                               ; preds = %71, %69
-  %.2 = phi i64 [ %.1, %69 ], [ %spec.select72, %71 ]
-  %75 = icmp slt i64 %.2, 0
-  %76 = icmp sgt i64 %.051, 0
-  %or.cond = and i1 %76, %75
-  br i1 %or.cond, label %77, label %.thread105
+72:                                               ; preds = %69, %67
+  %.2 = phi i64 [ %.1, %67 ], [ %spec.select72, %69 ]
+  %73 = icmp slt i64 %.2, 0
+  %74 = icmp sgt i64 %.051, 0
+  %or.cond = and i1 %74, %73
+  br i1 %or.cond, label %75, label %.thread105
 
-77:                                               ; preds = %74
-  %78 = tail call i32 @H5Tclose(i64 noundef %.051) #11
+75:                                               ; preds = %72
+  %76 = tail call i32 @H5Tclose(i64 noundef %.051) #11
   br label %.thread105
 
-.thread105:                                       ; preds = %.thread.thread.i.thread, %.thread203, %H5TBget_table_info.exit, %20, %17, %6, %8, %77, %74
-  %.2109 = phi i64 [ %.2, %77 ], [ %.2, %74 ], [ -1, %8 ], [ -1, %6 ], [ -1, %17 ], [ -1, %20 ], [ -1, %H5TBget_table_info.exit ], [ %30, %.thread203 ], [ -1, %.thread.thread.i.thread ]
+.thread105:                                       ; preds = %.thread.thread.i.thread, %.thread203, %H5TBget_table_info.exit, %18, %15, %6, %75, %72
+  %.2109 = phi i64 [ %.2, %75 ], [ %.2, %72 ], [ -1, %6 ], [ -1, %15 ], [ -1, %18 ], [ -1, %H5TBget_table_info.exit ], [ %28, %.thread203 ], [ -1, %.thread.thread.i.thread ]
   ret i64 %.2109
 }
 
@@ -764,7 +760,7 @@ define i32 @H5TBwrite_records(i64 noundef %0, ptr noundef %1, i64 noundef %2, i6
   br i1 %19, label %.thread77, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %18)
+  %21 = tail call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef %1, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %18)
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %.thread.thread, label %23
 
@@ -926,7 +922,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_name(i64 noundef %0, ptr noundef %
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %.lr.ph.split.us
-  %40 = tail call fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull %37, ptr noundef %2)
+  %40 = tail call fastcc zeroext i1 @H5TB_find_field(ptr noundef %37, ptr noundef %2)
   br i1 %40, label %41, label %66
 
 41:                                               ; preds = %39
@@ -987,7 +983,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_name(i64 noundef %0, ptr noundef %
   br i1 %71, label %.thread, label %72
 
 72:                                               ; preds = %.lr.ph.split
-  %73 = tail call fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull %70, ptr noundef %2)
+  %73 = tail call fastcc zeroext i1 @H5TB_find_field(ptr noundef %70, ptr noundef %2)
   br i1 %73, label %74, label %101
 
 74:                                               ; preds = %72
@@ -1150,7 +1146,7 @@ declare i32 @H5Pset_preserve(i64 noundef, i1 noundef zeroext) local_unnamed_addr
 declare i32 @H5Tget_nmembers(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @H5TB_find_field(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @H5TB_find_field(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #3 {
   %strchr20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 44)
   %.not21 = icmp eq ptr %strchr20, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -1161,7 +1157,7 @@ define internal fastcc zeroext i1 @H5TB_find_field(ptr nocapture noundef readonl
   %3 = ptrtoint ptr %strchr23 to i64
   %4 = ptrtoint ptr %.01522 to i64
   %5 = sub i64 %3, %4
-  %6 = tail call i32 @strncmp(ptr noundef %.01522, ptr noundef %0, i64 noundef %5) #14
+  %6 = tail call i32 @strncmp(ptr noundef nonnull %.01522, ptr noundef nonnull %0, i64 noundef %5) #14
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %11
 
@@ -1179,7 +1175,7 @@ define internal fastcc zeroext i1 @H5TB_find_field(ptr nocapture noundef readonl
 ._crit_edge:                                      ; preds = %11, %2
   %.015.lcssa = phi ptr [ %1, %2 ], [ %12, %11 ]
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %14 = tail call i32 @strncmp(ptr noundef %.015.lcssa, ptr noundef %0, i64 noundef %13) #14
+  %14 = tail call i32 @strncmp(ptr noundef nonnull %.015.lcssa, ptr noundef nonnull %0, i64 noundef %13) #14
   %15 = icmp eq i32 %14, 0
   br label %.loopexit
 
@@ -1517,7 +1513,7 @@ define range(i32 -1, 1) i32 @H5TBread_table(i64 noundef %0, ptr noundef %1, i64 
   br i1 %20, label %.thread.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %19)
+  %22 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %19)
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %.thread, label %24
 
@@ -1596,7 +1592,7 @@ define range(i32 -1, 1) i32 @H5TBread_records(i64 noundef %0, ptr noundef %1, i6
   br i1 %20, label %.thread.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %19)
+  %22 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef %1, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %19)
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %.thread, label %24
 
@@ -1743,7 +1739,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1
   br i1 %30, label %.thread155, label %31
 
 31:                                               ; preds = %.lr.ph.split.us
-  %32 = tail call fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull %29, ptr noundef %2)
+  %32 = tail call fastcc zeroext i1 @H5TB_find_field(ptr noundef %29, ptr noundef %2)
   br i1 %32, label %33, label %59
 
 33:                                               ; preds = %31
@@ -1807,7 +1803,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1
   br i1 %64, label %.thread155, label %65
 
 65:                                               ; preds = %.lr.ph.split
-  %66 = tail call fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull %63, ptr noundef %2)
+  %66 = tail call fastcc zeroext i1 @H5TB_find_field(ptr noundef %63, ptr noundef %2)
   br i1 %66, label %67, label %95
 
 67:                                               ; preds = %65
@@ -2323,7 +2319,7 @@ define i32 @H5TBdelete_record(i64 noundef %0, ptr noundef %1, i64 noundef %2, i6
 
 47:                                               ; preds = %44
   %48 = load i64, ptr %11, align 8
-  %49 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %48, ptr noundef nonnull %19, ptr noundef nonnull %22, i64 noundef %42)
+  %49 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef %1, i64 noundef %48, ptr noundef nonnull %19, ptr noundef nonnull %22, i64 noundef %42)
   %50 = icmp slt i64 %49, 0
   br i1 %50, label %.thread, label %51
 
@@ -2799,7 +2795,7 @@ define range(i32 -1, 1) i32 @H5TBinsert_record(i64 noundef %0, ptr noundef %1, i
   br i1 %24, label %.thread126.thread.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %23)
+  %26 = call fastcc i64 @H5TB_create_type(i64 noundef %0, ptr noundef %1, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %23)
   %27 = icmp slt i64 %26, 0
   br i1 %27, label %.thread126.thread, label %28
 
@@ -3191,7 +3187,7 @@ define range(i32 -1, 1) i32 @H5TBcombine_tables(i64 noundef %0, ptr noundef %1, 
 
 59:                                               ; preds = %56
   %60 = load i64, ptr %9, align 8
-  %61 = call fastcc i32 @H5TB_attach_attributes(ptr noundef nonnull @.str.7, i64 noundef %0, ptr noundef nonnull %4, i64 noundef %60, i64 noundef %51)
+  %61 = call fastcc i32 @H5TB_attach_attributes(ptr noundef nonnull @.str.7, i64 noundef %0, ptr noundef %4, i64 noundef %60, i64 noundef %51)
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.thread.thread.thread.thread, label %63
 
@@ -3293,7 +3289,7 @@ define range(i32 -1, 1) i32 @H5TBcombine_tables(i64 noundef %0, ptr noundef %1, 
 115:                                              ; preds = %112
   %116 = load i64, ptr %10, align 8
   %117 = load i64, ptr %13, align 8
-  %118 = call i32 @H5TBappend_records(i64 noundef %0, ptr noundef %4, i64 noundef %116, i64 noundef %117, ptr noundef nonnull %24, ptr noundef nonnull %27, ptr noundef nonnull %103)
+  %118 = call i32 @H5TBappend_records(i64 noundef %0, ptr noundef nonnull %4, i64 noundef %116, i64 noundef %117, ptr noundef nonnull %24, ptr noundef nonnull %27, ptr noundef nonnull %103)
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %156, label %120
 
@@ -3356,7 +3352,7 @@ define range(i32 -1, 1) i32 @H5TBcombine_tables(i64 noundef %0, ptr noundef %1, 
 152:                                              ; preds = %149
   %153 = load i64, ptr %10, align 8
   %154 = load i64, ptr %13, align 8
-  %155 = call i32 @H5TBappend_records(i64 noundef %0, ptr noundef %4, i64 noundef %153, i64 noundef %154, ptr noundef nonnull %24, ptr noundef nonnull %27, ptr noundef nonnull %140)
+  %155 = call i32 @H5TBappend_records(i64 noundef %0, ptr noundef nonnull %4, i64 noundef %153, i64 noundef %154, ptr noundef nonnull %24, ptr noundef nonnull %27, ptr noundef nonnull %140)
   br label %156
 
 156:                                              ; preds = %105, %108, %112, %115, %120, %142, %145, %149, %152
@@ -3589,19 +3585,19 @@ declare i64 @H5Pcopy(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Tcopy(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5TB_attach_attributes(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5TB_attach_attributes(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef range(i64 0, -9223372036854775808) %4) unnamed_addr #0 {
   %6 = alloca [255 x i8], align 16
-  %7 = tail call i32 @H5LTset_attribute_string(i64 noundef %1, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
+  %7 = tail call i32 @H5LTset_attribute_string(i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @H5LTset_attribute_string(i64 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #11
+  %10 = tail call i32 @H5LTset_attribute_string(i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #11
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @H5LTset_attribute_string(i64 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef %0) #11
+  %13 = tail call i32 @H5LTset_attribute_string(i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull @.str.4, ptr noundef %0) #11
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %.thread, label %.preheader
 
@@ -3618,7 +3614,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5TB_attach_attributes(ptr noundef 
 
 18:                                               ; preds = %.lr.ph
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 255, ptr noundef nonnull @.str.5, i32 noundef %15) #11
-  %20 = call i32 @H5LTset_attribute_string(i64 noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %16) #11
+  %20 = call i32 @H5LTset_attribute_string(i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %16) #11
   %21 = icmp slt i32 %20, 0
   %22 = call i32 @H5free_memory(ptr noundef nonnull %16) #11
   br i1 %21, label %.thread, label %23
@@ -4337,7 +4333,7 @@ define i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %38, label %.thread539, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = call fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull %37, ptr noundef %2)
+  %40 = call fastcc zeroext i1 @H5TB_find_field(ptr noundef %37, ptr noundef %2)
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %39
@@ -4394,7 +4390,7 @@ define i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %69, label %.thread279, label %70
 
 70:                                               ; preds = %.lr.ph716
-  %71 = call fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull %68, ptr noundef %2)
+  %71 = call fastcc zeroext i1 @H5TB_find_field(ptr noundef %68, ptr noundef %2)
   br i1 %71, label %95, label %72
 
 72:                                               ; preds = %70
@@ -4487,7 +4483,7 @@ define i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %118, label %.thread279, label %119
 
 119:                                              ; preds = %.lr.ph718
-  %120 = call fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull %117, ptr noundef %2)
+  %120 = call fastcc zeroext i1 @H5TB_find_field(ptr noundef %117, ptr noundef %2)
   br i1 %120, label %170, label %121
 
 121:                                              ; preds = %119

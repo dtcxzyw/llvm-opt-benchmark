@@ -221,7 +221,7 @@ define dso_local ptr @dma_fence_chain_walk(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @dma_fence_chain_get_prev(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @dma_fence_chain_get_prev(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #6
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load volatile ptr, ptr %2, align 8

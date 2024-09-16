@@ -1173,7 +1173,7 @@ pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
   %.sroa.4.0.insert.ext26 = zext i32 %1 to i64
   %.sroa.4.0.insert.shift27 = shl nuw i64 %.sroa.4.0.insert.ext26, 32
   %.sroa.019.0.insert.insert22 = or disjoint i64 %.sroa.4.0.insert.shift27, %7
-  %74 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %73, i64 %.sroa.019.0.insert.insert22, i32 %2, ptr noundef nonnull %5)
+  %74 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %73, i64 %.sroa.019.0.insert.insert22, i32 %2, ptr noundef %5)
   %75 = getelementptr inbounds i8, ptr %74, i64 16
   store ptr null, ptr %75, align 8
   br label %104
@@ -1219,7 +1219,7 @@ pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
   %.sroa.4.0.insert.ext = zext i32 %1 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.019.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %7
-  %102 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %101, i64 %.sroa.019.0.insert.insert, i32 %2, ptr noundef nonnull %6)
+  %102 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %101, i64 %.sroa.019.0.insert.insert, i32 %2, ptr noundef %6)
   %103 = getelementptr inbounds i8, ptr %102, i64 16
   store ptr %.044, ptr %103, align 8
   br label %104
@@ -1345,7 +1345,7 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
   %.sroa.0.0.copyload = load i64, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %29 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %28, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef nonnull %2)
+  %29 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %28, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %2)
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 17272), align 8
   %31 = getelementptr inbounds i8, ptr %12, i64 4
   %32 = load i32, ptr %31, align 4
@@ -1421,7 +1421,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @pgstat_get_entry_ref(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pgstat_snapshot_insert(ptr nocapture noundef %0, i64 %1, i32 %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @pgstat_snapshot_insert(ptr nocapture noundef %0, i64 %1, i32 %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.PgStat_HashKey, align 8
   %6 = lshr i64 %1, 23
   %7 = xor i64 %6, %1

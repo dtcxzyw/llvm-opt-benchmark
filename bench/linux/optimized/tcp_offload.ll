@@ -552,7 +552,7 @@ declare dso_local ptr @skb_segment(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @llvm.bswap.i32(i32) #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @refcount_sub_and_test(i32 noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc noundef zeroext i1 @refcount_sub_and_test(i32 noundef range(i32 1, -2147483647) %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = sub i32 0, %0
   %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 %3, ptr elementtype(i32) %1) #7, !srcloc !19
   %5 = icmp eq i32 %4, %0

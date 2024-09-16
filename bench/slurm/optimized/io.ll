@@ -3264,7 +3264,7 @@ declare i32 @slurm_open_stream(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 declare void @fd_set_blocking(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_send_io_init_msg(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_send_io_init_msg(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.io_init_msg_t, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @xstrdup(ptr noundef %6) #9

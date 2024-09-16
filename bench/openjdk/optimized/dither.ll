@@ -302,7 +302,7 @@ define hidden noundef ptr @initCubemap(ptr nocapture noundef readonly %0, i32 no
 ._crit_edge:                                      ; preds = %82, %.preheader
   %.lcssa = phi i32 [ 0, %.preheader ], [ %83, %82 ]
   store i32 %.lcssa, ptr %19, align 8
-  %84 = call fastcc i32 @recurseLevel(ptr noundef nonnull %4)
+  %84 = call fastcc i32 @recurseLevel(ptr noundef %4)
   %.not57 = icmp eq i32 %84, 0
   br i1 %.not57, label %85, label %88
 
@@ -332,7 +332,7 @@ define hidden noundef ptr @initCubemap(ptr nocapture noundef readonly %0, i32 no
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
   %2 = alloca %struct.CubeStateInfo, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -561,7 +561,7 @@ define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr nocapture noundef %
   br i1 %.not, label %._crit_edge.thread, label %125
 
 125:                                              ; preds = %._crit_edge
-  %126 = call fastcc i32 @recurseLevel(ptr noundef nonnull %2)
+  %126 = call fastcc i32 @recurseLevel(ptr noundef %2)
   %.not72 = icmp eq i32 %126, 0
   br i1 %.not72, label %127, label %._crit_edge.thread
 

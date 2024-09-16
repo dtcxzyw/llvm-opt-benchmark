@@ -740,7 +740,7 @@ _ZN4llvm13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6d
 244:                                              ; preds = %.lr.ph.i.i
   %245 = getelementptr inbounds i8, ptr %.sroa.0189.0238.i.i, i64 -16
   %246 = load ptr, ptr %245, align 8
-  %247 = call fastcc i16 @"_ZZL12findArgPartsPN4llvm8ArgumentERKNS_10DataLayoutERNS_9AAResultsEjbRNS_15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEEEENK3$_0clINS_8LoadInstEEESt8optionalIbEPT_PNS_4TypeEb"(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull %240, ptr noundef %246, i1 noundef zeroext true)
+  %247 = call fastcc i16 @"_ZZL12findArgPartsPN4llvm8ArgumentERKNS_10DataLayoutERNS_9AAResultsEjbRNS_15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEEEENK3$_0clINS_8LoadInstEEESt8optionalIbEPT_PNS_4TypeEb"(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %240, ptr noundef %246, i1 noundef zeroext true)
   br label %256
 
 248:                                              ; preds = %.lr.ph.i.i
@@ -753,7 +753,7 @@ _ZN4llvm13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6d
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %254 = load ptr, ptr %253, align 8
-  %255 = call fastcc i16 @"_ZZL12findArgPartsPN4llvm8ArgumentERKNS_10DataLayoutERNS_9AAResultsEjbRNS_15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEEEENK3$_0clINS_9StoreInstEEESt8optionalIbEPT_PNS_4TypeEb"(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull %240, ptr noundef %254, i1 noundef zeroext true)
+  %255 = call fastcc i16 @"_ZZL12findArgPartsPN4llvm8ArgumentERKNS_10DataLayoutERNS_9AAResultsEjbRNS_15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEEEENK3$_0clINS_9StoreInstEEESt8optionalIbEPT_PNS_4TypeEb"(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %240, ptr noundef %254, i1 noundef zeroext true)
   br label %256
 
 256:                                              ; preds = %250, %244
@@ -966,7 +966,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_3UseELb1EE9push_backES3_.exit.i: ; preds 
 336:                                              ; preds = %.lr.ph240.i.i
   %337 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %338 = load ptr, ptr %337, align 8
-  %339 = call fastcc i16 @"_ZZL12findArgPartsPN4llvm8ArgumentERKNS_10DataLayoutERNS_9AAResultsEjbRNS_15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEEEENK3$_0clINS_8LoadInstEEESt8optionalIbEPT_PNS_4TypeEb"(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull %300, ptr noundef %338, i1 noundef zeroext false)
+  %339 = call fastcc i16 @"_ZZL12findArgPartsPN4llvm8ArgumentERKNS_10DataLayoutERNS_9AAResultsEjbRNS_15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEEEENK3$_0clINS_8LoadInstEEESt8optionalIbEPT_PNS_4TypeEb"(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %300, ptr noundef %338, i1 noundef zeroext false)
   %340 = trunc i16 %339 to i1
   br i1 %340, label %341, label %_ZN4llvm14iterator_rangeINS_12idf_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0EEEED2Ev.exit.i.i
 
@@ -1011,7 +1011,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit.i.i: ; 
   %359 = load ptr, ptr %358, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %361 = load ptr, ptr %360, align 8
-  %362 = call fastcc i16 @"_ZZL12findArgPartsPN4llvm8ArgumentERKNS_10DataLayoutERNS_9AAResultsEjbRNS_15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEEEENK3$_0clINS_9StoreInstEEESt8optionalIbEPT_PNS_4TypeEb"(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull %300, ptr noundef %361, i1 noundef zeroext false)
+  %362 = call fastcc i16 @"_ZZL12findArgPartsPN4llvm8ArgumentERKNS_10DataLayoutERNS_9AAResultsEjbRNS_15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEEEENK3$_0clINS_9StoreInstEEESt8optionalIbEPT_PNS_4TypeEb"(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef %300, ptr noundef %361, i1 noundef zeroext false)
   %363 = trunc i16 %362 to i1
   br i1 %363, label %.backedge.i.i, label %_ZN4llvm14iterator_rangeINS_12idf_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0EEEED2Ev.exit.i.i
 
@@ -2768,7 +2768,7 @@ _ZN4llvm11SmallVectorISt4pairIlN12_GLOBAL__N_17ArgPartEELj4EED2Ev.exit.i: ; pred
   br i1 %1033, label %._crit_edge203.thread.i, label %1034
 
 1034:                                             ; preds = %1031
-  %1035 = call fastcc noundef ptr @_ZL11doPromotionPN4llvm8FunctionERNS_15AnalysisManagerIS0_JEEERKNS_8DenseMapIPNS_8ArgumentENS_11SmallVectorISt4pairIlN12_GLOBAL__N_17ArgPartEELj4EEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SD_EEEE(ptr noundef nonnull %109, ptr noundef nonnull align 8 dereferenceable(72) %98, ptr noundef nonnull align 8 dereferenceable(20) %28)
+  %1035 = call fastcc noundef ptr @_ZL11doPromotionPN4llvm8FunctionERNS_15AnalysisManagerIS0_JEEERKNS_8DenseMapIPNS_8ArgumentENS_11SmallVectorISt4pairIlN12_GLOBAL__N_17ArgPartEELj4EEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SD_EEEE(ptr noundef %109, ptr noundef nonnull align 8 dereferenceable(72) %98, ptr noundef nonnull align 8 dereferenceable(20) %28)
   br label %._crit_edge203.thread.i
 
 ._crit_edge203.thread.i:                          ; preds = %1034, %1031, %._crit_edge203.i, %._crit_edge187.i
@@ -3011,7 +3011,7 @@ declare void @_ZN4llvm8Function12addParamAttrEjNS_9Attribute8AttrKindE(ptr nound
 declare noundef i32 @_ZNK4llvm19TargetTransformInfo13getMaxNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11doPromotionPN4llvm8FunctionERNS_15AnalysisManagerIS0_JEEERKNS_8DenseMapIPNS_8ArgumentENS_11SmallVectorISt4pairIlN12_GLOBAL__N_17ArgPartEELj4EEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SD_EEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL11doPromotionPN4llvm8FunctionERNS_15AnalysisManagerIS0_JEEERKNS_8DenseMapIPNS_8ArgumentENS_11SmallVectorISt4pairIlN12_GLOBAL__N_17ArgPartEELj4EEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SD_EEEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::AlignedCharArrayUnion.450", align 8
   %5 = alloca %"class.llvm::InsertPosition", align 8
   %6 = alloca i64, align 8
@@ -3087,7 +3087,7 @@ define internal fastcc noundef ptr @_ZL11doPromotionPN4llvm8FunctionERNS_15Analy
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.sroa.0.0.copyload.i = load ptr, ptr %74, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %39, align 8
-  call void @_ZN4llvm25OptimizationRemarkEmitterC1EPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef %0) #17
+  call void @_ZN4llvm25OptimizationRemarkEmitterC1EPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull %0) #17
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %76 = load i16, ptr %75, align 2
   %77 = and i16 %76, 1
@@ -3355,7 +3355,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4ll
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %35)
-  call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %33, ptr noundef nonnull @.str, ptr nonnull @.str.11, i64 15, ptr noundef %0) #17, !noalias !57
+  call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %33, ptr noundef nonnull @.str, ptr nonnull @.str.11, i64 15, ptr noundef nonnull %0) #17, !noalias !57
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %33, ptr nonnull @.str.12, i64 21) #17, !noalias !57
   %218 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.0712777) #17, !noalias !57
   %219 = extractvalue { ptr, i64 } %218, 0
@@ -3634,7 +3634,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i265: ; preds = %_ZNK
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %29)
-  call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %27, ptr noundef nonnull @.str, ptr nonnull @.str.17, i64 16, ptr noundef %0) #17, !noalias !61
+  call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %27, ptr noundef nonnull @.str, ptr nonnull @.str.17, i64 16, ptr noundef nonnull %0) #17, !noalias !61
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %27, ptr nonnull @.str.18, i64 19) #17, !noalias !61
   %310 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.0712777) #17, !noalias !61
   %311 = extractvalue { ptr, i64 } %310, 0
@@ -6396,7 +6396,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %86, %93
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %104 = select i1 %3, ptr %1, ptr null
   store ptr %104, ptr %103, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIlS3_EEEElS3_S5_S8_E11try_emplaceIJS3_EEESt4pairINS_16DenseMapIteratorIlS3_S5_S8_Lb0EEEbERKlDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %97, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIlS3_EEEElS3_S5_S8_E11try_emplaceIJS3_EEESt4pairINS_16DenseMapIteratorIlS3_S5_S8_Lb0EEEbERKlDpOT_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %97, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %9)
   %.val = load ptr, ptr %8, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6671,7 +6671,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %86, %93
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %104 = select i1 %3, ptr %1, ptr null
   store ptr %104, ptr %103, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIlS3_EEEElS3_S5_S8_E11try_emplaceIJS3_EEESt4pairINS_16DenseMapIteratorIlS3_S5_S8_Lb0EEEbERKlDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %97, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIlS3_EEEElS3_S5_S8_E11try_emplaceIJS3_EEESt4pairINS_16DenseMapIteratorIlS3_S5_S8_Lb0EEEbERKlDpOT_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %97, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %9)
   %.val = load ptr, ptr %8, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6863,7 +6863,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
 declare noundef i32 @_ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIlS3_EEEElS3_S5_S8_E11try_emplaceIJS3_EEESt4pairINS_16DenseMapIteratorIlS3_S5_S8_Lb0EEEbERKlDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIlN12_GLOBAL__N_17ArgPartELj4ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIlS3_EEEElS3_S5_S8_E11try_emplaceIJS3_EEESt4pairINS_16DenseMapIteratorIlS3_S5_S8_Lb0EEEbERKlDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
   %.val = load i64, ptr %2, align 8
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 1

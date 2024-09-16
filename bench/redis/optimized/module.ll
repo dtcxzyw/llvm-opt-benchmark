@@ -1334,7 +1334,7 @@ sw.bb8:                                           ; preds = %for.body
   br i1 %cmp.i, label %for.inc, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb8
-  tail call fastcc void @moduleCloseKey(ptr noundef nonnull %3)
+  tail call fastcc void @moduleCloseKey(ptr noundef %3)
   %5 = load ptr, ptr %3, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load i32, ptr %flags.i.i, align 8
@@ -3252,7 +3252,7 @@ for.inc102.i:                                     ; preds = %sw.epilog.i
 moduleValidateCommandInfo.exit:                   ; preds = %for.inc102.i, %if.end20.i, %for.cond24.preheader.i
   %args.i = getelementptr inbounds i8, ptr %info, i64 64
   %24 = load ptr, ptr %args.i, align 8
-  %call106.i = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef %24, ptr noundef nonnull %0)
+  %call106.i = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef %24, ptr noundef %0)
   %tobool.not = icmp eq i32 %call106.i, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -3737,7 +3737,7 @@ if.end264:                                        ; preds = %for.end263, %if.end
   br i1 %tobool266.not, label %return, label %if.then267
 
 if.then267:                                       ; preds = %if.end264
-  %call269 = call fastcc ptr @moduleCopyCommandArgs(ptr noundef nonnull %100, ptr noundef %39)
+  %call269 = call fastcc ptr @moduleCopyCommandArgs(ptr noundef %100, ptr noundef %39)
   store ptr %call269, ptr %args, align 8
   %call272 = call i32 @populateArgsStructure(ptr noundef %call269)
   %num_args = getelementptr inbounds i8, ptr %25, i64 152
@@ -3752,7 +3752,7 @@ return:                                           ; preds = %if.end264, %if.then
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @moduleCopyCommandArgs(ptr nocapture noundef readonly %args, ptr nocapture noundef readonly %version) unnamed_addr #0 {
+define internal fastcc noalias ptr @moduleCopyCommandArgs(ptr nocapture noundef nonnull readonly %args, ptr nocapture noundef readonly %version) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %version, i64 24
   %version.val = load i64, ptr %0, align 8
@@ -3901,7 +3901,7 @@ if.end57:                                         ; preds = %if.then52, %if.end5
   br i1 %tobool61.not, label %for.inc, label %if.then62
 
 if.then62:                                        ; preds = %if.end57
-  %call64 = tail call fastcc ptr @moduleCopyCommandArgs(ptr noundef nonnull %12, ptr noundef nonnull %version)
+  %call64 = tail call fastcc ptr @moduleCopyCommandArgs(ptr noundef %12, ptr noundef nonnull %version)
   %subargs66 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store ptr %call64, ptr %subargs66, align 8
   br label %for.inc
@@ -4479,7 +4479,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call fastcc void @moduleCloseKey(ptr noundef nonnull %key)
+  tail call fastcc void @moduleCloseKey(ptr noundef %key)
   %0 = load ptr, ptr %key, align 8
   %flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %flags.i, align 8
@@ -8723,7 +8723,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @moduleCloseKey(ptr noundef %key) unnamed_addr #0 {
+define internal fastcc void @moduleCloseKey(ptr noundef nonnull %key) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %module = getelementptr inbounds i8, ptr %0, i64 8
@@ -23687,7 +23687,7 @@ moduleInitKey.exit:                               ; preds = %entry, %if.then.i, 
   %user_data = getelementptr inbounds i8, ptr %privdata, i64 8
   %6 = load ptr, ptr %user_data, align 8
   call void %4(ptr noundef %5, ptr noundef %call3, ptr noundef nonnull %kp, ptr noundef %6) #34
-  call fastcc void @moduleCloseKey(ptr noundef nonnull %kp)
+  call fastcc void @moduleCloseKey(ptr noundef %kp)
   call void @decrRefCount(ptr noundef %call3) #34
   ret void
 }
@@ -24526,7 +24526,7 @@ if.end90.us:                                      ; preds = %if.then9.us
   br i1 %cmp96, label %if.then98.us, label %if.end99.us
 
 if.then98.us:                                     ; preds = %if.end90.us
-  call fastcc void @moduleCloseKey(ptr noundef nonnull %key)
+  call fastcc void @moduleCloseKey(ptr noundef %key)
   br label %if.end99.us
 
 if.end99.us:                                      ; preds = %if.then98.us, %if.end90.us
@@ -24751,7 +24751,7 @@ if.end90:                                         ; preds = %sw.epilog.sink.spli
   br i1 %cmp96, label %if.then98, label %while.cond.backedge.sink.split
 
 if.then98:                                        ; preds = %if.end90
-  call fastcc void @moduleCloseKey(ptr noundef nonnull %key)
+  call fastcc void @moduleCloseKey(ptr noundef %key)
   br label %while.cond.backedge.sink.split
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end100.us, %if.end, %entry
@@ -29415,7 +29415,7 @@ declare void @listTypeReleaseIterator(ptr noundef) local_unnamed_addr #1
 declare ptr @callReplyCreate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @moduleValidateCommandArgs(ptr noundef readonly %args, ptr nocapture noundef readonly %version) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @moduleValidateCommandArgs(ptr noundef readonly %args, ptr nocapture noundef nonnull readonly %version) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -29535,7 +29535,7 @@ if.end83:                                         ; preds = %do.body79
   br label %return
 
 if.end86:                                         ; preds = %if.then75
-  %call88 = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef nonnull %14, ptr noundef nonnull %version)
+  %call88 = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef nonnull %14, ptr noundef %version)
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %return, label %for.inc
 

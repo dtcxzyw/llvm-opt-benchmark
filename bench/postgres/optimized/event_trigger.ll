@@ -253,11 +253,19 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   %65 = icmp eq i32 %64, 0
   %66 = icmp ne ptr %.046.lcssa, null
   %or.cond = select i1 %65, i1 %66, i1 false
-  br i1 %or.cond, label %validate_table_rewrite_tags.exit.sink.split, label %68
+  br i1 %or.cond, label %.split47, label %68
+
+.split47:                                         ; preds = %63
+  tail call fastcc void @validate_ddl_tags(ptr noundef %.046.lcssa)
+  br label %validate_table_rewrite_tags.exit
 
 67:                                               ; preds = %60, %._crit_edge
   %.old1.not = icmp eq ptr %.046.lcssa, null
-  br i1 %.old1.not, label %68, label %validate_table_rewrite_tags.exit.sink.split
+  br i1 %.old1.not, label %68, label %.split
+
+.split:                                           ; preds = %67
+  tail call fastcc void @validate_ddl_tags(ptr noundef nonnull %.046.lcssa)
+  br label %validate_table_rewrite_tags.exit
 
 68:                                               ; preds = %67, %63
   %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(14) @.str.7) #16
@@ -316,11 +324,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 178, ptr noundef nonnull @__func__.CreateEventTrigger) #14
   unreachable
 
-validate_table_rewrite_tags.exit.sink.split:      ; preds = %67, %63
-  tail call fastcc void @validate_ddl_tags(ptr noundef nonnull %.046.lcssa)
-  br label %validate_table_rewrite_tags.exit
-
-validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table_rewrite_tags.exit.sink.split, %72, %91
+validate_table_rewrite_tags.exit:                 ; preds = %76, %72, %.split, %.split47, %91
   %98 = getelementptr inbounds i8, ptr %0, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
@@ -526,7 +530,7 @@ define internal fastcc void @error_duplicate_filter_variable(ptr noundef %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @validate_ddl_tags(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @validate_ddl_tags(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not4 = icmp sgt i32 %3, 0
@@ -741,7 +745,7 @@ define dso_local { i64, i32 } @AlterEventTriggerOwner(ptr noundef %0, i32 nounde
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4
-  tail call fastcc void @AlterEventTriggerOwner_internal(ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @AlterEventTriggerOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
   tail call void @heap_freetuple(ptr noundef nonnull %5) #14
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #14
   %.sroa.212.0.insert.ext = zext i32 %17 to i64
@@ -753,7 +757,7 @@ define dso_local { i64, i32 } @AlterEventTriggerOwner(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AlterEventTriggerOwner_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @AlterEventTriggerOwner_internal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 22
@@ -829,7 +833,7 @@ define dso_local void @AlterEventTriggerOwner_oid(i32 noundef %0, i32 noundef %1
   unreachable
 
 10:                                               ; preds = %2
-  tail call fastcc void @AlterEventTriggerOwner_internal(ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @AlterEventTriggerOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
   tail call void @heap_freetuple(ptr noundef nonnull %5) #14
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #14
   ret void
@@ -940,7 +944,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   store ptr %0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %12, ptr %41, align 8
-  call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %2)
+  call fastcc void @EventTriggerInvoke(ptr noundef %.1.i, ptr noundef %2)
   call void @list_free(ptr noundef nonnull %.1.i) #14
   call void @CommandCounterIncrement() #14
   br label %EventTriggerCommonSetup.exit.thread
@@ -950,7 +954,7 @@ EventTriggerCommonSetup.exit.thread:              ; preds = %11, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @EventTriggerInvoke(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @EventTriggerInvoke(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %union.anon.8, align 8
   %4 = alloca %struct.FmgrInfo, align 8
   %5 = alloca %struct.PgStat_FunctionCallUsage, align 8
@@ -1111,7 +1115,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %43 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %14, ptr %43, align 8
   tail call void @CommandCounterIncrement() #14
-  call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %2)
+  call fastcc void @EventTriggerInvoke(ptr noundef %.1.i, ptr noundef %2)
   call void @list_free(ptr noundef nonnull %.1.i) #14
   br label %EventTriggerCommonSetup.exit.thread
 
@@ -1224,7 +1228,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
 
 53:                                               ; preds = %44
   store ptr %3, ptr @PG_exception_stack, align 8
-  call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %2)
+  call fastcc void @EventTriggerInvoke(ptr noundef %.1.i, ptr noundef %2)
   %54 = load ptr, ptr @currentEventTriggerState, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   store i8 0, ptr %55, align 8
@@ -1346,7 +1350,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   store i32 162, ptr %45, align 8
   %46 = tail call ptr @GetTransactionSnapshot() #14
   tail call void @PushActiveSnapshot(ptr noundef %46) #14
-  call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %1)
+  call fastcc void @EventTriggerInvoke(ptr noundef %.1.i, ptr noundef %1)
   call void @list_free(ptr noundef nonnull %.1.i) #14
   call void @PopActiveSnapshot() #14
   br label %92
@@ -1576,7 +1580,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
 
 53:                                               ; preds = %43
   store ptr %5, ptr @PG_exception_stack, align 8
-  call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %4)
+  call fastcc void @EventTriggerInvoke(ptr noundef %.1.i, ptr noundef %4)
   %54 = load ptr, ptr @currentEventTriggerState, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 20
   store i32 0, ptr %55, align 4
@@ -1777,7 +1781,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr nocapture noundef readon
   %39 = sext i16 %37 to i32
   %40 = getelementptr inbounds i8, ptr %29, i64 64
   %41 = load ptr, ptr %40, align 8
-  %42 = call fastcc i64 @heap_getattr(ptr noundef nonnull %34, i32 noundef %39, ptr noundef %41, ptr noundef nonnull %4)
+  %42 = call fastcc i64 @heap_getattr(ptr noundef %34, i32 noundef %39, ptr noundef %41, ptr noundef %4)
   %43 = load i8, ptr %4, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %55, label %45
@@ -1830,7 +1834,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr nocapture noundef readon
   %66 = sext i16 %64 to i32
   %67 = getelementptr inbounds i8, ptr %29, i64 64
   %68 = load ptr, ptr %67, align 8
-  %69 = call fastcc i64 @heap_getattr(ptr noundef nonnull %34, i32 noundef %66, ptr noundef %68, ptr noundef nonnull %4)
+  %69 = call fastcc i64 @heap_getattr(ptr noundef %34, i32 noundef %66, ptr noundef %68, ptr noundef %4)
   %70 = load i8, ptr %4, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %76, label %72
@@ -1902,7 +1906,7 @@ declare signext i16 @get_object_attnum_oid(i32 noundef) local_unnamed_addr #1
 declare signext i16 @get_object_attnum_namespace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %75
 
@@ -1917,7 +1921,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #14
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #14
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -2019,7 +2023,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
-  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %76 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #14
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, %51, %48, %45, %42, %75, %14
@@ -2949,7 +2953,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
 79:                                               ; preds = %67
   %80 = getelementptr inbounds i8, ptr %69, i64 64
   %81 = load ptr, ptr %80, align 8
-  %82 = call fastcc i64 @heap_getattr(ptr noundef nonnull %73, i32 noundef %66, ptr noundef %81, ptr noundef nonnull %5)
+  %82 = call fastcc i64 @heap_getattr(ptr noundef %73, i32 noundef %66, ptr noundef %81, ptr noundef %5)
   %83 = load i8, ptr %5, align 1
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %91

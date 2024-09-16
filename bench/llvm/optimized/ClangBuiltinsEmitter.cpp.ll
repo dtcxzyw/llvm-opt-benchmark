@@ -1260,7 +1260,7 @@ declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"cl
 declare noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114EmitBuiltinDefERN4llvm11raw_ostreamENS0_9StringRefEPKNS0_6RecordENS0_5TwineENS_11BuiltinTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull %3, ptr noundef byval(%"class.llvm::Twine") align 8 %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114EmitBuiltinDefERN4llvm11raw_ostreamENS0_9StringRefEPKNS0_6RecordENS0_5TwineENS_11BuiltinTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull %3, ptr noundef byval(%"class.llvm::Twine") align 8 %4, i32 noundef range(i32 0, 5) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.std::optional.93", align 8
   %9 = alloca %"class.llvm::SMLoc", align 8
@@ -1324,7 +1324,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %38, %36, %6
   %44 = ptrtoint ptr %41 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
-  switch i32 %5, label %default.unreachable [
+  switch i32 %5, label %default.unreachable93 [
     i32 2, label %47
     i32 3, label %54
     i32 0, label %61
@@ -1407,7 +1407,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %38, %36, %6
   store ptr %81, ptr %42, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit31
 
-default.unreachable:                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
+default.unreachable93:                            ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit31:               ; preds = %79, %77, %72, %70, %65, %63, %58, %56, %51, %49

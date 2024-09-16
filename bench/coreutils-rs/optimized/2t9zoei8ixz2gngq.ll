@@ -385,7 +385,7 @@ define hidden void @"_ZN4core3ptr137drop_in_place$LT$core..result..Result$LT$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !15, !noundef !8
   %3 = icmp eq i64 %2, -9223372036854775805
   br i1 %3, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h9949795d1e84e21dE.exit", label %4
@@ -670,7 +670,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h818a9a7220
 .body.i.i:                                        ; preds = %34, %.body.i.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %35, %34 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ]
   store i64 -9223372036854775808, ptr %1, align 8, !alias.scope !135, !noalias !136
-  invoke fastcc void @"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #16
+  invoke fastcc void @"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E"(ptr noalias noundef align 8 dereferenceable(24) %7) #16
           to label %common.resume unwind label %36, !noalias !136
 
 36:                                               ; preds = %.body.i.i

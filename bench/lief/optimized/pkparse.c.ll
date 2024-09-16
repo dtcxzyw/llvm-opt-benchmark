@@ -732,7 +732,7 @@ pk_get_pk_alg.exit:                               ; preds = %14
   %63 = load ptr, ptr %61, align 8
   %.0.i46 = select i1 %switch.i, ptr %63, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %64 = call fastcc i32 @pk_use_ecparams(ptr noundef nonnull %9, ptr noundef %.0.i46)
+  %64 = call fastcc i32 @pk_use_ecparams(ptr noundef %9, ptr noundef %.0.i46)
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %.thread
 
@@ -860,7 +860,7 @@ define internal fastcc range(i32 -2147483648, 2147468544) i32 @pk_get_rsapubkey(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pk_use_ecparams(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.mbedtls_ecp_group, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -1303,7 +1303,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not55, label %27, label %asn1_get_nonzero_mpi.exit.thread
 
 27:                                               ; preds = %asn1_get_nonzero_mpi.exit
-  %28 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef nonnull %6, ptr noundef %15, ptr noundef nonnull %7)
+  %28 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef %6, ptr noundef %15, ptr noundef %7)
   %.not56 = icmp eq i32 %28, 0
   br i1 %.not56, label %29, label %asn1_get_nonzero_mpi.exit.thread
 
@@ -1313,7 +1313,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not57, label %31, label %asn1_get_nonzero_mpi.exit.thread
 
 31:                                               ; preds = %29
-  %32 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef nonnull %6, ptr noundef %15, ptr noundef nonnull %7)
+  %32 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef %6, ptr noundef %15, ptr noundef %7)
   %.not58 = icmp eq i32 %32, 0
   br i1 %.not58, label %33, label %asn1_get_nonzero_mpi.exit.thread
 
@@ -1323,7 +1323,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not59, label %35, label %asn1_get_nonzero_mpi.exit.thread
 
 35:                                               ; preds = %33
-  %36 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef nonnull %6, ptr noundef %15, ptr noundef nonnull %7)
+  %36 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef %6, ptr noundef %15, ptr noundef %7)
   %.not60 = icmp eq i32 %36, 0
   br i1 %.not60, label %37, label %asn1_get_nonzero_mpi.exit.thread
 
@@ -1333,7 +1333,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not61, label %39, label %asn1_get_nonzero_mpi.exit.thread
 
 39:                                               ; preds = %37
-  %40 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef nonnull %6, ptr noundef %15, ptr noundef nonnull %7)
+  %40 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef %6, ptr noundef %15, ptr noundef %7)
   %.not62 = icmp eq i32 %40, 0
   br i1 %.not62, label %41, label %asn1_get_nonzero_mpi.exit.thread
 
@@ -1343,7 +1343,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not63, label %43, label %asn1_get_nonzero_mpi.exit.thread
 
 43:                                               ; preds = %41
-  %44 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef nonnull %6, ptr noundef %15, ptr noundef nonnull %7)
+  %44 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef %6, ptr noundef %15, ptr noundef %7)
   %.not64 = icmp eq i32 %44, 0
   br i1 %.not64, label %45, label %asn1_get_nonzero_mpi.exit.thread
 
@@ -1354,7 +1354,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not65, label %48, label %asn1_get_nonzero_mpi.exit.thread
 
 48:                                               ; preds = %45
-  %49 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef nonnull %6, ptr noundef %15, ptr noundef nonnull %7)
+  %49 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef %6, ptr noundef %15, ptr noundef %7)
   %.not66 = icmp eq i32 %49, 0
   br i1 %.not66, label %50, label %asn1_get_nonzero_mpi.exit.thread
 
@@ -1365,7 +1365,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not67, label %53, label %asn1_get_nonzero_mpi.exit.thread
 
 53:                                               ; preds = %50
-  %54 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef nonnull %6, ptr noundef %15, ptr noundef nonnull %7)
+  %54 = call fastcc i32 @asn1_get_nonzero_mpi(ptr noundef %6, ptr noundef %15, ptr noundef %7)
   %.not68 = icmp eq i32 %54, 0
   br i1 %.not68, label %55, label %asn1_get_nonzero_mpi.exit.thread
 
@@ -1487,12 +1487,12 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   %41 = load ptr, ptr %9, align 8
   %42 = load i64, ptr %7, align 8
   %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  %44 = call fastcc i32 @pk_get_ecparams(ptr noundef nonnull %9, ptr noundef %43, ptr noundef nonnull %8)
+  %44 = call fastcc i32 @pk_get_ecparams(ptr noundef %9, ptr noundef %43, ptr noundef %8)
   %.not65 = icmp eq i32 %44, 0
   br i1 %.not65, label %45, label %47
 
 45:                                               ; preds = %40
-  %46 = call fastcc i32 @pk_use_ecparams(ptr noundef nonnull %8, ptr noundef %0)
+  %46 = call fastcc i32 @pk_use_ecparams(ptr noundef %8, ptr noundef %0)
   %.not66 = icmp eq i32 %46, 0
   br i1 %.not66, label %50, label %47
 
@@ -1731,7 +1731,7 @@ pk_get_pk_alg.exit:                               ; preds = %28
   %76 = load ptr, ptr %74, align 8
   %.0.i44 = select i1 %switch.i, ptr %76, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %77 = call fastcc i32 @pk_use_ecparams(ptr noundef nonnull %12, ptr noundef %.0.i44)
+  %77 = call fastcc i32 @pk_use_ecparams(ptr noundef %12, ptr noundef %.0.i44)
   %.not40 = icmp eq i32 %77, 0
   br i1 %.not40, label %78, label %87
 
@@ -1915,13 +1915,13 @@ declare i32 @mbedtls_ecp_check_pubkey(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_get_nonzero_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @mbedtls_asn1_get_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+define internal fastcc i32 @asn1_get_nonzero_mpi(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+  %4 = tail call i32 @mbedtls_asn1_get_mpi(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef %2, i64 noundef 0) #10
+  %6 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %2, i64 noundef 0) #10
   %7 = icmp eq i32 %6, 0
   %. = select i1 %7, i32 -15616, i32 0
   br label %8
@@ -1944,7 +1944,7 @@ declare i32 @mbedtls_mpi_cmp_int(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @mbedtls_ecp_keypair_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147468032) i32 @pk_get_ecparams(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147468032) i32 @pk_get_ecparams(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64

@@ -322,7 +322,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__create_api_
   %spec.select = select i1 %38, i64 %39, i64 %4
   %40 = load ptr, ptr %12, align 8
   %41 = load i64, ptr %9, align 8
-  %42 = call fastcc i64 @H5A__create_common(ptr noundef %40, ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i64 noundef %spec.select, i64 noundef %41, ptr noundef %6)
+  %42 = call fastcc i64 @H5A__create_common(ptr noundef %40, ptr noundef %11, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %spec.select, i64 noundef %41, ptr noundef %6)
   %43 = icmp slt i64 %42, 0
   br i1 %43, label %44, label %48
 
@@ -566,7 +566,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__create_by_n
   %spec.select = select i1 %47, i64 %48, i64 %5
   %49 = load ptr, ptr %14, align 8
   %50 = load i64, ptr %11, align 8
-  %51 = call fastcc i64 @H5A__create_common(ptr noundef %49, ptr noundef nonnull %13, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i64 noundef %spec.select, i64 noundef %50, ptr noundef %8)
+  %51 = call fastcc i64 @H5A__create_common(ptr noundef %49, ptr noundef %13, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %spec.select, i64 noundef %50, ptr noundef %8)
   %52 = icmp slt i64 %51, 0
   br i1 %52, label %53, label %57
 
@@ -788,7 +788,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__open_api_co
 34:                                               ; preds = %27
   %35 = load ptr, ptr %9, align 8
   %36 = load i64, ptr %6, align 8
-  %37 = call fastcc i64 @H5A__open_common(ptr noundef %35, ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef %36, ptr noundef %3)
+  %37 = call fastcc i64 @H5A__open_common(ptr noundef %35, ptr noundef %8, ptr noundef nonnull %1, i64 noundef %36, ptr noundef %3)
   %38 = icmp slt i64 %37, 0
   br i1 %38, label %39, label %43
 
@@ -1015,7 +1015,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__open_by_nam
 39:                                               ; preds = %32
   %40 = load ptr, ptr %11, align 8
   %41 = load i64, ptr %8, align 8
-  %42 = call fastcc i64 @H5A__open_common(ptr noundef %40, ptr noundef nonnull %10, ptr noundef nonnull %2, i64 noundef %41, ptr noundef %5)
+  %42 = call fastcc i64 @H5A__open_common(ptr noundef %40, ptr noundef %10, ptr noundef nonnull %2, i64 noundef %41, ptr noundef %5)
   %43 = icmp slt i64 %42, 0
   br i1 %43, label %44, label %48
 
@@ -1262,7 +1262,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__open_by_idx
 51:                                               ; preds = %44
   %52 = load ptr, ptr %13, align 8
   %53 = load i64, ptr %10, align 8
-  %54 = call fastcc i64 @H5A__open_common(ptr noundef %52, ptr noundef nonnull %12, ptr noundef null, i64 noundef %53, ptr noundef %7)
+  %54 = call fastcc i64 @H5A__open_common(ptr noundef %52, ptr noundef %12, ptr noundef null, i64 noundef %53, ptr noundef %7)
   %55 = icmp slt i64 %54, 0
   br i1 %55, label %56, label %60
 
@@ -4666,9 +4666,9 @@ define range(i32 -1, 1) i32 @H5Aexists_by_name_async(ptr noundef %0, ptr noundef
 declare i32 @H5VL_setup_acc_args(i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__create_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__create_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %10 = tail call ptr @H5VL_attr_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %9, ptr noundef %7) #4
+  %10 = tail call ptr @H5VL_attr_create(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %9, ptr noundef %7) #4
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
 
@@ -4714,9 +4714,9 @@ declare i32 @H5VL_attr_close(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare i32 @H5VL_setup_name_args(i64 noundef, ptr noundef, i1 noundef zeroext, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__open_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__open_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %7 = tail call ptr @H5VL_attr_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %6, ptr noundef %4) #4
+  %7 = tail call ptr @H5VL_attr_open(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i64 noundef %6, ptr noundef %4) #4
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13
 

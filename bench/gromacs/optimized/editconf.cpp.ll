@@ -1346,7 +1346,7 @@ _ZL16visualize_imagesPKc7PbcTypePA3_f.exit:       ; preds = %.noexc305
   %462 = phi ptr [ %.pre584, %._crit_edge582 ], [ null, %459 ]
   %463 = phi i32 [ %.pre583, %._crit_edge582 ], [ %460, %459 ]
   %464 = load ptr, ptr %31, align 8
-  %465 = call fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %463, ptr noundef %462, ptr noundef %464, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, i1 noundef zeroext %147)
+  %465 = call fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %463, ptr noundef %462, ptr noundef %464, ptr noundef %33, ptr noundef %34, ptr noundef %35, i1 noundef zeroext %147)
   %466 = load float, ptr %35, align 4
   %467 = load float, ptr %34, align 4
   %468 = fsub float %466, %467
@@ -2435,7 +2435,7 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1024
   %1100 = load i32, ptr %26, align 4
   %1101 = load ptr, ptr %29, align 8
   %1102 = load ptr, ptr %31, align 8
-  %1103 = call fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %1100, ptr noundef %1101, ptr noundef %1102, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, i1 noundef zeroext false)
+  %1103 = call fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %1100, ptr noundef %1101, ptr noundef %1102, ptr noundef %33, ptr noundef %34, ptr noundef %35, i1 noundef zeroext false)
   %1104 = load float, ptr %35, align 4
   %1105 = load float, ptr %34, align 4
   %1106 = fsub float %1104, %1105
@@ -2675,7 +2675,7 @@ _ZL11center_confiPA3_fPfS1_.exit:                 ; preds = %.lr.ph.i333, %1194,
   %1222 = load i32, ptr %26, align 4
   %1223 = load ptr, ptr %29, align 8
   %1224 = load ptr, ptr %31, align 8
-  %1225 = call fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %1222, ptr noundef %1223, ptr noundef %1224, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, i1 noundef zeroext false)
+  %1225 = call fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %1222, ptr noundef %1223, ptr noundef %1224, ptr noundef %33, ptr noundef %34, ptr noundef %35, i1 noundef zeroext false)
   %1226 = load float, ptr %33, align 4
   %1227 = fpext float %1226 to double
   %1228 = getelementptr inbounds i8, ptr %33, i64 4
@@ -2954,7 +2954,7 @@ _ZL11center_confiPA3_fPfS1_.exit:                 ; preds = %.lr.ph.i333, %1194,
 1427:                                             ; preds = %1424
   %1428 = load i32, ptr %25, align 4
   %1429 = load ptr, ptr %28, align 8
-  call fastcc void @_ZL11renum_resnrP7t_atomsiPKii(ptr noundef nonnull %50, i32 noundef %1428, ptr noundef %1429, i32 noundef %1425)
+  call fastcc void @_ZL11renum_resnrP7t_atomsiPKii(ptr noundef %50, i32 noundef %1428, ptr noundef %1429, i32 noundef %1425)
   br label %1430
 
 1430:                                             ; preds = %1427, %1424
@@ -3191,7 +3191,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit350:       ; preds = %1510, %1513
           to label %1533 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1533:                                             ; preds = %1531
-  invoke fastcc void @_ZL9read_bfacPKcPiPPdPS1_(ptr noundef %1532, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  invoke fastcc void @_ZL9read_bfacPKcPiPPdPS1_(ptr noundef %1532, ptr noundef %19, ptr noundef %20, ptr noundef %21)
           to label %1534 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1534:                                             ; preds = %1533
@@ -4228,7 +4228,7 @@ declare void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef, ptr noundef, i32 
 declare noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i1 noundef zeroext %6) unnamed_addr #8 {
+define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, i1 noundef zeroext %6) unnamed_addr #8 {
   store float 0.000000e+00, ptr %3, align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %8, align 4
@@ -4591,7 +4591,7 @@ declare noundef ptr @_Z19gmx_conect_generatePK10t_topology(ptr noundef) local_un
 declare noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL11renum_resnrP7t_atomsiPKii(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #11 {
+define internal fastcc void @_ZL11renum_resnrP7t_atomsiPKii(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #11 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -4666,7 +4666,7 @@ declare noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef) local_unnamed_addr #
 declare void @_Z22write_sto_conf_indexedRKNSt10filesystem7__cxx114pathEPKcPK7t_atomsPA3_KfSB_7PbcTypeSB_iPi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL9read_bfacPKcPiPPdPS1_(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #12 {
+define internal fastcc void @_ZL9read_bfacPKcPiPPdPS1_(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #12 {
   %5 = alloca ptr, align 8
   %6 = call noundef i32 @_Z9get_linesPKcPPPc(ptr noundef %0, ptr noundef nonnull %5)
   store i32 %6, ptr %1, align 4

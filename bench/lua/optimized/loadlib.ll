@@ -549,7 +549,7 @@ findfile.exit:                                    ; preds = %entry.split.i, %if.
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %findfile.exit
-  %call2 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call)
+  %call2 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef %phi.call.i, ptr noundef %call)
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.then.i7, label %if.else.i
 
@@ -602,7 +602,7 @@ findfile.exit:                                    ; preds = %entry.split.i, %if.
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %findfile.exit
-  %call8 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call)
+  %call8 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef %phi.call.i, ptr noundef %call)
   switch i32 %call8, label %if.then12 [
     i32 0, label %if.end15
     i32 2, label %if.else
@@ -634,7 +634,7 @@ declare i32 @luaL_loadfilex(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @loadfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %modname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @loadfunc(ptr noundef %L, ptr noundef nonnull %filename, ptr noundef %modname) unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaL_gsub(ptr noundef %L, ptr noundef %modname, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.32) #6
   %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 45) #7
@@ -647,7 +647,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call2 = tail call ptr @lua_pushlstring(ptr noundef %L, ptr noundef %call, i64 noundef %sub.ptr.sub) #6
   %call3 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.34, ptr noundef %call2) #6
-  %call4 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %call3)
+  %call4 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef nonnull %filename, ptr noundef %call3)
   %cmp.not = icmp eq i32 %call4, 2
   br i1 %cmp.not, label %if.end, label %return
 
@@ -658,7 +658,7 @@ if.end:                                           ; preds = %if.then
 if.end7:                                          ; preds = %if.end, %entry
   %modname.addr.0 = phi ptr [ %add.ptr, %if.end ], [ %call, %entry ]
   %call8 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.34, ptr noundef %modname.addr.0) #6
-  %call9 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %call8)
+  %call9 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef nonnull %filename, ptr noundef %call8)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end7

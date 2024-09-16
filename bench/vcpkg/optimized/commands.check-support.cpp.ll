@@ -1460,7 +1460,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcp
   br label %_ZN5vcpkg4Json6ObjectD2Ev.exit
 
 _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i, %451
-  invoke fastcc void @_ZN12_GLOBAL__N_19to_objectERKNS_4PortE(ptr dead_on_unwind noalias nonnull writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(96) %53)
+  invoke fastcc void @_ZN12_GLOBAL__N_19to_objectERKNS_4PortE(ptr dead_on_unwind noalias writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %452 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 452:                                              ; preds = %_ZN5vcpkg4Json6ObjectD2Ev.exit
@@ -1550,7 +1550,7 @@ _ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_
 
 .lr.ph313:                                        ; preds = %.lr.ph313.preheader, %_ZN5vcpkg4Json6ObjectD2Ev.exit133
   %.sroa.0215.0312 = phi ptr [ %484, %_ZN5vcpkg4Json6ObjectD2Ev.exit133 ], [ %.val75, %.lr.ph313.preheader ]
-  invoke fastcc void @_ZN12_GLOBAL__N_19to_objectERKNS_4PortE(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0215.0312)
+  invoke fastcc void @_ZN12_GLOBAL__N_19to_objectERKNS_4PortE(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0215.0312)
           to label %475 unwind label %.loopexit251
 
 475:                                              ; preds = %.lr.ph313
@@ -1646,7 +1646,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit133:                ; preds = %_ZSt8_DestroyIPSt4p
 
 500:                                              ; preds = %499
   %.sroa.032.0.copyload.i = load i64, ptr @_ZN5vcpkg16msgSupportedPortE, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(96) %53)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %.noexc142 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc142:                                        ; preds = %500
@@ -1665,7 +1665,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit133:                ; preds = %_ZSt8_DestroyIPSt4p
 
 503:                                              ; preds = %499
   %.sroa.028.0.copyload.i = load i64, ptr @_ZN5vcpkg18msgUnsupportedPortE, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(96) %53)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %.noexc143 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc143:                                        ; preds = %503
@@ -1745,7 +1745,7 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit.i: ; preds = %.noexc.i141
 
 517:                                              ; preds = %497
   %.sroa.022.0.copyload.i = load i64, ptr @_ZN5vcpkg18msgUnsupportedPortE, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(96) %53)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %.noexc144 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc144:                                        ; preds = %517
@@ -1782,7 +1782,7 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit.i: ; preds = %.noexc.i141
 
 522:                                              ; preds = %521
   %.sroa.019.0.copyload.i = load i64, ptr @_ZN5vcpkg25msgPortDependencyConflictE, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(96) %53)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %523 unwind label %.loopexit.split-lp.i134
 
 523:                                              ; preds = %522
@@ -1866,7 +1866,7 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit.i: ; preds = %.noexc.i141
 
 536:                                              ; preds = %534
   %.sroa.013.0.copyload.i = load i64, ptr @_ZN5vcpkg25msgPortDependencyConflictE, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(96) %53)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %537 unwind label %.loopexit.split-lp.i134
 
 537:                                              ; preds = %536
@@ -1916,7 +1916,7 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit.i: ; preds = %.noexc.i141
 
 546:                                              ; preds = %544
   %.sroa.04.0.copyload.i = load i64, ptr @_ZN5vcpkg28msgUnsupportedPortDependencyE, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(96) %53)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %547 unwind label %.loopexit.i137
 
 547:                                              ; preds = %546
@@ -2738,7 +2738,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json6Object6insertENS_10StringViewEOS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19to_objectERKNS_4PortE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19to_objectERKNS_4PortE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3837,7 +3837,7 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_120print_port_supportedERKNS_4PortEbN5vcpkg4SpanIS1_EEENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.fmt::v10::format_arg_store", align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3899,7 +3899,7 @@ _ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   store i64 %27, ptr %29, align 16, !alias.scope !97
   %.sroa.269.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 40
   store i64 %26, ptr %.sroa.269.0..sroa_idx.i, align 8, !alias.scope !97
-  invoke void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.18, i64 9, i64 3549, ptr nonnull %3)
+  invoke void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.18, i64 9, i64 3549, ptr nonnull %3)
           to label %30 unwind label %31
 
 30:                                               ; preds = %18

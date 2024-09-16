@@ -1458,7 +1458,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24HdSceneIndexNameRegistry11GetInstanceEv.e
   br label %495
 
 401:                                              ; preds = %393
-  invoke fastcc void @_ZN12_GLOBAL__N_115_GetDictForPrimERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKNS0_7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %36)
+  invoke fastcc void @_ZN12_GLOBAL__N_115_GetDictForPrimERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKNS0_7SdfPathE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %36)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit.i.i.i unwind label %399, !noalias !32
 
 _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit.i.i.i: ; preds = %401
@@ -3838,7 +3838,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__24HdSceneIndexNameRegistry18GetNamedSceneIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.137") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115_GetDictForPrimERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKNS0_7SdfPathE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115_GetDictForPrimERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKNS0_7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtDictionary", align 8
@@ -3972,7 +3972,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; pr
 
 .lr.ph:                                           ; preds = %22, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit
   %.sroa.054.058 = phi ptr [ %69, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit ], [ %23, %22 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_115_GetDictForPrimERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKNS0_7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.054.058)
+  invoke fastcc void @_ZN12_GLOBAL__N_115_GetDictForPrimERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKNS0_7SdfPathE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.054.058)
           to label %55 unwind label %70
 
 55:                                               ; preds = %.lr.ph
@@ -4041,7 +4041,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit: ; preds = %61, %_Z
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_113_GetDictForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %80)
+  invoke fastcc void @_ZN12_GLOBAL__N_113_GetDictForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %80)
           to label %81 unwind label %108
 
 81:                                               ; preds = %79
@@ -5017,7 +5017,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113_GetDictForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113_GetDictForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::shared_ptr.359", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -5103,7 +5103,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
           to label %39 unwind label %101
 
 39:                                               ; preds = %34
-  invoke fastcc void @_ZN12_GLOBAL__N_114_GetValueForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_114_GetValueForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %40 unwind label %103
 
 40:                                               ; preds = %39
@@ -5837,7 +5837,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114_GetValueForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114_GetValueForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -5898,7 +5898,7 @@ _ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataS
   br label %52
 
 _ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E.exitthread-pre-split.thread: ; preds = %21, %28, %_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E.exitthread-pre-split
-  invoke fastcc void @_ZN12_GLOBAL__N_113_GetDictForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  invoke fastcc void @_ZN12_GLOBAL__N_113_GetDictForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %33 unwind label %48
 
 33:                                               ; preds = %_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E.exitthread-pre-split.thread
@@ -6041,7 +6041,7 @@ _ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__18HdVectorDataSour
           to label %86 unwind label %143
 
 86:                                               ; preds = %81
-  invoke fastcc void @_ZN12_GLOBAL__N_114_GetValueForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN12_GLOBAL__N_114_GetValueForDSERKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %87 unwind label %145
 
 87:                                               ; preds = %86

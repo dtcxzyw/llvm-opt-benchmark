@@ -3841,7 +3841,7 @@ define internal void @_event_preview_updated_callback(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @keystone_type_populate(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @keystone_type_populate(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !152
   %6 = getelementptr inbounds i8, ptr %0, i64 680
@@ -7220,7 +7220,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_box_aspect(ptr noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @apply_box_aspect(ptr noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 704
@@ -7694,7 +7694,7 @@ declare i32 @dt_dev_distort_transform_plus(ptr noundef, ptr noundef, double noun
 declare void @cairo_set_font_size(ptr noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gui_draw_sym(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc void @gui_draw_sym(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = alloca %struct._PangoRectangle, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !229

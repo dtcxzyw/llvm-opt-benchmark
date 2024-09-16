@@ -7917,7 +7917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpIiEEEERKT_.exit.i: 
           to label %111 unwind label %108, !noalias !36
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIiEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIiEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !36
 
 112:                                              ; preds = %111
@@ -7925,7 +7925,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpIiEEEERKT_.exit.i: 
           to label %113 unwind label %131, !noalias !36
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIiEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIiEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !36
 
 114:                                              ; preds = %113
@@ -8533,7 +8533,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpIjEEEERKT_.exit.i: 
           to label %111 unwind label %108, !noalias !45
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIjEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIjEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !45
 
 112:                                              ; preds = %111
@@ -8541,7 +8541,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpIjEEEERKT_.exit.i: 
           to label %113 unwind label %131, !noalias !45
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIjEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIjEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !45
 
 114:                                              ; preds = %113
@@ -9149,7 +9149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpImEEEERKT_.exit.i: 
           to label %111 unwind label %108, !noalias !54
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpImEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpImEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !54
 
 112:                                              ; preds = %111
@@ -9157,7 +9157,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpImEEEERKT_.exit.i: 
           to label %113 unwind label %131, !noalias !54
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpImEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpImEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !54
 
 114:                                              ; preds = %113
@@ -9765,7 +9765,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_7TfTokenEEEEERK
           to label %111 unwind label %108, !noalias !63
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7TfTokenEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7TfTokenEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !63
 
 112:                                              ; preds = %111
@@ -9773,7 +9773,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_7TfTokenEEEEERK
           to label %113 unwind label %131, !noalias !63
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7TfTokenEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7TfTokenEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !63
 
 114:                                              ; preds = %113
@@ -10381,7 +10381,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINSt7__cxx1112basic
           to label %111 unwind label %108, !noalias !72
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9SdfListOpIT_EESA_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9SdfListOpIT_EESA_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !72
 
 112:                                              ; preds = %111
@@ -10389,7 +10389,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINSt7__cxx1112basic
           to label %113 unwind label %131, !noalias !72
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9SdfListOpIT_EESA_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9SdfListOpIT_EESA_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !72
 
 114:                                              ; preds = %113
@@ -10997,7 +10997,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_7SdfPathEEEEERK
           to label %111 unwind label %108, !noalias !81
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7SdfPathEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7SdfPathEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !81
 
 112:                                              ; preds = %111
@@ -11005,7 +11005,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_7SdfPathEEEEERK
           to label %113 unwind label %131, !noalias !81
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7SdfPathEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7SdfPathEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !81
 
 114:                                              ; preds = %113
@@ -11613,7 +11613,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_12SdfReferenceE
           to label %111 unwind label %108, !noalias !90
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_12SdfReferenceEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_12SdfReferenceEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !90
 
 112:                                              ; preds = %111
@@ -11621,7 +11621,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_12SdfReferenceE
           to label %113 unwind label %131, !noalias !90
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_12SdfReferenceEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_12SdfReferenceEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !90
 
 114:                                              ; preds = %113
@@ -12229,7 +12229,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_10SdfPayloadEEE
           to label %111 unwind label %108, !noalias !99
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_10SdfPayloadEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_10SdfPayloadEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !99
 
 112:                                              ; preds = %111
@@ -12237,7 +12237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_10SdfPayloadEEE
           to label %113 unwind label %131, !noalias !99
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_10SdfPayloadEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_10SdfPayloadEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !99
 
 114:                                              ; preds = %113
@@ -12845,7 +12845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_20SdfUnregister
           to label %111 unwind label %108, !noalias !108
 
 111:                                              ; preds = %110
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_20SdfUnregisteredValueEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_20SdfUnregisteredValueEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %112 unwind label %129, !noalias !108
 
 112:                                              ; preds = %111
@@ -12853,7 +12853,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_9SdfListOpINS_20SdfUnregister
           to label %113 unwind label %131, !noalias !108
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_20SdfUnregisteredValueEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_20SdfUnregisteredValueEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %114 unwind label %133, !noalias !108
 
 114:                                              ; preds = %113
@@ -19378,7 +19378,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit58:                  ; preds = %_ZNSt6vectorIiSaIiE
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpIiE15ApplyOperationsERKS1_(ptr dead_on_unwind writable sret(%"class.std::optional.202") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIiEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIiEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.191", align 8
   %4 = alloca %"class.std::vector.191", align 8
   %5 = alloca %"class.std::vector.191", align 8
@@ -21608,7 +21608,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit58:                  ; preds = %_ZNSt6vectorIjSaIjE
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpIjE15ApplyOperationsERKS1_(ptr dead_on_unwind writable sret(%"class.std::optional.227") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIjEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpIjEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.215", align 8
   %4 = alloca %"class.std::vector.215", align 8
   %5 = alloca %"class.std::vector.215", align 8
@@ -23826,7 +23826,7 @@ _ZNSt6vectorImSaImEED2Ev.exit58:                  ; preds = %_ZNSt6vectorImSaImE
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpImE15ApplyOperationsERKS1_(ptr dead_on_unwind writable sret(%"class.std::optional.253") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpImEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpImEENS_9SdfListOpIT_EES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.241", align 8
   %4 = alloca %"class.std::vector.241", align 8
   %5 = alloca %"class.std::vector.241", align 8
@@ -26742,7 +26742,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exi
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7TfTokenEE15ApplyOperationsERKS2_(ptr dead_on_unwind writable sret(%"class.std::optional.274") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7TfTokenEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7TfTokenEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector", align 8
@@ -29622,7 +29622,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15ApplyOperationsERKS7_(ptr dead_on_unwind writable sret(%"class.std::optional.300") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9SdfListOpIT_EESA_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9SdfListOpIT_EESA_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.288", align 8
   %4 = alloca %"class.std::vector.288", align 8
   %5 = alloca %"class.std::vector.288", align 8
@@ -33121,7 +33121,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exi
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7SdfPathEE15ApplyOperationsERKS2_(ptr dead_on_unwind writable sret(%"class.std::optional.335") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7SdfPathEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_7SdfPathEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.314", align 8
   %4 = alloca %"class.std::vector.314", align 8
   %5 = alloca %"class.std::vector.314", align 8
@@ -36479,7 +36479,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESaIS1_EED2
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEE15ApplyOperationsERKS2_(ptr dead_on_unwind writable sret(%"class.std::optional.361") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_12SdfReferenceEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_12SdfReferenceEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.349", align 8
   %4 = alloca %"class.std::vector.349", align 8
   %5 = alloca %"class.std::vector.349", align 8
@@ -40494,7 +40494,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EED2Ev.exit: 
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE15ApplyOperationsERKS2_(ptr dead_on_unwind writable sret(%"class.std::optional.387") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_10SdfPayloadEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_10SdfPayloadEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.375", align 8
   %4 = alloca %"class.std::vector.375", align 8
   %5 = alloca %"class.std::vector.375", align 8
@@ -43920,7 +43920,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueESa
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_20SdfUnregisteredValueEE15ApplyOperationsERKS2_(ptr dead_on_unwind writable sret(%"class.std::optional.413") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_20SdfUnregisteredValueEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_FixListOpINS_20SdfUnregisteredValueEEENS_9SdfListOpIT_EES5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.401", align 8
   %4 = alloca %"class.std::vector.401", align 8
   %5 = alloca %"class.std::vector.401", align 8

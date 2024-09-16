@@ -1273,7 +1273,7 @@ invoke.cont31:                                    ; preds = %_ZN18OpenImageIO_v2
   store ptr %color_space, ptr %agg.tmp34, align 8
   %m_len.i65 = getelementptr inbounds i8, ptr %agg.tmp34, i64 8
   store i64 4, ptr %m_len.i65, align 8
-  %call36 = call fastcc noundef ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_120icc_color_space_nameENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp34)
+  %call36 = call fastcc noundef ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_120icc_color_space_nameENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef %agg.tmp34)
   store ptr %call36, ptr %agg.tmp33, align 8
   %tobool.not.i66 = icmp eq ptr %call36, null
   br i1 %tobool.not.i66, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit71, label %cond.true.i67
@@ -1294,7 +1294,7 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit71: ; 
   store ptr %pcs, ptr %agg.tmp39, align 8
   %m_len.i76 = getelementptr inbounds i8, ptr %agg.tmp39, i64 8
   store i64 4, ptr %m_len.i76, align 8
-  %call41 = call fastcc noundef ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_120icc_color_space_nameENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp39)
+  %call41 = call fastcc noundef ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_120icc_color_space_nameENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef %agg.tmp39)
   store ptr %call41, ptr %agg.tmp38, align 8
   %tobool.not.i77 = icmp eq ptr %call41, null
   br i1 %tobool.not.i77, label %cond.true.i90, label %cond.true.i78
@@ -2166,7 +2166,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_120icc_color_space_nameENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr nocapture noundef readonly %color_space) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_120icc_color_space_nameENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr nocapture noundef nonnull readonly %color_space) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca [26 x %"struct.std::pair"], align 8

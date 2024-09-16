@@ -337,7 +337,7 @@ define dso_local i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 5, 13) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 %1
   %8 = add i32 %3, 1
   %.not217 = icmp eq i32 %8, 0
@@ -346,7 +346,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
 .lr.ph207:                                        ; preds = %6
   %9 = add nsw i32 %4, -5
   %10 = shl nuw nsw i32 1, %4
-  %11 = add nuw nsw i32 %10, 1
+  %11 = or disjoint i32 %10, 1
   %12 = add nuw nsw i32 %4, 1
   %.not148 = icmp eq i32 %5, 0
   %13 = getelementptr inbounds i8, ptr %7, i64 -2
@@ -498,7 +498,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %69 = getelementptr inbounds i16, ptr %2, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i32
-  %72 = shl nuw nsw i32 %.0127200, 1
+  %72 = shl nsw i32 %.0127200, 1
   %73 = xor i32 %.0129199, -1
   %74 = add i32 %72, %73
   %75 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
@@ -526,7 +526,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %.1128193 = phi i32 [ %89, %.lr.ph194 ], [ %.0127200, %.preheader ]
   %.1131192 = phi i32 [ %88, %.lr.ph194 ], [ %.0130198, %.preheader ]
   %88 = add nsw i32 %.1131192, -1
-  %89 = lshr i32 %.1128193, 1
+  %89 = ashr i32 %.1128193, 1
   %90 = icmp slt i32 %76, %89
   br i1 %90, label %.lr.ph194, label %._crit_edge195, !llvm.loop !18
 
@@ -962,9 +962,9 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   br i1 %179, label %FSE_normalizeM2.exit.thread, label %180
 
 180:                                              ; preds = %171
-  %181 = trunc i64 %177 to i16
-  %182 = trunc i64 %178 to i16
-  %183 = sub i16 %182, %181
+  %181 = trunc nuw nsw i64 %177 to i16
+  %182 = trunc nuw nsw i64 %178 to i16
+  %183 = sub nsw i16 %182, %181
   store i16 %183, ptr %168, align 2
   br label %184
 
@@ -1019,7 +1019,7 @@ define dso_local i64 @FSE_compress_usingCTable(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %2, i64 %3
   %8 = icmp ult i64 %3, 3
   br i1 %8, label %BIT_closeCStream.exit, label %9

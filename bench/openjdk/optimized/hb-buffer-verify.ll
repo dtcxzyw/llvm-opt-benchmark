@@ -69,7 +69,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t6verifyEPS_P9hb_font_tPK12hb_f
   br i1 %exitcond.not.i, label %.loopexit, label %27, !llvm.loop !6
 
 _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %27
-  call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.1)
+  call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %20, %6, %_ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit
@@ -261,7 +261,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   br i1 %.not92.i, label %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit, label %.critedge
 
 .critedge:                                        ; preds = %120
-  call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.2)
+  call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.2)
   %123 = call i32 @hb_buffer_set_length(ptr noundef nonnull %0, i32 noundef 0)
   call void @hb_buffer_append(ptr noundef nonnull %0, ptr noundef nonnull %39, i32 noundef 0, i32 noundef -1)
   call void @hb_buffer_destroy(ptr noundef nonnull %39)
@@ -559,7 +559,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   br i1 %.not101.i, label %.critedge87, label %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
 
 _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit: ; preds = %256
-  call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.3)
+  call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.3)
   %259 = call i32 @hb_buffer_set_length(ptr noundef nonnull %0, i32 noundef 0)
   call void @hb_buffer_append(ptr noundef nonnull %0, ptr noundef nonnull %137, i32 noundef 0, i32 noundef -1)
   call void @hb_buffer_destroy(ptr noundef nonnull %137)
@@ -632,7 +632,7 @@ _ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread: ; preds = %.thread, %_ZN1
           to label %274 unwind label %275
 
 274:                                              ; preds = %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
-  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.0101)
+  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.0101)
           to label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit unwind label %275
 
 275:                                              ; preds = %274, %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
@@ -665,7 +665,7 @@ declare i32 @__gxx_personality_v0(...)
 declare i32 @hb_buffer_serialize_unicode(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
+define internal void @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 192

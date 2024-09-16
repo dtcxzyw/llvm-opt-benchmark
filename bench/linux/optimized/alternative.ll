@@ -3397,7 +3397,7 @@ declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_u
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @__optimize_nops(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #4 align 16 {
+define internal fastcc noundef zeroext i1 @__optimize_nops(ptr noundef %0, i64 noundef range(i64 1, 256) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #4 align 16 {
   %7 = alloca %struct.insn, align 8
   %8 = load i32, ptr %3, align 4
   %9 = getelementptr inbounds i8, ptr %2, i64 82

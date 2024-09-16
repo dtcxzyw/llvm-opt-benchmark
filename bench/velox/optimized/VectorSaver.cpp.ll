@@ -7324,7 +7324,7 @@ call.i.i.i.noexc:                                 ; preds = %if.then
   br i1 %cmp.i.not.i, label %if.end.i304, label %if.then.i303
 
 if.then.i303:                                     ; preds = %call.i.i.i.noexc
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %nulls.i, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %nulls.i, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
           to label %.noexc unwind label %lpad
 
 if.end.i304:                                      ; preds = %call.i.i.i.noexc
@@ -7807,7 +7807,7 @@ call.i.i.i.noexc437:                              ; preds = %if.then9
   br i1 %cmp.i.not.i434, label %if.end.i436, label %if.then.i435
 
 if.then.i435:                                     ; preds = %call.i.i.i.noexc437
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %nulls.i29, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %nulls.i29, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
           to label %.noexc37 unwind label %lpad
 
 if.end.i436:                                      ; preds = %call.i.i.i.noexc437
@@ -7816,12 +7816,12 @@ if.end.i436:                                      ; preds = %call.i.i.i.noexc437
 
 .noexc37:                                         ; preds = %if.end.i436, %if.then.i435
   %65 = load ptr, ptr %pool.addr.i28, align 8, !noalias !29
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %offsets.i, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %65)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %offsets.i, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %65)
           to label %invoke.cont.i32 unwind label %lpad.i31, !noalias !29
 
 invoke.cont.i32:                                  ; preds = %.noexc37
   %66 = load ptr, ptr %pool.addr.i28, align 8, !noalias !29
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %sizes.i, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %66)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %sizes.i, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %66)
           to label %invoke.cont2.i unwind label %lpad1.i33, !noalias !29
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i32
@@ -8129,7 +8129,7 @@ call.i.i.i.noexc603:                              ; preds = %if.then15
   br i1 %cmp.i.not.i600, label %if.end.i602, label %if.then.i601
 
 if.then.i601:                                     ; preds = %call.i.i.i.noexc603
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %nulls.i44, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %nulls.i44, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
           to label %.noexc59 unwind label %lpad
 
 if.end.i602:                                      ; preds = %call.i.i.i.noexc603
@@ -8138,12 +8138,12 @@ if.end.i602:                                      ; preds = %call.i.i.i.noexc603
 
 .noexc59:                                         ; preds = %if.end.i602, %if.then.i601
   %109 = load ptr, ptr %pool.addr.i43, align 8, !noalias !38
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %offsets.i45, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %109)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %offsets.i45, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %109)
           to label %invoke.cont.i49 unwind label %lpad.i48, !noalias !38
 
 invoke.cont.i49:                                  ; preds = %.noexc59
   %110 = load ptr, ptr %pool.addr.i43, align 8, !noalias !38
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %sizes.i46, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %110)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %sizes.i46, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %110)
           to label %invoke.cont2.i52 unwind label %lpad1.i50, !noalias !38
 
 invoke.cont2.i52:                                 ; preds = %invoke.cont.i49
@@ -8537,7 +8537,7 @@ call.i.i.i.i.noexc:                               ; preds = %if.end18
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %call.i.i.i.i.noexc
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %nulls.i63, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %nulls.i63, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
           to label %_ZN8facebook5velox12_GLOBAL__N_118readOptionalBufferERSiPNS0_6memory10MemoryPoolE.exit.i unwind label %lpad
 
 if.end.i.i:                                       ; preds = %call.i.i.i.i.noexc
@@ -8557,7 +8557,7 @@ call.i.i.i10.noexc.i:                             ; preds = %_ZN8facebook5velox1
   br i1 %cmp.i.not.i11.i, label %if.end.i13.i, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %call.i.i.i10.noexc.i
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %values.i64, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %values.i64, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
           to label %invoke.cont.i68 unwind label %lpad.i66, !noalias !47
 
 if.end.i13.i:                                     ; preds = %call.i.i.i10.noexc.i
@@ -8591,7 +8591,7 @@ for.body.lr.ph.i:                                 ; preds = %_ZN8facebook5velox1
 
 for.body.i73:                                     ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i, %for.body.lr.ph.i
   %i.0197.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i74, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i ]
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
           to label %invoke.cont9.i unwind label %lpad1.loopexit.i, !noalias !47
 
 invoke.cont9.i:                                   ; preds = %for.body.i73
@@ -14222,7 +14222,7 @@ call.i.i.i.noexc923:                              ; preds = %sw.bb22
   br i1 %cmp.i.not.i920, label %if.end.i922, label %if.then.i921
 
 if.then.i921:                                     ; preds = %call.i.i.i.noexc923
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %nulls.i96, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %nulls.i96, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
           to label %.noexc116 unwind label %lpad
 
 if.end.i922:                                      ; preds = %call.i.i.i.noexc923
@@ -14230,7 +14230,7 @@ if.end.i922:                                      ; preds = %call.i.i.i.noexc923
   br label %.noexc116
 
 .noexc116:                                        ; preds = %if.end.i922, %if.then.i921
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %indices.i, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %indices.i, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool)
           to label %invoke.cont.i102 unwind label %lpad.i99, !noalias !290
 
 invoke.cont.i102:                                 ; preds = %.noexc116
@@ -16391,7 +16391,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_110readBufferERSiPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef %pool) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)

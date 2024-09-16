@@ -6181,7 +6181,7 @@ sc_size.exit:                                     ; preds = %if.end19.i.i.i, %do
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @sc_som_expand(ptr nocapture noundef readonly %rose, i64 noundef %currOffset, ptr nocapture noundef %stream, ptr noundef %buf, i64 noundef %buf_size) unnamed_addr #0 {
+define internal fastcc i64 @sc_som_expand(ptr nocapture noundef readonly %rose, i64 noundef range(i64 1, 0) %currOffset, ptr nocapture noundef %stream, ptr noundef %buf, i64 noundef range(i64 9, 0) %buf_size) unnamed_addr #0 {
 entry:
   %somLocation = getelementptr inbounds i8, ptr %rose, i64 352
   %0 = load i32, ptr %somLocation, align 4
@@ -6204,7 +6204,7 @@ if.then.i122:                                     ; preds = %if.end
   %add.i123 = add nuw nsw i32 %2, 7
   %div.i125271 = lshr i32 %add.i123, 3
   %conv.i126 = zext nneg i32 %div.i125271 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1, ptr align 1 %add.ptr2, i64 %conv.i126, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1, ptr nonnull align 1 %add.ptr2, i64 %conv.i126, i1 false)
   br label %if.end5
 
 if.end.i69:                                       ; preds = %if.end
@@ -7653,7 +7653,7 @@ return:                                           ; preds = %if.else16.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @sc_som_compress(ptr nocapture noundef readonly %rose, i64 noundef %currOffset, ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %buf, i64 noundef %buf_size) unnamed_addr #0 {
+define internal fastcc i64 @sc_som_compress(ptr nocapture noundef readonly %rose, i64 noundef range(i64 1, 0) %currOffset, ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %buf, i64 noundef %buf_size) unnamed_addr #0 {
 entry:
   %somLocation = getelementptr inbounds i8, ptr %rose, i64 352
   %0 = load i32, ptr %somLocation, align 4
@@ -7764,7 +7764,7 @@ mmbit_compsize.exit.thread:                       ; preds = %if.end.i709
   br i1 %cmp.i629305, label %return, label %if.then6.i683
 
 if.then2.i684:                                    ; preds = %mmbit_compsize.exit.thread310
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr2, ptr nonnull align 1 %add.ptr1, i64 %conv.i741, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr2, ptr nonnull align 1 %add.ptr1, i64 %conv.i741, i1 false)
   br label %if.end5
 
 if.then6.i683:                                    ; preds = %mmbit_compsize.exit.thread

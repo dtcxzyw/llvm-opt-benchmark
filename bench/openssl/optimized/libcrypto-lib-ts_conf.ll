@@ -841,7 +841,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef %field, i32 noundef %flag, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef %field, i32 noundef range(i32 1, 5) %flag, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef %section, ptr noundef %field) #4
   %tobool.not = icmp eq ptr %call, null

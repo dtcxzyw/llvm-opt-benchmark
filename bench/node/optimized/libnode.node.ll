@@ -3328,14 +3328,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 define dso_local void @_ZN4node24InitializeOncePerProcessERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.366") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags) local_unnamed_addr #4 {
 _ZNSt10unique_ptrIN4node24InitializationResultImplESt14default_deleteIS1_EED2Ev.exit:
   %ref.tmp = alloca %"class.std::unique_ptr.374", align 8
-  call fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags)
+  call fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags)
   %0 = load ptr, ptr %ref.tmp, align 8
   store ptr %0, ptr %agg.result, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags) unnamed_addr #4 {
+define internal fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags) unnamed_addr #4 {
 entry:
   %sa.i37.i = alloca %struct.sigaction, align 8
   %sa.i.i = alloca %struct.sigaction, align 8
@@ -5016,7 +5016,7 @@ do.end4.i:                                        ; preds = %entry
   %call.i.i.i.i.i.i = call noundef ptr @_ZSt16__do_uninit_copyIPPcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SA_S9_(ptr noundef %call.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %call5.i.i.i.i.i.i)
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %call.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  call fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nonnull align 8 %result.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i32 noundef 0)
+  call fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias align 8 %result.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i32 noundef 0)
   %2 = load ptr, ptr %ref.tmp.i, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %2, %3

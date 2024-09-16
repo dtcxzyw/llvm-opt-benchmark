@@ -1685,8 +1685,8 @@ if.then25.i.i:                                    ; preds = %if.end21.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then25.i.i
-  %tobool.not.i.i.not.i = icmp eq i32 %and11.lobit.i, 0
-  br i1 %tobool.not.i.i.not.i, label %rtl8139_Cfg9346_write.exit, label %if.then.i.i.i
+  %tobool.not.i.not.i.i = icmp eq i32 %and11.lobit.i, 0
+  br i1 %tobool.not.i.not.i.i, label %rtl8139_Cfg9346_write.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb.i.i.i
   store i32 2, ptr %mode.i.i.i, align 4
@@ -2414,45 +2414,41 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc zeroext i16 @ip_checksum(ptr nocapture noundef readonly %data, i64 noundef %len) unnamed_addr #5 {
+define internal fastcc zeroext i16 @ip_checksum(ptr nocapture noundef readonly %data, i64 noundef range(i64 12, 0) %len) unnamed_addr #5 {
 entry:
-  %cmp10.i = icmp ugt i64 %len, 1
-  br i1 %cmp10.i, label %for.body.i, label %for.end.i
+  br label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %for.body.i
-  %data.addr.013.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %data, %entry ]
-  %len.addr.012.i = phi i64 [ %sub.i, %for.body.i ], [ %len, %entry ]
-  %result.011.i = phi i32 [ %add.i, %for.body.i ], [ 0, %entry ]
-  %0 = load i16, ptr %data.addr.013.i, align 2
+for.body.i:                                       ; preds = %for.body.i, %entry
+  %data.addr.012.i = phi ptr [ %data, %entry ], [ %add.ptr.i, %for.body.i ]
+  %len.addr.011.i = phi i64 [ %len, %entry ], [ %sub.i, %for.body.i ]
+  %result.010.i = phi i32 [ 0, %entry ], [ %add.i, %for.body.i ]
+  %0 = load i16, ptr %data.addr.012.i, align 2
   %conv.i = zext i16 %0 to i32
-  %add.i = add i32 %result.011.i, %conv.i
-  %add.ptr.i = getelementptr i8, ptr %data.addr.013.i, i64 2
-  %sub.i = add i64 %len.addr.012.i, -2
+  %add.i = add i32 %result.010.i, %conv.i
+  %add.ptr.i = getelementptr i8, ptr %data.addr.012.i, i64 2
+  %sub.i = add i64 %len.addr.011.i, -2
   %cmp.i = icmp ugt i64 %sub.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !11
 
-for.end.i:                                        ; preds = %for.body.i, %entry
-  %result.0.lcssa.i = phi i32 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %len.addr.0.lcssa.i = phi i64 [ %len, %entry ], [ %sub.i, %for.body.i ]
-  %data.addr.0.lcssa.i = phi ptr [ %data, %entry ], [ %add.ptr.i, %for.body.i ]
-  %tobool.not.i = icmp eq i64 %len.addr.0.lcssa.i, 0
+for.end.i:                                        ; preds = %for.body.i
+  %tobool.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i
-  %1 = load i8, ptr %data.addr.0.lcssa.i, align 1
+  %1 = load i8, ptr %add.ptr.i, align 1
   %conv1.i = zext i8 %1 to i32
-  %add2.i = add i32 %result.0.lcssa.i, %conv1.i
+  %add2.i = add i32 %add.i, %conv1.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.end.i
-  %result.1.i = phi i32 [ %add2.i, %if.then.i ], [ %result.0.lcssa.i, %for.end.i ]
-  %tobool3.not16.i = icmp ult i32 %result.1.i, 65536
-  br i1 %tobool3.not16.i, label %ones_complement_sum.exit, label %while.body.i
+  %result.1.i = phi i32 [ %add2.i, %if.then.i ], [ %add.i, %for.end.i ]
+  %tobool3.not13.i = icmp ult i32 %result.1.i, 65536
+  br i1 %tobool3.not13.i, label %ones_complement_sum.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
-  %result.217.i = phi i32 [ %add5.i, %while.body.i ], [ %result.1.i, %if.end.i ]
-  %shr.i = lshr i32 %result.217.i, 16
-  %and.i = and i32 %result.217.i, 65535
+  %result.214.i = phi i32 [ %add5.i, %while.body.i ], [ %result.1.i, %if.end.i ]
+  %shr.i = lshr i32 %result.214.i, 16
+  %and.i = and i32 %result.214.i, 65535
   %add5.i = add nuw nsw i32 %and.i, %shr.i
   %tobool3.not.i = icmp ult i32 %add5.i, 65536
   br i1 %tobool3.not.i, label %ones_complement_sum.exit, label %while.body.i, !llvm.loop !12

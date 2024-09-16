@@ -6416,7 +6416,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.028 = phi ptr [ %incdec.ptr.i, %for.body ], [ %3, %entry ]
-  call fastcc void @_ZN4nodeL19GetCodeCacheDefNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %var_name, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.028)
+  call fastcc void @_ZN4nodeL19GetCodeCacheDefNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %var_name, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.028)
   %data13 = getelementptr inbounds i8, ptr %__begin1.sroa.0.028, i64 32
   %5 = load ptr, ptr %data13, align 8
   %length = getelementptr inbounds i8, ptr %__begin1.sroa.0.028, i64 40
@@ -6449,7 +6449,7 @@ for.body36:                                       ; preds = %for.end, %for.body3
   %length41 = getelementptr inbounds i8, ptr %__begin128.sroa.0.030, i64 40
   %9 = load i64, ptr %length41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %def_name.i)
-  call fastcc void @_ZN4nodeL19GetCodeCacheDefNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %def_name.i, ptr noundef nonnull align 8 dereferenceable(32) %__begin128.sroa.0.030)
+  call fastcc void @_ZN4nodeL19GetCodeCacheDefNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %def_name.i, ptr noundef nonnull align 8 dereferenceable(32) %__begin128.sroa.0.030)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ss, ptr noundef nonnull @.str.212) #23
   %call1.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %__begin128.sroa.0.030) #23
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1.i, ptr noundef nonnull @.str.14) #23
@@ -6578,7 +6578,7 @@ if.end36:                                         ; preds = %for.end34, %for.end
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4nodeL19GetCodeCacheDefNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %id) unnamed_addr #3 {
+define internal fastcc void @_ZN4nodeL19GetCodeCacheDefNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %id) unnamed_addr #3 {
 entry:
   %buf = alloca [64 x i8], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

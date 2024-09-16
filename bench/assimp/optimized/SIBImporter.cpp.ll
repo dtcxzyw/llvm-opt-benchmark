@@ -546,7 +546,7 @@ _ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
   br label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
-  invoke fastcc void @_ZN6AssimpL9ReadSceneEPNS_3SIBEPNS_12StreamReaderILb0ELb0EEE(ptr noundef nonnull %sib, ptr noundef nonnull %stream)
+  invoke fastcc void @_ZN6AssimpL9ReadSceneEPNS_3SIBEPNS_12StreamReaderILb0ELb0EEE(ptr noundef %sib, ptr noundef %stream)
           to label %invoke.cont34 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont34:                                    ; preds = %invoke.cont33
@@ -1295,7 +1295,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 declare noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL9ReadSceneEPNS_3SIBEPNS_12StreamReaderILb0ELb0EEE(ptr noundef %sib, ptr noundef %stream) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6AssimpL9ReadSceneEPNS_3SIBEPNS_12StreamReaderILb0ELb0EEE(ptr noundef nonnull %sib, ptr noundef nonnull %stream) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i = alloca [4 x i8], align 1
   %ref.tmp.i281 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1464,7 +1464,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit320
-  %call1 = call fastcc i64 @_ZN6AssimpL9ReadChunkEPNS_12StreamReaderILb0ELb0EEE(ptr noundef nonnull %stream)
+  %call1 = call fastcc i64 @_ZN6AssimpL9ReadChunkEPNS_12StreamReaderILb0ELb0EEE(ptr noundef %stream)
   %chunk.sroa.0.0.extract.trunc = trunc i64 %call1 to i32
   %chunk.sroa.3.0.extract.shift = lshr i64 %call1, 32
   %chunk.sroa.3.0.extract.trunc = trunc nuw i64 %chunk.sroa.3.0.extract.shift to i32
@@ -2521,7 +2521,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit43.i.i: ; preds = %_ZN6Assimp12St
 
 sw.bb19.i:                                        ; preds = %invoke.cont3.i
   %div2154.i = lshr i32 %23, 1
-  invoke fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias nonnull align 4 %ref.tmp.i, ptr noundef nonnull %stream, i32 noundef %div2154.i)
+  invoke fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias align 4 %ref.tmp.i, ptr noundef %stream, i32 noundef %div2154.i)
           to label %invoke.cont22.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit
 
 invoke.cont22.i:                                  ; preds = %sw.bb19.i
@@ -2705,7 +2705,7 @@ while.body20.i.i:                                 ; preds = %while.cond15.prehea
   br i1 %cmp19.i.i, label %while.body20.i.i, label %sw.epilog.i, !llvm.loop !20
 
 sw.bb27.i:                                        ; preds = %invoke.cont3.i
-  invoke fastcc void @_ZN6AssimpL8ReadAxisER12aiMatrix4x4tIfEPNS_12StreamReaderILb0ELb0EEE(ptr noundef nonnull align 4 dereferenceable(64) %smesh.i, ptr noundef nonnull %stream)
+  invoke fastcc void @_ZN6AssimpL8ReadAxisER12aiMatrix4x4tIfEPNS_12StreamReaderILb0ELb0EEE(ptr noundef nonnull align 4 dereferenceable(64) %smesh.i, ptr noundef %stream)
           to label %sw.epilog.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit
 
 sw.bb29.i:                                        ; preds = %invoke.cont3.i
@@ -2758,7 +2758,7 @@ lpad.i.i9.i.i:                                    ; preds = %if.then.i.i7.i.i
 _ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11.i.i: ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit.i213.i
   %141 = load i32, ptr %add.ptr.i.i.i211.i, align 1
   store ptr %add.ptr.i.i4.i.i, ptr %mCurrent.i, align 8
-  %call3.i230.i = invoke fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6AssimpL7GetEdgeEPNS_7SIBMeshEjj(ptr noundef nonnull %smesh.i, i32 noundef %139, i32 noundef %141)
+  %call3.i230.i = invoke fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6AssimpL7GetEdgeEPNS_7SIBMeshEjj(ptr noundef %smesh.i, i32 noundef %139, i32 noundef %141)
           to label %call3.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call3.i.noexc.i:                                  ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit11.i.i
@@ -2983,7 +2983,7 @@ for.body7.i.i:                                    ; preds = %if.end17.i.i, %for.
   %i.020.i.i = phi i32 [ 0, %for.body7.lr.ph.i.i ], [ %inc.i323.i, %if.end17.i.i ]
   %prev.019.i.i = phi i32 [ %169, %for.body7.lr.ph.i.i ], [ %170, %if.end17.i.i ]
   %170 = load i32, ptr %idx.021.i.i, align 4
-  %call9.i326.i = invoke fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6AssimpL7GetEdgeEPNS_7SIBMeshEjj(ptr noundef nonnull %smesh.i, i32 noundef %prev.019.i.i, i32 noundef %170)
+  %call9.i326.i = invoke fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6AssimpL7GetEdgeEPNS_7SIBMeshEjj(ptr noundef %smesh.i, i32 noundef %prev.019.i.i, i32 noundef %170)
           to label %call9.i.noexc.i unwind label %lpad.loopexit746.i
 
 call9.i.noexc.i:                                  ; preds = %for.body7.i.i
@@ -3206,7 +3206,7 @@ for.body9.i.i.i:                                  ; preds = %if.end41.i.i.i, %fo
   br i1 %or.cond.i.i.i, label %if.then.i.i356.i, label %if.end41.i.i.i
 
 if.then.i.i356.i:                                 ; preds = %for.body9.i.i.i
-  %call13.i44.i.i = invoke fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6AssimpL7GetEdgeEPNS_7SIBMeshEjj(ptr noundef nonnull %smesh.i, i32 noundef %posA.077.i.i.i, i32 noundef %209)
+  %call13.i44.i.i = invoke fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6AssimpL7GetEdgeEPNS_7SIBMeshEjj(ptr noundef %smesh.i, i32 noundef %posA.077.i.i.i, i32 noundef %209)
           to label %call13.i.noexc.i.i unwind label %eh.resume.i.i
 
 call13.i.noexc.i.i:                               ; preds = %if.then.i.i356.i
@@ -4468,7 +4468,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit.i: ; preds = %if.end.i.i
   ]
 
 sw.bb5.i:                                         ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit.i
-  call fastcc void @_ZN6AssimpL8ReadAxisER12aiMatrix4x4tIfEPNS_12StreamReaderILb0ELb0EEE(ptr noundef nonnull align 4 dereferenceable(64) %axis.i.i45, ptr noundef nonnull %stream)
+  call fastcc void @_ZN6AssimpL8ReadAxisER12aiMatrix4x4tIfEPNS_12StreamReaderILb0ELb0EEE(ptr noundef nonnull align 4 dereferenceable(64) %axis.i.i45, ptr noundef %stream)
   br label %sw.epilog.i78
 
 sw.bb6.i:                                         ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit.i
@@ -4939,7 +4939,7 @@ _ZN6AssimpL9ReadScaleER12aiMatrix4x4tIfEPNS_12StreamReaderILb0ELb0EEE.exit.i: ; 
 
 sw.bb10.i:                                        ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit.i
   %div16.i = lshr i32 %377, 1
-  call fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias nonnull align 4 %ref.tmp.i43, ptr noundef nonnull %stream, i32 noundef %div16.i)
+  call fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias align 4 %ref.tmp.i43, ptr noundef %stream, i32 noundef %div16.i)
   %467 = load i32, ptr %ref.tmp.i43, align 4
   %spec.select.i.i75 = call i32 @llvm.umin.i32(i32 %467, i32 1023)
   store i32 %spec.select.i.i75, ptr %inst.i, align 8
@@ -5125,10 +5125,10 @@ sw.bb8:                                           ; preds = %_ZN6Assimp12StreamR
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %shiny.i)
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %name.i140)
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %tex.i)
-  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nonnull align 4 %diff.i, ptr noundef nonnull %stream)
-  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nonnull align 4 %ambi.i, ptr noundef nonnull %stream)
-  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nonnull align 4 %spec.i, ptr noundef nonnull %stream)
-  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nonnull align 4 %emis.i, ptr noundef nonnull %stream)
+  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias align 4 %diff.i, ptr noundef %stream)
+  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias align 4 %ambi.i, ptr noundef %stream)
+  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias align 4 %spec.i, ptr noundef %stream)
+  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias align 4 %emis.i, ptr noundef %stream)
   %487 = load ptr, ptr %mCurrent.i, align 8
   %add.ptr.i.i.i142 = getelementptr inbounds i8, ptr %487, i64 4
   %488 = load ptr, ptr %mLimit.i, align 8
@@ -5178,7 +5178,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit19.i: ; preds = %_ZN6Assimp12Stre
   %492 = load i32, ptr %add.ptr.i.i.i142, align 1
   store ptr %add.ptr.i.i12.i, ptr %mCurrent.i, align 8
   %div9.i = lshr i32 %492, 1
-  call fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias nonnull align 4 %name.i140, ptr noundef nonnull %stream, i32 noundef %div9.i)
+  call fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias align 4 %name.i140, ptr noundef %stream, i32 noundef %div9.i)
   %493 = load ptr, ptr %mCurrent.i, align 8
   %add.ptr.i.i21.i = getelementptr inbounds i8, ptr %493, i64 4
   %494 = load ptr, ptr %mLimit.i, align 8
@@ -5204,7 +5204,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit28.i: ; preds = %_ZN6Assimp12Stre
   %496 = load i32, ptr %493, align 1
   store ptr %add.ptr.i.i21.i, ptr %mCurrent.i, align 8
   %div310.i = lshr i32 %496, 1
-  call fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias nonnull align 4 %tex.i, ptr noundef nonnull %stream, i32 noundef %div310.i)
+  call fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias align 4 %tex.i, ptr noundef %stream, i32 noundef %div310.i)
   %call4.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   invoke void @_ZN10aiMaterialC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %call4.i)
           to label %invoke.cont.i150 unwind label %lpad.i147
@@ -5648,21 +5648,21 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit85.i.i: ; preds = %_ZN6Assimp12St
   %533 = load float, ptr %add.ptr.i.i69.i.i, align 1
   store ptr %add.ptr.i.i78.i.i, ptr %mCurrent.i, align 8
   store float %533, ptr %z18.i.i, align 4
-  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nonnull align 4 %ref.tmp.i.i186, ptr noundef nonnull %stream)
+  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias align 4 %ref.tmp.i.i186, ptr noundef %stream)
   %534 = load float, ptr %ref.tmp.i.i186, align 4
   store float %534, ptr %mColorDiffuse.i.i, align 4
   %535 = load float, ptr %g.i.i.i, align 4
   store float %535, ptr %g3.i.i.i, align 4
   %536 = load float, ptr %b.i.i.i, align 4
   store float %536, ptr %b4.i.i.i, align 4
-  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nonnull align 4 %ref.tmp20.i.i, ptr noundef nonnull %stream)
+  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias align 4 %ref.tmp20.i.i, ptr noundef %stream)
   %537 = load float, ptr %ref.tmp20.i.i, align 4
   store float %537, ptr %mColorAmbient.i.i, align 4
   %538 = load float, ptr %g.i86.i.i, align 4
   store float %538, ptr %g3.i87.i.i, align 4
   %539 = load float, ptr %b.i88.i.i, align 4
   store float %539, ptr %b4.i89.i.i, align 4
-  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nonnull align 4 %ref.tmp22.i.i, ptr noundef nonnull %stream)
+  call fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias align 4 %ref.tmp22.i.i, ptr noundef %stream)
   %540 = load float, ptr %ref.tmp22.i.i, align 4
   store float %540, ptr %mColorSpecular.i.i, align 4
   %541 = load float, ptr %g.i90.i.i, align 4
@@ -5800,7 +5800,7 @@ _ZN6AssimpL13ReadLightInfoEP7aiLightPNS_12StreamReaderILb0ELb0EEE.exit.i: ; pred
 
 _ZN8aiStringaSERKS_.exit.i:                       ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit.i211
   %div10.i = lshr i32 %510, 1
-  call fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias nonnull align 4 %ref.tmp.i187, ptr noundef nonnull %stream, i32 noundef %div10.i)
+  call fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias align 4 %ref.tmp.i187, ptr noundef %stream, i32 noundef %div10.i)
   %555 = load i32, ptr %ref.tmp.i187, align 4
   %spec.select.i.i214 = call i32 @llvm.umin.i32(i32 %555, i32 1023)
   store i32 %spec.select.i.i214, ptr %call.i, align 4
@@ -6338,7 +6338,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @_ZN6AssimpL9ReadChunkEPNS_12StreamReaderILb0ELb0EEE(ptr nocapture noundef %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc i64 @_ZN6AssimpL9ReadChunkEPNS_12StreamReaderILb0ELb0EEE(ptr nocapture noundef nonnull %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %mCurrent.i.i = getelementptr inbounds i8, ptr %stream, i64 24
   %0 = load ptr, ptr %mCurrent.i.i, align 8
@@ -6512,7 +6512,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias nocapture writeonly align 4 %agg.result, ptr nocapture noundef %stream, i32 noundef %numWChars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6AssimpL10ReadStringEPNS_12StreamReaderILb0ELb0EEEj(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr nocapture noundef nonnull %stream, i32 noundef range(i32 0, -2147483648) %numWChars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::vector.57", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6551,7 +6551,7 @@ for.cond.preheader:                               ; preds = %invoke.cont
   %mLimit.i.i = getelementptr inbounds i8, ptr %stream, i64 40
   %1 = load ptr, ptr %mLimit.i.i, align 8
   %mCurrent.i.i.promoted = load ptr, ptr %mCurrent.i.i, align 8
-  %wide.trip.count = zext i32 %numWChars to i64
+  %wide.trip.count = zext nneg i32 %numWChars to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %invoke.cont5
@@ -6688,7 +6688,7 @@ return:                                           ; preds = %if.then.i.i.i, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL8ReadAxisER12aiMatrix4x4tIfEPNS_12StreamReaderILb0ELb0EEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) %axis, ptr nocapture noundef %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6AssimpL8ReadAxisER12aiMatrix4x4tIfEPNS_12StreamReaderILb0ELb0EEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) %axis, ptr nocapture noundef nonnull %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %mCurrent.i.i = getelementptr inbounds i8, ptr %stream, i64 24
   %0 = load ptr, ptr %mCurrent.i.i, align 8
@@ -8468,7 +8468,7 @@ if.end93:                                         ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6AssimpL7GetEdgeEPNS_7SIBMeshEjj(ptr noundef %mesh, i32 noundef %posA, i32 noundef %posB) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6AssimpL7GetEdgeEPNS_7SIBMeshEjj(ptr noundef nonnull %mesh, i32 noundef %posA, i32 noundef %posB) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.67", align 1
@@ -9685,7 +9685,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nocapture writeonly align 4 %agg.result, ptr nocapture noundef %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6AssimpL9ReadColorEPNS_12StreamReaderILb0ELb0EEE(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr nocapture noundef nonnull %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %mCurrent.i.i = getelementptr inbounds i8, ptr %stream, i64 24
   %0 = load ptr, ptr %mCurrent.i.i, align 8

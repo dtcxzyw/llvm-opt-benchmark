@@ -246,7 +246,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -302,7 +302,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -358,7 +358,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -414,7 +414,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -470,7 +470,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -526,7 +526,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 4)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -582,7 +582,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -638,7 +638,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -694,7 +694,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -750,7 +750,7 @@ if.end29:                                         ; preds = %if.end22
 
 if.end39:                                         ; preds = %if.end29
   store ptr %out, ptr %data, align 8
-  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8)
+  %call45 = call fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef nonnull %value, i64 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
@@ -1751,7 +1751,7 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef %param, ptr noundef %cmp, i64 noundef %width) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef %cmp, i64 noundef range(i64 4, 9) %width) unnamed_addr #0 {
 entry:
   %i32 = alloca i32, align 4
   %i64 = alloca i64, align 8
@@ -1831,8 +1831,7 @@ if.end48:                                         ; preds = %if.end41
 if.then50:                                        ; preds = %if.end48
   %2 = load i32, ptr %i32, align 4
   store i32 %2, ptr %buf, align 16
-  %cond = call i64 @llvm.umin.i64(i64 %width, i64 4)
-  %call54 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 107, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.19, ptr noundef nonnull %buf, i64 noundef %cond, ptr noundef %cmp, i64 noundef %cond) #4
+  %call54 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 107, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.19, ptr noundef nonnull %buf, i64 noundef 4, ptr noundef %cmp, i64 noundef 4) #4
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %return, label %if.end58
 

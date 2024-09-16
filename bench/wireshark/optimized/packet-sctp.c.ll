@@ -2007,7 +2007,7 @@ declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct._assoc_info_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2391,7 +2391,7 @@ proto_item_set_hidden.exit118:                    ; preds = %162, %159, %proto_i
   %221 = getelementptr inbounds i8, ptr %5, i64 64
   %222 = getelementptr inbounds i8, ptr %1, i64 408
   %223 = getelementptr inbounds i8, ptr %1, i64 80
-  %224 = zext i1 %.not86.i to i32
+  %224 = xor i32 %3, 1
   %225 = icmp ne ptr %2, null
   br label %226
 
@@ -3079,7 +3079,7 @@ declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @make_address_key(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @make_address_key(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
@@ -3155,7 +3155,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare void @proto_tree_move_item(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sctp_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sctp_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #17
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #17
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #17
@@ -3423,7 +3423,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_data_chunk(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_data_chunk(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
   %10 = alloca %struct._frag_key, align 4
   %11 = alloca %struct._frag_key, align 4
   %12 = alloca %struct._frag_key, align 4
@@ -7051,7 +7051,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #10
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_fragment(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @find_fragment(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 5) %3) unnamed_addr #0 {
   %5 = alloca %struct._frag_key, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   %6 = load i16, ptr getelementptr inbounds (i8, ptr @sctp_info, i64 28), align 4
@@ -7112,7 +7112,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare void @mark_frame_as_depended_upon(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #17
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -7168,7 +7168,7 @@ define internal fastcc void @dissect_parameters(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #17
@@ -8405,7 +8405,7 @@ define internal fastcc void @sctp_ack_block(ptr nocapture noundef readonly %0, p
 
 38:                                               ; preds = %32
   %.val = load i32, ptr %14, align 4
-  tail call fastcc void @ack_tree(ptr noundef nonnull %.05888, ptr noundef %3, ptr noundef %2, i32 %.val)
+  tail call fastcc void @ack_tree(ptr noundef %.05888, ptr noundef %3, ptr noundef %2, i32 %.val)
   br label %39
 
 39:                                               ; preds = %32, %.preheader86, %38
@@ -8514,7 +8514,7 @@ define internal fastcc void @sctp_ack_block(ptr nocapture noundef readonly %0, p
 
 92:                                               ; preds = %89
   %.val.i = load i32, ptr %14, align 4
-  tail call fastcc void @ack_tree(ptr noundef nonnull %71, ptr noundef %3, ptr noundef %2, i32 %.val.i)
+  tail call fastcc void @ack_tree(ptr noundef %71, ptr noundef %3, ptr noundef %2, i32 %.val.i)
   br label %sctp_ack.exit
 
 sctp_ack.exit:                                    ; preds = %.preheader.split, %66, %89, %92
@@ -8527,7 +8527,7 @@ sctp_ack.exit:                                    ; preds = %.preheader.split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ack_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.20.val) unnamed_addr #0 {
+define internal fastcc void @ack_tree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 %.20.val) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8

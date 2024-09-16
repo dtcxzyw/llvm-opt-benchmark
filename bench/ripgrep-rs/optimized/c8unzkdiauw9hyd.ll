@@ -1425,7 +1425,7 @@ define hidden void @"_ZN4core3ptr334drop_in_place$LT$alloc..vec..Vec$LT$core..me
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17hd529253980965e42E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17hd529253980965e42E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -1623,7 +1623,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %73 = landingpad { ptr, i32 }
           cleanup
   %74 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17h4f1225ff0926fd7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %74) #33
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17h4f1225ff0926fd7bE"(ptr noalias noundef align 8 dereferenceable(8) %74) #33
           to label %common.resume unwind label %80
 
 75:                                               ; preds = %26, %22, %.noexc
@@ -1761,7 +1761,7 @@ define internal void @"_ZN4core3ptr58drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17h4f1225ff0926fd7bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17h4f1225ff0926fd7bE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17hd529253980965e42E"(ptr noalias noundef align 8 dereferenceable(56) %2)
           to label %3 unwind label %4
@@ -1835,7 +1835,7 @@ define hidden void @"_ZN4core3ptr750drop_in_place$LT$core..iter..adapters..map..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr769drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$std..path..PathBuf$C$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$C$$LP$$RP$$C$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$C$alloc..vec..Vec$LT$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..path..PathBuf$GT$$C$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9ac85e13f75bba2E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr769drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$std..path..PathBuf$C$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$C$$LP$$RP$$C$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$C$alloc..vec..Vec$LT$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..path..PathBuf$GT$$C$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9ac85e13f75bba2E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %.val = load ptr, ptr %2, align 8, !alias.scope !431, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3460,7 +3460,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 .body:                                            ; preds = %112, %121, %149, %69
   %eh.lpad-body = phi { ptr, i32 } [ %70, %69 ], [ %113, %112 ], [ %lpad.thr_comm.split-lp.i.i, %149 ], [ %122, %121 ]
-  invoke fastcc void @"_ZN4core3ptr769drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$std..path..PathBuf$C$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$C$$LP$$RP$$C$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$C$alloc..vec..Vec$LT$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..path..PathBuf$GT$$C$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9ac85e13f75bba2E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %2) #33
+  invoke fastcc void @"_ZN4core3ptr769drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$std..path..PathBuf$C$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$C$$LP$$RP$$C$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$C$alloc..vec..Vec$LT$$LP$std..path..PathBuf$C$core..option..Option$LT$ignore..walk..WalkEventIter$GT$$RP$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..path..PathBuf$GT$$C$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9ac85e13f75bba2E"(ptr noalias noundef align 8 dereferenceable(80) %2) #33
           to label %175 unwind label %173
 
 71:                                               ; preds = %150, %18
@@ -5387,11 +5387,11 @@ _ZN6ignore5Error6tagged17h86093f5d516173f6E.exit50: ; preds = %.noexc49, %100
   br label %52
 
 132:                                              ; preds = %129
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17hd529253980965e42E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16)
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17hd529253980965e42E"(ptr noalias noundef align 8 dereferenceable(56) %16)
           to label %131 unwind label %.loopexit
 
 133:                                              ; preds = %126
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17hd529253980965e42E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16) #33
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17hd529253980965e42E"(ptr noalias noundef align 8 dereferenceable(56) %16) #33
           to label %.body37 unwind label %124
 
 _ZN6ignore5Error6tagged17h86093f5d516173f6E.exit: ; preds = %.noexc39, %82

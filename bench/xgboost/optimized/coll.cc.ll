@@ -329,7 +329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr %10, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %11, ptr %23, align 8
-  invoke fastcc void @"_ZN7xgboost13DispatchDTypeIZNS_10collective4Coll9AllreduceERKNS1_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS1_2OpEE3$_0EEDaSA_T_"(ptr dead_on_unwind noalias nonnull writable align 8 %13, i8 noundef signext %21, ptr noundef nonnull byval(%class.anon.6) align 8 %14)
+  invoke fastcc void @"_ZN7xgboost13DispatchDTypeIZNS_10collective4Coll9AllreduceERKNS1_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS1_2OpEE3$_0EEDaSA_T_"(ptr dead_on_unwind noalias writable align 8 %13, i8 noundef signext %21, ptr noundef nonnull byval(%class.anon.6) align 8 %14)
           to label %24 unwind label %33
 
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -405,7 +405,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN7xgboost13DispatchDTypeIZNS_10collective4Coll9AllreduceERKNS1_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS1_2OpEE3$_0EEDaSA_T_"(ptr dead_on_unwind noalias writable align 8 %0, i8 noundef signext %1, ptr nocapture noundef readonly byval(%class.anon.6) align 8 %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7xgboost13DispatchDTypeIZNS_10collective4Coll9AllreduceERKNS1_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS1_2OpEE3$_0EEDaSA_T_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 noundef signext %1, ptr nocapture noundef readonly byval(%class.anon.6) align 8 %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.xgboost::common::Span", align 8
   %5 = alloca %"class.std::function", align 8
   %6 = alloca %"class.xgboost::common::Span", align 8
@@ -648,7 +648,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   %180 = getelementptr inbounds i8, ptr %169, i64 24
   %181 = load ptr, ptr %180, align 8, !noalias !14
   %182 = load i8, ptr %181, align 1, !noalias !14
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %171, ptr noundef nonnull %142, ptr noundef nonnull align 8 dereferenceable(32) %143, i8 noundef signext %182)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %171, ptr noundef nonnull %142, ptr noundef nonnull align 8 dereferenceable(32) %143, i8 noundef signext %182)
           to label %183 unwind label %190
 
 183:                                              ; preds = %167
@@ -717,7 +717,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   %211 = getelementptr inbounds i8, ptr %200, i64 24
   %212 = load ptr, ptr %211, align 8, !noalias !17
   %213 = load i8, ptr %212, align 1, !noalias !17
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %202, ptr noundef nonnull %140, ptr noundef nonnull align 8 dereferenceable(32) %141, i8 noundef signext %213)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %202, ptr noundef nonnull %140, ptr noundef nonnull align 8 dereferenceable(32) %141, i8 noundef signext %213)
           to label %214 unwind label %221
 
 214:                                              ; preds = %198
@@ -782,7 +782,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   %242 = getelementptr inbounds i8, ptr %231, i64 24
   %243 = load ptr, ptr %242, align 8, !noalias !20
   %244 = load i8, ptr %243, align 1, !noalias !20
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %233, ptr noundef nonnull %138, ptr noundef nonnull align 8 dereferenceable(32) %139, i8 noundef signext %244)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %233, ptr noundef nonnull %138, ptr noundef nonnull align 8 dereferenceable(32) %139, i8 noundef signext %244)
           to label %245 unwind label %252
 
 245:                                              ; preds = %229
@@ -828,7 +828,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   %261 = getelementptr inbounds i8, ptr %2, i64 16
   %262 = load ptr, ptr %261, align 8, !noalias !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull align 8 dereferenceable(32) %262), !noalias !11
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %144, ptr noundef nonnull @.str.2, i32 noundef 80)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %144, ptr noundef nonnull @.str.2, i32 noundef 80)
           to label %263 unwind label %264
 
 263:                                              ; preds = %260
@@ -845,7 +845,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   %267 = getelementptr inbounds i8, ptr %2, i64 16
   %268 = load ptr, ptr %267, align 8, !noalias !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %268), !noalias !11
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %145, ptr noundef nonnull @.str.2, i32 noundef 87)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %145, ptr noundef nonnull @.str.2, i32 noundef 87)
           to label %269 unwind label %270
 
 269:                                              ; preds = %266
@@ -862,7 +862,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   %273 = getelementptr inbounds i8, ptr %2, i64 16
   %274 = load ptr, ptr %273, align 8, !noalias !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 8 dereferenceable(32) %274), !noalias !11
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %146, ptr noundef nonnull @.str.2, i32 noundef 94)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %146, ptr noundef nonnull @.str.2, i32 noundef 94)
           to label %275 unwind label %276
 
 275:                                              ; preds = %272
@@ -895,7 +895,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc15.i
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %147, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %147, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %282 unwind label %285
 
 282:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -967,7 +967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %303 = getelementptr inbounds i8, ptr %292, i64 24
   %304 = load ptr, ptr %303, align 8, !noalias !26
   %305 = load i8, ptr %304, align 1, !noalias !26
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %294, ptr noundef nonnull %131, ptr noundef nonnull align 8 dereferenceable(32) %132, i8 noundef signext %305)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %294, ptr noundef nonnull %131, ptr noundef nonnull align 8 dereferenceable(32) %132, i8 noundef signext %305)
           to label %306 unwind label %313
 
 306:                                              ; preds = %290
@@ -1032,7 +1032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %334 = getelementptr inbounds i8, ptr %323, i64 24
   %335 = load ptr, ptr %334, align 8, !noalias !29
   %336 = load i8, ptr %335, align 1, !noalias !29
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %325, ptr noundef nonnull %129, ptr noundef nonnull align 8 dereferenceable(32) %130, i8 noundef signext %336)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %325, ptr noundef nonnull %129, ptr noundef nonnull align 8 dereferenceable(32) %130, i8 noundef signext %336)
           to label %337 unwind label %344
 
 337:                                              ; preds = %321
@@ -1097,7 +1097,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %365 = getelementptr inbounds i8, ptr %354, i64 24
   %366 = load ptr, ptr %365, align 8, !noalias !32
   %367 = load i8, ptr %366, align 1, !noalias !32
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %356, ptr noundef nonnull %127, ptr noundef nonnull align 8 dereferenceable(32) %128, i8 noundef signext %367)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %356, ptr noundef nonnull %127, ptr noundef nonnull align 8 dereferenceable(32) %128, i8 noundef signext %367)
           to label %368 unwind label %375
 
 368:                                              ; preds = %352
@@ -1143,7 +1143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %384 = getelementptr inbounds i8, ptr %2, i64 16
   %385 = load ptr, ptr %384, align 8, !noalias !23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %385), !noalias !23
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %133, ptr noundef nonnull @.str.2, i32 noundef 80)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %133, ptr noundef nonnull @.str.2, i32 noundef 80)
           to label %386 unwind label %387
 
 386:                                              ; preds = %383
@@ -1160,7 +1160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %390 = getelementptr inbounds i8, ptr %2, i64 16
   %391 = load ptr, ptr %390, align 8, !noalias !23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %391), !noalias !23
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %134, ptr noundef nonnull @.str.2, i32 noundef 87)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %134, ptr noundef nonnull @.str.2, i32 noundef 87)
           to label %392 unwind label %393
 
 392:                                              ; preds = %389
@@ -1177,7 +1177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %396 = getelementptr inbounds i8, ptr %2, i64 16
   %397 = load ptr, ptr %396, align 8, !noalias !23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %397), !noalias !23
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %135, ptr noundef nonnull @.str.2, i32 noundef 94)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %135, ptr noundef nonnull @.str.2, i32 noundef 94)
           to label %398 unwind label %399
 
 398:                                              ; preds = %395
@@ -1210,7 +1210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %.body.i25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: ; preds = %.noexc15.i28
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %136, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %136, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %405 unwind label %408
 
 405:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29
@@ -1282,7 +1282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   %426 = getelementptr inbounds i8, ptr %415, i64 24
   %427 = load ptr, ptr %426, align 8, !noalias !38
   %428 = load i8, ptr %427, align 1, !noalias !38
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %417, ptr noundef nonnull %120, ptr noundef nonnull align 8 dereferenceable(32) %121, i8 noundef signext %428)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %417, ptr noundef nonnull %120, ptr noundef nonnull align 8 dereferenceable(32) %121, i8 noundef signext %428)
           to label %429 unwind label %436
 
 429:                                              ; preds = %413
@@ -1347,7 +1347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   %457 = getelementptr inbounds i8, ptr %446, i64 24
   %458 = load ptr, ptr %457, align 8, !noalias !41
   %459 = load i8, ptr %458, align 1, !noalias !41
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %448, ptr noundef nonnull %118, ptr noundef nonnull align 8 dereferenceable(32) %119, i8 noundef signext %459)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %448, ptr noundef nonnull %118, ptr noundef nonnull align 8 dereferenceable(32) %119, i8 noundef signext %459)
           to label %460 unwind label %467
 
 460:                                              ; preds = %444
@@ -1412,7 +1412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   %488 = getelementptr inbounds i8, ptr %477, i64 24
   %489 = load ptr, ptr %488, align 8, !noalias !44
   %490 = load i8, ptr %489, align 1, !noalias !44
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %479, ptr noundef nonnull %116, ptr noundef nonnull align 8 dereferenceable(32) %117, i8 noundef signext %490)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %479, ptr noundef nonnull %116, ptr noundef nonnull align 8 dereferenceable(32) %117, i8 noundef signext %490)
           to label %491 unwind label %498
 
 491:                                              ; preds = %475
@@ -1458,7 +1458,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   %507 = getelementptr inbounds i8, ptr %2, i64 16
   %508 = load ptr, ptr %507, align 8, !noalias !35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %508), !noalias !35
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %122, ptr noundef nonnull @.str.2, i32 noundef 80)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %122, ptr noundef nonnull @.str.2, i32 noundef 80)
           to label %509 unwind label %510
 
 509:                                              ; preds = %506
@@ -1475,7 +1475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   %513 = getelementptr inbounds i8, ptr %2, i64 16
   %514 = load ptr, ptr %513, align 8, !noalias !35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %514), !noalias !35
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %123, ptr noundef nonnull @.str.2, i32 noundef 87)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %123, ptr noundef nonnull @.str.2, i32 noundef 87)
           to label %515 unwind label %516
 
 515:                                              ; preds = %512
@@ -1492,7 +1492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   %519 = getelementptr inbounds i8, ptr %2, i64 16
   %520 = load ptr, ptr %519, align 8, !noalias !35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %520), !noalias !35
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %124, ptr noundef nonnull @.str.2, i32 noundef 94)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %124, ptr noundef nonnull @.str.2, i32 noundef 94)
           to label %521 unwind label %522
 
 521:                                              ; preds = %518
@@ -1525,7 +1525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br label %.body.i38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: ; preds = %.noexc15.i41
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %125, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %125, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %528 unwind label %531
 
 528:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42
@@ -1594,7 +1594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   %546 = getelementptr inbounds i8, ptr %.val2, i64 24
   %547 = load ptr, ptr %546, align 8, !noalias !50
   %548 = load i8, ptr %547, align 1, !noalias !50
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %537, ptr noundef nonnull %112, ptr noundef nonnull align 8 dereferenceable(32) %113, i8 noundef signext %548)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %537, ptr noundef nonnull %112, ptr noundef nonnull align 8 dereferenceable(32) %113, i8 noundef signext %548)
           to label %549 unwind label %556
 
 549:                                              ; preds = %535
@@ -1657,7 +1657,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   %575 = getelementptr inbounds i8, ptr %.val2, i64 24
   %576 = load ptr, ptr %575, align 8, !noalias !53
   %577 = load i8, ptr %576, align 1, !noalias !53
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %566, ptr noundef nonnull %110, ptr noundef nonnull align 8 dereferenceable(32) %111, i8 noundef signext %577)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %566, ptr noundef nonnull %110, ptr noundef nonnull align 8 dereferenceable(32) %111, i8 noundef signext %577)
           to label %578 unwind label %585
 
 578:                                              ; preds = %564
@@ -1720,7 +1720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   %604 = getelementptr inbounds i8, ptr %.val2, i64 24
   %605 = load ptr, ptr %604, align 8, !noalias !56
   %606 = load i8, ptr %605, align 1, !noalias !56
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %595, ptr noundef nonnull %108, ptr noundef nonnull align 8 dereferenceable(32) %109, i8 noundef signext %606)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %595, ptr noundef nonnull %108, ptr noundef nonnull align 8 dereferenceable(32) %109, i8 noundef signext %606)
           to label %607 unwind label %614
 
 607:                                              ; preds = %593
@@ -1783,7 +1783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   %633 = getelementptr inbounds i8, ptr %.val2, i64 24
   %634 = load ptr, ptr %633, align 8, !noalias !59
   %635 = load i8, ptr %634, align 1, !noalias !59
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %624, ptr noundef nonnull %106, ptr noundef nonnull align 8 dereferenceable(32) %107, i8 noundef signext %635)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %624, ptr noundef nonnull %106, ptr noundef nonnull align 8 dereferenceable(32) %107, i8 noundef signext %635)
           to label %636 unwind label %643
 
 636:                                              ; preds = %622
@@ -1846,7 +1846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   %662 = getelementptr inbounds i8, ptr %.val2, i64 24
   %663 = load ptr, ptr %662, align 8, !noalias !62
   %664 = load i8, ptr %663, align 1, !noalias !62
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %653, ptr noundef nonnull %104, ptr noundef nonnull align 8 dereferenceable(32) %105, i8 noundef signext %664)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %653, ptr noundef nonnull %104, ptr noundef nonnull align 8 dereferenceable(32) %105, i8 noundef signext %664)
           to label %665 unwind label %672
 
 665:                                              ; preds = %651
@@ -1909,7 +1909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   %691 = getelementptr inbounds i8, ptr %.val2, i64 24
   %692 = load ptr, ptr %691, align 8, !noalias !65
   %693 = load i8, ptr %692, align 1, !noalias !65
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %682, ptr noundef nonnull %102, ptr noundef nonnull align 8 dereferenceable(32) %103, i8 noundef signext %693)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %682, ptr noundef nonnull %102, ptr noundef nonnull align 8 dereferenceable(32) %103, i8 noundef signext %693)
           to label %694 unwind label %701
 
 694:                                              ; preds = %680
@@ -1971,7 +1971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br label %.body.i47
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: ; preds = %.noexc25.i
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %114, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %114, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %713 unwind label %716
 
 713:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50
@@ -2037,7 +2037,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   %731 = getelementptr inbounds i8, ptr %.val4, i64 24
   %732 = load ptr, ptr %731, align 8, !noalias !71
   %733 = load i8, ptr %732, align 1, !noalias !71
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %722, ptr noundef nonnull %98, ptr noundef nonnull align 8 dereferenceable(32) %99, i8 noundef signext %733)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %722, ptr noundef nonnull %98, ptr noundef nonnull align 8 dereferenceable(32) %99, i8 noundef signext %733)
           to label %734 unwind label %741
 
 734:                                              ; preds = %720
@@ -2100,7 +2100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   %760 = getelementptr inbounds i8, ptr %.val4, i64 24
   %761 = load ptr, ptr %760, align 8, !noalias !74
   %762 = load i8, ptr %761, align 1, !noalias !74
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %751, ptr noundef nonnull %96, ptr noundef nonnull align 8 dereferenceable(32) %97, i8 noundef signext %762)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %751, ptr noundef nonnull %96, ptr noundef nonnull align 8 dereferenceable(32) %97, i8 noundef signext %762)
           to label %763 unwind label %770
 
 763:                                              ; preds = %749
@@ -2163,7 +2163,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   %789 = getelementptr inbounds i8, ptr %.val4, i64 24
   %790 = load ptr, ptr %789, align 8, !noalias !77
   %791 = load i8, ptr %790, align 1, !noalias !77
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %780, ptr noundef nonnull %94, ptr noundef nonnull align 8 dereferenceable(32) %95, i8 noundef signext %791)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %780, ptr noundef nonnull %94, ptr noundef nonnull align 8 dereferenceable(32) %95, i8 noundef signext %791)
           to label %792 unwind label %799
 
 792:                                              ; preds = %778
@@ -2226,7 +2226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   %818 = getelementptr inbounds i8, ptr %.val4, i64 24
   %819 = load ptr, ptr %818, align 8, !noalias !80
   %820 = load i8, ptr %819, align 1, !noalias !80
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %809, ptr noundef nonnull %92, ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef signext %820)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %809, ptr noundef nonnull %92, ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef signext %820)
           to label %821 unwind label %828
 
 821:                                              ; preds = %807
@@ -2289,7 +2289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   %847 = getelementptr inbounds i8, ptr %.val4, i64 24
   %848 = load ptr, ptr %847, align 8, !noalias !83
   %849 = load i8, ptr %848, align 1, !noalias !83
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %838, ptr noundef nonnull %90, ptr noundef nonnull align 8 dereferenceable(32) %91, i8 noundef signext %849)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %838, ptr noundef nonnull %90, ptr noundef nonnull align 8 dereferenceable(32) %91, i8 noundef signext %849)
           to label %850 unwind label %857
 
 850:                                              ; preds = %836
@@ -2352,7 +2352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   %876 = getelementptr inbounds i8, ptr %.val4, i64 24
   %877 = load ptr, ptr %876, align 8, !noalias !86
   %878 = load i8, ptr %877, align 1, !noalias !86
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %867, ptr noundef nonnull %88, ptr noundef nonnull align 8 dereferenceable(32) %89, i8 noundef signext %878)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %867, ptr noundef nonnull %88, ptr noundef nonnull align 8 dereferenceable(32) %89, i8 noundef signext %878)
           to label %879 unwind label %886
 
 879:                                              ; preds = %865
@@ -2414,7 +2414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br label %.body.i65
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: ; preds = %.noexc25.i68
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %100, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %100, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %898 unwind label %901
 
 898:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69
@@ -2480,7 +2480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   %916 = getelementptr inbounds i8, ptr %.val6, i64 24
   %917 = load ptr, ptr %916, align 8, !noalias !92
   %918 = load i8, ptr %917, align 1, !noalias !92
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %907, ptr noundef nonnull %84, ptr noundef nonnull align 8 dereferenceable(32) %85, i8 noundef signext %918)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %907, ptr noundef nonnull %84, ptr noundef nonnull align 8 dereferenceable(32) %85, i8 noundef signext %918)
           to label %919 unwind label %926
 
 919:                                              ; preds = %905
@@ -2543,7 +2543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   %945 = getelementptr inbounds i8, ptr %.val6, i64 24
   %946 = load ptr, ptr %945, align 8, !noalias !95
   %947 = load i8, ptr %946, align 1, !noalias !95
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %936, ptr noundef nonnull %82, ptr noundef nonnull align 8 dereferenceable(32) %83, i8 noundef signext %947)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %936, ptr noundef nonnull %82, ptr noundef nonnull align 8 dereferenceable(32) %83, i8 noundef signext %947)
           to label %948 unwind label %955
 
 948:                                              ; preds = %934
@@ -2606,7 +2606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   %974 = getelementptr inbounds i8, ptr %.val6, i64 24
   %975 = load ptr, ptr %974, align 8, !noalias !98
   %976 = load i8, ptr %975, align 1, !noalias !98
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %965, ptr noundef nonnull %80, ptr noundef nonnull align 8 dereferenceable(32) %81, i8 noundef signext %976)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %965, ptr noundef nonnull %80, ptr noundef nonnull align 8 dereferenceable(32) %81, i8 noundef signext %976)
           to label %977 unwind label %984
 
 977:                                              ; preds = %963
@@ -2669,7 +2669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   %1003 = getelementptr inbounds i8, ptr %.val6, i64 24
   %1004 = load ptr, ptr %1003, align 8, !noalias !101
   %1005 = load i8, ptr %1004, align 1, !noalias !101
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %994, ptr noundef nonnull %78, ptr noundef nonnull align 8 dereferenceable(32) %79, i8 noundef signext %1005)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %994, ptr noundef nonnull %78, ptr noundef nonnull align 8 dereferenceable(32) %79, i8 noundef signext %1005)
           to label %1006 unwind label %1013
 
 1006:                                             ; preds = %992
@@ -2732,7 +2732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   %1032 = getelementptr inbounds i8, ptr %.val6, i64 24
   %1033 = load ptr, ptr %1032, align 8, !noalias !104
   %1034 = load i8, ptr %1033, align 1, !noalias !104
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1023, ptr noundef nonnull %76, ptr noundef nonnull align 8 dereferenceable(32) %77, i8 noundef signext %1034)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1023, ptr noundef nonnull %76, ptr noundef nonnull align 8 dereferenceable(32) %77, i8 noundef signext %1034)
           to label %1035 unwind label %1042
 
 1035:                                             ; preds = %1021
@@ -2795,7 +2795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   %1061 = getelementptr inbounds i8, ptr %.val6, i64 24
   %1062 = load ptr, ptr %1061, align 8, !noalias !107
   %1063 = load i8, ptr %1062, align 1, !noalias !107
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1052, ptr noundef nonnull %74, ptr noundef nonnull align 8 dereferenceable(32) %75, i8 noundef signext %1063)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1052, ptr noundef nonnull %74, ptr noundef nonnull align 8 dereferenceable(32) %75, i8 noundef signext %1063)
           to label %1064 unwind label %1071
 
 1064:                                             ; preds = %1050
@@ -2857,7 +2857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br label %.body.i84
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: ; preds = %.noexc25.i87
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %86, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %86, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %1083 unwind label %1086
 
 1083:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88
@@ -2923,7 +2923,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   %1101 = getelementptr inbounds i8, ptr %.val8, i64 24
   %1102 = load ptr, ptr %1101, align 8, !noalias !113
   %1103 = load i8, ptr %1102, align 1, !noalias !113
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1092, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %71, i8 noundef signext %1103)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1092, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %71, i8 noundef signext %1103)
           to label %1104 unwind label %1111
 
 1104:                                             ; preds = %1090
@@ -2986,7 +2986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   %1130 = getelementptr inbounds i8, ptr %.val8, i64 24
   %1131 = load ptr, ptr %1130, align 8, !noalias !116
   %1132 = load i8, ptr %1131, align 1, !noalias !116
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1121, ptr noundef nonnull %68, ptr noundef nonnull align 8 dereferenceable(32) %69, i8 noundef signext %1132)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1121, ptr noundef nonnull %68, ptr noundef nonnull align 8 dereferenceable(32) %69, i8 noundef signext %1132)
           to label %1133 unwind label %1140
 
 1133:                                             ; preds = %1119
@@ -3049,7 +3049,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   %1159 = getelementptr inbounds i8, ptr %.val8, i64 24
   %1160 = load ptr, ptr %1159, align 8, !noalias !119
   %1161 = load i8, ptr %1160, align 1, !noalias !119
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1150, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(32) %67, i8 noundef signext %1161)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1150, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(32) %67, i8 noundef signext %1161)
           to label %1162 unwind label %1169
 
 1162:                                             ; preds = %1148
@@ -3112,7 +3112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   %1188 = getelementptr inbounds i8, ptr %.val8, i64 24
   %1189 = load ptr, ptr %1188, align 8, !noalias !122
   %1190 = load i8, ptr %1189, align 1, !noalias !122
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1179, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(32) %65, i8 noundef signext %1190)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1179, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(32) %65, i8 noundef signext %1190)
           to label %1191 unwind label %1198
 
 1191:                                             ; preds = %1177
@@ -3175,7 +3175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   %1217 = getelementptr inbounds i8, ptr %.val8, i64 24
   %1218 = load ptr, ptr %1217, align 8, !noalias !125
   %1219 = load i8, ptr %1218, align 1, !noalias !125
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1208, ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(32) %63, i8 noundef signext %1219)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1208, ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(32) %63, i8 noundef signext %1219)
           to label %1220 unwind label %1227
 
 1220:                                             ; preds = %1206
@@ -3238,7 +3238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   %1246 = getelementptr inbounds i8, ptr %.val8, i64 24
   %1247 = load ptr, ptr %1246, align 8, !noalias !128
   %1248 = load i8, ptr %1247, align 1, !noalias !128
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1237, ptr noundef nonnull %60, ptr noundef nonnull align 8 dereferenceable(32) %61, i8 noundef signext %1248)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1237, ptr noundef nonnull %60, ptr noundef nonnull align 8 dereferenceable(32) %61, i8 noundef signext %1248)
           to label %1249 unwind label %1256
 
 1249:                                             ; preds = %1235
@@ -3300,7 +3300,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br label %.body.i103
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107: ; preds = %.noexc25.i106
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %72, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %72, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %1268 unwind label %1271
 
 1268:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107
@@ -3366,7 +3366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   %1286 = getelementptr inbounds i8, ptr %.val10, i64 24
   %1287 = load ptr, ptr %1286, align 8, !noalias !134
   %1288 = load i8, ptr %1287, align 1, !noalias !134
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1277, ptr noundef nonnull %56, ptr noundef nonnull align 8 dereferenceable(32) %57, i8 noundef signext %1288)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1277, ptr noundef nonnull %56, ptr noundef nonnull align 8 dereferenceable(32) %57, i8 noundef signext %1288)
           to label %1289 unwind label %1296
 
 1289:                                             ; preds = %1275
@@ -3429,7 +3429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   %1315 = getelementptr inbounds i8, ptr %.val10, i64 24
   %1316 = load ptr, ptr %1315, align 8, !noalias !137
   %1317 = load i8, ptr %1316, align 1, !noalias !137
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1306, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(32) %55, i8 noundef signext %1317)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1306, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(32) %55, i8 noundef signext %1317)
           to label %1318 unwind label %1325
 
 1318:                                             ; preds = %1304
@@ -3492,7 +3492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   %1344 = getelementptr inbounds i8, ptr %.val10, i64 24
   %1345 = load ptr, ptr %1344, align 8, !noalias !140
   %1346 = load i8, ptr %1345, align 1, !noalias !140
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1335, ptr noundef nonnull %52, ptr noundef nonnull align 8 dereferenceable(32) %53, i8 noundef signext %1346)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1335, ptr noundef nonnull %52, ptr noundef nonnull align 8 dereferenceable(32) %53, i8 noundef signext %1346)
           to label %1347 unwind label %1354
 
 1347:                                             ; preds = %1333
@@ -3555,7 +3555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   %1373 = getelementptr inbounds i8, ptr %.val10, i64 24
   %1374 = load ptr, ptr %1373, align 8, !noalias !143
   %1375 = load i8, ptr %1374, align 1, !noalias !143
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1364, ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(32) %51, i8 noundef signext %1375)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1364, ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(32) %51, i8 noundef signext %1375)
           to label %1376 unwind label %1383
 
 1376:                                             ; preds = %1362
@@ -3618,7 +3618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   %1402 = getelementptr inbounds i8, ptr %.val10, i64 24
   %1403 = load ptr, ptr %1402, align 8, !noalias !146
   %1404 = load i8, ptr %1403, align 1, !noalias !146
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1393, ptr noundef nonnull %48, ptr noundef nonnull align 8 dereferenceable(32) %49, i8 noundef signext %1404)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1393, ptr noundef nonnull %48, ptr noundef nonnull align 8 dereferenceable(32) %49, i8 noundef signext %1404)
           to label %1405 unwind label %1412
 
 1405:                                             ; preds = %1391
@@ -3681,7 +3681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   %1431 = getelementptr inbounds i8, ptr %.val10, i64 24
   %1432 = load ptr, ptr %1431, align 8, !noalias !149
   %1433 = load i8, ptr %1432, align 1, !noalias !149
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1422, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(32) %47, i8 noundef signext %1433)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1422, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(32) %47, i8 noundef signext %1433)
           to label %1434 unwind label %1441
 
 1434:                                             ; preds = %1420
@@ -3743,7 +3743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br label %.body.i122
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126: ; preds = %.noexc25.i125
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %58, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %58, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %1453 unwind label %1456
 
 1453:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126
@@ -3809,7 +3809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   %1471 = getelementptr inbounds i8, ptr %.val12, i64 24
   %1472 = load ptr, ptr %1471, align 8, !noalias !155
   %1473 = load i8, ptr %1472, align 1, !noalias !155
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1462, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(32) %43, i8 noundef signext %1473)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1462, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(32) %43, i8 noundef signext %1473)
           to label %1474 unwind label %1481
 
 1474:                                             ; preds = %1460
@@ -3872,7 +3872,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   %1500 = getelementptr inbounds i8, ptr %.val12, i64 24
   %1501 = load ptr, ptr %1500, align 8, !noalias !158
   %1502 = load i8, ptr %1501, align 1, !noalias !158
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1491, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(32) %41, i8 noundef signext %1502)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1491, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(32) %41, i8 noundef signext %1502)
           to label %1503 unwind label %1510
 
 1503:                                             ; preds = %1489
@@ -3935,7 +3935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   %1529 = getelementptr inbounds i8, ptr %.val12, i64 24
   %1530 = load ptr, ptr %1529, align 8, !noalias !161
   %1531 = load i8, ptr %1530, align 1, !noalias !161
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1520, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i8 noundef signext %1531)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1520, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i8 noundef signext %1531)
           to label %1532 unwind label %1539
 
 1532:                                             ; preds = %1518
@@ -3998,7 +3998,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   %1558 = getelementptr inbounds i8, ptr %.val12, i64 24
   %1559 = load ptr, ptr %1558, align 8, !noalias !164
   %1560 = load i8, ptr %1559, align 1, !noalias !164
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1549, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %37, i8 noundef signext %1560)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1549, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %37, i8 noundef signext %1560)
           to label %1561 unwind label %1568
 
 1561:                                             ; preds = %1547
@@ -4061,7 +4061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   %1587 = getelementptr inbounds i8, ptr %.val12, i64 24
   %1588 = load ptr, ptr %1587, align 8, !noalias !167
   %1589 = load i8, ptr %1588, align 1, !noalias !167
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1578, ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %35, i8 noundef signext %1589)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1578, ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %35, i8 noundef signext %1589)
           to label %1590 unwind label %1597
 
 1590:                                             ; preds = %1576
@@ -4124,7 +4124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   %1616 = getelementptr inbounds i8, ptr %.val12, i64 24
   %1617 = load ptr, ptr %1616, align 8, !noalias !170
   %1618 = load i8, ptr %1617, align 1, !noalias !170
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1607, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(32) %33, i8 noundef signext %1618)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1607, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(32) %33, i8 noundef signext %1618)
           to label %1619 unwind label %1626
 
 1619:                                             ; preds = %1605
@@ -4186,7 +4186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br label %.body.i141
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145: ; preds = %.noexc25.i144
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %44, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %44, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %1638 unwind label %1641
 
 1638:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145
@@ -4252,7 +4252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   %1656 = getelementptr inbounds i8, ptr %.val14, i64 24
   %1657 = load ptr, ptr %1656, align 8, !noalias !176
   %1658 = load i8, ptr %1657, align 1, !noalias !176
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1647, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(32) %29, i8 noundef signext %1658)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1647, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(32) %29, i8 noundef signext %1658)
           to label %1659 unwind label %1666
 
 1659:                                             ; preds = %1645
@@ -4315,7 +4315,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   %1685 = getelementptr inbounds i8, ptr %.val14, i64 24
   %1686 = load ptr, ptr %1685, align 8, !noalias !179
   %1687 = load i8, ptr %1686, align 1, !noalias !179
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1676, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(32) %27, i8 noundef signext %1687)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1676, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(32) %27, i8 noundef signext %1687)
           to label %1688 unwind label %1695
 
 1688:                                             ; preds = %1674
@@ -4378,7 +4378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   %1714 = getelementptr inbounds i8, ptr %.val14, i64 24
   %1715 = load ptr, ptr %1714, align 8, !noalias !182
   %1716 = load i8, ptr %1715, align 1, !noalias !182
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1705, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i8 noundef signext %1716)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1705, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i8 noundef signext %1716)
           to label %1717 unwind label %1724
 
 1717:                                             ; preds = %1703
@@ -4441,7 +4441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   %1743 = getelementptr inbounds i8, ptr %.val14, i64 24
   %1744 = load ptr, ptr %1743, align 8, !noalias !185
   %1745 = load i8, ptr %1744, align 1, !noalias !185
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1734, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(32) %23, i8 noundef signext %1745)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1734, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(32) %23, i8 noundef signext %1745)
           to label %1746 unwind label %1753
 
 1746:                                             ; preds = %1732
@@ -4504,7 +4504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   %1772 = getelementptr inbounds i8, ptr %.val14, i64 24
   %1773 = load ptr, ptr %1772, align 8, !noalias !188
   %1774 = load i8, ptr %1773, align 1, !noalias !188
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1763, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext %1774)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1763, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext %1774)
           to label %1775 unwind label %1782
 
 1775:                                             ; preds = %1761
@@ -4567,7 +4567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   %1801 = getelementptr inbounds i8, ptr %.val14, i64 24
   %1802 = load ptr, ptr %1801, align 8, !noalias !191
   %1803 = load i8, ptr %1802, align 1, !noalias !191
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1792, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i8 noundef signext %1803)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1792, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i8 noundef signext %1803)
           to label %1804 unwind label %1811
 
 1804:                                             ; preds = %1790
@@ -4629,7 +4629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br label %.body.i160
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164: ; preds = %.noexc25.i163
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %1823 unwind label %1826
 
 1823:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164
@@ -4695,7 +4695,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   %1841 = getelementptr inbounds i8, ptr %.val16, i64 24
   %1842 = load ptr, ptr %1841, align 8, !noalias !197
   %1843 = load i8, ptr %1842, align 1, !noalias !197
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1832, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef signext %1843)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1832, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef signext %1843)
           to label %1844 unwind label %1851
 
 1844:                                             ; preds = %1830
@@ -4758,7 +4758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   %1870 = getelementptr inbounds i8, ptr %.val16, i64 24
   %1871 = load ptr, ptr %1870, align 8, !noalias !200
   %1872 = load i8, ptr %1871, align 1, !noalias !200
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1861, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %13, i8 noundef signext %1872)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1861, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %13, i8 noundef signext %1872)
           to label %1873 unwind label %1880
 
 1873:                                             ; preds = %1859
@@ -4821,7 +4821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   %1899 = getelementptr inbounds i8, ptr %.val16, i64 24
   %1900 = load ptr, ptr %1899, align 8, !noalias !203
   %1901 = load i8, ptr %1900, align 1, !noalias !203
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1890, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext %1901)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1890, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext %1901)
           to label %1902 unwind label %1909
 
 1902:                                             ; preds = %1888
@@ -4884,7 +4884,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   %1928 = getelementptr inbounds i8, ptr %.val16, i64 24
   %1929 = load ptr, ptr %1928, align 8, !noalias !206
   %1930 = load i8, ptr %1929, align 1, !noalias !206
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1919, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i8 noundef signext %1930)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1919, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i8 noundef signext %1930)
           to label %1931 unwind label %1938
 
 1931:                                             ; preds = %1917
@@ -4947,7 +4947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   %1957 = getelementptr inbounds i8, ptr %.val16, i64 24
   %1958 = load ptr, ptr %1957, align 8, !noalias !209
   %1959 = load i8, ptr %1958, align 1, !noalias !209
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1948, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext %1959)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1948, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext %1959)
           to label %1960 unwind label %1967
 
 1960:                                             ; preds = %1946
@@ -5010,7 +5010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   %1986 = getelementptr inbounds i8, ptr %.val16, i64 24
   %1987 = load ptr, ptr %1986, align 8, !noalias !212
   %1988 = load i8, ptr %1987, align 1, !noalias !212
-  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1977, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext %1988)
+  invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1977, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext %1988)
           to label %1989 unwind label %1996
 
 1989:                                             ; preds = %1975
@@ -5072,7 +5072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br label %.body.i179
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183: ; preds = %.noexc25.i182
-  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %16, ptr noundef nonnull @.str.2, i32 noundef 100)
+  invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %16, ptr noundef nonnull @.str.2, i32 noundef 100)
           to label %2008 unwind label %2011
 
 2008:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183

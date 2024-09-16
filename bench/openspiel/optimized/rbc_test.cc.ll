@@ -6164,7 +6164,7 @@ _ZN10open_spiel3rbc12_GLOBAL__N_131TestPawnBreachingMoveTwoSquaresEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel3rbc12_GLOBAL__N_113BasicRbcTestsEi(i32 noundef %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel3rbc12_GLOBAL__N_113BasicRbcTestsEi(i32 noundef range(i32 4, 9) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::map", align 8
   %3 = alloca %"class.open_spiel::GameParameter", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

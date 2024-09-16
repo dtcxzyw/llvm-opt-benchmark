@@ -6437,7 +6437,7 @@ _ZN5eastl8Internal30insertion_sort_already_startedIPZ8TestSortvE17StableSortTest
   br label %for.cond.i2232.preheader
 
 if.then.i.i5363:                                  ; preds = %if.else.i2208
-  %531 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i2206, i1 true)
+  %531 = call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i2206, i1 true)
   %sub2.i.i = sub nuw nsw i64 58, %531
   %notmask.i.i = shl nsw i64 -1, %sub2.i.i
   %sub3.i.i = xor i64 %notmask.i.i, -1
@@ -12626,7 +12626,7 @@ _ZN5eastl6vectorIfNS_9allocatorEED2Ev.exit4096:   ; preds = %invoke.cont1344, %_
   %1118 = getelementptr inbounds i8, ptr %test_stable_sort, i64 8
   store ptr %nErrorCount, ptr %1118, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1347, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr noundef nonnull align 8 dereferenceable(16) %test_stable_sort, ptr noundef nonnull %agg.tmp1347, i64 noundef 1000)
+  invoke fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr noundef nonnull align 8 dereferenceable(16) %test_stable_sort, ptr noundef %agg.tmp1347, i64 noundef 1000)
           to label %invoke.cont1349 unwind label %lpad1348
 
 invoke.cont1349:                                  ; preds = %_ZN5eastl6vectorIfNS_9allocatorEED2Ev.exit4096
@@ -12640,7 +12640,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i4099: ; preds = %invoke.cont1349
 
 _ZN5eastl6vectorItNS_9allocatorEED2Ev.exit:       ; preds = %invoke.cont1349, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4099
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1351, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr noundef nonnull align 8 dereferenceable(16) %test_stable_sort, ptr noundef nonnull %agg.tmp1351, i64 noundef 0)
+  invoke fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr noundef nonnull align 8 dereferenceable(16) %test_stable_sort, ptr noundef %agg.tmp1351, i64 noundef 0)
           to label %invoke.cont1353 unwind label %lpad1352
 
 invoke.cont1353:                                  ; preds = %_ZN5eastl6vectorItNS_9allocatorEED2Ev.exit
@@ -12654,7 +12654,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i4102: ; preds = %invoke.cont1353
 
 _ZN5eastl6vectorItNS_9allocatorEED2Ev.exit4103:   ; preds = %invoke.cont1353, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4102
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1355, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr noundef nonnull align 8 dereferenceable(16) %test_stable_sort, ptr noundef nonnull %agg.tmp1355, i64 noundef 1)
+  invoke fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr noundef nonnull align 8 dereferenceable(16) %test_stable_sort, ptr noundef %agg.tmp1355, i64 noundef 1)
           to label %invoke.cont1357 unwind label %lpad1356
 
 invoke.cont1357:                                  ; preds = %_ZN5eastl6vectorItNS_9allocatorEED2Ev.exit4103
@@ -12668,7 +12668,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i4106: ; preds = %invoke.cont1357
 
 _ZN5eastl6vectorItNS_9allocatorEED2Ev.exit4107:   ; preds = %invoke.cont1357, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4106
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1359, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr noundef nonnull align 8 dereferenceable(16) %test_stable_sort, ptr noundef nonnull %agg.tmp1359, i64 noundef 2)
+  invoke fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr noundef nonnull align 8 dereferenceable(16) %test_stable_sort, ptr noundef %agg.tmp1359, i64 noundef 2)
           to label %invoke.cont1361 unwind label %lpad1360
 
 invoke.cont1361:                                  ; preds = %_ZN5eastl6vectorItNS_9allocatorEED2Ev.exit4107
@@ -14447,7 +14447,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13DequeIte
 if.else6:                                         ; preds = %if.else
   store i64 0, ptr %stack_curr, align 8
   store i64 0, ptr %curr, align 8
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add11.i, i1 true)
+  %22 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %add11.i, i1 true)
   %sub2.i = sub nuw nsw i64 58, %22
   %notmask.i = shl nsw i64 -1, %sub2.i
   %sub3.i = xor i64 %notmask.i, -1
@@ -15102,7 +15102,7 @@ if.end11:                                         ; preds = %for.end.i40, %for.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef %testArray, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ8TestSortvENK3$_0clIN5eastl6vectorItNS1_9allocatorEEEEEDaT_m"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull %testArray, i64 noundef range(i64 0, 1001) %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %first.addr.i.i.i.i = alloca ptr, align 8
   %cmp131.not = icmp eq i64 %count, 0
@@ -15190,7 +15190,7 @@ _ZN5eastl6vectorItNS_9allocatorEE16DoInsertValueEndIJtEEEvDpOT_.exit.i: ; preds 
   br label %_ZN5eastl6vectorItNS_9allocatorEE9push_backEOt.exit
 
 _ZN5eastl6vectorItNS_9allocatorEE9push_backEOt.exit: ; preds = %if.then.i, %_ZN5eastl6vectorItNS_9allocatorEE16DoInsertValueEndIJtEEEvDpOT_.exit.i
-  %inc = add nuw i64 %i.0132, 1
+  %inc = add nuw nsw i64 %i.0132, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %invoke.cont5, label %for.body, !llvm.loop !353
 
@@ -16371,7 +16371,7 @@ for.end.i:                                        ; preds = %for.body5.i, %land.
 if.else4:                                         ; preds = %if.else
   store i64 0, ptr %stack_curr, align 8
   store i64 0, ptr %curr, align 8
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true)
+  %2 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true)
   %sub2.i = sub nuw nsw i64 58, %2
   %notmask.i = shl nsw i64 -1, %sub2.i
   %sub3.i = xor i64 %notmask.i, -1
@@ -18742,12 +18742,11 @@ _ZN10TestObjectD2Ev.exit36.i:                     ; preds = %if.then.i32.i, %for
 if.else4:                                         ; preds = %if.else
   store i64 0, ptr %stack_curr, align 8
   store i64 0, ptr %curr, align 8
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true)
-  %sub2.i = sub nsw i64 58, %15
-  %sh_prom.i = and i64 %sub2.i, 4294967295
-  %notmask.i = shl nsw i64 -1, %sh_prom.i
+  %15 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true)
+  %sub2.i = sub nuw nsw i64 58, %15
+  %notmask.i = shl nsw i64 -1, %sub2.i
   %sub3.i = xor i64 %notmask.i, -1
-  %shr.i = lshr i64 %sub.ptr.div, %sh_prom.i
+  %shr.i = lshr i64 %sub.ptr.div, %sub2.i
   %and.i = and i64 %sub.ptr.div, %sub3.i
   %tobool.not.i = icmp ne i64 %and.i, 0
   %inc.i = zext i1 %tobool.not.i to i64
@@ -19497,7 +19496,7 @@ if.end95:                                         ; preds = %for.inc92, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN5eastl11MergeSorterIPZ8TestSortvE17StableSortTestObjS1_Z8TestSortvE17StableSortComparelLi16EE9sort_implES2_S2_S2_lS3_(ptr noundef %first, ptr noundef %last, ptr noundef %pBuffer, i64 noundef %lastSortedEnd) unnamed_addr #7 align 2 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN5eastl11MergeSorterIPZ8TestSortvE17StableSortTestObjS1_Z8TestSortvE17StableSortComparelLi16EE9sort_implES2_S2_S2_lS3_(ptr noundef %first, ptr noundef %last, ptr noundef %pBuffer, i64 noundef range(i64 -9223372036854775808, 576460752303423479) %lastSortedEnd) unnamed_addr #7 align 2 {
 entry:
   %temp.sroa.3.i = alloca [12 x i8], align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %last to i64
@@ -19600,11 +19599,11 @@ if.end15:                                         ; preds = %if.then11, %if.else
   br i1 %firstHalfLocation.0, label %if.then.i, label %if.else11.i
 
 if.then.i:                                        ; preds = %if.end15
-  br i1 %cmp1.i, label %if.then2.i, label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i
+  br i1 %cmp1.i, label %if.then2.i, label %if.end.i.i.i.i.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %cmp124.i.i.not = icmp eq ptr %add.ptr16, %last
-  br i1 %cmp124.i.i.not, label %while.end.i.i, label %while.body.i.i
+  %cmp124.i.not.i = icmp eq ptr %add.ptr16, %last
+  br i1 %cmp124.i.not.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then2.i, %if.end.i.i
   %result.addr.027.i.i = phi ptr [ %incdec.ptr3.i.i, %if.end.i.i ], [ %pBuffer, %if.then2.i ]
@@ -19657,18 +19656,18 @@ return.sink.split.i.i:                            ; preds = %if.then5.i.i, %whil
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %result.addr.0.lcssa.i.i, ptr align 8 %first2.addr.0.lcssa.sink32.i.i, i64 %sub.i.i.i.i.i.i, i1 false)
   br label %return
 
-_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i: ; preds = %if.then.i
-  %add.ptr4.idx.i = shl nsw i64 %div27, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %pBuffer, ptr align 8 %first, i64 %add.ptr4.idx.i, i1 false)
+if.end.i.i.i.i.i:                                 ; preds = %if.then.i
+  %add.ptr4.idx.i = shl nuw nsw i64 %div27, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %pBuffer, ptr noundef nonnull align 8 dereferenceable(1) %first, i64 %add.ptr4.idx.i, i1 false)
   %add.ptr6.i = getelementptr inbounds i8, ptr %pBuffer, i64 %add.ptr4.idx.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %pBuffer, i64 %sub.ptr.sub
   %cmp124.i40.not.i = icmp eq i64 %add.ptr4.idx.i, %sub.ptr.sub
   br i1 %cmp124.i40.not.i, label %while.end.i41.i, label %while.body.i54.i
 
-while.body.i54.i:                                 ; preds = %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i, %if.end.i63.i
-  %result.addr.027.i55.i = phi ptr [ %incdec.ptr3.i66.i, %if.end.i63.i ], [ %first, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i ]
-  %first2.addr.026.i56.i = phi ptr [ %first2.addr.1.i65.i, %if.end.i63.i ], [ %add.ptr6.i, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i ]
-  %first1.addr.025.i57.i = phi ptr [ %first1.addr.1.i64.i, %if.end.i63.i ], [ %pBuffer, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i ]
+while.body.i54.i:                                 ; preds = %if.end.i.i.i.i.i, %if.end.i63.i
+  %result.addr.027.i55.i = phi ptr [ %incdec.ptr3.i66.i, %if.end.i63.i ], [ %first, %if.end.i.i.i.i.i ]
+  %first2.addr.026.i56.i = phi ptr [ %first2.addr.1.i65.i, %if.end.i63.i ], [ %add.ptr6.i, %if.end.i.i.i.i.i ]
+  %first1.addr.025.i57.i = phi ptr [ %first1.addr.1.i64.i, %if.end.i63.i ], [ %pBuffer, %if.end.i.i.i.i.i ]
   %first2.addr.0.val.i58.i = load i32, ptr %first2.addr.026.i56.i, align 8
   %first1.addr.0.val.i59.i = load i32, ptr %first1.addr.025.i57.i, align 8
   %cmp.i.i60.i = icmp slt i32 %first2.addr.0.val.i58.i, %first1.addr.0.val.i59.i
@@ -19693,10 +19692,10 @@ if.end.i63.i:                                     ; preds = %if.else.i61.i, %if.
   %3 = select i1 %cmp.i67.i, i1 %cmp1.i68.i, i1 false
   br i1 %3, label %while.body.i54.i, label %while.end.i41.i, !llvm.loop !404
 
-while.end.i41.i:                                  ; preds = %if.end.i63.i, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i
-  %first1.addr.0.lcssa.i42.i = phi ptr [ %pBuffer, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i ], [ %first1.addr.1.i64.i, %if.end.i63.i ]
-  %first2.addr.0.lcssa.i43.i = phi ptr [ %add.ptr6.i, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i ], [ %first2.addr.1.i65.i, %if.end.i63.i ]
-  %result.addr.0.lcssa.i44.i = phi ptr [ %first, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i ], [ %incdec.ptr3.i66.i, %if.end.i63.i ]
+while.end.i41.i:                                  ; preds = %if.end.i63.i, %if.end.i.i.i.i.i
+  %first1.addr.0.lcssa.i42.i = phi ptr [ %pBuffer, %if.end.i.i.i.i.i ], [ %first1.addr.1.i64.i, %if.end.i63.i ]
+  %first2.addr.0.lcssa.i43.i = phi ptr [ %add.ptr6.i, %if.end.i.i.i.i.i ], [ %first2.addr.1.i65.i, %if.end.i63.i ]
+  %result.addr.0.lcssa.i44.i = phi ptr [ %first, %if.end.i.i.i.i.i ], [ %incdec.ptr3.i66.i, %if.end.i63.i ]
   %cmp4.i45.i = icmp eq ptr %first1.addr.0.lcssa.i42.i, %add.ptr6.i
   br i1 %cmp4.i45.i, label %if.then5.i52.i, label %return.sink.split.i46.i
 
@@ -19714,7 +19713,7 @@ return.sink.split.i46.i:                          ; preds = %if.then5.i52.i, %wh
   br label %return
 
 if.else11.i:                                      ; preds = %if.end15
-  %add.ptr15.idx.i = shl nsw i64 %div27, 4
+  %add.ptr15.idx.i = shl nuw nsw i64 %div27, 4
   %add.ptr15.i = getelementptr inbounds i8, ptr %pBuffer, i64 %add.ptr15.idx.i
   br i1 %cmp1.i, label %if.then13.i, label %if.else22.i
 
@@ -19725,13 +19724,13 @@ if.then13.i:                                      ; preds = %if.else11.i
 if.end.i.i.i.i73.i:                               ; preds = %if.then13.i
   %6 = ptrtoint ptr %add.ptr16 to i64
   %sub.i.i.i.i74.i = sub i64 %sub.ptr.lhs.cast, %6
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr15.i, ptr align 8 %add.ptr16, i64 %sub.i.i.i.i74.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr15.i, ptr nonnull align 8 %add.ptr16, i64 %sub.i.i.i.i74.i, i1 false)
   br label %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit77.i
 
 _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit77.i: ; preds = %if.end.i.i.i.i73.i, %if.then13.i
   %add.ptr19.i = getelementptr inbounds i8, ptr %pBuffer, i64 %sub.ptr.sub
-  %cmp124.i79.i.not = icmp eq i64 %add.ptr15.idx.i, %sub.ptr.sub
-  br i1 %cmp124.i79.i.not, label %while.end.i80.i, label %while.body.i93.i
+  %cmp124.i79.not.i = icmp eq i64 %add.ptr15.idx.i, %sub.ptr.sub
+  br i1 %cmp124.i79.not.i, label %while.end.i80.i, label %while.body.i93.i
 
 while.body.i93.i:                                 ; preds = %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit77.i, %if.end.i102.i
   %result.addr.027.i94.i = phi ptr [ %incdec.ptr3.i105.i, %if.end.i102.i ], [ %first, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit77.i ]
@@ -19783,8 +19782,8 @@ return.sink.split.i85.i:                          ; preds = %if.then5.i91.i, %wh
 
 if.else22.i:                                      ; preds = %if.else11.i
   %add.ptr25.i = getelementptr inbounds i8, ptr %pBuffer, i64 %sub.ptr.sub
-  %cmp124.i112.i.not = icmp eq i64 %add.ptr15.idx.i, %sub.ptr.sub
-  br i1 %cmp124.i112.i.not, label %while.end.i113.i, label %while.body.i126.i
+  %cmp124.i112.not.i = icmp eq i64 %add.ptr15.idx.i, %sub.ptr.sub
+  br i1 %cmp124.i112.not.i, label %while.end.i113.i, label %while.body.i126.i
 
 while.body.i126.i:                                ; preds = %if.else22.i, %if.end.i135.i
   %result.addr.027.i127.i = phi ptr [ %incdec.ptr3.i138.i, %if.end.i135.i ], [ %first, %if.else22.i ]

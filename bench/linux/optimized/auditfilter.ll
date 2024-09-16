@@ -1941,7 +1941,7 @@ thread-pre-split:                                 ; preds = %117
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @audit_log_rule_change(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @audit_log_rule_change(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = load i32, ptr @audit_enabled, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %19, label %6

@@ -500,7 +500,7 @@ define dso_local void @thrmgr_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 remove_frompools.exit:                            ; preds = %.lr.ph, %31, %._crit_edge.i
   %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @pools_lock) #12
-  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #12
+  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #12
   %.not26 = icmp eq i32 %49, 0
   br i1 %.not26, label %52, label %50
 
@@ -510,7 +510,7 @@ remove_frompools.exit:                            ; preds = %.lr.ph, %31, %._cri
   unreachable
 
 52:                                               ; preds = %remove_frompools.exit
-  %53 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #12
+  %53 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %0) #12
   %54 = getelementptr inbounds i8, ptr %0, i64 144
   %55 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %54) #12
   %56 = getelementptr inbounds i8, ptr %0, i64 192
@@ -796,7 +796,7 @@ work_queue_new.exit86:                            ; preds = %work_queue_new.exit
 81:                                               ; preds = %70
   %82 = getelementptr inbounds i8, ptr %7, i64 288
   store i32 1, ptr %82, align 8
-  tail call fastcc void @add_topools(ptr noundef nonnull %7)
+  tail call fastcc void @add_topools(ptr noundef %7)
   br label %83
 
 83:                                               ; preds = %6, %4, %81, %72, %62, %52, %43, %35, %28, %22, %11, %9
@@ -820,7 +820,7 @@ declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_topools(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @add_topools(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

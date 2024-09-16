@@ -610,7 +610,7 @@ _ZN12_GLOBAL__N_113WasmAsmParser21parseSectionDirectiveEN4llvm9StringRefENS1_5SM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113WasmAsmParser6expectEN4llvm8AsmToken9TokenKindEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113WasmAsmParser6expectEN4llvm8AsmToken9TokenKindEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef range(i32 9, 47) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

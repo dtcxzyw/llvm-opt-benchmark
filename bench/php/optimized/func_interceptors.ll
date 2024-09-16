@@ -505,7 +505,7 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
 182:                                              ; preds = %177, %174
   %183 = getelementptr inbounds i8, ptr %11, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, i8 -1, i64 16, i1 false)
-  call fastcc void @phar_fancy_stat(ptr noundef nonnull %11, i32 noundef %2, ptr noundef %5)
+  call fastcc void @phar_fancy_stat(ptr noundef %11, i32 noundef %2, ptr noundef %5)
   br label %184
 
 .critedge:                                        ; preds = %22, %15, %18, %43, %20, %26, %53
@@ -2853,7 +2853,7 @@ declare ptr @phar_fix_filepath(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_fancy_stat(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @phar_fancy_stat(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8

@@ -1344,26 +1344,26 @@ declare i32 @XAllocColorCells(ptr noundef, i64 noundef, i32 noundef, ptr noundef
 declare i32 @XFreeColors(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @alloc_col(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #6 {
+define internal fastcc i32 @alloc_col(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 -2147483648, 256) %2, i32 noundef range(i32 -2147483648, 256) %3, i32 noundef range(i32 -2147483648, 256) %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #6 {
   %8 = alloca %struct.XColor, align 8
   %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %10 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
   %11 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
   %12 = getelementptr inbounds i8, ptr %8, i64 14
   store i8 7, ptr %12, align 2
-  %13 = shl i32 %9, 8
+  %13 = shl nuw nsw i32 %9, 8
   %14 = or i32 %13, %9
-  %15 = trunc i32 %14 to i16
+  %15 = trunc nuw i32 %14 to i16
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i16 %15, ptr %16, align 8
-  %17 = shl i32 %10, 8
+  %17 = shl nuw nsw i32 %10, 8
   %18 = or i32 %17, %10
-  %19 = trunc i32 %18 to i16
+  %19 = trunc nuw i32 %18 to i16
   %20 = getelementptr inbounds i8, ptr %8, i64 10
   store i16 %19, ptr %20, align 2
-  %21 = shl i32 %11, 8
+  %21 = shl nuw nsw i32 %11, 8
   %22 = or i32 %21, %11
-  %23 = trunc i32 %22 to i16
+  %23 = trunc nuw i32 %22 to i16
   %24 = getelementptr inbounds i8, ptr %8, i64 12
   store i16 %23, ptr %24, align 4
   %25 = call i32 @XAllocColor(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8) #14

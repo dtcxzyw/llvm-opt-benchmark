@@ -103,7 +103,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @__io_waitid_cancel(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @__io_waitid_cancel(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.io_tw_state, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -162,7 +162,7 @@ define internal fastcc noundef zeroext i1 @__io_waitid_cancel(ptr noundef %0) un
 
 32:                                               ; preds = %30, %27
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %33 = tail call fastcc i32 @io_waitid_finish(ptr noundef %0, i32 noundef -125)
+  %33 = tail call fastcc i32 @io_waitid_finish(ptr noundef nonnull %0, i32 noundef -125)
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %44
 
@@ -183,7 +183,7 @@ define internal fastcc noundef zeroext i1 @__io_waitid_cancel(ptr noundef %0) un
   store i32 %33, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 0, ptr %46, align 4
-  call void @io_req_task_complete(ptr noundef %0, ptr noundef nonnull %2) #7
+  call void @io_req_task_complete(ptr noundef nonnull %0, ptr noundef nonnull %2) #7
   br label %47
 
 47:                                               ; preds = %44, %22

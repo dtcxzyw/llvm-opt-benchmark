@@ -892,7 +892,7 @@ define dso_local void @_ZNK24cmInstallTargetGenerator8GetFilesERKNSt7__cxx1112ba
   %56 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   %57 = load ptr, ptr %45, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_123computeInstallObjectDirEP17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %57, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @_ZN12_GLOBAL__N_123computeInstallObjectDirEP17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %57, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %55
@@ -1685,7 +1685,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %326 = getelementptr inbounds i8, ptr %28, i64 128
   %327 = getelementptr inbounds i8, ptr %28, i64 160
   %328 = getelementptr inbounds i8, ptr %28, i64 96
-  invoke fastcc void @_ZN12_GLOBAL__N_121computeFilesToInstallERN24cmInstallTargetGenerator5FilesENS0_16NamelinkModeTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_SB_St8optionalISt8functionIFvSB_EEE(ptr noundef nonnull align 8 dereferenceable(124) %0, i32 noundef %320, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %328, ptr noundef nonnull align 8 dereferenceable(32) %327, ptr noundef nonnull align 8 dereferenceable(32) %326, ptr noundef nonnull %29)
+  invoke fastcc void @_ZN12_GLOBAL__N_121computeFilesToInstallERN24cmInstallTargetGenerator5FilesENS0_16NamelinkModeTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_SB_St8optionalISt8functionIFvSB_EEE(ptr noundef nonnull align 8 dereferenceable(124) %0, i32 noundef %320, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %328, ptr noundef nonnull align 8 dereferenceable(32) %327, ptr noundef nonnull align 8 dereferenceable(32) %326, ptr noundef %29)
           to label %329 unwind label %341
 
 329:                                              ; preds = %323
@@ -1984,7 +1984,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %439 = getelementptr inbounds i8, ptr %28, i64 64
   %440 = getelementptr inbounds i8, ptr %38, i64 32
   store i8 0, ptr %440, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_121computeFilesToInstallERN24cmInstallTargetGenerator5FilesENS0_16NamelinkModeTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_SB_St8optionalISt8functionIFvSB_EEE(ptr noundef nonnull align 8 dereferenceable(124) %0, i32 noundef %437, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %403, ptr noundef nonnull align 8 dereferenceable(32) %438, ptr noundef nonnull align 8 dereferenceable(32) %439, ptr noundef nonnull %38)
+  invoke fastcc void @_ZN12_GLOBAL__N_121computeFilesToInstallERN24cmInstallTargetGenerator5FilesENS0_16NamelinkModeTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_SB_St8optionalISt8functionIFvSB_EEE(ptr noundef nonnull align 8 dereferenceable(124) %0, i32 noundef %437, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %403, ptr noundef nonnull align 8 dereferenceable(32) %438, ptr noundef nonnull align 8 dereferenceable(32) %439, ptr noundef %38)
           to label %441 unwind label %452
 
 441:                                              ; preds = %435
@@ -2231,7 +2231,7 @@ declare void @_ZNK17cmGeneratorTarget20GetTargetObjectNamesERKNSt7__cxx1112basic
 declare void @_ZNK17cmGeneratorTarget18GetObjectDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(2728), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123computeInstallObjectDirEP17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123computeInstallObjectDirEP17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -2387,7 +2387,7 @@ define linkonce_odr dso_local void @_ZN17cmGeneratorTarget5NamesD2Ev(ptr noundef
 declare void @_ZNK17cmGeneratorTarget15GetLibraryNamesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.cmGeneratorTarget::Names") align 8, ptr noundef nonnull align 8 dereferenceable(2728), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121computeFilesToInstallERN24cmInstallTargetGenerator5FilesENS0_16NamelinkModeTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_SB_St8optionalISt8functionIFvSB_EEE(ptr noundef nonnull align 8 dereferenceable(124) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121computeFilesToInstallERN24cmInstallTargetGenerator5FilesENS0_16NamelinkModeTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_SB_St8optionalISt8functionIFvSB_EEE(ptr noundef nonnull align 8 dereferenceable(124) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca [2 x %"struct.std::pair.699"], align 8
   %9 = alloca [2 x %"struct.std::pair.699"], align 8
   %10 = alloca [2 x %"struct.std::pair.699"], align 8
@@ -2987,7 +2987,7 @@ define dso_local void @_ZNK24cmInstallTargetGenerator21GetInstallObjectNamesERKN
 17:                                               ; preds = %.lr.ph, %25
   %.sroa.010.014 = phi ptr [ %9, %.lr.ph ], [ %27, %25 ]
   %18 = load ptr, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_123computeInstallObjectDirEP17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_123computeInstallObjectDirEP17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %19 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20, !noalias !78

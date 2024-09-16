@@ -85463,7 +85463,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN7httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEENK3$_0clEiR8addrinfo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %sock2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %ai) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN7httplib6detail20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iibSt8functionIFviEEllllllS8_RNS_5ErrorEENK3$_0clEiR8addrinfo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef range(i32 0, -1) %sock2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %ai) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hints.i = alloca %struct.addrinfo, align 8
   %result.i = alloca ptr, align 8

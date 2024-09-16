@@ -13413,7 +13413,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %60, ptr %44, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_comp_iterIZN21cmExportFileGenerator27GenerateFindDependencyCallsERSoE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %33, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_comp_iterIZN21cmExportFileGenerator27GenerateFindDependencyCallsERSoE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %33, ptr noundef %7)
   %61 = load ptr, ptr %42, align 8
   %62 = load ptr, ptr %43, align 8
   %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %61, %62
@@ -13554,7 +13554,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17P
   store ptr %107, ptr %80, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_comp_iterIZN21cmExportFileGenerator27GenerateFindDependencyCallsERSoE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %103, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_comp_iterIZN21cmExportFileGenerator27GenerateFindDependencyCallsERSoE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %103, ptr noundef %5)
   %108 = load ptr, ptr %78, align 8
   %109 = load ptr, ptr %79, align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %108, %109
@@ -14261,7 +14261,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_comp_iterIZN21cmExportFileGenerator27GenerateFindDependencyCallsERSoE3$_0EEEvT_T0_SO_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_comp_iterIZN21cmExportFileGenerator27GenerateFindDependencyCallsERSoE3$_0EEEvT_T0_SO_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.500", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

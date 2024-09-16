@@ -538,7 +538,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @ufd_check_and_apply(i32 noundef %ufd, ptr nocapture noundef %mis, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ufd_check_and_apply(i32 noundef range(i32 0, -1) %ufd, ptr nocapture noundef %mis, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %api_struct.i13 = alloca %struct.uffdio_api, align 8
   %api_struct.i = alloca %struct.uffdio_api, align 8

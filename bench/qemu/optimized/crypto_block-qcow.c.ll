@@ -43,7 +43,7 @@ if.then2:                                         ; preds = %if.else
   br label %return
 
 if.end:                                           ; preds = %if.else
-  %call = tail call fastcc i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef nonnull %0, i64 noundef %n_threads, ptr noundef %errp)
+  %call = tail call fastcc i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef %0, i64 noundef %n_threads, ptr noundef %errp)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then2, %if.then
@@ -66,7 +66,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef nonnull %0, i64 noundef 1, ptr noundef %errp)
+  %call = tail call fastcc i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef %0, i64 noundef 1, ptr noundef %errp)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -139,11 +139,11 @@ entry:
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -95, 1) i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef %keysecret, i64 noundef %n_threads, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -95, 1) i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef nonnull %keysecret, i64 noundef %n_threads, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %keybuf = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %keybuf, i8 0, i64 16, i1 false)
-  %call = tail call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef %keysecret, ptr noundef %errp) #8
+  %call = tail call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef nonnull %keysecret, ptr noundef %errp) #8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 

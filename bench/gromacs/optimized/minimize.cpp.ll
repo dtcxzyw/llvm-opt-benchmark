@@ -597,7 +597,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %0, i64 88
   %115 = load ptr, ptr %114, align 8
-  invoke fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %91, ptr noundef nonnull align 8 dereferenceable(40) %92, ptr noundef nonnull @.str.8, ptr noundef %93, ptr noundef %94, ptr noundef nonnull align 1 %96, ptr noundef %98, ptr noundef %100, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(768) %104, ptr noundef nonnull %10, ptr noundef %106, ptr noundef %108, ptr noundef %110, ptr noundef %111, ptr noundef nonnull %3, ptr noundef %113, ptr noundef %115, ptr noundef null)
+  invoke fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %91, ptr noundef nonnull align 8 dereferenceable(40) %92, ptr noundef nonnull @.str.8, ptr noundef %93, ptr noundef %94, ptr noundef nonnull align 1 %96, ptr noundef %98, ptr noundef %100, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(768) %104, ptr noundef nonnull %10, ptr noundef %106, ptr noundef %108, ptr noundef %110, ptr noundef %111, ptr noundef %3, ptr noundef %113, ptr noundef %115, ptr noundef null)
           to label %116 unwind label %205
 
 116:                                              ; preds = %90
@@ -852,7 +852,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   store i32 -1, ptr %262, align 8
   %263 = getelementptr inbounds i8, ptr %16, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %263, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef -1, i1 noundef zeroext true, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef -1, i1 noundef zeroext true, i64 noundef 0)
           to label %264 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 264:                                              ; preds = %218
@@ -1322,12 +1322,12 @@ _Z11do_per_stepll.exit299:                        ; preds = %_Z11do_per_stepll.e
   store ptr %516, ptr %344, align 8, !alias.scope !11
   store ptr %521, ptr %345, align 8, !alias.scope !11
   %522 = load ptr, ptr %114, align 8
-  %523 = invoke fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl(ptr noundef %509, ptr noundef %510, ptr noundef nonnull %33, ptr noundef nonnull %.0417, float noundef %482, ptr noundef nonnull %20, ptr noundef %.0428, ptr noundef %522, i64 noundef -1)
+  %523 = invoke fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl(ptr noundef %509, ptr noundef %510, ptr noundef nonnull %33, ptr noundef nonnull %.0417, float noundef %482, ptr noundef %20, ptr noundef %.0428, ptr noundef %522, i64 noundef -1)
           to label %524 unwind label %.loopexit.split-lp.loopexit
 
 524:                                              ; preds = %508
   %525 = add nsw i32 %.0244, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef %.0428, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef -1, i1 noundef zeroext false, i64 noundef %459)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef %.0428, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef -1, i1 noundef zeroext false, i64 noundef %459)
           to label %526 unwind label %.loopexit.split-lp.loopexit
 
 526:                                              ; preds = %524
@@ -1526,12 +1526,12 @@ _Z11do_per_stepll.exit299:                        ; preds = %_Z11do_per_stepll.e
   store ptr %624, ptr %346, align 8, !alias.scope !16
   store ptr %628, ptr %347, align 8, !alias.scope !16
   %629 = load ptr, ptr %114, align 8
-  %630 = invoke fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl(ptr noundef %617, ptr noundef %618, ptr noundef nonnull %33, ptr noundef nonnull %.0417, float noundef %.1203, ptr noundef nonnull %23, ptr noundef %.2425, ptr noundef %629, i64 noundef -1)
+  %630 = invoke fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl(ptr noundef %617, ptr noundef %618, ptr noundef nonnull %33, ptr noundef nonnull %.0417, float noundef %.1203, ptr noundef %23, ptr noundef %.2425, ptr noundef %629, i64 noundef -1)
           to label %631 unwind label %.loopexit
 
 631:                                              ; preds = %616
   %632 = add nsw i32 %.3247, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef %.2425, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef -1, i1 noundef zeroext false, i64 noundef %459)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef %.2425, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef -1, i1 noundef zeroext false, i64 noundef %459)
           to label %633 unwind label %.loopexit
 
 633:                                              ; preds = %631
@@ -2763,7 +2763,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit20:                  ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZN3gmx25ObservablesReducerBuilder5buildEv(ptr dead_on_unwind writable sret(%"class.gmx::ObservablesReducer") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 1 %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(768) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr nocapture noundef writeonly %15, ptr noundef %16, ptr noundef %17, ptr noundef %18) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 1 %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(768) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr nocapture noundef nonnull writeonly %15, ptr noundef %16, ptr noundef %17, ptr noundef %18) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %20 = alloca float, align 4
   %21 = alloca %"class.gmx::ArrayRef.188", align 8
   %22 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -3031,7 +3031,7 @@ declare noundef ptr @_Z17mdoutf_get_fp_eneP10gmx_mdoutf(ptr noundef) local_unnam
 declare void @_ZN3gmx12EnergyOutputC1EP9ener_fileRK10gmx_mtop_tRK10t_inputrecPK6pull_tP8_IO_FILEbNS_16StartingBehaviorEbRKNS_18MDModulesNotifiersE(ptr noundef nonnull align 8 dereferenceable(392), ptr noundef, ptr noundef nonnull align 8 dereferenceable(768), ptr noundef nonnull align 8 dereferenceable(856), ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, i1 noundef zeroext, ptr noundef nonnull align 1) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i1 noundef zeroext %6, i64 noundef %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5, i1 noundef zeroext %6, i64 noundef %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.gmx::ArrayRef.324", align 8
   %10 = alloca ptr, align 8
   %11 = alloca %"class.gmx::ArrayRef.324", align 8
@@ -3412,7 +3412,7 @@ _ZN22DDBalanceRegionHandlerC2EPK9t_commrec.exit:  ; preds = %195, %261, %264
   store i8 %storemerge, ptr %24, align 8
   %273 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %272, ptr %273, align 8
-  call void @_Z8do_forceP8_IO_FILEPK9t_commrecPK14gmx_multisim_tRK10t_inputrecRKN3gmx18MDModulesNotifiersEPNSA_3AwhEP10gmx_enfrotPNSA_10ImdSessionEP6pull_tlP6t_nrnbP13gmx_wallcyclePK14gmx_localtop_tPA3_KfNSA_19ArrayRefWithPaddingINSA_11BasicVectorIfEEEENSA_8ArrayRefISY_EEPK9history_tPNSA_16ForceBuffersViewEPA3_fPK9t_mdatomsP14gmx_enerdata_tNS10_IST_EEP10t_forcerecRKNSA_21MdrunScheduleWorkloadEPNSA_19VirtualSitesHandlerEPfdP9gmx_edsamP24CpuPpLongRangeNonbondedsRK22DDBalanceRegionHandler(ptr noundef %211, ptr noundef %213, ptr noundef %215, ptr noundef nonnull align 8 dereferenceable(856) %216, ptr noundef nonnull align 1 %218, ptr noundef null, ptr noundef %220, ptr noundef %222, ptr noundef %224, i64 noundef %5, ptr noundef %226, ptr noundef %228, ptr noundef %230, ptr noundef nonnull %231, ptr noundef nonnull %21, ptr noundef nonnull byval(%"class.gmx::ArrayRef.321") align 8 %22, ptr noundef nonnull %247, ptr noundef nonnull %248, ptr noundef nonnull %16, ptr noundef %250, ptr noundef %252, ptr noundef nonnull byval(%"class.gmx::ArrayRef.406") align 8 %23, ptr noundef nonnull %255, ptr noundef nonnull align 1 dereferenceable(52) %256, ptr noundef %257, ptr noundef %2, double noundef %258, ptr noundef null, ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(16) %24)
+  call void @_Z8do_forceP8_IO_FILEPK9t_commrecPK14gmx_multisim_tRK10t_inputrecRKN3gmx18MDModulesNotifiersEPNSA_3AwhEP10gmx_enfrotPNSA_10ImdSessionEP6pull_tlP6t_nrnbP13gmx_wallcyclePK14gmx_localtop_tPA3_KfNSA_19ArrayRefWithPaddingINSA_11BasicVectorIfEEEENSA_8ArrayRefISY_EEPK9history_tPNSA_16ForceBuffersViewEPA3_fPK9t_mdatomsP14gmx_enerdata_tNS10_IST_EEP10t_forcerecRKNSA_21MdrunScheduleWorkloadEPNSA_19VirtualSitesHandlerEPfdP9gmx_edsamP24CpuPpLongRangeNonbondedsRK22DDBalanceRegionHandler(ptr noundef %211, ptr noundef %213, ptr noundef %215, ptr noundef nonnull align 8 dereferenceable(856) %216, ptr noundef nonnull align 1 %218, ptr noundef null, ptr noundef %220, ptr noundef %222, ptr noundef %224, i64 noundef %5, ptr noundef %226, ptr noundef %228, ptr noundef %230, ptr noundef nonnull %231, ptr noundef nonnull %21, ptr noundef nonnull byval(%"class.gmx::ArrayRef.321") align 8 %22, ptr noundef nonnull %247, ptr noundef nonnull %248, ptr noundef nonnull %16, ptr noundef %250, ptr noundef %252, ptr noundef nonnull byval(%"class.gmx::ArrayRef.406") align 8 %23, ptr noundef nonnull %255, ptr noundef nonnull align 1 dereferenceable(52) %256, ptr noundef %257, ptr noundef nonnull %2, double noundef %258, ptr noundef null, ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(16) %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %17, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   %274 = load ptr, ptr %212, align 8
@@ -4022,7 +4022,7 @@ define internal fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdat
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13write_em_trajP8_IO_FILEPK9t_commrecP10gmx_mdoutfbbPKcRK10gmx_mtop_tPK10t_inputreclP8em_stateP7t_stateP18ObservablesHistory(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(768) %6, ptr nocapture noundef readonly %7, i64 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13write_em_trajP8_IO_FILEPK9t_commrecP10gmx_mdoutfbbPKcRK10gmx_mtop_tPK10t_inputreclP8em_stateP7t_stateP18ObservablesHistory(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(768) %6, ptr nocapture noundef readonly %7, i64 noundef range(i64 -2147483648, 2147483648) %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %13 = alloca ptr, align 8
   %14 = alloca %"class.gmx::WriteCheckpointDataHolder", align 8
   %15 = alloca %"class.gmx::ArrayRef.324", align 8
@@ -4241,7 +4241,7 @@ _ZN3gmx25WriteCheckpointDataHolderD2Ev.exit:      ; preds = %_ZNSt6vectorIN3gmx2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7, i64 noundef range(i64 -1, 2147483648) %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -4450,7 +4450,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %82, %80, %78, %76, 
   store i32 %122, ptr %17, align 4
   %123 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
   tail call void @__kmpc_push_num_threads(ptr nonnull @3, i32 %28, i32 %123)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl.omp_outlined, ptr nonnull %14, ptr nonnull %15, ptr %5, ptr nonnull %17, ptr nonnull %16, ptr nonnull %12, ptr nonnull %11, ptr nonnull %13, ptr nonnull %10)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl.omp_outlined, ptr nonnull %14, ptr nonnull %15, ptr nonnull %5, ptr nonnull %17, ptr nonnull %16, ptr nonnull %12, ptr nonnull %11, ptr nonnull %13, ptr nonnull %10)
   %124 = load ptr, ptr %14, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 776
   %126 = load i32, ptr %125, align 8
@@ -4621,7 +4621,7 @@ define internal fastcc void @_ZL9warn_stepP8_IO_FILEffbb(ptr nocapture noundef %
 declare noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15print_convergedP8_IO_FILEPKcflblPK8em_stated(ptr nocapture noundef %0, ptr noundef %1, float noundef %2, i64 noundef %3, i1 noundef zeroext %4, i64 noundef %5, ptr nocapture noundef readonly %6, double noundef %7) unnamed_addr #1 {
+define internal fastcc void @_ZL15print_convergedP8_IO_FILEPKcflblPK8em_stated(ptr nocapture noundef %0, ptr noundef %1, float noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i1 noundef zeroext %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr nocapture noundef readonly %6, double noundef %7) unnamed_addr #1 {
   %9 = alloca [22 x i8], align 16
   br i1 %4, label %10, label %14
 
@@ -6874,7 +6874,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit549:            ; preds = %159, %157, %155, %1
   %189 = getelementptr inbounds i8, ptr %0, i64 80
   %190 = load ptr, ptr %189, align 8
   %191 = load ptr, ptr %70, align 8
-  invoke fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %169, ptr noundef nonnull align 8 dereferenceable(40) %170, ptr noundef nonnull @.str.100, ptr noundef %171, ptr noundef %172, ptr noundef nonnull align 1 %174, ptr noundef %176, ptr noundef %178, ptr noundef %179, ptr noundef nonnull align 8 dereferenceable(768) %181, ptr noundef nonnull %2, ptr noundef %183, ptr noundef %185, ptr noundef %187, ptr noundef %188, ptr noundef nonnull %3, ptr noundef %190, ptr noundef %191, ptr noundef null)
+  invoke fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %169, ptr noundef nonnull align 8 dereferenceable(40) %170, ptr noundef nonnull @.str.100, ptr noundef %171, ptr noundef %172, ptr noundef nonnull align 1 %174, ptr noundef %176, ptr noundef %178, ptr noundef %179, ptr noundef nonnull align 8 dereferenceable(768) %181, ptr noundef nonnull %2, ptr noundef %183, ptr noundef %185, ptr noundef %187, ptr noundef %188, ptr noundef %3, ptr noundef %190, ptr noundef %191, ptr noundef null)
           to label %192 unwind label %299
 
 192:                                              ; preds = %168
@@ -7321,7 +7321,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %331, %334
   store i32 -1, ptr %424, align 8
   %425 = getelementptr inbounds i8, ptr %16, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %425, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef -1, i1 noundef zeroext true, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull %2, ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef -1, i1 noundef zeroext true, i64 noundef 0)
           to label %426 unwind label %449
 
 426:                                              ; preds = %380
@@ -7719,7 +7719,7 @@ _ZN8em_stateaSERKS_.exit580:                      ; preds = %.noexc578
 
 ._crit_edge858:                                   ; preds = %._crit_edge851.thread, %.lr.ph857
   %632 = add nsw i32 %.0391, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef %indvars.iv1069, i1 noundef zeroext false, i64 noundef %indvars.iv1069)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull %14, ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %indvars.iv1069, i1 noundef zeroext false, i64 noundef %indvars.iv1069)
           to label %633 unwind label %.loopexit.split-lp
 
 633:                                              ; preds = %._crit_edge858
@@ -7831,7 +7831,7 @@ _ZN8em_stateaSERKS_.exit580:                      ; preds = %.noexc578
 
 ._crit_edge866:                                   ; preds = %.lr.ph865, %679
   %689 = add nsw i32 %.3394, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull %13, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef %indvars.iv1069, i1 noundef zeroext false, i64 noundef %indvars.iv1069)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull %13, ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %indvars.iv1069, i1 noundef zeroext false, i64 noundef %indvars.iv1069)
           to label %690 unwind label %.loopexit
 
 690:                                              ; preds = %._crit_edge866
@@ -9094,7 +9094,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 88
   %69 = load ptr, ptr %68, align 8
-  invoke fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull @.str.106, ptr noundef %46, ptr noundef %48, ptr noundef nonnull align 1 %50, ptr noundef %52, ptr noundef %54, ptr noundef %56, ptr noundef nonnull align 8 dereferenceable(768) %58, ptr noundef nonnull %8, ptr noundef %60, ptr noundef %62, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %2, ptr noundef %67, ptr noundef %69, ptr noundef null)
+  invoke fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull @.str.106, ptr noundef %46, ptr noundef %48, ptr noundef nonnull align 1 %50, ptr noundef %52, ptr noundef %54, ptr noundef %56, ptr noundef nonnull align 8 dereferenceable(768) %58, ptr noundef nonnull %8, ptr noundef %60, ptr noundef %62, ptr noundef %64, ptr noundef %65, ptr noundef %2, ptr noundef %67, ptr noundef %69, ptr noundef null)
           to label %70 unwind label %153
 
 70:                                               ; preds = %42
@@ -9369,7 +9369,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   store ptr %230, ptr %213, align 8
   store ptr %232, ptr %214, align 8
   %233 = load ptr, ptr %68, align 8
-  %234 = invoke fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl(ptr noundef %225, ptr noundef %226, ptr noundef %18, ptr noundef nonnull %.0150, float noundef %.0, ptr noundef nonnull %12, ptr noundef %.0152, ptr noundef %233, i64 noundef %indvars.iv)
+  %234 = invoke fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inputrecP9t_mdatomsP8em_statefN3gmx19ArrayRefWithPaddingIKNS9_11BasicVectorIfEEEES8_PNS9_11ConstraintsEl(ptr noundef %225, ptr noundef %226, ptr noundef %18, ptr noundef nonnull %.0150, float noundef %.0, ptr noundef %12, ptr noundef %.0152, ptr noundef %233, i64 noundef %indvars.iv)
           to label %237 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %224, %.critedge103, %249, %302, %308, %_Z11do_per_stepll.exit112, %326, %_Z11do_per_stepll.exit118, %408, %433, %.critedge2, %.critedge, %375, %.noexc119
@@ -9396,7 +9396,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   br i1 %234, label %.critedge103, label %238
 
 .critedge103:                                     ; preds = %221, %237
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %11, ptr noundef %.0152, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %indvars.iv, i1 noundef zeroext %.not95, i64 noundef %indvars.iv)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %11, ptr noundef %.0152, ptr noundef %5, ptr noundef %3, ptr noundef %4, i64 noundef %indvars.iv, i1 noundef zeroext %.not95, i64 noundef %indvars.iv)
           to label %240 unwind label %.loopexit
 
 238:                                              ; preds = %237
@@ -10054,7 +10054,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %98 = getelementptr inbounds i8, ptr %0, i64 80
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %54, align 8
-  invoke fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(40) %78, ptr noundef nonnull @.str.109, ptr noundef %79, ptr noundef %81, ptr noundef nonnull align 1 %83, ptr noundef %85, ptr noundef %87, ptr noundef %89, ptr noundef nonnull align 8 dereferenceable(768) %91, ptr noundef nonnull %9, ptr noundef %93, ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef nonnull %2, ptr noundef %99, ptr noundef %100, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL7init_emP8_IO_FILERKN3gmx8MDLoggerEPKcPK9t_commrecPK10t_inputrecRKNS1_18MDModulesNotifiersEPNS1_10ImdSessionEP6pull_tP7t_stateRK10gmx_mtop_tP8em_stateP14gmx_localtop_tP6t_nrnbP10t_forcerecPNS1_7MDAtomsEPP15gmx_global_statPNS1_19VirtualSitesHandlerEPNS1_11ConstraintsEPP13gmx_shellfc_t(ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(40) %78, ptr noundef nonnull @.str.109, ptr noundef %79, ptr noundef %81, ptr noundef nonnull align 1 %83, ptr noundef %85, ptr noundef %87, ptr noundef %89, ptr noundef nonnull align 8 dereferenceable(768) %91, ptr noundef nonnull %9, ptr noundef %93, ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %2, ptr noundef %99, ptr noundef %100, ptr noundef nonnull %8)
           to label %101 unwind label %142
 
 101:                                              ; preds = %76
@@ -10444,7 +10444,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   store i32 -1, ptr %307, align 8
   %308 = getelementptr inbounds i8, ptr %15, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %308, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %15, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef -1, i1 noundef zeroext true, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %15, ptr noundef nonnull %9, ptr noundef %5, ptr noundef %3, ptr noundef %4, i64 noundef -1, i1 noundef zeroext true, i64 noundef 0)
           to label %309 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 309:                                              ; preds = %260
@@ -10683,7 +10683,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit164: ; preds = %_ZN3gmx14Lo
 
 440:                                              ; preds = %390
   %441 = or disjoint i64 %386, %indvars.iv
-  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %15, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %441, i1 noundef zeroext false, i64 noundef %.0120225)
+  invoke fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePfPA3_fS5_lbl(ptr noundef nonnull align 8 dereferenceable(200) %15, ptr noundef nonnull %9, ptr noundef %5, ptr noundef %3, ptr noundef %4, i64 noundef %441, i1 noundef zeroext false, i64 noundef %.0120225)
           to label %442 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 442:                                              ; preds = %440, %438

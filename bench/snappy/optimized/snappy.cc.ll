@@ -1640,13 +1640,13 @@ entry:
   %left_.i = getelementptr inbounds i8, ptr %reader, i64 16
   store i64 %compressed_length, ptr %left_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %writer, i8 0, i64 16, i1 false)
-  %call = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef nonnull %reader, ptr noundef nonnull %writer)
+  %call = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef nonnull %reader, ptr noundef %writer)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #19
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef %r, ptr noundef %writer) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef %r, ptr noundef nonnull %writer) unnamed_addr #2 {
 entry:
   %n.i = alloca i64, align 8
   %decompressor = alloca %"class.snappy::SnappyDecompressor", align 8
@@ -1738,7 +1738,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy17IsValidCompressedEPNS_6SourceE(
 entry:
   %writer = alloca %"class.snappy::SnappyDecompressionValidator", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %writer, i8 0, i64 16, i1 false)
-  %call = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef %compressed, ptr noundef nonnull %writer)
+  %call = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef %compressed, ptr noundef %writer)
   ret i1 %call
 }
 

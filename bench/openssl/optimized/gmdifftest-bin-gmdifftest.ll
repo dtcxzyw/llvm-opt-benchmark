@@ -77,7 +77,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_time(i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_time(i64 noundef range(i64 -2147483648000000, 2147483647000001) %offset) unnamed_addr #0 {
 entry:
   %tm1 = alloca %struct.tm, align 8
   %tm2 = alloca %struct.tm, align 8

@@ -455,14 +455,14 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitCoawaitExprERKNS_
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
-  call fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %9, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i1 noundef zeroext %4, i1 noundef zeroext false)
+  call fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %9, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i1 noundef zeroext %4, i1 noundef zeroext false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull align 8 dereferenceable(120) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::AggValueSlot") align 8 %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #1 {
+define internal fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull align 8 dereferenceable(120) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::AggValueSlot") align 8 %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #1 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -1176,7 +1176,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitCoyieldExprERKNS_
   %6 = alloca %"struct.(anonymous namespace)::LValueOrRValue", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %8 = load ptr, ptr %7, align 8
-  call fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 2, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i1 noundef zeroext %4, i1 noundef zeroext false)
+  call fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 2, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i1 noundef zeroext %4, i1 noundef zeroext false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   ret void
@@ -1826,7 +1826,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitCoawaitLValueEPKN
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 0, ptr %10, align 8, !alias.scope !85
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.4.i)
-  call fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %8, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %5, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %8, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %5, i1 noundef zeroext false, i1 noundef zeroext true)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %4, i64 136, i1 false)
   ret void
 }
@@ -1854,7 +1854,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitCoyieldLValueEPKN
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 0, ptr %9, align 8, !alias.scope !94
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.4.i)
-  call fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 2, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %5, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGenFunctionERNS0_10CGCoroDataERKNS_20CoroutineSuspendExprEN12_GLOBAL__N_19AwaitKindENS0_12AggValueSlotEbb(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 2, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %5, i1 noundef zeroext false, i1 noundef zeroext true)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %4, i64 136, i1 false)
   ret void
 }

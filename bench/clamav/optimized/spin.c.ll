@@ -458,7 +458,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
   store i32 0, ptr %8, align 4
   %203 = load i8, ptr %.0557722, align 1
   %204 = trunc i32 %.3723 to i8
-  %205 = call fastcc signext i8 @exec86(i8 noundef zeroext %203, i8 noundef zeroext %204, ptr noundef nonnull %194, ptr noundef nonnull %8)
+  %205 = call fastcc signext i8 @exec86(i8 noundef zeroext %203, i8 noundef zeroext %204, ptr noundef nonnull %194, ptr noundef %8)
   store i8 %205, ptr %.0557722, align 1
   %206 = load i32, ptr %8, align 4
   %.not657 = icmp eq i32 %206, 0
@@ -543,7 +543,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
   store i32 0, ptr %9, align 4
   %232 = load i8, ptr %.1558725, align 1
   %233 = trunc i32 %.0523726 to i8
-  %234 = call fastcc signext i8 @exec86(i8 noundef zeroext %232, i8 noundef zeroext %233, ptr noundef nonnull %214, ptr noundef nonnull %9)
+  %234 = call fastcc signext i8 @exec86(i8 noundef zeroext %232, i8 noundef zeroext %233, ptr noundef nonnull %214, ptr noundef %9)
   store i8 %234, ptr %.1558725, align 1
   %235 = load i32, ptr %9, align 4
   %.not656 = icmp eq i32 %235, 0
@@ -1085,7 +1085,7 @@ define internal fastcc i32 @summit(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   %invariant.gep = getelementptr i8, ptr %2, i64 2
   br label %5

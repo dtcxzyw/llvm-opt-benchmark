@@ -3729,8 +3729,8 @@ dissect_smb2_FSCTL_SET_ZERO_DATA.exit:            ; preds = %224, %225
   br label %299
 
 299:                                              ; preds = %294, %260
-  %300 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 1)
-  %301 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %14, i32 noundef 0, i32 noundef 1)
+  %300 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %13, i32 noundef 0, i32 noundef 1)
+  %301 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %14, i32 noundef 0, i32 noundef 1)
   br label %dissect_smb2_FSCTL_STORAGE_QOS_CONTROL.exit
 
 302:                                              ; preds = %245
@@ -4526,7 +4526,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_smb2_STORAGE_OFFLOAD_TOKEN(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_smb2_STORAGE_OFFLOAD_TOKEN(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 33) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -5082,8 +5082,8 @@ define internal fastcc void @dissect_smb2_FSCTL_REPARSE_POINT(ptr noundef %0, pt
   %50 = load i32, ptr @hf_smb2_symlink_flags, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %.051, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648) #12
   %52 = add nuw nsw i32 %.0, 12
-  %53 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %.051, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %52, i32 noundef 1)
-  %54 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %.051, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %52, i32 noundef 1)
+  %53 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %.051, ptr noundef %0, ptr noundef %4, i32 noundef %52, i32 noundef 1)
+  %54 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %.051, ptr noundef %0, ptr noundef %5, i32 noundef %52, i32 noundef 1)
   br label %dissect_smb2_reparse_nfs.exit
 
 55:                                               ; preds = %24
@@ -5137,7 +5137,7 @@ dissect_smb2_reparse_nfs.exit:                    ; preds = %73, %67, %63, %55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, i32 noundef range(i32 1, 3) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = load i32, ptr %3, align 4
@@ -5266,7 +5266,7 @@ declare ptr @init_srt_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare void @init_srt_table_row(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6998,7 +6998,7 @@ seskey_find_sid_key.exit:                         ; preds = %29, %49, %.thread3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @smb2_add_session_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @smb2_add_session_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 40, 45) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %proto_item_set_generated.exit46, label %6
 
@@ -7610,7 +7610,7 @@ proto_item_set_generated.exit:                    ; preds = %47, %44, %39, %36, 
   br label %68
 
 65:                                               ; preds = %proto_item_set_generated.exit
-  %66 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %7)
+  %66 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %7)
   %67 = load i32, ptr %7, align 4
   %.not120 = icmp eq i32 %67, 0
   br i1 %.not120, label %.loopexit, label %68
@@ -7673,7 +7673,7 @@ proto_item_set_generated.exit:                    ; preds = %47, %44, %39, %36, 
   %116 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %112, ptr %116, align 4
   %117 = add i32 %.0111, 58
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_secblob)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_secblob)
   %118 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %117) #12
   %119 = load i32, ptr @hf_smb2_negotiate_context_offset, align 4
   %120 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %119, ptr noundef %0, i32 noundef %117, i32 noundef 4, i32 noundef -2147483648) #12
@@ -7886,7 +7886,7 @@ proto_item_set_generated.exit:                    ; preds = %56, %53, %48, %45, 
   %97 = add i32 %3, 16
   %98 = load i32, ptr @hf_smb2_previous_sesid, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 8, i32 noundef -2147483648) #12
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_secblob)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_secblob)
   %100 = load ptr, ptr %17, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 50
   %102 = load i16, ptr %101, align 2
@@ -8186,7 +8186,7 @@ proto_item_set_generated.exit:                    ; preds = %95, %92, %87, %84, 
   store i32 %122, ptr %123, align 4
   %124 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %120, ptr %124, align 4
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_secblob)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_secblob)
   %125 = load ptr, ptr %22, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 50
   %127 = load i16, ptr %126, align 2
@@ -8254,7 +8254,7 @@ define internal noundef i32 @dissect_smb2_sessionlogoff_response(ptr noundef %0,
   br label %24
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %23 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %24
@@ -8326,7 +8326,7 @@ define internal i32 @dissect_smb2_tree_connect_request(ptr noundef %0, ptr nound
   store i32 %41, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %39, ptr %43, align 4
-  %44 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
+  %44 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef 1)
   %.val = load i32, ptr %6, align 4
   %.val43 = load i32, ptr %42, align 4
   %45 = getelementptr inbounds i8, ptr %1, i64 80
@@ -8404,7 +8404,7 @@ define internal i32 @dissect_smb2_tree_connect_response(ptr noundef %0, ptr noun
   br label %25
 
 22:                                               ; preds = %5
-  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %24 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %94, label %25
@@ -8553,7 +8553,7 @@ define internal noundef i32 @dissect_smb2_tree_disconnect_response(ptr noundef %
   br label %24
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %23 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %24
@@ -8642,7 +8642,7 @@ define internal i32 @dissect_smb2_create_request(ptr noundef %0, ptr noundef %1,
   store i32 %61, ptr %62, align 4
   %63 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 %60, ptr %63, align 4
-  %64 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
+  %64 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef 1)
   %65 = getelementptr inbounds i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %1, i64 408
@@ -8714,7 +8714,7 @@ define internal i32 @dissect_smb2_create_request(ptr noundef %0, ptr noundef %1,
 104:                                              ; preds = %.thread, %._crit_edge, %93, %98
   %.val66 = phi i32 [ %.val66.pre, %._crit_edge ], [ %96, %93 ], [ %96, %98 ], [ %79, %.thread ]
   %105 = add i32 %42, 12
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @dissect_smb2_create_extra_info)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef nonnull @dissect_smb2_create_extra_info)
   %.val = load i32, ptr %6, align 4
   %106 = icmp eq i32 %.val, 0
   %107 = add i32 %.val66, %.val
@@ -8751,7 +8751,7 @@ define internal i32 @dissect_smb2_create_response(ptr noundef %0, ptr noundef %1
   br label %25
 
 22:                                               ; preds = %5
-  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %7)
+  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %7)
   %24 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %100, label %25
@@ -8834,7 +8834,7 @@ define internal i32 @dissect_smb2_create_response(ptr noundef %0, ptr noundef %1
   %81 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %78, ptr %81, align 4
   %82 = add i32 %67, 8
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_create_extra_info)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_create_extra_info)
   %83 = icmp eq i32 %76, 0
   %84 = add i32 %79, %76
   %..i = tail call i32 @llvm.smax.i32(i32 %82, i32 %84)
@@ -8924,7 +8924,7 @@ define internal noundef i32 @dissect_smb2_close_response(ptr noundef %0, ptr nou
   br label %24
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %23 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %57, label %24
@@ -9022,7 +9022,7 @@ define internal noundef i32 @dissect_smb2_flush_response(ptr noundef %0, ptr nou
   br label %24
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %23 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %24
@@ -9104,11 +9104,11 @@ define internal i32 @dissect_smb2_read_request(ptr noundef %0, ptr noundef %1, p
   br i1 %switch, label %57, label %58
 
 57:                                               ; preds = %5
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull @dissect_smb2_rdma_v1_blob)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef %4, ptr noundef nonnull @dissect_smb2_rdma_v1_blob)
   br label %59
 
 58:                                               ; preds = %5
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %4, ptr noundef null)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef %4, ptr noundef null)
   br label %59
 
 59:                                               ; preds = %58, %57
@@ -9158,7 +9158,7 @@ define internal i32 @dissect_smb2_read_response(ptr noundef %0, ptr noundef %1, 
   br label %25
 
 22:                                               ; preds = %5
-  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %7)
+  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %7)
   %24 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %59, label %25
@@ -9189,7 +9189,7 @@ define internal i32 @dissect_smb2_read_response(ptr noundef %0, ptr noundef %1, 
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0) #12
   %42 = add i32 %.037, 14
   %43 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %42) #12
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_read_blob)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_read_blob)
   %44 = tail call i32 @llvm.umin.i32(i32 %33, i32 %43)
   %45 = add i32 %44, %42
   %46 = load i32, ptr @smb2_eo_tap, align 4
@@ -9298,11 +9298,11 @@ define internal i32 @dissect_smb2_write_request(ptr noundef %0, ptr noundef %1, 
   br i1 %switch, label %61, label %62
 
 61:                                               ; preds = %31
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_rdma_v1_blob)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_rdma_v1_blob)
   br label %63
 
 62:                                               ; preds = %31
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef null)
   br label %63
 
 63:                                               ; preds = %62, %61
@@ -9412,7 +9412,7 @@ define internal noundef i32 @dissect_smb2_write_response(ptr noundef %0, ptr nou
   br label %24
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %23 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %40, label %24
@@ -9544,7 +9544,7 @@ define internal noundef i32 @dissect_smb2_lock_response(ptr noundef %0, ptr noun
   br label %24
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %23 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %24
@@ -9641,13 +9641,13 @@ define internal i32 @dissect_smb2_ioctl_request(ptr noundef %0, ptr noundef %1, 
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %56
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
   br label %65
 
 64:                                               ; preds = %56
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
   br label %65
 
 65:                                               ; preds = %64, %63
@@ -9690,7 +9690,7 @@ define internal i32 @dissect_smb2_ioctl_response(ptr noundef %0, ptr noundef %1,
   br label %26
 
 23:                                               ; preds = %5
-  %24 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %8)
+  %24 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %8)
   %25 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %67, label %26
@@ -9745,13 +9745,13 @@ define internal i32 @dissect_smb2_ioctl_response(ptr noundef %0, ptr noundef %1,
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %26
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
   br label %62
 
 61:                                               ; preds = %26
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
   br label %62
 
 62:                                               ; preds = %61, %60
@@ -9831,7 +9831,7 @@ define internal noundef i32 @dissect_smb2_keepalive_response(ptr noundef %0, ptr
   br label %24
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %22 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %23 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %24
@@ -9906,7 +9906,7 @@ define internal i32 @dissect_smb2_find_request(ptr noundef %0, ptr noundef %1, p
   %47 = add i32 %35, 4
   %48 = load i32, ptr @hf_smb2_output_buffer_len, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648) #12
-  %50 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
+  %50 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef 1)
   %.val = load i32, ptr %6, align 4
   %.val48 = load i32, ptr %45, align 4
   %51 = getelementptr inbounds i8, ptr %1, i64 80
@@ -10043,7 +10043,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %16, %10, %5
   br label %70
 
 67:                                               ; preds = %52
-  %68 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %7)
+  %68 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %7)
   %69 = load i32, ptr %7, align 4
   %.not38 = icmp eq i32 %69, 0
   br i1 %.not38, label %84, label %70
@@ -10067,7 +10067,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %16, %10, %5
   %80 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %77, ptr %80, align 4
   %81 = add i32 %.033, 6
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_find_data)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_find_data)
   %82 = icmp eq i16 %74, 0
   %83 = add i32 %78, %75
   %..i = tail call i32 @llvm.smax.i32(i32 %81, i32 %83)
@@ -10144,7 +10144,7 @@ define internal i32 @dissect_smb2_notify_response(ptr noundef %0, ptr noundef %1
   br label %25
 
 22:                                               ; preds = %5
-  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %7)
+  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %7)
   %24 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %39, label %25
@@ -10168,7 +10168,7 @@ define internal i32 @dissect_smb2_notify_response(ptr noundef %0, ptr noundef %1
   %35 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %32, ptr %35, align 4
   %36 = add i32 %.018, 6
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_notify_data_out)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_notify_data_out)
   %37 = icmp eq i16 %29, 0
   %38 = add i32 %33, %30
   %..i = tail call i32 @llvm.smax.i32(i32 %36, i32 %38)
@@ -10389,7 +10389,7 @@ define internal noundef i32 @dissect_smb2_getinfo_response(ptr noundef %0, ptr n
   br label %56
 
 42:                                               ; preds = %5
-  %43 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %7)
+  %43 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %7)
   %44 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %56, label %45
@@ -10412,7 +10412,7 @@ define internal noundef i32 @dissect_smb2_getinfo_response(ptr noundef %0, ptr n
   %54 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %51, ptr %54, align 4
   %55 = add i32 %.032, 6
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_getinfo_response_data)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_getinfo_response_data)
   br label %56
 
 56:                                               ; preds = %42, %45, %23
@@ -10510,7 +10510,7 @@ define internal noundef i32 @dissect_smb2_setinfo_response(ptr noundef %0, ptr n
   br label %24
 
 22:                                               ; preds = %5
-  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   br label %24
 
 24:                                               ; preds = %22, %10
@@ -10599,7 +10599,7 @@ define internal i32 @dissect_smb2_break_response(ptr noundef %0, ptr noundef %1,
   br label %25
 
 22:                                               ; preds = %5
-  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %23 = call fastcc i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %6)
   %24 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %87, label %25
@@ -10759,7 +10759,7 @@ define internal fastcc void @update_preauth_hash(ptr noundef %0, ptr nocapture n
 declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -7) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -11049,7 +11049,7 @@ declare void @gcry_md_close(ptr noundef) local_unnamed_addr #1
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %3) #12
   %8 = load i32, ptr @hf_smb2_buffer_code, align 4
   %9 = zext i16 %7 to i32
@@ -11096,7 +11096,7 @@ define internal fastcc noundef i32 @dissect_smb2_error_response(ptr noundef %0, 
 declare i32 @dissect_nt_64bit_time(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_smb2_olb_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_smb2_olb_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
@@ -11253,7 +11253,7 @@ define internal void @dissect_smb2_secblob(ptr noundef %0, ptr noundef %1, ptr n
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_smb2_error_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_smb2_error_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct._offset_length_buffer_t, align 4
@@ -11270,12 +11270,12 @@ define internal fastcc void @dissect_smb2_error_data(ptr noundef %0, ptr noundef
 18:                                               ; preds = %6
   %19 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %20 = icmp slt i32 %19, 2
-  br i1 %20, label %121, label %21
+  br i1 %20, label %122, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   %23 = load i32, ptr %22, align 8
-  switch i32 %23, label %121 [
+  switch i32 %23, label %122 [
     i32 -2147483603, label %24
     i32 -1073741789, label %63
     i32 -1073741620, label %66
@@ -11332,20 +11332,20 @@ define internal fastcc void @dissect_smb2_error_data(ptr noundef %0, ptr noundef
   store i32 22, ptr %58, align 4
   %59 = load i32, ptr @hf_smb2_symlink_flags, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %59, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #12
-  %61 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %28, ptr noundef %0, ptr noundef nonnull %11, i32 noundef 28, i32 noundef 1)
-  %62 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %28, ptr noundef %0, ptr noundef nonnull %12, i32 noundef 28, i32 noundef 1)
+  %61 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %28, ptr noundef %0, ptr noundef %11, i32 noundef 28, i32 noundef 1)
+  %62 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %28, ptr noundef %0, ptr noundef %12, i32 noundef 28, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  br label %121
+  br label %122
 
 63:                                               ; preds = %21
   %64 = load i32, ptr @hf_smb2_error_min_buf_length, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %64, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #12
-  br label %121
+  br label %122
 
 66:                                               ; preds = %21
   %67 = icmp eq i32 %4, 1919177299
-  br i1 %67, label %68, label %121
+  br i1 %67, label %68, label %122
 
 68:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
@@ -11398,19 +11398,18 @@ define internal fastcc void @dissect_smb2_error_data(ptr noundef %0, ptr noundef
 
 dissect_smb2_share_redirect_error.exit:           ; preds = %.lr.ph.i, %68
   %.040.lcssa.i = phi i32 [ 24, %68 ], [ %97, %.lr.ph.i ]
-  %101 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %72, ptr noundef %0, ptr noundef nonnull %9, i32 noundef %.040.lcssa.i, i32 noundef 1)
+  %101 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %72, ptr noundef %0, ptr noundef %9, i32 noundef %.040.lcssa.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %121
+  br label %122
 
 102:                                              ; preds = %6
   tail call void @increment_dissection_depth(ptr noundef %1) #12
-  %103 = icmp sgt i32 %3, 0
-  br i1 %103, label %.lr.ph, label %._crit_edge
+  br label %103
 
-.lr.ph:                                           ; preds = %102, %.lr.ph
-  %.035 = phi i32 [ %120, %.lr.ph ], [ 0, %102 ]
-  %.03234 = phi i32 [ %119, %.lr.ph ], [ 0, %102 ]
+103:                                              ; preds = %102, %103
+  %.035 = phi i32 [ 0, %102 ], [ %120, %103 ]
+  %.03234 = phi i32 [ 0, %102 ], [ %119, %103 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %104 = load i32, ptr @hf_smb2_error_context, align 4
@@ -11434,13 +11433,13 @@ dissect_smb2_share_redirect_error.exit:           ; preds = %.lr.ph.i, %68
   %119 = add i32 %118, %117
   %120 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %120, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %121, label %103, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %.lr.ph, %102
+121:                                              ; preds = %103
   call void @decrement_dissection_depth(ptr noundef %1) #12
-  br label %121
+  br label %122
 
-121:                                              ; preds = %24, %63, %66, %dissect_smb2_share_redirect_error.exit, %21, %18, %._crit_edge
+122:                                              ; preds = %24, %63, %66, %dissect_smb2_share_redirect_error.exit, %21, %18, %121
   ret void
 }
 
@@ -11461,7 +11460,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @read_keytab_file_from_preferences() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @smb2_key_derivation(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @smb2_key_derivation(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 11, 17) %2, ptr noundef %3, i32 noundef range(i32 8, 65) %4, ptr nocapture noundef writeonly %5, i32 noundef range(i32 16, 33) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [4 x i8], align 4
   store ptr null, ptr %8, align 8
@@ -11481,11 +11480,11 @@ define internal fastcc void @smb2_key_derivation(ptr noundef %0, ptr noundef %1,
   %19 = zext nneg i32 %4 to i64
   call void @gcry_md_write(ptr noundef %18, ptr noundef %3, i64 noundef %19) #12
   store i32 0, ptr %9, align 4
-  %.tr = trunc i32 %6 to i8
+  %.tr = trunc nuw nsw i32 %6 to i8
   %20 = shl i8 %.tr, 3
   store i8 %20, ptr %13, align 1
   %21 = lshr i32 %6, 5
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = getelementptr inbounds i8, ptr %9, i64 2
   store i8 %22, ptr %23, align 2
   %24 = load ptr, ptr %8, align 8
@@ -11493,7 +11492,7 @@ define internal fastcc void @smb2_key_derivation(ptr noundef %0, ptr noundef %1,
   %25 = load ptr, ptr %8, align 8
   %26 = call ptr @gcry_md_read(ptr noundef %25, i32 noundef 8) #12
   %27 = zext nneg i32 %6 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %26, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %26, i64 %27, i1 false)
   %28 = load ptr, ptr %8, align 8
   call void @gcry_md_close(ptr noundef %28) #12
   ret void
@@ -11581,7 +11580,7 @@ define internal void @dissect_smb2_create_extra_info(ptr noundef %0, ptr noundef
   br label %48
 
 46:                                               ; preds = %4
-  %47 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %12, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2)
+  %47 = call fastcc ptr @dissect_smb2_olb_off_string(ptr noundef %1, ptr noundef %12, ptr noundef %0, ptr noundef %5, i32 noundef 0, i32 noundef 2)
   br label %48
 
 48:                                               ; preds = %46, %35
@@ -11615,7 +11614,7 @@ get_create_context_data_tag_dissectors.exit:      ; preds = %49, %51
   %.in.v = select i1 %.not56, i64 16, i64 24
   %.in = getelementptr inbounds i8, ptr %.05.i, i64 %.in.v
   %61 = load ptr, ptr %.in, align 8
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %12, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %61)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %12, ptr noundef %0, ptr noundef %6, ptr noundef %3, ptr noundef %61)
   br i1 %.not, label %64, label %62
 
 62:                                               ; preds = %get_create_context_data_tag_dissectors.exit
@@ -12199,7 +12198,7 @@ define internal void @dissect_smb2_AAPL_buffer_response(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb2_file_full_ea_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb2_file_full_ea_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -12296,7 +12295,7 @@ define internal fastcc noundef i32 @dissect_smb2_file_full_ea_info(ptr noundef %
 declare i32 @dissect_nt_sec_desc(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_fid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_fid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef range(i32 0, 5) %5) unnamed_addr #0 {
   %7 = alloca [4 x i8], align 4
   %8 = alloca %struct._e_ctx_hnd, align 4
   %9 = alloca ptr, align 8
@@ -12332,7 +12331,7 @@ define internal fastcc i32 @dissect_smb2_fid(ptr noundef %0, ptr noundef %1, ptr
   store ptr null, ptr %28, align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_smb2_fid.di, i64 28), align 4
   store ptr @dissect_smb2_fid.call_data, ptr getelementptr inbounds (i8, ptr @dissect_smb2_fid.di, i64 72), align 8
-  switch i32 %5, label %default.unreachable [
+  switch i32 %5, label %default.unreachable117 [
     i32 0, label %29
     i32 1, label %108
     i32 2, label %126
@@ -12506,7 +12505,7 @@ define internal fastcc i32 @dissect_smb2_fid(ptr noundef %0, ptr noundef %1, ptr
   %128 = call i32 @dissect_nt_guid_hnd(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @dissect_smb2_fid.di, ptr noundef nonnull %7, i32 noundef %127, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0) #12
   br label %129
 
-default.unreachable:                              ; preds = %6
+default.unreachable117:                           ; preds = %6
   unreachable
 
 129:                                              ; preds = %29, %106, %88, %126, %123
@@ -13781,7 +13780,7 @@ define internal void @dissect_smb2_posix_directory_info(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_posix_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_posix_info(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483640) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_smb2_create_timestamp, align 4
   %5 = tail call i32 @dissect_nt_64bit_time(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4) #12
   %6 = load i32, ptr @hf_smb2_last_access_timestamp, align 4
@@ -14098,7 +14097,7 @@ define internal void @dissect_smb2_getinfo_response_data(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_smb2_infolevel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @dissect_smb2_infolevel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
@@ -14524,7 +14523,7 @@ proto_item_set_generated.exit:                    ; preds = %200, %197, %194, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb2_file_basic_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb2_file_basic_info(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -14558,7 +14557,7 @@ define internal fastcc noundef i32 @dissect_smb2_file_basic_info(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_standard_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_standard_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14581,7 +14580,7 @@ define internal fastcc i32 @dissect_smb2_file_standard_info(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_internal_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_internal_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14604,7 +14603,7 @@ define internal fastcc i32 @dissect_smb2_file_internal_info(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_ea_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_ea_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14627,7 +14626,7 @@ define internal fastcc i32 @dissect_smb2_file_ea_info(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_access_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_access_info(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -14645,7 +14644,7 @@ define internal fastcc i32 @dissect_smb2_file_access_info(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 20, 131091) i32 @dissect_smb2_file_rename_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 20, 131091) i32 @dissect_smb2_file_rename_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %6
@@ -14694,7 +14693,7 @@ define internal fastcc range(i32 20, 131091) i32 @dissect_smb2_file_rename_info(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 20, 131091) i32 @dissect_smb2_file_link_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 20, 131091) i32 @dissect_smb2_file_link_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %2, null
@@ -14744,7 +14743,7 @@ define internal fastcc range(i32 20, 131091) i32 @dissect_smb2_file_link_info(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65536) i32 @dissect_smb2_file_disposition_info(ptr noundef %0, ptr noundef %1, i32 noundef returned %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 65536) i32 @dissect_smb2_file_disposition_info(ptr noundef %0, ptr noundef %1, i32 noundef returned range(i32 0, 65536) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -14763,7 +14762,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_smb2_file_disposition_in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_position_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_position_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14786,7 +14785,7 @@ define internal fastcc i32 @dissect_smb2_file_position_info(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_mode_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_mode_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14809,7 +14808,7 @@ define internal fastcc i32 @dissect_smb2_file_mode_info(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_alignment_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_alignment_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14832,7 +14831,7 @@ define internal fastcc i32 @dissect_smb2_file_alignment_info(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb2_file_all_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb2_file_all_info(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -14914,7 +14913,7 @@ define internal fastcc noundef i32 @dissect_smb2_file_all_info(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_allocation_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_allocation_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14937,7 +14936,7 @@ define internal fastcc i32 @dissect_smb2_file_allocation_info(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_smb2_file_endoffile_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_smb2_file_endoffile_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14960,7 +14959,7 @@ define internal fastcc void @dissect_smb2_file_endoffile_info(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_alternate_name_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_alternate_name_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -14983,7 +14982,7 @@ define internal fastcc i32 @dissect_smb2_file_alternate_name_info(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_stream_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_stream_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -15006,7 +15005,7 @@ define internal fastcc i32 @dissect_smb2_file_stream_info(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_pipe_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_pipe_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -15029,7 +15028,7 @@ define internal fastcc i32 @dissect_smb2_file_pipe_info(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_compression_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_compression_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -15052,7 +15051,7 @@ define internal fastcc i32 @dissect_smb2_file_compression_info(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_network_open_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_network_open_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -15075,7 +15074,7 @@ define internal fastcc i32 @dissect_smb2_file_network_open_info(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_attribute_tag_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_attribute_tag_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -15098,7 +15097,7 @@ define internal fastcc i32 @dissect_smb2_file_attribute_tag_info(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb2_file_normalized_name_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb2_file_normalized_name_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -15169,11 +15168,11 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 1, 5) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [3 x i64], align 16
   store ptr null, ptr %7, align 8
-  switch i32 %5, label %default.unreachable [
+  switch i32 %5, label %default.unreachable31 [
     i32 1, label %12
     i32 2, label %9
     i32 3, label %10
@@ -15189,7 +15188,7 @@ define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %0, i64 nound
 11:                                               ; preds = %6
   br label %12
 
-default.unreachable:                              ; preds = %6
+default.unreachable31:                            ; preds = %6
   unreachable
 
 12:                                               ; preds = %6, %11, %10, %9
@@ -15284,7 +15283,7 @@ declare i32 @gcry_cipher_authenticate(ptr noundef, ptr noundef, i64 noundef) loc
 declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_decrypted_header_ok(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @is_decrypted_header_ok(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #2 {
   %3 = icmp ult i64 %1, 4
   br i1 %3, label %19, label %4
 

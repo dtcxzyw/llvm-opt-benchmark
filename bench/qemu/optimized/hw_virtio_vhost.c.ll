@@ -800,7 +800,7 @@ if.end56:                                         ; preds = %vhost_memory_map.ex
   %used_phys = getelementptr inbounds i8, ptr %vq, i64 72
   store i64 %call59, ptr %used_phys, align 8
   %dev.val97 = load ptr, ptr %dev, align 8
-  %call60 = call fastcc ptr @vhost_memory_map(ptr %dev.val97, i64 noundef %call59, ptr noundef nonnull %l, i1 noundef zeroext true)
+  %call60 = call fastcc ptr @vhost_memory_map(ptr %dev.val97, i64 noundef %call59, ptr noundef %l, i1 noundef zeroext true)
   %used = getelementptr inbounds i8, ptr %vq, i64 24
   store ptr %call60, ptr %used, align 8
   %tobool62.not = icmp ne ptr %call60, null
@@ -932,7 +932,7 @@ declare i32 @virtio_queue_get_last_avail_idx(ptr noundef, i32 noundef) local_unn
 declare i64 @virtio_queue_get_desc_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @vhost_memory_map(ptr %dev.0.val, i64 noundef %addr, ptr noundef %plen, i1 noundef zeroext %is_write) unnamed_addr #0 {
+define internal fastcc ptr @vhost_memory_map(ptr %dev.0.val, i64 noundef %addr, ptr noundef nonnull %plen, i1 noundef zeroext %is_write) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %dev.0.val, null
   br i1 %tobool.not.i, label %if.then, label %if.then.i
@@ -949,7 +949,7 @@ vhost_dev_has_iommu.exit:                         ; preds = %if.then.i
   br i1 %tobool.i.i.i.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry, %if.then.i, %vhost_dev_has_iommu.exit
-  %call1 = tail call ptr @cpu_physical_memory_map(i64 noundef %addr, ptr noundef %plen, i1 noundef zeroext %is_write) #19
+  %call1 = tail call ptr @cpu_physical_memory_map(i64 noundef %addr, ptr noundef nonnull %plen, i1 noundef zeroext %is_write) #19
   br label %return
 
 if.else:                                          ; preds = %vhost_dev_has_iommu.exit
@@ -1113,7 +1113,7 @@ if.end20:                                         ; preds = %if.then18, %if.end1
 declare zeroext i16 @virtio_queue_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vhost_memory_unmap(ptr %dev.0.val, ptr noundef %buffer, i64 noundef %len, i32 noundef %is_write, i64 noundef %access_len) unnamed_addr #0 {
+define internal fastcc void @vhost_memory_unmap(ptr %dev.0.val, ptr noundef %buffer, i64 noundef %len, i32 noundef range(i32 0, 2) %is_write, i64 noundef %access_len) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %dev.0.val, null
   br i1 %tobool.not.i, label %if.then, label %if.then.i
@@ -4347,7 +4347,7 @@ return:                                           ; preds = %if.then8.i, %if.the
 declare i32 @event_notifier_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @vhost_log_get(i64 noundef %size, i1 noundef zeroext %share) unnamed_addr #0 {
+define internal fastcc ptr @vhost_log_get(i64 noundef range(i64 0, 70368744177835) %size, i1 noundef zeroext %share) unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %fd.i = alloca i32, align 4
@@ -5272,7 +5272,7 @@ declare void @memory_region_unref(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @memory_region_get_dirty_log_mask(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_vhost_reject_section(ptr noundef %name, i32 noundef %d) unnamed_addr #0 {
+define internal fastcc void @trace_vhost_reject_section(ptr noundef %name, i32 noundef range(i32 1, 4) %d) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)

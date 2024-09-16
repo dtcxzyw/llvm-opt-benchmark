@@ -135,7 +135,7 @@ define i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocapture nound
 
 82:                                               ; preds = %78
   %83 = add nsw i32 %45, -1
-  %84 = mul nsw i32 %83, 1217359
+  %84 = mul nuw nsw i32 %83, 1217359
   %85 = lshr i32 %84, 19
   %86 = zext nneg i32 %83 to i64
   %87 = getelementptr [31 x i64], ptr @FLOAT_POW5_INV_SPLIT, i64 0, i64 %86

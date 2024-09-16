@@ -794,7 +794,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @diec(ptr noundef %func, i32 noundef %error_code) unnamed_addr #9 {
+define internal fastcc void @diec(ptr noundef %func, i32 noundef range(i32 1, 0) %error_code) unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call ptr @nghttp2_strerror(i32 noundef %error_code) #17

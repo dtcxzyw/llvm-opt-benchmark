@@ -2208,7 +2208,7 @@ common.resume:                                    ; preds = %.critedge, %30
 
 .critedge:                                        ; preds = %.loopexit, %.loopexit.split-lp, %94, %64, %50, %.body46
   %.pn31 = phi { ptr, i32 } [ %83, %.body46 ], [ %.pn.ph, %94 ], [ %51, %50 ], [ %65, %64 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$$GT$17h200dfd042150d1c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #34
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$$GT$17h200dfd042150d1c4E"(ptr noalias noundef align 8 dereferenceable(8) %7) #34
           to label %common.resume unwind label %92
 
 .loopexit:                                        ; preds = %52
@@ -2485,7 +2485,7 @@ common.resume:                                    ; preds = %.critedge, %30
 
 .critedge:                                        ; preds = %.loopexit, %.loopexit.split-lp, %94, %64, %50, %.body46
   %.pn31 = phi { ptr, i32 } [ %83, %.body46 ], [ %.pn.ph, %94 ], [ %51, %50 ], [ %65, %64 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$$GT$17h200dfd042150d1c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #34
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$$GT$17h200dfd042150d1c4E"(ptr noalias noundef align 8 dereferenceable(8) %7) #34
           to label %common.resume unwind label %92
 
 .loopexit:                                        ; preds = %52
@@ -9881,7 +9881,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
 .body:                                            ; preds = %126, %119, %114
   %.pn6 = phi { ptr, i32 } [ %115, %114 ], [ %127, %126 ], [ %120, %119 ]
   %125 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17h29f83bf140c7bc03E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %125) #34
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17h29f83bf140c7bc03E"(ptr noalias noundef align 8 dereferenceable(8) %125) #34
           to label %133 unwind label %143
 
 126:                                              ; preds = %"_ZN4core3ptr120drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$$GT$17h10fb3d10cf98b021E.exit.i"
@@ -10170,7 +10170,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17h29f83bf140c7bc03E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17h29f83bf140c7bc03E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1775)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1775, !nonnull !14, !noundef !14
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !1775
@@ -10192,7 +10192,7 @@ define internal void @"_ZN4core3ptr95drop_in_place$LT$$RF$core..ptr..non_null..N
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$$GT$17h200dfd042150d1c4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..task..wake..Waker$GT$$GT$$GT$17h200dfd042150d1c4E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5

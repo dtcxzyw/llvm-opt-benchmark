@@ -762,7 +762,7 @@ ir_try_split_if.exit:                             ; preds = %372, %378, %384, %3
   br i1 %425, label %426, label %ir_try_split_if.exit.thread
 
 426:                                              ; preds = %422
-  %427 = call fastcc i32 @ir_try_split_if_cmp(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %289, ptr noundef nonnull %291)
+  %427 = call fastcc i32 @ir_try_split_if_cmp(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %289, ptr noundef nonnull %291)
   %.not.i = icmp eq i32 %427, 0
   br i1 %.not.i, label %ir_try_split_if.exit.thread, label %ir_optimize_merge.exit
 
@@ -4309,7 +4309,7 @@ ir_skip_empty_next_blocks.exit:                   ; preds = %108, %102, %98, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -4753,24 +4753,25 @@ declare void @ir_use_list_remove_all(ptr noundef, i32 noundef, i32 noundef) loca
 declare zeroext i1 @ir_use_list_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #9 {
+define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = icmp ult i8 %5, 12
   br i1 %6, label %7, label %84
 
 7:                                                ; preds = %3
-  switch i32 %0, label %208 [
-    i32 14, label %8
-    i32 15, label %14
-    i32 16, label %20
-    i32 17, label %30
-    i32 18, label %40
-    i32 19, label %50
-    i32 20, label %60
-    i32 21, label %66
-    i32 22, label %72
-    i32 23, label %78
+  %trunc111 = trunc nuw i32 %0 to i8
+  switch i8 %trunc111, label %208 [
+    i8 14, label %8
+    i8 15, label %14
+    i8 16, label %20
+    i8 17, label %30
+    i8 18, label %40
+    i8 19, label %50
+    i8 20, label %60
+    i8 21, label %66
+    i8 22, label %72
+    i8 23, label %78
   ]
 
 8:                                                ; preds = %7
@@ -4887,20 +4888,21 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef %0, ptr nocapture 
 
 84:                                               ; preds = %3
   %85 = icmp eq i8 %5, 12
+  %trunc110 = trunc nuw i32 %0 to i8
   br i1 %85, label %86, label %147
 
 86:                                               ; preds = %84
-  switch i32 %0, label %208 [
-    i32 14, label %87
-    i32 15, label %93
-    i32 16, label %99
-    i32 17, label %105
-    i32 18, label %111
-    i32 19, label %117
-    i32 20, label %123
-    i32 21, label %129
-    i32 22, label %135
-    i32 23, label %141
+  switch i8 %trunc110, label %208 [
+    i8 14, label %87
+    i8 15, label %93
+    i8 16, label %99
+    i8 17, label %105
+    i8 18, label %111
+    i8 19, label %117
+    i8 20, label %123
+    i8 21, label %129
+    i8 22, label %135
+    i8 23, label %141
   ]
 
 87:                                               ; preds = %86
@@ -4984,17 +4986,17 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef %0, ptr nocapture 
   br label %208
 
 147:                                              ; preds = %84
-  switch i32 %0, label %208 [
-    i32 14, label %148
-    i32 15, label %154
-    i32 16, label %160
-    i32 17, label %166
-    i32 18, label %172
-    i32 19, label %178
-    i32 20, label %184
-    i32 21, label %190
-    i32 22, label %196
-    i32 23, label %202
+  switch i8 %trunc110, label %208 [
+    i8 14, label %148
+    i8 15, label %154
+    i8 16, label %160
+    i8 17, label %166
+    i8 18, label %172
+    i8 19, label %178
+    i8 20, label %184
+    i8 21, label %190
+    i8 22, label %196
+    i8 23, label %202
   ]
 
 148:                                              ; preds = %147

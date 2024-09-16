@@ -1191,7 +1191,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @psmouse_queue_work(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @alps_report_buttons(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @alps_report_buttons(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 8) %4) unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %.thread5, label %13
 
@@ -1295,7 +1295,7 @@ declare dso_local void @input_unregister_device(ptr noundef) local_unnamed_addr 
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
@@ -6259,7 +6259,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -19, 1) i32 @alps_setup_trackstick_v3(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @alps_setup_trackstick_v3(ptr noundef %0, i32 noundef range(i32 0, 49857) %1) unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
@@ -6507,7 +6507,7 @@ define internal fastcc range(i32 -1, 1) i32 @alps_enter_command_mode(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 256) i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 256) i32 @alps_command_mode_read_reg(ptr noundef %0, i32 noundef range(i32 4, 50073) %1) unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6628,7 +6628,7 @@ define internal fastcc range(i32 -1, 1) i32 @__alps_command_mode_write_reg(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 1) i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @alps_command_mode_write_reg(ptr noundef %0, i32 noundef range(i32 7, 49868) %1, i8 noundef zeroext range(i8 0, -115) %2) unnamed_addr #0 align 16 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
@@ -6712,7 +6712,7 @@ define internal fastcc range(i32 -1, 1) i32 @alps_command_mode_write_reg(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 1) i32 @alps_passthrough_mode_v3(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @alps_passthrough_mode_v3(ptr noundef %0, i32 noundef range(i32 0, 49857) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4

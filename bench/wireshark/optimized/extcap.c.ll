@@ -828,7 +828,7 @@ extcap_find_interface_for_ifname.exit:            ; preds = %21
   %28 = tail call ptr @g_list_append(ptr noundef %26, ptr noundef %27) #11
   %29 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #11
   %30 = tail call ptr @g_list_append(ptr noundef %28, ptr noundef %29) #11
-  call fastcc void @extcap_run_one(ptr noundef nonnull %20, ptr noundef %30, ptr noundef nonnull @cb_dlt, ptr noundef nonnull %3, ptr noundef %1)
+  call fastcc void @extcap_run_one(ptr noundef %20, ptr noundef %30, ptr noundef nonnull @cb_dlt, ptr noundef %3, ptr noundef %1)
   call void @g_list_free_full(ptr noundef %30, ptr noundef nonnull @g_free) #11
   %.pre = load ptr, ptr %3, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
@@ -843,7 +843,7 @@ declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @extcap_run_one(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @extcap_run_one(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct._extcap_callback_info_t, align 8
   %8 = tail call ptr @get_extcap_dir() #11
@@ -1413,7 +1413,7 @@ extcap_find_interface_for_ifname.exit:            ; preds = %18
   %25 = tail call ptr @g_list_append(ptr noundef %23, ptr noundef %24) #11
   %26 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #11
   %27 = tail call ptr @g_list_append(ptr noundef %25, ptr noundef %26) #11
-  call fastcc void @extcap_run_one(ptr noundef nonnull %17, ptr noundef %27, ptr noundef nonnull @cb_preference, ptr noundef nonnull %2, ptr noundef null)
+  call fastcc void @extcap_run_one(ptr noundef %17, ptr noundef %27, ptr noundef nonnull @cb_preference, ptr noundef %2, ptr noundef null)
   call void @g_list_free_full(ptr noundef %27, ptr noundef nonnull @g_free) #11
   %.pre = load ptr, ptr %2, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
@@ -1690,7 +1690,7 @@ extcap_find_interface_for_ifname.exit:            ; preds = %20
 
 45:                                               ; preds = %._crit_edge, %extcap_find_interface_for_ifname.exit
   %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %33, %extcap_find_interface_for_ifname.exit ]
-  call fastcc void @extcap_run_one(ptr noundef nonnull %19, ptr noundef %.0, ptr noundef nonnull @cb_reload_preference, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @extcap_run_one(ptr noundef %19, ptr noundef %.0, ptr noundef nonnull @cb_reload_preference, ptr noundef %4, ptr noundef null)
   call void @g_list_free_full(ptr noundef %.0, ptr noundef nonnull @g_free) #11
   %.pre = load ptr, ptr %4, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
@@ -1968,7 +1968,7 @@ extcap_find_interface_for_ifname.exit:            ; preds = %20
   %29 = tail call ptr @g_list_append(ptr noundef %27, ptr noundef %28) #11
   %30 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #11
   %31 = tail call ptr @g_list_append(ptr noundef %29, ptr noundef %30) #11
-  call fastcc void @extcap_run_one(ptr noundef nonnull %19, ptr noundef %31, ptr noundef nonnull @cb_verify_filter, ptr noundef nonnull %4, ptr noundef %2)
+  call fastcc void @extcap_run_one(ptr noundef %19, ptr noundef %31, ptr noundef nonnull @cb_verify_filter, ptr noundef %4, ptr noundef %2)
   call void @g_list_free_full(ptr noundef %31, ptr noundef nonnull @g_free) #11
   %.pre = load i32, ptr %4, align 4
   br label %extcap_find_interface_for_ifname.exit.thread
@@ -2112,7 +2112,7 @@ extcap_ensure_interface.exit:                     ; preds = %12, %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extcap_ensure_interface(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @extcap_ensure_interface(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   %.not = icmp ne i32 %3, 0
   %.not13 = icmp eq ptr %0, null

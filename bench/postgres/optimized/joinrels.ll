@@ -754,7 +754,7 @@ define dso_local ptr @make_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef 
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @bms_union(ptr noundef %10, ptr noundef %12) #8
-  %14 = call fastcc zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %13, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %14 = call fastcc zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %13, ptr noundef %4, ptr noundef %5)
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %3
@@ -850,7 +850,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   store ptr null, ptr %4, align 8
   store i8 0, ptr %5, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 224
@@ -2443,7 +2443,7 @@ restriction_is_constant_false.exit230.thread:     ; preds = %370, %.lr.ph.i212, 
   br i1 %432, label %try_partitionwise_join.exit, label %433
 
 433:                                              ; preds = %431
-  call fastcc void @compute_partition_bounds(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @compute_partition_bounds(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %7, ptr noundef %8)
   %434 = getelementptr inbounds i8, ptr %3, i64 392
   %435 = load i8, ptr %434, align 8
   %436 = trunc i8 %435 to i1
@@ -2770,7 +2770,7 @@ define internal fastcc noundef zeroext i1 @has_legal_joinclause(ptr noundef %0, 
   %22 = load ptr, ptr %9, align 8
   %23 = load ptr, ptr %16, align 8
   %24 = tail call ptr @bms_union(ptr noundef %22, ptr noundef %23) #8
-  %25 = call fastcc zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %24, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %25 = call fastcc zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %24, ptr noundef %3, ptr noundef %4)
   tail call void @bms_free(ptr noundef %24) #8
   br i1 %25, label %.thread, label %26
 
@@ -2908,7 +2908,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compute_partition_bounds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @compute_partition_bounds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %3, i64 376
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, -1
@@ -2966,7 +2966,7 @@ define internal fastcc void @compute_partition_bounds(ptr noundef %0, ptr nounde
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 40
   %52 = load i32, ptr %51, align 8
-  %53 = tail call ptr @partition_bounds_merge(i32 noundef %46, ptr noundef %48, ptr noundef %50, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %52, ptr noundef %5, ptr noundef %6) #8
+  %53 = tail call ptr @partition_bounds_merge(i32 noundef %46, ptr noundef %48, ptr noundef %50, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %52, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %56
 

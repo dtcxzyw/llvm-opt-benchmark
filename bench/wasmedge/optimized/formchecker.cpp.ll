@@ -3372,7 +3372,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
 
 575:                                              ; preds = %573, %571
   %576 = phi ptr [ %572, %571 ], [ %574, %573 ]
-  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_0clERSt6vectorINS_7ValTypeESaIS8_EERKNS_9BlockTypeE"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(8) %576)
+  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_0clERSt6vectorINS_7ValTypeESaIS8_EERKNS_9BlockTypeE"(ptr dead_on_unwind noalias writable align 8 %24, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(8) %576)
           to label %577 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 577:                                              ; preds = %575
@@ -3523,7 +3523,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
 645:                                              ; preds = %635
   store i32 522, ptr %27, align 4
   %646 = trunc i64 %644 to i32
-  invoke fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %26, ptr noundef nonnull %27, i8 noundef zeroext 13, i32 noundef %637, i32 noundef %646)
+  invoke fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %26, ptr noundef %27, i8 noundef zeroext 13, i32 noundef %637, i32 noundef %646)
           to label %647 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 647:                                              ; preds = %645
@@ -3538,7 +3538,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
   %652 = load i32, ptr %651, align 4
   %.val959.val = load ptr, ptr %619, align 8
   %.val959.val974 = load ptr, ptr %620, align 8
-  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %28, ptr %.val959.val, ptr %.val959.val974, i32 noundef %652)
+  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %28, ptr %.val959.val, ptr %.val959.val974, i32 noundef %652)
           to label %653 unwind label %.loopexit
 
 653:                                              ; preds = %650
@@ -3854,7 +3854,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
 829:                                              ; preds = %818
   store i32 522, ptr %35, align 4
   %830 = trunc i64 %828 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %34, ptr noundef nonnull %35, i8 noundef zeroext 13, i32 noundef %819, i32 noundef %830)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %34, ptr noundef %35, i8 noundef zeroext 13, i32 noundef %819, i32 noundef %830)
   store i8 0, ptr %0, align 4
   %831 = getelementptr inbounds i8, ptr %0, i64 4
   %832 = load i32, ptr %34, align 4
@@ -3984,7 +3984,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
 927:                                              ; preds = %916
   store i32 522, ptr %38, align 4
   %928 = trunc i64 %926 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %37, ptr noundef nonnull %38, i8 noundef zeroext 13, i32 noundef %917, i32 noundef %928)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %37, ptr noundef %38, i8 noundef zeroext 13, i32 noundef %917, i32 noundef %928)
   store i8 0, ptr %0, align 4
   %929 = getelementptr inbounds i8, ptr %0, i64 4
   %930 = load i32, ptr %37, align 4
@@ -3997,7 +3997,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val927.val = load ptr, ptr %1, align 8
   %934 = getelementptr inbounds i8, ptr %1, i64 8
   %.val927.val956 = load ptr, ptr %934, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr %.val927.val, ptr %.val927.val956, i32 noundef %933, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %39, ptr %.val927.val, ptr %.val927.val956, i32 noundef %933, i8 noundef zeroext 96)
   %935 = load i8, ptr %39, align 8
   %936 = trunc i8 %935 to i1
   %937 = getelementptr inbounds i8, ptr %39, i64 8
@@ -4169,7 +4169,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val960.val = load ptr, ptr %1012, align 8
   %1013 = getelementptr inbounds i8, ptr %1, i64 320
   %.val960.val973 = load ptr, ptr %1013, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %44, ptr %.val960.val, ptr %.val960.val973, i32 noundef %1011)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %44, ptr %.val960.val, ptr %.val960.val973, i32 noundef %1011)
   %1014 = load i8, ptr %44, align 4
   %1015 = trunc i8 %1014 to i1
   %1016 = getelementptr inbounds i8, ptr %44, i64 4
@@ -4265,7 +4265,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val961.val = load ptr, ptr %1072, align 8
   %1073 = getelementptr inbounds i8, ptr %1, i64 320
   %.val961.val972 = load ptr, ptr %1073, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %45, ptr %.val961.val, ptr %.val961.val972, i32 noundef %1071)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %45, ptr %.val961.val, ptr %.val961.val972, i32 noundef %1071)
   %1074 = load i8, ptr %45, align 4
   %1075 = trunc i8 %1074 to i1
   br i1 %1075, label %1080, label %1076
@@ -4402,7 +4402,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val962.val = load ptr, ptr %1158, align 8
   %1159 = getelementptr inbounds i8, ptr %1, i64 320
   %.val962.val971 = load ptr, ptr %1159, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %48, ptr %.val962.val, ptr %.val962.val971, i32 noundef %1157)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %48, ptr %.val962.val, ptr %.val962.val971, i32 noundef %1157)
   %1160 = load i8, ptr %48, align 4
   %1161 = trunc i8 %1160 to i1
   %1162 = getelementptr inbounds i8, ptr %48, i64 4
@@ -4454,7 +4454,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %1190 = load i32, ptr %1189, align 4
   %.val963.val = load ptr, ptr %1158, align 8
   %.val963.val970 = load ptr, ptr %1159, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %49, ptr %.val963.val, ptr %.val963.val970, i32 noundef %1190)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %49, ptr %.val963.val, ptr %.val963.val970, i32 noundef %1190)
   %1191 = load i8, ptr %49, align 4
   %1192 = trunc i8 %1191 to i1
   %1193 = load i32, ptr %1177, align 4
@@ -4706,7 +4706,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val964.val = load ptr, ptr %1321, align 8
   %1322 = getelementptr inbounds i8, ptr %1, i64 320
   %.val964.val969 = load ptr, ptr %1322, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %53, ptr %.val964.val, ptr %.val964.val969, i32 noundef %1320)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %53, ptr %.val964.val, ptr %.val964.val969, i32 noundef %1320)
   %1323 = load i8, ptr %53, align 4
   %1324 = trunc i8 %1323 to i1
   %1325 = getelementptr inbounds i8, ptr %53, i64 4
@@ -4856,7 +4856,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val965.val = load ptr, ptr %1403, align 8
   %1404 = getelementptr inbounds i8, ptr %1, i64 320
   %.val965.val968 = load ptr, ptr %1404, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %56, ptr %.val965.val, ptr %.val965.val968, i32 noundef %1402)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %56, ptr %.val965.val, ptr %.val965.val968, i32 noundef %1402)
   %1405 = load i8, ptr %56, align 4
   %1406 = trunc i8 %1405 to i1
   %1407 = getelementptr inbounds i8, ptr %56, i64 4
@@ -5102,7 +5102,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
 1538:                                             ; preds = %1527
   store i32 518, ptr %62, align 4
   %1539 = trunc i64 %1537 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %61, ptr noundef nonnull %62, i8 noundef zeroext 4, i32 noundef %1528, i32 noundef %1539)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %61, ptr noundef %62, i8 noundef zeroext 4, i32 noundef %1528, i32 noundef %1539)
   store i8 0, ptr %0, align 4
   %1540 = getelementptr inbounds i8, ptr %0, i64 4
   %1541 = load i32, ptr %61, align 4
@@ -5158,7 +5158,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
 1581:                                             ; preds = %1568
   store i32 519, ptr %64, align 4
   %1582 = trunc i64 %1580 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %63, ptr noundef nonnull %64, i8 noundef zeroext 5, i32 noundef %1571, i32 noundef %1582)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %63, ptr noundef %64, i8 noundef zeroext 5, i32 noundef %1571, i32 noundef %1582)
   store i8 0, ptr %0, align 4
   %1583 = getelementptr inbounds i8, ptr %0, i64 4
   %1584 = load i32, ptr %63, align 4
@@ -5186,7 +5186,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val928.val = load ptr, ptr %1, align 8
   %1591 = getelementptr inbounds i8, ptr %1, i64 8
   %.val928.val955 = load ptr, ptr %1591, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr %.val928.val, ptr %.val928.val955, i32 noundef %1569, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %66, ptr %.val928.val, ptr %.val928.val955, i32 noundef %1569, i8 noundef zeroext 96)
   %1592 = load i8, ptr %66, align 8
   %1593 = trunc i8 %1592 to i1
   br i1 %1593, label %1594, label %1623
@@ -5374,7 +5374,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
 1714:                                             ; preds = %1701
   store i32 519, ptr %72, align 4
   %1715 = trunc i64 %1713 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %71, ptr noundef nonnull %72, i8 noundef zeroext 5, i32 noundef %1704, i32 noundef %1715)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %71, ptr noundef %72, i8 noundef zeroext 5, i32 noundef %1704, i32 noundef %1715)
   store i8 0, ptr %0, align 4
   %1716 = getelementptr inbounds i8, ptr %0, i64 4
   %1717 = load i32, ptr %71, align 4
@@ -5402,7 +5402,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val929.val = load ptr, ptr %1, align 8
   %1724 = getelementptr inbounds i8, ptr %1, i64 8
   %.val929.val954 = load ptr, ptr %1724, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr %.val929.val, ptr %.val929.val954, i32 noundef %1702, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %74, ptr %.val929.val, ptr %.val929.val954, i32 noundef %1702, i8 noundef zeroext 96)
   %1725 = load i8, ptr %74, align 8
   %1726 = trunc i8 %1725 to i1
   %1727 = getelementptr inbounds i8, ptr %74, i64 8
@@ -5510,7 +5510,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val930.val = load ptr, ptr %1, align 8
   %1786 = getelementptr inbounds i8, ptr %1, i64 8
   %.val930.val953 = load ptr, ptr %1786, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %77, ptr %.val930.val, ptr %.val930.val953, i32 noundef %1785, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %77, ptr %.val930.val, ptr %.val930.val953, i32 noundef %1785, i8 noundef zeroext 96)
   %1787 = load i8, ptr %77, align 8
   %1788 = trunc i8 %1787 to i1
   %1789 = getelementptr inbounds i8, ptr %77, i64 8
@@ -5597,7 +5597,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val931.val = load ptr, ptr %1, align 8
   %1839 = getelementptr inbounds i8, ptr %1, i64 8
   %.val931.val952 = load ptr, ptr %1839, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %80, ptr %.val931.val, ptr %.val931.val952, i32 noundef %1838, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %80, ptr %.val931.val, ptr %.val931.val952, i32 noundef %1838, i8 noundef zeroext 96)
   %1840 = load i8, ptr %80, align 8
   %1841 = trunc i8 %1840 to i1
   %1842 = getelementptr inbounds i8, ptr %80, i64 8
@@ -6024,7 +6024,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %.val932.val = load ptr, ptr %1, align 8
   %2065 = getelementptr inbounds i8, ptr %1, i64 8
   %.val932.val951 = load ptr, ptr %2065, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %100, ptr %.val932.val, ptr %.val932.val951, i32 noundef %2064, i8 noundef zeroext 95)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %100, ptr %.val932.val, ptr %.val932.val951, i32 noundef %2064, i8 noundef zeroext 95)
   %2066 = load i8, ptr %100, align 8
   %2067 = trunc i8 %2066 to i1
   br i1 %2067, label %2068, label %2134
@@ -6182,7 +6182,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val933.val = load ptr, ptr %1, align 8
   %2140 = getelementptr inbounds i8, ptr %1, i64 8
   %.val933.val950 = load ptr, ptr %2140, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %105, ptr %.val933.val, ptr %.val933.val950, i32 noundef %2139, i8 noundef zeroext 95)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %105, ptr %.val933.val, ptr %.val933.val950, i32 noundef %2139, i8 noundef zeroext 95)
   %2141 = load i8, ptr %105, align 8
   %2142 = trunc i8 %2141 to i1
   br i1 %2142, label %2143, label %2191
@@ -6211,7 +6211,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
 2160:                                             ; preds = %2143
   store i32 516, ptr %107, align 4
   %2161 = trunc i64 %2159 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %106, ptr noundef nonnull %107, i8 noundef zeroext 11, i32 noundef %2145, i32 noundef %2161)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %106, ptr noundef %107, i8 noundef zeroext 11, i32 noundef %2145, i32 noundef %2161)
   store i8 0, ptr %0, align 4
   %2162 = getelementptr inbounds i8, ptr %0, i64 4
   %2163 = load i32, ptr %106, align 4
@@ -6296,7 +6296,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val934.val = load ptr, ptr %1, align 8
   %2197 = getelementptr inbounds i8, ptr %1, i64 8
   %.val934.val949 = load ptr, ptr %2197, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %112, ptr %.val934.val, ptr %.val934.val949, i32 noundef %2196, i8 noundef zeroext 95)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %112, ptr %.val934.val, ptr %.val934.val949, i32 noundef %2196, i8 noundef zeroext 95)
   %2198 = load i8, ptr %112, align 8
   %2199 = trunc i8 %2198 to i1
   br i1 %2199, label %2200, label %2237
@@ -6325,7 +6325,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
 2217:                                             ; preds = %2200
   store i32 516, ptr %114, align 4
   %2218 = trunc i64 %2216 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %113, ptr noundef nonnull %114, i8 noundef zeroext 11, i32 noundef %2202, i32 noundef %2218)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %113, ptr noundef %114, i8 noundef zeroext 11, i32 noundef %2202, i32 noundef %2218)
   store i8 0, ptr %0, align 4
   %2219 = getelementptr inbounds i8, ptr %0, i64 4
   %2220 = load i32, ptr %113, align 4
@@ -6381,7 +6381,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val935.val = load ptr, ptr %1, align 8
   %2243 = getelementptr inbounds i8, ptr %1, i64 8
   %.val935.val948 = load ptr, ptr %2243, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %117, ptr %.val935.val, ptr %.val935.val948, i32 noundef %2242, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %117, ptr %.val935.val, ptr %.val935.val948, i32 noundef %2242, i8 noundef zeroext 94)
   %2244 = load i8, ptr %117, align 8
   %2245 = trunc i8 %2244 to i1
   %2246 = getelementptr inbounds i8, ptr %117, i64 8
@@ -6535,7 +6535,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val936.val = load ptr, ptr %1, align 8
   %2322 = getelementptr inbounds i8, ptr %1, i64 8
   %.val936.val947 = load ptr, ptr %2322, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %127, ptr %.val936.val, ptr %.val936.val947, i32 noundef %2321, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %127, ptr %.val936.val, ptr %.val936.val947, i32 noundef %2321, i8 noundef zeroext 94)
   %2323 = load i8, ptr %127, align 8
   %2324 = trunc i8 %2323 to i1
   %2325 = getelementptr inbounds i8, ptr %127, i64 8
@@ -6601,7 +6601,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
 2357:                                             ; preds = %2345
   store i32 524, ptr %131, align 4
   %2358 = trunc i64 %2356 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %130, ptr noundef nonnull %131, i8 noundef zeroext 9, i32 noundef %2347, i32 noundef %2358)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %130, ptr noundef %131, i8 noundef zeroext 9, i32 noundef %2347, i32 noundef %2358)
   store i8 0, ptr %0, align 4
   %2359 = getelementptr inbounds i8, ptr %0, i64 4
   %2360 = load i32, ptr %130, align 4
@@ -6690,7 +6690,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val937.val = load ptr, ptr %1, align 8
   %2400 = getelementptr inbounds i8, ptr %1, i64 8
   %.val937.val946 = load ptr, ptr %2400, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %135, ptr %.val937.val, ptr %.val937.val946, i32 noundef %2399, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %135, ptr %.val937.val, ptr %.val937.val946, i32 noundef %2399, i8 noundef zeroext 94)
   %2401 = load i8, ptr %135, align 8
   %2402 = trunc i8 %2401 to i1
   %2403 = getelementptr inbounds i8, ptr %135, i64 8
@@ -6751,7 +6751,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
 2432:                                             ; preds = %2420
   store i32 523, ptr %139, align 4
   %2433 = trunc i64 %2431 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %138, ptr noundef nonnull %139, i8 noundef zeroext 8, i32 noundef %2422, i32 noundef %2433)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %138, ptr noundef %139, i8 noundef zeroext 8, i32 noundef %2422, i32 noundef %2433)
   store i8 0, ptr %0, align 4
   %2434 = getelementptr inbounds i8, ptr %0, i64 4
   %2435 = load i32, ptr %138, align 4
@@ -6884,7 +6884,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val938.val = load ptr, ptr %1, align 8
   %2499 = getelementptr inbounds i8, ptr %1, i64 8
   %.val938.val945 = load ptr, ptr %2499, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %145, ptr %.val938.val, ptr %.val938.val945, i32 noundef %2498, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %145, ptr %.val938.val, ptr %.val938.val945, i32 noundef %2498, i8 noundef zeroext 94)
   %2500 = load i8, ptr %145, align 8
   %2501 = trunc i8 %2500 to i1
   %2502 = getelementptr inbounds i8, ptr %145, i64 8
@@ -6962,7 +6962,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val939.val = load ptr, ptr %1, align 8
   %2532 = getelementptr inbounds i8, ptr %1, i64 8
   %.val939.val944 = load ptr, ptr %2532, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %150, ptr %.val939.val, ptr %.val939.val944, i32 noundef %2531, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %150, ptr %.val939.val, ptr %.val939.val944, i32 noundef %2531, i8 noundef zeroext 94)
   %2533 = load i8, ptr %150, align 8
   %2534 = trunc i8 %2533 to i1
   %2535 = getelementptr inbounds i8, ptr %150, i64 8
@@ -7101,7 +7101,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val940.val = load ptr, ptr %1, align 8
   %2605 = getelementptr inbounds i8, ptr %1, i64 8
   %.val940.val943 = load ptr, ptr %2605, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %158, ptr %.val940.val, ptr %.val940.val943, i32 noundef %2604, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %158, ptr %.val940.val, ptr %.val940.val943, i32 noundef %2604, i8 noundef zeroext 94)
   %2606 = load i8, ptr %158, align 8
   %2607 = trunc i8 %2606 to i1
   %2608 = getelementptr inbounds i8, ptr %158, i64 8
@@ -7129,7 +7129,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %2619 = load i32, ptr %2618, align 4
   %.val941.val = load ptr, ptr %1, align 8
   %.val941.val942 = load ptr, ptr %2605, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr %.val941.val, ptr %.val941.val942, i32 noundef %2619, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %160, ptr %.val941.val, ptr %.val941.val942, i32 noundef %2619, i8 noundef zeroext 94)
   %2620 = load i8, ptr %160, align 8
   %2621 = trunc i8 %2620 to i1
   %2622 = getelementptr inbounds i8, ptr %160, i64 8
@@ -7448,7 +7448,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val966.val = load ptr, ptr %2772, align 8
   %2773 = getelementptr inbounds i8, ptr %1, i64 320
   %.val966.val967 = load ptr, ptr %2773, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nonnull writable align 4 %177, ptr %.val966.val, ptr %.val966.val967, i32 noundef %2771)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %177, ptr %.val966.val, ptr %.val966.val967, i32 noundef %2771)
   %2774 = load i8, ptr %177, align 4
   %2775 = trunc i8 %2774 to i1
   %2776 = getelementptr inbounds i8, ptr %177, i64 4
@@ -8089,7 +8089,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 3060:                                             ; preds = %3049
   store i32 515, ptr %206, align 4
   %3061 = trunc i64 %3059 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %205, ptr noundef nonnull %206, i8 noundef zeroext 1, i32 noundef %3050, i32 noundef %3061)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %205, ptr noundef %206, i8 noundef zeroext 1, i32 noundef %3050, i32 noundef %3061)
   store i8 0, ptr %0, align 4
   %3062 = getelementptr inbounds i8, ptr %0, i64 4
   %3063 = load i32, ptr %205, align 4
@@ -8229,7 +8229,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %.pre-phi35923600 = phi i64 [ %.pre3591, %.thread ], [ %3110, %3117 ]
   store i32 521, ptr %216, align 4
   %3122 = trunc i64 %.pre-phi35923600 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %215, ptr noundef nonnull %216, i8 noundef zeroext 7, i32 noundef %3121, i32 noundef %3122)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %215, ptr noundef %216, i8 noundef zeroext 7, i32 noundef %3121, i32 noundef %3122)
   store i8 0, ptr %0, align 4
   %3123 = getelementptr inbounds i8, ptr %0, i64 4
   %3124 = load i32, ptr %215, align 4
@@ -8270,7 +8270,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 3143:                                             ; preds = %3132
   store i32 519, ptr %220, align 4
   %3144 = trunc i64 %3142 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %219, ptr noundef nonnull %220, i8 noundef zeroext 5, i32 noundef %3133, i32 noundef %3144)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %219, ptr noundef %220, i8 noundef zeroext 5, i32 noundef %3133, i32 noundef %3144)
   store i8 0, ptr %0, align 4
   %3145 = getelementptr inbounds i8, ptr %0, i64 4
   %3146 = load i32, ptr %219, align 4
@@ -8389,7 +8389,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 3197:                                             ; preds = %3185
   store i32 523, ptr %229, align 4
   %3198 = trunc i64 %3196 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %228, ptr noundef nonnull %229, i8 noundef zeroext 8, i32 noundef %3187, i32 noundef %3198)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %228, ptr noundef %229, i8 noundef zeroext 8, i32 noundef %3187, i32 noundef %3198)
   store i8 0, ptr %0, align 4
   %3199 = getelementptr inbounds i8, ptr %0, i64 4
   %3200 = load i32, ptr %228, align 4
@@ -8484,7 +8484,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 3247:                                             ; preds = %3242
   store i32 519, ptr %234, align 4
   %3248 = trunc i64 %3142 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %233, ptr noundef nonnull %234, i8 noundef zeroext 5, i32 noundef %3245, i32 noundef %3248)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %233, ptr noundef %234, i8 noundef zeroext 5, i32 noundef %3245, i32 noundef %3248)
   store i8 0, ptr %0, align 4
   %3249 = getelementptr inbounds i8, ptr %0, i64 4
   %3250 = load i32, ptr %233, align 4
@@ -8583,7 +8583,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 3302:                                             ; preds = %3291
   store i32 523, ptr %239, align 4
   %3303 = trunc i64 %3301 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %238, ptr noundef nonnull %239, i8 noundef zeroext 8, i32 noundef %3292, i32 noundef %3303)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %238, ptr noundef %239, i8 noundef zeroext 8, i32 noundef %3292, i32 noundef %3303)
   store i8 0, ptr %0, align 4
   %3304 = getelementptr inbounds i8, ptr %0, i64 4
   %3305 = load i32, ptr %238, align 4
@@ -8997,7 +8997,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 
 3487:                                             ; preds = %3483
   store i32 520, ptr %271, align 4
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %270, ptr noundef nonnull %271, i8 noundef zeroext 6, i32 noundef %3484, i32 noundef %3486)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %270, ptr noundef %271, i8 noundef zeroext 6, i32 noundef %3484, i32 noundef %3486)
   store i8 0, ptr %0, align 4
   %3488 = getelementptr inbounds i8, ptr %0, i64 4
   %3489 = load i32, ptr %270, align 4
@@ -9022,7 +9022,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 3502:                                             ; preds = %3490
   store i32 524, ptr %273, align 4
   %3503 = trunc i64 %3501 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %272, ptr noundef nonnull %273, i8 noundef zeroext 9, i32 noundef %3492, i32 noundef %3503)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %272, ptr noundef %273, i8 noundef zeroext 9, i32 noundef %3492, i32 noundef %3503)
   store i8 0, ptr %0, align 4
   %3504 = getelementptr inbounds i8, ptr %0, i64 4
   %3505 = load i32, ptr %272, align 4
@@ -9067,7 +9067,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 
 3524:                                             ; preds = %3519
   store i32 520, ptr %276, align 4
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %275, ptr noundef nonnull %276, i8 noundef zeroext 6, i32 noundef %3521, i32 noundef %3523)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %275, ptr noundef %276, i8 noundef zeroext 6, i32 noundef %3521, i32 noundef %3523)
   store i8 0, ptr %0, align 4
   %3525 = getelementptr inbounds i8, ptr %0, i64 4
   %3526 = load i32, ptr %275, align 4
@@ -9120,7 +9120,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 3551:                                             ; preds = %3540
   store i32 524, ptr %279, align 4
   %3552 = trunc i64 %3550 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nonnull writable align 4 %278, ptr noundef nonnull %279, i8 noundef zeroext 9, i32 noundef %3541, i32 noundef %3552)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %278, ptr noundef %279, i8 noundef zeroext 9, i32 noundef %3541, i32 noundef %3552)
   store i8 0, ptr %0, align 4
   %3553 = getelementptr inbounds i8, ptr %0, i64 4
   %3554 = load i32, ptr %278, align 4
@@ -13090,7 +13090,7 @@ _ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit: ; preds = %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_0clERSt6vectorINS_7ValTypeESaIS8_EERKNS_9BlockTypeE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_0clERSt6vectorINS_7ValTypeESaIS8_EERKNS_9BlockTypeE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected", align 4
   %5 = alloca %"class.WasmEdge::ValType", align 8
   %6 = alloca %"class.cxx20::expected.158", align 8
@@ -13148,7 +13148,7 @@ define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrER
   %.val.val = load ptr, ptr %.8.val, align 8
   %30 = getelementptr i8, ptr %.8.val, i64 8
   %.val.val10 = load ptr, ptr %30, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.val, ptr %.val.val10, i32 noundef %29, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val.val, ptr %.val.val10, i32 noundef %29, i8 noundef zeroext 96)
   %31 = load i8, ptr %6, align 8
   %32 = trunc i8 %31 to i1
   %33 = getelementptr inbounds i8, ptr %6, i64 8
@@ -13436,7 +13436,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker8popTypesEN5cxx204spanIKNS_7ValT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 14) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.WasmEdge::ErrInfo::InfoForbidIndex", align 4
@@ -13462,7 +13462,7 @@ define internal fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRange
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val.312.val, ptr %.0.val.320.val, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr %.0.val.312.val, ptr %.0.val.320.val, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.WasmEdge::ErrInfo::InfoForbidIndex", align 4
@@ -14399,7 +14399,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit25: ; preds = %95, %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val.0.val, ptr %.0.val.8.val, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val.0.val, ptr %.0.val.8.val, i32 noundef %1, i8 noundef zeroext range(i8 94, 97) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -15401,7 +15401,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker11StackPopAnyEv(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 8, 129) %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.119", align 4
   %8 = alloca %"struct.spdlog::source_loc", align 8
   %9 = alloca %"struct.spdlog::source_loc", align 8
@@ -15568,13 +15568,15 @@ _ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit:      ; preds = %_ZNSt6vectorIN8Wasm
 
 84:                                               ; preds = %83
   %85 = getelementptr inbounds i8, ptr %1, i64 8
-  %86 = udiv i32 128, %2
+  %.rhs.trunc = trunc nuw i32 %2 to i8
+  %86 = udiv i8 -128, %.rhs.trunc
+  %.zext = zext nneg i8 %86 to i32
   %.val = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %1, i64 16
   %.val6 = load ptr, ptr %87, align 8
   %88 = getelementptr i8, ptr %.val6, i64 12
   %.val6.val = load i8, ptr %88, align 4
-  tail call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr %.val, i8 %.val6.val, i32 noundef %86, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val)
+  tail call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr %.val, i8 %.val6.val, i32 noundef %.zext, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val)
   br label %_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_.exit
 
 89:                                               ; preds = %83
@@ -15691,7 +15693,7 @@ _ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm1844
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture %.0.val, i8 %.8.val.12.val, i32 noundef %1, ptr readonly %2, i64 %3, ptr %.0.val1, i64 %.8.val3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture %.0.val, i8 %.8.val.12.val, i32 noundef range(i32 1, 17) %1, ptr readonly %2, i64 %3, ptr %.0.val1, i64 %.8.val3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.119", align 4
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8

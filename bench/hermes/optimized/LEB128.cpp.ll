@@ -299,16 +299,16 @@ entry:
 
 if.then:                                          ; preds = %entry, %if.then
   %add15 = phi i64 [ %add, %if.then ], [ 1, %entry ]
-  %input.addr.014 = phi i32 [ %bf.ashr.i, %if.then ], [ %input, %entry ]
+  %input.addr.014 = phi i32 [ %shr, %if.then ], [ %input, %entry ]
   %i.013 = phi i64 [ %add15, %if.then ], [ 0, %entry ]
   %1 = trunc i32 %input.addr.014 to i8
   %conv5 = or i8 %1, -128
   %arrayidx = getelementptr inbounds [5 x i8], ptr %buf, i64 0, i64 %i.013
   store i8 %conv5, ptr %arrayidx, align 1
-  %bf.ashr.i = ashr i32 %input.addr.014, 7
+  %shr = ashr i32 %input.addr.014, 7
   %cmp = icmp ult i64 %add15, 5
   tail call void @llvm.assume(i1 %cmp)
-  %2 = add nsw i32 %bf.ashr.i, -64
+  %2 = add nsw i32 %shr, -64
   %cmp2.not = icmp ult i32 %2, -128
   %add = add nuw nsw i64 %add15, 1
   %cmp3 = icmp ult i64 %add, %minBytes
@@ -317,7 +317,7 @@ if.then:                                          ; preds = %entry, %if.then
 
 if.else:                                          ; preds = %if.then, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %add15, %if.then ]
-  %input.addr.0.lcssa = phi i32 [ %input, %entry ], [ %bf.ashr.i, %if.then ]
+  %input.addr.0.lcssa = phi i32 [ %input, %entry ], [ %shr, %if.then ]
   %add.lcssa = phi i64 [ 1, %entry ], [ %add, %if.then ]
   %3 = trunc i32 %input.addr.0.lcssa to i8
   %conv8 = and i8 %3, 127

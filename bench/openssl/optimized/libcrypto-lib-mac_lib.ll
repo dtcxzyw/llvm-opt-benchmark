@@ -305,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_mac_final(ptr noundef readonly %ctx, i32 noundef %xof, ptr noundef %out, ptr noundef writeonly %outl, i64 noundef %outsize) unnamed_addr #0 {
+define internal fastcc i32 @evp_mac_final(ptr noundef readonly %ctx, i32 noundef range(i32 0, 2) %xof, ptr noundef %out, ptr noundef writeonly %outl, i64 noundef %outsize) unnamed_addr #0 {
 entry:
   %sz.i.i = alloca i64, align 8
   %params.i.i = alloca [2 x %struct.ossl_param_st], align 16

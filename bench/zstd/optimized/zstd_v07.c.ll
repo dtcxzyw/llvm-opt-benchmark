@@ -2053,7 +2053,7 @@ if.end:                                           ; preds = %BITv07_initDStream.
   %conv = and i32 %dtd.sroa.1.0.extract.shift, 255
   %add.ptr1 = getelementptr inbounds i8, ptr %DTable, i64 4
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %dstSize
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %dst, ptr noundef nonnull %bitD, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv)
+  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %dst, ptr noundef %bitD, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv)
   %ptr.i5 = getelementptr inbounds i8, ptr %bitD, i64 16
   %19 = load ptr, ptr %ptr.i5, align 8
   %20 = load ptr, ptr %start.i, align 8
@@ -2521,17 +2521,17 @@ if.end69.i177:                                    ; preds = %sw.epilog.i174
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end69.i177, %cond.end.i216
-  %call41 = call fastcc i64 @BITv07_initDStream(ptr noundef nonnull %bitD4, ptr noundef nonnull %add.ptr13, i64 noundef %sub)
+  %call41 = call fastcc i64 @BITv07_initDStream(ptr noundef %bitD4, ptr noundef nonnull %add.ptr13, i64 noundef %sub)
   %cmp.i.i227 = icmp ult i64 %call41, -119
   br i1 %cmp.i.i227, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.end39
-  %call46 = call fastcc i32 @BITv07_reloadDStream(ptr noundef nonnull %bitD1)
-  %call47 = call fastcc i32 @BITv07_reloadDStream(ptr noundef nonnull %bitD2)
+  %call46 = call fastcc i32 @BITv07_reloadDStream(ptr noundef %bitD1)
+  %call47 = call fastcc i32 @BITv07_reloadDStream(ptr noundef %bitD2)
   %or = or i32 %call47, %call46
-  %call48 = call fastcc i32 @BITv07_reloadDStream(ptr noundef nonnull %bitD3)
+  %call48 = call fastcc i32 @BITv07_reloadDStream(ptr noundef %bitD3)
   %or49 = or i32 %or, %call48
-  %call50 = call fastcc i32 @BITv07_reloadDStream(ptr noundef nonnull %bitD4)
+  %call50 = call fastcc i32 @BITv07_reloadDStream(ptr noundef %bitD4)
   %or51 = or i32 %or49, %call50
   %add.ptr54 = getelementptr inbounds i8, ptr %add.ptr, i64 -7
   %bitD1.promoted = load i64, ptr %bitD1, align 8
@@ -3020,10 +3020,10 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   br i1 %or.cond96, label %return, label %if.end157
 
 if.end157:                                        ; preds = %for.end
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op1.0.lcssa, ptr noundef nonnull %bitD1, ptr noundef %add.ptr15, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op2.0.lcssa, ptr noundef nonnull %bitD2, ptr noundef %add.ptr16, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op3.0.lcssa, ptr noundef nonnull %bitD3, ptr noundef %add.ptr17, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op4.0.lcssa, ptr noundef nonnull %bitD4, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op1.0.lcssa, ptr noundef %bitD1, ptr noundef %add.ptr15, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op2.0.lcssa, ptr noundef %bitD2, ptr noundef %add.ptr16, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op3.0.lcssa, ptr noundef %bitD3, ptr noundef %add.ptr17, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op4.0.lcssa, ptr noundef %bitD4, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
   %ptr.i550 = getelementptr inbounds i8, ptr %bitD1, i64 16
   %96 = load ptr, ptr %ptr.i550, align 8
   %97 = load ptr, ptr %start.i, align 8
@@ -3593,7 +3593,7 @@ if.end:                                           ; preds = %BITv07_initDStream.
   %DTable.val = load i32, ptr %DTable, align 4
   %dtd.sroa.1.0.extract.shift = lshr i32 %DTable.val, 16
   %conv = and i32 %dtd.sroa.1.0.extract.shift, 255
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %dst, ptr noundef nonnull %bitD, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef %conv)
+  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %dst, ptr noundef %bitD, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef %conv)
   %ptr.i5 = getelementptr inbounds i8, ptr %bitD, i64 16
   %19 = load ptr, ptr %ptr.i5, align 8
   %20 = load ptr, ptr %start.i, align 8
@@ -4061,17 +4061,17 @@ if.end69.i192:                                    ; preds = %sw.epilog.i189
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end69.i192, %cond.end.i231
-  %call41 = call fastcc i64 @BITv07_initDStream(ptr noundef nonnull %bitD4, ptr noundef nonnull %add.ptr13, i64 noundef %sub)
+  %call41 = call fastcc i64 @BITv07_initDStream(ptr noundef %bitD4, ptr noundef nonnull %add.ptr13, i64 noundef %sub)
   %cmp.i.i242 = icmp ult i64 %call41, -119
   br i1 %cmp.i.i242, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.end39
-  %call46 = call fastcc i32 @BITv07_reloadDStream(ptr noundef nonnull %bitD1)
-  %call47 = call fastcc i32 @BITv07_reloadDStream(ptr noundef nonnull %bitD2)
+  %call46 = call fastcc i32 @BITv07_reloadDStream(ptr noundef %bitD1)
+  %call47 = call fastcc i32 @BITv07_reloadDStream(ptr noundef %bitD2)
   %or = or i32 %call47, %call46
-  %call48 = call fastcc i32 @BITv07_reloadDStream(ptr noundef nonnull %bitD3)
+  %call48 = call fastcc i32 @BITv07_reloadDStream(ptr noundef %bitD3)
   %or49 = or i32 %or, %call48
-  %call50 = call fastcc i32 @BITv07_reloadDStream(ptr noundef nonnull %bitD4)
+  %call50 = call fastcc i32 @BITv07_reloadDStream(ptr noundef %bitD4)
   %or51 = or i32 %or49, %call50
   %add.ptr54 = getelementptr inbounds i8, ptr %add.ptr, i64 -7
   %bitD1.promoted = load i64, ptr %bitD1, align 8
@@ -4608,10 +4608,10 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   br i1 %or.cond111, label %return, label %if.end173
 
 if.end173:                                        ; preds = %for.end
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op1.0.lcssa, ptr noundef nonnull %bitD1, ptr noundef %add.ptr15, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op2.0.lcssa, ptr noundef nonnull %bitD2, ptr noundef %add.ptr16, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op3.0.lcssa, ptr noundef nonnull %bitD3, ptr noundef %add.ptr17, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op4.0.lcssa, ptr noundef nonnull %bitD4, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op1.0.lcssa, ptr noundef %bitD1, ptr noundef %add.ptr15, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op2.0.lcssa, ptr noundef %bitD2, ptr noundef %add.ptr16, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op3.0.lcssa, ptr noundef %bitD3, ptr noundef %add.ptr17, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op4.0.lcssa, ptr noundef %bitD4, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
   %ptr.i595 = getelementptr inbounds i8, ptr %bitD1, i64 16
   %112 = load ptr, ptr %ptr.i595, align 8
   %113 = load ptr, ptr %start.i, align 8
@@ -5485,9 +5485,9 @@ define internal fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef %dctx, 
 entry:
   %symbolNext.i.i = alloca [256 x i16], align 16
   %symbolNext.i.i.i = alloca [256 x i16], align 16
-  %max.addr.i70.i.i = alloca i32, align 4
-  %tableLog.i71.i.i = alloca i32, align 4
-  %norm.i72.i.i = alloca [53 x i16], align 16
+  %max.addr.i71.i.i = alloca i32, align 4
+  %tableLog.i72.i.i = alloca i32, align 4
+  %norm.i73.i.i = alloca [53 x i16], align 16
   %max.addr.i41.i.i = alloca i32, align 4
   %tableLog.i42.i.i = alloca i32, align 4
   %norm.i43.i.i = alloca [53 x i16], align 16
@@ -5924,7 +5924,7 @@ if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
   store i8 %30, ptr %symbol.i.i.i.i, align 2
   %nbBits.i.i.i.i = getelementptr inbounds i8, ptr %dctx, i64 7
   store i8 0, ptr %nbBits.i.i.i.i, align 1
-  br label %ZSTDv07_buildSeqTable.exit.thread106.i.i
+  br label %ZSTDv07_buildSeqTable.exit.thread108.i.i
 
 sw.bb4.i.i.i:                                     ; preds = %if.end29.i.i
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %symbolNext.i.i.i)
@@ -6040,7 +6040,7 @@ for.body71.i.i.i:                                 ; preds = %for.end63.i.i.i, %f
 
 FSEv07_buildDTable.exit.i.i:                      ; preds = %for.body71.i.i.i, %for.end63.i.i.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %symbolNext.i.i.i)
-  br label %ZSTDv07_buildSeqTable.exit.thread106.i.i
+  br label %ZSTDv07_buildSeqTable.exit.thread108.i.i
 
 sw.bb10.i.i.i:                                    ; preds = %if.end29.i.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr36.i.i to i64
@@ -6057,7 +6057,7 @@ if.end15.i.i.i:                                   ; preds = %sw.bb10.i.i.i
 if.end19.i.i.i:                                   ; preds = %if.end15.i.i.i
   %39 = load i32, ptr %max.addr.i.i.i, align 4
   %call21.i.i.i = call i64 @FSEv07_buildDTable(ptr noundef nonnull %dctx, ptr noundef nonnull %norm.i.i.i, i32 noundef %39, i32 noundef %38)
-  br label %ZSTDv07_buildSeqTable.exit.thread106.i.i
+  br label %ZSTDv07_buildSeqTable.exit.thread108.i.i
 
 ZSTDv07_buildSeqTable.exit.thread.i.i:            ; preds = %if.end15.i.i.i, %sw.bb10.i.i.i, %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i.i.i)
@@ -6065,7 +6065,7 @@ ZSTDv07_buildSeqTable.exit.thread.i.i:            ; preds = %if.end15.i.i.i, %sw
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i.i.i)
   br label %ZSTDv07_decompressSequences.exit
 
-ZSTDv07_buildSeqTable.exit.thread106.i.i:         ; preds = %if.end19.i.i.i, %FSEv07_buildDTable.exit.i.i, %if.end3.i.i.i
+ZSTDv07_buildSeqTable.exit.thread108.i.i:         ; preds = %if.end19.i.i.i, %FSEv07_buildDTable.exit.i.i, %if.end3.i.i.i
   %retval.0.i.ph.i.i = phi i64 [ 1, %if.end3.i.i.i ], [ 0, %FSEv07_buildDTable.exit.i.i ], [ %call11.i.i.i, %if.end19.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i.i.i)
@@ -6079,52 +6079,52 @@ ZSTDv07_buildSeqTable.exit.i.i:                   ; preds = %if.end29.i.i
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i.i.i)
   br i1 %tobool7.not.i.not.i.i, label %ZSTDv07_decompressSequences.exit, label %if.end41.i.i
 
-if.end41.i.i:                                     ; preds = %ZSTDv07_buildSeqTable.exit.i.i, %ZSTDv07_buildSeqTable.exit.thread106.i.i
-  %retval.0.i111.i.i = phi i64 [ %retval.0.i.ph.i.i, %ZSTDv07_buildSeqTable.exit.thread106.i.i ], [ 0, %ZSTDv07_buildSeqTable.exit.i.i ]
+if.end41.i.i:                                     ; preds = %ZSTDv07_buildSeqTable.exit.i.i, %ZSTDv07_buildSeqTable.exit.thread108.i.i
+  %retval.0.i113.i.i = phi i64 [ %retval.0.i.ph.i.i, %ZSTDv07_buildSeqTable.exit.thread108.i.i ], [ 0, %ZSTDv07_buildSeqTable.exit.i.i ]
   %shr32.i.i = lshr i32 %conv30.i.i, 4
   %and.i.i = and i32 %shr32.i.i, 3
-  %add.ptr42.i.i = getelementptr inbounds i8, ptr %incdec.ptr36.i.i, i64 %retval.0.i111.i.i
+  %add.ptr42.i.i = getelementptr inbounds i8, ptr %incdec.ptr36.i.i, i64 %retval.0.i113.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.addr.i41.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i42.i.i)
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %norm.i43.i.i)
   store i32 28, ptr %max.addr.i41.i.i, align 4
   switch i32 %and.i.i, label %default.unreachable [
-    i32 1, label %sw.bb.i50.i.i
-    i32 0, label %sw.bb4.i48.i.i
-    i32 2, label %ZSTDv07_buildSeqTable.exit67.i.i
-    i32 3, label %sw.bb10.i60.i.i
+    i32 1, label %sw.bb.i57.i.i
+    i32 0, label %sw.bb4.i55.i.i
+    i32 2, label %ZSTDv07_buildSeqTable.exit68.i.i
+    i32 3, label %sw.bb10.i44.i.i
   ]
 
-sw.bb.i50.i.i:                                    ; preds = %if.end41.i.i
-  %tobool.not.i51.i.i = icmp eq ptr %add.ptr.i.i, %add.ptr42.i.i
-  br i1 %tobool.not.i51.i.i, label %ZSTDv07_buildSeqTable.exit67.thread.i.i, label %if.end.i52.i.i
+sw.bb.i57.i.i:                                    ; preds = %if.end41.i.i
+  %tobool.not.i58.i.i = icmp eq ptr %add.ptr.i.i, %add.ptr42.i.i
+  br i1 %tobool.not.i58.i.i, label %ZSTDv07_buildSeqTable.exit68.thread.i.i, label %if.end.i59.i.i
 
-if.end.i52.i.i:                                   ; preds = %sw.bb.i50.i.i
+if.end.i59.i.i:                                   ; preds = %sw.bb.i57.i.i
   %40 = load i8, ptr %add.ptr42.i.i, align 1
-  %cmp.i54.i.i = icmp ugt i8 %40, 28
-  br i1 %cmp.i54.i.i, label %ZSTDv07_buildSeqTable.exit67.thread.i.i, label %if.end3.i55.i.i
+  %cmp.i61.i.i = icmp ugt i8 %40, 28
+  br i1 %cmp.i61.i.i, label %ZSTDv07_buildSeqTable.exit68.thread.i.i, label %if.end3.i62.i.i
 
-if.end3.i55.i.i:                                  ; preds = %if.end.i52.i.i
-  %add.ptr.i.i56.i.i = getelementptr inbounds i8, ptr %dctx, i64 2056
+if.end3.i62.i.i:                                  ; preds = %if.end.i59.i.i
+  %add.ptr.i.i63.i.i = getelementptr inbounds i8, ptr %dctx, i64 2056
   store i16 0, ptr %OffTable.i, align 2
-  %fastMode.i.i57.i.i = getelementptr inbounds i8, ptr %dctx, i64 2054
-  store i16 0, ptr %fastMode.i.i57.i.i, align 2
-  store i16 0, ptr %add.ptr.i.i56.i.i, align 2
-  %symbol.i.i58.i.i = getelementptr inbounds i8, ptr %dctx, i64 2058
-  store i8 %40, ptr %symbol.i.i58.i.i, align 2
-  %nbBits.i.i59.i.i = getelementptr inbounds i8, ptr %dctx, i64 2059
-  store i8 0, ptr %nbBits.i.i59.i.i, align 1
-  br label %ZSTDv07_buildSeqTable.exit67.thread117.i.i
+  %fastMode.i.i64.i.i = getelementptr inbounds i8, ptr %dctx, i64 2054
+  store i16 0, ptr %fastMode.i.i64.i.i, align 2
+  store i16 0, ptr %add.ptr.i.i63.i.i, align 2
+  %symbol.i.i65.i.i = getelementptr inbounds i8, ptr %dctx, i64 2058
+  store i8 %40, ptr %symbol.i.i65.i.i, align 2
+  %nbBits.i.i66.i.i = getelementptr inbounds i8, ptr %dctx, i64 2059
+  store i8 0, ptr %nbBits.i.i66.i.i, align 1
+  br label %ZSTDv07_buildSeqTable.exit68.thread119.i.i
 
-sw.bb4.i48.i.i:                                   ; preds = %if.end41.i.i
+sw.bb4.i55.i.i:                                   ; preds = %if.end41.i.i
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %symbolNext.i.i)
   %add.ptr.i244.i = getelementptr inbounds i8, ptr %dctx, i64 2056
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %sw.bb4.i48.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %sw.bb4.i48.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %highThreshold.048.i.i = phi i32 [ 31, %sw.bb4.i48.i.i ], [ %highThreshold.1.i.i, %for.inc.i.i ]
-  %DTableH.sroa.2.047.i.i = phi i16 [ 1, %sw.bb4.i48.i.i ], [ %DTableH.sroa.2.2.i.i, %for.inc.i.i ]
+for.body.i.i:                                     ; preds = %for.inc.i.i, %sw.bb4.i55.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %sw.bb4.i55.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
+  %highThreshold.048.i.i = phi i32 [ 31, %sw.bb4.i55.i.i ], [ %highThreshold.1.i.i, %for.inc.i.i ]
+  %DTableH.sroa.2.047.i.i = phi i16 [ 1, %sw.bb4.i55.i.i ], [ %DTableH.sroa.2.2.i.i, %for.inc.i.i ]
   %arrayidx.i246.i = getelementptr inbounds i16, ptr @OF_defaultNorm, i64 %indvars.iv.i.i
   %41 = load i16, ptr %arrayidx.i246.i, align 2
   %cmp11.i.i = icmp eq i16 %41, -1
@@ -6230,124 +6230,124 @@ for.body71.i.i:                                   ; preds = %for.end63.i.i, %for
 
 FSEv07_buildDTable.exit.i:                        ; preds = %for.body71.i.i, %for.end63.i.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %symbolNext.i.i)
-  br label %ZSTDv07_buildSeqTable.exit67.thread117.i.i
+  br label %ZSTDv07_buildSeqTable.exit68.thread119.i.i
 
-sw.bb10.i60.i.i:                                  ; preds = %if.end41.i.i
+sw.bb10.i44.i.i:                                  ; preds = %if.end41.i.i
   %sub.ptr.rhs.cast44.i.i = ptrtoint ptr %add.ptr42.i.i to i64
   %sub.ptr.sub45.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast44.i.i
-  %call11.i61.i.i = call i64 @FSEv07_readNCount(ptr noundef nonnull %norm.i43.i.i, ptr noundef nonnull %max.addr.i41.i.i, ptr noundef nonnull %tableLog.i42.i.i, ptr noundef nonnull %add.ptr42.i.i, i64 noundef %sub.ptr.sub45.i.i)
-  %cmp.i.i62.i.i = icmp ult i64 %call11.i61.i.i, -119
-  br i1 %cmp.i.i62.i.i, label %if.end15.i63.i.i, label %ZSTDv07_buildSeqTable.exit67.thread.i.i
+  %call11.i45.i.i = call i64 @FSEv07_readNCount(ptr noundef nonnull %norm.i43.i.i, ptr noundef nonnull %max.addr.i41.i.i, ptr noundef nonnull %tableLog.i42.i.i, ptr noundef nonnull %add.ptr42.i.i, i64 noundef %sub.ptr.sub45.i.i)
+  %cmp.i.i46.i.i = icmp ult i64 %call11.i45.i.i, -119
+  br i1 %cmp.i.i46.i.i, label %if.end15.i48.i.i, label %ZSTDv07_buildSeqTable.exit68.thread.i.i
 
-if.end15.i63.i.i:                                 ; preds = %sw.bb10.i60.i.i
+if.end15.i48.i.i:                                 ; preds = %sw.bb10.i44.i.i
   %48 = load i32, ptr %tableLog.i42.i.i, align 4
-  %cmp16.i64.i.i = icmp ugt i32 %48, 8
-  br i1 %cmp16.i64.i.i, label %ZSTDv07_buildSeqTable.exit67.thread.i.i, label %if.end19.i65.i.i
+  %cmp16.i49.i.i = icmp ugt i32 %48, 8
+  br i1 %cmp16.i49.i.i, label %ZSTDv07_buildSeqTable.exit68.thread.i.i, label %if.end19.i50.i.i
 
-if.end19.i65.i.i:                                 ; preds = %if.end15.i63.i.i
+if.end19.i50.i.i:                                 ; preds = %if.end15.i48.i.i
   %49 = load i32, ptr %max.addr.i41.i.i, align 4
-  %call21.i66.i.i = call i64 @FSEv07_buildDTable(ptr noundef nonnull %OffTable.i, ptr noundef nonnull %norm.i43.i.i, i32 noundef %49, i32 noundef %48)
-  br label %ZSTDv07_buildSeqTable.exit67.thread117.i.i
+  %call21.i51.i.i = call i64 @FSEv07_buildDTable(ptr noundef nonnull %OffTable.i, ptr noundef nonnull %norm.i43.i.i, i32 noundef %49, i32 noundef %48)
+  br label %ZSTDv07_buildSeqTable.exit68.thread119.i.i
 
-ZSTDv07_buildSeqTable.exit67.thread.i.i:          ; preds = %if.end15.i63.i.i, %sw.bb10.i60.i.i, %if.end.i52.i.i, %sw.bb.i50.i.i
+ZSTDv07_buildSeqTable.exit68.thread.i.i:          ; preds = %if.end15.i48.i.i, %sw.bb10.i44.i.i, %if.end.i59.i.i, %sw.bb.i57.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i41.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i42.i.i)
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i43.i.i)
   br label %ZSTDv07_decompressSequences.exit
 
-ZSTDv07_buildSeqTable.exit67.thread117.i.i:       ; preds = %if.end19.i65.i.i, %FSEv07_buildDTable.exit.i, %if.end3.i55.i.i
-  %retval.0.i47.ph.i.i = phi i64 [ 1, %if.end3.i55.i.i ], [ 0, %FSEv07_buildDTable.exit.i ], [ %call11.i61.i.i, %if.end19.i65.i.i ]
+ZSTDv07_buildSeqTable.exit68.thread119.i.i:       ; preds = %if.end19.i50.i.i, %FSEv07_buildDTable.exit.i, %if.end3.i62.i.i
+  %retval.0.i47.ph.i.i = phi i64 [ 1, %if.end3.i62.i.i ], [ 0, %FSEv07_buildDTable.exit.i ], [ %call11.i45.i.i, %if.end19.i50.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i41.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i42.i.i)
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i43.i.i)
   br label %if.end50.i.i
 
-ZSTDv07_buildSeqTable.exit67.i.i:                 ; preds = %if.end41.i.i
-  %tobool7.not.i45.not.i.i = icmp eq i32 %26, 0
+ZSTDv07_buildSeqTable.exit68.i.i:                 ; preds = %if.end41.i.i
+  %tobool7.not.i53.not.i.i = icmp eq i32 %26, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i41.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i42.i.i)
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i43.i.i)
-  br i1 %tobool7.not.i45.not.i.i, label %ZSTDv07_decompressSequences.exit, label %if.end50.i.i
+  br i1 %tobool7.not.i53.not.i.i, label %ZSTDv07_decompressSequences.exit, label %if.end50.i.i
 
-if.end50.i.i:                                     ; preds = %ZSTDv07_buildSeqTable.exit67.i.i, %ZSTDv07_buildSeqTable.exit67.thread117.i.i
-  %retval.0.i47122.i.i = phi i64 [ %retval.0.i47.ph.i.i, %ZSTDv07_buildSeqTable.exit67.thread117.i.i ], [ 0, %ZSTDv07_buildSeqTable.exit67.i.i ]
-  %add.ptr51.i.i = getelementptr inbounds i8, ptr %add.ptr42.i.i, i64 %retval.0.i47122.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.addr.i70.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i71.i.i)
-  call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %norm.i72.i.i)
-  store i32 52, ptr %max.addr.i70.i.i, align 4
+if.end50.i.i:                                     ; preds = %ZSTDv07_buildSeqTable.exit68.i.i, %ZSTDv07_buildSeqTable.exit68.thread119.i.i
+  %retval.0.i47124.i.i = phi i64 [ %retval.0.i47.ph.i.i, %ZSTDv07_buildSeqTable.exit68.thread119.i.i ], [ 0, %ZSTDv07_buildSeqTable.exit68.i.i ]
+  %add.ptr51.i.i = getelementptr inbounds i8, ptr %add.ptr42.i.i, i64 %retval.0.i47124.i.i
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.addr.i71.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i72.i.i)
+  call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %norm.i73.i.i)
+  store i32 52, ptr %max.addr.i71.i.i, align 4
   switch i32 %and35.i.i, label %default.unreachable [
-    i32 1, label %sw.bb.i79.i.i
-    i32 0, label %sw.bb4.i77.i.i
-    i32 2, label %ZSTDv07_buildSeqTable.exit96.i.i
-    i32 3, label %sw.bb10.i89.i.i
+    i32 1, label %sw.bb.i87.i.i
+    i32 0, label %sw.bb4.i85.i.i
+    i32 2, label %ZSTDv07_buildSeqTable.exit98.i.i
+    i32 3, label %sw.bb10.i74.i.i
   ]
 
-sw.bb.i79.i.i:                                    ; preds = %if.end50.i.i
-  %tobool.not.i80.i.i = icmp eq ptr %add.ptr.i.i, %add.ptr51.i.i
-  br i1 %tobool.not.i80.i.i, label %ZSTDv07_buildSeqTable.exit96.thread.i.i, label %if.end.i81.i.i
+sw.bb.i87.i.i:                                    ; preds = %if.end50.i.i
+  %tobool.not.i88.i.i = icmp eq ptr %add.ptr.i.i, %add.ptr51.i.i
+  br i1 %tobool.not.i88.i.i, label %ZSTDv07_buildSeqTable.exit98.thread.i.i, label %if.end.i89.i.i
 
-if.end.i81.i.i:                                   ; preds = %sw.bb.i79.i.i
+if.end.i89.i.i:                                   ; preds = %sw.bb.i87.i.i
   %50 = load i8, ptr %add.ptr51.i.i, align 1
-  %cmp.i83.i.i = icmp ugt i8 %50, 52
-  br i1 %cmp.i83.i.i, label %ZSTDv07_buildSeqTable.exit96.thread.i.i, label %if.end3.i84.i.i
+  %cmp.i91.i.i = icmp ugt i8 %50, 52
+  br i1 %cmp.i91.i.i, label %ZSTDv07_buildSeqTable.exit98.thread.i.i, label %if.end3.i92.i.i
 
-if.end3.i84.i.i:                                  ; preds = %if.end.i81.i.i
-  %add.ptr.i.i85.i.i = getelementptr inbounds i8, ptr %dctx, i64 3084
+if.end3.i92.i.i:                                  ; preds = %if.end.i89.i.i
+  %add.ptr.i.i93.i.i = getelementptr inbounds i8, ptr %dctx, i64 3084
   store i16 0, ptr %MLTable.i, align 2
-  %fastMode.i.i86.i.i = getelementptr inbounds i8, ptr %dctx, i64 3082
-  store i16 0, ptr %fastMode.i.i86.i.i, align 2
-  store i16 0, ptr %add.ptr.i.i85.i.i, align 2
-  %symbol.i.i87.i.i = getelementptr inbounds i8, ptr %dctx, i64 3086
-  store i8 %50, ptr %symbol.i.i87.i.i, align 2
-  %nbBits.i.i88.i.i = getelementptr inbounds i8, ptr %dctx, i64 3087
-  store i8 0, ptr %nbBits.i.i88.i.i, align 1
-  br label %ZSTDv07_buildSeqTable.exit96.thread128.i.i
+  %fastMode.i.i94.i.i = getelementptr inbounds i8, ptr %dctx, i64 3082
+  store i16 0, ptr %fastMode.i.i94.i.i, align 2
+  store i16 0, ptr %add.ptr.i.i93.i.i, align 2
+  %symbol.i.i95.i.i = getelementptr inbounds i8, ptr %dctx, i64 3086
+  store i8 %50, ptr %symbol.i.i95.i.i, align 2
+  %nbBits.i.i96.i.i = getelementptr inbounds i8, ptr %dctx, i64 3087
+  store i8 0, ptr %nbBits.i.i96.i.i, align 1
+  br label %ZSTDv07_buildSeqTable.exit98.thread130.i.i
 
-sw.bb4.i77.i.i:                                   ; preds = %if.end50.i.i
-  %call5.i78.i.i = tail call i64 @FSEv07_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull readonly @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
-  br label %ZSTDv07_buildSeqTable.exit96.thread128.i.i
+sw.bb4.i85.i.i:                                   ; preds = %if.end50.i.i
+  %call5.i86.i.i = tail call i64 @FSEv07_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull readonly @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
+  br label %ZSTDv07_buildSeqTable.exit98.thread130.i.i
 
-sw.bb10.i89.i.i:                                  ; preds = %if.end50.i.i
+sw.bb10.i74.i.i:                                  ; preds = %if.end50.i.i
   %sub.ptr.rhs.cast53.i.i = ptrtoint ptr %add.ptr51.i.i to i64
   %sub.ptr.sub54.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast53.i.i
-  %call11.i90.i.i = call i64 @FSEv07_readNCount(ptr noundef nonnull %norm.i72.i.i, ptr noundef nonnull %max.addr.i70.i.i, ptr noundef nonnull %tableLog.i71.i.i, ptr noundef nonnull %add.ptr51.i.i, i64 noundef %sub.ptr.sub54.i.i)
-  %cmp.i.i91.i.i = icmp ult i64 %call11.i90.i.i, -119
-  br i1 %cmp.i.i91.i.i, label %if.end15.i92.i.i, label %ZSTDv07_buildSeqTable.exit96.thread.i.i
+  %call11.i75.i.i = call i64 @FSEv07_readNCount(ptr noundef nonnull %norm.i73.i.i, ptr noundef nonnull %max.addr.i71.i.i, ptr noundef nonnull %tableLog.i72.i.i, ptr noundef nonnull %add.ptr51.i.i, i64 noundef %sub.ptr.sub54.i.i)
+  %cmp.i.i76.i.i = icmp ult i64 %call11.i75.i.i, -119
+  br i1 %cmp.i.i76.i.i, label %if.end15.i78.i.i, label %ZSTDv07_buildSeqTable.exit98.thread.i.i
 
-if.end15.i92.i.i:                                 ; preds = %sw.bb10.i89.i.i
-  %51 = load i32, ptr %tableLog.i71.i.i, align 4
-  %cmp16.i93.i.i = icmp ugt i32 %51, 9
-  br i1 %cmp16.i93.i.i, label %ZSTDv07_buildSeqTable.exit96.thread.i.i, label %if.end19.i94.i.i
+if.end15.i78.i.i:                                 ; preds = %sw.bb10.i74.i.i
+  %51 = load i32, ptr %tableLog.i72.i.i, align 4
+  %cmp16.i79.i.i = icmp ugt i32 %51, 9
+  br i1 %cmp16.i79.i.i, label %ZSTDv07_buildSeqTable.exit98.thread.i.i, label %if.end19.i80.i.i
 
-if.end19.i94.i.i:                                 ; preds = %if.end15.i92.i.i
-  %52 = load i32, ptr %max.addr.i70.i.i, align 4
-  %call21.i95.i.i = call i64 @FSEv07_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull %norm.i72.i.i, i32 noundef %52, i32 noundef %51)
-  br label %ZSTDv07_buildSeqTable.exit96.thread128.i.i
+if.end19.i80.i.i:                                 ; preds = %if.end15.i78.i.i
+  %52 = load i32, ptr %max.addr.i71.i.i, align 4
+  %call21.i81.i.i = call i64 @FSEv07_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull %norm.i73.i.i, i32 noundef %52, i32 noundef %51)
+  br label %ZSTDv07_buildSeqTable.exit98.thread130.i.i
 
-ZSTDv07_buildSeqTable.exit96.thread.i.i:          ; preds = %if.end15.i92.i.i, %sw.bb10.i89.i.i, %if.end.i81.i.i, %sw.bb.i79.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i70.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i71.i.i)
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i72.i.i)
+ZSTDv07_buildSeqTable.exit98.thread.i.i:          ; preds = %if.end15.i78.i.i, %sw.bb10.i74.i.i, %if.end.i89.i.i, %sw.bb.i87.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i71.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i72.i.i)
+  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i73.i.i)
   br label %ZSTDv07_decompressSequences.exit
 
-ZSTDv07_buildSeqTable.exit96.thread128.i.i:       ; preds = %if.end19.i94.i.i, %sw.bb4.i77.i.i, %if.end3.i84.i.i
-  %retval.0.i76.ph.i.i = phi i64 [ 1, %if.end3.i84.i.i ], [ 0, %sw.bb4.i77.i.i ], [ %call11.i90.i.i, %if.end19.i94.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i70.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i71.i.i)
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i72.i.i)
+ZSTDv07_buildSeqTable.exit98.thread130.i.i:       ; preds = %if.end19.i80.i.i, %sw.bb4.i85.i.i, %if.end3.i92.i.i
+  %retval.0.i77.ph.i.i = phi i64 [ 1, %if.end3.i92.i.i ], [ 0, %sw.bb4.i85.i.i ], [ %call11.i75.i.i, %if.end19.i80.i.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i71.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i72.i.i)
+  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i73.i.i)
   br label %ZSTDv07_decodeSeqHeaders.exit.i
 
-ZSTDv07_buildSeqTable.exit96.i.i:                 ; preds = %if.end50.i.i
-  %tobool7.not.i74.not.i.i = icmp eq i32 %26, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i70.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i71.i.i)
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i72.i.i)
-  br i1 %tobool7.not.i74.not.i.i, label %ZSTDv07_decompressSequences.exit, label %ZSTDv07_decodeSeqHeaders.exit.i
+ZSTDv07_buildSeqTable.exit98.i.i:                 ; preds = %if.end50.i.i
+  %tobool7.not.i83.not.i.i = icmp eq i32 %26, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.addr.i71.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i72.i.i)
+  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %norm.i73.i.i)
+  br i1 %tobool7.not.i83.not.i.i, label %ZSTDv07_decompressSequences.exit, label %ZSTDv07_decodeSeqHeaders.exit.i
 
-ZSTDv07_decodeSeqHeaders.exit.i:                  ; preds = %ZSTDv07_buildSeqTable.exit96.i.i, %ZSTDv07_buildSeqTable.exit96.thread128.i.i
-  %retval.0.i76133.i.i = phi i64 [ %retval.0.i76.ph.i.i, %ZSTDv07_buildSeqTable.exit96.thread128.i.i ], [ 0, %ZSTDv07_buildSeqTable.exit96.i.i ]
-  %add.ptr60.i.i = getelementptr inbounds i8, ptr %add.ptr51.i.i, i64 %retval.0.i76133.i.i
+ZSTDv07_decodeSeqHeaders.exit.i:                  ; preds = %ZSTDv07_buildSeqTable.exit98.i.i, %ZSTDv07_buildSeqTable.exit98.thread130.i.i
+  %retval.0.i77135.i.i = phi i64 [ %retval.0.i77.ph.i.i, %ZSTDv07_buildSeqTable.exit98.thread130.i.i ], [ 0, %ZSTDv07_buildSeqTable.exit98.i.i ]
+  %add.ptr60.i.i = getelementptr inbounds i8, ptr %add.ptr51.i.i, i64 %retval.0.i77135.i.i
   %sub.ptr.lhs.cast61.i.i = ptrtoint ptr %add.ptr60.i.i to i64
   %sub.ptr.rhs.cast62.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub63.i.i = sub i64 %sub.ptr.lhs.cast61.i.i, %sub.ptr.rhs.cast62.i.i
@@ -7243,8 +7243,8 @@ if.end71.i:                                       ; preds = %if.then69.i, %if.en
   %sub.ptr.sub74.i = sub i64 %sub.ptr.lhs.cast72.pre-phi.i, %sub.ptr.rhs.cast73.i
   br label %ZSTDv07_decompressSequences.exit
 
-ZSTDv07_decompressSequences.exit:                 ; preds = %ZSTDv07_decodeSequence.exit.i, %if.end14.i.i, %if.then28.i.i, %ZSTDv07_execSequence.exit.i, %if.end3, %if.then8.i.i, %if.else.i.i, %if.end24.i.i, %ZSTDv07_buildSeqTable.exit.thread.i.i, %ZSTDv07_buildSeqTable.exit.i.i, %ZSTDv07_buildSeqTable.exit67.thread.i.i, %ZSTDv07_buildSeqTable.exit67.i.i, %ZSTDv07_buildSeqTable.exit96.thread.i.i, %ZSTDv07_buildSeqTable.exit96.i.i, %ZSTDv07_decodeSeqHeaders.exit.i, %for.end.i, %if.then2.i.i, %sw.epilog.i.i, %BITv07_initDStream.exit.i, %FSEv07_initDState.exit109.i, %FSEv07_initDState.exit158.i, %BITv07_reloadDStream.exit.thread.i, %if.end56.i, %if.end71.i
-  %retval.0.i13 = phi i64 [ %sub.ptr.sub74.i, %if.end71.i ], [ %sub.ptr.sub63.i.i, %ZSTDv07_decodeSeqHeaders.exit.i ], [ -20, %BITv07_initDStream.exit.i ], [ -70, %if.end56.i ], [ -20, %BITv07_reloadDStream.exit.thread.i ], [ -20, %ZSTDv07_buildSeqTable.exit96.thread.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit67.thread.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit.thread.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit96.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit67.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit.i.i ], [ -72, %if.end24.i.i ], [ -72, %if.else.i.i ], [ -72, %if.then8.i.i ], [ -72, %if.end3 ], [ -20, %FSEv07_initDState.exit158.i ], [ -20, %for.end.i ], [ -20, %if.then2.i.i ], [ -20, %sw.epilog.i.i ], [ -20, %FSEv07_initDState.exit109.i ], [ %add.i224.i, %ZSTDv07_execSequence.exit.i ], [ -20, %if.then28.i.i ], [ -20, %if.end14.i.i ], [ -70, %ZSTDv07_decodeSequence.exit.i ]
+ZSTDv07_decompressSequences.exit:                 ; preds = %ZSTDv07_decodeSequence.exit.i, %if.end14.i.i, %if.then28.i.i, %ZSTDv07_execSequence.exit.i, %if.end3, %if.then8.i.i, %if.else.i.i, %if.end24.i.i, %ZSTDv07_buildSeqTable.exit.thread.i.i, %ZSTDv07_buildSeqTable.exit.i.i, %ZSTDv07_buildSeqTable.exit68.thread.i.i, %ZSTDv07_buildSeqTable.exit68.i.i, %ZSTDv07_buildSeqTable.exit98.thread.i.i, %ZSTDv07_buildSeqTable.exit98.i.i, %ZSTDv07_decodeSeqHeaders.exit.i, %for.end.i, %if.then2.i.i, %sw.epilog.i.i, %BITv07_initDStream.exit.i, %FSEv07_initDState.exit109.i, %FSEv07_initDState.exit158.i, %BITv07_reloadDStream.exit.thread.i, %if.end56.i, %if.end71.i
+  %retval.0.i13 = phi i64 [ %sub.ptr.sub74.i, %if.end71.i ], [ %sub.ptr.sub63.i.i, %ZSTDv07_decodeSeqHeaders.exit.i ], [ -20, %BITv07_initDStream.exit.i ], [ -70, %if.end56.i ], [ -20, %BITv07_reloadDStream.exit.thread.i ], [ -20, %ZSTDv07_buildSeqTable.exit98.thread.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit68.thread.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit.thread.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit98.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit68.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit.i.i ], [ -72, %if.end24.i.i ], [ -72, %if.else.i.i ], [ -72, %if.then8.i.i ], [ -72, %if.end3 ], [ -20, %FSEv07_initDState.exit158.i ], [ -20, %for.end.i ], [ -20, %if.then2.i.i ], [ -20, %sw.epilog.i.i ], [ -20, %FSEv07_initDState.exit109.i ], [ %add.i224.i, %ZSTDv07_execSequence.exit.i ], [ -20, %if.then28.i.i ], [ -20, %if.end14.i.i ], [ -70, %ZSTDv07_decodeSequence.exit.i ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %seqState.i)
   br label %return
 
@@ -9030,7 +9030,7 @@ declare ptr @ERR_getErrorString(i32 noundef) local_unnamed_addr #17
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BITv07_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #12 {
+define internal fastcc range(i64 1, 0) i64 @BITv07_initDStream(ptr nocapture noundef nonnull writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #12 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -9174,7 +9174,7 @@ return:                                           ; preds = %if.end69, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 4) i32 @BITv07_reloadDStream(ptr nocapture noundef %bitD) unnamed_addr #21 {
+define internal fastcc range(i32 0, 4) i32 @BITv07_reloadDStream(ptr nocapture noundef nonnull %bitD) unnamed_addr #21 {
 entry:
   %bitsConsumed = getelementptr inbounds i8, ptr %bitD, i64 8
   %0 = load i32, ptr %bitsConsumed, align 8
@@ -9240,13 +9240,13 @@ return:                                           ; preds = %if.then15, %entry, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUFv07_decodeStreamX2(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %dt, i32 noundef %dtLog) unnamed_addr #11 {
+define internal fastcc void @HUFv07_decodeStreamX2(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %dt, i32 noundef range(i32 0, 256) %dtLog) unnamed_addr #11 {
 entry:
   %bitsConsumed.i = getelementptr inbounds i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -4
   %ptr.i = getelementptr inbounds i8, ptr %bitDPtr, i64 16
   %start.i = getelementptr inbounds i8, ptr %bitDPtr, i64 24
-  %sub.i.i = sub i32 0, %dtLog
+  %sub.i.i = sub nsw i32 0, %dtLog
   %and1.i.i = and i32 %sub.i.i, 63
   %sh_prom2.i.i = zext nneg i32 %and1.i.i to i64
   %0 = load i32, ptr %bitsConsumed.i, align 8
@@ -9483,13 +9483,13 @@ while.end33:                                      ; preds = %while.body30, %BITv
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUFv07_decodeStreamX4(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef readonly %dt, i32 noundef %dtLog) unnamed_addr #11 {
+define internal fastcc void @HUFv07_decodeStreamX4(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef readonly %dt, i32 noundef range(i32 0, 256) %dtLog) unnamed_addr #11 {
 entry:
   %bitsConsumed.i = getelementptr inbounds i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -7
   %ptr.i = getelementptr inbounds i8, ptr %bitDPtr, i64 16
   %start.i = getelementptr inbounds i8, ptr %bitDPtr, i64 24
-  %sub.i.i = sub i32 0, %dtLog
+  %sub.i.i = sub nsw i32 0, %dtLog
   %and1.i.i = and i32 %sub.i.i, 63
   %sh_prom2.i.i = zext nneg i32 %and1.i.i to i64
   %.pre = load i32, ptr %bitsConsumed.i, align 8

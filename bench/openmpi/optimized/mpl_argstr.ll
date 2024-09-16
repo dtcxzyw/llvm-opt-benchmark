@@ -227,7 +227,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
 .preheader.i43:                                   ; preds = %.preheader.i.i37
   %.off65.i = add i8 %67, -35
   %switch66.i = icmp ult i8 %.off65.i, 2
-  br i1 %switch66.i, label %.critedge.i44, label %.lr.ph.i
+  br i1 %switch66.i, label %.sink.split.i, label %.lr.ph.i
 
 70:                                               ; preds = %.preheader.i.i37
   store i8 35, ptr %2, align 1
@@ -282,95 +282,95 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %.critedge.i44, label %.lr.ph.i, !llvm.loop !9
 
-.critedge.i44:                                    ; preds = %84, %.lr.ph.i, %.preheader.i43
-  %.146.lcssa.i = phi ptr [ %2, %.preheader.i43 ], [ %.14668.i, %.lr.ph.i ], [ %85, %84 ]
-  %.1.lcssa.i = phi i32 [ %3, %.preheader.i43 ], [ %.169.i, %.lr.ph.i ], [ %87, %84 ]
-  %.not59.i = icmp eq i32 %.1.lcssa.i, 0
-  %spec.select79.idx.i = sext i1 %.not59.i to i64
-  %spec.select79.i = getelementptr inbounds i8, ptr %.146.lcssa.i, i64 %spec.select79.idx.i
-  %spec.select80.i = select i1 %.not59.i, i32 6, i32 0
+.critedge.i44:                                    ; preds = %84, %.lr.ph.i
+  %.146.lcssa.ph.i = phi ptr [ %.14668.i, %.lr.ph.i ], [ %85, %84 ]
+  %.1.lcssa.ph.i = phi i32 [ %.169.i, %.lr.ph.i ], [ %87, %84 ]
+  %89 = icmp eq i32 %.1.lcssa.ph.i, 0
+  %spec.select82.idx.i = sext i1 %89 to i64
+  %spec.select82.i = getelementptr inbounds i8, ptr %.146.lcssa.ph.i, i64 %spec.select82.idx.i
+  %spec.select83.i = select i1 %89, i32 6, i32 0
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.preheader.i.i37, %78, %.preheader62.i, %.critedge.i44, %70, %65
-  %.sink.i = phi ptr [ %71, %70 ], [ %2, %65 ], [ %spec.select79.i, %.critedge.i44 ], [ %.045.i, %.preheader62.i ], [ %.045.i, %78 ], [ %2, %.preheader.i.i37 ]
-  %.049.ph.i = phi i32 [ 0, %70 ], [ 0, %65 ], [ %spec.select80.i, %.critedge.i44 ], [ 6, %78 ], [ 0, %.preheader62.i ], [ 0, %.preheader.i.i37 ]
+.sink.split.i:                                    ; preds = %.preheader.i.i37, %78, %.preheader62.i, %.critedge.i44, %70, %.preheader.i43, %65
+  %.sink.i = phi ptr [ %71, %70 ], [ %2, %65 ], [ %2, %.preheader.i43 ], [ %spec.select82.i, %.critedge.i44 ], [ %.045.i, %.preheader62.i ], [ %.045.i, %78 ], [ %2, %.preheader.i.i37 ]
+  %.049.ph.i = phi i32 [ 0, %70 ], [ 0, %65 ], [ 0, %.preheader.i43 ], [ %spec.select83.i, %.critedge.i44 ], [ 6, %78 ], [ 0, %.preheader62.i ], [ 0, %.preheader.i.i37 ]
   store i8 0, ptr %.sink.i, align 1
   br label %token_copy.exit
 
-.preheader.i.i45:                                 ; preds = %first_token.exit, %90
-  %.0.i.i46 = phi ptr [ %91, %90 ], [ %.014, %first_token.exit ]
-  %89 = load i8, ptr %.0.i.i46, align 1
-  switch i8 %89, label %.preheader.i58 [
-    i8 36, label %90
+.preheader.i.i45:                                 ; preds = %first_token.exit, %91
+  %.0.i.i46 = phi ptr [ %92, %91 ], [ %.014, %first_token.exit ]
+  %90 = load i8, ptr %.0.i.i46, align 1
+  switch i8 %90, label %.preheader.i58 [
+    i8 36, label %91
     i8 0, label %token_copy.exit
-    i8 34, label %92
-    i8 35, label %105
+    i8 34, label %93
+    i8 35, label %106
   ]
 
-90:                                               ; preds = %.preheader.i.i45
-  %91 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
+91:                                               ; preds = %.preheader.i.i45
+  %92 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
   br label %.preheader.i.i45, !llvm.loop !4
 
-92:                                               ; preds = %.preheader.i.i45
-  %93 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
-  %94 = load i8, ptr %93, align 1
-  %95 = icmp eq i8 %94, 0
-  br i1 %95, label %token_copy.exit, label %.preheader37.i54
+93:                                               ; preds = %.preheader.i.i45
+  %94 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
+  %95 = load i8, ptr %94, align 1
+  %96 = icmp eq i8 %95, 0
+  br i1 %96, label %token_copy.exit, label %.preheader37.i54
 
-.preheader37.i54:                                 ; preds = %92, %102
-  %96 = phi i8 [ %103, %102 ], [ %94, %92 ]
-  %.0.i55 = phi ptr [ %.1.i57, %102 ], [ %93, %92 ]
-  %97 = getelementptr inbounds i8, ptr %.0.i55, i64 1
-  switch i8 %96, label %102 [
+.preheader37.i54:                                 ; preds = %93, %103
+  %97 = phi i8 [ %104, %103 ], [ %95, %93 ]
+  %.0.i55 = phi ptr [ %.1.i57, %103 ], [ %94, %93 ]
+  %98 = getelementptr inbounds i8, ptr %.0.i55, i64 1
+  switch i8 %97, label %103 [
     i8 34, label %.preheader.i31.i51.preheader
-    i8 92, label %98
+    i8 92, label %99
   ]
 
-98:                                               ; preds = %.preheader37.i54
-  %99 = load i8, ptr %97, align 1
-  %100 = icmp eq i8 %99, 34
-  %101 = getelementptr inbounds i8, ptr %.0.i55, i64 2
-  %spec.select.i56 = select i1 %100, ptr %101, ptr %97
-  br label %102
+99:                                               ; preds = %.preheader37.i54
+  %100 = load i8, ptr %98, align 1
+  %101 = icmp eq i8 %100, 34
+  %102 = getelementptr inbounds i8, ptr %.0.i55, i64 2
+  %spec.select.i56 = select i1 %101, ptr %102, ptr %98
+  br label %103
 
-102:                                              ; preds = %.preheader37.i54, %98
-  %.1.i57 = phi ptr [ %spec.select.i56, %98 ], [ %97, %.preheader37.i54 ]
-  %103 = load i8, ptr %.1.i57, align 1
-  %104 = icmp eq i8 %103, 0
-  br i1 %104, label %token_copy.exit, label %.preheader37.i54, !llvm.loop !6
+103:                                              ; preds = %.preheader37.i54, %99
+  %.1.i57 = phi ptr [ %spec.select.i56, %99 ], [ %98, %.preheader37.i54 ]
+  %104 = load i8, ptr %.1.i57, align 1
+  %105 = icmp eq i8 %104, 0
+  br i1 %105, label %token_copy.exit, label %.preheader37.i54, !llvm.loop !6
 
-105:                                              ; preds = %.preheader.i.i45
-  %106 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
+106:                                              ; preds = %.preheader.i.i45
+  %107 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
   br label %.preheader.i31.i51.preheader
 
-.preheader.i31.i51.preheader:                     ; preds = %.preheader37.i54, %.preheader.i58, %.preheader.i58, %.preheader.i58, %105
-  %.0.i32.i52.ph = phi ptr [ %106, %105 ], [ %.3.i59, %.preheader.i58 ], [ %.3.i59, %.preheader.i58 ], [ %.3.i59, %.preheader.i58 ], [ %97, %.preheader37.i54 ]
+.preheader.i31.i51.preheader:                     ; preds = %.preheader37.i54, %.preheader.i58, %.preheader.i58, %.preheader.i58, %106
+  %.0.i32.i52.ph = phi ptr [ %107, %106 ], [ %.3.i59, %.preheader.i58 ], [ %.3.i59, %.preheader.i58 ], [ %.3.i59, %.preheader.i58 ], [ %98, %.preheader37.i54 ]
   br label %.preheader.i31.i51
 
-.preheader.i58:                                   ; preds = %.preheader.i.i45, %108
-  %107 = phi i8 [ %.pr.i60, %108 ], [ %89, %.preheader.i.i45 ]
-  %.3.i59 = phi ptr [ %109, %108 ], [ %.0.i.i46, %.preheader.i.i45 ]
-  switch i8 %107, label %108 [
+.preheader.i58:                                   ; preds = %.preheader.i.i45, %109
+  %108 = phi i8 [ %.pr.i60, %109 ], [ %90, %.preheader.i.i45 ]
+  %.3.i59 = phi ptr [ %110, %109 ], [ %.0.i.i46, %.preheader.i.i45 ]
+  switch i8 %108, label %109 [
     i8 36, label %.preheader.i31.i51.preheader
     i8 35, label %.preheader.i31.i51.preheader
     i8 0, label %.preheader.i31.i51.preheader
   ]
 
-108:                                              ; preds = %.preheader.i58
-  %109 = getelementptr inbounds i8, ptr %.3.i59, i64 1
-  %.pr.i60 = load i8, ptr %109, align 1
+109:                                              ; preds = %.preheader.i58
+  %110 = getelementptr inbounds i8, ptr %.3.i59, i64 1
+  %.pr.i60 = load i8, ptr %110, align 1
   br label %.preheader.i58, !llvm.loop !7
 
-.preheader.i31.i51:                               ; preds = %.preheader.i31.i51.preheader, %111
-  %.0.i32.i52 = phi ptr [ %112, %111 ], [ %.0.i32.i52.ph, %.preheader.i31.i51.preheader ]
-  %110 = load i8, ptr %.0.i32.i52, align 1
-  switch i8 %110, label %next_token.exit61 [
-    i8 36, label %111
+.preheader.i31.i51:                               ; preds = %.preheader.i31.i51.preheader, %112
+  %.0.i32.i52 = phi ptr [ %113, %112 ], [ %.0.i32.i52.ph, %.preheader.i31.i51.preheader ]
+  %111 = load i8, ptr %.0.i32.i52, align 1
+  switch i8 %111, label %next_token.exit61 [
+    i8 36, label %112
     i8 0, label %token_copy.exit
   ]
 
-111:                                              ; preds = %.preheader.i31.i51
-  %112 = getelementptr inbounds i8, ptr %.0.i32.i52, i64 1
+112:                                              ; preds = %.preheader.i31.i51
+  %113 = getelementptr inbounds i8, ptr %.0.i32.i52, i64 1
   br label %.preheader.i31.i51, !llvm.loop !4
 
 next_token.exit61:                                ; preds = %.preheader.i31.i51, %next_token.exit
@@ -378,8 +378,8 @@ next_token.exit61:                                ; preds = %.preheader.i31.i51,
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %token_copy.exit, label %first_token.exit, !llvm.loop !10
 
-token_copy.exit:                                  ; preds = %.preheader.i, %92, %next_token.exit61, %.preheader.i.i45, %102, %.preheader.i31.i51, %.preheader.i.i20, %53, %.preheader.i31.i26, %43, %38, %.sink.split.i, %next_token.exit36, %4
-  %.0 = phi i32 [ 4, %4 ], [ 4, %next_token.exit36 ], [ %.049.ph.i, %.sink.split.i ], [ 4, %38 ], [ 4, %43 ], [ 4, %.preheader.i31.i26 ], [ 4, %53 ], [ 4, %.preheader.i.i20 ], [ 4, %.preheader.i31.i51 ], [ 4, %102 ], [ 4, %.preheader.i.i45 ], [ 4, %next_token.exit61 ], [ 4, %92 ], [ 4, %.preheader.i ]
+token_copy.exit:                                  ; preds = %.preheader.i, %93, %next_token.exit61, %.preheader.i.i45, %103, %.preheader.i31.i51, %.preheader.i.i20, %53, %.preheader.i31.i26, %43, %38, %.sink.split.i, %next_token.exit36, %4
+  %.0 = phi i32 [ 4, %4 ], [ 4, %next_token.exit36 ], [ %.049.ph.i, %.sink.split.i ], [ 4, %38 ], [ 4, %43 ], [ 4, %.preheader.i31.i26 ], [ 4, %53 ], [ 4, %.preheader.i.i20 ], [ 4, %.preheader.i31.i51 ], [ 4, %103 ], [ 4, %.preheader.i.i45 ], [ 4, %next_token.exit61 ], [ 4, %93 ], [ 4, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -1149,20 +1149,20 @@ first_token.exit:                                 ; preds = %.preheader.i
   br i1 %switch.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %33, %.lr.ph.i
-  %.146.lcssa.i.ph = phi ptr [ %34, %33 ], [ %.14668.i, %.lr.ph.i ]
-  %.1.lcssa.i.ph = phi i32 [ %36, %33 ], [ %.169.i, %.lr.ph.i ]
-  %38 = icmp eq i32 %.1.lcssa.i.ph, 0
-  %spec.select79.idx.i = sext i1 %38 to i64
-  %spec.select79.i = getelementptr inbounds i8, ptr %.146.lcssa.i.ph, i64 %spec.select79.idx.i
+  %.146.lcssa.ph.i = phi ptr [ %.14668.i, %.lr.ph.i ], [ %34, %33 ]
+  %.1.lcssa.ph.i = phi i32 [ %.169.i, %.lr.ph.i ], [ %36, %33 ]
+  %38 = icmp eq i32 %.1.lcssa.ph.i, 0
+  %spec.select82.idx.i = sext i1 %38 to i64
+  %spec.select82.i = getelementptr inbounds i8, ptr %.146.lcssa.ph.i, i64 %spec.select82.idx.i
   br i1 %38, label %token_copy.exit, label %.loopexit
 
 token_copy.exit:                                  ; preds = %27, %.critedge.i
-  %.sink.i = phi ptr [ %spec.select79.i, %.critedge.i ], [ %.045.i, %27 ]
+  %.sink.i = phi ptr [ %spec.select82.i, %.critedge.i ], [ %.045.i, %27 ]
   store i8 0, ptr %.sink.i, align 1
   br label %first_token.exit.thread
 
-.loopexit:                                        ; preds = %.preheader.i.i, %.preheader62.i, %.preheader.i18, %19, %14, %.critedge.i
-  %.sink.i.ph = phi ptr [ %spec.select79.i, %.critedge.i ], [ %1, %14 ], [ %20, %19 ], [ %1, %.preheader.i18 ], [ %.045.i, %.preheader62.i ], [ %1, %.preheader.i.i ]
+.loopexit:                                        ; preds = %.preheader.i.i, %.preheader62.i, %19, %14, %.preheader.i18, %.critedge.i
+  %.sink.i.ph = phi ptr [ %spec.select82.i, %.critedge.i ], [ %1, %.preheader.i18 ], [ %1, %14 ], [ %20, %19 ], [ %.045.i, %.preheader62.i ], [ %1, %.preheader.i.i ]
   store i8 0, ptr %.sink.i.ph, align 1
   br label %.preheader.i.i19
 

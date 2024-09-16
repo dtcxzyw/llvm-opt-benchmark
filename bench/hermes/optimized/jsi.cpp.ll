@@ -750,7 +750,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %call.i14) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull %runtime)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull %runtime)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont11
@@ -917,7 +917,7 @@ invoke.cont15:                                    ; preds = %invoke.cont9
   %1 = load ptr, ptr %obj, align 8
   store ptr %1, ptr %data_.i, align 8
   store ptr null, ptr %obj, align 8
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, ptr noundef nonnull %runtime)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, ptr noundef nonnull %runtime)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -1099,7 +1099,7 @@ return:                                           ; preds = %if.end7, %if.then5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr noundef %rt) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr noundef %rt) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -1327,7 +1327,7 @@ lpad.i:                                           ; preds = %if.then
 invoke.cont:                                      ; preds = %if.then
   %data_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %call.i11, ptr %data_.i, align 8
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %runtime)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %runtime)
           to label %invoke.cont5 unwind label %ehcleanup14.thread23
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -1439,7 +1439,7 @@ lpad.i:                                           ; preds = %if.then
 invoke.cont:                                      ; preds = %if.then
   %data_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %call.i11, ptr %data_.i, align 8
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %runtime)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %runtime)
           to label %invoke.cont5 unwind label %ehcleanup14.thread20
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -1548,7 +1548,7 @@ lpad.i:                                           ; preds = %if.then
 invoke.cont:                                      ; preds = %if.then
   %data_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %call.i11, ptr %data_.i, align 8
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %runtime)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %runtime)
           to label %invoke.cont5 unwind label %ehcleanup14.thread23
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -1660,7 +1660,7 @@ lpad.i:                                           ; preds = %if.then
 invoke.cont:                                      ; preds = %if.then
   %data_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %call.i11, ptr %data_.i, align 8
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %runtime)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %runtime)
           to label %invoke.cont5 unwind label %ehcleanup14.thread20
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -2001,7 +2001,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef null)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef null)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2096,7 +2096,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef null)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef null)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2177,7 +2177,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 120) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2264,7 +2264,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 120) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2347,7 +2347,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 120) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2434,7 +2434,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 120) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2518,7 +2518,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 120) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2605,7 +2605,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 120) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2689,7 +2689,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 120) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -2776,7 +2776,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 120) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %rt)
           to label %invoke.cont unwind label %ehcleanup10.thread
 
 invoke.cont:                                      ; preds = %if.then
@@ -3440,7 +3440,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i41, %i
   ]
 
 if.then18:                                        ; preds = %invoke.cont
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias nonnull align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(16) %message)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(16) %message)
           to label %invoke.cont20 unwind label %lpad12
 
 invoke.cont20:                                    ; preds = %if.then18
@@ -3535,7 +3535,7 @@ terminate.lpad.i.i58:                             ; preds = %if.then.i.i56
   unreachable
 
 if.then36:                                        ; preds = %if.end
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull %rt)
           to label %invoke.cont39 unwind label %lpad12
 
 invoke.cont39:                                    ; preds = %if.then36
@@ -3706,7 +3706,7 @@ invoke.cont71:                                    ; preds = %if.then.i.i.i82, %i
   ]
 
 if.then78:                                        ; preds = %invoke.cont71
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont80 unwind label %lpad72
 
 invoke.cont80:                                    ; preds = %if.then78
@@ -3801,7 +3801,7 @@ terminate.lpad.i.i111:                            ; preds = %if.then.i.i109
   unreachable
 
 if.then100:                                       ; preds = %if.end85
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp102, ptr noundef nonnull align 8 dereferenceable(16) %stack, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp102, ptr noundef nonnull align 8 dereferenceable(16) %stack, ptr noundef nonnull %rt)
           to label %invoke.cont103 unwind label %lpad72
 
 invoke.cont103:                                   ; preds = %if.then100
@@ -4010,7 +4010,7 @@ terminate.lpad.i.i151:                            ; preds = %if.then.i.i149
   unreachable
 
 if.else162:                                       ; preds = %if.then145
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias nonnull align 8 %message163, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(16) %95)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias align 8 %message163, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(16) %95)
           to label %invoke.cont166 unwind label %lpad148
 
 invoke.cont166:                                   ; preds = %if.else162
@@ -4084,7 +4084,7 @@ terminate.lpad.i.i172:                            ; preds = %if.then.i.i170
   unreachable
 
 if.else179:                                       ; preds = %invoke.cont166
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp181, ptr noundef nonnull align 8 dereferenceable(16) %message163, ptr noundef nonnull %rt)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp181, ptr noundef nonnull align 8 dereferenceable(16) %message163, ptr noundef nonnull %rt)
           to label %invoke.cont182 unwind label %lpad167
 
 invoke.cont182:                                   ; preds = %if.else179
@@ -4369,7 +4369,7 @@ invoke.cont6:                                     ; preds = %entry
   %1 = load ptr, ptr %ref.tmp3, align 8
   store ptr %1, ptr %data_.i, align 8
   store ptr null, ptr %ref.tmp3, align 8
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -4607,7 +4607,7 @@ terminate.lpad:                                   ; preds = %ehcleanup45
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %runtime, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(16) %arg) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook3jsi12_GLOBAL__N_118callGlobalFunctionERNS0_7RuntimeEPKcRKNS0_5ValueE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %runtime, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(16) %arg) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp.i42 = alloca [1 x %"class.facebook::jsi::Value"], align 8
@@ -4725,7 +4725,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %call.i25) #25
-  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull %runtime)
+  invoke fastcc void @_ZN8facebook3jsi12_GLOBAL__N_112kindToStringB5cxx11ERKNS0_5ValueEPNS0_7RuntimeE(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull %runtime)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont11
@@ -4954,7 +4954,7 @@ invoke.cont56:                                    ; preds = %invoke.cont30
   %vtable.i.i.i43 = load ptr, ptr %runtime, align 8, !noalias !176
   %vfn.i.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i.i43, i64 488
   %39 = load ptr, ptr %vfn.i.i.i44, align 8, !noalias !176
-  invoke void %39(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %runtime, ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull %ref.tmp.i42, i64 noundef 1)
+  invoke void %39(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %runtime, ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull %ref.tmp.i42, i64 noundef 1)
           to label %invoke.cont58 unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %.noexc45

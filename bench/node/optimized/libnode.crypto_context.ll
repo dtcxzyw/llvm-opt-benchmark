@@ -3986,7 +3986,7 @@ if.then75:                                        ; preds = %if.end73
 
 if.end76:                                         ; preds = %if.end73
   %51 = load ptr, ptr %ctx_, align 8
-  %call82 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS5_XadL_Z9X509_freeEEEEEP13stack_st_X509PS8_SC_(ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %cert, ptr noundef %49, ptr noundef nonnull %cert_, ptr noundef nonnull %issuer_)
+  %call82 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS5_XadL_Z9X509_freeEEEEEP13stack_st_X509PS8_SC_(ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %cert, ptr noundef %49, ptr noundef %cert_, ptr noundef %issuer_)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %if.then112.critedge, label %if.end85
 
@@ -8008,7 +8008,7 @@ while.end.i:                                      ; preds = %while.cond.i
 
 if.then22.i:                                      ; preds = %while.end.i
   tail call void @ERR_clear_error() #20
-  %call25.i = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS5_XadL_Z9X509_freeEEEEEP13stack_st_X509PS8_SC_(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %x.i, ptr noundef nonnull %call3.i, ptr noundef nonnull %cert_, ptr noundef nonnull %issuer_)
+  %call25.i = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS5_XadL_Z9X509_freeEEEEEP13stack_st_X509PS8_SC_(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %x.i, ptr noundef nonnull %call3.i, ptr noundef %cert_, ptr noundef %issuer_)
   %7 = icmp eq i32 %call25.i, 0
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call3.i, ptr noundef nonnull @X509_free) #20
   tail call void @X509_free(ptr noundef nonnull %call1.i) #20
@@ -8295,7 +8295,7 @@ declare ptr @d2i_PKCS12_bio(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @PKCS12_parse(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS5_XadL_Z9X509_freeEEEEEP13stack_st_X509PS8_SC_(ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %x, ptr noundef %extra_certs, ptr nocapture noundef %cert, ptr nocapture noundef %issuer_) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS5_XadL_Z9X509_freeEEEEEP13stack_st_X509PS8_SC_(ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %x, ptr noundef %extra_certs, ptr nocapture noundef nonnull %cert, ptr nocapture noundef nonnull %issuer_) unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.306", align 8
   %0 = load ptr, ptr %issuer_, align 8

@@ -2557,7 +2557,7 @@ if.end430:                                        ; preds = %if.else352, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL16changeState_2022P10UConverterPPKcS2_11Variant2022P10UErrorCode(ptr nocapture noundef %_this, ptr nocapture noundef %source, ptr noundef readnone %sourceLimit, i32 noundef %var, ptr nocapture noundef %err) unnamed_addr #9 {
+define internal fastcc void @_ZL16changeState_2022P10UConverterPPKcS2_11Variant2022P10UErrorCode(ptr nocapture noundef %_this, ptr nocapture noundef %source, ptr noundef readnone %sourceLimit, i32 noundef range(i32 1, 4) %var, ptr nocapture noundef %err) unnamed_addr #9 {
 entry:
   %extraInfo = getelementptr inbounds i8, ptr %_this, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -2654,7 +2654,7 @@ DONE:                                             ; preds = %while.cond
   ]
 
 if.else10:                                        ; preds = %DONE.thread, %DONE
-  switch i32 %var, label %default.unreachable [
+  switch i32 %var, label %default.unreachable113 [
     i32 1, label %sw.bb11
     i32 3, label %sw.bb58
     i32 2, label %sw.bb133
@@ -2814,7 +2814,7 @@ sw.bb133:                                         ; preds = %if.else10
   %cmp134 = icmp eq i32 %shr.i, 48
   br i1 %cmp134, label %if.end141, label %if.then186.sink.split
 
-default.unreachable:                              ; preds = %if.else10
+default.unreachable113:                           ; preds = %if.else10
   unreachable
 
 if.end141:                                        ; preds = %sw.bb133, %sw.bb112, %sw.bb117, %if.end80, %if.end101, %if.else126, %if.end, %if.else37, %if.else51
@@ -2888,7 +2888,7 @@ if.end189:                                        ; preds = %entry, %if.else145,
 declare i32 @ucnv_MBCSSimpleGetNextUChar_75(ptr noundef, ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai(ptr nocapture noundef readonly %sharedData, i32 noundef %c, ptr noundef %value, i8 noundef signext %useFallback, i32 noundef %outputType) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai(ptr nocapture noundef readonly %sharedData, i32 noundef range(i32 -2147483648, 2090869760) %c, ptr noundef nonnull %value, i8 noundef signext %useFallback, i32 noundef range(i32 1, 3) %outputType) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %c, 65536
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -2998,7 +2998,7 @@ if.end62:                                         ; preds = %land.lhs.true, %lor
   br i1 %cmp64.not, label %return, label %if.then65
 
 if.then65:                                        ; preds = %if.end62
-  %call = tail call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %10, i32 noundef %c, ptr noundef %value, i8 noundef signext %useFallback)
+  %call = tail call i32 @ucnv_extSimpleMatchFromU_75(ptr noundef nonnull %10, i32 noundef %c, ptr noundef nonnull %value, i8 noundef signext %useFallback)
   br label %return
 
 return:                                           ; preds = %if.end62, %if.then65, %if.then58, %if.then49
@@ -4726,7 +4726,7 @@ if.then105:                                       ; preds = %for.body
 
 if.then108:                                       ; preds = %if.then105
   %16 = load ptr, ptr %arrayidx109, align 8
-  %call = call fastcc noundef i32 @_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai(ptr noundef %16, i32 noundef %sourceChar.1, ptr noundef nonnull %value, i8 noundef signext %useFallback.0156, i32 noundef 2)
+  %call = call fastcc noundef i32 @_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai(ptr noundef %16, i32 noundef %sourceChar.1, ptr noundef %value, i8 noundef signext %useFallback.0156, i32 noundef 2)
   %cmp110 = icmp eq i32 %call, 3
   br i1 %cmp110, label %if.then115, label %lor.lhs.false111
 

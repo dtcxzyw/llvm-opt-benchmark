@@ -13576,7 +13576,7 @@ _ZNSt10shared_ptrI4NodeEC2ERKS1_.exit.i:          ; preds = %236
   br label %_ZNSt10shared_ptrI4NodeEC2ERKS1_.exit6.i
 
 _ZNSt10shared_ptrI4NodeEC2ERKS1_.exit6.i:         ; preds = %250, %246, %_ZNSt10shared_ptrI4NodeEC2ERKS1_.exit.i, %_ZNSt10shared_ptrI4NodeEC2ERKS1_.exit.thread.i
-  %252 = invoke fastcc noundef zeroext i1 @_ZL5visitSt10shared_ptrI4NodeERSt6vectorIS1_SaIS1_EERSt13unordered_mapIS1_iSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(56) %20)
+  %252 = invoke fastcc noundef zeroext i1 @_ZL5visitSt10shared_ptrI4NodeERSt6vectorIS1_SaIS1_EERSt13unordered_mapIS1_iSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(56) %20)
           to label %253 unwind label %.body, !noalias !85
 
 253:                                              ; preds = %_ZNSt10shared_ptrI4NodeEC2ERKS1_.exit6.i
@@ -18567,7 +18567,7 @@ define hidden void @_Z4readI11OutputDescrET_RKN2cv8FileNodeE(ptr dead_on_unwind 
 18:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %18
@@ -18612,7 +18612,7 @@ define hidden void @_Z4readI11OutputDescrET_RKN2cv8FileNodeE(ptr dead_on_unwind 
 
 25:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %.noexc19 unwind label %64
 
 .noexc19:                                         ; preds = %25
@@ -18952,7 +18952,7 @@ define hidden void @_Z4readI4EdgeET_RKN2cv8FileNodeE(ptr dead_on_unwind noalias 
 
 18:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc unwind label %38
 
 .noexc:                                           ; preds = %18
@@ -18976,7 +18976,7 @@ define hidden void @_Z4readI4EdgeET_RKN2cv8FileNodeE(ptr dead_on_unwind noalias 
 
 21:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc24 unwind label %46
 
 .noexc24:                                         ; preds = %21
@@ -18989,11 +18989,11 @@ define hidden void @_Z4readI4EdgeET_RKN2cv8FileNodeE(ptr dead_on_unwind noalias 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #33
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #33
-  invoke fastcc void @"_ZZ4readI4EdgeET_RKN2cv8FileNodeEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @"_ZZ4readI4EdgeET_RKN2cv8FileNodeEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %23 unwind label %50
 
 23:                                               ; preds = %22
-  invoke fastcc void @"_ZZ4readI4EdgeET_RKN2cv8FileNodeEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @"_ZZ4readI4EdgeET_RKN2cv8FileNodeEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %24 unwind label %52
 
 24:                                               ; preds = %23
@@ -19121,7 +19121,7 @@ define hidden void @_Z4readI4EdgeET_RKN2cv8FileNodeE(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ4readI4EdgeET_RKN2cv8FileNodeEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ4readI4EdgeET_RKN2cv8FileNodeEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 58, i64 noundef 0) #33
@@ -19203,7 +19203,7 @@ define hidden void @_Z4readIN2cv4util7variantIJ10ImportPath8LoadPathEEEET_RKNS0_
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %20
-  call fastcc void @_ZL13getModelsPathB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %6)
+  call fastcc void @_ZL13getModelsPathB5cxx11v(ptr dead_on_unwind noalias writable align 8 %6)
   invoke void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.50)
           to label %23 unwind label %33
 
@@ -19217,7 +19217,7 @@ define hidden void @_Z4readIN2cv4util7variantIJ10ImportPath8LoadPathEEEET_RKNS0_
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds i8, ptr %5, i64 32
-  invoke fastcc void @_ZL13getModelsPathB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %9)
+  invoke fastcc void @_ZL13getModelsPathB5cxx11v(ptr dead_on_unwind noalias writable align 8 %9)
           to label %27 unwind label %.thread
 
 27:                                               ; preds = %25
@@ -19292,7 +19292,7 @@ define hidden void @_Z4readIN2cv4util7variantIJ10ImportPath8LoadPathEEEET_RKNS0_
   br i1 %44, label %55, label %45
 
 45:                                               ; preds = %.critedge
-  call fastcc void @_ZL13getModelsPathB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %14)
+  call fastcc void @_ZL13getModelsPathB5cxx11v(ptr dead_on_unwind noalias writable align 8 %14)
   invoke void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.52)
           to label %46 unwind label %50
 
@@ -19387,7 +19387,7 @@ declare noundef zeroext i1 @_ZNK2cv8FileNode5emptyEv(ptr noundef nonnull align 8
 declare void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13getModelsPathB5cxx11v(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13getModelsPathB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.4", align 1
   %3 = load atomic i8, ptr @_ZGVZL13getModelsPathB5cxx11vE13models_path_c acquire, align 8
   %4 = icmp eq i8 %3, 0
@@ -19468,7 +19468,7 @@ define hidden void @_Z4readI10CallParamsET_RKN2cv8FileNodeE(ptr dead_on_unwind n
 
 17:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %17
@@ -19834,7 +19834,7 @@ define hidden void @_Z4readI11InferParamsET_RKN2cv8FileNodeE(ptr dead_on_unwind 
 
 36:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %.noexc unwind label %175
 
 .noexc:                                           ; preds = %36
@@ -19956,7 +19956,7 @@ _ZN2cv4util7variantIJ10ImportPath8LoadPathEED2Ev.exit: ; preds = %_ZN2cv4util7va
 
 79:                                               ; preds = %_ZN2cv4util7variantIJ10ImportPath8LoadPathEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %.noexc30 unwind label %183
 
 .noexc30:                                         ; preds = %79
@@ -20425,7 +20425,7 @@ define linkonce_odr hidden void @_Z8readListINSt7__cxx1112basic_stringIcSt11char
   %10 = alloca %"class.cv::FileNodeIterator", align 8
   %11 = alloca %"class.cv::FileNode", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %13 = call noundef zeroext i1 @_ZNK2cv8FileNode5isSeqEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   br i1 %13, label %30, label %14
 
@@ -20825,7 +20825,7 @@ define hidden void @_Z4readI11DummyParamsET_RKN2cv8FileNodeE(ptr dead_on_unwind 
 
 18:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %18
@@ -20846,7 +20846,7 @@ define hidden void @_Z4readI11DummyParamsET_RKN2cv8FileNodeE(ptr dead_on_unwind 
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc26 unwind label %40
 
 .noexc26:                                         ; preds = %21
@@ -20946,7 +20946,7 @@ define hidden void @_Z4readI11DummyParamsET_RKN2cv8FileNodeE(ptr dead_on_unwind 
 
 48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc28 unwind label %61
 
 .noexc28:                                         ; preds = %48
@@ -22720,7 +22720,7 @@ _ZNSt6vectorISt10shared_ptrI8PipelineESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt1
           to label %624 unwind label %642
 
 624:                                              ; preds = %623
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %113, ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0496.0694, ptr noundef nonnull align 8 dereferenceable(32) %114)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %113, ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0496.0694, ptr noundef nonnull align 8 dereferenceable(32) %114)
           to label %625 unwind label %644
 
 625:                                              ; preds = %624
@@ -22926,7 +22926,7 @@ _ZNSt10unique_ptrI13StopCriterionSt14default_deleteIS0_EED2Ev.exit: ; preds = %_
           to label %683 unwind label %695
 
 683:                                              ; preds = %_ZNSt10unique_ptrI13StopCriterionSt14default_deleteIS0_EED2Ev.exit
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0496.0694)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %120, ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0496.0694)
           to label %684 unwind label %697
 
 684:                                              ; preds = %683
@@ -22943,7 +22943,7 @@ _ZNSt10unique_ptrI13StopCriterionSt14default_deleteIS0_EED2Ev.exit: ; preds = %_
 
 686:                                              ; preds = %685
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %126)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %126)
           to label %.noexc330 unwind label %704
 
 .noexc330:                                        ; preds = %686
@@ -22967,7 +22967,7 @@ _ZNSt10unique_ptrI13StopCriterionSt14default_deleteIS0_EED2Ev.exit: ; preds = %_
 
 689:                                              ; preds = %688
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %130)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %130)
           to label %.noexc332 unwind label %712
 
 .noexc332:                                        ; preds = %689
@@ -22991,7 +22991,7 @@ _ZNSt10unique_ptrI13StopCriterionSt14default_deleteIS0_EED2Ev.exit: ; preds = %_
 
 693:                                              ; preds = %692
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %135)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %135)
           to label %.noexc334 unwind label %720
 
 .noexc334:                                        ; preds = %693
@@ -23529,7 +23529,7 @@ _ZN11OutputDescrD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrI1
           to label %874 unwind label %900
 
 874:                                              ; preds = %_ZN11OutputDescrD2Ev.exit
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %144, ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0496.0694)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %144, ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0496.0694)
           to label %875 unwind label %902
 
 875:                                              ; preds = %874
@@ -23713,7 +23713,7 @@ _ZN11OutputDescrD2Ev.exit367:                     ; preds = %899, %897, %723, %7
 
 918:                                              ; preds = %917
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %151, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %156)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %151, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %156)
           to label %.noexc368 unwind label %954
 
 .noexc368:                                        ; preds = %918
@@ -24186,7 +24186,7 @@ _ZN11DummyParamsD2Ev.exit380:                     ; preds = %1046, %965, %.body3
           to label %1052 unwind label %1062
 
 1052:                                             ; preds = %1051
-  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %163, ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0496.0694)
+  invoke fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %163, ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0496.0694)
           to label %1053 unwind label %1064
 
 1053:                                             ; preds = %1052
@@ -25916,7 +25916,7 @@ declare noundef zeroext i1 @_ZNK2cv8FileNode5isMapEv(ptr noundef nonnull align 8
 declare void @_ZNK2cv8FileNode4keysB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.63") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::FileNode", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25971,7 +25971,7 @@ define internal fastcc void @_ZL16check_and_get_fnRKN2cv8FileNodeERKNSt7__cxx111
   br label %22
 
 21:                                               ; preds = %9
-  call void @_ZNK2cv8FileNodeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call void @_ZNK2cv8FileNodeixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret void
 
 22:                                               ; preds = %18, %20
@@ -31237,7 +31237,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(pt
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL5visitSt10shared_ptrI4NodeERSt6vectorIS1_SaIS1_EERSt13unordered_mapIS1_iSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL5visitSt10shared_ptrI4NodeERSt6vectorIS1_SaIS1_EERSt13unordered_mapIS1_iSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.186", align 8
   %5 = alloca %"class.std::shared_ptr.186", align 8
   %6 = load ptr, ptr %0, align 8
@@ -31379,7 +31379,7 @@ _ZNSt13unordered_mapISt10shared_ptrI4NodeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pai
   br label %_ZNSt10shared_ptrI4NodeEC2ERKS1_.exit
 
 _ZNSt10shared_ptrI4NodeEC2ERKS1_.exit:            ; preds = %49, %55, %58
-  %60 = invoke fastcc noundef zeroext i1 @_ZL5visitSt10shared_ptrI4NodeERSt6vectorIS1_SaIS1_EERSt13unordered_mapIS1_iSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %60 = invoke fastcc noundef zeroext i1 @_ZL5visitSt10shared_ptrI4NodeERSt6vectorIS1_SaIS1_EERSt13unordered_mapIS1_iSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEE(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %61 unwind label %99
 
 61:                                               ; preds = %_ZNSt10shared_ptrI4NodeEC2ERKS1_.exit

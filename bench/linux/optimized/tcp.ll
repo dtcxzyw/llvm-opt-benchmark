@@ -8999,7 +8999,7 @@ declare dso_local void @sockopt_release_sock(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @tcp_set_ulp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_from_sockptr(ptr noundef %0, ptr %1, i8 %2, i64 noundef %3) unnamed_addr #6 align 16 {
+define internal fastcc i32 @copy_from_sockptr(ptr noundef %0, ptr %1, i8 %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #6 align 16 {
   %5 = and i8 %2, 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %15
@@ -9039,7 +9039,7 @@ declare dso_local i32 @tcp_fastopen_reset_cipher(ptr noundef, ptr noundef, ptr n
 declare dso_local void @tcp_send_window_probe(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr noundef %0, ptr %1, i8 %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr noundef %0, ptr %1, i8 %2, i32 noundef range(i32 4, 0) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.tcp_repair_opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 4
@@ -9216,7 +9216,7 @@ define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr
 declare dso_local void @tcp_fastopen_init_key_once(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @tcp_repair_set_window(ptr nocapture noundef %0, ptr %1, i8 %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @tcp_repair_set_window(ptr nocapture noundef %0, ptr %1, i8 %2, i32 noundef range(i32 4, 0) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.tcp_repair_window, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #22
   %6 = getelementptr inbounds i8, ptr %0, i64 1439
@@ -11225,7 +11225,7 @@ thread-pre-split20:                               ; preds = %463
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 align 16 {
+define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #6 align 16 {
   %5 = and i8 %1, 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %15
@@ -11262,7 +11262,7 @@ define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 n
 declare dso_local i32 @tcp_fastopen_get_cipher(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @check_zeroed_sockptr(ptr %0, i8 %1, i64 noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc i32 @check_zeroed_sockptr(ptr %0, i8 %1, i64 noundef range(i64 1, 2147483584) %2) unnamed_addr #6 align 16 {
   %4 = and i8 %1, 1
   %5 = icmp eq i8 %4, 0
   %6 = getelementptr i8, ptr %0, i64 64
@@ -12028,7 +12028,7 @@ tcp_zerocopy_vm_insert_batch.exit.thread:         ; preds = %447
 tcp_zerocopy_vm_insert_batch.exit:                ; preds = %447
   %460 = zext i32 %453 to i64
   %461 = getelementptr ptr, ptr %10, i64 %460
-  %462 = call fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef nonnull %261, ptr noundef %461, i64 noundef %451, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef %1, i32 noundef %271, i32 noundef %450)
+  %462 = call fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef %261, ptr noundef %461, i64 noundef %451, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef %1, i32 noundef %271, i32 noundef %450)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   %463 = icmp eq i32 %462, 0
   br i1 %463, label %464, label %.thread57
@@ -13607,13 +13607,13 @@ declare dso_local ptr @memchr_inv(ptr noundef, i32 noundef, i64 noundef) local_u
 declare dso_local void @zap_page_range_single(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tcp_zerocopy_vm_insert_batch(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i32 noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tcp_zerocopy_vm_insert_batch(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i32 noundef range(i32 0, -4095) %7) unnamed_addr #0 align 16 {
   %9 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
   %10 = zext i32 %2 to i64
   store i64 %10, ptr %9, align 8
   %11 = load i64, ptr %3, align 8
-  %12 = call i32 @vm_insert_pages(ptr noundef %0, i64 noundef %11, ptr noundef %1, ptr noundef nonnull %9) #22
+  %12 = call i32 @vm_insert_pages(ptr noundef nonnull %0, i64 noundef %11, ptr noundef %1, ptr noundef nonnull %9) #22
   %13 = load i64, ptr %9, align 8
   %14 = trunc i64 %13 to i32
   %15 = sub i32 %2, %14
@@ -13656,7 +13656,7 @@ define internal fastcc void @mmap_read_unlock(ptr noundef %0) unnamed_addr #6 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @vma_end_read(ptr nocapture noundef readonly %0) unnamed_addr #6 align 16 {
+define internal fastcc void @vma_end_read(ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 align 16 {
   tail call void @__rcu_read_lock() #22
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -13814,66 +13814,61 @@ declare dso_local ptr @mtree_load(ptr noundef, i64 noundef) local_unnamed_addr #
 declare dso_local i32 @vm_insert_pages(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i32 noundef range(i32 0, -4095) %7, i32 noundef range(i32 1, 0) %8) unnamed_addr #0 align 16 {
   %10 = alloca i64, align 8
   store i64 %2, ptr %10, align 8
-  switch i32 %8, label %.thread3 [
-    i32 -16, label %11
-    i32 0, label %23
-  ]
+  %11 = icmp eq i32 %8, -16
+  br i1 %11, label %12, label %.thread2
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 36
-  %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, 1
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread3, label %.thread
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %6, i64 36
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 1
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.thread2, label %17
 
-.thread:                                          ; preds = %11
-  %16 = load i32, ptr %4, align 4
-  %17 = trunc i64 %2 to i32
-  %18 = shl i32 %17, 12
-  %19 = add i32 %7, %18
-  %20 = sub i32 %19, %16
-  %21 = load i64, ptr %3, align 8
-  %22 = zext i32 %20 to i64
-  tail call void @zap_page_range_single(ptr noundef %0, i64 noundef %21, i64 noundef %22, ptr noundef null) #22
-  br label %23
+17:                                               ; preds = %12
+  %18 = load i32, ptr %4, align 4
+  %19 = trunc i64 %2 to i32
+  %20 = shl i32 %19, 12
+  %21 = add i32 %7, %20
+  %22 = sub i32 %21, %18
+  %23 = load i64, ptr %3, align 8
+  %24 = zext i32 %22 to i64
+  tail call void @zap_page_range_single(ptr noundef nonnull %0, i64 noundef %23, i64 noundef %24, ptr noundef null) #22
+  %25 = load i64, ptr %3, align 8
+  %26 = call i32 @vm_insert_pages(ptr noundef nonnull %0, i64 noundef %25, ptr noundef %1, ptr noundef nonnull %10) #22
+  %27 = load i64, ptr %10, align 8
+  %28 = sub i64 %2, %27
+  %29 = trunc i64 %28 to i32
+  %30 = shl i32 %29, 12
+  %31 = load i32, ptr %5, align 4
+  %32 = add i32 %30, %31
+  store i32 %32, ptr %5, align 4
+  %33 = sext i32 %30 to i64
+  %34 = load i64, ptr %3, align 8
+  %35 = add i64 %34, %33
+  store i64 %35, ptr %3, align 8
+  %36 = icmp eq i32 %26, 0
+  br i1 %36, label %46, label %.thread2
 
-23:                                               ; preds = %.thread, %9
-  %24 = load i64, ptr %3, align 8
-  %25 = call i32 @vm_insert_pages(ptr noundef %0, i64 noundef %24, ptr noundef %1, ptr noundef nonnull %10) #22
-  %26 = load i64, ptr %10, align 8
-  %27 = sub i64 %2, %26
-  %28 = trunc i64 %27 to i32
-  %29 = shl i32 %28, 12
-  %30 = load i32, ptr %5, align 4
-  %31 = add i32 %29, %30
-  store i32 %31, ptr %5, align 4
-  %32 = sext i32 %29 to i64
-  %33 = load i64, ptr %3, align 8
-  %34 = add i64 %33, %32
-  store i64 %34, ptr %3, align 8
-  %35 = icmp eq i32 %25, 0
-  br i1 %35, label %45, label %.thread3
+.thread2:                                         ; preds = %12, %9, %17
+  %37 = phi i64 [ %27, %17 ], [ %2, %9 ], [ %2, %12 ]
+  %38 = phi i32 [ %26, %17 ], [ %8, %9 ], [ -16, %12 ]
+  %39 = trunc i64 %37 to i32
+  %40 = shl i32 %39, 12
+  %41 = load i32, ptr %4, align 4
+  %42 = sub i32 %41, %40
+  store i32 %42, ptr %4, align 4
+  %43 = getelementptr inbounds i8, ptr %6, i64 12
+  %44 = load i32, ptr %43, align 4
+  %45 = add i32 %44, %40
+  store i32 %45, ptr %43, align 4
+  br label %46
 
-.thread3:                                         ; preds = %9, %11, %23
-  %36 = phi i64 [ %26, %23 ], [ %2, %11 ], [ %2, %9 ]
-  %37 = phi i32 [ %25, %23 ], [ -16, %11 ], [ %8, %9 ]
-  %38 = trunc i64 %36 to i32
-  %39 = shl i32 %38, 12
-  %40 = load i32, ptr %4, align 4
-  %41 = sub i32 %40, %39
-  store i32 %41, ptr %4, align 4
-  %42 = getelementptr inbounds i8, ptr %6, i64 12
-  %43 = load i32, ptr %42, align 4
-  %44 = add i32 %43, %39
-  store i32 %44, ptr %42, align 4
-  br label %45
-
-45:                                               ; preds = %.thread3, %23
-  %46 = phi i32 [ %37, %.thread3 ], [ 0, %23 ]
-  ret i32 %46
+46:                                               ; preds = %.thread2, %17
+  %47 = phi i32 [ %38, %.thread2 ], [ 0, %17 ]
+  ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid

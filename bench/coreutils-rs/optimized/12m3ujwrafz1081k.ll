@@ -298,7 +298,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$std..thread..local..Access
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$regex..regex..bytes..Regex$GT$$GT$17h2ddce7ef5ac8456bE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$regex..regex..bytes..Regex$GT$$GT$17h2ddce7ef5ac8456bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr47drop_in_place$LT$regex..regex..bytes..Regex$GT$17haa8cd2fb02e34b2eE.exit", label %4
@@ -1419,7 +1419,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr34drop
 
 "_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h1d44fef11601b538E.exit298": ; preds = %.loopexit382, %.loopexit.split-lp383, %267, %373, %398, %389, %416, %441, %432, %516, %422, %379, %287, %362, %939, %941, %911
   %.pn125 = phi { ptr, i32 } [ %.pn123, %911 ], [ %.pn123, %941 ], [ %.pn106.pn, %287 ], [ %380, %379 ], [ %423, %422 ], [ %.pn116, %516 ], [ %.pn106.pn, %362 ], [ %.pn116, %939 ], [ %433, %432 ], [ %433, %441 ], [ %417, %416 ], [ %390, %389 ], [ %390, %398 ], [ %374, %373 ], [ %268, %267 ], [ %lpad.loopexit384, %.loopexit382 ], [ %lpad.loopexit.split-lp385, %.loopexit.split-lp383 ]
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$regex..regex..bytes..Regex$GT$$GT$17h2ddce7ef5ac8456bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %90) #17
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$regex..regex..bytes..Regex$GT$$GT$17h2ddce7ef5ac8456bE"(ptr noalias noundef align 8 dereferenceable(32) %90) #17
           to label %common.resume unwind label %359
 
 .loopexit382:                                     ; preds = %938
@@ -3342,8 +3342,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   br label %_ZN14regex_automata4meta5regex5Regex6search17h648c121a5c95efe5E.exit.i.i
 
 749:                                              ; preds = %.noexc306, %741
-  %.sroa.0.039.i.i.i.i = phi i32 [ 0, %741 ], [ %750, %.noexc306 ]
-  %750 = add nuw nsw i32 %.sroa.0.039.i.i.i.i, 1
+  %.sroa.0.038.i.i.i.i = phi i32 [ 0, %741 ], [ %750, %.noexc306 ]
+  %750 = add nuw nsw i32 %.sroa.0.038.i.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !667
   %751 = load i64, ptr %738, align 8, !noalias !666, !noundef !8
   %752 = icmp ult i64 %742, %751

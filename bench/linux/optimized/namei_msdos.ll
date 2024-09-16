@@ -1381,7 +1381,7 @@ declare dso_local { i64, i64 } @current_time(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 align 16 {
+define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, -2147483648) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 align 16 {
   %8 = alloca %struct.msdos_dir_entry, align 4
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2

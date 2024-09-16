@@ -400,7 +400,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont17 unwind label %lpad3
 
 invoke.cont17:                                    ; preds = %invoke.cont10
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118FilenameIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118FilenameIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -1932,7 +1932,7 @@ for.body:                                         ; preds = %invoke.cont50
 
 invoke.cont56:                                    ; preds = %for.body
   %19 = load ptr, ptr %ref.tmp53, align 8
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118PrintHeaderServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %vars)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118PrintHeaderServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %17, ptr noundef %19, ptr noundef %vars)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont56
@@ -2044,7 +2044,7 @@ ehcleanup75:                                      ; preds = %_ZNSt10unique_ptrIN
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118PrintHeaderServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %printer, ptr noundef %service, ptr noundef %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118PrintHeaderServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %printer, ptr noundef %service, ptr noundef nonnull %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i1118 = alloca %struct._Guard, align 8
   %__guard.i1107 = alloca %struct._Guard, align 8
@@ -2346,7 +2346,7 @@ _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EED2Ev.exit: ;
   %19 = load ptr, ptr %vfn62, align 8
   call void %19(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(8) %service, i32 noundef %i.01132)
   %20 = load ptr, ptr %ref.tmp60, align 8
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_133PrintHeaderClientMethodInterfacesEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %printer, ptr noundef %20, ptr noundef nonnull %vars, i1 noundef zeroext true)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_133PrintHeaderClientMethodInterfacesEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %printer, ptr noundef %20, ptr noundef %vars, i1 noundef zeroext true)
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EED2Ev.exit
@@ -2580,7 +2580,7 @@ for.body101:                                      ; preds = %for.end, %_ZNSt10un
   %53 = load ptr, ptr %vfn104, align 8
   call void %53(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp102, ptr noundef nonnull align 8 dereferenceable(8) %service, i32 noundef %i95.01137)
   %54 = load ptr, ptr %ref.tmp102, align 8
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_133PrintHeaderClientMethodInterfacesEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %printer, ptr noundef %54, ptr noundef nonnull %vars, i1 noundef zeroext false)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_133PrintHeaderClientMethodInterfacesEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %printer, ptr noundef %54, ptr noundef %vars, i1 noundef zeroext false)
           to label %invoke.cont107 unwind label %lpad106
 
 invoke.cont107:                                   ; preds = %for.body101
@@ -2654,7 +2654,7 @@ for.body128:                                      ; preds = %for.end111, %_ZNSt1
   %67 = load ptr, ptr %vfn131, align 8
   call void %67(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp129, ptr noundef nonnull align 8 dereferenceable(8) %service, i32 noundef %i122.01142)
   %68 = load ptr, ptr %ref.tmp129, align 8
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_123PrintHeaderClientMethodEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %printer, ptr noundef %68, ptr noundef nonnull %vars, i1 noundef zeroext true)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_123PrintHeaderClientMethodEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %printer, ptr noundef %68, ptr noundef %vars, i1 noundef zeroext true)
           to label %invoke.cont134 unwind label %lpad133
 
 invoke.cont134:                                   ; preds = %for.body128
@@ -2732,7 +2732,7 @@ for.body153:                                      ; preds = %for.end138, %_ZNSt1
   %81 = load ptr, ptr %vfn156, align 8
   call void %81(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(8) %service, i32 noundef %i147.01147)
   %82 = load ptr, ptr %ref.tmp154, align 8
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_123PrintHeaderClientMethodEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %printer, ptr noundef %82, ptr noundef nonnull %vars, i1 noundef zeroext false)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_123PrintHeaderClientMethodEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %printer, ptr noundef %82, ptr noundef %vars, i1 noundef zeroext false)
           to label %invoke.cont159 unwind label %lpad158
 
 invoke.cont159:                                   ; preds = %for.body153
@@ -6476,7 +6476,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont17 unwind label %lpad3
 
 invoke.cont17:                                    ; preds = %invoke.cont10
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118FilenameIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118FilenameIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -6957,7 +6957,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
 invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #13
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118service_header_extB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp39)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118service_header_extB5cxx11Ev(ptr noalias align 8 %ref.tmp39)
           to label %invoke.cont40 unwind label %lpad3
 
 invoke.cont40:                                    ; preds = %invoke.cont35
@@ -7164,7 +7164,7 @@ ehcleanup78:                                      ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118service_header_extB5cxx11Ev(ptr noalias align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118service_header_extB5cxx11Ev(ptr noalias nonnull align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
@@ -7910,7 +7910,7 @@ for.body:                                         ; preds = %invoke.cont82
 
 invoke.cont88:                                    ; preds = %for.body
   %27 = load ptr, ptr %ref.tmp85, align 8
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118PrintSourceServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %25, ptr noundef %27, ptr noundef nonnull %vars)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118PrintSourceServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %25, ptr noundef %27, ptr noundef %vars)
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %invoke.cont88
@@ -8010,7 +8010,7 @@ ehcleanup99:                                      ; preds = %_ZNSt10unique_ptrIN
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118PrintSourceServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %printer, ptr noundef %service, ptr noundef %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118PrintSourceServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %printer, ptr noundef %service, ptr noundef nonnull %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i1461 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   %__z.i1432 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
@@ -13570,7 +13570,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
 invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #13
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118service_header_extB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp39)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_118service_header_extB5cxx11Ev(ptr noalias align 8 %ref.tmp39)
           to label %invoke.cont40 unwind label %lpad3
 
 invoke.cont40:                                    ; preds = %invoke.cont35
@@ -14362,7 +14362,7 @@ for.body:                                         ; preds = %invoke.cont50
 
 invoke.cont56:                                    ; preds = %for.body
   %19 = load ptr, ptr %ref.tmp53, align 8
-  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_116PrintMockServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %vars)
+  invoke fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_116PrintMockServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %17, ptr noundef %19, ptr noundef %vars)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont56
@@ -14472,7 +14472,7 @@ ehcleanup75:                                      ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_116PrintMockServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %printer, ptr noundef %service, ptr noundef %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_116PrintMockServiceEPN14grpc_generator7PrinterEPKNS1_7ServiceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %printer, ptr noundef %service, ptr noundef nonnull %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i763 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   %__z.i734 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
@@ -17520,7 +17520,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_133PrintHeaderClientMethodInterfacesEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef %printer, ptr noundef %method, ptr noundef %vars, i1 noundef zeroext %is_public) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_133PrintHeaderClientMethodInterfacesEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef %printer, ptr noundef %method, ptr noundef nonnull %vars, i1 noundef zeroext %is_public) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19232,7 +19232,7 @@ eh.resume:                                        ; preds = %arraydestroy.body53
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_123PrintHeaderClientMethodEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef %printer, ptr noundef %method, ptr noundef %vars, i1 noundef zeroext %is_public) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_123PrintHeaderClientMethodEPN14grpc_generator7PrinterEPKNS1_6MethodEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef %printer, ptr noundef %method, ptr noundef nonnull %vars, i1 noundef zeroext %is_public) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8

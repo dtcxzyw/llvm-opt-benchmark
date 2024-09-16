@@ -255,7 +255,7 @@ if.end71:                                         ; preds = %if.end64
   %12 = load ptr, ptr %call30, align 8
   %reset = getelementptr inbounds i8, ptr %12, i64 41
   store i8 1, ptr %reset, align 1
-  tail call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef nonnull %call30, ptr noundef nonnull %status)
+  tail call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef %call30, ptr noundef nonnull %status)
   %13 = load i32, ptr %status, align 4
   %cmp.i84 = icmp slt i32 %13, 1
   br i1 %cmp.i84, label %return, label %if.then79
@@ -378,7 +378,7 @@ if.end32:                                         ; preds = %if.end30, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef %strsrch, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef nonnull %strsrch, ptr noundef %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1263,7 +1263,7 @@ if.end24:                                         ; preds = %if.then19, %if.end1
   %13 = load i32, ptr %textLength34, align 8
   %call35 = tail call ptr @ucol_openElements_75(ptr noundef nonnull %collator, ptr noundef %12, i32 noundef %13, ptr noundef nonnull %status)
   store ptr %call35, ptr %utilIter, align 8
-  tail call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef nonnull %strsrch, ptr noundef nonnull %status)
+  tail call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef %strsrch, ptr noundef nonnull %status)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end, %if.end24, %if.then1, %entry
@@ -1325,7 +1325,7 @@ if.end8:                                          ; preds = %if.end
   store ptr %pattern, ptr %pattern9, align 8
   %textLength = getelementptr inbounds i8, ptr %strsrch, i64 16
   store i32 %patternlength.addr.0, ptr %textLength, align 8
-  tail call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef nonnull %strsrch, ptr noundef nonnull %status)
+  tail call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef %strsrch, ptr noundef nonnull %status)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then2, %if.end8, %if.then7, %entry
@@ -2992,7 +2992,7 @@ if.end31:                                         ; preds = %if.end25
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end31.thread, %if.end31
-  call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef nonnull %strsrch, ptr noundef nonnull %status)
+  call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef %strsrch, ptr noundef nonnull %status)
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.end31

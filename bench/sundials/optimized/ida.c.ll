@@ -583,7 +583,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
 
 161:                                              ; preds = %138
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 469, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  call fastcc void @IDAFreeVectors(ptr noundef nonnull %0)
+  call fastcc void @IDAFreeVectors(ptr noundef %0)
   br label %182
 
 162:                                              ; preds = %138
@@ -593,7 +593,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
 
 164:                                              ; preds = %162
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef %163, i32 noundef 482, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  call fastcc void @IDAFreeVectors(ptr noundef nonnull %0)
+  call fastcc void @IDAFreeVectors(ptr noundef %0)
   %165 = call i32 @SUNNonlinSolFree(ptr noundef nonnull %159) #13
   br label %182
 
@@ -642,7 +642,7 @@ declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @SUNNonlinSol_Newton(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @IDAFreeVectors(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @IDAFreeVectors(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   tail call void @N_VDestroy(ptr noundef %3) #13
@@ -1628,7 +1628,7 @@ define range(i32 -99, 100) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr 
   br i1 %138, label %139, label %144
 
 139:                                              ; preds = %131
-  %140 = tail call fastcc i32 @IDARcheck1(ptr noundef nonnull %0)
+  %140 = tail call fastcc i32 @IDARcheck1(ptr noundef %0)
   %141 = icmp eq i32 %140, -10
   br i1 %141, label %142, label %._crit_edge
 
@@ -1679,7 +1679,7 @@ define range(i32 -99, 100) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr 
 165:                                              ; preds = %161
   %166 = getelementptr inbounds i8, ptr %0, i64 1172
   %167 = load i32, ptr %166, align 4
-  %168 = tail call fastcc i32 @IDARcheck2(ptr noundef nonnull %0)
+  %168 = tail call fastcc i32 @IDARcheck2(ptr noundef %0)
   switch i32 %168, label %179 [
     i32 3, label %169
     i32 -10, label %172
@@ -1726,7 +1726,7 @@ define range(i32 -99, 100) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr 
   br i1 %195, label %196, label %210
 
 196:                                              ; preds = %179
-  %197 = tail call fastcc i32 @IDARcheck3(ptr noundef nonnull %0)
+  %197 = tail call fastcc i32 @IDARcheck3(ptr noundef %0)
   switch i32 %197, label %210 [
     i32 0, label %198
     i32 1, label %204
@@ -1762,7 +1762,7 @@ define range(i32 -99, 100) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr 
   br label %IDAStopTest2.exit.thread
 
 210:                                              ; preds = %196, %179, %198, %161
-  %211 = tail call fastcc i32 @IDAStopTest1(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5)
+  %211 = tail call fastcc i32 @IDAStopTest1(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %.not280 = icmp eq i32 %211, 99
   br i1 %.not280, label %212, label %IDAStopTest2.exit.thread
 
@@ -2899,7 +2899,7 @@ switch.lookup:                                    ; preds = %626
 
 .loopexit300:                                     ; preds = %681, %626, %switch.lookup, %637
   %.039.i.ph = phi i32 [ %switch.select103.i.i, %637 ], [ %switch.load, %switch.lookup ], [ -17, %626 ], [ -3, %681 ]
-  %825 = call fastcc i32 @IDAHandleFailure(ptr noundef nonnull %0, i32 noundef %.039.i.ph)
+  %825 = call fastcc i32 @IDAHandleFailure(ptr noundef %0, i32 noundef %.039.i.ph)
   %826 = load double, ptr %222, align 8
   %827 = getelementptr inbounds i8, ptr %0, i64 688
   store double %826, ptr %827, align 8
@@ -2941,7 +2941,7 @@ switch.lookup:                                    ; preds = %626
   br i1 %849, label %850, label %.thread
 
 850:                                              ; preds = %847
-  %851 = call fastcc i32 @IDARcheck3(ptr noundef nonnull %0)
+  %851 = call fastcc i32 @IDARcheck3(ptr noundef %0)
   switch i32 %851, label %860 [
     i32 1, label %852
     i32 -10, label %857
@@ -3239,7 +3239,7 @@ define double @IDAWrmsNorm(ptr nocapture noundef readonly %0, ptr noundef %1, pt
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1080
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -3411,7 +3411,7 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1172
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -3629,7 +3629,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1168
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %._crit_edge106 [
@@ -4474,7 +4474,7 @@ define range(i32 -28, 1) i32 @IDAGetSolution(ptr noundef %0, double noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef %0, double noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef nonnull %0, double noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 600
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
@@ -4518,7 +4518,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef %0, dou
   br i1 %or.cond, label %52, label %36
 
 36:                                               ; preds = %30
-  %37 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %13, ptr noundef %3, ptr noundef %4)
+  %37 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not71 = icmp eq i32 %37, 0
   %38 = load double, ptr %12, align 8
   br i1 %.not71, label %41, label %39
@@ -4577,7 +4577,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef %0, dou
   br i1 %65, label %83, label %66
 
 66:                                               ; preds = %58
-  %67 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %1, ptr noundef %3, ptr noundef %4)
+  %67 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not70 = icmp eq i32 %67, 0
   br i1 %.not70, label %69, label %68
 
@@ -4603,7 +4603,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef %0, dou
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %70
-  %81 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %72, ptr noundef %3, ptr noundef %4)
+  %81 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %72, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %82 = load double, ptr %71, align 8
   store double %82, ptr %73, align 8
   store double %82, ptr %2, align 8
@@ -4615,7 +4615,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef %0, dou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %38 [
     i32 -3, label %3
     i32 -4, label %8
@@ -4635,7 +4635,7 @@ define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef %0, 
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 656
   %7 = load double, ptr %6, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -3, i32 noundef 2361, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.38, double noundef %5, double noundef %7)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 2361, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.38, double noundef %5, double noundef %7)
   br label %39
 
 8:                                                ; preds = %2
@@ -4643,37 +4643,37 @@ define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef %0, 
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 656
   %12 = load double, ptr %11, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -4, i32 noundef 2366, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.39, double noundef %10, double noundef %12)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 2366, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.39, double noundef %10, double noundef %12)
   br label %39
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 680
   %15 = load double, ptr %14, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -6, i32 noundef 2371, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.40, double noundef %15)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -6, i32 noundef 2371, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.40, double noundef %15)
   br label %39
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %0, i64 680
   %18 = load double, ptr %17, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -7, i32 noundef 2376, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.41, double noundef %18)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -7, i32 noundef 2376, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.41, double noundef %18)
   br label %39
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 680
   %21 = load double, ptr %20, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -9, i32 noundef 2381, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.42, double noundef %21)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 2381, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.42, double noundef %21)
   br label %39
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds i8, ptr %0, i64 680
   %24 = load double, ptr %23, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -8, i32 noundef 2386, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.43, double noundef %24)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 2386, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.43, double noundef %24)
   br label %39
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 680
   %27 = load double, ptr %26, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -11, i32 noundef 2391, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.44, double noundef %27)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -11, i32 noundef 2391, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.44, double noundef %27)
   br label %39
 
 28:                                               ; preds = %2
@@ -4683,23 +4683,23 @@ define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef %0, 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds i8, ptr %0, i64 680
   %31 = load double, ptr %30, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -20, i32 noundef 2400, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.45, double noundef %31)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 2400, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.45, double noundef %31)
   br label %39
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds i8, ptr %0, i64 680
   %34 = load double, ptr %33, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -16, i32 noundef 2405, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.46, double noundef %34)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -16, i32 noundef 2405, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.46, double noundef %34)
   br label %39
 
 35:                                               ; preds = %2
   %36 = getelementptr inbounds i8, ptr %0, i64 680
   %37 = load double, ptr %36, align 8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -17, i32 noundef 2409, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, double noundef %37)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -17, i32 noundef 2409, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, double noundef %37)
   br label %39
 
 38:                                               ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -99, i32 noundef 2415, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.48)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -99, i32 noundef 2415, ptr noundef nonnull @__func__.IDAHandleFailure, ptr noundef nonnull @.str, ptr noundef nonnull @.str.48)
   br label %39
 
 39:                                               ; preds = %38, %35, %32, %29, %28, %25, %22, %19, %16, %13, %8, %3
@@ -4933,7 +4933,7 @@ define void @IDAFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %35, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @IDAFreeVectors(ptr noundef nonnull %2)
+  tail call fastcc void @IDAFreeVectors(ptr noundef %2)
   %5 = getelementptr inbounds i8, ptr %2, i64 992
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0

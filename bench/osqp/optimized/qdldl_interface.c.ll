@@ -360,7 +360,7 @@ define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr nocapture noundef write
   br i1 %.not116, label %.thread, label %71
 
 71:                                               ; preds = %69
-  call fastcc void @permute_KKT(ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @permute_KKT(ptr noundef %7, ptr noundef nonnull %10, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %124
 
 72:                                               ; preds = %56
@@ -448,7 +448,7 @@ define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr nocapture noundef write
   %121 = load ptr, ptr %79, align 8
   %122 = load ptr, ptr %86, align 8
   %123 = load ptr, ptr %89, align 8
-  call fastcc void @permute_KKT(ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %115, i64 noundef %120, i64 noundef %15, ptr noundef %121, ptr noundef %122, ptr noundef %123)
+  call fastcc void @permute_KKT(ptr noundef %7, ptr noundef nonnull %10, i64 noundef %115, i64 noundef %120, i64 noundef %15, ptr noundef %121, ptr noundef %122, ptr noundef %123)
   br label %124
 
 124:                                              ; preds = %110, %71
@@ -1966,7 +1966,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare ptr @form_KKT(ptr noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @permute_KKT(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc void @permute_KKT(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #12
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8

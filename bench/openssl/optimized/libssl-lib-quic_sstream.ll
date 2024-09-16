@@ -45,7 +45,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr nocapture noundef %r, i64 noundef %num_bytes, i32 noundef %cleanse) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr nocapture noundef %r, i64 noundef %num_bytes, i32 noundef range(i32 0, 2) %cleanse) unnamed_addr #0 {
 entry:
   %alloc = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load i64, ptr %alloc, align 8

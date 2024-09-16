@@ -1038,7 +1038,7 @@ declare dso_local ptr @i915_request_create(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @i915_request_await_deps(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i1 noundef zeroext %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i1 noundef zeroext %3, i64 noundef range(i64 0, 16777217) %4, i32 noundef range(i32 -8388608, -2147483648) %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 7168
@@ -1061,16 +1061,16 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
 
 25:                                               ; preds = %6
   %26 = lshr i64 %4, 5
-  %27 = and i64 %26, 576460752303357952
-  %28 = add nuw nsw i64 %27, 25165824
+  %27 = and i64 %26, 983040
+  %28 = or disjoint i64 %27, 25165824
   %29 = select i1 %3, i32 64, i32 1024
   %30 = select i1 %3, i32 65536, i32 4096
   br label %35
 
 31:                                               ; preds = %6
   %32 = lshr i64 %4, 9
-  %33 = and i64 %32, 36028797018963960
-  %34 = add nuw nsw i64 %33, 16777216
+  %33 = and i64 %32, 65528
+  %34 = or disjoint i64 %33, 16777216
   br label %35
 
 35:                                               ; preds = %31, %25
@@ -1316,7 +1316,7 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @emit_copy_ccs(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @emit_copy_ccs(ptr noundef %0, i32 noundef range(i32 0, 16777217) %1, i8 noundef zeroext range(i8 0, 2) %2, i32 noundef range(i32 0, 16777217) %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef range(i32 1, -2147483648) %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1367,9 +1367,9 @@ define internal fastcc i32 @emit_copy_ccs(ptr noundef %0, i32 noundef %1, i8 nou
   %43 = shl nuw nsw i32 %42, 21
   %44 = zext nneg i8 %2 to i32
   %45 = shl nuw nsw i32 %44, 20
-  %46 = or i32 %45, %43
-  %47 = or disjoint i32 %46, %38
-  %48 = or i32 %47, 1375731715
+  %46 = or disjoint i32 %43, %45
+  %47 = or disjoint i32 %38, %46
+  %48 = or disjoint i32 %47, 1375731715
   %49 = getelementptr i8, ptr %17, i64 16
   store i32 %48, ptr %41, align 4
   store i32 %3, ptr %49, align 4

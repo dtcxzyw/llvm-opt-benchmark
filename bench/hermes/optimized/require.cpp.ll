@@ -1037,7 +1037,7 @@ declare void @_ZN6hermes2vm7HadesGC18weakRefReadBarrierEPNS0_6GCCellE(ptr nounde
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture readonly %strPrim.coerce, i32 noundef %start) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture readonly %strPrim.coerce, i32 noundef range(i32 0, 2) %start) unnamed_addr #0 align 2 {
 entry:
   %u16String = alloca %"class.hermes::vm::SmallXString", align 8
   %str = alloca %"class.std::__cxx11::basic_string", align 8

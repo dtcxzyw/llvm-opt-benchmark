@@ -12460,7 +12460,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$syntax..ast..AstChildren$LT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator3nth17h95970267a0541d0eE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator3nth17h95970267a0541d0eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [1 x i64] }, align 8
   %4 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6335)
@@ -16744,7 +16744,7 @@ define hidden void @_ZN6syntax3ted15remove_all_iter17h69daf6e7dcf4fd34E(ptr noal
 
 41:                                               ; preds = %15
   store i64 0, ptr %16, align 8, !alias.scope !7167
-  %42 = invoke fastcc { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator3nth17h95970267a0541d0eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %17)
+  %42 = invoke fastcc { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator3nth17h95970267a0541d0eE(ptr noalias noundef align 8 dereferenceable(24) %11, i64 noundef %17)
           to label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d1474ed5f8a8bc0E.exit.i" unwind label %78
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d1474ed5f8a8bc0E.exit.i": ; preds = %41, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d6c0f979babf10aE.exit.i.i"
@@ -16896,7 +16896,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i: ; preds = %56, %53
 
 92:                                               ; preds = %86
   %93 = add i64 %89, -1
-  %94 = invoke fastcc { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator3nth17h95970267a0541d0eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %93)
+  %94 = invoke fastcc { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator3nth17h95970267a0541d0eE(ptr noalias noundef align 8 dereferenceable(24) %9, i64 noundef %93)
           to label %.noexc4.i.i unwind label %111
 
 .noexc4.i.i:                                      ; preds = %92

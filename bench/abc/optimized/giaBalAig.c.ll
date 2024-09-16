@@ -3646,7 +3646,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntAlloc.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 -2147483648, 101) i32 @Dam_ManDivSlack(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 101) i32 @Dam_ManDivSlack(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = ashr i32 %1, 1
   %7 = zext i32 %6 to i64
@@ -3682,7 +3682,7 @@ define noundef range(i32 -2147483648, 101) i32 @Dam_ManDivSlack(ptr nocapture no
   %.neg = sext i1 %28 to i32
   %29 = add i32 %24, %.neg
   %30 = add i32 %29, %27
-  %31 = tail call noundef i32 @llvm.smin.i32(i32 %30, i32 100)
+  %31 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %30, i32 100)
   ret i32 %31
 }
 
@@ -4865,7 +4865,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.neg.i = sext i1 %462 to i32
   %463 = add i32 %458, %.neg.i
   %464 = add i32 %463, %461
-  %465 = tail call noundef range(i32 -2147483648, 101) i32 @llvm.smin.i32(i32 %464, i32 100)
+  %465 = tail call range(i32 -2147483648, 101) i32 @llvm.smin.i32(i32 %464, i32 100)
   %466 = sitofp i32 %465 to double
   %467 = tail call double @llvm.fmuladd.f64(double %466, double 5.000000e-03, double %433)
   %468 = fptrunc double %467 to float
@@ -5293,7 +5293,7 @@ Vec_IntStart.exit385:                             ; preds = %Vec_IntAlloc.exit.t
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: write) uwtable
-define internal fastcc noalias noundef ptr @Hash_IntManStart(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc noalias noundef ptr @Hash_IntManStart(i32 noundef range(i32 -1073741824, 1073741824) %0) unnamed_addr #6 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #27
   %3 = add nsw i32 %0, 99
   br label %.loopexit.i
@@ -5905,7 +5905,7 @@ Hash_Int2ManLookup.exit49:                        ; preds = %89, %Vec_IntPush.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef range(i32 -1, 1) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %1, %5
@@ -7199,7 +7199,7 @@ Vec_QueMoveUp.exit.i:                             ; preds = %Vec_QuePrio.exit30.
   br label %Vec_QuePrio.exit.i4.i
 
 197:                                              ; preds = %193
-  %198 = sitofp i32 %.088.pr to float
+  %198 = uitofp nneg i32 %.088.pr to float
   br label %Vec_QuePrio.exit.i4.i
 
 Vec_QuePrio.exit.i4.i:                            ; preds = %197, %194
@@ -8010,7 +8010,7 @@ Vec_FltFillExtra.exit:                            ; preds = %._crit_edge, %._cri
   %.neg.i = sext i1 %333 to i32
   %334 = add i32 %329, %.neg.i
   %335 = add i32 %334, %332
-  %336 = tail call noundef range(i32 -2147483648, 101) i32 @llvm.smin.i32(i32 %335, i32 100)
+  %336 = tail call range(i32 -2147483648, 101) i32 @llvm.smin.i32(i32 %335, i32 100)
   %337 = sitofp i32 %336 to double
   %338 = tail call double @llvm.fmuladd.f64(double %337, double 1.000000e-03, double %303)
   %339 = fptrunc double %338 to float
@@ -8862,7 +8862,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

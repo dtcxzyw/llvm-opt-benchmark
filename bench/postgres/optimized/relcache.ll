@@ -355,7 +355,7 @@ BuildHardcodedDescriptor.exit.i:                  ; preds = %110
 
 GetPgIndexDescriptor.exit:                        ; preds = %93, %BuildHardcodedDescriptor.exit.i
   %115 = phi ptr [ %106, %BuildHardcodedDescriptor.exit.i ], [ %101, %93 ]
-  %116 = call fastcc i64 @fastgetattr(ptr noundef %100, i32 noundef 17, ptr noundef nonnull %115, ptr noundef nonnull %6)
+  %116 = call fastcc i64 @fastgetattr(ptr noundef %100, i32 noundef 17, ptr noundef nonnull %115, ptr noundef %6)
   %117 = inttoptr i64 %116 to ptr
   %118 = load ptr, ptr %96, align 8
   %119 = getelementptr inbounds i8, ptr %117, i64 24
@@ -397,7 +397,7 @@ BuildHardcodedDescriptor.exit.i86:                ; preds = %130
 
 GetPgIndexDescriptor.exit87:                      ; preds = %GetPgIndexDescriptor.exit, %BuildHardcodedDescriptor.exit.i86
   %135 = phi ptr [ %126, %BuildHardcodedDescriptor.exit.i86 ], [ %121, %GetPgIndexDescriptor.exit ]
-  %136 = call fastcc i64 @fastgetattr(ptr noundef %120, i32 noundef 18, ptr noundef nonnull %135, ptr noundef nonnull %6)
+  %136 = call fastcc i64 @fastgetattr(ptr noundef %120, i32 noundef 18, ptr noundef nonnull %135, ptr noundef %6)
   %137 = getelementptr inbounds i8, ptr %0, i64 368
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %77, align 8
@@ -675,7 +675,7 @@ BuildHardcodedDescriptor.exit.i91:                ; preds = %270
 
 GetPgIndexDescriptor.exit92:                      ; preds = %IndexSupportInitialize.exit, %BuildHardcodedDescriptor.exit.i91
   %275 = phi ptr [ %266, %BuildHardcodedDescriptor.exit.i91 ], [ %261, %IndexSupportInitialize.exit ]
-  %276 = call fastcc i64 @fastgetattr(ptr noundef %260, i32 noundef 19, ptr noundef nonnull %275, ptr noundef nonnull %6)
+  %276 = call fastcc i64 @fastgetattr(ptr noundef %260, i32 noundef 19, ptr noundef nonnull %275, ptr noundef %6)
   %277 = inttoptr i64 %276 to ptr
   %278 = load ptr, ptr %99, align 8
   %279 = getelementptr inbounds i8, ptr %277, i64 24
@@ -712,7 +712,7 @@ declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4, 28) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1240,7 +1240,7 @@ RelationCloseSmgr.exit:                           ; preds = %1, %4
   br label %38
 
 38:                                               ; preds = %37, %27
-  tail call fastcc void @RelationParseRelOptions(ptr noundef nonnull %0, ptr noundef nonnull %22)
+  tail call fastcc void @RelationParseRelOptions(ptr noundef nonnull %0, ptr noundef %22)
   tail call void @heap_freetuple(ptr noundef nonnull %22) #12
   tail call fastcc void @RelationInitPhysicalAddr(ptr noundef nonnull %0)
   %39 = tail call zeroext i1 @IsSystemRelation(ptr noundef nonnull %0) #12
@@ -2798,7 +2798,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %382, %380
   %442 = call ptr @MemoryContextStrdup(ptr noundef %440, ptr noundef nonnull %441) #12
   store ptr %442, ptr %412, align 8
   %443 = load ptr, ptr %410, align 8
-  %444 = call fastcc i64 @fastgetattr(ptr noundef nonnull %416, i32 noundef 27, ptr noundef %443, ptr noundef nonnull %4)
+  %444 = call fastcc i64 @fastgetattr(ptr noundef nonnull %416, i32 noundef 27, ptr noundef %443, ptr noundef %4)
   %445 = load i8, ptr %4, align 1
   %446 = trunc i8 %445 to i1
   br i1 %446, label %447, label %453
@@ -2921,7 +2921,7 @@ RelationBuildTupleDesc.exit:                      ; preds = %CheckConstraintFetc
   br label %496
 
 496:                                              ; preds = %RelationBuildTupleDesc.exit, %495, %494
-  call fastcc void @RelationParseRelOptions(ptr noundef nonnull %40, ptr noundef nonnull %30)
+  call fastcc void @RelationParseRelOptions(ptr noundef nonnull %40, ptr noundef %30)
   %497 = load ptr, ptr %43, align 8
   %498 = getelementptr inbounds i8, ptr %497, i64 120
   %499 = load i8, ptr %498, align 4
@@ -5537,7 +5537,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71, 6102) %1, i1 noundef zeroext %2, i32 noundef range(i32 4, 34) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = zext i1 %2 to i8
   %8 = tail call ptr @palloc0(i64 noundef 480) #12
@@ -5615,16 +5615,12 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef %1, i1 nounde
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   store i32 -1, ptr %53, align 8
-  %54 = icmp sgt i32 %3, 0
-  br i1 %54, label %.lr.ph.preheader, label %.critedge
-
-.lr.ph.preheader:                                 ; preds = %27
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %.lr.ph
+  br label %54
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.07374 = phi i1 [ false, %.lr.ph.preheader ], [ %64, %.lr.ph ]
+54:                                               ; preds = %27, %54
+  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %54 ]
+  %.07374 = phi i1 [ false, %27 ], [ %64, %54 ]
   %55 = load ptr, ptr %48, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 24
   %57 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %56, i64 0, i64 %indvars.iv
@@ -5642,105 +5638,99 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef %1, i1 nounde
   store i32 -1, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %68, label %54, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %68 = load ptr, ptr %48, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 100
-  store i32 0, ptr %69, align 4
-  br i1 %64, label %70, label %77
+68:                                               ; preds = %54
+  %69 = load ptr, ptr %48, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 100
+  store i32 0, ptr %70, align 4
+  br i1 %64, label %71, label %76
 
-70:                                               ; preds = %._crit_edge
-  %71 = tail call ptr @palloc0(i64 noundef 32) #12
-  %72 = getelementptr inbounds i8, ptr %71, i64 28
-  store i8 1, ptr %72, align 4
-  %73 = load ptr, ptr %48, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
-  store ptr %71, ptr %74, align 8
-  br label %77
+71:                                               ; preds = %68
+  %72 = tail call ptr @palloc0(i64 noundef 32) #12
+  %73 = getelementptr inbounds i8, ptr %72, i64 28
+  store i8 1, ptr %73, align 4
+  %74 = load ptr, ptr %48, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  store ptr %72, ptr %75, align 8
+  br label %76
 
-.critedge:                                        ; preds = %27
-  %75 = load ptr, ptr %48, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 100
-  store i32 0, ptr %76, align 4
-  br label %77
+76:                                               ; preds = %71, %68
+  %77 = load ptr, ptr %48, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %79 = load i32, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %8, i64 72
+  store i32 %79, ptr %80, align 8
+  %81 = load ptr, ptr %16, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 88
+  store i32 0, ptr %82, align 4
+  %83 = load i32, ptr @Mode, align 4
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %87
 
-77:                                               ; preds = %.critedge, %70, %._crit_edge
-  %78 = load ptr, ptr %48, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 24
-  %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %8, i64 72
-  store i32 %80, ptr %81, align 8
-  %82 = load ptr, ptr %16, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 88
-  store i32 0, ptr %83, align 4
-  %84 = load i32, ptr @Mode, align 4
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %88
+85:                                               ; preds = %76
+  %86 = load i32, ptr %80, align 8
+  tail call void @RelationMapUpdateMap(i32 noundef %86, i32 noundef %86, i1 noundef zeroext %2, i1 noundef zeroext true) #12
+  br label %87
 
-86:                                               ; preds = %77
-  %87 = load i32, ptr %81, align 8
-  tail call void @RelationMapUpdateMap(i32 noundef %87, i32 noundef %87, i1 noundef zeroext %2, i1 noundef zeroext true) #12
-  br label %88
-
-88:                                               ; preds = %86, %77
+87:                                               ; preds = %85, %76
   tail call void @RelationInitLockInfo(ptr noundef nonnull %8) #12
   tail call fastcc void @RelationInitPhysicalAddr(ptr noundef nonnull %8)
-  %89 = load ptr, ptr %16, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 84
-  store i32 2, ptr %90, align 4
-  %91 = tail call ptr @GetHeapamTableAmRoutine() #12
-  %92 = getelementptr inbounds i8, ptr %8, i64 312
-  store ptr %91, ptr %92, align 8
-  %93 = load i32, ptr @Mode, align 4
-  %94 = icmp ne i32 %93, 0
-  %95 = load ptr, ptr %16, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 112
-  %. = zext i1 %94 to i8
-  store i8 %., ptr %96, align 4
-  %97 = load ptr, ptr @RelationIdCache, align 8
-  %98 = call ptr @hash_search(ptr noundef %97, ptr noundef nonnull %81, i32 noundef 1, ptr noundef nonnull %6) #12
-  %99 = load i8, ptr %6, align 1
-  %100 = trunc i8 %99 to i1
-  %101 = getelementptr inbounds i8, ptr %98, i64 8
-  br i1 %100, label %102, label %118
+  %88 = load ptr, ptr %16, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 84
+  store i32 2, ptr %89, align 4
+  %90 = tail call ptr @GetHeapamTableAmRoutine() #12
+  %91 = getelementptr inbounds i8, ptr %8, i64 312
+  store ptr %90, ptr %91, align 8
+  %92 = load i32, ptr @Mode, align 4
+  %93 = icmp ne i32 %92, 0
+  %94 = load ptr, ptr %16, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 112
+  %. = zext i1 %93 to i8
+  store i8 %., ptr %95, align 4
+  %96 = load ptr, ptr @RelationIdCache, align 8
+  %97 = call ptr @hash_search(ptr noundef %96, ptr noundef nonnull %80, i32 noundef 1, ptr noundef nonnull %6) #12
+  %98 = load i8, ptr %6, align 1
+  %99 = trunc i8 %98 to i1
+  %100 = getelementptr inbounds i8, ptr %97, i64 8
+  br i1 %99, label %101, label %117
 
-102:                                              ; preds = %88
-  %103 = load ptr, ptr %101, align 8
-  store ptr %8, ptr %101, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
-  %105 = load i32, ptr %104, align 8
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %108
+101:                                              ; preds = %87
+  %102 = load ptr, ptr %100, align 8
+  store ptr %8, ptr %100, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %104 = load i32, ptr %103, align 8
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %107
 
-107:                                              ; preds = %102
-  call fastcc void @RelationDestroyRelation(ptr noundef nonnull %103, i1 noundef zeroext false)
-  br label %119
+106:                                              ; preds = %101
+  call fastcc void @RelationDestroyRelation(ptr noundef nonnull %102, i1 noundef zeroext false)
+  br label %118
 
-108:                                              ; preds = %102
-  %109 = load i32, ptr @Mode, align 4
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %119, label %111
+107:                                              ; preds = %101
+  %108 = load i32, ptr @Mode, align 4
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %118, label %110
 
-111:                                              ; preds = %108
-  %112 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
-  br i1 %112, label %113, label %119
+110:                                              ; preds = %107
+  %111 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
+  br i1 %111, label %112, label %118
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %103, i64 56
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
-  %117 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %116) #12
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds i8, ptr %102, i64 56
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %116 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %115) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2028, ptr noundef nonnull @__func__.formrdesc) #12
-  br label %119
+  br label %118
 
-118:                                              ; preds = %88
-  store ptr %8, ptr %101, align 8
-  br label %119
+117:                                              ; preds = %87
+  store ptr %8, ptr %100, align 8
+  br label %118
 
-119:                                              ; preds = %118, %108, %111, %113, %107
-  %120 = getelementptr inbounds i8, ptr %8, i64 34
-  store i8 1, ptr %120, align 2
+118:                                              ; preds = %117, %107, %110, %112, %106
+  %119 = getelementptr inbounds i8, ptr %8, i64 34
+  store i8 1, ptr %119, align 2
   ret void
 }
 
@@ -5877,7 +5867,7 @@ RelationIncrementReferenceCount.exit:             ; preds = %.lr.ph, %34
   br label %63
 
 63:                                               ; preds = %62, %52
-  call fastcc void @RelationParseRelOptions(ptr noundef nonnull %27, ptr noundef nonnull %46)
+  call fastcc void @RelationParseRelOptions(ptr noundef nonnull %27, ptr noundef %46)
   call void @ReleaseSysCache(ptr noundef nonnull %46) #12
   %64 = load ptr, ptr %37, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 80
@@ -6033,7 +6023,7 @@ RelationDecrementReferenceCount.exit:             ; preds = %120, %125
 declare void @RelationMapInitializePhase3() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @load_critical_index(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @load_critical_index(i32 noundef range(i32 2655, 3594) %0, i32 noundef range(i32 1249, 3593) %1) unnamed_addr #0 {
   tail call void @LockRelationOid(i32 noundef %1, i32 noundef 1) #12
   tail call void @LockRelationOid(i32 noundef %0, i32 noundef 1) #12
   %3 = tail call fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext true)
@@ -6059,7 +6049,7 @@ define internal fastcc void @load_critical_index(i32 noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RelationParseRelOptions(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @RelationParseRelOptions(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -6121,7 +6111,7 @@ BuildHardcodedDescriptor.exit.i:                  ; preds = %23
 
 GetPgClassDescriptor.exit:                        ; preds = %13, %BuildHardcodedDescriptor.exit.i
   %28 = phi ptr [ %19, %BuildHardcodedDescriptor.exit.i ], [ %14, %13 ]
-  %29 = tail call ptr @extractRelOptions(ptr noundef %1, ptr noundef nonnull %28, ptr noundef %.0) #12
+  %29 = tail call ptr @extractRelOptions(ptr noundef nonnull %1, ptr noundef nonnull %28, ptr noundef %.0) #12
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %39, label %30
 
@@ -6214,7 +6204,7 @@ define internal fastcc void @RelationBuildRuleLock(ptr nocapture noundef %0) unn
   br label %heap_getattr.exit
 
 50:                                               ; preds = %21
-  %51 = call fastcc i64 @fastgetattr(ptr noundef nonnull %22, i32 noundef 8, ptr noundef %17, ptr noundef nonnull %3)
+  %51 = call fastcc i64 @fastgetattr(ptr noundef nonnull %22, i32 noundef 8, ptr noundef %17, ptr noundef %3)
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %48, %50
@@ -6240,7 +6230,7 @@ heap_getattr.exit:                                ; preds = %48, %50
   br label %heap_getattr.exit77
 
 64:                                               ; preds = %heap_getattr.exit
-  %65 = call fastcc i64 @fastgetattr(ptr noundef nonnull %22, i32 noundef 7, ptr noundef %17, ptr noundef nonnull %3)
+  %65 = call fastcc i64 @fastgetattr(ptr noundef nonnull %22, i32 noundef 7, ptr noundef %17, ptr noundef %3)
   br label %heap_getattr.exit77
 
 heap_getattr.exit77:                              ; preds = %62, %64
@@ -6439,8 +6429,8 @@ RelationIdIsInInitFile.exit:                      ; preds = %47
   br i1 %50, label %RelationIdIsInInitFile.exit.thread, label %.backedge
 
 RelationIdIsInInitFile.exit.thread:               ; preds = %47, %47, %47, %47, %RelationIdIsInInitFile.exit, %46
-  call fastcc void @write_item(ptr noundef nonnull %39, i64 noundef 480, ptr noundef nonnull %21)
-  call fastcc void @write_item(ptr noundef nonnull %41, i64 noundef 140, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef nonnull %39, i64 noundef 480, ptr noundef %21)
+  call fastcc void @write_item(ptr noundef nonnull %41, i64 noundef 140, ptr noundef %21)
   %51 = getelementptr inbounds i8, ptr %41, i64 116
   %52 = load i16, ptr %51, align 4
   %53 = icmp sgt i16 %52, 0
@@ -6500,14 +6490,14 @@ write_item.exit:                                  ; preds = %63, %65
   br i1 %.not64, label %.split52, label %.split
 
 .split52:                                         ; preds = %._crit_edge
-  call fastcc void @write_item(ptr noundef null, i64 noundef 0, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef null, i64 noundef 0, ptr noundef %21)
   br label %78
 
 .split:                                           ; preds = %._crit_edge
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %75, 2
   %77 = zext nneg i32 %76 to i64
-  call fastcc void @write_item(ptr noundef nonnull %74, i64 noundef %77, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef nonnull %74, i64 noundef %77, ptr noundef %21)
   br label %78
 
 78:                                               ; preds = %.split52, %.split
@@ -6523,19 +6513,19 @@ write_item.exit:                                  ; preds = %63, %65
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
   %88 = add nuw nsw i64 %87, 24
-  call fastcc void @write_item(ptr noundef nonnull %85, i64 noundef %88, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef nonnull %85, i64 noundef %88, ptr noundef %21)
   %89 = getelementptr inbounds i8, ptr %39, i64 352
   %90 = load ptr, ptr %89, align 8
   %91 = load i16, ptr %51, align 4
   %92 = sext i16 %91 to i64
   %93 = shl nsw i64 %92, 2
-  call fastcc void @write_item(ptr noundef %90, i64 noundef %93, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef %90, i64 noundef %93, ptr noundef %21)
   %94 = getelementptr inbounds i8, ptr %39, i64 360
   %95 = load ptr, ptr %94, align 8
   %96 = load i16, ptr %51, align 4
   %97 = sext i16 %96 to i64
   %98 = shl nsw i64 %97, 2
-  call fastcc void @write_item(ptr noundef %95, i64 noundef %98, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef %95, i64 noundef %98, ptr noundef %21)
   %99 = getelementptr inbounds i8, ptr %39, i64 368
   %100 = load ptr, ptr %99, align 8
   %101 = load i16, ptr %51, align 4
@@ -6547,19 +6537,19 @@ write_item.exit:                                  ; preds = %63, %65
   %107 = zext i16 %106 to i64
   %108 = shl nsw i64 %102, 2
   %109 = mul nsw i64 %108, %107
-  call fastcc void @write_item(ptr noundef %100, i64 noundef %109, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef %100, i64 noundef %109, ptr noundef %21)
   %110 = getelementptr inbounds i8, ptr %39, i64 432
   %111 = load ptr, ptr %110, align 8
   %112 = load i16, ptr %51, align 4
   %113 = sext i16 %112 to i64
   %114 = shl nsw i64 %113, 2
-  call fastcc void @write_item(ptr noundef %111, i64 noundef %114, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef %111, i64 noundef %114, ptr noundef %21)
   %115 = getelementptr inbounds i8, ptr %39, i64 384
   %116 = load ptr, ptr %115, align 8
   %117 = load i16, ptr %51, align 4
   %118 = sext i16 %117 to i64
   %119 = shl nsw i64 %118, 1
-  call fastcc void @write_item(ptr noundef %116, i64 noundef %119, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef %116, i64 noundef %119, ptr noundef %21)
   %120 = load i16, ptr %51, align 4
   %121 = icmp sgt i16 %120, 0
   br i1 %121, label %.lr.ph72, label %.backedge
@@ -6577,14 +6567,14 @@ write_item.exit:                                  ; preds = %63, %65
   br i1 %.not65, label %.split55, label %.split54
 
 .split55:                                         ; preds = %123
-  call fastcc void @write_item(ptr noundef null, i64 noundef 0, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef null, i64 noundef 0, ptr noundef %21)
   br label %130
 
 .split54:                                         ; preds = %123
   %127 = load i32, ptr %126, align 4
   %128 = lshr i32 %127, 2
   %129 = zext nneg i32 %128 to i64
-  call fastcc void @write_item(ptr noundef nonnull %126, i64 noundef %129, ptr noundef nonnull %21)
+  call fastcc void @write_item(ptr noundef nonnull %126, i64 noundef %129, ptr noundef %21)
   br label %130
 
 130:                                              ; preds = %.split55, %.split54
@@ -7105,7 +7095,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %13, %BuildHardcoded
   br label %heap_getattr.exit
 
 38:                                               ; preds = %GetPgIndexDescriptor.exit
-  %39 = call fastcc i64 @fastgetattr(ptr noundef nonnull %14, i32 noundef 20, ptr noundef nonnull %29, ptr noundef nonnull %2)
+  %39 = call fastcc i64 @fastgetattr(ptr noundef nonnull %14, i32 noundef 20, ptr noundef nonnull %29, ptr noundef %2)
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %36, %38
@@ -7201,7 +7191,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %8, %BuildHardcodedD
   br label %heap_getattr.exit
 
 33:                                               ; preds = %GetPgIndexDescriptor.exit
-  %34 = call fastcc i64 @fastgetattr(ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull %24, ptr noundef nonnull %2)
+  %34 = call fastcc i64 @fastgetattr(ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull %24, ptr noundef %2)
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %31, %33
@@ -7323,7 +7313,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %13, %BuildHardcoded
   br label %heap_getattr.exit
 
 38:                                               ; preds = %GetPgIndexDescriptor.exit
-  %39 = call fastcc i64 @fastgetattr(ptr noundef nonnull %14, i32 noundef 21, ptr noundef nonnull %29, ptr noundef nonnull %2)
+  %39 = call fastcc i64 @fastgetattr(ptr noundef nonnull %14, i32 noundef 21, ptr noundef nonnull %29, ptr noundef %2)
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %36, %38
@@ -8256,7 +8246,7 @@ define dso_local void @RelationGetExclusionInfo(ptr nocapture noundef %0, ptr no
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %35, align 8
-  %67 = call fastcc i64 @fastgetattr(ptr noundef nonnull %38, i32 noundef 26, ptr noundef %66, ptr noundef nonnull %6)
+  %67 = call fastcc i64 @fastgetattr(ptr noundef nonnull %38, i32 noundef 26, ptr noundef %66, ptr noundef %6)
   %68 = load i8, ptr %6, align 1
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %76
@@ -9248,10 +9238,10 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_item(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @write_item(ptr nocapture noundef %0, i64 noundef range(i64 -8589803520, 8589541381) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %2)
+  %5 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %2)
   %.not = icmp eq i64 %5, 8
   br i1 %.not, label %9, label %6
 
@@ -9268,7 +9258,7 @@ define internal fastcc void @write_item(ptr nocapture noundef %0, i64 noundef %1
   br i1 %.not3, label %16, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %10, ptr noundef %2)
+  %12 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %10, ptr noundef nonnull %2)
   %.not4 = icmp eq i64 %12, %10
   br i1 %.not4, label %16, label %13
 

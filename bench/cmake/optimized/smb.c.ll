@@ -258,7 +258,7 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef 
   br label %26
 
 26:                                               ; preds = %24, %2
-  %27 = call fastcc i32 @smb_send_and_recv(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %27 = call fastcc i32 @smb_send_and_recv(ptr noundef nonnull %0, ptr noundef %3)
   switch i32 %27, label %28 [
     i32 81, label %29
     i32 0, label %29
@@ -451,7 +451,7 @@ smb_send_tree_connect.exit:                       ; preds = %26
   br label %58
 
 58:                                               ; preds = %57, %23
-  %59 = call fastcc i32 @smb_send_and_recv(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %59 = call fastcc i32 @smb_send_and_recv(ptr noundef nonnull %0, ptr noundef %9)
   switch i32 %59, label %60 [
     i32 81, label %61
     i32 0, label %61
@@ -921,7 +921,7 @@ declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @Curl_conn_connect(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @smb_send_and_recv(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @smb_send_and_recv(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -1179,7 +1179,7 @@ define internal fastcc i32 @smb_send_setup(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @smb_send_message(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @smb_send_message(ptr noundef %0, i8 noundef zeroext range(i8 4, -93) %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = tail call i32 @Curl_get_upload_buffer(ptr noundef %0) #12
   %.not = icmp eq i32 %6, 0

@@ -109,7 +109,7 @@ define dso_local void @_ZN4Luau7CodeGen18translateInstLoadKERNS0_9IrBuilderEPKj(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4Luau7CodeGenL25translateInstLoadConstantERNS0_9IrBuilderEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4Luau7CodeGenL25translateInstLoadConstantERNS0_9IrBuilderEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -556,7 +556,7 @@ define dso_local void @_ZN4Luau7CodeGen19translateInstBinaryERNS0_9IrBuilderEPKj
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4Luau7CodeGenL26translateInstBinaryNumericERNS0_9IrBuilderEiiiNS0_4IrOpES3_i3TMS(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4Luau7CodeGenL26translateInstBinaryNumericERNS0_9IrBuilderEiiiNS0_4IrOpES3_i3TMS(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -1, 256) %2, i32 noundef range(i32 -1, 256) %3, i32 %4, i32 %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Luau::CodeGen::FallbackStreamScope", align 8
   %10 = sext i32 %6 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 120

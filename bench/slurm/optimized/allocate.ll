@@ -336,7 +336,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br label %79
 
 79:                                               ; preds = %78, %67
-  %80 = call fastcc i32 @_wait_nodes_ready(ptr noundef nonnull %39)
+  %80 = call fastcc i32 @_wait_nodes_ready(ptr noundef %39)
   %.not62 = icmp eq i32 %80, 0
   br i1 %.not62, label %81, label %job_desc_msg_destroy.exit
 
@@ -797,7 +797,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 declare void @slurm_setup_remote_working_cluster(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   store i32 %3, ptr @pending_job_id, align 4
@@ -1203,7 +1203,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br label %110
 
 110:                                              ; preds = %109, %98
-  %111 = call fastcc i32 @_wait_nodes_ready(ptr noundef nonnull %72)
+  %111 = call fastcc i32 @_wait_nodes_ready(ptr noundef %72)
   %.not117 = icmp eq i32 %111, 0
   br i1 %.not117, label %112, label %69, !llvm.loop !12
 

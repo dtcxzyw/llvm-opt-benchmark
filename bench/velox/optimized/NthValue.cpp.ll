@@ -9061,7 +9061,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #17
 declare void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiiiiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1EiEEvRKNS0_17SelectivityVectorEPKiSC_iEUlT_E_EEvPKmiibSD_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1EiEEvRKNS0_17SelectivityVectorEPKiSC_iEUlT_E_EEvPKmiibSD_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #18 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -9197,7 +9197,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1ElEEvRKNS0_17SelectivityVectorEPKiSC_iEUlT_E_EEvPKmiibSD_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions6window12_GLOBAL__N_116NthValueFunction22setRowNumbersApplyLoopILb1ElEEvRKNS0_17SelectivityVectorEPKiSC_iEUlT_E_EEvPKmiibSD_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #18 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8

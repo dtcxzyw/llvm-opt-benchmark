@@ -260,7 +260,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pcie_endpoint_cap_common_init(ptr noundef %dev, i8 noundef zeroext %offset, i8 noundef zeroext %cap_size) unnamed_addr #0 {
+define internal fastcc i32 @pcie_endpoint_cap_common_init(ptr noundef %dev, i8 noundef zeroext %offset, i8 noundef zeroext range(i8 20, 61) %cap_size) unnamed_addr #0 {
 entry:
   %local_err.i = alloca ptr, align 8
   %local_err = alloca ptr, align 8
@@ -1350,7 +1350,7 @@ entry:
   %sub.i4.i = add nuw nsw i64 %conv5, 1
   %cmp.i = icmp ult i64 %sub.i4.i, %conv3
   %cmp2.i = icmp ult i64 %sub.i.i, %conv5
-  %.not.i.not = or i1 %cmp2.i, %cmp.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %if.end17, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1421,7 +1421,7 @@ if.end17:                                         ; preds = %if.then.i, %land.lh
   %sub.i4.i22 = add nuw nsw i64 %conv21, 1
   %cmp.i23 = icmp ult i64 %sub.i4.i22, %conv3
   %cmp2.i24 = icmp ult i64 %sub.i.i, %conv21
-  %.not.i25.not = or i1 %cmp2.i24, %cmp.i23
+  %.not.i25.not = select i1 %cmp.i23, i1 true, i1 %cmp2.i24
   br i1 %.not.i25.not, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.end17

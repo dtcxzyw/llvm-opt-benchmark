@@ -1822,7 +1822,7 @@ extract_token_id_to_replace.exit.thread:          ; preds = %35, %48, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_token(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @add_token(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %55, label %9

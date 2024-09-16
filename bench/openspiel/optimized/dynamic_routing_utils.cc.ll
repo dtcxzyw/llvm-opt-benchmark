@@ -1815,7 +1815,7 @@ _ZN10open_spiel15dynamic_routing12_GLOBAL__N_19GetKeySetINSt7__cxx1112basic_stri
 
 399:                                              ; preds = %398
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  invoke fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull %25, ptr noundef nonnull %26, float noundef 0.000000e+00)
+  invoke fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %25, ptr noundef %26, float noundef 0.000000e+00)
           to label %400 unwind label %767
 
 400:                                              ; preds = %399
@@ -2006,7 +2006,7 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 484:                                              ; preds = %483
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  invoke fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull %28, ptr noundef nonnull %29, float noundef 1.000000e+00)
+  invoke fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %28, ptr noundef %29, float noundef 1.000000e+00)
           to label %485 unwind label %772
 
 485:                                              ; preds = %484
@@ -2197,7 +2197,7 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 569:                                              ; preds = %568
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  invoke fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull %31, ptr noundef nonnull %32, float noundef 1.000000e+00)
+  invoke fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef %31, ptr noundef %32, float noundef 1.000000e+00)
           to label %570 unwind label %777
 
 570:                                              ; preds = %569
@@ -2388,7 +2388,7 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 654:                                              ; preds = %653
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  invoke fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull %34, ptr noundef nonnull %35, float noundef 1.000000e+00)
+  invoke fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %34, ptr noundef %35, float noundef 1.000000e+00)
           to label %655 unwind label %782
 
 655:                                              ; preds = %654
@@ -2875,7 +2875,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef %1, ptr noundef %2, float noundef %3) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel15dynamic_routing12_GLOBAL__N_129AssignExistingOrDefaultValuesEN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS3_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKSA_fEEEENS3_13flat_hash_setISA_SC_SE_SaISA_EEEf(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, float noundef %3) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::debian2::flat_hash_set", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca i32, align 4

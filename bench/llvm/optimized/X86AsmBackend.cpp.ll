@@ -3121,8 +3121,8 @@ define internal void @_ZNK12_GLOBAL__N_113X86AsmBackend10applyFixupERKN4llvm11MC
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %9
-  %trunc = trunc nuw i32 %16 to i8
-  switch i8 %trunc, label %19 [
+  %trunc.i = trunc nuw i32 %16 to i8
+  switch i8 %trunc.i, label %19 [
     i8 0, label %_ZL16getFixupKindSizej.exit
     i8 6, label %20
     i8 18, label %20

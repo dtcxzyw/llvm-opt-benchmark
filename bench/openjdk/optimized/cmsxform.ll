@@ -494,7 +494,7 @@ define hidden ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %11
-  %21 = call fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %21 = call fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   br label %192
 
 22:                                               ; preds = %11
@@ -728,7 +728,7 @@ IsProperColorSpace.exit106.thread:                ; preds = %98, %IsProperColorS
   br label %192
 
 127:                                              ; preds = %123
-  %128 = call fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef nonnull %117, i32 noundef %18, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %128 = call fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef nonnull %117, i32 noundef %18, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %129 = icmp eq ptr %128, null
   br i1 %129, label %192, label %130
 
@@ -743,12 +743,12 @@ IsProperColorSpace.exit106.thread:                ; preds = %98, %IsProperColorS
   %135 = getelementptr inbounds i8, ptr %128, i64 152
   %136 = load ptr, ptr %2, align 8
   %137 = call ptr @cmsReadTag(ptr noundef %136, i32 noundef 2004119668) #11
-  call fastcc void @SetWhitePoint(ptr noundef nonnull %135, ptr noundef %137)
+  call fastcc void @SetWhitePoint(ptr noundef %135, ptr noundef %137)
   %138 = getelementptr inbounds i8, ptr %128, i64 176
   %139 = getelementptr inbounds ptr, ptr %2, i64 %16
   %140 = load ptr, ptr %139, align 8
   %141 = call ptr @cmsReadTag(ptr noundef %140, i32 noundef 2004119668) #11
-  call fastcc void @SetWhitePoint(ptr noundef nonnull %138, ptr noundef %141)
+  call fastcc void @SetWhitePoint(ptr noundef %138, ptr noundef %141)
   br i1 %25, label %148, label %142
 
 142:                                              ; preds = %130
@@ -833,7 +833,7 @@ IsProperColorSpace.exit106.thread:                ; preds = %98, %IsProperColorS
 
 182:                                              ; preds = %178
   %183 = getelementptr inbounds i8, ptr %128, i64 80
-  call fastcc void @TransformOnePixelWithGamutCheck(ptr noundef nonnull %128, ptr noundef nonnull %179, ptr noundef nonnull %183)
+  call fastcc void @TransformOnePixelWithGamutCheck(ptr noundef nonnull %128, ptr noundef %179, ptr noundef %183)
   br label %192
 
 184:                                              ; preds = %178
@@ -853,7 +853,7 @@ IsProperColorSpace.exit106.thread:                ; preds = %98, %IsProperColorS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 13) #11
   %8 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 280) #11
   %.not = icmp eq ptr %8, null
@@ -889,7 +889,7 @@ define internal fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef %1, 
 18:                                               ; preds = %.lr.ph, %60
   %.0119141 = phi ptr [ %.0119139, %.lr.ph ], [ %.0119, %60 ]
   %19 = load ptr, ptr %.0119141, align 8
-  %20 = tail call i32 %19(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
+  %20 = tail call i32 %19(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %.not124 = icmp eq i32 %20, 0
   br i1 %.not124, label %60, label %21
 
@@ -966,7 +966,7 @@ define internal fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef %1, 
   br i1 %.not123, label %.loopexit, label %18, !llvm.loop !9
 
 .loopexit:                                        ; preds = %60, %.preheader, %12
-  %62 = tail call i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
+  %62 = tail call i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   br label %63
 
 63:                                               ; preds = %.loopexit, %10
@@ -1189,7 +1189,7 @@ declare i32 @cmsPipelineInputChannels(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsPipelineOutputChannels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @SetWhitePoint(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc void @SetWhitePoint(ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %7
 
@@ -1254,7 +1254,7 @@ declare ptr @_cmsCompileProfileSequence(ptr noundef, i32 noundef, ptr noundef) l
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TransformOnePixelWithGamutCheck(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @TransformOnePixelWithGamutCheck(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -1262,7 +1262,7 @@ define internal fastcc void @TransformOnePixelWithGamutCheck(ptr nocapture nound
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void %8(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %10) #11
+  call void %8(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %10) #11
   %11 = load i16, ptr %4, align 2
   %.not = icmp eq i16 %11, 0
   br i1 %.not, label %28, label %12
@@ -1299,7 +1299,7 @@ define internal fastcc void @TransformOnePixelWithGamutCheck(ptr nocapture nound
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 16
   %34 = load ptr, ptr %33, align 8
-  call void %32(ptr noundef %1, ptr noundef %2, ptr noundef %34) #11
+  call void %32(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %34) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %28

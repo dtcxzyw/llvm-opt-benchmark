@@ -2407,7 +2407,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   unreachable
 
 298:                                              ; preds = %293
-  %299 = call fastcc i32 @parseArchiveFormat(ptr noundef %.0155, ptr noundef nonnull %75)
+  %299 = call fastcc i32 @parseArchiveFormat(ptr noundef %.0155, ptr noundef %75)
   %.not172 = icmp eq i32 %299, 4
   %300 = and i32 %299, 3
   %or.cond19 = icmp ne i32 %300, 1
@@ -11117,7 +11117,7 @@ declare zeroext i1 @parse_sync_method(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 6) i32 @parseArchiveFormat(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc range(i32 1, 6) i32 @parseArchiveFormat(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
   store i32 1, ptr %1, align 4
   %3 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.615) #14
   %4 = icmp eq i32 %3, 0
@@ -11843,7 +11843,7 @@ define internal fastcc void @collectRoleNames(ptr noundef %0) unnamed_addr #4 {
 declare ptr @getSchemaData(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getTableData(ptr noundef %0, i32 noundef %1, i8 noundef signext %2) unnamed_addr #4 {
+define internal fastcc void @getTableData(ptr noundef %0, i32 noundef %1, i8 noundef signext range(i8 0, 84) %2) unnamed_addr #4 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -13700,7 +13700,7 @@ define internal fastcc void @BuildArchiveDependencies(ptr noundef %0) unnamed_ad
   %24 = tail call ptr @pg_malloc(i64 noundef 256) #14
   store ptr %24, ptr %2, align 8
   store i32 0, ptr %3, align 4
-  call fastcc void @findDumpableDependencies(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @findDumpableDependencies(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %25 = load i32, ptr %3, align 4
   %26 = icmp sgt i32 %25, 0
   %27 = load ptr, ptr %2, align 8
@@ -29724,49 +29724,48 @@ get_next_possible_free_pg_type_oid.exit45:        ; preds = %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getFormattedTypeName(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc ptr @getFormattedTypeName(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #4 {
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
   %6 = and i32 %2, 2
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %22
+  br i1 %.not, label %7, label %21
 
 7:                                                ; preds = %5
-  %8 = and i32 %2, 4
-  %.not20 = icmp eq i32 %8, 0
-  br i1 %.not20, label %9, label %22
+  %.not20 = icmp ult i32 %2, 4
+  br i1 %.not20, label %8, label %21
 
-9:                                                ; preds = %7, %3
-  %10 = tail call ptr @findTypeByOid(i32 noundef %1) #14
-  %.not21 = icmp eq ptr %10, null
-  br i1 %.not21, label %14, label %11
+8:                                                ; preds = %7, %3
+  %9 = tail call ptr @findTypeByOid(i32 noundef %1) #14
+  %.not21 = icmp eq ptr %9, null
+  br i1 %.not21, label %13, label %10
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 96
-  %13 = load ptr, ptr %12, align 8
-  %.not22 = icmp eq ptr %13, null
-  br i1 %.not22, label %14, label %22
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds i8, ptr %9, i64 96
+  %12 = load ptr, ptr %11, align 8
+  %.not22 = icmp eq ptr %12, null
+  br i1 %.not22, label %13, label %21
 
-14:                                               ; preds = %11, %9
-  %15 = tail call ptr @createPQExpBuffer() #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.853, i32 noundef %1) #14
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @ExecuteSqlQueryForSingleRow(ptr noundef %0, ptr noundef %16) #14
-  %18 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef 0, i32 noundef 0) #14
-  %19 = tail call ptr @pg_strdup(ptr noundef %18) #14
-  tail call void @PQclear(ptr noundef %17) #14
-  tail call void @destroyPQExpBuffer(ptr noundef nonnull %15) #14
-  br i1 %.not21, label %22, label %20
+13:                                               ; preds = %10, %8
+  %14 = tail call ptr @createPQExpBuffer() #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.853, i32 noundef %1) #14
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr @ExecuteSqlQueryForSingleRow(ptr noundef %0, ptr noundef %15) #14
+  %17 = tail call ptr @PQgetvalue(ptr noundef %16, i32 noundef 0, i32 noundef 0) #14
+  %18 = tail call ptr @pg_strdup(ptr noundef %17) #14
+  tail call void @PQclear(ptr noundef %16) #14
+  tail call void @destroyPQExpBuffer(ptr noundef nonnull %14) #14
+  br i1 %.not21, label %21, label %19
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %10, i64 96
-  store ptr %19, ptr %21, align 8
-  br label %22
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %9, i64 96
+  store ptr %18, ptr %20, align 8
+  br label %21
 
-22:                                               ; preds = %14, %20, %11, %7, %5
-  %.0 = phi ptr [ @.str.851, %5 ], [ @.str.852, %7 ], [ %13, %11 ], [ %19, %20 ], [ %19, %14 ]
+21:                                               ; preds = %13, %19, %10, %7, %5
+  %.0 = phi ptr [ @.str.851, %5 ], [ @.str.852, %7 ], [ %12, %10 ], [ %18, %19 ], [ %18, %13 ]
   ret ptr %.0
 }
 
@@ -30809,7 +30808,7 @@ declare i32 @lo_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @EndLO(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @findDumpableDependencies(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #4 {
+define internal fastcc void @findDumpableDependencies(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #4 {
   %6 = load i32, ptr %1, align 8
   %.off = add i32 %6, -37
   %switch = icmp ult i32 %.off, 2
@@ -30872,7 +30871,7 @@ define internal fastcc void @findDumpableDependencies(ptr noundef %0, ptr nocapt
   br i1 %.not28, label %35, label %34
 
 34:                                               ; preds = %32
-  tail call fastcc void @findDumpableDependencies(ptr noundef %0, ptr noundef nonnull %33, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @findDumpableDependencies(ptr noundef %0, ptr noundef %33, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %35
 
 35:                                               ; preds = %25, %34, %32

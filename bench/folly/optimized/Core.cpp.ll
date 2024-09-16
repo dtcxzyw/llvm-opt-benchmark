@@ -4136,7 +4136,7 @@ _ZN5folly7futures6detail8CoreBase24CoreAndCallbackReference6detachEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_7futures6detail8CoreBase10doCallbackEONS_8Executor9KeepAliveIS5_EENS3_5StateEE3$_2Lb1EED2Ev"(ptr %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_7futures6detail8CoreBase10doCallbackEONS_8Executor9KeepAliveIS5_EENS3_5StateEE3$_2Lb1EED2Ev"(ptr nonnull %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context_.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 104
   store ptr null, ptr %context_.i.i, align 8, !tbaa !7

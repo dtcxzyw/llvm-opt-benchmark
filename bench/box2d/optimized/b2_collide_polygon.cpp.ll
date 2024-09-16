@@ -26,7 +26,7 @@ entry:
   %1 = load float, ptr %m_radius1, align 4
   %add = fadd float %0, %1
   store i32 0, ptr %edgeA, align 4
-  %call = call fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr noundef nonnull %edgeA, ptr noundef %polyA, ptr noundef nonnull align 4 dereferenceable(16) %xfA, ptr noundef %polyB, ptr noundef nonnull align 4 dereferenceable(16) %xfB)
+  %call = call fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr noundef %edgeA, ptr noundef %polyA, ptr noundef nonnull align 4 dereferenceable(16) %xfA, ptr noundef %polyB, ptr noundef nonnull align 4 dereferenceable(16) %xfB)
   %cmp = fcmp ogt float %call, %add
   %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %clipPoints2, i64 12
   %indvars.iv180.sroa.gep = getelementptr inbounds i8, ptr %clipPoints2, i64 12
@@ -34,7 +34,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %edgeB, align 4
-  %call2 = call fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr noundef nonnull %edgeB, ptr noundef nonnull %polyB, ptr noundef nonnull align 4 dereferenceable(16) %xfB, ptr noundef nonnull %polyA, ptr noundef nonnull align 4 dereferenceable(16) %xfA)
+  %call2 = call fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr noundef %edgeB, ptr noundef nonnull %polyB, ptr noundef nonnull align 4 dereferenceable(16) %xfB, ptr noundef nonnull %polyA, ptr noundef nonnull align 4 dereferenceable(16) %xfA)
   %cmp3 = fcmp ogt float %call2, %add
   br i1 %cmp3, label %return, label %if.end5
 
@@ -363,7 +363,7 @@ return:                                           ; preds = %if.end40, %_ZN6b2Ve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr nocapture noundef writeonly %edgeIndex, ptr nocapture noundef readonly %poly1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf1, ptr nocapture noundef readonly %poly2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf2) unnamed_addr #1 {
+define internal fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr nocapture noundef nonnull writeonly %edgeIndex, ptr nocapture noundef readonly %poly1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf1, ptr nocapture noundef readonly %poly2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf2) unnamed_addr #1 {
 entry:
   %m_count = getelementptr inbounds i8, ptr %poly1, i64 152
   %0 = load i32, ptr %m_count, align 8

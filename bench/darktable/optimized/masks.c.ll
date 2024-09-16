@@ -529,7 +529,7 @@ declare ptr @gtk_tree_store_new(i32 noundef, ...) local_unnamed_addr #4
 declare i64 @gdk_pixbuf_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, float noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #1 {
+define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, float noundef %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #1 {
   %9 = alloca [256 x i8], align 16
   %10 = alloca [1000 x i8], align 16
   %11 = alloca i32, align 4
@@ -667,7 +667,7 @@ define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef 
   call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %4, i32 noundef 2, i32 noundef %3, i32 noundef 3, i32 noundef %82, i32 noundef 4, i32 noundef %83, i32 noundef 5, ptr noundef %42, i32 noundef 6, i32 noundef %87, i32 noundef 7, ptr noundef %49, i32 noundef 8, i32 noundef %89, i32 noundef 9, ptr noundef %60, i32 noundef 10, i32 noundef %92, i32 noundef 11, ptr noundef nonnull %10, i32 noundef -1) #12
   %93 = tail call i64 @gtk_tree_model_get_type() #13
   %94 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %93) #12
-  call fastcc void @_set_iter_name(ptr noundef %7, ptr noundef %2, i32 noundef %5, float noundef %6, ptr noundef %94, ptr noundef nonnull %12)
+  call fastcc void @_set_iter_name(ptr noundef nonnull %7, ptr noundef %2, i32 noundef %5, float noundef %6, ptr noundef %94, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #12
   br label %163
 
@@ -739,7 +739,7 @@ define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef 
   call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %0, ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %130, i32 noundef 2, i32 noundef %3, i32 noundef 3, i32 noundef %132, i32 noundef 4, i32 noundef %133, i32 noundef 5, ptr noundef %42, i32 noundef 6, i32 noundef %137, i32 noundef 7, ptr noundef %49, i32 noundef 8, i32 noundef %139, i32 noundef 9, ptr noundef %60, i32 noundef 10, i32 noundef %142, i32 noundef 11, ptr noundef nonnull %10, i32 noundef -1) #12
   %143 = tail call i64 @gtk_tree_model_get_type() #13
   %144 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %143) #12
-  call fastcc void @_set_iter_name(ptr noundef %7, ptr noundef %2, i32 noundef %5, float noundef %6, ptr noundef %144, ptr noundef nonnull %14)
+  call fastcc void @_set_iter_name(ptr noundef nonnull %7, ptr noundef %2, i32 noundef %5, float noundef %6, ptr noundef %144, ptr noundef nonnull %14)
   %145 = load ptr, ptr %2, align 8, !tbaa !16
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.loopexit7, label %.preheader6
@@ -3406,7 +3406,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_is_form_used(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @_is_form_used(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %22
 
@@ -3474,11 +3474,11 @@ define internal fastcc void @_is_form_used(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %42
-  %47 = tail call i64 @g_strlcat(ptr noundef %2, ptr noundef nonnull @.str.35, i64 noundef 1000) #12
+  %47 = tail call i64 @g_strlcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.35, i64 noundef 1000) #12
   br label %48
 
 48:                                               ; preds = %46, %42
-  %49 = tail call i64 @g_strlcat(ptr noundef %2, ptr noundef nonnull %31, i64 noundef 1000) #12
+  %49 = tail call i64 @g_strlcat(ptr noundef nonnull %2, ptr noundef nonnull %31, i64 noundef 1000) #12
   br label %50
 
 50:                                               ; preds = %48, %39
@@ -3511,7 +3511,7 @@ declare void @gtk_tree_store_insert(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare void @gtk_tree_store_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_iter_name(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc void @_set_iter_name(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = alloca [256 x i8], align 16
   %8 = alloca [256 x i8], align 16
   %9 = icmp eq ptr %1, null
@@ -3588,7 +3588,7 @@ define internal fastcc void @_set_iter_name(ptr nocapture noundef readonly %0, p
   %53 = zext i1 %52 to i32
   %54 = icmp ne ptr %47, null
   %55 = zext i1 %54 to i32
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %49, ptr noundef %5, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 5, ptr noundef %40, i32 noundef 6, i32 noundef %53, i32 noundef 7, ptr noundef %47, i32 noundef 8, i32 noundef %55, i32 noundef -1) #12
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %49, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 5, ptr noundef %40, i32 noundef 6, i32 noundef %53, i32 noundef 7, ptr noundef %47, i32 noundef 8, i32 noundef %55, i32 noundef -1) #12
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #12
   br label %56
 
@@ -4414,7 +4414,7 @@ declare ptr @gtk_tree_iter_copy(ptr noundef) local_unnamed_addr #4
 declare i32 @gtk_tree_model_iter_previous(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_swap_last_secondlast_item_visibility(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_swap_last_secondlast_item_visibility(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4426,8 +4426,8 @@ define internal fastcc void @_swap_last_secondlast_item_visibility(ptr nocapture
   store i32 -1, ptr %5, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 -1, ptr %6, align 4, !tbaa !14
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %11, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #12
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %11, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %6, i32 noundef -1) #12
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %11, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #12
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %11, ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull %6, i32 noundef -1) #12
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   %13 = load i32, ptr %5, align 4, !tbaa !14
   %14 = call ptr @dt_masks_get_from_id(ptr noundef %12, i32 noundef %13) #12
@@ -4827,7 +4827,7 @@ declare ptr @gtk_tree_row_reference_new(ptr noundef, ptr noundef) local_unnamed_
 declare void @gtk_tree_view_expand_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_r(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_r(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca %struct._GtkTreeIter, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -4846,8 +4846,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
   store i32 -1, ptr %8, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %9, i32 noundef -1) #12
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull %8, i32 noundef -1) #12
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %9, i32 noundef -1) #12
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull %8, i32 noundef -1) #12
   %17 = load i32, ptr %8, align 4, !tbaa !14
   %18 = icmp eq i32 %17, %4
   br i1 %18, label %.loopexit, label %19
@@ -4856,7 +4856,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !15
-  %20 = call i32 @gtk_tree_model_iter_children(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %11) #12
+  %20 = call i32 @gtk_tree_model_iter_children(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %25, label %22
 
@@ -4870,7 +4870,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  %26 = call i32 @gtk_tree_model_iter_next(ptr noundef %0, ptr noundef nonnull %7) #12
+  %26 = call i32 @gtk_tree_model_iter_next(ptr noundef nonnull %0, ptr noundef nonnull %7) #12
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %.preheader, label %.loopexit3
 
@@ -4878,8 +4878,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
   store i32 -1, ptr %8, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %9, i32 noundef -1) #12
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull %8, i32 noundef -1) #12
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %9, i32 noundef -1) #12
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull %8, i32 noundef -1) #12
   %28 = load i32, ptr %8, align 4, !tbaa !14
   %29 = icmp eq i32 %28, %4
   br i1 %29, label %30, label %39
@@ -4905,7 +4905,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !15
-  %40 = call i32 @gtk_tree_model_iter_children(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %11) #12
+  %40 = call i32 @gtk_tree_model_iter_children(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11) #12
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %45, label %42
 
@@ -4924,7 +4924,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  %46 = call i32 @gtk_tree_model_iter_next(ptr noundef %0, ptr noundef nonnull %7) #12
+  %46 = call i32 @gtk_tree_model_iter_next(ptr noundef nonnull %0, ptr noundef nonnull %7) #12
   %47 = icmp eq i32 %46, 1
   br i1 %47, label %.preheader4, label %.loopexit3
 

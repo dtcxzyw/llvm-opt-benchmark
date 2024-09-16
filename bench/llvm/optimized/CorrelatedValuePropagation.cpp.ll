@@ -173,7 +173,7 @@ define dso_local void @_ZN4llvm30CorrelatedValuePropagationPass3runERNS_8Functio
   call void @_ZN4llvm20getBestSimplifyQueryINS_8FunctionEJEEEKNS_13SimplifyQueryERNS_15AnalysisManagerIT_JDpT0_EEERS1_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::SimplifyQuery") align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(136) %2) #15
   %11 = getelementptr inbounds i8, ptr %2, i64 80
   %.val = load ptr, ptr %11, align 8
-  %12 = call fastcc noundef zeroext i1 @_ZL7runImplRN4llvm8FunctionEPNS_13LazyValueInfoEPNS_13DominatorTreeERKNS_13SimplifyQueryE(ptr %.val, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(58) %5)
+  %12 = call fastcc noundef zeroext i1 @_ZL7runImplRN4llvm8FunctionEPNS_13LazyValueInfoEPNS_13DominatorTreeERKNS_13SimplifyQueryE(ptr %.val, ptr noundef %8, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(58) %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -339,7 +339,7 @@ _ZN4llvm17PreservedAnalyses7abandonINS_17LazyValueAnalysisEEEvv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7runImplRN4llvm8FunctionEPNS_13LazyValueInfoEPNS_13DominatorTreeERKNS_13SimplifyQueryE(ptr %.80.val, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(58) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7runImplRN4llvm8FunctionEPNS_13LazyValueInfoEPNS_13DominatorTreeERKNS_13SimplifyQueryE(ptr %.80.val, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(58) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::DomTreeUpdater", align 8
@@ -1445,7 +1445,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8ConstantEjELb1EE9push_backES4_.ex
   br i1 %.not46.i.i, label %652, label %.loopexit.i.i
 
 ._crit_edge65.i.i:                                ; preds = %652, %647
-  %666 = call noundef zeroext i1 @_ZN4llvm25isGuaranteedNotToBePoisonEPKNS_5ValueEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEj(ptr noundef nonnull %.1.i.i, ptr noundef null, ptr noundef nonnull %413, ptr noundef %1, i32 noundef 0) #15
+  %666 = call noundef zeroext i1 @_ZN4llvm25isGuaranteedNotToBePoisonEPKNS_5ValueEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEj(ptr noundef nonnull %.1.i.i, ptr noundef null, ptr noundef nonnull %413, ptr noundef nonnull %1, i32 noundef 0) #15
   br i1 %666, label %667, label %.loopexit.i.i
 
 667:                                              ; preds = %._crit_edge65.i.i
@@ -1902,7 +1902,7 @@ _ZN4llvm5APIntD2Ev.exit27.thread.i.i:             ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %.not37.i.i, label %873, label %871
 
 871:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit27.thread.i.i
-  %872 = call fastcc noundef zeroext i1 @_ZL12processBinOpPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef nonnull %864, ptr noundef nonnull %0)
+  %872 = call fastcc noundef zeroext i1 @_ZL12processBinOpPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef nonnull %864, ptr noundef %0)
   br label %873
 
 873:                                              ; preds = %871, %_ZN4llvm5APIntD2Ev.exit27.thread.i.i
@@ -2514,7 +2514,7 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i102.i: 
   ]
 
 _ZN4llvm8dyn_castINS_16WithOverflowInstENS_8CallBaseEEEDcPT0_.exit.i: ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i102.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i102.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i102.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i102.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i102.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i102.i
-  %1153 = call fastcc noundef zeroext i1 @_ZL15willNotOverflowPN4llvm17BinaryOpIntrinsicEPNS_13LazyValueInfoE(ptr noundef nonnull %413, ptr noundef %0)
+  %1153 = call fastcc noundef zeroext i1 @_ZL15willNotOverflowPN4llvm17BinaryOpIntrinsicEPNS_13LazyValueInfoE(ptr noundef %413, ptr noundef %0)
   br i1 %1153, label %1154, label %_ZN4llvm8dyn_castINS_16WithOverflowInstENS_8CallBaseEEEDcPT0_.exit.thread.i
 
 1154:                                             ; preds = %_ZN4llvm8dyn_castINS_16WithOverflowInstENS_8CallBaseEEEDcPT0_.exit.i
@@ -2669,7 +2669,7 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i109.i: 
   ]
 
 _ZN4llvm8dyn_castINS_14SaturatingInstENS_8CallBaseEEEDcPT0_.exit.i: ; preds = %1212, %1212, %1212, %1212
-  %1215 = call fastcc noundef zeroext i1 @_ZL15willNotOverflowPN4llvm17BinaryOpIntrinsicEPNS_13LazyValueInfoE(ptr noundef nonnull %413, ptr noundef %0)
+  %1215 = call fastcc noundef zeroext i1 @_ZL15willNotOverflowPN4llvm17BinaryOpIntrinsicEPNS_13LazyValueInfoE(ptr noundef %413, ptr noundef %0)
   br i1 %1215, label %1216, label %_ZN4llvm8dyn_castINS_14SaturatingInstENS_8CallBaseEEEDcPT0_.exit.thread.i
 
 1216:                                             ; preds = %_ZN4llvm8dyn_castINS_14SaturatingInstENS_8CallBaseEEEDcPT0_.exit.i
@@ -3317,7 +3317,7 @@ _ZN4llvm8DebugLocD2Ev.exit96.i.i:                 ; preds = %1493, %_ZN4llvm11In
   %.071.i.i = phi ptr [ %1461, %_ZN4llvm8DebugLocD2Ev.exit85.i.i ], [ %1481, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit94.i.i ], [ %1481, %1493 ], [ %1481, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i92.i.i ], [ %1481, %1491 ]
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %413, ptr noundef nonnull %.071.i.i) #15
   %1494 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %413) #15
-  %1495 = call fastcc noundef zeroext i1 @_ZL17processUDivOrURemPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef nonnull %1461, ptr noundef nonnull %0)
+  %1495 = call fastcc noundef zeroext i1 @_ZL17processUDivOrURemPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef nonnull %1461, ptr noundef %0)
   br label %1496
 
 1496:                                             ; preds = %_ZN4llvm8DebugLocD2Ev.exit96.i.i, %1422, %1417
@@ -3652,7 +3652,7 @@ _ZN4llvm8DebugLocD2Ev.exit91.i.i:                 ; preds = %1610, %_ZN4llvm11In
   %.067.i.i = phi ptr [ %1579, %_ZN4llvm8DebugLocD2Ev.exit80.i.i ], [ %1598, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit89.i.i ], [ %1598, %1610 ], [ %1598, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i87.i.i ], [ %1598, %1608 ]
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %413, ptr noundef nonnull %.067.i.i) #15
   %1611 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %413) #15
-  %1612 = call fastcc noundef zeroext i1 @_ZL17processUDivOrURemPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef nonnull %1579, ptr noundef nonnull %0)
+  %1612 = call fastcc noundef zeroext i1 @_ZL17processUDivOrURemPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef nonnull %1579, ptr noundef %0)
   br label %_ZL11processSRemPN4llvm14BinaryOperatorERKNS_13ConstantRangeES4_PNS_13LazyValueInfoE.exit.thread.i
 
 _ZL11processSRemPN4llvm14BinaryOperatorERKNS_13ConstantRangeES4_PNS_13LazyValueInfoE.exit.thread.i: ; preds = %_ZN4llvm8DebugLocD2Ev.exit91.i.i, %1540
@@ -5450,7 +5450,7 @@ _ZN4llvm11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17processUDivOrURemPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17processUDivOrURemPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::IRBuilder", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -6240,7 +6240,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit11:               ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL12processBinOpPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12processBinOpPN4llvm14BinaryOperatorEPNS_13LazyValueInfoE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::ConstantRange", align 8
   %4 = alloca %"class.llvm::ConstantRange", align 8
   %5 = alloca %"class.llvm::ConstantRange", align 8
@@ -6645,7 +6645,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 declare noundef i32 @_ZNK4llvm8CallBase14getIntrinsicIDEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15willNotOverflowPN4llvm17BinaryOpIntrinsicEPNS_13LazyValueInfoE(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL15willNotOverflowPN4llvm17BinaryOpIntrinsicEPNS_13LazyValueInfoE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::ConstantRange", align 8
   %4 = alloca %"class.llvm::ConstantRange", align 8
   %5 = alloca %"class.llvm::ConstantRange", align 8
@@ -7996,7 +7996,7 @@ declare void @_ZN4llvm13ConstantRangeC1ENS_5APIntES1_(ptr noundef nonnull align 
 declare noundef ptr @_ZN4llvm8CastInst19CreateZExtOrBitCastEPNS_5ValueEPNS_4TypeERKNS_5TwineENS_14InsertPositionE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21processPossibleNonNegPN4llvm18PossiblyNonNegInstEPNS_13LazyValueInfoE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21processPossibleNonNegPN4llvm18PossiblyNonNegInstEPNS_13LazyValueInfoE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::ConstantRange", align 8
   %4 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction9hasNonNegEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   br i1 %4, label %35, label %5

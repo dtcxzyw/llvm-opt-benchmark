@@ -3529,7 +3529,7 @@ define void @_ZN2cv12GComputation16compileStreamingEOSt6vectorINS_11GCompileArgE
   br i1 %.not, label %10, label %_ZNSt10shared_ptrIN2cv9GraphInfoEED2Ev.exit
 
 10:                                               ; preds = %3
-  call fastcc void @_ZL16collectGraphInfoRKN2cv12GComputation4PrivE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(312) %7)
+  call fastcc void @_ZL16collectGraphInfoRKN2cv12GComputation4PrivE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(312) %7)
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 296
   %13 = load ptr, ptr %4, align 8
@@ -3791,7 +3791,7 @@ _ZN2cv18GStreamingCompiled4Priv10setOutInfoERKSt6vectorINS_9GTypeInfoESaIS3_EE.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16collectGraphInfoRKN2cv12GComputation4PrivE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(312) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16collectGraphInfoRKN2cv12GComputation4PrivE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(312) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ade::details::MetadataId", align 8
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"struct.ade::details::InitIdsArray", align 1
@@ -3901,7 +3901,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   %48 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %49 = getelementptr inbounds i8, ptr %48, i64 56
-  invoke fastcc void @_ZL11collectInfoRKN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEERKSt6vectorINS_6HandleINS_4NodeEEESaISX_EE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(24) %49)
+  invoke fastcc void @_ZL11collectInfoRKN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEERKSt6vectorINS_6HandleINS_4NodeEEESaISX_EE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(24) %49)
           to label %50 unwind label %.loopexit.split-lp50.loopexit.split-lp
 
 50:                                               ; preds = %.loopexit53
@@ -3990,7 +3990,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   %84 = load ptr, ptr %83, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %85 = getelementptr inbounds i8, ptr %84, i64 80
-  invoke fastcc void @_ZL11collectInfoRKN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEERKSt6vectorINS_6HandleINS_4NodeEEESaISX_EE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(24) %85)
+  invoke fastcc void @_ZL11collectInfoRKN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEERKSt6vectorINS_6HandleINS_4NodeEEESaISX_EE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(24) %85)
           to label %86 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 86:                                               ; preds = %.loopexit45
@@ -4307,7 +4307,7 @@ define void @_ZN2cv12GComputation16compileStreamingERKNS_6detail19ExtractMetaCal
   br i1 %.not, label %11, label %_ZNSt10shared_ptrIN2cv9GraphInfoEED2Ev.exit
 
 11:                                               ; preds = %4
-  call fastcc void @_ZL16collectGraphInfoRKN2cv12GComputation4PrivE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(312) %8)
+  call fastcc void @_ZL16collectGraphInfoRKN2cv12GComputation4PrivE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(312) %8)
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 296
   %14 = load ptr, ptr %5, align 8
@@ -6111,7 +6111,7 @@ define void @_ZN2cv12GComputation5applyERKNS_6detail19ExtractArgsCallbackEOSt6ve
   br i1 %.not, label %12, label %_ZNSt10shared_ptrIN2cv9GraphInfoEED2Ev.exit
 
 12:                                               ; preds = %4
-  call fastcc void @_ZL16collectGraphInfoRKN2cv12GComputation4PrivE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(312) %9)
+  call fastcc void @_ZL16collectGraphInfoRKN2cv12GComputation4PrivE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(312) %9)
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 296
   %15 = load ptr, ptr %5, align 8

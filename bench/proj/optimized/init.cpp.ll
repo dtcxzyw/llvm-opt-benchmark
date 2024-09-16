@@ -794,7 +794,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds i8, ptr %58, i64 14
-  %70 = tail call fastcc noundef ptr @_ZL18locate_constructorPKc(ptr noundef nonnull %69)
+  %70 = tail call fastcc noundef ptr @_ZL18locate_constructorPKc(ptr noundef %69)
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %74
 
@@ -810,7 +810,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %74
-  %78 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef nonnull %.0337, ptr noundef %38, i32 noundef 4096)
+  %78 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef nonnull %.0337, ptr noundef nonnull %38, i32 noundef 4096)
   br label %353
 
 79:                                               ; preds = %74
@@ -830,7 +830,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %33, label %86, label %91
 
 86:                                               ; preds = %79
-  %87 = tail call noundef i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8PJconsts(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull %75)
+  %87 = tail call noundef i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8PJconsts(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull %75)
   %.not371 = icmp eq i32 %87, 0
   br i1 %.not371, label %91, label %88
 
@@ -946,7 +946,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %147, label %148, label %153
 
 148:                                              ; preds = %145
-  %149 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.14)
+  %149 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.14)
   %150 = and i64 %149, 4294967295
   %151 = icmp ne i64 %150, 0
   %152 = zext i1 %151 to i32
@@ -956,7 +956,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %154 = phi i32 [ 0, %145 ], [ %152, %148 ]
   %155 = getelementptr inbounds i8, ptr %75, i64 348
   store i32 %154, ptr %155, align 4
-  %156 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.15)
+  %156 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.15)
   %.sroa.047.0.extract.trunc = trunc i64 %156 to i32
   %157 = getelementptr inbounds i8, ptr %75, i64 344
   store i32 %.sroa.047.0.extract.trunc, ptr %157, align 8
@@ -965,7 +965,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %160 = trunc i8 %159 to i1
   %spec.store.select = select i1 %160, i32 1, i32 %.sroa.047.0.extract.trunc
   store i32 %spec.store.select, ptr %157, align 8
-  %161 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.16)
+  %161 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.16)
   %.sroa.045.0.extract.trunc = trunc i64 %161 to i32
   %162 = getelementptr inbounds i8, ptr %75, i64 592
   store i32 %.sroa.045.0.extract.trunc, ptr %162, align 8
@@ -973,18 +973,18 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %.not375, label %165, label %163
 
 163:                                              ; preds = %153
-  %164 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.17)
+  %164 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.17)
   br label %165
 
 165:                                              ; preds = %163, %153
-  %166 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.18)
+  %166 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.18)
   %.sroa.042.0.extract.trunc = trunc i64 %166 to i32
   store i32 %.sroa.042.0.extract.trunc, ptr %83, align 8
   %.not376 = icmp eq i32 %.sroa.042.0.extract.trunc, 0
   br i1 %.not376, label %174, label %167
 
 167:                                              ; preds = %165
-  %168 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.19)
+  %168 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.19)
   %169 = bitcast i64 %168 to double
   store i64 %168, ptr %84, align 8
   %170 = tail call double @llvm.fabs.f64(double %169)
@@ -997,12 +997,12 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %353
 
 174:                                              ; preds = %167, %165
-  %175 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.21)
+  %175 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.21)
   %.not377 = icmp eq i64 %175, 0
   br i1 %.not377, label %199, label %176
 
 176:                                              ; preds = %174
-  %177 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.21)
+  %177 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.21)
   %.sroa.031.0..sroa.031.0..cast = inttoptr i64 %177 to ptr
   %178 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.031.0..sroa.031.0..cast) #13
   %.not378 = icmp eq i64 %178, 3
@@ -1046,10 +1046,10 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %199
 
 199:                                              ; preds = %197, %174
-  %200 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.24)
+  %200 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.24)
   %201 = getelementptr inbounds i8, ptr %75, i64 440
   store i64 %200, ptr %201, align 8
-  %202 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.25)
+  %202 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.25)
   %203 = bitcast i64 %202 to double
   %204 = getelementptr inbounds i8, ptr %75, i64 448
   store i64 %202, ptr %204, align 8
@@ -1063,25 +1063,25 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %353
 
 209:                                              ; preds = %199
-  %210 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.27)
+  %210 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.27)
   %211 = getelementptr inbounds i8, ptr %75, i64 456
   store i64 %210, ptr %211, align 8
-  %212 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.28)
+  %212 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.28)
   %213 = getelementptr inbounds i8, ptr %75, i64 464
   store i64 %212, ptr %213, align 8
-  %214 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.29)
+  %214 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.29)
   %215 = getelementptr inbounds i8, ptr %75, i64 472
   store i64 %214, ptr %215, align 8
-  %216 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.30)
+  %216 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.30)
   %217 = getelementptr inbounds i8, ptr %75, i64 480
   store i64 %216, ptr %217, align 8
-  %218 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.31)
+  %218 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.31)
   %219 = and i64 %218, 4294967295
   %.not381 = icmp eq i64 %219, 0
   br i1 %.not381, label %220, label %224
 
 220:                                              ; preds = %209
-  %221 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.33)
+  %221 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.33)
   %222 = and i64 %221, 4294967295
   %.not382 = icmp eq i64 %222, 0
   br i1 %.not382, label %.thread465, label %224
@@ -1093,7 +1093,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 224:                                              ; preds = %220, %209
   %.str.34.sink = phi ptr [ @.str.32, %209 ], [ @.str.34, %220 ]
-  %225 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull %.str.34.sink)
+  %225 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull %.str.34.sink)
   %226 = getelementptr inbounds i8, ptr %75, i64 488
   store i64 %225, ptr %226, align 8
   %227 = bitcast i64 %225 to double
@@ -1107,7 +1107,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 231:                                              ; preds = %.thread465, %224
   %232 = tail call noundef ptr @_Z20pj_list_linear_unitsv()
-  %233 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.36)
+  %233 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.36)
   %.sroa.019.0..sroa.019.0..cast = inttoptr i64 %233 to ptr
   %.not383 = icmp eq i64 %233, 0
   br i1 %.not383, label %.thread, label %.preheader420
@@ -1143,7 +1143,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %.not386, label %.thread, label %.critedge5
 
 .thread:                                          ; preds = %231, %241
-  %244 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef %38, ptr noundef nonnull @.str.38)
+  %244 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.38)
   %.sroa.018.0..sroa.018.0..cast = inttoptr i64 %244 to ptr
   %.not387 = icmp eq i64 %244, 0
   br i1 %.not387, label %266, label %.critedge5
@@ -1200,7 +1200,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %.sink = phi double [ 1.000000e+00, %266 ], [ %265, %264 ]
   %269 = getelementptr inbounds i8, ptr %75, i64 %.sink472
   store double %.sink, ptr %269, align 8
-  %270 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef %38, ptr noundef nonnull @.str.41)
+  %270 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.41)
   %.sroa.015.0..sroa.015.0..cast = inttoptr i64 %270 to ptr
   %.not388 = icmp eq i64 %270, 0
   br i1 %.not388, label %.thread406, label %.preheader
@@ -1236,7 +1236,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %.not391, label %.thread406, label %.critedge9
 
 .thread406:                                       ; preds = %268, %278
-  %281 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef %38, ptr noundef nonnull @.str.43)
+  %281 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.43)
   %.sroa.014.0..sroa.014.0..cast = inttoptr i64 %281 to ptr
   %.not392 = icmp eq i64 %281, 0
   br i1 %.not392, label %303, label %.critedge9
@@ -1297,7 +1297,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %310 = getelementptr inbounds i8, ptr %75, i64 520
   store double %.sink473, ptr %310, align 8
   %311 = call ptr @proj_list_prime_meridians()
-  %312 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef %38, ptr noundef nonnull @.str.46)
+  %312 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.46)
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %312 to ptr
   %.not393 = icmp eq i64 %312, 0
   br i1 %.not393, label %335, label %313
@@ -1414,7 +1414,7 @@ declare noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef, ptr noundef) 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = tail call ptr @proj_list_operations()
   %3 = load ptr, ptr %2, align 8
   %cond12 = icmp eq ptr %3, null
@@ -1445,13 +1445,13 @@ define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL36append_default_ellipsoid_to_paralistP8ARG_list(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.60)
+define internal fastcc void @_ZL36append_default_ellipsoid_to_paralistP8ARG_list(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.60)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %33
 
 3:                                                ; preds = %1
-  %4 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.8)
+  %4 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.8)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %33, label %6
 
@@ -1468,42 +1468,42 @@ define internal fastcc void @_ZL36append_default_ellipsoid_to_paralistP8ARG_list
   br i1 %13, label %33, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.62)
+  %15 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.62)
   %.not21 = icmp eq ptr %15, null
   br i1 %.not21, label %16, label %33
 
 16:                                               ; preds = %14
-  %17 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.63)
+  %17 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.63)
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %18, label %33
 
 18:                                               ; preds = %16
-  %19 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.64)
+  %19 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.64)
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %20, label %33
 
 20:                                               ; preds = %18
-  %21 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.65)
+  %21 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.65)
   %.not24 = icmp eq ptr %21, null
   br i1 %.not24, label %22, label %33
 
 22:                                               ; preds = %20
-  %23 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.66)
+  %23 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.66)
   %.not25 = icmp eq ptr %23, null
   br i1 %.not25, label %24, label %33
 
 24:                                               ; preds = %22
-  %25 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.67)
+  %25 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.67)
   %.not26 = icmp eq ptr %25, null
   br i1 %.not26, label %26, label %33
 
 26:                                               ; preds = %24
-  %27 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.68)
+  %27 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.68)
   %.not27 = icmp eq ptr %27, null
   br i1 %.not27, label %28, label %33
 
 28:                                               ; preds = %26
-  %29 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef nonnull @.str.69)
+  %29 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.69)
   %.not28 = icmp eq ptr %29, null
   br i1 %.not28, label %.preheader, label %33
 

@@ -164,7 +164,7 @@ define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unna
   ]
 
 41:                                               ; preds = %38
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 42:                                               ; preds = %38
@@ -253,7 +253,7 @@ define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unna
   br label %php_mail_build_headers_elems.exit
 
 78:                                               ; preds = %74
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i)
   br label %79
 
 79:                                               ; preds = %78, %62
@@ -294,7 +294,7 @@ thread-pre-split:                                 ; preds = %35
   ]
 
 92:                                               ; preds = %89
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 93:                                               ; preds = %89
@@ -383,7 +383,7 @@ thread-pre-split:                                 ; preds = %35
   br label %php_mail_build_headers_elems.exit
 
 129:                                              ; preds = %125
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i293)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i293)
   br label %130
 
 130:                                              ; preds = %129, %113
@@ -416,7 +416,7 @@ thread-pre-split:                                 ; preds = %35
   ]
 
 143:                                              ; preds = %140
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 144:                                              ; preds = %140
@@ -505,7 +505,7 @@ thread-pre-split:                                 ; preds = %35
   br label %php_mail_build_headers_elems.exit
 
 180:                                              ; preds = %176
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i309)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i309)
   br label %181
 
 181:                                              ; preds = %180, %164
@@ -546,7 +546,7 @@ thread-pre-split427:                              ; preds = %137
   ]
 
 194:                                              ; preds = %191
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 195:                                              ; preds = %191
@@ -635,7 +635,7 @@ thread-pre-split427:                              ; preds = %137
   br label %php_mail_build_headers_elems.exit
 
 231:                                              ; preds = %227
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i325)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i325)
   br label %232
 
 232:                                              ; preds = %231, %215
@@ -682,7 +682,7 @@ thread-pre-split427:                              ; preds = %137
   ]
 
 250:                                              ; preds = %247
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 251:                                              ; preds = %247
@@ -771,7 +771,7 @@ thread-pre-split427:                              ; preds = %137
   br label %php_mail_build_headers_elems.exit
 
 287:                                              ; preds = %283
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i341)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i341)
   br label %288
 
 288:                                              ; preds = %287, %271
@@ -812,7 +812,7 @@ thread-pre-split431:                              ; preds = %245
   ]
 
 300:                                              ; preds = %297
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 301:                                              ; preds = %297
@@ -901,7 +901,7 @@ thread-pre-split431:                              ; preds = %245
   br label %php_mail_build_headers_elems.exit
 
 337:                                              ; preds = %333
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i357)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i357)
   br label %338
 
 338:                                              ; preds = %337, %321
@@ -934,7 +934,7 @@ thread-pre-split431:                              ; preds = %245
   ]
 
 351:                                              ; preds = %348
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 352:                                              ; preds = %348
@@ -1023,7 +1023,7 @@ thread-pre-split431:                              ; preds = %245
   br label %php_mail_build_headers_elems.exit
 
 388:                                              ; preds = %384
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i373)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i373)
   br label %389
 
 389:                                              ; preds = %388, %372
@@ -1055,7 +1055,7 @@ thread-pre-split431:                              ; preds = %245
   ]
 
 400:                                              ; preds = %397
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 401:                                              ; preds = %397
@@ -1144,7 +1144,7 @@ thread-pre-split431:                              ; preds = %245
   br label %php_mail_build_headers_elems.exit
 
 437:                                              ; preds = %433
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i389)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i389)
   br label %438
 
 438:                                              ; preds = %437, %421
@@ -1185,7 +1185,7 @@ thread-pre-split436:                              ; preds = %395
   ]
 
 450:                                              ; preds = %447
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 451:                                              ; preds = %447
@@ -1274,7 +1274,7 @@ thread-pre-split436:                              ; preds = %395
   br label %php_mail_build_headers_elems.exit
 
 487:                                              ; preds = %483
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i405)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i405)
   br label %488
 
 488:                                              ; preds = %487, %471
@@ -1311,7 +1311,7 @@ thread-pre-split436:                              ; preds = %395
   ]
 
 502:                                              ; preds = %499
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0205)
   br label %php_mail_build_headers_elems.exit
 
 503:                                              ; preds = %499
@@ -1388,7 +1388,7 @@ thread-pre-split436:                              ; preds = %395
   br label %php_mail_build_headers_elems.exit
 
 535:                                              ; preds = %530
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i421)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef %2, ptr noundef %.1212, ptr noundef nonnull %.0.i421)
   br label %536
 
 536:                                              ; preds = %535, %517
@@ -1470,7 +1470,7 @@ declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_mail_build_headers_elem(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %133 [

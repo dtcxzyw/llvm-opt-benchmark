@@ -1005,8 +1005,8 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %36 = getelementptr inbounds i32, ptr %3, i64 %35
   %37 = mul nuw nsw i64 %35, %27
   %38 = getelementptr inbounds i8, ptr %4, i64 %37
-  %.not26 = icmp eq i32 %33, 0
-  br i1 %.not26, label %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit, label %.lr.ph.us.preheader.i
+  %.not.i.not = icmp eq i32 %33, 0
+  br i1 %.not.i.not, label %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph.split
   %39 = zext nneg i32 %33 to i64

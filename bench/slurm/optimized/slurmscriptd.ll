@@ -2762,7 +2762,7 @@ _run_bb_script.exit.i.i:                          ; preds = %186, %136, %130
   %207 = load ptr, ptr %206, align 8
   %208 = getelementptr inbounds i8, ptr %63, i64 72
   %209 = load ptr, ptr %208, align 8
-  %210 = call fastcc i32 @_run_script(ptr noundef nonnull %11, i32 noundef %203, i32 noundef %205, ptr noundef %207, ptr noundef %209, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %210 = call fastcc i32 @_run_script(ptr noundef %11, i32 noundef %203, i32 noundef %205, ptr noundef %207, ptr noundef %209, ptr noundef %8, ptr noundef %9)
   br label %233
 
 211:                                              ; preds = %103
@@ -2801,7 +2801,7 @@ _run_bb_script.exit.i.i:                          ; preds = %186, %136, %130
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds i8, ptr %63, i64 72
   %229 = load ptr, ptr %228, align 8
-  %230 = call fastcc i32 @_run_script(ptr noundef nonnull %11, i32 noundef %223, i32 noundef %225, ptr noundef %227, ptr noundef %229, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %230 = call fastcc i32 @_run_script(ptr noundef %11, i32 noundef %223, i32 noundef %225, ptr noundef %227, ptr noundef %229, ptr noundef %8, ptr noundef %9)
   br label %233
 
 231:                                              ; preds = %103
@@ -3572,7 +3572,7 @@ declare i64 @pthread_self() local_unnamed_addr #3
 declare ptr @env_array_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_run_script(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @_run_script(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   store i32 -1, ptr %8, align 4

@@ -2906,7 +2906,7 @@ define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_118getTrainingSamplesERK
 _ZNKSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %75
   %81 = sdiv exact i64 %78, 12
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %81, i64 1)
-  %82 = add nsw i64 %.sroa.speculated.i.i.i.i, %81
+  %82 = add i64 %.sroa.speculated.i.i.i.i, %81
   %83 = icmp ult i64 %82, %81
   %84 = tail call i64 @llvm.umin.i64(i64 %82, i64 768614336404564650)
   %85 = select i1 %83, i64 768614336404564650, i64 %84
@@ -3738,7 +3738,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit153: ; p
   store i64 0, ptr %344, align 8
   store i32 33619968, ptr %28, align 8
   store ptr %26, ptr %343, align 8
-  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_110buildIndexERKNS_12_OutputArrayERNS_5flann5IndexEPKNS_3MatEPFvSA_RSt6vectorINS0_18GPCPatchDescriptorESaISC_EERKNS0_17GPCMatchingParamsEE(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef nonnull %25, ptr noundef nonnull @_ZN2cv7optflow12_GLOBAL__N_128getAllDCTDescriptorsForImageEPKNS_3MatERSt6vectorINS0_18GPCPatchDescriptorESaIS6_EERKNS0_17GPCMatchingParamsE)
+  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_110buildIndexERKNS_12_OutputArrayERNS_5flann5IndexEPKNS_3MatEPFvSA_RSt6vectorINS0_18GPCPatchDescriptorESaISC_EERKNS0_17GPCMatchingParamsEE(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef %25, ptr noundef nonnull @_ZN2cv7optflow12_GLOBAL__N_128getAllDCTDescriptorsForImageEPKNS_3MatERSt6vectorINS0_18GPCPatchDescriptorESaIS6_EERKNS0_17GPCMatchingParamsE)
           to label %.preheader170 unwind label %356
 
 .preheader170:                                    ; preds = %342
@@ -3752,7 +3752,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit153: ; p
   %.val118 = load i32, ptr %346, align 4
   %347 = getelementptr i8, ptr %345, i64 8
   %.val119 = load i32, ptr %347, align 4
-  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_110getTripletERKNS1_9MagnitudeERKNS_3MatEPS6_S8_RSt6vectorINS0_14GPCPatchSampleESaISA_EERNS_5flann5IndexEPFvRNS0_18GPCPatchDescriptorES8_iiE(i32 %.val118, i32 %.val119, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef nonnull @_ZN2cv7optflow12_GLOBAL__N_121getDCTPatchDescriptorERNS0_18GPCPatchDescriptorEPKNS_3MatEii)
+  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_110getTripletERKNS1_9MagnitudeERKNS_3MatEPS6_S8_RSt6vectorINS0_14GPCPatchSampleESaISA_EERNS_5flann5IndexEPFvRNS0_18GPCPatchDescriptorES8_iiE(i32 %.val118, i32 %.val119, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %24, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef nonnull @_ZN2cv7optflow12_GLOBAL__N_121getDCTPatchDescriptorERNS0_18GPCPatchDescriptorEPKNS_3MatEii)
           to label %348 unwind label %354
 
 348:                                              ; preds = %.lr.ph225
@@ -3995,7 +3995,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit153: ; p
   store i64 0, ptr %438, align 8
   store i32 33619968, ptr %47, align 8
   store ptr %45, ptr %437, align 8
-  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_110buildIndexERKNS_12_OutputArrayERNS_5flann5IndexEPKNS_3MatEPFvSA_RSt6vectorINS0_18GPCPatchDescriptorESaISC_EERKNS0_17GPCMatchingParamsEE(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull %30, ptr noundef nonnull @_ZN2cv7optflow12_GLOBAL__N_128getAllWHTDescriptorsForImageEPKNS_3MatERSt6vectorINS0_18GPCPatchDescriptorESaIS6_EERKNS0_17GPCMatchingParamsE)
+  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_110buildIndexERKNS_12_OutputArrayERNS_5flann5IndexEPKNS_3MatEPFvSA_RSt6vectorINS0_18GPCPatchDescriptorESaISC_EERKNS0_17GPCMatchingParamsEE(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef %30, ptr noundef nonnull @_ZN2cv7optflow12_GLOBAL__N_128getAllWHTDescriptorsForImageEPKNS_3MatERSt6vectorINS0_18GPCPatchDescriptorESaIS6_EERKNS0_17GPCMatchingParamsE)
           to label %.preheader179 unwind label %462
 
 .preheader179:                                    ; preds = %436
@@ -4009,7 +4009,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit153: ; p
   %.val120 = load i32, ptr %440, align 4
   %441 = getelementptr i8, ptr %439, i64 8
   %.val121 = load i32, ptr %441, align 4
-  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_110getTripletERKNS1_9MagnitudeERKNS_3MatEPS6_S8_RSt6vectorINS0_14GPCPatchSampleESaISA_EERNS_5flann5IndexEPFvRNS0_18GPCPatchDescriptorES8_iiE(i32 %.val120, i32 %.val121, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull @_ZN2cv7optflow12_GLOBAL__N_121getWHTPatchDescriptorERNS0_18GPCPatchDescriptorEPKNS_3MatEii)
+  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_110getTripletERKNS1_9MagnitudeERKNS_3MatEPS6_S8_RSt6vectorINS0_14GPCPatchSampleESaISA_EERNS_5flann5IndexEPFvRNS0_18GPCPatchDescriptorES8_iiE(i32 %.val120, i32 %.val121, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %31, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull @_ZN2cv7optflow12_GLOBAL__N_121getWHTPatchDescriptorERNS0_18GPCPatchDescriptorEPKNS_3MatEii)
           to label %442 unwind label %460
 
 442:                                              ; preds = %.lr.ph222
@@ -6438,7 +6438,7 @@ declare void @_ZN2cv5splitERKNS_3MatEPS0_(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN2cv5flann5IndexC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_110buildIndexERKNS_12_OutputArrayERNS_5flann5IndexEPKNS_3MatEPFvSA_RSt6vectorINS0_18GPCPatchDescriptorESaISC_EERKNS0_17GPCMatchingParamsEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_110buildIndexERKNS_12_OutputArrayERNS_5flann5IndexEPKNS_3MatEPFvSA_RSt6vectorINS0_18GPCPatchDescriptorESaISC_EERKNS0_17GPCMatchingParamsEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"struct.cv::optflow::GPCMatchingParams", align 1
   %7 = alloca %"class.cv::Mat", align 8
@@ -6447,7 +6447,7 @@ define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_110buildIndexERKNS_12_Ou
   %10 = alloca %"class.cv::_InputArray", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i8 0, ptr %6, align 1
-  invoke void %3(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void %3(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %11 unwind label %49, !callees !95
 
 11:                                               ; preds = %4
@@ -6595,7 +6595,7 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EED2Ev.exit21: ; preds = %66
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_110getTripletERKNS1_9MagnitudeERKNS_3MatEPS6_S8_RSt6vectorINS0_14GPCPatchSampleESaISA_EERNS_5flann5IndexEPFvRNS0_18GPCPatchDescriptorES8_iiE(i32 %.4.val, i32 %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr nocapture noundef readonly %5) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_110getTripletERKNS1_9MagnitudeERKNS_3MatEPS6_S8_RSt6vectorINS0_14GPCPatchSampleESaISA_EERNS_5flann5IndexEPFvRNS0_18GPCPatchDescriptorES8_iiE(i32 %.4.val, i32 %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr nocapture noundef readonly %5) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.cv::optflow::GPCPatchSample", align 8
   %8 = alloca %"class.cv::Matx.53", align 4
   %9 = alloca %"class.cv::Matx.54", align 4
@@ -6640,9 +6640,9 @@ define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_110getTripletERKNS1_9Mag
 
 43:                                               ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %7, i8 0, i64 432, i1 false)
-  call void %5(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef %1, i32 noundef %.4.val, i32 noundef %.8.val), !callees !104
+  call void %5(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %1, i32 noundef %.4.val, i32 noundef %.8.val), !callees !104
   %44 = getelementptr inbounds i8, ptr %7, i64 144
-  call void %5(ptr noundef nonnull align 8 dereferenceable(144) %44, ptr noundef %2, i32 noundef %32, i32 noundef %36), !callees !104
+  call void %5(ptr noundef nonnull align 8 dereferenceable(144) %44, ptr noundef nonnull %2, i32 noundef %32, i32 noundef %36), !callees !104
   %45 = getelementptr inbounds i8, ptr %7, i64 288
   store double 0x7FF8000000000000, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %8, i8 0, i64 72, i1 false)
@@ -6708,7 +6708,7 @@ define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_110getTripletERKNS1_9Mag
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %63
-  call void %5(ptr noundef nonnull align 8 dereferenceable(144) %45, ptr noundef %2, i32 noundef %73, i32 noundef %72), !callees !104
+  call void %5(ptr noundef nonnull align 8 dereferenceable(144) %45, ptr noundef nonnull %2, i32 noundef %73, i32 noundef %72), !callees !104
   br label %83
 
 81:                                               ; preds = %51

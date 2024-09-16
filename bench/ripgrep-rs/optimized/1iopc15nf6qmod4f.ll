@@ -127,7 +127,7 @@ _ZN4core3fmt8builders9DebugList7entries17h899323a9684a8fa3E.exit: ; preds = %.lr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h6ea487ea94887063E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h6ea487ea94887063E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !21, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -354,7 +354,7 @@ define void @_ZN8grep_cli7pattern15pattern_from_os17hfdb218031bf42c68E(ptr noali
 
 15:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h6ea487ea94887063E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #11
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h6ea487ea94887063E"(ptr noalias noundef align 8 dereferenceable(24) %6) #11
           to label %52 unwind label %50, !noalias !56
 
 .lr.ph.split.split.i.i.i:                         ; preds = %33, %13
@@ -380,7 +380,7 @@ define void @_ZN8grep_cli7pattern15pattern_from_os17hfdb218031bf42c68E(ptr noali
   br i1 %23, label %_ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i, label %24
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
-  %25 = add nuw i64 %.05.i.i.i.i, 1
+  %25 = add nuw nsw i64 %.05.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %25, %.sroa.3.0.i47.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i, label %.lr.ph.i.i.i.i
 

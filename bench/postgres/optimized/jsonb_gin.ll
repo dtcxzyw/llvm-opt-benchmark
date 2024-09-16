@@ -171,7 +171,7 @@ define dso_local i64 @gin_extract_jsonb(ptr nocapture noundef readonly %0) #0 {
 
 16:                                               ; preds = %1
   %17 = shl nuw nsw i32 %13, 1
-  %18 = shl i32 %12, 4
+  %18 = shl nuw i32 %13, 4
   %19 = zext i32 %18 to i64
   %20 = tail call ptr @palloc(i64 noundef %19) #8
   %21 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %11) #8
@@ -194,7 +194,7 @@ define dso_local i64 @gin_extract_jsonb(ptr nocapture noundef readonly %0) #0 {
   ], !llvm.loop !5
 
 24:                                               ; preds = %22
-  %25 = call fastcc i64 @make_scalar_key(ptr noundef nonnull %3, i1 noundef zeroext true)
+  %25 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext true)
   %.not.i = icmp slt i32 %.sroa.14.0.ph, %.sroa.25.0.ph
   br i1 %.not.i, label %.sink.split, label %26
 
@@ -216,7 +216,7 @@ define dso_local i64 @gin_extract_jsonb(ptr nocapture noundef readonly %0) #0 {
 34:                                               ; preds = %22
   %35 = load i32, ptr %3, align 8
   %36 = icmp eq i32 %35, 1
-  %37 = call fastcc i64 @make_scalar_key(ptr noundef nonnull %3, i1 noundef zeroext %36)
+  %37 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext %36)
   %.not.i11 = icmp slt i32 %.sroa.14.0.ph, %.sroa.25.0.ph
   br i1 %.not.i11, label %.sink.split, label %38
 
@@ -236,7 +236,7 @@ define dso_local i64 @gin_extract_jsonb(ptr nocapture noundef readonly %0) #0 {
   br label %.sink.split
 
 46:                                               ; preds = %22
-  %47 = call fastcc i64 @make_scalar_key(ptr noundef nonnull %3, i1 noundef zeroext false)
+  %47 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext false)
   %.not.i16 = icmp slt i32 %.sroa.14.0.ph, %.sroa.25.0.ph
   br i1 %.not.i16, label %.sink.split, label %48
 
@@ -280,7 +280,7 @@ declare ptr @JsonbIteratorInit(ptr noundef) local_unnamed_addr #1
 declare i32 @JsonbIteratorNext(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @make_scalar_key(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @make_scalar_key(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca [10 x i8], align 1
   %4 = alloca [10 x i8], align 1
   %5 = load i32, ptr %0, align 8
@@ -687,11 +687,11 @@ define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroex
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %5
-  %16 = call fastcc ptr @extract_jsp_path_expr(ptr noundef nonnull %6, ptr null, ptr noundef nonnull %7, ptr noundef null)
+  %16 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %6, ptr null, ptr noundef %7, ptr noundef null)
   br label %19
 
 17:                                               ; preds = %5
-  %18 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %6, ptr null, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %18 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %6, ptr null, ptr noundef %7, i1 noundef zeroext false)
   br label %19
 
 19:                                               ; preds = %17, %15
@@ -704,7 +704,7 @@ define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroex
   br label %30
 
 22:                                               ; preds = %19
-  call fastcc void @emit_jsp_gin_entries(ptr noundef nonnull %20, ptr noundef nonnull %8)
+  call fastcc void @emit_jsp_gin_entries(ptr noundef nonnull %20, ptr noundef %8)
   %23 = getelementptr inbounds i8, ptr %8, i64 8
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %3, align 4
@@ -1053,7 +1053,7 @@ define dso_local i64 @gin_extract_jsonb_path(ptr nocapture noundef readonly %0) 
 
 17:                                               ; preds = %1
   %18 = shl nuw nsw i32 %14, 1
-  %19 = shl i32 %13, 4
+  %19 = shl nuw i32 %14, 4
   %20 = zext i32 %19 to i64
   %21 = tail call ptr @palloc(i64 noundef %20) #8
   %22 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1563,12 +1563,12 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %38
 
 27:                                               ; preds = %23, %18
-  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext true)
+  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef readonly %2, i1 noundef zeroext true)
   %29 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store i64 %28, ptr %30, align 8
-  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
+  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef readonly %2, i1 noundef zeroext false)
   %32 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
@@ -1585,7 +1585,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 
 38:                                               ; preds = %26, %22, %23, %23
   %.ph = phi i1 [ true, %23 ], [ true, %23 ], [ false, %22 ], [ false, %26 ]
-  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %.ph)
+  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef readonly %2, i1 noundef zeroext %.ph)
   %40 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
@@ -1593,7 +1593,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %46
 
 42:                                               ; preds = %._crit_edge
-  %43 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
+  %43 = tail call fastcc i64 @make_scalar_key(ptr noundef readonly %2, i1 noundef zeroext false)
   %44 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
@@ -1613,7 +1613,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 declare void @jspInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @extract_jsp_path_expr(ptr noundef nonnull %0, ptr %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %union.JsonPathGinPath, align 8
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonPathItem, align 8
@@ -1635,7 +1635,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr no
 10:                                               ; preds = %8
   call void @jspGetArg(ptr noundef nonnull %.016.i, ptr noundef nonnull %7) #8
   %11 = load ptr, ptr %5, align 8
-  %12 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %11, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %12 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %11, ptr noundef %7, i1 noundef zeroext false)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %18, label %13
 
@@ -1657,7 +1657,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr no
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %5, align 8
-  %24 = call ptr %22(ptr noundef %0, ptr %23, ptr noundef %3, ptr noundef %.1.i) #8
+  %24 = call ptr %22(ptr noundef nonnull %0, ptr %23, ptr noundef %3, ptr noundef %.1.i) #8
   br label %extract_jsp_path_expr_nodes.exit
 
 extract_jsp_path_expr_nodes.exit:                 ; preds = %15, %20
@@ -1716,7 +1716,7 @@ make_jsp_expr_node_args.exit:                     ; preds = %41, %32, %extract_j
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.JsonPathItem, align 8
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonPathItem, align 8
@@ -1737,9 +1737,9 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
 
 12:                                               ; preds = %4, %4
   call void @jspGetLeftArg(ptr noundef nonnull %2, ptr noundef nonnull %5) #8
-  %13 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %5, i1 noundef zeroext %3)
+  %13 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef %5, i1 noundef zeroext %3)
   call void @jspGetRightArg(ptr noundef nonnull %2, ptr noundef nonnull %5) #8
-  %14 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %5, i1 noundef zeroext %3)
+  %14 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef %5, i1 noundef zeroext %3)
   %15 = icmp ne ptr %13, null
   %16 = icmp ne ptr %14, null
   %or.cond = select i1 %15, i1 %16, i1 false
@@ -1769,7 +1769,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
 29:                                               ; preds = %4
   call void @jspGetArg(ptr noundef nonnull %2, ptr noundef nonnull %6) #8
   %30 = xor i1 %3, true
-  %31 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %6, i1 noundef zeroext %30)
+  %31 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef %6, i1 noundef zeroext %30)
   br label %62
 
 32:                                               ; preds = %4
@@ -1777,7 +1777,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
 
 33:                                               ; preds = %32
   call void @jspGetArg(ptr noundef nonnull %2, ptr noundef nonnull %7) #8
-  %34 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %7, ptr noundef null)
+  %34 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef %7, ptr noundef null)
   br label %62
 
 35:                                               ; preds = %4
@@ -1842,7 +1842,7 @@ default.unreachable:                              ; preds = %42
   unreachable
 
 60:                                               ; preds = %54, %51, %45, %44
-  %61 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %.046, ptr noundef nonnull %10)
+  %61 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef %.046, ptr noundef nonnull %10)
   br label %62
 
 62:                                               ; preds = %18, %4, %39, %35, %32, %60, %33, %29, %21
@@ -1851,7 +1851,7 @@ default.unreachable:                              ; preds = %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_jsp_gin_entries(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @emit_jsp_gin_entries(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   tail call void @check_stack_depth() #8
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %.loopexit [

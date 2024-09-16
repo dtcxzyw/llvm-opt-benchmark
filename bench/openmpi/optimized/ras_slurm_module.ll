@@ -2444,7 +2444,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
 
 55:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %52, align 1
-  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0111289, ptr noundef %.02942.i, ptr noundef nonnull %4)
+  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef readonly %.0111289, ptr noundef %.02942.i, ptr noundef %4)
   switch i32 %56, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %57
     i32 -43, label %.thread148
@@ -2486,7 +2486,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br label %72
 
 72:                                               ; preds = %70, %65, %63
-  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0111289, ptr noundef %.029.lcssa.i, ptr noundef nonnull %4)
+  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef readonly %.0111289, ptr noundef %.029.lcssa.i, ptr noundef %4)
   switch i32 %73, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %prte_ras_slurm_parse_ranges.exit.thread145
     i32 -43, label %.thread148
@@ -2838,7 +2838,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @prte_ras_slurm_parse_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @prte_ras_slurm_parse_range(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [8192 x i8], align 16
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
@@ -2977,7 +2977,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_parse_range(ptr nocapture nou
 
 67:                                               ; preds = %._crit_edge101, %59
   %68 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %4) #20
-  %69 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef %2, ptr noundef nonnull %51) #20
+  %69 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %2, ptr noundef nonnull %51) #20
   switch i32 %69, label %70 [
     i32 0, label %72
     i32 -43, label %.loopexit

@@ -604,7 +604,7 @@ define internal i32 @dissect_atm_truncated(ptr noundef %0, ptr noundef %1, ptr n
   unreachable
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 0)
+  %7 = tail call fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, i32 noundef 0)
   ret i32 %7
 }
 
@@ -618,7 +618,7 @@ define internal i32 @dissect_atm_pw_truncated(ptr noundef %0, ptr noundef %1, pt
   unreachable
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 1)
+  %7 = tail call fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, i32 noundef 1)
   ret i32 %7
 }
 
@@ -632,7 +632,7 @@ define internal i32 @dissect_atm_untruncated(ptr noundef %0, ptr noundef %1, ptr
   unreachable
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 0)
+  %7 = tail call fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, i32 noundef 0)
   ret i32 %7
 }
 
@@ -646,7 +646,7 @@ define internal i32 @dissect_atm_pw_untruncated(ptr noundef %0, ptr noundef %1, 
   unreachable
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 1)
+  %7 = tail call fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, i32 noundef 1)
   ret i32 %7
 }
 
@@ -679,7 +679,7 @@ define internal i32 @dissect_atm_pw_oam_cell(ptr noundef %0, ptr noundef %1, ptr
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.147) #10
   %9 = getelementptr inbounds i8, ptr %3, i64 28
   %10 = load i32, ptr %9, align 4
-  tail call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef 7, i32 noundef %10, ptr noundef nonnull %3)
+  tail call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef 7, i32 noundef %10, ptr noundef %3)
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
   ret i32 %11
 }
@@ -1027,7 +1027,7 @@ define internal i32 @capture_lane(ptr noundef %0, i32 %1, i32 noundef %2, ptr no
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
   %7 = alloca [8 x i8], align 1
   %8 = getelementptr inbounds i8, ptr %4, i64 4
   %9 = load i8, ptr %8, align 4
@@ -1562,7 +1562,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6) unnamed_addr #1 {
+define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4, i32 noundef range(i32 0, 3) %5, ptr noundef readonly %6) unnamed_addr #1 {
   %8 = alloca %struct.atm_phdr, align 4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_atm_gfc, align 4
@@ -1648,9 +1648,10 @@ get_header_err.exit:                              ; preds = %44
 
 63:                                               ; preds = %7, %60, %62, %61
   %.072 = phi i32 [ 5, %61 ], [ 5, %62 ], [ 5, %60 ], [ 4, %7 ]
-  switch i32 %4, label %70 [
-    i32 5, label %64
-    i32 0, label %64
+  %trunc = trunc nuw i32 %4 to i8
+  switch i8 %trunc, label %70 [
+    i8 5, label %64
+    i8 0, label %64
   ]
 
 64:                                               ; preds = %63, %63
@@ -1729,7 +1730,7 @@ get_header_err.exit:                              ; preds = %44
   store i16 %.sink82, ptr %107, align 4
   %108 = getelementptr inbounds i8, ptr %8, i64 10
   store i16 %.sink, ptr %108, align 2
-  call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %.072, ptr noundef %1, ptr noundef %2, i32 noundef %.071, i32 noundef 1, ptr noundef nonnull %8)
+  call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %.072, ptr noundef %1, ptr noundef %2, i32 noundef %.071, i32 noundef 1, ptr noundef %8)
   ret void
 }
 
@@ -1745,7 +1746,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef range(i32 0, 6) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4, i32 noundef %5, ptr noundef nonnull %6) unnamed_addr #1 {
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) #10
   %9 = load ptr, ptr @atm_cell_payload_vpi_vci_table, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1756,15 +1757,16 @@ define internal fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 nounde
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = or disjoint i32 %13, %16
-  %18 = tail call i32 @dissector_try_uint_new(ptr noundef %9, i32 noundef %17, ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef %6) #10
+  %18 = tail call i32 @dissector_try_uint_new(ptr noundef %9, i32 noundef %17, ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %116
 
 19:                                               ; preds = %7
-  switch i32 %4, label %113 [
-    i32 1, label %20
-    i32 3, label %44
-    i32 7, label %77
+  %trunc = trunc nuw i32 %4 to i8
+  switch i8 %trunc, label %113 [
+    i8 1, label %20
+    i8 3, label %44
+    i8 7, label %77
   ]
 
 20:                                               ; preds = %19
@@ -1980,7 +1982,7 @@ define internal fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef range(i32 16, 25) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @ett_atm_lane_lc_lan_dest, align 4
   %6 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.335, ptr noundef %2) #10
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #10
@@ -2014,7 +2016,7 @@ define internal fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2) unnamed_addr #1 {
   %.not19 = icmp eq i32 %1, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 

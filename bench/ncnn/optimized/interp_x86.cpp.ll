@@ -420,7 +420,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   %235 = getelementptr inbounds i32, ptr %233, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %237 = load i32, ptr %236, align 8
-  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef nonnull %233, ptr noundef nonnull %235, i32 noundef %237)
+  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef %233, ptr noundef %235, i32 noundef %237)
   %238 = icmp sgt i32 %20, 0
   br i1 %238, label %.lr.ph1822, label %._crit_edge1823
 
@@ -508,7 +508,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   %288 = getelementptr inbounds i32, ptr %286, i64 %287
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %290 = load i32, ptr %289, align 8
-  tail call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef nonnull %286, ptr noundef nonnull %288, i32 noundef %290)
+  tail call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef %286, ptr noundef %288, i32 noundef %290)
   %291 = icmp sgt i32 %20, 0
   br i1 %291, label %.lr.ph1832, label %._crit_edge1833
 
@@ -691,7 +691,7 @@ thread-pre-split1611:                             ; preds = %thread-pre-split161
   %398 = getelementptr inbounds i32, ptr %396, i64 %397
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %400 = load i32, ptr %399, align 8
-  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef nonnull %396, ptr noundef nonnull %398, i32 noundef %400)
+  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef %396, ptr noundef %398, i32 noundef %400)
   %401 = icmp sgt i32 %20, 0
   br i1 %401, label %.lr.ph1794, label %._crit_edge1795
 
@@ -774,7 +774,7 @@ thread-pre-split1611:                             ; preds = %thread-pre-split161
   %446 = getelementptr inbounds i32, ptr %444, i64 %445
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %448 = load i32, ptr %447, align 8
-  tail call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef nonnull %444, ptr noundef nonnull %446, i32 noundef %448)
+  tail call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef %444, ptr noundef %446, i32 noundef %448)
   %449 = icmp sgt i32 %20, 0
   br i1 %449, label %.lr.ph1804, label %._crit_edge1805
 
@@ -1121,8 +1121,8 @@ thread-pre-split1613:                             ; preds = %thread-pre-split161
   %653 = getelementptr inbounds i32, ptr %651, i64 %652
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %655 = load i32, ptr %654, align 8
-  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef nonnull %647, ptr noundef nonnull %651, i32 noundef %655)
-  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %20, i32 noundef %34, ptr noundef nonnull %649, ptr noundef nonnull %653, i32 noundef %655)
+  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef %647, ptr noundef %651, i32 noundef %655)
+  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %20, i32 noundef %34, ptr noundef %649, ptr noundef %653, i32 noundef %655)
   %656 = icmp sgt i32 %24, 0
   br i1 %656, label %.noexc.lr.ph, label %._crit_edge1877
 
@@ -1480,8 +1480,8 @@ thread-pre-split1613:                             ; preds = %thread-pre-split161
   %850 = getelementptr inbounds i32, ptr %848, i64 %849
   %851 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %852 = load i32, ptr %851, align 8
-  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef nonnull %844, ptr noundef nonnull %848, i32 noundef %852)
-  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %20, i32 noundef %34, ptr noundef nonnull %846, ptr noundef nonnull %850, i32 noundef %852)
+  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef %844, ptr noundef %848, i32 noundef %852)
+  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %20, i32 noundef %34, ptr noundef %846, ptr noundef %850, i32 noundef %852)
   %853 = icmp sgt i32 %24, 0
   br i1 %853, label %.noexc1394.lr.ph, label %._crit_edge1879
 
@@ -2452,8 +2452,8 @@ thread-pre-split1615:                             ; preds = %thread-pre-split161
   %1448 = getelementptr inbounds i32, ptr %1446, i64 %1447
   %1449 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1450 = load i32, ptr %1449, align 8
-  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef nonnull %1442, ptr noundef nonnull %1446, i32 noundef %1450)
-  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %20, i32 noundef %34, ptr noundef nonnull %1444, ptr noundef nonnull %1448, i32 noundef %1450)
+  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef %1442, ptr noundef %1446, i32 noundef %1450)
+  tail call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %20, i32 noundef %34, ptr noundef %1444, ptr noundef %1448, i32 noundef %1450)
   %1451 = icmp sgt i32 %24, 0
   br i1 %1451, label %.noexc1408.lr.ph, label %._crit_edge1861
 
@@ -2837,8 +2837,8 @@ thread-pre-split1615:                             ; preds = %thread-pre-split161
   %1655 = getelementptr inbounds i32, ptr %1653, i64 %1654
   %1656 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1657 = load i32, ptr %1656, align 8
-  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef nonnull %1649, ptr noundef nonnull %1653, i32 noundef %1657)
-  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %20, i32 noundef %34, ptr noundef nonnull %1651, ptr noundef nonnull %1655, i32 noundef %1657)
+  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %22, i32 noundef %32, ptr noundef %1649, ptr noundef %1653, i32 noundef %1657)
+  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %20, i32 noundef %34, ptr noundef %1651, ptr noundef %1655, i32 noundef %1657)
   %1658 = icmp sgt i32 %24, 0
   br i1 %1658, label %.noexc1422.lr.ph, label %._crit_edge1863
 
@@ -3682,7 +3682,7 @@ declare void @_ZN4ncnn3Mat6createEiimiPNS_9AllocatorE(ptr noundef nonnull align 
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #4 {
   %6 = sitofp i32 %0 to double
   %7 = uitofp nneg i32 %1 to double
   %.not = icmp eq i32 %4, 0
@@ -3784,7 +3784,7 @@ define internal fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %0, i3
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #6 {
+define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #6 {
   %6 = sitofp i32 %0 to double
   %7 = sitofp i32 %1 to double
   %8 = fdiv fast double %6, %7

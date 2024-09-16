@@ -642,7 +642,7 @@ define void @log_var(i32 noundef %0, ptr noundef %1, ...) #2 {
 
 5:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %6
 
@@ -668,7 +668,7 @@ define void @fatal(ptr noundef %0, ...) #4 {
 
 4:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %5
 
@@ -687,7 +687,7 @@ define void @fatal_abort(ptr noundef %0, ...) #4 {
 
 4:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %5
 
@@ -706,7 +706,7 @@ define noundef i32 @error(ptr noundef %0, ...) #2 {
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
@@ -718,7 +718,7 @@ define noundef i32 @error(ptr noundef %0, ...) #2 {
 define void @spank_log(ptr noundef %0, ...) #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -737,7 +737,7 @@ define void @sched_error(ptr noundef %0, ...) #2 {
 
 8:                                                ; preds = %5, %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %9
 
@@ -759,7 +759,7 @@ define void @sched_info(ptr noundef %0, ...) #2 {
 
 8:                                                ; preds = %5, %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %9
 
@@ -781,7 +781,7 @@ define void @sched_verbose(ptr noundef %0, ...) #2 {
 
 8:                                                ; preds = %5, %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %9
 
@@ -2105,8 +2105,8 @@ _print_data_json.exit:                            ; preds = %._crit_edge193, %10
 
 ._crit_edge177:                                   ; preds = %._crit_edge177.loopexit, %132
   %.089.lcssa = phi ptr [ null, %132 ], [ %149, %._crit_edge177.loopexit ]
-  %150 = call fastcc ptr @_jobid2fmt(ptr noundef %.089.lcssa, ptr noundef nonnull %8)
-  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %150) #19
+  %150 = call fastcc ptr @_jobid2fmt(ptr noundef %.089.lcssa, ptr noundef %8)
+  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %150) #19
   call void @llvm.va_end.p0(ptr nonnull %12)
   br label %thread-pre-split
 
@@ -2214,8 +2214,8 @@ _print_data_json.exit:                            ; preds = %._crit_edge193, %10
 
 194:                                              ; preds = %191, %188
   %.083 = phi ptr [ %193, %191 ], [ null, %188 ]
-  %195 = call fastcc ptr @_jobid2fmt(ptr noundef %.083, ptr noundef nonnull %8)
-  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %195) #19
+  %195 = call fastcc ptr @_jobid2fmt(ptr noundef %.083, ptr noundef %8)
+  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %195) #19
   %196 = load i32, ptr %187, align 8
   %.not.i142 = icmp eq i32 %196, -889271554
   br i1 %.not.i142, label %197, label %_stepid2fmt.exit
@@ -2226,8 +2226,8 @@ _print_data_json.exit:                            ; preds = %._crit_edge193, %10
   br label %_stepid2fmt.exit
 
 _stepid2fmt.exit.critedge:                        ; preds = %170, %._crit_edge
-  %200 = call fastcc ptr @_jobid2fmt(ptr noundef null, ptr noundef nonnull %8)
-  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %200) #19
+  %200 = call fastcc ptr @_jobid2fmt(ptr noundef null, ptr noundef %8)
+  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %200) #19
   br label %_stepid2fmt.exit
 
 _stepid2fmt.exit:                                 ; preds = %_stepid2fmt.exit.critedge, %194, %197
@@ -2305,7 +2305,7 @@ _stepid2fmt.exit:                                 ; preds = %_stepid2fmt.exit.cr
   br label %thread-pre-split
 
 223:                                              ; preds = %210
-  call fastcc void @_set_idbuf(ptr noundef nonnull %8, i64 noundef 256)
+  call fastcc void @_set_idbuf(ptr noundef %8, i64 noundef 256)
   br label %.thread246
 
 thread-pre-split:                                 ; preds = %.thread, %205, %206, %209, %49, %_stepid2fmt.exit, %._crit_edge169, %._crit_edge177, %._crit_edge185, %_print_data_json.exit, %_addr2fmt.exit, %222, %218, %217, %216, %215, %214, %210
@@ -2453,7 +2453,7 @@ declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @_xstrncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @_jobid2fmt(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @_jobid2fmt(ptr noundef readonly %0, ptr noundef nonnull writeonly %1) unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 
@@ -2697,7 +2697,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i64 @clock() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_idbuf(ptr nocapture noundef writeonly %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc void @_set_idbuf(ptr nocapture noundef nonnull writeonly %0, i64 noundef range(i64 64, 257) %1) unnamed_addr #2 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [25 x i8], align 16
   %5 = alloca [16 x i8], align 16
@@ -2722,7 +2722,7 @@ define internal fastcc void @_set_idbuf(ptr nocapture noundef writeonly %0, i64 
   %18 = call i32 @getpid() #19
   %19 = tail call i64 @pthread_self() #20
   %20 = inttoptr i64 %19 to ptr
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull %14, i32 noundef %17, i32 noundef %18, i32 noundef %.0, ptr noundef nonnull %5, ptr noundef %20) #19
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull %14, i32 noundef %17, i32 noundef %18, i32 noundef %.0, ptr noundef nonnull %5, ptr noundef %20) #19
   ret void
 }
 
@@ -2736,7 +2736,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 declare i32 @cbuf_used(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca [64 x i8], align 16
@@ -2794,12 +2794,12 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   br i1 %.not61, label %52, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call ptr @vxstrfmt(ptr noundef %4, ptr noundef %5)
+  %37 = tail call ptr @vxstrfmt(ptr noundef %4, ptr noundef nonnull %5)
   store ptr %37, ptr %7, align 8
   %38 = load ptr, ptr @sched_log, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.52, ptr noundef %40, ptr noundef nonnull @.str.10)
+  call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %40, ptr noundef nonnull @.str.10)
   %41 = load ptr, ptr @sched_log, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
@@ -2897,7 +2897,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   br i1 %.not62, label %87, label %89
 
 87:                                               ; preds = %85
-  %88 = call ptr @vxstrfmt(ptr noundef %4, ptr noundef %5)
+  %88 = call ptr @vxstrfmt(ptr noundef %4, ptr noundef nonnull %5)
   store ptr %88, ptr %7, align 8
   %.pre75 = load ptr, ptr @log, align 8
   br label %89
@@ -2930,7 +2930,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   br i1 %105, label %106, label %112
 
 106:                                              ; preds = %102
-  call fastcc void @_set_idbuf(ptr noundef nonnull %9, i64 noundef 64)
+  call fastcc void @_set_idbuf(ptr noundef %9, i64 noundef 64)
   %107 = load ptr, ptr @log, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8
@@ -2944,7 +2944,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   br i1 %.not64, label %120, label %113
 
 113:                                              ; preds = %112
-  call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.70, ptr noundef %.0)
+  call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef %8, ptr noundef nonnull @.str.70, ptr noundef %.0)
   %114 = load ptr, ptr @log, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 24
   %116 = load ptr, ptr %115, align 8
@@ -3048,7 +3048,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
 171:                                              ; preds = %137
   %172 = getelementptr inbounds i8, ptr %130, i64 8
   %173 = load ptr, ptr %172, align 8
-  call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.52, ptr noundef %173, ptr noundef %.0)
+  call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %173, ptr noundef %.0)
   %174 = load ptr, ptr @log, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 32
   %176 = load ptr, ptr %175, align 8
@@ -3080,7 +3080,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %192 = getelementptr inbounds i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.71, ptr noundef %193, ptr noundef %.0, ptr noundef %194)
+  call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef %8, ptr noundef nonnull @.str.71, ptr noundef %193, ptr noundef %.0, ptr noundef %194)
   %195 = load ptr, ptr @log, align 8
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %195, i64 40
@@ -3129,7 +3129,7 @@ define void @sched_log_var(i32 noundef %0, ptr noundef %1, ...) local_unnamed_ad
 
 7:                                                ; preds = %5, %2
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %8
 
@@ -3150,7 +3150,7 @@ define void @sched_log_var(i32 noundef %0, ptr noundef %1, ...) local_unnamed_ad
 define void @warning(ptr noundef %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -3164,7 +3164,7 @@ define void @slurm_info(ptr noundef %0, ...) local_unnamed_addr #2 {
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
@@ -3181,7 +3181,7 @@ define void @slurm_verbose(ptr noundef %0, ...) local_unnamed_addr #2 {
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 4, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 4, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
@@ -3198,7 +3198,7 @@ define void @slurm_debug(ptr noundef %0, ...) local_unnamed_addr #2 {
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
@@ -3215,7 +3215,7 @@ define void @slurm_debug2(ptr noundef %0, ...) local_unnamed_addr #2 {
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 6, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 6, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
@@ -3232,7 +3232,7 @@ define void @slurm_debug3(ptr noundef %0, ...) local_unnamed_addr #2 {
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
@@ -3249,7 +3249,7 @@ define void @slurm_debug4(ptr noundef %0, ...) local_unnamed_addr #2 {
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 8, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 8, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
@@ -3266,7 +3266,7 @@ define void @slurm_debug5(ptr noundef %0, ...) local_unnamed_addr #2 {
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_log_msg(i32 noundef 9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_log_msg(i32 noundef 9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
@@ -3444,14 +3444,14 @@ declare i64 @pthread_self() local_unnamed_addr #6
 declare i32 @cbuf_read_to_fd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @xlogfmtcat(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @xlogfmtcat(ptr noundef nonnull %0, ptr noundef %1, ...) unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca ptr, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call ptr @vxstrfmt(ptr noundef %1, ptr noundef nonnull %3)
   store ptr %5, ptr %4, align 8
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @_xstrcat(ptr noundef %0, ptr noundef %5) #19
+  call void @_xstrcat(ptr noundef nonnull %0, ptr noundef %5) #19
   call void @slurm_xfree(ptr noundef nonnull %4) #19
   ret void
 }

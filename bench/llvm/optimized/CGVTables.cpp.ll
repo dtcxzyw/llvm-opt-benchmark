@@ -1229,7 +1229,7 @@ _ZNK4llvm4User10getOperandEj.exit64:              ; preds = %346, %349
   store ptr %332, ptr %358, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 344
   store i16 0, ptr %.sroa.22.0..sroa_idx.i, align 8
-  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.0.0.copyload.i47, ptr %355, ptr noundef nonnull align 8 dereferenceable(56) %5)
+  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.0.0.copyload.i47, ptr %355, ptr noundef nonnull align 8 dereferenceable(56) %5)
   %.sroa.066.0.copyload = load ptr, ptr %13, align 8
   %359 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateRetEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(128) %263, ptr noundef %.sroa.066.0.copyload)
   br label %.loopexit
@@ -1347,7 +1347,7 @@ declare noundef ptr @_ZNK5clang4Type23getPointeeCXXRecordDeclEv(ptr noundef nonn
 declare { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -2422,7 +2422,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %139, %142
 
 159:                                              ; preds = %154
   %.sroa.0.0.copyload68 = load ptr, ptr %11, align 8
-  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.085.0, ptr %.sroa.0.0.copyload68, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.085.0, ptr %.sroa.0.0.copyload68, ptr noundef nonnull align 8 dereferenceable(56) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %11, ptr noundef nonnull align 8 dereferenceable(49) %13, i64 49, i1 false)
   br label %168
 
@@ -10860,7 +10860,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %42) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %38) #17
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops15_Iter_less_iterEEvT_T0_SN_T1_T2_(ptr %0, i64 noundef %.07.i.i.i, i64 noundef %35, ptr noundef nonnull %14)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops15_Iter_less_iterEEvT_T0_SN_T1_T2_(ptr %0, i64 noundef %.07.i.i.i, i64 noundef %35, ptr noundef %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #17
   %.not.i.i.i = icmp eq i64 %.07.i.i.i, 0
   %43 = add nsw i64 %.07.i.i.i, -1
@@ -10889,7 +10889,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModul
   %52 = sdiv exact i64 %51, 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %44) #17
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops15_Iter_less_iterEEvT_T0_SN_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef nonnull %12)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops15_Iter_less_iterEEvT_T0_SN_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef %12)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -11142,7 +11142,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenMo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops15_Iter_less_iterEEvT_T0_SN_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops15_Iter_less_iterEEvT_T0_SN_T1_T2_(ptr %0, i64 noundef %1, i64 noundef range(i64 -192153584101141162, 192153584101141163) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.AddressPoint, align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

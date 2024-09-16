@@ -1112,7 +1112,7 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  %call = call fastcc ptr @lookup_opt(i32 noundef %argc, ptr noundef nonnull %argv, ptr noundef nonnull %optarg, ptr noundef nonnull %optind)
+  %call = call fastcc ptr @lookup_opt(i32 noundef %argc, ptr noundef nonnull %argv, ptr noundef %optarg, ptr noundef %optind)
   %index = getelementptr inbounds i8, ptr %call, i64 12
   %5 = load i32, ptr %index, align 4
   %cond1 = icmp ne i32 %5, 109
@@ -1188,7 +1188,7 @@ if.then19:                                        ; preds = %if.end12
   br label %if.end651
 
 if.else24:                                        ; preds = %if.end12
-  %call26 = call fastcc ptr @lookup_opt(i32 noundef %argc, ptr noundef nonnull %argv, ptr noundef nonnull %optarg, ptr noundef nonnull %optind)
+  %call26 = call fastcc ptr @lookup_opt(i32 noundef %argc, ptr noundef nonnull %argv, ptr noundef %optarg, ptr noundef %optind)
   %arch_mask = getelementptr inbounds i8, ptr %call26, i64 16
   %13 = load i32, ptr %arch_mask, align 8
   %and = and i32 %8, %13
@@ -5294,7 +5294,7 @@ declare void @qemu_init_arch_modules() local_unnamed_addr #2
 declare void @qemu_init_subsystems() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @lookup_opt(i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef writeonly %poptarg, ptr nocapture noundef %poptind) unnamed_addr #1 {
+define internal fastcc noundef ptr @lookup_opt(i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef nonnull writeonly %poptarg, ptr nocapture noundef nonnull %poptind) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %poptind, align 4
   %idxprom = sext i32 %0 to i64
@@ -5626,7 +5626,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %alias.i = getelementptr inbounds i8, ptr %0, i64 112
   %2 = load ptr, ptr %alias.i, align 8
-  %call3.i = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef %call) #20
+  %call3.i = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull %call) #20
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.then4, label %for.inc.i
 

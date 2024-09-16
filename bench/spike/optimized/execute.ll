@@ -545,7 +545,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %177, %175, %_ZL
   br i1 %186, label %187, label %220
 
 187:                                              ; preds = %184
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
           to label %220 unwind label %188
 
 188:                                              ; preds = %187, %181
@@ -566,7 +566,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %177, %175, %_ZL
   br i1 %197, label %198, label %219
 
 198:                                              ; preds = %194
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
           to label %219 unwind label %217
 
 199:                                              ; preds = %188
@@ -594,7 +594,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %177, %175, %_ZL
   br i1 %210, label %211, label %.preheader153
 
 211:                                              ; preds = %207
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
           to label %.loopexit.i unwind label %215
 
 212:                                              ; preds = %199
@@ -1234,7 +1234,7 @@ declare noundef ptr @_ZN11processor_t11decode_insnE6insn_t(ptr noundef nonnull a
 declare { ptr, i64 } @_ZN5mmu_t15fetch_slow_pathEm(ptr noundef nonnull align 8 dereferenceable(43168), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
+define internal fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1258,7 +1258,7 @@ define internal fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(pt
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.1, i32 noundef %16) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 %1, ptr %8, align 8
-  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %18, ptr noundef nonnull %8)
+  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %18, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %25 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %11)
   %26 = and i64 %2, 3
@@ -1280,7 +1280,7 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   %32 = phi i32 [ 16, %3 ], [ %31, %29 ], [ 32, %27 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %2, ptr %7, align 8
-  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %32, ptr noundef nonnull %7)
+  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %32, ptr noundef %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %fputc = tail call i32 @fputc(i32 41, ptr %11)
   %33 = getelementptr inbounds i8, ptr %0, i64 3688
@@ -1386,11 +1386,11 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   %sext = shl i64 %46, 32
   %80 = ashr exact i64 %sext, 32
   %81 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %40, i64 noundef %80, i64 noundef 0, i1 noundef zeroext false)
-  tail call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %.268, ptr noundef nonnull %81)
+  tail call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %.268, ptr noundef %81)
   br label %83
 
 82:                                               ; preds = %78
-  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %.268, ptr noundef nonnull %39)
+  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %.268, ptr noundef %39)
   br label %83
 
 83:                                               ; preds = %71, %82, %79, %41
@@ -1414,7 +1414,7 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   %89 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 5, i64 1, ptr %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.1.0.copyload, ptr %6, align 8
-  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %18, ptr noundef nonnull %6)
+  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %18, ptr noundef %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %90 = getelementptr inbounds i8, ptr %.sroa.082.095, i64 24
   %91 = icmp eq ptr %90, %87
@@ -1437,14 +1437,14 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   %96 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 5, i64 1, ptr %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.3.0.copyload, ptr %5, align 8
-  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %18, ptr noundef nonnull %5)
+  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %18, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %fputc74 = tail call i32 @fputc(i32 32, ptr %11)
   %97 = zext i8 %.sroa.0.0.copyload to i32
   %98 = shl nuw nsw i32 %97, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %.sroa.275.0.copyload, ptr %4, align 8
-  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %98, ptr noundef nonnull %4)
+  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %98, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %99 = getelementptr inbounds i8, ptr %.sroa.077.099, i64 24
   %100 = icmp eq ptr %99, %94
@@ -1466,7 +1466,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef ptr @_Z8csr_namei(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #13 {
+define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #13 {
   %4 = add i32 %1, -8
   %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 29)
   switch i32 %5, label %20 [

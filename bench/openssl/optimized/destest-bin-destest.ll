@@ -1287,7 +1287,7 @@ declare void @DES_xcbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 declare void @DES_pcbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cfb_test(i32 noundef %bits, ptr noundef %cfb_cipher) unnamed_addr #0 {
+define internal fastcc i32 @cfb_test(i32 noundef range(i32 8, 65) %bits, ptr noundef %cfb_cipher) unnamed_addr #0 {
 entry:
   %ks = alloca %struct.DES_ks, align 4
   %call = call i32 @DES_set_key_checked(ptr noundef nonnull @cfb_key, ptr noundef nonnull %ks) #5

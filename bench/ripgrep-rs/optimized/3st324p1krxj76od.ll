@@ -156,7 +156,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { i8, [7 x i8] }, { ptr, i64 } }, align 8
@@ -655,7 +655,7 @@ define hidden void @_ZN8grep_cli7pattern20patterns_from_reader17hfc3a2fa92e33206
   %63 = getelementptr inbounds i8, ptr %.sroa.019.0.i.i.i, i64 %.sroa.5.0.i.i.i
   %64 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !123
   %65 = inttoptr i64 %64 to ptr
-  %66 = invoke { i64, ptr } %65(i8 noundef 10, ptr noundef readonly %.sroa.019.0.i.i.i, ptr noundef readonly %63)
+  %66 = invoke { i64, ptr } %65(i8 noundef 10, ptr noundef nonnull readonly %.sroa.019.0.i.i.i, ptr noundef nonnull readonly %63)
           to label %.noexc.i.i.i unwind label %.loopexit.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %.preheader.i.i.i
@@ -717,7 +717,7 @@ define hidden void @_ZN8grep_cli7pattern20patterns_from_reader17hfc3a2fa92e33206
   %91 = sub nuw i64 %.sroa.5.0.i.i.i, %89
   %92 = add i64 %89, %.2.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !108
-  invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull %12, ptr noalias noundef nonnull readonly align 1 %.sroa.019.0.i.i.i, i64 noundef %89)
+  invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %10, ptr nonnull %12, ptr noalias noundef nonnull readonly align 1 %.sroa.019.0.i.i.i, i64 noundef %89)
           to label %93 unwind label %.loopexit.i.i.i
 
 93:                                               ; preds = %88
@@ -777,7 +777,7 @@ _ZN3std2io7BufRead10read_until17hff45a5ece3df6773E.exit.i.i.i: ; preds = %103
 118:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !108
   %119 = load ptr, ptr %34, align 8, !noalias !108, !nonnull !4, !noundef !4
-  invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %12, ptr noalias noundef nonnull readonly align 1 %119, i64 noundef %116)
+  invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr nonnull %12, ptr noalias noundef nonnull readonly align 1 %119, i64 noundef %116)
           to label %120 unwind label %.loopexit.split-lp.loopexit.i.i.i
 
 120:                                              ; preds = %118

@@ -556,7 +556,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6opencc8TextDict17NewFromSortedFileEP8_IO_FILE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.0") align 8 %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
-  call fastcc void @_ZL20ParseLexiconFromFileP8_IO_FILE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %1)
+  call fastcc void @_ZL20ParseLexiconFromFileP8_IO_FILE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %1)
   %4 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
           to label %5 unwind label %62
 
@@ -702,7 +702,7 @@ _ZNSt10shared_ptrIN6opencc7LexiconEED2Ev.exit:    ; preds = %22, %44, %57, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20ParseLexiconFromFileP8_IO_FILE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20ParseLexiconFromFileP8_IO_FILE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1385,7 +1385,7 @@ define void @_ZN6opencc8TextDict11NewFromFileEP8_IO_FILE(ptr dead_on_unwind noal
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZL20ParseLexiconFromFileP8_IO_FILE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %1)
+  call fastcc void @_ZL20ParseLexiconFromFileP8_IO_FILE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %1)
   %7 = load ptr, ptr %3, align 8
   invoke void @_ZN6opencc7Lexicon4SortEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %8 unwind label %18

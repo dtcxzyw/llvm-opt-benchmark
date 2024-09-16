@@ -1483,7 +1483,7 @@ declare dso_local zeroext i1 @virtqueue_kick(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @p9_req_put(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 align 16 {
+define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 align 16 {
   %7 = alloca %struct.wait_queue_entry, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8
@@ -1496,7 +1496,7 @@ define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %11
-  %15 = tail call i64 @iov_iter_single_seg_count(ptr noundef %2) #14
+  %15 = tail call i64 @iov_iter_single_seg_count(ptr noundef nonnull %2) #14
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %.preheader, label %.loopexit8, !prof !28
 
@@ -1554,7 +1554,7 @@ define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %
 
 45:                                               ; preds = %.thread6.thread, %.thread6, %23, %17
   %46 = sext i32 %3 to i64
-  %47 = call i64 @iov_iter_get_pages_alloc2(ptr noundef %2, ptr noundef %1, i64 noundef %46, ptr noundef %4) #14
+  %47 = call i64 @iov_iter_get_pages_alloc2(ptr noundef nonnull %2, ptr noundef %1, i64 noundef %46, ptr noundef %4) #14
   %48 = trunc i64 %47 to i32
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %115, label %50
@@ -1603,8 +1603,8 @@ define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %
   br i1 %78, label %115, label %81
 
 .preheader:                                       ; preds = %14, %.preheader
-  tail call void @iov_iter_advance(ptr noundef %2, i64 noundef 0) #14
-  %79 = tail call i64 @iov_iter_single_seg_count(ptr noundef %2) #14
+  tail call void @iov_iter_advance(ptr noundef nonnull %2, i64 noundef 0) #14
+  %79 = tail call i64 @iov_iter_single_seg_count(ptr noundef nonnull %2) #14
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %.preheader, label %.loopexit8, !prof !30, !llvm.loop !31
 
@@ -1657,7 +1657,7 @@ define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %
   br i1 %113, label %.loopexit, label %88, !llvm.loop !32
 
 .loopexit:                                        ; preds = %107, %81
-  tail call void @iov_iter_advance(ptr noundef %2, i64 noundef %65) #14
+  tail call void @iov_iter_advance(ptr noundef nonnull %2, i64 noundef %65) #14
   %114 = trunc i64 %65 to i32
   br label %115
 
@@ -1667,7 +1667,7 @@ define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pack_sg_list_p(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #2 align 16 {
+define internal fastcc i32 @pack_sg_list_p(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #2 align 16 {
   %7 = sub i32 128, %1
   %8 = icmp slt i32 %7, %3
   br i1 %8, label %16, label %9, !prof !21

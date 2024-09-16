@@ -89,7 +89,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @opal_best_effort_write(i64 noundef %0) unnamed_addr #3 {
+define internal fastcc void @opal_best_effort_write(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #3 {
   %.not1 = icmp eq i64 %0, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 

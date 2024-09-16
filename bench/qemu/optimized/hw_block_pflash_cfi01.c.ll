@@ -2092,7 +2092,7 @@ return:                                           ; preds = %trace_pflash_mode_r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pflash_data_read(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %width, i32 noundef %be) unnamed_addr #0 {
+define internal fastcc i32 @pflash_data_read(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %width, i32 noundef range(i32 0, 2) %be) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %storage = getelementptr inbounds i8, ptr %pfl, i64 1240
@@ -2455,7 +2455,7 @@ if.end15:                                         ; preds = %if.then, %if.then12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pflash_data_write(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %value, i32 noundef %width, i32 noundef %be) unnamed_addr #0 {
+define internal fastcc void @pflash_data_write(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %value, i32 noundef %width, i32 noundef range(i32 0, 2) %be) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %storage = getelementptr inbounds i8, ptr %pfl, i64 1240

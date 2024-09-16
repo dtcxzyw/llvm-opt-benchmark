@@ -2398,7 +2398,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_at_forkers(ptr noundef %lst, i32 noundef %reverse) unnamed_addr #0 {
+define internal fastcc void @run_at_forkers(ptr noundef %lst, i32 noundef range(i32 0, 2) %reverse) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %lst, null
   br i1 %cmp.not, label %if.end14, label %if.then
@@ -3680,7 +3680,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1022 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1022, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -3716,7 +3716,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %4, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %4, ptr noundef %dir_fd)
   %tobool24.not = icmp eq i32 %call2.i, 0
   br i1 %tobool24.not, label %exit, label %if.end26
 
@@ -3734,7 +3734,7 @@ if.end30:                                         ; preds = %if.end26, %if.end18
 skip_optional_kwonly:                             ; preds = %if.end30, %if.end26, %if.end15
   %follow_symlinks.0 = phi i32 [ %call32, %if.end30 ], [ 1, %if.end26 ], [ 1, %if.end15 ]
   %8 = load i32, ptr %dir_fd, align 4
-  %call.i18 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef nonnull readonly %path, i32 noundef %8, i32 noundef %follow_symlinks.0)
+  %call.i18 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef readonly %path, i32 noundef %8, i32 noundef %follow_symlinks.0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %if.end30, %dir_fd_converter.exit, %if.end, %cond.end9, %skip_optional_kwonly
@@ -3823,7 +3823,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1033 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1033, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -3871,7 +3871,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef %dir_fd)
   %tobool32.not = icmp eq i32 %call2.i, 0
   br i1 %tobool32.not, label %exit, label %if.end34
 
@@ -4034,7 +4034,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond13 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond13, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef %path)
   %tobool7.not = icmp eq i32 %call6, 0
   %object.i10.phi.trans.insert = getelementptr inbounds i8, ptr %path, i64 56
   %.pre = load ptr, ptr %object.i10.phi.trans.insert, align 8
@@ -4157,7 +4157,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1031 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1031, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -4205,7 +4205,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef %dir_fd)
   %tobool32.not = icmp eq i32 %call2.i, 0
   br i1 %tobool32.not, label %exit, label %if.end34
 
@@ -4432,7 +4432,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1028 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1028, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -4482,7 +4482,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %6, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %6, ptr noundef %dir_fd)
   %tobool34.not = icmp eq i32 %call2.i, 0
   br i1 %tobool34.not, label %exit, label %if.end36
 
@@ -4734,7 +4734,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond15 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond15, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -4848,7 +4848,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond13 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond13, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -4996,14 +4996,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1065 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1065, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %src)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1065, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst)
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %dst)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -5039,7 +5039,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -5077,7 +5077,7 @@ dir_fd_converter.exit35.thread:                   ; preds = %if.else.i24
   br label %exit
 
 dir_fd_converter.exit35:                          ; preds = %if.else.i24
-  %call2.i28 = call fastcc i32 @_fd_converter(ptr noundef nonnull %8, ptr noundef nonnull %dst_dir_fd)
+  %call2.i28 = call fastcc i32 @_fd_converter(ptr noundef nonnull %8, ptr noundef %dst_dir_fd)
   %tobool41.not = icmp eq i32 %call2.i28, 0
   br i1 %tobool41.not, label %exit, label %if.end43
 
@@ -5295,7 +5295,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 
 if.end14:                                         ; preds = %if.end
   %2 = load ptr, ptr %cond1025, align 8
-  %call15 = call fastcc i32 @path_converter(ptr noundef %2, ptr noundef nonnull %path)
+  %call15 = call fastcc i32 @path_converter(ptr noundef %2, ptr noundef %path)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %exit, label %if.end14.skip_optional_pos_crit_edge
 
@@ -5670,7 +5670,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1018 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1018, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -5698,7 +5698,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonly_crit_edge
 
@@ -5708,7 +5708,7 @@ dir_fd_converter.exit.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_converte
 
 skip_optional_kwonly:                             ; preds = %if.end18, %dir_fd_converter.exit.skip_optional_kwonly_crit_edge, %if.end15
   %7 = phi i32 [ %.pre, %dir_fd_converter.exit.skip_optional_kwonly_crit_edge ], [ -100, %if.end15 ], [ -100, %if.end18 ]
-  %call.i14 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef nonnull readonly %path, i32 noundef %7, i32 noundef 0)
+  %call.i14 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef readonly %path, i32 noundef %7, i32 noundef 0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %dir_fd_converter.exit, %if.end, %cond.end9, %skip_optional_kwonly
@@ -5797,7 +5797,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1029 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1029, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -5846,7 +5846,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef %dir_fd)
   %tobool39.not = icmp eq i32 %call2.i, 0
   br i1 %tobool39.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -6188,7 +6188,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1043 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1043, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -6293,7 +6293,7 @@ skip_optional_kwonly:                             ; preds = %if.end72, %if.then6
   %setsigmask.0 = phi ptr [ %10, %if.end81 ], [ %10, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %10, %if.end72 ]
   %setsigdef.0 = phi ptr [ %11, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %11, %if.end72 ]
   %scheduler.0 = phi ptr [ %12, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ null, %if.end72 ]
-  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 0, ptr noundef readonly %module, ptr noundef nonnull readonly %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.0, ptr noundef %setpgroup.0, i32 noundef %resetids.0, i32 noundef %setsid.0, ptr noundef %setsigmask.0, ptr noundef %setsigdef.0, ptr noundef %scheduler.0)
+  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 0, ptr noundef readonly %module, ptr noundef readonly %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.0, ptr noundef %setpgroup.0, i32 noundef %resetids.0, i32 noundef %setsid.0, ptr noundef %setsigmask.0, ptr noundef %setsigdef.0, ptr noundef %scheduler.0)
   br label %exit
 
 exit:                                             ; preds = %if.then53, %if.then40, %if.end, %cond.end9, %skip_optional_kwonly
@@ -6380,7 +6380,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1043 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1043, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -6485,7 +6485,7 @@ skip_optional_kwonly:                             ; preds = %if.end72, %if.then6
   %setsigmask.0 = phi ptr [ %10, %if.end81 ], [ %10, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %10, %if.end72 ]
   %setsigdef.0 = phi ptr [ %11, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %11, %if.end72 ]
   %scheduler.0 = phi ptr [ %12, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ null, %if.end72 ]
-  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 1, ptr noundef readonly %module, ptr noundef nonnull readonly %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.0, ptr noundef %setpgroup.0, i32 noundef %resetids.0, i32 noundef %setsid.0, ptr noundef %setsigmask.0, ptr noundef %setsigdef.0, ptr noundef %scheduler.0)
+  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 1, ptr noundef readonly %module, ptr noundef readonly %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.0, ptr noundef %setpgroup.0, i32 noundef %resetids.0, i32 noundef %setsid.0, ptr noundef %setsigmask.0, ptr noundef %setsigdef.0, ptr noundef %scheduler.0)
   br label %exit
 
 exit:                                             ; preds = %if.then53, %if.then40, %if.end, %cond.end9, %skip_optional_kwonly
@@ -6574,7 +6574,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1023 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1023, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -6606,7 +6606,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %skip_optional_kwonly
 
@@ -7193,14 +7193,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1054 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1054, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %src)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1054, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst)
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %dst)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -7236,7 +7236,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -7264,7 +7264,7 @@ dir_fd_converter.exit30.thread:                   ; preds = %if.else.i19
   br label %exit
 
 dir_fd_converter.exit30:                          ; preds = %if.else.i19
-  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dst_dir_fd)
+  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef %dst_dir_fd)
   %tobool38.not = icmp eq i32 %call2.i23, 0
   br i1 %tobool38.not, label %exit, label %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge
 
@@ -7275,7 +7275,7 @@ dir_fd_converter.exit30.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_conver
 skip_optional_kwonly:                             ; preds = %if.end35, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge, %if.end31, %if.end20
   %11 = phi i32 [ %.pre, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge ], [ -100, %if.end31 ], [ -100, %if.end20 ], [ -100, %if.end35 ]
   %12 = load i32, ptr %src_dir_fd, align 4
-  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull readonly %src, ptr noundef nonnull readonly %dst, i32 noundef %12, i32 noundef %11, i32 noundef 0)
+  %call.i31 = call fastcc ptr @internal_rename(ptr noundef readonly %src, ptr noundef readonly %dst, i32 noundef %12, i32 noundef %11, i32 noundef 0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit30.thread, %dir_fd_converter.exit.thread, %dir_fd_converter.exit30, %dir_fd_converter.exit, %if.end15, %if.end, %cond.end9, %skip_optional_kwonly
@@ -7414,14 +7414,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1054 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1054, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %src)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %src)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1054, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %dst)
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %dst)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -7457,7 +7457,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -7485,7 +7485,7 @@ dir_fd_converter.exit30.thread:                   ; preds = %if.else.i19
   br label %exit
 
 dir_fd_converter.exit30:                          ; preds = %if.else.i19
-  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dst_dir_fd)
+  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef %dst_dir_fd)
   %tobool38.not = icmp eq i32 %call2.i23, 0
   br i1 %tobool38.not, label %exit, label %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge
 
@@ -7496,7 +7496,7 @@ dir_fd_converter.exit30.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_conver
 skip_optional_kwonly:                             ; preds = %if.end35, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge, %if.end31, %if.end20
   %11 = phi i32 [ %.pre, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge ], [ -100, %if.end31 ], [ -100, %if.end20 ], [ -100, %if.end35 ]
   %12 = load i32, ptr %src_dir_fd, align 4
-  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull readonly %src, ptr noundef nonnull readonly %dst, i32 noundef %12, i32 noundef %11, i32 noundef 1)
+  %call.i31 = call fastcc ptr @internal_rename(ptr noundef readonly %src, ptr noundef readonly %dst, i32 noundef %12, i32 noundef %11, i32 noundef 1)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit30.thread, %dir_fd_converter.exit.thread, %dir_fd_converter.exit30, %dir_fd_converter.exit, %if.end15, %if.end, %cond.end9, %skip_optional_kwonly
@@ -7631,7 +7631,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1024, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -7659,7 +7659,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -7790,14 +7790,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1048 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1048, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %src)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %src)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1048, i64 8
   %5 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %5, ptr noundef nonnull %dst)
+  %call17 = call fastcc i32 @path_converter(ptr noundef %5, ptr noundef %dst)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -7840,7 +7840,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef %dir_fd)
   %tobool41.not = icmp eq i32 %call2.i, 0
   br i1 %tobool41.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8311,7 +8311,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1024, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -8339,7 +8339,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8467,7 +8467,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1025, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -8495,7 +8495,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8631,7 +8631,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1036 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1036, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -8701,7 +8701,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %7, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %7, ptr noundef %dir_fd)
   %tobool44.not = icmp eq i32 %call2.i, 0
   br i1 %tobool44.not, label %exit, label %if.end46
 
@@ -8828,7 +8828,7 @@ if.end25.i:                                       ; preds = %lor.lhs.false21.i
   %26 = getelementptr i8, ptr %module, i64 32
   %module.val.i = load ptr, ptr %26, align 8
   %module.val.val.i = load ptr, ptr %module.val.i, align 8
-  %call31.i = call fastcc i32 @split_py_long_to_s_and_ns(ptr %module.val.val.i, ptr noundef %25, ptr noundef nonnull %atime_s29.i, ptr noundef nonnull %atime_ns30.i)
+  %call31.i = call fastcc i32 @split_py_long_to_s_and_ns(ptr %module.val.val.i, ptr noundef %25, ptr noundef %atime_s29.i, ptr noundef %atime_ns30.i)
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %os_utime_impl.exit, label %lor.lhs.false33.i
 
@@ -8839,7 +8839,7 @@ lor.lhs.false33.i:                                ; preds = %if.end25.i
   %mtime_ns37.i = getelementptr inbounds i8, ptr %utime.i, i64 32
   %module.val35.i = load ptr, ptr %26, align 8
   %module.val35.val.i = load ptr, ptr %module.val35.i, align 8
-  %call38.i = call fastcc i32 @split_py_long_to_s_and_ns(ptr %module.val35.val.i, ptr noundef %27, ptr noundef nonnull %mtime_s36.i, ptr noundef nonnull %mtime_ns37.i)
+  %call38.i = call fastcc i32 @split_py_long_to_s_and_ns(ptr %module.val35.val.i, ptr noundef %27, ptr noundef %mtime_s36.i, ptr noundef %mtime_ns37.i)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %os_utime_impl.exit, label %if.end45.i
 
@@ -8910,7 +8910,7 @@ if.end66.i:                                       ; preds = %if.end56.i
 
 if.then71.i:                                      ; preds = %if.end66.i
   %37 = load ptr, ptr %narrow.i.i, align 8
-  %call72.i = call fastcc i32 @utime_nofollow_symlinks(ptr noundef nonnull %utime.i, ptr noundef %37)
+  %call72.i = call fastcc i32 @utime_nofollow_symlinks(ptr noundef %utime.i, ptr noundef %37)
   br label %if.end91.i
 
 if.else73.i:                                      ; preds = %if.end66.i
@@ -8919,7 +8919,7 @@ if.else73.i:                                      ; preds = %if.end66.i
 
 if.then77.i:                                      ; preds = %if.else73.i
   %38 = load ptr, ptr %narrow.i.i, align 8
-  %call79.i = call fastcc i32 @utime_dir_fd(ptr noundef nonnull %utime.i, i32 noundef %29, ptr noundef %38, i32 noundef %follow_symlinks.06066)
+  %call79.i = call fastcc i32 @utime_dir_fd(ptr noundef %utime.i, i32 noundef %29, ptr noundef %38, i32 noundef %follow_symlinks.06066)
   br label %if.end91.i
 
 if.else80.i:                                      ; preds = %if.else73.i
@@ -8959,7 +8959,7 @@ utime_fd.exit.i:                                  ; preds = %if.else.i.i, %if.th
 
 if.else86.i:                                      ; preds = %if.else80.i
   %45 = load ptr, ptr %narrow.i.i, align 8
-  %call88.i = call fastcc i32 @utime_default(ptr noundef nonnull %utime.i, ptr noundef %45)
+  %call88.i = call fastcc i32 @utime_default(ptr noundef %utime.i, ptr noundef %45)
   br label %if.end91.i
 
 if.end91.i:                                       ; preds = %if.else86.i, %utime_fd.exit.i, %if.then77.i, %if.then71.i
@@ -9256,7 +9256,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %call2 = call fastcc i32 @path_converter(ptr noundef %0, ptr noundef nonnull %path)
+  %call2 = call fastcc i32 @path_converter(ptr noundef %0, ptr noundef %path)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %exit, label %if.end5
 
@@ -9303,7 +9303,7 @@ if.then11.i:                                      ; preds = %if.end9.i
   br label %os_execv_impl.exit
 
 if.end12.i:                                       ; preds = %if.end9.i
-  %call13.i = call fastcc ptr @parse_arglist(ptr noundef nonnull %1, ptr noundef nonnull %argc.i)
+  %call13.i = call fastcc ptr @parse_arglist(ptr noundef nonnull %1, ptr noundef %argc.i)
   %cmp14.i = icmp eq ptr %call13.i, null
   br i1 %cmp14.i, label %os_execv_impl.exit, label %if.end16.i
 
@@ -9459,7 +9459,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond16 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond16, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -9519,7 +9519,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   br label %os_execve_impl.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %call17.i = call fastcc ptr @parse_arglist(ptr noundef nonnull %2, ptr noundef nonnull %argc.i)
+  %call17.i = call fastcc ptr @parse_arglist(ptr noundef nonnull %2, ptr noundef %argc.i)
   %cmp18.i = icmp eq ptr %call17.i, null
   br i1 %cmp18.i, label %os_execve_impl.exit, label %if.end20.i
 
@@ -9535,7 +9535,7 @@ if.then23.i:                                      ; preds = %if.end20.i
   br label %if.then41.i
 
 if.end24.i:                                       ; preds = %if.end20.i
-  %call25.i = call fastcc ptr @parse_envlist(ptr noundef %3, ptr noundef nonnull %envc.i)
+  %call25.i = call fastcc ptr @parse_envlist(ptr noundef %3, ptr noundef %envc.i)
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %if.then41.i, label %if.end28.i
 
@@ -12036,7 +12036,7 @@ cond.true.i:                                      ; preds = %land.lhs.true.i
 
 if.end.i:                                         ; preds = %do.body.i
   %4 = load i32, ptr %status.i, align 4
-  %call8.i = call fastcc ptr @wait_helper(i32 noundef %call1.i, i32 noundef %4, ptr noundef nonnull %ru.i)
+  %call8.i = call fastcc ptr @wait_helper(i32 noundef %call1.i, i32 noundef %4, ptr noundef %ru.i)
   br label %os_wait4_impl.exit
 
 os_wait4_impl.exit:                               ; preds = %land.rhs.i, %cond.true.i, %if.end.i
@@ -12442,7 +12442,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1030 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1030, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -12503,7 +12503,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef %dir_fd)
   %tobool47.not = icmp eq i32 %call2.i, 0
   br i1 %tobool47.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -13439,7 +13439,7 @@ if.end.i:                                         ; preds = %skip_optional
   br i1 %cmp.i, label %os_preadv_impl.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = call fastcc i32 @iov_setup(ptr noundef nonnull %iov.i, ptr noundef nonnull %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 1)
+  %call4.i = call fastcc i32 @iov_setup(ptr noundef %iov.i, ptr noundef %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 1)
   %cmp5.i = icmp slt i32 %call4.i, 0
   br i1 %cmp5.i, label %os_preadv_impl.exit.thread, label %do.body.preheader.i
 
@@ -13796,7 +13796,7 @@ if.end.i:                                         ; preds = %skip_optional
   br i1 %cmp.i, label %os_pwritev_impl.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = call fastcc i32 @iov_setup(ptr noundef nonnull %iov.i, ptr noundef nonnull %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 0)
+  %call4.i = call fastcc i32 @iov_setup(ptr noundef %iov.i, ptr noundef %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 0)
   %cmp5.i = icmp slt i32 %call4.i, 0
   br i1 %cmp5.i, label %os_pwritev_impl.exit.thread, label %do.body.preheader.i
 
@@ -14012,7 +14012,7 @@ cond.true.i:                                      ; preds = %land.lhs.true.i
   br label %os_fstat_impl.exit
 
 if.end.i:                                         ; preds = %do.body.i
-  %call8.i = call fastcc ptr @_pystat_fromstructstat(ptr noundef readonly %module, ptr noundef nonnull %st.i)
+  %call8.i = call fastcc ptr @_pystat_fromstructstat(ptr noundef readonly %module, ptr noundef %st.i)
   br label %os_fstat_impl.exit
 
 os_fstat_impl.exit:                               ; preds = %land.rhs.i, %cond.true.i, %if.end.i
@@ -14053,7 +14053,7 @@ cond.true.i21:                                    ; preds = %land.lhs.true.i18
   br label %os_fstat_impl.exit29
 
 if.end.i27:                                       ; preds = %do.body.i14
-  %call8.i28 = call fastcc ptr @_pystat_fromstructstat(ptr noundef readonly %module, ptr noundef nonnull %st.i13)
+  %call8.i28 = call fastcc ptr @_pystat_fromstructstat(ptr noundef readonly %module, ptr noundef %st.i13)
   br label %os_fstat_impl.exit29
 
 os_fstat_impl.exit29:                             ; preds = %land.rhs.i24, %cond.true.i21, %if.end.i27
@@ -14270,7 +14270,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1027 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1027, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -14319,7 +14319,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef %dir_fd)
   %tobool39.not = icmp eq i32 %call2.i, 0
   br i1 %tobool39.not, label %exit, label %skip_optional_kwonly
 
@@ -14472,7 +14472,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1034 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1034, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -14540,7 +14540,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef %dir_fd)
   %tobool52.not = icmp eq i32 %call2.i, 0
   br i1 %tobool52.not, label %exit, label %skip_optional_kwonly
 
@@ -14830,7 +14830,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond17 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond17, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -15839,7 +15839,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond14 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond14, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
@@ -15944,7 +15944,7 @@ define internal ptr @os_confstr(ptr nocapture readnone %module, ptr noundef %arg
 entry:
   %buffer.i = alloca [255 x i8], align 16
   %name = alloca i32, align 4
-  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_confstr, i64 noundef 27)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef %name, ptr noundef nonnull @posix_constants_confstr, i64 noundef 27)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -16006,7 +16006,7 @@ exit:                                             ; preds = %entry, %os_confstr_
 define internal ptr @os_sysconf(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %name = alloca i32, align 4
-  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -16064,7 +16064,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %1, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %1, ptr noundef %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
   %tobool8.not = icmp eq i32 %call.i, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
@@ -16123,14 +16123,14 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond17 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond17, align 8
-  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef nonnull %path)
+  %call6 = call fastcc i32 @path_converter(ptr noundef %1, ptr noundef %path)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %exit, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %arrayidx10 = getelementptr i8, ptr %cond17, i64 8
   %2 = load ptr, ptr %arrayidx10, align 8
-  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %2, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %2, ptr noundef %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %exit, label %if.end14
 
@@ -16705,14 +16705,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1042 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1042, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1042, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %attribute)
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %attribute)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -17130,14 +17130,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1045 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1045, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1045, i64 8
   %5 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %5, ptr noundef nonnull %attribute)
+  %call17 = call fastcc i32 @path_converter(ptr noundef %5, ptr noundef %attribute)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -17398,14 +17398,14 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1039 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1039, align 8
-  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef nonnull %path)
+  %call12 = call fastcc i32 @path_converter(ptr noundef %3, ptr noundef %path)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %arrayidx16 = getelementptr i8, ptr %cond1039, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
-  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef nonnull %attribute)
+  %call17 = call fastcc i32 @path_converter(ptr noundef %4, ptr noundef %attribute)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %exit, label %if.end20
 
@@ -17625,7 +17625,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %tobool15.not, label %if.end28, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %call18 = call fastcc i32 @path_converter(ptr noundef nonnull %3, ptr noundef nonnull %path)
+  %call18 = call fastcc i32 @path_converter(ptr noundef nonnull %3, ptr noundef %path)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %exit, label %if.end21
 
@@ -18271,7 +18271,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 
 if.end14:                                         ; preds = %if.end
   %2 = load ptr, ptr %cond1028, align 8
-  %call15 = call fastcc i32 @path_converter(ptr noundef %2, ptr noundef nonnull %path)
+  %call15 = call fastcc i32 @path_converter(ptr noundef %2, ptr noundef %path)
   %tobool16.not = icmp eq i32 %call15, 0
   %object.i13.phi.trans.insert = getelementptr inbounds i8, ptr %path, i64 56
   %.pre29 = load ptr, ptr %object.i13.phi.trans.insert, align 8
@@ -19328,7 +19328,7 @@ if.then10.i:                                      ; preds = %if.end6.i
   br label %os_timerfd_settime_impl.exit
 
 if.end12.i:                                       ; preds = %if.end6.i
-  %call13.i = call fastcc ptr @build_itimerspec(ptr noundef nonnull %old_value.i)
+  %call13.i = call fastcc ptr @build_itimerspec(ptr noundef %old_value.i)
   br label %os_timerfd_settime_impl.exit
 
 os_timerfd_settime_impl.exit:                     ; preds = %if.then.i, %if.then5.i, %if.then10.i, %if.end12.i
@@ -19541,7 +19541,7 @@ if.then.i:                                        ; preds = %if.end
   br label %os_timerfd_gettime_impl.exit
 
 if.end.i:                                         ; preds = %if.end
-  %call3.i = call fastcc ptr @build_itimerspec(ptr noundef nonnull %curr_value.i)
+  %call3.i = call fastcc ptr @build_itimerspec(ptr noundef %curr_value.i)
   br label %os_timerfd_gettime_impl.exit
 
 os_timerfd_gettime_impl.exit:                     ; preds = %if.then.i, %if.end.i
@@ -19617,7 +19617,7 @@ exit:                                             ; preds = %entry, %os_timerfd_
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 131073) i32 @path_converter(ptr noundef %o, ptr nocapture noundef %p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 131073) i32 @path_converter(ptr noundef %o, ptr nocapture noundef nonnull %p) unnamed_addr #0 {
 entry:
   %bytes = alloca ptr, align 8
   store ptr null, ptr %bytes, align 8
@@ -19880,7 +19880,7 @@ if.else54:                                        ; preds = %if.else50
 
 if.then56:                                        ; preds = %if.else54
   %fd57 = getelementptr inbounds i8, ptr %p, i64 40
-  %call58 = tail call fastcc i32 @_fd_converter(ptr noundef nonnull %o.addr.1, ptr noundef nonnull %fd57)
+  %call58 = tail call fastcc i32 @_fd_converter(ptr noundef nonnull %o.addr.1, ptr noundef %fd57)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %if.then.i96, label %if.end61
 
@@ -20027,7 +20027,7 @@ declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_FSConverter(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_fd_converter(ptr noundef %o, ptr nocapture noundef writeonly %p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_fd_converter(ptr noundef %o, ptr nocapture noundef nonnull writeonly %p) unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %call = tail call ptr @_PyNumber_Index(ptr noundef %o) #22
@@ -20088,7 +20088,7 @@ return:                                           ; preds = %entry, %if.end10, %
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @posix_do_stat(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %path, i32 noundef %dir_fd, i32 noundef %follow_symlinks) unnamed_addr #0 {
+define internal fastcc ptr @posix_do_stat(ptr nocapture noundef readonly %module, ptr nocapture noundef nonnull readonly %path, i32 noundef %dir_fd, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %wide.i = getelementptr inbounds i8, ptr %path, i64 24
@@ -20183,7 +20183,7 @@ if.then34:                                        ; preds = %if.end29
   br label %return
 
 if.end36:                                         ; preds = %if.end29
-  %call37 = call fastcc ptr @_pystat_fromstructstat(ptr noundef %module, ptr noundef nonnull %st)
+  %call37 = call fastcc ptr @_pystat_fromstructstat(ptr noundef %module, ptr noundef %st)
   br label %return
 
 return:                                           ; preds = %fd_and_follow_symlinks_invalid.exit, %dir_fd_and_fd_invalid.exit, %path_and_dir_fd_invalid.exit, %if.end36, %if.then34
@@ -20208,7 +20208,7 @@ declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture nounde
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pystat_fromstructstat(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %st) unnamed_addr #0 {
+define internal fastcc ptr @_pystat_fromstructstat(ptr nocapture noundef readonly %module, ptr nocapture noundef nonnull readonly %st) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -20310,20 +20310,20 @@ if.end54:                                         ; preds = %if.end46
   %tv_nsec57 = getelementptr inbounds i8, ptr %st, i64 112
   %11 = load i64, ptr %tv_nsec57, align 8
   %12 = load i64, ptr %st_atim, align 8
-  %call59 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 7, i32 noundef 10, i32 noundef 13, i64 noundef %12, i64 noundef %9)
+  %call59 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef %call2, i32 noundef 7, i32 noundef 10, i32 noundef 13, i64 noundef %12, i64 noundef %9)
   %cmp60 = icmp slt i32 %call59, 0
   br i1 %cmp60, label %error, label %if.end63
 
 if.end63:                                         ; preds = %if.end54
   %st_mtim = getelementptr inbounds i8, ptr %st, i64 88
   %13 = load i64, ptr %st_mtim, align 8
-  %call66 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 8, i32 noundef 11, i32 noundef 14, i64 noundef %13, i64 noundef %10)
+  %call66 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef %call2, i32 noundef 8, i32 noundef 11, i32 noundef 14, i64 noundef %13, i64 noundef %10)
   %cmp67 = icmp slt i32 %call66, 0
   br i1 %cmp67, label %error, label %if.end70
 
 if.end70:                                         ; preds = %if.end63
   %14 = load i64, ptr %st_ctim, align 8
-  %call73 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef nonnull %call2, i32 noundef 9, i32 noundef 12, i32 noundef 15, i64 noundef %14, i64 noundef %11)
+  %call73 = tail call fastcc i32 @fill_time(ptr noundef nonnull %module, ptr noundef %call2, i32 noundef 9, i32 noundef 12, i32 noundef 15, i64 noundef %14, i64 noundef %11)
   %cmp74 = icmp slt i32 %call73, 0
   br i1 %cmp74, label %error, label %do.body78
 
@@ -20386,7 +20386,7 @@ declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @fill_time(ptr nocapture noundef readonly %module, ptr noundef %v, i32 noundef %s_index, i32 noundef %f_index, i32 noundef %ns_index, i64 noundef %sec, i64 noundef %nsec) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @fill_time(ptr nocapture noundef readonly %module, ptr noundef nonnull %v, i32 noundef range(i32 7, 10) %s_index, i32 noundef range(i32 10, 13) %f_index, i32 noundef range(i32 13, 16) %ns_index, i64 noundef %sec, i64 noundef %nsec) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyLong_FromTime_t(i64 noundef %sec) #22
   %call1 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %nsec) #22
@@ -20418,11 +20418,11 @@ if.end11:                                         ; preds = %if.end7
 
 Py_XDECREF.exit.thread:                           ; preds = %if.end11
   %conv19 = zext nneg i32 %s_index to i64
-  tail call void @PyStructSequence_SetItem(ptr noundef %v, i64 noundef %conv19, ptr noundef nonnull %call) #22
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %v, i64 noundef %conv19, ptr noundef nonnull %call) #22
   %conv24 = zext nneg i32 %f_index to i64
-  tail call void @PyStructSequence_SetItem(ptr noundef %v, i64 noundef %conv24, ptr noundef nonnull %call13) #22
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %v, i64 noundef %conv24, ptr noundef nonnull %call13) #22
   %conv29 = zext nneg i32 %ns_index to i64
-  tail call void @PyStructSequence_SetItem(ptr noundef %v, i64 noundef %conv29, ptr noundef nonnull %call8) #22
+  tail call void @PyStructSequence_SetItem(ptr noundef nonnull %v, i64 noundef %conv29, ptr noundef nonnull %call8) #22
   br label %if.then.i20
 
 exit:                                             ; preds = %entry
@@ -20673,7 +20673,7 @@ declare i32 @chroot(ptr noundef) local_unnamed_addr #4
 declare noundef ptr @ctermid(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @posix_getcwd(i32 noundef %use_bytes) unnamed_addr #0 {
+define internal fastcc ptr @posix_getcwd(i32 noundef range(i32 0, 2) %use_bytes) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyEval_SaveThread() #22
   br label %do.body
@@ -20792,7 +20792,7 @@ declare i32 @getpriority(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @setpriority(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @py_posix_spawn(i32 noundef %use_posix_spawnp, ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %path, ptr noundef %argv, ptr noundef %env, ptr noundef %file_actions, ptr noundef %setpgroup, i32 noundef %resetids, i32 noundef %setsid, ptr noundef %setsigmask, ptr noundef %setsigdef, ptr noundef %scheduler) unnamed_addr #0 {
+define internal fastcc ptr @py_posix_spawn(i32 noundef range(i32 0, 2) %use_posix_spawnp, ptr nocapture noundef readonly %module, ptr nocapture noundef nonnull readonly %path, ptr noundef %argv, ptr noundef %env, ptr noundef %file_actions, ptr noundef %setpgroup, i32 noundef range(i32 0, -2147483648) %resetids, i32 noundef range(i32 0, -2147483648) %setsid, ptr noundef %setsigmask, ptr noundef %setsigdef, ptr noundef %scheduler) unnamed_addr #0 {
 entry:
   %set.i = alloca %struct.__sigset_t, align 8
   %set45.i = alloca %struct.__sigset_t, align 8
@@ -20851,7 +20851,7 @@ if.then15:                                        ; preds = %if.end10
   br label %return
 
 if.end17:                                         ; preds = %if.end10
-  %call18 = call fastcc ptr @parse_arglist(ptr noundef nonnull %argv, ptr noundef nonnull %argc)
+  %call18 = call fastcc ptr @parse_arglist(ptr noundef nonnull %argv, ptr noundef %argc)
   %cmp19 = icmp eq ptr %call18, null
   br i1 %cmp19, label %return, label %if.end21
 
@@ -20875,7 +20875,7 @@ if.then28:                                        ; preds = %if.end26
   br label %if.end33
 
 if.else:                                          ; preds = %if.end26
-  %call29 = call fastcc ptr @parse_envlist(ptr noundef %env, ptr noundef nonnull %envc)
+  %call29 = call fastcc ptr @parse_envlist(ptr noundef %env, ptr noundef %envc)
   %cmp30 = icmp eq ptr %call29, null
   br i1 %cmp30, label %if.then84, label %if.end33
 
@@ -21574,7 +21574,7 @@ declare i64 @PySequence_Size(ptr noundef) local_unnamed_addr #1
 declare i32 @PyMapping_Check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_arglist(ptr noundef %argv, ptr nocapture noundef %argc) unnamed_addr #0 {
+define internal fastcc ptr @parse_arglist(ptr noundef %argv, ptr nocapture noundef nonnull %argc) unnamed_addr #0 {
 entry:
   %ub.i = alloca ptr, align 8
   %0 = load i64, ptr %argc, align 8
@@ -21734,7 +21734,7 @@ return:                                           ; preds = %free_string_array.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_envlist(ptr noundef %env, ptr nocapture noundef writeonly %envc_ptr) unnamed_addr #0 {
+define internal fastcc ptr @parse_envlist(ptr noundef %env, ptr nocapture noundef nonnull writeonly %envc_ptr) unnamed_addr #0 {
 entry:
   %ub.i = alloca ptr, align 8
   %key2 = alloca ptr, align 8
@@ -22192,7 +22192,7 @@ declare i32 @_PyLong_UnsignedInt_Converter(ptr noundef, ptr noundef) #1
 declare i64 @splice(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @internal_rename(ptr nocapture noundef readonly %src, ptr nocapture noundef readonly %dst, i32 noundef %src_dir_fd, i32 noundef %dst_dir_fd, i32 noundef %is_replace) unnamed_addr #0 {
+define internal fastcc ptr @internal_rename(ptr nocapture noundef nonnull readonly %src, ptr nocapture noundef nonnull readonly %dst, i32 noundef %src_dir_fd, i32 noundef %dst_dir_fd, i32 noundef range(i32 0, 2) %is_replace) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %is_replace, 0
   %cond = select i1 %tobool.not, ptr @.str.37, ptr @.str.38
@@ -22313,7 +22313,7 @@ declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyTime_ObjectToTimespec(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef writeonly %s, ptr nocapture noundef writeonly %ns) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef nonnull writeonly %s, ptr nocapture noundef nonnull writeonly %ns) unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @PyNumber_Divmod(ptr noundef %py_long, ptr noundef %module.32.val.0.val) #22
   %tobool.not = icmp eq ptr %call1, null
@@ -22396,7 +22396,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @utime_nofollow_symlinks(ptr nocapture noundef readonly %ut, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc i32 @utime_nofollow_symlinks(ptr nocapture noundef nonnull readonly %ut, ptr noundef %path) unnamed_addr #0 {
 entry:
   %ts = alloca [2 x %struct.timespec], align 16
   %0 = load i32, ptr %ut, align 8
@@ -22428,7 +22428,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @utime_dir_fd(ptr nocapture noundef readonly %ut, i32 noundef %dir_fd, ptr noundef %path, i32 noundef %follow_symlinks) unnamed_addr #0 {
+define internal fastcc i32 @utime_dir_fd(ptr nocapture noundef nonnull readonly %ut, i32 noundef %dir_fd, ptr noundef %path, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
 entry:
   %ts = alloca [2 x %struct.timespec], align 16
   %0 = load i32, ptr %ut, align 8
@@ -22462,7 +22462,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @utime_default(ptr nocapture noundef readonly %ut, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc i32 @utime_default(ptr nocapture noundef nonnull readonly %ut, ptr noundef %path) unnamed_addr #0 {
 entry:
   %ts = alloca [2 x %struct.timespec], align 16
   %0 = load i32, ptr %ut, align 8
@@ -22894,7 +22894,7 @@ cond.true:                                        ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %do.body
   %2 = load i32, ptr %status, align 4
-  %call8 = call fastcc ptr @wait_helper(i32 noundef %call1, i32 noundef %2, ptr noundef nonnull %ru)
+  %call8 = call fastcc ptr @wait_helper(i32 noundef %call1, i32 noundef %2, ptr noundef %ru)
   br label %return
 
 return:                                           ; preds = %land.rhs, %cond.true, %if.end
@@ -22906,7 +22906,7 @@ return:                                           ; preds = %land.rhs, %cond.tru
 declare i32 @wait3(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @wait_helper(i32 noundef %pid, i32 noundef %status, ptr nocapture noundef %ru) unnamed_addr #0 {
+define internal fastcc ptr @wait_helper(i32 noundef range(i32 0, -2147483648) %pid, i32 noundef %status, ptr nocapture noundef nonnull %ru) unnamed_addr #0 {
 entry:
   %cmp1 = icmp eq i32 %pid, 0
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -23173,7 +23173,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call fastcc i32 @iov_setup(ptr noundef nonnull %iov, ptr noundef nonnull %buf, ptr noundef %buffers, i64 noundef %call1, i32 noundef 1)
+  %call4 = call fastcc i32 @iov_setup(ptr noundef %iov, ptr noundef %buf, ptr noundef %buffers, i64 noundef %call1, i32 noundef 1)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %return, label %do.body.preheader
 
@@ -23238,7 +23238,7 @@ return:                                           ; preds = %iov_cleanup.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr nocapture noundef %iov, ptr nocapture noundef %buf, ptr noundef %seq, i64 noundef %cnt, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr nocapture noundef nonnull %iov, ptr nocapture noundef nonnull %buf, ptr noundef %seq, i64 noundef range(i64 0, -9223372036854775808) %cnt, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %cnt, 576460752303423487
   br i1 %cmp, label %cond.end.thread, label %cond.end
@@ -23399,7 +23399,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call fastcc i32 @iov_setup(ptr noundef nonnull %iov, ptr noundef nonnull %buf, ptr noundef %buffers, i64 noundef %call1, i32 noundef 0)
+  %call4 = call fastcc i32 @iov_setup(ptr noundef %iov, ptr noundef %buf, ptr noundef %buffers, i64 noundef %call1, i32 noundef 0)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %return, label %do.body.preheader
 
@@ -23761,7 +23761,7 @@ return:                                           ; preds = %if.end, %if.end.i, 
 declare noundef i32 @statvfs64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr nocapture noundef writeonly %valuep, ptr nocapture noundef readonly %table, i64 noundef %tablesize) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr nocapture noundef nonnull writeonly %valuep, ptr nocapture noundef readonly %table, i64 noundef range(i64 20, 136) %tablesize) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val15 = load ptr, ptr %0, align 8
@@ -23798,16 +23798,12 @@ if.then10:                                        ; preds = %if.else
 if.end11:                                         ; preds = %if.else
   %call12 = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %arg) #22
   %cmp13 = icmp eq ptr %call12, null
-  br i1 %cmp13, label %return, label %while.cond.preheader
+  br i1 %cmp13, label %return, label %while.body
 
-while.cond.preheader:                             ; preds = %if.end11
-  %cmp1619.not = icmp eq i64 %tablesize, 0
-  br i1 %cmp1619.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %while.cond.preheader, %if.end28
-  %lo.021 = phi i64 [ %lo.1, %if.end28 ], [ 0, %while.cond.preheader ]
-  %hi.020 = phi i64 [ %hi.1, %if.end28 ], [ %tablesize, %while.cond.preheader ]
-  %add = add i64 %lo.021, %hi.020
+while.body:                                       ; preds = %if.end11, %if.end28
+  %lo.020 = phi i64 [ %lo.1, %if.end28 ], [ 0, %if.end11 ]
+  %hi.019 = phi i64 [ %hi.1, %if.end28 ], [ %tablesize, %if.end11 ]
+  %add = add i64 %lo.020, %hi.019
   %div14 = lshr i64 %add, 1
   %arrayidx = getelementptr %struct.constdef, ptr %table, i64 %div14
   %5 = load ptr, ptr %arrayidx, align 8
@@ -23830,12 +23826,12 @@ if.else24:                                        ; preds = %if.else20
   br label %return
 
 if.end28:                                         ; preds = %while.body, %if.then22
-  %hi.1 = phi i64 [ %hi.020, %if.then22 ], [ %div14, %while.body ]
-  %lo.1 = phi i64 [ %add23, %if.then22 ], [ %lo.021, %while.body ]
+  %hi.1 = phi i64 [ %hi.019, %if.then22 ], [ %div14, %while.body ]
+  %lo.1 = phi i64 [ %add23, %if.then22 ], [ %lo.020, %while.body ]
   %cmp16 = icmp ult i64 %lo.1, %hi.1
   br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !51
 
-while.end:                                        ; preds = %if.end28, %while.cond.preheader
+while.end:                                        ; preds = %if.end28
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.366) #22
   br label %return
@@ -23970,7 +23966,7 @@ declare i64 @_PyTime_FromSecondsDouble(double noundef, i32 noundef) local_unname
 declare i32 @timerfd_settime(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_itimerspec(ptr nocapture noundef readonly %curr_value) unnamed_addr #0 {
+define internal fastcc ptr @build_itimerspec(ptr nocapture noundef nonnull readonly %curr_value) unnamed_addr #0 {
 entry:
   %it_value = getelementptr inbounds i8, ptr %curr_value, i64 16
   %0 = load i64, ptr %it_value, align 8
@@ -25365,20 +25361,16 @@ declare ptr @PyDict_SetDefault(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_confname_table(ptr noundef %table, i64 noundef %tablesize, ptr noundef %tablename, ptr noundef %module) unnamed_addr #0 {
+define internal fastcc i32 @setup_confname_table(ptr noundef %table, i64 noundef range(i64 20, 136) %tablesize, ptr noundef %tablename, ptr noundef %module) unnamed_addr #0 {
 entry:
   tail call void @qsort(ptr noundef %table, i64 noundef %tablesize, i64 noundef 16, ptr noundef nonnull @cmp_constdefs) #22
   %call = tail call ptr @PyDict_New() #22
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return, label %for.cond.preheader
+  br i1 %cmp, label %return, label %for.body
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp120.not = icmp eq i64 %tablesize, 0
-  br i1 %cmp120.not, label %for.end, label %for.body
-
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.021 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr %struct.constdef, ptr %table, i64 %i.021
+for.body:                                         ; preds = %entry, %for.inc
+  %i.020 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
+  %arrayidx = getelementptr %struct.constdef, ptr %table, i64 %i.020
   %value = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %value, align 8
   %conv = sext i32 %0 to i64
@@ -25438,11 +25430,11 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end10
-  %inc = add nuw i64 %i.021, 1
+  %inc = add nuw nsw i64 %i.020, 1
   %exitcond.not = icmp eq i64 %inc, %tablesize
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !55
 
-for.end:                                          ; preds = %for.inc, %for.cond.preheader
+for.end:                                          ; preds = %for.inc
   %call11 = tail call i32 @PyModule_Add(ptr noundef %module, ptr noundef %tablename, ptr noundef nonnull %call) #22
   br label %return
 
@@ -26321,7 +26313,7 @@ os_DirEntry___fspath___impl.exit:                 ; preds = %entry, %if.end.i.i.
 declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr nocapture noundef %self, i32 noundef %follow_symlinks, i16 noundef zeroext %mode_bits) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr nocapture noundef %self, i32 noundef range(i32 0, -2147483648) %follow_symlinks, i16 noundef zeroext range(i16 16384, -24575) %mode_bits) unnamed_addr #0 {
 entry:
   %d_type = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i8, ptr %d_type, align 8
@@ -26463,7 +26455,7 @@ return:                                           ; preds = %if.then9, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @os_DirEntry_stat_impl(ptr nocapture noundef %self, ptr noundef %defining_class, i32 noundef %follow_symlinks) unnamed_addr #0 {
+define internal fastcc noundef ptr @os_DirEntry_stat_impl(ptr nocapture noundef %self, ptr noundef %defining_class, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %follow_symlinks, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -26576,7 +26568,7 @@ return:                                           ; preds = %if.end14.thread27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @DirEntry_fetch_stat(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %self, i32 noundef %follow_symlinks) unnamed_addr #0 {
+define internal fastcc ptr @DirEntry_fetch_stat(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %self, i32 noundef range(i32 0, 2) %follow_symlinks) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %ub = alloca ptr, align 8
@@ -26647,7 +26639,7 @@ if.then19:                                        ; preds = %Py_DECREF.exit
   br label %return
 
 if.end23:                                         ; preds = %Py_DECREF.exit
-  %call24 = call fastcc ptr @_pystat_fromstructstat(ptr noundef %module, ptr noundef nonnull %st)
+  %call24 = call fastcc ptr @_pystat_fromstructstat(ptr noundef %module, ptr noundef %st)
   br label %return
 
 return:                                           ; preds = %entry, %if.end23, %if.then19

@@ -317,7 +317,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
   %145 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv89
   %146 = load i32, ptr %145, align 4
-  call fastcc void @add_segment(i32 noundef %146, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @add_segment(i32 noundef %146, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   br label %137
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %find_new_roots.exit
@@ -332,7 +332,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   %152 = getelementptr inbounds i8, ptr %147, i64 16
   %153 = getelementptr inbounds i8, ptr %147, i64 36
   %154 = load i32, ptr %153, align 4
-  %155 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %147, ptr noundef nonnull %152, i32 noundef %154, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
+  %155 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %147, ptr noundef nonnull %152, i32 noundef %154, ptr noundef nonnull %1, ptr noundef readonly %5)
   store i32 %155, ptr %153, align 4
   %156 = load ptr, ptr %12, align 8
   %157 = sext i32 %155 to i64
@@ -341,7 +341,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   store i32 %159, ptr %153, align 4
   %160 = getelementptr inbounds i8, ptr %147, i64 40
   %161 = load i32, ptr %160, align 8
-  %162 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %152, ptr noundef nonnull %147, i32 noundef %161, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
+  %162 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %152, ptr noundef nonnull %147, i32 noundef %161, ptr noundef nonnull %1, ptr noundef readonly %5)
   store i32 %162, ptr %160, align 8
   %163 = load ptr, ptr %12, align 8
   %164 = sext i32 %162 to i64
@@ -404,7 +404,7 @@ math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_l
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   %178 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv97
   %179 = load i32, ptr %178, align 4
-  call fastcc void @add_segment(i32 noundef %179, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @add_segment(i32 noundef %179, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %exitcond100.not = icmp eq i32 %.3, %0
   br i1 %exitcond100.not, label %._crit_edge84, label %.lr.ph83
 
@@ -419,7 +419,7 @@ math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_segment(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_segment(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.segment_t, align 8
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.segment_t, ptr %1, i64 %6
@@ -2420,7 +2420,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef range(i64 40, 73) %3) unnamed_addr #0 {
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 %2)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
   br i1 %mul.ov, label %5, label %8
@@ -2483,7 +2483,7 @@ declare double @log2(double noundef) local_unnamed_addr #10
 declare double @llvm.ceil.f64(double) #9
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @locate_endpoint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #11 {
+define internal fastcc i32 @locate_endpoint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #11 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2825,7 +2825,7 @@ is_left_of.exit99.thread113:                      ; preds = %204, %196, %180, %1
 declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #12 {
+define internal fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 3) %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #12 {
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph, label %.critedge
 

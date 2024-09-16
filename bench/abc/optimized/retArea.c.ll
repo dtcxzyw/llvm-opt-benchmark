@@ -117,7 +117,7 @@ Vec_IntFree.exit46:                               ; preds = %24, %27
 declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader115.i
 
@@ -1378,7 +1378,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @Abc_NtkMaxFlow(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_NtkRetimeMinAreaUpdateLatches(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @Abc_NtkRetimeMinAreaUpdateLatches(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
@@ -2232,7 +2232,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

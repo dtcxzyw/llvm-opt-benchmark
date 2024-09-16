@@ -4019,7 +4019,7 @@ _ZN3nix7readNumImEET_RNS_6SourceE.exit89:         ; preds = %196
   %204 = call noundef i32 @_ZN3nix7readNumIjEET_RNS_6SourceE(ptr noundef nonnull align 8 dereferenceable(8) %32)
   %205 = call noundef i32 @_ZN3nix7readNumIjEET_RNS_6SourceE(ptr noundef nonnull align 8 dereferenceable(8) %32)
   call void @_ZN3nix10readStringB5cxx11ERNS_6SourceEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef -1)
-  invoke fastcc void @_ZN3nixL10readFieldsERNS_6SourceE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  invoke fastcc void @_ZN3nixL10readFieldsERNS_6SourceE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %206 unwind label %236
 
 206:                                              ; preds = %_ZN3nix7readNumImEET_RNS_6SourceE.exit89
@@ -4179,7 +4179,7 @@ _ZN3nix7readNumImEET_RNS_6SourceE.exit104:        ; preds = %242
 _ZN3nix7readNumImEET_RNS_6SourceE.exit109:        ; preds = %255
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %263 = call noundef i32 @_ZN3nix7readNumIjEET_RNS_6SourceE(ptr noundef nonnull align 8 dereferenceable(8) %32)
-  call fastcc void @_ZN3nixL10readFieldsERNS_6SourceE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  call fastcc void @_ZN3nixL10readFieldsERNS_6SourceE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %32)
   %264 = load ptr, ptr @_ZN3nix6loggerE, align 8
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 88
@@ -21775,7 +21775,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 declare void @_ZN3nix9readErrorERNS_6SourceE(ptr dead_on_unwind writable sret(%"class.nix::Error") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL10readFieldsERNS_6SourceE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL10readFieldsERNS_6SourceE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca [8 x i8], align 1
   %5 = alloca %"struct.nix::Logger::Field", align 8

@@ -2676,7 +2676,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetFamilyTypeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetFamilyTypeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %9 unwind label %100
 
 9:                                                ; preds = %3
@@ -5966,7 +5966,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_EN
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15CreateAttributeERKNS_7TfTokenERKNS_16SdfValueTypeNameEbNS_14SdfVariabilityE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetFamilyTypeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetFamilyTypeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.165", align 8
   %5 = alloca [3 x %"class.std::__cxx11::basic_string"], align 8
@@ -6225,7 +6225,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset13GetFamilyType
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetFamilyTypeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetFamilyTypeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %10 unwind label %120
 
 10:                                               ; preds = %3

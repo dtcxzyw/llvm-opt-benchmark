@@ -95,7 +95,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %opts, ptr noundef nonnull align 8 dereferenceable(224) @__const.cmd_cherry_pick.opts, i64 224, i1 false)
   store i32 0, ptr %opts, align 8
   call void @sequencer_init_config(ptr noundef nonnull %opts) #11
-  %call = call fastcc i32 @run_sequencer(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %opts)
+  %call = call fastcc i32 @run_sequencer(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %opts)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -115,7 +115,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @sequencer_init_config(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @run_sequencer(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %opts) unnamed_addr #0 {
+define internal fastcc i32 @run_sequencer(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %opts) unnamed_addr #0 {
 entry:
   %cleanup_arg = alloca ptr, align 8
   %cmd = alloca i32, align 4
@@ -815,7 +815,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %opts, ptr noundef nonnull align 8 dereferenceable(224) @__const.cmd_cherry_pick.opts, i64 224, i1 false)
   store i32 1, ptr %opts, align 8
   call void @sequencer_init_config(ptr noundef nonnull %opts) #11
-  %call = call fastcc i32 @run_sequencer(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %opts)
+  %call = call fastcc i32 @run_sequencer(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %opts)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 

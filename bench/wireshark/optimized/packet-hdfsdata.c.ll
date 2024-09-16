@@ -417,8 +417,8 @@ define internal i32 @dissect_hdfsdata_message(ptr noundef %0, ptr nocapture noun
   %61 = load i32, ptr @hf_hdfsdata_blocklen, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %61, ptr noundef %0, i32 noundef 27, i32 noundef 8, i32 noundef 0) #2
   store i32 35, ptr %5, align 4
-  call fastcc void @dissect_variable_int_string(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %5)
-  call fastcc void @dissect_access_tokens(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %5)
+  call fastcc void @dissect_variable_int_string(ptr noundef %0, ptr noundef %13, ptr noundef %5)
+  call fastcc void @dissect_access_tokens(ptr noundef %0, ptr noundef %13, ptr noundef %5)
   br label %87
 
 63:                                               ; preds = %44
@@ -429,11 +429,11 @@ define internal i32 @dissect_hdfsdata_message(ptr noundef %0, ptr nocapture noun
   br i1 %or.cond5, label %67, label %74
 
 67:                                               ; preds = %63
-  call fastcc void @dissect_header(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %5)
-  call fastcc void @dissect_write_request(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %5)
-  call fastcc void @dissect_variable_int_string(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %5)
-  call fastcc void @dissect_write_request_end(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %5)
-  call fastcc void @dissect_access_tokens(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %5)
+  call fastcc void @dissect_header(ptr noundef %0, ptr noundef %13, ptr noundef %5)
+  call fastcc void @dissect_write_request(ptr noundef %0, ptr noundef %13, ptr noundef %5)
+  call fastcc void @dissect_variable_int_string(ptr noundef %0, ptr noundef %13, ptr noundef %5)
+  call fastcc void @dissect_write_request_end(ptr noundef %0, ptr noundef %13, ptr noundef %5)
+  call fastcc void @dissect_access_tokens(ptr noundef %0, ptr noundef %13, ptr noundef %5)
   %68 = load i32, ptr @hf_hdfsdata_checksumtype, align 4
   %69 = load i32, ptr %5, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %68, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0) #2
@@ -543,7 +543,7 @@ define internal fastcc void @dissect_read_response(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_hdfsdata_version, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef 0) #2
@@ -571,7 +571,7 @@ define internal fastcc void @dissect_header(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_variable_int_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_variable_int_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
   %6 = sext i8 %5 to i32
@@ -628,7 +628,7 @@ dissect_variable_length_long.exit:                ; preds = %3, %decode_vint_siz
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_access_tokens(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_access_tokens(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
   %6 = zext i8 %5 to i32
@@ -686,7 +686,7 @@ define internal fastcc void @dissect_access_tokens(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_write_request(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_write_request(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_hdfsdata_pipelinenum, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #2
@@ -702,7 +702,7 @@ define internal fastcc void @dissect_write_request(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_write_request_end(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_write_request_end(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_hdfsdata_sourcenode, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #2

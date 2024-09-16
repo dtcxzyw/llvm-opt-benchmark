@@ -1704,7 +1704,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit240:       ; preds = %511, %513
   %516 = load ptr, ptr %35, align 8
   %517 = load i32, ptr %37, align 4
   %518 = load ptr, ptr %38, align 8
-  invoke fastcc void @_ZL10check_violP8_IO_FILERK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEPA3_fPA4_fP5t_pbcP11t_dr_resultiiPKiPfP12t_disresdata(ptr noundef %161, ptr noundef nonnull align 8 dereferenceable(24) %471, ptr %515, ptr noundef %516, ptr noundef %309, ptr noundef %spec.store.select, ptr noundef %.0360, i32 noundef %502, i32 noundef %517, ptr noundef %518, ptr noundef %.0361, ptr noundef nonnull %61)
+  invoke fastcc void @_ZL10check_violP8_IO_FILERK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEPA3_fPA4_fP5t_pbcP11t_dr_resultiiPKiPfP12t_disresdata(ptr noundef %161, ptr noundef nonnull align 8 dereferenceable(24) %471, ptr %515, ptr noundef %516, ptr noundef %309, ptr noundef %spec.store.select, ptr noundef %.0360, i32 noundef %502, i32 noundef %517, ptr noundef %518, ptr noundef %.0361, ptr noundef %61)
           to label %527 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 519:                                              ; preds = %505
@@ -1719,7 +1719,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit240:       ; preds = %511, %513
   %524 = load ptr, ptr %35, align 8
   %525 = load i32, ptr %37, align 4
   %526 = load ptr, ptr %38, align 8
-  invoke fastcc void @_ZL10check_violP8_IO_FILERK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEPA3_fPA4_fP5t_pbcP11t_dr_resultiiPKiPfP12t_disresdata(ptr noundef %161, ptr noundef nonnull align 8 dereferenceable(24) %471, ptr %523, ptr noundef %524, ptr noundef %309, ptr noundef %spec.store.select, ptr noundef nonnull %40, i32 noundef 0, i32 noundef %525, ptr noundef %526, ptr noundef %.0361, ptr noundef nonnull %61)
+  invoke fastcc void @_ZL10check_violP8_IO_FILERK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEPA3_fPA4_fP5t_pbcP11t_dr_resultiiPKiPfP12t_disresdata(ptr noundef %161, ptr noundef nonnull align 8 dereferenceable(24) %471, ptr %523, ptr noundef %524, ptr noundef %309, ptr noundef %spec.store.select, ptr noundef nonnull %40, i32 noundef 0, i32 noundef %525, ptr noundef %526, ptr noundef %.0361, ptr noundef %61)
           to label %527 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 527:                                              ; preds = %521, %_ZNSt10filesystem7__cxx114pathD2Ev.exit240
@@ -4412,7 +4412,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 declare void @_Z20range_check_functioniiiPKcS0_RKNSt10filesystem7__cxx114pathEi(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10check_violP8_IO_FILERK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEPA3_fPA4_fP5t_pbcP11t_dr_resultiiPKiPfP12t_disresdata(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef writeonly %10, ptr noundef %11) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10check_violP8_IO_FILERK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEPA3_fPA4_fP5t_pbcP11t_dr_resultiiPKiPfP12t_disresdata(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef writeonly %10, ptr noundef nonnull %11) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %13 = alloca float, align 4
   %14 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %15 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -4578,7 +4578,7 @@ _ZL6reset5v.exit:                                 ; preds = %.lr.ph.i, %12
 .critedge:                                        ; preds = %89, %92
   %99 = trunc nsw i64 %90 to i32
   %100 = trunc nsw i64 %indvars.iv.next212 to i32
-  call void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbcP12t_disresdataPK9history_t(ptr noundef null, ptr noundef null, i32 noundef %100, ptr noundef nonnull %72, ptr noundef %3, ptr noundef %5, ptr noundef %11, ptr noundef null)
+  call void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbcP12t_disresdataPK9history_t(ptr noundef null, ptr noundef null, i32 noundef %100, ptr noundef nonnull %72, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %11, ptr noundef null)
   %101 = load ptr, ptr %43, align 8
   %102 = sext i32 %77 to i64
   %103 = getelementptr inbounds float, ptr %101, i64 %102

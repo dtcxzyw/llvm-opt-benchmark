@@ -101,7 +101,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr nocapture noundef %buf, ptr nocapture noundef readonly %in) unnamed_addr #4 {
+define internal fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr nocapture noundef nonnull %buf, ptr nocapture noundef nonnull readonly %in) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %buf, align 4, !tbaa !3
   %arrayidx1 = getelementptr inbounds i8, ptr %buf, i64 4

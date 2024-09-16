@@ -129,7 +129,7 @@ OperatorGet.exit:                                 ; preds = %21
   br i1 %23, label %50, label %57
 
 50:                                               ; preds = %.thread
-  %51 = tail call fastcc i32 @get_other_operator(ptr noundef nonnull %5, i32 noundef %3, i32 noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
+  %51 = tail call fastcc i32 @get_other_operator(ptr noundef %5, i32 noundef %3, i32 noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
   %.not110 = icmp eq i32 %51, 0
   br i1 %.not110, label %57, label %52
 
@@ -149,7 +149,7 @@ OperatorGet.exit:                                 ; preds = %21
   br i1 %24, label %58, label %70
 
 58:                                               ; preds = %57
-  %59 = tail call fastcc i32 @get_other_operator(ptr noundef nonnull %6, i32 noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
+  %59 = tail call fastcc i32 @get_other_operator(ptr noundef %6, i32 noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
   %.not111 = icmp eq i32 %59, 0
   br i1 %.not111, label %.critedge, label %60
 
@@ -492,12 +492,12 @@ declare i32 @GetUserId() local_unnamed_addr #1
 declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_other_operator(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @get_other_operator(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [15 x i64], align 16
   %9 = alloca [15 x i8], align 1
   %10 = alloca %struct.nameData, align 1
   %11 = alloca ptr, align 8
-  %12 = tail call i32 @LookupOperName(ptr noundef null, ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext true, i32 noundef -1) #9
+  %12 = tail call i32 @LookupOperName(ptr noundef null, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext true, i32 noundef -1) #9
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %14, label %OperatorLookup.exit
 
@@ -506,7 +506,7 @@ OperatorLookup.exit:                              ; preds = %7
   br label %59
 
 14:                                               ; preds = %7
-  %15 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %11) #9
+  %15 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef nonnull %0, ptr noundef nonnull %11) #9
   %16 = load ptr, ptr %11, align 8
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %3) #11
   %18 = icmp eq i32 %17, 0

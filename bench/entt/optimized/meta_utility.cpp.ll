@@ -9322,7 +9322,7 @@ eh.resume:                                        ; preds = %ehcleanup54, %ehcle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4enttL8meta_argINS_9type_listIJicEEEEENS_9meta_typeEm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i64 noundef %index) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4enttL8meta_argINS_9type_listIJicEEEEENS_9meta_typeEm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i64 noundef range(i64 0, 2) %index) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.entt::internal::meta_type_node", align 8
   %0 = load ptr, ptr @_ZN4entt7locatorINS_8meta_ctxEE7serviceE, align 8, !tbaa !21
@@ -9337,10 +9337,8 @@ invoke.cont:                                      ; preds = %cond.false.i, %entr
   %cond-lvalue.i = phi ptr [ %0, %entry ], [ %call2.i1, %cond.false.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp.i) #23, !noalias !253
-  %cmp.i.i = icmp eq i64 %index, 0
-  %cond.i.i = select i1 %cmp.i.i, ptr @_ZN4entt8internal7resolveIiEENS0_14meta_type_nodeERKNS0_12meta_contextE, ptr null
-  %cmp2.i.i = icmp eq i64 %index, 1
-  %cond6.i.i = select i1 %cmp2.i.i, ptr @_ZN4entt8internal7resolveIcEENS0_14meta_type_nodeERKNS0_12meta_contextE, ptr %cond.i.i
+  %cmp2.i.i.not = icmp eq i64 %index, 0
+  %cond6.i.i = select i1 %cmp2.i.i.not, ptr @_ZN4entt8internal7resolveIiEENS0_14meta_type_nodeERKNS0_12meta_contextE, ptr @_ZN4entt8internal7resolveIcEENS0_14meta_type_nodeERKNS0_12meta_contextE
   call void %cond6.i.i(ptr dead_on_unwind nonnull writable sret(%"struct.entt::internal::meta_type_node") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %cond-lvalue.i) #23, !noalias !253, !callees !256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i, i64 96, i1 false)
   %details.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96

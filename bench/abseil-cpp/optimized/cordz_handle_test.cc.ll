@@ -6467,7 +6467,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont4, %if.e
   store ptr null, ptr %message_.i, align 8
   call void @_ZN4absl13cord_internal11CordzHandle6DeleteEPS1_(ptr noundef nonnull %call2)
   call void @_ZN4absl13cord_internal11CordzHandle25DiagnosticsGetDeleteQueueEv(ptr nonnull sret(%"class.std::vector") align 8 %ref.tmp22)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJPN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerEPNS5_13CordzSnapshotEEEEEEclISt6vectorIPKNS5_11CordzHandleESaISI_EEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr nonnull %call, ptr nonnull %call2, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJPN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerEPNS5_13CordzSnapshotEEEEEEclISt6vectorIPKNS5_11CordzHandleESaISI_EEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr nonnull %call, ptr nonnull %call2, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -7024,7 +7024,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i89, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJPN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerEPNS5_13CordzSnapshotEEEEEEclISt6vectorIPKNS5_11CordzHandleESaISI_EEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr %this.0.val, ptr %this.8.val, ptr noundef nonnull align 8 dereferenceable(24) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJPN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerEPNS5_13CordzSnapshotEEEEEEclISt6vectorIPKNS5_11CordzHandleESaISI_EEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr %this.8.val, ptr noundef nonnull align 8 dereferenceable(24) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i17 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -7164,7 +7164,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %_ZN7testing15SafeMatcherCastIRKSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS6_EENS_8internal18ElementsAreMatcherISt5tupleIJPNS3_12_GLOBAL__N_124CordzHandleDeleteTrackerEPNS3_13CordzSnapshotEEEEEEENS_7MatcherIT_EERKT0_.exit, %if.end, %if.then
@@ -8875,7 +8875,7 @@ delete.end113:                                    ; preds = %delete.notnull110, 
   %arrayidx11.val = load ptr, ptr %arrayidx11, align 16
   %arrayidx12.val = load ptr, ptr %arrayidx12, align 16
   call void @_ZN4absl13cord_internal11CordzHandle25DiagnosticsGetDeleteQueueEv(ptr nonnull sret(%"class.std::vector") align 8 %ref.tmp119)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJPN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerEPNS5_13CordzSnapshotEEEEEEclISt6vectorIPKNS5_11CordzHandleESaISI_EEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar114, ptr %arrayidx12.val, ptr %arrayidx11.val, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp119)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJPN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerEPNS5_13CordzSnapshotEEEEEEclISt6vectorIPKNS5_11CordzHandleESaISI_EEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar114, ptr %arrayidx12.val, ptr %arrayidx11.val, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp119)
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %delete.end113

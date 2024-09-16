@@ -74,7 +74,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_eulerP8PJconsts(ptr 
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL16pj_sconics_setupP8PJconstsN13pj_sconics_ns4TypeE(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL16pj_sconics_setupP8PJconstsN13pj_sconics_ns4TypeE(ptr noundef %0, i32 noundef range(i32 0, 7) %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7

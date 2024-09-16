@@ -7690,7 +7690,7 @@ vaarg.in_mem4617:                                 ; preds = %sw.bb4611
 vaarg.end4621:                                    ; preds = %vaarg.in_mem4617, %vaarg.in_reg4615
   %vaarg.addr4622 = phi ptr [ %1168, %vaarg.in_reg4615 ], [ %overflow_arg_area4619, %vaarg.in_mem4617 ]
   %1170 = load ptr, ptr %vaarg.addr4622, align 8
-  %call4623 = call fastcc i32 @protocol2num(ptr noundef %1170, ptr noundef nonnull %prot)
+  %call4623 = call fastcc i32 @protocol2num(ptr noundef %1170, ptr noundef %prot)
   %tobool4624.not = icmp eq i32 %call4623, 0
   br i1 %tobool4624.not, label %if.end4626, label %return
 
@@ -7724,7 +7724,7 @@ vaarg.in_mem4636:                                 ; preds = %sw.bb4629
 vaarg.end4640:                                    ; preds = %vaarg.in_mem4636, %vaarg.in_reg4634
   %vaarg.addr4641 = phi ptr [ %1174, %vaarg.in_reg4634 ], [ %overflow_arg_area4638, %vaarg.in_mem4636 ]
   %1176 = load ptr, ptr %vaarg.addr4641, align 8
-  %call4642 = call fastcc i32 @protocol2num(ptr noundef %1176, ptr noundef nonnull %prot4630)
+  %call4642 = call fastcc i32 @protocol2num(ptr noundef %1176, ptr noundef %prot4630)
   %tobool4643.not = icmp eq i32 %call4642, 0
   br i1 %tobool4643.not, label %if.end4645, label %return
 
@@ -9757,7 +9757,7 @@ declare zeroext i1 @Curl_ssl_false_start(ptr noundef) local_unnamed_addr #3
 declare void @Curl_hsts_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 44) i32 @protocol2num(ptr noundef %str, ptr nocapture noundef %val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 44) i32 @protocol2num(ptr noundef %str, ptr nocapture noundef nonnull %val) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %return, label %if.end

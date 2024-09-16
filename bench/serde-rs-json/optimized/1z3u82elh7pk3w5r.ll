@@ -37,7 +37,7 @@ define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h64bb
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
   %4 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
@@ -1954,7 +1954,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$f
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store double %7, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !314, !noalias !307
   store i8 2, ptr %0, align 8, !alias.scope !317, !noalias !318
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3), !noalias !319
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE"(ptr noalias noundef align 8 dereferenceable(32) %3), !noalias !319
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h7888f6b2fe4663abE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h7888f6b2fe4663abE.exit": ; preds = %.thread.i, %6
@@ -1986,7 +1986,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$f
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store double %1, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !334, !noalias !327
   store i8 2, ptr %0, align 8, !alias.scope !337, !noalias !338
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3), !noalias !339
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE"(ptr noalias noundef align 8 dereferenceable(32) %3), !noalias !339
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h7888f6b2fe4663abE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h7888f6b2fe4663abE.exit": ; preds = %.thread.i, %6

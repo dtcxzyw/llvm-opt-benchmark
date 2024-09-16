@@ -3033,7 +3033,7 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 89) %1) unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -4903,7 +4903,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   br i1 %.not165, label %43, label %39
 
 39:                                               ; preds = %38
-  %40 = tail call fastcc { double, double } @compassPoint(ptr noundef nonnull %5, double noundef %.sroa.2657.0, double noundef %31)
+  %40 = tail call fastcc { double, double } @compassPoint(ptr noundef %5, double noundef %.sroa.2657.0, double noundef %31)
   %41 = extractvalue { double, double } %40, 0
   %42 = extractvalue { double, double } %40, 1
   br label %43
@@ -4928,7 +4928,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
 
 48:                                               ; preds = %47
   %49 = fneg double %31
-  %50 = tail call fastcc { double, double } @compassPoint(ptr noundef nonnull %5, double noundef %49, double noundef %.sroa.051.0)
+  %50 = tail call fastcc { double, double } @compassPoint(ptr noundef %5, double noundef %49, double noundef %.sroa.051.0)
   %51 = extractvalue { double, double } %50, 0
   %52 = extractvalue { double, double } %50, 1
   br label %53
@@ -4945,7 +4945,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
 
 56:                                               ; preds = %55
   %57 = fneg double %31
-  %58 = tail call fastcc { double, double } @compassPoint(ptr noundef nonnull %5, double noundef %57, double noundef %31)
+  %58 = tail call fastcc { double, double } @compassPoint(ptr noundef %5, double noundef %57, double noundef %31)
   %59 = extractvalue { double, double } %58, 0
   %60 = extractvalue { double, double } %58, 1
   br label %61
@@ -4962,7 +4962,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
 
 64:                                               ; preds = %63
   %65 = fneg double %31
-  %66 = tail call fastcc { double, double } @compassPoint(ptr noundef nonnull %5, double noundef %65, double noundef %65)
+  %66 = tail call fastcc { double, double } @compassPoint(ptr noundef %5, double noundef %65, double noundef %65)
   %67 = extractvalue { double, double } %66, 0
   %68 = extractvalue { double, double } %66, 1
   br label %69
@@ -4984,7 +4984,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
 
 74:                                               ; preds = %73
   %75 = fneg double %31
-  %76 = tail call fastcc { double, double } @compassPoint(ptr noundef nonnull %5, double noundef %.sroa.2657.0, double noundef %75)
+  %76 = tail call fastcc { double, double } @compassPoint(ptr noundef %5, double noundef %.sroa.2657.0, double noundef %75)
   %77 = extractvalue { double, double } %76, 0
   %78 = extractvalue { double, double } %76, 1
   br label %79
@@ -5008,7 +5008,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   br i1 %.not158, label %88, label %84
 
 84:                                               ; preds = %83
-  %85 = tail call fastcc { double, double } @compassPoint(ptr noundef nonnull %5, double noundef %31, double noundef %.sroa.051.0)
+  %85 = tail call fastcc { double, double } @compassPoint(ptr noundef %5, double noundef %31, double noundef %.sroa.051.0)
   %86 = extractvalue { double, double } %85, 0
   %87 = extractvalue { double, double } %85, 1
   br label %88
@@ -5024,7 +5024,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   br i1 %.not157, label %95, label %91
 
 91:                                               ; preds = %90
-  %92 = tail call fastcc { double, double } @compassPoint(ptr noundef nonnull %5, double noundef %31, double noundef %31)
+  %92 = tail call fastcc { double, double } @compassPoint(ptr noundef %5, double noundef %31, double noundef %31)
   %93 = extractvalue { double, double } %92, 0
   %94 = extractvalue { double, double } %92, 1
   br label %95
@@ -5041,7 +5041,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
 
 98:                                               ; preds = %97
   %99 = fneg double %31
-  %100 = tail call fastcc { double, double } @compassPoint(ptr noundef nonnull %5, double noundef %31, double noundef %99)
+  %100 = tail call fastcc { double, double } @compassPoint(ptr noundef %5, double noundef %31, double noundef %99)
   %101 = extractvalue { double, double } %100, 0
   %102 = extractvalue { double, double } %100, 1
   br label %103
@@ -6743,7 +6743,7 @@ define internal fastcc void @resize_reclbl(ptr nocapture noundef %0, double %1, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pos_reclbl(ptr nocapture noundef %0, double %1, double %2, i8 noundef zeroext %3) unnamed_addr #17 {
+define internal fastcc void @pos_reclbl(ptr nocapture noundef %0, double %1, double %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #17 {
   %5 = getelementptr inbounds i8, ptr %0, i64 81
   store i8 %3, ptr %5, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7108,7 +7108,7 @@ define internal void @poly_gencode(ptr noundef %0, ptr noundef %1) #0 {
   %59 = fmul double %58, 7.200000e+01
   %60 = fdiv double %56, %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %61 = call fastcc ptr @checkStyle(ptr noundef %1, ptr noundef nonnull %5)
+  %61 = call fastcc ptr @checkStyle(ptr noundef %1, ptr noundef %5)
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %63, label %62
 
@@ -7791,7 +7791,7 @@ declare void @emit_label(ptr noundef, i32 noundef, ptr noundef) local_unnamed_ad
 declare void @gvrender_end_anchor(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr @N_style, align 8
   %4 = tail call ptr @late_nnstring(ptr noundef %0, ptr noundef %3, ptr noundef nonnull @.str.94) #26
   %5 = load i8, ptr %4, align 1
@@ -8059,7 +8059,7 @@ define internal void @point_gencode(ptr noundef %0, ptr noundef %1) #0 {
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %28, i64 8
   %34 = load i64, ptr %33, align 8
-  %35 = call fastcc ptr @checkStyle(ptr noundef %1, ptr noundef nonnull %3)
+  %35 = call fastcc ptr @checkStyle(ptr noundef %1, ptr noundef %3)
   %36 = load i32, ptr %3, align 4
   %37 = and i32 %36, 32
   %.not88 = icmp eq i32 %37, 0
@@ -8672,7 +8672,7 @@ define internal void @record_gencode(ptr noundef %0, ptr noundef %1) #0 {
 
 50:                                               ; preds = %43, %39, %17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %51 = call fastcc ptr @checkStyle(ptr noundef nonnull %1, ptr noundef nonnull %3)
+  %51 = call fastcc ptr @checkStyle(ptr noundef nonnull %1, ptr noundef %3)
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %53, label %52
 
@@ -9233,7 +9233,7 @@ define internal void @star_vertices(ptr nocapture noundef writeonly %0, ptr noca
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @compassPoint(ptr noundef %0, double noundef %1, double noundef %2) unnamed_addr #0 {
+define internal fastcc { double, double } @compassPoint(ptr noundef nonnull %0, double noundef %1, double noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x %struct.pointf_s], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @agraphof(ptr noundef %5) #26

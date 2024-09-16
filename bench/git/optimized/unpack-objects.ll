@@ -760,7 +760,7 @@ sw.bb10.i.i:                                      ; preds = %sw.bb.i.i, %while.e
 
 if.then.i75.i.i:                                  ; preds = %sw.bb10.i.i
   %98 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call fastcc void @write_object(i32 noundef %98, i32 noundef %conv1.i.i, ptr noundef nonnull %call.i73.i.i, i64 noundef %size.0.lcssa.i.i)
+  call fastcc void @write_object(i32 noundef %98, i32 noundef %conv1.i.i, ptr noundef %call.i73.i.i, i64 noundef %size.0.lcssa.i.i)
   br label %unpack_one.exit.i
 
 sw.bb11.i.i:                                      ; preds = %while.end.i.i, %while.end.i.i
@@ -807,7 +807,7 @@ if.end.i86.i.i:                                   ; preds = %if.then.i82.i.i
   br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.end83.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i86.i.i
-  %call9.i.i.i = call fastcc i32 @resolve_against_held(i32 noundef %108, ptr noundef nonnull %base_oid.i.i.i, ptr noundef nonnull %call4.i.i.i, i64 noundef %size.0.lcssa.i.i)
+  %call9.i.i.i = call fastcc i32 @resolve_against_held(i32 noundef %108, ptr noundef %base_oid.i.i.i, ptr noundef %call4.i.i.i, i64 noundef %size.0.lcssa.i.i)
   %tobool10.not.i.i.i = icmp eq i32 %call9.i.i.i, 0
   br i1 %tobool10.not.i.i.i, label %if.else12.i.i.i, label %unpack_delta_entry.exit.i.i
 
@@ -1207,7 +1207,7 @@ if.then77.i.i.i:                                  ; preds = %if.end74.i.i.i, %is
 if.end83.i.i.i:                                   ; preds = %is_null_oid.exit.i.i.i, %if.end.i86.i.i
   %.pre-phi.i = phi i32 [ %148, %is_null_oid.exit.i.i.i ], [ %108, %if.end.i86.i.i ]
   %delta_data.0.i.i.i = phi ptr [ %call43.i.i.i, %is_null_oid.exit.i.i.i ], [ %call4.i.i.i, %if.end.i86.i.i ]
-  %call84.i.i.i = call fastcc i32 @resolve_against_held(i32 noundef %.pre-phi.i, ptr noundef nonnull %base_oid.i.i.i, ptr noundef nonnull %delta_data.0.i.i.i, i64 noundef %size.0.lcssa.i.i)
+  %call84.i.i.i = call fastcc i32 @resolve_against_held(i32 noundef %.pre-phi.i, ptr noundef %base_oid.i.i.i, ptr noundef %delta_data.0.i.i.i, i64 noundef %size.0.lcssa.i.i)
   %tobool85.not.i.i.i = icmp eq i32 %call84.i.i.i, 0
   br i1 %tobool85.not.i.i.i, label %if.end87.i.i.i, label %unpack_delta_entry.exit.i.i
 
@@ -1247,7 +1247,7 @@ if.then.i123.i.i.i:                               ; preds = %if.end98.i.i.i
 resolve_delta.exit.i.i.i:                         ; preds = %if.end98.i.i.i
   call void @free(ptr noundef %delta_data.0.i.i.i) #13
   %162 = load i64, ptr %result_size.i.i.i.i, align 8
-  call fastcc void @write_object(i32 noundef %.pre-phi.i, i32 noundef %160, ptr noundef nonnull %call.i120.i.i.i, i64 noundef %162)
+  call fastcc void @write_object(i32 noundef %.pre-phi.i, i32 noundef %160, ptr noundef %call.i120.i.i.i, i64 noundef %162)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_size.i.i.i.i)
   call void @free(ptr noundef nonnull %call88.i.i.i) #13
   br label %unpack_delta_entry.exit.i.i
@@ -1993,7 +1993,7 @@ if.end44:                                         ; preds = %do.body42, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_object(i32 noundef %nr, i32 noundef %type, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @write_object(i32 noundef %nr, i32 noundef %type, ptr noundef nonnull %buf, i64 noundef %size) unnamed_addr #0 {
 entry:
   %result_size.i119 = alloca i64, align 8
   %result_size.i94 = alloca i64, align 8
@@ -2006,7 +2006,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @obj_list, align 8
   %idxprom = zext i32 %nr to i64
   %oid = getelementptr inbounds %struct.obj_info, ptr %0, i64 %idxprom, i32 1
-  %call.i = tail call i32 @write_object_file_flags(ptr noundef %buf, i64 noundef %size, i32 noundef %type, ptr noundef nonnull %oid, i32 noundef 0) #13
+  %call.i = tail call i32 @write_object_file_flags(ptr noundef nonnull %buf, i64 noundef %size, i32 noundef %type, ptr noundef nonnull %oid, i32 noundef 0) #13
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then1, label %while.cond.i.preheader
 
@@ -2080,7 +2080,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %o
   %size5.i = getelementptr inbounds i8, ptr %3, i64 48
   %13 = load i64, ptr %size5.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_size.i)
-  %call.i86 = call ptr @patch_delta(ptr noundef %buf, i64 noundef %size, ptr noundef %12, i64 noundef %13, ptr noundef nonnull %result_size.i) #13
+  %call.i86 = call ptr @patch_delta(ptr noundef nonnull %buf, i64 noundef %size, ptr noundef %12, i64 noundef %13, ptr noundef nonnull %result_size.i) #13
   %tobool.not.i87 = icmp eq ptr %call.i86, null
   br i1 %tobool.not.i87, label %if.then.i89, label %resolve_delta.exit
 
@@ -2091,7 +2091,7 @@ if.then.i89:                                      ; preds = %if.then.i
 resolve_delta.exit:                               ; preds = %if.then.i
   call void @free(ptr noundef %12) #13
   %14 = load i64, ptr %result_size.i, align 8
-  call fastcc void @write_object(i32 noundef %11, i32 noundef %type, ptr noundef nonnull %call.i86, i64 noundef %14)
+  call fastcc void @write_object(i32 noundef %11, i32 noundef %type, ptr noundef %call.i86, i64 noundef %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_size.i)
   call void @free(ptr noundef nonnull %3) #13
   %.pre = load ptr, ptr @obj_list, align 8
@@ -2110,7 +2110,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 added_object.exit:                                ; preds = %while.cond.i.backedge, %while.cond.i.preheader
   %17 = phi ptr [ %.pre151, %while.cond.i.preheader ], [ %15, %while.cond.i.backedge ]
-  call void @free(ptr noundef %buf) #13
+  call void @free(ptr noundef nonnull %buf) #13
   %obj = getelementptr inbounds %struct.obj_info, ptr %17, i64 %idxprom, i32 2
   store ptr null, ptr %obj, align 8
   br label %if.end50
@@ -2123,7 +2123,7 @@ if.then5:                                         ; preds = %if.else
   %18 = load ptr, ptr @obj_list, align 8
   %idxprom6 = zext i32 %nr to i64
   %oid8 = getelementptr inbounds %struct.obj_info, ptr %18, i64 %idxprom6, i32 1
-  %call.i40 = tail call i32 @write_object_file_flags(ptr noundef %buf, i64 noundef %size, i32 noundef 3, ptr noundef nonnull %oid8, i32 noundef 0) #13
+  %call.i40 = tail call i32 @write_object_file_flags(ptr noundef nonnull %buf, i64 noundef %size, i32 noundef 3, ptr noundef nonnull %oid8, i32 noundef 0) #13
   %cmp10 = icmp slt i32 %call.i40, 0
   br i1 %cmp10, label %if.then11, label %while.cond.i41.preheader
 
@@ -2197,7 +2197,7 @@ if.then.i49:                                      ; preds = %lor.lhs.false.i54, 
   %size5.i53 = getelementptr inbounds i8, ptr %21, i64 48
   %31 = load i64, ptr %size5.i53, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_size.i94)
-  %call.i95 = call ptr @patch_delta(ptr noundef %buf, i64 noundef %size, ptr noundef %30, i64 noundef %31, ptr noundef nonnull %result_size.i94) #13
+  %call.i95 = call ptr @patch_delta(ptr noundef nonnull %buf, i64 noundef %size, ptr noundef %30, i64 noundef %31, ptr noundef nonnull %result_size.i94) #13
   %tobool.not.i96 = icmp eq ptr %call.i95, null
   br i1 %tobool.not.i96, label %if.then.i98, label %resolve_delta.exit99
 
@@ -2208,7 +2208,7 @@ if.then.i98:                                      ; preds = %if.then.i49
 resolve_delta.exit99:                             ; preds = %if.then.i49
   call void @free(ptr noundef %30) #13
   %32 = load i64, ptr %result_size.i94, align 8
-  call fastcc void @write_object(i32 noundef %29, i32 noundef 3, ptr noundef nonnull %call.i95, i64 noundef %32)
+  call fastcc void @write_object(i32 noundef %29, i32 noundef 3, ptr noundef %call.i95, i64 noundef %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_size.i94)
   call void @free(ptr noundef nonnull %21) #13
   %.pre155 = load ptr, ptr @obj_list, align 8
@@ -2227,7 +2227,7 @@ if.end.i58:                                       ; preds = %lor.lhs.false.i54
 
 added_object.exit60:                              ; preds = %while.cond.i41.backedge, %while.cond.i41.preheader
   %35 = phi ptr [ %.pre157, %while.cond.i41.preheader ], [ %33, %while.cond.i41.backedge ]
-  call void @free(ptr noundef %buf) #13
+  call void @free(ptr noundef nonnull %buf) #13
   %36 = load ptr, ptr @the_repository, align 8
   %oid15 = getelementptr inbounds %struct.obj_info, ptr %35, i64 %idxprom6, i32 1
   %call16 = call ptr @lookup_blob(ptr noundef %36, ptr noundef nonnull %oid15) #13
@@ -2254,7 +2254,7 @@ if.else25:                                        ; preds = %if.else
   %40 = load ptr, ptr @obj_list, align 8
   %idxprom27 = zext i32 %nr to i64
   %oid29 = getelementptr inbounds %struct.obj_info, ptr %40, i64 %idxprom27, i32 1
-  tail call void @hash_object_file(ptr noundef %39, ptr noundef %buf, i64 noundef %size, i32 noundef %type, ptr noundef nonnull %oid29) #13
+  tail call void @hash_object_file(ptr noundef %39, ptr noundef nonnull %buf, i64 noundef %size, i32 noundef %type, ptr noundef nonnull %oid29) #13
   %41 = load ptr, ptr @delta_list, align 8
   %cmp.not.i63146 = icmp eq ptr %41, null
   %.pre154 = load ptr, ptr @obj_list, align 8
@@ -2320,7 +2320,7 @@ if.then.i69:                                      ; preds = %lor.lhs.false.i74, 
   %size5.i73 = getelementptr inbounds i8, ptr %43, i64 48
   %53 = load i64, ptr %size5.i73, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_size.i119)
-  %call.i120 = call ptr @patch_delta(ptr noundef %buf, i64 noundef %size, ptr noundef %52, i64 noundef %53, ptr noundef nonnull %result_size.i119) #13
+  %call.i120 = call ptr @patch_delta(ptr noundef nonnull %buf, i64 noundef %size, ptr noundef %52, i64 noundef %53, ptr noundef nonnull %result_size.i119) #13
   %tobool.not.i121 = icmp eq ptr %call.i120, null
   br i1 %tobool.not.i121, label %if.then.i123, label %resolve_delta.exit124
 
@@ -2331,7 +2331,7 @@ if.then.i123:                                     ; preds = %if.then.i69
 resolve_delta.exit124:                            ; preds = %if.then.i69
   call void @free(ptr noundef %52) #13
   %54 = load i64, ptr %result_size.i119, align 8
-  call fastcc void @write_object(i32 noundef %51, i32 noundef %type, ptr noundef nonnull %call.i120, i64 noundef %54)
+  call fastcc void @write_object(i32 noundef %51, i32 noundef %type, ptr noundef %call.i120, i64 noundef %54)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_size.i119)
   call void @free(ptr noundef nonnull %43) #13
   %.pre152 = load ptr, ptr @obj_list, align 8
@@ -2352,7 +2352,7 @@ added_object.exit80:                              ; preds = %while.cond.i61.back
   %57 = phi ptr [ %.pre154, %if.else25 ], [ %55, %while.cond.i61.backedge ]
   %58 = load ptr, ptr @the_repository, align 8
   %oid32 = getelementptr inbounds %struct.obj_info, ptr %57, i64 %idxprom27, i32 1
-  %call33 = call ptr @parse_object_buffer(ptr noundef %58, ptr noundef nonnull %oid32, i32 noundef %type, i64 noundef %size, ptr noundef %buf, ptr noundef nonnull %eaten) #13
+  %call33 = call ptr @parse_object_buffer(ptr noundef %58, ptr noundef nonnull %oid32, i32 noundef %type, i64 noundef %size, ptr noundef nonnull %buf, ptr noundef nonnull %eaten) #13
   %tobool34.not = icmp eq ptr %call33, null
   br i1 %tobool34.not, label %if.then35, label %if.end37
 
@@ -2411,11 +2411,11 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 declare i32 @repo_has_object_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @resolve_against_held(i32 noundef %nr, ptr noundef %base, ptr noundef %delta_data, i64 noundef %delta_size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @resolve_against_held(i32 noundef %nr, ptr noundef nonnull %base, ptr noundef nonnull %delta_data, i64 noundef %delta_size) unnamed_addr #0 {
 entry:
   %result_size.i = alloca i64, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %call = tail call ptr @lookup_object(ptr noundef %0, ptr noundef %base) #13
+  %call = tail call ptr @lookup_object(ptr noundef %0, ptr noundef nonnull %base) #13
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -2430,7 +2430,7 @@ if.end4:                                          ; preds = %if.end
   %size = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_size.i)
-  %call.i5 = call ptr @patch_delta(ptr noundef %1, i64 noundef %2, ptr noundef %delta_data, i64 noundef %delta_size, ptr noundef nonnull %result_size.i) #13
+  %call.i5 = call ptr @patch_delta(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %delta_data, i64 noundef %delta_size, ptr noundef nonnull %result_size.i) #13
   %tobool.not.i = icmp eq ptr %call.i5, null
   br i1 %tobool.not.i, label %if.then.i, label %resolve_delta.exit
 
@@ -2441,9 +2441,9 @@ if.then.i:                                        ; preds = %if.end4
 resolve_delta.exit:                               ; preds = %if.end4
   %bf.lshr = lshr i32 %bf.load, 1
   %bf.clear = and i32 %bf.lshr, 7
-  call void @free(ptr noundef %delta_data) #13
+  call void @free(ptr noundef nonnull %delta_data) #13
   %3 = load i64, ptr %result_size.i, align 8
-  call fastcc void @write_object(i32 noundef %nr, i32 noundef %bf.clear, ptr noundef nonnull %call.i5, i64 noundef %3)
+  call fastcc void @write_object(i32 noundef %nr, i32 noundef %bf.clear, ptr noundef %call.i5, i64 noundef %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_size.i)
   br label %return
 

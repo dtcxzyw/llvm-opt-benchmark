@@ -2091,7 +2091,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
 .critedge:                                        ; preds = %7
   call void @fsync_fname(ptr noundef nonnull %4, i1 noundef zeroext false) #14
   call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #14
-  call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef nonnull %3, i64 noundef 16, ptr noundef nonnull %4)
+  call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef nonnull %3, i64 noundef 16, ptr noundef %4)
   %22 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %22, 1369563137
   br i1 %.not, label %27, label %23
@@ -2122,7 +2122,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %35 = load ptr, ptr @pg_comp_crc32c, align 8
   %36 = call i32 %35(i32 noundef -1, ptr noundef nonnull %28, i64 noundef 8) #14
   %37 = getelementptr inbounds i8, ptr %3, i64 16
-  call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef nonnull %37, i64 noundef 128, ptr noundef nonnull %4)
+  call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef nonnull %37, i64 noundef 128, ptr noundef %4)
   %38 = load ptr, ptr @pg_comp_crc32c, align 8
   %39 = call i32 %38(i32 noundef %36, ptr noundef nonnull %37, i64 noundef 128) #14
   %40 = getelementptr inbounds i8, ptr %3, i64 96
@@ -2137,7 +2137,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %46 = call ptr @MemoryContextAllocZero(ptr noundef %45, i64 noundef %43) #14
   %47 = getelementptr inbounds i8, ptr %3, i64 120
   store ptr %46, ptr %47, align 8
-  call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef %46, i64 noundef %43, ptr noundef nonnull %4)
+  call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef %46, i64 noundef %43, ptr noundef %4)
   %48 = load ptr, ptr @pg_comp_crc32c, align 8
   %49 = load ptr, ptr %47, align 8
   %50 = call i32 %48(i32 noundef %39, ptr noundef %49, i64 noundef %43) #14
@@ -2157,7 +2157,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %58 = call ptr @MemoryContextAllocZero(ptr noundef %57, i64 noundef %55) #14
   %59 = getelementptr inbounds i8, ptr %3, i64 136
   store ptr %58, ptr %59, align 8
-  call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef %58, i64 noundef %55, ptr noundef nonnull %4)
+  call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef %58, i64 noundef %55, ptr noundef %4)
   %60 = load ptr, ptr @pg_comp_crc32c, align 8
   %61 = load ptr, ptr %59, align 8
   %62 = call i32 %60(i32 noundef %.048, ptr noundef %61, i64 noundef %55) #14
@@ -2614,7 +2614,7 @@ declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture nounde
 declare void @ReorderBufferSetRestartPoint(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SnapBuildRestoreContents(i32 noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @SnapBuildRestoreContents(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772210, ptr %5, align 4
   %6 = tail call i64 @read(i32 noundef %0, ptr noundef %1, i64 noundef %2) #14
@@ -2638,7 +2638,7 @@ define internal fastcc void @SnapBuildRestoreContents(i32 noundef %0, ptr nocapt
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %16)
   %17 = tail call i32 @errcode_for_file_access() #14
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef %3) #14
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef nonnull %3) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2036, ptr noundef nonnull @__func__.SnapBuildRestoreContents) #14
   unreachable
 
@@ -2646,7 +2646,7 @@ define internal fastcc void @SnapBuildRestoreContents(i32 noundef %0, ptr nocapt
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %20)
   %21 = tail call i32 @errcode(i32 noundef 16779816) #14
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef %3, i32 noundef %7, i64 noundef %2) #14
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef nonnull %3, i32 noundef %7, i64 noundef %2) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2042, ptr noundef nonnull @__func__.SnapBuildRestoreContents) #14
   unreachable
 

@@ -2093,7 +2093,7 @@ if.end10.i:                                       ; preds = %if.end14.i.i.i
   store i64 %31, ptr %.compoundliteral.sroa.2.0.driver_region.sroa_idx.i.i, align 8
   store i64 %sub.i35.i, ptr %.compoundliteral.sroa.3.0.driver_region.sroa_idx.i.i, align 8
   store i32 1, ptr %.compoundliteral.sroa.4.0.driver_region.sroa_idx.i.i, align 8
-  %call4.i.i31 = call fastcc zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %dev.val.i30, ptr noundef nonnull %driver_region.i.i, ptr noundef nonnull %err.i)
+  %call4.i.i31 = call fastcc zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %dev.val.i30, ptr noundef %driver_region.i.i, ptr noundef nonnull %err.i)
   br i1 %call4.i.i31, label %if.end10.i.i, label %vhost_vdpa_svq_map_rings.exit.thread.i
 
 vhost_vdpa_svq_map_rings.exit.thread.i:           ; preds = %if.end10.i
@@ -2118,7 +2118,7 @@ if.end10.i.i:                                     ; preds = %if.end10.i
   store i64 %35, ptr %.compoundliteral17.sroa.2.0.device_region.sroa_idx.i.i, align 8
   store i64 %sub21.i.i, ptr %.compoundliteral17.sroa.3.0.device_region.sroa_idx.i.i, align 8
   store i32 3, ptr %.compoundliteral17.sroa.4.0.device_region.sroa_idx.i.i, align 8
-  %call23.i.i = call fastcc zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %dev.val.i30, ptr noundef nonnull %device_region.i.i, ptr noundef nonnull %err.i)
+  %call23.i.i = call fastcc zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %dev.val.i30, ptr noundef %device_region.i.i, ptr noundef nonnull %err.i)
   br i1 %call23.i.i, label %if.end24.i, label %vhost_vdpa_svq_map_rings.exit.i
 
 vhost_vdpa_svq_map_rings.exit.i:                  ; preds = %if.end10.i.i
@@ -2705,7 +2705,7 @@ declare zeroext i1 @vhost_svq_valid_features(i64 noundef, ptr noundef) local_unn
 declare i32 @ram_block_discard_disable(i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vhost_vdpa_add_status(ptr noundef %dev, i8 noundef zeroext %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_vdpa_add_status(ptr noundef %dev, i8 noundef zeroext range(i8 3, 9) %status) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %s = alloca i8, align 1
@@ -4411,12 +4411,12 @@ declare i64 @vhost_svq_driver_area_size(ptr noundef) local_unnamed_addr #3
 declare void @vhost_svq_get_vring_addr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %v, ptr noundef %needle, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %v, ptr noundef nonnull %needle, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %byval-temp = alloca %struct.DMAMap, align 8
   %iova_tree = getelementptr inbounds i8, ptr %v, i64 248
   %0 = load ptr, ptr %iova_tree, align 8
-  %call = tail call i32 @vhost_iova_tree_map_alloc(ptr noundef %0, ptr noundef %needle) #12
+  %call = tail call i32 @vhost_iova_tree_map_alloc(ptr noundef %0, ptr noundef nonnull %needle) #12
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 

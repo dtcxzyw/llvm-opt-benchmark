@@ -329,12 +329,12 @@ _ZNK4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_8Fun
   %.not.i = icmp eq ptr %33, null
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.0.i = select i1 %.not.i, ptr null, ptr %34
-  tail call fastcc void @_ZN12_GLOBAL__N_17runImplERN4llvm8FunctionEPKNS0_17TargetLibraryInfoEPKNS0_19TargetTransformInfoEPKNS0_14TargetLoweringEPNS0_18ProfileSummaryInfoEPNS0_18BlockFrequencyInfoEPNS0_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %32, ptr noundef nonnull %31, ptr noundef %.0.i.i24, ptr noundef %30, ptr noundef %.0.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_17runImplERN4llvm8FunctionEPKNS0_17TargetLibraryInfoEPKNS0_19TargetTransformInfoEPKNS0_14TargetLoweringEPNS0_18ProfileSummaryInfoEPNS0_18BlockFrequencyInfoEPNS0_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %32, ptr noundef %31, ptr noundef %.0.i.i24, ptr noundef %30, ptr noundef %.0.i)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17runImplERN4llvm8FunctionEPKNS0_17TargetLibraryInfoEPKNS0_19TargetTransformInfoEPKNS0_14TargetLoweringEPNS0_18ProfileSummaryInfoEPNS0_18BlockFrequencyInfoEPNS0_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_17runImplERN4llvm8FunctionEPKNS0_17TargetLibraryInfoEPKNS0_19TargetTransformInfoEPKNS0_14TargetLoweringEPNS0_18ProfileSummaryInfoEPNS0_18BlockFrequencyInfoEPNS0_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -714,22 +714,22 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.thread.i.i: ; preds = %200, %_ZNK4llvm8Fun
   %232 = load i32, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %44)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull %85, i64 noundef 8) #16, !noalias !6
-  br i1 %.lcssa43.i.i.i, label %.critedge.i.i.i.i, label %.lr.ph34.i.i.i.i
+  br i1 %.lcssa43.i.i.i, label %.critedge.i.i.i.i, label %.lr.ph32.i.i.i.i
 
-.lr.ph34.i.i.i.i:                                 ; preds = %.critedge.i.i.i
+.lr.ph32.i.i.i.i:                                 ; preds = %.critedge.i.i.i
   %233 = zext i32 %232 to i64
   br label %234
 
-234:                                              ; preds = %257, %.lr.ph34.i.i.i.i
-  %.038.i.i.i = phi i32 [ 0, %.lr.ph34.i.i.i.i ], [ %.2.i.i.i, %257 ]
-  %.032.i.i.i.i = phi i64 [ %.0.i.i.i.i, %.lr.ph34.i.i.i.i ], [ %.1.i.i.i.i, %257 ]
-  %.01731.i.i.i.i = phi i64 [ 0, %.lr.ph34.i.i.i.i ], [ %.118.i.i.i.i, %257 ]
-  %.sroa.4.030.i.i.i.i = phi i64 [ %.sroa.6.0.lcssa.i.i.i, %.lr.ph34.i.i.i.i ], [ %258, %257 ]
-  %.sroa.022.029.i.i.i.i = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %.lr.ph34.i.i.i.i ], [ %259, %257 ]
-  %235 = load i32, ptr %.sroa.022.029.i.i.i.i, align 4, !noalias !6
+234:                                              ; preds = %257, %.lr.ph32.i.i.i.i
+  %.038.i.i.i = phi i32 [ 0, %.lr.ph32.i.i.i.i ], [ %.2.i.i.i, %257 ]
+  %.030.i.i.i.i = phi i64 [ %.0.i.i.i.i, %.lr.ph32.i.i.i.i ], [ %.1.i.i.i.i, %257 ]
+  %.01729.i.i.i.i = phi i64 [ 0, %.lr.ph32.i.i.i.i ], [ %.118.i.i.i.i, %257 ]
+  %.sroa.4.028.i.i.i.i = phi i64 [ %.sroa.6.0.lcssa.i.i.i, %.lr.ph32.i.i.i.i ], [ %258, %257 ]
+  %.sroa.022.027.i.i.i.i = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %.lr.ph32.i.i.i.i ], [ %259, %257 ]
+  %235 = load i32, ptr %.sroa.022.027.i.i.i.i, align 4, !noalias !6
   %236 = zext i32 %235 to i64
-  %237 = udiv i64 %.032.i.i.i.i, %236
-  %238 = urem i64 %.032.i.i.i.i, %236
+  %237 = udiv i64 %.030.i.i.i.i, %236
+  %238 = urem i64 %.030.i.i.i.i, %236
   %239 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #16, !noalias !6
   %240 = add i64 %239, %237
   %241 = icmp ugt i64 %240, %233
@@ -740,11 +740,11 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.thread.i.i: ; preds = %200, %_ZNK4llvm8Fun
   br label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELj8EEC2EOS4_.exit.i.i.i.i
 
 243:                                              ; preds = %234
-  %.not21.i.i.i.i = icmp ult i64 %.032.i.i.i.i, %236
+  %.not21.i.i.i.i = icmp ult i64 %.030.i.i.i.i, %236
   br i1 %.not21.i.i.i.i, label %257, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %243, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELb1EE9push_backES3_.exit.i.i.i.i
-  %.226.i.i.i.i = phi i64 [ %252, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELb1EE9push_backES3_.exit.i.i.i.i ], [ %.01731.i.i.i.i, %243 ]
+  %.226.i.i.i.i = phi i64 [ %252, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELb1EE9push_backES3_.exit.i.i.i.i ], [ %.01729.i.i.i.i, %243 ]
   %.01925.i.i.i.i = phi i64 [ %253, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELb1EE9push_backES3_.exit.i.i.i.i ], [ 0, %243 ]
   %244 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #16, !noalias !6
   %245 = add i64 %244, 1
@@ -779,10 +779,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115MemCmpExpansion9LoadEntryELb1
 
 257:                                              ; preds = %._crit_edge.i.i.i.i, %243
   %.2.i.i.i = phi i32 [ %.038.i.i.i, %243 ], [ %spec.select.i.i23.i, %._crit_edge.i.i.i.i ]
-  %.118.i.i.i.i = phi i64 [ %.01731.i.i.i.i, %243 ], [ %252, %._crit_edge.i.i.i.i ]
-  %.1.i.i.i.i = phi i64 [ %.032.i.i.i.i, %243 ], [ %238, %._crit_edge.i.i.i.i ]
-  %258 = add i64 %.sroa.4.030.i.i.i.i, -1
-  %259 = getelementptr inbounds i8, ptr %.sroa.022.029.i.i.i.i, i64 4
+  %.118.i.i.i.i = phi i64 [ %.01729.i.i.i.i, %243 ], [ %252, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi i64 [ %.030.i.i.i.i, %243 ], [ %238, %._crit_edge.i.i.i.i ]
+  %258 = add i64 %.sroa.4.028.i.i.i.i, -1
+  %259 = getelementptr inbounds i8, ptr %.sroa.022.027.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq i64 %.1.i.i.i.i, 0
   %260 = icmp eq i64 %258, 0
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %260
@@ -4415,7 +4415,7 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
 
 ._crit_edge.thread:                               ; preds = %_ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backERKS2_.exit, %38, %._crit_edge
   %.037.lcssa65 = phi ptr [ null, %._crit_edge ], [ null, %38 ], [ %86, %_ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backERKS2_.exit ]
-  call fastcc void @"_ZZN12_GLOBAL__N_115MemCmpExpansion19getCompareLoadPairsEjRjENK3$_0clERSt6vectorIPN4llvm5ValueESaIS6_EE"(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZZN12_GLOBAL__N_115MemCmpExpansion19getCompareLoadPairsEjRjENK3$_0clERSt6vectorIPN4llvm5ValueESaIS6_EE"(ptr dead_on_unwind noalias writable align 8 %10, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %135 = load ptr, ptr %6, align 8
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4455,7 +4455,7 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit:     ; preds = %144, %._crit_edge.t
   %154 = phi i64 [ %149, %.lr.ph49 ], [ %164, %_ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit29 ]
   %155 = phi ptr [ %139, %.lr.ph49 ], [ %157, %_ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit29 ]
   %156 = phi ptr [ %143, %.lr.ph49 ], [ %159, %_ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit29 ]
-  call fastcc void @"_ZZN12_GLOBAL__N_115MemCmpExpansion19getCompareLoadPairsEjRjENK3$_0clERSt6vectorIPN4llvm5ValueESaIS6_EE"(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @"_ZZN12_GLOBAL__N_115MemCmpExpansion19getCompareLoadPairsEjRjENK3$_0clERSt6vectorIPN4llvm5ValueESaIS6_EE"(ptr dead_on_unwind noalias writable align 8 %11, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %157 = load ptr, ptr %11, align 8
   store ptr %157, ptr %6, align 8
   %158 = load ptr, ptr %151, align 8
@@ -4790,7 +4790,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit57:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_115MemCmpExpansion19getCompareLoadPairsEjRjENK3$_0clERSt6vectorIPN4llvm5ValueESaIS6_EE"(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_115MemCmpExpansion19getCompareLoadPairsEjRjENK3$_0clERSt6vectorIPN4llvm5ValueESaIS6_EE"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -6220,7 +6220,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_24DominatorTreeWrapperPassEEEPT_v.exit
 
 _ZNK4llvm4Pass22getAnalysisIfAvailableINS_24DominatorTreeWrapperPassEEEPT_v.exit.thread: ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_24DominatorTreeWrapperPassEEEPT_v.exit, %_ZN4llvm26LazyBlockFrequencyInfoPass6getBFIEv.exit
   %.019 = phi ptr [ null, %_ZN4llvm26LazyBlockFrequencyInfoPass6getBFIEv.exit ], [ %spec.select, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_24DominatorTreeWrapperPassEEEPT_v.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_17runImplERN4llvm8FunctionEPKNS0_17TargetLibraryInfoEPKNS0_19TargetTransformInfoEPKNS0_14TargetLoweringEPNS0_18ProfileSummaryInfoEPNS0_18BlockFrequencyInfoEPNS0_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull %42, ptr noundef nonnull %62, ptr noundef nonnull %79, ptr noundef %121, ptr noundef %.019)
+  call fastcc void @_ZN12_GLOBAL__N_17runImplERN4llvm8FunctionEPKNS0_17TargetLibraryInfoEPKNS0_19TargetTransformInfoEPKNS0_14TargetLoweringEPNS0_18ProfileSummaryInfoEPNS0_18BlockFrequencyInfoEPNS0_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %42, ptr noundef %62, ptr noundef nonnull %79, ptr noundef %121, ptr noundef %.019)
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %130 = load i32, ptr %129, align 4
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 72

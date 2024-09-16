@@ -7533,7 +7533,7 @@ lpad49:                                           ; preds = %if.else
   br label %ehcleanup83
 
 if.else:                                          ; preds = %for.body.i54
-  invoke fastcc void @_ZN3mbpL5mk_eqERK10ref_vectorI4expr11ast_managerES5_(ptr noalias nonnull align 8 %idx_eq, ptr noundef nonnull align 8 dereferenceable(16) %idxs, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i48)
+  invoke fastcc void @_ZN3mbpL5mk_eqERK10ref_vectorI4expr11ast_managerES5_(ptr noalias align 8 %idx_eq, ptr noundef nonnull align 8 dereferenceable(16) %idxs, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i48)
           to label %invoke.cont59 unwind label %lpad49
 
 invoke.cont59:                                    ; preds = %if.else
@@ -9581,7 +9581,7 @@ declare void @_ZN3peqC1EP3appR11ast_manager(ptr noundef nonnull align 8 derefere
 declare void @_ZN15model_evaluatorclERK10ref_vectorI4expr11ast_managerE(ptr sret(%class.ref_vector) align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3mbpL5mk_eqERK10ref_vectorI4expr11ast_managerES5_(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %xs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ys) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3mbpL5mk_eqERK10ref_vectorI4expr11ast_managerES5_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %xs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ys) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %eqs = alloca %class.ref_vector, align 8
   %0 = load ptr, ptr %xs, align 8
@@ -16198,7 +16198,7 @@ invoke.cont35:                                    ; preds = %for.body26, %for.co
 invoke.cont37:                                    ; preds = %invoke.cont35
   %58 = load ptr, ptr %m_idxs, align 8
   %arrayidx.i90 = getelementptr inbounds %"struct.mbp::array_project_selects_util::idx_val", ptr %58, i64 %idxprom.i
-  invoke fastcc void @_ZN3mbpL5mk_eqERK10ref_vectorI4expr11ast_managerES5_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %idxs, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i90)
+  invoke fastcc void @_ZN3mbpL5mk_eqERK10ref_vectorI4expr11ast_managerES5_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %idxs, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i90)
           to label %invoke.cont41 unwind label %lpad28
 
 invoke.cont41:                                    ; preds = %invoke.cont37

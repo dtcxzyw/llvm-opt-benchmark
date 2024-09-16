@@ -192,7 +192,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %39
   br i1 %54, label %446, label %55
 
 55:                                               ; preds = %52
-  %56 = call fastcc i32 @H5DS_is_reserved(i64 noundef %0, ptr noundef nonnull %14)
+  %56 = call fastcc i32 @H5DS_is_reserved(i64 noundef %0, ptr noundef %14)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %446, label %58
 
@@ -1112,7 +1112,7 @@ declare i32 @H5Oget_info3(i64 noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @H5Otoken_cmp(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5DS_is_reserved(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5DS_is_reserved(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %union.anon.12, align 8
   %5 = alloca ptr, align 8

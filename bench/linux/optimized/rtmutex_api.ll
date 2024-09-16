@@ -778,7 +778,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @try_to_take_rt_mutex(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -35, 1) i32 @task_blocks_on_rt_mutex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 section ".sched.text" align 16 {
+define internal fastcc noundef range(i32 -35, 1) i32 @task_blocks_on_rt_mutex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 section ".sched.text" align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load volatile ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -1050,7 +1050,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @task_blocks_on_rt_mutex(pt
   br label %161
 
 159:                                              ; preds = %88
-  %160 = icmp eq i32 %3, 1
+  %160 = icmp ne i32 %3, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 2096
   %.pre = load ptr, ptr %.phi.trans.insert, align 16
   br label %161
@@ -1413,7 +1413,7 @@ define dso_local noundef range(i32 -110, 1) i32 @rt_mutex_wait_proxy_lock(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock_block(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #1 section ".sched.text" align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock_block(ptr noundef %0, i32 noundef range(i32 1, 259) %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #1 section ".sched.text" align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call fastcc i32 @try_to_take_rt_mutex(ptr noundef %0, ptr noundef %6, ptr noundef %3), !range !9
@@ -1687,8 +1687,8 @@ define dso_local void @rt_mutex_adjust_pi(ptr noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone %3, ptr noundef readnone %4, ptr noundef %5) unnamed_addr #1 section ".sched.text" align 16 {
-  %7 = icmp eq i32 %1, 1
+define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef readnone %3, ptr noundef readnone %4, ptr noundef %5) unnamed_addr #1 section ".sched.text" align 16 {
+  %7 = icmp ne i32 %1, 0
   %8 = load i32, ptr @max_lock_depth, align 4
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %.loopexit53, label %10
@@ -2442,7 +2442,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock(ptr noundef %0, i32 noundef %1) unnamed_addr #1 section ".sched.text" align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock(ptr noundef %0, i32 noundef range(i32 1, 259) %1) unnamed_addr #1 section ".sched.text" align 16 {
   %3 = alloca %struct.rt_mutex_waiter, align 8
   tail call void @rt_mutex_pre_schedule() #11
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #11
@@ -2600,7 +2600,7 @@ declare dso_local void @rt_mutex_pre_schedule() local_unnamed_addr #4
 declare dso_local void @rt_mutex_post_schedule() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rt_mutex_handle_deadlock(i32 noundef %0) unnamed_addr #1 section ".sched.text" align 16 {
+define internal fastcc void @rt_mutex_handle_deadlock(i32 noundef range(i32 -110, 0) %0) unnamed_addr #1 section ".sched.text" align 16 {
   %2 = icmp eq i32 %0, -35
   br i1 %2, label %4, label %3
 

@@ -4776,7 +4776,7 @@ do.body:                                          ; preds = %do.cond, %if.end9
   %add = add i32 %walk_index.0, 2
   %cond = call i32 @llvm.smax.i32(i32 %add, i32 3)
   %inc = add i32 %walk_index.0, 1
-  %call16 = call fastcc i32 @walk_over_reftable(ptr noundef %bs, ptr noundef nonnull %new_reftable, ptr noundef nonnull %new_reftable_index, ptr noundef nonnull %new_reftable_size, ptr noundef null, i32 noundef %shl11, i32 noundef %shl, ptr noundef nonnull @alloc_refblock, ptr noundef nonnull %new_allocation, ptr noundef null, ptr noundef %status_cb, ptr noundef %cb_opaque, i32 noundef %walk_index.0, i32 noundef %cond, ptr noundef %errp)
+  %call16 = call fastcc i32 @walk_over_reftable(ptr noundef %bs, ptr noundef %new_reftable, ptr noundef %new_reftable_index, ptr noundef %new_reftable_size, ptr noundef null, i32 noundef %shl11, i32 noundef %shl, ptr noundef nonnull @alloc_refblock, ptr noundef %new_allocation, ptr noundef null, ptr noundef %status_cb, ptr noundef %cb_opaque, i32 noundef %walk_index.0, i32 noundef %cond, ptr noundef %errp)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %donethread-pre-split, label %if.end20
 
@@ -4839,7 +4839,7 @@ do.cond:                                          ; preds = %if.end20, %if.end33
   br i1 %tobool35, label %do.body, label %do.end, !llvm.loop !41
 
 do.end:                                           ; preds = %do.cond
-  %call37 = call fastcc i32 @walk_over_reftable(ptr noundef %bs, ptr noundef nonnull %new_reftable, ptr noundef nonnull %new_reftable_index, ptr noundef nonnull %new_reftable_size, ptr noundef %call, i32 noundef %shl11, i32 noundef %shl, ptr noundef nonnull @flush_refblock, ptr noundef nonnull %new_allocation, ptr noundef %7, ptr noundef %status_cb, ptr noundef %cb_opaque, i32 noundef %inc, i32 noundef %add, ptr noundef %errp)
+  %call37 = call fastcc i32 @walk_over_reftable(ptr noundef %bs, ptr noundef %new_reftable, ptr noundef %new_reftable_index, ptr noundef %new_reftable_size, ptr noundef %call, i32 noundef %shl11, i32 noundef %shl, ptr noundef nonnull @flush_refblock, ptr noundef %new_allocation, ptr noundef %7, ptr noundef %status_cb, ptr noundef %cb_opaque, i32 noundef %inc, i32 noundef %add, ptr noundef %errp)
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %donethread-pre-split, label %if.end41
 
@@ -5111,7 +5111,7 @@ if.end129:                                        ; preds = %if.then3.i114, %do.
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @walk_over_reftable(ptr noundef %bs, ptr noundef %new_reftable, ptr nocapture noundef %new_reftable_index, ptr noundef %new_reftable_size, ptr noundef %new_refblock, i32 noundef %new_refblock_size, i32 noundef %new_refcount_bits, ptr nocapture noundef readonly %operation, ptr noundef %allocated, ptr noundef readonly %new_set_refcount, ptr nocapture noundef readonly %status_cb, ptr noundef %cb_opaque, i32 noundef %index, i32 noundef %total, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @walk_over_reftable(ptr noundef %bs, ptr noundef nonnull %new_reftable, ptr nocapture noundef nonnull %new_reftable_index, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i32 noundef %new_refblock_size, i32 noundef %new_refcount_bits, ptr nocapture noundef readonly %operation, ptr noundef nonnull %allocated, ptr noundef readonly %new_set_refcount, ptr nocapture noundef readonly %status_cb, ptr noundef %cb_opaque, i32 noundef %index, i32 noundef %total, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %refblock = alloca ptr, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -5193,7 +5193,7 @@ for.body19.us:                                    ; preds = %for.body19.lr.ph, %
 if.then22.us:                                     ; preds = %for.body19.us
   %8 = load i64, ptr %new_reftable_index, align 8
   %tobool23.us = trunc nuw i8 %new_refblock_empty.1132.us to i1
-  %call24.us = call i32 %operation(ptr noundef %bs, ptr noundef %new_reftable, i64 noundef %8, ptr noundef %new_reftable_size, ptr noundef %new_refblock, i1 noundef zeroext %tobool23.us, ptr noundef %allocated, ptr noundef %errp) #17, !callees !45
+  %call24.us = call i32 %operation(ptr noundef %bs, ptr noundef nonnull %new_reftable, i64 noundef %8, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i1 noundef zeroext %tobool23.us, ptr noundef nonnull %allocated, ptr noundef %errp) #17, !callees !45
   %cmp25.us = icmp slt i32 %call24.us, 0
   br i1 %cmp25.us, label %if.then27, label %if.end29.us
 
@@ -5243,7 +5243,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
 if.then22:                                        ; preds = %for.body19
   %15 = load i64, ptr %new_reftable_index, align 8
   %tobool23 = trunc nuw i8 %new_refblock_empty.1132 to i1
-  %call24 = call i32 %operation(ptr noundef %bs, ptr noundef %new_reftable, i64 noundef %15, ptr noundef %new_reftable_size, ptr noundef %new_refblock, i1 noundef zeroext %tobool23, ptr noundef %allocated, ptr noundef %errp) #17, !callees !45
+  %call24 = call i32 %operation(ptr noundef %bs, ptr noundef nonnull %new_reftable, i64 noundef %15, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i1 noundef zeroext %tobool23, ptr noundef nonnull %allocated, ptr noundef %errp) #17, !callees !45
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %if.then27, label %if.end29
 
@@ -5320,7 +5320,7 @@ for.body61:                                       ; preds = %for.cond57.preheade
 if.then64:                                        ; preds = %for.body61
   %27 = load i64, ptr %new_reftable_index, align 8
   %tobool65 = trunc nuw i8 %new_refblock_empty.3140 to i1
-  %call66 = call i32 %operation(ptr noundef %bs, ptr noundef %new_reftable, i64 noundef %27, ptr noundef %new_reftable_size, ptr noundef %new_refblock, i1 noundef zeroext %tobool65, ptr noundef %allocated, ptr noundef %errp) #17, !callees !45
+  %call66 = call i32 %operation(ptr noundef %bs, ptr noundef nonnull %new_reftable, i64 noundef %27, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i1 noundef zeroext %tobool65, ptr noundef nonnull %allocated, ptr noundef %errp) #17, !callees !45
   %cmp67 = icmp slt i32 %call66, 0
   br i1 %cmp67, label %return, label %if.end70
 
@@ -5381,7 +5381,7 @@ for.body95:                                       ; preds = %for.body95.preheade
 
 if.end100:                                        ; preds = %for.body95, %if.then89
   %34 = load i64, ptr %new_reftable_index, align 8
-  %call102 = call i32 %operation(ptr noundef %bs, ptr noundef %new_reftable, i64 noundef %34, ptr noundef %new_reftable_size, ptr noundef %new_refblock, i1 noundef zeroext %31, ptr noundef %allocated, ptr noundef %errp) #17, !callees !45
+  %call102 = call i32 %operation(ptr noundef %bs, ptr noundef nonnull %new_reftable, i64 noundef %34, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i1 noundef zeroext %31, ptr noundef nonnull %allocated, ptr noundef %errp) #17, !callees !45
   %cmp103 = icmp slt i32 %call102, 0
   br i1 %cmp103, label %return, label %if.end106
 
@@ -6310,7 +6310,7 @@ declare ptr @qcow2_cache_is_table_offset(ptr noundef, i64 noundef) local_unnamed
 declare void @qcow2_cache_discard(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @update_refcount_discard(ptr noundef %bs, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 {
+define internal fastcc void @update_refcount_discard(ptr noundef %bs, i64 noundef %offset, i64 noundef range(i64 -2147483648, 2147483648) %length) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

@@ -2475,7 +2475,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
 
 651:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl14standard_traceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110ExpressionETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsERNS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbOT2_DpOT3_.exit, %_ZN21PXR_INTERNAL_NS_pegtl5parseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110ExpressionETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsELNS_10apply_modeE1ELNS_11rewind_modeE1ERNS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDaOT4_DpOT5_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #25
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %21)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %21)
           to label %652 unwind label %666
 
 652:                                              ; preds = %651
@@ -2739,7 +2739,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %.val = load ptr, ptr %1, align 8
@@ -2821,7 +2821,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111N
   %30 = load ptr, ptr %.val.i.i.i.ptr, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.val.i.i.i.ptr, ptr noundef %2)
+  invoke void %32(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.val.i.i.i.ptr, ptr noundef nonnull %2)
           to label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS2_EED2Ev.exit13
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreatorESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit
@@ -8258,7 +8258,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %4)
           to label %10 unwind label %15
 
 10:                                               ; preds = %3
@@ -8895,7 +8895,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %4)
           to label %10 unwind label %15
 
 10:                                               ; preds = %3

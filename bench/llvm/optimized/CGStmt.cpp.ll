@@ -5434,8 +5434,8 @@ _ZNK5clang4Type27isMemberFunctionPointerTypeEv.exit.thread.i: ; preds = %_ZNK5cl
 
 221:                                              ; preds = %_ZNK5clang4Type27isMemberFunctionPointerTypeEv.exit.thread.i
   %222 = load i8, ptr %spec.select.i.i, align 8
-  %.not57.i = icmp eq i8 %222, 92
-  br i1 %.not57.i, label %223, label %_ZL18isSwiftAsyncCalleePKN5clang8CallExprE.exit.thread
+  %.not56.i = icmp eq i8 %222, 92
+  br i1 %.not56.i, label %223, label %_ZL18isSwiftAsyncCalleePKN5clang8CallExprE.exit.thread
 
 223:                                              ; preds = %221
   %224 = call noundef ptr @_ZNK5clang17CXXMemberCallExpr13getMethodDeclEv(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i) #17
@@ -7435,7 +7435,7 @@ _ZL27EmitHipStdParUnsupportedAsmPN5clang7CodeGen15CodeGenFunctionERKNS_7AsmStmtE
   %302 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #17
   %303 = getelementptr inbounds i8, ptr %302, i64 1
   %304 = load ptr, ptr %264, align 8
-  call fastcc void @_ZL18SimplifyConstraintB5cxx11PKcRKN5clang10TargetInfoEPN4llvm15SmallVectorImplINS2_14ConstraintInfoEEE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull %303, ptr noundef nonnull align 8 dereferenceable(489) %304, ptr noundef nonnull %21)
+  call fastcc void @_ZL18SimplifyConstraintB5cxx11PKcRKN5clang10TargetInfoEPN4llvm15SmallVectorImplINS2_14ConstraintInfoEEE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull %303, ptr noundef nonnull align 8 dereferenceable(489) %304, ptr noundef %21)
   %305 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %37) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #17
   %306 = call noundef ptr @_ZNK5clang7AsmStmt13getOutputExprEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %293) #17
@@ -7449,7 +7449,7 @@ _ZL27EmitHipStdParUnsupportedAsmPN5clang7CodeGen15CodeGenFunctionERKNS_7AsmStmtE
   %313 = load i32, ptr %292, align 8
   %314 = and i32 %313, 32
   %315 = icmp ne i32 %314, 0
-  call fastcc void @_ZL22AddVariableConstraintsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5clang4ExprERKNS7_10TargetInfoERNS7_7CodeGen13CodeGenModuleERKNS7_7AsmStmtEbPS4_(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(16) %310, ptr noundef nonnull align 8 dereferenceable(489) %311, ptr noundef nonnull align 8 dereferenceable(3600) %312, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %315, ptr noundef nonnull %38)
+  call fastcc void @_ZL22AddVariableConstraintsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5clang4ExprERKNS7_10TargetInfoERNS7_7CodeGen13CodeGenModuleERKNS7_7AsmStmtEbPS4_(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(16) %310, ptr noundef nonnull align 8 dereferenceable(489) %311, ptr noundef nonnull align 8 dereferenceable(3600) %312, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %315, ptr noundef nonnull %38)
   %316 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %39) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #17
   %317 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
@@ -9025,7 +9025,7 @@ _ZN5clang7CodeGen15CodeGenFunction25MakeAddrLValueWithoutTBAAENS0_7AddressENS_8Q
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #17
   %981 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #17
   %982 = load ptr, ptr %944, align 8
-  call fastcc void @_ZL18SimplifyConstraintB5cxx11PKcRKN5clang10TargetInfoEPN4llvm15SmallVectorImplINS2_14ConstraintInfoEEE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef %981, ptr noundef nonnull align 8 dereferenceable(489) %982, ptr noundef nonnull %21)
+  call fastcc void @_ZL18SimplifyConstraintB5cxx11PKcRKN5clang10TargetInfoEPN4llvm15SmallVectorImplINS2_14ConstraintInfoEEE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef %981, ptr noundef nonnull align 8 dereferenceable(489) %982, ptr noundef %21)
   %983 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %51) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #17
   %984 = load ptr, ptr %105, align 8
@@ -9033,7 +9033,7 @@ _ZN5clang7CodeGen15CodeGenFunction25MakeAddrLValueWithoutTBAAENS0_7AddressENS_8Q
   %986 = load ptr, ptr %985, align 8
   %987 = call noundef ptr @_ZN5clang4Expr20IgnoreParenNoopCastsERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %964, ptr noundef nonnull align 8 dereferenceable(23096) %986) #16
   %988 = load ptr, ptr %944, align 8
-  call fastcc void @_ZL22AddVariableConstraintsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5clang4ExprERKNS7_10TargetInfoERNS7_7CodeGen13CodeGenModuleERKNS7_7AsmStmtEbPS4_(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(16) %987, ptr noundef nonnull align 8 dereferenceable(489) %988, ptr noundef nonnull align 8 dereferenceable(3600) %984, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL22AddVariableConstraintsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5clang4ExprERKNS7_10TargetInfoERNS7_7CodeGen13CodeGenModuleERKNS7_7AsmStmtEbPS4_(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(16) %987, ptr noundef nonnull align 8 dereferenceable(489) %988, ptr noundef nonnull align 8 dereferenceable(3600) %984, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext false, ptr noundef null)
   %989 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %52) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %49) #17
@@ -16152,7 +16152,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18SimplifyConstraintB5cxx11PKcRKN5clang10TargetInfoEPN4llvm15SmallVectorImplINS2_14ConstraintInfoEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(489) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18SimplifyConstraintB5cxx11PKcRKN5clang10TargetInfoEPN4llvm15SmallVectorImplINS2_14ConstraintInfoEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(489) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [21 x i8], align 16
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca ptr, align 8
@@ -16304,7 +16304,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZNK5clang7AsmStmt13getOutputExprEj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22AddVariableConstraintsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5clang4ExprERKNS7_10TargetInfoERNS7_7CodeGen13CodeGenModuleERKNS7_7AsmStmtEbPS4_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull align 8 dereferenceable(3600) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL22AddVariableConstraintsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5clang4ExprERKNS7_10TargetInfoERNS7_7CodeGen13CodeGenModuleERKNS7_7AsmStmtEbPS4_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull align 8 dereferenceable(3600) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"struct.clang::TargetInfo::ConstraintInfo", align 8

@@ -6630,7 +6630,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit182.i:              ; preds = %_ZN5Yosys5RTLIL5Con
   br i1 %2188, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit321.i, label %2189
 
 2189:                                             ; preds = %2186
-  invoke fastcc void @_ZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE8_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %44)
+  invoke fastcc void @_ZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE8_clEv(ptr dead_on_unwind noalias writable align 4 %44)
           to label %2190 unwind label %2401
 
 2190:                                             ; preds = %2189
@@ -6640,7 +6640,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit182.i:              ; preds = %_ZN5Yosys5RTLIL5Con
   br i1 %2193, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, label %2194
 
 2194:                                             ; preds = %2190
-  invoke fastcc void @_ZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE9_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %45)
+  invoke fastcc void @_ZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE9_clEv(ptr dead_on_unwind noalias writable align 4 %45)
           to label %2195 unwind label %2403
 
 2195:                                             ; preds = %2194
@@ -80703,7 +80703,7 @@ _ZNK5Yosys7hashlib4dictImPNS_5RTLIL4CellENS0_8hash_opsImEEE7do_hashERKm.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE8_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !14
@@ -80749,7 +80749,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_114OptMergeWorker39compare_cell_parameters_and_connectionsEPKN5Yosys5RTLIL4CellES5_ENKUlvE9_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !14

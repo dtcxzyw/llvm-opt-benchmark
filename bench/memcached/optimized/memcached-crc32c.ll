@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @crc32c_zeros(ptr nocapture noundef writeonly %zeros, i64 noundef %len) unnamed_addr #6 {
+define internal fastcc void @crc32c_zeros(ptr nocapture noundef writeonly %zeros, i64 noundef range(i64 256, 8193) %len) unnamed_addr #6 {
 entry:
   %odd.i = alloca [32 x i32], align 16
   %op = alloca [32 x i32], align 16

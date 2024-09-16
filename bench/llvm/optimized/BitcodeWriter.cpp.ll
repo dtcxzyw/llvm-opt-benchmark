@@ -30262,7 +30262,7 @@ _ZNK4llvm15FunctionSummary13paramAccessesEv.exit.thread.i.i: ; preds = %1548, %.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFjjEZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E9_M_invokeERKSt9_Any_dataOj", ptr %1231, align 8
   store ptr @"_ZNSt17_Function_handlerIFjjEZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS3_18GlobalValueSummaryEjjjjjRKNS3_8FunctionEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %1230, align 8
-  call fastcc void @_ZL31writeFunctionHeapProfileRecordsRN4llvm15BitstreamWriterEPNS_15FunctionSummaryEjjbSt8functionIFjRKNS_9ValueInfoEEES4_IFjjEE(ptr noundef nonnull align 8 dereferenceable(152) %1553, ptr noundef %1270, i32 noundef %1070, i32 noundef %1168, i1 noundef zeroext true, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @_ZL31writeFunctionHeapProfileRecordsRN4llvm15BitstreamWriterEPNS_15FunctionSummaryEjjbSt8functionIFjRKNS_9ValueInfoEEES4_IFjjEE(ptr noundef nonnull align 8 dereferenceable(152) %1553, ptr noundef %1270, i32 noundef %1070, i32 noundef %1168, i1 noundef zeroext true, ptr noundef %13, ptr noundef %14)
   %1554 = load ptr, ptr %1230, align 8
   %.not.i.i59.i = icmp eq ptr %1554, null
   br i1 %.not.i.i59.i, label %_ZNSt8functionIFjjEED2Ev.exit.i, label %1555
@@ -31290,7 +31290,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit630: ; preds = %2044, %2049, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17writeStringRecordRN4llvm15BitstreamWriterEjNS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, ptr readonly %2, i64 %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17writeStringRecordRN4llvm15BitstreamWriterEjNS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef range(i32 1, 20) %1, ptr readonly %2, i64 %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.415", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef 64) #27
@@ -58761,7 +58761,7 @@ declare noundef i64 @_ZN4llvm11GlobalValue7getGUIDENS_9StringRefE(ptr, i64) loca
 declare void @_ZNK4llvm11GlobalValue19getGlobalIdentifierB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31writeFunctionHeapProfileRecordsRN4llvm15BitstreamWriterEPNS_15FunctionSummaryEjjbSt8functionIFjRKNS_9ValueInfoEEES4_IFjjEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZL31writeFunctionHeapProfileRecordsRN4llvm15BitstreamWriterEPNS_15FunctionSummaryEjjbSt8functionIFjRKNS_9ValueInfoEEES4_IFjjEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %"class.llvm::SmallVector.765", align 8
@@ -59223,7 +59223,7 @@ _ZN4llvm11SmallVectorImLj6EED2Ev.exit:            ; preds = %._crit_edge153, %22
 declare i64 @_ZNK4llvm15FunctionSummary16specialRefCountsEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL32writeFunctionTypeMetadataRecordsIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_2EvRNS2_15BitstreamWriterEPNS2_15FunctionSummaryET_ENKUlmNS2_8ArrayRefINSE_7VFuncIdEEEE_clEmSJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL32writeFunctionTypeMetadataRecordsIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_2EvRNS2_15BitstreamWriterEPNS2_15FunctionSummaryET_ENKUlmNS2_8ArrayRefINSE_7VFuncIdEEEE_clEmSJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef range(i64 12, 14) %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %40, label %.lr.ph.preheader
 
@@ -59297,7 +59297,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL32writeFunctionTypeMetadataRecordsIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_2EvRNS2_15BitstreamWriterEPNS2_15FunctionSummaryET_ENKUlmNS2_8ArrayRefINSE_10ConstVCallEEEE_clEmSJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL32writeFunctionTypeMetadataRecordsIZN12_GLOBAL__N_123ModuleBitcodeWriterBase35writePerModuleFunctionSummaryRecordERN4llvm11SmallVectorImLj64EEEPNS2_18GlobalValueSummaryEjjjjjRKNS2_8FunctionEE3$_2EvRNS2_15BitstreamWriterEPNS2_15FunctionSummaryET_ENKUlmNS2_8ArrayRefINSE_10ConstVCallEEEE_clEmSJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef range(i64 14, 16) %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds %"struct.llvm::FunctionSummary::ConstVCall", ptr %2, i64 %3
   %.not13 = icmp eq i64 %3, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -68074,7 +68074,7 @@ _ZNK4llvm15FunctionSummary13paramAccessesEv.exit.thread.i: ; preds = %578, %._cr
   store i64 %599, ptr %21, align 8
   store ptr @"_ZNSt17_Function_handlerIFjjEZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E9_M_invokeERKSt9_Any_dataOj", ptr %597, align 8
   store ptr @"_ZNSt17_Function_handlerIFjjEZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUljE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %596, align 8
-  call fastcc void @_ZL31writeFunctionHeapProfileRecordsRN4llvm15BitstreamWriterEPNS_15FunctionSummaryEjjbSt8functionIFjRKNS_9ValueInfoEEES4_IFjjEE(ptr noundef nonnull align 8 dereferenceable(152) %585, ptr noundef %149, i32 noundef %588, i32 noundef %591, i1 noundef zeroext false, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  call fastcc void @_ZL31writeFunctionHeapProfileRecordsRN4llvm15BitstreamWriterEPNS_15FunctionSummaryEjjbSt8functionIFjRKNS_9ValueInfoEEES4_IFjjEE(ptr noundef nonnull align 8 dereferenceable(152) %585, ptr noundef %149, i32 noundef %588, i32 noundef %591, i1 noundef zeroext false, ptr noundef %20, ptr noundef %21)
   %600 = load ptr, ptr %596, align 8
   %.not.i.i143 = icmp eq ptr %600, null
   br i1 %.not.i.i143, label %_ZNSt8functionIFjjEED2Ev.exit, label %601
@@ -69212,7 +69212,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18GlobalValueSummaryEjNS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL32writeFunctionTypeMetadataRecordsIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE_EvRNS4_15BitstreamWriterEPNS4_15FunctionSummaryET_ENKUlmNS4_8ArrayRefINSE_7VFuncIdEEEE_clEmSJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL32writeFunctionTypeMetadataRecordsIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE_EvRNS4_15BitstreamWriterEPNS4_15FunctionSummaryET_ENKUlmNS4_8ArrayRefINSE_7VFuncIdEEEE_clEmSJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef range(i64 12, 14) %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %40, label %.lr.ph.preheader
 
@@ -69286,7 +69286,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL32writeFunctionTypeMetadataRecordsIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE_EvRNS4_15BitstreamWriterEPNS4_15FunctionSummaryET_ENKUlmNS4_8ArrayRefINSE_10ConstVCallEEEE_clEmSJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL32writeFunctionTypeMetadataRecordsIZZN12_GLOBAL__N_118IndexBitcodeWriter31writeCombinedGlobalValueSummaryEvENK3$_0clESt4pairImPN4llvm18GlobalValueSummaryEEbEUlRKNS4_9ValueInfoEE_EvRNS4_15BitstreamWriterEPNS4_15FunctionSummaryET_ENKUlmNS4_8ArrayRefINSE_10ConstVCallEEEE_clEmSJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef range(i64 14, 16) %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds %"struct.llvm::FunctionSummary::ConstVCall", ptr %2, i64 %3
   %.not13 = icmp eq i64 %3, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph

@@ -1359,6 +1359,7 @@ entry:
 while.cond.preheader:                             ; preds = %for.body
   %state.i.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 824
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
+  %wide.trip.count = and i64 %.fr, 4294967295
   br label %while.cond.outer.us
 
 while.cond.outer.us:                              ; preds = %while.cond.outer.us.backedge, %while.cond.preheader
@@ -1383,17 +1384,16 @@ if.end.i.us:                                      ; preds = %if.end.us
   %call1.i.i.us = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i.us) #11
   br label %for.body.i.us
 
-for.body.i.us:                                    ; preds = %if.end.i.us, %for.inc.i.us
-  %conv548.i.us = phi i64 [ %conv5.i.us, %for.inc.i.us ], [ 1, %if.end.i.us ]
-  %i.047.i.us = phi i32 [ %inc32.i.us, %for.inc.i.us ], [ 1, %if.end.i.us ]
-  %arrayidx8.i.us = getelementptr inbounds i8, ptr %vla, i64 %conv548.i.us
+for.body.i.us:                                    ; preds = %for.inc.i.us, %if.end.i.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i.us ], [ 1, %if.end.i.us ]
+  %arrayidx8.i.us = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx8.i.us, align 1
   %tobool9.i.us = trunc i8 %3 to i1
   br i1 %tobool9.i.us, label %for.inc.i.us, label %if.end11.i.us
 
 if.end11.i.us:                                    ; preds = %for.body.i.us
   %4 = load ptr, ptr @background_thread_info, align 8
-  %arrayidx13.i.us = getelementptr inbounds %struct.background_thread_info_s, ptr %4, i64 %conv548.i.us
+  %arrayidx13.i.us = getelementptr inbounds %struct.background_thread_info_s, ptr %4, i64 %indvars.iv
   %lock.i.i.i.us = getelementptr inbounds i8, ptr %arrayidx13.i.us, i64 128
   %call.i.i.i.us = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i.i.us) #11
   %cmp.i.not.i.i.us = icmp eq i32 %call.i.i.i.us, 0
@@ -1434,7 +1434,7 @@ malloc_mutex_lock.exit.i.us:                      ; preds = %if.then.i.i.i.us, %
   br i1 %cmp15.i.us, label %if.end20.i.us, label %for.inc.i.us
 
 if.end20.i.us:                                    ; preds = %malloc_mutex_lock.exit.i.us
-  %arrayidx8.i.us.le = getelementptr inbounds i8, ptr %vla, i64 %conv548.i.us
+  %arrayidx8.i.us.le = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv
   %9 = load i8, ptr %state.i.i.i.i.i, align 8
   %cmp.i.i.i.i.us = icmp eq i8 %9, 0
   %10 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
@@ -1455,9 +1455,9 @@ pre_reentrancy.exit.i.us:                         ; preds = %if.then.i.i23.i.us,
   br i1 %cmp.not.i.i.us, label %if.end.i25.i.us, label %background_thread_create_signals_masked.exit.i.us
 
 if.end.i25.i.us:                                  ; preds = %pre_reentrancy.exit.i.us
-  %11 = inttoptr i64 %conv548.i.us to ptr
+  %11 = inttoptr i64 %indvars.iv to ptr
   %12 = load ptr, ptr @pthread_create_fptr, align 8, !noalias !22
-  %call.i.i26.i.us = call i32 %12(ptr noundef nonnull %arrayidx13.i.us, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %11) #11
+  %call.i.i26.i.us = call i32 %12(ptr noundef nonnull %arrayidx13.i.us, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef nonnull %11) #11
   %call3.i.i.us = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %oldset.i.i, ptr noundef null) #11
   %cmp4.not.i.i.us = icmp eq i32 %call3.i.i.us, 0
   br i1 %cmp4.not.i.i.us, label %background_thread_create_signals_masked.exit.i.us, label %if.then5.i.i.us
@@ -1498,10 +1498,9 @@ if.then25.i.us:                                   ; preds = %post_reentrancy.exi
   br label %for.end.i.us
 
 for.inc.i.us:                                     ; preds = %malloc_mutex_lock.exit.i.us, %for.body.i.us
-  %inc32.i.us = add i32 %i.047.i.us, 1
-  %conv5.i.us = zext i32 %inc32.i.us to i64
-  %cmp6.i.us = icmp ugt i64 %.fr, %conv5.i.us
-  br i1 %cmp6.i.us, label %for.body.i.us, label %for.end.i.us, !llvm.loop !26
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.end.i.us, label %for.body.i.us, !llvm.loop !26
 
 for.end.i.us:                                     ; preds = %for.inc.i.us, %if.then25.i.us, %if.else.i.us
   %n_created.1.us = phi i32 [ %inc.i.us, %if.then25.i.us ], [ %n_created.0.ph.us, %if.else.i.us ], [ %n_created.0.ph.us, %for.inc.i.us ]

@@ -910,7 +910,7 @@ declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_rmdir_recursive(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @_rmdir_recursive(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #0 {
   %2 = tail call ptr @fdopendir(i32 noundef %0) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %.preheader

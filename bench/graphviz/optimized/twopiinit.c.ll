@@ -179,7 +179,7 @@ define void @twopi_layout(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %36, %40
   %.010.i = phi ptr [ %41, %40 ], [ %37, %36 ]
-  %38 = call ptr @agxget(ptr noundef nonnull %.010.i, ptr noundef %.fr) #9
+  %38 = call ptr @agxget(ptr noundef nonnull %.010.i, ptr noundef nonnull %.fr) #9
   %39 = call zeroext i1 @mapbool(ptr noundef %38) #9
   br i1 %39, label %findRootNode.exit, label %40
 
@@ -480,7 +480,7 @@ declare void @gv_cleanup_node(ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #4 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0, i64 noundef range(i64 8, 57) %1) unnamed_addr #4 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 

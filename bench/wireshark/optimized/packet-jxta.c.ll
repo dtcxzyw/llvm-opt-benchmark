@@ -370,7 +370,7 @@ define internal i32 @dissect_jxta_udp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 16:                                               ; preds = %14
   %17 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #12
-  %18 = call fastcc i32 @dissect_jxta_message_framing(ptr noundef %17, ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %18 = call fastcc i32 @dissect_jxta_message_framing(ptr noundef %17, ptr noundef %1, ptr noundef null, ptr noundef %5, ptr noundef %6)
   %19 = icmp eq i32 %18, 0
   %20 = load ptr, ptr %6, align 8
   %21 = icmp eq ptr %20, null
@@ -446,7 +446,7 @@ define internal i32 @dissect_jxta_udp(ptr noundef %0, ptr noundef %1, ptr nounde
   %60 = load i32, ptr @hf_jxta_udpsig, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %62 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #12
-  %63 = call fastcc i32 @dissect_jxta_message_framing(ptr noundef %62, ptr noundef %1, ptr noundef %55, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %63 = call fastcc i32 @dissect_jxta_message_framing(ptr noundef %62, ptr noundef %1, ptr noundef %55, ptr noundef %7, ptr noundef %8)
   %64 = add i32 %63, 4
   %65 = load i64, ptr %7, align 8
   %66 = trunc i64 %65 to i32
@@ -636,7 +636,7 @@ copy_address_wmem.exit141:                        ; preds = %71, %85
 106:                                              ; preds = %10
   store i64 -1, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %107 = call fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %107 = call fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %5, ptr noundef %6)
   %108 = icmp eq i32 %107, 0
   %109 = load ptr, ptr %6, align 8
   %110 = icmp eq ptr %109, null
@@ -668,7 +668,7 @@ copy_address_wmem.exit141:                        ; preds = %71, %85
   %125 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %124, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.136) #12
   %126 = load i32, ptr @ett_jxta, align 4
   %127 = tail call ptr @proto_item_add_subtree(ptr noundef %125, i32 noundef %126) #12
-  %128 = call fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr noundef %1, ptr noundef %127, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %128 = call fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr noundef %1, ptr noundef %127, ptr noundef %5, ptr noundef %6)
   %129 = tail call fastcc ptr @get_tpt_conversation(ptr noundef %1)
   %130 = getelementptr inbounds i8, ptr %129, i64 40
   %131 = load i32, ptr %130, align 8
@@ -1709,7 +1709,7 @@ declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %.lr.ph
@@ -2168,7 +2168,7 @@ copy_address_wmem.exit22:                         ; preds = %copy_address_wmem.e
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_jxta_welcome(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_jxta_welcome(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %8 = icmp ult i32 %7, 10
@@ -2602,7 +2602,7 @@ define internal noundef nonnull ptr @jxta_endpoint_get_filter_type(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65538) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 4, i32 %6)
   %7 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @JXTA_MSGELEM_SIG, i64 noundef 4) #12
@@ -2876,7 +2876,7 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65538) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 4, i32 %6)
   %7 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @JXTA_MSGELEM_SIG, i64 noundef 4) #12

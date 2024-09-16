@@ -584,18 +584,18 @@ _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit.i: ; preds = %_ZNK4llvm14i
   br i1 %116, label %_ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.thread.i, label %117
 
 117:                                              ; preds = %114
-  %118 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceLoadEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2699, ptr noundef nonnull %.sroa.030.039.i)
+  %118 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceLoadEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2699, ptr noundef %.sroa.030.039.i)
   br label %_ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.i
 
 119:                                              ; preds = %.lr.ph.i
-  %120 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceLoadEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2698, ptr noundef nonnull %.sroa.030.039.i)
+  %120 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceLoadEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2698, ptr noundef %.sroa.030.039.i)
   br label %_ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.i
 
 121:                                              ; preds = %.lr.ph.i, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.030.039.i, i64 32
   %123 = load ptr, ptr %122, align 8
-  %124 = call fastcc i32 @_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %.sroa.030.039.i)
+  %124 = call fastcc i32 @_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %.sroa.030.039.i)
   %.not.i.i.i16 = icmp eq i32 %124, 0
   br i1 %.not.i.i.i16, label %_ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceCopyEPN4llvm12MachineInstrE.exit.i.i, label %125
 
@@ -741,19 +741,19 @@ _ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceCopyEPN4llvm12MachineInstrE.exit.
   br label %_ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.i
 
 199:                                              ; preds = %.lr.ph.i
-  %200 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2677, ptr noundef nonnull %.sroa.030.039.i)
+  %200 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2677, ptr noundef %.sroa.030.039.i)
   br label %_ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.i
 
 201:                                              ; preds = %.lr.ph.i
-  %202 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2673, ptr noundef nonnull %.sroa.030.039.i)
+  %202 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2673, ptr noundef %.sroa.030.039.i)
   br label %_ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.i
 
 203:                                              ; preds = %.lr.ph.i
-  %204 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2702, ptr noundef nonnull %.sroa.030.039.i)
+  %204 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2702, ptr noundef %.sroa.030.039.i)
   br label %_ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.i
 
 205:                                              ; preds = %.lr.ph.i
-  %206 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2699, ptr noundef nonnull %.sroa.030.039.i)
+  %206 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef 2699, ptr noundef %.sroa.030.039.i)
   br label %_ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.i
 
 _ZNK12_GLOBAL__N_115FixupBWInstPass15tryReplaceInstrEPN4llvm12MachineInstrERNS1_17MachineBasicBlockE.exit.i: ; preds = %205, %203, %201, %199, %_ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceCopyEPN4llvm12MachineInstrE.exit.i.i, %119, %117
@@ -1099,7 +1099,7 @@ declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8Att
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceLoadEjPN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass14tryReplaceLoadEjPN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef range(i32 2698, 2700) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MIMetadata", align 8
   %5 = tail call fastcc i32 @_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
@@ -1171,7 +1171,7 @@ _ZN4llvm10MIMetadataC2ERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm8DebugLocC2
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = zext i32 %1 to i64
+  %50 = zext nneg i32 %1 to i64
   %51 = sub nsw i64 0, %50
   %52 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %49, i64 %51
   %53 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(1041) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 %5)
@@ -1270,7 +1270,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %._crit_edge, %70, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_115FixupBWInstPass16tryReplaceExtendEjPN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef range(i32 2673, 2703) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MIMetadata", align 8
   %5 = tail call fastcc i32 @_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
@@ -1362,7 +1362,7 @@ _ZN4llvm10MIMetadataC2ERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm8DebugLocC2
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = zext i32 %1 to i64
+  %63 = zext nneg i32 %1 to i64
   %64 = sub nsw i64 0, %63
   %65 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %62, i64 %64
   %66 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(1041) %21, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %65, i32 %5)
@@ -1461,7 +1461,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %._crit_edge, %83, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc i32 @_ZNK12_GLOBAL__N_115FixupBWInstPass21getSuperRegDestIfDeadEPN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32

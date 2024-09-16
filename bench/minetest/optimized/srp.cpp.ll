@@ -227,7 +227,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef %result, i32 noundef %alg, ptr nocapture noundef readonly %salt, i64 noundef %salt_len, ptr noundef %username, ptr noundef %password, i64 noundef %password_len) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef nonnull %result, i32 noundef %alg, ptr nocapture noundef readonly %salt, i64 noundef %salt_len, ptr noundef %username, ptr noundef %password, i64 noundef %password_len) unnamed_addr #4 {
 entry:
   %buff.i = alloca [32 x i8], align 16
   %ucp_hash = alloca [32 x i8], align 16
@@ -269,7 +269,7 @@ _ZL4hash17SRP_HashAlgorithmPKhmPh.exit.i:         ; preds = %sw.bb.i.i, %if.end.
   %..i.i = phi i64 [ 0, %if.end.i ], [ 32, %sw.bb.i.i ]
   %1 = load ptr, ptr @srp_free, align 8, !tbaa !4
   call void %1(ptr noundef nonnull %call.i35)
-  call void @__gmpz_import(ptr noundef %result, i64 noundef %..i.i, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %buff.i)
+  call void @__gmpz_import(ptr noundef nonnull %result, i64 noundef %..i.i, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %buff.i)
   br label %_ZL4H_nsP12__mpz_struct17SRP_HashAlgorithmPKhmS3_m.exit
 
 _ZL4H_nsP12__mpz_struct17SRP_HashAlgorithmPKhmS3_m.exit: ; preds = %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit.i, %_ZL10hash_final17SRP_HashAlgorithmP7HashCTXPh.exit
@@ -555,7 +555,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare void @__gmpz_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef %result, i32 noundef %alg, ptr noundef %N, ptr noundef %n1, ptr noundef %n2) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %result, i32 noundef %alg, ptr noundef %N, ptr noundef %n1, ptr noundef %n2) unnamed_addr #4 {
 entry:
   %buff = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buff) #17
@@ -613,7 +613,7 @@ _ZL4hash17SRP_HashAlgorithmPKhmPh.exit:           ; preds = %sw.bb.i, %if.end8
   %..i = phi i64 [ 0, %if.end8 ], [ 32, %sw.bb.i ]
   %2 = load ptr, ptr @srp_free, align 8, !tbaa !4
   call void %2(ptr noundef nonnull %call5)
-  call void @__gmpz_import(ptr noundef %result, i64 noundef %..i, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %buff)
+  call void @__gmpz_import(ptr noundef nonnull %result, i64 noundef %..i, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %buff)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL4hash17SRP_HashAlgorithmPKhmPh.exit, %if.then7, %entry
@@ -623,7 +623,7 @@ cleanup:                                          ; preds = %_ZL4hash17SRP_HashA
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg, ptr noundef %ng, ptr noundef %dest, ptr noundef %I, ptr noundef %s_bytes, i64 noundef %s_len, ptr noundef %A, ptr noundef %B, ptr noundef %K) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg, ptr noundef %ng, ptr noundef %dest, ptr noundef %I, ptr noundef %s_bytes, i64 noundef %s_len, ptr noundef %A, ptr noundef nonnull %B, ptr noundef %K) unnamed_addr #4 {
 entry:
   %H_N = alloca [32 x i8], align 16
   %H_g = alloca [32 x i8], align 16
@@ -719,7 +719,7 @@ sw.bb.i.i100:                                     ; preds = %if.end.i97
 if.end25:                                         ; preds = %sw.bb.i.i100, %if.end.i97
   %15 = load ptr, ptr @srp_free, align 8, !tbaa !4
   call void %15(ptr noundef nonnull %call1.i95)
-  %call.i.i102 = call i64 @__gmpz_sizeinbase(ptr noundef %B, i32 noundef 2) #18
+  %call.i.i102 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %B, i32 noundef 2) #18
   %add.i.i103 = shl i64 %call.i.i102, 29
   %16 = add i64 %add.i.i103, 3758096384
   %conv.i104 = ashr i64 %16, 32
@@ -729,7 +729,7 @@ if.end25:                                         ; preds = %sw.bb.i.i100, %if.e
   br i1 %tobool.not.i106, label %cleanup, label %if.end.i107
 
 if.end.i107:                                      ; preds = %if.end25
-  %call.i9.i108 = call ptr @__gmpz_export(ptr noundef nonnull %call1.i105, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef %B)
+  %call.i9.i108 = call ptr @__gmpz_export(ptr noundef nonnull %call1.i105, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %B)
   br i1 %cond.i, label %sw.bb.i122, label %_ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit119
 
 _ZL11hash_update17SRP_HashAlgorithmP7HashCTXPKvm.exit119: ; preds = %if.end.i107

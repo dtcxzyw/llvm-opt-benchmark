@@ -300,7 +300,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14isAllocationFnEPKNS_5ValueEPKNS_1
   br i1 %.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef nonnull %6, i8 noundef zeroext 7, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %5, ptr noundef %6, i8 noundef zeroext 7, ptr noundef %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %7 = trunc i8 %.pre to i1
@@ -367,7 +367,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14isAllocationFnEPKNS_5ValueENS_12f
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypeNS_12function_refIFRKNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit: ; preds = %3
   %8 = tail call noundef nonnull align 8 dereferenceable(72) ptr %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(136) %7) #20, !noalias !7
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %6, ptr noundef nonnull %7, i8 noundef zeroext 7, ptr noundef nonnull %8)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %6, ptr noundef %7, i8 noundef zeroext 7, ptr noundef nonnull %8)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %9 = trunc i8 %.pre to i1
@@ -434,7 +434,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11isNewLikeFnEPKNS_5ValueEPKNS_17Ta
   br i1 %.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit, label %5
 
 5:                                                ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef nonnull %4, i8 noundef zeroext 1, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %3, ptr noundef %4, i8 noundef zeroext 1, ptr noundef %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %6 = trunc i8 %.pre to i1
@@ -453,7 +453,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22isMallocOrCallocLikeFnEPKNS_5Valu
   br i1 %.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit, label %5
 
 5:                                                ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef nonnull %4, i8 noundef zeroext 3, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %3, ptr noundef %4, i8 noundef zeroext 3, ptr noundef %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %6 = trunc i8 %.pre to i1
@@ -474,7 +474,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13isAllocLikeFnEPKNS_5ValueEPKNS_17
   br i1 %.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef nonnull %6, i8 noundef zeroext 7, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %5, ptr noundef %6, i8 noundef zeroext 7, ptr noundef %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %7 = trunc i8 %.pre to i1
@@ -617,7 +617,7 @@ define dso_local noundef ptr @_ZN4llvm17getAllocAlignmentEPKNS_8CallBaseEPKNS_17
   br i1 %.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef nonnull %4, i8 noundef zeroext 7, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %3, ptr noundef %4, i8 noundef zeroext 7, ptr noundef %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %5 = trunc i8 %.pre to i1
@@ -662,7 +662,7 @@ define dso_local void @_ZN4llvm12getAllocSizeEPKNS_8CallBaseEPKNS_17TargetLibrar
   %13 = alloca %"class.llvm::APInt", align 8
   %14 = alloca i8, align 1
   %15 = alloca %"class.llvm::APInt", align 8
-  call fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %8, ptr noundef %1, ptr noundef %2)
+  call fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %8, ptr noundef %1, ptr noundef %2)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
@@ -1152,7 +1152,7 @@ _ZN4llvm5APIntD2Ev.exit24:                        ; preds = %248, %245, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nocapture writable align 4 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nocapture nonnull writable align 4 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::AttributeList", align 8
   %5 = alloca %"class.llvm::Attribute", align 8
   %6 = tail call fastcc noundef ptr @_ZL17getCalledFunctionPKN4llvm5ValueE(ptr noundef %1)
@@ -1160,7 +1160,7 @@ define internal fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17Targ
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  tail call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull %6, i8 noundef zeroext 7, ptr noundef %2)
+  tail call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef %6, i8 noundef zeroext 7, ptr noundef %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
@@ -1293,7 +1293,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit: ; preds = %9, %9, %9
   br i1 %.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %6, ptr noundef nonnull %10, i8 noundef zeroext 3, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %6, ptr noundef %10, i8 noundef zeroext 3, ptr noundef %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %11 = trunc i8 %.pre to i1
@@ -1484,7 +1484,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %16
   br i1 %.not, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread, label %36
 
 36:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %8, ptr noundef nonnull %10, i8 noundef zeroext 7, ptr noundef nonnull %2)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %8, ptr noundef %10, i8 noundef zeroext 7, ptr noundef nonnull %2)
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
@@ -1741,7 +1741,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %20, %18, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 1, 8) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -2243,7 +2243,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13getObjectSizeEPKNS_5ValueERmRKNS_
   br i1 %18, label %19, label %_ZN4llvm5APIntD2Ev.exit
 
 19:                                               ; preds = %6
-  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp ult i32 %21, 65
@@ -2325,7 +2325,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor7computeEPNS_5ValueE(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -6437,7 +6437,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i:                  ; preds = %80, %78
 
 121:                                              ; preds = %112
   call void @_ZN4llvm23ObjectSizeOffsetVisitor11computeImplEPNS_5ValueE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::SizeOffsetAPInt") align 8 %18, ptr noundef nonnull align 8 dereferenceable(388) %1, ptr noundef nonnull %114)
-  call fastcc void @"_ZZN4llvm23ObjectSizeOffsetVisitor18findLoadSizeOffsetERNS_8LoadInstERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES3_EELb0ELb0EEERNS_13SmallDenseMapIPS3_NS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SD_EEEERjENK3$_1clESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %3, ptr nonnull %6, ptr noundef nonnull %18)
+  call fastcc void @"_ZZN4llvm23ObjectSizeOffsetVisitor18findLoadSizeOffsetERNS_8LoadInstERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES3_EELb0ELb0EEERNS_13SmallDenseMapIPS3_NS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SD_EEEERjENK3$_1clESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %3, ptr nonnull %6, ptr noundef %18)
   call void @_ZN4llvm15SizeOffsetAPIntD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #20
   br label %_ZN4llvm15SizeOffsetAPIntC2ERKS0_.exit
 
@@ -6631,7 +6631,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %202, %204
   %213 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 %209, ptr %213, align 8
   store i64 %210, ptr %212, align 8
-  call fastcc void @"_ZZN4llvm23ObjectSizeOffsetVisitor18findLoadSizeOffsetERNS_8LoadInstERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES3_EELb0ELb0EEERNS_13SmallDenseMapIPS3_NS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SD_EEEERjENK3$_1clESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %3, ptr nonnull %6, ptr noundef nonnull %20)
+  call fastcc void @"_ZZN4llvm23ObjectSizeOffsetVisitor18findLoadSizeOffsetERNS_8LoadInstERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES3_EELb0ELb0EEERNS_13SmallDenseMapIPS3_NS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SD_EEEERjENK3$_1clESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %3, ptr nonnull %6, ptr noundef %20)
   call void @_ZN4llvm15SizeOffsetAPIntD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #20
   %214 = load i32, ptr %208, align 8
   %215 = icmp ugt i32 %214, 64
@@ -7215,7 +7215,7 @@ _ZN4llvm15SizeOffsetAPIntD2Ev.exit9.i:            ; preds = %470, %467, %_ZN4llv
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call fastcc void @"_ZZN4llvm23ObjectSizeOffsetVisitor18findLoadSizeOffsetERNS_8LoadInstERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES3_EELb0ELb0EEERNS_13SmallDenseMapIPS3_NS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SD_EEEERjENK3$_1clESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %3, ptr nonnull %6, ptr noundef nonnull %25)
+  call fastcc void @"_ZZN4llvm23ObjectSizeOffsetVisitor18findLoadSizeOffsetERNS_8LoadInstERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES3_EELb0ELb0EEERNS_13SmallDenseMapIPS3_NS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SD_EEEERjENK3$_1clESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %3, ptr nonnull %6, ptr noundef %25)
   %479 = load i32, ptr %476, align 8
   %480 = icmp ugt i32 %479, 64
   br i1 %480, label %481, label %_ZN4llvm5APIntD2Ev.exit.i.i104
@@ -7499,7 +7499,7 @@ _ZN4llvm15SizeOffsetAPIntD2Ev.exit:               ; preds = %68, %70
 declare noundef zeroext i1 @_ZNK4llvm11Instruction16mayWriteToMemoryEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm23ObjectSizeOffsetVisitor18findLoadSizeOffsetERNS_8LoadInstERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES3_EELb0ELb0EEERNS_13SmallDenseMapIPS3_NS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SD_EEEERjENK3$_1clESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm23ObjectSizeOffsetVisitor18findLoadSizeOffsetERNS_8LoadInstERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES3_EELb0ELb0EEERNS_13SmallDenseMapIPS3_NS_15SizeOffsetAPIntELj8ENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SD_EEEERjENK3$_1clESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %.0.val, ptr %3, align 8
   %4 = load i32, ptr %.8.val, align 8
@@ -7843,8 +7843,8 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor17combineSizeOffsetENS_1
   ]
 
 32:                                               ; preds = %29
-  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %33 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6) #21
   %34 = icmp slt i32 %33, 0
   %. = select i1 %34, ptr %2, ptr %3
@@ -7914,8 +7914,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm15SizeOffse
   br label %_ZN4llvm5APIntD2Ev.exit2
 
 65:                                               ; preds = %29
-  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %66 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8) #21
   %67 = icmp sgt i32 %66, 0
   %.1 = select i1 %67, ptr %2, ptr %3
@@ -7985,8 +7985,8 @@ _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm15SizeOffse
   br label %_ZN4llvm5APIntD2Ev.exit2
 
 98:                                               ; preds = %29
-  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @_ZL19getSizeWithOverflowRKN4llvm15SizeOffsetAPIntE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp ult i32 %100, 65
@@ -9733,7 +9733,7 @@ define dso_local { ptr, ptr } @_ZN4llvm25ObjectSizeOffsetEvaluator13visitCallBas
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  call fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %4, ptr noundef nonnull %1, ptr noundef %9)
+  call fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable align 4 %4, ptr noundef nonnull %1, ptr noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1

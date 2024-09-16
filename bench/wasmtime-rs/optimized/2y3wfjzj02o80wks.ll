@@ -121,7 +121,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN104_$LT$cranel
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$cranelift_codegen..ir..globalvalue..GlobalValueData$GT$17h97ff51e8481df70bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$cranelift_codegen..ir..globalvalue..GlobalValueData$GT$17h97ff51e8481df70bE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !5, !noundef !4
   %cond = icmp eq i8 %2, 3
   br i1 %cond, label %3, label %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h858fbd5cda9bfe6aE.exit"
@@ -1238,12 +1238,12 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var17h551242c
   ret void
 
 8:                                                ; preds = %3
-  call fastcc void @"_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var28_$u7b$$u7b$closure$u7d$$u7d$17hebaccdcf9abeac59E"(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4)
+  call fastcc void @"_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var28_$u7b$$u7b$closure$u7d$$u7d$17hebaccdcf9abeac59E"(ptr noalias nocapture noundef align 4 dereferenceable(12) %4)
   unreachable
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var28_$u7b$$u7b$closure$u7d$$u7d$17hebaccdcf9abeac59E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #10 {
+define internal fastcc void @"_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var28_$u7b$$u7b$closure$u7d$$u7d$17hebaccdcf9abeac59E"(ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) unnamed_addr #10 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca i32, align 4
@@ -1513,7 +1513,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder19create_gl
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$cranelift_codegen..ir..globalvalue..GlobalValueData$GT$17h97ff51e8481df70bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #25
+  tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$cranelift_codegen..ir..globalvalue..GlobalValueData$GT$17h97ff51e8481df70bE"(ptr noalias noundef align 8 dereferenceable(40) %1) #25
   resume { ptr, i32 } %9
 }
 

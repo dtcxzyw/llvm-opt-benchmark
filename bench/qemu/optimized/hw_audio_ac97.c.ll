@@ -390,7 +390,7 @@ sw.bb.i.i:                                        ; preds = %sw.bb4.i
   store i8 %conv6.i.i.i, ptr %arrayidx10.i.i.i, align 1
   %and3.i.i.i.i = and i16 %8, 63
   %mul.i.i.i.i = mul nuw nsw i16 %and3.i.i.i.i, 255
-  %div.i26.i.i.i = udiv i16 %mul.i.i.i.i, 63
+  %div.i.i.i.i = udiv i16 %mul.i.i.i.i, 63
   %and9.i.i.i.i = and i16 %9, 63
   %mul10.i.i.i.i = mul nuw nsw i16 %and9.i.i.i.i, 255
   %div12.i.i.i.i = udiv i16 %mul10.i.i.i.i, 63
@@ -400,22 +400,22 @@ sw.bb.i.i:                                        ; preds = %sw.bb4.i
   %11 = load i8, ptr %arrayidx7.i6.i.i.i, align 1
   %conv8.i7.i.i.i = zext i8 %11 to i16
   %12 = and i8 %10, 31
-  %and3.i12.i.i.i = zext nneg i8 %12 to i16
-  %mul.i13.i.i.i = mul nuw nsw i16 %and3.i12.i.i.i, 255
-  %div.i1427.i.i.i = udiv i16 %mul.i13.i.i.i, 31
-  %and9.i16.i.i.i = and i16 %conv8.i7.i.i.i, 31
-  %mul10.i17.i.i.i = mul nuw nsw i16 %and9.i16.i.i.i, 255
-  %div12.i18.i.i.i = udiv i16 %mul10.i17.i.i.i, 31
+  %and3.i11.i.i.i = zext nneg i8 %12 to i16
+  %mul.i12.i.i.i = mul nuw nsw i16 %and3.i11.i.i.i, 255
+  %div.i13.i.i.i = udiv i16 %mul.i12.i.i.i, 31
+  %and9.i15.i.i.i = and i16 %conv8.i7.i.i.i, 31
+  %mul10.i16.i.i.i = mul nuw nsw i16 %and9.i15.i.i.i, 255
+  %div12.i17.i.i.i = udiv i16 %mul10.i16.i.i.i, 31
   %13 = or i16 %9, %conv8.i7.i.i.i
-  %or28.i.i.i = lshr i16 %13, 7
-  %or.i.i.i = zext nneg i16 %or28.i.i.i to i32
+  %or25.i.i.i = lshr i16 %13, 7
+  %or.i.i.i = zext nneg i16 %or25.i.i.i to i32
   %conv.i.i.i = xor i16 %div12.i.i.i.i, 255
-  %conv2.i.i.i = xor i16 %div12.i18.i.i.i, 255
+  %conv2.i.i.i = xor i16 %div12.i17.i.i.i, 255
   %mul.i.i.i = mul nuw i16 %conv2.i.i.i, %conv.i.i.i
   %div.i.i.i = udiv i16 %mul.i.i.i, 255
   %conv3.i14.i.i = trunc nuw i16 %div.i.i.i to i8
-  %conv4.i.i.i = xor i16 %div.i26.i.i.i, 255
-  %conv5.i.i.i = xor i16 %div.i1427.i.i.i, 255
+  %conv4.i.i.i = xor i16 %div.i.i.i.i, 255
+  %conv5.i.i.i = xor i16 %div.i13.i.i.i, 255
   %mul6.i.i.i = mul nuw i16 %conv5.i.i.i, %conv4.i.i.i
   %div7.i.i.i = udiv i16 %mul6.i.i.i, 255
   %conv8.i.i.i = trunc nuw i16 %div7.i.i.i to i8
@@ -442,26 +442,26 @@ sw.bb1.i.i:                                       ; preds = %sw.bb4.i
   %19 = and i8 %17, 63
   %and3.i.i23.i.i = zext nneg i8 %19 to i16
   %mul.i.i24.i.i = mul nuw nsw i16 %and3.i.i23.i.i, 255
-  %div.i26.i25.i.i = udiv i16 %mul.i.i24.i.i, 63
+  %div.i.i25.i.i = udiv i16 %mul.i.i24.i.i, 63
   %and9.i.i26.i.i = and i16 %conv8.i.i22.i.i, 63
   %mul10.i.i27.i.i = mul nuw nsw i16 %and9.i.i26.i.i, 255
   %div12.i.i28.i.i = udiv i16 %mul10.i.i27.i.i, 63
-  %and3.i12.i32.i.i = and i16 %15, 31
-  %mul.i13.i33.i.i = mul nuw nsw i16 %and3.i12.i32.i.i, 255
-  %div.i1427.i34.i.i = udiv i16 %mul.i13.i33.i.i, 31
-  %and9.i16.i35.i.i = and i16 %16, 31
-  %mul10.i17.i36.i.i = mul nuw nsw i16 %and9.i16.i35.i.i, 255
-  %div12.i18.i37.i.i = udiv i16 %mul10.i17.i36.i.i, 31
+  %and3.i11.i32.i.i = and i16 %15, 31
+  %mul.i12.i33.i.i = mul nuw nsw i16 %and3.i11.i32.i.i, 255
+  %div.i13.i34.i.i = udiv i16 %mul.i12.i33.i.i, 31
+  %and9.i15.i35.i.i = and i16 %16, 31
+  %mul10.i16.i36.i.i = mul nuw nsw i16 %and9.i15.i35.i.i, 255
+  %div12.i17.i37.i.i = udiv i16 %mul10.i16.i36.i.i, 31
   %20 = or i16 %16, %conv8.i.i22.i.i
-  %or28.i38.i.i = lshr i16 %20, 7
-  %or.i39.i.i = zext nneg i16 %or28.i38.i.i to i32
+  %or25.i38.i.i = lshr i16 %20, 7
+  %or.i39.i.i = zext nneg i16 %or25.i38.i.i to i32
   %conv.i40.i.i = xor i16 %div12.i.i28.i.i, 255
-  %conv2.i41.i.i = xor i16 %div12.i18.i37.i.i, 255
+  %conv2.i41.i.i = xor i16 %div12.i17.i37.i.i, 255
   %mul.i42.i.i = mul nuw i16 %conv.i40.i.i, %conv2.i41.i.i
   %div.i43.i.i = udiv i16 %mul.i42.i.i, 255
   %conv3.i44.i.i = trunc nuw i16 %div.i43.i.i to i8
-  %conv4.i45.i.i = xor i16 %div.i26.i25.i.i, 255
-  %conv5.i46.i.i = xor i16 %div.i1427.i34.i.i, 255
+  %conv4.i45.i.i = xor i16 %div.i.i25.i.i, 255
+  %conv5.i46.i.i = xor i16 %div.i13.i34.i.i, 255
   %mul6.i47.i.i = mul nuw i16 %conv4.i45.i.i, %conv5.i46.i.i
   %div7.i48.i.i = udiv i16 %mul6.i47.i.i, 255
   %conv8.i49.i.i = trunc nuw i16 %div7.i48.i.i to i8
@@ -721,16 +721,16 @@ entry:
   %arrayidx7.i6.i.i = getelementptr i8, ptr %s, i64 2753
   %2 = load i8, ptr %arrayidx7.i6.i.i, align 1
   %3 = and i8 %1, 31
-  %and3.i12.i.i = zext nneg i8 %3 to i16
-  %mul.i13.i.i = mul nuw nsw i16 %and3.i12.i.i, 255
-  %div.i1427.i.i = udiv i16 %mul.i13.i.i, 31
+  %and3.i11.i.i = zext nneg i8 %3 to i16
+  %mul.i12.i.i = mul nuw nsw i16 %and3.i11.i.i, 255
+  %div.i13.i.i = udiv i16 %mul.i12.i.i, 31
   %4 = and i8 %2, 31
-  %and9.i16.i.i = zext nneg i8 %4 to i16
-  %mul10.i17.i.i = mul nuw nsw i16 %and9.i16.i.i, 255
-  %div12.i18.i.i = udiv i16 %mul10.i17.i.i, 31
-  %5 = trunc nuw i16 %div12.i18.i.i to i8
+  %and9.i15.i.i = zext nneg i8 %4 to i16
+  %mul10.i16.i.i = mul nuw nsw i16 %and9.i15.i.i, 255
+  %div12.i17.i.i = udiv i16 %mul10.i16.i.i, 31
+  %5 = trunc nuw i16 %div12.i17.i.i to i8
   %conv3.i14.i = xor i8 %5, -1
-  %6 = trunc nuw i16 %div.i1427.i.i to i8
+  %6 = trunc nuw i16 %div.i13.i.i to i8
   %conv8.i.i = xor i8 %6, -1
   %voice_po.i.i = getelementptr inbounds i8, ptr %s, i64 2992
   %7 = load ptr, ptr %voice_po.i.i, align 16
@@ -742,7 +742,7 @@ entry:
   %10 = and i8 %8, 63
   %and3.i.i23.i = zext nneg i8 %10 to i16
   %mul.i.i24.i = mul nuw nsw i16 %and3.i.i23.i, 255
-  %div.i26.i25.i = udiv i16 %mul.i.i24.i, 63
+  %div.i.i25.i = udiv i16 %mul.i.i24.i, 63
   %11 = and i8 %9, 63
   %and9.i.i26.i = zext nneg i8 %11 to i16
   %mul10.i.i27.i = mul nuw nsw i16 %and9.i.i26.i, 255
@@ -751,7 +751,7 @@ entry:
   %mul.i42.i = mul nuw i16 %conv.i40.i, 190
   %div.i43.i = udiv i16 %mul.i42.i, 255
   %conv3.i44.i = trunc nuw i16 %div.i43.i to i8
-  %conv4.i45.i = xor i16 %div.i26.i25.i, 255
+  %conv4.i45.i = xor i16 %div.i.i25.i, 255
   %mul6.i47.i = mul nuw i16 %conv4.i45.i, 190
   %div7.i48.i = udiv i16 %mul6.i47.i, 255
   %conv8.i49.i = trunc nuw i16 %div7.i48.i to i8
@@ -764,12 +764,12 @@ entry:
   %voice_pi.i.i = getelementptr inbounds i8, ptr %s, i64 2984
   %13 = load ptr, ptr %voice_pi.i.i, align 8
   tail call void @AUD_set_volume_in(ptr noundef %13, i32 noundef 1, i8 noundef zeroext -120, i8 noundef zeroext -120) #7
-  call fastcc void @reset_voices(ptr noundef %s, ptr noundef nonnull %active)
+  call fastcc void @reset_voices(ptr noundef %s, ptr noundef %active)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @open_voice(ptr noundef %s, i32 noundef %index, i32 noundef %freq) unnamed_addr #0 {
+define internal fastcc void @open_voice(ptr noundef %s, i32 noundef range(i32 0, 3) %index, i32 noundef %freq) unnamed_addr #0 {
 entry:
   %as = alloca %struct.audsettings, align 4
   store i32 %freq, ptr %as, align 4
@@ -787,7 +787,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %arrayidx, align 4
-  switch i32 %index, label %default.unreachable [
+  switch i32 %index, label %default.unreachable28 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
     i32 2, label %sw.bb7
@@ -819,7 +819,7 @@ sw.bb7:                                           ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   store i32 %freq, ptr %arrayidx, align 4
-  switch i32 %index, label %default.unreachable [
+  switch i32 %index, label %default.unreachable28 [
     i32 0, label %sw.bb14
     i32 1, label %sw.bb18
     i32 2, label %sw.bb22
@@ -849,7 +849,7 @@ sw.bb22:                                          ; preds = %if.else
   store ptr null, ptr %voice_mc24, align 8
   br label %if.end
 
-default.unreachable:                              ; preds = %if.else, %if.then
+default.unreachable28:                            ; preds = %if.else, %if.then
   unreachable
 
 if.end:                                           ; preds = %sw.bb14, %sw.bb18, %sw.bb22, %sw.bb, %sw.bb3, %sw.bb7
@@ -860,7 +860,7 @@ if.end:                                           ; preds = %sw.bb14, %sw.bb18, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @reset_voices(ptr noundef %s, ptr nocapture noundef readonly %active) unnamed_addr #0 {
+define internal fastcc void @reset_voices(ptr noundef %s, ptr nocapture noundef nonnull readonly %active) unnamed_addr #0 {
 entry:
   %as.i40 = alloca %struct.audsettings, align 4
   %as.i22 = alloca %struct.audsettings, align 4
@@ -1025,7 +1025,7 @@ declare void @AUD_close_in(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @AUD_close_out(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @transfer_audio(ptr noundef %s, i32 noundef %index, i32 noundef %elapsed) unnamed_addr #0 {
+define internal fastcc void @transfer_audio(ptr noundef %s, i32 noundef range(i32 0, 3) %index, i32 noundef %elapsed) unnamed_addr #0 {
 entry:
   %b.i108 = alloca [8 x i8], align 4
   %tmpbuf.i87 = alloca [4096 x i8], align 16
@@ -1395,13 +1395,14 @@ if.else:                                          ; preds = %if.then56
   %conv9.i121 = trunc i32 %46 to i16
   store i16 %conv9.i121, ptr %picb.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.i108)
+  %.pre153 = load i16, ptr %sr, align 2
   br label %if.end86
 
 if.end86:                                         ; preds = %if.else, %if.then71
+  %47 = phi i16 [ %34, %if.then71 ], [ %.pre153, %if.else ]
   %stop.3 = phi i32 [ 1, %if.then71 ], [ %stop.1, %if.else ]
   %new_sr.1 = phi i32 [ %or72, %if.then71 ], [ %spec.select, %if.else ]
   %and.i123 = and i32 %new_sr.1, 28
-  %47 = load i16, ptr %sr, align 2
   %48 = and i16 %47, 28
   %and1.i = zext nneg i16 %48 to i32
   %tobool.not.i124 = icmp eq i32 %and.i123, %and1.i
@@ -2244,7 +2245,7 @@ entry:
   store i8 %conv6.i.i23, ptr %arrayidx7.i17, align 1
   %and3.i.i.i = and i16 %conv3.i16, 63
   %mul.i.i.i = mul nuw nsw i16 %and3.i.i.i, 255
-  %div.i26.i.i = udiv i16 %mul.i.i.i, 63
+  %div.i.i.i = udiv i16 %mul.i.i.i, 63
   %and9.i.i.i = and i16 %4, 63
   %mul10.i.i.i = mul nuw nsw i16 %and9.i.i.i, 255
   %div12.i.i.i = udiv i16 %mul10.i.i.i, 63
@@ -2254,22 +2255,22 @@ entry:
   %6 = load i8, ptr %arrayidx7.i6.i.i, align 1
   %conv8.i7.i.i = zext i8 %6 to i16
   %7 = and i8 %5, 31
-  %and3.i12.i.i = zext nneg i8 %7 to i16
-  %mul.i13.i.i = mul nuw nsw i16 %and3.i12.i.i, 255
-  %div.i1427.i.i = udiv i16 %mul.i13.i.i, 31
-  %and9.i16.i.i = and i16 %conv8.i7.i.i, 31
-  %mul10.i17.i.i = mul nuw nsw i16 %and9.i16.i.i, 255
-  %div12.i18.i.i = udiv i16 %mul10.i17.i.i, 31
+  %and3.i11.i.i = zext nneg i8 %7 to i16
+  %mul.i12.i.i = mul nuw nsw i16 %and3.i11.i.i, 255
+  %div.i13.i.i = udiv i16 %mul.i12.i.i, 31
+  %and9.i15.i.i = and i16 %conv8.i7.i.i, 31
+  %mul10.i16.i.i = mul nuw nsw i16 %and9.i15.i.i, 255
+  %div12.i17.i.i = udiv i16 %mul10.i16.i.i, 31
   %8 = or i16 %4, %conv8.i7.i.i
-  %or28.i.i = lshr i16 %8, 7
-  %or.i.i = zext nneg i16 %or28.i.i to i32
+  %or25.i.i = lshr i16 %8, 7
+  %or.i.i = zext nneg i16 %or25.i.i to i32
   %conv.i.i = xor i16 %div12.i.i.i, 255
-  %conv2.i.i = xor i16 %div12.i18.i.i, 255
+  %conv2.i.i = xor i16 %div12.i17.i.i, 255
   %mul.i.i = mul nuw i16 %conv2.i.i, %conv.i.i
   %div.i.i = udiv i16 %mul.i.i, 255
   %conv3.i14.i = trunc nuw i16 %div.i.i to i8
-  %conv4.i.i = xor i16 %div.i26.i.i, 255
-  %conv5.i.i = xor i16 %div.i1427.i.i, 255
+  %conv4.i.i = xor i16 %div.i.i.i, 255
+  %conv5.i.i = xor i16 %div.i13.i.i, 255
   %mul6.i.i = mul nuw i16 %conv5.i.i, %conv4.i.i
   %div7.i.i = udiv i16 %mul6.i.i, 255
   %conv8.i.i = trunc nuw i16 %div7.i.i to i8
@@ -2294,26 +2295,26 @@ entry:
   %15 = and i8 %13, 63
   %and3.i.i23.i = zext nneg i8 %15 to i16
   %mul.i.i24.i = mul nuw nsw i16 %and3.i.i23.i, 255
-  %div.i26.i25.i = udiv i16 %mul.i.i24.i, 63
+  %div.i.i25.i = udiv i16 %mul.i.i24.i, 63
   %and9.i.i26.i = and i16 %conv8.i.i22.i, 63
   %mul10.i.i27.i = mul nuw nsw i16 %and9.i.i26.i, 255
   %div12.i.i28.i = udiv i16 %mul10.i.i27.i, 63
-  %and3.i12.i32.i = and i16 %conv3.i27, 31
-  %mul.i13.i33.i = mul nuw nsw i16 %and3.i12.i32.i, 255
-  %div.i1427.i34.i = udiv i16 %mul.i13.i33.i, 31
-  %and9.i16.i35.i = and i16 %12, 31
-  %mul10.i17.i36.i = mul nuw nsw i16 %and9.i16.i35.i, 255
-  %div12.i18.i37.i = udiv i16 %mul10.i17.i36.i, 31
+  %and3.i11.i32.i = and i16 %conv3.i27, 31
+  %mul.i12.i33.i = mul nuw nsw i16 %and3.i11.i32.i, 255
+  %div.i13.i34.i = udiv i16 %mul.i12.i33.i, 31
+  %and9.i15.i35.i = and i16 %12, 31
+  %mul10.i16.i36.i = mul nuw nsw i16 %and9.i15.i35.i, 255
+  %div12.i17.i37.i = udiv i16 %mul10.i16.i36.i, 31
   %16 = or i16 %12, %conv8.i.i22.i
-  %or28.i38.i = lshr i16 %16, 7
-  %or.i39.i = zext nneg i16 %or28.i38.i to i32
+  %or25.i38.i = lshr i16 %16, 7
+  %or.i39.i = zext nneg i16 %or25.i38.i to i32
   %conv.i40.i = xor i16 %div12.i.i28.i, 255
-  %conv2.i41.i = xor i16 %div12.i18.i37.i, 255
+  %conv2.i41.i = xor i16 %div12.i17.i37.i, 255
   %mul.i42.i = mul nuw i16 %conv2.i41.i, %conv.i40.i
   %div.i43.i = udiv i16 %mul.i42.i, 255
   %conv3.i44.i = trunc nuw i16 %div.i43.i to i8
-  %conv4.i45.i = xor i16 %div.i26.i25.i, 255
-  %conv5.i46.i = xor i16 %div.i1427.i34.i, 255
+  %conv4.i45.i = xor i16 %div.i.i25.i, 255
+  %conv5.i46.i = xor i16 %div.i13.i34.i, 255
   %mul6.i47.i = mul nuw i16 %conv4.i45.i, %conv5.i46.i
   %div7.i48.i = udiv i16 %mul6.i47.i, 255
   %conv8.i49.i = trunc nuw i16 %div7.i48.i to i8
@@ -2350,7 +2351,7 @@ entry:
   %27 = and i8 %26, 1
   %arrayidx34 = getelementptr inbounds i8, ptr %active, i64 2
   store i8 %27, ptr %arrayidx34, align 1
-  call fastcc void @reset_voices(ptr noundef %opaque, ptr noundef nonnull %active)
+  call fastcc void @reset_voices(ptr noundef %opaque, ptr noundef %active)
   %bup_flag = getelementptr inbounds i8, ptr %opaque, i64 3148
   store i32 0, ptr %bup_flag, align 4
   %last_samp = getelementptr inbounds i8, ptr %opaque, i64 2652

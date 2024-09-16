@@ -7558,7 +7558,7 @@ pdo_is_in_transaction.exit:                       ; preds = %11
 
 35:                                               ; preds = %34, %31, %29, %25
   tail call void @zend_object_std_dtor(ptr noundef nonnull %0) #11
-  tail call fastcc void @dbh_free(ptr noundef nonnull %.val, i1 noundef zeroext false)
+  tail call fastcc void @dbh_free(ptr noundef %.val, i1 noundef zeroext false)
   br label %36
 
 36:                                               ; preds = %1, %35
@@ -7712,7 +7712,7 @@ define hidden void @php_pdo_pdbh_dtor(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @dbh_free(ptr noundef nonnull %3, i1 noundef zeroext true)
+  tail call fastcc void @dbh_free(ptr noundef %3, i1 noundef zeroext true)
   store ptr null, ptr %2, align 8
   br label %5
 
@@ -7721,7 +7721,7 @@ define hidden void @php_pdo_pdbh_dtor(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dbh_free(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @dbh_free(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

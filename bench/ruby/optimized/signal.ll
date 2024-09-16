@@ -179,7 +179,7 @@ rb_check_arity.exit:                              ; preds = %2
 
 14:                                               ; preds = %rb_check_arity.exit
   store i64 %9, ptr %6, align 8
-  %15 = call fastcc i32 @signm2signo(ptr noundef nonnull %6, i32 noundef 1, i32 noundef 0, ptr noundef null)
+  %15 = call fastcc i32 @signm2signo(ptr noundef %6, i32 noundef 1, i32 noundef 0, ptr noundef null)
   br label %16
 
 16:                                               ; preds = %11, %14
@@ -463,7 +463,7 @@ signal_ignored.exit:                              ; preds = %94
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @signm2signo(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc i32 @signm2signo(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly %3) unnamed_addr #1 {
   %5 = load i64, ptr %0, align 8
   %6 = and i64 %5, 255
   %7 = icmp eq i64 %6, 12
@@ -592,55 +592,55 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   br i1 %58, label %.loopexit, label %59
 
 59:                                               ; preds = %55
-  %.not91 = icmp eq i32 %2, 0
-  %60 = zext i1 %.not91 to i64
-  %61 = getelementptr %struct.signals, ptr @siglist, i64 %60
-  %62 = icmp ult ptr %61, getelementptr inbounds (i8, ptr @siglist, i64 408)
-  br i1 %62, label %.lr.ph, label %.loopexit
+  %60 = xor i32 %2, 1
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr %struct.signals, ptr @siglist, i64 %61
+  %63 = icmp ult ptr %62, getelementptr inbounds (i8, ptr @siglist, i64 408)
+  br i1 %63, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %59, %73
-  %.07896 = phi ptr [ %74, %73 ], [ %61, %59 ]
+.lr.ph:                                           ; preds = %59, %74
+  %.07896 = phi ptr [ %75, %74 ], [ %62, %59 ]
   %bcmp92 = tail call i32 @bcmp(ptr %.07896, ptr %57, i64 %56)
-  %63 = icmp eq i32 %bcmp92, 0
-  br i1 %63, label %64, label %73
+  %64 = icmp eq i32 %bcmp92, 0
+  br i1 %64, label %65, label %74
 
-64:                                               ; preds = %.lr.ph
-  %65 = getelementptr [8 x i8], ptr %.07896, i64 0, i64 %56
-  %66 = load i8, ptr %65, align 1
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %68, label %73
+65:                                               ; preds = %.lr.ph
+  %66 = getelementptr [8 x i8], ptr %.07896, i64 0, i64 %56
+  %67 = load i8, ptr %66, align 1
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %69, label %74
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %.07896, i64 8
-  %70 = load i32, ptr %69, align 4
-  %71 = sub i32 0, %70
-  %72 = select i1 %.not93, i32 %70, i32 %71
-  ret i32 %72
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %.07896, i64 8
+  %71 = load i32, ptr %70, align 4
+  %72 = sub i32 0, %71
+  %73 = select i1 %.not93, i32 %71, i32 %72
+  ret i32 %73
 
-73:                                               ; preds = %.lr.ph, %64
-  %74 = getelementptr i8, ptr %.07896, i64 12
-  %75 = icmp ult ptr %74, getelementptr inbounds (i8, ptr @siglist, i64 408)
-  br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !15
+74:                                               ; preds = %.lr.ph, %65
+  %75 = getelementptr i8, ptr %.07896, i64 12
+  %76 = icmp ult ptr %75, getelementptr inbounds (i8, ptr @siglist, i64 408)
+  br i1 %76, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %73, %59, %55, %51
-  %76 = icmp eq i32 %.1, 3
-  br i1 %76, label %80, label %.sink.split99
+.loopexit:                                        ; preds = %74, %59, %55, %51
+  %77 = icmp eq i32 %.1, 3
+  br i1 %77, label %81, label %.sink.split99
 
 .sink.split99:                                    ; preds = %.loopexit
-  %77 = icmp sgt i32 %.1, 3
-  %78 = sub nsw i64 0, %52
-  %.sink101.p = select i1 %77, i64 -1, i64 %78
+  %78 = icmp sgt i32 %.1, 3
+  %79 = sub nsw i64 0, %52
+  %.sink101.p = select i1 %78, i64 -1, i64 %79
   %.sink101 = add i64 %.sroa.1.0, %.sink101.p
-  %.sink100 = select i1 %77, i64 1, i64 %52
-  %.2.ph = select i1 %77, i32 0, i32 3
-  %79 = tail call i64 @rb_str_subseq(i64 noundef %.079, i64 noundef %.sink100, i64 noundef %.sink101) #16
-  br label %80
+  %.sink100 = select i1 %78, i64 1, i64 %52
+  %.2.ph = select i1 %78, i32 0, i32 3
+  %80 = tail call i64 @rb_str_subseq(i64 noundef %.079, i64 noundef %.sink100, i64 noundef %.sink101) #16
+  br label %81
 
-80:                                               ; preds = %.sink.split99, %.loopexit
-  %.180 = phi i64 [ %.079, %.loopexit ], [ %79, %.sink.split99 ]
+81:                                               ; preds = %.sink.split99, %.loopexit
+  %.180 = phi i64 [ %.079, %.loopexit ], [ %80, %.sink.split99 ]
   %.2 = phi i32 [ 0, %.loopexit ], [ %.2.ph, %.sink.split99 ]
-  %81 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %81, ptr noundef nonnull @.str.23, i32 noundef %.2, ptr noundef nonnull @.str.38, i64 noundef %.180) #17
+  %82 = load i64, ptr @rb_eArgError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %82, ptr noundef nonnull @.str.23, i32 noundef %.2, ptr noundef nonnull @.str.38, i64 noundef %.180) #17
   unreachable
 }
 
@@ -835,7 +835,7 @@ define hidden void @rb_vm_trap_exit(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef range(i64 1, 0) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca %struct.rb_vm_tag, align 8
@@ -1517,7 +1517,7 @@ rb_check_arity.exit:                              ; preds = %3
   unreachable
 
 19:                                               ; preds = %rb_check_arity.exit
-  %20 = call fastcc i32 @signm2signo(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 1, ptr noundef null)
+  %20 = call fastcc i32 @signm2signo(ptr noundef %9, i32 noundef 0, i32 noundef 1, ptr noundef null)
   br label %trap_signm.exit
 
 trap_signm.exit:                                  ; preds = %14, %19
@@ -1982,7 +1982,7 @@ signo2signm.exit.i:                               ; preds = %.preheader
   unreachable
 
 rb_check_arity.exit18:                            ; preds = %35
-  %37 = call fastcc i32 @signm2signo(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
+  %37 = call fastcc i32 @signm2signo(ptr noundef %4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
   %38 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %38, 3
   br i1 %.not, label %43, label %39
@@ -2047,7 +2047,7 @@ rb_check_arity.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef range(i32 1, 32) %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
   %4 = alloca %struct.sigaction, align 8
   %5 = alloca %struct.sigaction, align 8
   %6 = alloca [6 x i64], align 16
@@ -2435,7 +2435,7 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @sigfillset(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @check_reserved_signal_(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @check_reserved_signal_(ptr noundef %0, i64 noundef range(i64 3, 5) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca [4 x %struct.iovec], align 16
   %5 = ptrtoint ptr %0 to i64
   %6 = atomicrmw volatile xchg ptr @received_signal, i64 %5 seq_cst, align 8

@@ -5416,7 +5416,7 @@ unicode_cp_is_allowed.exit.thread.i:              ; preds = %switch.early.test66
   br i1 %.not.i62.i, label %156, label %unicode_cp_is_allowed.exit.thread85.i
 
 156:                                              ; preds = %.critedge2.i.i
-  %157 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %.ptr.i, i64 noundef %.idx.i, ptr noundef nonnull readonly %.0.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %157 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %.ptr.i, i64 noundef %.idx.i, ptr noundef nonnull readonly %.0.i, ptr noundef %6, ptr noundef %7)
   %158 = icmp eq i32 %157, -1
   br i1 %158, label %159, label %.thread-pre-split91_crit_edge.i
 
@@ -5539,7 +5539,7 @@ thread-pre-split91.i:                             ; preds = %175, %.thread-pre-s
   br label %write_octet_sequence.exit.i
 
 225:                                              ; preds = %179
-  %226 = call fastcc i32 @map_from_unicode(i32 noundef %176, i32 noundef %.077, ptr noundef nonnull %6)
+  %226 = call fastcc i32 @map_from_unicode(i32 noundef %176, i32 noundef %.077, ptr noundef %6)
   %227 = icmp eq i32 %226, -1
   %228 = load i32, ptr %7, align 4
   %229 = icmp ne i32 %228, 0
@@ -6497,7 +6497,7 @@ process_named_entity_html.exit:                   ; preds = %.critedge2.i
   br i1 %383, label %numeric_entity_is_allowed.exit.thread479, label %384
 
 384:                                              ; preds = %process_named_entity_html.exit
-  %385 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %314, i64 noundef %382, ptr noundef %.0318, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %385 = call fastcc i32 @resolve_named_entity_html(ptr noundef nonnull %314, i64 noundef %382, ptr noundef %.0318, ptr noundef %12, ptr noundef %13)
   %386 = icmp eq i32 %385, -1
   br i1 %386, label %387, label %402
 
@@ -6633,7 +6633,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #5 {
   %6 = icmp ugt i64 %1, 7
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -6817,7 +6817,7 @@ define hidden void @zif_htmlspecialchars(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_html_entities(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @php_html_entities(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -7557,7 +7557,7 @@ determine_charset.exit:                           ; preds = %46, %48, %62, %67
 declare ptr @_zend_new_array_0() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 131072) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [9 x i8], align 1
   %6 = alloca [33 x i8], align 16
   %7 = alloca i32, align 4
@@ -7570,19 +7570,19 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
   %.0.i.sroa.gep50 = getelementptr inbounds i8, ptr %5, i64 4
   switch i32 %2, label %write_octet_sequence.exit [
     i32 0, label %8
-    i32 1, label %49
-    i32 2, label %49
-    i32 3, label %49
-    i32 8, label %49
-    i32 4, label %49
-    i32 5, label %49
-    i32 6, label %49
-    i32 7, label %49
-    i32 9, label %51
-    i32 11, label %51
-    i32 12, label %51
-    i32 10, label %51
-    i32 13, label %53
+    i32 1, label %45
+    i32 2, label %45
+    i32 3, label %45
+    i32 8, label %45
+    i32 4, label %45
+    i32 5, label %45
+    i32 6, label %45
+    i32 7, label %45
+    i32 9, label %47
+    i32 11, label %47
+    i32 12, label %47
+    i32 10, label %47
+    i32 13, label %49
   ]
 
 8:                                                ; preds = %4
@@ -7615,7 +7615,7 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
 
 23:                                               ; preds = %21
   %24 = lshr i32 %1, 12
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   store i8 %26, ptr %5, align 1
   %27 = lshr i32 %1, 6
@@ -7630,147 +7630,143 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
   br label %write_octet_sequence.exit
 
 34:                                               ; preds = %21
-  %35 = lshr i32 %1, 18
-  %36 = trunc i32 %35 to i8
-  %37 = or i8 %36, -16
-  store i8 %37, ptr %5, align 1
-  %38 = lshr i32 %1, 12
+  store i8 -16, ptr %5, align 1
+  %35 = lshr i32 %1, 12
+  %36 = trunc nuw nsw i32 %35 to i8
+  %37 = or disjoint i8 %36, -128
+  store i8 %37, ptr %.0.i.sroa.gep, align 1
+  %38 = lshr i32 %1, 6
   %39 = trunc i32 %38 to i8
   %40 = and i8 %39, 63
   %41 = or disjoint i8 %40, -128
-  store i8 %41, ptr %.0.i.sroa.gep, align 1
-  %42 = lshr i32 %1, 6
-  %43 = trunc i32 %42 to i8
-  %44 = and i8 %43, 63
-  %45 = or disjoint i8 %44, -128
-  store i8 %45, ptr %.0.i.sroa.gep48, align 1
-  %46 = trunc i32 %1 to i8
-  %47 = and i8 %46, 63
-  %48 = or disjoint i8 %47, -128
-  store i8 %48, ptr %.0.i.sroa.gep49, align 1
+  store i8 %41, ptr %.0.i.sroa.gep48, align 1
+  %42 = trunc i32 %1 to i8
+  %43 = and i8 %42, 63
+  %44 = or disjoint i8 %43, -128
+  store i8 %44, ptr %.0.i.sroa.gep49, align 1
   br label %write_octet_sequence.exit
 
-49:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
+45:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
+  %46 = trunc i32 %1 to i8
+  store i8 %46, ptr %5, align 1
+  br label %write_octet_sequence.exit
+
+47:                                               ; preds = %4, %4, %4, %4
+  %48 = trunc i32 %1 to i8
+  store i8 %48, ptr %5, align 1
+  br label %write_octet_sequence.exit
+
+49:                                               ; preds = %4
   %50 = trunc i32 %1 to i8
   store i8 %50, ptr %5, align 1
   br label %write_octet_sequence.exit
 
-51:                                               ; preds = %4, %4, %4, %4
-  %52 = trunc i32 %1 to i8
-  store i8 %52, ptr %5, align 1
-  br label %write_octet_sequence.exit
+write_octet_sequence.exit:                        ; preds = %4, %10, %14, %23, %34, %45, %47, %49
+  %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %49 ], [ %.0.i.sroa.gep, %47 ], [ %.0.i.sroa.gep, %45 ], [ %5, %4 ], [ %.0.i.sroa.gep, %10 ], [ %.0.i.sroa.gep48, %14 ], [ %.0.i.sroa.gep49, %23 ], [ %.0.i.sroa.gep50, %34 ]
+  %.0.i = phi i64 [ 1, %49 ], [ 1, %47 ], [ 1, %45 ], [ 0, %4 ], [ 1, %10 ], [ 2, %14 ], [ 3, %23 ], [ 4, %34 ]
+  %51 = load i8, ptr %0, align 8
+  %.not = icmp eq i8 %51, 0
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not, label %53, label %62
 
-53:                                               ; preds = %4
-  %54 = trunc i32 %1 to i8
-  store i8 %54, ptr %5, align 1
-  br label %write_octet_sequence.exit
-
-write_octet_sequence.exit:                        ; preds = %4, %10, %14, %23, %34, %49, %51, %53
-  %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %53 ], [ %.0.i.sroa.gep, %51 ], [ %.0.i.sroa.gep, %49 ], [ %5, %4 ], [ %.0.i.sroa.gep, %10 ], [ %.0.i.sroa.gep48, %14 ], [ %.0.i.sroa.gep49, %23 ], [ %.0.i.sroa.gep50, %34 ]
-  %.0.i = phi i64 [ 1, %53 ], [ 1, %51 ], [ 1, %49 ], [ 0, %4 ], [ 1, %10 ], [ 2, %14 ], [ 3, %23 ], [ 4, %34 ]
-  %55 = load i8, ptr %0, align 8
-  %.not = icmp eq i8 %55, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not, label %57, label %66
-
-57:                                               ; preds = %write_octet_sequence.exit
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
-  %59 = load i16, ptr %58, align 8
-  %60 = zext i16 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %6, i64 1
-  %62 = load ptr, ptr %56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr align 1 %62, i64 %60, i1 false)
-  %63 = add nuw nsw i64 %60, 1
-  %64 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %63
-  store i8 59, ptr %64, align 1
-  %65 = add nuw nsw i64 %60, 2
-  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, ptr noundef nonnull %6, i64 noundef %65) #18
+53:                                               ; preds = %write_octet_sequence.exit
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = load i16, ptr %54, align 8
+  %56 = zext i16 %55 to i64
+  %57 = getelementptr inbounds i8, ptr %6, i64 1
+  %58 = load ptr, ptr %52, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %58, i64 %56, i1 false)
+  %59 = add nuw nsw i64 %56, 1
+  %60 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %59
+  store i8 59, ptr %60, align 1
+  %61 = add nuw nsw i64 %56, 2
+  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, ptr noundef nonnull %6, i64 noundef %61) #18
   br label %.loopexit
 
-66:                                               ; preds = %write_octet_sequence.exit
-  %67 = load ptr, ptr %56, align 8
-  %68 = load ptr, ptr %67, align 8
-  %.not42 = icmp eq ptr %68, null
-  br i1 %.not42, label %77, label %69
+62:                                               ; preds = %write_octet_sequence.exit
+  %63 = load ptr, ptr %52, align 8
+  %64 = load ptr, ptr %63, align 8
+  %.not42 = icmp eq ptr %64, null
+  br i1 %.not42, label %73, label %65
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %67, i64 12
-  %71 = load i16, ptr %70, align 4
-  %72 = zext i16 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %68, i64 %72, i1 false)
-  %74 = add nuw nsw i64 %72, 1
-  %75 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %74
-  store i8 59, ptr %75, align 1
-  %76 = add nuw nsw i64 %72, 2
-  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, ptr noundef nonnull %6, i64 noundef %76) #18
-  br label %77
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds i8, ptr %63, i64 12
+  %67 = load i16, ptr %66, align 4
+  %68 = zext i16 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr nonnull align 1 %64, i64 %68, i1 false)
+  %70 = add nuw nsw i64 %68, 1
+  %71 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %70
+  store i8 59, ptr %71, align 1
+  %72 = add nuw nsw i64 %68, 2
+  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, ptr noundef nonnull %6, i64 noundef %72) #18
+  br label %73
 
-77:                                               ; preds = %69, %66
-  %78 = getelementptr inbounds i8, ptr %67, i64 8
-  %79 = load i32, ptr %78, align 8
-  %.not4351 = icmp eq i32 %79, 0
+73:                                               ; preds = %65, %62
+  %74 = getelementptr inbounds i8, ptr %63, i64 8
+  %75 = load i32, ptr %74, align 8
+  %.not4351 = icmp eq i32 %75, 0
   br i1 %.not4351, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %77
-  %80 = icmp ult i32 %2, 2
-  %81 = getelementptr inbounds i8, ptr %6, i64 1
-  br i1 %80, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %73
+  %76 = icmp ult i32 %2, 2
+  %77 = getelementptr inbounds i8, ptr %6, i64 1
+  br i1 %76, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.052.us = phi i32 [ %95, %.lr.ph.split.us ], [ 1, %.lr.ph ]
-  %82 = zext i32 %.052.us to i64
-  %83 = getelementptr inbounds %union.entity_multicodepoint_row, ptr %67, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %83, i64 12
-  %87 = load i16, ptr %86, align 4
-  %88 = zext i16 %87 to i64
-  %89 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %85)
-  %90 = load ptr, ptr %83, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %90, i64 %88, i1 false)
-  %91 = add nuw nsw i64 %88, 1
-  %92 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %91
-  store i8 59, ptr %92, align 1
-  %93 = add nuw nsw i64 %89, %.0.i
-  %94 = add nuw nsw i64 %88, 2
-  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %93, ptr noundef nonnull %6, i64 noundef %94) #18
-  %95 = add i32 %.052.us, 1
-  %.not43.us = icmp ugt i32 %95, %79
+  %.052.us = phi i32 [ %91, %.lr.ph.split.us ], [ 1, %.lr.ph ]
+  %78 = zext i32 %.052.us to i64
+  %79 = getelementptr inbounds %union.entity_multicodepoint_row, ptr %63, i64 %78
+  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %79, i64 12
+  %83 = load i16, ptr %82, align 4
+  %84 = zext i16 %83 to i64
+  %85 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %81)
+  %86 = load ptr, ptr %79, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %86, i64 %84, i1 false)
+  %87 = add nuw nsw i64 %84, 1
+  %88 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %87
+  store i8 59, ptr %88, align 1
+  %89 = add nuw nsw i64 %85, %.0.i
+  %90 = add nuw nsw i64 %84, 2
+  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %89, ptr noundef nonnull %6, i64 noundef %90) #18
+  %91 = add i32 %.052.us, 1
+  %.not43.us = icmp ugt i32 %91, %75
   br i1 %.not43.us, label %.loopexit, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %113
-  %.052 = phi i32 [ %114, %113 ], [ 1, %.lr.ph ]
-  %96 = zext i32 %.052 to i64
-  %97 = getelementptr inbounds %union.entity_multicodepoint_row, ptr %67, i64 %96
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %97, i64 12
-  %101 = load i16, ptr %100, align 4
-  %102 = call fastcc i32 @map_from_unicode(i32 noundef %99, i32 noundef %2, ptr noundef nonnull %7)
-  %103 = icmp eq i32 %102, -1
-  br i1 %103, label %113, label %104
+.lr.ph.split:                                     ; preds = %.lr.ph, %109
+  %.052 = phi i32 [ %110, %109 ], [ 1, %.lr.ph ]
+  %92 = zext i32 %.052 to i64
+  %93 = getelementptr inbounds %union.entity_multicodepoint_row, ptr %63, i64 %92
+  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %95 = load i32, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %93, i64 12
+  %97 = load i16, ptr %96, align 4
+  %98 = call fastcc i32 @map_from_unicode(i32 noundef %95, i32 noundef %2, ptr noundef %7)
+  %99 = icmp eq i32 %98, -1
+  br i1 %99, label %109, label %100
 
-104:                                              ; preds = %.lr.ph.split
-  %105 = zext i16 %101 to i64
-  %106 = load i32, ptr %7, align 4
-  %107 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %106)
-  %108 = load ptr, ptr %97, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %108, i64 %105, i1 false)
-  %109 = add nuw nsw i64 %105, 1
-  %110 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %109
-  store i8 59, ptr %110, align 1
-  %111 = add nuw nsw i64 %107, %.0.i
-  %112 = add nuw nsw i64 %105, 2
-  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %111, ptr noundef nonnull %6, i64 noundef %112) #18
-  br label %113
+100:                                              ; preds = %.lr.ph.split
+  %101 = zext i16 %97 to i64
+  %102 = load i32, ptr %7, align 4
+  %103 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %102)
+  %104 = load ptr, ptr %93, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %104, i64 %101, i1 false)
+  %105 = add nuw nsw i64 %101, 1
+  %106 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %105
+  store i8 59, ptr %106, align 1
+  %107 = add nuw nsw i64 %103, %.0.i
+  %108 = add nuw nsw i64 %101, 2
+  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %107, ptr noundef nonnull %6, i64 noundef %108) #18
+  br label %109
 
-113:                                              ; preds = %.lr.ph.split, %104
-  %114 = add i32 %.052, 1
-  %.not43 = icmp ugt i32 %114, %79
+109:                                              ; preds = %.lr.ph.split, %100
+  %110 = add i32 %.052, 1
+  %.not43 = icmp ugt i32 %110, %75
   br i1 %.not43, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %113, %.lr.ph.split.us, %77, %57
+.loopexit:                                        ; preds = %109, %.lr.ph.split.us, %73, %53
   ret void
 }
 
@@ -7783,7 +7779,7 @@ declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 n
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #8 {
   switch i32 %1, label %unimap_bsearch.exit.thread [
     i32 1, label %4
     i32 5, label %6

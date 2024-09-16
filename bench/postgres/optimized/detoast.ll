@@ -641,7 +641,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %6, label %10
@@ -669,7 +669,7 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture nounde
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 14
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 1
   %15 = and i32 %.sroa.3.0.copyload, 1073741823
-  %.not = icmp slt i32 %1, %15
+  %.not = icmp ult i32 %1, %15
   %spec.select = select i1 %.not, i32 %2, i32 0
   %spec.select36 = select i1 %.not, i32 %1, i32 0
   %16 = add i32 %.sroa.0.0.copyload, -4

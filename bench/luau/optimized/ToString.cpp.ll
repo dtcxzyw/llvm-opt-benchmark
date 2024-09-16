@@ -3084,7 +3084,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit._crit_edge: ; preds = %_ZN4Lua
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit:    ; preds = %110, %117, %120
   %122 = phi ptr [ null, %110 ], [ %113, %117 ], [ %.val72.pre, %120 ]
   %.val = phi ptr [ %109, %110 ], [ %109, %117 ], [ %.val.pre, %120 ]
-  invoke fastcc void @_ZN4LuauL21canUseTypeNameInScopeESt10shared_ptrINS_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %.val, ptr %122, ptr noundef nonnull align 8 dereferenceable(32) %93)
+  invoke fastcc void @_ZN4LuauL21canUseTypeNameInScopeESt10shared_ptrINS_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr %.val, ptr %122, ptr noundef nonnull align 8 dereferenceable(32) %93)
           to label %123 unwind label %162
 
 123:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit
@@ -4713,7 +4713,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %34, %42, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL21canUseTypeNameInScopeESt10shared_ptrINS_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL21canUseTypeNameInScopeESt10shared_ptrINS_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   store ptr %.0.val, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -15105,7 +15105,7 @@ define linkonce_odr dso_local void @_ZN4Luau15TypeStringifierclEPKNS_4TypeERKNS_
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit:    ; preds = %33, %40, %43
   %45 = phi ptr [ null, %33 ], [ %36, %40 ], [ %.val56.pre, %43 ]
   %.val = phi ptr [ %32, %33 ], [ %32, %40 ], [ %.val.pre, %43 ]
-  invoke fastcc void @_ZN4LuauL21canUseTypeNameInScopeESt10shared_ptrINS_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val, ptr %45, ptr noundef nonnull align 8 dereferenceable(32) %25)
+  invoke fastcc void @_ZN4LuauL21canUseTypeNameInScopeESt10shared_ptrINS_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val, ptr %45, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %46 unwind label %89
 
 46:                                               ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit
@@ -28488,7 +28488,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %28 = load ptr, ptr %6, align 8
   store ptr %28, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %22) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %19, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %19, ptr noundef %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #27
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %29 = add nsw i64 %.010.i.i.i, -1
@@ -28520,7 +28520,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %41 = load ptr, ptr %4, align 8
   store ptr %41, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %40, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %40, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -28723,7 +28723,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.97", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -29145,7 +29145,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %28 = load ptr, ptr %6, align 8
   store ptr %28, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %22) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_4TypeERNS3_15ToStringOptionsEE3$_3EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %19, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_4TypeERNS3_15ToStringOptionsEE3$_3EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %19, ptr noundef %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #27
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %29 = add nsw i64 %.010.i.i.i, -1
@@ -29177,7 +29177,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %41 = load ptr, ptr %4, align 8
   store ptr %41, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_4TypeERNS3_15ToStringOptionsEE3$_3EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %40, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_4TypeERNS3_15ToStringOptionsEE3$_3EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %40, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -29380,7 +29380,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_4TypeERNS3_15ToStringOptionsEE3$_3EEEvT_T0_ST_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_4TypeERNS3_15ToStringOptionsEE3$_3EEEvT_T0_ST_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.108", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -29658,7 +29658,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %28 = load ptr, ptr %6, align 8
   store ptr %28, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %22) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_11TypePackVarERNS3_15ToStringOptionsEE3$_2EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %19, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_11TypePackVarERNS3_15ToStringOptionsEE3$_2EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %19, ptr noundef %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #27
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %29 = add nsw i64 %.010.i.i.i, -1
@@ -29690,7 +29690,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %41 = load ptr, ptr %4, align 8
   store ptr %41, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_11TypePackVarERNS3_15ToStringOptionsEE3$_2EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %40, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_11TypePackVarERNS3_15ToStringOptionsEE3$_2EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %40, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -29893,7 +29893,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_11TypePackVarERNS3_15ToStringOptionsEE3$_2EEEvT_T0_ST_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedEPKNS3_11TypePackVarERNS3_15ToStringOptionsEE3$_2EEEvT_T0_ST_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.97", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -30171,7 +30171,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %28 = load ptr, ptr %6, align 8
   store ptr %28, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %22) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_3EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %19, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_3EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %19, ptr noundef %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #27
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %29 = add nsw i64 %.010.i.i.i, -1
@@ -30203,7 +30203,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %41 = load ptr, ptr %4, align 8
   store ptr %41, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_3EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %40, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_3EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %40, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -30406,7 +30406,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_3EEEvT_T0_SQ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIZNS3_16toStringDetailedES6_RNS3_15ToStringOptionsEE3$_3EEEvT_T0_SQ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.108", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

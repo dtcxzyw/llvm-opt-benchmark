@@ -307,7 +307,7 @@ define range(i32 0, 9203) i32 @serialize_p_string_to_data(ptr nocapture noundef 
 _parse_yaml.exit:                                 ; preds = %13
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   call void @yaml_parser_set_input_string(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %15) #6
-  %16 = call fastcc i32 @_yaml_to_data(i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %4)
+  %16 = call fastcc i32 @_yaml_to_data(i32 noundef 0, ptr noundef %5, ptr noundef nonnull %12, ptr noundef %4)
   %17 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not16 = icmp eq i32 %17, 0
@@ -758,7 +758,7 @@ declare i32 @yaml_parser_initialize(ptr noundef) local_unnamed_addr #1
 declare void @yaml_parser_set_input_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.yaml_event_s, align 8
   %6 = icmp sgt i32 %0, 64
   br i1 %6, label %10, label %.preheader
@@ -780,7 +780,7 @@ define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr no
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %12
-  %15 = call i32 @yaml_parser_parse(ptr noundef %1, ptr noundef nonnull %5) #6
+  %15 = call i32 @yaml_parser_parse(ptr noundef nonnull %1, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %20
 
@@ -832,7 +832,7 @@ _yaml_event_type_string.exit:                     ; preds = %33
   br label %40
 
 40:                                               ; preds = %20, %_yaml_event_type_string.exit
-  %41 = call fastcc i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3)
+  %41 = call fastcc i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, ptr noundef %3)
   %42 = icmp eq i32 %41, 3
   br i1 %42, label %43, label %12, !llvm.loop !8
 
@@ -863,7 +863,7 @@ declare void @yaml_event_delete(ptr noundef) local_unnamed_addr #1
 declare void @_log_flag_hex(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %3) #6
   %7 = icmp eq i32 %6, 2
   %8 = load i32, ptr %2, align 8
@@ -906,7 +906,7 @@ common.ret4:                                      ; preds = %64, %62, %_yaml_tag
 
 18:                                               ; preds = %10, %14, %17
   %19 = add nsw i32 %0, 1
-  %20 = tail call fastcc i32 @_on_parse_event(i32 noundef %19, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %11, ptr noundef %4)
+  %20 = tail call fastcc i32 @_on_parse_event(i32 noundef %19, ptr noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %4)
   %21 = icmp eq i32 %20, 3
   %22 = select i1 %21, i32 2, i32 %20
   br label %common.ret4

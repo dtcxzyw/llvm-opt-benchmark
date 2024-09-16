@@ -387,7 +387,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev.exit.i: ; preds = %66, %_ZN12_GLOB
   %71 = icmp eq i8 %8, 49
   tail call void @llvm.assume(i1 %71)
   %72 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_23MSPropertySubscriptExprEb(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(17560) %72, ptr noundef nonnull %7, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_23MSPropertySubscriptExprEb(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(17560) %72, ptr noundef %7, i1 noundef zeroext true)
   %73 = call fastcc i64 @_ZN12_GLOBAL__N_115PseudoOpBuilder20buildRValueOperationEPN5clang4ExprE(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull %1)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_119MSPropertyOpBuilderE, i64 16), ptr %6, align 8
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -755,7 +755,7 @@ _ZN12_GLOBAL__N_115PseudoOpBuilderD2Ev.exit:      ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_17MSPropertyRefExprEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_17MSPropertyRefExprEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = tail call noundef zeroext i1 @_ZNK5clang4Expr17isImplicitCXXThisEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
@@ -1404,7 +1404,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev.exit.i: ; preds = %216, %_ZN12_GLO
   %222 = icmp eq i8 %40, 49
   tail call void @llvm.assume(i1 %222)
   %223 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_23MSPropertySubscriptExprEb(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(17560) %223, ptr noundef nonnull %39, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_23MSPropertySubscriptExprEb(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(17560) %223, ptr noundef %39, i1 noundef zeroext false)
   %224 = call fastcc i64 @_ZN12_GLOBAL__N_115PseudoOpBuilder20buildIncDecOperationEPN5clang5ScopeENS1_14SourceLocationENS1_17UnaryOperatorKindEPNS1_4ExprE(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef %1, i32 %2, i32 noundef %3, ptr noundef nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_119MSPropertyOpBuilderE, i64 16), ptr %19, align 8
   %225 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -2231,7 +2231,7 @@ _ZN12_GLOBAL__N_122ObjCSubscriptOpBuilder24buildAssignmentOperationEPN5clang5Sco
 
 260:                                              ; preds = %60
   %261 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_17MSPropertyRefExprEb(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(17560) %261, ptr noundef nonnull %62, i1 noundef zeroext %61)
+  call fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_17MSPropertyRefExprEb(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(17560) %261, ptr noundef %62, i1 noundef zeroext %61)
   %262 = call fastcc i64 @_ZN12_GLOBAL__N_115PseudoOpBuilder24buildAssignmentOperationEPN5clang5ScopeENS1_14SourceLocationENS1_18BinaryOperatorKindEPNS1_4ExprES7_(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef %1, i32 %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %.0)
   call void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %19) #18
   br label %_ZN12_GLOBAL__N_121ObjCPropertyOpBuilderD2Ev.exit
@@ -2240,7 +2240,7 @@ _ZN12_GLOBAL__N_122ObjCSubscriptOpBuilder24buildAssignmentOperationEPN5clang5Sco
   %264 = icmp eq i8 %63, 49
   tail call void @llvm.assume(i1 %264)
   %265 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_23MSPropertySubscriptExprEb(ptr noundef nonnull align 8 dereferenceable(144) %20, ptr noundef nonnull align 8 dereferenceable(17560) %265, ptr noundef nonnull %62, i1 noundef zeroext %61)
+  call fastcc void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderC2ERN5clang4SemaEPNS1_23MSPropertySubscriptExprEb(ptr noundef nonnull align 8 dereferenceable(144) %20, ptr noundef nonnull align 8 dereferenceable(17560) %265, ptr noundef %62, i1 noundef zeroext %61)
   %266 = call fastcc i64 @_ZN12_GLOBAL__N_115PseudoOpBuilder24buildAssignmentOperationEPN5clang5ScopeENS1_14SourceLocationENS1_18BinaryOperatorKindEPNS1_4ExprES7_(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef %1, i32 %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %.0)
   call void @_ZN12_GLOBAL__N_119MSPropertyOpBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %20) #18
   br label %_ZN12_GLOBAL__N_121ObjCPropertyOpBuilderD2Ev.exit

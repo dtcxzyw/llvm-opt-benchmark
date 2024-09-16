@@ -1527,7 +1527,7 @@ define void @_ZN2cv5gimpl9GCompilerC2ERKNS_12GComputationEOSt6vectorINS_4util7va
 
 189:                                              ; preds = %.noexc
   %190 = getelementptr inbounds i8, ptr %41, i64 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(80) %190)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(80) %190)
           to label %255 unwind label %.body.i
 
 .body.i:                                          ; preds = %205, %189
@@ -1599,7 +1599,7 @@ define void @_ZN2cv5gimpl9GCompilerC2ERKNS_12GComputationEOSt6vectorINS_4util7va
           to label %212 unwind label %240, !noalias !4
 
 212:                                              ; preds = %206
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(80) %49)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(80) %49)
           to label %213 unwind label %242, !noalias !4
 
 213:                                              ; preds = %212
@@ -9971,7 +9971,7 @@ _ZN2cv4util8optionalINS_4gapi8use_onlyEEC2ERKS3_.exit: ; preds = %.noexc.i, %._c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::GKernelPackage", align 8
   %4 = alloca %"class.cv::GKernelPackage", align 8
   %5 = alloca %"class.cv::GKernelPackage", align 8
@@ -10420,7 +10420,7 @@ common.resume.i:                                  ; preds = %183, %181
 _ZN2cv4gapi7combineIJRNS_14GKernelPackageEEEES2_RKS2_S5_DpOT_.exit.i: ; preds = %.noexc
   call void @_ZN2cv14GKernelPackageD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #23, !noalias !120
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3), !noalias !120
-  invoke void @_ZN2cv4gapi7combineERKNS_14GKernelPackageES3_(ptr dead_on_unwind writable sret(%"class.cv::GKernelPackage") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %4)
+  invoke void @_ZN2cv4gapi7combineERKNS_14GKernelPackageES3_(ptr dead_on_unwind nonnull writable sret(%"class.cv::GKernelPackage") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %185 unwind label %183
 
 183:                                              ; preds = %_ZN2cv4gapi7combineIJRNS_14GKernelPackageEEEES2_RKS2_S5_DpOT_.exit.i

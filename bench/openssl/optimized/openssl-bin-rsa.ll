@@ -497,7 +497,7 @@ if.then191:                                       ; preds = %if.end187
 
 lor.lhs.false195:                                 ; preds = %if.then191
   %23 = load i32, ptr %outformat, align 4
-  %call196 = call fastcc i32 @try_legacy_encoding(ptr noundef nonnull %pkey.1, i32 noundef %23, i32 noundef %pubout.0, ptr noundef nonnull %call92)
+  %call196 = call fastcc i32 @try_legacy_encoding(ptr noundef %pkey.1, i32 noundef %23, i32 noundef %pubout.0, ptr noundef %call92)
   %tobool197.not = icmp eq i32 %call196, 0
   br i1 %tobool197.not, label %if.then198, label %end
 
@@ -646,9 +646,9 @@ declare ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef, i32 noundef, ptr noundef
 declare i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @try_legacy_encoding(ptr noundef %pkey, i32 noundef %outformat, i32 noundef %pubout, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @try_legacy_encoding(ptr noundef nonnull %pkey, i32 noundef %outformat, i32 noundef range(i32 0, 3) %pubout, ptr noundef nonnull %out) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %pkey) #6
+  %call = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef nonnull %pkey) #6
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -663,12 +663,12 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then2
-  %call5 = tail call i32 @i2d_RSAPublicKey_bio(ptr noundef %out, ptr noundef nonnull %call) #6
+  %call5 = tail call i32 @i2d_RSAPublicKey_bio(ptr noundef nonnull %out, ptr noundef nonnull %call) #6
   %cmp6 = icmp sgt i32 %call5, 0
   br label %if.end37
 
 if.else:                                          ; preds = %if.then2
-  %call7 = tail call i32 @i2d_RSA_PUBKEY_bio(ptr noundef %out, ptr noundef nonnull %call) #6
+  %call7 = tail call i32 @i2d_RSA_PUBKEY_bio(ptr noundef nonnull %out, ptr noundef nonnull %call) #6
   %cmp8 = icmp sgt i32 %call7, 0
   br label %if.end37
 
@@ -677,12 +677,12 @@ if.then14:                                        ; preds = %if.end
   br i1 %cmp15, label %if.then17, label %if.else21
 
 if.then17:                                        ; preds = %if.then14
-  %call18 = tail call i32 @PEM_write_bio_RSAPublicKey(ptr noundef %out, ptr noundef nonnull %call) #6
+  %call18 = tail call i32 @PEM_write_bio_RSAPublicKey(ptr noundef nonnull %out, ptr noundef nonnull %call) #6
   %cmp19 = icmp sgt i32 %call18, 0
   br label %if.end37
 
 if.else21:                                        ; preds = %if.then14
-  %call22 = tail call i32 @PEM_write_bio_RSA_PUBKEY(ptr noundef %out, ptr noundef nonnull %call) #6
+  %call22 = tail call i32 @PEM_write_bio_RSA_PUBKEY(ptr noundef nonnull %out, ptr noundef nonnull %call) #6
   %cmp23 = icmp sgt i32 %call22, 0
   br label %if.end37
 
@@ -692,7 +692,7 @@ if.else26:                                        ; preds = %if.end
   br i1 %or.cond, label %if.then31, label %if.end37
 
 if.then31:                                        ; preds = %if.else26
-  %call32 = tail call i32 @i2b_PublicKey_bio(ptr noundef %out, ptr noundef %pkey) #6
+  %call32 = tail call i32 @i2b_PublicKey_bio(ptr noundef nonnull %out, ptr noundef nonnull %pkey) #6
   %cmp33 = icmp sgt i32 %call32, 0
   br label %if.end37
 

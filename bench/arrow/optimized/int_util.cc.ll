@@ -5711,7 +5711,7 @@ return:                                           ; preds = %while.cond12, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5arrow8internal14DetectIntWidthEPKlPKhlhENK3$_0clEmm"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %addend, i64 noundef %test_mask) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5arrow8internal14DetectIntWidthEPKlPKhlhENK3$_0clEmm"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef range(i64 128, 2147483649) %addend, i64 noundef range(i64 -4294967296, -255) %test_mask) unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -6248,7 +6248,7 @@ entry:
   store ptr %dest_type, ptr %dest_type7, align 8
   %0 = getelementptr inbounds i8, ptr %src_type, i64 40
   %src_type.val = load i32, ptr %0, align 8
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_116TransposeIntsSrcEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, i32 %src_type.val, ptr noundef nonnull %transposer)
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_116TransposeIntsSrcEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, i32 %src_type.val, ptr noundef %transposer)
   ret void
 }
 
@@ -13463,7 +13463,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_116TransposeIntsSrcEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, i32 %type.40.val, ptr noundef readonly %visitor) unnamed_addr #8 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_8internal12_GLOBAL__N_116TransposeIntsSrcEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull readonly %visitor) unnamed_addr #8 {
 entry:
   switch i32 %type.40.val, label %sw.epilog [
     i32 0, label %sw.bb

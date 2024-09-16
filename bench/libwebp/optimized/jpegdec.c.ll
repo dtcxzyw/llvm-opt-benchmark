@@ -158,7 +158,7 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   br i1 %.not40, label %73, label %68
 
 68:                                               ; preds = %._crit_edge
-  %69 = call fastcc i32 @ExtractMetadataFromJPEG(ptr noundef nonnull %7, ptr noundef nonnull %4)
+  %69 = call fastcc i32 @ExtractMetadataFromJPEG(ptr noundef %7, ptr noundef %4)
   store volatile i32 %69, ptr %6, align 4
   %.0..0..0..0.16 = load volatile i32, ptr %6, align 4
   %.not44 = icmp eq i32 %.0..0..0..0.16, 0
@@ -253,7 +253,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare i32 @jpeg_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [255 x %struct.ICCPSegment], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 6120, ptr nonnull %3)

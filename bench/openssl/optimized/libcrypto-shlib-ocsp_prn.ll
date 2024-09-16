@@ -63,20 +63,20 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %ts.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @OCSP_response_status_str.rstat_tbl, %entry ]
-  %0 = load i64, ptr %ts.addr.06.i, align 8
+  %i.06.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %ts.addr.05.i = phi ptr [ @OCSP_response_status_str.rstat_tbl, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %0 = load i64, ptr %ts.addr.05.i, align 8
   %cmp1.i = icmp eq i64 %0, %s
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %m.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 8
+  %m.i = getelementptr inbounds i8, ptr %ts.addr.05.i, i64 8
   %1 = load ptr, ptr %m.i, align 8
   br label %do_table2string.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 16
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.05.i, i64 16
   %exitcond.not.i = icmp eq i64 %inc.i, 6
   br i1 %exitcond.not.i, label %do_table2string.exit, label %for.body.i, !llvm.loop !4
 
@@ -91,20 +91,20 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %ts.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @OCSP_cert_status_str.cstat_tbl, %entry ]
-  %0 = load i64, ptr %ts.addr.06.i, align 8
+  %i.06.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %ts.addr.05.i = phi ptr [ @OCSP_cert_status_str.cstat_tbl, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %0 = load i64, ptr %ts.addr.05.i, align 8
   %cmp1.i = icmp eq i64 %0, %s
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %m.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 8
+  %m.i = getelementptr inbounds i8, ptr %ts.addr.05.i, i64 8
   %1 = load ptr, ptr %m.i, align 8
   br label %do_table2string.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 16
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.05.i, i64 16
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %do_table2string.exit, label %for.body.i, !llvm.loop !4
 
@@ -119,20 +119,20 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %ts.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @OCSP_crl_reason_str.reason_tbl, %entry ]
-  %0 = load i64, ptr %ts.addr.06.i, align 8
+  %i.06.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %ts.addr.05.i = phi ptr [ @OCSP_crl_reason_str.reason_tbl, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %0 = load i64, ptr %ts.addr.05.i, align 8
   %cmp1.i = icmp eq i64 %0, %s
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %m.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 8
+  %m.i = getelementptr inbounds i8, ptr %ts.addr.05.i, i64 8
   %1 = load ptr, ptr %m.i, align 8
   br label %do_table2string.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 16
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.05.i, i64 16
   %exitcond.not.i = icmp eq i64 %inc.i, 10
   br i1 %exitcond.not.i, label %do_table2string.exit, label %for.body.i, !llvm.loop !4
 
@@ -258,7 +258,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ocsp_certid_print(ptr noundef %bp, ptr noundef %a, i32 noundef %indent) unnamed_addr #1 {
+define internal fastcc void @ocsp_certid_print(ptr noundef %bp, ptr noundef %a, i32 noundef range(i32 4, 9) %indent) unnamed_addr #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.42, i32 noundef %indent, ptr noundef nonnull @.str.43) #3
   %add = add nuw nsw i32 %indent, 2
@@ -301,20 +301,20 @@ if.end:                                           ; preds = %entry
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.end ]
-  %ts.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @OCSP_response_status_str.rstat_tbl, %if.end ]
-  %2 = load i64, ptr %ts.addr.06.i.i, align 8
+  %i.06.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i, %for.inc.i.i ]
+  %ts.addr.05.i.i = phi ptr [ @OCSP_response_status_str.rstat_tbl, %if.end ], [ %incdec.ptr.i.i, %for.inc.i.i ]
+  %2 = load i64, ptr %ts.addr.05.i.i, align 8
   %cmp1.i.i = icmp eq i64 %2, %call1
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %m.i.i = getelementptr inbounds i8, ptr %ts.addr.06.i.i, i64 8
+  %m.i.i = getelementptr inbounds i8, ptr %ts.addr.05.i.i, i64 8
   %3 = load ptr, ptr %m.i.i, align 8
   br label %OCSP_response_status_str.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ts.addr.06.i.i, i64 16
+  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ts.addr.05.i.i, i64 16
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 6
   br i1 %exitcond.not.i.i, label %OCSP_response_status_str.exit, label %for.body.i.i, !llvm.loop !4
 
@@ -430,20 +430,20 @@ if.end60:                                         ; preds = %for.body
   br label %for.body.i.i69
 
 for.body.i.i69:                                   ; preds = %for.inc.i.i73, %if.end60
-  %i.07.i.i70 = phi i64 [ %inc.i.i74, %for.inc.i.i73 ], [ 0, %if.end60 ]
-  %ts.addr.06.i.i71 = phi ptr [ %incdec.ptr.i.i75, %for.inc.i.i73 ], [ @OCSP_cert_status_str.cstat_tbl, %if.end60 ]
-  %17 = load i64, ptr %ts.addr.06.i.i71, align 8
+  %i.06.i.i70 = phi i64 [ 0, %if.end60 ], [ %inc.i.i74, %for.inc.i.i73 ]
+  %ts.addr.05.i.i71 = phi ptr [ @OCSP_cert_status_str.cstat_tbl, %if.end60 ], [ %incdec.ptr.i.i75, %for.inc.i.i73 ]
+  %17 = load i64, ptr %ts.addr.05.i.i71, align 8
   %cmp1.i.i72 = icmp eq i64 %17, %conv
   br i1 %cmp1.i.i72, label %if.then.i.i78, label %for.inc.i.i73
 
 if.then.i.i78:                                    ; preds = %for.body.i.i69
-  %m.i.i79 = getelementptr inbounds i8, ptr %ts.addr.06.i.i71, i64 8
+  %m.i.i79 = getelementptr inbounds i8, ptr %ts.addr.05.i.i71, i64 8
   %18 = load ptr, ptr %m.i.i79, align 8
   br label %OCSP_cert_status_str.exit
 
 for.inc.i.i73:                                    ; preds = %for.body.i.i69
-  %inc.i.i74 = add nuw nsw i64 %i.07.i.i70, 1
-  %incdec.ptr.i.i75 = getelementptr inbounds i8, ptr %ts.addr.06.i.i71, i64 16
+  %inc.i.i74 = add nuw nsw i64 %i.06.i.i70, 1
+  %incdec.ptr.i.i75 = getelementptr inbounds i8, ptr %ts.addr.05.i.i71, i64 16
   %exitcond.not.i.i76 = icmp eq i64 %inc.i.i74, 3
   br i1 %exitcond.not.i.i76, label %OCSP_cert_status_str.exit, label %for.body.i.i69, !llvm.loop !4
 
@@ -482,20 +482,20 @@ if.then90:                                        ; preds = %if.end88
   br label %for.body.i.i80
 
 for.body.i.i80:                                   ; preds = %for.inc.i.i84, %if.then90
-  %i.07.i.i81 = phi i64 [ %inc.i.i85, %for.inc.i.i84 ], [ 0, %if.then90 ]
-  %ts.addr.06.i.i82 = phi ptr [ %incdec.ptr.i.i86, %for.inc.i.i84 ], [ @OCSP_crl_reason_str.reason_tbl, %if.then90 ]
-  %23 = load i64, ptr %ts.addr.06.i.i82, align 8
+  %i.06.i.i81 = phi i64 [ 0, %if.then90 ], [ %inc.i.i85, %for.inc.i.i84 ]
+  %ts.addr.05.i.i82 = phi ptr [ @OCSP_crl_reason_str.reason_tbl, %if.then90 ], [ %incdec.ptr.i.i86, %for.inc.i.i84 ]
+  %23 = load i64, ptr %ts.addr.05.i.i82, align 8
   %cmp1.i.i83 = icmp eq i64 %23, %call92
   br i1 %cmp1.i.i83, label %if.then.i.i89, label %for.inc.i.i84
 
 if.then.i.i89:                                    ; preds = %for.body.i.i80
-  %m.i.i90 = getelementptr inbounds i8, ptr %ts.addr.06.i.i82, i64 8
+  %m.i.i90 = getelementptr inbounds i8, ptr %ts.addr.05.i.i82, i64 8
   %24 = load ptr, ptr %m.i.i90, align 8
   br label %OCSP_crl_reason_str.exit
 
 for.inc.i.i84:                                    ; preds = %for.body.i.i80
-  %inc.i.i85 = add nuw nsw i64 %i.07.i.i81, 1
-  %incdec.ptr.i.i86 = getelementptr inbounds i8, ptr %ts.addr.06.i.i82, i64 16
+  %inc.i.i85 = add nuw nsw i64 %i.06.i.i81, 1
+  %incdec.ptr.i.i86 = getelementptr inbounds i8, ptr %ts.addr.05.i.i82, i64 16
   %exitcond.not.i.i87 = icmp eq i64 %inc.i.i85, 10
   br i1 %exitcond.not.i.i87, label %OCSP_crl_reason_str.exit, label %for.body.i.i80, !llvm.loop !4
 

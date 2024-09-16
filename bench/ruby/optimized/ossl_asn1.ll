@@ -1446,7 +1446,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   store ptr %.sroa.2.0.i, ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %4, i64 noundef %18, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6)
+  %19 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %4, i64 noundef %18, ptr noundef %7, i32 noundef 0, i32 noundef 1, ptr noundef %6)
   store ptr %5, ptr %8, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #9, !srcloc !28
   %20 = load ptr, ptr %8, align 8
@@ -1502,7 +1502,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   store ptr %.sroa.2.0.i, ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %4, i64 noundef %18, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6)
+  %19 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %4, i64 noundef %18, ptr noundef %7, i32 noundef 0, i32 noundef 0, ptr noundef %6)
   store ptr %5, ptr %8, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #9, !srcloc !32
   %20 = load ptr, ptr %8, align 8
@@ -1565,7 +1565,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   %.012 = phi i64 [ %25, %.lr.ph ], [ %18, %RSTRING_PTR.exit ]
   %.01011 = phi i64 [ %24, %.lr.ph ], [ 0, %RSTRING_PTR.exit ]
   store i64 0, ptr %7, align 8
-  %21 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %4, i64 noundef %.012, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7)
+  %21 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %4, i64 noundef %.012, ptr noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef %7)
   %22 = call i64 @rb_ary_push(i64 noundef %19, i64 noundef %21) #9
   %23 = load i64, ptr %7, align 8
   %24 = add nsw i64 %23, %.01011
@@ -2772,7 +2772,7 @@ declare i64 @ossl_to_der_if_possible(i64 noundef) local_unnamed_addr #4
 declare i64 @rb_str_new_frozen(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @ossl_asn1_decode0(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @ossl_asn1_decode0(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2965,7 +2965,7 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   %.0.i6884.us = phi i64 [ %109, %126 ], [ %98, %.lr.ph ]
   %.183.us = phi i64 [ %108, %126 ], [ 0, %.lr.ph ]
   store i64 0, ptr %18, align 8
-  %106 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.0.i6884.us, ptr noundef nonnull %17, i32 noundef %105, i32 noundef %4, ptr noundef nonnull %18)
+  %106 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %0, i64 noundef %.0.i6884.us, ptr noundef %17, i32 noundef %105, i32 noundef %4, ptr noundef %18)
   %107 = load i64, ptr %18, align 8
   %108 = add nsw i64 %107, %.183.us
   %109 = sub nsw i64 %.0.i6884.us, %107
@@ -3009,7 +3009,7 @@ ossl_asn1_tag.exit.us:                            ; preds = %117, %115
   %.0.i6884 = phi i64 [ %132, %.lr.ph.split ], [ %99, %.lr.ph ]
   %.183 = phi i64 [ %131, %.lr.ph.split ], [ 0, %.lr.ph ]
   store i64 0, ptr %18, align 8
-  %129 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.0.i6884, ptr noundef nonnull %17, i32 noundef %105, i32 noundef %4, ptr noundef nonnull %18)
+  %129 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %0, i64 noundef %.0.i6884, ptr noundef %17, i32 noundef %105, i32 noundef %4, ptr noundef %18)
   %130 = load i64, ptr %18, align 8
   %131 = add nsw i64 %130, %.183
   %132 = sub nsw i64 %.0.i6884, %130
@@ -3550,7 +3550,7 @@ declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @rb_scan_args(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @to_der_internal(i64 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @to_der_internal(i64 noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq i32 %1, 0
   %.not45 = icmp eq i32 %2, 0

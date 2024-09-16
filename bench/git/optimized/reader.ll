@@ -859,7 +859,7 @@ reader_start.exit.i.i:                            ; preds = %if.end2.i.i.i
   br i1 %cmp.i.i, label %done.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %reader_start.exit.i.i, %reader_start.exit.thread30.i.i, %reader_offsets_for.exit.i.i.i
-  %call2.i.i = call fastcc i32 @reader_seek_linear(ptr noundef nonnull %index_iter.i.i, ptr noundef nonnull %want_index.i.i)
+  %call2.i.i = call fastcc i32 @reader_seek_linear(ptr noundef %index_iter.i.i, ptr noundef nonnull %want_index.i.i)
   %br.i.i.i = getelementptr inbounds i8, ptr %index_iter.i.i, i64 32
   %bi.i.i.i = getelementptr inbounds i8, ptr %index_iter.i.i, i64 24
   %len.i.i.i = getelementptr inbounds i8, ptr %index_iter.i.i, i64 48
@@ -1042,7 +1042,7 @@ reader_start.exit.i:                              ; preds = %reader_offsets_for.
   br i1 %cmp5.i, label %reader_seek_internal.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %reader_start.exit.i, %reader_start.exit.thread.i
-  %call8.i = call fastcc i32 @reader_seek_linear(ptr noundef nonnull %ti.i, ptr noundef %rec)
+  %call8.i = call fastcc i32 @reader_seek_linear(ptr noundef %ti.i, ptr noundef %rec)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %reader_seek_internal.exit, label %if.else.i
 
@@ -1448,7 +1448,7 @@ declare void @iterator_set_empty(ptr noundef) local_unnamed_addr #4
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reader_seek_linear(ptr noundef %ti, ptr noundef %want) unnamed_addr #0 {
+define internal fastcc i32 @reader_seek_linear(ptr noundef nonnull %ti, ptr noundef %want) unnamed_addr #0 {
 entry:
   %br1.i = alloca %struct.block_reader, align 8
   %rec = alloca %struct.reftable_record, align 8

@@ -2460,7 +2460,7 @@ declare dso_local void @__copy_overflow(i32 noundef, i64 noundef) local_unnamed_
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xehp_load_dss_mask(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) unnamed_addr #3 align 16 {
+define internal void @xehp_load_dss_mask(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ...) unnamed_addr #3 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
@@ -2468,51 +2468,51 @@ define internal void @xehp_load_dss_mask(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i64 0, ptr %5, align 8
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %6 = icmp sgt i32 %2, 0
-  br i1 %6, label %7, label %.loopexit
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %.loopexit, label %6
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
-  %11 = zext nneg i32 %2 to i64
-  br label %12
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = zext nneg i32 %2 to i64
+  br label %11
 
-12:                                               ; preds = %24, %7
-  %13 = phi i64 [ 0, %7 ], [ %30, %24 ]
-  %14 = load i32, ptr %4, align 16
-  %15 = icmp ult i32 %14, 41
-  br i1 %15, label %16, label %21
+11:                                               ; preds = %23, %6
+  %12 = phi i64 [ 0, %6 ], [ %29, %23 ]
+  %13 = load i32, ptr %4, align 16
+  %14 = icmp ult i32 %13, 41
+  br i1 %14, label %15, label %20
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %9, align 16
-  %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr i8, ptr %17, i64 %18
-  %20 = add nuw nsw i32 %14, 8
-  store i32 %20, ptr %4, align 16
-  br label %24
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %8, align 16
+  %17 = zext nneg i32 %13 to i64
+  %18 = getelementptr i8, ptr %16, i64 %17
+  %19 = add nuw nsw i32 %13, 8
+  store i32 %19, ptr %4, align 16
+  br label %23
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr i8, ptr %22, i64 8
-  store ptr %23, ptr %8, align 8
-  br label %24
+20:                                               ; preds = %11
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr i8, ptr %21, i64 8
+  store ptr %22, ptr %7, align 8
+  br label %23
 
-24:                                               ; preds = %21, %16
-  %25 = phi ptr [ %19, %16 ], [ %22, %21 ]
-  %26 = load i32, ptr %25, align 4
-  %27 = load ptr, ptr %10, align 8
-  %28 = call i32 %27(ptr noundef %0, i32 %26, i1 noundef zeroext true) #11
-  %29 = getelementptr [2 x i32], ptr %5, i64 0, i64 %13
-  store i32 %28, ptr %29, align 4
-  %30 = add nuw nsw i64 %13, 1
-  %31 = icmp eq i64 %30, %11
-  br i1 %31, label %.loopexit, label %12, !llvm.loop !73
+23:                                               ; preds = %20, %15
+  %24 = phi ptr [ %18, %15 ], [ %21, %20 ]
+  %25 = load i32, ptr %24, align 4
+  %26 = load ptr, ptr %9, align 8
+  %27 = call i32 %26(ptr noundef %0, i32 %25, i1 noundef zeroext true) #11
+  %28 = getelementptr [2 x i32], ptr %5, i64 0, i64 %12
+  store i32 %27, ptr %28, align 4
+  %29 = add nuw nsw i64 %12, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %.loopexit, label %11, !llvm.loop !73
 
-.loopexit:                                        ; preds = %24, %3
+.loopexit:                                        ; preds = %23, %3
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %32 = shl nuw nsw i32 %2, 5
-  call void @bitmap_from_arr32(ptr noundef %1, ptr noundef nonnull %5, i32 noundef %32) #11
+  %31 = shl nuw nsw i32 %2, 5
+  call void @bitmap_from_arr32(ptr noundef %1, ptr noundef nonnull %5, i32 noundef %31) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
   ret void

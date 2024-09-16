@@ -546,7 +546,7 @@ if.then216:                                       ; preds = %if.end210
   br label %if.then221
 
 end:                                              ; preds = %if.end65
-  %call68 = call fastcc i32 @list_builtin_curves(ptr noundef nonnull %call62)
+  %call68 = call fastcc i32 @list_builtin_curves(ptr noundef %call62)
   %tobool69.not.not = icmp eq i32 %call68, 0
   %spec.select40 = xor i32 %call68, 1
   br i1 %tobool69.not.not, label %if.then221, label %if.end222
@@ -612,7 +612,7 @@ declare i32 @app_RAND_load() local_unnamed_addr #1
 declare ptr @bio_open_owner(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @list_builtin_curves(ptr noundef %out) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @list_builtin_curves(ptr noundef nonnull %out) unnamed_addr #0 {
 entry:
   %call = tail call i64 @EC_get_builtin_curves(ptr noundef null, i64 noundef 0) #4
   %mul = shl i64 %call, 4
@@ -636,8 +636,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   %spec.store.select = select i1 %cmp6, ptr @.str.85, ptr %0
   %cmp9 = icmp eq ptr %call5, null
   %spec.store.select1 = select i1 %cmp9, ptr @.str.86, ptr %call5
-  %call12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.87, ptr noundef nonnull %spec.store.select1) #4
-  %call13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.88, ptr noundef nonnull %spec.store.select) #4
+  %call12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.87, ptr noundef nonnull %spec.store.select1) #4
+  %call13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.88, ptr noundef nonnull %spec.store.select) #4
   %inc = add nuw i64 %n.014, 1
   %exitcond.not = icmp eq i64 %inc, %call
   br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !7

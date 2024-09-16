@@ -1943,7 +1943,7 @@ declare dso_local zeroext i1 @static_key_slow_inc(ptr noundef) local_unnamed_add
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @__tcp_md5_do_add(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef readonly %6, i8 noundef zeroext %7, i32 noundef %8) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__tcp_md5_do_add(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef readonly %6, i8 noundef zeroext %7, i32 noundef range(i32 2080, 262144) %8) unnamed_addr #0 align 16 {
   %10 = getelementptr inbounds i8, ptr %0, i64 2232
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -7979,7 +7979,7 @@ declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local
 declare dso_local i32 @crypto_ahash_update(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcp_v4_send_ack(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9, i8 noundef zeroext %10, i32 noundef %11) unnamed_addr #0 align 16 {
+define internal fastcc void @tcp_v4_send_ack(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef range(i32 0, 2) %9, i8 noundef zeroext %10, i32 noundef %11) unnamed_addr #0 align 16 {
   %13 = alloca %struct.anon.102, align 4
   %14 = alloca %struct.ip_reply_arg, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 192

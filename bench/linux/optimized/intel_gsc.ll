@@ -65,7 +65,7 @@ define dso_local void @intel_gsc_irq_handler(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gsc_irq_handler(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @gsc_irq_handler(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 7168
   %5 = load ptr, ptr %4, align 8

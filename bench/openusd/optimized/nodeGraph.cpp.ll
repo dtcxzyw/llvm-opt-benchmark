@@ -3040,7 +3040,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdShadeNodeGraph33ComputeI
   %5 = alloca %"class.std::unordered_map.113", align 8
   %6 = alloca %"class.std::vector.90", align 8
   %7 = alloca %"class.std::vector.90", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L38_ComputeNonTransitiveInputConsumersMapERKNS_17UsdShadeNodeGraphE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L38_ComputeNonTransitiveInputConsumersMapERKNS_17UsdShadeNodeGraphE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br i1 %2, label %34, label %8
 
 8:                                                ; preds = %3
@@ -3106,7 +3106,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESt6vecto
   store float 1.000000e+00, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L49_RecursiveComputeNodeGraphInterfaceInputConsumersERKSt13unordered_mapINS_13UsdShadeInputESt6vectorIS1_SaIS1_EENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEPS0_INS_17UsdShadeNodeGraphESC_NSF_15NodeGraphHasherENSF_16NodeGraphEqualFnESaIS8_IKSF_SC_EEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L49_RecursiveComputeNodeGraphInterfaceInputConsumersERKSt13unordered_mapINS_13UsdShadeInputESt6vectorIS1_SaIS1_EENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEPS0_INS_17UsdShadeNodeGraphESC_NSF_15NodeGraphHasherENSF_16NodeGraphEqualFnESaIS8_IKSF_SC_EEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %5)
           to label %40 unwind label %70
 
 40:                                               ; preds = %34
@@ -3208,7 +3208,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESt6vecto
 .lr.ph:                                           ; preds = %83, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESaIS1_EED2Ev.exit
   %.sroa.026.035 = phi ptr [ %141, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESaIS1_EED2Ev.exit ], [ %86, %83 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveConsumersERKNS_13UsdShadeInputERKSt13unordered_mapINS_17UsdShadeNodeGraphES3_IS0_St6vectorIS0_SaIS0_EENS0_4HashESt8equal_toIS0_ESaISt4pairIS1_S7_EEENS4_15NodeGraphHasherENS4_16NodeGraphEqualFnESaISB_IKS4_SE_EEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.026.035, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveConsumersERKNS_13UsdShadeInputERKSt13unordered_mapINS_17UsdShadeNodeGraphES3_IS0_St6vectorIS0_SaIS0_EENS0_4HashESt8equal_toIS0_ESaISt4pairIS1_S7_EEENS4_15NodeGraphHasherENS4_16NodeGraphEqualFnESaISB_IKS4_SE_EEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.026.035, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %7)
           to label %89 unwind label %142
 
 89:                                               ; preds = %.lr.ph
@@ -3448,7 +3448,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L38_ComputeNonTransitiveInputConsumersMapERKNS_17UsdShadeNodeGraphE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L38_ComputeNonTransitiveInputConsumersMapERKNS_17UsdShadeNodeGraphE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Hashtable<pxrInternal_v0_24__pxrReserved__::UsdShadeInput, std::pair<const pxrInternal_v0_24__pxrReserved__::UsdShadeInput, std::vector<pxrInternal_v0_24__pxrReserved__::UsdShadeInput>>, std::allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdShadeInput, std::vector<pxrInternal_v0_24__pxrReserved__::UsdShadeInput>>>, std::__detail::_Select1st, std::equal_to<pxrInternal_v0_24__pxrReserved__::UsdShadeInput>, pxrInternal_v0_24__pxrReserved__::UsdShadeInput::Hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -5604,7 +5604,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L49_RecursiveComputeNodeGraphInterfaceInputConsumersERKSt13unordered_mapINS_13UsdShadeInputESt6vectorIS1_SaIS1_EENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEPS0_INS_17UsdShadeNodeGraphESC_NSF_15NodeGraphHasherENSF_16NodeGraphEqualFnESaIS8_IKSF_SC_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L49_RecursiveComputeNodeGraphInterfaceInputConsumersERKSt13unordered_mapINS_13UsdShadeInputESt6vectorIS1_SaIS1_EENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEPS0_INS_17UsdShadeNodeGraphESC_NSF_15NodeGraphHasherENSF_16NodeGraphEqualFnESaIS8_IKSF_SC_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -6262,7 +6262,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__17UsdShadeNodeGraphES_I
           to label %313 unwind label %524
 
 313:                                              ; preds = %312
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L38_ComputeNonTransitiveInputConsumersMapERKNS_17UsdShadeNodeGraphE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L38_ComputeNonTransitiveInputConsumersMapERKNS_17UsdShadeNodeGraphE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %314 unwind label %528
 
 314:                                              ; preds = %313
@@ -6538,7 +6538,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__17UsdShadeNodeGraphESt4pai
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESt6vectorIS1_SaIS1_EENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEaSERKSC_.exit: ; preds = %430, %432
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdShadeNodeGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L49_RecursiveComputeNodeGraphInterfaceInputConsumersERKSt13unordered_mapINS_13UsdShadeInputESt6vectorIS1_SaIS1_EENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEPS0_INS_17UsdShadeNodeGraphESC_NSF_15NodeGraphHasherENSF_16NodeGraphEqualFnESaIS8_IKSF_SC_EEE(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L49_RecursiveComputeNodeGraphInterfaceInputConsumersERKSt13unordered_mapINS_13UsdShadeInputESt6vectorIS1_SaIS1_EENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEPS0_INS_17UsdShadeNodeGraphESC_NSF_15NodeGraphHasherENSF_16NodeGraphEqualFnESaIS8_IKSF_SC_EEE(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %1)
           to label %433 unwind label %530
 
 433:                                              ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESt6vectorIS1_SaIS1_EENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEaSERKSC_.exit
@@ -6810,7 +6810,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveConsumersERKNS_13UsdShadeInputERKSt13unordered_mapINS_17UsdShadeNodeGraphES3_IS0_St6vectorIS0_SaIS0_EENS0_4HashESt8equal_toIS0_ESaISt4pairIS1_S7_EEENS4_15NodeGraphHasherENS4_16NodeGraphEqualFnESaISB_IKS4_SE_EEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ResolveConsumersERKNS_13UsdShadeInputERKSt13unordered_mapINS_17UsdShadeNodeGraphES3_IS0_St6vectorIS0_SaIS0_EENS0_4HashESt8equal_toIS0_ESaISt4pairIS1_S7_EEENS4_15NodeGraphHasherENS4_16NodeGraphEqualFnESaISB_IKS4_SE_EEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdShadeNodeGraph", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

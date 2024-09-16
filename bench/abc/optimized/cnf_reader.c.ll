@@ -151,8 +151,8 @@ skip_spaces.exit25:                               ; preds = %skip_spaces.exit25.
 
 65:                                               ; preds = %skip_spaces.exit25
   store ptr %58, ptr %3, align 8
-  %66 = call fastcc i32 @read_int(ptr noundef nonnull %3)
-  %67 = call fastcc i32 @read_int(ptr noundef nonnull %3)
+  %66 = call fastcc i32 @read_int(ptr noundef %3)
+  %67 = call fastcc i32 @read_int(ptr noundef %3)
   %.promoted.i26 = load ptr, ptr %3, align 8
   br label %68
 
@@ -209,7 +209,7 @@ vec_uint_alloc.exit:                              ; preds = %skip_line.exit27, %
 
 87:                                               ; preds = %85
   store i32 0, ptr %20, align 4
-  %88 = call fastcc i32 @read_int(ptr noundef nonnull %3)
+  %88 = call fastcc i32 @read_int(ptr noundef %3)
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %read_clause.exit, label %.lr.ph.i29
 
@@ -417,7 +417,7 @@ vec_uint_free.exit:                               ; preds = %178, %181
 declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @read_int(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc i32 @read_int(ptr nocapture noundef nonnull %0) unnamed_addr #2 {
   %2 = tail call ptr @__ctype_b_loc() #12
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

@@ -833,7 +833,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 declare void @_ZN6icu_7517DateFormatSymbolsD1Ev(ptr noundef nonnull align 8 dereferenceable(1272)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L26freeSharedNumberFormattersEPPKNS_18SharedNumberFormatE(ptr noundef %list) unnamed_addr #1 {
+define internal fastcc void @_ZN6icu_75L26freeSharedNumberFormattersEPPKNS_18SharedNumberFormatE(ptr noundef nonnull %list) unnamed_addr #1 {
 entry:
   br label %for.body
 
@@ -13701,7 +13701,7 @@ if.then11:                                        ; preds = %land.rhs
   br i1 %tobool12.not, label %if.end, label %if.then13
 
 if.then13:                                        ; preds = %if.then11
-  call fastcc void @_ZN6icu_75L26freeSharedNumberFormattersEPPKNS_18SharedNumberFormatE(ptr noundef nonnull %16)
+  call fastcc void @_ZN6icu_75L26freeSharedNumberFormattersEPPKNS_18SharedNumberFormatE(ptr noundef %16)
   store ptr null, ptr %fSharedNumberFormatters, align 8
   br label %if.end
 

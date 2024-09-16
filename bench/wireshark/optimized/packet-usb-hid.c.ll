@@ -3598,12 +3598,12 @@ define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr nou
   br label %48
 
 48:                                               ; preds = %281, %.lr.ph.i
-  %.0115263.i = phi i32 [ 0, %.lr.ph.i ], [ %283, %281 ]
-  %.0116262.i = phi i32 [ 1, %.lr.ph.i ], [ %.1.i, %281 ]
-  %.0119261.i = phi i32 [ 0, %.lr.ph.i ], [ %.1120.i, %281 ]
-  %.0121260.i = phi i32 [ 0, %.lr.ph.i ], [ %.1122.i, %281 ]
-  %.0123259.i = phi i32 [ 0, %.lr.ph.i ], [ %.1124.i, %281 ]
-  %49 = sext i32 %.0115263.i to i64
+  %.0115271.i = phi i32 [ 0, %.lr.ph.i ], [ %283, %281 ]
+  %.0116270.i = phi i32 [ 1, %.lr.ph.i ], [ %.1.i, %281 ]
+  %.0119269.i = phi i32 [ 0, %.lr.ph.i ], [ %.1120.i, %281 ]
+  %.0121268.i = phi i32 [ 0, %.lr.ph.i ], [ %.1122.i, %281 ]
+  %.0123267.i = phi i32 [ 0, %.lr.ph.i ], [ %.1124.i, %281 ]
+  %49 = sext i32 %.0115271.i to i64
   %50 = getelementptr i8, ptr %31, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
@@ -3640,7 +3640,7 @@ define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr nou
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.0810.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %70, %.lr.ph.i.i ]
   %61 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %62 = add i32 %.0115263.i, %61
+  %62 = add i32 %.0115271.i, %61
   %63 = zext i32 %62 to i64
   %64 = getelementptr i8, ptr %31, i64 %63
   %65 = load i8, ptr %64, align 1
@@ -3656,7 +3656,7 @@ define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr nou
 hid_unpack_value.exit.i:                          ; preds = %.lr.ph.i.i, %59
   %.08.lcssa.i.i = phi i32 [ 0, %59 ], [ %70, %.lr.ph.i.i ]
   store i32 %.08.lcssa.i.i, ptr %47, align 4
-  %71 = and i32 %.0123259.i, 120
+  %71 = and i32 %.0123267.i, 120
   %.not140.i = icmp eq i32 %71, 120
   br i1 %.not140.i, label %72, label %hid_unpack_signed.exit.i
 
@@ -3665,12 +3665,12 @@ hid_unpack_value.exit.i:                          ; preds = %.lr.ph.i.i, %59
   call void @wmem_array_append(ptr noundef %73, ptr noundef nonnull %10, i32 noundef 1) #7
   %74 = call noalias ptr @wmem_array_new(ptr noundef %33, i64 noundef 4) #7
   store ptr %74, ptr %10, align 8
-  %75 = and i32 %.0123259.i, 252
+  %75 = and i32 %.0123267.i, 252
   br label %281
 
 76:                                               ; preds = %58
   %.not9.i142.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not9.i142.i, label %hid_unpack_value.exit151.i, label %.lr.ph.preheader.i143.i
+  br i1 %.not9.i142.i, label %hid_unpack_value.exit152.i, label %.lr.ph.preheader.i143.i
 
 .lr.ph.preheader.i143.i:                          ; preds = %76
   %77 = add nuw nsw i32 %spec.store.select.i, 1
@@ -3678,10 +3678,10 @@ hid_unpack_value.exit.i:                          ; preds = %.lr.ph.i.i, %59
   br label %.lr.ph.i145.i
 
 .lr.ph.i145.i:                                    ; preds = %.lr.ph.i145.i, %.lr.ph.preheader.i143.i
-  %indvars.iv.i146.i = phi i64 [ 1, %.lr.ph.preheader.i143.i ], [ %indvars.iv.next.i148.i, %.lr.ph.i145.i ]
+  %indvars.iv.i146.i = phi i64 [ 1, %.lr.ph.preheader.i143.i ], [ %indvars.iv.next.i149.i, %.lr.ph.i145.i ]
   %.0810.i147.i = phi i32 [ 0, %.lr.ph.preheader.i143.i ], [ %87, %.lr.ph.i145.i ]
   %78 = trunc nuw nsw i64 %indvars.iv.i146.i to i32
-  %79 = add i32 %.0115263.i, %78
+  %79 = add i32 %.0115271.i, %78
   %80 = zext i32 %79 to i64
   %81 = getelementptr i8, ptr %31, i64 %80
   %82 = load i8, ptr %81, align 1
@@ -3690,23 +3690,23 @@ hid_unpack_value.exit.i:                          ; preds = %.lr.ph.i.i, %59
   %85 = add i32 %84, -8
   %86 = shl nuw i32 %83, %85
   %87 = or i32 %86, %.0810.i147.i
-  %indvars.iv.next.i148.i = add nuw nsw i64 %indvars.iv.i146.i, 1
-  %exitcond.not.i149.i = icmp eq i64 %indvars.iv.next.i148.i, %wide.trip.count.i144.i
-  br i1 %exitcond.not.i149.i, label %hid_unpack_value.exit151.i, label %.lr.ph.i145.i, !llvm.loop !4
+  %indvars.iv.next.i149.i = add nuw nsw i64 %indvars.iv.i146.i, 1
+  %exitcond.not.i150.i = icmp eq i64 %indvars.iv.next.i149.i, %wide.trip.count.i144.i
+  br i1 %exitcond.not.i150.i, label %hid_unpack_value.exit152.i, label %.lr.ph.i145.i, !llvm.loop !4
 
-hid_unpack_value.exit151.i:                       ; preds = %.lr.ph.i145.i, %76
-  %.08.lcssa.i150.i = phi i32 [ 0, %76 ], [ %87, %.lr.ph.i145.i ]
-  store i32 %.08.lcssa.i150.i, ptr %47, align 4
-  %88 = and i32 %.0123259.i, 120
+hid_unpack_value.exit152.i:                       ; preds = %.lr.ph.i145.i, %76
+  %.08.lcssa.i151.i = phi i32 [ 0, %76 ], [ %87, %.lr.ph.i145.i ]
+  store i32 %.08.lcssa.i151.i, ptr %47, align 4
+  %88 = and i32 %.0123267.i, 120
   %.not139.i = icmp eq i32 %88, 120
   br i1 %.not139.i, label %89, label %hid_unpack_signed.exit.i
 
-89:                                               ; preds = %hid_unpack_value.exit151.i
+89:                                               ; preds = %hid_unpack_value.exit152.i
   %90 = load ptr, ptr %39, align 8
   call void @wmem_array_append(ptr noundef %90, ptr noundef nonnull %10, i32 noundef 1) #7
   %91 = call noalias ptr @wmem_array_new(ptr noundef %33, i64 noundef 4) #7
   store ptr %91, ptr %10, align 8
-  %92 = and i32 %.0123259.i, 252
+  %92 = and i32 %.0123267.i, 252
   br label %281
 
 93:                                               ; preds = %58
@@ -3729,19 +3729,19 @@ hid_unpack_value.exit151.i:                       ; preds = %.lr.ph.i145.i, %76
   ]
 
 97:                                               ; preds = %96
-  %.not9.i152.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not9.i152.i, label %hid_unpack_value.exit161.thread.i, label %.lr.ph.preheader.i153.i
+  %.not9.i153.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not9.i153.i, label %hid_unpack_value.exit163.thread.i, label %.lr.ph.preheader.i154.i
 
-.lr.ph.preheader.i153.i:                          ; preds = %97
+.lr.ph.preheader.i154.i:                          ; preds = %97
   %98 = add nuw nsw i32 %spec.store.select.i, 1
-  %wide.trip.count.i154.i = zext nneg i32 %98 to i64
-  br label %.lr.ph.i155.i
+  %wide.trip.count.i155.i = zext nneg i32 %98 to i64
+  br label %.lr.ph.i156.i
 
-.lr.ph.i155.i:                                    ; preds = %.lr.ph.i155.i, %.lr.ph.preheader.i153.i
-  %indvars.iv.i156.i = phi i64 [ 1, %.lr.ph.preheader.i153.i ], [ %indvars.iv.next.i158.i, %.lr.ph.i155.i ]
-  %.0810.i157.i = phi i32 [ 0, %.lr.ph.preheader.i153.i ], [ %108, %.lr.ph.i155.i ]
-  %99 = trunc nuw nsw i64 %indvars.iv.i156.i to i32
-  %100 = add i32 %.0115263.i, %99
+.lr.ph.i156.i:                                    ; preds = %.lr.ph.i156.i, %.lr.ph.preheader.i154.i
+  %indvars.iv.i157.i = phi i64 [ 1, %.lr.ph.preheader.i154.i ], [ %indvars.iv.next.i160.i, %.lr.ph.i156.i ]
+  %.0810.i158.i = phi i32 [ 0, %.lr.ph.preheader.i154.i ], [ %108, %.lr.ph.i156.i ]
+  %99 = trunc nuw nsw i64 %indvars.iv.i157.i to i32
+  %100 = add i32 %.0115271.i, %99
   %101 = zext i32 %100 to i64
   %102 = getelementptr i8, ptr %31, i64 %101
   %103 = load i8, ptr %102, align 1
@@ -3749,29 +3749,29 @@ hid_unpack_value.exit151.i:                       ; preds = %.lr.ph.i145.i, %76
   %105 = shl i32 %99, 3
   %106 = add i32 %105, -8
   %107 = shl nuw i32 %104, %106
-  %108 = or i32 %107, %.0810.i157.i
-  %indvars.iv.next.i158.i = add nuw nsw i64 %indvars.iv.i156.i, 1
-  %exitcond.not.i159.i = icmp eq i64 %indvars.iv.next.i158.i, %wide.trip.count.i154.i
-  br i1 %exitcond.not.i159.i, label %hid_unpack_value.exit161.i, label %.lr.ph.i155.i, !llvm.loop !4
+  %108 = or i32 %107, %.0810.i158.i
+  %indvars.iv.next.i160.i = add nuw nsw i64 %indvars.iv.i157.i, 1
+  %exitcond.not.i161.i = icmp eq i64 %indvars.iv.next.i160.i, %wide.trip.count.i155.i
+  br i1 %exitcond.not.i161.i, label %hid_unpack_value.exit163.i, label %.lr.ph.i156.i, !llvm.loop !4
 
-hid_unpack_value.exit161.i:                       ; preds = %.lr.ph.i155.i
+hid_unpack_value.exit163.i:                       ; preds = %.lr.ph.i156.i
   %109 = icmp ugt i32 %108, 65535
-  br i1 %109, label %hid_unpack_signed.exit.i, label %hid_unpack_value.exit161.thread.i
+  br i1 %109, label %hid_unpack_signed.exit.i, label %hid_unpack_value.exit163.thread.i
 
-hid_unpack_value.exit161.thread.i:                ; preds = %hid_unpack_value.exit161.i, %97
-  %.08.lcssa.i160240.i = phi i32 [ %108, %hid_unpack_value.exit161.i ], [ 0, %97 ]
-  %110 = or i32 %.0123259.i, 128
+hid_unpack_value.exit163.thread.i:                ; preds = %hid_unpack_value.exit163.i, %97
+  %.08.lcssa.i162248.i = phi i32 [ %108, %hid_unpack_value.exit163.i ], [ 0, %97 ]
+  %110 = or i32 %.0123267.i, 128
   br label %281
 
 111:                                              ; preds = %96
   switch i32 %spec.store.select.i, label %hid_unpack_signed.exit.i [
     i32 1, label %.lr.ph.i.preheader.i.i
     i32 2, label %.lr.ph.i17.i.i
-    i32 4, label %.lr.ph.i23.i.i
+    i32 4, label %.lr.ph.i24.i.i
   ]
 
 .lr.ph.i.preheader.i.i:                           ; preds = %111
-  %112 = add nsw i32 %.0115263.i, 1
+  %112 = add nsw i32 %.0115271.i, 1
   %113 = zext i32 %112 to i64
   %114 = getelementptr i8, ptr %31, i64 %113
   %115 = load i8, ptr %114, align 1
@@ -3779,10 +3779,10 @@ hid_unpack_value.exit161.thread.i:                ; preds = %hid_unpack_value.ex
   br label %.loopexit.i
 
 .lr.ph.i17.i.i:                                   ; preds = %111, %.lr.ph.i17.i.i
-  %indvars.iv.i18.i.i = phi i64 [ %indvars.iv.next.i20.i.i, %.lr.ph.i17.i.i ], [ 1, %111 ]
+  %indvars.iv.i18.i.i = phi i64 [ %indvars.iv.next.i21.i.i, %.lr.ph.i17.i.i ], [ 1, %111 ]
   %.0810.i19.i.i = phi i32 [ %126, %.lr.ph.i17.i.i ], [ 0, %111 ]
   %117 = trunc nuw nsw i64 %indvars.iv.i18.i.i to i32
-  %118 = add i32 %.0115263.i, %117
+  %118 = add i32 %.0115271.i, %117
   %119 = zext i32 %118 to i64
   %120 = getelementptr i8, ptr %31, i64 %119
   %121 = load i8, ptr %120, align 1
@@ -3791,20 +3791,20 @@ hid_unpack_value.exit161.thread.i:                ; preds = %hid_unpack_value.ex
   %124 = add i32 %123, -8
   %125 = shl nuw i32 %122, %124
   %126 = or i32 %125, %.0810.i19.i.i
-  %indvars.iv.next.i20.i.i = add nuw nsw i64 %indvars.iv.i18.i.i, 1
-  %exitcond.not.i21.i.i = icmp eq i64 %indvars.iv.next.i20.i.i, 3
-  br i1 %exitcond.not.i21.i.i, label %hid_unpack_value.exit22.i.i, label %.lr.ph.i17.i.i, !llvm.loop !4
+  %indvars.iv.next.i21.i.i = add nuw nsw i64 %indvars.iv.i18.i.i, 1
+  %exitcond.not.i22.i.i = icmp eq i64 %indvars.iv.next.i21.i.i, 3
+  br i1 %exitcond.not.i22.i.i, label %hid_unpack_value.exit23.i.i, label %.lr.ph.i17.i.i, !llvm.loop !4
 
-hid_unpack_value.exit22.i.i:                      ; preds = %.lr.ph.i17.i.i
+hid_unpack_value.exit23.i.i:                      ; preds = %.lr.ph.i17.i.i
   %sext.i.i = shl i32 %126, 16
   %127 = ashr exact i32 %sext.i.i, 16
   br label %.loopexit.i
 
-.lr.ph.i23.i.i:                                   ; preds = %111, %.lr.ph.i23.i.i
-  %indvars.iv.i24.i.i = phi i64 [ %indvars.iv.next.i26.i.i, %.lr.ph.i23.i.i ], [ 1, %111 ]
-  %.0810.i25.i.i = phi i32 [ %137, %.lr.ph.i23.i.i ], [ 0, %111 ]
-  %128 = trunc nuw nsw i64 %indvars.iv.i24.i.i to i32
-  %129 = add i32 %.0115263.i, %128
+.lr.ph.i24.i.i:                                   ; preds = %111, %.lr.ph.i24.i.i
+  %indvars.iv.i25.i.i = phi i64 [ %indvars.iv.next.i28.i.i, %.lr.ph.i24.i.i ], [ 1, %111 ]
+  %.0810.i26.i.i = phi i32 [ %137, %.lr.ph.i24.i.i ], [ 0, %111 ]
+  %128 = trunc nuw nsw i64 %indvars.iv.i25.i.i to i32
+  %129 = add i32 %.0115271.i, %128
   %130 = zext i32 %129 to i64
   %131 = getelementptr i8, ptr %31, i64 %130
   %132 = load i8, ptr %131, align 1
@@ -3812,37 +3812,37 @@ hid_unpack_value.exit22.i.i:                      ; preds = %.lr.ph.i17.i.i
   %134 = shl i32 %128, 3
   %135 = add i32 %134, -8
   %136 = shl nuw i32 %133, %135
-  %137 = or i32 %136, %.0810.i25.i.i
-  %indvars.iv.next.i26.i.i = add nuw nsw i64 %indvars.iv.i24.i.i, 1
-  %exitcond.not.i27.i.i = icmp eq i64 %indvars.iv.next.i26.i.i, 5
-  br i1 %exitcond.not.i27.i.i, label %.loopexit.i, label %.lr.ph.i23.i.i, !llvm.loop !4
+  %137 = or i32 %136, %.0810.i26.i.i
+  %indvars.iv.next.i28.i.i = add nuw nsw i64 %indvars.iv.i25.i.i, 1
+  %exitcond.not.i29.i.i = icmp eq i64 %indvars.iv.next.i28.i.i, 5
+  br i1 %exitcond.not.i29.i.i, label %.loopexit.i, label %.lr.ph.i24.i.i, !llvm.loop !4
 
-.loopexit.i:                                      ; preds = %.lr.ph.i23.i.i, %hid_unpack_value.exit22.i.i, %.lr.ph.i.preheader.i.i
-  %.sink.i.i = phi i32 [ %116, %.lr.ph.i.preheader.i.i ], [ %127, %hid_unpack_value.exit22.i.i ], [ %137, %.lr.ph.i23.i.i ]
+.loopexit.i:                                      ; preds = %.lr.ph.i24.i.i, %hid_unpack_value.exit23.i.i, %.lr.ph.i.preheader.i.i
+  %.sink.i.i = phi i32 [ %116, %.lr.ph.i.preheader.i.i ], [ %127, %hid_unpack_value.exit23.i.i ], [ %137, %.lr.ph.i24.i.i ]
   store i32 %.sink.i.i, ptr %46, align 4
-  %138 = or i32 %.0123259.i, 32
+  %138 = or i32 %.0123267.i, 32
   br label %281
 
 139:                                              ; preds = %96
   switch i32 %spec.store.select.i, label %hid_unpack_signed.exit.i [
-    i32 1, label %.lr.ph.i.preheader.i177.i
-    i32 2, label %.lr.ph.i17.i170.i
-    i32 4, label %.lr.ph.i23.i162.i
+    i32 1, label %.lr.ph.i.preheader.i179.i
+    i32 2, label %.lr.ph.i17.i172.i
+    i32 4, label %.lr.ph.i24.i164.i
   ]
 
-.lr.ph.i.preheader.i177.i:                        ; preds = %139
-  %140 = add nsw i32 %.0115263.i, 1
+.lr.ph.i.preheader.i179.i:                        ; preds = %139
+  %140 = add nsw i32 %.0115271.i, 1
   %141 = zext i32 %140 to i64
   %142 = getelementptr i8, ptr %31, i64 %141
   %143 = load i8, ptr %142, align 1
   %144 = sext i8 %143 to i32
-  br label %.loopexit245.i
+  br label %.loopexit253.i
 
-.lr.ph.i17.i170.i:                                ; preds = %139, %.lr.ph.i17.i170.i
-  %indvars.iv.i18.i171.i = phi i64 [ %indvars.iv.next.i20.i173.i, %.lr.ph.i17.i170.i ], [ 1, %139 ]
-  %.0810.i19.i172.i = phi i32 [ %154, %.lr.ph.i17.i170.i ], [ 0, %139 ]
-  %145 = trunc nuw nsw i64 %indvars.iv.i18.i171.i to i32
-  %146 = add i32 %.0115263.i, %145
+.lr.ph.i17.i172.i:                                ; preds = %139, %.lr.ph.i17.i172.i
+  %indvars.iv.i18.i173.i = phi i64 [ %indvars.iv.next.i21.i175.i, %.lr.ph.i17.i172.i ], [ 1, %139 ]
+  %.0810.i19.i174.i = phi i32 [ %154, %.lr.ph.i17.i172.i ], [ 0, %139 ]
+  %145 = trunc nuw nsw i64 %indvars.iv.i18.i173.i to i32
+  %146 = add i32 %.0115271.i, %145
   %147 = zext i32 %146 to i64
   %148 = getelementptr i8, ptr %31, i64 %147
   %149 = load i8, ptr %148, align 1
@@ -3850,21 +3850,21 @@ hid_unpack_value.exit22.i.i:                      ; preds = %.lr.ph.i17.i.i
   %151 = shl i32 %145, 3
   %152 = add i32 %151, -8
   %153 = shl nuw i32 %150, %152
-  %154 = or i32 %153, %.0810.i19.i172.i
-  %indvars.iv.next.i20.i173.i = add nuw nsw i64 %indvars.iv.i18.i171.i, 1
-  %exitcond.not.i21.i174.i = icmp eq i64 %indvars.iv.next.i20.i173.i, 3
-  br i1 %exitcond.not.i21.i174.i, label %hid_unpack_value.exit22.i175.i, label %.lr.ph.i17.i170.i, !llvm.loop !4
+  %154 = or i32 %153, %.0810.i19.i174.i
+  %indvars.iv.next.i21.i175.i = add nuw nsw i64 %indvars.iv.i18.i173.i, 1
+  %exitcond.not.i22.i176.i = icmp eq i64 %indvars.iv.next.i21.i175.i, 3
+  br i1 %exitcond.not.i22.i176.i, label %hid_unpack_value.exit23.i177.i, label %.lr.ph.i17.i172.i, !llvm.loop !4
 
-hid_unpack_value.exit22.i175.i:                   ; preds = %.lr.ph.i17.i170.i
-  %sext.i176.i = shl i32 %154, 16
-  %155 = ashr exact i32 %sext.i176.i, 16
-  br label %.loopexit245.i
+hid_unpack_value.exit23.i177.i:                   ; preds = %.lr.ph.i17.i172.i
+  %sext.i178.i = shl i32 %154, 16
+  %155 = ashr exact i32 %sext.i178.i, 16
+  br label %.loopexit253.i
 
-.lr.ph.i23.i162.i:                                ; preds = %139, %.lr.ph.i23.i162.i
-  %indvars.iv.i24.i163.i = phi i64 [ %indvars.iv.next.i26.i165.i, %.lr.ph.i23.i162.i ], [ 1, %139 ]
-  %.0810.i25.i164.i = phi i32 [ %165, %.lr.ph.i23.i162.i ], [ 0, %139 ]
-  %156 = trunc nuw nsw i64 %indvars.iv.i24.i163.i to i32
-  %157 = add i32 %.0115263.i, %156
+.lr.ph.i24.i164.i:                                ; preds = %139, %.lr.ph.i24.i164.i
+  %indvars.iv.i25.i165.i = phi i64 [ %indvars.iv.next.i28.i167.i, %.lr.ph.i24.i164.i ], [ 1, %139 ]
+  %.0810.i26.i166.i = phi i32 [ %165, %.lr.ph.i24.i164.i ], [ 0, %139 ]
+  %156 = trunc nuw nsw i64 %indvars.iv.i25.i165.i to i32
+  %157 = add i32 %.0115271.i, %156
   %158 = zext i32 %157 to i64
   %159 = getelementptr i8, ptr %31, i64 %158
   %160 = load i8, ptr %159, align 1
@@ -3872,31 +3872,31 @@ hid_unpack_value.exit22.i175.i:                   ; preds = %.lr.ph.i17.i170.i
   %162 = shl i32 %156, 3
   %163 = add i32 %162, -8
   %164 = shl nuw i32 %161, %163
-  %165 = or i32 %164, %.0810.i25.i164.i
-  %indvars.iv.next.i26.i165.i = add nuw nsw i64 %indvars.iv.i24.i163.i, 1
-  %exitcond.not.i27.i166.i = icmp eq i64 %indvars.iv.next.i26.i165.i, 5
-  br i1 %exitcond.not.i27.i166.i, label %.loopexit245.i, label %.lr.ph.i23.i162.i, !llvm.loop !4
+  %165 = or i32 %164, %.0810.i26.i166.i
+  %indvars.iv.next.i28.i167.i = add nuw nsw i64 %indvars.iv.i25.i165.i, 1
+  %exitcond.not.i29.i168.i = icmp eq i64 %indvars.iv.next.i28.i167.i, 5
+  br i1 %exitcond.not.i29.i168.i, label %.loopexit253.i, label %.lr.ph.i24.i164.i, !llvm.loop !4
 
-.loopexit245.i:                                   ; preds = %.lr.ph.i23.i162.i, %hid_unpack_value.exit22.i175.i, %.lr.ph.i.preheader.i177.i
-  %.sink.i168.i = phi i32 [ %144, %.lr.ph.i.preheader.i177.i ], [ %155, %hid_unpack_value.exit22.i175.i ], [ %165, %.lr.ph.i23.i162.i ]
-  store i32 %.sink.i168.i, ptr %45, align 8
-  %166 = or i32 %.0123259.i, 64
+.loopexit253.i:                                   ; preds = %.lr.ph.i24.i164.i, %hid_unpack_value.exit23.i177.i, %.lr.ph.i.preheader.i179.i
+  %.sink.i170.i = phi i32 [ %144, %.lr.ph.i.preheader.i179.i ], [ %155, %hid_unpack_value.exit23.i177.i ], [ %165, %.lr.ph.i24.i164.i ]
+  store i32 %.sink.i170.i, ptr %45, align 8
+  %166 = or i32 %.0123267.i, 64
   br label %281
 
 167:                                              ; preds = %96
-  %.not9.i179.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not9.i179.i, label %hid_unpack_value.exit188.i, label %.lr.ph.preheader.i180.i
+  %.not9.i181.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not9.i181.i, label %hid_unpack_value.exit191.i, label %.lr.ph.preheader.i182.i
 
-.lr.ph.preheader.i180.i:                          ; preds = %167
+.lr.ph.preheader.i182.i:                          ; preds = %167
   %168 = add nuw nsw i32 %spec.store.select.i, 1
-  %wide.trip.count.i181.i = zext nneg i32 %168 to i64
-  br label %.lr.ph.i182.i
+  %wide.trip.count.i183.i = zext nneg i32 %168 to i64
+  br label %.lr.ph.i184.i
 
-.lr.ph.i182.i:                                    ; preds = %.lr.ph.i182.i, %.lr.ph.preheader.i180.i
-  %indvars.iv.i183.i = phi i64 [ 1, %.lr.ph.preheader.i180.i ], [ %indvars.iv.next.i185.i, %.lr.ph.i182.i ]
-  %.0810.i184.i = phi i32 [ 0, %.lr.ph.preheader.i180.i ], [ %178, %.lr.ph.i182.i ]
-  %169 = trunc nuw nsw i64 %indvars.iv.i183.i to i32
-  %170 = add i32 %.0115263.i, %169
+.lr.ph.i184.i:                                    ; preds = %.lr.ph.i184.i, %.lr.ph.preheader.i182.i
+  %indvars.iv.i185.i = phi i64 [ 1, %.lr.ph.preheader.i182.i ], [ %indvars.iv.next.i188.i, %.lr.ph.i184.i ]
+  %.0810.i186.i = phi i32 [ 0, %.lr.ph.preheader.i182.i ], [ %178, %.lr.ph.i184.i ]
+  %169 = trunc nuw nsw i64 %indvars.iv.i185.i to i32
+  %170 = add i32 %.0115271.i, %169
   %171 = zext i32 %170 to i64
   %172 = getelementptr i8, ptr %31, i64 %171
   %173 = load i8, ptr %172, align 1
@@ -3904,19 +3904,19 @@ hid_unpack_value.exit22.i175.i:                   ; preds = %.lr.ph.i17.i170.i
   %175 = shl i32 %169, 3
   %176 = add i32 %175, -8
   %177 = shl nuw i32 %174, %176
-  %178 = or i32 %177, %.0810.i184.i
-  %indvars.iv.next.i185.i = add nuw nsw i64 %indvars.iv.i183.i, 1
-  %exitcond.not.i186.i = icmp eq i64 %indvars.iv.next.i185.i, %wide.trip.count.i181.i
-  br i1 %exitcond.not.i186.i, label %hid_unpack_value.exit188.i, label %.lr.ph.i182.i, !llvm.loop !4
+  %178 = or i32 %177, %.0810.i186.i
+  %indvars.iv.next.i188.i = add nuw nsw i64 %indvars.iv.i185.i, 1
+  %exitcond.not.i189.i = icmp eq i64 %indvars.iv.next.i188.i, %wide.trip.count.i183.i
+  br i1 %exitcond.not.i189.i, label %hid_unpack_value.exit191.i, label %.lr.ph.i184.i, !llvm.loop !4
 
-hid_unpack_value.exit188.i:                       ; preds = %.lr.ph.i182.i, %167
-  %.08.lcssa.i187.i = phi i32 [ 0, %167 ], [ %178, %.lr.ph.i182.i ]
-  store i32 %.08.lcssa.i187.i, ptr %44, align 8
-  %179 = or i32 %.0123259.i, 16
+hid_unpack_value.exit191.i:                       ; preds = %.lr.ph.i184.i, %167
+  %.08.lcssa.i190.i = phi i32 [ 0, %167 ], [ %178, %.lr.ph.i184.i ]
+  store i32 %.08.lcssa.i190.i, ptr %44, align 8
+  %179 = or i32 %.0123267.i, 16
   br label %281
 
 180:                                              ; preds = %96
-  %.not135.i = icmp eq i32 %.0116262.i, 0
+  %.not135.i = icmp eq i32 %.0116270.i, 0
   br i1 %.not135.i, label %181, label %183
 
 181:                                              ; preds = %180
@@ -3926,19 +3926,19 @@ hid_unpack_value.exit188.i:                       ; preds = %.lr.ph.i182.i, %167
 
 183:                                              ; preds = %181, %180
   store i32 1, ptr %43, align 8
-  %.not9.i189.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not9.i189.i, label %hid_unpack_value.exit198.i, label %.lr.ph.preheader.i190.i
+  %.not9.i192.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not9.i192.i, label %hid_unpack_value.exit202.i, label %.lr.ph.preheader.i193.i
 
-.lr.ph.preheader.i190.i:                          ; preds = %183
+.lr.ph.preheader.i193.i:                          ; preds = %183
   %184 = add nuw nsw i32 %spec.store.select.i, 1
-  %wide.trip.count.i191.i = zext nneg i32 %184 to i64
-  br label %.lr.ph.i192.i
+  %wide.trip.count.i194.i = zext nneg i32 %184 to i64
+  br label %.lr.ph.i195.i
 
-.lr.ph.i192.i:                                    ; preds = %.lr.ph.i192.i, %.lr.ph.preheader.i190.i
-  %indvars.iv.i193.i = phi i64 [ 1, %.lr.ph.preheader.i190.i ], [ %indvars.iv.next.i195.i, %.lr.ph.i192.i ]
-  %.0810.i194.i = phi i32 [ 0, %.lr.ph.preheader.i190.i ], [ %194, %.lr.ph.i192.i ]
-  %185 = trunc nuw nsw i64 %indvars.iv.i193.i to i32
-  %186 = add i32 %.0115263.i, %185
+.lr.ph.i195.i:                                    ; preds = %.lr.ph.i195.i, %.lr.ph.preheader.i193.i
+  %indvars.iv.i196.i = phi i64 [ 1, %.lr.ph.preheader.i193.i ], [ %indvars.iv.next.i199.i, %.lr.ph.i195.i ]
+  %.0810.i197.i = phi i32 [ 0, %.lr.ph.preheader.i193.i ], [ %194, %.lr.ph.i195.i ]
+  %185 = trunc nuw nsw i64 %indvars.iv.i196.i to i32
+  %186 = add i32 %.0115271.i, %185
   %187 = zext i32 %186 to i64
   %188 = getelementptr i8, ptr %31, i64 %187
   %189 = load i8, ptr %188, align 1
@@ -3946,30 +3946,30 @@ hid_unpack_value.exit188.i:                       ; preds = %.lr.ph.i182.i, %167
   %191 = shl i32 %185, 3
   %192 = add i32 %191, -8
   %193 = shl nuw i32 %190, %192
-  %194 = or i32 %193, %.0810.i194.i
-  %indvars.iv.next.i195.i = add nuw nsw i64 %indvars.iv.i193.i, 1
-  %exitcond.not.i196.i = icmp eq i64 %indvars.iv.next.i195.i, %wide.trip.count.i191.i
-  br i1 %exitcond.not.i196.i, label %hid_unpack_value.exit198.i, label %.lr.ph.i192.i, !llvm.loop !4
+  %194 = or i32 %193, %.0810.i197.i
+  %indvars.iv.next.i199.i = add nuw nsw i64 %indvars.iv.i196.i, 1
+  %exitcond.not.i200.i = icmp eq i64 %indvars.iv.next.i199.i, %wide.trip.count.i194.i
+  br i1 %exitcond.not.i200.i, label %hid_unpack_value.exit202.i, label %.lr.ph.i195.i, !llvm.loop !4
 
-hid_unpack_value.exit198.i:                       ; preds = %.lr.ph.i192.i, %183
-  %.08.lcssa.i197.i = phi i32 [ 0, %183 ], [ %194, %.lr.ph.i192.i ]
-  store i32 %.08.lcssa.i197.i, ptr %34, align 8
+hid_unpack_value.exit202.i:                       ; preds = %.lr.ph.i195.i, %183
+  %.08.lcssa.i201.i = phi i32 [ 0, %183 ], [ %194, %.lr.ph.i195.i ]
+  store i32 %.08.lcssa.i201.i, ptr %34, align 8
   br label %281
 
 195:                                              ; preds = %96
-  %.not9.i199.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not9.i199.i, label %hid_unpack_value.exit208.i, label %.lr.ph.preheader.i200.i
+  %.not9.i203.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not9.i203.i, label %hid_unpack_value.exit213.i, label %.lr.ph.preheader.i204.i
 
-.lr.ph.preheader.i200.i:                          ; preds = %195
+.lr.ph.preheader.i204.i:                          ; preds = %195
   %196 = add nuw nsw i32 %spec.store.select.i, 1
-  %wide.trip.count.i201.i = zext nneg i32 %196 to i64
-  br label %.lr.ph.i202.i
+  %wide.trip.count.i205.i = zext nneg i32 %196 to i64
+  br label %.lr.ph.i206.i
 
-.lr.ph.i202.i:                                    ; preds = %.lr.ph.i202.i, %.lr.ph.preheader.i200.i
-  %indvars.iv.i203.i = phi i64 [ 1, %.lr.ph.preheader.i200.i ], [ %indvars.iv.next.i205.i, %.lr.ph.i202.i ]
-  %.0810.i204.i = phi i32 [ 0, %.lr.ph.preheader.i200.i ], [ %206, %.lr.ph.i202.i ]
-  %197 = trunc nuw nsw i64 %indvars.iv.i203.i to i32
-  %198 = add i32 %.0115263.i, %197
+.lr.ph.i206.i:                                    ; preds = %.lr.ph.i206.i, %.lr.ph.preheader.i204.i
+  %indvars.iv.i207.i = phi i64 [ 1, %.lr.ph.preheader.i204.i ], [ %indvars.iv.next.i210.i, %.lr.ph.i206.i ]
+  %.0810.i208.i = phi i32 [ 0, %.lr.ph.preheader.i204.i ], [ %206, %.lr.ph.i206.i ]
+  %197 = trunc nuw nsw i64 %indvars.iv.i207.i to i32
+  %198 = add i32 %.0115271.i, %197
   %199 = zext i32 %198 to i64
   %200 = getelementptr i8, ptr %31, i64 %199
   %201 = load i8, ptr %200, align 1
@@ -3977,15 +3977,15 @@ hid_unpack_value.exit198.i:                       ; preds = %.lr.ph.i192.i, %183
   %203 = shl i32 %197, 3
   %204 = add i32 %203, -8
   %205 = shl nuw i32 %202, %204
-  %206 = or i32 %205, %.0810.i204.i
-  %indvars.iv.next.i205.i = add nuw nsw i64 %indvars.iv.i203.i, 1
-  %exitcond.not.i206.i = icmp eq i64 %indvars.iv.next.i205.i, %wide.trip.count.i201.i
-  br i1 %exitcond.not.i206.i, label %hid_unpack_value.exit208.i, label %.lr.ph.i202.i, !llvm.loop !4
+  %206 = or i32 %205, %.0810.i208.i
+  %indvars.iv.next.i210.i = add nuw nsw i64 %indvars.iv.i207.i, 1
+  %exitcond.not.i211.i = icmp eq i64 %indvars.iv.next.i210.i, %wide.trip.count.i205.i
+  br i1 %exitcond.not.i211.i, label %hid_unpack_value.exit213.i, label %.lr.ph.i206.i, !llvm.loop !4
 
-hid_unpack_value.exit208.i:                       ; preds = %.lr.ph.i202.i, %195
-  %.08.lcssa.i207.i = phi i32 [ 0, %195 ], [ %206, %.lr.ph.i202.i ]
-  store i32 %.08.lcssa.i207.i, ptr %42, align 4
-  %207 = or i32 %.0123259.i, 8
+hid_unpack_value.exit213.i:                       ; preds = %.lr.ph.i206.i, %195
+  %.08.lcssa.i212.i = phi i32 [ 0, %195 ], [ %206, %.lr.ph.i206.i ]
+  store i32 %.08.lcssa.i212.i, ptr %42, align 4
+  %207 = or i32 %.0123267.i, 8
   br label %281
 
 208:                                              ; preds = %48
@@ -3996,19 +3996,19 @@ hid_unpack_value.exit208.i:                       ; preds = %.lr.ph.i202.i, %195
   ]
 
 209:                                              ; preds = %208
-  %.not9.i209.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not9.i209.i, label %hid_unpack_value.exit218.i, label %.lr.ph.preheader.i210.i
+  %.not9.i214.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not9.i214.i, label %hid_unpack_value.exit224.i, label %.lr.ph.preheader.i215.i
 
-.lr.ph.preheader.i210.i:                          ; preds = %209
+.lr.ph.preheader.i215.i:                          ; preds = %209
   %210 = add nuw nsw i32 %spec.store.select.i, 1
-  %wide.trip.count.i211.i = zext nneg i32 %210 to i64
-  br label %.lr.ph.i212.i
+  %wide.trip.count.i216.i = zext nneg i32 %210 to i64
+  br label %.lr.ph.i217.i
 
-.lr.ph.i212.i:                                    ; preds = %.lr.ph.i212.i, %.lr.ph.preheader.i210.i
-  %indvars.iv.i213.i = phi i64 [ 1, %.lr.ph.preheader.i210.i ], [ %indvars.iv.next.i215.i, %.lr.ph.i212.i ]
-  %.0810.i214.i = phi i32 [ 0, %.lr.ph.preheader.i210.i ], [ %220, %.lr.ph.i212.i ]
-  %211 = trunc nuw nsw i64 %indvars.iv.i213.i to i32
-  %212 = add i32 %.0115263.i, %211
+.lr.ph.i217.i:                                    ; preds = %.lr.ph.i217.i, %.lr.ph.preheader.i215.i
+  %indvars.iv.i218.i = phi i64 [ 1, %.lr.ph.preheader.i215.i ], [ %indvars.iv.next.i221.i, %.lr.ph.i217.i ]
+  %.0810.i219.i = phi i32 [ 0, %.lr.ph.preheader.i215.i ], [ %220, %.lr.ph.i217.i ]
+  %211 = trunc nuw nsw i64 %indvars.iv.i218.i to i32
+  %212 = add i32 %.0115271.i, %211
   %213 = zext i32 %212 to i64
   %214 = getelementptr i8, ptr %31, i64 %213
   %215 = load i8, ptr %214, align 1
@@ -4016,46 +4016,46 @@ hid_unpack_value.exit208.i:                       ; preds = %.lr.ph.i202.i, %195
   %217 = shl i32 %211, 3
   %218 = add i32 %217, -8
   %219 = shl nuw i32 %216, %218
-  %220 = or i32 %219, %.0810.i214.i
-  %indvars.iv.next.i215.i = add nuw nsw i64 %indvars.iv.i213.i, 1
-  %exitcond.not.i216.i = icmp eq i64 %indvars.iv.next.i215.i, %wide.trip.count.i211.i
-  br i1 %exitcond.not.i216.i, label %hid_unpack_value.exit218.i, label %.lr.ph.i212.i, !llvm.loop !4
+  %220 = or i32 %219, %.0810.i219.i
+  %indvars.iv.next.i221.i = add nuw nsw i64 %indvars.iv.i218.i, 1
+  %exitcond.not.i222.i = icmp eq i64 %indvars.iv.next.i221.i, %wide.trip.count.i216.i
+  br i1 %exitcond.not.i222.i, label %hid_unpack_value.exit224.i, label %.lr.ph.i217.i, !llvm.loop !4
 
-hid_unpack_value.exit218.i:                       ; preds = %.lr.ph.i212.i, %209
-  %.08.lcssa.i217.i = phi i32 [ 0, %209 ], [ %220, %.lr.ph.i212.i ]
-  store i32 %.08.lcssa.i217.i, ptr %11, align 4
+hid_unpack_value.exit224.i:                       ; preds = %.lr.ph.i217.i, %209
+  %.08.lcssa.i223.i = phi i32 [ 0, %209 ], [ %220, %.lr.ph.i217.i ]
+  store i32 %.08.lcssa.i223.i, ptr %11, align 4
   br i1 %57, label %226, label %221
 
-221:                                              ; preds = %hid_unpack_value.exit218.i
-  %222 = and i32 %.0123259.i, 128
+221:                                              ; preds = %hid_unpack_value.exit224.i
+  %222 = and i32 %.0123267.i, 128
   %.not134.i = icmp eq i32 %222, 0
   br i1 %.not134.i, label %hid_unpack_signed.exit.i, label %223
 
 223:                                              ; preds = %221
-  %224 = shl nuw i32 %.0121260.i, 16
-  %225 = or i32 %.08.lcssa.i217.i, %224
+  %224 = shl nuw i32 %.0121268.i, 16
+  %225 = or i32 %.08.lcssa.i223.i, %224
   store i32 %225, ptr %11, align 4
   br label %226
 
-226:                                              ; preds = %223, %hid_unpack_value.exit218.i
+226:                                              ; preds = %223, %hid_unpack_value.exit224.i
   %227 = load ptr, ptr %10, align 8
   call void @wmem_array_append(ptr noundef %227, ptr noundef nonnull %11, i32 noundef 1) #7
   br label %281
 
 228:                                              ; preds = %208
-  %.not9.i219.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not9.i219.i, label %hid_unpack_value.exit228.i, label %.lr.ph.preheader.i220.i
+  %.not9.i225.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not9.i225.i, label %hid_unpack_value.exit235.i, label %.lr.ph.preheader.i226.i
 
-.lr.ph.preheader.i220.i:                          ; preds = %228
+.lr.ph.preheader.i226.i:                          ; preds = %228
   %229 = add nuw nsw i32 %spec.store.select.i, 1
-  %wide.trip.count.i221.i = zext nneg i32 %229 to i64
-  br label %.lr.ph.i222.i
+  %wide.trip.count.i227.i = zext nneg i32 %229 to i64
+  br label %.lr.ph.i228.i
 
-.lr.ph.i222.i:                                    ; preds = %.lr.ph.i222.i, %.lr.ph.preheader.i220.i
-  %indvars.iv.i223.i = phi i64 [ 1, %.lr.ph.preheader.i220.i ], [ %indvars.iv.next.i225.i, %.lr.ph.i222.i ]
-  %.0810.i224.i = phi i32 [ 0, %.lr.ph.preheader.i220.i ], [ %239, %.lr.ph.i222.i ]
-  %230 = trunc nuw nsw i64 %indvars.iv.i223.i to i32
-  %231 = add i32 %.0115263.i, %230
+.lr.ph.i228.i:                                    ; preds = %.lr.ph.i228.i, %.lr.ph.preheader.i226.i
+  %indvars.iv.i229.i = phi i64 [ 1, %.lr.ph.preheader.i226.i ], [ %indvars.iv.next.i232.i, %.lr.ph.i228.i ]
+  %.0810.i230.i = phi i32 [ 0, %.lr.ph.preheader.i226.i ], [ %239, %.lr.ph.i228.i ]
+  %230 = trunc nuw nsw i64 %indvars.iv.i229.i to i32
+  %231 = add i32 %.0115271.i, %230
   %232 = zext i32 %231 to i64
   %233 = getelementptr i8, ptr %31, i64 %232
   %234 = load i8, ptr %233, align 1
@@ -4063,54 +4063,54 @@ hid_unpack_value.exit218.i:                       ; preds = %.lr.ph.i212.i, %209
   %236 = shl i32 %230, 3
   %237 = add i32 %236, -8
   %238 = shl nuw i32 %235, %237
-  %239 = or i32 %238, %.0810.i224.i
-  %indvars.iv.next.i225.i = add nuw nsw i64 %indvars.iv.i223.i, 1
-  %exitcond.not.i226.i = icmp eq i64 %indvars.iv.next.i225.i, %wide.trip.count.i221.i
-  br i1 %exitcond.not.i226.i, label %hid_unpack_value.exit228.i, label %.lr.ph.i222.i, !llvm.loop !4
+  %239 = or i32 %238, %.0810.i230.i
+  %indvars.iv.next.i232.i = add nuw nsw i64 %indvars.iv.i229.i, 1
+  %exitcond.not.i233.i = icmp eq i64 %indvars.iv.next.i232.i, %wide.trip.count.i227.i
+  br i1 %exitcond.not.i233.i, label %hid_unpack_value.exit235.i, label %.lr.ph.i228.i, !llvm.loop !4
 
-hid_unpack_value.exit228.i:                       ; preds = %.lr.ph.i222.i, %228
-  %.08.lcssa.i227.i = phi i32 [ 0, %228 ], [ %239, %.lr.ph.i222.i ]
+hid_unpack_value.exit235.i:                       ; preds = %.lr.ph.i228.i, %228
+  %.08.lcssa.i234.i = phi i32 [ 0, %228 ], [ %239, %.lr.ph.i228.i ]
   br i1 %57, label %240, label %242
 
-240:                                              ; preds = %hid_unpack_value.exit228.i
-  %241 = or i32 %.0123259.i, 2048
+240:                                              ; preds = %hid_unpack_value.exit235.i
+  %241 = or i32 %.0123267.i, 2048
   br label %247
 
-242:                                              ; preds = %hid_unpack_value.exit228.i
-  %243 = and i32 %.0123259.i, 128
+242:                                              ; preds = %hid_unpack_value.exit235.i
+  %243 = and i32 %.0123267.i, 128
   %.not132.i = icmp eq i32 %243, 0
   br i1 %.not132.i, label %hid_unpack_signed.exit.i, label %244
 
 244:                                              ; preds = %242
-  %245 = shl nuw i32 %.0121260.i, 16
-  %246 = or i32 %.08.lcssa.i227.i, %245
+  %245 = shl nuw i32 %.0121268.i, 16
+  %246 = or i32 %.08.lcssa.i234.i, %245
   br label %247
 
 247:                                              ; preds = %244, %240
-  %.2125.i = phi i32 [ %241, %240 ], [ %.0123259.i, %244 ]
-  %.2.i = phi i32 [ %.08.lcssa.i227.i, %240 ], [ %246, %244 ]
+  %.2125.i = phi i32 [ %241, %240 ], [ %.0123267.i, %244 ]
+  %.2.i = phi i32 [ %.08.lcssa.i234.i, %240 ], [ %246, %244 ]
   %248 = or i32 %.2125.i, 1
   br label %281
 
 249:                                              ; preds = %208
-  %250 = and i32 %.0123259.i, 1
+  %250 = and i32 %.0123267.i, 1
   %.not.i = icmp eq i32 %250, 0
   br i1 %.not.i, label %hid_unpack_signed.exit.i, label %251
 
 251:                                              ; preds = %249
-  %.not9.i229.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not9.i229.i, label %hid_unpack_value.exit238.i, label %.lr.ph.preheader.i230.i
+  %.not9.i236.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not9.i236.i, label %hid_unpack_value.exit246.i, label %.lr.ph.preheader.i237.i
 
-.lr.ph.preheader.i230.i:                          ; preds = %251
+.lr.ph.preheader.i237.i:                          ; preds = %251
   %252 = add nuw nsw i32 %spec.store.select.i, 1
-  %wide.trip.count.i231.i = zext nneg i32 %252 to i64
-  br label %.lr.ph.i232.i
+  %wide.trip.count.i238.i = zext nneg i32 %252 to i64
+  br label %.lr.ph.i239.i
 
-.lr.ph.i232.i:                                    ; preds = %.lr.ph.i232.i, %.lr.ph.preheader.i230.i
-  %indvars.iv.i233.i = phi i64 [ 1, %.lr.ph.preheader.i230.i ], [ %indvars.iv.next.i235.i, %.lr.ph.i232.i ]
-  %.0810.i234.i = phi i32 [ 0, %.lr.ph.preheader.i230.i ], [ %262, %.lr.ph.i232.i ]
-  %253 = trunc nuw nsw i64 %indvars.iv.i233.i to i32
-  %254 = add i32 %.0115263.i, %253
+.lr.ph.i239.i:                                    ; preds = %.lr.ph.i239.i, %.lr.ph.preheader.i237.i
+  %indvars.iv.i240.i = phi i64 [ 1, %.lr.ph.preheader.i237.i ], [ %indvars.iv.next.i243.i, %.lr.ph.i239.i ]
+  %.0810.i241.i = phi i32 [ 0, %.lr.ph.preheader.i237.i ], [ %262, %.lr.ph.i239.i ]
+  %253 = trunc nuw nsw i64 %indvars.iv.i240.i to i32
+  %254 = add i32 %.0115271.i, %253
   %255 = zext i32 %254 to i64
   %256 = getelementptr i8, ptr %31, i64 %255
   %257 = load i8, ptr %256, align 1
@@ -4118,45 +4118,45 @@ hid_unpack_value.exit228.i:                       ; preds = %.lr.ph.i222.i, %228
   %259 = shl i32 %253, 3
   %260 = add i32 %259, -8
   %261 = shl nuw i32 %258, %260
-  %262 = or i32 %261, %.0810.i234.i
-  %indvars.iv.next.i235.i = add nuw nsw i64 %indvars.iv.i233.i, 1
-  %exitcond.not.i236.i = icmp eq i64 %indvars.iv.next.i235.i, %wide.trip.count.i231.i
-  br i1 %exitcond.not.i236.i, label %hid_unpack_value.exit238.i, label %.lr.ph.i232.i, !llvm.loop !4
+  %262 = or i32 %261, %.0810.i241.i
+  %indvars.iv.next.i243.i = add nuw nsw i64 %indvars.iv.i240.i, 1
+  %exitcond.not.i244.i = icmp eq i64 %indvars.iv.next.i243.i, %wide.trip.count.i238.i
+  br i1 %exitcond.not.i244.i, label %hid_unpack_value.exit246.i, label %.lr.ph.i239.i, !llvm.loop !4
 
-hid_unpack_value.exit238.i:                       ; preds = %.lr.ph.i232.i, %251
-  %.08.lcssa.i237.i = phi i32 [ 0, %251 ], [ %262, %.lr.ph.i232.i ]
-  %263 = and i32 %.0123259.i, 2048
+hid_unpack_value.exit246.i:                       ; preds = %.lr.ph.i239.i, %251
+  %.08.lcssa.i245.i = phi i32 [ 0, %251 ], [ %262, %.lr.ph.i239.i ]
+  %263 = and i32 %.0123267.i, 2048
   %.not127.i = icmp eq i32 %263, 0
   br i1 %.not127.i, label %265, label %264
 
-264:                                              ; preds = %hid_unpack_value.exit238.i
+264:                                              ; preds = %hid_unpack_value.exit246.i
   br i1 %57, label %270, label %hid_unpack_signed.exit.i
 
-265:                                              ; preds = %hid_unpack_value.exit238.i
-  %266 = and i32 %.0123259.i, 128
+265:                                              ; preds = %hid_unpack_value.exit246.i
+  %266 = and i32 %.0123267.i, 128
   %.not128.i = icmp eq i32 %266, 0
   %or.cond.i = select i1 %57, i1 true, i1 %.not128.i
   br i1 %or.cond.i, label %hid_unpack_signed.exit.i, label %267
 
 267:                                              ; preds = %265
-  %268 = shl nuw i32 %.0121260.i, 16
-  %269 = or i32 %.08.lcssa.i237.i, %268
+  %268 = shl nuw i32 %.0121268.i, 16
+  %269 = or i32 %.08.lcssa.i245.i, %268
   br label %270
 
 270:                                              ; preds = %267, %264
-  %.0118.i = phi i32 [ %.08.lcssa.i237.i, %264 ], [ %269, %267 ]
-  %.not130.unshifted.i = xor i32 %.0118.i, %.0119261.i
+  %.0118.i = phi i32 [ %.08.lcssa.i245.i, %264 ], [ %269, %267 ]
+  %.not130.unshifted.i = xor i32 %.0118.i, %.0119269.i
   %.not130.i = icmp ugt i32 %.not130.unshifted.i, 65535
-  %271 = icmp ugt i32 %.0119261.i, %.0118.i
+  %271 = icmp ugt i32 %.0119269.i, %.0118.i
   %or.cond141.i = or i1 %271, %.not130.i
   br i1 %or.cond141.i, label %hid_unpack_signed.exit.i, label %272
 
 272:                                              ; preds = %270
   %273 = load ptr, ptr %10, align 8
-  %reass.sub = sub nuw i32 %.0118.i, %.0119261.i
+  %reass.sub = sub nuw i32 %.0118.i, %.0119269.i
   %274 = add i32 %reass.sub, 1
   call void @wmem_array_grow(ptr noundef %273, i32 noundef %274) #7
-  store i32 %.0119261.i, ptr %12, align 4
+  store i32 %.0119269.i, ptr %12, align 4
   br label %275
 
 275:                                              ; preds = %275, %272
@@ -4169,16 +4169,16 @@ hid_unpack_value.exit238.i:                       ; preds = %.lr.ph.i232.i, %251
   br i1 %.not131.i, label %279, label %275, !llvm.loop !6
 
 279:                                              ; preds = %275
-  %280 = and i32 %.0123259.i, -2050
+  %280 = and i32 %.0123267.i, -2050
   br label %281
 
-281:                                              ; preds = %279, %247, %226, %hid_unpack_value.exit208.i, %hid_unpack_value.exit198.i, %hid_unpack_value.exit188.i, %.loopexit245.i, %.loopexit.i, %hid_unpack_value.exit161.thread.i, %96, %93, %89, %72, %58
-  %.1124.i = phi i32 [ %280, %279 ], [ %248, %247 ], [ %.0123259.i, %226 ], [ %.0123259.i, %96 ], [ %207, %hid_unpack_value.exit208.i ], [ %.0123259.i, %hid_unpack_value.exit198.i ], [ %179, %hid_unpack_value.exit188.i ], [ %166, %.loopexit245.i ], [ %138, %.loopexit.i ], [ %110, %hid_unpack_value.exit161.thread.i ], [ %.0123259.i, %58 ], [ %.0123259.i, %93 ], [ %92, %89 ], [ %75, %72 ]
-  %.1122.i = phi i32 [ %.0121260.i, %279 ], [ %.0121260.i, %247 ], [ %.0121260.i, %226 ], [ %.0121260.i, %96 ], [ %.0121260.i, %hid_unpack_value.exit208.i ], [ %.0121260.i, %hid_unpack_value.exit198.i ], [ %.0121260.i, %hid_unpack_value.exit188.i ], [ %.0121260.i, %.loopexit245.i ], [ %.0121260.i, %.loopexit.i ], [ %.08.lcssa.i160240.i, %hid_unpack_value.exit161.thread.i ], [ %.0121260.i, %58 ], [ %.0121260.i, %93 ], [ %.0121260.i, %89 ], [ %.0121260.i, %72 ]
-  %.1120.i = phi i32 [ %.0119261.i, %279 ], [ %.2.i, %247 ], [ %.0119261.i, %226 ], [ %.0119261.i, %96 ], [ %.0119261.i, %hid_unpack_value.exit208.i ], [ %.0119261.i, %hid_unpack_value.exit198.i ], [ %.0119261.i, %hid_unpack_value.exit188.i ], [ %.0119261.i, %.loopexit245.i ], [ %.0119261.i, %.loopexit.i ], [ %.0119261.i, %hid_unpack_value.exit161.thread.i ], [ %.0119261.i, %58 ], [ %.0119261.i, %93 ], [ %.0119261.i, %89 ], [ %.0119261.i, %72 ]
-  %.1.i = phi i32 [ %.0116262.i, %279 ], [ %.0116262.i, %247 ], [ %.0116262.i, %226 ], [ %.0116262.i, %96 ], [ %.0116262.i, %hid_unpack_value.exit208.i ], [ %.0116262.i, %hid_unpack_value.exit198.i ], [ %.0116262.i, %hid_unpack_value.exit188.i ], [ %.0116262.i, %.loopexit245.i ], [ %.0116262.i, %.loopexit.i ], [ %.0116262.i, %hid_unpack_value.exit161.thread.i ], [ %.0116262.i, %58 ], [ %.0116262.i, %93 ], [ 0, %89 ], [ 0, %72 ]
+281:                                              ; preds = %279, %247, %226, %hid_unpack_value.exit213.i, %hid_unpack_value.exit202.i, %hid_unpack_value.exit191.i, %.loopexit253.i, %.loopexit.i, %hid_unpack_value.exit163.thread.i, %96, %93, %89, %72, %58
+  %.1124.i = phi i32 [ %280, %279 ], [ %248, %247 ], [ %.0123267.i, %226 ], [ %.0123267.i, %96 ], [ %207, %hid_unpack_value.exit213.i ], [ %.0123267.i, %hid_unpack_value.exit202.i ], [ %179, %hid_unpack_value.exit191.i ], [ %166, %.loopexit253.i ], [ %138, %.loopexit.i ], [ %110, %hid_unpack_value.exit163.thread.i ], [ %.0123267.i, %58 ], [ %.0123267.i, %93 ], [ %92, %89 ], [ %75, %72 ]
+  %.1122.i = phi i32 [ %.0121268.i, %279 ], [ %.0121268.i, %247 ], [ %.0121268.i, %226 ], [ %.0121268.i, %96 ], [ %.0121268.i, %hid_unpack_value.exit213.i ], [ %.0121268.i, %hid_unpack_value.exit202.i ], [ %.0121268.i, %hid_unpack_value.exit191.i ], [ %.0121268.i, %.loopexit253.i ], [ %.0121268.i, %.loopexit.i ], [ %.08.lcssa.i162248.i, %hid_unpack_value.exit163.thread.i ], [ %.0121268.i, %58 ], [ %.0121268.i, %93 ], [ %.0121268.i, %89 ], [ %.0121268.i, %72 ]
+  %.1120.i = phi i32 [ %.0119269.i, %279 ], [ %.2.i, %247 ], [ %.0119269.i, %226 ], [ %.0119269.i, %96 ], [ %.0119269.i, %hid_unpack_value.exit213.i ], [ %.0119269.i, %hid_unpack_value.exit202.i ], [ %.0119269.i, %hid_unpack_value.exit191.i ], [ %.0119269.i, %.loopexit253.i ], [ %.0119269.i, %.loopexit.i ], [ %.0119269.i, %hid_unpack_value.exit163.thread.i ], [ %.0119269.i, %58 ], [ %.0119269.i, %93 ], [ %.0119269.i, %89 ], [ %.0119269.i, %72 ]
+  %.1.i = phi i32 [ %.0116270.i, %279 ], [ %.0116270.i, %247 ], [ %.0116270.i, %226 ], [ %.0116270.i, %96 ], [ %.0116270.i, %hid_unpack_value.exit213.i ], [ %.0116270.i, %hid_unpack_value.exit202.i ], [ %.0116270.i, %hid_unpack_value.exit191.i ], [ %.0116270.i, %.loopexit253.i ], [ %.0116270.i, %.loopexit.i ], [ %.0116270.i, %hid_unpack_value.exit163.thread.i ], [ %.0116270.i, %58 ], [ %.0116270.i, %93 ], [ 0, %89 ], [ 0, %72 ]
   %282 = add nuw nsw i32 %spec.store.select.i, 1
-  %283 = add i32 %282, %.0115263.i
+  %283 = add i32 %282, %.0115271.i
   %284 = load i32, ptr %29, align 8
   %285 = icmp slt i32 %283, %284
   br i1 %285, label %48, label %.loopexit36, !llvm.loop !7
@@ -4186,41 +4186,41 @@ hid_unpack_value.exit238.i:                       ; preds = %.lr.ph.i232.i, %251
 default.unreachable:                              ; preds = %48
   unreachable
 
-hid_unpack_signed.exit.i:                         ; preds = %270, %265, %264, %249, %242, %221, %208, %181, %139, %111, %hid_unpack_value.exit161.i, %96, %96, %hid_unpack_value.exit151.i, %hid_unpack_value.exit.i, %48
+hid_unpack_signed.exit.i:                         ; preds = %270, %265, %264, %249, %242, %221, %208, %181, %139, %111, %hid_unpack_value.exit163.i, %96, %96, %hid_unpack_value.exit152.i, %hid_unpack_value.exit.i, %48
   %286 = load ptr, ptr %37, align 8
   %287 = call i32 @wmem_array_get_count(ptr noundef %286) #7
-  %.not268.i = icmp eq i32 %287, 0
-  br i1 %.not268.i, label %.preheader.i, label %.lr.ph265.i
+  %.not276.i = icmp eq i32 %287, 0
+  br i1 %.not276.i, label %.preheader.i, label %.lr.ph273.i
 
-.preheader.i:                                     ; preds = %.lr.ph265.i, %hid_unpack_signed.exit.i
+.preheader.i:                                     ; preds = %.lr.ph273.i, %hid_unpack_signed.exit.i
   %288 = load ptr, ptr %39, align 8
   %289 = call i32 @wmem_array_get_count(ptr noundef %288) #7
-  %.not269.i = icmp eq i32 %289, 0
-  br i1 %.not269.i, label %.loopexit, label %.lr.ph267.i
+  %.not277.i = icmp eq i32 %289, 0
+  br i1 %.not277.i, label %.loopexit, label %.lr.ph275.i
 
-.lr.ph265.i:                                      ; preds = %hid_unpack_signed.exit.i, %.lr.ph265.i
-  %.0114264.i = phi i32 [ %293, %.lr.ph265.i ], [ 0, %hid_unpack_signed.exit.i ]
+.lr.ph273.i:                                      ; preds = %hid_unpack_signed.exit.i, %.lr.ph273.i
+  %.0114272.i = phi i32 [ %293, %.lr.ph273.i ], [ 0, %hid_unpack_signed.exit.i ]
   %290 = load ptr, ptr %37, align 8
-  %291 = call ptr @wmem_array_index(ptr noundef %290, i32 noundef %.0114264.i) #7
+  %291 = call ptr @wmem_array_index(ptr noundef %290, i32 noundef %.0114272.i) #7
   %292 = load ptr, ptr %291, align 8
   call void @wmem_free(ptr noundef %33, ptr noundef %292) #7
-  %293 = add nuw i32 %.0114264.i, 1
+  %293 = add nuw i32 %.0114272.i, 1
   %294 = load ptr, ptr %37, align 8
   %295 = call i32 @wmem_array_get_count(ptr noundef %294) #7
   %296 = icmp ult i32 %293, %295
-  br i1 %296, label %.lr.ph265.i, label %.preheader.i, !llvm.loop !8
+  br i1 %296, label %.lr.ph273.i, label %.preheader.i, !llvm.loop !8
 
-.lr.ph267.i:                                      ; preds = %.preheader.i, %.lr.ph267.i
-  %.0266.i = phi i32 [ %300, %.lr.ph267.i ], [ 0, %.preheader.i ]
+.lr.ph275.i:                                      ; preds = %.preheader.i, %.lr.ph275.i
+  %.0274.i = phi i32 [ %300, %.lr.ph275.i ], [ 0, %.preheader.i ]
   %297 = load ptr, ptr %39, align 8
-  %298 = call ptr @wmem_array_index(ptr noundef %297, i32 noundef %.0266.i) #7
+  %298 = call ptr @wmem_array_index(ptr noundef %297, i32 noundef %.0274.i) #7
   %299 = load ptr, ptr %298, align 8
   call void @wmem_free(ptr noundef %33, ptr noundef %299) #7
-  %300 = add nuw i32 %.0266.i, 1
+  %300 = add nuw i32 %.0274.i, 1
   %301 = load ptr, ptr %39, align 8
   %302 = call i32 @wmem_array_get_count(ptr noundef %301) #7
   %303 = icmp ult i32 %300, %302
-  br i1 %303, label %.lr.ph267.i, label %.loopexit, !llvm.loop !9
+  br i1 %303, label %.lr.ph275.i, label %.loopexit, !llvm.loop !9
 
 .loopexit36:                                      ; preds = %281, %25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -4269,7 +4269,7 @@ hid_unpack_signed.exit.i:                         ; preds = %270, %265, %264, %2
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
   br label %326
 
-.loopexit:                                        ; preds = %.lr.ph267.i, %.preheader.i
+.loopexit:                                        ; preds = %.lr.ph275.i, %.preheader.i
   %323 = load ptr, ptr %37, align 8
   call void @wmem_free(ptr noundef %33, ptr noundef %323) #7
   %324 = load ptr, ptr %39, align 8
@@ -6756,7 +6756,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @get_usage_page_item_string(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @get_usage_page_item_string(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
   switch i32 %1, label %70 [
     i32 1, label %4
     i32 2, label %6
@@ -6849,7 +6849,7 @@ define internal fastcc noalias ptr @get_usage_page_item_string(ptr noundef %0, i
 
 30:                                               ; preds = %3
   %31 = tail call ptr @try_val_to_str(i32 noundef %2, ptr noundef nonnull @usb_hid_haptic_usage_page_vals) #7
-  %32 = add i32 %2, -8193
+  %32 = add nsw i32 %2, -8193
   %or.cond = icmp ult i32 %32, 4095
   %spec.store.select2 = select i1 %or.cond, ptr @.str.304, ptr %31
   br label %75

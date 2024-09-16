@@ -198,7 +198,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %2, label %43, label %50
 
 43:                                               ; preds = %42
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %44 unwind label %48
 
 44:                                               ; preds = %43
@@ -457,7 +457,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   %5 = trunc i64 %4 to i32
@@ -513,7 +513,7 @@ define internal fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112bas
   %22 = zext nneg i32 %.0.lcssa to i64
   %23 = sub nsw i32 %21, %.0.lcssa
   %24 = sext i32 %23 to i64
-  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %22, i64 noundef %24)
+  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %22, i64 noundef %24)
   br label %.thread
 
 25:                                               ; preds = %.critedge2
@@ -901,7 +901,7 @@ define void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr nocapture
   br i1 %2, label %33, label %40
 
 33:                                               ; preds = %32
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %34 unwind label %38
 
 34:                                               ; preds = %33
@@ -1363,7 +1363,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 123:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %124 = load ptr, ptr %18, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 64
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %125)
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %125)
           to label %126 unwind label %136
 
 126:                                              ; preds = %123
@@ -3470,7 +3470,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %27 = getelementptr inbounds i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %28, i64 %.016, i32 1
-  call fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %29)
+  call fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %29)
   %30 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   br i1 %30, label %34, label %31
 
@@ -3725,7 +3725,7 @@ define void @_ZNK2cv17CommandLineParser12printMessageEv(ptr nocapture noundef no
 ._crit_edge40:                                    ; preds = %93, %60
   %108 = phi ptr [ %63, %60 ], [ %97, %93 ]
   %109 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %108, i64 %.02641, i32 1
-  call fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %109)
+  call fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %109)
   %110 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.11) #22
   %.not32 = icmp eq i32 %110, 0
   br i1 %.not32, label %114, label %111
@@ -3801,7 +3801,7 @@ define void @_ZNK2cv17CommandLineParser12printMessageEv(ptr nocapture noundef no
   %155 = getelementptr inbounds i8, ptr %154, i64 136
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %156, i64 %.045, i32 1
-  invoke fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %157)
+  invoke fastcc void @_ZN2cv12_GLOBAL__N_110cat_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %157)
           to label %158 unwind label %163
 
 158:                                              ; preds = %150

@@ -239,7 +239,7 @@ if.end30:                                         ; preds = %if.end26
   %10 = load ptr, ptr %hostname31, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 154) #10
   store ptr null, ptr %hostname31, align 8
-  %call36 = call fastcc i32 @PACKET_strndup(ptr noundef nonnull %hostname, ptr noundef nonnull %hostname31)
+  %call36 = call fastcc i32 @PACKET_strndup(ptr noundef %hostname, ptr noundef nonnull %hostname31)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.then38, label %if.end39
 
@@ -287,7 +287,7 @@ return:                                           ; preds = %if.end39, %land.end
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PACKET_strndup(ptr nocapture noundef readonly %pkt, ptr nocapture noundef %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PACKET_strndup(ptr nocapture noundef nonnull readonly %pkt, ptr nocapture noundef %data) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 483) #10
@@ -1655,7 +1655,7 @@ lor.lhs.false76:                                  ; preds = %lor.lhs.false67
   store ptr %add.ptr.i.i100, ptr %cookie, align 8
   %sub.i.i101 = add nsw i64 %or.i.i.i, -9
   store i64 %sub.i.i101, ptr %remaining.i, align 8
-  %call77 = call fastcc i32 @PACKET_get_net_8(ptr noundef nonnull %cookie, ptr noundef nonnull %tm)
+  %call77 = call fastcc i32 @PACKET_get_net_8(ptr noundef %cookie, ptr noundef %tm)
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %if.then89, label %lor.lhs.false79
 
@@ -1935,7 +1935,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @ssl_get_cipher_by_char(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @PACKET_get_net_8(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %data) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @PACKET_get_net_8(ptr nocapture noundef nonnull %pkt, ptr nocapture noundef nonnull writeonly %data) unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i = load i64, ptr %0, align 8

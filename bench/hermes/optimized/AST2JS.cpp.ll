@@ -3213,7 +3213,7 @@ if.end35:                                         ; preds = %if.then.i16.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef %parent, ptr noundef %child, i32 noundef %childPosition) unnamed_addr #7 align 2 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef %parent, ptr noundef %child, i32 noundef range(i32 0, 3) %childPosition) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %parent, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8

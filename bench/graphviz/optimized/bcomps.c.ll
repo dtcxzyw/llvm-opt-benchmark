@@ -200,7 +200,7 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %.lr.ph.i
-  call fastcc void @dfs(ptr noundef nonnull %51, ptr noundef nonnull %.04561.i, ptr noundef nonnull %3, ptr noundef null)
+  call fastcc void @dfs(ptr noundef %51, ptr noundef nonnull %.04561.i, ptr noundef %3, ptr noundef null)
   br label %59
 
 59:                                               ; preds = %58, %.lr.ph.i
@@ -396,7 +396,7 @@ declare ptr @nextGraph(ptr noundef) local_unnamed_addr #1
 declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #2 {
   tail call void @exit(i32 noundef %0) #23
   unreachable
 }
@@ -427,7 +427,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef readnone %3) unnamed_addr #10 {
+define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef readnone %3) unnamed_addr #10 {
   %5 = alloca %struct.agxbuf, align 8
   %6 = load i32, ptr %2, align 8
   %7 = add nsw i32 %6, 1
@@ -439,7 +439,7 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 %7, ptr %12, align 8
-  %13 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %1) #19
+  %13 = tail call ptr @agfstedge(ptr noundef nonnull %0, ptr noundef %1) #19
   %.not65 = icmp eq ptr %13, null
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
@@ -487,8 +487,8 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %41, label %42, label %108
 
 42:                                               ; preds = %36
-  call fastcc void @stack_push(ptr noundef nonnull %14, ptr noundef nonnull %.05466)
-  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %2, ptr noundef %1)
+  call fastcc void @stack_push(ptr noundef %14, ptr noundef %.05466)
+  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %2, ptr noundef %1)
   %43 = load ptr, ptr %8, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
@@ -514,12 +514,12 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %15, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %59 = call ptr @agnameof(ptr noundef %0) #19
+  %59 = call ptr @agnameof(ptr noundef nonnull %0) #19
   %60 = load i32, ptr %15, align 4
   %61 = load i8, ptr %59, align 1
   %62 = icmp eq i8 %61, 37
   %.str.12..str.13.i.i = select i1 %62, ptr @.str.12, ptr @.str.13
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr noundef nonnull %.str.12..str.13.i.i, ptr noundef nonnull %59, i32 noundef %60)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull %.str.12..str.13.i.i, ptr noundef nonnull %59, i32 noundef %60)
   %.val.i.i.i.i.i = load i8, ptr %16, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
   %63 = load i64, ptr %17, align 8
@@ -531,7 +531,7 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %.not.i.i.i.i, label %67, label %66
 
 66:                                               ; preds = %55
-  call fastcc void @agxbmore(ptr noundef nonnull %5, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %5, i64 noundef 1)
   %.val.i15.pre.i.i.i.i = load i8, ptr %16, align 1
   br label %67
 
@@ -568,7 +568,7 @@ agxbclear.exit.thread.i.i.i:                      ; preds = %agxbputc.exit.i.i.i
 
 blockName.exit.i:                                 ; preds = %76, %agxbclear.exit.thread.i.i.i
   %78 = phi ptr [ %77, %76 ], [ %5, %agxbclear.exit.thread.i.i.i ]
-  %79 = call ptr @agsubg(ptr noundef %0, ptr noundef %78, i32 noundef 1) #19
+  %79 = call ptr @agsubg(ptr noundef nonnull %0, ptr noundef %78, i32 noundef 1) #19
   %.val10.i = load i8, ptr %16, align 1
   %80 = icmp eq i8 %.val10.i, -1
   br i1 %80, label %81, label %mkBlock.exit
@@ -636,11 +636,11 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   br i1 %119, label %120, label %.loopexit
 
 120:                                              ; preds = %109
-  call fastcc void @stack_push(ptr noundef nonnull %14, ptr noundef nonnull %.05466)
+  call fastcc void @stack_push(ptr noundef %14, ptr noundef %.05466)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %87, %42, %109, %120, %108, %34
-  %121 = call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.05466, ptr noundef %1) #19
+  %121 = call ptr @agnxtedge(ptr noundef nonnull %0, ptr noundef nonnull %.05466, ptr noundef %1) #19
   %.not = icmp eq ptr %121, null
   br i1 %.not, label %._crit_edge, label %21
 
@@ -690,7 +690,7 @@ agxblen.exit.i.i.i:                               ; preds = %15
   br i1 %20, label %21, label %.thread.i
 
 21:                                               ; preds = %agxblen.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef %16)
+  call fastcc void @agxbmore(ptr noundef %4, i64 noundef %16)
   %.val.i25.pre.i.i.i = load i8, ptr %18, align 1
   %.not.i26.i.i.i = icmp eq i8 %.val.i25.pre.i.i.i, -1
   br i1 %.not.i26.i.i.i, label %27, label %.thread.i
@@ -726,22 +726,22 @@ agxblen.exit.i.i.i:                               ; preds = %15
   br i1 %34, label %37, label %38
 
 37:                                               ; preds = %36
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.18, ptr noundef %35, i32 noundef %1, ptr noundef nonnull %33)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.18, ptr noundef %35, i32 noundef %1, ptr noundef nonnull %33)
   br label %agxbput.exit.i
 
 38:                                               ; preds = %36
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, ptr noundef %35, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %33)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.19, ptr noundef %35, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %33)
   br label %agxbput.exit.i
 
 39:                                               ; preds = %32
   br i1 %34, label %40, label %41
 
 40:                                               ; preds = %39
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, ptr noundef %35, i32 noundef %1)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.20, ptr noundef %35, i32 noundef %1)
   br label %agxbput.exit.i
 
 41:                                               ; preds = %39
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, ptr noundef %35, i32 noundef %1, i32 noundef %2)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.21, ptr noundef %35, i32 noundef %1, i32 noundef %2)
   br label %agxbput.exit.i
 
 agxbput.exit.i:                                   ; preds = %41, %40, %38, %37, %27, %.thread.i, %15
@@ -772,7 +772,7 @@ agxbsizeof.exit.i.i12.i:                          ; preds = %agxbput.exit.i
   br i1 %.not.i7.i.i, label %.thread.i.i, label %54
 
 54:                                               ; preds = %agxbsizeof.exit.i.i12.i
-  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %42, align 1
   %.not.i16.i.i.i = icmp eq i8 %.val.i15.pre.i.i.i, -1
   br i1 %.not.i16.i.i.i, label %..thread_crit_edge.i.i, label %55
@@ -830,7 +830,7 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 declare ptr @agfstedge(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stack_push(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @stack_push(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -902,7 +902,7 @@ declare ptr @agsubg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #10 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #10 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -945,7 +945,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -1001,7 +1001,7 @@ vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #10 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1

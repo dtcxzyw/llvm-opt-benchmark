@@ -2457,7 +2457,7 @@ Vec_IntPushOrderCost.exit:                        ; preds = %55, %Vec_IntGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntAppendMinus(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntAppendMinus(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4
@@ -2812,7 +2812,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 104:                                              ; preds = %Vec_FltPush.exit
   %105 = add nsw i32 %102, 1
   %106 = shl nsw i32 %103, 1
-  %107 = tail call noundef i32 @llvm.smax.i32(i32 %105, i32 %106)
+  %107 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %105, i32 %106)
   tail call fastcc void @Vec_QueGrow(ptr noundef nonnull %100, i32 noundef %107)
   %.pre.i48 = load i32, ptr %100, align 8
   br label %108
@@ -2825,7 +2825,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 110:                                              ; preds = %108
   %111 = add nsw i32 %9, 1
   %112 = shl nsw i32 %109, 1
-  %113 = tail call noundef i32 @llvm.smax.i32(i32 %111, i32 %112)
+  %113 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %111, i32 %112)
   tail call fastcc void @Vec_QueGrow(ptr noundef nonnull %100, i32 noundef %113)
   br label %114
 

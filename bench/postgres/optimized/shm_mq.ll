@@ -283,7 +283,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
 26:                                               ; preds = %22
   %27 = sub i64 8, %25
   %28 = getelementptr i8, ptr %6, i64 %25
-  %29 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %27, ptr noundef %28, i1 noundef zeroext %3, ptr noundef nonnull %7)
+  %29 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %27, ptr noundef %28, i1 noundef zeroext %3, ptr noundef %7)
   %30 = icmp eq i32 %29, 2
   br i1 %30, label %31, label %32
 
@@ -381,7 +381,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
   %.3109 = phi i32 [ %66, %.loopexit167 ], [ %.2108.ph, %55 ]
   %.3 = phi i64 [ %65, %.loopexit167 ], [ %62, %55 ]
   %.1 = phi i64 [ %67, %.loopexit167 ], [ 8, %55 ]
-  %68 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %.1, ptr noundef nonnull %8, i1 noundef zeroext %3, ptr noundef nonnull %7)
+  %68 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %.1, ptr noundef nonnull %8, i1 noundef zeroext %3, ptr noundef %7)
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %70, label %71
 
@@ -404,7 +404,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
   %spec.select = select i1 %49, i64 %77, i64 %76
   %78 = load ptr, ptr %41, align 8
   %79 = getelementptr i8, ptr %78, i64 %.0103
-  %80 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %spec.select, ptr noundef %79, i1 noundef zeroext %3, ptr noundef nonnull %7)
+  %80 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %spec.select, ptr noundef %79, i1 noundef zeroext %3, ptr noundef %7)
   %81 = icmp eq i32 %80, 2
   br i1 %81, label %82, label %83
 
@@ -516,7 +516,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @shm_mq_send_bytes(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @shm_mq_send_bytes(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 40
@@ -792,7 +792,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 66:                                               ; preds = %.lr.ph, %114
   %67 = phi i64 [ %.pre, %.lr.ph ], [ %104, %114 ]
   %68 = sub i64 8, %67
-  %69 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %68, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %69 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %68, i1 noundef zeroext %3, ptr noundef %6, ptr noundef %7)
   %.not124 = icmp eq i32 %69, 0
   br i1 %.not124, label %70, label %.loopexit
 
@@ -903,7 +903,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br i1 %127, label %128, label %156
 
 128:                                              ; preds = %124
-  %129 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %118, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %129 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %118, i1 noundef zeroext %3, ptr noundef %6, ptr noundef %7)
   %.not = icmp eq i32 %129, 0
   br i1 %.not, label %130, label %.loopexit
 
@@ -933,7 +933,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 142:                                              ; preds = %138
   %143 = call range(i64 1, 31) i64 @llvm.ctpop.i64(i64 %118)
   %144 = icmp ult i64 %143, 2
-  %145 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %118, i1 true)
+  %145 = call range(i64 34, 65) i64 @llvm.ctlz.i64(i64 %118, i1 true)
   %146 = sub nuw nsw i64 64, %145
   %147 = shl nuw nsw i64 1, %146
   %.0.i129 = select i1 %144, i64 %118, i64 %147
@@ -989,7 +989,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 
 173:                                              ; preds = %167
   %174 = sub nuw nsw i64 %118, %168
-  %175 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %174, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %175 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %174, i1 noundef zeroext %3, ptr noundef %6, ptr noundef %7)
   %.not123 = icmp eq i32 %175, 0
   br i1 %.not123, label %176, label %.loopexit
 
@@ -1106,7 +1106,7 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr nocapture noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr nocapture noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8

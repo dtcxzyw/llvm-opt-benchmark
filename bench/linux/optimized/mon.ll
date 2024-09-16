@@ -127,7 +127,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nsm_mon_unmon(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nsm_mon_unmon(ptr noundef %0, i32 noundef range(i32 2, 4) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.sockaddr_in, align 4
   %6 = alloca %struct.rpc_create_args, align 8
   %7 = alloca %struct.nsm_args, align 8

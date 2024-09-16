@@ -126,7 +126,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_merge_bases_many_0(ptr noundef %r, ptr noundef %one, i32 noundef %n, ptr noundef %twos, i32 noundef %cleanup) unnamed_addr #0 {
+define internal fastcc ptr @get_merge_bases_many_0(ptr noundef %r, ptr noundef %one, i32 noundef %n, ptr noundef %twos, i32 noundef range(i32 0, 2) %cleanup) unnamed_addr #0 {
 entry:
   %list.i = alloca ptr, align 8
   %result.i = alloca ptr, align 8
@@ -2998,7 +2998,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @load_commit_graph_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @contains_test(ptr noundef %candidate, ptr noundef readonly %want, ptr nocapture noundef %cache, i64 noundef %cutoff) unnamed_addr #0 {
+define internal fastcc i32 @contains_test(ptr noundef %candidate, ptr noundef readonly %want, ptr nocapture noundef %cache, i64 noundef range(i64 0, -9223372036854775808) %cutoff) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %candidate, i64 64
   %candidate.val = load i32, ptr %0, align 8

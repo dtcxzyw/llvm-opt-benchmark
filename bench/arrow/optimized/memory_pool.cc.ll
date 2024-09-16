@@ -3905,7 +3905,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE15AllocateAlignedEllPPh(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %size, i64 noundef %alignment, ptr noundef %out)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE15AllocateAlignedEllPPh(ptr noalias align 8 %ref.tmp, i64 noundef %size, i64 noundef %alignment, ptr noundef %out)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !51
   store ptr %0, ptr %agg.result, align 8, !alias.scope !51
@@ -3969,7 +3969,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE15AllocateAlignedEllPPh(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %new_size, i64 noundef %alignment, ptr noundef nonnull %ptr)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE15AllocateAlignedEllPPh(ptr noalias align 8 %ref.tmp, i64 noundef %new_size, i64 noundef %alignment, ptr noundef nonnull %ptr)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 if.end.i:                                         ; preds = %do.body
@@ -3987,7 +3987,7 @@ nrvo.skipdtor.thread:                             ; preds = %if.end.i
   br label %do.end12
 
 if.end3.i:                                        ; preds = %if.end.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE7RawSizeEl(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %new_size), !noalias !57
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE7RawSizeEl(ptr noalias align 8 %ref.tmp.i, i64 noundef %new_size), !noalias !57
   %2 = load ptr, ptr %ref.tmp.i, align 8, !noalias !57
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %invoke.cont9.i, label %cond.false.i.i
@@ -4052,7 +4052,7 @@ invoke.cont9.i:                                   ; preds = %if.end3.i
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %11 = load i64, ptr %storage_.i.i.i, align 8, !noalias !57
   %add22.i = add nsw i64 %old_size, 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115SystemAllocator17ReallocateAlignedElllPPh(ptr noalias nonnull align 8 %ref.tmp21.i, i64 noundef %add22.i, i64 noundef %11, i64 noundef %alignment, ptr noundef nonnull %ptr)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115SystemAllocator17ReallocateAlignedElllPPh(ptr noalias align 8 %ref.tmp21.i, i64 noundef %add22.i, i64 noundef %11, i64 noundef %alignment, ptr noundef nonnull %ptr)
           to label %_ZN5arrow6StatusD2Ev.exit.i unwind label %lpad.i, !noalias !57
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %invoke.cont9.i
@@ -4321,7 +4321,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 declare void @llvm.trap() #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE15AllocateAlignedEllPPh(ptr noalias nocapture writeonly align 8 %agg.result, i64 noundef %size, i64 noundef %alignment, ptr noundef %out) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE15AllocateAlignedEllPPh(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef range(i64 0, -9223372036854775808) %size, i64 noundef %alignment, ptr noundef %out) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size.addr.i = alloca i64, align 8
   %ref.tmp.i = alloca i64, align 8
@@ -4335,7 +4335,7 @@ if.then:                                          ; preds = %entry
   br label %if.end40
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE7RawSizeEl(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %size)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE7RawSizeEl(ptr noalias align 8 %ref.tmp, i64 noundef %size)
   %0 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %invoke.cont7, label %cond.false.i
@@ -4604,7 +4604,7 @@ declare void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr sret(%
 declare void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE7RawSizeEl(ptr noalias align 8 %agg.result, i64 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE7RawSizeEl(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 1, -9223372036854775808) %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %size, i64 8)
@@ -5337,7 +5337,7 @@ if.end:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_115SystemAllocator17ReallocateAlignedElllPPh(ptr noalias align 8 %agg.result, i64 noundef %old_size, i64 noundef %new_size, i64 noundef %alignment, ptr noundef %ptr) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_115SystemAllocator17ReallocateAlignedElllPPh(ptr noalias nonnull align 8 %agg.result, i64 noundef %old_size, i64 noundef %new_size, i64 noundef %alignment, ptr noundef %ptr) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size.addr.i11 = alloca i64, align 8
   %ref.tmp.i12 = alloca i64, align 8
@@ -5370,12 +5370,12 @@ if.end.i:                                         ; preds = %while.end6
   ]
 
 if.then2.i:                                       ; preds = %if.end.i
-  call void @_ZN5arrow6Status8FromArgsIJRA16_KcRlRA8_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 1, ptr noundef nonnull align 1 dereferenceable(16) @.str.32, ptr noundef nonnull align 8 dereferenceable(8) %size.addr.i, ptr noundef nonnull align 1 dereferenceable(8) @.str.33)
+  call void @_ZN5arrow6Status8FromArgsIJRA16_KcRlRA8_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 1, ptr noundef nonnull align 1 dereferenceable(16) @.str.32, ptr noundef nonnull align 8 dereferenceable(8) %size.addr.i, ptr noundef nonnull align 1 dereferenceable(8) @.str.33)
   br label %_ZN5arrow12_GLOBAL__N_115SystemAllocator15AllocateAlignedEllPPh.exit
 
 if.then5.i:                                       ; preds = %if.end.i
   store i64 %alignment, ptr %ref.tmp.i, align 8, !noalias !107
-  call void @_ZN5arrow6Status8FromArgsIJRA30_KcmEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(30) @.str.34, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+  call void @_ZN5arrow6Status8FromArgsIJRA30_KcmEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(30) @.str.34, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow12_GLOBAL__N_115SystemAllocator15AllocateAlignedEllPPh.exit
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -5621,7 +5621,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_115SystemAllocator17ReallocateAlignedElllPPh(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %old_size, i64 noundef %new_size, i64 noundef %alignment, ptr noundef %ptr)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_115SystemAllocator17ReallocateAlignedElllPPh(ptr noalias align 8 %ref.tmp, i64 noundef %old_size, i64 noundef %new_size, i64 noundef %alignment, ptr noundef %ptr)
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !143
   store ptr %0, ptr %agg.result, align 8, !alias.scope !143
@@ -5800,7 +5800,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE15AllocateAlignedEllPPh(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %size, i64 noundef %alignment, ptr noundef %out)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE15AllocateAlignedEllPPh(ptr noalias align 8 %ref.tmp, i64 noundef %size, i64 noundef %alignment, ptr noundef %out)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !149
   store ptr %0, ptr %agg.result, align 8, !alias.scope !149
@@ -5864,7 +5864,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE15AllocateAlignedEllPPh(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %new_size, i64 noundef %alignment, ptr noundef nonnull %ptr)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE15AllocateAlignedEllPPh(ptr noalias align 8 %ref.tmp, i64 noundef %new_size, i64 noundef %alignment, ptr noundef nonnull %ptr)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 if.end.i:                                         ; preds = %do.body
@@ -5883,7 +5883,7 @@ nrvo.skipdtor.thread:                             ; preds = %if.end.i
   br label %do.end12
 
 if.end3.i:                                        ; preds = %if.end.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE7RawSizeEl(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %new_size), !noalias !155
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE7RawSizeEl(ptr noalias align 8 %ref.tmp.i, i64 noundef %new_size), !noalias !155
   %2 = load ptr, ptr %ref.tmp.i, align 8, !noalias !155
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %invoke.cont9.i, label %cond.false.i.i
@@ -6215,7 +6215,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE15AllocateAlignedEllPPh(ptr noalias nocapture writeonly align 8 %agg.result, i64 noundef %size, i64 noundef %alignment, ptr noundef %out) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE15AllocateAlignedEllPPh(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef range(i64 0, -9223372036854775808) %size, i64 noundef %alignment, ptr noundef %out) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.55", align 8
   %ref.tmp17 = alloca %"class.arrow::Status", align 8
@@ -6227,7 +6227,7 @@ if.then:                                          ; preds = %entry
   br label %if.end34
 
 if.else:                                          ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE7RawSizeEl(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %size)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE7RawSizeEl(ptr noalias align 8 %ref.tmp, i64 noundef %size)
   %0 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %invoke.cont5, label %cond.false.i
@@ -6411,7 +6411,7 @@ return:                                           ; preds = %_ZN5arrow6ResultIlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE7RawSizeEl(ptr noalias align 8 %agg.result, i64 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE7RawSizeEl(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 1, -9223372036854775808) %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %size, i64 8)

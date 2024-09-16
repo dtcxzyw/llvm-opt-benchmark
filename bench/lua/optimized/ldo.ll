@@ -1707,7 +1707,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ccall(ptr noundef %L, ptr noundef %func, i32 noundef %nResults, i32 noundef %inc) unnamed_addr #0 {
+define internal fastcc void @ccall(ptr noundef %L, ptr noundef %func, i32 noundef %nResults, i32 noundef range(i32 0, 65538) %inc) unnamed_addr #0 {
 entry:
   %nCcalls = getelementptr inbounds i8, ptr %L, i64 176
   %0 = load i32, ptr %nCcalls, align 8

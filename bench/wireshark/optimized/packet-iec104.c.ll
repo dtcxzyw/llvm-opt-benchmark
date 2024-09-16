@@ -1495,21 +1495,21 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   ]
 
 213:                                              ; preds = %211
-  call fastcc void @get_SIQ(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_SIQ(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 214:                                              ; preds = %211
-  call fastcc void @get_SIQ(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_SIQ(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 215:                                              ; preds = %211
-  call fastcc void @get_DIQ(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_DIQ(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 216:                                              ; preds = %211
-  call fastcc void @get_DIQ(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_DIQ(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 217:                                              ; preds = %211
@@ -1528,7 +1528,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %230 = load i8, ptr %6, align 1
   %231 = add i8 %230, 1
   store i8 %231, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 232:                                              ; preds = %211
@@ -1547,8 +1547,8 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %245 = load i8, ptr %6, align 1
   %246 = add i8 %245, 1
   store i8 %246, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 247:                                              ; preds = %211
@@ -1558,7 +1558,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %251 = load i8, ptr %6, align 1
   %252 = add i8 %251, 4
   store i8 %252, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 253:                                              ; preds = %211
@@ -1568,8 +1568,8 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %257 = load i8, ptr %6, align 1
   %258 = add i8 %257, 4
   store i8 %258, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 259:                                              ; preds = %211
@@ -1585,7 +1585,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %269 = load i8, ptr %6, align 1
   %270 = add i8 %269, 2
   store i8 %270, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 271:                                              ; preds = %211
@@ -1601,8 +1601,8 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %281 = load i8, ptr %6, align 1
   %282 = add i8 %281, 2
   store i8 %282, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 283:                                              ; preds = %211
@@ -1611,7 +1611,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %286 = load i8, ptr %6, align 1
   %287 = add i8 %286, 2
   store i8 %287, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 288:                                              ; preds = %211
@@ -1620,8 +1620,8 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %291 = load i8, ptr %6, align 1
   %292 = add i8 %291, 2
   store i8 %292, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 293:                                              ; preds = %211
@@ -1630,7 +1630,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %296 = load i8, ptr %6, align 1
   %297 = add i8 %296, 4
   store i8 %297, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 298:                                              ; preds = %211
@@ -1639,17 +1639,17 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %301 = load i8, ptr %6, align 1
   %302 = add i8 %301, 4
   store i8 %302, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 303:                                              ; preds = %211
-  call fastcc void @get_BCR(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_BCR(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 304:                                              ; preds = %211
-  call fastcc void @get_BCR(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_BCR(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP24Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 305:                                              ; preds = %211
@@ -1668,13 +1668,13 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   br label %743
 
 317:                                              ; preds = %211
-  call fastcc void @get_SIQ(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_SIQ(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 318:                                              ; preds = %211
-  call fastcc void @get_DIQ(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_DIQ(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 319:                                              ; preds = %211
@@ -1693,8 +1693,8 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %332 = load i8, ptr %6, align 1
   %333 = add i8 %332, 1
   store i8 %333, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 334:                                              ; preds = %211
@@ -1704,8 +1704,8 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %338 = load i8, ptr %6, align 1
   %339 = add i8 %338, 4
   store i8 %339, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 340:                                              ; preds = %211
@@ -1721,8 +1721,8 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %350 = load i8, ptr %6, align 1
   %351 = add i8 %350, 2
   store i8 %351, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 352:                                              ; preds = %211
@@ -1731,8 +1731,8 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %355 = load i8, ptr %6, align 1
   %356 = add i8 %355, 2
   store i8 %356, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 357:                                              ; preds = %211
@@ -1741,13 +1741,13 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %360 = load i8, ptr %6, align 1
   %361 = add i8 %360, 4
   store i8 %361, ptr %6, align 1
-  call fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_QDS(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 362:                                              ; preds = %211
-  call fastcc void @get_BCR(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_BCR(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 363:                                              ; preds = %211
@@ -1924,7 +1924,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %510 = load i8, ptr %6, align 1
   %511 = add i8 %510, 1
   store i8 %511, ptr %6, align 1
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 512:                                              ; preds = %211
@@ -1947,7 +1947,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %529 = load i8, ptr %6, align 1
   %530 = add i8 %529, 1
   store i8 %530, ptr %6, align 1
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 531:                                              ; preds = %211
@@ -1970,7 +1970,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %548 = load i8, ptr %6, align 1
   %549 = add i8 %548, 1
   store i8 %549, ptr %6, align 1
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 550:                                              ; preds = %211
@@ -2002,7 +2002,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %575 = load i8, ptr %6, align 1
   %576 = add i8 %575, 1
   store i8 %576, ptr %6, align 1
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 577:                                              ; preds = %211
@@ -2027,7 +2027,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %595 = load i8, ptr %6, align 1
   %596 = add i8 %595, 1
   store i8 %596, ptr %6, align 1
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 597:                                              ; preds = %211
@@ -2052,7 +2052,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %615 = load i8, ptr %6, align 1
   %616 = add i8 %615, 1
   store i8 %616, ptr %6, align 1
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 617:                                              ; preds = %211
@@ -2062,7 +2062,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   %621 = load i8, ptr %6, align 1
   %622 = add i8 %621, 4
   store i8 %622, ptr %6, align 1
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 623:                                              ; preds = %211
@@ -2110,7 +2110,7 @@ proto_item_set_generated.exit:                    ; preds = %177, %174, %169, %1
   br label %743
 
 658:                                              ; preds = %211
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %.0281297)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %6, ptr noundef %.0281297)
   br label %743
 
 659:                                              ; preds = %211
@@ -2635,7 +2635,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_SIQ(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_SIQ(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_siq, align 4
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2669,7 +2669,7 @@ define internal fastcc void @get_SIQ(ptr noundef %0, ptr nocapture noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_CP24Time(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_CP24Time(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2720,7 +2720,7 @@ define internal fastcc void @get_CP24Time(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_DIQ(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_DIQ(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_diq, align 4
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2754,7 +2754,7 @@ define internal fastcc void @get_DIQ(ptr noundef %0, ptr nocapture noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_QDS(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_QDS(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_qds, align 4
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2788,7 +2788,7 @@ define internal fastcc void @get_QDS(ptr noundef %0, ptr nocapture noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_BCR(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_BCR(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_bcr, align 4
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2824,7 +2824,7 @@ define internal fastcc void @get_BCR(ptr noundef %0, ptr nocapture noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_CP56Time(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_CP56Time(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = load i8, ptr %1, align 1
@@ -3324,7 +3324,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   br label %178
 
 120:                                              ; preds = %.lr.ph.split.us
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %14)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %7, ptr noundef %14)
   br label %178
 
 121:                                              ; preds = %.lr.ph.split.us
@@ -3421,7 +3421,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %.0113.us114 = phi i32 [ %180, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %14)
+  call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef %7, ptr noundef %14)
   %180 = add nuw nsw i32 %.0113.us114, 1
   %exitcond132.not = icmp eq i32 %180, %80
   br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !10

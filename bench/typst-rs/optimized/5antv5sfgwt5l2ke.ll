@@ -3212,14 +3212,14 @@ default.unreachable:                              ; preds = %_ZN12typst_syntax4n
   br label %106
 
 29:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
-  %30 = tail call fastcc noundef i8 @_ZN12typst_syntax9highlight15highlight_ident17h537da233a795c6d0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !587
+  %30 = tail call fastcc noundef i8 @_ZN12typst_syntax9highlight15highlight_ident17h537da233a795c6d0E(ptr noalias noundef readonly align 8 dereferenceable(32) %0), !range !587
   br label %106
 
 31:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
   br label %106
 
 32:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
-  %33 = tail call fastcc noundef i8 @_ZN12typst_syntax9highlight14highlight_hash17h6936018f39035c10E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !587
+  %33 = tail call fastcc noundef i8 @_ZN12typst_syntax9highlight14highlight_hash17h6936018f39035c10E(ptr noalias noundef readonly align 8 dereferenceable(32) %0), !range !587
   br label %106
 
 34:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -3391,7 +3391,7 @@ default.unreachable:                              ; preds = %_ZN12typst_syntax4n
   br label %106
 
 94:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
-  %95 = tail call fastcc noundef i8 @_ZN12typst_syntax9highlight15highlight_ident17h537da233a795c6d0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !587
+  %95 = tail call fastcc noundef i8 @_ZN12typst_syntax9highlight15highlight_ident17h537da233a795c6d0E(ptr noalias noundef readonly align 8 dereferenceable(32) %0), !range !587
   br label %106
 
 96:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -3430,7 +3430,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.thread: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i8 18, 22) i8 @_ZN12typst_syntax9highlight15highlight_ident17h537da233a795c6d0E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 18, 22) i8 @_ZN12typst_syntax9highlight15highlight_ident17h537da233a795c6d0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, ptr, i64, i64 } }, align 8
   %3 = alloca { { ptr, ptr, i64, i64 } }, align 8
   %4 = alloca { { ptr, ptr, i64, i64 } }, align 8
@@ -4029,7 +4029,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit111: ; preds = %
           to label %"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE.exit118" unwind label %201
 
 240:                                              ; preds = %236, %236
-  %241 = invoke fastcc noundef i8 @_ZN12typst_syntax9highlight15highlight_ident17h537da233a795c6d0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
+  %241 = invoke fastcc noundef i8 @_ZN12typst_syntax9highlight15highlight_ident17h537da233a795c6d0E(ptr noalias noundef readonly align 8 dereferenceable(32) %6)
           to label %245 unwind label %231, !range !587
 
 "_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE.exit118": ; preds = %.thread, %239
@@ -4131,7 +4131,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit111.thread: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i8 0, 22) i8 @_ZN12typst_syntax9highlight14highlight_hash17h6936018f39035c10E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 22) i8 @_ZN12typst_syntax9highlight14highlight_hash17h6936018f39035c10E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, [3 x i64] }, align 8
   %3 = alloca { ptr, ptr, i64, i64 }, align 8
   %4 = alloca { ptr, [3 x i64] }, align 8
@@ -4331,7 +4331,7 @@ define void @_ZN12typst_syntax9highlight14highlight_html17hbd7b0d0d53e23070E(ptr
   store ptr %1, ptr %3, align 8, !alias.scope !772, !noalias !775
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !772, !noalias !775
-  invoke fastcc void @_ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E(ptr noalias noundef align 8 dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %3)
           to label %15 unwind label %10
 
 10:                                               ; preds = %.noexc6, %20, %2
@@ -4403,7 +4403,7 @@ define void @_ZN12typst_syntax9highlight14highlight_html17hbd7b0d0d53e23070E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca i32, align 4
   %3 = alloca { ptr, ptr, i64, i64 }, align 8
   %4 = alloca { ptr, { { ptr, ptr, {} }, i64 }, i64, i64 }, align 8
@@ -4641,7 +4641,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
   store ptr %103, ptr %.sroa.7.0..sroa_idx, align 8
   store i64 %82, ptr %.sroa.841.0..sroa_idx, align 8
   store i64 %84, ptr %.sroa.9.0..sroa_idx, align 8
-  invoke fastcc void @_ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %3)
           to label %117 unwind label %112
 
 .thread:                                          ; preds = %159, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit, %111

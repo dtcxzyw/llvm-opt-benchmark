@@ -1943,7 +1943,7 @@ opal_atomic_compare_exchange_strong_32.exit.thread.split.i.outer: ; preds = %opa
 opal_interval_tree_reader_get_token.exit:         ; preds = %29, %.split.us.i
   %37 = getelementptr inbounds i8, ptr %0, i64 88
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call fastcc i32 @inorder_traversal(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, ptr noundef %38, ptr noundef %5)
+  %39 = tail call fastcc i32 @inorder_traversal(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %38, ptr noundef %5)
   store volatile i32 -1, ptr %22, align 4
   br label %40
 
@@ -1953,7 +1953,7 @@ opal_interval_tree_reader_get_token.exit:         ; preds = %29, %.split.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @inorder_traversal(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @inorder_traversal(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 144
   %9 = icmp eq ptr %5, %8
   br i1 %9, label %._crit_edge, label %.lr.ph
@@ -2195,7 +2195,7 @@ define range(i32 -5, 1) i32 @opal_interval_tree_dump(ptr noundef %0, ptr nocaptu
   %7 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 25, i64 1, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
-  tail call fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr noundef %9, i32 noundef 0, ptr noundef nonnull %3)
+  tail call fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr noundef %9, i32 noundef 0, ptr noundef %3)
   %10 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr nonnull %3)
   %11 = tail call i32 @fclose(ptr noundef nonnull %3)
   br label %12
@@ -2209,7 +2209,7 @@ define range(i32 -5, 1) i32 @opal_interval_tree_dump(ptr noundef %0, ptr nocaptu
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #5 {
+define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = icmp eq ptr %5, %1
   br i1 %6, label %tailrecurse._crit_edge, label %.lr.ph
@@ -2238,7 +2238,7 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
 20:                                               ; preds = %13
   %21 = ptrtoint ptr %.tr5054 to i64
   %22 = or i64 %21, 1
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.12, i64 noundef %22) #14
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i64 noundef %22) #14
   br label %26
 
 24:                                               ; preds = %13
@@ -2253,7 +2253,7 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
 28:                                               ; preds = %26
   %29 = ptrtoint ptr %.tr5054 to i64
   %30 = or i64 %29, 2
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.12, i64 noundef %30) #14
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i64 noundef %30) #14
   br label %35
 
 32:                                               ; preds = %26
@@ -2274,9 +2274,9 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
   %42 = getelementptr inbounds i8, ptr %.tr5054, i64 96
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.13, i64 noundef %.pre-phi, ptr noundef nonnull %14, i64 noundef %37, i64 noundef %39, i64 noundef %41, i64 noundef %44, i32 noundef %spec.select55) #14
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.14, i64 noundef %.pre-phi, i64 noundef %.047) #14
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.15, i64 noundef %.pre-phi, i64 noundef %.046) #14
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, i64 noundef %.pre-phi, ptr noundef nonnull %14, i64 noundef %37, i64 noundef %39, i64 noundef %41, i64 noundef %44, i32 noundef %spec.select55) #14
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, i64 noundef %.pre-phi, i64 noundef %.047) #14
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, i64 noundef %.pre-phi, i64 noundef %.046) #14
   %48 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.tr5054, %48
   br i1 %.not, label %tailrecurse, label %49
@@ -2285,7 +2285,7 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
   %50 = getelementptr inbounds i8, ptr %.tr5054, i64 64
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.15, i64 noundef %.pre-phi, i64 noundef %52) #14
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, i64 noundef %.pre-phi, i64 noundef %52) #14
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %49, %35

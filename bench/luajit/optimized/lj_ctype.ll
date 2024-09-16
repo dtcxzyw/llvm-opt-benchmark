@@ -1559,7 +1559,7 @@ sw.bb48.i:                                        ; preds = %for.cond.i
   %and49.i = and i32 %7, 8388608
   %tobool50.not.i = icmp eq i32 %and49.i, 0
   %cond.i = select i1 %tobool50.not.i, ptr @.str.14, ptr @.str.13
-  call fastcc void @ctype_preptype(ptr noundef nonnull %ctr, ptr noundef nonnull %ct.0.i, i32 noundef %qual.0.i, ptr noundef nonnull %cond.i)
+  call fastcc void @ctype_preptype(ptr noundef %ctr, ptr noundef nonnull %ct.0.i, i32 noundef %qual.0.i, ptr noundef nonnull %cond.i)
   br label %ctype_repr.exit
 
 sw.bb51.i:                                        ; preds = %for.cond.i
@@ -1602,7 +1602,7 @@ while.end.i397.i:                                 ; preds = %while.body.i392.i
   br label %ctype_repr.exit
 
 if.end55.i:                                       ; preds = %sw.bb51.i
-  call fastcc void @ctype_preptype(ptr noundef nonnull %ctr, ptr noundef nonnull %ct.0.i, i32 noundef %qual.0.i, ptr noundef nonnull @.str.16)
+  call fastcc void @ctype_preptype(ptr noundef %ctr, ptr noundef nonnull %ct.0.i, i32 noundef %qual.0.i, ptr noundef nonnull @.str.16)
   br label %ctype_repr.exit
 
 sw.bb56.i:                                        ; preds = %for.cond.i
@@ -2523,7 +2523,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare hidden void @lj_ccallback_mcode_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ctype_preptype(ptr noundef %ctr, ptr noundef %ct, i32 noundef %qual, ptr nocapture noundef readonly %t) unnamed_addr #9 {
+define internal fastcc void @ctype_preptype(ptr noundef nonnull %ctr, ptr noundef %ct, i32 noundef %qual, ptr nocapture noundef readonly %t) unnamed_addr #9 {
 entry:
   %name = getelementptr inbounds i8, ptr %ct, i64 16
   %0 = load i64, ptr %name, align 8

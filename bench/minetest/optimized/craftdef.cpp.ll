@@ -4610,7 +4610,7 @@ ehcleanup24:                                      ; preds = %ehcleanup22, %lpad,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15craftDumpMatrixRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEj(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %items, i32 noundef %width) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15craftDumpMatrixRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEj(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %items, i32 noundef %width) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__c.addr.i48 = alloca i8, align 1
   %__c.addr.i = alloca i8, align 1
@@ -7801,7 +7801,7 @@ return:                                           ; preds = %_ZN9ItemStackD2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15craftToolRepairRK9ItemStackS1_fP8IGameDef(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(312) %item1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %item2, float noundef %additional_wear, ptr noundef %gamedef) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15craftToolRepairRK9ItemStackS1_fP8IGameDef(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(312) %item1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %item2, float noundef %additional_wear, ptr noundef %gamedef) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9210,7 +9210,7 @@ return:                                           ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16craftGetItemNameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8IGameDef(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %itemstring, ptr noundef %gamedef) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16craftGetItemNameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8IGameDef(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %itemstring, ptr noundef %gamedef) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %item = alloca %struct.ItemStack, align 8

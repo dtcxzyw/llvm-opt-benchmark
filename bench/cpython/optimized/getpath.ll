@@ -268,82 +268,82 @@ Py_DECREF.exit166:                                ; preds = %if.then21, %if.then
   br label %return
 
 if.end22:                                         ; preds = %lor.lhs.false18
-  %call23 = call fastcc i32 @decode_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
+  %call23 = call fastcc i32 @decode_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %if.then93, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %if.end22
-  %call26 = call fastcc i32 @int_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.5, i32 noundef 0)
+  %call26 = call fastcc i32 @int_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.5, i32 noundef 0)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.then93, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false25
-  %call29 = call fastcc i32 @decode_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+  %call29 = call fastcc i32 @decode_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.then93, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false28
-  %call32 = call fastcc i32 @decode_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7)
+  %call32 = call fastcc i32 @decode_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7)
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.then93, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false31
-  %call35 = call fastcc i32 @decode_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  %call35 = call fastcc i32 @decode_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then93, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false34
-  %call38 = call fastcc i32 @decode_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  %call38 = call fastcc i32 @decode_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.then93, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %lor.lhs.false37
-  %call41 = call fastcc i32 @decode_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
+  %call41 = call fastcc i32 @decode_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.then93, label %lor.lhs.false43
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false40
-  %call44 = call fastcc i32 @decode_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.15, ptr noundef null)
+  %call44 = call fastcc i32 @decode_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.15, ptr noundef null)
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.then93, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false43
-  %call47 = call fastcc i32 @int_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.16, i32 noundef 3)
+  %call47 = call fastcc i32 @int_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.16, i32 noundef 3)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %if.then93, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false46
-  %call50 = call fastcc i32 @int_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.17, i32 noundef 13)
+  %call50 = call fastcc i32 @int_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.17, i32 noundef 13)
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %if.then93, label %lor.lhs.false52
 
 lor.lhs.false52:                                  ; preds = %lor.lhs.false49
-  %call53 = call fastcc i32 @decode_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.18, ptr noundef null)
+  %call53 = call fastcc i32 @decode_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.18, ptr noundef null)
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %if.then93, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false52
-  %call56 = call fastcc i32 @wchar_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.19, ptr noundef null)
+  %call56 = call fastcc i32 @wchar_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.19, ptr noundef null)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %if.then93, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
-  %call59 = call fastcc i32 @env_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.20, i32 noundef 0)
+  %call59 = call fastcc i32 @env_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.20, i32 noundef 0)
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %if.then93, label %lor.lhs.false61
 
 lor.lhs.false61:                                  ; preds = %lor.lhs.false58
-  %call62 = call fastcc i32 @env_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.21, i32 noundef 0)
+  %call62 = call fastcc i32 @env_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.21, i32 noundef 0)
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %if.then93, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %lor.lhs.false61
-  %call65 = call fastcc i32 @env_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.22, i32 noundef 0)
+  %call65 = call fastcc i32 @env_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.22, i32 noundef 0)
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %if.then93, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %lor.lhs.false64
-  %call68 = call fastcc i32 @env_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.23, i32 noundef 1)
+  %call68 = call fastcc i32 @env_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.23, i32 noundef 1)
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %if.then93, label %lor.lhs.false70
 
@@ -358,20 +358,20 @@ lor.lhs.false73:                                  ; preds = %lor.lhs.false70
   br i1 %cmp.i78.not, label %lor.lhs.false76, label %if.then93
 
 lor.lhs.false76:                                  ; preds = %lor.lhs.false73
-  %call77 = call fastcc i32 @wchar_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.26, ptr noundef null)
+  %call77 = call fastcc i32 @wchar_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.26, ptr noundef null)
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %if.then93, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %lor.lhs.false76
   %call80 = call ptr @_PyPathConfig_GetGlobalModuleSearchPath() #10
-  %call81 = call fastcc i32 @wchar_to_dict(ptr noundef nonnull %call8, ptr noundef nonnull @.str.27, ptr noundef %call80)
+  %call81 = call fastcc i32 @wchar_to_dict(ptr noundef %call8, ptr noundef nonnull @.str.27, ptr noundef %call80)
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %if.then93, label %lor.lhs.false83
 
 lor.lhs.false83:                                  ; preds = %lor.lhs.false79
   %pathconfig_warnings = getelementptr inbounds i8, ptr %config, i64 272
   %16 = load i32, ptr %pathconfig_warnings, align 8
-  %call84 = call fastcc i32 @funcs_to_dict(ptr noundef nonnull %call8, i32 noundef %16)
+  %call84 = call fastcc i32 @funcs_to_dict(ptr noundef %call8, i32 noundef %16)
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %if.then93, label %lor.lhs.false86
 
@@ -575,7 +575,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decode_to_dict(ptr noundef %dict, ptr noundef %key, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decode_to_dict(ptr noundef nonnull %dict, ptr noundef %key, ptr noundef %s) unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %tobool.not = icmp eq ptr %s, null
@@ -610,7 +610,7 @@ if.end.i.i:                                       ; preds = %if.else
 
 if.end9:                                          ; preds = %if.end.i.i, %if.else, %if.end
   %u.1 = phi ptr [ %call4, %if.end ], [ @_Py_NoneStruct, %if.else ], [ @_Py_NoneStruct, %if.end.i.i ]
-  %call10 = call i32 @PyDict_SetItemString(ptr noundef %dict, ptr noundef %key, ptr noundef nonnull %u.1) #10
+  %call10 = call i32 @PyDict_SetItemString(ptr noundef nonnull %dict, ptr noundef %key, ptr noundef nonnull %u.1) #10
   %cmp = icmp eq i32 %call10, 0
   %3 = load i64, ptr %u.1, align 8
   %4 = and i64 %3, 2147483648
@@ -634,7 +634,7 @@ return:                                           ; preds = %if.then, %if.end.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @int_to_dict(ptr noundef %dict, ptr noundef %key, i32 noundef %v) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @int_to_dict(ptr noundef nonnull %dict, ptr noundef %key, i32 noundef range(i32 0, 14) %v) unnamed_addr #0 {
 entry:
   %conv = zext nneg i32 %v to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #10
@@ -642,7 +642,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @PyDict_SetItemString(ptr noundef %dict, ptr noundef %key, ptr noundef nonnull %call) #10
+  %call1 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %dict, ptr noundef %key, ptr noundef nonnull %call) #10
   %cmp = icmp eq i32 %call1, 0
   %0 = load i64, ptr %call, align 8
   %1 = and i64 %0, 2147483648
@@ -666,7 +666,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @wchar_to_dict(ptr noundef %dict, ptr noundef %key, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wchar_to_dict(ptr noundef nonnull %dict, ptr noundef %key, ptr noundef %s) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -693,7 +693,7 @@ if.end.i.i:                                       ; preds = %if.else
 
 if.end5:                                          ; preds = %if.end.i.i, %if.else, %if.then
   %u.0 = phi ptr [ %call, %if.then ], [ @_Py_NoneStruct, %if.else ], [ @_Py_NoneStruct, %if.end.i.i ]
-  %call6 = tail call i32 @PyDict_SetItemString(ptr noundef %dict, ptr noundef %key, ptr noundef nonnull %u.0) #10
+  %call6 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %dict, ptr noundef %key, ptr noundef nonnull %u.0) #10
   %cmp = icmp eq i32 %call6, 0
   %2 = load i64, ptr %u.0, align 8
   %3 = and i64 %2, 2147483648
@@ -717,7 +717,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @env_to_dict(ptr noundef %dict, ptr noundef %key, i32 noundef %and_clear) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @env_to_dict(ptr noundef nonnull %dict, ptr noundef %key, i32 noundef range(i32 0, 2) %and_clear) unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %arrayidx = getelementptr i8, ptr %key, i64 4
@@ -743,7 +743,7 @@ if.end8.thread16:                                 ; preds = %if.then3
 
 if.then10:                                        ; preds = %if.then3
   call void @PyMem_RawFree(ptr noundef nonnull %call1) #10
-  %call11 = call i32 @PyDict_SetItemString(ptr noundef %dict, ptr noundef %key, ptr noundef nonnull %call4) #10
+  %call11 = call i32 @PyDict_SetItemString(ptr noundef nonnull %dict, ptr noundef %key, ptr noundef nonnull %call4) #10
   %1 = load i64, ptr %call4, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i23.not = icmp eq i64 %2, 0
@@ -760,7 +760,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end15
 
 if.else:                                          ; preds = %entry, %if.then, %if.end8.thread16
-  %call12 = call i32 @PyDict_SetItemString(ptr noundef %dict, ptr noundef %key, ptr noundef nonnull @_Py_NoneStruct) #10
+  %call12 = call i32 @PyDict_SetItemString(ptr noundef nonnull %dict, ptr noundef %key, ptr noundef nonnull @_Py_NoneStruct) #10
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end.i, %if.then1.i, %if.then10, %if.else
@@ -782,7 +782,7 @@ if.end21:                                         ; preds = %if.then18, %if.end1
 declare ptr @_PyPathConfig_GetGlobalModuleSearchPath() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @funcs_to_dict(ptr noundef %dict, i32 noundef %warnings) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @funcs_to_dict(ptr noundef nonnull %dict, i32 noundef %warnings) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @getpath_methods, align 16
   %tobool.not21 = icmp eq ptr %0, null
@@ -796,7 +796,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %m.022, align 8
-  %call3 = tail call i32 @PyDict_SetItemString(ptr noundef %dict, ptr noundef %1, ptr noundef nonnull %call) #10
+  %call3 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %dict, ptr noundef %1, ptr noundef nonnull %call) #10
   %cmp = icmp slt i32 %call3, 0
   %2 = load i64, ptr %call, align 8
   %3 = and i64 %2, 2147483648
@@ -840,7 +840,7 @@ for.end:                                          ; preds = %for.inc, %entry
 
 if.end11:                                         ; preds = %for.end
   %5 = load ptr, ptr %cond, align 8
-  %call13 = tail call i32 @PyDict_SetItemString(ptr noundef %dict, ptr noundef %5, ptr noundef nonnull %call8) #10
+  %call13 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %dict, ptr noundef %5, ptr noundef nonnull %call8) #10
   %cmp14 = icmp slt i32 %call13, 0
   %6 = load i64, ptr %call8, align 8
   %7 = and i64 %6, 2147483648

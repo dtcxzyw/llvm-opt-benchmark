@@ -78,7 +78,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4ring6digest10SHA512_25617h19cff3450aad3d90E = external constant <{ ptr, ptr, [97 x i8], [7 x i8] }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$$LP$core..result..Result$LT$u8$C$alloc..string..String$GT$$C$core..result..Result$LT$u8$C$alloc..string..String$GT$$RP$$GT$17h3cb97da6aa2596f5E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$$LP$core..result..Result$LT$u8$C$alloc..string..String$GT$$C$core..result..Result$LT$u8$C$alloc..string..String$GT$$RP$$GT$17h3cb97da6aa2596f5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -113,7 +113,7 @@ define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$$LP$core..result..
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$alloc..string..String$GT$$GT$17h2c7be0092508d195E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #13
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$alloc..string..String$GT$$GT$17h2c7be0092508d195E"(ptr noalias noundef align 8 dereferenceable(24) %16) #13
           to label %30 unwind label %28
 
 "_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$alloc..string..String$GT$$GT$17h2c7be0092508d195E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a21e7e089907eb3E.exit.i", %1
@@ -167,7 +167,7 @@ define internal void @"_ZN4core3ptr55drop_in_place$LT$$RF$core..num..error..IntE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$alloc..string..String$GT$$GT$17h2c7be0092508d195E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$alloc..string..String$GT$$GT$17h2c7be0092508d195E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !7, !noundef !8
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -198,7 +198,7 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$C$bool$RP$$GT$17h4f88ecbca9a2a156E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$C$bool$RP$$GT$17h4f88ecbca9a2a156E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !39
@@ -1024,7 +1024,7 @@ _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99: 
 170:                                              ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i100
   %171 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$alloc..string..String$GT$$GT$17h2c7be0092508d195E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #13
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$alloc..string..String$GT$$GT$17h2c7be0092508d195E"(ptr noalias noundef align 8 dereferenceable(24) %27) #13
           to label %115 unwind label %91
 
 172:                                              ; preds = %166, %.noexc106
@@ -1059,7 +1059,7 @@ _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99: 
 
 182:                                              ; preds = %172
   %183 = load i8, ptr %106, align 8, !noundef !8
-  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$$LP$core..result..Result$LT$u8$C$alloc..string..String$GT$$C$core..result..Result$LT$u8$C$alloc..string..String$GT$$RP$$GT$17h3cb97da6aa2596f5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %28)
+  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$$LP$core..result..Result$LT$u8$C$alloc..string..String$GT$$C$core..result..Result$LT$u8$C$alloc..string..String$GT$$RP$$GT$17h3cb97da6aa2596f5E"(ptr noalias noundef align 8 dereferenceable(48) %28)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -1098,7 +1098,7 @@ _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99: 
 197:                                              ; preds = %177
   %198 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$$LP$core..result..Result$LT$u8$C$alloc..string..String$GT$$C$core..result..Result$LT$u8$C$alloc..string..String$GT$$RP$$GT$17h3cb97da6aa2596f5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %28) #13
+  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$$LP$core..result..Result$LT$u8$C$alloc..string..String$GT$$C$core..result..Result$LT$u8$C$alloc..string..String$GT$$RP$$GT$17h3cb97da6aa2596f5E"(ptr noalias noundef align 8 dereferenceable(48) %28) #13
           to label %115 unwind label %91
 
 199:                                              ; preds = %120
@@ -2039,7 +2039,7 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noca
 82:                                               ; preds = %81
   %83 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$C$bool$RP$$GT$17h4f88ecbca9a2a156E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #13
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$C$bool$RP$$GT$17h4f88ecbca9a2a156E"(ptr noalias noundef align 8 dereferenceable(56) %8) #13
           to label %.body unwind label %84
 
 84:                                               ; preds = %82

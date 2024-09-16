@@ -473,10 +473,10 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
-  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %18)
-  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %11)
-  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %12)
-  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %13)
+  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %11, ptr noalias noundef readonly align 8 dereferenceable(96) %18)
+  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %12, ptr noalias noundef readonly align 8 dereferenceable(96) %11)
+  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %13, ptr noalias noundef readonly align 8 dereferenceable(96) %12)
+  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %14, ptr noalias noundef readonly align 8 dereferenceable(96) %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %14, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11)
@@ -511,7 +511,7 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
 77:                                               ; preds = %47
   %78 = lshr exact i64 %.sroa.0.035, 1
   %79 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %78
-  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %79)
+  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef align 8 dereferenceable(96) %20, ptr noalias noundef readonly align 8 dereferenceable(96) %79)
   br label %83
 
 80:                                               ; preds = %47
@@ -2843,7 +2843,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr99drop
 
 .body:                                            ; preds = %34, %38
   %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %35, %34 ]
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #28
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef align 8 dereferenceable(32) %0) #28
           to label %61 unwind label %66
 
 "_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h1cff5805d997184bE.exit": ; preds = %"_ZN4core3ptr194drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17hfd5bc4192168211bE.llvm.9153531805506995525.exit.i"
@@ -2970,7 +2970,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr29
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$$GT$17h6ff954f3b42e902bE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$$GT$17h6ff954f3b42e902bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !782, !noundef !17
@@ -3271,7 +3271,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr64drop
 .body:                                            ; preds = %36, %41
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %37, %36 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %43) #28
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef align 8 dereferenceable(32) %43) #28
           to label %40 unwind label %66
 
 "_ZN4core3ptr298drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_vault..software..vault_for_signing..types..SigningSecret$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hddf2174ce3dc2151E.exit": ; preds = %"_ZN4core3ptr276drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_vault..software..vault_for_signing..types..SigningSecret$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h96e1842494bf1c9bE.llvm.9153531805506995525.exit.i"
@@ -3381,7 +3381,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$$RF$ockam_vault..types..secr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !604, !noundef !17
@@ -3445,7 +3445,7 @@ define internal void @"_ZN4core3ptr77drop_in_place$LT$$RF$ockam_vault..types..ha
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$ockam_vault..software..vault_for_signing..types..SigningSecret$GT$17h759a9a090d720f31E"(ptr noalias noundef align 1 dereferenceable(33) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$ockam_vault..software..vault_for_signing..types..SigningSecret$GT$17h759a9a090d720f31E"(ptr noalias noundef nonnull align 1 dereferenceable(33) %0) unnamed_addr #1 {
   %2 = alloca { ptr, ptr }, align 8
   %3 = alloca { ptr, ptr }, align 8
   %4 = load i8, ptr %0, align 1, !range !30, !noundef !17
@@ -4937,7 +4937,7 @@ define hidden void @"_ZN92_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #1 {
   %3 = alloca { { [4 x i64] } }, align 8
   %4 = alloca { { [4 x i64] } }, align 8
   %5 = alloca { { [4 x i64] } }, align 8
@@ -5510,7 +5510,7 @@ define void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23So
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning15import_p256_key17h60b0e974aaed5fa7E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(112) %0, ptr noalias noundef readonly align 1 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning15import_p256_key17h60b0e974aaed5fa7E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0.i.i.i.i.i.i.i = alloca [4 x i64], align 8
   %3 = alloca { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }, align 8
   %.sroa.02.i.i.i.i.i.i = alloca { { { [4 x i64] } }, { { [4 x i64] } }, i8, [7 x i8] }, align 8
@@ -5665,7 +5665,7 @@ common.resume:                                    ; preds = %37, %.body, %27
 31:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %19)
-  call fastcc void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning15import_p256_key17h60b0e974aaed5fa7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %19, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %25)
+  call fastcc void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning15import_p256_key17h60b0e974aaed5fa7E(ptr noalias nocapture noundef align 8 dereferenceable(112) %19, ptr noalias noundef readonly align 1 dereferenceable(32) %25)
   %32 = load i64, ptr %19, align 8, !range !604, !noundef !17
   %trunc25 = trunc nuw i64 %32 to i1
   %33 = getelementptr inbounds i8, ptr %19, i64 8
@@ -6180,7 +6180,7 @@ common.resume:                                    ; preds = %46, %56, %30, %37
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning17get_stored_secret28_$u7b$$u7b$closure$u7d$$u7d$17h2d3b4534d663c48fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning17get_stored_secret28_$u7b$$u7b$closure$u7d$$u7d$17h2d3b4534d663c48fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.646 = alloca [5 x i8], align 1
   %.sroa.10 = alloca [18 x i8], align 8
   %.sroa.2.sroa.3 = alloca [5 x i8], align 1
@@ -6875,7 +6875,7 @@ common.ret:                                       ; preds = %69, %41
 49:                                               ; preds = %40, %42
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36)
   %50 = getelementptr inbounds i8, ptr %1, i64 32
-  invoke fastcc void @"_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning17get_stored_secret28_$u7b$$u7b$closure$u7d$$u7d$17h2d3b4534d663c48fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 %50, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning17get_stored_secret28_$u7b$$u7b$closure$u7d$$u7d$17h2d3b4534d663c48fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 %50, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %53 unwind label %51
 
 51:                                               ; preds = %49
@@ -7151,7 +7151,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %31, ptr noundef nonnull align 1 dereferenceable(32) %74, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %29)
-  invoke fastcc void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning15import_p256_key17h60b0e974aaed5fa7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %29, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %31)
+  invoke fastcc void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning15import_p256_key17h60b0e974aaed5fa7E(ptr noalias nocapture noundef align 8 dereferenceable(112) %29, ptr noalias noundef readonly align 1 dereferenceable(32) %31)
           to label %125 unwind label %123
 
 123:                                              ; preds = %122
@@ -7622,7 +7622,7 @@ default.unreachable81:                            ; preds = %84, %3
 26:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   store i64 3, ptr %23, align 8
-  invoke fastcc void @"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$$GT$17h6ff954f3b42e902bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
+  invoke fastcc void @"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$$GT$17h6ff954f3b42e902bE"(ptr noalias noundef align 8 dereferenceable(32) %23)
           to label %30 unwind label %28
 
 common.ret:                                       ; preds = %220, %27
@@ -8038,7 +8038,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
 .body.i:                                          ; preds = %161, %157, %151, %118
   %125 = phi ptr [ %143, %151 ], [ %87, %118 ], [ %143, %161 ], [ %143, %157 ]
   %.pn40.i = phi { ptr, i32 } [ %152, %151 ], [ %119, %118 ], [ %162, %161 ], [ %158, %157 ]
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #28
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef align 8 dereferenceable(32) %1) #28
           to label %131 unwind label %210, !noalias !2115
 
 126:                                              ; preds = %102
@@ -8300,7 +8300,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
 
 212:                                              ; preds = %131
   %213 = getelementptr inbounds i8, ptr %1, i64 122
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$ockam_vault..software..vault_for_signing..types..SigningSecret$GT$17h759a9a090d720f31E"(ptr noalias noundef nonnull align 1 dereferenceable(33) %213) #28
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$ockam_vault..software..vault_for_signing..types..SigningSecret$GT$17h759a9a090d720f31E"(ptr noalias noundef align 1 dereferenceable(33) %213) #28
           to label %.loopexit.split-lp.i unwind label %210, !noalias !2115
 
 214:                                              ; preds = %.invoke
@@ -8475,7 +8475,7 @@ common.ret:                                       ; preds = %39, %"_ZN4core3ptr8
 19:                                               ; preds = %11, %12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %20 = getelementptr inbounds i8, ptr %1, i64 16
-  invoke fastcc void @"_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning17get_stored_secret28_$u7b$$u7b$closure$u7d$$u7d$17h2d3b4534d663c48fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 %20, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23SoftwareVaultForSigning17get_stored_secret28_$u7b$$u7b$closure$u7d$$u7d$17h2d3b4534d663c48fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 %20, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %23 unwind label %21
 
 21:                                               ; preds = %19
@@ -8556,7 +8556,7 @@ common.ret:                                       ; preds = %39, %"_ZN4core3ptr8
 43:                                               ; preds = %42
   %44 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$ockam_vault..software..vault_for_signing..types..SigningSecret$GT$17h759a9a090d720f31E"(ptr noalias noundef nonnull align 1 dereferenceable(33) %8) #28
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$ockam_vault..software..vault_for_signing..types..SigningSecret$GT$17h759a9a090d720f31E"(ptr noalias noundef align 1 dereferenceable(33) %8) #28
           to label %.loopexit.split-lp unwind label %64
 
 45:                                               ; preds = %42
@@ -8691,7 +8691,7 @@ default.unreachable5:                             ; preds = %3
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i64 3, ptr %5, align 8
-  invoke fastcc void @"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$$GT$17h6ff954f3b42e902bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$$GT$17h6ff954f3b42e902bE"(ptr noalias noundef align 8 dereferenceable(32) %5)
           to label %12 unwind label %10
 
 9:                                                ; preds = %12
@@ -8859,7 +8859,7 @@ common.ret:                                       ; preds = %60, %13
 .body28:                                          ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %61, %56, %29, %48
   %.pn21 = phi { ptr, i32 } [ %49, %48 ], [ %30, %29 ], [ %62, %61 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit39, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp40, %.loopexit.split-lp.loopexit.split-lp ]
   %36 = getelementptr inbounds i8, ptr %1, i64 40
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36) #28
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef align 8 dereferenceable(32) %36) #28
           to label %37 unwind label %112
 
 37:                                               ; preds = %.body28, %110
@@ -9118,7 +9118,7 @@ common.ret:                                       ; preds = %60, %13
   unreachable
 
 114:                                              ; preds = %37
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #28
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef align 8 dereferenceable(32) %1) #28
           to label %12 unwind label %112
 }
 

@@ -156,7 +156,6 @@ target triple = "x86_64-pc-linux-gnu"
 @fltoa.digits = internal unnamed_addr constant [11 x i8] c"0123456789\00", align 1
 @.str.101 = private unnamed_addr constant [3 x i8] c"C*\00", align 1
 @.str.102 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
-@switch.table.Check_Type = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
 @switch.table.generate_json_string = private unnamed_addr constant [6 x ptr] [ptr @.str.93, ptr @.str.91, ptr @.str.89, ptr @.str.89, ptr @.str.92, ptr @.str.90], align 8
 
 ; Function Attrs: nounwind uwtable
@@ -1169,8 +1168,8 @@ define internal range(i64 1, 0) i64 @cState_max_nesting(i64 noundef %0) #0 {
 define internal noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @cState_max_nesting_set(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 1
-  %.not31.i = icmp eq i64 %4, 0
-  br i1 %.not31.i, label %.critedge.i, label %Check_Type.exit
+  %.not32.i = icmp eq i64 %4, 0
+  br i1 %.not32.i, label %.critedge.i, label %Check_Type.exit
 
 .critedge.i:                                      ; preds = %2
   tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #20
@@ -1271,8 +1270,8 @@ define internal range(i64 1, 0) i64 @cState_depth(i64 noundef %0) #0 {
 define internal noundef i64 @cState_depth_set(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 1
-  %.not31.i = icmp eq i64 %4, 0
-  br i1 %.not31.i, label %.critedge.i, label %Check_Type.exit
+  %.not32.i = icmp eq i64 %4, 0
+  br i1 %.not32.i, label %.critedge.i, label %Check_Type.exit
 
 .critedge.i:                                      ; preds = %2
   tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #20
@@ -1299,8 +1298,8 @@ define internal range(i64 1, 0) i64 @cState_buffer_initial_length(i64 noundef %0
 define internal noundef i64 @cState_buffer_initial_length_set(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 1
-  %.not31.i = icmp eq i64 %4, 0
-  br i1 %.not31.i, label %.critedge.i, label %Check_Type.exit
+  %.not32.i = icmp eq i64 %4, 0
+  br i1 %.not32.i, label %.critedge.i, label %Check_Type.exit
 
 .critedge.i:                                      ; preds = %2
   tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #20
@@ -1625,8 +1624,8 @@ fstrndup.exit128:                                 ; preds = %RSTRING_PTR.exit126
 
 132:                                              ; preds = %129
   %133 = and i64 %130, 1
-  %.not31.i = icmp eq i64 %133, 0
-  br i1 %.not31.i, label %.critedge.i129, label %Check_Type.exit130
+  %.not32.i = icmp eq i64 %133, 0
+  br i1 %.not32.i, label %.critedge.i129, label %Check_Type.exit130
 
 .critedge.i129:                                   ; preds = %132
   tail call void @rb_unexpected_type(i64 noundef %130, i32 noundef 21) #20
@@ -1660,8 +1659,8 @@ Check_Type.exit130:                               ; preds = %132
 
 145:                                              ; preds = %142
   %146 = and i64 %143, 1
-  %.not31.i131 = icmp eq i64 %146, 0
-  br i1 %.not31.i131, label %.critedge.i132, label %Check_Type.exit133
+  %.not32.i131 = icmp eq i64 %146, 0
+  br i1 %.not32.i131, label %.critedge.i132, label %Check_Type.exit133
 
 .critedge.i132:                                   ; preds = %145
   tail call void @rb_unexpected_type(i64 noundef %143, i32 noundef 21) #20
@@ -1693,8 +1692,8 @@ Check_Type.exit133:                               ; preds = %145
 
 157:                                              ; preds = %154
   %158 = and i64 %155, 1
-  %.not31.i134 = icmp eq i64 %158, 0
-  br i1 %.not31.i134, label %.critedge.i135, label %Check_Type.exit136
+  %.not32.i134 = icmp eq i64 %158, 0
+  br i1 %.not32.i134, label %.critedge.i135, label %Check_Type.exit136
 
 .critedge.i135:                                   ; preds = %157
   tail call void @rb_unexpected_type(i64 noundef %155, i32 noundef 21) #20
@@ -2982,7 +2981,7 @@ declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Check_Type(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Check_Type(i64 noundef %0, i32 noundef range(i32 5, 22) %1) unnamed_addr #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -2998,52 +2997,51 @@ define internal fastcc void @Check_Type(i64 noundef %0, i32 noundef %1) unnamed_
 
 12:                                               ; preds = %2
   %13 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
-  %14 = icmp ult i64 %13, 10
-  br i1 %14, label %switch.hole_check, label %15
+  switch i64 %13, label %16 [
+    i64 0, label %rb_type.exit.i
+    i64 1, label %14
+    i64 5, label %15
+    i64 9, label %.critedge
+  ]
 
-15:                                               ; preds = %switch.hole_check, %12
-  %16 = and i64 %0, 1
-  %.not.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i, label %17, label %rb_type.exit.i
-
-17:                                               ; preds = %15
-  %18 = and i64 %0, 254
-  %19 = icmp eq i64 %18, 12
-  %spec.select.i.i = select i1 %19, i32 20, i32 4
+14:                                               ; preds = %12
   br label %rb_type.exit.i
 
-switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc nuw i64 %13 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %15
-
-switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.Check_Type, i64 0, i64 %13
-  %switch.load = load i32, ptr %switch.gep, align 4
+15:                                               ; preds = %12
   br label %rb_type.exit.i
 
-rb_type.exit.i:                                   ; preds = %switch.lookup, %17, %15, %7
-  %.0.i.i = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i.i, %17 ], [ %switch.load, %switch.lookup ]
-  %20 = icmp eq i32 %1, %.0.i.i
-  br i1 %20, label %21, label %.critedge
+16:                                               ; preds = %12
+  %17 = and i64 %0, 1
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %18, label %rb_type.exit.i
 
-21:                                               ; preds = %rb_type.exit.i
-  %22 = icmp eq i32 %1, 12
-  br i1 %22, label %23, label %.thread
+18:                                               ; preds = %16
+  %19 = and i64 %0, 254
+  %20 = icmp eq i64 %19, 12
+  %spec.select.i.i = select i1 %20, i32 20, i32 4
+  br label %rb_type.exit.i
 
-23:                                               ; preds = %21
-  %24 = inttoptr i64 %0 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load i64, ptr %25, align 8
-  %27 = add i64 %26, -1
-  %28 = icmp ult i64 %27, 3
-  br i1 %28, label %.critedge, label %.thread
+rb_type.exit.i:                                   ; preds = %18, %16, %15, %14, %12, %7
+  %.0.i.i = phi i32 [ 17, %14 ], [ 18, %15 ], [ %11, %7 ], [ 19, %12 ], [ 21, %16 ], [ %spec.select.i.i, %18 ]
+  %21 = icmp eq i32 %1, %.0.i.i
+  br i1 %21, label %22, label %.critedge
 
-.thread:                                          ; preds = %23, %21
+22:                                               ; preds = %rb_type.exit.i
+  %23 = icmp eq i32 %1, 12
+  br i1 %23, label %24, label %.thread
+
+24:                                               ; preds = %22
+  %25 = inttoptr i64 %0 to ptr
+  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, -1
+  %29 = icmp ult i64 %28, 3
+  br i1 %29, label %.critedge, label %.thread
+
+.thread:                                          ; preds = %24, %22
   ret void
 
-.critedge:                                        ; preds = %rb_type.exit.i, %23
+.critedge:                                        ; preds = %12, %rb_type.exit.i, %24
   tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) #20
   unreachable
 }
@@ -6735,7 +6733,7 @@ declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #1
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @isLegalUTF8(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #11 {
+define internal fastcc zeroext range(i8 0, 2) i8 @isLegalUTF8(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 65537) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   switch i64 %1, label %30 [
     i64 4, label %4

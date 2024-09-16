@@ -89,7 +89,7 @@ define hidden void @php_filter_string(ptr noundef %0, i64 noundef %1, ptr nocapt
   br label %38
 
 38:                                               ; preds = %36, %34
-  call fastcc void @php_filter_encode_html(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  call fastcc void @php_filter_encode_html(ptr noundef nonnull %0, ptr noundef %5)
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   %41 = getelementptr inbounds i8, ptr %39, i64 16
@@ -353,7 +353,7 @@ define internal fastcc void @php_filter_strip(ptr noundef %0, i64 noundef %1) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -749,7 +749,7 @@ define hidden void @php_filter_special_chars(ptr noundef %0, i64 noundef %1, ptr
   br label %15
 
 15:                                               ; preds = %13, %4
-  call fastcc void @php_filter_encode_html(ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @php_filter_encode_html(ptr noundef %0, ptr noundef %5)
   ret void
 }
 
@@ -822,7 +822,7 @@ define hidden void @php_filter_unsafe_raw(ptr noundef %0, i64 noundef %1, ptr no
   br label %21
 
 21:                                               ; preds = %19, %17
-  call fastcc void @php_filter_encode_html(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  call fastcc void @php_filter_encode_html(ptr noundef nonnull %0, ptr noundef %5)
   br label %.thread
 
 22:                                               ; preds = %6

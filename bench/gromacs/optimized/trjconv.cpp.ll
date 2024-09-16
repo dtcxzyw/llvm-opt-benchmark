@@ -2299,7 +2299,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %820, %823
   br i1 %851, label %853, label %852
 
 852:                                              ; preds = %847
-  invoke fastcc void @_ZL18copyTrxframeDeeplyRK10t_trxframePS_(ptr noundef nonnull align 8 dereferenceable(176) %46, ptr noundef nonnull %49)
+  invoke fastcc void @_ZL18copyTrxframeDeeplyRK10t_trxframePS_(ptr noundef nonnull align 8 dereferenceable(176) %46, ptr noundef %49)
           to label %853 unwind label %.loopexit.split-lp795
 
 853:                                              ; preds = %847, %852, %845
@@ -2556,7 +2556,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit622:    ; preds = %944, %_ZL13gmx_snew
           to label %948 unwind label %.loopexit.split-lp795
 
 948:                                              ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit622
-  invoke fastcc void @_ZL18copyTrxframeDeeplyRK10t_trxframePS_(ptr noundef nonnull align 8 dereferenceable(176) %46, ptr noundef nonnull %48)
+  invoke fastcc void @_ZL18copyTrxframeDeeplyRK10t_trxframePS_(ptr noundef nonnull align 8 dereferenceable(176) %46, ptr noundef %48)
           to label %.preheader793 unwind label %.loopexit.split-lp795
 
 .preheader793:                                    ; preds = %948
@@ -4799,7 +4799,7 @@ declare noundef i32 @_Z8read_xvgRKNSt10filesystem7__cxx114pathEPPPdPi(ptr nounde
 declare void @_Z12init_t_atomsP7t_atomsib(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18copyTrxframeDeeplyRK10t_trxframePS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL18copyTrxframeDeeplyRK10t_trxframePS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   store i32 %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4

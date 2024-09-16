@@ -2962,7 +2962,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm5X86II18getMemoryOperandNoEm(i64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter25emitSegmentOverridePrefixEjRKN4llvm6MCInstERNS1_15SmallVectorImplIcEE(i32 noundef %0, ptr nocapture readonly %.16.val, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter25emitSegmentOverridePrefixEjRKN4llvm6MCInstERNS1_15SmallVectorImplIcEE(i32 noundef range(i32 -2147483644, -2147483648) %0, ptr nocapture readonly %.16.val, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds %"class.llvm::MCOperand", ptr %.16.val, i64 %3, i32 1
   %5 = load i32, ptr %4, align 8
@@ -5352,7 +5352,7 @@ _ZN4llvm7MCFixup14getKindForSizeEjb.exit:         ; preds = %18, %16, %14, %12, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitRegModRMByteERKN4llvm9MCOperandEjRNS1_15SmallVectorImplIcEE(ptr nocapture readonly %.16.val.160.val.96.val, i32 %.8.val, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitRegModRMByteERKN4llvm9MCOperandEjRNS1_15SmallVectorImplIcEE(ptr nocapture readonly %.16.val.160.val.96.val, i32 %.8.val, i32 noundef range(i32 -48, 80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %.8.val to i64
   %4 = getelementptr inbounds i16, ptr %.16.val.160.val.96.val, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -5385,7 +5385,7 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit: ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(288) %9, i1 noundef zeroext %10) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2, i32 noundef range(i32 -32, 96) %3, i64 noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(288) %9, i1 noundef zeroext %10) unnamed_addr #0 align 2 {
   %12 = alloca %"class.llvm::MCFixup", align 8
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
@@ -5408,7 +5408,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMB
   ]
 
 28:                                               ; preds = %11, %11
-  %.tr = trunc i32 %3 to i8
+  %.tr = trunc nsw i32 %3 to i8
   %29 = shl i8 %.tr, 3
   %30 = or disjoint i8 %29, 5
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
@@ -5645,7 +5645,7 @@ _ZN4llvm5X86II12getSizeOfImmEm.exit:              ; preds = %_ZN12_GLOBAL__N_18e
   br i1 %.not.i.i.i.i200, label %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit201.sink.split, label %_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit201
 
 135:                                              ; preds = %83
-  %.tr240 = trunc i32 %3 to i8
+  %.tr240 = trunc nsw i32 %3 to i8
   %136 = shl i8 %.tr240, 3
   %137 = or disjoint i8 %136, 6
   %138 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
@@ -5717,7 +5717,7 @@ _ZN4llvm5X86II7needSIBEjjb.exit:                  ; preds = %160
   br i1 %.not, label %163, label %167
 
 163:                                              ; preds = %162
-  %.tr235 = trunc i32 %3 to i8
+  %.tr235 = trunc nsw i32 %3 to i8
   %164 = shl i8 %.tr235, 3
   %165 = or disjoint i8 %164, 5
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %165, ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -5830,7 +5830,7 @@ _ZN4llvm5X86II7needSIBEjjb.exit:                  ; preds = %160
   br i1 %.not, label %215, label %228
 
 215:                                              ; preds = %.critedge.thread, %.critedge
-  %.tr239 = trunc i32 %3 to i8
+  %.tr239 = trunc nsw i32 %3 to i8
   %216 = shl i8 %.tr239, 3
   %217 = or disjoint i8 %216, 4
   %218 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
@@ -5869,7 +5869,7 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit212: ; preds = %215
   br i1 %or.cond, label %236, label %239
 
 236:                                              ; preds = %231
-  %.tr238 = trunc i32 %3 to i8
+  %.tr238 = trunc nsw i32 %3 to i8
   %237 = shl i8 %.tr238, 3
   %238 = or disjoint i8 %237, 4
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %238, ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -5884,14 +5884,14 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit212: ; preds = %215
   br i1 %242, label %243, label %.thread226
 
 243:                                              ; preds = %240
-  %.tr236 = trunc i32 %3 to i8
+  %.tr236 = trunc nsw i32 %3 to i8
   %244 = shl i8 %.tr236, 3
   %245 = or i8 %244, 68
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %245, ptr noundef nonnull align 8 dereferenceable(24) %7)
   br label %258
 
 .thread226:                                       ; preds = %228, %239, %240
-  %.tr237 = trunc i32 %3 to i8
+  %.tr237 = trunc nsw i32 %3 to i8
   %246 = shl i8 %.tr237, 3
   %247 = or i8 %246, -124
   %248 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
@@ -5958,8 +5958,8 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit214: ; preds = %.th
 
 _ZNK12_GLOBAL__N_116X86MCCodeEmitter11emitSIBByteEjjjRN4llvm15SmallVectorImplIcEE.exit: ; preds = %275, %280
   %282 = shl i32 %262, 6
-  %283 = or i32 %282, %.0
-  %284 = or i32 %283, %276
+  %283 = add nuw nsw i32 %276, %282
+  %284 = or i32 %283, %.0
   %285 = trunc i32 %284 to i8
   %286 = load ptr, ptr %7, align 8
   %287 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15

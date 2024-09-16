@@ -194,7 +194,7 @@ define hidden i32 @dissect_netlink_attributes(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) unnamed_addr #1 {
+define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -1, -2147483648) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) unnamed_addr #1 {
   %11 = alloca ptr, align 8
   %12 = sub i32 0, %7
   %13 = and i32 %12, 3

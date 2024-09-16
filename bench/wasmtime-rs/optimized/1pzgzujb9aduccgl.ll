@@ -1041,7 +1041,7 @@ _ZN4core3ops8function6FnOnce9call_once17h258e909a9e485ae7E.exit: ; preds = %22, 
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit.thread": ; preds = %143, %.thread92.thread, %146, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit"
   %.pn63122138 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit" ], [ %.pn63123, %146 ], [ %.pn63123, %.thread92.thread ], [ %.pn63123, %143 ]
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$wasmtime_cache..worker..Worker..start_new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b0de8b4a2926ce5E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %2) #26
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$wasmtime_cache..worker..Worker..start_new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b0de8b4a2926ce5E"(ptr noalias noundef align 8 dereferenceable(200) %2) #26
           to label %.thread130 unwind label %124
 }
 
@@ -1391,7 +1391,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %.119.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17haa49dc23477cde8eE.exit.i" ], [ false, %25 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$wasmtime_cache..worker..Worker..start_new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b0de8b4a2926ce5E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %5) #26
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$wasmtime_cache..worker..Worker..start_new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b0de8b4a2926ce5E"(ptr noalias noundef align 8 dereferenceable(200) %5) #26
           to label %8 unwind label %71
 
 71:                                               ; preds = %90, %84, %83, %74, %70
@@ -1739,7 +1739,7 @@ define internal void @"_ZN4core3ptr89drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$wasmtime_cache..worker..Worker..start_new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b0de8b4a2926ce5E"(ptr noalias noundef align 8 dereferenceable(200) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$wasmtime_cache..worker..Worker..start_new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b0de8b4a2926ce5E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load i64, ptr %2, align 8, !range !255, !alias.scope !305, !noundef !9
   %4 = getelementptr inbounds i8, ptr %0, i64 192

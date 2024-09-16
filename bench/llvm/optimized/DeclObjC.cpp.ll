@@ -10405,7 +10405,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit206: 
   %storemerge26.i.i.in.in.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %362, %365 ]
   %storemerge26.i.i.in.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i, 1
   %storemerge26.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i, 1
-  %367 = shl nuw nsw i64 %storemerge26.i.i.i.i.i, 4
+  %367 = shl i64 %storemerge26.i.i.i.i.i, 4
   %368 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %367, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %.not.i.i.i.i.i207 = icmp eq ptr %368, null
   br i1 %.not.i.i.i.i.i207, label %select.unfold.i.i.i.i.i, label %369

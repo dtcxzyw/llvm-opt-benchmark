@@ -139,9 +139,9 @@ Abc_Clock.exit:
 declare i32 @Cudd_SupportSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 7) %4) unnamed_addr #0 {
   %6 = add nsw i32 %4, -1
-  %7 = icmp sgt i32 %4, 5
+  %7 = icmp ugt i32 %4, 5
   br i1 %7, label %.loopexit79, label %8
 
 8:                                                ; preds = %5
@@ -153,154 +153,150 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
 12:                                               ; preds = %8
   %13 = load i32, ptr @s_BackTracks, align 4
   %14 = icmp sgt i32 %13, 100
-  br i1 %14, label %.loopexit79, label %.lr.ph92
+  br i1 %14, label %.loopexit79, label %.lr.ph91
 
-.lr.ph92:                                         ; preds = %12
+.lr.ph91:                                         ; preds = %12
   %15 = add nsw i32 %13, 1
   store i32 %15, ptr @s_BackTracks, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 344
   %17 = zext nneg i32 %6 to i64
   %18 = getelementptr inbounds [32 x i32], ptr @s_VarOrderCur, i64 0, i64 %17
   %19 = add nsw i32 %3, -1
-  %20 = zext i32 %4 to i64
-  %21 = icmp sgt i32 %4, 0
-  %22 = icmp sgt i32 %3, 1
-  %23 = add nsw i32 %2, -1
-  %24 = add nuw nsw i32 %4, 1
-  %25 = shl nuw nsw i64 %20, 2
-  br label %26
+  %20 = zext nneg i32 %4 to i64
+  %21 = icmp sgt i32 %3, 1
+  %22 = add nsw i32 %2, -1
+  %23 = add nuw nsw i32 %4, 1
+  %24 = shl nuw nsw i64 %20, 2
+  br label %25
 
-26:                                               ; preds = %.lr.ph92, %81
-  %.06990 = phi ptr [ %1, %.lr.ph92 ], [ %83, %81 ]
-  %27 = load ptr, ptr %16, align 8
-  %28 = load i32, ptr %.06990, align 8
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  store i32 %28, ptr %18, align 4
-  %32 = ptrtoint ptr %31 to i64
-  %33 = xor i64 %32, 1
-  %34 = inttoptr i64 %33 to ptr
-  br label %35
+25:                                               ; preds = %.lr.ph91, %79
+  %.06989 = phi ptr [ %1, %.lr.ph91 ], [ %81, %79 ]
+  %26 = load ptr, ptr %16, align 8
+  %27 = load i32, ptr %.06989, align 8
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  store i32 %27, ptr %18, align 4
+  %31 = ptrtoint ptr %30 to i64
+  %32 = xor i64 %31, 1
+  %33 = inttoptr i64 %32 to ptr
+  br label %34
 
-35:                                               ; preds = %26, %59
-  %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %59 ]
-  %36 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %17, i64 %indvars.iv
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %37, ptr noundef %34) #11
-  tail call void @Cudd_Ref(ptr noundef %38) #11
-  %39 = load i32, ptr @s_Signature, align 4
-  %40 = add i32 %39, 1
-  store i32 %40, ptr @s_Signature, align 4
-  %41 = load ptr, ptr @s_Encoded, align 8
-  %42 = load ptr, ptr @s_VarAll, align 8
-  %43 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %41, ptr noundef %38, ptr noundef %42)
-  tail call void @Cudd_Deref(ptr noundef %38) #11
-  tail call void @Cudd_Ref(ptr noundef %38) #11
-  %44 = uitofp i32 %43 to double
-  %45 = tail call double @Extra_Power2(i32 noundef %19) #11
-  %46 = fcmp olt double %45, %44
-  br i1 %46, label %.loopexit126, label %47
+34:                                               ; preds = %25, %58
+  %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %58 ]
+  %35 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %17, i64 %indvars.iv
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %36, ptr noundef %33) #11
+  tail call void @Cudd_Ref(ptr noundef %37) #11
+  %38 = load i32, ptr @s_Signature, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr @s_Signature, align 4
+  %40 = load ptr, ptr @s_Encoded, align 8
+  %41 = load ptr, ptr @s_VarAll, align 8
+  %42 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %40, ptr noundef %37, ptr noundef %41)
+  tail call void @Cudd_Deref(ptr noundef %37) #11
+  tail call void @Cudd_Ref(ptr noundef %37) #11
+  %43 = uitofp i32 %42 to double
+  %44 = tail call double @Extra_Power2(i32 noundef %19) #11
+  %45 = fcmp olt double %44, %43
+  br i1 %45, label %.loopexit125, label %46
 
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %36, align 8
-  %49 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %48, ptr noundef %31) #11
-  tail call void @Cudd_Ref(ptr noundef %49) #11
-  %50 = load i32, ptr @s_Signature, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr @s_Signature, align 4
-  %52 = load ptr, ptr @s_Encoded, align 8
-  %53 = load ptr, ptr @s_VarAll, align 8
-  %54 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %52, ptr noundef %49, ptr noundef %53)
-  tail call void @Cudd_Deref(ptr noundef %49) #11
-  tail call void @Cudd_Ref(ptr noundef %49) #11
-  %55 = uitofp i32 %54 to double
-  %56 = tail call double @Extra_Power2(i32 noundef %19) #11
-  %57 = fcmp olt double %56, %55
-  br i1 %57, label %58, label %59
+46:                                               ; preds = %34
+  %47 = load ptr, ptr %35, align 8
+  %48 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %47, ptr noundef %30) #11
+  tail call void @Cudd_Ref(ptr noundef %48) #11
+  %49 = load i32, ptr @s_Signature, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr @s_Signature, align 4
+  %51 = load ptr, ptr @s_Encoded, align 8
+  %52 = load ptr, ptr @s_VarAll, align 8
+  %53 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %51, ptr noundef %48, ptr noundef %52)
+  tail call void @Cudd_Deref(ptr noundef %48) #11
+  tail call void @Cudd_Ref(ptr noundef %48) #11
+  %54 = uitofp i32 %53 to double
+  %55 = tail call double @Extra_Power2(i32 noundef %19) #11
+  %56 = fcmp olt double %55, %54
+  br i1 %56, label %57, label %58
 
-58:                                               ; preds = %47
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %38) #11
-  br label %.loopexit126
+57:                                               ; preds = %46
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %37) #11
+  br label %.loopexit125
 
-59:                                               ; preds = %47
-  %60 = shl nuw nsw i64 %indvars.iv, 1
-  %61 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %20, i64 %60
-  store ptr %38, ptr %61, align 16
-  %62 = or disjoint i64 %60, 1
-  %63 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %20, i64 %62
-  store ptr %49, ptr %63, align 8
+58:                                               ; preds = %46
+  %59 = shl nuw nsw i64 %indvars.iv, 1
+  %60 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %20, i64 %59
+  store ptr %37, ptr %60, align 16
+  %61 = or disjoint i64 %59, 1
+  %62 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %20, i64 %61
+  store ptr %48, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = trunc nuw i64 %indvars.iv.next to i32
-  %.0.highbits = lshr i32 %64, %6
+  %63 = trunc nuw i64 %indvars.iv.next to i32
+  %.0.highbits = lshr i32 %63, %6
   %.not76 = icmp eq i32 %.0.highbits, 0
-  br i1 %.not76, label %35, label %.critedge, !llvm.loop !6
+  br i1 %.not76, label %34, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %59
-  %65 = load i32, ptr @s_nVarsBest, align 4
-  %66 = icmp slt i32 %65, %4
-  br i1 %66, label %67, label %.loopexit
+.critedge:                                        ; preds = %58
+  %64 = load i32, ptr @s_nVarsBest, align 4
+  %65 = icmp slt i32 %64, %4
+  br i1 %65, label %.loopexit.loopexit, label %.loopexit
 
-67:                                               ; preds = %.critedge
+.loopexit.loopexit:                               ; preds = %.critedge
   store i32 %4, ptr @s_nVarsBest, align 4
-  br i1 %21, label %.lr.ph.preheader, label %.loopexit
-
-.lr.ph.preheader:                                 ; preds = %67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @s_VarOrderBest, ptr nonnull align 16 @s_VarOrderCur, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) @s_VarOrderBest, ptr noundef nonnull align 16 dereferenceable(1) @s_VarOrderCur, i64 %24, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %67, %.critedge
-  br i1 %22, label %68, label %.lr.ph88.preheader
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.critedge
+  br i1 %21, label %66, label %.lr.ph.preheader
 
-68:                                               ; preds = %.loopexit
-  %69 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %31) #11
-  tail call void @Cudd_Ref(ptr noundef %69) #11
-  tail call fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %69, i32 noundef %23, i32 noundef %19, i32 noundef %24)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %69) #11
-  br label %.lr.ph88.preheader
+66:                                               ; preds = %.loopexit
+  %67 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %30) #11
+  tail call void @Cudd_Ref(ptr noundef %67) #11
+  tail call fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %67, i32 noundef %22, i32 noundef %19, i32 noundef %23)
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %67) #11
+  br label %.lr.ph.preheader
 
-.loopexit126:                                     ; preds = %35, %58
-  %.lcssa.sink = phi ptr [ %49, %58 ], [ %38, %35 ]
+.loopexit125:                                     ; preds = %34, %57
+  %.lcssa.sink = phi ptr [ %48, %57 ], [ %37, %34 ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.lcssa.sink) #11
-  %70 = and i64 %indvars.iv, 4294967295
-  %.not94 = icmp eq i64 %70, 0
-  br i1 %.not94, label %._crit_edge, label %.lr.ph88.preheader
+  %68 = and i64 %indvars.iv, 4294967295
+  %.not93 = icmp eq i64 %68, 0
+  br i1 %.not93, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph88.preheader:                               ; preds = %68, %.loopexit, %.loopexit126
-  %.082111 = phi i64 [ %indvars.iv, %.loopexit126 ], [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.next, %68 ]
-  %wide.trip.count = and i64 %.082111, 4294967295
-  br label %.lr.ph88
+.lr.ph.preheader:                                 ; preds = %66, %.loopexit, %.loopexit125
+  %.082110 = phi i64 [ %indvars.iv, %.loopexit125 ], [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.next, %66 ]
+  %wide.trip.count = and i64 %.082110, 4294967295
+  br label %.lr.ph
 
-.lr.ph88:                                         ; preds = %.lr.ph88.preheader, %.lr.ph88
-  %indvars.iv106 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next107, %.lr.ph88 ]
-  %71 = shl nuw nsw i64 %indvars.iv106, 1
-  %72 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %20, i64 %71
-  %73 = load ptr, ptr %72, align 16
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %73) #11
-  %74 = or disjoint i64 %71, 1
-  %75 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %20, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %76) #11
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !7
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv105 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next106, %.lr.ph ]
+  %69 = shl nuw nsw i64 %indvars.iv105, 1
+  %70 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %20, i64 %69
+  %71 = load ptr, ptr %70, align 16
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %71) #11
+  %72 = or disjoint i64 %69, 1
+  %73 = getelementptr inbounds [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %20, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %74) #11
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph88, %.loopexit126
-  %77 = load i32, ptr @s_nVarsBest, align 4
-  %78 = icmp eq i32 %77, 5
-  %79 = load i32, ptr @s_MultiStart, align 4
-  %80 = icmp eq i32 %77, %79
-  %or.cond = select i1 %78, i1 true, i1 %80
-  br i1 %or.cond, label %.loopexit79, label %81
+._crit_edge:                                      ; preds = %.lr.ph, %.loopexit125
+  %75 = load i32, ptr @s_nVarsBest, align 4
+  %76 = icmp eq i32 %75, 5
+  %77 = load i32, ptr @s_MultiStart, align 4
+  %78 = icmp eq i32 %75, %77
+  %or.cond = select i1 %76, i1 true, i1 %78
+  br i1 %or.cond, label %.loopexit79, label %79
 
-81:                                               ; preds = %._crit_edge
-  %82 = getelementptr inbounds i8, ptr %.06990, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %83, %84
-  br i1 %.not, label %.loopexit79, label %26, !llvm.loop !8
+79:                                               ; preds = %._crit_edge
+  %80 = getelementptr inbounds i8, ptr %.06989, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %81, %82
+  br i1 %.not, label %.loopexit79, label %25, !llvm.loop !8
 
-.loopexit79:                                      ; preds = %81, %._crit_edge, %12, %8, %5
+.loopexit79:                                      ; preds = %79, %._crit_edge, %12, %8, %5
   ret void
 }
 

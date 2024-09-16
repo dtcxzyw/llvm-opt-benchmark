@@ -86,7 +86,7 @@ define range(i32 0, 2) i32 @conjugate_gradient(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0, i64 noundef range(i64 4, 9) %1) unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 

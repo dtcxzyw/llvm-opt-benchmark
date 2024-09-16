@@ -4187,7 +4187,7 @@ invoke.cont13:                                    ; preds = %if.then11
   %call19.val = load ptr, ptr %type_.i, align 8
   %14 = getelementptr i8, ptr %call19.val, i64 16
   %call19.val.val = load i8, ptr %14, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function23getReplacementCharacterB5cxx11ERKSt10shared_ptrIKNS0_4TypeEERNS0_13DecodedVectorEi(ptr noalias nonnull align 8 %ref.tmp, i8 %call19.val.val, ptr noundef nonnull align 8 dereferenceable(120) %call2.i44, i32 noundef %13)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function23getReplacementCharacterB5cxx11ERKSt10shared_ptrIKNS0_4TypeEERNS0_13DecodedVectorEi(ptr noalias align 8 %ref.tmp, i8 %call19.val.val, ptr noundef nonnull align 8 dereferenceable(120) %call2.i44, i32 noundef %13)
           to label %invoke.cont22 unwind label %lpad17
 
 invoke.cont22:                                    ; preds = %invoke.cont13
@@ -6481,7 +6481,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   %call3.val.i.i.i.i.i.i.i = load ptr, ptr %type_.i.i.i.i.i.i.i.i, align 8
   %337 = getelementptr i8, ptr %call3.val.i.i.i.i.i.i.i, i64 16
   %call3.val.val.i.i.i.i.i.i.i = load i8, ptr %337, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function23getReplacementCharacterB5cxx11ERKSt10shared_ptrIKNS0_4TypeEERNS0_13DecodedVectorEi(ptr noalias nonnull align 8 %replacement.i.i.i.i.i.i.i, i8 %call3.val.val.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %336, i32 noundef %conv.i21.i.i.i.i.i.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function23getReplacementCharacterB5cxx11ERKSt10shared_ptrIKNS0_4TypeEERNS0_13DecodedVectorEi(ptr noalias align 8 %replacement.i.i.i.i.i.i.i, i8 %call3.val.val.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %336, i32 noundef %conv.i21.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i unwind label %lpad.i18.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
@@ -7110,7 +7110,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function23getReplacementCharacterB5cxx11ERKSt10shared_ptrIKNS0_4TypeEERNS0_13DecodedVectorEi(ptr noalias align 8 %agg.result, i8 %type.0.val.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %decoded, i32 noundef %row) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function23getReplacementCharacterB5cxx11ERKSt10shared_ptrIKNS0_4TypeEERNS0_13DecodedVectorEi(ptr noalias nonnull align 8 %agg.result, i8 %type.0.val.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %decoded, i32 noundef %row) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %replacement = alloca %"struct.facebook::velox::StringView", align 8
@@ -7149,7 +7149,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit: ; preds = %if.then, %if.
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 %idxprom.i
   %6 = load i64, ptr %arrayidx.i, align 8
-  tail call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function17codePointToStringB5cxx11El(ptr noalias align 8 %agg.result, i64 noundef %6)
+  tail call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function17codePointToStringB5cxx11El(ptr noalias nonnull align 8 %agg.result, i64 noundef %6)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -48443,7 +48443,7 @@ entry:
   %call3.val = load ptr, ptr %type_.i, align 8
   %6 = getelementptr i8, ptr %call3.val, i64 16
   %call3.val.val = load i8, ptr %6, align 8
-  call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function23getReplacementCharacterB5cxx11ERKSt10shared_ptrIKNS0_4TypeEERNS0_13DecodedVectorEi(ptr noalias nonnull align 8 %replacement, i8 %call3.val.val, ptr noundef nonnull align 8 dereferenceable(120) %5, i32 noundef %row)
+  call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function23getReplacementCharacterB5cxx11ERKSt10shared_ptrIKNS0_4TypeEERNS0_13DecodedVectorEi(ptr noalias align 8 %replacement, i8 %call3.val.val, ptr noundef nonnull align 8 dereferenceable(120) %5, i32 noundef %row)
   %7 = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -48670,7 +48670,7 @@ _ZN5follyeqENS_5RangeIPKcEERKNS_16BasicFixedStringIcLm4EEE.exit: ; preds = %cond
 declare void @_ZN8facebook5velox4exec7EvalCtx22setVeloxExceptionErrorEiRKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EERKSD_IKNS0_4TypeEERS4_RSF_EUlT_E1_EEvSB_SQ_EUlSQ_E_EEvPKmiibSQ_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EERKSD_IKNS0_4TypeEERS4_RSF_EUlT_E1_EEvSB_SQ_EUlSQ_E_EEvPKmiibSQ_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8

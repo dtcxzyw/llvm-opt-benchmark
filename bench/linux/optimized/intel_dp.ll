@@ -9658,7 +9658,7 @@ declare dso_local i32 @drm_dsc_compute_rc_parameters(ptr noundef) local_unnamed_
 declare dso_local zeroext i1 @drm_mode_is_420_only(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_dp_output_format(ptr nocapture readonly %.1976.val, i32 noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef i32 @intel_dp_output_format(ptr nocapture readonly %.1976.val, i32 noundef range(i32 0, 2) %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %.1976.val, i64 128
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %7 [

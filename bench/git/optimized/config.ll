@@ -792,7 +792,7 @@ check_argc.exit133:                               ; preds = %if.then255
   %51 = load ptr, ptr %argv, align 8
   %arrayidx257 = getelementptr inbounds i8, ptr %argv, i64 8
   %52 = load ptr, ptr %arrayidx257, align 8
-  %call258 = call fastcc ptr @normalize_value(ptr noundef %51, ptr noundef %52, ptr noundef nonnull %default_kvi)
+  %call258 = call fastcc ptr @normalize_value(ptr noundef %51, ptr noundef %52, ptr noundef %default_kvi)
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %54 = load ptr, ptr %argv, align 8
   %call260 = call i32 @git_config_set_in_file_gently(ptr noundef %53, ptr noundef %54, ptr noundef %call258) #16
@@ -839,7 +839,7 @@ check_argc.exit141:                               ; preds = %if.then270
   %59 = load ptr, ptr %argv, align 8
   %arrayidx272 = getelementptr inbounds i8, ptr %argv, i64 8
   %60 = load ptr, ptr %arrayidx272, align 8
-  %call273 = call fastcc ptr @normalize_value(ptr noundef %59, ptr noundef %60, ptr noundef nonnull %default_kvi)
+  %call273 = call fastcc ptr @normalize_value(ptr noundef %59, ptr noundef %60, ptr noundef %default_kvi)
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %62 = load ptr, ptr %argv, align 8
   %arrayidx275 = getelementptr inbounds i8, ptr %argv, i64 16
@@ -871,7 +871,7 @@ check_argc.exit152:                               ; preds = %if.then279
   %65 = load ptr, ptr %argv, align 8
   %arrayidx281 = getelementptr inbounds i8, ptr %argv, i64 8
   %66 = load ptr, ptr %arrayidx281, align 8
-  %call282 = call fastcc ptr @normalize_value(ptr noundef %65, ptr noundef %66, ptr noundef nonnull %default_kvi)
+  %call282 = call fastcc ptr @normalize_value(ptr noundef %65, ptr noundef %66, ptr noundef %default_kvi)
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %68 = load ptr, ptr %argv, align 8
   %call284 = call i32 @git_config_set_multivar_in_file_gently(ptr noundef %67, ptr noundef %68, ptr noundef %call282, ptr noundef nonnull inttoptr (i64 1 to ptr), i32 noundef %flags.0) #16
@@ -902,7 +902,7 @@ check_argc.exit163:                               ; preds = %if.then287
   %71 = load ptr, ptr %argv, align 8
   %arrayidx289 = getelementptr inbounds i8, ptr %argv, i64 8
   %72 = load ptr, ptr %arrayidx289, align 8
-  %call290 = call fastcc ptr @normalize_value(ptr noundef %71, ptr noundef %72, ptr noundef nonnull %default_kvi)
+  %call290 = call fastcc ptr @normalize_value(ptr noundef %71, ptr noundef %72, ptr noundef %default_kvi)
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @given_config_source, i64 8), align 8
   %74 = load ptr, ptr %argv, align 8
   %arrayidx292 = getelementptr inbounds i8, ptr %argv, i64 16
@@ -1639,7 +1639,7 @@ if.end9:                                          ; preds = %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @normalize_value(ptr noundef %key, ptr noundef %value, ptr noundef %kvi) unnamed_addr #0 {
+define internal fastcc ptr @normalize_value(ptr noundef %key, ptr noundef %value, ptr noundef nonnull %kvi) unnamed_addr #0 {
 entry:
   %is_bool = alloca i32, align 4
   %v41 = alloca [75 x i8], align 16
@@ -1664,7 +1664,7 @@ if.then4:                                         ; preds = %if.end, %if.end, %i
   br label %return
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call i64 @git_config_int64(ptr noundef %key, ptr noundef nonnull %value, ptr noundef %kvi) #16
+  %call8 = tail call i64 @git_config_int64(ptr noundef %key, ptr noundef nonnull %value, ptr noundef nonnull %kvi) #16
   %call9 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.111, i64 noundef %call8) #16
   br label %return
 
@@ -1676,7 +1676,7 @@ if.then12:                                        ; preds = %if.end
   br label %return
 
 if.then18:                                        ; preds = %if.end
-  %call19 = call i32 @git_config_bool_or_int(ptr noundef %key, ptr noundef nonnull %value, ptr noundef %kvi, ptr noundef nonnull %is_bool) #16
+  %call19 = call i32 @git_config_bool_or_int(ptr noundef %key, ptr noundef nonnull %value, ptr noundef nonnull %kvi, ptr noundef nonnull %is_bool) #16
   %1 = load i32, ptr %is_bool, align 4
   %tobool20.not = icmp eq i32 %1, 0
   br i1 %tobool20.not, label %if.then21, label %if.else
@@ -1734,7 +1734,7 @@ declare i32 @git_config_set_in_file_gently(ptr noundef, ptr noundef, ptr noundef
 declare i32 @git_config_set_multivar_in_file_gently(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @get_value(ptr noundef %key_, ptr noundef %regex_, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @get_value(ptr noundef %key_, ptr noundef %regex_, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
 entry:
   %values = alloca %struct.strbuf_list, align 8
   %kvi = alloca %struct.key_value_info, align 8
@@ -1764,8 +1764,8 @@ land.rhs:                                         ; preds = %for.body
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
   %2 = phi i8 [ %1, %land.rhs ], [ %0, %land.rhs.preheader ]
   %tl.04654 = phi ptr [ %tl.0, %land.rhs ], [ %tl.044, %land.rhs.preheader ]
-  %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %2 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = shl i8 %3, 3
   %5 = and i8 %4, 32
@@ -1789,8 +1789,8 @@ for.cond8:                                        ; preds = %for.cond8.preheader
   ]
 
 for.body16:                                       ; preds = %for.cond8
-  %idxprom.i31 = zext i8 %7 to i64
-  %arrayidx.i32 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i31
+  %conv.i31 = zext i8 %7 to i64
+  %arrayidx.i32 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i31
   %8 = load i8, ptr %arrayidx.i32, align 1
   %9 = shl i8 %8, 3
   %10 = and i8 %9, 32
@@ -1833,8 +1833,7 @@ if.else:                                          ; preds = %entry
 
 if.end34:                                         ; preds = %if.else, %for.end22
   %tobool35.not = icmp eq ptr %regex_, null
-  %and = and i32 %flags, 2
-  %tobool36.not = icmp eq i32 %and, 0
+  %tobool36.not = icmp ult i32 %flags, 2
   %or.cond29 = or i1 %tobool35.not, %tobool36.not
   br i1 %or.cond29, label %if.else38, label %if.then37
 

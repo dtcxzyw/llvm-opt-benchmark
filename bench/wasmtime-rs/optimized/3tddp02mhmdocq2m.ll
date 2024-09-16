@@ -6011,7 +6011,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit184: ; preds = %391
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_convert_expr17hb5b21ff42faaf6c8E(ptr noalias nocapture writeonly align 16 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2, ptr align 16 %3, i64 %4, i64 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_convert_expr17hb5b21ff42faaf6c8E(ptr noalias nocapture nonnull writeonly align 16 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2, ptr align 16 %3, i64 %4, i64 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, [15 x i64] }, align 16
   %8 = alloca ptr, align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -6457,7 +6457,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit257: ; pred
   unreachable
 
 193:                                              ; preds = %185
-  call fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_convert_expr17hb5b21ff42faaf6c8E(ptr noalias nonnull align 16 %86, ptr nonnull align 8 %1, ptr align 8 %2, ptr nonnull align 16 %3, i64 %190, i64 %5)
+  call fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_convert_expr17hb5b21ff42faaf6c8E(ptr noalias align 16 %86, ptr nonnull align 8 %1, ptr align 8 %2, ptr nonnull align 16 %3, i64 %190, i64 %5)
   %194 = load i64, ptr %86, align 16, !range !34, !noundef !4
   %.not242 = icmp eq i64 %194, 5
   br i1 %.not242, label %196, label %195
@@ -6721,7 +6721,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit261: ; preds = %227
   br i1 %.not239, label %294, label %301
 
 301:                                              ; preds = %298
-  call fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_convert_expr17hb5b21ff42faaf6c8E(ptr noalias nonnull align 16 %62, ptr align 8 %1, ptr align 8 %2, ptr nonnull align 16 %3, i64 %300, i64 %5)
+  call fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_convert_expr17hb5b21ff42faaf6c8E(ptr noalias align 16 %62, ptr align 8 %1, ptr align 8 %2, ptr nonnull align 16 %3, i64 %300, i64 %5)
   %302 = load i64, ptr %62, align 16, !range !34, !noundef !4
   %.not240 = icmp eq i64 %302, 5
   br i1 %.not240, label %304, label %303

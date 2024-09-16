@@ -96,7 +96,7 @@ entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   store ptr null, ptr %pval, align 8
-  %call = call fastcc i32 @eckey_param2type(ptr noundef nonnull %ptype, ptr noundef nonnull %pval, ptr noundef %0)
+  %call = call fastcc i32 @eckey_param2type(ptr noundef %ptype, ptr noundef %pval, ptr noundef %0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -207,7 +207,7 @@ entry:
   %0 = load ptr, ptr %pkey1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %ec_key, ptr noundef nonnull align 8 dereferenceable(104) %0, i64 104, i1 false)
   store ptr null, ptr %ep, align 8
-  %call = call fastcc i32 @eckey_param2type(ptr noundef nonnull %ptype, ptr noundef nonnull %pval, ptr noundef nonnull %ec_key)
+  %call = call fastcc i32 @eckey_param2type(ptr noundef %ptype, ptr noundef %pval, ptr noundef nonnull %ec_key)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -818,7 +818,7 @@ entry:
 declare ptr @EC_KEY_get0_private_key(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef %ktype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef range(i32 0, 3) %ktype) unnamed_addr #0 {
 entry:
   %priv = alloca ptr, align 8
   %pub = alloca ptr, align 8
@@ -972,7 +972,7 @@ declare i32 @EVP_PKEY_assign(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @eckey_param2type(ptr nocapture noundef writeonly %pptype, ptr nocapture noundef writeonly %ppval, ptr noundef %ec_key) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @eckey_param2type(ptr nocapture noundef nonnull writeonly %pptype, ptr nocapture noundef nonnull writeonly %ppval, ptr noundef %ec_key) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ec_key, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

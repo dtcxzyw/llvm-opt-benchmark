@@ -657,7 +657,7 @@ declare dso_local void @intel_rps_dec_waiters(ptr noundef) local_unnamed_addr #5
 declare dso_local void @i915_sched_node_fini(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @i915_request_put(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @i915_request_put(ptr noundef nonnull %0) unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #15, !srcloc !7
   %4 = icmp eq i32 %3, 1
@@ -3800,7 +3800,7 @@ define internal fastcc i32 @i915_request_await_start(ptr noundef %0, ptr noundef
   br i1 %66, label %68, label %67, !prof !6
 
 67:                                               ; preds = %64
-  tail call fastcc void @i915_request_put(ptr noundef nonnull %43)
+  tail call fastcc void @i915_request_put(ptr noundef %43)
   br label %.thread6
 
 .thread6:                                         ; preds = %67, %27, %38, %60

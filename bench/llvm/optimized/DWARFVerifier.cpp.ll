@@ -13524,7 +13524,7 @@ _ZNK4llvm8DWARFDie6getTagEv.exit65:               ; preds = %265
 
 _ZNK4llvm8DWARFDie6getTagEv.exit68:               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit65, %265
   %271 = phi i1 [ false, %265 ], [ %spec.select, %_ZNK4llvm8DWARFDie6getTagEv.exit65 ]
-  call fastcc void @_ZL8getNamesB5cxx11RKN4llvm8DWARFDieEbbb(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %29, i1 noundef zeroext %271, i1 noundef zeroext true, i1 noundef zeroext true)
+  call fastcc void @_ZL8getNamesB5cxx11RKN4llvm8DWARFDieEbbb(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %29, i1 noundef zeroext %271, i1 noundef zeroext true, i1 noundef zeroext true)
   %272 = load ptr, ptr %33, align 8
   %273 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #26
   %274 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %272, i64 %273
@@ -13698,7 +13698,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %327, %_ZN4llvm5Erro
   %333 = load i64, ptr %.sroa.017.029.i.i, align 8, !noalias !297
   store i64 %333, ptr %7, align 8, !noalias !297
   store ptr null, ptr %.sroa.017.029.i.i, align 8, !noalias !297
-  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_10JZNS1_22verifyNameIndexEntriesES5_S8_E4$_11EEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %36, ptr noundef nonnull readonly align 8 dereferenceable(40) %37), !noalias !297
+  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_10JZNS1_22verifyNameIndexEntriesES5_S8_E4$_11EEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %36, ptr noundef nonnull readonly align 8 dereferenceable(40) %37), !noalias !297
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6), !noalias !297
   %334 = load ptr, ptr %4, align 8, !noalias !297
   store ptr null, ptr %4, align 8, !noalias !297
@@ -13745,7 +13745,7 @@ _ZN4llvm5ErrorD2Ev.exit10.i.i:                    ; preds = %347, %_ZNSt10unique
 
 352:                                              ; preds = %322
   store i64 %311, ptr %8, align 8, !noalias !297
-  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_10JZNS1_22verifyNameIndexEntriesES5_S8_E4$_11EEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %36, ptr noundef nonnull readonly align 8 dereferenceable(40) %37)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_10JZNS1_22verifyNameIndexEntriesES5_S8_E4$_11EEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %36, ptr noundef nonnull readonly align 8 dereferenceable(40) %37)
   %353 = load ptr, ptr %8, align 8, !noalias !297
   %.not.i11.i.i = icmp eq ptr %353, null
   br i1 %.not.i11.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i12.i.i
@@ -14017,7 +14017,7 @@ _ZNK4llvm8DWARFDie6getTagEv.exit:                 ; preds = %24
 
 _ZNK4llvm8DWARFDie6getTagEv.exit30:               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit, %24
   %33 = phi i1 [ false, %24 ], [ %spec.select, %_ZNK4llvm8DWARFDie6getTagEv.exit ]
-  call fastcc void @_ZL8getNamesB5cxx11RKN4llvm8DWARFDieEbbb(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %33)
+  call fastcc void @_ZL8getNamesB5cxx11RKN4llvm8DWARFDieEbbb(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %33)
   %34 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #26
   br i1 %34, label %.loopexit, label %35
 
@@ -33962,7 +33962,7 @@ _ZN4llvm15format_providerINS_9StringRefEvE6formatERKS1_RNS_11raw_ostreamES1_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_10JZNS1_22verifyNameIndexEntriesES5_S8_E4$_11EEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_10JZNS1_22verifyNameIndexEntriesES5_S8_E4$_11EEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::function.49", align 8
   %6 = alloca %"class.std::function.49", align 8
   %7 = load ptr, ptr %1, align 8

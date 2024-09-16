@@ -278,7 +278,7 @@ declare ptr @OPENSSL_sk_dup(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ocsp_verify_signer(ptr noundef %signer, i32 noundef %response, ptr noundef %st, i64 noundef %flags, ptr noundef %untrusted, ptr noundef writeonly %chain) unnamed_addr #0 {
+define internal fastcc i32 @ocsp_verify_signer(ptr noundef %signer, i32 noundef range(i32 0, 2) %response, ptr noundef %st, i64 noundef %flags, ptr noundef %untrusted, ptr noundef writeonly %chain) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_STORE_CTX_new() #3
   %cmp = icmp eq ptr %call, null

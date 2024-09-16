@@ -12355,126 +12355,115 @@ append_variable_names.exit:                       ; preds = %.lr.ph.split, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ...) unnamed_addr #0 {
+define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 12) %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp slt i32 %1, %3
-  br i1 %6, label %32, label %7
+  br i1 %6, label %30, label %7
 
 7:                                                ; preds = %4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %8 = icmp sgt i32 %3, 0
-  br i1 %8, label %.lr.ph, label %.sink.split
-
-.lr.ph:                                           ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %11
+  %11 = getelementptr ptr, ptr %2, i64 %10
+  br label %12
 
-11:                                               ; preds = %22, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %12 = load i32, ptr %5, align 16
-  %13 = icmp ult i32 %12, 41
-  br i1 %13, label %14, label %19
+12:                                               ; preds = %23, %7
+  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %23 ]
+  %13 = load i32, ptr %5, align 16
+  %14 = icmp ult i32 %13, 41
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %10, align 16
-  %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr i8, ptr %15, i64 %16
-  %18 = add nuw nsw i32 %12, 8
-  store i32 %18, ptr %5, align 16
-  br label %22
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %9, align 16
+  %17 = zext nneg i32 %13 to i64
+  %18 = getelementptr i8, ptr %16, i64 %17
+  %19 = add nuw nsw i32 %13, 8
+  store i32 %19, ptr %5, align 16
+  br label %23
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr i8, ptr %20, i64 8
-  store ptr %21, ptr %9, align 8
-  br label %22
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr i8, ptr %21, i64 8
+  store ptr %22, ptr %8, align 8
+  br label %23
 
-22:                                               ; preds = %19, %14
-  %23 = phi ptr [ %17, %14 ], [ %20, %19 ]
-  %24 = load ptr, ptr %23, align 8
-  %25 = trunc i64 %indvars.iv to i32
-  %26 = xor i32 %25, -1
-  %27 = add i32 %3, %26
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %2, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = call fastcc zeroext i1 @word_matches(ptr noundef %24, ptr noundef %30, i1 noundef zeroext %0)
+23:                                               ; preds = %20, %15
+  %24 = phi ptr [ %18, %15 ], [ %21, %20 ]
+  %25 = load ptr, ptr %24, align 8
+  %26 = xor i64 %indvars.iv, -1
+  %27 = getelementptr ptr, ptr %11, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %29 = call fastcc zeroext i1 @word_matches(ptr noundef %25, ptr noundef %28, i1 noundef zeroext %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %31, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %11, label %.sink.split, !llvm.loop !17
+  %or.cond.not = select i1 %29, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %12, label %.sink.split, !llvm.loop !17
 
-.sink.split:                                      ; preds = %22, %7
-  %.0.ph = phi i1 [ true, %7 ], [ %31, %22 ]
+.sink.split:                                      ; preds = %23
   call void @llvm.va_end.p0(ptr nonnull %5)
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.sink.split, %4
-  %.0 = phi i1 [ false, %4 ], [ %.0.ph, %.sink.split ]
+30:                                               ; preds = %.sink.split, %4
+  %.0 = phi i1 [ false, %4 ], [ %29, %.sink.split ]
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @HeadMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ...) unnamed_addr #0 {
+define internal noundef zeroext i1 @HeadMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 7) %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp slt i32 %1, %3
-  br i1 %6, label %32, label %7
+  br i1 %6, label %31, label %7
 
 7:                                                ; preds = %4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %8 = icmp sgt i32 %3, 0
-  br i1 %8, label %.lr.ph, label %.sink.split
-
-.lr.ph:                                           ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %11
+  br label %10
 
-11:                                               ; preds = %22, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %12 = load i32, ptr %5, align 16
-  %13 = icmp ult i32 %12, 41
-  br i1 %13, label %14, label %19
+10:                                               ; preds = %21, %7
+  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %21 ]
+  %11 = load i32, ptr %5, align 16
+  %12 = icmp ult i32 %11, 41
+  br i1 %12, label %13, label %18
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %10, align 16
-  %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr i8, ptr %15, i64 %16
-  %18 = add nuw nsw i32 %12, 8
-  store i32 %18, ptr %5, align 16
-  br label %22
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %9, align 16
+  %15 = zext nneg i32 %11 to i64
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %17 = add nuw nsw i32 %11, 8
+  store i32 %17, ptr %5, align 16
+  br label %21
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr i8, ptr %20, i64 8
-  store ptr %21, ptr %9, align 8
-  br label %22
+18:                                               ; preds = %10
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr i8, ptr %19, i64 8
+  store ptr %20, ptr %8, align 8
+  br label %21
 
-22:                                               ; preds = %19, %14
-  %23 = phi ptr [ %17, %14 ], [ %20, %19 ]
-  %24 = load ptr, ptr %23, align 8
-  %25 = trunc i64 %indvars.iv to i32
-  %26 = xor i32 %25, -1
-  %27 = add i32 %1, %26
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %2, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = call fastcc zeroext i1 @word_matches(ptr noundef %24, ptr noundef %30, i1 noundef zeroext %0)
+21:                                               ; preds = %18, %13
+  %22 = phi ptr [ %16, %13 ], [ %19, %18 ]
+  %23 = load ptr, ptr %22, align 8
+  %24 = trunc i64 %indvars.iv to i32
+  %25 = xor i32 %24, -1
+  %26 = add i32 %1, %25
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr ptr, ptr %2, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = call fastcc zeroext i1 @word_matches(ptr noundef %23, ptr noundef %29, i1 noundef zeroext %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %31, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %11, label %.sink.split, !llvm.loop !18
+  %or.cond.not = select i1 %30, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %10, label %.sink.split, !llvm.loop !18
 
-.sink.split:                                      ; preds = %22, %7
-  %.0.ph = phi i1 [ true, %7 ], [ %31, %22 ]
+.sink.split:                                      ; preds = %21
   call void @llvm.va_end.p0(ptr nonnull %5)
-  br label %32
+  br label %31
 
-32:                                               ; preds = %.sink.split, %4
-  %.0 = phi i1 [ false, %4 ], [ %.0.ph, %.sink.split ]
+31:                                               ; preds = %.sink.split, %4
+  %.0 = phi i1 [ false, %4 ], [ %30, %.sink.split ]
   ret i1 %.0
 }
 
@@ -12541,64 +12530,58 @@ create_or_drop_command_generator.exit:            ; preds = %26, %7, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ...) unnamed_addr #0 {
+define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 11) %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq i32 %1, %3
-  br i1 %.not, label %6, label %31
+  br i1 %.not, label %6, label %29
 
 6:                                                ; preds = %4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %7 = icmp sgt i32 %1, 0
-  br i1 %7, label %.lr.ph, label %.sink.split
-
-.lr.ph:                                           ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %10
+  %10 = getelementptr ptr, ptr %2, i64 %9
+  br label %11
 
-10:                                               ; preds = %21, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %11 = load i32, ptr %5, align 16
-  %12 = icmp ult i32 %11, 41
-  br i1 %12, label %13, label %18
+11:                                               ; preds = %22, %6
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %22 ]
+  %12 = load i32, ptr %5, align 16
+  %13 = icmp ult i32 %12, 41
+  br i1 %13, label %14, label %19
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %9, align 16
-  %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr i8, ptr %14, i64 %15
-  %17 = add nuw nsw i32 %11, 8
-  store i32 %17, ptr %5, align 16
-  br label %21
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %8, align 16
+  %16 = zext nneg i32 %12 to i64
+  %17 = getelementptr i8, ptr %15, i64 %16
+  %18 = add nuw nsw i32 %12, 8
+  store i32 %18, ptr %5, align 16
+  br label %22
 
-18:                                               ; preds = %10
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr i8, ptr %19, i64 8
-  store ptr %20, ptr %8, align 8
-  br label %21
+19:                                               ; preds = %11
+  %20 = load ptr, ptr %7, align 8
+  %21 = getelementptr i8, ptr %20, i64 8
+  store ptr %21, ptr %7, align 8
+  br label %22
 
-21:                                               ; preds = %18, %13
-  %22 = phi ptr [ %16, %13 ], [ %19, %18 ]
-  %23 = load ptr, ptr %22, align 8
-  %24 = trunc i64 %indvars.iv to i32
-  %25 = xor i32 %24, -1
-  %26 = add i32 %1, %25
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr ptr, ptr %2, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  %30 = call fastcc zeroext i1 @word_matches(ptr noundef %23, ptr noundef %29, i1 noundef zeroext false)
+22:                                               ; preds = %19, %14
+  %23 = phi ptr [ %17, %14 ], [ %20, %19 ]
+  %24 = load ptr, ptr %23, align 8
+  %25 = xor i64 %indvars.iv, -1
+  %26 = getelementptr ptr, ptr %10, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %28 = call fastcc zeroext i1 @word_matches(ptr noundef %24, ptr noundef %27, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %30, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %10, label %.sink.split, !llvm.loop !20
+  %or.cond.not = select i1 %28, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %11, label %.sink.split, !llvm.loop !20
 
-.sink.split:                                      ; preds = %21, %6
-  %.0.ph = phi i1 [ true, %6 ], [ %30, %21 ]
+.sink.split:                                      ; preds = %22
   call void @llvm.va_end.p0(ptr nonnull %5)
-  br label %31
+  br label %29
 
-31:                                               ; preds = %.sink.split, %4
-  %.0 = phi i1 [ false, %4 ], [ %.0.ph, %.sink.split ]
+29:                                               ; preds = %.sink.split, %4
+  %.0 = phi i1 [ false, %4 ], [ %28, %.sink.split ]
   ret i1 %.0
 }
 

@@ -993,7 +993,7 @@ _ZNSt10unique_ptrIN4llvm19DefaultInlineAdviceESt14default_deleteIS1_EED2Ev.exit:
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  call fastcc void @_ZL22getDefaultInlineAdviceRN4llvm8CallBaseERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 4 dereferenceable(66) %8)
+  call fastcc void @_ZL22getDefaultInlineAdviceRN4llvm8CallBaseERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 4 dereferenceable(66) %8)
   store ptr %1, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = tail call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
@@ -1053,7 +1053,7 @@ _ZNSt8optionalIN4llvm10InlineCostEED2Ev.exit:     ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22getDefaultInlineAdviceRN4llvm8CallBaseERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(66) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL22getDefaultInlineAdviceRN4llvm8CallBaseERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(66) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %class.anon.371, align 8
   %7 = alloca %class.anon.372, align 8
@@ -1109,7 +1109,7 @@ _ZNK4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_8Fun
   %38 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20EnableInlineDeferral, i64 128), align 8
   %.0.v.i = select i1 %36, i8 %37, i8 %38
   %.0.i = trunc i8 %.0.v.i to i1
-  call void @_ZN4llvm12shouldInlineERNS_8CallBaseENS_12function_refIFNS_10InlineCostES1_EEERNS_25OptimizationRemarkEmitterEb(ptr dead_on_unwind writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @"_ZN4llvm12function_refIFNS_10InlineCostERNS_8CallBaseEEE11callback_fnIZL22getDefaultInlineAdviceS3_RNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsEE3$_3EES1_lS3_", i64 %32, ptr noundef nonnull align 8 dereferenceable(24) %25, i1 noundef zeroext %.0.i)
+  call void @_ZN4llvm12shouldInlineERNS_8CallBaseENS_12function_refIFNS_10InlineCostES1_EEERNS_25OptimizationRemarkEmitterEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @"_ZN4llvm12function_refIFNS_10InlineCostERNS_8CallBaseEEE11callback_fnIZL22getDefaultInlineAdviceS3_RNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsEE3$_3EES1_lS3_", i64 %32, ptr noundef nonnull align 8 dereferenceable(24) %25, i1 noundef zeroext %.0.i)
   ret void
 }
 
@@ -5581,7 +5581,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm8CallBase
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   %4 = load ptr, ptr %.val, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  call fastcc void @_ZL22getDefaultInlineAdviceRN4llvm8CallBaseERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 4 dereferenceable(66) %5)
+  call fastcc void @_ZL22getDefaultInlineAdviceRN4llvm8CallBaseERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 4 dereferenceable(66) %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1

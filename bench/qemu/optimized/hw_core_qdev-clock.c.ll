@@ -97,7 +97,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %name, i1 noundef zeroext true, ptr noundef null)
+  %call = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef %name, i1 noundef zeroext true, ptr noundef null)
   %clock = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %clock, align 8
   ret ptr %0
@@ -107,7 +107,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef %name, i1 noundef zeroext %output, ptr noundef %clk) unnamed_addr #0 {
+define internal fastcc noundef ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %name, i1 noundef zeroext %output, ptr noundef %clk) unnamed_addr #0 {
 entry:
   %realized = getelementptr inbounds i8, ptr %dev, i64 56
   %0 = load i8, ptr %realized, align 8
@@ -121,7 +121,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %frombool = zext i1 %output to i8
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #9
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef %name) #7
+  %call1 = tail call noalias ptr @g_strdup(ptr noundef nonnull %name) #7
   store ptr %call1, ptr %call, align 8
   %output4 = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %frombool, ptr %output4, align 8
@@ -135,7 +135,7 @@ if.end:                                           ; preds = %entry
 if.then8:                                         ; preds = %if.end
   %call9 = tail call ptr @object_new(ptr noundef nonnull @.str.9) #7
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call9, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 23, ptr noundef nonnull @__func__.CLOCK) #7
-  %call11 = tail call ptr @object_property_add_child(ptr noundef nonnull %dev, ptr noundef %name, ptr noundef %call.i) #7
+  %call11 = tail call ptr @object_property_add_child(ptr noundef nonnull %dev, ptr noundef nonnull %name, ptr noundef %call.i) #7
   br i1 %output, label %if.then13, label %if.end19
 
 if.then13:                                        ; preds = %if.then8
@@ -145,7 +145,7 @@ if.then13:                                        ; preds = %if.then8
 if.else15:                                        ; preds = %if.end
   %call16 = tail call ptr @object_get_typename(ptr noundef nonnull %clk) #7
   %clock = getelementptr inbounds i8, ptr %call, i64 8
-  %call17 = tail call ptr @object_property_add_link(ptr noundef nonnull %dev, ptr noundef %name, ptr noundef %call16, ptr noundef nonnull %clock, ptr noundef null, i32 noundef 1) #7
+  %call17 = tail call ptr @object_property_add_link(ptr noundef nonnull %dev, ptr noundef nonnull %name, ptr noundef %call16, ptr noundef nonnull %clock, ptr noundef null, i32 noundef 1) #7
   %call18 = tail call ptr @object_ref(ptr noundef nonnull %clk) #7
   br label %if.end19
 
@@ -183,7 +183,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %name, i1 noundef zeroext false, ptr noundef null)
+  %call = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef %name, i1 noundef zeroext false, ptr noundef null)
   %tobool1.not = icmp eq ptr %callback, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
@@ -228,7 +228,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool, label %qdev_init_clock_out.exit, label %if.end.i
 
 qdev_init_clock_out.exit:                         ; preds = %if.end
-  %call.i = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null)
+  %call.i = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef %1, i1 noundef zeroext true, ptr noundef null)
   br label %for.inc
 
 if.end.i:                                         ; preds = %if.end
@@ -236,7 +236,7 @@ if.end.i:                                         ; preds = %if.end
   %4 = load ptr, ptr %callback, align 8
   %callback_events = getelementptr inbounds i8, ptr %elem.019, i64 24
   %5 = load i32, ptr %callback_events, align 8
-  %call.i15 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
+  %call.i15 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %dev, ptr noundef %1, i1 noundef zeroext false, ptr noundef null)
   %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %for.inc, label %if.then2.i
 
@@ -400,7 +400,7 @@ qdev_get_clocklist.exit:                          ; preds = %for.body.i
   %tobool2 = trunc i8 %1 to i1
   %clock = getelementptr inbounds i8, ptr %ncl.06.i, i64 8
   %2 = load ptr, ptr %clock, align 8
-  %call3 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %alias_dev, ptr noundef nonnull %alias_name, i1 noundef zeroext %tobool2, ptr noundef %2)
+  %call3 = tail call fastcc ptr @qdev_init_clocklist(ptr noundef %alias_dev, ptr noundef %alias_name, i1 noundef zeroext %tobool2, ptr noundef %2)
   %3 = load ptr, ptr %clock, align 8
   ret ptr %3
 }

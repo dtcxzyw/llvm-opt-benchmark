@@ -204,7 +204,7 @@ define void @slurm_get_job_stderr(ptr nocapture noundef writeonly %0, i32 nounde
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call fastcc void @_fname_format(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %10)
+  tail call fastcc void @_fname_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %10)
   br label %37
 
 12:                                               ; preds = %8
@@ -225,7 +225,7 @@ define void @slurm_get_job_stderr(ptr nocapture noundef writeonly %0, i32 nounde
   br i1 %.not28, label %23, label %22
 
 22:                                               ; preds = %19
-  tail call fastcc void @_fname_format(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %21)
+  tail call fastcc void @_fname_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %21)
   br label %37
 
 23:                                               ; preds = %19
@@ -257,13 +257,13 @@ define void @slurm_get_job_stderr(ptr nocapture noundef writeonly %0, i32 nounde
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_fname_format(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_fname_format(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %3) #19
+  %9 = tail call ptr @xstrdup(ptr noundef nonnull %3) #19
   store ptr %9, ptr %6, align 8
   store ptr %9, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 496
@@ -462,7 +462,7 @@ define void @slurm_get_job_stdin(ptr nocapture noundef writeonly %0, i32 noundef
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call fastcc void @_fname_format(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %10)
+  tail call fastcc void @_fname_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %10)
   br label %21
 
 12:                                               ; preds = %8
@@ -501,7 +501,7 @@ define void @slurm_get_job_stdout(ptr nocapture noundef writeonly %0, i32 nounde
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call fastcc void @_fname_format(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %10)
+  tail call fastcc void @_fname_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %10)
   br label %33
 
 12:                                               ; preds = %8
@@ -742,7 +742,7 @@ _load_cluster_jobs.exit:                          ; preds = %27, %.thread.i, %35
 
 39:                                               ; preds = %18
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
-  %41 = call fastcc i32 @_load_fed_jobs(ptr noundef nonnull %5, ptr noundef %0, i16 noundef zeroext %.010, ptr noundef %40, ptr noundef nonnull %24)
+  %41 = call fastcc i32 @_load_fed_jobs(ptr noundef %5, ptr noundef %0, i16 noundef zeroext %.010, ptr noundef %40, ptr noundef nonnull %24)
   br label %42
 
 42:                                               ; preds = %39, %_load_cluster_jobs.exit
@@ -2212,7 +2212,7 @@ _threads_per_core.exit:                           ; preds = %429, %.loopexit.i
   br i1 %.not.i582, label %641, label %640
 
 640:                                              ; preds = %637
-  call fastcc void @_fname_format(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef nonnull readonly %0, ptr noundef nonnull %639)
+  call fastcc void @_fname_format(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef readonly %0, ptr noundef %639)
   br label %646
 
 641:                                              ; preds = %637
@@ -2768,7 +2768,7 @@ define i32 @slurm_load_jobs(i64 noundef %0, ptr nocapture noundef writeonly %1, 
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %7, align 8
-  %28 = call fastcc i32 @_load_fed_jobs(ptr noundef nonnull %5, ptr noundef %1, i16 noundef zeroext %.016, ptr noundef %.015, ptr noundef %27)
+  %28 = call fastcc i32 @_load_fed_jobs(ptr noundef %5, ptr noundef %1, i16 noundef zeroext %.016, ptr noundef %.015, ptr noundef %27)
   br label %42
 
 29:                                               ; preds = %20
@@ -2831,7 +2831,7 @@ declare i32 @slurm_load_federation(ptr noundef) local_unnamed_addr #3
 declare zeroext i1 @cluster_in_federation(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3376,7 +3376,7 @@ _load_cluster_jobs.exit:                          ; preds = %27, %.thread.i, %35
 
 39:                                               ; preds = %18
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
-  %41 = call fastcc i32 @_load_fed_jobs(ptr noundef nonnull %5, ptr noundef %0, i16 noundef zeroext %.010, ptr noundef %40, ptr noundef nonnull %24)
+  %41 = call fastcc i32 @_load_fed_jobs(ptr noundef %5, ptr noundef %0, i16 noundef zeroext %.010, ptr noundef %40, ptr noundef nonnull %24)
   br label %42
 
 42:                                               ; preds = %39, %_load_cluster_jobs.exit

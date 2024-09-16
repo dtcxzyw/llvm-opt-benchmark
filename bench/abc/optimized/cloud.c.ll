@@ -1468,13 +1468,13 @@ define i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = call fastcc i32 @Cloud_DagCollect_rec(ptr noundef nonnull %0, ptr noundef %16, ptr noundef nonnull %3)
+  %17 = call fastcc i32 @Cloud_DagCollect_rec(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %3)
   call fastcc void @cloudClearMark(ptr noundef %16)
   ret i32 %17
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Cloud_DagCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 {
+define internal fastcc i32 @Cloud_DagCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 268435456

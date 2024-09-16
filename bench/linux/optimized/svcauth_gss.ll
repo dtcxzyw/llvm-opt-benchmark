@@ -2765,7 +2765,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @svcauth_gss_unwrap_integ(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @svcxdr_set_auth_slack(ptr noundef %0, i32 noundef %1) unnamed_addr #9 align 16 {
+define internal fastcc void @svcxdr_set_auth_slack(ptr noundef %0, i32 noundef range(i32 400, 801) %1) unnamed_addr #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 576
   %4 = getelementptr inbounds i8, ptr %0, i64 664
   %5 = getelementptr inbounds i8, ptr %0, i64 11332
@@ -2992,7 +2992,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @svcauth_gss_unwrap_priv(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef nonnull ptr @cache_get(ptr noundef returned %0) unnamed_addr #9 align 16 {
+define internal fastcc noundef nonnull ptr @cache_get(ptr noundef nonnull returned %0) unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #24, !srcloc !64
   %4 = icmp eq i32 %3, 0
@@ -3017,7 +3017,7 @@ define internal fastcc noundef nonnull ptr @cache_get(ptr noundef returned %0) u
 declare dso_local i32 @gss_svc_to_pseudoflavor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_rpcgss_svc_authenticate(ptr noundef %0, ptr noundef %1) unnamed_addr #9 align 16 {
+define internal fastcc void @trace_rpcgss_svc_authenticate(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #9 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rpcgss_svc_authenticate, i64 8), i32 2) #24
           to label %23 [label %3], !srcloc !16
 
@@ -3040,7 +3040,7 @@ define internal fastcc void @trace_rpcgss_svc_authenticate(ptr noundef %0, ptr n
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @__SCT__tp_func_rpcgss_svc_authenticate(ptr noundef %14, ptr noundef %0, ptr noundef %1) #24
+  %15 = tail call i32 @__SCT__tp_func_rpcgss_svc_authenticate(ptr noundef %14, ptr noundef %0, ptr noundef nonnull %1) #24
   br label %16
 
 16:                                               ; preds = %12, %9
@@ -3267,9 +3267,9 @@ declare dso_local i32 @full_name_hash(ptr noundef, ptr noundef, i32 noundef) loc
 declare dso_local i64 @xdr_stream_encode_opaque_auth(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i64 -90, 4294967303) i64 @xdr_stream_encode_opaque(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 align 16 {
+define internal fastcc noundef range(i64 -90, 4294967303) i64 @xdr_stream_encode_opaque(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #9 align 16 {
   %4 = add nuw nsw i64 %2, 3
-  %5 = and i64 %4, -4
+  %5 = and i64 %4, 8589934588
   %6 = add nuw nsw i64 %5, 4
   %7 = tail call ptr @xdr_reserve_space(ptr noundef %0, i64 noundef %6) #24
   %8 = icmp eq ptr %7, null
@@ -3400,7 +3400,7 @@ declare dso_local void @xdr_buf_from_iov(ptr noundef, ptr noundef) local_unnamed
 declare dso_local i32 @gss_verify_mic(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_rpcgss_svc_mic(ptr noundef %0, i32 noundef %1) unnamed_addr #9 align 16 {
+define internal fastcc void @trace_rpcgss_svc_mic(ptr noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #9 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rpcgss_svc_mic, i64 8), i32 2) #24
           to label %23 [label %3], !srcloc !16
 
@@ -4564,7 +4564,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @rsi_update(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @rsi_update(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -4577,7 +4577,7 @@ define internal fastcc ptr @rsi_update(ptr noundef %0, ptr noundef %1, ptr nound
   %13 = tail call i32 @full_name_hash(ptr noundef null, ptr noundef %11, i32 noundef %12) #28
   %14 = xor i32 %13, %8
   %15 = lshr i32 %14, 26
-  %16 = tail call ptr @sunrpc_cache_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %15) #24
+  %16 = tail call ptr @sunrpc_cache_update(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %15) #24
   ret ptr %16
 }
 

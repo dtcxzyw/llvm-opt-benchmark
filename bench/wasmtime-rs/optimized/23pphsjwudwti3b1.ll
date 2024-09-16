@@ -5039,7 +5039,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..component.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..component..info..CoreDef$GT$17h8f4440973ed26bfeE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..component..info..CoreDef$GT$17h8f4440973ed26bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !525, !noundef !9
   %or.cond = icmp slt i64 %3, 0
@@ -5199,7 +5199,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$$u5b$wasmtime_environ..compo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..component..info..GlobalInitializer$GT$17h4e329d1083a8a4c9E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..component..info..GlobalInitializer$GT$17h4e329d1083a8a4c9E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -5318,7 +5318,7 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..c
 48:                                               ; preds = %44
   %49 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %.val.i, i64 0, i64 %.1.i.i.i
   %50 = add i64 %.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..component..info..CoreDef$GT$17h8f4440973ed26bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %49) #24
+  invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..component..info..CoreDef$GT$17h8f4440973ed26bfeE"(ptr noalias noundef align 8 dereferenceable(32) %49) #24
           to label %44 unwind label %51, !noalias !585
 
 51:                                               ; preds = %48
@@ -10074,7 +10074,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i117:
 171:                                              ; preds = %170
   %172 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..component..info..GlobalInitializer$GT$17h4e329d1083a8a4c9E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %13) #24
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..component..info..GlobalInitializer$GT$17h4e329d1083a8a4c9E"(ptr noalias noundef align 8 dereferenceable(80) %13) #24
           to label %.thread unwind label %173, !noalias !1074
 
 173:                                              ; preds = %171
@@ -10170,7 +10170,7 @@ _ZN16wasmtime_environ9component3dfg12LinearizeDfg11instantiate17h887f60d67558ea3
 201:                                              ; preds = %200
   %202 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..component..info..GlobalInitializer$GT$17h4e329d1083a8a4c9E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %10) #24
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..component..info..GlobalInitializer$GT$17h4e329d1083a8a4c9E"(ptr noalias noundef align 8 dereferenceable(80) %10) #24
           to label %.thread unwind label %203
 
 203:                                              ; preds = %201
@@ -11090,7 +11090,7 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6export17h9
 59:                                               ; preds = %28, %22, %16
   %60 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..component..info..CoreDef$GT$17h8f4440973ed26bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #24
+  invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..component..info..CoreDef$GT$17h8f4440973ed26bfeE"(ptr noalias noundef align 8 dereferenceable(32) %6) #24
           to label %74 unwind label %72
 
 61:                                               ; preds = %.noexc2, %28
@@ -11432,7 +11432,7 @@ select.unfold:                                    ; preds = %51, %2
 100:                                              ; preds = %99
   %101 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..component..info..GlobalInitializer$GT$17h4e329d1083a8a4c9E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %9) #24
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..component..info..GlobalInitializer$GT$17h4e329d1083a8a4c9E"(ptr noalias noundef align 8 dereferenceable(80) %9) #24
           to label %104 unwind label %102
 
 102:                                              ; preds = %100

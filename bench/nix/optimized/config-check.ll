@@ -4643,7 +4643,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14CmdConfigCheck18checkStoreProtocolE
           to label %21 unwind label %54
 
 21:                                               ; preds = %19
-  invoke fastcc void @_ZN12_GLOBAL__N_114formatProtocolB5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %11)
+  invoke fastcc void @_ZN12_GLOBAL__N_114formatProtocolB5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %11)
           to label %22 unwind label %54
 
 22:                                               ; preds = %21
@@ -4659,7 +4659,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14CmdConfigCheck18checkStoreProtocolE
           to label %28 unwind label %56
 
 28:                                               ; preds = %26
-  invoke fastcc void @_ZN12_GLOBAL__N_114formatProtocolB5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114formatProtocolB5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %1)
           to label %29 unwind label %56
 
 29:                                               ; preds = %28
@@ -6255,7 +6255,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114formatProtocolB5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114formatProtocolB5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::io::detail::put_holder", align 8
   %4 = alloca %"struct.boost::io::detail::put_holder", align 8
   %5 = alloca %"class.boost::basic_format", align 8
@@ -6307,7 +6307,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114formatProtocolB5cxx11Ej(ptr dead
 
 23:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !43
-  invoke void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %5)
+  invoke void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %5)
           to label %26 unwind label %24
 
 24:                                               ; preds = %23, %.noexc.i, %.noexc

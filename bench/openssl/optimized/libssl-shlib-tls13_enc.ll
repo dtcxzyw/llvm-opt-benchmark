@@ -858,7 +858,7 @@ if.end146:                                        ; preds = %if.then138, %if.end
   br i1 %cmp147.not, label %err, label %if.end158
 
 if.end158:                                        ; preds = %if.end146
-  %call162 = call fastcc i32 @derive_secret_key_and_iv(ptr noundef nonnull %s, ptr noundef %md.1, ptr noundef nonnull %21, ptr noundef nonnull %insecret.0, ptr noundef nonnull %hash.0, ptr noundef nonnull %label.0, i64 noundef %labellen.0, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr noundef nonnull %keylen, ptr noundef nonnull %iv, ptr noundef nonnull %ivlen, ptr noundef nonnull %taglen)
+  %call162 = call fastcc i32 @derive_secret_key_and_iv(ptr noundef nonnull %s, ptr noundef %md.1, ptr noundef nonnull %21, ptr noundef nonnull %insecret.0, ptr noundef nonnull %hash.0, ptr noundef nonnull %label.0, i64 noundef %labellen.0, ptr noundef %secret, ptr noundef %key, ptr noundef %keylen, ptr noundef %iv, ptr noundef %ivlen, ptr noundef %taglen)
   %tobool163.not = icmp eq i32 %call162, 0
   br i1 %tobool163.not, label %err, label %if.end165
 
@@ -1007,7 +1007,7 @@ declare i32 @ssl_log_secret(ptr noundef, ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @ssl3_digest_cached_records(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %md, ptr noundef %ciph, ptr noundef %insecret, ptr noundef %hash, ptr noundef %label, i64 noundef %labellen, ptr noundef %secret, ptr noundef %key, ptr nocapture noundef %keylen, ptr noundef %iv, ptr nocapture noundef %ivlen, ptr nocapture noundef writeonly %taglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %md, ptr noundef %ciph, ptr noundef %insecret, ptr noundef %hash, ptr noundef %label, i64 noundef range(i64 11, 13) %labellen, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr nocapture noundef nonnull %keylen, ptr noundef nonnull %iv, ptr nocapture noundef nonnull %ivlen, ptr nocapture noundef nonnull writeonly %taglen) unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_MD_get_size(ptr noundef %md) #3
   %cmp = icmp sgt i32 %call, -1
@@ -1026,7 +1026,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %propq.i = getelementptr inbounds i8, ptr %0, i64 1096
   %2 = load ptr, ptr %propq.i, align 8
-  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %insecret, ptr noundef %label, i64 noundef %labellen, ptr noundef %hash, i64 noundef %conv5, ptr noundef %secret, i64 noundef %conv5, i32 noundef 0)
+  %call.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef %md, ptr noundef %insecret, ptr noundef %label, i64 noundef %labellen, ptr noundef %hash, i64 noundef %conv5, ptr noundef nonnull %secret, i64 noundef %conv5, i32 noundef 0)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %tls13_hkdf_expand.exit.thread, label %if.end9
 
@@ -1116,7 +1116,7 @@ if.end59:                                         ; preds = %if.then44, %if.else
   %10 = load ptr, ptr %9, align 8
   %propq.i.i = getelementptr inbounds i8, ptr %9, i64 1096
   %11 = load ptr, ptr %propq.i.i, align 8
-  %call.i.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %10, ptr noundef %11, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @.str.4, i64 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key, i64 noundef %8, i32 noundef 0)
+  %call.i.i = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %10, ptr noundef %11, ptr noundef %md, ptr noundef nonnull %secret, ptr noundef nonnull @.str.4, i64 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef nonnull %key, i64 noundef %8, i32 noundef 0)
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %tls13_derive_key.exit.thread, label %lor.lhs.false
 
@@ -1132,7 +1132,7 @@ lor.lhs.false:                                    ; preds = %if.end59
   %14 = load ptr, ptr %13, align 8
   %propq.i.i34 = getelementptr inbounds i8, ptr %13, i64 1096
   %15 = load ptr, ptr %propq.i.i34, align 8
-  %call.i.i35 = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %14, ptr noundef %15, ptr noundef %md, ptr noundef %secret, ptr noundef nonnull @tls13_derive_iv.ivlabel, i64 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %iv, i64 noundef %12, i32 noundef 0)
+  %call.i.i35 = tail call i32 @tls13_hkdf_expand_ex(ptr noundef %14, ptr noundef %15, ptr noundef %md, ptr noundef nonnull %secret, ptr noundef nonnull @tls13_derive_iv.ivlabel, i64 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %iv, i64 noundef %12, i32 noundef 0)
   %cmp.i.i36.not = icmp eq i32 %call.i.i35, 0
   br i1 %cmp.i.i36.not, label %if.then.i.i37, label %return
 
@@ -1180,7 +1180,7 @@ if.end:                                           ; preds = %entry
   %insecret.0 = getelementptr inbounds i8, ptr %s, i64 %insecret.0.v
   %new_sym_enc = getelementptr inbounds i8, ptr %s, i64 760
   %1 = load ptr, ptr %new_sym_enc, align 8
-  %call10 = call fastcc i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %call, ptr noundef %1, ptr noundef nonnull %insecret.0, ptr noundef null, ptr noundef nonnull @tls13_update_key.application_traffic, i64 noundef 11, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr noundef nonnull %keylen, ptr noundef nonnull %iv, ptr noundef nonnull %ivlen, ptr noundef nonnull %taglen)
+  %call10 = call fastcc i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %call, ptr noundef %1, ptr noundef nonnull %insecret.0, ptr noundef null, ptr noundef nonnull @tls13_update_key.application_traffic, i64 noundef 11, ptr noundef %secret, ptr noundef %key, ptr noundef %keylen, ptr noundef %iv, ptr noundef %ivlen, ptr noundef %taglen)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %err, label %if.end13
 

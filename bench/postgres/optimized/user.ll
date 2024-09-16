@@ -2451,7 +2451,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph21.i, %344, %
 
 roleSpecsToIds.exit250:                           ; preds = %.lr.ph21.i246, %357, %.lr.ph.i244
   %.0.lcssa.i245 = phi ptr [ null, %357 ], [ null, %.lr.ph.i244 ], [ %366, %.lr.ph21.i246 ]
-  call fastcc void @DelRoleMems(i32 noundef %9, ptr noundef %123, i32 noundef %124, ptr noundef %341, ptr noundef %.0.lcssa.i245, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @DelRoleMems(i32 noundef %9, ptr noundef %123, i32 noundef %124, ptr noundef %341, ptr noundef %.0.lcssa.i245, i32 noundef 0, ptr noundef %7, i32 noundef 0)
   br label %370
 
 370:                                              ; preds = %339, %roleSpecsToIds.exit, %roleSpecsToIds.exit250, %335
@@ -2476,7 +2476,7 @@ declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca [7 x i64], align 16
   %10 = alloca [7 x i8], align 1
   %11 = alloca [7 x i8], align 1
@@ -3674,7 +3674,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph21.i, %64, %.
 
 108:                                              ; preds = %100
   %109 = load i32, ptr %85, align 8
-  call fastcc void @DelRoleMems(i32 noundef %4, ptr noundef nonnull %92, i32 noundef %101, ptr noundef %106, ptr noundef %.0.lcssa.i, i32 noundef %.0, ptr noundef nonnull %3, i32 noundef %109)
+  call fastcc void @DelRoleMems(i32 noundef %4, ptr noundef nonnull %92, i32 noundef %101, ptr noundef %106, ptr noundef %.0.lcssa.i, i32 noundef %.0, ptr noundef %3, i32 noundef %109)
   br label %110
 
 110:                                              ; preds = %107, %108

@@ -820,7 +820,7 @@ entry:
   %ref.tmp = alloca %"struct.rocksdb::ColumnFamilyOptions", align 8
   %ref.tmp6 = alloca %"class.rocksdb::Status", align 8
   call void @_ZN7rocksdb19ColumnFamilyOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(820) %default_cf_opts)
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_19ColumnFamilyOptionsE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %column_families, ptr noundef nonnull %default_cf_opts)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_19ColumnFamilyOptionsE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %column_families, ptr noundef %default_cf_opts)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -1050,7 +1050,7 @@ ehcleanup18:                                      ; preds = %_ZN7rocksdb6StatusD
 declare void @_ZN7rocksdb19ColumnFamilyOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(820)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_19ColumnFamilyOptionsE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_families, ptr noundef %res) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_19ColumnFamilyOptionsE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_families, ptr noundef nonnull %res) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp13 = alloca %"class.rocksdb::Slice", align 8
@@ -7539,7 +7539,7 @@ entry:
   %repairer = alloca %"class.rocksdb::(anonymous namespace)::Repairer", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   call void @_ZN7rocksdb19ColumnFamilyOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(820) %default_cf_opts)
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_19ColumnFamilyOptionsE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %column_families, ptr noundef nonnull %default_cf_opts)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_19ColumnFamilyOptionsE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %column_families, ptr noundef %default_cf_opts)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry

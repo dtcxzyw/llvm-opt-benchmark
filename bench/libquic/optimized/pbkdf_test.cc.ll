@@ -39,12 +39,12 @@ entry:
   %key.i = alloca [10 x i8], align 1
   tail call void @CRYPTO_library_init()
   %call.i = tail call ptr @EVP_sha1()
-  %call1.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call.i, i64 noundef 20, ptr noundef nonnull @__const._ZL17TestEmptyPasswordv.kKey)
+  %call1.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call.i, i64 noundef 20, ptr noundef @__const._ZL17TestEmptyPasswordv.kKey)
   br i1 %call1.i, label %_ZL17TestEmptyPasswordv.exit, label %if.then
 
 _ZL17TestEmptyPasswordv.exit:                     ; preds = %entry
   %call2.i = tail call ptr @EVP_sha1()
-  %call4.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.7, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call2.i, i64 noundef 20, ptr noundef nonnull @__const._ZL17TestEmptyPasswordv.kKey)
+  %call4.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.7, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call2.i, i64 noundef 20, ptr noundef @__const._ZL17TestEmptyPasswordv.kKey)
   br i1 %call4.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %_ZL17TestEmptyPasswordv.exit
@@ -54,12 +54,12 @@ if.then:                                          ; preds = %entry, %_ZL17TestEm
 
 if.end:                                           ; preds = %_ZL17TestEmptyPasswordv.exit
   %call.i1 = tail call ptr @EVP_sha256()
-  %call1.i2 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef null, i64 noundef 0, i32 noundef 2, ptr noundef %call.i1, i64 noundef 32, ptr noundef nonnull @__const._ZL13TestEmptySaltv.kKey)
+  %call1.i2 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef null, i64 noundef 0, i32 noundef 2, ptr noundef %call.i1, i64 noundef 32, ptr noundef @__const._ZL13TestEmptySaltv.kKey)
   br i1 %call1.i2, label %_ZL13TestEmptySaltv.exit, label %if.then3
 
 _ZL13TestEmptySaltv.exit:                         ; preds = %if.end
   %call2.i5 = tail call ptr @EVP_sha256()
-  %call4.i6 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.7, i64 noundef 0, i32 noundef 2, ptr noundef %call2.i5, i64 noundef 32, ptr noundef nonnull @__const._ZL13TestEmptySaltv.kKey)
+  %call4.i6 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.7, i64 noundef 0, i32 noundef 2, ptr noundef %call2.i5, i64 noundef 32, ptr noundef @__const._ZL13TestEmptySaltv.kKey)
   br i1 %call4.i6, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end, %_ZL13TestEmptySaltv.exit
@@ -69,17 +69,17 @@ if.then3:                                         ; preds = %if.end, %_ZL13TestE
 
 if.end5:                                          ; preds = %_ZL13TestEmptySaltv.exit
   %call.i7 = tail call ptr @EVP_sha1()
-  %call1.i8 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call.i7, i64 noundef 20, ptr noundef nonnull @__const._ZL18TestRFC6070Vectorsv.kKey1)
+  %call1.i8 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call.i7, i64 noundef 20, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey1)
   br i1 %call1.i8, label %lor.lhs.false.i10, label %if.then7
 
 lor.lhs.false.i10:                                ; preds = %if.end5
   %call2.i11 = tail call ptr @EVP_sha1()
-  %call4.i12 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 2, ptr noundef %call2.i11, i64 noundef 20, ptr noundef nonnull @__const._ZL18TestRFC6070Vectorsv.kKey2)
+  %call4.i12 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 2, ptr noundef %call2.i11, i64 noundef 20, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey2)
   br i1 %call4.i12, label %_ZL18TestRFC6070Vectorsv.exit, label %if.then7
 
 _ZL18TestRFC6070Vectorsv.exit:                    ; preds = %lor.lhs.false.i10
   %call6.i = tail call ptr @EVP_sha1()
-  %call8.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.16, i64 noundef 9, ptr noundef nonnull @.str.17, i64 noundef 5, i32 noundef 4096, ptr noundef %call6.i, i64 noundef 16, ptr noundef nonnull @__const._ZL18TestRFC6070Vectorsv.kKey3)
+  %call8.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.16, i64 noundef 9, ptr noundef nonnull @.str.17, i64 noundef 5, i32 noundef 4096, ptr noundef %call6.i, i64 noundef 16, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey3)
   br i1 %call8.i, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5, %lor.lhs.false.i10, %_ZL18TestRFC6070Vectorsv.exit
@@ -89,12 +89,12 @@ if.then7:                                         ; preds = %if.end5, %lor.lhs.f
 
 if.end9:                                          ; preds = %_ZL18TestRFC6070Vectorsv.exit
   %call.i13 = tail call ptr @EVP_sha256()
-  %call1.i14 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 2, ptr noundef %call.i13, i64 noundef 32, ptr noundef nonnull @__const._ZL8TestSHA2v.kKey1)
+  %call1.i14 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 2, ptr noundef %call.i13, i64 noundef 32, ptr noundef @__const._ZL8TestSHA2v.kKey1)
   br i1 %call1.i14, label %_ZL8TestSHA2v.exit, label %if.then11
 
 _ZL8TestSHA2v.exit:                               ; preds = %if.end9
   %call2.i17 = tail call ptr @EVP_sha512()
-  %call4.i18 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.18, i64 noundef 24, ptr noundef nonnull @.str.19, i64 noundef 36, i32 noundef 4096, ptr noundef %call2.i17, i64 noundef 64, ptr noundef nonnull @__const._ZL8TestSHA2v.kKey2)
+  %call4.i18 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.18, i64 noundef 24, ptr noundef nonnull @.str.19, i64 noundef 36, i32 noundef 4096, ptr noundef %call2.i17, i64 noundef 64, ptr noundef @__const._ZL8TestSHA2v.kKey2)
   br i1 %call4.i18, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end9, %_ZL8TestSHA2v.exit
@@ -161,7 +161,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @ERR_free_strings() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, ptr noundef %digest, i64 noundef %key_len, ptr nocapture noundef readonly %expected_key) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef %password, i64 noundef range(i64 0, 25) %password_len, ptr noundef %salt, i64 noundef range(i64 0, 37) %salt_len, i32 noundef range(i32 1, 4097) %iterations, ptr noundef %digest, i64 noundef range(i64 16, 65) %key_len, ptr nocapture noundef nonnull readonly %expected_key) unnamed_addr #0 {
 entry:
   %key = alloca [64 x i8], align 16
   %call1 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, ptr noundef %digest, i64 noundef %key_len, ptr noundef nonnull %key)
@@ -176,7 +176,7 @@ if.then2:                                         ; preds = %entry
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %bcmp = call i32 @bcmp(ptr nonnull %key, ptr %expected_key, i64 %key_len)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %expected_key, i64 %key_len)
   %cmp7.not = icmp eq i32 %bcmp, 0
   br i1 %cmp7.not, label %return, label %if.then8
 
@@ -185,48 +185,42 @@ if.then8:                                         ; preds = %if.end4
   %4 = call i64 @fwrite(ptr nonnull @.str.10, i64 50, i64 1, ptr %3) #7
   %5 = load ptr, ptr @stderr, align 8
   %6 = call i64 @fwrite(ptr nonnull @.str.11, i64 14, i64 1, ptr %5) #7
-  %cmp3.not.i = icmp eq i64 %key_len, 0
-  br i1 %cmp3.not.i, label %_ZL12PrintDataHexPKvm.exit.thread, label %for.body.i
+  br label %for.body.i
 
-_ZL12PrintDataHexPKvm.exit.thread:                ; preds = %if.then8
+for.body.i:                                       ; preds = %for.body.i, %if.then8
+  %i.03.i = phi i64 [ 0, %if.then8 ], [ %inc.i, %for.body.i ]
   %7 = load ptr, ptr @stderr, align 8
-  %8 = call i64 @fwrite(ptr nonnull @.str.12, i64 13, i64 1, ptr %7) #7
-  br label %_ZL12PrintDataHexPKvm.exit14
-
-for.body.i:                                       ; preds = %if.then8, %for.body.i
-  %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then8 ]
-  %9 = load ptr, ptr @stderr, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %expected_key, i64 %i.04.i
-  %10 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %10 to i32
-  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.14, i32 noundef %conv.i) #7
-  %inc.i = add nuw i64 %i.04.i, 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %expected_key, i64 %i.03.i
+  %8 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %8 to i32
+  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.14, i32 noundef %conv.i) #7
+  %inc.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %key_len
   br i1 %exitcond.not.i, label %_ZL12PrintDataHexPKvm.exit, label %for.body.i, !llvm.loop !7
 
 _ZL12PrintDataHexPKvm.exit:                       ; preds = %for.body.i
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = call i64 @fwrite(ptr nonnull @.str.12, i64 13, i64 1, ptr %9) #7
+  br label %for.body.i6
+
+for.body.i6:                                      ; preds = %for.body.i6, %_ZL12PrintDataHexPKvm.exit
+  %i.03.i7 = phi i64 [ 0, %_ZL12PrintDataHexPKvm.exit ], [ %inc.i11, %for.body.i6 ]
   %11 = load ptr, ptr @stderr, align 8
-  %12 = call i64 @fwrite(ptr nonnull @.str.12, i64 13, i64 1, ptr %11) #7
-  br label %for.body.i7
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %key, i64 %i.03.i7
+  %12 = load i8, ptr %arrayidx.i8, align 1
+  %conv.i9 = zext i8 %12 to i32
+  %call.i10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.14, i32 noundef %conv.i9) #7
+  %inc.i11 = add nuw nsw i64 %i.03.i7, 1
+  %exitcond.not.i12 = icmp eq i64 %inc.i11, %key_len
+  br i1 %exitcond.not.i12, label %_ZL12PrintDataHexPKvm.exit13, label %for.body.i6, !llvm.loop !7
 
-for.body.i7:                                      ; preds = %_ZL12PrintDataHexPKvm.exit, %for.body.i7
-  %i.04.i8 = phi i64 [ %inc.i12, %for.body.i7 ], [ 0, %_ZL12PrintDataHexPKvm.exit ]
+_ZL12PrintDataHexPKvm.exit13:                     ; preds = %for.body.i6
   %13 = load ptr, ptr @stderr, align 8
-  %arrayidx.i9 = getelementptr inbounds i8, ptr %key, i64 %i.04.i8
-  %14 = load i8, ptr %arrayidx.i9, align 1
-  %conv.i10 = zext i8 %14 to i32
-  %call.i11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.14, i32 noundef %conv.i10) #7
-  %inc.i12 = add nuw i64 %i.04.i8, 1
-  %exitcond.not.i13 = icmp eq i64 %inc.i12, %key_len
-  br i1 %exitcond.not.i13, label %_ZL12PrintDataHexPKvm.exit14, label %for.body.i7, !llvm.loop !7
-
-_ZL12PrintDataHexPKvm.exit14:                     ; preds = %for.body.i7, %_ZL12PrintDataHexPKvm.exit.thread
-  %15 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %15)
+  %fputc = call i32 @fputc(i32 10, ptr %13)
   br label %return
 
-return:                                           ; preds = %if.end4, %_ZL12PrintDataHexPKvm.exit14, %if.then2
-  %retval.0 = phi i1 [ false, %_ZL12PrintDataHexPKvm.exit14 ], [ false, %if.then2 ], [ true, %if.end4 ]
+return:                                           ; preds = %if.end4, %_ZL12PrintDataHexPKvm.exit13, %if.then2
+  %retval.0 = phi i1 [ false, %_ZL12PrintDataHexPKvm.exit13 ], [ false, %if.then2 ], [ true, %if.end4 ]
   ret i1 %retval.0
 }
 

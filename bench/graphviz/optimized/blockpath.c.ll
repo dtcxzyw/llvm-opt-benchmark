@@ -75,7 +75,7 @@ block_graph.exit:                                 ; preds = %._crit_edge.i, %3
   %29 = load i32, ptr @clone_graph.id, align 4
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr @clone_graph.id, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef %29)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef %29)
   %31 = getelementptr inbounds i8, ptr %6, i64 31
   %.val.i.i.i.i.i = load i8, ptr %31, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
@@ -90,7 +90,7 @@ block_graph.exit:                                 ; preds = %._crit_edge.i, %3
   br i1 %.not.i.i.i.i, label %38, label %37
 
 37:                                               ; preds = %block_graph.exit
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i.i.i = load i8, ptr %31, align 1
   br label %38
 
@@ -132,7 +132,7 @@ agxbuse.exit.i.i:                                 ; preds = %47, %agxbclear.exit
   %52 = load i32, ptr @clone_graph.id, align 4
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr @clone_graph.id, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef %52)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef %52)
   %.val.i.i.i44.i.i = load i8, ptr %31, align 1
   %.not.i.i.i45.i.i = icmp eq i8 %.val.i.i.i44.i.i, -1
   %54 = load i64, ptr %32, align 8
@@ -144,7 +144,7 @@ agxbuse.exit.i.i:                                 ; preds = %47, %agxbclear.exit
   br i1 %.not.i.i50.i.i, label %58, label %57
 
 57:                                               ; preds = %agxbuse.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i51.i.i = load i8, ptr %31, align 1
   br label %58
 
@@ -785,7 +785,7 @@ remove_pair_edges.exit:                           ; preds = %deglist_sort.exit.i
   %354 = load i32, ptr @spanning_tree.id, align 4
   %355 = add nsw i32 %354, 1
   store i32 %355, ptr @spanning_tree.id, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i32 noundef %354)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef %354)
   %356 = getelementptr inbounds i8, ptr %4, i64 31
   %.val.i.i.i.i = load i8, ptr %356, align 1
   %.not.i.i.i.i62 = icmp eq i8 %.val.i.i.i.i, -1
@@ -800,7 +800,7 @@ remove_pair_edges.exit:                           ; preds = %deglist_sort.exit.i
   br i1 %.not.i.i.i63, label %363, label %362
 
 362:                                              ; preds = %remove_pair_edges.exit
-  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %356, align 1
   br label %363
 
@@ -1764,7 +1764,7 @@ declare i32 @agdelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1807,7 +1807,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -1877,7 +1877,7 @@ declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1922,7 +1922,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #23
   %26 = icmp eq ptr %25, null
@@ -1952,7 +1952,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #6 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 9) %1) unnamed_addr #6 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 

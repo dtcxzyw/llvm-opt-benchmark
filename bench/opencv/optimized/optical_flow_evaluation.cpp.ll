@@ -1130,11 +1130,11 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %446 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #19
   %447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %446)
   %448 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #19
-  invoke fastcc void @_ZN2cvL7makePtrINS_7optflow8PCAPriorEJPKcEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr %448)
+  invoke fastcc void @_ZN2cvL7makePtrINS_7optflow8PCAPriorEJPKcEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %56, ptr %448)
           to label %449 unwind label %462
 
 449:                                              ; preds = %445
-  invoke fastcc void @_ZN2cvL7makePtrINS_7optflow18OpticalFlowPCAFlowEJNS_3PtrINS1_8PCAPriorEEEEEENS3_IT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(16) %56)
+  invoke fastcc void @_ZN2cvL7makePtrINS_7optflow18OpticalFlowPCAFlowEJNS_3PtrINS1_8PCAPriorEEEEEENS3_IT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(16) %56)
           to label %450 unwind label %464
 
 450:                                              ; preds = %449
@@ -1353,7 +1353,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %536 unwind label %374
 
 536:                                              ; preds = %535
-  invoke fastcc void @_ZL13flowToDisplayN2cv3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef nonnull %69)
+  invoke fastcc void @_ZL13flowToDisplayN2cv3MatE(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef %69)
           to label %537 unwind label %544
 
 537:                                              ; preds = %536
@@ -1471,7 +1471,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %578, label %579, label %584
 
 579:                                              ; preds = %576
-  invoke fastcc void @_ZL13endpointErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(ptr dead_on_unwind noalias nonnull writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %25)
+  invoke fastcc void @_ZL13endpointErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(ptr dead_on_unwind noalias writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %25)
           to label %580 unwind label %374
 
 580:                                              ; preds = %579
@@ -1490,7 +1490,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %586, label %587, label %592
 
 587:                                              ; preds = %584
-  invoke fastcc void @_ZL12angularErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(ptr dead_on_unwind noalias nonnull writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %25)
+  invoke fastcc void @_ZL12angularErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(ptr dead_on_unwind noalias writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %25)
           to label %588 unwind label %374
 
 588:                                              ; preds = %587
@@ -2302,7 +2302,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %602
           to label %876 unwind label %937
 
 876:                                              ; preds = %875
-  invoke fastcc void @_ZL13flowToDisplayN2cv3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %159, ptr noundef nonnull %160)
+  invoke fastcc void @_ZL13flowToDisplayN2cv3MatE(ptr dead_on_unwind noalias writable align 8 %159, ptr noundef %160)
           to label %877 unwind label %941
 
 877:                                              ; preds = %876
@@ -2566,7 +2566,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %602
           to label %957 unwind label %965
 
 957:                                              ; preds = %956
-  invoke fastcc void @_ZL14calculateStatsN2cv3MatES0_b(ptr noundef nonnull %166, ptr noundef nonnull %167, i1 noundef zeroext %206)
+  invoke fastcc void @_ZL14calculateStatsN2cv3MatES0_b(ptr noundef %166, ptr noundef %167, i1 noundef zeroext %206)
           to label %958 unwind label %967
 
 958:                                              ; preds = %957
@@ -3421,7 +3421,7 @@ _ZNSt10shared_ptrIN2cv7optflow20DenseRLOFOpticalFlowEED2Ev.exit: ; preds = %1, %
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_7optflow18OpticalFlowPCAFlowEJNS_3PtrINS1_8PCAPriorEEEEEENS3_IT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_7optflow18OpticalFlowPCAFlowEJNS_3PtrINS1_8PCAPriorEEEEEENS3_IT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20, !noalias !18
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !18
@@ -3446,7 +3446,7 @@ _ZNSt10shared_ptrIN2cv7optflow18OpticalFlowPCAFlowEED2Ev.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_7optflow8PCAPriorEJPKcEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_7optflow8PCAPriorEJPKcEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #20, !noalias !21
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !21
@@ -3953,7 +3953,7 @@ declare void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80)) u
 declare noundef double @_ZN2cv16getTickFrequencyEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL13flowToDisplayN2cv3MatE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13flowToDisplayN2cv3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"class.cv::Mat"], align 16
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::Mat", align 8
@@ -4578,7 +4578,7 @@ declare void @_ZN2cvmiERKNS_3MatES2_(ptr dead_on_unwind writable sret(%"class.cv
 declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL14calculateStatsN2cv3MatES0_b(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14calculateStatsN2cv3MatES0_b(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -147,7 +147,7 @@ if.end27:                                         ; preds = %lor.lhs.false
   br i1 %tobool30.not, label %end, label %if.end32
 
 if.end32:                                         ; preds = %if.end27
-  %call33 = call fastcc i32 @get_sni_from_client_hello(ptr noundef %call19, ptr noundef nonnull %hostname)
+  %call33 = call fastcc i32 @get_sni_from_client_hello(ptr noundef %call19, ptr noundef %hostname)
   %call36 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 135, ptr noundef nonnull @.str.12, i32 noundef %call33) #4
   %tobool37.not = icmp eq i32 %call36, 0
   %.pre = load ptr, ptr %hostname, align 8
@@ -215,7 +215,7 @@ if.end26:                                         ; preds = %lor.lhs.false
   br i1 %tobool30.not, label %end, label %if.end32
 
 if.end32:                                         ; preds = %if.end26
-  %call33 = call fastcc i32 @get_sni_from_client_hello(ptr noundef %call18, ptr noundef nonnull %hostname)
+  %call33 = call fastcc i32 @get_sni_from_client_hello(ptr noundef %call18, ptr noundef %hostname)
   %call36 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 188, ptr noundef nonnull @.str.12, i32 noundef %call33) #4
   %tobool37.not = icmp eq i32 %call36, 0
   %.pre = load ptr, ptr %hostname, align 8
@@ -326,7 +326,7 @@ declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @SSL_connect(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_sni_from_client_hello(ptr noundef %bio, ptr nocapture noundef %sni) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_sni_from_client_hello(ptr noundef %bio, ptr nocapture noundef nonnull %sni) unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %pkt5 = alloca %struct.PACKET, align 8
@@ -671,7 +671,7 @@ lor.lhs.false92:                                  ; preds = %lor.lhs.false87
   br i1 %tobool97.not, label %end, label %lor.lhs.false98
 
 lor.lhs.false98:                                  ; preds = %lor.lhs.false92
-  %call99 = call fastcc i32 @PACKET_strndup(ptr noundef nonnull %pkt5, ptr noundef %sni)
+  %call99 = call fastcc i32 @PACKET_strndup(ptr noundef %pkt5, ptr noundef %sni)
   %call102 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @.str.34, i32 noundef %call99) #4
   %tobool103.not = icmp ne i32 %call102, 0
   %spec.select = zext i1 %tobool103.not to i32
@@ -706,7 +706,7 @@ declare i32 @test_uint_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i3
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PACKET_strndup(ptr nocapture noundef readonly %pkt, ptr nocapture noundef %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PACKET_strndup(ptr nocapture noundef nonnull readonly %pkt, ptr nocapture noundef nonnull %data) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef 483) #4

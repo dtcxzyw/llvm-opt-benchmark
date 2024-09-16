@@ -3894,8 +3894,8 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define internal fastcc void @_ZL6report12ReportFormatPKcRKN4Luau8LocationES1_S1_(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #12 {
-  switch i32 %0, label %default.unreachable [
+define internal fastcc void @_ZL6report12ReportFormatPKcRKN4Luau8LocationES1_S1_(i32 noundef range(i32 0, 3) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #12 {
+  switch i32 %0, label %default.unreachable21 [
     i32 0, label %6
     i32 1, label %14
     i32 2, label %28
@@ -3942,7 +3942,7 @@ define internal fastcc void @_ZL6report12ReportFormatPKcRKN4Luau8LocationES1_S1_
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.85, ptr noundef %1, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %39, ptr noundef %3, ptr noundef %4) #29
   br label %41
 
-default.unreachable:                              ; preds = %5
+default.unreachable21:                            ; preds = %5
   unreachable
 
 41:                                               ; preds = %28, %14, %6

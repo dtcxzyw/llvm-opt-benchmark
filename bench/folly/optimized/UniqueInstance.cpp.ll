@@ -402,7 +402,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_14joinB5cxx11ENS1_8PtrRangeE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr readonly %types.coerce0, ptr readnone %types.coerce1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_14joinB5cxx11ENS1_8PtrRangeE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr readonly %types.coerce0, ptr readnone %types.coerce1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ret = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.folly::basic_fbstring", align 8
@@ -664,7 +664,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_16renderINS0_14UniqueInstance5ValueEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef readonly byval(%"struct.folly::detail::UniqueInstance::Value") align 8 %value) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_16renderINS0_14UniqueInstance5ValueEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef readonly byval(%"struct.folly::detail::UniqueInstance::Value") align 8 %value) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %effectiveCapacity.i.i = alloca i64, align 8
   %str.i = alloca %"class.folly::basic_fbstring", align 8

@@ -6328,7 +6328,7 @@ _ZNK5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit.thread: ; preds = %1845, %._c
           to label %1949 unwind label %.loopexit5250
 
 1949:                                             ; preds = %1947
-  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(32) %892)
+  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(32) %892)
           to label %1950 unwind label %.loopexit5250
 
 1950:                                             ; preds = %1949
@@ -7376,7 +7376,7 @@ thread-pre-split4458.thread:                      ; preds = %.thread, %2253, %22
           to label %2401 unwind label %.loopexit.split-lp5186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 2401:                                             ; preds = %2398
-  invoke fastcc void @_ZN5YosysL20add_members_to_scopeEPNS_3AST7AstNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %2399, ptr noundef nonnull %71)
+  invoke fastcc void @_ZN5YosysL20add_members_to_scopeEPNS_3AST7AstNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %2399, ptr noundef %71)
           to label %2402 unwind label %2405
 
 2402:                                             ; preds = %2401
@@ -10216,7 +10216,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   br i1 %3532, label %3533, label %3539
 
 3533:                                             ; preds = %._crit_edge6106
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(32) %84)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(32) %84)
           to label %3534 unwind label %.loopexit.split-lp5147
 
 3534:                                             ; preds = %3533
@@ -10310,12 +10310,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not2073, label %3578, label %3565
 
 3565:                                             ; preds = %3560
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %89, ptr noundef nonnull align 8 dereferenceable(32) %83)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %89, ptr noundef nonnull align 8 dereferenceable(32) %83)
           to label %3566 unwind label %.loopexit.split-lp5147
 
 3566:                                             ; preds = %3565
   %3567 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %89) #34
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %90, ptr noundef nonnull align 8 dereferenceable(32) %84)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %90, ptr noundef nonnull align 8 dereferenceable(32) %84)
           to label %3568 unwind label %3573
 
 3568:                                             ; preds = %3566
@@ -13018,7 +13018,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
           to label %4801 unwind label %4845
 
 4801:                                             ; preds = %4799
-  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %121, ptr noundef nonnull align 8 dereferenceable(32) %892)
+  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %121, ptr noundef nonnull align 8 dereferenceable(32) %892)
           to label %4802 unwind label %4845
 
 4802:                                             ; preds = %4801
@@ -14020,7 +14020,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
   br label %.loopexit.split-lp5082
 
 5233:                                             ; preds = %5227, %5220
-  invoke fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %137, ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %5221)
+  invoke fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %137, ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %5221)
           to label %5234 unwind label %.loopexit.split-lp5082.loopexit.split-lp.loopexit.split-lp.loopexit
 
 5234:                                             ; preds = %5233
@@ -17955,7 +17955,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit3452: ; preds = %6745, %6747
 
 6920:                                             ; preds = %6919
   store ptr %6909, ptr %183, align 8
-  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %185, ptr noundef nonnull align 8 dereferenceable(32) %892)
+  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %185, ptr noundef nonnull align 8 dereferenceable(32) %892)
           to label %6921 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 6921:                                             ; preds = %6920
@@ -18433,7 +18433,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_.exit3479: ; preds = %_
           to label %7154 unwind label %7218
 
 7154:                                             ; preds = %7152
-  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %192, ptr noundef nonnull align 8 dereferenceable(32) %892)
+  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %192, ptr noundef nonnull align 8 dereferenceable(32) %892)
           to label %7155 unwind label %7218
 
 7155:                                             ; preds = %7154
@@ -20383,7 +20383,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit3508: ; preds = %7901, %_ZNSt6
   ]
 
 8028:                                             ; preds = %8020
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %235, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %235, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8029 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8029:                                             ; preds = %8028
@@ -20418,7 +20418,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit3508: ; preds = %7901, %_ZNSt6
   br i1 %8045, label %.thread4595, label %8046
 
 8046:                                             ; preds = %.thread4594, %8041
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %236, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %236, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8047 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8047:                                             ; preds = %8046
@@ -20540,7 +20540,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit3508: ; preds = %7901, %_ZNSt6
           to label %8100 unwind label %8144
 
 8100:                                             ; preds = %8099
-  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %238, ptr noundef nonnull align 8 dereferenceable(32) %892)
+  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %238, ptr noundef nonnull align 8 dereferenceable(32) %892)
           to label %8101 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 8101:                                             ; preds = %8100
@@ -20863,7 +20863,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_.exit3533: ; preds = %_
   br i1 %.not2260, label %8255, label %8242
 
 8242:                                             ; preds = %8235
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %239, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %239, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8243 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8243:                                             ; preds = %8242
@@ -20893,7 +20893,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backEOS3_.exit3533: ; preds = %_
   br i1 %8257, label %8264, label %8258
 
 8258:                                             ; preds = %8255
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %240, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %240, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8259 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8259:                                             ; preds = %8258
@@ -21167,7 +21167,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit3536: ; preds = %8264
   br i1 %.not2254, label %8383, label %8370
 
 8370:                                             ; preds = %8364
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %241, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %241, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8371 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8371:                                             ; preds = %8370
@@ -21422,7 +21422,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3545:               ; preds = %8427, %_ZN5Yosys5RT
   br i1 %.not2249, label %8536, label %8490
 
 8490:                                             ; preds = %8484
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %245, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %245, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8491 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8491:                                             ; preds = %8490
@@ -21459,7 +21459,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3545:               ; preds = %8427, %_ZN5Yosys5RT
   ]
 
 8510:                                             ; preds = %8503
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %246, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %246, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8511 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8511:                                             ; preds = %8510
@@ -21846,7 +21846,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3545:               ; preds = %8427, %_ZN5Yosys5RT
   br i1 %.not2243, label %8753, label %8721
 
 8721:                                             ; preds = %.critedge2491
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %247, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %247, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8722 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8722:                                             ; preds = %8721
@@ -21880,7 +21880,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3545:               ; preds = %8427, %_ZN5Yosys5RT
   br i1 %.not2242, label %8753, label %8740
 
 8740:                                             ; preds = %8734
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %248, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %248, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8741 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8741:                                             ; preds = %8740
@@ -21933,7 +21933,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3545:               ; preds = %8427, %_ZN5Yosys5RT
   br i1 %.not2245, label %8768, label %8774
 
 8768:                                             ; preds = %8767
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %249, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %249, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8769 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8769:                                             ; preds = %8768
@@ -22009,7 +22009,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3545:               ; preds = %8427, %_ZN5Yosys5RT
   br i1 %.not2246, label %8807, label %8813
 
 8807:                                             ; preds = %8806
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %252, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %252, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8808 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8808:                                             ; preds = %8807
@@ -22365,7 +22365,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3545:               ; preds = %8427, %_ZN5Yosys5RT
   br i1 %8990, label %8991, label %.lr.ph6334.preheader
 
 8991:                                             ; preds = %8984
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %257, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %257, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %8992 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 8992:                                             ; preds = %8991
@@ -22699,7 +22699,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit3556: ; preds = %9076, %9078, 
   br i1 %.not2221, label %9129, label %9116
 
 9116:                                             ; preds = %9110
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %264, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %264, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %9117 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 9117:                                             ; preds = %9116
@@ -23044,7 +23044,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit3578: ; preds = %9217, %9219
 _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit3583: ; preds = %9244
   %9250 = load ptr, ptr %9249, align 8
   %9251 = getelementptr inbounds i8, ptr %9250, i64 80
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %289, ptr noundef nonnull align 8 dereferenceable(32) %9251)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %289, ptr noundef nonnull align 8 dereferenceable(32) %9251)
           to label %9252 unwind label %.loopexit.split-lp4988.loopexit.split-lp
 
 9252:                                             ; preds = %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit3583
@@ -23063,7 +23063,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit3583: ; preds = %9244
   %9261 = getelementptr inbounds i8, ptr %9255, i64 8
   %9262 = load ptr, ptr %9261, align 8
   %9263 = getelementptr inbounds i8, ptr %9262, i64 80
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %290, ptr noundef nonnull align 8 dereferenceable(32) %9263)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %290, ptr noundef nonnull align 8 dereferenceable(32) %9263)
           to label %9264 unwind label %.loopexit.split-lp4988.loopexit.split-lp
 
 9264:                                             ; preds = %9260
@@ -23134,7 +23134,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit3583: ; preds = %9244
   %9296 = getelementptr inbounds ptr, ptr %9285, i64 %indvars.iv6821
   %9297 = load ptr, ptr %9296, align 8
   %9298 = getelementptr inbounds i8, ptr %9297, i64 80
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %291, ptr noundef nonnull align 8 dereferenceable(32) %9298)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %291, ptr noundef nonnull align 8 dereferenceable(32) %9298)
           to label %9299 unwind label %.loopexit.split-lp4988.loopexit
 
 9299:                                             ; preds = %9295
@@ -23358,7 +23358,7 @@ thread-pre-split4604:                             ; preds = %9356
   br i1 %or.cond4690, label %9389, label %9402
 
 9389:                                             ; preds = %9380
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %294, ptr noundef nonnull align 8 dereferenceable(32) %7906)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %294, ptr noundef nonnull align 8 dereferenceable(32) %7906)
           to label %9390 unwind label %.loopexit.split-lp4836.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 9390:                                             ; preds = %9389
@@ -23783,7 +23783,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3607:               ; preds = %9539, %9542
           to label %9574 unwind label %9601
 
 9574:                                             ; preds = %9572
-  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %304, ptr noundef nonnull align 8 dereferenceable(32) %892)
+  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %304, ptr noundef nonnull align 8 dereferenceable(32) %892)
           to label %9575 unwind label %9601
 
 9575:                                             ; preds = %9574
@@ -23962,7 +23962,7 @@ _ZN5Yosys3AST7AstNode17set_in_param_flagEbb.exit3611: ; preds = %9637, %9641
           to label %9642 unwind label %9652
 
 9642:                                             ; preds = %_ZN5Yosys3AST7AstNode17set_in_param_flagEbb.exit3611
-  invoke fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %308, ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %309)
+  invoke fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %308, ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %309)
           to label %9643 unwind label %9654
 
 9643:                                             ; preds = %9642
@@ -24041,7 +24041,7 @@ _ZN5Yosys3AST7AstNode17set_in_param_flagEbb.exit3611: ; preds = %9637, %9641
           to label %9671 unwind label %9694
 
 9671:                                             ; preds = %9670
-  invoke fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %315, ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %316)
+  invoke fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %315, ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %316)
           to label %9672 unwind label %9696
 
 9672:                                             ; preds = %9671
@@ -24297,7 +24297,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3615:               ; preds = %9760, %9763
           to label %9770 unwind label %.loopexit.split-lp4969.loopexit.split-lp
 
 9770:                                             ; preds = %9766
-  invoke fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %322, ptr noundef nonnull align 8 dereferenceable(32) %323)
+  invoke fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %322, ptr noundef nonnull align 8 dereferenceable(32) %323)
           to label %9771 unwind label %9784
 
 9771:                                             ; preds = %9770
@@ -24309,7 +24309,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3615:               ; preds = %9760, %9763
           to label %9774 unwind label %.loopexit.split-lp4969.loopexit.split-lp
 
 9774:                                             ; preds = %9771
-  invoke fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %324, ptr noundef nonnull align 8 dereferenceable(32) %325)
+  invoke fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %324, ptr noundef nonnull align 8 dereferenceable(32) %325)
           to label %9775 unwind label %9786
 
 9775:                                             ; preds = %9774
@@ -24402,7 +24402,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3615:               ; preds = %9760, %9763
   br label %.loopexit.split-lp4969
 
 9788:                                             ; preds = %9764
-  invoke fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %326, ptr noundef nonnull align 8 dereferenceable(32) %319)
+  invoke fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %326, ptr noundef nonnull align 8 dereferenceable(32) %319)
           to label %9789 unwind label %.loopexit.split-lp4969.loopexit.split-lp
 
 9789:                                             ; preds = %9788
@@ -24542,7 +24542,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %._crit_edge6997
           to label %9849 unwind label %.loopexit4976
 
 9849:                                             ; preds = %9848
-  invoke fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %332, ptr noundef nonnull align 8 dereferenceable(32) %333)
+  invoke fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %332, ptr noundef nonnull align 8 dereferenceable(32) %333)
           to label %9850 unwind label %9865
 
 9850:                                             ; preds = %9849
@@ -25670,7 +25670,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE6insertIN9__gnu_cxx17__normal_iterator
           to label %10387 unwind label %10390
 
 10387:                                            ; preds = %10386
-  invoke fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %346, ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %347)
+  invoke fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %346, ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %347)
           to label %10388 unwind label %10392
 
 10388:                                            ; preds = %10387
@@ -32252,7 +32252,7 @@ define void @_ZN5Yosys3AST7AstNode23mem2reg_as_needed_pass1ERNS_7hashlib4dictIPS
 57:                                               ; preds = %53
   %58 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictIPNS_3AST7AstNodeENS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsISB_EEEENSC_IS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %59 = getelementptr inbounds i8, ptr %0, i64 232
-  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %59)
+  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %59)
   %60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #34
   %61 = getelementptr inbounds i8, ptr %0, i64 264
   %62 = load i32, ptr %61, align 8
@@ -32354,7 +32354,7 @@ _ZNK5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_
 105:                                              ; preds = %101
   %106 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictIPNS_3AST7AstNodeENS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsISB_EEEENSC_IS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %107 = getelementptr inbounds i8, ptr %0, i64 232
-  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %107)
+  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %107)
   %108 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #34
   %109 = getelementptr inbounds i8, ptr %0, i64 264
   %110 = load i32, ptr %109, align 8
@@ -32500,7 +32500,7 @@ _ZNK5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_
 181:                                              ; preds = %179
   %182 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictIPNS_3AST7AstNodeENS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsISB_EEEENSC_IS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %183 = getelementptr inbounds i8, ptr %0, i64 232
-  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %183)
+  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %183)
   %184 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #34
   %185 = getelementptr inbounds i8, ptr %0, i64 264
   %186 = load i32, ptr %185, align 8
@@ -32586,7 +32586,7 @@ _ZNK5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_
 220:                                              ; preds = %218
   %221 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictIPNS_3AST7AstNodeENS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsISB_EEEENSC_IS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %222 = getelementptr inbounds i8, ptr %0, i64 232
-  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %222)
+  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %222)
   %223 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #34
   %224 = getelementptr inbounds i8, ptr %0, i64 264
   %225 = load i32, ptr %224, align 8
@@ -32749,7 +32749,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 294:                                              ; preds = %290
   %295 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictIPNS_3AST7AstNodeENS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsISB_EEEENSC_IS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(8) %20)
   %296 = getelementptr inbounds i8, ptr %0, i64 232
-  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %296)
+  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %296)
   %297 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #34
   %298 = getelementptr inbounds i8, ptr %0, i64 264
   %299 = load i32, ptr %298, align 8
@@ -34485,7 +34485,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit313: ; preds = %3
 
 442:                                              ; preds = %440
   %443 = getelementptr inbounds i8, ptr %0, i64 232
-  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %443)
+  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %443)
           to label %444 unwind label %586
 
 444:                                              ; preds = %442
@@ -35928,7 +35928,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
 
 1100:                                             ; preds = %1098
   %1101 = getelementptr inbounds i8, ptr %0, i64 232
-  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %1101)
+  invoke fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %1101)
           to label %1102 unwind label %1213
 
 1102:                                             ; preds = %1100
@@ -39146,7 +39146,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
@@ -39319,7 +39319,7 @@ define internal fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112ba
   br i1 %.not20, label %._crit_edge, label %59
 
 ._crit_edge:                                      ; preds = %71, %55
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %73 unwind label %.loopexit.split-lp
 
 73:                                               ; preds = %._crit_edge, %.thread
@@ -40150,7 +40150,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys3AST7AstNo
   %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys3AST7AstNodeESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN5Yosys12AST_INTERNAL13current_scopeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr %8, ptr %80, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  invoke fastcc void @_ZN5YosysL20add_members_to_scopeEPNS_3AST7AstNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN5YosysL20add_members_to_scopeEPNS_3AST7AstNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef %7)
           to label %81 unwind label %82
 
 81:                                               ; preds = %79
@@ -40397,7 +40397,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys3AST7AstNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL20add_members_to_scopeEPNS_3AST7AstNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL20add_members_to_scopeEPNS_3AST7AstNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -40465,7 +40465,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 27:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %26) #34
-  invoke fastcc void @_ZN5YosysL20add_members_to_scopeEPNS_3AST7AstNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %11, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN5YosysL20add_members_to_scopeEPNS_3AST7AstNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %11, ptr noundef %5)
           to label %28 unwind label %35
 
 28:                                               ; preds = %27
@@ -40796,7 +40796,7 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRi.exit: ; preds = %45,
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #34
   %4 = icmp ult i64 %3, 2
   br i1 %4, label %5, label %6
@@ -40848,7 +40848,7 @@ define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_
   br label %29
 
 28:                                               ; preds = %23, %19
-  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1, i64 noundef -1)
+  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1, i64 noundef -1)
   br label %29
 
 29:                                               ; preds = %28, %27, %18, %9, %5
@@ -41690,7 +41690,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12emplace_backIJS2_EEEvDpOT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   %6 = load i8, ptr %5, align 1
@@ -41773,7 +41773,7 @@ define void @_ZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringI
 
 20:                                               ; preds = %17
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %.0.in84)
-  invoke fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  invoke fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias writable align 8 %5, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %21 unwind label %25
 
 21:                                               ; preds = %20
@@ -41820,7 +41820,7 @@ define void @_ZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringI
           to label %33 unwind label %.loopexit71
 
 33:                                               ; preds = %32
-  invoke fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias writable align 8 %6, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
@@ -41944,7 +41944,7 @@ define void @_ZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringI
   br i1 %72, label %"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEPS1_.exit", label %73
 
 73:                                               ; preds = %.lr.ph90
-  call fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %71)
+  call fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %71)
   %74 = getelementptr inbounds i8, ptr %70, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 4
@@ -46403,7 +46403,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EED2Ev.exit434: ; preds = %.body.thread1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define internal fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #34
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %11, label %4
@@ -46421,7 +46421,7 @@ define internal fastcc void @_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_str
   br i1 %.not6, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.60, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.60, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %12
 
 11:                                               ; preds = %7, %4, %2
@@ -47027,9 +47027,9 @@ declare noundef ptr @_ZN5Yosys16VERILOG_FRONTEND9const2astENSt7__cxx1112basic_st
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11ES9_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys12AST_INTERNAL13current_scopeB5cxx11E, i64 16), align 8
   %.not11.i.i.i = icmp eq ptr %4, null
   br i1 %.not11.i.i.i, label %.thread, label %.lr.ph.i.i.i
@@ -47101,7 +47101,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode15expand_genblockERKNSt7__cx
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @_ZN5YosysL9prefix_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 4
@@ -47308,7 +47308,7 @@ define internal fastcc void @_ZN5YosysL32mark_memories_assign_lhs_complexERNS_7h
 28:                                               ; preds = %24
   %29 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictIPNS_3AST7AstNodeENS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsISB_EEEENSC_IS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %30 = getelementptr inbounds i8, ptr %2, i64 232
-  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %30)
+  call fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %30)
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #34
   %32 = getelementptr inbounds i8, ptr %2, i64 264
   %33 = load i32, ptr %32, align 8

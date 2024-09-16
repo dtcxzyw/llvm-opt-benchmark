@@ -513,7 +513,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #2
 declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_116ProcessDataTokenERSt6vectorIPKNS0_5TokenESaIS5_EERNS_14StackAllocatorERPKcSD_jjNS0_9TokenTypeEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %output_tokens, ptr noundef nonnull align 8 dereferenceable(40) %token_allocator, ptr nocapture noundef nonnull align 8 dereferenceable(8) %start, ptr nocapture noundef nonnull align 8 dereferenceable(8) %end, i32 noundef %line, i32 noundef %column, i32 noundef %type, i1 noundef zeroext %must_have_token) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_116ProcessDataTokenERSt6vectorIPKNS0_5TokenESaIS5_EERNS_14StackAllocatorERPKcSD_jjNS0_9TokenTypeEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %output_tokens, ptr noundef nonnull align 8 dereferenceable(40) %token_allocator, ptr nocapture noundef nonnull align 8 dereferenceable(8) %start, ptr nocapture noundef nonnull align 8 dereferenceable(8) %end, i32 noundef %line, i32 noundef %column, i32 noundef range(i32 2, 6) %type, i1 noundef zeroext %must_have_token) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::allocator.5", align 1

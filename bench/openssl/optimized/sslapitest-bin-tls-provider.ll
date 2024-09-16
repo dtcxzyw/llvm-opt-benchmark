@@ -5529,7 +5529,7 @@ declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @xor_key_op(ptr noundef %palg, ptr noundef readonly %p, i32 noundef %plen, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc ptr @xor_key_op(ptr noundef %palg, ptr noundef readonly %p, i32 noundef %plen, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
 entry:
   %ptype = alloca i32, align 4
   %cmp.not = icmp eq ptr %palg, null
@@ -6649,7 +6649,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @EVP_Q_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @xor_sig_digest_signverify_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @xor_sig_digest_signverify_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, i32 noundef range(i32 16, 33) %operation) unnamed_addr #0 {
 entry:
   %flag_allow_md = getelementptr inbounds i8, ptr %vpxor_sigctx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8

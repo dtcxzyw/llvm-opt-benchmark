@@ -1485,7 +1485,7 @@ lpad.i13:                                         ; preds = %cond.true.i11
 
 invoke.cont4:                                     ; preds = %cleanup.action.i14, %cond.end.thread.i15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i9)
-  %call = invoke fastcc noundef zeroext i1 @_ZL17make_texture_implN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeEPKNS_8ImageBufENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS_9ImageSpecEPSo(i32 noundef %mode, ptr noundef null, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef %outstream)
+  %call = invoke fastcc noundef zeroext i1 @_ZL17make_texture_implN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeEPKNS_8ImageBufENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS_9ImageSpecEPSo(i32 noundef %mode, ptr noundef null, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef %outstream)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -1555,7 +1555,7 @@ ehcleanup21:                                      ; preds = %lpad, %lpad.i8, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL17make_texture_implN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeEPKNS_8ImageBufENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS_9ImageSpecEPSo(i32 noundef %mode, ptr noundef %input, ptr noundef %filename, ptr noundef %outputfilename, ptr noundef nonnull align 8 dereferenceable(160) %_configspec, ptr noundef %outstream_ptr) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL17make_texture_implN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeEPKNS_8ImageBufENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS_9ImageSpecEPSo(i32 noundef %mode, ptr noundef %input, ptr noundef nonnull %filename, ptr noundef nonnull %outputfilename, ptr noundef nonnull align 8 dereferenceable(160) %_configspec, ptr noundef %outstream_ptr) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i.i2526 = alloca %struct.timespec, align 8
   %ref.tmp.i.i2527 = alloca %"class.fmt::v8::format_arg_store", align 16
@@ -2594,7 +2594,7 @@ land.rhs164:                                      ; preds = %invoke.cont161
   %m_len.i439 = getelementptr inbounds i8, ptr %agg.tmp166, i64 8
   %call2.i440 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %lastcmdline) #23
   store i64 %call2.i440, ptr %m_len.i439, align 8
-  invoke fastcc void @_ZL17stripdir_cmd_lineB5cxx11N18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nonnull align 8 %ref.tmp165, ptr noundef nonnull %agg.tmp166)
+  invoke fastcc void @_ZL17stripdir_cmd_lineB5cxx11N18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEE(ptr noalias align 8 %ref.tmp165, ptr noundef %agg.tmp166)
           to label %invoke.cont168 unwind label %lpad167
 
 invoke.cont168:                                   ; preds = %land.rhs164
@@ -2603,7 +2603,7 @@ invoke.cont168:                                   ; preds = %land.rhs164
   %m_len.i442 = getelementptr inbounds i8, ptr %agg.tmp170, i64 8
   %call2.i443 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %newcmdline) #23
   store i64 %call2.i443, ptr %m_len.i442, align 8
-  invoke fastcc void @_ZL17stripdir_cmd_lineB5cxx11N18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nonnull align 8 %ref.tmp169, ptr noundef nonnull %agg.tmp170)
+  invoke fastcc void @_ZL17stripdir_cmd_lineB5cxx11N18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEE(ptr noalias align 8 %ref.tmp169, ptr noundef %agg.tmp170)
           to label %invoke.cont172 unwind label %lpad171
 
 invoke.cont172:                                   ; preds = %invoke.cont168
@@ -6937,7 +6937,7 @@ if.then1422:                                      ; preds = %invoke.cont1420
   %m_len.i1421 = getelementptr inbounds i8, ptr %agg.tmp1424, i64 8
   store i64 8, ptr %m_len.i1421, align 8
   %532 = load i64, ptr %date, align 8
-  invoke fastcc void @_ZL10datestringB5cxx11l(ptr noalias nonnull align 8 %ref.tmp1426, i64 noundef %532)
+  invoke fastcc void @_ZL10datestringB5cxx11l(ptr noalias align 8 %ref.tmp1426, i64 noundef %532)
           to label %invoke.cont1427 unwind label %lpad1268
 
 invoke.cont1427:                                  ; preds = %if.then1422
@@ -8623,7 +8623,7 @@ invoke.cont2023:                                  ; preds = %invoke.cont2020
   %call2021.val = load i32, ptr %689, align 4
   %690 = getelementptr inbounds i8, ptr %call2021, i64 40
   %call2021.val376 = load i32, ptr %690, align 8
-  %call2026 = invoke fastcc noundef ptr @_ZL12setup_filterRKN18OpenImageIO_v2_6_09ImageSpecES2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 %call2018.val, i32 %call2018.val375, i32 %call2021.val, i32 %call2021.val376, ptr noundef nonnull %agg.tmp2022)
+  %call2026 = invoke fastcc noundef ptr @_ZL12setup_filterRKN18OpenImageIO_v2_6_09ImageSpecES2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 %call2018.val, i32 %call2018.val375, i32 %call2021.val, i32 %call2021.val376, ptr noundef %agg.tmp2022)
           to label %invoke.cont2025 unwind label %lpad2024
 
 invoke.cont2025:                                  ; preds = %invoke.cont2023
@@ -9832,7 +9832,7 @@ invoke.cont2403:                                  ; preds = %invoke.cont2397
   %m_len.i2294 = getelementptr inbounds i8, ptr %agg.tmp2410, i64 8
   %call2.i2295 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %filtername) #23
   store i64 %call2.i2295, ptr %m_len.i2294, align 8
-  %call2413 = invoke fastcc noundef zeroext i1 @_ZL12write_mipmapN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeERSt10shared_ptrINS_8ImageBufEERKNS_9ImageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11ImageOutputENS_8TypeDescEbNS_17basic_string_viewIcSC_EES8_RSoRdSL_Rm(i32 noundef %mode.addr.2, ptr noundef nonnull align 8 dereferenceable(16) %toplevel, ptr noundef nonnull align 8 dereferenceable(160) %dstspec, ptr noundef nonnull %agg.tmp2402, ptr noundef %773, ptr noundef nonnull %agg.tmp2405, i1 noundef zeroext %774, ptr noundef nonnull %agg.tmp2410, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue, ptr noundef nonnull align 8 dereferenceable(8) %stat_writetime, ptr noundef nonnull align 8 dereferenceable(8) %stat_miptime, ptr noundef nonnull align 8 dereferenceable(8) %peak_mem)
+  %call2413 = invoke fastcc noundef zeroext i1 @_ZL12write_mipmapN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeERSt10shared_ptrINS_8ImageBufEERKNS_9ImageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11ImageOutputENS_8TypeDescEbNS_17basic_string_viewIcSC_EES8_RSoRdSL_Rm(i32 noundef %mode.addr.2, ptr noundef nonnull align 8 dereferenceable(16) %toplevel, ptr noundef nonnull align 8 dereferenceable(160) %dstspec, ptr noundef %agg.tmp2402, ptr noundef %773, ptr noundef %agg.tmp2405, i1 noundef zeroext %774, ptr noundef %agg.tmp2410, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue, ptr noundef nonnull align 8 dereferenceable(8) %stat_writetime, ptr noundef nonnull align 8 dereferenceable(8) %stat_miptime, ptr noundef nonnull align 8 dereferenceable(8) %peak_mem)
           to label %invoke.cont2412 unwind label %lpad2411
 
 invoke.cont2412:                                  ; preds = %invoke.cont2403
@@ -10944,7 +10944,7 @@ lpad.i8:                                          ; preds = %cond.true.i
 
 invoke.cont4:                                     ; preds = %cleanup.action.i, %cond.end.thread.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %call7 = invoke fastcc noundef zeroext i1 @_ZL17make_texture_implN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeEPKNS_8ImageBufENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS_9ImageSpecEPSo(i32 noundef %mode, ptr noundef null, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef %outstream)
+  %call7 = invoke fastcc noundef zeroext i1 @_ZL17make_texture_implN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeEPKNS_8ImageBufENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS_9ImageSpecEPSo(i32 noundef %mode, ptr noundef null, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef %outstream)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -11119,7 +11119,7 @@ lpad.i11:                                         ; preds = %cond.true.i
 
 invoke.cont4:                                     ; preds = %cleanup.action.i, %cond.end.thread.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %call = invoke fastcc noundef zeroext i1 @_ZL17make_texture_implN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeEPKNS_8ImageBufENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS_9ImageSpecEPSo(i32 noundef %mode, ptr noundef nonnull %input, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef %outstream)
+  %call = invoke fastcc noundef zeroext i1 @_ZL17make_texture_implN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeEPKNS_8ImageBufENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS_9ImageSpecEPSo(i32 noundef %mode, ptr noundef nonnull %input, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef %outstream)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -43254,7 +43254,7 @@ declare void @_ZN18OpenImageIO_v2_6_010ImageInput4openERKNSt7__cxx1112basic_stri
 declare void @_ZNK18OpenImageIO_v2_6_09ImageSpec20get_string_attributeENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8, ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17stripdir_cmd_lineB5cxx11N18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef %cmdline) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17stripdir_cmd_lineB5cxx11N18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %cmdline) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i32 = alloca %"class.fmt::v8::format_arg_store.217", align 16
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -46143,7 +46143,7 @@ declare void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_view
 declare void @_ZN18OpenImageIO_v2_6_09ImageSpec15erase_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10datestringB5cxx11l(ptr noalias align 8 %agg.result, i64 noundef %t) unnamed_addr #5 {
+define internal fastcc void @_ZL10datestringB5cxx11l(ptr noalias nonnull align 8 %agg.result, i64 noundef %t) unnamed_addr #5 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp11.i = alloca %"class.fmt::v8::format_arg_store.260", align 16
@@ -46187,7 +46187,7 @@ entry:
   store i64 %retval.i16.sroa.0.0.insert.ext.i.i, ptr %arrayinit.element14.i.i.i, align 16, !alias.scope !386, !noalias !383
   %arrayinit.element15.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 80
   store i64 %retval.i.sroa.0.0.insert.ext.i.i, ptr %arrayinit.element15.i.i.i, align 16, !alias.scope !386, !noalias !383
-  call void @_ZN3fmt2v88vsprintfINS0_17basic_string_viewIcEEcEENSt7__cxx1112basic_stringIT0_St11char_traitsIS6_ESaIS6_EEERKT_NS0_17basic_format_argsINS0_20basic_printf_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS6_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS0_6detail6bufferISJ_EEEE4typeESJ_EEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 1118481, ptr nonnull %ref.tmp11.i)
+  call void @_ZN3fmt2v88vsprintfINS0_17basic_string_viewIcEEcEENSt7__cxx1112basic_stringIT0_St11char_traitsIS6_ESaIS6_EEERKT_NS0_17basic_format_argsINS0_20basic_printf_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS6_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS0_6detail6bufferISJ_EEEE4typeESJ_EEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 1118481, ptr nonnull %ref.tmp11.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp11.i)
   ret void
@@ -47398,7 +47398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL12write_mipmapN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeERSt10shared_ptrINS_8ImageBufEERKNS_9ImageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11ImageOutputENS_8TypeDescEbNS_17basic_string_viewIcSC_EES8_RSoRdSL_Rm(i32 noundef %mode, ptr nocapture noundef nonnull align 8 dereferenceable(16) %img, ptr noundef nonnull align 8 dereferenceable(160) %outspec_template, ptr noundef %outputfilename, ptr noundef %out, ptr nocapture noundef readonly %outputdatatype, i1 noundef zeroext %mipmap, ptr noundef %filtername, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef nonnull align 8 dereferenceable(8) %outstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %stat_writetime, ptr nocapture noundef nonnull align 8 dereferenceable(8) %stat_miptime, ptr nocapture noundef nonnull align 8 dereferenceable(8) %peak_mem) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL12write_mipmapN18OpenImageIO_v2_6_012ImageBufAlgo15MakeTextureModeERSt10shared_ptrINS_8ImageBufEERKNS_9ImageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11ImageOutputENS_8TypeDescEbNS_17basic_string_viewIcSC_EES8_RSoRdSL_Rm(i32 noundef range(i32 5, 3) %mode, ptr nocapture noundef nonnull align 8 dereferenceable(16) %img, ptr noundef nonnull align 8 dereferenceable(160) %outspec_template, ptr noundef nonnull %outputfilename, ptr noundef %out, ptr nocapture noundef nonnull readonly %outputdatatype, i1 noundef zeroext %mipmap, ptr noundef nonnull %filtername, ptr noundef nonnull align 8 dereferenceable(160) %configspec, ptr noundef nonnull align 8 dereferenceable(8) %outstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %stat_writetime, ptr nocapture noundef nonnull align 8 dereferenceable(8) %stat_miptime, ptr nocapture noundef nonnull align 8 dereferenceable(8) %peak_mem) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i.i810 = alloca %struct.timespec, align 8
   %ref.tmp.i.i811 = alloca %"class.fmt::v8::format_arg_store", align 16
@@ -49208,7 +49208,7 @@ invoke.cont416:                                   ; preds = %cleanup.action.i386
   %call414.val = load i32, ptr %196, align 4
   %197 = getelementptr inbounds i8, ptr %call414, i64 40
   %call414.val120 = load i32, ptr %197, align 8
-  %call419 = invoke fastcc noundef ptr @_ZL12setup_filterRKN18OpenImageIO_v2_6_09ImageSpecES2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 %call411.val, i32 %call411.val119, i32 %call414.val, i32 %call414.val120, ptr noundef nonnull %agg.tmp415)
+  %call419 = invoke fastcc noundef ptr @_ZL12setup_filterRKN18OpenImageIO_v2_6_09ImageSpecES2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 %call411.val, i32 %call411.val119, i32 %call414.val, i32 %call414.val120, ptr noundef %agg.tmp415)
           to label %invoke.cont418 unwind label %lpad417
 
 invoke.cont418:                                   ; preds = %invoke.cont416

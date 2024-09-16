@@ -616,7 +616,7 @@ lpad.loopexit.split-lp.i:                         ; preds = %if.end21.i, %if.end
   br label %ehcleanup96.i
 
 if.end.i:                                         ; preds = %invoke.cont6.i, %for.cond.preheader.i, %if.then29
-  %call15.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef nonnull %sherman_limit.i)
+  %call15.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call20, ptr noundef %sherman_limit.i)
           to label %invoke.cont14.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont14.i:                                  ; preds = %if.end.i
@@ -1919,7 +1919,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i16 @_ZN3ue2L17find_sheng_statesERNS_12_GLOBAL__N_18dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS4_EEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull readonly align 8 dereferenceable(48) %accel_escape_info, i64 noundef %max_sheng_states) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i16 @_ZN3ue2L17find_sheng_statesERNS_12_GLOBAL__N_18dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS4_EEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull readonly align 8 dereferenceable(48) %accel_escape_info, i64 noundef range(i64 16, 65) %max_sheng_states) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %cache.i = alloca %"class.std::unordered_map.370", align 8
   %tmp.i.i = alloca %"struct.std::pair", align 8
@@ -3517,7 +3517,7 @@ lpad.loopexit.split-lp.i:                         ; preds = %if.end20.i, %if.end
   br label %ehcleanup89.i
 
 if.end.i:                                         ; preds = %invoke.cont.i, %for.cond.preheader.i, %if.then29
-  %call14.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef nonnull %sherman_limit.i)
+  %call14.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %call21, ptr noundef %sherman_limit.i)
           to label %invoke.cont13.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont13.i:                                  ; preds = %if.end.i
@@ -9538,7 +9538,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %sheng_states, ptr %u.coerce0, i64 %u.coerce1, i32 noundef %depth, ptr noundef nonnull align 8 dereferenceable(56) %cache) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %sheng_states, ptr %u.coerce0, i64 %u.coerce1, i32 noundef range(i32 1, -1) %depth, ptr noundef nonnull align 8 dereferenceable(56) %cache) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"struct.std::pair.388", align 8
   %ref.tmp29 = alloca %"struct.std::pair.388", align 8
@@ -10743,7 +10743,7 @@ cleanup.cont:                                     ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %sheng_end, ptr nocapture noundef writeonly %sherman_base) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L16allocateImplId16ERNS_12_GLOBAL__N_18dfa_infoEtPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %sheng_end, ptr nocapture noundef nonnull writeonly %sherman_base) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %states = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load ptr, ptr %states, align 8
@@ -11281,7 +11281,7 @@ _ZNSt6vectorItSaItEED2Ev.exit208:                 ; preds = %_ZNSt6vectorItSaItE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef %state_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %total_size, i32 noundef %aux_offset, i32 noundef %accel_offset, i32 noundef %accel_count, i32 noundef %arb, i1 noundef zeroext %single, ptr nocapture noundef %nfa) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef range(i64 1, 3) %state_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %total_size, i32 noundef %aux_offset, i32 noundef %accel_offset, i32 noundef %accel_count, i32 noundef %arb, i1 noundef zeroext %single, ptr nocapture noundef %nfa) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %length = getelementptr inbounds i8, ptr %nfa, i64 4
   store i32 %total_size, ptr %length, align 4
@@ -11297,10 +11297,29 @@ entry:
   %conv = trunc i64 %sub.ptr.div.i to i32
   %nPositions = getelementptr inbounds i8, ptr %nfa, i64 20
   store i32 %conv, ptr %nPositions, align 4
-  %cmp.not.i.i = icmp ult i64 %state_size, 4294967296
-  br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit40, label %if.then.i.i
+  %conv.i.i = trunc nuw nsw i64 %state_size to i32
+  %scratchStateSize = getelementptr inbounds i8, ptr %nfa, i64 24
+  store i32 %conv.i.i, ptr %scratchStateSize, align 8
+  %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
+  store i32 %conv.i.i, ptr %streamStateSize, align 4
+  %cmp = icmp eq i64 %state_size, 1
+  %spec.select = select i1 %cmp, i8 19, i8 20
+  %3 = getelementptr inbounds i8, ptr %nfa, i64 8
+  store i8 %spec.select, ptr %3, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64
+  %alpha_remap = getelementptr inbounds i8, ptr %info, i64 56
+  %remap = getelementptr inbounds i8, ptr %nfa, i64 101
+  br label %for.body
 
-if.then.i.i:                                      ; preds = %entry
+for.body:                                         ; preds = %entry, %_ZN3ue29verify_u8ItEEhT_.exit
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %_ZN3ue29verify_u8ItEEhT_.exit ]
+  %4 = load ptr, ptr %alpha_remap, align 8
+  %arrayidx.i.i = getelementptr inbounds [257 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %5 = load i16, ptr %arrayidx.i.i, align 2
+  %cmp.not.i.i = icmp ult i16 %5, 256
+  br i1 %cmp.not.i.i, label %_ZN3ue29verify_u8ItEEhT_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %for.body
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #23
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
@@ -11309,71 +11328,34 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
   unreachable
 
-common.resume:                                    ; preds = %lpad.i.i50, %lpad.i.i44, %lpad.i.i
-  %exception.i.i49.sink = phi ptr [ %exception.i.i49, %lpad.i.i50 ], [ %exception.i.i43, %lpad.i.i44 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i.i50 ], [ %7, %lpad.i.i44 ], [ %3, %lpad.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i49.sink) #23
+common.resume:                                    ; preds = %lpad.i.i39, %lpad.i.i
+  %exception.i.i38.sink = phi ptr [ %exception.i.i38, %lpad.i.i39 ], [ %exception.i.i, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad.i.i39 ], [ %6, %lpad.i.i ]
+  tail call void @__cxa_free_exception(ptr %exception.i.i38.sink) #23
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-_ZN3ue210verify_u32ImEEjT_.exit40:                ; preds = %entry
-  %conv.i.i = trunc nuw i64 %state_size to i32
-  %scratchStateSize = getelementptr inbounds i8, ptr %nfa, i64 24
-  store i32 %conv.i.i, ptr %scratchStateSize, align 8
-  %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
-  store i32 %conv.i.i, ptr %streamStateSize, align 4
-  %cmp = icmp eq i64 %state_size, 1
-  %spec.select = select i1 %cmp, i8 19, i8 20
-  %4 = getelementptr inbounds i8, ptr %nfa, i64 8
-  store i8 %spec.select, ptr %4, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64
-  %alpha_remap = getelementptr inbounds i8, ptr %info, i64 56
-  %remap = getelementptr inbounds i8, ptr %nfa, i64 101
-  br label %for.body
-
-for.body:                                         ; preds = %_ZN3ue210verify_u32ImEEjT_.exit40, %_ZN3ue29verify_u8ItEEhT_.exit
-  %indvars.iv = phi i64 [ 0, %_ZN3ue210verify_u32ImEEjT_.exit40 ], [ %indvars.iv.next, %_ZN3ue29verify_u8ItEEhT_.exit ]
-  %5 = load ptr, ptr %alpha_remap, align 8
-  %arrayidx.i.i = getelementptr inbounds [257 x i16], ptr %5, i64 0, i64 %indvars.iv
-  %6 = load i16, ptr %arrayidx.i.i, align 2
-  %cmp.not.i.i41 = icmp ult i16 %6, 256
-  br i1 %cmp.not.i.i41, label %_ZN3ue29verify_u8ItEEhT_.exit, label %if.then.i.i42
-
-if.then.i.i42:                                    ; preds = %for.body
-  %exception.i.i43 = tail call ptr @__cxa_allocate_exception(i64 48) #23
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i43)
-          to label %invoke.cont.i.i45 unwind label %lpad.i.i44
-
-invoke.cont.i.i45:                                ; preds = %if.then.i.i42
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i43, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
-  unreachable
-
-lpad.i.i44:                                       ; preds = %if.then.i.i42
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue29verify_u8ItEEhT_.exit:                    ; preds = %for.body
-  %conv.i.i46 = trunc nuw i16 %6 to i8
+  %conv.i.i35 = trunc nuw i16 %5 to i8
   %arrayidx = getelementptr inbounds [256 x i8], ptr %remap, i64 0, i64 %indvars.iv
-  store i8 %conv.i.i46, ptr %arrayidx, align 1
+  store i8 %conv.i.i35, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !302
 
 for.end:                                          ; preds = %_ZN3ue29verify_u8ItEEhT_.exit
-  %8 = getelementptr inbounds i8, ptr %info, i64 88
-  %info.val31 = load i16, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %info, i64 88
+  %info.val31 = load i16, ptr %7, align 8
   %cmp.i = icmp ult i16 %info.val31, 2
   %conv.i = zext i16 %info.val31 to i32
   %sub.i = add nsw i32 %conv.i, -1
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
-  %10 = trunc nuw nsw i32 %9 to i8
-  %conv5.i = sub nuw nsw i8 32, %10
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
+  %9 = trunc nuw nsw i32 %8 to i8
+  %conv5.i = sub nuw nsw i8 32, %9
   %retval.0.i = select i1 %cmp.i, i8 1, i8 %conv5.i
   %alphaShift = getelementptr inbounds i8, ptr %nfa, i64 98
   store i8 %retval.0.i, ptr %alphaShift, align 2
@@ -11387,53 +11369,53 @@ for.end:                                          ; preds = %_ZN3ue29verify_u8It
   store i32 %arb, ptr %arb_report, align 8
   %info.val = load ptr, ptr %states, align 8
   %info.val.val = load ptr, ptr %info.val, align 8
-  %11 = getelementptr i8, ptr %info.val, i64 8
-  %info.val.val30 = load ptr, ptr %11, align 8
+  %10 = getelementptr i8, ptr %info.val, i64 8
+  %info.val.val30 = load ptr, ptr %10, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %info.val.val30 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %info.val.val to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
-  %cmp.not.i.i47 = icmp ult i64 %sub.ptr.div.i.i, 65536
-  br i1 %cmp.not.i.i47, label %_ZN3ue210verify_u16ImEEtT_.exit, label %if.then.i.i48
+  %cmp.not.i.i36 = icmp ult i64 %sub.ptr.div.i.i, 65536
+  br i1 %cmp.not.i.i36, label %_ZN3ue210verify_u16ImEEtT_.exit, label %if.then.i.i37
 
-if.then.i.i48:                                    ; preds = %for.end
-  %exception.i.i49 = tail call ptr @__cxa_allocate_exception(i64 48) #23
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i49)
-          to label %invoke.cont.i.i51 unwind label %lpad.i.i50
+if.then.i.i37:                                    ; preds = %for.end
+  %exception.i.i38 = tail call ptr @__cxa_allocate_exception(i64 48) #23
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i38)
+          to label %invoke.cont.i.i40 unwind label %lpad.i.i39
 
-invoke.cont.i.i51:                                ; preds = %if.then.i.i48
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i49, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+invoke.cont.i.i40:                                ; preds = %if.then.i.i37
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i38, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
   unreachable
 
-lpad.i.i50:                                       ; preds = %if.then.i.i48
-  %12 = landingpad { ptr, i32 }
+lpad.i.i39:                                       ; preds = %if.then.i.i37
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %for.end
-  %conv.i.i52 = trunc nuw i64 %sub.ptr.div.i.i to i16
-  store i16 %conv.i.i52, ptr %add.ptr, align 16
+  %conv.i.i41 = trunc nuw i64 %sub.ptr.div.i.i to i16
+  store i16 %conv.i.i41, ptr %add.ptr, align 16
   %raw = getelementptr inbounds i8, ptr %info, i64 8
-  %13 = load ptr, ptr %raw, align 8
-  %start_anchored = getelementptr inbounds i8, ptr %13, i64 40
-  %14 = load i16, ptr %start_anchored, align 8
+  %12 = load ptr, ptr %raw, align 8
+  %start_anchored = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = load i16, ptr %start_anchored, align 8
   %info.val32 = load ptr, ptr %states, align 8
   %info.val32.val = load ptr, ptr %info.val32, align 8
-  %conv.i53 = zext i16 %14 to i64
-  %impl_id.i = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val32.val, i64 %conv.i53, i32 2
-  %15 = load i16, ptr %impl_id.i, align 2
+  %conv.i42 = zext i16 %13 to i64
+  %impl_id.i = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val32.val, i64 %conv.i42, i32 2
+  %14 = load i16, ptr %impl_id.i, align 2
   %start_anchored15 = getelementptr inbounds i8, ptr %nfa, i64 72
-  store i16 %15, ptr %start_anchored15, align 8
-  %16 = load ptr, ptr %raw, align 8
-  %start_floating = getelementptr inbounds i8, ptr %16, i64 42
-  %17 = load i16, ptr %start_floating, align 2
+  store i16 %14, ptr %start_anchored15, align 8
+  %15 = load ptr, ptr %raw, align 8
+  %start_floating = getelementptr inbounds i8, ptr %15, i64 42
+  %16 = load i16, ptr %start_floating, align 2
   %info.val33 = load ptr, ptr %states, align 8
   %info.val33.val = load ptr, ptr %info.val33, align 8
-  %conv.i54 = zext i16 %17 to i64
-  %impl_id.i55 = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val33.val, i64 %conv.i54, i32 2
-  %18 = load i16, ptr %impl_id.i55, align 2
+  %conv.i43 = zext i16 %16 to i64
+  %impl_id.i44 = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val33.val, i64 %conv.i43, i32 2
+  %17 = load i16, ptr %impl_id.i44, align 2
   %start_floating18 = getelementptr inbounds i8, ptr %nfa, i64 74
-  store i16 %18, ptr %start_floating18, align 2
+  store i16 %17, ptr %start_floating18, align 2
   %tobool.not = icmp ne i32 %accel_count, 0
   %conv19 = zext i1 %tobool.not to i8
   %has_accel = getelementptr inbounds i8, ptr %nfa, i64 100
@@ -11442,9 +11424,9 @@ _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %for.end
 
 if.then21:                                        ; preds = %_ZN3ue210verify_u16ImEEtT_.exit
   %flags = getelementptr inbounds i8, ptr %nfa, i64 99
-  %19 = load i8, ptr %flags, align 1
-  %20 = or i8 %19, 1
-  store i8 %20, ptr %flags, align 1
+  %18 = load i8, ptr %flags, align 1
+  %19 = or i8 %18, 1
+  store i8 %19, ptr %flags, align 1
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %_ZN3ue210verify_u16ImEEtT_.exit
@@ -12597,7 +12579,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeItSt4
 declare void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19populateBasicInfo64EmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef %state_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %total_size, i32 noundef %aux_offset, i32 noundef %accel_offset, i32 noundef %accel_count, i32 noundef %arb, i1 noundef zeroext %single, ptr nocapture noundef %nfa) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19populateBasicInfo64EmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef range(i64 1, 3) %state_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %total_size, i32 noundef %aux_offset, i32 noundef %accel_offset, i32 noundef %accel_count, i32 noundef %arb, i1 noundef zeroext %single, ptr nocapture noundef %nfa) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %length = getelementptr inbounds i8, ptr %nfa, i64 4
   store i32 %total_size, ptr %length, align 4
@@ -12613,10 +12595,29 @@ entry:
   %conv = trunc i64 %sub.ptr.div.i to i32
   %nPositions = getelementptr inbounds i8, ptr %nfa, i64 20
   store i32 %conv, ptr %nPositions, align 4
-  %cmp.not.i.i = icmp ult i64 %state_size, 4294967296
-  br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit40, label %if.then.i.i
+  %conv.i.i = trunc nuw nsw i64 %state_size to i32
+  %scratchStateSize = getelementptr inbounds i8, ptr %nfa, i64 24
+  store i32 %conv.i.i, ptr %scratchStateSize, align 8
+  %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
+  store i32 %conv.i.i, ptr %streamStateSize, align 4
+  %cmp = icmp eq i64 %state_size, 1
+  %spec.select = select i1 %cmp, i8 23, i8 24
+  %3 = getelementptr inbounds i8, ptr %nfa, i64 8
+  store i8 %spec.select, ptr %3, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64
+  %alpha_remap = getelementptr inbounds i8, ptr %info, i64 56
+  %remap = getelementptr inbounds i8, ptr %nfa, i64 101
+  br label %for.body
 
-if.then.i.i:                                      ; preds = %entry
+for.body:                                         ; preds = %entry, %_ZN3ue29verify_u8ItEEhT_.exit
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %_ZN3ue29verify_u8ItEEhT_.exit ]
+  %4 = load ptr, ptr %alpha_remap, align 8
+  %arrayidx.i.i = getelementptr inbounds [257 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %5 = load i16, ptr %arrayidx.i.i, align 2
+  %cmp.not.i.i = icmp ult i16 %5, 256
+  br i1 %cmp.not.i.i, label %_ZN3ue29verify_u8ItEEhT_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %for.body
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #23
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
@@ -12625,71 +12626,34 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
   unreachable
 
-common.resume:                                    ; preds = %lpad.i.i50, %lpad.i.i44, %lpad.i.i
-  %exception.i.i49.sink = phi ptr [ %exception.i.i49, %lpad.i.i50 ], [ %exception.i.i43, %lpad.i.i44 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i.i50 ], [ %7, %lpad.i.i44 ], [ %3, %lpad.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i49.sink) #23
+common.resume:                                    ; preds = %lpad.i.i39, %lpad.i.i
+  %exception.i.i38.sink = phi ptr [ %exception.i.i38, %lpad.i.i39 ], [ %exception.i.i, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad.i.i39 ], [ %6, %lpad.i.i ]
+  tail call void @__cxa_free_exception(ptr %exception.i.i38.sink) #23
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-_ZN3ue210verify_u32ImEEjT_.exit40:                ; preds = %entry
-  %conv.i.i = trunc nuw i64 %state_size to i32
-  %scratchStateSize = getelementptr inbounds i8, ptr %nfa, i64 24
-  store i32 %conv.i.i, ptr %scratchStateSize, align 8
-  %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
-  store i32 %conv.i.i, ptr %streamStateSize, align 4
-  %cmp = icmp eq i64 %state_size, 1
-  %spec.select = select i1 %cmp, i8 23, i8 24
-  %4 = getelementptr inbounds i8, ptr %nfa, i64 8
-  store i8 %spec.select, ptr %4, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64
-  %alpha_remap = getelementptr inbounds i8, ptr %info, i64 56
-  %remap = getelementptr inbounds i8, ptr %nfa, i64 101
-  br label %for.body
-
-for.body:                                         ; preds = %_ZN3ue210verify_u32ImEEjT_.exit40, %_ZN3ue29verify_u8ItEEhT_.exit
-  %indvars.iv = phi i64 [ 0, %_ZN3ue210verify_u32ImEEjT_.exit40 ], [ %indvars.iv.next, %_ZN3ue29verify_u8ItEEhT_.exit ]
-  %5 = load ptr, ptr %alpha_remap, align 8
-  %arrayidx.i.i = getelementptr inbounds [257 x i16], ptr %5, i64 0, i64 %indvars.iv
-  %6 = load i16, ptr %arrayidx.i.i, align 2
-  %cmp.not.i.i41 = icmp ult i16 %6, 256
-  br i1 %cmp.not.i.i41, label %_ZN3ue29verify_u8ItEEhT_.exit, label %if.then.i.i42
-
-if.then.i.i42:                                    ; preds = %for.body
-  %exception.i.i43 = tail call ptr @__cxa_allocate_exception(i64 48) #23
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i43)
-          to label %invoke.cont.i.i45 unwind label %lpad.i.i44
-
-invoke.cont.i.i45:                                ; preds = %if.then.i.i42
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i43, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
-  unreachable
-
-lpad.i.i44:                                       ; preds = %if.then.i.i42
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue29verify_u8ItEEhT_.exit:                    ; preds = %for.body
-  %conv.i.i46 = trunc nuw i16 %6 to i8
+  %conv.i.i35 = trunc nuw i16 %5 to i8
   %arrayidx = getelementptr inbounds [256 x i8], ptr %remap, i64 0, i64 %indvars.iv
-  store i8 %conv.i.i46, ptr %arrayidx, align 1
+  store i8 %conv.i.i35, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !312
 
 for.end:                                          ; preds = %_ZN3ue29verify_u8ItEEhT_.exit
-  %8 = getelementptr inbounds i8, ptr %info, i64 88
-  %info.val31 = load i16, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %info, i64 88
+  %info.val31 = load i16, ptr %7, align 8
   %cmp.i = icmp ult i16 %info.val31, 2
   %conv.i = zext i16 %info.val31 to i32
   %sub.i = add nsw i32 %conv.i, -1
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
-  %10 = trunc nuw nsw i32 %9 to i8
-  %conv5.i = sub nuw nsw i8 32, %10
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
+  %9 = trunc nuw nsw i32 %8 to i8
+  %conv5.i = sub nuw nsw i8 32, %9
   %retval.0.i = select i1 %cmp.i, i8 1, i8 %conv5.i
   %alphaShift = getelementptr inbounds i8, ptr %nfa, i64 98
   store i8 %retval.0.i, ptr %alphaShift, align 2
@@ -12703,53 +12667,53 @@ for.end:                                          ; preds = %_ZN3ue29verify_u8It
   store i32 %arb, ptr %arb_report, align 8
   %info.val = load ptr, ptr %states, align 8
   %info.val.val = load ptr, ptr %info.val, align 8
-  %11 = getelementptr i8, ptr %info.val, i64 8
-  %info.val.val30 = load ptr, ptr %11, align 8
+  %10 = getelementptr i8, ptr %info.val, i64 8
+  %info.val.val30 = load ptr, ptr %10, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %info.val.val30 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %info.val.val to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
-  %cmp.not.i.i47 = icmp ult i64 %sub.ptr.div.i.i, 65536
-  br i1 %cmp.not.i.i47, label %_ZN3ue210verify_u16ImEEtT_.exit, label %if.then.i.i48
+  %cmp.not.i.i36 = icmp ult i64 %sub.ptr.div.i.i, 65536
+  br i1 %cmp.not.i.i36, label %_ZN3ue210verify_u16ImEEtT_.exit, label %if.then.i.i37
 
-if.then.i.i48:                                    ; preds = %for.end
-  %exception.i.i49 = tail call ptr @__cxa_allocate_exception(i64 48) #23
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i49)
-          to label %invoke.cont.i.i51 unwind label %lpad.i.i50
+if.then.i.i37:                                    ; preds = %for.end
+  %exception.i.i38 = tail call ptr @__cxa_allocate_exception(i64 48) #23
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i38)
+          to label %invoke.cont.i.i40 unwind label %lpad.i.i39
 
-invoke.cont.i.i51:                                ; preds = %if.then.i.i48
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i49, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+invoke.cont.i.i40:                                ; preds = %if.then.i.i37
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i38, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
   unreachable
 
-lpad.i.i50:                                       ; preds = %if.then.i.i48
-  %12 = landingpad { ptr, i32 }
+lpad.i.i39:                                       ; preds = %if.then.i.i37
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %for.end
-  %conv.i.i52 = trunc nuw i64 %sub.ptr.div.i.i to i16
-  store i16 %conv.i.i52, ptr %add.ptr, align 64
+  %conv.i.i41 = trunc nuw i64 %sub.ptr.div.i.i to i16
+  store i16 %conv.i.i41, ptr %add.ptr, align 64
   %raw = getelementptr inbounds i8, ptr %info, i64 8
-  %13 = load ptr, ptr %raw, align 8
-  %start_anchored = getelementptr inbounds i8, ptr %13, i64 40
-  %14 = load i16, ptr %start_anchored, align 8
+  %12 = load ptr, ptr %raw, align 8
+  %start_anchored = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = load i16, ptr %start_anchored, align 8
   %info.val33 = load ptr, ptr %states, align 8
   %info.val33.val = load ptr, ptr %info.val33, align 8
-  %conv.i53 = zext i16 %14 to i64
-  %impl_id.i = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val33.val, i64 %conv.i53, i32 2
-  %15 = load i16, ptr %impl_id.i, align 2
+  %conv.i42 = zext i16 %13 to i64
+  %impl_id.i = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val33.val, i64 %conv.i42, i32 2
+  %14 = load i16, ptr %impl_id.i, align 2
   %start_anchored15 = getelementptr inbounds i8, ptr %nfa, i64 72
-  store i16 %15, ptr %start_anchored15, align 8
-  %16 = load ptr, ptr %raw, align 8
-  %start_floating = getelementptr inbounds i8, ptr %16, i64 42
-  %17 = load i16, ptr %start_floating, align 2
+  store i16 %14, ptr %start_anchored15, align 8
+  %15 = load ptr, ptr %raw, align 8
+  %start_floating = getelementptr inbounds i8, ptr %15, i64 42
+  %16 = load i16, ptr %start_floating, align 2
   %info.val32 = load ptr, ptr %states, align 8
   %info.val32.val = load ptr, ptr %info.val32, align 8
-  %conv.i54 = zext i16 %17 to i64
-  %impl_id.i55 = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val32.val, i64 %conv.i54, i32 2
-  %18 = load i16, ptr %impl_id.i55, align 2
+  %conv.i43 = zext i16 %16 to i64
+  %impl_id.i44 = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val32.val, i64 %conv.i43, i32 2
+  %17 = load i16, ptr %impl_id.i44, align 2
   %start_floating18 = getelementptr inbounds i8, ptr %nfa, i64 74
-  store i16 %18, ptr %start_floating18, align 2
+  store i16 %17, ptr %start_floating18, align 2
   %tobool.not = icmp ne i32 %accel_count, 0
   %conv19 = zext i1 %tobool.not to i8
   %has_accel = getelementptr inbounds i8, ptr %nfa, i64 100
@@ -12758,9 +12722,9 @@ _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %for.end
 
 if.then21:                                        ; preds = %_ZN3ue210verify_u16ImEEtT_.exit
   %flags = getelementptr inbounds i8, ptr %nfa, i64 99
-  %19 = load i8, ptr %flags, align 1
-  %20 = or i8 %19, 1
-  store i8 %20, ptr %flags, align 1
+  %18 = load i8, ptr %flags, align 1
+  %19 = or i8 %18, 1
+  store i8 %19, ptr %flags, align 1
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %_ZN3ue210verify_u16ImEEtT_.exit

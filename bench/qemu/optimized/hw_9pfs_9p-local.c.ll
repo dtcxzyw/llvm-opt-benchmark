@@ -2502,7 +2502,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare i64 @readlinkat(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @local_set_xattrat(i32 noundef %dirfd, ptr noundef %path, ptr nocapture noundef readonly %credp) unnamed_addr #0 {
+define internal fastcc i32 @local_set_xattrat(i32 noundef range(i32 0, -1) %dirfd, ptr noundef %path, ptr nocapture noundef readonly %credp) unnamed_addr #0 {
 entry:
   %tmp_uid = alloca i32, align 4
   %tmp_gid = alloca i32, align 4
@@ -2563,7 +2563,7 @@ return:                                           ; preds = %if.then24, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @local_set_mapped_file_attrat(i32 noundef %dirfd, ptr noundef %name, ptr nocapture noundef readonly %credp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @local_set_mapped_file_attrat(i32 noundef range(i32 0, -1) %dirfd, ptr noundef %name, ptr nocapture noundef readonly %credp) unnamed_addr #0 {
 entry:
   %buf = alloca [100 x i8], align 16
   %0 = load i8, ptr %name, align 1
@@ -2843,7 +2843,7 @@ return:                                           ; preds = %if.then14.i56, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @fchmodat_nofollow(i32 noundef %dirfd, ptr noundef %name, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc noundef i32 @fchmodat_nofollow(i32 noundef range(i32 0, -1) %dirfd, ptr noundef %name, i32 noundef %mode) unnamed_addr #0 {
 entry:
   %stbuf = alloca %struct.stat, align 8
   %call = call i32 @fstatat64(i32 noundef %dirfd, ptr noundef %name, ptr noundef nonnull %stbuf, i32 noundef 256) #15
@@ -2933,7 +2933,7 @@ declare i32 @unlinkat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @local_unlinkat_common(i32 %ctx.16.val, i32 noundef %dirfd, ptr noundef %name, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @local_unlinkat_common(i32 %ctx.16.val, i32 noundef range(i32 0, -1) %dirfd, ptr noundef %name, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %and = and i32 %ctx.16.val, 32
   %tobool.not = icmp eq i32 %and, 0

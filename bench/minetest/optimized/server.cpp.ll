@@ -53762,7 +53762,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115writeToTempFileB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 %content.coerce0, ptr %content.coerce1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115writeToTempFileB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i64 %content.coerce0, ptr %content.coerce1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %filepath = alloca %"class.std::__cxx11::basic_string", align 8
   %os = alloca %"class.std::basic_ofstream", align 8

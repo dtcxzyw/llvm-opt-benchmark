@@ -6765,7 +6765,7 @@ if.then13.i.i5264:                                ; preds = %if.else.i.i5262
 invoke.cont1073:                                  ; preds = %if.else.i.i5262, %if.then.i.i5266, %if.then13.i.i5264
   %625 = load ptr, ptr %d_data, align 8
   %d_ms1075 = getelementptr inbounds i8, ptr %625, i64 80
-  %call1078 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl12_GLOBAL__N_115hasNewMonomialsENS0_12NodeTemplateILb1EEERKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull %agg.tmp1071, ptr noundef nonnull align 8 dereferenceable(24) %d_ms1075)
+  %call1078 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl12_GLOBAL__N_115hasNewMonomialsENS0_12NodeTemplateILb1EEERKSt6vectorIS6_SaIS6_EE(ptr noundef %agg.tmp1071, ptr noundef nonnull align 8 dereferenceable(24) %d_ms1075)
           to label %invoke.cont1077 unwind label %lpad1076
 
 invoke.cont1077:                                  ; preds = %invoke.cont1073
@@ -17927,7 +17927,7 @@ if.then13.i.i918:                                 ; preds = %if.else.i.i916
 invoke.cont231:                                   ; preds = %if.else.i.i916, %if.then.i.i920, %if.then13.i.i918
   %81 = load ptr, ptr %d_data, align 8
   %d_ms = getelementptr inbounds i8, ptr %81, i64 80
-  %call235 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl12_GLOBAL__N_115hasNewMonomialsENS0_12NodeTemplateILb1EEERKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull %agg.tmp230, ptr noundef nonnull align 8 dereferenceable(24) %d_ms)
+  %call235 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl12_GLOBAL__N_115hasNewMonomialsENS0_12NodeTemplateILb1EEERKSt6vectorIS6_SaIS6_EE(ptr noundef %agg.tmp230, ptr noundef nonnull align 8 dereferenceable(24) %d_ms)
           to label %invoke.cont234 unwind label %lpad233
 
 invoke.cont234:                                   ; preds = %invoke.cont231
@@ -18746,7 +18746,7 @@ if.then13.i.i1296:                                ; preds = %if.else.i.i1294
 invoke.cont327:                                   ; preds = %if.else.i.i1294, %if.then.i.i1298, %if.then13.i.i1296
   %166 = load ptr, ptr %d_data, align 8
   %d_ms329 = getelementptr inbounds i8, ptr %166, i64 80
-  %call332 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl12_GLOBAL__N_115hasNewMonomialsENS0_12NodeTemplateILb1EEERKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull %agg.tmp326, ptr noundef nonnull align 8 dereferenceable(24) %d_ms329)
+  %call332 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl12_GLOBAL__N_115hasNewMonomialsENS0_12NodeTemplateILb1EEERKSt6vectorIS6_SaIS6_EE(ptr noundef %agg.tmp326, ptr noundef nonnull align 8 dereferenceable(24) %d_ms329)
           to label %invoke.cont331 unwind label %lpad330
 
 invoke.cont331:                                   ; preds = %invoke.cont327

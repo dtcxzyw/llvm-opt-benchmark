@@ -3038,7 +3038,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125ExplicitRewriteDescriptor
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  tail call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   %12 = tail call noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr %10, i64 %11) #16
@@ -3068,7 +3068,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -3290,7 +3290,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread41:       ; preds = %58, %_ZN4llvmeqENS_
   %74 = load ptr, ptr %25, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 %73, ptr %74, ptr noundef nonnull align 1 dereferenceable(1) %19) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #16
   %75 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
@@ -3362,7 +3362,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125ExplicitRewriteDescriptor
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  tail call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   %12 = tail call noundef ptr @_ZNK4llvm6Module17getGlobalVariableENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr %10, i64 %11, i1 noundef zeroext false) #16
@@ -3541,7 +3541,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread41:       ; preds = %58, %_ZN4llvmeqENS_
   %74 = load ptr, ptr %25, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 %73, ptr %74, ptr noundef nonnull align 1 dereferenceable(1) %19) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #16
   %75 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
@@ -3617,7 +3617,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125ExplicitRewriteDescriptor
 
 _ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalAliasEEEDcPT0_.exit: ; preds = %8, %8, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  tail call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
   br label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalAliasEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalAliasEEEDcPT0_.exit.thread: ; preds = %8, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalAliasEEEDcPT0_.exit
@@ -3808,7 +3808,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalAliasEEEDcPT0_.exit: ; preds = %_
   %75 = load ptr, ptr %25, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 %74, ptr %75, ptr noundef nonnull align 1 dereferenceable(1) %19) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call fastcc void @_ZL13rewriteComdatRN4llvm6ModuleEPNS_12GlobalObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #16
   br label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalAliasEEEDcPT0_.exit.thread

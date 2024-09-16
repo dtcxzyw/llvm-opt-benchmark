@@ -2696,7 +2696,7 @@ tailrecurse.backedge:                             ; preds = %244, %124, %212, %2
   %225 = load ptr, ptr %0, align 8
   %226 = getelementptr inbounds i8, ptr %219, i64 160
   %227 = load i32, ptr %226, align 8
-  call fastcc void @_ZN7jsonnet8internalL10bop_stringB5cxx11ENS0_8BinaryOpE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %227)
+  call fastcc void @_ZN7jsonnet8internalL10bop_stringB5cxx11ENS0_8BinaryOpE(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %227)
   %228 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %225, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %229 unwind label %232
 
@@ -2878,7 +2878,7 @@ common.ret701:                                    ; preds = %436, %189, %229, %3
   tail call void @_ZN7jsonnet8internal11fodder_fillERSoRKSt6vectorINS0_13FodderElementESaIS3_EEbbb(ptr noundef nonnull align 8 dereferenceable(8) %329, ptr noundef nonnull align 8 dereferenceable(24) %328, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   %330 = load ptr, ptr %0, align 8
   %331 = load ptr, ptr %323, align 8
-  call fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %331)
+  call fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %331)
   %332 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %330, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %333 unwind label %334
 
@@ -2994,7 +2994,7 @@ common.ret701:                                    ; preds = %436, %189, %229, %3
   %388 = load ptr, ptr %0, align 8
   %389 = getelementptr inbounds i8, ptr %.sroa.0342.0489, i64 24
   %390 = load ptr, ptr %389, align 8
-  call fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %390)
+  call fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %390)
   %391 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %388, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %392 unwind label %403
 
@@ -3090,7 +3090,7 @@ common.ret701:                                    ; preds = %436, %189, %229, %3
   %441 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %440, ptr noundef nonnull @.str.65)
   %442 = load ptr, ptr %0, align 8
   %443 = getelementptr inbounds i8, ptr %435, i64 128
-  call fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %443)
+  call fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %443)
   %444 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %442, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %445 unwind label %448
 
@@ -3110,7 +3110,7 @@ common.ret701:                                    ; preds = %436, %189, %229, %3
   %452 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %451, ptr noundef nonnull @.str.66)
   %453 = load ptr, ptr %0, align 8
   %454 = getelementptr inbounds i8, ptr %435, i64 128
-  call fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %454)
+  call fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %454)
   %455 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %453, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %456 unwind label %459
 
@@ -3473,7 +3473,7 @@ switch.lookup:                                    ; preds = %.lr.ph503
   %647 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %646, ptr noundef nonnull @.str.80)
   %648 = getelementptr inbounds i8, ptr %636, i64 144
   %649 = load ptr, ptr %648, align 8
-  call fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %649)
+  call fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %649)
   %650 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %647, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %651 unwind label %658
 
@@ -3547,7 +3547,7 @@ switch.lookup:                                    ; preds = %.lr.ph503
   tail call void @_ZN7jsonnet8internal11fodder_fillERSoRKSt6vectorINS0_13FodderElementESaIS3_EEbbb(ptr noundef nonnull align 8 dereferenceable(8) %689, ptr noundef nonnull align 8 dereferenceable(24) %688, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   %690 = load ptr, ptr %0, align 8
   %691 = load ptr, ptr %683, align 8
-  call fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %691)
+  call fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %691)
   %692 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %690, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %693 unwind label %694
 
@@ -3581,7 +3581,7 @@ switch.lookup:                                    ; preds = %.lr.ph503
   %707 = load ptr, ptr %0, align 8
   %708 = getelementptr inbounds i8, ptr %705, i64 128
   %709 = load i32, ptr %708, align 8
-  call fastcc void @_ZN7jsonnet8internalL10uop_stringB5cxx11ENS0_7UnaryOpE(ptr dead_on_unwind noalias nonnull writable align 8 %15, i32 noundef %709)
+  call fastcc void @_ZN7jsonnet8internalL10uop_stringB5cxx11ENS0_7UnaryOpE(ptr dead_on_unwind noalias writable align 8 %15, i32 noundef %709)
   %710 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %707, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %711 unwind label %714
 
@@ -3606,7 +3606,7 @@ switch.lookup:                                    ; preds = %.lr.ph503
   %719 = load ptr, ptr %0, align 8
   %720 = getelementptr inbounds i8, ptr %717, i64 128
   %721 = load ptr, ptr %720, align 8
-  call fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %721)
+  call fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %721)
   %722 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %719, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %723 unwind label %724
 
@@ -5477,7 +5477,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i: ; preds = %.lr.ph.i.i15.i,
           to label %84 unwind label %121
 
 84:                                               ; preds = %83
-  invoke fastcc void @_ZN7jsonnet8internalL13concat_fodderERKSt6vectorINS0_13FodderElementESaIS2_EES6_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN7jsonnet8internalL13concat_fodderERKSt6vectorINS0_13FodderElementESaIS2_EES6_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %85 unwind label %121
 
 85:                                               ; preds = %84
@@ -7193,7 +7193,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10Impor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internalL13concat_fodderERKSt6vectorINS0_13FodderElementESaIS2_EES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internalL13concat_fodderERKSt6vectorINS0_13FodderElementESaIS2_EES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -17241,7 +17241,7 @@ define linkonce_odr void @_ZN7jsonnet8internal17FixTrailingCommas5visitEPNS0_19O
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7jsonnet8internalL17fodder_move_frontERSt6vectorINS0_13FodderElementESaIS2_EES5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
-  call fastcc void @_ZN7jsonnet8internalL13concat_fodderERKSt6vectorINS0_13FodderElementESaIS2_EES6_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZN7jsonnet8internalL13concat_fodderERKSt6vectorINS0_13FodderElementESaIS2_EES6_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -17411,7 +17411,7 @@ define linkonce_odr void @_ZN7jsonnet8internal17FixTrailingCommas12remove_commaE
 
 8:                                                ; preds = %4
   store i8 0, ptr %2, align 1
-  call fastcc void @_ZN7jsonnet8internalL13concat_fodderERKSt6vectorINS0_13FodderElementESaIS2_EES6_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN7jsonnet8internalL13concat_fodderERKSt6vectorINS0_13FodderElementESaIS2_EES6_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -22062,7 +22062,7 @@ _ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElemen
   call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %684, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %730)
   %731 = getelementptr inbounds i8, ptr %679, i64 160
   %732 = load i32, ptr %731, align 8
-  call fastcc void @_ZN7jsonnet8internalL10bop_stringB5cxx11ENS0_8BinaryOpE(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 noundef %732)
+  call fastcc void @_ZN7jsonnet8internalL10bop_stringB5cxx11ENS0_8BinaryOpE(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %732)
   %733 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   %734 = load i32, ptr %728, align 4
   %735 = trunc i64 %733 to i32
@@ -23644,7 +23644,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 1578:                                             ; preds = %1576
   %1579 = getelementptr inbounds i8, ptr %1577, i64 128
   %1580 = load i32, ptr %1579, align 8
-  call fastcc void @_ZN7jsonnet8internalL10uop_stringB5cxx11ENS0_7UnaryOpE(ptr dead_on_unwind noalias nonnull writable align 8 %33, i32 noundef %1580)
+  call fastcc void @_ZN7jsonnet8internalL10uop_stringB5cxx11ENS0_7UnaryOpE(ptr dead_on_unwind noalias writable align 8 %33, i32 noundef %1580)
   %1581 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #25
   %1582 = getelementptr inbounds i8, ptr %0, i64 28
   %1583 = load i32, ptr %1582, align 4
@@ -24431,7 +24431,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internalL10bop_stringB5cxx11ENS0_8BinaryOpE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internalL10bop_stringB5cxx11ENS0_8BinaryOpE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.21", align 1
   %4 = alloca %"class.std::allocator.21", align 1
   %5 = alloca %"class.std::allocator.21", align 1
@@ -26752,7 +26752,7 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internalL10uop_stringB5cxx11ENS0_7UnaryOpE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internalL10uop_stringB5cxx11ENS0_7UnaryOpE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.21", align 1
   %4 = alloca %"class.std::allocator.21", align 1
   %5 = alloca %"class.std::allocator.21", align 1

@@ -15626,7 +15626,7 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #11
 declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr nocapture noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef readonly byval(%"struct.pbrt::BVHPrimitive") align 8 %__value, i32 %__comp.coerce) unnamed_addr #10 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr nocapture noundef %__first, i64 noundef range(i64 0, 144115188075855871) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr nocapture noundef readonly byval(%"struct.pbrt::BVHPrimitive") align 8 %__value, i32 %__comp.coerce) unnamed_addr #10 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -15761,7 +15761,7 @@ if.end17:                                         ; preds = %if.then10, %land.lh
   %agg.tmp.sroa.4.0.copyload = load <2 x float>, ptr %agg.tmp.sroa.4.0.__value.sroa_idx, align 4
   %agg.tmp.sroa.5.0.__value.sroa_idx = getelementptr inbounds i8, ptr %__value, i64 28
   %agg.tmp.sroa.5.0.copyload = load float, ptr %agg.tmp.sroa.5.0.__value.sroa_idx, align 4
-  %cmp12.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp12.i = icmp ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp12.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_RT2_.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end17
@@ -15841,7 +15841,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr nocapture noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef readonly byval(%"struct.pbrt::BVHPrimitive") align 8 %__value, i32 %__comp.coerce) unnamed_addr #10 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr nocapture noundef %__first, i64 noundef range(i64 0, 144115188075855871) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr nocapture noundef readonly byval(%"struct.pbrt::BVHPrimitive") align 8 %__value, i32 %__comp.coerce) unnamed_addr #10 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -15976,7 +15976,7 @@ if.end17:                                         ; preds = %if.then10, %land.lh
   %agg.tmp.sroa.4.0.copyload = load <2 x float>, ptr %agg.tmp.sroa.4.0.__value.sroa_idx, align 4
   %agg.tmp.sroa.5.0.__value.sroa_idx = getelementptr inbounds i8, ptr %__value, i64 28
   %agg.tmp.sroa.5.0.copyload = load float, ptr %agg.tmp.sroa.5.0.__value.sroa_idx, align 4
-  %cmp12.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp12.i = icmp ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp12.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_RT2_.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end17

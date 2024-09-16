@@ -6952,7 +6952,7 @@ _ZN7testing7MessagelsIdEERS0_RKT_.exit265:        ; preds = %_ZN7testing7Message
   br label %666
 
 582:                                              ; preds = %496
-  %583 = invoke fastcc noundef i32 @_ZL15countViolationsRKN2cv3MatES2_S2_dPdS3_(ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(96) %54, double noundef %3, ptr noundef nonnull %65, ptr noundef nonnull %66)
+  %583 = invoke fastcc noundef i32 @_ZL15countViolationsRKN2cv3MatES2_S2_dPdS3_(ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(96) %54, double noundef %3, ptr noundef %65, ptr noundef %66)
           to label %584 unwind label %530
 
 584:                                              ; preds = %582
@@ -7914,7 +7914,7 @@ _ZN7testing7MessagelsIdEERS0_RKT_.exit347:        ; preds = %_ZN7testing7Message
   br label %1023
 
 945:                                              ; preds = %865
-  %946 = invoke fastcc noundef i32 @_ZL15countViolationsRKN2cv3MatES2_S2_dPdS3_(ptr noundef nonnull align 8 dereferenceable(96) %81, ptr noundef nonnull align 8 dereferenceable(96) %82, ptr noundef nonnull align 8 dereferenceable(96) %94, double noundef %3, ptr noundef nonnull %105, ptr noundef nonnull %106)
+  %946 = invoke fastcc noundef i32 @_ZL15countViolationsRKN2cv3MatES2_S2_dPdS3_(ptr noundef nonnull align 8 dereferenceable(96) %81, ptr noundef nonnull align 8 dereferenceable(96) %82, ptr noundef nonnull align 8 dereferenceable(96) %94, double noundef %3, ptr noundef %105, ptr noundef %106)
           to label %947 unwind label %899
 
 947:                                              ; preds = %945
@@ -8400,7 +8400,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL15countViolationsRKN2cv3MatES2_S2_dPdS3_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, double noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL15countViolationsRKN2cv3MatES2_S2_dPdS3_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, double noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef nonnull %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Mat", align 8
   %9 = alloca %"class.cv::_OutputArray", align 8
@@ -8581,7 +8581,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit45:               ; preds = %44
   store i32 16842752, ptr %28, align 8
   %83 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %17, ptr %83, align 8
-  invoke void @_ZN2cv9minMaxIdxERKNS_11_InputArrayEPdS3_PiS4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef null, ptr noundef %5, ptr noundef null, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  invoke void @_ZN2cv9minMaxIdxERKNS_11_InputArrayEPdS3_PiS4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %28)
           to label %84 unwind label %119
 
 84:                                               ; preds = %77
@@ -19464,7 +19464,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture readonly %4) unnamed_addr #29 {
+define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 1152921504606846975) %1, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %2, i32 noundef %3, ptr nocapture readonly %4) unnamed_addr #29 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7

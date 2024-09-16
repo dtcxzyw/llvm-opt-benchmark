@@ -11,18 +11,18 @@ define i32 @Map_CanonComputeSlow(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %8, label %9, label %55
 
 9:                                                ; preds = %6
-  %.not75 = icmp eq i32 %2, 31
-  br i1 %.not75, label %._crit_edge, label %.lr.ph72
+  %.not72 = icmp eq i32 %2, 31
+  br i1 %.not72, label %._crit_edge, label %.lr.ph70
 
-.lr.ph72:                                         ; preds = %9
+.lr.ph70:                                         ; preds = %9
   %10 = icmp sgt i32 %1, 0
   %wide.trip.count.i = zext nneg i32 %1 to i64
-  %smax79 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
+  %smax76 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br i1 %10, label %.lr.ph.preheader.i.us, label %Map_CanonComputePhase.exit
 
-.lr.ph.preheader.i.us:                            ; preds = %.lr.ph72, %34
-  %.071.us = phi i32 [ %35, %34 ], [ 0, %.lr.ph72 ]
-  %.04870.us = phi i32 [ %.149.us, %34 ], [ 0, %.lr.ph72 ]
+.lr.ph.preheader.i.us:                            ; preds = %.lr.ph70, %34
+  %.069.us = phi i32 [ %35, %34 ], [ 0, %.lr.ph70 ]
+  %.04868.us = phi i32 [ %.149.us, %34 ], [ 0, %.lr.ph70 ]
   %11 = load i32, ptr %3, align 4
   br label %.lr.ph.i.us
 
@@ -30,7 +30,7 @@ define i32 @Map_CanonComputeSlow(ptr nocapture noundef readonly %0, i32 noundef 
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %22 ]
   %.018.i.us = phi i32 [ 1, %.lr.ph.preheader.i.us ], [ %23, %22 ]
   %.01516.i.us = phi i32 [ %11, %.lr.ph.preheader.i.us ], [ %.1.i.us, %22 ]
-  %12 = and i32 %.018.i.us, %.071.us
+  %12 = and i32 %.018.i.us, %.069.us
   %.not.i.us = icmp eq i32 %12, 0
   br i1 %.not.i.us, label %22, label %13
 
@@ -54,38 +54,38 @@ define i32 @Map_CanonComputeSlow(ptr nocapture noundef readonly %0, i32 noundef 
 
 24:                                               ; preds = %Map_CanonComputePhase.exit.loopexit.us
   %25 = icmp eq i32 %36, %.1.i.us
-  %26 = icmp slt i32 %.04870.us, 4
+  %26 = icmp slt i32 %.04868.us, 4
   %or.cond.us = select i1 %25, i1 %26, i1 false
   br i1 %or.cond.us, label %27, label %34
 
 27:                                               ; preds = %24
-  %28 = trunc i32 %.071.us to i8
-  %29 = add nsw i32 %.04870.us, 1
-  %30 = sext i32 %.04870.us to i64
+  %28 = trunc i32 %.069.us to i8
+  %29 = add nsw i32 %.04868.us, 1
+  %30 = sext i32 %.04868.us to i64
   %31 = getelementptr inbounds i8, ptr %4, i64 %30
   store i8 %28, ptr %31, align 1
   br label %34
 
 32:                                               ; preds = %Map_CanonComputePhase.exit.loopexit.us
   store i32 %.1.i.us, ptr %5, align 4
-  %33 = trunc i32 %.071.us to i8
+  %33 = trunc i32 %.069.us to i8
   store i8 %33, ptr %4, align 1
   br label %34
 
 34:                                               ; preds = %32, %27, %24
-  %.149.us = phi i32 [ 1, %32 ], [ %29, %27 ], [ %.04870.us, %24 ]
-  %35 = add nuw nsw i32 %.071.us, 1
-  %exitcond80.not = icmp eq i32 %35, %smax79
-  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !6
+  %.149.us = phi i32 [ 1, %32 ], [ %29, %27 ], [ %.04868.us, %24 ]
+  %35 = add nuw nsw i32 %.069.us, 1
+  %exitcond77.not = icmp eq i32 %35, %smax76
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !6
 
 Map_CanonComputePhase.exit.loopexit.us:           ; preds = %22
   %36 = load i32, ptr %5, align 4
   %37 = icmp ugt i32 %36, %.1.i.us
   br i1 %37, label %32, label %24
 
-Map_CanonComputePhase.exit:                       ; preds = %.lr.ph72, %51
-  %.071 = phi i32 [ %52, %51 ], [ 0, %.lr.ph72 ]
-  %.04870 = phi i32 [ %.149, %51 ], [ 0, %.lr.ph72 ]
+Map_CanonComputePhase.exit:                       ; preds = %.lr.ph70, %51
+  %.069 = phi i32 [ %52, %51 ], [ 0, %.lr.ph70 ]
+  %.04868 = phi i32 [ %.149, %51 ], [ 0, %.lr.ph70 ]
   %38 = load i32, ptr %3, align 4
   %39 = load i32, ptr %5, align 4
   %40 = icmp ugt i32 %39, %38
@@ -93,29 +93,29 @@ Map_CanonComputePhase.exit:                       ; preds = %.lr.ph72, %51
 
 41:                                               ; preds = %Map_CanonComputePhase.exit
   store i32 %38, ptr %5, align 4
-  %42 = trunc i32 %.071 to i8
+  %42 = trunc i32 %.069 to i8
   store i8 %42, ptr %4, align 1
   br label %51
 
 43:                                               ; preds = %Map_CanonComputePhase.exit
   %44 = icmp eq i32 %39, %38
-  %45 = icmp slt i32 %.04870, 4
+  %45 = icmp slt i32 %.04868, 4
   %or.cond = select i1 %44, i1 %45, i1 false
   br i1 %or.cond, label %46, label %51
 
 46:                                               ; preds = %43
-  %47 = trunc i32 %.071 to i8
-  %48 = add nsw i32 %.04870, 1
-  %49 = sext i32 %.04870 to i64
+  %47 = trunc i32 %.069 to i8
+  %48 = add nsw i32 %.04868, 1
+  %49 = sext i32 %.04868 to i64
   %50 = getelementptr inbounds i8, ptr %4, i64 %49
   store i8 %47, ptr %50, align 1
   br label %51
 
 51:                                               ; preds = %41, %46, %43
-  %.149 = phi i32 [ 1, %41 ], [ %48, %46 ], [ %.04870, %43 ]
-  %52 = add nuw nsw i32 %.071, 1
-  %exitcond78.not = icmp eq i32 %52, %smax79
-  br i1 %exitcond78.not, label %._crit_edge, label %Map_CanonComputePhase.exit, !llvm.loop !6
+  %.149 = phi i32 [ 1, %41 ], [ %48, %46 ], [ %.04868, %43 ]
+  %52 = add nuw nsw i32 %.069, 1
+  %exitcond75.not = icmp eq i32 %52, %smax76
+  br i1 %exitcond75.not, label %._crit_edge, label %Map_CanonComputePhase.exit, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %51, %34, %9
   %.048.lcssa = phi i32 [ 0, %9 ], [ %.149.us, %34 ], [ %.149, %51 ]
@@ -127,468 +127,468 @@ Map_CanonComputePhase.exit:                       ; preds = %.lr.ph72, %51
 55:                                               ; preds = %6
   %56 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 -1, ptr %56, align 4
-  %.not74 = icmp eq i32 %2, 31
-  br i1 %.not74, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i32 %2, 31
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55
   %57 = getelementptr inbounds i8, ptr %3, i64 4
-  %wide.trip.count.i58 = zext nneg i32 %1 to i64
+  %wide.trip.count.i57 = zext nneg i32 %1 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %58
 
-58:                                               ; preds = %.lr.ph, %103
-  %.169 = phi i32 [ 0, %.lr.ph ], [ %104, %103 ]
-  %.368 = phi i32 [ 0, %.lr.ph ], [ %.4, %103 ]
+58:                                               ; preds = %.lr.ph, %104
+  %.167 = phi i32 [ 0, %.lr.ph ], [ %105, %104 ]
+  %.366 = phi i32 [ 0, %.lr.ph ], [ %.4, %104 ]
   %59 = load i32, ptr %3, align 4
   %60 = load i32, ptr %57, align 4
-  %.not = icmp eq i32 %.169, 0
-  br i1 %.not, label %Map_CanonComputePhase6.exit, label %.lr.ph.i59
+  %61 = icmp eq i32 %.167, 0
+  br i1 %61, label %Map_CanonComputePhase6.exit, label %.preheader.i
 
-.lr.ph.i59:                                       ; preds = %58, %.sink.split.i
+.preheader.i:                                     ; preds = %58, %.sink.split.i
   %.sroa.7.0 = phi i32 [ %.sroa.7.1, %.sink.split.i ], [ %60, %58 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0.2, %.sink.split.i ], [ %59, %58 ]
-  %61 = phi i32 [ %83, %.sink.split.i ], [ %60, %58 ]
-  %62 = phi i32 [ %84, %.sink.split.i ], [ %59, %58 ]
-  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i62, %.sink.split.i ], [ 0, %58 ]
-  %.037.i = phi i32 [ %85, %.sink.split.i ], [ 1, %58 ]
-  %63 = and i32 %.037.i, %.169
-  %.not.i61 = icmp eq i32 %63, 0
-  br i1 %.not.i61, label %.sink.split.i, label %64
+  %62 = phi i32 [ %84, %.sink.split.i ], [ %60, %58 ]
+  %63 = phi i32 [ %85, %.sink.split.i ], [ %59, %58 ]
+  %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i60, %.sink.split.i ], [ 0, %58 ]
+  %.037.i = phi i32 [ %86, %.sink.split.i ], [ 1, %58 ]
+  %64 = and i32 %.037.i, %.167
+  %.not.i59 = icmp eq i32 %64, 0
+  br i1 %.not.i59, label %.sink.split.i, label %65
 
-64:                                               ; preds = %.lr.ph.i59
-  %65 = icmp slt i32 %.037.i, 32
-  br i1 %65, label %66, label %.sink.split.i
+65:                                               ; preds = %.preheader.i
+  %66 = icmp slt i32 %.037.i, 32
+  br i1 %66, label %67, label %.sink.split.i
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds [2 x i32], ptr %0, i64 %indvars.iv.i60
-  %68 = load i32, ptr %67, align 4
-  %69 = xor i32 %68, -1
-  %70 = and i32 %62, %69
-  %71 = shl i32 %70, %.037.i
-  %72 = and i32 %68, %62
-  %73 = lshr i32 %72, %.037.i
-  %74 = or i32 %71, %73
-  %75 = getelementptr inbounds i8, ptr %67, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = xor i32 %76, -1
-  %78 = and i32 %61, %77
-  %79 = shl i32 %78, %.037.i
-  %80 = and i32 %76, %61
-  %81 = lshr i32 %80, %.037.i
-  %82 = or i32 %79, %81
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds [2 x i32], ptr %0, i64 %indvars.iv.i58
+  %69 = load i32, ptr %68, align 4
+  %70 = xor i32 %69, -1
+  %71 = and i32 %63, %70
+  %72 = shl i32 %71, %.037.i
+  %73 = and i32 %69, %63
+  %74 = lshr i32 %73, %.037.i
+  %75 = or i32 %72, %74
+  %76 = getelementptr inbounds i8, ptr %68, i64 4
+  %77 = load i32, ptr %76, align 4
+  %78 = xor i32 %77, -1
+  %79 = and i32 %62, %78
+  %80 = shl i32 %79, %.037.i
+  %81 = and i32 %77, %62
+  %82 = lshr i32 %81, %.037.i
+  %83 = or i32 %80, %82
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %66, %64, %.lr.ph.i59
-  %.sroa.7.1 = phi i32 [ %.sroa.7.0, %.lr.ph.i59 ], [ %82, %66 ], [ %62, %64 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %.lr.ph.i59 ], [ %74, %66 ], [ %61, %64 ]
-  %83 = phi i32 [ %61, %.lr.ph.i59 ], [ %82, %66 ], [ %62, %64 ]
-  %84 = phi i32 [ %62, %.lr.ph.i59 ], [ %74, %66 ], [ %61, %64 ]
-  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
-  %85 = shl i32 %.037.i, 1
-  %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i58
-  br i1 %exitcond.not.i63, label %Map_CanonComputePhase6.exit, label %.lr.ph.i59, !llvm.loop !7
+.sink.split.i:                                    ; preds = %67, %65, %.preheader.i
+  %.sroa.7.1 = phi i32 [ %.sroa.7.0, %.preheader.i ], [ %83, %67 ], [ %63, %65 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %.preheader.i ], [ %75, %67 ], [ %62, %65 ]
+  %84 = phi i32 [ %62, %.preheader.i ], [ %83, %67 ], [ %63, %65 ]
+  %85 = phi i32 [ %63, %.preheader.i ], [ %75, %67 ], [ %62, %65 ]
+  %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
+  %86 = shl i32 %.037.i, 1
+  %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i57
+  br i1 %exitcond.not.i61, label %Map_CanonComputePhase6.exit, label %.preheader.i, !llvm.loop !7
 
 Map_CanonComputePhase6.exit:                      ; preds = %.sink.split.i, %58
   %.sroa.7.2 = phi i32 [ %60, %58 ], [ %.sroa.7.1, %.sink.split.i ]
   %.sroa.0.3 = phi i32 [ %59, %58 ], [ %.sroa.0.2, %.sink.split.i ]
-  %86 = load i32, ptr %56, align 4
-  %87 = icmp ugt i32 %86, %.sroa.7.2
-  br i1 %87, label %93, label %88
+  %87 = load i32, ptr %56, align 4
+  %88 = icmp ugt i32 %87, %.sroa.7.2
+  br i1 %88, label %94, label %89
 
-88:                                               ; preds = %Map_CanonComputePhase6.exit
-  %89 = icmp eq i32 %86, %.sroa.7.2
-  br i1 %89, label %90, label %103
+89:                                               ; preds = %Map_CanonComputePhase6.exit
+  %90 = icmp eq i32 %87, %.sroa.7.2
+  br i1 %90, label %91, label %104
 
-90:                                               ; preds = %88
-  %91 = load i32, ptr %5, align 4
-  %92 = icmp ugt i32 %91, %.sroa.0.3
-  br i1 %92, label %93, label %95
+91:                                               ; preds = %89
+  %92 = load i32, ptr %5, align 4
+  %93 = icmp ugt i32 %92, %.sroa.0.3
+  br i1 %93, label %94, label %96
 
-93:                                               ; preds = %90, %Map_CanonComputePhase6.exit
+94:                                               ; preds = %91, %Map_CanonComputePhase6.exit
   store i32 %.sroa.0.3, ptr %5, align 4
   store i32 %.sroa.7.2, ptr %56, align 4
-  %94 = trunc i32 %.169 to i8
-  store i8 %94, ptr %4, align 1
-  br label %103
+  %95 = trunc i32 %.167 to i8
+  store i8 %95, ptr %4, align 1
+  br label %104
 
-95:                                               ; preds = %90
-  %96 = icmp eq i32 %91, %.sroa.0.3
-  %97 = icmp slt i32 %.368, 4
-  %or.cond3 = select i1 %96, i1 %97, i1 false
-  br i1 %or.cond3, label %98, label %103
+96:                                               ; preds = %91
+  %97 = icmp eq i32 %92, %.sroa.0.3
+  %98 = icmp slt i32 %.366, 4
+  %or.cond3 = select i1 %97, i1 %98, i1 false
+  br i1 %or.cond3, label %99, label %104
 
-98:                                               ; preds = %95
-  %99 = trunc i32 %.169 to i8
-  %100 = add nsw i32 %.368, 1
-  %101 = sext i32 %.368 to i64
-  %102 = getelementptr inbounds i8, ptr %4, i64 %101
-  store i8 %99, ptr %102, align 1
-  br label %103
+99:                                               ; preds = %96
+  %100 = trunc i32 %.167 to i8
+  %101 = add nsw i32 %.366, 1
+  %102 = sext i32 %.366 to i64
+  %103 = getelementptr inbounds i8, ptr %4, i64 %102
+  store i8 %100, ptr %103, align 1
+  br label %104
 
-103:                                              ; preds = %88, %93, %98, %95
-  %.4 = phi i32 [ 1, %93 ], [ %100, %98 ], [ %.368, %95 ], [ %.368, %88 ]
-  %104 = add nuw nsw i32 %.169, 1
-  %exitcond.not = icmp eq i32 %104, %smax
+104:                                              ; preds = %89, %94, %99, %96
+  %.4 = phi i32 [ 1, %94 ], [ %101, %99 ], [ %.366, %96 ], [ %.366, %89 ]
+  %105 = add nuw nsw i32 %.167, 1
+  %exitcond.not = icmp eq i32 %105, %smax
   br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !8
 
-.loopexit:                                        ; preds = %103, %55, %._crit_edge
-  %.2 = phi i32 [ %.048.lcssa, %._crit_edge ], [ 0, %55 ], [ %.4, %103 ]
+.loopexit:                                        ; preds = %104, %55, %._crit_edge
+  %.2 = phi i32 [ %.048.lcssa, %._crit_edge ], [ 0, %55 ], [ %.4, %104 ]
   ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @Map_CanonComputeFast(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %1, 6
-  br i1 %7, label %8, label %60
+  br i1 %7, label %8, label %61
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 -1, ptr %5, align 4
   %10 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 -1, ptr %10, align 4
-  %.not74.i = icmp eq i32 %2, 31
-  br i1 %.not74.i, label %Map_CanonComputeSlow.exit, label %.lr.ph.i
+  %.not.i = icmp eq i32 %2, 31
+  br i1 %.not.i, label %Map_CanonComputeSlow.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
   %11 = shl nuw nsw i32 1, %2
   %12 = getelementptr inbounds i8, ptr %3, i64 4
   br label %13
 
-13:                                               ; preds = %58, %.lr.ph.i
-  %.169.i = phi i32 [ 0, %.lr.ph.i ], [ %59, %58 ]
-  %.368.i = phi i32 [ 0, %.lr.ph.i ], [ %.4.i, %58 ]
+13:                                               ; preds = %59, %.lr.ph.i
+  %.167.i = phi i32 [ 0, %.lr.ph.i ], [ %60, %59 ]
+  %.366.i = phi i32 [ 0, %.lr.ph.i ], [ %.4.i, %59 ]
   %14 = load i32, ptr %3, align 4
   %15 = load i32, ptr %12, align 4
-  %.not.i = icmp eq i32 %.169.i, 0
-  br i1 %.not.i, label %Map_CanonComputePhase6.exit.i, label %.lr.ph.i59.i
+  %16 = icmp eq i32 %.167.i, 0
+  br i1 %16, label %Map_CanonComputePhase6.exit.i, label %.preheader.i.i
 
-.lr.ph.i59.i:                                     ; preds = %13, %.sink.split.i.i
+.preheader.i.i:                                   ; preds = %13, %.sink.split.i.i
   %.sroa.7.0.i = phi i32 [ %.sroa.7.1.i, %.sink.split.i.i ], [ %15, %13 ]
   %.sroa.0.0.i = phi i32 [ %.sroa.0.2.i, %.sink.split.i.i ], [ %14, %13 ]
-  %16 = phi i32 [ %38, %.sink.split.i.i ], [ %15, %13 ]
-  %17 = phi i32 [ %39, %.sink.split.i.i ], [ %14, %13 ]
-  %indvars.iv.i60.i = phi i64 [ %indvars.iv.next.i62.i, %.sink.split.i.i ], [ 0, %13 ]
-  %.037.i.i = phi i32 [ %40, %.sink.split.i.i ], [ 1, %13 ]
-  %18 = and i32 %.037.i.i, %.169.i
-  %.not.i61.i = icmp eq i32 %18, 0
-  br i1 %.not.i61.i, label %.sink.split.i.i, label %19
+  %17 = phi i32 [ %39, %.sink.split.i.i ], [ %15, %13 ]
+  %18 = phi i32 [ %40, %.sink.split.i.i ], [ %14, %13 ]
+  %indvars.iv.i58.i = phi i64 [ %indvars.iv.next.i60.i, %.sink.split.i.i ], [ 0, %13 ]
+  %.037.i.i = phi i32 [ %41, %.sink.split.i.i ], [ 1, %13 ]
+  %19 = and i32 %.037.i.i, %.167.i
+  %.not.i59.i = icmp eq i32 %19, 0
+  br i1 %.not.i59.i, label %.sink.split.i.i, label %20
 
-19:                                               ; preds = %.lr.ph.i59.i
-  %20 = icmp ult i32 %.037.i.i, 32
-  br i1 %20, label %21, label %.sink.split.i.i
+20:                                               ; preds = %.preheader.i.i
+  %21 = icmp ult i32 %.037.i.i, 32
+  br i1 %21, label %22, label %.sink.split.i.i
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds [2 x i32], ptr %9, i64 %indvars.iv.i60.i
-  %23 = load i32, ptr %22, align 4
-  %24 = xor i32 %23, -1
-  %25 = and i32 %17, %24
-  %26 = shl i32 %25, %.037.i.i
-  %27 = and i32 %23, %17
-  %28 = lshr i32 %27, %.037.i.i
-  %29 = or i32 %26, %28
-  %30 = getelementptr inbounds i8, ptr %22, i64 4
-  %31 = load i32, ptr %30, align 4
-  %32 = xor i32 %31, -1
-  %33 = and i32 %16, %32
-  %34 = shl i32 %33, %.037.i.i
-  %35 = and i32 %31, %16
-  %36 = lshr i32 %35, %.037.i.i
-  %37 = or i32 %34, %36
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds [2 x i32], ptr %9, i64 %indvars.iv.i58.i
+  %24 = load i32, ptr %23, align 4
+  %25 = xor i32 %24, -1
+  %26 = and i32 %18, %25
+  %27 = shl i32 %26, %.037.i.i
+  %28 = and i32 %24, %18
+  %29 = lshr i32 %28, %.037.i.i
+  %30 = or i32 %27, %29
+  %31 = getelementptr inbounds i8, ptr %23, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = xor i32 %32, -1
+  %34 = and i32 %17, %33
+  %35 = shl i32 %34, %.037.i.i
+  %36 = and i32 %32, %17
+  %37 = lshr i32 %36, %.037.i.i
+  %38 = or i32 %35, %37
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %21, %19, %.lr.ph.i59.i
-  %.sroa.7.1.i = phi i32 [ %.sroa.7.0.i, %.lr.ph.i59.i ], [ %37, %21 ], [ %17, %19 ]
-  %.sroa.0.2.i = phi i32 [ %.sroa.0.0.i, %.lr.ph.i59.i ], [ %29, %21 ], [ %16, %19 ]
-  %38 = phi i32 [ %16, %.lr.ph.i59.i ], [ %37, %21 ], [ %17, %19 ]
-  %39 = phi i32 [ %17, %.lr.ph.i59.i ], [ %29, %21 ], [ %16, %19 ]
-  %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i60.i, 1
-  %40 = shl i32 %.037.i.i, 1
-  %exitcond.not.i63.i = icmp eq i64 %indvars.iv.next.i62.i, 6
-  br i1 %exitcond.not.i63.i, label %Map_CanonComputePhase6.exit.i, label %.lr.ph.i59.i, !llvm.loop !7
+.sink.split.i.i:                                  ; preds = %22, %20, %.preheader.i.i
+  %.sroa.7.1.i = phi i32 [ %.sroa.7.0.i, %.preheader.i.i ], [ %38, %22 ], [ %18, %20 ]
+  %.sroa.0.2.i = phi i32 [ %.sroa.0.0.i, %.preheader.i.i ], [ %30, %22 ], [ %17, %20 ]
+  %39 = phi i32 [ %17, %.preheader.i.i ], [ %38, %22 ], [ %18, %20 ]
+  %40 = phi i32 [ %18, %.preheader.i.i ], [ %30, %22 ], [ %17, %20 ]
+  %indvars.iv.next.i60.i = add nuw nsw i64 %indvars.iv.i58.i, 1
+  %41 = shl i32 %.037.i.i, 1
+  %exitcond.not.i61.i = icmp eq i64 %indvars.iv.next.i60.i, 6
+  br i1 %exitcond.not.i61.i, label %Map_CanonComputePhase6.exit.i, label %.preheader.i.i, !llvm.loop !7
 
 Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %13
   %.sroa.7.2.i = phi i32 [ %15, %13 ], [ %.sroa.7.1.i, %.sink.split.i.i ]
   %.sroa.0.3.i = phi i32 [ %14, %13 ], [ %.sroa.0.2.i, %.sink.split.i.i ]
-  %41 = load i32, ptr %10, align 4
-  %42 = icmp ugt i32 %41, %.sroa.7.2.i
-  br i1 %42, label %48, label %43
+  %42 = load i32, ptr %10, align 4
+  %43 = icmp ugt i32 %42, %.sroa.7.2.i
+  br i1 %43, label %49, label %44
 
-43:                                               ; preds = %Map_CanonComputePhase6.exit.i
-  %44 = icmp eq i32 %41, %.sroa.7.2.i
-  br i1 %44, label %45, label %58
+44:                                               ; preds = %Map_CanonComputePhase6.exit.i
+  %45 = icmp eq i32 %42, %.sroa.7.2.i
+  br i1 %45, label %46, label %59
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr %5, align 4
-  %47 = icmp ugt i32 %46, %.sroa.0.3.i
-  br i1 %47, label %48, label %50
+46:                                               ; preds = %44
+  %47 = load i32, ptr %5, align 4
+  %48 = icmp ugt i32 %47, %.sroa.0.3.i
+  br i1 %48, label %49, label %51
 
-48:                                               ; preds = %45, %Map_CanonComputePhase6.exit.i
+49:                                               ; preds = %46, %Map_CanonComputePhase6.exit.i
   store i32 %.sroa.0.3.i, ptr %5, align 4
   store i32 %.sroa.7.2.i, ptr %10, align 4
-  %49 = trunc i32 %.169.i to i8
-  store i8 %49, ptr %4, align 1
-  br label %58
+  %50 = trunc i32 %.167.i to i8
+  store i8 %50, ptr %4, align 1
+  br label %59
 
-50:                                               ; preds = %45
-  %51 = icmp eq i32 %46, %.sroa.0.3.i
-  %52 = icmp slt i32 %.368.i, 4
-  %or.cond3.i = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond3.i, label %53, label %58
+51:                                               ; preds = %46
+  %52 = icmp eq i32 %47, %.sroa.0.3.i
+  %53 = icmp slt i32 %.366.i, 4
+  %or.cond3.i = select i1 %52, i1 %53, i1 false
+  br i1 %or.cond3.i, label %54, label %59
 
-53:                                               ; preds = %50
-  %54 = trunc i32 %.169.i to i8
-  %55 = add nsw i32 %.368.i, 1
-  %56 = sext i32 %.368.i to i64
-  %57 = getelementptr inbounds i8, ptr %4, i64 %56
-  store i8 %54, ptr %57, align 1
-  br label %58
+54:                                               ; preds = %51
+  %55 = trunc i32 %.167.i to i8
+  %56 = add nsw i32 %.366.i, 1
+  %57 = sext i32 %.366.i to i64
+  %58 = getelementptr inbounds i8, ptr %4, i64 %57
+  store i8 %55, ptr %58, align 1
+  br label %59
 
-58:                                               ; preds = %53, %50, %48, %43
-  %.4.i = phi i32 [ 1, %48 ], [ %55, %53 ], [ %.368.i, %50 ], [ %.368.i, %43 ]
-  %59 = add nuw nsw i32 %.169.i, 1
-  %exitcond.not.i = icmp eq i32 %59, %11
+59:                                               ; preds = %54, %51, %49, %44
+  %.4.i = phi i32 [ 1, %49 ], [ %56, %54 ], [ %.366.i, %51 ], [ %.366.i, %44 ]
+  %60 = add nuw nsw i32 %.167.i, 1
+  %exitcond.not.i = icmp eq i32 %60, %11
   br i1 %exitcond.not.i, label %Map_CanonComputeSlow.exit, label %13, !llvm.loop !8
 
-60:                                               ; preds = %6
-  %61 = icmp slt i32 %2, 5
-  %62 = load i32, ptr %3, align 4
-  %63 = and i32 %62, 65535
-  br i1 %61, label %64, label %79
+61:                                               ; preds = %6
+  %62 = icmp slt i32 %2, 5
+  %63 = load i32, ptr %3, align 4
+  %64 = and i32 %63, 65535
+  br i1 %62, label %65, label %80
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 1784
-  %66 = load ptr, ptr %65, align 8
-  %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
-  %69 = load i16, ptr %68, align 2
-  %70 = zext i16 %69 to i32
-  %71 = shl nuw i32 %70, 16
-  %72 = or disjoint i32 %71, %70
-  store i32 %72, ptr %5, align 4
-  %73 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %72, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 1792
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds ptr, ptr %75, i64 %67
-  %77 = load ptr, ptr %76, align 8
-  %78 = load i8, ptr %77, align 1
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds i8, ptr %0, i64 1784
+  %67 = load ptr, ptr %66, align 8
+  %68 = zext nneg i32 %64 to i64
+  %69 = getelementptr inbounds i16, ptr %67, i64 %68
+  %70 = load i16, ptr %69, align 2
+  %71 = zext i16 %70 to i32
+  %72 = shl nuw i32 %71, 16
+  %73 = or disjoint i32 %72, %71
+  store i32 %73, ptr %5, align 4
+  %74 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %73, ptr %74, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 1792
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds ptr, ptr %76, i64 %68
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i8, ptr %78, align 1
   br label %Map_CanonComputeSlow.exit.sink.split
 
-79:                                               ; preds = %60
-  %80 = lshr i32 %62, 16
-  %81 = icmp ult i32 %62, 65536
-  br i1 %81, label %82, label %103
+80:                                               ; preds = %61
+  %81 = lshr i32 %63, 16
+  %82 = icmp ult i32 %63, 65536
+  br i1 %82, label %83, label %104
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %0, i64 1784
-  %84 = load ptr, ptr %83, align 8
-  %85 = zext nneg i32 %63 to i64
-  %86 = getelementptr inbounds i16, ptr %84, i64 %85
-  %87 = load i16, ptr %86, align 2
-  %88 = zext i16 %87 to i32
-  store i32 %88, ptr %5, align 4
-  %89 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %88, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %0, i64 1800
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 %85
-  %93 = load i8, ptr %92, align 1
-  %narrow140 = tail call i8 @llvm.smin.i8(i8 %93, i8 4)
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %0, i64 1784
+  %85 = load ptr, ptr %84, align 8
+  %86 = zext nneg i32 %64 to i64
+  %87 = getelementptr inbounds i16, ptr %85, i64 %86
+  %88 = load i16, ptr %87, align 2
+  %89 = zext i16 %88 to i32
+  store i32 %89, ptr %5, align 4
+  %90 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %89, ptr %90, align 4
+  %91 = getelementptr inbounds i8, ptr %0, i64 1800
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 %86
+  %94 = load i8, ptr %93, align 1
+  %narrow140 = tail call i8 @llvm.smin.i8(i8 %94, i8 4)
   %spec.select = sext i8 %narrow140 to i32
-  %94 = icmp sgt i8 %93, 0
-  br i1 %94, label %.lr.ph160, label %Map_CanonComputeSlow.exit
+  %95 = icmp sgt i8 %94, 0
+  br i1 %95, label %.lr.ph160, label %Map_CanonComputeSlow.exit
 
-.lr.ph160:                                        ; preds = %82
-  %95 = getelementptr inbounds i8, ptr %0, i64 1792
+.lr.ph160:                                        ; preds = %83
+  %96 = getelementptr inbounds i8, ptr %0, i64 1792
   %wide.trip.count171 = zext nneg i32 %spec.select to i64
-  br label %96
+  br label %97
 
-96:                                               ; preds = %.lr.ph160, %96
-  %indvars.iv168 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next169, %96 ]
-  %97 = load ptr, ptr %95, align 8
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %85
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 %indvars.iv168
-  %101 = load i8, ptr %100, align 1
-  %102 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv168
-  store i8 %101, ptr %102, align 1
+97:                                               ; preds = %.lr.ph160, %97
+  %indvars.iv168 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next169, %97 ]
+  %98 = load ptr, ptr %96, align 8
+  %99 = getelementptr inbounds ptr, ptr %98, i64 %86
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 %indvars.iv168
+  %102 = load i8, ptr %101, align 1
+  %103 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv168
+  store i8 %102, ptr %103, align 1
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %Map_CanonComputeSlow.exit, label %96, !llvm.loop !9
+  br i1 %exitcond172.not, label %Map_CanonComputeSlow.exit, label %97, !llvm.loop !9
 
-103:                                              ; preds = %79
-  %104 = icmp eq i32 %63, 0
-  %105 = getelementptr inbounds i8, ptr %0, i64 1784
-  %106 = load ptr, ptr %105, align 8
-  br i1 %104, label %107, label %127
+104:                                              ; preds = %80
+  %105 = icmp eq i32 %64, 0
+  %106 = getelementptr inbounds i8, ptr %0, i64 1784
+  %107 = load ptr, ptr %106, align 8
+  br i1 %105, label %108, label %128
 
-107:                                              ; preds = %103
-  %108 = zext nneg i32 %80 to i64
-  %109 = getelementptr inbounds i16, ptr %106, i64 %108
-  %110 = load i16, ptr %109, align 2
-  %111 = zext i16 %110 to i32
-  store i32 %111, ptr %5, align 4
-  %112 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %111, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 1800
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 %108
-  %116 = load i8, ptr %115, align 1
-  %narrow = tail call i8 @llvm.smin.i8(i8 %116, i8 4)
+108:                                              ; preds = %104
+  %109 = zext nneg i32 %81 to i64
+  %110 = getelementptr inbounds i16, ptr %107, i64 %109
+  %111 = load i16, ptr %110, align 2
+  %112 = zext i16 %111 to i32
+  store i32 %112, ptr %5, align 4
+  %113 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %112, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %0, i64 1800
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 %109
+  %117 = load i8, ptr %116, align 1
+  %narrow = tail call i8 @llvm.smin.i8(i8 %117, i8 4)
   %spec.select139 = sext i8 %narrow to i32
-  %117 = icmp sgt i8 %116, 0
-  br i1 %117, label %.lr.ph157, label %Map_CanonComputeSlow.exit
+  %118 = icmp sgt i8 %117, 0
+  br i1 %118, label %.lr.ph157, label %Map_CanonComputeSlow.exit
 
-.lr.ph157:                                        ; preds = %107
-  %118 = getelementptr inbounds i8, ptr %0, i64 1792
+.lr.ph157:                                        ; preds = %108
+  %119 = getelementptr inbounds i8, ptr %0, i64 1792
   %wide.trip.count = zext nneg i32 %spec.select139 to i64
-  br label %119
+  br label %120
 
-119:                                              ; preds = %.lr.ph157, %119
-  %indvars.iv165 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next166, %119 ]
-  %120 = load ptr, ptr %118, align 8
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %108
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 %indvars.iv165
-  %124 = load i8, ptr %123, align 1
-  %125 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv165
-  %126 = or i8 %124, 16
-  store i8 %126, ptr %125, align 1
+120:                                              ; preds = %.lr.ph157, %120
+  %indvars.iv165 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next166, %120 ]
+  %121 = load ptr, ptr %119, align 8
+  %122 = getelementptr inbounds ptr, ptr %121, i64 %109
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 %indvars.iv165
+  %125 = load i8, ptr %124, align 1
+  %126 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv165
+  %127 = or i8 %125, 16
+  store i8 %127, ptr %126, align 1
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
-  br i1 %exitcond.not, label %Map_CanonComputeSlow.exit, label %119, !llvm.loop !10
+  br i1 %exitcond.not, label %Map_CanonComputeSlow.exit, label %120, !llvm.loop !10
 
-127:                                              ; preds = %103
-  %128 = zext nneg i32 %63 to i64
-  %129 = getelementptr inbounds i16, ptr %106, i64 %128
-  %130 = load i16, ptr %129, align 2
-  %131 = zext i16 %130 to i32
-  %132 = zext nneg i32 %80 to i64
-  %133 = getelementptr inbounds i16, ptr %106, i64 %132
-  %134 = load i16, ptr %133, align 2
-  %135 = zext i16 %134 to i32
-  %.not = icmp ult i16 %130, %134
-  %136 = getelementptr inbounds i8, ptr %0, i64 1800
-  %137 = load ptr, ptr %136, align 8
+128:                                              ; preds = %104
+  %129 = zext nneg i32 %64 to i64
+  %130 = getelementptr inbounds i16, ptr %107, i64 %129
+  %131 = load i16, ptr %130, align 2
+  %132 = zext i16 %131 to i32
+  %133 = zext nneg i32 %81 to i64
+  %134 = getelementptr inbounds i16, ptr %107, i64 %133
+  %135 = load i16, ptr %134, align 2
+  %136 = zext i16 %135 to i32
+  %.not = icmp ult i16 %131, %135
+  %137 = getelementptr inbounds i8, ptr %0, i64 1800
+  %138 = load ptr, ptr %137, align 8
   br i1 %.not, label %.preheader, label %.preheader143
 
-.preheader143:                                    ; preds = %127
-  %138 = getelementptr inbounds i8, ptr %137, i64 %132
-  %139 = load i8, ptr %138, align 1
-  %140 = icmp sgt i8 %139, 0
-  br i1 %140, label %.lr.ph, label %._crit_edge
+.preheader143:                                    ; preds = %128
+  %139 = getelementptr inbounds i8, ptr %138, i64 %133
+  %140 = load i8, ptr %139, align 1
+  %141 = icmp sgt i8 %140, 0
+  br i1 %141, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader143
-  %141 = getelementptr inbounds i8, ptr %0, i64 1792
-  br label %146
+  %142 = getelementptr inbounds i8, ptr %0, i64 1792
+  br label %147
 
-.preheader:                                       ; preds = %127
-  %142 = getelementptr inbounds i8, ptr %137, i64 %128
-  %143 = load i8, ptr %142, align 1
-  %144 = icmp sgt i8 %143, 0
-  br i1 %144, label %.lr.ph151, label %._crit_edge152
+.preheader:                                       ; preds = %128
+  %143 = getelementptr inbounds i8, ptr %138, i64 %129
+  %144 = load i8, ptr %143, align 1
+  %145 = icmp sgt i8 %144, 0
+  br i1 %145, label %.lr.ph151, label %._crit_edge152
 
 .lr.ph151:                                        ; preds = %.preheader
-  %145 = getelementptr inbounds i8, ptr %0, i64 1792
-  br label %170
+  %146 = getelementptr inbounds i8, ptr %0, i64 1792
+  br label %171
 
-146:                                              ; preds = %.lr.ph, %161
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %161 ]
-  %.0117145 = phi i8 [ 16, %.lr.ph ], [ %.1118, %161 ]
-  %.0121144 = phi i32 [ -1, %.lr.ph ], [ %.1122, %161 ]
-  %147 = load ptr, ptr %141, align 8
-  %148 = getelementptr inbounds ptr, ptr %147, i64 %132
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 %indvars.iv
-  %151 = load i8, ptr %150, align 1
-  %152 = sext i8 %151 to i32
-  %153 = tail call i32 @Extra_TruthPolarize(i32 noundef %63, i32 noundef %152, i32 noundef 4) #4
-  %154 = icmp ugt i32 %.0121144, %153
-  br i1 %154, label %155, label %161
+147:                                              ; preds = %.lr.ph, %162
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
+  %.0117145 = phi i8 [ 16, %.lr.ph ], [ %.1118, %162 ]
+  %.0121144 = phi i32 [ -1, %.lr.ph ], [ %.1122, %162 ]
+  %148 = load ptr, ptr %142, align 8
+  %149 = getelementptr inbounds ptr, ptr %148, i64 %133
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 %indvars.iv
+  %152 = load i8, ptr %151, align 1
+  %153 = sext i8 %152 to i32
+  %154 = tail call i32 @Extra_TruthPolarize(i32 noundef %64, i32 noundef %153, i32 noundef 4) #4
+  %155 = icmp ugt i32 %.0121144, %154
+  br i1 %155, label %156, label %162
 
-155:                                              ; preds = %146
-  %156 = load ptr, ptr %141, align 8
-  %157 = getelementptr inbounds ptr, ptr %156, i64 %132
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 %indvars.iv
-  %160 = load i8, ptr %159, align 1
-  br label %161
+156:                                              ; preds = %147
+  %157 = load ptr, ptr %142, align 8
+  %158 = getelementptr inbounds ptr, ptr %157, i64 %133
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 %indvars.iv
+  %161 = load i8, ptr %160, align 1
+  br label %162
 
-161:                                              ; preds = %146, %155
-  %.1122 = phi i32 [ %153, %155 ], [ %.0121144, %146 ]
-  %.1118 = phi i8 [ %160, %155 ], [ %.0117145, %146 ]
+162:                                              ; preds = %147, %156
+  %.1122 = phi i32 [ %154, %156 ], [ %.0121144, %147 ]
+  %.1118 = phi i8 [ %161, %156 ], [ %.0117145, %147 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %162 = load ptr, ptr %136, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 %132
-  %164 = load i8, ptr %163, align 1
-  %165 = sext i8 %164 to i64
-  %166 = icmp slt i64 %indvars.iv.next, %165
-  br i1 %166, label %146, label %._crit_edge, !llvm.loop !11
+  %163 = load ptr, ptr %137, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 %133
+  %165 = load i8, ptr %164, align 1
+  %166 = sext i8 %165 to i64
+  %167 = icmp slt i64 %indvars.iv.next, %166
+  br i1 %167, label %147, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %161, %.preheader143
-  %.0121.lcssa = phi i32 [ -1, %.preheader143 ], [ %.1122, %161 ]
-  %.0117.lcssa = phi i8 [ 16, %.preheader143 ], [ %.1118, %161 ]
-  %167 = shl nuw i32 %135, 16
-  %168 = or i32 %.0121.lcssa, %167
-  store i32 %168, ptr %5, align 4
-  %169 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %168, ptr %169, align 4
+._crit_edge:                                      ; preds = %162, %.preheader143
+  %.0121.lcssa = phi i32 [ -1, %.preheader143 ], [ %.1122, %162 ]
+  %.0117.lcssa = phi i8 [ 16, %.preheader143 ], [ %.1118, %162 ]
+  %168 = shl nuw i32 %136, 16
+  %169 = or i32 %.0121.lcssa, %168
+  store i32 %169, ptr %5, align 4
+  %170 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %169, ptr %170, align 4
   br label %Map_CanonComputeSlow.exit.sink.split
 
-170:                                              ; preds = %.lr.ph151, %185
-  %indvars.iv163 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next164, %185 ]
-  %.2119149 = phi i8 [ 16, %.lr.ph151 ], [ %.3120, %185 ]
-  %.2123148 = phi i32 [ -1, %.lr.ph151 ], [ %.3124, %185 ]
-  %171 = load ptr, ptr %145, align 8
-  %172 = getelementptr inbounds ptr, ptr %171, i64 %128
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 %indvars.iv163
-  %175 = load i8, ptr %174, align 1
-  %176 = sext i8 %175 to i32
-  %177 = tail call i32 @Extra_TruthPolarize(i32 noundef %80, i32 noundef %176, i32 noundef 4) #4
-  %178 = icmp ugt i32 %.2123148, %177
-  br i1 %178, label %179, label %185
+171:                                              ; preds = %.lr.ph151, %186
+  %indvars.iv163 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next164, %186 ]
+  %.2119149 = phi i8 [ 16, %.lr.ph151 ], [ %.3120, %186 ]
+  %.2123148 = phi i32 [ -1, %.lr.ph151 ], [ %.3124, %186 ]
+  %172 = load ptr, ptr %146, align 8
+  %173 = getelementptr inbounds ptr, ptr %172, i64 %129
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds i8, ptr %174, i64 %indvars.iv163
+  %176 = load i8, ptr %175, align 1
+  %177 = sext i8 %176 to i32
+  %178 = tail call i32 @Extra_TruthPolarize(i32 noundef %81, i32 noundef %177, i32 noundef 4) #4
+  %179 = icmp ugt i32 %.2123148, %178
+  br i1 %179, label %180, label %186
 
-179:                                              ; preds = %170
-  %180 = load ptr, ptr %145, align 8
-  %181 = getelementptr inbounds ptr, ptr %180, i64 %128
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 %indvars.iv163
-  %184 = load i8, ptr %183, align 1
-  br label %185
+180:                                              ; preds = %171
+  %181 = load ptr, ptr %146, align 8
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %129
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 %indvars.iv163
+  %185 = load i8, ptr %184, align 1
+  br label %186
 
-185:                                              ; preds = %170, %179
-  %.3124 = phi i32 [ %177, %179 ], [ %.2123148, %170 ]
-  %.3120 = phi i8 [ %184, %179 ], [ %.2119149, %170 ]
+186:                                              ; preds = %171, %180
+  %.3124 = phi i32 [ %178, %180 ], [ %.2123148, %171 ]
+  %.3120 = phi i8 [ %185, %180 ], [ %.2119149, %171 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %186 = load ptr, ptr %136, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 %128
-  %188 = load i8, ptr %187, align 1
-  %189 = sext i8 %188 to i64
-  %190 = icmp slt i64 %indvars.iv.next164, %189
-  br i1 %190, label %170, label %._crit_edge152.loopexit, !llvm.loop !12
+  %187 = load ptr, ptr %137, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 %129
+  %189 = load i8, ptr %188, align 1
+  %190 = sext i8 %189 to i64
+  %191 = icmp slt i64 %indvars.iv.next164, %190
+  br i1 %191, label %171, label %._crit_edge152.loopexit, !llvm.loop !12
 
-._crit_edge152.loopexit:                          ; preds = %185
-  %191 = or i8 %.3120, 16
+._crit_edge152.loopexit:                          ; preds = %186
+  %192 = or i8 %.3120, 16
   br label %._crit_edge152
 
 ._crit_edge152:                                   ; preds = %._crit_edge152.loopexit, %.preheader
   %.2123.lcssa = phi i32 [ -1, %.preheader ], [ %.3124, %._crit_edge152.loopexit ]
-  %.2119.lcssa = phi i8 [ 16, %.preheader ], [ %191, %._crit_edge152.loopexit ]
-  %192 = shl nuw i32 %131, 16
-  %193 = or i32 %.2123.lcssa, %192
-  store i32 %193, ptr %5, align 4
-  %194 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %193, ptr %194, align 4
+  %.2119.lcssa = phi i8 [ 16, %.preheader ], [ %192, %._crit_edge152.loopexit ]
+  %193 = shl nuw i32 %132, 16
+  %194 = or i32 %.2123.lcssa, %193
+  store i32 %194, ptr %5, align 4
+  %195 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %194, ptr %195, align 4
   br label %Map_CanonComputeSlow.exit.sink.split
 
-Map_CanonComputeSlow.exit.sink.split:             ; preds = %64, %._crit_edge, %._crit_edge152
-  %.2119.lcssa.sink = phi i8 [ %.2119.lcssa, %._crit_edge152 ], [ %.0117.lcssa, %._crit_edge ], [ %78, %64 ]
+Map_CanonComputeSlow.exit.sink.split:             ; preds = %65, %._crit_edge, %._crit_edge152
+  %.2119.lcssa.sink = phi i8 [ %.2119.lcssa, %._crit_edge152 ], [ %.0117.lcssa, %._crit_edge ], [ %79, %65 ]
   store i8 %.2119.lcssa.sink, ptr %4, align 1
   br label %Map_CanonComputeSlow.exit
 
-Map_CanonComputeSlow.exit:                        ; preds = %119, %96, %58, %Map_CanonComputeSlow.exit.sink.split, %107, %82, %8
-  %.0125 = phi i32 [ 0, %8 ], [ %spec.select, %82 ], [ %spec.select139, %107 ], [ 1, %Map_CanonComputeSlow.exit.sink.split ], [ %.4.i, %58 ], [ %spec.select, %96 ], [ %spec.select139, %119 ]
+Map_CanonComputeSlow.exit:                        ; preds = %120, %97, %59, %Map_CanonComputeSlow.exit.sink.split, %108, %83, %8
+  %.0125 = phi i32 [ 0, %8 ], [ %spec.select, %83 ], [ %spec.select139, %108 ], [ 1, %Map_CanonComputeSlow.exit.sink.split ], [ %.4.i, %59 ], [ %spec.select, %97 ], [ %spec.select139, %120 ]
   ret i32 %.0125
 }
 

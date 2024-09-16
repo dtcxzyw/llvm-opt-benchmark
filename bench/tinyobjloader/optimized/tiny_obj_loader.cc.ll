@@ -580,7 +580,7 @@ invoke.cont59:                                    ; preds = %land.lhs.true49, %l
   %call1.i46 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i45, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i47 = getelementptr inbounds i8, ptr %add.ptr.i45, i64 %call1.i46
   store double 1.000000e+00, ptr %val.i, align 8
-  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i45, ptr noundef nonnull %add.ptr2.i47, ptr noundef nonnull %val.i)
+  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i45, ptr noundef nonnull %add.ptr2.i47, ptr noundef %val.i)
   %27 = load double, ptr %val.i, align 8
   %conv.i = fptrunc double %27 to float
   store ptr %add.ptr2.i47, ptr %token, align 8
@@ -623,7 +623,7 @@ invoke.cont74:                                    ; preds = %land.lhs.true64, %l
   %call1.i51 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i50, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i52 = getelementptr inbounds i8, ptr %add.ptr.i50, i64 %call1.i51
   store double 1.000000e+00, ptr %val.i48, align 8
-  %call3.i53 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i50, ptr noundef nonnull %add.ptr2.i52, ptr noundef nonnull %val.i48)
+  %call3.i53 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i50, ptr noundef nonnull %add.ptr2.i52, ptr noundef %val.i48)
   %35 = load double, ptr %val.i48, align 8
   %conv.i54 = fptrunc double %35 to float
   store ptr %add.ptr2.i52, ptr %token, align 8
@@ -648,7 +648,7 @@ land.lhs.true79:                                  ; preds = %if.else76.tail
 if.then87:                                        ; preds = %land.lhs.true79, %land.lhs.true79
   %add.ptr88 = getelementptr inbounds i8, ptr %add.ptr, i64 3
   store ptr %add.ptr88, ptr %token, align 8
-  call fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr noundef nonnull %origin_offset, ptr noundef nonnull %arrayidx91, ptr noundef nonnull %arrayidx93, ptr noundef nonnull %token, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  call fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr noundef nonnull %origin_offset, ptr noundef nonnull %arrayidx91, ptr noundef nonnull %arrayidx93, ptr noundef %token, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
   br label %if.end231
 
 if.else95.tail:                                   ; preds = %land.lhs.true79, %if.else76.tail
@@ -668,7 +668,7 @@ land.lhs.true98:                                  ; preds = %if.else95.tail
 if.then106:                                       ; preds = %land.lhs.true98, %land.lhs.true98
   %add.ptr107 = getelementptr inbounds i8, ptr %add.ptr, i64 3
   store ptr %add.ptr107, ptr %token, align 8
-  call fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr noundef nonnull %scale, ptr noundef nonnull %arrayidx110, ptr noundef nonnull %arrayidx112, ptr noundef nonnull %token, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00)
+  call fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr noundef nonnull %scale, ptr noundef nonnull %arrayidx110, ptr noundef nonnull %arrayidx112, ptr noundef %token, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00)
   br label %if.end231
 
 if.else114.tail:                                  ; preds = %land.lhs.true98, %if.else95.tail
@@ -688,7 +688,7 @@ land.lhs.true117:                                 ; preds = %if.else114.tail
 if.then125:                                       ; preds = %land.lhs.true117, %land.lhs.true117
   %add.ptr126 = getelementptr inbounds i8, ptr %add.ptr, i64 3
   store ptr %add.ptr126, ptr %token, align 8
-  call fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr noundef nonnull %turbulence, ptr noundef nonnull %arrayidx129, ptr noundef nonnull %arrayidx131, ptr noundef nonnull %token, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  call fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr noundef nonnull %turbulence, ptr noundef nonnull %arrayidx129, ptr noundef nonnull %arrayidx131, ptr noundef %token, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
   br label %if.end231
 
 if.else133:                                       ; preds = %sub_0, %land.lhs.true117, %if.else114.tail
@@ -843,7 +843,7 @@ if.then193:                                       ; preds = %land.lhs.true185, %
   %call1.i.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %call1.i.i
   store double 0.000000e+00, ptr %val.i.i, align 8
-  %call3.i.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr2.i.i, ptr noundef nonnull %val.i.i)
+  %call3.i.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr2.i.i, ptr noundef %val.i.i)
   %58 = load double, ptr %val.i.i, align 8
   %conv.i.i = fptrunc double %58 to float
   store ptr %add.ptr2.i.i, ptr %token, align 8
@@ -856,7 +856,7 @@ if.then193:                                       ; preds = %land.lhs.true185, %
   %call1.i5.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i4.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i6.i = getelementptr inbounds i8, ptr %add.ptr.i4.i, i64 %call1.i5.i
   store double 1.000000e+00, ptr %val.i2.i, align 8
-  %call3.i7.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i4.i, ptr noundef nonnull %add.ptr2.i6.i, ptr noundef nonnull %val.i2.i)
+  %call3.i7.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i4.i, ptr noundef nonnull %add.ptr2.i6.i, ptr noundef %val.i2.i)
   %59 = load double, ptr %val.i2.i, align 8
   %conv.i8.i = fptrunc double %59 to float
   store ptr %add.ptr2.i6.i, ptr %token, align 8
@@ -880,7 +880,7 @@ land.lhs.true199:                                 ; preds = %if.else196
 if.then207:                                       ; preds = %land.lhs.true199, %land.lhs.true199
   %add.ptr208 = getelementptr inbounds i8, ptr %add.ptr, i64 12
   store ptr %add.ptr208, ptr %token, align 8
-  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %token)
+  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias align 8 %ref.tmp, ptr noundef %token)
           to label %invoke.cont209 unwind label %lpad.loopexit
 
 invoke.cont209:                                   ; preds = %if.then207
@@ -962,7 +962,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z, ptr nocapture noundef %token, double noundef %default_x, double noundef %default_y, double noundef %default_z) unnamed_addr #6 {
+define internal fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z, ptr nocapture noundef nonnull %token, double noundef %default_x, double noundef %default_y, double noundef %default_z) unnamed_addr #6 {
 entry:
   %val.i10 = alloca double, align 8
   %val.i3 = alloca double, align 8
@@ -975,7 +975,7 @@ entry:
   %call1.i = tail call i64 @strcspn(ptr noundef %add.ptr.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call1.i
   store double %default_x, ptr %val.i, align 8
-  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i, ptr noundef %add.ptr2.i, ptr noundef nonnull %val.i)
+  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i, ptr noundef %add.ptr2.i, ptr noundef %val.i)
   %1 = load double, ptr %val.i, align 8
   %conv.i = fptrunc double %1 to float
   store ptr %add.ptr2.i, ptr %token, align 8
@@ -989,7 +989,7 @@ entry:
   %call1.i6 = tail call i64 @strcspn(ptr noundef %add.ptr.i5, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7 = getelementptr inbounds i8, ptr %add.ptr.i5, i64 %call1.i6
   store double %default_y, ptr %val.i3, align 8
-  %call3.i8 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i5, ptr noundef %add.ptr2.i7, ptr noundef nonnull %val.i3)
+  %call3.i8 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i5, ptr noundef %add.ptr2.i7, ptr noundef %val.i3)
   %3 = load double, ptr %val.i3, align 8
   %conv.i9 = fptrunc double %3 to float
   store ptr %add.ptr2.i7, ptr %token, align 8
@@ -1003,7 +1003,7 @@ entry:
   %call1.i13 = tail call i64 @strcspn(ptr noundef %add.ptr.i12, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14 = getelementptr inbounds i8, ptr %add.ptr.i12, i64 %call1.i13
   store double %default_z, ptr %val.i10, align 8
-  %call3.i15 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i12, ptr noundef %add.ptr2.i14, ptr noundef nonnull %val.i10)
+  %call3.i15 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i12, ptr noundef %add.ptr2.i14, ptr noundef %val.i10)
   %5 = load double, ptr %val.i10, align 8
   %conv.i16 = fptrunc double %5 to float
   store ptr %add.ptr2.i14, ptr %token, align 8
@@ -1013,7 +1013,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN7tinyobjL8parseIntEPPKc(ptr nocapture noundef %token) unnamed_addr #7 {
+define internal fastcc noundef i32 @_ZN7tinyobjL8parseIntEPPKc(ptr nocapture noundef nonnull %token) unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %token, align 8
   %call = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str) #27
@@ -1030,7 +1030,7 @@ entry:
 declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef %token) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull %token) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -1174,7 +1174,7 @@ entry:
   %ref.tmp758 = alloca %"struct.std::pair.8", align 8
   %ref.tmp772 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN7tinyobj10material_tC2Ev(ptr noundef nonnull align 8 dereferenceable(1864) %material) #26
-  invoke fastcc void @_ZN7tinyobjL12InitMaterialEPNS_10material_tE(ptr noundef nonnull %material)
+  invoke fastcc void @_ZN7tinyobjL12InitMaterialEPNS_10material_tE(ptr noundef %material)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1463,14 +1463,14 @@ lpad72:                                           ; preds = %if.then.i
   br label %ehcleanup776
 
 if.end76:                                         ; preds = %.noexc, %if.else.i, %if.then63
-  invoke fastcc void @_ZN7tinyobjL12InitMaterialEPNS_10material_tE(ptr noundef nonnull %material)
+  invoke fastcc void @_ZN7tinyobjL12InitMaterialEPNS_10material_tE(ptr noundef %material)
           to label %invoke.cont77 unwind label %lpad2.loopexit
 
 invoke.cont77:                                    ; preds = %if.end76
   %16 = load ptr, ptr %token, align 8
   %add.ptr78 = getelementptr inbounds i8, ptr %16, i64 7
   store ptr %add.ptr78, ptr %token, align 8
-  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %namebuf, ptr noundef nonnull %token)
+  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias align 8 %namebuf, ptr noundef %token)
           to label %invoke.cont79 unwind label %lpad2.loopexit
 
 invoke.cont79:                                    ; preds = %invoke.cont77
@@ -1529,7 +1529,7 @@ invoke.cont109:                                   ; preds = %land.lhs.true99, %l
   %call1.i.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %call1.i.i
   store double 0.000000e+00, ptr %val.i.i, align 8
-  %call3.i.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr2.i.i, ptr noundef nonnull %val.i.i)
+  %call3.i.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr2.i.i, ptr noundef %val.i.i)
   %20 = load double, ptr %val.i.i, align 8
   %conv.i.i = fptrunc double %20 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
@@ -1539,7 +1539,7 @@ invoke.cont109:                                   ; preds = %land.lhs.true99, %l
   %call1.i6.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7.i = getelementptr inbounds i8, ptr %add.ptr.i5.i, i64 %call1.i6.i
   store double 0.000000e+00, ptr %val.i3.i, align 8
-  %call3.i8.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull %add.ptr2.i7.i, ptr noundef nonnull %val.i3.i)
+  %call3.i8.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull %add.ptr2.i7.i, ptr noundef %val.i3.i)
   %21 = load double, ptr %val.i3.i, align 8
   %conv.i9.i = fptrunc double %21 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i3.i)
@@ -1550,7 +1550,7 @@ invoke.cont109:                                   ; preds = %land.lhs.true99, %l
   %call1.i13.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i12.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 %call1.i13.i
   store double 0.000000e+00, ptr %val.i10.i, align 8
-  %call3.i15.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr2.i14.i, ptr noundef nonnull %val.i10.i)
+  %call3.i15.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr2.i14.i, ptr noundef %val.i10.i)
   %22 = load double, ptr %val.i10.i, align 8
   %conv.i16.i = fptrunc double %22 to float
   store ptr %add.ptr2.i14.i, ptr %token, align 8
@@ -1575,7 +1575,7 @@ invoke.cont136:                                   ; preds = %land.lhs.true123, %
   %call1.i.i28 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i27, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i29 = getelementptr inbounds i8, ptr %add.ptr.i.i27, i64 %call1.i.i28
   store double 0.000000e+00, ptr %val.i.i25, align 8
-  %call3.i.i30 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i27, ptr noundef nonnull %add.ptr2.i.i29, ptr noundef nonnull %val.i.i25)
+  %call3.i.i30 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i27, ptr noundef nonnull %add.ptr2.i.i29, ptr noundef %val.i.i25)
   %24 = load double, ptr %val.i.i25, align 8
   %conv.i.i31 = fptrunc double %24 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i25)
@@ -1585,7 +1585,7 @@ invoke.cont136:                                   ; preds = %land.lhs.true123, %
   %call1.i6.i34 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i5.i33, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7.i35 = getelementptr inbounds i8, ptr %add.ptr.i5.i33, i64 %call1.i6.i34
   store double 0.000000e+00, ptr %val.i3.i24, align 8
-  %call3.i8.i36 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i33, ptr noundef nonnull %add.ptr2.i7.i35, ptr noundef nonnull %val.i3.i24)
+  %call3.i8.i36 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i33, ptr noundef nonnull %add.ptr2.i7.i35, ptr noundef %val.i3.i24)
   %25 = load double, ptr %val.i3.i24, align 8
   %conv.i9.i37 = fptrunc double %25 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i3.i24)
@@ -1596,7 +1596,7 @@ invoke.cont136:                                   ; preds = %land.lhs.true123, %
   %call1.i13.i40 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i12.i39, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14.i41 = getelementptr inbounds i8, ptr %add.ptr.i12.i39, i64 %call1.i13.i40
   store double 0.000000e+00, ptr %val.i10.i23, align 8
-  %call3.i15.i42 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i39, ptr noundef %add.ptr2.i14.i41, ptr noundef nonnull %val.i10.i23)
+  %call3.i15.i42 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i39, ptr noundef %add.ptr2.i14.i41, ptr noundef %val.i10.i23)
   %26 = load double, ptr %val.i10.i23, align 8
   %conv.i16.i43 = fptrunc double %26 to float
   store ptr %add.ptr2.i14.i41, ptr %token, align 8
@@ -1621,7 +1621,7 @@ invoke.cont163:                                   ; preds = %land.lhs.true150, %
   %call1.i.i49 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i48, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i48, i64 %call1.i.i49
   store double 0.000000e+00, ptr %val.i.i46, align 8
-  %call3.i.i51 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i48, ptr noundef nonnull %add.ptr2.i.i50, ptr noundef nonnull %val.i.i46)
+  %call3.i.i51 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i48, ptr noundef nonnull %add.ptr2.i.i50, ptr noundef %val.i.i46)
   %28 = load double, ptr %val.i.i46, align 8
   %conv.i.i52 = fptrunc double %28 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i46)
@@ -1631,7 +1631,7 @@ invoke.cont163:                                   ; preds = %land.lhs.true150, %
   %call1.i6.i55 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i5.i54, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7.i56 = getelementptr inbounds i8, ptr %add.ptr.i5.i54, i64 %call1.i6.i55
   store double 0.000000e+00, ptr %val.i3.i45, align 8
-  %call3.i8.i57 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i54, ptr noundef nonnull %add.ptr2.i7.i56, ptr noundef nonnull %val.i3.i45)
+  %call3.i8.i57 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i54, ptr noundef nonnull %add.ptr2.i7.i56, ptr noundef %val.i3.i45)
   %29 = load double, ptr %val.i3.i45, align 8
   %conv.i9.i58 = fptrunc double %29 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i3.i45)
@@ -1642,7 +1642,7 @@ invoke.cont163:                                   ; preds = %land.lhs.true150, %
   %call1.i13.i61 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i12.i60, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14.i62 = getelementptr inbounds i8, ptr %add.ptr.i12.i60, i64 %call1.i13.i61
   store double 0.000000e+00, ptr %val.i10.i44, align 8
-  %call3.i15.i63 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i60, ptr noundef %add.ptr2.i14.i62, ptr noundef nonnull %val.i10.i44)
+  %call3.i15.i63 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i60, ptr noundef %add.ptr2.i14.i62, ptr noundef %val.i10.i44)
   %30 = load double, ptr %val.i10.i44, align 8
   %conv.i16.i64 = fptrunc double %30 to float
   store ptr %add.ptr2.i14.i62, ptr %token, align 8
@@ -1682,7 +1682,7 @@ invoke.cont206:                                   ; preds = %land.lhs.true177, %
   %call1.i.i70 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i69, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i69, i64 %call1.i.i70
   store double 0.000000e+00, ptr %val.i.i67, align 8
-  %call3.i.i72 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i69, ptr noundef nonnull %add.ptr2.i.i71, ptr noundef nonnull %val.i.i67)
+  %call3.i.i72 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i69, ptr noundef nonnull %add.ptr2.i.i71, ptr noundef %val.i.i67)
   %34 = load double, ptr %val.i.i67, align 8
   %conv.i.i73 = fptrunc double %34 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i67)
@@ -1692,7 +1692,7 @@ invoke.cont206:                                   ; preds = %land.lhs.true177, %
   %call1.i6.i76 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i5.i75, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7.i77 = getelementptr inbounds i8, ptr %add.ptr.i5.i75, i64 %call1.i6.i76
   store double 0.000000e+00, ptr %val.i3.i66, align 8
-  %call3.i8.i78 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i75, ptr noundef nonnull %add.ptr2.i7.i77, ptr noundef nonnull %val.i3.i66)
+  %call3.i8.i78 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i75, ptr noundef nonnull %add.ptr2.i7.i77, ptr noundef %val.i3.i66)
   %35 = load double, ptr %val.i3.i66, align 8
   %conv.i9.i79 = fptrunc double %35 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i3.i66)
@@ -1703,7 +1703,7 @@ invoke.cont206:                                   ; preds = %land.lhs.true177, %
   %call1.i13.i82 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i12.i81, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14.i83 = getelementptr inbounds i8, ptr %add.ptr.i12.i81, i64 %call1.i13.i82
   store double 0.000000e+00, ptr %val.i10.i65, align 8
-  %call3.i15.i84 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i81, ptr noundef %add.ptr2.i14.i83, ptr noundef nonnull %val.i10.i65)
+  %call3.i15.i84 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i81, ptr noundef %add.ptr2.i14.i83, ptr noundef %val.i10.i65)
   %36 = load double, ptr %val.i10.i65, align 8
   %conv.i16.i85 = fptrunc double %36 to float
   store ptr %add.ptr2.i14.i83, ptr %token, align 8
@@ -1736,7 +1736,7 @@ invoke.cont230:                                   ; preds = %land.lhs.true220, %
   %call1.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call1.i
   store double 0.000000e+00, ptr %val.i, align 8
-  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr2.i, ptr noundef nonnull %val.i)
+  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr2.i, ptr noundef %val.i)
   %39 = load double, ptr %val.i, align 8
   %conv.i = fptrunc double %39 to float
   store ptr %add.ptr2.i, ptr %token, align 8
@@ -1759,7 +1759,7 @@ invoke.cont253:                                   ; preds = %land.lhs.true240, %
   %call1.i.i91 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i90, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i92 = getelementptr inbounds i8, ptr %add.ptr.i.i90, i64 %call1.i.i91
   store double 0.000000e+00, ptr %val.i.i88, align 8
-  %call3.i.i93 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i90, ptr noundef nonnull %add.ptr2.i.i92, ptr noundef nonnull %val.i.i88)
+  %call3.i.i93 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i90, ptr noundef nonnull %add.ptr2.i.i92, ptr noundef %val.i.i88)
   %41 = load double, ptr %val.i.i88, align 8
   %conv.i.i94 = fptrunc double %41 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i88)
@@ -1769,7 +1769,7 @@ invoke.cont253:                                   ; preds = %land.lhs.true240, %
   %call1.i6.i97 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i5.i96, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7.i98 = getelementptr inbounds i8, ptr %add.ptr.i5.i96, i64 %call1.i6.i97
   store double 0.000000e+00, ptr %val.i3.i87, align 8
-  %call3.i8.i99 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i96, ptr noundef nonnull %add.ptr2.i7.i98, ptr noundef nonnull %val.i3.i87)
+  %call3.i8.i99 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i96, ptr noundef nonnull %add.ptr2.i7.i98, ptr noundef %val.i3.i87)
   %42 = load double, ptr %val.i3.i87, align 8
   %conv.i9.i100 = fptrunc double %42 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i3.i87)
@@ -1780,7 +1780,7 @@ invoke.cont253:                                   ; preds = %land.lhs.true240, %
   %call1.i13.i103 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i12.i102, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14.i104 = getelementptr inbounds i8, ptr %add.ptr.i12.i102, i64 %call1.i13.i103
   store double 0.000000e+00, ptr %val.i10.i86, align 8
-  %call3.i15.i105 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i102, ptr noundef %add.ptr2.i14.i104, ptr noundef nonnull %val.i10.i86)
+  %call3.i15.i105 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i102, ptr noundef %add.ptr2.i14.i104, ptr noundef %val.i10.i86)
   %43 = load double, ptr %val.i10.i86, align 8
   %conv.i16.i106 = fptrunc double %43 to float
   store ptr %add.ptr2.i14.i104, ptr %token, align 8
@@ -1805,7 +1805,7 @@ invoke.cont277:                                   ; preds = %land.lhs.true267, %
   %call1.i110 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i109, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i111 = getelementptr inbounds i8, ptr %add.ptr.i109, i64 %call1.i110
   store double 0.000000e+00, ptr %val.i107, align 8
-  %call3.i112 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i109, ptr noundef nonnull %add.ptr2.i111, ptr noundef nonnull %val.i107)
+  %call3.i112 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i109, ptr noundef nonnull %add.ptr2.i111, ptr noundef %val.i107)
   %45 = load double, ptr %val.i107, align 8
   %conv.i113 = fptrunc double %45 to float
   store ptr %add.ptr2.i111, ptr %token, align 8
@@ -1857,7 +1857,7 @@ invoke.cont308:                                   ; preds = %land.lhs.true298, %
   %call1.i120 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i119, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i121 = getelementptr inbounds i8, ptr %add.ptr.i119, i64 %call1.i120
   store double 0.000000e+00, ptr %val.i117, align 8
-  %call3.i122 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i119, ptr noundef nonnull %add.ptr2.i121, ptr noundef nonnull %val.i117)
+  %call3.i122 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i119, ptr noundef nonnull %add.ptr2.i121, ptr noundef %val.i117)
   %48 = load double, ptr %val.i117, align 8
   %conv.i123 = fptrunc double %48 to float
   store ptr %add.ptr2.i121, ptr %token, align 8
@@ -1913,7 +1913,7 @@ invoke.cont357:                                   ; preds = %if.then341
   %call1.i127 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i126, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i128 = getelementptr inbounds i8, ptr %add.ptr.i126, i64 %call1.i127
   store double 0.000000e+00, ptr %val.i124, align 8
-  %call3.i129 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i126, ptr noundef nonnull %add.ptr2.i128, ptr noundef nonnull %val.i124)
+  %call3.i129 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i126, ptr noundef nonnull %add.ptr2.i128, ptr noundef %val.i124)
   %56 = load double, ptr %val.i124, align 8
   %conv.i130 = fptrunc double %56 to float
   store ptr %add.ptr2.i128, ptr %token, align 8
@@ -1951,7 +1951,7 @@ invoke.cont380:                                   ; preds = %land.lhs.true370, %
   %call1.i134 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i133, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i135 = getelementptr inbounds i8, ptr %add.ptr.i133, i64 %call1.i134
   store double 0.000000e+00, ptr %val.i131, align 8
-  %call3.i136 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i133, ptr noundef nonnull %add.ptr2.i135, ptr noundef nonnull %val.i131)
+  %call3.i136 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i133, ptr noundef nonnull %add.ptr2.i135, ptr noundef %val.i131)
   %59 = load double, ptr %val.i131, align 8
   %conv.i137 = fptrunc double %59 to float
   store ptr %add.ptr2.i135, ptr %token, align 8
@@ -1974,7 +1974,7 @@ invoke.cont400:                                   ; preds = %land.lhs.true390, %
   %call1.i141 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i140, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i142 = getelementptr inbounds i8, ptr %add.ptr.i140, i64 %call1.i141
   store double 0.000000e+00, ptr %val.i138, align 8
-  %call3.i143 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i140, ptr noundef nonnull %add.ptr2.i142, ptr noundef nonnull %val.i138)
+  %call3.i143 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i140, ptr noundef nonnull %add.ptr2.i142, ptr noundef %val.i138)
   %61 = load double, ptr %val.i138, align 8
   %conv.i144 = fptrunc double %61 to float
   store ptr %add.ptr2.i142, ptr %token, align 8
@@ -1997,7 +1997,7 @@ invoke.cont420:                                   ; preds = %land.lhs.true410, %
   %call1.i148 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i147, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i149 = getelementptr inbounds i8, ptr %add.ptr.i147, i64 %call1.i148
   store double 0.000000e+00, ptr %val.i145, align 8
-  %call3.i150 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i147, ptr noundef nonnull %add.ptr2.i149, ptr noundef nonnull %val.i145)
+  %call3.i150 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i147, ptr noundef nonnull %add.ptr2.i149, ptr noundef %val.i145)
   %63 = load double, ptr %val.i145, align 8
   %conv.i151 = fptrunc double %63 to float
   store ptr %add.ptr2.i149, ptr %token, align 8
@@ -2020,7 +2020,7 @@ invoke.cont440:                                   ; preds = %land.lhs.true430, %
   %call1.i155 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i154, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i156 = getelementptr inbounds i8, ptr %add.ptr.i154, i64 %call1.i155
   store double 0.000000e+00, ptr %val.i152, align 8
-  %call3.i157 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i154, ptr noundef nonnull %add.ptr2.i156, ptr noundef nonnull %val.i152)
+  %call3.i157 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i154, ptr noundef nonnull %add.ptr2.i156, ptr noundef %val.i152)
   %65 = load double, ptr %val.i152, align 8
   %conv.i158 = fptrunc double %65 to float
   store ptr %add.ptr2.i156, ptr %token, align 8
@@ -2056,7 +2056,7 @@ invoke.cont455:                                   ; preds = %land.lhs.true445, %
   %call1.i162 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i161, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i163 = getelementptr inbounds i8, ptr %add.ptr.i161, i64 %call1.i162
   store double 0.000000e+00, ptr %val.i159, align 8
-  %call3.i164 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i161, ptr noundef nonnull %add.ptr2.i163, ptr noundef nonnull %val.i159)
+  %call3.i164 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i161, ptr noundef nonnull %add.ptr2.i163, ptr noundef %val.i159)
   %72 = load double, ptr %val.i159, align 8
   %conv.i165 = fptrunc double %72 to float
   store ptr %add.ptr2.i163, ptr %token, align 8
@@ -2085,7 +2085,7 @@ invoke.cont470:                                   ; preds = %land.lhs.true460, %
   %call1.i169 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i168, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i170 = getelementptr inbounds i8, ptr %add.ptr.i168, i64 %call1.i169
   store double 0.000000e+00, ptr %val.i166, align 8
-  %call3.i171 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i168, ptr noundef nonnull %add.ptr2.i170, ptr noundef nonnull %val.i166)
+  %call3.i171 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i168, ptr noundef nonnull %add.ptr2.i170, ptr noundef %val.i166)
   %74 = load double, ptr %val.i166, align 8
   %conv.i172 = fptrunc double %74 to float
   store ptr %add.ptr2.i170, ptr %token, align 8
@@ -2114,7 +2114,7 @@ invoke.cont485:                                   ; preds = %land.lhs.true475, %
   %call1.i176 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i175, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i177 = getelementptr inbounds i8, ptr %add.ptr.i175, i64 %call1.i176
   store double 0.000000e+00, ptr %val.i173, align 8
-  %call3.i178 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i175, ptr noundef nonnull %add.ptr2.i177, ptr noundef nonnull %val.i173)
+  %call3.i178 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i175, ptr noundef nonnull %add.ptr2.i177, ptr noundef %val.i173)
   %76 = load double, ptr %val.i173, align 8
   %conv.i179 = fptrunc double %76 to float
   store ptr %add.ptr2.i177, ptr %token, align 8
@@ -4598,7 +4598,7 @@ land.lhs.true:                                    ; preds = %if.end34
 if.then55:                                        ; preds = %land.lhs.true, %land.lhs.true
   %add.ptr56 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store ptr %add.ptr56, ptr %token, align 8
-  %call58 = call fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr noundef nonnull %x, ptr noundef nonnull %y, ptr noundef nonnull %z, ptr noundef nonnull %r, ptr noundef nonnull %g, ptr noundef nonnull %b, ptr noundef nonnull %token)
+  %call58 = call fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %r, ptr noundef %g, ptr noundef %b, ptr noundef %token)
   %tobool61136 = icmp ne i8 %found_all_colors.0, 0
   %tobool61 = select i1 %call58, i1 %tobool61136, i1 false
   %frombool62 = zext i1 %tobool61 to i8
@@ -5016,7 +5016,7 @@ invoke.cont95:                                    ; preds = %land.lhs.true82, %l
   %call1.i.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i330, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i330, i64 %call1.i.i
   store double 0.000000e+00, ptr %val.i.i, align 8
-  %call3.i.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i330, ptr noundef nonnull %add.ptr2.i.i, ptr noundef nonnull %val.i.i)
+  %call3.i.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i330, ptr noundef nonnull %add.ptr2.i.i, ptr noundef %val.i.i)
   %34 = load double, ptr %val.i.i, align 8
   %conv.i.i = fptrunc double %34 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
@@ -5026,7 +5026,7 @@ invoke.cont95:                                    ; preds = %land.lhs.true82, %l
   %call1.i6.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7.i = getelementptr inbounds i8, ptr %add.ptr.i5.i, i64 %call1.i6.i
   store double 0.000000e+00, ptr %val.i3.i, align 8
-  %call3.i8.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull %add.ptr2.i7.i, ptr noundef nonnull %val.i3.i)
+  %call3.i8.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull %add.ptr2.i7.i, ptr noundef %val.i3.i)
   %35 = load double, ptr %val.i3.i, align 8
   %conv.i9.i = fptrunc double %35 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i3.i)
@@ -5037,7 +5037,7 @@ invoke.cont95:                                    ; preds = %land.lhs.true82, %l
   %call1.i13.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i12.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 %call1.i13.i
   store double 0.000000e+00, ptr %val.i10.i, align 8
-  %call3.i15.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr2.i14.i, ptr noundef nonnull %val.i10.i)
+  %call3.i15.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr2.i14.i, ptr noundef %val.i10.i)
   %36 = load double, ptr %val.i10.i, align 8
   %conv.i16.i = fptrunc double %36 to float
   store ptr %add.ptr2.i14.i, ptr %token, align 8
@@ -5249,7 +5249,7 @@ invoke.cont119:                                   ; preds = %land.lhs.true107, %
   %call1.i.i442 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i441, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i443 = getelementptr inbounds i8, ptr %add.ptr.i.i441, i64 %call1.i.i442
   store double 0.000000e+00, ptr %val.i.i439, align 8
-  %call3.i.i444 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i441, ptr noundef nonnull %add.ptr2.i.i443, ptr noundef nonnull %val.i.i439)
+  %call3.i.i444 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i441, ptr noundef nonnull %add.ptr2.i.i443, ptr noundef %val.i.i439)
   %41 = load double, ptr %val.i.i439, align 8
   %conv.i.i445 = fptrunc double %41 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i439)
@@ -5259,7 +5259,7 @@ invoke.cont119:                                   ; preds = %land.lhs.true107, %
   %call1.i5.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i4.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i6.i = getelementptr inbounds i8, ptr %add.ptr.i4.i, i64 %call1.i5.i
   store double 0.000000e+00, ptr %val.i2.i, align 8
-  %call3.i7.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i4.i, ptr noundef nonnull %add.ptr2.i6.i, ptr noundef nonnull %val.i2.i)
+  %call3.i7.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i4.i, ptr noundef nonnull %add.ptr2.i6.i, ptr noundef %val.i2.i)
   %42 = load double, ptr %val.i2.i, align 8
   %conv.i8.i = fptrunc double %42 to float
   store ptr %add.ptr2.i6.i, ptr %token, align 8
@@ -5420,7 +5420,7 @@ invoke.cont155:                                   ; preds = %while.cond142
   %call1.i.i522 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i521, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i523 = getelementptr inbounds i8, ptr %add.ptr.i.i521, i64 %call1.i.i522
   store double -1.000000e+00, ptr %val.i.i519, align 8
-  %call3.i.i524 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i521, ptr noundef nonnull %add.ptr2.i.i523, ptr noundef nonnull %val.i.i519)
+  %call3.i.i524 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i521, ptr noundef nonnull %add.ptr2.i.i523, ptr noundef %val.i.i519)
   %47 = load double, ptr %val.i.i519, align 8
   %conv.i.i525 = fptrunc double %47 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i519)
@@ -5430,7 +5430,7 @@ invoke.cont155:                                   ; preds = %while.cond142
   %call1.i5.i528 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i4.i527, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i6.i529 = getelementptr inbounds i8, ptr %add.ptr.i4.i527, i64 %call1.i5.i528
   store double 0.000000e+00, ptr %val.i2.i518, align 8
-  %call3.i7.i530 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i4.i527, ptr noundef nonnull %add.ptr2.i6.i529, ptr noundef nonnull %val.i2.i518)
+  %call3.i7.i530 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i4.i527, ptr noundef nonnull %add.ptr2.i6.i529, ptr noundef %val.i2.i518)
   %48 = load double, ptr %val.i2.i518, align 8
   %conv.i8.i531 = fptrunc double %48 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i2.i518)
@@ -5734,7 +5734,7 @@ while.body210:                                    ; preds = %while.cond196
   store i32 -1, ptr %vi, align 4
   store i32 -1, ptr %vt_idx.i, align 4
   store i32 -1, ptr %vn_idx.i, align 4
-  %call222 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr noundef nonnull %token, i32 noundef %conv214, i32 noundef %conv217, i32 noundef %conv220, ptr noundef nonnull %vi, ptr noundef nonnull align 8 dereferenceable(16) %context)
+  %call222 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr noundef %token, i32 noundef %conv214, i32 noundef %conv217, i32 noundef %conv220, ptr noundef %vi, ptr noundef nonnull align 8 dereferenceable(16) %context)
           to label %invoke.cont221 unwind label %lpad211.loopexit
 
 invoke.cont221:                                   ; preds = %while.body210
@@ -6044,7 +6044,7 @@ while.body279:                                    ; preds = %while.cond265
   store i32 -1, ptr %vi280, align 4
   store i32 -1, ptr %vt_idx.i651, align 4
   store i32 -1, ptr %vn_idx.i652, align 4
-  %call293 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr noundef nonnull %token, i32 noundef %conv285, i32 noundef %conv288, i32 noundef %conv291, ptr noundef nonnull %vi280, ptr noundef nonnull align 8 dereferenceable(16) %context)
+  %call293 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr noundef %token, i32 noundef %conv285, i32 noundef %conv288, i32 noundef %conv291, ptr noundef %vi280, ptr noundef nonnull align 8 dereferenceable(16) %context)
           to label %invoke.cont292 unwind label %lpad281.loopexit
 
 invoke.cont292:                                   ; preds = %while.body279
@@ -6368,7 +6368,7 @@ while.body357:                                    ; preds = %while.cond343
   store i32 -1, ptr %vi358, align 4
   store i32 -1, ptr %vt_idx.i763, align 4
   store i32 -1, ptr %vn_idx.i764, align 4
-  %call370 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr noundef nonnull %token, i32 noundef %conv362, i32 noundef %conv365, i32 noundef %conv368, ptr noundef nonnull %vi358, ptr noundef nonnull align 8 dereferenceable(16) %context)
+  %call370 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr noundef %token, i32 noundef %conv362, i32 noundef %conv365, i32 noundef %conv368, ptr noundef %vi358, ptr noundef nonnull align 8 dereferenceable(16) %context)
           to label %invoke.cont369 unwind label %lpad341.loopexit
 
 invoke.cont369:                                   ; preds = %while.body357
@@ -6648,7 +6648,7 @@ if.end414:                                        ; preds = %if.end181, %land.lh
 if.then417:                                       ; preds = %if.end414
   %add.ptr418 = getelementptr inbounds i8, ptr %67, i64 6
   store ptr %add.ptr418, ptr %token, align 8
-  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %namebuf, ptr noundef nonnull %token)
+  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias align 8 %namebuf, ptr noundef %token)
           to label %invoke.cont419 unwind label %lpad.loopexit1493
 
 invoke.cont419:                                   ; preds = %if.then417
@@ -6753,7 +6753,7 @@ if.end444:                                        ; preds = %if.else, %invoke.co
   br i1 %cmp445.not, label %if.end451, label %if.then446
 
 if.then446:                                       ; preds = %if.end444
-  %call449 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef nonnull %shape, ptr noundef nonnull align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material.0, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %warn)
+  %call449 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef %shape, ptr noundef nonnull align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material.0, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %warn)
           to label %invoke.cont448 unwind label %lpad421
 
 invoke.cont448:                                   ; preds = %if.then446
@@ -7154,7 +7154,7 @@ land.lhs.true564:                                 ; preds = %if.end560
   ]
 
 if.then572:                                       ; preds = %land.lhs.true564, %land.lhs.true564
-  %call575 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef nonnull %shape, ptr noundef nonnull align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material.0, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %warn)
+  %call575 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef %shape, ptr noundef nonnull align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material.0, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %warn)
           to label %invoke.cont574 unwind label %lpad.loopexit1493
 
 invoke.cont574:                                   ; preds = %if.then572
@@ -7278,7 +7278,7 @@ while.cond585:                                    ; preds = %invoke.cont603, %_Z
   ]
 
 lor.rhs593:                                       ; preds = %while.cond585
-  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %str, ptr noundef nonnull %token)
+  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias align 8 %str, ptr noundef %token)
           to label %invoke.cont601 unwind label %lpad600.loopexit
 
 invoke.cont601:                                   ; preds = %lor.rhs593
@@ -7492,7 +7492,7 @@ land.lhs.true665:                                 ; preds = %if.end560
   ]
 
 if.then673:                                       ; preds = %land.lhs.true665, %land.lhs.true665
-  %call677 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef nonnull %shape, ptr noundef nonnull align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material.0, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %warn)
+  %call677 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef %shape, ptr noundef nonnull align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material.0, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %warn)
           to label %invoke.cont676 unwind label %lpad.loopexit1493
 
 invoke.cont676:                                   ; preds = %if.then673
@@ -7653,7 +7653,7 @@ if.then721:                                       ; preds = %land.lhs.true713, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %intValues.i, i8 0, i64 72, i1 false)
   %add.ptr722 = getelementptr inbounds i8, ptr %67, i64 2
   store ptr %add.ptr722, ptr %token, align 8
-  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %ref.tmp723, ptr noundef nonnull %token)
+  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias align 8 %ref.tmp723, ptr noundef %token)
           to label %invoke.cont725 unwind label %lpad724.loopexit.split-lp
 
 invoke.cont725:                                   ; preds = %if.then721
@@ -7948,7 +7948,7 @@ invoke.cont782:                                   ; preds = %_ZNSt6vectorIfSaIfE
   %call1.i1109 = call i64 @strcspn(ptr noundef %add.ptr.i1108, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i1108, i64 %call1.i1109
   store double 0.000000e+00, ptr %val.i, align 8
-  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i1108, ptr noundef %add.ptr2.i, ptr noundef nonnull %val.i)
+  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i1108, ptr noundef %add.ptr2.i, ptr noundef %val.i)
   %259 = load double, ptr %val.i, align 8
   %conv.i1110 = fptrunc double %259 to float
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i)
@@ -8003,7 +8003,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 
 for.body797:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, %invoke.cont799
   %i792.02832 = phi i64 [ %inc804, %invoke.cont799 ], [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit ]
-  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %ref.tmp798, ptr noundef nonnull %token)
+  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias align 8 %ref.tmp798, ptr noundef %token)
           to label %invoke.cont799 unwind label %lpad724.loopexit
 
 invoke.cont799:                                   ; preds = %for.body797
@@ -8143,7 +8143,7 @@ land.lhs.true849:                                 ; preds = %if.end838
   br i1 %cmp852, label %while.cond.backedge, label %if.else854
 
 if.else854:                                       ; preds = %land.lhs.true849, %if.end838
-  %call856 = call fastcc noundef i32 @_ZN7tinyobjL8parseIntEPPKc(ptr noundef nonnull %token)
+  %call856 = call fastcc noundef i32 @_ZN7tinyobjL8parseIntEPPKc(ptr noundef %token)
   %.call856 = call i32 @llvm.smax.i32(i32 %call856, i32 0)
   br label %while.cond.backedge
 
@@ -8324,7 +8324,7 @@ ehcleanup944:                                     ; preds = %lpad940, %lpad931
   br label %ehcleanup972
 
 if.end946:                                        ; preds = %invoke.cont941, %if.end920
-  %call950 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef nonnull %shape, ptr noundef nonnull align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material.0, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %warn)
+  %call950 = invoke fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef %shape, ptr noundef nonnull align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material.0, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %warn)
           to label %invoke.cont949 unwind label %lpad.loopexit.split-lp1494
 
 invoke.cont949:                                   ; preds = %if.end946
@@ -8686,7 +8686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z, ptr nocapture noundef writeonly %r, ptr nocapture noundef writeonly %g, ptr nocapture noundef writeonly %b, ptr nocapture noundef %token) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr nocapture noundef nonnull writeonly %x, ptr nocapture noundef nonnull writeonly %y, ptr nocapture noundef nonnull writeonly %z, ptr nocapture noundef nonnull writeonly %r, ptr nocapture noundef nonnull writeonly %g, ptr nocapture noundef nonnull writeonly %b, ptr nocapture noundef nonnull %token) unnamed_addr #6 {
 entry:
   %val.i40 = alloca double, align 8
   %val.i31 = alloca double, align 8
@@ -8702,7 +8702,7 @@ entry:
   %call1.i = tail call i64 @strcspn(ptr noundef %add.ptr.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call1.i
   store double 0.000000e+00, ptr %val.i, align 8
-  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i, ptr noundef %add.ptr2.i, ptr noundef nonnull %val.i)
+  %call3.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i, ptr noundef %add.ptr2.i, ptr noundef %val.i)
   %1 = load double, ptr %val.i, align 8
   %conv.i = fptrunc double %1 to float
   store ptr %add.ptr2.i, ptr %token, align 8
@@ -8716,7 +8716,7 @@ entry:
   %call1.i13 = tail call i64 @strcspn(ptr noundef %add.ptr.i12, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14 = getelementptr inbounds i8, ptr %add.ptr.i12, i64 %call1.i13
   store double 0.000000e+00, ptr %val.i10, align 8
-  %call3.i15 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i12, ptr noundef %add.ptr2.i14, ptr noundef nonnull %val.i10)
+  %call3.i15 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i12, ptr noundef %add.ptr2.i14, ptr noundef %val.i10)
   %3 = load double, ptr %val.i10, align 8
   %conv.i16 = fptrunc double %3 to float
   store ptr %add.ptr2.i14, ptr %token, align 8
@@ -8730,7 +8730,7 @@ entry:
   %call1.i20 = tail call i64 @strcspn(ptr noundef %add.ptr.i19, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i21 = getelementptr inbounds i8, ptr %add.ptr.i19, i64 %call1.i20
   store double 0.000000e+00, ptr %val.i17, align 8
-  %call3.i22 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i19, ptr noundef %add.ptr2.i21, ptr noundef nonnull %val.i17)
+  %call3.i22 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i19, ptr noundef %add.ptr2.i21, ptr noundef %val.i17)
   %5 = load double, ptr %val.i17, align 8
   %conv.i23 = fptrunc double %5 to float
   store ptr %add.ptr2.i21, ptr %token, align 8
@@ -8743,7 +8743,7 @@ entry:
   store ptr %add.ptr.i26, ptr %token, align 8
   %call1.i27 = tail call i64 @strcspn(ptr noundef %add.ptr.i26, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i28 = getelementptr inbounds i8, ptr %add.ptr.i26, i64 %call1.i27
-  %call3.i29 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i26, ptr noundef %add.ptr2.i28, ptr noundef nonnull %val.i24)
+  %call3.i29 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i26, ptr noundef %add.ptr2.i28, ptr noundef %val.i24)
   br i1 %call3.i29, label %land.lhs.true, label %_ZN7tinyobjL9parseRealEPPKcPf.exit
 
 _ZN7tinyobjL9parseRealEPPKcPf.exit:               ; preds = %entry
@@ -8763,7 +8763,7 @@ land.lhs.true:                                    ; preds = %entry
   store ptr %add.ptr.i33, ptr %token, align 8
   %call1.i34 = tail call i64 @strcspn(ptr noundef %add.ptr.i33, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i35 = getelementptr inbounds i8, ptr %add.ptr.i33, i64 %call1.i34
-  %call3.i36 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i33, ptr noundef %add.ptr2.i35, ptr noundef nonnull %val.i31)
+  %call3.i36 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i33, ptr noundef %add.ptr2.i35, ptr noundef %val.i31)
   br i1 %call3.i36, label %land.rhs, label %_ZN7tinyobjL9parseRealEPPKcPf.exit39
 
 _ZN7tinyobjL9parseRealEPPKcPf.exit39:             ; preds = %land.lhs.true
@@ -8783,7 +8783,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   store ptr %add.ptr.i42, ptr %token, align 8
   %call1.i43 = tail call i64 @strcspn(ptr noundef %add.ptr.i42, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i44 = getelementptr inbounds i8, ptr %add.ptr.i42, i64 %call1.i43
-  %call3.i45 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i42, ptr noundef %add.ptr2.i44, ptr noundef nonnull %val.i40)
+  %call3.i45 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef %add.ptr.i42, ptr noundef %add.ptr2.i44, ptr noundef %val.i40)
   br i1 %call3.i45, label %land.end.thread49, label %land.end
 
 land.end.thread49:                                ; preds = %land.rhs
@@ -8811,7 +8811,7 @@ if.end:                                           ; preds = %land.end.thread49, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr nocapture noundef %token, i32 noundef %vsize, i32 noundef %vnsize, i32 noundef %vtsize, ptr nocapture noundef writeonly %ret, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL11parseTripleEPPKciiiPNS_14vertex_index_tERKNS_15warning_contextE(ptr nocapture noundef nonnull %token, i32 noundef %vsize, i32 noundef %vnsize, i32 noundef %vtsize, ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) unnamed_addr #3 {
 entry:
   %vi = alloca %"struct.tinyobj::vertex_index_t", align 4
   store i32 -1, ptr %vi, align 4
@@ -8821,7 +8821,7 @@ entry:
   store i32 -1, ptr %vn_idx.i, align 4
   %0 = load ptr, ptr %token, align 8
   %call = tail call i32 @atoi(ptr nocapture noundef %0) #27
-  %call1 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call, i32 noundef %vsize, ptr noundef nonnull %vi, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %context)
+  %call1 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call, i32 noundef %vsize, ptr noundef %vi, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %entry
@@ -8844,12 +8844,12 @@ if.then10:                                        ; preds = %if.end6
   %incdec.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store ptr %incdec.ptr11, ptr %token, align 8
   %call12 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr11) #27
-  %call13 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call12, i32 noundef %vnsize, ptr noundef nonnull %vn_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
+  %call13 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call12, i32 noundef %vnsize, ptr noundef %vn_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call13, label %return.sink.split.sink.split, label %return
 
 if.end18:                                         ; preds = %if.end6
   %call19 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr) #27
-  %call20 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call19, i32 noundef %vtsize, ptr noundef nonnull %vt_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
+  %call20 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call19, i32 noundef %vtsize, ptr noundef %vt_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call20, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.end18
@@ -8865,7 +8865,7 @@ if.end29:                                         ; preds = %if.end22
   %incdec.ptr30 = getelementptr inbounds i8, ptr %add.ptr24, i64 1
   store ptr %incdec.ptr30, ptr %token, align 8
   %call31 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr30) #27
-  %call33 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call31, i32 noundef %vnsize, ptr noundef nonnull %vn_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
+  %call33 = call fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %call31, i32 noundef %vnsize, ptr noundef %vn_idx.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %context)
   br i1 %call33, label %return.sink.split.sink.split, label %return
 
 return.sink.split.sink.split:                     ; preds = %if.end29, %if.then10
@@ -8919,7 +8919,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material_id, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v, ptr noundef %warn) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL19exportGroupsToShapeEPNS_7shape_tERKNS_9PrimGroupERKSt6vectorINS_5tag_tESaIS6_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS5_IfSaIfEEPSG_(ptr noundef nonnull %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %prim_group, ptr noundef nonnull align 8 dereferenceable(24) %tags, i32 noundef %material_id, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %triangulate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v, ptr noundef %warn) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ind = alloca [3 x %"struct.tinyobj::vertex_index_t"], align 16
   %vx = alloca [3 x float], align 4
@@ -13198,7 +13198,7 @@ land.lhs.true:                                    ; preds = %if.end35
 if.then56:                                        ; preds = %land.lhs.true, %land.lhs.true
   %add.ptr57 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store ptr %add.ptr57, ptr %token, align 8
-  %call59 = call fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr noundef nonnull %x, ptr noundef nonnull %y, ptr noundef nonnull %z, ptr noundef nonnull %r, ptr noundef nonnull %g, ptr noundef nonnull %b, ptr noundef nonnull %token)
+  %call59 = call fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %r, ptr noundef %g, ptr noundef %b, ptr noundef %token)
   %7 = load ptr, ptr %callback, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end63, label %if.then60
@@ -13242,7 +13242,7 @@ invoke.cont91:                                    ; preds = %land.lhs.true78, %l
   %call1.i.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %call1.i.i
   store double 0.000000e+00, ptr %val.i.i, align 8
-  %call3.i.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr2.i.i, ptr noundef nonnull %val.i.i)
+  %call3.i.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr2.i.i, ptr noundef %val.i.i)
   %20 = load double, ptr %val.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i3.i)
@@ -13251,7 +13251,7 @@ invoke.cont91:                                    ; preds = %land.lhs.true78, %l
   %call1.i6.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7.i = getelementptr inbounds i8, ptr %add.ptr.i5.i, i64 %call1.i6.i
   store double 0.000000e+00, ptr %val.i3.i, align 8
-  %call3.i8.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull %add.ptr2.i7.i, ptr noundef nonnull %val.i3.i)
+  %call3.i8.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i, ptr noundef nonnull %add.ptr2.i7.i, ptr noundef %val.i3.i)
   %21 = load double, ptr %val.i3.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i3.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i10.i)
@@ -13261,7 +13261,7 @@ invoke.cont91:                                    ; preds = %land.lhs.true78, %l
   %call1.i13.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i12.i, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 %call1.i13.i
   store double 0.000000e+00, ptr %val.i10.i, align 8
-  %call3.i15.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr2.i14.i, ptr noundef nonnull %val.i10.i)
+  %call3.i15.i = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i, ptr noundef %add.ptr2.i14.i, ptr noundef %val.i10.i)
   %22 = load double, ptr %val.i10.i, align 8
   store ptr %add.ptr2.i14.i, ptr %token, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i10.i)
@@ -13304,7 +13304,7 @@ invoke.cont118:                                   ; preds = %land.lhs.true105, %
   %call1.i.i84 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i83, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i.i85 = getelementptr inbounds i8, ptr %add.ptr.i.i83, i64 %call1.i.i84
   store double 0.000000e+00, ptr %val.i.i81, align 8
-  %call3.i.i86 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i83, ptr noundef nonnull %add.ptr2.i.i85, ptr noundef nonnull %val.i.i81)
+  %call3.i.i86 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i.i83, ptr noundef nonnull %add.ptr2.i.i85, ptr noundef %val.i.i81)
   %26 = load double, ptr %val.i.i81, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i81)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i3.i80)
@@ -13313,7 +13313,7 @@ invoke.cont118:                                   ; preds = %land.lhs.true105, %
   %call1.i6.i90 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i5.i89, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i7.i91 = getelementptr inbounds i8, ptr %add.ptr.i5.i89, i64 %call1.i6.i90
   store double 0.000000e+00, ptr %val.i3.i80, align 8
-  %call3.i8.i92 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i89, ptr noundef nonnull %add.ptr2.i7.i91, ptr noundef nonnull %val.i3.i80)
+  %call3.i8.i92 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i5.i89, ptr noundef nonnull %add.ptr2.i7.i91, ptr noundef %val.i3.i80)
   %27 = load double, ptr %val.i3.i80, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i3.i80)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i10.i79)
@@ -13323,7 +13323,7 @@ invoke.cont118:                                   ; preds = %land.lhs.true105, %
   %call1.i13.i96 = call i64 @strcspn(ptr noundef nonnull %add.ptr.i12.i95, ptr noundef nonnull @.str.12) #27
   %add.ptr2.i14.i97 = getelementptr inbounds i8, ptr %add.ptr.i12.i95, i64 %call1.i13.i96
   store double 0.000000e+00, ptr %val.i10.i79, align 8
-  %call3.i15.i98 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i95, ptr noundef %add.ptr2.i14.i97, ptr noundef nonnull %val.i10.i79)
+  %call3.i15.i98 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %add.ptr.i12.i95, ptr noundef %add.ptr2.i14.i97, ptr noundef %val.i10.i79)
   %28 = load double, ptr %val.i10.i79, align 8
   store ptr %add.ptr2.i14.i97, ptr %token, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i10.i79)
@@ -14039,7 +14039,7 @@ while.cond334:                                    ; preds = %while.cond334.prehe
   ]
 
 lor.rhs342:                                       ; preds = %while.cond334
-  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias nonnull align 8 %str, ptr noundef nonnull %token)
+  invoke fastcc void @_ZN7tinyobjL11parseStringB5cxx11EPPKc(ptr noalias align 8 %str, ptr noundef %token)
           to label %invoke.cont349 unwind label %lpad1.loopexit
 
 invoke.cont349:                                   ; preds = %lor.rhs342
@@ -14652,7 +14652,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef readonly %s, ptr noundef readnone %s_end, ptr nocapture noundef writeonly %result) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef readonly %s, ptr noundef readnone %s_end, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #6 {
 entry:
   %cmp.not = icmp ult ptr %s, %s_end
   br i1 %cmp.not, label %if.end, label %return
@@ -15039,7 +15039,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %idx, i32 noundef %n, ptr nocapture noundef writeonly %ret, i1 noundef zeroext %allow_zero, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL8fixIndexEiiPibRKNS_15warning_contextE(i32 noundef %idx, i32 noundef %n, ptr nocapture noundef nonnull writeonly %ret, i1 noundef zeroext %allow_zero, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

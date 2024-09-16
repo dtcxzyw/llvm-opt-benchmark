@@ -840,7 +840,7 @@ define hidden void @"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$8schedule17h8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h22a276d9c49b1604E(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h22a276d9c49b1604E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { { ptr, i64 }, i64 }, { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, [4 x i8] }, align 8
   %6 = alloca { i64, [16 x i64] }, align 8
   %7 = alloca [1 x { ptr, ptr }], align 8
@@ -915,7 +915,7 @@ define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h893b67e236151c69E(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h893b67e236151c69E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { { ptr, i64 }, i64 }, { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, [4 x i8] }, align 8
   %6 = alloca { i64, [16 x i64] }, align 8
   %7 = alloca [1 x { ptr, ptr }], align 8
@@ -1139,7 +1139,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext4read17h2606f1d7c
 
 75:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..Message$GT$$GT$17hda067340edbc2558E.exit", %72
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %32)
-  call fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h6f716102c796cd27E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %32, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
+  call fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h6f716102c796cd27E(ptr noalias nocapture noundef align 8 dereferenceable(136) %32, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2)
   %76 = load i64, ptr %32, align 8, !range !192, !noundef !5
   switch i64 %76, label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread [
     i64 15, label %.thread243
@@ -1533,7 +1533,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame10apply_mask17h02d52c0365e3a1b6E.exit
   br label %246
 
 195:                                              ; preds = %193
-  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..IncompleteMessage$GT$$GT$17he3bc1cf8bd1a11d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %61)
+  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..IncompleteMessage$GT$$GT$17he3bc1cf8bd1a11d5E"(ptr noalias noundef align 8 dereferenceable(32) %61)
           to label %201 unwind label %199, !noalias !202
 
 196:                                              ; preds = %193
@@ -1614,7 +1614,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame10apply_mask17h02d52c0365e3a1b6E.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %24), !noalias !197
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23), !noalias !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 40, i1 false), !noalias !197
-  call fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame10into_close17ha4ae45e8057b2e07E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %23), !noalias !202
+  call fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame10into_close17ha4ae45e8057b2e07E(ptr noalias nocapture noundef align 8 dereferenceable(136) %24, ptr noalias nocapture noundef align 8 dereferenceable(40) %23), !noalias !202
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23), !noalias !197
   %212 = load i64, ptr %24, align 8, !range !192, !noalias !197, !noundef !5
   %213 = icmp eq i64 %212, 15
@@ -1718,7 +1718,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame10apply_mask17h02d52c0365e3a1b6E.exit
   store ptr %233, ptr %19, align 8, !alias.scope !229, !noalias !232
   store i64 %234, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !229, !noalias !232
   store i64 %229, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !229, !noalias !232
-  invoke fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame4pong17h7665cd063bdebaeaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19)
+  invoke fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame4pong17h7665cd063bdebaeaE(ptr noalias nocapture noundef align 8 dereferenceable(40) %20, ptr noalias nocapture noundef align 8 dereferenceable(24) %19)
           to label %236 unwind label %224, !noalias !202
 
 236:                                              ; preds = %232
@@ -1888,7 +1888,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread245: ; preds = %_ZN3s
   br label %84
 
 276:                                              ; preds = %.noexc54
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %32)
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %32)
   br label %.thread243
 
 277:                                              ; preds = %173, %201, %202, %181, %222, %231, %217
@@ -1987,7 +1987,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f2
 278:                                              ; preds = %285
   %279 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %31) #30
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef align 8 dereferenceable(48) %31) #30
           to label %common.resume unwind label %292
 
 280:                                              ; preds = %282, %291
@@ -2048,7 +2048,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f2
   br i1 %.0, label %297, label %common.resume
 
 296:                                              ; preds = %267
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %32) #30
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %32) #30
           to label %common.resume unwind label %292
 
 297:                                              ; preds = %295
@@ -2206,7 +2206,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext4read17hb5b913796
 
 75:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..Message$GT$$GT$17hda067340edbc2558E.exit", %72
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %32)
-  call fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h7fca4b7408b4e953E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %32, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
+  call fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h7fca4b7408b4e953E(ptr noalias nocapture noundef align 8 dereferenceable(136) %32, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2)
   %76 = load i64, ptr %32, align 8, !range !192, !noundef !5
   switch i64 %76, label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread [
     i64 15, label %.thread243
@@ -2600,7 +2600,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame10apply_mask17h02d52c0365e3a1b6E.exit
   br label %246
 
 195:                                              ; preds = %193
-  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..IncompleteMessage$GT$$GT$17he3bc1cf8bd1a11d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %61)
+  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..IncompleteMessage$GT$$GT$17he3bc1cf8bd1a11d5E"(ptr noalias noundef align 8 dereferenceable(32) %61)
           to label %201 unwind label %199, !noalias !277
 
 196:                                              ; preds = %193
@@ -2681,7 +2681,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame10apply_mask17h02d52c0365e3a1b6E.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %24), !noalias !273
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23), !noalias !273
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 40, i1 false), !noalias !273
-  call fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame10into_close17ha4ae45e8057b2e07E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %23), !noalias !277
+  call fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame10into_close17ha4ae45e8057b2e07E(ptr noalias nocapture noundef align 8 dereferenceable(136) %24, ptr noalias nocapture noundef align 8 dereferenceable(40) %23), !noalias !277
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23), !noalias !273
   %212 = load i64, ptr %24, align 8, !range !192, !noalias !273, !noundef !5
   %213 = icmp eq i64 %212, 15
@@ -2785,7 +2785,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame10apply_mask17h02d52c0365e3a1b6E.exit
   store ptr %233, ptr %19, align 8, !alias.scope !300, !noalias !303
   store i64 %234, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !300, !noalias !303
   store i64 %229, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !300, !noalias !303
-  invoke fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame4pong17h7665cd063bdebaeaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19)
+  invoke fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame4pong17h7665cd063bdebaeaE(ptr noalias nocapture noundef align 8 dereferenceable(40) %20, ptr noalias nocapture noundef align 8 dereferenceable(24) %19)
           to label %236 unwind label %224, !noalias !277
 
 236:                                              ; preds = %232
@@ -2955,7 +2955,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread245: ; preds = %_ZN3s
   br label %84
 
 276:                                              ; preds = %.noexc54
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %32)
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %32)
   br label %.thread243
 
 277:                                              ; preds = %173, %201, %202, %181, %222, %231, %217
@@ -3054,7 +3054,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05
 278:                                              ; preds = %285
   %279 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %31) #30
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef align 8 dereferenceable(48) %31) #30
           to label %common.resume unwind label %292
 
 280:                                              ; preds = %282, %291
@@ -3115,7 +3115,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05
   br i1 %.0, label %297, label %common.resume
 
 296:                                              ; preds = %267
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %32) #30
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %32) #30
           to label %common.resume unwind label %292
 
 297:                                              ; preds = %295
@@ -3124,7 +3124,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h6f716102c796cd27E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2) unnamed_addr #4 {
+define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h6f716102c796cd27E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 {
   %4 = alloca [0 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca { i64, [16 x i64] }, align 8
@@ -3226,7 +3226,7 @@ define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h7fca4b7408b4e953E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2) unnamed_addr #4 {
+define internal fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h7fca4b7408b4e953E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 {
   %4 = alloca [0 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca { i64, [16 x i64] }, align 8
@@ -3568,7 +3568,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame4ping17hd170147c00c98728E.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !385
-  invoke fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17hdb0cf3c47290425dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %15)
+  invoke fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17hdb0cf3c47290425dE(ptr noalias nocapture noundef align 8 dereferenceable(40) %13, ptr noalias nocapture noundef align 8 dereferenceable(32) %15)
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %87
@@ -3584,7 +3584,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame4ping17hd170147c00c98728E.exit: ; pre
   br i1 %89, label %92, label %93
 
 90:                                               ; preds = %92, %85
-  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h7fca4b7408b4e953E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
+  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h7fca4b7408b4e953E(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2)
           to label %94 unwind label %91, !noalias !381
 
 91:                                               ; preds = %90
@@ -3653,7 +3653,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame4ping17hd170147c00c98728E.exit: ; pre
   br label %_ZN11tungstenite8protocol16WebSocketContext5close17h93091b0fc9f30805E.exit
 
 111:                                              ; preds = %91
-  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22) #30
+  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef align 8 dereferenceable(32) %22) #30
           to label %.body unwind label %112, !noalias !376
 
 112:                                              ; preds = %111
@@ -3849,7 +3849,7 @@ _ZN11tungstenite8protocol16WebSocketContext5close17h93091b0fc9f30805E.exit: ; pr
 
 155:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %19)
-  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h7fca4b7408b4e953E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %19, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
+  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h7fca4b7408b4e953E(ptr noalias nocapture noundef align 8 dereferenceable(136) %19, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2)
           to label %156 unwind label %34
 
 156:                                              ; preds = %155
@@ -4092,7 +4092,7 @@ _ZN11tungstenite8protocol16WebSocketContext5close17h93091b0fc9f30805E.exit: ; pr
 
 250:                                              ; preds = %243
   %251 = getelementptr inbounds i8, ptr %3, i64 8
-  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %251) #30
+  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef align 8 dereferenceable(32) %251) #30
           to label %244 unwind label %247
 
 252:                                              ; preds = %238
@@ -4342,7 +4342,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame4ping17hd170147c00c98728E.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !506
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !506
-  invoke fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17hdb0cf3c47290425dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %15)
+  invoke fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17hdb0cf3c47290425dE(ptr noalias nocapture noundef align 8 dereferenceable(40) %13, ptr noalias nocapture noundef align 8 dereferenceable(32) %15)
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %87
@@ -4358,7 +4358,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame4ping17hd170147c00c98728E.exit: ; pre
   br i1 %89, label %92, label %93
 
 90:                                               ; preds = %92, %85
-  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h6f716102c796cd27E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
+  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h6f716102c796cd27E(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2)
           to label %94 unwind label %91, !noalias !502
 
 91:                                               ; preds = %90
@@ -4427,7 +4427,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame4ping17hd170147c00c98728E.exit: ; pre
   br label %_ZN11tungstenite8protocol16WebSocketContext5close17h1a4a697e938cd750E.exit
 
 111:                                              ; preds = %91
-  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22) #30
+  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef align 8 dereferenceable(32) %22) #30
           to label %.body unwind label %112, !noalias !497
 
 112:                                              ; preds = %111
@@ -4623,7 +4623,7 @@ _ZN11tungstenite8protocol16WebSocketContext5close17h1a4a697e938cd750E.exit: ; pr
 
 155:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %19)
-  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h6f716102c796cd27E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %19, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
+  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext5flush17h6f716102c796cd27E(ptr noalias nocapture noundef align 8 dereferenceable(136) %19, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2)
           to label %156 unwind label %34
 
 156:                                              ; preds = %155
@@ -4866,7 +4866,7 @@ _ZN11tungstenite8protocol16WebSocketContext5close17h1a4a697e938cd750E.exit: ; pr
 
 250:                                              ; preds = %243
   %251 = getelementptr inbounds i8, ptr %3, i64 8
-  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %251) #30
+  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef align 8 dereferenceable(32) %251) #30
           to label %244 unwind label %247
 
 252:                                              ; preds = %238
@@ -4899,7 +4899,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
 17:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13)
-  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h22a276d9c49b1604E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %13, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14)
+  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h22a276d9c49b1604E(ptr noalias nocapture noundef align 8 dereferenceable(136) %13, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %14)
           to label %23 unwind label %21
 
 18:                                               ; preds = %26, %4
@@ -4963,7 +4963,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
-  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h22a276d9c49b1604E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %10, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9)
+  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h22a276d9c49b1604E(ptr noalias nocapture noundef align 8 dereferenceable(136) %10, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %9)
           to label %40 unwind label %.thread80
 
 31:                                               ; preds = %18
@@ -5053,11 +5053,11 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
   br i1 %57, label %.thread86, label %59
 
 58:                                               ; preds = %48
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %10)
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %10)
           to label %.thread86 unwind label %.thread80
 
 59:                                               ; preds = %55
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %45)
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef align 8 dereferenceable(48) %45)
           to label %.thread86 unwind label %.thread80
 
 60:                                               ; preds = %18
@@ -5071,11 +5071,11 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
   br i1 %65, label %.thread76, label %67
 
 66:                                               ; preds = %52
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %10) #30
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %10) #30
           to label %.thread76 unwind label %68
 
 67:                                               ; preds = %63
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %45) #30
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef align 8 dereferenceable(48) %45) #30
           to label %.thread76 unwind label %68
 
 68:                                               ; preds = %117, %70, %67, %66
@@ -5238,7 +5238,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
 17:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13)
-  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h893b67e236151c69E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %13, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14)
+  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h893b67e236151c69E(ptr noalias nocapture noundef align 8 dereferenceable(136) %13, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %14)
           to label %23 unwind label %21
 
 18:                                               ; preds = %26, %4
@@ -5302,7 +5302,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
-  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h893b67e236151c69E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %10, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9)
+  invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h893b67e236151c69E(ptr noalias nocapture noundef align 8 dereferenceable(136) %10, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %9)
           to label %40 unwind label %.thread80
 
 31:                                               ; preds = %18
@@ -5392,11 +5392,11 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
   br i1 %57, label %.thread86, label %59
 
 58:                                               ; preds = %48
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %10)
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %10)
           to label %.thread86 unwind label %.thread80
 
 59:                                               ; preds = %55
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %45)
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef align 8 dereferenceable(48) %45)
           to label %.thread86 unwind label %.thread80
 
 60:                                               ; preds = %18
@@ -5410,11 +5410,11 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
   br i1 %65, label %.thread76, label %67
 
 66:                                               ; preds = %52
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %10) #30
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %10) #30
           to label %.thread76 unwind label %68
 
 67:                                               ; preds = %63
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %45) #30
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef align 8 dereferenceable(48) %45) #30
           to label %.thread76 unwind label %68
 
 68:                                               ; preds = %117, %70, %67, %66
@@ -6016,7 +6016,7 @@ define hidden void @_ZN11tungstenite8protocol5frame5frame11FrameHeader5parse17ha
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame10into_close17ha4ae45e8057b2e07E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame10into_close17ha4ae45e8057b2e07E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [16 x i64] }, align 8
@@ -6240,7 +6240,7 @@ define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame10into_c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame4pong17h7665cd063bdebaeaE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame4pong17h7665cd063bdebaeaE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, align 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   invoke void @"_ZN91_$LT$tungstenite..protocol..frame..frame..FrameHeader$u20$as$u20$core..default..Default$GT$7default17hc031bfd42911f648E"(ptr noalias nocapture noundef nonnull sret({ i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }) align 1 dereferenceable(12) %3)
@@ -6290,7 +6290,7 @@ define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame4pong17h
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17hdb0cf3c47290425dE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17hdb0cf3c47290425dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, i64 }, [2 x i8], [6 x i8] }, align 8
@@ -6312,7 +6312,7 @@ define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17
 
 14:                                               ; preds = %29, %15
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %16, %15 ]
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h39c28a03da51fc76E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h39c28a03da51fc76E"(ptr noalias noundef align 8 dereferenceable(24) %8) #30
           to label %61 unwind label %66
 
 15:                                               ; preds = %17
@@ -6511,7 +6511,7 @@ define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17
   resume { ptr, i32 } %.pn6
 
 90:                                               ; preds = %87
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h39c28a03da51fc76E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #30
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h39c28a03da51fc76E"(ptr noalias noundef align 8 dereferenceable(24) %1) #30
           to label %89 unwind label %66
 }
 
@@ -9376,7 +9376,7 @@ define hidden void @"_ZN4core3ptr28drop_in_place$LT$$RF$str$GT$17h9029e503f011b0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = load i64, ptr %0, align 8, !range !1233, !noundef !5
@@ -9447,7 +9447,7 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error.
 
 29:                                               ; preds = %1
   %30 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %30)
+  tail call fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef align 8 dereferenceable(48) %30)
   br label %"_ZN4core3ptr54drop_in_place$LT$tungstenite..error..ProtocolError$GT$17h55b360cb819e64bfE.exit"
 
 31:                                               ; preds = %1
@@ -9487,7 +9487,7 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h39c28a03da51fc76E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h39c28a03da51fc76E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
@@ -9521,7 +9521,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -9712,7 +9712,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..CloseFrame$GT$$GT$17h5796c158a0e5fc58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i16, ptr %3, align 8, !range !390, !noundef !5
@@ -9754,7 +9754,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..IncompleteMessage$GT$$GT$17he3bc1cf8bd1a11d5E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..IncompleteMessage$GT$$GT$17he3bc1cf8bd1a11d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

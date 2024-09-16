@@ -217,12 +217,12 @@ define dso_local void @scmd_printk(ptr noundef %0, ptr noundef readonly %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483775) i64 @sdev_format_header(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483775) i64 @sdev_format_header(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %0, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef nonnull %1) #8
+  %6 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %0, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef nonnull %1) #8
   %7 = sext i32 %6 to i64
   %8 = icmp ult i32 %6, 128
   br i1 %8, label %.thread, label %9, !prof !14
@@ -1135,7 +1135,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @scsi_opcode_sa_name(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @scsi_format_extd_sense(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc void @scsi_format_extd_sense(ptr noundef %0, i64 noundef range(i64 -2147483646, 2147483777) %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   store ptr null, ptr %5, align 8

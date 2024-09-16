@@ -28,7 +28,7 @@ entry:
   %x = alloca [10 x i32], align 16
   %y = alloca [10 x i32], align 16
   %Z = getelementptr inbounds i8, ptr %h, i64 80
-  call fastcc void @fe_invert(ptr noundef nonnull %recip, ptr noundef nonnull %Z)
+  call fastcc void @fe_invert(ptr noundef %recip, ptr noundef nonnull %Z)
   call fastcc void @fe_mul(ptr noundef nonnull %x, ptr noundef %h, ptr noundef nonnull %recip)
   %Y = getelementptr inbounds i8, ptr %h, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %y, ptr noundef nonnull %Y, ptr noundef nonnull %recip)
@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_invert(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %z) unnamed_addr #0 {
+define internal fastcc void @fe_invert(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef readonly %z) unnamed_addr #0 {
 entry:
   %t0 = alloca [10 x i32], align 16
   %t1 = alloca [10 x i32], align 16
@@ -154,7 +154,7 @@ for.body126:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond37.not, label %for.end131, label %for.body126, !llvm.loop !15
 
 for.end131:                                       ; preds = %for.body126
-  call fastcc void @fe_mul(ptr noundef %out, ptr noundef nonnull %t1, ptr noundef nonnull %t0)
+  call fastcc void @fe_mul(ptr noundef nonnull %out, ptr noundef nonnull %t1, ptr noundef nonnull %t0)
   ret void
 }
 
@@ -1925,7 +1925,7 @@ x25519_ge_p3_to_cached.exit:                      ; preds = %for.body.i9.i
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i49)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i49, ptr noundef nonnull readonly %T.i47)
   call fastcc void @fe_mul(ptr noundef nonnull %T.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
-  call fastcc void @ge_madd(ptr noundef nonnull %r, ptr noundef nonnull %h, ptr noundef nonnull %e)
+  call fastcc void @ge_madd(ptr noundef %r, ptr noundef nonnull %h, ptr noundef nonnull %e)
   call fastcc void @fe_mul(ptr noundef nonnull %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i47)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i49)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i49, ptr noundef nonnull readonly %T.i47)
@@ -1939,7 +1939,7 @@ for.end45:                                        ; preds = %x25519_ge_p3_to_cac
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_madd(ptr nocapture noundef %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #0 {
+define internal fastcc void @ge_madd(ptr nocapture noundef nonnull %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #0 {
 entry:
   %t0 = alloca [10 x i32], align 16
   %Y = getelementptr inbounds i8, ptr %p, i64 40
@@ -2120,8 +2120,8 @@ for.body48:                                       ; preds = %for.end39, %for.bod
   %arrayidx50 = getelementptr inbounds [64 x i8], ptr %e, i64 0, i64 %indvars.iv71
   %11 = load i8, ptr %arrayidx50, align 1
   %12 = trunc nuw nsw i64 %10 to i32
-  call fastcc void @table_select(ptr noundef nonnull %t, i32 noundef %12, i8 noundef signext %11)
-  call fastcc void @ge_madd(ptr noundef nonnull %r, ptr noundef %h, ptr noundef nonnull %t)
+  call fastcc void @table_select(ptr noundef %t, i32 noundef %12, i8 noundef signext %11)
+  call fastcc void @ge_madd(ptr noundef %r, ptr noundef %h, ptr noundef nonnull %t)
   call fastcc void @fe_mul(ptr noundef %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i32)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
@@ -2137,22 +2137,22 @@ for.end53:                                        ; preds = %for.body48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Y.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z.i, i64 40, i1 false)
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %q.i)
+  call fastcc void @ge_p2_dbl(ptr noundef %r, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   call fastcc void @fe_mul(ptr noundef nonnull %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i30)
   %Y.i34 = getelementptr inbounds i8, ptr %s, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i34, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i32)
   %Z8.i37 = getelementptr inbounds i8, ptr %s, i64 80
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i37, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
+  call fastcc void @ge_p2_dbl(ptr noundef %r, ptr noundef nonnull %s)
   call fastcc void @fe_mul(ptr noundef nonnull %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i34, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i32)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i37, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
+  call fastcc void @ge_p2_dbl(ptr noundef %r, ptr noundef nonnull %s)
   call fastcc void @fe_mul(ptr noundef nonnull %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i34, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i32)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i37, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
+  call fastcc void @ge_p2_dbl(ptr noundef %r, ptr noundef nonnull %s)
   call fastcc void @fe_mul(ptr noundef %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i32)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
@@ -2165,8 +2165,8 @@ for.body57:                                       ; preds = %for.end53, %for.bod
   %arrayidx60 = getelementptr inbounds [64 x i8], ptr %e, i64 0, i64 %indvars.iv75
   %14 = load i8, ptr %arrayidx60, align 2
   %15 = trunc nuw nsw i64 %13 to i32
-  call fastcc void @table_select(ptr noundef nonnull %t, i32 noundef %15, i8 noundef signext %14)
-  call fastcc void @ge_madd(ptr noundef nonnull %r, ptr noundef %h, ptr noundef nonnull %t)
+  call fastcc void @table_select(ptr noundef %t, i32 noundef %15, i8 noundef signext %14)
+  call fastcc void @ge_madd(ptr noundef %r, ptr noundef %h, ptr noundef nonnull %t)
   call fastcc void @fe_mul(ptr noundef %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i30)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i32)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i32, ptr noundef nonnull readonly %T.i30)
@@ -2180,7 +2180,7 @@ for.end63:                                        ; preds = %for.body57
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @table_select(ptr nocapture noundef %t, i32 noundef %pos, i8 noundef signext %b) unnamed_addr #0 {
+define internal fastcc void @table_select(ptr nocapture noundef nonnull %t, i32 noundef range(i32 -1073741824, 32) %pos, i8 noundef signext %b) unnamed_addr #0 {
 entry:
   %minust = alloca %struct.ge_precomp, align 4
   %and = tail call i8 @llvm.smin.i8(i8 %b, i8 0)
@@ -2729,10 +2729,10 @@ cmov.exit355:                                     ; preds = %for.body.i19.i346
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p2_dbl(ptr nocapture noundef %r, ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc void @ge_p2_dbl(ptr nocapture noundef nonnull %r, ptr nocapture noundef readonly %p) unnamed_addr #0 {
 entry:
   %t0 = alloca [10 x i32], align 16
-  tail call fastcc void @fe_sq(ptr noundef %r, ptr noundef %p)
+  tail call fastcc void @fe_sq(ptr noundef nonnull %r, ptr noundef %p)
   %Z = getelementptr inbounds i8, ptr %r, i64 80
   %Y = getelementptr inbounds i8, ptr %p, i64 40
   tail call fastcc void @fe_sq(ptr noundef nonnull %Z, ptr noundef nonnull %Y)
@@ -3144,9 +3144,9 @@ for.body:                                         ; preds = %x25519_ge_p3_to_cac
   %indvars.iv = phi i64 [ 2, %x25519_ge_p3_to_cached.exit ], [ %indvars.iv.next, %for.inc ]
   %7 = lshr exact i64 %indvars.iv, 1
   %arrayidx3 = getelementptr inbounds [8 x %struct.ge_p2], ptr %Ai_p2, i64 0, i64 %7
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %t, ptr noundef nonnull %arrayidx3)
+  call fastcc void @ge_p2_dbl(ptr noundef %t, ptr noundef nonnull %arrayidx3)
   %arrayidx5 = getelementptr inbounds [16 x %struct.ge_cached], ptr %Ai, i64 0, i64 %indvars.iv
-  call fastcc void @ge_p1p1_to_cached(ptr noundef nonnull %arrayidx5, ptr noundef nonnull %t)
+  call fastcc void @ge_p1p1_to_cached(ptr noundef %arrayidx5, ptr noundef %t)
   %cmp6 = icmp ult i64 %indvars.iv, 8
   br i1 %cmp6, label %if.then, label %if.end
 
@@ -3163,7 +3163,7 @@ if.end:                                           ; preds = %if.then, %for.body
   call void @x25519_ge_add(ptr noundef nonnull %t, ptr noundef %A, ptr noundef nonnull %arrayidx5)
   %8 = or disjoint i64 %indvars.iv, 1
   %arrayidx12 = getelementptr inbounds [16 x %struct.ge_cached], ptr %Ai, i64 0, i64 %8
-  call fastcc void @ge_p1p1_to_cached(ptr noundef nonnull %arrayidx12, ptr noundef nonnull %t)
+  call fastcc void @ge_p1p1_to_cached(ptr noundef %arrayidx12, ptr noundef %t)
   %cmp13 = icmp ult i64 %indvars.iv, 7
   br i1 %cmp13, label %if.then14, label %for.inc
 
@@ -3204,19 +3204,19 @@ for.end:                                          ; preds = %for.inc
 
 for.body22:                                       ; preds = %for.end, %for.end39
   %i.187 = phi i32 [ 0, %for.end ], [ %add41, %for.end39 ]
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %t, ptr noundef %r)
+  call fastcc void @ge_p2_dbl(ptr noundef %t, ptr noundef %r)
   call fastcc void @fe_mul(ptr noundef %r, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i36)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i44, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i38)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i45, ptr noundef nonnull readonly %Z.i38, ptr noundef nonnull readonly %T.i36)
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %t, ptr noundef %r)
+  call fastcc void @ge_p2_dbl(ptr noundef %t, ptr noundef %r)
   call fastcc void @fe_mul(ptr noundef %r, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i36)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i44, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i38)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i45, ptr noundef nonnull readonly %Z.i38, ptr noundef nonnull readonly %T.i36)
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %t, ptr noundef %r)
+  call fastcc void @ge_p2_dbl(ptr noundef %t, ptr noundef %r)
   call fastcc void @fe_mul(ptr noundef %r, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i36)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i44, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i38)
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i45, ptr noundef nonnull readonly %Z.i38, ptr noundef nonnull readonly %T.i36)
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %t, ptr noundef %r)
+  call fastcc void @ge_p2_dbl(ptr noundef %t, ptr noundef %r)
   call fastcc void @fe_mul(ptr noundef nonnull %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i36)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i62, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i38)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i65, ptr noundef nonnull readonly %Z.i38, ptr noundef nonnull readonly %T.i36)
@@ -3336,11 +3336,11 @@ for.end42:                                        ; preds = %for.end39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p1p1_to_cached(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc void @ge_p1p1_to_cached(ptr nocapture noundef nonnull writeonly %r, ptr nocapture noundef nonnull readonly %p) unnamed_addr #0 {
 entry:
   %t = alloca %struct.ge_p3, align 4
   %T.i = getelementptr inbounds i8, ptr %p, i64 120
-  call fastcc void @fe_mul(ptr noundef nonnull %t, ptr noundef readonly %p, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe_mul(ptr noundef nonnull %t, ptr noundef nonnull readonly %p, ptr noundef nonnull readonly %T.i)
   %Y.i = getelementptr inbounds i8, ptr %t, i64 40
   %Y5.i = getelementptr inbounds i8, ptr %p, i64 40
   %Z.i = getelementptr inbounds i8, ptr %p, i64 80
@@ -3348,7 +3348,7 @@ entry:
   %Z8.i = getelementptr inbounds i8, ptr %t, i64 80
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull readonly %Z.i, ptr noundef nonnull readonly %T.i)
   %T14.i = getelementptr inbounds i8, ptr %t, i64 120
-  call fastcc void @fe_mul(ptr noundef nonnull %T14.i, ptr noundef readonly %p, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull readonly %p, ptr noundef nonnull readonly %Y5.i)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -4060,7 +4060,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %x.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %y.i)
   %Z.i = getelementptr inbounds i8, ptr %A, i64 80
-  call fastcc void @fe_invert(ptr noundef nonnull %recip.i, ptr noundef nonnull readonly %Z.i)
+  call fastcc void @fe_invert(ptr noundef %recip.i, ptr noundef nonnull readonly %Z.i)
   call fastcc void @fe_mul(ptr noundef nonnull %x.i, ptr noundef nonnull readonly %A, ptr noundef nonnull %recip.i)
   %Y.i = getelementptr inbounds i8, ptr %A, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %y.i, ptr noundef nonnull readonly %Y.i, ptr noundef nonnull %recip.i)
@@ -4125,7 +4125,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %x.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %y.i)
   %Z.i = getelementptr inbounds i8, ptr %R, i64 80
-  call fastcc void @fe_invert(ptr noundef nonnull %recip.i, ptr noundef nonnull readonly %Z.i)
+  call fastcc void @fe_invert(ptr noundef %recip.i, ptr noundef nonnull readonly %Z.i)
   call fastcc void @fe_mul(ptr noundef nonnull %x.i, ptr noundef nonnull readonly %R, ptr noundef nonnull %recip.i)
   %Y.i = getelementptr inbounds i8, ptr %R, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %y.i, ptr noundef nonnull readonly %Y.i, ptr noundef nonnull %recip.i)
@@ -5588,7 +5588,7 @@ x25519_ge_p3_to_cached.exit.i:                    ; preds = %for.body.i9.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Y.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Y.i.i, i64 40, i1 false)
   %Z.i.i.i = getelementptr inbounds i8, ptr %q.i.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Z.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z9.i.i, i64 40, i1 false)
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %t.i, ptr noundef nonnull %q.i.i)
+  call fastcc void @ge_p2_dbl(ptr noundef %t.i, ptr noundef nonnull %q.i.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i)
   %T.i74.i = getelementptr inbounds i8, ptr %t.i, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %A2.i, ptr noundef nonnull readonly %t.i, ptr noundef nonnull readonly %T.i74.i)
@@ -5940,7 +5940,7 @@ for.end.i:                                        ; preds = %lor.lhs.false.i, %f
 
 for.body24.i:                                     ; preds = %for.end.i, %if.end77.i
   %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i16, %if.end77.i ], [ %idxprom.i, %for.end.i ]
-  call fastcc void @ge_p2_dbl(ptr noundef nonnull %t.i, ptr noundef nonnull %R)
+  call fastcc void @ge_p2_dbl(ptr noundef %t.i, ptr noundef nonnull %R)
   %arrayidx26.i = getelementptr inbounds [256 x i8], ptr %aslide.i, i64 0, i64 %indvars.iv.i15
   %55 = load i8, ptr %arrayidx26.i, align 1
   %cmp28.i = icmp sgt i8 %55, 0
@@ -5987,7 +5987,7 @@ if.then55.i:                                      ; preds = %if.end49.i
   %59 = lshr i8 %58, 1
   %idxprom60.i = zext nneg i8 %59 to i64
   %arrayidx61.i = getelementptr inbounds [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %idxprom60.i
-  call fastcc void @ge_madd(ptr noundef nonnull %t.i, ptr noundef nonnull %u.i, ptr noundef nonnull %arrayidx61.i)
+  call fastcc void @ge_madd(ptr noundef %t.i, ptr noundef nonnull %u.i, ptr noundef nonnull %arrayidx61.i)
   br label %if.end77.i
 
 if.else62.i:                                      ; preds = %if.end49.i
@@ -6123,7 +6123,7 @@ ge_double_scalarmult_vartime.exit:                ; preds = %for.inc.i, %if.end7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %recip.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %x.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %y.i)
-  call fastcc void @fe_invert(ptr noundef nonnull %recip.i, ptr noundef nonnull readonly %Z.i288.i)
+  call fastcc void @fe_invert(ptr noundef %recip.i, ptr noundef nonnull readonly %Z.i288.i)
   call fastcc void @fe_mul(ptr noundef nonnull %x.i, ptr noundef nonnull readonly %R, ptr noundef nonnull %recip.i)
   call fastcc void @fe_mul(ptr noundef nonnull %y.i, ptr noundef nonnull readonly %Y.i287.i, ptr noundef nonnull %recip.i)
   call fastcc void @fe_tobytes(ptr noundef nonnull %rcheck, ptr noundef nonnull %y.i)

@@ -2291,7 +2291,7 @@ VSumVectorArray_Serial.exit:                      ; preds = %._crit_edge.us, %._
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #7 {
+define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #7 {
   %5 = load ptr, ptr %2, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
@@ -2427,7 +2427,7 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VLin1VectorArray_Serial(i32 noundef %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
@@ -2482,7 +2482,7 @@ define internal fastcc void @VLin1VectorArray_Serial(i32 noundef %0, double noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VLin2VectorArray_Serial(i32 noundef %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
@@ -2538,7 +2538,7 @@ define internal fastcc void @VLin2VectorArray_Serial(i32 noundef %0, double noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
@@ -2594,7 +2594,7 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef %0, double 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8

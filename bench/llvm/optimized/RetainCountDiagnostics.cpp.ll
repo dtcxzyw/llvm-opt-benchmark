@@ -1476,12 +1476,12 @@ _ZL26isNumericLiteralExpressionPKN5clang4ExprE.exit.thread: ; preds = %472, %472
   br i1 %.not.i.i126, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit136.thread, label %488
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit136.thread: ; preds = %487
-  call fastcc void @_ZL30generateDiagnosticsForCallLikeN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_15LocationContextERKNS2_18retaincountchecker6RefValERPKNS2_7SymExprEPKNS1_4StmtERNS_18raw_string_ostreamE(ptr noundef nonnull %28, ptr noundef %422, ptr noundef nonnull align 8 dereferenceable(18) %424, ptr noundef nonnull align 8 dereferenceable(8) %272, ptr noundef nonnull %.0, ptr noundef nonnull align 8 dereferenceable(56) %24)
+  call fastcc void @_ZL30generateDiagnosticsForCallLikeN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_15LocationContextERKNS2_18retaincountchecker6RefValERPKNS2_7SymExprEPKNS1_4StmtERNS_18raw_string_ostreamE(ptr noundef %28, ptr noundef %422, ptr noundef nonnull align 8 dereferenceable(18) %424, ptr noundef nonnull align 8 dereferenceable(8) %272, ptr noundef nonnull %.0, ptr noundef nonnull align 8 dereferenceable(56) %24)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit138
 
 488:                                              ; preds = %487
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %420) #18
-  call fastcc void @_ZL30generateDiagnosticsForCallLikeN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_15LocationContextERKNS2_18retaincountchecker6RefValERPKNS2_7SymExprEPKNS1_4StmtERNS_18raw_string_ostreamE(ptr noundef nonnull %28, ptr noundef %422, ptr noundef nonnull align 8 dereferenceable(18) %424, ptr noundef nonnull align 8 dereferenceable(8) %272, ptr noundef nonnull %.0, ptr noundef nonnull align 8 dereferenceable(56) %24)
+  call fastcc void @_ZL30generateDiagnosticsForCallLikeN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_15LocationContextERKNS2_18retaincountchecker6RefValERPKNS2_7SymExprEPKNS1_4StmtERNS_18raw_string_ostreamE(ptr noundef %28, ptr noundef %422, ptr noundef nonnull align 8 dereferenceable(18) %424, ptr noundef nonnull align 8 dereferenceable(8) %272, ptr noundef nonnull %.0, ptr noundef nonnull align 8 dereferenceable(56) %24)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %420) #18
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit138
 
@@ -2272,7 +2272,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang14ObjCMethodDeclEKNS1_4DeclEEEDaPT0_.exit.thre
 declare noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL30generateDiagnosticsForCallLikeN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_15LocationContextERKNS2_18retaincountchecker6RefValERPKNS2_7SymExprEPKNS1_4StmtERNS_18raw_string_ostreamE(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #2 {
+define internal fastcc void @_ZL30generateDiagnosticsForCallLikeN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_15LocationContextERKNS2_18retaincountchecker6RefValERPKNS2_7SymExprEPKNS1_4StmtERNS_18raw_string_ostreamE(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #2 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2972,7 +2972,7 @@ _ZL18findMetaClassAllocB5cxx11PKN5clang4ExprE.exit.i: ; preds = %_ZNK5clang4Decl
   br label %_ZL23findAllocatedObjectNameB5cxx11PKN5clang4StmtENS_8QualTypeE.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %.thread192, %.thread193, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.thread, %_ZN4llvm11raw_ostreamlsEPKc.exit118
-  call fastcc void @_ZL17getPrettyTypeNameB5cxx11N5clang8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 %318)
+  call fastcc void @_ZL17getPrettyTypeNameB5cxx11N5clang8QualTypeE(ptr dead_on_unwind noalias writable align 8 %22, i64 %318)
   br label %_ZL23findAllocatedObjectNameB5cxx11PKN5clang4StmtENS_8QualTypeE.exit
 
 _ZL23findAllocatedObjectNameB5cxx11PKN5clang4StmtENS_8QualTypeE.exit: ; preds = %361, %364, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
@@ -3679,7 +3679,7 @@ define dso_local void @_ZN5clang4ento18retaincountchecker20RefLeakReportVisitor1
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
-  call fastcc void @_ZL14describeRegionB5cxx11PKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %36)
+  call fastcc void @_ZL14describeRegionB5cxx11PKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %36)
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
@@ -3749,7 +3749,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %65, %67
   %72 = getelementptr inbounds i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = call i64 %73(ptr noundef nonnull align 8 dereferenceable(24) %70) #18
-  call fastcc void @_ZL17getPrettyTypeNameB5cxx11N5clang8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 %74)
+  call fastcc void @_ZL17getPrettyTypeNameB5cxx11N5clang8QualTypeE(ptr dead_on_unwind noalias writable align 8 %10, i64 %74)
   %75 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %76 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %77 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i22, ptr noundef %75, i64 noundef %76) #18
@@ -4195,7 +4195,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14describeRegionB5cxx11PKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @_ZL14describeRegionB5cxx11PKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -4271,7 +4271,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getPrettyTypeNameB5cxx11N5clang8QualTypeE(ptr dead_on_unwind noalias writable align 8 %0, i64 %1) unnamed_addr #2 {
+define internal fastcc void @_ZL17getPrettyTypeNameB5cxx11N5clang8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1) unnamed_addr #2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.clang::QualType", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -4334,7 +4334,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %18, %24
   br label %38
 
 37:                                               ; preds = %13, %10, %2
-  call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   br label %38
 
 38:                                               ; preds = %37, %_ZNK5clang9NamedDecl7getNameEv.exit
@@ -4997,7 +4997,7 @@ define dso_local void @_ZN5clang4ento18retaincountchecker13RefLeakReport17create
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %20, %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %26 = load ptr, ptr %25, align 8
-  call fastcc void @_ZL14describeRegionB5cxx11PKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %26)
+  call fastcc void @_ZL14describeRegionB5cxx11PKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %26)
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
@@ -5068,7 +5068,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %55, %57
   %63 = getelementptr inbounds i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8
   %65 = call i64 %64(ptr noundef nonnull align 8 dereferenceable(24) %61) #18
-  call fastcc void @_ZL17getPrettyTypeNameB5cxx11N5clang8QualTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 %65)
+  call fastcc void @_ZL17getPrettyTypeNameB5cxx11N5clang8QualTypeE(ptr dead_on_unwind noalias writable align 8 %5, i64 %65)
   %66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i5, ptr noundef %66, i64 noundef %67) #18

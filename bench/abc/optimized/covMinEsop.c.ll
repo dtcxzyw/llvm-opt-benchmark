@@ -761,7 +761,7 @@ Min_CubesAreEqual.exit._crit_edge:                ; preds = %Min_CubesAreEqual.e
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %26, align 8
-  %30 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.183, ptr noundef %29)
+  %30 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef %.183, ptr noundef %29)
   %.not95 = icmp eq i32 %30, 0
   br i1 %.not95, label %27, label %31, !llvm.loop !16
 
@@ -834,7 +834,7 @@ Min_CubesTransform.exit:                          ; preds = %40, %31
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %59, align 8
-  %63 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.284, ptr noundef %62)
+  %63 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef %.284, ptr noundef %62)
   %.not94 = icmp eq i32 %63, 0
   br i1 %.not94, label %60, label %64, !llvm.loop !18
 
@@ -906,7 +906,7 @@ Min_CubesTransform.exit113:                       ; preds = %73, %64
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr %59, align 8
-  %100 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.385, ptr noundef %99)
+  %100 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef %.385, ptr noundef %99)
   %.not93 = icmp eq i32 %100, 0
   br i1 %.not93, label %97, label %101, !llvm.loop !19
 
@@ -981,7 +981,7 @@ Min_CubesTransform.exit120:                       ; preds = %110, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4193280
@@ -1080,7 +1080,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   %49 = load ptr, ptr @stdout, align 8
   tail call void @Min_CubeWrite(ptr noundef %49, ptr noundef nonnull %0) #4
   %50 = load ptr, ptr @stdout, align 8
-  tail call void @Min_CubeWrite(ptr noundef %50, ptr noundef %1) #4
+  tail call void @Min_CubeWrite(ptr noundef %50, ptr noundef nonnull %1) #4
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit
 

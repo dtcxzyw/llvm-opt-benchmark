@@ -6766,7 +6766,7 @@ _ZN13rcScopedTimerD2Ev.exit310:                   ; preds = %_ZN14rcScopedDelete
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13expandRegionsitR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEEb(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13expandRegionsitR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEEb(i32 noundef range(i32 8, 65) %0, i16 noundef zeroext range(i16 -1, -2) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = load i32, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4

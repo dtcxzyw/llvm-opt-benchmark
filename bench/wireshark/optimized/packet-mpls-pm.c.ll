@@ -305,7 +305,7 @@ define internal i32 @dissect_mpls_pm_delay(ptr noundef %0, ptr nocapture noundef
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   store i8 0, ptr %9, align 1
-  call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.128, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.128, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %10 = load i32, ptr @proto_mpls_pm_dm, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %12 = load i32, ptr @ett_mpls_pm, align 4
@@ -384,7 +384,7 @@ define internal i32 @dissect_mpls_pm_ilm_dm(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mpls_pm_loss(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_mpls_pm_loss(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext range(i8 1, 3) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -397,7 +397,7 @@ define internal fastcc void @dissect_mpls_pm_loss(ptr noundef %0, ptr nocapture 
   store i8 0, ptr %9, align 1
   %10 = zext nneg i8 %3 to i32
   %11 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @pmt_vals, ptr noundef nonnull @.str.121) #2
-  call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %12
 
@@ -495,7 +495,7 @@ switch.lookup:                                    ; preds = %59
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.122, ptr noundef %2) #2
@@ -556,7 +556,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mpls_pm_dissect_counter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @mpls_pm_dissect_counter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i8 noundef zeroext %5) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   %7 = select i1 %.not, ptr @.str.132, ptr @.str.131
   %.not35 = icmp eq i32 %3, 0
@@ -637,7 +637,7 @@ declare ptr @rval_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mpls_pm_dissect_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @mpls_pm_dissect_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 16) %3, i8 noundef zeroext range(i8 0, 16) %4, i32 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %8
 
@@ -750,7 +750,7 @@ switch.lookup127:                                 ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mpls_pm_combined(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_mpls_pm_combined(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext range(i8 4, 6) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -763,7 +763,7 @@ define internal fastcc void @dissect_mpls_pm_combined(ptr noundef %0, ptr nocapt
   store i8 0, ptr %9, align 1
   %10 = zext nneg i8 %3 to i32
   %11 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @pmt_vals, ptr noundef nonnull @.str.121) #2
-  call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %12
 

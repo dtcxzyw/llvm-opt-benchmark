@@ -822,7 +822,7 @@ define dso_local noundef range(i32 -108, 1) i32 @ohci_hub_control(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -108, 1) i32 @root_port_reset(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -108, 1) i32 @root_port_reset(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65535) %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 84
@@ -3272,7 +3272,7 @@ default.unreachable:                              ; preds = %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @ohci_rh_suspend(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @ohci_rh_suspend(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -5256,7 +5256,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = getelementptr inbounds i8, ptr %1, i64 12

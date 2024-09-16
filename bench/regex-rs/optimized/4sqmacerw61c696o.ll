@@ -506,7 +506,7 @@ define internal void @"_ZN4core3ptr94drop_in_place$LT$$RF$alloc..boxed..Box$LT$r
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !alias.scope !41, !nonnull !4, !noundef !4
@@ -8353,7 +8353,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZN14regex_automata3nfa8thompson6pik
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14regex_automata4util8captures8Captures23interpolate_string_into28_$u7b$$u7b$closure$u7d$$u7d$17hbf9b35f0f7c52bcbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14regex_automata4util8captures8Captures23interpolate_string_into28_$u7b$$u7b$closure$u7d$$u7d$17hbf9b35f0f7c52bcbE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !72, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1597)
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -8514,7 +8514,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14regex_automata4util8captures8Captures22interpolate_bytes_into28_$u7b$$u7b$closure$u7d$$u7d$17h9c5a5417acfa6148E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14regex_automata4util8captures8Captures22interpolate_bytes_into28_$u7b$$u7b$closure$u7d$$u7d$17h9c5a5417acfa6148E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !72, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1627)
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -9083,12 +9083,12 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hfd4202e87357b261E.exit.t
   br i1 %125, label %127, label %.backedge
 
 126:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit101"
-  tail call fastcc void @"_ZN14regex_automata4util8captures8Captures23interpolate_string_into28_$u7b$$u7b$closure$u7d$$u7d$17hbf9b35f0f7c52bcbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.sroa.376.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  tail call fastcc void @"_ZN14regex_automata4util8captures8Captures23interpolate_string_into28_$u7b$$u7b$closure$u7d$$u7d$17hbf9b35f0f7c52bcbE"(ptr noalias noundef align 8 dereferenceable(24) %2, i64 noundef %.sroa.376.0.copyload, ptr noalias noundef align 8 dereferenceable(24) %4)
   br label %.backedge
 
 127:                                              ; preds = %"_ZN14regex_automata4util8captures8Captures23interpolate_string_into28_$u7b$$u7b$closure$u7d$$u7d$17h4759c6bfc70ed343E.exit"
   %.fca.1.extract.i106 = extractvalue { i64, i64 } %124, 1
-  tail call fastcc void @"_ZN14regex_automata4util8captures8Captures23interpolate_string_into28_$u7b$$u7b$closure$u7d$$u7d$17hbf9b35f0f7c52bcbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.fca.1.extract.i106, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  tail call fastcc void @"_ZN14regex_automata4util8captures8Captures23interpolate_string_into28_$u7b$$u7b$closure$u7d$$u7d$17hbf9b35f0f7c52bcbE"(ptr noalias noundef align 8 dereferenceable(24) %2, i64 noundef %.fca.1.extract.i106, ptr noalias noundef align 8 dereferenceable(24) %4)
   br label %.backedge
 
 128:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i90"
@@ -9128,7 +9128,7 @@ define hidden void @_ZN14regex_automata4util11interpolate5bytes17h3c90f5924333a1
   %18 = getelementptr inbounds i8, ptr %.sroa.0.0102, i64 %.sroa.14.0101
   %19 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E monotonic, align 8, !noalias !1801
   %20 = inttoptr i64 %19 to ptr
-  %21 = tail call { i64, ptr } %20(i8 noundef 36, ptr noundef readonly %.sroa.0.0102, ptr noundef nonnull readonly %18), !noalias !1801
+  %21 = tail call { i64, ptr } %20(i8 noundef 36, ptr noundef nonnull readonly %.sroa.0.0102, ptr noundef nonnull readonly %18), !noalias !1801
   %.fca.0.extract.i = extractvalue { i64, ptr } %21, 0
   %switch8.i.not = icmp eq i64 %.fca.0.extract.i, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hfd4202e87357b261E.exit.thread, label %37
@@ -9305,12 +9305,12 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hfd4202e87357b261E.exit.t
   br i1 %97, label %99, label %.backedge
 
 98:                                               ; preds = %90
-  tail call fastcc void @"_ZN14regex_automata4util8captures8Captures22interpolate_bytes_into28_$u7b$$u7b$closure$u7d$$u7d$17h9c5a5417acfa6148E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.sroa.367.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  tail call fastcc void @"_ZN14regex_automata4util8captures8Captures22interpolate_bytes_into28_$u7b$$u7b$closure$u7d$$u7d$17h9c5a5417acfa6148E"(ptr noalias noundef align 8 dereferenceable(24) %2, i64 noundef %.sroa.367.0.copyload, ptr noalias noundef align 8 dereferenceable(24) %4)
   br label %.backedge
 
 99:                                               ; preds = %"_ZN14regex_automata4util8captures8Captures22interpolate_bytes_into28_$u7b$$u7b$closure$u7d$$u7d$17h15086a60c5d1f956E.exit"
   %.fca.1.extract.i83 = extractvalue { i64, i64 } %96, 1
-  tail call fastcc void @"_ZN14regex_automata4util8captures8Captures22interpolate_bytes_into28_$u7b$$u7b$closure$u7d$$u7d$17h9c5a5417acfa6148E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.fca.1.extract.i83, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  tail call fastcc void @"_ZN14regex_automata4util8captures8Captures22interpolate_bytes_into28_$u7b$$u7b$closure$u7d$$u7d$17h9c5a5417acfa6148E"(ptr noalias noundef align 8 dereferenceable(24) %2, i64 noundef %.fca.1.extract.i83, ptr noalias noundef align 8 dereferenceable(24) %4)
   br label %.backedge
 }
 
@@ -9838,7 +9838,7 @@ select.unfold:                                    ; preds = %45, %41, %43
   store ptr %51, ptr %5, align 8, !noalias !1873
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %54, ptr %55, align 8, !noalias !1873
-  %56 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %56 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %5)
   %.fca.0.extract30.i.i96 = extractvalue { i32, i32 } %56, 0
   %switch36.i.i97 = icmp eq i32 %.fca.0.extract30.i.i96, 0
   %.fca.1.extract31.i.i98 = extractvalue { i32, i32 } %56, 1
@@ -9958,7 +9958,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread92:
   store ptr %96, ptr %7, align 8, !noalias !1880
   %100 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %99, ptr %100, align 8, !noalias !1880
-  %101 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  %101 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %7)
   %.fca.0.extract30.i.i = extractvalue { i32, i32 } %101, 0
   %switch36.i.i = icmp eq i32 %.fca.0.extract30.i.i, 0
   %.fca.1.extract31.i.i = extractvalue { i32, i32 } %101, 1
@@ -10045,7 +10045,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70: ; pred
   store ptr %128, ptr %9, align 8, !noalias !1881
   %132 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %131, ptr %132, align 8, !noalias !1881
-  %133 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  %133 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %9)
   %.fca.0.extract30.i57 = extractvalue { i32, i32 } %133, 0
   %switch36.i58 = icmp eq i32 %.fca.0.extract30.i57, 0
   %.fca.1.extract31.i59 = extractvalue { i32, i32 } %133, 1
@@ -10096,7 +10096,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74: ; preds 
   store ptr %149, ptr %11, align 8, !noalias !1884
   %153 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %152, ptr %153, align 8, !noalias !1884
-  %154 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  %154 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %11)
   %.fca.0.extract30.i = extractvalue { i32, i32 } %154, 0
   %switch36.i = icmp eq i32 %.fca.0.extract30.i, 0
   %.fca.1.extract31.i = extractvalue { i32, i32 } %154, 1
@@ -10950,7 +10950,7 @@ select.unfold:                                    ; preds = %41, %37, %39
   store ptr %47, ptr %5, align 8, !noalias !1934
   %51 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %50, ptr %51, align 8, !noalias !1934
-  %52 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %52 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %5)
   %.fca.0.extract30.i.i40 = extractvalue { i32, i32 } %52, 0
   %switch36.i.i41 = icmp eq i32 %.fca.0.extract30.i.i40, 0
   %.fca.1.extract31.i.i42 = extractvalue { i32, i32 } %52, 1
@@ -11065,7 +11065,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread53:
   store ptr %91, ptr %7, align 8, !noalias !1941
   %95 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %94, ptr %95, align 8, !noalias !1941
-  %96 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  %96 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %7)
   %.fca.0.extract30.i.i = extractvalue { i32, i32 } %96, 0
   %switch36.i.i = icmp eq i32 %.fca.0.extract30.i.i, 0
   %.fca.1.extract31.i.i = extractvalue { i32, i32 } %96, 1
@@ -11171,7 +11171,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit43.thread22: ; pred
   store ptr %28, ptr %5, align 8, !noalias !1942
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %31, ptr %32, align 8, !noalias !1942
-  %33 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %33 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %5)
   %.fca.0.extract30.i33 = extractvalue { i32, i32 } %33, 0
   %switch36.i34 = icmp eq i32 %.fca.0.extract30.i33, 0
   %.fca.1.extract31.i35 = extractvalue { i32, i32 } %33, 1
@@ -11217,7 +11217,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread26: ; preds 
   store ptr %48, ptr %7, align 8, !noalias !1945
   %52 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %51, ptr %52, align 8, !noalias !1945
-  %53 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  %53 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %7)
   %.fca.0.extract30.i = extractvalue { i32, i32 } %53, 0
   %switch36.i = icmp eq i32 %.fca.0.extract30.i, 0
   %.fca.1.extract31.i = extractvalue { i32, i32 } %53, 1
@@ -13733,7 +13733,7 @@ _ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17he4051b6a5
   %37 = getelementptr inbounds i8, ptr %.sroa.0.050, i64 %.sroa.4.049
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %35, %40
+.lr.ph.i.i:                                       ; preds = %40, %35
   %.022.i.i = phi i32 [ %48, %40 ], [ 0, %35 ]
   %.01021.i.i = phi i32 [ %47, %40 ], [ 0, %35 ]
   %.sroa.0.01220.i.i = phi ptr [ %42, %40 ], [ %.sroa.0.050, %35 ]

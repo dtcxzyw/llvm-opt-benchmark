@@ -729,7 +729,7 @@ define dso_local void @_ZN4llvm10offloading14wrapCudaBinaryERNS_6ModuleENS_8Arra
   br label %17
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %8
-  tail call fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %11, i1 noundef zeroext false, ptr %4, ptr %5, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i1 noundef zeroext %7)
+  tail call fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %11, i1 noundef zeroext false, ptr %4, ptr %5, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i1 noundef zeroext %7)
   store ptr null, ptr %0, align 8
   br label %17
 
@@ -821,7 +821,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116createFatbinDescERN4llvm6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef %1, i1 noundef zeroext %2, ptr %3, ptr %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr %3, ptr %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.std::optional.88", align 8
   %9 = alloca %"class.std::optional.88", align 8
@@ -1020,7 +1020,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4
   store ptr %159, ptr %160, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %85, i64 64
   store i16 0, ptr %.sroa.22.0..sroa_idx.i.i, align 8
-  %161 = call noundef ptr @_ZN4llvm12ConstantExpr32getPointerBitCastOrAddrSpaceCastEPNS_8ConstantEPNS_4TypeE(ptr noundef %1, ptr noundef %117) #10
+  %161 = call noundef ptr @_ZN4llvm12ConstantExpr32getPointerBitCastOrAddrSpaceCastEPNS_8ConstantEPNS_4TypeE(ptr noundef nonnull %1, ptr noundef %117) #10
   store ptr %161, ptr %87, align 8
   %162 = getelementptr inbounds nuw i8, ptr %88, i64 32
   store i16 257, ptr %162, align 8
@@ -2608,7 +2608,7 @@ define dso_local void @_ZN4llvm10offloading13wrapHIPBinaryERNS_6ModuleENS_8Array
   br label %17
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %8
-  tail call fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %11, i1 noundef zeroext true, ptr %4, ptr %5, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i1 noundef zeroext %7)
+  tail call fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %11, i1 noundef zeroext true, ptr %4, ptr %5, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i1 noundef zeroext %7)
   store ptr null, ptr %0, align 8
   br label %17
 

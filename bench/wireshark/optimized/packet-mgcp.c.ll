@@ -781,7 +781,7 @@ define internal noundef i32 @dissect_mgcp(ptr noundef %0, ptr noundef %1, ptr no
   store ptr @.str.414, ptr %20, align 8
   store i32 0, ptr %19, align 4
   %21 = tail call i32 @tvb_reported_length(ptr noundef %0) #11
-  %22 = call fastcc i32 @is_mgcp_verb(ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %20)
+  %22 = call fastcc i32 @is_mgcp_verb(ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef %20)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %._crit_edge
 
@@ -964,7 +964,7 @@ tvb_find_dot_line.exit:                           ; preds = %.critedge.i, %.thre
   store ptr %16, ptr %60, align 8
   store i32 2, ptr %111, align 8
   %112 = call i32 @tvb_reported_length(ptr noundef %109) #11
-  %113 = call fastcc i32 @is_mgcp_verb(ptr noundef %109, i32 noundef 0, i32 noundef %112, ptr noundef nonnull %15)
+  %113 = call fastcc i32 @is_mgcp_verb(ptr noundef %109, i32 noundef 0, i32 noundef %112, ptr noundef %15)
   %.not.i48 = icmp eq i32 %113, 0
   br i1 %.not.i48, label %114, label %141
 
@@ -1088,7 +1088,7 @@ is_mgcp_rspcode.exit.i:                           ; preds = %138, %131
   %165 = load ptr, ptr %58, align 8
   %166 = call ptr @tvb_format_text(ptr noundef %165, ptr noundef %145, i32 noundef %.0.i41.i, i32 noundef %.0237.i.i) #11
   %167 = call i64 @g_strlcpy(ptr noundef nonnull %151, ptr noundef %166, i64 noundef 5) #11
-  %168 = call fastcc i32 @is_mgcp_verb(ptr noundef %145, i32 noundef %.0.i41.i, i32 noundef %154, ptr noundef nonnull %11)
+  %168 = call fastcc i32 @is_mgcp_verb(ptr noundef %145, i32 noundef %.0.i41.i, i32 noundef %154, ptr noundef %11)
   %.not.i42.i = icmp eq i32 %168, 0
   br i1 %.not.i42.i, label %177, label %169
 
@@ -2163,7 +2163,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_mgcp_verb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_mgcp_verb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca [5 x i8], align 1
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #11
   %7 = icmp sgt i32 %6, 4

@@ -3755,7 +3755,7 @@ define void @prefs_register_uint_preference(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @register_preference(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @register_preference(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 131073) %4) unnamed_addr #1 {
   %6 = alloca %struct.find_pref_arg_t, align 8
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
@@ -10233,7 +10233,7 @@ define internal void @free_string_like_preference(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @prefs_register_module_or_subtree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc ptr @prefs_register_module_or_subtree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %.in.i = select i1 %.not.i, ptr @prefs_top_level_modules, ptr %8

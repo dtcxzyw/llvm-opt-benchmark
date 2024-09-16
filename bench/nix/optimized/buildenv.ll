@@ -1585,7 +1585,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
           to label %41 unwind label %159
 
 41:                                               ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  invoke fastcc void @"_ZZN3nix15builtinBuildenvERKNS_15BasicDerivationERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEENK3$_0clB5cxx11ERSD_"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke fastcc void @"_ZZN3nix15builtinBuildenvERKNS_15BasicDerivationERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEENK3$_0clB5cxx11ERSD_"(ptr dead_on_unwind noalias writable align 8 %12, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %42 unwind label %161
 
 42:                                               ; preds = %41
@@ -1999,7 +1999,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
           to label %179 unwind label %221
 
 179:                                              ; preds = %178
-  invoke fastcc void @"_ZZN3nix15builtinBuildenvERKNS_15BasicDerivationERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEENK3$_0clB5cxx11ERSD_"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  invoke fastcc void @"_ZZN3nix15builtinBuildenvERKNS_15BasicDerivationERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEENK3$_0clB5cxx11ERSD_"(ptr dead_on_unwind noalias writable align 8 %17, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %180 unwind label %223
 
 180:                                              ; preds = %179
@@ -2394,7 +2394,7 @@ _ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2
 declare void @_ZN3nix14tokenizeStringINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEET_St17basic_string_viewIcS5_ESC_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list") align 8, i64, ptr, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix15builtinBuildenvERKNS_15BasicDerivationERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEENK3$_0clB5cxx11ERSD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix15builtinBuildenvERKNS_15BasicDerivationERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEENK3$_0clB5cxx11ERSD_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 208
@@ -2763,7 +2763,7 @@ _ZN3nix7PackageC2EOS0_.exit12.i.i.i:              ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %24, align 8
   %53 = load i64, ptr %26, align 8
   store i64 %53, ptr %29, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3nix7PackageESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_12buildProfileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS7_E3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %21, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3nix7PackageESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_12buildProfileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS7_E3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %21, ptr noundef %7)
   %54 = load ptr, ptr %7, align 8
   %55 = icmp eq ptr %54, %27
   br i1 %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
@@ -2933,7 +2933,7 @@ _ZN3nix7PackageC2EOS0_.exit5.i:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %63, align 8
   %112 = load i64, ptr %65, align 8
   store i64 %112, ptr %70, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3nix7PackageESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_12buildProfileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS7_E3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %103, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3nix7PackageESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_12buildProfileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS7_E3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %103, ptr noundef %5)
   %113 = load ptr, ptr %5, align 8
   %114 = icmp eq ptr %113, %68
   br i1 %114, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
@@ -3284,7 +3284,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i14.i.i: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3nix7PackageESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_12buildProfileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS7_E3$_0EEEvT_T0_SN_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3nix7PackageESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_12buildProfileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS7_E3$_0EEEvT_T0_SN_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.nix::Package", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

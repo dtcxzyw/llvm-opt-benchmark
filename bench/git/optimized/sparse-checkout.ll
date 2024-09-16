@@ -1464,7 +1464,7 @@ return:                                           ; preds = %if.end12, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_config(i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc i32 @set_config(i32 noundef range(i32 0, 3) %mode) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call i32 @init_worktree_config(ptr noundef %0) #12
@@ -1873,14 +1873,14 @@ for.end92:                                        ; preds = %for.inc90, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @modify_pattern_list(i32 noundef %argc, ptr nocapture noundef readonly %argv, i32 noundef %use_stdin, i32 noundef %m) unnamed_addr #0 {
+define internal fastcc i32 @modify_pattern_list(i32 noundef %argc, ptr nocapture noundef readonly %argv, i32 noundef %use_stdin, i32 noundef range(i32 0, 2) %m) unnamed_addr #0 {
 entry:
   %buffer.i = alloca %struct.strbuf, align 8
   %iter.i = alloca %struct.hashmap_iter, align 8
   %existing.i = alloca %struct.pattern_list, align 8
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 136) #12
-  %switch = icmp eq i32 %m, 1
-  br i1 %switch, label %sw.bb, label %sw.bb1
+  %trunc = trunc nuw i32 %m to i1
+  br i1 %trunc, label %sw.bb, label %sw.bb1
 
 sw.bb:                                            ; preds = %entry
   %0 = load i32, ptr @core_sparse_checkout_cone, align 4
@@ -1963,7 +1963,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.t
   %7 = load ptr, ptr %pattern.i, align 8
   %call.i8.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #14
   call void @strbuf_add(ptr noundef nonnull %buffer.i, ptr noundef %7, i64 noundef %call.i8.i) #12
-  call fastcc void @insert_recursive_pattern(ptr noundef %call, ptr noundef nonnull %buffer.i)
+  call fastcc void @insert_recursive_pattern(ptr noundef %call, ptr noundef %buffer.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %strbuf_setlen.exit.i, %lor.lhs.false.i
@@ -2124,7 +2124,7 @@ if.end:                                           ; preds = %strbuf_setlen.exit
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end, %while.body
-  call fastcc void @strbuf_to_cone_pattern(ptr noundef nonnull %line, ptr noundef %pl)
+  call fastcc void @strbuf_to_cone_pattern(ptr noundef %line, ptr noundef %pl)
   %call = call i32 @strbuf_getline(ptr noundef nonnull %line, ptr noundef nonnull %file) #12
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %while.body, label %while.end, !llvm.loop !21
@@ -2149,7 +2149,7 @@ strbuf_setlen.exit22:                             ; preds = %for.body, %if.then4
   %7 = load ptr, ptr %arrayidx15, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #14
   call void @strbuf_add(ptr noundef nonnull %line, ptr noundef %7, i64 noundef %call.i) #12
-  call fastcc void @strbuf_to_cone_pattern(ptr noundef nonnull %line, ptr noundef %pl)
+  call fastcc void @strbuf_to_cone_pattern(ptr noundef %line, ptr noundef %pl)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end40, label %for.body, !llvm.loop !22
@@ -2193,14 +2193,14 @@ if.end40:                                         ; preds = %strbuf_setlen.exit2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert_recursive_pattern(ptr noundef %pl, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc void @insert_recursive_pattern(ptr noundef %pl, ptr noundef nonnull %path) unnamed_addr #0 {
 entry:
   %call = tail call ptr @xmalloc(i64 noundef 32) #12
   %len = getelementptr inbounds i8, ptr %path, i64 8
   %0 = load i64, ptr %len, align 8
   %patternlen = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %0, ptr %patternlen, align 8
-  %call1 = tail call ptr @strbuf_detach(ptr noundef %path, ptr noundef null) #12
+  %call1 = tail call ptr @strbuf_detach(ptr noundef nonnull %path, ptr noundef null) #12
   %pattern = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %pattern, align 8
   %call3 = tail call i32 @fspathhash(ptr noundef %call1) #12
@@ -2278,11 +2278,11 @@ declare i32 @strbuf_getline(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @unquote_c_style(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_to_cone_pattern(ptr noundef %line, ptr noundef %pl) unnamed_addr #0 {
+define internal fastcc void @strbuf_to_cone_pattern(ptr noundef nonnull %line, ptr noundef %pl) unnamed_addr #0 {
 entry:
-  tail call void @strbuf_trim(ptr noundef %line) #12
-  tail call void @strbuf_trim_trailing_dir_sep(ptr noundef %line) #12
-  %call = tail call i32 @strbuf_normalize_path(ptr noundef %line) #12
+  tail call void @strbuf_trim(ptr noundef nonnull %line) #12
+  tail call void @strbuf_trim_trailing_dir_sep(ptr noundef nonnull %line) #12
+  %call = tail call i32 @strbuf_normalize_path(ptr noundef nonnull %line) #12
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2311,7 +2311,7 @@ if.then7:                                         ; preds = %if.end4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end4
-  tail call fastcc void @insert_recursive_pattern(ptr noundef %pl, ptr noundef nonnull %line)
+  tail call fastcc void @insert_recursive_pattern(ptr noundef %pl, ptr noundef %line)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end8

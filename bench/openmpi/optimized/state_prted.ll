@@ -1560,7 +1560,7 @@ pmix_pointer_array_get_item.exit356:              ; preds = %pmix_pointer_array_
   br label %679
 
 358:                                              ; preds = %352
-  %359 = call fastcc i32 @pack_state_update(ptr noundef %353, ptr noundef nonnull %26)
+  %359 = call fastcc i32 @pack_state_update(ptr noundef %353, ptr noundef %26)
   switch i32 %359, label %360 [
     i32 0, label %363
     i32 -43, label %362
@@ -2268,7 +2268,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare ptr @prte_job_state_to_str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pack_state_update(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @pack_state_update(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 -4, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 168

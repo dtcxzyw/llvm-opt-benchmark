@@ -5291,7 +5291,7 @@ define internal void @_ZNK12_GLOBAL__N_121GStreamingBackendImpl7compileERKN3ade5
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = invoke fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEEZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISI_EERKSA_E3$_0ET_SQ_SQ_T0_"(ptr %22, ptr %24, ptr nonnull %14)
+  %25 = invoke fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEEZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISI_EERKSA_E3$_0ET_SQ_SQ_T0_"(ptr %22, ptr %24, ptr %14)
           to label %26 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 26:                                               ; preds = %.noexc4
@@ -5704,7 +5704,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN2cv4gapi9streaming6IActorEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %193, %180, %_ZNSt10shared_ptrIN2cv4gapi9streaming6IActorEEaSEOS4_.exit.i
   %198 = getelementptr inbounds i8, ptr %25, i64 16
   %199 = load ptr, ptr %23, align 8
-  %200 = invoke fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEEZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISI_EERKSA_E3$_0ET_SQ_SQ_T0_"(ptr nonnull %198, ptr %199, ptr nonnull readonly %14)
+  %200 = invoke fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEEZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISI_EERKSA_E3$_0ET_SQ_SQ_T0_"(ptr nonnull %198, ptr %199, ptr readonly %14)
           to label %201 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 201:                                              ; preds = %_ZNSt10shared_ptrIN2cv4gapi9streaming6IActorEED2Ev.exit.i
@@ -7468,7 +7468,7 @@ _ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_123StreamingCreateFunctio
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEEZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISI_EERKSA_E3$_0ET_SQ_SQ_T0_"(ptr %0, ptr %1, ptr nocapture readonly %2) unnamed_addr #3 {
+define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEEZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISI_EERKSA_E3$_0ET_SQ_SQ_T0_"(ptr %0, ptr %1, ptr nocapture nonnull readonly %2) unnamed_addr #3 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -7479,22 +7479,22 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
 .lr.ph.i.i:                                       ; preds = %3, %19
   %.043.i.i = phi i64 [ %21, %19 ], [ %7, %3 ]
   %.sroa.032.042.i.i = phi ptr [ %20, %19 ], [ %0, %3 ]
-  %9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr readonly %2, ptr %.sroa.032.042.i.i)
+  %9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.042.i.i)
   br i1 %9, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit", label %10
 
 10:                                               ; preds = %.lr.ph.i.i
   %11 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i, i64 16
-  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr readonly %2, ptr nonnull %11)
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr nonnull %11)
   br i1 %12, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit", label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i, i64 32
-  %15 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr readonly %2, ptr nonnull %14)
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr nonnull %14)
   br i1 %15, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit", label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i, i64 48
-  %18 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr readonly %2, ptr nonnull %17)
+  %18 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr nonnull %17)
   br i1 %18, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit", label %19
 
 19:                                               ; preds = %16
@@ -7519,7 +7519,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
   ]
 
 24:                                               ; preds = %._crit_edge.i.i
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr readonly %2, ptr %.sroa.032.0.lcssa.i.i)
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.0.lcssa.i.i)
   br i1 %25, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit", label %26
 
 26:                                               ; preds = %24
@@ -7528,7 +7528,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
 
 28:                                               ; preds = %26, %._crit_edge.i.i
   %.sroa.032.1.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge.i.i ], [ %27, %26 ]
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr readonly %2, ptr %.sroa.032.1.i.i)
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.1.i.i)
   br i1 %29, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit", label %30
 
 30:                                               ; preds = %28
@@ -7537,7 +7537,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
 
 32:                                               ; preds = %30, %._crit_edge.i.i
   %.sroa.032.2.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge.i.i ], [ %31, %30 ]
-  %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr readonly %2, ptr %.sroa.032.2.i.i)
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISA_EERKS8_INS4_6HandleINS4_4NodeEEESaISH_EEE3$_0EclINS_17__normal_iteratorIPKSH_SJ_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.2.i.i)
   %spec.select.i.i = select i1 %33, ptr %.sroa.032.2.i.i, ptr %1
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_126GStreamingIntrinExecutableC1ERKNS2_5GraphERKS8_IN2cv11GCompileArgESaISK_EERKSA_E3$_0EEET_ST_ST_T0_.exit"
 

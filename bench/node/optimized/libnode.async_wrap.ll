@@ -3282,7 +3282,7 @@ sw.epilog:                                        ; preds = %if.then1325, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext %phase, ptr noundef %category_group_enabled, ptr noundef %name, ptr noundef %scope, i64 noundef %id, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext range(i8 98, 102) %phase, ptr noundef %category_group_enabled, ptr noundef %name, ptr noundef %scope, i64 noundef %id, i32 noundef %flags) unnamed_addr #3 {
 entry:
   %arg_convertibles.i = alloca [2 x %"class.std::unique_ptr.374"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i)

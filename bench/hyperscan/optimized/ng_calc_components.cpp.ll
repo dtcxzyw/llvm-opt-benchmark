@@ -495,7 +495,7 @@ invoke.cont6:                                     ; preds = %for.body6.i, %for.b
   store ptr null, ptr %g, align 8
   store i32 3, ptr %ref.tmp, align 4
   store i32 3, ptr %ref.tmp5, align 4
-  invoke fastcc void @_ZN3ue2L19splitIntoComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERSt5dequeIS4_SaIS4_EERKNS_5depthESB_Pb(ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(80) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5, ptr noundef nonnull %shell_comp)
+  invoke fastcc void @_ZN3ue2L19splitIntoComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERSt5dequeIS4_SaIS4_EERKNS_5depthESB_Pb(ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(80) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5, ptr noundef %shell_comp)
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %invoke.cont6
@@ -581,7 +581,7 @@ invoke.cont16:                                    ; preds = %if.then.i, %if.else
   store i64 %25, ptr %agg.tmp11, align 8
   store i32 0, ptr %ref.tmp12, align 4
   store i32 0, ptr %ref.tmp15, align 4
-  invoke fastcc void @_ZN3ue2L19splitIntoComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERSt5dequeIS4_SaIS4_EERKNS_5depthESB_Pb(ptr noundef nonnull %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(80) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull %shell_comp)
+  invoke fastcc void @_ZN3ue2L19splitIntoComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERSt5dequeIS4_SaIS4_EERKNS_5depthESB_Pb(ptr noundef %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(80) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef %shell_comp)
           to label %invoke.cont17 unwind label %lpad13
 
 invoke.cont17:                                    ; preds = %invoke.cont16
@@ -642,7 +642,7 @@ ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19splitIntoComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERSt5dequeIS4_SaIS4_EERKNS_5depthESB_Pb(ptr noundef %g, ptr noundef nonnull align 8 dereferenceable(80) %comps, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max_head_depth, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max_tail_depth, ptr nocapture noundef writeonly %shell_comp) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19splitIntoComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERSt5dequeIS4_SaIS4_EERKNS_5depthESB_Pb(ptr noundef nonnull %g, ptr noundef nonnull align 8 dereferenceable(80) %comps, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max_head_depth, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max_tail_depth, ptr nocapture noundef nonnull writeonly %shell_comp) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i520 = alloca %"struct.std::_Deque_iterator.74", align 8
   %agg.tmp2.i521 = alloca %"class.ue2::flat_detail::iter_wrapper", align 8

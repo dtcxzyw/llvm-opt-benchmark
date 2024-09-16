@@ -1568,8 +1568,8 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
   %13 = and i32 %12, 15
   %14 = lshr i64 %6, 16
   %15 = and i64 %14, 15
-  %.not1 = icmp eq i32 %13, 0
-  br i1 %.not1, label %._crit_edge, label %.lr.ph.i
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
   %16 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1616,20 +1616,20 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
 ._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit
   %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %6, %10 ]
   %29 = and i64 %28, 32768
-  %.not.i = icmp eq i64 %29, 0
-  br i1 %.not.i, label %30, label %46
+  %.not.i30 = icmp eq i64 %29, 0
+  br i1 %.not.i30, label %30, label %46
 
 30:                                               ; preds = %._crit_edge
   %31 = call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %4, ptr noundef nonnull @objhash, i64 noundef %15) #24
-  br i1 %.not1, label %ar_each_key.exit36, label %.lr.ph.i34
+  br i1 %.not.i, label %ar_each_key.exit39, label %.lr.ph.i36
 
-.lr.ph.i34:                                       ; preds = %30
+.lr.ph.i36:                                       ; preds = %30
   %32 = getelementptr inbounds i8, ptr %9, i64 8
-  %wide.trip.count42.i35 = zext nneg i32 %13 to i64
+  %wide.trip.count42.i37 = zext nneg i32 %13 to i64
   br label %.lr.ph.split.us27.i
 
-.lr.ph.split.us27.i:                              ; preds = %41, %.lr.ph.i34
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i34 ]
+.lr.ph.split.us27.i:                              ; preds = %41, %.lr.ph.i36
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i36 ]
   %33 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %32, i64 0, i64 %indvars.iv.i
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 36
@@ -1645,10 +1645,10 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
 
 41:                                               ; preds = %36, %.lr.ph.split.us27.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count42.i35
-  br i1 %exitcond.not.i, label %ar_each_key.exit36, label %.lr.ph.split.us27.i, !llvm.loop !13
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count42.i37
+  br i1 %exitcond.not.i, label %ar_each_key.exit39, label %.lr.ph.split.us27.i, !llvm.loop !13
 
-ar_each_key.exit36:                               ; preds = %41, %30
+ar_each_key.exit39:                               ; preds = %41, %30
   %42 = load i64, ptr %5, align 8
   %43 = and i64 %42, -16711681
   store i64 %43, ptr %5, align 8
@@ -1659,7 +1659,7 @@ ar_each_key.exit36:                               ; preds = %41, %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull readonly align 8 dereferenceable(56) %4, i64 56, i1 false)
   br label %46
 
-46:                                               ; preds = %1, %._crit_edge, %ar_each_key.exit36
+46:                                               ; preds = %1, %._crit_edge, %ar_each_key.exit39
   ret ptr %9
 }
 
@@ -3903,9 +3903,9 @@ define dso_local void @rb_hash_bulk_insert(i64 noundef %0, ptr noundef %1, i64 n
   %12 = and i64 %11, 15
   %13 = add nuw nsw i64 %12, %10
   %14 = icmp ult i64 %13, 9
-  br i1 %14, label %.lr.ph.i, label %58
+  br i1 %14, label %.preheader, label %58
 
-.lr.ph.i:                                         ; preds = %9, %rb_obj_written.exit12.i
+.preheader:                                       ; preds = %9, %rb_obj_written.exit12.i
   %.013.i = phi i64 [ %44, %rb_obj_written.exit12.i ], [ 0, %9 ]
   %15 = or disjoint i64 %.013.i, 1
   %16 = getelementptr i64, ptr %1, i64 %.013.i
@@ -3915,7 +3915,7 @@ define dso_local void @rb_hash_bulk_insert(i64 noundef %0, ptr noundef %1, i64 n
   %20 = icmp eq i64 %18, %19
   br i1 %20, label %21, label %key_stringify.exit.i
 
-21:                                               ; preds = %.lr.ph.i
+21:                                               ; preds = %.preheader
   %22 = and i64 %17, 7
   %23 = icmp ne i64 %22, 0
   %24 = icmp eq i64 %17, 0
@@ -3951,8 +3951,8 @@ define dso_local void @rb_hash_bulk_insert(i64 noundef %0, ptr noundef %1, i64 n
   %42 = tail call i64 @rb_str_new_frozen(i64 noundef %17) #24
   br label %key_stringify.exit.i
 
-key_stringify.exit.i:                             ; preds = %41, %39, %26, %21, %.lr.ph.i
-  %43 = phi i64 [ %17, %.lr.ph.i ], [ %42, %41 ], [ %40, %39 ], [ %17, %21 ], [ %17, %26 ]
+key_stringify.exit.i:                             ; preds = %41, %39, %26, %21, %.preheader
+  %43 = phi i64 [ %17, %.preheader ], [ %42, %41 ], [ %40, %39 ], [ %17, %21 ], [ %17, %26 ]
   %44 = add i64 %.013.i, 2
   %45 = getelementptr i64, ptr %1, i64 %15
   %46 = load i64, ptr %45, align 8
@@ -3980,7 +3980,7 @@ rb_obj_written.exit.i:                            ; preds = %51, %key_stringify.
 
 rb_obj_written.exit12.i:                          ; preds = %56, %rb_obj_written.exit.i
   %57 = icmp slt i64 %44, %0
-  br i1 %57, label %.lr.ph.i, label %ar_bulk_insert.exit, !llvm.loop !19
+  br i1 %57, label %.preheader, label %ar_bulk_insert.exit, !llvm.loop !19
 
 58:                                               ; preds = %9, %5
   tail call void @rb_hash_bulk_insert_into_st_table(i64 noundef %0, ptr noundef %1, i64 noundef %2) #24
@@ -4209,7 +4209,7 @@ ruby_setenv.exit:                                 ; preds = %rb_vm_lock_leave.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @env_keys(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @env_keys(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %3, label %5
@@ -11178,7 +11178,7 @@ rb_check_arity.exit:                              ; preds = %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @hash_equal(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @hash_equal(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.equal_data, align 8
   %5 = icmp eq i64 %0, %1
   br i1 %5, label %81, label %6

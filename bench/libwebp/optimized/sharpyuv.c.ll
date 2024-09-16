@@ -1184,7 +1184,7 @@ define internal fastcc void @ImportOneRow(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @UpdateChroma(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @UpdateChroma(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 -1073741824, 1073741824) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = icmp slt i32 %4, 13
   %8 = sub nsw i32 14, %4
   %9 = select i1 %7, i32 2, i32 %8

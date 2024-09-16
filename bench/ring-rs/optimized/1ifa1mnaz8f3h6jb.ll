@@ -534,7 +534,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b4074761d3b0E(ptr noalias noundef readonly align 4 dereferenceable(244) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef align 4 dereferenceable(16) %4) unnamed_addr #5 {
+define internal fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b4074761d3b0E(ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull align 4 dereferenceable(16) %4) unnamed_addr #5 {
   %6 = alloca { ptr, [5 x i64] }, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -678,18 +678,18 @@ _ZN4ring4aead3aes21ctr32_encrypt_blocks_17hf4e05b9f637cdadfE.exit11: ; preds = %
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN4ring4aead7aes_gcm8init_12817h265c7238f92f4c07E(ptr noalias nocapture noundef writeonly sret({ i32, [131 x i32] }) align 16 dereferenceable(528) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
-  tail call fastcc void @_ZN4ring4aead7aes_gcm4init17h337d5d523cd4e708E(ptr noalias nocapture noundef nonnull align 16 dereferenceable(528) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext false)
+  tail call fastcc void @_ZN4ring4aead7aes_gcm4init17h337d5d523cd4e708E(ptr noalias nocapture noundef align 16 dereferenceable(528) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN4ring4aead7aes_gcm8init_25617h9b8b9875e04c06f2E(ptr noalias nocapture noundef writeonly sret({ i32, [131 x i32] }) align 16 dereferenceable(528) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
-  tail call fastcc void @_ZN4ring4aead7aes_gcm4init17h337d5d523cd4e708E(ptr noalias nocapture noundef nonnull align 16 dereferenceable(528) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext true)
+  tail call fastcc void @_ZN4ring4aead7aes_gcm4init17h337d5d523cd4e708E(ptr noalias nocapture noundef align 16 dereferenceable(528) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4ring4aead7aes_gcm4init17h337d5d523cd4e708E(ptr noalias nocapture noundef writeonly align 16 dereferenceable(528) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
+define internal fastcc void @_ZN4ring4aead7aes_gcm4init17h337d5d523cd4e708E(ptr noalias nocapture noundef nonnull writeonly align 16 dereferenceable(528) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
   %5 = alloca { { [16 x { i64, i64 }] } }, align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca [2 x i64], align 8
@@ -1006,7 +1006,7 @@ _ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread: ; preds = %46,
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.050, i64 3072)
   %67 = getelementptr inbounds i8, ptr %.sroa.033.049, i64 %.0.sroa.speculated.i.i
   %68 = sub nuw i64 %.sroa.5.050, %.0.sroa.speculated.i.i
-  call fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b4074761d3b0E(ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %42, ptr noalias noundef nonnull align 1 %.sroa.033.049, i64 noundef %.0.sroa.speculated.i.i, i64 noundef 0, ptr noalias noundef nonnull align 4 dereferenceable(16) %25)
+  call fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b4074761d3b0E(ptr noalias noundef readonly align 4 dereferenceable(244) %42, ptr noalias noundef nonnull align 1 %.sroa.033.049, i64 noundef %.0.sroa.speculated.i.i, i64 noundef 0, ptr noalias noundef align 4 dereferenceable(16) %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %69 = lshr i64 %.0.sroa.speculated.i.i, 4
   %70 = load i32, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, align 4, !noalias !134, !noundef !4
@@ -1058,7 +1058,7 @@ _ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit: ; preds = %78
 
 _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.thread"
   store <16 x i8> zeroinitializer, ptr %.sroa.0.i, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i, ptr nonnull readonly align 1 %59, i64 %60, i1 false), !alias.scope !141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %.sroa.0.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %59, i64 %60, i1 false), !alias.scope !141
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %25, i64 16, i1 false)
@@ -1430,7 +1430,7 @@ _ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit: ; preds = %92
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.exit": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit77"
   %103 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.06298
-  call fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b4074761d3b0E(ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %41, ptr noalias noundef nonnull align 1 %103, i64 noundef %100, i64 noundef %7, ptr noalias noundef nonnull align 4 dereferenceable(16) %21)
+  call fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b4074761d3b0E(ptr noalias noundef readonly align 4 dereferenceable(244) %41, ptr noalias noundef nonnull align 1 %103, i64 noundef %100, i64 noundef %7, ptr noalias noundef align 4 dereferenceable(16) %21)
   %104 = add i64 %spec.select100, %.06298
   %105 = add i64 %spec.select100, %.06199
   %106 = sub i64 %50, %104

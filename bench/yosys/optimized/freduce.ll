@@ -9446,7 +9446,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i562:      ; preds = %_ZNSt6vectorIiSaIiE
           to label %3056 unwind label %3065
 
 3056:                                             ; preds = %3055
-  invoke fastcc void @_ZN12_GLOBAL__N_116PerformReduction7analyzeERSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERSt3mapIiiS4_SaISt4pairIKiiEEERS1_IiS5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(676) %109, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull %25, ptr noundef nonnull %26)
+  invoke fastcc void @_ZN12_GLOBAL__N_116PerformReduction7analyzeERSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERSt3mapIiiS4_SaISt4pairIKiiEEERS1_IiS5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(676) %109, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef %25, ptr noundef %26)
           to label %3057 unwind label %3067
 
 3057:                                             ; preds = %3056
@@ -54037,7 +54037,7 @@ _ZN5ezSAT2_V3getEPS_.exit10:                      ; preds = %40, %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116PerformReduction7analyzeERSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERSt3mapIiiS4_SaISt4pairIKiiEEERS1_IiS5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116PerformReduction7analyzeERSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERSt3mapIiiS4_SaISt4pairIKiiEEERS1_IiS5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::vector.134", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -56061,7 +56061,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.body351
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit353: ; preds = %.noexc350
-  invoke fastcc void @_ZN12_GLOBAL__N_116PerformReduction7analyzeERSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERSt3mapIiiS4_SaISt4pairIKiiEEERS1_IiS5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull %45, ptr noundef nonnull %46)
+  invoke fastcc void @_ZN12_GLOBAL__N_116PerformReduction7analyzeERSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERSt3mapIiiS4_SaISt4pairIKiiEEERS1_IiS5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef %45, ptr noundef %46)
           to label %852 unwind label %864
 
 852:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit353
@@ -56095,7 +56095,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.body359
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit361: ; preds = %.noexc358
-  invoke fastcc void @_ZN12_GLOBAL__N_116PerformReduction7analyzeERSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERSt3mapIiiS4_SaISt4pairIKiiEEERS1_IiS5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull %47, ptr noundef nonnull %48)
+  invoke fastcc void @_ZN12_GLOBAL__N_116PerformReduction7analyzeERSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERSt3mapIiiS4_SaISt4pairIKiiEEERS1_IiS5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef %47, ptr noundef %48)
           to label %859 unwind label %868
 
 859:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit361
@@ -58563,7 +58563,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::equiv_bit_t") align 8 %3) unnamed_addr #19 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef range(i64 -288230376151711744, 288230376151711744) %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::equiv_bit_t") align 8 %3) unnamed_addr #19 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

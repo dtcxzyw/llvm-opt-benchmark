@@ -3008,7 +3008,7 @@ dissect_NOKEY_DATA.exit.i:                        ; preds = %292, %284, %.thread
   br label %dissect_rtps_submessage_v1.exit.thread
 
 295:                                              ; preds = %62
-  call fastcc void @dissect_ACKNACK(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %.092101, i8 noundef zeroext %50, i32 noundef %52, i32 noundef %.0, ptr noundef %48, ptr noundef %.095, ptr noundef nonnull %15)
+  call fastcc void @dissect_ACKNACK(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %.092101, i8 noundef zeroext %50, i32 noundef %52, i32 noundef %.0, ptr noundef %48, ptr noundef %.095, ptr noundef %15)
   br label %dissect_rtps_submessage_v1.exit.thread
 
 296:                                              ; preds = %62
@@ -3395,7 +3395,7 @@ dissect_rtps_submessage_v1.exit:                  ; preds = %62
   br i1 %19, label %538, label %536
 
 536:                                              ; preds = %dissect_rtps_submessage_v1.exit
-  %537 = call fastcc i32 @dissect_rtps_submessage_v2(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %.092101, i8 noundef zeroext %50, i32 noundef %52, i8 noundef zeroext %33, i16 noundef zeroext %5, i32 noundef %.0, ptr noundef %48, ptr noundef %.095, ptr noundef %6, ptr noundef nonnull %15)
+  %537 = call fastcc i32 @dissect_rtps_submessage_v2(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %.092101, i8 noundef zeroext %50, i32 noundef %52, i8 noundef zeroext %33, i16 noundef zeroext %5, i32 noundef %.0, ptr noundef %48, ptr noundef %.095, ptr noundef %6, ptr noundef %15)
   %.not98 = icmp eq i32 %537, 0
   br i1 %.not98, label %538, label %dissect_rtps_submessage_v1.exit.thread
 
@@ -3478,7 +3478,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @p_set_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_rtps_submessage_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_rtps_submessage_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, -2147483647) %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -5326,7 +5326,7 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %866, %rtps_util_det
   %.2.i193 = phi i32 [ %1092, %1110 ], [ %1090, %1087 ], [ %.5.i, %1154 ]
   %1159 = call i32 @tvb_reported_length(ptr noundef %0) #13
   %1160 = sub i32 %1159, %.2.i193
-  %1161 = call fastcc i32 @rtps_prepare_encapsulated_data(ptr noundef %8, ptr noundef %1, ptr noundef %0, i32 noundef %.2.i193, i32 noundef %1160, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19)
+  %1161 = call fastcc i32 @rtps_prepare_encapsulated_data(ptr noundef %8, ptr noundef %1, ptr noundef %0, i32 noundef %.2.i193, i32 noundef %1160, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19)
   %1162 = load i16, ptr %16, align 2
   store i16 %1162, ptr %1021, align 4
   %1163 = load i32, ptr %17, align 4
@@ -6034,7 +6034,7 @@ define internal range(i32 0, 2) i32 @dissect_rtps_tcp(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ACKNACK(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ACKNACK(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = add i32 %2, 1
   %12 = load i32, ptr @hf_rtps_sm_flags, align 4
@@ -6199,7 +6199,7 @@ define internal fastcc void @rtps_util_add_guid_prefix_v1(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_parameter_sequence(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i16 noundef zeroext %7, ptr noundef writeonly %8, i16 noundef zeroext %9, i32 noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc i32 @dissect_parameter_sequence(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef %6, i16 noundef zeroext %7, ptr noundef writeonly %8, i16 noundef zeroext %9, i32 noundef range(i32 0, 2) %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -9352,7 +9352,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtps_util_add_timestamp_sec_and_fraction(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @rtps_util_add_timestamp_sec_and_fraction(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3) unnamed_addr #0 {
   %5 = alloca [128 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %6
@@ -9408,7 +9408,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #2
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtps_util_add_seq_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @rtps_util_add_seq_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = call ptr @proto_tree_add_item_ret_int(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %8) #13
   %10 = add i32 %2, 4
@@ -9451,7 +9451,7 @@ define internal fastcc void @rtps_util_add_seq_string(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rtps_util_add_locator_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtps_util_add_locator_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -9690,7 +9690,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 6, 65542) i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef readonly %11, i32 noundef %12) unnamed_addr #0 {
+define internal fastcc range(i32 6, 65542) i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5, i16 noundef zeroext %6, i32 noundef range(i32 0, 256) %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef readonly %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #0 {
   %14 = alloca [40 x i8], align 16
   %15 = alloca [10 x i32], align 16
   %16 = tail call ptr @wmem_epan_scope() #13
@@ -9715,28 +9715,26 @@ define internal fastcc range(i32 6, 65542) i32 @rtps_util_add_typecode(ptr nound
   %33 = icmp eq i32 %31, 9
   %or.cond5 = and i1 %32, %33
   %spec.select = select i1 %or.cond5, i32 1, i32 %12
-  %.not = icmp ne i32 %spec.select, 0
-  %34 = zext i1 %.not to i32
-  %.0388 = add nuw i32 %31, %34
+  %.0388 = add nuw i32 %spec.select, %31
   switch i32 %.0388, label %rtps_util_typecode_id_to_string.exit [
     i32 12, label %rtps_util_typecode_id_to_string.exit.thread428
     i32 11, label %rtps_util_typecode_id_to_string.exit.thread434
-    i32 10, label %44
+    i32 10, label %43
     i32 2, label %rtps_util_typecode_id_to_string.exit.thread
-    i32 1, label %45
-    i32 3, label %46
-    i32 4, label %47
-    i32 5, label %48
-    i32 6, label %49
-    i32 7, label %50
-    i32 8, label %51
-    i32 9, label %52
-    i32 17, label %53
-    i32 18, label %54
-    i32 19, label %55
-    i32 20, label %56
+    i32 1, label %44
+    i32 3, label %45
+    i32 4, label %46
+    i32 5, label %47
+    i32 6, label %48
+    i32 7, label %49
+    i32 8, label %50
+    i32 9, label %51
+    i32 17, label %52
+    i32 18, label %53
+    i32 19, label %54
+    i32 20, label %55
     i32 21, label %rtps_util_typecode_id_to_string.exit.thread432
-    i32 13, label %57
+    i32 13, label %56
     i32 14, label %rtps_util_typecode_id_to_string.exit.thread436
     i32 15, label %rtps_util_typecode_id_to_string.exit.thread438
     i32 16, label %rtps_util_typecode_id_to_string.exit.thread440
@@ -9744,19 +9742,22 @@ define internal fastcc range(i32 6, 65542) i32 @rtps_util_add_typecode(ptr nound
   ]
 
 rtps_util_typecode_id_to_string.exit.thread434:   ; preds = %13
-  %35 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.418, i64 noundef 40) #13
-  %36 = add i32 %24, 9
-  %37 = and i32 %36, -4
-  %38 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %37, i32 noundef %3) #13
-  %39 = add i32 %37, 4
-  %40 = call ptr @wmem_packet_scope() #13
-  %41 = call ptr @tvb_get_string_enc(ptr noundef %40, ptr noundef %1, i32 noundef %39, i32 noundef %38, i32 noundef 0) #13
-  %42 = add i32 %38, %39
-  %43 = icmp slt i32 %42, %39
-  br i1 %43, label %97, label %check_offset_addition.exit
+  %34 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.418, i64 noundef 40) #13
+  %35 = add i32 %24, 9
+  %36 = and i32 %35, -4
+  %37 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %36, i32 noundef %3) #13
+  %38 = add i32 %36, 4
+  %39 = call ptr @wmem_packet_scope() #13
+  %40 = call ptr @tvb_get_string_enc(ptr noundef %39, ptr noundef %1, i32 noundef %38, i32 noundef %37, i32 noundef 0) #13
+  %41 = add i32 %37, %38
+  %42 = icmp slt i32 %41, %38
+  br i1 %42, label %96, label %check_offset_addition.exit
+
+43:                                               ; preds = %13
+  br label %rtps_util_typecode_id_to_string.exit.thread428
 
 44:                                               ; preds = %13
-  br label %rtps_util_typecode_id_to_string.exit.thread428
+  br label %rtps_util_typecode_id_to_string.exit.thread
 
 45:                                               ; preds = %13
   br label %rtps_util_typecode_id_to_string.exit.thread
@@ -9792,119 +9793,119 @@ rtps_util_typecode_id_to_string.exit.thread434:   ; preds = %13
   br label %rtps_util_typecode_id_to_string.exit.thread
 
 56:                                               ; preds = %13
-  br label %rtps_util_typecode_id_to_string.exit.thread
-
-57:                                               ; preds = %13
   br label %rtps_util_typecode_id_to_string.exit.thread432
 
 rtps_util_typecode_id_to_string.exit.thread436:   ; preds = %13
-  %58 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.426, i64 noundef 40) #13
-  %59 = add i32 %24, 9
-  %60 = and i32 %59, -4
-  %61 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %60, i32 noundef %3) #13
-  %62 = add i32 %60, 4
-  %63 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %62, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %61, ptr noundef null, i32 noundef %spec.select)
-  br label %289
+  %57 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.426, i64 noundef 40) #13
+  %58 = add i32 %24, 9
+  %59 = and i32 %58, -4
+  %60 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %59, i32 noundef %3) #13
+  %61 = add i32 %59, 4
+  %62 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %61, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %60, ptr noundef null, i32 noundef %spec.select)
+  br label %288
 
 rtps_util_typecode_id_to_string.exit.thread438:   ; preds = %13
-  %64 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.428, i64 noundef 40) #13
-  %65 = add i32 %24, 9
-  %66 = and i32 %65, -4
-  %67 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %66, i32 noundef %3) #13
+  %63 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.428, i64 noundef 40) #13
+  %64 = add i32 %24, 9
+  %65 = and i32 %64, -4
+  %66 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %65, i32 noundef %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, i8 0, i64 40, i1 false)
-  %.6455 = add i32 %66, 4
-  %.not477 = icmp eq i32 %67, 0
-  br i1 %.not477, label %._crit_edge, label %.lr.ph.preheader
+  %.6455 = add i32 %65, 4
+  %.not = icmp eq i32 %66, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 rtps_util_typecode_id_to_string.exit.thread440:   ; preds = %13
-  %68 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1172, i64 noundef 40) #13
-  %69 = add i32 %24, 9
-  %70 = and i32 %69, -4
-  %71 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %70, i32 noundef %3) #13
-  %72 = add i32 %70, 4
-  %73 = call ptr @wmem_packet_scope() #13
-  %74 = call ptr @tvb_get_string_enc(ptr noundef %73, ptr noundef %1, i32 noundef %72, i32 noundef %71, i32 noundef 0) #13
-  %75 = add i32 %71, %72
-  %76 = icmp slt i32 %75, %72
-  br i1 %76, label %231, label %check_offset_addition.exit423
+  %67 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1172, i64 noundef 40) #13
+  %68 = add i32 %24, 9
+  %69 = and i32 %68, -4
+  %70 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %69, i32 noundef %3) #13
+  %71 = add i32 %69, 4
+  %72 = call ptr @wmem_packet_scope() #13
+  %73 = call ptr @tvb_get_string_enc(ptr noundef %72, ptr noundef %1, i32 noundef %71, i32 noundef %70, i32 noundef 0) #13
+  %74 = add i32 %70, %71
+  %75 = icmp slt i32 %74, %71
+  br i1 %75, label %230, label %check_offset_addition.exit423
 
 rtps_util_typecode_id_to_string.exit.thread442:   ; preds = %13
-  %77 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1149, i64 noundef 40) #13
-  br label %234
+  %76 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1149, i64 noundef 40) #13
+  br label %233
 
-rtps_util_typecode_id_to_string.exit.thread:      ; preds = %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %13
-  %.0.i.ph = phi ptr [ @.str.1160, %45 ], [ @.str.1161, %46 ], [ @.str.1162, %47 ], [ @.str.1163, %48 ], [ @.str.1164, %49 ], [ @.str.1165, %50 ], [ @.str.1166, %51 ], [ @.str.1167, %52 ], [ @.str.1168, %53 ], [ @.str.1169, %54 ], [ @.str.1170, %55 ], [ @.str.1171, %56 ], [ @.str.1159, %13 ]
-  %78 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %.0.i.ph, i64 noundef 40) #13
-  br label %247
+rtps_util_typecode_id_to_string.exit.thread:      ; preds = %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %13
+  %.0.i.ph = phi ptr [ @.str.1160, %44 ], [ @.str.1161, %45 ], [ @.str.1162, %46 ], [ @.str.1163, %47 ], [ @.str.1164, %48 ], [ @.str.1165, %49 ], [ @.str.1166, %50 ], [ @.str.1167, %51 ], [ @.str.1168, %52 ], [ @.str.1169, %53 ], [ @.str.1170, %54 ], [ @.str.1171, %55 ], [ @.str.1159, %13 ]
+  %77 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %.0.i.ph, i64 noundef 40) #13
+  br label %246
 
-rtps_util_typecode_id_to_string.exit.thread428:   ; preds = %13, %44
-  %.0.i.ph427 = phi ptr [ @.str.1142, %13 ], [ @.str.422, %44 ]
-  %79 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %.0.i.ph427, i64 noundef 40) #13
-  %80 = add i32 %24, 9
-  %81 = and i32 %80, -4
-  %82 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %81, i32 noundef %3) #13
-  %83 = add i32 %81, 4
-  %84 = call ptr @wmem_packet_scope() #13
-  %85 = call ptr @tvb_get_string_enc(ptr noundef %84, ptr noundef %1, i32 noundef %83, i32 noundef %82, i32 noundef 0) #13
-  %86 = add i32 %82, %83
-  %87 = icmp slt i32 %86, %83
-  br i1 %87, label %180, label %check_offset_addition.exit421
+rtps_util_typecode_id_to_string.exit.thread428:   ; preds = %13, %43
+  %.0.i.ph427 = phi ptr [ @.str.1142, %13 ], [ @.str.422, %43 ]
+  %78 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %.0.i.ph427, i64 noundef 40) #13
+  %79 = add i32 %24, 9
+  %80 = and i32 %79, -4
+  %81 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %80, i32 noundef %3) #13
+  %82 = add i32 %80, 4
+  %83 = call ptr @wmem_packet_scope() #13
+  %84 = call ptr @tvb_get_string_enc(ptr noundef %83, ptr noundef %1, i32 noundef %82, i32 noundef %81, i32 noundef 0) #13
+  %85 = add i32 %81, %82
+  %86 = icmp slt i32 %85, %82
+  br i1 %86, label %179, label %check_offset_addition.exit421
 
-rtps_util_typecode_id_to_string.exit.thread432:   ; preds = %57, %13
-  %.0.i.ph431 = phi ptr [ @.str.1147, %57 ], [ @.str.1148, %13 ]
-  %88 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %.0.i.ph431, i64 noundef 40) #13
-  %89 = add i32 %24, 9
-  %90 = and i32 %89, -4
-  %91 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %90, i32 noundef %3) #13
-  %92 = add i32 %90, 4
-  %93 = icmp eq i32 %.0388, 13
-  %94 = select i1 %93, ptr @.str.1147, ptr @.str.1148
-  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 40, ptr noundef nonnull @.str.1146, ptr noundef nonnull %94, i32 noundef %91) #13
-  br label %247
+rtps_util_typecode_id_to_string.exit.thread432:   ; preds = %56, %13
+  %.0.i.ph431 = phi ptr [ @.str.1147, %56 ], [ @.str.1148, %13 ]
+  %87 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %.0.i.ph431, i64 noundef 40) #13
+  %88 = add i32 %24, 9
+  %89 = and i32 %88, -4
+  %90 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %89, i32 noundef %3) #13
+  %91 = add i32 %89, 4
+  %92 = icmp eq i32 %.0388, 13
+  %93 = select i1 %92, ptr @.str.1147, ptr @.str.1148
+  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 40, ptr noundef nonnull @.str.1146, ptr noundef nonnull %93, i32 noundef %90) #13
+  br label %246
 
 rtps_util_typecode_id_to_string.exit:             ; preds = %13
-  %96 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1173, i64 noundef 40) #13
+  %95 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1173, i64 noundef 40) #13
   %cond = icmp eq i32 %.0388, 23
-  br i1 %cond, label %234, label %247
+  br i1 %cond, label %233, label %246
 
-97:                                               ; preds = %rtps_util_typecode_id_to_string.exit.thread434
-  %98 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %38) #13
+96:                                               ; preds = %rtps_util_typecode_id_to_string.exit.thread434
+  %97 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %37) #13
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
 check_offset_addition.exit:                       ; preds = %rtps_util_typecode_id_to_string.exit.thread434
-  %99 = add i32 %42, 3
-  %100 = and i32 %99, -4
-  %101 = add i32 %100, 4
-  %102 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %101, i32 noundef %3) #13
-  %103 = add i32 %100, 8
-  %104 = call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %103, i32 noundef %3) #13
-  %105 = add i32 %100, 10
-  %106 = and i32 %102, 2147483647
-  switch i32 %106, label %rtps_util_typecode_id_to_string.exit419 [
+  %98 = add i32 %41, 3
+  %99 = and i32 %98, -4
+  %100 = add i32 %99, 4
+  %101 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %100, i32 noundef %3) #13
+  %102 = add i32 %99, 8
+  %103 = call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %102, i32 noundef %3) #13
+  %104 = add i32 %99, 10
+  %105 = and i32 %101, 2147483647
+  switch i32 %105, label %rtps_util_typecode_id_to_string.exit419 [
     i32 12, label %rtps_util_typecode_id_to_string.exit419.thread446
     i32 11, label %rtps_util_typecode_id_to_string.exit419.thread
-    i32 10, label %107
-    i32 2, label %108
-    i32 1, label %109
-    i32 3, label %110
-    i32 4, label %111
-    i32 5, label %112
-    i32 6, label %113
-    i32 7, label %114
-    i32 8, label %115
-    i32 9, label %116
-    i32 17, label %117
-    i32 18, label %118
-    i32 19, label %119
-    i32 20, label %120
-    i32 21, label %121
-    i32 13, label %122
-    i32 14, label %123
-    i32 15, label %124
-    i32 16, label %125
-    i32 22, label %126
+    i32 10, label %106
+    i32 2, label %107
+    i32 1, label %108
+    i32 3, label %109
+    i32 4, label %110
+    i32 5, label %111
+    i32 6, label %112
+    i32 7, label %113
+    i32 8, label %114
+    i32 9, label %115
+    i32 17, label %116
+    i32 18, label %117
+    i32 19, label %118
+    i32 20, label %119
+    i32 21, label %120
+    i32 13, label %121
+    i32 14, label %122
+    i32 15, label %123
+    i32 16, label %124
+    i32 22, label %125
   ]
+
+106:                                              ; preds = %check_offset_addition.exit
+  br label %rtps_util_typecode_id_to_string.exit419.thread
 
 107:                                              ; preds = %check_offset_addition.exit
   br label %rtps_util_typecode_id_to_string.exit419.thread
@@ -9963,199 +9964,196 @@ check_offset_addition.exit:                       ; preds = %rtps_util_typecode_
 125:                                              ; preds = %check_offset_addition.exit
   br label %rtps_util_typecode_id_to_string.exit419.thread
 
-126:                                              ; preds = %check_offset_addition.exit
-  br label %rtps_util_typecode_id_to_string.exit419.thread
-
 rtps_util_typecode_id_to_string.exit419:          ; preds = %check_offset_addition.exit
   br label %rtps_util_typecode_id_to_string.exit419.thread
 
 rtps_util_typecode_id_to_string.exit419.thread446: ; preds = %check_offset_addition.exit
-  %127 = add i32 %100, 13
-  %128 = and i32 %127, -4
-  %129 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %128, i32 noundef %3) #13
-  %130 = call ptr @wmem_packet_scope() #13
-  %131 = add i32 %128, 4
-  %132 = call ptr @tvb_get_string_enc(ptr noundef %130, ptr noundef %1, i32 noundef %131, i32 noundef %129, i32 noundef 0) #13
+  %126 = add i32 %99, 13
+  %127 = and i32 %126, -4
+  %128 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %127, i32 noundef %3) #13
+  %129 = call ptr @wmem_packet_scope() #13
+  %130 = add i32 %127, 4
+  %131 = call ptr @tvb_get_string_enc(ptr noundef %129, ptr noundef %1, i32 noundef %130, i32 noundef %128, i32 noundef 0) #13
   br label %rtps_util_typecode_id_to_string.exit419.thread
 
-rtps_util_typecode_id_to_string.exit419.thread:   ; preds = %rtps_util_typecode_id_to_string.exit419, %check_offset_addition.exit, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %rtps_util_typecode_id_to_string.exit419.thread446
-  %.0.i418445 = phi ptr [ @.str.1142, %rtps_util_typecode_id_to_string.exit419.thread446 ], [ @.str.1173, %rtps_util_typecode_id_to_string.exit419 ], [ @.str.422, %107 ], [ @.str.1159, %108 ], [ @.str.1160, %109 ], [ @.str.1161, %110 ], [ @.str.1162, %111 ], [ @.str.1163, %112 ], [ @.str.1164, %113 ], [ @.str.1165, %114 ], [ @.str.1166, %115 ], [ @.str.1167, %116 ], [ @.str.1168, %117 ], [ @.str.1169, %118 ], [ @.str.1170, %119 ], [ @.str.1171, %120 ], [ @.str.1148, %121 ], [ @.str.1147, %122 ], [ @.str.426, %123 ], [ @.str.428, %124 ], [ @.str.1172, %125 ], [ @.str.1149, %126 ], [ @.str.418, %check_offset_addition.exit ]
-  %.0394 = phi ptr [ %132, %rtps_util_typecode_id_to_string.exit419.thread446 ], [ null, %rtps_util_typecode_id_to_string.exit419 ], [ null, %107 ], [ null, %108 ], [ null, %109 ], [ null, %110 ], [ null, %111 ], [ null, %112 ], [ null, %113 ], [ null, %114 ], [ null, %115 ], [ null, %116 ], [ null, %117 ], [ null, %118 ], [ null, %119 ], [ null, %120 ], [ null, %121 ], [ null, %122 ], [ null, %123 ], [ null, %124 ], [ null, %125 ], [ null, %126 ], [ null, %check_offset_addition.exit ]
-  %133 = zext i16 %104 to i32
-  %134 = add i32 %105, %133
-  %135 = load i32, ptr @hf_rtps_union, align 4
+rtps_util_typecode_id_to_string.exit419.thread:   ; preds = %rtps_util_typecode_id_to_string.exit419, %check_offset_addition.exit, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %rtps_util_typecode_id_to_string.exit419.thread446
+  %.0.i418445 = phi ptr [ @.str.1142, %rtps_util_typecode_id_to_string.exit419.thread446 ], [ @.str.1173, %rtps_util_typecode_id_to_string.exit419 ], [ @.str.422, %106 ], [ @.str.1159, %107 ], [ @.str.1160, %108 ], [ @.str.1161, %109 ], [ @.str.1162, %110 ], [ @.str.1163, %111 ], [ @.str.1164, %112 ], [ @.str.1165, %113 ], [ @.str.1166, %114 ], [ @.str.1167, %115 ], [ @.str.1168, %116 ], [ @.str.1169, %117 ], [ @.str.1170, %118 ], [ @.str.1171, %119 ], [ @.str.1148, %120 ], [ @.str.1147, %121 ], [ @.str.426, %122 ], [ @.str.428, %123 ], [ @.str.1172, %124 ], [ @.str.1149, %125 ], [ @.str.418, %check_offset_addition.exit ]
+  %.0394 = phi ptr [ %131, %rtps_util_typecode_id_to_string.exit419.thread446 ], [ null, %rtps_util_typecode_id_to_string.exit419 ], [ null, %106 ], [ null, %107 ], [ null, %108 ], [ null, %109 ], [ null, %110 ], [ null, %111 ], [ null, %112 ], [ null, %113 ], [ null, %114 ], [ null, %115 ], [ null, %116 ], [ null, %117 ], [ null, %118 ], [ null, %119 ], [ null, %120 ], [ null, %121 ], [ null, %122 ], [ null, %123 ], [ null, %124 ], [ null, %125 ], [ null, %check_offset_addition.exit ]
+  %132 = zext i16 %103 to i32
+  %133 = add i32 %104, %132
+  %134 = load i32, ptr @hf_rtps_union, align 4
   %.not404 = icmp eq ptr %.0394, null
-  %136 = select i1 %.not404, ptr @.str.1139, ptr @.str.1138
-  %137 = select i1 %.not404, ptr @.str.1139, ptr %.0394
-  %138 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %135, ptr noundef %1, i32 noundef %2, i32 noundef %30, ptr noundef %41, ptr noundef nonnull @.str.1137, ptr noundef nonnull %20, ptr noundef %41, ptr noundef nonnull %.0.i418445, ptr noundef nonnull %136, ptr noundef nonnull %137) #13
+  %135 = select i1 %.not404, ptr @.str.1139, ptr @.str.1138
+  %136 = select i1 %.not404, ptr @.str.1139, ptr %.0394
+  %137 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %134, ptr noundef %1, i32 noundef %2, i32 noundef %30, ptr noundef %40, ptr noundef nonnull @.str.1137, ptr noundef nonnull %20, ptr noundef %40, ptr noundef nonnull %.0.i418445, ptr noundef nonnull %135, ptr noundef nonnull %136) #13
   %.not405 = icmp eq i32 %10, -1
-  br i1 %.not405, label %139, label %.thread.sink.split
+  br i1 %.not405, label %138, label %.thread.sink.split
 
-139:                                              ; preds = %rtps_util_typecode_id_to_string.exit419.thread
-  %140 = add i32 %134, 3
-  %141 = and i32 %140, -4
-  %142 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %141, i32 noundef %3) #13
-  %143 = add i32 %141, 4
-  %.not478 = icmp eq i32 %142, 0
-  br i1 %.not478, label %178, label %.lr.ph466
+138:                                              ; preds = %rtps_util_typecode_id_to_string.exit419.thread
+  %139 = add i32 %133, 3
+  %140 = and i32 %139, -4
+  %141 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %140, i32 noundef %3) #13
+  %142 = add i32 %140, 4
+  %.not477 = icmp eq i32 %141, 0
+  br i1 %.not477, label %177, label %.lr.ph466
 
-.lr.ph466:                                        ; preds = %139
-  %144 = add i32 %4, 2
-  br label %145
+.lr.ph466:                                        ; preds = %138
+  %143 = add i32 %4, 2
+  br label %144
 
-145:                                              ; preds = %.lr.ph466, %._crit_edge461
-  %.0389464 = phi i32 [ 0, %.lr.ph466 ], [ %176, %._crit_edge461 ]
-  %.0395463 = phi i32 [ %143, %.lr.ph466 ], [ %151, %._crit_edge461 ]
-  %146 = add i32 %.0395463, 1
-  %147 = and i32 %146, -2
-  %148 = call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %147, i32 noundef %3) #13
-  %149 = add i32 %147, 2
-  %150 = zext i16 %148 to i32
-  %151 = add i32 %149, %150
-  %152 = add i32 %147, 5
-  %153 = and i32 %152, -4
-  %154 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %153, i32 noundef %3) #13
-  %155 = add i32 %153, 4
-  %156 = call ptr @wmem_packet_scope() #13
-  %157 = call ptr @tvb_get_string_enc(ptr noundef %156, ptr noundef %1, i32 noundef %155, i32 noundef %154, i32 noundef 0) #13
-  %158 = add i32 %154, %155
-  %159 = icmp slt i32 %158, %155
-  br i1 %159, label %160, label %check_offset_addition.exit420
+144:                                              ; preds = %.lr.ph466, %._crit_edge461
+  %.0389464 = phi i32 [ 0, %.lr.ph466 ], [ %175, %._crit_edge461 ]
+  %.0395463 = phi i32 [ %142, %.lr.ph466 ], [ %150, %._crit_edge461 ]
+  %145 = add i32 %.0395463, 1
+  %146 = and i32 %145, -2
+  %147 = call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %146, i32 noundef %3) #13
+  %148 = add i32 %146, 2
+  %149 = zext i16 %147 to i32
+  %150 = add i32 %148, %149
+  %151 = add i32 %146, 5
+  %152 = and i32 %151, -4
+  %153 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %152, i32 noundef %3) #13
+  %154 = add i32 %152, 4
+  %155 = call ptr @wmem_packet_scope() #13
+  %156 = call ptr @tvb_get_string_enc(ptr noundef %155, ptr noundef %1, i32 noundef %154, i32 noundef %153, i32 noundef 0) #13
+  %157 = add i32 %153, %154
+  %158 = icmp slt i32 %157, %154
+  br i1 %158, label %159, label %check_offset_addition.exit420
 
-160:                                              ; preds = %145
-  %161 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %154) #13
+159:                                              ; preds = %144
+  %160 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %153) #13
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
-check_offset_addition.exit420:                    ; preds = %145
-  %162 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %158) #13
-  %163 = and i32 %158, -4
-  %164 = add i32 %163, 4
-  %165 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %164, i32 noundef %3) #13
-  %166 = add i32 %163, 8
-  %.not479 = icmp eq i32 %165, 0
-  br i1 %.not479, label %._crit_edge461, label %.lr.ph460
+check_offset_addition.exit420:                    ; preds = %144
+  %161 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %157) #13
+  %162 = and i32 %157, -4
+  %163 = add i32 %162, 4
+  %164 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %163, i32 noundef %3) #13
+  %165 = add i32 %162, 8
+  %.not478 = icmp eq i32 %164, 0
+  br i1 %.not478, label %._crit_edge461, label %.lr.ph460
 
 .lr.ph460:                                        ; preds = %check_offset_addition.exit420, %.lr.ph460
-  %.2459 = phi i32 [ %170, %.lr.ph460 ], [ %166, %check_offset_addition.exit420 ]
-  %.0396458 = phi i32 [ %173, %.lr.ph460 ], [ 0, %check_offset_addition.exit420 ]
-  %167 = add nsw i32 %.2459, 3
-  %168 = and i32 %167, -4
-  %169 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %168, i32 noundef %3) #13
-  %170 = add i32 %168, 4
-  %171 = load i32, ptr @hf_rtps_union_case, align 4
-  %172 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %171, ptr noundef %1, i32 noundef %.0395463, i32 noundef 1, i32 noundef %169, ptr noundef nonnull @.str.1140, ptr noundef %20, i32 noundef %169) #13
-  call void @proto_item_set_len(ptr noundef %172, i32 noundef %30) #13
-  %173 = add nuw i32 %.0396458, 1
-  %exitcond487.not = icmp eq i32 %173, %165
-  br i1 %exitcond487.not, label %._crit_edge461, label %.lr.ph460, !llvm.loop !33
+  %.2459 = phi i32 [ %169, %.lr.ph460 ], [ %165, %check_offset_addition.exit420 ]
+  %.0396458 = phi i32 [ %172, %.lr.ph460 ], [ 0, %check_offset_addition.exit420 ]
+  %166 = add nsw i32 %.2459, 3
+  %167 = and i32 %166, -4
+  %168 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %167, i32 noundef %3) #13
+  %169 = add i32 %167, 4
+  %170 = load i32, ptr @hf_rtps_union_case, align 4
+  %171 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %170, ptr noundef %1, i32 noundef %.0395463, i32 noundef 1, i32 noundef %168, ptr noundef nonnull @.str.1140, ptr noundef %20, i32 noundef %168) #13
+  call void @proto_item_set_len(ptr noundef %171, i32 noundef %30) #13
+  %172 = add nuw i32 %.0396458, 1
+  %exitcond486.not = icmp eq i32 %172, %164
+  br i1 %exitcond486.not, label %._crit_edge461, label %.lr.ph460, !llvm.loop !33
 
 ._crit_edge461:                                   ; preds = %.lr.ph460, %check_offset_addition.exit420
-  %.2.lcssa = phi i32 [ %166, %check_offset_addition.exit420 ], [ %170, %.lr.ph460 ]
-  %174 = zext i8 %162 to i32
-  %175 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %.2.lcssa, i32 noundef %3, i32 noundef %144, i32 noundef %174, i16 noundef zeroext 0, i32 noundef 0, i32 noundef %.0395463, ptr noundef %157, i32 noundef -1, ptr noundef null, i32 noundef %spec.select)
-  %176 = add nuw i32 %.0389464, 1
-  %exitcond488.not = icmp eq i32 %176, %142
-  br i1 %exitcond488.not, label %._crit_edge467, label %145, !llvm.loop !34
+  %.2.lcssa = phi i32 [ %165, %check_offset_addition.exit420 ], [ %169, %.lr.ph460 ]
+  %173 = zext i8 %161 to i32
+  %174 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %.2.lcssa, i32 noundef %3, i32 noundef %143, i32 noundef %173, i16 noundef zeroext 0, i32 noundef 0, i32 noundef %.0395463, ptr noundef %156, i32 noundef -1, ptr noundef null, i32 noundef %spec.select)
+  %175 = add nuw i32 %.0389464, 1
+  %exitcond487.not = icmp eq i32 %175, %141
+  br i1 %exitcond487.not, label %._crit_edge467, label %144, !llvm.loop !34
 
 ._crit_edge467:                                   ; preds = %._crit_edge461
-  %177 = add i32 %175, %.2.lcssa
-  br label %178
+  %176 = add i32 %174, %.2.lcssa
+  br label %177
 
-178:                                              ; preds = %._crit_edge467, %139
-  %.1.lcssa = phi i32 [ %177, %._crit_edge467 ], [ %143, %139 ]
-  %179 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1141, i64 noundef 40) #13
-  br label %247
+177:                                              ; preds = %._crit_edge467, %138
+  %.1.lcssa = phi i32 [ %176, %._crit_edge467 ], [ %142, %138 ]
+  %178 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1141, i64 noundef 40) #13
+  br label %246
 
-180:                                              ; preds = %rtps_util_typecode_id_to_string.exit.thread428
-  %181 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %82) #13
+179:                                              ; preds = %rtps_util_typecode_id_to_string.exit.thread428
+  %180 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %81) #13
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
 check_offset_addition.exit421:                    ; preds = %rtps_util_typecode_id_to_string.exit.thread428
-  %182 = icmp eq i32 %.0388, 12
+  %181 = icmp eq i32 %.0388, 12
   %.not403 = icmp eq i32 %10, -1
-  br i1 %.not403, label %183, label %.thread.sink.split
+  br i1 %.not403, label %182, label %.thread.sink.split
 
-183:                                              ; preds = %check_offset_addition.exit421
-  %spec.select452 = select i1 %182, ptr @.str.1142, ptr @.str.422
-  %184 = load i32, ptr @hf_rtps_struct, align 4
-  %185 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %184, ptr noundef %1, i32 noundef %2, i32 noundef %30, ptr noundef %85, ptr noundef nonnull @.str.1144, ptr noundef nonnull %20, ptr noundef nonnull %spec.select452, ptr noundef %85) #13
-  %186 = add i32 %86, 3
-  %187 = and i32 %186, -4
-  %188 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %187, i32 noundef %3) #13
-  %189 = add i32 %187, 4
-  %.not480 = icmp eq i32 %188, 0
-  br i1 %.not480, label %._crit_edge474, label %.lr.ph473
+182:                                              ; preds = %check_offset_addition.exit421
+  %spec.select452 = select i1 %181, ptr @.str.1142, ptr @.str.422
+  %183 = load i32, ptr @hf_rtps_struct, align 4
+  %184 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %183, ptr noundef %1, i32 noundef %2, i32 noundef %30, ptr noundef %84, ptr noundef nonnull @.str.1144, ptr noundef nonnull %20, ptr noundef nonnull %spec.select452, ptr noundef %84) #13
+  %185 = add i32 %85, 3
+  %186 = and i32 %185, -4
+  %187 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %186, i32 noundef %3) #13
+  %188 = add i32 %186, 4
+  %.not479 = icmp eq i32 %187, 0
+  br i1 %.not479, label %._crit_edge474, label %.lr.ph473
 
-.lr.ph473:                                        ; preds = %183
-  %190 = add i32 %4, 1
-  br label %191
+.lr.ph473:                                        ; preds = %182
+  %189 = add i32 %4, 1
+  br label %190
 
-191:                                              ; preds = %.lr.ph473, %225
-  %.1390471 = phi i32 [ 0, %.lr.ph473 ], [ %226, %225 ]
-  %.0397470 = phi i32 [ %189, %.lr.ph473 ], [ %197, %225 ]
-  %192 = add i32 %.0397470, 1
-  %193 = and i32 %192, -2
-  %194 = call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %193, i32 noundef %3) #13
-  %195 = add i32 %193, 2
-  %196 = zext i16 %194 to i32
-  %197 = add i32 %195, %196
-  %198 = add i32 %193, 5
-  %199 = and i32 %198, -4
-  %200 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %199, i32 noundef %3) #13
-  %201 = add i32 %199, 4
-  %202 = call ptr @wmem_packet_scope() #13
-  %203 = call ptr @tvb_get_string_enc(ptr noundef %202, ptr noundef %1, i32 noundef %201, i32 noundef %200, i32 noundef 0) #13
-  %204 = add i32 %200, %201
-  br i1 %182, label %205, label %213
+190:                                              ; preds = %.lr.ph473, %224
+  %.1390471 = phi i32 [ 0, %.lr.ph473 ], [ %225, %224 ]
+  %.0397470 = phi i32 [ %188, %.lr.ph473 ], [ %196, %224 ]
+  %191 = add i32 %.0397470, 1
+  %192 = and i32 %191, -2
+  %193 = call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %192, i32 noundef %3) #13
+  %194 = add i32 %192, 2
+  %195 = zext i16 %193 to i32
+  %196 = add i32 %194, %195
+  %197 = add i32 %192, 5
+  %198 = and i32 %197, -4
+  %199 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %198, i32 noundef %3) #13
+  %200 = add i32 %198, 4
+  %201 = call ptr @wmem_packet_scope() #13
+  %202 = call ptr @tvb_get_string_enc(ptr noundef %201, ptr noundef %1, i32 noundef %200, i32 noundef %199, i32 noundef 0) #13
+  %203 = add i32 %199, %200
+  br i1 %181, label %204, label %212
 
-205:                                              ; preds = %191
-  %206 = add i32 %204, 3
-  %207 = and i32 %206, -4
-  %208 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %207, i32 noundef %3) #13
-  %209 = add i32 %207, 4
-  %210 = load i32, ptr @hf_rtps_member_name, align 4
-  %211 = sub i32 %209, %.0397470
-  %212 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %210, ptr noundef %1, i32 noundef %.0397470, i32 noundef %211, ptr noundef %203, ptr noundef nonnull @.str.1145, ptr noundef %20, ptr noundef %203, i32 noundef %208) #13
-  br label %225
+204:                                              ; preds = %190
+  %205 = add i32 %203, 3
+  %206 = and i32 %205, -4
+  %207 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %206, i32 noundef %3) #13
+  %208 = add i32 %206, 4
+  %209 = load i32, ptr @hf_rtps_member_name, align 4
+  %210 = sub i32 %208, %.0397470
+  %211 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %209, ptr noundef %1, i32 noundef %.0397470, i32 noundef %210, ptr noundef %202, ptr noundef nonnull @.str.1145, ptr noundef %20, ptr noundef %202, i32 noundef %207) #13
+  br label %224
 
-213:                                              ; preds = %191
-  %214 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %204) #13
-  %215 = and i32 %204, -2
-  %216 = add i32 %215, 2
-  %217 = call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %216, i32 noundef %3) #13
-  %218 = add i32 %215, 4
-  %219 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %218) #13
-  %220 = add i32 %215, 5
-  %221 = zext i8 %214 to i32
-  %222 = zext i8 %219 to i32
-  %223 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %220, i32 noundef %3, i32 noundef %190, i32 noundef %221, i16 noundef zeroext %217, i32 noundef %222, i32 noundef %.0397470, ptr noundef %203, i32 noundef -1, ptr noundef null, i32 noundef %spec.select)
-  %224 = add i32 %223, %220
-  br label %225
+212:                                              ; preds = %190
+  %213 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %203) #13
+  %214 = and i32 %203, -2
+  %215 = add i32 %214, 2
+  %216 = call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %215, i32 noundef %3) #13
+  %217 = add i32 %214, 4
+  %218 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %217) #13
+  %219 = add i32 %214, 5
+  %220 = zext i8 %213 to i32
+  %221 = zext i8 %218 to i32
+  %222 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %219, i32 noundef %3, i32 noundef %189, i32 noundef %220, i16 noundef zeroext %216, i32 noundef %221, i32 noundef %.0397470, ptr noundef %202, i32 noundef -1, ptr noundef null, i32 noundef %spec.select)
+  %223 = add i32 %222, %219
+  br label %224
 
-225:                                              ; preds = %205, %213
-  %.5 = phi i32 [ %209, %205 ], [ %224, %213 ]
-  %226 = add nuw i32 %.1390471, 1
-  %exitcond489.not = icmp eq i32 %226, %188
-  br i1 %exitcond489.not, label %._crit_edge474, label %191, !llvm.loop !35
+224:                                              ; preds = %204, %212
+  %.5 = phi i32 [ %208, %204 ], [ %223, %212 ]
+  %225 = add nuw i32 %.1390471, 1
+  %exitcond488.not = icmp eq i32 %225, %187
+  br i1 %exitcond488.not, label %._crit_edge474, label %190, !llvm.loop !35
 
-._crit_edge474:                                   ; preds = %225, %183
-  %.4.lcssa = phi i32 [ %189, %183 ], [ %.5, %225 ]
-  %227 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1141, i64 noundef 40) #13
-  br label %247
+._crit_edge474:                                   ; preds = %224, %182
+  %.4.lcssa = phi i32 [ %188, %182 ], [ %.5, %224 ]
+  %226 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.1141, i64 noundef 40) #13
+  br label %246
 
 .lr.ph.preheader:                                 ; preds = %rtps_util_typecode_id_to_string.exit.thread438
-  %spec.store.select = call i32 @llvm.umin.i32(i32 %67, i32 10)
+  %spec.store.select = call i32 @llvm.umin.i32(i32 %66, i32 10)
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.6457 = phi i32 [ %.6455, %.lr.ph.preheader ], [ %.6, %.lr.ph ]
-  %228 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %.6457, i32 noundef %3) #13
-  %229 = getelementptr [10 x i32], ptr %15, i64 0, i64 %indvars.iv
-  store i32 %228, ptr %229, align 4
+  %227 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %.6457, i32 noundef %3) #13
+  %228 = getelementptr [10 x i32], ptr %15, i64 0, i64 %indvars.iv
+  store i32 %227, ptr %228, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.6 = add i32 %.6457, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10163,126 +10161,126 @@ check_offset_addition.exit421:                    ; preds = %rtps_util_typecode_
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rtps_util_typecode_id_to_string.exit.thread438
   %.6.lcssa = phi i32 [ %.6455, %rtps_util_typecode_id_to_string.exit.thread438 ], [ %.6, %.lr.ph ]
-  %230 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %.6.lcssa, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef -1, ptr noundef nonnull %15, i32 noundef %spec.select)
-  br label %289
+  %229 = call fastcc i32 @rtps_util_add_typecode(ptr noundef %0, ptr noundef %1, i32 noundef %.6.lcssa, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef -1, ptr noundef nonnull %15, i32 noundef %spec.select)
+  br label %288
 
-231:                                              ; preds = %rtps_util_typecode_id_to_string.exit.thread440
-  %232 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %71) #13
+230:                                              ; preds = %rtps_util_typecode_id_to_string.exit.thread440
+  %231 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %70) #13
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
 check_offset_addition.exit423:                    ; preds = %rtps_util_typecode_id_to_string.exit.thread440
-  %233 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef %74, i64 noundef 40) #13
-  br label %247
+  %232 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef %73, i64 noundef 40) #13
+  br label %246
 
-234:                                              ; preds = %rtps_util_typecode_id_to_string.exit, %rtps_util_typecode_id_to_string.exit.thread442
-  %235 = add i32 %24, 9
-  %236 = and i32 %235, -4
-  %237 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %236, i32 noundef %3) #13
-  %238 = add i32 %236, 4
-  %239 = call ptr @wmem_packet_scope() #13
-  %240 = call ptr @tvb_get_string_enc(ptr noundef %239, ptr noundef %1, i32 noundef %238, i32 noundef %237, i32 noundef 0) #13
-  %241 = add i32 %237, %238
-  %242 = icmp slt i32 %241, %238
-  br i1 %242, label %243, label %check_offset_addition.exit424
+233:                                              ; preds = %rtps_util_typecode_id_to_string.exit, %rtps_util_typecode_id_to_string.exit.thread442
+  %234 = add i32 %24, 9
+  %235 = and i32 %234, -4
+  %236 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %235, i32 noundef %3) #13
+  %237 = add i32 %235, 4
+  %238 = call ptr @wmem_packet_scope() #13
+  %239 = call ptr @tvb_get_string_enc(ptr noundef %238, ptr noundef %1, i32 noundef %237, i32 noundef %236, i32 noundef 0) #13
+  %240 = add i32 %236, %237
+  %241 = icmp slt i32 %240, %237
+  br i1 %241, label %242, label %check_offset_addition.exit424
 
-243:                                              ; preds = %234
-  %244 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %237) #13
+242:                                              ; preds = %233
+  %243 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1174, i32 noundef %236) #13
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
-check_offset_addition.exit424:                    ; preds = %234
-  %245 = icmp eq i32 %.0388, 23
-  %spec.select417 = select i1 %245, ptr @.str.1150, ptr @.str.1149
-  %246 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 40, ptr noundef nonnull @.str.1151, ptr noundef nonnull %spec.select417, ptr noundef %240) #13
-  br label %247
+check_offset_addition.exit424:                    ; preds = %233
+  %244 = icmp eq i32 %.0388, 23
+  %spec.select417 = select i1 %244, ptr @.str.1150, ptr @.str.1149
+  %245 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 40, ptr noundef nonnull @.str.1151, ptr noundef nonnull %spec.select417, ptr noundef %239) #13
+  br label %246
 
-247:                                              ; preds = %rtps_util_typecode_id_to_string.exit, %rtps_util_typecode_id_to_string.exit.thread, %check_offset_addition.exit424, %check_offset_addition.exit423, %rtps_util_typecode_id_to_string.exit.thread432, %._crit_edge474, %178
-  %.0386 = phi i32 [ %28, %rtps_util_typecode_id_to_string.exit ], [ %241, %check_offset_addition.exit424 ], [ %75, %check_offset_addition.exit423 ], [ %92, %rtps_util_typecode_id_to_string.exit.thread432 ], [ %.4.lcssa, %._crit_edge474 ], [ %.1.lcssa, %178 ], [ %28, %rtps_util_typecode_id_to_string.exit.thread ]
+246:                                              ; preds = %rtps_util_typecode_id_to_string.exit, %rtps_util_typecode_id_to_string.exit.thread, %check_offset_addition.exit424, %check_offset_addition.exit423, %rtps_util_typecode_id_to_string.exit.thread432, %._crit_edge474, %177
+  %.0386 = phi i32 [ %28, %rtps_util_typecode_id_to_string.exit ], [ %240, %check_offset_addition.exit424 ], [ %74, %check_offset_addition.exit423 ], [ %91, %rtps_util_typecode_id_to_string.exit.thread432 ], [ %.4.lcssa, %._crit_edge474 ], [ %.1.lcssa, %177 ], [ %28, %rtps_util_typecode_id_to_string.exit.thread ]
   %.not406 = icmp eq i32 %10, -1
-  br i1 %.not406, label %255, label %.thread
+  br i1 %.not406, label %254, label %.thread
 
 .thread.sink.split:                               ; preds = %check_offset_addition.exit421, %rtps_util_typecode_id_to_string.exit419.thread
-  %.sink = phi ptr [ %41, %rtps_util_typecode_id_to_string.exit419.thread ], [ %85, %check_offset_addition.exit421 ]
-  %.0386451.ph = phi i32 [ %134, %rtps_util_typecode_id_to_string.exit419.thread ], [ %86, %check_offset_addition.exit421 ]
-  %248 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 40, ptr noundef nonnull @.str.2, ptr noundef %.sink) #13
+  %.sink = phi ptr [ %40, %rtps_util_typecode_id_to_string.exit419.thread ], [ %84, %check_offset_addition.exit421 ]
+  %.0386451.ph = phi i32 [ %133, %rtps_util_typecode_id_to_string.exit419.thread ], [ %85, %check_offset_addition.exit421 ]
+  %247 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 40, ptr noundef nonnull @.str.2, ptr noundef %.sink) #13
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %247
-  %.0386451 = phi i32 [ %.0386, %247 ], [ %.0386451.ph, %.thread.sink.split ]
-  %249 = load i32, ptr @hf_rtps_sequence, align 4
-  %250 = sub i32 %.0386451, %8
+.thread:                                          ; preds = %.thread.sink.split, %246
+  %.0386451 = phi i32 [ %.0386, %246 ], [ %.0386451.ph, %.thread.sink.split ]
+  %248 = load i32, ptr @hf_rtps_sequence, align 4
+  %249 = sub i32 %.0386451, %8
   %.not414 = icmp eq i32 %5, 0
-  %251 = select i1 %.not414, ptr @.str.1139, ptr @.str.1153
+  %250 = select i1 %.not414, ptr @.str.1139, ptr @.str.1153
   %.not415 = icmp eq ptr %9, null
-  %252 = select i1 %.not415, ptr @.str.1139, ptr %9
+  %251 = select i1 %.not415, ptr @.str.1139, ptr %9
   %.not416 = icmp eq i32 %7, 0
-  %253 = select i1 %.not416, ptr @.str.1139, ptr @.str.1154
-  %254 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %249, ptr noundef %1, i32 noundef %8, i32 noundef %250, ptr noundef nonnull %14, ptr noundef nonnull @.str.1152, ptr noundef %20, ptr noundef nonnull %14, i32 noundef %10, ptr noundef nonnull %251, ptr noundef nonnull %252, ptr noundef nonnull %253) #13
-  br label %289
+  %252 = select i1 %.not416, ptr @.str.1139, ptr @.str.1154
+  %253 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %248, ptr noundef %1, i32 noundef %8, i32 noundef %249, ptr noundef nonnull %14, ptr noundef nonnull @.str.1152, ptr noundef %20, ptr noundef nonnull %14, i32 noundef %10, ptr noundef nonnull %250, ptr noundef nonnull %251, ptr noundef nonnull %252) #13
+  br label %288
 
-255:                                              ; preds = %247
+254:                                              ; preds = %246
   %.not407 = icmp eq ptr %11, null
-  br i1 %.not407, label %270, label %256
+  br i1 %.not407, label %269, label %255
 
-256:                                              ; preds = %255
-  %257 = call ptr @wmem_packet_scope() #13
-  %258 = call noalias ptr @wmem_strbuf_new(ptr noundef %257, ptr noundef nonnull @.str.1139) #13
-  br label %259
+255:                                              ; preds = %254
+  %256 = call ptr @wmem_packet_scope() #13
+  %257 = call noalias ptr @wmem_strbuf_new(ptr noundef %256, ptr noundef nonnull @.str.1139) #13
+  br label %258
 
-259:                                              ; preds = %256, %262
-  %indvars.iv490 = phi i64 [ 0, %256 ], [ %indvars.iv.next491, %262 ]
-  %260 = getelementptr i32, ptr %11, i64 %indvars.iv490
-  %261 = load i32, ptr %260, align 4
-  %.not411 = icmp eq i32 %261, 0
-  br i1 %.not411, label %263, label %262
+258:                                              ; preds = %255, %261
+  %indvars.iv489 = phi i64 [ 0, %255 ], [ %indvars.iv.next490, %261 ]
+  %259 = getelementptr i32, ptr %11, i64 %indvars.iv489
+  %260 = load i32, ptr %259, align 4
+  %.not411 = icmp eq i32 %260, 0
+  br i1 %.not411, label %262, label %261
 
-262:                                              ; preds = %259
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %258, ptr noundef nonnull @.str.1155, i32 noundef %261) #13
-  %indvars.iv.next491 = add nuw nsw i64 %indvars.iv490, 1
-  %exitcond493.not = icmp eq i64 %indvars.iv.next491, 10
-  br i1 %exitcond493.not, label %263, label %259, !llvm.loop !37
+261:                                              ; preds = %258
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %257, ptr noundef nonnull @.str.1155, i32 noundef %260) #13
+  %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
+  %exitcond492.not = icmp eq i64 %indvars.iv.next490, 10
+  br i1 %exitcond492.not, label %262, label %258, !llvm.loop !37
 
-263:                                              ; preds = %259, %262
-  %264 = load i32, ptr @hf_rtps_array, align 4
-  %265 = sub i32 %.0386, %8
+262:                                              ; preds = %258, %261
+  %263 = load i32, ptr @hf_rtps_array, align 4
+  %264 = sub i32 %.0386, %8
   %.not412 = icmp eq ptr %9, null
-  %266 = select i1 %.not412, ptr @.str.1139, ptr %9
-  %267 = call ptr @wmem_strbuf_get_str(ptr noundef %258) #13
+  %265 = select i1 %.not412, ptr @.str.1139, ptr %9
+  %266 = call ptr @wmem_strbuf_get_str(ptr noundef %257) #13
   %.not413 = icmp eq i32 %7, 0
-  %268 = select i1 %.not413, ptr @.str.1139, ptr @.str.1154
-  %269 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %264, ptr noundef %1, i32 noundef %8, i32 noundef %265, ptr noundef nonnull %14, ptr noundef nonnull @.str.1156, ptr noundef %20, ptr noundef nonnull %14, ptr noundef nonnull %266, ptr noundef %267, ptr noundef nonnull %268) #13
-  br label %289
+  %267 = select i1 %.not413, ptr @.str.1139, ptr @.str.1154
+  %268 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %263, ptr noundef %1, i32 noundef %8, i32 noundef %264, ptr noundef nonnull %14, ptr noundef nonnull @.str.1156, ptr noundef %20, ptr noundef nonnull %14, ptr noundef nonnull %265, ptr noundef %266, ptr noundef nonnull %267) #13
+  br label %288
 
-270:                                              ; preds = %255
-  %271 = icmp ne i16 %6, -1
-  %272 = icmp ne ptr %9, null
-  %273 = icmp eq i32 %5, 0
-  %274 = and i1 %273, %271
-  %or.cond3 = and i1 %274, %272
-  br i1 %or.cond3, label %275, label %281
+269:                                              ; preds = %254
+  %270 = icmp ne i16 %6, -1
+  %271 = icmp ne ptr %9, null
+  %272 = icmp eq i32 %5, 0
+  %273 = and i1 %272, %270
+  %or.cond3 = and i1 %273, %271
+  br i1 %or.cond3, label %274, label %280
 
-275:                                              ; preds = %270
-  %276 = zext i16 %6 to i32
-  %277 = load i32, ptr @hf_rtps_bitfield, align 4
-  %278 = sub i32 %.0386, %8
+274:                                              ; preds = %269
+  %275 = zext i16 %6 to i32
+  %276 = load i32, ptr @hf_rtps_bitfield, align 4
+  %277 = sub i32 %.0386, %8
   %.not410 = icmp eq i32 %7, 0
-  %279 = select i1 %.not410, ptr @.str.1139, ptr @.str.1154
-  %280 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %277, ptr noundef %1, i32 noundef %8, i32 noundef %278, ptr noundef nonnull %14, ptr noundef nonnull @.str.1157, ptr noundef %20, ptr noundef nonnull %14, ptr noundef nonnull %9, i32 noundef %276, ptr noundef nonnull %279) #13
-  br label %289
+  %278 = select i1 %.not410, ptr @.str.1139, ptr @.str.1154
+  %279 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %276, ptr noundef %1, i32 noundef %8, i32 noundef %277, ptr noundef nonnull %14, ptr noundef nonnull @.str.1157, ptr noundef %20, ptr noundef nonnull %14, ptr noundef nonnull %9, i32 noundef %275, ptr noundef nonnull %278) #13
+  br label %288
 
-281:                                              ; preds = %270
-  %282 = load i32, ptr @hf_rtps_datatype, align 4
-  %283 = sub i32 %.0386, %8
-  %284 = select i1 %272, ptr @.str.1138, ptr @.str.1139
-  %285 = select i1 %273, ptr @.str.1139, ptr @.str.1153
-  %286 = select i1 %272, ptr %9, ptr @.str.1139
+280:                                              ; preds = %269
+  %281 = load i32, ptr @hf_rtps_datatype, align 4
+  %282 = sub i32 %.0386, %8
+  %283 = select i1 %271, ptr @.str.1138, ptr @.str.1139
+  %284 = select i1 %272, ptr @.str.1139, ptr @.str.1153
+  %285 = select i1 %271, ptr %9, ptr @.str.1139
   %.not409 = icmp eq i32 %7, 0
-  %287 = select i1 %.not409, ptr @.str.1139, ptr @.str.1154
-  %288 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %282, ptr noundef %1, i32 noundef %8, i32 noundef %283, ptr noundef nonnull %14, ptr noundef nonnull @.str.1158, ptr noundef %20, ptr noundef nonnull %14, ptr noundef nonnull %284, ptr noundef nonnull %285, ptr noundef nonnull %286, ptr noundef nonnull %287) #13
-  br label %289
+  %286 = select i1 %.not409, ptr @.str.1139, ptr @.str.1154
+  %287 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %281, ptr noundef %1, i32 noundef %8, i32 noundef %282, ptr noundef nonnull %14, ptr noundef nonnull @.str.1158, ptr noundef %20, ptr noundef nonnull %14, ptr noundef nonnull %283, ptr noundef nonnull %284, ptr noundef nonnull %285, ptr noundef nonnull %286) #13
+  br label %288
 
-289:                                              ; preds = %281, %275, %263, %.thread, %._crit_edge, %rtps_util_typecode_id_to_string.exit.thread436
+288:                                              ; preds = %280, %274, %262, %.thread, %._crit_edge, %rtps_util_typecode_id_to_string.exit.thread436
   ret i32 %30
 }
 
@@ -10470,7 +10468,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtps_add_zlib_compressed_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @rtps_add_zlib_compressed_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef 0, i32 noundef %5) #13
   %9 = tail call ptr @tvb_child_uncompress(ptr noundef %2, ptr noundef %8, i32 noundef 0, i32 noundef %4) #13
   %.not = icmp eq ptr %9, null
@@ -10491,7 +10489,7 @@ define internal fastcc void @rtps_add_zlib_compressed_typeobject(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtps_util_add_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @rtps_util_add_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = load i32, ptr @ett_rtps_type_object, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1195) #13
@@ -10585,7 +10583,7 @@ declare i32 @tvb_get_gint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare ptr @tvb_child_uncompress(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtps_util_add_type_library(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @rtps_util_add_type_library(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct._dissection_element, align 8
   %9 = alloca %struct._dissection_element, align 8
@@ -11408,7 +11406,7 @@ rtps_util_add_type_library_element.exit:          ; preds = %464, %467
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rtps_util_add_type_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtps_util_add_type_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %2, i32 noundef %3) #13
   %10 = load i32, ptr @hf_rtps_type_object_type_id_disc, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef %3) #13
@@ -11492,7 +11490,7 @@ proto_item_set_hidden.exit:                       ; preds = %8, %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtps_util_add_type_library_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @rtps_util_add_type_library_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %2, i32 noundef %3) #13
   %8 = add i32 %2, 2
@@ -11640,7 +11638,7 @@ check_offset_addition.exit69:                     ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rtps_util_add_type_annotation_usage(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtps_util_add_type_annotation_usage(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call fastcc i32 @rtps_util_add_type_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef null, ptr noundef null)
   %7 = tail call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %6, i32 noundef %3) #13
   %8 = add i32 %6, 4
@@ -11678,7 +11676,7 @@ define internal fastcc noundef i32 @rtps_util_add_type_annotation_usage(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtps_util_add_type_member(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @rtps_util_add_type_member(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = load i32, ptr @ett_rtps_type_element, align 4
@@ -11991,7 +11989,7 @@ rtps_util_get_topic_info.exit.thread:             ; preds = %11, %rtps_util_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_serialized_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_serialized_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef range(i32 0, 2) %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i16, align 2
   %13 = alloca ptr, align 8
@@ -12018,7 +12016,7 @@ define internal fastcc void @dissect_serialized_data(ptr noundef %0, ptr noundef
   br label %66
 
 26:                                               ; preds = %10
-  %27 = call fastcc i32 @rtps_prepare_encapsulated_data(ptr noundef %21, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16)
+  %27 = call fastcc i32 @rtps_prepare_encapsulated_data(ptr noundef %21, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %12, ptr noundef %14, ptr noundef %15, ptr noundef %13, ptr noundef %16)
   %28 = load i16, ptr %12, align 2
   store i16 %28, ptr %18, align 4
   %29 = load i32, ptr %14, align 4
@@ -12250,7 +12248,7 @@ switch.lookup:                                    ; preds = %31
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rtps_prepare_encapsulated_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtps_prepare_encapsulated_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %3) #13
   %13 = load i32, ptr @hf_rtps_param_serialize_encap_kind, align 4
@@ -12354,7 +12352,7 @@ rtps_util_dissect_encapsulation_options.exit:     ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtps_util_try_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @rtps_util_try_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, -2147483647) %6, i32 noundef range(i32 1, 3) %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = load i32, ptr @enable_topic_info, align 4
   %.not = icmp eq i32 %11, 0
@@ -12446,7 +12444,7 @@ rtps_util_get_topic_info.exit.thread:             ; preds = %16, %9, %rtps_util_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_parametrized_serialized_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_parametrized_serialized_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483647) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_rtps_serialized_data, align 4
   %8 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.324) #13
@@ -12540,7 +12538,7 @@ declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_user_defined(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i16 noundef zeroext %10, i32 noundef %11, i32 noundef %12) unnamed_addr #0 {
+define internal fastcc i32 @dissect_user_defined(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef range(i32 1, 3) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i16 noundef zeroext %10, i32 noundef %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #0 {
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
   %16 = alloca [256 x i8], align 16
@@ -13721,7 +13719,7 @@ declare ptr @wmem_ascii_strdown(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rtps_util_add_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtps_util_add_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483647) %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = tail call ptr @wmem_packet_scope() #13
@@ -13944,7 +13942,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare void @wmem_strbuf_truncate(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtps_util_add_locator_udp_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @rtps_util_add_locator_udp_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, -2147483647) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @ett_rtps_locator_udp_v4, align 4
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %8, ptr noundef null, ptr noundef %4) #13
@@ -13974,7 +13972,7 @@ rtps_util_add_ipv4_address_t.exit:                ; preds = %6, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef %6, i16 noundef zeroext %7, i32 noundef range(i32 0, 2) %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca %struct._coherent_set_key, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -15166,7 +15164,7 @@ rtps_util_detect_coherent_set_end_empty_data_case.exit: ; preds = %rtps_util_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_RTI_CRC(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_RTI_CRC(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, -2147483647) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = add i32 %2, 1
   %9 = load i32, ptr @hf_rtps_sm_flags, align 4
   %10 = load i32, ptr @ett_rtps_flags, align 4
@@ -15227,7 +15225,7 @@ declare i32 @g_bytes_hash(ptr noundef) local_unnamed_addr #2
 declare void @g_bytes_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_rtps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 {
   %5 = alloca %struct._endpoint_guid, align 4
   %6 = alloca [8 x i8], align 8
   %7 = alloca %struct._rtps_tvb_field, align 8
@@ -15278,7 +15276,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_rtps(ptr noundef %0, ptr nou
   %34 = zext i16 %32 to i32
   %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #13
   %36 = zext i8 %35 to i32
-  %37 = add i32 %3, 5
+  %37 = add nuw nsw i32 %3, 5
   %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %37) #13
   %39 = zext i8 %38 to i32
   %40 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %29, i32 noundef %33, ptr noundef %0, i32 noundef %13, i32 noundef 2, i32 noundef %34, ptr noundef nonnull @.str.1103, i32 noundef %36, i32 noundef %39) #13
@@ -15290,7 +15288,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_rtps(ptr noundef %0, ptr nou
   %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #13
   %47 = add nuw nsw i32 %3, 6
   %48 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %47) #13
-  %49 = add i32 %3, 7
+  %49 = add nuw nsw i32 %3, 7
   %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %49) #13
   %51 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %47) #13
   %52 = load i32, ptr @hf_rtps_vendor_id, align 4
@@ -15299,7 +15297,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_rtps(ptr noundef %0, ptr nou
   %55 = zext i8 %50 to i32
   %56 = call ptr @val_to_str_const(i32 noundef %53, ptr noundef nonnull @vendor_vals, ptr noundef nonnull @.str.1105) #13
   %57 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %52, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef %53, ptr noundef nonnull @.str.1104, i32 noundef %54, i32 noundef %55, ptr noundef %56) #13
-  %58 = add nuw nsw i32 %3, 8
+  %58 = or disjoint i32 %3, 8
   %59 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %58, ptr noundef nonnull @.str.1716, i64 noundef 8) #13
   %.not.not.i = icmp eq i32 %59, 0
   br i1 %.not.not.i, label %60, label %65
@@ -15340,7 +15338,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_rtps(ptr noundef %0, ptr nou
   %81 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %80) #13
   %82 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %81, ptr %82, align 4
-  %83 = add nuw nsw i32 %3, 16
+  %83 = or disjoint i32 %3, 16
   %84 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %83) #13
   %85 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %84, ptr %85, align 4

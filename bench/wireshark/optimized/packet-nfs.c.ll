@@ -3691,7 +3691,7 @@ declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fhandle_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_fhandle_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca %struct.nfs_name_snoop_key, align 8
   %9 = alloca i32, align 4
   %10 = alloca [3 x %struct._wmem_tree_key_t], align 16
@@ -3890,7 +3890,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %proto_item_set
   store ptr null, ptr %11, align 8
   store ptr null, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  call fastcc void @nfs_full_name_snoop(ptr noundef nonnull %2, ptr noundef nonnull %88, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  call fastcc void @nfs_full_name_snoop(ptr noundef nonnull %2, ptr noundef %88, ptr noundef %13, ptr noundef %11, ptr noundef %12)
   %103 = load ptr, ptr %11, align 8
   %.not53.i = icmp eq ptr %103, null
   br i1 %.not53.i, label %.thread68.i, label %104
@@ -4424,7 +4424,7 @@ define hidden noundef i32 @dissect_nfs3_post_op_attr(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483646, 3) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
@@ -5768,7 +5768,7 @@ declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) lo
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfs_full_name_snoop(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @nfs_full_name_snoop(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.nfs_name_snoop_key, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -5854,7 +5854,7 @@ define internal fastcc void @nfs_full_name_snoop(ptr noundef %0, ptr nocapture n
 57:                                               ; preds = %50
   %58 = load i32, ptr @proto_nfs, align 4
   call void @p_set_proto_depth(ptr noundef %0, i32 noundef %58, i32 noundef %53) #18
-  call fastcc void @nfs_full_name_snoop(ptr noundef %0, ptr noundef nonnull %49, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
+  call fastcc void @nfs_full_name_snoop(ptr noundef %0, ptr noundef %49, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %59 = load ptr, ptr %3, align 8
   %.not45 = icmp eq ptr %59, null
   br i1 %.not45, label %83, label %60
@@ -6133,7 +6133,7 @@ define internal i32 @dissect_nfs2_lookup_call(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %5, align 4
@@ -6374,7 +6374,7 @@ define internal noundef i32 @dissect_nfs2_create_call(ptr noundef %0, ptr nounde
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = call fastcc i32 @dissect_nfs2_sattr(ptr noundef %0, i32 noundef %7, ptr noundef %2)
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -6398,7 +6398,7 @@ define internal i32 @dissect_nfs2_remove_call(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %5, align 4
@@ -6465,8 +6465,8 @@ define internal i32 @dissect_nfs2_rename_call(ptr noundef %0, ptr noundef %1, pt
   %8 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %8, align 8
-  %9 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2193, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
-  %10 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2194, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3)
+  %9 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2193, ptr noundef %5, ptr noundef %6, ptr noundef %3)
+  %10 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2194, ptr noundef %7, ptr noundef %8, ptr noundef %3)
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %5, align 4
@@ -6536,7 +6536,7 @@ define internal i32 @dissect_nfs2_link_call(ptr noundef %0, ptr noundef %1, ptr 
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2193, ptr noundef nonnull %5, ptr noundef %3)
-  %9 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2194, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %3)
+  %9 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2194, ptr noundef %6, ptr noundef %7, ptr noundef %3)
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %5, align 4
@@ -6604,7 +6604,7 @@ define internal noundef i32 @dissect_nfs2_symlink_call(ptr noundef %0, ptr nound
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %8 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2193, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %8 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2193, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %9 = load i32, ptr @hf_nfs_symlink_to, align 4
   %10 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef nonnull %7) #18
   %11 = call fastcc i32 @dissect_nfs2_sattr(ptr noundef %0, i32 noundef %10, ptr noundef %2)
@@ -6673,7 +6673,7 @@ define internal noundef i32 @dissect_nfs2_mkdir_call(ptr noundef %0, ptr noundef
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = call fastcc i32 @dissect_nfs2_sattr(ptr noundef %0, i32 noundef %7, ptr noundef %2)
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -6697,7 +6697,7 @@ define internal i32 @dissect_nfs2_rmdir_call(ptr noundef %0, ptr noundef %1, ptr
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %5, align 4
@@ -7074,7 +7074,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_time_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @ett_nfs2_diropargs, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef %4) #18
@@ -7126,9 +7126,9 @@ define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, pt
   br label %40
 
 40:                                               ; preds = %31, %20, %24, %28, %34, %8
-  %41 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %11, ptr noundef nonnull @.str.2177, ptr noundef %5, ptr noundef %7)
+  %41 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %11, ptr noundef nonnull @.str.2177, ptr noundef nonnull %5, ptr noundef %7)
   %42 = load i32, ptr @hf_nfs_name, align 4
-  %43 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %11, i32 noundef %42, i32 noundef %41, ptr noundef %6) #18
+  %43 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %11, i32 noundef %42, i32 noundef %41, ptr noundef nonnull %6) #18
   %44 = load ptr, ptr %9, align 8
   %45 = sub i32 %43, %1
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45) #18
@@ -7421,7 +7421,7 @@ define internal i32 @dissect_nfs3_lookup_call(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2232, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2232, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %5, align 4
@@ -7959,7 +7959,7 @@ define internal i32 @dissect_nfs3_create_call(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7) #18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dissect_createmode3.exit, label %9
@@ -8089,7 +8089,7 @@ define internal i32 @dissect_nfs3_mkdir_call(ptr noundef %0, ptr noundef %1, ptr
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = call fastcc i32 @dissect_nfs3_sattr(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef nonnull @.str)
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -8191,7 +8191,7 @@ define internal i32 @dissect_nfs3_symlink_call(ptr noundef %0, ptr noundef %1, p
   store i32 0, ptr %5, align 4
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %8 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %8 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %9 = call fastcc i32 @dissect_nfs3_sattr(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef nonnull @.str.2240)
   %10 = load i32, ptr @hf_nfs_symlink_to, align 4
   %11 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9, ptr noundef nonnull %7) #18
@@ -8296,7 +8296,7 @@ define internal i32 @dissect_nfs3_mknod_call(ptr noundef %0, ptr noundef %1, ptr
   %7 = alloca ptr, align 8
   store i32 0, ptr %6, align 4
   store ptr null, ptr %7, align 8
-  %8 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %3)
+  %8 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2174, ptr noundef %6, ptr noundef %7, ptr noundef %3)
   %9 = load i32, ptr @hf_nfs3_ftype, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #18
@@ -8420,7 +8420,7 @@ define internal i32 @dissect_nfs3_remove_call(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %5, align 4
@@ -8486,7 +8486,7 @@ define internal i32 @dissect_nfs3_rmdir_call(ptr noundef %0, ptr noundef %1, ptr
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %7 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %5, align 4
@@ -8556,8 +8556,8 @@ define internal i32 @dissect_nfs3_rename_call(ptr noundef %0, ptr noundef %1, pt
   store ptr null, ptr %6, align 8
   store i32 0, ptr %7, align 4
   store ptr null, ptr %8, align 8
-  %9 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2193, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
-  %10 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2194, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3)
+  %9 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2193, ptr noundef %5, ptr noundef %6, ptr noundef %3)
+  %10 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2194, ptr noundef %7, ptr noundef %8, ptr noundef %3)
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %5, align 4
@@ -8631,7 +8631,7 @@ define internal i32 @dissect_nfs3_link_call(ptr noundef %0, ptr noundef %1, ptr 
   store i32 0, ptr %6, align 4
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2172, ptr noundef nonnull %5, ptr noundef %3)
-  %9 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2274, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %3)
+  %9 = call fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2274, ptr noundef %6, ptr noundef %7, ptr noundef %3)
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %5, align 4
@@ -9636,17 +9636,17 @@ dissect_pre_op_attr.exit:                         ; preds = %5, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @ett_nfs3_diropargs, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef %4) #18
   %12 = add i32 %1, 4
   %13 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #18
-  %14 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef nonnull @.str.2177, ptr noundef %5, ptr noundef %7)
+  %14 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef nonnull @.str.2177, ptr noundef nonnull %5, ptr noundef %7)
   %15 = add i32 %14, 4
   %16 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14) #18
   %17 = load i32, ptr @hf_nfs_name, align 4
-  %18 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %11, i32 noundef %17, i32 noundef %14, ptr noundef %6) #18
+  %18 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %11, i32 noundef %17, i32 noundef %14, ptr noundef nonnull %6) #18
   %19 = getelementptr inbounds i8, ptr %2, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 50
@@ -11750,7 +11750,7 @@ dissect_nfs4_status.exit:                         ; preds = %.lr.ph, %22, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
@@ -12300,12 +12300,12 @@ define internal i32 @nfs4_fattr_item_label(i32 noundef %0) #14 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #18
   %10 = add i32 %1, 4
   %11 = shl i32 %9, 2
   %12 = add i32 %11, %10
-  %13 = icmp eq i32 %6, 1
+  %13 = icmp ne i32 %6, 0
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %8

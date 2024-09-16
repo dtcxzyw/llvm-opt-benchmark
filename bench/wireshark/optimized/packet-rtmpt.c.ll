@@ -571,7 +571,7 @@ define internal i32 @dissect_rtmpt_tcp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = tail call fastcc ptr @rtmpt_init_rconv(ptr noundef nonnull %7)
+  %11 = tail call fastcc ptr @rtmpt_init_rconv(ptr noundef %7)
   br label %12
 
 12:                                               ; preds = %10, %6
@@ -726,7 +726,7 @@ define internal i32 @dissect_rtmpt_http(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not93, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = tail call fastcc ptr @rtmpt_init_rconv(ptr noundef nonnull %.084)
+  %44 = tail call fastcc ptr @rtmpt_init_rconv(ptr noundef %.084)
   br label %45
 
 45:                                               ; preds = %43, %40
@@ -895,7 +895,7 @@ define internal i32 @dissect_amf(ptr noundef %0, ptr nocapture readnone %1, ptr 
   br label %44
 
 42:                                               ; preds = %37
-  %43 = call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %38, ptr noundef %19, ptr noundef nonnull %6, ptr noundef null)
+  %43 = call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %38, ptr noundef %19, ptr noundef %6, ptr noundef null)
   br label %44
 
 44:                                               ; preds = %40, %42
@@ -955,13 +955,13 @@ define internal i32 @dissect_amf(ptr noundef %0, ptr nocapture readnone %1, ptr 
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph.split.i, label %dissect_rtmpt_body_command.exit
 
-.lr.ph.split.ithread-pre-split:                   ; preds = %83
-  %.pr = load i32, ptr %5, align 4
+.lr.ph.splitthread-pre-split.i:                   ; preds = %83
+  %.pr.i = load i32, ptr %5, align 4
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %74, %.lr.ph.split.ithread-pre-split
-  %78 = phi i32 [ %.pr, %.lr.ph.split.ithread-pre-split ], [ 0, %74 ]
-  %.111.i = phi i32 [ %.2.i, %.lr.ph.split.ithread-pre-split ], [ %75, %74 ]
+.lr.ph.split.i:                                   ; preds = %74, %.lr.ph.splitthread-pre-split.i
+  %78 = phi i32 [ %.pr.i, %.lr.ph.splitthread-pre-split.i ], [ 0, %74 ]
+  %.111.i = phi i32 [ %.2.i, %.lr.ph.splitthread-pre-split.i ], [ %75, %74 ]
   %.not10.i = icmp eq i32 %78, 0
   br i1 %.not10.i, label %81, label %79
 
@@ -970,14 +970,14 @@ define internal i32 @dissect_amf(ptr noundef %0, ptr nocapture readnone %1, ptr 
   br label %83
 
 81:                                               ; preds = %.lr.ph.split.i
-  %82 = call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %.111.i, ptr noundef %53, ptr noundef nonnull %5, ptr noundef null)
+  %82 = call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %.111.i, ptr noundef %53, ptr noundef %5, ptr noundef null)
   br label %83
 
 83:                                               ; preds = %81, %79
   %.2.i = phi i32 [ %80, %79 ], [ %82, %81 ]
   %84 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #8
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph.split.ithread-pre-split, label %dissect_rtmpt_body_command.exit, !llvm.loop !6
+  br i1 %85, label %.lr.ph.splitthread-pre-split.i, label %dissect_rtmpt_body_command.exit, !llvm.loop !6
 
 dissect_rtmpt_body_command.exit:                  ; preds = %83, %74
   %.1.lcssa.i = phi i32 [ %75, %74 ], [ %.2.i, %83 ]
@@ -1049,11 +1049,11 @@ declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @rtmpt_init_rconv(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @rtmpt_init_rconv(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call ptr @wmem_file_scope() #8
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %2, i64 noundef 96) #8
   %4 = load i32, ptr @proto_rtmpt, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %0, i32 noundef %4, ptr noundef %3) #8
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %3) #8
   %5 = tail call ptr @wmem_file_scope() #8
   %6 = tail call noalias ptr @wmem_tree_new(ptr noundef %5) #8
   store ptr %6, ptr %3, align 8
@@ -1113,7 +1113,7 @@ declare i32 @conversation_key_port1(ptr noundef) local_unnamed_addr #1
 declare i32 @conversation_key_port2(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rtmpt_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_rtmpt_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.loopexit, label %9
@@ -2284,7 +2284,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rtmpt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_rtmpt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.311) #8
@@ -3157,37 +3157,39 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rtmpt_body_command(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rtmpt_body_command(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %.not = icmp ne i32 %3, 0
-  %6 = zext i1 %.not to i32
-  %spec.select = add i32 %1, %6
-  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %spec.select) #8
-  %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph.split, label %._crit_edge
+  %spec.select = add i32 %3, %1
+  %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %spec.select) #8
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph.split, label %._crit_edge
 
-.lr.ph.split:                                     ; preds = %4, %14
-  %.111 = phi i32 [ %.2, %14 ], [ %spec.select, %4 ]
-  %9 = load i32, ptr %5, align 4
-  %.not10 = icmp eq i32 %9, 0
-  br i1 %.not10, label %12, label %10
+.lr.ph.splitthread-pre-split:                     ; preds = %13
+  %.pr = load i32, ptr %5, align 4
+  br label %.lr.ph.split
 
-10:                                               ; preds = %.lr.ph.split
-  %11 = tail call fastcc i32 @dissect_amf3_value_type(ptr noundef %0, i32 noundef %.111, ptr noundef %2, ptr noundef null)
-  br label %14
+.lr.ph.split:                                     ; preds = %4, %.lr.ph.splitthread-pre-split
+  %8 = phi i32 [ %.pr, %.lr.ph.splitthread-pre-split ], [ 0, %4 ]
+  %.111 = phi i32 [ %.2, %.lr.ph.splitthread-pre-split ], [ %spec.select, %4 ]
+  %.not10 = icmp eq i32 %8, 0
+  br i1 %.not10, label %11, label %9
 
-12:                                               ; preds = %.lr.ph.split
-  %13 = call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %.111, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null)
-  br label %14
+9:                                                ; preds = %.lr.ph.split
+  %10 = tail call fastcc i32 @dissect_amf3_value_type(ptr noundef %0, i32 noundef %.111, ptr noundef %2, ptr noundef null)
+  br label %13
 
-14:                                               ; preds = %12, %10
-  %.2 = phi i32 [ %11, %10 ], [ %13, %12 ]
-  %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #8
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
+11:                                               ; preds = %.lr.ph.split
+  %12 = call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %.111, ptr noundef %2, ptr noundef %5, ptr noundef null)
+  br label %13
 
-._crit_edge:                                      ; preds = %14, %4
+13:                                               ; preds = %11, %9
+  %.2 = phi i32 [ %10, %9 ], [ %12, %11 ]
+  %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #8
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %13, %4
   ret void
 }
 
@@ -3273,7 +3275,7 @@ define internal fastcc void @dissect_rtmpt_body_video(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rtmpt_body_aggregate(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_rtmpt_body_aggregate(ptr noundef %0, i32 noundef range(i32 0, 511) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #8
   %6 = icmp sgt i32 %5, 0
@@ -3326,13 +3328,13 @@ define internal fastcc void @dissect_rtmpt_body_aggregate(ptr noundef %0, i32 no
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph.split.i, label %dissect_rtmpt_body_command.exit
 
-.lr.ph.split.ithread-pre-split:                   ; preds = %41
-  %.pr = load i32, ptr %4, align 4
+.lr.ph.splitthread-pre-split.i:                   ; preds = %41
+  %.pr.i = load i32, ptr %4, align 4
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %33, %.lr.ph.split.ithread-pre-split
-  %36 = phi i32 [ %.pr, %.lr.ph.split.ithread-pre-split ], [ 0, %33 ]
-  %.111.i = phi i32 [ %.2.i, %.lr.ph.split.ithread-pre-split ], [ %28, %33 ]
+.lr.ph.split.i:                                   ; preds = %33, %.lr.ph.splitthread-pre-split.i
+  %36 = phi i32 [ %.pr.i, %.lr.ph.splitthread-pre-split.i ], [ 0, %33 ]
+  %.111.i = phi i32 [ %.2.i, %.lr.ph.splitthread-pre-split.i ], [ %28, %33 ]
   %.not10.i = icmp eq i32 %36, 0
   br i1 %.not10.i, label %39, label %37
 
@@ -3341,14 +3343,14 @@ define internal fastcc void @dissect_rtmpt_body_aggregate(ptr noundef %0, i32 no
   br label %41
 
 39:                                               ; preds = %.lr.ph.split.i
-  %40 = call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %.111.i, ptr noundef %30, ptr noundef nonnull %4, ptr noundef null)
+  %40 = call fastcc i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %.111.i, ptr noundef %30, ptr noundef %4, ptr noundef null)
   br label %41
 
 41:                                               ; preds = %39, %37
   %.2.i = phi i32 [ %38, %37 ], [ %40, %39 ]
   %42 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #8
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph.split.ithread-pre-split, label %dissect_rtmpt_body_command.exit, !llvm.loop !6
+  br i1 %43, label %.lr.ph.splitthread-pre-split.i, label %dissect_rtmpt_body_command.exit, !llvm.loop !6
 
 dissect_rtmpt_body_command.exit:                  ; preds = %41, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -3522,124 +3524,118 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @rtmpt_get_amf_param(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @rtmpt_get_amf_param(ptr noundef %0, i32 noundef range(i32 0, 512) %1, ptr noundef %2, i32 noundef range(i32 1, 4) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #8
-  %7 = icmp ne i32 %6, 0
-  %8 = icmp sgt i32 %3, 0
-  %9 = and i1 %7, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %.not106 = icmp eq i32 %6, 0
+  br i1 %.not106, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %12
-  %.07396 = phi i32 [ %13, %12 ], [ %1, %5 ]
-  %.07495 = phi i32 [ %14, %12 ], [ %6, %5 ]
-  %.07694 = phi i32 [ %15, %12 ], [ %3, %5 ]
-  %10 = tail call fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %.07396, ptr noundef %2)
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread, label %12
+.lr.ph:                                           ; preds = %5, %9
+  %.07396 = phi i32 [ %10, %9 ], [ %1, %5 ]
+  %.07495 = phi i32 [ %11, %9 ], [ %6, %5 ]
+  %.07694 = phi i32 [ %12, %9 ], [ %3, %5 ]
+  %7 = tail call fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %.07396, ptr noundef %2)
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %.thread, label %9
 
-12:                                               ; preds = %.lr.ph
-  %13 = add i32 %10, %.07396
-  %14 = sub i32 %.07495, %10
-  %15 = add nsw i32 %.07694, -1
-  %16 = icmp ne i32 %14, 0
-  %17 = icmp sgt i32 %.07694, 1
-  %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+9:                                                ; preds = %.lr.ph
+  %10 = add i32 %7, %.07396
+  %11 = sub i32 %.07495, %7
+  %12 = add nsw i32 %.07694, -1
+  %13 = icmp ne i32 %11, 0
+  %14 = icmp sgt i32 %.07694, 1
+  %15 = select i1 %13, i1 %14, i1 false
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %12, %5
-  %.076.lcssa = phi i32 [ %3, %5 ], [ %15, %12 ]
-  %.074.lcssa = phi i32 [ %6, %5 ], [ %14, %12 ]
-  %.073.lcssa = phi i32 [ %1, %5 ], [ %13, %12 ]
-  %.lcssa89 = phi i1 [ %7, %5 ], [ %16, %12 ]
-  %19 = icmp eq i32 %.076.lcssa, 0
-  %or.cond = select i1 %.lcssa89, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %.thread
+._crit_edge:                                      ; preds = %9
+  %16 = icmp eq i32 %12, 0
+  %17 = select i1 %13, i1 %16, i1 false
+  br i1 %17, label %18, label %.thread
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.073.lcssa) #8
-  %22 = icmp eq ptr %4, null
-  %23 = icmp eq i8 %21, 2
-  %or.cond4 = select i1 %22, i1 %23, i1 false
-  %24 = icmp ugt i32 %.074.lcssa, 2
-  %or.cond6 = and i1 %24, %or.cond4
-  br i1 %or.cond6, label %25, label %30
+18:                                               ; preds = %._crit_edge
+  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #8
+  %20 = icmp eq ptr %4, null
+  %21 = icmp eq i8 %19, 2
+  %or.cond4 = select i1 %20, i1 %21, i1 false
+  %22 = icmp ugt i32 %11, 2
+  %or.cond6 = and i1 %22, %or.cond4
+  br i1 %or.cond6, label %23, label %28
 
-25:                                               ; preds = %20
-  %26 = add i32 %.073.lcssa, 1
-  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %26) #8
-  %28 = zext i16 %27 to i32
-  %29 = add nuw nsw i32 %28, 3
-  %.not = icmp ult i32 %.074.lcssa, %29
+23:                                               ; preds = %18
+  %24 = add i32 %10, 1
+  %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %24) #8
+  %26 = zext i16 %25 to i32
+  %27 = add nuw nsw i32 %26, 3
+  %.not = icmp ult i32 %11, %27
   br i1 %.not, label %.thread, label %.thread.sink.split
 
-30:                                               ; preds = %20
-  %31 = icmp ne ptr %4, null
-  %32 = icmp eq i8 %21, 3
-  %or.cond9 = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond9, label %33, label %.thread
+28:                                               ; preds = %18
+  %29 = icmp ne ptr %4, null
+  %30 = icmp eq i8 %19, 3
+  %or.cond9 = select i1 %29, i1 %30, i1 false
+  br i1 %or.cond9, label %31, label %.thread
 
-33:                                               ; preds = %30
-  %34 = add i32 %.074.lcssa, -1
-  %35 = icmp ugt i32 %34, 2
-  br i1 %35, label %.lr.ph103.preheader, label %.thread
+31:                                               ; preds = %28
+  %32 = add i32 %11, -1
+  %33 = icmp ugt i32 %32, 2
+  br i1 %33, label %.lr.ph103.preheader, label %.thread
 
-.lr.ph103.preheader:                              ; preds = %33
-  %36 = add i32 %.073.lcssa, 1
+.lr.ph103.preheader:                              ; preds = %31
+  %34 = add i32 %10, 1
   br label %.lr.ph103
 
-.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %59
-  %.1101 = phi i32 [ %61, %59 ], [ %36, %.lr.ph103.preheader ]
-  %.175100 = phi i32 [ %62, %59 ], [ %34, %.lr.ph103.preheader ]
-  %37 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1101) #8
-  %38 = zext i16 %37 to i32
-  %39 = add nuw nsw i32 %38, 2
-  %40 = add nuw nsw i32 %38, 5
-  %41 = icmp ult i32 %.175100, %40
-  br i1 %41, label %.thread, label %42
+.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %57
+  %.1101 = phi i32 [ %59, %57 ], [ %34, %.lr.ph103.preheader ]
+  %.175100 = phi i32 [ %60, %57 ], [ %32, %.lr.ph103.preheader ]
+  %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1101) #8
+  %36 = zext i16 %35 to i32
+  %37 = add nuw nsw i32 %36, 2
+  %38 = add nuw nsw i32 %36, 5
+  %39 = icmp ult i32 %.175100, %38
+  br i1 %39, label %.thread, label %40
 
-42:                                               ; preds = %.lr.ph103
-  %43 = add i32 %.1101, 2
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
-  %45 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %43, ptr noundef nonnull %4, i64 noundef %44) #8
-  %46 = icmp eq i32 %45, 0
-  %47 = add i32 %43, %38
-  br i1 %46, label %48, label %56
+40:                                               ; preds = %.lr.ph103
+  %41 = add i32 %.1101, 2
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
+  %43 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %41, ptr noundef nonnull %4, i64 noundef %42) #8
+  %44 = icmp eq i32 %43, 0
+  %45 = add i32 %41, %36
+  br i1 %44, label %46, label %54
 
-48:                                               ; preds = %42
-  %49 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %47) #8
-  %.not81 = icmp eq i8 %49, 2
-  br i1 %.not81, label %50, label %.thread
+46:                                               ; preds = %40
+  %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #8
+  %.not81 = icmp eq i8 %47, 2
+  br i1 %.not81, label %48, label %.thread
 
-50:                                               ; preds = %48
-  %51 = add i32 %47, 1
-  %52 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %51) #8
-  %53 = zext i16 %52 to i32
-  %54 = add nuw nsw i32 %40, %53
-  %55 = icmp ult i32 %.175100, %54
-  br i1 %55, label %.thread, label %.thread.sink.split
+48:                                               ; preds = %46
+  %49 = add i32 %45, 1
+  %50 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %49) #8
+  %51 = zext i16 %50 to i32
+  %52 = add nuw nsw i32 %38, %51
+  %53 = icmp ult i32 %.175100, %52
+  br i1 %53, label %.thread, label %.thread.sink.split
 
-56:                                               ; preds = %42
-  %57 = tail call fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %47, ptr noundef %2)
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread, label %59
+54:                                               ; preds = %40
+  %55 = tail call fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %45, ptr noundef %2)
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %.thread, label %57
 
-59:                                               ; preds = %56
-  %60 = add i32 %39, %57
-  %61 = add i32 %60, %.1101
-  %62 = sub i32 %.175100, %60
-  %63 = icmp ugt i32 %62, 2
-  br i1 %63, label %.lr.ph103, label %.thread, !llvm.loop !15
+57:                                               ; preds = %54
+  %58 = add i32 %37, %55
+  %59 = add i32 %58, %.1101
+  %60 = sub i32 %.175100, %58
+  %61 = icmp ugt i32 %60, 2
+  br i1 %61, label %.lr.ph103, label %.thread, !llvm.loop !15
 
-.thread.sink.split:                               ; preds = %50, %25
-  %.sink128 = phi i32 [ %.073.lcssa, %25 ], [ %47, %50 ]
-  %.sink127 = phi i32 [ %28, %25 ], [ %53, %50 ]
-  %64 = tail call ptr @wmem_packet_scope() #8
-  %65 = add i32 %.sink128, 3
-  %66 = tail call ptr @tvb_get_string_enc(ptr noundef %64, ptr noundef %0, i32 noundef %65, i32 noundef %.sink127, i32 noundef 0) #8
+.thread.sink.split:                               ; preds = %48, %23
+  %.sink132 = phi i32 [ %10, %23 ], [ %45, %48 ]
+  %.sink131 = phi i32 [ %26, %23 ], [ %51, %48 ]
+  %62 = tail call ptr @wmem_packet_scope() #8
+  %63 = add i32 %.sink132, 3
+  %64 = tail call ptr @tvb_get_string_enc(ptr noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef %.sink131, i32 noundef 0) #8
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %56, %.lr.ph103, %59, %.thread.sink.split, %33, %25, %._crit_edge, %48, %50, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %50 ], [ null, %48 ], [ null, %._crit_edge ], [ null, %25 ], [ null, %33 ], [ %66, %.thread.sink.split ], [ null, %59 ], [ null, %.lr.ph103 ], [ null, %56 ], [ null, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %54, %.lr.ph103, %57, %.thread.sink.split, %5, %31, %23, %._crit_edge, %46, %48, %28
+  %.0 = phi ptr [ null, %28 ], [ null, %48 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %23 ], [ null, %31 ], [ null, %5 ], [ %64, %.thread.sink.split ], [ null, %57 ], [ null, %.lr.ph103 ], [ null, %54 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -4171,7 +4167,7 @@ amf_get_u29.exit443:                              ; preds = %.thread470, %269, %
   %299 = load i32, ptr @hf_amf_traitcount, align 4
   %300 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %299, ptr noundef %0, i32 noundef %29, i32 noundef %.sink.i441, i32 noundef %298) #8
   %301 = add i32 %.sink.i441, %29
-  %302 = call fastcc i32 @amf_get_u29(ptr noundef %0, i32 noundef %301, ptr noundef nonnull %6)
+  %302 = call fastcc i32 @amf_get_u29(ptr noundef %0, i32 noundef %301, ptr noundef %6)
   %303 = and i32 %302, 1
   %.not406 = icmp eq i32 %303, 0
   br i1 %.not406, label %320, label %304
@@ -4556,7 +4552,7 @@ amf_get_u29.exit467:                              ; preds = %480, %484, %491, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_amf0_value_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca i32, align 4
@@ -4586,7 +4582,7 @@ define internal fastcc noundef i32 @dissect_amf0_value_type(ptr noundef %0, i32 
   %16 = load i32, ptr @hf_amf_amf0_type, align 4
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %.pre) #8
   %18 = add i32 %1, 1
-  %19 = call fastcc i32 @dissect_amf0_property_list(ptr noundef %0, i32 noundef %18, ptr noundef %15, ptr noundef nonnull %8, ptr noundef %3)
+  %19 = call fastcc i32 @dissect_amf0_property_list(ptr noundef %0, i32 noundef %18, ptr noundef %15, ptr noundef %8, ptr noundef %3)
   %20 = load i32, ptr %8, align 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.362, i32 noundef %20) #8
   br label %154
@@ -4604,7 +4600,7 @@ define internal fastcc noundef i32 @dissect_amf0_value_type(ptr noundef %0, i32 
   %29 = load i32, ptr @hf_amf_arraylength, align 4
   %30 = tail call ptr @proto_tree_add_uint(ptr noundef %24, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef %28) #8
   %31 = add i32 %1, 5
-  %32 = call fastcc i32 @dissect_amf0_property_list(ptr noundef %0, i32 noundef %31, ptr noundef %24, ptr noundef nonnull %8, ptr noundef %3)
+  %32 = call fastcc i32 @dissect_amf0_property_list(ptr noundef %0, i32 noundef %31, ptr noundef %24, ptr noundef %8, ptr noundef %3)
   %33 = load i32, ptr %8, align 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.362, i32 noundef %33) #8
   br label %154
@@ -4801,7 +4797,7 @@ define internal fastcc noundef i32 @dissect_amf0_value_type(ptr noundef %0, i32 
   %140 = load i32, ptr @hf_amf_string, align 4
   %141 = call ptr @proto_tree_add_string(ptr noundef %48, i32 noundef %140, ptr noundef %0, i32 noundef %137, i32 noundef %134, ptr noundef %139) #8
   %142 = add i32 %137, %134
-  %143 = call fastcc i32 @dissect_amf0_property_list(ptr noundef %0, i32 noundef %142, ptr noundef %48, ptr noundef nonnull %8, ptr noundef %3)
+  %143 = call fastcc i32 @dissect_amf0_property_list(ptr noundef %0, i32 noundef %142, ptr noundef %48, ptr noundef %8, ptr noundef %3)
   br label %154
 
 144:                                              ; preds = %45
@@ -4837,7 +4833,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 536870912) i32 @amf_get_u29(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 536870912) i32 @amf_get_u29(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #8
   %5 = and i8 %4, 127
   %6 = zext nneg i8 %5 to i32
@@ -4901,7 +4897,7 @@ declare ptr @proto_tree_add_bytes(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare ptr @bytes_to_str_maxlen(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_amf0_property_list(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_amf0_property_list(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   br label %7
 

@@ -3025,7 +3025,7 @@ define hidden void @phpdbg_string_init(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.06 = phi ptr [ %4, %.lr.ph ], [ %3, %1 ]
-  call fastcc void @phpdbg_line_init(ptr noundef nonnull %.06, ptr noundef nonnull %2)
+  call fastcc void @phpdbg_line_init(ptr noundef %.06, ptr noundef %2)
   %4 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.61) #24
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3051,7 +3051,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phpdbg_line_init(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @phpdbg_line_init(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = alloca ptr, align 8
   %5 = alloca %struct._phpdbg_param, align 8
@@ -3280,7 +3280,7 @@ define hidden void @phpdbg_try_file_init(ptr noundef %0, i64 %1, i1 noundef zero
   br i1 %.not1315, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  call fastcc void @phpdbg_line_init(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @phpdbg_line_init(ptr noundef %5, ptr noundef %6)
   %14 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 500, ptr noundef nonnull %10)
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph

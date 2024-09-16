@@ -670,7 +670,7 @@ declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_udt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_udt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
   %7 = load i32, ptr @proto_udt, align 4
   %8 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %6, i32 noundef %7) #3

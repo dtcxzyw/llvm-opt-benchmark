@@ -2756,7 +2756,7 @@ get_wbxml_decoding_from_content_type.exit.thread129: ; preds = %145, %get_wbxml_
   %.1 = phi ptr [ %.099, %155 ], [ null, %.sink.split ]
   %160 = load i32, ptr @ett_wbxml_tags, align 4
   %161 = call ptr @proto_tree_add_subtree(ptr noundef %118, ptr noundef %0, i32 noundef %116, i32 noundef -1, i32 noundef %160, ptr noundef null, ptr noundef nonnull @.str.166) #4
-  %162 = call fastcc i32 @parse_wbxml_tag_defined(ptr noundef %161, ptr noundef %0, ptr noundef %1, i32 noundef %116, i32 noundef %87, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %.1)
+  %162 = call fastcc i32 @parse_wbxml_tag_defined(ptr noundef %161, ptr noundef %0, ptr noundef %1, i32 noundef %116, i32 noundef %87, ptr noundef %13, ptr noundef %14, ptr noundef %.1)
   br label %163
 
 163:                                              ; preds = %159, %120, %17
@@ -2796,7 +2796,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -4990,7 +4990,7 @@ declare void @p_set_proto_depth(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, ptr noundef readonly %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call i32 @tvb_reported_length(ptr noundef %1) #4

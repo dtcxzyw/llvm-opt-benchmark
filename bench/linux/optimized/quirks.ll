@@ -468,7 +468,7 @@ declare dso_local zeroext i1 @memblock_is_region_reserved(i64 noundef, i64 nound
 declare dso_local i32 @memblock_reserve(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc zeroext i1 @can_free_region(i64 noundef %0, i64 noundef %1) unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc zeroext i1 @can_free_region(i64 noundef %0, i64 noundef range(i64 0, -4095) %1) unnamed_addr #5 section ".init.text" align 16 {
   %3 = add i64 %1, %0
   %4 = load i64, ptr @phys_base, align 8
   %5 = add i64 %4, sub (i64 ptrtoint (ptr @_text to i64), i64 -2147483648)
@@ -666,7 +666,7 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @efi_unmap_pages(ptr nocapture noundef readonly %0) unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc void @efi_unmap_pages(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 section ".init.text" align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @efi_mm, i64 128), align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8

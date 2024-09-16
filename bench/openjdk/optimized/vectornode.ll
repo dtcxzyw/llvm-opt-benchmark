@@ -14065,7 +14065,7 @@ define hidden noundef ptr @_ZN8AndVNode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %35
-  %43 = tail call fastcc noundef ptr @_ZL26redundant_logical_identityP4Node(ptr noundef nonnull %0)
+  %43 = tail call fastcc noundef ptr @_ZL26redundant_logical_identityP4Node(ptr noundef %0)
   br label %44
 
 44:                                               ; preds = %21, %2, %35, %42, %31, %13
@@ -14074,7 +14074,7 @@ define hidden noundef ptr @_ZN8AndVNode8IdentityEP8PhaseGVN(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL26redundant_logical_identityP4Node(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL26redundant_logical_identityP4Node(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -14283,7 +14283,7 @@ define hidden noundef ptr @_ZN7OrVNode8IdentityEP8PhaseGVN(ptr noundef nonnull a
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %41
-  %49 = tail call fastcc noundef ptr @_ZL26redundant_logical_identityP4Node(ptr noundef nonnull %0)
+  %49 = tail call fastcc noundef ptr @_ZL26redundant_logical_identityP4Node(ptr noundef %0)
   br label %50
 
 50:                                               ; preds = %41, %48, %37, %30, %16, %9

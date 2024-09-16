@@ -1608,7 +1608,7 @@ entry:
 entry.if.end93_crit_edge:                         ; preds = %entry
   %sum_needed94.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 208451
   %.pre = load i8, ptr %sum_needed94.phi.trans.insert, align 1
-  %.pre117 = and i8 %.pre, 2
+  %.pre113 = and i8 %.pre, 2
   br label %if.end93
 
 if.then:                                          ; preds = %entry
@@ -1743,7 +1743,7 @@ if.end91:                                         ; preds = %if.then79, %if.end7
   br label %if.end93
 
 if.end93:                                         ; preds = %entry.if.end93_crit_edge, %if.end91
-  %.pre-phi = phi i8 [ %.pre117, %entry.if.end93_crit_edge ], [ %23, %if.end91 ]
+  %.pre-phi = phi i8 [ %.pre113, %entry.if.end93_crit_edge ], [ %23, %if.end91 ]
   %27 = phi i8 [ %.pre, %entry.if.end93_crit_edge ], [ %22, %if.end91 ]
   %sum_needed94 = getelementptr inbounds i8, ptr %s, i64 208451
   %tobool97.not = icmp eq i8 %.pre-phi, 0
@@ -1784,11 +1784,11 @@ if.then2.i:                                       ; preds = %if.then98
   %narrow.i.i = select i1 %tobool.not.i.i, i16 -1, i16 %call.i8.i
   %32 = tail call i16 @llvm.bswap.i16(i16 %narrow.i.i)
   store i16 %32, ptr %add.ptr5.i, align 1
-  %.pre116 = load i8, ptr %sum_needed94, align 1
+  %.pre112 = load i8, ptr %sum_needed94, align 1
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then2.i, %if.then98, %if.end93
-  %33 = phi i8 [ %.pre116, %if.then2.i ], [ %27, %if.then98 ], [ %27, %if.end93 ]
+  %33 = phi i8 [ %.pre112, %if.then2.i ], [ %27, %if.then98 ], [ %27, %if.end93 ]
   %34 = and i8 %33, 1
   %tobool112.not = icmp eq i8 %34, 0
   br i1 %tobool112.not, label %if.end122, label %if.then113
@@ -1900,13 +1900,13 @@ if.then.i102:                                     ; preds = %e1000x_inc_reg_if_n
 e1000x_inc_reg_if_not_full.exit104:               ; preds = %e1000x_inc_reg_if_not_full.exit98, %if.then.i102
   %arrayidx.i105 = getelementptr i8, ptr %s, i64 27904
   %50 = load i64, ptr %arrayidx.i105, align 4
-  %arrayidx2.i107 = getelementptr i8, ptr %s, i64 27908
-  %.add5.i112 = tail call i64 @llvm.uadd.sat.i64(i64 %50, i64 %add155)
-  %conv9.i113 = trunc i64 %.add5.i112 to i32
-  store i32 %conv9.i113, ptr %arrayidx.i105, align 4
-  %shr.i114 = lshr i64 %.add5.i112, 32
-  %conv12.i115 = trunc nuw i64 %shr.i114 to i32
-  store i32 %conv12.i115, ptr %arrayidx2.i107, align 4
+  %arrayidx2.i106 = getelementptr i8, ptr %s, i64 27908
+  %.add5.i108 = tail call i64 @llvm.uadd.sat.i64(i64 %50, i64 %add155)
+  %conv9.i109 = trunc i64 %.add5.i108 to i32
+  store i32 %conv9.i109, ptr %arrayidx.i105, align 4
+  %shr.i110 = lshr i64 %.add5.i108, 32
+  %conv12.i111 = trunc nuw i64 %shr.i110 to i32
+  store i32 %conv12.i111, ptr %arrayidx2.i106, align 4
   ret void
 }
 
@@ -1914,7 +1914,7 @@ e1000x_inc_reg_if_not_full.exit104:               ; preds = %e1000x_inc_reg_if_n
 declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000_send_packet(ptr noundef %s, ptr noundef %buf, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc void @e1000_send_packet(ptr noundef %s, ptr noundef %buf, i32 noundef range(i32 0, 65540) %size) unnamed_addr #0 {
 entry:
   %nic = getelementptr inbounds i8, ptr %s, i64 2608
   %0 = load ptr, ptr %nic, align 16

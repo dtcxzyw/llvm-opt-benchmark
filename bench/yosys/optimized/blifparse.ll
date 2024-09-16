@@ -3291,7 +3291,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit897:             ; preds = %1478, %1471, %1466,
           to label %1495 unwind label %1526
 
 1495:                                             ; preds = %1494
-  invoke fastcc void @_ZN5YosysL15wideports_splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 4 %54, ptr noundef nonnull %55)
+  invoke fastcc void @_ZN5YosysL15wideports_splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 4 %54, ptr noundef %55)
           to label %1496 unwind label %1528
 
 1496:                                             ; preds = %1495
@@ -6417,7 +6417,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %2491 unwind label %2555
 
 2491:                                             ; preds = %2490
-  invoke fastcc void @_ZN5YosysL15wideports_splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 4 %175, ptr noundef nonnull %176)
+  invoke fastcc void @_ZN5YosysL15wideports_splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 4 %175, ptr noundef %176)
           to label %2492 unwind label %2557
 
 2492:                                             ; preds = %2491
@@ -11209,7 +11209,7 @@ declare void @_ZN5Yosys5RTLIL6Module6renameEPNS0_4WireENS0_8IdStringE(ptr nounde
 declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL15wideports_splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL15wideports_splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #27

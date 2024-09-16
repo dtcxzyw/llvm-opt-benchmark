@@ -1871,7 +1871,7 @@ declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @dt_conf_set_string(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_history_save(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc void @_history_save(i32 noundef range(i32 0, 2) %0) unnamed_addr #1 {
   %2 = alloca [4096 x i8], align 16
   %3 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #21

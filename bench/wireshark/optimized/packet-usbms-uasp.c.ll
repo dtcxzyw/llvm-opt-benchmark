@@ -812,7 +812,7 @@ declare void @dissect_scsi_rsp(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @dissect_scsi_snsinfo(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_uasp_tag_links(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_uasp_tag_links(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 -2, 256) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %proto_item_set_generated.exit73, label %5
 
@@ -956,7 +956,7 @@ proto_item_set_generated.exit70:                  ; preds = %73, %70, %67, %prot
   %77 = getelementptr inbounds i8, ptr %2, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = icmp ne i32 %78, 0
-  %80 = add i32 %3, -5
+  %80 = add nsw i32 %3, -5
   %81 = icmp ult i32 %80, -2
   %or.cond15 = and i1 %81, %79
   br i1 %or.cond15, label %82, label %proto_item_set_generated.exit73

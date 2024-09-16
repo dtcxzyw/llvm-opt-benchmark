@@ -690,7 +690,7 @@ default.unreachable.i:                            ; preds = %41
 
 161:                                              ; preds = %157
   %162 = load ptr, ptr %6, align 8
-  call fastcc void @_parse_dist_flag(ptr noundef %162, ptr noundef nonnull %3)
+  call fastcc void @_parse_dist_flag(ptr noundef %162, ptr noundef %3)
   %.pr.i = load i32, ptr %3, align 4
   br label %163
 
@@ -3770,7 +3770,7 @@ define void @xfmt_tres_freq(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_parse_dist_flag(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @_parse_dist_flag(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %12, label %4

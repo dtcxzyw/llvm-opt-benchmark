@@ -239,7 +239,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
   %90 = load i8, ptr %5, align 1, !noalias !103
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !103
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %20, ptr noalias noundef align 8 dereferenceable(16) %21)
   %91 = load i8, ptr %20, align 8, !range !114, !noundef !115
   %trunc45 = trunc nuw i8 %91 to i1
   br i1 %trunc45, label %97, label %92
@@ -269,7 +269,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 104:                                              ; preds = %92
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %19, ptr noalias noundef align 8 dereferenceable(16) %21)
   %105 = load i8, ptr %19, align 8, !range !114, !noundef !115
   %trunc47 = trunc nuw i8 %105 to i1
   br i1 %trunc47, label %112, label %107
@@ -303,7 +303,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 119:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %18, ptr noalias noundef align 8 dereferenceable(16) %21)
   %120 = load i8, ptr %18, align 8, !range !114, !noundef !115
   %trunc49 = trunc nuw i8 %120 to i1
   br i1 %trunc49, label %127, label %122
@@ -337,7 +337,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 134:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %17, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %17, ptr noalias noundef align 8 dereferenceable(16) %21)
   %135 = load i8, ptr %17, align 8, !range !114, !noundef !115
   %trunc51 = trunc nuw i8 %135 to i1
   br i1 %trunc51, label %142, label %137
@@ -371,7 +371,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 149:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %16, ptr noalias noundef align 8 dereferenceable(16) %21)
   %150 = load i8, ptr %16, align 8, !range !114, !noundef !115
   %trunc53 = trunc nuw i8 %150 to i1
   br i1 %trunc53, label %157, label %152
@@ -405,7 +405,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 164:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %15, ptr noalias noundef align 8 dereferenceable(16) %21)
   %165 = load i8, ptr %15, align 8, !range !114, !noundef !115
   %trunc55 = trunc nuw i8 %165 to i1
   br i1 %trunc55, label %172, label %167
@@ -439,7 +439,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 179:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %14, ptr noalias noundef align 8 dereferenceable(16) %21)
   %180 = load i8, ptr %14, align 8, !range !114, !noundef !115
   %trunc57 = trunc nuw i8 %180 to i1
   br i1 %trunc57, label %187, label %182
@@ -473,7 +473,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 194:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %13, ptr noalias noundef align 8 dereferenceable(16) %21)
   %195 = load i8, ptr %13, align 8, !range !114, !noundef !115
   %trunc59 = trunc nuw i8 %195 to i1
   br i1 %trunc59, label %202, label %197
@@ -507,7 +507,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 209:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %12, ptr noalias noundef align 8 dereferenceable(16) %21)
   %210 = load i8, ptr %12, align 8, !range !114, !noundef !115
   %trunc61 = trunc nuw i8 %210 to i1
   br i1 %trunc61, label %217, label %212
@@ -541,7 +541,7 @@ define hidden void @"_ZN100_$LT$serde..de..impls..ArrayVisitor$LT$$u5b$T$u3b$$u2
 
 224:                                              ; preds = %212
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef align 8 dereferenceable(16) %11, ptr noalias noundef align 8 dereferenceable(16) %21)
   %225 = load i8, ptr %11, align 8, !range !114, !noundef !115
   %trunc63 = trunc nuw i8 %225 to i1
   br i1 %trunc63, label %230, label %227
@@ -1556,8 +1556,8 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   %28 = and i64 %.01557.i.i10.i.i, 63
   %29 = shl i64 %27, %28
   %30 = or i64 %29, %.01656.i.i11.i.i
-  %31 = icmp ult i64 %30, 4294967296
-  br i1 %31, label %32, label %35
+  %31 = icmp ugt i64 %30, 4294967295
+  br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
   %33 = trunc nuw i64 %30 to i32
@@ -1682,8 +1682,8 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   %28 = and i64 %.01557.i.i10.i.i, 63
   %29 = shl i64 %27, %28
   %30 = or i64 %29, %.01656.i.i11.i.i
-  %31 = icmp ult i64 %30, 4294967296
-  br i1 %31, label %32, label %35
+  %31 = icmp ugt i64 %30, 4294967295
+  br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
   %33 = trunc nuw i64 %30 to i32
@@ -1976,7 +1976,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8477e2dfc1b47bf7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6) #21
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8477e2dfc1b47bf7E"(ptr noalias noundef align 8 dereferenceable(72) %6) #21
           to label %.body unwind label %40
 
 40:                                               ; preds = %38
@@ -3717,7 +3717,7 @@ define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$str$GT$17hb731ae94abdf
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8477e2dfc1b47bf7E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h8477e2dfc1b47bf7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -4589,7 +4589,7 @@ _ZN4core3ops8function6FnOnce9call_once17he4fe9621f1d3a80bE.llvm.2815669602130451
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h70dd83893755bf59E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [1 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1300)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1303)
@@ -4640,7 +4640,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3b0a
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1316, !noundef !115
   %6 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %3, i64 %5
-  %7 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %5)
+  %7 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %5)
   %.fca.0.extract1 = extractvalue { i64, ptr } %7, 0
   %.fca.1.extract3 = extractvalue { i64, ptr } %7, 1
   %switch = icmp eq i64 %.fca.0.extract1, 0
@@ -4688,7 +4688,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hb532
   %19 = sub nuw i64 %17, %18
   %20 = lshr exact i64 %19, 5
   %21 = add nuw nsw i64 %20, %12
-  %22 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %21)
+  %22 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %21)
   %.fca.0.extract = extractvalue { i64, ptr } %22, 0
   %.fca.1.extract = extractvalue { i64, ptr } %22, 1
   %switch = icmp eq i64 %.fca.0.extract, 0
@@ -4727,7 +4727,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hf9b5
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1347, !noundef !115
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
+  %8 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %.fca.0.extract1 = extractvalue { i64, ptr } %8, 0
   %.fca.1.extract3 = extractvalue { i64, ptr } %8, 1
   %switch = icmp eq i64 %.fca.0.extract1, 0
@@ -4779,7 +4779,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls100_$LT$impl$u20$serde..s
   %19 = sub nuw i64 %17, %18
   %20 = lshr exact i64 %19, 5
   %21 = add nuw nsw i64 %20, %12
-  %22 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 1, i64 %21)
+  %22 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %1, i64 noundef 1, i64 %21)
   %.fca.0.extract.i = extractvalue { i64, ptr } %22, 0
   %.fca.1.extract.i = extractvalue { i64, ptr } %22, 1
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
@@ -4861,7 +4861,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1407, !noalias !1410, !noundef !115
   %6 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %3, i64 %5
-  %7 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 1, i64 %5), !noalias !1404
+  %7 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %1, i64 noundef 1, i64 %5), !noalias !1404
   %.fca.0.extract1.i = extractvalue { i64, ptr } %7, 0
   %.fca.1.extract3.i = extractvalue { i64, ptr } %7, 1
   %switch.i = icmp eq i64 %.fca.0.extract1.i, 0
@@ -4893,7 +4893,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1421, !noalias !1424, !noundef !115
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  %8 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 1, i64 %6), !noalias !1418
+  %8 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %1, i64 noundef 1, i64 %6), !noalias !1418
   %.fca.0.extract1.i = extractvalue { i64, ptr } %8, 0
   %.fca.1.extract3.i = extractvalue { i64, ptr } %8, 1
   %switch.i = icmp eq i64 %.fca.0.extract1.i, 0
@@ -5234,7 +5234,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [1 x i8], align 1
   %5 = alloca [10 x i8], align 1
   %6 = alloca ptr, align 8
@@ -6160,7 +6160,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   %31 = getelementptr inbounds i8, ptr %6, i64 16
   %32 = load i64, ptr %31, align 8, !alias.scope !1793, !noalias !1796, !noundef !115
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
-  %34 = call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1, i64 %32), !noalias !1799
+  %34 = call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %32), !noalias !1799
   %.fca.0.extract1.i.i = extractvalue { i64, ptr } %34, 0
   %.fca.1.extract3.i.i = extractvalue { i64, ptr } %34, 1
   %switch.i.i = icmp eq i64 %.fca.0.extract1.i.i, 0
@@ -8209,9 +8209,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i73 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i72 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i71 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2371
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2371
@@ -8219,7 +8219,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i71, 9
+  %10 = icmp eq i32 %.058.i72, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8235,10 +8235,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i72, 63
+  %18 = and i64 %.01557.i73, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i73
-  %21 = add nuw nsw i64 %.01557.i72, 7
+  %20 = or i64 %19, %.01656.i74
+  %21 = add nuw nsw i64 %.01557.i73, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2371
   store i8 0, ptr %4, align 1, !noalias !2371
@@ -8248,11 +8248,11 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i72, 63
+  %27 = and i64 %.01557.i73, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i73
-  %30 = icmp ult i64 %29, 4294967296
-  br i1 %30, label %33, label %49
+  %29 = or i64 %28, %.01656.i74
+  %30 = icmp ugt i64 %29, 4294967295
+  br i1 %30, label %49, label %33
 
 31:                                               ; preds = %12, %.lr.ph.i._crit_edge
   %.sroa.4.0.ph.in = phi ptr [ %.lcssa, %.lr.ph.i._crit_edge ], [ %13, %12 ]
@@ -8336,9 +8336,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i73 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i72 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i71 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2402
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2402
@@ -8346,7 +8346,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i71, 9
+  %10 = icmp eq i32 %.058.i72, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8362,10 +8362,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i72, 63
+  %18 = and i64 %.01557.i73, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i73
-  %21 = add nuw nsw i64 %.01557.i72, 7
+  %20 = or i64 %19, %.01656.i74
+  %21 = add nuw nsw i64 %.01557.i73, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2402
   store i8 0, ptr %4, align 1, !noalias !2402
@@ -8375,11 +8375,11 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i72, 63
+  %27 = and i64 %.01557.i73, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i73
-  %30 = icmp ult i64 %29, 4294967296
-  br i1 %30, label %33, label %43
+  %29 = or i64 %28, %.01656.i74
+  %30 = icmp ugt i64 %29, 4294967295
+  br i1 %30, label %43, label %33
 
 31:                                               ; preds = %12, %.lr.ph.i._crit_edge
   %.sroa.4.0.ph.in = phi ptr [ %.lcssa, %.lr.ph.i._crit_edge ], [ %13, %12 ]
@@ -8445,9 +8445,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i73 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i72 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i71 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2433
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2433
@@ -8455,7 +8455,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i71, 9
+  %10 = icmp eq i32 %.058.i72, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8471,10 +8471,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i72, 63
+  %18 = and i64 %.01557.i73, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i73
-  %21 = add nuw nsw i64 %.01557.i72, 7
+  %20 = or i64 %19, %.01656.i74
+  %21 = add nuw nsw i64 %.01557.i73, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2433
   store i8 0, ptr %4, align 1, !noalias !2433
@@ -8484,11 +8484,11 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i72, 63
+  %27 = and i64 %.01557.i73, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i73
-  %30 = icmp ult i64 %29, 4294967296
-  br i1 %30, label %33, label %67
+  %29 = or i64 %28, %.01656.i74
+  %30 = icmp ugt i64 %29, 4294967295
+  br i1 %30, label %67, label %33
 
 31:                                               ; preds = %12, %.lr.ph.i._crit_edge
   %.sroa.4.0.ph.in = phi ptr [ %.lcssa, %.lr.ph.i._crit_edge ], [ %13, %12 ]
@@ -8626,9 +8626,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i73 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i72 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i71 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2464
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2464
@@ -8636,7 +8636,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i71, 9
+  %10 = icmp eq i32 %.058.i72, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8652,10 +8652,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i72, 63
+  %18 = and i64 %.01557.i73, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i73
-  %21 = add nuw nsw i64 %.01557.i72, 7
+  %20 = or i64 %19, %.01656.i74
+  %21 = add nuw nsw i64 %.01557.i73, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2464
   store i8 0, ptr %4, align 1, !noalias !2464
@@ -8665,11 +8665,11 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i72, 63
+  %27 = and i64 %.01557.i73, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i73
-  %30 = icmp ult i64 %29, 4294967296
-  br i1 %30, label %33, label %43
+  %29 = or i64 %28, %.01656.i74
+  %30 = icmp ugt i64 %29, 4294967295
+  br i1 %30, label %43, label %33
 
 31:                                               ; preds = %12, %.lr.ph.i._crit_edge
   %.sroa.4.0.ph.in = phi ptr [ %.lcssa, %.lr.ph.i._crit_edge ], [ %13, %12 ]
@@ -8735,9 +8735,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i73 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i72 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i71 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2495
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2495
@@ -8745,7 +8745,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i71, 9
+  %10 = icmp eq i32 %.058.i72, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8761,10 +8761,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i72, 63
+  %18 = and i64 %.01557.i73, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i73
-  %21 = add nuw nsw i64 %.01557.i72, 7
+  %20 = or i64 %19, %.01656.i74
+  %21 = add nuw nsw i64 %.01557.i73, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2495
   store i8 0, ptr %4, align 1, !noalias !2495
@@ -8774,11 +8774,11 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i72, 63
+  %27 = and i64 %.01557.i73, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i73
-  %30 = icmp ult i64 %29, 4294967296
-  br i1 %30, label %33, label %45
+  %29 = or i64 %28, %.01656.i74
+  %30 = icmp ugt i64 %29, 4294967295
+  br i1 %30, label %45, label %33
 
 31:                                               ; preds = %12, %.lr.ph.i._crit_edge
   %.sroa.4.0.ph.in = phi ptr [ %.lcssa, %.lr.ph.i._crit_edge ], [ %13, %12 ]
@@ -8850,9 +8850,9 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   br label %_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit
 
 .lr.ph:                                           ; preds = %1, %.lr.ph.i
-  %.01656.i74 = phi i64 [ %19, %.lr.ph.i ], [ 0, %1 ]
-  %.01557.i73 = phi i64 [ %20, %.lr.ph.i ], [ 0, %1 ]
-  %.058.i72 = phi i32 [ %6, %.lr.ph.i ], [ 0, %1 ]
+  %.01656.i75 = phi i64 [ %19, %.lr.ph.i ], [ 0, %1 ]
+  %.01557.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %1 ]
+  %.058.i73 = phi i32 [ %6, %.lr.ph.i ], [ 0, %1 ]
   %6 = phi i32 [ %21, %.lr.ph.i ], [ 1, %1 ]
   %7 = load i8, ptr %3, align 1, !noalias !2526
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !2526
@@ -8860,7 +8860,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   br i1 %exitcond.i, label %11, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = icmp eq i32 %.058.i72, 9
+  %9 = icmp eq i32 %.058.i73, 9
   %10 = icmp ugt i8 %7, 1
   %or.cond.i = and i1 %9, %10
   br i1 %or.cond.i, label %11, label %13
@@ -8876,10 +8876,10 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
 .lr.ph.i:                                         ; preds = %13
   %15 = and i8 %7, 127
   %16 = zext nneg i8 %15 to i64
-  %17 = and i64 %.01557.i73, 63
+  %17 = and i64 %.01557.i74, 63
   %18 = shl i64 %16, %17
-  %19 = or i64 %18, %.01656.i74
-  %20 = add nuw nsw i64 %.01557.i73, 7
+  %19 = or i64 %18, %.01656.i75
+  %20 = add nuw nsw i64 %.01557.i74, 7
   %21 = add nuw nsw i32 %6, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !2526
   store i8 0, ptr %3, align 1, !noalias !2526
@@ -8889,11 +8889,11 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
 
 24:                                               ; preds = %13
   %25 = zext nneg i8 %7 to i64
-  %26 = and i64 %.01557.i73, 63
+  %26 = and i64 %.01557.i74, 63
   %27 = shl i64 %25, %26
-  %28 = or i64 %27, %.01656.i74
-  %29 = icmp ult i64 %28, 4294967296
-  br i1 %29, label %31, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h75376be103d7d365E.exit"
+  %28 = or i64 %27, %.01656.i75
+  %29 = icmp ugt i64 %28, 4294967295
+  br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h75376be103d7d365E.exit", label %31
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h75376be103d7d365E.exit": ; preds = %24
   %30 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h4a4ed214552cd993E"(ptr noalias noundef nonnull readonly align 1 @anon.c06183e97dfb1b64f2fc5efd32a496cf.40, i64 noundef 50), !noalias !2547
@@ -8932,9 +8932,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %30
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i73 = phi i64 [ %19, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i72 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i71 = phi i32 [ %6, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i74 = phi i64 [ %19, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i73 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i72 = phi i32 [ %6, %.lr.ph.i ], [ 0, %2 ]
   %6 = phi i32 [ %21, %.lr.ph.i ], [ 1, %2 ]
   %7 = load i8, ptr %3, align 1, !noalias !2550
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !2550
@@ -8942,7 +8942,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %11, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = icmp eq i32 %.058.i71, 9
+  %9 = icmp eq i32 %.058.i72, 9
   %10 = icmp ugt i8 %7, 1
   %or.cond.i = and i1 %9, %10
   br i1 %or.cond.i, label %11, label %13
@@ -8958,10 +8958,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %13
   %15 = and i8 %7, 127
   %16 = zext nneg i8 %15 to i64
-  %17 = and i64 %.01557.i72, 63
+  %17 = and i64 %.01557.i73, 63
   %18 = shl i64 %16, %17
-  %19 = or i64 %18, %.01656.i73
-  %20 = add nuw nsw i64 %.01557.i72, 7
+  %19 = or i64 %18, %.01656.i74
+  %20 = add nuw nsw i64 %.01557.i73, 7
   %21 = add nuw nsw i32 %6, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !2550
   store i8 0, ptr %3, align 1, !noalias !2550
@@ -8971,11 +8971,11 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 24:                                               ; preds = %13
   %25 = zext nneg i8 %7 to i64
-  %26 = and i64 %.01557.i72, 63
+  %26 = and i64 %.01557.i73, 63
   %27 = shl i64 %25, %26
-  %28 = or i64 %27, %.01656.i73
-  %29 = icmp ult i64 %28, 4294967296
-  br i1 %29, label %32, label %33
+  %28 = or i64 %27, %.01656.i74
+  %29 = icmp ugt i64 %28, 4294967295
+  br i1 %29, label %33, label %32
 
 30:                                               ; preds = %11, %.lr.ph.i._crit_edge
   %.sroa.4.0.ph.in = phi ptr [ %.lcssa, %.lr.ph.i._crit_edge ], [ %12, %11 ]
@@ -9093,7 +9093,7 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Seria
   %22 = sub nuw i64 %20, %21
   %23 = lshr exact i64 %22, 5
   %24 = add nuw nsw i64 %23, %15
-  %25 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1, i64 %24)
+  %25 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %8, i64 noundef 1, i64 %24)
   %.fca.0.extract.i.i = extractvalue { i64, ptr } %25, 0
   %.fca.1.extract.i.i = extractvalue { i64, ptr } %25, 1
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
@@ -9141,7 +9141,7 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Seria
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !2629, !noalias !2632, !noundef !115
   %9 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %6, i64 %8
-  %10 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 1, i64 %8), !noalias !2635
+  %10 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %5, i64 noundef 1, i64 %8), !noalias !2635
   %.fca.0.extract1.i.i = extractvalue { i64, ptr } %10, 0
   %.fca.1.extract3.i.i = extractvalue { i64, ptr } %10, 1
   %switch.i.i = icmp eq i64 %.fca.0.extract1.i.i, 0
@@ -9206,7 +9206,7 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Seria
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !2661, !noalias !2664, !noundef !115
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
-  %11 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 1, i64 %9), !noalias !2667
+  %11 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %6, i64 noundef 1, i64 %9), !noalias !2667
   %.fca.0.extract1.i.i = extractvalue { i64, ptr } %11, 0
   %.fca.1.extract3.i.i = extractvalue { i64, ptr } %11, 1
   %switch.i.i = icmp eq i64 %.fca.0.extract1.i.i, 0

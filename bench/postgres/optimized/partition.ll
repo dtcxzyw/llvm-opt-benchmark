@@ -92,14 +92,14 @@ define dso_local ptr @get_partition_ancestors(i32 noundef %0) local_unnamed_addr
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #5
-  call fastcc void @get_partition_ancestors_worker(ptr noundef %3, i32 noundef %0, ptr noundef nonnull %2)
+  call fastcc void @get_partition_ancestors_worker(ptr noundef %3, i32 noundef %0, ptr noundef %2)
   tail call void @table_close(ptr noundef %3, i32 noundef 1) #5
   %4 = load ptr, ptr %2, align 8
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [2 x %struct.ScanKeyData], align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %5 = zext i32 %1 to i64
@@ -140,7 +140,7 @@ get_partition_parent_worker.exit:                 ; preds = %3
   %23 = load ptr, ptr %2, align 8
   %24 = call ptr @lappend_oid(ptr noundef %23, i32 noundef %18) #5
   store ptr %24, ptr %2, align 8
-  call fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 noundef %18, ptr noundef nonnull %2)
+  call fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 noundef %18, ptr noundef %2)
   br label %25
 
 25:                                               ; preds = %get_partition_parent_worker.exit.thread, %get_partition_parent_worker.exit, %20, %22

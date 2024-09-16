@@ -781,7 +781,7 @@ declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed
 declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__instance_destroy(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @__instance_destroy(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -837,7 +837,7 @@ define internal fastcc void @__instance_destroy(ptr noundef %0) unnamed_addr #3 
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %.thread
-  tail call fastcc void @__nfulnl_send(ptr noundef %0)
+  tail call fastcc void @__nfulnl_send(ptr noundef nonnull %0)
   br label %30
 
 30:                                               ; preds = %29, %.thread, %8
@@ -2230,7 +2230,7 @@ declare dso_local void @_raw_read_lock_bh(ptr noundef) local_unnamed_addr #1 sec
 declare dso_local void @_raw_read_unlock_bh(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @nfulnl_put_bridge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @nfulnl_put_bridge(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 182

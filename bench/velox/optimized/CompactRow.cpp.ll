@@ -4643,7 +4643,7 @@ invoke.cont63:                                    ; preds = %for.body59
   %65 = load ptr, ptr %fieldNulls, align 8
   %add.ptr.i64 = getelementptr inbounds %"class.boost::intrusive_ptr", ptr %65, i64 %indvars.iv181
   %66 = load ptr, ptr %pool.addr, align 8
-  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_111deserializeERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %field, ptr noundef nonnull align 8 dereferenceable(16) %call64, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i64, ptr noundef nonnull align 8 dereferenceable(24) %offsets, ptr noundef %66)
+  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_111deserializeERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias align 8 %field, ptr noundef nonnull align 8 dereferenceable(16) %call64, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i64, ptr noundef nonnull align 8 dereferenceable(24) %offsets, ptr noundef %66)
           to label %invoke.cont67 unwind label %lpad6.loopexit
 
 invoke.cont67:                                    ; preds = %invoke.cont63
@@ -5232,7 +5232,7 @@ declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #16
 declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_111deserializeERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %offsets, ptr noundef %pool) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_111deserializeERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %offsets, ptr noundef %pool) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pool.addr.i = alloca ptr, align 8
   %arrayOfKeysType.i = alloca %"class.std::shared_ptr.246", align 8
@@ -5289,7 +5289,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 4
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  invoke void @_ZN8facebook5velox10BaseVector18createNullConstantERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef %conv.i, ptr noundef %pool)
+  invoke void @_ZN8facebook5velox10BaseVector18createNullConstantERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef %conv.i, ptr noundef %pool)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then
@@ -8385,7 +8385,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_118deserializeStringsERKSt10shared_ptrIKNS0_4
   br label %return
 
 _ZNSt10shared_ptrIN8facebook5velox11ArrayVectorEED2Ev.exit: ; preds = %if.end5
-  call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_117deserializeArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr noundef nonnull align 8 dereferenceable(24) %offsets, ptr noundef %pool)
+  call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_117deserializeArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr noundef nonnull align 8 dereferenceable(24) %offsets, ptr noundef %pool)
   %484 = load ptr, ptr %ref.tmp7, align 8
   store ptr %484, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -8652,7 +8652,7 @@ if.else.i.i.i.i.i695:                             ; preds = %if.then.i.i.i690
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2IKNS1_9ArrayTypeEvEERKS_IT_E.exit696: ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit728, %if.then.i.i.i.i.i693, %if.else.i.i.i.i.i695
   %527 = load ptr, ptr %pool.addr.i, align 8, !noalias !213
-  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_117deserializeArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %arrayOfKeys.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i74, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr noundef nonnull align 8 dereferenceable(24) %offsets, ptr noundef %527)
+  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_117deserializeArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias align 8 %arrayOfKeys.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i74, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr noundef nonnull align 8 dereferenceable(24) %offsets, ptr noundef %527)
           to label %invoke.cont12.i unwind label %lpad11.i, !noalias !213
 
 invoke.cont12.i:                                  ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2IKNS1_9ArrayTypeEvEERKS_IT_E.exit696
@@ -8756,7 +8756,7 @@ if.else.i.i.i.i.i654:                             ; preds = %if.then.i.i.i650
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2IKNS1_9ArrayTypeEvEERKS_IT_E.exit: ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit686, %if.then.i.i.i.i.i652, %if.else.i.i.i.i.i654
   %544 = load ptr, ptr %pool.addr.i, align 8, !noalias !213
-  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_117deserializeArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %arrayOfValues.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr noundef nonnull align 8 dereferenceable(24) %offsets, ptr noundef %544)
+  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_117deserializeArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias align 8 %arrayOfValues.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr noundef nonnull align 8 dereferenceable(24) %offsets, ptr noundef %544)
           to label %invoke.cont15.i unwind label %lpad14.i, !noalias !213
 
 invoke.cont15.i:                                  ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2IKNS1_9ArrayTypeEvEERKS_IT_E.exit
@@ -9673,7 +9673,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_117deserializeArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %offsets, ptr noundef %pool) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_117deserializeArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %nulls, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %offsets, ptr noundef %pool) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nulls.i = alloca %"class.boost::intrusive_ptr", align 8
   %nestedData.i = alloca %"class.std::vector.54", align 8
@@ -14340,7 +14340,7 @@ for.inc67.i:                                      ; preds = %for.end.i, %for.bod
   br i1 %exitcond661.not, label %for.end69.i, label %for.body.i348, !llvm.loop !423
 
 for.end69.i:                                      ; preds = %for.inc67.i, %invoke.cont12.i
-  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_111deserializeERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(16) %call28, ptr noundef nonnull align 8 dereferenceable(24) %nestedData.i, ptr noundef nonnull align 8 dereferenceable(8) %nulls.i, ptr noundef nonnull align 8 dereferenceable(24) %nestedOffsets.i, ptr noundef nonnull %700)
+  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_111deserializeERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE(ptr noalias align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(16) %call28, ptr noundef nonnull align 8 dereferenceable(24) %nestedData.i, ptr noundef nonnull align 8 dereferenceable(8) %nulls.i, ptr noundef nonnull align 8 dereferenceable(24) %nestedOffsets.i, ptr noundef nonnull %700)
           to label %_ZN8facebook5velox3row12_GLOBAL__N_124deserializeComplexArraysERKSt10shared_ptrIKNS0_4TypeEERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISD_EERKN5boost13intrusive_ptrINS0_6BufferEEERS9_ImSaImEEPNS0_6memory10MemoryPoolE.exit unwind label %lpad21.i
 
 ehcleanup.i:                                      ; preds = %if.then.i.i.i519, %lpad21.i, %lpad11.i

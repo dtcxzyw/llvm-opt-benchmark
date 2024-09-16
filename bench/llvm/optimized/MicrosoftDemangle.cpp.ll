@@ -3773,13 +3773,13 @@ _ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char
 78:                                               ; preds = %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit
   %79 = select i1 %.055, i64 2, i64 1
   %80 = icmp ult i64 %.sroa.0.0.i, %79
-  %or.cond92 = select i1 %.sroa.4.0.i, i1 true, i1 %80
-  br i1 %or.cond92, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %81
+  %or.cond89 = select i1 %.sroa.4.0.i, i1 true, i1 %80
+  br i1 %or.cond89, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %81
 
 81:                                               ; preds = %78
   %82 = load i64, ptr %1, align 8
-  %.not93 = icmp eq i64 %82, 0
-  br i1 %.not93, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i
+  %.not90 = icmp eq i64 %82, 0
+  br i1 %.not90, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %81
   %83 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
@@ -3821,7 +3821,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %_ZNSt11c
   br label %101
 
 101:                                              ; preds = %130, %99
-  %.088 = phi i64 [ %.sroa.0.0.i, %99 ], [ %132, %130 ]
+  %.085 = phi i64 [ %.sroa.0.0.i, %99 ], [ %132, %130 ]
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %102 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %102, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -3872,7 +3872,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_
 _ZN4llvm11ms_demangle9Demangler20demangleWcharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %119, %124
   %125 = phi i8 [ 1, %124 ], [ %117, %119 ]
   %.0.i64 = phi i32 [ 0, %124 ], [ %123, %119 ]
-  %.not = icmp eq i64 %.088, 2
+  %.not = icmp eq i64 %.085, 2
   br i1 %.not, label %126, label %129
 
 126:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler20demangleWcharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -3882,45 +3882,45 @@ _ZN4llvm11ms_demangle9Demangler20demangleWcharLiteralERSt17basic_string_viewIcSt
 
 129:                                              ; preds = %126, %_ZN4llvm11ms_demangle9Demangler20demangleWcharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.exit
   call fastcc void @_ZL17outputEscapedCharRN4llvm16itanium_demangle12OutputBufferEj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %.0.i64)
-  %.pre117 = load i8, ptr %75, align 8
+  %.pre114 = load i8, ptr %75, align 8
   br label %130
 
 130:                                              ; preds = %129, %126
-  %131 = phi i8 [ %.pre117, %129 ], [ %125, %126 ]
-  %132 = add i64 %.088, -2
+  %131 = phi i8 [ %.pre114, %129 ], [ %125, %126 ]
+  %132 = add i64 %.085, -2
   %133 = trunc i8 %131 to i1
   br i1 %133, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %101, !llvm.loop !8
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i68: ; preds = %94, %.preheader
   %134 = phi i64 [ %.sroa.0.0.copyload.i65.pr, %.preheader ], [ %92, %94 ]
-  %indvars.iv137 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %94 ]
-  %indvars.iv114136 = phi i32 [ %indvars.iv.next115, %.preheader ], [ 0, %94 ]
+  %indvars.iv134 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %94 ]
+  %indvars.iv111133 = phi i32 [ %indvars.iv.next112, %.preheader ], [ 0, %94 ]
   %.sroa.2.0.copyload.i67 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %135 = load i8, ptr %.sroa.2.0.copyload.i67, align 1
   %136 = icmp eq i8 %135, 64
   br i1 %136, label %142, label %137
 
 137:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i68
-  %138 = icmp ugt i64 %indvars.iv137, 127
+  %138 = icmp ugt i64 %indvars.iv134, 127
   br i1 %138, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %137
   %139 = tail call noundef zeroext i8 @_ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv137, 1
-  %140 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %indvars.iv137
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv134, 1
+  %140 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %indvars.iv134
   store i8 %139, ptr %140, align 1
   %.sroa.0.0.copyload.i65.pr = load i64, ptr %1, align 8
-  %indvars.iv.next115 = add nuw nsw i32 %indvars.iv114136, 1
+  %indvars.iv.next112 = add nuw nsw i32 %indvars.iv111133, 1
   %141 = icmp eq i64 %.sroa.0.0.copyload.i65.pr, 0
   br i1 %141, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i68, !llvm.loop !9
 
 142:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i68
-  %143 = trunc nuw nsw i64 %indvars.iv137 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv134 to i32
   %144 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i67, i64 1
   store ptr %144, ptr %.sroa.22.0..sroa_idx.i, align 8
   %145 = add i64 %134, -1
   store i64 %145, ptr %1, align 8
-  %146 = icmp ugt i64 %.sroa.0.0.i, %indvars.iv137
+  %146 = icmp ugt i64 %.sroa.0.0.i, %indvars.iv134
   br i1 %146, label %147, label %switch.lookup
 
 147:                                              ; preds = %142
@@ -3929,86 +3929,86 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %147, %142
-  %149 = call fastcc noundef i32 @_ZL17guessCharByteSizePKhjm(ptr noundef nonnull %4, i32 noundef %143, i64 noundef %.sroa.0.0.i)
+  %149 = call fastcc noundef i32 @_ZL17guessCharByteSizePKhjm(ptr noundef %4, i32 noundef %143, i64 noundef %.sroa.0.0.i)
   %switch.tableidx = add nsw i32 %149, -1
   %150 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %150
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %34, align 4
-  %.lhs.trunc = trunc i64 %indvars.iv137 to i8
+  %.lhs.trunc = trunc i64 %indvars.iv134 to i8
   %.rhs.trunc = trunc nuw nsw i32 %149 to i8
-  %.not103 = icmp ugt i8 %.rhs.trunc, %.lhs.trunc
-  br i1 %.not103, label %.loopexit, label %.lr.ph
+  %.not100 = icmp ugt i8 %.rhs.trunc, %.lhs.trunc
+  br i1 %.not100, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %switch.lookup
   %151 = udiv i8 %.lhs.trunc, %.rhs.trunc
   %wide.trip.count.i = zext nneg i32 %149 to i64
   %152 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 40
   %153 = zext i8 %151 to i64
-  %154 = udiv i32 %indvars.iv114136, %149
+  %154 = udiv i32 %indvars.iv111133, %149
   %umax = tail call i32 @llvm.umax.i32(i32 %154, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
   br label %155
 
-155:                                              ; preds = %.lr.ph, %169
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next112, %169 ]
-  %156 = mul nuw nsw i64 %indvars.iv111, %wide.trip.count.i
+155:                                              ; preds = %.lr.ph, %170
+  %indvars.iv108 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next109, %170 ]
+  %156 = mul nuw nsw i64 %indvars.iv108, %wide.trip.count.i
   %157 = getelementptr inbounds i8, ptr %4, i64 %156
-  br label %.lr.ph.i71
+  br label %158
 
-.lr.ph.i71:                                       ; preds = %.lr.ph.i71, %155
-  %indvars.iv.i = phi i64 [ 0, %155 ], [ %indvars.iv.next.i, %.lr.ph.i71 ]
-  %.01213.i = phi i32 [ 0, %155 ], [ %163, %.lr.ph.i71 ]
-  %158 = getelementptr inbounds i8, ptr %157, i64 %indvars.iv.i
-  %159 = load i8, ptr %158, align 1
-  %160 = zext i8 %159 to i32
+158:                                              ; preds = %158, %155
+  %indvars.iv.i = phi i64 [ 0, %155 ], [ %indvars.iv.next.i, %158 ]
+  %.01213.i = phi i32 [ 0, %155 ], [ %164, %158 ]
+  %159 = getelementptr inbounds i8, ptr %157, i64 %indvars.iv.i
+  %160 = load i8, ptr %159, align 1
+  %161 = zext i8 %160 to i32
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %161 = shl i32 %indvars.iv.tr.i, 3
-  %162 = shl nuw i32 %160, %161
-  %163 = or i32 %162, %.01213.i
+  %162 = shl i32 %indvars.iv.tr.i, 3
+  %163 = shl nuw i32 %161, %162
+  %164 = or i32 %163, %.01213.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i72, label %_ZL19decodeMultiByteCharPKhjj.exit, label %.lr.ph.i71, !llvm.loop !10
+  %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i70, label %_ZL19decodeMultiByteCharPKhjj.exit, label %158, !llvm.loop !10
 
-_ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %.lr.ph.i71
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %164 = icmp ult i64 %indvars.iv.next112, %153
-  br i1 %164, label %168, label %165
+_ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %158
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %165 = icmp ult i64 %indvars.iv.next109, %153
+  br i1 %165, label %169, label %166
 
-165:                                              ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
-  %166 = load i8, ptr %152, align 8
-  %167 = trunc i8 %166 to i1
-  br i1 %167, label %168, label %169
+166:                                              ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
+  %167 = load i8, ptr %152, align 8
+  %168 = trunc i8 %167 to i1
+  br i1 %168, label %169, label %170
 
-168:                                              ; preds = %165, %_ZL19decodeMultiByteCharPKhjj.exit
-  call fastcc void @_ZL17outputEscapedCharRN4llvm16itanium_demangle12OutputBufferEj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %163)
-  br label %169
+169:                                              ; preds = %166, %_ZL19decodeMultiByteCharPKhjj.exit
+  call fastcc void @_ZL17outputEscapedCharRN4llvm16itanium_demangle12OutputBufferEj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %164)
+  br label %170
 
-169:                                              ; preds = %165, %168
-  %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
+170:                                              ; preds = %166, %169
+  %exitcond.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %155, !llvm.loop !11
 
-.loopexit:                                        ; preds = %169, %switch.lookup, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit
-  %170 = load ptr, ptr %3, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %172 = load i64, ptr %171, align 8
-  %173 = call { i64, ptr } @_ZN4llvm11ms_demangle9Demangler10copyStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 %172, ptr %170)
-  %174 = extractvalue { i64, ptr } %173, 0
-  %175 = extractvalue { i64, ptr } %173, 1
-  store i64 %174, ptr %33, align 8
+.loopexit:                                        ; preds = %170, %switch.lookup, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit
+  %171 = load ptr, ptr %3, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %173 = load i64, ptr %172, align 8
+  %174 = call { i64, ptr } @_ZN4llvm11ms_demangle9Demangler10copyStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 %173, ptr %171)
+  %175 = extractvalue { i64, ptr } %174, 0
+  %176 = extractvalue { i64, ptr } %174, 1
+  store i64 %175, ptr %33, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %.sink13.i, i64 32
-  store ptr %175, ptr %.sroa.23.0..sroa_idx, align 8
-  br label %177
+  store ptr %176, ptr %.sroa.23.0..sroa_idx, align 8
+  br label %178
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread: ; preds = %.preheader, %137, %101, %130, %107, %81, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_24EncodedStringLiteralNodeEJEEEPT_DpOT0_.exit, %89, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %78, %41, %37
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %176, align 8
-  br label %177
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %177, align 8
+  br label %178
 
-177:                                              ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, %.loopexit
+178:                                              ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, %.loopexit
   %.0 = phi ptr [ null, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread ], [ %.sink13.i, %.loopexit ]
-  %178 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %178) #23
+  %179 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %179) #23
   ret ptr %.0
 }
 
@@ -9600,7 +9600,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 1, 5) i32 @_ZL17guessCharByteSizePKhjm(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) unnamed_addr #7 {
+define internal fastcc noundef range(i32 1, 5) i32 @_ZL17guessCharByteSizePKhjm(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i64 noundef %2) unnamed_addr #7 {
   %4 = and i64 %2, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %.thread

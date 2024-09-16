@@ -272,7 +272,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %sw.epilog, %for.cond
   %i.092 = phi i32 [ %inc, %for.cond ], [ 0, %sw.epilog ]
   %call43 = tail call ptr @OPENSSL_sk_value(ptr noundef %md_sk.0, i32 noundef %i.092) #4
-  %call44 = call fastcc i32 @pkcs7_bio_add_digest(ptr noundef nonnull %out, ptr noundef %call43, ptr noundef %call)
+  %call44 = call fastcc i32 @pkcs7_bio_add_digest(ptr noundef %out, ptr noundef %call43, ptr noundef %call)
   %tobool.not = icmp eq i32 %call44, 0
   br i1 %tobool.not, label %err, label %for.cond
 
@@ -281,7 +281,7 @@ for.end:                                          ; preds = %for.cond, %sw.epilo
   br i1 %tobool47.not, label %if.end51, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end
-  %call48 = call fastcc i32 @pkcs7_bio_add_digest(ptr noundef nonnull %out, ptr noundef nonnull %xa.0, ptr noundef %call)
+  %call48 = call fastcc i32 @pkcs7_bio_add_digest(ptr noundef %out, ptr noundef nonnull %xa.0, ptr noundef %call)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %err, label %if.end51
 
@@ -539,7 +539,7 @@ declare ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef) local_unnamed_addr #1
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pkcs7_bio_add_digest(ptr nocapture noundef %pbio, ptr nocapture noundef readonly %alg, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pkcs7_bio_add_digest(ptr nocapture noundef nonnull %pbio, ptr nocapture noundef readonly %alg, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %name = alloca [50 x i8], align 16
   %call = tail call ptr @BIO_f_md() #4
@@ -1032,7 +1032,7 @@ for.body144:                                      ; preds = %for.cond140.prehead
   store ptr %call, ptr %ctx, align 8
   %call147 = call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %cipher.0115132150) #4
   %conv = sext i32 %call147 to i64
-  %call148 = call fastcc i32 @pkcs7_decrypt_rinfo(ptr noundef nonnull %ek, ptr noundef nonnull %eklen, ptr noundef %call146, ptr noundef %pkey, i64 noundef %conv)
+  %call148 = call fastcc i32 @pkcs7_decrypt_rinfo(ptr noundef %ek, ptr noundef %eklen, ptr noundef %call146, ptr noundef %pkey, i64 noundef %conv)
   %cmp149 = icmp slt i32 %call148, 0
   br i1 %cmp149, label %err, label %if.end152
 
@@ -1046,7 +1046,7 @@ if.end152:                                        ; preds = %for.body144
 if.else156:                                       ; preds = %pkcs7_cmp_ri.exit
   %ctx157 = getelementptr inbounds i8, ptr %call126, i64 40
   store ptr %call, ptr %ctx157, align 8
-  %call158 = call fastcc i32 @pkcs7_decrypt_rinfo(ptr noundef nonnull %ek, ptr noundef nonnull %eklen, ptr noundef nonnull %call126, ptr noundef %pkey, i64 noundef 0)
+  %call158 = call fastcc i32 @pkcs7_decrypt_rinfo(ptr noundef %ek, ptr noundef %eklen, ptr noundef nonnull %call126, ptr noundef %pkey, i64 noundef 0)
   %cmp159 = icmp slt i32 %call158, 0
   br i1 %cmp159, label %err, label %if.end162
 
@@ -1228,7 +1228,7 @@ declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @pkcs7_decrypt_rinfo(ptr nocapture noundef %pek, ptr nocapture noundef %peklen, ptr nocapture noundef readonly %ri, ptr noundef %pkey, i64 noundef %fixlen) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @pkcs7_decrypt_rinfo(ptr nocapture noundef nonnull %pek, ptr nocapture noundef nonnull %peklen, ptr nocapture noundef readonly %ri, ptr noundef %pkey, i64 noundef range(i64 -2147483648, 2147483648) %fixlen) unnamed_addr #0 {
 entry:
   %ek = alloca ptr, align 8
   %eklen = alloca i64, align 8
@@ -1593,7 +1593,7 @@ if.end79:                                         ; preds = %for.body
   %42 = load ptr, ptr %digest_alg, align 8
   %43 = load ptr, ptr %42, align 8
   %call80 = call i32 @OBJ_obj2nid(ptr noundef %43) #4
-  %call81 = call fastcc ptr @PKCS7_find_digest(ptr noundef nonnull %mdc, ptr noundef %bio, i32 noundef %call80)
+  %call81 = call fastcc ptr @PKCS7_find_digest(ptr noundef %mdc, ptr noundef %bio, i32 noundef %call80)
   %cmp82 = icmp eq ptr %call81, null
   br i1 %cmp82, label %err, label %if.end84
 
@@ -1705,7 +1705,7 @@ if.then116:                                       ; preds = %if.then65, %land.lh
   %53 = load ptr, ptr %md, align 8
   %54 = load ptr, ptr %53, align 8
   %call119 = tail call i32 @OBJ_obj2nid(ptr noundef %54) #4
-  %call120 = call fastcc ptr @PKCS7_find_digest(ptr noundef nonnull %mdc, ptr noundef %bio, i32 noundef %call119)
+  %call120 = call fastcc ptr @PKCS7_find_digest(ptr noundef %mdc, ptr noundef %bio, i32 noundef %call119)
   %tobool121.not = icmp eq ptr %call120, null
   br i1 %tobool121.not, label %err, label %if.end123
 
@@ -1784,7 +1784,7 @@ declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #1
 declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @PKCS7_find_digest(ptr noundef %pmd, ptr noundef %bio, i32 noundef %nid) unnamed_addr #0 {
+define internal fastcc noundef ptr @PKCS7_find_digest(ptr noundef nonnull %pmd, ptr noundef %bio, i32 noundef %nid) unnamed_addr #0 {
 entry:
   %call9 = tail call ptr @BIO_find_type(ptr noundef %bio, i32 noundef 520) #4
   %cmp10 = icmp eq ptr %call9, null
@@ -1792,7 +1792,7 @@ entry:
 
 if.end:                                           ; preds = %entry, %if.end9
   %call11 = phi ptr [ %call, %if.end9 ], [ %call9, %entry ]
-  %call1 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call11, i32 noundef 120, i64 noundef 0, ptr noundef %pmd) #4
+  %call1 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call11, i32 noundef 120, i64 noundef 0, ptr noundef nonnull %pmd) #4
   %0 = load ptr, ptr %pmd, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return.sink.split, label %if.end4

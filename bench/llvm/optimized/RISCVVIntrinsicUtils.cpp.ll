@@ -3122,7 +3122,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   br label %116
 
 89:                                               ; preds = %68
-  call fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %0, ptr nonnull @.str.26, i64 5)
+  call fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %0, ptr nonnull @.str.26, i64 5)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
@@ -3148,21 +3148,21 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   br label %116
 
 106:                                              ; preds = %92
-  call fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr nonnull %0, ptr nonnull @.str.27, i64 6)
+  call fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias writable align 8 %8, ptr nonnull %0, ptr nonnull @.str.27, i64 6)
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %108 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %116
 
 109:                                              ; preds = %17
-  call fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr nonnull %0, ptr nonnull @.str.28, i64 3)
+  call fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %0, ptr nonnull @.str.28, i64 3)
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   br label %116
 
 112:                                              ; preds = %17
-  call fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr nonnull %0, ptr nonnull @.str.29, i64 4)
+  call fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias writable align 8 %10, ptr nonnull %0, ptr nonnull @.str.29, i64 4)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %114 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
@@ -3473,7 +3473,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.0.val, ptr %1, i64 %2) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN5clang5RISCV7RVVType11initTypeStrEvENK3$_0clB5cxx11EN4llvm9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.llvm::Twine", align 8
@@ -3517,7 +3517,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit18:                ; preds = %3
   store i8 2, ptr %31, align 8, !alias.scope !90
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 3, ptr %32, align 1, !alias.scope !90
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %6) #20
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %6) #20
   br label %85
 
 _ZN4llvmplERKNS_5TwineES2_.exit48:                ; preds = %3
@@ -3674,7 +3674,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit78:                ; preds = %_ZN4llvmplERKNS_5Tw
   store i8 %.sink48, ptr %81, align 8, !alias.scope !127
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 %.sink, ptr %82, align 1, !alias.scope !127
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %8) #20
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %8) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   br i1 %49, label %.critedge, label %83
 

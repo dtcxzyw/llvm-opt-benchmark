@@ -1403,7 +1403,7 @@ declare i32 @clearHTMLlexer() local_unnamed_addr #4
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #6 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 89) %1) unnamed_addr #6 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 

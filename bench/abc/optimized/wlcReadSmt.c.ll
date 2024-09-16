@@ -278,7 +278,7 @@ Smt_VecEntryName.exit153.thread.thread:           ; preds = %Smt_VecEntryName.ex
 96:                                               ; preds = %Smt_VecEntryName.exit153.thread.thread
   %.val24.i = load ptr, ptr %11, align 8
   %97 = tail call ptr @Abc_NamStr(ptr noundef %.val24.i, i32 noundef %95) #17
-  %98 = call fastcc i32 @Smt_StrToType(ptr noundef %97, ptr noundef nonnull %7)
+  %98 = call fastcc i32 @Smt_StrToType(ptr noundef %97, ptr noundef %7)
   br label %Smt_PrsReadType.exit
 
 99:                                               ; preds = %Smt_VecEntryName.exit153.thread.thread
@@ -315,7 +315,7 @@ Smt_VecEntryName.exit.i:                          ; preds = %105, %99
 
 Smt_VecEntryName.exit31.i:                        ; preds = %111, %Smt_VecEntryName.exit.i
   %114 = phi ptr [ %113, %111 ], [ null, %Smt_VecEntryName.exit.i ]
-  %115 = call fastcc i32 @Smt_StrToType(ptr noundef %114, ptr noundef nonnull %7)
+  %115 = call fastcc i32 @Smt_StrToType(ptr noundef %114, ptr noundef %7)
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %Smt_PrsReadType.exit, label %117
 
@@ -2944,7 +2944,7 @@ declare i32 @Wlc_ObjAlloc(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i3
 declare void @Wlc_NtkFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFill(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFill(ptr nocapture noundef %0, i32 noundef range(i32 -67108864, 67108865) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %4, %1
   br i1 %.not.i, label %5, label %Vec_IntGrow.exit
@@ -3450,7 +3450,7 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
 
 187:                                              ; preds = %163, %Smt_VecEntryName.exit
   store i32 0, ptr %8, align 4
-  %188 = call fastcc i32 @Smt_StrToType(ptr noundef nonnull %160, ptr noundef nonnull %8)
+  %188 = call fastcc i32 @Smt_StrToType(ptr noundef nonnull %160, ptr noundef %8)
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %.loopexit, label %190
 
@@ -3567,7 +3567,7 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
   br i1 %.not240, label %262, label %.loopexit
 
 262:                                              ; preds = %258
-  %263 = call fastcc i32 @Smt_StrToType(ptr noundef nonnull %93, ptr noundef nonnull %9)
+  %263 = call fastcc i32 @Smt_StrToType(ptr noundef nonnull %93, ptr noundef %9)
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %.loopexit, label %265
 
@@ -3804,7 +3804,7 @@ declare ptr @Wlc_ObjName(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 51) i32 @Smt_StrToType(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 51) i32 @Smt_StrToType(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
   store i32 0, ptr %1, align 4
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.16) #18
   %.not = icmp eq i32 %3, 0

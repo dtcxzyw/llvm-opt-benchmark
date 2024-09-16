@@ -375,7 +375,7 @@ gvconfig_libdir.exit:                             ; preds = %62, %66, %67
 
 76:                                               ; preds = %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr nonnull poison, ptr noundef %70, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr nonnull poison, ptr noundef %70, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4)
   %77 = getelementptr inbounds i8, ptr %6, i64 31
   %.val.i = load i8, ptr %77, align 1
   %.not.i38 = icmp eq i8 %.val.i, -1
@@ -403,7 +403,7 @@ agxbsizeof.exit.i.i:                              ; preds = %76
   br i1 %.not.i7.i, label %.thread.i, label %89
 
 89:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %77, align 1
   %.not.i16.i.i = icmp eq i8 %.val.i15.pre.i.i, -1
   br i1 %.not.i16.i.i, label %..thread_crit_edge.i, label %90
@@ -501,7 +501,7 @@ agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %ag
 gvconfig_libdir.exit.i:                           ; preds = %120, %119, %116
   %123 = phi ptr [ %.pre.i.i, %120 ], [ %117, %119 ], [ %117, %116 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, ptr noundef %123, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr nonnull poison, ptr noundef %123, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17)
   %124 = getelementptr inbounds i8, ptr %4, i64 31
   %.val.i.i.i.i = load i8, ptr %124, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
@@ -516,7 +516,7 @@ gvconfig_libdir.exit.i:                           ; preds = %120, %119, %116
   br i1 %.not.i.i.i, label %131, label %130
 
 130:                                              ; preds = %gvconfig_libdir.exit.i
-  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %124, align 1
   br label %131
 
@@ -1466,7 +1466,7 @@ declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_u
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1509,7 +1509,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -1615,7 +1615,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1660,7 +1660,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #24
   %26 = icmp eq ptr %25, null

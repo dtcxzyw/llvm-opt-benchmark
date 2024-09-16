@@ -5118,7 +5118,7 @@ if.then.i.i.i:                                    ; preds = %lpad.i
 
 invoke.cont7:                                     ; preds = %invoke.cont3
   %3 = load i64, ptr %batch, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19DoNonZeroERKSt6vectorINS_9ArraySpanESaIS4_EElPSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, i64 noundef %3, ptr noundef nonnull %result)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19DoNonZeroERKSt6vectorINS_9ArraySpanESaIS4_EElPSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, i64 noundef %3, ptr noundef %result)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad8
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont7
@@ -5426,7 +5426,7 @@ for.end:                                          ; preds = %_ZN5arrow9ArraySpan
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result, i8 0, i64 16, i1 false)
   %length_.i = getelementptr inbounds i8, ptr %2, i64 40
   %19 = load i64, ptr %length_.i, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19DoNonZeroERKSt6vectorINS_9ArraySpanESaIS4_EElPSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(24) %arrays, i64 noundef %19, ptr noundef nonnull %result)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19DoNonZeroERKSt6vectorINS_9ArraySpanESaIS4_EElPSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(24) %arrays, i64 noundef %19, ptr noundef %result)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad14
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %for.end
@@ -7747,7 +7747,7 @@ entry:
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19DoNonZeroERKSt6vectorINS_9ArraySpanESaIS4_EElPSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %arrays, i64 noundef %total_length, ptr noundef %out) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_19DoNonZeroERKSt6vectorINS_9ArraySpanESaIS4_EElPSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %arrays, i64 noundef %total_length, ptr noundef nonnull %out) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"class.arrow::NumericBuilder", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -7872,7 +7872,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
   store ptr %arrays, ptr %arrays3.i, align 8
   %10 = load ptr, ptr %arrays, align 8
   %11 = load ptr, ptr %10, align 8
-  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_7compute8internal12_GLOBAL__N_114NonZeroVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull %visitor)
+  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_7compute8internal12_GLOBAL__N_114NonZeroVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef %visitor)
           to label %_ZN5arrow6StatusD2Ev.exit82 unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit82:                      ; preds = %_ZN5arrow6StatusD2Ev.exit45
@@ -7884,7 +7884,7 @@ _ZN5arrow6StatusD2Ev.exit82:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i83, label %_ZN5arrow6StatusD2Ev.exit120, label %cleanup35
 
 _ZN5arrow6StatusD2Ev.exit120:                     ; preds = %_ZN5arrow6StatusD2Ev.exit82
-  invoke void @_ZN5arrow14NumericBuilderINS_10UInt64TypeEE14FinishInternalEPSt10shared_ptrINS_9ArrayDataEE(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %builder, ptr noundef %out)
+  invoke void @_ZN5arrow14NumericBuilderINS_10UInt64TypeEE14FinishInternalEPSt10shared_ptrINS_9ArrayDataEE(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %builder, ptr noundef nonnull %out)
           to label %cleanup35 unwind label %lpad
 
 cleanup35:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit82, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit120
@@ -8163,7 +8163,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 declare noundef ptr @_ZN5arrow19default_memory_poolEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_7compute8internal12_GLOBAL__N_114NonZeroVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr nocapture noundef readonly %visitor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_7compute8internal12_GLOBAL__N_114NonZeroVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr nocapture noundef nonnull readonly %visitor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i2005 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i2000 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8282,7 +8282,7 @@ sw.bb:                                            ; preds = %entry
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !55
   call void %1(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !55
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad.i2008, %lpad.i2003, %lpad.i1998, %lpad.i1993, %lpad.i1988, %lpad.i1983, %lpad.i1978, %lpad.i1973, %lpad.i1968, %lpad.i1963, %lpad.i1958, %lpad.i1953, %lpad.i1702, %lpad.i1697, %lpad.i1692, %lpad.i1687, %lpad.i1682, %lpad.i1677, %lpad.i1672, %lpad.i1667, %lpad.i1662, %lpad.i1657, %lpad.i1652, %lpad.i1647, %lpad.i1642, %lpad.i1637, %lpad.i1632, %lpad.i1627, %lpad.i
@@ -11723,7 +11723,7 @@ sw.bb26:                                          ; preds = %entry
   %vfn.i1626 = getelementptr inbounds i8, ptr %vtable.i1625, i64 32
   %571 = load ptr, ptr %vfn.i1626, align 8, !noalias !166
   call void %571(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1624, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !166
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1624)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1624)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1628 unwind label %lpad.i1627
 
 lpad.i1627:                                       ; preds = %sw.bb26
@@ -11742,7 +11742,7 @@ sw.bb28:                                          ; preds = %entry
   %vfn.i1631 = getelementptr inbounds i8, ptr %vtable.i1630, i64 32
   %573 = load ptr, ptr %vfn.i1631, align 8, !noalias !169
   call void %573(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1629, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !169
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1629)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1629)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1633 unwind label %lpad.i1632
 
 lpad.i1632:                                       ; preds = %sw.bb28
@@ -11761,7 +11761,7 @@ sw.bb30:                                          ; preds = %entry
   %vfn.i1636 = getelementptr inbounds i8, ptr %vtable.i1635, i64 32
   %575 = load ptr, ptr %vfn.i1636, align 8, !noalias !172
   call void %575(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1634, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !172
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1634)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1634)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1638 unwind label %lpad.i1637
 
 lpad.i1637:                                       ; preds = %sw.bb30
@@ -11780,7 +11780,7 @@ sw.bb32:                                          ; preds = %entry
   %vfn.i1641 = getelementptr inbounds i8, ptr %vtable.i1640, i64 32
   %577 = load ptr, ptr %vfn.i1641, align 8, !noalias !175
   call void %577(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1639, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !175
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1639)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1639)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1643 unwind label %lpad.i1642
 
 lpad.i1642:                                       ; preds = %sw.bb32
@@ -11799,7 +11799,7 @@ sw.bb34:                                          ; preds = %entry
   %vfn.i1646 = getelementptr inbounds i8, ptr %vtable.i1645, i64 32
   %579 = load ptr, ptr %vfn.i1646, align 8, !noalias !178
   call void %579(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1644, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !178
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1644)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1644)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1648 unwind label %lpad.i1647
 
 lpad.i1647:                                       ; preds = %sw.bb34
@@ -11818,7 +11818,7 @@ sw.bb36:                                          ; preds = %entry
   %vfn.i1651 = getelementptr inbounds i8, ptr %vtable.i1650, i64 32
   %581 = load ptr, ptr %vfn.i1651, align 8, !noalias !181
   call void %581(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1649, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !181
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1649)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1649)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1653 unwind label %lpad.i1652
 
 lpad.i1652:                                       ; preds = %sw.bb36
@@ -11837,7 +11837,7 @@ sw.bb38:                                          ; preds = %entry
   %vfn.i1656 = getelementptr inbounds i8, ptr %vtable.i1655, i64 32
   %583 = load ptr, ptr %vfn.i1656, align 8, !noalias !184
   call void %583(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1654, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !184
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1654)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1654)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1658 unwind label %lpad.i1657
 
 lpad.i1657:                                       ; preds = %sw.bb38
@@ -11856,7 +11856,7 @@ sw.bb40:                                          ; preds = %entry
   %vfn.i1661 = getelementptr inbounds i8, ptr %vtable.i1660, i64 32
   %585 = load ptr, ptr %vfn.i1661, align 8, !noalias !187
   call void %585(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1659, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !187
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1659)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1659)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1663 unwind label %lpad.i1662
 
 lpad.i1662:                                       ; preds = %sw.bb40
@@ -11875,7 +11875,7 @@ sw.bb42:                                          ; preds = %entry
   %vfn.i1666 = getelementptr inbounds i8, ptr %vtable.i1665, i64 32
   %587 = load ptr, ptr %vfn.i1666, align 8, !noalias !190
   call void %587(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1664, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !190
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1664)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1664)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1668 unwind label %lpad.i1667
 
 lpad.i1667:                                       ; preds = %sw.bb42
@@ -11894,7 +11894,7 @@ sw.bb44:                                          ; preds = %entry
   %vfn.i1671 = getelementptr inbounds i8, ptr %vtable.i1670, i64 32
   %589 = load ptr, ptr %vfn.i1671, align 8, !noalias !193
   call void %589(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1669, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !193
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1669)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1669)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1673 unwind label %lpad.i1672
 
 lpad.i1672:                                       ; preds = %sw.bb44
@@ -11913,7 +11913,7 @@ sw.bb46:                                          ; preds = %entry
   %vfn.i1676 = getelementptr inbounds i8, ptr %vtable.i1675, i64 32
   %591 = load ptr, ptr %vfn.i1676, align 8, !noalias !196
   call void %591(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1674, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !196
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1674)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1674)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1678 unwind label %lpad.i1677
 
 lpad.i1677:                                       ; preds = %sw.bb46
@@ -11932,7 +11932,7 @@ sw.bb48:                                          ; preds = %entry
   %vfn.i1681 = getelementptr inbounds i8, ptr %vtable.i1680, i64 32
   %593 = load ptr, ptr %vfn.i1681, align 8, !noalias !199
   call void %593(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1679, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !199
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1679)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1679)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1683 unwind label %lpad.i1682
 
 lpad.i1682:                                       ; preds = %sw.bb48
@@ -11951,7 +11951,7 @@ sw.bb50:                                          ; preds = %entry
   %vfn.i1686 = getelementptr inbounds i8, ptr %vtable.i1685, i64 32
   %595 = load ptr, ptr %vfn.i1686, align 8, !noalias !202
   call void %595(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1684, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !202
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1684)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1684)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1688 unwind label %lpad.i1687
 
 lpad.i1687:                                       ; preds = %sw.bb50
@@ -11970,7 +11970,7 @@ sw.bb52:                                          ; preds = %entry
   %vfn.i1691 = getelementptr inbounds i8, ptr %vtable.i1690, i64 32
   %597 = load ptr, ptr %vfn.i1691, align 8, !noalias !205
   call void %597(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1689, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !205
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1689)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1689)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1693 unwind label %lpad.i1692
 
 lpad.i1692:                                       ; preds = %sw.bb52
@@ -11989,7 +11989,7 @@ sw.bb54:                                          ; preds = %entry
   %vfn.i1696 = getelementptr inbounds i8, ptr %vtable.i1695, i64 32
   %599 = load ptr, ptr %vfn.i1696, align 8, !noalias !208
   call void %599(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1694, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !208
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1694)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1694)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1698 unwind label %lpad.i1697
 
 lpad.i1697:                                       ; preds = %sw.bb54
@@ -12008,7 +12008,7 @@ sw.bb56:                                          ; preds = %entry
   %vfn.i1701 = getelementptr inbounds i8, ptr %vtable.i1700, i64 32
   %601 = load ptr, ptr %vfn.i1701, align 8, !noalias !211
   call void %601(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1699, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !211
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1699)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1699)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1703 unwind label %lpad.i1702
 
 lpad.i1702:                                       ; preds = %sw.bb56
@@ -12669,7 +12669,7 @@ sw.bb62:                                          ; preds = %entry
   %vfn.i1952 = getelementptr inbounds i8, ptr %vtable.i1951, i64 32
   %703 = load ptr, ptr %vfn.i1952, align 8, !noalias !232
   call void %703(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1950, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !232
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1950)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1950)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1954 unwind label %lpad.i1953
 
 lpad.i1953:                                       ; preds = %sw.bb62
@@ -12688,7 +12688,7 @@ sw.bb64:                                          ; preds = %entry
   %vfn.i1957 = getelementptr inbounds i8, ptr %vtable.i1956, i64 32
   %705 = load ptr, ptr %vfn.i1957, align 8, !noalias !235
   call void %705(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1955, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !235
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1955)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1955)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1959 unwind label %lpad.i1958
 
 lpad.i1958:                                       ; preds = %sw.bb64
@@ -12707,7 +12707,7 @@ sw.bb66:                                          ; preds = %entry
   %vfn.i1962 = getelementptr inbounds i8, ptr %vtable.i1961, i64 32
   %707 = load ptr, ptr %vfn.i1962, align 8, !noalias !238
   call void %707(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1960, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !238
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1960)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1960)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1964 unwind label %lpad.i1963
 
 lpad.i1963:                                       ; preds = %sw.bb66
@@ -12726,7 +12726,7 @@ sw.bb68:                                          ; preds = %entry
   %vfn.i1967 = getelementptr inbounds i8, ptr %vtable.i1966, i64 32
   %709 = load ptr, ptr %vfn.i1967, align 8, !noalias !241
   call void %709(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1965, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !241
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1965)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1965)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1969 unwind label %lpad.i1968
 
 lpad.i1968:                                       ; preds = %sw.bb68
@@ -12745,7 +12745,7 @@ sw.bb70:                                          ; preds = %entry
   %vfn.i1972 = getelementptr inbounds i8, ptr %vtable.i1971, i64 32
   %711 = load ptr, ptr %vfn.i1972, align 8, !noalias !244
   call void %711(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1970, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !244
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1970)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1970)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1974 unwind label %lpad.i1973
 
 lpad.i1973:                                       ; preds = %sw.bb70
@@ -12764,7 +12764,7 @@ sw.bb72:                                          ; preds = %entry
   %vfn.i1977 = getelementptr inbounds i8, ptr %vtable.i1976, i64 32
   %713 = load ptr, ptr %vfn.i1977, align 8, !noalias !247
   call void %713(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1975, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !247
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1975)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1975)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1979 unwind label %lpad.i1978
 
 lpad.i1978:                                       ; preds = %sw.bb72
@@ -12783,7 +12783,7 @@ sw.bb74:                                          ; preds = %entry
   %vfn.i1982 = getelementptr inbounds i8, ptr %vtable.i1981, i64 32
   %715 = load ptr, ptr %vfn.i1982, align 8, !noalias !250
   call void %715(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1980, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !250
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1980)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1980)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1984 unwind label %lpad.i1983
 
 lpad.i1983:                                       ; preds = %sw.bb74
@@ -12802,7 +12802,7 @@ sw.bb76:                                          ; preds = %entry
   %vfn.i1987 = getelementptr inbounds i8, ptr %vtable.i1986, i64 32
   %717 = load ptr, ptr %vfn.i1987, align 8, !noalias !253
   call void %717(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1985, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !253
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1985)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1985)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1989 unwind label %lpad.i1988
 
 lpad.i1988:                                       ; preds = %sw.bb76
@@ -12821,7 +12821,7 @@ sw.bb78:                                          ; preds = %entry
   %vfn.i1992 = getelementptr inbounds i8, ptr %vtable.i1991, i64 32
   %719 = load ptr, ptr %vfn.i1992, align 8, !noalias !256
   call void %719(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1990, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !256
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1990)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1990)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1994 unwind label %lpad.i1993
 
 lpad.i1993:                                       ; preds = %sw.bb78
@@ -12840,7 +12840,7 @@ sw.bb80:                                          ; preds = %entry
   %vfn.i1997 = getelementptr inbounds i8, ptr %vtable.i1996, i64 32
   %721 = load ptr, ptr %vfn.i1997, align 8, !noalias !259
   call void %721(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i1995, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !259
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1995)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1995)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1999 unwind label %lpad.i1998
 
 lpad.i1998:                                       ; preds = %sw.bb80
@@ -12859,7 +12859,7 @@ sw.bb82:                                          ; preds = %entry
   %vfn.i2002 = getelementptr inbounds i8, ptr %vtable.i2001, i64 32
   %723 = load ptr, ptr %vfn.i2002, align 8, !noalias !262
   call void %723(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i2000, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !262
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2000)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2000)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit2004 unwind label %lpad.i2003
 
 lpad.i2003:                                       ; preds = %sw.bb82
@@ -12878,7 +12878,7 @@ sw.bb84:                                          ; preds = %entry
   %vfn.i2007 = getelementptr inbounds i8, ptr %vtable.i2006, i64 32
   %725 = load ptr, ptr %vfn.i2007, align 8, !noalias !265
   call void %725(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i2005, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !265
-  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2005)
+  invoke void @_ZN5arrow6Status8FromArgsIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2005)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit2009 unwind label %lpad.i2008
 
 lpad.i2008:                                       ; preds = %sw.bb84
@@ -12892,7 +12892,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.e
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.26)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.26)
   br label %return
 
 return:                                           ; preds = %sw.epilog, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit2009, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit2004, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1999, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1994, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1989, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1984, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1979, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1974, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1969, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1964, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1959, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1954, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_14Decimal256TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_14Decimal128TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1703, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1698, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1693, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1688, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1683, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1678, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1673, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1668, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1663, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1658, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1653, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1648, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1643, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1638, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1633, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit1628, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_10DoubleTypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9FloatTypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitINS_11BooleanTypeEEENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS7_EE5valuesr15is_boolean_typeIS7_EE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow7compute8internal12_GLOBAL__N_114NonZeroVisitor5VisitERKNS_8DataTypeE.exit

@@ -1924,7 +1924,7 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i: ; 
   br i1 %89, label %90, label %thread-pre-split
 
 90:                                               ; preds = %.critedge
-  %91 = call fastcc noundef ptr @_ZL23getPreferredVectorIndexPN4llvm11ConstantIntE(ptr noundef nonnull %34)
+  %91 = call fastcc noundef ptr @_ZL23getPreferredVectorIndexPN4llvm11ConstantIntE(ptr noundef %34)
   %.not201 = icmp eq ptr %91, null
   br i1 %.not201, label %137, label %92
 
@@ -2748,7 +2748,7 @@ _ZN4llvm5APIntD2Ev.exit263:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %.not215.not, label %.critedge217, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
 _ZNK4llvm5Value9hasOneUseEv.exit257.thread:       ; preds = %480, %_ZNK4llvm5Value9hasOneUseEv.exit257
-  call fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull %32)
+  call fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull %32)
   %532 = call noundef zeroext i1 @_ZNK4llvm5APInt9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(12) %28)
   br i1 %532, label %_ZN4llvm5APIntD2Ev.exit266, label %533
 
@@ -2862,7 +2862,7 @@ declare noundef ptr @_ZN4llvm26simplifyExtractElementInstEPNS_5ValueES1_RKNS_13S
 declare hidden noundef ptr @_ZN4llvm16InstCombinerImpl16FoldOpIntoSelectERNS_11InstructionEPNS_10SelectInstEb(ptr noundef nonnull align 8 dereferenceable(1088), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL23getPreferredVectorIndexPN4llvm11ConstantIntE(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL23getPreferredVectorIndexPN4llvm11ConstantIntE(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %"class.llvm::APInt", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
@@ -3166,7 +3166,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %8
 declare hidden noundef ptr @_ZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jb(ptr noundef nonnull align 8 dereferenceable(1088), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef, i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -5382,7 +5382,7 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i: ; 
   br i1 %.not225, label %75, label %.critedge
 
 75:                                               ; preds = %73
-  %76 = call fastcc noundef ptr @_ZL23getPreferredVectorIndexPN4llvm11ConstantIntE(ptr noundef nonnull %37)
+  %76 = call fastcc noundef ptr @_ZL23getPreferredVectorIndexPN4llvm11ConstantIntE(ptr noundef %37)
   %.not108 = icmp eq ptr %76, null
   br i1 %.not108, label %122, label %77
 
@@ -6857,7 +6857,7 @@ define internal fastcc { ptr, ptr } @_ZL22collectShuffleElementsPN4llvm5ValueERN
   br i1 %.not64, label %66, label %59
 
 59:                                               ; preds = %52
-  %60 = tail call fastcc noundef zeroext i1 @_ZL22replaceExtractElementsPN4llvm17InsertElementInstEPNS_18ExtractElementInstERNS_16InstCombinerImplE(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(1088) %3)
+  %60 = tail call fastcc noundef zeroext i1 @_ZL22replaceExtractElementsPN4llvm17InsertElementInstEPNS_18ExtractElementInstERNS_16InstCombinerImplE(ptr noundef %0, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(1088) %3)
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %59
@@ -8763,7 +8763,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_14BinaryOperatorEEEEEbPT_
   %or.cond = or i1 %341, %342
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %344 = load ptr, ptr %343, align 8
-  call fastcc void @_ZL17getAlternateBinopPN4llvm14BinaryOperatorERKNS_10DataLayoutE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull %300, ptr noundef nonnull align 8 dereferenceable(512) %344)
+  call fastcc void @_ZL17getAlternateBinopPN4llvm14BinaryOperatorERKNS_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull %300, ptr noundef nonnull align 8 dereferenceable(512) %344)
   %345 = load i32, ptr %16, align 8
   %.not157 = icmp eq i32 %345, 0
   br i1 %.not157, label %349, label %346
@@ -8776,7 +8776,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_14BinaryOperatorEEEEEbPT_
 
 349:                                              ; preds = %340
   %350 = load ptr, ptr %343, align 8
-  call fastcc void @_ZL17getAlternateBinopPN4llvm14BinaryOperatorERKNS_10DataLayoutE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull %307, ptr noundef nonnull align 8 dereferenceable(512) %350)
+  call fastcc void @_ZL17getAlternateBinopPN4llvm14BinaryOperatorERKNS_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull %307, ptr noundef nonnull align 8 dereferenceable(512) %350)
   %351 = load i32, ptr %17, align 8
   %.not158 = icmp eq i32 %351, 0
   br i1 %.not158, label %355, label %352
@@ -8993,7 +8993,7 @@ _ZN4llvm12PatternMatch16match_combine_orINS0_17AnyBinaryOp_matchINS0_7bind_tyINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getAlternateBinopPN4llvm14BinaryOperatorERKNS_10DataLayoutE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(512) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17getAlternateBinopPN4llvm14BinaryOperatorERKNS_10DataLayoutE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(512) %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 -64
   %6 = load ptr, ptr %5, align 8
@@ -12913,7 +12913,7 @@ define internal fastcc noundef ptr @_ZL26foldIdentityPaddedShufflesRN4llvm17Shuf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19canEvaluateShuffledPN4llvm5ValueENS_8ArrayRefIiEEj(ptr noundef readonly %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19canEvaluateShuffledPN4llvm5ValueENS_8ArrayRefIiEEj(ptr noundef readonly %0, ptr %1, i64 %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::ArrayRef.127", align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15429,7 +15429,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE13growAndAssignEmi.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL22replaceExtractElementsPN4llvm17InsertElementInstEPNS_18ExtractElementInstERNS_16InstCombinerImplE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(1088) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL22replaceExtractElementsPN4llvm17InsertElementInstEPNS_18ExtractElementInstERNS_16InstCombinerImplE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(1088) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector.123", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::InsertPosition", align 8

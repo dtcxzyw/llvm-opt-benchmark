@@ -212,7 +212,7 @@ define dso_local i32 @reuseport_alloc(ptr noundef %0, i1 noundef zeroext %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = icmp eq ptr %1, %2
   br i1 %5, label %6, label %55
 
@@ -437,7 +437,7 @@ define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef %1, 
   br i1 %148, label %149, label %.thread16
 
 149:                                              ; preds = %140
-  tail call void @call_rcu(ptr noundef %1, ptr noundef nonnull @reuseport_free_rcu) #8
+  tail call void @call_rcu(ptr noundef nonnull %1, ptr noundef nonnull @reuseport_free_rcu) #8
   br label %.thread16
 
 .thread16:                                        ; preds = %57, %66, %149, %140, %86, %51, %.thread

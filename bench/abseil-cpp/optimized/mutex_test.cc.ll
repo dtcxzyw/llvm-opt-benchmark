@@ -1175,7 +1175,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_119CondVarWaitDeadlockEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_119CondVarWaitDeadlockEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -1623,7 +1623,7 @@ _ZNK7testing22PrintToStringParamNameclIiEENSt7__cxx1112basic_stringIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
@@ -1894,7 +1894,7 @@ if.end25:                                         ; preds = %_ZNSt6vectorIPN7tes
 define internal void @_ZN12_GLOBAL__N_135gtest_AllTimeoutTest_EvalGenerator_Ev(ptr noalias nocapture writeonly sret(%"class.testing::internal::ParamGenerator.42") align 8 %agg.result) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.275", align 8
-  call fastcc void @_ZN12_GLOBAL__N_126MakeTimeoutTestParamValuesEv(ptr noalias nonnull align 8 %ref.tmp)
+  call fastcc void @_ZN12_GLOBAL__N_126MakeTimeoutTestParamValuesEv(ptr noalias align 8 %ref.tmp)
   %ref.tmp.val4 = load ptr, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val5 = load ptr, ptr %0, align 8
@@ -1936,7 +1936,7 @@ entry:
   br i1 %call.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZN12_GLOBAL__N_126MakeTimeoutTestParamValuesEv(ptr noalias nonnull align 8 %ref.tmp1)
+  call fastcc void @_ZN12_GLOBAL__N_126MakeTimeoutTestParamValuesEv(ptr noalias align 8 %ref.tmp1)
   %ref.tmp1.val6 = load ptr, ptr %ref.tmp1, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %ref.tmp1.val7 = load ptr, ptr %0, align 8
@@ -2176,7 +2176,7 @@ _ZN7testing8internal16DefaultParamNameIN12_GLOBAL__N_116TimeoutTestParamEEENSt7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -12946,7 +12946,7 @@ _ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_116TimeoutTe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126MakeTimeoutTestParamValuesEv(ptr noalias nocapture align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_126MakeTimeoutTestParamValuesEv(ptr noalias nocapture nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN4abslngENS_8DurationE.exit:
   %lhs.i = alloca %"class.absl::Duration", align 8
   %rhs.i = alloca %"class.absl::Duration", align 8
@@ -14389,7 +14389,7 @@ declare void @_ZNK7testing7Message9GetStringB5cxx11Ev(ptr sret(%"class.std::__cx
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef %meta_factory, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -18526,7 +18526,7 @@ _ZN7testing8internal27CheckedDowncastToActualTypeIKNS0_30ValuesInIteratorRangeGe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef %meta_factory, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -19070,7 +19070,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_16TestMuEPNS_11TestContextEi, i32 noundef %0, i32 noundef %div)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_16TestMuEPNS_11TestContextEi, i32 noundef %0, i32 noundef %div)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   %cmp.i.i = icmp eq i32 %call.i, %mul
@@ -19360,7 +19360,7 @@ entry:
   %mu.i = getelementptr inbounds i8, ptr %cxt, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i, i8 0, i64 16, i1 false)
   call void @_ZN4absl5Mutex24EnableInvariantDebuggingEPFvPvES1_(ptr noundef nonnull align 8 dereferenceable(8) %mu.i, ptr noundef nonnull @_ZN12_GLOBAL__N_112CheckSumG0G1EPv, ptr noundef nonnull %cxt)
-  %call = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt, ptr noundef %test, i32 noundef %threads, i32 noundef %iterations)
+  %call = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt, ptr noundef %test, i32 noundef %threads, i32 noundef %iterations)
   %0 = load atomic i8, ptr @_ZN12_GLOBAL__N_117invariant_checkedE.0 monotonic, align 1
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %cleanup.done, label %cond.false
@@ -19424,7 +19424,7 @@ while.end:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt, ptr noundef %test, i32 noundef %threads, i32 noundef %iterations) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt, ptr noundef %test, i32 noundef %threads, i32 noundef %iterations) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %mu2 = alloca %"class.absl::Mutex", align 8
   %cv2 = alloca %"class.absl::CondVar", align 8
@@ -19916,7 +19916,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_17TestTryEPNS_11TestContextEi, i32 noundef %0, i32 noundef %div)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_17TestTryEPNS_11TestContextEi, i32 noundef %0, i32 noundef %div)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   %cmp.i.i = icmp eq i32 %call.i, %mul
@@ -20283,7 +20283,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_19TestR20msEPNS_11TestContextEi, i32 noundef %0, i32 noundef 100)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_19TestR20msEPNS_11TestContextEi, i32 noundef %0, i32 noundef 100)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   store i32 0, ptr %ref.tmp3, align 4
@@ -20565,7 +20565,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_16TestRWEPNS_11TestContextEi, i32 noundef %0, i32 noundef %div)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_16TestRWEPNS_11TestContextEi, i32 noundef %0, i32 noundef %div)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   %div5 = sdiv i32 %mul, 2
@@ -21064,7 +21064,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_19TestAwaitEPNS_11TestContextEi, i32 noundef %0, i32 noundef 500000)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_19TestAwaitEPNS_11TestContextEi, i32 noundef %0, i32 noundef 500000)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   %cmp.i.i = icmp eq i32 %call.i, 500000
@@ -21464,7 +21464,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_113TestSignalAllEPNS_11TestContextEi, i32 noundef %0, i32 noundef %div)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_113TestSignalAllEPNS_11TestContextEi, i32 noundef %0, i32 noundef %div)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   %cmp.i.i = icmp eq i32 %call.i, %div
@@ -21760,7 +21760,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_110TestSignalEPNS_11TestContextEi, i32 noundef 2, i32 noundef 200000)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_110TestSignalEPNS_11TestContextEi, i32 noundef 2, i32 noundef 200000)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   %cmp.i.i = icmp eq i32 %call.i, 200000
@@ -22073,7 +22073,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_113TestCVTimeoutEPNS_11TestContextEi, i32 noundef 10, i32 noundef 1000)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_113TestCVTimeoutEPNS_11TestContextEi, i32 noundef 10, i32 noundef 1000)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   %cmp.i.i = icmp eq i32 %call.i, 1000
@@ -22368,7 +22368,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_110TestCVTimeEPNS_11TestContextEi, i32 noundef 10, i32 noundef 1)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_110TestCVTimeEPNS_11TestContextEi, i32 noundef 10, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   store i32 10, ptr %ref.tmp2, align 4
@@ -23696,7 +23696,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cxt.i)
   %mu.i.i = getelementptr inbounds i8, ptr %cxt.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu.i.i, i8 0, i64 16, i1 false)
-  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_110TestMuTimeEPNS_11TestContextEi, i32 noundef 10, i32 noundef 1)
+  %call.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef %cxt.i, ptr noundef nonnull @_ZN12_GLOBAL__N_110TestMuTimeEPNS_11TestContextEi, i32 noundef 10, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cxt.i)
   store i32 %call.i, ptr %ref.tmp, align 4
   store i32 10, ptr %ref.tmp2, align 4
@@ -31824,7 +31824,7 @@ invoke.cont.i.i:                                  ; preds = %.noexc.i.i
 invoke.cont4.i.i:                                 ; preds = %invoke.cont.i.i
   %line.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 32
   store i32 588, ptr %line.i.i.i, align 8
-  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_119CondVarWaitDeadlockEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef nonnull %agg.tmp.i.i)
+  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_119CondVarWaitDeadlockEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef %agg.tmp.i.i)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont4.i.i
@@ -32243,7 +32243,7 @@ invoke.cont.i60:                                  ; preds = %.noexc.i58
 invoke.cont4.i:                                   ; preds = %invoke.cont.i60
   %line.i.i63 = getelementptr inbounds i8, ptr %agg.tmp.i52, i64 32
   store i32 618, ptr %line.i.i63, align 8
-  %call7.i64 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_119CondVarWaitDeadlockEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef nonnull %agg.tmp.i52)
+  %call7.i64 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_119CondVarWaitDeadlockEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef %agg.tmp.i52)
           to label %invoke.cont6.i66 unwind label %lpad5.i
 
 invoke.cont6.i66:                                 ; preds = %invoke.cont4.i
@@ -33693,7 +33693,7 @@ invoke.cont.i504:                                 ; preds = %.noexc.i502
 invoke.cont4.i508:                                ; preds = %invoke.cont.i504
   %line.i.i509 = getelementptr inbounds i8, ptr %agg.tmp.i490, i64 32
   store i32 1546, ptr %line.i.i509, align 8
-  %call7.i510 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i496, ptr noundef nonnull %agg.tmp.i490)
+  %call7.i510 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i496, ptr noundef %agg.tmp.i490)
           to label %invoke.cont6.i514 unwind label %lpad5.i511
 
 invoke.cont6.i514:                                ; preds = %invoke.cont4.i508
@@ -33933,7 +33933,7 @@ invoke.cont.i.i589:                               ; preds = %.noexc.i.i587
 invoke.cont4.i.i593:                              ; preds = %invoke.cont.i.i589
   %line.i.i.i594 = getelementptr inbounds i8, ptr %agg.tmp.i.i574, i64 32
   store i32 1548, ptr %line.i.i.i594, align 8
-  %call7.i.i595 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i581, ptr noundef nonnull %agg.tmp.i.i574)
+  %call7.i.i595 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i581, ptr noundef %agg.tmp.i.i574)
           to label %invoke.cont6.i.i599 unwind label %lpad5.i.i596
 
 invoke.cont6.i.i599:                              ; preds = %invoke.cont4.i.i593
@@ -33967,7 +33967,7 @@ invoke.cont14.i.i609:                             ; preds = %.noexc13.i.i607
 invoke.cont16.i.i613:                             ; preds = %invoke.cont14.i.i609
   %line.i16.i.i614 = getelementptr inbounds i8, ptr %agg.tmp10.i.i577, i64 32
   store i32 1548, ptr %line.i16.i.i614, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i595, ptr noundef nonnull @.str.138, ptr noundef nonnull %call9.i.i600, ptr noundef nonnull %agg.tmp10.i.i577)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i595, ptr noundef nonnull @.str.138, ptr noundef %call9.i.i600, ptr noundef %agg.tmp10.i.i577)
           to label %__cxx_global_var_init.47.exit unwind label %lpad17.i.i615
 
 lpad.i.i583:                                      ; preds = %call.i.noexc.i.i586, %__cxx_global_var_init.44.exit
@@ -34067,7 +34067,7 @@ invoke.cont.i.i631:                               ; preds = %.noexc.i.i629
 invoke.cont4.i.i635:                              ; preds = %invoke.cont.i.i631
   %line.i.i.i636 = getelementptr inbounds i8, ptr %agg.tmp.i.i616, i64 32
   store i32 1582, ptr %line.i.i.i636, align 8
-  %call7.i.i637 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i623, ptr noundef nonnull %agg.tmp.i.i616)
+  %call7.i.i637 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i623, ptr noundef %agg.tmp.i.i616)
           to label %invoke.cont6.i.i641 unwind label %lpad5.i.i638
 
 invoke.cont6.i.i641:                              ; preds = %invoke.cont4.i.i635
@@ -34101,7 +34101,7 @@ invoke.cont14.i.i651:                             ; preds = %.noexc13.i.i649
 invoke.cont16.i.i655:                             ; preds = %invoke.cont14.i.i651
   %line.i16.i.i656 = getelementptr inbounds i8, ptr %agg.tmp10.i.i619, i64 32
   store i32 1582, ptr %line.i16.i.i656, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i637, ptr noundef nonnull @.str.15, ptr noundef nonnull %call9.i.i642, ptr noundef nonnull %agg.tmp10.i.i619)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i637, ptr noundef nonnull @.str.15, ptr noundef %call9.i.i642, ptr noundef %agg.tmp10.i.i619)
           to label %__cxx_global_var_init.48.exit unwind label %lpad17.i.i657
 
 lpad.i.i625:                                      ; preds = %call.i.noexc.i.i628, %__cxx_global_var_init.47.exit
@@ -34201,7 +34201,7 @@ invoke.cont.i.i673:                               ; preds = %.noexc.i.i671
 invoke.cont4.i.i677:                              ; preds = %invoke.cont.i.i673
   %line.i.i.i678 = getelementptr inbounds i8, ptr %agg.tmp.i.i658, i64 32
   store i32 1617, ptr %line.i.i.i678, align 8
-  %call7.i.i679 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i665, ptr noundef nonnull %agg.tmp.i.i658)
+  %call7.i.i679 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i665, ptr noundef %agg.tmp.i.i658)
           to label %invoke.cont6.i.i683 unwind label %lpad5.i.i680
 
 invoke.cont6.i.i683:                              ; preds = %invoke.cont4.i.i677
@@ -34235,7 +34235,7 @@ invoke.cont14.i.i693:                             ; preds = %.noexc13.i.i691
 invoke.cont16.i.i697:                             ; preds = %invoke.cont14.i.i693
   %line.i16.i.i698 = getelementptr inbounds i8, ptr %agg.tmp10.i.i661, i64 32
   store i32 1617, ptr %line.i16.i.i698, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i679, ptr noundef nonnull @.str.155, ptr noundef nonnull %call9.i.i684, ptr noundef nonnull %agg.tmp10.i.i661)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i679, ptr noundef nonnull @.str.155, ptr noundef %call9.i.i684, ptr noundef %agg.tmp10.i.i661)
           to label %__cxx_global_var_init.49.exit unwind label %lpad17.i.i699
 
 lpad.i.i667:                                      ; preds = %call.i.noexc.i.i670, %__cxx_global_var_init.48.exit
@@ -34335,7 +34335,7 @@ invoke.cont.i.i715:                               ; preds = %.noexc.i.i713
 invoke.cont4.i.i719:                              ; preds = %invoke.cont.i.i715
   %line.i.i.i720 = getelementptr inbounds i8, ptr %agg.tmp.i.i700, i64 32
   store i32 1653, ptr %line.i.i.i720, align 8
-  %call7.i.i721 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i707, ptr noundef nonnull %agg.tmp.i.i700)
+  %call7.i.i721 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_111TimeoutTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i707, ptr noundef %agg.tmp.i.i700)
           to label %invoke.cont6.i.i725 unwind label %lpad5.i.i722
 
 invoke.cont6.i.i725:                              ; preds = %invoke.cont4.i.i719
@@ -34369,7 +34369,7 @@ invoke.cont14.i.i735:                             ; preds = %.noexc13.i.i733
 invoke.cont16.i.i739:                             ; preds = %invoke.cont14.i.i735
   %line.i16.i.i740 = getelementptr inbounds i8, ptr %agg.tmp10.i.i703, i64 32
   store i32 1653, ptr %line.i16.i.i740, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i721, ptr noundef nonnull @.str.156, ptr noundef nonnull %call9.i.i726, ptr noundef nonnull %agg.tmp10.i.i703)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16TimeoutTestParamEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i721, ptr noundef nonnull @.str.156, ptr noundef %call9.i.i726, ptr noundef %agg.tmp10.i.i703)
           to label %__cxx_global_var_init.50.exit unwind label %lpad17.i.i741
 
 lpad.i.i709:                                      ; preds = %call.i.noexc.i.i712, %__cxx_global_var_init.49.exit
@@ -34699,7 +34699,7 @@ invoke.cont.i835:                                 ; preds = %.noexc.i833
 invoke.cont4.i839:                                ; preds = %invoke.cont.i835
   %line.i.i840 = getelementptr inbounds i8, ptr %agg.tmp.i821, i64 32
   store i32 1755, ptr %line.i.i840, align 8
-  %call7.i841 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i827, ptr noundef nonnull %agg.tmp.i821)
+  %call7.i841 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i827, ptr noundef %agg.tmp.i821)
           to label %invoke.cont6.i845 unwind label %lpad5.i842
 
 invoke.cont6.i845:                                ; preds = %invoke.cont4.i839
@@ -34939,7 +34939,7 @@ invoke.cont.i.i920:                               ; preds = %.noexc.i.i918
 invoke.cont4.i.i924:                              ; preds = %invoke.cont.i.i920
   %line.i.i.i925 = getelementptr inbounds i8, ptr %agg.tmp.i.i905, i64 32
   store i32 1770, ptr %line.i.i.i925, align 8
-  %call7.i.i926 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i912, ptr noundef nonnull %agg.tmp.i.i905)
+  %call7.i.i926 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i912, ptr noundef %agg.tmp.i.i905)
           to label %invoke.cont6.i.i930 unwind label %lpad5.i.i927
 
 invoke.cont6.i.i930:                              ; preds = %invoke.cont4.i.i924
@@ -34973,7 +34973,7 @@ invoke.cont14.i.i940:                             ; preds = %.noexc13.i.i938
 invoke.cont16.i.i944:                             ; preds = %invoke.cont14.i.i940
   %line.i16.i.i945 = getelementptr inbounds i8, ptr %agg.tmp10.i.i908, i64 32
   store i32 1770, ptr %line.i16.i.i945, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i926, ptr noundef nonnull @.str, ptr noundef nonnull %call9.i.i931, ptr noundef nonnull %agg.tmp10.i.i908)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i926, ptr noundef nonnull @.str, ptr noundef %call9.i.i931, ptr noundef %agg.tmp10.i.i908)
           to label %__cxx_global_var_init.60.exit unwind label %lpad17.i.i946
 
 lpad.i.i914:                                      ; preds = %call.i.noexc.i.i917, %__cxx_global_var_init.57.exit
@@ -35073,7 +35073,7 @@ invoke.cont.i.i962:                               ; preds = %.noexc.i.i960
 invoke.cont4.i.i966:                              ; preds = %invoke.cont.i.i962
   %line.i.i.i967 = getelementptr inbounds i8, ptr %agg.tmp.i.i947, i64 32
   store i32 1784, ptr %line.i.i.i967, align 8
-  %call7.i.i968 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i954, ptr noundef nonnull %agg.tmp.i.i947)
+  %call7.i.i968 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i954, ptr noundef %agg.tmp.i.i947)
           to label %invoke.cont6.i.i972 unwind label %lpad5.i.i969
 
 invoke.cont6.i.i972:                              ; preds = %invoke.cont4.i.i966
@@ -35107,7 +35107,7 @@ invoke.cont14.i.i982:                             ; preds = %.noexc13.i.i980
 invoke.cont16.i.i986:                             ; preds = %invoke.cont14.i.i982
   %line.i16.i.i987 = getelementptr inbounds i8, ptr %agg.tmp10.i.i950, i64 32
   store i32 1784, ptr %line.i16.i.i987, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i968, ptr noundef nonnull @.str.167, ptr noundef nonnull %call9.i.i973, ptr noundef nonnull %agg.tmp10.i.i950)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i968, ptr noundef nonnull @.str.167, ptr noundef %call9.i.i973, ptr noundef %agg.tmp10.i.i950)
           to label %__cxx_global_var_init.61.exit unwind label %lpad17.i.i988
 
 lpad.i.i956:                                      ; preds = %call.i.noexc.i.i959, %__cxx_global_var_init.60.exit
@@ -35207,7 +35207,7 @@ invoke.cont.i.i1004:                              ; preds = %.noexc.i.i1002
 invoke.cont4.i.i1008:                             ; preds = %invoke.cont.i.i1004
   %line.i.i.i1009 = getelementptr inbounds i8, ptr %agg.tmp.i.i989, i64 32
   store i32 1798, ptr %line.i.i.i1009, align 8
-  %call7.i.i1010 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i996, ptr noundef nonnull %agg.tmp.i.i989)
+  %call7.i.i1010 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i996, ptr noundef %agg.tmp.i.i989)
           to label %invoke.cont6.i.i1014 unwind label %lpad5.i.i1011
 
 invoke.cont6.i.i1014:                             ; preds = %invoke.cont4.i.i1008
@@ -35241,7 +35241,7 @@ invoke.cont14.i.i1024:                            ; preds = %.noexc13.i.i1022
 invoke.cont16.i.i1028:                            ; preds = %invoke.cont14.i.i1024
   %line.i16.i.i1029 = getelementptr inbounds i8, ptr %agg.tmp10.i.i992, i64 32
   store i32 1798, ptr %line.i16.i.i1029, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1010, ptr noundef nonnull @.str.170, ptr noundef nonnull %call9.i.i1015, ptr noundef nonnull %agg.tmp10.i.i992)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1010, ptr noundef nonnull @.str.170, ptr noundef %call9.i.i1015, ptr noundef %agg.tmp10.i.i992)
           to label %__cxx_global_var_init.62.exit unwind label %lpad17.i.i1030
 
 lpad.i.i998:                                      ; preds = %call.i.noexc.i.i1001, %__cxx_global_var_init.61.exit
@@ -35341,7 +35341,7 @@ invoke.cont.i.i1046:                              ; preds = %.noexc.i.i1044
 invoke.cont4.i.i1050:                             ; preds = %invoke.cont.i.i1046
   %line.i.i.i1051 = getelementptr inbounds i8, ptr %agg.tmp.i.i1031, i64 32
   store i32 1805, ptr %line.i.i.i1051, align 8
-  %call7.i.i1052 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1038, ptr noundef nonnull %agg.tmp.i.i1031)
+  %call7.i.i1052 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1038, ptr noundef %agg.tmp.i.i1031)
           to label %invoke.cont6.i.i1056 unwind label %lpad5.i.i1053
 
 invoke.cont6.i.i1056:                             ; preds = %invoke.cont4.i.i1050
@@ -35375,7 +35375,7 @@ invoke.cont14.i.i1066:                            ; preds = %.noexc13.i.i1064
 invoke.cont16.i.i1070:                            ; preds = %invoke.cont14.i.i1066
   %line.i16.i.i1071 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1034, i64 32
   store i32 1805, ptr %line.i16.i.i1071, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1052, ptr noundef nonnull @.str.173, ptr noundef nonnull %call9.i.i1057, ptr noundef nonnull %agg.tmp10.i.i1034)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1052, ptr noundef nonnull @.str.173, ptr noundef %call9.i.i1057, ptr noundef %agg.tmp10.i.i1034)
           to label %__cxx_global_var_init.63.exit unwind label %lpad17.i.i1072
 
 lpad.i.i1040:                                     ; preds = %call.i.noexc.i.i1043, %__cxx_global_var_init.62.exit
@@ -35475,7 +35475,7 @@ invoke.cont.i.i1088:                              ; preds = %.noexc.i.i1086
 invoke.cont4.i.i1092:                             ; preds = %invoke.cont.i.i1088
   %line.i.i.i1093 = getelementptr inbounds i8, ptr %agg.tmp.i.i1073, i64 32
   store i32 1819, ptr %line.i.i.i1093, align 8
-  %call7.i.i1094 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1080, ptr noundef nonnull %agg.tmp.i.i1073)
+  %call7.i.i1094 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1080, ptr noundef %agg.tmp.i.i1073)
           to label %invoke.cont6.i.i1098 unwind label %lpad5.i.i1095
 
 invoke.cont6.i.i1098:                             ; preds = %invoke.cont4.i.i1092
@@ -35509,7 +35509,7 @@ invoke.cont14.i.i1108:                            ; preds = %.noexc13.i.i1106
 invoke.cont16.i.i1112:                            ; preds = %invoke.cont14.i.i1108
   %line.i16.i.i1113 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1076, i64 32
   store i32 1819, ptr %line.i16.i.i1113, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1094, ptr noundef nonnull @.str.138, ptr noundef nonnull %call9.i.i1099, ptr noundef nonnull %agg.tmp10.i.i1076)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1094, ptr noundef nonnull @.str.138, ptr noundef %call9.i.i1099, ptr noundef %agg.tmp10.i.i1076)
           to label %__cxx_global_var_init.64.exit unwind label %lpad17.i.i1114
 
 lpad.i.i1082:                                     ; preds = %call.i.noexc.i.i1085, %__cxx_global_var_init.63.exit
@@ -35609,7 +35609,7 @@ invoke.cont.i.i1130:                              ; preds = %.noexc.i.i1128
 invoke.cont4.i.i1134:                             ; preds = %invoke.cont.i.i1130
   %line.i.i.i1135 = getelementptr inbounds i8, ptr %agg.tmp.i.i1115, i64 32
   store i32 1826, ptr %line.i.i.i1135, align 8
-  %call7.i.i1136 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1122, ptr noundef nonnull %agg.tmp.i.i1115)
+  %call7.i.i1136 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_128MutexVariableThreadCountTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1122, ptr noundef %agg.tmp.i.i1115)
           to label %invoke.cont6.i.i1140 unwind label %lpad5.i.i1137
 
 invoke.cont6.i.i1140:                             ; preds = %invoke.cont4.i.i1134
@@ -35643,7 +35643,7 @@ invoke.cont14.i.i1150:                            ; preds = %.noexc13.i.i1148
 invoke.cont16.i.i1154:                            ; preds = %invoke.cont14.i.i1150
   %line.i16.i.i1155 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1118, i64 32
   store i32 1826, ptr %line.i16.i.i1155, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1136, ptr noundef nonnull @.str.181, ptr noundef nonnull %call9.i.i1141, ptr noundef nonnull %agg.tmp10.i.i1118)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1136, ptr noundef nonnull @.str.181, ptr noundef %call9.i.i1141, ptr noundef %agg.tmp10.i.i1118)
           to label %__cxx_global_var_init.65.exit unwind label %lpad17.i.i1156
 
 lpad.i.i1124:                                     ; preds = %call.i.noexc.i.i1127, %__cxx_global_var_init.64.exit

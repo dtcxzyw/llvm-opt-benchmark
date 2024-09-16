@@ -1006,7 +1006,7 @@ pmix_obj_new_tma.exit.thread317:                  ; preds = %.lr.ph.i.i, %261
 .lr.ph.i298:                                      ; preds = %402, %.lr.ph.i298
   %408 = phi ptr [ %410, %.lr.ph.i298 ], [ %407, %402 ]
   %.07.i299 = phi ptr [ %409, %.lr.ph.i298 ], [ %406, %402 ]
-  call void %408(ptr noundef %356) #14
+  call void %408(ptr noundef nonnull %356) #14
   %409 = getelementptr inbounds i8, ptr %.07.i299, i64 8
   %410 = load ptr, ptr %409, align 8
   %.not.i300 = icmp eq ptr %410, null
@@ -1236,7 +1236,7 @@ pmix_pointer_array_get_item.exit303:              ; preds = %.preheader, %476
 .lr.ph.i307:                                      ; preds = %510, %.lr.ph.i307
   %516 = phi ptr [ %518, %.lr.ph.i307 ], [ %515, %510 ]
   %.07.i308 = phi ptr [ %517, %.lr.ph.i307 ], [ %514, %510 ]
-  call void %516(ptr noundef %493) #14
+  call void %516(ptr noundef nonnull %493) #14
   %517 = getelementptr inbounds i8, ptr %.07.i308, i64 8
   %518 = load ptr, ptr %517, align 8
   %.not.i309 = icmp eq ptr %518, null
@@ -1330,7 +1330,7 @@ define range(i32 -43, 1) i32 @prte_util_filter_dash_host_nodes(ptr noundef %0, p
   br i1 %10, label %244, label %11
 
 11:                                               ; preds = %3
-  %12 = call fastcc i32 @parse_dash_host(ptr noundef nonnull %4, ptr noundef %1)
+  %12 = call fastcc i32 @parse_dash_host(ptr noundef %4, ptr noundef %1)
   switch i32 %12, label %13 [
     i32 0, label %15
     i32 -43, label %244
@@ -1750,7 +1750,7 @@ pmix_list_remove_first.exit.preheader:            ; preds = %213, %.preheader
 .lr.ph.i144:                                      ; preds = %199, %.lr.ph.i144
   %205 = phi ptr [ %207, %.lr.ph.i144 ], [ %204, %199 ]
   %.07.i145 = phi ptr [ %206, %.lr.ph.i144 ], [ %203, %199 ]
-  call void %205(ptr noundef %182) #14
+  call void %205(ptr noundef nonnull %182) #14
   %206 = getelementptr inbounds i8, ptr %.07.i145, i64 8
   %207 = load ptr, ptr %206, align 8
   %.not.i146 = icmp eq ptr %207, null
@@ -1854,7 +1854,7 @@ pmix_list_remove_first.exit._crit_edge:           ; preds = %pmix_list_remove_fi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -43, 1) i32 @parse_dash_host(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -43, 1) i32 @parse_dash_host(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @PMIx_Argv_split(ptr noundef %1, i32 noundef 44) #14
   %4 = tail call i32 @PMIx_Argv_count(ptr noundef %3) #14
   %5 = icmp sgt i32 %4, 0
@@ -1894,11 +1894,11 @@ define internal fastcc range(i32 -43, 1) i32 @parse_dash_host(ptr noundef %0, pt
 
 19:                                               ; preds = %17
   store i8 42, ptr %18, align 1
-  %20 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef nonnull %18) #14
+  %20 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef nonnull %18) #14
   br label %67
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef nonnull @.str.18) #14
+  %22 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #14
   br label %67
 
 23:                                               ; preds = %14, %14
@@ -1946,7 +1946,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %36, %pmix_pointer_a
 49:                                               ; preds = %pmix_pointer_array_get_item.exit
   %50 = getelementptr inbounds i8, ptr %45, i64 152
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef %51) #14
+  %52 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef %51) #14
   br label %67
 
 53:                                               ; preds = %14
@@ -1970,12 +1970,12 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %36, %pmix_pointer_a
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %63 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef %62) #14
+  %63 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef %62) #14
   br label %67
 
 64:                                               ; preds = %58
   %65 = load ptr, ptr %11, align 8
-  %66 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef %65) #14
+  %66 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef %65) #14
   br label %67
 
 67:                                               ; preds = %19, %21, %49, %64, %61
@@ -2027,7 +2027,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #7
 define noundef range(i32 -43, 1) i32 @prte_util_get_ordered_dash_host_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
-  %4 = call fastcc i32 @parse_dash_host(ptr noundef nonnull %3, ptr noundef %1)
+  %4 = call fastcc i32 @parse_dash_host(ptr noundef %3, ptr noundef %1)
   switch i32 %4, label %5 [
     i32 -43, label %7
     i32 0, label %7

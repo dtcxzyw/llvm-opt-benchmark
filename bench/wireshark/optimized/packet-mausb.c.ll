@@ -843,7 +843,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   ]
 
 92:                                               ; preds = %87
-  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef nonnull readonly %5, ptr noundef %91, ptr noundef %0, ptr noundef nonnull %1, i16 noundef signext 12)
+  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef readonly %5, ptr noundef %91, ptr noundef %0, ptr noundef nonnull %1, i16 noundef signext 12)
   br label %127
 
 94:                                               ; preds = %87
@@ -1101,7 +1101,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef signext %4) unnamed_addr #3 {
+define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef signext %4) unnamed_addr #3 {
   %6 = load i32, ptr @hf_mausb_cap_resp_num_ep, align 4
   %7 = sext i16 %4 to i32
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %2, i32 noundef %7, i32 noundef 2, i32 noundef -2147483648) #6
@@ -1227,7 +1227,7 @@ dissect_mausb_dev_cap_desc.exit:                  ; preds = %76, %79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef signext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef signext %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #3 {
   %7 = alloca %struct._usb_conv_info_t, align 8
   %8 = alloca i8, align 1
   store i8 -1, ptr %8, align 1
@@ -1453,7 +1453,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr noundef %0, ptr noundef %1, i16 noundef signext %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr noundef %0, ptr noundef %1, i16 noundef signext %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 {
   %5 = sext i16 %2 to i32
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #6
   %.not = icmp eq i32 %3, 0
@@ -1560,7 +1560,7 @@ dissect_clear_transfers_block.exit:               ; preds = %46, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 {
   %5 = load i32, ptr @hf_mausb_ep_handle, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #6
   %7 = load i32, ptr @ett_mausb_ep_handle, align 4
@@ -1601,7 +1601,7 @@ define internal fastcc noundef zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transf
 
 36:                                               ; preds = %27, %24
   %.sink46 = phi i16 [ 16, %27 ], [ 8, %24 ]
-  %37 = trunc i32 %2 to i16
+  %37 = trunc nuw i32 %2 to i16
   %38 = add i16 %.sink46, %37
   ret i16 %38
 }

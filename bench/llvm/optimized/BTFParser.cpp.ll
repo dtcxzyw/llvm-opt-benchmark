@@ -686,7 +686,7 @@ _ZN12_GLOBAL__N_13ErrlsIPKcEERS0_T_.exit7:        ; preds = %42, %44
   %48 = load ptr, ptr %47, align 8, !noalias !56
   store ptr %48, ptr %4, align 8, !alias.scope !56
   store ptr null, ptr %47, align 8, !noalias !56
-  %49 = call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_13ErrlsEN4llvm5ErrorE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %4)
+  %49 = call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_13ErrlsEN4llvm5ErrorE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %4)
   %50 = load ptr, ptr %4, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %_ZN4llvm5ErrorD2Ev.exit, label %52
@@ -2721,7 +2721,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 _ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit: ; preds = %117, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   %storemerge.i = phi ptr [ %122, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %117 ]
   store ptr %storemerge.i, ptr %16, align 8, !alias.scope !227
-  %123 = call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_13ErrlsEN4llvm5ErrorE(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull %16)
+  %123 = call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_13ErrlsEN4llvm5ErrorE(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !230)
   call void @llvm.experimental.noalias.scope.decl(metadata !231)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !219
@@ -2948,7 +2948,7 @@ _ZN4llvm5ErrorD2Ev.exit42:                        ; preds = %182
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_13ErrlsEN4llvm5ErrorE(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_13ErrlsEN4llvm5ErrorE(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::Error", align 8
@@ -3778,7 +3778,7 @@ _ZNK4llvm9BTFParser8findTypeEj.exit.thread:       ; preds = %_ZN4llvm23SmallVect
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %12, align 8, !alias.scope !288
   %182 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %168, ptr %182, align 8, !alias.scope !288
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %12)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %12)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 183:                                              ; preds = %_ZNK4llvm9BTFParser8findTypeEj.exit
@@ -4036,7 +4036,7 @@ _ZNK4llvm9BTFParser8findTypeEj.exit103.thread:    ; preds = %306, %_ZNK4llvm9BTF
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %13, align 8, !alias.scope !292
   %321 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %308, ptr %321, align 8, !alias.scope !292
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %13)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %13)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 _ZL8printModRKN4llvm9BTFParserEPKNS_3BTF10CommonTypeERNS_11raw_ostreamE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit94
@@ -4258,7 +4258,7 @@ _ZL19skipModsAndTypedefsRKN4llvm9BTFParserEPKNS_3BTF10CommonTypeE.exit: ; preds 
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %15, align 8, !alias.scope !296
   %403 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %396, ptr %403, align 8, !alias.scope !296
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %15)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %15)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 404:                                              ; preds = %399
@@ -4281,7 +4281,7 @@ _ZL19skipModsAndTypedefsRKN4llvm9BTFParserEPKNS_3BTF10CommonTypeE.exit: ; preds 
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %16, align 8, !alias.scope !299
   %415 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %396, ptr %415, align 8, !alias.scope !299
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %16)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %16)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 416:                                              ; preds = %411
@@ -4300,7 +4300,7 @@ _ZL19skipModsAndTypedefsRKN4llvm9BTFParserEPKNS_3BTF10CommonTypeE.exit: ; preds 
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %17, align 8, !alias.scope !302
   %426 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %424, ptr %426, align 8, !alias.scope !302
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %17)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %17)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 427:                                              ; preds = %416, %404
@@ -4420,7 +4420,7 @@ _ZL19skipModsAndTypedefsRKN4llvm9BTFParserEPKNS_3BTF10CommonTypeE.exit132: ; pre
   store i32 %storemerge227, ptr %480, align 8, !alias.scope !305
   %481 = getelementptr inbounds i8, ptr %19, i64 20
   store i32 %474, ptr %481, align 4, !alias.scope !305
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %19)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %19)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 482:                                              ; preds = %476
@@ -4484,7 +4484,7 @@ _ZNK4llvm9BTFParser8findTypeEj.exit141.thread:    ; preds = %_ZN4llvm11raw_ostre
   store i32 %storemerge227, ptr %512, align 8, !alias.scope !308
   %513 = getelementptr inbounds i8, ptr %21, i64 20
   store i32 %500, ptr %513, align 4, !alias.scope !308
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %21)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %21)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 514:                                              ; preds = %_ZL19skipModsAndTypedefsRKN4llvm9BTFParserEPKNS_3BTF10CommonTypeE.exit132
@@ -4558,7 +4558,7 @@ _ZNK4llvm9BTFParser8findTypeEj.exit152.thread:    ; preds = %_ZN4llvm11raw_ostre
   store i32 %storemerge227, ptr %550, align 8, !alias.scope !311
   %551 = getelementptr inbounds i8, ptr %22, i64 20
   store i32 %538, ptr %551, align 4, !alias.scope !311
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %22)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %22)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 552:                                              ; preds = %514
@@ -4569,7 +4569,7 @@ _ZNK4llvm9BTFParser8findTypeEj.exit152.thread:    ; preds = %_ZN4llvm11raw_ostre
   store i32 %storemerge227, ptr %554, align 8, !alias.scope !314
   %555 = getelementptr inbounds i8, ptr %23, i64 20
   store i32 %465, ptr %555, align 4, !alias.scope !314
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %23)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %23)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 556:                                              ; preds = %_ZNK4llvm9BTFParser8findTypeEj.exit141, %_ZNK4llvm9BTFParser8findTypeEj.exit152
@@ -4598,7 +4598,7 @@ _ZNK4llvm9BTFParser8findTypeEj.exit152.thread:    ; preds = %_ZN4llvm11raw_ostre
   %568 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %569 = load i32, ptr %566, align 4, !noalias !318
   store i32 %569, ptr %568, align 8, !alias.scope !318
-  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %24)
+  call fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %24)
   br label %"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit"
 
 "_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJcEEEEEDaT_.exit": ; preds = %157, %155, %433, %435, %360, %564, %._crit_edge231, %552, %_ZNK4llvm9BTFParser8findTypeEj.exit152.thread, %_ZNK4llvm9BTFParser8findTypeEj.exit141.thread, %478, %440, %422, %413, %401, %393, %363, %_ZNK4llvm9BTFParser8findTypeEj.exit103.thread, %305, %_ZNK4llvm9BTFParser8findTypeEj.exit.thread, %57
@@ -5098,7 +5098,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %121, %123
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjEEEEEDaT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN4llvm15SmallVectorImplIcE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5411,7 +5411,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm9BTFParser9symbolizeEPKNS_3BTF13BPFFieldRelocERNS_15SmallVectorImplIcEEENK3$_0clINS_13format_objectIJjjEEEEEDaT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN4llvm15SmallVectorImplIcE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

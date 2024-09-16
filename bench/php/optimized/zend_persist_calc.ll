@@ -727,7 +727,7 @@ zend_hash_persist_calc.exit513:                   ; preds = %.loopexit, %298, %3
   br i1 %.not14.i, label %437, label %436
 
 436:                                              ; preds = %433
-  tail call fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %435)
+  tail call fastcc void @zend_persist_attributes_calc(ptr noundef %435)
   br label %437
 
 437:                                              ; preds = %436, %433
@@ -1004,7 +1004,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
   br i1 %.not23.i, label %zend_persist_property_info_calc.exit, label %614
 
 614:                                              ; preds = %611
-  tail call fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %613)
+  tail call fastcc void @zend_persist_attributes_calc(ptr noundef %613)
   br label %zend_persist_property_info_calc.exit
 
 zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.lr.ph543
@@ -1136,7 +1136,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   br i1 %.not468, label %692, label %691
 
 691:                                              ; preds = %688
-  tail call fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %690)
+  tail call fastcc void @zend_persist_attributes_calc(ptr noundef %690)
   br label %692
 
 692:                                              ; preds = %691, %688
@@ -2318,8 +2318,8 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_attributes_calc(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %0) #4
+define internal fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef nonnull %0) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %.loopexit85
 
@@ -2331,11 +2331,11 @@ define internal fastcc void @zend_persist_attributes_calc(ptr noundef %0) unname
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call zeroext i1 @zend_accel_in_shm(ptr noundef %0) #4
+  %9 = tail call zeroext i1 @zend_accel_in_shm(ptr noundef nonnull %0) #4
   br i1 %9, label %.loopexit85, label %10
 
 10:                                               ; preds = %8, %3
-  tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef %0, ptr noundef %0) #4
+  tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef nonnull %0, ptr noundef nonnull %0) #4
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 424
   %13 = load i64, ptr %12, align 8
@@ -3903,7 +3903,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   br i1 %.not195, label %291, label %290
 
 290:                                              ; preds = %287
-  tail call fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %289)
+  tail call fastcc void @zend_persist_attributes_calc(ptr noundef %289)
   br label %291
 
 291:                                              ; preds = %290, %287

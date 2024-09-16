@@ -3065,7 +3065,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   %316 = and i32 %315, 8192
   %317 = icmp ne i32 %316, 0
   %.sroa.099.0.copyload.i.i = load ptr, ptr %42, align 8
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4llvm12FunctionTypeENS1_13AttributeListEPKNS1_5ValueEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %230, ptr %.sroa.099.0.copyload.i.i, ptr noundef nonnull %1, i1 noundef zeroext %317, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4llvm12FunctionTypeENS1_13AttributeListEPKNS1_5ValueEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %230, ptr %.sroa.099.0.copyload.i.i, ptr noundef %1, i1 noundef zeroext %317, i1 noundef zeroext false)
   %318 = call noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef 4) #23
   br i1 %318, label %319, label %322
 
@@ -5627,7 +5627,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1381, %1377
   br label %_ZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEv.exit
 
 1389:                                             ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %1369)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1369)
   %1390 = getelementptr inbounds i8, ptr %.072.i, i64 8
   %.not.i37 = icmp eq ptr %1390, %1354
   br i1 %.not.i37, label %._crit_edge.i, label %.lr.ph.i35
@@ -14658,7 +14658,7 @@ _ZNK4llvm5Value11getMetadataEj.exit80:            ; preds = %184
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = tail call noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %190, ptr noundef %192) #23
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyRangeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %187, ptr noundef %193, i1 noundef zeroext true)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyRangeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %187, ptr noundef %193, i1 noundef zeroext true)
   br label %_ZNK4llvm5Value11getMetadataEj.exit80.thread
 
 _ZNK4llvm5Value11getMetadataEj.exit80.thread:     ; preds = %184, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread, %188, %_ZNK4llvm5Value11getMetadataEj.exit80
@@ -15369,7 +15369,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %6,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4llvm12FunctionTypeENS1_13AttributeListEPKNS1_5ValueEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1, ptr %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4llvm12FunctionTypeENS1_13AttributeListEPKNS1_5ValueEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1, ptr %2, ptr noundef nonnull %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::AttributeList", align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -17859,7 +17859,7 @@ _ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -18134,209 +18134,209 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %85, %89
   br i1 %.not5675, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm6MDNode8operandsEv.exit
-  %.not = icmp eq i32 %2, 1
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+  %97 = icmp eq i32 %2, 0
+  br i1 %97, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %105
-  %.076.us = phi ptr [ %106, %105 ], [ %.sroa.0.0.i.i, %.lr.ph ]
-  %97 = load ptr, ptr %.076.us, align 8
-  store ptr %97, ptr %6, align 8
-  %.not57.us = icmp eq ptr %97, null
-  br i1 %.not57.us, label %105, label %98
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %106
+  %.076.us = phi ptr [ %107, %106 ], [ %.sroa.0.0.i.i, %.lr.ph ]
+  %98 = load ptr, ptr %.076.us, align 8
+  store ptr %98, ptr %6, align 8
+  %.not57.us = icmp eq ptr %98, null
+  br i1 %.not57.us, label %106, label %99
 
-98:                                               ; preds = %.lr.ph.split.us
-  %99 = load i8, ptr %97, align 4
-  %100 = icmp eq i8 %99, 2
-  br i1 %100, label %.split.us, label %101
+99:                                               ; preds = %.lr.ph.split.us
+  %100 = load i8, ptr %98, align 4
+  %101 = icmp eq i8 %100, 2
+  br i1 %101, label %.split.us, label %102
 
-101:                                              ; preds = %98
-  %.off.us = add i8 %99, -5
+102:                                              ; preds = %99
+  %.off.us = add i8 %100, -5
   %switch.us = icmp ult i8 %.off.us, 31
-  br i1 %switch.us, label %104, label %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.us
+  br i1 %switch.us, label %105, label %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.us
 
-_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.us: ; preds = %101
-  %102 = add i8 %99, -3
-  %spec.select.i.i.i.i.i.i.i.i.us = icmp ult i8 %102, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.us, label %105, label %103
+_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.us: ; preds = %102
+  %103 = add i8 %100, -3
+  %spec.select.i.i.i.i.i.i.i.i.us = icmp ult i8 %103, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.us, label %106, label %104
 
-103:                                              ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.us
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(136) %97, ptr noundef null)
-  br label %105
+104:                                              ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.us
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(136) %98, ptr noundef null)
+  br label %106
 
-104:                                              ; preds = %101
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %97, i32 noundef 1)
-  br label %105
+105:                                              ; preds = %102
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %98, i32 noundef %2)
+  br label %106
 
-105:                                              ; preds = %104, %103, %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.us, %.lr.ph.split.us
-  %106 = getelementptr inbounds i8, ptr %.076.us, i64 8
-  %.not56.us = icmp eq ptr %106, %96
+106:                                              ; preds = %105, %104, %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.us, %.lr.ph.split.us
+  %107 = getelementptr inbounds i8, ptr %.076.us, i64 8
+  %.not56.us = icmp eq ptr %107, %96
   br i1 %.not56.us, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %151
-  %.076 = phi ptr [ %152, %151 ], [ %.sroa.0.0.i.i, %.lr.ph ]
-  %107 = load ptr, ptr %.076, align 8
-  store ptr %107, ptr %6, align 8
-  %.not57 = icmp eq ptr %107, null
-  br i1 %.not57, label %151, label %108
+.lr.ph.split:                                     ; preds = %.lr.ph, %152
+  %.076 = phi ptr [ %153, %152 ], [ %.sroa.0.0.i.i, %.lr.ph ]
+  %108 = load ptr, ptr %.076, align 8
+  store ptr %108, ptr %6, align 8
+  %.not57 = icmp eq ptr %108, null
+  br i1 %.not57, label %152, label %109
 
-108:                                              ; preds = %.lr.ph.split
-  %109 = load i8, ptr %107, align 4
-  switch i8 %109, label %147 [
+109:                                              ; preds = %.lr.ph.split
+  %110 = load i8, ptr %108, align 4
+  switch i8 %110, label %148 [
     i8 2, label %.split.us
-    i8 6, label %125
+    i8 6, label %126
   ]
 
-.split.us:                                        ; preds = %108, %98
-  %110 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %111 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %111, align 1
+.split.us:                                        ; preds = %99, %109
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %112, align 1
   store ptr @.str.259, ptr %7, align 8
-  store i8 3, ptr %110, align 8
+  store i8 3, ptr %111, align 8
   store ptr %1, ptr %8, align 8
-  %112 = load ptr, ptr %0, align 8
-  %.not.i.i62 = icmp eq ptr %112, null
-  br i1 %.not.i.i62, label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, label %114
+  %113 = load ptr, ptr %0, align 8
+  %.not.i.i62 = icmp eq ptr %113, null
+  br i1 %.not.i.i62, label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, label %115
 
 _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %.split.us
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 1, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 1, ptr %114, align 8
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
-114:                                              ; preds = %.split.us
-  call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(48) %112) #23
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %118 = load ptr, ptr %117, align 8
-  %.not.i.i.i = icmp ult ptr %116, %118
-  br i1 %.not.i.i.i, label %121, label %119
+115:                                              ; preds = %.split.us
+  call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(48) %113) #23
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %119 = load ptr, ptr %118, align 8
+  %.not.i.i.i = icmp ult ptr %117, %119
+  br i1 %.not.i.i.i, label %122, label %120
 
-119:                                              ; preds = %114
-  %120 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %112, i8 noundef zeroext 10) #23
+120:                                              ; preds = %115
+  %121 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %113, i8 noundef zeroext 10) #23
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
-121:                                              ; preds = %114
-  %122 = getelementptr inbounds i8, ptr %116, i64 1
-  store ptr %122, ptr %115, align 8
-  store i8 10, ptr %116, align 1
+122:                                              ; preds = %115
+  %123 = getelementptr inbounds i8, ptr %117, i64 1
+  store ptr %123, ptr %116, align 8
+  store i8 10, ptr %117, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
-_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %121, %119
+_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %122, %120
   %.pr.i = load ptr, ptr %0, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 1, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 1, ptr %124, align 8
   %.not.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %124
+  br i1 %.not.i, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %125
 
-124:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
+125:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
   call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
-125:                                              ; preds = %108
-  %126 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %127 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %127, align 1
+126:                                              ; preds = %109
+  %127 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %128, align 1
   store ptr @.str.260, ptr %9, align 8
-  store i8 3, ptr %126, align 8
+  store i8 3, ptr %127, align 8
   store ptr %1, ptr %10, align 8
-  %128 = load ptr, ptr %0, align 8
-  %.not.i.i63 = icmp eq ptr %128, null
-  br i1 %.not.i.i63, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i, label %129
+  %129 = load ptr, ptr %0, align 8
+  %.not.i.i63 = icmp eq ptr %129, null
+  br i1 %.not.i.i63, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i, label %130
 
-129:                                              ; preds = %125
-  call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(48) %128) #23
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %133 = load ptr, ptr %132, align 8
-  %.not.i.i.i64 = icmp ult ptr %131, %133
-  br i1 %.not.i.i.i64, label %136, label %134
+130:                                              ; preds = %126
+  call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(48) %129) #23
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %134 = load ptr, ptr %133, align 8
+  %.not.i.i.i64 = icmp ult ptr %132, %134
+  br i1 %.not.i.i.i64, label %137, label %135
 
-134:                                              ; preds = %129
-  %135 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %128, i8 noundef zeroext 10) #23
+135:                                              ; preds = %130
+  %136 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %129, i8 noundef zeroext 10) #23
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
-136:                                              ; preds = %129
-  %137 = getelementptr inbounds i8, ptr %131, i64 1
-  store ptr %137, ptr %130, align 8
-  store i8 10, ptr %131, align 1
+137:                                              ; preds = %130
+  %138 = getelementptr inbounds i8, ptr %132, i64 1
+  store ptr %138, ptr %131, align 8
+  store i8 10, ptr %132, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
-_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %136, %134, %125
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 202
-  %139 = load i8, ptr %138, align 2
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %141 = load i8, ptr %140, align 8
-  %142 = or i8 %141, %139
-  %143 = and i8 %142, 1
-  store i8 %143, ptr %140, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 201
-  store i8 1, ptr %144, align 1
-  %145 = load ptr, ptr %0, align 8
-  %.not.i65 = icmp eq ptr %145, null
-  br i1 %.not.i65, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %146
+_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %137, %135, %126
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 202
+  %140 = load i8, ptr %139, align 2
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %142 = load i8, ptr %141, align 8
+  %143 = or i8 %142, %140
+  %144 = and i8 %143, 1
+  store i8 %144, ptr %141, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 201
+  store i8 1, ptr %145, align 1
+  %146 = load ptr, ptr %0, align 8
+  %.not.i65 = icmp eq ptr %146, null
+  br i1 %.not.i65, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %147
 
-146:                                              ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
+147:                                              ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
   call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
-147:                                              ; preds = %108
-  %.off = add i8 %109, -5
+148:                                              ; preds = %109
+  %.off = add i8 %110, -5
   %switch = icmp ult i8 %.off, 31
-  br i1 %switch, label %148, label %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit
+  br i1 %switch, label %149, label %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit
 
-148:                                              ; preds = %147
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %107, i32 noundef %2)
-  br label %151
+149:                                              ; preds = %148
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %108, i32 noundef 0)
+  br label %152
 
-_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit: ; preds = %147
-  %149 = add i8 %109, -3
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %149, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %151, label %150
+_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit: ; preds = %148
+  %150 = add i8 %110, -3
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %150, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %152, label %151
 
-150:                                              ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(136) %107, ptr noundef null)
-  br label %151
+151:                                              ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(136) %108, ptr noundef null)
+  br label %152
 
-151:                                              ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit, %.lr.ph.split, %150, %148
-  %152 = getelementptr inbounds i8, ptr %.076, i64 8
-  %.not56 = icmp eq ptr %152, %96
+152:                                              ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit, %.lr.ph.split, %151, %149
+  %153 = getelementptr inbounds i8, ptr %.076, i64 8
+  %.not56 = icmp eq ptr %153, %96
   br i1 %.not56, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %151, %105, %_ZNK4llvm6MDNode8operandsEv.exit
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %154 = load i8, ptr %153, align 1
-  %155 = and i8 %154, 127
-  %156 = icmp eq i8 %155, 2
-  br i1 %156, label %157, label %_ZNK4llvm6MDNode10isResolvedEv.exit
+._crit_edge:                                      ; preds = %106, %152, %_ZNK4llvm6MDNode8operandsEv.exit
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %155 = load i8, ptr %154, align 1
+  %156 = and i8 %155, 127
+  %157 = icmp eq i8 %156, 2
+  br i1 %157, label %158, label %_ZNK4llvm6MDNode10isResolvedEv.exit
 
-157:                                              ; preds = %._crit_edge
-  %158 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %159 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %159, align 1
+158:                                              ; preds = %._crit_edge
+  %159 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %160, align 1
   store ptr @.str.261, ptr %11, align 8
-  store i8 3, ptr %158, align 8
+  store i8 3, ptr %159, align 8
   store ptr %1, ptr %12, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 _ZNK4llvm6MDNode10isResolvedEv.exit:              ; preds = %._crit_edge
-  %160 = getelementptr inbounds i8, ptr %1, i64 -8
-  %161 = load i32, ptr %160, align 8
-  %.not.i67 = icmp eq i32 %161, 0
-  br i1 %.not.i67, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %162
+  %161 = getelementptr inbounds i8, ptr %1, i64 -8
+  %162 = load i32, ptr %161, align 8
+  %.not.i67 = icmp eq i32 %162, 0
+  br i1 %.not.i67, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %163
 
-162:                                              ; preds = %_ZNK4llvm6MDNode10isResolvedEv.exit
-  %163 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %164 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %164, align 1
+163:                                              ; preds = %_ZNK4llvm6MDNode10isResolvedEv.exit
+  %164 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %165, align 1
   store ptr @.str.262, ptr %13, align 8
-  store i8 3, ptr %163, align 8
+  store i8 3, ptr %164, align 8
   store ptr %1, ptr %14, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
-_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %.lr.ph.i.i, %146, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i, %124, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, %_ZNK4llvm6MDNode10isResolvedEv.exit, %_ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6insertES3_.exit, %162, %157, %45
+_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %.lr.ph.i.i, %147, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i, %125, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, %_ZNK4llvm6MDNode10isResolvedEv.exit, %_ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6insertES3_.exit, %163, %158, %45
   ret void
 }
 
@@ -19366,7 +19366,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyRangeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyRangeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -44735,7 +44735,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i253:  ; preds = %2256
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i.i252: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i253, %2256, %2256, %2256, %2256, %2256, %2253
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2228, ptr noundef nonnull %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2228, ptr noundef %836)
   br label %2263
 
 2258:                                             ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i249
@@ -44925,7 +44925,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i239:  ; preds = %2305
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i.i: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i239, %2305, %2305, %2305, %2305, %2305, %2302
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2278, ptr noundef nonnull %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2278, ptr noundef %836)
   br label %2312
 
 2307:                                             ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i236
@@ -45735,7 +45735,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i202: ; preds = %25
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAtomicCmpXchgERNS_17AtomicCmpXchgInstE.exit
 
 2594:                                             ; preds = %2574
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2578, ptr noundef nonnull %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2578, ptr noundef %836)
   call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAtomicCmpXchgERNS_17AtomicCmpXchgInstE.exit
 
@@ -46011,11 +46011,11 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i57.i.i: ; preds = %267
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit
 
 .thread.i.i186:                                   ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i185, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i187, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i, %2614, %2614, %2614, %2614, %2614, %2609
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef nonnull %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef %836)
   br label %2677
 
 2674:                                             ; preds = %2658
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef nonnull %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef %836)
   %2675 = icmp ult i16 %2602, 17
   br i1 %2675, label %2677, label %2676
 
@@ -48383,7 +48383,7 @@ _ZNK4llvm10ReturnInst14getReturnValueEv.exit100.i.i.i: ; preds = %_ZNK4llvm10Ret
 .lr.ph.i.i.i8:                                    ; preds = %3449, %_ZN4llvm11AttrBuilderD2Ev.exit.i.i.i
   %.079154.i.i.i = phi i32 [ %3467, %_ZN4llvm11AttrBuilderD2Ev.exit.i.i.i ], [ 0, %3449 ]
   %3456 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %3362) #23
-  call fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias nonnull writable align 8 %304, ptr noundef nonnull align 8 dereferenceable(8) %3456, i32 noundef %.079154.i.i.i, ptr %.sroa.0.0.copyload.i.i.i.i)
+  call fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias writable align 8 %304, ptr noundef nonnull align 8 dereferenceable(8) %3456, i32 noundef %.079154.i.i.i, ptr %.sroa.0.0.copyload.i.i.i.i)
   store ptr %3451, ptr %306, align 8
   store i64 %3452, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   store ptr @.str.903, ptr %498, align 8
@@ -48427,7 +48427,7 @@ _ZN4llvm11AttrBuilderD2Ev.exit.i.i.i:             ; preds = %3466, %_ZN4llvm11Sm
 .lr.ph158.i.i.i:                                  ; preds = %._crit_edge.i.i.i, %_ZN4llvm11AttrBuilderD2Ev.exit106.i.i.i
   %.081156.i.i.i = phi i32 [ %3482, %_ZN4llvm11AttrBuilderD2Ev.exit106.i.i.i ], [ 0, %._crit_edge.i.i.i ]
   %3471 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %3362) #23
-  call fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias nonnull writable align 8 %307, ptr noundef nonnull align 8 dereferenceable(8) %3471, i32 noundef %.081156.i.i.i, ptr %.sroa.0.0.copyload.i101.i.i.i)
+  call fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias writable align 8 %307, ptr noundef nonnull align 8 dereferenceable(8) %3471, i32 noundef %.081156.i.i.i, ptr %.sroa.0.0.copyload.i101.i.i.i)
   store ptr %3451, ptr %309, align 8
   store i64 %3452, ptr %.sroa.4.0..sroa_idx122.i.i.i, align 8
   store ptr @.str.904, ptr %503, align 8
@@ -48590,9 +48590,9 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i: ; preds = %_ZL15isTyp
   %indvars.iv168.i.i.i = phi i64 [ 0, %.lr.ph166.i.i.i ], [ %indvars.iv.next169.i.i.i, %_ZN4llvm11AttrBuilderD2Ev.exit120.i.i.i ]
   %3525 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %3362) #23
   %3526 = trunc nuw i64 %indvars.iv168.i.i.i to i32
-  call fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias nonnull writable align 8 %319, ptr noundef nonnull align 8 dereferenceable(8) %3525, i32 noundef %3526, ptr %.sroa.0.0.copyload.i.i.i.i)
+  call fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias writable align 8 %319, ptr noundef nonnull align 8 dereferenceable(8) %3525, i32 noundef %3526, ptr %.sroa.0.0.copyload.i.i.i.i)
   %3527 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %3362) #23
-  call fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias nonnull writable align 8 %320, ptr noundef nonnull align 8 dereferenceable(8) %3527, i32 noundef %3526, ptr %.sroa.0.0.copyload.i101.i.i.i)
+  call fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias writable align 8 %320, ptr noundef nonnull align 8 dereferenceable(8) %3527, i32 noundef %3526, ptr %.sroa.0.0.copyload.i101.i.i.i)
   %3528 = call noundef zeroext i1 @_ZNK4llvm11AttrBuildereqERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %319, ptr noundef nonnull align 8 dereferenceable(88) %320) #23
   br i1 %3528, label %3537, label %3529
 
@@ -53887,7 +53887,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit328:    ; preds = %_ZNK4llvm11Instruct
 
 440:                                              ; preds = %435, %435, %435
   %441 = load ptr, ptr %101, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyRangeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %434, ptr noundef %441, i1 noundef zeroext false)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyRangeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %434, ptr noundef %441, i1 noundef zeroext false)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit328.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit328.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit.thread, %440, %_ZNK4llvm11Instruction11getMetadataEj.exit328
@@ -54007,7 +54007,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit339:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not245, label %_ZNK4llvm11Instruction11getMetadataEj.exit339.thread, label %487
 
 487:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit339
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier28visitDereferenceableMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %486)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier28visitDereferenceableMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %486)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit339.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit339.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit333.thread, %487, %_ZNK4llvm11Instruction11getMetadataEj.exit339
@@ -54022,7 +54022,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit342:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not246, label %_ZNK4llvm11Instruction11getMetadataEj.exit342.thread, label %491
 
 491:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit342
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier28visitDereferenceableMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %490)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier28visitDereferenceableMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %490)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit342.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit342.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit339.thread, %491, %_ZNK4llvm11Instruction11getMetadataEj.exit342
@@ -54053,7 +54053,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit348:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not248, label %_ZNK4llvm11Instruction11getMetadataEj.exit348.thread, label %501
 
 501:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit348
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %500)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %500)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit348.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit348.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit345.thread, %501, %_ZNK4llvm11Instruction11getMetadataEj.exit348
@@ -54068,7 +54068,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit351:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not249, label %_ZNK4llvm11Instruction11getMetadataEj.exit351.thread, label %505
 
 505:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit351
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %504)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %504)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit351.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit351.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit348.thread, %505, %_ZNK4llvm11Instruction11getMetadataEj.exit351
@@ -54083,7 +54083,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit354:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not250, label %_ZNK4llvm11Instruction11getMetadataEj.exit354.thread, label %509
 
 509:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit354
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier24visitAccessGroupMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %508)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier24visitAccessGroupMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %508)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit354.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit354.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit351.thread, %509, %_ZNK4llvm11Instruction11getMetadataEj.exit354
@@ -54261,7 +54261,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit371:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not253, label %_ZNK4llvm11Instruction11getMetadataEj.exit371.thread, label %585
 
 585:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit371
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier17visitProfMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %584)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier17visitProfMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %584)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit371.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit371.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit357.thread, %585, %_ZNK4llvm11Instruction11getMetadataEj.exit371
@@ -54276,7 +54276,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit374:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not254, label %_ZNK4llvm11Instruction11getMetadataEj.exit374.thread, label %589
 
 589:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit374
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %588)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %588)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit374.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit374.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit371.thread, %589, %_ZNK4llvm11Instruction11getMetadataEj.exit374
@@ -54291,7 +54291,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit377:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not255, label %_ZNK4llvm11Instruction11getMetadataEj.exit377.thread, label %593
 
 593:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit377
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier21visitCallsiteMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %592)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier21visitCallsiteMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %592)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit377.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit377.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit374.thread, %593, %_ZNK4llvm11Instruction11getMetadataEj.exit377
@@ -54306,7 +54306,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit380:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not256, label %_ZNK4llvm11Instruction11getMetadataEj.exit380.thread, label %597
 
 597:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit380
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier23visitDIAssignIDMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %596)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier23visitDIAssignIDMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %596)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit380.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit380.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit377.thread, %597, %_ZNK4llvm11Instruction11getMetadataEj.exit380
@@ -54321,7 +54321,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit383:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not257, label %_ZNK4llvm11Instruction11getMetadataEj.exit383.thread, label %601
 
 601:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit383
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier17visitMMRAMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %600)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier17visitMMRAMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %600)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit383.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit383.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit380.thread, %601, %_ZNK4llvm11Instruction11getMetadataEj.exit383
@@ -54336,7 +54336,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit386:    ; preds = %_ZNK4llvm11Instruct
   br i1 %.not258, label %_ZNK4llvm11Instruction11getMetadataEj.exit386.thread, label %605
 
 605:                                              ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit386
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %604)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %604)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit386.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit386.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit383.thread, %605, %_ZNK4llvm11Instruction11getMetadataEj.exit386
@@ -55480,7 +55480,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm7APFloat15isFiniteNonZer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier28visitDereferenceableMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier28visitDereferenceableMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -55612,7 +55612,7 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIX
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -56017,7 +56017,7 @@ _ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier24visitAccessGroupMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier24visitAccessGroupMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -56150,7 +56150,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i14:      ; preds = %50, %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier17visitProfMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier17visitProfMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -56475,7 +56475,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread60:       ; preds = %_ZNK4llvm6MDNode14g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca ptr, align 8
@@ -57151,7 +57151,7 @@ _ZN4llvm7mdconst4hasaINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier21visitCallsiteMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier21visitCallsiteMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca ptr, align 8
   %6 = load i8, ptr %1, align 8
@@ -57172,7 +57172,7 @@ _ZN4llvm3isaINS_8CallBaseENS_11InstructionEEEbRKT0_.exit: ; preds = %3
   br label %10
 
 9:                                                ; preds = %3, %3, %3
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier22visitCallStackMetadataEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier22visitCallStackMetadataEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2)
   br label %10
 
 10:                                               ; preds = %9, %_ZN4llvm3isaINS_8CallBaseENS_11InstructionEEEbRKT0_.exit
@@ -57180,7 +57180,7 @@ _ZN4llvm3isaINS_8CallBaseENS_11InstructionEEEbRKT0_.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23visitDIAssignIDMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23visitDIAssignIDMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca ptr, align 8
@@ -57288,7 +57288,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
 .critedge:                                        ; preds = %3, %3, %31, %31, %31, %31, %31
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef ptr @_ZN4llvm15MetadataAsValue11getIfExistsERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %2) #23
+  %58 = tail call noundef ptr @_ZN4llvm15MetadataAsValue11getIfExistsERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %2) #23
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %.loopexit, label %59
 
@@ -57639,7 +57639,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedINS_11InstructionEJPNS_6MDNodeEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier17visitMMRAMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier17visitMMRAMetadataERN4llvm11InstructionEPNS1_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -57695,7 +57695,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %22, %20
   br label %_ZN4llvm15VerifierSupport11CheckFailedINS_11InstructionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 26:                                               ; preds = %3
-  %27 = tail call noundef zeroext i1 @_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE(ptr noundef %2) #23
+  %27 = tail call noundef zeroext i1 @_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE(ptr noundef nonnull %2) #23
   br i1 %27, label %_ZN4llvm15VerifierSupport11CheckFailedINS_11InstructionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %28
 
 28:                                               ; preds = %26
@@ -57840,7 +57840,7 @@ _ZN4llvm15VerifierSupport11CheckFailedINS_11InstructionEJPNS_6MDNodeEEEEvRKNS_5T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPN4llvm6MDNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPN4llvm6MDNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -60802,7 +60802,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %20
 223:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %209
   %.sroa.065.0.copyload = load ptr, ptr %10, align 8
   %224 = icmp eq i8 %.pre415, 25
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4llvm12FunctionTypeENS1_13AttributeListEPKNS1_5ValueEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %80, ptr %.sroa.065.0.copyload, ptr noundef nonnull %1, i1 noundef zeroext %210, i1 noundef zeroext %224)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4llvm12FunctionTypeENS1_13AttributeListEPKNS1_5ValueEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %80, ptr %.sroa.065.0.copyload, ptr noundef %1, i1 noundef zeroext %210, i1 noundef zeroext %224)
   %225 = call noundef zeroext i1 @_ZNK4llvm8CallBase19hasInAllocaArgumentEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
   br i1 %225, label %226, label %248
 
@@ -62396,7 +62396,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %2, %_ZNK4llvm8CallB
 declare noundef zeroext i1 @_ZNK4llvm8CallBase14isMustTailCallEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(2296) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(2296) %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca ptr, align 8
@@ -78653,7 +78653,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
@@ -82654,7 +82654,7 @@ _ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJEEEvRKT_DpRKT0_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3) unnamed_addr #0 {
+define internal fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::AttributeList", align 8
   %6 = alloca %"class.llvm::AttributeSet", align 8
   store ptr %3, ptr %5, align 8
@@ -84562,7 +84562,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm13IntrinsicInstElN9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

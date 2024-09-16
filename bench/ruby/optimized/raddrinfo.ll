@@ -510,7 +510,7 @@ define noalias ptr @rsock_getaddrinfo(i64 noundef %0, i64 noundef %1, ptr nounde
   %13 = alloca [32 x i8], align 16
   %14 = alloca i32, align 4
   store i32 0, ptr %14, align 4
-  %15 = call fastcc ptr @host_str(i64 noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %14)
+  %15 = call fastcc ptr @host_str(i64 noundef %0, ptr noundef %12, ptr noundef nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %1, ptr %10, align 8
   %16 = icmp eq i64 %1, 4
@@ -616,7 +616,7 @@ str_is_number.exit.thread:                        ; preds = %43, %42, %49, %46
   %55 = load i32, ptr %2, align 8
   %56 = or i32 %55, %54
   store i32 %56, ptr %2, align 8
-  %57 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %15, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %11)
+  %57 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %15, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef %11)
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %63
 
@@ -680,8 +680,8 @@ rb_array_len.exit.i:                              ; preds = %79, %76
   %.02433.i = phi i64 [ %96, %95 ], [ 0, %rb_array_len.exit.i ]
   %.02532.i = phi ptr [ %.2.i, %95 ], [ null, %rb_array_len.exit.i ]
   %83 = call i64 @rb_ary_entry(i64 noundef %71, i64 noundef %.02433.i) #22
-  %84 = call fastcc ptr @host_str(i64 noundef %83, ptr noundef nonnull %8, ptr noundef nonnull %6)
-  %85 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %84, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %84 = call fastcc ptr @host_str(i64 noundef %83, ptr noundef %8, ptr noundef nonnull %6)
+  %85 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %84, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef %7)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %95
 
@@ -951,7 +951,7 @@ rb_getaddrinfo.exit:                              ; preds = %160, %161
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @host_str(i64 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @host_str(i64 noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_in, align 4
   %5 = alloca %struct.sockaddr_in, align 4
   %6 = alloca i64, align 8
@@ -974,7 +974,7 @@ define internal fastcc noundef ptr @host_str(i64 noundef %0, ptr noundef %1, ptr
   store i16 2, ptr %5, align 4
   %15 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %5, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %16 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %5, i32 noundef 16, ptr noundef nonnull %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %make_inetaddr.exit, label %17
 
@@ -1030,7 +1030,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %21, %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i16 2, ptr %4, align 4
-  %36 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %4, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %36 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %4, i32 noundef 16, ptr noundef nonnull %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %.not.i.i42 = icmp eq i32 %36, 0
   br i1 %.not.i.i42, label %make_inetaddr.exit43, label %37
 
@@ -1091,7 +1091,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %33, %43, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -4, 1) i32 @numeric_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -4, 1) i32 @numeric_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 4
   %6 = alloca [16 x i8], align 16
   %.not = icmp eq ptr %0, null
@@ -1752,7 +1752,7 @@ define internal i64 @make_hostent_internal(i64 noundef %0) #0 {
   br i1 %.not, label %13, label %15
 
 13:                                               ; preds = %1
-  %14 = call fastcc ptr @host_str(i64 noundef %4, ptr noundef nonnull %2, ptr noundef null)
+  %14 = call fastcc ptr @host_str(i64 noundef %4, ptr noundef %2, ptr noundef null)
   br label %15
 
 15:                                               ; preds = %1, %13
@@ -5451,13 +5451,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_inetaddr(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @make_inetaddr(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_in, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 2, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %0, ptr %4, align 4
-  %5 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %3, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %5 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %3, i32 noundef 16, ptr noundef nonnull %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %make_ipaddr0.exit, label %6
 
@@ -5658,7 +5658,7 @@ declare i64 @rb_check_array_type(i64 noundef) local_unnamed_addr #2
 declare i32 @rsock_family_to_int(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias nonnull ptr @call_getaddrinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @call_getaddrinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.addrinfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %9 = icmp eq i64 %2, 4
@@ -5944,7 +5944,7 @@ declare i64 @rsock_intern_ipproto(i32 noundef) local_unnamed_addr #2
 declare i32 @rb_get_kwargs(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @addrinfo_firstonly_new(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @addrinfo_firstonly_new(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3, i64 noundef range(i64 1, 0) %4) unnamed_addr #0 {
   %6 = tail call fastcc ptr @call_getaddrinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef 1, i32 noundef 0)
   %7 = load ptr, ptr %6, align 8
   %8 = tail call fastcc i64 @make_inspectname(i64 noundef %0, i64 noundef %1, ptr noundef %7)

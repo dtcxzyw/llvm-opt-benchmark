@@ -271,7 +271,7 @@ for.end.i:                                        ; preds = %for.body.i173
   br label %if.end56
 
 if.then55:                                        ; preds = %lor.lhs.false4.i, %if.else.i171, %if.end13.i
-  tail call fastcc void @uriPreventLeakageA(ptr noundef nonnull %uri, i32 noundef 0, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageA(ptr noundef %uri, i32 noundef 0, ptr noundef %memory)
   br label %return
 
 if.end56:                                         ; preds = %for.end.i, %if.end.i
@@ -365,7 +365,7 @@ for.end.i216:                                     ; preds = %for.body.i208
   br label %if.end85
 
 if.then84:                                        ; preds = %lor.lhs.false4.i192, %if.else.i200, %if.end13.i202
-  tail call fastcc void @uriPreventLeakageA(ptr noundef nonnull %uri, i32 noundef %27, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageA(ptr noundef %uri, i32 noundef %27, ptr noundef %memory)
   br label %return
 
 if.end85:                                         ; preds = %for.end.i216, %if.end.i194
@@ -420,16 +420,16 @@ lor.lhs.false2.i:                                 ; preds = %if.then108
   br i1 %cmp3.i221, label %if.end126, label %if.end.i222
 
 if.end.i222:                                      ; preds = %lor.lhs.false2.i
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %43, ptr noundef nonnull %47, ptr noundef nonnull %43, ptr noundef nonnull %afterLast120)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %43, ptr noundef nonnull %47, ptr noundef %43, ptr noundef %afterLast120)
   br label %if.end126
 
 if.else116:                                       ; preds = %if.then108
-  %call121 = tail call fastcc i32 @uriFixPercentEncodingMallocA(ptr noundef nonnull %hostText99, ptr noundef nonnull %afterLast120, ptr noundef %memory)
+  %call121 = tail call fastcc i32 @uriFixPercentEncodingMallocA(ptr noundef %hostText99, ptr noundef %afterLast120, ptr noundef %memory)
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %if.then123, label %if.end124
 
 if.then123:                                       ; preds = %if.else116
-  tail call fastcc void @uriPreventLeakageA(ptr noundef nonnull %uri, i32 noundef %27, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageA(ptr noundef %uri, i32 noundef %27, ptr noundef %memory)
   br label %return
 
 if.end124:                                        ; preds = %if.else116
@@ -555,7 +555,7 @@ lor.lhs.false2.i266:                              ; preds = %if.then152
   br i1 %cmp5.i272, label %if.else212, label %if.end.i268
 
 if.end.i268:                                      ; preds = %lor.lhs.false2.i266
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef nonnull %64, ptr noundef nonnull %afterLast164)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef %64, ptr noundef %afterLast164)
   br label %if.else212
 
 lor.lhs.false4.i271:                              ; preds = %if.then152
@@ -583,12 +583,12 @@ if.end13.i281:                                    ; preds = %if.else.i279
 if.end18.i:                                       ; preds = %if.end13.i281
   %68 = load ptr, ptr %userInfo149, align 8
   %69 = load ptr, ptr %afterLast164, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %68, ptr noundef %69, ptr noundef nonnull %call.i283, ptr noundef nonnull %afterLast164)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %68, ptr noundef %69, ptr noundef %call.i283, ptr noundef %afterLast164)
   store ptr %call.i283, ptr %userInfo149, align 8
   br label %if.end168
 
 if.then167:                                       ; preds = %lor.lhs.false4.i271, %if.else.i279, %if.end13.i281
-  tail call fastcc void @uriPreventLeakageA(ptr noundef nonnull %uri, i32 noundef %53, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageA(ptr noundef %uri, i32 noundef %53, ptr noundef %memory)
   br label %return
 
 if.end168:                                        ; preds = %if.end18.i, %if.end.i273
@@ -742,7 +742,7 @@ lor.lhs.false2.i317:                              ; preds = %while.body229
   br i1 %cmp3.i318, label %uriFixPercentEncodingInplaceA.exit320, label %if.end.i319
 
 if.end.i319:                                      ; preds = %lor.lhs.false2.i317
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %88, ptr noundef nonnull %afterLast233)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef %88, ptr noundef %afterLast233)
   br label %uriFixPercentEncodingInplaceA.exit320
 
 uriFixPercentEncodingInplaceA.exit320:            ; preds = %while.body229, %lor.lhs.false2.i317, %if.end.i319
@@ -785,7 +785,7 @@ if.end13.i332:                                    ; preds = %if.else.i330
 if.end18.i336:                                    ; preds = %if.end13.i332
   %94 = load ptr, ptr %walker216.1463, align 8
   %95 = load ptr, ptr %afterLast244, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %94, ptr noundef %95, ptr noundef nonnull %call.i334, ptr noundef nonnull %afterLast244)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %94, ptr noundef %95, ptr noundef %call.i334, ptr noundef %afterLast244)
   store ptr %call.i334, ptr %walker216.1463, align 8
   br label %if.end248
 
@@ -817,7 +817,7 @@ if.end252:                                        ; preds = %uriFixPercentEncodi
   br i1 %tobool260.not, label %if.then261, label %if.end262
 
 if.then261:                                       ; preds = %if.end252
-  tail call fastcc void @uriPreventLeakageA(ptr noundef nonnull %uri, i32 noundef %97, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageA(ptr noundef %uri, i32 noundef %97, ptr noundef %memory)
   br label %return
 
 if.end262:                                        ; preds = %if.end252
@@ -976,7 +976,7 @@ lor.lhs.false2.i400:                              ; preds = %if.then292
   br i1 %cmp5.i406, label %if.end311, label %if.end.i402
 
 if.end.i402:                                      ; preds = %lor.lhs.false2.i400
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %121, ptr noundef nonnull %123, ptr noundef nonnull %121, ptr noundef nonnull %afterLast304)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %121, ptr noundef nonnull %123, ptr noundef %121, ptr noundef %afterLast304)
   br label %if.end311
 
 lor.lhs.false4.i405:                              ; preds = %if.then292
@@ -1004,12 +1004,12 @@ if.end13.i415:                                    ; preds = %if.else.i413
 if.end18.i419:                                    ; preds = %if.end13.i415
   %125 = load ptr, ptr %query288, align 8
   %126 = load ptr, ptr %afterLast304, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %125, ptr noundef %126, ptr noundef nonnull %call.i417, ptr noundef nonnull %afterLast304)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %125, ptr noundef %126, ptr noundef %call.i417, ptr noundef %afterLast304)
   store ptr %call.i417, ptr %query288, align 8
   br label %if.end308
 
 if.then307:                                       ; preds = %lor.lhs.false4.i405, %if.else.i413, %if.end13.i415
-  tail call fastcc void @uriPreventLeakageA(ptr noundef nonnull %uri, i32 noundef %120, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageA(ptr noundef %uri, i32 noundef %120, ptr noundef %memory)
   br label %return
 
 if.end308:                                        ; preds = %if.end18.i419, %if.end.i407
@@ -1042,16 +1042,16 @@ lor.lhs.false2.i423:                              ; preds = %if.then319
   br i1 %cmp3.i424, label %land.lhs.true342, label %if.end.i425
 
 if.end.i425:                                      ; preds = %lor.lhs.false2.i423
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %128, ptr noundef nonnull %130, ptr noundef nonnull %128, ptr noundef nonnull %afterLast331)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef nonnull %128, ptr noundef nonnull %130, ptr noundef %128, ptr noundef %afterLast331)
   br label %land.lhs.true342
 
 if.else327:                                       ; preds = %if.then319
-  %call332 = tail call fastcc i32 @uriFixPercentEncodingMallocA(ptr noundef nonnull %fragment315, ptr noundef nonnull %afterLast331, ptr noundef %memory)
+  %call332 = tail call fastcc i32 @uriFixPercentEncodingMallocA(ptr noundef %fragment315, ptr noundef %afterLast331, ptr noundef %memory)
   %tobool333.not = icmp eq i32 %call332, 0
   br i1 %tobool333.not, label %if.then334, label %if.end335
 
 if.then334:                                       ; preds = %if.else327
-  tail call fastcc void @uriPreventLeakageA(ptr noundef nonnull %uri, i32 noundef %127, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageA(ptr noundef %uri, i32 noundef %127, ptr noundef %memory)
   br label %return
 
 if.end335:                                        ; preds = %if.else327
@@ -1250,7 +1250,7 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
   br i1 %cmp15.not.i, label %if.else.i431, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then13.i
-  %call19.i = call fastcc i32 @uriMakeRangeOwnerA(ptr noundef nonnull %doneMask, i32 noundef 4, ptr noundef nonnull %ipFuture.i, ptr noundef %memory)
+  %call19.i = call fastcc i32 @uriMakeRangeOwnerA(ptr noundef %doneMask, i32 noundef 4, ptr noundef %ipFuture.i, ptr noundef %memory)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %if.then348, label %if.end22.i
 
@@ -1271,7 +1271,7 @@ if.else.i431:                                     ; preds = %if.then13.i
   br i1 %cmp33.not.i, label %if.end43.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.else.i431
-  %call36.i = call fastcc i32 @uriMakeRangeOwnerA(ptr noundef nonnull %doneMask, i32 noundef 4, ptr noundef nonnull %hostText31.i, ptr noundef %memory)
+  %call36.i = call fastcc i32 @uriMakeRangeOwnerA(ptr noundef %doneMask, i32 noundef 4, ptr noundef %hostText31.i, ptr noundef %memory)
   %tobool37.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool37.not.i, label %if.then348, label %if.end43.i
 
@@ -1411,7 +1411,7 @@ if.end.i152.i:                                    ; preds = %if.then.i144.i
 
 if.then348:                                       ; preds = %while.end80.i, %if.then16.i, %if.then34.i, %if.then.i.i, %if.then.i64.i, %if.then.i84.i, %if.then.i104.i, %if.then.i144.i
   %178 = load i32, ptr %doneMask, align 4
-  tail call fastcc void @uriPreventLeakageA(ptr noundef nonnull %uri, i32 noundef %178, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageA(ptr noundef %uri, i32 noundef %178, ptr noundef %memory)
   br label %return
 
 if.end349:                                        ; preds = %if.end.i152.i, %land.lhs.true2.i141.i, %if.end85.i
@@ -1717,7 +1717,7 @@ for.end.i:                                        ; preds = %for.body.i176
   br label %if.end56
 
 if.then55:                                        ; preds = %lor.lhs.false4.i, %if.else.i173, %if.end13.i
-  tail call fastcc void @uriPreventLeakageW(ptr noundef nonnull %uri, i32 noundef 0, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageW(ptr noundef %uri, i32 noundef 0, ptr noundef %memory)
   br label %return
 
 if.end56:                                         ; preds = %for.end.i, %if.end.i
@@ -1813,7 +1813,7 @@ for.end.i220:                                     ; preds = %for.body.i212
   br label %if.end85
 
 if.then84:                                        ; preds = %lor.lhs.false4.i194, %if.else.i203, %if.end13.i205
-  tail call fastcc void @uriPreventLeakageW(ptr noundef nonnull %uri, i32 noundef %27, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageW(ptr noundef %uri, i32 noundef %27, ptr noundef %memory)
   br label %return
 
 if.end85:                                         ; preds = %for.end.i220, %if.end.i196
@@ -1868,16 +1868,16 @@ lor.lhs.false2.i:                                 ; preds = %if.then108
   br i1 %cmp3.i225, label %if.end126, label %if.end.i226
 
 if.end.i226:                                      ; preds = %lor.lhs.false2.i
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %43, ptr noundef nonnull %47, ptr noundef nonnull %43, ptr noundef nonnull %afterLast120)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %43, ptr noundef nonnull %47, ptr noundef %43, ptr noundef %afterLast120)
   br label %if.end126
 
 if.else116:                                       ; preds = %if.then108
-  %call121 = tail call fastcc i32 @uriFixPercentEncodingMallocW(ptr noundef nonnull %hostText99, ptr noundef nonnull %afterLast120, ptr noundef %memory)
+  %call121 = tail call fastcc i32 @uriFixPercentEncodingMallocW(ptr noundef %hostText99, ptr noundef %afterLast120, ptr noundef %memory)
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %if.then123, label %if.end124
 
 if.then123:                                       ; preds = %if.else116
-  tail call fastcc void @uriPreventLeakageW(ptr noundef nonnull %uri, i32 noundef %27, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageW(ptr noundef %uri, i32 noundef %27, ptr noundef %memory)
   br label %return
 
 if.end124:                                        ; preds = %if.else116
@@ -2003,7 +2003,7 @@ lor.lhs.false2.i270:                              ; preds = %if.then152
   br i1 %cmp5.i276, label %if.else207, label %if.end.i272
 
 if.end.i272:                                      ; preds = %lor.lhs.false2.i270
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef nonnull %64, ptr noundef nonnull %afterLast164)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef %64, ptr noundef %afterLast164)
   br label %if.else207
 
 lor.lhs.false4.i275:                              ; preds = %if.then152
@@ -2032,12 +2032,12 @@ if.end13.i286:                                    ; preds = %if.else.i284
 if.end18.i:                                       ; preds = %if.end13.i286
   %68 = load ptr, ptr %userInfo149, align 8
   %69 = load ptr, ptr %afterLast164, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %68, ptr noundef %69, ptr noundef nonnull %call.i288, ptr noundef nonnull %afterLast164)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %68, ptr noundef %69, ptr noundef %call.i288, ptr noundef %afterLast164)
   store ptr %call.i288, ptr %userInfo149, align 8
   br label %if.end168
 
 if.then167:                                       ; preds = %lor.lhs.false4.i275, %if.else.i284, %if.end13.i286
-  tail call fastcc void @uriPreventLeakageW(ptr noundef nonnull %uri, i32 noundef %53, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageW(ptr noundef %uri, i32 noundef %53, ptr noundef %memory)
   br label %return
 
 if.end168:                                        ; preds = %if.end18.i, %if.end.i277
@@ -2191,7 +2191,7 @@ lor.lhs.false2.i322:                              ; preds = %while.body222
   br i1 %cmp3.i323, label %uriFixPercentEncodingInplaceW.exit325, label %if.end.i324
 
 if.end.i324:                                      ; preds = %lor.lhs.false2.i322
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %88, ptr noundef nonnull %afterLast226)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef %88, ptr noundef %afterLast226)
   br label %uriFixPercentEncodingInplaceW.exit325
 
 uriFixPercentEncodingInplaceW.exit325:            ; preds = %while.body222, %lor.lhs.false2.i322, %if.end.i324
@@ -2235,7 +2235,7 @@ if.end13.i338:                                    ; preds = %if.else.i336
 if.end18.i342:                                    ; preds = %if.end13.i338
   %94 = load ptr, ptr %walker211.1470, align 8
   %95 = load ptr, ptr %afterLast236, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %94, ptr noundef %95, ptr noundef nonnull %call.i340, ptr noundef nonnull %afterLast236)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %94, ptr noundef %95, ptr noundef %call.i340, ptr noundef %afterLast236)
   store ptr %call.i340, ptr %walker211.1470, align 8
   br label %if.end240
 
@@ -2267,7 +2267,7 @@ if.end244:                                        ; preds = %uriFixPercentEncodi
   br i1 %tobool250.not, label %if.then251, label %if.end252
 
 if.then251:                                       ; preds = %if.end244
-  tail call fastcc void @uriPreventLeakageW(ptr noundef nonnull %uri, i32 noundef %97, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageW(ptr noundef %uri, i32 noundef %97, ptr noundef %memory)
   br label %return
 
 if.end252:                                        ; preds = %if.end244
@@ -2426,7 +2426,7 @@ lor.lhs.false2.i406:                              ; preds = %if.then280
   br i1 %cmp5.i412, label %if.end299, label %if.end.i408
 
 if.end.i408:                                      ; preds = %lor.lhs.false2.i406
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %121, ptr noundef nonnull %123, ptr noundef nonnull %121, ptr noundef nonnull %afterLast292)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %121, ptr noundef nonnull %123, ptr noundef %121, ptr noundef %afterLast292)
   br label %if.end299
 
 lor.lhs.false4.i411:                              ; preds = %if.then280
@@ -2455,12 +2455,12 @@ if.end13.i422:                                    ; preds = %if.else.i420
 if.end18.i426:                                    ; preds = %if.end13.i422
   %125 = load ptr, ptr %query277, align 8
   %126 = load ptr, ptr %afterLast292, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %125, ptr noundef %126, ptr noundef nonnull %call.i424, ptr noundef nonnull %afterLast292)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %125, ptr noundef %126, ptr noundef %call.i424, ptr noundef %afterLast292)
   store ptr %call.i424, ptr %query277, align 8
   br label %if.end296
 
 if.then295:                                       ; preds = %lor.lhs.false4.i411, %if.else.i420, %if.end13.i422
-  tail call fastcc void @uriPreventLeakageW(ptr noundef nonnull %uri, i32 noundef %120, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageW(ptr noundef %uri, i32 noundef %120, ptr noundef %memory)
   br label %return
 
 if.end296:                                        ; preds = %if.end18.i426, %if.end.i413
@@ -2493,16 +2493,16 @@ lor.lhs.false2.i430:                              ; preds = %if.then306
   br i1 %cmp3.i431, label %land.lhs.true328, label %if.end.i432
 
 if.end.i432:                                      ; preds = %lor.lhs.false2.i430
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %128, ptr noundef nonnull %130, ptr noundef nonnull %128, ptr noundef nonnull %afterLast318)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef nonnull %128, ptr noundef nonnull %130, ptr noundef %128, ptr noundef %afterLast318)
   br label %land.lhs.true328
 
 if.else314:                                       ; preds = %if.then306
-  %call319 = tail call fastcc i32 @uriFixPercentEncodingMallocW(ptr noundef nonnull %fragment303, ptr noundef nonnull %afterLast318, ptr noundef %memory)
+  %call319 = tail call fastcc i32 @uriFixPercentEncodingMallocW(ptr noundef %fragment303, ptr noundef %afterLast318, ptr noundef %memory)
   %tobool320.not = icmp eq i32 %call319, 0
   br i1 %tobool320.not, label %if.then321, label %if.end322
 
 if.then321:                                       ; preds = %if.else314
-  tail call fastcc void @uriPreventLeakageW(ptr noundef nonnull %uri, i32 noundef %127, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageW(ptr noundef %uri, i32 noundef %127, ptr noundef %memory)
   br label %return
 
 if.end322:                                        ; preds = %if.else314
@@ -2709,7 +2709,7 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
   br i1 %cmp15.not.i, label %if.else.i438, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then13.i
-  %call19.i = call fastcc i32 @uriMakeRangeOwnerW(ptr noundef nonnull %doneMask, i32 noundef 4, ptr noundef nonnull %ipFuture.i, ptr noundef %memory)
+  %call19.i = call fastcc i32 @uriMakeRangeOwnerW(ptr noundef %doneMask, i32 noundef 4, ptr noundef %ipFuture.i, ptr noundef %memory)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %if.then334, label %if.end22.i
 
@@ -2730,7 +2730,7 @@ if.else.i438:                                     ; preds = %if.then13.i
   br i1 %cmp33.not.i, label %if.end43.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.else.i438
-  %call36.i = call fastcc i32 @uriMakeRangeOwnerW(ptr noundef nonnull %doneMask, i32 noundef 4, ptr noundef nonnull %hostText31.i, ptr noundef %memory)
+  %call36.i = call fastcc i32 @uriMakeRangeOwnerW(ptr noundef %doneMask, i32 noundef 4, ptr noundef %hostText31.i, ptr noundef %memory)
   %tobool37.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool37.not.i, label %if.then334, label %if.end43.i
 
@@ -2874,7 +2874,7 @@ if.end.i162.i:                                    ; preds = %if.then.i152.i
 
 if.then334:                                       ; preds = %while.end80.i, %if.then16.i, %if.then34.i, %if.then.i.i, %if.then.i64.i, %if.then.i86.i, %if.then.i108.i, %if.then.i152.i
   %178 = load i32, ptr %doneMask, align 4
-  tail call fastcc void @uriPreventLeakageW(ptr noundef nonnull %uri, i32 noundef %178, ptr noundef %memory)
+  tail call fastcc void @uriPreventLeakageW(ptr noundef %uri, i32 noundef %178, ptr noundef %memory)
   br label %return
 
 if.end335:                                        ; preds = %if.end.i162.i, %land.lhs.true2.i149.i, %if.end85.i
@@ -2922,7 +2922,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uriPreventLeakageA(ptr nocapture noundef %uri, i32 noundef %revertMask, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc void @uriPreventLeakageA(ptr nocapture noundef nonnull %uri, i32 noundef %revertMask, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %and = and i32 %revertMask, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -3071,7 +3071,7 @@ if.end87:                                         ; preds = %if.then80, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocA(ptr nocapture noundef %first, ptr nocapture noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocA(ptr nocapture noundef nonnull %first, ptr nocapture noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %first, align 8
   %cmp3 = icmp eq ptr %0, null
@@ -3104,7 +3104,7 @@ if.end13:                                         ; preds = %if.else
 if.end18:                                         ; preds = %if.end13
   %3 = load ptr, ptr %first, align 8
   %4 = load ptr, ptr %afterLast, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %call, ptr noundef nonnull %afterLast)
+  tail call fastcc void @uriFixPercentEncodingEngineA(ptr noundef %3, ptr noundef %4, ptr noundef %call, ptr noundef %afterLast)
   store ptr %call, ptr %first, align 8
   br label %return
 
@@ -3122,7 +3122,7 @@ declare zeroext i8 @uriHexdigToIntA(i8 noundef signext) local_unnamed_addr #2
 declare i32 @uriIsUnreserved(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uriFixPercentEncodingEngineA(ptr noundef %inFirst, ptr noundef %inAfterLast, ptr noundef %outFirst, ptr nocapture noundef writeonly %outAfterLast) unnamed_addr #0 {
+define internal fastcc void @uriFixPercentEncodingEngineA(ptr noundef %inFirst, ptr noundef %inAfterLast, ptr noundef nonnull %outFirst, ptr nocapture noundef nonnull writeonly %outAfterLast) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %inAfterLast to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %inFirst to i64
@@ -3218,7 +3218,7 @@ for.end43:                                        ; preds = %for.body36, %for.co
 declare signext i8 @uriHexToLetterA(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerA(ptr nocapture noundef %doneMask, i32 noundef %maskTest, ptr nocapture noundef %range, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerA(ptr nocapture noundef nonnull %doneMask, i32 noundef range(i32 0, 33) %maskTest, ptr nocapture noundef nonnull %range, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %doneMask, align 4
   %and = and i32 %0, %maskTest
@@ -3264,7 +3264,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uriPreventLeakageW(ptr nocapture noundef %uri, i32 noundef %revertMask, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc void @uriPreventLeakageW(ptr nocapture noundef nonnull %uri, i32 noundef %revertMask, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %and = and i32 %revertMask, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -3413,7 +3413,7 @@ if.end87:                                         ; preds = %if.then80, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr nocapture noundef %first, ptr nocapture noundef %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr nocapture noundef nonnull %first, ptr nocapture noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %first, align 8
   %cmp3 = icmp eq ptr %0, null
@@ -3447,7 +3447,7 @@ if.end13:                                         ; preds = %if.else
 if.end18:                                         ; preds = %if.end13
   %3 = load ptr, ptr %first, align 8
   %4 = load ptr, ptr %afterLast, align 8
-  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %call, ptr noundef nonnull %afterLast)
+  tail call fastcc void @uriFixPercentEncodingEngineW(ptr noundef %3, ptr noundef %4, ptr noundef %call, ptr noundef %afterLast)
   store ptr %call, ptr %first, align 8
   br label %return
 
@@ -3463,7 +3463,7 @@ declare void @uriFixEmptyTrailSegmentW(ptr noundef, ptr noundef) local_unnamed_a
 declare zeroext i8 @uriHexdigToIntW(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uriFixPercentEncodingEngineW(ptr noundef %inFirst, ptr noundef %inAfterLast, ptr noundef %outFirst, ptr nocapture noundef writeonly %outAfterLast) unnamed_addr #0 {
+define internal fastcc void @uriFixPercentEncodingEngineW(ptr noundef %inFirst, ptr noundef %inAfterLast, ptr noundef nonnull %outFirst, ptr nocapture noundef nonnull writeonly %outAfterLast) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %inAfterLast to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %inFirst to i64
@@ -3558,7 +3558,7 @@ for.end41:                                        ; preds = %for.body34, %for.co
 declare i32 @uriHexToLetterW(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerW(ptr nocapture noundef %doneMask, i32 noundef %maskTest, ptr nocapture noundef %range, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerW(ptr nocapture noundef nonnull %doneMask, i32 noundef range(i32 0, 33) %maskTest, ptr nocapture noundef nonnull %range, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %doneMask, align 4
   %and = and i32 %0, %maskTest

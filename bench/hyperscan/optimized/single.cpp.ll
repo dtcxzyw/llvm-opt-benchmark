@@ -674,7 +674,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_120HyperscanTestRuntimeEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_120HyperscanTestRuntimeEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 311, 478) %line) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -1611,7 +1611,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_125HyperscanTestCrossCompileEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_125HyperscanTestCrossCompileEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 430, 483) %line) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -3829,7 +3829,7 @@ _ZN7testing8internal14ParamGeneratorIPKcED2Ev.exit135: ; preds = %delete.notnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_127HyperscanTestMatchTerminateEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_127HyperscanTestMatchTerminateEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 515, 631) %line) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -24844,7 +24844,7 @@ ehcleanup22:                                      ; preds = %ehcleanup20, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26CartesianProductGenerator4IPKcjjN12_GLOBAL__N_112TestPlatformEE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJS3_jjS5_EEEERKNS0_14ParamGeneratorIS3_EERKNS0_13ParamIteratorIS3_EERKNSE_IjEERKNSI_IjEESO_SR_RKNSE_IS5_EERKNSI_IS5_EE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %g1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %g2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %g3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %g4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26CartesianProductGenerator4IPKcjjN12_GLOBAL__N_112TestPlatformEE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJS3_jjS5_EEEERKNS0_14ParamGeneratorIS3_EERKNS0_13ParamIteratorIS3_EERKNSE_IjEERKNSI_IjEESO_SR_RKNSE_IS5_EERKNSI_IS5_EE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %g1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %g2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %g3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %g4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator4IPKcjjN12_GLOBAL__N_112TestPlatformEE8IteratorE, i64 16), ptr %this, align 8
   %base_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -26479,7 +26479,7 @@ lor.end:                                          ; preds = %lor.rhs.i88, %land.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_18TerminateMatchDataEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef %meta_factory) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_18TerminateMatchDataEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef nonnull %meta_factory) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i10.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8

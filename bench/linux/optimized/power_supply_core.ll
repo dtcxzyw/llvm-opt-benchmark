@@ -2494,7 +2494,7 @@ declare dso_local void @delayed_work_timer_fn(ptr noundef) #2
 declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @psy_register_thermal(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @psy_register_thermal(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.thermal_zone_params, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
@@ -2534,7 +2534,7 @@ define internal fastcc i32 @psy_register_thermal(ptr noundef %0) unnamed_addr #0
   %23 = getelementptr inbounds i8, ptr %2, i64 20
   store i8 1, ptr %23, align 4
   %24 = load ptr, ptr %3, align 8
-  %25 = call ptr @thermal_tripless_zone_device_register(ptr noundef %24, ptr noundef %0, ptr noundef nonnull @psy_tzd_ops, ptr noundef nonnull %2) #17
+  %25 = call ptr @thermal_tripless_zone_device_register(ptr noundef %24, ptr noundef nonnull %0, ptr noundef nonnull @psy_tzd_ops, ptr noundef nonnull %2) #17
   %26 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr %25, ptr %26, align 8
   %27 = icmp ugt ptr %25, inttoptr (i64 -4096 to ptr)

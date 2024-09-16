@@ -2319,7 +2319,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24_
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_113ComputeExtentEdddRKNS_7TfTokenEPNS_7VtArrayINS_7GfVec3fEEE(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", align 4
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef 2)
-  %7 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEdddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %6)
+  %7 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEdddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %6)
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %5
@@ -2348,7 +2348,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinde
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEdddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEdddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = fcmp olt double %1, %2
   %.sroa.speculated = select i1 %6, double %2, double %1
   %7 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomTokensE seq_cst, align 8
@@ -2527,7 +2527,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinde
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef 2)
-  %10 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEdddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %7)
+  %10 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEdddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %7)
   br i1 %10, label %11, label %51
 
 11:                                               ; preds = %6

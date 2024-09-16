@@ -2557,7 +2557,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %if.then, %entry
   %origin = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %origin, align 8
-  %call4 = call fastcc i32 @ga_repr_item(ptr noundef nonnull %writer, ptr noundef %3)
+  %call4 = call fastcc i32 @ga_repr_item(ptr noundef %writer, ptr noundef %3)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %error, label %if.end7
 
@@ -2624,7 +2624,7 @@ if.end9.i:                                        ; preds = %if.then4.i, %for.bo
   %8 = load ptr, ptr %ob_item.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %8, i64 %i.09.i
   %9 = load ptr, ptr %arrayidx.i, align 8
-  %call10.i = call fastcc i32 @ga_repr_item(ptr noundef nonnull %writer, ptr noundef %9)
+  %call10.i = call fastcc i32 @ga_repr_item(ptr noundef %writer, ptr noundef %9)
   %cmp11.i = icmp slt i32 %call10.i, 0
   br i1 %cmp11.i, label %error, label %for.cond.i
 
@@ -2634,7 +2634,7 @@ ga_repr_items_list.exit:                          ; preds = %for.cond.i, %for.co
   br i1 %cmp25, label %error, label %for.inc
 
 if.else:                                          ; preds = %if.end19
-  %call28 = call fastcc i32 @ga_repr_item(ptr noundef nonnull %writer, ptr noundef nonnull %5)
+  %call28 = call fastcc i32 @ga_repr_item(ptr noundef %writer, ptr noundef nonnull %5)
   %cmp29 = icmp slt i32 %call28, 0
   br i1 %cmp29, label %error, label %for.inc
 
@@ -3216,7 +3216,7 @@ declare void @_PyUnicodeWriter_Init(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ga_repr_item(ptr noundef %writer, ptr noundef %p) unnamed_addr #0 {
+define internal fastcc i32 @ga_repr_item(ptr noundef nonnull %writer, ptr noundef %p) unnamed_addr #0 {
 entry:
   %qualname = alloca ptr, align 8
   %module = alloca ptr, align 8
@@ -3348,7 +3348,7 @@ Py_XDECREF.exit21:                                ; preds = %Py_XDECREF.exit.thr
   br i1 %cmp34, label %if.end38, label %if.else36
 
 if.else36:                                        ; preds = %Py_XDECREF.exit21
-  %call37 = call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef nonnull %r.02428) #5
+  %call37 = call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef nonnull %r.02428) #5
   %12 = load i64, ptr %r.02428, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i40.not = icmp eq i64 %13, 0

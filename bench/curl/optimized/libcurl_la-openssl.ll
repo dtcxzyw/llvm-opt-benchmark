@@ -517,14 +517,14 @@ cond.end:                                         ; preds = %sw.bb, %cond.true
   br i1 %tobool.not.i131, label %pubkey_show.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.end
-  %call1.i132 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %23) #13
+  %call1.i132 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %23) #13
   br label %pubkey_show.exit
 
 pubkey_show.exit:                                 ; preds = %cond.end, %if.then.i
-  %call2.i = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i) #13
+  %call2.i = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i) #13
   %24 = load ptr, ptr %ptr.i, align 8
   %call4.i = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i130, ptr noundef %24, i64 noundef %call2.i) #13
-  %call5.i = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i130)
   %25 = load ptr, ptr %e, align 8
@@ -535,14 +535,14 @@ pubkey_show.exit:                                 ; preds = %cond.end, %if.then.
   br i1 %tobool.not.i136, label %pubkey_show.exit142, label %if.then.i137
 
 if.then.i137:                                     ; preds = %pubkey_show.exit
-  %call1.i138 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %25) #13
+  %call1.i138 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %25) #13
   br label %pubkey_show.exit142
 
 pubkey_show.exit142:                              ; preds = %pubkey_show.exit, %if.then.i137
-  %call2.i139 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i133) #13
+  %call2.i139 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i133) #13
   %26 = load ptr, ptr %ptr.i133, align 8
   %call4.i140 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i134, ptr noundef %26, i64 noundef %call2.i139) #13
-  %call5.i141 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i141 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i133)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i134)
   br label %sw.epilog.sink.split
@@ -564,14 +564,14 @@ sw.bb163:                                         ; preds = %if.else
   br i1 %tobool.not.i146, label %pubkey_show.exit152, label %if.then.i147
 
 if.then.i147:                                     ; preds = %sw.bb163
-  %call1.i148 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %27) #13
+  %call1.i148 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %27) #13
   br label %pubkey_show.exit152
 
 pubkey_show.exit152:                              ; preds = %sw.bb163, %if.then.i147
-  %call2.i149 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i143) #13
+  %call2.i149 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i143) #13
   %28 = load ptr, ptr %ptr.i143, align 8
   %call4.i150 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i144, ptr noundef %28, i64 noundef %call2.i149) #13
-  %call5.i151 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i151 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i143)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i144)
   %29 = load ptr, ptr %q, align 8
@@ -582,14 +582,14 @@ pubkey_show.exit152:                              ; preds = %sw.bb163, %if.then.
   br i1 %tobool.not.i156, label %pubkey_show.exit162, label %if.then.i157
 
 if.then.i157:                                     ; preds = %pubkey_show.exit152
-  %call1.i158 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %29) #13
+  %call1.i158 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %29) #13
   br label %pubkey_show.exit162
 
 pubkey_show.exit162:                              ; preds = %pubkey_show.exit152, %if.then.i157
-  %call2.i159 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i153) #13
+  %call2.i159 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i153) #13
   %30 = load ptr, ptr %ptr.i153, align 8
   %call4.i160 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i154, ptr noundef %30, i64 noundef %call2.i159) #13
-  %call5.i161 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i161 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i153)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i154)
   %31 = load ptr, ptr %g, align 8
@@ -600,14 +600,14 @@ pubkey_show.exit162:                              ; preds = %pubkey_show.exit152
   br i1 %tobool.not.i166, label %pubkey_show.exit172, label %if.then.i167
 
 if.then.i167:                                     ; preds = %pubkey_show.exit162
-  %call1.i168 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %31) #13
+  %call1.i168 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %31) #13
   br label %pubkey_show.exit172
 
 pubkey_show.exit172:                              ; preds = %pubkey_show.exit162, %if.then.i167
-  %call2.i169 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i163) #13
+  %call2.i169 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i163) #13
   %32 = load ptr, ptr %ptr.i163, align 8
   %call4.i170 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i164, ptr noundef %32, i64 noundef %call2.i169) #13
-  %call5.i171 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i171 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i163)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i164)
   %33 = load ptr, ptr %pub_key, align 8
@@ -618,14 +618,14 @@ pubkey_show.exit172:                              ; preds = %pubkey_show.exit162
   br i1 %tobool.not.i176, label %pubkey_show.exit182, label %if.then.i177
 
 if.then.i177:                                     ; preds = %pubkey_show.exit172
-  %call1.i178 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %33) #13
+  %call1.i178 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %33) #13
   br label %pubkey_show.exit182
 
 pubkey_show.exit182:                              ; preds = %pubkey_show.exit172, %if.then.i177
-  %call2.i179 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i173) #13
+  %call2.i179 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i173) #13
   %34 = load ptr, ptr %ptr.i173, align 8
   %call4.i180 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i174, ptr noundef %34, i64 noundef %call2.i179) #13
-  %call5.i181 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i181 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i173)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i174)
   %35 = load ptr, ptr %p, align 8
@@ -651,14 +651,14 @@ sw.bb168:                                         ; preds = %if.else
   br i1 %tobool.not.i186, label %pubkey_show.exit192, label %if.then.i187
 
 if.then.i187:                                     ; preds = %sw.bb168
-  %call1.i188 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %37) #13
+  %call1.i188 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %37) #13
   br label %pubkey_show.exit192
 
 pubkey_show.exit192:                              ; preds = %sw.bb168, %if.then.i187
-  %call2.i189 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i183) #13
+  %call2.i189 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i183) #13
   %38 = load ptr, ptr %ptr.i183, align 8
   %call4.i190 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i184, ptr noundef %38, i64 noundef %call2.i189) #13
-  %call5.i191 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i191 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i183)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i184)
   %39 = load ptr, ptr %q170, align 8
@@ -669,14 +669,14 @@ pubkey_show.exit192:                              ; preds = %sw.bb168, %if.then.
   br i1 %tobool.not.i196, label %pubkey_show.exit202, label %if.then.i197
 
 if.then.i197:                                     ; preds = %pubkey_show.exit192
-  %call1.i198 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %39) #13
+  %call1.i198 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %39) #13
   br label %pubkey_show.exit202
 
 pubkey_show.exit202:                              ; preds = %pubkey_show.exit192, %if.then.i197
-  %call2.i199 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i193) #13
+  %call2.i199 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i193) #13
   %40 = load ptr, ptr %ptr.i193, align 8
   %call4.i200 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i194, ptr noundef %40, i64 noundef %call2.i199) #13
-  %call5.i201 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i201 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i193)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i194)
   %41 = load ptr, ptr %g171, align 8
@@ -687,14 +687,14 @@ pubkey_show.exit202:                              ; preds = %pubkey_show.exit192
   br i1 %tobool.not.i206, label %pubkey_show.exit212, label %if.then.i207
 
 if.then.i207:                                     ; preds = %pubkey_show.exit202
-  %call1.i208 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %41) #13
+  %call1.i208 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %41) #13
   br label %pubkey_show.exit212
 
 pubkey_show.exit212:                              ; preds = %pubkey_show.exit202, %if.then.i207
-  %call2.i209 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i203) #13
+  %call2.i209 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i203) #13
   %42 = load ptr, ptr %ptr.i203, align 8
   %call4.i210 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i204, ptr noundef %42, i64 noundef %call2.i209) #13
-  %call5.i211 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i211 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i203)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i204)
   %43 = load ptr, ptr %pub_key172, align 8
@@ -705,14 +705,14 @@ pubkey_show.exit212:                              ; preds = %pubkey_show.exit202
   br i1 %tobool.not.i216, label %pubkey_show.exit222, label %if.then.i217
 
 if.then.i217:                                     ; preds = %pubkey_show.exit212
-  %call1.i218 = call i32 @BN_print(ptr noundef %call8, ptr noundef nonnull %43) #13
+  %call1.i218 = call i32 @BN_print(ptr noundef nonnull %call8, ptr noundef nonnull %43) #13
   br label %pubkey_show.exit222
 
 pubkey_show.exit222:                              ; preds = %pubkey_show.exit212, %if.then.i217
-  %call2.i219 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i213) #13
+  %call2.i219 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr.i213) #13
   %44 = load ptr, ptr %ptr.i213, align 8
   %call4.i220 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i214, ptr noundef %44, i64 noundef %call2.i219) #13
-  %call5.i221 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
+  %call5.i221 = call i64 @BIO_ctrl(ptr noundef nonnull %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i213)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %namebuf.i214)
   %45 = load ptr, ptr %p169, align 8
@@ -1166,7 +1166,7 @@ if.end57:                                         ; preds = %if.then51
 
 if.then62:                                        ; preds = %if.end57
   %call63 = call i64 @ERR_get_error() #13
-  %call65 = call fastcc ptr @ossl_strerror(i64 noundef %call63, ptr noundef nonnull %error_buffer, i64 noundef 256)
+  %call65 = call fastcc ptr @ossl_strerror(i64 noundef %call63, ptr noundef %error_buffer, i64 noundef 256)
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.43, ptr noundef %cert_file, ptr noundef nonnull %call65) #13
   br label %return
 
@@ -1186,7 +1186,7 @@ if.end70:                                         ; preds = %if.end66
 
 if.then74:                                        ; preds = %if.end70
   %call75 = call i64 @ERR_get_error() #13
-  %call77 = call fastcc ptr @ossl_strerror(i64 noundef %call75, ptr noundef nonnull %error_buffer, i64 noundef 256)
+  %call77 = call fastcc ptr @ossl_strerror(i64 noundef %call75, ptr noundef %error_buffer, i64 noundef 256)
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.45, ptr noundef nonnull %call77) #13
   br label %return
 
@@ -1262,7 +1262,7 @@ if.else92:                                        ; preds = %sw.bb81
 
 if.then96:                                        ; preds = %if.else92
   %call97 = tail call i64 @ERR_get_error() #13
-  %call99 = call fastcc ptr @ossl_strerror(i64 noundef %call97, ptr noundef nonnull %error_buffer, i64 noundef 256)
+  %call99 = call fastcc ptr @ossl_strerror(i64 noundef %call97, ptr noundef %error_buffer, i64 noundef 256)
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.48, ptr noundef nonnull %call99) #13
   br label %return
 
@@ -1297,7 +1297,7 @@ if.end118:                                        ; preds = %if.end108
 
 if.then121:                                       ; preds = %if.end118
   %call122 = call i64 @ERR_get_error() #13
-  %call124 = call fastcc ptr @ossl_strerror(i64 noundef %call122, ptr noundef nonnull %error_buffer, i64 noundef 256)
+  %call124 = call fastcc ptr @ossl_strerror(i64 noundef %call122, ptr noundef %error_buffer, i64 noundef 256)
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.52, ptr noundef nonnull %call124) #13
   call void @PKCS12_free(ptr noundef nonnull %call109) #13
   br label %return
@@ -1311,7 +1311,7 @@ if.end125:                                        ; preds = %if.end118
 
 if.then129:                                       ; preds = %if.end125
   %call130 = call i64 @ERR_get_error() #13
-  %call132 = call fastcc ptr @ossl_strerror(i64 noundef %call130, ptr noundef nonnull %error_buffer, i64 noundef 256)
+  %call132 = call fastcc ptr @ossl_strerror(i64 noundef %call130, ptr noundef %error_buffer, i64 noundef 256)
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.53, ptr noundef nonnull %call132) #13
   br label %if.then162.critedge
 
@@ -3021,7 +3021,7 @@ if.then104:                                       ; preds = %land.lhs.true100
   br i1 %tobool105.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then104
-  %call107 = call fastcc ptr @ossl_strerror(i64 noundef %call87, ptr noundef nonnull %buf, i64 noundef 1024)
+  %call107 = call fastcc ptr @ossl_strerror(i64 noundef %call87, ptr noundef %buf, i64 noundef 1024)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then104
@@ -3369,7 +3369,7 @@ if.then21:                                        ; preds = %if.end17
   br i1 %tobool, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.then21
-  %call25 = call fastcc ptr @ossl_strerror(i64 noundef %call18, ptr noundef nonnull %error_buffer, i64 noundef 256)
+  %call25 = call fastcc ptr @ossl_strerror(i64 noundef %call18, ptr noundef %error_buffer, i64 noundef 256)
   br label %if.end37
 
 if.else:                                          ; preds = %if.then21
@@ -3627,19 +3627,19 @@ return:                                           ; preds = %entry, %if.then, %i
 declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @ossl_strerror(i64 noundef %error, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @ossl_strerror(i64 noundef %error, ptr noundef nonnull %buf, i64 noundef range(i64 256, 1025) %size) unnamed_addr #0 {
 entry:
   store i8 0, ptr %buf, align 1
   %call.i = tail call ptr @OpenSSL_version(i32 noundef 6) #13
   %call1.i = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %buf, i64 noundef %size, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %call.i) #13
   %conv.i = sext i32 %call1.i to i64
-  %sub = add i64 %size, -2
+  %sub = add nsw i64 %size, -2
   %cmp = icmp ugt i64 %sub, %conv.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %conv.i
-  %sub3 = sub nuw i64 %sub, %conv.i
+  %sub3 = sub nuw nsw i64 %sub, %conv.i
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 58, ptr %add.ptr, align 1
   %incdec.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 2
@@ -4526,7 +4526,7 @@ if.then294.i:                                     ; preds = %if.then292.i
 if.then298.i:                                     ; preds = %if.then294.i
   call void @Curl_ssl_sessionid_unlock(ptr noundef nonnull %data) #13
   %call299.i = call i64 @ERR_get_error() #13
-  %call301.i = call fastcc ptr @ossl_strerror(i64 noundef %call299.i, ptr noundef nonnull %error_buffer.i, i64 noundef 256)
+  %call301.i = call fastcc ptr @ossl_strerror(i64 noundef %call299.i, ptr noundef %error_buffer.i, i64 noundef 256)
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.132, ptr noundef nonnull %call301.i) #13
   br label %ossl_connect_step1.exit.thread
 
@@ -4733,7 +4733,7 @@ if.else46.i:                                      ; preds = %if.then39.i
   br label %if.end77.i
 
 if.then54.i:                                      ; preds = %land.lhs.true.i53
-  %call56.i = call fastcc ptr @ossl_strerror(i64 noundef %call33.i, ptr noundef nonnull %error_buffer.i42, i64 noundef 256)
+  %call56.i = call fastcc ptr @ossl_strerror(i64 noundef %call33.i, ptr noundef %error_buffer.i42, i64 noundef 256)
   br label %if.end77.i
 
 if.end61.i:                                       ; preds = %land.lhs.true.i53, %if.else.i
@@ -5227,7 +5227,7 @@ if.else150.i.i:                                   ; preds = %if.then132.i.i
 
 if.then154.i.i:                                   ; preds = %if.else150.i.i
   %call155.i.i = call i64 @ERR_get_error() #13
-  %call157.i.i = call fastcc ptr @ossl_strerror(i64 noundef %call155.i.i, ptr noundef nonnull %error_buffer.i.i, i64 noundef 256)
+  %call157.i.i = call fastcc ptr @ossl_strerror(i64 noundef %call155.i.i, ptr noundef %error_buffer.i.i, i64 noundef 256)
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.48, ptr noundef nonnull %call157.i.i) #13
   %144 = load ptr, ptr %server_cert.i.i, align 8
   call void @X509_free(ptr noundef %144) #13

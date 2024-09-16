@@ -223,7 +223,7 @@ define range(i32 -43, 1) i32 @prte_oob_base_select() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %88, %.lr.ph.i
   %94 = phi ptr [ %96, %.lr.ph.i ], [ %93, %88 ]
   %.07.i = phi ptr [ %95, %.lr.ph.i ], [ %92, %88 ]
-  tail call void %94(ptr noundef %65) #9
+  tail call void %94(ptr noundef nonnull %65) #9
   %95 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %96 = load ptr, ptr %95, align 8
   %.not.i = icmp eq ptr %96, null

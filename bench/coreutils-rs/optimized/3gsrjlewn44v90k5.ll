@@ -444,7 +444,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
-define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E(ptr noalias nocapture noundef align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 57
   %3 = load i8, ptr %2, align 1, !range !177, !noundef !4
   %4 = icmp eq i8 %3, 2
@@ -906,7 +906,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
   call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.8.i.i.i)
-  %15 = tail call fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4), !noalias !303
+  %15 = tail call fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E(ptr noalias noundef align 8 dereferenceable(64) %4), !noalias !303
   %16 = extractvalue { ptr, i64 } %15, 0
   %.not16.i.i.i = icmp eq ptr %16, null
   br i1 %.not16.i.i.i, label %.lr.ph.i.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7071562d69ab561E.exit.thread.i"
@@ -1140,7 +1140,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit: ; pr
   br label %113
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7071562d69ab561E.exit.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit, %.lr.ph, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd9a5e66757a095deE.exit.i.i.i", %.lr.ph.i.i.i
-  %110 = tail call fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E(ptr noalias noundef nonnull align 8 dereferenceable(64) %11), !noalias !303
+  %110 = tail call fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E(ptr noalias noundef align 8 dereferenceable(64) %11), !noalias !303
   %111 = extractvalue { ptr, i64 } %110, 0
   call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.8.i.i.i)

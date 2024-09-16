@@ -784,7 +784,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_128ConsumeUnboundConversionTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_128ConsumeUnboundConversionTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 108, 322) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -826,7 +826,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_128ConsumeUnboundConversionTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_128ConsumeUnboundConversionTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 108, 322) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -868,7 +868,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_116ParsedFormatTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_116ParsedFormatTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 378, 427) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -910,7 +910,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_116ParsedFormatTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_116ParsedFormatTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 378, 427) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -21912,7 +21912,7 @@ entry:
   %ref.tmp169 = alloca %"class.testing::Message", align 8
   %ref.tmp172 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @_ZN4absl19str_format_internal16ParsedFormatBaseC1ESt17basic_string_viewIcSt11char_traitsIcEEbSt16initializer_listINS_23FormatConversionCharSetEE(ptr noundef nonnull align 8 dereferenceable(40) %p1, i64 0, ptr null, i1 noundef zeroext true, ptr null, i64 0)
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %p1)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %p1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -22035,11 +22035,11 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(40) %p1)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(40) %p1)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont16
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(40) %p2)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(40) %p2)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont20
@@ -22234,7 +22234,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN4absl19str_format_internal16ParsedFormatBaseD2Ev.exit: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
   store ptr null, ptr %data_.i, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(40) %p1)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(40) %p1)
           to label %invoke.cont56 unwind label %lpad19
 
 invoke.cont56:                                    ; preds = %_ZN4absl19str_format_internal16ParsedFormatBaseD2Ev.exit
@@ -22357,11 +22357,11 @@ _ZN7testing15AssertionResultD2Ev.exit88:          ; preds = %if.end75, %_ZNKSt14
           to label %invoke.cont77 unwind label %lpad19
 
 invoke.cont77:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit88
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(40) %p1)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(40) %p1)
           to label %invoke.cont81 unwind label %lpad80
 
 invoke.cont81:                                    ; preds = %invoke.cont77
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(40) %p3)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(40) %p3)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %invoke.cont81
@@ -22513,7 +22513,7 @@ invoke.cont106:                                   ; preds = %if.end104, %_ZNKSt1
   store ptr %.pre.i112, ptr %items_.i4.i, align 8
   store ptr %.pre35.i, ptr %_M_finish.i2.i.i.i.i.i, align 8
   store ptr %.pre36.i, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp108, ptr noundef nonnull align 8 dereferenceable(40) %p1)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp108, ptr noundef nonnull align 8 dereferenceable(40) %p1)
           to label %invoke.cont109 unwind label %lpad80
 
 invoke.cont109:                                   ; preds = %invoke.cont106
@@ -22632,7 +22632,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit143:         ; preds = %if.end128, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i142
   store ptr null, ptr %message_.i140, align 8
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(40) %p2)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(40) %p2)
           to label %invoke.cont132 unwind label %lpad80
 
 invoke.cont132:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit143
@@ -22900,11 +22900,11 @@ invoke.cont154:                                   ; preds = %_ZNKSt14default_del
   %102 = phi ptr [ %call8.i216, %call8.i.noexc ], [ %.pre.i214, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i ]
   %103 = load ptr, ptr %data_3.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr align 1 %103, i64 %cond.i, i1 false)
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp157, ptr noundef nonnull align 8 dereferenceable(40) %p1)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp157, ptr noundef nonnull align 8 dereferenceable(40) %p1)
           to label %invoke.cont158 unwind label %lpad80
 
 invoke.cont158:                                   ; preds = %invoke.cont154
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(40) %p2)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(40) %p2)
           to label %invoke.cont161 unwind label %lpad160
 
 invoke.cont161:                                   ; preds = %invoke.cont158
@@ -24261,7 +24261,7 @@ for.body:                                         ; preds = %entry, %_ZN7testing
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp36)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp36)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont
@@ -24573,7 +24573,7 @@ for.body:                                         ; preds = %entry, %_ZN7testing
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias nonnull align 8 %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp60)
+  invoke fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_121SummarizeParsedFormatB5cxx11ERKNS0_16ParsedFormatBaseE(ptr noalias align 8 %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp60)
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %invoke.cont

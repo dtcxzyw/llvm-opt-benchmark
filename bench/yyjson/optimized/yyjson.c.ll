@@ -1418,7 +1418,7 @@ if.then.i25.thread:                               ; preds = %if.end7
   br label %unsafe_yyjson_str_pool_release.exit.i
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %if.end7
-  %call.i23 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %call.i, ptr noundef nonnull readonly %3)
+  %call.i23 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %call.i, ptr noundef nonnull readonly %3)
   %tobool10.not = icmp eq ptr %call.i23, null
   br i1 %tobool10.not, label %if.then.i25, label %if.then.i
 
@@ -1476,7 +1476,7 @@ entry:
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %val)
+  %call = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull %val)
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -1485,7 +1485,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr nocapture noundef readonly %m_vals) unnamed_addr #7 {
+define internal fastcc noundef ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %m_doc, ptr nocapture noundef readonly %m_vals) unnamed_addr #7 {
 entry:
   %alc1.i = getelementptr inbounds i8, ptr %m_doc, i64 8
   %val_pool.i = getelementptr inbounds i8, ptr %m_doc, i64 80
@@ -1556,7 +1556,7 @@ if.then9:                                         ; preds = %sw.bb
   %10 = load ptr, ptr %uni, align 8
   %next10 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %next10, align 8
-  %call11 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %m_doc, ptr noundef %10)
+  %call11 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr noundef %10)
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %return, label %if.end14
 
@@ -1706,7 +1706,7 @@ entry:
 if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq ptr %alc, null
   %spec.store.select = select i1 %tobool1.not, ptr @YYJSON_DEFAULT_ALC, ptr %alc
-  call fastcc void @yyjson_mut_stat(ptr noundef nonnull %mval, ptr noundef nonnull %val_num, ptr noundef nonnull %str_sum)
+  call fastcc void @yyjson_mut_stat(ptr noundef nonnull %mval, ptr noundef %val_num, ptr noundef %str_sum)
   %0 = load i64, ptr %val_num, align 8
   %mul = shl i64 %0, 4
   %add = add i64 %mul, 64
@@ -1747,7 +1747,7 @@ if.then14:                                        ; preds = %if.then9
   br label %return
 
 if.end17:                                         ; preds = %if.then9, %if.end7
-  %call18 = call fastcc i64 @yyjson_imut_copy(ptr noundef nonnull %val_hdr, ptr noundef nonnull %str_hdr, ptr noundef nonnull %mval)
+  %call18 = call fastcc i64 @yyjson_imut_copy(ptr noundef %val_hdr, ptr noundef %str_hdr, ptr noundef nonnull %mval)
   %val_read = getelementptr inbounds i8, ptr %call4, i64 48
   store i64 %call18, ptr %val_read, align 8
   %9 = load i64, ptr %str_sum, align 8
@@ -1762,7 +1762,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @yyjson_mut_stat(ptr nocapture noundef readonly %val, ptr nocapture noundef %val_sum, ptr nocapture noundef %str_sum) unnamed_addr #10 {
+define internal fastcc void @yyjson_mut_stat(ptr nocapture noundef readonly %val, ptr nocapture noundef nonnull %val_sum, ptr nocapture noundef nonnull %str_sum) unnamed_addr #10 {
 entry:
   %0 = load i64, ptr %val, align 8
   %conv.i51 = trunc i64 %0 to i32
@@ -1814,7 +1814,7 @@ if.else:                                          ; preds = %for.body
   br i1 %or.cond2, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.else
-  tail call fastcc void @yyjson_mut_stat(ptr noundef nonnull %child.027, ptr noundef nonnull %val_sum, ptr noundef %str_sum)
+  tail call fastcc void @yyjson_mut_stat(ptr noundef nonnull %child.027, ptr noundef %val_sum, ptr noundef %str_sum)
   %8 = load i64, ptr %val_sum, align 8
   %sub = add i64 %8, -1
   store i64 %sub, ptr %val_sum, align 8
@@ -1846,7 +1846,7 @@ if.end48:                                         ; preds = %if.end34, %if.then,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @yyjson_imut_copy(ptr nocapture noundef %val_ptr, ptr nocapture noundef %buf_ptr, ptr nocapture noundef readonly %mval) unnamed_addr #10 {
+define internal fastcc i64 @yyjson_imut_copy(ptr nocapture noundef nonnull %val_ptr, ptr nocapture noundef nonnull %buf_ptr, ptr nocapture noundef readonly %mval) unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %val_ptr, align 8
   %1 = load i64, ptr %mval, align 8
@@ -1904,7 +1904,7 @@ for.body:                                         ; preds = %if.end16, %for.body
   %child.245 = phi ptr [ %7, %for.body ], [ %child.1, %if.end16 ]
   %val_sum.044 = phi i64 [ %add, %for.body ], [ 1, %if.end16 ]
   %i.043 = phi i64 [ %inc, %for.body ], [ 0, %if.end16 ]
-  %call19 = tail call fastcc i64 @yyjson_imut_copy(ptr noundef nonnull %val_ptr, ptr noundef %buf_ptr, ptr noundef %child.245)
+  %call19 = tail call fastcc i64 @yyjson_imut_copy(ptr noundef %val_ptr, ptr noundef %buf_ptr, ptr noundef %child.245)
   %add = add i64 %call19, %val_sum.044
   %next20 = getelementptr inbounds i8, ptr %child.245, i64 16
   %7 = load ptr, ptr %next20, align 8
@@ -5930,7 +5930,7 @@ if.end670:                                        ; preds = %if.end18.i1225, %yy
   br i1 %cmp671, label %sw.epilog848, label %yyjson_mut_val_mut_copy.exit
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %if.end670
-  %call.i = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %retval.i1210.01098)
+  %call.i = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull readonly %retval.i1210.01098)
   %tobool682.not = icmp eq ptr %call.i, null
   br i1 %tobool682.not, label %do.body692, label %if.end715
 
@@ -6213,7 +6213,7 @@ if.else37:                                        ; preds = %do.body28
   br label %return
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %cond.true.i
-  %call.i1017 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %orig)
+  %call.i1017 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull readonly %orig)
   %tobool53.not = icmp eq ptr %call.i1017, null
   br i1 %tobool53.not, label %do.body63, label %cond.true.i.i
 
@@ -6511,7 +6511,7 @@ if.else276:                                       ; preds = %do.body267
   br label %return
 
 yyjson_mut_val_mut_copy.exit1024:                 ; preds = %yyjson_mut_obj_getn.exit1391
-  %call.i1023 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %26)
+  %call.i1023 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull readonly %26)
   %tobool292.not = icmp eq ptr %call.i1023, null
   br i1 %tobool292.not, label %do.body302, label %sw.epilog
 
@@ -6639,7 +6639,7 @@ if.end38.i932:                                    ; preds = %if.end407
   br i1 %cmp40.i934.not, label %if.end57.i938, label %if.else428.sink.split
 
 if.end57.i938:                                    ; preds = %if.end38.i932
-  %call.i940 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01333, ptr noundef nonnull %35, i64 noundef %shr.i842, ptr noundef nonnull %val.0, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i940 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01333, ptr noundef nonnull %35, i64 noundef %shr.i842, ptr noundef nonnull %val.0, ptr noundef nonnull %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   br i1 %call.i940, label %sw.epilog840, label %do.body419
 
 do.body419:                                       ; preds = %if.end57.i938
@@ -6841,7 +6841,7 @@ if.end38.i870:                                    ; preds = %if.end588
   br i1 %cmp40.i872.not, label %if.end57.i876, label %if.else610.sink.split
 
 if.end57.i876:                                    ; preds = %if.end38.i870
-  %call.i878 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01333, ptr noundef nonnull %48, i64 noundef %shr.i842, ptr noundef nonnull %call.i986, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i878 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01333, ptr noundef nonnull %48, i64 noundef %shr.i842, ptr noundef nonnull %call.i986, ptr noundef nonnull %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   br i1 %call.i878, label %sw.epilog840, label %do.body601
 
 do.body601:                                       ; preds = %if.end57.i876
@@ -6924,7 +6924,7 @@ if.end662:                                        ; preds = %if.end18.i1129, %yy
   br i1 %cmp663, label %sw.epilog840, label %yyjson_mut_val_mut_copy.exit1031
 
 yyjson_mut_val_mut_copy.exit1031:                 ; preds = %if.end662
-  %call.i1030 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %retval.i1114.01115)
+  %call.i1030 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull readonly %retval.i1114.01115)
   %tobool674.not = icmp eq ptr %call.i1030, null
   br i1 %tobool674.not, label %do.body684, label %if.end707
 
@@ -6957,7 +6957,7 @@ if.end38.i:                                       ; preds = %if.end707
   br i1 %cmp40.i.not, label %if.end57.i, label %if.else729.sink.split
 
 if.end57.i:                                       ; preds = %if.end38.i
-  %call.i = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01333, ptr noundef nonnull %53, i64 noundef %shr.i842, ptr noundef nonnull %call.i1030, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01333, ptr noundef nonnull %53, i64 noundef %shr.i842, ptr noundef nonnull %call.i1030, ptr noundef nonnull %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   br i1 %call.i, label %sw.epilog840, label %do.body720
 
 do.body720:                                       ; preds = %if.end57.i
@@ -7465,7 +7465,7 @@ if.then:                                          ; preds = %cond.true.i178
   br i1 %tobool.i.not, label %return, label %if.then.i133
 
 if.then.i133:                                     ; preds = %if.then
-  %call.i = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %patch)
+  %call.i = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull readonly %patch)
   br label %return
 
 if.end:                                           ; preds = %cond.true.i178
@@ -7620,12 +7620,12 @@ if.end.i331:                                      ; preds = %while.body.i329, %l
   br i1 %cmp.i327.not, label %yyjson_mut_val_mut_copy.exit142, label %while.body.i329, !llvm.loop !40
 
 yyjson_mut_val_mut_copy.exit142:                  ; preds = %if.end.i331, %if.then7.i334, %yyjson_mut_obj_size.exit.i313, %cond.true.i.i.i340
-  %call.i141 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %key.0231)
+  %call.i141 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull readonly %key.0231)
   %tobool1.i144.not = icmp eq ptr %orig_val.0232, null
   br i1 %tobool1.i144.not, label %yyjson_mut_val_mut_copy.exit149, label %if.then.i147
 
 if.then.i147:                                     ; preds = %yyjson_mut_val_mut_copy.exit142
-  %call.i148 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %orig_val.0232)
+  %call.i148 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull readonly %orig_val.0232)
   br label %yyjson_mut_val_mut_copy.exit149
 
 yyjson_mut_val_mut_copy.exit149:                  ; preds = %yyjson_mut_val_mut_copy.exit142, %if.then.i147
@@ -7729,7 +7729,7 @@ if.end70:                                         ; preds = %for.body67
   br i1 %tobool1.i151.not, label %cond.true.i.i.i, label %if.then.i154
 
 if.then.i154:                                     ; preds = %if.end70
-  %call.i155 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %key.1244)
+  %call.i155 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef nonnull readonly %key.1244)
   br label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.then.i154, %if.end70
@@ -8496,7 +8496,7 @@ if.end336.i:                                      ; preds = %if.end323.i, %if.th
   br i1 %or.cond, label %if.then.i4605, label %if.end.i2720
 
 if.then.i4605:                                    ; preds = %if.end336.i
-  %call11.i4606 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i, ptr noundef nonnull %raw_end.i, i32 noundef %flg, ptr noundef %val.i.5, ptr noundef nonnull %msg.i)
+  %call11.i4606 = call fastcc zeroext i1 @read_number_raw(ptr noundef %cur.addr.i, ptr noundef nonnull %raw_end.i, i32 noundef %flg, ptr noundef %val.i.5, ptr noundef %msg.i)
   br i1 %call11.i4606, label %arr_val_end.i.preheader, label %fail_number.i
 
 if.end.i2720:                                     ; preds = %if.end336.i
@@ -10449,7 +10449,7 @@ if.end2397.i2897:                                 ; preds = %if.end2373.i2887
   %214 = or disjoint i64 %213, 9007199254740992
   %shl2416.i2906 = select i1 %tobool2399.i2899.not, i64 %213, i64 %214
   %add2420.i2909 = or disjoint i64 %shl2416.i2906, 1
-  call fastcc void @bigint_set_buf(ptr noundef nonnull %big_full.i2709, i64 noundef %sig.i2665.22, ptr noundef nonnull %exp.i2666, ptr noundef %sig_cut.i2662.3, ptr noundef %sig_end.i2663.3, ptr noundef %dot_pos.i2664.23)
+  call fastcc void @bigint_set_buf(ptr noundef %big_full.i2709, i64 noundef %sig.i2665.22, ptr noundef %exp.i2666, ptr noundef %sig_cut.i2662.3, ptr noundef %sig_end.i2663.3, ptr noundef %dot_pos.i2664.23)
   store i32 1, ptr %big_comp.i2710, align 8
   %bits.i16261 = getelementptr inbounds i8, ptr %big_comp.i2710, i64 8
   store i64 %add2420.i2909, ptr %bits.i16261, align 8
@@ -12545,7 +12545,7 @@ if.end662.i:                                      ; preds = %land.lhs.true.i, %i
   br i1 %cmp.i1670.i.not, label %fail_character.i, label %if.then670.i
 
 if.then670.i:                                     ; preds = %if.end662.i
-  %call671.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull %cur.addr.i)
+  %call671.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef %cur.addr.i)
   %cur.addr.i.promoted9619.pre.pre = load ptr, ptr %cur.addr.i, align 8
   br i1 %call671.i, label %arr_val_begin.i.backedge, label %if.end673.i
 
@@ -14335,7 +14335,7 @@ if.end1118.i:                                     ; preds = %if.end1110.i
   br i1 %cmp.i1658.i.not, label %fail_character.i, label %if.then1126.i
 
 if.then1126.i:                                    ; preds = %if.end1118.i
-  %call1127.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull %cur.addr.i)
+  %call1127.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef %cur.addr.i)
   %.pre = load ptr, ptr %cur.addr.i, align 8
   br i1 %call1127.i, label %obj_key_end.i.backedge, label %if.end1129.i
 
@@ -15407,7 +15407,7 @@ if.then1152.i:                                    ; preds = %if.end1150.i
   br i1 %or.cond7804, label %if.then.i6590, label %if.end.i4705
 
 if.then.i6590:                                    ; preds = %if.then1152.i
-  %call11.i6591 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i, ptr noundef nonnull %raw_end.i, i32 noundef %flg, ptr noundef nonnull %incdec.ptr1153.i, ptr noundef nonnull %msg.i)
+  %call11.i6591 = call fastcc zeroext i1 @read_number_raw(ptr noundef %cur.addr.i, ptr noundef nonnull %raw_end.i, i32 noundef %flg, ptr noundef nonnull %incdec.ptr1153.i, ptr noundef %msg.i)
   br i1 %call11.i6591, label %obj_val_end.i.preheader, label %fail_number.i
 
 if.end.i4705:                                     ; preds = %if.then1152.i
@@ -17359,7 +17359,7 @@ if.end2397.i4882:                                 ; preds = %if.end2373.i4872
   %968 = or disjoint i64 %967, 9007199254740992
   %shl2416.i4891 = select i1 %tobool2399.i4884.not, i64 %967, i64 %968
   %add2420.i4894 = or disjoint i64 %shl2416.i4891, 1
-  call fastcc void @bigint_set_buf(ptr noundef nonnull %big_full.i4694, i64 noundef %sig.i4650.22, ptr noundef nonnull %exp.i4651, ptr noundef %sig_cut.i4647.3, ptr noundef %sig_end.i4648.3, ptr noundef %dot_pos.i4649.23)
+  call fastcc void @bigint_set_buf(ptr noundef %big_full.i4694, i64 noundef %sig.i4650.22, ptr noundef %exp.i4651, ptr noundef %sig_cut.i4647.3, ptr noundef %sig_end.i4648.3, ptr noundef %dot_pos.i4649.23)
   store i32 1, ptr %big_comp.i4695, align 8
   %bits.i16258 = getelementptr inbounds i8, ptr %big_comp.i4695, i64 8
   store i64 %add2420.i4894, ptr %bits.i16258, align 8
@@ -18246,7 +18246,7 @@ if.end1270.i:                                     ; preds = %land.lhs.true1252.i
   br i1 %cmp.i1658.i.not, label %fail_character.i, label %if.then1278.i
 
 if.then1278.i:                                    ; preds = %if.end1270.i
-  %call1279.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull %cur.addr.i)
+  %call1279.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef %cur.addr.i)
   %.pre11237 = load ptr, ptr %cur.addr.i, align 8
   br i1 %call1279.i, label %if.then1278.i.obj_val_begin.i.backedge_crit_edge, label %if.end1281.i
 
@@ -18512,7 +18512,7 @@ while.cond1402.i.preheader:                       ; preds = %if.then1388.i
   br i1 %cmp.i6765.not9820, label %if.end1407.i, label %while.body1404.i
 
 if.then1396.i:                                    ; preds = %if.then1388.i
-  %call1397.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull %cur.addr.i)
+  %call1397.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef %cur.addr.i)
   %1079 = load ptr, ptr %cur.addr.i, align 8
   %u1.i7146.sroa.0.0.copyload = load i16, ptr %1079, align 1
   %cmp.i7150 = icmp eq i16 %u1.i7146.sroa.0.0.copyload, 10799
@@ -18910,7 +18910,7 @@ if.end142.i:                                      ; preds = %if.end129.i, %if.th
   br i1 %or.cond7818, label %if.then.i641, label %if.end.i546
 
 if.then.i641:                                     ; preds = %if.end142.i
-  %call11.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i395, ptr noundef nonnull %raw_end.i414, i32 noundef %flg, ptr noundef %val.i407.5, ptr noundef nonnull %msg.i411)
+  %call11.i = call fastcc zeroext i1 @read_number_raw(ptr noundef %cur.addr.i395, ptr noundef nonnull %raw_end.i414, i32 noundef %flg, ptr noundef %val.i407.5, ptr noundef %msg.i411)
   br i1 %call11.i, label %arr_val_end.i473.preheader, label %fail_number.i523
 
 if.end.i546:                                      ; preds = %if.end142.i
@@ -20863,7 +20863,7 @@ if.end2397.i:                                     ; preds = %if.end2373.i
   %1290 = or disjoint i64 %1289, 9007199254740992
   %shl2416.i = select i1 %tobool2399.i.not, i64 %1289, i64 %1290
   %add2420.i = or disjoint i64 %shl2416.i, 1
-  call fastcc void @bigint_set_buf(ptr noundef nonnull %big_full.i, i64 noundef %sig.i.22, ptr noundef nonnull %exp.i, ptr noundef %sig_cut.i.3, ptr noundef %sig_end.i.3, ptr noundef %dot_pos.i.23)
+  call fastcc void @bigint_set_buf(ptr noundef %big_full.i, i64 noundef %sig.i.22, ptr noundef %exp.i, ptr noundef %sig_cut.i.3, ptr noundef %sig_end.i.3, ptr noundef %dot_pos.i.23)
   store i32 1, ptr %big_comp.i, align 8
   %bits.i16267 = getelementptr inbounds i8, ptr %big_comp.i, i64 8
   store i64 %add2420.i, ptr %bits.i16267, align 8
@@ -25751,7 +25751,7 @@ if.then757.i:                                     ; preds = %if.end755.i
   br i1 %or.cond7835, label %if.then.i2620, label %if.end.i735
 
 if.then.i2620:                                    ; preds = %if.then757.i
-  %call11.i2621 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i395, ptr noundef nonnull %raw_end.i414, i32 noundef %flg, ptr noundef nonnull %incdec.ptr758.i, ptr noundef nonnull %msg.i411)
+  %call11.i2621 = call fastcc zeroext i1 @read_number_raw(ptr noundef %cur.addr.i395, ptr noundef nonnull %raw_end.i414, i32 noundef %flg, ptr noundef nonnull %incdec.ptr758.i, ptr noundef %msg.i411)
   br i1 %call11.i2621, label %obj_val_end.i478.preheader, label %fail_number.i523
 
 if.end.i735:                                      ; preds = %if.then757.i
@@ -27703,7 +27703,7 @@ if.end2397.i912:                                  ; preds = %if.end2373.i902
   %2065 = or disjoint i64 %2064, 9007199254740992
   %shl2416.i921 = select i1 %tobool2399.i914.not, i64 %2064, i64 %2065
   %add2420.i924 = or disjoint i64 %shl2416.i921, 1
-  call fastcc void @bigint_set_buf(ptr noundef nonnull %big_full.i724, i64 noundef %sig.i680.22, ptr noundef nonnull %exp.i681, ptr noundef %sig_cut.i677.3, ptr noundef %sig_end.i678.3, ptr noundef %dot_pos.i679.23)
+  call fastcc void @bigint_set_buf(ptr noundef %big_full.i724, i64 noundef %sig.i680.22, ptr noundef %exp.i681, ptr noundef %sig_cut.i677.3, ptr noundef %sig_end.i678.3, ptr noundef %dot_pos.i679.23)
   store i32 1, ptr %big_comp.i725, align 8
   %bits.i16264 = getelementptr inbounds i8, ptr %big_comp.i725, i64 8
   store i64 %add2420.i924, ptr %bits.i16264, align 8
@@ -28590,7 +28590,7 @@ if.end875.i:                                      ; preds = %land.lhs.true857.i,
   br i1 %cmp.i1253.i.not, label %fail_character.i468, label %if.then883.i
 
 if.then883.i:                                     ; preds = %if.end875.i
-  %call884.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull %cur.addr.i395)
+  %call884.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef %cur.addr.i395)
   %.pre11274 = load ptr, ptr %cur.addr.i395, align 8
   br i1 %call884.i, label %if.then883.i.obj_val_begin.i509.backedge_crit_edge, label %if.end886.i
 
@@ -28832,7 +28832,7 @@ while.cond997.i.preheader:                        ; preds = %if.then983.i
   br i1 %cmp.i6661.not10352, label %if.end1002.i, label %while.body999.i
 
 if.then991.i497:                                  ; preds = %if.then983.i
-  %call992.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull %cur.addr.i395)
+  %call992.i = call fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef %cur.addr.i395)
   %2175 = load ptr, ptr %cur.addr.i395, align 8
   %u1.i6873.sroa.0.0.copyload = load i16, ptr %2175, align 1
   %cmp.i6877 = icmp eq i16 %u1.i6873.sroa.0.0.copyload, 10799
@@ -29166,7 +29166,7 @@ if.then30.i8319:                                  ; preds = %if.end.i8315
   br i1 %or.cond1584.i, label %if.then.i.i8348, label %if.end.i.i8320
 
 if.then.i.i8348:                                  ; preds = %if.then30.i8319
-  %call11.i.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i8312, ptr noundef nonnull %raw_end.i8314, i32 noundef %flg, ptr noundef nonnull %add.ptr.i8316, ptr noundef nonnull %msg.i8313)
+  %call11.i.i = call fastcc zeroext i1 @read_number_raw(ptr noundef %cur.addr.i8312, ptr noundef nonnull %raw_end.i8314, i32 noundef %flg, ptr noundef nonnull %add.ptr.i8316, ptr noundef %msg.i8313)
   %.pre2083.i = load ptr, ptr %cur.addr.i8312, align 8
   br i1 %call11.i.i, label %doc_end.i8324, label %do.body201.i
 
@@ -31147,7 +31147,7 @@ if.end2397.i.i:                                   ; preds = %if.end2373.i.i
   %2382 = or disjoint i64 %2381, 9007199254740992
   %shl2416.i.i = select i1 %tobool2399.i.not.i, i64 %2381, i64 %2382
   %add2420.i.i = or disjoint i64 %shl2416.i.i, 1
-  call fastcc void @bigint_set_buf(ptr noundef nonnull %big_full.i.i, i64 noundef %sig.i.22.i, ptr noundef nonnull %exp.i.i, ptr noundef %sig_cut.i.3.i, ptr noundef %sig_end.i.3.i, ptr noundef %dot_pos.i.23.i)
+  call fastcc void @bigint_set_buf(ptr noundef %big_full.i.i, i64 noundef %sig.i.22.i, ptr noundef %exp.i.i, ptr noundef %sig_cut.i.3.i, ptr noundef %sig_end.i.3.i, ptr noundef %dot_pos.i.23.i)
   store i32 1, ptr %big_comp.i.i, align 8
   store i64 %add2420.i.i, ptr %.sroa.gep, align 8
   %2383 = load i32, ptr %exp.i.i, align 4
@@ -33595,7 +33595,7 @@ return:                                           ; preds = %if.then232, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @skip_spaces_and_comments(ptr nocapture noundef %ptr) unnamed_addr #15 {
+define internal fastcc zeroext i1 @skip_spaces_and_comments(ptr nocapture noundef nonnull %ptr) unnamed_addr #15 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   br label %while.body.outer
@@ -33994,7 +33994,7 @@ if.end33:                                         ; preds = %if.end8
   br i1 %or.cond1091, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end33
-  %call11.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur, ptr noundef nonnull %raw_end, i32 noundef %flg, ptr noundef nonnull %val, ptr noundef nonnull %msg)
+  %call11.i = call fastcc zeroext i1 @read_number_raw(ptr noundef %cur, ptr noundef nonnull %raw_end, i32 noundef %flg, ptr noundef nonnull %val, ptr noundef %msg)
   br i1 %call11.i, label %if.then.i.if.end57_crit_edge, label %do.body43
 
 if.then.i.if.end57_crit_edge:                     ; preds = %if.then.i
@@ -35928,7 +35928,7 @@ if.end2397.i:                                     ; preds = %if.end2373.i
   %170 = or disjoint i64 %169, 9007199254740992
   %shl2416.i = select i1 %tobool2399.i.not, i64 %169, i64 %170
   %add2420.i = or disjoint i64 %shl2416.i, 1
-  call fastcc void @bigint_set_buf(ptr noundef nonnull %big_full.i, i64 noundef %sig.i.22, ptr noundef nonnull %exp.i, ptr noundef %sig_cut.i.3, ptr noundef %sig_end.i.3, ptr noundef %dot_pos.i.23)
+  call fastcc void @bigint_set_buf(ptr noundef %big_full.i, i64 noundef %sig.i.22, ptr noundef %exp.i, ptr noundef %sig_cut.i.3, ptr noundef %sig_end.i.3, ptr noundef %dot_pos.i.23)
   store i32 1, ptr %big_comp.i, align 8
   %bits.i270 = getelementptr inbounds i8, ptr %big_comp.i, i64 8
   store i64 %add2420.i, ptr %bits.i270, align 8
@@ -57872,7 +57872,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @is_truncated_end(ptr noundef readnone %hdr, ptr noundef %cur, ptr noundef %end, i32 noundef %code, i32 noundef %flg) unnamed_addr #20 {
+define internal fastcc zeroext i1 @is_truncated_end(ptr noundef readnone %hdr, ptr noundef %cur, ptr noundef %end, i32 noundef range(i32 2, 12) %code, i32 noundef %flg) unnamed_addr #20 {
 entry:
   %end186 = ptrtoint ptr %end to i64
   %cmp.not = icmp ult ptr %cur, %end
@@ -58179,7 +58179,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @read_number_raw(ptr nocapture noundef %ptr, ptr nocapture noundef %pre, i32 noundef %flg, ptr nocapture noundef writeonly %val, ptr nocapture noundef writeonly %msg) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @read_number_raw(ptr nocapture noundef nonnull %ptr, ptr nocapture noundef %pre, i32 noundef %flg, ptr nocapture noundef writeonly %val, ptr nocapture noundef nonnull writeonly %msg) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %1 = load ptr, ptr %pre, align 8
@@ -58493,7 +58493,7 @@ do.end111:                                        ; preds = %do.body103, %do.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @bigint_set_buf(ptr nocapture noundef %big, i64 noundef %sig, ptr nocapture noundef %exp, ptr noundef %sig_cut, ptr noundef %sig_end, ptr noundef readnone %dot_pos) unnamed_addr #21 {
+define internal fastcc void @bigint_set_buf(ptr nocapture noundef nonnull %big, i64 noundef %sig, ptr nocapture noundef nonnull %exp, ptr noundef %sig_cut, ptr noundef %sig_end, ptr noundef readnone %dot_pos) unnamed_addr #21 {
 entry:
   %tobool.not = icmp eq ptr %sig_cut, null
   br i1 %tobool.not, label %if.then, label %if.else

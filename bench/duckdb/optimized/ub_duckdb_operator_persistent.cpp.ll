@@ -47352,7 +47352,7 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_14PhysicalExport7GetDataERNS3_16ExecutionContextERNS3_9DataChunkERNS3_19OperatorSourceInputEE3$_0EEEvT_SM_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #23 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_14PhysicalExport7GetDataERNS3_16ExecutionContextERNS3_9DataChunkERNS3_19OperatorSourceInputEE3$_0EEEvT_SM_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #23 {
 entry:
   %__last.coerce.fr = freeze ptr %__last.coerce
   %__first.coerce.fr = freeze ptr %__first.coerce

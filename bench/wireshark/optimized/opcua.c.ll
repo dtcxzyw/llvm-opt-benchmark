@@ -168,7 +168,7 @@ define hidden void @proto_init_opcua() #3 {
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  call fastcc void @opcua_keylog_process_line(ptr noundef nonnull %1, ptr noundef nonnull %2)
+  call fastcc void @opcua_keylog_process_line(ptr noundef %1, ptr noundef %2)
   %8 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
@@ -309,7 +309,7 @@ define internal void @opcua_secrets_block_callback(ptr noundef %0, i32 noundef %
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.04.i = phi ptr [ %13, %.lr.ph.i ], [ %12, %9 ]
-  call fastcc void @opcua_keylog_process_line(ptr noundef nonnull %3, ptr noundef nonnull %.04.i)
+  call fastcc void @opcua_keylog_process_line(ptr noundef %3, ptr noundef %.04.i)
   %13 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.74, ptr noundef nonnull %4) #11
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %opcua_keylog_process_lines.exit, label %.lr.ph.i, !llvm.loop !7
@@ -337,12 +337,12 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
   %3 = alloca [33 x i8], align 16
   %4 = alloca [65 x i8], align 16
   %5 = alloca [4 x ptr], align 16
   %6 = alloca ptr, align 8
-  %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.33, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %1, ptr noundef nonnull @.str.33, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %8, label %hex_to_bin.exit
 

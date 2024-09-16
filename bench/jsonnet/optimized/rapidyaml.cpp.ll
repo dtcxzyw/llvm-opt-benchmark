@@ -12539,7 +12539,7 @@ _ZNK2c43yml4Tree18num_tag_directivesEv.exit.thread: ; preds = %15, %_ZNK2c43yml4
   br label %_ZN2c43yml4Tree7root_idEv.exit
 
 _ZN2c43yml4Tree7root_idEv.exit:                   ; preds = %_ZNK2c43yml4Tree18num_tag_directivesEv.exit.thread, %21
-  %22 = tail call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_tags_sizeEPKNS0_4TreeEm(ptr noundef nonnull %0, i64 noundef 0)
+  %22 = tail call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_tags_sizeEPKNS0_4TreeEm(ptr noundef %0, i64 noundef 0)
   %.not = icmp eq i64 %22, 0
   br i1 %.not, label %_ZN2c43yml4Tree13reserve_arenaEm.exit, label %23
 
@@ -12589,7 +12589,7 @@ _ZN2c43yml4Tree13reserve_arenaEm.exit:            ; preds = %45, %23, %_ZN2c43ym
   br label %_ZN2c43yml4Tree7root_idEv.exit2
 
 _ZN2c43yml4Tree7root_idEv.exit2:                  ; preds = %_ZN2c43yml4Tree13reserve_arenaEm.exit, %48
-  tail call fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr noundef nonnull %0, i64 noundef 0)
+  tail call fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr noundef %0, i64 noundef 0)
   br label %49
 
 49:                                               ; preds = %_ZNK2c43yml4Tree18num_tag_directivesEv.exit, %1, %_ZN2c43yml4Tree7root_idEv.exit2
@@ -12597,7 +12597,7 @@ _ZN2c43yml4Tree7root_idEv.exit2:                  ; preds = %_ZN2c43yml4Tree13re
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_tags_sizeEPKNS0_4TreeEm(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_tags_sizeEPKNS0_4TreeEm(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %3, i64 %1, i32 4
   %.04049 = load i64, ptr %4, align 8
@@ -12645,7 +12645,7 @@ define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_ta
 
 .critedge:                                        ; preds = %17, %13
   %.2 = phi i64 [ %20, %17 ], [ %.1, %13 ]
-  %21 = tail call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_tags_sizeEPKNS0_4TreeEm(ptr noundef nonnull %0, i64 noundef %.04052)
+  %21 = tail call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_tags_sizeEPKNS0_4TreeEm(ptr noundef %0, i64 noundef %.04052)
   %22 = add i64 %21, %.2
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %23, i64 %.04052, i32 6
@@ -12659,7 +12659,7 @@ define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_ta
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %3, i64 %1, i32 4
   %.051 = load i64, ptr %4, align 8
@@ -12680,7 +12680,7 @@ define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeE
   %.sroa.03.0.copyload = load ptr, ptr %10, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
-  %11 = tail call fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr noundef nonnull %0, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i64 noundef %.053)
+  %11 = tail call fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr noundef %0, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i64 noundef %.053)
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
   %14 = load ptr, ptr %0, align 8
@@ -12711,7 +12711,7 @@ define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeE
   %.sroa.0.0.copyload = load ptr, ptr %26, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %27 = tail call fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr noundef nonnull %0, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i64 noundef %.053)
+  %27 = tail call fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr noundef %0, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i64 noundef %.053)
   %28 = extractvalue { ptr, i64 } %27, 0
   %29 = extractvalue { ptr, i64 } %27, 1
   %30 = load ptr, ptr %0, align 8
@@ -12728,7 +12728,7 @@ define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeE
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %21
-  tail call fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr noundef nonnull %0, i64 noundef %.053)
+  tail call fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr noundef %0, i64 noundef %.053)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %37, i64 %.053, i32 6
   %.0 = load i64, ptr %38, align 8
@@ -47044,7 +47044,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN2c43yml6Parser10_filter_nlI
 
 35:                                               ; preds = %24, %26
   store i64 %12, ptr %11, align 8
-  %36 = call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nonnull %1, i64 %2, ptr noundef nonnull %11, i64 noundef %5)
+  %36 = call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nonnull %1, i64 %2, ptr noundef %11, i64 noundef %5)
   %.not19 = icmp eq i64 %36, 0
   br i1 %.not19, label %44, label %.preheader
 
@@ -47373,7 +47373,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN2c43yml6Parser10_filter_nlI
 
 35:                                               ; preds = %24, %26
   store i64 %12, ptr %11, align 8
-  %36 = call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nonnull %1, i64 %2, ptr noundef nonnull %11, i64 noundef %5)
+  %36 = call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nonnull %1, i64 %2, ptr noundef %11, i64 noundef %5)
   %.not19 = icmp eq i64 %36, 0
   br i1 %.not19, label %44, label %.preheader
 
@@ -47511,7 +47511,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN2c43yml6Parser10_filter_nlI
 
 35:                                               ; preds = %24, %26
   store i64 %12, ptr %11, align 8
-  %36 = call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nonnull %1, i64 %2, ptr noundef nonnull %11, i64 noundef %5)
+  %36 = call fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nonnull %1, i64 %2, ptr noundef %11, i64 noundef %5)
   %.not26 = icmp eq i64 %36, 0
   br i1 %.not26, label %44, label %.preheader
 
@@ -50946,7 +50946,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK2c415basic_substringIKcE7compareE
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr nocapture noundef nonnull %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr nocapture noundef nonnull %0, ptr %1, i64 %2, i64 noundef range(i64 0, -1) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [45 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [45 x i8], align 16
@@ -54305,7 +54305,7 @@ _ZN2c44dumpIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS6_DprRKT_EUlS6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nocapture readonly %0, i64 %1, ptr noalias nocapture noundef %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nocapture readonly %0, i64 %1, ptr noalias nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #4 {
   %.promoted29 = load i64, ptr %2, align 8
   %storemerge35 = add i64 %.promoted29, 1
   %5 = icmp ult i64 %storemerge35, %1

@@ -1052,7 +1052,7 @@ _ZL34printMoleculeCategoryResidueCountsN3gmx8ArrayRefIKSt4pairINSt7__cxx1112basi
   %.083748 = phi i1 [ false, %.lr.ph749 ], [ %.184, %_ZNSt6vectorIiSaIiEED2Ev.exit301 ]
   %.sroa.0370.0747 = phi ptr [ %206, %.lr.ph749 ], [ %1473, %_ZNSt6vectorIiSaIiEED2Ev.exit301 ]
   %255 = load ptr, ptr %38, align 8
-  invoke fastcc void @_ZL6mk_aidPK7t_atomsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERSA_b(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull %1, ptr %255, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0370.0747, i1 noundef zeroext true)
+  invoke fastcc void @_ZL6mk_aidPK7t_atomsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERSA_b(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull %1, ptr %255, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0370.0747, i1 noundef zeroext true)
           to label %256 unwind label %.loopexit.split-lp.loopexit
 
 256:                                              ; preds = %254
@@ -2837,7 +2837,7 @@ _ZN10IndexGroupD2Ev.exit234.i:                    ; preds = %841, %_ZNSt6vectorI
   br label %.body158
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit160: ; preds = %.noexc157
-  invoke fastcc void @_ZL6mk_aidPK7t_atomsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERSA_b(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull %1, ptr %850, ptr noundef nonnull align 8 dereferenceable(32) %46, i1 noundef zeroext false)
+  invoke fastcc void @_ZL6mk_aidPK7t_atomsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERSA_b(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull %1, ptr %850, ptr noundef nonnull align 8 dereferenceable(32) %46, i1 noundef zeroext false)
           to label %854 unwind label %889
 
 854:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit160
@@ -3185,7 +3185,7 @@ _ZN10IndexGroupD2Ev.exit209:                      ; preds = %_ZNSt6vectorI10Inde
   br label %.body212
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit214: ; preds = %.noexc211
-  invoke fastcc void @_ZL6mk_aidPK7t_atomsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERSA_b(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull %1, ptr %946, ptr noundef nonnull align 8 dereferenceable(32) %54, i1 noundef zeroext false)
+  invoke fastcc void @_ZL6mk_aidPK7t_atomsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERSA_b(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull %1, ptr %946, ptr noundef nonnull align 8 dereferenceable(32) %54, i1 noundef zeroext false)
           to label %950 unwind label %994
 
 950:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit214
@@ -5258,7 +5258,7 @@ declare void @_Z29residueTypeMapFromLibraryFileRKNSt7__cxx1112basic_stringIcSt11
 declare void @_Z26typeOfNamedDatabaseResidueRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS5_S5_EEERSB_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6mk_aidPK7t_atomsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERSA_b(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef readonly %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL6mk_aidPK7t_atomsN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERSA_b(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = load i32, ptr %1, align 8
   %7 = icmp sgt i32 %6, 0

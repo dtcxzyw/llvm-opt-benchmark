@@ -313,7 +313,7 @@ entry:
   store ptr @.str.47, ptr %pass, align 8
   %iter = getelementptr inbounds i8, ptr %enc, i64 16
   store i32 1000, ptr %iter, align 8
-  %call = call fastcc i32 @test_single_key(ptr noundef nonnull %enc)
+  %call = call fastcc i32 @test_single_key(ptr noundef %enc)
   ret i32 %call
 }
 
@@ -531,7 +531,7 @@ entry:
   store ptr %0, ptr %pass, align 8
   %iter = getelementptr inbounds i8, ptr %enc, i64 16
   store i32 1000, ptr %iter, align 8
-  %call = call fastcc i32 @test_single_key(ptr noundef nonnull %enc)
+  %call = call fastcc i32 @test_single_key(ptr noundef %enc)
   ret i32 %call
 }
 
@@ -547,7 +547,7 @@ entry:
   %0 = load i32, ptr %arrayidx, align 4
   %iter = getelementptr inbounds i8, ptr %enc, i64 16
   store i32 %0, ptr %iter, align 8
-  %call = call fastcc i32 @test_single_key(ptr noundef nonnull %enc)
+  %call = call fastcc i32 @test_single_key(ptr noundef %enc)
   ret i32 %call
 }
 
@@ -581,7 +581,7 @@ entry:
   store ptr @.str.47, ptr %pass, align 8
   %iter = getelementptr inbounds i8, ptr %mac, i64 16
   store i32 1000, ptr %iter, align 8
-  %call = call fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac)
+  %call = call fastcc i32 @test_single_cert_mac(ptr noundef %mac)
   ret i32 %call
 }
 
@@ -597,7 +597,7 @@ entry:
   store ptr %0, ptr %pass, align 8
   %iter = getelementptr inbounds i8, ptr %mac, i64 16
   store i32 1000, ptr %iter, align 8
-  %call = call fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac)
+  %call = call fastcc i32 @test_single_cert_mac(ptr noundef %mac)
   ret i32 %call
 }
 
@@ -613,7 +613,7 @@ entry:
   %0 = load i32, ptr %arrayidx, align 4
   %iter = getelementptr inbounds i8, ptr %mac, i64 16
   store i32 %0, ptr %iter, align 8
-  %call = call fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac)
+  %call = call fastcc i32 @test_single_cert_mac(ptr noundef %mac)
   ret i32 %call
 }
 
@@ -850,7 +850,7 @@ declare void @end_check_pkcs12(ptr noundef) local_unnamed_addr #2
 declare i32 @end_pkcs12_builder(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_single_key(ptr noundef %enc) unnamed_addr #1 {
+define internal fastcc i32 @test_single_key(ptr noundef nonnull %enc) unnamed_addr #1 {
 entry:
   %fname = alloca [80 x i8], align 16
   %0 = load i32, ptr %enc, align 8
@@ -933,7 +933,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 declare void @X509_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_single_cert_mac(ptr noundef %mac) unnamed_addr #1 {
+define internal fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac) unnamed_addr #1 {
 entry:
   %fname = alloca [80 x i8], align 16
   %0 = load i32, ptr %mac, align 8

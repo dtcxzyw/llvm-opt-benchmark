@@ -381,7 +381,7 @@ define dso_local void @inet6_netconf_notify_devconf(ptr noundef %0, i32 noundef 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @inet6_netconf_fill_devconf(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @inet6_netconf_fill_devconf(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 3) %6, i32 noundef %7) unnamed_addr #0 align 16 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -729,8 +729,8 @@ declare dso_local i32 @__ipv6_addr_type(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @ipv6_addr_label(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @__ipv6_dev_get_saddr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
-  %6 = sub nuw nsw i32 1, %4
+define internal fastcc range(i32 0, 2) i32 @__ipv6_dev_get_saddr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
+  %6 = xor i32 %4, 1
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr %struct.ipv6_saddr_score, ptr %3, i64 %7
   %9 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1372,7 +1372,7 @@ define dso_local noundef ptr @ipv6_get_ifaddr(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @in6_ifa_hold(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @in6_ifa_hold(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #20, !srcloc !30
   %4 = icmp eq i32 %3, 0
@@ -2067,7 +2067,7 @@ define internal fastcc ptr @ipv6_add_addr(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @addrconf_mod_dad_work(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @addrconf_mod_dad_work(ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 1, ptr elementtype(i32) %3) #20, !srcloc !30
   %5 = icmp eq i32 %4, 0
@@ -2983,7 +2983,7 @@ define dso_local void @addrconf_prefix_rcv(ptr noundef %0, ptr noundef %1, i32 n
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @addrconf_get_prefix_route(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @addrconf_get_prefix_route(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 786433) %3, i32 noundef range(i32 0, 65537) %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %2, i64 272
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @fib6_get_table(ptr noundef %8, i32 noundef 254) #20
@@ -3166,7 +3166,7 @@ declare dso_local i32 @ip6_del_rt(ptr noundef, ptr noundef, i1 noundef zeroext) 
 declare dso_local i64 @jiffies_to_clock_t(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @addrconf_prefix_route(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc void @addrconf_prefix_route(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 noundef range(i32 0, 4980737) %5, i32 noundef range(i32 2080, 3265) %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.fib6_config, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %8) #20
   %9 = getelementptr inbounds i8, ptr %8, i64 8
@@ -3526,7 +3526,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ipv6_generate_eui64(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @ipv6_inherit_eui64(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @ipv6_inherit_eui64(ptr nocapture noundef writeonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 616
   tail call void @_raw_read_lock_bh(ptr noundef %3) #20
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3990,18 +3990,18 @@ define dso_local noundef range(i32 -99, 1) i32 @addrconf_del_ifaddr(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 257) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
   %7 = icmp ugt i32 %4, 128
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @inet6_addr_del.__msg) #20
   %9 = icmp eq ptr %5, null
-  br i1 %9, label %87, label %10
+  br i1 %9, label %86, label %10
 
 10:                                               ; preds = %8
   store ptr @inet6_addr_del.__msg, ptr %5, align 8
-  br label %87
+  br label %86
 
 11:                                               ; preds = %6
   %12 = tail call ptr @__dev_get_by_index(ptr noundef %0, i32 noundef %1) #20
@@ -4011,11 +4011,11 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
 14:                                               ; preds = %11
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @inet6_addr_del.__msg.26) #20
   %15 = icmp eq ptr %5, null
-  br i1 %15, label %87, label %16
+  br i1 %15, label %86, label %16
 
 16:                                               ; preds = %14
   store ptr @inet6_addr_del.__msg.26, ptr %5, align 8
-  br label %87
+  br label %86
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %12, i64 184
@@ -4026,11 +4026,11 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
 21:                                               ; preds = %17
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @inet6_addr_del.__msg.27) #20
   %22 = icmp eq ptr %5, null
-  br i1 %22, label %87, label %23
+  br i1 %22, label %86, label %23
 
 23:                                               ; preds = %21
   store ptr @inet6_addr_del.__msg.27, ptr %5, align 8
-  br label %87
+  br label %86
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %19, i64 616
@@ -4044,12 +4044,12 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   %30 = getelementptr i8, ptr %3, i64 8
   br label %31
 
-31:                                               ; preds = %82, %29
-  %32 = phi ptr [ %27, %29 ], [ %83, %82 ]
+31:                                               ; preds = %81, %29
+  %32 = phi ptr [ %27, %29 ], [ %82, %81 ]
   %33 = getelementptr i8, ptr %32, i64 -184
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %4
-  br i1 %35, label %36, label %82
+  br i1 %35, label %36, label %81
 
 36:                                               ; preds = %31
   %37 = getelementptr i8, ptr %32, i64 -200
@@ -4061,7 +4061,7 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   %43 = icmp eq i64 %38, %39
   %44 = icmp eq i64 %40, %42
   %45 = and i1 %43, %44
-  br i1 %45, label %46, label %82
+  br i1 %45, label %46, label %81
 
 46:                                               ; preds = %36
   %47 = getelementptr i8, ptr %32, i64 -200
@@ -4087,36 +4087,35 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 1
   %61 = icmp ne i32 %60, 0
-  %62 = and i32 %2, 256
-  %63 = icmp eq i32 %62, 0
-  %64 = or i1 %63, %61
-  br i1 %64, label %67, label %65
+  %62 = icmp ult i32 %2, 256
+  %63 = or i1 %62, %61
+  br i1 %63, label %66, label %64
 
-65:                                               ; preds = %57
-  %66 = load volatile i64, ptr @jiffies, align 64
-  tail call fastcc void @manage_tempaddrs(ptr noundef nonnull %19, ptr noundef %47, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i64 noundef %66)
-  br label %67
+64:                                               ; preds = %57
+  %65 = load volatile i64, ptr @jiffies, align 64
+  tail call fastcc void @manage_tempaddrs(ptr noundef nonnull %19, ptr noundef %47, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i64 noundef %65)
+  br label %66
 
-67:                                               ; preds = %65, %57
+66:                                               ; preds = %64, %57
   tail call fastcc void @ipv6_del_addr(ptr noundef %47)
   tail call fastcc void @addrconf_verify_rtnl(ptr noundef %0)
-  %68 = load i32, ptr %3, align 4
-  %69 = and i32 %68, 255
-  %70 = icmp eq i32 %69, 255
-  br i1 %70, label %71, label %87
+  %67 = load i32, ptr %3, align 4
+  %68 = and i32 %67, 255
+  %69 = icmp eq i32 %68, 255
+  br i1 %69, label %70, label %86
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %0, i64 2032
-  %73 = load ptr, ptr %72, align 16
-  %74 = getelementptr inbounds i8, ptr %12, i64 216
-  %75 = load i32, ptr %74, align 8
-  %76 = tail call i32 @rtnl_is_locked() #20
-  %77 = icmp ne i32 %76, 0
-  %78 = load i1, ptr @ipv6_mc_config.__already_done, align 1
-  %79 = select i1 %77, i1 true, i1 %78
-  br i1 %79, label %ipv6_mc_config.exit, label %80, !prof !13
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds i8, ptr %0, i64 2032
+  %72 = load ptr, ptr %71, align 16
+  %73 = getelementptr inbounds i8, ptr %12, i64 216
+  %74 = load i32, ptr %73, align 8
+  %75 = tail call i32 @rtnl_is_locked() #20
+  %76 = icmp ne i32 %75, 0
+  %77 = load i1, ptr @ipv6_mc_config.__already_done, align 1
+  %78 = select i1 %76, i1 true, i1 %77
+  br i1 %78, label %ipv6_mc_config.exit, label %79, !prof !13
 
-80:                                               ; preds = %71
+79:                                               ; preds = %70
   store i1 true, ptr @ipv6_mc_config.__already_done, align 1
   tail call void asm sideeffect "1068: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1068b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1068) #20, !srcloc !51
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str, i32 noundef 2932) #20
@@ -4126,30 +4125,30 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   tail call void asm sideeffect "1071: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1071b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1071) #20, !srcloc !55
   br label %ipv6_mc_config.exit
 
-ipv6_mc_config.exit:                              ; preds = %71, %80
-  tail call void @lock_sock_nested(ptr noundef %73, i32 noundef 0) #20
-  %81 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %73, i32 noundef %75, ptr noundef %3) #20
-  tail call void @release_sock(ptr noundef %73) #20
-  br label %87
+ipv6_mc_config.exit:                              ; preds = %70, %79
+  tail call void @lock_sock_nested(ptr noundef %72, i32 noundef 0) #20
+  %80 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %72, i32 noundef %74, ptr noundef %3) #20
+  tail call void @release_sock(ptr noundef %72) #20
+  br label %86
 
-82:                                               ; preds = %36, %31
-  %83 = load ptr, ptr %32, align 8
-  %84 = icmp eq ptr %83, %26
-  br i1 %84, label %.loopexit, label %31, !llvm.loop !56
+81:                                               ; preds = %36, %31
+  %82 = load ptr, ptr %32, align 8
+  %83 = icmp eq ptr %82, %26
+  br i1 %83, label %.loopexit, label %31, !llvm.loop !56
 
-.loopexit:                                        ; preds = %82, %24
+.loopexit:                                        ; preds = %81, %24
   tail call void @_raw_read_unlock_bh(ptr noundef %25) #20
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @inet6_addr_del.__msg.28) #20
-  %85 = icmp eq ptr %5, null
-  br i1 %85, label %87, label %86
+  %84 = icmp eq ptr %5, null
+  br i1 %84, label %86, label %85
 
-86:                                               ; preds = %.loopexit
+85:                                               ; preds = %.loopexit
   store ptr @inet6_addr_del.__msg.28, ptr %5, align 8
-  br label %87
+  br label %86
 
-87:                                               ; preds = %86, %.loopexit, %ipv6_mc_config.exit, %67, %23, %21, %16, %14, %10, %8
-  %88 = phi i32 [ -22, %10 ], [ -22, %8 ], [ -19, %16 ], [ -19, %14 ], [ -6, %23 ], [ -6, %21 ], [ 0, %ipv6_mc_config.exit ], [ 0, %67 ], [ -99, %86 ], [ -99, %.loopexit ]
-  ret i32 %88
+86:                                               ; preds = %85, %.loopexit, %ipv6_mc_config.exit, %66, %23, %21, %16, %14, %10, %8
+  %87 = phi i32 [ -22, %10 ], [ -22, %8 ], [ -19, %16 ], [ -19, %14 ], [ -6, %23 ], [ -6, %21 ], [ 0, %ipv6_mc_config.exit ], [ 0, %66 ], [ -99, %85 ], [ -99, %.loopexit ]
+  ret i32 %87
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4451,7 +4450,7 @@ define dso_local void @inet6_ifinfo_notify(i32 noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifinfo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifinfo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 align 16 {
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -5065,7 +5064,7 @@ define internal fastcc ptr @ipv6_add_dev(ptr noundef %0) unnamed_addr #0 align 1
   %178 = getelementptr inbounds i8, ptr %177, i64 272
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i8, ptr %177, i64 296
-  %181 = tail call fastcc i32 @__addrconf_sysctl_register(ptr noundef %179, ptr noundef %180, ptr noundef %16, ptr noundef %24), !range !72
+  %181 = tail call fastcc i32 @__addrconf_sysctl_register(ptr noundef %179, ptr noundef %180, ptr noundef nonnull %16, ptr noundef %24), !range !72
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %addrconf_sysctl_register.exit, label %183
 
@@ -5737,7 +5736,7 @@ ipv6_find_idev.exit:                              ; preds = %110, %113, %119
   br i1 %224, label %260, label %.thread.i
 
 260:                                              ; preds = %259
-  %261 = call fastcc i32 @modify_prefix_route(ptr noundef nonnull %127, i64 noundef %176, i32 noundef %177, i1 noundef zeroext false), !range !86
+  %261 = call fastcc i32 @modify_prefix_route(ptr noundef %127, i64 noundef %176, i32 noundef %177, i1 noundef zeroext false), !range !86
   %262 = icmp eq i32 %261, -2
   br i1 %262, label %.thread.i, label %.thread7.i
 
@@ -5810,7 +5809,7 @@ ipv6_find_idev.exit:                              ; preds = %110, %113, %119
   br i1 %304, label %307, label %305
 
 305:                                              ; preds = %.thread7.i
-  %306 = call fastcc i32 @modify_prefix_route(ptr noundef nonnull %127, i64 noundef %176, i32 noundef %177, i1 noundef zeroext true), !range !86
+  %306 = call fastcc i32 @modify_prefix_route(ptr noundef %127, i64 noundef %176, i32 noundef %177, i1 noundef zeroext true), !range !86
   br label %307
 
 307:                                              ; preds = %305, %.thread7.i
@@ -8262,7 +8261,7 @@ define internal fastcc void @in6_dev_hold(ptr noundef %0) unnamed_addr #3 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -17, 1) i32 @ipv6_add_addr_hash(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -17, 1) i32 @ipv6_add_addr_hash(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -8365,8 +8364,8 @@ define internal fastcc noundef range(i32 -17, 1) i32 @ipv6_add_addr_hash(ptr nou
 declare dso_local void @_raw_write_lock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ipv6_link_dev_addr(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = tail call i32 @__ipv6_addr_type(ptr noundef %1) #20
+define internal fastcc void @ipv6_link_dev_addr(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+  %3 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %1) #20
   %4 = icmp eq i32 %3, 0
   %5 = ashr i32 %3, 16
   %6 = select i1 %4, i32 -1, i32 %5
@@ -8414,7 +8413,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @addrconf_dad_stop(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @addrconf_dad_stop(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -9700,7 +9699,7 @@ declare dso_local void @ndisc_send_na(ptr noundef, ptr noundef, ptr noundef, i1 
 declare dso_local void @ndisc_send_rs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @addrconf_mod_rs_timer(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @addrconf_mod_rs_timer(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 936
   %4 = load volatile i64, ptr @jiffies, align 64
   %5 = add i64 %4, %1
@@ -10974,7 +10973,7 @@ declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #2
 declare dso_local ptr @nla_reserve(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__ipv6_ifa_notify(i32 noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__ipv6_ifa_notify(i32 noundef range(i32 0, 22) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.in6_addr, align 4
   %4 = alloca %struct.in6_addr, align 4
   %5 = alloca %struct.fib6_config, align 8
@@ -13277,7 +13276,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr nocapture readnone 
   br i1 %100, label %102, label %101
 
 101:                                              ; preds = %96
-  tail call fastcc void @addrconf_dad_run(ptr noundef nonnull %46, i1 noundef zeroext true)
+  tail call fastcc void @addrconf_dad_run(ptr noundef %46, i1 noundef zeroext true)
   br label %102
 
 102:                                              ; preds = %101, %96
@@ -13306,7 +13305,7 @@ define internal range(i32 32768, 2) i32 @addrconf_notify(ptr nocapture readnone 
   br i1 %114, label %116, label %115
 
 115:                                              ; preds = %113
-  tail call fastcc void @addrconf_dad_run(ptr noundef nonnull %108, i1 noundef zeroext false)
+  tail call fastcc void @addrconf_dad_run(ptr noundef %108, i1 noundef zeroext false)
   br label %116
 
 116:                                              ; preds = %115, %113
@@ -13779,7 +13778,7 @@ define internal fastcc zeroext i1 @addrconf_link_ready(ptr nocapture noundef rea
 declare dso_local void @rt6_sync_down_dev(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @addrconf_dad_run(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @addrconf_dad_run(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 616
   tail call void @_raw_read_lock_bh(ptr noundef %4) #20
@@ -14426,7 +14425,7 @@ ipv6_find_idev.exit11:                            ; preds = %208, %211, %217
 declare dso_local i32 @snmp6_unregister_dev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @addrconf_sysctl_unregister(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @addrconf_sysctl_unregister(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -14511,7 +14510,7 @@ define internal fastcc void @addrconf_addr_gen(ptr noundef %0) unnamed_addr #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @add_addr(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc void @add_addr(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 64, 129) %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.ifa6_config, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #20
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -15275,7 +15274,7 @@ declare dso_local i32 @__nla_parse(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare dso_local i32 @nla_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2, 1) i32 @modify_prefix_route(ptr noundef %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @modify_prefix_route(ptr noundef nonnull %0, i64 noundef %1, i32 noundef range(i32 0, 4194305) %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.fib6_config, align 8
   %6 = select i1 %3, i64 280, i64 0
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
@@ -15435,7 +15434,7 @@ define internal fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %0, ptr no
 declare dso_local void @__put_net(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca [12 x ptr], align 16
   %5 = alloca %struct.inet6_fill_args, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -15788,7 +15787,7 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -90, 2) i32 @in6_dump_addrs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -90, 2) i32 @in6_dump_addrs(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.ifa_cacheinfo, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.ifa_cacheinfo, align 4

@@ -732,7 +732,7 @@ declare dso_local i32 @hpet_set_periodic_freq(i64 noundef) local_unnamed_addr #1
 declare dso_local void @rtc_cmos_write(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cmos_irq_disable(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) unnamed_addr #3 align 16 {
+define internal fastcc void @cmos_irq_disable(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 32, 113) %1) unnamed_addr #3 align 16 {
   %3 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #9
   %4 = xor i8 %1, -1
   %5 = and i8 %3, %4

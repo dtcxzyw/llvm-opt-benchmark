@@ -349,7 +349,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cmp_ctx_set_md(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %pmd, i32 noundef %nid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cmp_ctx_set_md(ptr nocapture noundef nonnull readonly %ctx, ptr nocapture noundef nonnull %pmd, i32 noundef range(i32 -1, -2147483648) %nid) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #3
@@ -2626,13 +2626,13 @@ if.end21:                                         ; preds = %sw.bb18
 
 sw.bb22:                                          ; preds = %if.end4
   %digest = getelementptr inbounds i8, ptr %ctx, i64 272
-  %call = tail call fastcc i32 @cmp_ctx_set_md(ptr noundef nonnull %ctx, ptr noundef nonnull %digest, i32 noundef %val)
+  %call = tail call fastcc i32 @cmp_ctx_set_md(ptr noundef %ctx, ptr noundef %digest, i32 noundef %val)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %sw.epilog41
 
 sw.bb25:                                          ; preds = %if.end4
   %pbm_owf = getelementptr inbounds i8, ptr %ctx, i64 248
-  %call26 = tail call fastcc i32 @cmp_ctx_set_md(ptr noundef nonnull %ctx, ptr noundef nonnull %pbm_owf, i32 noundef %val)
+  %call26 = tail call fastcc i32 @cmp_ctx_set_md(ptr noundef %ctx, ptr noundef %pbm_owf, i32 noundef %val)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %sw.epilog41
 

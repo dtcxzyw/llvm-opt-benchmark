@@ -1259,7 +1259,7 @@ declare dso_local void @disk_block_events(ptr noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @blkdev_get_part(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef i32 @blkdev_get_part(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
@@ -1478,7 +1478,7 @@ define internal fastcc noundef i32 @blkdev_get_whole(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bd_finish_claiming(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @bd_finish_claiming(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64

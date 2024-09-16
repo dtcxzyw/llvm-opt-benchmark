@@ -154,7 +154,7 @@ define dso_local void @StandbyReleaseAllLocks() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %8 = phi ptr [ %11, %.lr.ph ], [ %7, %5 ]
-  call fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull %8)
+  call fastcc void @StandbyReleaseXidEntryLocks(ptr noundef %8)
   %9 = load ptr, ptr @RecoveryLockXidHash, align 8
   %10 = call ptr @hash_search(ptr noundef %9, ptr noundef nonnull %8, i32 noundef 2, ptr noundef null) #7
   %11 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
@@ -341,7 +341,7 @@ define dso_local void @ResolveRecoveryConflictWithSnapshot(i32 noundef %0, i1 no
 declare ptr @GetConflictingVirtualXIDs(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %0, i32 noundef range(i32 8, 11) %1, i32 noundef range(i32 50331648, 134217773) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1015,7 +1015,7 @@ define dso_local void @StandbyReleaseLockTree(i32 noundef %0, i32 noundef %1, pt
   br i1 %.not2.i, label %StandbyReleaseLocks.exit, label %9
 
 9:                                                ; preds = %6
-  call fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull %8)
+  call fastcc void @StandbyReleaseXidEntryLocks(ptr noundef %8)
   %10 = load ptr, ptr @RecoveryLockXidHash, align 8
   %11 = call ptr @hash_search(ptr noundef %10, ptr noundef nonnull %8, i32 noundef 2, ptr noundef null) #7
   br label %StandbyReleaseLocks.exit
@@ -1049,7 +1049,7 @@ StandbyReleaseLocks.exit:                         ; preds = %6, %9, %12
   br i1 %.not2.i6, label %StandbyReleaseLocks.exit7, label %19
 
 19:                                               ; preds = %16
-  call fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull %18)
+  call fastcc void @StandbyReleaseXidEntryLocks(ptr noundef %18)
   %20 = load ptr, ptr @RecoveryLockXidHash, align 8
   %21 = call ptr @hash_search(ptr noundef %20, ptr noundef nonnull %18, i32 noundef 2, ptr noundef null) #7
   br label %StandbyReleaseLocks.exit7
@@ -1073,7 +1073,7 @@ declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StandbyReleaseXidEntryLocks(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @StandbyReleaseXidEntryLocks(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1163,7 +1163,7 @@ define dso_local void @StandbyReleaseOldLocks(i32 noundef %0) local_unnamed_addr
   br i1 %10, label %11, label %.backedge
 
 11:                                               ; preds = %8
-  call fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull %5)
+  call fastcc void @StandbyReleaseXidEntryLocks(ptr noundef %5)
   %12 = load ptr, ptr @RecoveryLockXidHash, align 8
   %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %5, i32 noundef 2, ptr noundef null) #7
   br label %.backedge

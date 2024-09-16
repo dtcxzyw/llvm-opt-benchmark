@@ -9400,18 +9400,18 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_11SmallVectorIcLj32EEENS_12
   br i1 %6, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes3hbc22generateBytecodeModuleEPNS0_6ModuleEPNS0_8FunctionES5_RKNS0_25BytecodeGenerationOptionsENS0_8OptValueIjEEPNS0_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEE3$_4JN4llvh9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 if.end.i.i.i:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_11SmallVectorIcLj32EEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_EixERKS2_.exit.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_11SmallVectorIcLj32EEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_EixERKS2_.exit.thread.i.i.i
-  %retval.0.i.i41.i.i.i = phi ptr [ %call.i2.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_11SmallVectorIcLj32EEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_EixERKS2_.exit.thread.i.i.i ], [ %5, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_11SmallVectorIcLj32EEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_EixERKS2_.exit.i.i.i ]
-  %second.i42.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i41.i.i.i, i64 16
-  %Size.i43.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i41.i.i.i, i64 24
+  %retval.0.i.i40.i.i.i = phi ptr [ %call.i2.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_11SmallVectorIcLj32EEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_EixERKS2_.exit.thread.i.i.i ], [ %5, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_11SmallVectorIcLj32EEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_EixERKS2_.exit.i.i.i ]
+  %second.i41.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i40.i.i.i, i64 16
+  %Size.i42.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i40.i.i.i, i64 24
   %7 = load ptr, ptr %str.i.i.i, align 8
   %8 = load i64, ptr %1, align 8
   %add.ptr.i6.i.i.i = getelementptr inbounds i8, ptr %7, i64 %8
-  %cmp.not34.i.i.i = icmp eq i64 %8, 0
-  br i1 %cmp.not34.i.i.i, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
+  %cmp.not33.i.i.i = icmp eq i64 %8, 0
+  br i1 %cmp.not33.i.i.i, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.end.i.i.i
-  %Capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i41.i.i.i, i64 28
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i41.i.i.i, i64 32
+  %Capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i40.i.i.i, i64 28
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i40.i.i.i, i64 32
   %LHSKind.i64.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp133.i.i.i.i, i64 16
   %RHSKind.i65.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp133.i.i.i.i, i64 17
   %RHS4.i.i66.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp134.i.i.i.i, i64 8
@@ -9422,8 +9422,8 @@ for.body.lr.ph.i.i.i:                             ; preds = %if.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end14.i.i.i, %for.body.lr.ph.i.i.i
   %9 = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %34, %if.end14.i.i.i ]
-  %cur.035.i.i.i = phi ptr [ %7, %for.body.lr.ph.i.i.i ], [ %cur.1.i.i.i, %if.end14.i.i.i ]
-  %10 = load i8, ptr %cur.035.i.i.i, align 1
+  %cur.034.i.i.i = phi ptr [ %7, %for.body.lr.ph.i.i.i ], [ %cur.1.i.i.i, %if.end14.i.i.i ]
+  %10 = load i8, ptr %cur.034.i.i.i, align 1
   %cmp.i.i.i.i = icmp slt i8 %10, 0
   br i1 %cmp.i.i.i.i, label %if.then10.i.i.i, label %if.else13.i.i.i
 
@@ -9438,7 +9438,7 @@ if.then10.i.i.i:                                  ; preds = %for.body.i.i.i
   br i1 %cmp.i7.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then10.i.i.i
-  %arrayidx2.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 1
+  %arrayidx2.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 1
   %11 = load i8, ptr %arrayidx2.i.i.i.i, align 1
   %conv378.i.i.i.i = zext i8 %11 to i32
   %and4.i.i.i.i = and i32 %conv378.i.i.i.i, 192
@@ -9446,7 +9446,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then10.i.i.i
   br i1 %cmp5.not.i.i.i.i, label %if.end.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 2
+  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 2
   %and9.i.i.i.i = shl nsw i32 %conv.i.i.i.i, 6
   %shl.i.i.i.i = and i32 %and9.i.i.i.i, 1984
   %and10.i.i.i.i = and i32 %conv378.i.i.i.i, 63
@@ -9461,7 +9461,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then10.i.i.i
   br i1 %cmp17.i.i.i.i, label %if.then19.i.i.i.i, label %if.else68.i.i.i.i
 
 if.then19.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %arrayidx21.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 1
+  %arrayidx21.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 1
   %12 = load i8, ptr %arrayidx21.i.i.i.i, align 1
   %conv22.i.i.i.i = sext i8 %12 to i32
   %13 = and i32 %conv22.i.i.i.i, 192
@@ -9469,7 +9469,7 @@ if.then19.i.i.i.i:                                ; preds = %if.else.i.i.i.i
   br i1 %.not44.i.i.i.i, label %if.end31.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
 if.end31.i.i.i.i:                                 ; preds = %if.then19.i.i.i.i
-  %arrayidx32.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 2
+  %arrayidx32.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 2
   %14 = load i8, ptr %arrayidx32.i.i.i.i, align 1
   %conv3379.i.i.i.i = zext i8 %14 to i32
   %15 = and i32 %conv3379.i.i.i.i, 192
@@ -9477,7 +9477,7 @@ if.end31.i.i.i.i:                                 ; preds = %if.then19.i.i.i.i
   br i1 %.not45.i.i.i.i, label %if.end44.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
 if.end44.i.i.i.i:                                 ; preds = %if.end31.i.i.i.i
-  %add.ptr45.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 3
+  %add.ptr45.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 3
   %and46.i.i.i.i = shl nsw i32 %conv.i.i.i.i, 12
   %shl47.i.i.i.i = and i32 %and46.i.i.i.i, 61440
   %and48.i.i.i.i = shl nsw i32 %conv22.i.i.i.i, 6
@@ -9498,7 +9498,7 @@ if.end57.i.i.i.i:                                 ; preds = %if.end44.i.i.i.i
 if.else68.i.i.i.i:                                ; preds = %if.else.i.i.i.i
   %and69.i.i.i.i = and i32 %conv.i.i.i.i, 248
   %cmp70.i.i.i.i = icmp eq i32 %and69.i.i.i.i, 240
-  %arrayidx73.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 1
+  %arrayidx73.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 1
   br i1 %cmp70.i.i.i.i, label %if.then71.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
 if.then71.i.i.i.i:                                ; preds = %if.else68.i.i.i.i
@@ -9509,7 +9509,7 @@ if.then71.i.i.i.i:                                ; preds = %if.else68.i.i.i.i
   br i1 %.not.i.i.i.i, label %if.end85.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
 if.end85.i.i.i.i:                                 ; preds = %if.then71.i.i.i.i
-  %arrayidx87.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 2
+  %arrayidx87.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 2
   %18 = load i8, ptr %arrayidx87.i.i.i.i, align 1
   %conv88.i.i.i.i = sext i8 %18 to i32
   %19 = and i32 %conv88.i.i.i.i, 192
@@ -9517,7 +9517,7 @@ if.end85.i.i.i.i:                                 ; preds = %if.then71.i.i.i.i
   br i1 %.not42.i.i.i.i, label %if.end99.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
 if.end99.i.i.i.i:                                 ; preds = %if.end85.i.i.i.i
-  %arrayidx100.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 3
+  %arrayidx100.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 3
   %20 = load i8, ptr %arrayidx100.i.i.i.i, align 1
   %conv10180.i.i.i.i = zext i8 %20 to i32
   %21 = and i32 %conv10180.i.i.i.i, 192
@@ -9525,7 +9525,7 @@ if.end99.i.i.i.i:                                 ; preds = %if.end85.i.i.i.i
   br i1 %.not43.i.i.i.i, label %if.end112.i.i.i.i, label %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
 
 if.end112.i.i.i.i:                                ; preds = %if.end99.i.i.i.i
-  %add.ptr113.i.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 4
+  %add.ptr113.i.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 4
   %and114.i.i.i.i = shl nsw i32 %conv.i.i.i.i, 18
   %shl115.i.i.i.i = and i32 %and114.i.i.i.i, 1835008
   %and116.i.i.i.i = shl nsw i32 %conv74.i.i.i.i, 12
@@ -9566,7 +9566,7 @@ if.then131.i.i.i.i:                               ; preds = %if.end128.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i.i.i)
   store ptr %buf.i.i.i.i, ptr %d.i.i.i.i, align 8
-  br label %if.end.i11.i.i.i
+  br label %if.end.i10.i.i.i
 
 "_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.i.i.i": ; preds = %if.end128.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp132.i.i.i.i)
@@ -9576,16 +9576,15 @@ if.then131.i.i.i.i:                               ; preds = %if.end128.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i.i.i)
   store ptr %buf.i.i.i.i, ptr %d.i.i.i.i, align 8
-  %sub.i.i.i.i = add nuw nsw i32 %or123.i.i.i.i, 983040
+  %sub.i.i.i.i = add nsw i32 %or123.i.i.i.i, -65536
   %shr.i.i.i.i = lshr i32 %sub.i.i.i.i, 10
-  %and.i10.i.i.i = and i32 %shr.i.i.i.i, 1023
-  %add.i.i.i.i = or disjoint i32 %and.i10.i.i.i, 55296
+  %add.i.i.i.i = or disjoint i32 %shr.i.i.i.i, 55296
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i.i.i, i32 noundef %add.i.i.i.i) #18
   %add2.i.i.i.i = or i32 %22, 56320
-  br label %if.end.i11.i.i.i
+  br label %if.end.i10.i.i.i
 
-if.end.i11.i.i.i:                                 ; preds = %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.i.i.i", %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
-  %cur.233.i.i.i = phi ptr [ %add.ptr113.i.i.i.i, %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.i.i.i" ], [ %cur.2.ph.i.i.i, %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i" ]
+if.end.i10.i.i.i:                                 ; preds = %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.i.i.i", %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i"
+  %cur.232.i.i.i = phi ptr [ %add.ptr113.i.i.i.i, %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.i.i.i" ], [ %cur.2.ph.i.i.i, %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i" ]
   %add2.sink.i.i.i.i = phi i32 [ %add2.i.i.i.i, %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.i.i.i" ], [ %retval.0.i.ph.i.i.i, %"_ZN6hermes19_decodeUTF8SlowPathILb0EZZNS_3hbc22generateBytecodeModuleEPNS_6ModuleEPNS_8FunctionES5_RKNS_25BytecodeGenerationOptionsENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEENK3$_4clEN4llvh9StringRefEEUlRKNSJ_5TwineEE_EEjRPKcT0_.exit.thread.i.i.i" ]
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i.i.i, i32 noundef %add2.sink.i.i.i.i) #18
   %23 = load ptr, ptr %d.i.i.i.i, align 8
@@ -9593,36 +9592,36 @@ if.end.i11.i.i.i:                                 ; preds = %"_ZN6hermes19_decod
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %24 = load i32, ptr %Capacity.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i = zext i32 %24 to i64
-  %25 = load i32, ptr %Size.i43.i.i.i, align 8
+  %25 = load i32, ptr %Size.i42.i.i.i, align 8
   %conv.i5.i.i.i.i.i = zext i32 %25 to i64
   %sub.i.i.i.i.i = sub nsw i64 %conv.i.i.i.i.i.i, %conv.i5.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i, %sub.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i12.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i11.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %if.end.i11.i.i.i
+if.then.i.i.i.i.i:                                ; preds = %if.end.i10.i.i.i
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i.i.i, %conv.i5.i.i.i.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i42.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i, i64 noundef 1) #18
-  %.pre13.pre.i.i.i.i.i = load i32, ptr %Size.i43.i.i.i, align 8
-  br label %if.end.i.i12.i.i.i
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i41.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i, i64 noundef 1) #18
+  %.pre13.pre.i.i.i.i.i = load i32, ptr %Size.i42.i.i.i, align 8
+  br label %if.end.i.i11.i.i.i
 
-if.end.i.i12.i.i.i:                               ; preds = %if.then.i.i.i.i.i, %if.end.i11.i.i.i
-  %.pre13.i.i.i.i.i = phi i32 [ %.pre13.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %25, %if.end.i11.i.i.i ]
+if.end.i.i11.i.i.i:                               ; preds = %if.then.i.i.i.i.i, %if.end.i10.i.i.i
+  %.pre13.i.i.i.i.i = phi i32 [ %.pre13.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %25, %if.end.i10.i.i.i ]
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %buf.i.i.i.i, %23
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i12.i.i.i
-  %26 = load ptr, ptr %second.i42.i.i.i, align 8
+if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i11.i.i.i
+  %26 = load ptr, ptr %second.i41.i.i.i, align 8
   %conv.i9.i.i.i.i.i = zext i32 %.pre13.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 %conv.i9.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i, ptr nonnull align 1 %buf.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
-  %.pre.i.i.i.i.i = load i32, ptr %Size.i43.i.i.i, align 8
+  %.pre.i.i.i.i.i = load i32, ptr %Size.i42.i.i.i, align 8
   br label %_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i
 
-_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i12.i.i.i
-  %27 = phi i32 [ %.pre13.i.i.i.i.i, %if.end.i.i12.i.i.i ], [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
+_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i11.i.i.i
+  %27 = phi i32 [ %.pre13.i.i.i.i.i, %if.end.i.i11.i.i.i ], [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %28 = trunc i64 %sub.ptr.sub.i.i.i.i.i.i.i to i32
   %conv.i12.i.i.i.i.i = add i32 %27, %28
-  store i32 %conv.i12.i.i.i.i.i, ptr %Size.i43.i.i.i, align 8
+  store i32 %conv.i12.i.i.i.i.i, ptr %Size.i42.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i.i.i)
   br label %if.end14.i.i.i
@@ -9630,30 +9629,30 @@ _ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i: ; preds = %
 if.else13.i.i.i:                                  ; preds = %for.body.i.i.i
   %29 = load i32, ptr %Capacity.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp ult i32 %9, %29
-  br i1 %cmp.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i, label %if.then.i13.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i, label %if.then.i12.i.i.i
 
-if.then.i13.i.i.i:                                ; preds = %if.else13.i.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i42.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #18
-  %.pre.i.i.i.i = load i32, ptr %Size.i43.i.i.i, align 8
-  %.pre36.i.i.i = load i8, ptr %cur.035.i.i.i, align 1
+if.then.i12.i.i.i:                                ; preds = %if.else13.i.i.i
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i41.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 1) #18
+  %.pre.i.i.i.i = load i32, ptr %Size.i42.i.i.i, align 8
+  %.pre35.i.i.i = load i8, ptr %cur.034.i.i.i, align 1
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i
 
-_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i: ; preds = %if.then.i13.i.i.i, %if.else13.i.i.i
-  %30 = phi i8 [ %.pre36.i.i.i, %if.then.i13.i.i.i ], [ %10, %if.else13.i.i.i ]
-  %31 = phi i32 [ %.pre.i.i.i.i, %if.then.i13.i.i.i ], [ %9, %if.else13.i.i.i ]
-  %32 = load ptr, ptr %second.i42.i.i.i, align 8
+_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i: ; preds = %if.then.i12.i.i.i, %if.else13.i.i.i
+  %30 = phi i8 [ %.pre35.i.i.i, %if.then.i12.i.i.i ], [ %10, %if.else13.i.i.i ]
+  %31 = phi i32 [ %.pre.i.i.i.i, %if.then.i12.i.i.i ], [ %9, %if.else13.i.i.i ]
+  %32 = load ptr, ptr %second.i41.i.i.i, align 8
   %conv.i3.i.i.i.i = zext i32 %31 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 %conv.i3.i.i.i.i
   store i8 %30, ptr %add.ptr.i.i.i.i.i, align 1
-  %33 = load i32, ptr %Size.i43.i.i.i, align 8
-  %add.i15.i.i.i = add i32 %33, 1
-  store i32 %add.i15.i.i.i, ptr %Size.i43.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %cur.035.i.i.i, i64 1
+  %33 = load i32, ptr %Size.i42.i.i.i, align 8
+  %add.i14.i.i.i = add i32 %33, 1
+  store i32 %add.i14.i.i.i, ptr %Size.i42.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %cur.034.i.i.i, i64 1
   br label %if.end14.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i, %_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i
-  %34 = phi i32 [ %conv.i12.i.i.i.i.i, %_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i ], [ %add.i15.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i ]
-  %cur.1.i.i.i = phi ptr [ %cur.233.i.i.i, %_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i ], [ %incdec.ptr.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i ]
+  %34 = phi i32 [ %conv.i12.i.i.i.i.i, %_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i ], [ %add.i14.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i ]
+  %cur.1.i.i.i = phi ptr [ %cur.232.i.i.i, %_ZL22appendUnicodeToStoragejRN4llvh15SmallVectorImplIcEE.exit.i.i.i ], [ %incdec.ptr.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit.i.i.i ]
   %cmp.not.i.i.i = icmp eq ptr %cur.1.i.i.i, %add.ptr.i6.i.i.i
   br i1 %cmp.not.i.i.i, label %for.end.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !257
 
@@ -9662,10 +9661,10 @@ for.end.loopexit.i.i.i:                           ; preds = %if.end14.i.i.i
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.end.i.i.i
-  %conv.i17.i.i.i = phi i64 [ %35, %for.end.loopexit.i.i.i ], [ 0, %if.end.i.i.i ]
+  %conv.i16.i.i.i = phi i64 [ %35, %for.end.loopexit.i.i.i ], [ 0, %if.end.i.i.i ]
   %36 = load ptr, ptr %__functor, align 8
-  %37 = load ptr, ptr %second.i42.i.i.i, align 8
-  call void @_ZN6hermes3hbc32UniquingStringLiteralAccumulator9addStringEN4llvh9StringRefEb(ptr noundef nonnull align 8 dereferenceable(224) %36, ptr %37, i64 %conv.i17.i.i.i, i1 noundef zeroext false)
+  %37 = load ptr, ptr %second.i41.i.i.i, align 8
+  call void @_ZN6hermes3hbc32UniquingStringLiteralAccumulator9addStringEN4llvh9StringRefEb(ptr noundef nonnull align 8 dereferenceable(224) %36, ptr %37, i64 %conv.i16.i.i.i, i1 noundef zeroext false)
   br label %"_ZSt10__invoke_rIvRZN6hermes3hbc22generateBytecodeModuleEPNS0_6ModuleEPNS0_8FunctionES5_RKNS0_25BytecodeGenerationOptionsENS0_8OptValueIjEEPNS0_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEE3$_4JN4llvh9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 "_ZSt10__invoke_rIvRZN6hermes3hbc22generateBytecodeModuleEPNS0_6ModuleEPNS0_8FunctionES5_RKNS0_25BytecodeGenerationOptionsENS0_8OptValueIjEEPNS0_18SourceMapGeneratorESt10unique_ptrINS1_14BCProviderBaseESt14default_deleteISE_EEE3$_4JN4llvh9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %if.then.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_11SmallVectorIcLj32EEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_EixERKS2_.exit.i.i.i, %for.end.i.i.i

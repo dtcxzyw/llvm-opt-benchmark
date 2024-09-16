@@ -80,8 +80,8 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 11:                                               ; preds = %8, %3
   %.053 = phi ptr [ %10, %8 ], [ %0, %3 ]
-  %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef nonnull %5)
-  %13 = call fastcc i32 @predicate_classify(ptr noundef %.053, ptr noundef nonnull %4)
+  %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef %5)
+  %13 = call fastcc i32 @predicate_classify(ptr noundef %.053, ptr noundef %4)
   switch i32 %13, label %default.unreachable78 [
     i32 1, label %14
     i32 2, label %64
@@ -499,8 +499,8 @@ define internal fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %0, 
 
 11:                                               ; preds = %8, %3
   %.075 = phi ptr [ %10, %8 ], [ %0, %3 ]
-  %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef nonnull %5)
-  %13 = call fastcc i32 @predicate_classify(ptr noundef %.075, ptr noundef nonnull %4)
+  %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef %5)
+  %13 = call fastcc i32 @predicate_classify(ptr noundef %.075, ptr noundef %4)
   switch i32 %13, label %default.unreachable133 [
     i32 1, label %14
     i32 2, label %83
@@ -1092,7 +1092,7 @@ predicate_refuted_by_simple_clause.exit:          ; preds = %288, %287, %285, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @predicate_classify(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @predicate_classify(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %.critedge [
     i32 1, label %4

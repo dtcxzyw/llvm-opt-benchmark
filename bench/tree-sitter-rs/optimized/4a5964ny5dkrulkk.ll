@@ -194,7 +194,7 @@ define hidden void @"_ZN4core3ptr151drop_in_place$LT$core..error..TaggedOption$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd435e214ae39ef3aE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd435e214ae39ef3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !29, !noundef !10
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -482,7 +482,7 @@ define hidden void @"_ZN18tree_sitter_config6Config4load28_$u7b$$u7b$closure$u7d
 14:                                               ; preds = %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd435e214ae39ef3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #12
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd435e214ae39ef3aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #12
           to label %31 unwind label %29
 
 16:                                               ; preds = %2
@@ -577,7 +577,7 @@ define hidden void @"_ZN18tree_sitter_config6Config4load28_$u7b$$u7b$closure$u7d
 14:                                               ; preds = %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd435e214ae39ef3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #12
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd435e214ae39ef3aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #12
           to label %31 unwind label %29
 
 16:                                               ; preds = %2

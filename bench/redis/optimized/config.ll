@@ -2317,7 +2317,7 @@ lor.end:                                          ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @restoreBackupConfig(ptr nocapture noundef readonly %set_configs, ptr nocapture noundef readonly %old_values, i32 noundef %count, ptr noundef readonly %apply_fns, ptr noundef %module_configs) unnamed_addr #2 {
+define internal fastcc void @restoreBackupConfig(ptr nocapture noundef readonly %set_configs, ptr nocapture noundef readonly %old_values, i32 noundef range(i32 -2147483647, 1073741823) %count, ptr noundef readonly %apply_fns, ptr noundef %module_configs) unnamed_addr #2 {
 entry:
   %value.addr.i = alloca ptr, align 8
   %argc.i = alloca i32, align 4
@@ -3545,7 +3545,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @configEnumGetName(ptr nocapture noundef readonly %ce, i32 noundef %values, i32 noundef %bitflags) unnamed_addr #2 {
+define internal fastcc ptr @configEnumGetName(ptr nocapture noundef readonly %ce, i32 noundef %values, i32 noundef range(i32 0, 9) %bitflags) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ce, align 8
   %cmp.not25 = icmp eq ptr %0, null

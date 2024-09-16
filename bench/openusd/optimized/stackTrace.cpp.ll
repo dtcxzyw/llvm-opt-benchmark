@@ -642,17 +642,17 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27ArchSetProgramNameForErrorsE
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc12.i unwind label %16
 
-12:                                               ; preds = %.noexc12.i
-  %13 = landingpad { ptr, i32 }
+.noexc12.i:                                       ; preds = %.noexc.i
+  %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31, !noalias !11
+  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %0, ptr noundef nonnull %13)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17getBaseB5cxx11EPKc.exit unwind label %14
+
+14:                                               ; preds = %.noexc12.i
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
   br label %.body.i
-
-.noexc12.i:                                       ; preds = %.noexc.i
-  %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31, !noalias !11
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %0, ptr noundef nonnull %15)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17getBaseB5cxx11EPKc.exit unwind label %12
 
 16:                                               ; preds = %.noexc.i, %10
   %17 = landingpad { ptr, i32 }
@@ -672,26 +672,26 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27ArchSetProgramNameForErrorsE
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc14.i unwind label %26
 
-22:                                               ; preds = %.noexc14.i
-  %23 = landingpad { ptr, i32 }
+.noexc14.i:                                       ; preds = %.noexc13.i
+  %22 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #31
+  %23 = getelementptr inbounds i8, ptr %20, i64 %22
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %20, ptr noundef nonnull %23)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17getBaseB5cxx11EPKc.exit unwind label %24
+
+24:                                               ; preds = %.noexc14.i
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
   br label %.body.i
-
-.noexc14.i:                                       ; preds = %.noexc13.i
-  %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #31
-  %25 = getelementptr inbounds i8, ptr %20, i64 %24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %20, ptr noundef nonnull %25)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17getBaseB5cxx11EPKc.exit unwind label %22
 
 26:                                               ; preds = %.noexc13.i, %18
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %26, %22, %16, %12
-  %.sink18.i = phi ptr [ %2, %12 ], [ %2, %16 ], [ %3, %22 ], [ %3, %26 ]
-  %.pn.i = phi { ptr, i32 } [ %13, %12 ], [ %17, %16 ], [ %23, %22 ], [ %27, %26 ]
+.body.i:                                          ; preds = %26, %24, %16, %14
+  %.sink18.i = phi ptr [ %2, %14 ], [ %2, %16 ], [ %3, %24 ], [ %3, %26 ]
+  %.pn.i = phi { ptr, i32 } [ %15, %14 ], [ %17, %16 ], [ %25, %24 ], [ %27, %26 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink18.i) #31
   resume { ptr, i32 } %.pn.i
 
@@ -1600,11 +1600,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoFo
   br i1 %.not63, label %178, label %176
 
 176:                                              ; preds = %164
-  %177 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef nonnull %5, ptr noundef nonnull %1)
+  %177 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef %5, ptr noundef nonnull %1)
   br label %180
 
 178:                                              ; preds = %164
-  %179 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef nonnull %5, ptr noundef %2)
+  %179 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef %5, ptr noundef %2)
   br label %180
 
 180:                                              ; preds = %178, %176
@@ -2005,7 +2005,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchPrintStackTraceEP8_IO_FI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr nocapture noundef %0, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 48)) #31
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
@@ -2078,7 +2078,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   br label %.loopexit
 
 30:                                               ; preds = %.lr.ph
-  %31 = add nuw i64 %.115, 1
+  %31 = add nuw nsw i64 %.115, 1
   %32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.014) #31
   %33 = tail call i32 @fputs(ptr noundef %32, ptr noundef %0)
   %34 = getelementptr inbounds i8, ptr %.sroa.01.014, i64 32
@@ -3583,7 +3583,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit42: ; preds
   %54 = tail call ptr @__errno_location() #35
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl(ptr noundef nonnull %9, i64 noundef %56)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl(ptr noundef %9, i64 noundef %56)
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef nonnull @.str.14)
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef %0)
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef nonnull @.str.15)
@@ -3908,7 +3908,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit153: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl(ptr noundef writeonly %0, i64 noundef %1) unnamed_addr #12 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl(ptr noundef nonnull writeonly %0, i64 noundef %1) unnamed_addr #12 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %7
 
@@ -5614,7 +5614,7 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrlenEPKc.exit.i:
   %3 = alloca %struct.rusage, align 8
   %4 = alloca [22 x i8], align 16

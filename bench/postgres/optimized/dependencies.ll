@@ -917,7 +917,7 @@ list_length.exit244.thread:                       ; preds = %33
 
 58:                                               ; preds = %.lr.ph430
   %59 = load i32, ptr %48, align 8
-  %60 = call fastcc zeroext i1 @dependency_is_compatible_clause(ptr noundef %53, i32 noundef %59, ptr noundef nonnull %8)
+  %60 = call fastcc zeroext i1 @dependency_is_compatible_clause(ptr noundef %53, i32 noundef %59, ptr noundef %8)
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %58
@@ -926,7 +926,7 @@ list_length.exit244.thread:                       ; preds = %33
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %30, align 8
-  %65 = call fastcc zeroext i1 @dependency_is_compatible_expression(ptr noundef %53, ptr noundef %64, ptr noundef nonnull %9)
+  %65 = call fastcc zeroext i1 @dependency_is_compatible_expression(ptr noundef %53, ptr noundef %64, ptr noundef %9)
   br i1 %65, label %66, label %83
 
 66:                                               ; preds = %63
@@ -1750,7 +1750,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dependency_is_compatible_clause(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dependency_is_compatible_clause(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = load i32, ptr %0, align 4
   %6 = icmp eq i32 %5, 302
@@ -1904,7 +1904,7 @@ is_orclause.exit:                                 ; preds = %is_opclause.exit
   %75 = load ptr, ptr %68, align 8
   %76 = getelementptr %union.ListCell, ptr %75, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8
-  %78 = call fastcc zeroext i1 @dependency_is_compatible_clause(ptr noundef %77, i32 noundef %1, ptr noundef nonnull %4)
+  %78 = call fastcc zeroext i1 @dependency_is_compatible_clause(ptr noundef %77, i32 noundef %1, ptr noundef %4)
   br i1 %78, label %79, label %list_length.exit.thread
 
 79:                                               ; preds = %.lr.ph93
@@ -1980,7 +1980,7 @@ list_length.exit.thread:                          ; preds = %.lr.ph93, %82, %71,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dependency_is_compatible_expression(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dependency_is_compatible_expression(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 4
   %6 = icmp eq i32 %5, 302
@@ -2135,7 +2135,7 @@ is_orclause.exit:                                 ; preds = %is_opclause.exit
   %76 = getelementptr %union.ListCell, ptr %75, i64 %indvars.iv
   store ptr null, ptr %4, align 8
   %77 = load ptr, ptr %76, align 8
-  %78 = call fastcc zeroext i1 @dependency_is_compatible_expression(ptr noundef %77, ptr noundef %1, ptr noundef nonnull %4)
+  %78 = call fastcc zeroext i1 @dependency_is_compatible_expression(ptr noundef %77, ptr noundef %1, ptr noundef %4)
   br i1 %78, label %79, label %list_length.exit.thread
 
 79:                                               ; preds = %.lr.ph122

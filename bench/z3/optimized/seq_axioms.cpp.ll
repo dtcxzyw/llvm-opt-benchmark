@@ -23607,7 +23607,7 @@ lpad.i.i177:                                      ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont27:                                    ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i.i175
   %is_digit_.val87.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias nonnull align 8 %ref.tmp29, ptr nonnull %this, ptr %is_digit_.val87.val, i32 noundef 0)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp29, ptr nonnull %this, ptr %is_digit_.val87.val, i32 noundef 0)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont27
@@ -23693,7 +23693,7 @@ invoke.cont37:                                    ; preds = %.noexc218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i211), !noalias !741
   %79 = load ptr, ptr %ref.tmp35, align 8
   %digit.val96.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias nonnull align 8 %ref.tmp41, ptr nonnull %this, ptr %digit.val96.val, i32 noundef 0)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias align 8 %ref.tmp41, ptr nonnull %this, ptr %digit.val96.val, i32 noundef 0)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont37
@@ -23909,7 +23909,7 @@ lpad.i.i292:                                      ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont58:                                    ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i.i290
   %is_digit_.val89.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias nonnull align 8 %ref.tmp59, ptr nonnull %this, ptr %is_digit_.val89.val, i32 noundef 0)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp59, ptr nonnull %this, ptr %is_digit_.val89.val, i32 noundef 0)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont58
@@ -24529,7 +24529,7 @@ return.sink.split.i521:                           ; preds = %call.i.i.noexc537, 
 
 invoke.cont121:                                   ; preds = %return.sink.split.i521, %call.i.i.noexc537, %if.then.i533
   %is_digit_.val91.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias nonnull align 8 %ref.tmp123, ptr nonnull %this, ptr %is_digit_.val91.val, i32 noundef %i.0974)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp123, ptr nonnull %this, ptr %is_digit_.val91.val, i32 noundef %i.0974)
           to label %invoke.cont125 unwind label %lpad124
 
 invoke.cont125:                                   ; preds = %invoke.cont121
@@ -24642,7 +24642,7 @@ invoke.cont142:                                   ; preds = %.noexc584
 
 invoke.cont146:                                   ; preds = %invoke.cont142
   %digit.val98.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias nonnull align 8 %ref.tmp148, ptr nonnull %this, ptr %digit.val98.val, i32 noundef %i.0974)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias align 8 %ref.tmp148, ptr nonnull %this, ptr %digit.val98.val, i32 noundef %i.0974)
           to label %invoke.cont149 unwind label %lpad143
 
 invoke.cont149:                                   ; preds = %invoke.cont146
@@ -24959,7 +24959,7 @@ lpad.i.i698:                                      ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont171:                                   ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i.i696
   %is_digit_.val93.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias nonnull align 8 %ref.tmp172, ptr nonnull %this, ptr %is_digit_.val93.val, i32 noundef %i.0974)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp172, ptr nonnull %this, ptr %is_digit_.val93.val, i32 noundef %i.0974)
           to label %invoke.cont174 unwind label %lpad173
 
 invoke.cont174:                                   ; preds = %invoke.cont171
@@ -25470,7 +25470,7 @@ lpad.i.i901:                                      ; preds = %_ZN7obj_refI4expr11
 
 invoke.cont229:                                   ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i.i899
   %is_digit_.val95.val = load ptr, ptr %s, align 8
-  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias nonnull align 8 %ref.tmp230, ptr nonnull %this, ptr %is_digit_.val95.val, i32 noundef %i.0974)
+  invoke fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias align 8 %ref.tmp230, ptr nonnull %this, ptr %is_digit_.val95.val, i32 noundef %i.0974)
           to label %invoke.cont232 unwind label %lpad231
 
 invoke.cont232:                                   ; preds = %invoke.cont229
@@ -26073,7 +26073,7 @@ ehcleanup241:                                     ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val, ptr %this.8.val.0.val, i32 noundef %j) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_1clEj"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr %this.8.val.0.val, i32 noundef %j) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.addr.i.i.i = alloca ptr, align 8
   %es.i.i = alloca [2 x ptr], align 16
@@ -26167,7 +26167,7 @@ lpad:                                             ; preds = %_ZN3seq6axioms6mk_n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val, ptr %this.8.val.0.val, i32 noundef %j) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3seq6axioms10stoi_axiomEP4exprjENK3$_2clEj"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr %this.8.val.0.val, i32 noundef %j) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %es.i.i = alloca [2 x ptr], align 16
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -26199,7 +26199,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i:        ; preds = %entry
   br label %_ZN3seq6axioms6mk_nthEP4exprj.exit
 
 _ZN3seq6axioms6mk_nthEP4exprj.exit:               ; preds = %entry, %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i
-  invoke void @_ZN3seq6axioms12mk_digit2intEP4expr(ptr sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this.0.val, ptr noundef %call.i.i)
+  invoke void @_ZN3seq6axioms12mk_digit2intEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this.0.val, ptr noundef %call.i.i)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %_ZN3seq6axioms6mk_nthEP4exprj.exit

@@ -5558,7 +5558,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Elb(p
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %4, ptr %8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %0)
           to label %9 unwind label %10
 
 9:                                                ; preds = %3
@@ -5572,7 +5572,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Elb(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr nocapture noundef %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr nocapture noundef nonnull %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -5641,7 +5641,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Eib(p
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %4, ptr %8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %0)
           to label %9 unwind label %10
 
 9:                                                ; preds = %3
@@ -6483,7 +6483,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE18syncW
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %20, ptr %21, align 8
-  tail call fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
+  tail call fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %0)
   %22 = getelementptr inbounds i8, ptr %18, i64 28
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %0, i64 28

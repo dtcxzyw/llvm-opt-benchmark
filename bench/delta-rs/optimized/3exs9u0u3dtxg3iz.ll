@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$4name17hcd0de12190b4d27bE.4" = private unnamed_addr constant [4 x ptr] [ptr @anon.19f31fb185552d6b4fbe871626c80743.19, ptr @anon.19f31fb185552d6b4fbe871626c80743.20, ptr @anon.19f31fb185552d6b4fbe871626c80743.21, ptr @anon.19f31fb185552d6b4fbe871626c80743.22], align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -67,7 +67,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -174,7 +174,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..
   %46 = landingpad { ptr, i32 }
           cleanup
   %47 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47) #15
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef align 8 dereferenceable(24) %47) #15
           to label %61 unwind label %59
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE.exit11": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha0b7b9dec2ee265eE.exit.i8", %34
@@ -218,7 +218,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..
   %63 = landingpad { ptr, i32 }
           cleanup
   %64 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #15
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef align 8 dereferenceable(24) %64) #15
           to label %76 unwind label %59
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha0b7b9dec2ee265eE.exit.i", %12
@@ -253,7 +253,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..
 
 76:                                               ; preds = %77, %62
   %.pn = phi { ptr, i32 } [ %78, %77 ], [ %63, %62 ]
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #15
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef align 8 dereferenceable(24) %8) #15
           to label %61 unwind label %59
 
 77:                                               ; preds = %71, %68
@@ -289,7 +289,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -446,7 +446,7 @@ default.unreachable:                              ; preds = %2
 76:                                               ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #15
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef align 8 dereferenceable(24) %5) #15
           to label %82 unwind label %80
 
 "_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd68d2a5c45dc35f2E.exit8": ; preds = %.noexc, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd68d2a5c45dc35f2E.exit5"
@@ -476,7 +476,7 @@ default.unreachable:                              ; preds = %2
 
 83:                                               ; preds = %99, %84
   %.pn = phi { ptr, i32 } [ %100, %99 ], [ %85, %84 ]
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #15
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef align 8 dereferenceable(24) %4) #15
           to label %82 unwind label %80
 
 84:                                               ; preds = %70
@@ -514,7 +514,7 @@ default.unreachable:                              ; preds = %2
 99:                                               ; preds = %94
   %100 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #15
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef align 8 dereferenceable(24) %3) #15
           to label %83 unwind label %80
 
 "_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd68d2a5c45dc35f2E.exit19": ; preds = %.noexc18, %86
@@ -893,7 +893,7 @@ default.unreachable:                              ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10), !noalias !183
   %25 = getelementptr inbounds i8, ptr %1, i64 16
-  call fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %25), !noalias !185
+  call fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %10, ptr noalias noundef readonly align 8 dereferenceable(72) %25), !noalias !185
   %.val.i.i = load ptr, ptr %23, align 8, !alias.scope !186, !noalias !185, !nonnull !5, !noundef !5
   %26 = atomicrmw add ptr %.val.i.i, i64 1 monotonic, align 8, !noalias !183
   %27 = icmp slt i64 %26, 0
@@ -919,7 +919,7 @@ default.unreachable:                              ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9), !noalias !191
   %31 = getelementptr inbounds i8, ptr %1, i64 16
-  call fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %31), !noalias !193
+  call fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %9, ptr noalias noundef readonly align 8 dereferenceable(72) %31), !noalias !193
   %.val.i1.i = load ptr, ptr %23, align 8, !alias.scope !194, !noalias !193, !nonnull !5, !noundef !5
   %32 = atomicrmw add ptr %.val.i1.i, i64 1 monotonic, align 8, !noalias !191
   %33 = icmp slt i64 %32, 0
@@ -945,7 +945,7 @@ default.unreachable:                              ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8), !noalias !199
   %37 = getelementptr inbounds i8, ptr %1, i64 16
-  call fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %37), !noalias !201
+  call fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %8, ptr noalias noundef readonly align 8 dereferenceable(72) %37), !noalias !201
   %.val.i2.i = load ptr, ptr %23, align 8, !alias.scope !202, !noalias !201, !nonnull !5, !noundef !5
   %38 = atomicrmw add ptr %.val.i2.i, i64 1 monotonic, align 8, !noalias !199
   %39 = icmp slt i64 %38, 0
@@ -971,7 +971,7 @@ default.unreachable:                              ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7), !noalias !207
   %43 = getelementptr inbounds i8, ptr %1, i64 24
-  call fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %43), !noalias !209
+  call fastcc void @"_ZN89_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..clone..Clone$GT$5clone17h7e239e80c2c644abE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %7, ptr noalias noundef readonly align 8 dereferenceable(72) %43), !noalias !209
   %44 = getelementptr inbounds i8, ptr %1, i64 16
   %45 = load i32, ptr %44, align 8, !range !156, !alias.scope !210, !noalias !209, !noundef !5
   %46 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1040,7 +1040,7 @@ define void @_ZN13deltalake_sql12logical_plan6Vacuum3new17h4a24444fd4959708E(ptr
 
 .body:                                            ; preds = %18, %9
   %eh.lpad-body = phi { ptr, i32 } [ %10, %9 ], [ %19, %18 ]
-  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8) #15
+  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef align 8 dereferenceable(72) %8) #15
           to label %30 unwind label %28
 
 11:                                               ; preds = %5
@@ -1119,7 +1119,7 @@ define void @_ZN13deltalake_sql12logical_plan15DescribeHistory3new17h725462ac106
 
 .body:                                            ; preds = %15, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %16, %15 ]
-  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5) #15
+  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef align 8 dereferenceable(72) %5) #15
           to label %23 unwind label %21
 
 8:                                                ; preds = %2
@@ -1191,7 +1191,7 @@ define void @_ZN13deltalake_sql12logical_plan15DescribeDetails3new17hacc55f88bdd
 
 .body:                                            ; preds = %15, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %16, %15 ]
-  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5) #15
+  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef align 8 dereferenceable(72) %5) #15
           to label %23 unwind label %21
 
 8:                                                ; preds = %2
@@ -1263,7 +1263,7 @@ define void @_ZN13deltalake_sql12logical_plan13DescribeFiles3new17h2ef3807ad814e
 
 .body:                                            ; preds = %15, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %16, %15 ]
-  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5) #15
+  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$datafusion_common..table_reference..TableReference$GT$17hc9f773e57f49c587E"(ptr noalias noundef align 8 dereferenceable(72) %5) #15
           to label %23 unwind label %21
 
 8:                                                ; preds = %2

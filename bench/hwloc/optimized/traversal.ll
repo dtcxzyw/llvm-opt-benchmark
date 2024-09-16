@@ -632,7 +632,7 @@ define i32 @hwloc_get_largest_objs_inside_cpuset(ptr nocapture noundef readonly 
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = call fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %17 = call fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef nonnull %10, ptr noundef %1, ptr noundef %5, ptr noundef %6)
   br label %18
 
 18:                                               ; preds = %14, %4, %16
@@ -641,7 +641,7 @@ define i32 @hwloc_get_largest_objs_inside_cpuset(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #6 {
+define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #6 {
   %5 = load i32, ptr %3, align 4
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %.loopexit, label %7
@@ -698,7 +698,7 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
   %36 = load ptr, ptr %13, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %38, ptr noundef %29, ptr noundef %2, ptr noundef nonnull %3)
+  %39 = tail call fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %38, ptr noundef %29, ptr noundef %2, ptr noundef %3)
   %40 = add nsw i32 %39, %.02833
   tail call void @hwloc_bitmap_free(ptr noundef %29) #19
   %41 = load i32, ptr %3, align 4
@@ -757,7 +757,7 @@ define range(i32 -1, 1) i32 @hwloc_type_sscanf(ptr noundef %0, ptr nocapture nou
 12:                                               ; preds = %12, %10
   %13 = phi i64 [ 0, %10 ], [ %17, %12 ]
   %.06.i = phi ptr [ %11, %10 ], [ %19, %12 ]
-  %14 = call fastcc i32 @hwloc__osdev_type_sscanf(ptr noundef nonnull %.06.i, ptr noundef nonnull %6)
+  %14 = call fastcc i32 @hwloc__osdev_type_sscanf(ptr noundef nonnull %.06.i, ptr noundef %6)
   %.not.i = icmp eq i32 %14, 0
   %15 = load i64, ptr %6, align 8
   %16 = select i1 %.not.i, i64 0, i64 %15
@@ -785,7 +785,7 @@ hwloc__osdev_types_sscanf.exit:                   ; preds = %12
 24:                                               ; preds = %24, %22
   %25 = phi i64 [ 0, %22 ], [ %29, %24 ]
   %.06.i102 = phi ptr [ %23, %22 ], [ %31, %24 ]
-  %26 = call fastcc i32 @hwloc__osdev_type_sscanf(ptr noundef nonnull %.06.i102, ptr noundef nonnull %5)
+  %26 = call fastcc i32 @hwloc__osdev_type_sscanf(ptr noundef nonnull %.06.i102, ptr noundef %5)
   %.not.i103 = icmp eq i32 %26, 0
   %27 = load i64, ptr %5, align 8
   %28 = select i1 %.not.i103, i64 0, i64 %27
@@ -846,12 +846,12 @@ hwloc__osdev_types_sscanf.exit107:                ; preds = %24
   br i1 %.not.i108, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i.thread:                             ; preds = %._crit_edge.i, %42, %40
-  %51 = call fastcc i32 @hwloc__osdev_type_sscanf(ptr noundef nonnull %0, ptr noundef nonnull %7)
+  %51 = call fastcc i32 @hwloc__osdev_type_sscanf(ptr noundef nonnull %0, ptr noundef %7)
   %.not81 = icmp eq i32 %51, 0
   br i1 %.not81, label %.lr.ph.i110, label %hwloc__type_match.exit
 
 ._crit_edge.i.thread.thread:                      ; preds = %32
-  %52 = call fastcc i32 @hwloc__osdev_type_sscanf(ptr noundef nonnull %0, ptr noundef nonnull %7)
+  %52 = call fastcc i32 @hwloc__osdev_type_sscanf(ptr noundef nonnull %0, ptr noundef %7)
   %.not81174 = icmp eq i32 %52, 0
   br i1 %.not81174, label %hwloc__type_match.exit148.thread, label %hwloc__type_match.exit
 
@@ -1146,7 +1146,7 @@ hwloc__type_match.exit:                           ; preds = %78, %61, %42, %._cr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #8 {
+define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 9) %2) unnamed_addr #8 {
   %4 = load i8, ptr %0, align 1
   %.not39 = icmp eq i8 %4, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -1208,7 +1208,7 @@ define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #9 {
   %3 = load i8, ptr %0, align 1
   %.not39.i = icmp eq i8 %3, 0
   br i1 %.not39.i, label %hwloc__type_match.exit85.thread, label %.lr.ph.i
@@ -1829,7 +1829,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %2, i64 32
   %19 = load i64, ptr %18, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %6, i64 noundef %19, i64 noundef %4)
+  call fastcc void @hwloc_memory_size_snprintf(ptr noundef %6, i64 noundef %19, i64 noundef %4)
   br label %20
 
 20:                                               ; preds = %17, %15
@@ -1845,7 +1845,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br i1 %.not158, label %28, label %27
 
 27:                                               ; preds = %23
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %7, i64 noundef %26, i64 noundef %4)
+  call fastcc void @hwloc_memory_size_snprintf(ptr noundef %7, i64 noundef %26, i64 noundef %4)
   br label %28
 
 28:                                               ; preds = %27, %23, %20
@@ -1934,7 +1934,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %64 = getelementptr inbounds i8, ptr %2, i64 40
   %65 = load ptr, ptr %64, align 8
   %66 = load i64, ptr %65, align 8
-  call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %8, i64 noundef %66, i64 noundef %4)
+  call fastcc void @hwloc_memory_size_snprintf(ptr noundef %8, i64 noundef %66, i64 noundef %4)
   br i1 %.not157, label %81, label %67
 
 67:                                               ; preds = %63
@@ -2174,7 +2174,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #7 {
+define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #7 {
   %4 = and i64 %2, 16
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %7, label %5

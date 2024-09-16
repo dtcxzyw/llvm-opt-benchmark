@@ -387,7 +387,7 @@ define internal i32 @dissect_hsms_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond8, label %93, label %95
 
 93:                                               ; preds = %86
-  %94 = call fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %6)
+  %94 = call fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %58, ptr noundef %6)
   %.pre = load i32, ptr %6, align 4
   br label %95
 
@@ -423,7 +423,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -523,7 +523,7 @@ default.unreachable:                              ; preds = %3
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %63
   %.01304.us = phi i32 [ %64, %63 ], [ 0, %.lr.ph ]
   %.13.us = phi i32 [ %.2.us, %63 ], [ 0, %.lr.ph ]
-  %61 = call fastcc i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %2)
+  %61 = call fastcc i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %42, ptr noundef %2)
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %.loopexit1, label %63
 

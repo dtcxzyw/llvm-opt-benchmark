@@ -106,7 +106,7 @@ BufferGetPage.exit.i:                             ; preds = %34, %28
   %51 = tail call ptr @palloc(i64 noundef %50) #9
   %52 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull readonly %0, ptr noundef nonnull %12)
+  %53 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull readonly %0, ptr noundef %12)
   br i1 %53, label %.lr.ph62.i, label %._crit_edge63.i
 
 .lr.ph62.i:                                       ; preds = %44
@@ -768,7 +768,7 @@ collectMatchesForHeapRow.exit.i:                  ; preds = %377
 
 .backedge.i:                                      ; preds = %._crit_edge.i, %402, %collectMatchesForHeapRow.exit.i
   %.3 = phi i64 [ %405, %._crit_edge.i ], [ %.2, %402 ], [ %.2, %collectMatchesForHeapRow.exit.i ]
-  %406 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef readonly %0, ptr noundef nonnull %12)
+  %406 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef readonly %0, ptr noundef %12)
   br i1 %406, label %59, label %._crit_edge63.i, !llvm.loop !14
 
 ._crit_edge63.i:                                  ; preds = %.backedge.i, %44
@@ -2640,7 +2640,7 @@ declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scanGetCandidate(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scanGetCandidate(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i16 -1, ptr %3, align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 10

@@ -228,27 +228,27 @@ opal_thread_add_fetch_32.exit:                    ; preds = %72, %75
   %106 = sext i32 %102 to i64
   %107 = mul i64 %93, %106
   %108 = getelementptr inbounds i8, ptr %.0194, i64 %107
-  %109 = tail call i32 @NBC_Sched_copy(ptr noundef %108, i8 noundef signext 0, i64 noundef %92, ptr noundef %5, ptr noundef %95, i8 noundef signext 1, i64 noundef %92, ptr noundef %5, ptr noundef %47, i1 noundef zeroext true) #4
+  %109 = tail call i32 @NBC_Sched_copy(ptr noundef %108, i8 noundef signext 0, i64 noundef %92, ptr noundef %5, ptr noundef %95, i8 noundef signext 1, i64 noundef %92, ptr noundef %5, ptr noundef nonnull %47, i1 noundef zeroext true) #4
   %.not97.i = icmp eq i32 %109, 0
   br i1 %.not97.i, label %110, label %.loopexit
 
 110:                                              ; preds = %98
-  %111 = tail call i32 @NBC_Sched_send(ptr noundef %105, i8 noundef signext 0, i64 noundef %92, ptr noundef %5, i32 noundef %100, ptr noundef %47, i1 noundef zeroext false) #4
+  %111 = tail call i32 @NBC_Sched_send(ptr noundef %105, i8 noundef signext 0, i64 noundef %92, ptr noundef %5, i32 noundef %100, ptr noundef nonnull %47, i1 noundef zeroext false) #4
   %.not98.i = icmp eq i32 %111, 0
   br i1 %.not98.i, label %112, label %.loopexit
 
 112:                                              ; preds = %110
-  %113 = tail call i32 @NBC_Sched_recv(ptr noundef %108, i8 noundef signext 0, i64 noundef %92, ptr noundef %5, i32 noundef %102, ptr noundef %47, i1 noundef zeroext true) #4
+  %113 = tail call i32 @NBC_Sched_recv(ptr noundef %108, i8 noundef signext 0, i64 noundef %92, ptr noundef %5, i32 noundef %102, ptr noundef nonnull %47, i1 noundef zeroext true) #4
   %.not99.i = icmp eq i32 %113, 0
   br i1 %.not99.i, label %114, label %.loopexit
 
 114:                                              ; preds = %112
-  %115 = tail call i32 @NBC_Sched_send(ptr noundef %95, i8 noundef signext 1, i64 noundef %92, ptr noundef %5, i32 noundef %102, ptr noundef %47, i1 noundef zeroext false) #4
+  %115 = tail call i32 @NBC_Sched_send(ptr noundef %95, i8 noundef signext 1, i64 noundef %92, ptr noundef %5, i32 noundef %102, ptr noundef nonnull %47, i1 noundef zeroext false) #4
   %.not100.i = icmp eq i32 %115, 0
   br i1 %.not100.i, label %116, label %.loopexit
 
 116:                                              ; preds = %114
-  %117 = tail call i32 @NBC_Sched_recv(ptr noundef %105, i8 noundef signext 0, i64 noundef %92, ptr noundef %5, i32 noundef %100, ptr noundef %47, i1 noundef zeroext true) #4
+  %117 = tail call i32 @NBC_Sched_recv(ptr noundef %105, i8 noundef signext 0, i64 noundef %92, ptr noundef %5, i32 noundef %100, ptr noundef nonnull %47, i1 noundef zeroext true) #4
   %.not101.i = icmp eq i32 %117, 0
   br i1 %.not101.i, label %96, label %.loopexit
 
@@ -268,17 +268,17 @@ opal_thread_add_fetch_32.exit:                    ; preds = %72, %75
   %128 = getelementptr inbounds i8, ptr %.0194, i64 %127
   %129 = sub nsw i64 0, %.0275
   %130 = inttoptr i64 %129 to ptr
-  %131 = tail call i32 @NBC_Sched_copy(ptr noundef %128, i8 noundef signext 0, i64 noundef %125, ptr noundef %5, ptr noundef %130, i8 noundef signext 1, i64 noundef %125, ptr noundef %5, ptr noundef %47, i1 noundef zeroext true) #4
+  %131 = tail call i32 @NBC_Sched_copy(ptr noundef %128, i8 noundef signext 0, i64 noundef %125, ptr noundef %5, ptr noundef %130, i8 noundef signext 1, i64 noundef %125, ptr noundef %5, ptr noundef nonnull %47, i1 noundef zeroext true) #4
   %.not.i239 = icmp eq i32 %131, 0
   br i1 %.not.i239, label %132, label %.loopexit
 
 132:                                              ; preds = %120
-  %133 = tail call i32 @NBC_Sched_send(ptr noundef %130, i8 noundef signext 1, i64 noundef %125, ptr noundef %5, i32 noundef %123, ptr noundef %47, i1 noundef zeroext false) #4
+  %133 = tail call i32 @NBC_Sched_send(ptr noundef %130, i8 noundef signext 1, i64 noundef %125, ptr noundef %5, i32 noundef %123, ptr noundef nonnull %47, i1 noundef zeroext false) #4
   %.not95.i = icmp eq i32 %133, 0
   br i1 %.not95.i, label %134, label %.loopexit
 
 134:                                              ; preds = %132
-  %135 = tail call i32 @NBC_Sched_recv(ptr noundef %128, i8 noundef signext 0, i64 noundef %125, ptr noundef %5, i32 noundef %123, ptr noundef %47, i1 noundef zeroext true) #4
+  %135 = tail call i32 @NBC_Sched_recv(ptr noundef %128, i8 noundef signext 0, i64 noundef %125, ptr noundef %5, i32 noundef %123, ptr noundef nonnull %47, i1 noundef zeroext true) #4
   %.not96.i = icmp eq i32 %135, 0
   br i1 %.not96.i, label %a2a_sched_inplace.exit, label %.loopexit
 
@@ -302,14 +302,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %72, %75
   %144 = mul i64 %139, %indvars.iv.i
   %145 = getelementptr inbounds i8, ptr %.0194, i64 %144
   %146 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %147 = tail call i32 @NBC_Sched_recv(ptr noundef %145, i8 noundef signext 0, i64 noundef %61, ptr noundef %5, i32 noundef %146, ptr noundef %47, i1 noundef zeroext false) #4
+  %147 = tail call i32 @NBC_Sched_recv(ptr noundef %145, i8 noundef signext 0, i64 noundef %61, ptr noundef %5, i32 noundef %146, ptr noundef nonnull %47, i1 noundef zeroext false) #4
   %.not.i244 = icmp eq i32 %147, 0
   br i1 %.not.i244, label %148, label %.loopexit
 
 148:                                              ; preds = %143
   %149 = mul i64 %137, %indvars.iv.i
   %150 = getelementptr inbounds i8, ptr %.0193, i64 %149
-  %151 = tail call i32 @NBC_Sched_send(ptr noundef %150, i8 noundef signext 0, i64 noundef %27, ptr noundef %2, i32 noundef %146, ptr noundef %47, i1 noundef zeroext false) #4
+  %151 = tail call i32 @NBC_Sched_send(ptr noundef %150, i8 noundef signext 0, i64 noundef %27, ptr noundef %2, i32 noundef %146, ptr noundef nonnull %47, i1 noundef zeroext false) #4
   %.not30.i = icmp eq i32 %151, 0
   br i1 %.not30.i, label %152, label %.loopexit
 

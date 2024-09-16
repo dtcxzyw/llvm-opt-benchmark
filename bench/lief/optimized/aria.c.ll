@@ -90,7 +90,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
   store i8 %36, ptr %0, align 4
   %37 = zext nneg i32 %33 to i64
   %38 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %37
-  call fastcc void @aria_fo_xor(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %38, ptr noundef nonnull %16)
+  call fastcc void @aria_fo_xor(ptr noundef %16, ptr noundef %4, ptr noundef %38, ptr noundef %16)
   %39 = icmp ult i32 %32, 128
   %40 = add nuw nsw i32 %33, 1
   %41 = select i1 %39, i32 %40, i32 0
@@ -282,7 +282,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
   %223 = getelementptr inbounds i8, ptr %4, i64 48
   %224 = zext nneg i32 %222 to i64
   %225 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %224
-  call fastcc void @aria_fo_xor(ptr noundef nonnull %223, ptr noundef nonnull %42, ptr noundef nonnull %225, ptr noundef nonnull %16)
+  call fastcc void @aria_fo_xor(ptr noundef %223, ptr noundef %42, ptr noundef %225, ptr noundef %16)
   %226 = getelementptr inbounds i8, ptr %0, i64 4
   br label %227
 
@@ -449,7 +449,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @aria_fo_xor(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #3 {
+define internal fastcc void @aria_fo_xor(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #3 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = xor i32 %6, %5

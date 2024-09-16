@@ -286,7 +286,7 @@ _ZNSt10shared_ptrIN5clang12PreprocessorEEC2ERKS2_.exit.i: ; preds = %30, %27, %_
   br label %_ZNSt8functionIFbPKN5clang4DeclEEEC2ERKS5_.exit.i
 
 _ZNSt8functionIFbPKN5clang4DeclEEEC2ERKS5_.exit.i: ; preds = %34, %_ZNSt10shared_ptrIN5clang12PreprocessorEEC2ERKS2_.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS3_15IndexingOptionsES1_INS2_12PreprocessorEESt8functionIFbPKNS2_4DeclEEE(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %7, ptr noundef nonnull %8), !noalias !4
+  call fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS3_15IndexingOptionsES1_INS2_12PreprocessorEESt8functionIFbPKNS2_4DeclEEE(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7, ptr noundef %8), !noalias !4
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !4
   %.not.i.i.i = icmp eq ptr %42, null
@@ -1922,7 +1922,7 @@ _ZNSt10shared_ptrIN5clang5index17IndexDataConsumerEED2Ev.exit: ; preds = %_ZNSt1
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS3_15IndexingOptionsES1_INS2_12PreprocessorEESt8functionIFbPKNS2_4DeclEEE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS3_15IndexingOptionsES1_INS2_12PreprocessorEESt8functionIFbPKNS2_4DeclEEE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.clang::index::IndexingOptions", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %7, align 8
@@ -3502,7 +3502,7 @@ _ZNSt10shared_ptrIN5clang5index17IndexDataConsumerEEC2ERKS3_.exit.i: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !42
   store ptr @_ZNSt17_Function_handlerIFbPKN5clang4DeclEEZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERNS0_16CompilerInstanceEN4llvm9StringRefEEUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_, ptr %36, align 8, !noalias !42
   store ptr @_ZNSt17_Function_handlerIFbPKN5clang4DeclEEZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERNS0_16CompilerInstanceEN4llvm9StringRefEEUlS3_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %35, align 8, !noalias !42
-  call fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS3_15IndexingOptionsES1_INS2_12PreprocessorEESt8functionIFbPKNS2_4DeclEEE(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %7, ptr noundef nonnull %8), !noalias !42
+  call fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS3_15IndexingOptionsES1_INS2_12PreprocessorEESt8functionIFbPKNS2_4DeclEEE(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %7, ptr noundef %8), !noalias !42
   %37 = load ptr, ptr %35, align 8, !noalias !42
   %.not.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFbPKN5clang4DeclEEED2Ev.exit.i, label %38

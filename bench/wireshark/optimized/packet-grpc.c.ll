@@ -527,7 +527,7 @@ can_uncompress_body.exit.thread71.i:              ; preds = %can_uncompress_body
   %88 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.71, i32 noundef %87) #5
   %89 = load i32, ptr %5, align 4
-  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef nonnull %83, i32 noundef 0, i32 noundef %87, i32 noundef 1, i32 noundef %89, ptr noundef nonnull readonly %3)
+  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef nonnull %83, i32 noundef 0, i32 noundef %87, i32 noundef 1, i32 noundef %89, ptr noundef readonly %3)
   br label %dissect_body_data.exit.i
 
 90:                                               ; preds = %can_uncompress_body.exit.thread71.i
@@ -559,7 +559,7 @@ can_uncompress_body.exit.thread.i:                ; preds = %can_uncompress_body
 
 108:                                              ; preds = %75
   %109 = load i32, ptr %5, align 4
-  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %35, i32 noundef 1, i32 noundef %109, ptr noundef nonnull readonly %3)
+  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %35, i32 noundef 1, i32 noundef %109, ptr noundef readonly %3)
   br label %dissect_body_data.exit.i
 
 dissect_body_data.exit.i:                         ; preds = %108, %104, %can_uncompress_body.exit.thread.i, %96, %90, %86
@@ -640,7 +640,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_body_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc void @dissect_body_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #0 {
   %9 = alloca [3 x i8], align 1
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8

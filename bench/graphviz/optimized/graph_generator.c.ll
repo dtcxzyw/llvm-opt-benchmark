@@ -737,7 +737,7 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0, i64 noundef range(i64 4, 49) %1) unnamed_addr #3 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -774,7 +774,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @constructSierpinski(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc void @constructSierpinski(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483648, 2147483647) %3, ptr noundef %4) unnamed_addr #4 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %tailrecurse, label %tailrecurse._crit_edge
 
@@ -938,7 +938,7 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @constructTetrix(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #4 {
+define internal fastcc void @constructTetrix(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %4, ptr noundef %5) unnamed_addr #4 {
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %tailrecurse, label %tailrecurse._crit_edge
 

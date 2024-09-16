@@ -481,7 +481,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i65
   br i1 %cmp1.i, label %EVP_PKEY_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  call fastcc void @evp_pkey_free_it(ptr noundef nonnull %23)
+  call fastcc void @evp_pkey_free_it(ptr noundef %23)
   %ex_data.i = getelementptr inbounds i8, ptr %23, i64 80
   call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %23, ptr noundef nonnull %ex_data.i) #12
   %lock.i = getelementptr inbounds i8, ptr %23, i64 56
@@ -560,7 +560,7 @@ if.then40:                                        ; preds = %if.then36
   br label %return
 
 if.else:                                          ; preds = %if.end33
-  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %5)
+  tail call fastcc void @evp_pkey_free_it(ptr noundef %5)
   %.pre = load ptr, ptr %dest, align 8
   br label %if.end42
 
@@ -657,7 +657,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_PKEY_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %allocpkey.1)
+  tail call fastcc void @evp_pkey_free_it(ptr noundef %allocpkey.1)
   %ex_data.i = getelementptr inbounds i8, ptr %allocpkey.1, i64 80
   tail call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %allocpkey.1, ptr noundef nonnull %ex_data.i) #12
   %lock.i = getelementptr inbounds i8, ptr %allocpkey.1, i64 56
@@ -1066,7 +1066,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %x)
+  tail call fastcc void @evp_pkey_free_it(ptr noundef %x)
   %ex_data = getelementptr inbounds i8, ptr %x, i64 80
   tail call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %x, ptr noundef nonnull %ex_data) #12
   %lock = getelementptr inbounds i8, ptr %x, i64 56
@@ -1130,7 +1130,7 @@ EVP_PKEY_parameters_eq.exit:                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_cmp_any(ptr noundef %a, ptr noundef %b, i32 noundef %selection) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_cmp_any(ptr noundef %a, ptr noundef %b, i32 noundef range(i32 4, 8) %selection) unnamed_addr #0 {
 entry:
   %keymgmt1 = alloca ptr, align 8
   %keymgmt2 = alloca ptr, align 8
@@ -1349,7 +1349,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @new_raw_key_int(ptr noundef %libctx, ptr noundef %strtype, ptr noundef %propq, i32 noundef %nidtype, ptr noundef %e, ptr noundef %key, i64 noundef %len, i32 noundef %key_is_priv) unnamed_addr #0 {
+define internal fastcc ptr @new_raw_key_int(ptr noundef %libctx, ptr noundef %strtype, ptr noundef %propq, i32 noundef %nidtype, ptr noundef %e, ptr noundef %key, i64 noundef %len, i32 noundef range(i32 0, 2) %key_is_priv) unnamed_addr #0 {
 entry:
   %pkey = alloca ptr, align 8
   %tmpe = alloca ptr, align 8
@@ -1507,7 +1507,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_PKEY_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  call fastcc void @evp_pkey_free_it(ptr noundef nonnull %7)
+  call fastcc void @evp_pkey_free_it(ptr noundef %7)
   %ex_data.i = getelementptr inbounds i8, ptr %7, i64 80
   call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %7, ptr noundef nonnull %ex_data.i) #12
   %lock.i = getelementptr inbounds i8, ptr %7, i64 56
@@ -1875,7 +1875,7 @@ lor.rhs31:                                        ; preds = %lor.end28
   br i1 %cmp32.not, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %lor.end28, %lor.rhs31
-  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %pkey)
+  tail call fastcc void @evp_pkey_free_it(ptr noundef %pkey)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %lor.rhs31
@@ -2422,7 +2422,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  call fastcc void @evp_pkey_free_it(ptr noundef nonnull %11)
+  call fastcc void @evp_pkey_free_it(ptr noundef %11)
   %ex_data.i = getelementptr inbounds i8, ptr %11, i64 80
   call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %11, ptr noundef nonnull %ex_data.i) #12
   %lock.i = getelementptr inbounds i8, ptr %11, i64 56
@@ -2575,28 +2575,30 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @evp_pkey_get1_ECX_KEY(ptr noundef %pkey, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc ptr @evp_pkey_get1_ECX_KEY(ptr noundef %pkey, i32 noundef range(i32 1034, 1089) %type) unnamed_addr #0 {
 entry:
   %e.i.i.i = alloca ptr, align 8
   %0 = load i32, ptr %pkey, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.i.i.i)
   %call.i.i.i = call ptr @EVP_PKEY_asn1_find(ptr noundef nonnull %e.i.i.i, i32 noundef %0) #12
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %EVP_PKEY_get_base_id.exit.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %EVP_PKEY_get_base_id.exit.thread.i, label %EVP_PKEY_get_base_id.exit.i
 
-if.then.i.i.i:                                    ; preds = %entry
-  %1 = load i32, ptr %call.i.i.i, align 8
-  br label %EVP_PKEY_get_base_id.exit.i
-
-EVP_PKEY_get_base_id.exit.i:                      ; preds = %if.then.i.i.i, %entry
-  %ret.0.i.i.i = phi i32 [ %1, %if.then.i.i.i ], [ 0, %entry ]
-  %2 = load ptr, ptr %e.i.i.i, align 8
-  %call1.i.i.i = call i32 @ENGINE_finish(ptr noundef %2) #12
+EVP_PKEY_get_base_id.exit.thread.i:               ; preds = %entry
+  %1 = load ptr, ptr %e.i.i.i, align 8
+  %call1.i.i3.i = call i32 @ENGINE_finish(ptr noundef %1) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i.i.i)
-  %cmp.not.i = icmp eq i32 %ret.0.i.i.i, %type
+  br label %evp_pkey_get0_ECX_KEY.exit.thread
+
+EVP_PKEY_get_base_id.exit.i:                      ; preds = %entry
+  %2 = load i32, ptr %call.i.i.i, align 8
+  %3 = load ptr, ptr %e.i.i.i, align 8
+  %call1.i.i.i = call i32 @ENGINE_finish(ptr noundef %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i.i.i)
+  %cmp.not.i = icmp eq i32 %2, %type
   br i1 %cmp.not.i, label %evp_pkey_get0_ECX_KEY.exit, label %evp_pkey_get0_ECX_KEY.exit.thread
 
-evp_pkey_get0_ECX_KEY.exit.thread:                ; preds = %EVP_PKEY_get_base_id.exit.i
+evp_pkey_get0_ECX_KEY.exit.thread:                ; preds = %EVP_PKEY_get_base_id.exit.thread.i, %EVP_PKEY_get_base_id.exit.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 889, ptr noundef nonnull @__func__.evp_pkey_get0_ECX_KEY) #12
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 219, ptr noundef null) #12
@@ -3059,7 +3061,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_pkey(ptr noundef %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef %selection, ptr noundef readonly %legacy_print, ptr noundef %legacy_pctx) unnamed_addr #0 {
+define internal fastcc i32 @print_pkey(ptr noundef %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef range(i32 132, 135) %selection, ptr noundef readonly %legacy_print, ptr noundef %legacy_pctx) unnamed_addr #0 {
 entry:
   %conv = sext i32 %indent to i64
   %cmp.i = icmp sgt i32 %indent, 0
@@ -3293,7 +3295,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef nonnull %pkey, i32 noundef 3, ptr noundef %pnid)
+  %call.i = tail call fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef %pkey, i32 noundef 3, ptr noundef %pnid)
   br label %return
 
 if.end.i:                                         ; preds = %if.end
@@ -3939,7 +3941,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %call)
+  tail call fastcc void @evp_pkey_free_it(ptr noundef %call)
   %ex_data.i = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %call, ptr noundef nonnull %ex_data.i) #12
   %lock.i = getelementptr inbounds i8, ptr %call, i64 56
@@ -4029,10 +4031,10 @@ if.end16:                                         ; preds = %land.lhs.true, %if.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evp_pkey_free_it(ptr noundef %x) unnamed_addr #0 {
+define internal fastcc void @evp_pkey_free_it(ptr noundef nonnull %x) unnamed_addr #0 {
 entry:
   %tmpe.i = alloca ptr, align 8
-  %call = tail call i32 @evp_keymgmt_util_clear_operation_cache(ptr noundef %x) #12
+  %call = tail call i32 @evp_keymgmt_util_clear_operation_cache(ptr noundef nonnull %x) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmpe.i)
   %ameth1.i = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %ameth1.i, align 8
@@ -5038,7 +5040,7 @@ declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #1
 declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef %pkey, i32 noundef %op, ptr nocapture noundef writeonly %arg2) unnamed_addr #0 {
+define internal fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef nonnull %pkey, i32 noundef range(i32 3, 11) %op, ptr nocapture noundef writeonly %arg2) unnamed_addr #0 {
 entry:
   %nid.i = alloca i32, align 4
   %mdname = alloca [80 x i8], align 16

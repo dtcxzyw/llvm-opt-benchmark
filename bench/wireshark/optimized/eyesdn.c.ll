@@ -435,11 +435,11 @@ esc_read.exit110:                                 ; preds = %102
   %156 = getelementptr inbounds i8, ptr %2, i64 16
   %157 = load i64, ptr %156, align 8
   %158 = getelementptr i8, ptr %155, i64 %157
-  %.not = icmp eq i16 %66, 0
-  br i1 %.not, label %esc_read.exit119, label %.lr.ph.i112
+  %.not.i = icmp eq i16 %66, 0
+  br i1 %.not.i, label %esc_read.exit119, label %.lr.ph.i111
 
-.lr.ph.i112:                                      ; preds = %146, %173
-  %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i115, %173 ], [ 0, %146 ]
+.lr.ph.i111:                                      ; preds = %146, %173
+  %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i114, %173 ], [ 0, %146 ]
   %159 = tail call i32 @file_getc(ptr noundef %0) #5
   switch i32 %159, label %173 [
     i32 -1, label %160
@@ -447,20 +447,20 @@ esc_read.exit110:                                 ; preds = %102
     i32 254, label %165
   ]
 
-160:                                              ; preds = %.lr.ph.i112
+160:                                              ; preds = %.lr.ph.i111
   %161 = tail call i32 @file_error(ptr noundef %0, ptr noundef %4) #5
   %162 = icmp eq i32 %161, 0
   %spec.select.i118 = select i1 %162, i32 -12, i32 %161
   store i32 %spec.select.i118, ptr %3, align 4
   br label %esc_read.exit119
 
-163:                                              ; preds = %.lr.ph.i112
+163:                                              ; preds = %.lr.ph.i111
   store i32 -13, ptr %3, align 4
   %164 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #5
   store ptr %164, ptr %4, align 8
   br label %esc_read.exit119
 
-165:                                              ; preds = %.lr.ph.i112
+165:                                              ; preds = %.lr.ph.i111
   %166 = tail call i32 @file_getc(ptr noundef %0) #5
   %167 = icmp eq i32 %166, -1
   br i1 %167, label %168, label %171
@@ -476,14 +476,14 @@ esc_read.exit110:                                 ; preds = %102
   %172 = add i32 %166, 2
   br label %173
 
-173:                                              ; preds = %171, %.lr.ph.i112
-  %.0.i114 = phi i32 [ %172, %171 ], [ %159, %.lr.ph.i112 ]
-  %174 = trunc i32 %.0.i114 to i8
-  %175 = getelementptr i8, ptr %158, i64 %indvars.iv.i113
+173:                                              ; preds = %171, %.lr.ph.i111
+  %.0.i113 = phi i32 [ %172, %171 ], [ %159, %.lr.ph.i111 ]
+  %174 = trunc i32 %.0.i113 to i8
+  %175 = getelementptr i8, ptr %158, i64 %indvars.iv.i112
   store i8 %174, ptr %175, align 1
-  %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i113, 1
-  %exitcond.not.i116 = icmp eq i64 %indvars.iv.next.i115, %154
-  br i1 %exitcond.not.i116, label %esc_read.exit119, label %.lr.ph.i112, !llvm.loop !4
+  %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i112, 1
+  %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %154
+  br i1 %exitcond.not.i115, label %esc_read.exit119, label %.lr.ph.i111, !llvm.loop !4
 
 esc_read.exit119:                                 ; preds = %173, %97, %92, %89, %19, %14, %11, %146, %160, %163, %168, %esc_read.exit110, %84
   %.0 = phi i32 [ 0, %84 ], [ 0, %esc_read.exit110 ], [ 1, %146 ], [ 0, %160 ], [ 0, %163 ], [ 0, %168 ], [ 0, %11 ], [ 0, %14 ], [ 0, %19 ], [ 0, %89 ], [ 0, %92 ], [ 0, %97 ], [ 1, %173 ]
@@ -703,27 +703,27 @@ esc_write.exit.thread:                            ; preds = %75, %70
 77:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %.not52 = icmp eq i32 %14, 0
-  br i1 %.not52, label %esc_write.exit47, label %.lr.ph.preheader.i
+  %.not18.i = icmp eq i32 %14, 0
+  br i1 %.not18.i, label %esc_write.exit47, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %77
   %wide.trip.count.i = zext nneg i32 %14 to i64
-  br label %.lr.ph.i40
+  br label %.lr.ph.i39
 
 78:                                               ; preds = %86
-  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i41, 1
-  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i
-  br i1 %exitcond.not.i45, label %esc_write.exit47, label %.lr.ph.i40, !llvm.loop !6
+  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i40, 1
+  %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i
+  br i1 %exitcond.not.i44, label %esc_write.exit47, label %.lr.ph.i39, !llvm.loop !6
 
-.lr.ph.i40:                                       ; preds = %78, %.lr.ph.preheader.i
-  %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i44, %78 ]
-  %79 = getelementptr i8, ptr %2, i64 %indvars.iv.i41
+.lr.ph.i39:                                       ; preds = %78, %.lr.ph.preheader.i
+  %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i43, %78 ]
+  %79 = getelementptr i8, ptr %2, i64 %indvars.iv.i40
   %80 = load i8, ptr %79, align 1
   store i8 %80, ptr %6, align 1
-  %or.cond.i42 = icmp ugt i8 %80, -3
-  br i1 %or.cond.i42, label %81, label %86
+  %or.cond.i41 = icmp ugt i8 %80, -3
+  br i1 %or.cond.i41, label %81, label %86
 
-81:                                               ; preds = %.lr.ph.i40
+81:                                               ; preds = %.lr.ph.i39
   %82 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @esc_write.esc, i64 noundef 1, ptr noundef %3) #5
   %.not.i46 = icmp eq i32 %82, 0
   br i1 %.not.i46, label %88, label %83
@@ -734,10 +734,10 @@ esc_write.exit.thread:                            ; preds = %75, %70
   store i8 %85, ptr %6, align 1
   br label %86
 
-86:                                               ; preds = %83, %.lr.ph.i40
+86:                                               ; preds = %83, %.lr.ph.i39
   %87 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 1, ptr noundef %3) #5
-  %.not12.i43 = icmp eq i32 %87, 0
-  br i1 %.not12.i43, label %88, label %78
+  %.not12.i42 = icmp eq i32 %87, 0
+  br i1 %.not12.i42, label %88, label %78
 
 esc_write.exit47:                                 ; preds = %78, %77
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)

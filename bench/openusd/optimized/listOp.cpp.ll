@@ -9161,21 +9161,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -9185,7 +9185,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet", align 8
   %5 = alloca %"class.std::optional.11", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -10776,7 +10776,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEppEv.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: ; preds = %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noundef %11, i1 noundef zeroext false)
           to label %83 unwind label %129
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i
@@ -10823,7 +10823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, ptr noundef %11, i1 noundef zeroext false)
           to label %94 unwind label %133
 
 94:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i
@@ -10870,7 +10870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: ; preds = %102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, ptr noundef %11, i1 noundef zeroext false)
           to label %105 unwind label %137
 
 105:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i
@@ -10917,7 +10917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i: ; preds = %113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noundef %11, i1 noundef zeroext false)
           to label %116 unwind label %141
 
 116:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i
@@ -10964,7 +10964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70.i: ; preds = %124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noundef %11, i1 noundef zeroext false)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb.exit.i unwind label %145
 
 127:                                              ; preds = %.noexc46.i, %72
@@ -18091,21 +18091,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -18115,7 +18115,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.751", align 8
   %5 = alloca %"class.std::optional.65", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -19706,7 +19706,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEppEv.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: ; preds = %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noundef %11, i1 noundef zeroext false)
           to label %83 unwind label %129
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i
@@ -19753,7 +19753,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, ptr noundef %11, i1 noundef zeroext false)
           to label %94 unwind label %133
 
 94:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i
@@ -19800,7 +19800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: ; preds = %102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, ptr noundef %11, i1 noundef zeroext false)
           to label %105 unwind label %137
 
 105:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i
@@ -19847,7 +19847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i: ; preds = %113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noundef %11, i1 noundef zeroext false)
           to label %116 unwind label %141
 
 116:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i
@@ -19894,7 +19894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70.i: ; preds = %124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noundef %11, i1 noundef zeroext false)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb.exit.i unwind label %145
 
 127:                                              ; preds = %.noexc46.i, %72
@@ -27027,21 +27027,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -27051,7 +27051,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.814", align 8
   %5 = alloca %"class.std::optional.127", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -28643,7 +28643,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEppEv.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: ; preds = %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noundef %11, i1 noundef zeroext false)
           to label %83 unwind label %129
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i
@@ -28690,7 +28690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, ptr noundef %11, i1 noundef zeroext false)
           to label %94 unwind label %133
 
 94:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i
@@ -28737,7 +28737,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: ; preds = %102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, ptr noundef %11, i1 noundef zeroext false)
           to label %105 unwind label %137
 
 105:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i
@@ -28784,7 +28784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i: ; preds = %113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noundef %11, i1 noundef zeroext false)
           to label %116 unwind label %141
 
 116:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i
@@ -28831,7 +28831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70.i: ; preds = %124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noundef %11, i1 noundef zeroext false)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb.exit.i unwind label %145
 
 127:                                              ; preds = %.noexc46.i, %72
@@ -35964,21 +35964,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -35988,7 +35988,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.877", align 8
   %5 = alloca %"class.std::optional.189", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -37580,7 +37580,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEppEv.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: ; preds = %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noundef %11, i1 noundef zeroext false)
           to label %83 unwind label %129
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i
@@ -37627,7 +37627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, ptr noundef %11, i1 noundef zeroext false)
           to label %94 unwind label %133
 
 94:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i
@@ -37674,7 +37674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: ; preds = %102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, ptr noundef %11, i1 noundef zeroext false)
           to label %105 unwind label %137
 
 105:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i
@@ -37721,7 +37721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i: ; preds = %113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noundef %11, i1 noundef zeroext false)
           to label %116 unwind label %141
 
 116:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i
@@ -37768,7 +37768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70.i: ; preds = %124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noundef nonnull %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noundef %11, i1 noundef zeroext false)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb.exit.i unwind label %145
 
 127:                                              ; preds = %.noexc46.i, %72
@@ -41375,21 +41375,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -41399,7 +41399,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.214", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.940", align 8
   %6 = alloca %"class.std::optional.254", align 8
@@ -48710,21 +48710,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -48734,7 +48734,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.281", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1005", align 8
   %6 = alloca %"class.std::optional.318", align 8
@@ -56395,21 +56395,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -56419,7 +56419,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.345", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1069", align 8
   %6 = alloca %"class.std::optional.383", align 8
@@ -64265,21 +64265,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -64289,7 +64289,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.410", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1135", align 8
   %6 = alloca %"class.std::optional.448", align 8
@@ -70843,21 +70843,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -70867,7 +70867,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.475", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1199", align 8
   %6 = alloca %"class.std::optional.514", align 8
@@ -77529,21 +77529,21 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i1 noundef zeroext %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %7, i1 noundef zeroext %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9, i1 noundef zeroext %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %9, i1 noundef zeroext %2)
   %11 = or i1 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %12, i1 noundef zeroext %2)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12, i1 noundef zeroext %2)
   %14 = or i1 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %15, i1 noundef zeroext %2)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %15, i1 noundef zeroext %2)
   %17 = or i1 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %18, i1 noundef zeroext %2)
   %20 = or i1 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, i1 noundef zeroext %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %21, i1 noundef zeroext %2)
   %23 = or i1 %20, %22
   br label %24
 
@@ -77553,7 +77553,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.541", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1265", align 8
   %6 = alloca %"class.std::optional.578", align 8
@@ -87275,7 +87275,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %11, label %6
 
 6:                                                ; preds = %5
@@ -88710,7 +88710,7 @@ _ZNKSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjEN3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %11, label %6
 
 6:                                                ; preds = %5
@@ -90140,7 +90140,7 @@ _ZNKSt10_HashtableIlSt4pairIKlmESaIS2_ENSt8__detail10_Select1stESt8equal_toIlEN3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %11, label %6
 
 6:                                                ; preds = %5
@@ -91570,7 +91570,7 @@ _ZNKSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImEN3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %11, label %6
 
 6:                                                ; preds = %5

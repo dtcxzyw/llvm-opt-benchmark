@@ -291,7 +291,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %106 = getelementptr inbounds i8, ptr %104, i64 32
   %.0234.us.us = load ptr, ptr %106, align 8
   %.0235.us.us = load ptr, ptr %105, align 8
-  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0235.us.us, ptr noundef %.0234.us.us, ptr noundef nonnull %104, i1 noundef zeroext %.not280, i1 noundef zeroext true)
+  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0235.us.us, ptr noundef %.0234.us.us, ptr noundef %104, i1 noundef zeroext %.not280, i1 noundef zeroext true)
   %107 = call ptr @list_next(ptr noundef %102) #10
   %.not293.us.us = icmp eq ptr %107, null
   br i1 %.not293.us.us, label %._crit_edge389, label %.backedge378.us.us, !llvm.loop !9
@@ -302,7 +302,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %110 = getelementptr inbounds i8, ptr %108, i64 40
   %.0234.us = load ptr, ptr %109, align 8
   %.0235.us = load ptr, ptr %110, align 8
-  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0235.us, ptr noundef %.0234.us, ptr noundef nonnull %108, i1 noundef zeroext %.not280, i1 noundef zeroext false)
+  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0235.us, ptr noundef %.0234.us, ptr noundef %108, i1 noundef zeroext %.not280, i1 noundef zeroext false)
   %111 = call ptr @list_next(ptr noundef %102) #10
   %.not293.us = icmp eq ptr %111, null
   br i1 %.not293.us, label %._crit_edge389, label %.backedge378.us, !llvm.loop !9
@@ -340,7 +340,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %124 = getelementptr inbounds i8, ptr %117, i64 32
   %125 = load ptr, ptr %124, align 8
   %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 200, ptr noundef nonnull @.str.6, ptr noundef %125, ptr noundef %123) #10
-  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %123, ptr noundef nonnull %11, ptr noundef nonnull %112, i1 noundef zeroext %.not280, i1 noundef zeroext true)
+  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %123, ptr noundef nonnull %11, ptr noundef %112, i1 noundef zeroext %.not280, i1 noundef zeroext true)
   br label %.backedge377.us.us
 
 .backedge377.us.us:                               ; preds = %122, %116
@@ -374,7 +374,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %141 = getelementptr inbounds i8, ptr %133, i64 32
   %142 = load ptr, ptr %141, align 8
   %143 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 200, ptr noundef nonnull @.str.6, ptr noundef %140, ptr noundef %142) #10
-  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %139, ptr noundef nonnull %11, ptr noundef nonnull %128, i1 noundef zeroext %.not280, i1 noundef zeroext false)
+  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %139, ptr noundef nonnull %11, ptr noundef %128, i1 noundef zeroext %.not280, i1 noundef zeroext false)
   br label %.backedge377
 
 .backedge377:                                     ; preds = %138, %132
@@ -895,7 +895,7 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = tail call ptr @list_iterator_create(ptr noundef %0) #10
   br label %9
 

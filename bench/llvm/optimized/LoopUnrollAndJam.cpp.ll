@@ -420,7 +420,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4ll
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %27)
-  call fastcc void @"_ZZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEPS1_ENK3$_4clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !6
+  call fastcc void @"_ZZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEPS1_ENK3$_4clEv"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !6
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %26, ptr nonnull @.str.12, i64 6) #15, !noalias !6
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr nonnull @.str.13, i64 12, i32 noundef %3) #15, !noalias !6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %25), !noalias !6
@@ -555,7 +555,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i246: ; preds = %141
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i232: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i246, %141
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %23)
-  call fastcc void @"_ZZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEPS1_ENK3$_4clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !9
+  call fastcc void @"_ZZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEPS1_ENK3$_4clEv"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !9
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %23, ptr nonnull @.str.17, i64 25) #15, !noalias !9
   %152 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %153 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -11387,7 +11387,7 @@ declare noundef ptr @_ZN4llvm11LLVMContext21getLLVMRemarkStreamerEv(ptr noundef 
 declare noundef ptr @_ZNK4llvm11LLVMContext17getDiagHandlerPtrEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEPS1_ENK3$_4clEv"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm16UnrollAndJamLoopEPNS_4LoopEjjjbPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEPS1_ENK3$_4clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %4 = alloca %"class.llvm::OptimizationRemark", align 8
   %5 = alloca %"class.llvm::DiagnosticLocation", align 8

@@ -1314,7 +1314,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 26:                                               ; preds = %22
   %.val17 = load ptr, ptr %18, align 8
   %27 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val, ptr %.val17, ptr noundef nonnull %21)
-  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %4, i32 noundef %27, ptr noundef nonnull %21)
+  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %4, i32 noundef %27, ptr noundef %21)
   %.pre = load i32, ptr %15, align 8
   br label %28
 
@@ -1440,7 +1440,7 @@ Gia_ObjLevelId.exit:                              ; preds = %1, %._crit_edge.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %1, 1
@@ -1649,7 +1649,7 @@ Vec_WecStart.exit:                                ; preds = %1, %5
 29:                                               ; preds = %26
   %30 = add nsw i32 %27, 1
   %31 = shl nsw i32 %28, 1
-  %32 = tail call noundef i32 @llvm.smax.i32(i32 %31, i32 %30)
+  %32 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %31, i32 %30)
   %33 = load i32, ptr %4, align 8
   %.not.i.i25 = icmp slt i32 %33, %32
   br i1 %.not.i.i25, label %34, label %Vec_WecGrow.exit.i
@@ -1825,7 +1825,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i
   %25 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %21, i64 %24
   %.val65 = load ptr, ptr %13, align 8
   %26 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val60, ptr %.val65, ptr noundef nonnull %25)
-  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %2, i32 noundef %26, ptr noundef nonnull %21)
+  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %2, i32 noundef %26, ptr noundef %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load ptr, ptr %9, align 8
   %28 = getelementptr i8, ptr %27, i64 4
@@ -1863,7 +1863,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i
 41:                                               ; preds = %37
   %.val63 = load ptr, ptr %33, align 8
   %42 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val55, ptr %.val63, ptr noundef nonnull %36)
-  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %2, i32 noundef %42, ptr noundef nonnull %36)
+  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %2, i32 noundef %42, ptr noundef %36)
   %.pre106 = load i32, ptr %7, align 8
   br label %43
 

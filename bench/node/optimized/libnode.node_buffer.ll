@@ -5144,7 +5144,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i188.sroa.0.0 = phi ptr [ %77, %if.then.i ], [ %add.ptr.i, %if.end.i ]
   %length_.i109 = getelementptr inbounds i8, ptr %source, i64 72
   %79 = load i64, ptr %length_.i109, align 8
-  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef %retval.0.i.i, ptr %retval.i188.sroa.0.0, i64 noundef %79, ptr noundef nonnull %source_end)
+  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef %retval.0.i.i, ptr %retval.i188.sroa.0.0, i64 noundef %79, ptr noundef %source_end)
   %tobool.i = trunc i16 %call121 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -5740,7 +5740,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185: ; preds = %if.end.i177, %
   %retval.i168.sroa.0.0 = phi ptr [ %77, %if.then.i182 ], [ %add.ptr.i180, %if.end.i177 ]
   %length_.i94 = getelementptr inbounds i8, ptr %target, i64 72
   %79 = load i64, ptr %length_.i94, align 8
-  %call83 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef %retval.0.i.i, ptr %retval.i168.sroa.0.0, i64 noundef %79, ptr noundef nonnull %target_end)
+  %call83 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef %retval.0.i.i, ptr %retval.i168.sroa.0.0, i64 noundef %79, ptr noundef %target_end)
   %tobool.i156 = trunc i16 %call83 to i1
   br i1 %tobool.i156, label %_ZNKR2v85MaybeIbE8FromJustEv.exit732, label %return
 
@@ -5776,7 +5776,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i.sroa.0.0 = phi ptr [ %84, %if.then.i ], [ %add.ptr.i, %if.end.i ]
   %length_.i95 = getelementptr inbounds i8, ptr %source, i64 72
   %86 = load i64, ptr %length_.i95, align 8
-  %call102 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef %retval.0.i.i, ptr %retval.i.sroa.0.0, i64 noundef %86, ptr noundef nonnull %source_end)
+  %call102 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef %retval.0.i.i, ptr %retval.i.sroa.0.0, i64 noundef %86, ptr noundef %source_end)
   %tobool.i = trunc i16 %call102 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -10880,7 +10880,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i195
   %retval.i191.sroa.0.0 = phi ptr [ %57, %if.then.i195 ], [ %add.ptr.i, %if.end.i ]
   %sub = sub i64 %call34, %offset.0.ph.ph90
-  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef nonnull %max_length)
+  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef %max_length)
   %tobool.i = trunc i16 %call121 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -11203,7 +11203,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i195
   %retval.i191.sroa.0.0 = phi ptr [ %57, %if.then.i195 ], [ %add.ptr.i, %if.end.i ]
   %sub = sub i64 %call34, %offset.0.ph.ph90
-  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef nonnull %max_length)
+  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef %max_length)
   %tobool.i = trunc i16 %call121 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -11526,7 +11526,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i195
   %retval.i191.sroa.0.0 = phi ptr [ %57, %if.then.i195 ], [ %add.ptr.i, %if.end.i ]
   %sub = sub i64 %call34, %offset.0.ph.ph90
-  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef nonnull %max_length)
+  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef %max_length)
   %tobool.i = trunc i16 %call121 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -11849,7 +11849,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i195
   %retval.i191.sroa.0.0 = phi ptr [ %57, %if.then.i195 ], [ %add.ptr.i, %if.end.i ]
   %sub = sub i64 %call34, %offset.0.ph.ph90
-  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef nonnull %max_length)
+  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef %max_length)
   %tobool.i = trunc i16 %call121 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -12172,7 +12172,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i195
   %retval.i191.sroa.0.0 = phi ptr [ %57, %if.then.i195 ], [ %add.ptr.i, %if.end.i ]
   %sub = sub i64 %call34, %offset.0.ph.ph90
-  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef nonnull %max_length)
+  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef %max_length)
   %tobool.i = trunc i16 %call121 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -12495,7 +12495,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i195
   %retval.i191.sroa.0.0 = phi ptr [ %57, %if.then.i195 ], [ %add.ptr.i, %if.end.i ]
   %sub = sub i64 %call34, %offset.0.ph.ph90
-  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef nonnull %max_length)
+  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef %max_length)
   %tobool.i = trunc i16 %call121 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -12818,7 +12818,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i195
   %retval.i191.sroa.0.0 = phi ptr [ %57, %if.then.i195 ], [ %add.ptr.i, %if.end.i ]
   %sub = sub i64 %call34, %offset.0.ph.ph90
-  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef nonnull %max_length)
+  %call121 = call fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr noundef nonnull %retval.0.i.i, ptr %retval.i191.sroa.0.0, i64 noundef %sub, ptr noundef %max_length)
   %tobool.i = trunc i16 %call121 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
@@ -14948,7 +14948,7 @@ declare noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnul
 declare ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 258) i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr nocapture noundef readonly %env, ptr %arg.coerce, i64 noundef %def, ptr nocapture noundef writeonly %ret) unnamed_addr #3 {
+define internal fastcc range(i16 0, 258) i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr nocapture noundef readonly %env, ptr %arg.coerce, i64 noundef %def, ptr nocapture noundef nonnull writeonly %ret) unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %arg.coerce, align 8
   %and.i.i = and i64 %0, 3

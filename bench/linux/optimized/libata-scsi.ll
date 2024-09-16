@@ -6802,7 +6802,7 @@ declare dso_local i64 @sg_copy_from_buffer(ptr noundef, i32 noundef, ptr noundef
 declare dso_local i64 @sg_copy_to_buffer(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr nocapture noundef writeonly %3) unnamed_addr #11 align 16 {
   %5 = alloca [20 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6812,7 +6812,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr no
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call i32 @llvm.smin.i32(i32 %2, i32 18)
+  %11 = tail call i32 @llvm.umin.i32(i32 %2, i32 18)
   %12 = trunc nuw nsw i32 %11 to i16
   store i16 %12, ptr %3, align 2
   br label %54
@@ -6889,7 +6889,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
   switch i8 %1, label %81 [
     i8 0, label %6
     i8 -14, label %39
@@ -6900,7 +6900,7 @@ define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr no
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 10)
+  %9 = tail call i32 @llvm.umin.i32(i32 %3, i32 10)
   %10 = trunc nuw nsw i32 %9 to i16
   store i16 %10, ptr %4, align 2
   br label %81
@@ -6960,7 +6960,7 @@ define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr no
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %39
-  %45 = tail call i32 @llvm.smin.i32(i32 %3, i32 12)
+  %45 = tail call i32 @llvm.umin.i32(i32 %3, i32 12)
   %46 = trunc nuw nsw i32 %45 to i16
   store i16 %46, ptr %4, align 2
   br label %81

@@ -1121,7 +1121,7 @@ entry:
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @has_flonum(ptr nocapture noundef readonly %ty, i32 noundef %lo, i32 noundef %hi, i32 noundef %offset) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @has_flonum(ptr nocapture noundef readonly %ty, i32 noundef range(i32 0, 9) %lo, i32 noundef range(i32 8, 17) %hi, i32 noundef %offset) unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %ty, align 8
   switch i32 %0, label %if.end20 [
@@ -2778,7 +2778,7 @@ land.lhs.true226:                                 ; preds = %sw.epilog223
   br i1 %cmp229, label %if.then231, label %common.ret484
 
 if.then231:                                       ; preds = %land.lhs.true226
-  tail call fastcc void @copy_ret_buffer(ptr noundef nonnull %150)
+  tail call fastcc void @copy_ret_buffer(ptr noundef %150)
   %152 = load ptr, ptr %ret_buffer.i, align 16
   %offset234 = getelementptr inbounds i8, ptr %152, i64 40
   %153 = load i32, ptr %offset234, align 8
@@ -3715,7 +3715,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_ret_buffer(ptr nocapture noundef readonly %var) unnamed_addr #1 {
+define internal fastcc void @copy_ret_buffer(ptr nocapture noundef nonnull readonly %var) unnamed_addr #1 {
 entry:
   %ty1 = getelementptr inbounds i8, ptr %var, i64 16
   %0 = load ptr, ptr %ty1, align 8

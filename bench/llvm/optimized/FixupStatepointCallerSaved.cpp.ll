@@ -5437,7 +5437,7 @@ _ZSt14__partial_sortIPN4llvm8RegisterEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_T2_(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 %3, ptr nocapture readonly %4) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_T2_(ptr nocapture noundef %0, i64 noundef range(i64 0, 1152921504606846975) %1, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %2, i32 %3, ptr nocapture readonly %4) unnamed_addr #0 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7

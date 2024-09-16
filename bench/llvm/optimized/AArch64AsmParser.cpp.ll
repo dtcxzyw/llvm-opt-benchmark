@@ -1446,7 +1446,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParserC2ERKN4llvm15MCSubtargetInfoERNS1_11MCAsmPars
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(34) %1, ptr nonnull @.str.6, i64 6, ptr nonnull @.str.5, i64 6) #25
   %48 = tail call noundef nonnull align 8 dereferenceable(288) ptr @_ZNK4llvm17MCTargetAsmParser6getSTIEv(ptr noundef nonnull align 8 dereferenceable(304) %6) #25
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 216
-  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %49)
+  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %49)
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -1463,7 +1463,7 @@ declare void @_ZN4llvm20MCAsmParserExtension10InitializeERNS_11MCAsmParserE(ptr 
 declare void @_ZN4llvm21AArch64TargetStreamerC1ERNS_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
@@ -4866,7 +4866,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit334.thread861:   ; preds = %_ZN4llvmeqENS_9Stri
   %510 = getelementptr inbounds i8, ptr %509, i64 48
   %511 = load ptr, ptr %510, align 8
   %512 = call noundef nonnull align 8 dereferenceable(2432) ptr %511(ptr noundef nonnull align 8 dereferenceable(34) %508) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %69, ptr %236, i64 %243, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %512, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %69, ptr %236, i64 %243, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %512, i1 noundef zeroext false)
   %513 = load ptr, ptr %69, align 8
   store ptr %513, ptr %68, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %68)
@@ -4965,7 +4965,7 @@ _ZNK4llvm9StringRef4findEcm.exit348:              ; preds = %522, %_ZNSt11char_t
   %550 = getelementptr inbounds i8, ptr %549, i64 48
   %551 = load ptr, ptr %550, align 8
   %552 = call noundef nonnull align 8 dereferenceable(2432) ptr %551(ptr noundef nonnull align 8 dereferenceable(34) %548) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %77, ptr nonnull @.str.276, i64 1, ptr %539, ptr noundef nonnull align 8 dereferenceable(2432) %552, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %77, ptr nonnull @.str.276, i64 1, ptr %539, ptr noundef nonnull align 8 dereferenceable(2432) %552, i1 noundef zeroext true)
   %553 = load ptr, ptr %77, align 8
   store ptr %553, ptr %76, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %76)
@@ -4988,7 +4988,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %560 = getelementptr inbounds i8, ptr %559, i64 48
   %561 = load ptr, ptr %560, align 8
   %562 = call noundef nonnull align 8 dereferenceable(2432) ptr %561(ptr noundef nonnull align 8 dereferenceable(34) %558) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateCondCodeEN4llvm9AArch64CC8CondCodeENS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %79, i32 noundef %540, ptr %4, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %562)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateCondCodeEN4llvm9AArch64CC8CondCodeENS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %79, i32 noundef %540, ptr %4, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %562)
   %563 = load ptr, ptr %79, align 8
   store ptr %563, ptr %78, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %78)
@@ -5239,7 +5239,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit431:             ; preds = %_ZN4llvmeqENS_9Stri
   %652 = getelementptr inbounds i8, ptr %651, i64 48
   %653 = load ptr, ptr %652, align 8
   %654 = call noundef nonnull align 8 dereferenceable(2432) ptr %653(ptr noundef nonnull align 8 dereferenceable(34) %650) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %82, ptr nonnull @.str.291, i64 1, ptr %649, ptr noundef nonnull align 8 dereferenceable(2432) %654, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %82, ptr nonnull @.str.291, i64 1, ptr %649, ptr noundef nonnull align 8 dereferenceable(2432) %654, i1 noundef zeroext false)
   %655 = load ptr, ptr %82, align 8
   store ptr %655, ptr %81, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %81)
@@ -5273,7 +5273,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %668 = getelementptr inbounds i8, ptr %667, i64 48
   %669 = load ptr, ptr %668, align 8
   %670 = call noundef nonnull align 8 dereferenceable(2432) ptr %669(ptr noundef nonnull align 8 dereferenceable(34) %666) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %84, ptr nonnull @.str.292, i64 1, ptr %665, ptr noundef nonnull align 8 dereferenceable(2432) %670, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %84, ptr nonnull @.str.292, i64 1, ptr %665, ptr noundef nonnull align 8 dereferenceable(2432) %670, i1 noundef zeroext false)
   %671 = load ptr, ptr %84, align 8
   store ptr %671, ptr %83, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %83)
@@ -5307,7 +5307,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %684 = getelementptr inbounds i8, ptr %683, i64 48
   %685 = load ptr, ptr %684, align 8
   %686 = call noundef nonnull align 8 dereferenceable(2432) ptr %685(ptr noundef nonnull align 8 dereferenceable(34) %682) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %86, ptr nonnull @.str.293, i64 1, ptr %681, ptr noundef nonnull align 8 dereferenceable(2432) %686, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %86, ptr nonnull @.str.293, i64 1, ptr %681, ptr noundef nonnull align 8 dereferenceable(2432) %686, i1 noundef zeroext false)
   %687 = load ptr, ptr %86, align 8
   store ptr %687, ptr %85, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %85)
@@ -5788,7 +5788,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i:    ; preds = %"_ZN9__gnu_cxx5__op
 
 ._crit_edge.i:                                    ; preds = %177, %131
   %182 = getelementptr inbounds nuw i8, ptr %118, i64 216
-  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(40) %182)
+  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(40) %182)
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %183, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false)
   br label %184
@@ -6191,7 +6191,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i91:  ; preds = %"_ZN9__gnu_cxx5__op
 
 ._crit_edge.i96:                                  ; preds = %305, %257
   %310 = getelementptr inbounds nuw i8, ptr %258, i64 216
-  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %310)
+  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %310)
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %311, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
   br label %312
@@ -7286,7 +7286,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit491.thread: ; preds = %
   %284 = getelementptr inbounds i8, ptr %283, i64 48
   %285 = load ptr, ptr %284, align 8
   %286 = call noundef nonnull align 8 dereferenceable(2432) ptr %285(ptr noundef nonnull align 8 dereferenceable(34) %282) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr nonnull @.str.776, i64 3, ptr %281, ptr noundef nonnull align 8 dereferenceable(2432) %286, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %15, ptr nonnull @.str.776, i64 3, ptr %281, ptr noundef nonnull align 8 dereferenceable(2432) %286, i1 noundef zeroext false)
   %287 = load ptr, ptr %3, align 8
   %288 = load ptr, ptr %15, align 8
   %289 = load ptr, ptr %287, align 8
@@ -7309,7 +7309,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %296 = getelementptr inbounds i8, ptr %295, i64 48
   %297 = load ptr, ptr %296, align 8
   %298 = call noundef nonnull align 8 dereferenceable(2432) ptr %297(ptr noundef nonnull align 8 dereferenceable(34) %294) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias nonnull writable align 8 %16, i32 noundef %293, i32 noundef 0, ptr null, ptr null, ptr noundef nonnull align 8 dereferenceable(2432) %298, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias writable align 8 %16, i32 noundef %293, i32 noundef 0, ptr null, ptr null, ptr noundef nonnull align 8 dereferenceable(2432) %298, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %299 = load ptr, ptr %3, align 8
   %300 = getelementptr inbounds i8, ptr %299, i64 16
   %301 = load ptr, ptr %16, align 8
@@ -7336,7 +7336,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %310 = getelementptr inbounds i8, ptr %309, i64 48
   %311 = load ptr, ptr %310, align 8
   %312 = call noundef nonnull align 8 dereferenceable(2432) ptr %311(ptr noundef nonnull align 8 dereferenceable(34) %308) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %271, ptr %.sroa.0.0.copyload.i506, ptr %.sroa.0.0.copyload.i507, ptr noundef nonnull align 8 dereferenceable(2432) %312)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %271, ptr %.sroa.0.0.copyload.i506, ptr %.sroa.0.0.copyload.i507, ptr noundef nonnull align 8 dereferenceable(2432) %312)
   %313 = load ptr, ptr %3, align 8
   %314 = getelementptr inbounds i8, ptr %313, i64 24
   %315 = load ptr, ptr %17, align 8
@@ -7363,7 +7363,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %324 = getelementptr inbounds i8, ptr %323, i64 48
   %325 = load ptr, ptr %324, align 8
   %326 = call noundef nonnull align 8 dereferenceable(2432) ptr %325(ptr noundef nonnull align 8 dereferenceable(34) %322) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %277, ptr %.sroa.0.0.copyload.i514, ptr %.sroa.0.0.copyload.i515, ptr noundef nonnull align 8 dereferenceable(2432) %326)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %277, ptr %.sroa.0.0.copyload.i514, ptr %.sroa.0.0.copyload.i515, ptr noundef nonnull align 8 dereferenceable(2432) %326)
   call fastcc void @_ZN4llvm15SmallVectorImplISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EEE12emplace_backIJS1_IN12_GLOBAL__N_114AArch64OperandES3_IS9_EEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %327 = load ptr, ptr %18, align 8
   %.not.i516 = icmp eq ptr %327, null
@@ -7584,7 +7584,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit535.thread: ; preds = %
   %449 = getelementptr inbounds i8, ptr %448, i64 48
   %450 = load ptr, ptr %449, align 8
   %451 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %450(ptr noundef nonnull align 8 dereferenceable(34) %447) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef %432, ptr %442, ptr %446, ptr noundef nonnull align 8 dereferenceable(2432) %451)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %432, ptr %442, ptr %446, ptr noundef nonnull align 8 dereferenceable(2432) %451)
   %452 = load ptr, ptr %3, align 8
   %453 = getelementptr inbounds i8, ptr %452, i64 24
   %454 = load ptr, ptr %22, align 8
@@ -7615,7 +7615,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %469 = getelementptr inbounds i8, ptr %468, i64 48
   %470 = load ptr, ptr %469, align 8
   %471 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %470(ptr noundef nonnull align 8 dereferenceable(34) %467) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef %438, ptr %462, ptr %466, ptr noundef nonnull align 8 dereferenceable(2432) %471)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %438, ptr %462, ptr %466, ptr noundef nonnull align 8 dereferenceable(2432) %471)
   %472 = load ptr, ptr %3, align 8
   %473 = getelementptr inbounds i8, ptr %472, i64 32
   %474 = load ptr, ptr %23, align 8
@@ -7648,7 +7648,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit551:             ; preds = %_ZNSt10unique_ptrIN
   %486 = getelementptr inbounds i8, ptr %485, i64 48
   %487 = load ptr, ptr %486, align 8
   %488 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %487(ptr noundef nonnull align 8 dereferenceable(34) %484) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr nonnull @.str.776, i64 3, ptr %483, ptr noundef nonnull align 8 dereferenceable(2432) %488, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %24, ptr nonnull @.str.776, i64 3, ptr %483, ptr noundef nonnull align 8 dereferenceable(2432) %488, i1 noundef zeroext false)
   %489 = load ptr, ptr %3, align 8
   %490 = load ptr, ptr %24, align 8
   %491 = load ptr, ptr %489, align 8
@@ -7684,7 +7684,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit561.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %502 = getelementptr inbounds i8, ptr %501, i64 48
   %503 = load ptr, ptr %502, align 8
   %504 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %503(ptr noundef nonnull align 8 dereferenceable(34) %500) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr nonnull @.str.780, i64 4, ptr %499, ptr noundef nonnull align 8 dereferenceable(2432) %504, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %25, ptr nonnull @.str.780, i64 4, ptr %499, ptr noundef nonnull align 8 dereferenceable(2432) %504, i1 noundef zeroext false)
   %505 = load ptr, ptr %3, align 8
   %506 = load ptr, ptr %25, align 8
   %507 = load ptr, ptr %505, align 8
@@ -7716,7 +7716,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit561.thread847:   ; preds = %_ZN4llvmeqENS_9Stri
   %518 = getelementptr inbounds i8, ptr %517, i64 48
   %519 = load ptr, ptr %518, align 8
   %520 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %519(ptr noundef nonnull align 8 dereferenceable(34) %516) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr nonnull @.str.771, i64 4, ptr %515, ptr noundef nonnull align 8 dereferenceable(2432) %520, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %26, ptr nonnull @.str.771, i64 4, ptr %515, ptr noundef nonnull align 8 dereferenceable(2432) %520, i1 noundef zeroext false)
   %521 = load ptr, ptr %3, align 8
   %522 = load ptr, ptr %26, align 8
   %523 = load ptr, ptr %521, align 8
@@ -7904,7 +7904,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit594.thread: ; preds = %
   %632 = getelementptr inbounds i8, ptr %631, i64 48
   %633 = load ptr, ptr %632, align 8
   %634 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %633(ptr noundef nonnull align 8 dereferenceable(34) %630) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef %621, ptr %625, ptr %629, ptr noundef nonnull align 8 dereferenceable(2432) %634)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef %621, ptr %625, ptr %629, ptr noundef nonnull align 8 dereferenceable(2432) %634)
   %635 = load ptr, ptr %3, align 8
   %636 = getelementptr inbounds i8, ptr %635, i64 32
   %637 = load ptr, ptr %30, align 8
@@ -7939,7 +7939,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit604.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %649 = getelementptr inbounds i8, ptr %648, i64 48
   %650 = load ptr, ptr %649, align 8
   %651 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %650(ptr noundef nonnull align 8 dereferenceable(34) %647) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr nonnull @.str.776, i64 3, ptr %646, ptr noundef nonnull align 8 dereferenceable(2432) %651, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %31, ptr nonnull @.str.776, i64 3, ptr %646, ptr noundef nonnull align 8 dereferenceable(2432) %651, i1 noundef zeroext false)
   %652 = load ptr, ptr %3, align 8
   %653 = load ptr, ptr %31, align 8
   %654 = load ptr, ptr %652, align 8
@@ -7977,7 +7977,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit614.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %665 = getelementptr inbounds i8, ptr %664, i64 48
   %666 = load ptr, ptr %665, align 8
   %667 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %666(ptr noundef nonnull align 8 dereferenceable(34) %663) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr nonnull @.str.780, i64 4, ptr %662, ptr noundef nonnull align 8 dereferenceable(2432) %667, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %32, ptr nonnull @.str.780, i64 4, ptr %662, ptr noundef nonnull align 8 dereferenceable(2432) %667, i1 noundef zeroext false)
   %668 = load ptr, ptr %3, align 8
   %669 = load ptr, ptr %32, align 8
   %670 = load ptr, ptr %668, align 8
@@ -8010,7 +8010,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit614.thread865:   ; preds = %_ZN4llvmeqENS_9Stri
   %681 = getelementptr inbounds i8, ptr %680, i64 48
   %682 = load ptr, ptr %681, align 8
   %683 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %682(ptr noundef nonnull align 8 dereferenceable(34) %679) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr nonnull @.str.771, i64 4, ptr %678, ptr noundef nonnull align 8 dereferenceable(2432) %683, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %33, ptr nonnull @.str.771, i64 4, ptr %678, ptr noundef nonnull align 8 dereferenceable(2432) %683, i1 noundef zeroext false)
   %684 = load ptr, ptr %3, align 8
   %685 = load ptr, ptr %33, align 8
   %686 = load ptr, ptr %684, align 8
@@ -8151,7 +8151,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit634.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %763 = getelementptr inbounds i8, ptr %762, i64 48
   %764 = load ptr, ptr %763, align 8
   %765 = call noundef nonnull align 8 dereferenceable(2432) ptr %764(ptr noundef nonnull align 8 dereferenceable(34) %761) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr nonnull @.str.313, i64 4, ptr %1, ptr noundef nonnull align 8 dereferenceable(2432) %765, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %37, ptr nonnull @.str.313, i64 4, ptr %1, ptr noundef nonnull align 8 dereferenceable(2432) %765, i1 noundef zeroext false)
   %766 = select i1 %760, i64 1, i64 2
   %767 = load ptr, ptr %3, align 8
   %768 = getelementptr inbounds %"class.std::unique_ptr.187", ptr %767, i64 %766
@@ -8333,7 +8333,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit669: ; preds = %831
   %873 = getelementptr inbounds i8, ptr %872, i64 48
   %874 = load ptr, ptr %873, align 8
   %875 = call noundef nonnull align 8 dereferenceable(2432) ptr %874(ptr noundef nonnull align 8 dereferenceable(34) %871) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias nonnull writable align 8 %38, i32 noundef %861, i32 noundef 0, ptr %865, ptr %869, ptr noundef nonnull align 8 dereferenceable(2432) %875, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias writable align 8 %38, i32 noundef %861, i32 noundef 0, ptr %865, ptr %869, ptr noundef nonnull align 8 dereferenceable(2432) %875, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %876 = load ptr, ptr %3, align 8
   %877 = getelementptr inbounds i8, ptr %876, i64 16
   %878 = load ptr, ptr %38, align 8
@@ -8428,7 +8428,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit686: ; preds = %893
   %935 = getelementptr inbounds i8, ptr %934, i64 48
   %936 = load ptr, ptr %935, align 8
   %937 = call noundef nonnull align 8 dereferenceable(2432) ptr %936(ptr noundef nonnull align 8 dereferenceable(34) %933) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias nonnull writable align 8 %39, i32 noundef %923, i32 noundef 0, ptr %927, ptr %931, ptr noundef nonnull align 8 dereferenceable(2432) %937, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias writable align 8 %39, i32 noundef %923, i32 noundef 0, ptr %927, ptr %931, ptr noundef nonnull align 8 dereferenceable(2432) %937, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %938 = load ptr, ptr %3, align 8
   %939 = getelementptr inbounds i8, ptr %938, i64 8
   %940 = load ptr, ptr %39, align 8
@@ -13914,7 +13914,7 @@ declare ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereference
 declare void @_ZNK4llvm9StringRef5lowerB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_116AArch64AsmParser22matchRegisterNameAliasEN4llvm9StringRefENS_7RegKindE(ptr noundef nonnull align 8 dereferenceable(362) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_116AArch64AsmParser22matchRegisterNameAliasEN4llvm9StringRefENS_7RegKindE(ptr noundef nonnull align 8 dereferenceable(362) %0, ptr %1, i64 %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -16513,7 +16513,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %5 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !586)
   %8 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !586
@@ -16794,7 +16794,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateCondCodeEN4llvm9AArch64CC8CondCodeENS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateCondCodeEN4llvm9AArch64CC8CondCodeENS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !589)
   %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !589
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !589
@@ -17410,7 +17410,7 @@ _ZN4llvmneENS_9StringRefES0_.exit83.thread124.i.i: ; preds = %_ZN4llvmneENS_9Str
   %309 = call noundef nonnull align 8 dereferenceable(2432) ptr %308(ptr noundef nonnull align 8 dereferenceable(34) %305) #25
   %310 = ptrtoint ptr %162 to i64
   %311 = ptrtoint ptr %304 to i64
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorListEjjjjjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %18, i32 noundef %191, i32 noundef %.058.i.i, i32 noundef %.059.i.i, i32 noundef %.0118.i.i, i32 noundef %.0119.i.i, i32 noundef 1, i64 %310, i64 %311, ptr noundef nonnull align 8 dereferenceable(2432) %309)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorListEjjjjjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextE(ptr dead_on_unwind noalias writable align 8 %18, i32 noundef %191, i32 noundef %.058.i.i, i32 noundef %.059.i.i, i32 noundef %.0118.i.i, i32 noundef %.0119.i.i, i32 noundef 1, i64 %310, i64 %311, ptr noundef nonnull align 8 dereferenceable(2432) %309)
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %312 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %312, null
@@ -17714,7 +17714,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit174.thread341:   ; preds = %_ZN4llvmeqENS_9Stri
   %442 = getelementptr inbounds i8, ptr %441, i64 48
   %443 = load ptr, ptr %442, align 8
   %444 = call noundef nonnull align 8 dereferenceable(2432) ptr %443(ptr noundef nonnull align 8 dereferenceable(34) %440) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef %439, ptr %432, ptr nonnull %438, ptr noundef nonnull align 8 dereferenceable(2432) %444)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef %439, ptr %432, ptr nonnull %438, ptr noundef nonnull align 8 dereferenceable(2432) %444)
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %29)
   %445 = load ptr, ptr %29, align 8
   %.not.i175 = icmp eq ptr %445, null
@@ -18235,7 +18235,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %647, %655
 .critedge.thread413:                              ; preds = %674, %.critedge
   %.0124.lcssa418 = phi i64 [ %683, %.critedge ], [ %676, %674 ]
   %.0125.lcssa417 = phi i32 [ %682, %.critedge ], [ 0, %674 ]
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr nonnull @.str.541, i64 4, ptr %618, ptr noundef nonnull align 8 dereferenceable(2432) %669, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %43, ptr nonnull @.str.541, i64 4, ptr %618, ptr noundef nonnull align 8 dereferenceable(2432) %669, i1 noundef zeroext false)
   %685 = load ptr, ptr %1, align 8
   %686 = load ptr, ptr %43, align 8
   %687 = load ptr, ptr %685, align 8
@@ -18252,7 +18252,7 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i.i.i242: ; pred
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit245: ; preds = %_ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i.i.i242, %.critedge.thread413
   %691 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %.0124.lcssa418, ptr noundef nonnull align 8 dereferenceable(2432) %669, i1 noundef zeroext false, i32 noundef 0) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef %691, ptr null, ptr nonnull %670, ptr noundef nonnull align 8 dereferenceable(2432) %669)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef %691, ptr null, ptr nonnull %670, ptr noundef nonnull align 8 dereferenceable(2432) %669)
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %44)
   %692 = load ptr, ptr %44, align 8
   %.not.i246 = icmp eq ptr %692, null
@@ -18271,7 +18271,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   br i1 %.not, label %_ZN4llvm8AsmTokenD2Ev.exit, label %696
 
 696:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit251
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand17CreateShiftExtendEN4llvm10AArch64_AM15ShiftExtendTypeEjbNS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %45, i32 noundef 0, i32 noundef %.0125.lcssa417, i1 noundef zeroext true, ptr null, ptr nonnull %670, ptr noundef nonnull align 8 dereferenceable(2432) %669)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand17CreateShiftExtendEN4llvm10AArch64_AM15ShiftExtendTypeEjbNS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %45, i32 noundef 0, i32 noundef %.0125.lcssa417, i1 noundef zeroext true, ptr null, ptr nonnull %670, ptr noundef nonnull align 8 dereferenceable(2432) %669)
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %45)
   %697 = load ptr, ptr %45, align 8
   %.not.i252 = icmp eq ptr %697, null
@@ -18339,7 +18339,7 @@ _ZN4llvm5APIntD2Ev.exit258.thread:                ; preds = %717, %.critedge.thr
   %724 = load ptr, ptr %41, align 8
   %725 = select i1 %.0.i240, i32 8, i32 4
   %726 = call noundef ptr @_ZN4llvm21AArch64TargetStreamer20addConstantPoolEntryEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(24) %723, ptr noundef %724, i32 noundef %725, ptr %618) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef %726, ptr null, ptr nonnull %670, ptr noundef nonnull align 8 dereferenceable(2432) %669)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef %726, ptr null, ptr nonnull %670, ptr noundef nonnull align 8 dereferenceable(2432) %669)
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %48)
   %727 = load ptr, ptr %48, align 8
   %.not.i259 = icmp eq ptr %727, null
@@ -18364,7 +18364,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %_ZN4llvm5APIntD2Ev.
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser22tryParseVectorRegisterERN4llvm10MCRegisterERNS1_9StringRefENS_7RegKindE(ptr noundef nonnull align 8 dereferenceable(362) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser22tryParseVectorRegisterERN4llvm10MCRegisterERNS1_9StringRefENS_7RegKindE(ptr noundef nonnull align 8 dereferenceable(362) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2, i32 noundef range(i32 1, 5) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -18440,7 +18440,7 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %10, %_ZNSt11char_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i8 } @_ZL15parseVectorKindN4llvm9StringRefEN12_GLOBAL__N_17RegKindE(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc { i64, i8 } @_ZL15parseVectorKindN4llvm9StringRefEN12_GLOBAL__N_17RegKindE(ptr %0, i64 %1, i32 noundef range(i32 1, 6) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19770,7 +19770,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef, ptr noundef nonnull align 8 dereferenceable(2432), i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !718)
   %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !718
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !718
@@ -21369,7 +21369,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef range(i32 0, 7) %2, ptr %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %5, i32 noundef range(i32 0, 3) %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !735)
   %11 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !735
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %11, align 8, !noalias !735
@@ -21396,13 +21396,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7Re
   store i32 %7, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 92
   store i32 %8, ptr %22, align 4
-  %23 = icmp ne i32 %9, 0
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %24 = trunc nuw nsw i32 %9 to i8
+  store i8 %24, ptr %23, align 8
   store ptr %3, ptr %15, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store ptr %4, ptr %26, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store ptr %4, ptr %25, align 8
   ret void
 }
 
@@ -22151,7 +22150,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit45.thread: ; preds = %1
   %157 = getelementptr inbounds i8, ptr %156, i64 48
   %158 = load ptr, ptr %157, align 8
   %159 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %158(ptr noundef nonnull align 8 dereferenceable(34) %155) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias nonnull writable align 8 %13, i32 noundef %.0, i32 noundef 0, ptr %16, ptr %154, ptr noundef nonnull align 8 dereferenceable(2432) %159, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias writable align 8 %13, i32 noundef %.0, i32 noundef 0, ptr %16, ptr %154, ptr noundef nonnull align 8 dereferenceable(2432) %159, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %160 = load ptr, ptr %13, align 8
   store ptr %160, ptr %12, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -23939,7 +23938,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit81.thread128.i:  ; preds = %645, %_ZN4llvmeqENS
   %658 = getelementptr inbounds i8, ptr %657, i64 48
   %659 = load ptr, ptr %658, align 8
   %660 = call noundef nonnull align 8 dereferenceable(2432) ptr %659(ptr noundef nonnull align 8 dereferenceable(34) %656) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand13CreateBarrierEjN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %28, i32 noundef %653, ptr %.sroa.0.0.copyload.i82.i, i64 %.sroa.2.0.copyload.i84.i, ptr %655, ptr noundef nonnull align 8 dereferenceable(2432) %660, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand13CreateBarrierEjN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias writable align 8 %28, i32 noundef %653, ptr %.sroa.0.0.copyload.i82.i, i64 %.sroa.2.0.copyload.i84.i, ptr %655, ptr noundef nonnull align 8 dereferenceable(2432) %660, i1 noundef zeroext false)
   %661 = load ptr, ptr %28, align 8
   store ptr %661, ptr %27, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %27)
@@ -24327,7 +24326,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit.i:                  ; preds = %821, %820
   %824 = getelementptr inbounds i8, ptr %823, i64 48
   %825 = load ptr, ptr %824, align 8
   %826 = call noundef nonnull align 8 dereferenceable(2432) ptr %825(ptr noundef nonnull align 8 dereferenceable(34) %822) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull %45, i1 noundef zeroext true, ptr %779, ptr noundef nonnull align 8 dereferenceable(2432) %826)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef %45, i1 noundef zeroext true, ptr %779, ptr noundef nonnull align 8 dereferenceable(2432) %826)
   %827 = load ptr, ptr %44, align 8
   store ptr %827, ptr %43, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %43)
@@ -24563,7 +24562,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit50.i:                ; preds = %909, %908
   %914 = getelementptr inbounds i8, ptr %913, i64 48
   %915 = load ptr, ptr %914, align 8
   %916 = call noundef nonnull align 8 dereferenceable(2432) ptr %915(ptr noundef nonnull align 8 dereferenceable(34) %912) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull %53, i1 noundef zeroext %911, ptr %779, ptr noundef nonnull align 8 dereferenceable(2432) %916)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef %53, i1 noundef zeroext %911, ptr %779, ptr noundef nonnull align 8 dereferenceable(2432) %916)
   %917 = load ptr, ptr %52, align 8
   store ptr %917, ptr %51, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %51)
@@ -24947,7 +24946,7 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i.i127: ; preds 
   %1084 = getelementptr inbounds i8, ptr %1083, i64 48
   %1085 = load ptr, ptr %1084, align 8
   %1086 = call noundef nonnull align 8 dereferenceable(2432) ptr %1085(ptr noundef nonnull align 8 dereferenceable(34) %1082) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias nonnull writable align 8 %64, i32 noundef %1079, i32 noundef 0, ptr %1022, ptr %1081, ptr noundef nonnull align 8 dereferenceable(2432) %1086, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias writable align 8 %64, i32 noundef %1079, i32 noundef 0, ptr %1022, ptr %1081, ptr noundef nonnull align 8 dereferenceable(2432) %1086, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %1087 = load ptr, ptr %64, align 8
   store ptr %1087, ptr %63, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %63)
@@ -27520,7 +27519,7 @@ _ZN4llvm16SmallSetIteratorIjLj8ESt4lessIjEEppEv.exit.preheader.i: ; preds = %_ZN
   %2257 = getelementptr inbounds i8, ptr %2256, i64 48
   %2258 = load ptr, ptr %2257, align 8
   %2259 = call noundef nonnull align 8 dereferenceable(2432) ptr %2258(ptr noundef nonnull align 8 dereferenceable(34) %2255) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand20CreateMatrixTileListEjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %141, i32 noundef %.025.lcssa.i, ptr %2065, ptr %2254, ptr noundef nonnull align 8 dereferenceable(2432) %2259)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand20CreateMatrixTileListEjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %141, i32 noundef %.025.lcssa.i, ptr %2065, ptr %2254, ptr noundef nonnull align 8 dereferenceable(2432) %2259)
   %2260 = load ptr, ptr %141, align 8
   store ptr %2260, ptr %140, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %140)
@@ -28691,7 +28690,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %57, %60, %63
 declare void @_ZN4llvm7APFloatC1ERKNS_12fltSemanticsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1, ptr, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand17CreateShiftExtendEN4llvm10AArch64_AM15ShiftExtendTypeEjbNS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr %4, ptr %5, ptr noundef nonnull align 8 dereferenceable(2432) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand17CreateShiftExtendEN4llvm10AArch64_AM15ShiftExtendTypeEjbNS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i1 noundef zeroext %3, ptr %4, ptr %5, ptr noundef nonnull align 8 dereferenceable(2432) %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %3 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1011)
   %9 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1011
@@ -29157,7 +29156,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %_ZNK4llvm8AsmToken1
   %219 = getelementptr inbounds i8, ptr %218, i64 48
   %220 = load ptr, ptr %219, align 8
   %221 = call noundef nonnull align 8 dereferenceable(2432) ptr %220(ptr noundef nonnull align 8 dereferenceable(34) %217) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull %212, ptr %19, ptr %216, ptr noundef nonnull align 8 dereferenceable(2432) %221)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull %212, ptr %19, ptr %216, ptr noundef nonnull align 8 dereferenceable(2432) %221)
   %222 = load ptr, ptr %14, align 8
   store ptr %222, ptr %13, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -29182,7 +29181,7 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i50: ; preds = %
   %233 = getelementptr inbounds i8, ptr %232, i64 48
   %234 = load ptr, ptr %233, align 8
   %235 = call noundef nonnull align 8 dereferenceable(2432) ptr %234(ptr noundef nonnull align 8 dereferenceable(34) %231) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateShiftedImmEPKN4llvm6MCExprEjNS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %212, i32 noundef %228, ptr %19, ptr %230, ptr noundef nonnull align 8 dereferenceable(2432) %235)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateShiftedImmEPKN4llvm6MCExprEjNS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %212, i32 noundef %228, ptr %19, ptr %230, ptr noundef nonnull align 8 dereferenceable(2432) %235)
   %236 = load ptr, ptr %16, align 8
   store ptr %236, ptr %15, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -30295,7 +30294,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %14, %30, %33
   %67 = getelementptr inbounds i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
   %69 = call noundef nonnull align 8 dereferenceable(2432) ptr %68(ptr noundef nonnull align 8 dereferenceable(34) %65) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateImmRangeEjjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i32 noundef %60, i32 noundef %64, ptr %53, ptr noundef nonnull align 8 dereferenceable(2432) %69)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateImmRangeEjjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %7, i32 noundef %60, i32 noundef %64, ptr %53, ptr noundef nonnull align 8 dereferenceable(2432) %69)
   %70 = load ptr, ptr %7, align 8
   store ptr %70, ptr %6, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -30947,7 +30946,7 @@ _ZN4llvmneENS_9StringRefES0_.exit83.thread124:    ; preds = %96, %_ZN4llvmneENS_
   %172 = call noundef nonnull align 8 dereferenceable(2432) ptr %171(ptr noundef nonnull align 8 dereferenceable(34) %168) #25
   %173 = ptrtoint ptr %25 to i64
   %174 = ptrtoint ptr %167 to i64
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorListEjjjjjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %17, i32 noundef %54, i32 noundef %.058, i32 noundef %.059, i32 noundef %.0118, i32 noundef %.0119, i32 noundef 4, i64 %173, i64 %174, ptr noundef nonnull align 8 dereferenceable(2432) %172)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorListEjjjjjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextE(ptr dead_on_unwind noalias writable align 8 %17, i32 noundef %54, i32 noundef %.058, i32 noundef %.059, i32 noundef %.0118, i32 noundef %.0119, i32 noundef 4, i64 %173, i64 %174, ptr noundef nonnull align 8 dereferenceable(2432) %172)
   %175 = load ptr, ptr %17, align 8
   store ptr %175, ptr %16, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -31312,7 +31311,7 @@ _ZN4llvmneENS_9StringRefES0_.exit83.thread124:    ; preds = %96, %_ZN4llvmneENS_
   %172 = call noundef nonnull align 8 dereferenceable(2432) ptr %171(ptr noundef nonnull align 8 dereferenceable(34) %168) #25
   %173 = ptrtoint ptr %25 to i64
   %174 = ptrtoint ptr %167 to i64
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorListEjjjjjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %17, i32 noundef %54, i32 noundef %.058, i32 noundef %.059, i32 noundef %.0118, i32 noundef %.0119, i32 noundef 2, i64 %173, i64 %174, ptr noundef nonnull align 8 dereferenceable(2432) %172)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorListEjjjjjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextE(ptr dead_on_unwind noalias writable align 8 %17, i32 noundef %54, i32 noundef %.058, i32 noundef %.059, i32 noundef %.0118, i32 noundef %.0119, i32 noundef 2, i64 %173, i64 %174, ptr noundef nonnull align 8 dereferenceable(2432) %172)
   %175 = load ptr, ptr %17, align 8
   store ptr %175, ptr %16, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -31767,7 +31766,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %68, %69
   %72 = getelementptr inbounds i8, ptr %71, i64 48
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef nonnull align 8 dereferenceable(2432) ptr %73(ptr noundef nonnull align 8 dereferenceable(34) %70) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %12, i1 noundef zeroext true, ptr %21, ptr noundef nonnull align 8 dereferenceable(2432) %74)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %12, i1 noundef zeroext true, ptr %21, ptr noundef nonnull align 8 dereferenceable(2432) %74)
   %75 = load ptr, ptr %11, align 8
   store ptr %75, ptr %10, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
@@ -31914,7 +31913,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit33:                  ; preds = %117, %118
   %123 = getelementptr inbounds i8, ptr %122, i64 48
   %124 = load ptr, ptr %123, align 8
   %125 = call noundef nonnull align 8 dereferenceable(2432) ptr %124(ptr noundef nonnull align 8 dereferenceable(34) %121) #25
-  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull %18, i1 noundef zeroext %120, ptr %21, ptr noundef nonnull align 8 dereferenceable(2432) %125)
+  call fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %18, i1 noundef zeroext %120, ptr %21, ptr noundef nonnull align 8 dereferenceable(2432) %125)
   %126 = load ptr, ptr %17, align 8
   store ptr %126, ptr %16, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -31996,7 +31995,7 @@ _ZN4llvm7APFloatD2Ev.exit23:                      ; preds = %85, %84, %_ZN4llvm7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateShiftedImmEPKN4llvm6MCExprEjNS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, i32 noundef %2, ptr %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateShiftedImmEPKN4llvm6MCExprEjNS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, i32 noundef %2, ptr %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %5) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1151)
   %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1151
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %7, align 8, !noalias !1151
@@ -32105,7 +32104,7 @@ declare noundef ptr @_ZN4llvm14AArch64BTIHint15lookupBTIByNameENS_9StringRefE(pt
 declare noundef ptr @_ZN4llvm9AArch64DB18lookupDBByEncodingEh(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand13CreateBarrierEjN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand13CreateBarrierEjN4llvm9StringRefENS1_5SMLocERNS1_9MCContextEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef range(i32 0, 65536) %1, ptr %2, i64 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %6 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1154)
   %9 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1154
@@ -32145,7 +32144,7 @@ declare noundef ptr @_ZN4llvm12AArch64DBnXS21lookupDBnXSByImmValueEh(i8 noundef 
 declare noundef ptr @_ZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS_9StringRefE(ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, i1 noundef zeroext %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4llvm7APFloatEbNS1_5SMLocERNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::APInt", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1157)
   %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1157
@@ -32833,7 +32832,7 @@ declare noundef ptr @_ZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFI
 declare noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr, i64, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateImmRangeEjjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateImmRangeEjjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1211)
   %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1211
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !1211
@@ -32972,7 +32971,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %.critedge4, %47, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorListEjjjjjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %7, i64 %8, ptr noundef nonnull align 8 dereferenceable(2432) %9) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorListEjjjjjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef range(i32 0, 5) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 1, 5) %6, i64 %7, i64 %8, ptr noundef nonnull align 8 dereferenceable(2432) %9) unnamed_addr #0 align 2 {
   %11 = inttoptr i64 %7 to ptr
   %12 = inttoptr i64 %8 to ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1214)
@@ -33123,7 +33122,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %.critedge4, %47, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand20CreateMatrixTileListEjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand20CreateMatrixTileListEjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1217)
   %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1217
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !1217
@@ -35409,7 +35408,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i:      ; preds = %"_ZN9__gnu_cxx5__op
 
 76:                                               ; preds = %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 216
-  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(40) %77)
+  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(40) %77)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %78, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %79
@@ -38157,7 +38156,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14MCConstantExprEKNS_6MCExprEEEDaPT0_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser20parseRegisterInRangeERjjjj(ptr noundef nonnull align 8 dereferenceable(362) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser20parseRegisterInRangeERjjjj(ptr noundef nonnull align 8 dereferenceable(362) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, i32 noundef range(i32 46, 238) %2, i32 noundef range(i32 54, 257) %3, i32 noundef range(i32 2, 62) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::MCRegister", align 4
   %7 = alloca %"class.llvm::SMLoc", align 8
   %8 = alloca %"class.llvm::SMLoc", align 8
@@ -38860,7 +38859,7 @@ define internal fastcc noundef i32 @_ZN4llvmL15getWRegFromXRegEj(i32 noundef %0)
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_116AArch64AsmParser20MatchInstructionImplERKN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEERNS1_6MCInstERmRNS1_13FeatureBitsetEbj(ptr noundef nonnull align 8 dereferenceable(362) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_116AArch64AsmParser20MatchInstructionImplERKN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEERNS1_6MCInstERmRNS1_13FeatureBitsetEbj(ptr noundef nonnull align 8 dereferenceable(362) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::FeatureBitset", align 8
   %9 = alloca %"class.llvm::FeatureBitset", align 8
   %10 = alloca %"class.llvm::FeatureBitset", align 8
@@ -38879,9 +38878,9 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_116AArch64AsmParser20MatchIn
   %19 = zext i32 %.val124 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 -1, i64 40, i1 false)
   store i64 -1, ptr %3, align 8
-  %switch = icmp eq i32 %6, 0
-  %spec.select158 = select i1 %switch, ptr @_ZL11MatchTable0, ptr @_ZL11MatchTable1
-  %20 = select i1 %switch, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZL11MatchTable0, i64 351504) to i64), i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZL11MatchTable1, i64 351504) to i64)
+  %trunc = trunc nuw i32 %6 to i1
+  %spec.select158 = select i1 %trunc, ptr @_ZL11MatchTable1, ptr @_ZL11MatchTable0
+  %20 = select i1 %trunc, i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZL11MatchTable1, i64 351504) to i64), i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZL11MatchTable0, i64 351504) to i64)
   %21 = ptrtoint ptr %spec.select158 to i64
   %22 = sub i64 %20, %21
   %23 = icmp sgt i64 %22, 0
@@ -42440,8 +42439,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser14
   %765 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %766 = load ptr, ptr %765, align 8
   %767 = getelementptr inbounds nuw i8, ptr %766, i64 216
-  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias nonnull writable align 8 %103, ptr noundef nonnull align 8 dereferenceable(40) %767)
-  call fastcc void @_ZL25AArch64MnemonicSpellCheckB5cxx11N4llvm9StringRefERKNS_13FeatureBitsetEj(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr %.val173, i64 %764, ptr noundef nonnull align 8 dereferenceable(40) %103)
+  call fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvailableFeaturesERKN4llvm13FeatureBitsetE(ptr dead_on_unwind noalias writable align 8 %103, ptr noundef nonnull align 8 dereferenceable(40) %767)
+  call fastcc void @_ZL25AArch64MnemonicSpellCheckB5cxx11N4llvm9StringRefERKNS_13FeatureBitsetEj(ptr dead_on_unwind noalias writable align 8 %102, ptr %.val173, i64 %764, ptr noundef nonnull align 8 dereferenceable(40) %103)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %105, ptr noundef nonnull @.str.984, ptr noundef nonnull align 8 dereferenceable(32) %102)
   %768 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store i8 4, ptr %768, align 8
@@ -43190,7 +43189,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_(i32 noundef %0, i32 noundef %1) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_(i32 noundef %0, i32 noundef range(i32 1, 65536) %1) unnamed_addr #12 {
   %3 = icmp eq i32 %0, %1
   br i1 %3, label %2244, label %4
 
@@ -43584,11 +43583,12 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 45:                                               ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 292, label %46
-    i32 305, label %47
-    i32 306, label %48
-    i32 361, label %49
+  %trunc524 = trunc nuw i32 %1 to i16
+  switch i16 %trunc524, label %2244 [
+    i16 292, label %46
+    i16 305, label %47
+    i16 306, label %48
+    i16 361, label %49
   ]
 
 46:                                               ; preds = %45
@@ -43604,11 +43604,12 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 50:                                               ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 262, label %51
-    i32 272, label %52
-    i32 306, label %53
-    i32 361, label %54
+  %trunc523 = trunc nuw i32 %1 to i16
+  switch i16 %trunc523, label %2244 [
+    i16 262, label %51
+    i16 272, label %52
+    i16 306, label %53
+    i16 361, label %54
   ]
 
 51:                                               ; preds = %50
@@ -43624,36 +43625,38 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 55:                                               ; preds = %4
-  %switch.tableidx = add i32 %1, -225
-  %56 = icmp ult i32 %switch.tableidx, 61
+  %trunc522 = trunc nuw i32 %1 to i16
+  %switch.tableidx = add i16 %trunc522, -225
+  %56 = icmp ult i16 %switch.tableidx, 61
   br i1 %56, label %switch.lookup, label %2244
 
 57:                                               ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 167, label %58
-    i32 185, label %59
-    i32 187, label %60
-    i32 189, label %61
-    i32 192, label %62
-    i32 226, label %63
-    i32 227, label %64
-    i32 229, label %65
-    i32 230, label %66
-    i32 232, label %67
-    i32 234, label %68
-    i32 263, label %69
-    i32 266, label %70
-    i32 268, label %71
-    i32 269, label %72
-    i32 271, label %73
-    i32 273, label %74
-    i32 274, label %75
-    i32 276, label %76
-    i32 279, label %77
-    i32 280, label %78
-    i32 281, label %79
-    i32 282, label %80
-    i32 285, label %81
+  %trunc521 = trunc nuw i32 %1 to i16
+  switch i16 %trunc521, label %2244 [
+    i16 167, label %58
+    i16 185, label %59
+    i16 187, label %60
+    i16 189, label %61
+    i16 192, label %62
+    i16 226, label %63
+    i16 227, label %64
+    i16 229, label %65
+    i16 230, label %66
+    i16 232, label %67
+    i16 234, label %68
+    i16 263, label %69
+    i16 266, label %70
+    i16 268, label %71
+    i16 269, label %72
+    i16 271, label %73
+    i16 273, label %74
+    i16 274, label %75
+    i16 276, label %76
+    i16 279, label %77
+    i16 280, label %78
+    i16 281, label %79
+    i16 282, label %80
+    i16 285, label %81
   ]
 
 58:                                               ; preds = %57
@@ -43729,32 +43732,33 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 82:                                               ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 119, label %83
-    i32 168, label %84
-    i32 186, label %85
-    i32 187, label %86
-    i32 190, label %87
-    i32 193, label %88
-    i32 226, label %89
-    i32 228, label %90
-    i32 229, label %91
-    i32 231, label %92
-    i32 232, label %93
-    i32 235, label %94
-    i32 264, label %95
-    i32 266, label %96
-    i32 268, label %97
-    i32 270, label %98
-    i32 271, label %99
-    i32 273, label %100
-    i32 275, label %101
-    i32 277, label %102
-    i32 279, label %103
-    i32 280, label %104
-    i32 281, label %105
-    i32 283, label %106
-    i32 285, label %107
+  %trunc520 = trunc nuw i32 %1 to i16
+  switch i16 %trunc520, label %2244 [
+    i16 119, label %83
+    i16 168, label %84
+    i16 186, label %85
+    i16 187, label %86
+    i16 190, label %87
+    i16 193, label %88
+    i16 226, label %89
+    i16 228, label %90
+    i16 229, label %91
+    i16 231, label %92
+    i16 232, label %93
+    i16 235, label %94
+    i16 264, label %95
+    i16 266, label %96
+    i16 268, label %97
+    i16 270, label %98
+    i16 271, label %99
+    i16 273, label %100
+    i16 275, label %101
+    i16 277, label %102
+    i16 279, label %103
+    i16 280, label %104
+    i16 281, label %105
+    i16 283, label %106
+    i16 285, label %107
   ]
 
 83:                                               ; preds = %82
@@ -43833,33 +43837,34 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 108:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 119, label %109
-    i32 120, label %110
-    i32 169, label %111
-    i32 188, label %112
-    i32 189, label %113
-    i32 190, label %114
-    i32 194, label %115
-    i32 227, label %116
-    i32 228, label %117
-    i32 229, label %118
-    i32 233, label %119
-    i32 234, label %120
-    i32 235, label %121
-    i32 265, label %122
-    i32 266, label %123
-    i32 269, label %124
-    i32 270, label %125
-    i32 271, label %126
-    i32 274, label %127
-    i32 275, label %128
-    i32 278, label %129
-    i32 279, label %130
-    i32 280, label %131
-    i32 282, label %132
-    i32 283, label %133
-    i32 285, label %134
+  %trunc519 = trunc nuw i32 %1 to i16
+  switch i16 %trunc519, label %2244 [
+    i16 119, label %109
+    i16 120, label %110
+    i16 169, label %111
+    i16 188, label %112
+    i16 189, label %113
+    i16 190, label %114
+    i16 194, label %115
+    i16 227, label %116
+    i16 228, label %117
+    i16 229, label %118
+    i16 233, label %119
+    i16 234, label %120
+    i16 235, label %121
+    i16 265, label %122
+    i16 266, label %123
+    i16 269, label %124
+    i16 270, label %125
+    i16 271, label %126
+    i16 274, label %127
+    i16 275, label %128
+    i16 278, label %129
+    i16 279, label %130
+    i16 280, label %131
+    i16 282, label %132
+    i16 283, label %133
+    i16 285, label %134
   ]
 
 109:                                              ; preds = %108
@@ -43941,33 +43946,34 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 135:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 120, label %136
-    i32 121, label %137
-    i32 170, label %138
-    i32 191, label %139
-    i32 192, label %140
-    i32 193, label %141
-    i32 194, label %142
-    i32 230, label %143
-    i32 231, label %144
-    i32 232, label %145
-    i32 233, label %146
-    i32 234, label %147
-    i32 235, label %148
-    i32 267, label %149
-    i32 268, label %150
-    i32 269, label %151
-    i32 270, label %152
-    i32 271, label %153
-    i32 276, label %154
-    i32 277, label %155
-    i32 278, label %156
-    i32 279, label %157
-    i32 281, label %158
-    i32 282, label %159
-    i32 283, label %160
-    i32 285, label %161
+  %trunc518 = trunc nuw i32 %1 to i16
+  switch i16 %trunc518, label %2244 [
+    i16 120, label %136
+    i16 121, label %137
+    i16 170, label %138
+    i16 191, label %139
+    i16 192, label %140
+    i16 193, label %141
+    i16 194, label %142
+    i16 230, label %143
+    i16 231, label %144
+    i16 232, label %145
+    i16 233, label %146
+    i16 234, label %147
+    i16 235, label %148
+    i16 267, label %149
+    i16 268, label %150
+    i16 269, label %151
+    i16 270, label %152
+    i16 271, label %153
+    i16 276, label %154
+    i16 277, label %155
+    i16 278, label %156
+    i16 279, label %157
+    i16 281, label %158
+    i16 282, label %159
+    i16 283, label %160
+    i16 285, label %161
   ]
 
 136:                                              ; preds = %135
@@ -44049,57 +44055,58 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 162:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 121, label %163
-    i32 122, label %164
-    i32 159, label %165
-    i32 166, label %166
-    i32 167, label %167
-    i32 168, label %168
-    i32 169, label %169
-    i32 170, label %170
-    i32 185, label %171
-    i32 186, label %172
-    i32 187, label %173
-    i32 188, label %174
-    i32 189, label %175
-    i32 190, label %176
-    i32 191, label %177
-    i32 192, label %178
-    i32 193, label %179
-    i32 194, label %180
-    i32 225, label %181
-    i32 226, label %182
-    i32 227, label %183
-    i32 228, label %184
-    i32 229, label %185
-    i32 230, label %186
-    i32 231, label %187
-    i32 232, label %188
-    i32 233, label %189
-    i32 234, label %190
-    i32 235, label %191
-    i32 263, label %192
-    i32 264, label %193
-    i32 265, label %194
-    i32 266, label %195
-    i32 267, label %196
-    i32 268, label %197
-    i32 269, label %198
-    i32 270, label %199
-    i32 271, label %200
-    i32 273, label %201
-    i32 274, label %202
-    i32 275, label %203
-    i32 276, label %204
-    i32 277, label %205
-    i32 278, label %206
-    i32 279, label %207
-    i32 280, label %208
-    i32 281, label %209
-    i32 282, label %210
-    i32 283, label %211
-    i32 285, label %212
+  %trunc517 = trunc nuw i32 %1 to i16
+  switch i16 %trunc517, label %2244 [
+    i16 121, label %163
+    i16 122, label %164
+    i16 159, label %165
+    i16 166, label %166
+    i16 167, label %167
+    i16 168, label %168
+    i16 169, label %169
+    i16 170, label %170
+    i16 185, label %171
+    i16 186, label %172
+    i16 187, label %173
+    i16 188, label %174
+    i16 189, label %175
+    i16 190, label %176
+    i16 191, label %177
+    i16 192, label %178
+    i16 193, label %179
+    i16 194, label %180
+    i16 225, label %181
+    i16 226, label %182
+    i16 227, label %183
+    i16 228, label %184
+    i16 229, label %185
+    i16 230, label %186
+    i16 231, label %187
+    i16 232, label %188
+    i16 233, label %189
+    i16 234, label %190
+    i16 235, label %191
+    i16 263, label %192
+    i16 264, label %193
+    i16 265, label %194
+    i16 266, label %195
+    i16 267, label %196
+    i16 268, label %197
+    i16 269, label %198
+    i16 270, label %199
+    i16 271, label %200
+    i16 273, label %201
+    i16 274, label %202
+    i16 275, label %203
+    i16 276, label %204
+    i16 277, label %205
+    i16 278, label %206
+    i16 279, label %207
+    i16 280, label %208
+    i16 281, label %209
+    i16 282, label %210
+    i16 283, label %211
+    i16 285, label %212
   ]
 
 163:                                              ; preds = %162
@@ -44253,58 +44260,59 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 213:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 122, label %214
-    i32 123, label %215
-    i32 149, label %216
-    i32 159, label %217
-    i32 166, label %218
-    i32 167, label %219
-    i32 168, label %220
-    i32 169, label %221
-    i32 170, label %222
-    i32 185, label %223
-    i32 186, label %224
-    i32 187, label %225
-    i32 188, label %226
-    i32 189, label %227
-    i32 190, label %228
-    i32 191, label %229
-    i32 192, label %230
-    i32 193, label %231
-    i32 194, label %232
-    i32 225, label %233
-    i32 226, label %234
-    i32 227, label %235
-    i32 228, label %236
-    i32 229, label %237
-    i32 230, label %238
-    i32 231, label %239
-    i32 232, label %240
-    i32 233, label %241
-    i32 234, label %242
-    i32 235, label %243
-    i32 263, label %244
-    i32 264, label %245
-    i32 265, label %246
-    i32 266, label %247
-    i32 267, label %248
-    i32 268, label %249
-    i32 269, label %250
-    i32 270, label %251
-    i32 271, label %252
-    i32 273, label %253
-    i32 274, label %254
-    i32 275, label %255
-    i32 276, label %256
-    i32 277, label %257
-    i32 278, label %258
-    i32 279, label %259
-    i32 280, label %260
-    i32 281, label %261
-    i32 282, label %262
-    i32 283, label %263
-    i32 285, label %264
+  %trunc516 = trunc nuw i32 %1 to i16
+  switch i16 %trunc516, label %2244 [
+    i16 122, label %214
+    i16 123, label %215
+    i16 149, label %216
+    i16 159, label %217
+    i16 166, label %218
+    i16 167, label %219
+    i16 168, label %220
+    i16 169, label %221
+    i16 170, label %222
+    i16 185, label %223
+    i16 186, label %224
+    i16 187, label %225
+    i16 188, label %226
+    i16 189, label %227
+    i16 190, label %228
+    i16 191, label %229
+    i16 192, label %230
+    i16 193, label %231
+    i16 194, label %232
+    i16 225, label %233
+    i16 226, label %234
+    i16 227, label %235
+    i16 228, label %236
+    i16 229, label %237
+    i16 230, label %238
+    i16 231, label %239
+    i16 232, label %240
+    i16 233, label %241
+    i16 234, label %242
+    i16 235, label %243
+    i16 263, label %244
+    i16 264, label %245
+    i16 265, label %246
+    i16 266, label %247
+    i16 267, label %248
+    i16 268, label %249
+    i16 269, label %250
+    i16 270, label %251
+    i16 271, label %252
+    i16 273, label %253
+    i16 274, label %254
+    i16 275, label %255
+    i16 276, label %256
+    i16 277, label %257
+    i16 278, label %258
+    i16 279, label %259
+    i16 280, label %260
+    i16 281, label %261
+    i16 282, label %262
+    i16 283, label %263
+    i16 285, label %264
   ]
 
 214:                                              ; preds = %213
@@ -44461,59 +44469,60 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 265:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 123, label %266
-    i32 124, label %267
-    i32 134, label %268
-    i32 149, label %269
-    i32 159, label %270
-    i32 166, label %271
-    i32 167, label %272
-    i32 168, label %273
-    i32 169, label %274
-    i32 170, label %275
-    i32 185, label %276
-    i32 186, label %277
-    i32 187, label %278
-    i32 188, label %279
-    i32 189, label %280
-    i32 190, label %281
-    i32 191, label %282
-    i32 192, label %283
-    i32 193, label %284
-    i32 194, label %285
-    i32 225, label %286
-    i32 226, label %287
-    i32 227, label %288
-    i32 228, label %289
-    i32 229, label %290
-    i32 230, label %291
-    i32 231, label %292
-    i32 232, label %293
-    i32 233, label %294
-    i32 234, label %295
-    i32 235, label %296
-    i32 263, label %297
-    i32 264, label %298
-    i32 265, label %299
-    i32 266, label %300
-    i32 267, label %301
-    i32 268, label %302
-    i32 269, label %303
-    i32 270, label %304
-    i32 271, label %305
-    i32 273, label %306
-    i32 274, label %307
-    i32 275, label %308
-    i32 276, label %309
-    i32 277, label %310
-    i32 278, label %311
-    i32 279, label %312
-    i32 280, label %313
-    i32 281, label %314
-    i32 282, label %315
-    i32 283, label %316
-    i32 285, label %317
+  %trunc515 = trunc nuw i32 %1 to i16
+  switch i16 %trunc515, label %2244 [
+    i16 123, label %266
+    i16 124, label %267
+    i16 134, label %268
+    i16 149, label %269
+    i16 159, label %270
+    i16 166, label %271
+    i16 167, label %272
+    i16 168, label %273
+    i16 169, label %274
+    i16 170, label %275
+    i16 185, label %276
+    i16 186, label %277
+    i16 187, label %278
+    i16 188, label %279
+    i16 189, label %280
+    i16 190, label %281
+    i16 191, label %282
+    i16 192, label %283
+    i16 193, label %284
+    i16 194, label %285
+    i16 225, label %286
+    i16 226, label %287
+    i16 227, label %288
+    i16 228, label %289
+    i16 229, label %290
+    i16 230, label %291
+    i16 231, label %292
+    i16 232, label %293
+    i16 233, label %294
+    i16 234, label %295
+    i16 235, label %296
+    i16 263, label %297
+    i16 264, label %298
+    i16 265, label %299
+    i16 266, label %300
+    i16 267, label %301
+    i16 268, label %302
+    i16 269, label %303
+    i16 270, label %304
+    i16 271, label %305
+    i16 273, label %306
+    i16 274, label %307
+    i16 275, label %308
+    i16 276, label %309
+    i16 277, label %310
+    i16 278, label %311
+    i16 279, label %312
+    i16 280, label %313
+    i16 281, label %314
+    i16 282, label %315
+    i16 283, label %316
+    i16 285, label %317
   ]
 
 266:                                              ; preds = %265
@@ -44673,59 +44682,60 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 318:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 124, label %319
-    i32 125, label %320
-    i32 134, label %321
-    i32 149, label %322
-    i32 159, label %323
-    i32 166, label %324
-    i32 167, label %325
-    i32 168, label %326
-    i32 169, label %327
-    i32 170, label %328
-    i32 185, label %329
-    i32 186, label %330
-    i32 187, label %331
-    i32 188, label %332
-    i32 189, label %333
-    i32 190, label %334
-    i32 191, label %335
-    i32 192, label %336
-    i32 193, label %337
-    i32 194, label %338
-    i32 225, label %339
-    i32 226, label %340
-    i32 227, label %341
-    i32 228, label %342
-    i32 229, label %343
-    i32 230, label %344
-    i32 231, label %345
-    i32 232, label %346
-    i32 233, label %347
-    i32 234, label %348
-    i32 235, label %349
-    i32 263, label %350
-    i32 264, label %351
-    i32 265, label %352
-    i32 266, label %353
-    i32 267, label %354
-    i32 268, label %355
-    i32 269, label %356
-    i32 270, label %357
-    i32 271, label %358
-    i32 273, label %359
-    i32 274, label %360
-    i32 275, label %361
-    i32 276, label %362
-    i32 277, label %363
-    i32 278, label %364
-    i32 279, label %365
-    i32 280, label %366
-    i32 281, label %367
-    i32 282, label %368
-    i32 283, label %369
-    i32 285, label %370
+  %trunc514 = trunc nuw i32 %1 to i16
+  switch i16 %trunc514, label %2244 [
+    i16 124, label %319
+    i16 125, label %320
+    i16 134, label %321
+    i16 149, label %322
+    i16 159, label %323
+    i16 166, label %324
+    i16 167, label %325
+    i16 168, label %326
+    i16 169, label %327
+    i16 170, label %328
+    i16 185, label %329
+    i16 186, label %330
+    i16 187, label %331
+    i16 188, label %332
+    i16 189, label %333
+    i16 190, label %334
+    i16 191, label %335
+    i16 192, label %336
+    i16 193, label %337
+    i16 194, label %338
+    i16 225, label %339
+    i16 226, label %340
+    i16 227, label %341
+    i16 228, label %342
+    i16 229, label %343
+    i16 230, label %344
+    i16 231, label %345
+    i16 232, label %346
+    i16 233, label %347
+    i16 234, label %348
+    i16 235, label %349
+    i16 263, label %350
+    i16 264, label %351
+    i16 265, label %352
+    i16 266, label %353
+    i16 267, label %354
+    i16 268, label %355
+    i16 269, label %356
+    i16 270, label %357
+    i16 271, label %358
+    i16 273, label %359
+    i16 274, label %360
+    i16 275, label %361
+    i16 276, label %362
+    i16 277, label %363
+    i16 278, label %364
+    i16 279, label %365
+    i16 280, label %366
+    i16 281, label %367
+    i16 282, label %368
+    i16 283, label %369
+    i16 285, label %370
   ]
 
 319:                                              ; preds = %318
@@ -44885,58 +44895,59 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 371:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 125, label %372
-    i32 134, label %373
-    i32 149, label %374
-    i32 159, label %375
-    i32 166, label %376
-    i32 167, label %377
-    i32 168, label %378
-    i32 169, label %379
-    i32 170, label %380
-    i32 185, label %381
-    i32 186, label %382
-    i32 187, label %383
-    i32 188, label %384
-    i32 189, label %385
-    i32 190, label %386
-    i32 191, label %387
-    i32 192, label %388
-    i32 193, label %389
-    i32 194, label %390
-    i32 225, label %391
-    i32 226, label %392
-    i32 227, label %393
-    i32 228, label %394
-    i32 229, label %395
-    i32 230, label %396
-    i32 231, label %397
-    i32 232, label %398
-    i32 233, label %399
-    i32 234, label %400
-    i32 235, label %401
-    i32 263, label %402
-    i32 264, label %403
-    i32 265, label %404
-    i32 266, label %405
-    i32 267, label %406
-    i32 268, label %407
-    i32 269, label %408
-    i32 270, label %409
-    i32 271, label %410
-    i32 273, label %411
-    i32 274, label %412
-    i32 275, label %413
-    i32 276, label %414
-    i32 277, label %415
-    i32 278, label %416
-    i32 279, label %417
-    i32 280, label %418
-    i32 281, label %419
-    i32 282, label %420
-    i32 283, label %421
-    i32 285, label %422
+  %trunc513 = trunc nuw i32 %1 to i16
+  switch i16 %trunc513, label %2244 [
+    i16 125, label %372
+    i16 134, label %373
+    i16 149, label %374
+    i16 159, label %375
+    i16 166, label %376
+    i16 167, label %377
+    i16 168, label %378
+    i16 169, label %379
+    i16 170, label %380
+    i16 185, label %381
+    i16 186, label %382
+    i16 187, label %383
+    i16 188, label %384
+    i16 189, label %385
+    i16 190, label %386
+    i16 191, label %387
+    i16 192, label %388
+    i16 193, label %389
+    i16 194, label %390
+    i16 225, label %391
+    i16 226, label %392
+    i16 227, label %393
+    i16 228, label %394
+    i16 229, label %395
+    i16 230, label %396
+    i16 231, label %397
+    i16 232, label %398
+    i16 233, label %399
+    i16 234, label %400
+    i16 235, label %401
+    i16 263, label %402
+    i16 264, label %403
+    i16 265, label %404
+    i16 266, label %405
+    i16 267, label %406
+    i16 268, label %407
+    i16 269, label %408
+    i16 270, label %409
+    i16 271, label %410
+    i16 273, label %411
+    i16 274, label %412
+    i16 275, label %413
+    i16 276, label %414
+    i16 277, label %415
+    i16 278, label %416
+    i16 279, label %417
+    i16 280, label %418
+    i16 281, label %419
+    i16 282, label %420
+    i16 283, label %421
+    i16 285, label %422
   ]
 
 372:                                              ; preds = %371
@@ -45093,10 +45104,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 423:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 245, label %424
-    i32 247, label %425
-    i32 359, label %426
+  %trunc512 = trunc nuw i32 %1 to i16
+  switch i16 %trunc512, label %2244 [
+    i16 245, label %424
+    i16 247, label %425
+    i16 359, label %426
   ]
 
 424:                                              ; preds = %423
@@ -45109,10 +45121,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 427:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 246, label %428
-    i32 248, label %429
-    i32 359, label %430
+  %trunc511 = trunc nuw i32 %1 to i16
+  switch i16 %trunc511, label %2244 [
+    i16 246, label %428
+    i16 248, label %429
+    i16 359, label %430
   ]
 
 428:                                              ; preds = %427
@@ -45125,15 +45138,16 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 431:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 126, label %432
-    i32 154, label %433
-    i32 369, label %434
-    i32 370, label %435
-    i32 372, label %436
-    i32 383, label %437
-    i32 384, label %438
-    i32 395, label %439
+  %trunc510 = trunc nuw i32 %1 to i16
+  switch i16 %trunc510, label %2244 [
+    i16 126, label %432
+    i16 154, label %433
+    i16 369, label %434
+    i16 370, label %435
+    i16 372, label %436
+    i16 383, label %437
+    i16 384, label %438
+    i16 395, label %439
   ]
 
 432:                                              ; preds = %431
@@ -45167,11 +45181,12 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 441:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 126, label %442
-    i32 154, label %443
-    i32 384, label %444
-    i32 395, label %445
+  %trunc508 = trunc nuw i32 %1 to i16
+  switch i16 %trunc508, label %2244 [
+    i16 126, label %442
+    i16 154, label %443
+    i16 384, label %444
+    i16 395, label %445
   ]
 
 442:                                              ; preds = %441
@@ -45187,13 +45202,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 446:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 128, label %447
-    i32 368, label %448
-    i32 372, label %449
-    i32 383, label %450
-    i32 384, label %451
-    i32 395, label %452
+  %trunc507 = trunc nuw i32 %1 to i16
+  switch i16 %trunc507, label %2244 [
+    i16 128, label %447
+    i16 368, label %448
+    i16 372, label %449
+    i16 383, label %450
+    i16 384, label %451
+    i16 395, label %452
   ]
 
 447:                                              ; preds = %446
@@ -45215,14 +45231,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 453:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 128, label %454
-    i32 367, label %455
-    i32 368, label %456
-    i32 372, label %457
-    i32 383, label %458
-    i32 384, label %459
-    i32 395, label %460
+  %trunc506 = trunc nuw i32 %1 to i16
+  switch i16 %trunc506, label %2244 [
+    i16 128, label %454
+    i16 367, label %455
+    i16 368, label %456
+    i16 372, label %457
+    i16 383, label %458
+    i16 384, label %459
+    i16 395, label %460
   ]
 
 454:                                              ; preds = %453
@@ -45247,40 +45264,41 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 461:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 131, label %462
-    i32 132, label %463
-    i32 140, label %464
-    i32 141, label %465
-    i32 142, label %466
-    i32 158, label %467
-    i32 162, label %468
-    i32 164, label %469
-    i32 165, label %470
-    i32 178, label %471
-    i32 179, label %472
-    i32 181, label %473
-    i32 182, label %474
-    i32 183, label %475
-    i32 211, label %476
-    i32 212, label %477
-    i32 213, label %478
-    i32 217, label %479
-    i32 218, label %480
-    i32 219, label %481
-    i32 220, label %482
-    i32 286, label %483
-    i32 290, label %484
-    i32 291, label %485
-    i32 301, label %486
-    i32 302, label %487
-    i32 303, label %488
-    i32 325, label %489
-    i32 327, label %490
-    i32 328, label %491
-    i32 329, label %492
-    i32 330, label %493
-    i32 393, label %494
+  %trunc505 = trunc nuw i32 %1 to i16
+  switch i16 %trunc505, label %2244 [
+    i16 131, label %462
+    i16 132, label %463
+    i16 140, label %464
+    i16 141, label %465
+    i16 142, label %466
+    i16 158, label %467
+    i16 162, label %468
+    i16 164, label %469
+    i16 165, label %470
+    i16 178, label %471
+    i16 179, label %472
+    i16 181, label %473
+    i16 182, label %474
+    i16 183, label %475
+    i16 211, label %476
+    i16 212, label %477
+    i16 213, label %478
+    i16 217, label %479
+    i16 218, label %480
+    i16 219, label %481
+    i16 220, label %482
+    i16 286, label %483
+    i16 290, label %484
+    i16 291, label %485
+    i16 301, label %486
+    i16 302, label %487
+    i16 303, label %488
+    i16 325, label %489
+    i16 327, label %490
+    i16 328, label %491
+    i16 329, label %492
+    i16 330, label %493
+    i16 393, label %494
   ]
 
 462:                                              ; preds = %461
@@ -45383,40 +45401,41 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 495:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 133, label %496
-    i32 143, label %497
-    i32 144, label %498
-    i32 145, label %499
-    i32 158, label %500
-    i32 163, label %501
-    i32 164, label %502
-    i32 165, label %503
-    i32 180, label %504
-    i32 181, label %505
-    i32 182, label %506
-    i32 183, label %507
-    i32 214, label %508
-    i32 215, label %509
-    i32 216, label %510
-    i32 217, label %511
-    i32 218, label %512
-    i32 219, label %513
-    i32 220, label %514
-    i32 258, label %515
-    i32 286, label %516
-    i32 290, label %517
-    i32 291, label %518
-    i32 301, label %519
-    i32 302, label %520
-    i32 303, label %521
-    i32 326, label %522
-    i32 327, label %523
-    i32 328, label %524
-    i32 329, label %525
-    i32 330, label %526
-    i32 364, label %527
-    i32 393, label %528
+  %trunc504 = trunc nuw i32 %1 to i16
+  switch i16 %trunc504, label %2244 [
+    i16 133, label %496
+    i16 143, label %497
+    i16 144, label %498
+    i16 145, label %499
+    i16 158, label %500
+    i16 163, label %501
+    i16 164, label %502
+    i16 165, label %503
+    i16 180, label %504
+    i16 181, label %505
+    i16 182, label %506
+    i16 183, label %507
+    i16 214, label %508
+    i16 215, label %509
+    i16 216, label %510
+    i16 217, label %511
+    i16 218, label %512
+    i16 219, label %513
+    i16 220, label %514
+    i16 258, label %515
+    i16 286, label %516
+    i16 290, label %517
+    i16 291, label %518
+    i16 301, label %519
+    i16 302, label %520
+    i16 303, label %521
+    i16 326, label %522
+    i16 327, label %523
+    i16 328, label %524
+    i16 329, label %525
+    i16 330, label %526
+    i16 364, label %527
+    i16 393, label %528
   ]
 
 496:                                              ; preds = %495
@@ -45519,15 +45538,16 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 529:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 224, label %530
-    i32 261, label %531
-    i32 262, label %532
-    i32 272, label %533
-    i32 292, label %534
-    i32 305, label %535
-    i32 306, label %536
-    i32 361, label %537
+  %trunc503 = trunc nuw i32 %1 to i16
+  switch i16 %trunc503, label %2244 [
+    i16 224, label %530
+    i16 261, label %531
+    i16 262, label %532
+    i16 272, label %533
+    i16 292, label %534
+    i16 305, label %535
+    i16 306, label %536
+    i16 361, label %537
   ]
 
 530:                                              ; preds = %529
@@ -45555,15 +45575,16 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 538:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 224, label %539
-    i32 261, label %540
-    i32 262, label %541
-    i32 272, label %542
-    i32 292, label %543
-    i32 305, label %544
-    i32 306, label %545
-    i32 361, label %546
+  %trunc502 = trunc nuw i32 %1 to i16
+  switch i16 %trunc502, label %2244 [
+    i16 224, label %539
+    i16 261, label %540
+    i16 262, label %541
+    i16 272, label %542
+    i16 292, label %543
+    i16 305, label %544
+    i16 306, label %545
+    i16 361, label %546
   ]
 
 539:                                              ; preds = %538
@@ -45591,31 +45612,32 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 547:                                              ; preds = %4
-  %switch.selectcmp.case1310 = icmp eq i32 %1, 307
-  %switch.selectcmp.case2311 = icmp eq i32 %1, 360
-  %switch.selectcmp312 = or i1 %switch.selectcmp.case1310, %switch.selectcmp.case2311
+  %switch.selectcmp.case1525 = icmp eq i32 %1, 307
+  %switch.selectcmp.case2526 = icmp eq i32 %1, 360
+  %switch.selectcmp527 = or i1 %switch.selectcmp.case1525, %switch.selectcmp.case2526
   br label %2244
 
 548:                                              ; preds = %4
-  %switch.selectcmp.case1313 = icmp eq i32 %1, 307
-  %switch.selectcmp.case2314 = icmp eq i32 %1, 360
-  %switch.selectcmp315 = or i1 %switch.selectcmp.case1313, %switch.selectcmp.case2314
+  %switch.selectcmp.case1528 = icmp eq i32 %1, 307
+  %switch.selectcmp.case2529 = icmp eq i32 %1, 360
+  %switch.selectcmp530 = or i1 %switch.selectcmp.case1528, %switch.selectcmp.case2529
   br label %2244
 
 549:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 190, label %550
-    i32 228, label %551
-    i32 229, label %552
-    i32 235, label %553
-    i32 266, label %554
-    i32 270, label %555
-    i32 271, label %556
-    i32 275, label %557
-    i32 279, label %558
-    i32 280, label %559
-    i32 283, label %560
-    i32 285, label %561
+  %trunc499 = trunc nuw i32 %1 to i16
+  switch i16 %trunc499, label %2244 [
+    i16 190, label %550
+    i16 228, label %551
+    i16 229, label %552
+    i16 235, label %553
+    i16 266, label %554
+    i16 270, label %555
+    i16 271, label %556
+    i16 275, label %557
+    i16 279, label %558
+    i16 280, label %559
+    i16 283, label %560
+    i16 285, label %561
   ]
 
 550:                                              ; preds = %549
@@ -45655,19 +45677,20 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 562:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 194, label %563
-    i32 233, label %564
-    i32 234, label %565
-    i32 235, label %566
-    i32 269, label %567
-    i32 270, label %568
-    i32 271, label %569
-    i32 278, label %570
-    i32 279, label %571
-    i32 282, label %572
-    i32 283, label %573
-    i32 285, label %574
+  %trunc498 = trunc nuw i32 %1 to i16
+  switch i16 %trunc498, label %2244 [
+    i16 194, label %563
+    i16 233, label %564
+    i16 234, label %565
+    i16 235, label %566
+    i16 269, label %567
+    i16 270, label %568
+    i16 271, label %569
+    i16 278, label %570
+    i16 279, label %571
+    i16 282, label %572
+    i16 283, label %573
+    i16 285, label %574
   ]
 
 563:                                              ; preds = %562
@@ -45707,31 +45730,32 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 575:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 170, label %576
-    i32 191, label %577
-    i32 192, label %578
-    i32 193, label %579
-    i32 194, label %580
-    i32 230, label %581
-    i32 231, label %582
-    i32 232, label %583
-    i32 233, label %584
-    i32 234, label %585
-    i32 235, label %586
-    i32 267, label %587
-    i32 268, label %588
-    i32 269, label %589
-    i32 270, label %590
-    i32 271, label %591
-    i32 276, label %592
-    i32 277, label %593
-    i32 278, label %594
-    i32 279, label %595
-    i32 281, label %596
-    i32 282, label %597
-    i32 283, label %598
-    i32 285, label %599
+  %trunc497 = trunc nuw i32 %1 to i16
+  switch i16 %trunc497, label %2244 [
+    i16 170, label %576
+    i16 191, label %577
+    i16 192, label %578
+    i16 193, label %579
+    i16 194, label %580
+    i16 230, label %581
+    i16 231, label %582
+    i16 232, label %583
+    i16 233, label %584
+    i16 234, label %585
+    i16 235, label %586
+    i16 267, label %587
+    i16 268, label %588
+    i16 269, label %589
+    i16 270, label %590
+    i16 271, label %591
+    i16 276, label %592
+    i16 277, label %593
+    i16 278, label %594
+    i16 279, label %595
+    i16 281, label %596
+    i16 282, label %597
+    i16 283, label %598
+    i16 285, label %599
   ]
 
 576:                                              ; preds = %575
@@ -45807,55 +45831,56 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 600:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 159, label %601
-    i32 166, label %602
-    i32 167, label %603
-    i32 168, label %604
-    i32 169, label %605
-    i32 170, label %606
-    i32 185, label %607
-    i32 186, label %608
-    i32 187, label %609
-    i32 188, label %610
-    i32 189, label %611
-    i32 190, label %612
-    i32 191, label %613
-    i32 192, label %614
-    i32 193, label %615
-    i32 194, label %616
-    i32 225, label %617
-    i32 226, label %618
-    i32 227, label %619
-    i32 228, label %620
-    i32 229, label %621
-    i32 230, label %622
-    i32 231, label %623
-    i32 232, label %624
-    i32 233, label %625
-    i32 234, label %626
-    i32 235, label %627
-    i32 263, label %628
-    i32 264, label %629
-    i32 265, label %630
-    i32 266, label %631
-    i32 267, label %632
-    i32 268, label %633
-    i32 269, label %634
-    i32 270, label %635
-    i32 271, label %636
-    i32 273, label %637
-    i32 274, label %638
-    i32 275, label %639
-    i32 276, label %640
-    i32 277, label %641
-    i32 278, label %642
-    i32 279, label %643
-    i32 280, label %644
-    i32 281, label %645
-    i32 282, label %646
-    i32 283, label %647
-    i32 285, label %648
+  %trunc496 = trunc nuw i32 %1 to i16
+  switch i16 %trunc496, label %2244 [
+    i16 159, label %601
+    i16 166, label %602
+    i16 167, label %603
+    i16 168, label %604
+    i16 169, label %605
+    i16 170, label %606
+    i16 185, label %607
+    i16 186, label %608
+    i16 187, label %609
+    i16 188, label %610
+    i16 189, label %611
+    i16 190, label %612
+    i16 191, label %613
+    i16 192, label %614
+    i16 193, label %615
+    i16 194, label %616
+    i16 225, label %617
+    i16 226, label %618
+    i16 227, label %619
+    i16 228, label %620
+    i16 229, label %621
+    i16 230, label %622
+    i16 231, label %623
+    i16 232, label %624
+    i16 233, label %625
+    i16 234, label %626
+    i16 235, label %627
+    i16 263, label %628
+    i16 264, label %629
+    i16 265, label %630
+    i16 266, label %631
+    i16 267, label %632
+    i16 268, label %633
+    i16 269, label %634
+    i16 270, label %635
+    i16 271, label %636
+    i16 273, label %637
+    i16 274, label %638
+    i16 275, label %639
+    i16 276, label %640
+    i16 277, label %641
+    i16 278, label %642
+    i16 279, label %643
+    i16 280, label %644
+    i16 281, label %645
+    i16 282, label %646
+    i16 283, label %647
+    i16 285, label %648
   ]
 
 601:                                              ; preds = %600
@@ -46003,56 +46028,57 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 649:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 149, label %650
-    i32 159, label %651
-    i32 166, label %652
-    i32 167, label %653
-    i32 168, label %654
-    i32 169, label %655
-    i32 170, label %656
-    i32 185, label %657
-    i32 186, label %658
-    i32 187, label %659
-    i32 188, label %660
-    i32 189, label %661
-    i32 190, label %662
-    i32 191, label %663
-    i32 192, label %664
-    i32 193, label %665
-    i32 194, label %666
-    i32 225, label %667
-    i32 226, label %668
-    i32 227, label %669
-    i32 228, label %670
-    i32 229, label %671
-    i32 230, label %672
-    i32 231, label %673
-    i32 232, label %674
-    i32 233, label %675
-    i32 234, label %676
-    i32 235, label %677
-    i32 263, label %678
-    i32 264, label %679
-    i32 265, label %680
-    i32 266, label %681
-    i32 267, label %682
-    i32 268, label %683
-    i32 269, label %684
-    i32 270, label %685
-    i32 271, label %686
-    i32 273, label %687
-    i32 274, label %688
-    i32 275, label %689
-    i32 276, label %690
-    i32 277, label %691
-    i32 278, label %692
-    i32 279, label %693
-    i32 280, label %694
-    i32 281, label %695
-    i32 282, label %696
-    i32 283, label %697
-    i32 285, label %698
+  %trunc495 = trunc nuw i32 %1 to i16
+  switch i16 %trunc495, label %2244 [
+    i16 149, label %650
+    i16 159, label %651
+    i16 166, label %652
+    i16 167, label %653
+    i16 168, label %654
+    i16 169, label %655
+    i16 170, label %656
+    i16 185, label %657
+    i16 186, label %658
+    i16 187, label %659
+    i16 188, label %660
+    i16 189, label %661
+    i16 190, label %662
+    i16 191, label %663
+    i16 192, label %664
+    i16 193, label %665
+    i16 194, label %666
+    i16 225, label %667
+    i16 226, label %668
+    i16 227, label %669
+    i16 228, label %670
+    i16 229, label %671
+    i16 230, label %672
+    i16 231, label %673
+    i16 232, label %674
+    i16 233, label %675
+    i16 234, label %676
+    i16 235, label %677
+    i16 263, label %678
+    i16 264, label %679
+    i16 265, label %680
+    i16 266, label %681
+    i16 267, label %682
+    i16 268, label %683
+    i16 269, label %684
+    i16 270, label %685
+    i16 271, label %686
+    i16 273, label %687
+    i16 274, label %688
+    i16 275, label %689
+    i16 276, label %690
+    i16 277, label %691
+    i16 278, label %692
+    i16 279, label %693
+    i16 280, label %694
+    i16 281, label %695
+    i16 282, label %696
+    i16 283, label %697
+    i16 285, label %698
   ]
 
 650:                                              ; preds = %649
@@ -46203,57 +46229,58 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 699:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 134, label %700
-    i32 149, label %701
-    i32 159, label %702
-    i32 166, label %703
-    i32 167, label %704
-    i32 168, label %705
-    i32 169, label %706
-    i32 170, label %707
-    i32 185, label %708
-    i32 186, label %709
-    i32 187, label %710
-    i32 188, label %711
-    i32 189, label %712
-    i32 190, label %713
-    i32 191, label %714
-    i32 192, label %715
-    i32 193, label %716
-    i32 194, label %717
-    i32 225, label %718
-    i32 226, label %719
-    i32 227, label %720
-    i32 228, label %721
-    i32 229, label %722
-    i32 230, label %723
-    i32 231, label %724
-    i32 232, label %725
-    i32 233, label %726
-    i32 234, label %727
-    i32 235, label %728
-    i32 263, label %729
-    i32 264, label %730
-    i32 265, label %731
-    i32 266, label %732
-    i32 267, label %733
-    i32 268, label %734
-    i32 269, label %735
-    i32 270, label %736
-    i32 271, label %737
-    i32 273, label %738
-    i32 274, label %739
-    i32 275, label %740
-    i32 276, label %741
-    i32 277, label %742
-    i32 278, label %743
-    i32 279, label %744
-    i32 280, label %745
-    i32 281, label %746
-    i32 282, label %747
-    i32 283, label %748
-    i32 285, label %749
+  %trunc494 = trunc nuw i32 %1 to i16
+  switch i16 %trunc494, label %2244 [
+    i16 134, label %700
+    i16 149, label %701
+    i16 159, label %702
+    i16 166, label %703
+    i16 167, label %704
+    i16 168, label %705
+    i16 169, label %706
+    i16 170, label %707
+    i16 185, label %708
+    i16 186, label %709
+    i16 187, label %710
+    i16 188, label %711
+    i16 189, label %712
+    i16 190, label %713
+    i16 191, label %714
+    i16 192, label %715
+    i16 193, label %716
+    i16 194, label %717
+    i16 225, label %718
+    i16 226, label %719
+    i16 227, label %720
+    i16 228, label %721
+    i16 229, label %722
+    i16 230, label %723
+    i16 231, label %724
+    i16 232, label %725
+    i16 233, label %726
+    i16 234, label %727
+    i16 235, label %728
+    i16 263, label %729
+    i16 264, label %730
+    i16 265, label %731
+    i16 266, label %732
+    i16 267, label %733
+    i16 268, label %734
+    i16 269, label %735
+    i16 270, label %736
+    i16 271, label %737
+    i16 273, label %738
+    i16 274, label %739
+    i16 275, label %740
+    i16 276, label %741
+    i16 277, label %742
+    i16 278, label %743
+    i16 279, label %744
+    i16 280, label %745
+    i16 281, label %746
+    i16 282, label %747
+    i16 283, label %748
+    i16 285, label %749
   ]
 
 700:                                              ; preds = %699
@@ -46407,57 +46434,58 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 750:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 134, label %751
-    i32 149, label %752
-    i32 159, label %753
-    i32 166, label %754
-    i32 167, label %755
-    i32 168, label %756
-    i32 169, label %757
-    i32 170, label %758
-    i32 185, label %759
-    i32 186, label %760
-    i32 187, label %761
-    i32 188, label %762
-    i32 189, label %763
-    i32 190, label %764
-    i32 191, label %765
-    i32 192, label %766
-    i32 193, label %767
-    i32 194, label %768
-    i32 225, label %769
-    i32 226, label %770
-    i32 227, label %771
-    i32 228, label %772
-    i32 229, label %773
-    i32 230, label %774
-    i32 231, label %775
-    i32 232, label %776
-    i32 233, label %777
-    i32 234, label %778
-    i32 235, label %779
-    i32 263, label %780
-    i32 264, label %781
-    i32 265, label %782
-    i32 266, label %783
-    i32 267, label %784
-    i32 268, label %785
-    i32 269, label %786
-    i32 270, label %787
-    i32 271, label %788
-    i32 273, label %789
-    i32 274, label %790
-    i32 275, label %791
-    i32 276, label %792
-    i32 277, label %793
-    i32 278, label %794
-    i32 279, label %795
-    i32 280, label %796
-    i32 281, label %797
-    i32 282, label %798
-    i32 283, label %799
-    i32 285, label %800
+  %trunc493 = trunc nuw i32 %1 to i16
+  switch i16 %trunc493, label %2244 [
+    i16 134, label %751
+    i16 149, label %752
+    i16 159, label %753
+    i16 166, label %754
+    i16 167, label %755
+    i16 168, label %756
+    i16 169, label %757
+    i16 170, label %758
+    i16 185, label %759
+    i16 186, label %760
+    i16 187, label %761
+    i16 188, label %762
+    i16 189, label %763
+    i16 190, label %764
+    i16 191, label %765
+    i16 192, label %766
+    i16 193, label %767
+    i16 194, label %768
+    i16 225, label %769
+    i16 226, label %770
+    i16 227, label %771
+    i16 228, label %772
+    i16 229, label %773
+    i16 230, label %774
+    i16 231, label %775
+    i16 232, label %776
+    i16 233, label %777
+    i16 234, label %778
+    i16 235, label %779
+    i16 263, label %780
+    i16 264, label %781
+    i16 265, label %782
+    i16 266, label %783
+    i16 267, label %784
+    i16 268, label %785
+    i16 269, label %786
+    i16 270, label %787
+    i16 271, label %788
+    i16 273, label %789
+    i16 274, label %790
+    i16 275, label %791
+    i16 276, label %792
+    i16 277, label %793
+    i16 278, label %794
+    i16 279, label %795
+    i16 280, label %796
+    i16 281, label %797
+    i16 282, label %798
+    i16 283, label %799
+    i16 285, label %800
   ]
 
 751:                                              ; preds = %750
@@ -46611,10 +46639,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 801:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 154, label %802
-    i32 384, label %803
-    i32 395, label %804
+  %trunc492 = trunc nuw i32 %1 to i16
+  switch i16 %trunc492, label %2244 [
+    i16 154, label %802
+    i16 384, label %803
+    i16 395, label %804
   ]
 
 802:                                              ; preds = %801
@@ -46627,31 +46656,33 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 805:                                              ; preds = %4
-  %switch.tableidx376 = add i32 %1, -368
-  %806 = icmp ult i32 %switch.tableidx376, 28
-  br i1 %806, label %switch.lookup375, label %2244
+  %trunc491 = trunc nuw i32 %1 to i16
+  %switch.tableidx591 = add i16 %trunc491, -368
+  %806 = icmp ult i16 %switch.tableidx591, 28
+  br i1 %806, label %switch.lookup590, label %2244
 
 807:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 136, label %808
-    i32 137, label %809
-    i32 161, label %810
-    i32 174, label %811
-    i32 176, label %812
-    i32 177, label %813
-    i32 204, label %814
-    i32 205, label %815
-    i32 208, label %816
-    i32 209, label %817
-    i32 210, label %818
-    i32 289, label %819
-    i32 299, label %820
-    i32 300, label %821
-    i32 320, label %822
-    i32 322, label %823
-    i32 323, label %824
-    i32 324, label %825
-    i32 392, label %826
+  %trunc490 = trunc nuw i32 %1 to i16
+  switch i16 %trunc490, label %2244 [
+    i16 136, label %808
+    i16 137, label %809
+    i16 161, label %810
+    i16 174, label %811
+    i16 176, label %812
+    i16 177, label %813
+    i16 204, label %814
+    i16 205, label %815
+    i16 208, label %816
+    i16 209, label %817
+    i16 210, label %818
+    i16 289, label %819
+    i16 299, label %820
+    i16 300, label %821
+    i16 320, label %822
+    i16 322, label %823
+    i16 323, label %824
+    i16 324, label %825
+    i16 392, label %826
   ]
 
 808:                                              ; preds = %807
@@ -46712,26 +46743,27 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 827:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 138, label %828
-    i32 139, label %829
-    i32 161, label %830
-    i32 175, label %831
-    i32 176, label %832
-    i32 177, label %833
-    i32 206, label %834
-    i32 207, label %835
-    i32 208, label %836
-    i32 209, label %837
-    i32 210, label %838
-    i32 289, label %839
-    i32 299, label %840
-    i32 300, label %841
-    i32 321, label %842
-    i32 322, label %843
-    i32 323, label %844
-    i32 324, label %845
-    i32 392, label %846
+  %trunc489 = trunc nuw i32 %1 to i16
+  switch i16 %trunc489, label %2244 [
+    i16 138, label %828
+    i16 139, label %829
+    i16 161, label %830
+    i16 175, label %831
+    i16 176, label %832
+    i16 177, label %833
+    i16 206, label %834
+    i16 207, label %835
+    i16 208, label %836
+    i16 209, label %837
+    i16 210, label %838
+    i16 289, label %839
+    i16 299, label %840
+    i16 300, label %841
+    i16 321, label %842
+    i16 322, label %843
+    i16 323, label %844
+    i16 324, label %845
+    i16 392, label %846
   ]
 
 828:                                              ; preds = %827
@@ -46792,26 +46824,27 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 847:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 140, label %848
-    i32 141, label %849
-    i32 164, label %850
-    i32 178, label %851
-    i32 181, label %852
-    i32 182, label %853
-    i32 211, label %854
-    i32 212, label %855
-    i32 217, label %856
-    i32 218, label %857
-    i32 219, label %858
-    i32 290, label %859
-    i32 301, label %860
-    i32 302, label %861
-    i32 325, label %862
-    i32 327, label %863
-    i32 328, label %864
-    i32 329, label %865
-    i32 393, label %866
+  %trunc488 = trunc nuw i32 %1 to i16
+  switch i16 %trunc488, label %2244 [
+    i16 140, label %848
+    i16 141, label %849
+    i16 164, label %850
+    i16 178, label %851
+    i16 181, label %852
+    i16 182, label %853
+    i16 211, label %854
+    i16 212, label %855
+    i16 217, label %856
+    i16 218, label %857
+    i16 219, label %858
+    i16 290, label %859
+    i16 301, label %860
+    i16 302, label %861
+    i16 325, label %862
+    i16 327, label %863
+    i16 328, label %864
+    i16 329, label %865
+    i16 393, label %866
   ]
 
 848:                                              ; preds = %847
@@ -46872,33 +46905,34 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 867:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 141, label %868
-    i32 142, label %869
-    i32 162, label %870
-    i32 165, label %871
-    i32 178, label %872
-    i32 179, label %873
-    i32 182, label %874
-    i32 183, label %875
-    i32 211, label %876
-    i32 212, label %877
-    i32 213, label %878
-    i32 218, label %879
-    i32 219, label %880
-    i32 220, label %881
-    i32 286, label %882
-    i32 290, label %883
-    i32 291, label %884
-    i32 301, label %885
-    i32 302, label %886
-    i32 303, label %887
-    i32 325, label %888
-    i32 327, label %889
-    i32 328, label %890
-    i32 329, label %891
-    i32 330, label %892
-    i32 393, label %893
+  %trunc487 = trunc nuw i32 %1 to i16
+  switch i16 %trunc487, label %2244 [
+    i16 141, label %868
+    i16 142, label %869
+    i16 162, label %870
+    i16 165, label %871
+    i16 178, label %872
+    i16 179, label %873
+    i16 182, label %874
+    i16 183, label %875
+    i16 211, label %876
+    i16 212, label %877
+    i16 213, label %878
+    i16 218, label %879
+    i16 219, label %880
+    i16 220, label %881
+    i16 286, label %882
+    i16 290, label %883
+    i16 291, label %884
+    i16 301, label %885
+    i16 302, label %886
+    i16 303, label %887
+    i16 325, label %888
+    i16 327, label %889
+    i16 328, label %890
+    i16 329, label %891
+    i16 330, label %892
+    i16 393, label %893
   ]
 
 868:                                              ; preds = %867
@@ -46980,34 +47014,35 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 894:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 144, label %895
-    i32 145, label %896
-    i32 158, label %897
-    i32 164, label %898
-    i32 165, label %899
-    i32 180, label %900
-    i32 181, label %901
-    i32 182, label %902
-    i32 183, label %903
-    i32 215, label %904
-    i32 216, label %905
-    i32 217, label %906
-    i32 218, label %907
-    i32 219, label %908
-    i32 220, label %909
-    i32 286, label %910
-    i32 290, label %911
-    i32 291, label %912
-    i32 301, label %913
-    i32 302, label %914
-    i32 303, label %915
-    i32 326, label %916
-    i32 327, label %917
-    i32 328, label %918
-    i32 329, label %919
-    i32 330, label %920
-    i32 393, label %921
+  %trunc486 = trunc nuw i32 %1 to i16
+  switch i16 %trunc486, label %2244 [
+    i16 144, label %895
+    i16 145, label %896
+    i16 158, label %897
+    i16 164, label %898
+    i16 165, label %899
+    i16 180, label %900
+    i16 181, label %901
+    i16 182, label %902
+    i16 183, label %903
+    i16 215, label %904
+    i16 216, label %905
+    i16 217, label %906
+    i16 218, label %907
+    i16 219, label %908
+    i16 220, label %909
+    i16 286, label %910
+    i16 290, label %911
+    i16 291, label %912
+    i16 301, label %913
+    i16 302, label %914
+    i16 303, label %915
+    i16 326, label %916
+    i16 327, label %917
+    i16 328, label %918
+    i16 329, label %919
+    i16 330, label %920
+    i16 393, label %921
   ]
 
 895:                                              ; preds = %894
@@ -47092,56 +47127,57 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 922:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 149, label %923
-    i32 159, label %924
-    i32 166, label %925
-    i32 167, label %926
-    i32 168, label %927
-    i32 169, label %928
-    i32 170, label %929
-    i32 185, label %930
-    i32 186, label %931
-    i32 187, label %932
-    i32 188, label %933
-    i32 189, label %934
-    i32 190, label %935
-    i32 191, label %936
-    i32 192, label %937
-    i32 193, label %938
-    i32 194, label %939
-    i32 225, label %940
-    i32 226, label %941
-    i32 227, label %942
-    i32 228, label %943
-    i32 229, label %944
-    i32 230, label %945
-    i32 231, label %946
-    i32 232, label %947
-    i32 233, label %948
-    i32 234, label %949
-    i32 235, label %950
-    i32 263, label %951
-    i32 264, label %952
-    i32 265, label %953
-    i32 266, label %954
-    i32 267, label %955
-    i32 268, label %956
-    i32 269, label %957
-    i32 270, label %958
-    i32 271, label %959
-    i32 273, label %960
-    i32 274, label %961
-    i32 275, label %962
-    i32 276, label %963
-    i32 277, label %964
-    i32 278, label %965
-    i32 279, label %966
-    i32 280, label %967
-    i32 281, label %968
-    i32 282, label %969
-    i32 283, label %970
-    i32 285, label %971
+  %trunc485 = trunc nuw i32 %1 to i16
+  switch i16 %trunc485, label %2244 [
+    i16 149, label %923
+    i16 159, label %924
+    i16 166, label %925
+    i16 167, label %926
+    i16 168, label %927
+    i16 169, label %928
+    i16 170, label %929
+    i16 185, label %930
+    i16 186, label %931
+    i16 187, label %932
+    i16 188, label %933
+    i16 189, label %934
+    i16 190, label %935
+    i16 191, label %936
+    i16 192, label %937
+    i16 193, label %938
+    i16 194, label %939
+    i16 225, label %940
+    i16 226, label %941
+    i16 227, label %942
+    i16 228, label %943
+    i16 229, label %944
+    i16 230, label %945
+    i16 231, label %946
+    i16 232, label %947
+    i16 233, label %948
+    i16 234, label %949
+    i16 235, label %950
+    i16 263, label %951
+    i16 264, label %952
+    i16 265, label %953
+    i16 266, label %954
+    i16 267, label %955
+    i16 268, label %956
+    i16 269, label %957
+    i16 270, label %958
+    i16 271, label %959
+    i16 273, label %960
+    i16 274, label %961
+    i16 275, label %962
+    i16 276, label %963
+    i16 277, label %964
+    i16 278, label %965
+    i16 279, label %966
+    i16 280, label %967
+    i16 281, label %968
+    i16 282, label %969
+    i16 283, label %970
+    i16 285, label %971
   ]
 
 923:                                              ; preds = %922
@@ -47292,11 +47328,12 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 972:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 163, label %973
-    i32 214, label %974
-    i32 259, label %975
-    i32 364, label %976
+  %trunc484 = trunc nuw i32 %1 to i16
+  switch i16 %trunc484, label %2244 [
+    i16 163, label %973
+    i16 214, label %974
+    i16 259, label %975
+    i16 364, label %976
   ]
 
 973:                                              ; preds = %972
@@ -47312,16 +47349,17 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 977:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 176, label %978
-    i32 204, label %979
-    i32 208, label %980
-    i32 209, label %981
-    i32 299, label %982
-    i32 320, label %983
-    i32 322, label %984
-    i32 323, label %985
-    i32 392, label %986
+  %trunc483 = trunc nuw i32 %1 to i16
+  switch i16 %trunc483, label %2244 [
+    i16 176, label %978
+    i16 204, label %979
+    i16 208, label %980
+    i16 209, label %981
+    i16 299, label %982
+    i16 320, label %983
+    i16 322, label %984
+    i16 323, label %985
+    i16 392, label %986
   ]
 
 978:                                              ; preds = %977
@@ -47352,19 +47390,20 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 987:                                              ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 174, label %988
-    i32 204, label %989
-    i32 205, label %990
-    i32 210, label %991
-    i32 289, label %992
-    i32 299, label %993
-    i32 300, label %994
-    i32 320, label %995
-    i32 322, label %996
-    i32 323, label %997
-    i32 324, label %998
-    i32 392, label %999
+  %trunc482 = trunc nuw i32 %1 to i16
+  switch i16 %trunc482, label %2244 [
+    i16 174, label %988
+    i16 204, label %989
+    i16 205, label %990
+    i16 210, label %991
+    i16 289, label %992
+    i16 299, label %993
+    i16 300, label %994
+    i16 320, label %995
+    i16 322, label %996
+    i16 323, label %997
+    i16 324, label %998
+    i16 392, label %999
   ]
 
 988:                                              ; preds = %987
@@ -47404,12 +47443,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1000:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 206, label %1001
-    i32 208, label %1002
-    i32 321, label %1003
-    i32 322, label %1004
-    i32 392, label %1005
+  %trunc481 = trunc nuw i32 %1 to i16
+  switch i16 %trunc481, label %2244 [
+    i16 206, label %1001
+    i16 208, label %1002
+    i16 321, label %1003
+    i16 322, label %1004
+    i16 392, label %1005
   ]
 
 1001:                                             ; preds = %1000
@@ -47428,21 +47468,22 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1006:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 175, label %1007
-    i32 177, label %1008
-    i32 206, label %1009
-    i32 207, label %1010
-    i32 209, label %1011
-    i32 210, label %1012
-    i32 289, label %1013
-    i32 299, label %1014
-    i32 300, label %1015
-    i32 321, label %1016
-    i32 322, label %1017
-    i32 323, label %1018
-    i32 324, label %1019
-    i32 392, label %1020
+  %trunc480 = trunc nuw i32 %1 to i16
+  switch i16 %trunc480, label %2244 [
+    i16 175, label %1007
+    i16 177, label %1008
+    i16 206, label %1009
+    i16 207, label %1010
+    i16 209, label %1011
+    i16 210, label %1012
+    i16 289, label %1013
+    i16 299, label %1014
+    i16 300, label %1015
+    i16 321, label %1016
+    i16 322, label %1017
+    i16 323, label %1018
+    i16 324, label %1019
+    i16 392, label %1020
   ]
 
 1007:                                             ; preds = %1006
@@ -47488,12 +47529,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1021:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 211, label %1022
-    i32 217, label %1023
-    i32 325, label %1024
-    i32 327, label %1025
-    i32 393, label %1026
+  %trunc479 = trunc nuw i32 %1 to i16
+  switch i16 %trunc479, label %2244 [
+    i16 211, label %1022
+    i16 217, label %1023
+    i16 325, label %1024
+    i16 327, label %1025
+    i16 393, label %1026
   ]
 
 1022:                                             ; preds = %1021
@@ -47512,21 +47554,22 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1027:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 178, label %1028
-    i32 182, label %1029
-    i32 211, label %1030
-    i32 212, label %1031
-    i32 218, label %1032
-    i32 219, label %1033
-    i32 290, label %1034
-    i32 301, label %1035
-    i32 302, label %1036
-    i32 325, label %1037
-    i32 327, label %1038
-    i32 328, label %1039
-    i32 329, label %1040
-    i32 393, label %1041
+  %trunc478 = trunc nuw i32 %1 to i16
+  switch i16 %trunc478, label %2244 [
+    i16 178, label %1028
+    i16 182, label %1029
+    i16 211, label %1030
+    i16 212, label %1031
+    i16 218, label %1032
+    i16 219, label %1033
+    i16 290, label %1034
+    i16 301, label %1035
+    i16 302, label %1036
+    i16 325, label %1037
+    i16 327, label %1038
+    i16 328, label %1039
+    i16 329, label %1040
+    i16 393, label %1041
   ]
 
 1028:                                             ; preds = %1027
@@ -47572,26 +47615,27 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1042:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 162, label %1043
-    i32 178, label %1044
-    i32 179, label %1045
-    i32 211, label %1046
-    i32 212, label %1047
-    i32 213, label %1048
-    i32 220, label %1049
-    i32 286, label %1050
-    i32 290, label %1051
-    i32 291, label %1052
-    i32 301, label %1053
-    i32 302, label %1054
-    i32 303, label %1055
-    i32 325, label %1056
-    i32 327, label %1057
-    i32 328, label %1058
-    i32 329, label %1059
-    i32 330, label %1060
-    i32 393, label %1061
+  %trunc477 = trunc nuw i32 %1 to i16
+  switch i16 %trunc477, label %2244 [
+    i16 162, label %1043
+    i16 178, label %1044
+    i16 179, label %1045
+    i16 211, label %1046
+    i16 212, label %1047
+    i16 213, label %1048
+    i16 220, label %1049
+    i16 286, label %1050
+    i16 290, label %1051
+    i16 291, label %1052
+    i16 301, label %1053
+    i16 302, label %1054
+    i16 303, label %1055
+    i16 325, label %1056
+    i16 327, label %1057
+    i16 328, label %1058
+    i16 329, label %1059
+    i16 330, label %1060
+    i16 393, label %1061
   ]
 
 1043:                                             ; preds = %1042
@@ -47652,25 +47696,26 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1062:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 180, label %1063
-    i32 214, label %1064
-    i32 215, label %1065
-    i32 216, label %1066
-    i32 258, label %1067
-    i32 286, label %1068
-    i32 290, label %1069
-    i32 291, label %1070
-    i32 301, label %1071
-    i32 302, label %1072
-    i32 303, label %1073
-    i32 326, label %1074
-    i32 327, label %1075
-    i32 328, label %1076
-    i32 329, label %1077
-    i32 330, label %1078
-    i32 364, label %1079
-    i32 393, label %1080
+  %trunc476 = trunc nuw i32 %1 to i16
+  switch i16 %trunc476, label %2244 [
+    i16 180, label %1063
+    i16 214, label %1064
+    i16 215, label %1065
+    i16 216, label %1066
+    i16 258, label %1067
+    i16 286, label %1068
+    i16 290, label %1069
+    i16 291, label %1070
+    i16 301, label %1071
+    i16 302, label %1072
+    i16 303, label %1073
+    i16 326, label %1074
+    i16 327, label %1075
+    i16 328, label %1076
+    i16 329, label %1077
+    i16 330, label %1078
+    i16 364, label %1079
+    i16 393, label %1080
   ]
 
 1063:                                             ; preds = %1062
@@ -47728,16 +47773,17 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1081:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 181, label %1082
-    i32 215, label %1083
-    i32 217, label %1084
-    i32 218, label %1085
-    i32 301, label %1086
-    i32 326, label %1087
-    i32 327, label %1088
-    i32 328, label %1089
-    i32 393, label %1090
+  %trunc475 = trunc nuw i32 %1 to i16
+  switch i16 %trunc475, label %2244 [
+    i16 181, label %1082
+    i16 215, label %1083
+    i16 217, label %1084
+    i16 218, label %1085
+    i16 301, label %1086
+    i16 326, label %1087
+    i16 327, label %1088
+    i16 328, label %1089
+    i16 393, label %1090
   ]
 
 1082:                                             ; preds = %1081
@@ -47768,25 +47814,26 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1091:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 180, label %1092
-    i32 183, label %1093
-    i32 215, label %1094
-    i32 216, label %1095
-    i32 219, label %1096
-    i32 220, label %1097
-    i32 286, label %1098
-    i32 290, label %1099
-    i32 291, label %1100
-    i32 301, label %1101
-    i32 302, label %1102
-    i32 303, label %1103
-    i32 326, label %1104
-    i32 327, label %1105
-    i32 328, label %1106
-    i32 329, label %1107
-    i32 330, label %1108
-    i32 393, label %1109
+  %trunc474 = trunc nuw i32 %1 to i16
+  switch i16 %trunc474, label %2244 [
+    i16 180, label %1092
+    i16 183, label %1093
+    i16 215, label %1094
+    i16 216, label %1095
+    i16 219, label %1096
+    i16 220, label %1097
+    i16 286, label %1098
+    i16 290, label %1099
+    i16 291, label %1100
+    i16 301, label %1101
+    i16 302, label %1102
+    i16 303, label %1103
+    i16 326, label %1104
+    i16 327, label %1105
+    i16 328, label %1106
+    i16 329, label %1107
+    i16 330, label %1108
+    i16 393, label %1109
   ]
 
 1092:                                             ; preds = %1091
@@ -47844,19 +47891,20 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1110:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 184, label %1111
-    i32 221, label %1112
-    i32 222, label %1113
-    i32 223, label %1114
-    i32 284, label %1115
-    i32 304, label %1116
-    i32 331, label %1117
-    i32 332, label %1118
-    i32 333, label %1119
-    i32 362, label %1120
-    i32 390, label %1121
-    i32 391, label %1122
+  %trunc473 = trunc nuw i32 %1 to i16
+  switch i16 %trunc473, label %2244 [
+    i16 184, label %1111
+    i16 221, label %1112
+    i16 222, label %1113
+    i16 223, label %1114
+    i16 284, label %1115
+    i16 304, label %1116
+    i16 331, label %1117
+    i16 332, label %1118
+    i16 333, label %1119
+    i16 362, label %1120
+    i16 390, label %1121
+    i16 391, label %1122
   ]
 
 1111:                                             ; preds = %1110
@@ -47896,15 +47944,16 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1123:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 224, label %1124
-    i32 261, label %1125
-    i32 262, label %1126
-    i32 272, label %1127
-    i32 292, label %1128
-    i32 305, label %1129
-    i32 306, label %1130
-    i32 361, label %1131
+  %trunc472 = trunc nuw i32 %1 to i16
+  switch i16 %trunc472, label %2244 [
+    i16 224, label %1124
+    i16 261, label %1125
+    i16 262, label %1126
+    i16 272, label %1127
+    i16 292, label %1128
+    i16 305, label %1129
+    i16 306, label %1130
+    i16 361, label %1131
   ]
 
 1124:                                             ; preds = %1123
@@ -47932,61 +47981,62 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1132:                                             ; preds = %4
-  %switch.selectcmp.case1316 = icmp eq i32 %1, 307
-  %switch.selectcmp.case2317 = icmp eq i32 %1, 360
-  %switch.selectcmp318 = or i1 %switch.selectcmp.case1316, %switch.selectcmp.case2317
+  %switch.selectcmp.case1531 = icmp eq i32 %1, 307
+  %switch.selectcmp.case2532 = icmp eq i32 %1, 360
+  %switch.selectcmp533 = or i1 %switch.selectcmp.case1531, %switch.selectcmp.case2532
   br label %2244
 
 1133:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 159, label %1134
-    i32 166, label %1135
-    i32 167, label %1136
-    i32 168, label %1137
-    i32 169, label %1138
-    i32 170, label %1139
-    i32 185, label %1140
-    i32 186, label %1141
-    i32 187, label %1142
-    i32 188, label %1143
-    i32 189, label %1144
-    i32 190, label %1145
-    i32 191, label %1146
-    i32 192, label %1147
-    i32 193, label %1148
-    i32 194, label %1149
-    i32 225, label %1150
-    i32 226, label %1151
-    i32 227, label %1152
-    i32 228, label %1153
-    i32 229, label %1154
-    i32 230, label %1155
-    i32 231, label %1156
-    i32 232, label %1157
-    i32 233, label %1158
-    i32 234, label %1159
-    i32 235, label %1160
-    i32 263, label %1161
-    i32 264, label %1162
-    i32 265, label %1163
-    i32 266, label %1164
-    i32 267, label %1165
-    i32 268, label %1166
-    i32 269, label %1167
-    i32 270, label %1168
-    i32 271, label %1169
-    i32 273, label %1170
-    i32 274, label %1171
-    i32 275, label %1172
-    i32 276, label %1173
-    i32 277, label %1174
-    i32 278, label %1175
-    i32 279, label %1176
-    i32 280, label %1177
-    i32 281, label %1178
-    i32 282, label %1179
-    i32 283, label %1180
-    i32 285, label %1181
+  %trunc470 = trunc nuw i32 %1 to i16
+  switch i16 %trunc470, label %2244 [
+    i16 159, label %1134
+    i16 166, label %1135
+    i16 167, label %1136
+    i16 168, label %1137
+    i16 169, label %1138
+    i16 170, label %1139
+    i16 185, label %1140
+    i16 186, label %1141
+    i16 187, label %1142
+    i16 188, label %1143
+    i16 189, label %1144
+    i16 190, label %1145
+    i16 191, label %1146
+    i16 192, label %1147
+    i16 193, label %1148
+    i16 194, label %1149
+    i16 225, label %1150
+    i16 226, label %1151
+    i16 227, label %1152
+    i16 228, label %1153
+    i16 229, label %1154
+    i16 230, label %1155
+    i16 231, label %1156
+    i16 232, label %1157
+    i16 233, label %1158
+    i16 234, label %1159
+    i16 235, label %1160
+    i16 263, label %1161
+    i16 264, label %1162
+    i16 265, label %1163
+    i16 266, label %1164
+    i16 267, label %1165
+    i16 268, label %1166
+    i16 269, label %1167
+    i16 270, label %1168
+    i16 271, label %1169
+    i16 273, label %1170
+    i16 274, label %1171
+    i16 275, label %1172
+    i16 276, label %1173
+    i16 277, label %1174
+    i16 278, label %1175
+    i16 279, label %1176
+    i16 280, label %1177
+    i16 281, label %1178
+    i16 282, label %1179
+    i16 283, label %1180
+    i16 285, label %1181
   ]
 
 1134:                                             ; preds = %1133
@@ -48134,12 +48184,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1182:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 201, label %1183
-    i32 245, label %1184
-    i32 246, label %1185
-    i32 255, label %1186
-    i32 359, label %1187
+  %trunc469 = trunc nuw i32 %1 to i16
+  switch i16 %trunc469, label %2244 [
+    i16 201, label %1183
+    i16 245, label %1184
+    i16 246, label %1185
+    i16 255, label %1186
+    i16 359, label %1187
   ]
 
 1183:                                             ; preds = %1182
@@ -48158,12 +48209,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1188:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 202, label %1189
-    i32 247, label %1190
-    i32 248, label %1191
-    i32 255, label %1192
-    i32 359, label %1193
+  %trunc468 = trunc nuw i32 %1 to i16
+  switch i16 %trunc468, label %2244 [
+    i16 202, label %1189
+    i16 247, label %1190
+    i16 248, label %1191
+    i16 255, label %1192
+    i16 359, label %1193
   ]
 
 1189:                                             ; preds = %1188
@@ -48182,47 +48234,52 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1194:                                             ; preds = %4
-  %switch.tableidx382 = add i32 %1, -366
-  %1195 = icmp ult i32 %switch.tableidx382, 30
-  br i1 %1195, label %switch.lookup381, label %2244
+  %trunc467 = trunc nuw i32 %1 to i16
+  %switch.tableidx597 = add i16 %trunc467, -366
+  %1195 = icmp ult i16 %switch.tableidx597, 30
+  br i1 %1195, label %switch.lookup596, label %2244
 
 1196:                                             ; preds = %4
-  %switch.tableidx388 = add i32 %1, -366
-  %1197 = icmp ult i32 %switch.tableidx388, 30
-  br i1 %1197, label %switch.lookup387, label %2244
+  %trunc466 = trunc nuw i32 %1 to i16
+  %switch.tableidx603 = add i16 %trunc466, -366
+  %1197 = icmp ult i16 %switch.tableidx603, 30
+  br i1 %1197, label %switch.lookup602, label %2244
 
 1198:                                             ; preds = %4
-  %switch.tableidx394 = add i32 %1, -371
-  %1199 = icmp ult i32 %switch.tableidx394, 24
-  br i1 %1199, label %switch.lookup393, label %2244
+  %trunc465 = trunc nuw i32 %1 to i16
+  %switch.tableidx609 = add i16 %trunc465, -371
+  %1199 = icmp ult i16 %switch.tableidx609, 24
+  br i1 %1199, label %switch.lookup608, label %2244
 
 1200:                                             ; preds = %4
-  %switch.tableidx400 = add i32 %1, -371
-  %1201 = icmp ult i32 %switch.tableidx400, 24
-  br i1 %1201, label %switch.lookup399, label %2244
+  %trunc464 = trunc nuw i32 %1 to i16
+  %switch.tableidx615 = add i16 %trunc464, -371
+  %1201 = icmp ult i16 %switch.tableidx615, 24
+  br i1 %1201, label %switch.lookup614, label %2244
 
 1202:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 164, label %1203
-    i32 165, label %1204
-    i32 181, label %1205
-    i32 182, label %1206
-    i32 183, label %1207
-    i32 217, label %1208
-    i32 218, label %1209
-    i32 219, label %1210
-    i32 220, label %1211
-    i32 286, label %1212
-    i32 290, label %1213
-    i32 291, label %1214
-    i32 301, label %1215
-    i32 302, label %1216
-    i32 303, label %1217
-    i32 327, label %1218
-    i32 328, label %1219
-    i32 329, label %1220
-    i32 330, label %1221
-    i32 393, label %1222
+  %trunc463 = trunc nuw i32 %1 to i16
+  switch i16 %trunc463, label %2244 [
+    i16 164, label %1203
+    i16 165, label %1204
+    i16 181, label %1205
+    i16 182, label %1206
+    i16 183, label %1207
+    i16 217, label %1208
+    i16 218, label %1209
+    i16 219, label %1210
+    i16 220, label %1211
+    i16 286, label %1212
+    i16 290, label %1213
+    i16 291, label %1214
+    i16 301, label %1215
+    i16 302, label %1216
+    i16 303, label %1217
+    i16 327, label %1218
+    i16 328, label %1219
+    i16 329, label %1220
+    i16 330, label %1221
+    i16 393, label %1222
   ]
 
 1203:                                             ; preds = %1202
@@ -48286,54 +48343,55 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1223:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 166, label %1224
-    i32 167, label %1225
-    i32 168, label %1226
-    i32 169, label %1227
-    i32 170, label %1228
-    i32 185, label %1229
-    i32 186, label %1230
-    i32 187, label %1231
-    i32 188, label %1232
-    i32 189, label %1233
-    i32 190, label %1234
-    i32 191, label %1235
-    i32 192, label %1236
-    i32 193, label %1237
-    i32 194, label %1238
-    i32 225, label %1239
-    i32 226, label %1240
-    i32 227, label %1241
-    i32 228, label %1242
-    i32 229, label %1243
-    i32 230, label %1244
-    i32 231, label %1245
-    i32 232, label %1246
-    i32 233, label %1247
-    i32 234, label %1248
-    i32 235, label %1249
-    i32 263, label %1250
-    i32 264, label %1251
-    i32 265, label %1252
-    i32 266, label %1253
-    i32 267, label %1254
-    i32 268, label %1255
-    i32 269, label %1256
-    i32 270, label %1257
-    i32 271, label %1258
-    i32 273, label %1259
-    i32 274, label %1260
-    i32 275, label %1261
-    i32 276, label %1262
-    i32 277, label %1263
-    i32 278, label %1264
-    i32 279, label %1265
-    i32 280, label %1266
-    i32 281, label %1267
-    i32 282, label %1268
-    i32 283, label %1269
-    i32 285, label %1270
+  %trunc462 = trunc nuw i32 %1 to i16
+  switch i16 %trunc462, label %2244 [
+    i16 166, label %1224
+    i16 167, label %1225
+    i16 168, label %1226
+    i16 169, label %1227
+    i16 170, label %1228
+    i16 185, label %1229
+    i16 186, label %1230
+    i16 187, label %1231
+    i16 188, label %1232
+    i16 189, label %1233
+    i16 190, label %1234
+    i16 191, label %1235
+    i16 192, label %1236
+    i16 193, label %1237
+    i16 194, label %1238
+    i16 225, label %1239
+    i16 226, label %1240
+    i16 227, label %1241
+    i16 228, label %1242
+    i16 229, label %1243
+    i16 230, label %1244
+    i16 231, label %1245
+    i16 232, label %1246
+    i16 233, label %1247
+    i16 234, label %1248
+    i16 235, label %1249
+    i16 263, label %1250
+    i16 264, label %1251
+    i16 265, label %1252
+    i16 266, label %1253
+    i16 267, label %1254
+    i16 268, label %1255
+    i16 269, label %1256
+    i16 270, label %1257
+    i16 271, label %1258
+    i16 273, label %1259
+    i16 274, label %1260
+    i16 275, label %1261
+    i16 276, label %1262
+    i16 277, label %1263
+    i16 278, label %1264
+    i16 279, label %1265
+    i16 280, label %1266
+    i16 281, label %1267
+    i16 282, label %1268
+    i16 283, label %1269
+    i16 285, label %1270
   ]
 
 1224:                                             ; preds = %1223
@@ -48478,27 +48536,28 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1271:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 172, label %1272
-    i32 173, label %1273
-    i32 197, label %1274
-    i32 198, label %1275
-    i32 199, label %1276
-    i32 239, label %1277
-    i32 240, label %1278
-    i32 241, label %1279
-    i32 242, label %1280
-    i32 287, label %1281
-    i32 294, label %1282
-    i32 295, label %1283
-    i32 310, label %1284
-    i32 311, label %1285
-    i32 312, label %1286
-    i32 337, label %1287
-    i32 338, label %1288
-    i32 339, label %1289
-    i32 340, label %1290
-    i32 388, label %1291
+  %trunc461 = trunc nuw i32 %1 to i16
+  switch i16 %trunc461, label %2244 [
+    i16 172, label %1272
+    i16 173, label %1273
+    i16 197, label %1274
+    i16 198, label %1275
+    i16 199, label %1276
+    i16 239, label %1277
+    i16 240, label %1278
+    i16 241, label %1279
+    i16 242, label %1280
+    i16 287, label %1281
+    i16 294, label %1282
+    i16 295, label %1283
+    i16 310, label %1284
+    i16 311, label %1285
+    i16 312, label %1286
+    i16 337, label %1287
+    i16 338, label %1288
+    i16 339, label %1289
+    i16 340, label %1290
+    i16 388, label %1291
   ]
 
 1272:                                             ; preds = %1271
@@ -48562,19 +48621,20 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1292:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 176, label %1293
-    i32 177, label %1294
-    i32 208, label %1295
-    i32 209, label %1296
-    i32 210, label %1297
-    i32 289, label %1298
-    i32 299, label %1299
-    i32 300, label %1300
-    i32 322, label %1301
-    i32 323, label %1302
-    i32 324, label %1303
-    i32 392, label %1304
+  %trunc460 = trunc nuw i32 %1 to i16
+  switch i16 %trunc460, label %2244 [
+    i16 176, label %1293
+    i16 177, label %1294
+    i16 208, label %1295
+    i16 209, label %1296
+    i16 210, label %1297
+    i16 289, label %1298
+    i16 299, label %1299
+    i16 300, label %1300
+    i16 322, label %1301
+    i16 323, label %1302
+    i16 324, label %1303
+    i16 392, label %1304
   ]
 
 1293:                                             ; preds = %1292
@@ -48614,24 +48674,25 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1305:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 178, label %1306
-    i32 179, label %1307
-    i32 211, label %1308
-    i32 212, label %1309
-    i32 213, label %1310
-    i32 286, label %1311
-    i32 290, label %1312
-    i32 291, label %1313
-    i32 301, label %1314
-    i32 302, label %1315
-    i32 303, label %1316
-    i32 325, label %1317
-    i32 327, label %1318
-    i32 328, label %1319
-    i32 329, label %1320
-    i32 330, label %1321
-    i32 393, label %1322
+  %trunc459 = trunc nuw i32 %1 to i16
+  switch i16 %trunc459, label %2244 [
+    i16 178, label %1306
+    i16 179, label %1307
+    i16 211, label %1308
+    i16 212, label %1309
+    i16 213, label %1310
+    i16 286, label %1311
+    i16 290, label %1312
+    i16 291, label %1313
+    i16 301, label %1314
+    i16 302, label %1315
+    i16 303, label %1316
+    i16 325, label %1317
+    i16 327, label %1318
+    i16 328, label %1319
+    i16 329, label %1320
+    i16 330, label %1321
+    i16 393, label %1322
   ]
 
 1306:                                             ; preds = %1305
@@ -48686,25 +48747,26 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1323:                                             ; preds = %4
-  %switch.selectcmp.case1319 = icmp eq i32 %1, 214
-  %switch.selectcmp.case2320 = icmp eq i32 %1, 364
-  %switch.selectcmp321 = or i1 %switch.selectcmp.case1319, %switch.selectcmp.case2320
+  %switch.selectcmp.case1534 = icmp eq i32 %1, 214
+  %switch.selectcmp.case2535 = icmp eq i32 %1, 364
+  %switch.selectcmp536 = or i1 %switch.selectcmp.case1534, %switch.selectcmp.case2535
   br label %2244
 
 1324:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 181, label %1325
-    i32 182, label %1326
-    i32 217, label %1327
-    i32 218, label %1328
-    i32 219, label %1329
-    i32 290, label %1330
-    i32 301, label %1331
-    i32 302, label %1332
-    i32 327, label %1333
-    i32 328, label %1334
-    i32 329, label %1335
-    i32 393, label %1336
+  %trunc457 = trunc nuw i32 %1 to i16
+  switch i16 %trunc457, label %2244 [
+    i16 181, label %1325
+    i16 182, label %1326
+    i16 217, label %1327
+    i16 218, label %1328
+    i16 219, label %1329
+    i16 290, label %1330
+    i16 301, label %1331
+    i16 302, label %1332
+    i16 327, label %1333
+    i16 328, label %1334
+    i16 329, label %1335
+    i16 393, label %1336
   ]
 
 1325:                                             ; preds = %1324
@@ -48744,23 +48806,24 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1337:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 182, label %1338
-    i32 183, label %1339
-    i32 218, label %1340
-    i32 219, label %1341
-    i32 220, label %1342
-    i32 286, label %1343
-    i32 290, label %1344
-    i32 291, label %1345
-    i32 301, label %1346
-    i32 302, label %1347
-    i32 303, label %1348
-    i32 327, label %1349
-    i32 328, label %1350
-    i32 329, label %1351
-    i32 330, label %1352
-    i32 393, label %1353
+  %trunc456 = trunc nuw i32 %1 to i16
+  switch i16 %trunc456, label %2244 [
+    i16 182, label %1338
+    i16 183, label %1339
+    i16 218, label %1340
+    i16 219, label %1341
+    i16 220, label %1342
+    i16 286, label %1343
+    i16 290, label %1344
+    i16 291, label %1345
+    i16 301, label %1346
+    i16 302, label %1347
+    i16 303, label %1348
+    i16 327, label %1349
+    i16 328, label %1350
+    i16 329, label %1351
+    i16 330, label %1352
+    i16 393, label %1353
   ]
 
 1338:                                             ; preds = %1337
@@ -48812,38 +48875,39 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1354:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 185, label %1355
-    i32 186, label %1356
-    i32 188, label %1357
-    i32 191, label %1358
-    i32 225, label %1359
-    i32 226, label %1360
-    i32 227, label %1361
-    i32 228, label %1362
-    i32 230, label %1363
-    i32 231, label %1364
-    i32 233, label %1365
-    i32 263, label %1366
-    i32 264, label %1367
-    i32 265, label %1368
-    i32 266, label %1369
-    i32 267, label %1370
-    i32 268, label %1371
-    i32 269, label %1372
-    i32 270, label %1373
-    i32 273, label %1374
-    i32 274, label %1375
-    i32 275, label %1376
-    i32 276, label %1377
-    i32 277, label %1378
-    i32 278, label %1379
-    i32 279, label %1380
-    i32 280, label %1381
-    i32 281, label %1382
-    i32 282, label %1383
-    i32 283, label %1384
-    i32 285, label %1385
+  %trunc455 = trunc nuw i32 %1 to i16
+  switch i16 %trunc455, label %2244 [
+    i16 185, label %1355
+    i16 186, label %1356
+    i16 188, label %1357
+    i16 191, label %1358
+    i16 225, label %1359
+    i16 226, label %1360
+    i16 227, label %1361
+    i16 228, label %1362
+    i16 230, label %1363
+    i16 231, label %1364
+    i16 233, label %1365
+    i16 263, label %1366
+    i16 264, label %1367
+    i16 265, label %1368
+    i16 266, label %1369
+    i16 267, label %1370
+    i16 268, label %1371
+    i16 269, label %1372
+    i16 270, label %1373
+    i16 273, label %1374
+    i16 274, label %1375
+    i16 275, label %1376
+    i16 276, label %1377
+    i16 277, label %1378
+    i16 278, label %1379
+    i16 279, label %1380
+    i16 280, label %1381
+    i16 281, label %1382
+    i16 282, label %1383
+    i16 283, label %1384
+    i16 285, label %1385
   ]
 
 1355:                                             ; preds = %1354
@@ -48940,30 +49004,31 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1386:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 185, label %1387
-    i32 187, label %1388
-    i32 189, label %1389
-    i32 192, label %1390
-    i32 226, label %1391
-    i32 227, label %1392
-    i32 229, label %1393
-    i32 230, label %1394
-    i32 232, label %1395
-    i32 234, label %1396
-    i32 263, label %1397
-    i32 266, label %1398
-    i32 268, label %1399
-    i32 269, label %1400
-    i32 271, label %1401
-    i32 273, label %1402
-    i32 274, label %1403
-    i32 276, label %1404
-    i32 279, label %1405
-    i32 280, label %1406
-    i32 281, label %1407
-    i32 282, label %1408
-    i32 285, label %1409
+  %trunc454 = trunc nuw i32 %1 to i16
+  switch i16 %trunc454, label %2244 [
+    i16 185, label %1387
+    i16 187, label %1388
+    i16 189, label %1389
+    i16 192, label %1390
+    i16 226, label %1391
+    i16 227, label %1392
+    i16 229, label %1393
+    i16 230, label %1394
+    i16 232, label %1395
+    i16 234, label %1396
+    i16 263, label %1397
+    i16 266, label %1398
+    i16 268, label %1399
+    i16 269, label %1400
+    i16 271, label %1401
+    i16 273, label %1402
+    i16 274, label %1403
+    i16 276, label %1404
+    i16 279, label %1405
+    i16 280, label %1406
+    i16 281, label %1407
+    i16 282, label %1408
+    i16 285, label %1409
   ]
 
 1387:                                             ; preds = %1386
@@ -49036,30 +49101,31 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1410:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 186, label %1411
-    i32 187, label %1412
-    i32 190, label %1413
-    i32 193, label %1414
-    i32 226, label %1415
-    i32 228, label %1416
-    i32 229, label %1417
-    i32 231, label %1418
-    i32 232, label %1419
-    i32 235, label %1420
-    i32 264, label %1421
-    i32 266, label %1422
-    i32 268, label %1423
-    i32 270, label %1424
-    i32 271, label %1425
-    i32 273, label %1426
-    i32 275, label %1427
-    i32 277, label %1428
-    i32 279, label %1429
-    i32 280, label %1430
-    i32 281, label %1431
-    i32 283, label %1432
-    i32 285, label %1433
+  %trunc453 = trunc nuw i32 %1 to i16
+  switch i16 %trunc453, label %2244 [
+    i16 186, label %1411
+    i16 187, label %1412
+    i16 190, label %1413
+    i16 193, label %1414
+    i16 226, label %1415
+    i16 228, label %1416
+    i16 229, label %1417
+    i16 231, label %1418
+    i16 232, label %1419
+    i16 235, label %1420
+    i16 264, label %1421
+    i16 266, label %1422
+    i16 268, label %1423
+    i16 270, label %1424
+    i16 271, label %1425
+    i16 273, label %1426
+    i16 275, label %1427
+    i16 277, label %1428
+    i16 279, label %1429
+    i16 280, label %1430
+    i16 281, label %1431
+    i16 283, label %1432
+    i16 285, label %1433
   ]
 
 1411:                                             ; preds = %1410
@@ -49132,30 +49198,31 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1434:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 188, label %1435
-    i32 189, label %1436
-    i32 190, label %1437
-    i32 194, label %1438
-    i32 227, label %1439
-    i32 228, label %1440
-    i32 229, label %1441
-    i32 233, label %1442
-    i32 234, label %1443
-    i32 235, label %1444
-    i32 265, label %1445
-    i32 266, label %1446
-    i32 269, label %1447
-    i32 270, label %1448
-    i32 271, label %1449
-    i32 274, label %1450
-    i32 275, label %1451
-    i32 278, label %1452
-    i32 279, label %1453
-    i32 280, label %1454
-    i32 282, label %1455
-    i32 283, label %1456
-    i32 285, label %1457
+  %trunc452 = trunc nuw i32 %1 to i16
+  switch i16 %trunc452, label %2244 [
+    i16 188, label %1435
+    i16 189, label %1436
+    i16 190, label %1437
+    i16 194, label %1438
+    i16 227, label %1439
+    i16 228, label %1440
+    i16 229, label %1441
+    i16 233, label %1442
+    i16 234, label %1443
+    i16 235, label %1444
+    i16 265, label %1445
+    i16 266, label %1446
+    i16 269, label %1447
+    i16 270, label %1448
+    i16 271, label %1449
+    i16 274, label %1450
+    i16 275, label %1451
+    i16 278, label %1452
+    i16 279, label %1453
+    i16 280, label %1454
+    i16 282, label %1455
+    i16 283, label %1456
+    i16 285, label %1457
   ]
 
 1435:                                             ; preds = %1434
@@ -49228,30 +49295,31 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1458:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 191, label %1459
-    i32 192, label %1460
-    i32 193, label %1461
-    i32 194, label %1462
-    i32 230, label %1463
-    i32 231, label %1464
-    i32 232, label %1465
-    i32 233, label %1466
-    i32 234, label %1467
-    i32 235, label %1468
-    i32 267, label %1469
-    i32 268, label %1470
-    i32 269, label %1471
-    i32 270, label %1472
-    i32 271, label %1473
-    i32 276, label %1474
-    i32 277, label %1475
-    i32 278, label %1476
-    i32 279, label %1477
-    i32 281, label %1478
-    i32 282, label %1479
-    i32 283, label %1480
-    i32 285, label %1481
+  %trunc451 = trunc nuw i32 %1 to i16
+  switch i16 %trunc451, label %2244 [
+    i16 191, label %1459
+    i16 192, label %1460
+    i16 193, label %1461
+    i16 194, label %1462
+    i16 230, label %1463
+    i16 231, label %1464
+    i16 232, label %1465
+    i16 233, label %1466
+    i16 234, label %1467
+    i16 235, label %1468
+    i16 267, label %1469
+    i16 268, label %1470
+    i16 269, label %1471
+    i16 270, label %1472
+    i16 271, label %1473
+    i16 276, label %1474
+    i16 277, label %1475
+    i16 278, label %1476
+    i16 279, label %1477
+    i16 281, label %1478
+    i16 282, label %1479
+    i16 283, label %1480
+    i16 285, label %1481
   ]
 
 1459:                                             ; preds = %1458
@@ -49324,19 +49392,20 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1482:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 195, label %1483
-    i32 196, label %1484
-    i32 236, label %1485
-    i32 237, label %1486
-    i32 238, label %1487
-    i32 293, label %1488
-    i32 308, label %1489
-    i32 309, label %1490
-    i32 334, label %1491
-    i32 335, label %1492
-    i32 336, label %1493
-    i32 387, label %1494
+  %trunc450 = trunc nuw i32 %1 to i16
+  switch i16 %trunc450, label %2244 [
+    i16 195, label %1483
+    i16 196, label %1484
+    i16 236, label %1485
+    i16 237, label %1486
+    i16 238, label %1487
+    i16 293, label %1488
+    i16 308, label %1489
+    i16 309, label %1490
+    i16 334, label %1491
+    i16 335, label %1492
+    i16 336, label %1493
+    i16 387, label %1494
   ]
 
 1483:                                             ; preds = %1482
@@ -49376,19 +49445,20 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1495:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 197, label %1496
-    i32 198, label %1497
-    i32 239, label %1498
-    i32 240, label %1499
-    i32 241, label %1500
-    i32 294, label %1501
-    i32 310, label %1502
-    i32 311, label %1503
-    i32 337, label %1504
-    i32 338, label %1505
-    i32 339, label %1506
-    i32 388, label %1507
+  %trunc449 = trunc nuw i32 %1 to i16
+  switch i16 %trunc449, label %2244 [
+    i16 197, label %1496
+    i16 198, label %1497
+    i16 239, label %1498
+    i16 240, label %1499
+    i16 241, label %1500
+    i16 294, label %1501
+    i16 310, label %1502
+    i16 311, label %1503
+    i16 337, label %1504
+    i16 338, label %1505
+    i16 339, label %1506
+    i16 388, label %1507
   ]
 
 1496:                                             ; preds = %1495
@@ -49428,23 +49498,24 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1508:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 198, label %1509
-    i32 199, label %1510
-    i32 240, label %1511
-    i32 241, label %1512
-    i32 242, label %1513
-    i32 287, label %1514
-    i32 294, label %1515
-    i32 295, label %1516
-    i32 310, label %1517
-    i32 311, label %1518
-    i32 312, label %1519
-    i32 337, label %1520
-    i32 338, label %1521
-    i32 339, label %1522
-    i32 340, label %1523
-    i32 388, label %1524
+  %trunc448 = trunc nuw i32 %1 to i16
+  switch i16 %trunc448, label %2244 [
+    i16 198, label %1509
+    i16 199, label %1510
+    i16 240, label %1511
+    i16 241, label %1512
+    i16 242, label %1513
+    i16 287, label %1514
+    i16 294, label %1515
+    i16 295, label %1516
+    i16 310, label %1517
+    i16 311, label %1518
+    i16 312, label %1519
+    i16 337, label %1520
+    i16 338, label %1521
+    i16 339, label %1522
+    i16 340, label %1523
+    i16 388, label %1524
   ]
 
 1509:                                             ; preds = %1508
@@ -49496,17 +49567,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1525:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 204, label %1526
-    i32 205, label %1527
-    i32 289, label %1528
-    i32 299, label %1529
-    i32 300, label %1530
-    i32 320, label %1531
-    i32 322, label %1532
-    i32 323, label %1533
-    i32 324, label %1534
-    i32 392, label %1535
+  %trunc447 = trunc nuw i32 %1 to i16
+  switch i16 %trunc447, label %2244 [
+    i16 204, label %1526
+    i16 205, label %1527
+    i16 289, label %1528
+    i16 299, label %1529
+    i16 300, label %1530
+    i16 320, label %1531
+    i16 322, label %1532
+    i16 323, label %1533
+    i16 324, label %1534
+    i16 392, label %1535
   ]
 
 1526:                                             ; preds = %1525
@@ -49540,17 +49612,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1536:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 206, label %1537
-    i32 207, label %1538
-    i32 289, label %1539
-    i32 299, label %1540
-    i32 300, label %1541
-    i32 321, label %1542
-    i32 322, label %1543
-    i32 323, label %1544
-    i32 324, label %1545
-    i32 392, label %1546
+  %trunc446 = trunc nuw i32 %1 to i16
+  switch i16 %trunc446, label %2244 [
+    i16 206, label %1537
+    i16 207, label %1538
+    i16 289, label %1539
+    i16 299, label %1540
+    i16 300, label %1541
+    i16 321, label %1542
+    i16 322, label %1543
+    i16 323, label %1544
+    i16 324, label %1545
+    i16 392, label %1546
   ]
 
 1537:                                             ; preds = %1536
@@ -49584,13 +49657,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1547:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 208, label %1548
-    i32 209, label %1549
-    i32 299, label %1550
-    i32 322, label %1551
-    i32 323, label %1552
-    i32 392, label %1553
+  %trunc445 = trunc nuw i32 %1 to i16
+  switch i16 %trunc445, label %2244 [
+    i16 208, label %1548
+    i16 209, label %1549
+    i16 299, label %1550
+    i16 322, label %1551
+    i16 323, label %1552
+    i16 392, label %1553
   ]
 
 1548:                                             ; preds = %1547
@@ -49612,16 +49686,17 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1554:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 209, label %1555
-    i32 210, label %1556
-    i32 289, label %1557
-    i32 299, label %1558
-    i32 300, label %1559
-    i32 322, label %1560
-    i32 323, label %1561
-    i32 324, label %1562
-    i32 392, label %1563
+  %trunc444 = trunc nuw i32 %1 to i16
+  switch i16 %trunc444, label %2244 [
+    i16 209, label %1555
+    i16 210, label %1556
+    i16 289, label %1557
+    i16 299, label %1558
+    i16 300, label %1559
+    i16 322, label %1560
+    i16 323, label %1561
+    i16 324, label %1562
+    i16 392, label %1563
   ]
 
 1555:                                             ; preds = %1554
@@ -49652,17 +49727,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1564:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 211, label %1565
-    i32 212, label %1566
-    i32 290, label %1567
-    i32 301, label %1568
-    i32 302, label %1569
-    i32 325, label %1570
-    i32 327, label %1571
-    i32 328, label %1572
-    i32 329, label %1573
-    i32 393, label %1574
+  %trunc443 = trunc nuw i32 %1 to i16
+  switch i16 %trunc443, label %2244 [
+    i16 211, label %1565
+    i16 212, label %1566
+    i16 290, label %1567
+    i16 301, label %1568
+    i16 302, label %1569
+    i16 325, label %1570
+    i16 327, label %1571
+    i16 328, label %1572
+    i16 329, label %1573
+    i16 393, label %1574
   ]
 
 1565:                                             ; preds = %1564
@@ -49696,17 +49772,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1575:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 212, label %1576
-    i32 213, label %1577
-    i32 291, label %1578
-    i32 302, label %1579
-    i32 303, label %1580
-    i32 325, label %1581
-    i32 328, label %1582
-    i32 329, label %1583
-    i32 330, label %1584
-    i32 393, label %1585
+  %trunc442 = trunc nuw i32 %1 to i16
+  switch i16 %trunc442, label %2244 [
+    i16 212, label %1576
+    i16 213, label %1577
+    i16 291, label %1578
+    i16 302, label %1579
+    i16 303, label %1580
+    i16 325, label %1581
+    i16 328, label %1582
+    i16 329, label %1583
+    i16 330, label %1584
+    i16 393, label %1585
   ]
 
 1576:                                             ; preds = %1575
@@ -49740,21 +49817,22 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1586:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 215, label %1587
-    i32 216, label %1588
-    i32 286, label %1589
-    i32 290, label %1590
-    i32 291, label %1591
-    i32 301, label %1592
-    i32 302, label %1593
-    i32 303, label %1594
-    i32 326, label %1595
-    i32 327, label %1596
-    i32 328, label %1597
-    i32 329, label %1598
-    i32 330, label %1599
-    i32 393, label %1600
+  %trunc441 = trunc nuw i32 %1 to i16
+  switch i16 %trunc441, label %2244 [
+    i16 215, label %1587
+    i16 216, label %1588
+    i16 286, label %1589
+    i16 290, label %1590
+    i16 291, label %1591
+    i16 301, label %1592
+    i16 302, label %1593
+    i16 303, label %1594
+    i16 326, label %1595
+    i16 327, label %1596
+    i16 328, label %1597
+    i16 329, label %1598
+    i16 330, label %1599
+    i16 393, label %1600
   ]
 
 1587:                                             ; preds = %1586
@@ -49800,13 +49878,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1601:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 217, label %1602
-    i32 218, label %1603
-    i32 301, label %1604
-    i32 327, label %1605
-    i32 328, label %1606
-    i32 393, label %1607
+  %trunc440 = trunc nuw i32 %1 to i16
+  switch i16 %trunc440, label %2244 [
+    i16 217, label %1602
+    i16 218, label %1603
+    i16 301, label %1604
+    i16 327, label %1605
+    i16 328, label %1606
+    i16 393, label %1607
   ]
 
 1602:                                             ; preds = %1601
@@ -49828,16 +49907,17 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1608:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 218, label %1609
-    i32 219, label %1610
-    i32 290, label %1611
-    i32 301, label %1612
-    i32 302, label %1613
-    i32 327, label %1614
-    i32 328, label %1615
-    i32 329, label %1616
-    i32 393, label %1617
+  %trunc439 = trunc nuw i32 %1 to i16
+  switch i16 %trunc439, label %2244 [
+    i16 218, label %1609
+    i16 219, label %1610
+    i16 290, label %1611
+    i16 301, label %1612
+    i16 302, label %1613
+    i16 327, label %1614
+    i16 328, label %1615
+    i16 329, label %1616
+    i16 393, label %1617
   ]
 
 1609:                                             ; preds = %1608
@@ -49868,20 +49948,21 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1618:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 219, label %1619
-    i32 220, label %1620
-    i32 286, label %1621
-    i32 290, label %1622
-    i32 291, label %1623
-    i32 301, label %1624
-    i32 302, label %1625
-    i32 303, label %1626
-    i32 327, label %1627
-    i32 328, label %1628
-    i32 329, label %1629
-    i32 330, label %1630
-    i32 393, label %1631
+  %trunc438 = trunc nuw i32 %1 to i16
+  switch i16 %trunc438, label %2244 [
+    i16 219, label %1619
+    i16 220, label %1620
+    i16 286, label %1621
+    i16 290, label %1622
+    i16 291, label %1623
+    i16 301, label %1624
+    i16 302, label %1625
+    i16 303, label %1626
+    i16 327, label %1627
+    i16 328, label %1628
+    i16 329, label %1629
+    i16 330, label %1630
+    i16 393, label %1631
   ]
 
 1619:                                             ; preds = %1618
@@ -49924,13 +50005,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1632:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 222, label %1633
-    i32 223, label %1634
-    i32 304, label %1635
-    i32 332, label %1636
-    i32 333, label %1637
-    i32 390, label %1638
+  %trunc437 = trunc nuw i32 %1 to i16
+  switch i16 %trunc437, label %2244 [
+    i16 222, label %1633
+    i16 223, label %1634
+    i16 304, label %1635
+    i16 332, label %1636
+    i16 333, label %1637
+    i16 390, label %1638
   ]
 
 1633:                                             ; preds = %1632
@@ -49952,63 +50034,74 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1639:                                             ; preds = %4
-  %switch.tableidx406 = add i32 %1, -226
-  %1640 = icmp ult i32 %switch.tableidx406, 60
-  br i1 %1640, label %switch.lookup405, label %2244
+  %trunc436 = trunc nuw i32 %1 to i16
+  %switch.tableidx621 = add i16 %trunc436, -226
+  %1640 = icmp ult i16 %switch.tableidx621, 60
+  br i1 %1640, label %switch.lookup620, label %2244
 
 1641:                                             ; preds = %4
-  %switch.tableidx412 = add i32 %1, -226
-  %1642 = icmp ult i32 %switch.tableidx412, 60
-  br i1 %1642, label %switch.lookup411, label %2244
+  %trunc435 = trunc nuw i32 %1 to i16
+  %switch.tableidx627 = add i16 %trunc435, -226
+  %1642 = icmp ult i16 %switch.tableidx627, 60
+  br i1 %1642, label %switch.lookup626, label %2244
 
 1643:                                             ; preds = %4
-  %switch.tableidx418 = add i32 %1, -226
-  %1644 = icmp ult i32 %switch.tableidx418, 60
-  br i1 %1644, label %switch.lookup417, label %2244
+  %trunc434 = trunc nuw i32 %1 to i16
+  %switch.tableidx633 = add i16 %trunc434, -226
+  %1644 = icmp ult i16 %switch.tableidx633, 60
+  br i1 %1644, label %switch.lookup632, label %2244
 
 1645:                                             ; preds = %4
-  %switch.tableidx424 = add i32 %1, -227
-  %1646 = icmp ult i32 %switch.tableidx424, 59
-  br i1 %1646, label %switch.lookup423, label %2244
+  %trunc433 = trunc nuw i32 %1 to i16
+  %switch.tableidx639 = add i16 %trunc433, -227
+  %1646 = icmp ult i16 %switch.tableidx639, 59
+  br i1 %1646, label %switch.lookup638, label %2244
 
 1647:                                             ; preds = %4
-  %switch.tableidx430 = add i32 %1, -227
-  %1648 = icmp ult i32 %switch.tableidx430, 59
-  br i1 %1648, label %switch.lookup429, label %2244
+  %trunc432 = trunc nuw i32 %1 to i16
+  %switch.tableidx645 = add i16 %trunc432, -227
+  %1648 = icmp ult i16 %switch.tableidx645, 59
+  br i1 %1648, label %switch.lookup644, label %2244
 
 1649:                                             ; preds = %4
-  %switch.tableidx436 = add i32 %1, -228
-  %1650 = icmp ult i32 %switch.tableidx436, 58
-  br i1 %1650, label %switch.lookup435, label %2244
+  %trunc431 = trunc nuw i32 %1 to i16
+  %switch.tableidx651 = add i16 %trunc431, -228
+  %1650 = icmp ult i16 %switch.tableidx651, 58
+  br i1 %1650, label %switch.lookup650, label %2244
 
 1651:                                             ; preds = %4
-  %switch.tableidx442 = add i32 %1, -230
-  %1652 = icmp ult i32 %switch.tableidx442, 56
-  br i1 %1652, label %switch.lookup441, label %2244
+  %trunc430 = trunc nuw i32 %1 to i16
+  %switch.tableidx657 = add i16 %trunc430, -230
+  %1652 = icmp ult i16 %switch.tableidx657, 56
+  br i1 %1652, label %switch.lookup656, label %2244
 
 1653:                                             ; preds = %4
-  %switch.tableidx448 = add i32 %1, -230
-  %1654 = icmp ult i32 %switch.tableidx448, 56
-  br i1 %1654, label %switch.lookup447, label %2244
+  %trunc429 = trunc nuw i32 %1 to i16
+  %switch.tableidx663 = add i16 %trunc429, -230
+  %1654 = icmp ult i16 %switch.tableidx663, 56
+  br i1 %1654, label %switch.lookup662, label %2244
 
 1655:                                             ; preds = %4
-  %switch.tableidx454 = add i32 %1, -231
-  %1656 = icmp ult i32 %switch.tableidx454, 55
-  br i1 %1656, label %switch.lookup453, label %2244
+  %trunc428 = trunc nuw i32 %1 to i16
+  %switch.tableidx669 = add i16 %trunc428, -231
+  %1656 = icmp ult i16 %switch.tableidx669, 55
+  br i1 %1656, label %switch.lookup668, label %2244
 
 1657:                                             ; preds = %4
-  %switch.tableidx460 = add i32 %1, -233
-  %1658 = icmp ult i32 %switch.tableidx460, 53
-  br i1 %1658, label %switch.lookup459, label %2244
+  %trunc427 = trunc nuw i32 %1 to i16
+  %switch.tableidx675 = add i16 %trunc427, -233
+  %1658 = icmp ult i16 %switch.tableidx675, 53
+  br i1 %1658, label %switch.lookup674, label %2244
 
 1659:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 236, label %1660
-    i32 237, label %1661
-    i32 308, label %1662
-    i32 334, label %1663
-    i32 335, label %1664
-    i32 387, label %1665
+  %trunc426 = trunc nuw i32 %1 to i16
+  switch i16 %trunc426, label %2244 [
+    i16 236, label %1660
+    i16 237, label %1661
+    i16 308, label %1662
+    i16 334, label %1663
+    i16 335, label %1664
+    i16 387, label %1665
   ]
 
 1660:                                             ; preds = %1659
@@ -50030,16 +50123,17 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1666:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 237, label %1667
-    i32 238, label %1668
-    i32 293, label %1669
-    i32 308, label %1670
-    i32 309, label %1671
-    i32 334, label %1672
-    i32 335, label %1673
-    i32 336, label %1674
-    i32 387, label %1675
+  %trunc425 = trunc nuw i32 %1 to i16
+  switch i16 %trunc425, label %2244 [
+    i16 237, label %1667
+    i16 238, label %1668
+    i16 293, label %1669
+    i16 308, label %1670
+    i16 309, label %1671
+    i16 334, label %1672
+    i16 335, label %1673
+    i16 336, label %1674
+    i16 387, label %1675
   ]
 
 1667:                                             ; preds = %1666
@@ -50070,13 +50164,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1676:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 239, label %1677
-    i32 240, label %1678
-    i32 310, label %1679
-    i32 337, label %1680
-    i32 338, label %1681
-    i32 388, label %1682
+  %trunc424 = trunc nuw i32 %1 to i16
+  switch i16 %trunc424, label %2244 [
+    i16 239, label %1677
+    i16 240, label %1678
+    i16 310, label %1679
+    i16 337, label %1680
+    i16 338, label %1681
+    i16 388, label %1682
   ]
 
 1677:                                             ; preds = %1676
@@ -50098,16 +50193,17 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1683:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 240, label %1684
-    i32 241, label %1685
-    i32 294, label %1686
-    i32 310, label %1687
-    i32 311, label %1688
-    i32 337, label %1689
-    i32 338, label %1690
-    i32 339, label %1691
-    i32 388, label %1692
+  %trunc423 = trunc nuw i32 %1 to i16
+  switch i16 %trunc423, label %2244 [
+    i16 240, label %1684
+    i16 241, label %1685
+    i16 294, label %1686
+    i16 310, label %1687
+    i16 311, label %1688
+    i16 337, label %1689
+    i16 338, label %1690
+    i16 339, label %1691
+    i16 388, label %1692
   ]
 
 1684:                                             ; preds = %1683
@@ -50138,20 +50234,21 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1693:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 241, label %1694
-    i32 242, label %1695
-    i32 287, label %1696
-    i32 294, label %1697
-    i32 295, label %1698
-    i32 310, label %1699
-    i32 311, label %1700
-    i32 312, label %1701
-    i32 337, label %1702
-    i32 338, label %1703
-    i32 339, label %1704
-    i32 340, label %1705
-    i32 388, label %1706
+  %trunc422 = trunc nuw i32 %1 to i16
+  switch i16 %trunc422, label %2244 [
+    i16 241, label %1694
+    i16 242, label %1695
+    i16 287, label %1696
+    i16 294, label %1697
+    i16 295, label %1698
+    i16 310, label %1699
+    i16 311, label %1700
+    i16 312, label %1701
+    i16 337, label %1702
+    i16 338, label %1703
+    i16 339, label %1704
+    i16 340, label %1705
+    i16 388, label %1706
   ]
 
 1694:                                             ; preds = %1693
@@ -50194,13 +50291,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1707:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 243, label %1708
-    i32 244, label %1709
-    i32 313, label %1710
-    i32 341, label %1711
-    i32 342, label %1712
-    i32 386, label %1713
+  %trunc421 = trunc nuw i32 %1 to i16
+  switch i16 %trunc421, label %2244 [
+    i16 243, label %1708
+    i16 244, label %1709
+    i16 313, label %1710
+    i16 341, label %1711
+    i16 342, label %1712
+    i16 386, label %1713
   ]
 
 1708:                                             ; preds = %1707
@@ -50222,10 +50320,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1714:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 245, label %1715
-    i32 246, label %1716
-    i32 359, label %1717
+  %trunc420 = trunc nuw i32 %1 to i16
+  switch i16 %trunc420, label %2244 [
+    i16 245, label %1715
+    i16 246, label %1716
+    i16 359, label %1717
   ]
 
 1715:                                             ; preds = %1714
@@ -50238,10 +50337,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1718:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 247, label %1719
-    i32 248, label %1720
-    i32 359, label %1721
+  %trunc419 = trunc nuw i32 %1 to i16
+  switch i16 %trunc419, label %2244 [
+    i16 247, label %1719
+    i16 248, label %1720
+    i16 359, label %1721
   ]
 
 1719:                                             ; preds = %1718
@@ -50254,11 +50354,12 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1722:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 284, label %1723
-    i32 331, label %1724
-    i32 363, label %1725
-    i32 391, label %1726
+  %trunc418 = trunc nuw i32 %1 to i16
+  switch i16 %trunc418, label %2244 [
+    i16 284, label %1723
+    i16 331, label %1724
+    i16 363, label %1725
+    i16 391, label %1726
   ]
 
 1723:                                             ; preds = %1722
@@ -50274,12 +50375,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1727:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 299, label %1728
-    i32 320, label %1729
-    i32 322, label %1730
-    i32 323, label %1731
-    i32 392, label %1732
+  %trunc417 = trunc nuw i32 %1 to i16
+  switch i16 %trunc417, label %2244 [
+    i16 299, label %1728
+    i16 320, label %1729
+    i16 322, label %1730
+    i16 323, label %1731
+    i16 392, label %1732
   ]
 
 1728:                                             ; preds = %1727
@@ -50298,10 +50400,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1733:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 320, label %1734
-    i32 324, label %1735
-    i32 392, label %1736
+  %trunc416 = trunc nuw i32 %1 to i16
+  switch i16 %trunc416, label %2244 [
+    i16 320, label %1734
+    i16 324, label %1735
+    i16 392, label %1736
   ]
 
 1734:                                             ; preds = %1733
@@ -50314,10 +50417,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1737:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 321, label %1738
-    i32 322, label %1739
-    i32 392, label %1740
+  %trunc415 = trunc nuw i32 %1 to i16
+  switch i16 %trunc415, label %2244 [
+    i16 321, label %1738
+    i16 322, label %1739
+    i16 392, label %1740
   ]
 
 1738:                                             ; preds = %1737
@@ -50330,12 +50434,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1741:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 300, label %1742
-    i32 321, label %1743
-    i32 323, label %1744
-    i32 324, label %1745
-    i32 392, label %1746
+  %trunc414 = trunc nuw i32 %1 to i16
+  switch i16 %trunc414, label %2244 [
+    i16 300, label %1742
+    i16 321, label %1743
+    i16 323, label %1744
+    i16 324, label %1745
+    i16 392, label %1746
   ]
 
 1742:                                             ; preds = %1741
@@ -50354,17 +50459,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1747:                                             ; preds = %4
-  %switch.selectcmp.case1322 = icmp eq i32 %1, 322
-  %switch.selectcmp.case2323 = icmp eq i32 %1, 392
-  %switch.selectcmp324 = or i1 %switch.selectcmp.case1322, %switch.selectcmp.case2323
+  %switch.selectcmp.case1537 = icmp eq i32 %1, 322
+  %switch.selectcmp.case2538 = icmp eq i32 %1, 392
+  %switch.selectcmp539 = or i1 %switch.selectcmp.case1537, %switch.selectcmp.case2538
   br label %2244
 
 1748:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 299, label %1749
-    i32 322, label %1750
-    i32 323, label %1751
-    i32 392, label %1752
+  %trunc412 = trunc nuw i32 %1 to i16
+  switch i16 %trunc412, label %2244 [
+    i16 299, label %1749
+    i16 322, label %1750
+    i16 323, label %1751
+    i16 392, label %1752
   ]
 
 1749:                                             ; preds = %1748
@@ -50380,14 +50486,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1753:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 289, label %1754
-    i32 299, label %1755
-    i32 300, label %1756
-    i32 322, label %1757
-    i32 323, label %1758
-    i32 324, label %1759
-    i32 392, label %1760
+  %trunc411 = trunc nuw i32 %1 to i16
+  switch i16 %trunc411, label %2244 [
+    i16 289, label %1754
+    i16 299, label %1755
+    i16 300, label %1756
+    i16 322, label %1757
+    i16 323, label %1758
+    i16 324, label %1759
+    i16 392, label %1760
   ]
 
 1754:                                             ; preds = %1753
@@ -50412,10 +50519,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1761:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 325, label %1762
-    i32 327, label %1763
-    i32 393, label %1764
+  %trunc410 = trunc nuw i32 %1 to i16
+  switch i16 %trunc410, label %2244 [
+    i16 325, label %1762
+    i16 327, label %1763
+    i16 393, label %1764
   ]
 
 1762:                                             ; preds = %1761
@@ -50428,12 +50536,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1765:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 302, label %1766
-    i32 325, label %1767
-    i32 328, label %1768
-    i32 329, label %1769
-    i32 393, label %1770
+  %trunc409 = trunc nuw i32 %1 to i16
+  switch i16 %trunc409, label %2244 [
+    i16 302, label %1766
+    i16 325, label %1767
+    i16 328, label %1768
+    i16 329, label %1769
+    i16 393, label %1770
   ]
 
 1766:                                             ; preds = %1765
@@ -50452,10 +50561,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1771:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 325, label %1772
-    i32 330, label %1773
-    i32 393, label %1774
+  %trunc408 = trunc nuw i32 %1 to i16
+  switch i16 %trunc408, label %2244 [
+    i16 325, label %1772
+    i16 330, label %1773
+    i16 393, label %1774
   ]
 
 1772:                                             ; preds = %1771
@@ -50472,12 +50582,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1777:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 301, label %1778
-    i32 326, label %1779
-    i32 327, label %1780
-    i32 328, label %1781
-    i32 393, label %1782
+  %trunc407 = trunc nuw i32 %1 to i16
+  switch i16 %trunc407, label %2244 [
+    i16 301, label %1778
+    i16 326, label %1779
+    i16 327, label %1780
+    i16 328, label %1781
+    i16 393, label %1782
   ]
 
 1778:                                             ; preds = %1777
@@ -50496,12 +50607,13 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1783:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 303, label %1784
-    i32 326, label %1785
-    i32 329, label %1786
-    i32 330, label %1787
-    i32 393, label %1788
+  %trunc406 = trunc nuw i32 %1 to i16
+  switch i16 %trunc406, label %2244 [
+    i16 303, label %1784
+    i16 326, label %1785
+    i16 329, label %1786
+    i16 330, label %1787
+    i16 393, label %1788
   ]
 
 1784:                                             ; preds = %1783
@@ -50520,17 +50632,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1789:                                             ; preds = %4
-  %switch.selectcmp.case1325 = icmp eq i32 %1, 327
-  %switch.selectcmp.case2326 = icmp eq i32 %1, 393
-  %switch.selectcmp327 = or i1 %switch.selectcmp.case1325, %switch.selectcmp.case2326
+  %switch.selectcmp.case1540 = icmp eq i32 %1, 327
+  %switch.selectcmp.case2541 = icmp eq i32 %1, 393
+  %switch.selectcmp542 = or i1 %switch.selectcmp.case1540, %switch.selectcmp.case2541
   br label %2244
 
 1790:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 301, label %1791
-    i32 327, label %1792
-    i32 328, label %1793
-    i32 393, label %1794
+  %trunc404 = trunc nuw i32 %1 to i16
+  switch i16 %trunc404, label %2244 [
+    i16 301, label %1791
+    i16 327, label %1792
+    i16 328, label %1793
+    i16 393, label %1794
   ]
 
 1791:                                             ; preds = %1790
@@ -50546,14 +50659,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1795:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 290, label %1796
-    i32 301, label %1797
-    i32 302, label %1798
-    i32 327, label %1799
-    i32 328, label %1800
-    i32 329, label %1801
-    i32 393, label %1802
+  %trunc403 = trunc nuw i32 %1 to i16
+  switch i16 %trunc403, label %2244 [
+    i16 290, label %1796
+    i16 301, label %1797
+    i16 302, label %1798
+    i16 327, label %1799
+    i16 328, label %1800
+    i16 329, label %1801
+    i16 393, label %1802
   ]
 
 1796:                                             ; preds = %1795
@@ -50578,18 +50692,19 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1803:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 286, label %1804
-    i32 290, label %1805
-    i32 291, label %1806
-    i32 301, label %1807
-    i32 302, label %1808
-    i32 303, label %1809
-    i32 327, label %1810
-    i32 328, label %1811
-    i32 329, label %1812
-    i32 330, label %1813
-    i32 393, label %1814
+  %trunc402 = trunc nuw i32 %1 to i16
+  switch i16 %trunc402, label %2244 [
+    i16 286, label %1804
+    i16 290, label %1805
+    i16 291, label %1806
+    i16 301, label %1807
+    i16 302, label %1808
+    i16 303, label %1809
+    i16 327, label %1810
+    i16 328, label %1811
+    i16 329, label %1812
+    i16 330, label %1813
+    i16 393, label %1814
   ]
 
 1804:                                             ; preds = %1803
@@ -50626,14 +50741,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1815:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 304, label %1816
-    i32 331, label %1817
-    i32 332, label %1818
-    i32 333, label %1819
-    i32 362, label %1820
-    i32 390, label %1821
-    i32 391, label %1822
+  %trunc401 = trunc nuw i32 %1 to i16
+  switch i16 %trunc401, label %2244 [
+    i16 304, label %1816
+    i16 331, label %1817
+    i16 332, label %1818
+    i16 333, label %1819
+    i16 362, label %1820
+    i16 390, label %1821
+    i16 391, label %1822
   ]
 
 1816:                                             ; preds = %1815
@@ -50658,17 +50774,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1823:                                             ; preds = %4
-  %switch.selectcmp.case1328 = icmp eq i32 %1, 332
-  %switch.selectcmp.case2329 = icmp eq i32 %1, 390
-  %switch.selectcmp330 = or i1 %switch.selectcmp.case1328, %switch.selectcmp.case2329
+  %switch.selectcmp.case1543 = icmp eq i32 %1, 332
+  %switch.selectcmp.case2544 = icmp eq i32 %1, 390
+  %switch.selectcmp545 = or i1 %switch.selectcmp.case1543, %switch.selectcmp.case2544
   br label %2244
 
 1824:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 304, label %1825
-    i32 332, label %1826
-    i32 333, label %1827
-    i32 390, label %1828
+  %trunc399 = trunc nuw i32 %1 to i16
+  switch i16 %trunc399, label %2244 [
+    i16 304, label %1825
+    i16 332, label %1826
+    i16 333, label %1827
+    i16 390, label %1828
   ]
 
 1825:                                             ; preds = %1824
@@ -50684,14 +50801,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1829:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 261, label %1830
-    i32 262, label %1831
-    i32 272, label %1832
-    i32 292, label %1833
-    i32 305, label %1834
-    i32 306, label %1835
-    i32 361, label %1836
+  %trunc398 = trunc nuw i32 %1 to i16
+  switch i16 %trunc398, label %2244 [
+    i16 261, label %1830
+    i16 262, label %1831
+    i16 272, label %1832
+    i16 292, label %1833
+    i16 305, label %1834
+    i16 306, label %1835
+    i16 361, label %1836
   ]
 
 1830:                                             ; preds = %1829
@@ -50716,72 +50834,84 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1837:                                             ; preds = %4
-  %switch.tableidx466 = add i32 %1, -263
-  %1838 = icmp ult i32 %switch.tableidx466, 23
-  br i1 %1838, label %switch.lookup465, label %2244
+  %trunc397 = trunc nuw i32 %1 to i16
+  %switch.tableidx681 = add i16 %trunc397, -263
+  %1838 = icmp ult i16 %switch.tableidx681, 23
+  br i1 %1838, label %switch.lookup680, label %2244
 
 1839:                                             ; preds = %4
-  %switch.tableidx472 = add i32 %1, -266
-  %1840 = icmp ult i32 %switch.tableidx472, 20
-  br i1 %1840, label %switch.lookup471, label %2244
+  %trunc396 = trunc nuw i32 %1 to i16
+  %switch.tableidx687 = add i16 %trunc396, -266
+  %1840 = icmp ult i16 %switch.tableidx687, 20
+  br i1 %1840, label %switch.lookup686, label %2244
 
 1841:                                             ; preds = %4
-  %switch.tableidx478 = add i32 %1, -266
-  %1842 = icmp ult i32 %switch.tableidx478, 20
-  br i1 %1842, label %switch.lookup477, label %2244
+  %trunc395 = trunc nuw i32 %1 to i16
+  %switch.tableidx693 = add i16 %trunc395, -266
+  %1842 = icmp ult i16 %switch.tableidx693, 20
+  br i1 %1842, label %switch.lookup692, label %2244
 
 1843:                                             ; preds = %4
-  %switch.tableidx484 = add i32 %1, -266
-  %1844 = icmp ult i32 %switch.tableidx484, 20
-  br i1 %1844, label %switch.lookup483, label %2244
+  %trunc394 = trunc nuw i32 %1 to i16
+  %switch.tableidx699 = add i16 %trunc394, -266
+  %1844 = icmp ult i16 %switch.tableidx699, 20
+  br i1 %1844, label %switch.lookup698, label %2244
 
 1845:                                             ; preds = %4
-  %switch.tableidx490 = add i32 %1, -266
-  %1846 = icmp ult i32 %switch.tableidx490, 20
-  br i1 %1846, label %switch.lookup489, label %2244
+  %trunc393 = trunc nuw i32 %1 to i16
+  %switch.tableidx705 = add i16 %trunc393, -266
+  %1846 = icmp ult i16 %switch.tableidx705, 20
+  br i1 %1846, label %switch.lookup704, label %2244
 
 1847:                                             ; preds = %4
-  %switch.tableidx496 = add i32 %1, -268
-  %1848 = icmp ult i32 %switch.tableidx496, 18
-  br i1 %1848, label %switch.lookup495, label %2244
+  %trunc392 = trunc nuw i32 %1 to i16
+  %switch.tableidx711 = add i16 %trunc392, -268
+  %1848 = icmp ult i16 %switch.tableidx711, 18
+  br i1 %1848, label %switch.lookup710, label %2244
 
 1849:                                             ; preds = %4
-  %switch.tableidx502 = add i32 %1, -268
-  %1850 = icmp ult i32 %switch.tableidx502, 18
-  br i1 %1850, label %switch.lookup501, label %2244
+  %trunc391 = trunc nuw i32 %1 to i16
+  %switch.tableidx717 = add i16 %trunc391, -268
+  %1850 = icmp ult i16 %switch.tableidx717, 18
+  br i1 %1850, label %switch.lookup716, label %2244
 
 1851:                                             ; preds = %4
-  %switch.tableidx508 = add i32 %1, -268
-  %1852 = icmp ult i32 %switch.tableidx508, 18
-  br i1 %1852, label %switch.lookup507, label %2244
+  %trunc390 = trunc nuw i32 %1 to i16
+  %switch.tableidx723 = add i16 %trunc390, -268
+  %1852 = icmp ult i16 %switch.tableidx723, 18
+  br i1 %1852, label %switch.lookup722, label %2244
 
 1853:                                             ; preds = %4
-  %switch.tableidx514 = add i32 %1, -269
-  %1854 = icmp ult i32 %switch.tableidx514, 17
-  br i1 %1854, label %switch.lookup513, label %2244
+  %trunc389 = trunc nuw i32 %1 to i16
+  %switch.tableidx729 = add i16 %trunc389, -269
+  %1854 = icmp ult i16 %switch.tableidx729, 17
+  br i1 %1854, label %switch.lookup728, label %2244
 
 1855:                                             ; preds = %4
-  %switch.tableidx520 = add i32 %1, -269
-  %1856 = icmp ult i32 %switch.tableidx520, 17
-  br i1 %1856, label %switch.lookup519, label %2244
+  %trunc388 = trunc nuw i32 %1 to i16
+  %switch.tableidx735 = add i16 %trunc388, -269
+  %1856 = icmp ult i16 %switch.tableidx735, 17
+  br i1 %1856, label %switch.lookup734, label %2244
 
 1857:                                             ; preds = %4
-  %switch.tableidx526 = add i32 %1, -270
-  %1858 = icmp ult i32 %switch.tableidx526, 16
-  br i1 %1858, label %switch.lookup525, label %2244
+  %trunc387 = trunc nuw i32 %1 to i16
+  %switch.tableidx741 = add i16 %trunc387, -270
+  %1858 = icmp ult i16 %switch.tableidx741, 16
+  br i1 %1858, label %switch.lookup740, label %2244
 
 1859:                                             ; preds = %4
-  %switch.selectcmp.case1331 = icmp eq i32 %1, 334
-  %switch.selectcmp.case2332 = icmp eq i32 %1, 387
-  %switch.selectcmp333 = or i1 %switch.selectcmp.case1331, %switch.selectcmp.case2332
+  %switch.selectcmp.case1546 = icmp eq i32 %1, 334
+  %switch.selectcmp.case2547 = icmp eq i32 %1, 387
+  %switch.selectcmp548 = or i1 %switch.selectcmp.case1546, %switch.selectcmp.case2547
   br label %2244
 
 1860:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 308, label %1861
-    i32 334, label %1862
-    i32 335, label %1863
-    i32 387, label %1864
+  %trunc385 = trunc nuw i32 %1 to i16
+  switch i16 %trunc385, label %2244 [
+    i16 308, label %1861
+    i16 334, label %1862
+    i16 335, label %1863
+    i16 387, label %1864
   ]
 
 1861:                                             ; preds = %1860
@@ -50797,14 +50927,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1865:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 293, label %1866
-    i32 308, label %1867
-    i32 309, label %1868
-    i32 334, label %1869
-    i32 335, label %1870
-    i32 336, label %1871
-    i32 387, label %1872
+  %trunc384 = trunc nuw i32 %1 to i16
+  switch i16 %trunc384, label %2244 [
+    i16 293, label %1866
+    i16 308, label %1867
+    i16 309, label %1868
+    i16 334, label %1869
+    i16 335, label %1870
+    i16 336, label %1871
+    i16 387, label %1872
   ]
 
 1866:                                             ; preds = %1865
@@ -50829,17 +50960,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1873:                                             ; preds = %4
-  %switch.selectcmp.case1334 = icmp eq i32 %1, 337
-  %switch.selectcmp.case2335 = icmp eq i32 %1, 388
-  %switch.selectcmp336 = or i1 %switch.selectcmp.case1334, %switch.selectcmp.case2335
+  %switch.selectcmp.case1549 = icmp eq i32 %1, 337
+  %switch.selectcmp.case2550 = icmp eq i32 %1, 388
+  %switch.selectcmp551 = or i1 %switch.selectcmp.case1549, %switch.selectcmp.case2550
   br label %2244
 
 1874:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 310, label %1875
-    i32 337, label %1876
-    i32 338, label %1877
-    i32 388, label %1878
+  %trunc382 = trunc nuw i32 %1 to i16
+  switch i16 %trunc382, label %2244 [
+    i16 310, label %1875
+    i16 337, label %1876
+    i16 338, label %1877
+    i16 388, label %1878
   ]
 
 1875:                                             ; preds = %1874
@@ -50855,14 +50987,15 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1879:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 294, label %1880
-    i32 310, label %1881
-    i32 311, label %1882
-    i32 337, label %1883
-    i32 338, label %1884
-    i32 339, label %1885
-    i32 388, label %1886
+  %trunc381 = trunc nuw i32 %1 to i16
+  switch i16 %trunc381, label %2244 [
+    i16 294, label %1880
+    i16 310, label %1881
+    i16 311, label %1882
+    i16 337, label %1883
+    i16 338, label %1884
+    i16 339, label %1885
+    i16 388, label %1886
   ]
 
 1880:                                             ; preds = %1879
@@ -50887,18 +51020,19 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1887:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 287, label %1888
-    i32 294, label %1889
-    i32 295, label %1890
-    i32 310, label %1891
-    i32 311, label %1892
-    i32 312, label %1893
-    i32 337, label %1894
-    i32 338, label %1895
-    i32 339, label %1896
-    i32 340, label %1897
-    i32 388, label %1898
+  %trunc380 = trunc nuw i32 %1 to i16
+  switch i16 %trunc380, label %2244 [
+    i16 287, label %1888
+    i16 294, label %1889
+    i16 295, label %1890
+    i16 310, label %1891
+    i16 311, label %1892
+    i16 312, label %1893
+    i16 337, label %1894
+    i16 338, label %1895
+    i16 339, label %1896
+    i16 340, label %1897
+    i16 388, label %1898
   ]
 
 1888:                                             ; preds = %1887
@@ -50935,17 +51069,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1899:                                             ; preds = %4
-  %switch.selectcmp.case1337 = icmp eq i32 %1, 341
-  %switch.selectcmp.case2338 = icmp eq i32 %1, 386
-  %switch.selectcmp339 = or i1 %switch.selectcmp.case1337, %switch.selectcmp.case2338
+  %switch.selectcmp.case1552 = icmp eq i32 %1, 341
+  %switch.selectcmp.case2553 = icmp eq i32 %1, 386
+  %switch.selectcmp554 = or i1 %switch.selectcmp.case1552, %switch.selectcmp.case2553
   br label %2244
 
 1900:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 313, label %1901
-    i32 341, label %1902
-    i32 342, label %1903
-    i32 386, label %1904
+  %trunc378 = trunc nuw i32 %1 to i16
+  switch i16 %trunc378, label %2244 [
+    i16 313, label %1901
+    i16 341, label %1902
+    i16 342, label %1903
+    i16 386, label %1904
   ]
 
 1901:                                             ; preds = %1900
@@ -50977,31 +51112,33 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1913:                                             ; preds = %4
-  %switch.selectcmp.case1340 = icmp eq i32 %1, 353
-  %switch.selectcmp.case2341 = icmp eq i32 %1, 376
-  %switch.selectcmp342 = or i1 %switch.selectcmp.case1340, %switch.selectcmp.case2341
+  %switch.selectcmp.case1555 = icmp eq i32 %1, 353
+  %switch.selectcmp.case2556 = icmp eq i32 %1, 376
+  %switch.selectcmp557 = or i1 %switch.selectcmp.case1555, %switch.selectcmp.case2556
   br label %2244
 
 1914:                                             ; preds = %4
-  %switch.tableidx532 = add i32 %1, -371
-  %1915 = icmp ult i32 %switch.tableidx532, 24
-  br i1 %1915, label %switch.lookup531, label %2244
+  %trunc376 = trunc nuw i32 %1 to i16
+  %switch.tableidx746 = add i16 %trunc376, -371
+  %1915 = icmp ult i16 %switch.tableidx746, 24
+  br i1 %1915, label %switch.lookup745, label %2244
 
 1916:                                             ; preds = %4
-  %switch.tableidx538 = add i32 %1, -366
-  %1917 = icmp ult i32 %switch.tableidx538, 30
-  br i1 %1917, label %switch.lookup537, label %2244
+  %trunc375 = trunc nuw i32 %1 to i16
+  %switch.tableidx752 = add i16 %trunc375, -366
+  %1917 = icmp ult i16 %switch.tableidx752, 30
+  br i1 %1917, label %switch.lookup751, label %2244
 
 1918:                                             ; preds = %4
-  %switch.selectcmp.case1343 = icmp eq i32 %1, 357
-  %switch.selectcmp.case2344 = icmp eq i32 %1, 385
-  %switch.selectcmp345 = or i1 %switch.selectcmp.case1343, %switch.selectcmp.case2344
+  %switch.selectcmp.case1558 = icmp eq i32 %1, 357
+  %switch.selectcmp.case2559 = icmp eq i32 %1, 385
+  %switch.selectcmp560 = or i1 %switch.selectcmp.case1558, %switch.selectcmp.case2559
   br label %2244
 
 1919:                                             ; preds = %4
-  %switch.selectcmp.case1346 = icmp eq i32 %1, 357
-  %switch.selectcmp.case2347 = icmp eq i32 %1, 385
-  %switch.selectcmp348 = or i1 %switch.selectcmp.case1346, %switch.selectcmp.case2347
+  %switch.selectcmp.case1561 = icmp eq i32 %1, 357
+  %switch.selectcmp.case2562 = icmp eq i32 %1, 385
+  %switch.selectcmp563 = or i1 %switch.selectcmp.case1561, %switch.selectcmp.case2562
   br label %2244
 
 1920:                                             ; preds = %4
@@ -51009,22 +51146,23 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1922:                                             ; preds = %4
-  %switch.selectcmp.case1349 = icmp eq i32 %1, 358
-  %switch.selectcmp.case2350 = icmp eq i32 %1, 385
-  %switch.selectcmp351 = or i1 %switch.selectcmp.case1349, %switch.selectcmp.case2350
+  %switch.selectcmp.case1564 = icmp eq i32 %1, 358
+  %switch.selectcmp.case2565 = icmp eq i32 %1, 385
+  %switch.selectcmp566 = or i1 %switch.selectcmp.case1564, %switch.selectcmp.case2565
   br label %2244
 
 1923:                                             ; preds = %4
-  %switch.selectcmp.case1352 = icmp eq i32 %1, 358
-  %switch.selectcmp.case2353 = icmp eq i32 %1, 385
-  %switch.selectcmp354 = or i1 %switch.selectcmp.case1352, %switch.selectcmp.case2353
+  %switch.selectcmp.case1567 = icmp eq i32 %1, 358
+  %switch.selectcmp.case2568 = icmp eq i32 %1, 385
+  %switch.selectcmp569 = or i1 %switch.selectcmp.case1567, %switch.selectcmp.case2568
   br label %2244
 
 1924:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 326, label %1925
-    i32 364, label %1926
-    i32 393, label %1927
+  %trunc370 = trunc nuw i32 %1 to i16
+  switch i16 %trunc370, label %2244 [
+    i16 326, label %1925
+    i16 364, label %1926
+    i16 393, label %1927
   ]
 
 1925:                                             ; preds = %1924
@@ -51041,18 +51179,19 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1930:                                             ; preds = %4
-  %switch.selectcmp.case1355 = icmp eq i32 %1, 365
-  %switch.selectcmp.case2356 = icmp eq i32 %1, 389
-  %switch.selectcmp357 = or i1 %switch.selectcmp.case1355, %switch.selectcmp.case2356
+  %switch.selectcmp.case1570 = icmp eq i32 %1, 365
+  %switch.selectcmp.case2571 = icmp eq i32 %1, 389
+  %switch.selectcmp572 = or i1 %switch.selectcmp.case1570, %switch.selectcmp.case2571
   br label %2244
 
 1931:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 272, label %1932
-    i32 292, label %1933
-    i32 305, label %1934
-    i32 306, label %1935
-    i32 361, label %1936
+  %trunc368 = trunc nuw i32 %1 to i16
+  switch i16 %trunc368, label %2244 [
+    i16 272, label %1932
+    i16 292, label %1933
+    i16 305, label %1934
+    i16 306, label %1935
+    i16 361, label %1936
   ]
 
 1932:                                             ; preds = %1931
@@ -51071,10 +51210,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1937:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 272, label %1938
-    i32 306, label %1939
-    i32 361, label %1940
+  %trunc367 = trunc nuw i32 %1 to i16
+  switch i16 %trunc367, label %2244 [
+    i16 272, label %1938
+    i16 306, label %1939
+    i16 361, label %1940
   ]
 
 1938:                                             ; preds = %1937
@@ -51087,86 +51227,100 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1941:                                             ; preds = %4
-  %switch.tableidx544 = add i32 %1, -273
-  %1942 = icmp ult i32 %switch.tableidx544, 13
-  br i1 %1942, label %switch.lookup543, label %2244
+  %trunc366 = trunc nuw i32 %1 to i16
+  %switch.tableidx758 = add i16 %trunc366, -273
+  %1942 = icmp ult i16 %switch.tableidx758, 13
+  br i1 %1942, label %switch.lookup757, label %2244
 
 1943:                                             ; preds = %4
-  %switch.tableidx550 = add i32 %1, -273
-  %1944 = icmp ult i32 %switch.tableidx550, 13
-  br i1 %1944, label %switch.lookup549, label %2244
+  %trunc365 = trunc nuw i32 %1 to i16
+  %switch.tableidx764 = add i16 %trunc365, -273
+  %1944 = icmp ult i16 %switch.tableidx764, 13
+  br i1 %1944, label %switch.lookup763, label %2244
 
 1945:                                             ; preds = %4
-  %switch.tableidx556 = add i32 %1, -274
-  %1946 = icmp ult i32 %switch.tableidx556, 12
-  br i1 %1946, label %switch.lookup555, label %2244
+  %trunc364 = trunc nuw i32 %1 to i16
+  %switch.tableidx770 = add i16 %trunc364, -274
+  %1946 = icmp ult i16 %switch.tableidx770, 12
+  br i1 %1946, label %switch.lookup769, label %2244
 
 1947:                                             ; preds = %4
-  %switch.tableidx562 = add i32 %1, -279
-  %1948 = icmp ult i32 %switch.tableidx562, 7
-  br i1 %1948, label %switch.lookup561, label %2244
+  %trunc363 = trunc nuw i32 %1 to i16
+  %switch.tableidx776 = add i16 %trunc363, -279
+  %1948 = icmp ult i16 %switch.tableidx776, 7
+  br i1 %1948, label %switch.lookup775, label %2244
 
 1949:                                             ; preds = %4
-  %switch.tableidx568 = add i32 %1, -276
-  %1950 = icmp ult i32 %switch.tableidx568, 10
-  br i1 %1950, label %switch.lookup567, label %2244
+  %trunc362 = trunc nuw i32 %1 to i16
+  %switch.tableidx782 = add i16 %trunc362, -276
+  %1950 = icmp ult i16 %switch.tableidx782, 10
+  br i1 %1950, label %switch.lookup781, label %2244
 
 1951:                                             ; preds = %4
-  %switch.tableidx574 = add i32 %1, -279
-  %1952 = icmp ult i32 %switch.tableidx574, 7
-  br i1 %1952, label %switch.lookup573, label %2244
+  %trunc361 = trunc nuw i32 %1 to i16
+  %switch.tableidx788 = add i16 %trunc361, -279
+  %1952 = icmp ult i16 %switch.tableidx788, 7
+  br i1 %1952, label %switch.lookup787, label %2244
 
 1953:                                             ; preds = %4
-  %switch.tableidx580 = add i32 %1, -279
-  %1954 = icmp ult i32 %switch.tableidx580, 7
-  br i1 %1954, label %switch.lookup579, label %2244
+  %trunc360 = trunc nuw i32 %1 to i16
+  %switch.tableidx794 = add i16 %trunc360, -279
+  %1954 = icmp ult i16 %switch.tableidx794, 7
+  br i1 %1954, label %switch.lookup793, label %2244
 
 1955:                                             ; preds = %4
-  %switch.tableidx586 = add i32 %1, -279
-  %1956 = icmp ult i32 %switch.tableidx586, 7
-  br i1 %1956, label %switch.lookup585, label %2244
+  %trunc359 = trunc nuw i32 %1 to i16
+  %switch.tableidx800 = add i16 %trunc359, -279
+  %1956 = icmp ult i16 %switch.tableidx800, 7
+  br i1 %1956, label %switch.lookup799, label %2244
 
 1957:                                             ; preds = %4
-  %switch.selectcmp.case1358 = icmp eq i32 %1, 279
-  %switch.selectcmp.case2359 = icmp eq i32 %1, 285
-  %switch.selectcmp360 = or i1 %switch.selectcmp.case1358, %switch.selectcmp.case2359
+  %switch.selectcmp.case1573 = icmp eq i32 %1, 279
+  %switch.selectcmp.case2574 = icmp eq i32 %1, 285
+  %switch.selectcmp575 = or i1 %switch.selectcmp.case1573, %switch.selectcmp.case2574
   br label %2244
 
 1958:                                             ; preds = %4
-  %switch.selectcmp.case1361 = icmp eq i32 %1, 306
-  %switch.selectcmp.case2362 = icmp eq i32 %1, 361
-  %switch.selectcmp363 = or i1 %switch.selectcmp.case1361, %switch.selectcmp.case2362
+  %switch.selectcmp.case1576 = icmp eq i32 %1, 306
+  %switch.selectcmp.case2577 = icmp eq i32 %1, 361
+  %switch.selectcmp578 = or i1 %switch.selectcmp.case1576, %switch.selectcmp.case2577
   br label %2244
 
 1959:                                             ; preds = %4
-  %switch.tableidx592 = add i32 %1, -280
-  %1960 = icmp ult i32 %switch.tableidx592, 6
-  br i1 %1960, label %switch.lookup591, label %2244
+  %trunc356 = trunc nuw i32 %1 to i16
+  %switch.tableidx806 = add i16 %trunc356, -280
+  %1960 = icmp ult i16 %switch.tableidx806, 6
+  br i1 %1960, label %switch.lookup805, label %2244
 
 1961:                                             ; preds = %4
-  %switch.tableidx598 = add i32 %1, -280
-  %1962 = icmp ult i32 %switch.tableidx598, 6
-  br i1 %1962, label %switch.lookup597, label %2244
+  %trunc355 = trunc nuw i32 %1 to i16
+  %switch.tableidx812 = add i16 %trunc355, -280
+  %1962 = icmp ult i16 %switch.tableidx812, 6
+  br i1 %1962, label %switch.lookup811, label %2244
 
 1963:                                             ; preds = %4
-  %switch.tableidx604 = add i32 %1, -280
-  %1964 = icmp ult i32 %switch.tableidx604, 6
-  br i1 %1964, label %switch.lookup603, label %2244
+  %trunc354 = trunc nuw i32 %1 to i16
+  %switch.tableidx818 = add i16 %trunc354, -280
+  %1964 = icmp ult i16 %switch.tableidx818, 6
+  br i1 %1964, label %switch.lookup817, label %2244
 
 1965:                                             ; preds = %4
-  %switch.tableidx610 = add i32 %1, -281
-  %1966 = icmp ult i32 %switch.tableidx610, 5
-  br i1 %1966, label %switch.lookup609, label %2244
+  %trunc353 = trunc nuw i32 %1 to i16
+  %switch.tableidx824 = add i16 %trunc353, -281
+  %1966 = icmp ult i16 %switch.tableidx824, 5
+  br i1 %1966, label %switch.lookup823, label %2244
 
 1967:                                             ; preds = %4
-  %switch.tableidx616 = add i32 %1, -281
-  %1968 = icmp ult i32 %switch.tableidx616, 5
-  br i1 %1968, label %switch.lookup615, label %2244
+  %trunc352 = trunc nuw i32 %1 to i16
+  %switch.tableidx830 = add i16 %trunc352, -281
+  %1968 = icmp ult i16 %switch.tableidx830, 5
+  br i1 %1968, label %switch.lookup829, label %2244
 
 1969:                                             ; preds = %4
-  %switch.tableidx618 = add i32 %1, -282
-  %1970 = icmp ult i32 %switch.tableidx618, 4
-  br i1 %1970, label %switch.lookup617, label %2244
+  %trunc351 = trunc nuw i32 %1 to i16
+  %switch.tableidx832 = add i16 %trunc351, -282
+  %1970 = icmp ult i16 %switch.tableidx832, 4
+  br i1 %1970, label %switch.lookup831, label %2244
 
 1971:                                             ; preds = %4
   %1972 = icmp eq i32 %1, 285
@@ -51189,23 +51343,24 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1981:                                             ; preds = %4
-  %switch.selectcmp.case1364 = icmp eq i32 %1, 331
-  %switch.selectcmp.case2365 = icmp eq i32 %1, 391
-  %switch.selectcmp366 = or i1 %switch.selectcmp.case1364, %switch.selectcmp.case2365
+  %switch.selectcmp.case1579 = icmp eq i32 %1, 331
+  %switch.selectcmp.case2580 = icmp eq i32 %1, 391
+  %switch.selectcmp581 = or i1 %switch.selectcmp.case1579, %switch.selectcmp.case2580
   br label %2244
 
 1982:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 290, label %1983
-    i32 291, label %1984
-    i32 301, label %1985
-    i32 302, label %1986
-    i32 303, label %1987
-    i32 327, label %1988
-    i32 328, label %1989
-    i32 329, label %1990
-    i32 330, label %1991
-    i32 393, label %1992
+  %trunc349 = trunc nuw i32 %1 to i16
+  switch i16 %trunc349, label %2244 [
+    i16 290, label %1983
+    i16 291, label %1984
+    i16 301, label %1985
+    i16 302, label %1986
+    i16 303, label %1987
+    i16 327, label %1988
+    i16 328, label %1989
+    i16 329, label %1990
+    i16 330, label %1991
+    i16 393, label %1992
   ]
 
 1983:                                             ; preds = %1982
@@ -51239,17 +51394,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 1993:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 294, label %1994
-    i32 295, label %1995
-    i32 310, label %1996
-    i32 311, label %1997
-    i32 312, label %1998
-    i32 337, label %1999
-    i32 338, label %2000
-    i32 339, label %2001
-    i32 340, label %2002
-    i32 388, label %2003
+  %trunc348 = trunc nuw i32 %1 to i16
+  switch i16 %trunc348, label %2244 [
+    i16 294, label %1994
+    i16 295, label %1995
+    i16 310, label %1996
+    i16 311, label %1997
+    i16 312, label %1998
+    i16 337, label %1999
+    i16 338, label %2000
+    i16 339, label %2001
+    i16 340, label %2002
+    i16 388, label %2003
   ]
 
 1994:                                             ; preds = %1993
@@ -51283,17 +51439,18 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2004:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 297, label %2005
-    i32 298, label %2006
-    i32 316, label %2007
-    i32 317, label %2008
-    i32 318, label %2009
-    i32 346, label %2010
-    i32 347, label %2011
-    i32 348, label %2012
-    i32 349, label %2013
-    i32 375, label %2014
+  %trunc347 = trunc nuw i32 %1 to i16
+  switch i16 %trunc347, label %2244 [
+    i16 297, label %2005
+    i16 298, label %2006
+    i16 316, label %2007
+    i16 317, label %2008
+    i16 318, label %2009
+    i16 346, label %2010
+    i16 347, label %2011
+    i16 348, label %2012
+    i16 349, label %2013
+    i16 375, label %2014
   ]
 
 2005:                                             ; preds = %2004
@@ -51327,13 +51484,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2015:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 299, label %2016
-    i32 300, label %2017
-    i32 322, label %2018
-    i32 323, label %2019
-    i32 324, label %2020
-    i32 392, label %2021
+  %trunc346 = trunc nuw i32 %1 to i16
+  switch i16 %trunc346, label %2244 [
+    i16 299, label %2016
+    i16 300, label %2017
+    i16 322, label %2018
+    i16 323, label %2019
+    i16 324, label %2020
+    i16 392, label %2021
   ]
 
 2016:                                             ; preds = %2015
@@ -51355,13 +51513,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2022:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 301, label %2023
-    i32 302, label %2024
-    i32 327, label %2025
-    i32 328, label %2026
-    i32 329, label %2027
-    i32 393, label %2028
+  %trunc345 = trunc nuw i32 %1 to i16
+  switch i16 %trunc345, label %2244 [
+    i16 301, label %2023
+    i16 302, label %2024
+    i16 327, label %2025
+    i16 328, label %2026
+    i16 329, label %2027
+    i16 393, label %2028
   ]
 
 2023:                                             ; preds = %2022
@@ -51383,13 +51542,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2029:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 302, label %2030
-    i32 303, label %2031
-    i32 328, label %2032
-    i32 329, label %2033
-    i32 330, label %2034
-    i32 393, label %2035
+  %trunc344 = trunc nuw i32 %1 to i16
+  switch i16 %trunc344, label %2244 [
+    i16 302, label %2030
+    i16 303, label %2031
+    i16 328, label %2032
+    i16 329, label %2033
+    i16 330, label %2034
+    i16 393, label %2035
   ]
 
 2030:                                             ; preds = %2029
@@ -51411,18 +51571,20 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2036:                                             ; preds = %4
-  %switch.tableidx624 = add i32 %1, -305
-  %2037 = icmp ult i32 %switch.tableidx624, 57
-  br i1 %2037, label %switch.lookup623, label %2244
+  %trunc343 = trunc nuw i32 %1 to i16
+  %switch.tableidx838 = add i16 %trunc343, -305
+  %2037 = icmp ult i16 %switch.tableidx838, 57
+  br i1 %2037, label %switch.lookup837, label %2244
 
 2038:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 308, label %2039
-    i32 309, label %2040
-    i32 334, label %2041
-    i32 335, label %2042
-    i32 336, label %2043
-    i32 387, label %2044
+  %trunc342 = trunc nuw i32 %1 to i16
+  switch i16 %trunc342, label %2244 [
+    i16 308, label %2039
+    i16 309, label %2040
+    i16 334, label %2041
+    i16 335, label %2042
+    i16 336, label %2043
+    i16 387, label %2044
   ]
 
 2039:                                             ; preds = %2038
@@ -51444,13 +51606,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2045:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 310, label %2046
-    i32 311, label %2047
-    i32 337, label %2048
-    i32 338, label %2049
-    i32 339, label %2050
-    i32 388, label %2051
+  %trunc341 = trunc nuw i32 %1 to i16
+  switch i16 %trunc341, label %2244 [
+    i16 310, label %2046
+    i16 311, label %2047
+    i16 337, label %2048
+    i16 338, label %2049
+    i16 339, label %2050
+    i16 388, label %2051
   ]
 
 2046:                                             ; preds = %2045
@@ -51472,13 +51635,14 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2052:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 311, label %2053
-    i32 312, label %2054
-    i32 338, label %2055
-    i32 339, label %2056
-    i32 340, label %2057
-    i32 388, label %2058
+  %trunc340 = trunc nuw i32 %1 to i16
+  switch i16 %trunc340, label %2244 [
+    i16 311, label %2053
+    i16 312, label %2054
+    i16 338, label %2055
+    i16 339, label %2056
+    i16 340, label %2057
+    i16 388, label %2058
   ]
 
 2053:                                             ; preds = %2052
@@ -51500,25 +51664,29 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2059:                                             ; preds = %4
-  %switch.tableidx630 = add i32 %1, -314
-  %2060 = icmp ult i32 %switch.tableidx630, 61
-  br i1 %2060, label %switch.lookup629, label %2244
+  %trunc339 = trunc nuw i32 %1 to i16
+  %switch.tableidx844 = add i16 %trunc339, -314
+  %2060 = icmp ult i16 %switch.tableidx844, 61
+  br i1 %2060, label %switch.lookup843, label %2244
 
 2061:                                             ; preds = %4
-  %switch.tableidx636 = add i32 %1, -316
-  %2062 = icmp ult i32 %switch.tableidx636, 60
-  br i1 %2062, label %switch.lookup635, label %2244
+  %trunc338 = trunc nuw i32 %1 to i16
+  %switch.tableidx850 = add i16 %trunc338, -316
+  %2062 = icmp ult i16 %switch.tableidx850, 60
+  br i1 %2062, label %switch.lookup849, label %2244
 
 2063:                                             ; preds = %4
-  %switch.tableidx642 = add i32 %1, -317
-  %2064 = icmp ult i32 %switch.tableidx642, 59
-  br i1 %2064, label %switch.lookup641, label %2244
+  %trunc337 = trunc nuw i32 %1 to i16
+  %switch.tableidx856 = add i16 %trunc337, -317
+  %2064 = icmp ult i16 %switch.tableidx856, 59
+  br i1 %2064, label %switch.lookup855, label %2244
 
 2065:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 322, label %2066
-    i32 323, label %2067
-    i32 392, label %2068
+  %trunc336 = trunc nuw i32 %1 to i16
+  switch i16 %trunc336, label %2244 [
+    i16 322, label %2066
+    i16 323, label %2067
+    i16 392, label %2068
   ]
 
 2066:                                             ; preds = %2065
@@ -51531,10 +51699,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2069:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 323, label %2070
-    i32 324, label %2071
-    i32 392, label %2072
+  %trunc335 = trunc nuw i32 %1 to i16
+  switch i16 %trunc335, label %2244 [
+    i16 323, label %2070
+    i16 324, label %2071
+    i16 392, label %2072
   ]
 
 2070:                                             ; preds = %2069
@@ -51547,10 +51716,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2073:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 327, label %2074
-    i32 328, label %2075
-    i32 393, label %2076
+  %trunc334 = trunc nuw i32 %1 to i16
+  switch i16 %trunc334, label %2244 [
+    i16 327, label %2074
+    i16 328, label %2075
+    i16 393, label %2076
   ]
 
 2074:                                             ; preds = %2073
@@ -51563,10 +51733,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2077:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 328, label %2078
-    i32 329, label %2079
-    i32 393, label %2080
+  %trunc333 = trunc nuw i32 %1 to i16
+  switch i16 %trunc333, label %2244 [
+    i16 328, label %2078
+    i16 329, label %2079
+    i16 393, label %2080
   ]
 
 2078:                                             ; preds = %2077
@@ -51579,10 +51750,11 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2081:                                             ; preds = %4
-  switch i32 %1, label %2244 [
-    i32 329, label %2082
-    i32 330, label %2083
-    i32 393, label %2084
+  %trunc332 = trunc nuw i32 %1 to i16
+  switch i16 %trunc332, label %2244 [
+    i16 329, label %2082
+    i16 330, label %2083
+    i16 393, label %2084
   ]
 
 2082:                                             ; preds = %2081
@@ -51595,9 +51767,10 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2085:                                             ; preds = %4
-  %switch.tableidx648 = add i32 %1, -332
-  %2086 = icmp ult i32 %switch.tableidx648, 59
-  br i1 %2086, label %switch.lookup647, label %2244
+  %trunc331 = trunc nuw i32 %1 to i16
+  %switch.tableidx862 = add i16 %trunc331, -332
+  %2086 = icmp ult i16 %switch.tableidx862, 59
+  br i1 %2086, label %switch.lookup861, label %2244
 
 2087:                                             ; preds = %4
   %2088 = icmp eq i32 %1, 361
@@ -51612,64 +51785,76 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2093:                                             ; preds = %4
-  %switch.tableidx654 = add i32 %1, -334
-  %2094 = icmp ult i32 %switch.tableidx654, 54
-  br i1 %2094, label %switch.lookup653, label %2244
+  %trunc330 = trunc nuw i32 %1 to i16
+  %switch.tableidx868 = add i16 %trunc330, -334
+  %2094 = icmp ult i16 %switch.tableidx868, 54
+  br i1 %2094, label %switch.lookup867, label %2244
 
 2095:                                             ; preds = %4
-  %switch.tableidx660 = add i32 %1, -335
-  %2096 = icmp ult i32 %switch.tableidx660, 53
-  br i1 %2096, label %switch.lookup659, label %2244
+  %trunc329 = trunc nuw i32 %1 to i16
+  %switch.tableidx874 = add i16 %trunc329, -335
+  %2096 = icmp ult i16 %switch.tableidx874, 53
+  br i1 %2096, label %switch.lookup873, label %2244
 
 2097:                                             ; preds = %4
-  %switch.tableidx666 = add i32 %1, -337
-  %2098 = icmp ult i32 %switch.tableidx666, 52
-  br i1 %2098, label %switch.lookup665, label %2244
+  %trunc328 = trunc nuw i32 %1 to i16
+  %switch.tableidx880 = add i16 %trunc328, -337
+  %2098 = icmp ult i16 %switch.tableidx880, 52
+  br i1 %2098, label %switch.lookup879, label %2244
 
 2099:                                             ; preds = %4
-  %switch.tableidx672 = add i32 %1, -338
-  %2100 = icmp ult i32 %switch.tableidx672, 51
-  br i1 %2100, label %switch.lookup671, label %2244
+  %trunc327 = trunc nuw i32 %1 to i16
+  %switch.tableidx886 = add i16 %trunc327, -338
+  %2100 = icmp ult i16 %switch.tableidx886, 51
+  br i1 %2100, label %switch.lookup885, label %2244
 
 2101:                                             ; preds = %4
-  %switch.tableidx678 = add i32 %1, -339
-  %2102 = icmp ult i32 %switch.tableidx678, 50
-  br i1 %2102, label %switch.lookup677, label %2244
+  %trunc326 = trunc nuw i32 %1 to i16
+  %switch.tableidx892 = add i16 %trunc326, -339
+  %2102 = icmp ult i16 %switch.tableidx892, 50
+  br i1 %2102, label %switch.lookup891, label %2244
 
 2103:                                             ; preds = %4
-  %switch.tableidx684 = add i32 %1, -341
-  %2104 = icmp ult i32 %switch.tableidx684, 46
-  br i1 %2104, label %switch.lookup683, label %2244
+  %trunc325 = trunc nuw i32 %1 to i16
+  %switch.tableidx898 = add i16 %trunc325, -341
+  %2104 = icmp ult i16 %switch.tableidx898, 46
+  br i1 %2104, label %switch.lookup897, label %2244
 
 2105:                                             ; preds = %4
-  %switch.tableidx690 = add i32 %1, -343
-  %2106 = icmp ult i32 %switch.tableidx690, 32
-  br i1 %2106, label %switch.lookup689, label %2244
+  %trunc324 = trunc nuw i32 %1 to i16
+  %switch.tableidx904 = add i16 %trunc324, -343
+  %2106 = icmp ult i16 %switch.tableidx904, 32
+  br i1 %2106, label %switch.lookup903, label %2244
 
 2107:                                             ; preds = %4
-  %switch.tableidx695 = add i32 %1, -344
-  %2108 = icmp ult i32 %switch.tableidx695, 31
-  br i1 %2108, label %switch.lookup694, label %2244
+  %trunc323 = trunc nuw i32 %1 to i16
+  %switch.tableidx910 = add i16 %trunc323, -344
+  %2108 = icmp ult i16 %switch.tableidx910, 31
+  br i1 %2108, label %switch.lookup909, label %2244
 
 2109:                                             ; preds = %4
-  %switch.tableidx701 = add i32 %1, -346
-  %2110 = icmp ult i32 %switch.tableidx701, 30
-  br i1 %2110, label %switch.lookup700, label %2244
+  %trunc322 = trunc nuw i32 %1 to i16
+  %switch.tableidx916 = add i16 %trunc322, -346
+  %2110 = icmp ult i16 %switch.tableidx916, 30
+  br i1 %2110, label %switch.lookup915, label %2244
 
 2111:                                             ; preds = %4
-  %switch.tableidx707 = add i32 %1, -347
-  %2112 = icmp ult i32 %switch.tableidx707, 29
-  br i1 %2112, label %switch.lookup706, label %2244
+  %trunc321 = trunc nuw i32 %1 to i16
+  %switch.tableidx922 = add i16 %trunc321, -347
+  %2112 = icmp ult i16 %switch.tableidx922, 29
+  br i1 %2112, label %switch.lookup921, label %2244
 
 2113:                                             ; preds = %4
-  %switch.tableidx713 = add i32 %1, -348
-  %2114 = icmp ult i32 %switch.tableidx713, 28
-  br i1 %2114, label %switch.lookup712, label %2244
+  %trunc320 = trunc nuw i32 %1 to i16
+  %switch.tableidx928 = add i16 %trunc320, -348
+  %2114 = icmp ult i16 %switch.tableidx928, 28
+  br i1 %2114, label %switch.lookup927, label %2244
 
 2115:                                             ; preds = %4
-  %switch.tableidx719 = add i32 %1, -350
-  %2116 = icmp ult i32 %switch.tableidx719, 24
-  br i1 %2116, label %switch.lookup718, label %2244
+  %trunc319 = trunc nuw i32 %1 to i16
+  %switch.tableidx934 = add i16 %trunc319, -350
+  %2116 = icmp ult i16 %switch.tableidx934, 24
+  br i1 %2116, label %switch.lookup933, label %2244
 
 2117:                                             ; preds = %4
   %2118 = icmp eq i32 %1, 392
@@ -51824,8 +52009,8 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2193:                                             ; preds = %4
-  %2194 = and i32 %1, -2
-  %switch.selectcmp367 = icmp eq i32 %2194, 390
+  %2194 = and i32 %1, 65534
+  %switch.selectcmp582 = icmp eq i32 %2194, 390
   br label %2244
 
 2195:                                             ; preds = %4
@@ -51837,40 +52022,46 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2199:                                             ; preds = %4
-  %switch.tableidx725 = add i32 %1, -367
-  %2200 = icmp ult i32 %switch.tableidx725, 29
-  br i1 %2200, label %switch.lookup724, label %2244
+  %trunc317 = trunc nuw i32 %1 to i16
+  %switch.tableidx940 = add i16 %trunc317, -367
+  %2200 = icmp ult i16 %switch.tableidx940, 29
+  br i1 %2200, label %switch.lookup939, label %2244
 
 2201:                                             ; preds = %4
-  %switch.tableidx731 = add i32 %1, -368
-  %2202 = icmp ult i32 %switch.tableidx731, 28
-  br i1 %2202, label %switch.lookup730, label %2244
+  %trunc316 = trunc nuw i32 %1 to i16
+  %switch.tableidx946 = add i16 %trunc316, -368
+  %2202 = icmp ult i16 %switch.tableidx946, 28
+  br i1 %2202, label %switch.lookup945, label %2244
 
 2203:                                             ; preds = %4
-  %switch.tableidx737 = add i32 %1, -372
-  %2204 = icmp ult i32 %switch.tableidx737, 24
-  br i1 %2204, label %switch.lookup736, label %2244
+  %trunc315 = trunc nuw i32 %1 to i16
+  %switch.tableidx952 = add i16 %trunc315, -372
+  %2204 = icmp ult i16 %switch.tableidx952, 24
+  br i1 %2204, label %switch.lookup951, label %2244
 
 2205:                                             ; preds = %4
-  %switch.tableidx743 = add i32 %1, -370
-  %2206 = icmp ult i32 %switch.tableidx743, 26
-  br i1 %2206, label %switch.lookup742, label %2244
+  %trunc314 = trunc nuw i32 %1 to i16
+  %switch.tableidx958 = add i16 %trunc314, -370
+  %2206 = icmp ult i16 %switch.tableidx958, 26
+  br i1 %2206, label %switch.lookup957, label %2244
 
 2207:                                             ; preds = %4
-  %switch.selectcmp.case1368 = icmp eq i32 %1, 383
-  %switch.selectcmp.case2369 = icmp eq i32 %1, 395
-  %switch.selectcmp370 = or i1 %switch.selectcmp.case1368, %switch.selectcmp.case2369
+  %switch.selectcmp.case1583 = icmp eq i32 %1, 383
+  %switch.selectcmp.case2584 = icmp eq i32 %1, 395
+  %switch.selectcmp585 = or i1 %switch.selectcmp.case1583, %switch.selectcmp.case2584
   br label %2244
 
 2208:                                             ; preds = %4
-  %switch.tableidx749 = add i32 %1, -381
-  %2209 = icmp ult i32 %switch.tableidx749, 14
-  br i1 %2209, label %switch.lookup748, label %2244
+  %trunc312 = trunc nuw i32 %1 to i16
+  %switch.tableidx964 = add i16 %trunc312, -381
+  %2209 = icmp ult i16 %switch.tableidx964, 14
+  br i1 %2209, label %switch.lookup963, label %2244
 
 2210:                                             ; preds = %4
-  %switch.tableidx755 = add i32 %1, -383
-  %2211 = icmp ult i32 %switch.tableidx755, 13
-  br i1 %2211, label %switch.lookup754, label %2244
+  %trunc311 = trunc nuw i32 %1 to i16
+  %switch.tableidx970 = add i16 %trunc311, -383
+  %2211 = icmp ult i16 %switch.tableidx970, 13
+  br i1 %2211, label %switch.lookup969, label %2244
 
 2212:                                             ; preds = %4
   %2213 = icmp eq i32 %1, 394
@@ -51889,8 +52080,8 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2220:                                             ; preds = %4
-  %2221 = and i32 %1, -2
-  %switch.selectcmp372 = icmp eq i32 %2221, 408
+  %2221 = and i32 %1, 65534
+  %switch.selectcmp587 = icmp eq i32 %2221, 408
   br label %2244
 
 2222:                                             ; preds = %4
@@ -51902,8 +52093,8 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 2226:                                             ; preds = %4
-  %2227 = and i32 %1, -5
-  %switch.selectcmp374 = icmp eq i32 %2227, 528
+  %2227 = and i32 %1, 65531
+  %switch.selectcmp589 = icmp eq i32 %2227, 528
   br label %2244
 
 2228:                                             ; preds = %4
@@ -51939,406 +52130,406 @@ define internal fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114Match
   br label %2244
 
 switch.lookup:                                    ; preds = %55
-  %switch.cast = zext nneg i32 %switch.tableidx to i61
+  %switch.cast = zext nneg i16 %switch.tableidx to i61
   %switch.downshift = lshr i61 -594750303597756415, %switch.cast
   %switch.masked = trunc i61 %switch.downshift to i1
   br label %2244
 
-switch.lookup375:                                 ; preds = %805
-  %switch.cast377 = trunc nuw i32 %switch.tableidx376 to i28
-  %switch.downshift379 = lshr i28 -134119407, %switch.cast377
-  %switch.masked380 = trunc i28 %switch.downshift379 to i1
+switch.lookup590:                                 ; preds = %805
+  %switch.cast592 = zext nneg i16 %switch.tableidx591 to i28
+  %switch.downshift594 = lshr i28 -134119407, %switch.cast592
+  %switch.masked595 = trunc i28 %switch.downshift594 to i1
   br label %2244
 
-switch.lookup381:                                 ; preds = %1194
-  %switch.cast383 = trunc nuw i32 %switch.tableidx382 to i30
-  %switch.downshift385 = lshr i30 -536477601, %switch.cast383
-  %switch.masked386 = trunc i30 %switch.downshift385 to i1
+switch.lookup596:                                 ; preds = %1194
+  %switch.cast598 = zext nneg i16 %switch.tableidx597 to i30
+  %switch.downshift600 = lshr i30 -536477601, %switch.cast598
+  %switch.masked601 = trunc i30 %switch.downshift600 to i1
   br label %2244
 
-switch.lookup387:                                 ; preds = %1196
-  %switch.cast389 = trunc nuw i32 %switch.tableidx388 to i30
-  %switch.downshift391 = lshr i30 -536477601, %switch.cast389
-  %switch.masked392 = trunc i30 %switch.downshift391 to i1
+switch.lookup602:                                 ; preds = %1196
+  %switch.cast604 = zext nneg i16 %switch.tableidx603 to i30
+  %switch.downshift606 = lshr i30 -536477601, %switch.cast604
+  %switch.masked607 = trunc i30 %switch.downshift606 to i1
   br label %2244
 
-switch.lookup393:                                 ; preds = %1198
-  %switch.cast395 = trunc nuw i32 %switch.tableidx394 to i24
-  %switch.downshift397 = lshr i24 -8385535, %switch.cast395
-  %switch.masked398 = trunc i24 %switch.downshift397 to i1
+switch.lookup608:                                 ; preds = %1198
+  %switch.cast610 = zext nneg i16 %switch.tableidx609 to i24
+  %switch.downshift612 = lshr i24 -8385535, %switch.cast610
+  %switch.masked613 = trunc i24 %switch.downshift612 to i1
   br label %2244
 
-switch.lookup399:                                 ; preds = %1200
-  %switch.cast401 = trunc nuw i32 %switch.tableidx400 to i24
-  %switch.downshift403 = lshr i24 -8385535, %switch.cast401
-  %switch.masked404 = trunc i24 %switch.downshift403 to i1
+switch.lookup614:                                 ; preds = %1200
+  %switch.cast616 = zext nneg i16 %switch.tableidx615 to i24
+  %switch.downshift618 = lshr i24 -8385535, %switch.cast616
+  %switch.masked619 = trunc i24 %switch.downshift618 to i1
   br label %2244
 
-switch.lookup405:                                 ; preds = %1639
-  %switch.cast407 = zext nneg i32 %switch.tableidx406 to i60
-  %switch.downshift409 = lshr i60 -439790220020285421, %switch.cast407
-  %switch.masked410 = trunc i60 %switch.downshift409 to i1
+switch.lookup620:                                 ; preds = %1639
+  %switch.cast622 = zext nneg i16 %switch.tableidx621 to i60
+  %switch.downshift624 = lshr i60 -439790220020285421, %switch.cast622
+  %switch.masked625 = trunc i60 %switch.downshift624 to i1
   br label %2244
 
-switch.lookup411:                                 ; preds = %1641
-  %switch.cast413 = zext nneg i32 %switch.tableidx412 to i60
-  %switch.downshift415 = lshr i60 -366316317566828507, %switch.cast413
-  %switch.masked416 = trunc i60 %switch.downshift415 to i1
+switch.lookup626:                                 ; preds = %1641
+  %switch.cast628 = zext nneg i16 %switch.tableidx627 to i60
+  %switch.downshift630 = lshr i60 -366316317566828507, %switch.cast628
+  %switch.masked631 = trunc i60 %switch.downshift630 to i1
   br label %2244
 
-switch.lookup417:                                 ; preds = %1643
-  %switch.cast419 = zext nneg i32 %switch.tableidx418 to i60
-  %switch.downshift421 = lshr i60 -513228938101653431, %switch.cast419
-  %switch.masked422 = trunc i60 %switch.downshift421 to i1
+switch.lookup632:                                 ; preds = %1643
+  %switch.cast634 = zext nneg i16 %switch.tableidx633 to i60
+  %switch.downshift636 = lshr i60 -513228938101653431, %switch.cast634
+  %switch.masked637 = trunc i60 %switch.downshift636 to i1
   br label %2244
 
-switch.lookup423:                                 ; preds = %1645
-  %switch.cast425 = zext nneg i32 %switch.tableidx424 to i59
-  %switch.downshift427 = lshr i59 -163945155160702909, %switch.cast425
-  %switch.masked428 = trunc i59 %switch.downshift427 to i1
+switch.lookup638:                                 ; preds = %1645
+  %switch.cast640 = zext nneg i16 %switch.tableidx639 to i59
+  %switch.downshift642 = lshr i59 -163945155160702909, %switch.cast640
+  %switch.masked643 = trunc i59 %switch.downshift642 to i1
   br label %2244
 
-switch.lookup429:                                 ; preds = %1647
-  %switch.cast431 = zext nneg i32 %switch.tableidx430 to i59
-  %switch.downshift433 = lshr i59 -238527502773911419, %switch.cast431
-  %switch.masked434 = trunc i59 %switch.downshift433 to i1
+switch.lookup644:                                 ; preds = %1647
+  %switch.cast646 = zext nneg i16 %switch.tableidx645 to i59
+  %switch.downshift648 = lshr i59 -238527502773911419, %switch.cast646
+  %switch.masked649 = trunc i59 %switch.downshift648 to i1
   br label %2244
 
-switch.lookup435:                                 ; preds = %1649
-  %switch.cast437 = zext nneg i32 %switch.tableidx436 to i58
-  %switch.downshift439 = lshr i58 -101176785110040445, %switch.cast437
-  %switch.masked440 = trunc i58 %switch.downshift439 to i1
+switch.lookup650:                                 ; preds = %1649
+  %switch.cast652 = zext nneg i16 %switch.tableidx651 to i58
+  %switch.downshift654 = lshr i58 -101176785110040445, %switch.cast652
+  %switch.masked655 = trunc i58 %switch.downshift654 to i1
   br label %2244
 
-switch.lookup441:                                 ; preds = %1651
-  %switch.cast443 = zext nneg i32 %switch.tableidx442 to i56
-  %switch.downshift445 = lshr i56 -19208605576200181, %switch.cast443
-  %switch.masked446 = trunc i56 %switch.downshift445 to i1
+switch.lookup656:                                 ; preds = %1651
+  %switch.cast658 = zext nneg i16 %switch.tableidx657 to i56
+  %switch.downshift660 = lshr i56 -19208605576200181, %switch.cast658
+  %switch.masked661 = trunc i56 %switch.downshift660 to i1
   br label %2244
 
-switch.lookup447:                                 ; preds = %1653
-  %switch.cast449 = zext nneg i32 %switch.tableidx448 to i56
-  %switch.downshift451 = lshr i56 -28637055223332843, %switch.cast449
-  %switch.masked452 = trunc i56 %switch.downshift451 to i1
+switch.lookup662:                                 ; preds = %1653
+  %switch.cast664 = zext nneg i16 %switch.tableidx663 to i56
+  %switch.downshift666 = lshr i56 -28637055223332843, %switch.cast664
+  %switch.masked667 = trunc i56 %switch.downshift666 to i1
   br label %2244
 
-switch.lookup453:                                 ; preds = %1655
-  %switch.cast455 = zext nneg i32 %switch.tableidx454 to i55
-  %switch.downshift457 = lshr i55 -12031268547985389, %switch.cast455
-  %switch.masked458 = trunc i55 %switch.downshift457 to i1
+switch.lookup668:                                 ; preds = %1655
+  %switch.cast670 = zext nneg i16 %switch.tableidx669 to i55
+  %switch.downshift672 = lshr i55 -12031268547985389, %switch.cast670
+  %switch.masked673 = trunc i55 %switch.downshift672 to i1
   br label %2244
 
-switch.lookup459:                                 ; preds = %1657
-  %switch.cast461 = zext nneg i32 %switch.tableidx460 to i53
-  %switch.downshift463 = lshr i53 -2708715614502905, %switch.cast461
-  %switch.masked464 = trunc i53 %switch.downshift463 to i1
+switch.lookup674:                                 ; preds = %1657
+  %switch.cast676 = zext nneg i16 %switch.tableidx675 to i53
+  %switch.downshift678 = lshr i53 -2708715614502905, %switch.cast676
+  %switch.masked679 = trunc i53 %switch.downshift678 to i1
   br label %2244
 
-switch.lookup465:                                 ; preds = %1837
-  %switch.cast467 = trunc nuw i32 %switch.tableidx466 to i23
-  %switch.downshift469 = lshr i23 -2163689, %switch.cast467
-  %switch.masked470 = trunc i23 %switch.downshift469 to i1
+switch.lookup680:                                 ; preds = %1837
+  %switch.cast682 = zext nneg i16 %switch.tableidx681 to i23
+  %switch.downshift684 = lshr i23 -2163689, %switch.cast682
+  %switch.masked685 = trunc i23 %switch.downshift684 to i1
   br label %2244
 
-switch.lookup471:                                 ; preds = %1839
-  %switch.cast473 = trunc nuw i32 %switch.tableidx472 to i20
-  %switch.downshift475 = lshr i20 -466811, %switch.cast473
-  %switch.masked476 = trunc i20 %switch.downshift475 to i1
+switch.lookup686:                                 ; preds = %1839
+  %switch.cast688 = zext nneg i16 %switch.tableidx687 to i20
+  %switch.downshift690 = lshr i20 -466811, %switch.cast688
+  %switch.masked691 = trunc i20 %switch.downshift690 to i1
   br label %2244
 
-switch.lookup477:                                 ; preds = %1841
-  %switch.cast479 = trunc nuw i32 %switch.tableidx478 to i20
-  %switch.downshift481 = lshr i20 -433911, %switch.cast479
-  %switch.masked482 = trunc i20 %switch.downshift481 to i1
+switch.lookup692:                                 ; preds = %1841
+  %switch.cast694 = zext nneg i16 %switch.tableidx693 to i20
+  %switch.downshift696 = lshr i20 -433911, %switch.cast694
+  %switch.masked697 = trunc i20 %switch.downshift696 to i1
   br label %2244
 
-switch.lookup483:                                 ; preds = %1843
-  %switch.cast485 = trunc nuw i32 %switch.tableidx484 to i20
-  %switch.downshift487 = lshr i20 -368111, %switch.cast485
-  %switch.masked488 = trunc i20 %switch.downshift487 to i1
+switch.lookup698:                                 ; preds = %1843
+  %switch.cast700 = zext nneg i16 %switch.tableidx699 to i20
+  %switch.downshift702 = lshr i20 -368111, %switch.cast700
+  %switch.masked703 = trunc i20 %switch.downshift702 to i1
   br label %2244
 
-switch.lookup489:                                 ; preds = %1845
-  %switch.cast491 = trunc nuw i32 %switch.tableidx490 to i20
-  %switch.downshift493 = lshr i20 -499679, %switch.cast491
-  %switch.masked494 = trunc i20 %switch.downshift493 to i1
+switch.lookup704:                                 ; preds = %1845
+  %switch.cast706 = zext nneg i16 %switch.tableidx705 to i20
+  %switch.downshift708 = lshr i20 -499679, %switch.cast706
+  %switch.masked709 = trunc i20 %switch.downshift708 to i1
   br label %2244
 
-switch.lookup495:                                 ; preds = %1847
-  %switch.cast497 = trunc nuw i32 %switch.tableidx496 to i18
-  %switch.downshift499 = lshr i18 -104189, %switch.cast497
-  %switch.masked500 = trunc i18 %switch.downshift499 to i1
+switch.lookup710:                                 ; preds = %1847
+  %switch.cast712 = zext nneg i16 %switch.tableidx711 to i18
+  %switch.downshift714 = lshr i18 -104189, %switch.cast712
+  %switch.masked715 = trunc i18 %switch.downshift714 to i1
   br label %2244
 
-switch.lookup501:                                 ; preds = %1849
-  %switch.cast503 = trunc nuw i32 %switch.tableidx502 to i18
-  %switch.downshift505 = lshr i18 -87547, %switch.cast503
-  %switch.masked506 = trunc i18 %switch.downshift505 to i1
+switch.lookup716:                                 ; preds = %1849
+  %switch.cast718 = zext nneg i16 %switch.tableidx717 to i18
+  %switch.downshift720 = lshr i18 -87547, %switch.cast718
+  %switch.masked721 = trunc i18 %switch.downshift720 to i1
   br label %2244
 
-switch.lookup507:                                 ; preds = %1851
-  %switch.cast509 = trunc nuw i32 %switch.tableidx508 to i18
-  %switch.downshift511 = lshr i18 -120823, %switch.cast509
-  %switch.masked512 = trunc i18 %switch.downshift511 to i1
+switch.lookup722:                                 ; preds = %1851
+  %switch.cast724 = zext nneg i16 %switch.tableidx723 to i18
+  %switch.downshift726 = lshr i18 -120823, %switch.cast724
+  %switch.masked727 = trunc i18 %switch.downshift726 to i1
   br label %2244
 
-switch.lookup513:                                 ; preds = %1853
-  %switch.cast515 = trunc nuw i32 %switch.tableidx514 to i17
-  %switch.downshift517 = lshr i17 -39421, %switch.cast515
-  %switch.masked518 = trunc i17 %switch.downshift517 to i1
+switch.lookup728:                                 ; preds = %1853
+  %switch.cast730 = zext nneg i16 %switch.tableidx729 to i17
+  %switch.downshift732 = lshr i17 -39421, %switch.cast730
+  %switch.masked733 = trunc i17 %switch.downshift732 to i1
   br label %2244
 
-switch.lookup519:                                 ; preds = %1855
-  %switch.cast521 = trunc nuw i32 %switch.tableidx520 to i17
-  %switch.downshift523 = lshr i17 -56315, %switch.cast521
-  %switch.masked524 = trunc i17 %switch.downshift523 to i1
+switch.lookup734:                                 ; preds = %1855
+  %switch.cast736 = zext nneg i16 %switch.tableidx735 to i17
+  %switch.downshift738 = lshr i17 -56315, %switch.cast736
+  %switch.masked739 = trunc i17 %switch.downshift738 to i1
   br label %2244
 
-switch.lookup525:                                 ; preds = %1857
-  %switch.cast527 = trunc nuw i32 %switch.tableidx526 to i16
-  %switch.downshift529 = lshr i16 -24061, %switch.cast527
-  %switch.masked530 = trunc i16 %switch.downshift529 to i1
+switch.lookup740:                                 ; preds = %1857
+  %switch.downshift743 = lshr i16 -24061, %switch.tableidx741
+  %switch.masked744 = trunc i16 %switch.downshift743 to i1
   br label %2244
 
-switch.lookup531:                                 ; preds = %1914
-  %switch.cast533 = trunc nuw i32 %switch.tableidx532 to i24
-  %switch.downshift535 = lshr i24 -8385535, %switch.cast533
-  %switch.masked536 = trunc i24 %switch.downshift535 to i1
+switch.lookup745:                                 ; preds = %1914
+  %switch.cast747 = zext nneg i16 %switch.tableidx746 to i24
+  %switch.downshift749 = lshr i24 -8385535, %switch.cast747
+  %switch.masked750 = trunc i24 %switch.downshift749 to i1
   br label %2244
 
-switch.lookup537:                                 ; preds = %1916
-  %switch.cast539 = trunc nuw i32 %switch.tableidx538 to i30
-  %switch.downshift541 = lshr i30 -536477601, %switch.cast539
-  %switch.masked542 = trunc i30 %switch.downshift541 to i1
+switch.lookup751:                                 ; preds = %1916
+  %switch.cast753 = zext nneg i16 %switch.tableidx752 to i30
+  %switch.downshift755 = lshr i30 -536477601, %switch.cast753
+  %switch.masked756 = trunc i30 %switch.downshift755 to i1
   br label %2244
 
-switch.lookup543:                                 ; preds = %1941
-  %switch.cast545 = trunc nuw i32 %switch.tableidx544 to i13
-  %switch.downshift547 = lshr i13 -3189, %switch.cast545
-  %switch.masked548 = trunc i13 %switch.downshift547 to i1
+switch.lookup757:                                 ; preds = %1941
+  %switch.cast759 = trunc nuw i16 %switch.tableidx758 to i13
+  %switch.downshift761 = lshr i13 -3189, %switch.cast759
+  %switch.masked762 = trunc i13 %switch.downshift761 to i1
   br label %2244
 
-switch.lookup549:                                 ; preds = %1943
-  %switch.cast551 = trunc nuw i32 %switch.tableidx550 to i13
-  %switch.downshift553 = lshr i13 -2667, %switch.cast551
-  %switch.masked554 = trunc i13 %switch.downshift553 to i1
+switch.lookup763:                                 ; preds = %1943
+  %switch.cast765 = trunc nuw i16 %switch.tableidx764 to i13
+  %switch.downshift767 = lshr i13 -2667, %switch.cast765
+  %switch.masked768 = trunc i13 %switch.downshift767 to i1
   br label %2244
 
-switch.lookup555:                                 ; preds = %1945
-  %switch.cast557 = trunc nuw i32 %switch.tableidx556 to i12
-  %switch.downshift559 = lshr i12 -1197, %switch.cast557
-  %switch.masked560 = trunc i12 %switch.downshift559 to i1
+switch.lookup769:                                 ; preds = %1945
+  %switch.cast771 = trunc nuw i16 %switch.tableidx770 to i12
+  %switch.downshift773 = lshr i12 -1197, %switch.cast771
+  %switch.masked774 = trunc i12 %switch.downshift773 to i1
   br label %2244
 
-switch.lookup561:                                 ; preds = %1947
-  %switch.cast563 = trunc nuw i32 %switch.tableidx562 to i7
-  %switch.downshift565 = lshr i7 -61, %switch.cast563
-  %switch.masked566 = trunc i7 %switch.downshift565 to i1
+switch.lookup775:                                 ; preds = %1947
+  %switch.cast777 = trunc nuw i16 %switch.tableidx776 to i7
+  %switch.downshift779 = lshr i7 -61, %switch.cast777
+  %switch.masked780 = trunc i7 %switch.downshift779 to i1
   br label %2244
 
-switch.lookup567:                                 ; preds = %1949
-  %switch.cast569 = trunc nuw i32 %switch.tableidx568 to i10
-  %switch.downshift571 = lshr i10 -281, %switch.cast569
-  %switch.masked572 = trunc i10 %switch.downshift571 to i1
+switch.lookup781:                                 ; preds = %1949
+  %switch.cast783 = trunc nuw i16 %switch.tableidx782 to i10
+  %switch.downshift785 = lshr i10 -281, %switch.cast783
+  %switch.masked786 = trunc i10 %switch.downshift785 to i1
   br label %2244
 
-switch.lookup573:                                 ; preds = %1951
-  %switch.cast575 = trunc nuw i32 %switch.tableidx574 to i7
-  %switch.downshift577 = lshr i7 -59, %switch.cast575
-  %switch.masked578 = trunc i7 %switch.downshift577 to i1
+switch.lookup787:                                 ; preds = %1951
+  %switch.cast789 = trunc nuw i16 %switch.tableidx788 to i7
+  %switch.downshift791 = lshr i7 -59, %switch.cast789
+  %switch.masked792 = trunc i7 %switch.downshift791 to i1
   br label %2244
 
-switch.lookup579:                                 ; preds = %1953
-  %switch.cast581 = trunc nuw i32 %switch.tableidx580 to i7
-  %switch.downshift583 = lshr i7 -55, %switch.cast581
-  %switch.masked584 = trunc i7 %switch.downshift583 to i1
+switch.lookup793:                                 ; preds = %1953
+  %switch.cast795 = trunc nuw i16 %switch.tableidx794 to i7
+  %switch.downshift797 = lshr i7 -55, %switch.cast795
+  %switch.masked798 = trunc i7 %switch.downshift797 to i1
   br label %2244
 
-switch.lookup585:                                 ; preds = %1955
-  %switch.cast587 = trunc nuw i32 %switch.tableidx586 to i7
-  %switch.downshift589 = lshr i7 -47, %switch.cast587
-  %switch.masked590 = trunc i7 %switch.downshift589 to i1
+switch.lookup799:                                 ; preds = %1955
+  %switch.cast801 = trunc nuw i16 %switch.tableidx800 to i7
+  %switch.downshift803 = lshr i7 -47, %switch.cast801
+  %switch.masked804 = trunc i7 %switch.downshift803 to i1
   br label %2244
 
-switch.lookup591:                                 ; preds = %1959
-  %switch.cast593 = trunc nuw i32 %switch.tableidx592 to i6
-  %switch.downshift595 = lshr i6 -29, %switch.cast593
-  %switch.masked596 = trunc i6 %switch.downshift595 to i1
+switch.lookup805:                                 ; preds = %1959
+  %switch.cast807 = trunc nuw i16 %switch.tableidx806 to i6
+  %switch.downshift809 = lshr i6 -29, %switch.cast807
+  %switch.masked810 = trunc i6 %switch.downshift809 to i1
   br label %2244
 
-switch.lookup597:                                 ; preds = %1961
-  %switch.cast599 = trunc nuw i32 %switch.tableidx598 to i6
-  %switch.downshift601 = lshr i6 -27, %switch.cast599
-  %switch.masked602 = trunc i6 %switch.downshift601 to i1
+switch.lookup811:                                 ; preds = %1961
+  %switch.cast813 = trunc nuw i16 %switch.tableidx812 to i6
+  %switch.downshift815 = lshr i6 -27, %switch.cast813
+  %switch.masked816 = trunc i6 %switch.downshift815 to i1
   br label %2244
 
-switch.lookup603:                                 ; preds = %1963
-  %switch.cast605 = trunc nuw i32 %switch.tableidx604 to i6
-  %switch.downshift607 = lshr i6 -23, %switch.cast605
-  %switch.masked608 = trunc i6 %switch.downshift607 to i1
+switch.lookup817:                                 ; preds = %1963
+  %switch.cast819 = trunc nuw i16 %switch.tableidx818 to i6
+  %switch.downshift821 = lshr i6 -23, %switch.cast819
+  %switch.masked822 = trunc i6 %switch.downshift821 to i1
   br label %2244
 
-switch.lookup609:                                 ; preds = %1965
-  %switch.cast611 = trunc nuw i32 %switch.tableidx610 to i5
-  %switch.downshift613 = lshr i5 -13, %switch.cast611
-  %switch.masked614 = trunc i5 %switch.downshift613 to i1
+switch.lookup823:                                 ; preds = %1965
+  %switch.cast825 = trunc nuw i16 %switch.tableidx824 to i5
+  %switch.downshift827 = lshr i5 -13, %switch.cast825
+  %switch.masked828 = trunc i5 %switch.downshift827 to i1
   br label %2244
 
-switch.lookup615:                                 ; preds = %1967
-  %switch.idx.cast = trunc i32 %switch.tableidx616 to i1
+switch.lookup829:                                 ; preds = %1967
+  %switch.idx.cast = trunc i16 %switch.tableidx830 to i1
   %switch.offset = xor i1 %switch.idx.cast, true
   br label %2244
 
-switch.lookup617:                                 ; preds = %1969
-  %switch.cast619 = trunc nuw i32 %switch.tableidx618 to i4
-  %switch.downshift621 = lshr i4 -5, %switch.cast619
-  %switch.masked622 = trunc i4 %switch.downshift621 to i1
+switch.lookup831:                                 ; preds = %1969
+  %switch.cast833 = trunc nuw i16 %switch.tableidx832 to i4
+  %switch.downshift835 = lshr i4 -5, %switch.cast833
+  %switch.masked836 = trunc i4 %switch.downshift835 to i1
   br label %2244
 
-switch.lookup623:                                 ; preds = %2036
-  %switch.cast625 = zext nneg i32 %switch.tableidx624 to i57
-  %switch.downshift627 = lshr i57 -72057594037927933, %switch.cast625
-  %switch.masked628 = trunc i57 %switch.downshift627 to i1
+switch.lookup837:                                 ; preds = %2036
+  %switch.cast839 = zext nneg i16 %switch.tableidx838 to i57
+  %switch.downshift841 = lshr i57 -72057594037927933, %switch.cast839
+  %switch.masked842 = trunc i57 %switch.downshift841 to i1
   br label %2244
 
-switch.lookup629:                                 ; preds = %2059
-  %switch.cast631 = zext nneg i32 %switch.tableidx630 to i61
-  %switch.downshift633 = lshr i61 -1152921500848750589, %switch.cast631
-  %switch.masked634 = trunc i61 %switch.downshift633 to i1
+switch.lookup843:                                 ; preds = %2059
+  %switch.cast845 = zext nneg i16 %switch.tableidx844 to i61
+  %switch.downshift847 = lshr i61 -1152921500848750589, %switch.cast845
+  %switch.masked848 = trunc i61 %switch.downshift847 to i1
   br label %2244
 
-switch.lookup635:                                 ; preds = %2061
-  %switch.cast637 = zext nneg i32 %switch.tableidx636 to i60
-  %switch.downshift639 = lshr i60 -576460744787230717, %switch.cast637
-  %switch.masked640 = trunc i60 %switch.downshift639 to i1
+switch.lookup849:                                 ; preds = %2061
+  %switch.cast851 = zext nneg i16 %switch.tableidx850 to i60
+  %switch.downshift853 = lshr i60 -576460744787230717, %switch.cast851
+  %switch.masked854 = trunc i60 %switch.downshift853 to i1
   br label %2244
 
-switch.lookup641:                                 ; preds = %2063
-  %switch.cast643 = zext nneg i32 %switch.tableidx642 to i59
-  %switch.downshift645 = lshr i59 -288230368635518973, %switch.cast643
-  %switch.masked646 = trunc i59 %switch.downshift645 to i1
+switch.lookup855:                                 ; preds = %2063
+  %switch.cast857 = zext nneg i16 %switch.tableidx856 to i59
+  %switch.downshift859 = lshr i59 -288230368635518973, %switch.cast857
+  %switch.masked860 = trunc i59 %switch.downshift859 to i1
   br label %2244
 
-switch.lookup647:                                 ; preds = %2085
-  %switch.cast649 = zext nneg i32 %switch.tableidx648 to i59
-  %switch.downshift651 = lshr i59 -288230376151711741, %switch.cast649
-  %switch.masked652 = trunc i59 %switch.downshift651 to i1
+switch.lookup861:                                 ; preds = %2085
+  %switch.cast863 = zext nneg i16 %switch.tableidx862 to i59
+  %switch.downshift865 = lshr i59 -288230376151711741, %switch.cast863
+  %switch.masked866 = trunc i59 %switch.downshift865 to i1
   br label %2244
 
-switch.lookup653:                                 ; preds = %2093
-  %switch.cast655 = zext nneg i32 %switch.tableidx654 to i54
-  %switch.downshift657 = lshr i54 -9007199254740989, %switch.cast655
-  %switch.masked658 = trunc i54 %switch.downshift657 to i1
+switch.lookup867:                                 ; preds = %2093
+  %switch.cast869 = zext nneg i16 %switch.tableidx868 to i54
+  %switch.downshift871 = lshr i54 -9007199254740989, %switch.cast869
+  %switch.masked872 = trunc i54 %switch.downshift871 to i1
   br label %2244
 
-switch.lookup659:                                 ; preds = %2095
-  %switch.cast661 = zext nneg i32 %switch.tableidx660 to i53
-  %switch.downshift663 = lshr i53 -4503599627370493, %switch.cast661
-  %switch.masked664 = trunc i53 %switch.downshift663 to i1
+switch.lookup873:                                 ; preds = %2095
+  %switch.cast875 = zext nneg i16 %switch.tableidx874 to i53
+  %switch.downshift877 = lshr i53 -4503599627370493, %switch.cast875
+  %switch.masked878 = trunc i53 %switch.downshift877 to i1
   br label %2244
 
-switch.lookup665:                                 ; preds = %2097
-  %switch.cast667 = zext nneg i32 %switch.tableidx666 to i52
-  %switch.downshift669 = lshr i52 -2251799813685245, %switch.cast667
-  %switch.masked670 = trunc i52 %switch.downshift669 to i1
+switch.lookup879:                                 ; preds = %2097
+  %switch.cast881 = zext nneg i16 %switch.tableidx880 to i52
+  %switch.downshift883 = lshr i52 -2251799813685245, %switch.cast881
+  %switch.masked884 = trunc i52 %switch.downshift883 to i1
   br label %2244
 
-switch.lookup671:                                 ; preds = %2099
-  %switch.cast673 = zext nneg i32 %switch.tableidx672 to i51
-  %switch.downshift675 = lshr i51 -1125899906842621, %switch.cast673
-  %switch.masked676 = trunc i51 %switch.downshift675 to i1
+switch.lookup885:                                 ; preds = %2099
+  %switch.cast887 = zext nneg i16 %switch.tableidx886 to i51
+  %switch.downshift889 = lshr i51 -1125899906842621, %switch.cast887
+  %switch.masked890 = trunc i51 %switch.downshift889 to i1
   br label %2244
 
-switch.lookup677:                                 ; preds = %2101
-  %switch.cast679 = zext nneg i32 %switch.tableidx678 to i50
-  %switch.downshift681 = lshr i50 -562949953421309, %switch.cast679
-  %switch.masked682 = trunc i50 %switch.downshift681 to i1
+switch.lookup891:                                 ; preds = %2101
+  %switch.cast893 = zext nneg i16 %switch.tableidx892 to i50
+  %switch.downshift895 = lshr i50 -562949953421309, %switch.cast893
+  %switch.masked896 = trunc i50 %switch.downshift895 to i1
   br label %2244
 
-switch.lookup683:                                 ; preds = %2103
-  %switch.cast685 = zext nneg i32 %switch.tableidx684 to i46
-  %switch.downshift687 = lshr i46 -35184372088829, %switch.cast685
-  %switch.masked688 = trunc i46 %switch.downshift687 to i1
+switch.lookup897:                                 ; preds = %2103
+  %switch.cast899 = zext nneg i16 %switch.tableidx898 to i46
+  %switch.downshift901 = lshr i46 -35184372088829, %switch.cast899
+  %switch.masked902 = trunc i46 %switch.downshift901 to i1
   br label %2244
 
-switch.lookup689:                                 ; preds = %2105
-  %switch.downshift692 = lshr i32 -2147483645, %switch.tableidx690
-  %switch.masked693 = trunc i32 %switch.downshift692 to i1
+switch.lookup903:                                 ; preds = %2105
+  %switch.cast905 = zext nneg i16 %switch.tableidx904 to i32
+  %switch.downshift907 = lshr i32 -2147483645, %switch.cast905
+  %switch.masked908 = trunc i32 %switch.downshift907 to i1
   br label %2244
 
-switch.lookup694:                                 ; preds = %2107
-  %switch.cast696 = trunc nuw i32 %switch.tableidx695 to i31
-  %switch.downshift698 = lshr i31 -1073741821, %switch.cast696
-  %switch.masked699 = trunc i31 %switch.downshift698 to i1
+switch.lookup909:                                 ; preds = %2107
+  %switch.cast911 = zext nneg i16 %switch.tableidx910 to i31
+  %switch.downshift913 = lshr i31 -1073741821, %switch.cast911
+  %switch.masked914 = trunc i31 %switch.downshift913 to i1
   br label %2244
 
-switch.lookup700:                                 ; preds = %2109
-  %switch.cast702 = trunc nuw i32 %switch.tableidx701 to i30
-  %switch.downshift704 = lshr i30 -536870909, %switch.cast702
-  %switch.masked705 = trunc i30 %switch.downshift704 to i1
+switch.lookup915:                                 ; preds = %2109
+  %switch.cast917 = zext nneg i16 %switch.tableidx916 to i30
+  %switch.downshift919 = lshr i30 -536870909, %switch.cast917
+  %switch.masked920 = trunc i30 %switch.downshift919 to i1
   br label %2244
 
-switch.lookup706:                                 ; preds = %2111
-  %switch.cast708 = trunc nuw i32 %switch.tableidx707 to i29
-  %switch.downshift710 = lshr i29 -268435453, %switch.cast708
-  %switch.masked711 = trunc i29 %switch.downshift710 to i1
+switch.lookup921:                                 ; preds = %2111
+  %switch.cast923 = zext nneg i16 %switch.tableidx922 to i29
+  %switch.downshift925 = lshr i29 -268435453, %switch.cast923
+  %switch.masked926 = trunc i29 %switch.downshift925 to i1
   br label %2244
 
-switch.lookup712:                                 ; preds = %2113
-  %switch.cast714 = trunc nuw i32 %switch.tableidx713 to i28
-  %switch.downshift716 = lshr i28 -134217725, %switch.cast714
-  %switch.masked717 = trunc i28 %switch.downshift716 to i1
+switch.lookup927:                                 ; preds = %2113
+  %switch.cast929 = zext nneg i16 %switch.tableidx928 to i28
+  %switch.downshift931 = lshr i28 -134217725, %switch.cast929
+  %switch.masked932 = trunc i28 %switch.downshift931 to i1
   br label %2244
 
-switch.lookup718:                                 ; preds = %2115
-  %switch.cast720 = trunc nuw i32 %switch.tableidx719 to i24
-  %switch.downshift722 = lshr i24 -8388605, %switch.cast720
-  %switch.masked723 = trunc i24 %switch.downshift722 to i1
+switch.lookup933:                                 ; preds = %2115
+  %switch.cast935 = zext nneg i16 %switch.tableidx934 to i24
+  %switch.downshift937 = lshr i24 -8388605, %switch.cast935
+  %switch.masked938 = trunc i24 %switch.downshift937 to i1
   br label %2244
 
-switch.lookup724:                                 ; preds = %2199
-  %switch.cast726 = trunc nuw i32 %switch.tableidx725 to i29
-  %switch.downshift728 = lshr i29 -268238801, %switch.cast726
-  %switch.masked729 = trunc i29 %switch.downshift728 to i1
+switch.lookup939:                                 ; preds = %2199
+  %switch.cast941 = zext nneg i16 %switch.tableidx940 to i29
+  %switch.downshift943 = lshr i29 -268238801, %switch.cast941
+  %switch.masked944 = trunc i29 %switch.downshift943 to i1
   br label %2244
 
-switch.lookup730:                                 ; preds = %2201
-  %switch.cast732 = trunc nuw i32 %switch.tableidx731 to i28
-  %switch.downshift734 = lshr i28 -134119407, %switch.cast732
-  %switch.masked735 = trunc i28 %switch.downshift734 to i1
+switch.lookup945:                                 ; preds = %2201
+  %switch.cast947 = zext nneg i16 %switch.tableidx946 to i28
+  %switch.downshift949 = lshr i28 -134119407, %switch.cast947
+  %switch.masked950 = trunc i28 %switch.downshift949 to i1
   br label %2244
 
-switch.lookup736:                                 ; preds = %2203
-  %switch.cast738 = trunc nuw i32 %switch.tableidx737 to i24
-  %switch.downshift740 = lshr i24 -8382463, %switch.cast738
-  %switch.masked741 = trunc i24 %switch.downshift740 to i1
+switch.lookup951:                                 ; preds = %2203
+  %switch.cast953 = zext nneg i16 %switch.tableidx952 to i24
+  %switch.downshift955 = lshr i24 -8382463, %switch.cast953
+  %switch.masked956 = trunc i24 %switch.downshift955 to i1
   br label %2244
 
-switch.lookup742:                                 ; preds = %2205
-  %switch.cast744 = trunc nuw i32 %switch.tableidx743 to i26
-  %switch.downshift746 = lshr i26 -33529851, %switch.cast744
-  %switch.masked747 = trunc i26 %switch.downshift746 to i1
+switch.lookup957:                                 ; preds = %2205
+  %switch.cast959 = zext nneg i16 %switch.tableidx958 to i26
+  %switch.downshift961 = lshr i26 -33529851, %switch.cast959
+  %switch.masked962 = trunc i26 %switch.downshift961 to i1
   br label %2244
 
-switch.lookup748:                                 ; preds = %2208
-  %switch.cast750 = trunc nuw i32 %switch.tableidx749 to i14
-  %switch.downshift752 = lshr i14 -8189, %switch.cast750
-  %switch.masked753 = trunc i14 %switch.downshift752 to i1
+switch.lookup963:                                 ; preds = %2208
+  %switch.cast965 = trunc nuw i16 %switch.tableidx964 to i14
+  %switch.downshift967 = lshr i14 -8189, %switch.cast965
+  %switch.masked968 = trunc i14 %switch.downshift967 to i1
   br label %2244
 
-switch.lookup754:                                 ; preds = %2210
-  %switch.cast756 = trunc nuw i32 %switch.tableidx755 to i13
-  %switch.downshift758 = lshr i13 -4093, %switch.cast756
-  %switch.masked759 = trunc i13 %switch.downshift758 to i1
+switch.lookup969:                                 ; preds = %2210
+  %switch.cast971 = trunc nuw i16 %switch.tableidx970 to i13
+  %switch.downshift973 = lshr i13 -4093, %switch.cast971
+  %switch.masked974 = trunc i13 %switch.downshift973 to i1
   br label %2244
 
-2244:                                             ; preds = %switch.lookup754, %2210, %switch.lookup748, %2208, %switch.lookup742, %2205, %switch.lookup736, %2203, %switch.lookup730, %2201, %switch.lookup724, %2199, %switch.lookup718, %2115, %switch.lookup712, %2113, %switch.lookup706, %2111, %switch.lookup700, %2109, %switch.lookup694, %2107, %switch.lookup689, %2105, %switch.lookup683, %2103, %switch.lookup677, %2101, %switch.lookup671, %2099, %switch.lookup665, %2097, %switch.lookup659, %2095, %switch.lookup653, %2093, %switch.lookup647, %2085, %switch.lookup641, %2063, %switch.lookup635, %2061, %switch.lookup629, %2059, %switch.lookup623, %2036, %switch.lookup617, %1969, %switch.lookup615, %1967, %switch.lookup609, %1965, %switch.lookup603, %1963, %switch.lookup597, %1961, %switch.lookup591, %1959, %switch.lookup585, %1955, %switch.lookup579, %1953, %switch.lookup573, %1951, %switch.lookup567, %1949, %switch.lookup561, %1947, %switch.lookup555, %1945, %switch.lookup549, %1943, %switch.lookup543, %1941, %switch.lookup537, %1916, %switch.lookup531, %1914, %switch.lookup525, %1857, %switch.lookup519, %1855, %switch.lookup513, %1853, %switch.lookup507, %1851, %switch.lookup501, %1849, %switch.lookup495, %1847, %switch.lookup489, %1845, %switch.lookup483, %1843, %switch.lookup477, %1841, %switch.lookup471, %1839, %switch.lookup465, %1837, %switch.lookup459, %1657, %switch.lookup453, %1655, %switch.lookup447, %1653, %switch.lookup441, %1651, %switch.lookup435, %1649, %switch.lookup429, %1647, %switch.lookup423, %1645, %switch.lookup417, %1643, %switch.lookup411, %1641, %switch.lookup405, %1639, %switch.lookup399, %1200, %switch.lookup393, %1198, %switch.lookup387, %1196, %switch.lookup381, %1194, %switch.lookup375, %805, %switch.lookup, %55, %2226, %2220, %2207, %2193, %2081, %2077, %2073, %2069, %2065, %2052, %2045, %2038, %2029, %2022, %2015, %2004, %1993, %1982, %1981, %1958, %1957, %1937, %1931, %1930, %1924, %1923, %1922, %1919, %1918, %1913, %1900, %1899, %1887, %1879, %1874, %1873, %1865, %1860, %1859, %1829, %1824, %1823, %1815, %1803, %1795, %1790, %1789, %1783, %1777, %1771, %1765, %1761, %1753, %1748, %1747, %1741, %1737, %1733, %1727, %1722, %1718, %1714, %1707, %1693, %1683, %1676, %1666, %1659, %1632, %1618, %1608, %1601, %1586, %1575, %1564, %1554, %1547, %1536, %1525, %1508, %1495, %1482, %1458, %1434, %1410, %1386, %1354, %1337, %1324, %1323, %1305, %1292, %1271, %1223, %1202, %1188, %1182, %1133, %1132, %1123, %1110, %1091, %1081, %1062, %1042, %1027, %1021, %1006, %1000, %987, %977, %972, %922, %894, %867, %847, %827, %807, %801, %750, %699, %649, %600, %575, %562, %549, %548, %547, %538, %529, %495, %461, %453, %446, %441, %440, %431, %427, %423, %371, %318, %265, %213, %162, %135, %108, %82, %57, %50, %45, %4, %2, %2242, %2240, %2238, %2236, %2234, %2232, %2230, %2228, %2224, %2222, %2218, %2216, %2214, %2212, %2197, %2195, %2191, %2189, %2187, %2185, %2183, %2181, %2179, %2177, %2175, %2173, %2171, %2169, %2167, %2165, %2163, %2161, %2159, %2157, %2155, %2153, %2151, %2149, %2147, %2145, %2143, %2141, %2139, %2137, %2135, %2133, %2131, %2129, %2127, %2125, %2123, %2121, %2119, %2117, %2091, %2089, %2087, %2084, %2083, %2082, %2080, %2079, %2078, %2076, %2075, %2074, %2072, %2071, %2070, %2068, %2067, %2066, %2058, %2057, %2056, %2055, %2054, %2053, %2051, %2050, %2049, %2048, %2047, %2046, %2044, %2043, %2042, %2041, %2040, %2039, %2035, %2034, %2033, %2032, %2031, %2030, %2028, %2027, %2026, %2025, %2024, %2023, %2021, %2020, %2019, %2018, %2017, %2016, %2014, %2013, %2012, %2011, %2010, %2009, %2008, %2007, %2006, %2005, %2003, %2002, %2001, %2000, %1999, %1998, %1997, %1996, %1995, %1994, %1992, %1991, %1990, %1989, %1988, %1987, %1986, %1985, %1984, %1983, %1979, %1977, %1975, %1973, %1971, %1940, %1939, %1938, %1936, %1935, %1934, %1933, %1932, %1928, %1927, %1926, %1925, %1920, %1911, %1909, %1907, %1905, %1904, %1903, %1902, %1901, %1898, %1897, %1896, %1895, %1894, %1893, %1892, %1891, %1890, %1889, %1888, %1886, %1885, %1884, %1883, %1882, %1881, %1880, %1878, %1877, %1876, %1875, %1872, %1871, %1870, %1869, %1868, %1867, %1866, %1864, %1863, %1862, %1861, %1836, %1835, %1834, %1833, %1832, %1831, %1830, %1828, %1827, %1826, %1825, %1822, %1821, %1820, %1819, %1818, %1817, %1816, %1814, %1813, %1812, %1811, %1810, %1809, %1808, %1807, %1806, %1805, %1804, %1802, %1801, %1800, %1799, %1798, %1797, %1796, %1794, %1793, %1792, %1791, %1788, %1787, %1786, %1785, %1784, %1782, %1781, %1780, %1779, %1778, %1775, %1774, %1773, %1772, %1770, %1769, %1768, %1767, %1766, %1764, %1763, %1762, %1760, %1759, %1758, %1757, %1756, %1755, %1754, %1752, %1751, %1750, %1749, %1746, %1745, %1744, %1743, %1742, %1740, %1739, %1738, %1736, %1735, %1734, %1732, %1731, %1730, %1729, %1728, %1726, %1725, %1724, %1723, %1721, %1720, %1719, %1717, %1716, %1715, %1713, %1712, %1711, %1710, %1709, %1708, %1706, %1705, %1704, %1703, %1702, %1701, %1700, %1699, %1698, %1697, %1696, %1695, %1694, %1692, %1691, %1690, %1689, %1688, %1687, %1686, %1685, %1684, %1682, %1681, %1680, %1679, %1678, %1677, %1675, %1674, %1673, %1672, %1671, %1670, %1669, %1668, %1667, %1665, %1664, %1663, %1662, %1661, %1660, %1638, %1637, %1636, %1635, %1634, %1633, %1631, %1630, %1629, %1628, %1627, %1626, %1625, %1624, %1623, %1622, %1621, %1620, %1619, %1617, %1616, %1615, %1614, %1613, %1612, %1611, %1610, %1609, %1607, %1606, %1605, %1604, %1603, %1602, %1600, %1599, %1598, %1597, %1596, %1595, %1594, %1593, %1592, %1591, %1590, %1589, %1588, %1587, %1585, %1584, %1583, %1582, %1581, %1580, %1579, %1578, %1577, %1576, %1574, %1573, %1572, %1571, %1570, %1569, %1568, %1567, %1566, %1565, %1563, %1562, %1561, %1560, %1559, %1558, %1557, %1556, %1555, %1553, %1552, %1551, %1550, %1549, %1548, %1546, %1545, %1544, %1543, %1542, %1541, %1540, %1539, %1538, %1537, %1535, %1534, %1533, %1532, %1531, %1530, %1529, %1528, %1527, %1526, %1524, %1523, %1522, %1521, %1520, %1519, %1518, %1517, %1516, %1515, %1514, %1513, %1512, %1511, %1510, %1509, %1507, %1506, %1505, %1504, %1503, %1502, %1501, %1500, %1499, %1498, %1497, %1496, %1494, %1493, %1492, %1491, %1490, %1489, %1488, %1487, %1486, %1485, %1484, %1483, %1481, %1480, %1479, %1478, %1477, %1476, %1475, %1474, %1473, %1472, %1471, %1470, %1469, %1468, %1467, %1466, %1465, %1464, %1463, %1462, %1461, %1460, %1459, %1457, %1456, %1455, %1454, %1453, %1452, %1451, %1450, %1449, %1448, %1447, %1446, %1445, %1444, %1443, %1442, %1441, %1440, %1439, %1438, %1437, %1436, %1435, %1433, %1432, %1431, %1430, %1429, %1428, %1427, %1426, %1425, %1424, %1423, %1422, %1421, %1420, %1419, %1418, %1417, %1416, %1415, %1414, %1413, %1412, %1411, %1409, %1408, %1407, %1406, %1405, %1404, %1403, %1402, %1401, %1400, %1399, %1398, %1397, %1396, %1395, %1394, %1393, %1392, %1391, %1390, %1389, %1388, %1387, %1385, %1384, %1383, %1382, %1381, %1380, %1379, %1378, %1377, %1376, %1375, %1374, %1373, %1372, %1371, %1370, %1369, %1368, %1367, %1366, %1365, %1364, %1363, %1362, %1361, %1360, %1359, %1358, %1357, %1356, %1355, %1353, %1352, %1351, %1350, %1349, %1348, %1347, %1346, %1345, %1344, %1343, %1342, %1341, %1340, %1339, %1338, %1336, %1335, %1334, %1333, %1332, %1331, %1330, %1329, %1328, %1327, %1326, %1325, %1322, %1321, %1320, %1319, %1318, %1317, %1316, %1315, %1314, %1313, %1312, %1311, %1310, %1309, %1308, %1307, %1306, %1304, %1303, %1302, %1301, %1300, %1299, %1298, %1297, %1296, %1295, %1294, %1293, %1291, %1290, %1289, %1288, %1287, %1286, %1285, %1284, %1283, %1282, %1281, %1280, %1279, %1278, %1277, %1276, %1275, %1274, %1273, %1272, %1270, %1269, %1268, %1267, %1266, %1265, %1264, %1263, %1262, %1261, %1260, %1259, %1258, %1257, %1256, %1255, %1254, %1253, %1252, %1251, %1250, %1249, %1248, %1247, %1246, %1245, %1244, %1243, %1242, %1241, %1240, %1239, %1238, %1237, %1236, %1235, %1234, %1233, %1232, %1231, %1230, %1229, %1228, %1227, %1226, %1225, %1224, %1222, %1221, %1220, %1219, %1218, %1217, %1216, %1215, %1214, %1213, %1212, %1211, %1210, %1209, %1208, %1207, %1206, %1205, %1204, %1203, %1193, %1192, %1191, %1190, %1189, %1187, %1186, %1185, %1184, %1183, %1181, %1180, %1179, %1178, %1177, %1176, %1175, %1174, %1173, %1172, %1171, %1170, %1169, %1168, %1167, %1166, %1165, %1164, %1163, %1162, %1161, %1160, %1159, %1158, %1157, %1156, %1155, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1146, %1145, %1144, %1143, %1142, %1141, %1140, %1139, %1138, %1137, %1136, %1135, %1134, %1131, %1130, %1129, %1128, %1127, %1126, %1125, %1124, %1122, %1121, %1120, %1119, %1118, %1117, %1116, %1115, %1114, %1113, %1112, %1111, %1109, %1108, %1107, %1106, %1105, %1104, %1103, %1102, %1101, %1100, %1099, %1098, %1097, %1096, %1095, %1094, %1093, %1092, %1090, %1089, %1088, %1087, %1086, %1085, %1084, %1083, %1082, %1080, %1079, %1078, %1077, %1076, %1075, %1074, %1073, %1072, %1071, %1070, %1069, %1068, %1067, %1066, %1065, %1064, %1063, %1061, %1060, %1059, %1058, %1057, %1056, %1055, %1054, %1053, %1052, %1051, %1050, %1049, %1048, %1047, %1046, %1045, %1044, %1043, %1041, %1040, %1039, %1038, %1037, %1036, %1035, %1034, %1033, %1032, %1031, %1030, %1029, %1028, %1026, %1025, %1024, %1023, %1022, %1020, %1019, %1018, %1017, %1016, %1015, %1014, %1013, %1012, %1011, %1010, %1009, %1008, %1007, %1005, %1004, %1003, %1002, %1001, %999, %998, %997, %996, %995, %994, %993, %992, %991, %990, %989, %988, %986, %985, %984, %983, %982, %981, %980, %979, %978, %976, %975, %974, %973, %971, %970, %969, %968, %967, %966, %965, %964, %963, %962, %961, %960, %959, %958, %957, %956, %955, %954, %953, %952, %951, %950, %949, %948, %947, %946, %945, %944, %943, %942, %941, %940, %939, %938, %937, %936, %935, %934, %933, %932, %931, %930, %929, %928, %927, %926, %925, %924, %923, %921, %920, %919, %918, %917, %916, %915, %914, %913, %912, %911, %910, %909, %908, %907, %906, %905, %904, %903, %902, %901, %900, %899, %898, %897, %896, %895, %893, %892, %891, %890, %889, %888, %887, %886, %885, %884, %883, %882, %881, %880, %879, %878, %877, %876, %875, %874, %873, %872, %871, %870, %869, %868, %866, %865, %864, %863, %862, %861, %860, %859, %858, %857, %856, %855, %854, %853, %852, %851, %850, %849, %848, %846, %845, %844, %843, %842, %841, %840, %839, %838, %837, %836, %835, %834, %833, %832, %831, %830, %829, %828, %826, %825, %824, %823, %822, %821, %820, %819, %818, %817, %816, %815, %814, %813, %812, %811, %810, %809, %808, %804, %803, %802, %800, %799, %798, %797, %796, %795, %794, %793, %792, %791, %790, %789, %788, %787, %786, %785, %784, %783, %782, %781, %780, %779, %778, %777, %776, %775, %774, %773, %772, %771, %770, %769, %768, %767, %766, %765, %764, %763, %762, %761, %760, %759, %758, %757, %756, %755, %754, %753, %752, %751, %749, %748, %747, %746, %745, %744, %743, %742, %741, %740, %739, %738, %737, %736, %735, %734, %733, %732, %731, %730, %729, %728, %727, %726, %725, %724, %723, %722, %721, %720, %719, %718, %717, %716, %715, %714, %713, %712, %711, %710, %709, %708, %707, %706, %705, %704, %703, %702, %701, %700, %698, %697, %696, %695, %694, %693, %692, %691, %690, %689, %688, %687, %686, %685, %684, %683, %682, %681, %680, %679, %678, %677, %676, %675, %674, %673, %672, %671, %670, %669, %668, %667, %666, %665, %664, %663, %662, %661, %660, %659, %658, %657, %656, %655, %654, %653, %652, %651, %650, %648, %647, %646, %645, %644, %643, %642, %641, %640, %639, %638, %637, %636, %635, %634, %633, %632, %631, %630, %629, %628, %627, %626, %625, %624, %623, %622, %621, %620, %619, %618, %617, %616, %615, %614, %613, %612, %611, %610, %609, %608, %607, %606, %605, %604, %603, %602, %601, %599, %598, %597, %596, %595, %594, %593, %592, %591, %590, %589, %588, %587, %586, %585, %584, %583, %582, %581, %580, %579, %578, %577, %576, %574, %573, %572, %571, %570, %569, %568, %567, %566, %565, %564, %563, %561, %560, %559, %558, %557, %556, %555, %554, %553, %552, %551, %550, %546, %545, %544, %543, %542, %541, %540, %539, %537, %536, %535, %534, %533, %532, %531, %530, %528, %527, %526, %525, %524, %523, %522, %521, %520, %519, %518, %517, %516, %515, %514, %513, %512, %511, %510, %509, %508, %507, %506, %505, %504, %503, %502, %501, %500, %499, %498, %497, %496, %494, %493, %492, %491, %490, %489, %488, %487, %486, %485, %484, %483, %482, %481, %480, %479, %478, %477, %476, %475, %474, %473, %472, %471, %470, %469, %468, %467, %466, %465, %464, %463, %462, %460, %459, %458, %457, %456, %455, %454, %452, %451, %450, %449, %448, %447, %445, %444, %443, %442, %439, %438, %437, %436, %435, %434, %433, %432, %430, %429, %428, %426, %425, %424, %422, %421, %420, %419, %418, %417, %416, %415, %414, %413, %412, %411, %410, %409, %408, %407, %406, %405, %404, %403, %402, %401, %400, %399, %398, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %54, %53, %52, %51, %49, %48, %47, %46, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0 = phi i1 [ %2243, %2242 ], [ %2241, %2240 ], [ %2239, %2238 ], [ %2237, %2236 ], [ %2235, %2234 ], [ %2233, %2232 ], [ %2231, %2230 ], [ %2229, %2228 ], [ %2225, %2224 ], [ %2223, %2222 ], [ %2219, %2218 ], [ %2217, %2216 ], [ %2215, %2214 ], [ %2213, %2212 ], [ %2198, %2197 ], [ %2196, %2195 ], [ %2192, %2191 ], [ %2190, %2189 ], [ %2188, %2187 ], [ %2186, %2185 ], [ %2184, %2183 ], [ %2182, %2181 ], [ %2180, %2179 ], [ %2178, %2177 ], [ %2176, %2175 ], [ %2174, %2173 ], [ %2172, %2171 ], [ %2170, %2169 ], [ %2168, %2167 ], [ %2166, %2165 ], [ %2164, %2163 ], [ %2162, %2161 ], [ %2160, %2159 ], [ %2158, %2157 ], [ %2156, %2155 ], [ %2154, %2153 ], [ %2152, %2151 ], [ %2150, %2149 ], [ %2148, %2147 ], [ %2146, %2145 ], [ %2144, %2143 ], [ %2142, %2141 ], [ %2140, %2139 ], [ %2138, %2137 ], [ %2136, %2135 ], [ %2134, %2133 ], [ %2132, %2131 ], [ %2130, %2129 ], [ %2128, %2127 ], [ %2126, %2125 ], [ %2124, %2123 ], [ %2122, %2121 ], [ %2120, %2119 ], [ %2118, %2117 ], [ %2092, %2091 ], [ %2090, %2089 ], [ %2088, %2087 ], [ true, %2084 ], [ true, %2083 ], [ true, %2082 ], [ true, %2080 ], [ true, %2079 ], [ true, %2078 ], [ true, %2076 ], [ true, %2075 ], [ true, %2074 ], [ true, %2072 ], [ true, %2071 ], [ true, %2070 ], [ true, %2068 ], [ true, %2067 ], [ true, %2066 ], [ true, %2058 ], [ true, %2057 ], [ true, %2056 ], [ true, %2055 ], [ true, %2054 ], [ true, %2053 ], [ true, %2051 ], [ true, %2050 ], [ true, %2049 ], [ true, %2048 ], [ true, %2047 ], [ true, %2046 ], [ true, %2044 ], [ true, %2043 ], [ true, %2042 ], [ true, %2041 ], [ true, %2040 ], [ true, %2039 ], [ true, %2035 ], [ true, %2034 ], [ true, %2033 ], [ true, %2032 ], [ true, %2031 ], [ true, %2030 ], [ true, %2028 ], [ true, %2027 ], [ true, %2026 ], [ true, %2025 ], [ true, %2024 ], [ true, %2023 ], [ true, %2021 ], [ true, %2020 ], [ true, %2019 ], [ true, %2018 ], [ true, %2017 ], [ true, %2016 ], [ true, %2014 ], [ true, %2013 ], [ true, %2012 ], [ true, %2011 ], [ true, %2010 ], [ true, %2009 ], [ true, %2008 ], [ true, %2007 ], [ true, %2006 ], [ true, %2005 ], [ true, %2003 ], [ true, %2002 ], [ true, %2001 ], [ true, %2000 ], [ true, %1999 ], [ true, %1998 ], [ true, %1997 ], [ true, %1996 ], [ true, %1995 ], [ true, %1994 ], [ true, %1992 ], [ true, %1991 ], [ true, %1990 ], [ true, %1989 ], [ true, %1988 ], [ true, %1987 ], [ true, %1986 ], [ true, %1985 ], [ true, %1984 ], [ true, %1983 ], [ %1980, %1979 ], [ %1978, %1977 ], [ %1976, %1975 ], [ %1974, %1973 ], [ %1972, %1971 ], [ true, %1940 ], [ true, %1939 ], [ true, %1938 ], [ true, %1936 ], [ true, %1935 ], [ true, %1934 ], [ true, %1933 ], [ true, %1932 ], [ %1929, %1928 ], [ true, %1927 ], [ true, %1926 ], [ true, %1925 ], [ %1921, %1920 ], [ %1912, %1911 ], [ %1910, %1909 ], [ %1908, %1907 ], [ %1906, %1905 ], [ true, %1904 ], [ true, %1903 ], [ true, %1902 ], [ true, %1901 ], [ true, %1898 ], [ true, %1897 ], [ true, %1896 ], [ true, %1895 ], [ true, %1894 ], [ true, %1893 ], [ true, %1892 ], [ true, %1891 ], [ true, %1890 ], [ true, %1889 ], [ true, %1888 ], [ true, %1886 ], [ true, %1885 ], [ true, %1884 ], [ true, %1883 ], [ true, %1882 ], [ true, %1881 ], [ true, %1880 ], [ true, %1878 ], [ true, %1877 ], [ true, %1876 ], [ true, %1875 ], [ true, %1872 ], [ true, %1871 ], [ true, %1870 ], [ true, %1869 ], [ true, %1868 ], [ true, %1867 ], [ true, %1866 ], [ true, %1864 ], [ true, %1863 ], [ true, %1862 ], [ true, %1861 ], [ true, %1836 ], [ true, %1835 ], [ true, %1834 ], [ true, %1833 ], [ true, %1832 ], [ true, %1831 ], [ true, %1830 ], [ true, %1828 ], [ true, %1827 ], [ true, %1826 ], [ true, %1825 ], [ true, %1822 ], [ true, %1821 ], [ true, %1820 ], [ true, %1819 ], [ true, %1818 ], [ true, %1817 ], [ true, %1816 ], [ true, %1814 ], [ true, %1813 ], [ true, %1812 ], [ true, %1811 ], [ true, %1810 ], [ true, %1809 ], [ true, %1808 ], [ true, %1807 ], [ true, %1806 ], [ true, %1805 ], [ true, %1804 ], [ true, %1802 ], [ true, %1801 ], [ true, %1800 ], [ true, %1799 ], [ true, %1798 ], [ true, %1797 ], [ true, %1796 ], [ true, %1794 ], [ true, %1793 ], [ true, %1792 ], [ true, %1791 ], [ true, %1788 ], [ true, %1787 ], [ true, %1786 ], [ true, %1785 ], [ true, %1784 ], [ true, %1782 ], [ true, %1781 ], [ true, %1780 ], [ true, %1779 ], [ true, %1778 ], [ %1776, %1775 ], [ true, %1774 ], [ true, %1773 ], [ true, %1772 ], [ true, %1770 ], [ true, %1769 ], [ true, %1768 ], [ true, %1767 ], [ true, %1766 ], [ true, %1764 ], [ true, %1763 ], [ true, %1762 ], [ true, %1760 ], [ true, %1759 ], [ true, %1758 ], [ true, %1757 ], [ true, %1756 ], [ true, %1755 ], [ true, %1754 ], [ true, %1752 ], [ true, %1751 ], [ true, %1750 ], [ true, %1749 ], [ true, %1746 ], [ true, %1745 ], [ true, %1744 ], [ true, %1743 ], [ true, %1742 ], [ true, %1740 ], [ true, %1739 ], [ true, %1738 ], [ true, %1736 ], [ true, %1735 ], [ true, %1734 ], [ true, %1732 ], [ true, %1731 ], [ true, %1730 ], [ true, %1729 ], [ true, %1728 ], [ true, %1726 ], [ true, %1725 ], [ true, %1724 ], [ true, %1723 ], [ true, %1721 ], [ true, %1720 ], [ true, %1719 ], [ true, %1717 ], [ true, %1716 ], [ true, %1715 ], [ true, %1713 ], [ true, %1712 ], [ true, %1711 ], [ true, %1710 ], [ true, %1709 ], [ true, %1708 ], [ true, %1706 ], [ true, %1705 ], [ true, %1704 ], [ true, %1703 ], [ true, %1702 ], [ true, %1701 ], [ true, %1700 ], [ true, %1699 ], [ true, %1698 ], [ true, %1697 ], [ true, %1696 ], [ true, %1695 ], [ true, %1694 ], [ true, %1692 ], [ true, %1691 ], [ true, %1690 ], [ true, %1689 ], [ true, %1688 ], [ true, %1687 ], [ true, %1686 ], [ true, %1685 ], [ true, %1684 ], [ true, %1682 ], [ true, %1681 ], [ true, %1680 ], [ true, %1679 ], [ true, %1678 ], [ true, %1677 ], [ true, %1675 ], [ true, %1674 ], [ true, %1673 ], [ true, %1672 ], [ true, %1671 ], [ true, %1670 ], [ true, %1669 ], [ true, %1668 ], [ true, %1667 ], [ true, %1665 ], [ true, %1664 ], [ true, %1663 ], [ true, %1662 ], [ true, %1661 ], [ true, %1660 ], [ true, %1638 ], [ true, %1637 ], [ true, %1636 ], [ true, %1635 ], [ true, %1634 ], [ true, %1633 ], [ true, %1631 ], [ true, %1630 ], [ true, %1629 ], [ true, %1628 ], [ true, %1627 ], [ true, %1626 ], [ true, %1625 ], [ true, %1624 ], [ true, %1623 ], [ true, %1622 ], [ true, %1621 ], [ true, %1620 ], [ true, %1619 ], [ true, %1617 ], [ true, %1616 ], [ true, %1615 ], [ true, %1614 ], [ true, %1613 ], [ true, %1612 ], [ true, %1611 ], [ true, %1610 ], [ true, %1609 ], [ true, %1607 ], [ true, %1606 ], [ true, %1605 ], [ true, %1604 ], [ true, %1603 ], [ true, %1602 ], [ true, %1600 ], [ true, %1599 ], [ true, %1598 ], [ true, %1597 ], [ true, %1596 ], [ true, %1595 ], [ true, %1594 ], [ true, %1593 ], [ true, %1592 ], [ true, %1591 ], [ true, %1590 ], [ true, %1589 ], [ true, %1588 ], [ true, %1587 ], [ true, %1585 ], [ true, %1584 ], [ true, %1583 ], [ true, %1582 ], [ true, %1581 ], [ true, %1580 ], [ true, %1579 ], [ true, %1578 ], [ true, %1577 ], [ true, %1576 ], [ true, %1574 ], [ true, %1573 ], [ true, %1572 ], [ true, %1571 ], [ true, %1570 ], [ true, %1569 ], [ true, %1568 ], [ true, %1567 ], [ true, %1566 ], [ true, %1565 ], [ true, %1563 ], [ true, %1562 ], [ true, %1561 ], [ true, %1560 ], [ true, %1559 ], [ true, %1558 ], [ true, %1557 ], [ true, %1556 ], [ true, %1555 ], [ true, %1553 ], [ true, %1552 ], [ true, %1551 ], [ true, %1550 ], [ true, %1549 ], [ true, %1548 ], [ true, %1546 ], [ true, %1545 ], [ true, %1544 ], [ true, %1543 ], [ true, %1542 ], [ true, %1541 ], [ true, %1540 ], [ true, %1539 ], [ true, %1538 ], [ true, %1537 ], [ true, %1535 ], [ true, %1534 ], [ true, %1533 ], [ true, %1532 ], [ true, %1531 ], [ true, %1530 ], [ true, %1529 ], [ true, %1528 ], [ true, %1527 ], [ true, %1526 ], [ true, %1524 ], [ true, %1523 ], [ true, %1522 ], [ true, %1521 ], [ true, %1520 ], [ true, %1519 ], [ true, %1518 ], [ true, %1517 ], [ true, %1516 ], [ true, %1515 ], [ true, %1514 ], [ true, %1513 ], [ true, %1512 ], [ true, %1511 ], [ true, %1510 ], [ true, %1509 ], [ true, %1507 ], [ true, %1506 ], [ true, %1505 ], [ true, %1504 ], [ true, %1503 ], [ true, %1502 ], [ true, %1501 ], [ true, %1500 ], [ true, %1499 ], [ true, %1498 ], [ true, %1497 ], [ true, %1496 ], [ true, %1494 ], [ true, %1493 ], [ true, %1492 ], [ true, %1491 ], [ true, %1490 ], [ true, %1489 ], [ true, %1488 ], [ true, %1487 ], [ true, %1486 ], [ true, %1485 ], [ true, %1484 ], [ true, %1483 ], [ true, %1481 ], [ true, %1480 ], [ true, %1479 ], [ true, %1478 ], [ true, %1477 ], [ true, %1476 ], [ true, %1475 ], [ true, %1474 ], [ true, %1473 ], [ true, %1472 ], [ true, %1471 ], [ true, %1470 ], [ true, %1469 ], [ true, %1468 ], [ true, %1467 ], [ true, %1466 ], [ true, %1465 ], [ true, %1464 ], [ true, %1463 ], [ true, %1462 ], [ true, %1461 ], [ true, %1460 ], [ true, %1459 ], [ true, %1457 ], [ true, %1456 ], [ true, %1455 ], [ true, %1454 ], [ true, %1453 ], [ true, %1452 ], [ true, %1451 ], [ true, %1450 ], [ true, %1449 ], [ true, %1448 ], [ true, %1447 ], [ true, %1446 ], [ true, %1445 ], [ true, %1444 ], [ true, %1443 ], [ true, %1442 ], [ true, %1441 ], [ true, %1440 ], [ true, %1439 ], [ true, %1438 ], [ true, %1437 ], [ true, %1436 ], [ true, %1435 ], [ true, %1433 ], [ true, %1432 ], [ true, %1431 ], [ true, %1430 ], [ true, %1429 ], [ true, %1428 ], [ true, %1427 ], [ true, %1426 ], [ true, %1425 ], [ true, %1424 ], [ true, %1423 ], [ true, %1422 ], [ true, %1421 ], [ true, %1420 ], [ true, %1419 ], [ true, %1418 ], [ true, %1417 ], [ true, %1416 ], [ true, %1415 ], [ true, %1414 ], [ true, %1413 ], [ true, %1412 ], [ true, %1411 ], [ true, %1409 ], [ true, %1408 ], [ true, %1407 ], [ true, %1406 ], [ true, %1405 ], [ true, %1404 ], [ true, %1403 ], [ true, %1402 ], [ true, %1401 ], [ true, %1400 ], [ true, %1399 ], [ true, %1398 ], [ true, %1397 ], [ true, %1396 ], [ true, %1395 ], [ true, %1394 ], [ true, %1393 ], [ true, %1392 ], [ true, %1391 ], [ true, %1390 ], [ true, %1389 ], [ true, %1388 ], [ true, %1387 ], [ true, %1385 ], [ true, %1384 ], [ true, %1383 ], [ true, %1382 ], [ true, %1381 ], [ true, %1380 ], [ true, %1379 ], [ true, %1378 ], [ true, %1377 ], [ true, %1376 ], [ true, %1375 ], [ true, %1374 ], [ true, %1373 ], [ true, %1372 ], [ true, %1371 ], [ true, %1370 ], [ true, %1369 ], [ true, %1368 ], [ true, %1367 ], [ true, %1366 ], [ true, %1365 ], [ true, %1364 ], [ true, %1363 ], [ true, %1362 ], [ true, %1361 ], [ true, %1360 ], [ true, %1359 ], [ true, %1358 ], [ true, %1357 ], [ true, %1356 ], [ true, %1355 ], [ true, %1353 ], [ true, %1352 ], [ true, %1351 ], [ true, %1350 ], [ true, %1349 ], [ true, %1348 ], [ true, %1347 ], [ true, %1346 ], [ true, %1345 ], [ true, %1344 ], [ true, %1343 ], [ true, %1342 ], [ true, %1341 ], [ true, %1340 ], [ true, %1339 ], [ true, %1338 ], [ true, %1336 ], [ true, %1335 ], [ true, %1334 ], [ true, %1333 ], [ true, %1332 ], [ true, %1331 ], [ true, %1330 ], [ true, %1329 ], [ true, %1328 ], [ true, %1327 ], [ true, %1326 ], [ true, %1325 ], [ true, %1322 ], [ true, %1321 ], [ true, %1320 ], [ true, %1319 ], [ true, %1318 ], [ true, %1317 ], [ true, %1316 ], [ true, %1315 ], [ true, %1314 ], [ true, %1313 ], [ true, %1312 ], [ true, %1311 ], [ true, %1310 ], [ true, %1309 ], [ true, %1308 ], [ true, %1307 ], [ true, %1306 ], [ true, %1304 ], [ true, %1303 ], [ true, %1302 ], [ true, %1301 ], [ true, %1300 ], [ true, %1299 ], [ true, %1298 ], [ true, %1297 ], [ true, %1296 ], [ true, %1295 ], [ true, %1294 ], [ true, %1293 ], [ true, %1291 ], [ true, %1290 ], [ true, %1289 ], [ true, %1288 ], [ true, %1287 ], [ true, %1286 ], [ true, %1285 ], [ true, %1284 ], [ true, %1283 ], [ true, %1282 ], [ true, %1281 ], [ true, %1280 ], [ true, %1279 ], [ true, %1278 ], [ true, %1277 ], [ true, %1276 ], [ true, %1275 ], [ true, %1274 ], [ true, %1273 ], [ true, %1272 ], [ true, %1270 ], [ true, %1269 ], [ true, %1268 ], [ true, %1267 ], [ true, %1266 ], [ true, %1265 ], [ true, %1264 ], [ true, %1263 ], [ true, %1262 ], [ true, %1261 ], [ true, %1260 ], [ true, %1259 ], [ true, %1258 ], [ true, %1257 ], [ true, %1256 ], [ true, %1255 ], [ true, %1254 ], [ true, %1253 ], [ true, %1252 ], [ true, %1251 ], [ true, %1250 ], [ true, %1249 ], [ true, %1248 ], [ true, %1247 ], [ true, %1246 ], [ true, %1245 ], [ true, %1244 ], [ true, %1243 ], [ true, %1242 ], [ true, %1241 ], [ true, %1240 ], [ true, %1239 ], [ true, %1238 ], [ true, %1237 ], [ true, %1236 ], [ true, %1235 ], [ true, %1234 ], [ true, %1233 ], [ true, %1232 ], [ true, %1231 ], [ true, %1230 ], [ true, %1229 ], [ true, %1228 ], [ true, %1227 ], [ true, %1226 ], [ true, %1225 ], [ true, %1224 ], [ true, %1222 ], [ true, %1221 ], [ true, %1220 ], [ true, %1219 ], [ true, %1218 ], [ true, %1217 ], [ true, %1216 ], [ true, %1215 ], [ true, %1214 ], [ true, %1213 ], [ true, %1212 ], [ true, %1211 ], [ true, %1210 ], [ true, %1209 ], [ true, %1208 ], [ true, %1207 ], [ true, %1206 ], [ true, %1205 ], [ true, %1204 ], [ true, %1203 ], [ true, %1193 ], [ true, %1192 ], [ true, %1191 ], [ true, %1190 ], [ true, %1189 ], [ true, %1187 ], [ true, %1186 ], [ true, %1185 ], [ true, %1184 ], [ true, %1183 ], [ true, %1181 ], [ true, %1180 ], [ true, %1179 ], [ true, %1178 ], [ true, %1177 ], [ true, %1176 ], [ true, %1175 ], [ true, %1174 ], [ true, %1173 ], [ true, %1172 ], [ true, %1171 ], [ true, %1170 ], [ true, %1169 ], [ true, %1168 ], [ true, %1167 ], [ true, %1166 ], [ true, %1165 ], [ true, %1164 ], [ true, %1163 ], [ true, %1162 ], [ true, %1161 ], [ true, %1160 ], [ true, %1159 ], [ true, %1158 ], [ true, %1157 ], [ true, %1156 ], [ true, %1155 ], [ true, %1154 ], [ true, %1153 ], [ true, %1152 ], [ true, %1151 ], [ true, %1150 ], [ true, %1149 ], [ true, %1148 ], [ true, %1147 ], [ true, %1146 ], [ true, %1145 ], [ true, %1144 ], [ true, %1143 ], [ true, %1142 ], [ true, %1141 ], [ true, %1140 ], [ true, %1139 ], [ true, %1138 ], [ true, %1137 ], [ true, %1136 ], [ true, %1135 ], [ true, %1134 ], [ true, %1131 ], [ true, %1130 ], [ true, %1129 ], [ true, %1128 ], [ true, %1127 ], [ true, %1126 ], [ true, %1125 ], [ true, %1124 ], [ true, %1122 ], [ true, %1121 ], [ true, %1120 ], [ true, %1119 ], [ true, %1118 ], [ true, %1117 ], [ true, %1116 ], [ true, %1115 ], [ true, %1114 ], [ true, %1113 ], [ true, %1112 ], [ true, %1111 ], [ true, %1109 ], [ true, %1108 ], [ true, %1107 ], [ true, %1106 ], [ true, %1105 ], [ true, %1104 ], [ true, %1103 ], [ true, %1102 ], [ true, %1101 ], [ true, %1100 ], [ true, %1099 ], [ true, %1098 ], [ true, %1097 ], [ true, %1096 ], [ true, %1095 ], [ true, %1094 ], [ true, %1093 ], [ true, %1092 ], [ true, %1090 ], [ true, %1089 ], [ true, %1088 ], [ true, %1087 ], [ true, %1086 ], [ true, %1085 ], [ true, %1084 ], [ true, %1083 ], [ true, %1082 ], [ true, %1080 ], [ true, %1079 ], [ true, %1078 ], [ true, %1077 ], [ true, %1076 ], [ true, %1075 ], [ true, %1074 ], [ true, %1073 ], [ true, %1072 ], [ true, %1071 ], [ true, %1070 ], [ true, %1069 ], [ true, %1068 ], [ true, %1067 ], [ true, %1066 ], [ true, %1065 ], [ true, %1064 ], [ true, %1063 ], [ true, %1061 ], [ true, %1060 ], [ true, %1059 ], [ true, %1058 ], [ true, %1057 ], [ true, %1056 ], [ true, %1055 ], [ true, %1054 ], [ true, %1053 ], [ true, %1052 ], [ true, %1051 ], [ true, %1050 ], [ true, %1049 ], [ true, %1048 ], [ true, %1047 ], [ true, %1046 ], [ true, %1045 ], [ true, %1044 ], [ true, %1043 ], [ true, %1041 ], [ true, %1040 ], [ true, %1039 ], [ true, %1038 ], [ true, %1037 ], [ true, %1036 ], [ true, %1035 ], [ true, %1034 ], [ true, %1033 ], [ true, %1032 ], [ true, %1031 ], [ true, %1030 ], [ true, %1029 ], [ true, %1028 ], [ true, %1026 ], [ true, %1025 ], [ true, %1024 ], [ true, %1023 ], [ true, %1022 ], [ true, %1020 ], [ true, %1019 ], [ true, %1018 ], [ true, %1017 ], [ true, %1016 ], [ true, %1015 ], [ true, %1014 ], [ true, %1013 ], [ true, %1012 ], [ true, %1011 ], [ true, %1010 ], [ true, %1009 ], [ true, %1008 ], [ true, %1007 ], [ true, %1005 ], [ true, %1004 ], [ true, %1003 ], [ true, %1002 ], [ true, %1001 ], [ true, %999 ], [ true, %998 ], [ true, %997 ], [ true, %996 ], [ true, %995 ], [ true, %994 ], [ true, %993 ], [ true, %992 ], [ true, %991 ], [ true, %990 ], [ true, %989 ], [ true, %988 ], [ true, %986 ], [ true, %985 ], [ true, %984 ], [ true, %983 ], [ true, %982 ], [ true, %981 ], [ true, %980 ], [ true, %979 ], [ true, %978 ], [ true, %976 ], [ true, %975 ], [ true, %974 ], [ true, %973 ], [ true, %971 ], [ true, %970 ], [ true, %969 ], [ true, %968 ], [ true, %967 ], [ true, %966 ], [ true, %965 ], [ true, %964 ], [ true, %963 ], [ true, %962 ], [ true, %961 ], [ true, %960 ], [ true, %959 ], [ true, %958 ], [ true, %957 ], [ true, %956 ], [ true, %955 ], [ true, %954 ], [ true, %953 ], [ true, %952 ], [ true, %951 ], [ true, %950 ], [ true, %949 ], [ true, %948 ], [ true, %947 ], [ true, %946 ], [ true, %945 ], [ true, %944 ], [ true, %943 ], [ true, %942 ], [ true, %941 ], [ true, %940 ], [ true, %939 ], [ true, %938 ], [ true, %937 ], [ true, %936 ], [ true, %935 ], [ true, %934 ], [ true, %933 ], [ true, %932 ], [ true, %931 ], [ true, %930 ], [ true, %929 ], [ true, %928 ], [ true, %927 ], [ true, %926 ], [ true, %925 ], [ true, %924 ], [ true, %923 ], [ true, %921 ], [ true, %920 ], [ true, %919 ], [ true, %918 ], [ true, %917 ], [ true, %916 ], [ true, %915 ], [ true, %914 ], [ true, %913 ], [ true, %912 ], [ true, %911 ], [ true, %910 ], [ true, %909 ], [ true, %908 ], [ true, %907 ], [ true, %906 ], [ true, %905 ], [ true, %904 ], [ true, %903 ], [ true, %902 ], [ true, %901 ], [ true, %900 ], [ true, %899 ], [ true, %898 ], [ true, %897 ], [ true, %896 ], [ true, %895 ], [ true, %893 ], [ true, %892 ], [ true, %891 ], [ true, %890 ], [ true, %889 ], [ true, %888 ], [ true, %887 ], [ true, %886 ], [ true, %885 ], [ true, %884 ], [ true, %883 ], [ true, %882 ], [ true, %881 ], [ true, %880 ], [ true, %879 ], [ true, %878 ], [ true, %877 ], [ true, %876 ], [ true, %875 ], [ true, %874 ], [ true, %873 ], [ true, %872 ], [ true, %871 ], [ true, %870 ], [ true, %869 ], [ true, %868 ], [ true, %866 ], [ true, %865 ], [ true, %864 ], [ true, %863 ], [ true, %862 ], [ true, %861 ], [ true, %860 ], [ true, %859 ], [ true, %858 ], [ true, %857 ], [ true, %856 ], [ true, %855 ], [ true, %854 ], [ true, %853 ], [ true, %852 ], [ true, %851 ], [ true, %850 ], [ true, %849 ], [ true, %848 ], [ true, %846 ], [ true, %845 ], [ true, %844 ], [ true, %843 ], [ true, %842 ], [ true, %841 ], [ true, %840 ], [ true, %839 ], [ true, %838 ], [ true, %837 ], [ true, %836 ], [ true, %835 ], [ true, %834 ], [ true, %833 ], [ true, %832 ], [ true, %831 ], [ true, %830 ], [ true, %829 ], [ true, %828 ], [ true, %826 ], [ true, %825 ], [ true, %824 ], [ true, %823 ], [ true, %822 ], [ true, %821 ], [ true, %820 ], [ true, %819 ], [ true, %818 ], [ true, %817 ], [ true, %816 ], [ true, %815 ], [ true, %814 ], [ true, %813 ], [ true, %812 ], [ true, %811 ], [ true, %810 ], [ true, %809 ], [ true, %808 ], [ true, %804 ], [ true, %803 ], [ true, %802 ], [ true, %800 ], [ true, %799 ], [ true, %798 ], [ true, %797 ], [ true, %796 ], [ true, %795 ], [ true, %794 ], [ true, %793 ], [ true, %792 ], [ true, %791 ], [ true, %790 ], [ true, %789 ], [ true, %788 ], [ true, %787 ], [ true, %786 ], [ true, %785 ], [ true, %784 ], [ true, %783 ], [ true, %782 ], [ true, %781 ], [ true, %780 ], [ true, %779 ], [ true, %778 ], [ true, %777 ], [ true, %776 ], [ true, %775 ], [ true, %774 ], [ true, %773 ], [ true, %772 ], [ true, %771 ], [ true, %770 ], [ true, %769 ], [ true, %768 ], [ true, %767 ], [ true, %766 ], [ true, %765 ], [ true, %764 ], [ true, %763 ], [ true, %762 ], [ true, %761 ], [ true, %760 ], [ true, %759 ], [ true, %758 ], [ true, %757 ], [ true, %756 ], [ true, %755 ], [ true, %754 ], [ true, %753 ], [ true, %752 ], [ true, %751 ], [ true, %749 ], [ true, %748 ], [ true, %747 ], [ true, %746 ], [ true, %745 ], [ true, %744 ], [ true, %743 ], [ true, %742 ], [ true, %741 ], [ true, %740 ], [ true, %739 ], [ true, %738 ], [ true, %737 ], [ true, %736 ], [ true, %735 ], [ true, %734 ], [ true, %733 ], [ true, %732 ], [ true, %731 ], [ true, %730 ], [ true, %729 ], [ true, %728 ], [ true, %727 ], [ true, %726 ], [ true, %725 ], [ true, %724 ], [ true, %723 ], [ true, %722 ], [ true, %721 ], [ true, %720 ], [ true, %719 ], [ true, %718 ], [ true, %717 ], [ true, %716 ], [ true, %715 ], [ true, %714 ], [ true, %713 ], [ true, %712 ], [ true, %711 ], [ true, %710 ], [ true, %709 ], [ true, %708 ], [ true, %707 ], [ true, %706 ], [ true, %705 ], [ true, %704 ], [ true, %703 ], [ true, %702 ], [ true, %701 ], [ true, %700 ], [ true, %698 ], [ true, %697 ], [ true, %696 ], [ true, %695 ], [ true, %694 ], [ true, %693 ], [ true, %692 ], [ true, %691 ], [ true, %690 ], [ true, %689 ], [ true, %688 ], [ true, %687 ], [ true, %686 ], [ true, %685 ], [ true, %684 ], [ true, %683 ], [ true, %682 ], [ true, %681 ], [ true, %680 ], [ true, %679 ], [ true, %678 ], [ true, %677 ], [ true, %676 ], [ true, %675 ], [ true, %674 ], [ true, %673 ], [ true, %672 ], [ true, %671 ], [ true, %670 ], [ true, %669 ], [ true, %668 ], [ true, %667 ], [ true, %666 ], [ true, %665 ], [ true, %664 ], [ true, %663 ], [ true, %662 ], [ true, %661 ], [ true, %660 ], [ true, %659 ], [ true, %658 ], [ true, %657 ], [ true, %656 ], [ true, %655 ], [ true, %654 ], [ true, %653 ], [ true, %652 ], [ true, %651 ], [ true, %650 ], [ true, %648 ], [ true, %647 ], [ true, %646 ], [ true, %645 ], [ true, %644 ], [ true, %643 ], [ true, %642 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ true, %635 ], [ true, %634 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ true, %629 ], [ true, %628 ], [ true, %627 ], [ true, %626 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %621 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ true, %617 ], [ true, %616 ], [ true, %615 ], [ true, %614 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ true, %606 ], [ true, %605 ], [ true, %604 ], [ true, %603 ], [ true, %602 ], [ true, %601 ], [ true, %599 ], [ true, %598 ], [ true, %597 ], [ true, %596 ], [ true, %595 ], [ true, %594 ], [ true, %593 ], [ true, %592 ], [ true, %591 ], [ true, %590 ], [ true, %589 ], [ true, %588 ], [ true, %587 ], [ true, %586 ], [ true, %585 ], [ true, %584 ], [ true, %583 ], [ true, %582 ], [ true, %581 ], [ true, %580 ], [ true, %579 ], [ true, %578 ], [ true, %577 ], [ true, %576 ], [ true, %574 ], [ true, %573 ], [ true, %572 ], [ true, %571 ], [ true, %570 ], [ true, %569 ], [ true, %568 ], [ true, %567 ], [ true, %566 ], [ true, %565 ], [ true, %564 ], [ true, %563 ], [ true, %561 ], [ true, %560 ], [ true, %559 ], [ true, %558 ], [ true, %557 ], [ true, %556 ], [ true, %555 ], [ true, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ true, %546 ], [ true, %545 ], [ true, %544 ], [ true, %543 ], [ true, %542 ], [ true, %541 ], [ true, %540 ], [ true, %539 ], [ true, %537 ], [ true, %536 ], [ true, %535 ], [ true, %534 ], [ true, %533 ], [ true, %532 ], [ true, %531 ], [ true, %530 ], [ true, %528 ], [ true, %527 ], [ true, %526 ], [ true, %525 ], [ true, %524 ], [ true, %523 ], [ true, %522 ], [ true, %521 ], [ true, %520 ], [ true, %519 ], [ true, %518 ], [ true, %517 ], [ true, %516 ], [ true, %515 ], [ true, %514 ], [ true, %513 ], [ true, %512 ], [ true, %511 ], [ true, %510 ], [ true, %509 ], [ true, %508 ], [ true, %507 ], [ true, %506 ], [ true, %505 ], [ true, %504 ], [ true, %503 ], [ true, %502 ], [ true, %501 ], [ true, %500 ], [ true, %499 ], [ true, %498 ], [ true, %497 ], [ true, %496 ], [ true, %494 ], [ true, %493 ], [ true, %492 ], [ true, %491 ], [ true, %490 ], [ true, %489 ], [ true, %488 ], [ true, %487 ], [ true, %486 ], [ true, %485 ], [ true, %484 ], [ true, %483 ], [ true, %482 ], [ true, %481 ], [ true, %480 ], [ true, %479 ], [ true, %478 ], [ true, %477 ], [ true, %476 ], [ true, %475 ], [ true, %474 ], [ true, %473 ], [ true, %472 ], [ true, %471 ], [ true, %470 ], [ true, %469 ], [ true, %468 ], [ true, %467 ], [ true, %466 ], [ true, %465 ], [ true, %464 ], [ true, %463 ], [ true, %462 ], [ true, %460 ], [ true, %459 ], [ true, %458 ], [ true, %457 ], [ true, %456 ], [ true, %455 ], [ true, %454 ], [ true, %452 ], [ true, %451 ], [ true, %450 ], [ true, %449 ], [ true, %448 ], [ true, %447 ], [ true, %445 ], [ true, %444 ], [ true, %443 ], [ true, %442 ], [ true, %439 ], [ true, %438 ], [ true, %437 ], [ true, %436 ], [ true, %435 ], [ true, %434 ], [ true, %433 ], [ true, %432 ], [ true, %430 ], [ true, %429 ], [ true, %428 ], [ true, %426 ], [ true, %425 ], [ true, %424 ], [ true, %422 ], [ true, %421 ], [ true, %420 ], [ true, %419 ], [ true, %418 ], [ true, %417 ], [ true, %416 ], [ true, %415 ], [ true, %414 ], [ true, %413 ], [ true, %412 ], [ true, %411 ], [ true, %410 ], [ true, %409 ], [ true, %408 ], [ true, %407 ], [ true, %406 ], [ true, %405 ], [ true, %404 ], [ true, %403 ], [ true, %402 ], [ true, %401 ], [ true, %400 ], [ true, %399 ], [ true, %398 ], [ true, %397 ], [ true, %396 ], [ true, %395 ], [ true, %394 ], [ true, %393 ], [ true, %392 ], [ true, %391 ], [ true, %390 ], [ true, %389 ], [ true, %388 ], [ true, %387 ], [ true, %386 ], [ true, %385 ], [ true, %384 ], [ true, %383 ], [ true, %382 ], [ true, %381 ], [ true, %380 ], [ true, %379 ], [ true, %378 ], [ true, %377 ], [ true, %376 ], [ true, %375 ], [ true, %374 ], [ true, %373 ], [ true, %372 ], [ true, %370 ], [ true, %369 ], [ true, %368 ], [ true, %367 ], [ true, %366 ], [ true, %365 ], [ true, %364 ], [ true, %363 ], [ true, %362 ], [ true, %361 ], [ true, %360 ], [ true, %359 ], [ true, %358 ], [ true, %357 ], [ true, %356 ], [ true, %355 ], [ true, %354 ], [ true, %353 ], [ true, %352 ], [ true, %351 ], [ true, %350 ], [ true, %349 ], [ true, %348 ], [ true, %347 ], [ true, %346 ], [ true, %345 ], [ true, %344 ], [ true, %343 ], [ true, %342 ], [ true, %341 ], [ true, %340 ], [ true, %339 ], [ true, %338 ], [ true, %337 ], [ true, %336 ], [ true, %335 ], [ true, %334 ], [ true, %333 ], [ true, %332 ], [ true, %331 ], [ true, %330 ], [ true, %329 ], [ true, %328 ], [ true, %327 ], [ true, %326 ], [ true, %325 ], [ true, %324 ], [ true, %323 ], [ true, %322 ], [ true, %321 ], [ true, %320 ], [ true, %319 ], [ true, %317 ], [ true, %316 ], [ true, %315 ], [ true, %314 ], [ true, %313 ], [ true, %312 ], [ true, %311 ], [ true, %310 ], [ true, %309 ], [ true, %308 ], [ true, %307 ], [ true, %306 ], [ true, %305 ], [ true, %304 ], [ true, %303 ], [ true, %302 ], [ true, %301 ], [ true, %300 ], [ true, %299 ], [ true, %298 ], [ true, %297 ], [ true, %296 ], [ true, %295 ], [ true, %294 ], [ true, %293 ], [ true, %292 ], [ true, %291 ], [ true, %290 ], [ true, %289 ], [ true, %288 ], [ true, %287 ], [ true, %286 ], [ true, %285 ], [ true, %284 ], [ true, %283 ], [ true, %282 ], [ true, %281 ], [ true, %280 ], [ true, %279 ], [ true, %278 ], [ true, %277 ], [ true, %276 ], [ true, %275 ], [ true, %274 ], [ true, %273 ], [ true, %272 ], [ true, %271 ], [ true, %270 ], [ true, %269 ], [ true, %268 ], [ true, %267 ], [ true, %266 ], [ true, %264 ], [ true, %263 ], [ true, %262 ], [ true, %261 ], [ true, %260 ], [ true, %259 ], [ true, %258 ], [ true, %257 ], [ true, %256 ], [ true, %255 ], [ true, %254 ], [ true, %253 ], [ true, %252 ], [ true, %251 ], [ true, %250 ], [ true, %249 ], [ true, %248 ], [ true, %247 ], [ true, %246 ], [ true, %245 ], [ true, %244 ], [ true, %243 ], [ true, %242 ], [ true, %241 ], [ true, %240 ], [ true, %239 ], [ true, %238 ], [ true, %237 ], [ true, %236 ], [ true, %235 ], [ true, %234 ], [ true, %233 ], [ true, %232 ], [ true, %231 ], [ true, %230 ], [ true, %229 ], [ true, %228 ], [ true, %227 ], [ true, %226 ], [ true, %225 ], [ true, %224 ], [ true, %223 ], [ true, %222 ], [ true, %221 ], [ true, %220 ], [ true, %219 ], [ true, %218 ], [ true, %217 ], [ true, %216 ], [ true, %215 ], [ true, %214 ], [ true, %212 ], [ true, %211 ], [ true, %210 ], [ true, %209 ], [ true, %208 ], [ true, %207 ], [ true, %206 ], [ true, %205 ], [ true, %204 ], [ true, %203 ], [ true, %202 ], [ true, %201 ], [ true, %200 ], [ true, %199 ], [ true, %198 ], [ true, %197 ], [ true, %196 ], [ true, %195 ], [ true, %194 ], [ true, %193 ], [ true, %192 ], [ true, %191 ], [ true, %190 ], [ true, %189 ], [ true, %188 ], [ true, %187 ], [ true, %186 ], [ true, %185 ], [ true, %184 ], [ true, %183 ], [ true, %182 ], [ true, %181 ], [ true, %180 ], [ true, %179 ], [ true, %178 ], [ true, %177 ], [ true, %176 ], [ true, %175 ], [ true, %174 ], [ true, %173 ], [ true, %172 ], [ true, %171 ], [ true, %170 ], [ true, %169 ], [ true, %168 ], [ true, %167 ], [ true, %166 ], [ true, %165 ], [ true, %164 ], [ true, %163 ], [ true, %161 ], [ true, %160 ], [ true, %159 ], [ true, %158 ], [ true, %157 ], [ true, %156 ], [ true, %155 ], [ true, %154 ], [ true, %153 ], [ true, %152 ], [ true, %151 ], [ true, %150 ], [ true, %149 ], [ true, %148 ], [ true, %147 ], [ true, %146 ], [ true, %145 ], [ true, %144 ], [ true, %143 ], [ true, %142 ], [ true, %141 ], [ true, %140 ], [ true, %139 ], [ true, %138 ], [ true, %137 ], [ true, %136 ], [ true, %134 ], [ true, %133 ], [ true, %132 ], [ true, %131 ], [ true, %130 ], [ true, %129 ], [ true, %128 ], [ true, %127 ], [ true, %126 ], [ true, %125 ], [ true, %124 ], [ true, %123 ], [ true, %122 ], [ true, %121 ], [ true, %120 ], [ true, %119 ], [ true, %118 ], [ true, %117 ], [ true, %116 ], [ true, %115 ], [ true, %114 ], [ true, %113 ], [ true, %112 ], [ true, %111 ], [ true, %110 ], [ true, %109 ], [ true, %107 ], [ true, %106 ], [ true, %105 ], [ true, %104 ], [ true, %103 ], [ true, %102 ], [ true, %101 ], [ true, %100 ], [ true, %99 ], [ true, %98 ], [ true, %97 ], [ true, %96 ], [ true, %95 ], [ true, %94 ], [ true, %93 ], [ true, %92 ], [ true, %91 ], [ true, %90 ], [ true, %89 ], [ true, %88 ], [ true, %87 ], [ true, %86 ], [ true, %85 ], [ true, %84 ], [ true, %83 ], [ true, %81 ], [ true, %80 ], [ true, %79 ], [ true, %78 ], [ true, %77 ], [ true, %76 ], [ true, %75 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %71 ], [ true, %70 ], [ true, %69 ], [ true, %68 ], [ true, %67 ], [ true, %66 ], [ true, %65 ], [ true, %64 ], [ true, %63 ], [ true, %62 ], [ true, %61 ], [ true, %60 ], [ true, %59 ], [ true, %58 ], [ true, %54 ], [ true, %53 ], [ true, %52 ], [ true, %51 ], [ true, %49 ], [ true, %48 ], [ true, %47 ], [ true, %46 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ true, %2 ], [ false, %4 ], [ false, %45 ], [ false, %50 ], [ false, %55 ], [ false, %57 ], [ false, %82 ], [ false, %108 ], [ false, %135 ], [ false, %162 ], [ false, %213 ], [ false, %265 ], [ false, %318 ], [ false, %371 ], [ false, %423 ], [ false, %427 ], [ false, %431 ], [ %switch.selectcmp, %440 ], [ false, %441 ], [ false, %446 ], [ false, %453 ], [ false, %461 ], [ false, %495 ], [ false, %529 ], [ false, %538 ], [ %switch.selectcmp312, %547 ], [ %switch.selectcmp315, %548 ], [ false, %549 ], [ false, %562 ], [ false, %575 ], [ false, %600 ], [ false, %649 ], [ false, %699 ], [ false, %750 ], [ false, %801 ], [ false, %805 ], [ false, %807 ], [ false, %827 ], [ false, %847 ], [ false, %867 ], [ false, %894 ], [ false, %922 ], [ false, %972 ], [ false, %977 ], [ false, %987 ], [ false, %1000 ], [ false, %1006 ], [ false, %1021 ], [ false, %1027 ], [ false, %1042 ], [ false, %1062 ], [ false, %1081 ], [ false, %1091 ], [ false, %1110 ], [ false, %1123 ], [ %switch.selectcmp318, %1132 ], [ false, %1133 ], [ false, %1182 ], [ false, %1188 ], [ false, %1194 ], [ false, %1196 ], [ false, %1198 ], [ false, %1200 ], [ false, %1202 ], [ false, %1223 ], [ false, %1271 ], [ false, %1292 ], [ false, %1305 ], [ %switch.selectcmp321, %1323 ], [ false, %1324 ], [ false, %1337 ], [ false, %1354 ], [ false, %1386 ], [ false, %1410 ], [ false, %1434 ], [ false, %1458 ], [ false, %1482 ], [ false, %1495 ], [ false, %1508 ], [ false, %1525 ], [ false, %1536 ], [ false, %1547 ], [ false, %1554 ], [ false, %1564 ], [ false, %1575 ], [ false, %1586 ], [ false, %1601 ], [ false, %1608 ], [ false, %1618 ], [ false, %1632 ], [ false, %1639 ], [ false, %1641 ], [ false, %1643 ], [ false, %1645 ], [ false, %1647 ], [ false, %1649 ], [ false, %1651 ], [ false, %1653 ], [ false, %1655 ], [ false, %1657 ], [ false, %1659 ], [ false, %1666 ], [ false, %1676 ], [ false, %1683 ], [ false, %1693 ], [ false, %1707 ], [ false, %1714 ], [ false, %1718 ], [ false, %1722 ], [ false, %1727 ], [ false, %1733 ], [ false, %1737 ], [ false, %1741 ], [ %switch.selectcmp324, %1747 ], [ false, %1748 ], [ false, %1753 ], [ false, %1761 ], [ false, %1765 ], [ false, %1771 ], [ false, %1777 ], [ false, %1783 ], [ %switch.selectcmp327, %1789 ], [ false, %1790 ], [ false, %1795 ], [ false, %1803 ], [ false, %1815 ], [ %switch.selectcmp330, %1823 ], [ false, %1824 ], [ false, %1829 ], [ false, %1837 ], [ false, %1839 ], [ false, %1841 ], [ false, %1843 ], [ false, %1845 ], [ false, %1847 ], [ false, %1849 ], [ false, %1851 ], [ false, %1853 ], [ false, %1855 ], [ false, %1857 ], [ %switch.selectcmp333, %1859 ], [ false, %1860 ], [ false, %1865 ], [ %switch.selectcmp336, %1873 ], [ false, %1874 ], [ false, %1879 ], [ false, %1887 ], [ %switch.selectcmp339, %1899 ], [ false, %1900 ], [ %switch.selectcmp342, %1913 ], [ false, %1914 ], [ false, %1916 ], [ %switch.selectcmp345, %1918 ], [ %switch.selectcmp348, %1919 ], [ %switch.selectcmp351, %1922 ], [ %switch.selectcmp354, %1923 ], [ false, %1924 ], [ %switch.selectcmp357, %1930 ], [ false, %1931 ], [ false, %1937 ], [ false, %1941 ], [ false, %1943 ], [ false, %1945 ], [ false, %1947 ], [ false, %1949 ], [ false, %1951 ], [ false, %1953 ], [ false, %1955 ], [ %switch.selectcmp360, %1957 ], [ %switch.selectcmp363, %1958 ], [ false, %1959 ], [ false, %1961 ], [ false, %1963 ], [ false, %1965 ], [ false, %1967 ], [ false, %1969 ], [ %switch.selectcmp366, %1981 ], [ false, %1982 ], [ false, %1993 ], [ false, %2004 ], [ false, %2015 ], [ false, %2022 ], [ false, %2029 ], [ false, %2036 ], [ false, %2038 ], [ false, %2045 ], [ false, %2052 ], [ false, %2059 ], [ false, %2061 ], [ false, %2063 ], [ false, %2065 ], [ false, %2069 ], [ false, %2073 ], [ false, %2077 ], [ false, %2081 ], [ false, %2085 ], [ false, %2093 ], [ false, %2095 ], [ false, %2097 ], [ false, %2099 ], [ false, %2101 ], [ false, %2103 ], [ false, %2105 ], [ false, %2107 ], [ false, %2109 ], [ false, %2111 ], [ false, %2113 ], [ false, %2115 ], [ %switch.selectcmp367, %2193 ], [ false, %2199 ], [ false, %2201 ], [ false, %2203 ], [ false, %2205 ], [ %switch.selectcmp370, %2207 ], [ false, %2208 ], [ false, %2210 ], [ %switch.selectcmp372, %2220 ], [ %switch.selectcmp374, %2226 ], [ %switch.masked, %switch.lookup ], [ %switch.masked380, %switch.lookup375 ], [ %switch.masked386, %switch.lookup381 ], [ %switch.masked392, %switch.lookup387 ], [ %switch.masked398, %switch.lookup393 ], [ %switch.masked404, %switch.lookup399 ], [ %switch.masked410, %switch.lookup405 ], [ %switch.masked416, %switch.lookup411 ], [ %switch.masked422, %switch.lookup417 ], [ %switch.masked428, %switch.lookup423 ], [ %switch.masked434, %switch.lookup429 ], [ %switch.masked440, %switch.lookup435 ], [ %switch.masked446, %switch.lookup441 ], [ %switch.masked452, %switch.lookup447 ], [ %switch.masked458, %switch.lookup453 ], [ %switch.masked464, %switch.lookup459 ], [ %switch.masked470, %switch.lookup465 ], [ %switch.masked476, %switch.lookup471 ], [ %switch.masked482, %switch.lookup477 ], [ %switch.masked488, %switch.lookup483 ], [ %switch.masked494, %switch.lookup489 ], [ %switch.masked500, %switch.lookup495 ], [ %switch.masked506, %switch.lookup501 ], [ %switch.masked512, %switch.lookup507 ], [ %switch.masked518, %switch.lookup513 ], [ %switch.masked524, %switch.lookup519 ], [ %switch.masked530, %switch.lookup525 ], [ %switch.masked536, %switch.lookup531 ], [ %switch.masked542, %switch.lookup537 ], [ %switch.masked548, %switch.lookup543 ], [ %switch.masked554, %switch.lookup549 ], [ %switch.masked560, %switch.lookup555 ], [ %switch.masked566, %switch.lookup561 ], [ %switch.masked572, %switch.lookup567 ], [ %switch.masked578, %switch.lookup573 ], [ %switch.masked584, %switch.lookup579 ], [ %switch.masked590, %switch.lookup585 ], [ %switch.masked596, %switch.lookup591 ], [ %switch.masked602, %switch.lookup597 ], [ %switch.masked608, %switch.lookup603 ], [ %switch.masked614, %switch.lookup609 ], [ %switch.offset, %switch.lookup615 ], [ %switch.masked622, %switch.lookup617 ], [ %switch.masked628, %switch.lookup623 ], [ %switch.masked634, %switch.lookup629 ], [ %switch.masked640, %switch.lookup635 ], [ %switch.masked646, %switch.lookup641 ], [ %switch.masked652, %switch.lookup647 ], [ %switch.masked658, %switch.lookup653 ], [ %switch.masked664, %switch.lookup659 ], [ %switch.masked670, %switch.lookup665 ], [ %switch.masked676, %switch.lookup671 ], [ %switch.masked682, %switch.lookup677 ], [ %switch.masked688, %switch.lookup683 ], [ %switch.masked693, %switch.lookup689 ], [ %switch.masked699, %switch.lookup694 ], [ %switch.masked705, %switch.lookup700 ], [ %switch.masked711, %switch.lookup706 ], [ %switch.masked717, %switch.lookup712 ], [ %switch.masked723, %switch.lookup718 ], [ %switch.masked729, %switch.lookup724 ], [ %switch.masked735, %switch.lookup730 ], [ %switch.masked741, %switch.lookup736 ], [ %switch.masked747, %switch.lookup742 ], [ %switch.masked753, %switch.lookup748 ], [ %switch.masked759, %switch.lookup754 ]
+2244:                                             ; preds = %switch.lookup969, %2210, %switch.lookup963, %2208, %switch.lookup957, %2205, %switch.lookup951, %2203, %switch.lookup945, %2201, %switch.lookup939, %2199, %switch.lookup933, %2115, %switch.lookup927, %2113, %switch.lookup921, %2111, %switch.lookup915, %2109, %switch.lookup909, %2107, %switch.lookup903, %2105, %switch.lookup897, %2103, %switch.lookup891, %2101, %switch.lookup885, %2099, %switch.lookup879, %2097, %switch.lookup873, %2095, %switch.lookup867, %2093, %switch.lookup861, %2085, %switch.lookup855, %2063, %switch.lookup849, %2061, %switch.lookup843, %2059, %switch.lookup837, %2036, %switch.lookup831, %1969, %switch.lookup829, %1967, %switch.lookup823, %1965, %switch.lookup817, %1963, %switch.lookup811, %1961, %switch.lookup805, %1959, %switch.lookup799, %1955, %switch.lookup793, %1953, %switch.lookup787, %1951, %switch.lookup781, %1949, %switch.lookup775, %1947, %switch.lookup769, %1945, %switch.lookup763, %1943, %switch.lookup757, %1941, %switch.lookup751, %1916, %switch.lookup745, %1914, %switch.lookup740, %1857, %switch.lookup734, %1855, %switch.lookup728, %1853, %switch.lookup722, %1851, %switch.lookup716, %1849, %switch.lookup710, %1847, %switch.lookup704, %1845, %switch.lookup698, %1843, %switch.lookup692, %1841, %switch.lookup686, %1839, %switch.lookup680, %1837, %switch.lookup674, %1657, %switch.lookup668, %1655, %switch.lookup662, %1653, %switch.lookup656, %1651, %switch.lookup650, %1649, %switch.lookup644, %1647, %switch.lookup638, %1645, %switch.lookup632, %1643, %switch.lookup626, %1641, %switch.lookup620, %1639, %switch.lookup614, %1200, %switch.lookup608, %1198, %switch.lookup602, %1196, %switch.lookup596, %1194, %switch.lookup590, %805, %switch.lookup, %55, %2226, %2220, %2207, %2193, %2081, %2077, %2073, %2069, %2065, %2052, %2045, %2038, %2029, %2022, %2015, %2004, %1993, %1982, %1981, %1958, %1957, %1937, %1931, %1930, %1924, %1923, %1922, %1919, %1918, %1913, %1900, %1899, %1887, %1879, %1874, %1873, %1865, %1860, %1859, %1829, %1824, %1823, %1815, %1803, %1795, %1790, %1789, %1783, %1777, %1771, %1765, %1761, %1753, %1748, %1747, %1741, %1737, %1733, %1727, %1722, %1718, %1714, %1707, %1693, %1683, %1676, %1666, %1659, %1632, %1618, %1608, %1601, %1586, %1575, %1564, %1554, %1547, %1536, %1525, %1508, %1495, %1482, %1458, %1434, %1410, %1386, %1354, %1337, %1324, %1323, %1305, %1292, %1271, %1223, %1202, %1188, %1182, %1133, %1132, %1123, %1110, %1091, %1081, %1062, %1042, %1027, %1021, %1006, %1000, %987, %977, %972, %922, %894, %867, %847, %827, %807, %801, %750, %699, %649, %600, %575, %562, %549, %548, %547, %538, %529, %495, %461, %453, %446, %441, %440, %431, %427, %423, %371, %318, %265, %213, %162, %135, %108, %82, %57, %50, %45, %4, %2, %2242, %2240, %2238, %2236, %2234, %2232, %2230, %2228, %2224, %2222, %2218, %2216, %2214, %2212, %2197, %2195, %2191, %2189, %2187, %2185, %2183, %2181, %2179, %2177, %2175, %2173, %2171, %2169, %2167, %2165, %2163, %2161, %2159, %2157, %2155, %2153, %2151, %2149, %2147, %2145, %2143, %2141, %2139, %2137, %2135, %2133, %2131, %2129, %2127, %2125, %2123, %2121, %2119, %2117, %2091, %2089, %2087, %2084, %2083, %2082, %2080, %2079, %2078, %2076, %2075, %2074, %2072, %2071, %2070, %2068, %2067, %2066, %2058, %2057, %2056, %2055, %2054, %2053, %2051, %2050, %2049, %2048, %2047, %2046, %2044, %2043, %2042, %2041, %2040, %2039, %2035, %2034, %2033, %2032, %2031, %2030, %2028, %2027, %2026, %2025, %2024, %2023, %2021, %2020, %2019, %2018, %2017, %2016, %2014, %2013, %2012, %2011, %2010, %2009, %2008, %2007, %2006, %2005, %2003, %2002, %2001, %2000, %1999, %1998, %1997, %1996, %1995, %1994, %1992, %1991, %1990, %1989, %1988, %1987, %1986, %1985, %1984, %1983, %1979, %1977, %1975, %1973, %1971, %1940, %1939, %1938, %1936, %1935, %1934, %1933, %1932, %1928, %1927, %1926, %1925, %1920, %1911, %1909, %1907, %1905, %1904, %1903, %1902, %1901, %1898, %1897, %1896, %1895, %1894, %1893, %1892, %1891, %1890, %1889, %1888, %1886, %1885, %1884, %1883, %1882, %1881, %1880, %1878, %1877, %1876, %1875, %1872, %1871, %1870, %1869, %1868, %1867, %1866, %1864, %1863, %1862, %1861, %1836, %1835, %1834, %1833, %1832, %1831, %1830, %1828, %1827, %1826, %1825, %1822, %1821, %1820, %1819, %1818, %1817, %1816, %1814, %1813, %1812, %1811, %1810, %1809, %1808, %1807, %1806, %1805, %1804, %1802, %1801, %1800, %1799, %1798, %1797, %1796, %1794, %1793, %1792, %1791, %1788, %1787, %1786, %1785, %1784, %1782, %1781, %1780, %1779, %1778, %1775, %1774, %1773, %1772, %1770, %1769, %1768, %1767, %1766, %1764, %1763, %1762, %1760, %1759, %1758, %1757, %1756, %1755, %1754, %1752, %1751, %1750, %1749, %1746, %1745, %1744, %1743, %1742, %1740, %1739, %1738, %1736, %1735, %1734, %1732, %1731, %1730, %1729, %1728, %1726, %1725, %1724, %1723, %1721, %1720, %1719, %1717, %1716, %1715, %1713, %1712, %1711, %1710, %1709, %1708, %1706, %1705, %1704, %1703, %1702, %1701, %1700, %1699, %1698, %1697, %1696, %1695, %1694, %1692, %1691, %1690, %1689, %1688, %1687, %1686, %1685, %1684, %1682, %1681, %1680, %1679, %1678, %1677, %1675, %1674, %1673, %1672, %1671, %1670, %1669, %1668, %1667, %1665, %1664, %1663, %1662, %1661, %1660, %1638, %1637, %1636, %1635, %1634, %1633, %1631, %1630, %1629, %1628, %1627, %1626, %1625, %1624, %1623, %1622, %1621, %1620, %1619, %1617, %1616, %1615, %1614, %1613, %1612, %1611, %1610, %1609, %1607, %1606, %1605, %1604, %1603, %1602, %1600, %1599, %1598, %1597, %1596, %1595, %1594, %1593, %1592, %1591, %1590, %1589, %1588, %1587, %1585, %1584, %1583, %1582, %1581, %1580, %1579, %1578, %1577, %1576, %1574, %1573, %1572, %1571, %1570, %1569, %1568, %1567, %1566, %1565, %1563, %1562, %1561, %1560, %1559, %1558, %1557, %1556, %1555, %1553, %1552, %1551, %1550, %1549, %1548, %1546, %1545, %1544, %1543, %1542, %1541, %1540, %1539, %1538, %1537, %1535, %1534, %1533, %1532, %1531, %1530, %1529, %1528, %1527, %1526, %1524, %1523, %1522, %1521, %1520, %1519, %1518, %1517, %1516, %1515, %1514, %1513, %1512, %1511, %1510, %1509, %1507, %1506, %1505, %1504, %1503, %1502, %1501, %1500, %1499, %1498, %1497, %1496, %1494, %1493, %1492, %1491, %1490, %1489, %1488, %1487, %1486, %1485, %1484, %1483, %1481, %1480, %1479, %1478, %1477, %1476, %1475, %1474, %1473, %1472, %1471, %1470, %1469, %1468, %1467, %1466, %1465, %1464, %1463, %1462, %1461, %1460, %1459, %1457, %1456, %1455, %1454, %1453, %1452, %1451, %1450, %1449, %1448, %1447, %1446, %1445, %1444, %1443, %1442, %1441, %1440, %1439, %1438, %1437, %1436, %1435, %1433, %1432, %1431, %1430, %1429, %1428, %1427, %1426, %1425, %1424, %1423, %1422, %1421, %1420, %1419, %1418, %1417, %1416, %1415, %1414, %1413, %1412, %1411, %1409, %1408, %1407, %1406, %1405, %1404, %1403, %1402, %1401, %1400, %1399, %1398, %1397, %1396, %1395, %1394, %1393, %1392, %1391, %1390, %1389, %1388, %1387, %1385, %1384, %1383, %1382, %1381, %1380, %1379, %1378, %1377, %1376, %1375, %1374, %1373, %1372, %1371, %1370, %1369, %1368, %1367, %1366, %1365, %1364, %1363, %1362, %1361, %1360, %1359, %1358, %1357, %1356, %1355, %1353, %1352, %1351, %1350, %1349, %1348, %1347, %1346, %1345, %1344, %1343, %1342, %1341, %1340, %1339, %1338, %1336, %1335, %1334, %1333, %1332, %1331, %1330, %1329, %1328, %1327, %1326, %1325, %1322, %1321, %1320, %1319, %1318, %1317, %1316, %1315, %1314, %1313, %1312, %1311, %1310, %1309, %1308, %1307, %1306, %1304, %1303, %1302, %1301, %1300, %1299, %1298, %1297, %1296, %1295, %1294, %1293, %1291, %1290, %1289, %1288, %1287, %1286, %1285, %1284, %1283, %1282, %1281, %1280, %1279, %1278, %1277, %1276, %1275, %1274, %1273, %1272, %1270, %1269, %1268, %1267, %1266, %1265, %1264, %1263, %1262, %1261, %1260, %1259, %1258, %1257, %1256, %1255, %1254, %1253, %1252, %1251, %1250, %1249, %1248, %1247, %1246, %1245, %1244, %1243, %1242, %1241, %1240, %1239, %1238, %1237, %1236, %1235, %1234, %1233, %1232, %1231, %1230, %1229, %1228, %1227, %1226, %1225, %1224, %1222, %1221, %1220, %1219, %1218, %1217, %1216, %1215, %1214, %1213, %1212, %1211, %1210, %1209, %1208, %1207, %1206, %1205, %1204, %1203, %1193, %1192, %1191, %1190, %1189, %1187, %1186, %1185, %1184, %1183, %1181, %1180, %1179, %1178, %1177, %1176, %1175, %1174, %1173, %1172, %1171, %1170, %1169, %1168, %1167, %1166, %1165, %1164, %1163, %1162, %1161, %1160, %1159, %1158, %1157, %1156, %1155, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1146, %1145, %1144, %1143, %1142, %1141, %1140, %1139, %1138, %1137, %1136, %1135, %1134, %1131, %1130, %1129, %1128, %1127, %1126, %1125, %1124, %1122, %1121, %1120, %1119, %1118, %1117, %1116, %1115, %1114, %1113, %1112, %1111, %1109, %1108, %1107, %1106, %1105, %1104, %1103, %1102, %1101, %1100, %1099, %1098, %1097, %1096, %1095, %1094, %1093, %1092, %1090, %1089, %1088, %1087, %1086, %1085, %1084, %1083, %1082, %1080, %1079, %1078, %1077, %1076, %1075, %1074, %1073, %1072, %1071, %1070, %1069, %1068, %1067, %1066, %1065, %1064, %1063, %1061, %1060, %1059, %1058, %1057, %1056, %1055, %1054, %1053, %1052, %1051, %1050, %1049, %1048, %1047, %1046, %1045, %1044, %1043, %1041, %1040, %1039, %1038, %1037, %1036, %1035, %1034, %1033, %1032, %1031, %1030, %1029, %1028, %1026, %1025, %1024, %1023, %1022, %1020, %1019, %1018, %1017, %1016, %1015, %1014, %1013, %1012, %1011, %1010, %1009, %1008, %1007, %1005, %1004, %1003, %1002, %1001, %999, %998, %997, %996, %995, %994, %993, %992, %991, %990, %989, %988, %986, %985, %984, %983, %982, %981, %980, %979, %978, %976, %975, %974, %973, %971, %970, %969, %968, %967, %966, %965, %964, %963, %962, %961, %960, %959, %958, %957, %956, %955, %954, %953, %952, %951, %950, %949, %948, %947, %946, %945, %944, %943, %942, %941, %940, %939, %938, %937, %936, %935, %934, %933, %932, %931, %930, %929, %928, %927, %926, %925, %924, %923, %921, %920, %919, %918, %917, %916, %915, %914, %913, %912, %911, %910, %909, %908, %907, %906, %905, %904, %903, %902, %901, %900, %899, %898, %897, %896, %895, %893, %892, %891, %890, %889, %888, %887, %886, %885, %884, %883, %882, %881, %880, %879, %878, %877, %876, %875, %874, %873, %872, %871, %870, %869, %868, %866, %865, %864, %863, %862, %861, %860, %859, %858, %857, %856, %855, %854, %853, %852, %851, %850, %849, %848, %846, %845, %844, %843, %842, %841, %840, %839, %838, %837, %836, %835, %834, %833, %832, %831, %830, %829, %828, %826, %825, %824, %823, %822, %821, %820, %819, %818, %817, %816, %815, %814, %813, %812, %811, %810, %809, %808, %804, %803, %802, %800, %799, %798, %797, %796, %795, %794, %793, %792, %791, %790, %789, %788, %787, %786, %785, %784, %783, %782, %781, %780, %779, %778, %777, %776, %775, %774, %773, %772, %771, %770, %769, %768, %767, %766, %765, %764, %763, %762, %761, %760, %759, %758, %757, %756, %755, %754, %753, %752, %751, %749, %748, %747, %746, %745, %744, %743, %742, %741, %740, %739, %738, %737, %736, %735, %734, %733, %732, %731, %730, %729, %728, %727, %726, %725, %724, %723, %722, %721, %720, %719, %718, %717, %716, %715, %714, %713, %712, %711, %710, %709, %708, %707, %706, %705, %704, %703, %702, %701, %700, %698, %697, %696, %695, %694, %693, %692, %691, %690, %689, %688, %687, %686, %685, %684, %683, %682, %681, %680, %679, %678, %677, %676, %675, %674, %673, %672, %671, %670, %669, %668, %667, %666, %665, %664, %663, %662, %661, %660, %659, %658, %657, %656, %655, %654, %653, %652, %651, %650, %648, %647, %646, %645, %644, %643, %642, %641, %640, %639, %638, %637, %636, %635, %634, %633, %632, %631, %630, %629, %628, %627, %626, %625, %624, %623, %622, %621, %620, %619, %618, %617, %616, %615, %614, %613, %612, %611, %610, %609, %608, %607, %606, %605, %604, %603, %602, %601, %599, %598, %597, %596, %595, %594, %593, %592, %591, %590, %589, %588, %587, %586, %585, %584, %583, %582, %581, %580, %579, %578, %577, %576, %574, %573, %572, %571, %570, %569, %568, %567, %566, %565, %564, %563, %561, %560, %559, %558, %557, %556, %555, %554, %553, %552, %551, %550, %546, %545, %544, %543, %542, %541, %540, %539, %537, %536, %535, %534, %533, %532, %531, %530, %528, %527, %526, %525, %524, %523, %522, %521, %520, %519, %518, %517, %516, %515, %514, %513, %512, %511, %510, %509, %508, %507, %506, %505, %504, %503, %502, %501, %500, %499, %498, %497, %496, %494, %493, %492, %491, %490, %489, %488, %487, %486, %485, %484, %483, %482, %481, %480, %479, %478, %477, %476, %475, %474, %473, %472, %471, %470, %469, %468, %467, %466, %465, %464, %463, %462, %460, %459, %458, %457, %456, %455, %454, %452, %451, %450, %449, %448, %447, %445, %444, %443, %442, %439, %438, %437, %436, %435, %434, %433, %432, %430, %429, %428, %426, %425, %424, %422, %421, %420, %419, %418, %417, %416, %415, %414, %413, %412, %411, %410, %409, %408, %407, %406, %405, %404, %403, %402, %401, %400, %399, %398, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %54, %53, %52, %51, %49, %48, %47, %46, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
+  %.0 = phi i1 [ %2243, %2242 ], [ %2241, %2240 ], [ %2239, %2238 ], [ %2237, %2236 ], [ %2235, %2234 ], [ %2233, %2232 ], [ %2231, %2230 ], [ %2229, %2228 ], [ %2225, %2224 ], [ %2223, %2222 ], [ %2219, %2218 ], [ %2217, %2216 ], [ %2215, %2214 ], [ %2213, %2212 ], [ %2198, %2197 ], [ %2196, %2195 ], [ %2192, %2191 ], [ %2190, %2189 ], [ %2188, %2187 ], [ %2186, %2185 ], [ %2184, %2183 ], [ %2182, %2181 ], [ %2180, %2179 ], [ %2178, %2177 ], [ %2176, %2175 ], [ %2174, %2173 ], [ %2172, %2171 ], [ %2170, %2169 ], [ %2168, %2167 ], [ %2166, %2165 ], [ %2164, %2163 ], [ %2162, %2161 ], [ %2160, %2159 ], [ %2158, %2157 ], [ %2156, %2155 ], [ %2154, %2153 ], [ %2152, %2151 ], [ %2150, %2149 ], [ %2148, %2147 ], [ %2146, %2145 ], [ %2144, %2143 ], [ %2142, %2141 ], [ %2140, %2139 ], [ %2138, %2137 ], [ %2136, %2135 ], [ %2134, %2133 ], [ %2132, %2131 ], [ %2130, %2129 ], [ %2128, %2127 ], [ %2126, %2125 ], [ %2124, %2123 ], [ %2122, %2121 ], [ %2120, %2119 ], [ %2118, %2117 ], [ %2092, %2091 ], [ %2090, %2089 ], [ %2088, %2087 ], [ true, %2084 ], [ true, %2083 ], [ true, %2082 ], [ true, %2080 ], [ true, %2079 ], [ true, %2078 ], [ true, %2076 ], [ true, %2075 ], [ true, %2074 ], [ true, %2072 ], [ true, %2071 ], [ true, %2070 ], [ true, %2068 ], [ true, %2067 ], [ true, %2066 ], [ true, %2058 ], [ true, %2057 ], [ true, %2056 ], [ true, %2055 ], [ true, %2054 ], [ true, %2053 ], [ true, %2051 ], [ true, %2050 ], [ true, %2049 ], [ true, %2048 ], [ true, %2047 ], [ true, %2046 ], [ true, %2044 ], [ true, %2043 ], [ true, %2042 ], [ true, %2041 ], [ true, %2040 ], [ true, %2039 ], [ true, %2035 ], [ true, %2034 ], [ true, %2033 ], [ true, %2032 ], [ true, %2031 ], [ true, %2030 ], [ true, %2028 ], [ true, %2027 ], [ true, %2026 ], [ true, %2025 ], [ true, %2024 ], [ true, %2023 ], [ true, %2021 ], [ true, %2020 ], [ true, %2019 ], [ true, %2018 ], [ true, %2017 ], [ true, %2016 ], [ true, %2014 ], [ true, %2013 ], [ true, %2012 ], [ true, %2011 ], [ true, %2010 ], [ true, %2009 ], [ true, %2008 ], [ true, %2007 ], [ true, %2006 ], [ true, %2005 ], [ true, %2003 ], [ true, %2002 ], [ true, %2001 ], [ true, %2000 ], [ true, %1999 ], [ true, %1998 ], [ true, %1997 ], [ true, %1996 ], [ true, %1995 ], [ true, %1994 ], [ true, %1992 ], [ true, %1991 ], [ true, %1990 ], [ true, %1989 ], [ true, %1988 ], [ true, %1987 ], [ true, %1986 ], [ true, %1985 ], [ true, %1984 ], [ true, %1983 ], [ %1980, %1979 ], [ %1978, %1977 ], [ %1976, %1975 ], [ %1974, %1973 ], [ %1972, %1971 ], [ true, %1940 ], [ true, %1939 ], [ true, %1938 ], [ true, %1936 ], [ true, %1935 ], [ true, %1934 ], [ true, %1933 ], [ true, %1932 ], [ %1929, %1928 ], [ true, %1927 ], [ true, %1926 ], [ true, %1925 ], [ %1921, %1920 ], [ %1912, %1911 ], [ %1910, %1909 ], [ %1908, %1907 ], [ %1906, %1905 ], [ true, %1904 ], [ true, %1903 ], [ true, %1902 ], [ true, %1901 ], [ true, %1898 ], [ true, %1897 ], [ true, %1896 ], [ true, %1895 ], [ true, %1894 ], [ true, %1893 ], [ true, %1892 ], [ true, %1891 ], [ true, %1890 ], [ true, %1889 ], [ true, %1888 ], [ true, %1886 ], [ true, %1885 ], [ true, %1884 ], [ true, %1883 ], [ true, %1882 ], [ true, %1881 ], [ true, %1880 ], [ true, %1878 ], [ true, %1877 ], [ true, %1876 ], [ true, %1875 ], [ true, %1872 ], [ true, %1871 ], [ true, %1870 ], [ true, %1869 ], [ true, %1868 ], [ true, %1867 ], [ true, %1866 ], [ true, %1864 ], [ true, %1863 ], [ true, %1862 ], [ true, %1861 ], [ true, %1836 ], [ true, %1835 ], [ true, %1834 ], [ true, %1833 ], [ true, %1832 ], [ true, %1831 ], [ true, %1830 ], [ true, %1828 ], [ true, %1827 ], [ true, %1826 ], [ true, %1825 ], [ true, %1822 ], [ true, %1821 ], [ true, %1820 ], [ true, %1819 ], [ true, %1818 ], [ true, %1817 ], [ true, %1816 ], [ true, %1814 ], [ true, %1813 ], [ true, %1812 ], [ true, %1811 ], [ true, %1810 ], [ true, %1809 ], [ true, %1808 ], [ true, %1807 ], [ true, %1806 ], [ true, %1805 ], [ true, %1804 ], [ true, %1802 ], [ true, %1801 ], [ true, %1800 ], [ true, %1799 ], [ true, %1798 ], [ true, %1797 ], [ true, %1796 ], [ true, %1794 ], [ true, %1793 ], [ true, %1792 ], [ true, %1791 ], [ true, %1788 ], [ true, %1787 ], [ true, %1786 ], [ true, %1785 ], [ true, %1784 ], [ true, %1782 ], [ true, %1781 ], [ true, %1780 ], [ true, %1779 ], [ true, %1778 ], [ %1776, %1775 ], [ true, %1774 ], [ true, %1773 ], [ true, %1772 ], [ true, %1770 ], [ true, %1769 ], [ true, %1768 ], [ true, %1767 ], [ true, %1766 ], [ true, %1764 ], [ true, %1763 ], [ true, %1762 ], [ true, %1760 ], [ true, %1759 ], [ true, %1758 ], [ true, %1757 ], [ true, %1756 ], [ true, %1755 ], [ true, %1754 ], [ true, %1752 ], [ true, %1751 ], [ true, %1750 ], [ true, %1749 ], [ true, %1746 ], [ true, %1745 ], [ true, %1744 ], [ true, %1743 ], [ true, %1742 ], [ true, %1740 ], [ true, %1739 ], [ true, %1738 ], [ true, %1736 ], [ true, %1735 ], [ true, %1734 ], [ true, %1732 ], [ true, %1731 ], [ true, %1730 ], [ true, %1729 ], [ true, %1728 ], [ true, %1726 ], [ true, %1725 ], [ true, %1724 ], [ true, %1723 ], [ true, %1721 ], [ true, %1720 ], [ true, %1719 ], [ true, %1717 ], [ true, %1716 ], [ true, %1715 ], [ true, %1713 ], [ true, %1712 ], [ true, %1711 ], [ true, %1710 ], [ true, %1709 ], [ true, %1708 ], [ true, %1706 ], [ true, %1705 ], [ true, %1704 ], [ true, %1703 ], [ true, %1702 ], [ true, %1701 ], [ true, %1700 ], [ true, %1699 ], [ true, %1698 ], [ true, %1697 ], [ true, %1696 ], [ true, %1695 ], [ true, %1694 ], [ true, %1692 ], [ true, %1691 ], [ true, %1690 ], [ true, %1689 ], [ true, %1688 ], [ true, %1687 ], [ true, %1686 ], [ true, %1685 ], [ true, %1684 ], [ true, %1682 ], [ true, %1681 ], [ true, %1680 ], [ true, %1679 ], [ true, %1678 ], [ true, %1677 ], [ true, %1675 ], [ true, %1674 ], [ true, %1673 ], [ true, %1672 ], [ true, %1671 ], [ true, %1670 ], [ true, %1669 ], [ true, %1668 ], [ true, %1667 ], [ true, %1665 ], [ true, %1664 ], [ true, %1663 ], [ true, %1662 ], [ true, %1661 ], [ true, %1660 ], [ true, %1638 ], [ true, %1637 ], [ true, %1636 ], [ true, %1635 ], [ true, %1634 ], [ true, %1633 ], [ true, %1631 ], [ true, %1630 ], [ true, %1629 ], [ true, %1628 ], [ true, %1627 ], [ true, %1626 ], [ true, %1625 ], [ true, %1624 ], [ true, %1623 ], [ true, %1622 ], [ true, %1621 ], [ true, %1620 ], [ true, %1619 ], [ true, %1617 ], [ true, %1616 ], [ true, %1615 ], [ true, %1614 ], [ true, %1613 ], [ true, %1612 ], [ true, %1611 ], [ true, %1610 ], [ true, %1609 ], [ true, %1607 ], [ true, %1606 ], [ true, %1605 ], [ true, %1604 ], [ true, %1603 ], [ true, %1602 ], [ true, %1600 ], [ true, %1599 ], [ true, %1598 ], [ true, %1597 ], [ true, %1596 ], [ true, %1595 ], [ true, %1594 ], [ true, %1593 ], [ true, %1592 ], [ true, %1591 ], [ true, %1590 ], [ true, %1589 ], [ true, %1588 ], [ true, %1587 ], [ true, %1585 ], [ true, %1584 ], [ true, %1583 ], [ true, %1582 ], [ true, %1581 ], [ true, %1580 ], [ true, %1579 ], [ true, %1578 ], [ true, %1577 ], [ true, %1576 ], [ true, %1574 ], [ true, %1573 ], [ true, %1572 ], [ true, %1571 ], [ true, %1570 ], [ true, %1569 ], [ true, %1568 ], [ true, %1567 ], [ true, %1566 ], [ true, %1565 ], [ true, %1563 ], [ true, %1562 ], [ true, %1561 ], [ true, %1560 ], [ true, %1559 ], [ true, %1558 ], [ true, %1557 ], [ true, %1556 ], [ true, %1555 ], [ true, %1553 ], [ true, %1552 ], [ true, %1551 ], [ true, %1550 ], [ true, %1549 ], [ true, %1548 ], [ true, %1546 ], [ true, %1545 ], [ true, %1544 ], [ true, %1543 ], [ true, %1542 ], [ true, %1541 ], [ true, %1540 ], [ true, %1539 ], [ true, %1538 ], [ true, %1537 ], [ true, %1535 ], [ true, %1534 ], [ true, %1533 ], [ true, %1532 ], [ true, %1531 ], [ true, %1530 ], [ true, %1529 ], [ true, %1528 ], [ true, %1527 ], [ true, %1526 ], [ true, %1524 ], [ true, %1523 ], [ true, %1522 ], [ true, %1521 ], [ true, %1520 ], [ true, %1519 ], [ true, %1518 ], [ true, %1517 ], [ true, %1516 ], [ true, %1515 ], [ true, %1514 ], [ true, %1513 ], [ true, %1512 ], [ true, %1511 ], [ true, %1510 ], [ true, %1509 ], [ true, %1507 ], [ true, %1506 ], [ true, %1505 ], [ true, %1504 ], [ true, %1503 ], [ true, %1502 ], [ true, %1501 ], [ true, %1500 ], [ true, %1499 ], [ true, %1498 ], [ true, %1497 ], [ true, %1496 ], [ true, %1494 ], [ true, %1493 ], [ true, %1492 ], [ true, %1491 ], [ true, %1490 ], [ true, %1489 ], [ true, %1488 ], [ true, %1487 ], [ true, %1486 ], [ true, %1485 ], [ true, %1484 ], [ true, %1483 ], [ true, %1481 ], [ true, %1480 ], [ true, %1479 ], [ true, %1478 ], [ true, %1477 ], [ true, %1476 ], [ true, %1475 ], [ true, %1474 ], [ true, %1473 ], [ true, %1472 ], [ true, %1471 ], [ true, %1470 ], [ true, %1469 ], [ true, %1468 ], [ true, %1467 ], [ true, %1466 ], [ true, %1465 ], [ true, %1464 ], [ true, %1463 ], [ true, %1462 ], [ true, %1461 ], [ true, %1460 ], [ true, %1459 ], [ true, %1457 ], [ true, %1456 ], [ true, %1455 ], [ true, %1454 ], [ true, %1453 ], [ true, %1452 ], [ true, %1451 ], [ true, %1450 ], [ true, %1449 ], [ true, %1448 ], [ true, %1447 ], [ true, %1446 ], [ true, %1445 ], [ true, %1444 ], [ true, %1443 ], [ true, %1442 ], [ true, %1441 ], [ true, %1440 ], [ true, %1439 ], [ true, %1438 ], [ true, %1437 ], [ true, %1436 ], [ true, %1435 ], [ true, %1433 ], [ true, %1432 ], [ true, %1431 ], [ true, %1430 ], [ true, %1429 ], [ true, %1428 ], [ true, %1427 ], [ true, %1426 ], [ true, %1425 ], [ true, %1424 ], [ true, %1423 ], [ true, %1422 ], [ true, %1421 ], [ true, %1420 ], [ true, %1419 ], [ true, %1418 ], [ true, %1417 ], [ true, %1416 ], [ true, %1415 ], [ true, %1414 ], [ true, %1413 ], [ true, %1412 ], [ true, %1411 ], [ true, %1409 ], [ true, %1408 ], [ true, %1407 ], [ true, %1406 ], [ true, %1405 ], [ true, %1404 ], [ true, %1403 ], [ true, %1402 ], [ true, %1401 ], [ true, %1400 ], [ true, %1399 ], [ true, %1398 ], [ true, %1397 ], [ true, %1396 ], [ true, %1395 ], [ true, %1394 ], [ true, %1393 ], [ true, %1392 ], [ true, %1391 ], [ true, %1390 ], [ true, %1389 ], [ true, %1388 ], [ true, %1387 ], [ true, %1385 ], [ true, %1384 ], [ true, %1383 ], [ true, %1382 ], [ true, %1381 ], [ true, %1380 ], [ true, %1379 ], [ true, %1378 ], [ true, %1377 ], [ true, %1376 ], [ true, %1375 ], [ true, %1374 ], [ true, %1373 ], [ true, %1372 ], [ true, %1371 ], [ true, %1370 ], [ true, %1369 ], [ true, %1368 ], [ true, %1367 ], [ true, %1366 ], [ true, %1365 ], [ true, %1364 ], [ true, %1363 ], [ true, %1362 ], [ true, %1361 ], [ true, %1360 ], [ true, %1359 ], [ true, %1358 ], [ true, %1357 ], [ true, %1356 ], [ true, %1355 ], [ true, %1353 ], [ true, %1352 ], [ true, %1351 ], [ true, %1350 ], [ true, %1349 ], [ true, %1348 ], [ true, %1347 ], [ true, %1346 ], [ true, %1345 ], [ true, %1344 ], [ true, %1343 ], [ true, %1342 ], [ true, %1341 ], [ true, %1340 ], [ true, %1339 ], [ true, %1338 ], [ true, %1336 ], [ true, %1335 ], [ true, %1334 ], [ true, %1333 ], [ true, %1332 ], [ true, %1331 ], [ true, %1330 ], [ true, %1329 ], [ true, %1328 ], [ true, %1327 ], [ true, %1326 ], [ true, %1325 ], [ true, %1322 ], [ true, %1321 ], [ true, %1320 ], [ true, %1319 ], [ true, %1318 ], [ true, %1317 ], [ true, %1316 ], [ true, %1315 ], [ true, %1314 ], [ true, %1313 ], [ true, %1312 ], [ true, %1311 ], [ true, %1310 ], [ true, %1309 ], [ true, %1308 ], [ true, %1307 ], [ true, %1306 ], [ true, %1304 ], [ true, %1303 ], [ true, %1302 ], [ true, %1301 ], [ true, %1300 ], [ true, %1299 ], [ true, %1298 ], [ true, %1297 ], [ true, %1296 ], [ true, %1295 ], [ true, %1294 ], [ true, %1293 ], [ true, %1291 ], [ true, %1290 ], [ true, %1289 ], [ true, %1288 ], [ true, %1287 ], [ true, %1286 ], [ true, %1285 ], [ true, %1284 ], [ true, %1283 ], [ true, %1282 ], [ true, %1281 ], [ true, %1280 ], [ true, %1279 ], [ true, %1278 ], [ true, %1277 ], [ true, %1276 ], [ true, %1275 ], [ true, %1274 ], [ true, %1273 ], [ true, %1272 ], [ true, %1270 ], [ true, %1269 ], [ true, %1268 ], [ true, %1267 ], [ true, %1266 ], [ true, %1265 ], [ true, %1264 ], [ true, %1263 ], [ true, %1262 ], [ true, %1261 ], [ true, %1260 ], [ true, %1259 ], [ true, %1258 ], [ true, %1257 ], [ true, %1256 ], [ true, %1255 ], [ true, %1254 ], [ true, %1253 ], [ true, %1252 ], [ true, %1251 ], [ true, %1250 ], [ true, %1249 ], [ true, %1248 ], [ true, %1247 ], [ true, %1246 ], [ true, %1245 ], [ true, %1244 ], [ true, %1243 ], [ true, %1242 ], [ true, %1241 ], [ true, %1240 ], [ true, %1239 ], [ true, %1238 ], [ true, %1237 ], [ true, %1236 ], [ true, %1235 ], [ true, %1234 ], [ true, %1233 ], [ true, %1232 ], [ true, %1231 ], [ true, %1230 ], [ true, %1229 ], [ true, %1228 ], [ true, %1227 ], [ true, %1226 ], [ true, %1225 ], [ true, %1224 ], [ true, %1222 ], [ true, %1221 ], [ true, %1220 ], [ true, %1219 ], [ true, %1218 ], [ true, %1217 ], [ true, %1216 ], [ true, %1215 ], [ true, %1214 ], [ true, %1213 ], [ true, %1212 ], [ true, %1211 ], [ true, %1210 ], [ true, %1209 ], [ true, %1208 ], [ true, %1207 ], [ true, %1206 ], [ true, %1205 ], [ true, %1204 ], [ true, %1203 ], [ true, %1193 ], [ true, %1192 ], [ true, %1191 ], [ true, %1190 ], [ true, %1189 ], [ true, %1187 ], [ true, %1186 ], [ true, %1185 ], [ true, %1184 ], [ true, %1183 ], [ true, %1181 ], [ true, %1180 ], [ true, %1179 ], [ true, %1178 ], [ true, %1177 ], [ true, %1176 ], [ true, %1175 ], [ true, %1174 ], [ true, %1173 ], [ true, %1172 ], [ true, %1171 ], [ true, %1170 ], [ true, %1169 ], [ true, %1168 ], [ true, %1167 ], [ true, %1166 ], [ true, %1165 ], [ true, %1164 ], [ true, %1163 ], [ true, %1162 ], [ true, %1161 ], [ true, %1160 ], [ true, %1159 ], [ true, %1158 ], [ true, %1157 ], [ true, %1156 ], [ true, %1155 ], [ true, %1154 ], [ true, %1153 ], [ true, %1152 ], [ true, %1151 ], [ true, %1150 ], [ true, %1149 ], [ true, %1148 ], [ true, %1147 ], [ true, %1146 ], [ true, %1145 ], [ true, %1144 ], [ true, %1143 ], [ true, %1142 ], [ true, %1141 ], [ true, %1140 ], [ true, %1139 ], [ true, %1138 ], [ true, %1137 ], [ true, %1136 ], [ true, %1135 ], [ true, %1134 ], [ true, %1131 ], [ true, %1130 ], [ true, %1129 ], [ true, %1128 ], [ true, %1127 ], [ true, %1126 ], [ true, %1125 ], [ true, %1124 ], [ true, %1122 ], [ true, %1121 ], [ true, %1120 ], [ true, %1119 ], [ true, %1118 ], [ true, %1117 ], [ true, %1116 ], [ true, %1115 ], [ true, %1114 ], [ true, %1113 ], [ true, %1112 ], [ true, %1111 ], [ true, %1109 ], [ true, %1108 ], [ true, %1107 ], [ true, %1106 ], [ true, %1105 ], [ true, %1104 ], [ true, %1103 ], [ true, %1102 ], [ true, %1101 ], [ true, %1100 ], [ true, %1099 ], [ true, %1098 ], [ true, %1097 ], [ true, %1096 ], [ true, %1095 ], [ true, %1094 ], [ true, %1093 ], [ true, %1092 ], [ true, %1090 ], [ true, %1089 ], [ true, %1088 ], [ true, %1087 ], [ true, %1086 ], [ true, %1085 ], [ true, %1084 ], [ true, %1083 ], [ true, %1082 ], [ true, %1080 ], [ true, %1079 ], [ true, %1078 ], [ true, %1077 ], [ true, %1076 ], [ true, %1075 ], [ true, %1074 ], [ true, %1073 ], [ true, %1072 ], [ true, %1071 ], [ true, %1070 ], [ true, %1069 ], [ true, %1068 ], [ true, %1067 ], [ true, %1066 ], [ true, %1065 ], [ true, %1064 ], [ true, %1063 ], [ true, %1061 ], [ true, %1060 ], [ true, %1059 ], [ true, %1058 ], [ true, %1057 ], [ true, %1056 ], [ true, %1055 ], [ true, %1054 ], [ true, %1053 ], [ true, %1052 ], [ true, %1051 ], [ true, %1050 ], [ true, %1049 ], [ true, %1048 ], [ true, %1047 ], [ true, %1046 ], [ true, %1045 ], [ true, %1044 ], [ true, %1043 ], [ true, %1041 ], [ true, %1040 ], [ true, %1039 ], [ true, %1038 ], [ true, %1037 ], [ true, %1036 ], [ true, %1035 ], [ true, %1034 ], [ true, %1033 ], [ true, %1032 ], [ true, %1031 ], [ true, %1030 ], [ true, %1029 ], [ true, %1028 ], [ true, %1026 ], [ true, %1025 ], [ true, %1024 ], [ true, %1023 ], [ true, %1022 ], [ true, %1020 ], [ true, %1019 ], [ true, %1018 ], [ true, %1017 ], [ true, %1016 ], [ true, %1015 ], [ true, %1014 ], [ true, %1013 ], [ true, %1012 ], [ true, %1011 ], [ true, %1010 ], [ true, %1009 ], [ true, %1008 ], [ true, %1007 ], [ true, %1005 ], [ true, %1004 ], [ true, %1003 ], [ true, %1002 ], [ true, %1001 ], [ true, %999 ], [ true, %998 ], [ true, %997 ], [ true, %996 ], [ true, %995 ], [ true, %994 ], [ true, %993 ], [ true, %992 ], [ true, %991 ], [ true, %990 ], [ true, %989 ], [ true, %988 ], [ true, %986 ], [ true, %985 ], [ true, %984 ], [ true, %983 ], [ true, %982 ], [ true, %981 ], [ true, %980 ], [ true, %979 ], [ true, %978 ], [ true, %976 ], [ true, %975 ], [ true, %974 ], [ true, %973 ], [ true, %971 ], [ true, %970 ], [ true, %969 ], [ true, %968 ], [ true, %967 ], [ true, %966 ], [ true, %965 ], [ true, %964 ], [ true, %963 ], [ true, %962 ], [ true, %961 ], [ true, %960 ], [ true, %959 ], [ true, %958 ], [ true, %957 ], [ true, %956 ], [ true, %955 ], [ true, %954 ], [ true, %953 ], [ true, %952 ], [ true, %951 ], [ true, %950 ], [ true, %949 ], [ true, %948 ], [ true, %947 ], [ true, %946 ], [ true, %945 ], [ true, %944 ], [ true, %943 ], [ true, %942 ], [ true, %941 ], [ true, %940 ], [ true, %939 ], [ true, %938 ], [ true, %937 ], [ true, %936 ], [ true, %935 ], [ true, %934 ], [ true, %933 ], [ true, %932 ], [ true, %931 ], [ true, %930 ], [ true, %929 ], [ true, %928 ], [ true, %927 ], [ true, %926 ], [ true, %925 ], [ true, %924 ], [ true, %923 ], [ true, %921 ], [ true, %920 ], [ true, %919 ], [ true, %918 ], [ true, %917 ], [ true, %916 ], [ true, %915 ], [ true, %914 ], [ true, %913 ], [ true, %912 ], [ true, %911 ], [ true, %910 ], [ true, %909 ], [ true, %908 ], [ true, %907 ], [ true, %906 ], [ true, %905 ], [ true, %904 ], [ true, %903 ], [ true, %902 ], [ true, %901 ], [ true, %900 ], [ true, %899 ], [ true, %898 ], [ true, %897 ], [ true, %896 ], [ true, %895 ], [ true, %893 ], [ true, %892 ], [ true, %891 ], [ true, %890 ], [ true, %889 ], [ true, %888 ], [ true, %887 ], [ true, %886 ], [ true, %885 ], [ true, %884 ], [ true, %883 ], [ true, %882 ], [ true, %881 ], [ true, %880 ], [ true, %879 ], [ true, %878 ], [ true, %877 ], [ true, %876 ], [ true, %875 ], [ true, %874 ], [ true, %873 ], [ true, %872 ], [ true, %871 ], [ true, %870 ], [ true, %869 ], [ true, %868 ], [ true, %866 ], [ true, %865 ], [ true, %864 ], [ true, %863 ], [ true, %862 ], [ true, %861 ], [ true, %860 ], [ true, %859 ], [ true, %858 ], [ true, %857 ], [ true, %856 ], [ true, %855 ], [ true, %854 ], [ true, %853 ], [ true, %852 ], [ true, %851 ], [ true, %850 ], [ true, %849 ], [ true, %848 ], [ true, %846 ], [ true, %845 ], [ true, %844 ], [ true, %843 ], [ true, %842 ], [ true, %841 ], [ true, %840 ], [ true, %839 ], [ true, %838 ], [ true, %837 ], [ true, %836 ], [ true, %835 ], [ true, %834 ], [ true, %833 ], [ true, %832 ], [ true, %831 ], [ true, %830 ], [ true, %829 ], [ true, %828 ], [ true, %826 ], [ true, %825 ], [ true, %824 ], [ true, %823 ], [ true, %822 ], [ true, %821 ], [ true, %820 ], [ true, %819 ], [ true, %818 ], [ true, %817 ], [ true, %816 ], [ true, %815 ], [ true, %814 ], [ true, %813 ], [ true, %812 ], [ true, %811 ], [ true, %810 ], [ true, %809 ], [ true, %808 ], [ true, %804 ], [ true, %803 ], [ true, %802 ], [ true, %800 ], [ true, %799 ], [ true, %798 ], [ true, %797 ], [ true, %796 ], [ true, %795 ], [ true, %794 ], [ true, %793 ], [ true, %792 ], [ true, %791 ], [ true, %790 ], [ true, %789 ], [ true, %788 ], [ true, %787 ], [ true, %786 ], [ true, %785 ], [ true, %784 ], [ true, %783 ], [ true, %782 ], [ true, %781 ], [ true, %780 ], [ true, %779 ], [ true, %778 ], [ true, %777 ], [ true, %776 ], [ true, %775 ], [ true, %774 ], [ true, %773 ], [ true, %772 ], [ true, %771 ], [ true, %770 ], [ true, %769 ], [ true, %768 ], [ true, %767 ], [ true, %766 ], [ true, %765 ], [ true, %764 ], [ true, %763 ], [ true, %762 ], [ true, %761 ], [ true, %760 ], [ true, %759 ], [ true, %758 ], [ true, %757 ], [ true, %756 ], [ true, %755 ], [ true, %754 ], [ true, %753 ], [ true, %752 ], [ true, %751 ], [ true, %749 ], [ true, %748 ], [ true, %747 ], [ true, %746 ], [ true, %745 ], [ true, %744 ], [ true, %743 ], [ true, %742 ], [ true, %741 ], [ true, %740 ], [ true, %739 ], [ true, %738 ], [ true, %737 ], [ true, %736 ], [ true, %735 ], [ true, %734 ], [ true, %733 ], [ true, %732 ], [ true, %731 ], [ true, %730 ], [ true, %729 ], [ true, %728 ], [ true, %727 ], [ true, %726 ], [ true, %725 ], [ true, %724 ], [ true, %723 ], [ true, %722 ], [ true, %721 ], [ true, %720 ], [ true, %719 ], [ true, %718 ], [ true, %717 ], [ true, %716 ], [ true, %715 ], [ true, %714 ], [ true, %713 ], [ true, %712 ], [ true, %711 ], [ true, %710 ], [ true, %709 ], [ true, %708 ], [ true, %707 ], [ true, %706 ], [ true, %705 ], [ true, %704 ], [ true, %703 ], [ true, %702 ], [ true, %701 ], [ true, %700 ], [ true, %698 ], [ true, %697 ], [ true, %696 ], [ true, %695 ], [ true, %694 ], [ true, %693 ], [ true, %692 ], [ true, %691 ], [ true, %690 ], [ true, %689 ], [ true, %688 ], [ true, %687 ], [ true, %686 ], [ true, %685 ], [ true, %684 ], [ true, %683 ], [ true, %682 ], [ true, %681 ], [ true, %680 ], [ true, %679 ], [ true, %678 ], [ true, %677 ], [ true, %676 ], [ true, %675 ], [ true, %674 ], [ true, %673 ], [ true, %672 ], [ true, %671 ], [ true, %670 ], [ true, %669 ], [ true, %668 ], [ true, %667 ], [ true, %666 ], [ true, %665 ], [ true, %664 ], [ true, %663 ], [ true, %662 ], [ true, %661 ], [ true, %660 ], [ true, %659 ], [ true, %658 ], [ true, %657 ], [ true, %656 ], [ true, %655 ], [ true, %654 ], [ true, %653 ], [ true, %652 ], [ true, %651 ], [ true, %650 ], [ true, %648 ], [ true, %647 ], [ true, %646 ], [ true, %645 ], [ true, %644 ], [ true, %643 ], [ true, %642 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ true, %635 ], [ true, %634 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ true, %629 ], [ true, %628 ], [ true, %627 ], [ true, %626 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %621 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ true, %617 ], [ true, %616 ], [ true, %615 ], [ true, %614 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ true, %606 ], [ true, %605 ], [ true, %604 ], [ true, %603 ], [ true, %602 ], [ true, %601 ], [ true, %599 ], [ true, %598 ], [ true, %597 ], [ true, %596 ], [ true, %595 ], [ true, %594 ], [ true, %593 ], [ true, %592 ], [ true, %591 ], [ true, %590 ], [ true, %589 ], [ true, %588 ], [ true, %587 ], [ true, %586 ], [ true, %585 ], [ true, %584 ], [ true, %583 ], [ true, %582 ], [ true, %581 ], [ true, %580 ], [ true, %579 ], [ true, %578 ], [ true, %577 ], [ true, %576 ], [ true, %574 ], [ true, %573 ], [ true, %572 ], [ true, %571 ], [ true, %570 ], [ true, %569 ], [ true, %568 ], [ true, %567 ], [ true, %566 ], [ true, %565 ], [ true, %564 ], [ true, %563 ], [ true, %561 ], [ true, %560 ], [ true, %559 ], [ true, %558 ], [ true, %557 ], [ true, %556 ], [ true, %555 ], [ true, %554 ], [ true, %553 ], [ true, %552 ], [ true, %551 ], [ true, %550 ], [ true, %546 ], [ true, %545 ], [ true, %544 ], [ true, %543 ], [ true, %542 ], [ true, %541 ], [ true, %540 ], [ true, %539 ], [ true, %537 ], [ true, %536 ], [ true, %535 ], [ true, %534 ], [ true, %533 ], [ true, %532 ], [ true, %531 ], [ true, %530 ], [ true, %528 ], [ true, %527 ], [ true, %526 ], [ true, %525 ], [ true, %524 ], [ true, %523 ], [ true, %522 ], [ true, %521 ], [ true, %520 ], [ true, %519 ], [ true, %518 ], [ true, %517 ], [ true, %516 ], [ true, %515 ], [ true, %514 ], [ true, %513 ], [ true, %512 ], [ true, %511 ], [ true, %510 ], [ true, %509 ], [ true, %508 ], [ true, %507 ], [ true, %506 ], [ true, %505 ], [ true, %504 ], [ true, %503 ], [ true, %502 ], [ true, %501 ], [ true, %500 ], [ true, %499 ], [ true, %498 ], [ true, %497 ], [ true, %496 ], [ true, %494 ], [ true, %493 ], [ true, %492 ], [ true, %491 ], [ true, %490 ], [ true, %489 ], [ true, %488 ], [ true, %487 ], [ true, %486 ], [ true, %485 ], [ true, %484 ], [ true, %483 ], [ true, %482 ], [ true, %481 ], [ true, %480 ], [ true, %479 ], [ true, %478 ], [ true, %477 ], [ true, %476 ], [ true, %475 ], [ true, %474 ], [ true, %473 ], [ true, %472 ], [ true, %471 ], [ true, %470 ], [ true, %469 ], [ true, %468 ], [ true, %467 ], [ true, %466 ], [ true, %465 ], [ true, %464 ], [ true, %463 ], [ true, %462 ], [ true, %460 ], [ true, %459 ], [ true, %458 ], [ true, %457 ], [ true, %456 ], [ true, %455 ], [ true, %454 ], [ true, %452 ], [ true, %451 ], [ true, %450 ], [ true, %449 ], [ true, %448 ], [ true, %447 ], [ true, %445 ], [ true, %444 ], [ true, %443 ], [ true, %442 ], [ true, %439 ], [ true, %438 ], [ true, %437 ], [ true, %436 ], [ true, %435 ], [ true, %434 ], [ true, %433 ], [ true, %432 ], [ true, %430 ], [ true, %429 ], [ true, %428 ], [ true, %426 ], [ true, %425 ], [ true, %424 ], [ true, %422 ], [ true, %421 ], [ true, %420 ], [ true, %419 ], [ true, %418 ], [ true, %417 ], [ true, %416 ], [ true, %415 ], [ true, %414 ], [ true, %413 ], [ true, %412 ], [ true, %411 ], [ true, %410 ], [ true, %409 ], [ true, %408 ], [ true, %407 ], [ true, %406 ], [ true, %405 ], [ true, %404 ], [ true, %403 ], [ true, %402 ], [ true, %401 ], [ true, %400 ], [ true, %399 ], [ true, %398 ], [ true, %397 ], [ true, %396 ], [ true, %395 ], [ true, %394 ], [ true, %393 ], [ true, %392 ], [ true, %391 ], [ true, %390 ], [ true, %389 ], [ true, %388 ], [ true, %387 ], [ true, %386 ], [ true, %385 ], [ true, %384 ], [ true, %383 ], [ true, %382 ], [ true, %381 ], [ true, %380 ], [ true, %379 ], [ true, %378 ], [ true, %377 ], [ true, %376 ], [ true, %375 ], [ true, %374 ], [ true, %373 ], [ true, %372 ], [ true, %370 ], [ true, %369 ], [ true, %368 ], [ true, %367 ], [ true, %366 ], [ true, %365 ], [ true, %364 ], [ true, %363 ], [ true, %362 ], [ true, %361 ], [ true, %360 ], [ true, %359 ], [ true, %358 ], [ true, %357 ], [ true, %356 ], [ true, %355 ], [ true, %354 ], [ true, %353 ], [ true, %352 ], [ true, %351 ], [ true, %350 ], [ true, %349 ], [ true, %348 ], [ true, %347 ], [ true, %346 ], [ true, %345 ], [ true, %344 ], [ true, %343 ], [ true, %342 ], [ true, %341 ], [ true, %340 ], [ true, %339 ], [ true, %338 ], [ true, %337 ], [ true, %336 ], [ true, %335 ], [ true, %334 ], [ true, %333 ], [ true, %332 ], [ true, %331 ], [ true, %330 ], [ true, %329 ], [ true, %328 ], [ true, %327 ], [ true, %326 ], [ true, %325 ], [ true, %324 ], [ true, %323 ], [ true, %322 ], [ true, %321 ], [ true, %320 ], [ true, %319 ], [ true, %317 ], [ true, %316 ], [ true, %315 ], [ true, %314 ], [ true, %313 ], [ true, %312 ], [ true, %311 ], [ true, %310 ], [ true, %309 ], [ true, %308 ], [ true, %307 ], [ true, %306 ], [ true, %305 ], [ true, %304 ], [ true, %303 ], [ true, %302 ], [ true, %301 ], [ true, %300 ], [ true, %299 ], [ true, %298 ], [ true, %297 ], [ true, %296 ], [ true, %295 ], [ true, %294 ], [ true, %293 ], [ true, %292 ], [ true, %291 ], [ true, %290 ], [ true, %289 ], [ true, %288 ], [ true, %287 ], [ true, %286 ], [ true, %285 ], [ true, %284 ], [ true, %283 ], [ true, %282 ], [ true, %281 ], [ true, %280 ], [ true, %279 ], [ true, %278 ], [ true, %277 ], [ true, %276 ], [ true, %275 ], [ true, %274 ], [ true, %273 ], [ true, %272 ], [ true, %271 ], [ true, %270 ], [ true, %269 ], [ true, %268 ], [ true, %267 ], [ true, %266 ], [ true, %264 ], [ true, %263 ], [ true, %262 ], [ true, %261 ], [ true, %260 ], [ true, %259 ], [ true, %258 ], [ true, %257 ], [ true, %256 ], [ true, %255 ], [ true, %254 ], [ true, %253 ], [ true, %252 ], [ true, %251 ], [ true, %250 ], [ true, %249 ], [ true, %248 ], [ true, %247 ], [ true, %246 ], [ true, %245 ], [ true, %244 ], [ true, %243 ], [ true, %242 ], [ true, %241 ], [ true, %240 ], [ true, %239 ], [ true, %238 ], [ true, %237 ], [ true, %236 ], [ true, %235 ], [ true, %234 ], [ true, %233 ], [ true, %232 ], [ true, %231 ], [ true, %230 ], [ true, %229 ], [ true, %228 ], [ true, %227 ], [ true, %226 ], [ true, %225 ], [ true, %224 ], [ true, %223 ], [ true, %222 ], [ true, %221 ], [ true, %220 ], [ true, %219 ], [ true, %218 ], [ true, %217 ], [ true, %216 ], [ true, %215 ], [ true, %214 ], [ true, %212 ], [ true, %211 ], [ true, %210 ], [ true, %209 ], [ true, %208 ], [ true, %207 ], [ true, %206 ], [ true, %205 ], [ true, %204 ], [ true, %203 ], [ true, %202 ], [ true, %201 ], [ true, %200 ], [ true, %199 ], [ true, %198 ], [ true, %197 ], [ true, %196 ], [ true, %195 ], [ true, %194 ], [ true, %193 ], [ true, %192 ], [ true, %191 ], [ true, %190 ], [ true, %189 ], [ true, %188 ], [ true, %187 ], [ true, %186 ], [ true, %185 ], [ true, %184 ], [ true, %183 ], [ true, %182 ], [ true, %181 ], [ true, %180 ], [ true, %179 ], [ true, %178 ], [ true, %177 ], [ true, %176 ], [ true, %175 ], [ true, %174 ], [ true, %173 ], [ true, %172 ], [ true, %171 ], [ true, %170 ], [ true, %169 ], [ true, %168 ], [ true, %167 ], [ true, %166 ], [ true, %165 ], [ true, %164 ], [ true, %163 ], [ true, %161 ], [ true, %160 ], [ true, %159 ], [ true, %158 ], [ true, %157 ], [ true, %156 ], [ true, %155 ], [ true, %154 ], [ true, %153 ], [ true, %152 ], [ true, %151 ], [ true, %150 ], [ true, %149 ], [ true, %148 ], [ true, %147 ], [ true, %146 ], [ true, %145 ], [ true, %144 ], [ true, %143 ], [ true, %142 ], [ true, %141 ], [ true, %140 ], [ true, %139 ], [ true, %138 ], [ true, %137 ], [ true, %136 ], [ true, %134 ], [ true, %133 ], [ true, %132 ], [ true, %131 ], [ true, %130 ], [ true, %129 ], [ true, %128 ], [ true, %127 ], [ true, %126 ], [ true, %125 ], [ true, %124 ], [ true, %123 ], [ true, %122 ], [ true, %121 ], [ true, %120 ], [ true, %119 ], [ true, %118 ], [ true, %117 ], [ true, %116 ], [ true, %115 ], [ true, %114 ], [ true, %113 ], [ true, %112 ], [ true, %111 ], [ true, %110 ], [ true, %109 ], [ true, %107 ], [ true, %106 ], [ true, %105 ], [ true, %104 ], [ true, %103 ], [ true, %102 ], [ true, %101 ], [ true, %100 ], [ true, %99 ], [ true, %98 ], [ true, %97 ], [ true, %96 ], [ true, %95 ], [ true, %94 ], [ true, %93 ], [ true, %92 ], [ true, %91 ], [ true, %90 ], [ true, %89 ], [ true, %88 ], [ true, %87 ], [ true, %86 ], [ true, %85 ], [ true, %84 ], [ true, %83 ], [ true, %81 ], [ true, %80 ], [ true, %79 ], [ true, %78 ], [ true, %77 ], [ true, %76 ], [ true, %75 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %71 ], [ true, %70 ], [ true, %69 ], [ true, %68 ], [ true, %67 ], [ true, %66 ], [ true, %65 ], [ true, %64 ], [ true, %63 ], [ true, %62 ], [ true, %61 ], [ true, %60 ], [ true, %59 ], [ true, %58 ], [ true, %54 ], [ true, %53 ], [ true, %52 ], [ true, %51 ], [ true, %49 ], [ true, %48 ], [ true, %47 ], [ true, %46 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ true, %2 ], [ false, %4 ], [ false, %45 ], [ false, %50 ], [ false, %55 ], [ false, %57 ], [ false, %82 ], [ false, %108 ], [ false, %135 ], [ false, %162 ], [ false, %213 ], [ false, %265 ], [ false, %318 ], [ false, %371 ], [ false, %423 ], [ false, %427 ], [ false, %431 ], [ %switch.selectcmp, %440 ], [ false, %441 ], [ false, %446 ], [ false, %453 ], [ false, %461 ], [ false, %495 ], [ false, %529 ], [ false, %538 ], [ %switch.selectcmp527, %547 ], [ %switch.selectcmp530, %548 ], [ false, %549 ], [ false, %562 ], [ false, %575 ], [ false, %600 ], [ false, %649 ], [ false, %699 ], [ false, %750 ], [ false, %801 ], [ false, %805 ], [ false, %807 ], [ false, %827 ], [ false, %847 ], [ false, %867 ], [ false, %894 ], [ false, %922 ], [ false, %972 ], [ false, %977 ], [ false, %987 ], [ false, %1000 ], [ false, %1006 ], [ false, %1021 ], [ false, %1027 ], [ false, %1042 ], [ false, %1062 ], [ false, %1081 ], [ false, %1091 ], [ false, %1110 ], [ false, %1123 ], [ %switch.selectcmp533, %1132 ], [ false, %1133 ], [ false, %1182 ], [ false, %1188 ], [ false, %1194 ], [ false, %1196 ], [ false, %1198 ], [ false, %1200 ], [ false, %1202 ], [ false, %1223 ], [ false, %1271 ], [ false, %1292 ], [ false, %1305 ], [ %switch.selectcmp536, %1323 ], [ false, %1324 ], [ false, %1337 ], [ false, %1354 ], [ false, %1386 ], [ false, %1410 ], [ false, %1434 ], [ false, %1458 ], [ false, %1482 ], [ false, %1495 ], [ false, %1508 ], [ false, %1525 ], [ false, %1536 ], [ false, %1547 ], [ false, %1554 ], [ false, %1564 ], [ false, %1575 ], [ false, %1586 ], [ false, %1601 ], [ false, %1608 ], [ false, %1618 ], [ false, %1632 ], [ false, %1639 ], [ false, %1641 ], [ false, %1643 ], [ false, %1645 ], [ false, %1647 ], [ false, %1649 ], [ false, %1651 ], [ false, %1653 ], [ false, %1655 ], [ false, %1657 ], [ false, %1659 ], [ false, %1666 ], [ false, %1676 ], [ false, %1683 ], [ false, %1693 ], [ false, %1707 ], [ false, %1714 ], [ false, %1718 ], [ false, %1722 ], [ false, %1727 ], [ false, %1733 ], [ false, %1737 ], [ false, %1741 ], [ %switch.selectcmp539, %1747 ], [ false, %1748 ], [ false, %1753 ], [ false, %1761 ], [ false, %1765 ], [ false, %1771 ], [ false, %1777 ], [ false, %1783 ], [ %switch.selectcmp542, %1789 ], [ false, %1790 ], [ false, %1795 ], [ false, %1803 ], [ false, %1815 ], [ %switch.selectcmp545, %1823 ], [ false, %1824 ], [ false, %1829 ], [ false, %1837 ], [ false, %1839 ], [ false, %1841 ], [ false, %1843 ], [ false, %1845 ], [ false, %1847 ], [ false, %1849 ], [ false, %1851 ], [ false, %1853 ], [ false, %1855 ], [ false, %1857 ], [ %switch.selectcmp548, %1859 ], [ false, %1860 ], [ false, %1865 ], [ %switch.selectcmp551, %1873 ], [ false, %1874 ], [ false, %1879 ], [ false, %1887 ], [ %switch.selectcmp554, %1899 ], [ false, %1900 ], [ %switch.selectcmp557, %1913 ], [ false, %1914 ], [ false, %1916 ], [ %switch.selectcmp560, %1918 ], [ %switch.selectcmp563, %1919 ], [ %switch.selectcmp566, %1922 ], [ %switch.selectcmp569, %1923 ], [ false, %1924 ], [ %switch.selectcmp572, %1930 ], [ false, %1931 ], [ false, %1937 ], [ false, %1941 ], [ false, %1943 ], [ false, %1945 ], [ false, %1947 ], [ false, %1949 ], [ false, %1951 ], [ false, %1953 ], [ false, %1955 ], [ %switch.selectcmp575, %1957 ], [ %switch.selectcmp578, %1958 ], [ false, %1959 ], [ false, %1961 ], [ false, %1963 ], [ false, %1965 ], [ false, %1967 ], [ false, %1969 ], [ %switch.selectcmp581, %1981 ], [ false, %1982 ], [ false, %1993 ], [ false, %2004 ], [ false, %2015 ], [ false, %2022 ], [ false, %2029 ], [ false, %2036 ], [ false, %2038 ], [ false, %2045 ], [ false, %2052 ], [ false, %2059 ], [ false, %2061 ], [ false, %2063 ], [ false, %2065 ], [ false, %2069 ], [ false, %2073 ], [ false, %2077 ], [ false, %2081 ], [ false, %2085 ], [ false, %2093 ], [ false, %2095 ], [ false, %2097 ], [ false, %2099 ], [ false, %2101 ], [ false, %2103 ], [ false, %2105 ], [ false, %2107 ], [ false, %2109 ], [ false, %2111 ], [ false, %2113 ], [ false, %2115 ], [ %switch.selectcmp582, %2193 ], [ false, %2199 ], [ false, %2201 ], [ false, %2203 ], [ false, %2205 ], [ %switch.selectcmp585, %2207 ], [ false, %2208 ], [ false, %2210 ], [ %switch.selectcmp587, %2220 ], [ %switch.selectcmp589, %2226 ], [ %switch.masked, %switch.lookup ], [ %switch.masked595, %switch.lookup590 ], [ %switch.masked601, %switch.lookup596 ], [ %switch.masked607, %switch.lookup602 ], [ %switch.masked613, %switch.lookup608 ], [ %switch.masked619, %switch.lookup614 ], [ %switch.masked625, %switch.lookup620 ], [ %switch.masked631, %switch.lookup626 ], [ %switch.masked637, %switch.lookup632 ], [ %switch.masked643, %switch.lookup638 ], [ %switch.masked649, %switch.lookup644 ], [ %switch.masked655, %switch.lookup650 ], [ %switch.masked661, %switch.lookup656 ], [ %switch.masked667, %switch.lookup662 ], [ %switch.masked673, %switch.lookup668 ], [ %switch.masked679, %switch.lookup674 ], [ %switch.masked685, %switch.lookup680 ], [ %switch.masked691, %switch.lookup686 ], [ %switch.masked697, %switch.lookup692 ], [ %switch.masked703, %switch.lookup698 ], [ %switch.masked709, %switch.lookup704 ], [ %switch.masked715, %switch.lookup710 ], [ %switch.masked721, %switch.lookup716 ], [ %switch.masked727, %switch.lookup722 ], [ %switch.masked733, %switch.lookup728 ], [ %switch.masked739, %switch.lookup734 ], [ %switch.masked744, %switch.lookup740 ], [ %switch.masked750, %switch.lookup745 ], [ %switch.masked756, %switch.lookup751 ], [ %switch.masked762, %switch.lookup757 ], [ %switch.masked768, %switch.lookup763 ], [ %switch.masked774, %switch.lookup769 ], [ %switch.masked780, %switch.lookup775 ], [ %switch.masked786, %switch.lookup781 ], [ %switch.masked792, %switch.lookup787 ], [ %switch.masked798, %switch.lookup793 ], [ %switch.masked804, %switch.lookup799 ], [ %switch.masked810, %switch.lookup805 ], [ %switch.masked816, %switch.lookup811 ], [ %switch.masked822, %switch.lookup817 ], [ %switch.masked828, %switch.lookup823 ], [ %switch.offset, %switch.lookup829 ], [ %switch.masked836, %switch.lookup831 ], [ %switch.masked842, %switch.lookup837 ], [ %switch.masked848, %switch.lookup843 ], [ %switch.masked854, %switch.lookup849 ], [ %switch.masked860, %switch.lookup855 ], [ %switch.masked866, %switch.lookup861 ], [ %switch.masked872, %switch.lookup867 ], [ %switch.masked878, %switch.lookup873 ], [ %switch.masked884, %switch.lookup879 ], [ %switch.masked890, %switch.lookup885 ], [ %switch.masked896, %switch.lookup891 ], [ %switch.masked902, %switch.lookup897 ], [ %switch.masked908, %switch.lookup903 ], [ %switch.masked914, %switch.lookup909 ], [ %switch.masked920, %switch.lookup915 ], [ %switch.masked926, %switch.lookup921 ], [ %switch.masked932, %switch.lookup927 ], [ %switch.masked938, %switch.lookup933 ], [ %switch.masked944, %switch.lookup939 ], [ %switch.masked950, %switch.lookup945 ], [ %switch.masked956, %switch.lookup951 ], [ %switch.masked962, %switch.lookup957 ], [ %switch.masked968, %switch.lookup963 ], [ %switch.masked974, %switch.lookup969 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
   %4 = alloca [7 x i32], align 4
   %5 = alloca [10 x i32], align 4
@@ -52351,7 +52542,7 @@ define internal fastcc noundef i32 @_ZL20validateOperandClassRN4llvm18MCParsedAs
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
-  %13 = icmp slt i32 %1, 90
+  %13 = icmp ult i32 %1, 90
   %or.cond = and i1 %13, %12
   br i1 %or.cond, label %14, label %158
 
@@ -52523,23 +52714,23 @@ define internal fastcc noundef i32 @_ZL20validateOperandClassRN4llvm18MCParsedAs
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i8, ptr %.val, i64 2
   %65 = load i8, ptr %64, align 1
-  %switch.tableidx1918 = add i8 %65, -48
-  %66 = icmp ult i8 %switch.tableidx1918, 7
-  br i1 %66, label %switch.lookup1917, label %151
+  %switch.tableidx1919 = add i8 %65, -48
+  %66 = icmp ult i8 %switch.tableidx1919, 7
+  br i1 %66, label %switch.lookup1918, label %151
 
 67:                                               ; preds = %57
   %68 = getelementptr inbounds i8, ptr %.val, i64 2
   %69 = load i8, ptr %68, align 1
-  %switch.tableidx1922 = add i8 %69, -52
-  %70 = icmp ult i8 %switch.tableidx1922, 6
-  br i1 %70, label %switch.lookup1921, label %151
+  %switch.tableidx1923 = add i8 %69, -52
+  %70 = icmp ult i8 %switch.tableidx1923, 6
+  br i1 %70, label %switch.lookup1922, label %151
 
 71:                                               ; preds = %57
   %72 = getelementptr inbounds i8, ptr %.val, i64 2
   %73 = load i8, ptr %72, align 1
-  %switch.tableidx1924 = add i8 %73, -48
-  %74 = icmp ult i8 %switch.tableidx1924, 10
-  br i1 %74, label %switch.lookup1923, label %151
+  %switch.tableidx1925 = add i8 %73, -48
+  %74 = icmp ult i8 %switch.tableidx1925, 10
+  br i1 %74, label %switch.lookup1924, label %151
 
 75:                                               ; preds = %57
   %76 = getelementptr inbounds i8, ptr %.val, i64 2
@@ -52693,9 +52884,9 @@ define internal fastcc noundef i32 @_ZL20validateOperandClassRN4llvm18MCParsedAs
 123:                                              ; preds = %120
   %124 = getelementptr inbounds i8, ptr %.val, i64 2
   %125 = load i8, ptr %124, align 1
-  %switch.tableidx1928 = add i8 %125, -48
-  %126 = icmp ult i8 %switch.tableidx1928, 4
-  br i1 %126, label %switch.lookup1927, label %151
+  %switch.tableidx1929 = add i8 %125, -48
+  %126 = icmp ult i8 %switch.tableidx1929, 4
+  br i1 %126, label %switch.lookup1928, label %151
 
 127:                                              ; preds = %14
   %128 = load i8, ptr %.val, align 1
@@ -52783,415 +52974,416 @@ switch.lookup:                                    ; preds = %29
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-switch.lookup1917:                                ; preds = %63
-  %153 = zext nneg i8 %switch.tableidx1918 to i64
-  %switch.gep1919 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.294, i64 0, i64 %153
-  %switch.load1920 = load i32, ptr %switch.gep1919, align 4
+switch.lookup1918:                                ; preds = %63
+  %153 = zext nneg i8 %switch.tableidx1919 to i64
+  %switch.gep1920 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.294, i64 0, i64 %153
+  %switch.load1921 = load i32, ptr %switch.gep1920, align 4
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-switch.lookup1921:                                ; preds = %67
+switch.lookup1922:                                ; preds = %67
   %narrow = add nsw i8 %69, -19
   %switch.offset = zext nneg i8 %narrow to i32
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-switch.lookup1923:                                ; preds = %71
-  %154 = zext nneg i8 %switch.tableidx1924 to i64
-  %switch.gep1925 = getelementptr inbounds [10 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.295, i64 0, i64 %154
-  %switch.load1926 = load i32, ptr %switch.gep1925, align 4
+switch.lookup1924:                                ; preds = %71
+  %154 = zext nneg i8 %switch.tableidx1925 to i64
+  %switch.gep1926 = getelementptr inbounds [10 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.295, i64 0, i64 %154
+  %switch.load1927 = load i32, ptr %switch.gep1926, align 4
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-switch.lookup1927:                                ; preds = %123
-  %155 = or disjoint i8 %switch.tableidx1928, 84
-  %switch.offset1930 = zext nneg i8 %155 to i32
+switch.lookup1928:                                ; preds = %123
+  %155 = or disjoint i8 %switch.tableidx1929, 84
+  %switch.offset1931 = zext nneg i8 %155 to i32
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-_ZL16matchTokenStringN4llvm9StringRefE.exit:      ; preds = %switch.lookup1927, %switch.lookup1923, %switch.lookup1921, %switch.lookup1917, %switch.lookup, %17, %19, %20, %21, %22, %23, %24, %25, %26, %33, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %49, %52, %60, %75, %78, %84, %87, %88, %89, %90, %93, %94, %95, %96, %97, %98, %99, %100, %103, %104, %105, %106, %107, %108, %111, %112, %113, %114, %116, %118, %129, %133, %136, %138, %142, %147, %149, %151
-  %.0.i = phi i32 [ 0, %151 ], [ 64, %113 ], [ 63, %112 ], [ 13, %111 ], [ 62, %107 ], [ 61, %106 ], [ 60, %105 ], [ 11, %104 ], [ 10, %103 ], [ 59, %99 ], [ 58, %98 ], [ 57, %97 ], [ 56, %96 ], [ 8, %95 ], [ 7, %94 ], [ 6, %93 ], [ 55, %89 ], [ 54, %88 ], [ 4, %87 ], [ 69, %45 ], [ 68, %44 ], [ 67, %43 ], [ 66, %42 ], [ 65, %41 ], [ 18, %40 ], [ 17, %39 ], [ 16, %38 ], [ 15, %37 ], [ 14, %36 ], [ 89, %26 ], [ 88, %25 ], [ 82, %24 ], [ 76, %23 ], [ 72, %22 ], [ 71, %21 ], [ 70, %20 ], [ 51, %19 ], [ 22, %17 ], [ 52, %33 ], [ 78, %46 ], [ 81, %49 ], [ 83, %52 ], [ %switch.select25.i, %60 ], [ %switch.select29.i, %75 ], [ 48, %78 ], [ 3, %84 ], [ 5, %90 ], [ 9, %100 ], [ 12, %108 ], [ 21, %114 ], [ 75, %116 ], [ 77, %118 ], [ 23, %129 ], [ %switch.select33.i, %133 ], [ 20, %136 ], [ 74, %138 ], [ %switch.select37.i, %142 ], [ 19, %147 ], [ 73, %149 ], [ %switch.load, %switch.lookup ], [ %switch.load1920, %switch.lookup1917 ], [ %switch.offset, %switch.lookup1921 ], [ %switch.load1926, %switch.lookup1923 ], [ %switch.offset1930, %switch.lookup1927 ]
+_ZL16matchTokenStringN4llvm9StringRefE.exit:      ; preds = %switch.lookup1928, %switch.lookup1924, %switch.lookup1922, %switch.lookup1918, %switch.lookup, %17, %19, %20, %21, %22, %23, %24, %25, %26, %33, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %49, %52, %60, %75, %78, %84, %87, %88, %89, %90, %93, %94, %95, %96, %97, %98, %99, %100, %103, %104, %105, %106, %107, %108, %111, %112, %113, %114, %116, %118, %129, %133, %136, %138, %142, %147, %149, %151
+  %.0.i = phi i32 [ 0, %151 ], [ 64, %113 ], [ 63, %112 ], [ 13, %111 ], [ 62, %107 ], [ 61, %106 ], [ 60, %105 ], [ 11, %104 ], [ 10, %103 ], [ 59, %99 ], [ 58, %98 ], [ 57, %97 ], [ 56, %96 ], [ 8, %95 ], [ 7, %94 ], [ 6, %93 ], [ 55, %89 ], [ 54, %88 ], [ 4, %87 ], [ 69, %45 ], [ 68, %44 ], [ 67, %43 ], [ 66, %42 ], [ 65, %41 ], [ 18, %40 ], [ 17, %39 ], [ 16, %38 ], [ 15, %37 ], [ 14, %36 ], [ 89, %26 ], [ 88, %25 ], [ 82, %24 ], [ 76, %23 ], [ 72, %22 ], [ 71, %21 ], [ 70, %20 ], [ 51, %19 ], [ 22, %17 ], [ 52, %33 ], [ 78, %46 ], [ 81, %49 ], [ 83, %52 ], [ %switch.select25.i, %60 ], [ %switch.select29.i, %75 ], [ 48, %78 ], [ 3, %84 ], [ 5, %90 ], [ 9, %100 ], [ 12, %108 ], [ 21, %114 ], [ 75, %116 ], [ 77, %118 ], [ 23, %129 ], [ %switch.select33.i, %133 ], [ 20, %136 ], [ 74, %138 ], [ %switch.select37.i, %142 ], [ 19, %147 ], [ 73, %149 ], [ %switch.load, %switch.lookup ], [ %switch.load1921, %switch.lookup1918 ], [ %switch.offset, %switch.lookup1922 ], [ %switch.load1927, %switch.lookup1924 ], [ %switch.offset1931, %switch.lookup1928 ]
   %156 = tail call fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_(i32 noundef %.0.i, i32 noundef %1)
   %157 = select i1 %156, i32 4, i32 0
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 158:                                              ; preds = %8
-  switch i32 %1, label %.thread [
-    i32 396, label %159
-    i32 397, label %161
-    i32 398, label %163
-    i32 399, label %176
-    i32 400, label %191
-    i32 401, label %194
-    i32 402, label %199
-    i32 403, label %204
-    i32 404, label %218
-    i32 405, label %232
-    i32 406, label %235
-    i32 407, label %242
-    i32 408, label %251
-    i32 409, label %259
-    i32 410, label %266
-    i32 411, label %270
-    i32 412, label %272
-    i32 413, label %274
-    i32 414, label %276
-    i32 415, label %278
-    i32 416, label %280
-    i32 417, label %282
-    i32 418, label %284
-    i32 419, label %286
-    i32 420, label %288
-    i32 421, label %290
-    i32 422, label %292
-    i32 423, label %294
-    i32 424, label %296
-    i32 425, label %298
-    i32 426, label %309
-    i32 427, label %320
-    i32 428, label %331
-    i32 429, label %342
-    i32 430, label %353
-    i32 431, label %364
-    i32 432, label %375
-    i32 433, label %386
-    i32 434, label %397
-    i32 435, label %409
-    i32 436, label %420
-    i32 437, label %432
-    i32 438, label %444
-    i32 439, label %456
-    i32 440, label %468
-    i32 441, label %480
-    i32 442, label %485
-    i32 443, label %487
-    i32 444, label %489
-    i32 445, label %491
-    i32 446, label %493
-    i32 447, label %498
-    i32 448, label %503
-    i32 449, label %505
-    i32 450, label %507
-    i32 451, label %509
-    i32 452, label %511
-    i32 453, label %513
-    i32 454, label %515
-    i32 455, label %517
-    i32 456, label %519
-    i32 457, label %521
-    i32 458, label %523
-    i32 459, label %525
-    i32 460, label %527
-    i32 461, label %529
-    i32 462, label %532
-    i32 463, label %546
-    i32 464, label %560
-    i32 465, label %562
-    i32 466, label %564
-    i32 467, label %566
-    i32 468, label %568
-    i32 469, label %570
-    i32 470, label %572
-    i32 471, label %574
-    i32 472, label %576
-    i32 473, label %578
-    i32 474, label %580
-    i32 475, label %582
-    i32 476, label %584
-    i32 477, label %586
-    i32 478, label %588
-    i32 479, label %590
-    i32 480, label %592
-    i32 481, label %594
-    i32 482, label %596
-    i32 483, label %599
-    i32 484, label %602
-    i32 485, label %605
-    i32 486, label %607
-    i32 487, label %609
-    i32 488, label %611
-    i32 489, label %613
-    i32 490, label %615
-    i32 491, label %617
-    i32 492, label %619
-    i32 493, label %621
-    i32 494, label %623
-    i32 495, label %625
-    i32 496, label %627
-    i32 497, label %629
-    i32 498, label %631
-    i32 499, label %633
-    i32 500, label %635
-    i32 501, label %637
-    i32 502, label %639
-    i32 503, label %641
-    i32 504, label %643
-    i32 505, label %645
-    i32 506, label %647
-    i32 507, label %651
-    i32 508, label %653
-    i32 509, label %655
-    i32 510, label %657
-    i32 511, label %659
-    i32 512, label %661
-    i32 513, label %663
-    i32 514, label %665
-    i32 515, label %667
-    i32 516, label %677
-    i32 517, label %680
-    i32 518, label %690
-    i32 519, label %693
-    i32 520, label %696
-    i32 521, label %699
-    i32 522, label %702
-    i32 523, label %705
-    i32 524, label %712
-    i32 525, label %718
-    i32 526, label %724
-    i32 527, label %730
-    i32 528, label %736
-    i32 529, label %742
-    i32 530, label %749
-    i32 531, label %754
-    i32 532, label %760
-    i32 533, label %764
-    i32 534, label %767
-    i32 535, label %769
-    i32 536, label %775
-    i32 537, label %781
-    i32 538, label %792
-    i32 539, label %804
-    i32 540, label %806
-    i32 541, label %808
-    i32 542, label %810
-    i32 543, label %812
-    i32 544, label %814
-    i32 545, label %816
-    i32 546, label %818
-    i32 547, label %820
-    i32 548, label %822
-    i32 549, label %824
-    i32 550, label %826
-    i32 551, label %828
-    i32 552, label %830
-    i32 553, label %832
-    i32 554, label %834
-    i32 555, label %836
-    i32 556, label %847
-    i32 557, label %849
-    i32 558, label %851
-    i32 559, label %853
-    i32 560, label %855
-    i32 561, label %857
-    i32 562, label %870
-    i32 563, label %872
-    i32 564, label %874
-    i32 565, label %876
-    i32 566, label %878
-    i32 567, label %880
-    i32 568, label %882
-    i32 569, label %895
-    i32 570, label %897
-    i32 571, label %899
-    i32 572, label %901
-    i32 573, label %903
-    i32 574, label %905
-    i32 575, label %907
-    i32 576, label %920
-    i32 577, label %922
-    i32 578, label %924
-    i32 579, label %926
-    i32 580, label %928
-    i32 581, label %930
-    i32 582, label %932
-    i32 583, label %945
-    i32 584, label %947
-    i32 585, label %949
-    i32 586, label %951
-    i32 587, label %953
-    i32 588, label %955
-    i32 589, label %957
-    i32 590, label %970
-    i32 591, label %972
-    i32 592, label %974
-    i32 593, label %976
-    i32 594, label %978
-    i32 595, label %980
-    i32 596, label %982
-    i32 597, label %995
-    i32 598, label %997
-    i32 599, label %999
-    i32 600, label %1001
-    i32 601, label %1003
-    i32 602, label %1005
-    i32 603, label %1007
-    i32 604, label %1020
-    i32 605, label %1022
-    i32 606, label %1024
-    i32 607, label %1026
-    i32 608, label %1028
-    i32 609, label %1030
-    i32 610, label %1032
-    i32 611, label %1045
-    i32 612, label %1047
-    i32 613, label %1049
-    i32 614, label %1051
-    i32 615, label %1053
-    i32 616, label %1055
-    i32 617, label %1057
-    i32 618, label %1061
-    i32 619, label %1065
-    i32 620, label %1068
-    i32 621, label %1071
-    i32 622, label %1074
-    i32 623, label %1077
-    i32 624, label %1079
-    i32 625, label %1085
-    i32 626, label %1091
-    i32 627, label %1093
-    i32 628, label %1095
-    i32 629, label %1097
-    i32 630, label %1099
-    i32 631, label %1101
-    i32 632, label %1103
-    i32 633, label %1105
-    i32 634, label %1107
-    i32 635, label %1109
-    i32 636, label %1111
-    i32 637, label %1113
-    i32 638, label %1115
-    i32 639, label %1117
-    i32 640, label %1119
-    i32 641, label %1121
-    i32 642, label %1123
-    i32 643, label %1125
-    i32 644, label %1127
-    i32 645, label %1129
-    i32 646, label %1131
-    i32 647, label %1133
-    i32 648, label %1135
-    i32 649, label %1137
-    i32 650, label %1139
-    i32 651, label %1141
-    i32 652, label %1143
-    i32 653, label %1145
-    i32 654, label %1147
-    i32 655, label %1149
-    i32 656, label %1151
-    i32 657, label %1153
-    i32 658, label %1155
-    i32 659, label %1157
-    i32 660, label %1159
-    i32 661, label %1161
-    i32 662, label %1163
-    i32 663, label %1165
-    i32 664, label %1167
-    i32 665, label %1169
-    i32 666, label %1171
-    i32 667, label %1173
-    i32 668, label %1175
-    i32 669, label %1177
-    i32 670, label %1179
-    i32 671, label %1191
-    i32 672, label %1206
-    i32 673, label %1217
-    i32 674, label %1231
-    i32 675, label %1245
-    i32 676, label %1259
-    i32 677, label %1261
-    i32 678, label %1263
-    i32 679, label %1265
-    i32 680, label %1267
-    i32 681, label %1269
-    i32 682, label %1271
-    i32 683, label %1273
-    i32 684, label %1275
-    i32 685, label %1277
-    i32 686, label %1279
-    i32 687, label %1281
-    i32 688, label %1283
-    i32 689, label %1285
-    i32 690, label %1287
-    i32 691, label %1289
-    i32 692, label %1291
-    i32 693, label %1293
-    i32 694, label %1295
-    i32 695, label %1297
-    i32 696, label %1299
-    i32 697, label %1301
-    i32 698, label %1303
-    i32 699, label %1305
-    i32 700, label %1307
-    i32 701, label %1309
-    i32 702, label %1311
-    i32 703, label %1313
-    i32 704, label %1315
-    i32 705, label %1317
-    i32 706, label %1319
-    i32 707, label %1321
-    i32 708, label %1323
-    i32 709, label %1325
-    i32 710, label %1327
-    i32 711, label %1329
-    i32 712, label %1331
-    i32 713, label %1333
-    i32 714, label %1335
-    i32 715, label %1337
-    i32 716, label %1339
-    i32 717, label %1341
-    i32 718, label %1343
-    i32 719, label %1345
-    i32 720, label %1347
-    i32 721, label %1349
-    i32 722, label %1351
-    i32 723, label %1353
-    i32 724, label %1355
-    i32 725, label %1357
-    i32 726, label %1359
-    i32 727, label %1361
-    i32 728, label %1363
-    i32 729, label %1365
-    i32 730, label %1367
-    i32 731, label %1369
-    i32 732, label %1371
-    i32 733, label %1373
-    i32 734, label %1375
-    i32 735, label %1377
-    i32 736, label %1379
-    i32 737, label %1381
-    i32 738, label %1383
-    i32 739, label %1385
-    i32 740, label %1387
-    i32 741, label %1389
-    i32 742, label %1391
-    i32 743, label %1393
-    i32 744, label %1395
-    i32 745, label %1397
-    i32 746, label %1399
-    i32 747, label %1401
-    i32 748, label %1403
-    i32 749, label %1405
-    i32 750, label %1407
-    i32 751, label %1409
-    i32 752, label %1411
-    i32 753, label %1413
-    i32 754, label %1415
-    i32 755, label %1417
-    i32 756, label %1419
-    i32 757, label %1421
-    i32 758, label %1423
-    i32 759, label %1426
-    i32 760, label %1428
-    i32 761, label %1439
-    i32 762, label %1452
-    i32 763, label %1465
-    i32 764, label %1467
-    i32 765, label %1469
-    i32 766, label %1471
-    i32 767, label %1474
-    i32 768, label %1477
-    i32 769, label %1480
-    i32 770, label %1482
-    i32 771, label %1484
-    i32 772, label %1486
-    i32 773, label %1488
-    i32 774, label %1490
+  %trunc = trunc nuw i32 %1 to i16
+  switch i16 %trunc, label %.thread [
+    i16 396, label %159
+    i16 397, label %161
+    i16 398, label %163
+    i16 399, label %176
+    i16 400, label %191
+    i16 401, label %194
+    i16 402, label %199
+    i16 403, label %204
+    i16 404, label %218
+    i16 405, label %232
+    i16 406, label %235
+    i16 407, label %242
+    i16 408, label %251
+    i16 409, label %259
+    i16 410, label %266
+    i16 411, label %270
+    i16 412, label %272
+    i16 413, label %274
+    i16 414, label %276
+    i16 415, label %278
+    i16 416, label %280
+    i16 417, label %282
+    i16 418, label %284
+    i16 419, label %286
+    i16 420, label %288
+    i16 421, label %290
+    i16 422, label %292
+    i16 423, label %294
+    i16 424, label %296
+    i16 425, label %298
+    i16 426, label %309
+    i16 427, label %320
+    i16 428, label %331
+    i16 429, label %342
+    i16 430, label %353
+    i16 431, label %364
+    i16 432, label %375
+    i16 433, label %386
+    i16 434, label %397
+    i16 435, label %409
+    i16 436, label %420
+    i16 437, label %432
+    i16 438, label %444
+    i16 439, label %456
+    i16 440, label %468
+    i16 441, label %480
+    i16 442, label %485
+    i16 443, label %487
+    i16 444, label %489
+    i16 445, label %491
+    i16 446, label %493
+    i16 447, label %498
+    i16 448, label %503
+    i16 449, label %505
+    i16 450, label %507
+    i16 451, label %509
+    i16 452, label %511
+    i16 453, label %513
+    i16 454, label %515
+    i16 455, label %517
+    i16 456, label %519
+    i16 457, label %521
+    i16 458, label %523
+    i16 459, label %525
+    i16 460, label %527
+    i16 461, label %529
+    i16 462, label %532
+    i16 463, label %546
+    i16 464, label %560
+    i16 465, label %562
+    i16 466, label %564
+    i16 467, label %566
+    i16 468, label %568
+    i16 469, label %570
+    i16 470, label %572
+    i16 471, label %574
+    i16 472, label %576
+    i16 473, label %578
+    i16 474, label %580
+    i16 475, label %582
+    i16 476, label %584
+    i16 477, label %586
+    i16 478, label %588
+    i16 479, label %590
+    i16 480, label %592
+    i16 481, label %594
+    i16 482, label %596
+    i16 483, label %599
+    i16 484, label %602
+    i16 485, label %605
+    i16 486, label %607
+    i16 487, label %609
+    i16 488, label %611
+    i16 489, label %613
+    i16 490, label %615
+    i16 491, label %617
+    i16 492, label %619
+    i16 493, label %621
+    i16 494, label %623
+    i16 495, label %625
+    i16 496, label %627
+    i16 497, label %629
+    i16 498, label %631
+    i16 499, label %633
+    i16 500, label %635
+    i16 501, label %637
+    i16 502, label %639
+    i16 503, label %641
+    i16 504, label %643
+    i16 505, label %645
+    i16 506, label %647
+    i16 507, label %651
+    i16 508, label %653
+    i16 509, label %655
+    i16 510, label %657
+    i16 511, label %659
+    i16 512, label %661
+    i16 513, label %663
+    i16 514, label %665
+    i16 515, label %667
+    i16 516, label %677
+    i16 517, label %680
+    i16 518, label %690
+    i16 519, label %693
+    i16 520, label %696
+    i16 521, label %699
+    i16 522, label %702
+    i16 523, label %705
+    i16 524, label %712
+    i16 525, label %718
+    i16 526, label %724
+    i16 527, label %730
+    i16 528, label %736
+    i16 529, label %742
+    i16 530, label %749
+    i16 531, label %754
+    i16 532, label %760
+    i16 533, label %764
+    i16 534, label %767
+    i16 535, label %769
+    i16 536, label %775
+    i16 537, label %781
+    i16 538, label %792
+    i16 539, label %804
+    i16 540, label %806
+    i16 541, label %808
+    i16 542, label %810
+    i16 543, label %812
+    i16 544, label %814
+    i16 545, label %816
+    i16 546, label %818
+    i16 547, label %820
+    i16 548, label %822
+    i16 549, label %824
+    i16 550, label %826
+    i16 551, label %828
+    i16 552, label %830
+    i16 553, label %832
+    i16 554, label %834
+    i16 555, label %836
+    i16 556, label %847
+    i16 557, label %849
+    i16 558, label %851
+    i16 559, label %853
+    i16 560, label %855
+    i16 561, label %857
+    i16 562, label %870
+    i16 563, label %872
+    i16 564, label %874
+    i16 565, label %876
+    i16 566, label %878
+    i16 567, label %880
+    i16 568, label %882
+    i16 569, label %895
+    i16 570, label %897
+    i16 571, label %899
+    i16 572, label %901
+    i16 573, label %903
+    i16 574, label %905
+    i16 575, label %907
+    i16 576, label %920
+    i16 577, label %922
+    i16 578, label %924
+    i16 579, label %926
+    i16 580, label %928
+    i16 581, label %930
+    i16 582, label %932
+    i16 583, label %945
+    i16 584, label %947
+    i16 585, label %949
+    i16 586, label %951
+    i16 587, label %953
+    i16 588, label %955
+    i16 589, label %957
+    i16 590, label %970
+    i16 591, label %972
+    i16 592, label %974
+    i16 593, label %976
+    i16 594, label %978
+    i16 595, label %980
+    i16 596, label %982
+    i16 597, label %995
+    i16 598, label %997
+    i16 599, label %999
+    i16 600, label %1001
+    i16 601, label %1003
+    i16 602, label %1005
+    i16 603, label %1007
+    i16 604, label %1020
+    i16 605, label %1022
+    i16 606, label %1024
+    i16 607, label %1026
+    i16 608, label %1028
+    i16 609, label %1030
+    i16 610, label %1032
+    i16 611, label %1045
+    i16 612, label %1047
+    i16 613, label %1049
+    i16 614, label %1051
+    i16 615, label %1053
+    i16 616, label %1055
+    i16 617, label %1057
+    i16 618, label %1061
+    i16 619, label %1065
+    i16 620, label %1068
+    i16 621, label %1071
+    i16 622, label %1074
+    i16 623, label %1077
+    i16 624, label %1079
+    i16 625, label %1085
+    i16 626, label %1091
+    i16 627, label %1093
+    i16 628, label %1095
+    i16 629, label %1097
+    i16 630, label %1099
+    i16 631, label %1101
+    i16 632, label %1103
+    i16 633, label %1105
+    i16 634, label %1107
+    i16 635, label %1109
+    i16 636, label %1111
+    i16 637, label %1113
+    i16 638, label %1115
+    i16 639, label %1117
+    i16 640, label %1119
+    i16 641, label %1121
+    i16 642, label %1123
+    i16 643, label %1125
+    i16 644, label %1127
+    i16 645, label %1129
+    i16 646, label %1131
+    i16 647, label %1133
+    i16 648, label %1135
+    i16 649, label %1137
+    i16 650, label %1139
+    i16 651, label %1141
+    i16 652, label %1143
+    i16 653, label %1145
+    i16 654, label %1147
+    i16 655, label %1149
+    i16 656, label %1151
+    i16 657, label %1153
+    i16 658, label %1155
+    i16 659, label %1157
+    i16 660, label %1159
+    i16 661, label %1161
+    i16 662, label %1163
+    i16 663, label %1165
+    i16 664, label %1167
+    i16 665, label %1169
+    i16 666, label %1171
+    i16 667, label %1173
+    i16 668, label %1175
+    i16 669, label %1177
+    i16 670, label %1179
+    i16 671, label %1191
+    i16 672, label %1206
+    i16 673, label %1217
+    i16 674, label %1231
+    i16 675, label %1245
+    i16 676, label %1259
+    i16 677, label %1261
+    i16 678, label %1263
+    i16 679, label %1265
+    i16 680, label %1267
+    i16 681, label %1269
+    i16 682, label %1271
+    i16 683, label %1273
+    i16 684, label %1275
+    i16 685, label %1277
+    i16 686, label %1279
+    i16 687, label %1281
+    i16 688, label %1283
+    i16 689, label %1285
+    i16 690, label %1287
+    i16 691, label %1289
+    i16 692, label %1291
+    i16 693, label %1293
+    i16 694, label %1295
+    i16 695, label %1297
+    i16 696, label %1299
+    i16 697, label %1301
+    i16 698, label %1303
+    i16 699, label %1305
+    i16 700, label %1307
+    i16 701, label %1309
+    i16 702, label %1311
+    i16 703, label %1313
+    i16 704, label %1315
+    i16 705, label %1317
+    i16 706, label %1319
+    i16 707, label %1321
+    i16 708, label %1323
+    i16 709, label %1325
+    i16 710, label %1327
+    i16 711, label %1329
+    i16 712, label %1331
+    i16 713, label %1333
+    i16 714, label %1335
+    i16 715, label %1337
+    i16 716, label %1339
+    i16 717, label %1341
+    i16 718, label %1343
+    i16 719, label %1345
+    i16 720, label %1347
+    i16 721, label %1349
+    i16 722, label %1351
+    i16 723, label %1353
+    i16 724, label %1355
+    i16 725, label %1357
+    i16 726, label %1359
+    i16 727, label %1361
+    i16 728, label %1363
+    i16 729, label %1365
+    i16 730, label %1367
+    i16 731, label %1369
+    i16 732, label %1371
+    i16 733, label %1373
+    i16 734, label %1375
+    i16 735, label %1377
+    i16 736, label %1379
+    i16 737, label %1381
+    i16 738, label %1383
+    i16 739, label %1385
+    i16 740, label %1387
+    i16 741, label %1389
+    i16 742, label %1391
+    i16 743, label %1393
+    i16 744, label %1395
+    i16 745, label %1397
+    i16 746, label %1399
+    i16 747, label %1401
+    i16 748, label %1403
+    i16 749, label %1405
+    i16 750, label %1407
+    i16 751, label %1409
+    i16 752, label %1411
+    i16 753, label %1413
+    i16 754, label %1415
+    i16 755, label %1417
+    i16 756, label %1419
+    i16 757, label %1421
+    i16 758, label %1423
+    i16 759, label %1426
+    i16 760, label %1428
+    i16 761, label %1439
+    i16 762, label %1452
+    i16 763, label %1465
+    i16 764, label %1467
+    i16 765, label %1469
+    i16 766, label %1471
+    i16 767, label %1474
+    i16 768, label %1477
+    i16 769, label %1480
+    i16 770, label %1482
+    i16 771, label %1484
+    i16 772, label %1486
+    i16 773, label %1488
+    i16 774, label %1490
   ]
 
 159:                                              ; preds = %158
@@ -53201,7 +53393,7 @@ _ZL16matchTokenStringN4llvm9StringRefE.exit:      ; preds = %switch.lookup1927, 
 
 161:                                              ; preds = %158
   %162 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand11isAddSubImmEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1698 = select i1 %162, i32 4, i32 12
+  %spec.select1699 = select i1 %162, i32 4, i32 12
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 163:                                              ; preds = %158
@@ -53209,7 +53401,7 @@ _ZL16matchTokenStringN4llvm9StringRefE.exit:      ; preds = %switch.lookup1927, 
   %165 = getelementptr inbounds i8, ptr %164, i64 40
   %166 = load ptr, ptr %165, align 8
   %167 = tail call noundef zeroext i1 %166(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
-  br i1 %167, label %168, label %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1524
+  br i1 %167, label %168, label %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1525
 
 168:                                              ; preds = %163
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -53223,9 +53415,9 @@ _ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit: ; preds = %168
   %173 = load i64, ptr %172, align 8
   %174 = add i64 %173, 1048576
   %175 = icmp ult i64 %174, 2097152
-  br i1 %175, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1524
+  br i1 %175, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1525
 
-_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1524: ; preds = %163, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit
+_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1525: ; preds = %163, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 176:                                              ; preds = %158
@@ -53233,7 +53425,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1524: ; preds = %163
   %178 = getelementptr inbounds i8, ptr %177, i64 40
   %179 = load ptr, ptr %178, align 8
   %180 = tail call noundef zeroext i1 %179(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
-  br i1 %180, label %181, label %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1530
+  br i1 %180, label %181, label %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1531
 
 181:                                              ; preds = %176
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -53250,9 +53442,9 @@ _ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit: ; preds = %181
   %189 = add i64 %186, 4294967296
   %190 = icmp ult i64 %189, 8589930497
   %spec.select.i = and i1 %188, %190
-  br i1 %spec.select.i, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1530
+  br i1 %spec.select.i, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1531
 
-_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1530: ; preds = %176, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit
+_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1531: ; preds = %176, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 191:                                              ; preds = %158
@@ -53268,8 +53460,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1530: ; preds = %17
   %.val406 = load i8, ptr %196, align 8
   %197 = icmp ne i32 %.val405, 16
   %198 = trunc i8 %.val406 to i1
-  %.not1900 = select i1 %197, i1 true, i1 %198
-  br i1 %.not1900, label %.thread, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
+  %.not1901 = select i1 %197, i1 true, i1 %198
+  br i1 %.not1901, label %.thread, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 199:                                              ; preds = %158
   %200 = getelementptr inbounds i8, ptr %0, i64 48
@@ -53302,8 +53494,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1530: ; preds = %17
   %.not7.i = icmp eq i64 %215, 0
   %216 = add i64 %214, 32768
   %217 = icmp ult i64 %216, 65533
-  %or.cond1902 = and i1 %.not7.i, %217
-  br i1 %or.cond1902, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread
+  %or.cond1903 = and i1 %.not7.i, %217
+  br i1 %or.cond1903, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread: ; preds = %212, %204
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
@@ -53329,8 +53521,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread: ; pred
   %.not7.i467 = icmp eq i64 %229, 0
   %230 = add i64 %228, 134217728
   %231 = icmp ult i64 %230, 268435453
-  %or.cond1904 = and i1 %.not7.i467, %231
-  br i1 %or.cond1904, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread
+  %or.cond1905 = and i1 %.not7.i467, %231
+  br i1 %or.cond1905, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread: ; preds = %226, %218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
@@ -53339,7 +53531,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread: ; pred
   %233 = getelementptr inbounds i8, ptr %0, i64 48
   %.val409 = load i32, ptr %233, align 8
   %234 = icmp eq i32 %.val409, 3
-  %spec.select1699 = select i1 %234, i32 4, i32 15
+  %spec.select1700 = select i1 %234, i32 4, i32 15
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 235:                                              ; preds = %158
@@ -53389,9 +53581,9 @@ _ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i: ; preds = %245, %245, %245
   br i1 %248, label %249, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 249:                                              ; preds = %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i
-  %switch.tableidx1932 = add i32 %.0.i.i.i, -5
-  %250 = icmp ult i32 %switch.tableidx1932, 7
-  br i1 %250, label %switch.lookup1931, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
+  %switch.tableidx1933 = add i32 %.0.i.i.i, -5
+  %250 = icmp ult i32 %switch.tableidx1933, 7
+  br i1 %250, label %switch.lookup1932, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 251:                                              ; preds = %158
   %252 = getelementptr inbounds i8, ptr %0, i64 48
@@ -53466,7 +53658,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread: ; preds = %262, %259,
   %268 = getelementptr i8, ptr %0, i64 72
   %.val411 = load i64, ptr %268, align 8
   %269 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand7isFPImmEv(i32 %.val410, i64 %.val411)
-  %spec.select1700 = select i1 %269, i32 4, i32 16
+  %spec.select1701 = select i1 %269, i32 4, i32 16
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 270:                                              ; preds = %158
@@ -53484,28 +53676,28 @@ _ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread: ; preds = %262, %259,
   %275 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj42ELi16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %275, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1701
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1702
   ]
 
 276:                                              ; preds = %158
   %277 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj42ELi32EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %277, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1702
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1703
   ]
 
 278:                                              ; preds = %158
   %279 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj42ELi64EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %279, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1703
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1704
   ]
 
 280:                                              ; preds = %158
   %281 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj42ELi8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %281, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1704
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1705
   ]
 
 282:                                              ; preds = %158
@@ -53516,35 +53708,35 @@ _ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread: ; preds = %262, %259,
   %285 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj40ELi128EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %285, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1705
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1706
   ]
 
 286:                                              ; preds = %158
   %287 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj40ELi16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %287, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1706
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1707
   ]
 
 288:                                              ; preds = %158
   %289 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj40ELi32EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %289, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1707
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1708
   ]
 
 290:                                              ; preds = %158
   %291 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj40ELi64EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %291, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1708
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1709
   ]
 
 292:                                              ; preds = %158
   %293 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand22isGPR64WithShiftExtendILj40ELi8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %293, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1709
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1710
   ]
 
 294:                                              ; preds = %158
@@ -53938,22 +54130,22 @@ _ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread: ; pre
 
 485:                                              ; preds = %158
   %486 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIiEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1710 = select i1 %486, i32 4, i32 218
+  %spec.select1711 = select i1 %486, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 487:                                              ; preds = %158
   %488 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIiEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1711 = select i1 %488, i32 4, i32 218
+  %spec.select1712 = select i1 %488, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 489:                                              ; preds = %158
   %490 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIlEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1712 = select i1 %490, i32 4, i32 218
+  %spec.select1713 = select i1 %490, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 491:                                              ; preds = %158
   %492 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIlEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1713 = select i1 %492, i32 4, i32 218
+  %spec.select1714 = select i1 %492, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 493:                                              ; preds = %158
@@ -53964,7 +54156,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread: ; pre
   %496 = icmp eq i32 %.val412, 11
   %497 = icmp ne i32 %.val413, -1
   %.0.i559 = select i1 %496, i1 %497, i1 false
-  %spec.select1714 = select i1 %.0.i559, i32 4, i32 219
+  %spec.select1715 = select i1 %.0.i559, i32 4, i32 219
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 498:                                              ; preds = %158
@@ -53975,57 +54167,57 @@ _ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread: ; pre
   %501 = icmp eq i32 %.val414, 11
   %502 = icmp ne i32 %.val415, -1
   %.0.i561 = select i1 %501, i1 %502, i1 false
-  %spec.select1715 = select i1 %.0.i561, i32 4, i32 220
+  %spec.select1716 = select i1 %.0.i561, i32 4, i32 220
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 503:                                              ; preds = %158
   %504 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemWExtendILi128EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1716 = select i1 %504, i32 4, i32 109
+  %spec.select1717 = select i1 %504, i32 4, i32 109
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 505:                                              ; preds = %158
   %506 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemWExtendILi16EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1717 = select i1 %506, i32 4, i32 110
+  %spec.select1718 = select i1 %506, i32 4, i32 110
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 507:                                              ; preds = %158
   %508 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemWExtendILi32EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1718 = select i1 %508, i32 4, i32 111
+  %spec.select1719 = select i1 %508, i32 4, i32 111
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 509:                                              ; preds = %158
   %510 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemWExtendILi64EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1719 = select i1 %510, i32 4, i32 112
+  %spec.select1720 = select i1 %510, i32 4, i32 112
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 511:                                              ; preds = %158
   %512 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemWExtendILi8EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1720 = select i1 %512, i32 4, i32 113
+  %spec.select1721 = select i1 %512, i32 4, i32 113
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 513:                                              ; preds = %158
   %514 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemXExtendILi128EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1721 = select i1 %514, i32 4, i32 114
+  %spec.select1722 = select i1 %514, i32 4, i32 114
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 515:                                              ; preds = %158
   %516 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemXExtendILi16EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1722 = select i1 %516, i32 4, i32 115
+  %spec.select1723 = select i1 %516, i32 4, i32 115
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 517:                                              ; preds = %158
   %518 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemXExtendILi32EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1723 = select i1 %518, i32 4, i32 116
+  %spec.select1724 = select i1 %518, i32 4, i32 116
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 519:                                              ; preds = %158
   %520 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemXExtendILi64EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1724 = select i1 %520, i32 4, i32 117
+  %spec.select1725 = select i1 %520, i32 4, i32 117
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 521:                                              ; preds = %158
   %522 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMemXExtendILi8EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1725 = select i1 %522, i32 4, i32 118
+  %spec.select1726 = select i1 %522, i32 4, i32 118
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 523:                                              ; preds = %158
@@ -54079,8 +54271,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread: ; pre
   %.not7.i580 = icmp eq i64 %543, 0
   %544 = add i64 %542, 262143
   %545 = icmp ult i64 %544, 262144
-  %or.cond1906 = and i1 %.not7.i580, %545
-  br i1 %or.cond1906, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread
+  %or.cond1907 = and i1 %.not7.i580, %545
+  br i1 %or.cond1907, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread: ; preds = %540, %532
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
@@ -54106,8 +54298,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread: ; 
   %.not7.i585 = icmp eq i64 %557, 0
   %558 = add i64 %556, 1048576
   %559 = icmp ult i64 %558, 2097149
-  %or.cond1908 = and i1 %.not7.i585, %559
-  br i1 %or.cond1908, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread
+  %or.cond1909 = and i1 %.not7.i585, %559
+  br i1 %or.cond1909, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread: ; preds = %554, %546
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
@@ -54116,126 +54308,126 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread: ; pred
   %561 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi0ELj7EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %561, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1726
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1727
   ]
 
 562:                                              ; preds = %158
   %563 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi16ELj4EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %563, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1727
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1728
   ]
 
 564:                                              ; preds = %158
   %565 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi16ELj7EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %565, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1728
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1729
   ]
 
 566:                                              ; preds = %158
   %567 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi32ELj4EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %567, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1729
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1730
   ]
 
 568:                                              ; preds = %158
   %569 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi32ELj7EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %569, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1730
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1731
   ]
 
 570:                                              ; preds = %158
   %571 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi64ELj4EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %571, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1731
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1732
   ]
 
 572:                                              ; preds = %158
   %573 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi64ELj7EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %573, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1732
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1733
   ]
 
 574:                                              ; preds = %158
   %575 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi8ELj4EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %575, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1733
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1734
   ]
 
 576:                                              ; preds = %158
   %577 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi8ELj7EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %577, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1734
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1735
   ]
 
 578:                                              ; preds = %158
   %579 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEPredicateAsCounterRegOfWidthILi0ELj4EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %579, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1735
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1736
   ]
 
 580:                                              ; preds = %158
   %581 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand30isSVEPredicateVectorRegOfWidthILi16ELj5EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %581, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1736
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1737
   ]
 
 582:                                              ; preds = %158
   %583 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand30isSVEPredicateVectorRegOfWidthILi32ELj5EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %583, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1737
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1738
   ]
 
 584:                                              ; preds = %158
   %585 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand30isSVEPredicateVectorRegOfWidthILi0ELj8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %585, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1738
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1739
   ]
 
 586:                                              ; preds = %158
   %587 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand30isSVEPredicateVectorRegOfWidthILi64ELj5EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %587, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1739
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1740
   ]
 
 588:                                              ; preds = %158
   %589 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand30isSVEPredicateVectorRegOfWidthILi8ELj5EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %589, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1740
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1741
   ]
 
 590:                                              ; preds = %158
   %591 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand30isSVEPredicateVectorRegOfWidthILi0ELj5EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %591, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1741
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1742
   ]
 
 592:                                              ; preds = %158
   %593 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand44isSVEPredicateOrPredicateAsCounterRegOfWidthILi8ELj2EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %593, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1742
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1743
   ]
 
 594:                                              ; preds = %158
   %595 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand44isSVEPredicateOrPredicateAsCounterRegOfWidthILi0ELj2EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %595, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1743
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1744
   ]
 
 596:                                              ; preds = %158
@@ -54264,92 +54456,92 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread: ; pred
   %608 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi10ELi8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %608, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1744
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1745
   ]
 
 609:                                              ; preds = %158
   %610 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi4ELi16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %610, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1745
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1746
   ]
 
 611:                                              ; preds = %158
   %612 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi4ELi1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %612, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1746
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1747
   ]
 
 613:                                              ; preds = %158
   %614 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi4ELi2EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %614, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1747
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1748
   ]
 
 615:                                              ; preds = %158
   %616 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi4ELi32EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %616, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1748
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1749
   ]
 
 617:                                              ; preds = %158
   %618 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi4ELi3EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %618, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1749
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1750
   ]
 
 619:                                              ; preds = %158
   %620 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi4ELi4EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %620, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1750
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1751
   ]
 
 621:                                              ; preds = %158
   %622 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand6isSImmILi5EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1751 = select i1 %622, i32 4, i32 105
+  %spec.select1752 = select i1 %622, i32 4, i32 105
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 623:                                              ; preds = %158
   %624 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand6isSImmILi6EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1752 = select i1 %624, i32 4, i32 106
+  %spec.select1753 = select i1 %624, i32 4, i32 106
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 625:                                              ; preds = %158
   %626 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi6ELi1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %626, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1753
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1754
   ]
 
 627:                                              ; preds = %158
   %628 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi7ELi16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %628, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1754
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1755
   ]
 
 629:                                              ; preds = %158
   %630 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi7ELi4EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %630, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1755
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1756
   ]
 
 631:                                              ; preds = %158
   %632 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi7ELi8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %632, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1756
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1757
   ]
 
 633:                                              ; preds = %158
   %634 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand6isSImmILi8EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1757 = select i1 %634, i32 4, i32 107
+  %spec.select1758 = select i1 %634, i32 4, i32 107
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 635:                                              ; preds = %158
@@ -54374,7 +54566,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread: ; pred
 
 645:                                              ; preds = %158
   %646 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand6isSImmILi9EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1758 = select i1 %646, i32 4, i32 108
+  %spec.select1759 = select i1 %646, i32 4, i32 108
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 647:                                              ; preds = %158
@@ -54385,63 +54577,63 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread: ; pred
   %.not.i600 = icmp eq i32 %.val420, 7
   %650 = icmp ne i32 %.val421, -1
   %.0.i601 = select i1 %.not.i600, i1 %650, i1 false
-  %spec.select1759 = select i1 %.0.i601, i32 4, i32 121
+  %spec.select1760 = select i1 %.0.i601, i32 4, i32 121
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 651:                                              ; preds = %158
   %652 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand14isSVEAddSubImmIsEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %652, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1760
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1761
   ]
 
 653:                                              ; preds = %158
   %654 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand14isSVEAddSubImmIiEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %654, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1761
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1762
   ]
 
 655:                                              ; preds = %158
   %656 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand14isSVEAddSubImmIlEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %656, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1762
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1763
   ]
 
 657:                                              ; preds = %158
   %658 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand14isSVEAddSubImmIaEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %658, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1763
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1764
   ]
 
 659:                                              ; preds = %158
   %660 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand11isSVECpyImmIsEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %660, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1764
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1765
   ]
 
 661:                                              ; preds = %158
   %662 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand11isSVECpyImmIiEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %662, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1765
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1766
   ]
 
 663:                                              ; preds = %158
   %664 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand11isSVECpyImmIlEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %664, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1766
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1767
   ]
 
 665:                                              ; preds = %158
   %666 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand11isSVECpyImmIaEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %666, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1767
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1768
   ]
 
 667:                                              ; preds = %158
@@ -54462,7 +54654,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit: ; preds = %672
   %675 = getelementptr inbounds nuw i8, ptr %.val.i603, i64 16
   %676 = load i64, ptr %675, align 8
   %or.cond.i605 = icmp ult i64 %676, 32
-  %spec.select1768 = select i1 %or.cond.i605, i32 4, i32 150
+  %spec.select1769 = select i1 %or.cond.i605, i32 4, i32 150
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 677:                                              ; preds = %158
@@ -54489,7 +54681,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit: ; preds = %685
   %688 = getelementptr inbounds nuw i8, ptr %.val.i609, i64 16
   %689 = load i64, ptr %688, align 8
   %or.cond.i611 = icmp ult i64 %689, 2
-  %spec.select1769 = select i1 %or.cond.i611, i32 4, i32 161
+  %spec.select1770 = select i1 %or.cond.i611, i32 4, i32 161
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 690:                                              ; preds = %158
@@ -54503,7 +54695,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit: ; preds = %685
   %.sroa.0.0.i616 = select i1 %.not.i613, i32 %spec.select.i615, i32 2
   switch i32 %.sroa.0.0.i616, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1770
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1771
   ]
 
 693:                                              ; preds = %158
@@ -54517,7 +54709,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit: ; preds = %685
   %.sroa.0.0.i620 = select i1 %.not.i617, i32 %spec.select.i619, i32 2
   switch i32 %.sroa.0.0.i620, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1771
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1772
   ]
 
 696:                                              ; preds = %158
@@ -54531,7 +54723,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit: ; preds = %685
   %.sroa.0.0.i624 = select i1 %.not.i621, i32 %spec.select.i623, i32 2
   switch i32 %.sroa.0.0.i624, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1772
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1773
   ]
 
 699:                                              ; preds = %158
@@ -54545,7 +54737,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit: ; preds = %685
   %.sroa.0.0.i628 = select i1 %.not.i625, i32 %spec.select.i627, i32 2
   switch i32 %.sroa.0.0.i628, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1773
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1774
   ]
 
 702:                                              ; preds = %158
@@ -54559,7 +54751,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit: ; preds = %685
   %.sroa.0.0.i632 = select i1 %.not.i629, i32 %spec.select.i631, i32 2
   switch i32 %.sroa.0.0.i632, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1774
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1775
   ]
 
 705:                                              ; preds = %158
@@ -54761,8 +54953,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit: ; pre
   %.val440 = load i32, ptr %772, align 4
   %773 = trunc i32 %.val440 to i8
   %774 = tail call noundef ptr @_ZN4llvm13AArch64PState29lookupPStateImm0_15ByEncodingEh(i8 noundef zeroext %773) #25
-  %.not1898 = icmp eq ptr %774, null
-  br i1 %.not1898, label %.thread, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
+  %.not1899 = icmp eq ptr %774, null
+  br i1 %.not1899, label %.thread, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 775:                                              ; preds = %158
   %776 = getelementptr inbounds i8, ptr %0, i64 48
@@ -54826,102 +55018,102 @@ _ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread: ; p
   %805 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi0ELi2ELi1ELb1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %805, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1775
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1776
   ]
 
 806:                                              ; preds = %158
   %807 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi0ELi4ELi3ELb1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %807, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1776
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1777
   ]
 
 808:                                              ; preds = %158
   %809 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14isUImm12OffsetILi16EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1777 = select i1 %809, i32 4, i32 73
+  %spec.select1778 = select i1 %809, i32 4, i32 73
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 810:                                              ; preds = %158
   %811 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14isUImm12OffsetILi1EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1778 = select i1 %811, i32 4, i32 72
+  %spec.select1779 = select i1 %811, i32 4, i32 72
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 812:                                              ; preds = %158
   %813 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14isUImm12OffsetILi2EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1779 = select i1 %813, i32 4, i32 81
+  %spec.select1780 = select i1 %813, i32 4, i32 81
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 814:                                              ; preds = %158
   %815 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14isUImm12OffsetILi4EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1780 = select i1 %815, i32 4, i32 87
+  %spec.select1781 = select i1 %815, i32 4, i32 87
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 816:                                              ; preds = %158
   %817 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14isUImm12OffsetILi8EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1781 = select i1 %817, i32 4, i32 92
+  %spec.select1782 = select i1 %817, i32 4, i32 92
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 818:                                              ; preds = %158
   %819 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi1ELi2ELi1ELb1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %819, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1782
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1783
   ]
 
 820:                                              ; preds = %158
   %821 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi1ELi4ELi3ELb1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %821, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1783
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1784
   ]
 
 822:                                              ; preds = %158
   %823 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi2ELi2ELi1ELb1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %823, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1784
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1785
   ]
 
 824:                                              ; preds = %158
   %825 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi2ELi4ELi3ELb1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %825, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1785
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1786
   ]
 
 826:                                              ; preds = %158
   %827 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi3ELi2ELi1ELb1EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %827, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1786
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1787
   ]
 
 828:                                              ; preds = %158
   %829 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi3ELi8ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %829, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1787
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1788
   ]
 
 830:                                              ; preds = %158
   %831 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi5ELi2ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %831, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1788
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1789
   ]
 
 832:                                              ; preds = %158
   %833 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi5ELi4ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %833, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1789
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1790
   ]
 
 834:                                              ; preds = %158
   %835 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi5ELi8ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %835, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1790
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1791
   ]
 
 836:                                              ; preds = %158
@@ -54951,35 +55143,35 @@ _ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread: ; preds = %841, %836, 
   %848 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi6ELi16ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %848, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1791
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1792
   ]
 
 849:                                              ; preds = %158
   %850 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi6ELi1ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %850, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1792
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1793
   ]
 
 851:                                              ; preds = %158
   %852 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi6ELi2ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %852, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1793
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1794
   ]
 
 853:                                              ; preds = %158
   %854 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi6ELi4ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %854, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1794
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1795
   ]
 
 855:                                              ; preds = %158
   %856 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isUImmScaledILi6ELi8ELi0ELb0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %856, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1795
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1796
   ]
 
 857:                                              ; preds = %158
@@ -55345,7 +55537,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1EL
   %.sroa.0.0.i794 = select i1 %.not.i792, i32 %spec.select.i793, i32 2
   switch i32 %.sroa.0.0.i794, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1796
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1797
   ]
 
 1061:                                             ; preds = %158
@@ -55359,7 +55551,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1EL
   %.sroa.0.0.i797 = select i1 %.not.i795, i32 %spec.select.i796, i32 2
   switch i32 %.sroa.0.0.i797, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1797
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1798
   ]
 
 1065:                                             ; preds = %158
@@ -55373,7 +55565,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1EL
   %.sroa.0.0.i801 = select i1 %.not.i798, i32 %spec.select.i800, i32 2
   switch i32 %.sroa.0.0.i801, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1798
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1799
   ]
 
 1068:                                             ; preds = %158
@@ -55387,7 +55579,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1EL
   %.sroa.0.0.i805 = select i1 %.not.i802, i32 %spec.select.i804, i32 2
   switch i32 %.sroa.0.0.i805, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1799
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1800
   ]
 
 1071:                                             ; preds = %158
@@ -55401,7 +55593,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1EL
   %.sroa.0.0.i809 = select i1 %.not.i806, i32 %spec.select.i808, i32 2
   switch i32 %.sroa.0.0.i809, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1800
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1801
   ]
 
 1074:                                             ; preds = %158
@@ -55415,7 +55607,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1EL
   %.sroa.0.0.i813 = select i1 %.not.i810, i32 %spec.select.i812, i32 2
   switch i32 %.sroa.0.0.i813, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1801
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1802
   ]
 
 1077:                                             ; preds = %158
@@ -55458,287 +55650,287 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1EL
   %1098 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE0ELi16ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1098, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1802
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1803
   ]
 
 1099:                                             ; preds = %158
   %1100 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE0ELi32ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1100, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1803
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1804
   ]
 
 1101:                                             ; preds = %158
   %1102 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE0ELi64ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1102, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1804
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1805
   ]
 
 1103:                                             ; preds = %158
   %1104 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE0ELi8ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1104, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1805
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1806
   ]
 
 1105:                                             ; preds = %158
   %1106 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi16ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1106, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1806
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1807
   ]
 
 1107:                                             ; preds = %158
   %1108 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi32ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1108, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1807
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1808
   ]
 
 1109:                                             ; preds = %158
   %1110 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi64ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1110, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1808
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1809
   ]
 
 1111:                                             ; preds = %158
   %1112 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi8ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1112, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1809
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1810
   ]
 
 1113:                                             ; preds = %158
   %1114 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi8ELb1EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1114, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1810
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1811
   ]
 
 1115:                                             ; preds = %158
   %1116 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi16ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1116, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1811
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1812
   ]
 
 1117:                                             ; preds = %158
   %1118 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi32ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1118, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1812
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1813
   ]
 
 1119:                                             ; preds = %158
   %1120 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi64ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1120, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1813
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1814
   ]
 
 1121:                                             ; preds = %158
   %1122 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi8ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1122, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1814
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1815
   ]
 
 1123:                                             ; preds = %158
   %1124 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi32ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi8ELb1EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1124, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1815
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1816
   ]
 
 1125:                                             ; preds = %158
   %1126 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE0ELi16ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1126, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1816
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1817
   ]
 
 1127:                                             ; preds = %158
   %1128 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE0ELi32ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1128, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1817
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1818
   ]
 
 1129:                                             ; preds = %158
   %1130 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE0ELi64ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1130, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1818
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1819
   ]
 
 1131:                                             ; preds = %158
   %1132 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE0ELi8ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1132, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1819
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1820
   ]
 
 1133:                                             ; preds = %158
   %1134 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi16ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1134, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1820
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1821
   ]
 
 1135:                                             ; preds = %158
   %1136 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi32ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1136, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1821
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1822
   ]
 
 1137:                                             ; preds = %158
   %1138 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi64ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1138, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1822
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1823
   ]
 
 1139:                                             ; preds = %158
   %1140 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi8ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1140, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1823
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1824
   ]
 
 1141:                                             ; preds = %158
   %1142 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE11ELi8ELb1EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1142, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1824
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1825
   ]
 
 1143:                                             ; preds = %158
   %1144 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi16ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1144, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1825
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1826
   ]
 
 1145:                                             ; preds = %158
   %1146 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi32ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1146, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1826
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1827
   ]
 
 1147:                                             ; preds = %158
   %1148 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi64ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1148, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1827
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1828
   ]
 
 1149:                                             ; preds = %158
   %1150 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi8ELb0EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1150, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1828
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1829
   ]
 
 1151:                                             ; preds = %158
   %1152 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand33isSVEDataVectorRegWithShiftExtendILi64ELj76ELN4llvm10AArch64_AM15ShiftExtendTypeE7ELi8ELb1EEENS2_19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1152, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1829
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1830
   ]
 
 1153:                                             ; preds = %158
   %1154 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi128ELj76EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1154, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1830
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1831
   ]
 
 1155:                                             ; preds = %158
   %1156 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi16ELj76EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1156, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1831
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1832
   ]
 
 1157:                                             ; preds = %158
   %1158 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi32ELj76EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1158, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1832
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1833
   ]
 
 1159:                                             ; preds = %158
   %1160 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi16ELj81EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1160, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1833
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1834
   ]
 
 1161:                                             ; preds = %158
   %1162 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi32ELj81EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1162, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1834
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1835
   ]
 
 1163:                                             ; preds = %158
   %1164 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi8ELj81EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1164, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1835
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1836
   ]
 
 1165:                                             ; preds = %158
   %1166 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi16ELj79EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1166, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1836
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1837
   ]
 
 1167:                                             ; preds = %158
   %1168 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi32ELj79EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1168, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1837
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1838
   ]
 
 1169:                                             ; preds = %158
   %1170 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi64ELj79EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1170, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1838
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1839
   ]
 
 1171:                                             ; preds = %158
   %1172 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi8ELj79EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1172, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1839
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1840
   ]
 
 1173:                                             ; preds = %158
   %1174 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi64ELj76EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1174, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1840
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1841
   ]
 
 1175:                                             ; preds = %158
   %1176 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi8ELj76EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1176, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1841
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1842
   ]
 
 1177:                                             ; preds = %158
   %1178 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isSVEDataVectorRegOfWidthILi0ELj76EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1178, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1842
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1843
   ]
 
 1179:                                             ; preds = %158
@@ -55783,8 +55975,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit: ; preds =
   %1203 = icmp ne i64 %1202, 0
   %1204 = and i64 %1201, 65535
   %1205 = icmp eq i64 %1204, 0
-  %or.cond1910 = and i1 %1203, %1205
-  br i1 %or.cond1910, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %.thread
+  %or.cond1911 = and i1 %1203, %1205
+  br i1 %or.cond1911, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %.thread
 
 1206:                                             ; preds = %158
   %1207 = load ptr, ptr %0, align 8
@@ -55826,8 +56018,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit: ; preds =
   %1228 = icmp ne i64 %1227, 0
   %1229 = and i64 %1227, -4294901761
   %1230 = icmp eq i64 %1229, 0
-  %or.cond1912 = and i1 %1228, %1230
-  br i1 %or.cond1912, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %.thread
+  %or.cond1913 = and i1 %1228, %1230
+  br i1 %or.cond1913, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %.thread
 
 1231:                                             ; preds = %158
   %1232 = load ptr, ptr %0, align 8
@@ -55849,8 +56041,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit: ; preds =
   %1242 = icmp ne i64 %1241, 0
   %1243 = and i64 %1241, -281470681743361
   %1244 = icmp eq i64 %1243, 0
-  %or.cond1914 = and i1 %1242, %1244
-  br i1 %or.cond1914, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %.thread
+  %or.cond1915 = and i1 %1242, %1244
+  br i1 %or.cond1915, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %.thread
 
 1245:                                             ; preds = %158
   %1246 = load ptr, ptr %0, align 8
@@ -55872,8 +56064,8 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit: ; preds =
   %1256 = icmp ne i64 %1255, 0
   %1257 = and i64 %1255, 281474976710655
   %1258 = icmp eq i64 %1257, 0
-  %or.cond1916 = and i1 %1256, %1258
-  br i1 %or.cond1916, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %.thread
+  %or.cond1917 = and i1 %1256, %1258
+  br i1 %or.cond1917, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %.thread
 
 1259:                                             ; preds = %158
   %1260 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14isMOVNMovAliasILi32ELi0EEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
@@ -55943,28 +56135,28 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit: ; preds =
   %1292 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE4ELj2ELj0ELj8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1292, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1843
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1844
   ]
 
 1293:                                             ; preds = %158
   %1294 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE4ELj2ELj0ELj16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1294, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1844
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1845
   ]
 
 1295:                                             ; preds = %158
   %1296 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE4ELj2ELj0ELj32EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1296, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1845
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1846
   ]
 
 1297:                                             ; preds = %158
   %1298 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE4ELj2ELj0ELj64EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1298, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1846
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1847
   ]
 
 1299:                                             ; preds = %158
@@ -56071,259 +56263,259 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit: ; preds =
   %1350 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj0EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1350, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1847
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1848
   ]
 
 1351:                                             ; preds = %158
   %1352 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1352, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1848
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1849
   ]
 
 1353:                                             ; preds = %158
   %1354 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1354, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1849
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1850
   ]
 
 1355:                                             ; preds = %158
   %1356 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj32EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1356, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1850
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1851
   ]
 
 1357:                                             ; preds = %158
   %1358 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj64EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1358, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1851
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1852
   ]
 
 1359:                                             ; preds = %158
   %1360 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj128EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1360, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1852
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1853
   ]
 
 1361:                                             ; preds = %158
   %1362 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1362, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1853
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1854
   ]
 
 1363:                                             ; preds = %158
   %1364 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1364, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1854
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1855
   ]
 
 1365:                                             ; preds = %158
   %1366 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj32EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1366, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1855
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1856
   ]
 
 1367:                                             ; preds = %158
   %1368 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj64EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1368, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1856
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1857
   ]
 
 1369:                                             ; preds = %158
   %1370 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj128EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1370, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1857
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1858
   ]
 
 1371:                                             ; preds = %158
   %1372 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand24isTypedVectorListStridedILNS_7RegKindE2ELj2ELj8ELj8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1372, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1858
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1859
   ]
 
 1373:                                             ; preds = %158
   %1374 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand24isTypedVectorListStridedILNS_7RegKindE2ELj2ELj8ELj16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1374, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1859
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1860
   ]
 
 1375:                                             ; preds = %158
   %1376 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand24isTypedVectorListStridedILNS_7RegKindE2ELj2ELj8ELj32EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1376, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1860
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1861
   ]
 
 1377:                                             ; preds = %158
   %1378 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand24isTypedVectorListStridedILNS_7RegKindE2ELj2ELj8ELj64EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1378, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1861
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1862
   ]
 
 1379:                                             ; preds = %158
   %1380 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand24isTypedVectorListStridedILNS_7RegKindE2ELj4ELj4ELj8EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1380, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1862
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1863
   ]
 
 1381:                                             ; preds = %158
   %1382 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand24isTypedVectorListStridedILNS_7RegKindE2ELj4ELj4ELj16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1382, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1863
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1864
   ]
 
 1383:                                             ; preds = %158
   %1384 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand24isTypedVectorListStridedILNS_7RegKindE2ELj4ELj4ELj32EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1384, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1864
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1865
   ]
 
 1385:                                             ; preds = %158
   %1386 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand24isTypedVectorListStridedILNS_7RegKindE2ELj4ELj4ELj64EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1386, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1865
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1866
   ]
 
 1387:                                             ; preds = %158
   %1388 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE1ELj16ELj302EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1388, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1866
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1867
   ]
 
 1389:                                             ; preds = %158
   %1390 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE1ELj32ELj282EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1390, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1867
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1868
   ]
 
 1391:                                             ; preds = %158
   %1392 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE1ELj64ELj122EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1392, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1868
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1869
   ]
 
 1393:                                             ; preds = %158
   %1394 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj8ELj304EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1394, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1869
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1870
   ]
 
 1395:                                             ; preds = %158
   %1396 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj16ELj302EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1396, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1870
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1871
   ]
 
 1397:                                             ; preds = %158
   %1398 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj32ELj282EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1398, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1871
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1872
   ]
 
 1399:                                             ; preds = %158
   %1400 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj64ELj122EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1400, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1872
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1873
   ]
 
 1401:                                             ; preds = %158
   %1402 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj128ELj78EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1402, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1873
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1874
   ]
 
 1403:                                             ; preds = %158
   %1404 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj8ELj304EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1404, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1874
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1875
   ]
 
 1405:                                             ; preds = %158
   %1406 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj16ELj302EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1406, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1875
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1876
   ]
 
 1407:                                             ; preds = %158
   %1408 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj32ELj282EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1408, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1876
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1877
   ]
 
 1409:                                             ; preds = %158
   %1410 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj64ELj122EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1410, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1877
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1878
   ]
 
 1411:                                             ; preds = %158
   %1412 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj128ELj78EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1412, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1878
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1879
   ]
 
 1413:                                             ; preds = %158
   %1414 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj0ELj303EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1414, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1879
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1880
   ]
 
 1415:                                             ; preds = %158
   %1416 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj8ELj303EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1416, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1880
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1881
   ]
 
 1417:                                             ; preds = %158
   %1418 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj16ELj303EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1418, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1881
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1882
   ]
 
 1419:                                             ; preds = %158
   %1420 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj32ELj303EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1420, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1882
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1883
   ]
 
 1421:                                             ; preds = %158
   %1422 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj64ELj303EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1422, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1883
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1884
   ]
 
 1423:                                             ; preds = %158
@@ -56336,7 +56528,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit: ; preds =
   %1427 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isSImmScaledILi9ELi16EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1427, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1884
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1885
   ]
 
 1428:                                             ; preds = %158
@@ -56383,7 +56575,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19Diagnos
   %1450 = icmp eq i64 %1449, 0
   %1451 = icmp ult i64 %1448, 271
   %or.cond.not.i.not = and i1 %1451, %1450
-  %spec.select1885 = select i1 %or.cond.not.i.not, i32 4, i32 13
+  %spec.select1886 = select i1 %or.cond.not.i.not, i32 4, i32 13
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1452:                                             ; preds = %158
@@ -56407,22 +56599,22 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19Diagn
   %1463 = icmp eq i64 %1462, 90
   %1464 = icmp ult i64 %1461, 271
   %or.cond.not.i897.not = and i1 %1464, %1463
-  %spec.select1886 = select i1 %or.cond.not.i897.not, i32 4, i32 14
+  %spec.select1887 = select i1 %or.cond.not.i897.not, i32 4, i32 14
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1465:                                             ; preds = %158
   %1466 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIaEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1887 = select i1 %1466, i32 4, i32 218
+  %spec.select1888 = select i1 %1466, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1467:                                             ; preds = %158
   %1468 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIsEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1888 = select i1 %1468, i32 4, i32 218
+  %spec.select1889 = select i1 %1468, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1469:                                             ; preds = %158
   %1470 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIiEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1889 = select i1 %1470, i32 4, i32 218
+  %spec.select1890 = select i1 %1470, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1471:                                             ; preds = %158
@@ -56442,38 +56634,38 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19Diagn
 
 1480:                                             ; preds = %158
   %1481 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIaEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1890 = select i1 %1481, i32 4, i32 218
+  %spec.select1891 = select i1 %1481, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1482:                                             ; preds = %158
   %1483 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIsEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1891 = select i1 %1483, i32 4, i32 218
+  %spec.select1892 = select i1 %1483, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1484:                                             ; preds = %158
   %1485 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isLogicalImmIiEEbv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  %spec.select1892 = select i1 %1485, i32 4, i32 218
+  %spec.select1893 = select i1 %1485, i32 4, i32 218
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1486:                                             ; preds = %158
   %1487 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isExactFPImmILj1ELj2EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1487, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1893
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1894
   ]
 
 1488:                                             ; preds = %158
   %1489 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isExactFPImmILj1ELj3EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1489, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1894
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1895
   ]
 
 1490:                                             ; preds = %158
   %1491 = tail call fastcc i32 @_ZNK12_GLOBAL__N_114AArch64Operand12isExactFPImmILj0ELj2EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   switch i32 %1491, label %.thread [
     i32 0, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1895
+    i32 1, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1896
   ]
 
 .thread:                                          ; preds = %1490, %1488, %1486, %1426, %1421, %1419, %1417, %1415, %1413, %1411, %1409, %1407, %1405, %1403, %1401, %1399, %1397, %1395, %1393, %1391, %1389, %1387, %1385, %1383, %1381, %1379, %1377, %1375, %1373, %1371, %1369, %1367, %1365, %1363, %1361, %1359, %1357, %1355, %1353, %1351, %1349, %1297, %1295, %1293, %1291, %1177, %1175, %1173, %1171, %1169, %1167, %1165, %1163, %1161, %1159, %1157, %1155, %1153, %1151, %1149, %1147, %1145, %1143, %1141, %1139, %1137, %1135, %1133, %1131, %1129, %1127, %1125, %1123, %1121, %1119, %1117, %1115, %1113, %1111, %1109, %1107, %1105, %1103, %1101, %1099, %1097, %1074, %1071, %1068, %1065, %1061, %1057, %855, %853, %851, %849, %847, %834, %832, %830, %828, %826, %824, %822, %820, %818, %806, %804, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %702, %699, %696, %693, %690, %665, %663, %661, %659, %657, %655, %653, %651, %631, %629, %627, %625, %619, %617, %615, %613, %611, %609, %607, %594, %592, %590, %588, %586, %584, %582, %580, %578, %576, %574, %572, %570, %568, %566, %564, %562, %560, %292, %290, %288, %286, %284, %280, %278, %276, %274, %272, %1452, %1457, %1439, %1444, %1253, %1250, %1245, %1239, %1236, %1231, %1225, %1222, %1217, %1206, %1199, %1196, %1191, %1179, %1032, %1007, %982, %957, %932, %907, %882, %857, %786, %781, %775, %769, %754, %736, %705, %680, %685, %667, %672, %1477, %1474, %1471, %1423, %1347, %1345, %1343, %1341, %1339, %1337, %1335, %1333, %1331, %1329, %1327, %1325, %1323, %1321, %1319, %1317, %1315, %1313, %1311, %1309, %1307, %1305, %1303, %1301, %1299, %1289, %1287, %1285, %1283, %1281, %1279, %1277, %1275, %1273, %1271, %1269, %1267, %1265, %1263, %1261, %1259, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit, %1095, %1093, %1091, %1085, %1079, %1077, %1055, %1053, %1051, %1049, %1047, %1045, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit784, %1030, %1028, %1026, %1024, %1022, %1020, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit, %1005, %1003, %1001, %999, %997, %995, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit765, %980, %978, %976, %974, %972, %970, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit, %955, %953, %951, %949, %947, %945, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit746, %930, %928, %926, %924, %922, %920, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit, %905, %903, %901, %899, %897, %895, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit727, %880, %878, %876, %874, %872, %870, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit701, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit, %767, %764, %760, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit, %677, %643, %641, %639, %637, %635, %605, %602, %599, %596, %529, %527, %525, %523, %480, %296, %294, %282, %270, %199, %194, %191, %158
@@ -56488,26 +56680,26 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19Diagn
   %1498 = getelementptr inbounds i8, ptr %1497, i64 56
   %1499 = load ptr, ptr %1498, align 8
   %1500 = call i32 %1499(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
-  %switch.tableidx1936 = add i32 %1500, -1
-  %1501 = icmp ult i32 %switch.tableidx1936, 701
-  br i1 %1501, label %switch.lookup1935, label %1503
+  %switch.tableidx1937 = add i32 %1500, -1
+  %1501 = icmp ult i32 %switch.tableidx1937, 701
+  br i1 %1501, label %switch.lookup1936, label %1503
 
-switch.lookup1935:                                ; preds = %1496
-  %1502 = zext nneg i32 %switch.tableidx1936 to i64
-  %switch.gep1937 = getelementptr inbounds [701 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.297, i64 0, i64 %1502
-  %switch.load1938 = load i32, ptr %switch.gep1937, align 4
+switch.lookup1936:                                ; preds = %1496
+  %1502 = zext nneg i32 %switch.tableidx1937 to i64
+  %switch.gep1938 = getelementptr inbounds [701 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.297, i64 0, i64 %1502
+  %switch.load1939 = load i32, ptr %switch.gep1938, align 4
   br label %1503
 
-1503:                                             ; preds = %switch.lookup1935, %1496
-  %.0 = phi i32 [ 0, %1496 ], [ %switch.load1938, %switch.lookup1935 ]
+1503:                                             ; preds = %switch.lookup1936, %1496
+  %.0 = phi i32 [ 0, %1496 ], [ %switch.load1939, %switch.lookup1936 ]
   %1504 = call fastcc noundef zeroext i1 @_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_(i32 noundef %.0, i32 noundef %1)
   br i1 %1504, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit, label %1505
 
 1505:                                             ; preds = %1503
-  switch i32 %1, label %1508 [
-    i32 111, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 156, label %1506
-    i32 157, label %1507
+  switch i16 %trunc, label %1508 [
+    i16 111, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
+    i16 156, label %1506
+    i16 157, label %1507
   ]
 
 1506:                                             ; preds = %1505
@@ -56520,15 +56712,15 @@ switch.lookup1935:                                ; preds = %1496
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1509:                                             ; preds = %.thread
-  %1510 = add i32 %1, -90
+  %1510 = add nsw i32 %1, -90
   %or.cond3 = icmp ult i32 %1510, 306
   br i1 %or.cond3, label %1511, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 1511:                                             ; preds = %1509
-  switch i32 %1, label %1514 [
-    i32 111, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
-    i32 156, label %1512
-    i32 157, label %1513
+  switch i16 %trunc, label %1514 [
+    i16 111, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
+    i16 156, label %1512
+    i16 157, label %1513
   ]
 
 1512:                                             ; preds = %1511
@@ -56543,496 +56735,496 @@ switch.lookup1935:                                ; preds = %1496
 _ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split: ; preds = %272
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1701: ; preds = %274
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1702: ; preds = %274
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1702: ; preds = %276
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1703: ; preds = %276
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1703: ; preds = %278
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1704: ; preds = %278
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1704: ; preds = %280
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1705: ; preds = %280
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1705: ; preds = %284
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1706: ; preds = %284
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1706: ; preds = %286
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1707: ; preds = %286
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1707: ; preds = %288
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1708: ; preds = %288
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1708: ; preds = %290
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1709: ; preds = %290
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1709: ; preds = %292
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1710: ; preds = %292
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1726: ; preds = %560
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1727: ; preds = %560
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1727: ; preds = %562
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1728: ; preds = %562
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1728: ; preds = %564
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1729: ; preds = %564
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1729: ; preds = %566
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1730: ; preds = %566
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1730: ; preds = %568
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1731: ; preds = %568
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1731: ; preds = %570
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1732: ; preds = %570
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1732: ; preds = %572
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1733: ; preds = %572
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1733: ; preds = %574
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1734: ; preds = %574
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1734: ; preds = %576
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1735: ; preds = %576
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1735: ; preds = %578
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1736: ; preds = %578
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1736: ; preds = %580
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1737: ; preds = %580
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1737: ; preds = %582
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1738: ; preds = %582
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1738: ; preds = %584
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1739: ; preds = %584
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1739: ; preds = %586
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1740: ; preds = %586
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1740: ; preds = %588
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1741: ; preds = %588
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1741: ; preds = %590
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1742: ; preds = %590
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1742: ; preds = %592
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1743: ; preds = %592
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1743: ; preds = %594
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1744: ; preds = %594
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1744: ; preds = %607
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1745: ; preds = %607
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1745: ; preds = %609
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1746: ; preds = %609
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1746: ; preds = %611
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1747: ; preds = %611
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1747: ; preds = %613
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1748: ; preds = %613
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1748: ; preds = %615
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1749: ; preds = %615
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1749: ; preds = %617
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1750: ; preds = %617
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1750: ; preds = %619
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1751: ; preds = %619
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1753: ; preds = %625
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1754: ; preds = %625
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1754: ; preds = %627
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1755: ; preds = %627
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1755: ; preds = %629
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1756: ; preds = %629
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1756: ; preds = %631
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1757: ; preds = %631
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1760: ; preds = %651
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1761: ; preds = %651
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1761: ; preds = %653
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1762: ; preds = %653
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1762: ; preds = %655
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1763: ; preds = %655
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1763: ; preds = %657
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1764: ; preds = %657
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1764: ; preds = %659
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1765: ; preds = %659
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1765: ; preds = %661
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1766: ; preds = %661
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1766: ; preds = %663
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1767: ; preds = %663
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1767: ; preds = %665
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1768: ; preds = %665
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1770: ; preds = %690
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1771: ; preds = %690
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1771: ; preds = %693
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1772: ; preds = %693
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1772: ; preds = %696
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1773: ; preds = %696
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1773: ; preds = %699
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1774: ; preds = %699
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1774: ; preds = %702
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1775: ; preds = %702
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1775: ; preds = %804
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1776: ; preds = %804
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1776: ; preds = %806
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1777: ; preds = %806
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1782: ; preds = %818
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1783: ; preds = %818
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1783: ; preds = %820
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1784: ; preds = %820
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1784: ; preds = %822
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1785: ; preds = %822
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1785: ; preds = %824
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1786: ; preds = %824
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1786: ; preds = %826
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1787: ; preds = %826
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1787: ; preds = %828
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1788: ; preds = %828
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1788: ; preds = %830
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1789: ; preds = %830
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1789: ; preds = %832
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1790: ; preds = %832
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1790: ; preds = %834
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1791: ; preds = %834
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1791: ; preds = %847
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1792: ; preds = %847
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1792: ; preds = %849
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1793: ; preds = %849
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1793: ; preds = %851
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1794: ; preds = %851
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1794: ; preds = %853
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1795: ; preds = %853
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1795: ; preds = %855
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1796: ; preds = %855
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1796: ; preds = %1057
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1797: ; preds = %1057
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1797: ; preds = %1061
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1798: ; preds = %1061
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1798: ; preds = %1065
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1799: ; preds = %1065
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1799: ; preds = %1068
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1800: ; preds = %1068
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1800: ; preds = %1071
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1801: ; preds = %1071
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1801: ; preds = %1074
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1802: ; preds = %1074
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1802: ; preds = %1097
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1803: ; preds = %1097
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1803: ; preds = %1099
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1804: ; preds = %1099
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1804: ; preds = %1101
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1805: ; preds = %1101
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1805: ; preds = %1103
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1806: ; preds = %1103
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1806: ; preds = %1105
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1807: ; preds = %1105
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1807: ; preds = %1107
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1808: ; preds = %1107
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1808: ; preds = %1109
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1809: ; preds = %1109
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1809: ; preds = %1111
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1810: ; preds = %1111
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1810: ; preds = %1113
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1811: ; preds = %1113
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1811: ; preds = %1115
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1812: ; preds = %1115
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1812: ; preds = %1117
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1813: ; preds = %1117
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1813: ; preds = %1119
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1814: ; preds = %1119
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1814: ; preds = %1121
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1815: ; preds = %1121
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1815: ; preds = %1123
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1816: ; preds = %1123
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1816: ; preds = %1125
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1817: ; preds = %1125
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1817: ; preds = %1127
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1818: ; preds = %1127
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1818: ; preds = %1129
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1819: ; preds = %1129
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1819: ; preds = %1131
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1820: ; preds = %1131
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1820: ; preds = %1133
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1821: ; preds = %1133
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1821: ; preds = %1135
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1822: ; preds = %1135
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1822: ; preds = %1137
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1823: ; preds = %1137
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1823: ; preds = %1139
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1824: ; preds = %1139
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1824: ; preds = %1141
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1825: ; preds = %1141
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1825: ; preds = %1143
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1826: ; preds = %1143
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1826: ; preds = %1145
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1827: ; preds = %1145
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1827: ; preds = %1147
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1828: ; preds = %1147
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1828: ; preds = %1149
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1829: ; preds = %1149
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1829: ; preds = %1151
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1830: ; preds = %1151
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1830: ; preds = %1153
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1831: ; preds = %1153
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1831: ; preds = %1155
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1832: ; preds = %1155
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1832: ; preds = %1157
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1833: ; preds = %1157
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1833: ; preds = %1159
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1834: ; preds = %1159
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1834: ; preds = %1161
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1835: ; preds = %1161
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1835: ; preds = %1163
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1836: ; preds = %1163
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1836: ; preds = %1165
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1837: ; preds = %1165
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1837: ; preds = %1167
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1838: ; preds = %1167
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1838: ; preds = %1169
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1839: ; preds = %1169
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1839: ; preds = %1171
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1840: ; preds = %1171
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1840: ; preds = %1173
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1841: ; preds = %1173
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1841: ; preds = %1175
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1842: ; preds = %1175
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1842: ; preds = %1177
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1843: ; preds = %1177
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1843: ; preds = %1291
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1844: ; preds = %1291
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1844: ; preds = %1293
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1845: ; preds = %1293
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1845: ; preds = %1295
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1846: ; preds = %1295
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1846: ; preds = %1297
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1847: ; preds = %1297
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1847: ; preds = %1349
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1848: ; preds = %1349
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1848: ; preds = %1351
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1849: ; preds = %1351
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1849: ; preds = %1353
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1850: ; preds = %1353
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1850: ; preds = %1355
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1851: ; preds = %1355
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1851: ; preds = %1357
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1852: ; preds = %1357
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1852: ; preds = %1359
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1853: ; preds = %1359
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1853: ; preds = %1361
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1854: ; preds = %1361
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1854: ; preds = %1363
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1855: ; preds = %1363
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1855: ; preds = %1365
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1856: ; preds = %1365
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1856: ; preds = %1367
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1857: ; preds = %1367
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1857: ; preds = %1369
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1858: ; preds = %1369
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1858: ; preds = %1371
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1859: ; preds = %1371
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1859: ; preds = %1373
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1860: ; preds = %1373
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1860: ; preds = %1375
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1861: ; preds = %1375
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1861: ; preds = %1377
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1862: ; preds = %1377
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1862: ; preds = %1379
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1863: ; preds = %1379
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1863: ; preds = %1381
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1864: ; preds = %1381
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1864: ; preds = %1383
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1865: ; preds = %1383
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1865: ; preds = %1385
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1866: ; preds = %1385
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1866: ; preds = %1387
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1867: ; preds = %1387
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1867: ; preds = %1389
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1868: ; preds = %1389
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1868: ; preds = %1391
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1869: ; preds = %1391
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1869: ; preds = %1393
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1870: ; preds = %1393
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1870: ; preds = %1395
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1871: ; preds = %1395
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1871: ; preds = %1397
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1872: ; preds = %1397
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1872: ; preds = %1399
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1873: ; preds = %1399
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1873: ; preds = %1401
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1874: ; preds = %1401
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1874: ; preds = %1403
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1875: ; preds = %1403
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1875: ; preds = %1405
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1876: ; preds = %1405
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1876: ; preds = %1407
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1877: ; preds = %1407
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1877: ; preds = %1409
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1878: ; preds = %1409
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1878: ; preds = %1411
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1879: ; preds = %1411
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1879: ; preds = %1413
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1880: ; preds = %1413
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1880: ; preds = %1415
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1881: ; preds = %1415
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1881: ; preds = %1417
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1882: ; preds = %1417
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1882: ; preds = %1419
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1883: ; preds = %1419
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1883: ; preds = %1421
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1884: ; preds = %1421
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1884: ; preds = %1426
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1885: ; preds = %1426
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1893: ; preds = %1486
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1894: ; preds = %1486
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1894: ; preds = %1488
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1895: ; preds = %1488
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1895: ; preds = %1490
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1896: ; preds = %1490
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-switch.lookup1931:                                ; preds = %249
-  %1515 = zext nneg i32 %switch.tableidx1932 to i64
-  %switch.gep1933 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.296, i64 0, i64 %1515
-  %switch.load1934 = load i32, ptr %switch.gep1933, align 4
+switch.lookup1932:                                ; preds = %249
+  %1515 = zext nneg i32 %switch.tableidx1933 to i64
+  %switch.gep1934 = getelementptr inbounds [7 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.296, i64 0, i64 %1515
+  %switch.load1935 = load i32, ptr %switch.gep1934, align 4
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit: ; preds = %switch.lookup1931, %249, %1253, %1239, %1225, %1199, %554, %540, %226, %212, %1484, %1482, %1480, %1469, %1467, %1465, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19DiagnosticPredicateEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19DiagnosticPredicateEv.exit, %816, %814, %812, %810, %808, %_ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit, %647, %645, %633, %623, %621, %521, %519, %517, %515, %513, %511, %509, %507, %505, %503, %498, %493, %491, %489, %487, %485, %266, %232, %161, %159, %1490, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1895, %1488, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1894, %1486, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1893, %1426, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1884, %1421, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1883, %1419, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1882, %1417, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1881, %1415, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1880, %1413, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1879, %1411, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1878, %1409, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1877, %1407, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1876, %1405, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1875, %1403, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1874, %1401, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1873, %1399, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1872, %1397, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1871, %1395, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1870, %1393, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1869, %1391, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1868, %1389, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1867, %1387, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1866, %1385, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1865, %1383, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1864, %1381, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1863, %1379, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1862, %1377, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1861, %1375, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1860, %1373, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1859, %1371, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1858, %1369, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1857, %1367, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1856, %1365, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1855, %1363, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1854, %1361, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1853, %1359, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1852, %1357, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1851, %1355, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1850, %1353, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1849, %1351, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1848, %1349, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1847, %1297, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1846, %1295, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1845, %1293, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1844, %1291, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1843, %1177, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1842, %1175, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1841, %1173, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1840, %1171, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1839, %1169, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1838, %1167, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1837, %1165, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1836, %1163, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1835, %1161, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1834, %1159, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1833, %1157, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1832, %1155, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1831, %1153, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1830, %1151, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1829, %1149, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1828, %1147, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1827, %1145, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1826, %1143, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1825, %1141, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1824, %1139, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1823, %1137, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1822, %1135, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1821, %1133, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1820, %1131, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1819, %1129, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1818, %1127, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1817, %1125, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1816, %1123, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1815, %1121, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1814, %1119, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1813, %1117, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1812, %1115, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1811, %1113, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1810, %1111, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1809, %1109, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1808, %1107, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1807, %1105, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1806, %1103, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1805, %1101, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1804, %1099, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1803, %1097, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1802, %1074, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1801, %1071, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1800, %1068, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1799, %1065, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1798, %1061, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1797, %1057, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1796, %855, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1795, %853, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1794, %851, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1793, %849, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1792, %847, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1791, %834, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1790, %832, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1789, %830, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1788, %828, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1787, %826, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1786, %824, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1785, %822, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1784, %820, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1783, %818, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1782, %806, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1776, %804, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1775, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %702, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1774, %699, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1773, %696, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1772, %693, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1771, %690, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1770, %665, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1767, %663, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1766, %661, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1765, %659, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1764, %657, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1763, %655, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1762, %653, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1761, %651, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1760, %631, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1756, %629, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1755, %627, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1754, %625, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1753, %619, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1750, %617, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1749, %615, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1748, %613, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1747, %611, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1746, %609, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1745, %607, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1744, %594, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1743, %592, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1742, %590, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1741, %588, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1740, %586, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1739, %584, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1738, %582, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1737, %580, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1736, %578, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1735, %576, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1734, %574, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1733, %572, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1732, %570, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1731, %568, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1730, %566, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1729, %564, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1728, %562, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1727, %560, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1726, %292, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1709, %290, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1708, %288, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1707, %286, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1706, %284, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1705, %280, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1704, %278, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1703, %276, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1702, %274, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1701, %272, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split, %1211, %1184, %551, %537, %223, %209, %181, %168, %1514, %1513, %1512, %1511, %1508, %1507, %1506, %1505, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread, %254, %251, %258, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i478, %_ZNK12_GLOBAL__N_114AArch64Operand13isExtendLSL64Ev.exit, %245, %242, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1530, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1524, %1509, %1503, %1477, %1474, %1471, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit, %1423, %1347, %1345, %1343, %1341, %1339, %1337, %1335, %1333, %1331, %1329, %1327, %1325, %1323, %1321, %1319, %1317, %1315, %1313, %1311, %1309, %1307, %1305, %1303, %1301, %1299, %1289, %1287, %1285, %1283, %1281, %1279, %1277, %1275, %1273, %1271, %1269, %1267, %1265, %1263, %1261, %1259, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit, %1095, %1093, %1091, %1085, %1079, %1077, %1055, %1053, %1051, %1049, %1047, %1045, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit784, %1030, %1028, %1026, %1024, %1022, %1020, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit, %1005, %1003, %1001, %999, %997, %995, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit765, %980, %978, %976, %974, %972, %970, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit, %955, %953, %951, %949, %947, %945, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit746, %930, %928, %926, %924, %922, %920, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit, %905, %903, %901, %899, %897, %895, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit727, %880, %878, %876, %874, %872, %870, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit701, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit, %767, %764, %760, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit, %677, %643, %641, %639, %637, %635, %605, %602, %599, %596, %529, %527, %525, %523, %480, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit, %296, %294, %282, %270, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit, %199, %194, %191, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit, %2, %_ZL16matchTokenStringN4llvm9StringRefE.exit
-  %.0397 = phi i32 [ %157, %_ZL16matchTokenStringN4llvm9StringRefE.exit ], [ 0, %2 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1524 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1530 ], [ 4, %191 ], [ 4, %194 ], [ 4, %199 ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit ], [ 7, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand13isExtendLSL64Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit ], [ 8, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread ], [ 4, %270 ], [ 4, %272 ], [ 4, %274 ], [ 4, %276 ], [ 4, %278 ], [ 4, %280 ], [ 4, %282 ], [ 4, %284 ], [ 4, %286 ], [ 4, %288 ], [ 4, %290 ], [ 4, %292 ], [ 4, %294 ], [ 4, %296 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit ], [ 27, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit ], [ 29, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit ], [ 30, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit ], [ 28, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit ], [ 31, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit ], [ 33, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit ], [ 32, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit ], [ 36, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit ], [ 38, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit ], [ 37, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit ], [ 40, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit ], [ 39, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit ], [ 41, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit ], [ 42, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit ], [ 43, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread ], [ 4, %480 ], [ 4, %523 ], [ 4, %525 ], [ 4, %527 ], [ 4, %529 ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread ], [ 4, %560 ], [ 4, %562 ], [ 4, %564 ], [ 4, %566 ], [ 4, %568 ], [ 4, %570 ], [ 4, %572 ], [ 4, %574 ], [ 4, %576 ], [ 4, %578 ], [ 4, %580 ], [ 4, %582 ], [ 4, %584 ], [ 4, %586 ], [ 4, %588 ], [ 4, %590 ], [ 4, %592 ], [ 4, %594 ], [ 4, %596 ], [ 4, %599 ], [ 4, %602 ], [ 4, %605 ], [ 4, %607 ], [ 4, %609 ], [ 4, %611 ], [ 4, %613 ], [ 4, %615 ], [ 4, %617 ], [ 4, %619 ], [ 4, %625 ], [ 4, %627 ], [ 4, %629 ], [ 4, %631 ], [ 4, %635 ], [ 4, %637 ], [ 4, %639 ], [ 4, %641 ], [ 4, %643 ], [ 4, %651 ], [ 4, %653 ], [ 4, %655 ], [ 4, %657 ], [ 4, %659 ], [ 4, %661 ], [ 4, %663 ], [ 4, %665 ], [ 4, %677 ], [ 4, %690 ], [ 4, %693 ], [ 4, %696 ], [ 4, %699 ], [ 4, %702 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit ], [ 10, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit ], [ 11, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit ], [ 10, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit ], [ 11, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit ], [ 119, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit ], [ 120, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit ], [ 4, %760 ], [ 4, %764 ], [ 4, %767 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit701 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread ], [ 4, %804 ], [ 4, %806 ], [ 4, %818 ], [ 4, %820 ], [ 4, %822 ], [ 4, %824 ], [ 4, %826 ], [ 4, %828 ], [ 4, %830 ], [ 4, %832 ], [ 4, %834 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread ], [ 4, %847 ], [ 4, %849 ], [ 4, %851 ], [ 4, %853 ], [ 4, %855 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit ], [ 4, %870 ], [ 4, %872 ], [ 4, %874 ], [ 4, %876 ], [ 4, %878 ], [ 4, %880 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit727 ], [ 4, %895 ], [ 4, %897 ], [ 4, %899 ], [ 4, %901 ], [ 4, %903 ], [ 4, %905 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit ], [ 4, %920 ], [ 4, %922 ], [ 4, %924 ], [ 4, %926 ], [ 4, %928 ], [ 4, %930 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit746 ], [ 4, %945 ], [ 4, %947 ], [ 4, %949 ], [ 4, %951 ], [ 4, %953 ], [ 4, %955 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit ], [ 4, %970 ], [ 4, %972 ], [ 4, %974 ], [ 4, %976 ], [ 4, %978 ], [ 4, %980 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit765 ], [ 4, %995 ], [ 4, %997 ], [ 4, %999 ], [ 4, %1001 ], [ 4, %1003 ], [ 4, %1005 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit ], [ 4, %1020 ], [ 4, %1022 ], [ 4, %1024 ], [ 4, %1026 ], [ 4, %1028 ], [ 4, %1030 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit784 ], [ 4, %1045 ], [ 4, %1047 ], [ 4, %1049 ], [ 4, %1051 ], [ 4, %1053 ], [ 4, %1055 ], [ 4, %1057 ], [ 4, %1061 ], [ 4, %1065 ], [ 4, %1068 ], [ 4, %1071 ], [ 4, %1074 ], [ 4, %1077 ], [ 4, %1079 ], [ 4, %1085 ], [ 4, %1091 ], [ 4, %1093 ], [ 4, %1095 ], [ 4, %1097 ], [ 4, %1099 ], [ 4, %1101 ], [ 4, %1103 ], [ 4, %1105 ], [ 4, %1107 ], [ 4, %1109 ], [ 4, %1111 ], [ 4, %1113 ], [ 4, %1115 ], [ 4, %1117 ], [ 4, %1119 ], [ 4, %1121 ], [ 4, %1123 ], [ 4, %1125 ], [ 4, %1127 ], [ 4, %1129 ], [ 4, %1131 ], [ 4, %1133 ], [ 4, %1135 ], [ 4, %1137 ], [ 4, %1139 ], [ 4, %1141 ], [ 4, %1143 ], [ 4, %1145 ], [ 4, %1147 ], [ 4, %1149 ], [ 4, %1151 ], [ 4, %1153 ], [ 4, %1155 ], [ 4, %1157 ], [ 4, %1159 ], [ 4, %1161 ], [ 4, %1163 ], [ 4, %1165 ], [ 4, %1167 ], [ 4, %1169 ], [ 4, %1171 ], [ 4, %1173 ], [ 4, %1175 ], [ 4, %1177 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit ], [ 4, %1259 ], [ 4, %1261 ], [ 4, %1263 ], [ 4, %1265 ], [ 4, %1267 ], [ 4, %1269 ], [ 4, %1271 ], [ 4, %1273 ], [ 4, %1275 ], [ 4, %1277 ], [ 4, %1279 ], [ 4, %1281 ], [ 4, %1283 ], [ 4, %1285 ], [ 4, %1287 ], [ 4, %1289 ], [ 4, %1291 ], [ 4, %1293 ], [ 4, %1295 ], [ 4, %1297 ], [ 4, %1299 ], [ 4, %1301 ], [ 4, %1303 ], [ 4, %1305 ], [ 4, %1307 ], [ 4, %1309 ], [ 4, %1311 ], [ 4, %1313 ], [ 4, %1315 ], [ 4, %1317 ], [ 4, %1319 ], [ 4, %1321 ], [ 4, %1323 ], [ 4, %1325 ], [ 4, %1327 ], [ 4, %1329 ], [ 4, %1331 ], [ 4, %1333 ], [ 4, %1335 ], [ 4, %1337 ], [ 4, %1339 ], [ 4, %1341 ], [ 4, %1343 ], [ 4, %1345 ], [ 4, %1347 ], [ 4, %1349 ], [ 4, %1351 ], [ 4, %1353 ], [ 4, %1355 ], [ 4, %1357 ], [ 4, %1359 ], [ 4, %1361 ], [ 4, %1363 ], [ 4, %1365 ], [ 4, %1367 ], [ 4, %1369 ], [ 4, %1371 ], [ 4, %1373 ], [ 4, %1375 ], [ 4, %1377 ], [ 4, %1379 ], [ 4, %1381 ], [ 4, %1383 ], [ 4, %1385 ], [ 4, %1387 ], [ 4, %1389 ], [ 4, %1391 ], [ 4, %1393 ], [ 4, %1395 ], [ 4, %1397 ], [ 4, %1399 ], [ 4, %1401 ], [ 4, %1403 ], [ 4, %1405 ], [ 4, %1407 ], [ 4, %1409 ], [ 4, %1411 ], [ 4, %1413 ], [ 4, %1415 ], [ 4, %1417 ], [ 4, %1419 ], [ 4, %1421 ], [ 4, %1423 ], [ 4, %1426 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit ], [ 35, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit.thread ], [ 4, %1471 ], [ 4, %1474 ], [ 4, %1477 ], [ 4, %1486 ], [ 4, %1488 ], [ 4, %1490 ], [ 4, %1503 ], [ 0, %1509 ], [ 9, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i ], [ 9, %242 ], [ 9, %245 ], [ 8, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i478 ], [ 8, %258 ], [ 8, %251 ], [ 8, %254 ], [ 0, %1508 ], [ 58, %1507 ], [ 57, %1506 ], [ 51, %1505 ], [ 0, %1514 ], [ 58, %1513 ], [ 57, %1512 ], [ 51, %1511 ], [ 4, %168 ], [ 4, %181 ], [ 4, %209 ], [ 4, %223 ], [ 9, %249 ], [ 4, %537 ], [ 4, %551 ], [ 4, %1184 ], [ 4, %1211 ], [ %spec.select, %159 ], [ %spec.select1698, %161 ], [ %spec.select1699, %232 ], [ %spec.select1700, %266 ], [ 17, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split ], [ 18, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1701 ], [ 19, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1702 ], [ 20, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1703 ], [ 21, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1704 ], [ 22, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1705 ], [ 23, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1706 ], [ 24, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1707 ], [ 25, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1708 ], [ 26, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1709 ], [ %spec.select1710, %485 ], [ %spec.select1711, %487 ], [ %spec.select1712, %489 ], [ %spec.select1713, %491 ], [ %spec.select1714, %493 ], [ %spec.select1715, %498 ], [ %spec.select1716, %503 ], [ %spec.select1717, %505 ], [ %spec.select1718, %507 ], [ %spec.select1719, %509 ], [ %spec.select1720, %511 ], [ %spec.select1721, %513 ], [ %spec.select1722, %515 ], [ %spec.select1723, %517 ], [ %spec.select1724, %519 ], [ %spec.select1725, %521 ], [ 139, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1726 ], [ 144, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1727 ], [ 145, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1728 ], [ 146, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1729 ], [ 147, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1730 ], [ 142, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1731 ], [ 143, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1732 ], [ 140, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1733 ], [ 141, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1734 ], [ 138, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1735 ], [ 155, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1736 ], [ 160, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1737 ], [ 151, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1738 ], [ 154, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1739 ], [ 153, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1740 ], [ 152, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1741 ], [ 149, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1742 ], [ 148, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1743 ], [ 93, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1744 ], [ 74, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1745 ], [ 78, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1746 ], [ 82, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1747 ], [ 85, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1748 ], [ 86, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1749 ], [ 88, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1750 ], [ %spec.select1751, %621 ], [ %spec.select1752, %623 ], [ 79, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1753 ], [ 75, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1754 ], [ 89, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1755 ], [ 94, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1756 ], [ %spec.select1757, %633 ], [ %spec.select1758, %645 ], [ %spec.select1759, %647 ], [ 122, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1760 ], [ 123, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1761 ], [ 124, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1762 ], [ 125, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1763 ], [ 126, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1764 ], [ 127, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1765 ], [ 128, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1766 ], [ 129, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1767 ], [ %spec.select1768, %_ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit ], [ %spec.select1769, %_ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit ], [ 136, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1770 ], [ 137, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1771 ], [ 135, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1772 ], [ 134, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1773 ], [ 133, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1774 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit ], [ 98, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1775 ], [ 102, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1776 ], [ %spec.select1777, %808 ], [ %spec.select1778, %810 ], [ %spec.select1779, %812 ], [ %spec.select1780, %814 ], [ %spec.select1781, %816 ], [ 99, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1782 ], [ 103, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1783 ], [ 100, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1784 ], [ 104, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1785 ], [ 101, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1786 ], [ 95, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1787 ], [ 83, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1788 ], [ 90, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1789 ], [ 96, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1790 ], [ 77, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1791 ], [ 80, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1792 ], [ 84, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1793 ], [ 91, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1794 ], [ 97, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1795 ], [ 44, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1796 ], [ 49, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1797 ], [ 46, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1798 ], [ 45, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1799 ], [ 48, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1800 ], [ 47, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1801 ], [ 185, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1802 ], [ 186, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1803 ], [ 187, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1804 ], [ 188, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1805 ], [ 189, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1806 ], [ 190, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1807 ], [ 191, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1808 ], [ 192, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1809 ], [ 192, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1810 ], [ 193, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1811 ], [ 194, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1812 ], [ 195, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1813 ], [ 196, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1814 ], [ 196, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1815 ], [ 198, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1816 ], [ 199, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1817 ], [ 200, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1818 ], [ 201, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1819 ], [ 202, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1820 ], [ 203, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1821 ], [ 204, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1822 ], [ 205, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1823 ], [ 205, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1824 ], [ 206, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1825 ], [ 207, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1826 ], [ 208, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1827 ], [ 209, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1828 ], [ 209, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1829 ], [ 182, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1830 ], [ 183, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1831 ], [ 184, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1832 ], [ 211, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1833 ], [ 212, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1834 ], [ 213, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1835 ], [ 214, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1836 ], [ 215, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1837 ], [ 216, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1838 ], [ 217, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1839 ], [ 197, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1840 ], [ 210, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1841 ], [ 181, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1842 ], [ 159, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1843 ], [ 156, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1844 ], [ 157, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1845 ], [ 158, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1846 ], [ 162, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1847 ], [ 167, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1848 ], [ 164, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1849 ], [ 165, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1850 ], [ 166, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1851 ], [ 163, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1852 ], [ 172, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1853 ], [ 169, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1854 ], [ 170, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1855 ], [ 171, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1856 ], [ 168, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1857 ], [ 176, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1858 ], [ 173, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1859 ], [ 174, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1860 ], [ 175, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1861 ], [ 180, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1862 ], [ 177, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1863 ], [ 178, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1864 ], [ 179, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1865 ], [ 59, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1866 ], [ 60, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1867 ], [ 61, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1868 ], [ 66, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1869 ], [ 63, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1870 ], [ 64, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1871 ], [ 65, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1872 ], [ 62, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1873 ], [ 71, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1874 ], [ 68, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1875 ], [ 69, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1876 ], [ 70, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1877 ], [ 67, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1878 ], [ 52, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1879 ], [ 56, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1880 ], [ 53, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1881 ], [ 54, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1882 ], [ 55, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1883 ], [ 76, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1884 ], [ %spec.select1885, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19DiagnosticPredicateEv.exit ], [ %spec.select1886, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19DiagnosticPredicateEv.exit ], [ %spec.select1887, %1465 ], [ %spec.select1888, %1467 ], [ %spec.select1889, %1469 ], [ %spec.select1890, %1480 ], [ %spec.select1891, %1482 ], [ %spec.select1892, %1484 ], [ 130, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1893 ], [ 131, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1894 ], [ 132, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1895 ], [ 4, %212 ], [ 4, %226 ], [ 4, %540 ], [ 4, %554 ], [ 4, %1199 ], [ 4, %1225 ], [ 4, %1239 ], [ 4, %1253 ], [ %switch.load1934, %switch.lookup1931 ]
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit: ; preds = %switch.lookup1932, %249, %1253, %1239, %1225, %1199, %554, %540, %226, %212, %1484, %1482, %1480, %1469, %1467, %1465, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19DiagnosticPredicateEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19DiagnosticPredicateEv.exit, %816, %814, %812, %810, %808, %_ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit, %647, %645, %633, %623, %621, %521, %519, %517, %515, %513, %511, %509, %507, %505, %503, %498, %493, %491, %489, %487, %485, %266, %232, %161, %159, %1490, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1896, %1488, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1895, %1486, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1894, %1426, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1885, %1421, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1884, %1419, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1883, %1417, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1882, %1415, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1881, %1413, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1880, %1411, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1879, %1409, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1878, %1407, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1877, %1405, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1876, %1403, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1875, %1401, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1874, %1399, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1873, %1397, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1872, %1395, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1871, %1393, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1870, %1391, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1869, %1389, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1868, %1387, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1867, %1385, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1866, %1383, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1865, %1381, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1864, %1379, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1863, %1377, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1862, %1375, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1861, %1373, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1860, %1371, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1859, %1369, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1858, %1367, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1857, %1365, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1856, %1363, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1855, %1361, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1854, %1359, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1853, %1357, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1852, %1355, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1851, %1353, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1850, %1351, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1849, %1349, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1848, %1297, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1847, %1295, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1846, %1293, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1845, %1291, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1844, %1177, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1843, %1175, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1842, %1173, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1841, %1171, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1840, %1169, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1839, %1167, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1838, %1165, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1837, %1163, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1836, %1161, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1835, %1159, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1834, %1157, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1833, %1155, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1832, %1153, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1831, %1151, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1830, %1149, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1829, %1147, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1828, %1145, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1827, %1143, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1826, %1141, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1825, %1139, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1824, %1137, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1823, %1135, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1822, %1133, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1821, %1131, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1820, %1129, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1819, %1127, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1818, %1125, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1817, %1123, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1816, %1121, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1815, %1119, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1814, %1117, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1813, %1115, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1812, %1113, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1811, %1111, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1810, %1109, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1809, %1107, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1808, %1105, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1807, %1103, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1806, %1101, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1805, %1099, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1804, %1097, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1803, %1074, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1802, %1071, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1801, %1068, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1800, %1065, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1799, %1061, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1798, %1057, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1797, %855, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1796, %853, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1795, %851, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1794, %849, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1793, %847, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1792, %834, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1791, %832, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1790, %830, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1789, %828, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1788, %826, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1787, %824, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1786, %822, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1785, %820, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1784, %818, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1783, %806, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1777, %804, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1776, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %702, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1775, %699, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1774, %696, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1773, %693, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1772, %690, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1771, %665, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1768, %663, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1767, %661, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1766, %659, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1765, %657, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1764, %655, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1763, %653, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1762, %651, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1761, %631, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1757, %629, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1756, %627, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1755, %625, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1754, %619, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1751, %617, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1750, %615, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1749, %613, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1748, %611, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1747, %609, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1746, %607, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1745, %594, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1744, %592, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1743, %590, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1742, %588, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1741, %586, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1740, %584, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1739, %582, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1738, %580, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1737, %578, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1736, %576, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1735, %574, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1734, %572, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1733, %570, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1732, %568, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1731, %566, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1730, %564, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1729, %562, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1728, %560, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1727, %292, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1710, %290, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1709, %288, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1708, %286, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1707, %284, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1706, %280, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1705, %278, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1704, %276, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1703, %274, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1702, %272, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split, %1211, %1184, %551, %537, %223, %209, %181, %168, %1514, %1513, %1512, %1511, %1508, %1507, %1506, %1505, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread, %254, %251, %258, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i478, %_ZNK12_GLOBAL__N_114AArch64Operand13isExtendLSL64Ev.exit, %245, %242, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1531, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1525, %1509, %1503, %1477, %1474, %1471, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit, %1423, %1347, %1345, %1343, %1341, %1339, %1337, %1335, %1333, %1331, %1329, %1327, %1325, %1323, %1321, %1319, %1317, %1315, %1313, %1311, %1309, %1307, %1305, %1303, %1301, %1299, %1289, %1287, %1285, %1283, %1281, %1279, %1277, %1275, %1273, %1271, %1269, %1267, %1265, %1263, %1261, %1259, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit, %1095, %1093, %1091, %1085, %1079, %1077, %1055, %1053, %1051, %1049, %1047, %1045, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit784, %1030, %1028, %1026, %1024, %1022, %1020, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit, %1005, %1003, %1001, %999, %997, %995, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit765, %980, %978, %976, %974, %972, %970, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit, %955, %953, %951, %949, %947, %945, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit746, %930, %928, %926, %924, %922, %920, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit, %905, %903, %901, %899, %897, %895, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit727, %880, %878, %876, %874, %872, %870, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit701, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit, %767, %764, %760, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit, %677, %643, %641, %639, %637, %635, %605, %602, %599, %596, %529, %527, %525, %523, %480, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit, %296, %294, %282, %270, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit, %199, %194, %191, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit, %2, %_ZL16matchTokenStringN4llvm9StringRefE.exit
+  %.0397 = phi i32 [ %157, %_ZL16matchTokenStringN4llvm9StringRefE.exit ], [ 0, %2 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread1525 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread1531 ], [ 4, %191 ], [ 4, %194 ], [ 4, %199 ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit ], [ 7, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand13isExtendLSL64Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit ], [ 8, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread ], [ 4, %270 ], [ 4, %272 ], [ 4, %274 ], [ 4, %276 ], [ 4, %278 ], [ 4, %280 ], [ 4, %282 ], [ 4, %284 ], [ 4, %286 ], [ 4, %288 ], [ 4, %290 ], [ 4, %292 ], [ 4, %294 ], [ 4, %296 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit ], [ 27, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit ], [ 29, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit ], [ 30, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit ], [ 28, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit ], [ 31, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit ], [ 33, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit ], [ 32, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit ], [ 36, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit ], [ 38, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit ], [ 37, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit ], [ 40, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit ], [ 39, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit ], [ 41, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit ], [ 42, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit ], [ 43, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread ], [ 4, %480 ], [ 4, %523 ], [ 4, %525 ], [ 4, %527 ], [ 4, %529 ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread ], [ 50, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread ], [ 4, %560 ], [ 4, %562 ], [ 4, %564 ], [ 4, %566 ], [ 4, %568 ], [ 4, %570 ], [ 4, %572 ], [ 4, %574 ], [ 4, %576 ], [ 4, %578 ], [ 4, %580 ], [ 4, %582 ], [ 4, %584 ], [ 4, %586 ], [ 4, %588 ], [ 4, %590 ], [ 4, %592 ], [ 4, %594 ], [ 4, %596 ], [ 4, %599 ], [ 4, %602 ], [ 4, %605 ], [ 4, %607 ], [ 4, %609 ], [ 4, %611 ], [ 4, %613 ], [ 4, %615 ], [ 4, %617 ], [ 4, %619 ], [ 4, %625 ], [ 4, %627 ], [ 4, %629 ], [ 4, %631 ], [ 4, %635 ], [ 4, %637 ], [ 4, %639 ], [ 4, %641 ], [ 4, %643 ], [ 4, %651 ], [ 4, %653 ], [ 4, %655 ], [ 4, %657 ], [ 4, %659 ], [ 4, %661 ], [ 4, %663 ], [ 4, %665 ], [ 4, %677 ], [ 4, %690 ], [ 4, %693 ], [ 4, %696 ], [ 4, %699 ], [ 4, %702 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit ], [ 10, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit ], [ 11, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit ], [ 10, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit ], [ 11, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit ], [ 119, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit ], [ 120, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit ], [ 4, %760 ], [ 4, %764 ], [ 4, %767 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit701 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread ], [ 4, %804 ], [ 4, %806 ], [ 4, %818 ], [ 4, %820 ], [ 4, %822 ], [ 4, %824 ], [ 4, %826 ], [ 4, %828 ], [ 4, %830 ], [ 4, %832 ], [ 4, %834 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread ], [ 4, %847 ], [ 4, %849 ], [ 4, %851 ], [ 4, %853 ], [ 4, %855 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit ], [ 4, %870 ], [ 4, %872 ], [ 4, %874 ], [ 4, %876 ], [ 4, %878 ], [ 4, %880 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4EEEbv.exit727 ], [ 4, %895 ], [ 4, %897 ], [ 4, %899 ], [ 4, %901 ], [ 4, %903 ], [ 4, %905 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit ], [ 4, %920 ], [ 4, %922 ], [ 4, %924 ], [ 4, %926 ], [ 4, %928 ], [ 4, %930 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1EEEbv.exit746 ], [ 4, %945 ], [ 4, %947 ], [ 4, %949 ], [ 4, %951 ], [ 4, %953 ], [ 4, %955 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit ], [ 4, %970 ], [ 4, %972 ], [ 4, %974 ], [ 4, %976 ], [ 4, %978 ], [ 4, %980 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3EEEbv.exit765 ], [ 4, %995 ], [ 4, %997 ], [ 4, %999 ], [ 4, %1001 ], [ 4, %1003 ], [ 4, %1005 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit ], [ 4, %1020 ], [ 4, %1022 ], [ 4, %1024 ], [ 4, %1026 ], [ 4, %1028 ], [ 4, %1030 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2EEEbv.exit784 ], [ 4, %1045 ], [ 4, %1047 ], [ 4, %1049 ], [ 4, %1051 ], [ 4, %1053 ], [ 4, %1055 ], [ 4, %1057 ], [ 4, %1061 ], [ 4, %1065 ], [ 4, %1068 ], [ 4, %1071 ], [ 4, %1074 ], [ 4, %1077 ], [ 4, %1079 ], [ 4, %1085 ], [ 4, %1091 ], [ 4, %1093 ], [ 4, %1095 ], [ 4, %1097 ], [ 4, %1099 ], [ 4, %1101 ], [ 4, %1103 ], [ 4, %1105 ], [ 4, %1107 ], [ 4, %1109 ], [ 4, %1111 ], [ 4, %1113 ], [ 4, %1115 ], [ 4, %1117 ], [ 4, %1119 ], [ 4, %1121 ], [ 4, %1123 ], [ 4, %1125 ], [ 4, %1127 ], [ 4, %1129 ], [ 4, %1131 ], [ 4, %1133 ], [ 4, %1135 ], [ 4, %1137 ], [ 4, %1139 ], [ 4, %1141 ], [ 4, %1143 ], [ 4, %1145 ], [ 4, %1147 ], [ 4, %1149 ], [ 4, %1151 ], [ 4, %1153 ], [ 4, %1155 ], [ 4, %1157 ], [ 4, %1159 ], [ 4, %1161 ], [ 4, %1163 ], [ 4, %1165 ], [ 4, %1167 ], [ 4, %1169 ], [ 4, %1171 ], [ 4, %1173 ], [ 4, %1175 ], [ 4, %1177 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit ], [ 4, %1259 ], [ 4, %1261 ], [ 4, %1263 ], [ 4, %1265 ], [ 4, %1267 ], [ 4, %1269 ], [ 4, %1271 ], [ 4, %1273 ], [ 4, %1275 ], [ 4, %1277 ], [ 4, %1279 ], [ 4, %1281 ], [ 4, %1283 ], [ 4, %1285 ], [ 4, %1287 ], [ 4, %1289 ], [ 4, %1291 ], [ 4, %1293 ], [ 4, %1295 ], [ 4, %1297 ], [ 4, %1299 ], [ 4, %1301 ], [ 4, %1303 ], [ 4, %1305 ], [ 4, %1307 ], [ 4, %1309 ], [ 4, %1311 ], [ 4, %1313 ], [ 4, %1315 ], [ 4, %1317 ], [ 4, %1319 ], [ 4, %1321 ], [ 4, %1323 ], [ 4, %1325 ], [ 4, %1327 ], [ 4, %1329 ], [ 4, %1331 ], [ 4, %1333 ], [ 4, %1335 ], [ 4, %1337 ], [ 4, %1339 ], [ 4, %1341 ], [ 4, %1343 ], [ 4, %1345 ], [ 4, %1347 ], [ 4, %1349 ], [ 4, %1351 ], [ 4, %1353 ], [ 4, %1355 ], [ 4, %1357 ], [ 4, %1359 ], [ 4, %1361 ], [ 4, %1363 ], [ 4, %1365 ], [ 4, %1367 ], [ 4, %1369 ], [ 4, %1371 ], [ 4, %1373 ], [ 4, %1375 ], [ 4, %1377 ], [ 4, %1379 ], [ 4, %1381 ], [ 4, %1383 ], [ 4, %1385 ], [ 4, %1387 ], [ 4, %1389 ], [ 4, %1391 ], [ 4, %1393 ], [ 4, %1395 ], [ 4, %1397 ], [ 4, %1399 ], [ 4, %1401 ], [ 4, %1403 ], [ 4, %1405 ], [ 4, %1407 ], [ 4, %1409 ], [ 4, %1411 ], [ 4, %1413 ], [ 4, %1415 ], [ 4, %1417 ], [ 4, %1419 ], [ 4, %1421 ], [ 4, %1423 ], [ 4, %1426 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit ], [ 35, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit.thread ], [ 4, %1471 ], [ 4, %1474 ], [ 4, %1477 ], [ 4, %1486 ], [ 4, %1488 ], [ 4, %1490 ], [ 4, %1503 ], [ 0, %1509 ], [ 9, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i ], [ 9, %242 ], [ 9, %245 ], [ 8, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i478 ], [ 8, %258 ], [ 8, %251 ], [ 8, %254 ], [ 0, %1508 ], [ 58, %1507 ], [ 57, %1506 ], [ 51, %1505 ], [ 0, %1514 ], [ 58, %1513 ], [ 57, %1512 ], [ 51, %1511 ], [ 4, %168 ], [ 4, %181 ], [ 4, %209 ], [ 4, %223 ], [ 9, %249 ], [ 4, %537 ], [ 4, %551 ], [ 4, %1184 ], [ 4, %1211 ], [ %spec.select, %159 ], [ %spec.select1699, %161 ], [ %spec.select1700, %232 ], [ %spec.select1701, %266 ], [ 17, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split ], [ 18, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1702 ], [ 19, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1703 ], [ 20, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1704 ], [ 21, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1705 ], [ 22, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1706 ], [ 23, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1707 ], [ 24, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1708 ], [ 25, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1709 ], [ 26, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1710 ], [ %spec.select1711, %485 ], [ %spec.select1712, %487 ], [ %spec.select1713, %489 ], [ %spec.select1714, %491 ], [ %spec.select1715, %493 ], [ %spec.select1716, %498 ], [ %spec.select1717, %503 ], [ %spec.select1718, %505 ], [ %spec.select1719, %507 ], [ %spec.select1720, %509 ], [ %spec.select1721, %511 ], [ %spec.select1722, %513 ], [ %spec.select1723, %515 ], [ %spec.select1724, %517 ], [ %spec.select1725, %519 ], [ %spec.select1726, %521 ], [ 139, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1727 ], [ 144, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1728 ], [ 145, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1729 ], [ 146, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1730 ], [ 147, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1731 ], [ 142, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1732 ], [ 143, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1733 ], [ 140, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1734 ], [ 141, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1735 ], [ 138, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1736 ], [ 155, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1737 ], [ 160, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1738 ], [ 151, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1739 ], [ 154, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1740 ], [ 153, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1741 ], [ 152, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1742 ], [ 149, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1743 ], [ 148, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1744 ], [ 93, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1745 ], [ 74, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1746 ], [ 78, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1747 ], [ 82, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1748 ], [ 85, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1749 ], [ 86, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1750 ], [ 88, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1751 ], [ %spec.select1752, %621 ], [ %spec.select1753, %623 ], [ 79, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1754 ], [ 75, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1755 ], [ 89, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1756 ], [ 94, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1757 ], [ %spec.select1758, %633 ], [ %spec.select1759, %645 ], [ %spec.select1760, %647 ], [ 122, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1761 ], [ 123, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1762 ], [ 124, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1763 ], [ 125, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1764 ], [ 126, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1765 ], [ 127, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1766 ], [ 128, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1767 ], [ 129, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1768 ], [ %spec.select1769, %_ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit ], [ %spec.select1770, %_ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit ], [ 136, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1771 ], [ 137, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1772 ], [ 135, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1773 ], [ 134, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1774 ], [ 133, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1775 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit ], [ 98, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1776 ], [ 102, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1777 ], [ %spec.select1778, %808 ], [ %spec.select1779, %810 ], [ %spec.select1780, %812 ], [ %spec.select1781, %814 ], [ %spec.select1782, %816 ], [ 99, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1783 ], [ 103, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1784 ], [ 100, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1785 ], [ 104, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1786 ], [ 101, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1787 ], [ 95, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1788 ], [ 83, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1789 ], [ 90, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1790 ], [ 96, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1791 ], [ 77, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1792 ], [ 80, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1793 ], [ 84, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1794 ], [ 91, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1795 ], [ 97, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1796 ], [ 44, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1797 ], [ 49, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1798 ], [ 46, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1799 ], [ 45, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1800 ], [ 48, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1801 ], [ 47, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1802 ], [ 185, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1803 ], [ 186, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1804 ], [ 187, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1805 ], [ 188, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1806 ], [ 189, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1807 ], [ 190, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1808 ], [ 191, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1809 ], [ 192, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1810 ], [ 192, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1811 ], [ 193, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1812 ], [ 194, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1813 ], [ 195, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1814 ], [ 196, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1815 ], [ 196, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1816 ], [ 198, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1817 ], [ 199, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1818 ], [ 200, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1819 ], [ 201, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1820 ], [ 202, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1821 ], [ 203, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1822 ], [ 204, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1823 ], [ 205, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1824 ], [ 205, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1825 ], [ 206, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1826 ], [ 207, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1827 ], [ 208, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1828 ], [ 209, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1829 ], [ 209, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1830 ], [ 182, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1831 ], [ 183, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1832 ], [ 184, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1833 ], [ 211, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1834 ], [ 212, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1835 ], [ 213, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1836 ], [ 214, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1837 ], [ 215, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1838 ], [ 216, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1839 ], [ 217, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1840 ], [ 197, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1841 ], [ 210, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1842 ], [ 181, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1843 ], [ 159, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1844 ], [ 156, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1845 ], [ 157, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1846 ], [ 158, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1847 ], [ 162, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1848 ], [ 167, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1849 ], [ 164, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1850 ], [ 165, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1851 ], [ 166, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1852 ], [ 163, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1853 ], [ 172, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1854 ], [ 169, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1855 ], [ 170, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1856 ], [ 171, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1857 ], [ 168, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1858 ], [ 176, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1859 ], [ 173, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1860 ], [ 174, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1861 ], [ 175, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1862 ], [ 180, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1863 ], [ 177, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1864 ], [ 178, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1865 ], [ 179, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1866 ], [ 59, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1867 ], [ 60, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1868 ], [ 61, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1869 ], [ 66, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1870 ], [ 63, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1871 ], [ 64, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1872 ], [ 65, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1873 ], [ 62, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1874 ], [ 71, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1875 ], [ 68, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1876 ], [ 69, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1877 ], [ 70, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1878 ], [ 67, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1879 ], [ 52, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1880 ], [ 56, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1881 ], [ 53, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1882 ], [ 54, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1883 ], [ 55, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1884 ], [ 76, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1885 ], [ %spec.select1886, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19DiagnosticPredicateEv.exit ], [ %spec.select1887, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19DiagnosticPredicateEv.exit ], [ %spec.select1888, %1465 ], [ %spec.select1889, %1467 ], [ %spec.select1890, %1469 ], [ %spec.select1891, %1480 ], [ %spec.select1892, %1482 ], [ %spec.select1893, %1484 ], [ 130, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1894 ], [ 131, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1895 ], [ 132, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split1896 ], [ 4, %212 ], [ 4, %226 ], [ 4, %540 ], [ 4, %554 ], [ 4, %1199 ], [ 4, %1225 ], [ 4, %1239 ], [ 4, %1253 ], [ %switch.load1935, %switch.lookup1932 ]
   ret i32 %.0397
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116AArch64AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116AArch64AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE(i32 noundef range(i32 0, 65536) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef range(i32 0, 65536) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APFloat", align 8
@@ -71745,25 +71937,26 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %11 = load i64, ptr %10, align 8
   br label %.lr.ph.i.i
 
-12:                                               ; preds = %.lr.ph.i.i
-  br i1 %.not6, label %.lr.ph.i.i, label %17, !llvm.loop !1434
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %9
+  %.not.not.i.i = phi i1 [ false, %9 ], [ true, %.lr.ph.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %9 ], [ 16, %.lr.ph.i.i ]
+  %12 = shl nuw nsw i64 65535, %indvars.iv.i.i
+  %13 = xor i64 %12, -1
+  %14 = and i64 %11, %13
+  %15 = icmp eq i64 %14, 0
+  %or.cond.i.i = or i1 %.not.not.i.i, %15
+  br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1434
 
-.lr.ph.i.i:                                       ; preds = %12, %9
-  %.not6 = phi i1 [ false, %12 ], [ true, %9 ]
-  %indvars.iv.i.i = phi i64 [ 16, %12 ], [ 0, %9 ]
-  %13 = shl nuw nsw i64 65535, %indvars.iv.i.i
-  %14 = xor i64 %13, -1
-  %15 = and i64 %11, %14
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %12
+_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i: ; preds = %.lr.ph.i.i
+  br i1 %15, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %16
 
-17:                                               ; preds = %12
-  %18 = and i64 %11, 4294901760
-  %19 = icmp eq i64 %18, 4294901760
+16:                                               ; preds = %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i
+  %17 = and i64 %11, 4294901760
+  %18 = icmp eq i64 %17, 4294901760
   br label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit
 
-_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %.lr.ph.i.i, %17, %6, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ %19, %17 ], [ false, %.lr.ph.i.i ]
+_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %16, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, %6, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i ], [ %18, %16 ]
   ret i1 %.0
 }
 
@@ -71787,30 +71980,29 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %11 = load i64, ptr %10, align 8
   br label %.lr.ph.i.i
 
-12:                                               ; preds = %.lr.ph.i.i
-  br i1 %.not6, label %.lr.ph.i.i, label %17, !llvm.loop !1434
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %9
+  %.not.not.i.i = phi i1 [ false, %9 ], [ true, %.lr.ph.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %9 ], [ 16, %.lr.ph.i.i ]
+  %12 = shl nuw nsw i64 65535, %indvars.iv.i.i
+  %13 = xor i64 %12, -1
+  %14 = and i64 %11, %13
+  %15 = icmp eq i64 %14, 0
+  %or.cond.i.i = or i1 %.not.not.i.i, %15
+  br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1434
 
-.lr.ph.i.i:                                       ; preds = %12, %9
-  %.not6 = phi i1 [ false, %12 ], [ true, %9 ]
-  %indvars.iv.i.i = phi i64 [ 16, %12 ], [ 0, %9 ]
-  %13 = shl nuw nsw i64 65535, %indvars.iv.i.i
-  %14 = xor i64 %13, -1
-  %15 = and i64 %11, %14
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %12
+_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i: ; preds = %.lr.ph.i.i
+  %16 = and i64 %11, 4294967295
+  %17 = icmp eq i64 %16, 4294967295
+  %or.cond = or i1 %17, %15
+  br i1 %or.cond, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %18
 
-17:                                               ; preds = %12
-  %18 = and i64 %11, 4294967295
-  %19 = icmp eq i64 %18, 4294967295
-  br i1 %19, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %20
-
-20:                                               ; preds = %17
-  %21 = and i64 %11, 65535
-  %22 = icmp eq i64 %21, 65535
+18:                                               ; preds = %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i
+  %19 = and i64 %11, 65535
+  %20 = icmp eq i64 %19, 65535
   br label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit
 
-_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %.lr.ph.i.i, %20, %17, %6, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ %22, %20 ], [ false, %17 ], [ false, %.lr.ph.i.i ]
+_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %18, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, %6, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i ], [ %20, %18 ]
   ret i1 %.0
 }
 
@@ -71834,25 +72026,25 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %11 = load i64, ptr %10, align 8
   br label %.lr.ph.i.i
 
-12:                                               ; preds = %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %9
+  %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %12 = shl nuw i64 65535, %indvars.iv.i.i
+  %13 = xor i64 %12, -1
+  %14 = and i64 %11, %13
+  %15 = icmp eq i64 %14, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %13 = icmp ugt i64 %indvars.iv.i.i, 32
-  br i1 %13, label %18, label %.lr.ph.i.i, !llvm.loop !1434
+  %.not.not.i.i = icmp ugt i64 %indvars.iv.i.i, 32
+  %or.cond.i.i = or i1 %.not.not.i.i, %15
+  br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1434
 
-.lr.ph.i.i:                                       ; preds = %12, %9
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ 0, %9 ]
-  %14 = shl nuw i64 65535, %indvars.iv.i.i
-  %15 = xor i64 %14, -1
-  %16 = and i64 %11, %15
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %12
-
-18:                                               ; preds = %12
-  %19 = icmp ugt i64 %11, -65537
+_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i: ; preds = %.lr.ph.i.i
+  %16 = icmp ugt i64 %11, -65537
+  %not. = xor i1 %15, true
+  %spec.select = and i1 %16, %not.
   br label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit
 
-_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %.lr.ph.i.i, %18, %6, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ %19, %18 ], [ false, %.lr.ph.i.i ]
+_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, %6, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ %spec.select, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i ]
   ret i1 %.0
 }
 
@@ -71876,30 +72068,29 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %11 = load i64, ptr %10, align 8
   br label %.lr.ph.i.i
 
-12:                                               ; preds = %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %9
+  %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %12 = shl nuw i64 65535, %indvars.iv.i.i
+  %13 = xor i64 %12, -1
+  %14 = and i64 %11, %13
+  %15 = icmp eq i64 %14, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %13 = icmp ugt i64 %indvars.iv.i.i, 32
-  br i1 %13, label %18, label %.lr.ph.i.i, !llvm.loop !1434
+  %.not.not.i.i = icmp ugt i64 %indvars.iv.i.i, 32
+  %or.cond.i.i = or i1 %.not.not.i.i, %15
+  br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1434
 
-.lr.ph.i.i:                                       ; preds = %12, %9
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ 0, %9 ]
-  %14 = shl nuw i64 65535, %indvars.iv.i.i
-  %15 = xor i64 %14, -1
-  %16 = and i64 %11, %15
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %12
+_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i: ; preds = %.lr.ph.i.i
+  %16 = icmp eq i64 %11, -1
+  %or.cond = or i1 %16, %15
+  br i1 %or.cond, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %17
 
-18:                                               ; preds = %12
-  %19 = icmp eq i64 %11, -1
-  br i1 %19, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %20
-
-20:                                               ; preds = %18
-  %21 = and i64 %11, -4294901761
-  %22 = icmp eq i64 %21, -4294901761
+17:                                               ; preds = %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i
+  %18 = and i64 %11, -4294901761
+  %19 = icmp eq i64 %18, -4294901761
   br label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit
 
-_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %.lr.ph.i.i, %20, %18, %6, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ %22, %20 ], [ false, %18 ], [ false, %.lr.ph.i.i ]
+_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %17, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, %6, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i ], [ %19, %17 ]
   ret i1 %.0
 }
 
@@ -71923,30 +72114,29 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %11 = load i64, ptr %10, align 8
   br label %.lr.ph.i.i
 
-12:                                               ; preds = %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %9
+  %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %12 = shl nuw i64 65535, %indvars.iv.i.i
+  %13 = xor i64 %12, -1
+  %14 = and i64 %11, %13
+  %15 = icmp eq i64 %14, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %13 = icmp ugt i64 %indvars.iv.i.i, 32
-  br i1 %13, label %18, label %.lr.ph.i.i, !llvm.loop !1434
+  %.not.not.i.i = icmp ugt i64 %indvars.iv.i.i, 32
+  %or.cond.i.i = or i1 %.not.not.i.i, %15
+  br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1434
 
-.lr.ph.i.i:                                       ; preds = %12, %9
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ 0, %9 ]
-  %14 = shl nuw i64 65535, %indvars.iv.i.i
-  %15 = xor i64 %14, -1
-  %16 = and i64 %11, %15
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %12
+_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i: ; preds = %.lr.ph.i.i
+  %16 = icmp eq i64 %11, -1
+  %or.cond = or i1 %16, %15
+  br i1 %or.cond, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %17
 
-18:                                               ; preds = %12
-  %19 = icmp eq i64 %11, -1
-  br i1 %19, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %20
-
-20:                                               ; preds = %18
-  %21 = and i64 %11, -281470681743361
-  %22 = icmp eq i64 %21, -281470681743361
+17:                                               ; preds = %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i
+  %18 = and i64 %11, -281470681743361
+  %19 = icmp eq i64 %18, -281470681743361
   br label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit
 
-_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %.lr.ph.i.i, %20, %18, %6, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ %22, %20 ], [ false, %18 ], [ false, %.lr.ph.i.i ]
+_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %17, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, %6, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i ], [ %19, %17 ]
   ret i1 %.0
 }
 
@@ -71970,30 +72160,29 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %11 = load i64, ptr %10, align 8
   br label %.lr.ph.i.i
 
-12:                                               ; preds = %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %9
+  %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %12 = shl nuw i64 65535, %indvars.iv.i.i
+  %13 = xor i64 %12, -1
+  %14 = and i64 %11, %13
+  %15 = icmp eq i64 %14, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %13 = icmp ugt i64 %indvars.iv.i.i, 32
-  br i1 %13, label %18, label %.lr.ph.i.i, !llvm.loop !1434
+  %.not.not.i.i = icmp ugt i64 %indvars.iv.i.i, 32
+  %or.cond.i.i = or i1 %.not.not.i.i, %15
+  br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1434
 
-.lr.ph.i.i:                                       ; preds = %12, %9
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ 0, %9 ]
-  %14 = shl nuw i64 65535, %indvars.iv.i.i
-  %15 = xor i64 %14, -1
-  %16 = and i64 %11, %15
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %12
+_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i: ; preds = %.lr.ph.i.i
+  %16 = icmp eq i64 %11, -1
+  %or.cond = or i1 %16, %15
+  br i1 %or.cond, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %17
 
-18:                                               ; preds = %12
-  %19 = icmp eq i64 %11, -1
-  br i1 %19, label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit, label %20
-
-20:                                               ; preds = %18
-  %21 = and i64 %11, 281474976710655
-  %22 = icmp eq i64 %21, 281474976710655
+17:                                               ; preds = %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i
+  %18 = and i64 %11, 281474976710655
+  %19 = icmp eq i64 %18, 281474976710655
   br label %_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit
 
-_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %.lr.ph.i.i, %20, %18, %6, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ %22, %20 ], [ false, %18 ], [ false, %.lr.ph.i.i ]
+_ZN4llvm10AArch64_AML14isMOVNMovAliasEmii.exit:   ; preds = %17, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, %6, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i ], [ %19, %17 ]
   ret i1 %.0
 }
 
@@ -75640,7 +75829,7 @@ _ZN4llvm5APIntD2Ev.exit21:                        ; preds = %_ZNK4llvm5APInt12ge
 declare void @_ZN4llvm5APInt12lshrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm(i64 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #19 {
+define internal fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm(i64 noundef %0, i32 noundef range(i32 8, 65) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #19 {
   %4 = add i64 %0, 1
   %or.cond = icmp ult i64 %4, 2
   br i1 %or.cond, label %_ZN4llvm16isShiftedMask_64Em.exit54.thread, label %5
@@ -75678,7 +75867,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogical
   br i1 %.not52, label %23, label %21
 
 21:                                               ; preds = %14
-  %22 = and i32 %.044, -2
+  %22 = and i32 %.044, 126
   br label %.loopexit
 
 23:                                               ; preds = %14
@@ -75687,8 +75876,8 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogical
 
 .loopexit:                                        ; preds = %23, %21
   %.1 = phi i32 [ %22, %21 ], [ %15, %23 ]
-  %.neg59 = add i32 %.1, -64
-  %25 = sub i32 64, %.1
+  %.neg59 = add nsw i32 %.1, -64
+  %25 = sub nsw i32 64, %.1
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 -1, %26
   %28 = and i64 %27, %0
@@ -75732,18 +75921,18 @@ _ZN4llvm16isShiftedMask_64Em.exit54:              ; preds = %_ZN4llvm16isShifted
   %50 = sub nuw nsw i32 64, %49
   %51 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %41, i1 true)
   %52 = trunc nuw nsw i64 %51 to i32
-  %53 = add i32 %.neg59, %52
-  %54 = add i32 %53, %49
+  %53 = add nsw i32 %.neg59, %52
+  %54 = add nsw i32 %53, %49
   br label %55
 
 55:                                               ; preds = %47, %34
   %.046 = phi i32 [ %36, %34 ], [ %50, %47 ]
   %.045 = phi i32 [ %40, %34 ], [ %54, %47 ]
-  %56 = sub i32 %.1, %.046
-  %57 = add i32 %.1, 67108863
+  %56 = sub nsw i32 %.1, %.046
+  %57 = add nuw nsw i32 %.1, 67108863
   %58 = and i32 %56, %57
-  %.neg = mul i32 %.1, -2
-  %59 = add i32 %.045, -1
+  %.neg = mul nsw i32 %.1, -2
+  %59 = add nsw i32 %.045, -1
   %60 = or i32 %59, %.neg
   %61 = shl i32 %60, 6
   %62 = and i32 %61, 4096
@@ -76725,7 +76914,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %26, %21, %19, %12, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25AArch64MnemonicSpellCheckB5cxx11N4llvm9StringRefERKNS_13FeatureBitsetEj(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL25AArch64MnemonicSpellCheckB5cxx11N4llvm9StringRefERKNS_13FeatureBitsetEj(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::StringRef", align 8

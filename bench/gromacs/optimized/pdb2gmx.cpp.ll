@@ -4877,7 +4877,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_17t_chainESaIS1_EEC2EmRKS2_.exit.i: ; preds = 
   %1035 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1034, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1035, i8 0, i64 48, i1 false)
-  %1036 = add i64 %.057.i.i.i.i.i, -1
+  %1036 = add nsw i64 %.057.i.i.i.i.i, -1
   %1037 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 192
   %.not.i.i.i.i.i780 = icmp eq i64 %1036, 0
   br i1 %.not.i.i.i.i.i780, label %.loopexit1826, label %.lr.ph.i.i.i.i.i779, !llvm.loop !53
@@ -6264,15 +6264,15 @@ _ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833.preheader: ; preds = %_ZL13gm
   br i1 %1674, label %1695, label %.noexc852
 
 1695:                                             ; preds = %1670
-  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.311, ptr noundef nonnull %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.311, ptr noundef %143)
           to label %1696 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1696:                                             ; preds = %1695
-  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.313, ptr noundef nonnull %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.313, ptr noundef %143)
           to label %1697 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1697:                                             ; preds = %1696
-  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.314, ptr noundef nonnull @.str.315, ptr noundef nonnull %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.314, ptr noundef nonnull @.str.315, ptr noundef %143)
           to label %.noexc852 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc852:                                        ; preds = %1697, %1670
@@ -7548,7 +7548,7 @@ _ZN12_GLOBAL__N_19get_asptpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %208
   br i1 %2105, label %.critedge.i66.i, label %_ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK9RtpRenameEEEbP8t_symtabS8_.exit71.i, !llvm.loop !66
 
 2106:                                             ; preds = %_ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK9RtpRenameEEEbP8t_symtabS8_.exit64.i
-  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.320, ptr noundef nonnull @.str.319, ptr noundef nonnull %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.320, ptr noundef nonnull @.str.319, ptr noundef %143)
           to label %_ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK9RtpRenameEEEbP8t_symtabS8_.exit71.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK9RtpRenameEEEbP8t_symtabS8_.exit71.i: ; preds = %2102, %2106, %2004
@@ -7870,7 +7870,7 @@ _ZN12_GLOBAL__N_19get_glutpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %218
   br i1 %2208, label %.critedge.i73.i, label %_ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK9RtpRenameEEEbP8t_symtabS8_.exit78.i, !llvm.loop !66
 
 2209:                                             ; preds = %_ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK9RtpRenameEEEbP8t_symtabS8_.exit71.i
-  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.321, ptr noundef nonnull %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr noundef nonnull readonly align 8 dereferenceable(40) %272, ptr noundef %1671, ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.321, ptr noundef %143)
           to label %_ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK9RtpRenameEEEbP8t_symtabS8_.exit78.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK9RtpRenameEEEbP8t_symtabS8_.exit78.i: ; preds = %2205, %2209, %2107
@@ -10238,7 +10238,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit222.i: ; preds = %2937
   %2982 = getelementptr inbounds %struct.t_resinfo, ptr %2980, i64 %2981, i32 5
   %2983 = load ptr, ptr %2982, align 8
   %2984 = load ptr, ptr %2983, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr %2969, ptr %2974, ptr noundef %2984, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %33, ptr %2969, ptr %2974, ptr noundef %2984, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %.noexc917 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc917:                                        ; preds = %2978
@@ -10337,7 +10337,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit222.i: ; preds = %2937
   %3019 = getelementptr inbounds %struct.t_resinfo, ptr %3017, i64 %3018, i32 5
   %3020 = load ptr, ptr %3019, align 8
   %3021 = load ptr, ptr %3020, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr %2969, ptr %2974, ptr noundef %3021, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %34, ptr %2969, ptr %2974, ptr noundef %3021, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %3022 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 3022:                                             ; preds = %._crit_edge.thread.i
@@ -10805,7 +10805,7 @@ _ZNSt6vectorI13DisulfideBondSaIS0_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIP13Di
   %3233 = getelementptr inbounds %struct.t_resinfo, ptr %3232, i64 %indvars.iv22.i, i32 5
   %3234 = load ptr, ptr %3233, align 8
   %3235 = load ptr, ptr %3234, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr %3201, ptr %3214, ptr noundef %3235, i1 noundef zeroext %.040.lcssa26.i, i1 noundef zeroext %.039.lcssa.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %30, ptr %3201, ptr %3214, ptr noundef %3235, i1 noundef zeroext %.040.lcssa26.i, i1 noundef zeroext %.039.lcssa.i, i1 noundef zeroext false)
           to label %.noexc954 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc954:                                        ; preds = %._crit_edge.i943
@@ -10822,7 +10822,7 @@ _ZNSt6vectorI13DisulfideBondSaIS0_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIP13Di
   %3240 = getelementptr inbounds %struct.t_resinfo, ptr %3239, i64 %indvars.iv22.i, i32 5
   %3241 = load ptr, ptr %3240, align 8
   %3242 = load ptr, ptr %3241, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr %3201, ptr %3214, ptr noundef %3242, i1 noundef zeroext %.040.lcssa26.i, i1 noundef zeroext %.039.lcssa.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %31, ptr %3201, ptr %3214, ptr noundef %3242, i1 noundef zeroext %.040.lcssa26.i, i1 noundef zeroext %.039.lcssa.i, i1 noundef zeroext true)
           to label %3243 unwind label %3245
 
 3243:                                             ; preds = %3238
@@ -20675,7 +20675,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP7t_atomsPKcS7_bP8t_symtab(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.gmx::LogEntryWriter", align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = load i32, ptr %7, align 8
@@ -20699,7 +20699,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113renameResidueERKN3gmx8MDLoggerEP
   br i1 %.not49, label %27, label %18
 
 18:                                               ; preds = %11
-  %19 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %4, ptr noundef %3)
+  %19 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %4, ptr noundef %3)
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds %struct.t_resinfo, ptr %20, i64 %indvars.iv, i32 5
   store ptr %19, ptr %21, align 8
@@ -20798,7 +20798,7 @@ define linkonce_odr noundef ptr @_ZNKSt19bad_optional_access4whatEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, ptr %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, ptr %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %1 to i64

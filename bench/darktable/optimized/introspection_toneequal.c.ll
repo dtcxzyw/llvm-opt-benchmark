@@ -1811,7 +1811,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @update_curve_lut(ptr noundef
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @pseudo_solve(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc noundef range(i32 0, 2) i32 @pseudo_solve(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #14 {
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 256) #31
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 64) ]
   %5 = tail call ptr @dt_alloc_aligned(i64 noundef 32) #31
@@ -5494,7 +5494,7 @@ declare void @cairo_arc(ptr noundef, double noundef, double noundef, double noun
 declare void @cairo_arc_negative(ptr noundef, double noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @draw_exposure_cursor(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, float noundef %4, float noundef %5, i32 noundef %6) unnamed_addr #4 {
+define internal fastcc void @draw_exposure_cursor(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, float noundef %4, float noundef %5, i32 noundef range(i32 3, 7) %6) unnamed_addr #4 {
   %8 = alloca [2 x double], align 16
   %9 = alloca [2 x double], align 16
   %10 = fpext float %5 to double
@@ -8568,7 +8568,7 @@ declare i64 @dt_dev_pixelpipe_cache_hash(i32 noundef, ptr noundef, ptr noundef, 
 declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @compute_luminance_mask(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #14 {
+define internal fastcc void @compute_luminance_mask(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef nonnull %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr nocapture noundef readonly %4) unnamed_addr #14 {
   %6 = getelementptr inbounds i8, ptr %4, i64 320108
   %7 = load i32, ptr %6, align 4, !tbaa !133
   %8 = getelementptr inbounds i8, ptr %4, i64 320104
@@ -8654,7 +8654,7 @@ define internal fastcc void @compute_luminance_mask(ptr noalias nocapture nounde
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @display_luminance_mask(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #23 {
+define internal fastcc void @display_luminance_mask(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef nonnull readonly %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #23 {
   %6 = load i32, ptr %3, align 4, !tbaa !402
   %7 = load i32, ptr %4, align 4, !tbaa !402
   %8 = icmp slt i32 %6, %7
@@ -8857,7 +8857,7 @@ define internal fastcc void @display_luminance_mask(ptr noalias nocapture nounde
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @apply_toneequalizer(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, i32 %3, i32 %4, ptr nocapture noundef readonly %5) unnamed_addr #23 {
+define internal fastcc void @apply_toneequalizer(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef nonnull readonly %1, ptr noalias nocapture noundef writeonly %2, i32 %3, i32 %4, ptr nocapture noundef readonly %5) unnamed_addr #23 {
   %7 = sext i32 %3 to i64
   %8 = sext i32 %4 to i64
   %9 = mul nsw i64 %8, %7
@@ -9027,7 +9027,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @luminance_mask(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #24 {
+define internal fastcc void @luminance_mask(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef nonnull writeonly %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #24 {
   %9 = shl nsw i64 %2, 2
   %10 = mul i64 %9, %3
   switch i32 %4, label %.loopexit [
@@ -9671,7 +9671,7 @@ define internal fastcc void @luminance_mask(ptr noalias nocapture noundef readon
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, float noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) unnamed_addr #14 {
+define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i32 noundef %3, float noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, float noundef %7) unnamed_addr #14 {
   %9 = icmp slt i32 %3, 4
   %10 = sitofp i32 %3 to float
   %11 = fmul reassoc nsz arcp contract afn float %10, 2.500000e-01
@@ -10692,7 +10692,7 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture noundef %0, i64 noundef %1, i64 noundef %2, float noundef %3, float noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) unnamed_addr #14 {
+define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, float noundef %3, float noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, float noundef %7) unnamed_addr #14 {
   %9 = alloca [2 x float], align 8
   %10 = alloca [2 x float], align 8
   %11 = alloca [4 x float], align 16
@@ -11655,7 +11655,7 @@ define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture nounde
   br i1 %764, label %.loopexit54, label %.preheader
 
 .loopexit54:                                      ; preds = %.loopexit, %572
-  call void @eigf_blending(ptr noundef %0, ptr noundef %29, ptr noundef nonnull %36, i64 noundef %27, i32 noundef %162, float noundef %4)
+  call void @eigf_blending(ptr noundef nonnull %0, ptr noundef %29, ptr noundef nonnull %36, i64 noundef %27, i32 noundef %162, float noundef %4)
   br label %.loopexit64
 
 765:                                              ; preds = %.loopexit76

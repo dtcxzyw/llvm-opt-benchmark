@@ -129,7 +129,7 @@ sw.epilog.us.i:                                   ; preds = %sw.bb.us.i, %if.the
 if.end18.us.i.unreachabledefault:                 ; preds = %if.end18.us.i
   unreachable
 
-default.unreachable:                              ; preds = %if.end18.i, %if.end18.us242.i, %if.end18.us153.i, %if.end18.us.i52
+default.unreachable:                              ; preds = %if.end18.us242.i, %if.end18.us204.i, %if.end18.i, %if.end18.us153.i, %if.end18.us.i52
   unreachable
 
 err_unwind.exit:                                  ; preds = %if.end12.us.i, %sw.epilog.us.i
@@ -187,10 +187,11 @@ if.end22:                                         ; preds = %if.else, %if.then20
   %cframe.i25 = getelementptr inbounds i8, ptr %2, i64 80
   %18 = load ptr, ptr %cframe.i25, align 8
   %tobool.not113.i26 = icmp eq ptr %18, null
-  br i1 %tobool.not113.i26, label %while.end.i33, label %while.body.lr.ph.i27
+  br i1 %tobool.not113.i26, label %while.end.i30, label %while.body.lr.ph.i27
 
 while.body.lr.ph.i27:                             ; preds = %if.end22
   %stack.i28 = getelementptr inbounds i8, ptr %2, i64 56
+  %trunc.i = trunc nuw i32 %errcode.0 to i8
   %tobool24.not.i = icmp eq i32 %errcode.0, 0
   br i1 %tobool24.not.i, label %while.body.us.preheader.i, label %while.body.lr.ph.split.split.i
 
@@ -218,7 +219,7 @@ while.body.us.i42:                                ; preds = %sw.epilog.us.i58, %
 
 if.end12.us.i48:                                  ; preds = %while.body.us.i42
   %cmp16.not.us.i51 = icmp ugt ptr %frame.0115.us.i43, %add.ptr15.us.i50
-  br i1 %cmp16.not.us.i51, label %if.end18.us.i52, label %while.end.i33
+  br i1 %cmp16.not.us.i51, label %if.end18.us.i52, label %while.end.i30
 
 if.end18.us.i52:                                  ; preds = %if.end12.us.i48
   %22 = load i64, ptr %frame.0115.us.i43, align 8
@@ -227,11 +228,11 @@ if.end18.us.i52:                                  ; preds = %if.end12.us.i48
     i64 0, label %sw.bb.us.i72
     i64 4, label %sw.bb.us.i72
     i64 1, label %unwind_c.us.i65
-    i64 5, label %sw.bb42.i34
+    i64 5, label %sw.bb42.i32
     i64 2, label %sw.bb66.us.i62
     i64 3, label %sw.bb72.us.i54
-    i64 6, label %if.end104.i30
-    i64 7, label %if.end104.i30
+    i64 6, label %if.end104.i37
+    i64 7, label %if.end104.i37
   ]
 
 sw.bb66.us.i62:                                   ; preds = %if.end18.us.i52
@@ -274,7 +275,7 @@ sw.epilog.us.i58:                                 ; preds = %sw.bb.us.i72, %if.t
   %cf.1.us.i59 = phi ptr [ %cf.0114.us.i44, %sw.bb72.us.i54 ], [ %24, %if.then35.us.i67 ], [ %cf.0114.us.i44, %sw.bb.us.i72 ]
   %frame.1.us.i60 = phi ptr [ %add.ptr75.us.i57, %sw.bb72.us.i54 ], [ %add.ptr39.us.i71, %if.then35.us.i67 ], [ %add.ptr22.us.i79, %sw.bb.us.i72 ]
   %tobool.not.us.i61 = icmp eq ptr %cf.1.us.i59, null
-  br i1 %tobool.not.us.i61, label %while.end.i33, label %while.body.us.i42, !llvm.loop !3
+  br i1 %tobool.not.us.i61, label %while.end.i30, label %while.body.us.i42, !llvm.loop !3
 
 while.body.lr.ph.split.split.i:                   ; preds = %while.body.lr.ph.i27
   %27 = ptrtoint ptr %18 to i64
@@ -296,13 +297,12 @@ while.body.lr.ph.split.split.split.us.i:          ; preds = %while.body.lr.ph.sp
 
 if.end12.us150.lr.ph.i:                           ; preds = %while.body.lr.ph.split.split.split.us.i
   %add.ptr15.us151.i = getelementptr inbounds i8, ptr %31, i64 8
-  %trunc = trunc nuw i32 %errcode.0 to i8
   br label %if.end12.us150.i
 
 if.end12.us150.i:                                 ; preds = %sw.epilog.us175.i, %if.end12.us150.lr.ph.i
   %frame.0115.us146287.i = phi ptr [ %add.ptr.i24, %if.end12.us150.lr.ph.i ], [ %frame.1.us176.i, %sw.epilog.us175.i ]
   %cmp16.not.us152.i = icmp ugt ptr %frame.0115.us146287.i, %add.ptr15.us151.i
-  br i1 %cmp16.not.us152.i, label %if.end18.us153.i, label %while.end.i33
+  br i1 %cmp16.not.us152.i, label %if.end18.us153.i, label %while.end.i30
 
 if.end18.us153.i:                                 ; preds = %if.end12.us150.i
   %32 = load i64, ptr %frame.0115.us146287.i, align 8
@@ -311,7 +311,7 @@ if.end18.us153.i:                                 ; preds = %if.end12.us150.i
     i64 0, label %sw.bb.us167.i
     i64 4, label %sw.bb.us167.i
     i64 1, label %if.then25.i
-    i64 5, label %sw.bb42.i34
+    i64 5, label %sw.bb42.i32
     i64 2, label %sw.bb66.us160.i
     i64 3, label %sw.bb72.us163.i
     i64 6, label %sw.bb76.us155.i
@@ -319,8 +319,8 @@ if.end18.us153.i:                                 ; preds = %if.end12.us150.i
   ]
 
 sw.bb76.us155.i:                                  ; preds = %if.end18.us153.i, %if.end18.us153.i
-  switch i8 %trunc, label %if.end85.i [
-    i8 0, label %if.end104.i30
+  switch i8 %trunc.i, label %if.end85.i [
+    i8 0, label %if.end104.i37
     i8 1, label %if.then81.us156.i
   ]
 
@@ -367,18 +367,64 @@ while.body.lr.ph.split.split.split.i:             ; preds = %while.body.lr.ph.sp
   br i1 %cmp16.not202.i, label %if.end18.lr.ph.i, label %if.then106.i
 
 if.end18.lr.ph.i:                                 ; preds = %while.body.lr.ph.split.split.split.i
-  %cond.i = icmp eq i32 %errcode.0, 1
-  br i1 %cond.i, label %if.end18.us242.i, label %if.end18.i
+  switch i8 %trunc.i, label %if.end18.i [
+    i8 0, label %if.end18.us204.i
+    i8 1, label %if.end18.us242.i
+  ]
+
+if.end18.us204.i:                                 ; preds = %if.end18.lr.ph.i, %sw.epilog.us222.i
+  %frame.0115203.us.i = phi ptr [ %frame.1.us223.i, %sw.epilog.us222.i ], [ %add.ptr.i24, %if.end18.lr.ph.i ]
+  %38 = load i64, ptr %frame.0115203.us.i, align 8
+  %and19.us205.i = and i64 %38, 7
+  switch i64 %and19.us205.i, label %default.unreachable [
+    i64 0, label %sw.bb.us214.i
+    i64 4, label %sw.bb.us214.i
+    i64 1, label %if.then25.i
+    i64 5, label %sw.bb42.i32
+    i64 2, label %sw.bb66.us207.i
+    i64 3, label %sw.bb72.us210.i
+    i64 6, label %if.end104.i37
+    i64 7, label %if.end104.i37
+  ]
+
+sw.bb66.us207.i:                                  ; preds = %if.end18.us204.i
+  %add.ptr67.us208.i = getelementptr inbounds i8, ptr %frame.0115203.us.i, i64 -24
+  %39 = load i64, ptr %add.ptr67.us208.i, align 8
+  %cmp68.us209.i = icmp eq i64 %39, 1
+  br i1 %cmp68.us209.i, label %if.then25.i, label %sw.bb72.us210.i
+
+sw.bb72.us210.i:                                  ; preds = %sw.bb66.us207.i, %if.end18.us204.i
+  %and73.us211.i = and i64 %38, -8
+  %idx.neg74.us212.i = sub i64 0, %and73.us211.i
+  %add.ptr75.us213.i = getelementptr inbounds i8, ptr %frame.0115203.us.i, i64 %idx.neg74.us212.i
+  br label %sw.epilog.us222.i
+
+sw.bb.us214.i:                                    ; preds = %if.end18.us204.i, %if.end18.us204.i
+  %40 = inttoptr i64 %38 to ptr
+  %arrayidx.us215.i = getelementptr inbounds i8, ptr %40, i64 -4
+  %41 = load i32, ptr %arrayidx.us215.i, align 4
+  %shr.us216.i = lshr i32 %41, 8
+  %and20.us217.i = and i32 %shr.us216.i, 255
+  %add.us218.i = add nuw nsw i32 %and20.us217.i, 2
+  %idx.ext21.us219.i = zext nneg i32 %add.us218.i to i64
+  %idx.neg.us220.i = sub nsw i64 0, %idx.ext21.us219.i
+  %add.ptr22.us221.i = getelementptr inbounds %union.TValue, ptr %frame.0115203.us.i, i64 %idx.neg.us220.i
+  br label %sw.epilog.us222.i
+
+sw.epilog.us222.i:                                ; preds = %sw.bb.us214.i, %sw.bb72.us210.i
+  %frame.1.us223.i = phi ptr [ %add.ptr75.us213.i, %sw.bb72.us210.i ], [ %add.ptr22.us221.i, %sw.bb.us214.i ]
+  %cmp16.not.us224.i = icmp ugt ptr %frame.1.us223.i, %add.ptr15.i
+  br i1 %cmp16.not.us224.i, label %if.end18.us204.i, label %while.end.i30
 
 if.end18.us242.i:                                 ; preds = %if.end18.lr.ph.i, %sw.epilog.us265.i
   %frame.0115203.us243.i = phi ptr [ %frame.1.us266.i, %sw.epilog.us265.i ], [ %add.ptr.i24, %if.end18.lr.ph.i ]
-  %38 = load i64, ptr %frame.0115203.us243.i, align 8
-  %and19.us244.i = and i64 %38, 7
+  %42 = load i64, ptr %frame.0115203.us243.i, align 8
+  %and19.us244.i = and i64 %42, 7
   switch i64 %and19.us244.i, label %default.unreachable [
     i64 0, label %sw.bb.us257.i
     i64 4, label %sw.bb.us257.i
     i64 1, label %if.then25.i
-    i64 5, label %sw.bb42.i34
+    i64 5, label %sw.bb42.i32
     i64 2, label %sw.bb66.us250.i
     i64 3, label %sw.bb72.us253.i
     i64 6, label %sw.bb76.us245.i
@@ -386,28 +432,28 @@ if.end18.us242.i:                                 ; preds = %if.end18.lr.ph.i, %
   ]
 
 sw.bb76.us245.i:                                  ; preds = %if.end18.us242.i, %if.end18.us242.i
-  %and82.us247.i = and i64 %38, -8
+  %and82.us247.i = and i64 %42, -8
   %idx.neg83.us248.i = sub i64 0, %and82.us247.i
   %add.ptr84.us249.i = getelementptr inbounds i8, ptr %frame.0115203.us243.i, i64 %idx.neg83.us248.i
   br label %sw.epilog.us265.i
 
 sw.bb66.us250.i:                                  ; preds = %if.end18.us242.i
   %add.ptr67.us251.i = getelementptr inbounds i8, ptr %frame.0115203.us243.i, i64 -24
-  %39 = load i64, ptr %add.ptr67.us251.i, align 8
-  %cmp68.us252.i = icmp eq i64 %39, 1
+  %43 = load i64, ptr %add.ptr67.us251.i, align 8
+  %cmp68.us252.i = icmp eq i64 %43, 1
   br i1 %cmp68.us252.i, label %if.then25.i, label %sw.bb72.us253.i
 
 sw.bb72.us253.i:                                  ; preds = %sw.bb66.us250.i, %if.end18.us242.i
-  %and73.us254.i = and i64 %38, -8
+  %and73.us254.i = and i64 %42, -8
   %idx.neg74.us255.i = sub i64 0, %and73.us254.i
   %add.ptr75.us256.i = getelementptr inbounds i8, ptr %frame.0115203.us243.i, i64 %idx.neg74.us255.i
   br label %sw.epilog.us265.i
 
 sw.bb.us257.i:                                    ; preds = %if.end18.us242.i, %if.end18.us242.i
-  %40 = inttoptr i64 %38 to ptr
-  %arrayidx.us258.i = getelementptr inbounds i8, ptr %40, i64 -4
-  %41 = load i32, ptr %arrayidx.us258.i, align 4
-  %shr.us259.i = lshr i32 %41, 8
+  %44 = inttoptr i64 %42 to ptr
+  %arrayidx.us258.i = getelementptr inbounds i8, ptr %44, i64 -4
+  %45 = load i32, ptr %arrayidx.us258.i, align 4
+  %shr.us259.i = lshr i32 %45, 8
   %and20.us260.i = and i32 %shr.us259.i, 255
   %add.us261.i = add nuw nsw i32 %and20.us260.i, 2
   %idx.ext21.us262.i = zext nneg i32 %add.us261.i to i64
@@ -418,7 +464,7 @@ sw.bb.us257.i:                                    ; preds = %if.end18.us242.i, %
 sw.epilog.us265.i:                                ; preds = %sw.bb.us257.i, %sw.bb72.us253.i, %sw.bb76.us245.i
   %frame.1.us266.i = phi ptr [ %add.ptr84.us249.i, %sw.bb76.us245.i ], [ %add.ptr75.us256.i, %sw.bb72.us253.i ], [ %add.ptr22.us264.i, %sw.bb.us257.i ]
   %cmp16.not.us267.i = icmp ugt ptr %frame.1.us266.i, %add.ptr15.i
-  br i1 %cmp16.not.us267.i, label %if.end18.us242.i, label %while.end.i33
+  br i1 %cmp16.not.us267.i, label %if.end18.us242.i, label %while.end.i30
 
 if.then4.i39:                                     ; preds = %sw.epilog.us175.i, %while.body.us.i42
   %.us-phi.i = phi ptr [ %cf.0114.us.i44, %while.body.us.i42 ], [ %18, %sw.epilog.us175.i ]
@@ -427,25 +473,25 @@ if.then4.i39:                                     ; preds = %sw.epilog.us175.i, 
   br i1 %tobool24.not.i, label %err_unwind.exit86, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then4.i39, %while.body.lr.ph.split.split.split.us.i
-  %.us-phi117368.i = phi ptr [ %.us-phi117.i, %if.then4.i39 ], [ %add.ptr2.us148.i, %while.body.lr.ph.split.split.split.us.i ]
-  %.us-phi116367.i = phi ptr [ %.us-phi116.i, %if.then4.i39 ], [ %add.ptr.i24, %while.body.lr.ph.split.split.split.us.i ]
-  %.us-phi366.i = phi ptr [ %.us-phi.i, %if.then4.i39 ], [ %18, %while.body.lr.ph.split.split.split.us.i ]
-  %add.ptr7.i = getelementptr inbounds i8, ptr %.us-phi116367.i, i64 8
+  %.us-phi117369.i = phi ptr [ %.us-phi117.i, %if.then4.i39 ], [ %add.ptr2.us148.i, %while.body.lr.ph.split.split.split.us.i ]
+  %.us-phi116368.i = phi ptr [ %.us-phi116.i, %if.then4.i39 ], [ %add.ptr.i24, %while.body.lr.ph.split.split.split.us.i ]
+  %.us-phi367.i = phi ptr [ %.us-phi.i, %if.then4.i39 ], [ %18, %while.body.lr.ph.split.split.split.us.i ]
+  %add.ptr7.i = getelementptr inbounds i8, ptr %.us-phi116368.i, i64 8
   store ptr %add.ptr7.i, ptr %base.i23, align 8
-  %add.ptr9.i = getelementptr inbounds i8, ptr %.us-phi366.i, i64 32
-  %42 = load ptr, ptr %add.ptr9.i, align 8
-  store ptr %42, ptr %cframe.i25, align 8
-  tail call void @lj_func_closeuv(ptr noundef nonnull %2, ptr noundef nonnull %.us-phi117368.i) #11
+  %add.ptr9.i = getelementptr inbounds i8, ptr %.us-phi367.i, i64 32
+  %46 = load ptr, ptr %add.ptr9.i, align 8
+  store ptr %46, ptr %cframe.i25, align 8
+  tail call void @lj_func_closeuv(ptr noundef nonnull %2, ptr noundef nonnull %.us-phi117369.i) #11
   %top1.i.i = getelementptr inbounds i8, ptr %2, i64 40
-  %43 = load ptr, ptr %top1.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %43, i64 -8
-  %cmp.i.i = icmp ult ptr %.us-phi117368.i, %add.ptr.i.i
+  %47 = load ptr, ptr %top1.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %47, i64 -8
+  %cmp.i.i = icmp ult ptr %.us-phi117369.i, %add.ptr.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %unwindstack.exit.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
-  %44 = load i64, ptr %add.ptr.i.i, align 8
-  store i64 %44, ptr %.us-phi117368.i, align 8
-  %add.ptr4.i.i = getelementptr inbounds i8, ptr %.us-phi117368.i, i64 8
+  %48 = load i64, ptr %add.ptr.i.i, align 8
+  store i64 %48, ptr %.us-phi117369.i, align 8
+  %add.ptr4.i.i = getelementptr inbounds i8, ptr %.us-phi117369.i, i64 8
   store ptr %add.ptr4.i.i, ptr %top1.i.i, align 8
   br label %unwindstack.exit.i
 
@@ -455,13 +501,13 @@ unwindstack.exit.i:                               ; preds = %if.then.i.i, %if.th
 
 if.end18.i:                                       ; preds = %if.end18.lr.ph.i, %sw.epilog.i
   %frame.0115203.i = phi ptr [ %frame.1.i, %sw.epilog.i ], [ %add.ptr.i24, %if.end18.lr.ph.i ]
-  %45 = load i64, ptr %frame.0115203.i, align 8
-  %and19.i = and i64 %45, 7
+  %49 = load i64, ptr %frame.0115203.i, align 8
+  %and19.i = and i64 %49, 7
   switch i64 %and19.i, label %default.unreachable [
     i64 0, label %sw.bb.i
     i64 4, label %sw.bb.i
     i64 1, label %if.then25.i
-    i64 5, label %sw.bb42.i34
+    i64 5, label %sw.bb42.i32
     i64 2, label %sw.bb66.i
     i64 3, label %sw.bb72.i
     i64 6, label %if.end85.i
@@ -469,10 +515,10 @@ if.end18.i:                                       ; preds = %if.end18.lr.ph.i, %
   ]
 
 sw.bb.i:                                          ; preds = %if.end18.i, %if.end18.i
-  %46 = inttoptr i64 %45 to ptr
-  %arrayidx.i = getelementptr inbounds i8, ptr %46, i64 -4
-  %47 = load i32, ptr %arrayidx.i, align 4
-  %shr.i = lshr i32 %47, 8
+  %50 = inttoptr i64 %49 to ptr
+  %arrayidx.i = getelementptr inbounds i8, ptr %50, i64 -4
+  %51 = load i32, ptr %arrayidx.i, align 4
+  %shr.i = lshr i32 %51, 8
   %and20.i = and i32 %shr.i, 255
   %add.i = add nuw nsw i32 %and20.i, 2
   %idx.ext21.i = zext nneg i32 %add.i to i64
@@ -480,28 +526,28 @@ sw.bb.i:                                          ; preds = %if.end18.i, %if.end
   %add.ptr22.i = getelementptr inbounds %union.TValue, ptr %frame.0115203.i, i64 %idx.neg.i
   br label %sw.epilog.i
 
-if.then25.i:                                      ; preds = %sw.bb66.i, %if.end18.i, %sw.bb66.us250.i, %if.end18.us242.i, %sw.bb66.us160.i, %if.end18.us153.i
-  %.lcssa111.i = phi i64 [ %32, %if.end18.us153.i ], [ %32, %sw.bb66.us160.i ], [ %38, %if.end18.us242.i ], [ %38, %sw.bb66.us250.i ], [ %45, %if.end18.i ], [ %45, %sw.bb66.i ]
-  %frame.0.lcssa92.i = phi ptr [ %frame.0115.us146287.i, %if.end18.us153.i ], [ %frame.0115.us146287.i, %sw.bb66.us160.i ], [ %frame.0115203.us243.i, %if.end18.us242.i ], [ %frame.0115203.us243.i, %sw.bb66.us250.i ], [ %frame.0115203.i, %if.end18.i ], [ %frame.0115203.i, %sw.bb66.i ]
+if.then25.i:                                      ; preds = %sw.bb66.us250.i, %if.end18.us242.i, %sw.bb66.us207.i, %if.end18.us204.i, %sw.bb66.i, %if.end18.i, %sw.bb66.us160.i, %if.end18.us153.i
+  %.lcssa111.i = phi i64 [ %32, %if.end18.us153.i ], [ %32, %sw.bb66.us160.i ], [ %49, %if.end18.i ], [ %49, %sw.bb66.i ], [ %38, %if.end18.us204.i ], [ %38, %sw.bb66.us207.i ], [ %42, %if.end18.us242.i ], [ %42, %sw.bb66.us250.i ]
+  %frame.0.lcssa92.i = phi ptr [ %frame.0115.us146287.i, %if.end18.us153.i ], [ %frame.0115.us146287.i, %sw.bb66.us160.i ], [ %frame.0115203.i, %if.end18.i ], [ %frame.0115203.i, %sw.bb66.i ], [ %frame.0115203.us.i, %if.end18.us204.i ], [ %frame.0115203.us.i, %sw.bb66.us207.i ], [ %frame.0115203.us243.i, %if.end18.us242.i ], [ %frame.0115203.us243.i, %sw.bb66.us250.i ]
   %and26.i = and i64 %.lcssa111.i, -8
   %idx.neg27.i = sub i64 0, %and26.i
   %add.ptr28.i = getelementptr inbounds i8, ptr %frame.0.lcssa92.i, i64 %idx.neg27.i
   %add.ptr29.i = getelementptr inbounds i8, ptr %add.ptr28.i, i64 8
   store ptr %add.ptr29.i, ptr %base.i23, align 8
   %add.ptr31.i = getelementptr inbounds i8, ptr %18, i64 32
-  %48 = load ptr, ptr %add.ptr31.i, align 8
-  store ptr %48, ptr %cframe.i25, align 8
+  %52 = load ptr, ptr %add.ptr31.i, align 8
+  store ptr %52, ptr %cframe.i25, align 8
   %add.ptr33.i = getelementptr inbounds i8, ptr %frame.0.lcssa92.i, i64 -8
   tail call void @lj_func_closeuv(ptr noundef %2, ptr noundef nonnull %add.ptr33.i) #11
   %top1.i75.i = getelementptr inbounds i8, ptr %2, i64 40
-  %49 = load ptr, ptr %top1.i75.i, align 8
-  %cmp.i77.i = icmp ult ptr %frame.0.lcssa92.i, %49
+  %53 = load ptr, ptr %top1.i75.i, align 8
+  %cmp.i77.i = icmp ult ptr %frame.0.lcssa92.i, %53
   br i1 %cmp.i77.i, label %if.then.i78.i, label %unwindstack.exit80.i
 
 if.then.i78.i:                                    ; preds = %if.then25.i
-  %add.ptr.i76.i = getelementptr inbounds i8, ptr %49, i64 -8
-  %50 = load i64, ptr %add.ptr.i76.i, align 8
-  store i64 %50, ptr %add.ptr33.i, align 8
+  %add.ptr.i76.i = getelementptr inbounds i8, ptr %53, i64 -8
+  %54 = load i64, ptr %add.ptr.i76.i, align 8
+  store i64 %54, ptr %add.ptr33.i, align 8
   store ptr %frame.0.lcssa92.i, ptr %top1.i75.i, align 8
   br label %unwindstack.exit80.i
 
@@ -509,56 +555,55 @@ unwindstack.exit80.i:                             ; preds = %if.then.i78.i, %if.
   tail call void @lj_state_relimitstack(ptr noundef nonnull %2) #11
   br label %err_unwind.exit86
 
-sw.bb42.i34:                                      ; preds = %if.end18.i, %if.end18.us242.i, %if.end18.us153.i, %if.end18.us.i52
-  %.us-phi118.i = phi i64 [ %22, %if.end18.us.i52 ], [ %32, %if.end18.us153.i ], [ %38, %if.end18.us242.i ], [ %45, %if.end18.i ]
-  %.us-phi119.i = phi i64 [ %19, %if.end18.us.i52 ], [ %27, %if.end18.us153.i ], [ %27, %if.end18.us242.i ], [ %27, %if.end18.i ]
-  %.us-phi120.i = phi ptr [ %cf.0114.us.i44, %if.end18.us.i52 ], [ %18, %if.end18.us153.i ], [ %18, %if.end18.us242.i ], [ %18, %if.end18.i ]
-  %.us-phi121.i = phi ptr [ %frame.0115.us.i43, %if.end18.us.i52 ], [ %frame.0115.us146287.i, %if.end18.us153.i ], [ %frame.0115203.us243.i, %if.end18.us242.i ], [ %frame.0115203.i, %if.end18.i ]
-  %and43.i35 = and i64 %.us-phi119.i, 1
-  %tobool44.not.i36 = icmp eq i64 %and43.i35, 0
-  br i1 %tobool44.not.i36, label %if.end54.i38, label %if.then45.i37
+sw.bb42.i32:                                      ; preds = %if.end18.us242.i, %if.end18.us204.i, %if.end18.i, %if.end18.us153.i, %if.end18.us.i52
+  %.us-phi118.i = phi i64 [ %22, %if.end18.us.i52 ], [ %32, %if.end18.us153.i ], [ %49, %if.end18.i ], [ %38, %if.end18.us204.i ], [ %42, %if.end18.us242.i ]
+  %.us-phi119.i = phi i64 [ %19, %if.end18.us.i52 ], [ %27, %if.end18.us153.i ], [ %27, %if.end18.i ], [ %27, %if.end18.us204.i ], [ %27, %if.end18.us242.i ]
+  %.us-phi120.i = phi ptr [ %cf.0114.us.i44, %if.end18.us.i52 ], [ %18, %if.end18.us153.i ], [ %18, %if.end18.i ], [ %18, %if.end18.us204.i ], [ %18, %if.end18.us242.i ]
+  %.us-phi121.i = phi ptr [ %frame.0115.us.i43, %if.end18.us.i52 ], [ %frame.0115.us146287.i, %if.end18.us153.i ], [ %frame.0115203.i, %if.end18.i ], [ %frame.0115203.us.i, %if.end18.us204.i ], [ %frame.0115203.us243.i, %if.end18.us242.i ]
+  %and43.i33 = and i64 %.us-phi119.i, 1
+  %tobool44.not.i34 = icmp eq i64 %and43.i33, 0
+  br i1 %tobool44.not.i34, label %if.end54.i36, label %if.then45.i35
 
-if.then45.i37:                                    ; preds = %sw.bb42.i34
+if.then45.i35:                                    ; preds = %sw.bb42.i32
   br i1 %tobool24.not.i, label %err_unwind.exit86, label %if.then47.i
 
-if.then47.i:                                      ; preds = %if.then45.i37
+if.then47.i:                                      ; preds = %if.then45.i35
   %glref.i = getelementptr inbounds i8, ptr %2, i64 16
-  %51 = load i64, ptr %glref.i, align 8
-  %52 = inttoptr i64 %51 to ptr
-  %hookmask.i = getelementptr inbounds i8, ptr %52, i64 145
-  %53 = load i8, ptr %hookmask.i, align 1
-  %54 = and i8 %53, -17
-  store i8 %54, ptr %hookmask.i, align 1
+  %55 = load i64, ptr %glref.i, align 8
+  %56 = inttoptr i64 %55 to ptr
+  %hookmask.i = getelementptr inbounds i8, ptr %56, i64 145
+  %57 = load i8, ptr %hookmask.i, align 1
+  %58 = and i8 %57, -17
+  store i8 %58, ptr %hookmask.i, align 1
   store ptr null, ptr %cframe.i25, align 8
-  %conv52.i = trunc nuw i32 %errcode.0 to i8
   %status.i = getelementptr inbounds i8, ptr %2, i64 11
-  store i8 %conv52.i, ptr %status.i, align 1
+  store i8 %trunc.i, ptr %status.i, align 1
   br label %err_unwind.exit86
 
-if.end54.i38:                                     ; preds = %sw.bb42.i34
+if.end54.i36:                                     ; preds = %sw.bb42.i32
   br i1 %tobool24.not.i, label %err_unwind.exit86, label %if.then56.i
 
-if.then56.i:                                      ; preds = %if.end54.i38
+if.then56.i:                                      ; preds = %if.end54.i36
   %and57.i = and i64 %.us-phi118.i, -8
   %idx.neg58.i = sub i64 0, %and57.i
   %add.ptr59.i = getelementptr inbounds i8, ptr %.us-phi121.i, i64 %idx.neg58.i
   %add.ptr60.i = getelementptr inbounds i8, ptr %add.ptr59.i, i64 8
   store ptr %add.ptr60.i, ptr %base.i23, align 8
   %add.ptr62.i = getelementptr inbounds i8, ptr %.us-phi120.i, i64 32
-  %55 = load ptr, ptr %add.ptr62.i, align 8
-  store ptr %55, ptr %cframe.i25, align 8
+  %59 = load ptr, ptr %add.ptr62.i, align 8
+  store ptr %59, ptr %cframe.i25, align 8
   %add.ptr64.i = getelementptr inbounds i8, ptr %.us-phi121.i, i64 -8
   tail call fastcc void @unwindstack(ptr noundef %2, ptr noundef nonnull %add.ptr64.i)
   br label %err_unwind.exit86
 
 sw.bb66.i:                                        ; preds = %if.end18.i
   %add.ptr67.i = getelementptr inbounds i8, ptr %frame.0115203.i, i64 -24
-  %56 = load i64, ptr %add.ptr67.i, align 8
-  %cmp68.i = icmp eq i64 %56, 1
+  %60 = load i64, ptr %add.ptr67.i, align 8
+  %cmp68.i = icmp eq i64 %60, 1
   br i1 %cmp68.i, label %if.then25.i, label %sw.bb72.i
 
 sw.bb72.i:                                        ; preds = %sw.bb66.i, %if.end18.i
-  %and73.i = and i64 %45, -8
+  %and73.i = and i64 %49, -8
   %idx.neg74.i = sub i64 0, %and73.i
   %add.ptr75.i = getelementptr inbounds i8, ptr %frame.0115203.i, i64 %idx.neg74.i
   br label %sw.epilog.i
@@ -566,26 +611,26 @@ sw.bb72.i:                                        ; preds = %sw.bb66.i, %if.end1
 if.end85.i:                                       ; preds = %if.end18.i, %if.end18.i, %sw.bb76.us155.i
   %.us-phi124.i = phi ptr [ %frame.0115.us146287.i, %sw.bb76.us155.i ], [ %frame.0115203.i, %if.end18.i ], [ %frame.0115203.i, %if.end18.i ]
   %glref86.i = getelementptr inbounds i8, ptr %2, i64 16
-  %57 = load i64, ptr %glref86.i, align 8
-  %58 = inttoptr i64 %57 to ptr
-  %cur_L.i = getelementptr inbounds i8, ptr %58, i64 368
+  %61 = load i64, ptr %glref86.i, align 8
+  %62 = inttoptr i64 %61 to ptr
+  %cur_L.i = getelementptr inbounds i8, ptr %62, i64 368
   store i64 %1, ptr %cur_L.i, align 8
-  %59 = load i64, ptr %.us-phi124.i, align 8
-  %and88.i = and i64 %59, 7
+  %63 = load i64, ptr %.us-phi124.i, align 8
+  %and88.i = and i64 %63, 7
   %cmp89.i = icmp eq i64 %and88.i, 6
   br i1 %cmp89.i, label %if.then91.i, label %if.end96.i
 
 if.then91.i:                                      ; preds = %if.end85.i
-  %hookmask92.i = getelementptr inbounds i8, ptr %58, i64 145
-  %60 = load i8, ptr %hookmask92.i, align 1
-  %61 = and i8 %60, -17
-  store i8 %61, ptr %hookmask92.i, align 1
-  %.pre362.i = load i64, ptr %.us-phi124.i, align 8
+  %hookmask92.i = getelementptr inbounds i8, ptr %62, i64 145
+  %64 = load i8, ptr %hookmask92.i, align 1
+  %65 = and i8 %64, -17
+  store i8 %65, ptr %hookmask92.i, align 1
+  %.pre363.i = load i64, ptr %.us-phi124.i, align 8
   br label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then91.i, %if.end85.i
-  %62 = phi i64 [ %.pre362.i, %if.then91.i ], [ %59, %if.end85.i ]
-  %and97.i = and i64 %62, -8
+  %66 = phi i64 [ %.pre363.i, %if.then91.i ], [ %63, %if.end85.i ]
+  %and97.i = and i64 %66, -8
   %idx.neg98.i = sub i64 0, %and97.i
   %add.ptr99.i = getelementptr inbounds i8, ptr %.us-phi124.i, i64 %idx.neg98.i
   %add.ptr100.i = getelementptr inbounds i8, ptr %add.ptr99.i, i64 8
@@ -593,83 +638,83 @@ if.end96.i:                                       ; preds = %if.then91.i, %if.en
   store ptr %18, ptr %cframe.i25, align 8
   tail call void @lj_func_closeuv(ptr noundef nonnull %2, ptr noundef nonnull %add.ptr100.i) #11
   %top1.i81.i = getelementptr inbounds i8, ptr %2, i64 40
-  %63 = load ptr, ptr %top1.i81.i, align 8
-  %add.ptr.i82.i = getelementptr inbounds i8, ptr %63, i64 -8
+  %67 = load ptr, ptr %top1.i81.i, align 8
+  %add.ptr.i82.i = getelementptr inbounds i8, ptr %67, i64 -8
   %cmp.i83.i = icmp ult ptr %add.ptr100.i, %add.ptr.i82.i
   br i1 %cmp.i83.i, label %if.then.i84.i, label %unwindstack.exit86.i
 
 if.then.i84.i:                                    ; preds = %if.end96.i
-  %64 = load i64, ptr %add.ptr.i82.i, align 8
-  store i64 %64, ptr %add.ptr100.i, align 8
+  %68 = load i64, ptr %add.ptr.i82.i, align 8
+  store i64 %68, ptr %add.ptr100.i, align 8
   %add.ptr4.i85.i = getelementptr inbounds i8, ptr %add.ptr99.i, i64 16
   store ptr %add.ptr4.i85.i, ptr %top1.i81.i, align 8
   br label %unwindstack.exit86.i
 
 unwindstack.exit86.i:                             ; preds = %if.then.i84.i, %if.end96.i
   tail call void @lj_state_relimitstack(ptr noundef nonnull %2) #11
-  br label %if.end104.i30
+  br label %if.end104.i37
 
-if.end104.i30:                                    ; preds = %sw.bb76.us155.i, %if.end18.us.i52, %if.end18.us.i52, %unwindstack.exit86.i
-  %65 = phi i64 [ %27, %unwindstack.exit86.i ], [ %19, %if.end18.us.i52 ], [ %19, %if.end18.us.i52 ], [ %27, %sw.bb76.us155.i ]
-  %or.i31 = or i64 %65, 2
-  %66 = inttoptr i64 %or.i31 to ptr
+if.end104.i37:                                    ; preds = %if.end18.us204.i, %if.end18.us204.i, %sw.bb76.us155.i, %if.end18.us.i52, %if.end18.us.i52, %unwindstack.exit86.i
+  %69 = phi i64 [ %27, %unwindstack.exit86.i ], [ %19, %if.end18.us.i52 ], [ %19, %if.end18.us.i52 ], [ %27, %sw.bb76.us155.i ], [ %27, %if.end18.us204.i ], [ %27, %if.end18.us204.i ]
+  %or.i38 = or i64 %69, 2
+  %70 = inttoptr i64 %or.i38 to ptr
   br label %err_unwind.exit86
 
 sw.epilog.i:                                      ; preds = %sw.bb72.i, %sw.bb.i
   %frame.1.i = phi ptr [ %add.ptr75.i, %sw.bb72.i ], [ %add.ptr22.i, %sw.bb.i ]
   %cmp16.not.i = icmp ugt ptr %frame.1.i, %add.ptr15.i
-  br i1 %cmp16.not.i, label %if.end18.i, label %while.end.i33
+  br i1 %cmp16.not.i, label %if.end18.i, label %while.end.i30
 
-while.end.i33:                                    ; preds = %sw.epilog.i, %sw.epilog.us265.i, %if.end12.us150.i, %sw.epilog.us.i58, %if.end12.us.i48, %if.end22
+while.end.i30:                                    ; preds = %sw.epilog.us265.i, %sw.epilog.us222.i, %sw.epilog.i, %if.end12.us150.i, %sw.epilog.us.i58, %if.end12.us.i48, %if.end22
   %tobool105.not.i = icmp eq i32 %errcode.0, 0
-  br i1 %tobool105.not.i, label %err_unwind.exit86, label %while.end.i33.if.then106.i_crit_edge
+  br i1 %tobool105.not.i, label %err_unwind.exit86, label %while.end.i30.if.then106.i_crit_edge
 
-while.end.i33.if.then106.i_crit_edge:             ; preds = %while.end.i33
+while.end.i30.if.then106.i_crit_edge:             ; preds = %while.end.i30
   %stack107.i.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 56
   %.pre = load i64, ptr %stack107.i.phi.trans.insert, align 8
-  %.pre217 = inttoptr i64 %.pre to ptr
+  %.pre243 = inttoptr i64 %.pre to ptr
   br label %if.then106.i
 
-if.then106.i:                                     ; preds = %while.end.i33.if.then106.i_crit_edge, %while.body.lr.ph.split.split.split.i
-  %.pre-phi = phi ptr [ %.pre217, %while.end.i33.if.then106.i_crit_edge ], [ %37, %while.body.lr.ph.split.split.split.i ]
+if.then106.i:                                     ; preds = %while.end.i30.if.then106.i_crit_edge, %while.body.lr.ph.split.split.split.i
+  %.pre-phi = phi ptr [ %.pre243, %while.end.i30.if.then106.i_crit_edge ], [ %37, %while.body.lr.ph.split.split.split.i ]
   %add.ptr110.i = getelementptr inbounds i8, ptr %.pre-phi, i64 16
   store ptr %add.ptr110.i, ptr %base.i23, align 8
   store ptr null, ptr %cframe.i25, align 8
   tail call fastcc void @unwindstack(ptr noundef nonnull %2, ptr noundef nonnull %add.ptr110.i)
   %glref114.i = getelementptr inbounds i8, ptr %2, i64 16
-  %67 = load i64, ptr %glref114.i, align 8
-  %68 = inttoptr i64 %67 to ptr
-  %panic.i = getelementptr inbounds i8, ptr %68, i64 352
-  %69 = load ptr, ptr %panic.i, align 8
-  %tobool116.not.i = icmp eq ptr %69, null
+  %71 = load i64, ptr %glref114.i, align 8
+  %72 = inttoptr i64 %71 to ptr
+  %panic.i = getelementptr inbounds i8, ptr %72, i64 352
+  %73 = load ptr, ptr %panic.i, align 8
+  %tobool116.not.i = icmp eq ptr %73, null
   br i1 %tobool116.not.i, label %if.end121.i, label %if.then117.i
 
 if.then117.i:                                     ; preds = %if.then106.i
-  %call.i29 = tail call i32 %69(ptr noundef nonnull %2) #11
+  %call.i29 = tail call i32 %73(ptr noundef nonnull %2) #11
   br label %if.end121.i
 
 if.end121.i:                                      ; preds = %if.then117.i, %if.then106.i
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
-err_unwind.exit86:                                ; preds = %unwind_c.us.i65, %if.then4.i39, %unwindstack.exit.i, %unwindstack.exit80.i, %if.then45.i37, %if.then47.i, %if.end54.i38, %if.then56.i, %if.end104.i30, %while.end.i33
-  %retval.0.i32 = phi ptr [ %66, %if.end104.i30 ], [ %.us-phi366.i, %unwindstack.exit.i ], [ %.us-phi.i, %if.then4.i39 ], [ null, %unwindstack.exit80.i ], [ %.us-phi120.i, %if.then47.i ], [ %.us-phi120.i, %if.then45.i37 ], [ %.us-phi120.i, %if.then56.i ], [ %.us-phi120.i, %if.end54.i38 ], [ %2, %while.end.i33 ], [ null, %unwind_c.us.i65 ]
+err_unwind.exit86:                                ; preds = %unwind_c.us.i65, %if.then4.i39, %unwindstack.exit.i, %unwindstack.exit80.i, %if.then45.i35, %if.then47.i, %if.end54.i36, %if.then56.i, %if.end104.i37, %while.end.i30
+  %retval.0.i31 = phi ptr [ %70, %if.end104.i37 ], [ %.us-phi367.i, %unwindstack.exit.i ], [ %.us-phi.i, %if.then4.i39 ], [ null, %unwindstack.exit80.i ], [ %.us-phi120.i, %if.then47.i ], [ %.us-phi120.i, %if.then45.i35 ], [ %.us-phi120.i, %if.then56.i ], [ %.us-phi120.i, %if.end54.i36 ], [ %2, %while.end.i30 ], [ null, %unwind_c.us.i65 ]
   %and24 = and i32 %actions, 8
   %tobool25.not = icmp eq i32 %and24, 0
   br i1 %tobool25.not, label %if.else27, label %return
 
 if.else27:                                        ; preds = %err_unwind.exit86
-  %tobool28.not = icmp eq ptr %retval.0.i32, null
+  %tobool28.not = icmp eq ptr %retval.0.i31, null
   br i1 %tobool28.not, label %if.else33, label %if.then29
 
 if.then29:                                        ; preds = %if.else27
   %conv30 = zext nneg i32 %errcode.0 to i64
   tail call void @_Unwind_SetGR(ptr noundef %ctx, i32 noundef 0, i64 noundef %conv30) #11
-  %70 = ptrtoint ptr %retval.0.i32 to i64
-  %and31 = and i64 %70, 2
+  %74 = ptrtoint ptr %retval.0.i31 to i64
+  %and31 = and i64 %74, 2
   %tobool32.not = icmp eq i64 %and31, 0
-  %71 = select i1 %tobool32.not, i64 ptrtoint (ptr @lj_vm_unwind_c_eh to i64), i64 ptrtoint (ptr @lj_vm_unwind_ff_eh to i64)
-  tail call void @_Unwind_SetIP(ptr noundef %ctx, i64 noundef %71) #11
+  %75 = select i1 %tobool32.not, i64 ptrtoint (ptr @lj_vm_unwind_c_eh to i64), i64 ptrtoint (ptr @lj_vm_unwind_ff_eh to i64)
+  tail call void @_Unwind_SetIP(ptr noundef %ctx, i64 noundef %75) #11
   br label %return
 
 if.else33:                                        ; preds = %if.else27

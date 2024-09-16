@@ -5363,7 +5363,7 @@ create_Integer.exit:                              ; preds = %129, %.sink.split.i
   br i1 %.not69, label %249, label %247
 
 247:                                              ; preds = %244
-  %248 = call fastcc ptr @create_Insets(ptr noundef %0, ptr noundef nonnull %246)
+  %248 = call fastcc ptr @create_Insets(ptr noundef %0, ptr noundef %246)
   br label %249
 
 249:                                              ; preds = %init_containers.exit, %238, %247, %244, %231, %223, %215, %207, %199, %191, %183, %175, %167, %159, %create_Integer.exit, %create_Character.exit76, %create_Character.exit, %create_Boolean.exit
@@ -5806,7 +5806,7 @@ create_Object.exit:                               ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca [4 x %union.jvalue], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
